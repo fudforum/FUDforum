@@ -1,0 +1,301 @@
+#PATH OF SYSTEM FILES AND DIRECTORIES 
+
+FORUM_TITLE
+The title of the forum.  This title will appear inside the HTML <title> tag.
+
+FORUM_ENABLED
+Enable/disable the forum.  Use this while you are upgrading or performing maintenance on the forum.
+
+DISABLED_REASON
+This message will be shown to users when the forum is disabled.
+
+ALLOW_REGISTRATION
+Enable/disable new user registration.
+
+INCLUDE
+This is the directory path where all the include (*.inc) files can be found.
+
+WWW_ROOT
+This is the URL of your forum.
+
+ERROR_PATH
+This is the full directory path where forum errors will be stored.
+
+MSG_STORE_DIR
+This is the full directory path where the forum stores message bodies.
+The two basic options are:
+
+1.	chown the directory to the same account as the web server
+	runs as, and chmod it 700
+
+2.	chmod this directory 777.
+
+TMP
+This is a temporary directory on your system, usually /tmp, /var/tmp, or /usr/tmp on Unix systems.
+The webserver must be able to write to this directory.
+
+FILE_STORE
+This is the full directory path where the forum stores user-attached files.  
+The webserver must be able to write to this directory.
+
+FORUM_SETTINGS_PATH
+This is the full directory path where user settings will be stored.
+The webserver must be able to write to this directory.
+
+#CUSTOM AVATAR SETTINGS
+
+CUSTOM_AVATARS
+Enable/disable to use of avatars.  Definitions of the options:
+
+URL - Users will need to give a URL to their avatar.
+
+Uploaded - The avatar will be uploaded to the server.
+
+Built In - A user can choose an avatar from the avatars available in the forum.
+
+ALL - A user can use a URL or an uploaded/built-in avatar.
+
+OFF - Avatars are disabled.
+
+CUSTOM_AVATAR_MAX_SIZE
+This is the maximum size (in bytes) of the custom avatar image (uploaded to server).
+
+CUSTOM_AVATAR_MAX_DIM
+This is the maximum dimension that a custom avatar can be.
+Note: if you have the mogrify utility you'll be able to scale down the avatar to this value.
+
+#COOKIE & SESSION SETTINGS
+
+COOKIE_PATH
+The cookie path for the forum.
+
+COOKIE_TIMEOUT
+The cookie timeout. When the user's cookie expires, the user will have to login again.
+
+SESSION_TIMEOUT
+The session timeout. When the user's session expires, the user will have to login again.
+
+COOKIE_DOMAIN
+The domain of the cookie that will be used by the forum.
+
+COOKIE_NAME
+The name of the cookie that will be used by the forum.
+
+#MYSQL SETTINGS
+
+MYSQL_SERVER
+This setting can either be an Internet IP address in a form of
+AAA.BBB.CCC.DDD:PORT, or it can point to a valid Unix domain socket (such as
+:/tmp/mysql.sock).  It is highly recommended that you use Unix domain sockets
+to communicate with MySQL (due to faster performance).
+
+MYSQL_LOGIN
+The MySQL login name for the database you intend to use the system with.
+
+MYSQL_PASSWORD
+The MySQL password for the login name.
+
+MYSQL_DB
+MySQL database name for the forum.
+
+MYSQL_PERSIST
+Use persistent connections for MySQL (mysql_pconnect).  Highly recommended
+unless you have a good reason not to.
+
+MYSQL_TBL_PREFIX
+The prefix for the FUDforum's MySQL tables. Do not modify this option.
+
+#PRIVATE MESSAGE SETTINGS
+
+PM_ENABLED
+Enable/disable private messaging.  Enabled by default.
+
+PRIVATE_ATTACHMENTS
+This is how many attachments you want to allow per private message.
+Setting this to 0 will disable file attachments completely.
+
+PRIVATE_ATTACH_SIZE
+The maximum size of an attached file (in bytes).
+
+PRIVATE_TAGS
+This setting specifies what kind of text formatting to allow in private messages.
+
+PRIVATE_MSG_SMILEY
+Enable/disable smilies in private messages.
+
+PRIVATE_IMAGES
+Enable/disable images in private messages.
+
+MAX_PMSG_FLDR_SIZE
+The maximum number of bytes of private messages that a user can have at a time.
+
+#SIGNATURE SETTINGS
+
+ALLOW_SIGS
+Enable/disable user signatures in posts.
+
+FORUM_CODE_SIG
+This setting specifies what kind of text formatting to allow in signatures.
+
+FORUM_SML_SIG
+Enable/disable smilies in signatures.
+
+FORUM_IMG_SIG
+Enable/disable images in signatures.
+
+#OTHER FORUM OPTIONS 
+
+ADMIN_EMAIL
+Email address of the forum administrator.
+
+COPPA
+Enable/disable the Children's Online Privacy Protection Act of 1998 (COPPA)
+check during new user registration.
+
+SPELL_CHECK_ENABLED
+Enable/disable the built-in spell checker.
+
+POSTS_PER_PAGE
+The default number of posts per page.
+
+THREADS_PER_PAGE
+The default number of threads per page.  NOTE: If you change this value you
+MUST run the consistency checker, otherwise the forum will not work properly.
+
+WORD_WRAP
+This setting defines on how many character to wrap message bodies on, any text string longer the the number of character in this option will be broken down into 1 or more strings using a space as a seperator.
+Set this to 0 to disable word wrapping.
+
+FLOOD_CHECK_TIME
+The minimum time delay before a user can post a message.
+
+PUBLIC_EMAIL_VIEW
+Enable/disable the showing of email addresses in the user information page.
+
+ALLOW_EMAIL
+Enable/disable the forum's built-in email client.
+
+SERVER_TZ
+Server time zone, specified in time offset from UTC.
+
+MEMBER_SEARCH_ENABLED
+Enable/disable the forum member search.
+
+FORUM_SEARCH
+Enable/disable the ability to do a full text search of the forum.  Disable
+this option if you have little CPU power and/or wish to conserve SQL space.
+If option is disabled the search database will NOT be populated during posting.
+If you decide to enable the search at a later point, you will need to rebuild
+the search index.  This may take a while, and is entirely dependent on the
+speed of your server and the number of messages your forum has.
+
+MEMBERS_PER_PAGE
+The number of members to show per page in the search result.
+
+THREAD_MSG_PAGER
+The pager that appears near every thread.
+
+GENERAL_PAGER_COUNT
+This is the number of direct links to pages that will be shown in the pager, excluding << < > >>.
+
+SHOW_EDITED_BY
+Enable/disable the text that will reveal if a post was edited.
+
+EDITED_BY_MOD
+Enable/disable the text that will reveal if an edited post was edited by a moderator.
+
+EDIT_TIME_LIMIT
+This sets the length of time a message can be edited before message editing is disabled.
+Set the value to 0 to give unlimited editing time.
+
+DISPLAY_IP
+Publicly display the IP address that the message was posted from.
+
+LOGEDIN_TIMEOUT
+The length of time of non-activity before the forum considers a user no longer active in the forum.
+
+MAX_IMAGE_COUNT
+The maximum number of images allowed per post. Set to 0 to allow unlimited images.
+
+FORUM_IMG_CNT_SIG
+The maximum number of images to allow inside a signature. Set to 0 to allow unlimited images.
+
+NOTIFY_FROM
+The email address that all of the forum-generated email, such as notifications and welcome messages, should be sent as.
+This MUST be a valid email address that you have access to.
+
+ANON_NICK
+The username that is attached to anonymous posts if anonymous posting is allowed.
+
+MAX_LOGIN_SHOW
+The maximum number of characters of a user's login name to show on all forms except userinfo.
+
+MAX_LOCATION_SHOW
+The maximum number of characters of a user's location to show on all forms except userinfo.
+
+PUBLIC_RESOLVE_HOST
+Enable/disable the showing of the partially resolved hostname of the poster to all users
+(ex. me.myself.com will be shown as .myself.com).  This option does not affect the showing of
+IP addresses.
+
+ACTION_LIST_ENABLED
+Enable/disable the ability for forum users to see what other forum users are doing.
+
+LOGEDIN_LIST
+Enable/disable the list of users who are currently using the forum on the front page.
+This option is a MUST be enabled if you want to enable the Allow Action List.
+
+EMAIL_CONFIRMATION
+Enable/disable email confirmation of new registered accounts.  A special URL
+will be sent in the welcome email upon registration.
+
+PUBLIC_STATS
+Enable/disable the showing of how long it took the generate the page and how
+many SQL queries were run in the process.
+
+DEFAULT_THREAD_VIEW
+The default view of the thread's contents.
+
+FORUM_INFO
+Enable/disable the showing of forum statistics on the front page.  Statistics
+include the total number of approved posts, number of topics and registered
+users and the last registered user.
+
+ONLINE_OFFLINE_STATUS
+Enable/disable the online/offline status indicator for the poster on messages.
+
+UNCONF_USER_EXPIRY
+The number of days unconfirmed forum members are held in the database.
+They will be removed from database after this period of time.
+
+MOVED_THR_PTR_EXPIRY
+The number of days to show a pointer of a moved thread from the original forum to the new forum.
+The pointer will be removed after this period of time.
+
+TEMPLATE_DIR
+The directory where the templates are stored.
+
+WWW_ROOT_DISK
+The location on the disk where the forum's images are stored.
+
+LANGUAGE
+The language pack used on the forum. (if you're editing GLOBALS.php manually you can see available languages by 
+doing a directory listings inside the TEMPLATE_DIR/i18n directory.
+
+LOCALE
+The local for the language used in the forum. This setting is needed in order for dates to show up in their appropriate languages. On 
+Unix systems you can see a list of available locales by running "locale -a".
+
+SHOW_N_MODS
+Up to how many moderators per forum to show on the front page.
+
+CUSTOM_AVATAR_APPOVAL
+If set to yes the administrator will have to approve every custom avatar the user uploads or
+provides a url to.
+
+MAX_SMILIES_SHOWN
+Maximum number of smilies to display on the post forms.
+
+NOTIFY_WITH_BODY
+Include the message body and subject inside the email notification.
+

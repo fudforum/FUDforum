@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type"><title>Security</title><meta name="generator" content="DocBook XSL Stylesheets V1.50.1-EXP2"><link rel="home" href="index.html" title="FUDforum 2 Documentation"><link rel="up" href="features.html" title="Chapter 2. FUDforum 2 Features"><link rel="previous" href="features.speed.html" title="Forum Speed"><link rel="next" href="installation.html" title="Chapter 3. Installation"><link rel="preface" href="preface.html" title="Preface"><link rel="part" href="getting-started.html" title="Part I. Getting Started"><link rel="chapter" href="introduction.html" title="Chapter 1. Introduction"><link rel="chapter" href="features.html" title="Chapter 2. FUDforum 2 Features"><link rel="chapter" href="installation.html" title="Chapter 3. Installation"><link rel="part" href="forum-administration.html" title="Part II. Forum Management &amp; Administration"><link rel="chapter" href="administrating_fud.html" title="Chapter 1. Administrating FUD Forum 2"><link rel="chapter" href="mod_options.html" title="Chapter 2. Moderation Options"><link rel="part" href="forum-appendixes.html" title="Part III. Appendixes"><link rel="chapter" href="fudcode.html" title="Chapter 1. FUDcode"><link rel="appendix" href="GPL.html" title="Appendix A. GNU General Public License"><link rel="appendix" href="fdl.html" title="Appendix B. GNU Free Documentation License"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Security</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="features.speed.html">Prev</a> </td><th width="60%" align="center">Chapter 2. FUDforum 2 Features</th><td width="20%" align="right"> <a accesskey="n" href="installation.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.security"></a>Security</h2></div></div><p>
+			Security is an often overlooked feature in many web based applications and as the result many 
+			of those applications have large security holes that even the most incompetent of hackers can exploit
+			and cause a great deal damage and annoyance.
+		</p><p>
+			We've taken the time to ensure that the default installation of the FUDforum 2 offers the greatest possible
+			security given the available tools, to ensure that should your web server be reasonably secure it would be
+			very difficult if not impossible for a curious user or even a hacker to access your sensitive data.
+		</p><p>
+			To accomplish this task, FUDforum 2 by default will store your files with the most minimalistic permissions
+			possible (0600 for files and 0700 for directories), allowing only the user the web server is running on
+			to access your files.
+			
+			</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				On servers, which appropriately switch users for each virtual host, like Apache 2 this approach
+				is even safer since all your forum's files would be accessible by you and you alone.
+				</p></div><p>
+		</p><p>
+			You may think that allowing web server access to your files is equivalent to allowing anyone to
+			access your files. That is simply not the case, on a secure server the administrator would have setup
+			an 'open_basedir' PHP limitation that would have restricted php scripts from accessing files in directories
+			not owned by a current virtual host, thus preventing people from using PHP to access files of other users.
+		</p><p>
+			On a properly setup server any programs within the CGI wrapper would not be able to access your
+			files as well since they would run as the user who had executed them if a proper suid interface had been
+			setup by the server's administrator.
+		</p><p>
+			So, given a well setup server, even on shared hosting solution your forum's data would be quite secure.
+		</p></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="features.speed.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="features.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="installation.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Forum Speed </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 3. Installation</td></tr></table></div></body></html>

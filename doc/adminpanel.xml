@@ -1,0 +1,2833 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- $Id: adminpanel.xml,v 1.1.1.1 2002/06/17 23:00:10 hackie Exp $ -->
+<chapter id="administrating_fud">
+<title>Administrating FUD Forum 2</title>
+	<para>
+		&FUDforum; is controlled via series of control panels that are 
+		readily available to all of the forum's administrators via the "Admin Control Panel" link
+		found on nearly every single page of the forum.
+	</para>	
+
+	<para>	
+		Using these control panels the administrator is able to adjust all of the forum's aspects as well
+		manage the forum's files &amp; modify the forum's templates via a convenient template editor.
+	</para>
+
+	<sect1 id="admin.forum_consistency">
+		<title>Forum Consistency</title>
+		
+		<para>
+			Forum consistency checks the integrity of FUDforum's data and repairs it if any 
+			inconsistency is found. This process also regenerates forum caches of various
+			data such as moderators, thread views etc... It is highly recommended to run a 
+			consistency checker once per month on high traffic forums and once every two or three months
+			on low traffic forums.
+		</para>
+		
+		<para>	
+			If you see some irregularities with the forum data or inconsistent information being
+			displayed, run the consistency checker, in most cases this will resolve the problem.
+			
+			<note>
+			<simpara>
+				If the problem persists after running a consistency check, please take
+				the time to report it as a bug, by going to the 
+				<ulink url="http://fud.prohost.org/forum/"><citetitle>&FUDforum; support forum</citetitle></ulink>
+			</simpara>	
+			</note>
+		</para>
+		
+		&disabled.warning;
+	</sect1>
+	
+	<sect1 id="admin.rebuild_search_index">
+		<title>Rebuild Search Index</title>
+		
+		<para>
+			FUDforum includes a full text search that allows the user to search the 
+			messages posted on the forum by both subject and message body. 
+		</para>	
+		
+		<para>
+			When a user posts a message the text of that message is automatically added to the 
+			search index, unless you've set your <link linkend="global.option.FORUM_SEARCH">FORUM_SEARCH</link> option to no.
+		</para>
+		
+		<para>
+			The search index rebuild process will go through every message on the forum and re-index it's data
+			for the search engine. This process, as you can imagine, is VERY CPU intensive and will take a fair amount
+			of time to run. The actual time taken depends on the number of messages you have in your forum.
+		</para>
+		
+		<para>
+			This process is generally unnecessary, unless you've decided to re-enable the full text search of the forum
+			or have completed an conversion process from a forum other then FUDforum to FUDforum and need to generate
+			a search index of the imported messages.
+		</para>	
+
+		&disabled.warning;
+	</sect1>
+	
+	<sect1 id="admin.compact_messages">
+		<title>Compact Messages</title>
+		
+		<para>
+			FUDforum will try compact it's message storage file. During normal
+			operation FUDforum only writes to it's message file, never deletes from it,
+			this is done because it has great performance benefits and is a very fast
+			way to store message bodies. If you are running low on drive space you
+			can try to have FUDforum try to compact it's message file, this will
+			try to remove all the old unused bodies off all edited messages.
+			
+			<note>
+				<simpara>
+				Unless there is a lot of deletion and message editing on your forum, 
+				the amount of space saved will be minimal.
+				</simpara>	
+			</note>
+		</para>
+		
+		&disabled.warning;
+	</sect1>
+	
+	<sect1 id="admin.global_settings_manager">
+		<title>Global Settings Manager</title>
+		
+		<para>
+			This control panel allows you to alter the various system settings of the forum.
+			Pay careful attention to what you are doing while making changes on this control panel, 
+			since it possible to break your forum by entering wrong values in certain places.
+		</para>
+		
+		<para>
+			Due to the importance of that control panel there is basic help for every option on the control
+			panel itself.
+		</para>
+		
+		<sect2 id="admin.global_settings_manager.options">
+			<title>Global Options</title>
+			
+			<sect3 id="global.primary.options">
+				<title>Primary Forum Options</title>
+				
+				<sect4 id="global.option.FORUM_TITLE">
+					<title>Forum Title</title>
+				
+					<para>
+						The title of the forum. The text entered here will appear inside the HTML &lt;title&gt; tag.
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.FORUM_ENABLED">
+					<title>Forum Enabled</title>
+				
+					<para>
+						This toggle shows you whether or not your forum is enabled as well as allows you to enable and disable your
+						forum.
+					</para>
+				
+					<para>
+						When your forum is disabled the users will see the message you put inside <link linkend="global.option.DISABLED_REASON">Disabled Reason</link>
+						when they try to access any of the forum's pages.
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.DISABLED_REASON">
+					<title>Disabled Reason</title>
+				
+					<para>
+						When your forum is disabled this message, which can contain HTML will be displayed to anyone trying to 
+						access the forum's pages.
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.ALLOW_REGISTRATION">
+					<title>Allow Registration</title>
+				
+					<para>
+						This toggle allows you to enable or disable new user registration.
+					</para>
+				</sect4>
+			</sect3>
+			
+			<sect3 id="global.dir.options">
+				<title>Forum Directory Paths</title>
+			
+				<sect4 id="global.option.INCLUDE">
+					<title>Include Directory</title>
+				
+					<para>
+						This is where all the compiled forum include files (*.inc) will be placed.
+						&user.note;
+						&dir.important;
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.WWW_ROOT">
+					<title>Your Forum's URL</title>
+				
+					<para>
+						This is the base URL of your forum.
+						&user.note;
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.ERROR_PATH">
+					<title>Error Directory</title>
+				
+					<para>
+						This is the directory where the forum's error logs will be stored.
+						&user.note;
+						&dir.important;
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.MSG_STORE_DIR">
+					<title>Message Storage Directory</title>
+				
+					<para>
+						Inside this directory the bodies of all message, normal &amp; private are stored.
+						&user.note;
+						&dir.important;
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.TMP">
+					<title>Temporary Directory</title>
+					
+					<para>
+						This is the directory where any temporary forum files will be placed.
+						&user.note;
+						&dir.important;
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.FILE_STORE">
+					<title>File Storage Directory</title>
+				
+					<para>
+						Inside this directory all the file that are attached to forum's messages are stored.
+						&user.note;
+						&dir.important;
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.FORUM_SETTINGS_PATH">
+					<title>Forum Settings Directory</title>
+				
+					<para>
+						Various settings file that are created by the forum are stored inside this directory.
+						&user.note;
+						&dir.important;
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.MOGRIFY_BIN">
+					<title>Path to Mogrify Utility</title>
+				
+					<para>
+						Mogrify is an ImageMagick utility that allows you to manipulate images. If you have such a utility
+						specify the full path to it in this option. By doing so, you will gain the ability the scale down 
+						user uploaded avatars if they exceed the dimensions you've specified.
+					</para>
+					
+					<note>
+						<simpara>
+						ImageMagick and its utilities can be downloaded freely from <ulink url="http://www.imagemagick.org/"><citetitle>ImageMagick website</citetitle></ulink>.
+						</simpara>
+					</note>
+				</sect4>
+			</sect3>
+			
+			<sect3 id="global.mysql.options">
+				<title>MySQL Settings</title>
+				
+				<sect4 id="global.option.MYSQL_SERVER">
+					<title>MySQL Server</title>
+				
+					<para>
+						The IP or UNIX Domain Socket of your MySQL server. We recommend using the UNIX Domain Socket 
+						since it is much faster then TCP/IP.
+						
+						<note>
+							<simpara>
+							If you decide to specify a UNIX Domain Socket you need to put ':' in front of it.
+							For example: <literal>:/tmp/mysql.sock</literal>
+							</simpara>
+						</note>
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.MYSQL_LOGIN">
+					<title>MySQL Login</title>
+				
+					<para>
+						The login name for the MySQL database you intend to store forum data in.
+					</para>
+				
+				</sect4>
+				
+				<sect4 id="global.option.MYSQL_PASSWORD">
+					<title>MySQL Password</title>
+				
+					<para>
+						The password for the MySQL database you intend to store forum data in.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.MYSQL_DB">
+					<title>MySQL Database</title>
+				
+					<para>
+						The name of the MySQL database you intend to use to store your data in.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.MYSQL_PERSIST">
+					<title>Use Persistent Connections</title>
+				
+					<para>
+						Use persistent connections for MySQL (mysql_pconnect). This is a performance enchanting feature 
+						which if enabled will make your forum somewhat faster. The reason for the improvement is because 
+						the forum will not need to establish a new MySQL connection every time a page is requested but rather
+						use an existing MySQL connection.
+					</para>
+					
+					<para>
+						This option does have it's drawbacks, on forked webservers such as Apache, every Apache child 
+						will create a persistent socket for itself. This can potentially exhaust number of allowed MySQL 
+						connections if the number of Apache children with open connections to MySQL exceed the allowed number
+						of MySQL connections.
+					</para>
+				</sect4>
+			</sect3>	
+			
+			<sect3 id="global.pm.options">
+				<title>Private Messaging</title>
+			
+				<sect4 id="global.option.PM_ENABLED">
+					<title>Allow Private Messaging</title>
+				
+					<para>
+						Whether or not forum members can send private messages to one another.
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.PRIVATE_ATTACHMENTS">
+					<title>File Attachments in Private Messages</title>
+				
+					<para>
+						How many file attachments a user can attach to each private message. Setting this option to 0, will
+						disable file attachments for private messages.
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.PRIVATE_ATTACH_SIZE">
+					<title>Maximum Attachment Size</title>
+				
+					<para>
+						The maximum size, in bytes, of the file(s) a user can attach to their private messages.
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.PRIVATE_MSG_SMILEY">
+					<title>Allow Smilies</title>
+				
+					<para>
+						Whether or not smilies/emoticons in private messages will be converted to their graphical equivalents.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.PRIVATE_IMAGES">
+					<title>Allow Images</title>
+				
+					<para>
+						This option allows you to limit how many images can users include inside their private messages.
+						<note>
+							<simpara>
+							This limit will only work if the tag style is FUDcode, won't work if you allowed 
+							your visitors to use HTML.
+							</simpara>
+						</note>
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.PRIVATE_TAGS">
+					<title>Tag Style</title>
+				
+					<para>
+						What kind of text formatting options are available to the user.
+						<itemizedlist>
+							<listitem><para><emphasis role="bold">FUDcode</emphasis> Users can use <link linkend="fudcode">FUDcode</link> styling tags to format their messages.</para></listitem>
+							<listitem><para><emphasis role="bold">HTML</emphasis> The users can use HTML inside their messages.</para></listitem>
+							<listitem><para><emphasis role="bold">NONE</emphasis> only plain text is allowed.</para></listitem>
+						</itemizedlist>
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.MAX_PMSG_FLDR_SIZE">
+					<title>Maximum Private Messages Folder Size</title>
+				
+					<para>
+						The maximum amount of data, in bytes, the users can store inside their private message folders. This
+						does not include the space taken up by the file attachments attached to private messages.
+					</para>
+				</sect4>
+			</sect3>
+			
+			<sect3 id="global.cookie.options">
+				<title>Cookie &amp; Session Settings</title>
+			
+				<sect4 id="global.option.COOKIE_PATH">
+					<title>Cookie Path</title>
+				
+					<para>
+						The path of cookie used by the forum. Outside of this path the cookie will not be accessible.
+					</para>
+				
+					<para>
+						By default the cookie path is the path to the forum. For example, if your forum URL is 
+						"http://mydomain.com/forum/" the cookie path will be "/forum/". If you wanted your entire
+						site to be able to access the forum's cookies, change the value of this option to "/".
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.COOKIE_DOMAIN">
+					<title>Cookie Domain</title>
+				
+					<para>
+						The domain name for which a cookie is being set, the domain MUST be the same as the one used to access
+						the forum, as specified in the <link linkend="global.option.WWW_ROOT">WWW_ROOT</link> option.
+					</para>
+					
+					<important>
+						<simpara>
+						For browser compatibility this values MUST have no less the two '.' in it.
+						</simpara>
+					</important>
+					
+					&user.note;
+				</sect4>
+			
+				<sect4 id="global.option.COOKIE_NAME">
+					<title>Cookie Name</title>
+				
+					<para>
+						The name of the cookie that will be used by the forum. By default a random value is picked for
+						this option to prevent conflicts with any other cookies you may already have. In the very unlikely event 
+						that you already have a cookie with such a name, change the value of this option to something else.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.COOKIE_TIMEOUT">
+					<title>Cookie Timeout</title>
+				
+					<para>
+						This is the period of time, in seconds after which the browser will remove the cookie. The user who's
+						cookie expired will then need to re-login in to the forum.
+					</para>
+				
+					<para>
+						By default the cookies are set to expire 7 days they are set. Each time the user 
+						access the forum the cookie is renewed for another 7 days.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.SESSION_TIMEOUT">
+					<title>Session Timeout</title>
+				
+					<para>
+						If cookies are not used  or are not available sessions will be used instead. They work by passing 
+						the information normally stores in a cookie via GET/POST across the forum. Each time a user access' 
+						a page their session gets renewed. 
+					</para>
+					
+					<para>
+						This option defines the amount of time, in seconds after which the session expires 
+						and a user will be required to re-login. For security reasons do not set this to a high number.
+					</para>
+					
+					<para>
+						By default, sessions will expire after 30 minutes.
+					</para>
+				</sect4>
+				
+			</sect3>
+			
+			<sect3 id="global.custom.avatar.options">
+				<title>Custom Avatar Settings</title>
+			
+				<sect4 id="global.option.CUSTOM_AVATAR_APPOVAL">
+					<title>Avatar Approval</title>
+				
+					<para>
+						This toggle defines whether or not the administrator(s) need to approve all the URL &amp; Uploaded avatars
+						before they are activated.
+					</para>
+					
+					<tip>
+						<simpara>
+						Leave this option set to YES, unless you have absolute faith in your users and are certain they will follow
+						the size limitations you've defined.	
+						</simpara>
+					</tip>
+				</sect4>
+			
+				<sect4 id="global.option.CUSTOM_AVATARS">
+					<title>Custom Avatars</title>
+				
+					<para>
+						&FUDforum; allows for a number of ways that a user can specify their avatar, if avatars are allowed.
+						This option allows you to define is avatars are allowed and if so, what type of avatars the users may use.	
+					</para>
+				
+					<para>
+						The URL &amp; Uploaded avatars will first need to be approved by the admin before they are activated, unless
+						you specified in the <link linkend="global.option.CUSTOM_AVATAR_APPOVAL">Avatar Approval</link> option,
+						that the admin does not need to approve those avatars.
+					</para>
+				
+					<para>
+						<itemizedlist>
+							<listitem><para><emphasis role="bold">URL</emphasis> The user can specify their avatar by entering a URL of an image.</para></listitem>
+							<listitem><para><emphasis role="bold">Uploaded</emphasis> The user can upload an image from their hard drive to be their avatar.</para></listitem>
+							<listitem><para><emphasis role="bold">Built In</emphasis> The user choose an avatar from the ones available in the forum's avatar gallery. <note><simpara>You can add avatars into the avatar gallery via the <link linkend="admin.avatar">Avatar Manager</link> control panel.</simpara></note></para></listitem>
+							<listitem><para><emphasis role="bold">ALL</emphasis> The user can specify their avatar by specifying a URL to an image, uploading one to the server or choosing from the forum avatar galleries.</para></listitem>
+							<listitem><para><emphasis role="bold">OFF</emphasis> The avatars are disabled.</para></listitem>
+						</itemizedlist>
+						
+						<note>
+							<simpara>
+							The actual control panel will have additional values allowing you choose a combination of any of the first three options.
+							</simpara>
+						</note>
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.CUSTOM_AVATAR_MAX_SIZE">
+					<title>Maximum Size of Custom Avatars</title>
+				
+					<para>
+						This is a limit, in bytes, on how big of an image a user can upload as their avatar.
+					</para>
+				</sect4>
+			
+				<sect4 id="global.option.CUSTOM_AVATAR_MAX_DIM">
+					<title>Maximum Dimensions of the Avatar Image</title>
+				
+					<para>
+						This the maximum width x height dimensions of the avatar the user can specify.
+					
+						<tip>
+							<simpara>
+							The uploaded avatars can be scaled down by the admin during the avatar approval process
+							if the path to <link linkend="global.option.MOGRIFY_BIN">Mogrify</link> utility is specified.
+							</simpara>
+						</tip>
+					</para>
+				</sect4>
+			</sect3>
+			
+			<sect3 id="global.sig.options">
+				<title>Signature Settings</title>
+				
+				<sect4 id="global.option.ALLOW_SIGS">
+					<title>Allow Signatures</title>
+				
+					<para>
+						Whether or not forum users can specify signatures that will be appended to their messages.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.FORUM_CODE_SIG">
+					<title>Tag Style</title>
+				
+					<para>
+						What kind of text formatting options are available to the user.
+						<itemizedlist>
+							<listitem><para><emphasis role="bold">FUDcode</emphasis> Users can use <link linkend="fudcode">FUDcode</link> styling tags to format their messages.</para></listitem>
+							<listitem><para><emphasis role="bold">HTML</emphasis> The users can use HTML inside their messages.</para></listitem>
+							<listitem><para><emphasis role="bold">NONE</emphasis> only plain text is allowed.</para></listitem>
+						</itemizedlist>
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.FORUM_SML_SIG">
+					<title>Allow Smilies</title>
+				
+					<para>
+						Whether or not smilies/emoticons in signatures will be converted to their graphical equivalents.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.FORUM_IMG_SIG">
+					<title>Allow Images</title>
+				
+					<para>
+						Whether or not images are allowed in signatures.		
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.FORUM_IMG_CNT_SIG">
+					<title>Maximum Number of Images</title>
+				
+					<para>
+						This option allows you to limit how many images can users include inside their signatures.
+						<note>
+							<simpara>
+							This limit will only work if the tag style is FUDcode, won't work if you allowed 
+							your visitors to use HTML.
+							</simpara>
+						</note>
+					</para>
+				</sect4>
+			</sect3>	
+			
+			<sect3 id="global.spell.options">
+				<title>Spell Checker</title>
+				
+				<sect4 id="global.option.SPELL_CHECK_ENABLED">
+				<para>
+					Whether or not the spell checker is enabled.
+					
+					<note>
+						<simpara>
+						This option will only work if your PHP has the pspell module enabled.
+						</simpara>
+					</note>	
+				</para>	
+				</sect4>
+			</sect3>
+			
+			<sect3 id="global.gen.options">
+				<title>General Settings</title>
+			
+				<sect4 id="global.option.MAX_SMILIES_SHOWN">
+					<title>Maximum Smilies Shown</title>
+				
+					<para>
+						The maximum number of smilies/emoticons to show shortcuts for on the message posting forms.
+						To see the rest the user will need to click on the "list all smilies" link.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.PUBLIC_RESOLVE_HOST">
+					<title>Public Host Resolving</title>
+				
+					<para>
+						Toggle the showing of the partially resolved host name of the message's author to other users.
+						For example: <screen>me.myself.com will appear as .myself.com</screen>
+					</para>
+					
+					<para>
+						This may slow down the posting process, especially, if the user's host mask takes a while to
+						resolve.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.MAX_LOGIN_SHOW">
+					<title>Maximum Shown Login Length</title>
+				
+					<para>
+						The maximum number of characters of a user's login name to show on all pages with the exception 
+						of user info page.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.MAX_LOCATION_SHOW">
+					<title>Maximum Shown Location Length</title>
+				
+					<para>
+						The maximum number of characters of a user's location to show on all pages with the 
+						exception of user info page.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.LOGEDIN_LIST">
+					<title>Logged In Users List Enabled</title>
+				
+					<para>
+						Whether or not the list of currently logged in users is displayed. By default 
+						this list is shown on the forum's front page.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.LOGEDIN_TIMEOUT">
+					<title>Logged In Users List Timeout</title>
+				
+					<para>
+						The amount of time, in minutes, after which a user is considered to be no longer logged in.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.ACTION_LIST_ENABLED">
+					<title>Allow Action List</title>
+				
+					<para>
+						If enabled it allows other forum users to see what their counterparts are doing on the forum
+						at the time.
+					</para>
+					
+					<important>
+						<simpara>
+						This option requires that the <link linkend="global.option.LOGEDIN_LIST">Logged in List</link> be enabled.
+						</simpara>
+					</important>
+				</sect4>
+				
+				<sect4 id="global.option.ONLINE_OFFLINE_STATUS">
+					<title>Online/Offline Status Indicator</title>
+				
+					<para>
+						If enabled, this option will indicate whether a user is online or offline beside all their message.	
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.ADMIN_EMAIL">
+					<title>Administrator E-Mail</title>
+				
+					<para>
+						The e-mail address of the administrator.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.NOTIFY_FROM">
+					<title>Notify From</title>
+				
+					<para>
+						All of the system e-mails sent from the forum, such as e-mail post notification, registration 
+						confirmation etc... will come from this address.
+					</para>
+				</sect4>
+
+				<sect4 id="global.option.NOTIFY_WITH_BODY">
+					<title>Notify W/Body</title>
+				
+					<para>
+						If enabled, then e-mail notifications will include the complete HTML body of
+						the message, allowing the user to read the message's text via their e-mail client
+						as well as reply to the message by clicking on the reply/quote buttons.
+					</para>
+					
+					<para>
+						In the event the user's e-mail client does not support HTML, the e-mail contains
+						a text version of the message as well. 
+					</para>
+				</sect4>
+
+				<sect4 id="global.option.COPPA">
+					<title>COPPA</title>
+
+					<para>
+						If enabled the users, will be required to indicate whether or not they are older then 13 years
+						of age before registration. If they are not, then their legal guardians will be required to confirm the 
+						the account via Fax or E-mail.
+					</para>
+					
+					<para>
+						All US based sites must leave this option enabled to comply with the 
+						Children's Online Privacy Protection Act of 1998 (COPPA)
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.POSTS_PER_PAGE">
+					<title>Posts Per Page</title>
+				
+					<para>
+						How many messages to display per page.				
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.THREADS_PER_PAGE">
+					<title>Threads Per Page</title>
+				
+					<para>
+						Indicates how many threads to show per page.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.DEFAULT_THREAD_VIEW">
+					<title>Default Thread View</title>
+				
+					<para>
+						Allows the admin to specify the default message view.
+						<itemizedlist>
+							<listitem><para><emphasis role="bold">Flat View</emphasis> Standard bulletin board view.</para></listitem>
+							<listitem><para><emphasis role="bold">Tree View</emphasis> Draws a tree like view of the messages. Similar to how messages in the newsgroups are displayed.</para></listitem>
+						</itemizedlist>
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.WORD_WRAP">
+					<title>Word Wrap</title>
+				
+					<para>
+						This setting defines on how many characters to wrap message bodies on, any text string longer the the number
+						of characters specified in this option will be broken down into 1 or more strings using a space as a separator.
+					</para>
+					
+					<para>	
+						Set this to 0 to disable word wrapping.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.UNCONF_USER_EXPIRY">
+					<title>Unconfirmed User Expiry</title>
+				
+					<para>
+						The number of days unconfirmed forum members are held in the database.
+						They will be removed from database after this period of time.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.FLOOD_CHECK_TIME">
+					<title>Flood Trigger</title>
+				
+					<para>
+						The minimum time delay, in seconds between message posting. This option is used to prevent
+						automated posting scripts that would attempt to post many messages at once.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.MOVED_THR_PTR_EXPIRY">
+					<title>Moved Thread Pointer Expiry</title>
+				
+					<para>
+						The number of days to show a pointer of a moved thread from the original forum to the new forum.
+						The pointer will be removed after this period of time.	
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.ALLOW_EMAIL">
+					<title>Allow E-mail</title>
+				
+					<para>
+						Allow the users to send e-mails to other forum members using the forum's internal e-mail client.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.SERVER_TZ">
+					<title>Server Time Zone</title>
+				
+					<para>
+						Server time zone.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.FORUM_SEARCH">
+					<title>Forum Search Engine</title>
+				
+					<para>
+						If enabled the users will be able to do full text searches on the content of the posted messages.
+						If you wish to increase the speed of the posting process or save on space used by MySQL you should
+						turn this option off.
+					</para>
+					
+					<para>
+						In the event Forum Search is disabled the search index will not be populated at the time of posting.
+						If you later on decide to enable the search engine you will need to <link linkend="admin.rebuild_search_index">Rebuild Search Index</link>.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.MEMBER_SEARCH_ENABLED">
+					<title>Member Search</title>
+				
+					<para>
+						If enabled it will allow forum visitors to search for registered forum users by login and/or email.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.MEMBERS_PER_PAGE">
+					<title>Members Per Page</title>
+				
+					<para>
+						How many forum members to display per page on the members list page.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.ANON_NICK">
+					<title>Anonymous Username</title>
+				
+					<para>
+						The name that will be used to refer to all unregistered forum users.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.THREAD_MSG_PAGER">
+					<title>Quick Pager Link Count</title>
+				
+					<para>
+						How many page links to display beside a thread that exceeds 1 page in length 
+						as defined by the <link linkend="global.option.THREADS_PER_PAGE">THREADS_PER_PAGE</link> option.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.GENERAL_PAGER_COUNT">
+					<title>General Pager Link Count</title>
+				
+					<para>
+						This is the number of direct links to pages that will be shown in the pager, excluding &lt;&lt; &lt; &gt; &gt;&gt;.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.SHOW_EDITED_BY">
+					<title>Show Edited By</title>
+				
+					<para>
+						If enabled then all the messages that were later edited by the author of the message will have
+						an indicator showing that the message was edited by it's author.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.EDITED_BY_MOD">
+					<title>Show Edited By Moderator</title>
+				
+					<para>
+						If enabled then messages edited by the moderator or the administrator will have an indicator
+						indicating showing that the message was edited by someone other then the message author.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.EDIT_TIME_LIMIT">
+					<title>Edit Time Limit</title>
+				
+					<para>
+						The time limit, in minutes, past which the users will no longer be able to edit their own messages.
+					</para>
+					
+					<para>
+						Set the value to 0 to give unlimited editing time.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.DISPLAY_IP">
+					<title>Display IP Publicly</title>
+				
+					<para>
+						Whether or not to display the IP address of the message's author for all forum users.
+					</para>
+					
+					<note>
+						<simpara>
+						All forum administrators and moderators will be able to see the IP of the message author
+						regardless of this option.
+						</simpara>
+					</note>
+				</sect4>
+				
+				<sect4 id="global.option.MAX_IMAGE_COUNT">
+					<title>Max Image Count</title>
+				
+					<para>
+						The maximum number of images a user may include in their forum messages.
+					</para>
+					
+					<note>
+						<simpara>
+						This limit will ONLY work if the &fudcode; style is being used.
+						</simpara>
+					</note>
+				</sect4>
+				
+				<sect4 id="global.option.SHOW_N_MODS">
+					<title># Of Moderators To Show</title>
+				
+					<para>
+						An indicator of how many forum moderators to show beside each forum on the front page.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.EMAIL_CONFIRMATION">
+					<title>E-mail Confirmation</title>
+				
+					<para>
+						If enabled each new registration will need to be confirmed via email. A special URL will be sent
+						to the e-mail specified by the user during registration, which once accessed will activate their account.
+					</para>
+					
+					<para>
+						Unconfirmed accounts will be removed after a set amount of days as defined by the 
+						<link linkend="global.option.UNCONF_USER_EXPIRY">UNCONF_USER_EXPIRY</link> option.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.PUBLIC_STATS">
+					<title>Public Stats</title>
+				
+					<para>
+						If enabled, at the bottom of each page forum users will be able to see how long it took to generate 
+						the page as well as how many MySQL queries were ran and their timings.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.FORUM_INFO">
+					<title>Forum Info</title>
+				
+					<para>
+						If enabled forum statistics will be displayed on the front page. These include 
+						total number of approved posts, number of topics and registered users and the last registered user
+					</para>
+				</sect4>
+			</sect3>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="admin.replacement_censorship_system">
+		<title>Replacement &amp; Censorship System</title>
+		
+		<para>
+			The Replacement &amp; Censorship System allows the admin to replace certain strings 
+			in the messages, signatures and biographies of the users with another text string.
+		</para>	
+		
+		<para>
+			The most common use of this system is to censor certain words and phrases that the
+			admin feels are in appropriate for the forum. For this purpose &FUDforum; offers two syntaxes
+			for replacing text ranging from a simple replace to a complex regular expression.
+		</para>
+		
+		<sect2 id="admin.replacement_censorship_system.str_replace">
+			<title>String Replace</title>
+			
+			<para>
+				The most basic and the easiest to use string replacement option is "String Replace". This option will
+				allow you to specify the 'Replace' string with its alternative the 'With' string.
+				For example, if you specify the replace string as "haystack" and it's alternative as needle then
+				<screen>this haystack is sharp.</screen>
+				will be converted to:
+				<screen>this needle is sharp.</screen>
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.replacement_censorship_system.ereg_replace">
+			<title>Perl Regex</title>
+			
+			<para>
+				Perl Regex will use a perl regular expression library to perform a replacement on a text or a text mask.
+				This although slower then str_replace it allows for a much more powerful and sophisticated text manipulation.
+				
+				<note>
+					<simpara>
+					This functionality uses PHP's PECL library and utilize the preg_replace function. PHP's documentation
+					of this function and its capabilities &amp; syntax can be found 
+					<ulink url="http://www.php.net/manual/en/function.preg-replace.php"><citetitle>here</citetitle></ulink>.
+					</simpara>
+				</note>
+			</para>
+			
+			<para>
+				Lets say, you want to replace all words containing the string 'spoon' with 'fork'.
+				Clearly you cannot use <link linkend="admin.replacement_censorship_system.str_replace">String Replace</link> 
+				for this because it would not replace the entire word but only the 'spoon' part. 
+				For this purpose you need to use the power of regular expressions.
+			</para>
+			
+			<para>
+				Inside the 'Replace' field we enter the <screen>!(\s|^)([^\s]*?)spoon([^\s]*?)(\s|$)!i</screen> regular expression and
+				enter <screen>\1fork\4</screen> as the 'With' alternative. The end result of this regex that any word containing 
+				the string 'spoon' will be replaced with "fork". Because we've added the 'i' parameter to our regex, which 
+				made it case-insensitive, so even the "SpOon" instances will be found and replaced.
+			</para>
+			
+			<para>
+				Because the regular expression is generally rather complex there is no easy way &FUDforum; can figure out how to
+				reverse it back, so that when the person is editing their text they can see the text that they have originally entered.
+				Therefor you get 2 extra fields ('From post' and 'To')were you get to specify the "reverse" regex that would 
+				convert the replaced data back its original form. Based on the previous example involving "fork" &amp; "spoon" the 
+				conversion back strings would look like this: 
+<screen>
+From post:	!(\s|^)fork(\s|$)!
+To:		spoon
+</screen>	
+			</para>
+			
+			
+		</sect2>
+		
+		<note>
+			<simpara>
+			The messages &amp; signatures entered prior the the addition of a replace will not be affected by the newly added replace syntax.
+			</simpara>
+		</note>
+	</sect1>
+	
+	<sect1 id="admin.mime_managment_system">
+		<title>MIME Managment System</title>
+		
+		<para>
+			This control panel allows you to manage mime types &amp; icons for the various files
+			that the forum users can attach to their messages.
+		</para>
+		
+		<para>
+			MIME types are special strings sent to the browser that tell the browser how to interpret the file.
+			For example .exe file would have a application/application MIME type, which would tell the browser that the file
+			should be saved to the user's hard rive instead of trying to open the file. On the other hand for .jpg image 
+			the forum would send a image/jpeg MIME, which would tell the browser to display the image in the browser window.
+		</para>
+		
+		<para>
+			The MIME types are determined by the file extension and compared to the extensions of the supported MIME types inside
+			the &FUDforum; database. If the file does not match any MIME types it would be assigned the generic application/ocet-stream
+			MIME type, which would tell the browser to save the file rather then try to display it.
+		</para>
+		
+		<para>
+			The forum by default comes with 30 or so default MIME types that cover the most commonly used file types, so unless
+			you have special file types not covered by this list you will not need to use this control panel.
+		</para>
+		
+		<para>
+			Adding of a new MIME is normally a 2 step process, first you upload the image that you want to represent 
+			your new MIME and then you enter the actual MIME information such as a description, file extension and mime header.
+			The 1st step can be bypassed if you already have an image that you wish to use in association with this MIME
+			by choosing the image from the list of the ones already available in the forum.
+		</para>
+		
+		<sect2 id="mime.uploading">
+			<title>Uploading MIME image</title>
+				
+			<para>
+				At the top of the MIME managment form there is a simple control, which allows you to choose an image 
+				from your drive and upload it to the server. Clicking on a browse link will open up a dialog allowing you
+				to pick the image.
+			</para>
+				
+			<para>
+				Click on the upload link to upload the image to the forum.
+			</para>
+				
+			<para>
+				The preview of the uploaded image will appear on the MIME Managment control and the file name 
+				will automatically be inserted into the <link linkend="mime.icon">MIME Icon</link> textbox.
+			</para>
+		</sect2>
+			
+		<sect2 id="mime.info">
+			<title>Editing/Adding MIME Information</title>
+				
+			<para>
+				Now that you've uploaded your MIME image you can now specify the MIME information. If you choose to use
+				an existing image, by clicking on the "select MIME icon" link that would pull up a pop-up window where all the 
+				MIME images in the system will be displayed and you'll be able to choose the one you want by clicking on it.
+			</para>
+				
+			<para>
+				If you are editing a MIME, the information for the MIME will be automatically inserted in to the appropriate
+				fields so you can easily edit it.
+			</para>
+				
+			<sect3 id="mime.descr">
+				<title>MIME Description</title>
+				
+				<para>
+					Use this field to enter a quick description of the MIME. This field's data will not show up anywhere
+					on the forum other then this form.
+				</para>
+			</sect3>
+				
+			<sect3 id="mime.header">
+				<title>MIME Header</title>
+					
+				<para>
+					This is the MIME header that will be sent to the browser when the user downloads a file that 
+					matches this MIME type.
+				</para>
+			</sect3>
+				
+			<sect3 id="mime.ext">
+				<title>File Extension</title>
+					
+				<para>
+					Files that end with this extension will be attributed assigned mime type.
+				</para>
+					
+				<para>
+					This value is case-insensitive, so jpg and JPG are the same thing as far as MIME management system
+					is concerned.
+				</para>
+			</sect3>
+				
+			<sect3 id="mime.icon">
+				<title>MIME Icon</title>
+					
+				<para>
+					This is an image that will be displayed beside all file attachments that are of this MIME type.
+				</para>
+			</sect3>
+				
+			<sect3 id="mime.icon.preview">
+				<title>Preview Image</title>
+					
+				<para>
+					This field uses JavaScript to give you a preview of the currently selected MIME Icon.
+				</para>
+			</sect3>
+				
+			<para>
+				Once all the MIME information is set to your satisfaction click on the "Add MIME" or the "Update" button, 
+				depending of whether you're adding or updating a MIME, to submit your changes.
+			</para>
+		</sect2>
+			
+		<sect2 id="mime.list">
+			<title>MIME List</title>
+				
+			<para>
+				At the bottom of the MIME Manager there is a list of all the MIME types supported by the forum.
+				Beside each MIME there is an edit link allowing you to edit this MIME as well as a delete link, which will
+				delete the MIME.
+			</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="admin.file_manager">
+		<title>File Manager</title>
+		
+		<para>
+			The file manager is a utility that allows you to easily manage files inside the forum's directories.
+			Using this tool you can change file permissions, upload files, delete files as well as download files
+			using your web browser.
+		</para>
+		
+		<para>
+			The file manager displays the file &amp; directory listing akin to the one shown by the *NIX 'ls -lia' command, with
+			a slight addition of showing the permission's integer value.
+			<example>
+				<title>File List Example</title>
+<screen>
+Mode			Owner	Group	Size	Date	Time		Name		Action
+-rwxrwxrwx- (777)	forum	forum	0 KB	Mar 13	18:28:03	blank.gif   	chmod  | download | delete
+</screen>			
+			</example>
+		</para>
+		
+		<note>
+			<simpara>
+			This utility is only for *NIX installations, it is not available for Windows installations of the forum.
+			</simpara>
+		</note>
+		
+		<sect2 id="file_manager.mkdir">
+			<title>Making Directories</title>
+			
+			<para>
+				The file manager allows you to create directories. Simply enter the directory in the 'Directory Name' textbox and
+				and click on the 'Create Directory' link. This will create a directory with the name you've specified inside 
+				current directory.
+			</para>
+		</sect2>
+		
+		<sect2 id="file_manager.file_upload">
+			<title>Uploading Files</title>
+			
+			<para>
+				You can also use the file manager to upload files from your computer into the forum.
+			</para>
+			
+			<para>
+				In the File Upload control use the 'browse' button to select the file from your hard drive. If you want 
+				to give name other the the original name to the file you are about to be upload, enter the new name inside the
+				'File Name' textbox. Now, click on the 'Upload File' button to upload the file into the directory you are currently
+				in. 
+			</para>
+		</sect2>
+		
+		<sect2 id="file_manager.delete">
+			<title>Deleting Files &amp; Directories</title>
+			
+			<para>
+				The file manager can also be used to remove forum files &amp; directories. This can be accomplished by clicking on
+				the delete link beside each file or directory.
+				
+				<note>
+					<simpara>
+					Directory MUST be empty before it can be deleted.
+					</simpara>
+				</note>
+			</para>
+			
+			<para>
+				For safety there is an intermediate stage in the deletion process that will ask you to confirm the fact that you want
+				to delete a file or directory. This is done to prevent accidental file deletion.
+			</para>
+		</sect2>
+		
+		<sect2 id="file_manager.download">
+			<title>Downloading Files</title>
+			
+			<para>
+				Beside each file there is download link, if clicked it would allow you to download the file to your hard drive.
+			</para>
+		</sect2>
+		
+		<sect2 id="file_manager.chmod">
+			<title>Changing File Permissions</title>
+			
+			<para>
+				The primary feature of the file manager is the ability to change permissions on the forum's files and directories.
+				This can be accomplished by clicking on the 'chmod' link, which will pop-up a windows where the files and/or 
+				directory permissions can be changed.
+			</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="admin.file_lock">
+		<title>Lock/Unlock Forum's Files</title>
+		
+		<para>
+			&FUDforum; is designed with a security minded approach to data storage. This means that &FUDforum; tries to
+			ensure that your forum's data is as secure as possible. Therefor the forum's files are kept with the most
+			minimalistic permissions (0600 for files and 0700 for directories), allowing only the web server to access
+			those files. Thus they can be altered only using the forum's control panel, preventing other users from
+			seeing and modifying your files.
+		</para>
+		
+		<para>
+			There may be situations where you would need the ability to access many or all of the forum's files
+			right away and changing permissions of each file using the file manager would be excessively difficult.
+		</para>
+		
+		<para>
+			This control panel allows the administrator to 'unlock' the forum's files hence allowing those files to be 
+			accessed via FTP and SSH/Telnet. Once your are done, is is HIGHLY recommended that your 'lock' the forum back
+			hence re-instating the secure permissions on your data.
+		</para>
+		
+		<para>
+			This form can work virtually independently of the forum, so to 'lock' or 'unlock' files the administrator
+			would need to specify their login &amp; password and click on the appropriate button depending on which
+			action they wish to perform.
+		</para>
+		
+		<note>
+			<simpara>
+			This utility is only for *NIX installation, it is not available for Windows installations of the forum.
+			</simpara>
+		</note>
+	</sect1>	                
+	
+	<sect1 id="admin.forum_statistics">
+		<title>Forum Statistics</title>
+		
+		<para>
+			This utility allows you to gather statistics about your forum's usage. In addition to forum statistics this
+			utility will also show you a detailed breakdown of the hard drive space used by the forum as well as the amount of
+			MySQL disk space used by the forum.
+		</para>
+		
+		<para>
+			The statistics engine can be used to analyze the following information:
+			<itemizedlist>
+				<listitem><para><emphasis role="bold">Number of Posted Message</emphasis> The number of posted within a defined time frame.</para></listitem>
+				<listitem><para><emphasis role="bold">Number of Threads</emphasis> The number of threads within a defined time frame.</para></listitem>
+				<listitem><para><emphasis role="bold">Registered Users</emphasis> The number of new user registrations within a defined time frame.</para></listitem>
+			</itemizedlist>	
+			
+			You can also specify the detail of the information, by specifying the level of detail, such as daily, weekly, monthly or yearly.
+		</para>
+	</sect1>
+	
+	<sect1 id="admin.action_log_viewer">
+		<title>Action Log Viewer</title>
+		
+		<para>
+			All administrative actions of privileged users are logged by &FUDforum; so that they can later be reviewed by the admin.
+		</para>
+		
+		<para>	
+			This control panel allows the admin to see this information by displaying the user name, action, the affected forum data
+			as well as the time of the event.
+		</para>
+		
+		<tip>
+			<simpara>	
+			In addition to logging actions of privileged users this control panel also allows the admin to see failed logins attempts 
+			into any of the accounts that have administrative access to the forum, with the IP address of the user who attempted to login. This is 
+			an extremely useful feature for tracking down attempted hacking attempts, by people who try to gain administrative access
+			by guessing the password of the administrator(s).
+			</simpara>
+		</tip>
+	</sect1>
+	
+	<sect1 id="admin.system_info">
+		<title>System Info</title>
+		
+		<para>
+			Provides various details about the server setup of the machine &FUDforum; is running on.
+		</para>
+		
+		<important>
+			<simpara>
+			When reporting a bug with a forum, please include the output of this control panel.
+			</simpara>
+		</important>
+	</sect1>
+	
+	<sect1 id="admin.category_forum_management">
+		<title>Category &amp; Forum Management</title>
+		
+		<para>
+			The Category &amp; Forum Management control panel allows the administrator to manage the forum's categories and forums.
+			This is a 2 stage control panel, first stage involves the category managment and the 2nd deals with the forums inside
+			a particular category.	
+		</para>
+		
+		<sect2 id="admin.category_forum_management.cat">
+			<title>Category Managment</title>
+			
+			<para>
+				The first control panel you see when you click on the 'Category &amp; Forum Management' link is the category manager.
+				This control panel allows you to create/edit/remove and reposition the categories of your forum.
+			</para>
+			
+			<para>
+				At the top of the page there is a form that would allow you to add a new category. When you are editing 
+				a category the form's values will be filled up with the category's properties allowing you to edit them.
+			</para>
+			
+			<sect3 id="cat.name">
+				<title>Category Name</title>
+				
+				<para>
+					The name of the category.
+				</para>
+			</sect3>
+			
+			<sect3 id="cat.descr">
+				<title>Description</title>
+				
+				<para>
+					Description of the category, this text will appear adjacent to the category name.
+					
+					<note><simpara>You can put raw HTML into this field.</simpara></note>
+				</para>
+			</sect3>
+			
+			<sect3 id="cat.collapse">
+				<title>Collapsible</title>
+				
+				<para>
+					Whether or not the users can collapse this category on the front page.
+				</para>
+			</sect3>
+			
+			<sect3 id="cat.def">
+				<title>Default view</title>
+				
+				<para>
+					Whether or not this category will appear collapsed or uncollapsed by default on the front page.
+				</para>
+			</sect3>
+			
+			<sect3 id="cat.pos">
+				<title>Insert position</title>
+				
+				<para>
+					Where to insert the category, below or on top of all the other categories in the forum.
+				</para>
+			</sect3>
+			
+			<para>
+				Below the form there is a list of all the existing categories in the forum. This list contains links that allow 
+				you to 
+				<link linkend="cat.edit_forum">edit the category</link>, 
+				<link linkend="cat.delete">delete a category</link>, 
+				<link linkend="cat.cpos">change its position in the category list</link> and 
+				<link linkend="cat.edit_forum">edit the forums inside this category</link>.
+			</para>
+			
+			<sect3 id="cat.edit_forum">
+				<title>Edit Forums</title>
+				
+				<para>
+					When you click on this link you will be taken to a <link linkend="admin.category_forum_management.forum">forum managment page</link>, 
+					allowing you to manage the forums assigned to this category.
+				</para>
+			</sect3>
+			
+			<sect3 id="cat.edit">
+				<title>Edit Category</title>
+				
+				<para>
+					Edit the category options &amp; properties.
+				</para>
+			</sect3>
+			
+			<sect3 id="cat.delete">
+				<title>Delete</title>
+				
+				<para>
+					Clicking this link will delete the category and all of the forums assigned to it.
+				</para>
+			</sect3>
+			
+			<sect3 id="cat.cpos">
+				<title>Change Position</title>
+				
+				<para>
+					Clicking on the change link will allow you to change the order in which this category is displayed on 
+					the forum's pages. 
+				</para>
+			</sect3>
+		</sect2>
+		
+		<sect2 id="admin.category_forum_management.forum">
+			<title>Forum Managment</title>
+			
+			<para>
+				The forum manager allows the administrator to manage forums that are assigned to a particular category. This includes
+				adding/removing controls, ability to move a forum to a different category as well as change display order of the forum.
+			</para>
+			
+			<para>
+				The first item on the forum manager page is form that allows the admin to add and edit forums. When a forum is
+				being edited the forum's settings will be pulled into the form for ease of editing.
+			</para>
+			
+			<sect3 id="forum.name">
+				<title>Forum Name</title>
+				
+				<para>
+					The name of the forum.
+				</para>
+			</sect3>
+			
+			<sect3 id="forum.descr">
+				<title>Description</title>
+				
+				<para>
+					Forum's description, this text will be shown right below the forum name.
+					
+					<note>
+						<simpara>
+						Can contain raw HTML.
+						</simpara>
+					</note>
+				</para>
+			</sect3>
+			
+			<sect3 id="forum.tag">
+				<title>Tag Style</title>
+				
+				<para>
+					What kind of text formatting tools are available to the user.
+					<itemizedlist>
+						<listitem><para><emphasis role="bold">FUDcode</emphasis> Users can use <link linkend="fudcode">FUDcode</link> styling tags to format their messages.</para></listitem>
+						<listitem><para><emphasis role="bold">HTML</emphasis> The users can use HTML inside their messages.</para></listitem>
+						<listitem><para><emphasis role="bold">NONE</emphasis> only plain text is allowed.</para></listitem>
+					</itemizedlist>			
+				</para>
+			</sect3>
+			
+			<sect3 id="forum.pp">
+				<title>Password Posting</title>
+				
+				<para>
+					Whether or users will be required to enter a special password in order to be able to post messages inside
+					this forum.
+				</para>
+			</sect3>
+			
+			<sect3 id="forum.password">
+				<title>Posting Password</title>
+				
+				<para>
+					If you've specified that users must enter a password in order to post messages, you should enter the password
+					inside this field.
+				</para>
+			</sect3>
+			
+			<sect3 id="forum.mod">
+				<title>Moderated Forum</title>
+				
+				<para>
+					If set to yes, any new message will need to be approved by the forum's moderator or an administrator before it
+					becomes visible to the public.
+				</para>
+			</sect3>
+			
+			<sect3 id="forum.filesize">
+				<title>Max Attachment Size</title>
+				
+				<para>
+					The maximum size, in kilobytes of the attached files users can attach to their messages.
+				</para>
+			</sect3>
+			
+			<sect3 id="forum.max_files">
+				<title>Change Position</title>
+				
+				<para>
+					The maximum number of files users can attach to their messages.
+				</para>
+			</sect3>
+			
+			<sect3 id="forum.msg_threshold">
+				<title>Message Threshold</title>
+				
+				<para>
+					Only the number of bytes of the messages inside this forum will be shown. For example, if you set this 
+					limit to 1000 bytes and a user entered a 1500 byte long message only the 1st 1000 bytes of the message
+					will be shown. To see the rest the message user will need to click on the 'Show the rest of the message' link.
+				</para>
+				
+				<note>
+					<simpara>
+					Setting this option to 0 means that unlimited message length is allowed, effectively disabling this feature.
+					</simpara>
+				</note>
+			</sect3>
+			
+			<sect3 id="forum.icon">
+				<title>Forum Icon</title>
+				
+				<para>
+					You can choose to have an icon displayed beside the forum. By clicking on the 'SELECT ICON' link you will 
+					be able to choose an icon for your forum.
+				</para>
+				
+				<para>
+					You can upload additional forum icons in addition to the one installed by default via the 
+					<link linkend="admin.forum_icons">Forum Icon Manager</link>.
+				</para>
+			</sect3>
+			
+			<sect3 id="forum.pos">
+				<title>Insert position</title>
+				
+				<para>
+					Where to insert the forum, below or on top of all the other forums in the category.
+				</para>
+			</sect3>
+			
+			<para>
+				Below the forum editor there a list of all the forums inside the category you are editing. Using this
+				listing you can edit, delete, move to another category or change the position of the forum inside
+				the current category.
+			</para>
+			
+			<sect3 id="forum.edit">
+				<title>Edit</title>
+				
+				<para>
+					Edit the forum options &amp; properties.
+				</para>
+			</sect3>
+			
+			<sect3 id="forum.delete">
+				<title>Delete</title>
+				
+				<para>
+					Clicking this link will delete the forum.
+				</para>
+			</sect3>
+			
+			<sect3 id="forum.move">
+				<title>Move</title>
+				
+				<para>
+					This option allows the administrator to move a forum from its current category to a different
+					category.
+				</para>
+			</sect3>
+			
+			<sect3 id="forum.cpos">
+				<title>Change Position</title>
+				
+				<para>
+					Clicking on the change link will allow you to change the position of forum on the page. For example 
+					move the 4th forum inside the category to the 2nd position.
+				</para>
+			</sect3>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="admin.deleted.forums">
+		<title>Deleted Forums</title>
+		
+		<para>
+			When a forum is deleted it is not immediately removed from the database but rather moved to a trash bin of sorts.
+			It is done to allow the admin to restore the accidentally removed forums, since once they are truly removed 
+			there is no going back.
+		</para>
+		
+		<para>
+			This control panel allows the admin to see all the forums inside the 'trash bin' and allows the admin to either
+			restore the forum, by choosing a category where to restore the forum by clicking on the 'Reassign' button
+			or to truly delete the forum by clicking on the delete link.
+		</para>
+		
+		<tip>
+			<simpara>
+			It is a good idea to run the <link linkend="admin.compact_messages">Compact Messages</link> utility 
+			after deletion of a forum, especially if that forum had many messages in it.
+			</simpara>
+		</tip>
+	</sect1>
+	
+	<sect1 id="admin.announce.manager">
+		<title>Announcement Manager</title>
+		
+		<para>
+			Announcement manager control panel that allows the administrator to create global announcements that would appear
+			in selected forums at the top of the thread listing.
+		</para>
+		
+		<sect2 id="ann.forums">
+			<title>Forums</title>
+			
+			<para>
+				This option allows the administrator to define in which forums the announcement will appear, by selecting
+				the checkbox beside the each forum. There is also a convenient 'All' button for selecting all of the 
+				forums at once, as well as a 'None' button to unselect all of the selected forums.
+			</para>
+		</sect2>
+		
+		<sect2 id="ann.st_date">
+			<title>Starting Date</title>
+			
+			<para>
+				This option specifies from which date the announcement will be visible.
+			</para>
+		</sect2>
+		
+		<sect2 id="ann.en_date">
+			<title>Ending Date</title>
+			
+			<para>
+				The announcement will not be shown past this date.
+			</para>
+		</sect2>
+		
+		<sect2 id="ann.subject">
+			<title>Subject</title>
+			
+			<para>
+				The subject of the announcement.
+			</para>
+		</sect2>
+		
+		<sect2 id="ann.message">
+			<title>Message</title>
+			
+			<para>
+				This this the actual content of the announcement, you can put raw HTML into this textarea.
+			</para>
+		</sect2>
+		
+		<para>
+			Below the announcement creation/editor form there is a list of all the current announcements in the system.
+			Beside each announcement there is a link allowing the administrator to edit or delete the announcement.
+		</para>
+	</sect1>
+	
+	<sect1 id="admin.thread.prunning">
+		<title>Thread Prunning</title>
+		
+		<para>
+			The thread prunning control panel allows the admin to remove threads that are older then a certain date.
+		</para>
+		
+		<sect2 id="thread.prunning.period">
+			<title>Time Period</title>
+			
+			<para>
+				Whether the indicated 'age' is a number of days, weeks, months or years.
+			</para>
+		</sect2>
+		
+		<sect2 id="thread.prunning.num">
+			<title>Numeric Value</title>
+			
+			<para>
+				Threads that are older then this number of days, weeks, months or years as specified by the 'Time Period'
+				option, will be pruned.
+			</para>
+		</sect2>
+		
+		<sect2 id="thread.prunning.frm">
+			<title>Forum Limiter</title>
+			
+			<para>
+				Allows the admin to specify a specific forum or category which to prune or whether to prune all forums.
+			</para>
+		</sect2>
+		
+		<para>
+			Once you click on the prune button the forum will calculate the number of threads that will be affected by the 
+			prunning and ask you to confirm that you indeed wish to prune that number of threads. If you confirm the process
+			the affected threads will be removed.
+		</para>
+		
+		<tip>
+			<simpara>
+			It is a good idea to run the <link linkend="admin.compact_messages">Compact Messages</link> utility 
+			after doing thread prunning.
+			</simpara>
+		</tip>
+	</sect1>
+	
+	<sect1 id="admin.user_manager">
+		<title>Moderator/User Manager</title>
+		
+		<para>
+			This control allows the administrator to manage users as well as assign and/or remove moderation
+			permission from users.
+		</para>
+		
+		<sect2 id="admin.user_manager.find">
+			<title>Choosing a User</title>
+			
+			<para>
+				The first step of managing a user is picking a user which you want to edit. You can do so
+				by entering the login name or the email address of the use into the appropriate fields on the 
+				user manager control panel.
+			</para>
+			
+			<para>
+				The control panel allows for partial matching, so you can enter masks such as 'ad*', which would
+				find all users who's login name begins with an 'ad'. 
+			</para>
+			
+			<para>
+				If there is only one matching user, their information will be retrieved into the user manager. If more
+				then one user matches, then you will be presented with a list of all the matching users and will be able
+				to pick the user you want to manage by clicking on their login name.
+			</para>
+		</sect2>
+		
+		<para>
+			Now that you've pulled up the user information inside the user manager you can proceed to modify the various
+			user settings.
+		</para>
+		
+		<sect2 id="admin.user_manager.login">
+			<title>Change Login Name</title>
+			
+			<para>
+				The user manager allows the administrator to change the login of the user who's account is being edited.
+				This can be accomplished by entering a different login into the 'Login' field and clicking on the 
+				'Change Login Name' button.
+				
+				<note>
+					<simpara>
+					Make sure the login you're going to enter is not already in use, otherwise the process will fail.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.user_manager.password">
+			<title>Change Password</title>
+			
+			<para>
+				The user manager allows the administrator to change the password of the who's account is being edited.
+				To change the password enter a new password into the 'Password' textbox and press the 'Change Password'
+				button.
+				
+				<note>
+					<simpara>
+					By default 'Password' textbox will always be empty since passwords are encrypted with a 1 way
+					algorithm, MD5 for greater security and cannot be decoded back.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.user_manager.profile">
+			<title>Change User's Profile</title>
+			
+			<para>
+				Clicking on this link will take the administrator to the profile control panel where they can edit
+				the user's profile and settings. The administrator will need to enter the their password on that form
+				to activate any of the changes that were made.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.user_manager.admin">
+			<title>Forum Administrator</title>
+			
+			<para>
+				This options shows whether this user is an administrator or not. By clicking on the toggle link the 
+				administrator can assign or remove administrative privileges from a user.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.user_manager.blocked">
+			<title>Blocked</title>
+			
+			<para>
+				Whether or not this user is blocked from posting messages on the forum.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.user_manager.coppa">
+			<title>COPPA</title>
+			
+			<para>
+				Whether or not this account requires COPPA confirmation.
+				
+				<note>
+					<simpara>
+					If the value is set to 'Y', then this account is pending COPPA confirmation.
+					</simpara>
+				</note>
+			</para>
+			
+			<para>
+				Children's Online Privacy Protection Act of 1998 (COPPA) indicates that all accounts of
+				children under the age of 13 must be confirmed by their legal guardians via FAX or Snail Mail.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.user_manager.econf">
+			<title>E-mail Confirmation</title>
+			
+			<para>
+				Whether or not this account has been confirmed via e-mail. <link linkend="global.option.EMAIL_CONFIRMATION">If enabled</link> 
+				in the admin control panel all new accounts must be confirmed via e-mail before they activated.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.user_manager.mod">
+			<title>Moderating Forums</title>
+			
+			<para>
+				Shows the list of the forum this user is moderating. Clicking on the 'Modify Moderation Permissions' 
+				link will open up a pop-up with a list of all the forums. By checking a checkbox beside each forum
+				the administrator can assign moderation permissions for that forum to this user. Unchecking a checked
+				checkbox will remove moderation permissions from the user.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.user_manager.ctag">
+			<title>Custom Tags</title>
+			
+			<para>
+				The administrator can assign an unlimited number of custom tags to a user. This option allows the admin
+				to enter the new custom tags for the user, by entering the text into the 'Custom Tags' textbox and pressing
+				the 'Add' button.
+				<note>
+					<simpara>
+					Custom tags may contain raw HTML.
+					</simpara>
+				</note>
+				
+				All of the user's current custom tags are listed above the textbox and can be removed by clicking the 
+				'Delete' link beside each custom tag.
+			</para>
+			
+			<para>
+				Custom tags are little bits of text and/or HTML that are displayed on the user's profile page as well
+				as inside the author information bit beside all their messages. 
+			</para>
+		</sect2>
+		
+		<para>
+			At the bottom of the user control panel there are a number of links that allow the admin to take certain actions
+			in regard to the selected user.
+		</para>
+		
+		<sect2 id="admin.user_manager.pm">
+			<title>Send Private Message</title>
+			
+			<para>
+				Send a private message to this user using the private messaging system.
+				
+				<note>
+					<simpara>
+					This link will only be available if the 
+					<link linkend="global.option.PM_ENABLED">private messaging system is enabled</link>.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.user_manager.email">
+			<title>Send Email</title>
+			
+			<para>
+				Send an e-mail to the user. If the <link linkend="global.option.ALLOW_EMAIL">forum's internal email system is enabled</link> 
+				it will be used, otherwise standard mailto: URL will be given, allowing the administrator 
+				to send the e-mail using their mail client.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.user_manager.posts">
+			<title>See Posts</title>
+			
+			<para>
+				Clicking this link will show all the posts made by this user.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.user_manager.rpass">
+			<title>Reset Password</title>
+			
+			<para>
+				Resets the user's password and sends the randomly generated password via e-mail to the user.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.user_manager.del">
+			<title>Delete User</title>
+			
+			<para>
+				Delete this user account, once deleted there is no way to retrieve the user's account it will be
+				permanently lost, be careful when using this option.
+			</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="admin.group_control_panel">
+		<title>Groups Manager</title>
+		
+		<para>
+			&FUDforum; includes a powerful and flexible group managment system. which gives the administrator
+			fined grained control over the actions that the users can perform on the forum.
+		</para>
+		
+		<para>
+			This control panel allows the administrator to manage the groups, add and remove group leaders as well as
+			specify which permissions the group leaders can assign to members of the groups they manage. The control 
+			panel allows the administrator to define, which resources (forums) a particular group can control.
+		</para>
+		
+		<para>
+			By default &FUDforum; automatically will create a group for every forum that is created. Those groups will carry
+			the same name as the forum with the addition of the 'FORUM:' prefix. These groups cannot be deleted manually and
+			will automatically be removed when the forum is deleted.
+		</para>
+		
+		<para>
+			In addition &FUDforum; also has two global groups, 'Global Anonymous Access' and 'Global Registered Access',
+			the group serve a special purpose of defining the default permissions for special 'anonymous' and 'registered' 
+			users, who's permissions define the actions those users may perform.
+			<example>
+				<title>Global Groups</title>
+				
+				<para>
+					Lets say that you do not wish to give the anonymous users the ability to read messages inside
+					any new forums you create. You can do this by modifying the permissions for the anonymous user
+					in every automatically generated group created for new forum. This is obviously is rather awkward
+					and inconvenient especially on large forums.
+				</para>
+				
+				<para>
+					In this case using a Global Group can simplify and automate the process. By editing the
+					'Global Anonymous Access' group and taking away the 'Visible' &amp; 'Read' permissions you
+					ensure that any new auto-generated groups will not allow anonymous users to view the 
+					resources (forums) that this group controls. With this single change, you were able to 
+					avoid much manual labor of having to change the permissions granted to anonymous users
+					in every group, which affects anonymous users.
+				</para>
+			</example>
+		</para>
+		
+		<sect2 id="admin.group_control_panel.res">
+			<title>Group Resources</title>
+			
+			<para>
+				Resources describe various things that the group system can control the permissions
+				for, currently the group system is only capable of controlling forums, in the future
+				its possible that the group system will be tasked with controlling permissions
+				for other resources.
+			</para>
+			
+			<para>
+				It's possible to have a group control multiple resources
+				<caution>
+					<simpara>
+					It's possible to have resource conflicts, for example
+					giving two groups control of the same resource. This 
+					isn't a problem for the group system as it will
+					try to intelligently resolve the situation,
+					see <xref linkend="admin.group_control_panel.conflicts"/>
+					</simpara>
+				</caution>
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.group_control_panel.leader">
+			<title>Group Leaders</title>
+			
+			<para>
+				Group Leaders are users who have the ability to add
+				other users to groups and control their permissions,
+				When adding other users to a group using the group
+				manager control form they are able to specify the
+				permissions of the user they are adding. However, a
+				group leader can never give a user a permission
+				for something that he himself is unable to do. 
+				
+				<caution>
+					<simpara>
+					It's possible to have group leader conflicts,
+					this shouldn't be a problem for the forum as it
+					will try to intelligently resolve the situation
+					see <xref linkend="admin.group_control_panel.conflicts"/>
+					</simpara>
+				</caution>
+			</para>
+			
+			<para>
+				Beside each group there is a list of permissions, the permissions which are set to 'Yes' can be
+				assigned or removed by the group leaders from the users in the group.
+			</para>
+			
+			<para>
+				If a particular permission is set to inherit, then this permission will be retrieved from the group
+				who's permissions the current group inherits.
+				
+				<example id="example.permission.inheritance">
+					<title>Permission Inheritance</title>
+					
+					<para>
+						Lets suppose there is a group 'Group A', which allows the group manager to control 
+						the 'Visible','Read' and 'Post' permissions. There is also  group 'Group B', 
+						which inherits 'Visible' and 'Read' permissions from 'Group A'. 
+					</para>
+					
+					<para>
+						While the permissions in 'Group A' allow the group manager(s) to control 
+						'Visible' and 'Read' permissions same would be true for group manager(s) in the 'Group B'.
+						Should the administrator take away the ability to control the 'Read' permission
+						from the forum 'Group A' managers, the 'Group B' managers will also loose 
+						the ability to change the 'Read' permission from the members of their group.
+					</para>
+				</example>
+				
+				The inheritance option is particularly useful if you are creating many similar groups and/or wish to have
+				the ability to change the permissions of multiple groups by altering the permissions of a single group.
+			</para>
+			
+			<sect3 id="admin.group_control_panel.manage_leaders">
+				<title>Managing Leaders</title>
+			
+				<para>
+					Beside each group there is a 'Manage Leaders' link, which would allow the administrator to
+					add and remove group leaders. The list of current group leaders is also listed beside each
+					group.
+					
+					<tip>
+						<simpara>
+						If you do not know the exact login of the user you wish to make a leader, enter a partial
+						login and the list of matches will be presented to you.
+						</simpara>
+					</tip>
+				</para>
+			</sect3>
+		</sect2>
+		
+		<sect2 id="admin.group_control_panel.mgr">
+			<title>Adding &amp; Editing Groups</title>
+			
+			<para>
+				This form, which is located top of the page allows the administrator to add and edit groups.
+			</para>
+			
+			<sect3 id="admin.group_control_panel.group_name">
+				<title>Group Name</title>
+				
+				<para>
+					Group name can be whatever you want, it's preferable you name it something descriptive
+					for future reference. It is generally a good idea, to name a group in such a way
+					that it is possible to see which resources (forums) are controlled by this group by looking
+					at it's name.
+				</para>
+			</sect3>
+		
+			<sect3 id="admin.group_control_panel.group_resources">
+				<title>Group Resources</title>
+				
+				<para>
+					Controls the resources (forums) that the group permissions will be applied to, it is 
+					possible for a group to control multiple resources.
+				</para>
+			</sect3>
+		
+			<sect3 id="admin.group_control_panel.inherit_from">
+				<title>Inherit From</title>
+			
+				<para>
+					Groups can inherit permissions from other groups, this allows
+					you to select from which group, the current group should inherit it's permissions from.
+					
+					<tip>
+						<simpara>
+						An example of how permission inheritance works can be found 
+						<link linkend="example.permission.inheritance">here</link>.
+						</simpara>
+					</tip>
+				</para>
+			</sect3>
+		
+			<sect3 id="admin.group_control_panel.anon_reg_masks">
+				<title>Anonymous and Registered Masks</title>
+			
+				<para>
+					This control whether or not this group will be able to affect the permissions of
+					the resources assigned for to this group for all of the anonymous and registered users.
+					This is a particularly dangerous option since it can be used to grant or take away permissions
+					from a large group of users simultaneously.
+				</para>
+				
+				<para>
+					Misuse of this option, can for example block access to all registered users to all of the forums
+					controlled by this group if used improperly.
+				</para>
+			</sect3>
+		
+			<sect3 id="admin.group_control_panel.permissions">
+				<title>Permissions</title>
+			
+				<para>
+					These are the actual permissions of the group, they control the 
+					<emphasis role="bold">maximum</emphasis> allowed permissions for the 
+					group leaders and regular users belonging to this group.
+				</para>
+				
+				<para>
+					Each permission can have 3 values:
+					<itemizedlist>
+						<listitem><para>Yes, indicates that the members of this group are allowed perform this action</para></listitem>
+						<listitem><para>No, indicates that the members of this group are NOT allowed to perform this action</para></listitem>
+						<listitem><para>Inherit, indicates that the group inherits it's permissions from the parent group, as specified in the 'Inherit From' option.</para></listitem>
+					</itemizedlist>
+				</para>
+			</sect3>
+		</sect2>
+
+		<sect2 id="admin.group_control_panel.users">
+			<title>Adding Users to a Group</title>
+			
+			<para>
+				The administrator can add/remove regular users from a group by clicking on the 'Manage Users' link
+				located near each group or by using the 'Group(s) Manager' link on the forum's pages.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.group_control_panel.conflicts">
+			<title>Resolving Conflicts</title>
+			
+			<para>
+				The group system allows a creation of conflicts by design, consider
+				the following situation
+			</para>
+			
+			<para>
+				You created a group named G1 which allows members to READ messages inside forum
+				F1, and created a leader U1 in that group.
+			</para>
+			
+			<para>
+				Now you create a group called G2, which allows members to post messages inside
+				forum F1 and made U1 the leader of the group.
+			</para>
+			
+			<para>
+				Now you have a conflict of permissions, because both G1 and G2 control
+				the same resource and have the same user in them, so which permissions
+				should the forum give U1? posting or viewing?
+			</para>
+			
+			<para>
+				What will happen in reality, is that forum will grant group leader U1 both READ and
+				POST permissions to the forum F1 because the logic for the group leaders is additive.
+				Which means, that the highest possible permissions will be granted to a group leader.
+			</para>
+			
+			<para>
+				This works opposite for normal users, if U1 was a normal user (i.e. NOT a group leader)
+				then the logic would have been subtractive, that is, since is the permissions wouldn't 
+				have been added. U1 would have ended up without READ and POST permissions.
+			</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="admin.mass_email">
+		<title>Mass Mail System</title>
+		
+		<para>
+			This control panel allows the administrator to send an e-mail message to all the registered users.
+		</para>
+		
+		<sect2 id="admin.mass_email.over">
+			<title>Ignore User Override</title>
+			
+			<para>
+				The user can specify that they wish to ignore admin's emails via their profile settings. However,
+				if the admin feels that the message is important enough that all forum members should receive it, then
+				they can overwrite the user's setting, by selecting this option.
+			</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="admin.ranks">
+		<title>Rank Manager</title>
+		
+		<para>
+			&FUDforum; allow the administrator to define user ranks that will be assigned to users once they reach a 
+			certain number of posts. This control panel allows the admin to define those ranks.
+		</para>
+		
+		<para>
+			Each rank is normally a text string, however the admin may choose to have the rank represented by an image
+			or a combination of an image and text.
+		</para>
+		
+		<sect2 id="admin.ranks.name">
+			<title>Rank Name</title>
+			
+			<para>
+				This field contains the text that would be displayed beside the names of all the forum users who 
+				have attained this rank.
+				
+				<note>
+					<simpara>
+					This field may contain raw HTML.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.ranks.image">
+			<title>Rank Image</title>
+			
+			<para>
+				If you wish the rank to be represented by an image enter the name of the image inside this textbox. 
+				The images that you wish to use in combination with rank's should be placed inside the forum's
+				images directory, which can be found inside <link linkend="global.option.WWW_ROOT">WWW_ROOT</link>.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.ranks.wimage">
+			<title>Which Image to Show</title>
+			
+			<para>
+				If you have chosen to have rank represented by an image, you may give this image preference over the user's
+				avatar, that way only 1 image is displayed, or vise versa. You may also choose that both the avatar and 
+				the rank image will be displayed.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.ranks.pcount">
+			<title>Post Count</title>
+			
+			<para>
+				The minimum number of posts the user must make before they achieve this rank.
+			</para>
+		</sect2>
+		
+		<para>
+			Below the rank editor form, there is a list of all the current ranks in the forum. You may choose to edit or delete
+			the ranks by clicking on the appropriate link beside each rank.
+		</para>
+		
+		<important>
+			<simpara>
+			After making any modifications you MUST run the 'Cache Rebuilder' by clicking on the link at the top of the
+			Rank Manager form.
+			</simpara>
+		</important>
+	</sect1>
+	
+	<sect1 id="admin.template_editor">
+		<title>Template Editor</title>
+		
+		<para>
+			&FUDforum; has a complete templating system that allows the administrator to customize and change the 
+			appearance of their forum in it's entirety.
+		</para>
+		
+		<para>
+			This control panel offers a web interface to the templates, allowing the admin to change the templates 
+			via their browser. This is generally intended for quick changes and/or fixes, if you intend to do a complete
+			layout redesign we recommend changing the templates (*.tmpl files inside the template/tmpl/ directory) 
+			with your text editor of choice.
+		</para>
+		
+		<para>
+			The template editor shows the administrator a list of all the available templates that make up the various forum pages. 
+			clicking on the red + link beside each template it will expand the template, showing all the sub-templates 
+			that make up this page. 
+		</para>
+		
+		<para>
+			The primary page template has a light purple color, this template defines how the page and it's elements will
+			be constructed. The other sub-templates, which are colored black define the various page elements that make up
+			the page. Beside some templates who's name may not explain their purpose you can find green explanation text
+			that will tell you the purpose of the template.
+		</para>
+		
+		<para>
+			If you click on the template, the template's data will be loaded in to a text area allowing you to edit the
+			template. The template's data is mostly comprised of raw HTML with certain template tags representing the dynamic
+			data that will be inserted into the template.
+		</para>
+		
+		<para>
+			The following, are the non HTML template entities that can be found inside the template.
+			<itemizedlist>
+				<listitem><para><emphasis role="bold">{MSG: msg_key}</emphasis> Reference to a message inside the i18n messages file.</para></listitem>
+				<listitem><para><emphasis role="bold">{VAR: var_key}</emphasis> PHP variable</para></listitem>
+				<listitem><para><emphasis role="bold">{DEF: var_key}</emphasis> PHP define</para></listitem>
+				<listitem><para><emphasis role="bold">{VAR-HTML: var_key}</emphasis> PHP variable that will be encoded using htmlspecialchars() function</para></listitem>
+				<listitem><para><emphasis role="bold">{VAR-URL: var_key}</emphasis> PHP variable that will be encoded using urlencode() function</para></listitem>
+				<listitem><para><emphasis role="bold">{TEMPLATE-DATA: var_key}</emphasis> Template's data which is stored in a variable.</para></listitem>
+				<listitem><para><emphasis role="bold">{TEMPLATE: tmplate_name}</emphasis> Include template with the specified name here</para></listitem>
+				<listitem><para><emphasis role="bold">{DATE: var_key date_format}</emphasis> Print date based on var_key passing the date_format as the date's format to strftime() function</para></listitem>
+				<listitem><para><emphasis role="bold">{ALT-VAR: alt_name key1 key2 ...}</emphasis> Color alternator, it will alternate the colors specified as key#</para></listitem>
+			</itemizedlist>	
+			
+			<note>
+				<simpara>
+				If you edit the tmpl files manually you will also come across the 
+				<emphasis role="bold">{REF: template_file_name}</emphasis> tag. This tag tells the template compiler
+				to include the source of the said file when generating the page you are editing. The compiler then will
+				inline the file when its generating this page.
+				</simpara>
+			</note>
+		</para>
+		
+		<para>
+			To save your changes, click on the 'Save Changes' button, this will not only save your changes but also 
+			recompile the template putting the changes you've made live. So, that you will be able to see how those changes
+			altered the layout of the page.
+		</para>
+		
+		<para>
+			If you wish edit to content of the text shown on the page, click on the 'Edit Text Messages', which will
+			allow you to edit all of the text messages used on this page using the 
+			<link linkend="admin.message_editor">Message Editor</link>.
+		</para>
+		
+		<important>
+			<simpara>
+			After making manual modifications to the template(s), click on the <link linkend="admin.rebuild_templates">Rebuild Templates</link>
+			option in the admin control panel to activate the changes you have made.
+			</simpara>
+		</important>
+	</sect1>
+	
+	<sect1 id="admin.message_editor">
+		<title>Message Editor</title>
+		
+		<para>
+			&FUDforum; included i18n support, which allows the administrator to easily pick a language other then English for 
+			their forum. The i18n supports also makes it extremely easy to translate the forum into languages that are
+			not yet included in the main distribution.
+		</para>
+		
+		<para>
+			The i18n support is accomplished by keeping all of the text displayed on the forum in a special file, which
+			can be edited via this control panel or manually with a text editor.
+			
+			<note>
+				<simpara>
+				If you are introducing major changes or translating a forum in to another language you're probably
+				better off making the modifications using a text editor rather then the web control panel. If you
+				do translate the forum to another language keep in mind that in accordance with the &gpl; license
+				you MUST provide us, FUDforum Development Team, with the translated text.
+				</simpara>
+			</note>
+		</para>
+		
+		<para>
+			The message editor displays a color coded view of the templates and their corresponding messages. It also
+			indicated which files utilize each template.
+		</para>
+		
+		<para>
+			Below is the explanation for the color codes used in the message editor.	
+			<itemizedlist>
+				<listitem><para><emphasis role="bold">Red</emphasis> Template name, clicking on this link will pull up a form with all the messages inside this template, allowing you to edit them.</para></listitem>
+				<listitem><para><emphasis role="bold">Green</emphasis> Indicated a particular message. Clicking on this link will allow you to edit this message.</para></listitem>
+				<listitem><para><emphasis role="bold">Brown</emphasis> These links are shown below the templates (in red) that are used by other templates. Clicking on this link will change your browser's focus to that template.</para></listitem>
+			</itemizedlist>
+		</para>
+		
+		<para>
+			When you click on the 'Edit' button available on the message edit form, your changes will be saved to the message
+			file and the forum will be recompiled to using the new data you've entered.
+		</para>
+		
+		<important>
+			<simpara>
+			After making manual modifications to the message file, click on the <link linkend="admin.rebuild_templates">Rebuild Templates</link>
+			option in the admin control panel to activate the changes you have made.
+			</simpara>
+		</important>
+	</sect1>
+	
+	<sect1 id="admin.language">
+		<title>Language Selection</title>
+		
+		<para>
+			This option allows you to change the language your forum is in. The supported languages are listed in 
+			the 'Language' select box.
+		</para>
+		
+		<sect2 id="admin.language.locale">
+			<title>Locale</title>
+			
+			<para>
+				Each language has a related locale value, the locale setting tells PHP to print all dynamically
+				generated information such as dates in the selected language. This value is filled in automatically
+				for you when you choose a language, if for whatever reason you believe the value is invalid or have a
+				more appropriate locale value you can alter the default by entering a different value inside the 'Locale'
+				textbox.
+			</para>
+			
+			<para>
+				If you are unsure of what this option does, it is better to leave the default value as the locale
+				setting.
+			</para>
+			
+			<note>
+				<simpara>
+				On most *NIX computers you can see the list supported locales by executing this command: 
+				<literal>locale -a</literal>
+				</simpara>
+			</note>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="admin.rebuild_templates">
+		<title>Rebuild Templates</title>
+		
+		<para>
+			This control will rebuild the forum's files from the templates. It is advised to run this utility 
+			after performing any manual modifications to the forum's template, message or source files.
+		</para>
+	</sect1>
+	
+	<sect1 id="admin.smilies">
+		<title>Smiley Manager</title>
+		
+		<para>
+			This control panel allows the administrator to manage the smilies/emoticons supported by the forum.
+		</para>
+		
+		<sect2 id="admin.smilies.upload">
+			<title>Smilies Upload</title>
+			
+			<para>
+				At the top of the Smiley Manager control panel there is an upload control allowing the administrator
+				to upload images from their hard drive that can be used as smilies.
+			</para>
+			
+			<para>
+				Clicking on the 'Browse' button will open a dialog window using which an image can be selected. Once
+				that is done, clicking the 'Upload' button will upload the image to the server placing it inside the
+				smilies directory.
+			</para>
+			
+			<para>
+				Once a smiley is uploaded, it's name will automatically be inserted into the 'Smiley Image' textbox
+				and the preview of the smiley will be visible in the 'Preview Image'.
+			</para>
+		</sect2>
+		
+		<para>
+			This >Smilies Management control panel allows the administrator to add or edit existing smilies.
+			At the time of editing all of the smiley's properties will be loaded into this control panel so that
+			they may be edited.
+		</para>
+		
+		<sect2 id="admin.smilies.descr">
+			<title>Smiley Description</title>
+			
+			<para>
+				This text will appear in the alt tag of the smiley image, which would be shown if a user holds their
+				mouse above the smiley image. For people using text only browsers this description will appear instead
+				of the smiley image.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.smilies.code">
+			<title>Smiley Text</title>
+			
+			<para>
+				In this text field you enter the special code(s) that will be replaced by the smiley. You can enter
+				more then one code by separating the codes with the <literal>~</literal> character.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.smilies.file">
+			<title>Smiley Image</title>
+			
+			<para>
+				The codes specified in the 'Smiley Text' option will be replaced with this image. You may choose the
+				image from the available smilies by clicking on the 'SELECT ICON' link, which will pop-up a window
+				will all the smiley images in the forum. You can choose the image you want by clicking on it.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.smilies.preview">
+			<title>Preview Image</title>
+			
+			<para>
+				The preview of image you've selected in the 'Smiley Image' option.
+				
+				<note>
+					<simpara>
+					The preview will not appear if you manually enter the image filename in the 'Smiley Image' option.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+		
+		<para>
+			At the bottom of the 'Smiley Manager' there is a list of all the smilies that are supported by the forum. Beside
+			each smiley there are 3 control links allowing the administrator to change the smiley settings.
+		</para>
+		
+		<sect2 id="admin.smilies.edit">
+			<title>Edit Link</title>
+			
+			<para>
+				When clicked, this link will load the smiley information into 'Smilies Management' control allowing 
+				the administrator to edit smiley's properties.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.smilies.del">
+			<title>Delete Link</title>
+			
+			<para>
+				Clicking on this link will remove the smiley from the system.
+				
+				<note>
+					<simpara>
+					The image will still be on the server, so that messages which use it will not have broken images
+					in them. The image itself can be deleted manually via the shell or FTP and can also be removed 
+					via the <link linkend="admin.file_manager">forum's file manager</link>.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.smilies.post">
+			<title>Change Position Link</title>
+			
+			<para>
+				Clicking this link will allow the administrator to change the position of the smiley. Normally the 
+				smilies are displayed in the order they are added in to the system. This is important if you have 
+				more smilies then you want to display shortcuts to on the post forms as defined by the 
+				<link linkend="global.option.MAX_SMILIES_SHOWN">Maximum Smilies Shown</link> option in the global
+				control panel.
+			</para>
+			
+			<para>
+				If that is the case only the first 'Maximum Smilies Shown' number of smilies will be shown on the post
+				form and for the rest the user will need to click on a special link.
+			</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="admin.forum_icons">
+		<title>Forum Icon Manager</title>
+		
+		<para>
+			This control panels allows the administrator to add and remove forum icons. Forum icons are images that
+			the admin can choose to display beside each forum that they create.
+		</para>
+	</sect1>
+	
+	<sect1 id="admin.msg_icons">
+		<title>Message Icon Manager</title>
+		
+		<para>
+			This control panel allows the administrator to add and remove message icons. Message icons are images that
+			the users may choose to use as icons of the messages that they post.
+		</para>
+	</sect1>
+	
+	<sect1 id="admin.avatar_apr">
+		<title>Avatar Approval</title>
+		
+		<para>
+			This form allows the administrator to approve any URL &amp; Uploaded avatars that forum users wish to use.
+		</para>
+		
+		<para>
+			If the uploaded image has greater dimensions then the ones specified as allowed and 
+			<link linkend="global.option.MOGRIFY_BIN">mogrify tool</link> is available the administrator may choose to scale the 
+			image down to <link linkend="global.option.CUSTOM_AVATAR_MAX_DIM">maximum allowed dimensions</link> by clicking on the 'Fix It' link.
+		</para>
+	</sect1>
+	
+	<sect1 id="admin.avatar">
+		<title>Avatar Manager</title>
+		
+		<para>
+			Allows the administrator to manager built-in forum avatars. These images can be used by the users as their avatars,
+			unlike the URL &amp; Uploaded avatars these do not require administrator's approval before they are activated.
+		</para>
+		
+		<sect2 id="admin.avatar.upload">
+			<title>Uploading Avatar</title>
+			
+			<para>
+				At the top of the Avatar Manager form there is an upload control that would allow the administrator
+				to upload new avatar in to the system.
+			</para>
+			
+			<para>
+				To select the image, click on the 'Browse' button, which will open a file selection dialog using which
+				the administrator may choose an image from their drive that will be uploaded.
+			</para>
+			
+			<para>
+				Once the image is selected, clicking on the 'Upload' button will upload the avatar. Once uploaded, the
+				file name of the avatar will appear inside the 'Avatar Image' text box and preview of the avatar will be
+				available inside the 'Preview Image' control.
+			</para>
+		</sect2>
+		
+		<para>
+			Avatar Management form, which appears below the avatar upload form allows the administrator to edit and add avatars.
+			During editing the avatar's values are inserted in to the form to allow for easy editing.
+		</para>
+		
+		<sect2 id="admin.avatar.descr">
+			<title>Description</title>
+			
+			<para>
+				A short description of the avatar, this text will appear below the avatar on the user's avatar selection
+				form.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.avatar.img">
+			<title>Avatar Image</title>
+			
+			<para>
+				The filename of the avatar, you can choose an avatar from the list of available images by clicking on the
+				adjacent 'SELECT AVATAR' link.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.avatar.preview">
+			<title>Preview Image</title>
+			
+			<para>
+				Shows the preview of the avatar.
+			</para>
+		</sect2>
+		
+		<para>
+			At the bottom of the page there is a list of all the available avatars. Beside each avatar there is an edit 
+			and delete link allowing the administrator to edit this avatar's properties or delete it all together.
+		</para>
+	</sect1>
+	
+	<sect1 id="admin.email_filter">
+		<title>Email filter</title>
+		
+		<para>
+			Allows the administrator to block people with a matching e-mail address from posting messages on the forum. It 
+			would also prevent people who's e-mail matches the filter, from registering on the forum.
+		</para>
+		
+		<sect2 id="admin.email_filter.simple">
+			<title>Simple</title>
+			
+			<para>
+				Use this filter if you are entering a specific e-mail address. ex. myemail@emaildomain.com
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.email_filter.regex">
+			<title>Regular Expression</title>
+			
+			<para>
+				Use this filter if you want to use regular expression masks to match the e-mail address'. This is
+				very useful if you want to block all people from a certain ISP. ex. .*@aol\.com filter would block
+				all people who's e-mail address ends with @aol.com
+				
+				<note>
+					<simpara>
+					Internally this function uses preg_match() to evaluate the regular expression.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="admin.ip_filter">
+		<title>IP Filter</title>
+		
+		<para>
+			Allows the administrator to block people with a matching ip address' from posting messages on the forum.
+		</para>
+		
+		<para>
+			The IP address can be entered in 2 ways:
+			
+			<itemizedlist>
+				<listitem><para><emphasis role="bold">Complete IP</emphasis> 
+					The full IP of the user, ex. 111.11.1.111 would block all user's who's IP is 111.11.1.111
+				</para></listitem>
+				<listitem><para><emphasis role="bold">IP Mask</emphasis> 
+					You can enter an IP mask that would block a whole range of IP addresses
+					<screen>ex. 22.23.24. IP mask would block all users who's first 3 IP elements are 22.23.24 or more commonly known as 22.23.24.0/24 mask.</screen>
+					<screen>ex. 24.*.21.22 IP mask would block all users who's 1st IP element is 24 and the last 2 IP elements are 21.21</screen>
+				</para></listitem>
+			</itemizedlist>
+		</para>
+	</sect1>
+	
+	<sect1 id="admin.login_filter">
+		<title>Login Filter</title>
+		
+		<para>
+			Allows the administrator to block people with a matching login name from registering and posting messages on the forum.
+		</para>
+		
+		<para>
+			This option uses regular expression, so you can enter masks in this field. ex. .*fool.* would block people who's
+			login contain the text <literal>fool</literal>.
+		</para>
+	</sect1>
+	
+	<sect1 id="admin.file_filter">
+		<title>File Filter</title>
+		
+		<para>
+			Allows the administrator to specify which files types can be attached to forum messages. This is done by entering
+			specifying the allowed file extensions.
+		</para>
+		
+		<para>
+			If no file extensions are listed then ANY file can be attached.
+		</para>
+	</sect1>
+	
+	<sect1 id="admin.dump">
+		<title>Make forum datadump</title>
+		
+		<para>
+			This option allows the administrator to generate a backup of all the forum data that is stored on disk
+			and in MySQL. If PHP's gzip module is available the administrator may choose to compress the backed up data,
+			to save drive space.
+		</para>
+	</sect1>
+	
+	<sect1 id="admin.import">
+		<title>Import forum data</title>
+		
+		<para>
+			Import forum data from a forum datadump. It is recommended that the forum you're importing the data from
+			and the forum you're importing the data to are of the same version.
+			
+			<warning>
+				<simpara>
+				Importing forum data would result in the loss of all current data inside the forum.
+				</simpara>
+			</warning>
+		</para>
+	</sect1>
+</chapter>

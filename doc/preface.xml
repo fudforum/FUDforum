@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- $Id: preface.xml,v 1.1.1.1 2002/06/17 23:00:10 hackie Exp $ -->
+
+<preface id="preface">
+	<title>Preface</title>
+
+	<abstract>
+		<simpara>
+			&FUDforum; is web based forum software designed in PHP, utilizing MySQL back-end released under the 
+			&gpl; Open Source license. It is designed to work on any web server that supports PHP, which makes it
+			usable on virtually very OS. The forum includes i18n and templating support allowing for a complete 
+			customization of it's output as well as a very capably group based permission system.
+		</simpara>
+	</abstract>
+
+	<para>
+		This manual is primarily intended towards forum administrators, it's aim to explain how to use the various 
+		features of the forum.
+	</para>
+
+	<para>
+		This manual is available in several formats, which are downloadable from 
+		<ulink url="&url.fud.docs;">&url.fud.docs;</ulink>.
+	</para>
+</preface>

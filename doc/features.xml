@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- $Id: features.xml,v 1.1.1.1 2002/06/17 23:00:10 hackie Exp $ -->
+<chapter id="features">
+	<title>&FUDforum; Features</title>
+	
+	<para>
+		&FUDforum; includes numerous features, this section will briefly overview most of those features to give you 
+		an idea about the full capabilities of &FUDforum;.
+	</para>
+	
+	<sect1 id="features.spell">
+		<title>Spell Checker</title>
+		
+		<para>
+			&FUDforum; supports a fully functional spell checker, that <link linkend="global.option.SPELL_CHECK_ENABLED">if 
+			enabled</link> would allow forum users to spell check their messages before posting.
+		</para>
+		
+		<para>
+			The spell checker utilizes PHP's Pspell library and supports multiple languages.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.template">
+		<title>Templating System</title>
+		
+		<para>
+			&FUDforum; contains a fully customizable templating system, that allows you to completely customize the the look
+			and feel of your forum. For optimal performance the templates are compiled, so you do loose any speed as you do 
+			in other forums by having a templating system.
+		</para>
+		
+		<para>
+			The <link linkend="admin.template_editor">controls for the templating system</link> can be found inside 
+			the admin control panel.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.i18n">
+		<title>i18n Support</title>
+		
+		<para>
+			&FUDforum; has full i18n support, that allows an easy translation of the forum into a language of your choice.
+			Currently &FUDforum; is distributed with 4 languages: English, German, Swedish and Polish.
+		</para>
+		
+		<para>	
+			More languages will be available in the near future. During the installation process you will have the opportunity to
+			choose the forum's language. This option can later be modified via the &FUDforum; 
+			<link linkend="admin.language">language control panel</link>.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.groups">
+		<title>Group Permission System</title>
+		
+		<para>
+			&FUDforum; supports a highly capable permissions system, which can be used to control what forum users can and cannot do.
+			Using this system you can grant special access rights to certain users, block users from seeing and/or accessing certain
+			forum etc... 
+		</para>
+		
+		<para>
+			This system also includes support for "group managers" have the ability to manage users in the groups they control. This
+			option allows the admin to delegate responsibility to trustworthy forum members.
+		</para>
+		
+		<para>
+			The Group Management is done via two control panels, the <link linkend="admin.group_control_panel">administrative group manager</link>, which allows 
+			the admin(s) to add/remove groups as well as assign group managers and specify what permissions the group managers can assign
+			and/or take away. This control panel also allows the admin to make groups inherit permissions from other groups, thus not 
+			needing to specify new permission every time for similar groups.
+		</para>
+		
+		<para>
+			The second control panel, the <link linkend="mod.groups">user group manager</link>, which allows the group manager(s) 
+			and the admin(s) to add and remove users from a group as well as change the permissions of the users inside the group 
+			can be a accessed via a link available to all Administrators and Group Managers on most forum pages.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.pm">
+		<title>Private Messaging</title>
+		
+		<para>
+			&FUDforum; includes a private messaging system that <link linkend="global.option.PM_ENABLED">if enabled</link> via 
+			the <link linkend="admin.global_settings_manager">global control panel</link> allows forum members to send private 
+			messages to one another. 
+		</para>
+		
+		<para> 
+			The private messaging system supports forwarding, the ability to send a message to multiple users and reply notifications.
+			If allowed by the administrator, the users may also attach one or more files to their private messages.
+			Just like in a mail client the sent messages are stored in a special folder, 'sent', 
+			so that the user can easily refer back to them if the need arises. There is also a 'drafts' folder
+			where the user can keep their unfinished messages.
+		</para>
+		
+		<para>
+			The admin via the <link linkend="global.pm.options">private messaging controls</link> can specify what features the users
+			may use inside their private messages, as well as the amount messages the users can keep in their PM folders.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.files">
+		<title>File Attachments</title>
+		
+		<para>
+			If permitted by the admin users may attach files to their forum &amp; private messages. The amount of files that the user 
+			can attach as well as their maximum size can be defined by the admin on a forum by forum basis via the 
+			<link linkend="admin.category_forum_management">forum control panel</link>. The ability to attach files to private messages can be defined by the admin
+			via the <link linkend="global.pm.options">private messaging system controls</link>.
+		</para>
+		
+		<para>
+			In addition to specifying the size and the quantity limits the administrator may also indicate what file types
+			can be attached to the messages using the <link linkend="admin.file_filter">file attachment control panel</link>. 
+			The attached files will be matched against the <link linkend="admin.mime_managment_system">&FUDforum; MIME listing</link> 
+			so that a proper file icon can be assigned to the file as well as allowing the file download form to send the 
+			proper header to the browser allowing it to interpret the file properly.
+		</para>
+		
+		<para>
+			It is also possible to restrict certain users from being able to attach files or only allow certain users to attach files
+			using the <link linkend="mod.groups">group management system</link>.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.polls">
+		<title>Polls</title>
+		
+		<para>
+			&FUDforum; supports a complete polling system, which allows users, if permitted to add polls to their messages.
+		</para>
+		
+		<para>
+			Polls are quick multiple choice questioners, which can be used to gather user options on a matter at hand. The forum tracks
+			the votes and ensures that people cannot vote more then once to prevent ballot stuffing.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.subscriptions">
+		<title>Forum &amp; Thread Subscriptions</title>
+		
+		<para>
+			The users on the forum have the ability to subscribe to threads &amp; forums. By subscribing to a thread a user will receive 
+			an E-mail or ICQ notification about any new posts made inside that thread. The subscription to a forum on the other hand 
+			will notify the user of any new threads created in the forum.
+		</para>
+		
+		<para>
+			To prevent sending multiple notifications the notification system will only notify the user if they have no unread 
+			notifications for that particular forum or thread. This is extremely useful for active forums where many messages can be
+			posted in a short period of time causing a massive amount of notifications to be sent to the user about the same content.
+		</para>
+		
+		<para>
+			Each forum member has access to their own subscription control panel, which can be used to see what subscriptions they
+			currently have and allow the user to unsubscribe from any of the subscribed to content.
+		</para>
+		
+		<para>
+			If specified by the admin, the forum can include the full body of the message in the E-mail notification, so that a user
+			can read and reply to the message directly via their mail client. These notifications come specially formated, so that
+			they are properly displayed on all e-mail clients, regardless of whether those mail clients support HTML or not.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.tree">
+		<title>Tree View</title>
+		
+		<para>
+			In addition to the standard way of viewing messages inside the forum, &FUDforum; supports a tree view, which builds a tree
+			of messages akin to the one used by the newsgroups.
+		</para>
+		
+		<example>
+			<title>Sample Tree View</title>
+<screen>
+[*] Main Message
+	[-] Reply To: Main Message
+	[+] Reply To: Main Message
+		[+] Reply To: Reply To: Main Message
+			[-] Reply To: Reply To: Reply To: Main Message
+	[-] Another Reply to Main Message		
+</screen>
+		</example>
+	</sect1>
+	
+	<sect1 id="features.search">
+		<title>Full Text Search</title>
+		
+		<para>
+			&FUDforum; includes a full text search that allows users to search the posted messages by entering on or more
+			keywords. The user has the option of limiting the search to a particular forum or category or they can search the entire 
+			forum. In addition the user may specify whether to search the in the entire message or just in the message subject.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.ispy">
+		<title>I-Spy &amp; Online Status</title>
+		
+		<para>
+			I-SPY is a neat feature, that <link linkend="admin.action_log_viewer">if enabled</link> will allow forum 
+			users to see what other forum users are doing at this very moment.
+		</para>
+		
+		<para>
+			The forum also keeps track of the currently online users, and indicator is placed beside each message showing whether the author of the
+			message is currently online or not. This too can be disabled via the <link linkend="admin.action_log_viewer">global control panel</link>.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.fudcode">
+		<title>FUDcode</title>
+		
+		<para>
+			FUDcode is a series of text formatting tags that allow users to style the text of their messages &amp; signatures.
+			More information about this features as well as the complete list of supported tags can be found 
+			<link linkend="fudcode">here</link>.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.smilies">
+		<title>Smilies/Emoticons</title>
+		
+		<para>
+			Smilies are commonly used codes to represent emotions, such as :) for example is generally used to indicate happiness. 
+			&FUDforum; has a list of  30 commonly uses smiley codes that will be replaced with image representing the corresponding 
+			emotion the author is trying to convey. The administrator can add/edit/delete the supported smilies via the 
+			<link linkend="admin.smilies">smilies control panel</link>.
+		</para>
+		
+		<para>
+			Whether or not text codes are replaced with corresponding images can be defined by the administrator on a forum by 
+			forum basis. The group management system can also be used to disallow usage of smilies.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.avatars">
+		<title>Avatars</title>
+		
+		<para>
+			If permitted by the administrator users can choose to have an avatar image which they can either upload to the server,
+			specify a url to or choose from the forum's avatar galleries. The avatar images will be displayed beside their name
+			on all of their posts.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.custom_tags">
+		<title>Custom Tags</title>
+		
+		<para>
+			&FUDforum; allows the administrator to assign users an unlimited number custom tags that 
+			would appear on their profile as well as beside their posts. This feature can be used to 
+			indicate any special functions of the user.
+		</para>
+		
+		<para>
+			Custom tags can be added or removed via the <link linkend="admin.user_manager">user control panel</link>.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.ranks">
+		<title>User Ranks</title>
+		
+		<para>
+			User Ranks are assigned to users based on the number of posts they have made on the forum. These ranks may contain
+			a text and/or image indicator showing the user's rank.
+		</para>
+		
+		<para>
+			The administrator can add/edit/delete the available user ranks via the <link linkend="admin.ranks">rank manager</link>.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.censor">
+		<title>Censor &amp; Replacement System</title>
+		
+		<para>
+			In &FUDforum; you can specify that certain strings or words would be replaced by the alternatives provided by
+			the administrator. This is most commonly used to filter in appropriate language from being used in the forum.
+		</para>
+		
+		<para>
+			The administrator can specify the strings that are to be replaced via the 
+			<link linkend="admin.replacement_censorship_system">replacement control panel</link>, which supports 
+			both basic replacement as well as regex pattern matching.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.iptracking">
+		<title>IP Tracking</title>
+		
+		<para>
+			&FUDforum; tracks the IP address of all the people who have made posts on the forum. The moderators &amp; administrators
+			can see the IP of the author beside each message posted. In addition to showing the IP, the IP itself is a link to a URL
+			that shows the ISP of the person who's IP this is.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.actionlog">
+		<title>Action Log</title>
+		
+		<para>
+			&FUDforum; logs all the actions taken by privileged users such as moderators. The 
+			<link linkend="admin.action_log_viewer">action log</link> allows the administrator(s) to see when and what 
+			actions were performed by the users with special privileges. This form will also show the log 
+			of all the failed login attempts in to the administrator account.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.message_mangling">
+		<title>Message Mangling</title>
+		
+		<para>
+			The ability to edit, delete, move and split threads and messages.	
+		</para>
+	</sect1>
+	
+	<sect1 id="features.user_block">
+		<title>User Blocking</title>
+		
+		<para>
+			The administrator has an extensive set of tools to block people from the forum. This includes and 
+			<link linkend="admin.ip_filter">IP filter</link> that allows blockage of users with a certain IP mask from accessing the forum.
+		</para>
+		<para>
+			<link linkend="admin.email_filter">Email filter</link>, blocks all users who's e-mail address matches the mask specified by the admin.
+			This also prevents people from registering with an e-mail that matches the specified mask.
+		</para>
+		<para>
+			<link linkend="admin.login_filter">Login filter</link>, block all users who's login matches the mask specified by the admin.
+			This also prevents people from registering with a login that matches the specified mask.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.sessions">
+		<title>Session Support</title>
+		
+		<para>
+			If for whatever reason cookies are not enabled on the user's computer &FUDforum; will use URL sessions to 
+			keep track of the user. Thus allowing the user use the forum even if they do not have a cookie set on their
+			computer.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.installation">
+		<title>Installation &amp; Upgrade</title>
+		
+		<para>
+			&FUDforum; includes an easy to use installation wizard that will have your forum up and running within minutes. The upgrade
+			process is even easier, simply download the upgrade pack from 
+			<ulink url="http://fud.prohost.org/"><citetitle>&FUDforum; website</citetitle></ulink> and run the script,  
+			this script will automatically perform the all necessary upgrades from any previous forum version.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.php">
+		<title>PHP Related Features</title>
+		
+		<para>
+			&FUDforum; can be successfully installed on systems with safe_mode enabled as well as PHP installations with register_globals 
+			&amp; magic_quotes_gpc turned off.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.speed">
+		<title>Forum Speed</title>
+	                      
+	        <para>
+	        	Although not a feature per say, it should be noted that despite the many features &FUDforum; is still extremely fast, probably
+	        	faster then all the other forums that offer similar and even lesser feature sets. This is accomplished by a very highly tuned
+	        	MySQL interface as well as a very optimized PHP code.
+	        </para>
+	        
+	        <para>
+	        	The forum will in most cases not take more then 0.1 seconds to generate a page.
+	        </para>
+	</sect1>
+	
+	<sect1 id="features.security">
+		<title>Security</title>
+		
+		<para>
+			Security is an often overlooked feature in many web based applications and as the result many 
+			of those applications have large security holes that even the most incompetent of hackers can exploit
+			and cause a great deal damage and annoyance.
+		</para>
+		
+		<para>
+			We've taken the time to ensure that the default installation of the &FUDforum; offers the greatest possible
+			security given the available tools, to ensure that should your web server be reasonably secure it would be
+			very difficult if not impossible for a curious user or even a hacker to access your sensitive data.
+		</para>
+		
+		<para>
+			To accomplish this task, &FUDforum; by default will store your files with the most minimalistic permissions
+			possible (0600 for files and 0700 for directories), allowing only the user the web server is running on
+			to access your files.
+			
+			<note>
+				<simpara>
+				On servers, which appropriately switch users for each virtual host, like Apache 2 this approach
+				is even safer since all your forum's files would be accessible by you and you alone.
+				</simpara>
+			</note>
+		</para>
+		
+		<para>
+			You may think that allowing web server access to your files is equivalent to allowing anyone to
+			access your files. That is simply not the case, on a secure server the administrator would have setup
+			an 'open_basedir' PHP limitation that would have restricted php scripts from accessing files in directories
+			not owned by a current virtual host, thus preventing people from using PHP to access files of other users.
+		</para>
+		
+		<para>
+			On a properly setup server any programs within the CGI wrapper would not be able to access your
+			files as well since they would run as the user who had executed them if a proper suid interface had been
+			setup by the server's administrator.
+		</para>
+		
+		<para>
+			So, given a well setup server, even on shared hosting solution your forum's data would be quite secure.
+		</para>
+	</sect1>
+</chapter>

@@ -1,0 +1,26 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_attach.tbl,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}attach;
+
+CREATE TABLE {SQL_TABLE_PREFIX}attach
+(
+	id		INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	proto		ENUM('LOCAL', 'REMOTE') NOT NULL DEFAULT 'REMOTE',
+	location	CHAR(255) NOT NULL,
+	original_name	CHAR(255),
+	owner		INT UNSIGNED NOT NULL,
+	private		ENUM('N', 'Y') NOT NULL DEFAULT 'N',
+	message_id	INT UNSIGNED NOT NULL,
+	dlcount		INT UNSIGNED NOT NULL DEFAULT 0,
+	mime_type	INT UNSIGNED NOT NULL DEFAULT 0,
+	
+	INDEX(message_id,private)
+)

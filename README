@@ -1,0 +1,33 @@
+/*
+ * $Id: README,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+ *
+ */ 
+
+*****************************************
+*	Installation Instructions	*
+*****************************************
+
+1) Copy the install.php script in to a web browseable directory.
+	If you do not have safe_mode enabled it is a good idea to place the script in the same directory you intend to
+	install the forum to. Otherwise, if you safe_mode is enabled, place the upgrade script in a directory that IS NOT
+	the directory where you intend to install the forum.
+	
+2) Using your web browser run the install.php script.	
+
+3) The install wizard will then take you through 5 steps at the end of which you will have a working FUDforum installed on your server.
+
+*********************************
+*	CVS Instructions	*
+*********************************
+
+1) Checkout the latest release of the forum using the command below:
+	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum2 checkout fud2_install
+
+2) Mark the files for edit by running:
+	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum2 edit fud2_install
+
+3) Enter the fud2_upgrade directory, which was created by the CVS and run ./create_file_list install >> install.php
+	This requires your to have a php cgi binary installed, if it is not found inside /usr/local/bin/php
+	modify the create_file_list first line with the full path to the php cgi binary.
+
+4) Now you have latest working install script, you can now begin the installation process by following the installation instructions above.

@@ -1,0 +1,43 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_group_cache.tbl,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}group_cache;
+
+CREATE TABLE {SQL_TABLE_PREFIX}group_cache
+(
+	id		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	user_id		INT UNSIGNED NOT NULL,
+	resource_type	CHAR(32) NOT NULL,
+	resource_id	INT UNSIGNED NOT NULL,
+	group_id	INT UNSIGNED NOT NULL,
+	
+	p_VISIBLE	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_READ		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_POST		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_REPLY		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_EDIT		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_DEL		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_STICKY	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_POLL		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_FILE		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_VOTE		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_RATE		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_SPLIT		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_LOCK		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_MOVE		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_SML		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	p_IMG		ENUM('Y', 'N') NOT NULL DEFAULT 'N',	
+
+	UNIQUE(user_id, resource_type, resource_id),
+	INDEX(user_id, group_id),
+	INDEX(user_id, resource_type, p_READ, p_VISIBLE),
+	INDEX(user_id, resource_type, p_VISIBLE),
+	INDEX(group_id)
+)

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type"><title>Moderator/User Manager</title><meta name="generator" content="DocBook XSL Stylesheets V1.50.1-EXP2"><link rel="home" href="index.html" title="FUDforum 2 Documentation"><link rel="up" href="administrating_fud.html" title="Chapter 1. Administrating FUD Forum 2"><link rel="previous" href="admin.thread.prunning.html" title="Thread Prunning"><link rel="next" href="admin.group_control_panel.html" title="Groups Manager"><link rel="preface" href="preface.html" title="Preface"><link rel="part" href="getting-started.html" title="Part I. Getting Started"><link rel="chapter" href="introduction.html" title="Chapter 1. Introduction"><link rel="chapter" href="features.html" title="Chapter 2. FUDforum 2 Features"><link rel="chapter" href="installation.html" title="Chapter 3. Installation"><link rel="part" href="forum-administration.html" title="Part II. Forum Management &amp; Administration"><link rel="chapter" href="administrating_fud.html" title="Chapter 1. Administrating FUD Forum 2"><link rel="chapter" href="mod_options.html" title="Chapter 2. Moderation Options"><link rel="part" href="forum-appendixes.html" title="Part III. Appendixes"><link rel="chapter" href="fudcode.html" title="Chapter 1. FUDcode"><link rel="appendix" href="GPL.html" title="Appendix A. GNU General Public License"><link rel="appendix" href="fdl.html" title="Appendix B. GNU Free Documentation License"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.find" title="Choosing a User"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.login" title="Change Login Name"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.password" title="Change Password"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.profile" title="Change User's Profile"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.admin" title="Forum Administrator"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.blocked" title="Blocked"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.coppa" title="COPPA"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.econf" title="E-mail Confirmation"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.mod" title="Moderating Forums"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.ctag" title="Custom Tags"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.pm" title="Send Private Message"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.email" title="Send Email"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.posts" title="See Posts"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.rpass" title="Reset Password"><link rel="subsection" href="admin.user_manager.html#admin.user_manager.del" title="Delete User"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Moderator/User Manager</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="admin.thread.prunning.html">Prev</a> </td><th width="60%" align="center">Chapter 1. Administrating FUD Forum 2</th><td width="20%" align="right"> <a accesskey="n" href="admin.group_control_panel.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="admin.user_manager"></a>Moderator/User Manager</h2></div></div><p>
+			This control allows the administrator to manage users as well as assign and/or remove moderation
+			permission from users.
+		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.find"></a>Choosing a User</h3></div></div><p>
+				The first step of managing a user is picking a user which you want to edit. You can do so
+				by entering the login name or the email address of the use into the appropriate fields on the 
+				user manager control panel.
+			</p><p>
+				The control panel allows for partial matching, so you can enter masks such as 'ad*', which would
+				find all users who's login name begins with an 'ad'. 
+			</p><p>
+				If there is only one matching user, their information will be retrieved into the user manager. If more
+				then one user matches, then you will be presented with a list of all the matching users and will be able
+				to pick the user you want to manage by clicking on their login name.
+			</p></div><p>
+			Now that you've pulled up the user information inside the user manager you can proceed to modify the various
+			user settings.
+		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.login"></a>Change Login Name</h3></div></div><p>
+				The user manager allows the administrator to change the login of the user who's account is being edited.
+				This can be accomplished by entering a different login into the 'Login' field and clicking on the 
+				'Change Login Name' button.
+				
+				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+					Make sure the login you're going to enter is not already in use, otherwise the process will fail.
+					</p></div><p>
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.password"></a>Change Password</h3></div></div><p>
+				The user manager allows the administrator to change the password of the who's account is being edited.
+				To change the password enter a new password into the 'Password' textbox and press the 'Change Password'
+				button.
+				
+				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+					By default 'Password' textbox will always be empty since passwords are encrypted with a 1 way
+					algorithm, MD5 for greater security and cannot be decoded back.
+					</p></div><p>
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.profile"></a>Change User's Profile</h3></div></div><p>
+				Clicking on this link will take the administrator to the profile control panel where they can edit
+				the user's profile and settings. The administrator will need to enter the their password on that form
+				to activate any of the changes that were made.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.admin"></a>Forum Administrator</h3></div></div><p>
+				This options shows whether this user is an administrator or not. By clicking on the toggle link the 
+				administrator can assign or remove administrative privileges from a user.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.blocked"></a>Blocked</h3></div></div><p>
+				Whether or not this user is blocked from posting messages on the forum.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.coppa"></a>COPPA</h3></div></div><p>
+				Whether or not this account requires COPPA confirmation.
+				
+				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+					If the value is set to 'Y', then this account is pending COPPA confirmation.
+					</p></div><p>
+			</p><p>
+				Children's Online Privacy Protection Act of 1998 (COPPA) indicates that all accounts of
+				children under the age of 13 must be confirmed by their legal guardians via FAX or Snail Mail.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.econf"></a>E-mail Confirmation</h3></div></div><p>
+				Whether or not this account has been confirmed via e-mail. <a href="admin.global_settings_manager.html#global.option.EMAIL_CONFIRMATION" title="E-mail Confirmation">If enabled</a> 
+				in the admin control panel all new accounts must be confirmed via e-mail before they activated.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.mod"></a>Moderating Forums</h3></div></div><p>
+				Shows the list of the forum this user is moderating. Clicking on the 'Modify Moderation Permissions' 
+				link will open up a pop-up with a list of all the forums. By checking a checkbox beside each forum
+				the administrator can assign moderation permissions for that forum to this user. Unchecking a checked
+				checkbox will remove moderation permissions from the user.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.ctag"></a>Custom Tags</h3></div></div><p>
+				The administrator can assign an unlimited number of custom tags to a user. This option allows the admin
+				to enter the new custom tags for the user, by entering the text into the 'Custom Tags' textbox and pressing
+				the 'Add' button.
+				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+					Custom tags may contain raw HTML.
+					</p></div><p>
+				
+				All of the user's current custom tags are listed above the textbox and can be removed by clicking the 
+				'Delete' link beside each custom tag.
+			</p><p>
+				Custom tags are little bits of text and/or HTML that are displayed on the user's profile page as well
+				as inside the author information bit beside all their messages. 
+			</p></div><p>
+			At the bottom of the user control panel there are a number of links that allow the admin to take certain actions
+			in regard to the selected user.
+		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.pm"></a>Send Private Message</h3></div></div><p>
+				Send a private message to this user using the private messaging system.
+				
+				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+					This link will only be available if the 
+					<a href="admin.global_settings_manager.html#global.option.PM_ENABLED" title="Allow Private Messaging">private messaging system is enabled</a>.
+					</p></div><p>
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.email"></a>Send Email</h3></div></div><p>
+				Send an e-mail to the user. If the <a href="admin.global_settings_manager.html#global.option.ALLOW_EMAIL" title="Allow E-mail">forum's internal email system is enabled</a> 
+				it will be used, otherwise standard mailto: URL will be given, allowing the administrator 
+				to send the e-mail using their mail client.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.posts"></a>See Posts</h3></div></div><p>
+				Clicking this link will show all the posts made by this user.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.rpass"></a>Reset Password</h3></div></div><p>
+				Resets the user's password and sends the randomly generated password via e-mail to the user.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.del"></a>Delete User</h3></div></div><p>
+				Delete this user account, once deleted there is no way to retrieve the user's account it will be
+				permanently lost, be careful when using this option.
+			</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="admin.thread.prunning.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="administrating_fud.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="admin.group_control_panel.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Thread Prunning </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Groups Manager</td></tr></table></div></body></html>

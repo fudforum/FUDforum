@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!-- $Id: manual.xml,v 1.1.1.1 2002/06/17 23:00:10 hackie Exp $ -->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+          "./dbxml-4.1.2/docbookx.dtd" [
+          
+
+          
+          <!ENTITY % fudforum    SYSTEM "fud.ent">
+%fudforum;
+]>
+
+<book id="manual">
+	<title>FUDforum 2 Documentation</title>
+
+	&bookinfo;
+	&preface;
+	
+	<part id="getting-started">
+		<title>Getting Started</title>
+	        
+	        &intro;
+	        &frm.features;
+        	&installation;
+        </part>
+        
+        <part id="forum-administration">
+        	<title>Forum Management &amp; Administration</title>
+        	
+		&admin.controls;
+		&mod.opt;
+	</part>
+	
+	<part id="forum-appendixes">
+		<title>Appendixes</title>
+		
+		&fudcode.docs;
+		&frm.gpl;
+		&frm.fdl;
+	</part>
+</book>

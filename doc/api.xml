@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- $Id: api.xml,v 1.1.1.1 2002/06/17 23:00:10 hackie Exp $ -->
+<chapter id="api">
+	<title>FUDforum API</title>
+	
+	<para>
+		This is the documentation for the various classes used by FUDforum and explanation of what
+		they do.
+	</para>
+	
+	<sect1 id="api.fud_user">
+		<title>fud_user class</title>
+		
+		<para>
+			This class is used to retrieve the user iformation as well to update some of the
+			more common user data variables such as post counts etc...
+		</para>
+		
+		<sect2 id="api.fud_user.var">
+			<title>fud_user class variables</title>
+<screen>
+id (int) 			- 	User account id
+login (int) 			- 	Login name
+passwd (char 32)		-	Password, MD5
+plaintext_passwd (char)		-	Password, plain text (only used during regisration)
+name (char)			-	"Real" name
+email (char)			-	E-mail
+location (char)			-	Location
+occupation (char)		-	Occupation 	
+interests (char)		-	Interests
+display_email (ENUM Y/N)	-	Whether to hide or show user's email
+notify (ENUM Y/N)		-	Whether to select reply notification by default
+notify_method (ENUM ICQ/EMAIL)	-	How to send notifications, ICQ or E-mail
+email_messages (ENUM Y/N)	-	Whether or not other forum members can use the forum's built it mailer
+					to send this user emails.
+gender (ENUM MALE/FEMALE)	-	Gender
+icq (long)			-	ICQ uin
+aim (char)			-	AIM id
+yahoo (char)			-	Yahoo id				
+msnm (char)			-	MSN Messanger id
+jabber (char)			-	Jabber id
+avatar (int)			-	Id of the avatar if user's avatar is from the forum's avatar gallery
+avatar_loc (char)		-	URL of the avatar for remote avatars
+avatar_approved	(ENUM(Y/N/NO)	-	Whether the user has an avatar is if has been approved. "NO" means no avatar
+append_sig (ENUM Y/N)		-	Whether or not to append the signature by default to every message posted
+show_sigs (ENUM Y/N)		- 	Whether or not to show other people's signatures when viewing messages
+show_avatars (ENUM Y/N)		-	Whether or not to show other people's avatars
+posts_ppg (int)			-	How many messages to display per page
+time_zone (char)		-	The timezone identification string of thise user's timestamp
+invisible_mode (ENUM Y/N)	-	Whether or not to show the user on the online list, actions list
+ignore_admin (ENUM Y/N)		-	Whether to accept or decline mass emails sent by the admin
+bday (int)			-	Birthday in YYYYMMDD format
+blocked (ENUM Y/N)		-	Shows if the user has been banned or not.
+home_page (char)		-	Homepage URL
+sig (char)			-	Signature
+bio (char)			-	Biography
+	
+posted_msg_count (int)		-	Number of messages posted by this user
+last_visit (int)		-	The UNIX timestamp of when the user has last visited the forum
+last_event
+email_conf (ENUM Y/N)		-	Whether or not this account has been confirmed
+conf_key (char)			-	MD5 confirmation key
+coppa (ENUM Y/N)		-	Whether or not the owner of this account has been COPPA confirmed
+user_image (char)		-	URL to the user's image of choice
+join_date (int)			-	The UNIX timestamp of when the user has registered the forum	
+style (int) (internal)		-	
+last_read (int)			-	The UNIX timestamp of the last message user had read
+default_view (ENUM TREE/MSG)	-	What is the user's default message view 
+mod_list
+mod_cur
+is_mod (ENUM Y/N/A)		-	Whether this is a regular user (N), moderators (Y) or an admin (A)
+level_id (int)			-	The id of the level, which is based on post count, the user belongs to. 
+u_last_post_id (int)		- 	The id of the last post made by this user
+</screen>	
+		</sect2>
+		
+		<sect2 id="api.fud_user.func">
+			<title>fud_user class functions</title>
+			
+			<refentry id="api.fud_user.func.get_user_by_id">
+				<refnamediv>
+					<refname>get_user_by_id</refname>
+					<refpurpose>Retrieves a user based on a passed user id</refpurpose>
+				</refnamediv>
+				<refsect1>
+			        	<title>Description</title>
+					<methodsynopsis>
+			                	<type>int</type><methodname>get_user_by_id</methodname>
+			                        <methodparam><type>int</type><parameter>user_id</parameter></methodparam>
+					</methodsynopsis>
+					<para>
+			                	Retrieves a user based on a passed user id, the user settings will be imported
+			                	into the class.
+					</para>
+			                <para>
+			                	Returns user_id on success, NULL on failure.
+					</para>
+				</refsect1>
+			</refentry>
+			
+			<refentry id="api.fud_user.func.set_post_count">
+				<refnamediv>
+					<refname>set_post_count</refname>
+					<refpurpose>Sets the user's post count</refpurpose>
+				</refnamediv>
+				<refsect1>
+			        	<title>Description</title>
+					<methodsynopsis>
+			                	<type>void</type><methodname>set_post_count</methodname>
+			                        <methodparam><type>int</type><parameter>msg_count</parameter></methodparam>
+			                        <methodparam><type>int</type><parameter>u_last_post_id</parameter></methodparam>
+					</methodsynopsis>
+					<para>
+						The function will increase or descrese the user's post count based on the value
+						passed by msg_count. The function will also re-calculate the id the message last
+						message posted by the user if u_last_post_id is empty.
+					</para>
+				</refsect1>
+			</refentry>
+			
+			<refentry id="api.fud_user.func.register_thread_view">
+				<refnamediv>
+					<refname>register_thread_view</refname>
+					<refpurpose>Mark thread as read</refpurpose>
+				</refnamediv>
+				<refsect1>
+			        	<title>Description</title>
+					<methodsynopsis>
+			                	<type>void</type><methodname>register_thread_view</methodname>
+			                        <methodparam><type>int</type><parameter>thread_id</parameter></methodparam>
+			                        <methodparam><type>int</type><parameter>msg_id</parameter></methodparam>
+					</methodsynopsis>
+					<para>
+						This function will mark a thread read by inserting or updating an entry inside
+						the read table. If a msg_id is passed only messages up until msg_id will be marked 
+						read.
+					</para>
+				</refsect1>
+			</refentry>
+			
+			<refentry id="api.fud_user.func.register_forum_view">
+				<refnamediv>
+					<refname>register_forum_view</refname>
+					<refpurpose>Mark forum as read</refpurpose>
+				</refnamediv>
+				<refsect1>
+			        	<title>Description</title>
+					<methodsynopsis>
+			                	<type>void</type><methodname>register_forum_view</methodname>
+			                        <methodparam><type>int</type><parameter>forum_id</parameter></methodparam>
+					</methodsynopsis>
+					<para>
+						This function will mark a forum read.
+					</para>
+				</refsect1>
+			</refentry>
+			
+			<refentry id="api.fud_user.func.mark_all_read">
+				<refnamediv>
+					<refname>mark_all_read</refname>
+					<refpurpose>Mark all messages read</refpurpose>
+				</refnamediv>
+				<refsect1>
+			        	<title>Description</title>
+					<methodsynopsis>
+			                	<type>void</type><methodname>mark_all_read</methodname>
+					</methodsynopsis>
+					<para>
+						This function will mark all messages read.
+					</para>
+				</refsect1>
+			</refentry>
+			
+			<refentry id="api.fud_user.func.add_user">
+				<refnamediv>
+					<refname>add_user</refname>
+					<refpurpose>Adds a new user</refpurpose>
+				</refnamediv>
+				<refsect1>
+			        	<title>Description</title>
+					<methodsynopsis>
+			                	<type>void</type><methodname>add_user</methodname>
+					</methodsynopsis>
+					<para>
+						This function will create a new user based on the information
+						stored inside the class.
+					</para>
+					
+					<para>
+						Returns the id of the created user
+					</para>
+				</refsect1>
+			</refentry>
+			
+			<refentry id="api.fud_user.func.get_user_by_login">
+				<refnamediv>
+					<refname>get_user_by_login</refname>
+					<refpurpose>Retrieves a user based on user login</refpurpose>
+				</refnamediv>
+				<refsect1>
+			        	<title>Description</title>
+					<methodsynopsis>
+			                	<type>int</type><methodname>get_user_by_login</methodname>
+			                	<methodparam><type>char</type><parameter>user_login</parameter></methodparam>
+					</methodsynopsis>
+					<para>
+						This function will retrieve a user based on the provided user_login.
+					</para>
+					
+					<para>
+						Returns user object on success, NULL on failure.
+					</para>	
+				</refsect1>
+			</refentry>
+			
+			
+		</sect2>	
+	</sect1>
+</chapter>	
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+sgml-parent-document:nil
+sgml-default-dtd-file:"manual.ced"
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

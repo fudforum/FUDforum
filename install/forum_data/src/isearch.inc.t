@@ -1,0 +1,214 @@
+<?php
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: isearch.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+****************************************************************************
+          
+****************************************************************************
+*
+*	This program is free software; you can redistribute it and/or modify
+*	it under the terms of the GNU General Public License as published by
+*	the Free Software Foundation; either version 2 of the License, or
+*	(at your option) any later version.
+*
+***************************************************************************/
+
+
+function delete_msg_index($msg_id)
+{
+	Q("DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id=".$msg_id);
+	Q("DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id=".$msg_id);
+}	
+	
+function index_text($subj, $body, $msg_id)
+{
+	
+	/* Remove Stuff In Quotes */
+	while ( preg_match('!<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>(.*?)</b></td></tr><tr><td class="quote"><br>(.*?)<br></td></tr></table>!is', $body) ) 
+		$body = preg_replace('!<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>(.*?)</b></td></tr><tr><td class="quote"><br>(.*?)<br></td></tr></table>!is', '', $body);
+		
+	/* Remove HTML */
+	reverse_FMT($body);
+	$body = addslashes(strip_tags($body));
+
+	reverse_FMT($subj);
+	$subj = strtolower($subj);
+	$subj = trim(preg_replace('!\s+!', ' ', $subj));
+	
+	$body = strtolower($body);
+	$body = trim(preg_replace('!\s+!', ' ', $body));
+
+	/* build full text index */
+	$w = explode(' ', trim($subj.' '.$body));
+	$a = count($w);
+	
+	if ( !db_locked() ) {
+		$ll=1;
+		DB_LOCK('{SQL_TABLE_PREFIX}search+,
+			 {SQL_TABLE_PREFIX}index+,
+			 {SQL_TABLE_PREFIX}title_index+
+			');
+	}
+	
+	for ( $i=0; $i<$a; $i++ ) {
+		if ( strlen($w[$i]) > 50 || strlen($w[$i])<3 ) continue;
+		
+		$r=Q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word='".$w[$i]."'");
+		if ( !DB_COUNT($r) ) {
+			Q("INSERT INTO {SQL_TABLE_PREFIX}search(word) VALUES('".$w[$i]."')");
+			$id = DB_LASTID();
+		}
+		else list($id) = DB_ROWARR($r);
+		QF($r);
+		
+		if ( !BQ("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE word_id=".$id." AND msg_id=".$msg_id) ) {
+			Q("INSERT INTO {SQL_TABLE_PREFIX}index(word_id, msg_id) VALUES(".$id.", ".$msg_id.")");
+		}
+	}
+	
+	/* build subject only index */
+	$w = explode(' ', $subj);
+	for ( $i=0; $i<count($w); $i++ ) {
+		if ( strlen($w[$i]) > 50 || strlen($w[$i])<3 ) continue;
+		$r=Q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word='".$w[$i]."'");
+		if ( !DB_COUNT($r) ) {
+			Q("INSERT INTO {SQL_TABLE_PREFIX}search(word) VALUES('".$w[$i]."')");
+			$id = DB_LASTID();
+		}
+		else list($id) = DB_ROWARR($r);
+		QF($r);
+		
+		if ( !BQ("SELECT id FROM {SQL_TABLE_PREFIX}title_index WHERE word_id=$id AND msg_id=".$msg_id) ) {
+			Q("INSERT INTO {SQL_TABLE_PREFIX}title_index(word_id, msg_id) VALUES(".$id.", ".$msg_id.")");
+		}
+	}
+	
+	if ( !empty($ll) ) DB_UNLOCK();
+}
+
+function re_build_index()
+{
+	DB_LOCK('{SQL_TABLE_PREFIX}search+, {SQL_TABLE_PREFIX}index+, {SQL_TABLE_PREFIX}title_index+, {SQL_TABLE_PREFIX}msg+');
+	Q("DELETE FROM {SQL_TABLE_PREFIX}search");
+	Q("DELETE FROM {SQL_TABLE_PREFIX}index");
+	Q("DELETE FROM {SQL_TABLE_PREFIX}title_index");
+	$r = Q("SELECT id,subject,thread_id,length,offset,file_id FROM {SQL_TABLE_PREFIX}msg ORDER BY thread_id,id ASC");
+	if( !($cnt=DB_COUNT($r)) ) {
+		QF($r);
+		DB_UNLOCK();
+		return;
+	}
+
+	$th_id=$i=0;
+	$old_suject=$subj=NULL;
+	while( $obj = DB_ROWOBJ($r) ) {
+		if( $th_id != $obj->thread_id ) {
+			
+			$th_id = $obj->thread_id;
+		}
+		$body = read_msg_body($obj->offset, $obj->length, $obj->file_id);
+		
+		/* Remove Stuff In Quotes */
+		while ( preg_match('!<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>(.*?)</b></td></tr><tr><td class="quote"><br>(.*?)<br></td></tr></table>!is', $body) ) 
+			$body = preg_replace('!<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>(.*?)</b></td></tr><tr><td class="quote"><br>(.*?)<br></td></tr></table>!is', '', $body);
+		
+		/* Remove HTML */
+		$body = addslashes(strip_tags($body));
+		
+		/* Do not store the same subjects twice */
+		if( $old_suject!=$obj->subject ) {
+			$subj = addslashes($obj->subject);
+			$old_suject = $obj->subject;
+		}
+		else
+			$subj = NULL;
+			
+		index_text($subj, $body, $obj->id);
+	}
+	un_register_fps();
+	DB_UNLOCK();
+}
+
+function search($str, $fld, $start, $count, $forum_limiter='')
+{
+	$w = explode(" ", $str);
+	$qr = '';
+	for ( $i=0; $i<count($w); $i++ ) {
+		$qr .= " '".$w[$i]."',"; 
+	}
+	
+	if ( substr($qr, strlen($qr)-1, 1) == ',' ) {
+		$qr = substr($qr, 0, strlen($qr)-1);
+	}
+	
+	switch ( $fld ) 
+	{
+		case "subject":
+			$field = "{SQL_TABLE_PREFIX}title_index";
+			break;
+		case "all":
+			$field = "{SQL_TABLE_PREFIX}index";
+			break;
+		default:
+			$field = "{SQL_TABLE_PREFIX}index";
+			break;
+	}
+
+	if( $GLOBALS['usr']->is_mod != 'A' ) {
+		if( is_numeric($forum_limiter) ) {
+			if( !is_perms(_uid, $forum_limiter, 'READ') ) return Q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
+
+			$forum_limiter_sql = " {SQL_TABLE_PREFIX}forum.id=".$forum_limiter." AND ";
+		}
+		else if( $forum_limiter[0]=='c' && is_numeric(substr($forum_limiter,1)) ) {
+			$fids = get_all_perms(_uid);
+			if( empty($fids) ) return Q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
+		
+			$forum_limiter_sql = " {SQL_TABLE_PREFIX}cat.id=".substr($forum_limiter,1)." AND ";
+		}
+		else {
+			$fids = get_all_perms(_uid);
+			if( empty($fids) ) 
+				return Q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
+			else
+				$forum_limiter_sql = '{SQL_TABLE_PREFIX}forum.id IN ('.$fids.') AND ';	
+		}
+	}	
+	else
+		$forum_limiter_sql = '';	
+	
+	$r = Q("SELECT 
+		{SQL_TABLE_PREFIX}users.login,
+		{SQL_TABLE_PREFIX}forum.name AS forum_name, 
+		{SQL_TABLE_PREFIX}forum.id AS forum_id,
+		{SQL_TABLE_PREFIX}msg.poster_id,
+		{SQL_TABLE_PREFIX}msg.id, 
+		{SQL_TABLE_PREFIX}msg.thread_id,
+		{SQL_TABLE_PREFIX}msg.subject,
+		{SQL_TABLE_PREFIX}msg.poster_id,
+		{SQL_TABLE_PREFIX}msg.offset,
+		{SQL_TABLE_PREFIX}msg.length,
+		{SQL_TABLE_PREFIX}msg.post_stamp,
+		{SQL_TABLE_PREFIX}msg.file_id,
+		SUM(1) as rev_match
+	FROM 
+		{SQL_TABLE_PREFIX}search
+		LEFT JOIN ".$field." ON {SQL_TABLE_PREFIX}search.id=".$field.".word_id
+		LEFT JOIN {SQL_TABLE_PREFIX}msg ON ".$field.".msg_id={SQL_TABLE_PREFIX}msg.id
+		LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id
+		LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
+		LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id
+		LEFT JOIN {SQL_TABLE_PREFIX}cat ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id
+	WHERE 
+		word IN ( ".$qr." ) AND
+		".$forum_limiter_sql."
+		{SQL_TABLE_PREFIX}msg.approved='Y'
+	GROUP BY 
+		{SQL_TABLE_PREFIX}msg.id 
+	ORDER BY rev_match DESC, {SQL_TABLE_PREFIX}msg.post_stamp DESC");
+
+	return $r;
+}
+?>

@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- $Id: modopt.xml,v 1.1.1.1 2002/06/17 23:00:10 hackie Exp $ -->
+<chapter id="mod_options">
+	<title>Moderation Options</title>
+	
+	<para>
+		&FUDforum; has a number of tools that are available to moderators and administrators in regard to managing users and
+		messages, this section covers those tools and gives tips on how to use them to their maximum potential.		
+	</para>
+	
+	<note>
+		<simpara>
+		When referring to 'privileged users', this section refers to users who are moderators, administrators
+		and to the users who have been granted permission pertaining to a certain ability using the groups permissions
+		system if a relevant permission is available.
+		</simpara>
+	</note>
+	
+	<sect1 id="mod.avatar">
+		<title>Custom Avatar Queue</title>
+		
+		<para>
+			This link will only be visible to the forum's administrator(s) should there be any custom avatars pending 
+			approval. Beside the link there will be a red number indicating the number of avatars that are 
+			pending administrative approval. Clicking on the link would take the administrator to the 
+			<link linkend="admin.avatar_apr">avatar approval form</link> allowing them to approve or decline the avatar.
+		</para>
+		
+		<para>
+			If the avatar is approved or declined, the user who had requested this avatar will be notified via a private
+			message if <link linkend="global.pm.options">private messaging system</link> is enabled or 
+			via e-mail about the status of their avatar.
+		</para>
+	</sect1>
+	
+	<sect1 id="mod.msg">
+		<title>Moderation Queue</title>
+		
+		<para>
+			This link will be visible if there are any messages pending approval in <link linkend="forum.mod">moderated forums</link>. 
+			Beside the link there would be a red indicator showing the number of messages awaiting approval. Clicking on the 
+			link would take the moderator to a control panel where they would be able to see all of the messages that are 
+			pending approval and either approve or delete those messages by using 'Approve' and 'Delete' links found on that
+			page.
+			
+			<note>
+				<simpara>
+				This option is ONLY be visible to the administrator(s) and forum moderators who moderate the forums
+				that have unapproved messages in them.
+				</simpara>
+			</note>
+		</para>
+	</sect1>
+	
+	<sect1 id="mod.reported">
+		<title>Reported Messages</title>
+		
+		<para>
+			This link will be visible if there are any reported messages. Reported messages are messages that a forum user
+			has chosen to report to the forum administration for whatever reason, as part of the report form the user will
+			be required to enter a reason for the message report so that the administration staff knows why this report was
+			made. 
+		</para>
+		
+		<para>
+			Clicking on the reported messages link will take the moderator to a special page where the moderator can review
+			the reported message as well as reason for the report. From that page the moderator may choose to delete the 
+			report and/or take some action in response to the report.
+		</para>
+	</sect1>
+	
+	<sect1 id="mod.move">
+		<title>Move Thread</title>
+		
+		<para>
+			This option which is visible to all privileged users beside each thread on the thread view (thread.php) allows
+			them to move the thread to a different forum. Clicking on the link will open a pop-up window with a list of all
+			the available forums.
+		</para>
+		
+		<para>
+			If the user in question has permission to move the thread to the destination forum then the thread will be moved
+			to their forum of choice once they click on that forum.
+		</para>
+		
+		<para>	
+			 Otherwise beside the forum there will be a 'request a move' link. Clicking on this link will allow the moderator
+			 to request that the thread be moved to another forum, the form will allow the moderator to enter their reasoning
+			 behind their request. It will then be up to the administrator(s) or the moderator(s) of the destination forum
+			 to approve or decline the request via the <link linkend="mod.thread_exchange">Thread Exchange</link>.
+		</para>
+	</sect1>
+	
+	<sect1 id="mod.thread_exchange">
+		<title> Thread Exchange</title>
+		
+		<para>
+			This link will be visible if there are any move thread requests pending as well as indicate how many of those
+			requests are pending. Clicking on the link would take the moderator to a page where they'll be able to see
+			the move request and either accept or decline the move thread request made by another moderator.
+		</para>
+	</sect1>
+	
+	<sect1 id="mod.del">
+		<title>Delete Threads/Messages</title>
+		
+		<sect2 id="mod.del.thread">
+			<title>Deleting a thread</title>
+			
+			<para>
+				Deletion of a thread is an action, which can be performed by privileged users by clicking on the delete
+				link beside each thread on the thread listing, or by clicking on the delete button of the root 
+				(1st message in the thread) message.
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.del.msg">
+			<title>Deleting a message</title>
+			
+			<para>
+				Privileged users can delete a message by clicking on the delete button located at the bottom of each 
+				message, that is located in a forum where they have delete privileges. 
+			</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="mod.edit">
+		<title>Edit Message</title>
+		
+		<para>
+			Privileged users can edit the content as well as the subject of the message posted in forums in which they have
+			edit privileges.
+			
+			<note>
+				<simpara>
+				Unless the <link linkend="global.option.EDITED_BY_MOD">Show Edited By Moderator</link> is set to no, 
+				messages edited by privileged users will be marked as such.
+				</simpara>
+			</note>
+		</para>
+	</sect1>
+	
+	<sect1 id="mod.split">
+		<title>Split Thread</title>
+		
+		<para>
+			Split thread link, which is visible to privileged users when they are viewing the content of the thread allows
+			for splitting of a thread in to two separate threads. This is mostly done to allow the forum staff to move 
+			off topic discussions that have wondered in to a relevant thread.	
+		</para>
+		
+		<para>
+			When clicked, the link would take the privileged user to a control form where how the thread will be split
+			can be specified.
+		</para>
+		
+		<para>
+			At the top of this form there is a textbox where the name of the new thread will be specified as well as a drop
+			down box with a list of forums where the new thread will be placed. Below these controls there are two buttons
+			allowing the privileged user to split the selected or the non-selected messages.
+		</para>
+		
+		<para>
+			All the messages in the thread are listed on the 'Split Thread Control Panel', the messages can be selected 
+			by marking the checkbox, which is located to left of every message. 
+		</para>	
+					
+		<para>
+			Clicking on the 'Split selected messages' button would then split all the selected messages or if the 
+			'Split non-selected messages' button is clicked then all the non-selected messages will be moved to a new thread.
+		</para>	
+	</sect1>
+	
+	<sect1 id="mod.lock">
+		<title>Thread Locking/Unlocking</title>
+		
+		<para>
+			Privileged users may lock and unlock threads using a link available on the thread contents page. Locked threads
+			prevent regular users from being able to post replies in the thread.
+		</para>
+		
+		<para>
+			When privileged users post new threads or replies to existing threads they may lock thread by marking the
+			'Thread Locked' checkbox. The thread will be automatically locked once the post is made.
+		</para>
+	</sect1>
+	
+	<sect1 id="mod.sticky">
+		<title>Sticky/Announcements</title>
+		
+		<para>
+			Privileged users may create threads and mark them as 'Sticky' or 'Announcements'. Such threads will be displayed
+			at the top of thread listing regardless of their age until they reach their expiration date as defined by the
+			privileged user.
+		</para>
+		
+		<para>
+			This functionality is available on the post form to all privileged users.
+		</para>
+	</sect1>
+	
+	<sect1 id="mod.ip">
+		<title>Display of Message Author IP Address</title>
+		
+		<para>
+			All moderators and administrators will be able to see the IP address of message authors. Clicking on the IP
+			address will open a page, which will show the information about that user's ISP.
+		</para>
+	</sect1>
+	
+	<sect1 id="mod.groups">
+		<title>User Group Management</title>
+		
+		<para>
+			This control panel allows the administrator(s) and <link linkend="admin.group_control_panel.leader">group leader(s)</link> to add 
+			and remove users from the various groups as well as alter the permissions of those users.
+		</para>
+		
+		<para>
+			If the user can manage more then one group then a list of all the groups that they can manage will be shown
+			allowing them to choose a group to edit.
+		</para>
+		
+		<para>
+			The form also includes a control allowing for addition/editing of users in the group as well as specifying their
+			permissions, the editable permissions contain drop downs with 'Yes/No' toggles allowing the group manager to
+			grant or take away the permission from the user. 
+		</para>
+		
+		<para>
+			Below is the explanation of the permissions that can be granted or removed using the groups system.
+		</para>
+		
+		<sect2 id="mod.groups.visible">
+			<title>Visible</title>
+			
+			<para>
+				Allows the user to see the forum on the forum listing on the front page.
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.read">
+			<title>Read</title>
+			
+			<para>
+				Allows the user to read the messages inside the forum.
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.post">
+			<title>Post</title>
+			
+			<para>
+				The ability to create new threads in the forum.
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.reply">
+			<title>Reply</title>
+			
+			<para>
+				The ability to post replies to existing threads in the forum.
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.edit">
+			<title>Edit</title>
+			
+			<para>
+				The ability to edit messages posted by other users.
+				
+				<note>
+					<simpara>
+					Normally they users can only edit their own messages.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.delete">
+			<title>Delete</title>
+			
+			<para>
+				The ability to deletes threads &amp; posted by other users.
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.sticky">
+			<title>Sticky posts</title>
+			
+			<para>
+				The ability to create <link linkend="mod.sticky">Sticky/Announcement</link> threads.
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.polls">
+			<title>Create polls</title>
+			
+			<para>
+				The ability to add polls to messages posted on the forum.
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.vote">
+			<title>Votes</title>
+			
+			<para>
+				Whether or not the user may vote on the polls in the forum.
+				
+				<note>
+					<simpara>
+					This option will ALWAYS be set to NO for anonymous users, since their uniqueness
+					cannot be determined reliably.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.files">
+			<title>Attach files</title>
+			
+			<para>
+				Whether or not the user can attach file(s) to their messages.
+				
+				<note>	
+					<simpara>
+					If the number of allowed file attachments for the forum is set to 0, then
+					even if this option is set to 'Yes' users will not be able to attach files.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.rate">
+			<title>Rate threads</title>
+			
+			<para>
+				Whether or not a user can rate threads inside the forum.
+				<note>
+					<simpara>
+					This option will ALWAYS be set to NO for anonymous users, since their uniqueness
+					cannot be determined reliably.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.split">
+			<title>Split threads</title>
+			
+			<para>
+				The ability to <link linkend="mod.split">split threads</link>.
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.lock">
+			<title>Lock threads</title>
+			
+			<para>
+				The ability to <link linkend="mod.lock">lock &amp; unlock</link> threads in the forum.
+				
+				<note>
+					<simpara>
+					Users with this ability will also have the ability to post replies in locked threads.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.move">
+			<title>Move threads</title>
+			
+			<para>
+				The ability to <link linkend="mod.move">move or request that a thread be moved</link> to another forum.
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.smilies">
+			<title>Use smilies</title>
+			
+			<para>
+				If enabled, the user's emoticon tags will be converted to equivalent smiley images during the posting
+				process.
+			</para>
+		</sect2>
+		
+		<sect2 id="mod.groups.images">
+			<title>Use image tags</title>
+			
+			<para>
+				Whether or not this user may use &fudcode;'s [img] tags in their code.
+				
+				<note>
+					<simpara>
+					If the <link linkend="global.option.MAX_IMAGE_COUNT">maximum allowed images per message option</link> is set to 0 this option will have no affect.
+					</simpara>
+				</note>
+			</para>
+		</sect2>
+	</sect1>
+</chapter>

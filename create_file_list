@@ -1,0 +1,55 @@
+#!/usr/local/bin/php -q
+<?
+	if( !$HTTP_SERVER_VARS['argv'][1] ) 
+		exit("no args");
+	else if ( !is_dir($HTTP_SERVER_VARS['argv'][1]) )
+		exit("not a directory");
+		
+function filetomem($fn)
+{
+	$fp = fopen($fn, 'rb');
+	$st = fstat($fp);
+	$size = isset($st['size']) ? $st['size'] : $st[7];
+	$str = fread($fp, $size);
+	fclose($fp);
+	
+	return $str;
+}
+
+function create_file_archive($dir, $pdir)
+{
+	global $__archive;
+	
+	if( !chdir($dir) ) exit("cannot chdir to ".getcwd()."/$dir\n");
+	$rdir = getcwd();
+	
+	$pdir .= '/'.$dir;
+	$dp = opendir('.');
+	readdir($dp); readdir($dp);
+	while( $file = readdir($dp) ) {
+		if( !is_dir($file) && !is_link($file) ) {
+			$perms = fileperms($file);
+			$file_data = filetomem($file);
+			$file_size = strlen($file_data);
+			
+			/* //file_name//file_perms//file_path//md5sum//file_size// */
+			$__archive .= '//'.$file.'//'.fileperms($file).'//'.$pdir.'//'.md5($file_data).'//'.$file_size."//\n";
+			$__archive .= $file_data."\n";
+		}
+		else if( is_dir($file) ) {
+			if($file == 'CVS') continue;
+			
+			$__archive .= '//'.$file.'//'.fileperms($file).'//'.$pdir."//\n";
+			create_file_archive($file, $pdir);
+			chdir($rdir);		
+		}
+	}
+	closedir($dp);
+}
+
+	$dir = $HTTP_SERVER_VARS['argv'][1];
+	$__archive='';
+	create_file_archive($dir, '');
+	
+	echo base64_encode($__archive);
+?>

@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type"><title>Global Settings Manager</title><meta name="generator" content="DocBook XSL Stylesheets V1.50.1-EXP2"><link rel="home" href="index.html" title="FUDforum 2 Documentation"><link rel="up" href="administrating_fud.html" title="Chapter 1. Administrating FUD Forum 2"><link rel="previous" href="admin.compact_messages.html" title="Compact Messages"><link rel="next" href="admin.replacement_censorship_system.html" title="Replacement &amp; Censorship System"><link rel="preface" href="preface.html" title="Preface"><link rel="part" href="getting-started.html" title="Part I. Getting Started"><link rel="chapter" href="introduction.html" title="Chapter 1. Introduction"><link rel="chapter" href="features.html" title="Chapter 2. FUDforum 2 Features"><link rel="chapter" href="installation.html" title="Chapter 3. Installation"><link rel="part" href="forum-administration.html" title="Part II. Forum Management &amp; Administration"><link rel="chapter" href="administrating_fud.html" title="Chapter 1. Administrating FUD Forum 2"><link rel="chapter" href="mod_options.html" title="Chapter 2. Moderation Options"><link rel="part" href="forum-appendixes.html" title="Part III. Appendixes"><link rel="chapter" href="fudcode.html" title="Chapter 1. FUDcode"><link rel="appendix" href="GPL.html" title="Appendix A. GNU General Public License"><link rel="appendix" href="fdl.html" title="Appendix B. GNU Free Documentation License"><link rel="subsection" href="admin.global_settings_manager.html#admin.global_settings_manager.options" title="Global Options"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Global Settings Manager</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="admin.compact_messages.html">Prev</a> </td><th width="60%" align="center">Chapter 1. Administrating FUD Forum 2</th><td width="20%" align="right"> <a accesskey="n" href="admin.replacement_censorship_system.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="admin.global_settings_manager"></a>Global Settings Manager</h2></div></div><p>
+			This control panel allows you to alter the various system settings of the forum.
+			Pay careful attention to what you are doing while making changes on this control panel, 
+			since it possible to break your forum by entering wrong values in certain places.
+		</p><p>
+			Due to the importance of that control panel there is basic help for every option on the control
+			panel itself.
+		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.global_settings_manager.options"></a>Global Options</h3></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.primary.options"></a>Primary Forum Options</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_TITLE"></a>Forum Title</h5></div></div><p>
+						The title of the forum. The text entered here will appear inside the HTML &lt;title&gt; tag.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_ENABLED"></a>Forum Enabled</h5></div></div><p>
+						This toggle shows you whether or not your forum is enabled as well as allows you to enable and disable your
+						forum.
+					</p><p>
+						When your forum is disabled the users will see the message you put inside <a href="admin.global_settings_manager.html#global.option.DISABLED_REASON" title="Disabled Reason">Disabled Reason</a>
+						when they try to access any of the forum's pages.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.DISABLED_REASON"></a>Disabled Reason</h5></div></div><p>
+						When your forum is disabled this message, which can contain HTML will be displayed to anyone trying to 
+						access the forum's pages.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ALLOW_REGISTRATION"></a>Allow Registration</h5></div></div><p>
+						This toggle allows you to enable or disable new user registration.
+					</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.dir.options"></a>Forum Directory Paths</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.INCLUDE"></a>Include Directory</h5></div></div><p>
+						This is where all the compiled forum include files (*.inc) will be placed.
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Do not alter this option unless you are % certain of what you are doing.
+				 </p></div><p>
+						</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+				 	If you change this directory make sure the webserver has write permissions to it.
+				 </p><p>
+				 </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Safe Mode users also must make sure the directory is owned by the same account as the webserver.
+				 </p></div><p>
+				 </p></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.WWW_ROOT"></a>Your Forum's URL</h5></div></div><p>
+						This is the base URL of your forum.
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Do not alter this option unless you are % certain of what you are doing.
+				 </p></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ERROR_PATH"></a>Error Directory</h5></div></div><p>
+						This is the directory where the forum's error logs will be stored.
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Do not alter this option unless you are % certain of what you are doing.
+				 </p></div><p>
+						</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+				 	If you change this directory make sure the webserver has write permissions to it.
+				 </p><p>
+				 </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Safe Mode users also must make sure the directory is owned by the same account as the webserver.
+				 </p></div><p>
+				 </p></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MSG_STORE_DIR"></a>Message Storage Directory</h5></div></div><p>
+						Inside this directory the bodies of all message, normal &amp; private are stored.
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Do not alter this option unless you are % certain of what you are doing.
+				 </p></div><p>
+						</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+				 	If you change this directory make sure the webserver has write permissions to it.
+				 </p><p>
+				 </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Safe Mode users also must make sure the directory is owned by the same account as the webserver.
+				 </p></div><p>
+				 </p></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.TMP"></a>Temporary Directory</h5></div></div><p>
+						This is the directory where any temporary forum files will be placed.
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Do not alter this option unless you are % certain of what you are doing.
+				 </p></div><p>
+						</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+				 	If you change this directory make sure the webserver has write permissions to it.
+				 </p><p>
+				 </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Safe Mode users also must make sure the directory is owned by the same account as the webserver.
+				 </p></div><p>
+				 </p></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FILE_STORE"></a>File Storage Directory</h5></div></div><p>
+						Inside this directory all the file that are attached to forum's messages are stored.
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Do not alter this option unless you are % certain of what you are doing.
+				 </p></div><p>
+						</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+				 	If you change this directory make sure the webserver has write permissions to it.
+				 </p><p>
+				 </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Safe Mode users also must make sure the directory is owned by the same account as the webserver.
+				 </p></div><p>
+				 </p></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_SETTINGS_PATH"></a>Forum Settings Directory</h5></div></div><p>
+						Various settings file that are created by the forum are stored inside this directory.
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Do not alter this option unless you are % certain of what you are doing.
+				 </p></div><p>
+						</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+				 	If you change this directory make sure the webserver has write permissions to it.
+				 </p><p>
+				 </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Safe Mode users also must make sure the directory is owned by the same account as the webserver.
+				 </p></div><p>
+				 </p></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MOGRIFY_BIN"></a>Path to Mogrify Utility</h5></div></div><p>
+						Mogrify is an ImageMagick utility that allows you to manipulate images. If you have such a utility
+						specify the full path to it in this option. By doing so, you will gain the ability the scale down 
+						user uploaded avatars if they exceed the dimensions you've specified.
+					</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+						ImageMagick and its utilities can be downloaded freely from <a href="http://www.imagemagick.org/" target="_top"><i>ImageMagick website</i></a>.
+						</p></div></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.mysql.options"></a>MySQL Settings</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MYSQL_SERVER"></a>MySQL Server</h5></div></div><p>
+						The IP or UNIX Domain Socket of your MySQL server. We recommend using the UNIX Domain Socket 
+						since it is much faster then TCP/IP.
+						
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+							If you decide to specify a UNIX Domain Socket you need to put ':' in front of it.
+							For example: <tt>:/tmp/mysql.sock</tt>
+							</p></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MYSQL_LOGIN"></a>MySQL Login</h5></div></div><p>
+						The login name for the MySQL database you intend to store forum data in.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MYSQL_PASSWORD"></a>MySQL Password</h5></div></div><p>
+						The password for the MySQL database you intend to store forum data in.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MYSQL_DB"></a>MySQL Database</h5></div></div><p>
+						The name of the MySQL database you intend to use to store your data in.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MYSQL_PERSIST"></a>Use Persistent Connections</h5></div></div><p>
+						Use persistent connections for MySQL (mysql_pconnect). This is a performance enchanting feature 
+						which if enabled will make your forum somewhat faster. The reason for the improvement is because 
+						the forum will not need to establish a new MySQL connection every time a page is requested but rather
+						use an existing MySQL connection.
+					</p><p>
+						This option does have it's drawbacks, on forked webservers such as Apache, every Apache child 
+						will create a persistent socket for itself. This can potentially exhaust number of allowed MySQL 
+						connections if the number of Apache children with open connections to MySQL exceed the allowed number
+						of MySQL connections.
+					</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.pm.options"></a>Private Messaging</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PM_ENABLED"></a>Allow Private Messaging</h5></div></div><p>
+						Whether or not forum members can send private messages to one another.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PRIVATE_ATTACHMENTS"></a>File Attachments in Private Messages</h5></div></div><p>
+						How many file attachments a user can attach to each private message. Setting this option to 0, will
+						disable file attachments for private messages.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PRIVATE_ATTACH_SIZE"></a>Maximum Attachment Size</h5></div></div><p>
+						The maximum size, in bytes, of the file(s) a user can attach to their private messages.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PRIVATE_MSG_SMILEY"></a>Allow Smilies</h5></div></div><p>
+						Whether or not smilies/emoticons in private messages will be converted to their graphical equivalents.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PRIVATE_IMAGES"></a>Allow Images</h5></div></div><p>
+						This option allows you to limit how many images can users include inside their private messages.
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+							This limit will only work if the tag style is FUDcode, won't work if you allowed 
+							your visitors to use HTML.
+							</p></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PRIVATE_TAGS"></a>Tag Style</h5></div></div><p>
+						What kind of text formatting options are available to the user.
+						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>FUDcode</b></span> Users can use <a href="fudcode.html" title="Chapter 1. FUDcode">FUDcode</a> styling tags to format their messages.</p></li><li><p><span class="bold"><b>HTML</b></span> The users can use HTML inside their messages.</p></li><li><p><span class="bold"><b>NONE</b></span> only plain text is allowed.</p></li></ul></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MAX_PMSG_FLDR_SIZE"></a>Maximum Private Messages Folder Size</h5></div></div><p>
+						The maximum amount of data, in bytes, the users can store inside their private message folders. This
+						does not include the space taken up by the file attachments attached to private messages.
+					</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.cookie.options"></a>Cookie &amp; Session Settings</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.COOKIE_PATH"></a>Cookie Path</h5></div></div><p>
+						The path of cookie used by the forum. Outside of this path the cookie will not be accessible.
+					</p><p>
+						By default the cookie path is the path to the forum. For example, if your forum URL is 
+						&quot;http://mydomain.com/forum/&quot; the cookie path will be &quot;/forum/&quot;. If you wanted your entire
+						site to be able to access the forum's cookies, change the value of this option to &quot;/&quot;.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.COOKIE_DOMAIN"></a>Cookie Domain</h5></div></div><p>
+						The domain name for which a cookie is being set, the domain MUST be the same as the one used to access
+						the forum, as specified in the <a href="admin.global_settings_manager.html#global.option.WWW_ROOT" title="Your Forum's URL">WWW_ROOT</a> option.
+					</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+						For browser compatibility this values MUST have no less the two '.' in it.
+						</p></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				 	Do not alter this option unless you are % certain of what you are doing.
+				 </p></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.COOKIE_NAME"></a>Cookie Name</h5></div></div><p>
+						The name of the cookie that will be used by the forum. By default a random value is picked for
+						this option to prevent conflicts with any other cookies you may already have. In the very unlikely event 
+						that you already have a cookie with such a name, change the value of this option to something else.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.COOKIE_TIMEOUT"></a>Cookie Timeout</h5></div></div><p>
+						This is the period of time, in seconds after which the browser will remove the cookie. The user who's
+						cookie expired will then need to re-login in to the forum.
+					</p><p>
+						By default the cookies are set to expire 7 days they are set. Each time the user 
+						access the forum the cookie is renewed for another 7 days.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SESSION_TIMEOUT"></a>Session Timeout</h5></div></div><p>
+						If cookies are not used  or are not available sessions will be used instead. They work by passing 
+						the information normally stores in a cookie via GET/POST across the forum. Each time a user access' 
+						a page their session gets renewed. 
+					</p><p>
+						This option defines the amount of time, in seconds after which the session expires 
+						and a user will be required to re-login. For security reasons do not set this to a high number.
+					</p><p>
+						By default, sessions will expire after 30 minutes.
+					</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.custom.avatar.options"></a>Custom Avatar Settings</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.CUSTOM_AVATAR_APPOVAL"></a>Avatar Approval</h5></div></div><p>
+						This toggle defines whether or not the administrator(s) need to approve all the URL &amp; Uploaded avatars
+						before they are activated.
+					</p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Tip</h3><p>
+						Leave this option set to YES, unless you have absolute faith in your users and are certain they will follow
+						the size limitations you've defined.	
+						</p></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.CUSTOM_AVATARS"></a>Custom Avatars</h5></div></div><p>
+						FUDforum 2 allows for a number of ways that a user can specify their avatar, if avatars are allowed.
+						This option allows you to define is avatars are allowed and if so, what type of avatars the users may use.	
+					</p><p>
+						The URL &amp; Uploaded avatars will first need to be approved by the admin before they are activated, unless
+						you specified in the <a href="admin.global_settings_manager.html#global.option.CUSTOM_AVATAR_APPOVAL" title="Avatar Approval">Avatar Approval</a> option,
+						that the admin does not need to approve those avatars.
+					</p><p>
+						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>URL</b></span> The user can specify their avatar by entering a URL of an image.</p></li><li><p><span class="bold"><b>Uploaded</b></span> The user can upload an image from their hard drive to be their avatar.</p></li><li><p><span class="bold"><b>Built In</b></span> The user choose an avatar from the ones available in the forum's avatar gallery. </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>You can add avatars into the avatar gallery via the <a href="admin.avatar.html" title="Avatar Manager">Avatar Manager</a> control panel.</p></div></li><li><p><span class="bold"><b>ALL</b></span> The user can specify their avatar by specifying a URL to an image, uploading one to the server or choosing from the forum avatar galleries.</p></li><li><p><span class="bold"><b>OFF</b></span> The avatars are disabled.</p></li></ul></div><p>
+						
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+							The actual control panel will have additional values allowing you choose a combination of any of the first three options.
+							</p></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.CUSTOM_AVATAR_MAX_SIZE"></a>Maximum Size of Custom Avatars</h5></div></div><p>
+						This is a limit, in bytes, on how big of an image a user can upload as their avatar.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.CUSTOM_AVATAR_MAX_DIM"></a>Maximum Dimensions of the Avatar Image</h5></div></div><p>
+						This the maximum width x height dimensions of the avatar the user can specify.
+					
+						</p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Tip</h3><p>
+							The uploaded avatars can be scaled down by the admin during the avatar approval process
+							if the path to <a href="admin.global_settings_manager.html#global.option.MOGRIFY_BIN" title="Path to Mogrify Utility">Mogrify</a> utility is specified.
+							</p></div><p>
+					</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.sig.options"></a>Signature Settings</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ALLOW_SIGS"></a>Allow Signatures</h5></div></div><p>
+						Whether or not forum users can specify signatures that will be appended to their messages.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_CODE_SIG"></a>Tag Style</h5></div></div><p>
+						What kind of text formatting options are available to the user.
+						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>FUDcode</b></span> Users can use <a href="fudcode.html" title="Chapter 1. FUDcode">FUDcode</a> styling tags to format their messages.</p></li><li><p><span class="bold"><b>HTML</b></span> The users can use HTML inside their messages.</p></li><li><p><span class="bold"><b>NONE</b></span> only plain text is allowed.</p></li></ul></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_SML_SIG"></a>Allow Smilies</h5></div></div><p>
+						Whether or not smilies/emoticons in signatures will be converted to their graphical equivalents.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_IMG_SIG"></a>Allow Images</h5></div></div><p>
+						Whether or not images are allowed in signatures.		
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_IMG_CNT_SIG"></a>Maximum Number of Images</h5></div></div><p>
+						This option allows you to limit how many images can users include inside their signatures.
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+							This limit will only work if the tag style is FUDcode, won't work if you allowed 
+							your visitors to use HTML.
+							</p></div><p>
+					</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.spell.options"></a>Spell Checker</h4></div></div><div class="sect4"><div class="titlepage"></div><p>
+					Whether or not the spell checker is enabled.
+					
+					</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+						This option will only work if your PHP has the pspell module enabled.
+						</p></div><p>	
+				</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.gen.options"></a>General Settings</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MAX_SMILIES_SHOWN"></a>Maximum Smilies Shown</h5></div></div><p>
+						The maximum number of smilies/emoticons to show shortcuts for on the message posting forms.
+						To see the rest the user will need to click on the &quot;list all smilies&quot; link.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PUBLIC_RESOLVE_HOST"></a>Public Host Resolving</h5></div></div><p>
+						Toggle the showing of the partially resolved host name of the message's author to other users.
+						For example: <pre class="screen">me.myself.com will appear as .myself.com</pre>
+					</p><p>
+						This may slow down the posting process, especially, if the user's host mask takes a while to
+						resolve.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MAX_LOGIN_SHOW"></a>Maximum Shown Login Length</h5></div></div><p>
+						The maximum number of characters of a user's login name to show on all pages with the exception 
+						of user info page.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MAX_LOCATION_SHOW"></a>Maximum Shown Location Length</h5></div></div><p>
+						The maximum number of characters of a user's location to show on all pages with the 
+						exception of user info page.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.LOGEDIN_LIST"></a>Logged In Users List Enabled</h5></div></div><p>
+						Whether or not the list of currently logged in users is displayed. By default 
+						this list is shown on the forum's front page.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.LOGEDIN_TIMEOUT"></a>Logged In Users List Timeout</h5></div></div><p>
+						The amount of time, in minutes, after which a user is considered to be no longer logged in.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ACTION_LIST_ENABLED"></a>Allow Action List</h5></div></div><p>
+						If enabled it allows other forum users to see what their counterparts are doing on the forum
+						at the time.
+					</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+						This option requires that the <a href="admin.global_settings_manager.html#global.option.LOGEDIN_LIST" title="Logged In Users List Enabled">Logged in List</a> be enabled.
+						</p></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ONLINE_OFFLINE_STATUS"></a>Online/Offline Status Indicator</h5></div></div><p>
+						If enabled, this option will indicate whether a user is online or offline beside all their message.	
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ADMIN_EMAIL"></a>Administrator E-Mail</h5></div></div><p>
+						The e-mail address of the administrator.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.NOTIFY_FROM"></a>Notify From</h5></div></div><p>
+						All of the system e-mails sent from the forum, such as e-mail post notification, registration 
+						confirmation etc... will come from this address.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.NOTIFY_WITH_BODY"></a>Notify W/Body</h5></div></div><p>
+						If enabled, then e-mail notifications will include the complete HTML body of
+						the message, allowing the user to read the message's text via their e-mail client
+						as well as reply to the message by clicking on the reply/quote buttons.
+					</p><p>
+						In the event the user's e-mail client does not support HTML, the e-mail contains
+						a text version of the message as well. 
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.COPPA"></a>COPPA</h5></div></div><p>
+						If enabled the users, will be required to indicate whether or not they are older then 13 years
+						of age before registration. If they are not, then their legal guardians will be required to confirm the 
+						the account via Fax or E-mail.
+					</p><p>
+						All US based sites must leave this option enabled to comply with the 
+						Children's Online Privacy Protection Act of 1998 (COPPA)
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.POSTS_PER_PAGE"></a>Posts Per Page</h5></div></div><p>
+						How many messages to display per page.				
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.THREADS_PER_PAGE"></a>Threads Per Page</h5></div></div><p>
+						Indicates how many threads to show per page.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.DEFAULT_THREAD_VIEW"></a>Default Thread View</h5></div></div><p>
+						Allows the admin to specify the default message view.
+						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>Flat View</b></span> Standard bulletin board view.</p></li><li><p><span class="bold"><b>Tree View</b></span> Draws a tree like view of the messages. Similar to how messages in the newsgroups are displayed.</p></li></ul></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.WORD_WRAP"></a>Word Wrap</h5></div></div><p>
+						This setting defines on how many characters to wrap message bodies on, any text string longer the the number
+						of characters specified in this option will be broken down into 1 or more strings using a space as a separator.
+					</p><p>	
+						Set this to 0 to disable word wrapping.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.UNCONF_USER_EXPIRY"></a>Unconfirmed User Expiry</h5></div></div><p>
+						The number of days unconfirmed forum members are held in the database.
+						They will be removed from database after this period of time.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FLOOD_CHECK_TIME"></a>Flood Trigger</h5></div></div><p>
+						The minimum time delay, in seconds between message posting. This option is used to prevent
+						automated posting scripts that would attempt to post many messages at once.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MOVED_THR_PTR_EXPIRY"></a>Moved Thread Pointer Expiry</h5></div></div><p>
+						The number of days to show a pointer of a moved thread from the original forum to the new forum.
+						The pointer will be removed after this period of time.	
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ALLOW_EMAIL"></a>Allow E-mail</h5></div></div><p>
+						Allow the users to send e-mails to other forum members using the forum's internal e-mail client.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SERVER_TZ"></a>Server Time Zone</h5></div></div><p>
+						Server time zone.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_SEARCH"></a>Forum Search Engine</h5></div></div><p>
+						If enabled the users will be able to do full text searches on the content of the posted messages.
+						If you wish to increase the speed of the posting process or save on space used by MySQL you should
+						turn this option off.
+					</p><p>
+						In the event Forum Search is disabled the search index will not be populated at the time of posting.
+						If you later on decide to enable the search engine you will need to <a href="admin.rebuild_search_index.html" title="Rebuild Search Index">Rebuild Search Index</a>.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MEMBER_SEARCH_ENABLED"></a>Member Search</h5></div></div><p>
+						If enabled it will allow forum visitors to search for registered forum users by login and/or email.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MEMBERS_PER_PAGE"></a>Members Per Page</h5></div></div><p>
+						How many forum members to display per page on the members list page.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ANON_NICK"></a>Anonymous Username</h5></div></div><p>
+						The name that will be used to refer to all unregistered forum users.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.THREAD_MSG_PAGER"></a>Quick Pager Link Count</h5></div></div><p>
+						How many page links to display beside a thread that exceeds 1 page in length 
+						as defined by the <a href="admin.global_settings_manager.html#global.option.THREADS_PER_PAGE" title="Threads Per Page">THREADS_PER_PAGE</a> option.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.GENERAL_PAGER_COUNT"></a>General Pager Link Count</h5></div></div><p>
+						This is the number of direct links to pages that will be shown in the pager, excluding &lt;&lt; &lt; &gt; &gt;&gt;.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SHOW_EDITED_BY"></a>Show Edited By</h5></div></div><p>
+						If enabled then all the messages that were later edited by the author of the message will have
+						an indicator showing that the message was edited by it's author.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.EDITED_BY_MOD"></a>Show Edited By Moderator</h5></div></div><p>
+						If enabled then messages edited by the moderator or the administrator will have an indicator
+						indicating showing that the message was edited by someone other then the message author.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.EDIT_TIME_LIMIT"></a>Edit Time Limit</h5></div></div><p>
+						The time limit, in minutes, past which the users will no longer be able to edit their own messages.
+					</p><p>
+						Set the value to 0 to give unlimited editing time.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.DISPLAY_IP"></a>Display IP Publicly</h5></div></div><p>
+						Whether or not to display the IP address of the message's author for all forum users.
+					</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+						All forum administrators and moderators will be able to see the IP of the message author
+						regardless of this option.
+						</p></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MAX_IMAGE_COUNT"></a>Max Image Count</h5></div></div><p>
+						The maximum number of images a user may include in their forum messages.
+					</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+						This limit will ONLY work if the <a href="fudcode.html" title="Chapter 1. FUDcode">FUDcode</a> style is being used.
+						</p></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SHOW_N_MODS"></a># Of Moderators To Show</h5></div></div><p>
+						An indicator of how many forum moderators to show beside each forum on the front page.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.EMAIL_CONFIRMATION"></a>E-mail Confirmation</h5></div></div><p>
+						If enabled each new registration will need to be confirmed via email. A special URL will be sent
+						to the e-mail specified by the user during registration, which once accessed will activate their account.
+					</p><p>
+						Unconfirmed accounts will be removed after a set amount of days as defined by the 
+						<a href="admin.global_settings_manager.html#global.option.UNCONF_USER_EXPIRY" title="Unconfirmed User Expiry">UNCONF_USER_EXPIRY</a> option.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PUBLIC_STATS"></a>Public Stats</h5></div></div><p>
+						If enabled, at the bottom of each page forum users will be able to see how long it took to generate 
+						the page as well as how many MySQL queries were ran and their timings.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_INFO"></a>Forum Info</h5></div></div><p>
+						If enabled forum statistics will be displayed on the front page. These include 
+						total number of approved posts, number of topics and registered users and the last registered user
+					</p></div></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="admin.compact_messages.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="administrating_fud.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="admin.replacement_censorship_system.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Compact Messages </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Replacement &amp; Censorship System</td></tr></table></div></body></html>

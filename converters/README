@@ -1,0 +1,7 @@
+#
+# $Id: README,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+#
+
+Instructions on how to use the conversion script can be found at the top of the script itself,
+in most cases you will simply need to modify the value of a single variable, which identifies the location
+of the forum you are converting from.

@@ -1,0 +1,37 @@
+/*
+ * $Id: UPGRADE_README,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+ *
+*/
+
+*********************************
+*	Upgrade Instructions	*
+*********************************
+
+1) If you have safe_mode enabled you will need to upload the upgrade.php script using the forum's file manager in to the forum's
+   WWW_SERVER_ROOT directory. Otherwise copy the upgrade.php file in to that directory manually.
+
+2) Using your web browser run the upgrade.php script.
+
+3) Once it runs you will need to run the consistency checker, which normally will be automatically started in a new windows via
+   JavaScript.
+
+4) After the consistency checker runs you should be running the new version of FUDforum.
+
+**NOTE**
+	For the runtime of the upgrade script 10-20 seconds your forum will be disabled to prevent data corruption.
+
+*********************************
+*	CVS Instructions	*
+*********************************
+
+1) Checkout the latest release of the forum using the command below:
+	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum2 checkout fud2_upgrade
+
+2) Mark the files for edit by running:
+	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum2 edit fud2_upgrade
+
+3) Enter the fud2_upgrade directory, which was created by the CVS and run ./create_file_list install >> upgrade.php
+	This requires your to have a php cgi binary installed, if it is not found inside /usr/local/bin/php
+	modify the create_file_list first line with the full path to the php cgi binary.
+
+4) Now you have latest working upgrade script, you can now begin the upgrade process by following the upgrade instructions above.
