@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.125 2004/07/21 13:06:48 hackie Exp $
+* $Id: register.php.t,v 1.126 2004/09/15 22:03:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -183,8 +183,6 @@ function register_form_check($user_id)
 	/* Url Avatar check */
 	if (!empty($_POST['reg_avatar_loc']) && !($GLOBALS['reg_avatar_loc_file'] = fetch_img($_POST['reg_avatar_loc'], $user_id))) {
 		set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
-	} else {
-		$GLOBALS['reg_avatar_loc_file'] = '';
 	}
 
 	/* Alias Check */
@@ -336,7 +334,7 @@ function decode_uent(&$uent)
 		}
 	}
 
-	$avatar_tmp = $avatar_arr = null;
+	$reg_avatar_loc_file = $avatar_tmp = $avatar_arr = null;
 	/* deal with avatars, only done for regged users */
 	if (_uid) {
 		if (!empty($_POST['avatar_tmp'])) {
