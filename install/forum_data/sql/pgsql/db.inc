@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.29 2003/10/02 03:29:47 hackie Exp $
+*   $Id: db.inc,v 1.30 2003/10/02 03:46:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 		echo "<b>UNABLE TO WRITE TO SQL LOG FILE</b><br>\n";
 		echo $error_msg;
 	} else {
-		if (defined('forum_debug') || (_uid && $GLOBALS['usr']->is_mod == 'A')) {
+		if (defined('forum_debug') || (_uid && $GLOBALS['usr']->users_opt & 1048576)) {
 			echo $error_msg;
 		} else {
 			trigger_error('SQL Error has occurred, please contact the <a href="mailto:'.$GLOBALS['ADMIN_EMAIL'].'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log', E_USER_ERROR);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.36 2003/10/02 03:09:08 hackie Exp $
+*   $Id: cookies.inc.t,v 1.37 2003/10/02 03:46:19 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -57,7 +57,7 @@ function ses_anon_make()
 		$ses_id = md5($id.$pfx);
 	} else {
 		$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES (length(substring(textcat(translate(currval('{SQL_TABLE_PREFIX}ses_id_seq'), '1234567890', 'AbCDeFgHiJ'), '".$pfx."'), 0, 33)), ".__request_timestamp__.", '".ses_make_sysid()."', currval('{SQL_TABLE_PREFIX}ses_id_seq')+2000000000)");
-		$tr = array('1'=>'A', '2'=>'b', '3'=>'C', '4'=>'D', '5'=>'e','6'=>'F','7'=>'g','8'=>'H','9'=>i',0=>'J');
+		$tr = array('1'=>'A', '2'=>'b', '3'=>'C', '4'=>'D', '5'=>'e','6'=>'F','7'=>'g','8'=>'H','9'=>'i','0'=>'J');
 		$ses_id = substr(strtr((string)$id, $tr).$pfx, 0, 32);
 	}
 	$uid = 2000000000 + $id;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.29 2003/10/01 21:51:52 hackie Exp $
+*   $Id: thread.php.t,v 1.30 2003/10/02 03:46:19 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -148,7 +148,7 @@
 			$thread_first_post = '{TEMPLATE: thread_first_post}';
 
 			if ($admin_heading_row) {
-				if ($MOD || $frm->group_cache_opt & (32|8192)) {
+				if ($MOD || (($frm->group_cache_opt & 8224) == 8224)) {
 					$admin_control_row = '{TEMPLATE: admin_control_row_all}';
 				} else if ($frm->group_cache_opt & 32) {
 					$admin_control_row = '{TEMPLATE: admin_control_row_del}';
