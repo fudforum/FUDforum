@@ -1,410 +1,380 @@
 #PATH OF SYSTEM FILES AND DIRECTORIES 
 
-FORUM_TITLE
-The title of the forum.  This title will appear inside the HTML <title> tag.
+{{{FORUM_TITLE
+The title of the forum. This title will appear inside the HTML <title> tag.}}}
 
-FORUM_ENABLED
-Enable/disable the forum.  Use this while you are upgrading or performing maintenance on the forum.
+{{{FORUM_ENABLED	FUD_OPT_1	1
+Enable/disable the forum. Use this while you are upgrading or performing maintenance on the forum.}}}
 
-DISABLED_REASON
-This message will be shown to users when the forum is disabled.
+{{{DISABLED_REASON
+This message will be shown to users when the forum is disabled.}}}
 
-ALLOW_REGISTRATION
-Enable/disable new user registration.
+{{{ALLOW_REGISTRATION	FUD_OPT_1	2
+Enable/disable new user registration.}}}
 
-WWW_ROOT
-This is the URL of your forum.
+{{{WWW_ROOT
+This is the URL of your forum.}}}
 
 #CUSTOM AVATAR SETTINGS
 
-CUSTOM_AVATARS
-Enable/disable to use of avatars.  Definitions of the options:
+{{{CUSTOM_AVATARS	FUD_OPT_1	"OFF\nBuilt In Only\nURL Only\nUploaded Only\nBuilt In & URL\nBuilt In & Uploaded\nURL & Uploaded\nALL"	"0\n16\n4\n8\n20\n24\n12\n28"
+Enable/disable to use of avatars. Definitions of the options:
 
 URL - Users will need to give a URL to their avatar.
 Uploaded - The avatar will be uploaded to the server.
 Built In - A user can choose an avatar from the avatars available in the forum.
 ALL - A user can use a URL or an uploaded/built-in avatar.
-OFF - Avatars are disabled.
+OFF - Avatars are disabled.}}}
 
-CUSTOM_AVATAR_MAX_SIZE
-This is the maximum size (in bytes) of the custom avatar image (uploaded to server).
+{{{CUSTOM_AVATAR_MAX_SIZE
+This is the maximum size (in bytes) of the custom avatar image (uploaded to server).}}}
 
-CUSTOM_AVATAR_MAX_DIM
-This is the maximum dimension that a custom avatar can be.
+{{{CUSTOM_AVATAR_MAX_DIM
+This is the maximum dimension that a custom avatar can be.}}}
+
+{{{CUSTOM_AVATAR_APPOVAL	FUD_OPT_1	32
+If set to yes the administrator will have to approve every custom avatar the user uploads or provides a url to.}}}
+
+{{{CUSTOM_AVATAR_ALLOW_SWF	FUD_OPT_1	64
+Allow users to upload Macromedia Flash avatars, not recommended unless you trust your users implicitly, since Flash animation can potentially trigger various browser events.}}}
 
 #COOKIE & SESSION SETTINGS
 
-COOKIE_PATH
-The cookie path for the forum.
+{{{COOKIE_PATH
+The cookie path for the forum.}}}
 
-COOKIE_TIMEOUT
-The cookie timeout. When the user's cookie expires, the user will have to login again.
+{{{COOKIE_TIMEOUT
+The cookie timeout. When the user's cookie expires, the user will have to login again.}}}
 
-SESSION_TIMEOUT
-The session timeout. When the user's session expires, the user will have to login again.
+{{{SESSION_TIMEOUT
+The session timeout. When the user's session expires, the user will have to login again.}}}
 
-COOKIE_DOMAIN
-The domain of the cookie that will be used by the forum.
+{{{COOKIE_DOMAIN
+The domain of the cookie that will be used by the forum.}}}
 
-COOKIE_NAME
-The name of the cookie that will be used by the forum.
+{{{COOKIE_NAME
+The name of the cookie that will be used by the forum.}}}
+
+{{{SESSION_USE_URL	FUD_OPT_1	128
+Allow session ids to be passed not only via cookies but, via URL variables.}}}
 
 #DATABASE SETTINGS
 
-DBHOST
-This setting can either be an Internet IP address in a form of
-AAA.BBB.CCC.DDD:PORT, or it can point to a valid Unix domain socket (such as
-:/tmp/mysql.sock).  It is highly recommended that you use Unix domain sockets
-to communicate with the database (due to faster performance).
+{{{DBHOST
+This setting can either be an Internet IP address in a form of AAA.BBB.CCC.DDD:PORT, or it can point to a valid Unix domain socket (such as :/tmp/mysql.sock). It is highly recommended that you use Unix domain sockets to communicate with the database (due to faster performance).}}}
 
-DBHOST_USER
-The username for the database you intend to use the system with.
+{{{DBHOST_USER
+The username for the database you intend to use the system with.}}}
 
-DBHOST_PASSWORD
-The password for the username.
+{{{DBHOST_PASSWORD
+The password for the username.}}}
 
-DBHOST_DBNAME
-Database name for the forum.
+{{{DBHOST_DBNAME
+Database name for the forum.}}}
 
-DBHOST_PERSIST
-Whether or not to use persistent connections.  Highly recommended
-unless you have a good reason not to.
+{{{DBHOST_PERSIST	FUD_OPT_1	256
+Whether or not to use persistent connections. Slight performance increase, but may cause problems.}}}
 
-DBHOST_TBL_PREFIX
-The prefix for the FUDforum's database tables. Do not modify this option.
+{{{DBHOST_TBL_PREFIX
+The prefix for the FUDforum's database tables. Do not modify this option.}}}
+
+# SMTP SETTINGS
+
+{{{USE_SMTP	FUD_OPT_1	512
+Whether or not to use FUDforum SMTP gateway to send email instead of standard PHP mail() function. Not recommended, unless you need SMTP AUTH or wish to use alternate SMTP server on UNIX systems.}}}
+
+{{{FUD_SMTP_SERVER
+The ip or host name of the SMTP server.}}}
+
+{{{FUD_SMTP_TIMEOUT
+The number of seconds to wait for the SMTP server to respond to a request.}}}
+
+{{{FUD_SMTP_LOGIN
+If your SMTP server requires SMTP Authentication, enter the login name here.}}}
+
+{{{FUD_SMTP_PASS
+If your SMTP server requires SMTP Authentication, enter the password here.}}}
 
 #PRIVATE MESSAGE SETTINGS
 
-PM_ENABLED
-Enable/disable private messaging.  Enabled by default.
+{{{PM_ENABLED	FUD_OPT_1	1024
+Enable/disable private messaging. Enabled by default.}}}
 
-PRIVATE_ATTACHMENTS
-This is how many attachments you want to allow per private message.
-Setting this to 0 will disable file attachments completely.
+{{{PRIVATE_ATTACHMENTS
+This is how many attachments you want to allow per private message. Setting this to 0 will disable file attachments completely.}}}
 
-PRIVATE_ATTACH_SIZE
-The maximum size of an attached file (in bytes).
+{{{PRIVATE_ATTACH_SIZE
+The maximum size of an attached file (in bytes).}}}
 
-PRIVATE_TAGS
-This setting specifies what kind of text formatting to allow in private messages.
+{{{PRIVATE_TAGS	FUD_OPT_1	"FUD ML\nHTML\nNone"	"4096\n0\n2048"
+This setting specifies what kind of text formatting to allow in private messages.}}}
 
-PRIVATE_MSG_SMILEY
-Enable/disable smilies in private messages.
+{{{PRIVATE_MSG_SMILEY	FUD_OPT_1	8192
+Enable/disable smilies in private messages.}}}
 
-PRIVATE_IMAGES
-Enable/disable images in private messages.
+{{{PRIVATE_IMAGES	FUD_OPT_1	16384
+Enable/disable images in private messages.}}}
 
-MAX_PMSG_FLDR_SIZE
-The maximum number of bytes of private messages that a user can have at a time.
+{{{MAX_PMSG_FLDR_SIZE
+The maximum number of bytes of private messages that a user can have at a time.}}}
 
 #SIGNATURE SETTINGS
 
-ALLOW_SIGS
-Enable/disable user signatures in posts.
+{{{ALLOW_SIGS	FUD_OPT_1	32768
+Enable/disable user signatures in posts.}}}
 
-FORUM_CODE_SIG
-This setting specifies what kind of text formatting to allow in signatures.
+{{{FORUM_CODE_SIG	FUD_OPT_1	"FUD ML\nHTML\nNone"	"131072\n0\n65536"
+This setting specifies what kind of text formatting to allow in signatures.}}}
 
-FORUM_SML_SIG
-Enable/disable smilies in signatures.
+{{{FORUM_SML_SIG	FUD_OPT_1	262144
+Enable/disable smilies in signatures.}}}
 
-FORUM_IMG_SIG
-Enable/disable images in signatures.
+{{{FORUM_IMG_SIG	FUD_OPT_1	524288
+Enable/disable images in signatures.}}}
+
+{{{FORUM_IMG_CNT_SIG
+The maximum number of images to allow inside a signature. Set to 0 to allow unlimited images.}}}
+
+{{{FORUM_SIG_ML
+Maximum length of the signature a user may have (0 for ulimited).}}}
 
 #OTHER FORUM OPTIONS 
 
-ADMIN_EMAIL
-Email address of the forum administrator.
+{{{ADMIN_EMAIL
+Email address of the forum administrator.}}}
 
-COPPA
-Enable/disable the Children's Online Privacy Protection Act of 1998 (COPPA)
-check during new user registration.
+{{{COPPA	FUD_OPT_1	1048576
+Enable/disable the Children's Online Privacy Protection Act of 1998 (COPPA) check during new user registration.}}}
 
-SPELL_CHECK_ENABLED
-Enable/disable the built-in spell checker.
+{{{SPELL_CHECK_ENABLED	FUD_OPT_1	2097152
+Enable/disable the built-in spell checker.}}}
 
-POSTS_PER_PAGE
-The default number of posts per page.
+{{{POSTS_PER_PAGE
+The default number of posts per page.}}}
 
-THREADS_PER_PAGE
-The default number of topics per page.  NOTE: If you change this value you
-MUST run the consistency checker, otherwise the forum will not work properly.
+{{{THREADS_PER_PAGE
+The default number of topics per page. NOTE: If you change this value you MUST run the consistency checker, otherwise the forum will not work properly.}}}
 
-WORD_WRAP
-This setting defines on how many character to wrap message bodies on, any text string longer the the number of character in this option will be broken down into 1 or more strings using a space as a separator.
+{{{WORD_WRAP
+This setting defines on how many character to wrap message bodies on, any text string longer the the number of character in this option will be broken down into 1 or more strings using a space as a separator.}}}
 Set this to 0 to disable word wrapping.
 
-FLOOD_CHECK_TIME
-The minimum time delay before a user can post a message.
+{{{FLOOD_CHECK_TIME
+The minimum time delay before a user can post a message.}}}
 
-PUBLIC_EMAIL_VIEW
-Enable/disable the showing of email addresses in the user information page.
+{{{ALLOW_EMAIL	FUD_OPT_1	4194304
+Enable/disable the forum's built-in email client.}}}
 
-ALLOW_EMAIL
-Enable/disable the forum's built-in email client.
+{{{SERVER_TZ
+Server time zone, specified in time offset from UTC.}}}
 
-SERVER_TZ
-Server time zone, specified in time offset from UTC.
+{{{MEMBER_SEARCH_ENABLED	FUD_OPT_1	"Enabled\nDisabled\nOnly for registered users"	"8388608\n0\n4194304"
+Enable/disable the forum member search.}}}
 
-MEMBER_SEARCH_ENABLED
-Enable/disable the forum member search.
+{{{FORUM_SEARCH	FUD_OPT_1	16777216
+Enable/disable the ability to do a full text search of the forum. Disable this option if you have little CPU power and/or wish to conserve SQL space. If option is disabled the search database will NOT be populated during posting. If you decide to enable the search at a later point, you will need to rebuild the search index. This may take a while, and is entirely dependent on the speed of your server and the number of messages your forum has.}}}
 
-FORUM_SEARCH
-Enable/disable the ability to do a full text search of the forum.  Disable
-this option if you have little CPU power and/or wish to conserve SQL space.
-If option is disabled the search database will NOT be populated during posting.
-If you decide to enable the search at a later point, you will need to rebuild
-the search index.  This may take a while, and is entirely dependent on the
-speed of your server and the number of messages your forum has.
+{{{MEMBERS_PER_PAGE
+The number of members to show per page in the search result.}}}
 
-MEMBERS_PER_PAGE
-The number of members to show per page in the search result.
+{{{THREAD_MSG_PAGER
+The pager that appears near every topic.}}}
 
-THREAD_MSG_PAGER
-The pager that appears near every topic.
+{{{GENERAL_PAGER_COUNT
+This is the number of direct links to pages that will be shown in the pager, excluding << < > >>.}}}
 
-GENERAL_PAGER_COUNT
-This is the number of direct links to pages that will be shown in the pager, excluding << < > >>.
+{{{SHOW_EDITED_BY	FUD_OPT_1	33554432
+Enable/disable the text that will reveal if a post was edited.}}}
 
-SHOW_EDITED_BY
-Enable/disable the text that will reveal if a post was edited.
+{{{EDITED_BY_MOD	FUD_OPT_1	67108864
+Enable/disable the text that will reveal if an edited post was edited by a moderator.}}}
 
-EDITED_BY_MOD
-Enable/disable the text that will reveal if an edited post was edited by a moderator.
-
-EDIT_TIME_LIMIT
-This sets the length of time a message can be edited before message editing is disabled.
+{{{EDIT_TIME_LIMIT
+This sets the length of time a message can be edited before message editing is disabled.}}}
 Set the value to 0 to give unlimited editing time.
 
-DISPLAY_IP
-Publicly display the IP address that the message was posted from.
+{{{DISPLAY_IP	FUD_OPT_1	134217728
+Publicly display the IP address that the message was posted from. The administrators will always see the IPs and so will the forum moderators in the forums they moderate.}}}
 
-LOGEDIN_TIMEOUT
-The length of time of non-activity before the forum considers a user no longer active in the forum.
+{{{LOGEDIN_TIMEOUT
+The length of time of non-activity before the forum considers a user no longer active in the forum.}}}
 
-MAX_IMAGE_COUNT
-The maximum number of images allowed per post. Set to 0 to allow unlimited images.
+{{{MAX_IMAGE_COUNT
+The maximum number of images allowed per post. Set to 0 to allow unlimited images.}}}
 
-FORUM_IMG_CNT_SIG
-The maximum number of images to allow inside a signature. Set to 0 to allow unlimited images.
+{{{NOTIFY_FROM
+The email address that all of the forum-generated email, such as notifications and welcome messages, should be sent as. This MUST be a valid email address that you have access to.}}}
 
-NOTIFY_FROM
-The email address that all of the forum-generated email, such as notifications and welcome messages, should be sent as.
-This MUST be a valid email address that you have access to.
+{{{ANON_NICK
+The username that is attached to anonymous posts if anonymous posting is allowed.}}}
 
-ANON_NICK
-The username that is attached to anonymous posts if anonymous posting is allowed.
+{{{MAX_LOGIN_SHOW
+The maximum length of the user's login/alias.}}}
 
-MAX_LOGIN_SHOW
-The maximum length of the user's login/alias.
+{{{MAX_LOCATION_SHOW
+The maximum number of characters of a user's location to show on all forms except userinfo.}}}
 
-MAX_LOCATION_SHOW
-The maximum number of characters of a user's location to show on all forms except userinfo.
+{{{PUBLIC_RESOLVE_HOST	FUD_OPT_1	268435456
+Enable/disable the showing of the partially resolved hostname of the poster to all users (ex. me.myself.com will be shown as .myself.com). This option does not affect the showing of IP addresses.}}}
 
-PUBLIC_RESOLVE_HOST
-Enable/disable the showing of the partially resolved hostname of the poster to all users
-(ex. me.myself.com will be shown as .myself.com).  This option does not affect the showing of
-IP addresses.
+{{{ACTION_LIST_ENABLED	FUD_OPT_1	536870912
+Enable/disable the ability for forum users to see what other forum users are doing.}}}
 
-ACTION_LIST_ENABLED
-Enable/disable the ability for forum users to see what other forum users are doing.
+{{{LOGEDIN_LIST	FUD_OPT_1	1073741824
+Enable/disable the list of users who are currently using the forum on the front page. This option is a MUST be enabled if you want to enable the Allow Action List.}}}
 
-LOGEDIN_LIST
-Enable/disable the list of users who are currently using the forum on the front page.
-This option is a MUST be enabled if you want to enable the Allow Action List.
+{{{EMAIL_CONFIRMATION	FUD_OPT_2	1
+Enable/disable email confirmation of new registered accounts. A special URL will be sent in the welcome email upon registration.}}}
 
-EMAIL_CONFIRMATION
-Enable/disable email confirmation of new registered accounts.  A special URL
-will be sent in the welcome email upon registration.
+{{{PUBLIC_STATS	FUD_OPT_2	2
+Enable/disable the showing of how long it took the generate the page and how many SQL queries were run in the process.}}}
 
-PUBLIC_STATS
-Enable/disable the showing of how long it took the generate the page and how
-many SQL queries were run in the process.
+{{{DEFAULT_THREAD_VIEW	FUD_OPT_2	"Flat View thread and message list\nTree View thread and message list\nFlat thread listing/Tree message listing\nTree thread listing/Flat message listing"	"12\n0\n4\n8"
+The default view of the topic's contents and topic listing.}}}
 
-DEFAULT_THREAD_VIEW
-The default view of the topic's contents and topic listing.
+{{{FORUM_INFO	FUD_OPT_2	16
+Enable/disable the showing of forum statistics on the front page. Statistics include the total number of approved posts, number of topics and registered users and the last registered user.}}}
 
-FORUM_INFO
-Enable/disable the showing of forum statistics on the front page.  Statistics
-include the total number of approved posts, number of topics and registered
-users and the last registered user.
+{{{ONLINE_OFFLINE_STATUS	FUD_OPT_2	32
+Enable/disable the online/offline status indicator for the poster on messages.}}}
 
-ONLINE_OFFLINE_STATUS
-Enable/disable the online/offline status indicator for the poster on messages.
+{{{UNCONF_USER_EXPIRY 
+The number of days unconfirmed forum members are held in the database. They will be removed from database after this period of time.}}}
 
-UNCONF_USER_EXPIRY
-The number of days unconfirmed forum members are held in the database.
-They will be removed from database after this period of time.
+{{{MOVED_THR_PTR_EXPIRY
+The number of days to show a pointer of a moved topic from the original forum to the new forum. The pointer will be removed after this period of time.}}}
 
-MOVED_THR_PTR_EXPIRY
-The number of days to show a pointer of a moved topic from the original forum to the new forum.
-The pointer will be removed after this period of time.
+{{{DATA_DIR
+The directory where the forum's internal data is being stored.}}}
 
-DATA_DIR
-The directory where the forum's internal data is being stored.
+{{{WWW_ROOT_DISK
+The location on the disk where the forum's images are stored.}}}
 
-WWW_ROOT_DISK
-The location on the disk where the forum's images are stored.
+{{{SHOW_N_MODS
+Up to how many moderators per forum to show on the front page.}}}
 
-SHOW_N_MODS
-Up to how many moderators per forum to show on the front page.
+{{{MAX_SMILIES_SHOWN
+Maximum number of smilies to display on the post forms.}}}
 
-CUSTOM_AVATAR_APPOVAL
-If set to yes the administrator will have to approve every custom avatar the user uploads or
-provides a url to.
+{{{NOTIFY_WITH_BODY	FUD_OPT_2	64
+Include the message body and subject inside the email notification.}}}
 
-MAX_SMILIES_SHOWN
-Maximum number of smilies to display on the post forms.
+{{{USE_ALIASES	FUD_OPT_2	128
+Allow users to specify a nick name, that will be used instead of a login name to identify those users on the forum.}}}
 
-NOTIFY_WITH_BODY
-Include the message body and subject inside the email notification.
+{{{MULTI_HOST_LOGIN	FUD_OPT_2	256
+This option allows users to login into the forum from different computers/browsers and not terminate their existing sessions on other computers/browsers.}}}
 
-USE_ALIASES
-Allow users to specify a nick name, that will be used instead of a login name to identify
-those users on the forum.
+{{{POLLS_PER_PAGE
+How many polls to display per page on the poll listing.}}}
 
-MULTI_HOST_LOGIN
-This option allows users to login into the forum from different computers/browsers and not
-terminate their existing sessions on other computers/browsers.
+{{{TREE_THREADS_ENABLE	FUD_OPT_2	512
+Whether or not to allow the tree view of the topic listing. This is a fairly CPU intensive page compared to all other forum pages, so use this option with caution.}}}
 
-USE_SMTP
-Whether or not to use FUDforum SMTP gateway to send email instead of standard PHP mail()
-function. Not recommended, unless you need SMTP AUTH or wish to use alternate SMTP 
-server on UNIX systems.
+{{{TREE_THREADS_MAX_DEPTH
+Maximum depth of the tree to allow, this option will prevent long trees from scrolling far of the users screen making the page unreadable.}}}
 
-FUD_SMTP_SERVER
-The ip or host name of the SMTP server.
+{{{TREE_THREADS_MAX_SUBJ_LEN
+At which point to cutoff subjects of messages on topic listing in tree mode. This options allows you to save on screen space if you want to show large topic trees.}}}
 
-FUD_SMTP_TIMEOUT
-The number of seconds to wait for the SMTP server to respond to a request.
+{{{MODERATE_USER_REGS	FUD_OPT_2	1024
+Whether or not every new registration will need to be approved by the administrator before the new account is activated.}}}
 
-FUD_SMTP_LOGIN
-If your SMTP server requires SMTP Authentication, enter the login name here.
+{{{REG_TIME_LIMIT
+This limit allows you to define how often can a registration can occur. Set the value of this field to -1 if you do not wish to limit registrations.}}}
 
-FUD_SMTP_PASS
-If your SMTP server requires SMTP Authentication, enter the password here.
+{{{ENABLE_AFFERO	FUD_OPT_2	2048
+Enable affero, this will result in an Affero button being shown beside each message, allowing users to give feedback via the Affero system.}}}
 
-POLLS_PER_PAGE
-How many polls to display per page on the poll listing.
+{{{SEARCH_CACHE_EXPIRY
+Due to the complexity of the searching process the search results are being cached. This option allows you to define the maximum age of entries (in seconds) stored inside this cache. By default the cache age is set to 2 days.}}}
 
-TREE_THREADS_ENABLE
-Whether or not to allow the tree view of the topic listing. This is a fairly
-CPU intensive page compared to all other forum pages, so use this option with 
-caution.
+{{{STATS_CACHE_AGE
+Generating forum statistics is somewhat expensive (CPU wise) therefor the results are being cached for a small period of time, which should significantly reduce the front page load on popular forums. This option allows you to define (in seconds) the maximum time for which the forum stats will be cached.}}}
 
-TREE_THREADS_MAX_DEPTH
-Maximum depth of the tree to allow, this option will prevent long trees from
-scrolling far of the users screen making the page unreadable.
+{{{ENABLE_THREAD_RATING	FUD_OPT_2	4096
+Whether or not to allow users to rate topics.}}}
 
-TREE_THREADS_MAX_SUBJ_LEN
-At which point to cutoff subjects of messages on topic listing in tree mode. 
-This options allows you to save on screen space if you want to show large topic
-trees.
+{{{TRACK_REFERRALS	FUD_OPT_2	8192
+Whether or not to try to track forum referrals by setting a cookie with referral id to new incoming users.}}}
 
-MODERATE_USER_REGS
-Whether or not every new registration will need to be approved by the administrator
-before the new account is activated.
+{{{POST_ICONS_PER_ROW
+Number of message icons to show per row on message posting form.}}}
 
-REG_TIME_LIMIT
-This limit allows you to define how often can a registration can occur. Set the
-value of this field to -1 if you do not wish to limit registrations.
+{{{MAX_LOGGEDIN_USERS
+Maximum number of currently logged-in users to show on the front page.}}}
 
-ENABLE_AFFERO
-Enable affero, this will result in an Affero button being shown beside each
-message, allowing users to give feedback via the Affero system.
+{{{PHP_COMPRESSION_ENABLE	FUD_OPT_2	16384
+Whether or not to use php to compress forum's output. By turning this option you are likely to save a fair bit of bandwidth. However, for performance reasons it is recommended that you use native compression built-in into most webservers like mod_gzip for Apache.}}}
 
-SESSION_USE_URL
-Allow session ids to be passed not only via cookies but, via URL variables.
+{{{PHP_COMPRESSION_LEVEL
+If php's compression is used, this indicates how extensively should the data be compressed, the values can range from 1-9.}}}
 
-AVATAR_ALLOW_SWF
-Allow users to upload Macromedia Flash avatars, not recommended unless you
-trust your users implicitly, since Flash animation can potentially trigger
-various browser events.
+{{{USE_PATH_INFO	FUD_OPT_2	32768
+Whether or not use PATH_INFO based URLs, this will make forum's URLs look like http://a.com/index.php/a/b/c/. This makes forum's URLs much easier to remember as well as more search engine friendly. Unfortunately this feature mostly works with Apache 1.X based servers and may not work with other webservers. To see if your webserver supports this feature, click on the test link above. If you see forum's front page, then you can make use of this feature. To make use of this you will also need to create a new template based on the 'path_info' template set.}}}
 
-SEARCH_CACHE_EXPIRY
-Due to the complexity of the searching process the search results are being
-cached. This option allows you to define the maximum age of entries 
-(in seconds) stored inside this cache. By default the cache age is set to
-2 days.
+{{{ALLOW_PROFILE_IMAGE	FUD_OPT_2	65536
+Whether or not to allow users to enter a URL to an image in their profile that will be displayed on the user info page for that user. The danger of this feature is that the user could potentially link to a page other then an image and some browsers like Internet Explorer will parse that page executing any potentially hostile Javascript that may be present.}}}
 
-STATS_CACHE_AGE
-Generating forum statistics is somewhat expensive (CPU wise) therefor the 
-results are being cached for a small period of time, which should significantly
-reduce the front page load on popular forums. This option allows you to define
-(in seconds) the maximum time for which the forum stats will be cached.
+{{{NEW_ACCOUNT_NOTIFY	FUD_OPT_2	131072
+This setting will only be used if you have chosen to manually approve all new registrations. If enabled, then everytime a new user is registred all forum administrators will recieve a notification via e-mail.}}}
 
-ENABLE_THREAD_RATING
-Whether or not to allow users to rate topics.
+{{{MODERATED_POST_NOTIFY	FUD_OPT_2	262144
+Notify forum moderators via e-mail when a new message is posted in a forum where a message must first be approved by the moderator before shown to the rest of the visitors.}}}
 
-TRACK_REFERRALS
-Whether or not to try to track forum referrals by setting a cookie with referral
-id to new incoming users.
+{{{BUST_A_PUNK	FUD_OPT_2	524288
+When a user is banned set a special cookie that will try to make sure that this user remains banned.}}}
 
-POST_ICONS_PER_ROW
-Number of message icons to show per row on message posting form.
+{{{MNAV_MAX_DATE
+The maximum amount of days the users may go back in history when using the message navigator. Set to -1 for unlimited.}}}
 
-MAX_LOGGEDIN_USERS
-Maximum number of currently logged-in users to show on the front page.
+{{{MNAV_MAX_LEN
+The maximum length of the message body to show on the search page & message navigator.}}}
 
-PHP_COMPRESSION_ENABLE
-Whether or not to use php to compress forum's output. By turning
-this option you are likely to save a fair bit of bandwidth. However, for performance
-reasons it is recommended that you use native compression built-in into most webservers
-like mod_gzip for Apache.
+{{{SHOW_XML_LINK	FUD_OPT_2	1048576
+Whether or not to show a syndication link, linking to help on how get XML/RDF feeds of forum's data.}}}
 
-PHP_COMPRESSION_LEVEL
-If php's compression is used, this indicates how extensively should the data be
-compressed, the values can range from 1-9.
+{{{SHOW_PDF_LINK	FUD_OPT_2	2097152
+Whether or not to show a link allowing users to generate a printable PDF of the page they are viewing.}}}
 
-USE_PATH_INFO
-Whether or not use PATH_INFO based URLs, this will make forum's URLs look like
-http://a.com/index.php/a/b/c/. This makes forum's URLs much easier to remember
-as well as more search engine friendly. Unfortunately this feature mostly works
-with Apache 1.X based servers and may not work with other webservers. To see if
-your webserver supports this feature, click on the test link above. If you see
-forum's front page, then you can make use of this feature. To make use of this
-you will also need to create a new template based on the 'path_info' template
-set.
+{{{DWLND_REF_CHK	FUD_OPT_2	4194304
+Check HTTP_REFERER of users before allowing users to download file attachments. If enabled, users who's HTTP_REFERER does not contain WWW_ROOT will be prevented from downloading the attachments.}}}
 
-ALLOW_PROFILE_IMAGE
-Whether or not to allow users to enter a URL to an image in their profile that
-will be displayed on the user info page for that user. The danger of this feature
-is that the user could potentially link to a page other then an image and some
-browsers like Internet Explorer will parse that page executing any potentially 
-hostile Javascript that may be present.
+{{{FILE_LOCK	FUD_OPT_2	8388608
+Whether or not to use secure file permissions (0600/0700).}}}
 
-NEW_ACCOUNT_NOTIFY
-This setting will only be used if you have chosen to manually approve all new
-registrations. If enabled, then everytime a new user is registred all forum
-administrators will recieve a notification via e-mail.
+{{{RDF_ENABLED	FUD_OPT_2	16777216
+Whether to allow RDF/XML feeds of the forum's data.}}}
 
-MODERATED_POST_NOTIFY
-Notify forum moderators via e-mail when a new message is posted in a forum
-where a message must first be approved by the moderator before shown to the
-rest of the visitors.
+{{{RDF_AUTH	FUD_OPT_2	33554432
+Whether or not to perform permission checks to determine if the user has access the requested data.}}}
 
-BUST_A_PUNK
-When a user is banned set a special cookie that will try to make sure that
-this user remains banned.
+{{{RDF_AUTH_ID
+By default when perform authentication, the forum will treat validate the user as anonymous, however of increased or lowered permission you can specify exactly which user will the RDF feed be authenticated as. This field allows you to enter the id of that user.}}}
 
-MNAV_MAX_DATE
-The maximum amount of days the users may go back in history when using the
-message navigator. Set to -1 for unlimited.
+{{{RDF_MAX_N_RESULTS
+The maximum number of results that can be fetched within a single request through the RDF feed.}}}
 
-MNAV_MAX_LEN
-The maximum length of the message body to show during message preview in
-the message navigator.
+{{{RDF_ALLOW_USER_DATA	FUD_OPT_2	67108864
+Whether or not to allow user profile data to be fetched via RDF.}}}
 
-SHOW_XML_LINK
-Whether or not to show a syndication link, linking to help on how get XML/RDF
-feeds of forum's data.
+{{{PDF_ENABLED	FUD_OPT_2	134217728
+Whether or not to enable PDF output.}}}
 
-SHOW_PDF_LINK
-Whether or not to show a link allowing users to generate a printable PDF
-of the page they are viewing.
+{{{PDF_ALLOW_FULL	FUD_OPT_2	268435456
+Whether or not to allow users to generate a PDF containing ALL the messages in a particular forum.}}}
 
-DWLND_REF_CHK
-Check HTTP_REFERER of users before allowing users to download file attachments.
-If enabled, users who's HTTP_REFERER does not contain WWW_ROOT will be prevented
-from downloading the attachments.
+{{{PDF_PAGE
+The sizes are in points, each point is 1/72 of an inch.}}}
 
+{{{PDF_WMARGIN
+Number of pixels to reserve for white space at the right & left side of the page.}}}
+
+{{{PDF_HMARGIN
+Number of pixels to reserve for white space at the top &amp; bottom of the page.}}}
+
+{{{PDF_MAX_CPU
+PDF generation process can be fairly cpu intensive process. This setting allows you to limit the number of seconds PHP script may spend trying to generate the pdf.}}}
+
+{{{SHOW_REPL_LNK	FUD_OPT_2	536870912
+Whether or not to show a link (beside the message subject) to the message that the current message is a reply to.}}}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.76 2003/09/23 13:34:11 hackie Exp $
+*   $Id: core.inc,v 1.77 2003/09/29 22:24:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-$FORUM_VERSION = "2.5.3RC3";
+$FORUM_VERSION = "2.6.0RC1";
 
 ignore_user_abort(true);
 set_magic_quotes_runtime(0);
@@ -112,7 +112,7 @@ if (!function_exists('file_get_contents')) {
 	function file_get_contents($fname)
 	{
 		if (!($fp = @fopen($fname, 'rb'))) {
-			return FALSE;
+			return false;
 		}
 		/* this handles urls */
 		if (!($size = @__ffilesize($fp))) {

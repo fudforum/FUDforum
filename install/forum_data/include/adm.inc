@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.17 2003/09/18 16:49:29 hackie Exp $
+*   $Id: adm.inc,v 1.18 2003/09/29 22:24:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,18 +16,22 @@
 ***************************************************************************/
 
 if (!defined('shell_script')) {
-	$r = $GLOBALS['USE_PATH_INFO'];
-	$GLOBALS['USE_PATH_INFO'] = 'N';
+	if ($GLOBALS['FUD_OPT_2'] & 32768) {
+		$GLOBALS['FUD_OPT_2'] ^= 32768;
+		$t = 1;
+	}
 	define('fud_theme', 'theme/default/');
 	fud_use('db.inc');
 	fud_use('cookies.inc');
 	fud_use('users.inc');
-	$GLOBALS['USE_PATH_INFO'] = $r;
+	if (isset($t)) {
+		$GLOBALS['FUD_OPT_2'] |= 32768;
+	}
 }
 
 define('__fud_index_name__', 'index.php');
 
-if ($GLOBALS['usr']->is_mod != 'A') {
+if (!($GLOBALS['usr']->users_opt & 1048576)) {
 	header('Location: admloginuser.php?'._rsidl);
         exit;
 }
