@@ -1,5 +1,5 @@
 /*
- * $Id: UPGRADE_README,v 1.3 2002/09/03 00:31:35 hackie Exp $
+ * $Id: UPGRADE_README,v 1.4 2003/05/26 09:12:16 hackie Exp $
  *
 */
 
@@ -30,8 +30,8 @@
 2) Mark the files for edit by running:
 	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum21 edit fud21_upgrade
 
-3) Enter the fud2_upgrade directory, which was created by the CVS and run ./create_file_list install 1>> upgrade.php
-	This requires your to have a php cgi binary installed, if it is not found inside /usr/local/bin/php
-	modify the create_file_list first line with the full path to the php cgi binary.
+3) Enter the fud21_upgrade directory, which was created by the CVS and run:
+	php create_file_list install 1 >> upgrade.php
+   ** If your php was not compiled with zlib support, remove 1 from the above command.
 
 4) Now you have latest working upgrade script, you can now begin the upgrade process by following the upgrade instructions above.
