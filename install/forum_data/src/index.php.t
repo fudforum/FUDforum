@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.15 2002/08/23 00:11:37 hackie Exp $
+*   $Id: index.php.t,v 1.16 2002/09/26 04:14:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -101,7 +101,13 @@ function index_view_perms($usr_id)
 
 	/*----------------- END FORM FUNCTIONS --------------------*/
 
-	if ( !empty($c) ) reload_collapse($c);
+	if( empty($c) ) $c = $usr->cat_collapse_status;
+
+	if ( !empty($c) ) {
+		reload_collapse($c);
+		if( _uid && $usr->cat_collapse_status != $c && !preg_match('![^0-9:_]!', $c) ) 
+			q("UPDATE {SQL_TABLE_PREFIX}users SET cat_collapse_status='".$c."' WHERE id=".$id);
+	}	
 		
 	if ( isset($ses) ) $ses->update('{TEMPLATE: index_update}');
 	
@@ -165,7 +171,6 @@ function index_view_perms($usr_id)
 		}
 		
 		if( iscollapsed($data->cat_id) ) continue;
-
 		
 		if ( $data->forum_icon ) 
 			$forum_icon = '{TEMPLATE: forum_icon}';
