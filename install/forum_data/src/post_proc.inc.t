@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.70 2005/02/10 14:06:22 hackie Exp $
+* $Id: post_proc.inc.t,v 1.71 2005/02/24 16:52:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -512,7 +512,7 @@ function html_to_tags($fudml)
 		$fudml = str_replace($res[0], "[php]\n".$m."\n[/php]", $fudml);
 	}
 
-	if (strpos($fudml, '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>')  !== false) {
+	if (strpos($fudml, '{TEMPLATE: post_html_quote_start_p1}')  !== false) {
 		$fudml = str_replace(array('{TEMPLATE: post_html_quote_start_p1}','{TEMPLATE: post_html_quote_start_p2}','{TEMPLATE: post_html_quote_end}'), array('[quote title=', ']', '[/quote]'), $fudml);
 		// old bad code
 		$fudml = str_replace(array('<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>','</b></td></tr><tr><td class="quote"><br>','<br></td></tr></table>'), array('[quote title=', ']', '[/quote]'), $fudml);
