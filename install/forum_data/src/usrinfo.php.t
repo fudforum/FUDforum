@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.18 2003/09/26 18:49:03 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.19 2003/09/27 15:49:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,34 +43,30 @@ function convert_bdate($val, $month_fmt)
 
 	$custom_tags = $u->custom_status ? '{TEMPLATE: custom_tags}' : '{TEMPLATE: no_custom_tags}';
 
-	if ($usr->is_mod != 'A') {
-		$frm_perms = get_all_read_perms(_uid);
+	if (!($usr->users_opt & 1048576)) {
+		$frm_perms = get_all_read_perms(_uid, ($usr->users_opt & 524288));
 	}
 
 	$moderation = '';
-	$c = uq('SELECT f.id, f.name FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}forum f ON mm.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id WHERE mm.user_id='.$u->id);
-	while ($r = db_rowarr($c)) {
-		if (!empty($frm_perms[$r[0]])) {
+	if ($u->users_opt & 524288) {
+		$c = uq('SELECT f.id, f.name FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}forum f ON mm.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id WHERE '.($usr->users_opt & 1048576 ? '' : 'f.id IN('.implode(',', array_keys($frm_perms)).') AND ').'mm.user_id='.$u->id);
+		while ($r = db_rowarr($c)) {
 			$moderation .= '{TEMPLATE: moderation_entry}';
 		}
+		qf($c);
+		if ($moderation) {
+			$moderation = '{TEMPLATE: moderation}';
+		}
 	}
-	qf($r);
-	if ($moderation) {
-		$moderation = '{TEMPLATE: moderation}';
-	}
-	
+
 /*{POST_HTML_PHP}*/
 
 	$TITLE_EXTRA = ': {TEMPLATE: user_info_l}';
 
 	ses_update_status($usr->sid, '{TEMPLATE: userinfo_update}');
 
-	if (!empty($level_name) || !empty($moderation) || !empty($level_image) || !empty($custom_tags)) {
-		$status = '{TEMPLATE: status}';
-	} else {
-		$status = '';
-	}
-	
+	$status = (!empty($level_name) || !empty($moderation) || !empty($level_image) || !empty($custom_tags)) ? '{TEMPLATE: status}' : '';
+
 	$avg = sprintf('%.2f', $u->posted_msg_count / ((__request_timestamp__ - $u->join_date) / 86400));
 	if ($avg > $u->posted_msg_count) {
 		$avg = $u->posted_msg_count;
@@ -85,13 +81,9 @@ function convert_bdate($val, $month_fmt)
 	}
 
 	$user_image = ($GLOBALS['ALLOW_PROFILE_IMAGE'] == 'Y' && $u->user_image && strpos($u->user_image, '://')) ? '{TEMPLATE: user_image}' : '';
-	if ($CUSTOM_AVATARS != 'OFF' && $u->avatar_loc && $u->avatar_approved == 'Y') {
-		$avatar = '{TEMPLATE: avatar}';
-	} else {
-		$avatar = '';
-	}
-	
-	if ($u->display_email == 'Y') {
+	$avatar = ($CUSTOM_AVATARS != 'OFF' && $u->users_opt & 8388608) ? '{TEMPLATE: avatar}' : '';
+
+	if ($u->users_opt & 1) {
 		$email_link = '{TEMPLATE: email_link}';
 	} else if ($ALLOW_EMAIL == 'Y') {
 		$encoded_login = urlencode($u->alias);
@@ -106,14 +98,7 @@ function convert_bdate($val, $month_fmt)
 		$referals = '';	
 	}
 	
-	if (($polls = q_singleval('SELECT count(*) 
-			FROM {SQL_TABLE_PREFIX}poll p 
-			INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id
-			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=p.forum_id AND mm.user_id='._uid.'
-			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=p.forum_id
-			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=p.forum_id
-			WHERE p.owner='.$u->id.' '.($usr->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : '')))) {
+	if (($polls = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}poll p INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id WHERE p.owner='.$u->id.' AND f.cat_id>0 '.($usr->users_opt & 1048576 ? '' : ' AND f.id IN('.implode(',', array_keys($frm_perms)).')')))) {
 		$polls = '{TEMPLATE: polls}';
 	} else {
 		$polls = '';
@@ -121,9 +106,9 @@ function convert_bdate($val, $month_fmt)
 	
 	$usrinfo_private_msg = ($PM_ENABLED == 'Y' && _uid) ? '{TEMPLATE: usrinfo_private_msg}' : '';
 
-	if ($u->gender == 'MALE') {
+	if ($u->users_opt & 1024) {
 		$gender = '{TEMPLATE: male}';
-	} else if ($u->gender == 'FEMALE') {
+	} else if (!($u->users_opt & 512)) {
 		$gender = '{TEMPLATE: female}';
 	} else {
 		$gender = '';

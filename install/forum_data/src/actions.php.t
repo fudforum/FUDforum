@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.23 2003/09/18 19:33:58 hackie Exp $
+*   $Id: actions.php.t,v 1.24 2003/09/27 15:49:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@
 	$rand_val = get_random_value();
 	
 	if ($usr->is_mod != 'A') {
-		$limit = &get_all_read_perms(_uid);
+		$limit = &get_all_read_perms(_uid, ($usr->users_opt & 524288));
 	}
 	
 	$c = uq('SELECT 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.21 2003/09/26 18:49:03 hackie Exp $
+*   $Id: modque.php.t,v 1.22 2003/09/27 15:49:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -78,7 +78,7 @@
 	$m_num = 0;
 
 	/* quick cheat to give us full access to the messages ;) */
-	$perms = perms_from_obj($a, 'A');
+	$perms = perms_from_obj($a, ($usr->users_opt & 1048576));
 	$GLOBALS['MOD'] = 1;
 	$_GET['start'] = 0;
 

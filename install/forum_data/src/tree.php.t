@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.35 2003/09/26 18:49:03 hackie Exp $
+*   $Id: tree.php.t,v 1.36 2003/09/27 15:49:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -89,7 +89,7 @@
 		exit();
 	}
 
-	$perms = perms_from_obj($frm, $usr->is_mod);
+	$perms = perms_from_obj($frm, ($usr->users_opt & 1048576));
 	$MOD = $frm->md;
 	if ($perms['p_read'] == 'N') {
 		if (!isset($_GET['logoff'])) {

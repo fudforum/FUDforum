@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.33 2003/09/26 18:49:03 hackie Exp $
+*   $Id: selmsg.php.t,v 1.34 2003/09/27 15:49:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -190,7 +190,7 @@ function path_info_lnk($var, $val)
 			if ($prev_frm != $r->forum_id) {
 				$prev_frm = $r->forum_id;
 				$message_data .= '{TEMPLATE: forum_row}';
-				$perms = perms_from_obj($r, $usr->is_mod);
+				$perms = perms_from_obj($r, ($usr->users_opt & 1048576));
 			}
 			if ($prev_th != $r->thread_id) {
 				$thl[] = $r->thread_id;
