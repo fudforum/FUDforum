@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.65 2004/11/01 20:12:04 hackie Exp $
+* $Id: login.php.t,v 1.66 2004/11/15 19:26:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -173,7 +173,7 @@ function error_check()
 			$ses_id = user_login($usr_d->id, $usr->ses_id, ((empty($_POST['use_cookie']) && $FUD_OPT_1 & 128) ? false : true));
 
 			if (!($usr_d->users_opt & 131072)) {
-				error_dialog('{TEMPLATE: ERR_emailconf_ttl}', '{TEMPLATE: ERR_emailconf_msg}', null, $ses_id);
+				error_dialog('{TEMPLATE: ERR_emailconf_ttl_l}', '{TEMPLATE: ERR_emailconf_msg_l}', null, $ses_id);
 			}
 			if ($usr_d->users_opt & 2097152) {
 				error_dialog('{TEMPLATE: login_unapproved_account_ttl}', '{TEMPLATE: login_unapproved_account_msg}', null, $ses_id);
