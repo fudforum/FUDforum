@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.19 2003/05/01 23:36:14 hackie Exp $
+*   $Id: admgroups.php,v 1.20 2003/05/02 00:32:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -61,14 +61,18 @@
 					}
 					grp_rebuild_cache($gid);
 				}
-			} else if (($gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE id='.$edit))) { /* update an existing group */
+			} else if (($r = db_saq('SELECT id, forum_id FROM '.$tbl.'groups WHERE id='.$edit))) { /* update an existing group */
 				/* check to ensure circular inheritence does not occur */
 				if (!group_check_inheritence((int)$_POST['gr_inherit_id'])) {
-					group_sync($gid, $_POST['gr_name'], (int)$_POST['gr_inherit_id'], $perms);
+					$gid = $r[0];
+					$forum_id = $r[1];
+					group_sync($gid, (isset($_POST['gr_name']) ? $_POST['gr_name'] : NULL), (int)$_POST['gr_inherit_id'], $perms);
 					/* handle resources */
-					q('DELETE FROM '.$tbl.'group_resources WHERE group_id='.$gid);
-					foreach ($_POST['gr_resource'] as $v) {
-						q('INSERT INTO '.$tbl.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$gid.')');
+					if (!$forum_id) {
+						q('DELETE FROM '.$tbl.'group_resources WHERE group_id='.$gid);
+						foreach ($_POST['gr_resource'] as $v) {
+							q('INSERT INTO '.$tbl.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$gid.')');
+						}
 					}
 
 					$edit = '';
@@ -110,11 +114,11 @@
 					$gr_resource[$v] = $v;
 				}
 			}
-			$data = db_sab('SELECT g.*, f.id AS no_del, f.name AS fname FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id LEFT JOIN '.$tbl.'forum f ON f.id=gr.resource_id AND f.name=g.name WHERE g.id='.$edit);
+			$data = db_sab('SELECT g.*, f.name AS fname FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'forum f ON f.id=g.forum_id WHERE g.id='.$edit);
 		}
 	}
 	if (!isset($error)) {
-		if (isset($_GET['edit']) && ($data = db_sab('SELECT g.*, f.id AS no_del, f.name AS fname FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id LEFT JOIN '.$tbl.'forum f ON f.id=gr.resource_id AND f.name=g.name WHERE g.id='.$edit))) {
+		if (isset($_GET['edit']) && ($data = db_sab('SELECT g.*, f.name AS fname FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'forum f ON f.id=g.forum_id WHERE g.id='.$edit))) {
 			$gr_name = $data->name;
 			$gr_inherit_id = $data->inherit_id;
 			foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
@@ -146,8 +150,9 @@
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 <tr><td>Group Name: </td><td>
 <?php
-	if ($edit && ($edit < 3 || $data->no_del)) {
+	if ($edit && ($edit < 3 || $data->forum_id)) {
 		echo $gr_name;
+		echo '<input type="hidden" name="gr_resource" value="1">';
 	} else {
 		echo '<input type="text" name="gr_name" value="'.htmlspecialchars($gr_name).'">';
 	}
@@ -156,7 +161,7 @@
 <?php
 	if (!$edit || $edit > 2) {
 		echo '<tr><td valign=top>Group Resources: </td><td>';
-		if ($edit && $data->no_del) {
+		if ($edit && $data->forum_id) {
 			echo 'FORUM: '.$data->fname;
 		} else {
 			echo '<select MULTIPLE name="gr_resource[]" size=10>';
@@ -279,13 +284,6 @@
 	}
 	qf($c);
 	
-	/* fetch all 'core' groups */
-	$c = uq('SELECT f.id FROM '.$tbl.'forum f INNER JOIN '.$tbl.'group_resources gr ON f.id=gr.resource_id INNER JOIN '.$tbl.'groups g ON g.id=gr.group_id AND f.name=g.name');
-	while ($r = db_rowarr($c)) {
-		$cg[$r[0]] = 1;
-	}
-	qf($c);
-
 	$c = uq('SELECT g.*, g2.name AS ih_name FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'groups g2 ON g.inherit_id=g2.id ORDER BY g.id');
 	while ($obj = db_rowobj($c)) {
 		if (isset($gl[$obj->id])) {
@@ -294,7 +292,7 @@
 			$grl = 'No Leaders';
 		}
 
-		$del_link = !isset($cg[$obj->id]) ? '[<a href="admgroups.php?del='.$obj->id.'&'._rsidl.'">Delete</a>]<br>' : '';
+		$del_link = !$obj->forum_id ? '[<a href="admgroups.php?del='.$obj->id.'&'._rsidl.'">Delete</a>]<br>' : '';
 		$ih_name = $obj->ih_name ? '<br><font color="green" size="-1">Inherits from: '.$obj->ih_name.'<font>' : '';
 		
 		$user_grp_mgr = ($obj->id > 2) ? ' '.$del_link.'[<a href="admgrouplead.php?group_id='.$obj->id.'&'._rsidl.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&group_id='.$obj->id.'&'._rsidl.'" target=_new>Manage Users</a>]' : '';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.18 2003/04/21 22:24:43 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.19 2003/05/02 00:32:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,47 +14,6 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-
-/*{PRE_HTML_PHP}*/
-
-	if (!_uid) {
-		std_error('access');
-	}
-	$group_id = isset($_POST['group_id']) ? (int)$_POST['group_id'] : (isset($_GET['group_id']) ? (int)$_GET['group_id'] : 0);
-
-	if ($group_id && $usr->is_mod != 'A' && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='._uid.' AND group_leader=\'Y\'')) {
-		std_error('access');	
-	}
-
-	if ($usr->is_mod != 'A') { 
-		$r = uq('SELECT g.group_id, g.name FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id WHERE gm.user_id='._uid.' AND gm.group_leader=\'Y\' ORDER BY ltrim(g.name)');
-	} else {
-		$r = uq('SELECT id AS group_id, name FROM {SQL_TABLE_PREFIX}groups WHERE id>2 ORDER BY ltrim(name)');
-	}	
-	/* make a group selection form */
-	$n = 0;
-	$vl = $kl = '';
-	while ($e = db_rowarr($r)) {
-		$vl .= $e[0]."\n";
-	        $kl .= htmlspecialchars($e[1])."\n";
-		$n++;
-	}
-	qf($r);
-
-	if (!$n) {
-		std_error('access');
-	} else if ($n == 1) {
-		$group_id = rtrim($vl);
-		$group_selection = '';
-	} else {
-		if (!$group_id) {
-			$group_id = (int)$vl;
-		}
-		$group_selection = tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $group_id, '', '');
-		$group_selection = '{TEMPLATE: group_selection}';
-	}
-
-/*{POST_HTML_PHP}*/
 
 function draw_tmpl_perm_table($perm_arr)
 {
@@ -75,9 +34,9 @@ function make_perm_str(&$max_perms, &$cur_perms, $type)
 	foreach ($max_perms as $k => $v) {
 		if ($type) {
 			$s1 .= 'u' . $k . ','; 
-			$s2 .= "'".(($v == 'Y' && $cur_perms[$k] != 'N') ? 'Y' : 'N')."',";
+			$s2 .= "'".(($v == 'Y' && isset($cur_perms[$k]) && $cur_perms[$k] != 'N') ? 'Y' : 'N')."',";
 		} else {
-			$s1 .= 'u' . $k . "='".(($v == 'Y' && $cur_perms[$k] != 'N') ? 'Y' : 'N')."',";
+			$s1 .= 'u' . $k . "='".(($v == 'Y' && isset($cur_perms[$k]) && $cur_perms[$k] != 'N') ? 'Y' : 'N')."',";
 		}
 	}
 	if ($type) {
@@ -109,12 +68,66 @@ function make_perms_uob(&$obj)
 	return $perms;
 }
 
+/*{PRE_HTML_PHP}*/
+
+	if (!_uid) {
+		std_error('access');
+	}
+	$group_id = isset($_POST['group_id']) ? (int)$_POST['group_id'] : (isset($_GET['group_id']) ? (int)$_GET['group_id'] : 0);
+
+	if ($group_id && $usr->is_mod != 'A' && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='._uid.' AND group_leader=\'Y\'')) {
+		std_error('access');	
+	}
+
+	if ($usr->is_mod != 'A') { 
+		$r = uq('SELECT g.group_id, g.name, g.forum_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id WHERE gm.user_id='._uid.' AND gm.group_leader=\'Y\' ORDER BY ltrim(g.name)');
+	} else {
+		$r = uq('SELECT id, name, forum_id FROM {SQL_TABLE_PREFIX}groups WHERE id>2 ORDER BY name');
+	}	
+	/* make a group selection form */
+	$n = 0;
+	$vl = $kl = '';
+	while ($e = db_rowarr($r)) {
+		$vl .= $e[0] . "\n";
+	        $kl .= ($e[2] ? '* ' : '') . htmlspecialchars($e[1]) . "\n";
+		$n++;
+	}
+	qf($r);
+
+	if (!$n) {
+		std_error('access');
+	} else if ($n == 1) {
+		$group_id = rtrim($vl);
+		$group_selection = '';
+	} else {
+		if (!$group_id) {
+			$group_id = (int)$vl;
+		}
+		$group_selection = tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $group_id, '', '');
+		$group_selection = '{TEMPLATE: group_selection}';
+	}
+
+/*{POST_HTML_PHP}*/
+
 	if (isset($_POST['btn_cancel'])) {
 		unset($_POST);
 	}
 	if (!($grp = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id='.$group_id))) {
 		invl_inp_err();
 	}
+	/* fetch controlled resources */
+	if (!$grp->forum_id) {
+		$group_resources = '{TEMPLATE: group_resources}';
+		$c = uq('SELECT f.name FROM {SQL_TABLE_PREFIX}group_resources gr INNER JOIN {SQL_TABLE_PREFIX}forum f ON gr.resource_id=f.id WHERE gr.group_id='.$group_id);
+		while ($r = db_rowarr($c)) {
+			$group_resources .= '{TEMPLATE: group_resource_ent}';
+		}
+		qf($c);
+	} else {
+		$fname = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}forum WHERE id='.$grp->forum_id);
+		$group_resources = '{TEMPLATE: primary_group_resource}';
+	}
+
 	$maxperms = make_perms_ob($grp);
 	$indicator = '{TEMPLATE: indicator}';
 
@@ -133,7 +146,7 @@ function make_perms_uob(&$obj)
 				q('INSERT INTO {SQL_TABLE_PREFIX}group_members ('.$p[0].' user_id, group_id) VALUES ('.$p[1].' '.$usr_id.', '.$group_id.')');
 				grp_rebuild_cache($group_id, $usr_id);
 			}
-		} else if (($usr_id = q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND id='.(int)$_POST['edit']))) {
+		} else if (($usr_id = q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND id='.(int)$_POST['edit'])) !== NULL) {
 			q('UPDATE {SQL_TABLE_PREFIX}group_members SET '.make_perm_str($maxperms, $_POST, 0).' WHERE id='.(int)$_POST['edit']);
 			grp_rebuild_cache($group_id, $usr_id);
 		}

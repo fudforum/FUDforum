@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.tmpl,v 1.8 2003/04/21 22:25:24 hackie Exp $
+*   $Id: groupmgr.tmpl,v 1.9 2003/05/02 00:32:46 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -168,5 +168,17 @@
 {SECTION: END}
 
 {SECTION: indicator shows which groups is currently being edited}
-<div align="center">{MSG: group_mgr_indicator}</div>
+<div align="center">{MSG: group_mgr_indicator}<br>{TEMPLATE-DATA: group_resources}</div>
+{SECTION: END}
+
+{SECTION: group_resources}
+<b>{MSG: group_resources}:</b><br>
+{SECTION: END}
+
+{SECTION: group_resource_ent}
+&nbsp;&nbsp;&nbsp;{VAR: r[0]}<br>
+{SECTION: END}
+
+{SECTION: primary_group_resource}
+<b>{MSG: primary_group_prefix}</b> {VAR-HTML: fname}
 {SECTION: END}
