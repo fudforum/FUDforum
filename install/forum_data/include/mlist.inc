@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mlist.inc,v 1.6 2003/01/15 13:09:54 hackie Exp $
+*   $Id: mlist.inc,v 1.7 2003/01/27 12:18:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,7 +59,7 @@ class fud_mlist
 			'".$this->body_regex_haystack."',
 			'".$this->body_regex_needle."',
 			'".yn($this->create_users)."',
-			'".$this->additional_headers."',
+			'".$this->additional_headers."'
 			)");
 
 		$this->id = db_lastid($GLOBALS['DBHOST_TBL_PREFIX']."mlist", $r);
