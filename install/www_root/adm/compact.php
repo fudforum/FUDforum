@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.29 2003/05/12 16:49:55 hackie Exp $
+*   $Id: compact.php,v 1.30 2003/05/12 17:57:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -115,45 +115,45 @@ function eta_calc($start, $pos, $pc)
 	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'msg WHERE file_id<'.$magic_file_id) / 10);
 	$i = 0;
 	$stm = time();
-
-	db_lock($tbl.'msg m WRITE, '.$tbl.'thread t WRITE, '.$tbl.'forum f WRITE, '.$tbl.'msg WRITE');
-	$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id<'.$magic_file_id);
-	while ($r = db_rowarr($c)) {
-		if ($r[4] && $r[2] > $r[4]) {
-			$m1 = $magic_file_id = write_body_c(($body = read_msg_body($r[1], $r[2], $r[3])), $magic_file_id, $len, $off);
-			$magic_file_id = write_body_c(trim_html($body, $r[4]), $magic_file_id, $len2, $off2);
-			q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.$m1.', file_id_preview='.$magic_file_id.', offset_preview='.$off2.', length_preview='.$len2.' WHERE id='.$r[0]);
-		} else {
-			$magic_file_id = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $magic_file_id, $len, $off);
-			q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.$magic_file_id.' WHERE id='.$r[0]);
+	if ($pc) {
+		db_lock($tbl.'msg m WRITE, '.$tbl.'thread t WRITE, '.$tbl.'forum f WRITE, '.$tbl.'msg WRITE');
+		$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id<'.$magic_file_id);
+		while ($r = db_rowarr($c)) {
+			if ($r[4] && $r[2] > $r[4]) {
+				$m1 = $magic_file_id = write_body_c(($body = read_msg_body($r[1], $r[2], $r[3])), $magic_file_id, $len, $off);
+				$magic_file_id = write_body_c(trim_html($body, $r[4]), $magic_file_id, $len2, $off2);
+				q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.$m1.', file_id_preview='.$magic_file_id.', offset_preview='.$off2.', length_preview='.$len2.' WHERE id='.$r[0]);
+			} else {
+				$magic_file_id = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $magic_file_id, $len, $off);
+				q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.$magic_file_id.' WHERE id='.$r[0]);
+			}
+			if ($i && !($i % $pc)) {
+				eta_calc($stm, $i, $pc);
+			}
+			$i++;
 		}
-		if ($i && !($i % $pc)) {
-			eta_calc($stm, $i, $pc);
-		}
-		$i++;
-	}
-	qf($c);
-	un_register_fps();
+		qf($c);
+		un_register_fps();
 
-	if (isset($GLOBALS['__FUD_TMP_F__'])) {
-		foreach ($GLOBALS['__FUD_TMP_F__'] as $f) {
-			fclose($f[0]);
+		if (isset($GLOBALS['__FUD_TMP_F__'])) {
+			foreach ($GLOBALS['__FUD_TMP_F__'] as $f) {
+				fclose($f[0]);
+			}
 		}
+		$magic_file_id++;
+		/* rename our temporary files & update the database */
+		q('UPDATE '.$tbl.'msg SET file_id=file_id-'.$base.' WHERE file_id>'.$base);
+		q('UPDATE '.$tbl.'msg SET file_id_preview=file_id_preview-'.$base.' WHERE file_id_preview>'.$base);
+		$j = $base + 1;
+		for ($j; $j < $magic_file_id; $j++) {
+			rename($MSG_STORE_DIR . 'tmp_msg_'.$j, $MSG_STORE_DIR . 'msg_'.($j - $base));
+		}
+		$j = $magic_file_id - $base;
+		while (@file_exists($MSG_STORE_DIR . 'msg_' . $j)) {
+			@unlink($MSG_STORE_DIR . 'msg_' . $j++);
+		}
+		db_unlock();
 	}
-	$magic_file_id++;
-	/* rename our temporary files & update the database */
-	q('UPDATE '.$tbl.'msg SET file_id=file_id-'.$base.' WHERE file_id>'.$base);
-	q('UPDATE '.$tbl.'msg SET file_id_preview=file_id_preview-'.$base.' WHERE file_id_preview>'.$base);
-	$j = $base + 1;
-	for ($j; $j < $magic_file_id; $j++) {
-		rename($MSG_STORE_DIR . 'tmp_msg_'.$j, $MSG_STORE_DIR . 'msg_'.($j - $base));
-	}
-	$j = $magic_file_id - $base;
-	while (@file_exists($MSG_STORE_DIR . 'msg_' . $j)) {
-		@unlink($MSG_STORE_DIR . 'msg_' . $j++);
-	}
-	db_unlock();
-
 	/* Private Messages */
 	echo "100% Done<br>\n";
 	echo "Compacting private messages...<br>\n";
