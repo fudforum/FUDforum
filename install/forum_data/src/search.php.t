@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.18 2003/05/15 18:53:23 hackie Exp $
+*   $Id: search.php.t,v 1.19 2003/05/19 10:50:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -73,10 +73,13 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			return;
 			db_unlock();
 		}
-		q('INSERT INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match) 
-			SELECT '.$qry_lck.', \''.$qt.'\', '.__request_timestamp__.', msg_id, count(*) as word_count FROM {SQL_TABLE_PREFIX}'.$tbl.' WHERE word_id IN('.implode(',', $wl).') GROUP BY msg_id ORDER BY word_count DESC LIMIT 500');
+		if (($word_list = implode(',', $wl))) {
+			q('INSERT INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match) SELECT '.$qry_lck.', \''.$qt.'\', '.__request_timestamp__.', msg_id, count(*) as word_count FROM {SQL_TABLE_PREFIX}'.$tbl.' WHERE word_id IN('.$word_list.') GROUP BY msg_id ORDER BY word_count DESC LIMIT 500');
+			$total = db_affected();
+		} else {
+			$total = 0;
+		}
 
-		$total = db_affected();
 		db_unlock();
 
 		if (!$total) {
