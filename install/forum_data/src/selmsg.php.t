@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.16 2002/09/08 20:02:17 hackie Exp $
+*   $Id: selmsg.php.t,v 1.17 2002/09/10 00:24:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -84,7 +84,7 @@ function ifstr($opt1, $opt2, $str)
 		$id_limit = ' AND {SQL_TABLE_PREFIX}msg.id<='.$last_id;
 	}
 	
-	if( $usr->id_mod!='A' ) {
+	if( $usr->is_mod!='A' ) {
 		$fids = get_all_perms(_uid);
 		if( empty($fids) ) $fids = 0;
 		$qry_limit = '{SQL_TABLE_PREFIX}forum.id IN ('.$fids.') AND ';
