@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.7 2002/07/30 14:41:46 hackie Exp $
+*   $Id: root_index.php.t,v 1.8 2002/08/14 12:02:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,5 +35,6 @@
 	if ( preg_match('/[^A-Za-z0-9_]/', $pg) ) exit("<html>This is an invalid request</html>\n");
 	
 	define('__index_page_start__', true);
+	fud_use('err.inc');
 	require('theme/'.$GLOBALS['FUD_THEME']->name.'/'.$pg.'.php');
 ?>
