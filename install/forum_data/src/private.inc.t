@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.14 2003/05/12 15:08:53 hackie Exp $
+*   $Id: private.inc.t,v 1.15 2003/05/15 12:14:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -189,7 +189,9 @@ function write_pmsg_body($text)
 		$s = __ffilesize($fp);
 	}
 
-	$len = fwrite($fp, $text);
+	if (fwrite($fp, $text) !== strlen($text)) {
+		exit("FATAL ERROR: system has ran out of disk space<br>\n");
+	}
 	fclose($fp);
 
 	if (!$s) {

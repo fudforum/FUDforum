@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.56 2003/05/11 18:55:59 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.57 2003/05/15 12:14:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -539,19 +539,17 @@ function write_body($data, &$len, &$offset)
 		fclose($fp);
 		$i++;
 	}
-	
-	$len = fwrite($fp, $data);
+
+	if (fwrite($fp, $data) !== $len) {
+		exit("FATAL ERROR: system has ran out of disk space<br>\n");
+	}
 	fclose($fp);
-	
+
 	if (!$off) {
 		@chmod('msg_'.$i, ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
 	}
-	
-	if ($len == -1) {
-		exit("FATAL ERROR: system has ran out of disk space<br>\n");
-	}
 	$offset = $off;
-	
+
 	return $i;
 }
 
