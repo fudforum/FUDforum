@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.8 2002/07/22 14:53:37 hackie Exp $
+*   $Id: index.php.t,v 1.9 2002/07/24 12:51:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -82,8 +82,8 @@ function index_view_perms($usr_id)
 		if( $obj->user_id == $usr_id ) {
 			if( $obj->p_read == 'N' ) 
 				$GLOBALS['NO_VIEW_PERMS'][$obj->resource_id] = $obj->resource_id;
-			else
-				$fl .= $obj->resource_id.',';
+			
+			$fl .= $obj->resource_id.',';
 				
 			$tmp_arr[$obj->resource_id] = 1;
 		}
@@ -92,8 +92,8 @@ function index_view_perms($usr_id)
 			
 			if( $obj->p_read == 'N' ) 
 				$GLOBALS['NO_VIEW_PERMS'][$obj->resource_id] = $obj->resource_id;
-			else	
-				$fl .= $obj->resource_id.',';	
+
+			$fl .= $obj->resource_id.',';	
 		}	
 	}	
 	qf($r);
