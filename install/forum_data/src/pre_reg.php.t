@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pre_reg.php.t,v 1.6 2003/04/10 19:08:38 hackie Exp $
+*   $Id: pre_reg.php.t,v 1.7 2003/06/02 17:19:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,10 +18,18 @@
 /*{PRE_HTML_PHP}*/
 
 	if (isset($_POST['disagree'])) {
-		header('Location: {ROOT}?'._rsidl);
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			header('Location: {ROOT}?'._rsidl);
+		} else {
+			header('Location: {ROOT}/i/'._rsidl);
+		}
 		exit;
 	} else if (isset($_POST['agree'])) {
-		header('Location: {ROOT}?t=register&'._rsidl.'&reg_coppa='.($GLOBALS['COPPA'] != 'Y' ? 'N' : strtoupper($_POST['coppa'])));
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			header('Location: {ROOT}?t=register&'._rsidl.'&reg_coppa='.($GLOBALS['COPPA'] != 'Y' ? 'N' : strtoupper($_POST['coppa'])));
+		} else {
+			header('Location: {ROOT}/re/' . ($GLOBALS['COPPA'] != 'Y' ? 'N' : strtoupper($_POST['coppa'])) .'/'._rsidl);	
+		}
 		exit;
 	}
 

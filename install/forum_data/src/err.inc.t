@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.27 2003/05/16 10:46:34 hackie Exp $
+*   $Id: err.inc.t,v 1.28 2003/06/02 17:19:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,9 +37,17 @@ function error_dialog($title, $msg, $level='WARN', $ses=NULL)
 	ses_putvar($ses, array('er_msg' => $msg, 'err_t' => $title));
 
 	if (is_int($ses)) {
-		header('Location: {ROOT}?t=error&'._rsidl);
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') { 
+			header('Location: {ROOT}?t=error&'._rsidl);
+		} else {
+			header('Location: {ROOT}/e/'._rsidl);
+		}
 	} else {
-		header('Location: {ROOT}?t=error&S='.$ses);
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') { 
+			header('Location: {ROOT}?t=error&S='.$ses);
+		} else {
+			header('Location: {ROOT}/e//'.$ses);
+		}
 	}
 	exit;
 }

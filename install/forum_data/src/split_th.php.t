@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.19 2003/05/26 10:00:52 hackie Exp $
+*   $Id: split_th.php.t,v 1.20 2003/06/02 17:19:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,7 +50,11 @@
 		}
 		/* sanity check */
 		if (!count($_POST['sel_th'])) {
-			header('Location: {ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsidl);
+			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				header('Location: {ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsidl);
+			} else {
+				header('Location: {ROOT}/t/'.$th.'/'._rsidl);
+			}
 			exit;
 		}
 
@@ -67,7 +71,11 @@
 			qf($c);
 			/* sanity check */
 			if (!isset($a)) {
-				header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+				if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+					header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+				} else {
+					header('Location: {ROOT}/t/'.$th_id.'/'._rsidl);
+				}
 				exit;
 			}
 			$mids = implode(',', $a);
@@ -93,7 +101,11 @@
 
 		/* sanity check */
 		if (!$data->replies) {
-			header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+			} else {
+				header('Location: {ROOT}/t/'.$th_id.'/'._rsidl);
+			}
 			exit;
 		}
 
@@ -167,7 +179,11 @@
 			}
 			$th_id = $data->id;
 		}
-		header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+		} else {
+			header('Location: {ROOT}/t/'.$th_id.'/'._rsidl);
+		}
 		exit;
 	}
 	/* fetch a list of accesible forums */	

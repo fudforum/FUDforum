@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.57 2003/05/31 00:27:05 hackie Exp $
+*   $Id: register.php.t,v 1.58 2003/06/02 17:19:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -239,9 +239,17 @@ function decode_uent(&$uent)
 
 	if (!__fud_real_user__ && !isset($_POST['reg_coppa']) && !isset($_GET['reg_coppa'])) {
 		if ($GLOBALS['COPPA'] == 'Y') {
-			header('Location: {ROOT}?t=coppa&'._rsidl);
+			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				header('Location: {ROOT}?t=coppa&'._rsidl);
+			} else {
+				header('Location: {ROOT}/cp/'._rsidl);	
+			}
 		} else if ($GLOBALS['COPPA'] != 'Y') {
-			header('Location: {ROOT}?t=pre_reg&'._rsidl);
+			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				header('Location: {ROOT}?t=pre_reg&'._rsidl);
+			} else {
+				header('Location: {ROOT}/pr//'._rsidl);
+			}
 		}
 		exit;
 	}
@@ -368,7 +376,11 @@ function decode_uent(&$uent)
 			user_login($uent->id, s, 1);
 
 			if ($GLOBALS['COPPA'] == 'Y' && $uent->coppa == 'Y') {
-				header('Location: {ROOT}?t=coppa_fax&'._rsidl);
+				if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+					header('Location: {ROOT}?t=coppa_fax&'._rsidl);
+				} else {
+					header('Location: {ROOT}/cpf/'._rsidl);
+				}
 				exit();
 			}
 

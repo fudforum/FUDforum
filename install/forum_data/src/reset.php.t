@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reset.php.t,v 1.9 2003/05/01 14:28:11 hackie Exp $
+*   $Id: reset.php.t,v 1.10 2003/06/02 17:19:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,7 +36,11 @@ function usr_reset_passwd($id)
 	return $randval;
 }
 	if (_uid) {
-		header('Location: {ROOT}?t=index');
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			header('Location: {ROOT}?t=index&' . _rsidl);
+		} else {
+			header('Location: {ROOT}/i/' . _rsidl);
+		}
 		exit;	
 	}
 
@@ -47,7 +51,11 @@ function usr_reset_passwd($id)
 			db_unlock();
 			send_email($GLOBALS['NOTIFY_FROM'], $ui[0], '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_newpass_msg}');
 			ses_putvar((int)$usr->sid, '{TEMPLATE: reset_login_notify}');
-			header('Location: {ROOT}?t=login&'._rsidl);
+			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				header('Location: {ROOT}?t=login&'._rsidl);
+			} else {
+				header('Location: {ROOT}/l/'._rsidl);
+			}
 			exit;
 		}
 		db_unlock();

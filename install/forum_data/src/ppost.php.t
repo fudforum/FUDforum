@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.36 2003/05/26 10:38:22 hackie Exp $
+*   $Id: ppost.php.t,v 1.37 2003/06/02 17:19:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -286,8 +286,12 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 					q('UPDATE {SQL_TABLE_PREFIX}attach SET location='.$cc.' WHERE id IN('.implode(',', $aidl).')');
 				}
 			}
-		}	
-		header('Location: {ROOT}?t=pmsg&'._rsidl.'&folder_id=INBOX');
+		}
+		if ($GLOBALS['USE_PATH_INFO'] == 'Y') {
+			header('Location: {ROOT}?t=pmsg&'._rsidl.'&folder_id=INBOX');
+		} else {
+			header('Location: {ROOT}/pdm/INBOX/'._rsidl);
+		}
 		exit;
 	}
 

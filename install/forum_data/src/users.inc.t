@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.50 2003/06/02 16:13:46 hackie Exp $
+*   $Id: users.inc.t,v 1.51 2003/06/02 17:19:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -414,6 +414,9 @@ function init_user()
 
 				case 're':
 					$_GET['t'] = 'register';
+					if (isset($p[1])) {
+						$_GET['reg_coppa'] = $p[1];
+					}
 					break;
 
 				case 'tt':
@@ -537,6 +540,10 @@ function init_user()
 
 				case 'cpf':
 					$_GET['t'] = 'coppa_fax';
+					break;
+
+				case 'cp':
+					$_GET['t'] = 'coppa';
 					break;
 
 				default:

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.15 2003/05/26 06:49:51 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.16 2003/06/02 17:19:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -55,7 +55,11 @@ if ($frm->p_read != 'Y' && !$frm->mod && $usr->is_mod != 'A') {
 	if (!isset($_GET['logoff'])) {
 		std_error('perms');
 	} else {
-		header('Location: {ROOT}');
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			header('Location: {ROOT}?' . _rsidl);
+		} else {
+			header('Location: {ROOT}/i/' . _rsidl);
+		}
 		exit;
 	}
 }

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: coppa_fax.php.t,v 1.4 2003/04/10 19:08:38 hackie Exp $
+*   $Id: coppa_fax.php.t,v 1.5 2003/06/02 17:19:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,11 @@
 	
 	/* this form is for printing, therefor it lacks any advanced layout */
 	if (!__fud_real_user__) {
-		header('Location: {ROOT}?t=index&'._rsidl);
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			header('Location: {ROOT}?t=index&'._rsidl);
+		} else {
+			header('Location: {ROOT}/i/'._rsidl);
+		}
 		exit;
 	}
 

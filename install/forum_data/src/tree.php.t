@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.28 2003/06/02 15:26:29 hackie Exp $
+*   $Id: tree.php.t,v 1.29 2003/06/02 17:19:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -79,7 +79,11 @@
 	}
 
 	if ($frm->moved_to) { /* moved thread, we could handle it, but this case is rather rare, so it's cleaner to redirect */
-		header('Location: {ROOT}?t=tree&goto='.$frm->root_msg_id.'&'._rsidl);
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			header('Location: {ROOT}?t=tree&goto='.$frm->root_msg_id.'&'._rsidl);
+		} else {
+			header('Location: {ROOT}/mv/tree/'.$frm->root_msg_id.'/'._rsidl);
+		}
 		exit();
 	}
 
@@ -89,7 +93,11 @@
 		if (!isset($_GET['logoff'])) {
 			std_error('perms');
 		} else {
-			header('Location: {ROOT}');
+			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				header('Location: {ROOT}?t=index&' . _rsidl);
+			} else {
+				header('Location: {ROOT}/i/' . _rsidl);
+			}
 			exit;
 		}	
 	}	

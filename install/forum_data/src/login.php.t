@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.29 2003/05/12 15:19:55 hackie Exp $
+*   $Id: login.php.t,v 1.30 2003/06/02 17:19:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -62,12 +62,20 @@
 		}
 		
 		ses_delete($usr->sid);
-		header('Location: {ROOT}?'. $returnto);
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			header('Location: {ROOT}?'. $returnto);
+		} else {
+			header('Location: {ROOT}'. $returnto);
+		}
 		exit;
 	}
 	
 	if (_uid) { /* send logged in users to profile page if they are not logging out */
-		header('Location: {ROOT}?t=register&'._rsidl);
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			header('Location: {ROOT}?t=register&'._rsidl);
+		} else {
+			header('Location: {ROOT}/re/'._rsidl);
+		}
 		exit();
 	}
 
