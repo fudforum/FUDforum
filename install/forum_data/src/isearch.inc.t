@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.10 2002/07/30 22:56:32 hackie Exp $
+*   $Id: isearch.inc.t,v 1.11 2002/08/05 15:29:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -180,7 +180,7 @@ function search($str, $fld, $start, $count, $forum_limiter='', &$total)
 
 	$r = q("SELECT 
 		".$field.".msg_id AS msg_id,
-		SUM(1) as rev_match
+		count({SQL_TABLE_PREFIX}msg.id) as rev_match
 	FROM 
 		".$field."
 		INNER JOIN {SQL_TABLE_PREFIX}msg ON ".$field.".msg_id={SQL_TABLE_PREFIX}msg.id
@@ -207,6 +207,8 @@ function search($str, $fld, $start, $count, $forum_limiter='', &$total)
 		$idlist .= $obj->msg_id.',';
 	}
 	qf($r);
+	
+	if( $i<=$count ) $total = $i;
 	
 	if( empty($idlist) ) 
 		return q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
