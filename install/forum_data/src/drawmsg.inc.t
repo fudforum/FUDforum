@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.4 2002/06/27 22:19:40 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.5 2002/07/08 13:26:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,7 +56,7 @@ function register_vote($opt)
 /* determine the source form */
 $GLOBALS['__DRAW_MSG_SCRIPT_NAME'] = basename($GLOBALS['HTTP_SERVER_VARS']['PATH_TRANSLATED']);
 
-$GLOBALS['__MSG_COUNT__']=0;
+$GLOBALS['__MSG_COUNT__']=-1;
 
 function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 {
@@ -70,6 +70,8 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 	if ( !empty($GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS']) ) $hide_controls = 1;
 	if( isset($GLOBALS['usr']) && !isset($GLOBALS['__IGNORE_LIST__']) ) build_ignore_list();
 	$ret_n_sid = 'returnto='.urlencode($GLOBALS["HTTP_SERVER_VARS"]["REQUEST_URI"].'#msg_'.$obj->id).'&'.$_rsid;
+	
+	$GLOBALS['__MSG_COUNT__']++;
 	
 	if( $msg_count && empty($hide_controls) ) { 
 		if( $GLOBALS['__MSG_COUNT__'] ) {
@@ -104,14 +106,10 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 	
 	$link_args = '&mid='.$GLOBALS['mid'].'&'.$_rsid.'&frm_id='.$GLOBALS['frm_id'].'&th='.$GLOBALS['th'].'&start='.$GLOBALS['start'].'&count='.$GLOBALS['count'].'&unread='.$GLOBALS['unread'].'&reply_count='.$GLOBALS['reply_count'].'&date='.$GLOBALS['date'].'#msg_'.$obj->id;
 	if ( !empty($GLOBALS['__IGNORE_LIST__'][$obj->poster_id]) && empty($GLOBALS['__REVEALED_POSTS__'][$obj->id]) && empty($GLOBALS['__REVEALED_USERS__'][$obj->poster_id]) ) {
-		if ( empty($hide_controls) ) {				
-			$GLOBALS['__MSG_COUNT__']++;
+		if ( empty($hide_controls) )	
 			return '{TEMPLATE: dmsg_ignored_user_message}';
-		}
-		else {
-			$GLOBALS['__MSG_COUNT__']++;
+		else
 			return '{TEMPLATE: dmsg_ignored_user_message_static}';
-		}
 	}
 
 	if( !empty($obj->user_id) ) {
@@ -274,7 +272,7 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 			if( $GLOBALS['PM_ENABLED']=='Y' ) $private_msg_link = '{TEMPLATE: dmsg_private_msg_link}';
 		}
 		
-		if( $msg_count && $pager && $GLOBALS['__MSG_COUNT__'] == $msg_count && $obj->id!=$obj->last_post_id ) {
+		if( $msg_count && $pager && ($GLOBALS['__MSG_COUNT__']-1) == $msg_count && $obj->id!=$obj->last_post_id ) {
 			$page_num = $start+$count;
 			$next_page = '{TEMPLATE: dmsg_next_msg_page}';
 		}
@@ -290,7 +288,6 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 			$reply_link = '{TEMPLATE: dmsg_reply_link}';
 			$quote_link = '{TEMPLATE: dmsg_quote_link}';
 		}	
-		$GLOBALS['__MSG_COUNT__']++;
 		
 		$message_toolbar = '{TEMPLATE: dmsg_message_toolbar}';
 	}
