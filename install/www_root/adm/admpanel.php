@@ -33,6 +33,7 @@
 ?>	
 	<a style="font-size: x-small;" href="admstats.php?<?php echo _rsid; ?>">Forum Statistics</a><br>
 	<a style="font-size: x-small;" href="admlog.php?<?php echo _rsid; ?>">Action Log Viewer</a><br>
+	<a style="font-size: x-small;" href="admerr.php?<?php echo _rsid; ?>">Error Log Viewer</a><br>
 	<a style="font-size: x-small;" href="admsysinfo.php?<?php echo _rsid; ?>">System Info</a><br><br>
 
 	<b>Forum Management</b><br>
