@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.6 2002/07/04 18:54:50 hackie Exp $
+*   $Id: th.inc.t,v 1.7 2002/07/05 13:31:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -295,6 +295,9 @@ function rebuild_forum_view($forum_id, $page=0)
 		q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-".$aff_rows." WHERE id=".$forum_id);
 		$page = 0;
 	}
+	
+	/* De-announce expired announcments and sticky messages */
+	q("UPDATE {SQL_TABLE_PREFIX}thread SET ordertype='NONE', is_sticky='N' WHERE is_sticky='Y' AND orderexpiry<".$tm);
 
 	if ( __dbtype__ == 'pgsql' ) {
 		qf(q("SELECT rebuild_thread_view($forum_id, $page, $tm)"));
