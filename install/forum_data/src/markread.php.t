@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: markread.php.t,v 1.8 2003/11/14 10:50:19 hackie Exp $
+* $Id: markread.php.t,v 1.9 2003/11/26 19:20:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,7 @@
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
-	if (_uid && sq_check(0, $usr->last_visit)) {
+	if (_uid && sq_check(0, $usr->sq)) {
 		if (!isset($_GET['id'])) {
 			user_mark_all_read(_uid);
 		} else if ((int)$_GET['id']) {

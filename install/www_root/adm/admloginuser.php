@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admloginuser.php,v 1.15 2003/11/13 18:48:51 hackie Exp $
+* $Id: admloginuser.php,v 1.16 2003/11/26 19:20:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,7 +21,7 @@
 	if (isset($_POST['login'])) {
 		if (($id = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($_POST['login'])."' AND passwd='".md5($_POST['passwd'])."' AND users_opt>=1048576 AND (users_opt & 1048576) > 0"))) {
 			$sid = user_login($id, $usr->ses_id, true);
-			header('Location: admglobal.php?S='.$sid.'&SQ='.q_singleval("SELECT last_visit FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".$id));
+			header('Location: admglobal.php?S='.$sid.'&SQ='.q_singleval("SELECT sq FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".$id));
 			exit;
 		} else {
 			logaction(0, 'WRONGPASSWD', 0, $_SERVER['REMOTE_ADDR']);

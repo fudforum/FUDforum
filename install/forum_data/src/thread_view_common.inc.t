@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.28 2003/11/14 10:50:20 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.29 2003/11/26 19:20:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,10 +74,10 @@ $thread_syndicate = $FUD_OPT_2 & 1048576 ? '{TEMPLATE: thread_syndicate}' : '';
 
 /* do various things for registered users */
 if (_uid) {
-	if (isset($_GET['sub']) && sq_check(0, $usr->last_visit)) {
+	if (isset($_GET['sub']) && sq_check(0, $usr->sq)) {
 		forum_notify_add(_uid, $frm->id);
 		$frm->subscribed = 1;
-	} else if (isset($_GET['unsub']) && sq_check(0, $usr->last_visit)) {
+	} else if (isset($_GET['unsub']) && sq_check(0, $usr->sq)) {
 		forum_notify_del(_uid, $frm->id);
 		$frm->subscribed = 0;
 	}

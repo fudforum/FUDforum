@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: subscribed.php.t,v 1.18 2003/11/14 10:50:20 hackie Exp $
+* $Id: subscribed.php.t,v 1.19 2003/11/26 19:20:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,12 +17,12 @@
 	}
 
 	/* delete forum subscription */
-	if (isset($_GET['frm_id']) && ($_GET['frm_id'] = (int)$_GET['frm_id']) && sq_check(0, $usr->last_visit)) {
+	if (isset($_GET['frm_id']) && ($_GET['frm_id'] = (int)$_GET['frm_id']) && sq_check(0, $usr->sq)) {
 		forum_notify_del(_uid, $_GET['frm_id']);
 	}
 
 	/* delete thread subscription */
-	if (isset($_GET['th']) && ($_GET['th'] = (int)$_GET['th']) && sq_check(0, $usr->last_visit)) {
+	if (isset($_GET['th']) && ($_GET['th'] = (int)$_GET['th']) && sq_check(0, $usr->sq)) {
 		thread_notify_del(_uid, $_GET['th']);
 	}
 

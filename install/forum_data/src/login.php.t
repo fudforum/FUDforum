@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.48 2003/11/21 09:55:52 hackie Exp $
+* $Id: login.php.t,v 1.49 2003/11/26 19:20:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,7 +21,7 @@
 		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=131072 AND (users_opt & 131072) > 0 AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND id!=1 AND (users_opt & 1048576)=0");
 	}
 
-	if (!empty($_GET['logout']) && sq_check(0, $usr->last_visit)) {
+	if (!empty($_GET['logout']) && sq_check(0, $usr->sq)) {
 		if ($usr->returnto) {
 			parse_str($usr->returnto, $tmp);
 			$page = isset($tmp['t']) ? $tmp['t'] : '';
@@ -144,7 +144,7 @@ function error_check()
 			ses_putvar((int)$usr->sid, null);
 		}
 
-		if (!($usr_d = db_sab("SELECT id, passwd, login, email, users_opt, last_visit FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($_POST['login'])."'"))) {
+		if (!($usr_d = db_sab("SELECT id, passwd, login, email, users_opt, sq FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($_POST['login'])."'"))) {
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else if ($usr_d->passwd != md5($_POST['password'])) {
 			if ($usr_d->users_opt & 1048576) {
@@ -170,7 +170,7 @@ function error_check()
 			}
 
 			if (!empty($_POST['adm']) && $usr_d->users_opt & 1048576) {
-				header('Location: adm/admglobal.php?S='.$ses_id.'&SQ='.$usr_d->last_visit);
+				header('Location: adm/admglobal.php?S='.$ses_id.'&SQ='.$usr_d->sq);
 				exit;
 			}
 
@@ -187,9 +187,9 @@ function error_check()
 			}
 
 			if (strpos($usr->returnto, '?') !== false || !($FUD_OPT_2 & 32768)) {
-				$usr->returnto .= '&SQ='.$usr_d->last_visit;
+				$usr->returnto .= '&SQ='.$usr_d->sq;
 			} else {
-				$usr->returnto .= '?SQ='.$usr_d->last_visit;
+				$usr->returnto .= '?SQ='.$usr_d->sq;
 			}
 			check_return($usr->returnto);
 		}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.96 2003/11/21 09:18:00 hackie Exp $
+* $Id: users.inc.t,v 1.97 2003/11/26 19:20:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,12 +36,16 @@ function init_user()
 	if (!($u = ses_get())) {
 		/* new anon user */
 		$u = ses_anon_make();
-	} else if ($u->id != 1 && (!count($_POST) || sq_check(1, $u->last_visit, $u->id, $u->ses_id))) { /* store the last visit date for registered user */
+	} else if ($u->id != 1 && (!count($_POST) || sq_check(1, $u->sq, $u->id, $u->ses_id))) { /* store the last visit date for registered user */
 		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='.__request_timestamp__.' WHERE id='.$u->id);
 		if ($GLOBALS['FUD_OPT_3'] & 1) {
 			setcookie($GLOBALS['COOKIE_NAME'], $u->ses_id, 0, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 		}
-		$sq = __request_timestamp__;
+		if (__request_timestamp__ - $u->last_visit > 300) {
+			$sq = regen_sq();
+		} else {
+			$sq =& $u->sq;
+		}
 	}
 	if ($u->data) {
 		$u->data = @unserialize($u->data);
@@ -670,28 +674,34 @@ function user_mark_forum_read($id, $fid, $last_view)
 	}
 }
 
-function sq_check($post, $last_visit, $uid=__fud_real_user__, $ses=s)
+function sq_check($post, $sq, $uid=__fud_real_user__, $ses=s)
 {
 	/* no sequence # check for anonymous users or when multi-host login is enabled */
-	if (!$last_visit || !$uid || $GLOBALS['FUD_OPT_2'] & 256) {
+	if (!$uid || $GLOBALS['FUD_OPT_2'] & 256) {
 		return 1;
 	}
 
 	if ($post && isset($_POST['SQ'])) {
-		$sq = (int) $_POST['SQ'];
+		$s = $_POST['SQ'];
 	} else if (!$post && isset($_GET['SQ'])) {
-		$sq = (int) $_GET['SQ'];
+		$s = $_GET['SQ'];
 	} else {
-		$sq = 0;
+		$s = 0;
 	}
 
-	if ($sq != $last_visit && (($sq - $last_visit) > 300 || ($sq - $last_visit) < -300)) {
-		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='.$last_visit.' WHERE id='.$uid);
-		header('Location: {ROOT}?S='.$ses.'&SQ='.$last_visit);
+	if ($sq !== $s) {
+		header('Location: {ROOT}?S='.$ses);
 		exit;
 	}
 
 	return 1;
+}
+
+function regen_sq($uid=__fud_real_user__)
+{
+	$sq = md5(get_random_value(128));
+	q("UPDATE {SQL_TABLE_PREFIX}users SET sq='".$sq."' WHERE id=".$uid);
+	return $sq;
 }
 
 if (!defined('forum_debug')) {

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.php.t,v 1.23 2003/11/14 10:50:19 hackie Exp $
+* $Id: ignore_list.php.t,v 1.24 2003/11/26 19:20:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,7 +45,7 @@ function ignore_alias_fetch($al, &$is_mod)
 
 	/* incomming from message display page (ignore link) */
 	if (isset($_GET['add']) && ($_GET['add'] = (int)$_GET['add'])) {
-		if (!sq_check(0, $usr->last_visit)) {
+		if (!sq_check(0, $usr->sq)) {
 			check_return($usr->returnto);
 		}
 
@@ -60,7 +60,7 @@ function ignore_alias_fetch($al, &$is_mod)
 	}
 
 	if (isset($_GET['del']) && ($_GET['del'] = (int)$_GET['del'])) {
-		if (!sq_check(0, $usr->last_visit)) {
+		if (!sq_check(0, $usr->sq)) {
 			check_return($usr->returnto);
 		}
 

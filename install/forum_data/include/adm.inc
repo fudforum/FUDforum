@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: adm.inc,v 1.24 2003/11/09 23:54:24 hackie Exp $
+* $Id: adm.inc,v 1.25 2003/11/26 19:20:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -38,7 +38,7 @@ if (isset($_POST['btn_cancel'])) {
 	$_POST = $_GET = null;
 }
 if (!count($_POST)) {
-	sq_check(0, $GLOBALS['usr']->last_visit);
+	sq_check(0, $GLOBALS['usr']->sq);
 }
 function errorify($err)
 {
