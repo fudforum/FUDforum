@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.12 2002/08/23 00:11:37 hackie Exp $
+*   $Id: admglobal.php,v 1.13 2002/08/25 04:03:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -174,7 +174,7 @@ else
 <tr bgcolor="#bff8ff"><td>Maximum Shown Subject Length (tree view):<?php draw_help('TREE_THREADS_MAX_SUBJ_LEN'); ?></td><td><input type="text" name="CF_TREE_THREADS_MAX_SUBJ_LEN" value="<?php echo $CF_TREE_THREADS_MAX_SUBJ_LEN; ?>"></td></tr>
 
 <tr bgcolor="#bff8ff"><td>Polls Per Page:<?php draw_help('POLLS_PER_PAGE'); ?></td><td><input type="text" name="CF_POLLS_PER_PAGE" value="<?php echo $CF_POLLS_PER_PAGE; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Default Topic View:<?php draw_help('DEFAULT_THREAD_VIEW'); ?></td><td><?php draw_select('CF_DEFAULT_THREAD_VIEW', "Flat View\nTree View", "msg\ntree", $CF_DEFAULT_THREAD_VIEW); ?></td></tr>
+<tr bgcolor="#bff8ff"><td>Default Topic View:<?php draw_help('DEFAULT_THREAD_VIEW'); ?></td><td><?php draw_select('CF_DEFAULT_THREAD_VIEW', "Flat View thread and message list\nTree View thread and message list".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\nFlat thread listing/Tree message listing\nTree thread listing/Flat message listing":''), "msg\ntree".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\nmsg_tree\ntree_msg":''), $CF_DEFAULT_THREAD_VIEW); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Word Wrap:<?php draw_help('WORD_WRAP'); ?></td><td><input type="text" name="CF_WORD_WRAP" value="<?php echo $CF_WORD_WRAP; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Unconfirmed User Expiry:<?php draw_help('UNCONF_USER_EXPIRY'); ?></td><td><input type="text" name="CF_UNCONF_USER_EXPIRY" value="<?php echo $CF_UNCONF_USER_EXPIRY; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Flood Trigger (seconds):<?php draw_help('FLOOD_CHECK_TIME'); ?></td><td><input type="text" name="CF_FLOOD_CHECK_TIME" value="<?php echo $CF_FLOOD_CHECK_TIME; ?>"></td></tr>

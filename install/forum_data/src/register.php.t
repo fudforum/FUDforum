@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.18 2002/08/24 12:16:36 hackie Exp $
+*   $Id: register.php.t,v 1.19 2002/08/25 04:03:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -652,8 +652,9 @@ else {
 	$day_select = tmpl_draw_select_opt("\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31", "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31", $b_day, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$month_select = tmpl_draw_select_opt("\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12", "\n{TEMPLATE: month_1}\n{TEMPLATE: month_2}\n{TEMPLATE: month_3}\n{TEMPLATE: month_4}\n{TEMPLATE: month_5}\n{TEMPLATE: month_6}\n{TEMPLATE: month_7}\n{TEMPLATE: month_8}\n{TEMPLATE: month_9}\n{TEMPLATE: month_10}\n{TEMPLATE: month_11}\n{TEMPLATE: month_12}", $b_month, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$gender_select = tmpl_draw_select_opt("UNSPECIFIED\nMALE\nFEMALE","{TEMPLATE: unspecified}\n{TEMPLATE: male}\n{TEMPLATE: female}", $reg_gender, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-	$view_select = tmpl_draw_select_opt("msg\ntree", "{TEMPLATE: register_flat_view}\n{TEMPLATE: register_tree_view}", $reg_default_view, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$mppg_select = tmpl_draw_select_opt("0\n5\n10\n20\n30\n40", "{TEMPLATE: use_forum_default}\n5\n10\n20\n30\n40", $reg_posts_ppg, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+	
+	$view_select = tmpl_draw_select_opt("msg\ntree".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\nmsg_tree\ntree_msg":''), "{TEMPLATE: register_flat_view}\n{TEMPLATE: register_tree_view}".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\n{TEMPLATE: register_msg_tree_view}\n{TEMPLATE: register_tree_msg_view}":''), $reg_default_view, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 
 	$theme_select = create_theme_select('reg_theme', $reg_theme);
 	$style_select = tmpl_draw_select_opt($style_opts, $style_names, $reg_style, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.9 2002/08/23 00:11:37 hackie Exp $
+*   $Id: users.inc.t,v 1.10 2002/08/25 04:03:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -160,16 +160,19 @@ function init_user()
 
 	if( !empty($u) ) {
 		set_tz($u->time_zone);
-		define('d_thread_view', $u->default_view);
-		define('t_thread_view', (($u->default_view=='msg' || $GLOBALS['TREE_THREADS_ENABLE']=='N')?'thread':'threadt'));
+		
+		define('d_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$u->default_view=='msg'||$u->default_view=='tree_msg')?'msg':'tree'));
+		define('t_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$u->default_view=='msg'||$u->default_view=='msg_tree')?'thread':'threadt'));
 		
 		q("UPDATE {SQL_TABLE_PREFIX}users SET last_visit=".__request_timestamp__." WHERE id=".$u->id);
 		$rv[1] = $u;
 	}
 	else {
 		set_tz($GLOBALS["SERVER_TZ"]);
-		define('d_thread_view', $GLOBALS['DEFAULT_THREAD_VIEW']);
-		define('t_thread_view', (($GLOBALS['DEFAULT_THREAD_VIEW']=='msg' || $GLOBALS['TREE_THREADS_ENABLE']=='N')?'thread':'threadt'));
+		
+		define('d_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$GLOBALS['DEFAULT_THREAD_VIEW']=='msg'||$GLOBALS['DEFAULT_THREAD_VIEW']=='tree_msg')?'msg':'tree'));
+		define('t_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$GLOBALS['DEFAULT_THREAD_VIEW']=='msg'||$GLOBALS['DEFAULT_THREAD_VIEW']=='msg_tree')?'thread':'threadt'));
+		
 		$rv[1] = NULL;
 		if( !empty($GLOBALS["rid"]) && empty($GLOBALS["HTTP_COOKIE_VARS"]["frm_referer_id"]) ) set_referer_cookie($GLOBALS["rid"]);
 	}

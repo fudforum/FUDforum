@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.5 2002/08/19 08:47:50 hackie Exp $
+#   $Id: fud_users.tbl,v 1.6 2002/08/25 04:03:00 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -65,7 +65,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	custom_status 		TEXT,
 	sig			TEXT,
 	
-	default_view		ENUM('msg', 'tree') NOT NULL DEFAULT 'msg',
+	default_view		ENUM('msg', 'tree', 'msg_tree', 'tree_msg') NOT NULL DEFAULT 'msg',
 	is_mod 			ENUM('Y','N','A') NOT NULL DEFAULT 'N',
 	level_id 		INT UNSIGNED NOT NULL DEFAULT 0,
 	reset_key		CHAR(32) NOT NULL DEFAULT '0',

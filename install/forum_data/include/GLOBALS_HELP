@@ -254,7 +254,7 @@ Enable/disable the showing of how long it took the generate the page and how
 many SQL queries were run in the process.
 
 DEFAULT_THREAD_VIEW
-The default view of the thread's contents.
+The default view of the thread's contents and thread listing.
 
 FORUM_INFO
 Enable/disable the showing of forum statistics on the front page.  Statistics

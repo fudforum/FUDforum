@@ -113,7 +113,7 @@
 	$SITE_HOME_PAGE		= "";
 	$MAX_LOGIN_SHOW		= "25";
 	$MAX_LOCATION_SHOW	= "25";
-	$DEFAULT_THREAD_VIEW 	= "msg";    	/* toggle msg:tree */
+	$DEFAULT_THREAD_VIEW 	= "msg";    	/* toggle msg:tree:tree_msg:msg_tree */
 	$SHOW_N_MODS		= "2";
 	
 	$TREE_THREADS_ENABLE	= "N";		/* boolean */
