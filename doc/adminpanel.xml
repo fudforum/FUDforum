@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.12 2002/08/03 19:10:03 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.13 2002/08/05 15:05:33 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -483,9 +483,9 @@
 					</para>
 				
 					<para>
-						The URL &amp; Uploaded avatars will first need to be approved by the admin before they are activated, unless
+						The URL &amp; Uploaded avatars will first need to be approved by the administrator  before they are activated, unless
 						you specified in the <link linkend="global.option.CUSTOM_AVATAR_APPOVAL">Avatar Approval</link> option,
-						that the admin does not need to approve those avatars.
+						that the administrator  does not need to approve those avatars.
 					</para>
 				
 					<para>
@@ -521,7 +521,7 @@
 					
 						<tip>
 							<simpara>
-							The uploaded avatars can be scaled down by the admin during the avatar approval process
+							The uploaded avatars can be scaled down by the administrator during the avatar approval process
 							if the path to <link linkend="global.option.MOGRIFY_BIN">Mogrify</link> utility is specified.
 							</simpara>
 						</tip>
@@ -861,7 +861,7 @@
 					<title>Default Topic View</title>
 				
 					<para>
-						Allows the admin to specify the default message view.
+						Allows the administrator to specify the default message view.
 						<itemizedlist>
 							<listitem><para><emphasis role="bold">Flat View</emphasis> Standard bulletin board view.</para></listitem>
 							<listitem><para><emphasis role="bold">Tree View</emphasis> Draws a tree like view of the messages. Similar to how messages in the newsgroups are displayed.</para></listitem>
@@ -1066,7 +1066,7 @@
 		<title>Replacement &amp; Censorship System</title>
 		
 		<para>
-			The Replacement &amp; Censorship System allows the admin to replace certain strings 
+			The Replacement &amp; Censorship System allows the administrator to replace certain strings 
 			in the messages, signatures and biographies of the users with another text string.
 		</para>	
 		
@@ -1426,13 +1426,13 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		</para>
 		
 		<para>	
-			This control panel allows the admin to see this information by displaying the user name, action, the affected forum data
+			This control panel allows the administrator to see this information by displaying the user name, action, the affected forum data
 			as well as the time of the event.
 		</para>
 		
 		<tip>
 			<simpara>	
-			In addition to logging actions of privileged users this control panel also allows the admin to see failed logins attempts 
+			In addition to logging actions of privileged users this control panel also allows the administrator to see failed logins attempts 
 			into any of the accounts that have administrative access to the forum, with the IP address of the user who attempted to login. This is 
 			an extremely useful feature for tracking down attempted hacking attempts, by people who try to gain administrative access
 			by guessing the password of the administrator(s).
@@ -1571,7 +1571,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			</para>
 			
 			<para>
-				The first item on the forum manager page is form that allows the admin to add and edit forums. When a forum is
+				The first item on the forum manager page is form that allows the administrator to add and edit forums. When a forum is
 				being edited the forum's settings will be pulled into the form for ease of editing.
 			</para>
 			
@@ -1738,12 +1738,12 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		
 		<para>
 			When a forum is deleted it is not immediately removed from the database but rather moved to a trash bin of sorts.
-			It is done to allow the admin to restore the accidentally removed forums, since once they are truly removed 
+			It is done to allow the administrator to restore the accidentally removed forums, since once they are truly removed 
 			there is no going back.
 		</para>
 		
 		<para>
-			This control panel allows the admin to see all the forums inside the 'trash bin' and allows the admin to either
+			This control panel allows the administrator to see all the forums inside the 'trash bin' and allows the administrator to either
 			restore the forum, by choosing a category where to restore the forum by clicking on the 'Reassign' button
 			or to truly delete the forum by clicking on the delete link.
 		</para>
@@ -1816,7 +1816,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		<title>Topic Prunning</title>
 		
 		<para>
-			The topic prunning control panel allows the admin to remove topics that are older then a certain date.
+			The topic prunning control panel allows the administrator to remove topics that are older then a certain date.
 		</para>
 		
 		<sect2 id="thread.prunning.period">
@@ -1840,7 +1840,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			<title>Forum Limiter</title>
 			
 			<para>
-				Allows the admin to specify a specific forum or category which to prune or whether to prune all forums.
+				Allows the administrator to specify a specific forum or category which to prune or whether to prune all forums.
 			</para>
 		</sect2>
 		
@@ -2419,7 +2419,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		</sect2>
 		
 		<para>
-			At the bottom of the user control panel there are a number of links that allow the admin to take certain actions
+			At the bottom of the user control panel there are a number of links that allow the administrator to take certain actions
 			in regard to the selected user.
 		</para>
 		
@@ -2752,7 +2752,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			
 			<para>
 				The user can specify that they wish to ignore admin's emails via their profile settings. However,
-				if the admin feels that the message is important enough that all forum members should receive it, then
+				if the administrator feels that the message is important enough that all forum members should receive it, then
 				they can overwrite the user's setting, by selecting this option.
 			</para>
 		</sect2>
@@ -2763,11 +2763,11 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		
 		<para>
 			&FUDforum; allow the administrator to define user ranks that will be assigned to users once they reach a 
-			certain number of posts. This control panel allows the admin to define those ranks.
+			certain number of posts. This control panel allows the administrator to define those ranks.
 		</para>
 		
 		<para>
-			Each rank is normally a text string, however the admin may choose to have the rank represented by an image
+			Each rank is normally a text string, however the administrator may choose to have the rank represented by an image
 			or a combination of an image and text.
 		</para>
 		
@@ -2853,7 +2853,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			<title>Template Set</title>
 			
 			<para>
-				This select allows the admin to choose the template set, which will be used
+				This select allows the administrator to choose the template set, which will be used
 				with this theme.
 			</para>
 		</sect2>
@@ -2862,7 +2862,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			<title>Language</title>
 			
 			<para>
-				This select allows the admin to specify the language, which will be used with this theme.
+				This select allows the administrator to specify the language, which will be used with this theme.
 			</para>
 		</sect2>
 		
@@ -2935,14 +2935,14 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		
 		<para>
 			At the bottom of the control panels there is a list of all the available themes with a number of
-			clickable links allowing the admin to administer the available themes.
+			clickable links allowing the administrator to administer the available themes.
 		</para>
 		
 		<sect2 id="admin.theme_manager.edit">
 			<title>Edit</title>
 			
 			<para>
-				Clicking this link will load this theme into the theme manager, allowing the admin to edit
+				Clicking this link will load this theme into the theme manager, allowing the administrator to edit
 				this theme.
 			</para>
 		</sect2>
@@ -2991,7 +2991,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		</para>
 		
 		<para>
-			This control panel offers a web interface to the templates, allowing the admin to change the templates 
+			This control panel offers a web interface to the templates, allowing the administrator to change the templates 
 			via their browser. This is generally intended for quick changes and/or fixes, if you intend to do a complete
 			layout redesign we recommend changing the templates (*.tmpl files inside the tmpl directory for each theme) 
 			with your text editor of choice.
@@ -3244,7 +3244,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		
 		<para>
 			This control panels allows the administrator to add and remove forum icons. Forum icons are images that
-			the admin can choose to display beside each forum that they create.
+			the administrator can choose to display beside each forum that they create.
 		</para>
 	</sect1>
 	

@@ -41,7 +41,7 @@
 			and feel of your forum. For optimal performance the templates are compiled, so you do not lose any speed as you do 
 			in other forums by having a templating system.
 		</p><p>
-			The <a href="#admin.template_editor" title="Template Editor">Template Editor</a> can be found inside the admin control panel.
+			The <a href="#admin.template_editor" title="Template Editor">Template Editor</a> can be found inside the administrator control panel.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.i18n"></a>i18n Support</h2></div></div><p>
 			FUDforum 2.3 has full <a href="http://www.i18n.com/" target="_top">i18n</a> support, that allows an easy translation of the forum into a language of your choice.
 			Currently FUDforum 2.3 is distributed with 8 languages: English, French, German, Swedish, Polish, Turkish, Spanish and Chinese.
@@ -55,15 +55,15 @@
 			forum etc.
 		</p><p>
 			This system also includes support for &quot;group managers&quot; who have the ability to manage users in the groups they control. This
-			option allows the admin to delegate responsibility to trustworthy forum members.
+			option allows the admininistrator to delegate responsibility to trustworthy forum members.
 		</p><p>
 			The Group Management is done via two control panels. The first control panel is the <a href="#admin.group_control_panel" title="Groups Manager">administrative group manager</a>, which allows 
-			the admin(s) to add/remove groups as well as assign group managers and specify what permissions the group managers can assign
-			and/or take away. This control panel also allows the admin to make groups inherit permissions from other groups,
+			admininistrator(s) to add/remove groups as well as assign group managers and specify what permissions the group managers can assign
+			and/or take away. This control panel also allows the administrator to make groups inherit permissions from other groups,
 			which eliminates the need to specify new permission every time for similar groups.
 		</p><p>
 			The second control panel, the <a href="#mod.groups" title="User Group Management">user group manager</a>, which allows the group manager(s) 
-			and the admin(s) to add and remove users from a group as well as set permissions for individual users.
+			and the admininistrator(s) to add and remove users from a group as well as set permissions for individual users.
 			It can be a accessed via a link available to all Administrators and Group Managers on most forum pages.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.pm"></a>Private Messaging</h2></div></div><p>
 			FUDforum 2.3 includes a private messaging (PM) system that <a href="#global.option.PM_ENABLED" title="Allow Private Messaging">if enabled</a> via 
@@ -76,12 +76,13 @@
 			so that the user can easily refer back to them if the need arises. There is also a 'drafts' folder
 			where the user can keep their unfinished messages.
 		</p><p>
-			The admin via the <a href="#global.pm.options" title="Private Messaging">private messaging controls</a> can specify what features the users
-			may use inside their private messages, as well as the amount messages the users can keep in their PM folders.
+			Via the <a href="#global.pm.options" title="Private Messaging">private messaging controls</a> administrator(s) can specify what 
+			features the users may use inside their private messages, as well as the amount messages the users can 
+			keep in their PM folders.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.files"></a>File Attachments</h2></div></div><p>
-			If permitted by the admin, users may attach files to their forum &amp; private messages. The amount of files that the user 
-			can attach as well as their maximum size can be defined by the admin on a forum by forum basis via the 
-			<a href="#admin.category_forum_management" title="Category &amp; Forum Management">forum control panel</a>. The ability to attach files to private messages can be defined by the admin
+			If permitted by the administrator, users may attach files to their forum &amp; private messages. The amount of files that the user 
+			can attach as well as their maximum size can be defined by the administrator on a forum by forum basis via the 
+			<a href="#admin.category_forum_management" title="Category &amp; Forum Management">forum control panel</a>. The ability to attach files to private messages can be defined by the administrator
 			via the <a href="#global.pm.options" title="Private Messaging">private messaging system controls</a>.
 		</p><p>
 			In addition to specifying the size and the quantity limits the administrator may also indicate what file types
@@ -111,7 +112,7 @@
 			Each forum member has access to a personal subscription control panel, which can be used to see what 
 			subscriptions they currently have and allow the user to unsubscribe from any of the subscribed to content.
 		</p><p>
-			If specified by the admin, the forum can include the full body of the message in the E-mail notification, so that a user
+			If specified by the administrator, the forum can include the full body of the message in the E-mail notification, so that a user
 			can read and reply to the message directly via their mail client. These notifications come specially formated, so that
 			they are properly displayed on all e-mail clients, regardless of whether those mail clients support HTML or not.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.tree"></a>Tree View</h2></div></div><p>
@@ -154,99 +155,123 @@
 			Whether or not text codes are replaced with corresponding images can be defined by the administrator on a forum by 
 			forum basis. The group management system can also be used to disallow usage of smilies.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.avatars"></a>Avatars</h2></div></div><p>
-			If permitted by the administrator users can choose to have an avatar image which they can either upload to the server,
-			specify a url to or choose from the forum's avatar galleries. The avatar images will be displayed beside their name
-			on all of their posts.
+			If permitted by the administrator, users may choose to associate an avatar image with their posts and messages.
+			Users may upload an image of their choice to the server, specify a URL to an image or
+			selecting a file from their harddrive or choosing an image from the forum's built-in avatar
+			galleries. The avatar images will be displayed beside the user's name on all of user's posts.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.custom_tags"></a>Custom Tags</h2></div></div><p>
-			FUDforum 2.3 allows the administrator to assign users an unlimited number custom tags that 
-			would appear on their profile as well as beside their posts. This feature can be used to 
-			indicate any special functions of the user.
+			In FUDforum 2.3 the administrator can assign users an unlimited number custom tags that 
+			would appear on user's profile and beside user's posts. This feature can be used to 
+			indicate any special roles or functions of the user.
 		</p><p>
 			Custom tags can be added or removed via the <a href="#admin.user_manager" title="Moderator/User Manager">user control panel</a>.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.ranks"></a>User Ranks</h2></div></div><p>
-			User Ranks are assigned to users based on the number of posts they have made on the forum. These ranks may contain
-			a text and/or image indicator showing the user's rank.
+			User Ranks are assigned to users based on the number of posts they have made on the forum. 
+			These ranks may contain a text and or image indicator showing the user's rank.
 		</p><p>
-			The administrator can add/edit/delete the available user ranks via the <a href="#admin.ranks" title="Rank Manager">rank manager</a>.
+			The administrator can add, edit, or delete the available user ranks via the <a href="#admin.ranks" title="Rank Manager">rank manager</a>.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.censor"></a>Censor &amp; Replacement System</h2></div></div><p>
-			In FUDforum 2.3 you can specify that certain strings or words would be replaced by the alternatives provided by
-			the administrator. This is most commonly used to filter in appropriate language from being used in the forum.
+			In FUDforum 2.3 the administrator can specify that certain words or strings will be replaced automatically by 
+			alternatives provided by the administrator. This is most commonly used to filter inappropriate language 
+			that the administrator does not want to allow in the forum.
 		</p><p>
 			The administrator can specify the strings that are to be replaced via the 
 			<a href="#admin.replacement_censorship_system" title="Replacement &amp; Censorship System">replacement control panel</a>, which supports 
-			both basic replacement as well as regex pattern matching.
+			both basic replacement and regex pattern matching.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.iptracking"></a>IP Tracking</h2></div></div><p>
-			FUDforum 2.3 tracks the IP address of all the people who have made posts on the forum. The moderators &amp; administrators
-			can see the IP of the author beside each message posted. In addition to showing the IP, the IP itself is a link to a URL
-			that shows the ISP of the person who's IP this is.
+			FUDforum 2.3 tracks the IP addresses of all users as they submit posts to the forum. Administrators and forum moderators
+			can see the IP address of the author beside each message. In addition, the IP address 
+			itself is a link to a URL that will attempt to look up the ISP of the user who 
+			submitted the post or message.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.actionlog"></a>Action Log</h2></div></div><p>
-			FUDforum 2.3 logs all the actions taken by privileged users such as moderators. The 
-			<a href="#admin.action_log_viewer" title="Action Log Viewer">action log</a> allows the administrator(s) to see when and what 
-			actions were performed by the users with special privileges. This form will also show the log 
-			of all the failed login attempts in to the administrator account.
+			FUDforum 2.3 logs all actions taken by privileged users such as moderators. The 
+			<a href="#admin.action_log_viewer" title="Action Log Viewer">action log</a> allows administrator(s) to see 
+			time-stamped details of actions that have been taken by users with special privileges. 
+			The action log will also show all failed attempts to login to the administrator account.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.message_mangling"></a>Message Mangling</h2></div></div><p>
-			The ability to edit, delete, move and split topics and messages.	
+			Message mangling refers to the ability to edit, delete, move and split
+			topics and messages. Administrators may grant message mangling permissions 
+			to moderators and other users.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.user_block"></a>User Blocking</h2></div></div><p>
-			The administrator has an extensive set of tools to block people from the forum. This includes and 
-			<a href="#admin.ip_filter" title="IP Filter">IP filter</a> that allows blockage of users with a certain IP mask from accessing the forum.
+			The administrator has an extensive set of tools to block people from the forum. 
+			The tools include an <a href="#admin.ip_filter" title="IP Filter">IP filter</a> 
+			to block access to FUDforum from any IP address or IP address mask.
 		</p><p>
-			<a href="#admin.email_filter" title="Email filter">Email filter</a>, blocks all users who's e-mail address matches the mask specified by the admin.
-			This also prevents people from registering with an e-mail that matches the specified mask.
+			The <a href="#admin.email_filter" title="Email filter">e-mail filter</a> blocks all users who's e-mail address 
+			matches the mask specified by the administrator. The e-mail filter also prevents
+			new registrations using an e-mail that matches the specified mask.
 		</p><p>
-			<a href="#admin.login_filter" title="Login Filter">Login filter</a>, block all users who's login matches the mask specified by the admin.
-			This also prevents people from registering with a login that matches the specified mask.
+			The <a href="#admin.login_filter" title="Login Filter">Login filter</a>, blocks all users who's login 
+			matches the mask specified by the administrator. The login filter also prevents people
+			from registering with a login that matches the specified mask.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.sessions"></a>Session Support</h2></div></div><p>
-			If for whatever reason cookies are not enabled on the user's computer FUDforum 2.3 will use URL sessions to 
-			keep track of the user. Thus allowing the user use the forum even if they do not have a cookie set on their
-			computer.
+			If cookies are not enabled on the user's computer, FUDforum 2.3 will use URL sessions
+			to keep track of the user. This allows use of the forum even if cookies are not 
+			supported or allowed on the users computer.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.mlist_nntp"></a>Mailing List &amp; NNTP Integration</h2></div></div><p>
-			FUDforum includes automatic tools that allow the forum to be used to archive newsgroups (NNTP) and 
-			mailing lists. In addition to archival abilities FUDforum also allows the administrator to permit
-			forum members to post messages back to the mailing list or newsgroup, thus making FUDforum an ideal
-			access point to those resources for people who for whatever reason cannot access newsgroups or
-			mailing lists.
+			FUDforum includes tools which will allow the forum to be used to
+			archive newsgroups (NNTP) and mailing lists. In addition, FUDforum
+			allows the administrator to permit forum members to post messages back
+			to a mailing list or a newsgroup. This feature makes FUDforum an ideal
+			access point to newsgroups and mailing lists for those who cannot
+			access those resources directly.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.installation"></a>Installation &amp; Upgrade</h2></div></div><p>
-			FUDforum 2.3 includes an easy to use installation wizard that will have your forum up and running within minutes. The upgrade
-			process is even easier, simply download the upgrade pack from 
-			<a href="http://fud.prohost.org/" target="_top"><i>FUDforum 2.3 website</i></a> and run the script,  
-			this script will automatically perform the all necessary upgrades from any previous forum version.
+			FUDforum 2.3 includes an installation wizard that is so easy to use,
+			it will have your forum up and running within minutes. The upgrade
+			process is even easier. Simply download the upgrade pack from the
+			<a href="http://fud.prohost.org/" target="_top"><i>FUDforum 2.3 website</i></a> 
+			and run the script, which will automatically perform all necessary upgrades from 
+			any previous version.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.php"></a>PHP Related Features</h2></div></div><p>
-			FUDforum 2.3 can be successfully installed on systems with safe_mode enabled as well as PHP installations with register_globals 
-			&amp; magic_quotes_gpc turned off.
+			FUDforum 2.3 can be successfully installed on systems configured with
+			PHP safe_mode enabled and those which may have the register_globals
+			and magic_quotes_gpc parameters turned off.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.speed"></a>Forum Speed</h2></div></div><p>
-	        	Although not a feature per say, it should be noted that despite the many features FUDforum 2.3 is still extremely fast, probably
-	        	faster then all the other forums that offer similar and even lesser feature sets. This is accomplished by a very highly tuned
-	        	MySQL or PostgreSQL interface as well as a very optimized PHP code.
+			Despite its many features, FUDforum 2.3 is still extremely fast. It is
+			probably faster than all the other forum applications that offer
+			similar or even lesser feature sets. FUDforums excellent performance
+			is the result of highly tuned interfaces to the underlying MySQL or
+			PostgreSQL database and highly optimized PHP code.
 	        </p><p>
-	        	The forum will in most cases not take more then 0.1 seconds to generate a page.
+			In most cases, the forum will generate a page in less than one tenth
+			(0.1) of a second.
 	        </p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.security"></a>Security</h2></div></div><p>
-			Security is an often overlooked feature in many web based applications and as the result many 
-			of those applications have large security holes that even the most incompetent of hackers can exploit
-			and cause a great deal damage and annoyance.
+			Security is an often overlooked feature in web based applications. As
+			a result, many web based applications have large security holes that
+			even the most incompetent hacker can exploit, causing a great deal of
+			damage and annoyance.
 		</p><p>
-			We've taken the time to ensure that the default installation of the FUDforum 2.3 offers the greatest possible
-			security given the available tools, to ensure that should your web server be reasonably secure it would be
-			very difficult if not impossible for a curious user or even a hacker to access your sensitive data.
+			Considerable care has been taken to ensure that, given the available
+			programming tools, the default installation of the FUDforum 2.3 is
+			designed to offer the greatest possible security. It would be very
+			difficult if not impossible for a curious user or even a hacker to
+			access your sensitive data.
 		</p><p>
-			To accomplish this task, FUDforum 2.3 by default will store your files with the most minimalistic permissions
-			possible (0600 for files and 0700 for directories), allowing only the user the web server is running on
-			to access your files.
+			To achieve this level of security, by default FUDforum 2.3 stores
+			files using the least possible file permissions (0600 for files and
+			0700 for directories), which allow only the user account under which
+			the web server is running to access FUDforum's files.
 			
 			</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
-				On servers, which appropriately switch users for each virtual host, like Apache 2 this approach
-				is even safer since all your forum's files would be accessible by you and you alone.
+				On servers that are configured to appropriately switch users for each
+				virtual host (like Apache 2.x) your forum files will be even more
+				secure because they will be accessible by you alone.
 				</p></div><p>
 		</p><p>
-			You may think that allowing web server access to your files is equivalent to allowing anyone to
-			access your files. That is simply not the case, on a secure server the administrator would have setup
-			an 'open_basedir' PHP limitation that would have restricted php scripts from accessing files in directories
-			not owned by a current virtual host, thus preventing people from using PHP to access files of other users.
+			Although you may think that giving a web server to ownership of the files is
+			equivalent to allowing access to anyone, that is simply not the case.
+			On a secure server, for example, the administrator should implement a
+			PHP open_basedir limitation to restrict PHP scripts from accessing
+			files in directories not owned by a current virtual host, thus
+			preventing access through PHP to source code &amp; data files of FUDforum.
 		</p><p>
-			On a properly setup server any programs within the CGI wrapper would not be able to access your
-			files as well since they would run as the user who had executed them if a proper suid interface had been
-			setup by the server's administrator.
+			On a properly configured server, any programs running within the CGI
+			wrapper should not be able to access your files because (if a proper
+			suid interface has been implemented by the server administrator)
+			programs within the CGI wrapper should run as the user who executed them.
 		</p><p>
-			So, given a well setup server, even on shared hosting solution your forum's data would be quite secure.
+			Consequently, given a well set up server, the forum's data should be
+			quite secure, even on a shared hosting platform.
 		</p></div></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="installation"></a>Chapter 3. Installation</h2></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><a href="#install.verify.config">Verifying your system configuration</a></dt><dt><a href="#install.fudforum.sources">Downloading FUDforum</a></dt><dt><a href="#install.script">Installing FUDforum</a></dt><dd><dl><dt><a href="#install.wizard.step1">Step #1: Path of System Files and Directories</a></dt><dt><a href="#install.wizard.step2">Step #2: Database Settings</a></dt><dt><a href="#install.wizard.step3">Step #3: Cookie Domain</a></dt><dt><a href="#install.wizard.step4">Step #4: Forum Language</a></dt><dt><a href="#install.wizard.step5">Step #5: Admin Account</a></dt><dt><a href="#install.wizard.finish">Installation Complete</a></dt></dl></dd></dl></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="install.verify.config"></a>Verifying your system configuration</h2></div></div><p>
 			Before proceeding with the installation process it is recommended that you determine that you have all of the software needed 
 			for the operation of FUDforum. If you would like to install FUDforum utilizing the MySQL backend you will need
@@ -707,9 +732,9 @@ Windows: c:\\web\\my website\\forum\\
 						FUDforum 2.3 allows for a number of ways that a user can specify their avatar, if avatars are allowed.
 						This option allows you to define is avatars are allowed and if so, what type of avatars the users may use.	
 					</p><p>
-						The URL &amp; Uploaded avatars will first need to be approved by the admin before they are activated, unless
+						The URL &amp; Uploaded avatars will first need to be approved by the administrator  before they are activated, unless
 						you specified in the <a href="#global.option.CUSTOM_AVATAR_APPOVAL" title="Avatar Approval">Avatar Approval</a> option,
-						that the admin does not need to approve those avatars.
+						that the administrator  does not need to approve those avatars.
 					</p><p>
 						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>URL</b></span> The user can specify their avatar by entering a URL of an image.</p></li><li><p><span class="bold"><b>Uploaded</b></span> The user can upload an image from their hard drive to be their avatar.</p></li><li><p><span class="bold"><b>Built In</b></span> The user choose an avatar from the ones available in the forum's avatar gallery. </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>You can add avatars into the avatar gallery via the <a href="#admin.avatar" title="Avatar Manager">Avatar Manager</a> control panel.</p></div></li><li><p><span class="bold"><b>ALL</b></span> The user can specify their avatar by specifying a URL to an image, uploading one to the server or choosing from the forum avatar galleries.</p></li><li><p><span class="bold"><b>OFF</b></span> The avatars are disabled.</p></li></ul></div><p>
 						
@@ -722,7 +747,7 @@ Windows: c:\\web\\my website\\forum\\
 						This the maximum width x height dimensions of the avatar the user can specify.
 					
 						</p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Tip</h3><p>
-							The uploaded avatars can be scaled down by the admin during the avatar approval process
+							The uploaded avatars can be scaled down by the administrator during the avatar approval process
 							if the path to <a href="#global.option.MOGRIFY_BIN" title="Path to Mogrify Utility">Mogrify</a> utility is specified.
 							</p></div><p>
 					</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.sig.options"></a>Signature Settings</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ALLOW_SIGS"></a>Allow Signatures</h5></div></div><p>
@@ -836,7 +861,7 @@ Windows: c:\\web\\my website\\forum\\
 						The number of polls that will be displayed per page on the 
 						poll list form.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.DEFAULT_THREAD_VIEW"></a>Default Topic View</h5></div></div><p>
-						Allows the admin to specify the default message view.
+						Allows the administrator to specify the default message view.
 						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>Flat View</b></span> Standard bulletin board view.</p></li><li><p><span class="bold"><b>Tree View</b></span> Draws a tree like view of the messages. Similar to how messages in the newsgroups are displayed.</p></li></ul></div><p>
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.WORD_WRAP"></a>Word Wrap</h5></div></div><p>
 						This setting defines on how many characters to wrap message bodies on, any text string longer the the number
@@ -900,7 +925,7 @@ Windows: c:\\web\\my website\\forum\\
 						If enabled forum statistics will be displayed on the front page. These include 
 						total number of approved posts, number of topics and registered users and the last registered user
 					</p></div></div></div></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="admin.replacement_censorship_system"></a>Replacement &amp; Censorship System</h2></div></div><p>
-			The Replacement &amp; Censorship System allows the admin to replace certain strings 
+			The Replacement &amp; Censorship System allows the administrator to replace certain strings 
 			in the messages, signatures and biographies of the users with another text string.
 		</p><p>
 			The most common use of this system is to censor certain words and phrases that the
@@ -1073,10 +1098,10 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="admin.action_log_viewer"></a>Action Log Viewer</h2></div></div><p>
 			All administrative actions of privileged users are logged by FUDforum 2.3 so that they can later be reviewed by the admin.
 		</p><p>	
-			This control panel allows the admin to see this information by displaying the user name, action, the affected forum data
+			This control panel allows the administrator to see this information by displaying the user name, action, the affected forum data
 			as well as the time of the event.
 		</p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Tip</h3><p>	
-			In addition to logging actions of privileged users this control panel also allows the admin to see failed logins attempts 
+			In addition to logging actions of privileged users this control panel also allows the administrator to see failed logins attempts 
 			into any of the accounts that have administrative access to the forum, with the IP address of the user who attempted to login. This is 
 			an extremely useful feature for tracking down attempted hacking attempts, by people who try to gain administrative access
 			by guessing the password of the administrator(s).
@@ -1127,7 +1152,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 				The forum manager allows the administrator to manage forums that are assigned to a particular category. This includes
 				adding/removing controls, ability to move a forum to a different category as well as change display order of the forum.
 			</p><p>
-				The first item on the forum manager page is form that allows the admin to add and edit forums. When a forum is
+				The first item on the forum manager page is form that allows the administrator to add and edit forums. When a forum is
 				being edited the forum's settings will be pulled into the form for ease of editing.
 			</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="forum.name"></a>Forum Name</h4></div></div><p>
 					The name of the forum.
@@ -1183,10 +1208,10 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 					move the 4th forum inside the category to the 2nd position.
 				</p></div></div></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="admin.deleted.forums"></a>Deleted Forums</h2></div></div><p>
 			When a forum is deleted it is not immediately removed from the database but rather moved to a trash bin of sorts.
-			It is done to allow the admin to restore the accidentally removed forums, since once they are truly removed 
+			It is done to allow the administrator to restore the accidentally removed forums, since once they are truly removed 
 			there is no going back.
 		</p><p>
-			This control panel allows the admin to see all the forums inside the 'trash bin' and allows the admin to either
+			This control panel allows the administrator to see all the forums inside the 'trash bin' and allows the administrator to either
 			restore the forum, by choosing a category where to restore the forum by clicking on the 'Reassign' button
 			or to truly delete the forum by clicking on the delete link.
 		</p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Tip</h3><p>
@@ -1211,14 +1236,14 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			Below the announcement creation/editor form there is a list of all the current announcements in the system.
 			Beside each announcement there is a link allowing the administrator to edit or delete the announcement.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="admin.thread.prunning"></a>Topic Prunning</h2></div></div><p>
-			The topic prunning control panel allows the admin to remove topics that are older then a certain date.
+			The topic prunning control panel allows the administrator to remove topics that are older then a certain date.
 		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="thread.prunning.period"></a>Time Period</h3></div></div><p>
 				Whether the indicated 'age' is a number of days, weeks, months or years.
 			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="thread.prunning.num"></a>Numeric Value</h3></div></div><p>
 				Topics that are older then this number of days, weeks, months or years as specified by the 'Time Period'
 				option, will be pruned.
 			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="thread.prunning.frm"></a>Forum Limiter</h3></div></div><p>
-				Allows the admin to specify a specific forum or category which to prune or whether to prune all forums.
+				Allows the administrator to specify a specific forum or category which to prune or whether to prune all forums.
 			</p></div><p>
 			Once you click on the prune button the forum will calculate the number of topics that will be affected by the 
 			prunning and ask you to confirm that you indeed wish to prune that number of topics. If you confirm the process
@@ -1480,7 +1505,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 				Custom tags are little bits of text and/or HTML that are displayed on the user's profile page as well
 				as inside the author information bit beside all their messages. 
 			</p></div><p>
-			At the bottom of the user control panel there are a number of links that allow the admin to take certain actions
+			At the bottom of the user control panel there are a number of links that allow the administrator to take certain actions
 			in regard to the selected user.
 		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.user_manager.pm"></a>Send Private Message</h3></div></div><p>
 				Send a private message to this user using the private messaging system.
@@ -1648,13 +1673,13 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			This control panel allows the administrator to send an e-mail message to all the registered users.
 		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.mass_email.over"></a>Ignore User Override</h3></div></div><p>
 				The user can specify that they wish to ignore admin's emails via their profile settings. However,
-				if the admin feels that the message is important enough that all forum members should receive it, then
+				if the administrator feels that the message is important enough that all forum members should receive it, then
 				they can overwrite the user's setting, by selecting this option.
 			</p></div></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="admin.ranks"></a>Rank Manager</h2></div></div><p>
 			FUDforum 2.3 allow the administrator to define user ranks that will be assigned to users once they reach a 
-			certain number of posts. This control panel allows the admin to define those ranks.
+			certain number of posts. This control panel allows the administrator to define those ranks.
 		</p><p>
-			Each rank is normally a text string, however the admin may choose to have the rank represented by an image
+			Each rank is normally a text string, however the administrator may choose to have the rank represented by an image
 			or a combination of an image and text.
 		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.ranks.name"></a>Rank Name</h3></div></div><p>
 				This field contains the text that would be displayed beside the names of all the forum users who 
@@ -1689,10 +1714,10 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.theme_manager.name"></a>Name</h3></div></div><p>
 				The name you wish to assign to a particular theme + language combination.
 			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.theme_manager.theme"></a>Template Set</h3></div></div><p>
-				This select allows the admin to choose the template set, which will be used
+				This select allows the administrator to choose the template set, which will be used
 				with this theme.
 			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.theme_manager.language"></a>Language</h3></div></div><p>
-				This select allows the admin to specify the language, which will be used with this theme.
+				This select allows the administrator to specify the language, which will be used with this theme.
 			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.theme_manager.locale"></a>Locale</h3></div></div><p>
 				Locale is the setting FUDforum will export to PHP making php automatically format various
 				strings such as dates according to certain language/country. This field is automatically filled
@@ -1726,9 +1751,9 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			on the 'Create' button.
 		</p><p>
 			At the bottom of the control panels there is a list of all the available themes with a number of
-			clickable links allowing the admin to administer the available themes.
+			clickable links allowing the administrator to administer the available themes.
 		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.theme_manager.edit"></a>Edit</h3></div></div><p>
-				Clicking this link will load this theme into the theme manager, allowing the admin to edit
+				Clicking this link will load this theme into the theme manager, allowing the administrator to edit
 				this theme.
 			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.theme_manager.rebuild"></a>Rebuild Theme</h3></div></div><p>
 				Clicking this link will recompile the theme. This link should be used after any manual
@@ -1748,7 +1773,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			When you access the template editor you are presented with a form that allows you to choose
 			for which theme &amp; language you are editing the templates for.
 		</p><p>
-			This control panel offers a web interface to the templates, allowing the admin to change the templates 
+			This control panel offers a web interface to the templates, allowing the administrator to change the templates 
 			via their browser. This is generally intended for quick changes and/or fixes, if you intend to do a complete
 			layout redesign we recommend changing the templates (*.tmpl files inside the tmpl directory for each theme) 
 			with your text editor of choice.
@@ -1873,7 +1898,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 				form and for the rest the user will need to click on a special link.
 			</p></div></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="admin.forum_icons"></a>Forum Icon Manager</h2></div></div><p>
 			This control panels allows the administrator to add and remove forum icons. Forum icons are images that
-			the admin can choose to display beside each forum that they create.
+			the administrator can choose to display beside each forum that they create.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="admin.msg_icons"></a>Message Icon Manager</h2></div></div><p>
 			This control panel allows the administrator to add and remove message icons. Message icons are images that
 			the users may choose to use as icons of the messages that they post.
