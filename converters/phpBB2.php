@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.13 2003/11/20 17:26:08 hackie Exp $
+* $Id: phpBB2.php,v 1.14 2003/11/20 18:10:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -590,6 +590,7 @@ $group_map = array(
 				exit;
 			}
 		}
+		$file_name = '';
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."level (name,post_count,img) VALUES('".addslashes($obj->rank_title)."',".(int)$obj->rank_min.",".strnull($file_name).")");
 	}
 	unset($r);
