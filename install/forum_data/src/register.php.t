@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.92 2003/10/15 16:13:34 hackie Exp $
+* $Id: register.php.t,v 1.93 2003/10/16 15:30:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -396,7 +396,7 @@ function decode_uent(&$uent)
 
 		if (!__fud_real_user__) { /* new user */
 			/* new users do not have avatars */
-			$uent->users_opt |= 16777216;
+			$uent->users_opt |= 4194304;
 
 			/* handle coppa passed to us by pre_reg form */
 			if (!(int)$_POST['reg_coppa']) {
