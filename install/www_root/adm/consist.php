@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.12 2002/07/25 13:33:14 hackie Exp $
+*   $Id: consist.php,v 1.13 2002/07/31 23:26:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -148,37 +148,7 @@ forum will be disabled.<br><br>
 	draw_info($cnt);
 	
 	draw_stat('Rebuilding moderators');
-	$ar = $ar2= array();
-	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id,".$GLOBALS['DBHOST_TBL_PREFIX']."users.alias,".$GLOBALS['DBHOST_TBL_PREFIX']."mod.forum_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mod LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."mod.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id ORDER BY forum_id");
-	while ( $obj = db_rowobj($r) ) {
-		if( empty($ar[$obj->forum_id]) ) {
-			$ar[$obj->forum_id]='';
-			$ar2[$obj->forum_id]=0;
-		}
-		if( $ar2[$obj->forum_id] >= $GLOBALS['SHOW_N_MODS'] ) continue;
-				
-		$ar2[$obj->forum_id]++;	
-		$ar[$obj->forum_id] .= $obj->id."\n".htmlspecialchars(trim_show_len($obj->alias,'LOGIN'))."\n\n";
-	}
-	qf($r);
-	
-	foreach($ar as $k => $v) {
-		if( $k ) {
-			$v = substr($v, 0, -1);
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET moderators='$v' WHERE id=".$k);	
-		}
-	}
-	
-	q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET is_mod='N' WHERE is_mod!='A'");
-	$r = q("SELECT user_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mod INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id=".$GLOBALS['DBHOST_TBL_PREFIX']."mod.user_id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."users.is_mod!='A' GROUP BY user_id");
-	while( list($uid) = db_rowarr($r) ) q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET is_mod='Y' WHERE id=".$uid);
-	qf($r);
-	
-	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."mod ON ".$GLOBALS['DBHOST_TBL_PREFIX']."mod.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id WHERE forum_id IS NULL");
-	while( list($fid) = db_rowarr($r) ) {
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET moderators='' WHERE id=".$fid);
-	}
-	qf($r);
+	rebuildmodlist();
 	draw_stat('Done: Rebuilding moderators');
 		
 	draw_stat('Checking if all private messages have users');

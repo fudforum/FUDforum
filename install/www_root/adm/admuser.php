@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.7 2002/07/27 06:04:45 hackie Exp $
+*   $Id: admuser.php,v 1.8 2002/07/31 23:26:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -158,14 +158,17 @@ if( !empty($act) ) {
 	}
 	
 	if( !empty($usr_login) ) {
-		$LIKE = strstr($usr_login, '*') ? 1 : 0;
-		$usr_login = str_replace("*","%",$usr_login);
-		if( __dbtype__ == 'pgsql' && $LIKE ) $usr_login = addslashes(str_replace('\\', '\\\\', stripslashes($usr_login)));
-		$r = q("SELECT id, login, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE LOWER(alias) LIKE '".strtolower($usr_login)."'");
-		
-		if( __dbtype__ == 'pgsql' && $LIKE ) $gr_leader = str_replace('\\\\', '\\', $gr_leader);
-		if( !db_count($r) ) 
+		if( strstr($usr_login, '*') ) {
+			$usr_login = str_replace("*","%",$usr_login);
+			$r = q("SELECT id, login, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE LOWER(alias) LIKE '".strtolower(addslashes(str_replace('\\', '\\\\', htmlspecialchars(stripslashes($usr_login)))))."'");
+		}
+		else
+			$r = q("SELECT id, login, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE LOWER(alias)='".htmlspecialchars(strtolower($usr_login))."'");
+
+		if( !db_count($r) ) {
+			echo last_query(1);
 			$usr->id=0;
+		}	
 		else {
 			if ( db_count($r) > 1 ) {
 				echo "There are ".db_count($r)." users that match this mask:<br>\n";

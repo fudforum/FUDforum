@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmodfrm.php,v 1.6 2002/07/09 13:05:07 hackie Exp $
+*   $Id: admmodfrm.php,v 1.7 2002/07/31 23:26:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,6 +24,7 @@
 	fud_use('util.inc');
 	fud_use('adm.inc', TRUE);
 	fud_use('users.inc');
+	fud_use('rev_fmt.inc');
 	
 	list($ses, $usr_adm) = initadm();
 	
@@ -54,7 +55,8 @@
 		/* mod rebuild */	
 		rebuildmodlist();
 
-		exit("<html><script language=\"JavaScript\">\nwindow.opener.location='admuser.php?usr_login=$usr->alias&"._rsid."'; window.close();\n</script></html>");
+		reverse_FMT($usr->alias);
+		exit("<html><script language=\"JavaScript\">\nwindow.opener.location='admuser.php?usr_login=".urlencode($usr->alias)."&"._rsid."'; window.close();\n</script></html>");
 	}
 	
 ?>

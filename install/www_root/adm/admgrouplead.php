@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.6 2002/07/22 14:53:37 hackie Exp $
+*   $Id: admgrouplead.php,v 1.7 2002/07/31 23:26:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,6 +28,7 @@
 	fud_use('widgets.inc', TRUE);
 	fud_use('groups.inc');
 	fud_use('is_perms.inc');
+	fud_use('rev_fmt.inc');
 
 	list($ses, $adm) = initadm();
 
@@ -42,40 +43,27 @@
 		$grp->get($group_id);
 		$usr = new fud_user;
 		if ( !($usr_id = get_id_by_alias($gr_leader)) ) {
-			if( __dbtype__ == 'pgsql' ) $gr_leader = addslashes(str_replace('\\', '\\\\', stripslashes($gr_leader)));
-			$r = q("SELECT alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE alias LIKE '".strtolower($gr_leader)."%' LIMIT 100");
-			if( __dbtype__ == 'pgsql' ) $gr_leader = stripslashes(str_replace('\\\\', '\\', $gr_leader));
+			
+			$r = q("SELECT alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE alias LIKE '".strtolower(addslashes(str_replace('\\', '\\\\', stripslashes($gr_leader))))."%' LIMIT 100");
 			
 			if ( db_count($r) ) {
 				echo "<html>
-					$gr_leader isn't found, perhaps you mean one of these?<br>
+					".stripslashes($gr_leader)." isn't found, perhaps you mean one of these?<br>
 					<table border=0 cellspacing=0 cellpadding=3>
 					";
 				while ( $obj = db_rowobj($r) ) {
+					reverse_FMT($obj->alias);
 					echo "<tr><td><a href=\"admgrouplead.php?gr_leader=".urlencode($obj->alias)."&group_id=$group_id&"._rsid."\">$obj->alias</a></td></tr>";
 				}
 				echo "</table>";
 			}
+			else 
+				echo "Couldn't match any users to your query<br><a href=\"admgrouplead.php?group_id=$group_id&rnd=".get_random_value()."&"._rsid."\">Back</a>\n";
+			
 			exit();
 		}		
 		$usr->get_user_by_id($usr_id);
-		/*
-		$conflist=$grp->check_member_conflicts($usr->id, $noconf);
-		if ( $noconf ) unset($conflist);
 
-		if ( $conflist && empty($noconf) ) {
-			echo "
-				<html>
-				unable to add user <b>$usr->alias</b>, permissions conflict with the currently existing set (listed below)<br>
-				<table border=0 cellspacing=0 cellpadding=0>
-			";
-			
-			foreach($conflist as $k => $v) echo "<tr><td>resource <b>$k</b> is used via <b>$v</b></td></tr>";
-
-			echo '</table><a href="admgrouplead.php?group_id='.$grp->id.'&gr_leader='.$usr->alias.'&noconf=1&'._rsid.'">Override current permissions</a> <a href="admgrouplead.php?group_id='.$grp->id.'&rnd='.get_random_value().'&'._rsid.'">Cancel Action</a></html>';
-			exit();
-		}
-		*/
 		$grp->add_leader($usr->id);
 		$grp->rebuild_cache($usr->id);
 		header("Location: admgrouplead.php?group_id=$group_id&rnd=".get_random_value()."&"._rsid);
@@ -103,8 +91,10 @@ include('admpanel.php');
 <tr><td>Leader Login</td><td>Action</td></tr>
 <?php
 	$llist = $grp->get_leader_list();
-	foreach($llist as $v)
-		echo "<tr><td>$v->alias</td><td>[<a href=\"admgrouplead.php?group_id=$group_id&del=$v->user_id&"._rsid."\">Remove From Group</a>]</tr>\n";
+	if( is_array($llist) ) {
+		foreach($llist as $v)
+			echo "<tr><td>$v->alias</td><td>[<a href=\"admgrouplead.php?group_id=$group_id&del=$v->user_id&"._rsid."\">Remove From Group</a>]</tr>\n";
+	}	
 ?>
 </table>
 </form>
