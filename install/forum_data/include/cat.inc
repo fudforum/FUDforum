@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.27 2005/01/04 21:46:28 hackie Exp $
+* $Id: cat.inc,v 1.28 2005/03/31 21:45:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -100,9 +100,13 @@ function rebuild_forum_cat_order()
 		db_lock($tbl.'cat c WRITE,'.$tbl.'fc_view WRITE,'.$tbl.'forum f WRITE');
 	}
 
+	q("DELETE FROM ".$tbl."fc_view");
+
 	/* we use left join to catch categories without any forums, but with sub-categories */
-	$c = uq("SELECT c.id, f.id, c.parent, c.name FROM ".$tbl."cat c LEFT JOIN ".$tbl."forum f ON f.cat_id=c.id
-			ORDER BY c.parent, c.view_order, f.view_order");
+	$c = q("SELECT c.id, f.id, c.parent, c.name FROM ".$tbl."cat c LEFT JOIN ".$tbl."forum f ON f.cat_id=c.id
+			ORDER BY c.view_order, c.parent, f.view_order");
+
+	$lvl = array(0);
 	$cat_par = $ol = array();
 	while ($r = db_rowarr($c)) {
 		if (!isset($ol[$r[2]])) {
@@ -110,39 +114,24 @@ function rebuild_forum_cat_order()
 		}
 		$ol[$r[2]][] = $r;
 		$cat_par[$r[0]] = (int) $r[2];
-	}
-	q("DELETE FROM ".$tbl."fc_view");
-	
-	$proc = $cat_cache = array();
-	$lvl = array(0);
-	$i = $l = 0;
-	while (1) {
-		if (isset($ol[$l])) {
-			while (list(,$v) = each($ol[$l])) {
-				if (!isset($cat_cache[$v[0]])) {
-					$cat_cache[$v[0]] = array($i, htmlspecialchars($v[3]));
-					if ($v[2]) {
-						if (!isset($cat_cache[$v[2]][2])) {
-							$cat_cache[$v[2]][2] = array();
-						}
-						$cat_cache[$v[2]][2][] = $v[0];
-					}
+
+		if (!isset($lvl[$r[2]])) {
+			$lvl[$r[2]] = ++$i;
+		}
+
+		if ($r[0]) {
+			q("INSERT INTO ".$tbl."fc_view (c, f, lvl) VALUES(".$r[0].",".$r[1].",".$lvl[$r[2]].")");
+		}
+
+		if (!isset($cat_cache[$r[0]])) {
+			$cat_cache[$r[0]] = array($lvl[$r[2]], htmlspecialchars($r[3]));
+			if ($r[2]) {
+				if (!isset($cat_cache[$r[2]][2])) {
+					$cat_cache[$r[2]][2] = array();
 				}
-				if ($v[1]) { // only insert when we have a category & forum
-					q("INSERT INTO ".$tbl."fc_view (c, f, lvl) VALUES(".$v[0].",".$v[1].",".$i.")");
-				}
-				if (isset($ol[$v[0]]) && empty($proc[$v[0]])) {
-					$lvl[++$i] = $l;
-					$l = $v[0];
-					$proc[$l] = $l;
-				}
+				$cat_cache[$r[2]][2][] = $r[0];
 			}
 		}
-		if ($i < 1) {
-			break;
-		}
-		$l = $lvl[$i];
-		unset($lvl[$i--]);
 	}
 
 	/* create full child/parent associations */
