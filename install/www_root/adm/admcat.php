@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.29 2004/10/19 00:06:42 hackie Exp $
+* $Id: admcat.php,v 1.30 2004/10/22 16:55:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,7 +58,15 @@
 		db_lock($tbl.'cat WRITE, '.$tbl.'cat c WRITE, '.$tbl.'forum WRITE, '.$tbl.'forum f WRITE, '.$tbl.'fc_view WRITE');
 		q_singleval('DELETE FROM '.$tbl.'cat WHERE id='.$del);
 		if (db_affected()) {
-			q('UPDATE '.$tbl.'forum SET cat_id=0 WHERE cat_id='.$del);
+			require $GLOBALS['FORUM_SETTINGS_PATH'] . 'cat_cache.inc';
+			$dell = array();
+			if (!empty($cat_cache[$del][2])) {
+				/* remove all child categories if available */
+				$dell = $cat_cache[$del][2];
+				q("DELETE FROM ".$tbl."cat WHERE id IN(".implode(',',  $cat_cache[$del][2]).")");
+			}
+			$dell[] = $del;
+			q('UPDATE '.$tbl.'forum SET cat_id=0 WHERE cat_id IN('.implode(',', $dell). ')');
 			cat_rebuild_order();
 			rebuild_forum_cat_order();
 		}
