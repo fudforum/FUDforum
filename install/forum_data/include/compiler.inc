@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.27 2003/05/12 16:50:00 hackie Exp $
+*   $Id: compiler.inc,v 1.28 2003/05/13 13:02:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -228,6 +228,17 @@ function compile_file($source)
 		return str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $file_data);
 	}
 
+	$gfc =& $GLOBALS['file_cache'];
+	$t = substr($source, 0, strpos($source, '.')).'.tmpl';
+	if (isset($gfc[$t]['include'])) {
+		$ir =& $gfc[$t]['include'];
+		foreach ($ir as $v) {
+			if (!isset($gfc[$v]['compiled']) && $t != $v) {
+				generate_file($v);
+			}
+		}
+	}
+
 	$op = 0;
 	$ret = '';
 	do {
@@ -268,6 +279,11 @@ function generate_file($php_file)
 	if (!isset($GLOBALS['file_cache'][$php_file]['compiled']) && !isset($GLOBALS['file_cache'][$php_file]['inline'])) {
 		$GLOBALS['file_cache'][$php_file]['compiled'] = compile_file($GLOBALS['file_cache'][$php_file]['src']);
 	}
+	if (isset($GLOBALS['file_cache'][$php_file]['inline'])) {
+		$GLOBALS['file_cache'][$php_file]['compiled'] = '';
+		return;
+	}
+
 	$fc =& $GLOBALS['file_cache'][$php_file];
 	$file_data = $fc['compiled'];
 	if (substr($fc['dst'], -4) != '.inc') {
@@ -319,6 +335,10 @@ function generate_file($php_file)
 
 	$cmp =& $GLOBALS['__COMPILER__'];
 	$file_data = str_replace('{ROOT}', $cmp['ROOT'],  str_replace('{THEME_ROOT}', $cmp['THEME_ROOT'], str_replace('{THEME_ROOT_DISK}', $cmp['THEME_ROOT_DISK'], $file_data)));
+
+	if (!$dst) {
+		return;
+	}
 
 	if ($dst[0] == '#') {
 		$dst = substr($dst, 1);
@@ -525,7 +545,7 @@ function fudcopy($src, $dest, $mask='!.*!i', $recur=FALSE)
 			if (!@copy($path, $nd) && !@file_exists($nd)) {
 				echo 'cannot copy "'.$path.'" to "'.$nd.'"<br>';
 			} else {
-				@chmod($nd, 0666);
+				@chmod($nd, 0600);
 			}
 		}
 	}
