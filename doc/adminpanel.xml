@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.9 2002/07/22 19:03:17 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.10 2002/08/01 23:25:18 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -612,10 +612,10 @@
 				</sect4>
 				
 				<sect4 id="global.option.USE_SMTP">
-					<title>Use STMP To Send Email</title>
+					<title>Use SMTP To Send Email</title>
 					
 					<para>
-						Whether or not to use FUDforum smtp gateway to send email instead of standard 
+						Whether or not to use FUDforum SMTP gateway to send email instead of standard 
 						PHP mail() function. 
 						
 						<note>
@@ -631,7 +631,7 @@
 					<title>SMTP Server</title>
 				
 					<para>
-						The ip or host name of the SMTP server to use when sending out emails via SMTP.
+						The IP or host name of the SMTP server to use when sending out e-mails via SMTP.
 					</para>
 				</sect4>
 				
@@ -644,7 +644,7 @@
 				</sect4>
 				
 				<sect4 id="global.option.SMTP_LOGIN">
-					<title>STMP Server Login</title>
+					<title>SMTP Server Login</title>
 				
 					<para>
 						If your SMTP server requires SMTP Authentication, use this field to specify
@@ -739,8 +739,7 @@
 					<title>Maximum Shown Login Length</title>
 				
 					<para>
-						The maximum number of characters of a user's login name to show on all pages with the exception 
-						of user info page.
+						The maximum length (in bytes) of user's login name and alias.
 					</para>
 				</sect4>
 				
@@ -1857,6 +1856,420 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			after doing topic prunning.
 			</simpara>
 		</tip>
+	</sect1>
+	
+	<sect1 id="admin.mailing_list.manager">
+		<title>Mailing List Manager</title>
+		
+		<para>
+			This control panel allows the administrator to define mailing list rules that allow FUDforum to
+			archive messages from a mailing list as well as allow forum's own messages to be sent to the mailing
+			list.
+			
+			<important>
+				<simpara>
+				This type of functionality requires your system to have a working procmail utility, which will
+				pipe appropriate messages from the mailing list to a particular forum.
+				</simpara>
+			</important>
+		</para>
+		
+		<sect2 id="admin.mailing_list.manager.email">
+			<title>Mailing List Email</title>
+			
+			<para>
+				The email address of the mailing list, if you specify that messages posted in the forum
+				are to be sent to the mailing list as well, those messages will be sent to this email address.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.mailing_list.manager.forum">
+			<title>Forum</title>
+			
+			<para>
+				Choose a forum, which will be associated with this particular mailing list, meaning that
+				messages from the mailing list will be imported into this forum.
+			</para>
+			
+			<important>
+				<simpara>
+				You can only assign 1 mailing list per forum, therefor the forum select will ONLY show
+				you the forums that are not yet associated with any other mailing lists or newsgroups.
+				</simpara>
+			</important>
+		</sect2>
+		
+		<sect2 id="admin.mailing_list.manager.mmlp">
+			<title>Moderate Mailing List Posts</title>
+			
+			<para>
+				This option specifies whether or not the moderator(s) will be required to approve messages
+				imported from the mailing list before they are made visible on the forum to the general public.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.mailing_list.manager.sfpml">
+			<title>Synchronize Forum Posts to Mailing List</title>
+			
+			<para>
+				Whether or not to forward messages that were posted on the forum to the mailing list. If selected
+				when a user posts a message, the forum will send the messages to the mailing list on behalf of 
+				the user.
+			</para>
+			
+			<important>
+				<simpara>
+				Many mailing lists will require people to be signed up before being able to post to the list,
+				which is most often done to prevent spammers from spamming the list. Therefor, the user unless already
+				subscribed, may receive an email from the list asking them to subscribe as a prerequisite to 
+				their messages appearing on the mailing list.
+				</simpara>
+			</important>	
+		</sect2>
+		
+		<sect2 id="admin.mailing_list.manager.mfp">
+			<title>Moderate Forum Posts</title>
+			
+			<para>
+				Whether or not moderator(s) of this forum will be required to approve posts made by forum
+				members before those posts are synchronized to the mailing list.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.mailing_list.manager.amla">
+			<title>Allow Mailing List Attachment</title>
+			
+			<para>
+				If enabled, ANY file attachment attached to a message on the mailing list will be 
+				imported into the forum regardless of any limitations imposed on file attachments 
+				within the forum. 
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.mailing_list.manager.ahmlm">
+			<title>Allow HTML in Mailing List Messages</title>
+			
+			<para>
+				If enabled, HTML contained within mailing list messages that are imported will not be stripped. This
+				is not recommended because it may cause layout problems if the HTML is not valid as well as other
+				issues that result in allowing HTML, such as JavaScript, etc...
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.mailing_list.manager.srp">
+			<title>Slow Reply Match</title>
+			
+			<para>
+				Certain mail clients do not sent send necessary headers needed to determine if a message is a reply 
+				to an existing message. If this option is enabled and normally available reply headers are not 
+				there, the forum will try to determine if message is a reply by comparing the message's 
+				subject to subjects of existing messages in the forum.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.mailing_list.manager.sm">
+			<title>Subject Mangling (optional)</title>
+			
+			<para>
+				Often mailing list prepend a special string to the subject of every message so that 
+				it is easy to identify the messages coming from the mailing list. In the forum environment
+				those are quite useless, this option allows administrator to specify a regular expression 
+				that will be applied to the subject, allowing the administrator to change and/or filter 
+				certain strings from the subject.
+			</para>
+			
+			<para>
+				The replacement is performed by PHP's preg_replace.
+			</para>
+			
+			<sect3 id="admin.mailing_list.manager.sm.rm">
+				<title>Replace mask</title>
+				
+				<para>
+					The string you wish to alter and/or replace.
+				</para>
+				
+				<para>
+					The smaller text box on the right allows the administrator to specify various
+					regular expression flags to be used, such as 'i', 'm', etc...
+				</para>
+			</sect3>
+			
+			<sect3 id="admin.mailing_list.manager.sm.rw">
+				<title>Replace with</title>
+				
+				<para>
+					Replace the string that matches above regular expression with this.
+				</para>
+			</sect3>
+		</sect2>
+		
+		<sect2 id="admin.mailing_list.manager.bm">
+			<title>Body Mangling (optional)</title>
+			
+			<para>
+				In most cases mailing lists will append a some sort of a string to the bottom of the message,
+				this usually contains information on the mailing list itself as well as how to 
+				subscribe/unsubscribe from the list. In the forum that text is not really needed, so you can use
+				this option to use regular expression to remove and/or change this or any other data from the message
+				body.
+			</para>
+			
+			<para>
+				The replacement is performed by PHP's preg_replace.
+			</para>
+			
+			<sect3 id="admin.mailing_list.manager.bm.rm">
+				<title>Replace mask</title>
+				
+				<para>
+					The string you wish to alter and/or replace.
+				</para>
+				
+				<para>
+					The smaller text box on the right allows the administrator to specify various
+					regular expression flags to be used, such as 'i', 'm', etc...
+				</para>
+			</sect3>
+			
+			<sect3 id="admin.mailing_list.manager.bm.rw">
+				<title>Replace with</title>
+				
+				<para>
+					Replace the string that matches above regular expression with this.
+				</para>
+			</sect3>
+		</sect2>
+		
+		<para>
+			At the bottom of the control panel there is a list of existing mailing list rules. Each entry
+			shows 3 pieces of information about the mailing list. 'Mailing List Rule', which an identifier
+			of the rule, the email address of the mailing list represents the value of this option. 
+			'Forum' the name of the forum associated with this mailing list rule. 'Exec Line' this field
+			contains the execution line to which procmail will need to pipe the messages from the mailing list.
+			
+			<important>
+				<simpara>
+				maillist.php is a PHP script, that requires you to have a PHP binary (cgi/cli). By default
+				PHP binary can be found on /usr/local/bin/php, however on some distributions that may not be
+				the case. If your PHP binary is not in /usr/local/bin/php, you will need to change the first
+				line of the maillist.php script from 
+				<screen>#!/usr/local/bin/php</screen>
+				to
+				<screen>#!/path/to/php/binary</screen>
+				</simpara>
+			</important>
+		</para>
+		
+		<example>
+			<title>Sample Procmail Mailing List Catcher</title>
+			
+			<para>
+				The following is an example rule that can be used to catch all e-mails coming from
+				php-general mailing list, which is identified by having 'php-general@lists.php.net' 
+				in the To, Cc or Resent-To headers.
+			</para>
+<programlisting>
+<![CDATA[
+:0:
+* ^TO_.*php-general@lists.php.net 
+| /home/forum/test/maillist.php 1
+]]>
+</programlisting>
+		</example>
+	</sect1>
+
+	<sect1 id="admin.newsgroup.manager">
+		<title>Mailing List Manager</title>
+		
+		<para>
+			This control panel allows the administrator to define newsgroup rules that allow FUDforum to
+			archive messages from a newsgroup as well as allow forum's own messages to be sent to the 
+			newsgroup.
+		</para>
+		
+		<sect2 id="admin.newsgroup.manager.server">
+			<title>Newsgroup Server</title>
+			
+			<para>
+				The IP address or host name of the NNTP server you are going to connect to.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.port">
+			<title>Newsgroup Server Port</title>
+			
+			<para>
+				The port on which to connect to the newsgroup server, by default all newsgroup
+				servers use port 119.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.timeout">
+			<title>Newsgroup Server Timeout</title>
+			
+			<para>
+				Number of seconds to wait for the NNTP server to respond.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.newsgroup">
+			<title>Newsgroup</title>
+			
+			<para>
+				The name of the newsgroup you intend to archive. ex. comp.lang.php
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.auth">
+			<title>Authentication Method</title>
+			
+			<para>
+				Some NNTP servers require you to authenticate yourself before being able to send
+				any commands to the server, if you server requires authentication, choose which method
+				of authentication your NNTP server supports.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.login">
+			<title>Login</title>
+			
+			<para>
+				If your NNTP server requires authentication, use this field to enter the login name
+				to use when connecting to the server.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.pass">
+			<title>Password</title>
+			
+			<para>
+				If your NNTP server requires authentication, use this field to enter the password
+				to use when connecting to the server.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.forum">
+			<title>Forum</title>
+			
+			<para>
+				Choose a forum, which will be associated with this particular newsgroup, meaning that
+				messages from the newsgroup will be imported into this forum.
+			</para>
+			
+			<important>
+				<simpara>
+				You can only assign 1 newsgroup per forum, therefor the forum select will ONLY show
+				you the forums that are not yet associated with any other mailing lists or newsgroups.
+				</simpara>
+			</important>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.mnp">
+			<title>Moderate Newsgroup Posts</title>
+			
+			<para>
+				This option specifies whether or not the moderator(s) will be required to approve messages
+				imported from the newsgroup before they are made visible on the forum to the general public.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.sfpn">
+			<title>Synchronize Forum Posts to Newsgroup</title>
+			
+			<para>
+				Whether or not to forward messages that were posted on the forum to the newsgroup. If selected
+				when a user posts a message, the forum will send the messages to the newsgroup on behalf of 
+				the user.
+			</para>
+			
+			<important>
+				<simpara>
+				If you select this option make sure that the newsgroup server you are connecting to allows you
+				to post messages to newsgroups via that server.
+				</simpara>
+			</important>	
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.mfp">
+			<title>Moderate Forum Posts</title>
+			
+			<para>
+				Whether or not moderator(s) of this forum will be required to approve posts made by forum
+				members before those posts are synchronized to the newsgroup.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.amla">
+			<title></title>
+			
+			<para>
+				If enabled, ANY file attachment attached to a message on the mailing list will be 
+				imported into the forum regardless of any limitations imposed on file attachments 
+				within the forum. 
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.ahnlm">
+			<title>Allow HTML in Newsgroup Messages</title>
+			
+			<para>
+				If enabled, HTML contained within newsgroup messages that are imported will not be stripped. This
+				is not recommended because it may cause layout problems if the HTML is not valid as well as other
+				issues that result in allowing HTML, such as JavaScript, etc...
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.srp">
+			<title>Slow Reply Match</title>
+			
+			<para>
+				Certain mail clients do not sent send necessary headers needed to determine if a message is a reply 
+				to an existing message. If this option is enabled and normally available reply headers are not 
+				there, the forum will try to determine if message is a reply by comparing the message's 
+				subject to subjects of existing messages in the forum.
+			</para>
+		</sect2>
+		
+		<para>
+			At the bottom of the control panel there is a list of existing newsgroup rules. Each entry
+			shows 3 pieces of information about the newsgroup. 'Newsgroup Rule', which an identifier
+			of the rule, the newsgroup name represents the value of this option. 
+			'Forum' the name of the forum associated with this newsgroup rule. 'Exec Line' this field
+			contains the execution line to which needs to be executed in order to imported messages from
+			a newsgroup into the forum.
+		</para>
+		
+		<para>	
+			On UNIX based systems it is best to execute the 'Exec Line' using a cron job, that would run
+			every 2-3 minutes. On Windows 2000 and XP you can use task scheduler to accomplish the same thing.
+				
+			<important>
+				<simpara>
+				nntp.php is a PHP script, that requires you to have a PHP binary (cgi/cli). By default
+				PHP binary can be found on /usr/local/bin/php, however on some distributions that may not be
+				the case. If your PHP binary is not in /usr/local/bin/php, you will need to change the first
+				line of the nntp.php script from 
+				<screen>#!/usr/local/bin/php</screen>
+				to
+				<screen>#!/path/to/php/binary</screen>
+				</simpara>
+			</important>
+		</para>
+		
+		<example>
+			<title>Sample Crontab for Newsgroups</title>
+			
+			<para>
+				The following is a sample crontab that will import messages from a newsgroup associated with
+				rule #1 every 2 minutes.
+			</para>
+<programlisting>
+<![CDATA[
+*/2 * * * * /home/forum/forum/scripts/nntp.php 1
+]]>
+</programlisting>
+		</example>
 	</sect1>
 	
 	<sect1 id="admin.user_manager">
