@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.65 2003/06/03 17:30:18 hackie Exp $
+*   $Id: post.php.t,v 1.66 2003/06/03 17:33:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -437,7 +437,7 @@ function flood_check()
 					$t = d_thread_view;
 				}
 				/* redirect the user to their message */
-				if ($GLOBALS['USE_PATH_INFO']) {
+				if ($GLOBALS['USE_PATH_INFO'] == 'N') {
 					header('Location: {ROOT}?t='.$t.'&goto='.$msg_post->id.'&'._rsidl);
 				} else {
 					header('Location: {ROOT}/m/'.$msg_post->id.'/'._rsidl);
