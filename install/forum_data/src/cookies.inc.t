@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.8 2002/08/01 18:38:50 hackie Exp $
+*   $Id: cookies.inc.t,v 1.9 2002/08/09 10:54:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,7 +58,7 @@ class fud_session
 			$db_str = substr($db_str, 0, -1).');';
 		}
 		
-		if( $GLOBALS['MULTI_HOST_LOGIN'] == 'Y' && $this->user_id ) {
+		if( $GLOBALS['MULTI_HOST_LOGIN'] == 'Y' && $this->user_id && !$not_use_cookie ) {
 			if( db_count(($r=q("SELECT ses_id,id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='".$this->user_id."'"))) ) {
 				$obj = db_singleobj($r);
 				
