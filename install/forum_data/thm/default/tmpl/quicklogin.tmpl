@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: quicklogin.tmpl,v 1.9 2004/04/08 23:05:24 hackie Exp $
+* $Id: quicklogin.tmpl,v 1.10 2004/04/23 20:40:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -12,20 +12,20 @@
 {PHP_FILE: input: quicklogin.inc.t; output: quicklogin.inc;}
 
 {MAIN_SECTION: quick_login_on}
-<table width="100%" border=0 cellspacing=0 cellpadding=0><tr><td align="right">
+<table class="wa" border=0 cellspacing=0 cellpadding=0><tr><td align="right">
 <form name="quick_login_form" method="post" action="{TEMPLATE: quick_login_on_lnk3}">{DEF: _hs}
-<table border=0 align="right" cellspacing=0 cellpadding=3>
-<tr>
-	<td class="SmallText">{MSG: quicklogin_login}<br /><input class="SmallText" type="text" name="quick_login" size=18></td>
-	<td class="SmallText">{MSG: quicklogin_password}<br /><input class="SmallText" type="password" name="quick_password" size=18></td>
+<table border=0 cellspacing=0 cellpadding=3>
+<tr class="SmallText">
+	<td>{MSG: quicklogin_login}<br /><input class="SmallText" type="text" name="quick_login" size=18></td>
+	<td>{MSG: quicklogin_password}<br /><input class="SmallText" type="password" name="quick_password" size=18></td>
 	{TEMPLATE-DATA: quick_login_cookie}
-	<td class="SmallText">&nbsp;<br /><input type="submit" class="button" name="quick_login_submit" value="{MSG: quicklogin_login_btn}"></td>
+	<td>&nbsp;<br /><input type="submit" class="button" name="quick_login_submit" value="{MSG: quicklogin_login_btn}"></td>
 </tr>
 </table></form></td></tr></table>
 {MAIN_SECTION: END}
 
 {SECTION: quick_login_cookie}
-<td class="SmallText">&nbsp;<br /><input type="checkbox" checked name="quick_use_cookies" value="1"><font class="SmallText"> {MSG: quicklogin_use_cookies}</font> </td>
+<td>&nbsp;<br /><input type="checkbox" checked name="quick_use_cookies" value="1"> {MSG: quicklogin_use_cookies} </td>
 {SECTION: END}
 
 {MAIN_SECTION: quick_login_loged_in}

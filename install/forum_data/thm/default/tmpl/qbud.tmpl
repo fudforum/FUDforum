@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.tmpl,v 1.9 2004/01/04 16:38:28 hackie Exp $
+* $Id: qbud.tmpl,v 1.10 2004/04/23 20:40:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,23 +16,23 @@
 {REF: alt_var.tmpl}
 
 {SECTION: no_buddies}
-<tr class="RowStyleA"><td class="GenText" align="center">{MSG: qbud_no_buddies}</td></tr>
+<tr class="RowStyleA"><td class="GenText ac">{MSG: qbud_no_buddies}</td></tr>
 {SECTION: END}
 
 {SECTION: buddy_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText">{VAR: r[0]}</td><td align="center"><input type="checkbox" name="names[]" value="{VAR: r[0]}"{VAR: checked}></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText">{VAR: r[0]}</td><td class="ac"><input type="checkbox" name="names[]" value="{VAR: r[0]}"{VAR: checked}></td></tr>
 {SECTION: END}
 
 {SECTION: buddy_list}
-<tr><th width="100%">{MSG: qbud_nick_name}</th><th nowrap>{MSG: qbud_selected} [<a class="thLnk" href="{TEMPLATE: buddy_list_lnk}">{VAR: all_d}</a>]</th></tr>
+<tr><th class="wa">{MSG: qbud_nick_name}</th><th class="nw">{MSG: qbud_selected} [<a class="thLnk" href="{TEMPLATE: buddy_list_lnk}">{VAR: all_d}</a>]</th></tr>
 {TEMPLATE-DATA: buddies}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan=2 class="GenText" align="right"><input type="submit" class="button" name="submit" value="{MSG: qbud_add_selected}"></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan=2 class="GenText ar"><input type="submit" class="button" name="submit" value="{MSG: qbud_add_selected}"></td></tr>
 {SECTION: END}
 
 {PAGE: QBUD_PAGE buddy selector popup}
 {TEMPLATE: header_plain}
 <form action="{TEMPLATE: QBUD_PAGE_lnk3}" name="qbud" method="post">{DEF: _hs}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 {TEMPLATE-DATA: qbud_data}
 </table>
 </form>
