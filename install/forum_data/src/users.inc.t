@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.90 2003/11/18 16:19:52 hackie Exp $
+* $Id: users.inc.t,v 1.91 2003/11/19 14:03:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -673,25 +673,21 @@ function user_mark_forum_read($id, $fid, $last_view)
 function sq_check($post, $last_visit, $uid=__fud_real_user__)
 {
 	/* no sequence # check for anonymous users or when multi-host login is enabled */
-	if ((!$post && !__fud_real_user__) || $GLOBALS['FUD_OPT_2'] & 256) {
+	if (!$last_visit || !$uid || $GLOBALS['FUD_OPT_2'] & 256) {
 		return 1;
 	}
 
 	if ($post && isset($_POST['SQ'])) {
-		$sq =& $_POST['SQ'];
+		$sq = (int) $_POST['SQ'];
 	} else if (!$post && isset($_GET['SQ'])) {
-		$sq =& $_GET['SQ'];
+		$sq = (int) $_GET['SQ'];
 	} else {
-		$sq = '';
+		$sq = 0;
 	}
 
-	if ($sq != $last_visit && ($sq + 600) < $last_visit) {
+	if ($sq != $last_visit || ($sq - $last_visit) > 600 || ($sq - $last_visit) < -600) {
 		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='.$last_visit.' WHERE id='.$uid);
-		if ($GLOBALS['FUD_OPT_2'] & 32768) {
-			header('Location: {ROOT}?SQ=' . $last_visit);
-		} else {
-			header('Location: {ROOT}?SQ=' . $last_visit);
-		}
+		header('Location: {ROOT}?SQ=' . $last_visit);
 		exit;
 	}
 
