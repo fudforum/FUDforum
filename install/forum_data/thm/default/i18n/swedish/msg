@@ -906,7 +906,6 @@ threadt_more:			&lt;mer&gt;
 threadt_disabled_ttl:		Tr&aring;dad vy av tr&aring;darna &auml;r inte tillg&auml;nglig.
 threadt_disabled_desc:		Administratorn har st&auml;ngt av den tr&aring;dade vyn av tr&aring;darna, anv&auml;nd den platta vyn ist&auml;llet.
 threadt_update:			L&auml;ser forumet (tr&aring;dad vy) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-threadt_more:			&lt;mer&gt;
 register_msg_tree_view:		Platt tr&aring;dvy/Tr&aring;dad inl&auml;ggsvy
 register_tree_msg_view:		Tr&aring;dad tr&aring;dvy/Platt inl&auml;ggsvy
 mmod_delete_cofirm_ttl:		Bekr&auml;fta radering av tr&aring;d/inl&auml;gg
