@@ -1,8 +1,8 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: markread.php.t,v 1.9 2003/11/26 19:20:36 hackie Exp $
+* $Id: markread.php.t,v 1.10 2004/01/04 16:38:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the

@@ -1,9 +1,9 @@
 #!/usr/local/bin/php -q
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.36 2003/10/22 23:37:13 hackie Exp $
+* $Id: maillist.php,v 1.37 2004/01/04 16:38:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 

@@ -1,8 +1,8 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.44 2003/12/26 16:06:15 hackie Exp $
+* $Id: selmsg.php.t,v 1.45 2004/01/04 16:38:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
