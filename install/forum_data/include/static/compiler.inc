@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: compiler.inc,v 1.2 2002/06/17 23:21:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -406,7 +406,7 @@ function resolve_compile($file)
 	$GLOBALS['file_cache'][$file]['compiled'] = compile_file($GLOBALS['file_cache'][$file]['src']);
 }
 
-function compile_all($tset='default', $lang='english', $tname)
+function compile_all($tset='default', $lang='english', $tname='default')
 {
 	$oldmask = umask(0133);
 	$olddir = getcwd();
@@ -464,12 +464,19 @@ function compile_all($tset='default', $lang='english', $tname)
 	
 	@umask($oldmask);
 	@chdir($olddir);
-	$thm = new fud_theme;
+	$thm = new cmpl_local_theme;
 	$thm->name = $tname;
 	$thm->theme = $tset;
 	$thm->lang = $lang;
 	copyimages($thm);
 	copyhelp($thm);
+}
+
+class cmpl_local_theme
+{
+	var $name;
+	var $theme;
+	var $lang;
 }
 
 function fudcopy($src, $dest, $mask='!.*!i', $recur=FALSE)
