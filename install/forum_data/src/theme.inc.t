@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc.t,v 1.5 2002/07/29 13:13:31 hackie Exp $
+*   $Id: theme.inc.t,v 1.6 2002/09/11 22:14:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -91,12 +91,27 @@ class fud_theme
 	
 	function get($id)
 	{
-		qobj("SELECT * FROM {SQL_TABLE_PREFIX}themes WHERE id=$id", $this);
+		qobj("SELECT * FROM {SQL_TABLE_PREFIX}themes WHERE id=".$id, $this);
 	}
 	
 	function delete()
 	{
-		q("DELETE FROM {SQL_TABLE_PREFIX}themes WHERE id=$this->id");
+		if ( !db_locked() ) { $ll=1; db_lock('{SQL_TABLE_PREFIX}themes+, {SQL_TABLE_PREFIX}users+'); }
+		
+		q("DELETE FROM {SQL_TABLE_PREFIX}themes WHERE id=".$this->id);
+		
+		/* Check is this was a default theme and if so, make some other theme default */
+		if( $this->t_default == 'Y' ) {
+			if( !($new_default=q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE enabled='Y'")) ) {
+				/* could not find any enabled themes to make default, make 'default' theme the default */
+				$new_default = 1;
+			}
+			q("UPDATE {SQL_TABLE_PREFIX}themes SET enabled='Y', t_default='Y' WHERE id=".$new_default);
+		}
+		
+		q("UPDATE {SQL_TABLE_PREFIX}users SET theme=".$new_default." WHERE theme=".$this->id);
+		
+		if ( $ll ) db_unlock();
 	}
 }
 
