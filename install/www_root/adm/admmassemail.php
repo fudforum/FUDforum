@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmassemail.php,v 1.17 2003/09/30 13:56:00 hackie Exp $
+*   $Id: admmassemail.php,v 1.18 2003/10/03 03:41:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,11 +38,11 @@
 			$err = 1;
 			$c = uq('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE id=-1');
 		} else {
-			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$_POST['group'].(isset($POST['ignore_override']) ? '' : ' AND u.ignore_admin=\'N\''));
+			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$_POST['group'].(isset($POST['ignore_override']) ? '' : ' AND !(users_opt & 8)'));
 		}
 
 		$email_block = 50;
-		$email_block_stat = 0;
+		$total = $email_block_stat = 0;
 		$send_to = $ADMIN_EMAIL;
 		$to = array();
 		
@@ -60,6 +60,7 @@
 					mail($send_to, $_POST['subject'], $_POST['body'], "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\nBcc: ".$bcc);
 					$to = array();
 				}
+				++$total;
 			}
 			if (count($to)) {
 				$send_to = array_pop($to);
@@ -83,6 +84,7 @@
 
 					$to = array();
 				}
+				++$total;
 			}	
 			if (count($to)) {
 				$smtp->to = $to;
@@ -93,7 +95,7 @@
 		qf($r);
 		
 		if (!$err) {
-			echo '<font size="+1" color="green">'.count($to).' E-mails were sent</font><br />';
+			echo '<font size="+1" color="green">'.$total.' E-mails were sent</font><br />';
 		}
 	}
 	
