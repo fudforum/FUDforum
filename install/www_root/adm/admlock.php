@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.5 2002/07/01 15:46:47 hackie Exp $
+*   $Id: admlock.php,v 1.6 2002/07/09 13:08:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 	define('admin_form', 1);
 	include_once "GLOBALS.php";
-	include_once $GLOBALS['DATA_DIR'].'include/theme/default/db.inc';
+	include_once $GLOBALS['INCLUDE'].'theme/default/db.inc';
 	
 	define('S', ($HTTP_COOKIE_VARS['COOKIE_NAME']?$HTTP_COOKIE_VARS['COOKIE_NAME']:$HTTP_GET_VARS['S']));
 	define('_rsid', 'S='.S);
@@ -51,11 +51,9 @@ function chmoddir($dirn, $dirp, $filep, $rec=FALSE)
 	if ( ($HTTP_POST_VARS['btn_lock'] || $HTTP_POST_VARS['btn_unlock']) && $HTTP_POST_VARS['usr_passwd'] && $HTTP_POST_VARS['usr_login'] ) {
 		$md5pass = md5($HTTP_POST_VARS['usr_passwd']);
 		
-		mysql_connect($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']);
-		mysql_select_db($GLOBALS['DBHOST_DBNAME']);
-		$r = mysql_query("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".$HTTP_POST_VARS['usr_login']."' AND passwd='$md5pass' AND is_mod='A'");
+		$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".$HTTP_POST_VARS['usr_login']."' AND passwd='$md5pass' AND is_mod='A'");
 		
-		if ( !mysql_num_rows($r) ) {
+		if ( !db_count($r) ) {
 			$err = 1;
 		}
 		else {
@@ -81,7 +79,7 @@ function chmoddir($dirn, $dirp, $filep, $rec=FALSE)
 			chmoddir($GLOBALS['TMP'], $dirperms, $fileperms, TRUE);
 			chmoddir($GLOBALS['FORUM_SETTINGS_PATH'], $dirperms, $fileperms, TRUE);
 		}
-		mysql_free_result($r);
+		qf($r);
 	}
 
 	clearstatcache();
