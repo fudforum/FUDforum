@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.64 2003/06/03 17:19:49 hackie Exp $
+*   $Id: post.php.t,v 1.65 2003/06/03 17:30:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -119,6 +119,10 @@ function flood_check()
 		} else if ($perms['p_reply'] != 'Y') {
 			error_dialog('{TEMPLATE: post_err_noannonposts_title}', '{TEMPLATE: post_err_noannonposts_msg}'); 
 		}
+	}
+
+	if (isset($_GET['prev_loaded'])) {
+		$_POST['prev_loaded'] = $_GET['prev_loaded'];
 	}
 
 	/* Retrieve Message */

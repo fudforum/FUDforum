@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.58 2003/06/02 17:19:47 hackie Exp $
+*   $Id: register.php.t,v 1.59 2003/06/03 17:30:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -435,7 +435,7 @@ function decode_uent(&$uent)
 						$common_av_name = basename($common_av_name);
 						$av_path = 'images/custom_avatars/' . substr($common_av_name, 0, strpos($common_av_name, '_'));
 						copy($TMP . basename($common_av_name), $WWW_ROOT_DISK . $av_path);
-						unlink($TMP . basename($common_av_name));
+						@unlink($TMP . basename($common_av_name));
 					 	if ($CUSTOM_AVATAR_APPOVAL == 'Y' && $uent->is_mod != 'A') {
 					 		$uent->avatar_approved = 'N';
 					 	} else {
