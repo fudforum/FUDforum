@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thr_exch.php.t,v 1.6 2002/08/07 12:18:43 hackie Exp $
+*   $Id: thr_exch.php.t,v 1.7 2003/04/12 13:54:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,103 +15,101 @@
 *
 ***************************************************************************/
 
-	fud_use('thrx_adm.inc', TRUE);
-	{PRE_HTML_PHP}
-	
-	/* Verify that the user has the right to approve the thread */
-	if( !empty($appr) || !empty($decl) ) {
-		$thrx = new fud_thr_exchange;
-		$thrx->get(($appr?$appr:$decl));
-	
-		if( !bq("SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id=".$usr->id." AND forum_id=".$thrx->frm) && !is_perms(_uid, $thrx->frm, 'MOVE') && $usr->is_mod!='A' ) $appr = $decl = NULL;
+/*{PRE_HTML_PHP}*/
+
+	/* only admins & moderators have access to this control panel */
+	if (!_uid || ($usr->is_mod != 'A' && $usr->is_mod != 'Y')) { 
+		std_error('access');
 	}
 
-	if( !empty($appr) ) {
-		$thr = new fud_thread;
-		$frm_src = new fud_forum;
-		$frm_dst = new fud_forum;
-		
-		db_lock('{SQL_TABLE_PREFIX}mod+, {SQL_TABLE_PREFIX}cat+, {SQL_TABLE_PREFIX}thread_view+, {SQL_TABLE_PREFIX}thread+, {SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}msg+');
-		
-		$thr->get_by_id($thrx->th);
-		
-		
-		$frm_src->get(q_singleval("SELECT forum_id FROM {SQL_TABLE_PREFIX}thread WHERE id=".$thrx->th));
-		$frm_dst->get($thrx->frm);
-		
-		$thr->move($thrx->frm);
-		
-		if ( $frm_src->last_post_id == $thr->last_post_id ) {
-			$mid = intzero(q_singleval("SELECT MAX({SQL_TABLE_PREFIX}msg.id) FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$frm_src->id." AND moved_to=0 AND approved='Y'"));
-			q("UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id=".$mid." WHERE id=".$frm_src->id);
-		}
-		
-		if( $frm_dst->last_post_id < $thr->last_post_id ) q("UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id=".$thr->last_post_id." WHERE id=".$frm_dst->id);
-		
-		db_unlock();
-		
-		$thrx->delete();
-		logaction($usr->id, 'THRXAPPROVE', $thr->id);
-		
-		header("Location: {ROOT}?t=thr_exch&"._rsidl);
-		exit;
+	if (isset($_GET['appr']) || isset($_GET['decl']) || isset($_POST['decl'])) {
+		fud_use('thrx_adm.inc', TRUE);
 	}
-	else if( !empty($decl) ) {
-		$thr_name = q_singleval("SELECT subject FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id WHERE {SQL_TABLE_PREFIX}thread.id=".$thrx->th);
-			
-		$frm = new fud_forum;
-		$frm->get($thrx->frm);
-	
-		if( isset($reason) ) {
-			$dusr = new fud_user;
-			$dusr->get_user_by_id($thrx->req_by);
-			
-			send_status_update($dusr, '{TEMPLATE: exch_decline_ttl}', stripslashes($reason));
-			$thrx->delete();
-			
-			header("Location: {ROOT}?t=thr_exch&"._rsidl);
-			exit;
+
+	/* verify that we got a valid thread-x-change approval */
+	if (isset($_GET['appr']) && ($thrx = thx_get((int)$_GET['appr']))) {
+		$data = db_sab('SELECT 
+					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.last_post_id,
+					f1.id, f1.last_post_id as f1_lpi, f2.last_post_id AS f2_lpi,
+					'.($usr->is_mod == 'A' ? ' 1 ' : ' mm.id ').' AS mod 
+				FROM {SQL_TABLE_PREFIX}thread t 
+				INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
+				INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON f2.id='.$thrx->frm.' 
+				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f2.id AND mm.user_id='._uid.'
+				WHERE t.id='.$thrx->th);
+		if (!$data) {
+			invl_inp_err();
 		}
-		else {
+		if (!$data->mod) {
+			std_error('access');
+		}
+
+		fud_thread::move($thrx->th, $thrx->frm, $data->root_msg_id, $data->forum_id, $data->last_post_date, $data->last_post_id);
+
+		if ($data->f1_lpi == $data->last_post_id) {
+			$mid = (int) q_singleval('SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='.$data->forum_id.' AND t.moved_to=0 AND m.approved=\'Y\'');
+			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$mid.' WHERE id='.$data->forum_id);
+		}
+
+		if ($data->f2_lpi < $data->last_post_id) {
+			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$data->last_post_id.' WHERE id='.$thrx->frm);
+		}
+
+		thx_delete($thrx->id);
+		logaction($usr->id, 'THRXAPPROVE', $thrx->th);
+	} else if ((isset($_GET['decl']) || isset($_POST['decl'])) && ($thrx = thx_get(($decl = (int)(isset($_GET['decl']) ? $_GET['decl'] : $_POST['decl']))))) {
+		$data = db_sab('SELECT u.email, u.login, u.id, m.subject, f1.name AS f1_name, f2.name AS f2_name, '.($usr->is_mod == 'A' ? ' 1 ' : ' mm.id ').' AS mod 
+				FROM {SQL_TABLE_PREFIX}thread t
+				INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
+				INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON f2.id='.$thrx->frm.' 
+				INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id
+				INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id='.$thrx->req_by.'
+				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id='.$thrx->frm.' AND mm.user_id='._uid.'
+				WHERE t.id='.$thrx->th);
+		if (!$data) {
+			invl_inp_err();
+		}
+		if (!$data->mod) {
+			std_error('access');
+		}		
+
+		if (!empty($_POST['reason'])) {
+			send_status_update($data->id, $data->login, $data->email, '{TEMPLATE: exch_decline_ttl}', $_POST['reason']);
+			thx_delete($thrx->id);
+			$decl = NULL;
+		} else {
 			$thr_exch_data = '{TEMPLATE: thr_move_decline}';
 		}
-		
+
 		logaction($usr->id, 'THRXDECLINE', $thrx->th);
 	}
 	
-	{POST_HTML_PHP}
+/*{POST_HTML_PHP}*/
 	
-	if( empty($decl) ) {
-		if( $usr->is_mod != 'A' ) $limit = 'INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}mod.user_id='.$usr->id.' AND {SQL_TABLE_PREFIX}thr_exchange.frm={SQL_TABLE_PREFIX}mod.forum_id ';
+	if (!isset($decl)) {
+		$thr_exch_data = '';
+
+		$r = uq('SELECT 
+				thx.*, m.subject, f1.name AS sf_name, f2.name AS df_name, u.alias
+			 FROM {SQL_TABLE_PREFIX}thr_exchange thx
+			 LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f2.id AND mm.user_id='._uid.'
+			 INNER JOIN {SQL_TABLE_PREFIX}thread t ON thx.th=t.id
+			 INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id
+			 INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
+			 INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON thx.frm=f2.id	
+			 INNER JOIN {SQL_TABLE_PREFIX}users u ON thx.req_by=u.id
+			 WHERE '.($usr->is_mod != 'A' ? ' mm.id IS NOT NULL' : ' 1=1'));
 		
-		$r = q("SELECT 
-				{SQL_TABLE_PREFIX}thr_exchange.*,
-				{SQL_TABLE_PREFIX}msg.subject,
-				{SQL_TABLE_PREFIX}forum.name,
-				fud_forum2.name AS name2,
-				{SQL_TABLE_PREFIX}users.alias AS login
-			 FROM 
-			 	{SQL_TABLE_PREFIX}thr_exchange 
-			 	".$limit."
-			 INNER JOIN {SQL_TABLE_PREFIX}thread
-			 	ON {SQL_TABLE_PREFIX}thr_exchange.th={SQL_TABLE_PREFIX}thread.id
-			 INNER JOIN {SQL_TABLE_PREFIX}msg
-			 	ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id
-			 INNER JOIN {SQL_TABLE_PREFIX}forum
-			 	ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id
-			 INNER JOIN {SQL_TABLE_PREFIX}forum AS fud_forum2
-		 		ON {SQL_TABLE_PREFIX}thr_exchange.frm=fud_forum2.id	
-			 INNER JOIN {SQL_TABLE_PREFIX}users
-			 	ON {SQL_TABLE_PREFIX}thr_exchange.req_by={SQL_TABLE_PREFIX}users.id");
-		if( db_count($r) ) {
-			$thr_exch_data = '';
-			while( $obj = db_rowobj($r) ) $thr_exch_data .= '{TEMPLATE: thr_exch_entry}';
+		while ($obj = db_rowobj($r)) {
+			$thr_exch_data .= '{TEMPLATE: thr_exch_entry}';
 		}
-		else
-			$thr_exch_data = '{TEMPLATE: no_thr_exch}';
-			
 		qf($r);	
-	}		
-	{POST_PAGE_PHP_CODE}
+
+		if (!$thr_exch_data) {
+			$thr_exch_data = '{TEMPLATE: no_thr_exch}';
+		}
+	}
+
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: THR_EXCH_PAGE}

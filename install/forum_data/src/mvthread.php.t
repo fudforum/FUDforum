@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.php.t,v 1.7 2003/04/11 14:53:48 hackie Exp $
+*   $Id: mvthread.php.t,v 1.8 2003/04/12 13:54:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,24 +20,24 @@
 /*{PRE_HTML_PHP}*/
 
 	$th = isset($_POST['th']) ? (int)$_POST['th'] : (isset($_GET['th']) ? (int)$_GET['th'] : 0);
-	$thx = isset($_POST['thx']) ? (int)$_POST['thx'] : 0;
+	$thx = isset($_POST['thx']) ? (int)$_POST['thx'] : (isset($_GET['thx']) ? (int)$_GET['thx'] : 0);
 	$to = isset($_GET['to']) ? (int)$_GET['to'] : 0;
 	
 	/* thread x-change */
 	if ($th && $thx) {
-		if ($usr->is_mod != 'A' && !is_moderator($thx, _uid)) {
+		if ($usr->is_mod != 'A' && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE forum_id='.$thx.' AND user_id='._uid)) {
 			std_error('access');
 		}
 	
-		if (isset($_POST['reason_msg'])) {
+		if (!empty($_POST['reason_msg'])) {
 			fud_use('thrx_adm.inc', TRUE);
-			if (fud_thr_exchange::add($_POST['reason_msg'], $th, $thx, _uid)) {
+			if (thx_add($_POST['reason_msg'], $th, $thx, _uid)) {
 				logaction(_uid, 'THRXREQUEST', $th);
 			}
 			exit('<html><script>window.close();</script></html>');
 		} else {
 			$thr = db_sab('SELECT f.name AS frm_name, m.subject FROM {SQL_TABLE_PREFIX}forum f INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id='.$th.' INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE f.id='.$thx);
-			$table_data .= '{TEMPLATE: move_thread_request}';		
+			$table_data = '{TEMPLATE: move_thread_request}';		
 		}
 	}
 
