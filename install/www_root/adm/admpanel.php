@@ -26,9 +26,10 @@
 	<a style="font-size: x-small;" href="admrdf.php?<?php echo _rsidl; ?>">RDF Feed Managment</a><br>
 <?php
 	if (extension_loaded('pdf')) {
-?>
-	<a style="font-size: x-small;" href="admpdf.php?<?php echo _rsidl; ?>">PDF Generation Managment</a><br>
-<?php
+		echo '<a style="font-size: x-small;" href="admpdf.php?'._rsidl.'">PDF Generation Managment</a><br>';
+	}
+	if (extension_loaded('pspell')) {
+		echo '<a style="font-size: x-small;" href="admspell.php?'._rsidl.'">Custom Dictionary Spell Checker</a><br>';
 	}
 
 	if (strncasecmp('win', PHP_OS, 3)) {

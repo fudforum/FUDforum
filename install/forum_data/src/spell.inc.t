@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: spell.inc.t,v 1.8 2003/04/20 22:27:42 hackie Exp $
+*   $Id: spell.inc.t,v 1.9 2003/09/19 00:03:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,6 +29,7 @@ function init_spell($type, $dict)
 {
 	$pspell_config = pspell_config_create($dict);
 	pspell_config_mode($pspell_config, $type);
+	pspell_config_personal($pspell_config, $GLOBALS['FORUM_SETTINGS_PATH']."forum.pws");
 	pspell_config_ignore($pspell_config, 2);
 	define('__FUD_PSPELL_LINK__', pspell_new_config($pspell_config));
 	
