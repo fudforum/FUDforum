@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.37 2005/03/12 18:08:11 hackie Exp $
+* $Id: pdf.php.t,v 1.38 2005/04/05 13:51:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -269,7 +269,7 @@ class fud_pdf extends FPDF
 	}
 
 	if ($thread || $msg) {
-		$subject = $o->subject;
+		$subject = reverse_fmt($o->subject);
 	} else if ($sel) {
 		$subject = 'Private Message Archive';
 	}
