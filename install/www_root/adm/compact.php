@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.11 2002/08/18 10:02:17 hackie Exp $
+*   $Id: compact.php,v 1.12 2002/08/22 13:50:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -94,6 +94,8 @@ and the amount of messages your forum has.<br><br>
 	echo "<br>Please wait while forum is being compacted.<br>This may take a while depending on the size of your forum.<br>\n";
 	flush();
 	
+	define('__file_perms__', (($GLOBALS['FILE_LOCK']=='Y')?0600:0644));
+	
 	/* Normal Messages */
 	echo "Compacting normal messages...<br>\n";
 	flush();
@@ -162,7 +164,7 @@ and the amount of messages your forum has.<br><br>
 	if( @is_array($GLOBALS['__NEW_FILES__']) ) {
 		foreach($GLOBALS['__NEW_FILES__'] as $v) {
 			rename($GLOBALS['MSG_STORE_DIR'].'tmp_msg_'.$v, $GLOBALS['MSG_STORE_DIR'].'msg_'.$v);
-			@chmod($GLOBALS['MSG_STORE_DIR'].'msg_'.$v,0600);
+			@chmod($GLOBALS['MSG_STORE_DIR'].'msg_'.$v, __file_perms__);
 		}	
 	}	
 	db_unlock();
@@ -213,7 +215,7 @@ and the amount of messages your forum has.<br><br>
 	if( !empty($fp) ) { 
 		fclose($fp);
 		rename($GLOBALS['MSG_STORE_DIR'].'private_tmp', $GLOBALS['MSG_STORE_DIR'].'private');
-		@chmod($GLOBALS['MSG_STORE_DIR'].'private', 0600);
+		@chmod($GLOBALS['MSG_STORE_DIR'].'private', __file_perms__);
 	}	
 	
 	db_unlock();
