@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.6 2003/08/04 16:43:31 hackie Exp $
+*   $Id: msg.tmpl,v 1.7 2003/09/18 19:33:58 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -45,7 +45,7 @@
 {SECTION: END}
 
 {SECTION: split_thread}
-<a class="GenLink" href="{ROOT}/st/{VAR: _GET['th']}/{DEF: _rsid}">{MSG: split_thread}</a>&nbsp;|&nbsp;
+<a class="GenLink" href="{ROOT}/stt/{VAR: _GET['th']}/{DEF: _rsid}">{MSG: split_thread}</a>&nbsp;|&nbsp;
 {SECTION: END}
 
 {SECTION: mod_lock_thread}
@@ -65,11 +65,11 @@
 {SECTION: END}
 
 {SECTION: sub_from_thread subscribe to thread link}
-| <a class="GenLink" href="{ROOT}/mn/{VAR: _GET['th']}/{DEF: _uid}/on/{VAR: _GET['start']}/{DEF: _rsid}" title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</a>&nbsp;
+| <a class="GenLink" href="{ROOT}/mn/msg/{VAR: _GET['th']}/1/on/{VAR: _GET['start']}/{DEF: _rsid}" title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: unsub_to_thread unsubscribe from thread link}
-| <a class="GenLink" href="{ROOT}/mn/{VAR: _GET['th']}/{DEF: _uid}/off/{VAR: _GET['start']}/{DEF: _rsid}" title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</a>&nbsp;
+| <a class="GenLink" href="{ROOT}/mn/msg/{VAR: _GET['th']}/1/off/{VAR: _GET['start']}/{DEF: _rsid}" title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: threaded_view tree view link}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.65 2003/07/19 14:19:58 hackie Exp $
+*   $Id: users.inc.t,v 1.66 2003/09/18 19:33:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -397,12 +397,12 @@ function init_user()
 					break;
 
 				case 'lk': /* lock/unlock thread */
-					$_GET['t'] = 'lock';
+					$_GET['t'] = 'mmod';
 					$_GET['th'] = $p[1];
 					$_GET[$p[2]] = 1;
 					break;
 
-				case 'st': /* split thread */
+				case 'stt': /* split thread */
 					$_GET['t'] = 'split_th';
 					$_GET['th'] = $p[1];
 					break;

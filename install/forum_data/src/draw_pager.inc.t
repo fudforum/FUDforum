@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: draw_pager.inc.t,v 1.5 2003/06/02 18:06:51 hackie Exp $
+*   $Id: draw_pager.inc.t,v 1.6 2003/09/18 19:33:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,13 +15,13 @@
 *
 ***************************************************************************/
 
-if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-
 function pager_replace(&$str, $s, $c)
 {
 	$str = str_replace('%s', $s, $str);
 	$str = str_replace('%c', $c, $str);
 }
+
+if ($GLOBALS['USE_PATH_INFO'] == 'N') {
 
 function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js_pager=FALSE)
 {
