@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.33 2003/04/09 12:59:13 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.34 2003/04/09 13:34:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,7 +86,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 				$msg_start = $misc[0] - $misc[1];
 				$prev_message = '{TEMPLATE: dmsg_prev_message_prev_page}';
 			} else if ($m_num) { /* inline link, same page */
-				$msg_num = $m_num - 1;
+				$msg_num = $m_num;
 				$prev_message = '{TEMPLATE: dmsg_prev_message}';
 			} else {
 				$prev_message = '';
@@ -94,12 +94,12 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 
 			/* handle next link */
 			if ($obj->id < $obj->last_post_id) {
-				if ($m_num && !($misc[1] - $n_num - 1)) { /* next page link */
+				if ($m_num && !($misc[1] - $m_num - 1)) { /* next page link */
 					$msg_start = $misc[0] + $misc[1];
 					$next_message = '{TEMPLATE: dmsg_next_message_next_page}';
 					$next_page = '{TEMPLATE: dmsg_next_msg_page}';
 				} else {
-					$msg_num = $m_num + 1;
+					$msg_num = $m_num + 2;
 					$next_message = '{TEMPLATE: dmsg_next_message}';
 					$next_page = '';
 				}
@@ -107,6 +107,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 				$next_page = $next_message = '';
 			}
 		}
+		$m_num++;
 	} else {
 		$next_page = $next_message = $prev_message = '';
 	}	
@@ -337,7 +338,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 			$edit_link = '';
 		}
 
-		if ($GLOBALS['MOD'] || $obj->locked == 'N') {
+		if ($obj->locked == 'N' || $GLOBALS['MOD'] || $perms['p_lock'] == 'Y') {
 			$reply_link = '{TEMPLATE: dmsg_reply_link}';
 			$quote_link = '{TEMPLATE: dmsg_quote_link}';
 		} else {
