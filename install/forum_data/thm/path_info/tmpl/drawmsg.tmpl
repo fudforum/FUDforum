@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.3 2003/07/19 03:17:02 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.4 2003/08/04 16:49:10 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -19,7 +19,7 @@
 {REF: alt_var.tmpl}
 
 {SECTION: dmsg_prev_message previous page arrow drawn on the message}
-<a href="#msg_num_{VAR: msg_num}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" border=0 src="{THEME_IMAGE_ROOT}/up.gif" /></a>
+<a href="{VAR: _SERVER['REQUEST_URI']}#msg_num_{VAR: msg_num}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" border=0 src="{THEME_IMAGE_ROOT}/up.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page previous page arrrow drawn on the message}
@@ -31,7 +31,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message next message arrow drawn on the message}
-<a href="#msg_num_{VAR: msg_num}" class="GenLink"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.gif" border=0 /></a>
+<a href="{VAR: _SERVER['REQUEST_URI']}#msg_num_{VAR: msg_num}" class="GenLink"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
