@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.49 2004/10/06 16:36:16 hackie Exp $
+* $Id: admthemes.php,v 1.50 2004/10/06 16:43:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -211,7 +211,7 @@ function clean_code($path, $toks)
 	<?php
 		$files = glob($DATA_DIR.'/thm/*', GLOB_ONLYDIR);
 		foreach ($files as $file) {
-			if (!file_exists($file . '/locale')) {
+			if (!file_exists($file . '/tmpl')) {
 				continue;
 			}
 			$n = basename($file);
@@ -227,7 +227,7 @@ function clean_code($path, $toks)
 		if (!$thm_lang) {
 			$thm_lang = 'english';
 		}
-		$selopt .= '';
+		$selopt = '';
 		$files = glob($DATA_DIR.'/thm/default/i18n/*', GLOB_ONLYDIR);
 		foreach ($files as $file) {
 			if (!file_exists($file . '/msg')) {
@@ -235,9 +235,9 @@ function clean_code($path, $toks)
 			}
 			$n = basename($file);
 			$selopt .= '<option'.($thm_lang == $n ? ' selected' : '').'>'.$n.'</option>';
-			$locales[$de]['locale'] = trim(file_get_contents($file . '/locale'));
+			$locales[$n]['locale'] = trim(file_get_contents($file . '/locale'));
 			$pspell_file = $file . '/pspell_lang';
-			$locales[$de]['pspell_lang'] = file_exists($pspell_file) ? trim(file_get_contents($pspell_file)) : 'en';
+			$locales[$n]['pspell_lang'] = file_exists($pspell_file) ? trim(file_get_contents($pspell_file)) : 'en';
 		}
 
 		$cases = '';

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemesel.php,v 1.21 2004/10/06 16:36:16 hackie Exp $
+* $Id: admthemesel.php,v 1.22 2004/10/06 16:43:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@
 	
 	$files = glob($GLOBALS['DATA_DIR'].'/thm/*', GLOB_ONLYDIR);
 	foreach ($files as $file) {
-		if (!file_exists($file . '/locale')) {
+		if (!file_exists($file . '/tmpl')) {
 			continue;
 		}
 		$n = basename($file);
