@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.15 2003/05/03 18:16:18 hackie Exp $
+*   $Id: db.inc,v 1.16 2003/05/04 20:40:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,18 +70,18 @@ function db_unlock()
 {
 	q('UNLOCK TABLES',FUD_SQL_LNK);
 	
-	if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']) ) {
+	if (!isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", q_singleval("SELECT VERSION()"));
 	}
 	
-	if ( --$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0 ) {
+	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", q_singleval("SELECT VERSION()"));
 	}
 }
 
 function db_locked()
 {
-	return isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])?$GLOBALS['__DB_INC_INTERNALS__']['db_locked']:NULL;
+	return isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 }
 
 function db_affected()
@@ -188,10 +188,6 @@ function db_count($result)
 {
 	return (int) @mysql_num_rows($result);
 }
-function db_lastid($dummy=FALSE, $dummy2=FALSE)
-{
-	return mysql_insert_id(FUD_SQL_LNK);
-}
 function db_seek($result, $pos)
 {
 	return mysql_data_seek($result, $pos);
@@ -203,51 +199,6 @@ function db_rowobj($result)
 function db_rowarr($result)
 {
 	return mysql_fetch_row($result);
-}
-function bq($query)
-{
-	$res = q($query);
-	if (is_result($res)) {
-		qf($res);
-		return 1;
-	}
-	return 0;
-}
-function qobj($qry, &$obj)
-{
-	$r = q($qry);
-	$robj = db_singleobj($r);
-	if (!$robj) {
-		return;
-	}
-	foreach($robj as $k => $v) {
-		$obj->{$k} = $v;
-	}
-	
-	return $robj;
-}
-function is_result(&$res)
-{
-	if (db_count($res)) {
-		return $res;
-	}
-	qf($res);
-
-	return;
-}
-
-function db_singleobj(&$res)
-{
-	$obj = db_rowobj($res);
-	qf($res);
-	return $obj;
-}
-
-function db_singlearr(&$res)
-{
-	$arr = db_rowarr($res);
-	qf($res);
-	return $arr;
 }
 
 function q_singleval($query)

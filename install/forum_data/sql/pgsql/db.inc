@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.14 2003/05/03 20:24:40 hackie Exp $
+*   $Id: db.inc,v 1.15 2003/05/04 20:40:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,156 +15,167 @@
 *
 ***************************************************************************/
 
-if( !function_exists("fud_sql_error_handler") ) fud_use('err.inc'); 
+if (!function_exists('fud_sql_error_handler')) {
+	fud_use('err.inc'); 
+}
 
-if ( !defined('_db_connection_ok_') ) {
+if (!defined('FUD_SQL_LNK')) {
 	$connect_func = ( $GLOBALS['DBHOST_PERSIST'] == 'Y' ) ? 'pg_pconnect' : 'pg_connect';	
 	
 	$connect_str = '';
-	if ( $GLOBALS['DBHOST'] ) 	$connect_str .= 'host='.$GLOBALS['DBHOST'].' ';
-	if ( $GLOBALS['DBHOST_PORT'] )	$connect_str .= 'port='.$GLOBALS['DBHOST_PORT'].' ';
-	if ( $GLOBALS['DBHOST_USER'] )	$connect_str .= 'user='.$GLOBALS['DBHOST_USER'].' ';
-	if ( $GLOBALS['DBHOST_PASSWORD'] ) $connect_str .= 'password='.$GLOBALS['DBHOST_PASSWORD'].' ';
-	if ( $GLOBALS['DBHOST_TTY'] )	$connect_str .= 'tty='.$GLOBALS['DBHOST_TTY'].' ';
-	if ( $GLOBALS['DBHOST_DBNAME'] ) $connect_str .= 'dbname='.$GLOBALS['DBHOST_DBNAME'].' ';
-	$connect_str = substr($connect_str, 0 ,-1);
-	$GLOBALS['__DB_INC__']['SQL_LINK'] = $connect_func($connect_str)
-		or die (fud_sql_error_handler("Initiating $connect_func", pg_last_error($GLOBALS['__DB_INC__']['SQL_LINK']), '', "Unknown"));
-	define('_db_connection_ok_', 1); 
-	define('__dbtype__', 'pgsql');
+	if ($GLOBALS['DBHOST']) {
+		$connect_str .= 'host='.$GLOBALS['DBHOST'].' ';
+	}
+	if ($GLOBALS['DBHOST_PORT']) {
+		$connect_str .= 'port='.$GLOBALS['DBHOST_PORT'].' ';
+	}
+	if ($GLOBALS['DBHOST_USER']) {
+		$connect_str .= 'user='.$GLOBALS['DBHOST_USER'].' ';
+	}
+	if ($GLOBALS['DBHOST_PASSWORD']) {
+		$connect_str .= 'password='.$GLOBALS['DBHOST_PASSWORD'].' ';
+	}
+	if ($GLOBALS['DBHOST_TTY']) {
+		$connect_str .= 'tty='.$GLOBALS['DBHOST_TTY'].' ';
+	}
+	if ($GLOBALS['DBHOST_DBNAME']) {
+		$connect_str .= 'dbname='.$GLOBALS['DBHOST_DBNAME'].' ';
+	}
+	$conn = $connect_func(rtrim($connect_str)) or die (fud_sql_error_handler('Initiating '.$connect_func, pg_last_error($conn), '', 'Unknown'));
+	define('FUD_SQL_LNK', $conn);
+	define('__dbtype__', 'mysql');
 	define('__FUD_SQL_CONCAT__', 'textcat');
 }
 
 function yn($val) 
 {
-	return ( strlen($val) && strtolower($val) != 'n' ) ? 'Y' : 'N';
+	return (strcasecmp($val, 'n') ? 'Y' : 'N');
 } 
 
 function intnull($val)
 {
-	return ( strlen($val) ) ? $val : 'NULL';
+	return (!is_null($val) ? $val : 'NULL');
 }
 
 function intzero($val)
 {
-	return ( !empty($val) ) ? $val : '0';
+	return (!empty($val) ? $val : '0');
 }
 
 function ifnull($val, $alt)
 {
-	return ( strlen($val) ) ? "'".$val."'" : $alt;
+	return (!is_null($val) ? "'".$val."'" : $alt);
 }
 
 function strnull($val)
 {
-	return ( strlen($val) ) ? "'".$val."'" : 'NULL';
+	return (!is_null($val) ? "'".$val."'" : 'NULL');
 }
 
 function db_lock($tables)
 {
-	if ( empty($tables) ) 
-		fud_sql_error_handler("no tables to lock", "internal", "internal", q_singleval("SELECT VERSION()"));
-
-	if ( !empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked']) ) 
+	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		fud_sql_error_handler("Recursive Lock", "internal", "internal", q_singleval("SELECT VERSION()"));
-
-	$tables = str_replace("\t", '', $tables);
-	
-	$tbl_arr = explode(',', $tables);
-	$tbl_n = count($tbl_arr);
-	
-	q("BEGIN WORK");
-	$shr_str='';
-	$ex_str='';
-	for ( $i=0; $i<$tbl_n; $i++ ) {
-		$tbl_arr[$i] = trim($tbl_arr[$i]);
-		$lmode = substr($tbl_arr[$i], -1);
-		$tbl_arr[$i] = substr($tbl_arr[$i], 0, strlen($tbl_arr[$i])-1);
-		if ( $lmode == '+' )
-			$ex_str .= $tbl_arr[$i].',';
-		else
-			$shr_str .= $tbl_arr[$i].',';
+	} else {
+		q('BEGIN WORK');
+		q('LOCK TABLE '.str_replace(' WRITE', '', $tables).' IN ACCESS EXCLUSIVE MODE');
+		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
 	}
-	
-	if ( $ex_str ) {
-		$ex_str = substr($ex_str, 0, -1);
-		q("LOCK TABLE $ex_str IN ACCESS EXCLUSIVE MODE");
-	}
-	
-	if ( $shr_str ) {
-		$shr_str = substr($shr_str, 0, -1);
-		q("LOCK TABLES $shr_str IN SHARE MODE");
-	}
-
-	$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = $tables;
 }
 
 function db_unlock()
 {
-	q('COMMIT WORK',$GLOBALS['__DB_INC__']['SQL_LINK']);
+	q('COMMIT WORK', FUD_SQL_LNK);
 	
-	if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']) ) {
+	if (!isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", q_singleval("SELECT VERSION()"));
 	}
 	
-	if ( --$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0 ) {
+	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", q_singleval("SELECT VERSION()"));
 	}
 }
 
 function db_locked()
 {
-	return isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])?$GLOBALS['__DB_INC_INTERNALS__']['db_locked']:NULL;
+	return isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 }
 
-function db_affected($r)
+function db_affected()
 {
-	return pg_affected_rows($r['res']);
+	return pg_affected_rows($GLOBALS['__FLPG__']);
 }
 
-if( !defined("fud_query_stats") ) {
-	function q($query)
-	{
-		$result = pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], $query) 
-			or die (fud_sql_error_handler($query, pg_result_error($result), '', q_singleval("SELECT VERSION()")));
+function uq($q)
+{
+	return q($q);
+}
 
-		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
-	
-		if( defined('debug') ) 
-			echo "--<br>\n<b>(--</b>&nbsp;&nbsp; ".htmlspecialchars($query)." &nbsp;&nbsp;<b>--)</b><br><br>\n\n";
-	
-		$rs['res'] = $result;
-		$rs['count'] = @pg_num_rows($result);
-		$rs['pos'] = 0;
-		return $rs; 
+if (!defined('fud_query_stats')) {
+	if (!defined('debug')) {
+		function q($q)
+		{
+			$GLOBALS['__FLPG__'] = pg_query(FUD_SQL_LNK, $q) or die (fud_sql_error_handler($q, pg_last_error(FUD_SQL_LNK), '', q_singleval('SELECT VERSION()')));
+			return $GLOBALS['__FLPG__'];
+		}
+	} else {
+		function q($q)
+		{
+			$GLOBALS['__FLPG__'] = pg_query(FUD_SQL_LNK, $q) or die (fud_sql_error_handler($q, pg_last_error(FUD_SQL_LNK), '', q_singleval('SELECT VERSION()')));
+			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
+			return $GLOBALS['__FLPG__'];
+		}
 	}
-}
-else {
-	function q($query)
+} else {
+	function q($q)
 	{
-		if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['query_count']) )
+		if (!isset($GLOBALS['__DB_INC_INTERNALS__']['query_count'])) {
 			$GLOBALS['__DB_INC_INTERNALS__']['query_count'] = 1;
-		else 
+		} else {
 			++$GLOBALS['__DB_INC_INTERNALS__']['query_count'];
+		}
 	
-		if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time']) ) $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
+		if (!isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'])) {
+			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
+		}
 	
-		$ts = db_getmicrotime();
-		$result = pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], $query)
-			or die (fud_sql_error_handler($query, pg_result_error($result), '', q_singleval("SELECT VERSION()")));
-		$te = db_getmicrotime(); 
+		$s = gettimeofday();
+		$GLOBALS['__FLPG__'] = pg_query(FUD_SQL_LNK, $q) or die (fud_sql_error_handler($q, pg_last_error(FUD_SQL_LNK), '', q_singleval('SELECT VERSION()')));
+		$e = gettimeofday(); 
 	
-		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = $te-$ts;
+		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));;
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
+		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
 	
-		if( defined('debug') ) 
-			echo "--<br>\n<b>(--</b>&nbsp;&nbsp; ".htmlspecialchars($query)." &nbsp;&nbsp;<b>--) <b>(</b>".$GLOBALS['__DB_INC_INTERNALS__']['last_time']."<b>)</b></b><br><br>\n\n";
-	
-		$rs['res'] = $result;
-		$rs['count'] = @pg_num_rows($result);
-		$rs['pos'] = 0;
-		return $rs; 
+		echo '<pre>query count: '.$GLOBALS['__DB_INC_INTERNALS__']['query_count'].' time taken: '.$GLOBALS['__DB_INC_INTERNALS__']['last_time'].'</pre>';
+		echo '<pre>Affected rows: '.db_affected().'</pre>';
+		echo '<pre>total sql time: '.$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'].'</pre>';
+
+		return $GLOBALS['__FLPG__'];
+	}
+
+	function query_count()
+	{
+		return $GLOBALS['__DB_INC_INTERNALS__']['query_count'];
+	}
+
+	function last_query($filter='')
+	{
+		if ($filter) {
+			return str_replace("\t", "", str_replace("\n", " ", $GLOBALS['__DB_INC_INTERNALS__']['last_query']));
+		} else {
+			return $GLOBALS['__DB_INC_INTERNALS__']['last_query'];
+		}
+	}
+
+	function last_time()
+	{
+		return $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
+	}
+
+	function total_time()
+	{
+		return $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'];
 	}
 }
 
@@ -173,118 +184,38 @@ function qf(&$result)
 	unset($result);
 }
 
-function query_count()
+function db_count($r)
 {
-	return $GLOBALS['__DB_INC_INTERNALS__']['query_count'];
-}
-
-function last_query($filter='')
-{
-	if ( $filter ) 
-		return str_replace("\t", "", str_replace("\n", " ", $GLOBALS['__DB_INC_INTERNALS__']['last_query']));
-	else
-		return $GLOBALS['__DB_INC_INTERNALS__']['last_query'];
-}
-
-function last_time()
-{
-	return $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-}
-
-function total_time()
-{
-	return $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'];
-}
-
-function db_count(&$result)
-{
-	if ( $n=@$result['count'] ) 
-		return $n;
-	else
+	$r = @pg_num_rows($r);
+	if ($r < 0) {
 		return 0;
+	}
+	return $r;
 }
 
-function db_lastid($tblname=NULL, $rs)
-{	
-	return q_singleval("SELECT id FROM $tblname WHERE oid=".pg_last_oid($rs['res']));
-}
-
-function db_seek(&$result,$pos)
+function db_seek($result, $pos)
 {
-	return $result['pos'] = $pos;
+	return pg_result_seek($result, $pos);
 }
-function db_rowobj(&$result)
-{
-	if ( $result['pos'] < $result['count'] )
-		return pg_fetch_object($result['res'], $result['pos']++);
 
-	return;
+function db_rowobj($result)
+{
+	return pg_fetch_object($result);
 }
 
 function db_rowarr(&$result)
 {
-	if ( $result['pos'] < $result['count'] )
-		return pg_fetch_array($result['res'], $result['pos']++);
-
-	return;
-}
-
-function bq($query)
-{
-	$res = q($query);
-	if ( is_result($res) ) { qf($res); return 1; }
-	return 0;
-}
-
-function qobj($qry, &$obj)
-{
-	$r = q($qry);
-	$robj = db_singleobj($r);
-	if ( !$robj ) return;
-
-	foreach($robj as $k => $v) $obj->{$k} = $v;
-	
-	return $robj;
-}
-
-function is_result(&$res)
-{
-	if ( db_count($res) ) 
-		return $res;
-	
-	qf($res);
-
-	return;
-}
-
-function db_singleobj(&$res)
-{
-	$obj = db_rowobj($res);
-	qf($res);
-	return $obj;
-}
-
-function db_singlearr(&$res)
-{
-	$arr = db_rowarr($res);
-	qf($res);
-	return $arr;
+	return pg_fetch_row($result);
 }
 
 function q_singleval($query)
 {
-	$r = q($query);
-	if( !is_result($r) ) return;
-	
-	list($val) = db_singlearr($r);
-	
-	return $val;
+	return @current(@pg_fetch_row(q($query)));
 }
 
 function get_field_list($tbl)
 {
-	$r = q("SELECT a.attname AS Field FROM pg_class c, pg_attribute a WHERE c.relname = '$tbl' AND a.attnum > 0 AND a.attrelid = c.oid ORDER BY a.attnum");
-	return $r;
+	return q("SELECT a.attname AS Field FROM pg_class c, pg_attribute a WHERE c.relname = '$tbl' AND a.attnum > 0 AND a.attrelid = c.oid ORDER BY a.attnum");
 }
 
 function qry_limit($limit, $off)
@@ -294,33 +225,59 @@ function qry_limit($limit, $off)
 
 function get_fud_table_list()
 {
-	$ret = array();
-
 	$r = q("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
-	while( list($name) = db_rowarr($r) ) $ret[] = $name;
+	while (list($ret[]) = db_rowarr($r));
 	qf($r);
-	
-	return $ret;	
+	array_pop($ret);
+
+	return $ret;
 }
 
 function optimize_tables($tbl_list=NULL)
 {
-	if( !$tbl_list ) $tbl_list = get_fud_table_list();
-
-	foreach($tbl_list as $v) q("VACUUM ANALYZE ".$v);
+	if (!$tbl_list) {
+		$tbl_list = get_fud_table_list();
+	}
+	q('VACUUM ANALYZE ' . implode(', ', $tbl_list));
 }
 
-function sql_concat()
+function db_saq($q)
 {
-	if( !func_num_args() ) return;
-	
-	$ret = '';
-	
-	$args =  func_get_args();
-	foreach( $args as $arg ) {
-		$ret .= $arg.' || ';	
+	return @pg_fetch_row(q($q));
+}
+
+function db_sab($q)
+{
+	return @pg_fetch_object(q($q));
+}
+
+function db_qid($q)
+{
+	$r = q($q);
+	return q_singleval('SELECT id FROM '.substr($q, 12, (strpos($q, ' ', 12) - 12)).' WHERE oid='.pg_last_oid($r));
+}
+
+function db_arr_assoc($q)
+{
+	return @pg_fetch_array(q($q), PGSQL_ASSOC);
+}
+
+function ssn($str)
+{
+	if (is_null($str) || $str === '') {
+		return 'NULL';
+	} else {
+		return "'" . addslashes($str) . "'";
 	}
-	
-	return substr($ret, 0, -4);
+}
+
+function in($str)
+{
+	return (!(int)$str) ? 'NULL' : (int)$str;
+}
+
+function iz($str)
+{
+	return (int)$str;
 }
 ?>
