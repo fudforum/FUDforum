@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.64 2004/01/04 16:38:27 hackie Exp $
+* $Id: users_reg.inc.t,v 1.65 2004/02/24 23:51:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,6 +56,9 @@ class fud_user_reg extends fud_user
 			if ($o2 & 1) {
 				$o2 ^= 1;
 			}
+			$reg_ip = "127.0.0.1";
+		} else {
+			$reg_ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1';
 		}
 
 		if ($o2 & 1) {
@@ -94,7 +97,8 @@ class fud_user_reg extends fud_user
 				sig,
 				home_page,
 				bio,
-				users_opt
+				users_opt,
+				reg_ip
 			) VALUES (
 				'".addslashes($this->login)."',
 				'".addslashes($this->alias)."',
@@ -123,7 +127,8 @@ class fud_user_reg extends fud_user
 				".ssn($this->sig).",
 				".ssn(htmlspecialchars($this->home_page)).",
 				".ssn($this->bio).",
-				".$this->users_opt."
+				".$this->users_opt.",
+				".ip2long($reg_ip)."
 			)
 		");
 

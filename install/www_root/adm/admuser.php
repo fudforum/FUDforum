@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.44 2004/01/29 16:33:20 hackie Exp $
+* $Id: admuser.php,v 1.45 2004/02/24 23:51:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -291,6 +291,9 @@ administration permissions to the forum. This individual will be able to do anyt
 <?php
 	if ($u->bday) {
 		echo '<tr class="field"><td>Birthday:</td><td>' . strftime('%B, %d, %Y', strtotime($u->bday)) . '</td></tr>';
+	}
+	if ($u->reg_ip) {
+		echo '<tr class="field"><td>Registeration IP:</td><td>' . long2ip($u->reg_ip) . '</td></tr>';
 	}
 
 	echo '<tr class="field"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../'.__fud_index_name__.'?t=register&mod_id='.$usr_id.'&'._rsidl.'">Change User\'s Profile</a> &lt;&lt;</font></td></tr>';

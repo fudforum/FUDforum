@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaccapr.php,v 1.15 2004/01/04 16:38:32 hackie Exp $
+* $Id: admaccapr.php,v 1.16 2004/02/24 23:51:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -65,6 +65,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		print_if_avail('Jabber', $obj->jabber) .
 		print_if_avail('Birth Date', $obj->bday) .
 		print_if_avail('Signature', $obj->sig, 0) .
+		print_if_avail('IP Address', long2ip($obj->ip_reg), 0) .
 		'</td>
 		<td class="fieldaction">[ <a href="admaccapr.php?apr='.$obj->id.'&'._rsidl.'">Approve Account</a> | <a href="admaccapr.php?rm='.$obj->id.'&'._rsidl.'">Delete Account</a> ]</td></tr>';
 	}
