@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.21 2003/04/19 13:46:49 hackie Exp $
+*   $Id: pmsg.php.t,v 1.22 2003/07/10 16:39:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,7 +86,7 @@
 			u2.invisible_mode AS invisible_mode2, u2.alias AS alias2, u2.last_visit AS time_sec2
 		FROM {SQL_TABLE_PREFIX}pmsg p
 		INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id 
-		LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON p.duser_id=u2.id 
+		LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON p.pdest=u2.id 
 		WHERE duser_id='._uid.' AND folder_id='.$fid.' ORDER BY post_stamp DESC');
 	
 	$private_msg_entry = '';
