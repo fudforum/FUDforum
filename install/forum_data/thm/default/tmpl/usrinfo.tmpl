@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.tmpl,v 1.9 2003/03/05 13:46:36 hackie Exp $
+*   $Id: usrinfo.tmpl,v 1.10 2003/03/13 12:39:10 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -226,5 +226,5 @@
 {SECTION: END}
 
 {SECTION: usrinfo_affero}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR-URL: u->affero}" target="_blank"><img alt="" src="{THEME_IMAGE_ROOT}/affero_reg.gif" border=0 /></a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR-URL: u->affero}" target="_blank">{VAR-HTML: u->affero}</a></td></tr>
 {SECTION: END}

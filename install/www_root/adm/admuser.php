@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.15 2003/01/12 13:21:27 hackie Exp $
+*   $Id: admuser.php,v 1.16 2003/03/13 12:39:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -159,7 +159,7 @@ if( !empty($act) ) {
 		$LIKE = strstr($usr_login, '*') ? 1 : 0;
 		$usr_email = str_replace("*","%",$usr_email);
 		if( __dbtype__ == 'pgsql' && $LIKE ) $usr_login = addslashes(str_replace('\\', '\\\\', stripslashes($usr_login)));
-		$r = q("SELECT id, email, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE LOWER(email) LIKE '".strtolower($usr_email)."'");
+		$r = q("SELECT id, email, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE email LIKE '".$usr_email."'");
 		if( __dbtype__ == 'pgsql' && $LIKE ) $gr_leader = str_replace('\\\\', '\\', $gr_leader);
 		if( !db_count($r) ) 
 			$usr->id=0;
@@ -184,10 +184,10 @@ if( !empty($act) ) {
 	if( !empty($usr_login) ) {
 		if( strstr($usr_login, '*') ) {
 			$usr_login = str_replace("*","%",$usr_login);
-			$r = q("SELECT id, login, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE LOWER(alias) LIKE '".strtolower(addslashes(str_replace('\\', '\\\\', htmlspecialchars(stripslashes($usr_login)))))."'");
+			$r = q("SELECT id, login, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE alias LIKE '".addslashes(str_replace('\\', '\\\\', htmlspecialchars(stripslashes($usr_login))))."'");
 		}
 		else
-			$r = q("SELECT id, login, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE LOWER(alias)='".htmlspecialchars(strtolower($usr_login))."'");
+			$r = q("SELECT id, login, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE alias='".htmlspecialchars($usr_login)."'");
 
 		if( !db_count($r) ) {
 			$usr->id=0;
@@ -210,6 +210,8 @@ if( !empty($act) ) {
 	if( !empty($user_id) && !empty($login_name) ) {
 		if( !($id = get_id_by_login($login_name)) ) {
 			if( $GLOBALS['USE_ALIASES'] != 'Y' ) {
+				exit("HERE!!");
+			
 				$alias = stripslashes($login_name);
 				if( isset($alias[$GLOBALS['MAX_LOGIN_SHOW']+1]) ) $alias = substr($alias, 0, $GLOBALS['MAX_LOGIN_SHOW']);
 				$alias = ", alias='".addslashes(htmlspecialchars($alias))."'";

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.26 2003/03/05 13:46:36 hackie Exp $
+*   $Id: register.php.t,v 1.27 2003/03/13 12:39:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -578,6 +578,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 	$reg_alias_t = ($GLOBALS['USE_ALIASES'] != 'Y' ? '' : '{TEMPLATE: reg_alias}');
 
 	if ($GLOBALS['ENABLE_AFFERO'] == 'Y') {
+		$affero_domain = parse_url($GLOBALS['WWW_ROOT']);
 		$register_affero = '{TEMPLATE: register_affero}';
 	} else {
 		$register_affero = '';

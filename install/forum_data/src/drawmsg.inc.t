@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.22 2003/03/05 14:15:47 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.23 2003/03/13 12:39:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,6 +39,8 @@ if( isset($GLOBALS['reveal']) ) {
 	}
 	unset($drawmsg_inc_tmp);
 }	
+
+	$GLOBALS['affero_domain'] = parse_url($GLOBALS['WWW_ROOT']);
 
 function register_vote($opt)
 {
