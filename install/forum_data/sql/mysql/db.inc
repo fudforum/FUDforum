@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.17 2003/05/05 13:12:03 hackie Exp $
+*   $Id: db.inc,v 1.18 2003/05/07 12:20:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,10 +25,18 @@ if (!defined('FUD_SQL_LNK')) {
 	
 	$conn = $connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or die (fud_sql_error_handler("Initiating $connect_func", mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), "Unknown"));
 	define('FUD_SQL_LNK', $conn);
-	mysql_select_db($GLOBALS['DBHOST_DBNAME'], FUD_SQL_LNK) or die (fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
+	mysql_select_db($GLOBALS['DBHOST_DBNAME'], FUD_SQL_LNK) or die (fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), get_version()));
 		
 	define('__dbtype__', 'mysql');
 	define('__FUD_SQL_CONCAT__', 'CONCAT');
+}
+
+function get_version()
+{
+	if (!defined('__FUD_SQL_VERSION__')) {
+		define('__FUD_SQL_VERSION__', @current(mysql_fetch_row(mysql_query('SELECT VERSION()', FUD_SQL_LNK))));
+	}
+	return __FUD_SQL_VERSION__;
 }
 
 function yn($val) 
@@ -59,7 +67,7 @@ function strnull($val)
 function db_lock($tables)
 {
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("Recursive Lock", "internal", "internal", q_singleval("SELECT VERSION()"));
+		fud_sql_error_handler("Recursive Lock", "internal", "internal", get_version());
 	} else {
 		q('LOCK TABLES '.$tables);
 		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
@@ -68,15 +76,17 @@ function db_lock($tables)
 
 function db_unlock()
 {
-	q('UNLOCK TABLES',FUD_SQL_LNK);
-	
-	if (!isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", q_singleval("SELECT VERSION()"));
+	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
+		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
+		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", get_version());
 	}
 	
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
-		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", q_singleval("SELECT VERSION()"));
+		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
+		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", get_version());
 	}
+	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
+	q('UNLOCK TABLES', FUD_SQL_LNK);
 }
 
 function db_locked()
@@ -93,12 +103,12 @@ if (!defined('fud_query_stats')) {
 	if (!defined('debug')) {
 		function q($query)
 		{
-			$r = mysql_query($query, FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
+			$r = mysql_query($query, FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), get_version()));
 			return $r;
 		}
 		function uq($query)
 		{
-			$r = mysql_unbuffered_query($query,FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
+			$r = mysql_unbuffered_query($query,FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), get_version()));
 			return $r;
 		}
 		function last_query() {}
@@ -106,13 +116,13 @@ if (!defined('fud_query_stats')) {
 		function q($query) 
 		{
 			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
-			$r = mysql_query($query,FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
+			$r = mysql_query($query,FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), get_version()));
 			return $r;
 		}
 		function uq($query) 
 		{
 			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
-			$r = mysql_unbuffered_query($query,FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
+			$r = mysql_unbuffered_query($query,FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), get_version()));
 			return $r;
 		}
 		function last_query($filter='')
@@ -138,20 +148,18 @@ if (!defined('fud_query_stats')) {
 		}
 	
 		$s = gettimeofday();
-
-		$result = mysql_query($query, FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
-		
+		$result = mysql_query($query, FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), get_version()));
 		$e = gettimeofday(); 
-
-		echo '<pre>'.preg_replace('!\s+!', ' ', $query).'</pre>';
 
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
+
+		echo '<pre>'.preg_replace('!\s+!', ' ', $query).'</pre>';
 		echo '<pre>query count: '.$GLOBALS['__DB_INC_INTERNALS__']['query_count'].' time taken: '.$GLOBALS['__DB_INC_INTERNALS__']['last_time'].'</pre>';
 		echo '<pre>Affected rows: '.db_affected().'</pre>';
 		echo '<pre>total sql time: '.$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'].'</pre>';
-		
+
 		return $result; 
 	}
 	function uq($query)

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.14 2003/05/06 19:16:03 hackie Exp $
+*   $Id: admmlist.php,v 1.15 2003/05/07 12:16:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,12 +21,13 @@ function format_regex(&$regex)
 		return;
 	}
 
-	$s = strpos($regex, '/');
+	$s = strpos($regex, '/') + 1;
 	$e = strrpos($regex, '/');
-	
+
+	$ret = substr($regex, $e + 1);
 	$regex = substr($regex, $s, ($e - $s));
 
-	return substr($regex, $e + 1);
+	return $ret;	
 }
 	define('admin_form', 1);
 
@@ -94,7 +95,7 @@ function format_regex(&$regex)
 				WHERE n.id IS NULL AND (ml.id IS NULL OR ml.id='.(int)$edit.')
 				ORDER BY c.view_order, f.view_order');
 			while ($r = db_rowarr($c)) {			
-				echo '<option value="'.$r[0].'"'.($r[0] != $nntp_forum_id ? '' : ' selected').'>'.$r[1].'</option>';
+				echo '<option value="'.$r[0].'"'.($r[0] != $ml_forum_id ? '' : ' selected').'>'.$r[1].'</option>';
 			}
 			qf($r);
 		?>

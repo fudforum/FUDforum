@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.16 2003/05/05 13:12:03 hackie Exp $
+*   $Id: db.inc,v 1.17 2003/05/07 12:20:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,6 +47,14 @@ if (!defined('FUD_SQL_LNK')) {
 	define('__FUD_SQL_CONCAT__', 'textcat');
 }
 
+function get_version()
+{
+	if (!defined('__FUD_SQL_VERSION__')) {
+		define('__FUD_SQL_VERSION__', @current(pg_fetch_row(pg_query('SELECT VERSION()', FUD_SQL_LNK))));
+	}
+	return __FUD_SQL_VERSION__;
+}
+
 function yn($val) 
 {
 	return (strcasecmp($val, 'y') ? 'N' : 'Y');
@@ -75,7 +83,7 @@ function strnull($val)
 function db_lock($tables)
 {
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("Recursive Lock", "internal", "internal", q_singleval("SELECT VERSION()"));
+		fud_sql_error_handler("Recursive Lock", "internal", "internal", get_version());
 	} else {
 		q('BEGIN WORK');
 		q('LOCK TABLE '.str_replace(' WRITE', '', $tables).' IN ACCESS EXCLUSIVE MODE');
@@ -85,15 +93,17 @@ function db_lock($tables)
 
 function db_unlock()
 {
-	q('COMMIT WORK', FUD_SQL_LNK);
-	
-	if (!isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
-		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", q_singleval("SELECT VERSION()"));
+	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
+		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
+		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", get_version());
 	}
 	
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
-		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", q_singleval("SELECT VERSION()"));
+		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
+		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", get_version());
 	}
+	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
+	q('COMMIT WORK', FUD_SQL_LNK);
 }
 
 function db_locked()
@@ -115,13 +125,13 @@ if (!defined('fud_query_stats')) {
 	if (!defined('debug')) {
 		function q($q)
 		{
-			$GLOBALS['__FLPG__'] = pg_query(FUD_SQL_LNK, $q) or die (fud_sql_error_handler($q, pg_last_error(FUD_SQL_LNK), '', q_singleval('SELECT VERSION()')));
+			$GLOBALS['__FLPG__'] = pg_query(FUD_SQL_LNK, $q) or die (fud_sql_error_handler($q, pg_last_error(FUD_SQL_LNK), '', get_version()));
 			return $GLOBALS['__FLPG__'];
 		}
 	} else {
 		function q($q)
 		{
-			$GLOBALS['__FLPG__'] = pg_query(FUD_SQL_LNK, $q) or die (fud_sql_error_handler($q, pg_last_error(FUD_SQL_LNK), '', q_singleval('SELECT VERSION()')));
+			$GLOBALS['__FLPG__'] = pg_query(FUD_SQL_LNK, $q) or die (fud_sql_error_handler($q, pg_last_error(FUD_SQL_LNK), '', get_version()));
 			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
 			return $GLOBALS['__FLPG__'];
 		}
@@ -140,13 +150,14 @@ if (!defined('fud_query_stats')) {
 		}
 	
 		$s = gettimeofday();
-		$GLOBALS['__FLPG__'] = pg_query(FUD_SQL_LNK, $q) or die (fud_sql_error_handler($q, pg_last_error(FUD_SQL_LNK), '', q_singleval('SELECT VERSION()')));
+		$GLOBALS['__FLPG__'] = pg_query(FUD_SQL_LNK, $q) or die (fud_sql_error_handler($q, pg_last_error(FUD_SQL_LNK), '', get_version()));
 		$e = gettimeofday(); 
 	
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));;
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
-	
+
+		echo '<pre>'.preg_replace('!\s+!', ' ', $q).'</pre>';
 		echo '<pre>query count: '.$GLOBALS['__DB_INC_INTERNALS__']['query_count'].' time taken: '.$GLOBALS['__DB_INC_INTERNALS__']['last_time'].'</pre>';
 		echo '<pre>Affected rows: '.db_affected().'</pre>';
 		echo '<pre>total sql time: '.$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'].'</pre>';
