@@ -180,7 +180,14 @@ function window_open(url,winName,width,height)
 
 function layerVis(layer, on)
 {
-	document.getElementById(layer).style.display = on ? 'block' : 'none';
+	thisDiv = document.getElementById(layer);
+	if (thisDiv) {
+		if (thisDiv.style.display == "none") {
+			thisDiv.style.display = "block";
+		} else {
+			thisDiv.style.display = "none";
+		}
+	}
 }
 
 function fud_msg_focus(mid_hash)
