@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.16 2003/05/05 14:05:26 hackie Exp $
+*   $Id: nntp.inc,v 1.17 2003/05/05 20:32:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,16 +17,16 @@
 
 class fud_nntp
 {
-	var $server=NULL, $port=119, $user=NULL, $pass=NULL, $timeout=25, $auth_mode=NULL, $newsgroup=NULL;
-	var $error=NULL, $lrc=NULL;
-	var $fs=NULL;
-	var $group_na=NULL, $group_first=NULL, $group_last=NULL, $create_users=NULL;
+	var $server, $port=119, $user, $pass, $timeout=25, $auth_mode, $newsgroup;
+	var $error, $lrc;
+	var $fs;
+	var $group_na, $group_first, $group_last, $create_users;
 	// Per Message Varaibles
-	var $headers=NULL, $body=NULL;
-	var $raw_msg=NULL;
-	var $msg_id=NULL, $reply_to=NULL, $reply_to_msg_id=NULL, $from_email=NULL, $from_name=NULL, $ip=NULL;
-	var $user_id=NULL;
-	var $attachments=NULL;
+	var $headers, $body;
+	var $raw_msg;
+	var $msg_id, $reply_to, $reply_to_msg_id, $from_email, $from_name, $ip, $thread_id;
+	var $user_id;
+	var $attachments;
 	
 	function get_return_code()
 	{
@@ -424,22 +424,25 @@ class fud_nntp
 	
 	function get_fud_reply_id($complex, $forum_id)
 	{
-		foreach ($this->reply_to_msg_id as $reply_id) {
-			if (($r = q_singleval("SELECT id, thread_id FROM ".sql_p."msg WHERE mlist_msg_id='".addslashes($reply_id)."'"))) {
-				break;
+		if (!empty($this->reply_to_msg_id)) {
+			foreach ($this->reply_to_msg_id as $reply_id) {
+				if (($r = db_saq("SELECT id, thread_id FROM ".sql_p."msg WHERE mlist_msg_id='".addslashes($reply_id)."'"))) {
+					break;
+				}
 			}
 		}
-		if (!$this->reply_to && empty($this->reply_to_msg_id) && $complex == 'Y') {
+		if (!$this->reply_to && $complex == 'Y') {
 			// This is slow, but only way to match 'rouge' replies in the event no reference fields are avaliable
 			if (preg_match('!(Re|Wa)\s*:(.*)$!i', $this->subject, $matches)) {
-				$r = q_singleval('SELECT m.id, m.thread_id FROM '.sql_p.'msg m INNER JOIN '.sql_p.'thread t ON m.thread_id=t.id WHERE t.forum_id='.$forum_id.' AND m.subject='.strnull(addslashes(trim($matches[2]))));
+				$r = db_saq('SELECT m.id, m.thread_id FROM '.sql_p.'msg m INNER JOIN '.sql_p.'thread t ON m.thread_id=t.id WHERE t.forum_id='.$forum_id.' AND m.subject='.strnull(addslashes(trim($matches[2]))));
 			}
 		}
 
-		if (!$r) {
+		if (empty($r)) {
 			$this->reply_to = $this->thread_id = $this->reply_to_msg_id = '';
 		} else {
-			list($this->reply_to, $this->thread_id) = each($r);
+			$this->reply_to = $r[0];
+			$this->thread_id = $r[1];
 		}
 
 		return $this->reply_to;
@@ -502,19 +505,16 @@ class fud_nntp
 			$msg_post->smiley_disabled = 'Y';
 			$msg_post->poll_id = 0;
 			$msg_post->show_sig = 'N';
-	
-			if (!$this->get_fud_reply_id('Y', $frm->id)) {
-				$msg_post->add_thread($frm->id, FALSE);
-				$thr = new fud_thread;
-				$thr->get_by_id($msg_post->thread_id);
-			} else {
-				$msg_post->thread_id = $this->thread_id;
+
+			/* try to determine whether this message is a reply or a new thread */
+			if ($this->get_fud_reply_id('Y', $frm->id)) {
 				$msg_post->reply_to = $this->reply_to;
-				$msg_post->add($frm->id, FALSE);
+				$msg_post->thread_id = $this->thread_id;
 			}
-	
+			$msg_post->add($frm->id, $frm->message_threshold, 'N', 'N', 'N', FALSE);
+
 			// Handle File Attachments
-			if ($nntp_adm->allow_nntp_html == 'Y' && isset($this->attachments) && is_array($this->attachments)) {
+			if (isset($this->attachments) && is_array($this->attachments)) {
 				foreach($this->attachments as $key => $val) {
 					$tmpfname = tempnam($GLOBALS['TMP'], 'FUDf_');
 					$fp = fopen($tmpfname, 'wb');
@@ -528,7 +528,7 @@ class fud_nntp
 				attach_finalize($attach_list, $msg_post->id);
 			}
 			if ($nntp_adm->nntp_post_apr == 'N') {
-				$msg_post->approve(NULL, TRUE);	
+				fud_msg_edit::approve($msg_post->id, TRUE);	
 			}
 			unset($msg_post);
 		}	
@@ -628,6 +628,8 @@ class fud_nntp
 
 	function post_message($subject, $body, $from, $forum_msg_id, $reply_to='', $attch='')
 	{
+		fud_use('drawmsg.inc');
+	
 		if (!$this->connect()) {
 			$this->exit_handler();
 		}
