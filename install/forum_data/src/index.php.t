@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.13 2002/08/05 00:47:55 hackie Exp $
+*   $Id: index.php.t,v 1.14 2002/08/09 12:35:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -208,8 +208,7 @@ function index_view_perms($usr_id)
 			$ma = explode("\n\n", $data->moderators);
 			$moderators = '';
 			foreach($ma as $v) { 
-				list($mod_id,$mod_name) = explode("\n", $v);
-				$mod_link = '{ROOT}?t=usrinfo&amp;id='.$mod_id.'&amp;'._rsid;
+				$ma_d = explode("\n", $v);
 				$moderators .= '{TEMPLATE: profile_link_mod}';
 			}
 		}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.7 2002/08/05 00:47:55 hackie Exp $
+*   $Id: thread.php.t,v 1.8 2002/08/09 12:35:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -80,11 +80,12 @@
 
 	$result = q('SELECT {SQL_TABLE_PREFIX}thread.*, '.$lread_s.' {SQL_TABLE_PREFIX}msg.attach_cnt, {SQL_TABLE_PREFIX}msg.poll_id, {SQL_TABLE_PREFIX}msg.subject, {SQL_TABLE_PREFIX}users.alias AS login, {SQL_TABLE_PREFIX}users.id AS starter_id, {SQL_TABLE_PREFIX}msg.icon AS th_icon, fud_users_2.id AS last_poster_id, fud_users_2.alias AS last_poster_login, fud_msg_2.id AS last_post_id, fud_msg_2.post_stamp AS last_post_stamp, {SQL_TABLE_PREFIX}msg.post_stamp AS creation_date FROM {SQL_TABLE_PREFIX}thread_view INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread_view.thread_id={SQL_TABLE_PREFIX}thread.id LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}users.id = {SQL_TABLE_PREFIX}msg.poster_id LEFT JOIN {SQL_TABLE_PREFIX}msg AS fud_msg_2 ON fud_msg_2.id={SQL_TABLE_PREFIX}thread.last_post_id LEFT JOIN {SQL_TABLE_PREFIX}users AS fud_users_2 ON fud_users_2.id=fud_msg_2.poster_id '.$lread_f.' WHERE {SQL_TABLE_PREFIX}thread_view.forum_id='.$frm->id.' AND {SQL_TABLE_PREFIX}thread_view.page='.(floor($start/$ppg)+1).' ORDER BY {SQL_TABLE_PREFIX}thread_view.pos ASC');
 
-	if ( !db_count($result) ) {
+	$MOVE=$DEL=null;
+
+	if ( !db_count($result) ) 
 		$no_messages = '{TEMPLATE: no_messages}';
-	}
 	else {
-		if ( $MOD || is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'MOVE') || is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'DEL') ) $admin_heading_row = '{TEMPLATE: admin_heading_row}';
+		if ( $MOD || ($MOVE=is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'MOVE')) || ($DEL=is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'DEL')) ) $admin_heading_row = '{TEMPLATE: admin_heading_row}';
 	
 	$POSTS_PER_PAGE = ($usr->posts_ppg)?$usr->posts_ppg:$GLOBALS['POSTS_PER_PAGE'];
 	
@@ -168,11 +169,11 @@
 
 		$thread_first_post = '{TEMPLATE: thread_first_post}';
 		
-		if( $MOD || (is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'DEL') && is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'MOVE')) ) 
+		if( $MOD || ($MOVE && $DEL) ) 
 			$admin_control_row = '{TEMPLATE: admin_control_row_all}';
-		else if ( is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'MOVE') ) 
+		else if ( $MOVE ) 
 			$admin_control_row = '{TEMPLATE: admin_control_row_move}';
-		else if ( is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'DEL') ) 
+		else if ( $DEL ) 
 			$admin_control_row = '{TEMPLATE: admin_control_row_del}';	
 
 		$thread_list_table_data .= '{TEMPLATE: thread_row}';
