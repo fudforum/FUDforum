@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.12 2002/11/24 22:41:02 hackie Exp $
+*   $Id: finduser.php.t,v 1.13 2002/11/25 18:52:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 	{PRE_HTML_PHP}	
 	
-	if ($MEMBER_SEARCH_ENABLED != 'Y' || $usr->is_mod != 'A') {
+	if ($MEMBER_SEARCH_ENABLED != 'Y' && $usr->is_mod != 'A') {
 		std_error('disabled');
 		exit();
 	}
