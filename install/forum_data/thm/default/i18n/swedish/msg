@@ -102,7 +102,7 @@ on:				P&Aring;
 page_timings:			Total tid f&ouml;r att skapa sidan: {VAR: page_gen_time} sekunder
 fud_query_stats:		MySQL-s&ouml;kningar tog {VAR: ttl_time} sekunder<br>
 pm:				Privata meddelanden
-poll:				Unders&ouml;kning:
+poll:				Gallup:
 post_count:			Antal inl&auml;gg {VAR: u->posted_msg_count}
 post_count_l:			Antal inl&auml;gg:
 poster:				Av
@@ -186,7 +186,7 @@ view_forum:			Visa forum
 view_last_msg:			Visa det sista inl&auml;gget i det h&auml;r forumet
 view_results:			Visa resultat
 view_thread:			Visa tr&aring;d
-views:				Visningar
+views:				Vyer
 vote:				{VAR: thread->vote_count()} r&ouml;ster
 vote_button:			R&ouml;sta
 vote_for_thread:		R&ouml;sta
@@ -251,8 +251,8 @@ month_11:			november
 month_12:			december
 male:				man
 female:				kvinna
-register_tree_view:		Tr&aring;dad visning
-register_flat_view:		Platt visning
+register_tree_view:		Tr&aring;dad vy
+register_flat_view:		Platt vy
 use_forum_default:		Anv&auml;nd forumets inst&auml;llning
 finduser_user_info:		Anv&auml;ndarinformation
 finduser_by_login:		Enligt anv&auml;ndarnamn:
@@ -318,7 +318,7 @@ register_sig:			Signatur:
 register_sig_desc:		Valbar signatur som kan bifogas l&auml;ngst ner i dina inl&auml;gg.
 register_reset:			&Aring;terst&auml;ll
 register_style:			Stil:
-register_def_thread_view:	F&ouml;rvald visning av tr&aring;d:
+register_def_thread_view:	F&ouml;rvald vy av tr&aring;d:
 register_msg_per_page:		Antal inl&auml;gg per sida:
 register_show_sig:		Visa signaturer:
 register_show_sig_desc:		Du kan v&auml;lja om du vill se de andra medlemmarnas signaturer eller inte
@@ -357,8 +357,8 @@ post_preview:			F&ouml;rhandsgranska inl&auml;gget
 post_logedin_user:		Inloggad medlem:
 post_logout:			logga ut
 post_passwd:			L&ouml;senord f&ouml;r att skriva inl&auml;gg:
-post_poll:			Unders&ouml;kning:
-post_create_poll:		G&Ouml;R EN UNDERS&Ouml;KNING
+post_poll:			Gallup:
+post_create_poll:		G&Ouml;R EN GALLUP
 post_poll_delete:		RADERA
 post_poll_edit:			EDITERA
 post_mod_opt:			Moderatoralternativ:
@@ -511,14 +511,14 @@ ppost_send:			S&auml;nd
 ppost_save_draft:		Spara utkast
 poll_blank_option:		Du kan inte l&auml;gga till ett tomt alternativ.
 poll_del_conf:			Tryck OK om du vill radera det h&auml;r alternativet
-poll_name:			&Auml;mne f&ouml;r unders&ouml;kningen:
+poll_name:			&Auml;mne f&ouml;r gallupen:
 poll_timelimit:			Tidsgr&auml;ns
 poll_maxiumvotes:		Maximalt antal r&ouml;ster
 poll_create:			Skapa
 poll_update:			Uppdatera
 poll_disablesmilies:		St&auml;ng av smilisar
-poll_create_poll:		G&ouml;r en unders&ouml;kning
-poll_update_poll:		Uppdatera unders&ouml;kning
+poll_create_poll:		G&ouml;r en gallup
+poll_update_poll:		Uppdatera gallup
 poll_delete:			Radera
 poll_updateoption:		Uppdatera alternativ
 poll_addoption:			L&auml;gg till alternativ
@@ -676,7 +676,7 @@ th_err_invid_msg:		Du har f&ouml;ljt en felaktig l&auml;nk, tr&aring;den du f&ou
 thread_err_onlyregview_title:	Endast registrerade medlemmar kan l&auml;sa det h&auml;r forumet
 thread_err_onlyregview_msg:	F&ouml;r att kunna l&auml;sa det h&auml;r forumet m&aring;ste du <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">logga in</a>.
 thread_update:			L&auml;ser forumet <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			L&auml;ser tr&aring;den (tr&aring;dad visning) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
+tree_update:			L&auml;ser tr&aring;den (tr&aring;dad vy) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
 userinfo_update:		Ser p&aring; <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: user_info}s</a> profil
 ERR_login_ttl:			FEL: Du &auml;r inte inloggad
 ERR_login_msg:			Du &auml;r inte inloggad, v&auml;nligen logga in<br><br>Om du vill registrera dig kan du g&aring; till <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformul&auml;ret</a><br>Om du vill logga in kan du g&aring; till <a href="{ROOT}?t=login&amp;{DEF: _rsid}">inloggningsformul&auml;ret</a>
@@ -704,7 +704,7 @@ finduser_title:			S&ouml;k efter medlemmar
 help_title:			Hjälp
 login_title:			Logga in
 msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
-poll_title:			Unders&ouml;kningseditor
+poll_title:			Gallupeditor
 register_title:			Registrering
 reset_title:			&Aring;terst&auml;ll l&ouml;senord
 rpasswd_title:			&Auml;ndra l&ouml;senord
@@ -774,7 +774,7 @@ p_REPLY:			Svara
 p_EDIT:				Editera
 p_DEL:				Radera
 p_STICKY:			Klibbiga inl&auml;gg
-p_POLL:				G&ouml;r en unders&ouml;kning
+p_POLL:				G&ouml;r en gallup
 p_FILE:				Bifoga filer
 p_VOTE:				R&ouml;sta
 p_RATE:				Bed&ouml;m tr&aring;dar
@@ -868,46 +868,48 @@ msg_err_nosuchmsg_title:	Fel
 imsg_err_message_title:		Ogiltigt inl&auml;gg
 imsg_err_message_msg:		Inl&auml;gget du f&ouml;rs&ouml;ker visa finns inte.
 poll_edit: 			Editera
-unspecified:			UNSPECIFIED
-register_err_not_valid_img:	The specified url does not contain a valid image
-pmsg_recepient:			Recepient
-register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
+unspecified:			OSPECIFICERAD
+register_err_not_valid_img:	Den valda url:en inneh&aring;ller inte en giltig bild
+pmsg_recepient:			Mottagare
+register_err_taken_alias:	Aliasen du f&ouml;rs&ouml;ker anv&auml;nda &auml;r redan upptagen, vauml;nligen v&auml;lj en annan.
 register_alias:			Alias
-register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.
-register_allow_pm_msg:		Allow Private Messages	
-register_allow_pm_msg_desc:	Allow other users to send you private messages via FUDforum.
-postcheck_pm_disabled:		You cannot send a private message to "{VAR-HTML: v}", because this person is not accepting private messages.
-polllist_vote:			Vote
-polllist_view_results:		View Results
-polllist_name:			Poll Name
-polllist_date:			Created On
-polllist_owner:			Created By
-polllist_votes:			Total Votes
-polllist_action:		Action
-polllist_update:		<a href="{ROOT}?t=polllist">Reviewing Avaliable Polls</a>
-userinfo_polls:			Polls:
-show_pollist:			Show Polls
-search_and:			AND
-search_or:			OR
-search_desc_order:		Descending Order		
-search_asc_order:		Ascending Order
-search_logic:			Search Logic:
-search_sorting:			Sort Results By Date In:post_proceed:			Proceed
-post_moderated_forum:		You have made a post in a moderated forum, which means your post will not be made visible on the forum until it is approved by one of the forum&#39;s moderator(s) and/or administrator(s).
-post_moderated_forum_ttl:	Moderated Forum Notice
-post_proceed:			Proceed
-buddy_list_bday:		Today {VAR: obj->login} turns {VAR: age}
-email_warning_msg:		If you change your current email address, your account will be marked uncofirmed until you confirm it via e-mail.
-register_show_im:		Show IM indicators
-register_show_im_desc:		Whether or not to show IM indicators of the author beside their messages.
-unread_message:			Unread Message
-read_message:			Read Messagethreadt_more:			&lt;more&gt;
-threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
-threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
-threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-threadt_more:			&lt;more&gt;
-register_msg_tree_view:		Flat thread listing/Tree message listing
-register_tree_msg_view:		Tree thread listing/Flat message listing 
-mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation
-err_inc_query_err:		SQL Error has occured, please contact the <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log
-spell_alts:			no alternatives
+register_alias_desc:		Om du vill kallas n&aring;got annat &auml;n ditt anv&auml;ndarnamn kan du skriva in ditt smeknamn h&auml;r.
+register_allow_pm_msg:		Till&aring;t privata meddelanden
+register_allow_pm_msg_desc:	Till&aring;t att andra anv&auml;ndare skickar privata meddelanden &aring;t dig via FUDforum.
+postcheck_pm_disabled:		Du kan inte skicka ett privat meddelande &aring;t "{VAR-HTML: v}" eftersom han/hon inte tar emot privata meddelanden.
+polllist_vote:			R&ouml;sta
+polllist_view_results:		Visa resultat
+polllist_name:			Gallupens namn
+polllist_date:			Datum
+polllist_owner:			Gjord av
+polllist_votes:			Totalt antal r&ouml;ster
+polllist_action:		Aktion
+polllist_update:		<a href="{ROOT}?t=polllist">Tittar p&aring; tillg&auml;ngliga gallupar</a>
+userinfo_polls:			Gallupar:
+show_pollist:			Visa gallupar
+search_and:			OCH
+search_or:			ELLER
+search_desc_order:		Fallande ordning
+search_asc_order:		Stigande ordning
+search_logic:			S&ouml;klogik:
+search_sorting:			Sortera resultaten enligt datum i:
+post_proceed:			G&aring; vidare
+post_moderated_forum:		Du har skrivit ett inl&auml;gg i ett modererat forum, vilket inneb&auml;r att inl&auml;gget syns f&ouml;rst n&auml;r forumets moderator och/eller administrator har godk&auml;nt det.
+post_moderated_forum_ttl:	Meddelande om modererat forum
+post_proceed:			G&aring; vidare
+buddy_list_bday:		Idag fyller {VAR: obj->login} {VAR: age} år
+email_warning_msg:		Om du &auml;ndrar din nuvarande e-postadress kommer ditt anv&auml;ndarkonto att r&auml;knas som obekr&auml;ftat tills du bekr&auml;ftar den nya e-postadressen.
+register_show_im:		Visa IM-indikatorer
+register_show_im_desc:		Avg&ouml;r om författarens IM-indikatorer syns bredvid inl&auml;gget.
+unread_message:			Ol&auml;st inl&auml;gg
+read_message:			L&auml;s inl&auml;gg
+threadt_more:			&lt;mer&gt;
+threadt_disabled_ttl:		Tr&aring;dad vy av tr&aring;darna &auml;r inte tillg&auml;nglig.
+threadt_disabled_desc:		Administratorn har st&auml;ngt av den tr&aring;dade vyn av tr&aring;darna, anv&auml;nd den platta vyn ist&auml;llet.
+threadt_update:			L&auml;ser forumet (tr&aring;dad vy) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+threadt_more:			&lt;mer&gt;
+register_msg_tree_view:		Platt tr&aring;dvy/Tr&aring;dad inl&auml;ggsvy
+register_tree_msg_view:		Tr&aring;dad tr&aring;dvy/Platt inl&auml;ggsvy
+mmod_delete_cofirm_ttl:		Bekr&auml;fta radering av tr&aring;d/inl&auml;gg
+err_inc_query_err:		Ett SQL-fel har uppst&aring;tt, v&auml;nligen kontakta forumets <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">administrator</a> och be dem kontrollera forumets SQL-loggfil.
+spell_alts:			inga alternativ
