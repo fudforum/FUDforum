@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.4 2002/06/26 20:01:57 hackie Exp $
+*   $Id: compiler.inc,v 1.5 2002/06/26 22:01:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,10 +31,14 @@ function resolve_refs($file_name)
 	$file2 = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
 	
 	if ( is_file($file1) ) {
+		if ( defined('debug') ) 
+			echo "opening $file1 to resolve refs<br>\n";
 		$str = filetomem($file1);
 		$GLOBALS['CURFILE'] = $file1;
 	}
 	else if ( !is_file($file2) ) {
+		if ( defined('debug') ) 
+			echo "opening $file1 to resolve refs<br>\n";
 		$str = filetomem($file2);
 		$GLOBALS['CURFILE'] = $file2;
 	}
@@ -222,7 +226,10 @@ function cleanup_php($s)
 function compile_file($source)
 {
 	if ( empty($source) ) exit("No file passed to compile, fatal error");
-	$file_data = filetomem(realpath($GLOBALS['DATA_DIR'].'src/'.$source));
+	$fl = $GLOBALS['DATA_DIR'].'src/'.$source;
+	if ( defined('debug') ) 
+			echo "opening $fl to compile ($source)<br>\n";
+	$file_data = filetomem($fl);
 	if( $dest[0] == '@' || $dest[0] == '!' ) $dest = substr($dest,1);
 	
 	if( strpos($file_data, '{TEMPLATE:') === false ) {
@@ -454,6 +461,8 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	
 	$charset = ( is_file($file1) ) ? $file1 : $file2;
 	
+	if ( defined('debug') )
+		echo "opening charset as $charset<br>\n";
 	$GLOBALS['char_set'] = trim(filetomem($charset));
 
 	$prim_msg_file = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/i18n/'.$GLOBALS['__COMPILER__']['lang'].'/msg';
@@ -558,6 +567,8 @@ function copyhelp($thm)
 	readdir($dp); readdir($dp);
 	while ( $de = readdir($dp) ) {
 		if ( !is_file($de) || substr($de, -4) != '.hlp' ) continue;
+		if ( defined('debug') )
+			echo "opening help as $de from ".getcwd()."<br>\n";
 		$str = filetomem($de);
 		$str = str_replace('{ROOT}', $GLOBALS['__COMPILER__']['ROOT'], $str);
 		$fp = fopen($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help/'.$de, 'wb');
