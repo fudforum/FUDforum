@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.86 2003/11/09 23:54:24 hackie Exp $
+* $Id: users.inc.t,v 1.87 2003/11/11 11:26:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -685,7 +685,7 @@ function sq_check($post, $last_visit, $uid=__fud_real_user__)
 		$sq = '';
 	}
 
-	if ($sq != $last_visit) {
+	if ($sq != $last_visit && ($sq + 600) < $last_visit) {
 		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='.$last_visit.' WHERE id='.$uid);
 		if ($GLOBALS['FUD_OPT_2'] & 32768) {
 			header('Location: {ROOT}?SQ=' . $last_visit);
