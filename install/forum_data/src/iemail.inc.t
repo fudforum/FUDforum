@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.28 2004/03/31 16:28:24 hackie Exp $
+* $Id: iemail.inc.t,v 1.29 2004/04/05 14:37:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,12 +19,8 @@ function encode_subject($text)
 {
 	if (preg_match('![\x7f-\xff]!', $text)) {
 		$charset = '{TEMPLATE: iemail_CHARSET}';
-		$text = base64_encode($text);
-
-		$len = strlen($charset) + strlen("=?{$charset}?B??=");
-		
-		$text = chunk_split($text, 73 - $len, "?=\r\n  =?{$charset}?B?");
-		$text = "=?{$charset}?B?" . substr($text, 0, strlen("=?{$charset}?B?") * -1);
+		$text = "=?{$charset}?B?" . rtrim(chunk_split(base64_encode($text))) . "?=";
+		$text = str_replace("\r\n", "\r\n  ", $text);
 	}
 
 	return $text;
