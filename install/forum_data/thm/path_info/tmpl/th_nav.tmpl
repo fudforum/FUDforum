@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th_nav.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: th_nav.tmpl,v 1.2 2003/05/30 17:27:53 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -17,9 +17,9 @@
 {PHP_FILE: input: th_nav.inc.t; output: th_nav.inc;}
 
 {SECTION: next_thread_link}
-<tr><td class="GenText" align=right>{MSG: next_thread}</td><td class="GenText" align=left><a class="GenLink" href="{ROOT}?t={VAR: _GET['t']}&amp;goto={VAR: n[0]}&amp;{DEF: _rsid}">{VAR: n[1]}</a></td></tr>
+<tr><td class="GenText" align=right>{MSG: next_thread}</td><td class="GenText" align=left><a class="GenLink" href="{ROOT}/m/{VAR: n[0]}/{DEF: _rsid}">{VAR: n[1]}</a></td></tr>
 {SECTION: END}
 
 {SECTION: prev_thread_link}
-<tr><td align=right class="GenText">{MSG: prev_thread}</td><td class="GenText" align=left><a href="{ROOT}?t={VAR: _GET['t']}&amp;goto={VAR: p[0]}&amp;{DEF: _rsid}" class="GenLink">{VAR: p[1]}</a></td></tr>
+<tr><td align=right class="GenText">{MSG: prev_thread}</td><td class="GenText" align=left><a href="{ROOT}/m/{VAR: p[0]}/{DEF: _rsid}" class="GenLink">{VAR: p[1]}</a></td></tr>
 {SECTION: END}
