@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.27 2003/06/03 13:32:09 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.28 2003/06/11 14:03:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -472,7 +472,7 @@ function html_to_tags($fudml)
 	reverse_nl2br($fudml);
 
 	while (preg_match('!<span name="php">(.*?)</span>!is', $fudml, $res)) {
-		$fudml = str_replace('<span name="php">' . $res[1] . '</span>', "[php]\n".trim(html_entity_decode(strip_tags($res[1]))) . "\n[/php]", $fudml);
+		$fudml = str_replace($res[0], "[php]\n".trim(html_entity_decode(strip_tags($res[1]))) . "\n[/php]", $fudml);
 	}
 
 	if( preg_match('!<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">{TEMPLATE: post_proc_reveal_spoiler}</a><div align="left" id=".*?" style="visibility: hidden;">!is', $fudml) ) {	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: wordwrap.inc.t,v 1.9 2003/06/09 14:19:40 hackie Exp $
+*   $Id: wordwrap.inc.t,v 1.10 2003/06/11 14:03:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,14 +45,17 @@ function fud_wrap_tok($data)
 					}
 					$s = substr($data, $i, ($p - $i) + 1);
 					if ($s == '<pre>') {
-						$s = substr($data, $i, ($p = (strpos($data, '</pre>', $p) + 5)));
+						$s = substr($data, $i, ($p = (strpos($data, '</pre>', $p) + 6)) - $i);
+						--$p;
 					} else if ($s == '<span name="php">') {
-						$s = substr($data, $i, ($p = (strpos($data, '</span>', $p) + 6)));
+						$s = substr($data, $i, ($p = (strpos($data, '</span>', $p) + 7)) - $i);
+						--$p;
 					}
 
 					$wa[] = array('word' => $s);
 					
-					$i=$p;
+					$i = $p;
+					$j = 0;
 				} else {
 					$str .= $data[$i];
 					$j++;
