@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.11 2003/08/05 23:36:59 hackie Exp $
+*   $Id: getfile.php.t,v 1.12 2003/09/18 23:16:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,6 +50,11 @@
 		if ($usr->is_mod != 'A' && $r[4] != _uid) {
 			std_error('access');
 		}
+	}
+
+	if ($DWLND_REF_CHK == 'Y' && !empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $WWW_ROOT) === false) {
+		header("HTTP/1.0 404 Not Found");
+		exit;
 	}
 
 	reverse_fmt($r[1]);

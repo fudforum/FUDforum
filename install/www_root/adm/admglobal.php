@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.38 2003/09/18 20:46:22 hackie Exp $
+*   $Id: admglobal.php,v 1.39 2003/09/18 23:16:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -299,6 +299,7 @@ function get_max_upload_size()
 	print_string_field('Max Message Preview Length', 'MNAV_MAX_LEN', 1);
 	print_yn_field('Show PDF Generation Link', 'SHOW_PDF_LINK');
 	print_yn_field('Show Syndication Link', 'SHOW_XML_LINK');
+	print_yn_field('Attachment Referrer Check', 'DWLND_REF_CHK');
 
 	if (function_exists('ob_gzhandler')) {
 		print_yn_field('Use PHP compression', 'PHP_COMPRESSION_ENABLE');

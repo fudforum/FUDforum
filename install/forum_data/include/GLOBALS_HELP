@@ -403,3 +403,8 @@ SHOW_PDF_LINK
 Whether or not to show a syndication link, linking to help on how get XML/RDF
 feeds of forum's data.
 
+DWLND_REF_CHK
+Check HTTP_REFERER of users before allowing users to download file attachments.
+If enabled, users who's HTTP_REFERER does not contain WWW_ROOT will be prevented
+from downloading the attachments.
+

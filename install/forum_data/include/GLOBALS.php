@@ -142,7 +142,7 @@
 	$MNAV_MAX_LEN		= "256";	/* characters */
 	$SHOW_XML_LINK		= "Y";		/* boolean */
 	$SHOW_PDF_LINK		= "Y";		/* boolean */
-
+	$DWLND_REF_CHK		= "N";		/* boolean */
 /* 
  * DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING
  */
