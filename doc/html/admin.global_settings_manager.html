@@ -125,7 +125,7 @@
 						This option does have it's drawbacks, on forked web servers such as Apache, every Apache child 
 						will create a persistent socket for itself. This can potentially exhaust number of allowed database 
 						connections if the number of Apache children with open connections to database exceed the allowed number
-						of database connections, thus preventing threads without an open connection to connect to the database
+						of database connections, thus preventing topics without an open connection to connect to the database
 						server.
 					</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.pm.options"></a>Private Messaging</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PM_ENABLED"></a>Allow Private Messaging</h5></div></div><p>
 						Whether or not forum members can send private messages to one another.
@@ -229,7 +229,45 @@
 					</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
 						This option will only work if your PHP has the pspell module enabled.
 						</p></div><p>	
-				</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.gen.options"></a>General Settings</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MAX_SMILIES_SHOWN"></a>Maximum Smilies Shown</h5></div></div><p>
+				</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.email.options"></a>Email Settings</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ALLOW_EMAIL"></a>Allow E-mail</h5></div></div><p>
+						Allow the users to send e-mails to other forum members using the forum's internal e-mail client.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.USE_SMTP"></a>Use STMP To Send Email</h5></div></div><p>
+						Whether or not to use FUDforum smtp gateway to send email instead of standard 
+						PHP mail() function. 
+						
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+							Not recommended, unless you need SMTP AUTH or wish to use 
+							alternate SMTP server on UNIX systems.
+						</p></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SMTP_SERVER"></a>SMTP Server</h5></div></div><p>
+						The ip or host name of the SMTP server to use when sending out emails via SMTP.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SMTP_TIMEOUT"></a>SMTP Server Timeout</h5></div></div><p>
+						The number of seconds to wait for the SMTP server to respond to a request.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SMTP_LOGIN"></a>STMP Server Login</h5></div></div><p>
+						If your SMTP server requires SMTP Authentication, use this field to specify
+						the login name that will be used when accessing the SMTP server.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SMTP_PASSWORD"></a>SMTP Server Password</h5></div></div><p>
+						If your SMTP server requires SMTP Authentication, use this field to specify
+						the password that will be passed to the SMTP server.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.EMAIL_CONFIRMATION"></a>E-mail Confirmation</h5></div></div><p>
+						If enabled each new registration will need to be confirmed via email. A special URL will be sent
+						to the e-mail specified by the user during registration, which once accessed will activate their account.
+					</p><p>
+						Unconfirmed accounts will be removed after a set amount of days as defined by the 
+						<a href="admin.global_settings_manager.html#global.option.UNCONF_USER_EXPIRY" title="Unconfirmed User Expiry">UNCONF_USER_EXPIRY</a> option.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ADMIN_EMAIL"></a>Administrator E-Mail</h5></div></div><p>
+						The e-mail address of the administrator.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.NOTIFY_FROM"></a>Notify From</h5></div></div><p>
+						All of the system e-mails sent from the forum, such as e-mail post notification, registration 
+						confirmation etc... will come from this address.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.NOTIFY_WITH_BODY"></a>Notify W/Body</h5></div></div><p>
+						If enabled, then e-mail notifications will include the complete HTML body of
+						the message, allowing the user to read the message's text via their e-mail client
+						as well as reply to the message by clicking on the reply/quote buttons.
+					</p><p>
+						In the event the user's e-mail client does not support HTML, the e-mail contains
+						a text version of the message as well. 
+					</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.gen.options"></a>General Settings</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MAX_SMILIES_SHOWN"></a>Maximum Smilies Shown</h5></div></div><p>
 						The maximum number of smilies/emoticons to show shortcuts for on the message posting forms.
 						To see the rest the user will need to click on the &quot;list all smilies&quot; link.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PUBLIC_RESOLVE_HOST"></a>Public Host Resolving</h5></div></div><p>
@@ -256,11 +294,6 @@
 						This option requires that the <a href="admin.global_settings_manager.html#global.option.LOGEDIN_LIST" title="Logged In Users List Enabled">Logged in List</a> be enabled.
 						</p></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ONLINE_OFFLINE_STATUS"></a>Online/Offline Status Indicator</h5></div></div><p>
 						If enabled, this option will indicate whether a user is online or offline beside all their message.	
-					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ADMIN_EMAIL"></a>Administrator E-Mail</h5></div></div><p>
-						The e-mail address of the administrator.
-					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.NOTIFY_FROM"></a>Notify From</h5></div></div><p>
-						All of the system e-mails sent from the forum, such as e-mail post notification, registration 
-						confirmation etc... will come from this address.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.USE_ALIASES"></a>Use Aliases</h5></div></div><p>
 						If enabled, each user would have the ability to specify a nick name other then their login name,
 						the specified nick name, would then be displayed on the forum instead of that user's login name.
@@ -272,13 +305,6 @@
 						By default this option is disabled, because a left over session on a computer could allow another
 						person with access to that computer use the forum under the logged in person's account. Normally, 
 						when a user logs in, all of that user's other sessions are immediately invalidated by this action.
-					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.NOTIFY_WITH_BODY"></a>Notify W/Body</h5></div></div><p>
-						If enabled, then e-mail notifications will include the complete HTML body of
-						the message, allowing the user to read the message's text via their e-mail client
-						as well as reply to the message by clicking on the reply/quote buttons.
-					</p><p>
-						In the event the user's e-mail client does not support HTML, the e-mail contains
-						a text version of the message as well. 
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.COPPA"></a>COPPA</h5></div></div><p>
 						If enabled the users, will be required to indicate whether or not they are older then 13 years
 						of age before registration. If they are not, then their legal guardians will be required to confirm the 
@@ -288,9 +314,12 @@
 						Children's Online Privacy Protection Act of 1998 (COPPA)
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.POSTS_PER_PAGE"></a>Posts Per Page</h5></div></div><p>
 						How many messages to display per page.				
-					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.THREADS_PER_PAGE"></a>Threads Per Page</h5></div></div><p>
-						Indicates how many threads to show per page.
-					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.DEFAULT_THREAD_VIEW"></a>Default Thread View</h5></div></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.THREADS_PER_PAGE"></a>Topics Per Page</h5></div></div><p>
+						Indicates how many topics to show per page.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.POLLS_PER_PAGE"></a>Polls Per Page</h5></div></div><p>
+						The number of polls that will be displayed per page on the 
+						poll list form.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.DEFAULT_THREAD_VIEW"></a>Default Topic View</h5></div></div><p>
 						Allows the admin to specify the default message view.
 						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>Flat View</b></span> Standard bulletin board view.</p></li><li><p><span class="bold"><b>Tree View</b></span> Draws a tree like view of the messages. Similar to how messages in the newsgroups are displayed.</p></li></ul></div><p>
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.WORD_WRAP"></a>Word Wrap</h5></div></div><p>
@@ -304,11 +333,9 @@
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FLOOD_CHECK_TIME"></a>Flood Trigger</h5></div></div><p>
 						The minimum time delay, in seconds between message posting. This option is used to prevent
 						automated posting scripts that would attempt to post many messages at once.
-					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MOVED_THR_PTR_EXPIRY"></a>Moved Thread Pointer Expiry</h5></div></div><p>
-						The number of days to show a pointer of a moved thread from the original forum to the new forum.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MOVED_THR_PTR_EXPIRY"></a>Moved Topic Pointer Expiry</h5></div></div><p>
+						The number of days to show a pointer of a moved topic from the original forum to the new forum.
 						The pointer will be removed after this period of time.	
-					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ALLOW_EMAIL"></a>Allow E-mail</h5></div></div><p>
-						Allow the users to send e-mails to other forum members using the forum's internal e-mail client.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SERVER_TZ"></a>Server Time Zone</h5></div></div><p>
 						Server time zone.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_SEARCH"></a>Forum Search Engine</h5></div></div><p>
@@ -325,8 +352,8 @@
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ANON_NICK"></a>Anonymous Username</h5></div></div><p>
 						The name that will be used to refer to all unregistered forum users.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.THREAD_MSG_PAGER"></a>Quick Pager Link Count</h5></div></div><p>
-						How many page links to display beside a thread that exceeds 1 page in length 
-						as defined by the <a href="admin.global_settings_manager.html#global.option.THREADS_PER_PAGE" title="Threads Per Page">THREADS_PER_PAGE</a> option.
+						How many page links to display beside a topic that exceeds 1 page in length 
+						as defined by the <a href="admin.global_settings_manager.html#global.option.THREADS_PER_PAGE" title="Topics Per Page">THREADS_PER_PAGE</a> option.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.GENERAL_PAGER_COUNT"></a>General Pager Link Count</h5></div></div><p>
 						This is the number of direct links to pages that will be shown in the pager, excluding &lt;&lt; &lt; &gt; &gt;&gt;.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SHOW_EDITED_BY"></a>Show Edited By</h5></div></div><p>
@@ -350,12 +377,6 @@
 						This limit will ONLY work if the <a href="fudcode.html" title="Chapter 2. FUDcode">FUDcode</a> style is being used.
 						</p></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SHOW_N_MODS"></a># Of Moderators To Show</h5></div></div><p>
 						An indicator of how many forum moderators to show beside each forum on the front page.
-					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.EMAIL_CONFIRMATION"></a>E-mail Confirmation</h5></div></div><p>
-						If enabled each new registration will need to be confirmed via email. A special URL will be sent
-						to the e-mail specified by the user during registration, which once accessed will activate their account.
-					</p><p>
-						Unconfirmed accounts will be removed after a set amount of days as defined by the 
-						<a href="admin.global_settings_manager.html#global.option.UNCONF_USER_EXPIRY" title="Unconfirmed User Expiry">UNCONF_USER_EXPIRY</a> option.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PUBLIC_STATS"></a>Public Stats</h5></div></div><p>
 						If enabled, at the bottom of each page forum users will be able to see how long it took to generate 
 						the page as well as how many MySQL queries were ran and their timings.
