@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.tmpl,v 1.36 2005/03/18 15:24:04 hackie Exp $
+* $Id: groupmgr.tmpl,v 1.37 2005/03/18 15:25:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,7 +33,7 @@
 <tr><th colspan=3>{MSG: group_mgr_heading}</th></tr>
 <tr class="RowStyleC">
 	<td class="nw fb">{MSG: group_mgr_group}</td>
-	<td><select name="group_id">{TEMPLATE-DATA: group_selection}</select></td>
+	<td><select name="group_id">{FUNC: tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $group_id)}</select></td>
 	<td class="ar"><input type="submit" class="button" name="btn_groupswitch" value="{MSG: group_mgr_edit_btn}"></td>
 </tr>
 </table></div>{DEF: _hs}</form>
