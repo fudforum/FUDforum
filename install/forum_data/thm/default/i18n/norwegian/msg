@@ -179,7 +179,7 @@ views:				Views
 vote:				{VAR: frm->n_rating}stemmer
 vote_button:			Stem
 vote_for_thread:		Stem
-was_moved_msg:			Moderatoren har flyttet tr&aring;den <a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> til forumet <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
+was_moved_msg:			Moderatoren har flyttet tr&aring;den <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> til forumet <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
 welcome_message:		Velkommen <b>{VAR: usr->alias}</b>! Ditt forrige bes&oslash;k var {TEMPLATE: welcome_message_date}
 what_ppl_doing:			vis hva folk holder p&aring; med
 reported_del_report:		Slett rapport
@@ -625,7 +625,7 @@ selmsg_update:			Leser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens innlegg</a
 showposts_update:		Viser innlegg av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Viser egne abonnement
 thread_update:			Leser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			Leser tr&aring;den (tr&aring;det visning) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
+tree_update:			Leser tr&aring;den (tr&aring;det visning) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
 ERR_disabled_ttl:		Avstengt funksjon
 ERR_disabled_msg:		Denne funksjonen er lukket av administratoren
@@ -634,7 +634,7 @@ ERR_access_msg:			Du har ikke de rettigheter som er n&oslash;dvendig for &aring;
 ERR_registration_disabled_ttl:	Registrering stengt
 ERR_registration_disabled_msg:	Administratoren har stengt registreringen, pr&oslash;v p&aring; nytt senere
 ERR_emailconf_ttl:		FEIL: Din brukerkonto er enda ikke bekreftet
-ERR_emailconf_msg:		Du har ikke bekreftet din brukerkonto via e-post <br><table border=0><tr><td><ol><li>Dersom du ikke har f&aring;tt en bekreftelse per e-post <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">trykk her</a><li>Hvis {VAR: usr_d->email} ikke er din riktige e-postadresse <a href="{TEMPLATE: msg_register_lnk}">trykk her</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du har ikke bekreftet din brukerkonto via e-post <br><table border=0><tr><td><ol><li>Dersom du ikke har f&aring;tt en bekreftelse per e-post <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">trykk her</a><li>Hvis {VAR: usr_d->email} ikke er din riktige e-postadresse <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">trykk her</a></ol></td></tr></table>
 ERR_user_ttl:			FEIL: Finner ikke et slikt medlem
 ERR_user_msg:			Det finnes ikke et slikt medlem
 ERR_systemerr_ttl:		FEIL: Systemfeil

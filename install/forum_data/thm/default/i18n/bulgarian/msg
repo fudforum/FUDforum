@@ -637,7 +637,7 @@ ERR_access_msg:			Нямаш изискваните разрешения за да вършиш тази операция
 ERR_registration_disabled_ttl:	Регистрацията е изключена
 ERR_registration_disabled_msg:	Администраторът забранява регистрацията, опитай пак по-късно
 ERR_emailconf_ttl:		ГРЕШКА: Акаунтът ти все още не е потвърден
-ERR_emailconf_msg:		Все още не си потвърдил регистрацията си по e-mail<br><table border=0><tr><td><ol><li>Ако не си получил e-mail съобщението за потвърждение <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">натисни тук</a><li>Ако {VAR: usr_d->email} не е действителния ти e-mail адрес, <a href="{TEMPLATE: msg_register_lnk}">натисни тук</a></ol></td></tr></table>
+ERR_emailconf_msg:		Все още не си потвърдил регистрацията си по e-mail<br><table border=0><tr><td><ol><li>Ако не си получил e-mail съобщението за потвърждение <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">натисни тук</a><li>Ако {VAR: usr_d->email} не е действителния ти e-mail адрес, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">натисни тук</a></ol></td></tr></table>
 ERR_user_ttl:			ГРЕШКА: Несъществуващ потребител
 ERR_user_msg:			Такъв потребител не съществува
 ERR_systemerr_ttl:		ГРЕШКА: Системна грешка

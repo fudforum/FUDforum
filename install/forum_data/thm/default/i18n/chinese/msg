@@ -178,7 +178,7 @@ views:				点击
 vote:				{VAR: frm->n_rating} 投票
 vote_button:			投票
 vote_for_thread:		调查
-was_moved_msg:			<a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> 已经被版主移至<a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> 已经被版主移至<a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
 welcome_message:		欢迎！ <b>{VAR: usr->alias}</b>，你上一次访问是 {DATE: usr->last_visit %Y-%m-%d %H:%M}
 what_ppl_doing:			显示浏览者的操作
 reported_del_report:		删除报告
@@ -200,7 +200,7 @@ list_referes_referrals:		被提名者
 list_referes_members:		被提名的用户
 list_referes_member:		用户
 referals_none:			目前还没有被提名的人。
-referals_refered_by:		被推荐的论坛成员是：<b><a class="TableHeading" href="{TEMPLATE: referals_refered_by_lnk}">{VAR: p_user[1]}</a></b>
+referals_refered_by:		被推荐的论坛成员是：<b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		发帖数
 referals_registered_on:		登录
 referals_action:		操作
@@ -625,7 +625,7 @@ selmsg_update:			浏览 <a href="{TEMPLATE: selmsg_update_lnk}">今天发布的主题</a>
 showposts_update:		查看用户 <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>发布的主题
 subscribed_update:		浏览自己预定的内容
 thread_update:			浏览论坛<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			浏览（以树状方式） <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
+tree_update:			浏览（以树状方式） <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 个人信息
 ERR_disabled_ttl:		被禁止的功能
 ERR_disabled_msg:		此项功能已经被系统管理员关闭。
@@ -634,7 +634,7 @@ ERR_access_msg:			你没有权利进行此项操作
 ERR_registration_disabled_ttl:	注册失败
 ERR_registration_disabled_msg:	注册功能被系统管理员禁止，请重试！
 ERR_emailconf_ttl:		错误：此账号无效
-ERR_emailconf_msg:		你注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">请点击这里</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{TEMPLATE: msg_register_lnk}">请点击这里</a></ol></td></tr></table>
+ERR_emailconf_msg:		你注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">请点击这里</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">请点击这里</a></ol></td></tr></table>
 ERR_user_ttl:			错误：没有这个用户
 ERR_user_msg:			没有这个用户
 ERR_systemerr_ttl:		系统错误

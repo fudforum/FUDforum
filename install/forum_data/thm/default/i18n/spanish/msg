@@ -178,7 +178,7 @@ views:				Vistas
 vote:				{VAR: frm->n_rating} Voto(s)
 vote_button:			Votar
 vote_for_thread:		Votar
-was_moved_msg:			<a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _RSID}">{VAR: r[2]}</a> ha sido movido a <a href="{FULL_ROOT}{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _RSID}">{{VAR: r[12]}</a> por el moderador
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ha sido movido a <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> por el moderador
 welcome_message:		Bienvenido <b>{VAR: usr->alias}</b>, su última visita fue el {TEMPLATE: welcome_message_date}
 what_ppl_doing:			Mostrar lo que la gente está haciendo
 reported_del_report:		Borrar Reporte
@@ -200,7 +200,7 @@ list_referes_referrals:		Referencias
 list_referes_members:		Miembros referidos
 list_referes_member:		Miembro
 referals_none:			No hay referencias aún.
-referals_refered_by:		Miembros del foro referidos por: <b><a href="{FULL_ROOT}{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _RSID}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_refered_by:		Miembros del foro referidos por: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Total de Mensajes
 referals_registered_on:		Registrado El
 referals_action:		Acción
@@ -565,7 +565,7 @@ pm_update:			Usando mensajería privada
 post_err_lockedthread_title:	ERROR: Hilo de Discusión Bloqueado
 post_err_lockedthread_msg:	Este hilo de discusión esta bloqueado, no se permiten más mensajes
 err_coppa_title:		ERROR: Su cuenta aún no ha sido confirmada
-err_coppa_msg:			No hemos recibido una confirmación de su padre y/o tutor legal, la cual le permitiría publicar mensajes. Si Ud perdió su formulario coppa haga <a href="{FULL_ROOT}{ROOT}?t=coppa_fax&amp;{DEF: _RSID}">clic aquí</a> para obtenerlo
+err_coppa_msg:			No hemos recibido una confirmación de su padre y/o tutor legal, la cual le permitiría publicar mensajes. Si Ud perdió su formulario coppa haga <a href="{TEMPLATE: err_coppa_msg_lnk}">clic aquí</a> para obtenerlo
 err_blockedaccnt_title:		ERROR: Ud no tiene autorización para publicar
 err_blockedaccnt_msg:		Su cuenta ha sido bloqueada para publicación
 post_err_edttimelimit_title:	ERROR
@@ -625,7 +625,7 @@ selmsg_update:			Recorriendo <a href="{TEMPLATE: selmsg_update_lnk}">Mensajes de
 showposts_update:		Viendo mensajes de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Recorriendo subscripciones propias
 thread_update:			Recorriendo foro <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			Recorriendo hilo de discusión (vista de árbol) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _RSID}">{VAR: frm->subject}</a>
+tree_update:			Recorriendo hilo de discusión (vista de árbol) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Viendo el perfil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_disabled_ttl:		Función deshabilitada
 ERR_disabled_msg:		Esta función ha sido deshabilitada por el administrador del sistema
@@ -634,7 +634,7 @@ ERR_access_msg:			Ud no tiene los permisos requeridos para realizar esta acción
 ERR_registration_disabled_ttl:	Registro deshabilitado
 ERR_registration_disabled_msg:	El administrador ha deshabilitado el registro, por favor vuelva a intentar más tarde
 ERR_emailconf_ttl:		ERROR: Su cuenta aún no ha sido confirmada
-ERR_emailconf_msg:		Ud aún no ha confirmado su cuenta vía e-mail<br><table border=0><tr><td><ol><li>Si no ha recibido un e-mail de confirmación <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _RSID}">haga clic aquí</a><li>Si {VAR: usr_d->email} no es su dirección de e-mail correcta <a href="{FULL_ROOT}{ROOT}?t=register&amp;{DEF: _RSID}">haga clic aquí</a></ol></td></tr></table>
+ERR_emailconf_msg:		Ud aún no ha confirmado su cuenta vía e-mail<br><table border=0><tr><td><ol><li>Si no ha recibido un e-mail de confirmación <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">haga clic aquí</a><li>Si {VAR: usr_d->email} no es su dirección de e-mail correcta <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">haga clic aquí</a></ol></td></tr></table>
 ERR_user_ttl:			ERROR: No existe ese usuario
 ERR_user_msg:			No existe ese usuario
 ERR_systemerr_ttl:		ERROR: Error de Sistema
@@ -657,9 +657,9 @@ remail_emailsent:		E-mail fue enviado
 remail_email:			Hay una página web en {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) que podría ser de su interés.\nEste es el hilo de discusión que creí que podría interesarle, {VAR: data->subject} puede encontrarlo aquí: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&{DEF: _RSID}\nDe {VAR: usr->alias}\n
 poll_add_option:		Agregar Opción:
 post_opt_html_on:		El código <b>HTML</b> está <b>HABILITADO</b>
-post_opt_fud_on:		El <b><a href="{FULL_ROOT}{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _RSID}#style" target="_blank">FUDcode</b> está <b>HABILITADO</a></b>
+post_opt_fud_on:		El <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode</b> está <b>HABILITADO</a></b>
 post_opt_images_on:		Las <b>Imágenes</b> están <b>HABILITADAS</b>
-post_opt_smilies_on:		Los <a href="{FULL_ROOT}{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _RSID}#sml" target="_blank"><b>smilies</b> están <b>HABILITADOS</b></a>
+post_opt_smilies_on:		Los <a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>smilies</b> están <b>HABILITADOS</b></a>
 post_opt_html_off:		El código <b>HTML</b> está <b>DESHABILITADO</b>
 post_opt_fud_off:		El <b>FUDcode</b> está <b>DESHABILITADO</b>
 post_opt_images_off:		Las <b>Imágenes</b> están <b>DESHABILITADAS</b>
@@ -790,7 +790,7 @@ forum_contact:			Contacto
 forum_home:			Principal
 post_cur_attached:		{VAR: i} archivo(s) actualmente adjunto(s)
 ignored_anon_post:		{GVAR: ANON_NICK} es ignorado
-ignored_user_post:		Mensaje de <a href="{FULL_ROOT}{ROOT}?t=usrinfo&amp;{DEF: _RSID}&amp;id={VAR: obj->user_id}">{VAR: obj->login}</a> es ignorado
+ignored_user_post:		Mensaje de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> es ignorado
 smladd_close_window:		cerrar ventana
 post_list_smilies:		listar todos los smilies
 p_VISIBLE:			Visible

@@ -2,7 +2,7 @@ ERR_access_msg:			Du verf&uuml;gst nicht &uuml;ber die ben&ouml;tigten Rechte, u
 ERR_access_ttl:			FEHLER: Nicht ausreichende Rechte
 ERR_disabled_msg:		Diese Funktion wurde vom Systemadministrator deaktiviert
 ERR_disabled_ttl:		Deaktivierte Funktion
-ERR_emailconf_msg:		Du hast dein Konto noch nicht per E-Mail best&auml;tigt<br><table border=0><tr><td><ol><li>Falls du keine Best&auml;tigungsemail erhalten haben solltest, klicke <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">hier</a><li>Falls {VAR: usr_d->email} nicht deine richtige Emailadresse ist, klicke <a href="{TEMPLATE: msg_register_lnk}">hier</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du hast dein Konto noch nicht per E-Mail best&auml;tigt<br><table border=0><tr><td><ol><li>Falls du keine Best&auml;tigungsemail erhalten haben solltest, klicke <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">hier</a><li>Falls {VAR: usr_d->email} nicht deine richtige Emailadresse ist, klicke <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">hier</a></ol></td></tr></table>
 ERR_emailconf_ttl:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
 ERR_registration_disabled_msg:	Der Administrator hat die Registrierung deaktiviert, versuche es bitte sp&auml;ter noch einmal
 ERR_registration_disabled_ttl:	Registrierung ist deaktiviert
@@ -757,7 +757,7 @@ todays_posts:			Heutige Beitr&auml;ge
 todays_posts_desc:		Alle Beitr&auml;ge anzeigen, die heute erstellt wurden
 trash:				M&uuml;ll
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-tree_update:			Durchsucht das Thema (Baumansicht) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
+tree_update:			Durchsucht das Thema (Baumansicht) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 un_ignore_user:			Die Beitr&auml;ge von diesem Benutzer nicht mehr ignorieren
 unanswered_posts:		Unbeantwortete Beitr&auml;ge
 unanswered_posts_desc:		Alle Beitr&auml;ge anzeigen, die keine Antworten haben
@@ -792,7 +792,7 @@ views:				Aufrufe
 vote:				{VAR: frm->n_rating} Stimmen
 vote_button:			Abstimmen
 vote_for_thread:		Abstimmen
-was_moved_msg:			<a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> ist vom Moderator nach <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> verschoben worden
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ist vom Moderator nach <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> verschoben worden
 welcome_message:		Willkommen <b>{VAR: usr->alias}</b>, dein letzter Besuch war am {TEMPLATE: welcome_message_date}
 what_ppl_doing:			Anzeigen, was die Leute gerade machen
 writing_pm:			Eine private Nachricht schreiben

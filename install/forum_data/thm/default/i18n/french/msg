@@ -178,7 +178,7 @@ views:				Visites
 vote:				{VAR: frm->n_rating} Vote(s)
 vote_button:			Voter
 vote_for_thread:		Vote
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> a été déplacé vers <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> par le modérateur
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a été déplacé vers <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> par le modérateur
 welcome_message:		Bienvenue <b>{VAR: usr->alias}</b>, votre dernière visite a eu lieu le {TEMPLATE: welcome_message_date}
 what_ppl_doing:			Montrer ce que les autres sont en train de faire
 reported_del_report:		Détruire un rapport
@@ -626,7 +626,7 @@ selmsg_update:			Parcourt les <a href="{TEMPLATE: selmsg_update_lnk}">messages e
 showposts_update:		Classe les messages par : <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Parcourt sa liste de sujets suveillés
 thread_update:			Parcourt le forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
-tree_update:			Parcourt le fil (vue arborescente) <a href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
+tree_update:			Parcourt le fil (vue arborescente) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Regarde le profil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a>
 ERR_disabled_ttl:		Fonctionnalité désactivée
 ERR_disabled_msg:		Cette fonctionnalité a été désactivée par l&#39;administrateur du forum
@@ -635,7 +635,7 @@ ERR_access_msg:			Vous n&#39;avez pas les privilèges nécessaires pour effectuer 
 ERR_registration_disabled_ttl:	Inscription désactivée
 ERR_registration_disabled_msg:	L&#39;administrateur a désactivé l&#39;inscription, veuillez réessayer plus tard
 ERR_emailconf_ttl:		ERREUR : Votre compte n&#39;a pas encore été confirmé
-ERR_emailconf_msg:		Vous n&#39;avez pas encore confirmé votre inscription par e-mail<br><table border=0><tr><td><ol><li>Si vous n&#39;avez pas reçu d&#e-mail de confirmation,<a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">cliquez ici<li>Si {VAR: usr_d->email} n&#39;est pas votre adresse e-mail correcte, <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">cliquez ici</a></ol></td></tr></table>
+ERR_emailconf_msg:		Vous n&#39;avez pas encore confirmé votre inscription par e-mail<br><table border=0><tr><td><ol><li>Si vous n&#39;avez pas reçu d&#e-mail de confirmation,<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">cliquez ici<li>Si {VAR: usr_d->email} n&#39;est pas votre adresse e-mail correcte, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">cliquez ici</a></ol></td></tr></table>
 ERR_user_ttl:			ERREUR : l&#39;utilisateur n&#39;existe pas
 ERR_user_msg:			Cet utilisateur n&#39;existe pas
 ERR_systemerr_ttl:		ERREUR : Erreur système

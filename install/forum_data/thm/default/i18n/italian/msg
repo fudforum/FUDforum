@@ -577,7 +577,7 @@ post_err_notallowed_msg:	Non sei autorizzato a postare messaggi
 post_err_lockedthread_title:	ERRORE: Argomento chiuso
 post_err_lockedthread_msg:	Questo argomento &egrave; chiuso, non &egrave; pi&ugrave; possibile inserire messaggi
 err_coppa_title:		ERRORE: il tuo account non &egrave; stato ancora confermato
-err_coppa_msg:			Non abbiamo ricevuto una conferma dai tuoi genitori e/o tutori legali, la quale ti permetterebbe di inserire messaggi. Se hai perso il modulo COPPA (Children&#39;s Online Privacy Protection Act) <a href="{FULL_ROOT}{ROOT}?t=coppa_fax&{DEF: _rsid}">fai click qui</a> per ottenerlo
+err_coppa_msg:			Non abbiamo ricevuto una conferma dai tuoi genitori e/o tutori legali, la quale ti permetterebbe di inserire messaggi. Se hai perso il modulo COPPA (Children&#39;s Online Privacy Protection Act) <a href="{TEMPLATE: err_coppa_msg_lnk}">fai click qui</a> per ottenerlo
 err_blockedaccnt_title:		ERRORE: non sei autorizzato a postare messaggi
 err_blockedaccnt_msg:		A questo account &egrave; stata impedita la possibilit&agrave; di scrivere messaggi
 post_err_notowner_title:	ERRORE
@@ -592,8 +592,8 @@ post_err_attach_size:		<font class="ErrorText">Il file allegato &egrave; troppo 
 post_err_attach_ext:		<font class="ErrorText">Il file che stai cercando di spedire non appartiene ai tipi di file consentiti.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Stai cercando di spedire pi&ugrave; file di quanti sia consentito spedire.</font><br>
 post_err_passwd:		Password incorretta.
-post_reply_update:		Risponde a <a href="{FULL_ROOT}{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR: frm->name}
-post_topic_update:		Scrive un nuovo argomento in <a href="{FULL_ROOT}{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+post_reply_update:		Risponde a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name}
+post_topic_update:		Scrive un nuovo argomento in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:		Si &egrave; verificato un errore
 postcheck_max_images_err:	Sono consentite un massimo di {GVAR: MAX_IMAGE_COUNT} immagini per messaggio; per cortesia, riduci il numero di immagini
 postcheck_subj_needed:		Oggetto necessario

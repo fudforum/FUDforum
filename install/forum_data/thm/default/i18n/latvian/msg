@@ -636,7 +636,7 @@ ERR_access_msg:			Jums pieðíirtâs tiesîbas neatïauj pieprasîto darbîbu izpildi
 ERR_registration_disabled_ttl:	Reìistrâcija atslçgta
 ERR_registration_disabled_msg:	Dotajâ brîdî reìistrâcija ir liegta. Lûdzu mçìiniet vçlreiz, bet vçlâk.
 ERR_emailconf_ttl:		KÏÛDA: Jûsu reìistrâcija nav apstiprinâta
-ERR_emailconf_msg:		Jûs neesat akceptçjis reìistrâciju no E-pasta<br><table border=0><tr><td><ol><li>Ja neesat saòçmis reìistrâcijas apliecinâjuma E-pastu <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">spiediet ðeit</a><li>Ja {VAR: usr_d->email} nav Jûsu E-pasta adrese <a href="{TEMPLATE: msg_register_lnk}">spediet ðeit</a></ol></td></tr></table>
+ERR_emailconf_msg:		Jûs neesat akceptçjis reìistrâciju no E-pasta<br><table border=0><tr><td><ol><li>Ja neesat saòçmis reìistrâcijas apliecinâjuma E-pastu <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">spiediet ðeit</a><li>Ja {VAR: usr_d->email} nav Jûsu E-pasta adrese <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">spediet ðeit</a></ol></td></tr></table>
 ERR_user_ttl:			KÏÛDA: Neesoðs lietotâjs
 ERR_user_msg:			Tâda lietotâja datu bâzç nav
 ERR_systemerr_ttl:		KÏÛDA: Sistçmas kïûda

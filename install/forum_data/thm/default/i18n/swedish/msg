@@ -179,7 +179,7 @@ views:				Visningar
 vote:				{VAR: frm->n_rating} r&ouml;ster
 vote_button:			R&ouml;sta
 vote_for_thread:		R&ouml;sta
-was_moved_msg:			Moderatorn har flyttat diskussionen <a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> till forumet <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
+was_moved_msg:			Moderatorn har flyttat diskussionen <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> till forumet <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
 welcome_message:		V&auml;lkommen <b>{VAR: usr->alias}</b>! Ditt senaste bes&ouml;k var {TEMPLATE: welcome_message_date}
 what_ppl_doing:			visa vad folk h&aring;ller p&aring; med
 reported_del_report:		Radera rapport
@@ -625,7 +625,7 @@ selmsg_update:			L&auml;ser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens inl&a
 showposts_update:		Visar inl&auml;gg av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Visar egna best&auml;llningar
 thread_update:			L&auml;ser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			L&auml;ser diskussionen (tr&aring;dad vy) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
+tree_update:			L&auml;ser diskussionen (tr&aring;dad vy) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
 ERR_disabled_ttl:		Avst&auml;ngd funktion
 ERR_disabled_msg:		Den h&auml;r funktionen &auml;r avst&auml;ngd av administratorn
@@ -634,7 +634,7 @@ ERR_access_msg:			Du har inte de r&auml;ttigheter som beh&ouml;vs f&ouml;r att g
 ERR_registration_disabled_ttl:	Registrering avst&auml;ngd
 ERR_registration_disabled_msg:	Administratorn har st&auml;ng av registreringen, f&ouml;rs&ouml;k p&aring; nytt senare
 ERR_emailconf_ttl:		FEL: Ditt anv&auml;ndarkonto &auml;r &auml;nnu inte bekr&auml;ftat
-ERR_emailconf_msg:		Du har inte bekr&auml;ftat ditt anv&auml;ndarkonto via e-post <br><table border=0><tr><td><ol><li>Om du inte har f&aring;tt ett bekr&auml;ftelsemeddelande per e-post <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">tryck h&auml;r</a><li>Om {VAR: usr_d->email} inte &auml;r din r&auml;tta e-postadress <a href="{TEMPLATE: msg_register_lnk}">tryck h&auml;r</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du har inte bekr&auml;ftat ditt anv&auml;ndarkonto via e-post <br><table border=0><tr><td><ol><li>Om du inte har f&aring;tt ett bekr&auml;ftelsemeddelande per e-post <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">tryck h&auml;r</a><li>Om {VAR: usr_d->email} inte &auml;r din r&auml;tta e-postadress <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">tryck h&auml;r</a></ol></td></tr></table>
 ERR_user_ttl:			FEL: Ingen s&aring;dan medlem
 ERR_user_msg:			Det finns ingen s&aring;dan medlem
 ERR_systemerr_ttl:		FEL: Systemfel

@@ -178,7 +178,7 @@ views:				Görüntülenme<br>sayýsý
 vote:				{VAR: frm->n_rating} Oy
 vote_button:			Oyla
 vote_for_thread:		Oyla
-was_moved_msg:			<a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> artýk burda deðil. Denetmen tarafýndan taþýndýðý yer: <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> artýk burda deðil. Denetmen tarafýndan taþýndýðý yer: <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
 welcome_message:		Hoþ geldiniz <b>{VAR: usr->alias}</b>, son ziyaret tarihiniz {DATE: usr->last_visit %d %B %Y %A saat %H:%M} idi.
 what_ppl_doing:			insanlarýn ne yaptýðýný göster
 reported_del_report:		Bildirimi sil
@@ -625,7 +625,7 @@ selmsg_update:			<a href="{TEMPLATE: selmsg_update_lnk}">Bugünkü Ýletilerde</a> 
 showposts_update:		<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> tarafýndan gönderilen iletileri görüntülüyor.
 subscribed_update:		Üyeliklerini dolaþýyor
 thread_update:			<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a> forumunda dolaþýyor
-tree_update:			<a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a> zincirinde dolaþýyor (aðaç görünümü)
+tree_update:			<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> zincirinde dolaþýyor (aðaç görünümü)
 userinfo_update:		<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> kullanýcýsýnýn kiþisel bilgilerine bakýyor
 ERR_disabled_ttl:		Engellenmiþ Özellik
 ERR_disabled_msg:		Bu özellik sistem yöneticisi tarafýndan engellenmiþ durumda.
@@ -634,7 +634,7 @@ ERR_access_msg:			Yapmak istediðiniz için yeterli eriþim iznine sahip deðilsiniz
 ERR_registration_disabled_ttl:	Kayýt Engellenmiþ
 ERR_registration_disabled_msg:	Yönetici kayýtý engellemiþ durumda. Lütfen daha sonra tekrar deneyin.
 ERR_emailconf_ttl:		HATA: Hesabýnýz henüz doðrulanmadý
-ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">buraya týklayýn</a><li>Eðer {VAR: usr_d->email} adresi sizin doðru adresiniz deðilse <a href="{TEMPLATE: msg_register_lnk}">buraya týklayýn</a></ol></td></tr></table>
+ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">buraya týklayýn</a><li>Eðer {VAR: usr_d->email} adresi sizin doðru adresiniz deðilse <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">buraya týklayýn</a></ol></td></tr></table>
 ERR_user_ttl:			HATA: Kullanýcý yok
 ERR_user_msg:			Böyle bir kullanýcý yok
 ERR_systemerr_ttl:		HATA: Sistem Hatasý

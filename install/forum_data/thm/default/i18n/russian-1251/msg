@@ -635,7 +635,7 @@ ERR_access_msg:			Ваш уровень доступа недостаточен для выполнения затребованной 
 ERR_registration_disabled_ttl:	Регистрация отключена
 ERR_registration_disabled_msg:	Администратор запретил регистрацию пользователей, попробуйте еще раз через некоторое время
 ERR_emailconf_ttl:		ОШИБКА: Ваша регистрация не была подтверждена
-ERR_emailconf_msg:		Вы пока не подтвердили свою регистрацию по e-mail<br><table border=0><tr><td><ol><li>Если вы не получили e-mail о подтверждении вашей регистрации - <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">нажмите здесь</a><li>Если {VAR: usr_d->email} не является вашим адресом e-mail - <a href="{TEMPLATE: msg_register_lnk}">нажмите здесь</a></ol></td></tr></table>
+ERR_emailconf_msg:		Вы пока не подтвердили свою регистрацию по e-mail<br><table border=0><tr><td><ol><li>Если вы не получили e-mail о подтверждении вашей регистрации - <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">нажмите здесь</a><li>Если {VAR: usr_d->email} не является вашим адресом e-mail - <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">нажмите здесь</a></ol></td></tr></table>
 ERR_user_ttl:			ОШИБКА: Несуществующий пользователь
 ERR_user_msg:			Такой пользователь не существует
 ERR_systemerr_ttl:		ОШИБКА: Системная ошибка

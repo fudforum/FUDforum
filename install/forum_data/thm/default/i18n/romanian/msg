@@ -639,7 +639,7 @@ ERR_access_msg:			Nu aveti permisiune pentru a executa aceasta actiune
 ERR_registration_disabled_ttl:	Inregistrarea dezactivata
 ERR_registration_disabled_msg:	Administratorul a dezactivat inregistrarea, va rugam sa reveniti mai tarziu
 ERR_emailconf_ttl:		EROARE: Contul dumneavoastra nu este inca confirmat
-ERR_emailconf_msg:		Nu v-ati confirmat inca contul prin email<br><table border=0><tr><td><ol><li>Daca nu a-ti primit email-ul de confirmare apasati <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">aici</a>
+ERR_emailconf_msg:		Nu v-ati confirmat inca contul prin email<br><table border=0><tr><td><ol><li>Daca nu a-ti primit email-ul de confirmare apasati <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">aici</a><li>If {VAR: usr_d->email} is not your correct e-mail address, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">click here</a></ol></td></tr></table>
 ERR_user_ttl:			EROARE: Nici un asemenea utilizator
 ERR_user_msg:			Nici un asemenea utilizator
 ERR_systemerr_ttl:		EROARE: Eroare de sistem
