@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.4 2002/06/27 22:19:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,7 +40,7 @@ function convert_bdate($val, $month_fmt)
 
 	if ( $obj->level_pri ) {
 		if( !empty($obj->level_name) ) $level_name = '{TEMPLATE: level_name}';
-		if( !empty($obj->level_img) && strtolower($obj->level_pri)!='a' ) $level_image = '{TEMPLATE: level_image}';
+		if( !empty($obj->level_img) && strtolower($obj->level_pri)!='A' ) $level_image = '{TEMPLATE: level_image}';
 	}
 	
 	$custom_tags = empty($u->custom_status) ? '{TEMPLATE: no_custom_tags}' : '{TEMPLATE: custom_tags}';
