@@ -1,4 +1,4 @@
-action:				ÓÃ»§×´Ì¬
+action:				²Ù×÷Ñ¡Ïî
 add_to_buddy_list:		¼ÓÈëºÃÓÑÁĞ±í
 admin:				¹ÜÀí 
 admin_control_panel:		¹ÜÀí½çÃæ
@@ -679,7 +679,7 @@ thread_update:			ä¯ÀÀÂÛÌ³<a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VA
 tree_update:			ä¯ÀÀ£¨ÒÔÊ÷×´·½Ê½£© <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
 userinfo_update:		²é¿´ <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}µÄ</a> ¸öÈËĞÅÏ¢
 ERR_login_ttl:			´íÎó£ºÄúÉĞÎ´×¢²á
-ERR_login_msg:			ÄúÉĞÎ´µÇÂ¼£¬ÇëµÇÂ¼<br><br>Çë<a href="{ROOT}?t=register&amp;{DEF: _rsid}">×¢²á</a><br>Çë<a href="{ROOT}?t=login&amp;{DEF: _rsid}">×¢²á</a>
+ERR_login_msg:			ÄúÉĞÎ´µÇÂ¼£¬ÇëµÇÂ¼<br><br>Çë<a href="{ROOT}?t=register&amp;{DEF: _rsid}">×¢²á</a><br>Çë<a href="{ROOT}?t=login&amp;{DEF: _rsid}">µÇÂ½</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		±»½ûÖ¹µÄ¹¦ÄÜ
 ERR_disabled_msg:		´ËÏî¹¦ÄÜÒÑ¾­±»ÏµÍ³¹ÜÀíÔ±¹Ø±Õ¡£
@@ -746,7 +746,7 @@ thr_exch_decl_reason:		¾Ü¾øÖ÷Ìâ <b>{VAR: thr_name}</b> ×ªÈë<b>{VAR-HTML: frm->na
 thr_exch_submit:		·¢²¼
 exch_decline_ttl:		°ÑÖ÷Ìâ {VAR: thr_name} ×ªÒÆÖÁ{VAR-HTML: frm->name} ÂÛÌ³µÄÒªÇó±»¾Ü¾ø¡£
 ppost_original_msg:		ÄãÕıÔÚ·¢ËÍ»òÕß»Ø¸´µÄĞÅÏ¢
-split_thread:			°ÑÖ÷Ìâ·Ö¿ª
+split_thread:			·Ö¿ªÖ÷Ìâ
 groupmgr_no_user:		´ËÕËºÅ²»´æÔÚ "{VAR-HTML: gr_member}"
 groupmgr_already_exists:	 "{VAR-HTML: gr_member}" ±¾ÂÛÌ³ÒÑ¾­´æÔÚÕâ¸öÓÃ»§
 groupmgr_yes:			ÊÇ
@@ -778,7 +778,7 @@ p_POLL:				·¢Æğµ÷²é
 p_FILE:				Ìí¼Ó¸½¼ş
 p_VOTE:				Í¶Æ±
 p_RATE:				ÆÀ¼ÛÌû×Ó
-p_SPLIT:			°ÑÖ÷Ìâ·Ö¿ª
+p_SPLIT:			·Ö¿ªÖ÷Ìâ
 p_LOCK:				·â±ÕÌû×Ó
 p_MOVE:				×ªÒÆÌû×Ó
 p_SML:				Ó¦ÓÃ±íÇé·ûºÅ
@@ -822,13 +822,13 @@ drawmsg_view_rest_post:		ÏÔÊ¾Ê£ÓàĞÅÏ¢
 post_re:			»Ø¸´£º
 forumsel_goto_forum:		×ªÖÁÂÛÌ³:
 minimsg_thread_view:		ä¯ÀÀÖ÷Ìâ
-split_th_post_by:		·¢²¼ÓÃ»§:
-split_th_posted_on:		·¢²¼ÓÚ£º
+split_th_post_by:		×÷Õß:
+split_th_posted_on:		·¢±íÊ±¼ä£º
 split_th_subject:		Ö÷Ìâ:
 split_th_new_thread_title:	ĞÂµÄÖ÷Ìâ:
 split_th_forum:			ÂÛÌ³£º
-split_th_split_sel:		·Ö³öÑ¡È¡µÄĞÅÏ¢
-split_th_split_unsel:		Split non-selected messages
+split_th_split_sel:		·Ö³öÑ¡ÖĞµÄÌù×Ó
+split_th_split_unsel:		·Ö³öÃ»ÓĞÑ¡ÖĞµÄÌù×Ó
 split_th_messages:		ĞÅÏ¢
 split_th_select:		Ñ¡Ôñ
 report_report_post:		±¨¸æ·¢²¼
@@ -846,7 +846,7 @@ report_already_reported_msg:	ÕâÌõĞÅÏ¢ÒÑ±»ÍÆ¼ö£¬Ïà¹ØÍÆ¼ö±¨¸æÔÚÂÛÌ³¹ÜÀíĞÅÏ¢ÁĞ±íÖĞ¡
 register_err_toomanyimages:	ÄãµÄ¸öÈËÇ©ÃûÖĞÊ¹ÓÃÁË½ûÖ¹Ê¹ÓÃµÄÍ¼Æ¬{GVAR: FORUM_IMG_CNT_SIG}¡£
 pmsg_next_msg:			ÏÂÒ»ÌõĞÅÏ¢
 pmsg_prev_msg:			Ç°Ò»ÌõĞÅÏ¢
-post_proc_reveal_spoiler:	Reveal Spoiler
+post_proc_reveal_spoiler:	ÏÔÊ¾Òş²ØÄÚÈİ
 register_jabber:		Jabber :
 im_jabber:			Jabber: 
 forum_contact:			ÁªÏµ
@@ -871,7 +871,7 @@ poll_edit: 			±à¼­
 unspecified:			±£ÃÜ
 
 register_err_not_valid_img:	Ö¸¶¨µÄÍ¼Æ¬Á¬½Ó²»ÕıÈ·
-pmsg_recepient:			Recepient
+pmsg_recepient:			ÊÕĞÅÈË
 register_err_taken_alias:	Õâ¸öêÇ³ÆÒÑ¾­´æÔÚ£¬Çë¸ü»»
 register_alias:			êÇ³Æ
 register_alias_desc:		Èç¹ûÄúÏëÓ¦ÓÃêÇ³Æ´úÌæÄúµÄÓÃ»§ÃûÀ´ÏÔÊ¾ÔÚÂÛÌ³ÉÏ¾ÍÇëÄúÌîÈëÄúÏëÒªµÄêÇ³Æ¡£
@@ -913,6 +913,6 @@ mmod_delete_cofirm_ttl:		È·ÈÏÉ¾³ıÖ÷Ìâ/ÄÚÈİ
 err_inc_query_err:		Êı¾İ¿â·¢Éú´íÎó, Çë¸æÖª <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">ÏµÍ³¹ÜÀíÔ±</a> ÒÔ±ãÏµÍ³¹ÜÀíÔ±²é¿´ÈÕÖ¾²¢ĞŞÕıÕâ¸ö´íÎó¡£
 spell_alts:			Ã»ÓĞÑ¡Ôñ
 insert_uploaded_image:		½«´ËÍ¼Æ¬ÏÔÊ¾ÔÚÎÄÕÂÖĞ
-finduser_help:			The search engine will automatically add * mask to your query. ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
-back_to_top:			Back to Top
-iemail_participate:		To participate in the discussion, go here:
+finduser_help:			Ğ¡ÌáÊ¾£ºÊäÈëµ¥¸ö×ÖÄ¸¾Í¿ÉÒÔËÑË÷µ½ÒÔÕâ¸ö×ÖÄ¸¿ªÍ·µÄÓÃ»§.
+back_to_top:			·µ»Ø¶¥²¿
+iemail_participate:		²ÎÓëÌÖÂÛ, µã´Ë:
