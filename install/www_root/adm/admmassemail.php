@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.34 2005/02/23 20:33:23 hackie Exp $
+* $Id: admmassemail.php,v 1.35 2005/03/15 21:59:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -75,7 +75,7 @@
 		} else {
 			$smtp = new fud_smtp;
 			$smtp->msg = str_replace("\n.", "\n..", $_POST['body']);
-			$smtp->subject = $_POST['subject'];
+			$smtp->subject = encode_subject($_POST['subject']);
 			$smtp->from = $ADMIN_EMAIL;
 			$smtp->headers = "Reply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\n";
 
