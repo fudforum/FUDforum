@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.20 2004/10/22 21:14:49 hackie Exp $
+* $Id: phpBB2.php,v 1.21 2004/12/04 20:17:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -647,7 +647,7 @@ $group_map = array(
 			q("INSERT INTO ".$DBHOST_TBL_PREFIX."ip_block (ca,cb,cc,cd) VALUES($ca,$cb,$cc,$cd)");
 		}
 		if ($obj->ban_email) {
-			q("INSERT INTO ".$DBHOST_TBL_PREFIX."email_block (string) VALUES('".addslashes($obj->ban_email)."'");
+			q("INSERT INTO ".$DBHOST_TBL_PREFIX."email_block (string) VALUES('".addslashes($obj->ban_email)."')");
 		}
 	}
 	unset($r);
