@@ -920,3 +920,4 @@ pm_err_disabled_msg:		您当前设置为不能发送悄悄话！可以在个人信息中修改设置，以激
 err_mod_acc_ttl:		Unverified Account
 err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account is validated by the administrator you will not be able to utilize the full capabilities of your account.
 accounts_pending_approval:	Accounts Pending Approval
+saved:				Saved

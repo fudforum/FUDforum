@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg_view.php.t,v 1.6 2002/08/07 12:18:43 hackie Exp $
+*   $Id: pmsg_view.php.t,v 1.7 2002/11/21 22:33:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@
 		exit;
 	}
 	
-	$folders = array('INBOX'=>'{TEMPLATE: inbox}', 'DRAFT'=>'{TEMPLATE: draft}', 'SENT'=>'{TEMPLATE: sent}', 'TRASH'=>'{TEMPLATE: trash}');
+	$folders = array('INBOX'=>'{TEMPLATE: inbox}', 'SAVED'=>'{TEMPLATE: saved}', 'DRAFT'=>'{TEMPLATE: draft}', 'SENT'=>'{TEMPLATE: sent}', 'TRASH'=>'{TEMPLATE: trash}');
 	
 	$msg = new fud_pmsg;
 	$msg->get($id,1);

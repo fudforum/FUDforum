@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.17 2002/08/07 12:18:43 hackie Exp $
+*   $Id: pmsg.php.t,v 1.18 2002/11/21 22:33:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,7 +75,7 @@
 
 	if ( isset($ses) && empty($post_form) ) $ses->update('{TEMPLATE: pm_update}');
 	
-	$folders = array('INBOX'=>'{TEMPLATE: inbox}', 'DRAFT'=>'{TEMPLATE: draft}', 'SENT'=>'{TEMPLATE: sent}', 'TRASH'=>'{TEMPLATE: trash}');
+	$folders = array('INBOX'=>'{TEMPLATE: inbox}', 'SAVED'=>'{TEMPLATE: saved}', 'DRAFT'=>'{TEMPLATE: draft}', 'SENT'=>'{TEMPLATE: sent}', 'TRASH'=>'{TEMPLATE: trash}');
 	
 	{POST_HTML_PHP}
 
@@ -85,7 +85,7 @@
 	
 	$author_dest_col = $folder_id == 'SENT' ? '{TEMPLATE: pmsg_recepient}' : '{TEMPLATE: pmsg_author}';
 	
-	$select_options_cur_folder = tmpl_draw_select_opt("INBOX\nDRAFT\nSENT\nTRASH", "{TEMPLATE: inbox}\n{TEMPLATE: draft}\n{TEMPLATE: sent}\n{TEMPLATE: trash}", $folder_id, '{TEMPLATE: cur_folder_opt}', '{TEMPLATE: cur_folder_opt_selected}');
+	$select_options_cur_folder = tmpl_draw_select_opt("INBOX\nSAVED\nDRAFT\nSENT\nTRASH", "{TEMPLATE: inbox}\n{TEMPLATE: saved}\n{TEMPLATE: draft}\n{TEMPLATE: sent}\n{TEMPLATE: trash}", $folder_id, '{TEMPLATE: cur_folder_opt}', '{TEMPLATE: cur_folder_opt_selected}');
 	
 	$disk_usage = q_singleval("SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id);
 	$percent_full = ceil($disk_usage/$MAX_PMSG_FLDR_SIZE*100);
@@ -112,6 +112,7 @@
 		switch ( $obj->folder_id ) 
 		{
 			case 'INBOX':
+			case 'SAVED':
 				$action = '{TEMPLATE: action_buttons_inbox}';
 				break;
 			case 'SENT':
