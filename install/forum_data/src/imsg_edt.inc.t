@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.13 2002/07/29 19:10:35 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.14 2002/08/09 10:20:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -585,8 +585,7 @@ function trim_html($str, $maxlen)
 	$data = substr($str, 0, $i);
 	if ( is_array($tree) ) {
 		$tree = array_reverse($tree);
-		reset($tree);	
-		while( list(,$v) = each($tree) ) $data .= '</'.$v.'>';
+		foreach($tree as $v ) $data .= '</'.$v.'>';
 	}
 
 	return $data;
