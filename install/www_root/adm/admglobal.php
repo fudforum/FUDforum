@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.69 2004/12/02 23:53:00 hackie Exp $
+* $Id: admglobal.php,v 1.70 2005/04/06 23:04:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -244,6 +244,7 @@ function get_max_upload_size()
 	print_reg_field('SMTP Server Login', 'FUD_SMTP_LOGIN');
 	print_reg_field('SMTP Server Password', 'FUD_SMTP_PASS');
 	print_bit_field('Email Confirmation', 'EMAIL_CONFIRMATION');
+	print_bit_field('Disable Welcome E-mail', 'DISABLE_WELCOME_EMAIL');
 	print_reg_field('Administrator Email', 'ADMIN_EMAIL');
 	print_reg_field('Notify From', 'NOTIFY_FROM');
 	print_bit_field('Notify W/Body', 'NOTIFY_WITH_BODY');

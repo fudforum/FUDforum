@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.145 2005/03/28 23:30:37 hackie Exp $
+* $Id: register.php.t,v 1.146 2005/04/06 23:04:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -442,7 +442,7 @@ function decode_uent(&$uent)
 
 			if ($FUD_OPT_2 & 1) {
 				send_email($NOTIFY_FROM, $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
-			} else {
+			} else if (!($FUD_OPT_3 & 2048)) {
 				send_email($NOTIFY_FROM, $uent->email, '{TEMPLATE: register_welcome_subject}', '{TEMPLATE: register_welcome_msg}', '');
 			}
 
