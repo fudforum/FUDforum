@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reset.tmpl,v 1.9 2003/10/10 14:39:24 hackie Exp $
+* $Id: reset.tmpl,v 1.10 2003/11/25 19:08:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -44,7 +44,7 @@
 {SECTION: END}
 
 {SECTION: reset_newpass_msg}
-{MSG: reset_newpass_msg}
+{MSG: reset_newpass_msg}{MSG: reset_suffix}
 {SECTION: END}
 
 {SECTION: reset_login_notify}
@@ -64,11 +64,11 @@
 {SECTION: END}
 
 {SECTION: reset_confirmation}
-{MSG: reset_confirmation}
+{MSG: reset_confirmation}{MSG: reset_suffix}
 {SECTION: END}
 
 {SECTION: reset_reset}
-{MSG: reset_reset}
+{MSG: reset_reset}{MSG: reset_suffix}
 {SECTION: END}
 
 {SECTION: reset_err_rstconf_title}
@@ -84,8 +84,9 @@
 {SECTION: END}
 
 {SECTION: register_conf_msg}
-{MSG: register_conf_msg}
+{MSG: register_conf_msg}{MSG: reset_suffix}
 {SECTION: END}
+
 {SECTION: RESET_PAGE_lnk3}
 {ROOT}?t=reset
 {SECTION: END}

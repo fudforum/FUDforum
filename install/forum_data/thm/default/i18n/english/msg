@@ -1010,3 +1010,4 @@ adm_account_rejected_s:		Your account request for \'{GVAR: FORUM_TITLE}\' was de
 thread_on:			on
 userinfo_buddy:			Buddy:
 register_email_addr:		E-mail Address:
+reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
