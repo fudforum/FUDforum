@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.3 2003/05/15 09:52:09 hackie Exp $
+*   $Id: rdf.php.t,v 1.4 2003/05/15 17:57:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,7 +75,7 @@ function email_format($data)
 			 * cat		- category
 			 * frm		- forum
 			 * th		- thread
-			 * id		- message id / topic id / user id (depends on mode)
+			 * id		- message id
 			 * ds		- start date
 			 * de		- date end
 			 * o		- offset
@@ -200,7 +200,95 @@ function email_format($data)
 			break;
 
 		case 't':
-			
+			/* check for various supported limits
+			 * cat		- category
+			 * frm		- forum
+			 * id		- topic id 
+			 * ds		- start date
+			 * de		- date end
+			 * o		- offset
+			 * n		- number of rows to get
+			 * l		- latest
+			 */
+			$lmt = " m.approved='Y'";
+			if (isset($_GET['cat'])) {
+			 	$lmt .= ' AND f.cat_id='.(int)$_GET['cat'];
+			}
+			if (isset($_GET['frm'])) {
+			 	$lmt .= ' AND t.forum_id='.(int)$_GET['frm'];
+			}
+			if (isset($_GET['id'])) {
+			 	$lmt .= ' AND t.id='.(int)$_GET['id'];
+			}
+			if (isset($_GET['ds'])) {
+				$lmt .= ' AND t.last_post_date >='.(int)$_GET['ds'];
+			}
+			if (isset($_GET['de'])) {
+				$lmt .= ' AND t.last_post_date <='.(int)$_GET['de'];
+			}
+			if ($AUTH == 'Y') {
+				if ($AUTH_ID) {
+					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
+							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$AUTH_ID.' AND g2.resource_id=f.id
+							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$AUTH_ID.' ';
+					$lmt .= " AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)='Y')";
+				} else {
+					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
+					$lmt .= " AND g1.p_READ='Y'";
+				}
+			}
+			$c = uq('SELECT 
+					t.*,
+					f.name AS frm_name,
+					c.name AS cat_name,
+					m.subject, m.post_stamp, m.poster_id,
+					m2.subject AS lp_subject,
+					u.alias 
+				FROM 
+					{SQL_TABLE_PREFIX}thread t
+					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+					INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
+					INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id
+					INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON t.last_post_id=m2.id
+					LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
+					'.$join.'
+				WHERE 
+					' . $lmt  . (isset($GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
+			$res = 0;
+			while ($r = db_rowobj($c)) {
+				if (!$res) {
+					echo '<?xml version="1.0" encoding="utf-8"?> 
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/"> 
+<channel rdf:about="'.__ROOT__.'">
+	<title>'.$FORUM_TITLE.' RDF feed</title>
+	<link>'.__ROOT__.'</link>
+	<description>'.$FORUM_TITLE.' RDF feed</description>
+</channel>';
+					$res = 1;
+				}
+				if ($r->root_msg_id == $r->last_post_id) {
+					$r->last_post_id = $r->lp_subject = $r->last_post_date = '';
+				} else {
+					$r->last_post_date = gmdate('r', $r->last_post_date);
+				}
+
+				echo '
+<item>
+	<topic_id>'.$r->id.'</topic_id>
+	<topic_title>'.sp($r->subject).'</topic_title>
+	<topic_creation_date>'.date('r', $r->post_stamp).'</topic_creation_date>
+	<forum_id>'.$r->forum_id.'</forum_id>
+	<forum_title>'.sp($r->frm_name).'</forum_title>
+	<category_title>'.sp($r->cat_name).'</category_title>
+	<author>'.sp($r->alias).'</author>
+	<author_id>'.$r->poster_id.'</author_id>
+	<replies>'.(int)$r->replies.'</replies>
+	<views>'.(int)$r->views.'</views>
+	<last_post_id>'.$r->last_post_id.'</last_post_id>
+	<last_post_subj>'.sp($r->lp_subject).'</last_post_subj>
+	<last_post_date>'.$r->last_post_date.'</last_post_date>
+</item>';
+			}
 			break;
 
 		case 'u':
