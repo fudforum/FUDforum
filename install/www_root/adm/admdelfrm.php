@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdelfrm.php,v 1.7 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admdelfrm.php,v 1.8 2003/04/24 18:14:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,101 +16,61 @@
 ***************************************************************************/
 
 	define('admin_form', 1);
-	define('msg_edit', 1);
 
-	include_once "GLOBALS.php";
-		
-	fud_use('forum.inc');
-	fud_use('imsg.inc');
-	fud_use('imsg_edt.inc');
-	fud_use('th.inc');
-	fud_use('fileio.inc');
-	fud_use('cat.inc');
-	fud_use('util.inc');
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
-	fud_use('groups.inc');
-	fud_use('ipoll.inc');
-	
-	list($ses, $usr) = initadm();
-	
-	cache_buster();
+	fud_use('forum_adm.inc', true);
 
-	$frm = new fud_forum_adm;
-		
-	if ( @count($HTTP_POST_VARS) > 1 ) {
-		foreach($HTTP_POST_VARS as $key => $val) { 
-			if ( substr($key, 0, strlen('frm_submit')) == 'frm_submit' ) {
-				list($dummy, $dummy2, $frm_id) = explode('_', $key);
-				if ( isset($HTTP_POST_VARS['frm_cat_'.$frm_id]) ) {
-					$new_cat = $HTTP_POST_VARS['frm_cat_'.$frm_id];
-					$frm->chcat($frm_id, $new_cat);
-					break;
-				}
-			}
-		}
-	}
-	
-	if ( !empty($act) && $act=='del' && !empty($del_id) ) {
-		if ( !empty($conf) && $conf=='Yes' ) {
-			$frm->delete($del_id);
-			header("Location: admdelfrm.php?"._rsidl);
-			exit();
-		}
-		else if ( !empty($conf) && $conf == 'No' ) {
-			header("Location: admdelfrm.php?"._rsidl);
-			exit();
-		}
-		else {
-			$frm->get($del_id);
-			echo "
-			<html><body bgcolor=\"#ffffff\">
-				<div align=center>
-				<h3>You have selected to delete this forum</h3><br>
-				\"$frm->name\" which contains $frm->thread_count topics with $frm->post_count posts<br><br>
-				<h3>Are you sure this is what you want to do?</h3> 
-				
-				<form method=\"post\" action=\"admdelfrm.php\">
-					"._hs."
-					<input type=\"hidden\" name=\"act\" value=\"del\">
-					<input type=\"hidden\" name=\"del_id\" value=\"$del_id\">
-					<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><input type=\"submit\" name=\"conf\" value=\"Yes\"></td><td><input type=\"submit\" name=\"conf\" value=\"No\"></td></tr>
-					</table>
-				</form>
-				</div>
-			</html>
-			";
-			exit();
-		}
-	}
-	
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
-include('admpanel.php'); 
+	/* restore forum */
+	if (isset($_POST['frm_id'], $_POST['dst_cat'])) {
+		$pos = (int) q_singleval('SELECT MAX(view_order) FROM '.$tbl.'cat WHERE id='.(int)$_POST['dst_cat']) + 1;
+		q('UPDATE '.$tbl.'forum SET cat_id='.(int)$_POST['dst_cat'].', view_order='.$pos.' WHERE id='.(int)$_POST['frm_id']);
+	} else if (isset($_GET['del']) && ($f = db_saq('SELECT id, thread_count, post_count, name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']))) {
+		/* user considers deleting a forum, give them final confirmation check */
+?>		
+<html>
+<body bgcolor="#ffffff">
+<div align="center">
+<h3>You have selected to delete this forum</h3><br>
+"<?php echo $f[3]; ?>" which contains <?php echo $r[1]; ?> topics with <?php echo $r[2]; ?> posts<br><br>
+<h3>Are you sure this is what you want to do?</h3> 
+<form method="post" action="admdelfrm.php">
+<?php echo _hs; ?>
+<input type="hidden" name="del" value="<?php echo $r[0]; ?>">
+<table border=0 cellspacing=0 cellpadding=2>
+<tr><td><input type="submit" name="conf" value="Yes"></td><td><input type="submit" name="conf" value="No"></td></tr>
+</table>
+</form>
+</div>
+</body>
+</html>
+<?php
+		exit;
+	} else if (isset($_POST['del'], $_POST['conf']) && $_POST['conf'] == 'Yes') {
+		/* let's delete this forum */
+		frm_delete((int)$_POST['del']);
+	}
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Orphaned Forums</h2>
-<form method="post">
-<?php echo _hs; ?>
 <table cellspacing=1 cellpadding=2>
 <tr bgcolor="#e5ffe7">
-	<td>Category Name</td>
-	<td>Description</td>
-	<td>Hidden</td>
+	<td>Name</td>
 	<td>Action</td>
 	<td>Reassign To Category</td>
 </tr>
 <?php
-	$frm->get_cat_forums(0);
-	$frm->resetfrm();
-	
-	$i=1;
-	while ( $frm->nextfrm() ) {
-		$bgcolor = (($i++)%2) ? ' bgcolor="#fffee5"':'';
-		echo "<tr$bgcolor><td>".$frm->name."</td><td>$frm->descr</td><td>$frm->hidden</td><td><a href=\"admdelfrm.php?act=del&del_id=$frm->id&"._rsid."\">Delete</a></td><td>";
-		draw_cat_select('frm_cat_'.$frm->id, $GLOBALS['frm_cat_'.$frm->id]);
-		echo "<input type=\"submit\" name=\"frm_submit_$frm->id\" value=\"Reassign\"></td></tr>\n";
+	$i = 1;
+	$cat_sel = create_cat_select('dst_cat', '', 0);
+	$c = uq('SELECT id, name, descr FROM '.$tbl.'forum WHERE cat_id=0');
+	while ($r = db_rowarr($c)) {
+		$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+		echo '<tr '.$bgcolor.'><td>'.$r[1].'<br><font size="-2">'.$r[2].'</font></td><td valign="top" nowrap><a href="admdelfrm.php?act=del='.$r[0].'&'._rsidl.'">Delete</a></td><td valign="top" nowrap><form method="post" action="admdelfrm.php">'._hs.$cat_sel.' <input type="submit" name="frm_submit" value="Reassign"><input type="hidden" name="frm_id" value="'.$r[0].'"></form></td></tr>';
 	}
-	
+	qf($c);
 ?>
 </table>
-</form>
-<?php require('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
