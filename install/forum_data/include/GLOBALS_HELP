@@ -388,3 +388,6 @@ Always check to make sure that the referring URL is on the same domain as the fo
 
 {{{NNTP_OBFUSCATE_EMAIL	FUD_OPT_3	8
 Whether or not to obfuscate user e-mails when sending e-mails from FUDforum to newsgroups.}}}
+
+{{{SESSION_IP_CHECK	FUD_OPT_3	16
+Whether or not to validate session's against user IP While this may increase security it will cause annoyances for users who's IP address frequently changes as they will need to re-login each time their IP changes.}}}
