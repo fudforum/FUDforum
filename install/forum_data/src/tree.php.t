@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.14 2002/08/25 20:38:22 hackie Exp $
+*   $Id: tree.php.t,v 1.15 2002/08/28 12:07:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,12 +56,8 @@
 	}
 
 	if( isset($usr) && !empty($unread) ) {
-		$r=q("SELECT msg_id FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id=".$usr->id);
-		if ( is_result($r) ) {
-			list($msg_id) = db_singlearr($r);
-			$rr=q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND id>".$msg_id." AND approved='Y' ORDER BY id LIMIT 1");
-			if ( is_result($rr) ) {
-				list($new_msg_id) = db_singlearr($rr);
+		if( ($msg_id = q_singleval("SELECT msg_id FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id=".$usr->id)) ) {
+			if( ($new_msg_id = q_singleval("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND id>".$msg_id." AND approved='Y' ORDER BY id LIMIT 1")) ) {
 				header("Location: {ROOT}?t=tree&goto=".$new_msg_id.'&'._rsidl);
 				exit();
 			}
@@ -215,16 +211,15 @@ if( @is_array($tree->kiddies) ) {
 				
 			if( _uid && $usr->last_read < $cur->post_stamp && $cur->post_stamp > $last_thread_read )
 				$read_indicator = '{TEMPLATE: tree_unread_message}';
-			else 
+			else
 				$read_indicator = '{TEMPLATE: tree_read_message}';
-				
+
 			if( isset($cur->kiddies) && $cur->kiddie_count ) {
 				if( $cur->id == $mid )
 					$tree_data .= '{TEMPLATE: tree_branch_selected}';
 				else 
 					$tree_data .= '{TEMPLATE: tree_branch}';
-			}
-			else {
+			} else {
 				if( $cur->id == $mid )
 					$tree_data .= '{TEMPLATE: tree_entry_selected}';
 				else 

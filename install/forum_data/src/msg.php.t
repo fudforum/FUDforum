@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.13 2002/08/25 22:02:03 hackie Exp $
+*   $Id: msg.php.t,v 1.14 2002/08/28 12:07:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -82,13 +82,9 @@
 		}
 	
 		if ( !empty($unread) ) {
-			$r=q("SELECT msg_id FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id=".$usr->id);
-			if ( is_result($r) ) {
-				list($msg_id) = db_singlearr($r);
-				$rr=q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND id>".$msg_id." ORDER BY id LIMIT 1");
-				if ( is_result($rr) ) {
-					list($new_msg_id) = db_singlearr($rr);
-					header("Location: {ROOT}?t=msg&goto=".$new_msg_id.'&'._rsidl);
+			if( ($msg_id = q_singleval("SELECT msg_id FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id=".$usr->id)) ) {
+				if( ($new_msg_id = q_singleval("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND id>".$msg_id." AND approved='Y' ORDER BY id LIMIT 1")) ) {
+					header("Location: {ROOT}?t=tree&goto=".$new_msg_id.'&'._rsidl);
 					exit();
 				}
 			}
