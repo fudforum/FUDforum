@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.41 2004/10/06 20:42:26 hackie Exp $
+* $Id: admimport.php,v 1.42 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -130,7 +130,7 @@ function resolve_dest_path($path)
 			preg_match("!define\('__dbtype__', '(mysql|pgsql)'\);!", file_get_contents($DATA_DIR.'src/db.inc.t'), $tmp);
 			if ($tmp[1] != __dbtype__) {
 				/* read the table definitions from appropriate SQL directory */
-				if (!($files = glob($DATA_DIR . 'sql/*.tbl'))) {
+				if (!($files = glob($DATA_DIR . 'sql/*.tbl', GLOB_NOSORT))) {
 					exit("Couldn't open ".$DATA_DIR."sql/ directory<br>\n");
 				}
 				foreach ($files as $f) {

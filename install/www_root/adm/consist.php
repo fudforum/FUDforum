@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.91 2004/10/22 17:23:03 hackie Exp $
+* $Id: consist.php,v 1.92 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -399,7 +399,7 @@ forum will be disabled.
 
 	draw_stat('Checking disk files against smilies');
 	$cnt = 0;
-	$files = glob($WWW_ROOT_DISK . 'images/smiley_icons/{*.gif,*.jpg,*.png,*.jpeg}', GLOB_BRACE);
+	$files = glob($WWW_ROOT_DISK . 'images/smiley_icons/{*.gif,*.jpg,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT);
 	foreach ($files as $file) {
 		if (!isset($sml[basename($file)])) {
 			if (@unlink($file)) {
@@ -647,7 +647,7 @@ forum will be disabled.
 	draw_stat('Database unlocked');
 
 	draw_stat('Cleaning forum\'s tmp directory');
-	if (($files = glob($TMP.'*'))) {
+	if (($files = glob($TMP.'*', GLOB_NOSORT))) {
 		foreach ($files as $file) {
 			if (is_file($file)) {
 				@unlink($file);

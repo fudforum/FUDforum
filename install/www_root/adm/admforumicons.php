@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforumicons.php,v 1.17 2004/10/06 16:36:15 hackie Exp $
+* $Id: admforumicons.php,v 1.18 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -79,7 +79,7 @@
 <tr class="resulttopic"><td>Icon</td><td>Action</td></tr>
 <?php
 	$i = 1;
-	if (($files = glob($WWW_ROOT_DISK . $ICONS_DIR . '/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE))) {
+	if (($files = glob($WWW_ROOT_DISK . $ICONS_DIR . '/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT))) {
 		foreach ($files as $file) {
 			$de = basename($file);
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';

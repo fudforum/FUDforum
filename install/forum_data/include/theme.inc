@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: theme.inc,v 1.19 2004/10/06 16:36:15 hackie Exp $
+* $Id: theme.inc,v 1.20 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -149,7 +149,7 @@ function cleandir($dir)
 	$dirs = array(realpath($dir));
 
 	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'/*'))) {
+		if (!($files = glob($v.'/*', GLOB_NOSORT))) {
 			continue;
 		}
 		foreach ($files as $file) {

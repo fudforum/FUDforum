@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: unprotect.php,v 1.8 2004/10/06 18:23:12 hackie Exp $
+* $Id: unprotect.php,v 1.9 2004/10/26 21:08:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -34,7 +34,7 @@ function fud_unlock($dir)
 	$dirs = array(realpath($dir));
 
 	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'{.[a-z]*,*}', GLOB_BRACE))) {
+		if (!($files = glob($v.'{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
 		}
 		foreach ($files as $file) {

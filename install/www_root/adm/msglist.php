@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.32 2004/10/12 18:00:33 hackie Exp $
+* $Id: msglist.php,v 1.33 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,7 +33,7 @@ function makedeps()
 {
 	$path = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['tname'].'/tmpl';
 
-	$files = glob($path . '/*.tmpl');
+	$files = glob($path . '/*.tmpl', GLOB_NOSORT);
 	if (!$files) {
 		echo "Could not get list of template files from {$path}<br/>";
 		return array();

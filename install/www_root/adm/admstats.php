@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.30 2004/10/15 17:17:23 hackie Exp $
+* $Id: admstats.php,v 1.31 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@ function dir_space_usage($dirp)
 	$dirs = array(realpath($dirp));
 	
 	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'/*'))) {
+		if (!($files = glob($v.'/*', GLOB_NOSORT))) {
 			continue;	
 		}
 		foreach ($files as $f) {

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.51 2004/10/06 18:55:43 hackie Exp $
+* $Id: admthemes.php,v 1.52 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -162,14 +162,14 @@ function clean_code($path, $toks)
 		fud_theme::delete((int)$_GET['del']);
 	} else if (isset($_GET['optimize']) && $is_tok && ($t_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.(int)$_GET['optimize']))) {
 		/* optimize *.php files */
-		$files = glob($WWW_ROOT_DISK . 'theme/' . $t_name . '/*.php');
+		$files = glob($WWW_ROOT_DISK . 'theme/' . $t_name . '/*.php', GLOB_NOSORT);
 		foreach ($files as $f) {
 			$toks = token_get_all(file_get_contents($f));
 			while (get_func_usage($toks));
 			clean_code($f, $toks);
 		}
 		
-		$files = glob($DATA_DIR . 'include/theme/' . $t_name . '/*.inc');
+		$files = glob($DATA_DIR . 'include/theme/' . $t_name . '/*.inc', GLOB_NOSORT);
 		foreach ($files as $f) {
 			clean_code($f, token_get_all(file_get_contents($$f)));
 		}
@@ -209,7 +209,11 @@ function clean_code($path, $toks)
 	<td>
 	<select name="thm_theme">
 	<?php
-		$files = glob($DATA_DIR.'/thm/*', GLOB_ONLYDIR);
+		if (!defined('GLOB_ONLYDIR')) { /* pre PHP 4.3.3 hack for FreeBSD and Windows */
+			define('GLOB_ONLYDIR', 0);
+		}
+
+		$files = glob($DATA_DIR.'/thm/*', GLOB_ONLYDIR|GLOB_NOSORT);
 		foreach ($files as $file) {
 			if (!file_exists($file . '/tmpl')) {
 				continue;
@@ -228,7 +232,7 @@ function clean_code($path, $toks)
 			$thm_lang = 'english';
 		}
 		$selopt = '';
-		$files = glob($DATA_DIR.'/thm/default/i18n/*', GLOB_ONLYDIR);
+		$files = glob($DATA_DIR.'/thm/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT);
 		foreach ($files as $file) {
 			if (!file_exists($file . '/msg')) {
 				continue;

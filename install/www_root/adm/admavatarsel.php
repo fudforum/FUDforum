@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatarsel.php,v 1.9 2004/10/06 16:36:15 hackie Exp $
+* $Id: admavatarsel.php,v 1.10 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,7 @@
 	$path = $WWW_ROOT_DISK . 'images//avatars/';
 
 	/* here we draw the avatar control */
-	if (($files = glob($path. '/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE))) {
+	if (($files = glob($path. '/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT))) {
 		$col = $i = 0;
 		$icons_per_row = 7;
 		echo '<table border=0 cellspacing=1 cellpadding=2><tr>';

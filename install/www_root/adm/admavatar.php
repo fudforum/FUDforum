@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.20 2004/10/06 16:36:15 hackie Exp $
+* $Id: admavatar.php,v 1.21 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,9 +28,9 @@ function import_avatars($path)
 	$ver = version_compare(PHP_VERSION, '4.3.3', '>=');
 
 	while (list(,$v) = each($list)) {
-		$files = array_merge($files, glob($v . "/{*.jpg,*.gif,*.png,*.jpeg}", GLOB_BRACE));
+		$files = array_merge($files, glob($v . "/{*.jpg,*.gif,*.png,*.jpeg}", GLOB_BRACE|GLOB_NOSORT));
 	
-		if (($dirs = glob($v . "/*", GLOB_BRACE))) {
+		if (($dirs = glob($v . "/*", GLOB_BRACE|GLOB_NOSORT))) {
 			foreach ($dirs as $dir) {
 				if ($ver || is_dir($dir)) {
 					$list[] = $dir;

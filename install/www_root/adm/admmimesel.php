@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmimesel.php,v 1.9 2004/10/06 16:36:16 hackie Exp $
+* $Id: admmimesel.php,v 1.10 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@
 
 	echo '<html><body bgcolor="#ffffff">';
 
-	if (($files = glob($GLOBALS['WWW_ROOT_DISK'] . 'images/mime/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE))) {
+	if (($files = glob($GLOBALS['WWW_ROOT_DISK'] . 'images/mime/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT))) {
 		$icons_per_row = 7;
 		$col = $i = 0;
 		echo '<table border=0 cellspacing=1 cellpadding=2><tr>';

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.22 2004/10/06 16:36:15 hackie Exp $
+* $Id: admbrowse.php,v 1.23 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -78,7 +78,7 @@ function fud_rmdir($dir)
 	$dirs = array(realpath($dir));
 
 	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'/*'))) {
+		if (!($files = glob($v.'/*', GLOB_NOSORT))) {
 			continue;
 		}
 		foreach ($files as $file) {
@@ -297,7 +297,7 @@ if (!extension_loaded('posix')) {
 	$file_list = array();
 	$dir_list = array('.', '..');
 
-	if (($files = glob(realpath($cur_dir) . '/*'))) {
+	if (($files = glob(realpath($cur_dir) . '/*', GLOB_NOSORT))) {
 		foreach ($files as $file) {
 			$n = basename($file);
 			if (is_dir($file)) {

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.8 2004/10/20 14:55:15 hackie Exp $
+* $Id: install-cli.php,v 1.9 2004/10/26 21:08:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -539,8 +539,8 @@ function db_connect($settings)
 		unset($c);
 	}
 
-	$tbl = glob($settings['SERVER_DATA_ROOT'] . 'sql/*.tbl');
-	$sql = glob($settings['SERVER_DATA_ROOT'] . 'sql/*.sql');
+	$tbl = glob($settings['SERVER_DATA_ROOT'] . 'sql/*.tbl', GLOB_NOSORT);
+	$sql = glob($settings['SERVER_DATA_ROOT'] . 'sql/*.sql', GLOB_NOSORT);
 
 	if (!$tbl || !$sql) {
 		fe("Failed to get a list of table defenitions and/or base table data from: '{$settings['SERVER_DATA_ROOT']}sql/'\n");
@@ -596,7 +596,10 @@ function db_connect($settings)
 	));
 
 	/* handle language selection */
-	$ln_dir = glob($settings['SERVER_DATA_ROOT'].'thm/default/i18n/*', GLOB_ONLYDIR);
+	if (!defined('GLOB_NOSORT')) { /* pre PHP 4.3.3 hack for Windows & FreeBSD */
+		define('GLOB_NOSORT', 0);
+	}
+	$ln_dir = glob($settings['SERVER_DATA_ROOT'].'thm/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT);
 	if (!$ln_dir) {
 		fe("Could not open i18n directory at '{$settings['SERVER_DATA_ROOT']}thm/default/i18n'\n");
 	}

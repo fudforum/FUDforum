@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.64 2004/10/06 18:55:43 hackie Exp $
+* $Id: compiler.inc,v 1.65 2004/10/26 21:08:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -529,7 +529,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	 */
 	build_msg($back_msg_file);
 
-	$list = glob($GLOBALS['DATA_DIR'].'/thm/default/tmpl/*.tmpl');
+	$list = glob($GLOBALS['DATA_DIR'].'/thm/default/tmpl/*.tmpl', GLOB_NOSORT);
 	foreach ($list as $fe) {
 		$file = basename($fe);
 		if ($file == 'date_formats.tmpl') continue;
@@ -590,7 +590,7 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 			return;
 		}
 
-		if (!($files = glob($v . '/' . $mask, GLOB_BRACE))) {
+		if (!($files = glob($v . '/' . $mask, GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
 		}
 
@@ -665,7 +665,7 @@ function copyhelp($thm)
 
 	$path .= '/';
 
-	$files = glob($src . '/*.hlp');
+	$files = glob($src . '/*.hlp', GLOB_NOSORT);
 	if (!$files) {
 		exit("Failed to find help files inside '{$src}'");
 	}
