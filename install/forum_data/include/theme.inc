@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc,v 1.3 2003/05/05 13:11:54 hackie Exp $
+*   $Id: theme.inc,v 1.4 2003/06/03 16:45:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,6 +86,10 @@ class fud_theme
 		if ($this->t_default != 'Y' && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE t_default='Y'")) {
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET t_default='Y' WHERE id=1");
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme=1 WHERE theme=1');
+		}
+		
+		if ($this->enabled != 'Y') {
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE t_default='Y'").' WHERE theme='.$id);
 		}
 
 		if (isset($ll)) {
