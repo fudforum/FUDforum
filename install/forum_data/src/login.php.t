@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.69 2005/02/23 02:02:58 hackie Exp $
+* $Id: login.php.t,v 1.70 2005/02/27 00:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -215,7 +215,7 @@ function error_check()
 			} else { /* PATH_INFO url or GET url with no args */
 				if ($FUD_OPT_1 & 128 && $FUD_OPT_2 & 32768 && !$sesp) {
 					if (preg_match('!([a-z0-9]{32})!', $usr->returnto, $m)) {
-						$usr->returnto = str_replace($m[1], $ses_id, $bits[0]);
+						$usr->returnto = str_replace($m[1], $ses_id, $usr->returnto);
 					}
 				}
 				$usr->returnto .= '?SQ='.$new_sq.'&S='.$ses_id;
