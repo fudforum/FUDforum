@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.48 2005/02/25 16:42:13 hackie Exp $
+* $Id: post.tmpl,v 1.49 2005/02/25 16:44:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,7 +52,7 @@
 <tr><th colspan=2>{MSG: post_preview}</th></tr>
 <tr><td class="RowStyleA MsgSubText">{VAR: subj}</td></tr>
 <tr><td class="RowStyleA MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</td></tr>
-<tr><td class="RowStyleB al">{TEMPLATE-DATA: apply_spell_changes}<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
+<tr><td class="RowStyleB al">{IF: $spell}{TEMPLATE: apply_spell_changes}{ENDIFI}<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
 </table><br /></div>
 {SECTION: END}
 

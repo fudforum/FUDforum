@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.127 2005/02/25 16:42:13 hackie Exp $
+* $Id: post.php.t,v 1.128 2005/02/25 16:44:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -506,8 +506,6 @@ function flood_check()
 		} else {
 			$signature = '';
 		}
-
-		$apply_spell_changes = $spell ? '{TEMPLATE: apply_spell_changes}' : '';
 
 		$preview_message = '{TEMPLATE: preview_message}';
 	} else {
