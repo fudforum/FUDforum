@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.37 2003/10/15 21:12:10 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.38 2003/10/17 13:50:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -161,7 +161,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_tags}
-<font class="LevelText">{VAR: level_name}{VAR: custom_tag}</font>
+<div class="ctags">{VAR: level_name}{VAR: custom_tag}</div>
 {SECTION: END}
 
 {SECTION: dmsg_custom_tags}
@@ -423,7 +423,7 @@
 
 {TEMPLATE-DATA: avatar}
 <td class="msgud">{TEMPLATE-DATA: online_indicator}{TEMPLATE-DATA: user_link}{TEMPLATE-DATA: dmsg_user_info}</td>
-<td class="msgud"><div class="ctags">{TEMPLATE-DATA: dmsg_tags}</div></td>
+<td class="msgud">{TEMPLATE-DATA: dmsg_tags}</td>
 <td class="msgot">{TEMPLATE-DATA: dmsg_bd_il}{TEMPLATE-DATA: dmsg_im_row}{TEMPLATE-DATA: host_name}{TEMPLATE-DATA: ip_address}</td>
 </tr></table></td>
 </tr>
