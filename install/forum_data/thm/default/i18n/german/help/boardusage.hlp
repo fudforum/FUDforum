@@ -78,3 +78,51 @@ sind.
 Die Anwerbungen werden automatisch aufgezeichnet, sobald Du die Forums URL weiterreichst und sie sich aufgrund dessen Leute registrieren. Die 
 Anwerbung dieser Personen wird Dir dann zugeschrieben. Eine Auflistung aller Leute, die von Dir angeworben worden sind, kannst Du in Deinem Profil durch Klicken des 
 <b>Anwerbungen</b> Men&uuml;s anzeigen lassen.
+
+TOPIC_TITLE: <a name="syndicate">Syndicating this forum</a>
+TOPIC_HELP:
+If permitted by the administrator, FUDforum allows you to syndicate a variety of forum data via XML (rdf). The RDF feed works primarily
+in 3 modes, message retrieval, topic retrieval and user retrieval. Each mode of operation supports a number of modifier parameters that
+will allow you to specify what sort of data do you wish to fetch. Below is the explanation of the supported parameters for each mode
+of operation.<br />
+<br /><br />
+<h4><u><b>'m' mode (messages)</b></u></h4>
+<blockquote>
+	<table border=0 cellspacing=1 cellpadding=3>
+		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Only retrieve messages from category with this id.</td></tr>
+		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Only retrieve messages from forum with this id.</td></tr>
+		<tr><td class="GenText"><i>th<i></td><td class="GenText">Only retrieve messages from topic with this id.</td></tr>
+		<tr><td class="GenText"><i>id<i></td><td class="GenText">Retrieve a single message with the specified id.</td></tr>
+		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Only retrieve messages posted after the specified date (unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>de<i></td><td class="GenText">Only retrieve messages posted before the specified date (unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> messages (cannot be higher then overall maximum).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching messages.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Order messages from newest to oldest.</td></tr>
+	</table>
+</blockquote>
+<h4><u><b>'t' mode (topics)</b></u></h4>
+<blockquote>
+	<table border=0 cellspacing=1 cellpadding=3>
+		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Only retrieve topics from category with this id.</td></tr>
+		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Only retrieve topics from forum with this id.</td></tr>
+		<tr><td class="GenText"><i>id<i></td><td class="GenText">Retrieve a single topic with the specified id.</td></tr>
+		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Only retrieve topics where the last message was posted after the specified date (unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>de<i></td><td class="GenText">Only retrieve topics where the last message was posted before the specified date (unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> topics (cannot be higher then overall maximum).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching topics.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Order topics from newest to oldest.</td></tr>
+	</table>
+</blockquote>
+<h4><u><b>'u' mode (users) <i>**could be disabled**</i></b></u></h4>
+<blockquote>
+	<table border=0 cellspacing=1 cellpadding=3>
+		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Order users by number of messages posted, from largest to smallest.</td></tr>
+		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Order users by registration, from most recent to oldest.</td></tr>
+		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Only show users who are currently online.</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> users (cannot be higher then overall maximum).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching users.</td></tr>
+	</table>
+</blockquote>
+<b>Example:</b><br />
+The following link will fetch 10 most recent messages from this forum:<br />
+<a href="rdf.php?mode=m&l=1&n=10" target="_blank">rdf.php?mode=m&l=1&n=10</a>
