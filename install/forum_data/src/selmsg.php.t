@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.53 2004/10/25 16:02:33 hackie Exp $
+* $Id: selmsg.php.t,v 1.54 2004/11/12 15:36:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,8 +51,8 @@ function path_info_lnk($var, $val)
 		} else {
 			$tm = __request_timestamp__;
 		}
-		list($day, $month, $year) = explode(' ', strftime('%d %m %Y', $tm));
-		$tm_today_start = mktime(0, 0, 0, $month, $day, $year);
+		$dt = getdate($tm);
+		$tm_today_start = mktime(0, 0, 0, $dt['mon'], $dt['mday'], $dt['year']);
 		$tm_today_end = $tm_today_start + 86400;
 		$date_limit = ' AND m.post_stamp>'.$tm_today_start.' AND m.post_stamp<'.$tm_today_end . ' ';
 	} else {
@@ -81,8 +81,8 @@ function path_info_lnk($var, $val)
 	/* no other limiters are present, assume 'today' limit */
 	if (!$unread_limit && !isset($_GET['date']) && !isset($_GET['reply_count'])) {
 		$_GET['date'] = 'today';
-		list($day, $month, $year) = explode(' ', strftime('%d %m %Y', __request_timestamp__));
-		$tm_today_start = mktime(0, 0, 0, $month, $day, $year);
+		$dt = getdate(__request_timestamp__);
+		$tm_today_start =  mktime(0, 0, 0, $dt['mon'], $dt['mday'], $dt['year']);
 		$tm_today_end = $tm_today_start + 86400;
 		$date_limit = ' AND m.post_stamp>'.$tm_today_start.' AND m.post_stamp<'.$tm_today_end . ' ';
 	}
