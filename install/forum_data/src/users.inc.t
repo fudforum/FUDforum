@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.99 2003/11/26 19:43:56 hackie Exp $
+* $Id: users.inc.t,v 1.100 2003/11/26 19:56:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -108,7 +108,7 @@ function init_user()
 	define('_rsidl', ($o2 & 32768 ? _rsid : str_replace('&amp;', '&', _rsid)));
 
 	/* continuation of path info parsing */
-	if (isset($p)) {
+	if (isset($p, $p[0])) {
 		define('pinfo_page', $p[0]);
 
 			switch ($p[0]) {
