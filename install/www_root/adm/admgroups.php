@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.31 2003/10/01 03:38:53 hackie Exp $
+*   $Id: admgroups.php,v 1.32 2003/10/01 03:42:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -308,7 +308,7 @@
 
 	foreach ($gl as $k => $v) {
 		if (isset($gll[$k])) {
-			$grl = '<font size="-1">(total: '.count($gll[$k]).')</font><br><select name="gr_leaders"><option>'.implode('</option>', $gll[$k]).'</option></select>';
+			$grl = '<font size="-1">(total: '.count($gll[$k]).')</font><br><select name="gr_leaders"><option>'.implode('</option><option>', $gll[$k]).'</option></select>';
 		} else {
 			$grl = 'No Leaders';
 		}
