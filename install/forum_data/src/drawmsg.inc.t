@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.68 2003/10/15 22:47:49 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.69 2003/10/16 17:09:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -228,9 +228,6 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			}
 			$avatar = ($obj->avatar_loc || $level_image) ? '{TEMPLATE: dmsg_avatar}' : '';
 			$dmsg_tags = ($custom_tag || $level_name) ? '{TEMPLATE: dmsg_tags}' : '';
-			if ($dmsg_tags) {
-				
-			}
 
 			if (($o2 & 32 && !($a & 32768)) || $b & 1048576) {
 				$online_indicator = (($obj->time_sec + $GLOBALS['LOGEDIN_TIMEOUT'] * 60) > __request_timestamp__) ? '{TEMPLATE: dmsg_online_indicator}' : '{TEMPLATE: dmsg_offline_indicator}';
