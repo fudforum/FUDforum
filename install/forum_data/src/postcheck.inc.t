@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.21 2004/11/24 19:53:36 hackie Exp $
+* $Id: postcheck.inc.t,v 1.22 2004/12/07 19:07:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,6 +11,7 @@
 **/
 
 $GLOBALS['__error__'] = 0;
+$GLOBALS['__err_msg__'] = array();
 
 function set_err($err, $msg)
 {

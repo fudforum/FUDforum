@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.130 2004/11/24 19:53:36 hackie Exp $
+* $Id: register.php.t,v 1.131 2004/12/07 19:07:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,6 +74,7 @@ function fetch_img($url, $user_id)
 }
 	/* intialize error status */
 	$GLOBALS['error'] = 0;
+	$GLOBALS['err_msg'] = array();
 
 function sanitize_url($url)
 {

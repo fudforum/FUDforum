@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: email.php.t,v 1.20 2004/11/24 19:53:34 hackie Exp $
+* $Id: email.php.t,v 1.21 2004/12/07 19:07:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,8 +38,6 @@ function get_err($type)
 
 function mail_check()
 {
-	$GLOBALS['error'] = 0;
-
 	if (!strlen(trim($_POST['tx_body']))) {
 		set_err('tx_body', '{TEMPLATE: email_error_body}');
 	}
@@ -56,6 +54,10 @@ function mail_check()
 
 	return $GLOBALS['error'];
 }
+
+	$_ERROR_ = array();
+	$error = $tx_name = $tx_subject = $tx_body = '';
+
 	if (isset($_GET['toi']) && (int)$_GET['toi']) {
 		$tx_name = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.(int)$_GET['toi']);
 	} 
@@ -67,7 +69,10 @@ function mail_check()
 			send_email($usr->email, $email, $_POST['tx_subject'], $_POST['tx_body'], 'Reply-To: '.$usr->email);
 			check_return($usr->returnto);
 		}
-		$tx_name = isset($_POST['tx_name']) ? $_POST['tx_name'] : '';
+
+		foreach (array('tx_name', 'tx_subject', 'tx_body') as $v) {
+			$tx_name = isset($_POST[$v]) ? $_POST[$v] : '';
+		}
 	}
 
 	/* start page */
