@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.26 2003/10/16 21:59:05 hackie Exp $
+* $Id: tmpllist.php,v 1.27 2003/11/04 23:29:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -40,7 +40,17 @@ function fetch_section($data, $file, $section, $type)
 			$end = '{PAGE: END}';
 		}
 	} else {
-		$p = strpos($data, '{SECTION: '.$section);
+		$p = 0;
+		while (1) {
+			$p = strpos($data, '{SECTION: '.$section, $p);
+			if ($p === false) {
+				exit("Cannot find section '{$section}' inside '{$file}'<br />\n");
+			}
+			$p += strlen('{SECTION: '.$section);
+			if ($data[$p] == ' ' || $data[$p] == '}') {
+				break;
+			}
+		}
 		$end = '{SECTION: END}';
 	}
 	if ($p === false) {
