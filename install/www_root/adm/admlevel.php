@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlevel.php,v 1.12 2003/09/30 04:26:16 hackie Exp $
+*   $Id: admlevel.php,v 1.13 2003/09/30 13:54:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,35 +19,31 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 
-	$tbl =& $DBHOST_TBL_PREFIX;
-
 	if (isset($_POST['lev_submit'])) {
-		q("INSERT INTO ".$tbl."level (name, img, level_opt, post_count) VALUES ('".addslashes($_POST['lev_name'])."', ".strnull(addslashes($_POST['lev_img'])).", ".(int)$_POST['lev_level_opt'].", ".(int)$_POST['lev_post_count'].")");
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."level (name, img, level_opt, post_count) VALUES ('".addslashes($_POST['lev_name'])."', ".strnull(addslashes($_POST['lev_img'])).", ".(int)$_POST['lev_level_opt'].", ".(int)$_POST['lev_post_count'].")");
 	} else if (isset($_POST['edit'], $_POST['lev_update'])) {
-		q("UPDATE ".$tbl."level SET name='".addslashes($_POST['lev_name'])."', img=".strnull(addslashes($_POST['lev_img'])).", level_opt=".(int)$_POST['lev_level_opt'].", post_count=".(int)$_POST['lev_post_count']." WHERE id=".(int)$_POST['edit']);
+		q("UPDATE ".$DBHOST_TBL_PREFIX."level SET name='".addslashes($_POST['lev_name'])."', img=".strnull(addslashes($_POST['lev_img'])).", level_opt=".(int)$_POST['lev_level_opt'].", post_count=".(int)$_POST['lev_post_count']." WHERE id=".(int)$_POST['edit']);
 	}
 
 	if (isset($_GET['edit'])) {
 		$edit = (int)$_GET['edit'];
-		list($lev_name, $lev_img, $lev_level_opt, $lev_post_count) = db_saq('SELECT name, img, level_opt, post_count FROM '.$tbl.'level WHERE id='.(int)$_GET['edit']);
+		list($lev_name, $lev_img, $lev_level_opt, $lev_post_count) = db_saq('SELECT name, img, level_opt, post_count FROM '.$DBHOST_TBL_PREFIX.'level WHERE id='.(int)$_GET['edit']);
 	} else {
 		$edit = $lev_name = $lev_img = $lev_level_opt = $lev_post_count = '';
 	}
 
 	if (isset($_GET['del'])) {
-		q('DELETE FROM '.$tbl.'level WHERE id='.(int)$_GET['del']);
+		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'level WHERE id='.(int)$_GET['del']);
 	}
 
 	if (isset($_GET['rebuild_levels'])) {
-		db_lock($tbl.'users WRITE, '.$tbl.'level WRITE');
 		$pl = 2000000000;
-		$c = q('SELECT id, post_count FROM '.$tbl.'level ORDER BY post_count DESC');
+		$c = q('SELECT id, post_count FROM '.$DBHOST_TBL_PREFIX.'level ORDER BY post_count DESC');
 		while ($r = db_rowarr($c)) {
-			q('UPDATE '.$tbl.'users SET level_id='.$r[0].' WHERE posted_msg_count<'.$pl.' AND posted_msg_count>='.$r[1]);
+			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET level_id='.$r[0].' WHERE posted_msg_count<'.$pl.' AND posted_msg_count>='.$r[1]);
 			$pl = $r[1];
 		}
 		qf($r);
-		db_unlock();
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
@@ -98,7 +94,7 @@
 	<td>Action</td>
 </tr>
 <?php
-	$c = uq('SELECT * FROM '.$tbl.'level ORDER BY post_count');
+	$c = uq('SELECT id, name, post_count FROM '.$DBHOST_TBL_PREFIX.'level ORDER BY post_count');
 	$i = 1;
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
