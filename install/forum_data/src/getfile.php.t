@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.14 2003/09/26 18:49:02 hackie Exp $
+*   $Id: getfile.php.t,v 1.15 2003/09/29 14:56:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@
 	}
 	if (!isset($_GET['private'])) { /* non-private upload */
 		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, m.id, mod.id,
-			'.(_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS p_read' : 'g1.p_READ as p_read').'
+			'.(_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : 'g1.group_cache_opt').' & 2
 			FROM {SQL_TABLE_PREFIX}attach a
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON a.message_id=m.id AND a.attach_opt=0
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
@@ -35,7 +35,7 @@
 		if (!$r) {
 			invl_inp_err();
 		}
-		if ($usr->is_mod != 'A' && !$r[4] && $r[5] != 'Y') {
+		if (!($usr->users_opt & 1048576) && !$r[4] && !$r[5]) {
 			std_error('access');
 		}
 	} else {
@@ -43,11 +43,11 @@
 			FROM {SQL_TABLE_PREFIX}attach a
 			INNER JOIN {SQL_TABLE_PREFIX}pmsg pm ON a.message_id=pm.id AND a.attach_opt=1
 			LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type
-			WHERE a.id='.$id);
+			WHERE a.attach_opt=1 AND a.id='.$id);
 		if (!$r) {
 			invl_inp_err();
 		}
-		if ($usr->is_mod != 'A' && $r[4] != _uid) {
+		if (!($usr->users_opt & 1048576) && $r[4] != _uid) {
 			std_error('access');
 		}
 	}

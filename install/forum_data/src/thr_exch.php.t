@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thr_exch.php.t,v 1.12 2003/09/26 18:49:03 hackie Exp $
+*   $Id: thr_exch.php.t,v 1.13 2003/09/29 14:56:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -83,9 +83,9 @@
 
 		logaction($usr->id, 'THRXDECLINE', $thrx->th);
 	}
-	
+
 /*{POST_HTML_PHP}*/
-	
+
 	if (!isset($decl)) {
 		$thr_exch_data = '';
 
