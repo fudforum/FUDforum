@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.37 2004/02/18 22:54:15 hackie Exp $
+* $Id: rdf.php.t,v 1.38 2004/03/31 16:59:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,29 +58,15 @@ function multi_id($data)
 	return implode(',', $out);
 }
 
-$enc_src = array('<br>', '&', "\r", '&nbsp;', '<', '>');
-$enc_dst = array('<br />', '&amp;', '&#13;', ' ', '&lt;', '&gt;');
+$enc_src = array('<br>', '&', "\r", '&nbsp;', '<', '>', chr(0));
+$enc_dst = array('<br />', '&amp;', '&#13;', ' ', '&lt;', '&gt;', '&#0;');
 
-if (function_exists('utf8_encode')) {
-	function fud_xml_encode($str)
-	{
-		return utf8_encode(htmlspecialchars(str_replace($GLOBALS['enc_src'], $GLOBALS['enc_dst'], $str)));
-	}
-} else {
-	/* build html encoding list */
-	for ($i = 128; $i < 256; $i++) {
-		$enc_src[] = chr($i);
-		$enc_dst[] = '&#' . $i . ';';
-	}
-
-	function fud_xml_encode($str)
-	{
-		return str_replace($GLOBALS['enc_src'], $GLOBALS['enc_dst'], $str);
-	}
+function fud_xml_encode($str)
+{
+	return str_replace($GLOBALS['enc_src'], $GLOBALS['enc_dst'], $str);
 }
 
-
-
+	$charset = '{TEMPLATE: rdf_CHARSET}';
 
 /*{POST_HTML_PHP}*/
 
@@ -180,7 +166,7 @@ if (function_exists('utf8_encode')) {
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					header('Content-Type: text/xml');
-					echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
+					echo '<?xml version="1.0" encoding="'.$charset.'"?>' . "\n";
 					if ($basic) {
 						echo '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:admin="http://webns.net/mvcb/" xmlns="http://purl.org/rss/1.0/">';
 
@@ -345,7 +331,7 @@ $basic_rss_data .= '
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					header('Content-Type: text/xml');
-					echo '<?xml version="1.0" encoding="utf-8"?>
+					echo '<?xml version="1.0" encoding="'.$charset.'"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/">
 <channel rdf:about="'.__ROOT__.'">
 	<title>'.$FORUM_TITLE.' RDF feed</title>
@@ -434,7 +420,7 @@ $basic_rss_data .= '
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					header('Content-Type: text/xml');
-					echo '<?xml version="1.0" encoding="utf-8"?>
+					echo '<?xml version="1.0" encoding="'.$charset.'"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/">
 <channel rdf:about="'.__ROOT__.'">
 	<title>'.$FORUM_TITLE.' RDF feed</title>
