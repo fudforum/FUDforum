@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.51 2003/11/18 11:22:53 hackie Exp $
+* $Id: cookies.inc.t,v 1.52 2003/11/18 12:08:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,19 +12,22 @@
 
 function ses_make_sysid()
 {
-	if (!($GLOBALS['FUD_OPT_1'] & 256)) {
-		if (!($GLOBALS['FUD_OPT_3'] & 16) || strpos($_SERVER['HTTP_USER_AGENT'], 'AOL') !== false) {
-			return md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].(isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : ''));
-		} else {
-			$pfx = '';
-			foreach (array('HTTP_ACCEPT', 'HTTP_ACCEPT_CHARSET', 'HTTP_ACCEPT_ENCODING', 'HTTP_ACCEPT_LANGUAGE', 'HTTP_X_FORWARDED_FOR') as $v) {
-				if (isset($_SERVER[$v])) {
-					$pfx .= $_SERVER[$v];
-				}
-			}
-			return md5($_SERVER['HTTP_USER_AGENT'].$pfx);
+	if ($GLOBALS['FUD_OPT_1'] & 256) {
+		return;
+	}
+
+	$keys = array('HTTP_USER_AGENT', 'HTTP_ACCEPT', 'HTTP_ACCEPT_CHARSET', 'HTTP_ACCEPT_ENCODING', 'HTTP_ACCEPT_LANGUAGE');
+	if ($GLOBALS['FUD_OPT_3'] & 16 && strpos($_SERVER['HTTP_USER_AGENT'], 'AOL') === false) {
+		$keys[] = 'HTTP_X_FORWARDED_FOR';
+		$keys[] = 'REMOTE_ADDR';
+	}
+	$pfx = '';
+	foreach ($keys as $v) {
+		if (isset($_SERVER[$v])) {
+			$pfx .= $_SERVER[$v];
 		}
 	}
+	return md5($pfx);
 }
 
 function ses_get($id=0)
