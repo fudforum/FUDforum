@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.87 2004/06/22 16:23:28 hackie Exp $
+* $Id: consist.php,v 1.88 2004/06/23 16:20:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,6 +31,7 @@
 	fud_use('customtags.inc', true);
 	fud_use('groups_adm.inc', true);
 	fud_use('sml_rcache.inc', true);
+	fud_use('msg_icon_cache.inc', true);
 	fud_use('cat.inc', true);
 	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
@@ -407,6 +408,7 @@ forum will be disabled.
 		}
 	}
 	closedir($dp);
+	rebuild_icon_cache();
 	unset($sml);
 	draw_info($cnt);
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.inc.t,v 1.17 2004/06/23 14:19:36 hackie Exp $
+* $Id: post_common.inc.t,v 1.18 2004/06/23 16:20:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,33 +32,30 @@ function draw_post_smiley_cntrl()
 
 function draw_post_icons($msg_icon)
 {
-	$tmp = $data = '';
-	$allowed_ext = array('.jpg' => 1, '.png' => 1, '.jpeg' => 1, '.gif' => 1);
-	$p = -1;
-	$rl = (int) $GLOBALS['POST_ICONS_PER_ROW'];
+	include $GLOBALS['FORUM_SETTINGS_PATH'].'icon_cache';
 
-	$none_checked = !$msg_icon ? ' checked' : '';
-
-	if ($d = opendir($GLOBALS['WWW_ROOT_DISK'] . 'images/message_icons')) {
-		readdir($d); readdir($d);
-		while ($f = readdir($d)) {
-			if (strlen($f) < 4 || !isset($allowed_ext[strtolower(strrchr($f, '.'))])) {
-				continue;
-			}
-			if (++$p > $rl) {
-				$data .= '{TEMPLATE: post_icon_row}';
-				$tmp = ''; $p = 0;
-			}
-			$checked = $f == $msg_icon ? ' checked' : '';
-			$tmp .= '{TEMPLATE: post_icon_entry}';
-		}
-		closedir($d);
-		if ($tmp) {
-			$data .= '{TEMPLATE: post_icon_row}';
-		}
+	/* nothing to do */
+	if (!$ICON_L) {
+		return;
 	}
 
-	return ($data ? '{TEMPLATE: post_icons}' : '');
+	$tmp = $data = '';
+	$rl = (int) $GLOBALS['POST_ICONS_PER_ROW'];
+	$none_checked = !$msg_icon ? ' checked' : '';
+
+	foreach ($ICON_L as $k => $f) {
+		if ($k && !($k % $rl)) {
+			$data .= '{TEMPLATE: post_icon_row}';
+			$tmp = '';
+		}
+		$checked = $f == $msg_icon ? ' checked' : '';
+		$tmp .= '{TEMPLATE: post_icon_entry}';
+	}
+	if ($tmp) {
+		$data .= '{TEMPLATE: post_icon_row}';
+	}
+
+	return '{TEMPLATE: post_icons}';
 }
 
 function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $private=0, $msg_id)
