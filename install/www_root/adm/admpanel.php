@@ -26,7 +26,7 @@
 	<a style="font-size: x-small;" href="admmime.php?<?php echo _rsid; ?>">MIME Managment System</a><br>
 	
 <?php
-	if (strcasecmp("win", PHP_OS)) {
+	if (strncasecmp("win", PHP_OS, 3)) {
 		echo '<a style="font-size: x-small;" href="admbrowse.php?'._rsid.'">File Manager</a><br>';
 		echo '<a style="font-size: x-small;" href="admlock.php?'._rsid.'">Lock/Unlock Forum\'s Files</a><br>';
 	}
