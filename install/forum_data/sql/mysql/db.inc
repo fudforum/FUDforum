@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.21 2003/07/18 16:45:58 hackie Exp $
+*   $Id: db.inc,v 1.22 2003/09/24 19:54:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,8 +24,16 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 		}
 	}
 
-	if (!isset($_SERVER['PATH_TRANSLATED'])) {
-		$_SERVER['PATH_TRANSLATED'] = realpath(__FILE__);
+	if (function_exists("debug_backtrace")) {
+		$tmp = debug_backtrace();
+		$_SERVER['PATH_TRANSLATED'] = '';
+		foreach ($tmp as $v) {
+			$_SERVER['PATH_TRANSLATED'] .= "{$v['file']}:{$v['line']}\n";
+		}
+	} else {
+		if (!isset($_SERVER['PATH_TRANSLATED'])) {
+			$_SERVER['PATH_TRANSLATED'] = realpath(__FILE__);
+		}
 	}
 
 	$error_msg = "(".basename($_SERVER['PATH_TRANSLATED']).") ".$error_number.": ".$error_string."<br />\n";
