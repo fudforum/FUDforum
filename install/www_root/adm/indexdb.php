@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.24 2004/11/30 16:41:16 hackie Exp $
+* $Id: indexdb.php,v 1.25 2005/01/05 20:35:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,6 +49,11 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 	echo '<br>Please wait while index is being rebuilt.<br>This may take a while depending on the size of your forum.';
 
 	$tbl =& $DBHOST_TBL_PREFIX;
+
+	if (defined('forum_debug')) {
+		list($locale, $GLOBALS['usr']->lang) = db_saq("SELECT locale, lang FROM {$tbl}themes WHERE theme_opt & (1|2) LIMIT 1");
+		$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
+	}
 
 	db_lock($tbl.'search_cache WRITE, '.$tbl.'search WRITE, '.$tbl.'index WRITE, '.$tbl.'title_index WRITE, '.$tbl.'msg WRITE');
 	q('DELETE FROM '.$tbl.'search');
