@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.15 2003/10/10 14:39:24 hackie Exp $
+* $Id: pmsg.tmpl,v 1.16 2003/10/28 02:00:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -162,15 +162,15 @@
 {SECTION: END}
 
 {SECTION: normal_full_indicator normal indicator of space in PM}
-<td bgcolor="#FFFFFF"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8" /></td>
+<td class="pmSn"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8" /></td>
 {SECTION: END}
 
 {SECTION: alert_full_indicator alert indicator, when user approaches limit}
-<td bgcolor="#fffa00"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8" /></td>
+<td class="pmSa"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8" /></td>
 {SECTION: END}
 
 {SECTION: full_full_indicator full indicator, the user has reached or surpassed the limit}
-<td bgcolor="#FF0000"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8" /></td>
+<td class="pmSf"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8" /></td>
 {SECTION: END}
 
 {SECTION: pmsg_author}
