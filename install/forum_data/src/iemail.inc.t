@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.27 2004/03/07 21:01:53 hackie Exp $
+* $Id: iemail.inc.t,v 1.28 2004/03/31 16:28:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,11 +53,8 @@ function send_email($from, $to, $subj, $body, $header='')
 		$bcc = '';
 
 		if (is_array($to)) {
-			$to = $to[0];
-			if (count($to) > 1) {
-				unset($to[0]);
-				$bcc = 'Bcc: ' . implode(', ', $to);
-			}
+			$to = ' ';
+			$bcc = 'Bcc: ' . implode(', ', $to);
 		}
 		if ($header) {
 			$header = "\n" . str_replace("\r", "", $header);
