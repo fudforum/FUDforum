@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: err.inc.t,v 1.45 2004/12/08 18:58:21 hackie Exp $
+* $Id: err.inc.t,v 1.46 2005/02/24 21:25:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,7 +20,7 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 	$error_msg .= '[Message Sent to User] '.trim($msg).'<br />';
 	$error_msg .= '[User IP] '.get_ip().'<br />';
 	$error_msg .= '[Requested URL] http://';
-	$error_msg .= isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+	$error_msg .= isset($_SERVER['HTTP_HOST']) ? htmlspecialchars($_SERVER['HTTP_HOST']) : '';
 	$error_msg .= isset($_SERVER['REQUEST_URI']) ? htmlspecialchars($_SERVER['REQUEST_URI']) : '';
 	$error_msg .= !empty($_POST) ? '<br />[Post-Data] '.base64_encode(htmlspecialchars(serialize($_POST))) : '';
 	$error_msg .= '<br />';
