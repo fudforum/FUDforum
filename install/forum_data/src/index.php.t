@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
+*   $Id: index.php.t,v 1.5 2002/07/08 14:35:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -72,17 +72,28 @@ function index_view_perms($usr_id)
 
 	$fl = '';
 	$tmp_arr = array();
-	$r = q("SELECT user_id,resource_id,p_READ FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN(".$usr_str.") AND resource_type='forum' AND p_VISIBLE='Y' ORDER BY user_id");
+	$r = q("SELECT user_id,resource_id,p_READ,p_VISIBLE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN(".$usr_str.") AND resource_type='forum' ORDER BY user_id");
 	while( $obj = db_rowobj($r) ) {
-		if( $obj->user_id == $usr_id ) {
-			if( $obj->p_READ == 'N' ) $GLOBALS['NO_VIEW_PERMS'][$obj->resource_id] = $obj->resource_id;
+		if( $obj->p_VISIBLE == 'N' ) {
+			$tmp_arr[$obj->resource_id] = 1;
+			continue;
+		}
 		
-			$fl .= $obj->resource_id.',';
+		if( $obj->user_id == $usr_id ) {
+			if( $obj->p_READ == 'N' ) 
+				$GLOBALS['NO_VIEW_PERMS'][$obj->resource_id] = $obj->resource_id;
+			else
+				$fl .= $obj->resource_id.',';
+				
 			$tmp_arr[$obj->resource_id] = 1;
 		}
 		else if( empty($tmp_arr[$obj->resource_id]) ) {
-			if( $obj->p_READ == 'N' ) $GLOBALS['NO_VIEW_PERMS'][$obj->resource_id] = $obj->resource_id;
-			$fl .= $obj->resource_id.',';	
+			if( $obj->p_VISIBLE == 'N' ) continue;
+			
+			if( $obj->p_READ == 'N' ) 
+				$GLOBALS['NO_VIEW_PERMS'][$obj->resource_id] = $obj->resource_id;
+			else	
+				$fl .= $obj->resource_id.',';	
 		}	
 	}	
 	qf($r);
