@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.27 2003/09/30 23:48:38 hackie Exp $
+*   $Id: admgroups.php,v 1.28 2003/10/01 02:45:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,6 +15,7 @@
 *
 ***************************************************************************/
 
+	define('fud_query_stats', 1);
 	require ('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
@@ -32,8 +33,6 @@
 
 	/* check for errors */
 	if (isset($_POST['btn_submit'])) {
-		var_dump($_POST);
-	
 		$gr_inherit_id = (int) $_POST['gr_inherit_id'];
 		if (isset($_POST['gr_resource'])) {
 			$gr_resource = is_string($_POST['gr_resource']) ? array($_POST['gr_resource']) : array_unique($_POST['gr_resource']);
@@ -53,13 +52,13 @@
 				$error = 1;
 			}
 
-			if (empty($_POST['gr_name'])) {
+			if (empty($_POST['gr_name']) && $edit > 2) {
 				$error = 1;
 				$error_reason = 'You must provide a name for your new group.';
 			}
 			
 			if ($val < 0) {
-				$val *= -1;
+				$val = $hdr[$k][0];
 				$permi |= $val;
 				/* determine what the permission should be */
 				if (!$error) {
@@ -70,14 +69,15 @@
 						}
 					}
 					$ih = $gr_inherit_id;
+					$ihl = array();
 					while (1) {
-						if (isset($ih[$ih])) {
+						if (isset($ihl[$ih])) {
 							$error_reason = 'You\'ve created a circular inheritence for "'.$v[1].'" permission';
 							$error = 1;
 							$val = 0;
 							break;
 						}
-						$ih[$ih] = 1;
+						$ihl[$ih] = 1;
 
 						if (!isset($res[$ih])) {
 							$error_reason = 'One of your permissions is set to Inherit, but the group it inherits permissions from, does not exist.';
@@ -87,12 +87,11 @@
 						}
 
 						/* go to the next 'source' group, maybe it has the actual permission */
-						if ($res[$ih]['groups_opti'] & $val) {
-							$ih = $res[$ih]['inherit_id'];
+						if ($res[$ih]->groups_opti & $val) {
+							$ih = $res[$ih]->inherit_id;
 							continue;
 						}
-
-						$val = $res[$ih]['groups_opt'] & $val;
+						$val = $res[$ih]->groups_opt & $val;
 						break;
 					}
 				}
@@ -122,7 +121,12 @@
 						grp_rebuild_cache(array(0, 2147483647));
 					}
 				}
-			} else if (($frm = q_singleval('SELECT forum_id FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$edit))) { /* update an existing group */
+			} else if (($frm = q_singleval('SELECT forum_id FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$edit)) !== null) { /* update an existing group */
+				if (!$res) {
+					$old = db_sab("SELECT groups_opt, groups_opti FROM ".$DBHOST_TBL_PREFIX."groups WHERE id=".$edit);
+				} else {
+					$old =& $res[$edit];
+				}
 				group_sync($edit, (isset($_POST['gr_name']) ? $_POST['gr_name'] : null), $gr_inherit_id, $perm, $permi);
 				if (!$frm) {
 					q('DELETE FROM '.$DBHOST_TBL_PREFIX.'group_resources WHERE group_id='.$edit);
@@ -134,10 +138,9 @@
 					}
 				}
 
-				/* we need to check if this group's permissions are inherited by any 
-				 * other group & update the permissions. Only do it, if the permissions actually changed. */
-				if ($perm != $res[$edit]->groups_opt || $permi != $res[$edit]->groups_opti || $aff != count($gr_resource)) {
-					rebuild_group_ih($gid, $perm);
+				/* only rebuild caches if the permissions or number of resources had changed. */
+				if ($perm != $old->groups_opt || $permi != $old->groups_opti || $aff != count($gr_resource)) {
+					rebuild_group_ih($edit, ($perm ^ $old->groups_opt), $perm);
 					grp_rebuild_cache();
 				}
 			}
@@ -251,7 +254,7 @@
 		echo '<tr><td>'.$v[1].'</td><td><select name="'.$k.'">';
 		if ($v1 && $permi & $v[0]) {
 			echo '<option value="-'.$v[0].'" selected>Inherit</option>';
-			echo '<option value="0">No</option><option value="'.$v[1].'">Yes</option>';
+			echo '<option value="0">No</option><option value="'.$v[0].'">Yes</option>';
 		} else {
 			echo '<option value="-'.$v[0].'">Inherit</option>';
 			if ($perm & $v[0]) {
@@ -262,7 +265,7 @@
 		}
 		echo '</select></td>';
 		if ($v1) {
-			echo '<td align="center">'.($permi & $v[0] ? 'Yes' : 'No').'</td>';
+			echo '<td align="center">'.($perm & $v[0] ? 'Yes' : 'No').'</td>';
 		}
 		echo '</tr>';
 	}
@@ -286,7 +289,7 @@
 	$src = array('!\s!', '!([A-Za-z]{1})!\e');
 	$dst = array('', '\\1<br />');
 	foreach ($hdr as $k => $v) {
-		echo '<td valign="top"><b>';
+		echo '<td align="center" valign="top" title="'.$v[1].'"><b>';
 		echo preg_replace('!([^0]{1})!e', "strtoupper('\\1').'<br />'", $v[1]);
 		echo '</b></td>';
 	}
@@ -308,16 +311,16 @@
 			$grl = 'No Leaders';
 		}
 
-		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='.$k.'&'._rsidl.'">Delete</a>]<br>' : '';
-		$ih_name = $v['inherit_id'] ? '<br><font color="green" size="-1">Inherits from: '.$gl[$v['inherit_id']][0].'<font>' : '';
-
-		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'[<a href="admgrouplead.php?group_id='.$k.'&'._rsidl.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&group_id='.$k.'&'._rsidl.'" target=_new>Manage Users</a>]' : '';
+		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='.$k.'&'._rsidl.'">Delete</a>]' : '';
+		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'<br>[<a href="admgrouplead.php?group_id='.$k.'&'._rsidl.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&group_id='.$k.'&'._rsidl.'" target=_new>Manage Users</a>]' : '';
 
 		echo '<tr style="font-size: x-small;"><td><a name="g'.$k.'">'.$v['gn'].'</a></td>';
 		foreach ($hdr as $v2) {
-			echo '<td align="center">'.($v['groups_opt'] & $v2[0] ? '<font color="green">Y</font>' : '<font color="red">N</font>');
+			echo '<td nowrap align="center">';
 			if ($v['inherit_id'] && $v['groups_opti'] & $v2[0]) {
-				echo ' <a href="#g'.$v['inherit_id'].'">(I: '.($v['groups_opti'] & $v2[0] ? '<font color="green">Y</font>' : '<font color="red">N</font>').')</a>';
+				echo '<a href="#g'.$v['inherit_id'].'" title="Inheriting permissions from '.$gl[$v['inherit_id']]['gn'].'">(I: '.($v['groups_opt'] & $v2[0] ? '<font color="green">Y</font>' : '<font color="red">N</font>').')</a>';
+			} else {
+				echo ($v['groups_opt'] & $v2[0] ? '<font color="green">Y</font>' : '<font color="red">N</font>');
 			}
 			echo '</td>';
 		}
