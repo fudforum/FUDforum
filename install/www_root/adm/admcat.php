@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admcat.php,v 1.6 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admcat.php,v 1.7 2003/04/24 13:48:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,75 +17,79 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
+	require ('GLOBALS.php');
 	
-	fud_use("cat.inc");
-	fud_use("widgets.inc", true);
-	fud_use('util.inc');
 	fud_use('adm.inc', true);
-	
-	list($ses, $usr) = initadm();
-	cache_buster();	
-	
-	if ( !empty($cat_cancel_edit) ) {
-		header("Location: admcat.php?"._rsidl);
-	}
-	
-	$cat = new fud_cat_adm;
-	
-	if ( !empty($edit) ) {
-		$cat->get_cat($edit);
-	}
-	
-	if ( !empty($cat_submit) ) {
-		$cat->fetch_vars($HTTP_POST_VARS, 'cat_');
-		if ( strlen($cat_description) ) $cat->description = ' - '.$cat->description;
-		
-		if ( !$edit ) 
-			$cat->add_cat($HTTP_POST_VARS['cat_pos']);
-		else 
-			$cat->sync();
-			
-		header("Location: admcat.php?"._rsidl."&rnd=".get_random_value(64));
-		exit();
-	}
-	else if ( !empty($edit) ) {
-		if ( strlen($cat->description) ) $cat->description = preg_replace('!\s*-\s*!', '', $cat->description);
-		$cat->export_vars('cat_');
-	}
-	
-	if ( !empty($act) && !empty($ct) && $act=="del" ) { 
-		$cat->delete($ct); 
-		header("Location: admcat.php?"._rsidl."&rnd=".get_random_value(64));
-		exit();
-	}
-	
-	if ( isset($chpos) && isset($newpos) ) {
-		$cat->change_pos($chpos, $newpos);
-		header("Location: admcat.php?"._rsidl."&rnd=".get_random_value(64));
-		exit();
+	fud_use('cat.inc', true);
+	fud_use('widgets.inc', true);
+
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
+	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
+
+	if (isset($_POST['cat_submit'])) {
+		if (!empty($_POST['cat_description'])) {
+			$_POST['cat_description'] = ' - ' . $_POST['cat_description'];
+		}
+		$cat = new fud_cat;
+
+		if ($edit) {
+			$cat->sync($edit);
+			$edit = '';
+		} else {
+			$cat->add($_POST['cat_pos']);
+		}
+	} else if ($edit) {
+		if ($c = db_arr_assoc('SELECT name, description, allow_collapse, default_view, pos FROM '.$tbl.'cat WHERE id='.$edit)) {
+			foreach ($c as $k => $v) {
+				${'cat_'.$k} = $v;
+			}
+			if ($cat_description && !strncmp($cat_description, ' - ', 3)) {
+				$cat_description = substr($cat_description, 3);
+			}
+		} else {
+			$edit = '';
+		}
+	} else {
+		$c = get_class_vars('fud_cat');
+		foreach ($c as $k => $v) {
+			${'cat_'.$k} = '';
+		}
+		$cat_pos = 'LAST';
 	}
 
-	$cat_name = ( isset($cat_name) ) ? htmlspecialchars($cat_name) : '';
-	$cat_description = ( isset($cat_description) ) ? htmlspecialchars($cat_description) : '';
+	if (isset($_GET['del'])) {
+		$del = (int)$_GET['del'];
+		db_lock($tbl.'cat WRITE, '.$tbl.'forum WRITE');
+		q_singleval('DELETE FROM '.$tbl.'cat WHERE id='.$del);
+		if (db_affected()) {
+			q('UPDATE '.$tbl.'forum SET cat_id=0 WHERE cat_id='.$del);
+			cat_rebuild_order();
+		}
+		db_unlock();
+	}
+	if (isset($_GET['chpos'], $_GET['newpos'])) {
+		cat_change_pos((int)$_GET['chpos'], (int)$_GET['newpos']);
+		unset($_GET['chpos'], $_GET['newpos']);
+	}
 
-	include('admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Category Management System</h2>
-
-<?php if ( !isset($chpos) ) { ?>
-
+<?php
+	if (!isset($_GET['chpos'])) {
+?>
 <form method="post" action="admcat.php">
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
 		<td>Category Name:</td>
-		<td><input type="text" name="cat_name" value="<?php echo $cat_name; ?>" maxLength=50></td>
+		<td><input type="text" name="cat_name" value="<?php echo htmlspecialchars($cat_name); ?>" maxLength=50></td>
 	</tr>
 		
 	<tr bgcolor="#bff8ff">
 		<td>Description:</td>
-		<td><input type="text" name="cat_description" value="<?php echo $cat_description; ?>" maxLength=255></td>
+		<td><input type="text" name="cat_description" value="<?php echo htmlspecialchars($cat_description); ?>" maxLength=255></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -95,36 +99,38 @@
 		
 	<tr bgcolor="#bff8ff">
 		<td>Default view: </td>
-		<td><?php draw_select('cat_default_view', "Open\nCollapsed", "OPEN\nCOLLAPSED", empty($cat_default_view)?'':$cat_default_view); ?></td>
+		<td><?php draw_select('cat_default_view', "Open\nCollapsed", "OPEN\nCOLLAPSED", $cat_default_view); ?></td>
 	</tr>
 	
-	<?php if ( empty($edit) ) { ?>
+	<?php if (!$edit) { ?>
 	
 	<tr bgcolor="#bff8ff">
 		<td>Insert position:</td>
-		<td><?php draw_select('cat_pos', "Last\nFirst", "LAST\nFIRST", empty($cat_pos)?'':$cat_pos); ?></td>
+		<td><?php draw_select('cat_pos', "Last\nFirst", "LAST\nFIRST", $cat_pos); ?></td>
 	</tr>
 	
 	<?php } ?>
 	
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
-			<?php if ( !empty($edit) ) echo '<input type="submit" name="cat_cancel_edit" value="Cancel">&nbsp;'; ?>
-			<input type="submit" value="<?php echo ( !empty($edit) ) ? 'Update Category' :'Add Category';?>" name="cat_submit">
+<?php
+	if ($edit) {
+		echo '<input type="submit" name="btn_cancel" value="Cancel">&nbsp;'; 
+	}
+?>
+			<input type="submit" value="<?php echo ($edit ? 'Update Category' : 'Add Category'); ?>" name="cat_submit">
 		</td>
 	</tr>
 </table>
 <?php
-	if ( !empty($edit) ) echo '<input type="hidden" value="'.$edit.'" name="edit">';
-?>
-</form>
-
-<?php } 
-	if ( isset($chpos) ) {
-		echo '<a href="admcat.php">Cancel</a><br>';
+		if ($edit) {
+			echo '<input type="hidden" value="'.$edit.'" name="edit">';
+		}
+		echo '</form>';
+	} else {
+		echo '<a href="admcat.php?'._rsidl.'">Cancel</a><br>';
 	}
 ?>
-
 <br>
 <table border=0 cellspacing=3 cellpadding=2>
 <tr bgcolor="#e5ffe7">
@@ -136,31 +142,40 @@
 	<td>Position</td>
 </tr>
 <?php
-	$cat->get_all_cat();
-	$cat->resetcat();
-	$i=1;
-	
-	while ( $cat->nextcat() ) {
-		$bgcolor = (($i++)%2) ? ' bgcolor="#fffee5"':'';
-		
-		if ( !empty($edit) && $edit == $cat->id ) $bgcolor=' bgcolor="#ffb5b5"';
-		
-		if ( isset($chpos) ) {
-			if ( $chpos == $cat->view_order ) $bgcolor=' bgcolor="#ffb5b5"';
-			
-			if ( $chpos != $cat->view_order && $chpos != $cat->view_order-1 ) {
-				$sub = ( $chpos < $cat->view_order ) ? 1 : 0;
-				echo '<tr bgcolor="#efefef"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$chpos.'&newpos='.($cat->view_order-$sub).'&'._rsid.'">Place Here</a></font></td></tr>';
+	$c = uq('SELECT * FROM '.$tbl.'cat ORDER BY view_order');
+	$i = 1;
+	while ($r = db_rowobj($c)) {
+		if ($edit == $r->id) {
+			$bgcolor = ' bgcolor="#ffb5b5"';
+		} else {
+			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+		}
+		if (isset($_GET['chpos'])) {
+			if ($_GET['chpos'] == $r->view_order) {
+				$bgcolor = ' bgcolor="#ffb5b5"';
+			} else if ($_GET['chpos'] != ($r->view_order - 1)) {
+				echo '<tr bgcolor="#efefef"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&'._rsidl.'">Place Here</a></font></td></tr>';
+			} else {
+				$lp = $r->view_order;
 			}
 		}
+		
+		echo '<tr '.$bgcolor.'>
+			<td>'.$r->name.'</td>
+			<td>'.substr($r->description, 0, 30).'</td>
+			<td>'.($r->allow_collapse == 'Y' ? 'Yes' : 'No').'</td>
+			<td>'.$r->default_view.'</td>
+			<td nowrap>[<a href="admforum.php?cat_id='.$r->id.'&'._rsidl.'">Edit Forums</a>] [<a href="admcat.php?edit='.$r->id.'&'._rsidl.'">Edit Category</a>] [<a href="admcat.php?del='.$r->id.'&'._rsidl.'">Delete</a>]</td>
+			<td>[<a href="admcat.php?chpos='.$r->view_order.'&'._rsidl.'">Change</a>]</td></tr>';
 
-		echo '<tr'.$bgcolor.'><td>'.$cat->name.'</td><td>'.((strlen($cat->description)>30)?substr($cat->description, 0, 30).'...':$cat->description.'&nbsp;').'</td><td>'.(($cat->allow_collapse=='Y')?'Yes':'No').'</td><td>'.$cat->default_view.'</td><td nowrap>[<a href="admforum.php?cat_id='.$cat->id.'&'._rsid.'">Edit Forums</a>] [<a href="admcat.php?edit='.$cat->id.'&'._rsid.'">Edit Category</a>] [<a href="admcat.php?ct='.$cat->id.'&act=del&'._rsid.'">Delete</a>]</td><td>[<a href="admcat.php?chpos='.$cat->view_order.'&'._rsid.'">Change</a>]</td></tr>';
+		if (isset($_GET['chpos']) && $_GET['chpos'] == ($r->view_order -1)) {
+			
+		}
 	}
-	
-	if ( isset($chpos) && $chpos != $cat->view_order ) {
-		echo '<tr bgcolor="#efefef"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$chpos.'&newpos='.$cat->view_order.'&'._rsid.'">Place Here</a></font></td></tr>';
+	qf($c);
+	if (isset($lp)) {
+		echo '<tr bgcolor="#efefef"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&'._rsidl.'">Place Here</a></font></td></tr>';
 	}
-	
 ?>
 </table>
-<?php readfile('admclose.html'); ?>
+<?php readfile($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
