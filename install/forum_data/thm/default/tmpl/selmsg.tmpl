@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.tmpl,v 1.33 2005/02/27 02:21:36 hackie Exp $
+* $Id: selmsg.tmpl,v 1.34 2005/03/18 20:07:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,26 +31,6 @@
 <span class="selmsgInd">({MSG: off})</span>
 {SECTION: END}
 
-{SECTION: todays_posts todays posts link}
-<a href="{TEMPLATE: todays_posts_lnk}" title="{MSG: sel_todays_posts_desc}">{MSG: sel_todays_posts} {IF: isset($_GET['date'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{ENDI}</a>
-{SECTION: END}
-
-{SECTION: unread_messages unread messages link}
-&nbsp;| <a href="{TEMPLATE: unread_messages_lnk}" title="{MSG: sel_unread_messages_desc}">{MSG: sel_unread_messages} {IF: isset($_GET['unread'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{ENDI}</a>
-{SECTION: END}
-
-{SECTION: unanswered unreplied posts link}
-&nbsp;| <a href="{TEMPLATE: unanswered_lnk}" title="{MSG: sel_unanswered_posts_desc}">{MSG: sel_unanswered_posts} {IF: isset($_GET['reply_count'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{END}</a>
-{SECTION: END}
-
-{SECTION: subscribed_frm subscribed forum link}
-&nbsp;| <a href="{TEMPLATE: subscribed_frm_lnk}" title="{MSG: subscribed_forums_desc}">{MSG: subscribed_forums} {IF: isset($_GET['sub_forum_limit'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{ENDI}</a>
-{SECTION: END}
-
-{SECTION: subscribed_thr subscribed thread link}
-&nbsp;| <a href="{TEMPLATE: subscribed_thr_lnk}" title="{MSG: subscribed_threads_desc}">{MSG: subscribed_threads} {IF: isset($_GET['sub_th_limit'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{ENDI}</a>
-{SECTION: END}
-
 {SECTION: more_unread_messages more unread messages link}
 <div align="center" class="GenText">[<a href="{TEMPLATE: more_unread_messages_lnk}" title="{MSG: more_unread_messages_desc}">{MSG: more_unread_messages}</a>]</div><img src="blank.gif" alt="" height=3 />
 {SECTION: END}
@@ -70,11 +50,11 @@
 {PAGE: SELMSG_PAGE a form which can show today's,unread,unanswered,etc... posts}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-{TEMPLATE: todays_posts}
-{IF: _uid}{TEMPLATE: unread_messages}{ENDIF}
-{IF: _uid}{TEMPLATE: subscribed_frm}{ENDIF}
-{IF: _uid}{TEMPLATE: subscribed_thr}{ENDIF}
-{TEMPLATE: unanswered}
+<a href="{TEMPLATE: todays_posts_lnk}" title="{MSG: sel_todays_posts_desc}">{MSG: sel_todays_posts} {IF: isset($_GET['date'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{ENDI}</a>
+{IF: _uid}&nbsp;| <a href="{TEMPLATE: unread_messages_lnk}" title="{MSG: sel_unread_messages_desc}">{MSG: sel_unread_messages} {IF: isset($_GET['unread'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{ENDI}</a>{ENDIF}
+{IF: _uid}&nbsp;| <a href="{TEMPLATE: subscribed_frm_lnk}" title="{MSG: subscribed_forums_desc}">{MSG: subscribed_forums} {IF: isset($_GET['sub_forum_limit'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{ENDI}</a>{ENDIF}
+{IF: _uid}&nbsp;| <a href="{TEMPLATE: subscribed_thr_lnk}" title="{MSG: subscribed_threads_desc}">{MSG: subscribed_threads} {IF: isset($_GET['sub_th_limit'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{ENDI}</a>{ENDIF}
+&nbsp;| <a href="{TEMPLATE: unanswered_lnk}" title="{MSG: sel_unanswered_posts_desc}">{MSG: sel_unanswered_posts} {IF: isset($_GET['reply_count'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{END}</a>
 <br />{TEMPLATE-DATA: admin_cp}<br />
 <table cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
 {TEMPLATE-DATA: pager}
