@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.14 2002/11/07 18:31:49 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.15 2003/02/25 15:31:38 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -128,7 +128,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_location}
-{MSG: location} {VAR: location}<br />
+{MSG: location} <br>{VAR: location}<br />
 {SECTION: END}
 
 {SECTION: dmsg_no_location}
