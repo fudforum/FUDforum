@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.php.t,v 1.31 2003/10/09 14:34:27 hackie Exp $
+* $Id: thread.php.t,v 1.32 2003/10/09 15:41:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -61,10 +61,9 @@
 
 	if (!($r = @db_rowarr($result))) {
 		$thread_list_table_data = '{TEMPLATE: no_messages}';
-		$threaded_view = $rating_heading = $admin_heading_row = '';
+		$threaded_view = $admin_heading_row = '';
 	} else {
-		$admin_heading_row = ($MOD || $frm->group_cache_opt & (32|8192)) ? '{TEMPLATE: admin_heading_row}' : '';
-		$rating_heading = $FUD_OPT_2 & 4096 ? '{TEMPLATE: rating_heading}' : '';
+		$admin_heading_row = ($MOD || $frm->group_cache_opt & 8224);
 		$threaded_view = $FUD_OPT_2 & 512 ? '{TEMPLATE: threaded_view}' : '';
 		$thread_list_table_data = '';
 

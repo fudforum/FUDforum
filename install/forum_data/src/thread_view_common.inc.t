@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.25 2003/10/09 14:34:27 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.26 2003/10/09 15:41:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -65,8 +65,7 @@ if ($_GET['t'] == 'threadt') {
 	$ann_cols = '5';
 	$cur_frm_page = $start + 1;
 } else {
-	$ann_cols = ($FUD_OPT_2 & 4096 ? 8 : 7) + $MOD;
-	$moved_cols = $ann_cols - 1;
+	$ann_cols = '6';
 	$cur_frm_page = floor($start / $THREADS_PER_PAGE) + 1;
 }
 
