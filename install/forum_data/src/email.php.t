@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email.php.t,v 1.9 2003/05/01 18:41:41 hackie Exp $
+*   $Id: email.php.t,v 1.10 2003/09/27 16:05:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -55,7 +55,7 @@ function mail_check()
 	
 	if (!strlen(trim($_POST['tx_name']))) {
 		set_err('tx_name', '{TEMPLATE: email_error_namerequired}');
-	} else if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias=\''.addslashes(htmlspecialchars($_POST['tx_name'])).'\'')) {
+	} else if (!q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(htmlspecialchars($_POST['tx_name']))."'")) {
 		set_err('tx_name', '{TEMPLATE: email_error_invaliduser}');
 	}
 	
@@ -64,7 +64,7 @@ function mail_check()
 	if (isset($_GET['toi']) && (int)$_GET['toi']) {
 		$_POST['tx_name'] = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.(int)$_GET['toi']);
 	} else if (isset($_POST['btn_submit']) && !mail_check()) {
-		if (!($email = q_singleval('SELECT email FROM {SQL_TABLE_PREFIX}users WHERE alias=\''.addslashes(htmlspecialchars($_POST['tx_name'])).'\' AND email_messages=\'Y\''))) {
+		if (!($email = q_singleval("SELECT email FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(htmlspecialchars($_POST['tx_name']))."' AND users_opt & 16"))) {
 			error_dialog('{TEMPLATE: email_err_unabletoemail_title}', '{TEMPLATE: email_error_unabletolocaddr}');	
 		}
 		send_email($usr->email, $email, $_POST['tx_subject'], $_POST['tx_body'], 'Reply-To: '.$usr->email);
