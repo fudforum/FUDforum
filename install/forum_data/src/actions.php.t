@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.14 2002/09/08 00:28:54 hackie Exp $
+*   $Id: actions.php.t,v 1.15 2002/09/08 20:10:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,7 +65,7 @@
 	while ( $obj = db_rowobj($r) ) {
 		if( $obj->invisible_mode == 'Y' && $usr->is_mod != 'A' ) continue;
 
-		if ( isset(obj->alias) ) {
+		if ( isset($obj->alias) ) {
 			switch( $obj->is_mod )
 			{
 				case 'A':
