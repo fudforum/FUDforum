@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel="StyleSheet" href="adm.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=<?php readfile($DATA_DIR . 'thm/' . $usr->theme_name . '/i18n/' . $usr->lang . '/charset'); ?>">
 </head>
 <body>
 <table class="maintable">
