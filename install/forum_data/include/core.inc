@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.55 2003/04/24 21:35:23 hackie Exp $
+*   $Id: core.inc,v 1.56 2003/05/11 18:52:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -90,6 +90,29 @@ function get_random_value($bitlength=32)
 		$v .= mt_rand();
 	}
 	return $v;
+}
+
+function get_ip()
+{
+	if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		$ip = strtok($_SERVER['HTTP_X_FORWARDED_FOR'], ',');
+		do {
+			if (($lip = ip2long($ip)) === -1) {
+				continue;
+			}
+			/* some disallowed ip ranges, that are normally used for private networks 
+			 * 10.0.0.0 - 10.255.255.255
+			 * 172.16.0.0 - 172.31.255.255
+			 * 192.168.0.0 - 192.168.255.255
+			 * 127.0.0.1, 255.255.255.255, 0.0.0.0
+			*/
+			if (!$lip || (($lip >= 167772160) && ($lip <= 184549375)) || (($lip >= -1408237568) && ($lip <= -1407188993)) || (($lip >= -1062731776) && ($lip <= -1062666241)) || ($lip == 2130706433)) { 
+				continue; 
+			}
+			return $ip;
+		} while (($ip = strtok(',')));
+	}
+	return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0');
 }
 
 if (!function_exists('file_get_contents')) {
