@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_mlist.tbl,v 1.1 2002/07/24 12:47:18 hackie Exp $
+#   $Id: fud_mlist.tbl,v 1.2 2002/10/06 23:04:59 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -25,6 +25,8 @@ CREATE TABLE {SQL_TABLE_PREFIX}mlist
 	CONSTRAINT              allow_mlist_html_cnt CHECK (allow_mlist_html='Y' OR allow_mlist_html='N'),
 	complex_reply_match	VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT              complex_reply_match_cnt CHECK (complex_reply_match='Y' OR complex_reply_match='N'),
+	create_users 		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		create_users_cnt CHECK (create_users='Y' OR create_users='N'),
 	
 	subject_regex_haystack	TEXT,
 	subject_regex_needle	TEXT,

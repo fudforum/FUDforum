@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_nntp.tbl,v 1.1 2002/07/29 11:58:44 hackie Exp $
+#   $Id: fud_nntp.tbl,v 1.2 2002/10/06 23:04:59 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -19,6 +19,8 @@ CREATE TABLE {SQL_TABLE_PREFIX}nntp
 	frm_post_apr		ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
 	allow_nntp_attch	ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
 	complex_reply_match	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	create_users		ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
+	
 	
 	server			VARCHAR(255) NOT NULL,			
 	newsgroup		VARCHAR(255) NOT NULL,
