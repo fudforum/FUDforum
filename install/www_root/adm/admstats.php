@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.5 2002/06/26 19:48:16 hackie Exp $
+*   $Id: admstats.php,v 1.6 2002/06/26 22:26:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,7 +59,7 @@ function get_sql_disk_usage()
 	
 	$sql_size=0;
 	
-	$r = q("SHOW TABLE STATUS FROM ".$GLOBALS['MYSQL_DB']);
+	$r = q("SHOW TABLE STATUS FROM ".$GLOBALS['DBHOST_DBNAME']);
 	while( $obj = db_rowobj($r) ) {
 		if( preg_match('!^'.$GLOBALS['DBHOST_TBL_PREFIX'].'!', $obj->Name) )
 			$sql_size += $obj->Data_length+$obj->Index_length;
