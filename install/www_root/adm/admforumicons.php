@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforumicons.php,v 1.4 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admforumicons.php,v 1.5 2003/04/28 15:41:01 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,101 +17,75 @@
 	
 	define('admin_form', 1);
 	
-	include_once "GLOBALS.php";
-	
-	fud_use('widgets.inc', true);
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
-	fud_use('util.inc');
+	fud_use('widgets.inc', true);
 
-	list($ses, $usr) = initadm();
-
-	$ICONS_DIR = '../images/'.(($which_dir)?'message_icons/':'forum_icons/');
-	
-	if ( $btn_upload ) {
-		$dest = $ICONS_DIR.$iconfile_name;
-		$source = $iconfile;
-		$upl_unable = 0;
-		
-		if ( file_exists($dest) ) {
-			$upl_unable=1;
-		}
-		else if ( $iconfile_size && preg_match('/\.(gif|png|jpg|jpeg)$/i', $iconfile_name, $regs) ) {
-			move_uploaded_file($source, $dest);
-		}
-		else {
-			$upl_unable=1;
-		}
-		
-		header("Location: admforumicons.php?"._rsidl."&upl_unable=$upl_unable&which_dir=$which_dir");
+	/*
+	 * The presense of the which_dir variable tells us whether we are editing 
+	 * forum icons or message icons.
+	 */
+	if (!empty($_GET['which_dir']) || !empty($_POST['which_dir'])) {
+		$which_dir = '1';
+		$ICONS_DIR = 'images/message_icons';
+		$form_descr = 'Message Icons';
+	} else {
+		$which_dir = '';
+		$ICONS_DIR = 'images/forum_icons';
+		$form_descr = 'Forum Icons';
 	}
 	
-	if ( $del ) {
-		/* fix del */
-		$unable = 0;
-		if ( !strstr($del, '/') ) {
-			if ( !@unlink($ICONS_DIR.$del) ) $unable = 1;
-		}
-		else
-			$unable = 1;
-		
-		header("Location: admforumicons.php?"._rsidl."&unable=$unable&which_dir=$which_dir");
-		exit();
+	if (isset($_FILES['iconfile']) && $_FILES['iconfile']['size'] && preg_match('!\.(gif|png|jpg|jpeg)$!i', $_FILES['iconfile']['name'])) {
+		echo "HERE<br>\n";
+		move_uploaded_file($_FILES['iconfile']['tmp_name'], $GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR . '/' . $_FILES['iconfile']['name']);
 	}
-	
-	include('admpanel.php'); 
-	
-	$dp = opendir($ICONS_DIR);
+	if (isset($_GET['del'])) {
+		@unlink($GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR . '/' . basename($_GET['del']));
+	}
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 ?>
-<h2>Icon Administration System</h2>
+<h2><?php echo $form_descr; ?> Administration System</h2>
 <?php 
-	if ( $unable ) 
-		echo '<br><font color="red">Unable to delete icon from '.realpath($ICONS_DIR).'</font><br>';
-?>
-
-<?php 
-	if ( $upl_unable ) 
-		echo '<br><font color="red">Unable to upload file. Only .gif, .jpg, .jpeg, .png are allowed</font><br>';
-
-
-if ( is_writeable($ICONS_DIR) ) {
+	if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR)) {
 ?>
 <form method="post" enctype="multipart/form-data" action="admforumicons.php">
 <input type="hidden" name="which_dir" value="<?php echo $which_dir; ?>">
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
-		<td>Upload Icon:</td>
+		<td>Upload Icon:<br><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
 		<td><input type="file" name="iconfile"></td>
 	</tr>
 	
-	<tr bgcolor="#bff8ff">
-		<td align=right colspan=2><input type="submit" name="btn_upload" value="Upload & Add"></td>
-	</tr>
+	<tr bgcolor="#bff8ff"><td align=right colspan=2><input type="submit" name="btn_upload" value="Add"></td></tr>
 </table>
 </form>
 <?php
-}
-else 
-{
+	} else {
 ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
-		<td align=center><font color="red"><?php echo realpath($ICONS_DIR).' is not writeable by the web server, file upload disabled'; ?></td>
+		<td align=center><font color="red"><?php echo $GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR; ?> is not writeable by the web server, file upload disabled.</td>
 	</tr>
 </table>
 <?php
-}
+	}
 ?>
 <table border=0 cellspacing=3 cellpadding=2>
 <tr><td>Icon</td><td>Action</td></tr>
 <?php
-	while ( $de = readdir($dp) ) {
-		if ( $de == '.' || $de == '..' ) continue;
-		if ( !preg_match('/\.(gif|png|jpg|jpeg)$/i', $de, $regs) ) continue;
-		$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
-		echo "<tr$bgcolor><td><img src=\"".$ICONS_DIR.$de."\"></td><td><a href=\"admforumicons.php?del=$de&"._rsid."&which_dir=$which_dir\">Delete</a></td></tr>\n";
+	$i = 1;
+	$dp = opendir($GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR);
+	readdir($dp); readdir($dp);
+	while ($de = readdir($dp)) {
+		if (!preg_match('!\.(gif|png|jpg|jpeg)$!i', $de)) {
+			continue;
+		}
+		$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+		echo '<tr'.$bgcolor.'><td><img src="'.$GLOBALS['WWW_ROOT'] . $ICONS_DIR . '/' . $de.'"></td><td><a href="admforumicons.php?del='.urlencode($de).'&'._rsidl.'&which_dir='.$which_dir.'">Delete</a></td></tr>';
 	}
 	closedir($dp);
 ?>
 </table>
-<?php readfile('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
