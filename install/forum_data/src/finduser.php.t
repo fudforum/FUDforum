@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.21 2003/09/18 14:16:47 hackie Exp $
+*   $Id: finduser.php.t,v 1.22 2003/09/27 16:14:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,8 +17,8 @@
 
 /*{PRE_HTML_PHP}*/
 
-	$adm = $usr->is_mod != 'A' ? 0 : 1;
-	
+	$adm = $usr->users_opt & 1048576;
+
 	if ($MEMBER_SEARCH_ENABLED != 'Y' && !$adm) {
 		std_error('disabled');
 	}
@@ -61,14 +61,14 @@
 	$admin_opts = $adm ? '{TEMPLATE: findu_admin_opts_header}' : '';
 
 	$find_user_data = '';
-	$c = uq('SELECT blocked, home_page, email_messages, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' ' . $lmt);
+	$c = uq('SELECT home_page, users_opt, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' ' . $lmt);
 	while ($r = db_rowobj($c)) {
 		$pm_link = ($PM_ENABLED == 'Y' && _uid) ? '{TEMPLATE: pm_link}' : '';
-		$homepage_link = strlen($r->home_page) ? '{TEMPLATE: homepage_link}' : '';
-		$email_link = ($ALLOW_EMAIL == 'Y' && $r->email_messages == 'Y') ? '{TEMPLATE: email_link}' : '';
+		$homepage_link = $r->home_page ? '{TEMPLATE: homepage_link}' : '';
+		$email_link = ($ALLOW_EMAIL == 'Y' && $r->users_opt & 16) ? '{TEMPLATE: email_link}' : '';
 
 		if ($adm) {
-			$admi = $r->blocked == 'Y' ? '{TEMPLATE: findu_unban}' : '{TEMPLATE: findu_ban}';
+			$admi = $r->users_opt & 65536 ? '{TEMPLATE: findu_unban}' : '{TEMPLATE: findu_ban}';
 			$admi = '{TEMPLATE: findu_admin_opts}';
 		} else {
 			$admi = '';

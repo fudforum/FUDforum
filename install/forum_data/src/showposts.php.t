@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: showposts.php.t,v 1.14 2003/09/27 15:56:33 hackie Exp $
+*   $Id: showposts.php.t,v 1.15 2003/09/27 16:14:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,7 +37,7 @@
 	}
 	
 	if (!($usr->users_opt & 1048576)) {
-		$fids = implode(',', get_all_read_perms(_uid, ($usr->users_opt & 524288)));
+		$fids = implode(',', array_keys(get_all_read_perms(_uid, ($usr->users_opt & 524288))));
 	}
 
 	if (isset($_GET['so']) && !strcasecmp($_GET['so'], 'asc')) {
