@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: upgrading.xml,v 1.1 2002/07/03 15:55:06 hackie Exp $ -->
+<!-- $Id: upgrading.xml,v 1.2 2002/09/03 00:31:35 hackie Exp $ -->
 <chapter id="upgrading">
 <title>Upgrading FUD Forum 2</title>
 	<para>
@@ -64,7 +64,7 @@ Once the files are retrieved, run the following commands to create the upgrade s
 cd fud21_install
 chmod 644 upgrade.php
 chmod 755 create_file_list
-./create_file_list install >> upgrade.php
+./create_file_list install 1>> upgrade.php
 ]]>
                                 </programlisting>
 			</example>

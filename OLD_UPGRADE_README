@@ -1,5 +1,5 @@
 /*
- * $Id: OLD_UPGRADE_README,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+ * $Id: OLD_UPGRADE_README,v 1.2 2002/09/03 00:31:35 hackie Exp $
  *
 */
 
@@ -32,7 +32,7 @@
 	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum2 edit fud2_old_upgrade
 
 3) Enter the fud2_old_upgrade directory, which was created by the CVS and run 
-	./create_file_list install >> oldfrm_upgrade.php
+	./create_file_list install 1>> oldfrm_upgrade.php
 	This requires your to have a php cgi binary installed, if it is not found inside /usr/local/bin/php
 	modify the create_file_list first line with the full path to the php cgi binary.
 
