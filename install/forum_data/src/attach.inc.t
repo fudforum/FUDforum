@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: attach.inc.t,v 1.43 2004/12/10 16:47:05 hackie Exp $
+* $Id: attach.inc.t,v 1.44 2005/01/05 20:35:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -66,7 +66,9 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cnt='.$attach_count.', attach_cache=\''.addslashes(serialize($atl)).'\' WHERE id='.$mid);
 	}
 
-	ses_putvar((int)$GLOBALS['usr']->sid, null);
+	if (!empty($GLOBALS['usr']->sid)) {
+		ses_putvar((int)$GLOBALS['usr']->sid, null);
+	}
 }
 
 function attach_rebuild_cache($id)
