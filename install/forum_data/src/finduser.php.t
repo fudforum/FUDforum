@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.40 2004/04/27 16:28:11 hackie Exp $
+* $Id: finduser.php.t,v 1.41 2004/05/18 18:33:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,7 +53,7 @@
 	$admin_opts = $adm ? '{TEMPLATE: findu_admin_opts_header}' : '';
 
 	$find_user_data = '';
-	$c = uq('SELECT home_page, users_opt, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' ' . $lmt);
+	$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ home_page, users_opt, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' ' . $lmt);
 	while ($r = db_rowobj($c)) {
 		$pm_link = ($FUD_OPT_1 & 1024 && _uid) ? '{TEMPLATE: pm_link}' : '';
 		$homepage_link = $r->home_page ? '{TEMPLATE: homepage_link}' : '';
@@ -79,7 +79,9 @@
 	}
 
 	$pager = '';
-	$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id > 1');
+	if (($total = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {
+		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id > 1');
+	}
 	if ($total > $count) {
 		if ($FUD_OPT_2 & 32768) {
 			$pg = '{ROOT}/ml/';

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.php.t,v 1.16 2004/01/08 19:24:20 hackie Exp $
+* $Id: mnav.php.t,v 1.17 2004/05/18 18:33:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -57,7 +57,43 @@
 			$date_limit = '';
 		}
 
-		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m
+		$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ u.alias, f.name AS forum_name, f.id AS forum_id,
+				m.poster_id, m.id, m.thread_id, m.subject, m.poster_id, m.foff, m.length, m.post_stamp, m.file_id, m.icon
+				FROM {SQL_TABLE_PREFIX}msg m
+				INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+				INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+				INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
+				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
+				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
+				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
+				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
+			WHERE
+				m.post_stamp > '.$tm.' '.$date_limit.' AND m.apr=1 '.$qry_lmt.'
+				'.($usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)').'
+				ORDER BY m.thread_id, t.forum_id, m.post_stamp DESC LIMIT '.qry_limit($ppg, $start));
+
+		$oldf = $oldt = 0;
+		$mnav_data = '{TEMPLATE: mnav_begin_results}';
+		while ($r = db_rowobj($c)) {
+			if ($oldf != $r->forum_id) {
+				$mnav_data .= '{TEMPLATE: mnav_forum}';
+				$oldf = $r->forum_id;
+			}
+			if ($oldt != $r->thread_id) {
+				$mnav_data .= '{TEMPLATE: mnav_thread}';
+				$oldt = $r->thread_id;
+			}
+
+			$body = trim_body(read_msg_body($r->foff, $r->length, $r->file_id));
+
+			$poster_info = !empty($r->poster_id) ? '{TEMPLATE: mnav_user}' : '{TEMPLATE: mnav_anon}';
+
+			$mnav_data .= '{TEMPLATE: mnav_msg}';
+		}
+		un_register_fps();
+
+		if (($total = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {
+			$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m
 					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 					INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
@@ -67,44 +103,12 @@
 				WHERE
 					m.post_stamp > '.$tm.' '.$date_limit.' AND m.apr=1 '.$qry_lmt.'
 					'.($usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)'));
+		}				
+		
 		if (!$total) {
 			$mnav_pager = '';
 			$mnav_data = '{TEMPLATE: mnav_no_results}';
 		} else {
-			$c = uq('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
-					m.poster_id, m.id, m.thread_id, m.subject, m.poster_id, m.foff, m.length, m.post_stamp, m.file_id, m.icon
-					FROM {SQL_TABLE_PREFIX}msg m
-					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
-					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
-					INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
-					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
-					LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
-					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
-					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-				WHERE
-					m.post_stamp > '.$tm.' '.$date_limit.' AND m.apr=1 '.$qry_lmt.'
-					'.($usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)').'
-					ORDER BY m.thread_id, t.forum_id, m.post_stamp DESC LIMIT '.qry_limit($ppg, $start));
-
-			$oldf = $oldt = 0;
-			$mnav_data = '{TEMPLATE: mnav_begin_results}';
-			while ($r = db_rowobj($c)) {
-				if ($oldf != $r->forum_id) {
-					$mnav_data .= '{TEMPLATE: mnav_forum}';
-					$oldf = $r->forum_id;
-				}
-				if ($oldt != $r->thread_id) {
-					$mnav_data .= '{TEMPLATE: mnav_thread}';
-					$oldt = $r->thread_id;
-				}
-
-				$body = trim_body(read_msg_body($r->foff, $r->length, $r->file_id));
-
-				$poster_info = !empty($r->poster_id) ? '{TEMPLATE: mnav_user}' : '{TEMPLATE: mnav_anon}';
-
-				$mnav_data .= '{TEMPLATE: mnav_msg}';
-			}
-			un_register_fps();
 			$mnav_data .= '{TEMPLATE: mnav_end_results}';
 
 			/* handle pager if needed */

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.php.t,v 1.23 2004/04/22 16:03:27 hackie Exp $
+* $Id: polllist.php.t,v 1.24 2004/05/18 18:33:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,55 +44,56 @@
 		$oby_rev_val = 'ASC';
 	}
 
-	$ttl = (int) q_singleval('SELECT count(*)
+	$poll_entries = '';
+	$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */
+			p.owner, p.name, p.creation_date, p.id, p.max_votes, p.total_votes,
+			u.alias, u.alias AS login, (u.last_visit + '.($LOGEDIN_TIMEOUT * 60).') AS last_visit, u.users_opt,
+			'.($usr->users_opt & 1048576 ? '1' : 'mm.id').' AS md,
+			(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
+			FROM {SQL_TABLE_PREFIX}poll p
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=p.forum_id
+			INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id
+			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
+			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=p.forum_id
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=p.forum_id AND mm.user_id='._uid.'
+			LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=p.owner
+			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
+			WHERE
+				'.$usr_lmt.' '.($usr->users_opt & 1048576 ? '1=1' : '(mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)').' ORDER BY p.creation_date '.$oby.' LIMIT '.qry_limit($POLLS_PER_PAGE, $start));
+
+	while ($obj = db_rowobj($c)) {
+		$view_res_lnk = $obj->total_votes ? '{TEMPLATE: poll_view_res_lnk}' : '';
+		if (!$obj->total_votes) {
+			$obj->total_votes = '0';
+		}
+		if ($obj->owner && (!($obj->users_opt & 32768) || $usr->users_opt & 1048576) && $FUD_OPT_2 & 32) {
+			$online_indicator = $obj->last_visit > __request_timestamp__ ? '{TEMPLATE: polllist_online_indicator}' : '{TEMPLATE: polllist_offline_indicator}';
+		} else {
+			$online_indicator = '';
+		}
+		$poll_entries .= '{TEMPLATE: poll_entry}';
+	}
+
+	if (($ttl = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {
+		$ttl = (int) q_singleval('SELECT count(*)
 				FROM {SQL_TABLE_PREFIX}poll p
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id
 				INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=p.forum_id AND mm.user_id='._uid.'
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=p.forum_id
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=p.forum_id
-				WHERE
-					'.$usr_lmt.($usr->users_opt & 1048576 ? ' 1=1' : ' (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)'));
-	$poll_entries = $pager = '';
-	if ($ttl) {
-		$c = uq('SELECT
-				p.owner, p.name, p.creation_date, p.id, p.max_votes, p.total_votes,
-				u.alias, u.alias AS login, (u.last_visit + '.($LOGEDIN_TIMEOUT * 60).') AS last_visit, u.users_opt,
-				'.($usr->users_opt & 1048576 ? '1' : 'mm.id').' AS md,
-				(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
-				FROM {SQL_TABLE_PREFIX}poll p
-				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=p.forum_id
-				INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id
-				INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=p.forum_id
-				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=p.forum_id AND mm.user_id='._uid.'
-				LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=p.owner
-				LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
-				WHERE
-					'.$usr_lmt.' '.($usr->users_opt & 1048576 ? '1=1' : '(mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)').' ORDER BY p.creation_date '.$oby.' LIMIT '.qry_limit($POLLS_PER_PAGE, $start));
+				WHERE '.$usr_lmt.($usr->users_opt & 1048576 ? ' 1=1' : ' (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)'));	
+	}
 
-		while ($obj = db_rowobj($c)) {
-			$view_res_lnk = $obj->total_votes ? '{TEMPLATE: poll_view_res_lnk}' : '';
-			if (!$obj->total_votes) {
-				$obj->total_votes = '0';
-			}
-			if ($obj->owner && (!($obj->users_opt & 32768) || $usr->users_opt & 1048576) && $FUD_OPT_2 & 32) {
-				$online_indicator = $obj->last_visit > __request_timestamp__ ? '{TEMPLATE: polllist_online_indicator}' : '{TEMPLATE: polllist_offline_indicator}';
-			} else {
-				$online_indicator = '';
-			}
-			$poll_entries .= '{TEMPLATE: poll_entry}';
+	if ($ttl > $POLLS_PER_PAGE) {
+		if ($FUD_OPT_2 & 32768) {
+			$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}/pl/'.$uid.'/', '/' . $oby . '/' . _rsid);
+		} else {
+			$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}?t=polllist&amp;oby='.$oby.'&amp;uid='.$uid);
 		}
-
-		if ($ttl > $POLLS_PER_PAGE) {
-			if ($FUD_OPT_2 & 32768) {
-				$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}/pl/'.$uid.'/', '/' . $oby . '/' . _rsid);
-			} else {
-				$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}?t=polllist&amp;oby='.$oby.'&amp;uid='.$uid);
-			}
-		}
-	} else {
+	} else if (!$ttl) {
 		$poll_entries = '{TEMPLATE: poll_no_polls}';
+		$pager = '';
 	}
 
 /*{POST_PAGE_PHP_CODE}*/

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.php.t,v 1.24 2004/05/18 17:41:20 hackie Exp $
+* $Id: showposts.php.t,v 1.25 2004/05/18 18:33:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,6 +55,10 @@
 			WHERE ".$qry_limit." m.apr=1 AND m.poster_id=".$uid."
 			ORDER BY m.post_stamp ".$SORT_ORDER." LIMIT ".qry_limit($THREADS_PER_PAGE, $start));
 
+		while ($r = db_rowarr($c)) {
+			$post_entry .= '{TEMPLATE: post_entry}';
+		}
+
 		/* we need the total for the pager & we don't trust the user to pass it via GET or POST */
 		if (($total = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {
 			$total = q_singleval("SELECT count(*)
@@ -63,10 +67,6 @@
 					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 					INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 					WHERE ".$qry_limit." m.apr=1 AND m.poster_id=".$uid);
-		}
-
-		while ($r = db_rowarr($c)) {
-			$post_entry .= '{TEMPLATE: post_entry}';
 		}
 
 		if ($FUD_OPT_2 & 32768) {
