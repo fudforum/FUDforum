@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.27 2003/11/27 19:33:36 hackie Exp $
+* $Id: admimport.php,v 1.28 2003/11/28 08:20:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -120,7 +120,7 @@ function resolve_dest_path($path)
 			if ($tmp[1] != __dbtype__) {
 				/* read the table definitions from appropriate SQL directory */
 				if (!($d = opendir($DATA_DIR.'sql'))) {
-					exit("Couldn't open ".$DATA_DIR.'sql/' directory<br>\n");
+					exit("Couldn't open ".$DATA_DIR."sql/ directory<br>\n");
 				}
 				readdir($d); readdir($d);
 				while ($f = readdir($d)) {

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.36 2003/11/27 19:33:36 hackie Exp $
+* $Id: admdump.php,v 1.37 2003/11/28 08:20:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -91,6 +91,11 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 		}
 	}
 	closedir($d);
+}
+
+function sql_num_fields($r)
+{
+	 return __dbtype__ == 'pgsql' ? pg_num_fields($r) : mysql_num_fields($r);
 }
 
 function sql_field_type($r,$n)
@@ -204,7 +209,7 @@ function sql_is_null($r, $n, $tbl='')
 				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '{SQL_TABLE_PREFIX}', $tbl_name);
 				// get field defenitions
 				$r = q('SELECT * FROM '.$tbl_name.' LIMIT 1');
-				$nf = db_count($r);
+				$nf = sql_num_fields($r);
 				for ($i = 0; $i < $nf; $i++) {
 					$field_data[sql_field_name($r, $i)] = array('name' => sql_field_name($r, $i), 'type' => sql_field_type($r, $i), 'not_null' => sql_is_null($r, $i, $tbl_name));
 				}
