@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admstats.php,v 1.2 2002/06/18 14:20:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -81,12 +81,8 @@ function get_sql_disk_usage()
 	$disk_usage_array = array();
 	$total_disk_usage = 0;
 
-	$total_disk_usage += $disk_usage_array['INCLUDE'] = dir_space_usage($INCLUDE);
+	$total_disk_usage += $disk_usage_array['DATA_DIR'] = dir_space_usage($INCLUDE);
 	$total_disk_usage += $disk_usage_array['WWW_ROOT_DISK'] = dir_space_usage($WWW_ROOT_DISK);
-	$total_disk_usage += $disk_usage_array['TEMPLATE_DIR'] = dir_space_usage($TEMPLATE_DIR);
-	$total_disk_usage += $disk_usage_array['ERROR_PATH'] = dir_space_usage($ERROR_PATH);
-	$total_disk_usage += $disk_usage_array['TMP'] = dir_space_usage($TMP);
-	$total_disk_usage += $disk_usage_array['FILE_STORE'] = dir_space_usage($FILE_STORE);
 
 	$sql_disk_usage = get_sql_disk_usage();
 	
@@ -232,27 +228,9 @@ function get_sql_disk_usage()
 </tr>
 
 <tr>
-	<td><b>Template Dir:</b><br><font size="-1"><b><?php echo $TEMPLATE_DIR; ?></b><br>this is where the forum's templates & i18n are stored</font></td>
+	<td><b>Template Dir:</b><br><font size="-1"><b><?php echo $DATA_DIR; ?></b><br>this is where the forum's internal data files are stored</font></td>
 	<td width=100>&nbsp;</td>
-	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $disk_usage_array['TEMPLATE_DIR']/1024)); ?> Kb</td>
-</tr>
-
-<tr>
-	<td><b>Error Dir:</b><br><font size="-1"><b><?php echo $ERROR_PATH; ?></b><br>this is where the forum's error log files are stored</font></td>
-	<td width=100>&nbsp;</td>
-	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $disk_usage_array['ERROR_PATH']/1024)); ?> Kb</td>
-</tr>
-
-<tr>
-	<td><b>TMP Dir:</b><br><font size="-1"><b><?php echo $TMP; ?></b><br>this is where the forum's temporary files are stored</font></td>
-	<td width=100>&nbsp;</td>
-	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $disk_usage_array['TMP']/1024)); ?> Kb</td>
-</tr>
-
-<tr>
-	<td><b>File Store Dir:</b><br><font size="-1"><b><?php echo $FILE_STORE; ?></b><br>this is where all files attached to messages are stored</font></td>
-	<td width=100>&nbsp;</td>
-	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $disk_usage_array['FILE_STORE']/1024)); ?> Kb</td>
+	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $disk_usage_array['DATA_DIR']/1024)); ?> Kb</td>
 </tr>
 
 <tr bgcolor="#bff8ff">

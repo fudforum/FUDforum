@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admimport.php,v 1.2 2002/06/18 14:20:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,10 +47,8 @@ function read_dump($file)
 
 function resolve_dest_path($path)
 {
-	$path = str_replace('MSG_STORE_DIR', $GLOBALS['MSG_STORE_DIR'], $path);
 	$path = str_replace('IMG_ROOT_DISK', $GLOBALS['WWW_ROOT_DISK'].'images/', $path);
-	$path = str_replace('TEMPLATE_DIR', $GLOBALS['TEMPLATE_DIR'], $path);
-	$path = str_replace('FILE_STORE', $GLOBALS['FILE_STORE'], $path);
+	$path = str_replace('DATA_DIR', $GLOBALS['DATA_DIR'], $path);
 	
 	return $path;
 }

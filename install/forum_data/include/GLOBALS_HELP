@@ -272,19 +272,11 @@ MOVED_THR_PTR_EXPIRY
 The number of days to show a pointer of a moved thread from the original forum to the new forum.
 The pointer will be removed after this period of time.
 
-TEMPLATE_DIR
-The directory where the templates are stored.
+DATA_DIR
+The directory where the forum's internal data is being stored.
 
 WWW_ROOT_DISK
 The location on the disk where the forum's images are stored.
-
-LANGUAGE
-The language pack used on the forum. (if you're editing GLOBALS.php manually you can see available languages by 
-doing a directory listings inside the TEMPLATE_DIR/i18n directory.
-
-LOCALE
-The local for the language used in the forum. This setting is needed in order for dates to show up in their appropriate languages. On 
-Unix systems you can see a list of available locales by running "locale -a".
 
 SHOW_N_MODS
 Up to how many moderators per forum to show on the front page.

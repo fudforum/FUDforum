@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admlock.php,v 1.2 2002/06/18 14:20:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -73,12 +73,12 @@ function chmoddir($dirn, $dirp, $filep, $rec=FALSE)
 
 			chmoddir($GLOBALS['WWW_ROOT_DISK'], $dirperms, $fileperms, TRUE);
 			chmoddir($GLOBALS['INCLUDE'], $dirperms, $fileperms, TRUE);
-			chmoddir($GLOBALS['TEMPLATE_DIR'], $dirperms, $fileperms, TRUE);
-			chmoddir(realpath($GLOBALS['TEMPLATE_DIR'].'../sql/'), $dirperms, $fileperms, TRUE);
+			chmoddir($GLOBALS['DATA_DIR'], $dirperms, $fileperms, TRUE);
 			chmoddir($GLOBALS['ERROR_PATH'], $dirperms, $fileperms, TRUE);
 			chmoddir($GLOBALS['MSG_STORE_DIR'], $dirperms, $fileperms, TRUE);
 			chmoddir($GLOBALS['FILE_STORE'], $dirperms, $fileperms, TRUE);
 			chmoddir($GLOBALS['TMP'], $dirperms, $fileperms, TRUE);
+			chmoddir($GLOBALS['FORUM_SETTINGS_PATH'], $dirperms, $fileperms, TRUE);
 		}
 		mysql_free_result($r);
 	}
