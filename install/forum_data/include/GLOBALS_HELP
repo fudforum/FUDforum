@@ -382,3 +382,6 @@ Make the cookie last only for as long as the browser window is open. If a securi
 
 {{{DISABLE_TREE_MSG	FUD_OPT_3	2
 Disable the threaded view of the contents for a single topic.}}}
+
+{{{ENABLE_REFERRER_CHECK	FUD_OPT_3	4
+Always check to make sure that the referring URL is on the same domain as the forum.}}}
