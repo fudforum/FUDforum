@@ -379,3 +379,6 @@ Enable/disable the forum's built-in email client.}}}
 
 {{{SESSION_COOKIES	FUD_OPT_3	1
 Make the cookie last only for as long as the browser window is open. If a security is a major concern, turn this option on.}}}
+
+{{{DISABLE_TREE_MSG	FUD_OPT_3	2
+Disable the threaded view of the contents for a single topic.}}}

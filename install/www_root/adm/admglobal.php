@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.46 2003/10/30 03:10:31 hackie Exp $
+* $Id: admglobal.php,v 1.47 2003/10/30 21:38:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -88,9 +88,16 @@ function get_max_upload_size()
 				rebuildmodlist();
 			}
 
-			/* Topic tree view disabled */
+			/* Topic/Message tree view disabling code */
+			$o = 0;
 			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & 512 && !($NEW_FUD_OPT_2 & 512)) {
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt|128 WHERE (users_opt & 128)=0');
+				$o |= 128;
+			}
+			if (($FUD_OPT_3 ^ $NEW_FUD_OPT_3) & 2 && !($NEW_FUD_OPT_3 & 2)) {
+				$o |= 256;
+			}
+			if ($o) {
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt|'.$o.' WHERE (users_opt & '.$o.')=0');
 			}
 
 			$q_data = array();
@@ -106,7 +113,7 @@ function get_max_upload_size()
 			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & (4|8)) {
 				/* only allow threaded topic view if it is selected & it's enabled */
 				$opt  = $NEW_FUD_OPT_2 & 4 && $NEW_FUD_OPT_2 & 512 ? 128 : 0;
-				$opt |= $NEW_FUD_OPT_2 & 8 ? 256 : 0;
+				$opt |= $NEW_FUD_OPT_2 & 8 || $NEW_FUD_OPT_3 & 2 ? 256 : 0;
 				$q_data[] = 'users_opt=(users_opt & ~ 384) | '.$opt;
 			}
 			if ($q_data) {
@@ -246,6 +253,7 @@ function get_max_upload_size()
 	print_reg_field('Message icons per row', 'POST_ICONS_PER_ROW', 1);
 
 	print_bit_field('Allow Tree View of Thread Listing', 'TREE_THREADS_ENABLE');
+	print_bit_field('Disable Tree View of Message Listing', 'DISABLE_TREE_MSG');
 	print_bit_field('Default Topic View', 'DEFAULT_THREAD_VIEW');
 	print_reg_field('Maximum Depth of Thread Listing (tree view)', 'TREE_THREADS_MAX_DEPTH', 1);
 	print_reg_field('Maximum Shown Subject Length (tree view)', 'TREE_THREADS_MAX_SUBJ_LEN', 1);

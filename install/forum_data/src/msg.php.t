@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.58 2003/10/16 21:59:04 hackie Exp $
+* $Id: msg.php.t,v 1.59 2003/10/30 21:38:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -166,6 +166,7 @@
 	}
 
 	$post_reply = (!($frm->thread_opt & 1) || $perms & 4096) ? '{TEMPLATE: post_reply}' : '';
+	$threaded_view = $FUD_OPT_3 & 2 ? '' : '{TEMPLATE: threaded_view}';
 	$email_page_to_friend = $FUD_OPT_2 & 1073741824 ? '{TEMPLATE: email_page_to_friend}' : '';
 
 	if ($perms & 4096) {
