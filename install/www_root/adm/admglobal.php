@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.53 2004/01/04 16:38:32 hackie Exp $
+* $Id: admglobal.php,v 1.54 2004/01/09 12:47:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -275,7 +275,6 @@ function get_max_upload_size()
 	print_reg_field('Search results cache', 'SEARCH_CACHE_EXPIRY', 1);
 	print_bit_field('Member Search', 'MEMBER_SEARCH_ENABLED');
 	print_reg_field('Members Per Page', 'MEMBERS_PER_PAGE', 1);
-	print_reg_field('Maximum logged-in users', 'MAX_LOGGEDIN_USERS', 1);
 	print_reg_field('Anonymous Username', 'ANON_NICK');
 	print_reg_field('Quick Pager Link Count', 'THREAD_MSG_PAGER', 1);
 	print_reg_field('General Pager Link Count', 'GENERAL_PAGER_COUNT', 1);
