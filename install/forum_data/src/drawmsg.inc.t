@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.80 2004/04/21 23:39:19 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.81 2004/04/26 23:42:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -124,9 +124,9 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 {
 	$o1 =& $GLOBALS['FUD_OPT_1'];
 	$o2 =& $GLOBALS['FUD_OPT_2'];
-	$a =& $obj->users_opt;
+	$a = (int) $obj->users_opt;
 	$b =& $usr->users_opt;
-	$c =& $obj->level_opt;
+	$c = (int) $obj->level_opt;
 
 	/* draw next/prev message controls */
 	if (!$hide_controls && $misc) {
