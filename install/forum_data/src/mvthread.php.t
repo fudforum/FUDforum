@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.php.t,v 1.18 2003/10/02 12:56:26 hackie Exp $
+*   $Id: mvthread.php.t,v 1.19 2003/10/03 23:59:46 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -99,13 +99,14 @@
 		$thr = db_sab('SELECT f.name AS frm_name, m.subject, t.forum_id, t.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='.$th);
 
 		$r = uq('SELECT f.name, f.id, c.name, m.user_id, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
-			FROM {SQL_TABLE_PREFIX}cat c
-			INNER JOIN {SQL_TABLE_PREFIX}forum f ON c.id=f.cat_id
+			FROM {SQL_TABLE_PREFIX}forum f
+			INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=f.id
+			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
 			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 			WHERE c.id!=0 AND f.id!='.$thr->forum_id.($usr->users_opt & 1048576 ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 1 THEN 1 ELSE 0 END)=1').'
-			ORDER BY c.view_order, f.view_order');
+			ORDER BY v.id');
 
 		$table_data = $prev_cat = '';
 

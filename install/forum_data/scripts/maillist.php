@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.31 2003/09/30 03:57:49 hackie Exp $
+*   $Id: maillist.php,v 1.32 2003/10/03 23:59:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -444,7 +444,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 			fwrite($fp, $val);
 			fclose($fp);
 		
-			$id = attach_add(array('name' => $key, 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 'N', 1);
+			$id = attach_add(array('name' => $key, 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 0, 1);
 			$attach_list[$id] = $id;
 		}
 

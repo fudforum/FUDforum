@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: merge_th.php.t,v 1.6 2003/10/01 21:51:52 hackie Exp $
+*   $Id: merge_th.php.t,v 1.7 2003/10/03 23:59:46 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -113,12 +113,13 @@
 	/* fetch a list of accesible forums */
 	$c = uq('SELECT f.id, f.name
 			FROM {SQL_TABLE_PREFIX}forum f
+			INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.resource_id=f.id AND g1.user_id='.(_uid ? '2147483647' : '0').'
 			'.(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.resource_id=f.id AND g2.user_id='._uid : '').'
 			'.($usr->users_opt & 1048576 ? '' : ' WHERE mm.id IS NOT NULL OR (CASE WHEN g2.id IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END) & 2').'
-			ORDER BY c.view_order, f.view_order');
+			ORDER BY v.id');
 	$vl = $kl = '';
 	while ($r = db_rowarr($c)) {
 		$vl .= $r[0] . "\n";

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cat.inc,v 1.4 2003/09/26 18:49:14 hackie Exp $
+*   $Id: cat.inc,v 1.5 2003/10/03 23:59:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -89,5 +89,22 @@ function cat_change_pos($oldp, $newp)
 	}
 	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order='.$newp.' WHERE view_order=2147483647');
 	db_unlock();
+}
+
+function rebuild_forum_cat_order()
+{
+	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
+	
+	if (!db_locked()) {
+		$ll = 1;
+		db_lock($tbl.'cat c WRITE,'.$tbl.'fc_view WRITE,'.$tbl.'forum f WRITE');
+	}
+
+	q("DELETE FROM ".$tbl."fc_view");
+	q("INSERT INTO ".$tbl."fc_view (c, f) SELECT c.id,f.id FROM ".$tbl."forum f INNER JOIN ".$tbl."cat c ON c.id=f.cat_id ORDER BY c.view_order, f.view_order");
+
+	if (isset($ll)) {
+		db_unlock();
+	}
 }
 ?>

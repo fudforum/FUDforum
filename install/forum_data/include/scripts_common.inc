@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: scripts_common.inc,v 1.6 2003/09/30 03:49:26 hackie Exp $
+*   $Id: scripts_common.inc,v 1.7 2003/10/03 23:59:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,8 +43,6 @@ function create_new_user($from_name, $from_email)
 
 	$user = new fud_user_reg;
 	$user->login = $login;
-		
-	db_lock(sql_p.'users WRITE, '.sql_p.'themes WRITE');
 
 	/* 
 	 * This code ensures that creation of user does not fail in the event another user on the forum 
@@ -62,15 +60,13 @@ function create_new_user($from_name, $from_email)
 		}
 	}
 
-	$user->email = $from_email;
+	$user->email =& $from_email;
 	$user->plaintext_passwd = substr(md5(get_random_value()), 0, 8);
-	$user->name = $from_name;
+	$user->name =& $from_name;
+	$user->users_opt = -1;
 
 	$id = $user->add_user();
-	q("UPDATE ".sql_p."users SET users_opt=users_opt|131072 WHERE id=".$id);
 
-	db_unlock();
-		
 	return $id;
 }
 

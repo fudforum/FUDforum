@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.43 2003/10/01 21:51:52 hackie Exp $
+*   $Id: index.php.t,v 1.44 2003/10/03 23:59:46 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -107,16 +107,16 @@ function url_tog_collapse($id, $c)
 				fr.last_view,
 				mo.id AS md,
 				'.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END AS group_cache_opt' : 'g1.group_cache_opt').'
-		      FROM {SQL_TABLE_PREFIX}forum f
-		      INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-		      INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_id=f.id
-		      LEFT JOIN {SQL_TABLE_PREFIX}msg m ON f.last_post_id=m.id
-		      LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
-		      LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
-		      LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=f.id
-		      '.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : '').'
-		      '.($usr->users_opt & 1048576 ? '' : 'WHERE mo.id IS NOT NULL OR '.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END' : 'g1.group_cache_opt').' & 1').'
-		      ORDER BY c.view_order, f.view_order');
+			FROM {SQL_TABLE_PREFIX}fc_view v
+			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
+			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_id=f.id
+			LEFT JOIN {SQL_TABLE_PREFIX}msg m ON f.last_post_id=m.id
+			LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
+			LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=f.id
+			'.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : '').'
+			'.($usr->users_opt & 1048576 ? '' : 'WHERE mo.id IS NOT NULL OR '.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END' : 'g1.group_cache_opt').' & 1 ORDER BY v.id'));
 
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
 	while ($r = db_rowarr($frmres)) {

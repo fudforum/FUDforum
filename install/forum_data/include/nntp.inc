@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.35 2003/09/30 04:13:16 hackie Exp $
+*   $Id: nntp.inc,v 1.36 2003/10/03 23:59:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -309,7 +309,9 @@ class fud_nntp
 						$s += 6;
 					}
 				}
-				$this->fud_uudecode(str_replace("\r", "", substr($this->body, $s, ($e + 5 - $s))));
+				if ($this->nntp_opt & 8) {
+					$this->fud_uudecode(str_replace("\r", "", substr($this->body, $s, ($e + 5 - $s))));
+				}
 				$this->body = substr($this->body, 0, $s) . substr($this->body, ($e + 7));
 				
 				$s = 0;
@@ -328,8 +330,9 @@ class fud_nntp
 						$s += 13;
 					}
 				}
-
-				$this->fud_base64decode(str_replace("\r", "", substr($this->body, $s, ($e+4-$s))));
+				if ($this->nntp_opt & 8) {
+					$this->fud_base64decode(str_replace("\r", "", substr($this->body, $s, ($e+4-$s))));
+				}
 				$this->body = substr($this->body, 0, $s) . substr($this->body, ($e + 5));
 				$s = 0;
 			}
@@ -406,14 +409,14 @@ class fud_nntp
 			$msg_post->poll_id = 0;
 
 			/* try to determine whether this message is a reply or a new thread */
-			list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id($nntp_adm->complex_reply_match, $frm->id, $msg_post->subject, $this->reply_to_msg_id);
+			list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id(($nntp_adm->nntp_opt & 16), $frm->id, $msg_post->subject, $this->reply_to_msg_id);
 
 			$msg_post->add($frm->id, $frm->message_threshold, 0, 0, false);
 
 			// Handle File Attachments
 			if (isset($this->attachments) && is_array($this->attachments)) {
 				foreach($this->attachments as $key => $val) {
-					if ($nntp_adm->allow_nntp_attch != 'Y' && (strlen($val) > $frm->max_attach_size || (isset($attach_list) && count($attach_list) > $frm->max_file_attachments) || filter_ext($key))) {
+					if (!($nntp_adm->nntp_opt & 8) && (strlen($val) > $frm->max_attach_size || (isset($attach_list) && count($attach_list) > $frm->max_file_attachments) || filter_ext($key))) {
 						continue;
 					}
 
@@ -422,14 +425,14 @@ class fud_nntp
 					fwrite($fp, $val);
 					fclose($fp);
 					
-					$id = attach_add(array('name' => $key, 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 'N', 1);
+					$id = attach_add(array('name' => $key, 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 0, 1);
 					$attach_list[$id] = $id;
 				}
 				if (isset($attach_list)) {
 					attach_finalize($attach_list, $msg_post->id);
 				}
 			}
-			if ($nntp_adm->nntp_post_apr == 'N') {
+			if (!($nntp_adm->nntp_opt & 1)) {
 				fud_msg_edit::approve($msg_post->id, true);	
 			}
 			unset($msg_post);

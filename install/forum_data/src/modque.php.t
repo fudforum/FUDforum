@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.28 2003/10/03 18:18:29 hackie Exp $
+*   $Id: modque.php.t,v 1.29 2003/10/03 23:59:46 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -63,6 +63,7 @@
 		{SQL_TABLE_PREFIX}msg m
 	INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 	INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+	INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=f.id
 	".($usr->users_opt & 1048576 ? '' : ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON f.id=mm.forum_id AND mm.user_id='._uid.' ')."
 	INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
 	LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
@@ -70,7 +71,7 @@
 	LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 	LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id="._uid."
 	WHERE (f.forum_opt>=2 AND f.forum_opt & 2) AND m.apr=0
-	ORDER BY f.view_order, m.post_stamp DESC LIMIT ".$POSTS_PER_PAGE);
+	ORDER BY v.id, m.post_stamp DESC LIMIT ".$POSTS_PER_PAGE);
 
 	$prev_thread_id = $modque_message = '';
 	$m_num = 0;

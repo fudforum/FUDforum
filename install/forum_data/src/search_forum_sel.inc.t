@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search_forum_sel.inc.t,v 1.5 2003/10/03 13:55:03 hackie Exp $
+*   $Id: search_forum_sel.inc.t,v 1.6 2003/10/03 23:59:46 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -17,16 +17,17 @@
 
 /* draw search engine selection boxes */
 if ($usr->users_opt & 1048576) {
-	$c = uq('SELECT f.id, f.name, c.id, c.name FROM {SQL_TABLE_PREFIX}forum f INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id ORDER BY c.view_order, f.view_order');
+	$c = uq('SELECT f.id, f.name, c.id, c.name FROM {SQL_TABLE_PREFIX}fc_view v INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id ORDER BY v.id');
 } else {
 	$c = uq('SELECT f.id,f.name, c.id, c.name AS cat_name
-			FROM {SQL_TABLE_PREFIX}forum f
+			FROM {SQL_TABLE_PREFIX}fc_view v
+			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
 			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 			WHERE mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & '.($_GET['t'] == 'search' ? 262144 : 1).'
-			ORDER BY c.view_order, f.view_order');
+			ORDER BY v.id');
 }
 $old_cat = $forum_limit_data = '';
 while ($r = db_rowarr($c)) {
