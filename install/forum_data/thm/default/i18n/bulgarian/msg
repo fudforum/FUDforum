@@ -266,7 +266,6 @@ finduser_joindate:		Дата на регистрация
 finduser_action:		Действие
 yes:				Да
 no:				Не
-register_email			Email
 edit_time_limit:		<br><b>Ограничено време за редактиране</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> минути
 no_edit_time_limit:		<br><b>Време за редактиране</b>: <b>Неограничено</b>
 pmuserloc_login:		Потребителско име:
@@ -694,7 +693,6 @@ ERR_registration_disabled_msg:	Администраторът забранява регистрацията, опитай п
 ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		ГРЕШКА: Акаунтът ти все още не е потвърден
 ERR_emailconf_msg:		Все още не си потвърдил регистрацията си по e-mail<br><table border=0><tr><td><ol><li>Ако не си получил e-mail съобщението за потвърждение <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">натисни тук</a><li>Ако {VAR: usr_d->email} не е действителния ти e-mail адрес, <a href="{ROOT}?t=register&amp;{DEF: _rsid}">натисни тук</a></ol></td></tr></table>
-ERR_emailconf_url:		
 ERR_user_ttl:			ГРЕШКА: Несъществуващ потребител
 ERR_user_msg:			Такъв потребител не съществува
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -839,7 +837,6 @@ quicklogin_password:		Парола
 quicklogin_use_cookies:		Да се ползват ли Cookies?
 quicklogin_login_btn:		Влез
 post_notification_desc:		Извести ме, ако някой отговори на това съобщение.
-post_proc_all_ext_allowed:	(няма ограничения)
 maximize_category:		Разгърни Категорията
 no_view_perm:			Нямаш съответните права за да видиш тази тема.
 report_empty_report:		Не можеш да изпращаш празен доклад, моля, напиши причината, поради която искаш да докладваш.
