@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.120 2004/06/07 17:10:35 hackie Exp $
+* $Id: register.php.t,v 1.121 2004/06/07 17:11:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -708,9 +708,8 @@ function decode_uent(&$uent)
 				}
 				$sel_opt = trim($sel_opt);
 				$sel_val = trim($sel_val);
-			} else {
-				$a_type = '';
 			}
+
 			if ($a_type) { /* rare condition, no built-in avatars & no other avatars are allowed */
 				if (!$avatar_type) {
 					$avatar_type = $a_type;
