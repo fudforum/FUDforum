@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admglobal.php,v 1.4 2002/07/01 15:59:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -90,12 +90,12 @@ include('admpanel.php');
 <tr bgcolor="#bff8ff"><td>Mogrify Path:<?php draw_help('MOGRIFY_BIN'); ?><br><font size="-1">ImageMagick utility for manipulating images, used to allow the admin to scale/convert custom avatars.</font></td><td><input type="text" name="CF_MOGRIFY_BIN" value="<?php echo htmlspecialchars($CF_MOGRIFY_BIN); ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
-<tr bgcolor="#bff8ff"><td colspan=2><br><b>MySQL</b> </td></tr>
-<tr bgcolor="#bff8ff"><td>MySQL Server:<?php draw_help('MYSQL_SERVER'); ?></td><td><input type="text" name="CF_MYSQL_SERVER" value="<?php echo htmlspecialchars($CF_MYSQL_SERVER); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>MySQL Login:<?php draw_help('MYSQL_LOGIN'); ?></td><td><input type="text" name="CF_MYSQL_LOGIN" value="<?php echo htmlspecialchars($CF_MYSQL_LOGIN); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>MySQL Password:<?php draw_help('MYSQL_PASSWORD'); ?></td><td><input type="text" name="CF_MYSQL_PASSWORD" value="<?php echo htmlspecialchars($CF_MYSQL_PASSWORD); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>MySQL DB:<?php draw_help('MYSQL_DB'); ?></td><td><input type="text" name="CF_MYSQL_DB" value="<?php echo htmlspecialchars($CF_MYSQL_DB); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>User Persistent Connections:<?php draw_help('MYSQL_PERSIST'); ?></td><td><?php draw_select('CF_MYSQL_PERSIST', "Yes\nNo", "Y\nN", $MYSQL_PERSIST); ?></td></tr>
+<tr bgcolor="#bff8ff"><td colspan=2><br><b>Database Settings</b> </td></tr>
+<tr bgcolor="#bff8ff"><td>Database Server:<?php draw_help('DBHOST'); ?></td><td><input type="text" name="CF_DBHOST" value="<?php echo htmlspecialchars($CF_DBHOST); ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Database Login:<?php draw_help('DBHOST_USER'); ?></td><td><input type="text" name="CF_DBHOST_USER" value="<?php echo htmlspecialchars($CF_DBHOST_USER); ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Database Password:<?php draw_help('DBHOST_PASSWORD'); ?></td><td><input type="text" name="CF_DBHOST_PASSWORD" value="<?php echo htmlspecialchars($CF_DBHOST_PASSWORD); ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Database Name:<?php draw_help('DBHOST_DBNAME'); ?></td><td><input type="text" name="CF_DBHOST_DBNAME" value="<?php echo htmlspecialchars($CF_DBHOST_DBNAME); ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Use Persistent Connections:<?php draw_help('DBHOST_PERSIST'); ?></td><td><?php draw_select('CF_DBHOST_PERSIST', "Yes\nNo", "Y\nN", $CF_DBHOST_PERSIST); ?></td></tr>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Private Messaging</b> </td></tr>
