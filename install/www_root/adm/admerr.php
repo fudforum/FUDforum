@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admerr.php,v 1.3 2002/09/10 02:23:25 hackie Exp $
+*   $Id: admerr.php,v 1.4 2002/09/10 06:40:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,7 +43,7 @@
 
 <?php
 	if( @file_exists($GLOBALS['ERROR_PATH'].'fud_errors') && filesize($GLOBALS['ERROR_PATH'].'fud_errors') ) {
-		echo '<h4>FUDforum Error Log [<a href="admerr.php?clear_fud_log=1&<? echo _rsid; ?>">clear log</a>]</h4>';
+		echo '<h4>FUDforum Error Log [<a href="admerr.php?clear_fud_log=1&'._rsid.'">clear log</a>]</h4>';
 		echo '<table border=1 cellspacing=1 cellpadding=3><tr bgcolor="#bff8ff"><td>Time</td><td>Error Description</td></tr>';
 		
 		$errors = file($GLOBALS['ERROR_PATH'].'fud_errors');
@@ -55,7 +55,7 @@
 	}
 
 	if( @file_exists($GLOBALS['ERROR_PATH'].'sql_errors') && filesize($GLOBALS['ERROR_PATH'].'sql_errors') ) {
-		echo '<h4>SQL Error Log [<a href="admerr.php?clear_sql_log=1&<? echo _rsid; ?>">clear log</a>]</h4>';
+		echo '<h4>SQL Error Log [<a href="admerr.php?clear_sql_log=1&'._rsid.'">clear log</a>]</h4>';
 		echo '<table border=1 cellspacing=1 cellpadding=3><tr bgcolor="#bff8ff"><td>Time</td><td>Error Description</td></tr>';
 		
 		$errors = file($GLOBALS['ERROR_PATH'].'sql_errors');
