@@ -189,7 +189,7 @@ views:				Vistas
 vote:				{VAR: thread->vote_count()} Voto(s)
 vote_button:			Votar
 vote_for_thread:		Votar
-was_moved_msg:			<a href="{ROOT}?t={DEF: D_THREAD_VIEW}&goto={VAR: obj->root_msg_id}&{DEF: _RSID}" class="GenLink">{VAR: obj->subject}</a> ha sido movido a <a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _RSID}" class="GenLink">{VAR: name}</a> por el moderador
+was_moved_msg:			<a href="{ROOT}?t={DEF: D_THREAD_VIEW}&amp;goto={VAR: obj->root_msg_id}&{DEF: _RSID}" class="GenLink">{VAR: obj->subject}</a> ha sido movido a <a href="{ROOT}?t=thread&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _RSID}" class="GenLink">{VAR: name}</a> por el moderador
 welcome_message:		Bienvenido <b>{VAR: usr->alias}</b>, su última visita fue el {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			Mostrar lo que la gente está haciendo
 reported_del_report:		Borrar Reporte
@@ -211,7 +211,7 @@ list_referes_referrals:		Referencias
 list_referes_members:		Miembros referidos
 list_referes_member:		Miembro
 referals_none:			No hay referencias aún.
-referals_refered_by:		Miembros del foro referidos por: <b><a href="{ROOT}?t=usrinfo&id={VAR: r_id}&{DEF: _RSID}" class="th_lnk">{VAR: r_login}</a></b>
+referals_refered_by:		Miembros del foro referidos por: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _RSID}" class="th_lnk">{VAR: r_login}</a></b>
 referals_post_count:		Total de Mensajes
 referals_registered_on:		Registrado El
 referals_action:		Acción
@@ -340,7 +340,7 @@ buddy_status:			Estado
 my_buddies:			Mis Amigos
 add_buddy:			Agregar Amigo
 add:				Agregar
-buddy_search:			Ingrese el login del usuario que desea agregar.<br>O use <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _RSID}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Buscar Usuario</a> para encontrar a una persona.
+buddy_search:			Ingrese el login del usuario que desea agregar.<br>O use <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _RSID}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">Buscar Usuario</a> para encontrar a una persona.
 buddy_remove:			eliminar
 post_normal:			Normal
 post_sticky:			Fijo
@@ -589,10 +589,10 @@ index_update:			Recorriendo la <a href="{ROOT}?t=index" class="GenLink">lista de
 list_referers_update:		Recorriendo referencias
 login_update:			Formulario de Ingreso
 msg_err_onlyreg_title:		Sólo usuarios registrados pueden ver este foro
-msg_err_onlyreg_msg:		Para ver este foro Ud debe <a href="{ROOT}?t=register&{DEF: _RSID}" class="GenLink">registrarse</a>, si Ud ya se ha registrado Ud sólo necesita <a href="{ROOT}?t=login&{DEF: _RSID}" class="GenLink">ingresar</a>.
+msg_err_onlyreg_msg:		Para ver este foro Ud debe <a href="{ROOT}?t=register&amp;{DEF: _RSID}" class="GenLink">registrarse</a>, si Ud ya se ha registrado Ud sólo necesita <a href="{ROOT}?t=login&amp;{DEF: _RSID}" class="GenLink">ingresar</a>.
 msg_err_ininfo_title:		Información Insuficiente
 msg_err_ininfo_msg:		Se presentó un problema al generar esta página
-msg_update:			Recorriendo hilo de discusión <a class="GenLink" href="{ROOT}?t=msg&th={VAR: thread->id}">{VAR: thread->subject}</a>
+msg_update:			Recorriendo hilo de discusión <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a>
 pm_err_nopm_title:		ERROR: Mensajería Privada Deshabilitada
 pm_err_nopm_msg:		Ud no puede usar el sistema de mensajería privada, este ha sido deshabilitado por el administrador.
 pm_update:			Usando mensajería privada
@@ -601,7 +601,7 @@ post_err_notallowed_msg:	Ud no tiene autorización para publicar
 post_err_lockedthread_title:	ERROR: Hilo de Discusión Bloqueado
 post_err_lockedthread_msg:	Este hilo de discusión esta bloqueado, no se permiten más mensajes
 err_coppa_title:		ERROR: Su cuenta aún no ha sido confirmada
-err_coppa_msg:			No hemos recibido una confirmación de su padre y/o tutor legal, la cual le permitiría publicar mensajes. Si Ud perdió su formulario coppa haga <a href="{ROOT}?t=coppa_fax&{DEF: _RSID}">clic aquí</a> para obtenerlo
+err_coppa_msg:			No hemos recibido una confirmación de su padre y/o tutor legal, la cual le permitiría publicar mensajes. Si Ud perdió su formulario coppa haga <a href="{ROOT}?t=coppa_fax&amp;{DEF: _RSID}">clic aquí</a> para obtenerlo
 err_blockedaccnt_title:		ERROR: Ud no tiene autorización para publicar
 err_blockedaccnt_msg:		Su cuenta ha sido bloqueada para publicación
 post_err_notowner_title:	ERROR
@@ -609,9 +609,9 @@ post_err_notowner_msg:		Ud no es el dueño de este mensaje
 post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	Ud ya no puede editar este mensaje
 post_err_noannontopics_title:	ERROR: Permisos insuficientes
-post_err_noannontopics_msg:	Los usuarios anónimos no pueden crear temas<br><br>Si Ud desea registrarse vaya al <a href="{ROOT}?t=register&{DEF: _RSID}">formulario de registro</a><br>Si Ud desea ingresar pro favor vaya al <a href="{ROOT}?t=login&{DEF: _RSID}&returnto={VAR-URL: returnto_d}">formulario de ingreso</a>
+post_err_noannontopics_msg:	Los usuarios anónimos no pueden crear temas<br><br>Si Ud desea registrarse vaya al <a href="{ROOT}?t=register&amp;{DEF: _RSID}">formulario de registro</a><br>Si Ud desea ingresar pro favor vaya al <a href="{ROOT}?t=login&amp;{DEF: _RSID}&amp;returnto={VAR-URL: returnto_d}">formulario de ingreso</a>
 post_err_noannonposts_title:	ERROR: Permisos insuficientes
-post_err_noannonposts_msg:	Los usuarios anónimos no pueden responder mensajes<br><br>Si Ud desea registrarse vaya al <a href="{ROOT}?t=register&{DEF: _RSID}">formulario de registro</a><br>Si Ud desea ingresar pro favor vaya al <a href="{ROOT}?t=login&{DEF: _RSID}&returnto={VAR-URL: returnto_d}">formulario de ingreso</a>
+post_err_noannonposts_msg:	Los usuarios anónimos no pueden responder mensajes<br><br>Si Ud desea registrarse vaya al <a href="{ROOT}?t=register&amp;{DEF: _RSID}">formulario de registro</a><br>Si Ud desea ingresar pro favor vaya al <a href="{ROOT}?t=login&amp;{DEF: _RSID}&amp;returnto={VAR-URL: returnto_d}">formulario de ingreso</a>
 post_err_noreplying_title:	ERROR: No Puede Responder
 post_err_noreplying_msg:	Ud no puede publicar respuestas en este hilo de discusión, porque o es un anuncio o un mensaje sticky, para el cual el moderador deshabilitó las respuestas.
 post_err_floodtrig_title:	ERROR: Mecanismo contra publicación masiva activado.
@@ -620,9 +620,9 @@ post_err_attach_size:		<font class="ErrorText">Archivo adjunto es demasiado gran
 post_err_attach_ext:		<font class="ErrorText">El archivo que Ud está tratando de subir no corresponde a los tipo de archivo permitidos.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Ud esta tratando de subir más archivos de los permitidos.</font><br>
 post_err_passwd:		Clave incorrecta.
-post_reply_update:		Respondiendo a <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> en {VAR-HTML: frm->name}
-post_edit_update:		Editando <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> en {VAR-HTML: frm->name}
-post_topic_update:		Escribiendo un nuevo tema en <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Respondiendo a <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> en {VAR-HTML: frm->name}
+post_edit_update:		Editando <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> en {VAR-HTML: frm->name}
+post_topic_update:		Escribiendo un nuevo tema en <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Ud tiene un error
 postcheck_max_images_err:	Se permite un máximo de {GVAR: MAX_IMAGE_COUNT} imágenes por mensaje, por favor reduzca el número de imágenes
 postcheck_subj_needed:		Se requiere asunto
@@ -669,18 +669,18 @@ reset_newpass_title:		Actualizar Clave
 reset_newpass_msg:		Hola,\n\nComo Ud los solicitó su nombre de usurio y clave le están siendo enviadas.\nAquí está su información de ingreso:\n\nLogin: {VAR: parr['usr']->login}\nClave: {VAR: parr['passwd']}\n\nRecuerde que su clave ha sido actualizada al valor anterior, si desea cambiar su clave puede hacerlo mediante el panel de control de información en:\n{ROOT}?t=register\n\n
 reset_login_notify:		Su clave le ha sido enviada vía e-mail. Debería recibirla en unos minutos. Recuerde revisar su correo para obtener su clave y nombre de usuario
 search_update:			Buscando mensajes
-selmsg_update:			Recorriendo <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Mensajes de Hoy</a>
-showposts_update:		Viendo mensajes de: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: u->login}</a>
+selmsg_update:			Recorriendo <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Mensajes de Hoy</a>
+showposts_update:		Viendo mensajes de: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>
 subscribed_update:		Recorriendo subscripciones propias
 th_err_invid_title:		ID de hilo de discusión es inválida
 th_err_invid_msg:		Ud ha seguido un enlace inválido, el hilo de discusión que esta tratando de ver no existe.
 thread_err_onlyregview_title:	Este foro sólo puede ser visto por usuarios registrados
-thread_err_onlyregview_msg:	Para ver este foro Ud necesita <a href="{ROOT}?t=register&{DEF: _RSID}" class="GenLink">registrarse</a>, si Ud ya esta registrado, Ud debe <a href="{ROOT}?t=login&{DEF: _RSID}" class="GenLink">ingresar</a>.
-thread_update:			Recorriendo foro <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			Recorriendo hilo de discusión (vista de árbol) <a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _RSID}">{VAR: thread->subject}</a>
-userinfo_update:		Viendo el perfil de <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
+thread_err_onlyregview_msg:	Para ver este foro Ud necesita <a href="{ROOT}?t=register&amp;{DEF: _RSID}" class="GenLink">registrarse</a>, si Ud ya esta registrado, Ud debe <a href="{ROOT}?t=login&amp;{DEF: _RSID}" class="GenLink">ingresar</a>.
+thread_update:			Recorriendo foro <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+tree_update:			Recorriendo hilo de discusión (vista de árbol) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _RSID}">{VAR: thread->subject}</a>
+userinfo_update:		Viendo el perfil de <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: user_info}</a>
 ERR_login_ttl:			ERROR: Ud no ha ingresado
-ERR_login_msg:			Ud no ha ingresado, por favor ingrese<br><br>Si desea registrarse vaya al <a href="{ROOT}?t=register&{DEF: _RSID}">formulario de registro</a><br>Si desea ingresar por favor vaya al <a href="{ROOT}?t=login&{DEF: _RSID}">formulario de ingreso</a>
+ERR_login_msg:			Ud no ha ingresado, por favor ingrese<br><br>Si desea registrarse vaya al <a href="{ROOT}?t=register&amp;{DEF: _RSID}">formulario de registro</a><br>Si desea ingresar por favor vaya al <a href="{ROOT}?t=login&amp;{DEF: _RSID}">formulario de ingreso</a>
 ERR_login_url:			login.php?{DEF: _RSID}
 ERR_disabled_ttl:		Función deshabilitada
 ERR_disabled_msg:		Esta función ha sido deshabilitada por el administrador del sistema
@@ -692,7 +692,7 @@ ERR_registration_disabled_ttl:	Registro deshabilitado
 ERR_registration_disabled_msg:	El administrador ha deshabilitado el registro, por favor vuelva a intentar más tarde
 ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _RSID}
 ERR_emailconf_ttl:		ERROR: Su cuenta aún no ha sido confirmada
-ERR_emailconf_msg:		Ud aún no ha confirmado su cuenta vía e-mail<br><table border=0><tr><td><ol><li>Si no ha recibido un e-mail de confirmación <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _RSID}">haga clic aquí</a><li>Si {VAR: GLOBALS['usr']->email} no es su dirección de e-mail correcta <a href="{ROOT}?t=register&{DEF: _RSID}">haga clic aquí</a></ol></td></tr></table>
+ERR_emailconf_msg:		Ud aún no ha confirmado su cuenta vía e-mail<br><table border=0><tr><td><ol><li>Si no ha recibido un e-mail de confirmación <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&{DEF: _RSID}">haga clic aquí</a><li>Si {VAR: GLOBALS['usr']->email} no es su dirección de e-mail correcta <a href="{ROOT}?t=register&amp;{DEF: _RSID}">haga clic aquí</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			ERROR: No existe ese usuario
 ERR_user_msg:			No existe ese usuario
@@ -718,9 +718,9 @@ remail_emailsent:		E-mail fue enviado
 remail_email:			Hay una página web en {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) que podría ser de su interés.\nEste es el hilo de discusión que creí que podría interesarle, {VAR: thread->subject} puede encontrarlo aquí: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _RSID}\nDe {VAR: u}\n
 poll_add_option:		Agregar Opción:
 post_opt_html_on:		El código <b>HTML</b> está <b>HABILITADO</b>
-post_opt_fud_on:		El <b><a href="{ROOT}?section=readingposting&t=help_index&{DEF: _RSID}#style" target="_blank">FUDcode</b> está <b>HABILITADO</a></b>
+post_opt_fud_on:		El <b><a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _RSID}#style" target="_blank">FUDcode</b> está <b>HABILITADO</a></b>
 post_opt_images_on:		Las <b>Imágenes</b> están <b>HABILITADAS</b>
-post_opt_smilies_on:		Los <a href="{ROOT}?section=readingposting&t=help_index&{DEF: _RSID}#sml" target="_blank"><b>smilies</b> están <b>HABILITADOS</b></a>
+post_opt_smilies_on:		Los <a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _RSID}#sml" target="_blank"><b>smilies</b> están <b>HABILITADOS</b></a>
 post_opt_html_off:		El código <b>HTML</b> está <b>DESHABILITADO</b>
 post_opt_fud_off:		El <b>FUDcode</b> está <b>DESHABILITADO</b>
 post_opt_images_off:		Las <b>Imágenes</b> están <b>DESHABILITADAS</b>
@@ -784,7 +784,7 @@ p_LOCK:				Bloquear hilos de discusión
 p_MOVE:				Mover hilos de discusión
 p_SML:				Usar smilies
 p_IMG:				Usar etiquetas de imágenes
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _RSID}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Buscar Usuario</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _RSID}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Buscar Usuario</a>
 group_mgr_indicator:		Actualmente Editando: <b>{VAR: grp->name}</b>
 rate_worst:			Peor
 rate_best:			Mejor
@@ -855,7 +855,7 @@ forum_home:			Principal
 post_cur_attached:		{VAR: attach_count} archivo(s) actualmente adjunto(s)
 ppost_cur_attached:		{VAR: attach_count} archivo(s) actualmente adjunto(s)
 ignored_anon_post:		{VAR: user_login} es ignorado
-ignored_user_post:		Mensaje de <a href="{ROOT}?t=usrinfo&{DEF: _RSID}&id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> es ignorado
+ignored_user_post:		Mensaje de <a href="{ROOT}?t=usrinfo&amp;{DEF: _RSID}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> es ignorado
 smladd_close_window:		cerrar ventana
 post_list_smilies:		listar todos los smilies
 p_VISIBLE:			Visible
@@ -896,3 +896,5 @@ search_logic:			Search Logic:
 search_sorting:			Sort Results By Date In:post_proceed:			Proceed
 post_moderated_forum:		You have made a post in a moderated forum, which means your post will not be made visible on the forum until it is approved by one of the forum&#39;s moderator(s) and/or administrator(s).
 post_moderated_forum_ttl:	Moderated Forum Notice
+post_proceed:			Proceed
+buddy_list_bday:		Today {VAR: obj->login} turns {VAR: age}

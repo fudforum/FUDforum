@@ -189,7 +189,7 @@ views:				Görüntülenme<br>sayýsý
 vote:				{VAR: thread->vote_count()} Oy
 vote_button:			Oyla
 vote_for_thread:		Oyla
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> artýk burda deðil. Onaycý tarafýndan taþýndýðý yer: <a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> artýk burda deðil. Onaycý tarafýndan taþýndýðý yer: <a href="{ROOT}?t=thread&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
 welcome_message:		Hoþ geldiniz <b>{VAR: usr->alias}</b>, son ziyaret tarihiniz {DATE: last_login %d %B %Y %A günü saat %H:%M} idi.
 what_ppl_doing:			insanlarýn ne yaptýðýný göster
 reported_del_report:		Bildirimi sil
@@ -211,7 +211,7 @@ list_referes_referrals:		Tanýtým
 list_referes_members:		Tanýtým Yapýlan Üyeler
 list_referes_member:		Üye
 referals_none:			Henüz tanýtým yapmamýþ durumdasýnýz.
-referals_refered_by:		<b><a href="{ROOT}?t=usrinfo&id={VAR: r_id}&{DEF: _rsid}" class="th_lnk">{VAR: r_login}</a></b> tarafýndan tanýtým yapýlan üyeler.
+referals_refered_by:		<b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="th_lnk">{VAR: r_login}</a></b> tarafýndan tanýtým yapýlan üyeler.
 referals_post_count:		Ýleti Sayýsý
 referals_registered_on:		Kayýt tarihi:
 referals_action:		Eylem
@@ -340,7 +340,7 @@ buddy_status:			Durum
 my_buddies:			Arkadaþlarým
 add_buddy:			Arkadaþ Ekle
 add:				Ekle
-buddy_search:			Eklemek istediðiniz kullanýcýnýn kullanýcý ismini girin.<br><a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Kullanýcý bul</a> özelliðinden yararlanabilirsiniz.
+buddy_search:			Eklemek istediðiniz kullanýcýnýn kullanýcý ismini girin.<br><a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">Kullanýcý bul</a> özelliðinden yararlanabilirsiniz.
 buddy_remove:			çýkar
 post_normal:			Olaðan
 post_sticky:			Yapýþkan
@@ -588,10 +588,10 @@ index_update:			<a href="{ROOT}?t=index" class="GenLink">Forum listesini</a> dol
 list_referers_update:		Tanýtýmlarý Dolaþýyor
 login_update:			Giriþ Formu
 msg_err_onlyreg_title:		Sadece kayýtlý kullanýcýlar bu forumu görüntüleyebilir
-msg_err_onlyreg_msg:		Bu forumu görebilmek için <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">kayýt olmanýz</a>, eðer kayýt olduysanýz <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">giriþ yapmanýz</a> gerekiyor.
+msg_err_onlyreg_msg:		Bu forumu görebilmek için <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">kayýt olmanýz</a>, eðer kayýt olduysanýz <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">giriþ yapmanýz</a> gerekiyor.
 msg_err_ininfo_title:		Yetersiz Bilgi
 msg_err_ininfo_msg:		Bu sayfanýn oluþturulmasýnda bir sorun oluþtu.
-msg_update:			<a class="GenLink" href="{ROOT}?t=msg&th={VAR: thread->id}">{VAR: thread->subject}</a> zincirini dolaþýyor
+msg_update:			<a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a> zincirini dolaþýyor
 pm_err_nopm_title:		HATA: Özel Ýletiler engellenmiþ durumda
 pm_err_nopm_msg:		Özel ileti sistemini kullanamýyorsunuz, çünkü bu özellik yönetici tarafýndan engellenmiþ durumda.
 pm_update:			Özel ileti sistemini kullanýyor.
@@ -600,7 +600,7 @@ post_err_notallowed_msg:	Gönderme izniniz yok
 post_err_lockedthread_title:	HATA: Kilitli Zincir
 post_err_lockedthread_msg:	Bu zincir kilitlenmiþ durumda, daha fazla ileti gönderilmesine izin verilmiyor.
 err_coppa_title:		HATA: Hesabýnýz henüz doðrulanmamýþ durumda.
-err_coppa_msg:			Anne-babanýz ve/veya yasal koruyucunuz tarafýndan bir doðrulama almamýþ durumdayýz, bu yüzden henüz ileti gönderme izniniz yok. Eðer coppa formunuzu kaybettiyseniz almak için <a href="{ROOT}?t=coppa_fax&{DEF: _rsid}">buraya týklayýn</a>
+err_coppa_msg:			Anne-babanýz ve/veya yasal koruyucunuz tarafýndan bir doðrulama almamýþ durumdayýz, bu yüzden henüz ileti gönderme izniniz yok. Eðer coppa formunuzu kaybettiyseniz almak için <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">buraya týklayýn</a>
 err_blockedaccnt_title:		HATA: Ýleti gönderme izniniz yok
 err_blockedaccnt_msg:		Hesabýnýzdan ileti gönderme engellenmiþ durumda.
 post_err_notowner_title:	HATA
@@ -608,9 +608,9 @@ post_err_notowner_msg:		Bu iletinin sahibi siz deðilsiniz
 post_err_edttimelimit_title:	HATA
 post_err_edttimelimit_msg:	Bu iletiyi artýk düzeltemezsiniz
 post_err_noannontopics_title:	HATA: Yetersiz Yetki
-post_err_noannontopics_msg:	Ýsimsiz (Anonymous) kullanýcýlarýn tartýþma açmasýna izin verilmiyor<br><br>Kayýt olmak isterseniz <a href="{ROOT}?t=register&{DEF: _rsid}">kayýt formunu</a> kullanabilirsiniz.<br>Giriþ yapmak istiyorsanýz lütfen <a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">giriþ formunu</a> kullanýn.
+post_err_noannontopics_msg:	Ýsimsiz (Anonymous) kullanýcýlarýn tartýþma açmasýna izin verilmiyor<br><br>Kayýt olmak isterseniz <a href="{ROOT}?t=register&amp;{DEF: _rsid}">kayýt formunu</a> kullanabilirsiniz.<br>Giriþ yapmak istiyorsanýz lütfen <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">giriþ formunu</a> kullanýn.
 post_err_noannonposts_title:	HATA: Yetersiz Yetki
-post_err_noannonposts_msg:	Ýsimsiz (Anonymous) kullanýcýlarýn iletileri yanýtlamasýna izin verilmiyor<br><br>Kayýt olmak isterseniz <a href="{ROOT}?t=register&{DEF: _rsid}">kayýt formunu</a> kullanabilirsiniz. <br>Giriþ yapmak istiyorsanýz lütfen <a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">giriþ formunu</a> kullanýn.
+post_err_noannonposts_msg:	Ýsimsiz (Anonymous) kullanýcýlarýn iletileri yanýtlamasýna izin verilmiyor<br><br>Kayýt olmak isterseniz <a href="{ROOT}?t=register&amp;{DEF: _rsid}">kayýt formunu</a> kullanabilirsiniz. <br>Giriþ yapmak istiyorsanýz lütfen <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">giriþ formunu</a> kullanýn.
 post_err_noreplying_title:	HATA: Yanýtlamaya izin verilmiyor
 post_err_noreplying_msg:	Bu zincire yanýt gönderemiyorsunuz, çünkü bu bir duyuru veya yapýþkan ileti, ve onaycý yanýt gönderilmesine izin vermemiþ durumda.
 post_err_floodtrig_title:	HATA: Üstüste ileti gönderemezsiniz.
@@ -619,9 +619,9 @@ post_err_attach_size:		<font class="ErrorText">Dosya eki çok büyük (izin verilen
 post_err_attach_ext:		<font class="ErrorText">Yüklemeye çalýþtýðýnýz dosya tipi izin verilen tipler arasýnda yok.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Ýzin verilenden daha fazla dosya yüklemeye çalýþýyorsunuz.</font><br>
 post_err_passwd:		Yanlýþ parola.
-post_reply_update:		{VAR-HTML: frm->name} forumundaki <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> konulu iletiye yanýt yazýyor. 
-post_edit_update:		{VAR-HTML: frm->name} forumundaki <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> konulu iletiyi düzeltiyor.
-post_topic_update:		<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a> forumunda yeni tartýþma açýyor.
+post_reply_update:		{VAR-HTML: frm->name} forumundaki <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> konulu iletiye yanýt yazýyor. 
+post_edit_update:		{VAR-HTML: frm->name} forumundaki <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> konulu iletiyi düzeltiyor.
+post_topic_update:		<a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a> forumunda yeni tartýþma açýyor.
 post_error_generic:		Bir hata oluþtu
 postcheck_max_images_err:	Ýleti baþýna en fazla {GVAR: MAX_IMAGE_COUNT} resim gönderilebilir, lütfen resim sayýsýný azaltýn.
 postcheck_subj_needed:		Konu bölümü zorunlu
@@ -668,18 +668,18 @@ reset_newpass_title:		Parolayý Yeniden Belirle
 reset_newpass_msg:		Selam,\n\nÝsteðiniz üzerine kayýt bilgileriniz gönderildi.\nGiriþ bilgileriniz:\n\nKullanýcý ismi: {VAR: parr['usr']->login}\nParola: {VAR: parr['passwd']}\n\nYukarýda belirtilen yeni parolanýzý deðiþtirmek isterseniz, kullanýcý bilgileri denetim masasýndan yapabilirsiniz:\n{ROOT}?t=register\n\n
 reset_login_notify:		Parolanýz e-mektup adresinize gönderildi. Bir kaç dakika içinde elinizde olmalý. Lütfen parolanýzý gözden geçirin ve giriþ yapýn.
 search_update:			Ýletileri arýyor
-selmsg_update:			<a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Bugünkü Ýletilerde</a> dolaþýyor
-showposts_update:		<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: u->login}</a> tarafýndan gönderilen iletileri görüntülüyor.
+selmsg_update:			<a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Bugünkü Ýletilerde</a> dolaþýyor
+showposts_update:		<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a> tarafýndan gönderilen iletileri görüntülüyor.
 subscribed_update:		Üyeliklerini dolaþýyor
 th_err_invid_title:		Geçersiz zincir ID&#39;si.
 th_err_invid_msg:		Geçersiz bir linki izlediniz, görüntülemeye çalýþtýðýnýz zincir yok.
 thread_err_onlyregview_title:	Sadece kayýtlý kullanýcýlar bu forumu görüntüleyebilir.
-thread_err_onlyregview_msg:	Bu forumu görebilmek için <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">kayýt olmanýz</a>, kayýt olduysanýz <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">giriþ yapmanýz</a> gerekiyor.
-thread_update:			<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a> forumunda dolaþýyor
-tree_update:			<a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a> zincirinde dolaþýyor (aðaç görünümü)
-userinfo_update:			<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a> kullanýcýsýnýn kiþisel bilgilerine bakýyor
+thread_err_onlyregview_msg:	Bu forumu görebilmek için <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">kayýt olmanýz</a>, kayýt olduysanýz <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">giriþ yapmanýz</a> gerekiyor.
+thread_update:			<a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a> forumunda dolaþýyor
+tree_update:			<a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a> zincirinde dolaþýyor (aðaç görünümü)
+userinfo_update:			<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: user_info}</a> kullanýcýsýnýn kiþisel bilgilerine bakýyor
 ERR_login_ttl:			HATA: Giriþ yapmamýþ durumdasýnýz			
-ERR_login_msg:			Lütfen giriþ yapýn.<br><br>Kayýt olmak isterseniz <a href="{ROOT}?t=register&{DEF: _rsid}">kayýt formunu</a> kullanabilirsiniz<br>Giriþ yapmak istiyorsanýz lütfen <a href="{ROOT}?t=login&{DEF: _rsid}">giriþ formunu</a> kullanýn.
+ERR_login_msg:			Lütfen giriþ yapýn.<br><br>Kayýt olmak isterseniz <a href="{ROOT}?t=register&amp;{DEF: _rsid}">kayýt formunu</a> kullanabilirsiniz<br>Giriþ yapmak istiyorsanýz lütfen <a href="{ROOT}?t=login&amp;{DEF: _rsid}">giriþ formunu</a> kullanýn.
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		Engellenmiþ Özellik
 ERR_disabled_msg:		Bu özellik sistem yöneticisi tarafýndan engellenmiþ durumda.
@@ -691,7 +691,7 @@ ERR_registration_disabled_ttl:	Kayýt Engellenmiþ
 ERR_registration_disabled_msg:	Yönetici kayýtý engellemiþ durumda. Lütfen daha sonra tekrar deneyin.
 ERR_registration_disabled_url:	{GVAR: WWW_ROOT}{ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		HATA: Hesabýnýz henüz doðrulanmadý
-ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">buraya týklayýn</a><li>Eðer {VAR: GLOBALS['usr']->email} adresi sizin doðru adresiniz deðilse <a href="{ROOT}?t=register&{DEF: _rsid}">buraya týklayýn</a></ol></td></tr></table>
+ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">buraya týklayýn</a><li>Eðer {VAR: GLOBALS['usr']->email} adresi sizin doðru adresiniz deðilse <a href="{ROOT}?t=register&amp;{DEF: _rsid}">buraya týklayýn</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			HATA: Kullanýcý yok
 ERR_user_msg:			Böyle bir kullanýcý yok
@@ -717,9 +717,9 @@ remail_emailsent:		E-mektup gönderildi
 remail_email:			{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) adresinde okumak isteyebileceðin bir WWW sayfasý var.\nÝlgileceðini düþündüðüm "{VAR: thread->subject}" konulu zincire buradan ulaþabilirsin:\n{ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n\nGönderen: {VAR: u}\n
 poll_add_option:		Seçenek Ekle:
 post_opt_html_on:		<b>HTML AÇIK</b>
-post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#style" target="_blank">FUDcode AÇIK</a></b>
+post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank">FUDcode AÇIK</a></b>
 post_opt_images_on:		<b>Resimler AÇIK</b>
-post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#sml" target="_blank"><b>Gülücükler AÇIK</b></a>
+post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>Gülücükler AÇIK</b></a>
 post_opt_html_off:		<b>HTML KAPALI</b>
 post_opt_fud_off:		<b>FUDcode KAPALI</b>
 post_opt_images_off:		<b>Resimler KAPALI</b>
@@ -783,7 +783,7 @@ p_LOCK:				Zinciri Kilitle
 p_MOVE:				Zinciri Taþý
 p_SML:				Gülücük kullan
 p_IMG:				Resim tag&#39;lerini kullan
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Kullanýcý bul</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Kullanýcý bul</a>
 group_mgr_indicator:		Þu anda düzeltilen: <b>{VAR: grp->name}</b>
 rate_worst:			Çok Kötü
 rate_best:			Çok Ýyi
@@ -854,7 +854,7 @@ forum_home:			Ana Sayfa
 post_cur_attached:		þu anda {VAR: attach_count} dosya ekli
 ppost_cur_attached:		þu anda {VAR: attach_count} dosya ekli
 ignored_anon_post:		{VAR: user_login} gözardý edilmiþ durumda
-ignored_user_post:		<a href="{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> tarafýndan gönderilen ileti gözardý ediliyor.
+ignored_user_post:		<a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> tarafýndan gönderilen ileti gözardý ediliyor.
 smladd_close_window:		penereyi kapat
 post_list_smilies:		gülücük listesi
 p_VISIBLE:			Görünür
@@ -895,3 +895,5 @@ search_logic:			Search Logic:
 search_sorting:			Sort Results By Date In:post_proceed:			Proceed
 post_moderated_forum:		You have made a post in a moderated forum, which means your post will not be made visible on the forum until it is approved by one of the forum&#39;s moderator(s) and/or administrator(s).
 post_moderated_forum_ttl:	Moderated Forum Notice
+post_proceed:			Proceed
+buddy_list_bday:		Today {VAR: obj->login} turns {VAR: age}

@@ -189,7 +189,7 @@ views:				点击
 vote:				{VAR: thread->vote_count()} 投票
 vote_button:			投票
 vote_for_thread:		调查
-was_moved_msg:			<a href="{ROOT}?t={DEF: D_THREAD_VIEW}&goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> 已经被版主移至<a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: D_THREAD_VIEW}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> 已经被版主移至<a href="{ROOT}?t=thread&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
 welcome_message:		欢迎！ <b>{VAR: usr->alias}</b>, 你最后一次访问是 {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			显示浏览者的操作
 reported_del_report:		删除报告
@@ -211,7 +211,7 @@ list_referes_referrals:		被提名者
 list_referes_members:		被提名的用户
 list_referes_member:		用户
 referals_none:			目前还没有被提名的人。
-referals_refered_by:		被推荐的论坛成员是: <b><a class="TableHeading" href="{ROOT}?t=usrinfo&id={VAR: r_id}&{DEF: _rsid}">{VAR: r_login}</a></b>
+referals_refered_by:		被推荐的论坛成员是: <b><a class="TableHeading" href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}">{VAR: r_login}</a></b>
 referals_post_count:		点击数
 referals_registered_on:		登录
 referals_action:		操作
@@ -340,7 +340,7 @@ buddy_status:			级别
 my_buddies:			我的好友
 add_buddy:			添加好友
 add:				添加
-buddy_search:			请填入你要添加的好友账号。<br>或者使用<a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">用户列表</a> 查找好友。
+buddy_search:			请填入你要添加的好友账号。<br>或者使用<a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">用户列表</a> 查找好友。
 buddy_remove:			移动
 post_normal:			正常
 post_sticky:			在线
@@ -588,10 +588,10 @@ index_update:			浏览<a href="{ROOT}?t=index" class="GenLink">论坛列表</a>
 list_referers_update:		浏览被提名者
 login_update:			登录格式
 msg_err_onlyreg_title:		只有注册用户可以查看这个论坛。
-msg_err_onlyreg_msg:		要查看这个论坛，你必须注册<a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">注册</a>, 如果已经注册，请\'ll need to <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">登录</a>.
+msg_err_onlyreg_msg:		要查看这个论坛，你必须注册<a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">注册</a>, 如果已经注册，请\'ll need to <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">登录</a>.
 msg_err_ininfo_title:		信息不充分
 msg_err_ininfo_msg:		本页发生错误
-msg_update:			展开浏览 <a class="GenLink" href="{ROOT}?t=msg&th={VAR: thread->id}">{VAR: thread->subject}</a>
+msg_update:			展开浏览 <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a>
 pm_err_nopm_title:		错误：无法发送悄悄话
 pm_err_nopm_msg:		系统管理员禁止您使用悄悄话系统。
 pm_update:			使用悄悄话功能
@@ -600,7 +600,7 @@ post_err_notallowed_msg:	你不能提交
 post_err_lockedthread_title:	错误：该帖子已封闭
 post_err_lockedthread_msg:	这个主题已被封闭，不能回复
 err_coppa_title:		错误: 你没有此项权限
-err_coppa_msg:			我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认证明。 If you lost your coppa form <a href="{ROOT}?t=coppa_fax&{DEF: _rsid}">click here</a> to get it
+err_coppa_msg:			我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认证明。 If you lost your coppa form <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">click here</a> to get it
 err_blockedaccnt_title:		错误: 你被禁止登录
 err_blockedaccnt_msg:		这个账号被禁止登录
 post_err_notowner_title:	错误
@@ -608,9 +608,9 @@ post_err_notowner_msg:		你不是这个帖子的作者
 post_err_edttimelimit_title:	错误
 post_err_edttimelimit_msg:	你不能再编辑这条信息
 post_err_noannontopics_title:	错误：你的权限不够
-post_err_noannontopics_msg:	匿名用户不允许发布主题<br><br>注册，请点击 <a href="{ROOT}?t=register&{DEF: _rsid}">注册</a><br>登录请点击 <a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">登录</a>
+post_err_noannontopics_msg:	匿名用户不允许发布主题<br><br>注册，请点击 <a href="{ROOT}?t=register&amp;{DEF: _rsid}">注册</a><br>登录请点击 <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">登录</a>
 post_err_noannonposts_title:	错误：你的权限不够
-post_err_noannonposts_msg:	匿名用户不允许回复<br><br>注册，请点击 <a href="{ROOT}?t=register&{DEF: _rsid}">注册</a><br>登录，请点击<a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">登录</a>
+post_err_noannonposts_msg:	匿名用户不允许回复<br><br>注册，请点击 <a href="{ROOT}?t=register&amp;{DEF: _rsid}">注册</a><br>登录，请点击<a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">登录</a>
 post_err_noreplying_title:	错误：不允许回复
 post_err_noreplying_msg:	您不能回复这条信息，因为版主禁止在这里跟帖或发布通告。
 post_err_floodtrig_title:	错误：发布灌水帖子
@@ -619,9 +619,9 @@ post_err_attach_size:		<font class="ErrorText">附件文件太大（超过了允许的最大{VA
 post_err_attach_ext:		<font class="ErrorText">你正在上传的文件类型不符合论坛对上传文件类型的设置font><br>
 post_err_attach_filelimit:	<font class="ErrorText">你正在上传的文件超过了限制的数量。</font><br>
 post_err_passwd:		密码错误。
-post_reply_update:		回复 <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> 在 {VAR-HTML: frm->name}
-post_edit_update:		编辑<a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> 在 {VAR-HTML: frm->name}
-post_topic_update:		发表新主题 <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_reply_update:		回复 <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> 在 {VAR-HTML: frm->name}
+post_edit_update:		编辑<a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> 在 {VAR-HTML: frm->name}
+post_topic_update:		发表新主题 <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		发生错误
 postcheck_max_images_err:	一次提交图片允许的最大数是{GVAR: MAX_IMAGE_COUNT} ，请尽量减少图片数量。
 postcheck_subj_needed:		输入主题
@@ -668,18 +668,18 @@ reset_newpass_title:		重新输入密码
 reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息:\n\n账号：{VAR: parr['usr']->login}\n密码: {VAR: parr['passwd']}\n\nPlease not that your password has been reset the the value above, 如果你想\n修改密码，请在个人信息中修改:\n{ROOT}?t=register\n\n
 reset_login_notify:		一会儿，你将通过邮件收到密码。请检查你的密码并登录。
 search_update:			搜索
-selmsg_update:			浏览 <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">今天发布的主题</a>
-showposts_update:		查看用户 <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: u->login}</a>发布的主题
+selmsg_update:			浏览 <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">今天发布的主题</a>
+showposts_update:		查看用户 <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>发布的主题
 subscribed_update:		浏览自己预定的内容
 th_err_invid_title:		错误的主题id号
 th_err_invid_msg:		你输入的连接错误,相关主题并不存在。
 thread_err_onlyregview_title:	只有注册用户允许查看这个论坛
-thread_err_onlyregview_msg:	要查看本论坛，你必须<a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">注册</a>, 如果已经注册，请<a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">登录</a>.
-thread_update:			浏览论坛<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			浏览（以树状方式） <a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
-userinfo_update:		查看 <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}的</a> 个人信息
+thread_err_onlyregview_msg:	要查看本论坛，你必须<a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">注册</a>, 如果已经注册，请<a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">登录</a>.
+thread_update:			浏览论坛<a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+tree_update:			浏览（以树状方式） <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
+userinfo_update:		查看 <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: user_info}的</a> 个人信息
 ERR_login_ttl:			错误：您尚未注册
-ERR_login_msg:			您尚未登录，请登录<br><br>请<a href="{ROOT}?t=register&{DEF: _rsid}">注册</a><br>请<a href="{ROOT}?t=login&{DEF: _rsid}">注册</a>
+ERR_login_msg:			您尚未登录，请登录<br><br>请<a href="{ROOT}?t=register&amp;{DEF: _rsid}">注册</a><br>请<a href="{ROOT}?t=login&amp;{DEF: _rsid}">注册</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		被禁止的功能
 ERR_disabled_msg:		此项功能已经被系统管理员关闭。
@@ -691,7 +691,7 @@ ERR_registration_disabled_ttl:	注册失败
 ERR_registration_disabled_msg:	注册功能被系统管理员禁止,请重试！
 ERR_registration_disabled_url:	{GVAR: WWW_ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		错误: 此账号无效
-ERR_emailconf_msg:		您注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">请点击</a><li>如果 {VAR: GLOBALS['usr']->email} 邮件地址有误<a href="{ROOT}?t=register&{DEF: _rsid}">请点击</a></ol></td></tr></table>
+ERR_emailconf_msg:		您注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">请点击</a><li>如果 {VAR: GLOBALS['usr']->email} 邮件地址有误<a href="{ROOT}?t=register&amp;{DEF: _rsid}">请点击</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			错误：没有这个用户
 ERR_user_msg:			没有这个用户
@@ -717,9 +717,9 @@ remail_emailsent:		邮件已经发送
 remail_email:			这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能感兴趣\n这里是你可能感兴趣的主题,{VAR: thread->subject} 清点击: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n 发件人 {VAR: u}\n
 poll_add_option:		添加选项：
 post_opt_html_on:		<b>HTML</b><b>代码：开放</b>
-post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#style" target="_blank">FUD代码：</b><b>开放</a></b>
+post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank">FUD代码：</b><b>开放</a></b>
 post_opt_images_on:		<b>贴图功能：</b><b>开放</b>
-post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#sml" target="_blank"><b>表情符号：</b> <b>开放</b></a>
+post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>表情符号：</b> <b>开放</b></a>
 post_opt_html_off:		<b>HTML</b> 代码： <b>关闭</b>
 post_opt_fud_off:		<b>FUD代码：</b><b>关闭</b>
 post_opt_images_off:		<b>贴图功能：</b><b>关闭</b>
@@ -783,7 +783,7 @@ p_LOCK:				封闭帖子
 p_MOVE:				转移帖子
 p_SML:				应用表情符号
 p_IMG:				应用图像标签
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">查找用户</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">查找用户</a>
 group_mgr_indicator:		正在编辑: <b>{VAR: grp->name}</b>
 rate_worst:			最差的
 rate_best:			最好的
@@ -854,7 +854,7 @@ forum_home:			主页
 post_cur_attached:		正在粘贴{VAR: attach_count} file(s)
 ppost_cur_attached:		正在粘贴 {VAR: attach_count} file(s)
 ignored_anon_post:		{VAR: user_login} 被拒绝
-ignored_user_post:		您被拒绝提交信息<a href="{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a>
+ignored_user_post:		您被拒绝提交信息<a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a>
 smladd_close_window:		关闭窗口
 post_list_smilies:		显示所有表情符号
 p_VISIBLE:			可见的
@@ -896,3 +896,5 @@ search_logic:			方式:
 search_sorting:			结果按日期:post_proceed:			Proceed
 post_moderated_forum:		You have made a post in a moderated forum, which means your post will not be made visible on the forum until it is approved by one of the forum&#39;s moderator(s) and/or administrator(s).
 post_moderated_forum_ttl:	Moderated Forum Notice
+post_proceed:			Proceed
+buddy_list_bday:		Today {VAR: obj->login} turns {VAR: age}
