@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.6 2002/08/05 05:58:21 hackie Exp $
+*   $Id: ppost.tmpl,v 1.7 2002/08/06 20:35:52 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -52,12 +52,12 @@
 {SECTION: END}
 
 {SECTION: preview_message}
-<table align="center" border="0" cellspacing="1" cellpadding="2" class="PreviewTable">
+<div align="center"><table border="0" cellspacing="1" cellpadding="2" class="PreviewTable">
 <tr><th colspan=2>{MSG: post_preview}</th></tr>
 <tr><td class="RowStyleA"><font class="MsgSubText">{VAR: subj}</font></td></tr>
 <tr><td class="RowStyleA"><font class="MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</font></td></tr>
 {TEMPLATE-DATA: apply_spell_changes}
-</table><br />
+</table></div><br />
 {SECTION: END}
 
 {SECTION: post_icon_entry}
