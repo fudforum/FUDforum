@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.24 2005/03/24 16:35:06 hackie Exp $
+* $Id: merge_th.php.t,v 1.25 2005/03/24 17:38:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -86,8 +86,6 @@
 				}
 			}
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET thread_id={$new_th} WHERE thread_id IN({$tl})");
-			q("UPDATE {SQL_TABLE_PREFIX}thread_notify SET thread_id={$new_th} WHERE thread_id IN({$tl})");
-			q("UPDATE {SQL_TABLE_PREFIX}read SET thread_id={$new_th} WHERE thread_id IN({$tl})");
 			q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id IN({$tl})");
 
 			rebuild_forum_view($forum);
@@ -105,6 +103,19 @@
 			}
 			db_unlock();
 
+			/* handle thread subscriptions and message read indicators */
+			if (__dbtype__ == 'mysql') {
+				q("UPDATE IGNORE {SQL_TABLE_PREFIX}thread_notify SET thread_id={$new_th} WHERE thread_id IN({$tl})");
+				q("UPDATE IGNORE {SQL_TABLE_PREFIX}read SET thread_id={$new_th} WHERE thread_id IN({$tl})");
+			} else {
+				q("REPLACE INTO {SQL_TABLE_PREFIX}thread_notify (user_id, thread_id)
+					SELECT user_id, {$new_th} FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id IN({$tl})");
+				q("REPLACE INTO {SQL_TABLE_PREFIX}read (thread_id, user_id, msg_id, last_view)
+					SELECT {$new_th}, user_id, msg_id, last_view FROM {SQL_TABLE_PREFIX}read WHERE thread_id IN({$tl})");
+			}
+			q("DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id IN({$tl})");
+			q("DELETE FROM {SQL_TABLE_PREFIX}read WHERE thread_id IN({$tl})");
+	
 			logaction(_uid, 'THRMERGE', $new_th, count($_POST['sel_th']));
 			unset($_POST['sel_th']);
 		}
