@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.29 2004/10/15 01:24:37 hackie Exp $
+* $Id: admstats.php,v 1.30 2004/10/15 17:17:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -123,7 +123,7 @@ function get_sql_disk_usage()
 			$ds = (int) date($fmt, $r[0]);
 			if (!isset($day_list[$ds])) {
 				$day_list[$ds] = 1;
-				if ($_POST['sep'] == 'hour') {
+				if ($_POST['sep'] != 'month') {
 					$tm = $r[0];
 				} else {
 					$ts = getdate($r[0]);
@@ -147,6 +147,8 @@ function get_sql_disk_usage()
 		$date_str = 'F d, Y';
 		if ($_POST['sep'] == 'hour') {
 			$date_str .= ' H:i';
+		} else if ($_POST['sep'] == 'year') {
+			$date_str = 'F Y';
 		}
 
 		foreach($day_list as $k => $v) {
