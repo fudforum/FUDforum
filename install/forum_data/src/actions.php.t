@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: actions.php.t,v 1.32 2004/01/04 16:38:26 hackie Exp $
+* $Id: actions.php.t,v 1.33 2004/01/09 13:49:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@
 
 	$rand_val = get_random_value();
 
-	$limit = &get_all_read_perms(_uid, ($usr->users_opt & (524288|1048576)));
+	$limit = &get_all_read_perms(_uid, ($usr->users_opt & 524288));
 
 	$c = uq('SELECT
 			s.action, s.user_id, s.forum_id,

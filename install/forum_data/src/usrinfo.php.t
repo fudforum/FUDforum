@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.31 2004/01/04 16:38:27 hackie Exp $
+* $Id: usrinfo.php.t,v 1.32 2004/01/09 13:49:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,7 +48,7 @@ function convert_bdate($val, $month_fmt)
 
 	$moderation = '';
 	if ($u->users_opt & 524288) {
-		$c = uq('SELECT f.id, f.name FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}forum f ON mm.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id WHERE '.($usr->users_opt & 1048576 ? '' : 'f.id IN('.implode(',', array_keys($frm_perms)).') AND ').'mm.user_id='.$u->id);
+		$c = uq('SELECT f.id, f.name FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}forum f ON mm.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id WHERE '.($usr->users_opt & 1048576 ? '' : 'f.id IN('.implode(',', array_keys($frm_perms, 2)).') AND ').'mm.user_id='.$u->id);
 		while ($r = db_rowarr($c)) {
 			$moderation .= '{TEMPLATE: moderation_entry}';
 		}
@@ -102,7 +102,7 @@ function convert_bdate($val, $month_fmt)
 		$buddy = '';
 	}
 
-	if (($polls = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}poll p INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id WHERE p.owner='.$u->id.' AND f.cat_id>0 '.($usr->users_opt & 1048576 ? '' : ' AND f.id IN('.implode(',', array_keys($frm_perms)).')')))) {
+	if (($polls = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}poll p INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id WHERE p.owner='.$u->id.' AND f.cat_id>0 '.($usr->users_opt & 1048576 ? '' : ' AND f.id IN('.implode(',', array_keys($frm_perms, 2)).')')))) {
 		$polls = '{TEMPLATE: polls}';
 	} else {
 		$polls = '';

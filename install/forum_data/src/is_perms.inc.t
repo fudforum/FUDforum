@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: is_perms.inc.t,v 1.30 2004/01/04 16:38:26 hackie Exp $
+* $Id: is_perms.inc.t,v 1.31 2004/01/09 13:49:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,14 +23,14 @@ function &get_all_read_perms($uid, $mod)
 		$r = uq("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_id NOT IN (".implode(',', array_keys($limit)).") AND user_id=2147483647 AND (group_cache_opt & 2) > 0");
 		while ($ent = db_rowarr($r)) {
 			if (!isset($limit[$ent[0]])) {
-				$limit[$ent[0]] = 1;
+				$limit[$ent[0]] = 2;
 			}
 		}
 
 		if ($mod) {
 			$r = uq('SELECT forum_id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='._uid);
 			while ($ent = db_rowarr($r)) {
-				$limit[$ent[0]] = 1;
+				$limit[$ent[0]] = 2;
 			}
 		}
 	}
