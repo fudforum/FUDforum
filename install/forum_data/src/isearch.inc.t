@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.40 2004/10/21 21:38:32 hackie Exp $
+* $Id: isearch.inc.t,v 1.41 2004/10/22 13:46:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,7 +63,7 @@ function text_to_worda($text)
 		
 			case 'japanese':
 				preg_match_all('!(\w)!u', $text, $tmp);
-				return array_unique($tmp[0]);
+				break;
 
 			case 'latvian':
 			case 'russian-1251':
@@ -72,6 +72,10 @@ function text_to_worda($text)
 
 			default:
 				$t1 = array_unique(str_word_count(strip_tags(strtolower($text)), 1));
+				if (!$t1) { /* fall through to split by special chars */
+					$GLOBALS['usr']->lang = 'latvian';
+					continue;		
+				} 
 				break;
 		}
 
