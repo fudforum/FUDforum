@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.31 2003/06/05 23:07:56 hackie Exp $
+*   $Id: login.php.t,v 1.32 2003/06/17 14:04:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -152,7 +152,19 @@ function error_check()
 				exit;
 			}
 
-			check_return(str_replace('S='.s, '', $usr->returnto) . 'S=' . $ses_id);
+			if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
+				if (strpos($usr->returnto, s) !== FALSE) {
+					$usr->returnto = str_replace(s, $ses_id, $usr->returnto);
+				} else {
+					if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+						$usr->returnto .= '&S=' . $ses_id;
+					} else {
+						$usr->returnto .= $ses_id . '/';
+					}
+				}
+			}
+
+			check_return($usr->returnto);
 		}
 	}
 	
