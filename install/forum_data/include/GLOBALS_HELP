@@ -400,7 +400,3 @@ Enable 'smart' e-mail notification mechanism that would only notify users if the
 
 {{{DISABLE_TURING_TEST	FUD_OPT_3	128
 If disabled users will not need to complete a turing test intended to prevent automated account creation bots. Turing test involves identifying a series of random letters that are displayed in ASCII form.}}}
-
-{{{DISABLE_AUTOCOMPLETE	FUD_OPT_3	256
-If disabled the browser will not attempt to 'remember' the values for the login form.}}}
-

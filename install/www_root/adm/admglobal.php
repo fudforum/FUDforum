@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.63 2004/08/16 19:51:06 hackie Exp $
+* $Id: admglobal.php,v 1.62 2004/06/08 21:55:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -312,7 +312,6 @@ function get_max_upload_size()
 	}
 	print_bit_field('Use PATH_INFO style URLs<br><a href="'.$WWW_ROOT.'index.php/a/b/c" target="_blank">Test Link</a>', 'USE_PATH_INFO');
 	print_bit_field('Disable Turing Test', 'DISABLE_TURING_TEST');
-	print_bit_field('Disable AutoComplete', 'DISABLE_AUTOCOMPLETE');
 ?>
 <tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 </table>

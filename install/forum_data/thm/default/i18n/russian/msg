@@ -16,10 +16,10 @@ custom_avatar_queue:		Очередь внешних картинок
 date_posted:			Дата отправки
 date_registered:		Дата регистрации:
 download_counter:		Загружено {VAR: v[3]} раз
-email:				E-mail:
-email_to_friend:		Отправить по e-mail
-email_to_friend_desc:		Отправить URL-ссылку на это сообщение по e-mail
-email_user:			Нажмите для отправки по e-mail
+email:				Email:
+email_to_friend:		Отправить по email
+email_to_friend_desc:		Отправить URL-ссылку на это сообщение по email
+email_user:			Нажмите для отправки по email
 faq:				F.A.Q.
 first_unread_msg:		Переход к непрочитанным сообщениям
 first_unread_msg_desc:		Переход к 1-му непрочитанному сообщению в этой теме
@@ -128,7 +128,7 @@ sel_unread_messages:		Непрочитанные сообщения
 sel_unread_messages_desc:	Переключение показа только непрочитанных сообщений
 send:				Отправить
 send_pm_desc:			Отправить личное сообщение этому пользователю
-sender_email:			E-mail автора:
+sender_email:			Email автора:
 sender_name:			Имя автора:
 show_posts_by:			Показать сообщения от: {VAR: u_alias}
 size:				Размер:
@@ -265,7 +265,7 @@ register_uploaded:		Загрузить картинку
 register_login:			Имя пользователя:
 register_password:		Пароль:
 register_conf_pass:		Пароль повторно (для проверки):
-register_email_desc:		Введите ваш реальный адрес e-mail. Скрыть его вы сможете в персональных настройках ниже.
+register_email_desc:		Введите ваш реальный адрес email. Скрыть его вы сможете в персональных настройках ниже.
 register_name:			Имя:
 register_your_pass:		Ваш пароль:
 register_update:		Обновить
@@ -313,15 +313,15 @@ register_timezone:		Часовой пояс:
 register_ignore_admin:		Игнорирование административных сообщений:
 register_invisible_mode:	Режим невидимости:
 register_invisible_mode_desc:	Скрывает ваши действия от других пользователей.
-register_show_email:		Показывать адрес e-mail:
-register_show_email_desc:	Включите, если хотите чтобы ваш адрес e-mail был видим другими пользователями.
+register_show_email:		Показывать адрес email:
+register_show_email_desc:	Включите, если хотите чтобы ваш адрес email был видим другими пользователями.
 register_notification:		Включить извещения по умолчанию:
 register_notification_desc:	При включенных по умолчанию извещениях из можно отключить при отправке сообщений.
 register_notify_method:		Метод отправки извещений:
 register_notify_method_desc:	Если вы хотите принимать извещения на ваш ICQ,<br>убедитесь в том, что включили в настройках ICQ параметр 'EmailExpress'
-register_notify_js_error:	Вы выбрали извещения на ICQ, но не указали ваш номер ICQ. Сброс извещений на E-mail&#46;
-register_allow_email_msg:	Разрешить сообщения на адрес E-mail:
-register_allow_email_msg_desc:	Разрешает другим пользователям посылать из форума сообщения на ваш адрес e-mail.
+register_notify_js_error:	Вы выбрали извещения на ICQ, но не указали ваш номер ICQ. Сброс извещений на Email&#46;
+register_allow_email_msg:	Разрешить сообщения на адрес Email:
+register_allow_email_msg_desc:	Разрешает другим пользователям посылать из форума сообщения на ваш адрес email.
 buddy_status:			Статус
 my_buddies:			Список контактов
 add_buddy:			Добавить в список контактов
@@ -379,8 +379,8 @@ forum_terms:			Правила форума
 forum_rules:			Регистрация на этом форуме является свободной. Мы надеемся, что вы ознакомитесь с приведенными ниже правилами и положениями. Если вы согласны с ними - нажмите кнопку <b>Согласен</b>. Примечание: Нажимая на кнопку, вы подтверждаете, что ваш возраст превышает 13 лет.<p>Несмотря на то, что администраторы и модераторы этого форума следят за соблюдением правил и за чистотой форума, они не всегда имеют возможность полностью просмотреть каждое сообщение. Все сообщения выражают точку зрения их авторов и ни владелец ни разработчики форума не несут никакой ответственности за опубликованную информацию.<p>Нажимая кнопку <b>Согласен</b>, вы гарантируете, что не будете публиковать сообщений непристойного, вульгарного, сексуально-ориентированного, угрожающего характера или каким-либо образом нарушающих текущее законодательство.<p>Владельцы форума имеют право удалить, изменить, перенести или закрыть любую тему по любой причине.<p>
 forum_rules_13:			Все пользователи в возрасте до 13 лет должны получить разрешение от родителей или опекунов на участие в форуме. Мы приветствуем участие в форуме детей, но тем не менее ожидаем подписанное разрешение факсом или по почте, прежде чем предоставим вам право участия.<p>Если вы желаете продолжить регистрацию до момента получения нами разрешения, нажмите кнопку <b>Согласен</b>. В противном случае нажмите кнопку <b>Не согласен</b> для возврата к списку форумов.<p>Копия формы может быть получена <a href="{TEMPLATE: err_coppa_msg_lnk}">по этой ссылке</a>. Для получения дополнительной информации о процессе регистрации вы можете обратиться по адресу <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Подтверждение COPPA
-coppa_before:			После {TEMPLATE: coppa_date}
-coppa_after:			Ранее {TEMPLATE: coppa_date}
+coppa_before:			Ранее {TEMPLATE: coppa_date}
+coppa_after:			После {TEMPLATE: coppa_date}
 coppa_link:			Выберите ссылку, правильно указывающую на дату вашего рождения
 coppa:				Для завершения регистрации детей в возрасте до 13 лет требуется получение факсом или по почте подписанного разрешения от родителей или опекунов.<p>Адрес для получения дополнительной информации: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Информация
@@ -396,12 +396,12 @@ coppa_fax_no_permission:	Подпишите здесь, если хотите, чтобы регистрация была ан
 coppa_fax_parent_name:		Полное имя родителя/опекуна:
 coppa_fax_relation:		Степень родства с ребенком:
 coppa_fax_telephone:		Телефон:
-coppa_fax_email:		Адрес E-mail:
+coppa_fax_email:		Адрес Email:
 coppa_fax_date:			Дата:
 coppa_fax_questions:		Консультация по любым вопросам по адресу <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 coppa_fax_login:		Имя пользователя
 coppa_fax_passwd:		Пароль
-coppa_fax_remail:		Адрес E-mail
+coppa_fax_remail:		Адрес Email
 coppa_fax_name:			Имя
 login_not_logedin:		Вы не вошли на форум. Причиной этого могло стать следующее:
 login_cookie_expired:		Истекло время действия переменных cookie вашего браузера, и для их обновления вам нужно войти вновь.
@@ -420,15 +420,15 @@ rpasswd_invalid_passwd:		Неверный пароль
 rpasswd_passwd_nomatch:		Пароли не совпадают
 rpasswd_passwd_length:		Пароль должен содержать как минимум 6 символов
 reset_remind_pass:		Напоминание пароля
-reset_reset_conf:		Ваш пароль будет заново сгенерирован и выслан на ваш адрес, или в случае если вы не подтвердили ваш e-mail, вам будет заново выслано письмо с извещением.
-reset_error:			Адрес e-mail не найден в базе данных
+reset_reset_conf:		Ваш пароль будет заново сгенерирован и выслан на ваш адрес, или в случае если вы не подтвердили ваш email, вам будет заново выслано письмо с извещением.
+reset_error:			Адрес email не найден в базе данных
 rpasswd_change_pass:		Изменить пароль
 rpasswd_login:			Имя пользователя:
 rpasswd_cur_pass:		Текущий пароль:
 rpasswd_new_pass:		Новый пароль:
 rpasswd_conf_pass:		Пароль повторно (для проверки):
 login_passwd:			Пароль:
-reset_email:			E-mail:
+reset_email:			Email:
 reset_reset_button:		Сброс пароля
 rate_this_thread:		Оценить
 report_reporting_about:		Извещение о сообщении:
@@ -447,15 +447,15 @@ search_all_forums:		Все форумы
 search_in_forum:		Форум для поиска:
 search_forum_search:		Поиск в форумах
 move_thread_to:			Перенести тему <b>{VAR: thr->subject}</b> в форум:
-remail_email_topic:		Отправить эту тему по e-mail
+remail_email_topic:		Отправить эту тему по email
 remail_your_name:		Ваше имя:
-remail_your_email:		Ваш адрес E-mail:
+remail_your_email:		Ваш адрес Email:
 remail_friends_name:		Имя адресата:
-remail_friends_email:		E-mail адресата:
+remail_friends_email:		Emai адресата:
 remail_required:		обязательно
 remail_subject:			Тема:
 remail_message:			Сообщение:
-remail_send_now:		Отправить e-mail
+remail_send_now:		Отправить email
 remail_anon_opt:		Скопируйте это сообщение в используемую вами программу - почтовый клиент для отсылки вашим друзьям.
 remail_done:			Готово
 remail_sent_conf:		Электронное письмо на адрес {VAR-HTML: _POST['femail']} на тему {{VAR: data->subject} было успешно отправлено.
@@ -477,11 +477,11 @@ mklist_circle:			Бюллетень - кружки
 mklist_close:			Закрыть
 email_to:			Кому:
 email_name:			Имя:
-email_email:			E-mail:
-email_pg_title:			E-mail
+email_email:			Email:
+email_pg_title:			Email
 email_subject:			Тема:
 email_body:			Текст:
-email_submit:			E-mail
+email_submit:			Email
 ppost_quote_msg:		{VAR: msg_to_list} написал(а) {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Цитата:
 ppost_to:			Кому:
@@ -538,12 +538,12 @@ core_err_invinp_title:		Недопустимый ввод
 core_err_invinp_err:		Вы попали на эту страницу по ошибочной ссылке, известите об этом <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>&#39;а
 core_adm_login_msg:		<br>Администраторы могут войти <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">здесь</a>
 email_err_unabletoemail_title:	ОШИБКА: Невозможно отправить электронное сообщение
-email_err_unabletoemail_msg:	Система отправки e-mail была выключена администратором.
-email_error_unabletolocaddr:	Извините, отправка e-mail-сообщения {VAR: usr_dst->alias} невозможно, так как неизвестен его адрес email
+email_err_unabletoemail_msg:	Система отправки email была выключена администратором.
+email_error_unabletolocaddr:	Извините, отправка email-сообщения {VAR: usr_dst->alias} невозможно, так как неизвестен его адрес email
 email_error_body:		Текст сообщения обязателен
 email_error_subject:		Тема обязательна
-email_error_emailrequired:	Адрес e-mail обязателен
-email_error_invalidaddress:	Недопустимый адрес e-mail
+email_error_emailrequired:	Email-адрес обязателен
+email_error_invalidaddress:	Недопустимый адрес email
 email_error_namerequired:	Имя обязательно
 email_error_invaliduser:	Недопустимый пользователь
 emailconf_err_invkey_title:	Ошибка
@@ -603,7 +603,7 @@ postcheck_not_allowed_file:	Такой тип файла недопустим
 postcheck_no_such_user:		В этом форуме нет пользователей с именем "{VAR-HTML: v}"
 postcheck_ignored:		Вы не можете отправить личное сообщение для "{VAR-HTML: v}", поскольку этот пользователь вас игнорирует.
 postcheck_no_recepient:		Невозможно послать сообщение если не указан получатель
-postcheck_invalid_email:	Пожалуйста введите правильный адрес e-mail.
+postcheck_invalid_email:	Пожалуйста введите правильный адрес email.
 postcheck_email_subject:	Невозможно послать сообщение если не указана тема.
 postcheck_email_body:		Невозможно послать сообщение если текст сообщения отсутствует.
 private_msg_notify_subj:	Чтение извещения о: {VAR: m->subject}
@@ -612,14 +612,14 @@ referals_update:		Просмотр приглашенных
 register_err_short_login:	Выбрано слишком короткое имя пользователя. Минимальная длина имени - 4 символа
 register_err_login_notallowed:	Недопустимое имя пользователя
 register_err_loginunique:	Имена пользователей форума должны быть уникальными, и пользователь с заданным вами именем уже зарегистрирован в системе
-register_err_emailexists:	Пользователь с таким адресом e-mail уже зарегистрирован. Если вы забыли пароль - используйте функцию его восстановления или сброса вместо повторной регистрации в форуме.
+register_err_emailexists:	Пользователь с таким адресом email уже зарегистрирован. Если вы забыли пароль - используйте функцию его восстановления или сброса вместо повторной регистрации в форуме.
 register_err_shortpasswd:	Пароль должен состоять как минимум из 6 символов
 register_err_passwdnomatch:	Заданные пароли не совпадают.
 register_err_invalidemail:	Заданный вами адрес e-mail не похож на настоящий.
 register_err_needname:		Для успешного завершения регистрации вы должны ввести свое имя.
 register_err_enterpasswd:	Вы должны ввести ваш текущий пароль для завершения изменений
 register_err_adminpasswd:	Вы должны ввести пароль АДМИНИСТРАТОРА для завершения изменений
-register_err_notyouremail:	В системе уже зарегистрирован пользователь с таким адресом e-mail, и этот пользователь - не вы
+register_err_notyouremail:	В системе уже зарегистрирован пользователь с таким адресом email, и этот пользователь - не вы
 register_err_avatartobig:	Загруженный вами файл картинки слишком велик и превышает установленный предел в {GVAR: CUSTOM_AVATAR_MAX_SIZE} байт
 register_err_avatarnotallowed:	Загруженный вами файл картинки не принадлежит к одному из допустимых в системе типов файлов.
 register_conf_subject:		Подтверждение регистрации
@@ -637,10 +637,10 @@ report_err_cantreport_msg:	Вы не можете посылать извещения модератору
 reset_err_invalidkey_title:	ОШИБКА
 reset_err_invalidkey_msg:	Неверный ключ сброса пароля
 reset_err_rstconf_title:	Информация
-reset_err_rstconf_msg:		Вы получите инструкции на ваш адрес e-mail в течение следующий нескольких минут
+reset_err_rstconf_msg:		Вы получите инструкции на ваш адрес email в течение следующий нескольких минут
 reset_newpass_title:		Сброс пароля
 reset_newpass_msg:		Привет,\n\nПо вашему запросу вам были отправлены имя пользователя и пароль.\nНиже приведена информация о вашей регистрации:\n\nИмя пользователя: {VAR: ui[1]}\nПароль: {VAR: passwd}\n\nИмейте ввиду что ваш старый пароль был изменен на приведенный выше, и если\nвы хотите его сменить, то можете сделать это в панели управления по адресу:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Ваш пароль был отправлен вам на e-mail, и вы сможете получить его через несколько минут. Пожалуйста проверьте ваш почтовый ящик..<br>.<br>.<br>
+reset_login_notify:		Ваш пароль был отправлен вам на email, и вы сможете получить его через несколько минут. Пожалуйста проверьте ваш почтовый ящик..<br>.<br>.<br>
 search_update:			Поиск сообщений
 selmsg_update:			Просмотр <a href="{TEMPLATE: selmsg_update_lnk}">сегодняшних сообщений</a>
 showposts_update:		Просмотр всех сообщений от <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -660,14 +660,14 @@ ERR_registration_disabled_ttl:	Регистрация отключена
 ERR_registration_disabled_msg:	Администратор запретил регистрацию пользователей, попробуйте еще раз через некоторое время
 ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		ОШИБКА: Ваша регистрация не была подтверждена
-ERR_emailconf_msg:		Вы пока не подтвердили свою регистрацию по e-mail<br><table border=0><tr><td><ol><li>Если вы не получили e-mail о подтверждении вашей регистрации - <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">нажмите здесь</a><li>Если {VAR: usr_d->email} не является вашим адресом e-mail - <a href="{TEMPLATE: msg_register_lnk}">нажмите здесь</a></ol></td></tr></table>
+ERR_emailconf_msg:		Вы пока не подтвердили свою регистрацию по email<br><table border=0><tr><td><ol><li>Если вы не получили email о подтверждении вашей регистрации - <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">нажмите здесь</a><li>Если {VAR: usr_d->email} не является вашим адресом email - <a href="{TEMPLATE: msg_register_lnk}">нажмите здесь</a></ol></td></tr></table>
 ERR_user_ttl:			ОШИБКА: Несуществующий пользователь
 ERR_user_msg:			Такой пользователь не существует
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		ОШИБКА: Системная ошибка
 ERR_systemerr_msg:		Произошла системная ошибка, сообщите о ней <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>&#39;у.
 ERR_systemerr_url:		
-email_title:			E-mail сообщение
+email_title:			Email сообщение
 finduser_title:			Поиск пользователя
 help_title:			F.A.Q.
 login_title:			Вход в форум
@@ -812,7 +812,7 @@ report_already_reported_msg:	Модератор уже был извещен об указанном сообщении и 
 register_err_toomanyimages:	Вы пытаетесь использовать большее количество картинок в подписи, чем максимально допустимое: {GVAR: FORUM_IMG_CNT_SIG}.
 pmsg_next_msg:			Следующее сообщение
 pmsg_prev_msg:			Предыдущее сообщение
-post_proc_reveal_spoiler:	Показать скрытый текст
+post_proc_reveal_spoiler:	Укажите помеху
 register_jabber:		Псевдоним сети Jabber:
 im_jabber:			Jabber:
 forum_contact:			Обратная связь
@@ -861,7 +861,7 @@ post_proceed:			Продолжение
 post_moderated_forum:		Вы отправили сообщение в модерируемый форум. Это означает, что оно не будет опубликовано до его утверждения модератором или администратором.
 post_moderated_forum_ttl:	Модерируемый форум
 buddy_list_bday:		Сегодня {VAR: r[2]} исполняется {VAR: age}
-email_warning_msg:		В случае изменения вами вашего адреса e-mail, регистрация будет помечена как неподтвержденная до получения подтверждения с нового e-mail адреса.
+email_warning_msg:		В случае изменения вами вашего адреса email, регистрация будет помечена как неподтвержденная до получения подтверждения с нового email адреса.
 register_show_im:		Показывать сетевые онлайн-индикаторы
 register_show_im_desc:		Показывать в сообщениях индикатор онлайн-статуса автора в сетях ICQ, AIM и т.п.
 unread_message:			Сообщение прочитано
@@ -914,12 +914,12 @@ thread_mark_all_read:		отметить все сообщения форума как прочитанные
 thread_mark_all_read_desc:	Все сообщения в этом форуме будут отмечены как прочитанные вами
 private_no_messages:		В этом каталоге нет сообщений
 register_email_change_subject:	Подтверждение смены адреса E-mail
-register_email_change_msg:	Требуется подтверждение смены старого адреса e-mail "{VAR: old_email}" на новый "{VAR: uent->email}". Для подтверждения перейдите по приведенной ниже ссылке:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nПосле подтверждения вами нового адреса e-mail учетная запись на форуме будет изменена.
+register_email_change_msg:	Требуется подтверждение смены старого адреса e-mail "{VAR: old_email}" на новый "{VAR: uent->email}". Для подтверждения перейдите по приведенной ниже ссылке:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nПосле подтверждения вами нового адреса email учетная запись на форуме будет изменена.
 iemail_thread_unsub:		Отписаться от этой темы
 iemail_forum_unsub:		Отписаться от этого форума
 primary_group_prefix:		Первичная группа для форума:
 group_resources:		Данная группа контролирует доступ к следующим форумам
-register_email:			E-mail
+register_email:			Email
 register_admin_newuser_title:	Зарегистрирован новый пользователь и ожидается утверждение его учетной записи
 register_admin_newuser_msg:	В форуме был зарегистрирован новый пользоватеть ({VAR: uent->login}), и, поскольку включен режим утверждения пользователей, его учетная запись не будет активизирована до ее утверждения вами или другим администратором форума. Для утверждения учетной записи перейдите по ссылке: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nЭто автоматически сгенерированное сообщение, не пытайтесь на него отвечать.\nЕсли вы хотите выключить извещения о регистрации новых пользователей в дальнейщем, сделайте это в панели управления, изменив значения параметра "Извещение о новых пользователях".
 post_mod_msg_notify_title:	Новое сообщение в форуме "{VAR: frm->name}" ожидает утверждения
@@ -974,51 +974,49 @@ adm_account_accepted:		Ваша учетная запись \'{VAR: GLOBALS['r']->login}\' была у
 adm_account_accepted_s:		Ваш запрос на регистрацию в форуме \'{GVAR: FORUM_TITLE}\' был удовлетворен.
 adm_account_rejected:		Ваш запрос на регистрацию в форуме \'{VAR: GLOBALS['r']->login}\' был отклонен администратором. Узнать подробнее о причинах отказа в регистрации вы можете, связавшись с администратором форума по адресу \'{GVAR: ADMIN_EMAIL}\'.
 adm_account_rejected_s:		Ваш запрос на регистрацию в форуме \'{GVAR: FORUM_TITLE}\' отклонен.
-thread_on:			-
+thread_on:			вкл
 userinfo_buddy:			Buddy:
-register_email_addr:		E-mail адрес:
-reset_suffix:			\n\nЕсли Вы получили это сообщение по ошибке, просто не обращайте н него внимания. Если вы не запрашивали, но получили несколько таких сообщений, пожалуйста, свяжитесь с администратором форума по e-mail: {GVAR: ADMIN_EMAIL}\n\nЭтот запрос был инициирован с компьютера с адресом: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
+register_email_addr:		E-mail Address:
+reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
 usrinfo_last_visit:		Последнее посещение:
-mnav_newer:			новее, чем
-mnav_older:			старее, чем
-ip_search_by_ip:		Искать пользователей по IP-адресу
-ip_search_syntax:		Поддерживаемый синтаксис: 1.2.3.4, 1.2.3, 1.2, 1
-ip_search:			Поиск
-ip_analyze_usage:		Анализировать использование IP-адреса
-ip_analyze_usage_descr:		Пожалуйста, введите точный логин пользователя.
-ip_users_using:			Пользователи, которые использовали IP {VAR: ip}
-ip_all_ips:			Все IP-адреса, которые использует пользователь &#39;{VAR: user}&#39;
-ip_title:			IP Броузер
-userinfo_real_name:		Реальное имя:
-register_err_alias_notallowed:	Такой псевдоним недопустим
-post_err_noannontopics_msg2:	<fieldset><legend>ОШИБКА: Недостаточно полномочий</legend>Анонимные пользователи не могут создавать новые темы.</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>ОШИБКА: Недостаточно полномочий</legend>Анонимные пользователи не могут отвечать на сообщения.</fieldset><br />
-ERR_login_msg2:			<fieldset><legend>ОШИБКА: Вы не вошли на форум</legend>Чтобы получить доступ к этой странице вы должны войти на форум.</fieldset><br />
-post_err_mod_forum_edit_ttl:	ОШИБКА
-post_err_mod_forum_edit_msg:	Вы не можете редактировать сообщения в модерируемом форуме.
-dmsg_num:			сообщение #{VAR: obj->id}
-postcheck_session_invalid:	Ваш сеанс работы истек, пожалуйста, отправьте форму заново. Приносим свои извинения за неудобство.
-delete_message_extra_desc:	<b>Дополнительно</b><br />Укажите причину удаления сообщения, которое будет отправлено автору через личную почту.
-delete_message_extra_body:	Включить содержимое удаленного сообщения в письмо, отправляемое автору.
-delete_msg_removed_ttl:		Ваше сообщение было удалено администрацией.
-delete_msg_pm_body:		Оригинал сообщения
-delete_msg_pm_subject:		Тема: {VAR: data[15]}
-ip_no_whois:			Whois-информация для IP <b>{VAR: ip}</b> не доступна.
-ip_whois_title:			<b>Информация о провайдере</b><br />
-register_theme:			Тема:
-pmsg_trash:			Очистить корзину
-uc_new_pm:			Новые личные сообщения
-uc_new_topic:			Новая тема
-uc_new_cat_forum:		Форумы, на котороые вы подписаны, содержащие с новые сообщения
-uc_cat_forum:			Категория &raquo; Форум
-uc_sub_topics:			Темы, на которые вы подписаны, содержащие с новые сообщения
+mnav_newer:			newer then
+mnav_older:			older then
+ip_search_by_ip:		Search users by IP
+ip_search_syntax:		Supported syntax: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:			Search
+ip_analyze_usage:		Analyze IP usage
+ip_analyze_usage_descr:		Please specify the user&#39;s exact login.
+ip_users_using:			User(s) using &#39;{VAR: ip}&#39; IP address
+ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
+ip_title:			IP Browser
+userinfo_real_name:		Real Name:
+register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
+dmsg_num:			message #{VAR: obj->id}
+postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
+delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
+delete_message_extra_body:	Include the body of the removed message that will be sent to the author.
+delete_msg_removed_ttl:		Your message was removed by administration staff.
+delete_msg_pm_body:		Original message
+delete_msg_pm_subject:		Subject: {VAR: data[15]}
+ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
+ip_whois_title:			<b>ISP Information</b><br />
+register_theme:			Theme:
+pmsg_trash:			Empty Trash
+uc_new_pm:			New Private Messages
+uc_new_topic:			New Topic
+uc_new_cat_forum:		Subscribed Forums With New Messages
+uc_cat_forum:			Category &raquo; Forum
+uc_sub_topics:			Subscribed Topics With New Messages
 uc_page_title:			Viewing personal control panel.
-search_options:			Настройки поиска
-search_user_filter:		Отобрать по пользователю:
-register_none:			Не уведомлять
-findu_no_conf:			Неподтвержденный пользователь
-register_max_sig_len:		Максимальная длинна:
-register_turing:		Пожалуйста, введите код подтверждения, который вы видите ниже:
-register_err_turing:		Неверный код подтверждения.modque_cat:			Category
-modque_forum:			Forum
-modque_cat:			Category
+search_options:			Search Options
+search_user_filter:		Filter by user:
+register_none:			Don&#39;t Notify
+findu_no_conf:			unconfirmed user
+register_max_sig_len:		Maximum Length:
+register_turing:		Please enter the code shown below:
+register_err_turing:		Invalid validation code.

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.inc.t,v 1.19 2004/07/07 21:10:20 hackie Exp $
+* $Id: post_common.inc.t,v 1.18 2004/06/23 16:20:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,8 +12,6 @@
 
 function draw_post_smiley_cntrl()
 {
-	global $PS_SRC, $PS_DST; /* import from global scope, if possible */
-
 	include_once $GLOBALS['FORUM_SETTINGS_PATH'].'ps_cache';
 
 	/* nothing to do */

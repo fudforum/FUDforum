@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.43 2004/08/26 15:08:55 hackie Exp $
+* $Id: rdf.php.t,v 1.42 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -256,7 +256,7 @@ $basic_rss_data .= '
 					echo '</item>';
 				}
 			}
-			if ($basic && $res) {
+			if ($basic) {
 				echo $basic_rss_header . "\t\t</rdf:Seq>\n\t</items>\n</channel>\n" . $basic_rss_data;
 			}
 			break;
@@ -479,6 +479,6 @@ $basic_rss_data .= '
 		un_register_fps();
 		echo '</rdf:RDF>';
 	} else {
-		exit('<xml><error>no data matching data</error></xml>');
+		exit('no data');
 	}
 ?>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: scripts_common.inc,v 1.18 2004/07/08 18:22:29 hackie Exp $
+* $Id: scripts_common.inc,v 1.17 2004/07/05 22:25:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -138,7 +138,7 @@ function decode_header_value($val)
 	}
 
 	// Decode String
-	if (preg_match_all('!(.*?)(=\?([^?]+)\?(Q|B)\?([^?]*)\?=)[[:space:]]*([^=]*)!i', $val, $m)) {
+	if (preg_match_all('!(.*?)(=\?([^?]+)\?(Q|B)\?([^?]*)\?=)[[:space:]]*(.*)!i', $val, $m)) {
 		$newval = '';
 
 		$c = count($m[4]);
@@ -152,7 +152,7 @@ function decode_header_value($val)
 			}
 
 			if (!empty($m[5][$i])) {
-				$newval .= $m[6][$i];
+				$newval .= ' '.$m[6][$i];
 			}
 			if (!empty($m[1][$i])) {
 				$newval = $m[1][$i].$newval;

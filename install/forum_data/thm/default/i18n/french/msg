@@ -976,7 +976,7 @@ adm_account_rejected:		Votre compte \'{VAR: GLOBALS['r']->login}\' a été refusé 
 adm_account_rejected_s:		Votre demande de compte pour \'{GVAR: FORUM_TITLE}\' a été refusée.
 thread_on:			le
 userinfo_buddy:			Ami :
-register_email_addr:		Adresse E-mail :
+register_email_addr:		E-mail Address:
 reset_suffix:			\n\nSi vous avez reçu ce message par erreur, merci de l&#39;ignorer. Si vous recevez plusieurs copies non sollicitées de ce mail, merci de contacter l&#39;administrateur à {GVAR: ADMIN_EMAIL}\n\nCette requête a été initiée depuis : {VAR: _SERVER['REMOTE_ADDR']}.\n\n
 usrinfo_last_visit:		Dernière visite aujourd&#39;hui:
 mnav_newer:			plus récents que
@@ -1017,8 +1017,6 @@ search_options:			Options de recherche
 search_user_filter:		Filtrer par utilisateur :
 register_none:			Ne pas notifier
 findu_no_conf:			utilisateur non confirmé
-register_max_sig_len:		Longueur maximale :
-register_turing:		Veuillez entrer le code ci-dessous :
-register_err_turing:		Code de validation incorrect.
-modque_cat:			Catégorie
-modque_forum:			Forum
+register_max_sig_len:		Maximum Length:
+register_turing:		Please enter the code shown below:
+register_err_turing:		Invalid validation code.
