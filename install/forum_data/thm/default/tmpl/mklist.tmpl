@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.tmpl,v 1.12 2004/12/03 19:41:48 hackie Exp $
+* $Id: mklist.tmpl,v 1.13 2005/03/09 21:52:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -57,7 +57,7 @@ document.list.opt.focus();
 {SECTION: list_sample preview list sample}
 <tr>
 <td colspan=2>
-<{VAR: list_tag} type="{VAR: list_type}">
+<{VAR-HTML: list_tag} type="{VAR-HTML: list_type}">
 {TEMPLATE-DATA: list_entry_data}
 </{VAR: list_tag}>
 </td>
@@ -65,8 +65,8 @@ document.list.opt.focus();
 {SECTION: END}
 
 {SECTION: list_entry preview list entry row}
-<li>{VAR-HTML: op}&nbsp;&nbsp;&nbsp;<font size="-1"><a href="javascript:document.list.del.value=\'{VAR: k}\'; document.list.submit();">{MSG: mklist_delete}</a></font>
-<input type="hidden" name="opt_list[{VAR: k}]" value="{VAR-HTML: op}">
+<li>{VAR-HTML: op}&nbsp;&nbsp;&nbsp;<font size="-1"><a href="javascript:document.list.del.value=\'{VAR-HTML: k}\'; document.list.submit();">{MSG: mklist_delete}</a></font>
+<input type="hidden" name="opt_list[{VAR-HTML: k}]" value="{VAR-HTML: op}">
 {SECTION: END}
 
 {SECTION: mklist_numerical}
