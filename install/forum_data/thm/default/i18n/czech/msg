@@ -266,7 +266,6 @@ finduser_joindate:		Registrace
 finduser_action:		Akce
 yes:				Ano
 no:				Ne
-register_email			Email
 edit_time_limit:		<br><b>Èasový limit na editaci</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
 no_edit_time_limit:		<br><b>Èasový limit na editaci</b>: <b>Neomezen</b>
 pmuserloc_login:		U¾ivatelské jméno:
@@ -695,7 +694,6 @@ ERR_registration_disabled_msg:	Administrátor vypnul registraci, prosím, zkuste t
 ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		CHYBA: Vá¹ úèet je¹tì není potvrzen
 ERR_emailconf_msg:		Je¹tì jste nepotvrdil(a) svùj úèet pøes email<br><table border=0><tr><td><ol><li>Pokud jste je¹tì nedostal(a) potvrzující email <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">kliknìte zde</a><li>Pokud {VAR: usr_d->email} není va¹e správná emailová adresa <a href="{ROOT}?t=register&amp;{DEF: _rsid}">kliknìte zde</a></ol></td></tr></table>
-ERR_emailconf_url:		
 ERR_user_ttl:			CHYBA: ®ádný takový u¾ivatel není
 ERR_user_msg:			®ádný takový u¾ivatel není
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -840,7 +838,6 @@ quicklogin_password:		Heslo
 quicklogin_use_cookies:		Pou¾ívat cookies?
 quicklogin_login_btn:		Pøihlásit
 post_notification_desc:		Upozorni mì, pokud nìkdo bude reagovat na tuto zprávu.
-post_proc_all_ext_allowed:	(neomezeno)
 maximize_category:		Zvìt¹it kategorii
 no_view_perm:			Nemáte dostateèné oprávìní k prohlí¾ení tohoto tématu.
 report_empty_report:		Nemù¾ete zaslat prázdné ohlá¹ení. Prosím, udejte dùvod hlá¹ení.
@@ -870,7 +867,7 @@ msg_err_nosuchmsg_msg:		V tomto tématu není ¾ádná taková zpráva
 msg_err_nosuchmsg_title:	Chyba
 imsg_err_message_title:		Nesprávná zpráva
 imsg_err_message_msg:		Zpráva, kterou se sna¾íte zobrazit, neexistuje.
-poll_edit: 			Zmìnit
+poll_edit:			Zmìnit
 register_err_not_valid_img:	Zadaná adresa neobsahuje platný obrázek
 pmsg_recepient:			Pøíjemce
 register_err_taken_alias:	Prosím, zvolte jinou pøezdívku. Tato pøezdívka je ji¾ pou¾ívána jiným èlenem fóra.
@@ -920,7 +917,6 @@ err_mod_acc_ttl:		Neovìøený úèet
 err_mod_acc_msg:		Administrátor se rozhodl, ¾e bude prohlí¾et v¹echny úèty manuálnì pøed jejich aktivací. Dokud vá¹ úèet nebude opvìøen administrátorem, nebudete mít mo¾nost vyu¾ít v¹ech výhod úètu.
 accounts_pending_approval:	Úèty ke schválení
 saved:				Ulo¾ené
-
 register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.
 login_blocked_account_ttl:	Your account has been banned.	
 login_blocked_account_msg:	Your account has been banned from this forum, if do not already know the reason behind this action contact the forum&#39;s administrator(s).

@@ -264,7 +264,6 @@ finduser_joindate:		Дата подключения
 finduser_action:		Действие
 yes:				Да
 no:				Нет
-register_email			Email
 edit_time_limit:		<br><b>Период возможности редактирования</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> минут
 no_edit_time_limit:		<br><b>Период возможности редактирования</b>: <b>Неограничено</b>
 pmuserloc_login:		Имя:
@@ -692,7 +691,6 @@ ERR_registration_disabled_msg:	Администратор запретил регистрацию пользователей,
 ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		ОШИБКА: Ваша регистрация не была подтверждена
 ERR_emailconf_msg:		Вы пока не подтвердили свою регистрацию по email<br><table border=0><tr><td><ol><li>Если вы не получили email о подтверждении вашей регистрации - <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">нажмите здесь</a><li>Если {VAR: usr_d->email} не является вашим адресом email - <a href="{ROOT}?t=register&amp;{DEF: _rsid}">нажмите здесь</a></ol></td></tr></table>
-ERR_emailconf_url:		
 ERR_user_ttl:			ОШИБКА: Несуществующий пользователь
 ERR_user_msg:			Такой пользователь не существует
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -837,7 +835,6 @@ quicklogin_password:		Пароль
 quicklogin_use_cookies:		Использовать Cookies?
 quicklogin_login_btn:		Войти
 post_notification_desc:		Известить меня, когда кто-либо ответить на это сообщение.
-post_proc_all_ext_allowed:	(без ограничений)
 maximize_category:		Развернуть категорию
 no_view_perm:			У вас нет прав на просмотр указанной темы.
 report_empty_report:		Вы не можете отправить пустое извещение, пожалуйста укажите причину.
@@ -867,7 +864,7 @@ msg_err_nosuchmsg_msg:		Указанное сообщение по данной теме не существует
 msg_err_nosuchmsg_title:	Ошибка
 imsg_err_message_title:		Недопустимое сообщение
 imsg_err_message_msg:		Сообщение, которое вы пытаетесь просмотреть, не существует.
-poll_edit: 			Правка
+poll_edit:			Правка
 register_err_not_valid_img:	Указанная вами ссылка URL не содержит картинки
 pmsg_recepient:			Получатель
 register_err_taken_alias:	Псевдоним, который вы пытаетесь использовать, уже был занят другим пользователем. Смените его.
