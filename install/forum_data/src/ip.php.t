@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.php.t,v 1.6 2004/10/29 18:38:41 hackie Exp $
+* $Id: ip.php.t,v 1.7 2004/11/16 15:54:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -77,7 +77,6 @@ function fud_whois($ip)
 
 	$TITLE_EXTRA = ': {TEMPLATE: ip_title}';
 
-	$page_data = '';
 	if ($ip) {
 		if (substr_count($ip, '.') == 3) {
 			$cond = "m.ip_addr='".$ip."'";
@@ -86,24 +85,22 @@ function fud_whois($ip)
 		}
 
 		$o = uq("SELECT DISTINCT(m.poster_id), u.alias from {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE ".$cond);
-		$user_list = ' ';
+		$user_list = '';
 		$i = 0;
 		while ($r = db_rowarr($o)) {
 			$user_list .= '{TEMPLATE: ip_user_entry}';
 		}
-		if ($user_list) {
-			$page_data = '{TEMPLATE: ip_users}';
-		}
+		$page_data = '{TEMPLATE: ip_users}';
 	} else if ($user) {
 		$o = uq("SELECT DISTINCT(ip_addr) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id=".$user_id);
-		$ip_list = ' ';
+		$ip_list = '';
 		$i = 0;
 		while ($r = db_rowarr($o)) {
 			$ip_list .= '{TEMPLATE: ip_ip_entry}';
 		}
-		if ($ip_list) {
-			$page_data = '{TEMPLATE: ip_info}';
-		}
+		$page_data = '{TEMPLATE: ip_info}';
+	} else {
+		$page_data = '';
 	}
 
 /*{POST_PAGE_PHP_CODE}*/
