@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.31 2003/06/02 18:57:09 hackie Exp $
+*   $Id: selmsg.php.t,v 1.32 2003/07/09 07:55:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -153,7 +153,7 @@ function path_info_lnk($var, $val)
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 			pot.id AS cant_vote,
 			r.last_view,
-			mm.id AS mod,
+			mm.id AS md,
 			m2.subject AS thr_subject,
 			'.$fields.'
 		FROM

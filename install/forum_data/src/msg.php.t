@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.44 2003/06/04 19:49:42 hackie Exp $
+*   $Id: msg.php.t,v 1.45 2003/07/09 07:55:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -69,7 +69,7 @@
 			m.subject,
 			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.locked,
 			tn.thread_id AS subscribed,
-			mo.forum_id AS mod,
+			mo.forum_id AS md,
 			tr.thread_id AS cant_rate,
 			r.last_view,
 			r2.last_view AS last_forum_view,

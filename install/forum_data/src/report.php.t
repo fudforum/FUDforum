@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: report.php.t,v 1.7 2003/04/15 11:51:59 hackie Exp $
+*   $Id: report.php.t,v 1.8 2003/07/09 07:55:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@
 	/* permission check */
 	is_allowed_user($usr);
 	
-	$msg = db_sab('SELECT t.forum_id, m.subject, m.post_stamp, u.alias, mm.id AS mod, (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS p_read, mr.id AS reported
+	$msg = db_sab('SELECT t.forum_id, m.subject, m.post_stamp, u.alias, mm.id AS md, (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS p_read, mr.id AS reported
 			FROM {SQL_TABLE_PREFIX}msg m 
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=t.forum_id 
@@ -36,7 +36,7 @@
 		invl_inp_err();
 	}
 
-	if ($usr->is_mod != 'A' && !$msg->mod && $msg->p_read != 'Y') {
+	if ($usr->is_mod != 'A' && !$msg->md && $msg->p_read != 'Y') {
 		std_error('access');		
 	}
 

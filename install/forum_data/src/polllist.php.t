@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.12 2003/06/02 18:06:52 hackie Exp $
+*   $Id: polllist.php.t,v 1.13 2003/07/09 07:55:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -57,7 +57,7 @@
 				u.alias, u.alias AS login, (u.last_visit + '.($LOGEDIN_TIMEOUT * 60).') AS last_visit, u.invisible_mode,
 				m.id,
 				t.locked,
-				'.($usr->is_mod != 'A' ? 'mm.id' : '1').' AS mod,
+				'.($usr->is_mod != 'A' ? 'mm.id' : '1').' AS md,
 				pot.id AS cant_vote,
 				(CASE WHEN g2.id IS NOT NULL THEN g2.p_VOTE ELSE g1.p_VOTE END) AS p_vote,
 				(CASE WHEN g2.id IS NOT NULL THEN g2.p_LOCK ELSE g1.p_LOCK END) AS p_lock
@@ -80,7 +80,7 @@
 			}
 			$vote_lnk = '';
 			if(!$obj->cant_vote && (!$obj->poll_expiry_date || $obj->poll_expiry_date < __request_timestamp__)) {
-				if ($obj->mod || ($obj->p_vote == 'Y' && ($obj->locked == 'N' || $obj->p_lock == 'Y'))) {
+				if ($obj->md || ($obj->p_vote == 'Y' && ($obj->locked == 'N' || $obj->p_lock == 'Y'))) {
 					if (!$obj->max_votes || $obj->total_votes < $obj->max_votes) {
 						$vote_lnk = '{TEMPLATE: vote_lnk}';
 					}

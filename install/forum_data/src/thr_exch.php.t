@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thr_exch.php.t,v 1.9 2003/05/26 09:20:29 hackie Exp $
+*   $Id: thr_exch.php.t,v 1.10 2003/07/09 07:55:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,7 +40,7 @@
 		if (!$data) {
 			invl_inp_err();
 		}
-		if (!$data->mod) {
+		if (!$data->md) {
 			std_error('access');
 		}
 
@@ -69,7 +69,7 @@
 		if (!$data) {
 			invl_inp_err();
 		}
-		if (!$data->mod) {
+		if (!$data->md) {
 			std_error('access');
 		}		
 

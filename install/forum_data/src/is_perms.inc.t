@@ -4,7 +4,7 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.18 2003/04/30 19:51:05 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.19 2003/07/09 07:55:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@ function &perms_from_obj(&$obj, $is_mod)
 {
 	$perms = array('p_visible'=>'Y', 'p_read'=>'Y', 'p_post'=>'Y', 'p_reply'=>'Y', 'p_edit'=>'Y', 'p_del'=>'Y', 'p_sticky'=>'Y', 'p_poll'=>'Y', 'p_file'=>'Y', 'p_vote'=>'Y', 'p_rate'=>'Y', 'p_split'=>'Y', 'p_lock'=>'Y', 'p_move'=>'Y', 'p_sml'=>'Y', 'p_img'=>'Y');
 
-	if ($is_mod == 'A' || $obj->mod) {
+	if ($is_mod == 'A' || $obj->md) {
 		return $perms;
 	}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.php.t,v 1.10 2003/05/26 06:49:51 hackie Exp $
+*   $Id: poll.php.t,v 1.11 2003/07/09 07:55:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,7 +39,7 @@
 
 	/* fetch forum, poll & moderator data */
 	if (!$pl_id) { /* new poll */
-		$frm = db_sab('SELECT f.id, f.tag_style, m.id AS mod, '.$fields.'
+		$frm = db_sab('SELECT f.id, f.tag_style, m.id AS md, '.$fields.'
 			FROM {SQL_TABLE_PREFIX}forum f 
 			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
 			'.$join.'
@@ -54,7 +54,7 @@
 			WHERE f.id='.$frm_id);
 	}
 
-	if (!$frm || (empty($frm->mod) && $usr->is_mod != 'A' && ($frm->p_poll != 'Y' || (!empty($frm->old_poll) && $frm->p_edit != 'Y' && $frm->owner != _uid) || (empty($frm->old_poll) && $frm->p_post != 'Y')))) {
+	if (!$frm || (empty($frm->md) && $usr->is_mod != 'A' && ($frm->p_poll != 'Y' || (!empty($frm->old_poll) && $frm->p_edit != 'Y' && $frm->owner != _uid) || (empty($frm->old_poll) && $frm->p_post != 'Y')))) {
 		std_error('access');
 	}
 

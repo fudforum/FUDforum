@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.16 2003/06/02 17:19:47 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.17 2003/07/09 07:55:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,7 +35,7 @@ $frm = db_sab('SELECT
 			f.id, f.name, f.thread_count,
 			c.name AS cat_name,
 			fn.forum_id AS subscribed,
-			m.forum_id AS mod,
+			m.forum_id AS md,
 			a.id AS is_ann,
 			'.$fields.'
 		FROM {SQL_TABLE_PREFIX}forum f
@@ -51,7 +51,7 @@ if (!$frm) {
 }
 
 /* check that the user has permissions to access this forum */
-if ($frm->p_read != 'Y' && !$frm->mod && $usr->is_mod != 'A') {
+if ($frm->p_read != 'Y' && !$frm->md && $usr->is_mod != 'A') {
 	if (!isset($_GET['logoff'])) {
 		std_error('perms');
 	} else {
@@ -64,7 +64,7 @@ if ($frm->p_read != 'Y' && !$frm->mod && $usr->is_mod != 'A') {
 	}
 }
 
-$MOD = ($usr->is_mod == 'A' || $frm->mod) ? 1 : 0;
+$MOD = ($usr->is_mod == 'A' || $frm->md) ? 1 : 0;
 
 if ($_GET['t'] == 'threadt') {
 	$ann_cols = '5';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.36 2003/06/09 16:01:21 hackie Exp $
+*   $Id: index.php.t,v 1.37 2003/07/09 07:55:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -106,7 +106,7 @@ function url_tog_collapse($id, $c)
 				c.description, c.name, c.default_view, c.allow_collapse,
 				f.cat_id, f.forum_icon, f.id, f.last_post_id, f.moderators, f.name, f.descr, f.post_count, f.thread_count,
 				fr.last_view,
-				mo.id AS mod,
+				mo.id AS md,
 				'.(_uid ? 'CASE WHEN g2.p_READ IS NULL THEN g1.p_READ ELSE g2.p_READ END AS p_READ' : 'g1.p_READ').'
 		      FROM {SQL_TABLE_PREFIX}forum f
 		      INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id

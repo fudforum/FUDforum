@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.php.t,v 1.10 2003/05/26 07:21:04 hackie Exp $
+*   $Id: remail.php.t,v 1.11 2003/07/09 07:55:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,7 +24,7 @@
 	is_allowed_user($usr);
 
 	if ((isset($_GET['th']) && ($th = (int)$_GET['th'])) || (isset($_POST['th']) && ($th = (int)$_POST['th']))) {
-		$data = db_sab('SELECT m.subject, t.id, mm.id AS mod, (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS p_read
+		$data = db_sab('SELECT m.subject, t.id, mm.id AS md, (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS p_read
 				FROM {SQL_TABLE_PREFIX}thread t 
 				INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
@@ -36,7 +36,7 @@
 	if (empty($data)) {
 		invl_inp_err();
 	}
-	if ($usr->is_mod != 'A' && !$data->mod && $data->p_read != 'Y') {
+	if ($usr->is_mod != 'A' && !$data->md && $data->p_read != 'Y') {
 		std_error('access');
 	}
 
