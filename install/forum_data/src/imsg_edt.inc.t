@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.121 2005/03/12 00:16:15 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.122 2005/03/27 15:58:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -437,11 +437,11 @@ class fud_msg_edit extends fud_msg
 
 		// Handle Mailing List and/or Newsgroup syncronization.
 		if (($mtf->nntp_id || $mtf->mlist_id) && !$mtf->mlist_msg_id) {
-			fud_use('email_msg_format.inc', true);
+			fud_use('email_msg_format.inc', 1);
 
 			$from = $mtf->poster_id ? reverse_fmt($mtf->alias).' <'.$mtf->email.'>' : $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
 			$body = $mtf->body . (($mtf->msg_opt & 1 && $mtf->sig) ? "\n--\n" . $mtf->sig : '');
-			plain_text($body);
+			$body = plain_text($body, '{TEMPLATE: post_html_quote_start_p1}', '{TEMPLATE: post_html_quote_start_p2}', '{TEMPLATE: post_html_quote_end}');
 			$mtf->subject = reverse_fmt($mtf->subject);
 
 			if ($mtf->reply_to) {
