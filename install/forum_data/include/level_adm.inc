@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: level_adm.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
+*   $Id: level_adm.inc,v 1.3 2002/07/22 14:15:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -80,7 +80,7 @@ class fud_level
 		
 		unset($this->level_list);
 		$this->cur_level = 0;
-		while ( $obj = DB_ROWOBJ($result) ) $this->level_list[$this->cur_level++] = $obj;
+		while ( $obj = db_rowobj($result) ) $this->level_list[$this->cur_level++] = $obj;
 		
 		return $this->cur_level;
 	}
