@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.14 2003/04/15 14:43:05 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.15 2003/05/14 06:46:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -84,7 +84,7 @@ function convert_bdate($val, $month_fmt)
 		}
 	}
 
-	$user_image = ($u->user_image && strpos($u->user_image, '://')) ? '{TEMPLATE: user_image}' : '';
+	$user_image = ($GLOBALS['ALLOW_PROFILE_IMAGE'] == 'Y' && $u->user_image && strpos($u->user_image, '://')) ? '{TEMPLATE: user_image}' : '';
 	if ($CUSTOM_AVATARS != 'OFF' && $u->avatar_loc && $u->avatar_approved == 'Y') {
 		$avatar = '{TEMPLATE: avatar}';
 	} else {

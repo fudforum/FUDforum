@@ -344,7 +344,7 @@ POST_ICONS_PER_ROW
 Number of message icons to show per row on message posting form.
 
 MAX_LOGGEDIN_USERS
-Maximum number of currenty logged-in users to show on the front page.
+Maximum number of currently logged-in users to show on the front page.
 
 PHP_COMPRESSION_ENABLE
 Whether or not to use php to compress forum's output. By turning
@@ -357,10 +357,17 @@ If php's compression is used, this indicates how extensively should the data be
 compressed, the values can range from 1-9.
 
 USE_PATH_INFO
-Wether or not use PATH_INFO based urls, this will make forum's URLs look like
-htt://a.com/index.php/a/b/c/. This makes forum's URLs much easier to remember
+Whether or not use PATH_INFO based URLs, this will make forum's URLs look like
+http://a.com/index.php/a/b/c/. This makes forum's URLs much easier to remember
 as well as more search engine friendly. Unfortunately this feature mostly works
 with Apache 1.X based servers and may not work with other webservers. To see if
 your webserver supports this feature, click on the test link above. If you see
 forum's front page, then you can make use of this feature.
+
+ALLOW_PROFILE_IMAGE
+Whether or not to allow users to enter a URL to an image in their profile that
+will be displayed on the user info page for that user. The danger of this feature
+is that the user could potentially link to a page other then an image and some
+browsers like Internet Explorer will parse that page executing any potentially 
+hostile Javascript that may be present.
 

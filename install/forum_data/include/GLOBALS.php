@@ -134,6 +134,7 @@
 	$USE_PATH_INFO		= "N";		/* boolean */
 	$PHP_COMPRESSION_ENABLE	= "N";		/* boolean */
 	$PHP_COMPRESSION_LEVEL	= "9";		/* int 1-9 */
+	$ALLOW_PROFILE_IMAGE	= "Y";		/* boolean */
 
 /* 
  * DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING

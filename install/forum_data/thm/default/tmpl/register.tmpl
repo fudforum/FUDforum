@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.23 2003/05/01 14:17:32 hackie Exp $
+*   $Id: register.tmpl,v 1.24 2003/05/14 06:46:00 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -134,6 +134,10 @@
 <tr><td class="RowStyleA">{MSG: register_affero}</td><td class="RowStyleA"><input type="text" name="reg_affero" value="{VAR: reg_affero}" maxLength=32 size=25></td></tr>
 {SECTION: END}
 
+{SECTION: reg_user_image}
+<tr><td class="RowStyleA">{MSG: register_image}</td><td class="RowStyleA"><input type="text" name="reg_user_image" value="{VAR: reg_user_image}"maxlength=255 size=30></td></tr>
+{SECTION: END}
+
 {PAGE: REGISTER_PAGE registration AND profile page}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
@@ -146,7 +150,7 @@
 <tr><td class="RowStyleA">{MSG: register_location}</td><td class="RowStyleA"><input type="text" name="reg_location" value="{VAR: reg_location}"maxlength=255 size=30></td></tr>
 <tr><td class="RowStyleA">{MSG: register_occupation}</td><td class="RowStyleA"><input type="text" name="reg_occupation" value="{VAR: reg_occupation}"maxlength=255 size=30></td></tr>
 <tr><td class="RowStyleA">{MSG: register_interests}</td><td class="RowStyleA"><input type="text" name="reg_interests" value="{VAR: reg_interests}"maxlength=255 size=30></td></tr>
-<tr><td class="RowStyleA">{MSG: register_image}</td><td class="RowStyleA"><input type="text" name="reg_user_image" value="{VAR: reg_user_image}"maxlength=255 size=30></td></tr>
+{TEMPLATE-DATA: reg_user_image_field}
 <tr><td class="RowStyleA">{MSG: register_icq}</td><td class="RowStyleA"><input type="text" name="reg_icq" value="{VAR: reg_icq}" maxLength=32 size=25></td></tr>
 <tr><td class="RowStyleA">{MSG: register_aim}</td><td class="RowStyleA"><input type="text" name="reg_aim" value="{VAR: reg_aim}" maxLength=32 size=25></td></tr>
 <tr><td class="RowStyleA">{MSG: register_yahoo}</td><td class="RowStyleA"><input type="text" name="reg_yahoo" value="{VAR: reg_yahoo}" maxLength=32 size=25></td></tr>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.25 2003/05/13 19:46:02 hackie Exp $
+*   $Id: admglobal.php,v 1.26 2003/05/14 06:46:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -261,6 +261,7 @@ function print_tag_style($descr, $field)
 	print_yn_field('Enable Affero<br><a href="http://www.affero.net/bbsteps.html" target=_blank>Click here for details</a>', 'ENABLE_AFFERO');
 	print_yn_field('Topic Rating', 'ENABLE_THREAD_RATING');
 	print_yn_field('Track referrals', 'TRACK_REFERRALS');
+	print_yn_field('Profile Image', 'ALLOW_PROFILE_IMAGE');
 
 	if (function_exists('ob_gzhandler')) {
 		print_yn_field('Use PHP compression', 'PHP_COMPRESSION_ENABLE');

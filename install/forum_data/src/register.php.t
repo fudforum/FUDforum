@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.49 2003/05/12 23:11:38 hackie Exp $
+*   $Id: register.php.t,v 1.50 2003/05/14 06:46:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -675,6 +675,8 @@ function remove_old_avatar($avatar_str)
 	$show_avatar_radio	= tmpl_draw_radio_opt('reg_show_avatars', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_show_avatars, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$show_im_radio		= tmpl_draw_radio_opt('reg_show_im', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_show_im, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$append_sig_radio	= tmpl_draw_radio_opt('reg_append_sig', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_append_sig, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+
+	$reg_user_image_field = $GLOBALS['ALLOW_PROFILE_IMAGE'] == 'Y' ? '{TEMPLATE: reg_user_image}' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
