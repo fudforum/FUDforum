@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admrdf.php,v 1.2 2003/05/16 14:27:49 hackie Exp $
+*   $Id: admrdf.php,v 1.3 2003/05/16 18:59:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,7 +24,7 @@
 
 function print_yn_field($descr, $help, $field)
 {
-	$str = !isset($GLOBALS[$field]) ? 'Y' : $GLOBALS[$field];
+$str = !isset($GLOBALS[$field]) ? 'Y' : $GLOBALS[$field];
 	echo '<tr bgcolor="#bff8ff"><td>'.$descr.': <br><font size="-1">'.$help.'</font></td><td valign="top">'.create_select('CF_'.$field, "Yes\nNo", "Y\nN", $str).'</td></tr>';
 }
 	
@@ -85,7 +85,9 @@ can specify the mode by passing the 'mode' parameter via GET to the rdf script. 
 user information retrieval, 't' for topic retrieval and 'm' for message retrieval. Each mode has a number of
 options that allow you to specify the exact nature of the data you wish to fetch. Below is the explanation of 
 those flags, it should be noted that flags are not exclusive and you can use as many as you like in a single
-request.<br /><br />
+request.<br />
+A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GLOBALS['DATA_DIR']; ?>scripts/rdf_parser.php</b>
+<br /><br />
 <h4><u><b>'m' mode (messages)</b></u></h4>
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
