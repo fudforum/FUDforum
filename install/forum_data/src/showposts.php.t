@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: showposts.php.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
+*   $Id: showposts.php.t,v 1.5 2002/07/21 23:09:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,6 +34,15 @@
 	if ( !is_numeric($count) ) $count = $THREADS_PER_PAGE;
 	
 	$fids = get_all_perms(_uid);
+
+	if( $HTTP_GET_VARS['so'] == 'asc' ) {
+		$SORT_ORDER = 'ASC';
+		$SORT_ORDER_R = 'desc';
+	}
+	else {
+		$SORT_ORDER = 'DESC';
+		$SORT_ORDER_R = 'asc';
+	}
 	
 	if( !empty($fids) || $usr->mod=='A' ) {
 		$qry_limit = ( $usr->mod != 'A' ) ? "{SQL_TABLE_PREFIX}forum.id IN (".$fids.") AND " : '';
@@ -69,7 +78,7 @@
 				{SQL_TABLE_PREFIX}msg.approved='Y' AND 
 				{SQL_TABLE_PREFIX}msg.poster_id=".$id." 
 			ORDER BY 
-				{SQL_TABLE_PREFIX}msg.id DESC 
+				{SQL_TABLE_PREFIX}msg.post_stamp ".$SORT_ORDER." 
 			LIMIT ".qry_limit($count, $start));
 		
 		$post_entry='';

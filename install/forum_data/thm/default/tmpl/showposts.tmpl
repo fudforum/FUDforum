@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: showposts.tmpl,v 1.2 2002/07/08 23:15:19 hackie Exp $
+*   $Id: showposts.tmpl,v 1.3 2002/07/21 23:09:26 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -39,7 +39,7 @@
 <tr><th colspan=3>{MSG: user_info}</th></tr>
 <tr class="RowStyleA"><td class="GenText" width="100%">{MSG: login_header} <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}&{DEF: _rsid}">{VAR-HTML: u->alias}</a></td>
 <td class="GenText" nowrap>{MSG: registered_on}</td><td class="GenText" nowrap>{MSG: post_count}</td></tr>
-<tr><th width="100%">{MSG: subject}</th><th nowrap>{MSG: forum}</th><th nowrap>{MSG: date_posted}</th></tr>
+<tr><th width="100%">{MSG: subject}</th><th nowrap>{MSG: forum}</th><th nowrap><a class="th_lnk" href="{ROOT}?t=showposts&so={VAR: SORT_ORDER_R}&id={VAR: u->id}&{DEF: _rsid}">{MSG: date_posted}</a></th></tr>
 {TEMPLATE-DATA: post_entry}
 </table>
 {TEMPLATE-DATA: pager}
