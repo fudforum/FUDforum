@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.20 2003/04/29 23:10:44 hackie Exp $
+*   $Id: admdump.php,v 1.21 2003/04/30 00:37:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,6 +58,9 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 		echo 'Could not open "'.$dirp.'" for reading<br>';
 		return;
 	}
+	echo 'Processing directory: '.$dirp.'<br>';
+	flush();
+
 	readdir($d); readdir($d);
 	$path = $dirp . '/';
 	$dpath = str_replace($path, $GLOBALS[$keep_dir], $keep_dir . '/');
@@ -162,7 +165,16 @@ function sql_is_null($r, $n, $tbl='')
 				exit('cannot create file');
 			}
 			$write_func = 'fwrite';
-		}	
+		}
+
+		echo "Compressing forum datafiles<br>\n";
+		flush();
+		$write_func($fp, "\n----FILES_START----\n");
+		backup_dir(realpath($DATA_DIR), $fp, $write_func, 'DATA_DIR');
+		if ($DATA_DIR != $WWW_ROOT_DISK) {
+			backup_dir(realpath($WWW_ROOT_DISK.'images/'), $fp, $write_func, 'WWW_ROOT_DISK');
+		}
+		$write_func($fp, "\n----FILES_END----\n");
 	
 		$write_func($fp, "\n----SQL_START----\n");
 	
@@ -214,22 +226,14 @@ function sql_is_null($r, $n, $tbl='')
 
 		$write_func($fp, "\n----SQL_END----\n");
 
-		echo "Compressing forum datafiles<br>\n";
-		flush();
-		backup_dir(realpath($DATA_DIR), $fp, $write_func, 'DATA_DIR');
-		if ($DATA_DIR != $WWW_ROOT_DISK) {
-			backup_dir(realpath($WWW_ROOT_DISK.'images/'), $fp, $write_func, 'WWW_ROOT_DISK');
-		}
-	
 		if (isset($_POST['compress'])) {
 			gzclose($fp);
 		} else {
 			fclose($fp);
 		}
-		
+
 		db_unlock();
-		echo "HERE<Br>\n";
-		
+
 		echo "Backup Process is Complete<br>";
 		echo "Backup file can be found at: <b>".$_POST['path']."</b>, it is occupying ".filesize($_POST['path'])." bytes<br>\n";
 	} else {
