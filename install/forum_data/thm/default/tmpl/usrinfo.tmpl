@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.44 2005/02/27 02:21:36 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.45 2005/03/18 15:59:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,18 +29,6 @@
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><span class="DateText">{TEMPLATE: uinfo_last_post_date}</span><br /><a href="{TEMPLATE: last_post_lnk}">{VAR: r[0]}</a></td></tr>
 {SECTION: END}
 
-{SECTION: last_visit last visit}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_visit}</td><td class="GenText DateText">{TEMPLATE: uinfo_last_visit_date}</td></tr>
-{SECTION: END}
-
-{SECTION: user_image}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: image}</td><td class="GenText"><img src="{VAR: u->user_image}" /></td></tr>
-{SECTION: END}
-
-{SECTION: avatar}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: avatar}</td><td class="GenText">{VAR: u->avatar_loc}</td></tr>
-{SECTION: END}
-
 {SECTION: email_link}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText nw">{MSG: email}</td><td class="GenText"><a href="mailto:{VAR: u->email}">{VAR: u->email}</a></td></tr>
 {SECTION: END}
@@ -57,26 +45,6 @@
 {ROOT}?t=ppost&amp;{DEF: _rsid}&amp;toi={VAR: u->id}
 {SECTION: END}
 
-{SECTION: usrinfo_private_msg private message link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{TEMPLATE: usrinfo_private_msg_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a></td></tr>
-{SECTION: END}
-
-{SECTION: home_page}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: homepage}</td><td class="GenText"><a href="{VAR: u->home_page}" target="_blank">{VAR: u->home_page}</a></td></tr>
-{SECTION: END}
-
-{SECTION: location}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: location}</td><td class="GenText">{VAR: u->location}</td></tr>
-{SECTION: END}
-
-{SECTION: occupation}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: occupation}</td><td class="GenText">{VAR: u->occupation}</td></tr>
-{SECTION: END}
-
-{SECTION: interests}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: interests}</td><td class="GenText">{VAR: u->interests}</td></tr>
-{SECTION: END}
-
 {SECTION: referals_lnk}
 {ROOT}?t=list_referers&amp;{DEF: _rsid}
 {SECTION: END}
@@ -85,16 +53,67 @@
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: userinfo_referals}</td><td class="GenText"><a href="{TEMPLATE: referals_lnk}">{MSG: userinfo_referals_count}</a></td></tr>
 {SECTION: END}
 
-{SECTION: bio biography}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: biography}</td><td class="GenText">{VAR: u->bio}</td></tr>
-{SECTION: END}
-
 {SECTION: birth_date}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: birth_date}</td><td class="GenText">{VAR: bday['month']} {VAR: bday['day']}, {VAR: bday['year']}</td></tr>
 {SECTION: END}
 
-{SECTION: im_icq ICQ control center}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw vt GenText"><a name="icq_msg">{MSG: icq_message_form}</a></td><td class="GenText">
+{SECTION: level_name user's level name as determined by post count}
+{VAR: u->level_name}<br />
+{SECTION: END}
+
+{SECTION: level_image user's level image if available as determined by post count}
+<img src="images/{VAR: u->level_img}" /><br />
+{SECTION: END}
+
+{SECTION: moderation list of all forums moderated by user}
+{MSG: moderator_of}&nbsp;{TEMPLATE-DATA: moderation}
+{SECTION: END}
+
+{SECTION: moderation_entry_lnk}
+{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[0]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: moderation_entry link to forum moderated by user}
+<a href="{TEMPLATE: moderation_entry_lnk}">{VAR: r[1]}</a>&nbsp;
+{SECTION: END}
+
+{SECTION: USERINFO_PAGE_lnk}
+{ROOT}?t=showposts&amp;id={VAR: u->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{PAGE: USERINFO_PAGE info about a particular user in the forum}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan=2 class="wa ">{MSG: usrinfo_profile}</th></tr>
+<tr class="RowStyleA"><td class="nw GenText">{MSG: date_registered}</td><td class="wa DateText">{TEMPLATE: uinfo_join_date}</td></tr>
+<tr class="RowStyleB"><td class="vt nw GenText">{MSG: post_count_l}</td><td class="GenText">{MSG: average_post_count}<br /><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
+{IF: $u->users_opt & 32768}{ELSE}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: userinfo_real_name}</td><td class="GenText">{VAR: u->name}</td></tr>{END}
+{IF: ($level_name || $moderation || $level_image || $u->custom_status)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw vt GenText">{MSG: status}</td><td class="GenText">
+<span class="LevelText">
+{TEMPLATE-DATA: level_name}
+{TEMPLATE-DATA: level_image}
+{IF: $u->custom_status}{VAR: u->custom_status}<br />{ENDIFI}
+</span>
+{TEMPLATE-DATA: moderation}
+</td></tr>{ENDIF}
+{IF: ($FUD_OPT_1 & 28 && $u->users_opt & 8388608 && !($u->level_opt & 2))}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: avatar}</td><td class="GenText">{VAR: u->avatar_loc}</td></tr>{ENDIF}
+{TEMPLATE-DATA: last_post}
+{IF: $u->last_visit && !($u->users_opt & 32768)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_visit}</td><td class="GenText DateText">{TEMPLATE: uinfo_last_visit_date}</td></tr>{ENDIF}
+{TEMPLATE-DATA: polls}
+{IF: ($FUD_OPT_2 & 65536 && $u->user_image && strpos($u->user_image, '://'))}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: image}</td><td class="GenText"><img src="{VAR: u->user_image}" /></td></tr>{ENDIF}
+{TEMPLATE-DATA: email_link}
+{IF: ($FUD_OPT_1 & 1024 && _uid)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{TEMPLATE: usrinfo_private_msg_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a></td></tr>{ENDIF}
+{TEMPLATE-DATA: buddy}
+{TEMPLATE-DATA: referals}
+{IF: $u->home_page}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: homepage}</td><td class="GenText"><a href="{VAR: u->home_page}" target="_blank">{VAR: u->home_page}</a></td></tr>{ENDIF}
+{TEMPLATE-DATA: gender}
+{IF: $u->location}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: location}</td><td class="GenText">{VAR: u->location}</td></tr>{ENDIF}
+{IF: $u->occupation}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: occupation}</td><td class="GenText">{VAR: u->occupation}</td></tr>{ENDIF}
+{IF: $u->interests}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: interests}</td><td class="GenText">{VAR: u->interests}</td></tr>{ENDIF}
+{IF: $u->bio}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: biography}</td><td class="GenText">{VAR: u->bio}</td></tr>{ENDIF}
+{TEMPLATE-DATA: birth_date}
+{IF: $u->icq}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw vt GenText"><a name="icq_msg">{MSG: icq_message_form}</a></td><td class="GenText">
 		{VAR: u->icq} <img src="http://web.icq.com/whitepages/online?icq={VAR: u->icq}&amp;img=5" /><br />
 			<table class="icqCP">
 			<tr><td colspan=2>
@@ -123,91 +142,13 @@
 			<tr><td colspan=2 align=right><input type="submit" class="button" name="Send" value="{MSG: send}"></td></tr>
 			</form>
 			</table>
-			</td></tr>
-{SECTION: END}
-
-{SECTION: im_aim AIM link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_aim}</td><td class="GenText"><a href="aim:goim?screenname={VAR: u->aim}&amp;message=Hello+Are+you+there?">{VAR: u->aim}</a></td></tr>
-{SECTION: END}
-
-{SECTION: im_yahoo Yahoo Instant Messanger link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_yahoo}</td><td class="GenText"><a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: u->yahoo}&amp;.src=pg">{VAR: u->yahoo}</a></td></tr>
-{SECTION: END}
-
-{SECTION: im_msnm MSN Messagenger Link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_msnm}</td><td class="GenText">{VAR-UH: u->msnm}</td></tr>
-{SECTION: END}
-
-{SECTION: im_jabber Jabber link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_jabber}</td><td class="GenText">{VAR: u->jabber}</td></tr>
-{SECTION: END}
-
-{SECTION: level_name user's level name as determined by post count}
-{VAR: u->level_name}<br />
-{SECTION: END}
-
-{SECTION: level_image user's level image if available as determined by post count}
-<img src="images/{VAR: u->level_img}" /><br />
-{SECTION: END}
-
-{SECTION: moderation list of all forums moderated by user}
-{MSG: moderator_of}&nbsp;{TEMPLATE-DATA: moderation}
-{SECTION: END}
-
-{SECTION: moderation_entry_lnk}
-{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[0]}&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: moderation_entry link to forum moderated by user}
-<a href="{TEMPLATE: moderation_entry_lnk}">{VAR: r[1]}</a>&nbsp;
-{SECTION: END}
-
-{SECTION: status various forum related tags assigned to user}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw vt GenText">{MSG: status}</td><td class="GenText">
-<span class="LevelText">
-{TEMPLATE-DATA: level_name}
-{TEMPLATE-DATA: level_image}
-{IF: $u->custom_status}{VAR: u->custom_status}<br />{ENDIFI}
-</span>
-{TEMPLATE-DATA: moderation}
-</td></tr>
-{SECTION: END}
-
-{SECTION: USERINFO_PAGE_lnk}
-{ROOT}?t=showposts&amp;id={VAR: u->id}&amp;{DEF: _rsid}
-{SECTION: END}
-
-{PAGE: USERINFO_PAGE info about a particular user in the forum}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-<table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=2 class="wa ">{MSG: usrinfo_profile}</th></tr>
-<tr class="RowStyleA"><td class="nw GenText">{MSG: date_registered}</td><td class="wa DateText">{TEMPLATE: uinfo_join_date}</td></tr>
-<tr class="RowStyleB"><td class="vt nw GenText">{MSG: post_count_l}</td><td class="GenText">{MSG: average_post_count}<br /><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
-{IF: $u->users_opt & 32768}{ELSE}{TEMPLATE: usr_real_name}{END}
-{IF: ($level_name || $moderation || $level_image || $u->custom_status)}{TEMPLATE: status}{ENDIF}
-{IF: ($FUD_OPT_1 & 28 && $u->users_opt & 8388608 && !($u->level_opt & 2))}{TEMPLATE: avatar}{ENDIF}
-{TEMPLATE-DATA: last_post}
-{IF: $u->last_visit && !($u->users_opt & 32768)}{TEMPLATE: last_visit}{ENDIF}
-{TEMPLATE-DATA: polls}
-{IF: ($FUD_OPT_2 & 65536 && $u->user_image && strpos($u->user_image, '://'))}{TEMPLATE: user_image}{ENDIF}
-{TEMPLATE-DATA: email_link}
-{IF: ($FUD_OPT_1 & 1024 && _uid)}{TEMPLATE: usrinfo_private_msg}{ENDIF}
-{TEMPLATE-DATA: buddy}
-{TEMPLATE-DATA: referals}
-{IF: $u->home_page}{TEMPLATE: home_page}{ENDIF}
-{TEMPLATE-DATA: gender}
-{IF: $u->location}{TEMPLATE: location}{ENDIF}
-{IF: $u->occupation}{TEMPLATE: occupation}{ENDIF}
-{IF: $u->interests}{TEMPLATE: interests}{ENDIF}
-{IF: $u->bio}{TEMPLATE: bio}{ENDIF}
-{TEMPLATE-DATA: birth_date}
-{IF: $u->icq}{TEMPLATE: im_icq}{ENDIF}
-{IF: $u->aim}{TEMPLATE: im_aim}{ENDIF}
-{IF: $u->yahoo}{TEMPLATE: im_yahoo}{ENDIF}
-{IF: $u->msnm}{TEMPLATE: im_msnm}{ENDIF}
-{IF: $u->jabber}{TEMPLATE: im_jabber}{ENDIF}
-{IF: ($FUD_OPT_2 & 2048 && $u->affero)}{TEMPLATE: usrinfo_affero}{ENDIF}
+			</td>
+</tr>{ENDIF}
+{IF: $u->aim}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_aim}</td><td class="GenText"><a href="aim:goim?screenname={VAR: u->aim}&amp;message=Hello+Are+you+there?">{VAR: u->aim}</a></td></tr>{ENDIF}
+{IF: $u->yahoo}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_yahoo}</td><td class="GenText"><a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: u->yahoo}&amp;.src=pg">{VAR: u->yahoo}</a></td></tr>{ENDIF}
+{IF: $u->msnm}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_msnm}</td><td class="GenText">{VAR-UH: u->msnm}</td></tr>{ENDIF}
+{IF: $u->jabber}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_jabber}</td><td class="GenText">{VAR: u->jabber}</td></tr>{ENDIF}
+{IF: ($FUD_OPT_2 & 2048 && $u->affero)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR: u->affero}" target="_blank">{VAR-UH: u->affero}</a></td></tr>{ENDIF}
 <tr class="RowStyleC"><td class="nw ar GenText" colspan=2><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
 </table>
 {TEMPLATE: curtime}
@@ -243,18 +184,10 @@
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: userinfo_polls}</td><td class="GenText"><a href="{TEMPLATE: polls_lnk}">{VAR: polls}</a></td></tr>
 {SECTION: END}
 
-{SECTION: usrinfo_affero}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR: u->affero}" target="_blank">{VAR-UH: u->affero}</a></td></tr>
-{SECTION: END}
-
 {SECTION: ui_buddy_lnk}
 {ROOT}?t=buddy_list&amp;add={VAR: u->id}&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: ui_buddy}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: userinfo_buddy}</td><td class="GenText"><a href="{TEMPLATE: ui_buddy_lnk}">{MSG: add_to_buddy_list}</a></td></tr>
-{SECTION: END}
-
-{SECTION: usr_real_name}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: userinfo_real_name}</td><td class="GenText">{VAR: u->name}</td></tr>
 {SECTION: END}
