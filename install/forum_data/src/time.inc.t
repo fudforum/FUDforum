@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: time.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: time.inc.t,v 1.2 2002/09/26 20:47:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,6 +17,6 @@
 	
 function set_tz($timezone)
 {
-	@putenv("TZ=".$timezone);
+	if( $timezone ) @putenv("TZ=".$timezone);
 }
 ?>

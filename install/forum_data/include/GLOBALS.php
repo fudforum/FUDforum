@@ -94,7 +94,7 @@
 	$ANON_NICK		= "Anonymous Coward";
 	$FLOOD_CHECK_TIME	= "60";		/* seconds */
 	$ALLOW_EMAIL		= "Y";		/* boolean */
-	$SERVER_TZ		= "America/Montreal";
+	$SERVER_TZ		= "";
 	$MEMBER_SEARCH_ENABLED	= "Y";		/* boolean */
 	$FORUM_SEARCH		= "Y";		/* boolean */
 	$MEMBERS_PER_PAGE	= "40";
