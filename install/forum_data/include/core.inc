@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.61 2003/05/16 14:58:58 hackie Exp $
+*   $Id: core.inc,v 1.62 2003/05/18 14:13:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -110,7 +110,11 @@ if (!function_exists('file_get_contents')) {
 		if (!($fp = @fopen($fname, 'rb'))) {
 			return FALSE;
 		}
-		$data = fread($fp, filesize($fname));
+		/* this handles urls */
+		if (!($size = @filesize($fname))) {
+			$size = 10 * 1024 * 1024;
+		}
+		$data = fread($fp, $size);
 		fclose($fp);
 		return $data;
 	}
