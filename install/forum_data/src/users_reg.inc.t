@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.65 2004/02/24 23:51:45 hackie Exp $
+* $Id: users_reg.inc.t,v 1.66 2004/03/09 17:16:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -240,7 +240,7 @@ function rebuildmodlist()
 	$c = uq('SELECT u.id, u.alias, f.id FROM '.$tbl.'mod mm INNER JOIN '.$tbl.'users u ON mm.user_id=u.id INNER JOIN '.$tbl.'forum f ON f.id=mm.forum_id ORDER BY f.id,u.alias');
 	while ($r = db_rowarr($c)) {
 		$u[] = $r[0];
-		if (isset($ar[$r[2]]) && count($ar[$r[2]]) >= $lmt) {
+		if ($lmt < 1 || (isset($ar[$r[2]]) && count($ar[$r[2]]) >= $lmt)) {
 			continue;
 		}
 		$ar[$r[2]][$r[0]] = $r[1];
