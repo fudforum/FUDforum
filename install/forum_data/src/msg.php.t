@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.69 2004/04/20 13:00:07 hackie Exp $
+* $Id: msg.php.t,v 1.70 2004/05/07 21:18:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,13 +27,13 @@
 	if (isset($_GET['unread'], $_GET['th']) && _uid) {
 		$_GET['goto'] = q_singleval('SELECT m.id from {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$_GET['th'].' AND m.apr=1 AND m.post_stamp>CASE WHEN (r.last_view IS NOT NULL OR r.last_view>'.$usr->last_read.') THEN r.last_view ELSE '.$usr->last_read.' END');
 		if (!$_GET['goto']) {
-			$_GET['goto'] = 'end';
+			$_GET['goto'] = q_singleval('SELECT root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th);
 		}
 	}
 
 	if (!empty($_GET['goto'])) {
 		if ($_GET['goto'] === 'end' && isset($_GET['th'])) {
-			list($pos, $mid) = db_saq('SELECT replies+1,last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$_GET['th']);
+			list($pos, $mid) = db_saq('SELECT replies+1,last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th);
 			$mid = '#msg_'.$mid;
 		} else if ($_GET['goto']) { /* verify that the thread & msg id are valid */
 			if (!isset($_GET['th'])) {
