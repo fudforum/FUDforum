@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmod.tmpl,v 1.17 2004/11/24 19:53:39 hackie Exp $
+* $Id: mmod.tmpl,v 1.18 2005/02/25 01:51:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -65,7 +65,7 @@
 {SECTION: END}
 
 {SECTION: delete_msg_pm_body}
-{VAR: _POST['del_reason']}
+{IF: $GLOBALS['FUD_OPT_1'] & 1024}{VAR-HTML: _POST['del_reason']}{ELSE}{VAR: _POST['del_reason']}{ENDI}
 --------------------------------------
 {MSG: delete_msg_pm_body}
 --------------------------------------

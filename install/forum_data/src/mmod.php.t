@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmod.php.t,v 1.35 2004/11/30 16:40:38 hackie Exp $
+* $Id: mmod.php.t,v 1.36 2005/02/25 01:51:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -81,7 +81,7 @@
 					}
 					$body = '{TEMPLATE: delete_msg_pm_body}';
 				} else {
-					$body = $_POST['del_reason'];
+					$body = $FUD_OPT_1 & 1024 ? htmlspecialchars($_POST['del_reason']) : $_POST['del_reason'];
 				}
 				send_status_update($data[12], $data[13], $data[14], '{TEMPLATE: delete_msg_removed_ttl}', $body);
 			}
