@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.9 2002/08/13 09:16:19 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.10 2003/02/11 16:55:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -48,7 +48,10 @@ function convert_bdate($val, $month_fmt)
 		$lmt = get_all_perms(_uid);
 		if( !$lmt ) $lmt = 0;
 		$qry_limit = "{SQL_TABLE_PREFIX}forum.id IN (".$lmt.") AND ";
-	}	
+		$forum_limit = " AND {SQL_TABLE_PREFIX}thread.forum_id IN (".$lmt.") ";
+	} else {
+		$lmt = $forum_limit = '';
+	}
 	
 	$r = q("SELECT {SQL_TABLE_PREFIX}forum.id,{SQL_TABLE_PREFIX}forum.name FROM {SQL_TABLE_PREFIX}mod LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}mod.forum_id={SQL_TABLE_PREFIX}forum.id LEFT JOIN {SQL_TABLE_PREFIX}cat ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id WHERE ".$qry_limit." {SQL_TABLE_PREFIX}mod.user_id=".$u->id);
 	if( db_count($r) ) {
@@ -97,7 +100,7 @@ function convert_bdate($val, $month_fmt)
 	else
 		$referals = '';	
 	
-	$forum_limit = ($usr->is_mod != 'A' ? ' AND {SQL_TABLE_PREFIX}thread.forum_id IN ('.get_all_perms(_uid).') ' : '');
+	
 	
 	if( ($polls = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}poll 
 				INNER JOIN {SQL_TABLE_PREFIX}msg ON 
