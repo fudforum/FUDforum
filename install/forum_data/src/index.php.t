@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.17 2002/09/26 04:45:49 hackie Exp $
+*   $Id: index.php.t,v 1.18 2002/09/30 20:32:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -101,7 +101,7 @@ function index_view_perms($usr_id)
 
 	/*----------------- END FORM FUNCTIONS --------------------*/
 
-	if( empty($c) ) $c = $usr->cat_collapse_status;
+	if( empty($c) ) $c = $GLOBALS['HTTP_GET_VARS']['c'] = $usr->cat_collapse_status;
 
 	if ( !empty($c) ) {
 		reload_collapse($c);
