@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.21 2003/04/10 17:37:00 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.22 2003/04/10 18:33:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -167,7 +167,7 @@ class fud_user_reg extends fud_user
 	
 	function sync_user()
 	{
-		$passwd = $this->plaintext_passwd ? "'".md5($this->plaintext_passwd)."'," : '';
+		$passwd = !empty($this->plaintext_passwd) ? "'".md5($this->plaintext_passwd)."'," : '';
 		
 		if ($GLOBALS['USE_ALIASES'] != 'Y' || !$this->alias) {
 			$this->alias = htmlspecialchars((strlen($this->login) < $GLOBALS['MAX_LOGIN_SHOW']) ? $this->login : substr($this->login, 0,  $GLOBALS['MAX_LOGIN_SHOW']));
@@ -241,10 +241,7 @@ class fud_user_reg extends fud_user
 		return $reset_key;
 	}
 
-	function email_confirm()
-	{
-		q("UPDATE {SQL_TABLE_PREFIX}users SET email_conf='Y', conf_key='0' WHERE id=".$this->id);
-	}
+	
 	
 	function email_unconfirm()
 	{
@@ -327,6 +324,11 @@ function &usr_reg_get_full($id)
 		return $r;
 	}
 	return;
+}
+
+function usr_email_confirm($id)
+{
+	q("UPDATE {SQL_TABLE_PREFIX}users SET email_conf='Y', conf_key='0' WHERE id=".$id);
 }
 
 function user_login($id, $cur_ses_id, $use_cookies)

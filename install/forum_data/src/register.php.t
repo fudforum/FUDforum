@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.36 2003/04/10 11:00:43 hackie Exp $
+*   $Id: register.php.t,v 1.37 2003/04/10 18:33:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -99,7 +99,8 @@ function register_form_check($user_id)
 	} else {
 		if (empty($_POST['mod_id']) && !check_passwd($user_id, $_POST['reg_confirm_passwd'])) {
 			set_err('reg_confirm_passwd', '{TEMPLATE: register_err_enterpasswd}');
-		} else if (!check_passwd(_uid, $_POST['reg_confirm_passwd'])) {
+		}
+		if (!empty($_POST['mod_id']) && !check_passwd(_uid, $_POST['reg_confirm_passwd'])) {
 			set_err('reg_confirm_passwd', '{TEMPLATE: register_err_adminpasswd}');
 		}
 		
@@ -291,12 +292,10 @@ function remove_old_avatar($avatar_str)
 	
 	/* SUBMITTION CODE */
 	if (!empty($_POST['prev_loaded']) && !isset($_POST['btn_detach']) && !isset($_POST['btn_upload']) && !register_form_check($uent->id)) {
-		if ($uent->id) { /* we need those for further checks */
-			$old_email = $uent->email;
-			$old_avatar_approved = $uent->avatar_approved;
-			$old_avatar_loc = $uent->avatar_loc;
-			$old_avatar = $uent->avatar;
-		}
+		$old_email = $uent->email;
+		$old_avatar_approved = $uent->avatar_approved;
+		$old_avatar_loc = $uent->avatar_loc;
+		$old_avatar = $uent->avatar;
 		
 		/* import data from _POST into $uent object */
 		foreach($_POST as $k => $v) {
@@ -350,11 +349,12 @@ function remove_old_avatar($avatar_str)
 			$uent->avatar = $old_avatar;
 			$uent->avatar_loc = $old_avatar_loc;
 
-			if ($GLOBALS['CUSTOM_AVATARS'] != 'OFF') {
+			/* prevent non-confirmed users from playing with avatars, yes we are that cruel */
+			if ($GLOBALS['CUSTOM_AVATARS'] != 'OFF' && _uid) {
 				if ($_POST['avatar_type'] == 'b') { /* built-in avatar */
 					if (!$old_avatar && $old_avatar_loc) {
 						remove_old_avatar($old_avatar_loc);
-						$uent->avatar_approved = 'N'; $uent->avatar_loc = '';
+						$uent->avatar_loc = '';
 					} else if (isset($avatar_arr['file'])) { 
 						@unlink($TMP . basename($avatar_arr['file']));
 					}
@@ -371,7 +371,7 @@ function remove_old_avatar($avatar_str)
 						if (!empty($avatar_arr['file'])) {
 							$avatar_arr['del'] = 1;
 						}
-					} else if ($_POST['avatar_type'] == 'u' && empty($avatar_arr['del'])) { /* uploaded file */
+					} else if ($_POST['avatar_type'] == 'u' && empty($avatar_arr['del']) && empty($avatar_arr['leave'])) { /* uploaded file */
 						$common_av_name = $avatar_arr['file'];
 					}
 
@@ -397,9 +397,12 @@ function remove_old_avatar($avatar_str)
 					 	if (!($uent->avatar_loc = make_avatar_loc($av_path, $WWW_ROOT_DISK, $WWW_ROOT))) {
 					 		$uent->avatar_approved = 'N';
 					 	}
-				 	} else {
-				 		$uent->avatar_approved = 'N'; $uent->avatar_loc = '';
+				 	} else if (empty($avatar_arr['leave'])) {
+				 		$uent->avatar_loc = '';
 				 	}
+				}
+				if (empty($uent->avatar_loc)) {
+					$uent->avatar_approved = 'NO';
 				}			
 			}
 
@@ -540,7 +543,7 @@ function remove_old_avatar($avatar_str)
 		$user_info_heading = '{TEMPLATE: update_user}';
 		$submit_button = '{TEMPLATE: update_button}';
 
-		if ($GLOBALS['CUSTOM_AVATARS'] != 'OFF') {
+		if ($GLOBALS['CUSTOM_AVATARS'] != 'OFF' && _uid) {
 			if ($GLOBALS['CUSTOM_AVATARS'] == 'ALL') {
 				/* if there are no built-in avatars, don't show them */
 				if (q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}avatar')) {

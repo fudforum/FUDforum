@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: emailconf.php.t,v 1.5 2002/09/30 05:36:16 hackie Exp $
+*   $Id: emailconf.php.t,v 1.6 2003/04/10 18:33:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,43 +15,18 @@
 *
 ***************************************************************************/
 
-	
-	{PRE_HTML_PHP}
-	$usr = fud_user_to_reg($usr);
-	{POST_HTML_PHP}
+/*{PRE_HTML_PHP}*/
+/*{POST_HTML_PHP}*/
 
-	if ( !empty($conf_key) ) {
-		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".$conf_key."'");
-		if ( !is_result($r) ) {
-			if( !isset($usr) || $usr->email_conf != 'Y' ) {
-				error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}', NULL, 'FATAL');
-				exit;
-			} else {
-				check_return();
-			}
+	if (isset($_GET['conf_key'])) {
+		$uid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".addslashes($_GET['conf_key'])."'");
+		if (__fud_real_user__ && __fud_real_user__ != $uid) {
+			error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 		}
 		
-		$conf_usr = db_singleobj($r);
-		$usr = new fud_user_reg;
-		$ses = new fud_session;
-		$ses->cookie_get_session();
-		
-		$ses->save_session($conf_usr->id);		
-		$usr->get_user_by_id($conf_usr->id);
-
-		if ( !empty($usr->conf_key) ) { /* do not try to confirm already confirmed users */
-			if ( $usr->conf_key == $conf_key ) {
-				 $usr->email_confirm();
-			} else {
-				error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}', NULL, 'FATAL');
-				exit();	
-			}	
-		}	
-		
-		check_return();
-	}
-	else {
-		error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}', NULL, 'FATAL');
-		exit();	
+		usr_email_confirm($uid);
+		check_return($usr->returnto);
+	} else {
+		error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 	}
 ?>
