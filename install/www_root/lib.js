@@ -14,12 +14,11 @@ JS_HELPOFF = false;
 DOM = (document.getElementById) ? 1 : 0;
 NS4 = (document.layers) ? 1 : 0;
 IE4 = (document.all) ? 1 : 0;
-OPERA = navigator.userAgent.indexOf("Opera") ? 1 : 0;
+OPERA = navigator.userAgent.indexOf("Opera") > -1 ? 1 : 0;
 
 /* edit box stuff */
 function insertTag(obj, stag, etag)
 {
-
 	if (navigator.userAgent.indexOf("MSIE") > -1 && !OPERA) {
 		insertTagIE(obj, stag, etag);
 	} else if (window.getSelection) {
@@ -194,6 +193,13 @@ function layerVis(layer,on)
 			document.layers[layer].visibility = "hide";
 		else if (IE4)
 			document.all[layer].style.visibility = "hidden";
+	}
+}
+
+function fud_msg_focus(mid_hash)
+{
+	if (!window.location.hash && !OPERA) {
+		window.location.hash = mid_hash;
 	}
 }
 

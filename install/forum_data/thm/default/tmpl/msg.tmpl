@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.31 2003/11/05 14:05:10 hackie Exp $
+* $Id: msg.tmpl,v 1.32 2003/11/27 13:46:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -161,7 +161,7 @@
 
 {SECTION: msg_page_focus}
 <script language="javascript" type="text/javascript">
-window.location.hash = "{VAR: mid}";
+fud_msg_focus("{VAR: mid}");
 </script>
 {SECTION: END}
 
