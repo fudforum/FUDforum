@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.38 2004/03/31 16:59:43 hackie Exp $
+* $Id: rdf.php.t,v 1.39 2004/05/12 15:26:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -224,7 +224,7 @@ $basic_rss_data .= '
 ';
 					if ($r->attach_cnt && $r->attach_cache) {
 						$al = @unserialize($r->attach_cache);
-						if (is_array($al) && @count($al)) {
+						if (!empty($al)) {
 							echo '<content:items><rdf:Bag>';
 							foreach ($al as $a) {
 								echo '<rdf:li>
@@ -243,7 +243,7 @@ $basic_rss_data .= '
 						echo '<content:items><rdf:Bag><poll_name>'.sp($r->poll_name).'</poll_name><total_votes>'.$r->total_votes.'</total_votes>';
 						if ($r->poll_cache) {
 							$pc = @unserialize($r->poll_cache);
-							if (is_array($pc) && count($pc)) {
+							if (!empty($pc)) {
 								foreach ($pc as $o) {
 									echo '<rdf:li>
 										<content:item rdf:about="poll_opt">

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.33 2004/01/29 22:58:32 hackie Exp $
+* $Id: split_th.php.t,v 1.34 2004/05/12 15:26:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,7 +45,7 @@
 			$_POST['sel_th'][$k] = (int) $v;
 		}
 		/* sanity check */
-		if (!count($_POST['sel_th'])) {
+		if (empty($_POST['sel_th'])) {
 			if ($FUD_OPT_2 & 32768) {
 				header('Location: {FULL_ROOT}{ROOT}/t/'.$th.'/'._rsidl);
 			} else {

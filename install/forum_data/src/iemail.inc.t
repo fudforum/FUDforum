@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.30 2004/04/19 20:15:53 hackie Exp $
+* $Id: iemail.inc.t,v 1.31 2004/05/12 15:26:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,7 +28,7 @@ function encode_subject($text)
 
 function send_email($from, $to, $subj, $body, $header='')
 {
-	if (empty($to) || !count($to)) {
+	if (empty($to)) {
 		return;
 	}
 	$body = str_replace('\n', "\n", $body);

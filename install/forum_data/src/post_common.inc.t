@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.inc.t,v 1.15 2004/04/21 22:54:53 hackie Exp $
+* $Id: post_common.inc.t,v 1.16 2004/05/12 15:26:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,7 +58,7 @@ function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $pri
 	$attached_files = '';
 	$i = 0;
 
-	if (!empty($al) && count($al)) {
+	if (!empty($al)) {
 		$enc = base64_encode(@serialize($al));
 		$c = uq('SELECT a.id,a.fsize,a.original_name,m.mime_hdr
 		FROM {SQL_TABLE_PREFIX}attach a
@@ -85,7 +85,7 @@ function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $pri
 		$allowed_extensions = '{TEMPLATE: post_proc_all_ext_allowed}';
 	} else {
 		include $GLOBALS['FORUM_SETTINGS_PATH'] . 'file_filter_regexp';
-		if (!count($GLOBALS['__FUD_EXT_FILER__'])) {
+		if (empty($GLOBALS['__FUD_EXT_FILER__'])) {
 			$allowed_extensions = '{TEMPLATE: post_proc_all_ext_allowed}';
 		} else {
 			$allowed_extensions = implode(' ', $GLOBALS['__FUD_EXT_FILER__']);

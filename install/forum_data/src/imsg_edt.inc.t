@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.103 2004/05/07 19:00:56 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.104 2004/05/12 15:26:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -613,7 +613,7 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 	$TITLE_EXTRA = $iemail_poll = $iemail_attach = '';
 	if ($obj->poll_cache) {
 		$pl = @unserialize($obj->poll_cache);
-		if (is_array($pl) && count($pl)) {
+		if (!empty($pl)) {
 			foreach ($pl as $k => $v) {
 				$length = ($v[1] && $obj->total_votes) ? round($v[1] / $obj->total_votes * 100) : 0;
 				$iemail_poll .= '{TEMPLATE: iemail_poll_result}';
@@ -623,7 +623,7 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 	}
 	if ($obj->attach_cnt && $obj->attach_cache) {
 		$atch = @unserialize($obj->attach_cache);
-		if (is_array($atch) && count($atch)) {
+		if (!empty($atch)) {
 			foreach ($atch as $v) {
 				$sz = $v[2] / 1024;
 				$sz = $sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB';
@@ -642,7 +642,7 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 
 function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type, $id, $frm_name, $frm_id)
 {
-	if (isset($to['EMAIL']) && (is_string($to['EMAIL']) || (is_array($to['EMAIL']) && count($to['EMAIL'])))) {
+	if (!empty($to['EMAIL'])) {
 		$do_email = 1;
 		$goto_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&goto='.$msg_id;
 		$CHARSET = '{TEMPLATE: CHARSET}';
@@ -678,7 +678,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			$headers = "Content-Type: text/plain; charset={$CHARSET}\r\n";
 		}
 	}
-	if (isset($to['ICQ']) && (is_string($to['ICQ']) || (is_array($to['ICQ']) && count($to['ICQ'])))) {
+	if (!empty($to['ICQ'])) {
 		$do_icq = 1;
 		$icq = str_replace('http://', "http'+'://'+'", $GLOBALS['WWW_ROOT']);
 		$icq = str_replace('www.', "www'+'.", $icq);

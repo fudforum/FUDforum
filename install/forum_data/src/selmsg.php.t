@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.49 2004/04/25 19:29:17 hackie Exp $
+* $Id: selmsg.php.t,v 1.50 2004/05/12 15:26:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -68,7 +68,7 @@ function path_info_lnk($var, $val)
 	$perm_limit = $usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR ' . (_uid ? '((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : '(g1.group_cache_opt') . ' & 2) > 0)';
 
 	/* mark messages read for registered users */
-	if (_uid && isset($_GET['mr']) && !empty($usr->data) && count($usr->data)) {
+	if (_uid && isset($_GET['mr']) && !empty($usr->data)) {
 		foreach ($usr->data as $ti => $mi) {
 			if (!(int)$ti || !(int)$mi) {
 				break;

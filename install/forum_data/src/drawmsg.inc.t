@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.84 2004/05/07 16:13:03 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.85 2004/05/12 15:26:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -273,7 +273,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	$drawmsg_file_attachments = '';
 	if ($obj->attach_cnt && !empty($obj->attach_cache)) {
 		$atch = @unserialize($obj->attach_cache);
-		if (is_array($atch) && count($atch)) {
+		if (!empty($atch)) {
 			foreach ($atch as $v) {
 				$sz = $v[2] / 1024;
 				$sz = $sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB';

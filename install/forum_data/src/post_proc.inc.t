@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.60 2004/04/21 16:13:45 hackie Exp $
+* $Id: post_proc.inc.t,v 1.61 2004/05/12 15:26:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -592,7 +592,7 @@ function html_to_tags($fudml)
 function filter_ext($file_name)
 {
 	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'file_filter_regexp';
-	if (!count($GLOBALS['__FUD_EXT_FILER__'])) {
+	if (empty($GLOBALS['__FUD_EXT_FILER__'])) {
 		return;
 	}
 	if (($p = strrpos($file_name, '.')) === false) {
