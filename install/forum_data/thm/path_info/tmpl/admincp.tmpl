@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.tmpl,v 1.3 2003/10/09 14:34:30 hackie Exp $
+* $Id: admincp.tmpl,v 1.4 2003/10/10 00:05:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -10,14 +10,6 @@
 ***************************************************************************/
 
 {PHP_FILE: input: admincp.inc.t; output: @admincp.inc;}
-
-{MAIN_SECTION: admin_cp Administrator Control Panel}
-<br /><font class="GenText"><b>{MSG: admin}:</b></font> {TEMPLATE-DATA: mod_que} {TEMPLATE-DATA: reported_msgs} {TEMPLATE-DATA: thr_exch} {TEMPLATE-DATA: custom_avatar_queue} {TEMPLATE-DATA: group_mgr} {TEMPLATE-DATA: accounts_pending_approval}
-{MAIN_SECTION: END}
-
-{SECTION: custom_avatar_queue (appears if there are custom avatars in que for approval)}
-| <a class="GenLink" href="adm/admapprove_avatar.php?{DEF: _rsid}">{MSG: custom_avatar_queue}</a> <span class="GenText" style="color: #ff0000">({VAR: avatar_count})</span> 
-{SECTION: END}
 
 {SECTION: group_mgr link to the group manager for admin & group managers}
 | <a class="GenLink" href="{ROOT}/gm/{DEF: _rsid}">{MSG: group_mgr}</a> 
@@ -33,8 +25,4 @@
 
 {SECTION: mod_que link to form for approving messages in moderated forums}
 <a class="GenLink" href="{ROOT}/mq/{DEF: _rsid}">{MSG: moderation_queue}</a> <span class="GenText" style="color: #ff0000">({VAR: approve_count})</span>
-{SECTION: END}
-
-{SECTION: accounts_pending_approval accounts pending administrator's approval}
-| <a class="GenLink" href="adm/admaccapr.php?{DEF: _rsid}">{MSG: accounts_pending_approval}</a> <span class="GenText" style="color: #ff0000">({VAR: accounts_pending_approval})</span> 
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: actions.tmpl,v 1.3 2003/10/09 14:34:30 hackie Exp $
+* $Id: actions.tmpl,v 1.4 2003/10/10 00:05:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,23 +26,6 @@
 <a href="{ROOT}/m/{VAR: r[7]}/{DEF: _rsid}">{VAR: r[8]}</a>
 {SECTION: END}
 
-{SECTION: last_post_na no last post}
-{MSG: na}
-{SECTION: END}
-
-{SECTION: action_entry iSpy user list row}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
-	<td class="GenText">{VAR: user_login}</td>
-	<td class="GenText">{VAR: action}</td>
-	<td class="DateText">{DATE: r[5] %H:%M:%S}</td>
-	<td class="SmallText">{TEMPLATE-DATA: last_post}</td>
-</tr>
-{SECTION: END}
-
-{SECTION: anon_user anon user name}
-{GVAR: ANON_NICK}
-{SECTION: END}
-
 {SECTION: reg_user_link registered user link}
 <a class="GenLink" href="{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}">{VAR: user_login}</a>
 {SECTION: END}
@@ -61,11 +44,3 @@
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {PAGE: END}
-
-{SECTION: actions_update}
-{MSG: actions_update}
-{SECTION: END}
-
-{SECTION: no_view_perm}
-{MSG: no_view_perm}
-{SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: email.tmpl,v 1.3 2003/10/09 14:34:30 hackie Exp $
+* $Id: email.tmpl,v 1.4 2003/10/10 00:05:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -23,19 +23,6 @@
 {REF: alt_var.tmpl}
 {REF: allowed_user_lnk.tmpl}
 
-{SECTION: email_error_text}
-<br /><font class="ErrorText">{VAR: GLOBALS['_ERROR_'][$type]}</font>
-{SECTION: END}
-
-{SECTION: dest_forum_user mail being sent to forum user}
-<tr class="RowStyleB"><td nowrap class="GenText">{MSG: email_to} {VAR: name_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_name" value="{VAR-HTML: tx_name}"></td></tr>
-{SECTION: END}
-
-{SECTION: dest_non_forum_user mail being sent to non forum user}
-<tr class="{ALT-VAR: emailalt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: email_name} {VAR: name_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_name" value="{VAR-HTML: tx_name}"></td></tr>
-<tr class="{ALT-VAR: emailalt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: email_email} {VAR: email_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_email" value="{VAR-HTML: tx_email}"></td></tr>
-{SECTION: END}
-
 {PAGE: EMAIL_PAGE }
 {TEMPLATE: header}
 {TEMPLATE: usercp}
@@ -51,43 +38,3 @@
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {PAGE: END}
-
-{SECTION: email_err_unabletoemail_title}
-{MSG: email_err_unabletoemail_title}
-{SECTION: END}
-
-{SECTION: email_err_unabletoemail_msg}
-{MSG: email_err_unabletoemail_msg}
-{SECTION: END}
-
-{SECTION: email_error_body}
-{MSG: email_error_body}
-{SECTION: END}
-
-{SECTION: email_error_subject}
-{MSG: email_error_subject}
-{SECTION: END}
-
-{SECTION: email_error_emailrequired}
-{MSG: email_error_emailrequired}
-{SECTION: END}
-
-{SECTION: email_error_invalidaddress}
-{MSG: email_error_invalidaddress}
-{SECTION: END}
-
-{SECTION: email_error_namerequired}
-{MSG: email_error_namerequired}
-{SECTION: END}
-
-{SECTION: email_error_invaliduser}
-{MSG: email_error_invaliduser}
-{SECTION: END}
-
-{SECTION: email_error_unabletolocaddr}
-{MSG: email_error_unabletolocaddr}
-{SECTION: END}
-
-{SECTION: email_title}
-{MSG: email_title}
-{SECTION: END}

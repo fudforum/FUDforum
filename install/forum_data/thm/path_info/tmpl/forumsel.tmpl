@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forumsel.tmpl,v 1.2 2003/10/09 14:34:31 hackie Exp $
+* $Id: forumsel.tmpl,v 1.3 2003/10/10 00:05:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -10,26 +10,3 @@
 ***************************************************************************/
 
 {PHP_FILE: input: forumsel.inc.t; output: @forumsel.inc;}
-
-{MAIN_SECTION: forum_select a drop down select of all the categories & forums}
-<form action="{ROOT}" name="frmquicksel" method="get" style="padding: 0px; margin: 0px;">
-<table border=0 cellspacing=0 cellpadding=1><tr><td class="GenText" valign="bottom">
-<font class="SmallText"><b>{MSG: forumsel_goto_forum}</b><br /></font>
-<select class="SmallText" name="frm_id" onChange="javascript: if ( this.value==0 ) return false; document.frmquicksel.submit();">
-{TEMPLATE-DATA: selection_options}
-</select>
-<input type="hidden" name="t" value="{VAR: dest}">{DEF: _hs}<input type="hidden" name="forum_redr" value="1">
-</td><td valign="bottom"><input type="submit" class="button" name="frm_goto" value="{MSG: go}"></td></tr></table></form>
-{MAIN_SECTION: END}
-
-{SECTION: category_option}
-<option value="0">{VAR: r[2]}</option>
-{SECTION: END}
-
-{SECTION: forum_option}
-<option value="{VAR: r[0]}"{VAR: selected}>&nbsp;&nbsp;&nbsp;&nbsp;{VAR-HTML: r[1]}</option>
-{SECTION: END}
-
-{SECTION: unread_forum_option}
-<option value="{VAR: r[0]}"{VAR: selected}>&nbsp;&nbsp;&nbsp;&nbsp;{MSG: forumsel_unread} {VAR-HTML: r[1]}</option>
-{SECTION: END}

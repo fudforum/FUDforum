@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.tmpl,v 1.4 2003/10/09 14:34:31 hackie Exp $
+* $Id: login.tmpl,v 1.5 2003/10/10 00:05:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -40,59 +40,3 @@
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}
-
-{SECTION: login_use_cookies}
-<tr class="RowStyleB"><td colspan=3 align="left"><input type="checkbox" name="use_cookie" value="Y" checked> {MSG: login_use_cookie}</font></td></tr>
-{SECTION: END}
-
-{SECTION: login_error_msg}
-<p align="center" class="ErrorText">{VAR: _GET['msg']}</div></p>
-{SECTION: END}
-
-{SECTION: login_error_text}
-<font class="ErrorText">{VAR: GLOBALS['_ERROR_MSG_'][$type]}</font><br />
-{SECTION: END}
-
-{SECTION: login_name_required}
-{MSG: login_name_required}
-{SECTION: END}
-
-{SECTION: login_passwd_required}
-{MSG: login_passwd_required}
-{SECTION: END}
-
-{SECTION: login_invalid_radius}
-{MSG: login_invalid_radius}
-{SECTION: END}
-
-{SECTION: login_update}
-{MSG: login_update}
-{SECTION: END}
-
-{SECTION: login_title}
-{MSG: login_title}
-{SECTION: END}
-
-{SECTION: login_blocked_account_ttl}
-{MSG: login_blocked_account_ttl}
-{SECTION: END}
-
-{SECTION: login_blocked_account_msg}
-{MSG: login_blocked_account_msg}
-{SECTION: END}
-
-{SECTION: login_unapproved_account_ttl}
-{MSG: login_unapproved_account_ttl}
-{SECTION: END}
-
-{SECTION: login_unapproved_account_msg}
-{MSG: login_unapproved_account_msg}
-{SECTION: END}
-
-{SECTION: ERR_emailconf_ttl}
-{MSG: ERR_emailconf_ttl}
-{SECTION: END}
-
-{SECTION: ERR_emailconf_msg}
-{MSG: ERR_emailconf_msg}
-{SECTION: END}

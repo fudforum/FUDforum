@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: announcement.tmpl,v 1.2 2003/10/09 14:34:30 hackie Exp $
+* $Id: announcement.tmpl,v 1.3 2003/10/10 00:05:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -10,14 +10,3 @@
 ***************************************************************************/
 
 {PHP_FILE: input: announcement.inc.t; output: @announcement.inc;}
-
-{MAIN_SECTION: announcements The Forum Announcement Layout}
-<table width="100%" class="AnnonTable" cellspacing=0 border=0 cellpadding=1>
-<tr><th>{MSG: announcement}</th></tr>
-{TEMPLATE-DATA: announcements}
-</table><img src="blank.gif" alt="" height=1 width=1 />
-{MAIN_SECTION: END}
-
-{SECTION: announce_entry announcement row}
-<tr><td class="AnnText" colspan="{VAR: ann_cols}"><font class="AnnSubjText">{VAR: r[0]}</font><br />{VAR: r[1]}</td></tr>
-{SECTION: END}

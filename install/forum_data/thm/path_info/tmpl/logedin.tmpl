@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.tmpl,v 1.3 2003/10/09 14:34:31 hackie Exp $
+* $Id: logedin.tmpl,v 1.4 2003/10/10 00:05:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -12,28 +12,8 @@
 {PHP_FILE: input: logedin.inc.t; output: !logedin.inc;}
 {REF: ulink.tmpl}
 
-{MAIN_SECTION: loged_in_list loggedin user list}
-<br /><img src="blank.gif" alt="" height=2 width=1 />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-{TEMPLATE-DATA: logedin}
-{TEMPLATE-DATA: forum_info}
-</table>
-{MAIN_SECTION: END}
-
-{SECTION: logedin}
-<tr><th width="100%">{MSG: logged_in_list} {TEMPLATE-DATA: i_spy}</th></tr>
-<tr><td class="RowStyleA">
-<font class="SmallText">{MSG: status_line}&nbsp;&nbsp;&nbsp;<font class="adminColor">[{MSG: administrator}]</font>&nbsp;&nbsp;<font class="modsColor">[{MSG: moderator}]</font></font><br />
-{VAR: logedin}
-</td></tr>
-{SECTION: END}
-
 {SECTION: i_spy logged in users list}
 [<a href="{ROOT}/a/{DEF: _rsid}" class="thLnk">{MSG: what_ppl_doing}</a>] [<a href="{ROOT}/ot/{DEF: _rsid}" class="thLnk">{MSG: logedin_todays_visitors}</a>]
-{SECTION: END}
-
-{SECTION: online_user_separator}
-&nbsp;
 {SECTION: END}
 
 {SECTION: online_user_link}

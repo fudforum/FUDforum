@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.tmpl,v 1.3 2003/10/09 14:34:31 hackie Exp $
+* $Id: mnav.tmpl,v 1.4 2003/10/10 00:05:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -54,53 +54,6 @@
 {TEMPLATE: footer}
 {PAGE: END}
 
-{SECTION: mnav_no_range invalid date range}
-<br />
-<div align="center">
-<table border="0" cellspacing="1" cellpadding="2" style="border: 1px dashed red">
-<tr>
-	<td class="GenText" style="color: red">{MSG: mnav_no_range}</td>
-</tr>
-</table>
-</div>
-{SECTION: END}
-
-{SECTION: mnav_invalid_unit invalid date unit}
-<br />
-<div align="center">
-<table border="0" cellspacing="1" cellpadding="2" style="border: 1px dashed red">
-<tr>
-	<td class="GenText" style="color: red">{MSG: mnav_invalid_unit}</td>
-</tr>
-</table>
-</div>
-{SECTION: END}
-
-{SECTION: mnav_invalid_date date range exceed allowed limit}
-<br />
-<div align="center">
-<table border="0" cellspacing="1" cellpadding="2" style="border: 1px dashed red">
-<tr>
-	<td class="GenText" style="color: red">{MSG: mnav_invalid_date}</td>
-</tr>
-</table>
-</div>
-{SECTION: END}
-
-{SECTION: mnav_no_results no results}
-<div align="center" class="GenText" style="border: 1px dashed blue">{MSG: mnav_no_results}</div>
-{SECTION: END}
-
-{SECTION: mnav_begin_results begin results header}
-<div align="center">
-<table border="0" cellspacing="0" cellpadding="0" class="ContentTable">
-{SECTION: END}
-
-{SECTION: mnav_end_results}
-</table>
-</div>
-{SECTION: END}
-
 {SECTION: mnav_forum}
 <tr><th colspan="3"> {MSG: forum} <a class="thLnk" href="{ROOT}/f/{VAR: r->forum_id}/{DEF: _rsid}"><font style="font-size: 12px;">{VAR-HTML: r->forum_name}</font></a></th></tr>
 {SECTION: END}
@@ -126,36 +79,4 @@
 
 {SECTION: mnav_user}
 <a class="GenLink" href="{ROOT}/u/{VAR: r->poster_id}/{DEF: _rsid}">{VAR: r->alias}</a>
-{SECTION: END}
-
-{SECTION: mnav_anon}
-{GVAR: ANON_NICK}
-{SECTION: END}
-
-{SECTION: mnav_minute}
-{MSG: mnav_minute}
-{SECTION: END}
-
-{SECTION: mnav_hour}
-{MSG: mnav_hour}
-{SECTION: END}
-
-{SECTION: mnav_day}
-{MSG: mnav_day}
-{SECTION: END}
-
-{SECTION: mnav_week}
-{MSG: mnav_week}
-{SECTION: END}
-
-{SECTION: mnav_month}
-{MSG: mnav_month}
-{SECTION: END}
-
-{SECTION: mnav_title}
-{MSG: mnav_title}
-{SECTION: END}
-
-{SECTION: mnav_update}
-{MSG: mnav_update}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tabs.tmpl,v 1.3 2003/10/09 21:08:03 hackie Exp $
+* $Id: tabs.tmpl,v 1.4 2003/10/10 00:05:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -10,56 +10,3 @@
 ***************************************************************************/
 
 {PHP_FILE: input: tabs.inc.t; output: @tabs.inc;}
-
-{SECTION: active_tab}
-<td class="brdrSelected" valign="top" style="background-image: url({THEME_IMAGE_ROOT}/tab_start.gif);"><img src="{THEME_IMAGE_ROOT}/tab_start_top.gif" alt="" /></td>
-<td style="background-image: url({THEME_IMAGE_ROOT}/tab_top.gif);" nowrap bgcolor="#dee2e6" class="brdrSelected"><img src="blank.gif" width=10 height=1 alt="" /><a href="{VAR: tab_url}">{VAR: tab_name}</a><img src="blank.gif" width=10 height=1 alt="" /></td>
-<td class="brdrSelected" valign="top" style="background-image: url({THEME_IMAGE_ROOT}/tab_end.gif);"><img src="{THEME_IMAGE_ROOT}/tab_end_top.gif" alt="" /></td>
-{SECTION: END}
-
-{SECTION: inactive_tab}
-<td class="brdrNormal" valign="top" style="background-image: url({THEME_IMAGE_ROOT}/tab_start.gif);"><img src="{THEME_IMAGE_ROOT}/tab_start_top.gif" alt="" /></td>
-<td style="background-image: url({THEME_IMAGE_ROOT}/tab_top.gif);" nowrap bgcolor="#c2cdd6" class="brdrNormal"><img src="blank.gif" alt="" width=10 height=1 /><a href="{VAR: tab_url}">{VAR: tab_name}</a><img src="blank.gif" alt="" width=10 height=1 /></td>
-<td class="brdrNormal" valign="top" style="background-image: url({THEME_IMAGE_ROOT}/tab_end.gif);"><img src="{THEME_IMAGE_ROOT}/tab_end_top.gif" alt="" /></td>
-{SECTION: END}
-
-{MAIN_SECTION: tablist tablist used in the profile control panels}
-<table border=0 cellspacing=0 cellpadding=0 width="100%">
-<tr>
-<td bgcolor="#dee2e6">
-	<table border=0 cellspacing=0 cellpadding=0 width="100%">
-		<tr bgcolor="#dee2e6" align="left">
-			<td bgcolor="#dee2e6" class="brdrNormal">&nbsp;</td>
-			{TEMPLATE-DATA: tabs}
-			<td width="100%" bgcolor="#dee2e6" class="brdrNormal">&nbsp;</td>
-		</tr>
-	</table>
-</td>
-</tr>
-<tr><td width="100%" bgcolor="#dee2e6"><img src="blank.gif" alt="" width=1 height=3 /></td></tr>
-<tr><td width="100%" bgcolor="#000000"><img src="blank.gif" alt="" width=1 height=1 /></td></tr>
-</table>
-{MAIN_SECTION: END}
-{SECTION: tabs_register}
-{MSG: tabs_register}
-{SECTION: END}
-
-{SECTION: tabs_subscriptions}
-{MSG: tabs_subscriptions}
-{SECTION: END}
-
-{SECTION: tabs_referrals}
-{MSG: tabs_referrals}
-{SECTION: END}
-
-{SECTION: tabs_buddy_list}
-{MSG: tabs_buddy_list}
-{SECTION: END}
-
-{SECTION: tabs_ignore_list}
-{MSG: tabs_ignore_list}
-{SECTION: END}
-
-{SECTION: tabs_private_messaging}
-{MSG: tabs_private_messaging}
-{SECTION: END}
