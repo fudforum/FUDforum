@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.30 2005/04/03 16:28:48 hackie Exp $
+* $Id: cat.inc,v 1.31 2005/04/05 23:16:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -102,33 +102,52 @@ function rebuild_forum_cat_order()
 
 	q("DELETE FROM ".$tbl."fc_view");
 
-	/* we use left join to catch categories without any forums, but with sub-categories */
-	$c = q("SELECT c.id, f.id, c.parent, c.name FROM ".$tbl."cat c LEFT JOIN ".$tbl."forum f ON f.cat_id=c.id
-			ORDER BY c.view_order, c.parent, f.view_order");
+	$max_depth = q_singleval("SELECT max(c.parent) FROM ".$tbl."cat c");
 
-	$lvl = array(0);
-	$cat_par = array();
+	/* we use left join to catch categories without any forums, but with sub-categories */
+	$c = uq("SELECT c.id, f.id, c.parent, c.name, (c.view_order * POW(10, ".$max_depth." - c.parent)) 
+			FROM ".$tbl."cat c 
+			LEFT JOIN ".$tbl."forum f ON f.cat_id=c.id
+			ORDER BY c.parent, c.view_order, f.view_order");
+	
+	$lvl = $cat_cache = $cat_par = $p = $data = array();
 	while ($r = db_rowarr($c)) {
+		$val = $p[$r[0]] = $r[4] + ($r[2] ? $p[$r[2]] : 0);
+
 		$cat_par[$r[0]] = (int) $r[2];
 
-		if (!isset($lvl[$r[2]])) {
-			$lvl[$r[2]] = ++$i;
+		if (isset($data[$val])) {
+			$data[$val][] = $r;
+		} else {
+			$data[$val] = array($r);
 		}
 
-		if ($r[1]) {
-			q("INSERT INTO ".$tbl."fc_view (c, f, lvl) VALUES(".$r[0].",".$r[1].",".$lvl[$r[2]].")");
+		if (!$r[2]) {
+			$lvl[$r[0]] = 0;
+		} else {
+			$lvl[$r[0]] = $lvl[$r[2]] + 1;
 		}
+	}
+	ksort($data);
 
-		if (!isset($cat_cache[$r[0]])) {
-			$cat_cache[$r[0]] = array($lvl[$r[2]], htmlspecialchars($r[3]));
-			if ($r[2]) {
-				if (!isset($cat_cache[$r[2]][2])) {
-					$cat_cache[$r[2]][2] = array();
+	foreach ($data as $r) {
+		foreach ($r as $v) {
+			if ($v[1]) {		
+				q("INSERT INTO ".$tbl."fc_view (c, f, lvl) VALUES(".$v[0].",".$v[1].",".$lvl[$v[0]].")");
+			}
+			if (isset($cat_cache[$v[0]])) {
+				continue;
+			}
+			$cat_cache[$v[0]] = array($lvl[$v[0]], htmlspecialchars($v[3]));
+			if ($v[2]) {
+				if (!isset($cat_cache[$v[2]][2])) {
+					$cat_cache[$v[2]][2] = array();
 				}
-				$cat_cache[$r[2]][2][] = $r[0];
+				$cat_cache[$v[2]][2][] = $v[0];
 			}
 		}
 	}
+	unset($data, $lvl, $p);
 
 	/* create full child/parent associations */
 	end($cat_cache);
