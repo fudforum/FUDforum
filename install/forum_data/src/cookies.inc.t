@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.9 2002/08/09 10:54:52 hackie Exp $
+*   $Id: cookies.inc.t,v 1.10 2002/09/25 02:20:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -160,7 +160,7 @@ class fud_session
 
 function clear_cookie()
 {
-	setcookie($GLOBALS['COOKIE_NAME'], 0, __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+	setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 }
 
 function set_referer_cookie($id)
