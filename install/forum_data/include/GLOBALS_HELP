@@ -31,7 +31,6 @@ This is the maximum size (in bytes) of the custom avatar image (uploaded to serv
 
 CUSTOM_AVATAR_MAX_DIM
 This is the maximum dimension that a custom avatar can be.
-Note: if you have the mogrify utility you'll be able to scale down the avatar to this value.
 
 #COOKIE & SESSION SETTINGS
 

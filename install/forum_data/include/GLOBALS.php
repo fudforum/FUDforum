@@ -28,8 +28,6 @@
 	$FILE_STORE		= "";
 	$FORUM_SETTINGS_PATH 	= "";
 
-	$MOGRIFY_BIN		= "";
-
 	$CUSTOM_AVATARS		= "ALL";	/* enum(OFF, BUILT, URL, UPLOAD, BUILT_URL, BUILT_UPLOAD, URL_UPLOAD, ALL) */
 	$CUSTOM_AVATAR_MAX_SIZE = "10000";	/* bytes */
 	$CUSTOM_AVATAR_MAX_DIM	= "64x64";	/* width x height (pixels) */
