@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.19 2002/10/14 23:40:36 hackie Exp $
+*   $Id: admthemes.php,v 1.20 2002/10/26 23:32:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -150,17 +150,15 @@ function cleandir($dir)
 	<td>
 	<select name="thm_theme">
 	<?php
-		$oldpwd = getcwd();
-		chdir($DATA_DIR.'/thm');
-		$dp = opendir('.');
+		$dp = opendir($DATA_DIR.'/thm');
 		readdir($dp); readdir($dp);
 		while ( $de = readdir($dp) ) {
-			if ( $de == 'CVS' || !is_dir($de) || !is_dir($de.'/tmpl') ) continue;
+			$dr = $DATA_DIR.'/thm/'.$de;
+			if ( $de == 'CVS' || !is_dir($dr) || !is_dir($dr.'/tmpl') ) continue;
 			$sel = $thm_theme == $de ? ' selected' : '';
 			echo '<option'.$sel.'>'.$de.'</option>';
 		}
 		closedir($dp);
-		chdir($oldpwd);
 	?></select>
 	</td>
 </tr>
@@ -168,25 +166,23 @@ function cleandir($dir)
 	<td>Language</td>
 	<td>
 	<?php
-		$oldpwd = getcwd();
-		chdir($DATA_DIR.'/thm/default/i18n');
-		$dp = opendir('.');
+		$dp = opendir($DATA_DIR.'/thm/default/i18n');
 		readdir($dp); readdir($dp);
 		$selopt = '';
 		if ( !$thm_lang ) $thm_lang = 'english';
 		while ( $de = readdir($dp) ) {
-			if ( $de == 'CVS' || !is_dir($de) ) continue;
+			$dr = $DATA_DIR.'/thm/default/i18n/'.$de;
+			if ( $de == 'CVS' || !is_dir($dr) ) continue;
 			$sel = $thm_lang == $de ? ' selected' : '';
 			$selopt .= '<option'.$sel.'>'.$de.'</option>';
-			$locales[$de]['locale'] = trim(filetomem($de.'/locale'));
-			$pspell_file = $de.'/pspell_lang';
+			$locales[$de]['locale'] = trim(filetomem($dr.'/locale'));
+			$pspell_file = $dr.'/pspell_lang';
 			if ( file_exists($pspell_file) )
 				$locales[$de]['pspell_lang'] = trim(filetomem($pspell_file));
 			else
 				$locales[$de]['pspell_lang'] = 'en';
 		}
 		closedir($dp);
-		chdir($oldpwd);
 		
 		$cases = '';
 		foreach($locales as $k => $v) {

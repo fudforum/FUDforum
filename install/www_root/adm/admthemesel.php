@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemesel.php,v 1.9 2002/10/14 23:40:36 hackie Exp $
+*   $Id: admthemesel.php,v 1.10 2002/10/26 23:32:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,9 @@
 		exit();
 	}
 	
-	include('admpanel.php');	
+	include('admpanel.php');
+	
+	list($def_thm, $def_tmpl) = db_singlearr(q("SELECT name, lang FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE t_default='Y'"));
 ?>
 <h3>Template Set Selection</h3>
 <form method="post" action="admthemesel.php">
@@ -37,33 +39,28 @@
 <?php
 	echo _hs;
 	
-	$oldpwd = getcwd();
-	chdir($GLOBALS['DATA_DIR'].'/thm');
-	$dp = opendir('.');
+	$dp = opendir($GLOBALS['DATA_DIR'].'/thm');
 	readdir($dp); readdir($dp);
 	echo '<td>Template Set:</td><td><select name="tname">';
 	while ( $de = readdir($dp) ) {
-		if ( $de == 'CVS' || !@is_dir($de) ) continue;
-		echo "<option value=\"$de\">$de</option>";
+		if ( $de == 'CVS' || !@is_dir($GLOBALS['DATA_DIR'].'/thm/'.$de) ) continue;
+		echo '<option value="'.$de.'"'.($de==$def_thm ? ' selected' : '').'>'.$de.'</option>';
 	}
 	echo '</select></td>';
-	closedir($dp);
 ?>
 </tr>
 
 <tr bgcolor="#bff8ff">
 <?php	
 	
-	chdir($GLOBALS['DATA_DIR'].'/thm/default/i18n');
-	$dp = opendir('.');
+	$dp = opendir($GLOBALS['DATA_DIR'].'/thm/default/i18n');
 	readdir($dp); readdir($dp);
 	echo '<td>Language:</td><td><select name="tlang">';
 	while ( $de = readdir($dp) ) {
-		if ( $de == 'CVS' || !@is_dir($de) ) continue;
-		echo "<option value=\"$de\">$de</option>";
+		if ( $de == 'CVS' || !@is_dir($GLOBALS['DATA_DIR'].'/thm/default/i18n/'.$de) ) continue;
+		echo '<option value="'.$de.'"'.($de==$def_tmpl ? ' selected' : '').'>'.$de.'</option>';
 	}
 	echo '</select></td>';
-	closedir($dp);
 ?>
 </tr>
 <?php
@@ -73,6 +70,5 @@
 </table>
 </form>
 <?php	
-	chdir($oldpwd);
 	readfile('admclose.html');
 ?>
