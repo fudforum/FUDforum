@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.12 2003/04/25 01:36:56 hackie Exp $
+*   $Id: tmpllist.php,v 1.13 2003/04/25 01:40:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -131,6 +131,8 @@ function goto_tmpl($tmpl)
 		if (!isset($_POST['submitted'])) {
 			$tmpl_data = $sdata['data'];
 		} else {
+			$tmpl_data = $_POST['tmpl_data'];
+
 			$data = substr_replace($data, str_replace("\r", '', $tmpl_data), $sdata['offset'], $sdata['len']);
 			if (!($fp = fopen($f_path, 'wb'))) {
 				exit('unable to save modifications to "'.$f_path.'"');
@@ -138,7 +140,7 @@ function goto_tmpl($tmpl)
 			fwrite($fp, $data);
 			fclose($fp);
 			fud_use('compiler.inc', true);
-			$c = q('SELECT theme FROM '.$tbl.'themes WHERE theme=\''.addslashes($tname).'\' AND lang=\''.addslashes($tlang).'\'');
+			$c = q('SELECT theme FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme=\''.addslashes($tname).'\' AND lang=\''.addslashes($tlang).'\'');
 			while ($r = db_rowarr($c)) {
 				compile_all($tname, $tlang, $r[0]);
 			}
