@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.13 2002/09/20 00:07:17 hackie Exp $
+*   $Id: db.inc,v 1.14 2003/03/29 11:40:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,44 +15,43 @@
 *
 ***************************************************************************/
 
-if( !function_exists("fud_sql_error_handler") ) fud_use('err.inc'); 
+if (!function_exists("fud_sql_error_handler")) {
+	fud_use('err.inc'); 
+}
 
-if ( !defined('_db_connection_ok_') ) {
+if (!defined('FUD_SQL_LNK')) {
 	$connect_func = ( $GLOBALS['DBHOST_PERSIST'] == 'Y' ) ? 'mysql_pconnect' : 'mysql_connect';
+	
+	$conn = $connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or die (fud_sql_error_handler("Initiating $connect_func", mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), "Unknown"));
+	define('FUD_SQL_LNK', $conn);
+	mysql_select_db($GLOBALS['DBHOST_DBNAME'], FUD_SQL_LNK) or die (fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
 		
-	$GLOBALS['__DB_INC__']['SQL_LINK'] = $connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'])
-		or die (fud_sql_error_handler("Initiating $connect_func", mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']), mysql_errno($GLOBALS['__DB_INC__']['SQL_LINK']), "Unknown"));
-		
-	mysql_select_db($GLOBALS['DBHOST_DBNAME'],$GLOBALS['__DB_INC__']['SQL_LINK'])
-		or die (fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']), mysql_errno($GLOBALS['__DB_INC__']['SQL_LINK']), q_singleval("SELECT VERSION()")));
-		
-	define('_db_connection_ok_', 1); 
 	define('__dbtype__', 'mysql');
 }
 
 function yn($val) 
 {
-	return ( strlen($val) && strtolower($val) != 'n' ) ? 'Y' : 'N';
+	return (strcasecmp($val,'n') ? 'Y' : 'N');
 } 
 
 function intnull($val)
 {
-	return ( strlen($val) ) ? $val : 'NULL';
+	return (!is_null($val) ? $val : 'NULL');
 }
 
 function intzero($val)
 {
-	return ( !empty($val) ) ? $val : '0';
+	return (!empty($val) ? $val : '0');
 }
 
 function ifnull($val, $alt)
 {
-	return ( strlen($val) ) ? "'".$val."'" : $alt;
+	return (!is_null($val) ? "'".$val."'" : $alt);
 }
 
 function strnull($val)
 {
-	return ( strlen($val) ) ? "'".$val."'" : 'NULL';
+	return (!is_null($val) ? "'".$val."'" : 'NULL');
 }
 
 function db_lock($tables)
@@ -88,7 +87,7 @@ function db_lock($tables)
 
 function db_unlock()
 {
-	q('UNLOCK TABLES',$GLOBALS['__DB_INC__']['SQL_LINK']);
+	q('UNLOCK TABLES',FUD_SQL_LNK);
 	
 	if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']) ) {
 		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", q_singleval("SELECT VERSION()"));
@@ -106,48 +105,92 @@ function db_locked()
 
 function db_affected()
 {
-	return mysql_affected_rows($GLOBALS['__DB_INC__']['SQL_LINK']);	
+	return mysql_affected_rows(FUD_SQL_LNK);	
 }
 
-if( !defined("fud_query_stats") ) {
-	function q($query) 
-	{
-		$result = mysql_query($query,$GLOBALS['__DB_INC__']['SQL_LINK']) 
-			or die (fud_sql_error_handler($query, mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']), mysql_errno($GLOBALS['__DB_INC__']['SQL_LINK']), q_singleval("SELECT VERSION()")));
-	
-		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
-		
-		if( defined('debug') ) 
-			echo "--<br>\n<b>(--</b>&nbsp;&nbsp; ".htmlspecialchars($query)." &nbsp;&nbsp;<b>--)</b><br><br>\n\n";
-	
-		return $result; 
-	}	
-}
-else {
+if (!defined("fud_query_stats")) {
+	if (!defined('debug')) {
+		function q($query)
+		{
+			$r = mysql_query($query, FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
+			return $r;
+		}
+		function uq($query)
+		{
+			$r = mysql_unbuffered_query($query,FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
+			return $r;
+		}
+		function last_query() {}
+	} else {
+		function q($query) 
+		{
+			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
+			$r = mysql_query($query,FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
+			return $r;
+		}
+		function uq($query) 
+		{
+			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
+			$r = mysql_unbuffered_query($query,FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
+			return $r;
+		}
+		function last_query($filter='')
+		{
+			if ($filter) {
+				return str_replace("\t", "", str_replace("\n", " ", $GLOBALS['__DB_INC_INTERNALS__']['last_query']));
+			} else {
+				return $GLOBALS['__DB_INC_INTERNALS__']['last_query'];
+			}
+		}
+	}
+} else {
 	function q($query)
 	{
-		if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['query_count']) )
+		if (!isset($GLOBALS['__DB_INC_INTERNALS__']['query_count'])) {
 			$GLOBALS['__DB_INC_INTERNALS__']['query_count'] = 1;
-		else 
+		} else {
 			++$GLOBALS['__DB_INC_INTERNALS__']['query_count'];
+		}
 	
-		if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time']) ) $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
+		if (!isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'])) {
+			$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
+		}
 	
-		$ts = db_getmicrotime();
+		$s = gettimeofday();
 
-		$result = mysql_query($query,$GLOBALS['__DB_INC__']['SQL_LINK']) 
-			or die (fud_sql_error_handler($query, mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']), mysql_errno($GLOBALS['__DB_INC__']['SQL_LINK']), q_singleval("SELECT VERSION()")));
+		$result = mysql_query($query, FUD_SQL_LNK) or die (fud_sql_error_handler($query, mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
 		
-		$te = db_getmicrotime(); 
-	
-		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = $te-$ts;
+		$e = gettimeofday(); 
+
+		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 		
-		if( defined('debug') ) 
-			echo "--<br>\n<b>(--</b>&nbsp;&nbsp; ".htmlspecialchars($query)." &nbsp;&nbsp;<b>--) <b>(</b>".$GLOBALS['__DB_INC_INTERNALS__']['last_time']."<b>)</b></b><br><br>\n\n";
-	
 		return $result; 
+	}
+	function uq($query)
+	{
+		q($query);
+	}
+	function query_count()
+	{
+		return $GLOBALS['__DB_INC_INTERNALS__']['query_count'];
+	}
+	function last_time()
+	{
+		return $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
+	}
+	function total_time()
+	{
+		return $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'];
+	}
+	function last_query($filter='')
+	{
+		if ($filter) {
+			return str_replace("\t", "", str_replace("\n", " ", $GLOBALS['__DB_INC_INTERNALS__']['last_query']));
+		} else {
+			return $GLOBALS['__DB_INC_INTERNALS__']['last_query'];
+		}
 	}
 }
 
@@ -155,93 +198,66 @@ function qf(&$result)
 {
 	unset($result);
 }
-
-function query_count()
-{
-	return $GLOBALS['__DB_INC_INTERNALS__']['query_count'];
-}
-
-function last_query($filter='')
-{
-	if ( $filter ) 
-		return str_replace("\t", "", str_replace("\n", " ", $GLOBALS['__DB_INC_INTERNALS__']['last_query']));
-	else
-		return $GLOBALS['__DB_INC_INTERNALS__']['last_query'];
-}
-
-function last_time()
-{
-	return $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-}
-
-function total_time()
-{
-	return $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'];
-}
-
 function db_count($result)
 {
-	if ( $n=@mysql_num_rows($result) ) 
-		return $n;
-	else
-		return 0;
+	return (int) @mysql_num_rows(result);
 }
-
 function db_lastid($dummy=FALSE, $dummy2=FALSE)
 {
-	return mysql_insert_id($GLOBALS['__DB_INC__']['SQL_LINK']);
+	return mysql_insert_id(FUD_SQL_LNK);
 }
-
-function db_seek($result,$pos)
+function db_seek($result, $pos)
 {
-	return mysql_data_seek($result,$pos);
+	return mysql_data_seek($result, $pos);
 }
 function db_rowobj($result)
 {
 	return mysql_fetch_object($result);
 }
-
 function db_rowarr($result)
 {
 	return mysql_fetch_row($result);
 }
-
 function bq($query)
 {
 	$res = q($query);
-	if ( is_result($res) ) { qf($res); return 1; }
+	if (is_result($res)) {
+		qf($res);
+		return 1;
+	}
 	return 0;
 }
-
 function qobj($qry, &$obj)
 {
 	$r = q($qry);
 	$robj = db_singleobj($r);
-	if ( !$robj ) return;
-
-	foreach($robj as $k => $v) $obj->{$k} = $v;
+	if (!$robj) {
+		return;
+	}
+	foreach($robj as $k => $v) {
+		$obj->{$k} = $v;
+	}
 	
 	return $robj;
 }
-
-function is_result($res)
+function is_result(&$res)
 {
-	if ( db_count($res) ) 
+	if (db_count($res)) {
 		return $res;
-	
+	}
 	qf($res);
 
 	return;
 }
 
-function db_singleobj($res)
+function db_singleobj(&$res)
 {
 	$obj = db_rowobj($res);
 	qf($res);
 	return $obj;
 }
 
-function db_singlearr($res)
+function db_singlearr(&$res)
 {
 	$arr = db_rowarr($res);
 	qf($res);
@@ -250,12 +266,11 @@ function db_singlearr($res)
 
 function q_singleval($query)
 {
-	$r = q($query);
-	if( !is_result($r) ) return;
-	
-	list($val) = db_singlearr($r);
-	
-	return $val;
+	if (($res = @mysql_fetch_row(q($query))) === false) {
+		return;
+	} else {
+		return $res[0];
+	}
 }
 
 function get_field_list($tbl)
@@ -272,8 +287,8 @@ function qry_limit($limit, $off)
 function get_fud_table_list()
 {
 	$ret = array();
-	$r = q("show tables LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
-	while( list($name) = db_rowarr($r) ) $ret[] = $name;
+	$r = uq("show tables LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
+	while (list($ret[]) = db_rowarr($r));
 	qf($r);
 	
 	return $ret;	
@@ -281,22 +296,31 @@ function get_fud_table_list()
 
 function optimize_tables($tbl_list=NULL)
 {
-	if( !$tbl_list ) $tbl_list = get_fud_table_list();
+	if (!$tbl_list) {
+		$tbl_list = get_fud_table_list();
+	}
 
-	foreach($tbl_list as $v) q("OPTIMIZE TABLE ".$v);
+	q('OPTIMIZE TABLE '. implode(', ', $tbl_list));
 }
 
 function sql_concat()
 {
 	if( !func_num_args() ) return;
 	
-	$ret = 'CONCAT(';
-	
-	$args =  func_get_args();
-	foreach( $args as $arg ) {
-		$ret .= $arg.', ';	
-	}
-	
-	return substr($ret, 0, -2).')';
+	return 'CONCAT(' . implode(',', func_get_args()) . ')';
+}
+
+function db_saq($q)
+{
+	return @mysql_fetch_row(q($r));
+}
+function db_qid($q)
+{
+	q($q);
+	return mysql_insert_id(FUD_SQL_LNK);
+}
+function db_arr_assoc($r)
+{
+	return mysql_fetch_array($r, MYSQL_ASSOC);
 }
 ?>

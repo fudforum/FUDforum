@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.23 2003/02/01 20:14:29 hackie Exp $
+*   $Id: post.php.t,v 1.24 2003/03/29 11:40:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -387,7 +387,7 @@
 		 	
 			if( $frm->moderated == 'Y' && !$MOD ) {
 				$ret = create_return();
-				$fp = fopen($GLOBALS['INCLUDE'].'theme/'.$GLOBALS['FUD_THEME']->theme.'/usercp.inc', "rb");
+				$fp = fopen($GLOBALS['INCLUDE'].'theme/'.$GLOBALS['FUD_THEME'][4].'/usercp.inc', "rb");
 				$data = fread($fp, __ffilesize($fp));
 				fclose($fp);
 				$s = strpos($data, '<?php')+5;
@@ -444,7 +444,7 @@ if ( !empty($preview) || !empty($spell) ) {
 	
 	$text_s = htmlspecialchars($text_s);
 		
-	if( !function_exists('pspell_config_create') || !$GLOBALS['FUD_THEME']->pspell_lang ) $spell=0;
+	if( !function_exists('pspell_config_create') || !$GLOBALS['FUD_THEME'][5] ) $spell=0;
 	
 	if ( !empty($spell) && !empty($text) ) $text = check_data_spell($text,'body');
 	fud_wordwrap($text);
@@ -619,7 +619,7 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
 	}	
 	
-	if( $GLOBALS["SPELL_CHECK_ENABLED"]=='Y' && function_exists('pspell_config_create') && $GLOBALS['FUD_THEME']->pspell_lang ) $spell_check_button = '{TEMPLATE: spell_check_button}';
+	if( $GLOBALS["SPELL_CHECK_ENABLED"]=='Y' && function_exists('pspell_config_create') && $GLOBALS['FUD_THEME'][5] ) $spell_check_button = '{TEMPLATE: spell_check_button}';
 
 	$ret = create_return();
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: show.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: show.inc.t,v 1.2 2003/03/29 11:40:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,14 @@
 *
 ***************************************************************************/
 
-if( isset($usr) ) $unread_posts = '{TEMPLATE: unread_posts}';
-if( !$th ) $unanswered_posts = '{TEMPLATE: unanswered_posts}';
-
+if (_uid) {
+	$unread_posts = '{TEMPLATE: unread_posts}';
+} else {
+	$unread_posts = '';
+}
+if (empty($th)) {
+	$unanswered_posts = '{TEMPLATE: unanswered_posts}';
+} else {
+	$unanswered_posts = '';
+}
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admincp.inc.t,v 1.6 2002/11/21 21:42:45 hackie Exp $
+*   $Id: admincp.inc.t,v 1.7 2003/03/29 11:40:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,44 +15,49 @@
 *
 ***************************************************************************/
 
-if( _uid ) {
-	unset($thr_exch,$admin_cp,$accounts_pending_approval,$group_mgr,$reported_msgs,$custom_avatar_queue,$mod_que);
+$thr_exch = $admin_cp = $accounts_pending_approval = $group_mgr = $reported_msgs = $custom_avatar_queue = $mod_que = '';
 
-	if( $usr->is_mod == 'Y' || $usr->is_mod == 'A' ) {
-		if( $GLOBALS["usr"]->is_mod == 'A' ) {
-			if( $avatar_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE avatar_approved='N'") ) 
+if (_uid) {
+	if ($usr->is_mod == 'Y' || $usr->is_mod == 'A') {
+		if ($usr->is_mod == 'A') {
+			if ($avatar_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE avatar_approved='N'")) {
 				$custom_avatar_queue = '{TEMPLATE: custom_avatar_queue}';
-	
-			if( $report_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg_report") ) 
+			}
+			if ($report_count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg_report')) {
 				$reported_msgs = '{TEMPLATE: reported_msgs}';
+			}
 				
-			if( $thr_exchc = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thr_exchange") )
+			if ($thr_exchc = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}thr_exchange')) {
 				$thr_exch = '{TEMPLATE: thr_exch}';
+			}
 			
 			if ($GLOBALS['MODERATE_USER_REGS'] == 'Y' && ($accounts_pending_approval = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE acc_status='P'"))) {
 				$accounts_pending_approval = '{TEMPLATE: accounts_pending_approval}';
 			}
 				
 			$q_limit = '';	
-		}	
-		else {
-			if( $report_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg_report INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}msg_report.msg_id={SQL_TABLE_PREFIX}msg.id INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id=".$GLOBALS["usr"]->id) )
+		} else {
+			if ($report_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg_report INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}msg_report.msg_id={SQL_TABLE_PREFIX}msg.id INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id="._uid)) {
 				$reported_msgs = '{TEMPLATE: reported_msgs}';
+			}
 			
-			if( $thr_exchc = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thr_exchange INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}mod.user_id=".$usr->id." AND {SQL_TABLE_PREFIX}thr_exchange.frm={SQL_TABLE_PREFIX}mod.forum_id") ) 
+			if ($thr_exchc = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thr_exchange INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}mod.user_id="._uid." AND {SQL_TABLE_PREFIX}thr_exchange.frm={SQL_TABLE_PREFIX}mod.forum_id")) {
 				$thr_exch = '{TEMPLATE: thr_exch}';
+			}
 			
-			$q_limit = " INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id="._uid;	
+			$q_limit = " INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id="._uid;
 		}
 		
-		if( $approve_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id ".$q_limit." WHERE {SQL_TABLE_PREFIX}msg.approved='N' AND {SQL_TABLE_PREFIX}forum.moderated='Y'") ) 
+		if ($approve_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id ".$q_limit." WHERE {SQL_TABLE_PREFIX}msg.approved='N' AND {SQL_TABLE_PREFIX}forum.moderated='Y'")) {
 			$mod_que = '{TEMPLATE: mod_que}';
+		}
 	}
-	if( $usr->is_mod=='A' || bq("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE user_id="._uid." AND group_leader='Y' LIMIT 1") )
+	if ($usr->is_mod == 'A' || bq("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE user_id="._uid." AND group_leader='Y' LIMIT 1")) {
 		$group_mgr = '{TEMPLATE: group_mgr}';
+	}
 	
 	if ($thr_exch || $accounts_pending_approval || $group_mgr || $reported_msgs || $custom_avatar_queue || $mod_que) {
 		$admin_cp = '{TEMPLATE: admin_cp}';
 	} 
-}	
+}
 ?>

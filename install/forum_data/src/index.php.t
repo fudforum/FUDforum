@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.19 2002/10/29 00:36:08 hackie Exp $
+*   $Id: index.php.t,v 1.20 2003/03/29 11:40:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,220 +15,224 @@
 *
 ***************************************************************************/
 
+	$frm_id = '';
 	{PRE_HTML_PHP}
 
 function set_collapse($id, $val)
 {
-	if ( isset($GLOBALS['collapse'][$id]) ) return;
+	if (isset($GLOBALS['collapse'][$id])) {
+		return;
+	}
 	$GLOBALS['collapse'][$id] = $val;
 }
 
 function reload_collapse($str)
 {
-	$arr = explode('_', $str);	
-	foreach( $arr as $line ) {
-		list($key, $val) = explode(':', $line);
-		if ( empty($key) ) continue;
-		$GLOBALS['collapse'][$key] = $val;
-	}
+	$tok = strtok($str, '_');
+	do {
+		list($key, $val) = explode(':', $tok);
+		if ((int) $key) {
+			$GLOBALS['collapse'][(int) $key] = (int) $val;
+		}
+	} while (($tok = strtok('_')));
 }
 
 function url_tog_collapse($id)
 {
-	if ( !isset($GLOBALS['collapse'][$id]) ) return;
+	if (!isset($GLOBALS['collapse'][$id])) {
+		return;
+	}
 
-	if( empty($GLOBALS['HTTP_GET_VARS']['c']) ) 
+	if (empty($_GET['c'])) {
 		$str = $id.':'.(empty($GLOBALS['collapse'][$id]) ? '1' : '0');
-	else {
-		if( preg_match('!(^|_)('.$id.':)(0|1)!e', $GLOBALS['HTTP_GET_VARS']['c'], $matched) ) {
+	} else {
+		if (preg_match('!(^|_)('.$id.':)(0|1)!e', $_GET['c'], $matched)) {
 			$val = ($matched[3]=='1')?'0':'1';		
-			$str = preg_replace('!(^|_)'.$id.':'.$matched[3].'!', '\1'.$id.':'.$val, $GLOBALS['HTTP_GET_VARS']['c']);
+			$str = preg_replace('!(^|_)'.$id.':'.$matched[3].'!', '\1'.$id.':'.$val, $_GET['c']);
+		} else {
+			$str = $_GET['c'].'_'.$id.':'.(empty($GLOBALS['collapse'][$id]) ? '1' : '0');
 		}
-		else
-			$str .= $GLOBALS['HTTP_GET_VARS']['c'].'_'.$id.':'.(empty($GLOBALS['collapse'][$id]) ? '1' : '0');
 	}	
 	return $str;	
 }
 
 function iscollapsed($id)
 {
-	if ( !isset($GLOBALS['collapse'][$id]) ) return;
+	if (!isset($GLOBALS['collapse'][$id])) {
+		return;
+	}
 	return $GLOBALS['collapse'][$id];
 }
 
-function index_view_perms($usr_id)
+function index_view_perms()
 {
 	$GLOBALS['NO_VIEW_PERMS'] = array();
 
-	if( empty($usr_id) ) 
-		$usr_id = $usr_str = 0;
-	else 
-		$usr_str = $usr_id.',2147483647';
-
 	$fl = '';
 	$tmp_arr = array();
-	$r = q("SELECT user_id,resource_id,p_READ AS p_read,p_VISIBLE AS p_visible FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN(".$usr_str.") AND resource_type='forum' ORDER BY user_id");
-	while( $obj = db_rowobj($r) ) {
-		if( $obj->p_visible == 'N' ) {
-			$tmp_arr[$obj->resource_id] = 1;
+	$r = uq('SELECT user_id, resource_id, p_READ, p_VISIBLE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('.(_uid ? _uid.',2147483647' : 0).') AND resource_type=\'forum\' ORDER BY user_id');
+	while ($d = db_rowarr($r)) {
+		if ($d[3] == 'N') {
+			$tmp_arr[$d[1]] = 1;
 			continue;
 		}
 		
-		if( $obj->user_id == $usr_id ) {
-			if( $obj->p_read == 'N' ) 
-				$GLOBALS['NO_VIEW_PERMS'][$obj->resource_id] = $obj->resource_id;
+		if ($d[0] == _uid) {
+			if ($d[2] == 'N') {
+				$GLOBALS['NO_VIEW_PERMS'][$d[1]] = $d[1];
+			}
 			
-			$fl .= $obj->resource_id.',';
+			$fl .= $d[1].',';
 				
-			$tmp_arr[$obj->resource_id] = 1;
-		}
-		else if( empty($tmp_arr[$obj->resource_id]) ) {
-			if( $obj->p_visible == 'N' ) continue;
+			$tmp_arr[$d[1]] = 1;
+		} else if (empty($tmp_arr[$d[1]])) {
+			if ($d[3] == 'N') {
+				continue;
+			}
 			
-			if( $obj->p_read == 'N' ) 
-				$GLOBALS['NO_VIEW_PERMS'][$obj->resource_id] = $obj->resource_id;
+			if ($d[2] == 'N') {
+				$GLOBALS['NO_VIEW_PERMS'][$d[1]] = $d[1];
+			}
 
-			$fl .= $obj->resource_id.',';	
+			$fl .= $d[1].',';	
 		}	
 	}	
 	qf($r);
-	unset($tmp_arr);
 	
-	if( !empty($fl) ) $fl = substr($fl, 0, -1);
+	if (!empty($fl)) {
+		$fl = substr($fl, 0, -1);
+	}
 	
 	return $fl;
 }
 
-	/*----------------- END FORM FUNCTIONS --------------------*/
-
-	if( empty($c) ) $c = $GLOBALS['HTTP_GET_VARS']['c'] = $usr->cat_collapse_status;
-
-	if ( !empty($c) ) {
-		reload_collapse($c);
-		if( _uid && $usr->cat_collapse_status != $c && !preg_match('![^0-9:_]!', $c) ) 
+	if (isset($_GET['c'])) {
+		$c = $_GET['c'];
+		if (_uid && $c != $usr->cat_collapse_status) {
 			q("UPDATE {SQL_TABLE_PREFIX}users SET cat_collapse_status='".$c."' WHERE id="._uid);
-	}	
-		
-	if ( isset($ses) ) $ses->update('{TEMPLATE: index_update}');
-	
+		}
+		reload_collapse($c);
+	} else if (_uid && $usr->cat_collapse_status) {
+		$c = $usr->cat_collapse_status;
+		reload_collapse($c);
+	} else {
+		$c = '';
+	}
+
+	if (!_uid) {
+		$mark_all_read = $welcome_message = $frm_sel = $frm_join = '';
+	} else {
+		$welcome_message = '{TEMPLATE: welcome_message}';
+		$frm_sel = ',{SQL_TABLE_PREFIX}forum_read.last_view ';
+		$frm_join = 'LEFT JOIN {SQL_TABLE_PREFIX}forum_read ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}forum_read.forum_id AND {SQL_TABLE_PREFIX}forum_read.user_id='._uid;
+		if ($usr->is_mod != 'A') {
+			$frm_join .= ' WHERE {SQL_TABLE_PREFIX}forum.id IN ('.intzero(index_view_perms()).')';
+		}
+		$ses->update('{TEMPLATE: index_update}');
+		$returnto = '{ROOT}?t=index&amp;'._rsid.'&amp;c='.$c;
+		$mark_all_read = '{TEMPLATE: mark_all_read}';
+	}
+
 	{POST_HTML_PHP}
 	$TITLE_EXTRA = ': {TEMPLATE: index_title}';
 
-	if ( isset($usr) ) {
-		$last_login = $usr->last_visit;
-		$welcome_message = '{TEMPLATE: welcome_message}';
-		$frm_sel = '{SQL_TABLE_PREFIX}forum_read.last_view,';
-		$frm_join = 'LEFT JOIN {SQL_TABLE_PREFIX}forum_read ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}forum_read.forum_id AND {SQL_TABLE_PREFIX}forum_read.user_id='.$usr->id;
-	}
-	else $frm_sel=$frm_join='';
-	
 	$forum_list_table_data = '';
 	
-	if( $usr->is_mod != 'A' ) {
-		$lmt = index_view_perms(_uid);
-		if( !$lmt ) $lmt = 0;
-		$qry_limit = " WHERE {SQL_TABLE_PREFIX}forum.id IN (".$lmt.")";
-	}	
-	
-	$frmres = q("SELECT {SQL_TABLE_PREFIX}msg.subject, {SQL_TABLE_PREFIX}cat.description, {SQL_TABLE_PREFIX}cat.name AS cat_name, {SQL_TABLE_PREFIX}cat.default_view, {SQL_TABLE_PREFIX}cat.allow_collapse, {SQL_TABLE_PREFIX}forum.*, ".$frm_sel." {SQL_TABLE_PREFIX}msg.id AS msg_id, {SQL_TABLE_PREFIX}msg.post_stamp AS msg_post_stamp, {SQL_TABLE_PREFIX}users.id AS user_id, {SQL_TABLE_PREFIX}users.alias AS user_login
-		FROM 
-			{SQL_TABLE_PREFIX}cat
-			INNER JOIN {SQL_TABLE_PREFIX}forum 
-				ON {SQL_TABLE_PREFIX}cat.id={SQL_TABLE_PREFIX}forum.cat_id
-			LEFT JOIN {SQL_TABLE_PREFIX}msg 
-				ON {SQL_TABLE_PREFIX}forum.last_post_id={SQL_TABLE_PREFIX}msg.id 
-			LEFT JOIN {SQL_TABLE_PREFIX}users 
-				ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id
-			".$frm_join.$qry_limit."
-			ORDER BY 
-				{SQL_TABLE_PREFIX}cat.view_order,
-				{SQL_TABLE_PREFIX}forum.view_order");
-	$cat=0;	
-	
-	while ( $data = db_rowobj($frmres) ) {
-		if( $cat != $data->cat_id ) {
-			if ( $data->allow_collapse == 'Y' ) {
-				set_collapse($data->cat_id, (($data->default_view=='COLLAPSED')?'1':'0'));
+	/* List of fetched fields & their ids
+	  0	msg.subject, 
+	  1	msg.id AS msg_id, 
+	  2	msg.post_stamp AS msg_post_stamp, 
+	  3	users.id AS user_id, 
+	  4	users.alias
+	  5	cat.description, 
+	  6	cat.name AS cat_name, 
+	  7	cat.default_view, 
+	  8	cat.allow_collapse, 
+	  9	forum.cat_id,
+	  10	forum.forum_icon
+	  11	forum.id
+	  12	forum.last_post_id
+	  13	forum.moderators
+	  14	forum.name
+	  15	forum.descr
+	  16	forum.post_count
+	  17	forum.thread_count
+	  18	forum_read.last_view
+	*/
+	$frmres = uq('SELECT {SQL_TABLE_PREFIX}msg.subject,{SQL_TABLE_PREFIX}msg.id AS msg_id,{SQL_TABLE_PREFIX}msg.post_stamp AS msg_post_stamp,{SQL_TABLE_PREFIX}users.id AS user_id,{SQL_TABLE_PREFIX}users.alias,{SQL_TABLE_PREFIX}cat.description,{SQL_TABLE_PREFIX}cat.name AS cat_name,{SQL_TABLE_PREFIX}cat.default_view,{SQL_TABLE_PREFIX}cat.allow_collapse,{SQL_TABLE_PREFIX}forum.cat_id,{SQL_TABLE_PREFIX}forum.forum_icon,{SQL_TABLE_PREFIX}forum.id,{SQL_TABLE_PREFIX}forum.last_post_id,{SQL_TABLE_PREFIX}forum.moderators,{SQL_TABLE_PREFIX}forum.name,{SQL_TABLE_PREFIX}forum.descr,{SQL_TABLE_PREFIX}forum.post_count,{SQL_TABLE_PREFIX}forum.thread_count '.$frm_sel.' FROM {SQL_TABLE_PREFIX}cat INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}cat.id={SQL_TABLE_PREFIX}forum.cat_id LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}forum.last_post_id={SQL_TABLE_PREFIX}msg.id LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id '.$frm_join.' ORDER BY {SQL_TABLE_PREFIX}cat.view_order, {SQL_TABLE_PREFIX}forum.view_order');
+
+	$cat = 0;	
+	while ($r = db_rowarr($frmres)) {
+		if ($cat != $r[9]) {
+			if ($r[8] == 'Y') {
+				set_collapse($r[9], ($r[7] == 'COLLAPSED' ? 1 : 0));
 				
-				if( iscollapsed($data->cat_id) ) {
+				if (iscollapsed($r[9])) {
 					$collapse_status = '{TEMPLATE: maximize_category}';
 					$collapse_indicator = '{TEMPLATE: collapse_indicator_MAX}';
-				}
-				else {
+				} else {
 					$collapse_status = '{TEMPLATE: minimize_category}';
 					$collapse_indicator = '{TEMPLATE: collapse_indicator_MIN}';
 				}
 				
-				$collapse_url = '{ROOT}?t=index&amp;c='.url_tog_collapse($data->cat_id).'&amp;'._rsid;
+				$collapse_url = '{ROOT}?t=index&amp;c='.url_tog_collapse($r[9]).'&amp;'._rsid;
 				
 				$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_Y}';
-			}
-			else {
+			} else {
 				$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_N}';
 			}
-			$cat = $data->cat_id;
+			$cat = $r[9];
 		}
 		
-		if( iscollapsed($data->cat_id) ) continue;
+		if (iscollapsed($r[9])) {
+			continue;
+		}
 		
-		if ( $data->forum_icon ) 
+		if ($r[10]) {
 			$forum_icon = '{TEMPLATE: forum_icon}';
-		else
+		} else {
 			$forum_icon = '{TEMPLATE: no_forum_icon}';
+		}
 		
-		$forum_link = '{ROOT}?t='.t_thread_view.'&amp;frm_id='.$data->id.'&amp;'._rsid;
+		$forum_link = '{ROOT}?t='.t_thread_view.'&amp;frm_id='.$r[11].'&amp;'._rsid;
 
-		if( isset($GLOBALS['NO_VIEW_PERMS'][$data->id]) ) {
-			
+		if (isset($GLOBALS['NO_VIEW_PERMS'][$r[11]])) {
 			$forum_list_table_data .= '{TEMPLATE: forum_with_no_view_perms}';
 			continue;
 		}
 	
-		if ( isset($usr) && $data->last_view < $data->msg_post_stamp && $usr->last_read < $data->msg_post_stamp )
+		if (_uid && $r[18] < $r[2] && $usr->last_read < $r[2]) {
 			$forum_read_indicator = '{TEMPLATE: forum_unread}';
-		else if( isset($usr) ) 
+		} else if (_uid) {
 			$forum_read_indicator = '{TEMPLATE: forum_read}';
-		else
-			$forum_read_indicator = '{TEMPLATE: forum_no_indicator}';			
-
-		if( $data->last_post_id ) {
-			if( !empty($data->user_id) ) {
-				$profile_link = '{ROOT}?t=usrinfo&amp;id='.$data->user_id.'&amp;'._rsid;
-				$last_poster_profile = '{TEMPLATE: profile_link_user}';
-			}	
-			else
-				$last_poster_profile = '{TEMPLATE: profile_link_anon}';
-				
-			$last_post_link	= '{ROOT}?t='.d_thread_view.'&amp;goto='.$data->last_post_id.'&amp;'._rsid;
-			$last_post_link = '{TEMPLATE: last_post_link}';
-			
-			$last_post = '{TEMPLATE: last_post}';
+		} else {
+			$forum_read_indicator = '{TEMPLATE: forum_no_indicator}';
 		}
-		else {
+
+		if ($r[12]) {
+			if ($r[3]) {
+				$last_poster_profile = '{TEMPLATE: profile_link_user}';
+			} else {
+				$last_poster_profile = '{TEMPLATE: profile_link_anon}';
+			}
+			$last_post = '{TEMPLATE: last_post}';
+		} else {
 			$last_post = '{TEMPLATE: na}';
 		}
 		
-		if( $data->moderators ) {
-			$ma = explode("\n\n", $data->moderators);
-			$moderators = '';
-			foreach($ma as $v) { 
-				$ma_d = explode("\n", $v);
-				$moderators .= '{TEMPLATE: profile_link_mod}';
+		if ($r[14] && ($mods = @unserialize($r[13]))) {
+			foreach($mods as $k => $v) {
+				$moderators .= '{TEMPLATE: profile_link_mod}';	
 			}
+		} else {
+			$moderators = '{TEMPLATE: no_mod}';
 		}
-		else $moderators = '{TEMPLATE: no_mod}';
 		
 		$forum_list_table_data .= '{TEMPLATE: index_forum_entry}';
 	}
 	
 	qf($frmres);
 
-	if( isset($usr) ) {
-		$mark_read_link = '{ROOT}?t=markread&amp;'._rsid.'&amp;returnto='.urlencode('{ROOT}?t=index&amp;'._rsid.'&amp;c='.(isset($c)?$c:''));
-		$mark_all_read = '{TEMPLATE: mark_all_read}';
-	}
-	else $mark_all_read = '';		
-	
 	{POST_PAGE_PHP_CODE}
 ?>
 {TEMPLATE: INDEX_PAGE}

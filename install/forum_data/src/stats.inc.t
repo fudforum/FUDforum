@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: stats.inc.t,v 1.3 2002/07/30 22:56:32 hackie Exp $
+*   $Id: stats.inc.t,v 1.4 2003/03/29 11:40:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,16 +14,14 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-$page_gen_time = (db_getmicrotime() - $GLOBALS['PAGE_TIME']);
+$page_gen_end = gettimeofday();
+$page_gen_time = sprintf("%.5f", ($page_gen_end['sec'] - $GLOBALS['PAGE_TIME']['sec'] + (($page_gen_end['usec'] - $GLOBALS['PAGE_TIME']['usec'])/1000000)));
 
-if( defined("fud_query_stats") ) {
-	$q_time = query_count();
-	$ttl_time = total_time();
-	$fud_query_stats = '{TEMPLATE: fud_query_stats}';
-}	
-
-if ( isset($usr) && $usr->is_mod == 'A' )
+if (_uid && $usr->is_mod == 'A') {
 	$page_stats = '{TEMPLATE: admin_page_stats}';
-else if ( $GLOBALS['PUBLIC_STATS'] == 'Y' ) 
+} else if ($GLOBALS['PUBLIC_STATS'] == 'Y') {
 	$page_stats = '{TEMPLATE: public_page_stats}';
+} else {
+	$page_stats = '';
+}
 ?>

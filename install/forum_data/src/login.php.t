@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.14 2003/03/28 09:41:58 hackie Exp $
+*   $Id: login.php.t,v 1.15 2003/03/29 11:40:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,8 @@
 	
 	{PRE_HTML_PHP}	
 	$usr = fud_user_to_reg($usr);
-	clear_old_sessions();
+	/* clear old sessions */
+	q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<".(__request_timestamp__-$GLOBALS['COOKIE_TIMEOUT'])." OR (time_sec<".(__request_timestamp__-$GLOBALS['SESSION_TIMEOUT'])." AND sys_id!=0)");
 
 	/* Remove old unconfirmed users */
 	if( $EMAIL_CONFIRMATION == 'Y' ) {

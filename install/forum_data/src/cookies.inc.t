@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.11 2002/12/13 16:31:04 hackie Exp $
+*   $Id: cookies.inc.t,v 1.12 2003/03/29 11:40:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,21 +15,18 @@
 *
 ***************************************************************************/
 
-	
 class fud_session
 {
-	var $id=NULL;
-	var $ses_id=NULL;
-	var $tm=NULL;
-	var $user_id=NULL;
-	var $data=NULL;
-	var $action=NULL;
-	var $sys_id=NULL;
+	var $id, $ses_id, $tm, $user_id, $data, $action, $sys_id;
 
-	function update($str='', $forum_id='')
+	function update($str=NULL, $forum_id=0)
 	{
-		if ( strlen($str) ) $this->action = $str;
-		q("UPDATE {SQL_TABLE_PREFIX}ses SET forum_id=".intval($forum_id).", time_sec=".__request_timestamp__.", action=".strnull(addslashes($this->action))." WHERE id=".$this->id);
+		if ($str) {
+			$this->action = $str;
+			q('UPDATE {SQL_TABLE_PREFIX}ses SET forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action='.strnull(addslashes($this->action)).' WHERE id='.$this->id);
+		} else {
+			q('UPDATE {SQL_TABLE_PREFIX}ses SET forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action=NULL WHERE id='.$this->id);
+		}
 	}
 
 	function putvar($name, $val)
@@ -47,129 +44,112 @@ class fud_session
 		unset($this->data[$name]);
 	}
 	
-	function save_session($user_id='',$not_use_cookie='')
+	function save_session($user_id=0,$not_use_cookie='')
 	{
-		if ( !empty($user_id) ) $this->user_id = $user_id;
+		if ($user_id) {
+			$this->user_id = $user_id;
+		}
 
-		if( is_array($this->data) && count($this->data) ) {
-			$db_str = '$this->data = array(';
-			foreach($this->data as $key => $val)
-				$db_str .= "'".addcslashes($key,"'")."'=>'".addcslashes($val,"'")."',";;
-			$db_str = substr($db_str, 0, -1).');';
+		if ($this->data) {
+			$db_str = "'". addslashes(serialize($this->data)) . "'";
+		} else {
+			$db_str = 'NULL';
 		}
 		
-		if( $GLOBALS['MULTI_HOST_LOGIN'] == 'Y' && $this->user_id && !$not_use_cookie ) {
-			if( db_count(($r=q("SELECT ses_id,id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='".$this->user_id."'"))) ) {
-				$obj = db_singleobj($r);
+		if ($GLOBALS['MULTI_HOST_LOGIN'] == 'Y' && $this->user_id && !$not_use_cookie) {
+			if (($res = db_saq("SELECT ses_id, id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='".$this->user_id."'"))) {
+				if ($res[1] != $this->id) {
+					q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id='.$this->id);
+				}
 				
-				if( $obj->id != $this->id ) q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id=".$this->id);
-				
-				$this->id = $obj->id;
-				$this->ses_id = $obj->ses_id;
+				$this->id = $res[1];
+				$this->ses_id = $res[2];
 			}
-			else
-				qf($r);
 		}
 		
-		$this->tm = __request_timestamp__;
-		
-		if ( empty($this->id) ) {
-			
-			if ( !empty($this->user_id) && $this->user_id<2000000000 )
+		if (!$this->id) {
+			if ($this->user_id && $this->user_id < 2000000000) {
 				q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$this->user_id);
-			else 
-				$this->user_id=0;
-			if ( !db_locked() ) {
+			} else {
+				$this->user_id = 0;
+			}
+
+			if (!db_locked()) {
 				db_lock('{SQL_TABLE_PREFIX}ses+');
 				$ll = 1;
 			}
-				while ( bq("SELECT id FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='".($ses_id = md5(get_random_value(128)))."'") );
-				if( empty($this->user_id) ) $this->user_id = q_singleval("SELECT 
-												CASE WHEN 
-													MAX(user_id)>2000000000
-												THEN
-													MAX(user_id)+1
-												ELSE
-													2000000001		
-												END FROM {SQL_TABLE_PREFIX}ses");
-				$r=q("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id,time_sec,data,sys_id,user_id) VALUES('".$ses_id."',".$this->tm.",'".addslashes($db_str)."', '".md5($GLOBALS["HTTP_SERVER_VARS"]["HTTP_USER_AGENT"].$GLOBALS["HTTP_SERVER_VARS"]["REMOTE_ADDR"].$GLOBALS["HTTP_SERVER_VARS"]["HTTP_X_FORWARDED_FOR"])."',".$this->user_id.")");
-				$this->id = db_lastid("{SQL_TABLE_PREFIX}ses", $r);
-			if ( $ll ) db_unlock();
+
+			while (bq("SELECT id FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='".($ses_id = md5(get_random_value(128)))."'"));
+			if(!$this->user_id) {
+				$this->user_id = q_singleval("SELECT CASE WHEN MAX(user_id)>2000000000 THEN MAX(user_id)+1 ELSE 2000000001 END FROM {SQL_TABLE_PREFIX}ses");
+			}
+
+			$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id,time_sec,data,sys_id,user_id) VALUES('".$ses_id."',".__request_timestamp__.", ".$db_str.", '".md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_X_FORWARDED_FOR'])."',".$this->user_id.")");
+
+			if (isset($ll)) {
+				db_unlock();
+			}
 			
 			$this->ses_id = $ses_id;
-		} 
-		else {
-			if ( !empty($this->user_id) && $this->user_id<2000000000 ) {
+		} else {
+			if ($this->user_id && $this->user_id<2000000000) {
 				q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$this->user_id." AND ses_id!='".$this->ses_id."'");
 				$usr_id_fld = ' user_id='.$this->user_id.',';
 			}	
 			
-			if( empty($GLOBALS['HTTP_COOKIE_VARS'][$GLOBALS['COOKIE_NAME']]) || $not_use_cookie ) 
-				$sys_id = md5($GLOBALS["HTTP_SERVER_VARS"]["HTTP_USER_AGENT"].$GLOBALS["HTTP_SERVER_VARS"]["REMOTE_ADDR"].$GLOBALS["HTTP_SERVER_VARS"]["HTTP_X_FORWARDED_FOR"]);
-			else 
-				$sys_id = 0;
-			
-			q("UPDATE {SQL_TABLE_PREFIX}ses SET sys_id='".$sys_id."', ".$usr_id_fld." time_sec=".$this->tm.", data='".addslashes($db_str)."' WHERE id=".$this->id);
+			if (isset($_COOKIE[$GLOBALS['COOKIE_NAME']]) || $not_use_cookie) {
+				q("UPDATE {SQL_TABLE_PREFIX}ses SET sys_id='".md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_X_FORWARDED_FOR'])."', ".$usr_id_fld." time_sec=".__request_timestamp__.", data=".$db_str." WHERE id=".$this->id);
+			} else {
+				q("UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=NULL, ".(isset($usr_id_fld)?$usr_id_fld:'')." time_sec=".__request_timestamp__.", data=".$db_str." WHERE id=".$this->id);
+			}
 		}
 		
-		if( empty($not_use_cookie) ) $this->cookie_set_session($this->ses_id);
+		if (empty($not_use_cookie)) {
+			setcookie($GLOBALS['COOKIE_NAME'], $this->ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+		}
 		
 		return $this->ses_id;
 	}
 	
 	function restore_session($ses_id)
 	{
-		if( empty($this->sys_id) ) 
-			qobj("SELECT * FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='".$ses_id."'", $this);
-		else
-			qobj("SELECT * FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='".$ses_id."' AND sys_id='".$this->sys_id."'", $this);	
+		if (!$this->sys_id) {
+			qobj("SELECT * FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='".addslashes($ses_id)."'", $this);
+		} else {
+			qobj("SELECT * FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='".addslashes($ses_id)."' AND sys_id='".$this->sys_id."'", $this);	
+		}
 			
-		if( empty($this->id) ) return;	
+		if ($this->id) {
+			return;
+		}
 			
-		if( !empty($this->data) ) eval($this->data);
+		if ($this->data) {
+			$this->data = unserialize($this->data);
+		}
 		
 		return $this->ses_id;
 	}
 	
 	function delete_session()
 	{
-		if ( empty($this->id) ) return;	
+		if (!$this->id) {
+			return;	
+		}
 		q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id=".$this->id." OR ses_id='".$this->ses_id."'");
-		$this->user_id = $this->ses_id = $this->id = $this->data = $this->action = NULL;
-		clear_cookie();
+		unset($this->user_id,$this->ses_id,$this->id,$this->data,$this->action);
+		setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+
 		return 1;
-	}
-	
-	function cookie_set_session($ses_id)
-	{
-		setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 	}
 	
 	function cookie_get_session()
 	{
-		if( !empty($GLOBALS['HTTP_COOKIE_VARS'][$GLOBALS['COOKIE_NAME']]) )
-			return $this->restore_session($GLOBALS['HTTP_COOKIE_VARS'][$GLOBALS['COOKIE_NAME']]);
-		else if( !empty($GLOBALS["HTTP_GET_VARS"]["S"]) || !empty($GLOBALS["HTTP_POST_VARS"]["S"]) ) {
-			$this->sys_id = md5($GLOBALS["HTTP_SERVER_VARS"]["HTTP_USER_AGENT"].$GLOBALS["HTTP_SERVER_VARS"]["REMOTE_ADDR"].$GLOBALS["HTTP_SERVER_VARS"]["HTTP_X_FORWARDED_FOR"]);
-			return $this->restore_session((!empty($GLOBALS["HTTP_GET_VARS"]["S"])?$GLOBALS["HTTP_GET_VARS"]["S"]:$GLOBALS["HTTP_POST_VARS"]["S"]));
-		}	
-		else
-			return;
+		if (isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
+			return $this->restore_session($_COOKIE[$GLOBALS['COOKIE_NAME']]);
+		} else if (isset($_REQUEST['S'])) {
+			$this->sys_id = md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_X_FORWARDED_FOR']);
+			return $this->restore_session($_REQUEST['S']);
+		}
 	}
-}
-
-function clear_cookie()
-{
-	setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
-}
-
-function set_referer_cookie($id)
-{
-	setcookie('frm_referer_id', $id, __request_timestamp__+31536000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
-}
-
-function clear_old_sessions()
-{
-	q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<".(__request_timestamp__-$GLOBALS['COOKIE_TIMEOUT'])." OR (time_sec<".(__request_timestamp__-$GLOBALS['SESSION_TIMEOUT'])." AND sys_id!=0)");
 }
 ?>
