@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.tmpl,v 1.14 2002/09/09 21:04:44 hackie Exp $
+*   $Id: tree.tmpl,v 1.15 2002/09/10 04:26:19 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -69,11 +69,11 @@
 {SECTION: END}
 
 {SECTION: sub_from_thread subscribe to thread link}
-| <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: th}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=on&amp;start={VAR: start}" title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</a>&nbsp;
+| <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: th}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=on&amp;mid={VAR: mid}" title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: unsub_to_thread unsubscribe from thread link}
-| <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: th}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=off&amp;start={VAR: start}" title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</a>&nbsp;
+| <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: th}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=off&amp;mid={VAR: mid}" title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: flat_view switch to flat view link}
