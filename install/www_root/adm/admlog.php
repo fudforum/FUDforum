@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlog.php,v 1.22 2003/10/16 21:59:05 hackie Exp $
+* $Id: admlog.php,v 1.23 2003/10/17 00:58:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -90,6 +90,9 @@ function return_forum_name($id)
 				break;
 			case "THRSPLIT":
 				echo '<td>Split Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
+				break;
+			case "THRMERGE":
+				echo '<td>Merged Topic</td><td>thread: "'.return_thread_subject($obj->a_res_id).'" is a result of merging "'.$obj->logaction.'" topics.</td>';
 				break;
 			case "MSGEDIT":
 				echo '<td>Edited Message</td><td>msg: '.return_msg_subject($obj->a_res_id).'</td>';

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.11 2003/10/16 21:59:04 hackie Exp $
+* $Id: merge_th.php.t,v 1.12 2003/10/17 00:58:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -101,6 +101,8 @@
 				q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-".(count($_POST['sel_th']) - 1)." WHERE id={$frm}");
 			}
 			db_unlock();
+
+			logaction(_uid, 'THRMERGE', $new_th, count($_POST['sel_th']));
 			unset($_POST['sel_th']);
 		}
 	}
