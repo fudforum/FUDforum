@@ -362,7 +362,9 @@ http://a.com/index.php/a/b/c/. This makes forum's URLs much easier to remember
 as well as more search engine friendly. Unfortunately this feature mostly works
 with Apache 1.X based servers and may not work with other webservers. To see if
 your webserver supports this feature, click on the test link above. If you see
-forum's front page, then you can make use of this feature.
+forum's front page, then you can make use of this feature. To make use of this
+you will also need to create a new template based on the 'path_info' template
+set.
 
 ALLOW_PROFILE_IMAGE
 Whether or not to allow users to enter a URL to an image in their profile that
