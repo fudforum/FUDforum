@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.7 2002/07/22 14:53:37 hackie Exp $
+*   $Id: groups.inc.t,v 1.8 2002/10/09 02:05:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -169,11 +169,13 @@ class fud_group
 		}
 		
 		/* delete 'em resources not present in the rslist */
-		foreach($cur_rslist as $type => $idlist) {
-			foreach($idlist as $id) {
-				if ( !isset($rslist[$type][$id]) ) $this->delete_resource($type, $id);
+		if( is_array($cur_rslist) ) {
+			foreach($cur_rslist as $type => $idlist) {
+				foreach($idlist as $id => $tmp) {
+					if ( !isset($rslist[$type][$id]) ) $this->delete_resource($type, $id);
+				}
 			}
-		}
+		}	
 		
 		if ( $ll ) db_unlock();
 	}
