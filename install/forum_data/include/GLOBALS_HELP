@@ -394,3 +394,6 @@ Whether or not to validate session's against user IP While this may increase sec
 
 {{{HIDE_PROFILES_FROM_ANON	FUD_OPT_3	32
 If enabled, anonymous and unconfirmed forum members will not be able to view profiles of registered users.}}}
+
+{{{SMART_EMAIL_NOTIFICATION	FUD_OPT_3	64
+Enable 'smart' e-mail notification mechanism that would only notify users if they read previous notification. This prevents filling up of the user's mailbox with notifications if they are not readin them.}}}
