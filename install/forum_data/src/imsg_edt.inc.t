@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.30 2003/04/08 17:27:50 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.31 2003/04/08 19:12:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -111,7 +111,7 @@ class fud_msg_edit extends fud_msg
 			if ((!empty($GLOBALS['MOD']) || $sticky_perm == 'Y') && isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry'])) {
 				if ($_POST['thr_ordertype'] != 'NONE' && ($_POST['thr_ordertype'] == 'ANNOUNCE' || $_POST['thr_ordertype'] == 'STICKY')) {
 					$is_sticky = 'Y';
-					$thr_ordertype = $_POST['thr_ordertype'];
+					$thr_ordertype = "'".$_POST['thr_ordertype']."'";
 					$thr_orderexpiry = (int) $_POST['thr_orderexpiry'];
 				} else {
 					$is_sticky = 'N';
@@ -132,7 +132,7 @@ class fud_msg_edit extends fud_msg
 		}
 		
 		if ($autoapprove && $moderated == 'Y') {
-			$this->approve(NULL, TRUE);
+			$this->approve($this->id, TRUE);
 		}
 
 		return $this->id;
@@ -141,7 +141,7 @@ class fud_msg_edit extends fud_msg
 	function sync($id, $frm_id, $message_threshold, $sticky_perm, $lock_perm)
 	{
 		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}cat WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}thread_view WRITE');
+			db_lock('{SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}thread_view WRITE');
 			$ll=1;
 		}
 		$file_id = write_body($this->body, $length, $offset);
@@ -324,27 +324,25 @@ class fud_msg_edit extends fud_msg
 	
 	function approve($id, $unlock_safe=FALSE)
 	{	
-		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}cat WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE');
-			$ll = 1;
-		}
-
 		/* fetch info about the message, poll (if one exists), thread & forum */
 		$mtf = db_sab('SELECT
 					m.id, m.poster_id, m.approved, m.subject, m.foff, m.length, m.file_id, m.thread_id, m.poll_id, m.attach_cnt,
 					m.post_stamp, m.show_sig, m.reply_to,
 					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date,
-					p.name,
 					m2.post_stamp AS frm_last_post_date,
 					f.name AS frm_name,
-					u.alias,u.email,u.sig
+					u.alias, u.email, u.sig
 				FROM {SQL_TABLE_PREFIX}msg m 
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
-				LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
-				LEFT JOIN {SQL_TABLE_PREFIX}msg m2 ON f.last_post_id.m2.id
+				LEFT JOIN {SQL_TABLE_PREFIX}msg m2 ON f.last_post_id=m2.id
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 				WHERE m.id='.$id.' AND m.approved=\'N\'');
+
+		if (!db_locked()) {
+			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE');
+			$ll = 1;
+		}
 
 		/* nothing to do or bad message id */
 		if (!$mtf) {
@@ -355,8 +353,6 @@ class fud_msg_edit extends fud_msg
 		} else {
 			$mtf->alias = $GLOBALS['ANON_NICK'];
 		}
-
-		$mtf->body = read_msg_body($mtf->foff, $mtf->length, $mtf->file_id);
 
 		q("UPDATE {SQL_TABLE_PREFIX}msg SET approved='Y' WHERE id=".$mtf->id);
 			
@@ -386,6 +382,8 @@ class fud_msg_edit extends fud_msg
 			db_unlock();
 		}
 
+		$mtf->body = read_msg_body($mtf->foff, $mtf->length, $mtf->file_id);
+
 		if ($GLOBALS['FORUM_SEARCH'] == 'Y') {
 			index_text((preg_match('!Re: !i', $mtf->subject) ? '': $mtf->subject), $mtf->body, $mtf->id);
 		}
@@ -396,11 +394,12 @@ class fud_msg_edit extends fud_msg
 			$c = uq('SELECT u.email, u.icq, u.notify_method
 					FROM {SQL_TABLE_PREFIX}forum_notify fn
 					INNER JOIN {SQL_TABLE_PREFIX}users u ON fn.user_id=u.id 
-					INNER JOIN {SQL_TABLE_PREFIX}read r ON t.thread_id=tn.thread_id AND r.user_id=tn.user_id
+					LEFT JOIN {SQL_TABLE_PREFIX}forum_read r ON r.forum_id=fn.forum_id AND r.user_id=fn.user_id
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=fn.user_id AND g2.resource_id='.$mtf->forum_id.' 
 				WHERE 
 					fn.forum_id='.$mtf->thread_id.' AND fn.user_id!='.intzero($mtf->poster_id).' 
+					AND (CASE WHEN r.last_view IS NULL || r.last_view > '.$mtf->frm_last_post_date.' THEN 1 ELSE 0 END)=1
 					AND (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\'');
 			$notify_type = 'frm';
 		} else {
@@ -408,11 +407,12 @@ class fud_msg_edit extends fud_msg
 			$c = uq('SELECT u.email, u.icq, u.notify_method
 					FROM {SQL_TABLE_PREFIX}thread_notify tn
 					INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id 
-					INNER JOIN {SQL_TABLE_PREFIX}read r ON t.thread_id=tn.thread_id AND r.user_id=tn.user_id
+					LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=tn.thread_id AND r.user_id=tn.user_id
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=tn.user_id AND g2.resource_id='.$mtf->forum_id.' 
 				WHERE 
-					tn.thread_id='.$mtf->thread_id.' AND tn.user_id!='.intzero($mtf->poster_id).' AND r.msg_id='.$mtf->last_post_id.' 
+					tn.thread_id='.$mtf->thread_id.' AND tn.user_id!='.intzero($mtf->poster_id).' 
+					AND r.msg_id='.$mtf->last_post_id.' 
 					AND (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\'');
 			$notify_type = 'thr';
 		}

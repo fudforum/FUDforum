@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.35 2003/04/08 17:36:55 hackie Exp $
+*   $Id: post.php.t,v 1.36 2003/04/08 19:12:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -107,8 +107,8 @@
 	/* Retrieve Message */
 	if (!isset($_POST['prev_loaded'])) { 
 		if (_uid) {
-			$msg_show_sig = $usr->append_sig;
-			$msg_poster_notif = $usr->notify;
+			$msg_show_sig = $usr->append_sig == 'Y' ? $usr->append_sig : NULL;
+			$msg_poster_notif = $usr->notify == 'Y' ? $usr->notify : NULL;
 		}
 		
 		if ($msg_id) {
@@ -187,7 +187,7 @@
 		$msg_show_sig		= isset($_POST['msg_show_sig']) ? $_POST['msg_show_sig'] : NULL;
 		$msg_smiley_disabled	= isset($_POST['msg_smiley_disabled']) ? $_POST['msg_smiley_disabled'] : NULL;
 		$msg_poster_notif	= isset($_POST['msg_poster_notif']) ? $_POST['msg_poster_notif'] : NULL;
-		$pl_id			= !empty($_POST['pl_id']) ? (int) $_POST['pl_id'] : 0;
+		$pl_id			= !empty($_POST['pl_id']) ? poll_validate((int)$_POST['pl_id'], $msg_id) : 0;
 		$msg_body		= $_POST['msg_body'];
 		$msg_subject		= $_POST['msg_subject'];
 
@@ -353,7 +353,7 @@
 			}	
 			
 			if (!$msg_id && ($frm->moderated == 'N' || $MOD)) {
-				$msg_post->approve(NULL, TRUE);
+				$msg_post->approve($msg_post->id, TRUE);
 			}	
 	
 			/* deal with notifications */
@@ -383,17 +383,17 @@
 				exit;
 			} else {
 				if ($usr->returnto) {
-					parse_url($usr->returnto, $tmp);
-					$t = $tmp['t'];
+					parse_str($usr->returnto, $tmp);
+					if ($tmp['t'] == 'selmsg') { /* send the user to previous page */
+						check_return($usr->returnto);
+					}
+					$t = ($tmp['t'] == 'tree' || $tmp['t'] == 'msg') ? $tmp['t'] : d_thread_view;
 				} else {
 					$t = d_thread_view;
 				}
-				if ($t == 'selmsg') { /* send the user to previous page */
-					check_return($usr->returnto);
-				} else { /* redirect user to their message */
-					header('Location: {ROOT}?t='.$t.'&goto='.$msg_post->id.'&'._rsidl);
-					exit;
-				}
+				/* redirect the user to their message */
+				header('Location: {ROOT}?t='.$t.'&goto='.$msg_post->id.'&'._rsidl);
+				exit;
 			}
 		} /* Form submitted and user redirected to own message */
 	} /* $prevloaded is SET, this form has been submitted */
@@ -503,8 +503,12 @@
 	if ($MOD || $perms['p_sticky'] == 'Y') {
 		if (!isset($thr) || ($thr->root_msg_id == $msg->id && !$reply_to)) {
 			if (!isset($_POST['prev_loaded'])) {
-				$thr_ordertype = $thr->ordertype;
-				$thr_orderexpiry = $thr->orderexpiry;
+				if (!isset($thr)) {
+					$thr_ordertype = $thr_orderexpiry = '';
+				} else {
+					$thr_ordertype = $thr->ordertype;
+					$thr_orderexpiry = $thr->orderexpiry;
+				}
 			} else {
 				$thr_ordertype = isset($_POST['thr_ordertype']) ? $_POST['thr_ordertype'] : '';
 				$thr_orderexpiry = isset($_POST['thr_orderexpiry']) ? $_POST['thr_orderexpiry'] : '';
@@ -523,6 +527,8 @@
 			$thr_locked_checked = $thr->locked == 'Y' ? ' checked' : '';
 		} else if (isset($_POST['prev_loaded'])) {
 			$thr_locked_checked = isset($_POST['thr_locked']) ? ' checked' : '';
+		} else {
+			$thr_locked_checked = '';
 		}
 		$mod_post_opts = '{TEMPLATE: mod_post_opts}';
 	}

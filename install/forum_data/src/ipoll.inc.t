@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipoll.inc.t,v 1.8 2003/04/08 08:24:19 hackie Exp $
+*   $Id: ipoll.inc.t,v 1.9 2003/04/08 19:12:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -210,5 +210,14 @@ function poll_opt_sync($id, $name)
 function poll_opt_add($name, $poll_id)
 {
 	return db_qid("INSERT INTO {SQL_TABLE_PREFIX}poll_opt (poll_id,name) VALUES(".$poll_id.", '".addslashes($name)."')");
+}
+
+function poll_validate($poll_id, $msg_id)
+{
+	if ((int) q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE poll_id='.$poll_id) != $msg_id) {
+		return 0;
+	} else {
+		return $poll_id;
+	}
 }
 ?>
