@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.46 2004/11/24 19:53:39 hackie Exp $
+* $Id: post.tmpl,v 1.47 2005/02/25 16:18:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -189,28 +189,12 @@ if (!document.post_form.msg_subject.value.length) {
 {TEMPLATE: footer}
 {PAGE: END}
 
-{SECTION: post_err_notallowed_title}
-{MSG: post_err_notallowed_title}
-{SECTION: END}
-
-{SECTION: post_err_notallowed_msg}
-{MSG: post_err_notallowed_msg}
-{SECTION: END}
-
 {SECTION: post_err_lockedthread_title}
 {MSG: post_err_lockedthread_title}
 {SECTION: END}
 
 {SECTION: post_err_lockedthread_msg}
 {MSG: post_err_lockedthread_msg}
-{SECTION: END}
-
-{SECTION: post_err_notowner_title}
-{MSG: post_err_notowner_title}
-{SECTION: END}
-
-{SECTION: post_err_notowner_msg}
-{MSG: post_err_notowner_msg}
 {SECTION: END}
 
 {SECTION: post_err_edttimelimit_title}
@@ -227,14 +211,6 @@ if (!document.post_form.msg_subject.value.length) {
 
 {SECTION: post_err_noannonposts_msg}
 {MSG: post_err_noannonposts_msg2}
-{SECTION: END}
-
-{SECTION: post_err_noreplying_title}
-{MSG: post_err_noreplying_title}
-{SECTION: END}
-
-{SECTION: post_err_noreplying_msg}
-{MSG: post_err_noreplying_msg}
 {SECTION: END}
 
 {SECTION: post_err_floodtrig_title}
@@ -311,10 +287,6 @@ if (!document.post_form.msg_subject.value.length) {
 
 {SECTION: th_expr_one_hr}
 {MSG: th_expr_one_hr}
-{SECTION: END}
-
-{SECTION: th_expr_two_hr}
-{MSG: th_expr_two_hr}
 {SECTION: END}
 
 {SECTION: th_expr_three_hr}

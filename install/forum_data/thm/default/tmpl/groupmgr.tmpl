@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.tmpl,v 1.29 2005/02/25 01:55:17 hackie Exp $
+* $Id: groupmgr.tmpl,v 1.30 2005/02/25 16:18:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,10 +74,6 @@ if (document.groupmgr.gr_member) {
 <tr><th>{MSG: groupmgr_member}</th><th colspan="{VAR: n_perms}">{MSG: groups_perms_header}</th><th class="ac">{MSG: groupmgr_action}</th></tr>
 {TEMPLATE-DATA: group_members_list}
 </table>
-{SECTION: END}
-
-{SECTION: no_group_control_panel}
-<div class="ac">{MSG: groupmgr_no_groups}</div>
 {SECTION: END}
 
 {PAGE: GROUP_MANAGER group permissions manager}
@@ -244,10 +240,6 @@ if (document.groupmgr.gr_member) {
 
 {SECTION: groups_header_entry}
 <th class="ac">{VAR: ts_list[$k]}</th>
-{SECTION: END}
-
-{SECTION: groups_draw_perm_entry}
-<td class="nw small">{VAR: inherit}{VAR: perm_str}<br />{VAR: val}</td>
 {SECTION: END}
 
 {SECTION: groups_header_entry_row}
