@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.42 2004/06/07 15:24:53 hackie Exp $
+* $Id: admdump.php,v 1.43 2004/07/13 16:45:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,6 +120,23 @@ function sql_is_null($r, $n, $tbl='')
 	require('./GLOBALS.php');
 	fud_use('db.inc');
 	fud_use('mem_limit.inc', true);
+	// uncomment the lines below if you wish to run this script via command line
+	// fud_use('adm_cli.inc', 1); // this contains cli_execute() function.
+	// when using this the script accepts 2 arguments
+	// php admdump.php /path/to/dump_file [compress]
+	// compress is optional and should only be specified if you want to datadump to be compressed
+
+	/* check for cli arguments */
+	if (defined('forum_debug')) {
+		if (empty($_SERVER['argv'][1])) {
+			exit("Usage: php admdump.php /path/to/dump_file [compress]\n");
+		}
+		$_POST['submitted'] = 1;
+		$_POST['path'] = $_SERVER['argv'][1];
+		if (!empty($_SERVER['argv'][2])) {
+			$_POST['compress'] = 1;
+		}
+	}
 
 	/*
 	 * Check for HTTP AUTH, before going for the usual cookie/session auth
