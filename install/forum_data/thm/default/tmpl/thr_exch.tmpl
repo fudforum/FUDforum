@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thr_exch.tmpl,v 1.12 2004/01/04 16:38:28 hackie Exp $
+* $Id: thr_exch.tmpl,v 1.13 2004/04/23 22:46:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -24,24 +24,17 @@
 
 {SECTION: thr_exch_entry thread that has been marked for moving}
 <tr><td>
-<table border=0 cellspacing=0 cellpadding=3 width="100%">
+<table border=0 cellspacing=0 cellpadding=3 class="wa">
 	<tr class="RowStyleB">
-		<td align=left nowrap valign=top>
-			<font class="SmallText"><b>{MSG: move_request_by}</b> <a href="{TEMPLATE: thr_exch_entry_lnk}">{VAR: obj->alias}</a><br /></font>
-		</td>
-		<td align=center width="100%" valign=top>
-			<font class="SmallText">
-			<b>{MSG: move_reason}</b><br />
-			<table border=1 cellspacing=1 cellpadding=0><tr><td align=left>&nbsp;{VAR: obj->reason_msg} &nbsp;</td></tr></table>
-			</font>
-		</td>
+		<td class="al nw vt SmallText"><b>{MSG: move_request_by}</b> <a href="{TEMPLATE: thr_exch_entry_lnk}">{VAR: obj->alias}</a><br /></td>
+		<td class="ac wa vt SmallText"><b>{MSG: move_reason}</b><br /><table border=1 cellspacing=1 cellpadding=0><tr><td class="al">&nbsp;{VAR: obj->reason_msg} &nbsp;</td></tr></table></td>
 	</tr>
 	<tr class="RowStyleC">
 		<td colspan=2>
-			<table border=0 cellspacing=0 cellpadding=3 width="100%">
+			<table border=0 cellspacing=0 cellpadding=3 class="wa">
 			<tr>
-				<td align="left"><font size="-1"><b>{MSG: thr_exch_orig_forum}</b> {VAR: obj->sf_name}<br /><b>{MSG: thr_exch_dest_forum}</b> {VAR: obj->df_name}<br /><b>{MSG: thread}</b> <a href="{TEMPLATE: thr_exch_entry_lnk1}">{VAR: obj->subject}</a></font></td>
-				<td align="right">[<a href="{TEMPLATE: thr_exch_entry_lnk2}">{MSG: thr_exch_accept}</a>]&nbsp;&nbsp;[<a href="{TEMPLATE: thr_exch_entry_lnk3}">{MSG: thr_exch_decline}</a>]</td>
+				<td class="al SmallText"><b>{MSG: thr_exch_orig_forum}</b> {VAR: obj->sf_name}<br /><b>{MSG: thr_exch_dest_forum}</b> {VAR: obj->df_name}<br /><b>{MSG: thread}</b> <a href="{TEMPLATE: thr_exch_entry_lnk1}">{VAR: obj->subject}</a></td>
+				<td class="ar">[<a href="{TEMPLATE: thr_exch_entry_lnk2}">{MSG: thr_exch_accept}</a>]&nbsp;&nbsp;[<a href="{TEMPLATE: thr_exch_entry_lnk3}">{MSG: thr_exch_decline}</a>]</td>
 			</tr>
 			</table>
 		</td>
@@ -51,7 +44,7 @@
 {SECTION: END}
 
 {SECTION: no_thr_exch}
-<tr><td class="RowStyleA" align="center">{MSG: thr_exch_no_threads}</td></tr>
+<tr><td class="RowStyleA ac">{MSG: thr_exch_no_threads}</td></tr>
 {SECTION: END}
 
 {SECTION: thr_move_decline}
@@ -69,7 +62,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<table border="0" cellspacing="0" cellpadding="0" class="ContentTable">
+<table cellspacing="0" cellpadding="0" class="ContentTable">
 <tr><th>{MSG: thread_exchange}</th></tr>
 {TEMPLATE-DATA: thr_exch_data}
 </table>
@@ -77,6 +70,7 @@
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {PAGE: END}
+
 {SECTION: thr_exch_entry_lnk}
 {ROOT}?t=usrinfo&amp;id={VAR: obj->req_by}&amp;{DEF: _rsid}
 {SECTION: END}

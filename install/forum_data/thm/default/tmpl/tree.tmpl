@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.49 2004/04/21 21:17:45 hackie Exp $
+* $Id: tree.tmpl,v 1.50 2004/04/23 22:46:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -208,16 +208,16 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
 {TEMPLATE-DATA: msg_forum_path} {TEMPLATE-DATA: thread_rating}
-<table cellspacing=0 cellpadding=0 border=0 width="100%">
+<table cellspacing=0 cellpadding=0 border=0 class="wa">
 <tr>
 <td class="GenText al">{TEMPLATE: show_links}{TEMPLATE-DATA: split_thread}{TEMPLATE-DATA: lock_thread}{TEMPLATE-DATA: email_page_to_friend}{TEMPLATE-DATA: subscribe_status}</td>
 <td class="vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}</td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
-<div align=center class="GenText">[<a href="javascript://" onClick="chng_focus('tree_view');" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
+<table cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
+<div class="ac GenText">[<a href="javascript://" onClick="chng_focus('tree_view');" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
 <p>
-<table border="0" cellspacing="1" cellpadding="2" class="MsgTable">
+<table cellspacing="1" cellpadding="2" class="MsgTable">
 {TEMPLATE-DATA: tree_data}
 </table>
 <table border=0 cellspacing=1 cellpadding=1 align="right">
