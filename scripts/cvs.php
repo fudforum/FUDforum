@@ -106,7 +106,7 @@ function version_to_name($str)
 
 	$nt = 0;
 	$db = sqlite_open("{$DB_DIR}cvs.sqlite", 0666);
-	
+
 	/* determine which tags are new */
 	foreach ($tags as $tag) {
 		if (!sqlite_single_query($db, "SELECT id FROM fud_down WHERE tag='".sqlite_escape_string($tag)."'")) {
@@ -176,7 +176,7 @@ echo "TAG $tag\n";
 				unlink("./FUDforum2/upgrade.php");
 			}
 			rename("./upgrade.php", 	"./FUDforum2/upgrade.php");
-			shell_exec("{$PHP_BIN} -q create_file_list install >> FUDforum2/install.php");
+			shell_exec("{$PHP_BIN} -q create_file_list install >> FUDforum2/upgrade.php");
 
 			create_archives("FUDforum2/", $version, 1, 0);
 			
@@ -218,6 +218,7 @@ echo "TAG $tag\n";
 		foreach ($CONV_SCRIPTS as $c => $d) {
 			shell_exec("{$RM_BIN} -rf ./{$c}");
 			shell_exec("{$CVS_BIN} -z9 -d {$CVS_PTH} co {$c} >/dev/null 2>&1");
+			shell_exec("{$RM_BIN} -rf ./{$c}/CVS");
 			sqlite_query($db, "DELETE FROM fud_down_md5 WHERE file_name LIKE '".sqlite_escape_string($c)."%'");
 			create_archives("{$c}/", 0, 0, 0, $c);
 
