@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.27 2003/06/12 18:18:21 hackie Exp $
+*   $Id: maillist.php,v 1.28 2003/06/17 17:16:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -368,6 +368,10 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	} else {
 		$mlist = db_sab('SELECT * FROM '.sql_p.'mlist WHERE name=\''.addslashes($_SERVER['argv'][1]).'\'');
 	}
+	if (!$mlist) {
+		exit('Invalid list identifier');
+	}
+
 	$GLOBALS['CREATE_NEW_USERS'] = $mlist->create_users;
 	$GLOBALS['MODERATE_USER_REGS'] = 'N';
 
