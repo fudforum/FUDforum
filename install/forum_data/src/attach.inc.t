@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.14 2003/04/08 17:27:50 hackie Exp $
+*   $Id: attach.inc.t,v 1.15 2003/04/08 17:39:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -160,8 +160,8 @@ function attach_finalize($attach_list, $mid, $private='N')
 	
 	foreach ($attach_list as $key => $val) {
 		if (empty($val)) {
-			q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE id='.(int)$key);
-			@unlink($GLOBALS['FILE_STORE'].$key.'.atch');
+			$del[] = (int)$key;
+			@unlink($GLOBALS['FILE_STORE'].(int)$key.'.atch');
 		} else {
 			$attach_count++;
 			$id_list .= $key.',';
@@ -176,6 +176,12 @@ function attach_finalize($attach_list, $mid, $private='N')
 		$id_list = '';
 	}	
 			
+	/* delete any temp attachments created during message creation */
+	if (isset($del)) {
+		q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE id IN('.implode(',', $del).')');
+	}
+
+	/* delete any prior (removed) attachments if there are any */
 	q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mid." AND private='".$private."'".$id_list);	
 
 	if ($private == 'N' && ($atl = attach_rebuild_cache($mid))) {
