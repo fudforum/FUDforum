@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.11 2002/08/29 14:38:52 hackie Exp $
+*   $Id: db.inc,v 1.12 2002/09/09 23:47:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -118,7 +118,7 @@ if( !defined("fud_query_stats") ) {
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 		
 		if( defined('debug') ) 
-			echo "--<br>\n<b>(--</b>&nbsp;&nbsp; ".htmlspecialchars($query)." &nbsp;&nbsp;<b>--) <b>(</b>".$GLOBALS['__DB_INC_INTERNALS__']['last_time']."<b>)</b></b><br><br>\n\n";
+			echo "--<br>\n<b>(--</b>&nbsp;&nbsp; ".htmlspecialchars($query)." &nbsp;&nbsp;<b>--)</b><br><br>\n\n";
 	
 		return $result; 
 	}	
