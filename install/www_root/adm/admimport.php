@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.31 2003/12/03 17:13:06 hackie Exp $
+* $Id: admimport.php,v 1.32 2003/12/03 17:15:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -12,8 +12,17 @@
 
 	@set_time_limit(6000);
 
+	/* Uncomment the line below if you wish to import data without authentication */
+	/* This is useful if the previous import had failed resulting in the loss of old SQL data */
+	// define('recovery_mode', 1);
+
 	require('./GLOBALS.php');
-	fud_use('adm.inc', true);
+
+	if (defined('recovery_mode')) {
+		fud_use('db.inc');
+	} else {
+		fud_use('adm.inc', true);
+	}
 
 function resolve_dest_path($path)
 {
