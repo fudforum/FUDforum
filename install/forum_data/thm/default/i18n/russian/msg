@@ -299,7 +299,7 @@ register_location:		Географическое положение:
 register_occupation:		Род деятельности:
 register_interests:		Интересы:
 register_image:			Картинка:
-ICQ
+register_icq:			ICQ
 register_aim:			Псевдоним AIM:
 register_yahoo:			Сеть сообщений Yahoo:
 register_msnm:			Сеть сообщений MSN:
@@ -340,7 +340,8 @@ buddy_status:			Статус
 my_buddies:			Список контактов
 add_buddy:			Добавить в список контактов
 add:				Добавить
-Enter the login of the user you wish to add.buddy_remove:			удалить
+buddy_search:			Enter the login of the user you wish to add.
+buddy_remove:			удалить
 post_normal:			Нормальный
 post_sticky:			Стикер
 post_annoncement:		Анонс
@@ -535,8 +536,8 @@ tabs_referrals:			Приглашенные
 tabs_buddy_list:		Список контактов
 tabs_ignore_list:		Список игнорируемых
 tabs_private_messaging:		Личная почта
-You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Вы действительно хотите продолжить?</b></font>
 delete_yes:			Да
 delete_no:			Нет
@@ -665,7 +666,7 @@ reset_err_rstconf_title:	Информация
 reset_err_rstconf_msg:		Вы получите инструкции на ваш адрес email в течение следующий нескольких минут
 reset_newpass_title:		Сброс пароля
 reset_newpass_msg:		Привет,\n\nПо вашему запросу вам были отправлены имя пользователя и пароль.\nНиже приведена информация о вашей регистрации:\n\nИмя пользователя: {VAR: ui[1]}\nПароль: {VAR: passwd}\n\nИмейте ввиду что ваш старый пароль был изменен на приведенный выше, и если\nвы хотите его сменить, то можете сделать это в панели управления по адресу:\n{ROOT}?t=register\n\n
-reset_login_notify:		Ваш пароль был отправлен вам на email, и вы сможете получить его через несколько минут. Пожалуйста проверьте ваш почтовый ящик..<br>
+reset_login_notify:		Ваш пароль был отправлен вам на email, и вы сможете получить его через несколько минут. Пожалуйста проверьте ваш почтовый ящик..<br>.<br>.<br>
 search_update:			Поиск сообщений
 selmsg_update:			Просмотр <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">сегодняшних сообщений</a>
 showposts_update:		Просмотр всех сообщений от <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
@@ -954,9 +955,3 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_icq:			ICQ
-buddy_search:			Enter the login of the user you wish to add.
-buddy_remove:			remove
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>

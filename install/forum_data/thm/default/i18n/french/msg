@@ -298,7 +298,7 @@ register_location:              Situation géographique:
 register_occupation:            Métier:
 register_interests:             Centres d&#39;intérêt:
 register_image:                 Photo:
-ICQ
+register_icq:			ICQ
 register_aim:                   Identifiant AIM:
 register_yahoo:                 Yahoo Messenger:
 register_msnm:                  MSN Messenger:
@@ -339,7 +339,8 @@ buddy_status:                   État
 my_buddies:                     Mes amis
 add_buddy:                      Ajouter un ami
 add:                            Ajouter
-Enter the login of the user you wish to add.buddy_remove:                   Enlever de ma liste d&#39;amis
+buddy_search:			Enter the login of the user you wish to add.
+buddy_remove:                   Enlever de ma liste d&#39;amis
 post_normal:                    Normal
 post_sticky:                    Épingler
 post_annoncement:               Annonces
@@ -534,8 +535,8 @@ tabs_referrals:                 Parrainage
 tabs_buddy_list:                Liste d&#39;amis
 tabs_ignore_list:               Liste des utilisateurs ignorés
 tabs_private_messaging:         Messagerie privée
-You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:                 <font size="3"><b>Êtes-vous sûr de vouloir continuer?</b></font>
 delete_yes:                     Oui
 delete_no:                      Non
@@ -664,7 +665,7 @@ reset_err_rstconf_title:        Information
 reset_err_rstconf_msg:          Vous devriez recevoir des instructions par courrier dans les prochaines minutes
 reset_newpass_title:            Réinitialiser le mot de passe
 reset_newpass_msg:              Bonjour,\n\nComme promis, veuillez trouver ci-joint les informations dont vous avez besoin pour accéder au forum:\n\n\nUtilisateur: {VAR: ui[1]}\nMot de passe: {VAR: passwd}\n\nNotez que vous pouvez modifier votre mot de passe à tout moment via le panneau de configuration de votre profil sur notre site, aussi accessible par l&#39;URL suivante:\n{ROOT}?t=register\n\n
-reset_login_notify:             Nous venons de vous envoyer un e-mail contenant vos information d&#39;enregistrement. Vous devriez le recevoir dans quelques instants. Cet e-mail contient votre nom d&#39;utilisateur ainsi que votre mot de passe actuel.<br>
+reset_login_notify:             Nous venons de vous envoyer un e-mail contenant vos information d&#39;enregistrement. Vous devriez le recevoir dans quelques instants. Cet e-mail contient votre nom d&#39;utilisateur ainsi que votre mot de passe actuel.<br>.<br>.<br>
 search_update:                  Rechercher des messages
 selmsg_update:                  Parcourir les <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">messages envoyés aujourd&#39;hui</a>
 showposts_update:               Voir les messages par: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
@@ -954,9 +955,3 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_icq:			ICQ
-buddy_search:			Enter the login of the user you wish to add.
-buddy_remove:			remove
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>

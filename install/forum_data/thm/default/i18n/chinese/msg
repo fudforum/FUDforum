@@ -298,7 +298,7 @@ register_location:		地址:
 register_occupation:		职业:
 register_interests:		兴趣:
 register_image:			头像:
-ICQ
+register_icq:			ICQ
 register_aim:			AIM :
 register_yahoo:			Yahoo 信息:
 register_msnm:			MSN 信息:
@@ -339,7 +339,8 @@ buddy_status:			级别
 my_buddies:			我的好友
 add_buddy:			添加好友
 add:				添加
-Enter the login of the user you wish to add.buddy_remove:			删除
+buddy_search:			Enter the login of the user you wish to add.
+buddy_remove:			删除
 post_normal:			正常
 post_sticky:			置顶
 post_annoncement:		公告
@@ -534,8 +535,8 @@ tabs_referrals:			推荐
 tabs_buddy_list:		好友列表
 tabs_ignore_list:		黑名单
 tabs_private_messaging:		悄悄话
-You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>是否继续?</b></font>
 delete_yes:			是
 delete_no:			否
@@ -664,7 +665,7 @@ reset_err_rstconf_title:	信息
 reset_err_rstconf_msg:		一会您将通过邮件收到相关说明。
 reset_newpass_title:		重新输入密码
 reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息:\n\n账号：{VAR: ui[1]}\n密码: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, 如果你想\n修改密码，请在个人信息中修改:\n{ROOT}?t=register\n\n
-reset_login_notify:		一会儿，你将通过邮件收到密码。请检查你的密码并登录。.<br>
+reset_login_notify:		一会儿，你将通过邮件收到密码。请检查你的密码并登录。.<br>.<br>.<br>
 search_update:			搜索
 selmsg_update:			浏览 <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">今天发布的主题</a>
 showposts_update:		查看用户 <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>发布的主题
@@ -955,9 +956,3 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_icq:			ICQ
-buddy_search:			Enter the login of the user you wish to add.
-buddy_remove:			remove
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>

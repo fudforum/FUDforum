@@ -299,7 +299,7 @@ register_location:		Ort:
 register_occupation:		Yrke:
 register_interests:		Intressen:
 register_image:			Bild:
-ICQ
+register_icq:			ICQ
 register_aim:			AIM anv&auml;ndarnamn:
 register_yahoo:			Yahoo Messenger:
 register_msnm:			MSN Messenger:
@@ -340,7 +340,8 @@ buddy_status:			Status
 my_buddies:			Mina kompisar
 add_buddy:			L&auml;gg till kompis
 add:				L&auml;gg till
-Enter the login of the user you wish to add.buddy_remove:			ta bort
+buddy_search:			Enter the login of the user you wish to add.
+buddy_remove:			ta bort
 post_normal:			Normal
 post_sticky:			Klibbig
 post_annoncement:		Meddelande
@@ -534,8 +535,8 @@ tabs_referrals:			Refererade medlemmar
 tabs_buddy_list:		Kompislista
 tabs_ignore_list:		Ignorerade medlemmar
 tabs_private_messaging:		Privata meddelanden
-You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Vill du forts&auml;tta?</b></font>
 delete_yes:			Ja
 delete_no:			Nej
@@ -664,7 +665,7 @@ reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		Du torde f&aring; instruktioner per e-post inom ett par minuter
 reset_newpass_title:		Nollst&auml;ll l&ouml;senord
 reset_newpass_msg:		Hej!\n\nEnligt &ouml;nskem&aring;l har ditt anv&auml;ndarnamn och ditt l&ouml;senord skickats till dig.\nH&auml;r &auml;r dina inloggningsuppgifter:\n\nAnv&auml;ndarnamn: {VAR: ui[1]}\nL&ouml;senord: {VAR: passwd}\n\nNotera att ditt l&ouml;senord har &auml;ndrats till ovanst&aring;ende. Om du vill\n&auml;ndra ditt l&ouml;senord kan du g&ouml;ra det i medlemmens kontrollpanel:\n{ROOT}?t=register\n\n
-reset_login_notify:		Ditt l&ouml;senord har skickats &aring;t dig per e-post och borde komma fram inom ett par minuter. V&auml;nligen kontrollera din e-post f&ouml;r ditt anv&auml;ndarnamn och l&ouml;senord.<br>
+reset_login_notify:		Ditt l&ouml;senord har skickats &aring;t dig per e-post och borde komma fram inom ett par minuter. V&auml;nligen kontrollera din e-post f&ouml;r ditt anv&auml;ndarnamn och l&ouml;senord.<br>.<br>.<br>
 search_update:			S&ouml;ker bland inl&auml;ggen
 selmsg_update:			L&auml;ser <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Dagens inl&auml;gg</a>
 showposts_update:		Visar inl&auml;gg av: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
@@ -954,9 +955,3 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_icq:			ICQ
-buddy_search:			Enter the login of the user you wish to add.
-buddy_remove:			remove
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>

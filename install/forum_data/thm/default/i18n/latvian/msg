@@ -300,7 +300,7 @@ register_location:		Dzîves vieta:
 register_occupation:		Nodarboðanâs:
 register_interests:		Intereses:
 register_image:			Nozîmîte:
-ICQ
+register_icq:			ICQ
 register_aim:			AIM pseidonîms:
 register_yahoo:			Yahoo tîkls:
 register_msnm:			MSN tîkls:
@@ -341,7 +341,8 @@ buddy_status:			Statuss
 my_buddies:			Kontaktu saraksts
 add_buddy:			Pievienot kontaktu sarakstam
 add:				Pievienot
-Enter the login of the user you wish to add.buddy_remove:			dzçst
+buddy_search:			Enter the login of the user you wish to add.
+buddy_remove:			dzçst
 post_normal:			Normâls
 post_sticky:			Sticky
 post_annoncement:		Sludinâjums
@@ -536,8 +537,8 @@ tabs_referrals:			Uzaicinâtie
 tabs_buddy_list:		Kontaktu saraksts
 tabs_ignore_list:		Ignorçto saraksts
 tabs_private_messaging:		Privâtâ sarakste
-You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Vai tieðâm? Vai turpinât?</b></font>
 delete_yes:			Jâ
 delete_no:			Nç
@@ -667,7 +668,7 @@ reset_err_rstconf_title:	Informâcija
 reset_err_rstconf_msg:		Instrukcijas nosûtîtas uz Jûsu E-pastu un tâs Jûs saòemsiet pçc daþâm minûtçm
 reset_newpass_title:		Paroles nomaiòa
 reset_newpass_msg:		Sveiki,\n\nUz Jûsu pieprasîjumu tiek nosûtîta informâcija par Jûsu <b>Niku</b> un <b>Paroli</b>.\nJûsu reìistrâcijas dati:\n\nNiks: {VAR: ui[1]}\nParole: {VAR: passwd}\n\nAtcerieties, ka Jûsu vecâ parole ir nomainîta ar ðeit uzrâdîto un tâ paðreiz nav derîga. Ja\nJûs vçlaties to nomainît, tad to varat izdarît vadîbas panelî:\n{ROOT}?t=register\n\n
-reset_login_notify:		Jûsu jaunâ parole ir nosûtîta uz Jûsu E-pastu un to Jûs saòemsiet pçc daþâm minûtçm. Lûdzu pârbaudiet savu E-pasta kastîti..<br>
+reset_login_notify:		Jûsu jaunâ parole ir nosûtîta uz Jûsu E-pastu un to Jûs saòemsiet pçc daþâm minûtçm. Lûdzu pârbaudiet savu E-pasta kastîti..<br>.<br>.<br>
 search_update:			Publikâciju meklçðana
 selmsg_update:			Ðodienas <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">publikâciju pârskats</a>
 showposts_update:		Visu <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>publikâciju pârskats
@@ -955,9 +956,3 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_icq:			ICQ
-buddy_search:			Enter the login of the user you wish to add.
-buddy_remove:			remove
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>

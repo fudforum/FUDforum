@@ -299,7 +299,7 @@ register_location:		Miejsce zamieszkania:
 register_occupation:		Zawód:
 register_interests:		Zainteresowania:
 register_image:			Adres obrazka:
-ICQ
+register_icq:			ICQ
 register_aim:			Pseudonim AIM:
 register_yahoo:			Komunikator Yahoo:
 register_msnm:			Komunikator MSN:
@@ -340,7 +340,8 @@ buddy_status:			Status
 my_buddies:			Moi Znajomi
 add_buddy:			Dodawanie Znajomych
 add:				Dodaj
-Enter the login of the user you wish to add.buddy_remove:			usuñ
+buddy_search:			Enter the login of the user you wish to add.
+buddy_remove:			usuñ
 post_normal:			Normalna
 post_sticky:			Przyczepiona
 post_annoncement:		Og³oszenie
@@ -535,8 +536,8 @@ tabs_referrals:			Osoby polecone
 tabs_buddy_list:		Lista znajomych
 tabs_ignore_list:		Lista ignorowanych
 tabs_private_messaging:		Prywatne wiadomo¶ci
-You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Czy chcesz kontynuowaæ?</b></font>
 delete_yes:			Tak
 delete_no:			Nie
@@ -665,7 +666,7 @@ reset_err_rstconf_title:	Informacje
 reset_err_rstconf_msg:		Powiniene¶ otrzymaæ instrukcje w li¶cie w ci±gu paru minut
 reset_newpass_title:		Resetowanie has³a
 reset_newpass_msg:		Witaj,\n\nW zwi±zku z Twoja pro¶b±, nazwa u¿ytkownika jest wysy³ana do Ciebie.\nPoni¿ej znajduj± siê Twoje informacje do logowania siê:\n\nNazwa u¿ytkownika: {VAR: ui[1]}\nHas³o: {VAR: passwd}\n\nZauwa¿, ¿e Twoje has³o zosta³o ustawione na to podane powy¿ej. ale jesli ¿yczysz sobie\nzmieniæ swoje has³o, mo¿esz to zrobiæ poprzez panel sterowania u¿ytkownika:\n{ROOT}?t=register\n\n
-reset_login_notify:		Twoje has³o zosta³o do Ciebie wys³ane poczt± elektroniczn±. Powiniene¶ je otrzymaæ w ci±gu kilku minut. Sprawd¼ pocztê i wykorzystaj zawarte tam informacje aby siê zalogowaæ..<br>
+reset_login_notify:		Twoje has³o zosta³o do Ciebie wys³ane poczt± elektroniczn±. Powiniene¶ je otrzymaæ w ci±gu kilku minut. Sprawd¼ pocztê i wykorzystaj zawarte tam informacje aby siê zalogowaæ..<br>.<br>.<br>
 search_update:			Szukanie wiadomo¶ci
 selmsg_update:			Przegl±danie <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">dzisiejszych wiadomo¶c</a>
 showposts_update:		Ogl±danie wiadomo¶ci zamieszczonych przez u¿ytkownika: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
@@ -955,9 +956,3 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_icq:			ICQ
-buddy_search:			Enter the login of the user you wish to add.
-buddy_remove:			remove
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>

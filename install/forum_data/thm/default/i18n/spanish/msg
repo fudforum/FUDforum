@@ -298,7 +298,7 @@ register_location:		Ubicación:
 register_occupation:		Ocupación:
 register_interests:		Intereses:
 register_image:			Imagen:
-ICQ
+register_icq:			ICQ
 register_aim:			AIM Handle:
 register_yahoo:			Yahoo Messenger:
 register_msnm:			MSN Messenger:
@@ -339,7 +339,8 @@ buddy_status:			Estado
 my_buddies:			Mis Amigos
 add_buddy:			Agregar Amigo
 add:				Agregar
-Enter the login of the user you wish to add.buddy_remove:			eliminar
+buddy_search:			Enter the login of the user you wish to add.
+buddy_remove:			eliminar
 post_normal:			Normal
 post_sticky:			Fijo
 post_annoncement:		Anuncio
@@ -534,8 +535,8 @@ tabs_referrals:			Referencias
 tabs_buddy_list:		Lista de amigos
 tabs_ignore_list:		Lista de ignorados
 tabs_private_messaging:		Mensajería privada
-You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Desea continuar?</b></font>
 delete_yes:			Si
 delete_no:			No
@@ -665,7 +666,7 @@ reset_err_rstconf_title:	Información
 reset_err_rstconf_msg:		Ud debería recibir instrucciones en su e-mail en los próximos minutos
 reset_newpass_title:		Actualizar Clave
 reset_newpass_msg:		Hola,\n\nComo Ud los solicitó su nombre de usurio y clave le están siendo enviadas.\nAquí está su información de ingreso:\n\nLogin: {VAR: ui[1]}\nClave: {VAR: passwd}\n\nRecuerde que su clave ha sido actualizada al valor anterior, si desea cambiar su clave puede hacerlo mediante el panel de control de información en:\n{ROOT}?t=register\n\n
-reset_login_notify:		Su clave le ha sido enviada vía e-mail. Debería recibirla en unos minutos. Recuerde revisar su correo para obtener su clave y nombre de usuario.<br>
+reset_login_notify:		Su clave le ha sido enviada vía e-mail. Debería recibirla en unos minutos. Recuerde revisar su correo para obtener su clave y nombre de usuario.<br>.<br>.<br>
 search_update:			Buscando mensajes
 selmsg_update:			Recorriendo <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Mensajes de Hoy</a>
 showposts_update:		Viendo mensajes de: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
@@ -955,9 +956,3 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_icq:			ICQ
-buddy_search:			Enter the login of the user you wish to add.
-buddy_remove:			remove
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>

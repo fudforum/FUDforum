@@ -301,7 +301,7 @@ register_location:		Местоживеене:
 register_occupation:		Професия:
 register_interests:		Интереси:
 register_image:			Изображение:
-ICQ
+register_icq:			ICQ
 register_aim:			AIM :
 register_yahoo:			Yahoo:
 register_msnm:			MSN:
@@ -342,7 +342,8 @@ buddy_status:			Статут
 my_buddies:			Контактна листа
 add_buddy:			Добави в контактната листа
 add:				Добави
-Enter the login of the user you wish to add.buddy_remove:			Премахни
+buddy_search:			Enter the login of the user you wish to add.
+buddy_remove:			Премахни
 post_normal:			Нормален
 post_sticky:			Табелка
 post_annoncement:		Официално съобщение
@@ -537,8 +538,8 @@ tabs_referrals:			Реферали
 tabs_buddy_list:		Контактна листа
 tabs_ignore_list:		Листа на игнорираните
 tabs_private_messaging:		Лична поща
-You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Наистина ли искаш да продължиш?</b></font>
 delete_yes:			Да
 delete_no:			Не
@@ -667,7 +668,7 @@ reset_err_rstconf_title:	Информация
 reset_err_rstconf_msg:		Би трябвало да получиш инструкциите на твоя e-mail адрес след няколко минути
 reset_newpass_title:		Смяна на парола&nbsp;
 reset_newpass_msg:		Здравей,\n\nКато резултат на запитването изпратихме ти потребителското име.\nДолу е необходимата за влизане информация: n\Потребителско име: {VAR: ui[1]}\nПарола: {VAR: passwd}\n\nОтбележи, че старата парола е била заменена с дадената горе, и ако\nжелаеш, можеш да я промениш от потребителския контолен панел на \n{ROOT}?t=register\n\n
-reset_login_notify:		Паролата е изпратена по е-мейл. Би трябва да я получиш след няколко минути. Моля, провери е-мейла си за паролата и Логина..<br>
+reset_login_notify:		Паролата е изпратена по е-мейл. Би трябва да я получиш след няколко минути. Моля, провери е-мейла си за паролата и Логина..<br>.<br>.<br>
 search_update:			Търсене на съобщения
 selmsg_update:			Разглеждане на <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">днешни съобщения</a>
 showposts_update:		Преглед на съобщенията от <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
@@ -954,9 +955,3 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_icq:			ICQ
-buddy_search:			Enter the login of the user you wish to add.
-buddy_remove:			remove
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>

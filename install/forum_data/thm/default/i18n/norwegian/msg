@@ -300,7 +300,7 @@ register_location:			Sted:
 register_occupation:		Yrke:
 register_interests:			Interesser:
 register_image:			Bilde:
-ICQ
+register_icq:			ICQ
 register_aim:			AIM brukernavn:
 register_yahoo:			Yahoo Messenger:
 register_msnm:			MSN Messenger:
@@ -341,7 +341,8 @@ buddy_status:			Status
 my_buddies:			Mine kontakter
 add_buddy:			Legg til kontakt
 add:				Legg til
-Enter the login of the user you wish to add.buddy_remove:			ta bort
+buddy_search:			Enter the login of the user you wish to add.
+buddy_remove:			ta bort
 post_normal:			Normal
 post_sticky:			Klebrig
 post_annoncement:		Melding
@@ -535,8 +536,8 @@ tabs_referrals:			Refererte medlemmer
 tabs_buddy_list:			Kontaktliste
 tabs_ignore_list:			Ignorerte medlemmer
 tabs_private_messaging:		Private meldinger
-You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Vil du fortsette?</b></font>
 delete_yes:			Ja
 delete_no:			Nei
@@ -665,7 +666,7 @@ reset_err_rstconf_title:		Informasjon
 reset_err_rstconf_msg:		Du vil motta instruksjoner per e-post innen f&aring; minutter
 reset_newpass_title:		Nullstill passord
 reset_newpass_msg:		Hei!\n\nDitt brukernavn og passord har blitt endret p&aring; din foresp&oslash;rsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: ui[1]}\nPassord: {VAR: passwd}\n\nNoter deg at passordet ditt er endret til det overst&aring;ende. Om du vil\nendre passordet ditt kan du gj&oslash;re det i kontrollpanelet:\n{ROOT}?t=register\n\n
-reset_login_notify:			Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter. Vennligst sjekk e-posten din for ditt brukernavn og passord.<br>
+reset_login_notify:			Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter. Vennligst sjekk e-posten din for ditt brukernavn og passord.<br>.<br>.<br>
 search_update:			S&oslash;ker blandt innleggene
 selmsg_update:			Leser <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Dagens innlegg</a>
 showposts_update:		Viser innlegg av: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
@@ -955,9 +956,3 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_icq:			ICQ
-buddy_search:			Enter the login of the user you wish to add.
-buddy_remove:			remove
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>

@@ -47,7 +47,8 @@ buddy_list_err_nouser:		Der Benutzer, den Du Deiner Buddyliste hinzuf&uuml;gen w
 buddy_list_err_nouser_title:	Kann Benutzer nicht hinzuf&uuml;gen
 buddy_list_update:		Durchsucht die eigene Buddyliste
 buddy_remove:			Entfernen
-Enter the login of the user you wish to add.buddy_status:			Status
+buddy_search:			Enter the login of the user you wish to add.
+buddy_status:			Status
 by:				Von:
 by_mod:				vom Moderator
 coppa:				Ein Elternteil oder Vormund mu&szlig; eine unterschriebene Einwilligungserkl&auml;rung an den Administrator des Forums schicken oder faxen bevor ein Benutzer unter 13 die Registrierung abschlie&szlig;en kann.<p>F&uuml;r weitere Informationen kontaktiere <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
@@ -586,7 +587,7 @@ register_err_toomanyimages:	Du versuchst mehr als die erlaubten {GVAR: FORUM_IMG
 register_flat_view:		Flachansicht
 register_gender:		Geschlecht:
 register_homepage:		Homepage:
-ICQ
+register_icq:			ICQ
 register_ignore_admin:		Administratoren Mitteilungen ignorieren:
 register_image:			Bild:
 register_interests:		Interessen:
@@ -688,7 +689,7 @@ reset_err_invalidkey_title:	FEHLER
 reset_err_rstconf_msg:		Du solltest in den n&auml;chsten Minuten eine Anleitung per Email erhalten
 reset_err_rstconf_title:	Information
 reset_error:			Email Adresse nicht in der Datenbank gefunden
-reset_login_notify:		Das Passwort wurde an Dich versendet. Du solltest es in den n&auml;chsten Minuten erhalten. Bitte &uuml;berpr&uuml;fe die Email auf Benutzername und Passwort.<br>
+reset_login_notify:		Das Passwort wurde an Dich versendet. Du solltest es in den n&auml;chsten Minuten erhalten. Bitte &uuml;berpr&uuml;fe die Email auf Benutzername und Passwort.<br>.<br>.<br>
 reset_newpass_msg:		Hallo,\n\nWie von Dir gewünscht, wird Dir der Anmeldename zugesendet.\nHier sind Deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, daß Dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn Du es ändern willst, so kannst Du das am\nBenutzerinterface vornehmen:\n{ROOT}?t=register\n\n
 reset_newpass_title:		Passwort zurücksetzen
 reset_remind_pass:		Passwort Hinweis
@@ -738,7 +739,7 @@ show_all_posts:			Alle Beitr&auml;ge von {VAR: user_login} anzeigen
 show_posts_by:			Beitr&auml;ge von {VAR: u_alias} anzeigen
 show_show:			Anzeigen:
 showposts_update:		Betrachtet die Beitr&auml;ge von <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
-You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
 size:				Gr&ouml;&szlig;e:
 smladd_close_window:		Fenster schlie&szlig;en
 spell_check_msg:		Rechtschreibung des Beitrages &uuml;berpr&uuml;fen
@@ -802,7 +803,7 @@ thr_exch_orig_forum:		Urspr&uuml;ngliches Forum:
 thr_exch_submit:		Abschicken
 thread:				Thema:
 thread_announcement:		Ank&uuml;ndigung:
-You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 thread_err_onlyregview_msg:	Um dieses Forum ansehen zu k&ouml;nnen, mu&szlig;t Du Dich <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrieren</a>, falls Du das bereits schon bist, mu&szlig;t Du Dich am System <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">anmelden</a>.
 thread_err_onlyregview_title:	Nur registrierte Benutzer k&ouml;nnen dieses Forum ansehen
 thread_exchange:		Themenwechsel 
@@ -954,9 +955,3 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_icq:			ICQ
-buddy_status:			Status
-buddy_search:			Enter the login of the user you wish to add.
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>

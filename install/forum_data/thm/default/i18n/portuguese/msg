@@ -302,7 +302,7 @@ register_location:		Localidade:
 register_occupation:		Ocupação:
 register_interests:		Interesses:
 register_image:			Imagem:
-ICQ
+register_icq:			ICQ
 register_aim:			AIM Handle:
 register_yahoo:			Yahoo Messenger:
 register_msnm:			MSN Messenger:
@@ -343,7 +343,8 @@ buddy_status:			Status
 my_buddies:			Os meus amigos
 add_buddy:			Adicionar Amigo
 add:				Adicionar
-Enter the login of the user you wish to add.buddy_remove:			remover
+buddy_search:			Enter the login of the user you wish to add.
+buddy_remove:			remover
 post_normal:			Normal
 post_sticky:			Sticky
 post_annoncement:		Anunciar
@@ -538,8 +539,8 @@ tabs_referrals:			Referências
 tabs_buddy_list:		Lista de amigos
 tabs_ignore_list:		Lista de ignorados
 tabs_private_messaging:		Mensagens Privadas
-You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>quer continuar?</b></font>
 delete_yes:			Sim
 delete_no:			Não
@@ -669,7 +670,7 @@ reset_err_rstconf_title:	Informação
 reset_err_rstconf_msg:		Deve receber instruções no seu Email nos próximos minutos
 reset_newpass_title:		Cancelar Password
 reset_newpass_msg:		Olá,\n\na seu pedido os seus dados de login estão a ser enviados para si.\nAqui está a sua informação de login:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nA sua Password foi alterada para o valor em baixo, se quiser altera-la pode fazê-lo através do painel de controlo do utilizador em : \n{ROOT}?t=register\n\n
-reset_login_notify:		A sua password foi enviada por email para si. Deve recebê-la em poucos minutos. Consulte o seu Email.<br>
+reset_login_notify:		A sua password foi enviada por email para si. Deve recebê-la em poucos minutos. Consulte o seu Email.<br>.<br>.<br>
 search_update:			A procurar posts
 selmsg_update:			A visualisar <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">posts de Hoje</a>
 showposts_update:		A ver posts por: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
@@ -955,9 +956,3 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_icq:			ICQ
-buddy_search:			Enter the login of the user you wish to add.
-buddy_remove:			remove
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>

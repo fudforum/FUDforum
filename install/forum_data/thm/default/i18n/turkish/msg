@@ -298,7 +298,7 @@ register_location:		Yer:
 register_occupation:		Ýþ:
 register_interests:		Ýlgi Alanlarý:
 register_image:			Resim:
-ICQ
+register_icq:			ICQ
 register_aim:			AIM:
 register_yahoo:			Yahoo:
 register_msnm:			MSN Messenger:
@@ -339,7 +339,8 @@ buddy_status:			Durum
 my_buddies:			Arkadaþlarým
 add_buddy:			Arkadaþ Ekle
 add:				Ekle
-Enter the login of the user you wish to add.buddy_remove:			çýkar
+buddy_search:			Enter the login of the user you wish to add.
+buddy_remove:			çýkar
 post_normal:			Olaðan
 post_sticky:			Yapýþkan
 post_annoncement:		Duyuru
@@ -534,8 +535,8 @@ tabs_referrals:			Tanýtýmlar
 tabs_buddy_list:		Arkadaþ Listesi
 tabs_ignore_list:		Gözardý Listesi
 tabs_private_messaging:		Özel Ýleti
-You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Devam etmek istiyor musunuz?</b></font>
 delete_yes:			Evet
 delete_no:			Hayýr
@@ -664,7 +665,7 @@ reset_err_rstconf_title:	Bilgi
 reset_err_rstconf_msg:		Yapmanýz gerekenler bir kaç dakika içinde e-mektup adresinize ulaþacak.
 reset_newpass_title:		Parolayý Yeniden Belirle
 reset_newpass_msg:		Selam,\n\nÝsteðiniz üzerine kayýt bilgileriniz gönderildi.\nGiriþ bilgileriniz:\n\nKullanýcý ismi: {VAR: ui[1]}\nParola: {VAR: passwd}\n\nYukarýda belirtilen yeni parolanýzý deðiþtirmek isterseniz, kullanýcý bilgileri denetim masasýndan yapabilirsiniz:\n{ROOT}?t=register\n\n
-reset_login_notify:		Parolanýz e-mektup adresinize gönderildi. Bir kaç dakika içinde elinizde olmalý. Lütfen parolanýzý gözden geçirin ve giriþ yapýn..<br>
+reset_login_notify:		Parolanýz e-mektup adresinize gönderildi. Bir kaç dakika içinde elinizde olmalý. Lütfen parolanýzý gözden geçirin ve giriþ yapýn..<br>.<br>.<br>
 search_update:			Ýletileri arýyor
 selmsg_update:			<a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Bugünkü Ýletilerde</a> dolaþýyor
 showposts_update:		<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a> tarafýndan gönderilen iletileri görüntülüyor.
@@ -954,9 +955,3 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_icq:			ICQ
-buddy_search:			Enter the login of the user you wish to add.
-buddy_remove:			remove
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
