@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.21 2003/04/16 14:16:46 hackie Exp $
+*   $Id: selmsg.php.t,v 1.22 2003/04/16 14:25:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -100,6 +100,8 @@ function valstat($a)
 	if (!$unread_limit) {
 		$total = (int) q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id '.(isset($_GET['sub_forum_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}forum_notify fn ON fn.forum_id=f.id AND fn.user_id='._uid : '').' '.(isset($_GET['sub_th_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}thread_notify tn ON tn.thread_id=t.id AND tn.user_id='._uid : '').' '.$join.' LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.' WHERE m.approved=\'Y\' '.$date_limit.' '.($frm_id ? ' AND f.id='.$frm_id : '').' '.($th ? ' AND t.id='.$th : '').' '.(isset($_GET['reply_count']) ? ' AND t.replies='.(int)$_GET['reply_count'] : '').' '.$perm_limit);
 	}
+
+/*{POST_HTML_PHP}*/
 	
 	if ($unread_limit || $total) {
 		/* figure out the query */
@@ -144,8 +146,6 @@ function valstat($a)
 		ORDER BY 
 			f.last_post_id, t.last_post_date, m.post_stamp
 		LIMIT '.qry_limit($count, $start));
-
-/*{POST_HTML_PHP}*/
 
 		/* message drawing code */
 		$message_data = '';

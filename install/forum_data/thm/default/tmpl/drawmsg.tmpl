@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.23 2003/04/16 10:56:18 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.24 2003/04/16 14:25:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -286,11 +286,11 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_reply_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;start={VAR: _GET['start']}&amp;reply_to={VAR: obj->id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_reply.gif" border=0 /></a>&nbsp;
+<a class="GenLink" href="{ROOT}?t=post&amp;reply_to={VAR: obj->id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_reply.gif" border=0 /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_quote_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;start={VAR: _GET['start']}&amp;reply_to={VAR: obj->id}&amp;quote=true&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_quote.gif" border=0 /></a>
+<a class="GenLink" href="{ROOT}?t=post&amp;reply_to={VAR: obj->id}&amp;quote=true&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_quote.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote.. type buttons}
