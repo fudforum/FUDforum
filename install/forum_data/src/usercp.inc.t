@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usercp.inc.t,v 1.16 2003/10/09 14:34:27 hackie Exp $
+* $Id: usercp.inc.t,v 1.17 2003/10/21 18:36:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -27,4 +27,5 @@
 		}
 	}
  	$member_search = ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576) ? '{TEMPLATE: member_search}' : '';
+ 	$u_forum_search = $FUD_OPT_1 & 16777216 ? '{TEMPLATE: u_forum_search}' : '';
 ?>

@@ -702,7 +702,7 @@ ERR_user_msg:			There is no such user
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		ERROR: System Error
 ERR_systemerr_msg:		System error has occurred, please report it to the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-ERR_systemerr_url:		
+ERR_systemerr_url:		 
 email_title:			Email Form
 finduser_title:			Find User
 help_title:			F.A.Q.
@@ -846,7 +846,7 @@ post_all_ext_allowed:		(unrestricted)
 maximize_category:		Maximize Category
 no_view_perm:			You do not have appropriate permissions needed to see this topic.
 report_empty_report:		You cannot send an empty report, please enter a reason for your report.
-report_already_reported_title:	Already Reported	
+report_already_reported_title:	Already Reported
 report_already_reported_msg:	This message was already reported and the report is currently in moderation staff&#39;s review queue.
 register_err_toomanyimages:	You are trying to use more then the allowed {GVAR: FORUM_IMG_CNT_SIG} images in your signature.
 pmsg_next_msg:			Next message
@@ -878,7 +878,7 @@ pmsg_recepient:			Recipient
 register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
 register_alias:			Alias
 register_alias_desc:		If you want a nickname other than your login to be displayed on the forum, enter the nick name you want to be displayed here.
-register_allow_pm_msg:		Allow Private Messages	
+register_allow_pm_msg:		Allow Private Messages
 register_allow_pm_msg_desc:	Allow other users to send you private messages via FUDforum.
 postcheck_pm_disabled:		You cannot send a private message to "{VAR-HTML: v}", because this person is not accepting private messages.
 polllist_vote:			Vote
@@ -893,7 +893,7 @@ userinfo_polls:			Polls:
 show_pollist:			Show Polls
 search_and:			AND
 search_or:			OR
-search_desc_order:		Descending Order		
+search_desc_order:		Descending Order
 search_asc_order:		Ascending Order
 search_logic:			Search Logic:
 search_sorting:			Sort Results By Date In:
@@ -922,7 +922,7 @@ err_mod_acc_msg:		The administrator had chosen to review all accounts manually p
 accounts_pending_approval:	Accounts Pending Approval
 saved:				Saved
 register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.
-login_blocked_account_ttl:	Your account has been banned.	
+login_blocked_account_ttl:	Your account has been banned.
 login_blocked_account_msg:	Your account has been banned from this forum, if do not already know the reason behind this action contact the forum&#39;s administrator(s).
 register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username enter it here.</font>
 im_affero:			Affero Username
@@ -949,7 +949,7 @@ thread_mark_all_read_desc:	All unread messages inside this forum will be marked 
 private_no_messages:		There are no messages inside this folder
 register_email_change_subject:	E-mail change confirmation
 register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
-iemail_thread_unsub:		Unsubscribe from this thread		
+iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
