@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.35 2003/10/01 21:51:51 hackie Exp $
+*   $Id: cookies.inc.t,v 1.36 2003/10/02 03:09:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -50,11 +50,17 @@ function ses_get($id=0)
 
 function ses_anon_make()
 {
-	db_lock('{SQL_TABLE_PREFIX}ses WRITE');
-	while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='".($ses_id = md5(get_random_value(128)))."'"));
-	$uid = q_singleval('SELECT CASE WHEN MAX(user_id)>2000000000 THEN MAX(user_id)+1 ELSE 2000000001 END FROM {SQL_TABLE_PREFIX}ses');
-	$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id,time_sec,sys_id,user_id) VALUES('".$ses_id."',".__request_timestamp__.", '".ses_make_sysid()."', ".$uid.")");
-	db_unlock();
+	$pfx = md5(__request_timestamp__);
+
+	if (__dbtype__ == 'mysql') {
+		$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES (MD5(CONCAT(LAST_INSERT_ID(), '".$pfx."')), ".__request_timestamp__.", '".ses_make_sysid()."', LAST_INSERT_ID()+2000000000)");
+		$ses_id = md5($id.$pfx);
+	} else {
+		$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES (length(substring(textcat(translate(currval('{SQL_TABLE_PREFIX}ses_id_seq'), '1234567890', 'AbCDeFgHiJ'), '".$pfx."'), 0, 33)), ".__request_timestamp__.", '".ses_make_sysid()."', currval('{SQL_TABLE_PREFIX}ses_id_seq')+2000000000)");
+		$tr = array('1'=>'A', '2'=>'b', '3'=>'C', '4'=>'D', '5'=>'e','6'=>'F','7'=>'g','8'=>'H','9'=>i',0=>'J');
+		$ses_id = substr(strtr((string)$id, $tr).$pfx, 0, 32);
+	}
+	$uid = 2000000000 + $id;
 
 	/* when we have an anon user, we set a special cookie allowing us to see who referred this user */
 	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['FUD_OPT_2'] & 8192) {
@@ -64,10 +70,12 @@ function ses_anon_make()
 
 	return ses_get($id);
 }
+
 function ses_update_status($ses_id, $str=null, $forum_id=0, $ret='')
 {
 	q('UPDATE {SQL_TABLE_PREFIX}ses SET forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action='.($str ? "'".addslashes($str)."'" : 'NULL').', returnto='.(!is_int($ret) ? strnull(addslashes($_SERVER['QUERY_STRING'])) : 'returnto').' WHERE id='.$ses_id);
 }
+
 function ses_putvar($ses_id, $data)
 {
 	$cond = is_int($ses_id) ? 'id='.$ses_id : "ses_id='".$ses_id."'";
@@ -75,7 +83,7 @@ function ses_putvar($ses_id, $data)
 	if (empty($data)) {
 		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=NULL WHERE '.$cond);
 	} else {
-		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=\''.addslashes(serialize($data)).'\' WHERE '.$cond);
+		q("UPDATE {SQL_TABLE_PREFIX}ses SET data='".addslashes(serialize($data))."' WHERE ".$cond);
 	}
 }
 

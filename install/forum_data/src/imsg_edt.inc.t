@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.80 2003/10/02 01:04:41 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.81 2003/10/02 03:09:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -191,7 +191,7 @@ class fud_msg_edit extends fud_msg
 				} else if ($thread_opt < 2 && (int) $_POST['thr_ordertype']) {
 					$thread_opt |= $_POST['thr_ordertype'];
 				} else if (!($thread_opt & (int) $_POST['thr_ordertype'])) {
-					$thread_opt &= $_POST['thr_ordertype'] | 1;
+					$thread_opt = $_POST['thr_ordertype'] | ($thread_opt & 1);
 				}
 			}
 
