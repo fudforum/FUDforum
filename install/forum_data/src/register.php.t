@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.30 2003/04/02 12:11:05 hackie Exp $
+*   $Id: register.php.t,v 1.31 2003/04/02 15:39:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -344,7 +344,7 @@ function remove_old_avatar($avatar_str)
 				header('Location: {ROOT}?t=coppa_fax&'._rsidl);
 				exit();
 			}
-			check_return();
+			check_return($ses->returnto);
 		} else if ($usr->id) { /* updating a user */
 			/* Restore avatar values to their previous values */
 			$usr->avatar_approved = $old_avatar_approved;
@@ -412,7 +412,7 @@ function remove_old_avatar($avatar_str)
 				send_email($GLOBALS['NOTIFY_FROM'], $usr->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
 			}
 
-			check_return();
+			check_return($ses->returnto);
 		} else {
 			error_dialog('{TEMPLATE: register_err_cantreg_title}', '{TEMPLATE: regsiter_err_cantreg_msg}', '', 'FATAL');
 			exit();

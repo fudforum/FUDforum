@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.15 2003/04/02 01:46:35 hackie Exp $
+*   $Id: cookies.inc.t,v 1.16 2003/04/02 15:39:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,7 +47,16 @@ class fud_session
 	{
 		unset($this->data[$name]);
 	}
-	
+
+	function sync_vars($clear=FALSE)
+	{
+		if ($clear || empty($this->data)) {
+			q('UPDATE {SQL_TABLE_PREFIX}ses SET data=NULL WHERE id='.$this->id);
+		} else {
+			q('UPDATE {SQL_TABLE_PREFIX}ses SET data=\''.addslashes(serialize($this->data)).'\' WHERE id='.$this->id);
+		}
+	}
+
 	function save_session($user_id=0,$not_use_cookie='')
 	{
 		if ($user_id) {
@@ -129,7 +138,7 @@ class fud_session
 			qobj("SELECT * FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='".addslashes($ses_id)."' AND sys_id='".$this->sys_id."'", $this);	
 		}
 			
-		if ($this->id) {
+		if (!$this->id) {
 			return;
 		}
 			

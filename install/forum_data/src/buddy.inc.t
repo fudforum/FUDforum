@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: buddy.inc.t,v 1.3 2003/04/02 15:39:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,57 +15,32 @@
 *
 ***************************************************************************/
 
-
-class fud_buddy
+function buddy_add($user_id, $bud_id)
 {
-	var $id;
-	var $bud_id;
-	var $user_id;
-	
-	function add($user_id, $bud_id)
-	{
-		if ( !$user_id ) $user_id = $this->user_id;
-		q("INSERT INTO {SQL_TABLE_PREFIX}buddy (bud_id, user_id) VALUES (".$bud_id.", ".$user_id.")");
-	}
-	
-	function delete($id='')
-	{
-		if ( !strlen($id) ) $id = $this->id;
-		q("DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE id=".$id);
-	}	
-
-	function get($id)
-	{
-		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}buddy WHERE id=".$id);
-		$obj = db_singleobj($r);
-		if ( !$obj ) { exit("no such buddy"); };
-		
-		$this->id 	= $obj->id;
-		$this->bud_id 	= $obj->bud_id;
-		$this->user_id	= $obj->user_id;
-		
-		return $id;
-	}
-	
-	function get_buddy($user_id, $id)
-	{
-		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}buddy WHERE id=".$id." AND user_id=".$user_id);
-		$obj = db_singleobj($r);
-		if ( !$obj ) { exit("no such buddy"); };
-		
-		$this->id 	= $obj->id;
-		$this->bud_id 	= $obj->bud_id;
-		$this->user_id	= $obj->user_id;
-		
-		return $id;
-	}
+	q('INSERT INTO {SQL_TABLE_PREFIX}buddy (bud_id, user_id) VALUES ('.$bud_id.', '.$user_id.')');
+	return buddy_rebuild_cache($user_id);
 }
 
-function check_buddy($user_id, $bud_id)
+function buddy_delete($user_id, $bud_id)
 {
-	$r = q("SELECT id FROM {SQL_TABLE_PREFIX}buddy WHERE user_id=".$user_id." AND bud_id=".$bud_id);
-	$obj = db_singleobj($r);
-	
-	return $obj;
+	q('DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE user_id='.$user_id.' AND id='.$bud_id);
+	return buddy_rebuild_cache($user_id);
+}	
+
+function buddy_rebuild_cache($uid)
+{
+	$q = uq('SELECT bud_id FROM {SQL_TABLE_PREFIX}buddy WHERE user_id='.$uid);
+	while ($ent = db_rowarr($q)) {
+		$arr[$ent[0]] = 1;
+	}
+	qf($q);
+
+	if (isset($arr)) {
+		q('UPDATE {SQL_TABLE_PREFIX}users SET buddy_list=\''.addslashes(serialize($arr)).'\' WHERE id='.$uid);
+		return $arr;
+	} else {
+		q('UPDATE {SQL_TABLE_PREFIX}users SET buddy_list=NULL WHERE id='.$uid);
+		return;
+	}
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.10 2003/03/31 11:29:59 hackie Exp $
+*   $Id: err.inc.t,v 1.11 2003/04/02 15:39:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,19 +26,18 @@ function error_dialog($title, $msg, $returnto, $level='WARN', $ses=NULL)
 		$error_msg .= "[Message Sent to User] ".trim($msg)."<br />\n";
 		$error_msg .= "[User's IP] ".$_SERVER['REMOTE_ADDR']."<br />\n";
 		$error_msg .= "[Requested URL] http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."<br />\n";
-		if (!isset($_SERVER['HTTP_REFERER'])) {
+		if (isset($_SERVER['HTTP_REFERER'])) {
 			$error_msg .= "[Referring Page] ".$_SERVER['HTTP_REFERER']."<br />\n";
 		}
 		
 		error_log('['.gmdate("D M j G:i:s T Y", __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'fud_errors');
 	}
 
-	$err_id = md5(get_random_value(128).__request_timestamp__);
-	$ses->putvar('err_id', $err_id);
 	$ses->putvar('er_msg', $msg);
 	$ses->putvar('err_t', $title);
-	$ses->save_session();
-	header('Location: {ROOT}?t=error&'.str_replace("&amp;", "&", _rsid).'&err_id='.$err_id);
+	$ses->sync_vars();
+
+	header('Location: {ROOT}?t=error&'._rsidl);
 	exit;
 }
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.21 2003/03/31 11:29:59 hackie Exp $
+*   $Id: users.inc.t,v 1.22 2003/04/02 15:39:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,7 @@ class fud_user
 	    $avatar_loc, $avatar_approved, $append_sig, $show_sigs, $show_avatars, $show_im, $posts_ppg, $time_zone, $invisible_mode,
 	    $ignore_admin, $bday, $blocked, $home_page, $sig, $bio, $posted_msg_count, $last_visit, $last_event, $email_conf, $conf_key,
 	    $coppa, $user_image, $join_date, $theme, $last_read, $default_view, $mod_list, $mod_cur, $is_mod, $level_id, $u_last_post_id,
-	    $cat_collapse_status, $acc_status;
+	    $cat_collapse_status, $acc_status, $ignore_list, $buddy_list;
 	
 	function get_user_by_id($id) 
 	{

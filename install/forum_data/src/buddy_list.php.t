@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.11 2002/08/07 12:18:43 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.12 2003/04/02 15:39:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,58 +15,53 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 		
-	if ( !isset($usr) ) {
+	if (!_uid) {
 		std_error('login');
 		exit();
 	}
-	
-	if( !isset($returnto) ) $returnto='';
-	
-	$bud = new fud_buddy;
-	
-	if( isset($add_login) && strlen($add_login) ) {
-		$buddy_id = get_id_by_alias($add_login);
-		
-		if ( $buddy_id == $usr->id ) {
+
+	if (isset($_POST['add_login'])) {
+		if (!($buddy_id = get_id_by_alias($_POST['add_login']))) {
+			error_dialog('{TEMPLATE: buddy_list_err_nouser_title}', '{TEMPLATE: buddy_list_err_nouser}', '{ROOT}?t=buddy_list&'._rsid);		
+		}
+		if ($buddy_id == _uid) {
 			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_cantadd}', '{ROOT}?t=buddy_list&'._rsid);
-			exit();
 		}
-		
-		if ( $buddy_id && !($buddy=check_buddy($usr->id, $buddy_id)) ) {
-			$bud->add($usr->id, $buddy_id);
-			$done=1;
-			header("Location: {ROOT}?t=buddy_list&"._rsidl."&rand=".get_random_value());
+
+		if (!empty($usr->buddy_list)) {
+			$usr->buddy_list = @unserialize($usr->buddy_list);
 		}
-		else if ( $buddy ) {
+
+		if (!isset($usr->buddy_list[$buddy_id])) {
+			$usr->buddy_list = buddy_add(_uid, $buddy_id);
+		} else {
 			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_dup}', '{ROOT}?t=buddy_list&'._rsid);
 		}
-		else {
-			error_dialog('{TEMPLATE: buddy_list_err_nouser_title}', '{TEMPLATE: buddy_list_err_nouser}', '{ROOT}?t=buddy_list&'._rsid);
+	}
+
+	/* incomming from message display page (add buddy link) */
+	if (isset($_GET['add']) && (int)$_GET['add']) {
+		if (!empty($usr->buddy_list)) {
+			$usr->buddy_list = @unserialize($usr->buddy_list);
 		}
-		
-		exit();
-	}
-	
-	if ( is_numeric($add) && empty($done) && ($buddy_login=check_user($add)) ) {
-		if( !check_buddy($usr->id, $add) ) $bud->add($usr->id, $add);
-		check_return();
-		exit();
+
+		if (($buddy_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='.(int)$_GET['add'])) && !isset($usr->buddy_list[$buddy_id])) {
+			buddy_add(_uid, $buddy_id);
+		}
+		check_return($ses->returnto);
 	}
 
-	if ( is_numeric($del) ) {
-		$bud->get_buddy($usr->id, $del);
-		$bud->delete();	
-		if( !$returnto ) $returnto = '{ROOT}?t=buddy_list&'._rsid;
-		check_return();	
+	if (isset($_GET['del']) && (int)$_GET['del']) {
+		buddy_delete(_uid, (int)$_GET['del']);	
 	}
 
-	if ( isset($ses) ) $ses->update('{TEMPLATE: buddy_list_update}');
+	$ses->update('{TEMPLATE: buddy_list_update}');
 
-	{POST_HTML_PHP}
-	
-	$res = q("SELECT 
+/*{POST_HTML_PHP}*/
+
+	$c = uq('SELECT 
 			{SQL_TABLE_PREFIX}buddy.id as bud_id,
 			{SQL_TABLE_PREFIX}users.id,
 			{SQL_TABLE_PREFIX}users.alias AS login,
@@ -76,39 +71,38 @@
 			{SQL_TABLE_PREFIX}users.posted_msg_count,
 			{SQL_TABLE_PREFIX}users.home_page,
 			{SQL_TABLE_PREFIX}users.last_visit AS time_sec
-		FROM {SQL_TABLE_PREFIX}buddy 
-		INNER JOIN {SQL_TABLE_PREFIX}users 
-			ON {SQL_TABLE_PREFIX}buddy.bud_id={SQL_TABLE_PREFIX}users.id 
-		WHERE 
-			{SQL_TABLE_PREFIX}buddy.user_id=".$usr->id);
+		FROM {SQL_TABLE_PREFIX}buddy INNER JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}buddy.bud_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}buddy.user_id='._uid);
 	
-	if( db_count($res) ) {
-		$buddies='';
-		while( $obj = db_rowobj($res) ) {
-			$homepage_link = !empty($obj->home_page) ? '{TEMPLATE: homepage_link}' : '';
-			
-			if( $obj->invisible_mode=='Y' && $usr->is_mod != 'A' ) 
+	$buddies = '';
+	/* Result index 
+	 * 0 - bud_id	1 - user_id	2 - login	3 - join_date	4 - bday	5 - invisible	6 - msg_count	
+	 * 7 - home_page	8 - last_visit
+	 */
+
+	if (($r = @db_rowarr($c))) {
+		do {
+			$homepage_link = $r[7] ? '{TEMPLATE: homepage_link}' : '';
+			if ($r[0] == 'Y' && $usr->is_mod != 'A') {
 				$online_status = '';
-			else if( $obj->time_sec+$GLOBALS['LOGEDIN_TIMEOUT']*60 > __request_timestamp__ ) 
-				$online_status = '{TEMPLATE: online_indicator}';
-			else
-				$online_status = '{TEMPLATE: offline_indicator}';
-			
-			if( substr($obj->bday,4) == date("md") ) {
-				$age = date("Y")-substr($obj->bday,0,4);
-				$bday_indicator = '{TEMPLATE: bday_indicator}';
+			} else {
+				$online_status = (($r[8] + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__) ? '{TEMPLATE: online_indicator}' : '{TEMPLATE: offline_indicator}';
 			}
-			else
+
+			if ($r[5] && substr($r[4], 4) == date('md')) {
+				$age = date('Y')  - substr($r[4], 0, 4);
+				$bday_indicator = '{TEMPLATE: bday_indicator}';	
+			} else {
 				$bday_indicator = '';
-			
-			$contact_link = $GLOBALS['PM_ENABLED']=='Y' ? '{TEMPLATE: pm_link}' : '{TEMPLATE: email_link}';
-			
+			}
+
+			$contact_link = $PM_ENABLED == 'Y' ? '{TEMPLATE: pm_link}' : '{TEMPLATE: email_link}';
+
 			$buddies .= '{TEMPLATE: buddy}';
-		}
+		} while (($r = db_rowarr($c)));
 		$buddies = '{TEMPLATE: buddy_list}';
 	}
 	qf($res);
 	
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: BUDDYLIST_PAGE}

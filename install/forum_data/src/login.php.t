@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.17 2003/04/02 12:11:05 hackie Exp $
+*   $Id: login.php.t,v 1.18 2003/04/02 15:39:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -131,7 +131,7 @@ function error_check()
 				exit;
 			}
 			
-			check_return();
+			check_return($ses->returnto);
 		}
 	}
 	
