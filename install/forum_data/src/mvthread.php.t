@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.php.t,v 1.8 2003/04/12 13:54:30 hackie Exp $
+*   $Id: mvthread.php.t,v 1.9 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,7 +67,7 @@
 		/* fetch data about dest forum */
 		$dst_frm_lpi = (int) $thr->f2_lpi;
 		
-		fud_thread::move($thr->id, $to, $thr->root_msg_id, $thr->forum_id, $thr->last_post_date, $thr->last_post_id);
+		th_move($thr->id, $to, $thr->root_msg_id, $thr->forum_id, $thr->last_post_date, $thr->last_post_id);
 		
 		if ($src_frm_lpi == $thr->last_post_id) {
 			$mid = (int) q_singleval('SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='.$thr->forum_id.' AND t.moved_to=0 AND m.approved=\'Y\'');

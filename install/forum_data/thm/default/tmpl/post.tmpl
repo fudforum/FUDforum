@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.tmpl,v 1.19 2003/04/20 22:27:34 hackie Exp $
+*   $Id: post.tmpl,v 1.20 2003/04/21 14:14:54 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -16,8 +16,6 @@
 
 {PHP_FILE: input: post.php.t; output: post.php;}
 {REF: security.tmpl}
-{REF: users_reg.tmpl}
-{REF: iemail.tmpl}
 {REF: header.tmpl}
 {REF: footer.tmpl}
 {REF: curtime.tmpl}
@@ -35,16 +33,13 @@
 {REF: postcheck.tmpl}
 {REF: ipoll.tmpl}
 {REF: forum.tmpl}
-{REF: th.tmpl}
 {REF: imsg.tmpl}
 {REF: imsg_edt.tmpl}
 {REF: return.tmpl}
 {REF: minimsg.tmpl}
 {REF: allowed_user_lnk.tmpl}
-{REF: is_perms.tmpl}
 {REF: logaction.tmpl}
 {REF: post_common.tmpl}
-{REF: objutil.tmpl}
 
 {SECTION: apply_spell_changes}
 <input type="submit" class="button" name="btn_spell" value="{MSG: apply_spell_changes}">&nbsp;&nbsp;

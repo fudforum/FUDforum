@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admincp.inc.t,v 1.9 2003/04/15 11:51:59 hackie Exp $
+*   $Id: admincp.inc.t,v 1.10 2003/04/21 14:14:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,11 +41,11 @@ if (_uid) {
 				$reported_msgs = '{TEMPLATE: reported_msgs}';
 			}
 			
-			if ($thr_exchc = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thr_exchange INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}mod.user_id="._uid." AND {SQL_TABLE_PREFIX}thr_exchange.frm={SQL_TABLE_PREFIX}mod.forum_id")) {
+			if ($thr_exchc = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}thr_exchange INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}mod.user_id='._uid.' AND {SQL_TABLE_PREFIX}thr_exchange.frm={SQL_TABLE_PREFIX}mod.forum_id')) {
 				$thr_exch = '{TEMPLATE: thr_exch}';
 			}
 			
-			$q_limit = " INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id="._uid;
+			$q_limit = ' INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id='._uid;
 		}
 		
 		if ($approve_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id ".$q_limit." WHERE {SQL_TABLE_PREFIX}msg.approved='N' AND {SQL_TABLE_PREFIX}forum.moderated='Y'")) {

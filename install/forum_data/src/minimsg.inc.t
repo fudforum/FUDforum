@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: minimsg.inc.t,v 1.14 2003/04/15 14:43:05 hackie Exp $
+*   $Id: minimsg.inc.t,v 1.15 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,7 @@ $start = '';
 if ($th_id && empty($GLOBALS['MINIMSG_OPT']['DISABLED'])) {
 	$GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS'] = 1;
 	
-	$count = $usr->posts_ppg ? $usr->posts_ppg : $GLOBALS['POSTS_PER_PAGE'];
+	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 	$start = isset($_GET['start']) ? (int)$_GET['start'] : (isset($_POST['minimsg_pager_switch']) ? (int)$_POST['minimsg_pager_switch'] : 0);
 	$total = $thr->replies + 1;
 

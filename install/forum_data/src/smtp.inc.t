@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smtp.inc.t,v 1.4 2003/04/20 10:45:19 hackie Exp $
+*   $Id: smtp.inc.t,v 1.5 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 class fud_smtp
 {
 	var $fs, $last_ret, $msg, $subject, $to, $from, $headers;
-	
+
 	function get_return_code($cmp_code='250')
 	{
 		if (!($this->last_ret = fgets($this->fs, 1024))) {
@@ -67,13 +67,13 @@ class fud_smtp
 
 		return 1;
 	}
-	
+
 	function send_from_hdr()
 	{
 		$this->wts('MAIL FROM: <'.$GLOBALS['NOTIFY_FROM'].'>');
 		return $this->get_return_code();
 	}
-	
+
 	function send_to_hdr()
 	{
 		if (!@is_array($this->to)) {
@@ -88,7 +88,7 @@ class fud_smtp
 		}
 		return 1;
 	}
-	
+
 	function send_data()
 	{
 		$this->wts('DATA');
@@ -112,13 +112,13 @@ class fud_smtp
 		
 		return $this->get_return_code();
 	}
-	
+
 	function close_connex()
 	{
 		$this->wts('quit');
 		fclose($this->fs);
 	}
-	
+
 	function send_smtp_email()
 	{
 		if (!$this->open_smtp_connex()) {

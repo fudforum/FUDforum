@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.11 2003/04/11 09:52:56 hackie Exp $
+*   $Id: mmod.php.t,v 1.12 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,7 +38,16 @@
 	}
 	
 	if ($del) {
-		if (!($data = db_saq('SELECT t.forum_id, m.thread_id, m.id, m.subject, t.root_msg_id, m.reply_to, t.replies FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id WHERE m.id='.$del))) {
+		if (!($data = db_saq('SELECT 
+			t.forum_id, m.thread_id, m.id, m.subject, t.root_msg_id, m.reply_to, t.replies, mm.id,
+			(CASE WHEN g2.id IS NOT NULL THEN g2.p_DEL ELSE g1.p_DEL END) AS p_del,
+			(CASE WHEN g2.id IS NOT NULL THEN g2.p_LOCK ELSE g1.p_LOCK END) AS p_lock
+			FROM {SQL_TABLE_PREFIX}msg m 
+			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id 
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647': '0').' AND g1.resource_id=f.id 
+			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
+			WHERE m.id='.$del))) {
 			check_return($usr->returnto);
 		}
 	} else if ($th) {
@@ -50,12 +59,12 @@
 		check_return($usr->returnto);
 	}
 
-	if (($usr->is_mod == 'A' || is_moderator($data[0], _uid))) {
+	if ($usr->is_mod == 'A' || $data[7]) {
 		$MOD = 1;
 	} else {
-		if (isset($del) && !is_perms(_uid, $data[0], 'DEL')) {
+		if (isset($del) && $data[8] != 'Y') {
 			check_return($usr->returnto);
-		} else if (isset($_GET['lock']) && !is_perms(_uid, $data[0], 'LOCK')) {
+		} else if (isset($_GET['lock']) && $data[9] != 'Y') {
 			check_return($usr->returnto);
 		} else {
 			check_return($usr->returnto);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: emailconf.php.t,v 1.6 2003/04/10 18:33:43 hackie Exp $
+*   $Id: emailconf.php.t,v 1.7 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,8 +23,7 @@
 		if (__fud_real_user__ && __fud_real_user__ != $uid) {
 			error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 		}
-		
-		usr_email_confirm($uid);
+		q("UPDATE {SQL_TABLE_PREFIX}users SET email_conf='Y', conf_key='0' WHERE id="._uid);
 		check_return($usr->returnto);
 	} else {
 		error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rpasswd.php.t,v 1.4 2003/04/03 10:11:39 hackie Exp $
+*   $Id: rpasswd.php.t,v 1.5 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,23 +16,22 @@
 ***************************************************************************/
 
 	define('plain_form', 1);
-	
+
 /*{PRE_HTML_PHP}*/
 
 	if (!_uid) {
 		std_error('login');
-		exit();
 	}
 
 	if (isset($_POST['btn_submit'])) {
-		if (_uid != get_id_by_radius($usr->login, $_POST['cpasswd'])) {
+		if (_uid != q_singleval('SELECT id FROM login='".addslashes($usr->login)."' AND passwd='".md5($_POST['cpasswd'])."'")) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_invalid_passwd}';
 		} else if ($_POST['passwd1'] !== $_POST['passwd2']) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_passwd_nomatch}';
 		} else if (strlen($_POST['passwd1']) < 6 ) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_passwd_length}';
 		} else {
-			usr_ch_passwd(_uid, $_POST['passwd1']);
+			q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5($_POST['passwd1'])."' WHERE id="._uid);
 			exit('<html><script>window.close();</script></html>');
 		}
 

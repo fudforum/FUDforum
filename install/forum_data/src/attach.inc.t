@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.18 2003/04/17 09:37:33 hackie Exp $
+*   $Id: attach.inc.t,v 1.19 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,29 +15,15 @@
 *
 ***************************************************************************/
 
-function proto($file)
-{
-	if ( start_match($file, 'http://') ) 	return "REMOTE";
-	if ( start_match($file, 'ftp://') ) 	return "REMOTE";
-	
-	return "LOCAL";
-}
-
-function start_match($haystack, $needle)
-{
-	if( !strncasecmp($haystack, $needle, strlen($needle)) ) return strlen($needle);
-	return 0;
-}
-
 function safe_attachment_copy($source, $id)
 {
 	$loc = $GLOBALS['FILE_STORE'] . $id . '.atch';	
 	if (!move_uploaded_file($source, $loc)) {
 		std_out('unable to uploaded file', 'ERR');
 	}
-	
+
 	@chmod($loc, ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
-	
+
 	return $loc;
 }
 
@@ -56,9 +42,9 @@ function attach_finalize($attach_list, $mid, $private='N')
 {
 	$id_list = '';
 	$attach_count = 0;
-	
+
 	$tbl = ($private == 'N' ? 'msg' : 'pmsg'); 
-	
+
 	foreach ($attach_list as $key => $val) {
 		if (empty($val)) {
 			$del[] = (int)$key;
@@ -68,7 +54,7 @@ function attach_finalize($attach_list, $mid, $private='N')
 			$id_list .= $key.',';
 		}
 	}
-	
+
 	if (!empty($id_list)) {
 		$id_list = substr($id_list, 0, -1);
 		q("UPDATE {SQL_TABLE_PREFIX}attach SET location=".__FUD_SQL_CONCAT__."('".$GLOBALS['FILE_STORE']."', id, '.atch'), message_id=".$mid." WHERE id IN(".$id_list.") AND private='".$private."'");

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_opt.inc.t,v 1.2 2003/04/02 01:46:35 hackie Exp $
+*   $Id: post_opt.inc.t,v 1.3 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,10 +29,10 @@ function tmpl_post_options($arg)
 		} else if ($arg->tag_style == 'HTML') {
 			$post_opt_html = '{TEMPLATE: post_opt_html_on}';
 		}
-		if (is_perms(_uid, $arg->id, 'SML')) {
+		if ($GLOBALS['perms']['p_sml'] == 'Y') {
 			$post_opt_smilies = '{TEMPLATE: post_opt_smilies_on}';
 		}
-		if (is_perms(_uid, $arg->id, 'IMG')) {
+		if ($GLOBALS['perms']['p_img'] == 'Y') {
 			$post_opt_images = '{TEMPLATE: post_opt_images_on}';
 		}
 		

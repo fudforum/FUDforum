@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reset.php.t,v 1.5 2003/04/20 10:45:19 hackie Exp $
+*   $Id: reset.php.t,v 1.6 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,6 +27,13 @@ function usr_reset_key($id)
 	db_unlock();
 
 	return $reset_key;
+}
+
+function usr_reset_passwd($id)
+{
+	$randval = dechex(get_random_value(32));
+	q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5($randval)."', reset_key='0' WHERE id=".$id);
+	return $randval;
 }
 	
 	if (isset($_GET['reset_key'])) {
@@ -54,17 +61,15 @@ function usr_reset_key($id)
 	}
 
 	if ($email) {
-		if ($id = get_id_by_email($email)) {
-			$usr = new fud_user_reg;
-			$usr->get_user_by_id($id);
-			if ($EMAIL_CONFIRMATION == 'Y' && $usr->email_conf == 'N') {
-				$conf_key = usr_email_unconfirm($id);
+		if ($uobj = db_sab('SELECT id, email_conf FROM {SQL_TABLE_PREFIX}users WHERE email=\''.addslashes($email).'\'')) {
+			if ($EMAIL_CONFIRMATION == 'Y' && $uobj->email_conf == 'N') {
+				$conf_key = usr_email_unconfirm($uobj->id);
 				$url = '{ROOT}?t=emailconf&conf_key='.$conf_key;
-				send_email($NOTIFY_FROM, $email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: reset_confirmation}', "");
+				send_email($NOTIFY_FROM, $email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}');
 			} else {
-				$key = usr_reset_key($id);
+				$key = usr_reset_key($uobj->id);
 				$url = '{ROOT}?t=reset&reset_key='.$key;
-				send_email($NOTIFY_FROM, $email, '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_reset}', "");
+				send_email($NOTIFY_FROM, $email, '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_reset}');
 			}
 
 			ses_delete($usr->sid);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.16 2003/04/18 12:43:44 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.17 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -99,7 +99,7 @@ function tmpl_drawpmsg(&$obj, &$usr, $mini)
 		$profile_link = '{TEMPLATE: dpmsg_profile_no_link}';
 	}
 	$msg_body = $obj->length ? read_pmsg_body($obj->foff, $obj->length) : '{TEMPLATE: dpmsg_no_msg_body}';
-	
+
 	$file_attachments = '';
 	if ($obj->attach_cnt) {
 		$c = uq('SELECT a.id, a.original_name, a.dlcount, m.icon, a.fsize FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id WHERE a.message_id='.$obj->id.' AND private=\'Y\'');

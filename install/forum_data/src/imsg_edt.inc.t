@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.41 2003/04/15 14:43:05 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.42 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,13 +14,16 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
+
+class fud_msg
+{
+	var $id, $thread_id, $poster_id, $reply_to, $ip_addr, $host_name, $post_stamp, $subject, $attach_cnt, $poll_id, 
+	    $update_stamp, $icon, $approved, $show_sig, $updated_by, $smiley_disabled, $login, $length, $foff, $file_id,
+	    $file_id_preview, $length_preview, $offset_preview, $body, $mlist_msg_id;
+}
+
 class fud_msg_edit extends fud_msg
 {
-	function add_thread($forum_id, $autoapprove=TRUE)
-	{
-		return $this->add($forum_id, $autoapprove);
-	}
-	
 	function add_reply($reply_to, $th_id=NULL, $sticky_perm, $lock_perm, $autoapprove=TRUE)
 	{
 		if ($reply_to) {
@@ -124,7 +127,7 @@ class fud_msg_edit extends fud_msg
 				$thr_orderexpiry = 0;
 			}
 			
-			$this->thread_id = fud_thread::add($this->id, $forum_id, $this->post_stamp, $thr_locked, $is_sticky, $thr_ordertype, $thr_orderexpiry);
+			$this->thread_id = th_add($this->id, $forum_id, $this->post_stamp, $thr_locked, $is_sticky, $thr_ordertype, $thr_orderexpiry);
 	
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='.$this->thread_id.' WHERE id='.$this->id);
 		} else {
@@ -219,14 +222,6 @@ class fud_msg_edit extends fud_msg
 			delete_msg_index($this->id);
 			index_text((preg_match('!^Re: !i', $this->subject) ? '': $this->subject), $this->body, $this->id);
 		}
-	}
-	
-	function fetch_vars($array, $prefix)
-	{
-		$this->subject = $array[$prefix.'subject'];
-		$this->body = $array[$prefix.'body'];
-		$this->icon = isset($array[$prefix.'icon'])?$array[$prefix.'icon']:'';
-		$this->show_sig = isset($array[$prefix.'show_sig'])?$array[$prefix.'show_sig']:'';
 	}
 	
 	function delete($rebuild_view=TRUE, $mid=0, $th_rm=0)
@@ -523,21 +518,6 @@ class fud_msg_edit extends fud_msg
 	}
 }
 
-function flood_check()
-{
-	$check_time = __request_timestamp__-$GLOBALS['FLOOD_CHECK_TIME'];
-	
-	if (($v = q_singleval("SELECT post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE ip_addr='".$_SERVER['REMOTE_ADDR']."' AND poster_id="._uid." AND post_stamp>".$check_time." ORDER BY post_stamp DESC LIMIT 1"))) {
-		$v += $GLOBALS['FLOOD_CHECK_TIME']-__request_timestamp__;
-		if ($v < 1) {
-			$v = 1;
-		}
-		return $v;
-	}
-	
-	return;		
-}
-
 function write_body($data, &$len, &$offset)
 {
 	$MAX_FILE_SIZE = 2147483647;
@@ -630,5 +610,103 @@ function trim_html($str, $maxlen)
 	}
 
 	return $data;
+}
+
+function make_email_message(&$body, &$obj)
+{
+	$TITLE_EXTRA = $iemail_poll = $iemail_attach = '';
+	if ($obj->poll_cache) {
+		$pl = @unserialize($obj->poll_cache);
+		if (is_array($pl) && count($pl)) {
+			foreach ($pl as $k => $v) {
+				$length = ($v[1] && $obj->total_votes) ? round($v[1] / $obj->total_votes * 100) : 0;
+				$iemail_poll .= '{TEMPLATE: iemail_poll_result}';	
+			}
+			$iemail_poll = '{TEMPLATE: iemail_poll_tbl}';
+		}
+	}
+	if ($obj->attach_cnt && $obj->attach_cache) {
+		$atch = @unserialize($obj->attach_cache);
+		if (is_array($atch) && count($atch)) {
+			foreach ($atch as $v) {
+				$sz = $v[2] / 1024;
+				$sz = $sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB';
+				$iemail_attach .= '{TEMPLATE: iemail_attach_entry}';
+			}
+			$iemail_attach = '{TEMPLATE: iemail_attach}';
+		}
+	}
+
+	return '{TEMPLATE: iemail_body}';
+}
+
+function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type, $id, $frm_name='')
+{
+	if (isset($to['EMAIL']) && (is_string($to['EMAIL']) || (is_array($to['EMAIL']) && count($to['EMAIL'])))) {
+		$do_email = 1;
+		$goto_url['email'] = '{ROOT}?t=rview&goto='.$msg_id;
+		if ($GLOBALS['NOTIFY_WITH_BODY'] == 'Y') {
+			
+			$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.approved='Y'");
+		
+			$headers  = "MIME-Version: 1.0\r\n";
+			$split = get_random_value(128)                                                                            ;
+			$headers .= "Content-Type: multipart/alternative; boundary=\"------------" . $split . "\"\r\n";
+			$boundry = "\r\n--------------" . $split . "\r\n";
+		
+			$CHARSET = '{TEMPLATE: CHARSET}';
+		
+			$plain_text = read_msg_body($obj->foff, $obj->length, $obj->file_id);
+		
+			$body_email = $boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . strip_tags($plain_text) . "\r\n\r\n" . '{TEMPLATE: iemail_participate}' . ' ' . '{ROOT}?t=rview&th=' . $id . "&notify=1&opt=off\r\n" . 
+			$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . make_email_message($plain_text, $obj) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
+		}
+	}
+	if (isset($to['ICQ']) && (is_string($to['ICQ']) || (is_array($to['ICQ']) && count($to['ICQ'])))) {
+		$do_icq = 1;
+		$icq = str_replace('http://', "http'+'://'+'", $GLOBALS['WWW_ROOT']);
+		$icq = str_replace('www.', "www'+'.", $icq);
+		$goto_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&goto=".$msg_id."';";
+	} else if (!isset($do_email)) {
+		/* nothing to do */
+		return;
+	}
+
+	reverse_FMT($thr_subject);
+	reverse_FMT($poster_login);
+	
+	if ($id_type == 'thr') {
+		$subj = '{TEMPLATE: iemail_thr_subject}';
+		
+		if (!isset($body_email)) {
+			$unsub_url['email'] = '{ROOT}?t=rview&th='.$id.'&notify=1&opt=off';
+			$body_email = '{TEMPLATE: iemail_thr_bodyemail}';
+		}	
+		
+		if (isset($do_icq)) {
+			$body_icq = '{TEMPLATE: iemail_thr_bodyicq}';
+			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&th=".$id."&notify=1&opt=off';";
+		}
+	} else if ($id_type == 'frm') {
+		reverse_FMT($frm_name);
+
+		$subj = '{TEMPLATE: iemail_frm_subject}';
+
+		if (isset($do_icq)) {
+			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=thread&unsub=1&frm_id=".$id."';";
+			$body_icq = '{TEMPLATE: iemail_frm_bodyicq}';
+		}
+		if (!isset($body_email)) {
+			$unsub_url['email'] = '{ROOT}?t=thread&unsub=1&frm_id='.$id;
+			$body_email = '{TEMPLATE: iemail_frm_bodyemail}';
+		}	
+	}	
+	
+	if (isset($do_email)) {
+		send_email($GLOBALS['NOTIFY_FROM'], $to['EMAIL'], $subj, $body_email, (isset($headers) ? $headers : ''));
+	}
+	if (isset($do_icq)) {
+		send_email($GLOBALS['NOTIFY_FROM'], $to['ICQ'], $subj, $body_icq);
+	}
 }
 ?>

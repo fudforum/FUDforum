@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.11 2003/04/19 14:00:57 hackie Exp $
+*   $Id: private.inc.t,v 1.12 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,23 +15,23 @@
 *
 ***************************************************************************/
 
-	
+
 class fud_pmsg
 {
 	var	$id, $to_list, $ouser_id, $duser_id, $pdest, $ip_addr, $host_name, $post_stamp, $icon, $mailed, $folder_id,
 		$subject, $attach_cnt, $smiley_disabled, $show_sig, $track, $length, $foff, $login, $ref_msg_id, $body;
-	
+
 	function add($track='')
 	{
 		if (!db_locked()) {
 			$ll = 1;
 			db_lock('{SQL_TABLE_PREFIX}pmsg WRITE');
 		}
-	
+
 		$this->post_stamp = __request_timestamp__;
 		$this->ip_addr = isset($_SERVER['REMOTE_ADDR']) ? "'".addslashes($_SERVER['REMOTE_ADDR'])."'" : "'0.0.0.0'";
 		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
-	
+
 		if (!$this->mailed) {
 			$this->mailed = $this->folder_id == 'SENT' ? 'Y' : 'N';
 		}
@@ -91,7 +91,7 @@ class fud_pmsg
 			db_unlock();
 		}
 	}
-	
+
 	function send_pmsg()
 	{
 		foreach($GLOBALS['recv_user_id'] as $v) {
@@ -140,9 +140,7 @@ class fud_pmsg
 			$GLOBALS['send_to_array'][] = array($v, $id);
 		}	
 	}
-	
-	
-	
+
 	function sync()
 	{
 		list($this->foff, $this->length) = write_pmsg_body($this->body);
@@ -176,15 +174,6 @@ class fud_pmsg
 			$this->send_pmsg();
 		}
 	}
-	
-	
-	
-	function get($id, $re='')
-	{
-		qobj("SELECT {SQL_TABLE_PREFIX}pmsg.*,{SQL_TABLE_PREFIX}users.alias AS login FROM {SQL_TABLE_PREFIX}pmsg LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}pmsg.ouser_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}pmsg.duser_id="._uid." AND {SQL_TABLE_PREFIX}pmsg.id=".$id, $this);
-		if( !empty($this->id) && empty($re) ) 
-			$this->body = read_pmsg_body($this->foff, $this->length);
-	}
 }
 
 function set_nrf($nrf, $id)
@@ -195,18 +184,18 @@ function set_nrf($nrf, $id)
 function write_pmsg_body($text)
 {
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private', 'ab');
-	
+
 	if (!($s = ftell($fp))) {
 		$s = __ffilesize($fp);
 	}
 
 	$len = fwrite($fp, $text);
 	fclose($fp);
-	
+
 	if (!$s) {
 		chmod($GLOBALS['MSG_STORE_DIR'].'private', ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
 	}
-	
+
 	return array($s, $len);
 }
 
@@ -215,12 +204,12 @@ function read_pmsg_body($offset, $length)
 	if (!$length) {
 		return;
 	}
-	
+
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private', 'rb');
 	fseek($fp, $offset, SEEK_SET);
 	$str = fread($fp, $length);
 	fclose($fp);
-	
+
 	return $str;
 }
 

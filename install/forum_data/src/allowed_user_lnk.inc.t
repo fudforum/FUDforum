@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.8 2003/04/20 10:45:19 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.9 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,5 +53,34 @@ function is_ip_blocked($ip)
 	} else {
 		return;	
 	}
+}
+
+function is_email_blocked($addr)
+{
+	if (!isset($GLOBALS['__FUD_EMAIL_FILTER__'])) {
+		include $GLOBALS['FORUM_SETTINGS_PATH'] . 'email_filter_cache';
+	}
+	if (!count($GLOBALS['__FUD_EMAIL_FILTER__'])) {
+		return;
+	}
+	$block =& $GLOBALS['__FUD_EMAIL_FILTER__'];
+	$addr = strtolower($addr);
+	$allowed = 0;
+	foreach ($block as $k => $v) {
+		if ($v[0] == '#') {
+			$not = 1;
+			$v = substr($v, 1);
+		} else {
+			$not = 0;
+		}
+		if (($k == 'SIMPLE' && (strpos($addr, $v) !== false)) || ($k == 'REGEX' && preg_match('!'.$v.'!', $addr))) {
+			if (!$not) {
+				return 1;
+			} else {
+				$allowed = 1;	
+			}
+		}
+	}
+	return (($not && $allowed) || !$not) 0 : 1;
 }
 ?>

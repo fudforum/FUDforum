@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: fileio.inc.t,v 1.4 2003/04/17 09:37:33 hackie Exp $
+*   $Id: fileio.inc.t,v 1.5 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,14 +14,13 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-define('_fileio_inc_', 1);
 
 function register_fp($id)
 {
 	if (!isset($GLOBALS['__MSG_FP__'][$id])) {
 		$GLOBALS['__MSG_FP__'][$id] = fopen($GLOBALS['MSG_STORE_DIR'].'msg_'.$id, 'rb');
 	}
-	
+
 	return $GLOBALS['__MSG_FP__'][$id];
 }
 

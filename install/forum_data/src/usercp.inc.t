@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usercp.inc.t,v 1.9 2003/04/16 14:25:13 hackie Exp $
+*   $Id: usercp.inc.t,v 1.10 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@
 		$admin_control_panel = $usr->is_mod == 'A' ? '{TEMPLATE: admin_control_panel}' : '';
 		$login_n_logout = '{TEMPLATE: logout}';
 		$register_n_profile = '{TEMPLATE: profile}';
-		
+
 		if ($PM_ENABLED == 'Y') {
 			$c = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND folder_id=\'INBOX\' AND read_stamp=0');
 			$private_msg = $c ? '{TEMPLATE: private_msg_unread}' : '{TEMPLATE: private_msg_empty}';

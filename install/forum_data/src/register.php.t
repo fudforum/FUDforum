@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.41 2003/04/20 10:45:19 hackie Exp $
+*   $Id: register.php.t,v 1.42 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -55,6 +55,11 @@ function fetch_img($url, $user_id)
 }
 	/* intialize error status */
 	$GLOBALS['error'] = 0;
+
+function check_passwd($id, $passwd)
+{
+	return q_singleval("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".$id." AND passwd='".md5($passwd)."'");
+}
 
 function register_form_check($user_id)
 {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.14 2003/04/15 14:43:05 hackie Exp $
+*   $Id: split_th.php.t,v 1.15 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -102,7 +102,7 @@
 		if ($mc != ($data->replies + 1)) { /* check that we need to move the entire thread */
 			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE');
 			
-			$new_th = fud_thread::add($start, $forum, $data->new_th_lps, 'N', 'N', "'NONE'", 0, ($mc - 1), $data->new_th_lpi);
+			$new_th = th_add($start, $forum, $data->new_th_lps, 'N', 'N', "'NONE'", 0, ($mc - 1), $data->new_th_lpi);
 		
 			/* Deal with the new thread */
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='.$new_th.' WHERE id IN ('.$mids.')');
@@ -154,7 +154,7 @@
 		} else { /* moving entire thread */
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET subject='".htmlspecialchars($_POST['new_title'])."' WHERE id=".$data->root_msg_id);
 			if ($forum != $data->forum_id) {
-				fud_thread::move($data->id, $forum, $data->root_msg_id, $thr->forum_id, $data->last_post_date, $data->last_post_id);
+				th_move($data->id, $forum, $data->root_msg_id, $thr->forum_id, $data->last_post_date, $data->last_post_id);
 			
 				if ($data->src_lpi == $data->last_post_id) {
 					q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.th_frm_last_post_id($data->forum_id, $data->id).' WHERE id='.$data->forum_id);

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: postcheck.tmpl,v 1.4 2003/02/24 11:12:32 hackie Exp $
+*   $Id: postcheck.tmpl,v 1.5 2003/04/21 14:14:54 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -15,8 +15,9 @@
 ***************************************************************************/
 
 {PHP_FILE: input: postcheck.inc.t; output: postcheck.inc;}
-{REF: fileio.tmpl}
 
+{REF: fileio.tmpl}
+{REF: iemail.tmpl}
 
 {MAIN_SECTION: post_error_breakback post form error style with break in the back}
 <font class="ErrorText">{VAR: GLOBALS['__err_msg__'][$err]}</font><br />

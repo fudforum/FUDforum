@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.13 2002/10/16 07:33:39 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.14 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -91,7 +91,7 @@ function draw_tmpl_perm_table($perm_arr)
 		$mbr = new fud_user_reg;
 		$perms_arr = mk_perms_arr('', $perms, 'u');
 		if ( empty($edit) ) {
-			$mbr->id = get_id_by_alias($gr_member);
+			$mbr->id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(htmlspecialchars($gr_member))."'");
 			if( $mbr->id ) $mbr->get_user_by_id($mbr->id);
 			
 			$gr_member = stripslashes($gr_member);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.44 2003/04/20 22:27:42 hackie Exp $
+*   $Id: post.php.t,v 1.45 2003/04/21 14:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,6 +16,22 @@
 ***************************************************************************/
 
 	define('msg_edit', 1); define("_imsg_edit_inc_", 1);
+
+function flood_check()
+{
+	$check_time = __request_timestamp__-$GLOBALS['FLOOD_CHECK_TIME'];
+	
+	if (($v = q_singleval("SELECT post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE ip_addr='".$_SERVER['REMOTE_ADDR']."' AND poster_id="._uid." AND post_stamp>".$check_time." ORDER BY post_stamp DESC LIMIT 1"))) {
+		$v += $check_time;
+		if ($v < 1) {
+			$v = 1;
+		}
+		return $v;
+	}
+	
+	return;		
+}
+
 /*{PRE_HTML_PHP}*/
 	
 	$pl_id = 0;
@@ -57,8 +73,10 @@
 	}
 
 	if ($th_id) {
-		$thr = new fud_thread;
-		$thr->get_by_id($th_id);	
+		$thr = db_sab('SELECT t.forum_id, t.locked, t.root_msg_id, t.ordertype, t.orderexpiry, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg ON t.root_msg_id=m.id WHERE t.id='.$th_id);
+		if (!$thr) {
+			invl_inp_err();
+		}
 		$frm_id = $thr->forum_id;
 	} else if ($frm_id) {
 		$th_id = NULL;
@@ -68,8 +86,17 @@
 	$frm = db_sab('SELECT id, tag_style, max_file_attachments, passwd_posting, post_passwd, message_threshold, moderated FROM {SQL_TABLE_PREFIX}forum WHERE id='.$frm_id);
 	
 	/* fetch permissions & moderation status */
-	$perms = init_single_user_perms($frm->id, $usr->is_mod, $MOD);
-	
+	if (_uid) {
+		$MOD = 0;
+		$perms = db_arr_assoc('SELECT p_VISIBLE as p_visible, p_READ as p_read, p_POST as p_post, p_REPLY as p_reply, p_EDIT as p_edit, p_DEL as p_del, p_STICKY as p_sticky, p_POLL as p_poll, p_FILE as p_file, p_VOTE as p_vote, p_RATE as p_rate, p_SPLIT as p_split, p_LOCK as p_lock, p_MOVE as p_move, p_SML as p_sml, p_IMG as p_img FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=0 AND resource_id='.$frm->id);
+	} else if ($usr->is_mod == 'A' || ($usr->is_mod == 'Y' && is_moderator($frm->id, _uid)) {
+		$MOD = 1;
+		$perms = array('p_visible'=>'Y', 'p_read'=>'Y', 'p_post'=>'Y', 'p_reply'=>'Y', 'p_edit'=>'Y', 'p_del'=>'Y', 'p_sticky'=>'Y', 'p_poll'=>'Y', 'p_file'=>'Y', 'p_vote'=>'Y', 'p_rate'=>'Y', 'p_split'=>'Y', 'p_lock'=>'Y', 'p_move'=>'Y', 'p_sml'=>'Y', 'p_img'=>'Y');
+	} else {
+		$MOD = 0;
+		$perms db_arr_assoc('SELECT p_VISIBLE as p_visible, p_READ as p_read, p_POST as p_post, p_REPLY as p_reply, p_EDIT as p_edit, p_DEL as p_del, p_STICKY as p_sticky, p_POLL as p_poll, p_FILE as p_file, p_VOTE as p_vote, p_RATE as p_rate, p_SPLIT as p_split, p_LOCK as p_lock, p_MOVE as p_move, p_SML as p_sml, p_IMG as p_img FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_id='.$frm->id.' ORDER BY user_id ASC LIMIT 1');
+	}
+
 	/* More Security */
 	if (isset($thr) && $perms['p_lock'] != 'Y' && $thr->locked=='Y') {
 		error_dialog('{TEMPLATE: post_err_lockedthread_title}', '{TEMPLATE: post_err_lockedthread_msg}');
@@ -298,7 +325,10 @@
 			/* Process Message Data */
 			$msg_post->poster_id = _uid;
 			$msg_post->poll_id = $pl_id;
-			$msg_post->fetch_vars($_POST, 'msg_');
+			$msg_post->subject = $_POST['msg_subject'];
+			$msg_post->body = $_POST['msg_body'];
+			$msg_post->icon = isset($_POST['msg_icon']) ? $_POST['msg_icon'] : '';
+			$msg_post->show_sig = isset($_POST['msg_show_sig']) ? $_POST['msg_show_sig'] : '';
 		 	$msg_post->smiley_disabled = isset($_POST['msg_smiley_disabled']) ? 'Y' : 'N';
 		 	$msg_post->show_sig = isset($_POST['msg_show_sig']) ? 'Y' : 'N';
 		 	$msg_post->attach_cnt = (int) $attach_cnt;
