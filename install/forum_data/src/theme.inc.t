@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc.t,v 1.6 2002/09/11 22:14:23 hackie Exp $
+*   $Id: theme.inc.t,v 1.7 2002/09/20 05:29:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -108,6 +108,9 @@ class fud_theme
 			}
 			q("UPDATE {SQL_TABLE_PREFIX}themes SET enabled='Y', t_default='Y' WHERE id=".$new_default);
 		}
+		
+		if( !$new_default ) 
+			$new_default = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE t_default='Y'");
 		
 		q("UPDATE {SQL_TABLE_PREFIX}users SET theme=".$new_default." WHERE theme=".$this->id);
 		
