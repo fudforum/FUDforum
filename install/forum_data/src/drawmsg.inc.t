@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.49 2003/06/02 15:26:28 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.50 2003/07/09 10:12:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -215,7 +215,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	
 	if ($obj->user_id) {
 		if (!$hide_controls) {
-			if ($obj->avatar_loc && $obj->avatar_approved == 'Y' && $usr->show_avatars == 'Y' && $GLOBALS['CUSTOM_AVATARS'] != 'OFF') {
+			if ($obj->avatar_loc && $obj->avatar_approved == 'Y' && $usr->show_avatars == 'Y' && $GLOBALS['CUSTOM_AVATARS'] != 'OFF' && $obj->level_pri != 'L') {
 				$avatar = '{TEMPLATE: dmsg_avatar}';
 			} else {
 				$avatar = '{TEMPLATE: dmsg_no_avatar}';
@@ -250,7 +250,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			}
 			if ($obj->level_pri) {
 				$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
-				$level_image = ($obj->level_pri != 'a' && $obj->level_img) ? '{TEMPLATE: dmsg_level_image}' : '';
+				$level_image = ($obj->level_pri != 'A' && $obj->level_img) ? '{TEMPLATE: dmsg_level_image}' : '';
 			} else {
 				$level_name = $level_image = '';
 			}
