@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.php.t,v 1.44 2005/03/05 18:46:59 hackie Exp $
+* $Id: groupmgr.php.t,v 1.45 2005/03/09 20:56:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -216,16 +216,6 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			$perm_select .= '{TEMPLATE: groups_col_sp}';
 		}
 		$perm_sel_hdr .= '{TEMPLATE: groups_header_entry_row}';
-	}
-
-	$n_perms = count($hdr);
-
-	if (!$edit) {
-		$member_input = '{TEMPLATE: member_add}';
-		$submit_button = '{TEMPLATE: submit_button}';
-	} else {
-		$submit_button = '{TEMPLATE: update_buttons}';
-		$member_input = '{TEMPLATE: member_edit}';
 	}
 
 	/* draw list of group members */

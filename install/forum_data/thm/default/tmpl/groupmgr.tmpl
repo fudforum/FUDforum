@@ -1,7 +1,7 @@
-/**
+
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.tmpl,v 1.31 2005/03/05 18:47:00 hackie Exp $
+* $Id: groupmgr.tmpl,v 1.32 2005/03/09 20:56:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,7 +47,7 @@
 <br />
 <form method="post" action="{TEMPLATE: group_control_panel_lnk3}" name="groupmgr">
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-{TEMPLATE-DATA: member_input}
+{IF: $edit}{TEMPLATE: member_edit}{ELSE}{TEMPLATE: member_add}{ENDI}
 <tr class="RowStyleB">
 	<td colspan=2>
 		<table cellspacing=1 cellpadding=3 width="100%" class="ContentTable">
@@ -58,7 +58,7 @@
 
 <tr>
 	<td colspan=2 class="RowStyleC ar">
-		{TEMPLATE-DATA: submit_button}
+		{IF: $edit}{TEMPLATE: update_buttons}{ELSE}{TEMPLATE: submit_button}{ENDI}
 	</td>
 </tr>
 </table><input type="hidden" name="group_id" value="{VAR: group_id}"><input type="hidden" name="edit" value="{VAR: edit}">{DEF: _hs}</form>
@@ -71,7 +71,7 @@ if (document.groupmgr.gr_member) {
 </script>
 <br /><br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: groupmgr_member}</th><th colspan="{VAR: n_perms}">{MSG: groups_perms_header}</th><th class="ac">{MSG: groupmgr_action}</th></tr>
+<tr><th>{MSG: groupmgr_member}</th><th colspan="{FUNC: count($hdr)}">{MSG: groups_perms_header}</th><th class="ac">{MSG: groupmgr_action}</th></tr>
 {TEMPLATE-DATA: group_members_list}
 </table>
 {SECTION: END}
