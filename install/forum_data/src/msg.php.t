@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.62 2003/11/26 19:20:36 hackie Exp $
+* $Id: msg.php.t,v 1.63 2003/12/24 12:39:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -177,6 +177,9 @@
 
 	$split_thread = ($frm->replies && $perms & 2048) ? '{TEMPLATE: split_thread}' : '';
 
+	/* This is an optimization intended for topics with many messages */
+	q("CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_".__request_timestamp__." AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$_GET['th']." AND apr=1 ORDER BY id ASC LIMIT " . qry_limit($count, $_GET['start']));
+
 	$result = $query_type('SELECT
 		m.*,
 		t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
@@ -187,16 +190,14 @@
 		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 		pot.id AS cant_vote
 	FROM
-		{SQL_TABLE_PREFIX}msg m
+		{SQL_TABLE_PREFIX}_mtmp_'.__request_timestamp__.' mt
+		INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mt.id
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
-		LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
-	WHERE
-		m.thread_id='.$_GET['th'].' AND m.apr=1
-	ORDER BY m.id ASC LIMIT ' . qry_limit($count, $_GET['start']));
+		LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.' ORDER BY m.id ASC');
 
 	$obj2 = $message_data = '';
 

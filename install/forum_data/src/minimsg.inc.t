@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: minimsg.inc.t,v 1.21 2003/11/14 10:50:19 hackie Exp $
+* $Id: minimsg.inc.t,v 1.22 2003/12/24 12:39:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,17 +25,19 @@ if ($th_id && empty($GLOBALS['MINIMSG_OPT']['DISABLED'])) {
 		$msg_order_by = 'DESC';
 	}
 
+	/* This is an optimization intended for topics with many messages */
+	q("CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_".__request_timestamp__." AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th_id." AND apr=1 ORDER BY id ".$msg_order_by." LIMIT " . qry_limit($count, $start));
+
 	$c = uq('SELECT m.*, t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			u.id AS user_id, u.alias AS login, u.users_opt, u.last_visit AS time_sec,
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name,  p.total_votes
 		FROM
-			{SQL_TABLE_PREFIX}msg m
+			{SQL_TABLE_PREFIX}_mtmp_'.__request_timestamp__.' mt
+			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mt.id
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 			LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
-		WHERE
-			m.thread_id='.$th_id.' AND m.apr=1
-		ORDER BY id '.$msg_order_by.' LIMIT '.qry_limit($count, $start));
+		ORDER BY m.id '.$msg_order_by);
 
 	$message_data='';
 	$m_count = 0;
