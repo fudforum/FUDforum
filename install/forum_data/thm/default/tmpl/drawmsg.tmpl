@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.34 2003/10/15 14:13:34 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.35 2003/10/15 15:25:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -167,7 +167,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_custom_tags}
-{FUNC: ltrim($obj->custom_status)}
+{VAR: obj->custom_status}
 {SECTION: END}
 
 {SECTION: dmsg_no_custom_tags}
