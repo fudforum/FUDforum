@@ -556,7 +556,7 @@ core_adm_login_msg:		<br>Administratorer kan logga inn <a href="adm/admloginuser
 email_err_unabletoemail_title:	FEIL: Kan ikke sende e-post
 email_err_unabletoemail_msg:	E-postsystemet er stengt av administratorn.
 email_err_unabletoemailu_msg:	E-postsystemet er stengt av av administratorn.
-email_error_unabletolocaddr:	Systemet kunne dessverre ikke sende e-post til {VAR: usr_dst->alias} ettersom det ikke kunne finne hans/hennes e-postadresse
+email_error_unabletolocaddr:	Systemet kunne dessverre ikke sende e-post til {VAR-HTML: _POST['tx_name']} ettersom det ikke kunne finne hans/hennes e-postadresse
 email_error_body:		Du kan ikke sende en tom melding
 email_error_subject:		Emne er obligatorisk
 email_error_emailrequired:	E-postadresse er obligatorisk

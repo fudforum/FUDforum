@@ -105,7 +105,7 @@ email_error_invalidaddress:	Ung&uuml;ltige Emailadresse
 email_error_invaliduser:	Ung&uuml;ltiger Benutzer
 email_error_namerequired:	Name ist erforderlich
 email_error_subject:		Betreff ist erforderlich
-email_error_unabletolocaddr:	Entschuldigung, das System konnte die Email an {VAR: usr_dst->alias} nicht verschicken, weil es die Emailadresse nicht finden kann
+email_error_unabletolocaddr:	Entschuldigung, das System konnte die Email an {VAR-HTML: _POST['tx_name']} nicht verschicken, weil es die Emailadresse nicht finden kann
 email_name:			Name:
 email_pg_title:			Email
 email_subject:			Betreff:

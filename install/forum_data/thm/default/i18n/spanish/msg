@@ -556,7 +556,7 @@ core_adm_login_msg:		<br>Los administradores pueden entrar <a href="{ROOT}?t={GV
 email_err_unabletoemail_title:	ERROR: No fue posible enviar e-mail
 email_err_unabletoemail_msg:	El sistema de e-mail ha sido deshabilitado por el administrador.
 email_err_unabletoemailu_msg:	El sistema de e-mail ha sido deshabilitado por el administrador.
-email_error_unabletolocaddr:	Lo siento, el sistema no pudo enviar un e-mail a {VAR: usr_dst->alias} porque no fue capaz de encontrar su dirección de e-mail
+email_error_unabletolocaddr:	Lo siento, el sistema no pudo enviar un e-mail a {VAR-HTML: _POST['tx_name']} porque no fue capaz de encontrar su dirección de e-mail
 email_error_body:		Se requiere un cuerpo del mensaje
 email_error_subject:		Se requiere un asunto
 email_error_emailrequired:	Se requiere un e-mail

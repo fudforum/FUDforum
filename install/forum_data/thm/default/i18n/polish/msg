@@ -556,7 +556,7 @@ core_adm_login_msg:		<br>Administratorzy mog± zalogowaæ siê <a href="{GVAR: WWW_
 email_err_unabletoemail_title:	B£¡D: Nie uda³o siê wys³aæ listu
 email_err_unabletoemail_msg:	System poczty elektronicznej zosta³ wy³±czony przez administratora.
 email_err_unabletoemailu_msg:	System poczty elektronicznej zosta³ wy³±czony przez administratora.
-email_error_unabletolocaddr:	System nie by³ w stanie wys³aæ listu do {VAR: usr_dst->alias}, poniewa¿ nie móg³ zlokalizowaæ tego adresu e-mail.
+email_error_unabletolocaddr:	System nie by³ w stanie wys³aæ listu do {VAR-HTML: _POST['tx_name']}, poniewa¿ nie móg³ zlokalizowaæ tego adresu e-mail.
 email_error_body:		Tre¶æ listu jest wymagana
 email_error_subject:		Temat listu jest wymagany
 email_error_emailrequired:	Adres e-mail jest wymagany

@@ -559,7 +559,7 @@ core_adm_login_msg:		<br>Administrátoøi se mù¾ou pøihlásit <a href="{GVAR: WWW_R
 email_err_unabletoemail_title:	CHYBA: Není mo¾no zaslat email
 email_err_unabletoemail_msg:	Systém emailù by administrátorem vypnut.
 email_err_unabletoemailu_msg:	Systém emailù by administrátorem vypnut.
-email_error_unabletolocaddr:	Omlouvám se, systém nebyl scopen odeslat mail pro {VAR: usr_dst->alias} proto¾e nedokázal najít jeho adresu
+email_error_unabletolocaddr:	Omlouvám se, systém nebyl scopen odeslat mail pro {VAR-HTML: _POST['tx_name']} proto¾e nedokázal najít jeho adresu
 email_error_body:		Obsah je nutný
 email_error_subject:		nadpis je nutný
 email_error_emailrequired:	Email je nutný

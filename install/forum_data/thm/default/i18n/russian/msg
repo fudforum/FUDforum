@@ -557,7 +557,7 @@ core_adm_login_msg:		<br>Администраторы могут войти <a href="{GVAR: WWW_ROOT}adm
 email_err_unabletoemail_title:	ОШИБКА: Невозможно отправить электронное сообщение
 email_err_unabletoemail_msg:	Система отправки email была выключена администратором.
 email_err_unabletoemailu_msg:	Система отправки email была выключена администратором.
-email_error_unabletolocaddr:	Извините, отправка email-сообщения {VAR: usr_dst->alias} невозможно, так как неизвестен его адрес email
+email_error_unabletolocaddr:	Извините, отправка email-сообщения {VAR-HTML: _POST['tx_name']} невозможно, так как неизвестен его адрес email
 email_error_body:		Текст сообщения обязателен
 email_error_subject:		Тема обязательна
 email_error_emailrequired:	Email-адрес обязателен

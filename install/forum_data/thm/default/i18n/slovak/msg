@@ -558,7 +558,7 @@ core_adm_login_msg:		<br>Administrators can login <a href="{GVAR: WWW_ROOT}adm/a
 email_err_unabletoemail_title:	ERROR: Unable to email
 email_err_unabletoemail_msg:	The email system has been disabled by the administrator.
 email_err_unabletoemailu_msg:	The email system has been disabled by the administrator.
-email_error_unabletolocaddr:	Sorry, the system was unable to email {VAR: usr_dst->alias} because it was unable to locate his email address
+email_error_unabletolocaddr:	Sorry, the system was unable to email {VAR-HTML: _POST['tx_name']} because it was unable to locate his email address
 email_error_body:		The body is required
 email_error_subject:		Subject is required
 email_error_emailrequired:	Email is required

@@ -558,7 +558,7 @@ core_adm_login_msg:		<br>Administrators kunnen <a href="{GVAR: WWW_ROOT}adm/adml
 email_err_unabletoemail_title:	FOUT: niet in staat om te mailen
 email_err_unabletoemail_msg:	Het email systeem is uitgeschakeld door de administrator.
 email_err_unabletoemailu_msg:	Het email systeem is uitgeschakeld door de administrator.
-email_error_unabletolocaddr:	Sorry, het systeem was niet in staat om {VAR: usr_dst->alias} te mailen omdat het niet in staat was dit mail adres te vinden
+email_error_unabletolocaddr:	Sorry, het systeem was niet in staat om {VAR-HTML: _POST['tx_name']} te mailen omdat het niet in staat was dit mail adres te vinden
 email_error_body:		een bericht is vereist
 email_error_subject:		Onderwerp is vereist
 email_error_emailrequired:	Email is vereist

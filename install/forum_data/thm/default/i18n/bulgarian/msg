@@ -559,7 +559,7 @@ core_adm_login_msg:		<br>Входът за Администратори е <a href="{GVAR: WWW_ROOT}adm
 email_err_unabletoemail_title:	ГРЕШКА: Невъзможно е да се прати Е-mail
 email_err_unabletoemail_msg:	Е-mail системата е изключена от Администратора.
 email_err_unabletoemailu_msg:	Е-mail системата е изключена от Администратора.
-email_error_unabletolocaddr:	За съжаление, не е било възможно да се изпрати e-mail съобщението до {VAR: usr_dst->alias} защото e-mail адресът му е неизвестен&nbsp;
+email_error_unabletolocaddr:	За съжаление, не е било възможно да се изпрати e-mail съобщението до {VAR-HTML: _POST['tx_name']} защото e-mail адресът му е неизвестен&nbsp;
 email_error_body:		Задължително трябва да има текст
 email_error_subject:		Задължително трябва да има заглавие
 email_error_emailrequired:	Задължително трябва да има E-mail адрес&nbsp;

@@ -560,7 +560,7 @@ core_adm_login_msg:		<br>Administratori se pot autentifica <a href="{GVAR: WWW_R
 email_err_unabletoemail_title:	EROARE: nu pot trimite email
 email_err_unabletoemail_msg:	Sistemul de trimitere a email-urilor a fost dezactivat de administrator
 email_err_unabletoemailu_msg:	Sistemul de trimitere a email-urilor a fost dezactivat de administrator
-email_error_unabletolocaddr:	Ne cerem scuze, sitemul nu poate trimite email-ul la {VAR: usr_dst->alias} deoarece nu a putut fi gasit.
+email_error_unabletolocaddr:	Ne cerem scuze, sitemul nu poate trimite email-ul la {VAR-HTML: _POST['tx_name']} deoarece nu a putut fi gasit.
 email_error_body:		Continutul mesajului este camp obligatoriu
 email_error_subject:		Subiectul este obligatoriu
 email_error_emailrequired:	Adresa de email este obligatorie

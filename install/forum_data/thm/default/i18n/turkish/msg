@@ -556,7 +556,7 @@ core_adm_login_msg:		<br>Yöneticiler <a href="{GVAR: WWW_ROOT}adm/admloginuser.p
 email_err_unabletoemail_title:	HATA: E-mektup gönderilemedi
 email_err_unabletoemail_msg:	E-mektup sistemi yönetici tarafýndan engellenmiþ durumda.
 email_err_unabletoemailu_msg:	E-mektup sistemi yönetici tarafýndan engellenmiþ durumda.
-email_error_unabletolocaddr:	Üzgünüz,  sistem {VAR: usr_dst->alias} kullanýcýsýna e-mektup gönderemedi, çünkü kullanýcýnýn e-mektup adresi bulunamadý.
+email_error_unabletolocaddr:	Üzgünüz,  sistem {VAR-HTML: _POST['tx_name']} kullanýcýsýna e-mektup gönderemedi, çünkü kullanýcýnýn e-mektup adresi bulunamadý.
 email_error_body:		Gövde bölümü zorunludur.
 email_error_subject:		Konu bölümü zorunludur.
 email_error_emailrequired:	E-mektup adresi zorunludur.

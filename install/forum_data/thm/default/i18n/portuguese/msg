@@ -559,7 +559,7 @@ core_adm_login_msg:		<br>Administradores podem fazer o login <a href="{GVAR: WWW
 email_err_unabletoemail_title:	ERRO: Impossível usar o email
 email_err_unabletoemail_msg:	O sistema de E-mail foi desabilitado pelo administrador.
 email_err_unabletoemailu_msg:	O sistema de E-mail foi desabilitado pelo administrador.
-email_error_unabletolocaddr:	Desculpe, o sistema não conseguiu enviar o E-mail {VAR: usr_dst->alias} porque não conseguiu localizar o endereço de E-mail
+email_error_unabletolocaddr:	Desculpe, o sistema não conseguiu enviar o E-mail {VAR-HTML: _POST['tx_name']} porque não conseguiu localizar o endereço de E-mail
 email_error_body:		O conteudo é obrigatório
 email_error_subject:		O assunto é obrigatório
 email_error_emailrequired:	O endereço de E-mail é obrigatório

@@ -557,7 +557,7 @@ core_adm_login_msg:		<br>Administratoriem ieiet <a href="{GVAR: WWW_ROOT}adm/adm
 email_err_unabletoemail_title:	KÏÛDA!!! Nevar nosûtît E-pastu
 email_err_unabletoemail_msg:	Administrators ir atslçdzis E-pasta nosûtîðanas sistçmu.
 email_err_unabletoemailu_msg:	Administrators ir atslçdzis E-pasta nosûtîðanas sistçmu.
-email_error_unabletolocaddr:	Atvainojiet. Nosûtît paziòojumu {VAR: usr_dst->alias} nav iespçjams, jo nav zinâma adresâta E-pasta adrese
+email_error_unabletolocaddr:	Atvainojiet. Nosûtît paziòojumu {VAR-HTML: _POST['tx_name']} nav iespçjams, jo nav zinâma adresâta E-pasta adrese
 email_error_body:		Publikâcijas teksts ir obligâts
 email_error_subject:		Tçma ir obligâta
 email_error_emailrequired:	E-pasta adrese ir obligâta

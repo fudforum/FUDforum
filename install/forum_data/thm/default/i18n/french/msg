@@ -556,7 +556,7 @@ core_adm_login_msg:		<br>Les administrateurs peuvent se connecter <a href="{GVAR
 email_err_unabletoemail_title:	ERROR: Impossible d&#39;envoyer des e-mails
 email_err_unabletoemail_msg:	La fonctionnalité e-mail a été désactivée par l&#39;administrateur.
 email_err_unabletoemailu_msg:	La fonctionnalité e-mail a été désactivée par l&#39;administrateur.
-email_error_unabletolocaddr:	Désolé, le système n&#39;a pas été en mesure d&#39;envoyer l&#39;e-mail à {VAR: usr_dst->alias} car il n&#39;a pas trouvé son adresse e-mail dans le système
+email_error_unabletolocaddr:	Désolé, le système n&#39;a pas été en mesure d&#39;envoyer l&#39;e-mail à {VAR-HTML: _POST['tx_name']} car il n&#39;a pas trouvé son adresse e-mail dans le système
 email_error_body:		Le contenu est obligatoire
 email_error_subject:		Le sujet est obligatoire
 email_error_emailrequired:	L&#39;adresse e-mail est obligatoire
