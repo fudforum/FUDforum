@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.41 2004/11/24 19:53:38 hackie Exp $
+* $Id: finduser.tmpl,v 1.42 2005/01/28 18:34:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,7 +49,7 @@ document.fufrm.usr_login.focus();
 {PAGE: END}
 
 {SECTION: find_user_no_results}
-<tr class="RowStyleA"><td colspan="{VAR: colspan}" class="wa GenText">{MSG: finduser_no_such_user}</td></tr>
+<tr class="RowStyleA"><td colspan="{IF: $is_a}5{ELSE}4{ENDI}" class="wa GenText">{MSG: finduser_no_such_user}</td></tr>
 {SECTION: END}
 
 {SECTION: find_user_entry}
