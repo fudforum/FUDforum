@@ -20,6 +20,7 @@ TOPIC_HELP:
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">Was sind Ank&uuml;ndigungen und angeheftete Beitr&auml;ge?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">Kann ich Themen bewerten?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref">Was sind Anwerbungen?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
 
 TOPIC_TITLE: Beitr&auml;ge lesen und verfassen
 TOPIC_HELP:

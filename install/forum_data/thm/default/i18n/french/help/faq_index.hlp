@@ -20,6 +20,7 @@ TOPIC_HELP:
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">Que sont les annonces et les messages épinglés&nbsp;</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">Comment noter un sujet&nbsp;?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref">Que sont les parrainages&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
 
 TOPIC_TITLE: Lire et envoyer des messages
 TOPIC_HELP:

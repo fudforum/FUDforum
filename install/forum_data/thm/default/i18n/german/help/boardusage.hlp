@@ -126,3 +126,39 @@ Betriebsmodus.<br />
 <b>Beispiel:</b><br />
 Der folgende Link ruft die aktuellsten 10 Beitr&auml;ge dieses Forums ab:<br />
 <a href="rdf.php?mode=m&l=1&n=10&basic=1" target="_blank">rdf.php?mode=m&l=1&n=10&basic=1</a>
+
+TOPIC_TITLE: <a name="accesskeys">Access Keys</a>
+TOPIC_HELP:
+Access keys are keyboard shortcuts intended to simplify keyboard navigation. FUDforum uses this functionality
+to simplify several tasks primary used for message posting forms.<br />
+
+<fieldset style="width: 350px;">
+	<legend><b>Browser Support</b></legend>
+	<b>Mozilla/Netscape:</b> CTRL + ALT + [accesskey]<br />
+	<b>Mozilla/IE:</b> ALT + [accesskey]<br />
+	<b>Opera:</b> SHIFT + ESC + [accesskey]<br />
+</fieldset>
+
+<b>Supported Access Keys:</b>
+<blockquote>
+	<b>H</b> - Redirect to forum help.<br />
+	<b>N</b> - On pages with a pager, redirect to the next page (if one is available).<br />
+	<b>P</b> - On pages with a pager, redirect to the previous page (if one is available).<br />
+	<b>S</b> - Submit message on public or private posting form.<br />
+	<b>R</b> - Preview message on public or private posting form.<br />
+	<b>K</b> - Spell check message.<br />
+	<b>A</b> - Apply spelling changes.<br />
+	<b>D</b> - Save private message as draft.<br />
+	<br /><br /><b>FUDcode Shortcuts:</b>
+	<blockquote>
+		<b>B</b> - Bold<br />
+		<b>I</b> - Italics<br />
+		<b>U</b> - Underline<br />
+		<b>Q</b> - Quote<br />
+		<b>C</b> - Code<br />
+		<b>L</b> - List<br />
+		<b>M</b> - Image<br />
+		<b>W</b> - URL<br />
+		<b>E</b> - E-mail
+	</blockquote>
+</blockquote>

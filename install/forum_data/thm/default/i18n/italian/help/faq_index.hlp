@@ -19,6 +19,7 @@ TOPIC_HELP:
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist">Elenco utenti?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">Cosa sono gli annunci e i messaggi <I>topped</I>?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">Posso votare i topic?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
 
 TOPIC_TITLE: Reading and Posting Messages
 TOPIC_HELP:

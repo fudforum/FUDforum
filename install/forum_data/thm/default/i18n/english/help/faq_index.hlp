@@ -21,6 +21,7 @@ TOPIC_HELP:
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">Can I rate topics?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref">What are referrals?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#syndicate">Syndicating this forum</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
 
 TOPIC_TITLE: Reading and Posting Messages
 TOPIC_HELP:

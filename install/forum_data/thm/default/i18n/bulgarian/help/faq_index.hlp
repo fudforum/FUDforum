@@ -20,6 +20,7 @@ TOPIC_HELP:
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ann">Что такое анонсы и стикеры?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#rate">Могу ли я дать оценку теме?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ref">Кто такие "приглашенные"?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
 
 TOPIC_TITLE: Чтение и отправка сообщений
 TOPIC_HELP:

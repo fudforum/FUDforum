@@ -20,6 +20,7 @@ TOPIC_HELP:
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">什么是公告和临时公告？</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">我能评价帖子么？</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref">什么是被推荐者？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
 
 TOPIC_TITLE: 查看和发布信息
 TOPIC_HELP:

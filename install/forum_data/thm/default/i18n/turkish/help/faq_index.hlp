@@ -20,6 +20,7 @@ TOPIC_HELP:
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">Duyurular ve Yapışkan iletiler nedir?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">Zincirleri değerlendirebilir miyim?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref">Tanıtımlar nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
 
 TOPIC_TITLE: İleti okuma ve gönderme
 TOPIC_HELP:

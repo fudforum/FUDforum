@@ -20,6 +20,7 @@ TOPIC_HELP:
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">Wat zijn aankondigingen en lange berichten?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">Kan ik onderwerpen waarderen?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref">Wat zijn verwijzingen?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
 
 TOPIC_TITLE: Berichten lezen en plaatsen
 TOPIC_HELP:
