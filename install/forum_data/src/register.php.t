@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.144 2005/03/21 13:55:03 hackie Exp $
+* $Id: register.php.t,v 1.145 2005/03/28 23:30:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@ function generate_turing_val(&$rt)
 
 	// pick 4 random letters
 	for ($i = 0; $i < 4; $i++) {
-		$rv[] = $v = mt_rand(0, 23);
+		$rv[] = ($v = mt_rand(0, 24));
 		if ($v >= 11) {
 			$v += 2;
 		} else if ($v >= 3) {
