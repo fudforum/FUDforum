@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admloginuser.php,v 1.4 2002/10/03 08:29:22 hackie Exp $
+*   $Id: admloginuser.php,v 1.5 2002/11/30 18:06:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,7 +58,7 @@
 <table border-0 cellspacing=0 cellpadding=3>
 <tr>
 	<td>Login:</td>
-	<td><input type="text" name="login" value="<?php echo $login; ?>" size=25></td>
+	<td><input type="text" name="login" value="<?php echo htmlspecialchars(stripslashes($login)); ?>" size=25></td>
 </tr>
 <tr>
 	<td>Password:</td>
