@@ -188,7 +188,7 @@ views:				µã»÷
 vote:				{VAR: frm->n_rating} Í¶Æ±
 vote_button:			Í¶Æ±
 vote_for_thread:		µ÷²é
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> ÒÑ¾­±»°æÖ÷ÒÆÖÁ<a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> ÒÑ¾­±»°æÖ÷ÒÆÖÁ<a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a>
 welcome_message:		»¶Ó­£¡ <b>{VAR: usr->alias}</b>£¬Äã×îºóÒ»´Î·ÃÎÊÊÇ {DATE: usr->last_visit %Y-%m-%d %H:%M}
 what_ppl_doing:			ÏÔÊ¾ä¯ÀÀÕßµÄ²Ù×÷
 reported_del_report:		É¾³ı±¨¸æ
@@ -210,7 +210,7 @@ list_referes_referrals:		±»ÌáÃûÕß
 list_referes_members:		±»ÌáÃûµÄÓÃ»§
 list_referes_member:		ÓÃ»§
 referals_none:			Ä¿Ç°»¹Ã»ÓĞ±»ÌáÃûµÄÈË¡£
-referals_refered_by:		±»ÍÆ¼öµÄÂÛÌ³³ÉÔ±ÊÇ£º<b><a class="TableHeading" href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}">{VAR: p_user[1]}</a></b>
+referals_refered_by:		±»ÍÆ¼öµÄÂÛÌ³³ÉÔ±ÊÇ£º<b><a class="TableHeading" href="{TEMPLATE: referals_refered_by_lnk}">{VAR: p_user[1]}</a></b>
 referals_post_count:		·¢ÌùÊı
 referals_registered_on:		µÇÂ¼
 referals_action:		²Ù×÷
@@ -568,7 +568,7 @@ emailconf_err_invkey_msg:	ÎŞĞ§µÄµØÖ·¡£Çë¼ì²é²¢È·ÈÏÄãµÄÌîĞ´µÄÊÇÕıÈ·µÄµØÖ·ĞÅÏ¢¡£
 err_inc_criticaltitle:		½ô¼±´íÎó
 err_inc_criticalmsg:		·¢Éú´íÎó£¬¶øÇÒºÜ²»ĞÒµÄÊÇ´íÎó±¨¸æÏµÍ³±¾ÉíÒ²´æÔÚÎÊÌâ¡£
 finduser_update:		ËÑË÷ÓÃ»§
-help_index_update:		ÔÄ¶Á<a href="{ROOT}?t=help_index" class="GenLink">Ê¹ÓÃ°ïÖú</a>
+help_index_update:		ÔÄ¶Á<a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">Ê¹ÓÃ°ïÖú</a>
 iemail_thr_subject:		ĞÂµÄ»Ø¸´ {VAR: thr_subject} ÓÉ{VAR: poster_login}
 iemail_thr_bodyemail:		²é¿´Î´¶ÁµÄ»Ø¸´ {VAR: goto_url['email']}\n\nÈç¹ûÄã²»ÏëÊÕµ½¹ØÓÚÕâ¸öÖ÷ÌâĞÂµÄ»Ø¸´Í¨Öª£¬Çëµã»÷£º {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		²é¿´Î´¶ÁµÄ»Ø¸´\n{VAR: goto_url['icq']}\n\Èç¹ûÄã²»ÏëÊÕµ½¹ØÓÚÕâ¸öÖ÷Ìâ£º\n{VAR: unsub_url['icq']}
@@ -582,14 +582,14 @@ ignore_list_err_nu_title:	Ã»ÓĞÕÒµ½Õâ¸öÓÃ»§
 ignore_list_err_nu_msg:		±¾ÂÛÌ³²»´æÔÚÄãÒªÌí¼ÓµÄÓÃ»§¡£
 ignore_list_cantign_msg:	ÄãÎŞ·¨¾Ü¾ø¸ÃÓÃ»§
 ignore_list_update:		ä¯ÀÀ¡°±»¾Ü¾øÓÃ»§¡±Ãûµ¥
-index_update:			ä¯ÀÀ<a href="{ROOT}?t=index" class="GenLink">ÂÛÌ³ÁĞ±í</a>
+index_update:			ä¯ÀÀ<a href="{TEMPLATE: index_update_lnk}" class="GenLink">ÂÛÌ³ÁĞ±í</a>
 list_referers_update:		ä¯ÀÀ±»ÌáÃûÕß
 login_update:			µÇÂ¼¸ñÊ½
 msg_err_onlyreg_title:		Ö»ÓĞ×¢²áÓÃ»§¿ÉÒÔ²é¿´Õâ¸öÂÛÌ³¡£
-msg_err_onlyreg_msg:		Òª²é¿´Õâ¸öÂÛÌ³£¬Äã±ØĞë×¢²á<a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">×¢²á</a>£¬Èç¹ûÒÑ¾­×¢²á£¬Çë\'ll need to <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">µÇÂ¼</a>¡£
+msg_err_onlyreg_msg:		Òª²é¿´Õâ¸öÂÛÌ³£¬Äã±ØĞë×¢²á<a href="{TEMPLATE: msg_register_lnk}" class="GenLink">×¢²á</a>£¬Èç¹ûÒÑ¾­×¢²á£¬Çë\'ll need to <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">µÇÂ¼</a>¡£
 msg_err_ininfo_title:		ĞÅÏ¢²»³ä·Ö
 msg_err_ininfo_msg:		±¾Ò³·¢Éú´íÎó
-msg_update:			Õ¹¿ªä¯ÀÀ <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
+msg_update:			Õ¹¿ªä¯ÀÀ <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		´íÎó£ºÎŞ·¨·¢ËÍÇÄÇÄ»°
 pm_err_nopm_msg:		ÏµÍ³¹ÜÀíÔ±½ûÖ¹ÄãÊ¹ÓÃÇÄÇÄ»°ÏµÍ³¡£
 pm_update:			Ê¹ÓÃÇÄÇÄ»°¹¦ÄÜ
@@ -598,7 +598,7 @@ post_err_notallowed_msg:	Äã²»ÄÜÌá½»
 post_err_lockedthread_title:	´íÎó£º¸ÃÌû×ÓÒÑ±»Ëø¶¨
 post_err_lockedthread_msg:	Õâ¸öÖ÷ÌâÒÑ±»Ëø¶¨£¬²»ÄÜ»Ø¸´
 err_coppa_title:		´íÎó£ºÄãÃ»ÓĞ´ËÏîÈ¨ÏŞ
-err_coppa_msg:			ÎÒÃÇ»¹Ã»ÓĞÊÕµ½À´×ÔÄã¸¸Ä¸»òÕß·¨¶¨¼à»¤ÈËµÄ¹ØÓÚÍ¬ÒâÄã·¢²¼Ìû×ÓµÄÈ·ÈÏÖ¤Ã÷¡£ Èç¹û¶ªÊ§ÁËÉêÇë±í£¬<a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">ÇëµãÕâÀï</a>¡£
+err_coppa_msg:			ÎÒÃÇ»¹Ã»ÓĞÊÕµ½À´×ÔÄã¸¸Ä¸»òÕß·¨¶¨¼à»¤ÈËµÄ¹ØÓÚÍ¬ÒâÄã·¢²¼Ìû×ÓµÄÈ·ÈÏÖ¤Ã÷¡£ Èç¹û¶ªÊ§ÁËÉêÇë±í£¬<a href="{TEMPLATE: err_coppa_msg_lnk}">ÇëµãÕâÀï</a>¡£
 err_blockedaccnt_title:		´íÎó£ºÄã±»½ûÖ¹µÇÂ¼
 err_blockedaccnt_msg:		Õâ¸öÕËºÅ±»½ûÖ¹µÇÂ¼
 post_err_notowner_title:	´íÎó
@@ -606,9 +606,9 @@ post_err_notowner_msg:		Äã²»ÊÇÕâ¸öÌû×ÓµÄ×÷Õß
 post_err_edttimelimit_title:	´íÎó
 post_err_edttimelimit_msg:	Äã²»ÄÜÔÙ±à¼­ÕâÌõĞÅÏ¢
 post_err_noannontopics_title:	´íÎó£ºÄãµÄÈ¨ÏŞ²»¹»
-post_err_noannontopics_msg:	ÄäÃûÓÃ»§²»ÔÊĞí·¢²¼Ö÷Ìâ<br><br>×¢²á£¬Çëµã»÷ <a href="{ROOT}?t=register&amp;{DEF: _rsid}">×¢²á</a><br>µÇÂ¼Çëµã»÷ <a href="{ROOT}?t=login&amp;{DEF: _rsid}">µÇÂ¼</a>
+post_err_noannontopics_msg:	ÄäÃûÓÃ»§²»ÔÊĞí·¢²¼Ö÷Ìâ<br><br>×¢²á£¬Çëµã»÷ <a href="{TEMPLATE: msg_register_lnk}">×¢²á</a><br>µÇÂ¼Çëµã»÷ <a href="{TEMPLATE: msg_login_lnk}">µÇÂ¼</a>
 post_err_noannonposts_title:	´íÎó£ºÄãµÄÈ¨ÏŞ²»¹»
-post_err_noannonposts_msg:	ÄäÃûÓÃ»§²»ÔÊĞí»Ø¸´<br><br>×¢²á£¬Çëµã»÷ <a href="{ROOT}?t=register&amp;{DEF: _rsid}">×¢²á</a><br>µÇÂ¼£¬Çëµã»÷<a href="{ROOT}?t=login&amp;{DEF: _rsid}">µÇÂ¼</a>
+post_err_noannonposts_msg:	ÄäÃûÓÃ»§²»ÔÊĞí»Ø¸´<br><br>×¢²á£¬Çëµã»÷ <a href="{TEMPLATE: msg_register_lnk}">×¢²á</a><br>µÇÂ¼£¬Çëµã»÷<a href="{TEMPLATE: msg_login_lnk}">µÇÂ¼</a>
 post_err_noreplying_title:	´íÎó£º²»ÔÊĞí»Ø¸´
 post_err_noreplying_msg:	Äã²»ÄÜ»Ø¸´ÕâÌõĞÅÏ¢£¬ÒòÎª°æÖ÷½ûÖ¹ÔÚÕâÀï¸úÌû»ò·¢²¼Í¨¸æ¡£
 post_err_floodtrig_title:	´íÎó£º·¢²¼¹àË®Ìû×Ó
@@ -617,9 +617,9 @@ post_err_attach_size:		<font class="ErrorText">¸½¼şÎÄ¼şÌ«´ó£¨³¬¹ıÁËÔÊĞíµÄ×î´ó{VA
 post_err_attach_ext:		<font class="ErrorText">ÄãÕıÔÚÉÏ´«µÄÎÄ¼şÀàĞÍ²»·ûºÏÂÛÌ³¶ÔÉÏ´«ÎÄ¼şÀàĞÍµÄÉèÖÃ¡£</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">ÄãÕıÔÚÉÏ´«µÄÎÄ¼ş³¬¹ıÁËÏŞÖÆµÄÊıÁ¿¡£</font><br>
 post_err_passwd:		ÃÜÂë´íÎó¡£
-post_reply_update:		»Ø¸´ <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> ÔÚ {VAR-HTML: frm->name}
-post_edit_update:		±à­<a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> ÔÚ {VAR-HTML: frm->name}
-post_topic_update:		·¢±íĞÂÖ÷Ìâ <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_reply_update:		»Ø¸´ <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ÔÚ {VAR-HTML: frm->name}
+post_edit_update:		±à­<a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> ÔÚ {VAR-HTML: frm->name}
+post_topic_update:		·¢±íĞÂÖ÷Ìâ <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		·¢Éú´íÎó
 postcheck_max_images_err:	Ò»´ÎÌá½»Í¼Æ¬ÔÊĞíµÄ×î´óÊıÊÇ{GVAR: MAX_IMAGE_COUNT} £¬Çë¾¡Á¿¼õÉÙÍ¼Æ¬ÊıÁ¿¡£
 postcheck_subj_needed:		ÊäÈëÖ÷Ìâ
@@ -666,18 +666,18 @@ reset_newpass_title:		ÖØĞÂÊäÈëÃÜÂë
 reset_newpass_msg:		ÄãºÃ£¬\n\nÄãÃ¿´ÎµÇÂ¼µÄÕËºÅ¶¼½«·¢ËÍ¸øÄã¡£\nHere ÕâÀïÊÇÄãµÄµÇÂ¼ĞÅÏ¢£º\n\nÕËºÅ£º{VAR: ui[1]}\nÃÜÂë£º{VAR: passwd}\n\n×¢Òâ£ºÄãµÄÃÜÂëÒÑ¾­±»¸ÄÎªÉÏÃæµÄÖµ×Ö·û×éºÏ£¬Èç¹ûÄãÏë\nĞŞ¸ÄÃÜÂë£¬ÇëÔÚ¸öÈËĞÅÏ¢ÖĞĞŞ¸Ä£º\n{ROOT}?t=register\n\n
 reset_login_notify:		Ò»»á¶ù£¬Äã½«Í¨¹ıÓÊ¼şÊÕµ½ÃÜÂë¡£Çë¼ì²éÄãµÄÃÜÂë²¢µÇÂ¼¡£.<br>.<br>.<br>
 search_update:			ËÑË÷
-selmsg_update:			ä¯ÀÀ <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">½ñÌì·¢²¼µÄÖ÷Ìâ</a>
-showposts_update:		²é¿´ÓÃ»§ <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>·¢²¼µÄÖ÷Ìâ
+selmsg_update:			ä¯ÀÀ <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">½ñÌì·¢²¼µÄÖ÷Ìâ</a>
+showposts_update:		²é¿´ÓÃ»§ <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>·¢²¼µÄÖ÷Ìâ
 subscribed_update:		ä¯ÀÀ×Ô¼ºÔ¤¶¨µÄÄÚÈİ
 th_err_invid_title:		´íÎóµÄÖ÷ÌâidºÅ
 th_err_invid_msg:		ÄãÊäÈëµÄÁ¬½Ó´íÎó£¬Ïà¹ØÖ÷Ìâ²¢²»´æÔÚ¡£
 thread_err_onlyregview_title:	Ö»ÓĞ×¢²áÓÃ»§ÔÊĞí²é¿´Õâ¸öÂÛÌ³
-thread_err_onlyregview_msg:	Òª²é¿´±¾ÂÛÌ³£¬Äã±ØĞë<a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">×¢²á</a>£¬Èç¹ûÒÑ¾­×¢²á£¬Çë<a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">µÇÂ¼</a>¡£
-thread_update:			ä¯ÀÀÂÛÌ³<a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+thread_err_onlyregview_msg:	Òª²é¿´±¾ÂÛÌ³£¬Äã±ØĞë<a href="{TEMPLATE: msg_register_lnk}" class="GenLink">×¢²á</a>£¬Èç¹ûÒÑ¾­×¢²á£¬Çë<a href="{TEMPLATE: msg_login_lnk}" class="GenLink">µÇÂ¼</a>¡£
+thread_update:			ä¯ÀÀÂÛÌ³<a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			ä¯ÀÀ£¨ÒÔÊ÷×´·½Ê½£© <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
-userinfo_update:		²é¿´ <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}µÄ</a> ¸öÈËĞÅÏ¢
+userinfo_update:		²é¿´ <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}µÄ</a> ¸öÈËĞÅÏ¢
 ERR_login_ttl:			Ôã¸â£ºÄãÉĞÎ´×¢²á
-ERR_login_msg:			ÄãÉĞÎ´µÇÂ¼£¬ÇëµÇÂ¼<br><br>Çë<a href="{ROOT}?t=register&amp;{DEF: _rsid}">×¢²á</a><br>Çë<a href="{ROOT}?t=login&amp;{DEF: _rsid}">µÇÂ½</a>
+ERR_login_msg:			ÄãÉĞÎ´µÇÂ¼£¬ÇëµÇÂ¼<br><br>Çë<a href="{TEMPLATE: msg_register_lnk}">×¢²á</a><br>Çë<a href="{TEMPLATE: msg_login_lnk}">µÇÂ½</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		±»½ûÖ¹µÄ¹¦ÄÜ
 ERR_disabled_msg:		´ËÏî¹¦ÄÜÒÑ¾­±»ÏµÍ³¹ÜÀíÔ±¹Ø±Õ¡£
@@ -689,7 +689,7 @@ ERR_registration_disabled_ttl:	×¢²áÊ§°Ü
 ERR_registration_disabled_msg:	×¢²á¹¦ÄÜ±»ÏµÍ³¹ÜÀíÔ±½ûÖ¹£¬ÇëÖØÊÔ£¡
 ERR_registration_disabled_url:	{GVAR: WWW_ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		´íÎó£º´ËÕËºÅÎŞĞ§
-ERR_emailconf_msg:		Äã×¢²áµÄÕËºÅÉĞÎ´½øĞĞÓÊ¼şÈ·ÈÏ<br><table border=0><tr><td><ol><li>Èç¹ûÄãÃ»ÓĞÊÕµ½È·ÈÏÓÊ¼ş <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">Çëµã»÷ÕâÀï</a><li>Èç¹û {VAR: usr_d->email} ÓÊ¼şµØÖ·ÓĞÎó<a href="{ROOT}?t=register&amp;{DEF: _rsid}">Çëµã»÷ÕâÀï</a></ol></td></tr></table>
+ERR_emailconf_msg:		Äã×¢²áµÄÕËºÅÉĞÎ´½øĞĞÓÊ¼şÈ·ÈÏ<br><table border=0><tr><td><ol><li>Èç¹ûÄãÃ»ÓĞÊÕµ½È·ÈÏÓÊ¼ş <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">Çëµã»÷ÕâÀï</a><li>Èç¹û {VAR: usr_d->email} ÓÊ¼şµØÖ·ÓĞÎó<a href="{TEMPLATE: msg_register_lnk}">Çëµã»÷ÕâÀï</a></ol></td></tr></table>
 ERR_user_ttl:			´íÎó£ºÃ»ÓĞÕâ¸öÓÃ»§
 ERR_user_msg:			Ã»ÓĞÕâ¸öÓÃ»§
 ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
@@ -714,9 +714,9 @@ remail_emailsent:		ÓÊ¼şÒÑ¾­·¢ËÍ
 remail_email:			Õâ¸öÒ³ÃæµÄÄÚÈİ{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) Äã¿ÉÄÜ»á¸ĞĞËÈ¤£¡\nÕâÀïÊÇÄã¿ÉÄÜ¸ĞĞËÈ¤µÄÖ÷Ìâ£º{VAR: data->subject} Çëµã»÷£º{ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\n ·¢¼şÈË {VAR: usr->alias}\n
 poll_add_option:		Ìí¼ÓÑ¡Ïî£º
 post_opt_html_on:		<b>HTML</b><b>´úÂë£º¿ª·Å</b>
-post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank">FUD´úÂë£º</b><b>¿ª·Å</a></b>
+post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUD´úÂë£º</b><b>¿ª·Å</a></b>
 post_opt_images_on:		<b>ÌùÍ¼¹¦ÄÜ£º</b><b>¿ª·Å</b>
-post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>±íÇé·ûºÅ£º</b> <b>¿ª·Å</b></a>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>±íÇé·ûºÅ£º</b> <b>¿ª·Å</b></a>
 post_opt_html_off:		<b>HTML</b> ´úÂë£º <b>¹Ø±Õ</b>
 post_opt_fud_off:		<b>FUD´úÂë£º</b><b>¹Ø±Õ</b>
 post_opt_images_off:		<b>ÌùÍ¼¹¦ÄÜ£º</b><b>¹Ø±Õ</b>
@@ -780,7 +780,7 @@ p_LOCK:				·â±ÕÌû×Ó
 p_MOVE:				×ªÒÆÌû×Ó
 p_SML:				Ó¦ÓÃ±íÇé·ûºÅ
 p_IMG:				Ó¦ÓÃÍ¼Ïñ±êÇ©
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">²éÕÒÓÃ»§</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">²éÕÒÓÃ»§</a>
 group_mgr_indicator:		ÕıÔÚ±à¼­£º<b>{VAR: grp->name}</b>
 rate_worst:			×î²îµÄ
 rate_best:			×îºÃµÄ
@@ -850,7 +850,7 @@ forum_home:			Ö÷Ò³
 post_cur_attached:		ÕıÔÚÕ³Ìù{VAR: i} ¸öÎÄ¼ş
 ppost_cur_attached:		ÕıÔÚÕ³Ìù {VAR: attach_count} ¸öÎÄ¼ş
 ignored_anon_post:		{GVAR: ANON_NICK} ±»ºöÂÔ
-ignored_user_post:		ÉèÖÃºöÂÔĞÅÏ¢<a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a>
+ignored_user_post:		ÉèÖÃºöÂÔĞÅÏ¢<a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a>
 smladd_close_window:		¹Ø±Õ´°¿Ú
 post_list_smilies:		ÏÔÊ¾ËùÓĞ±íÇé·ûºÅ
 p_VISIBLE:			¿É¼ûµÄ
@@ -880,7 +880,7 @@ polllist_date:			·¢ÆğÊ±¼ä
 polllist_owner:			·¢ÆğÈË
 polllist_votes:			×ÜÆ±Êı
 polllist_action:		²Ù×÷
-polllist_update:		<a href="{ROOT}?t=polllist">ÒÔÍùµ÷²é</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">ÒÔÍùµ÷²é</a>
 userinfo_polls:			·¢Æğµ÷²éÊı
 show_pollist:			µ÷²éÁĞ±í
 search_and:			ºÍ
@@ -900,7 +900,7 @@ unread_message:			Î´¶ÁÌù×Ó
 read_message:			ÔÄ¶Á¸ü¶àÌù×Ó£º			&lt;¸ü¶à&gt;
 threadt_disabled_ttl:		Ê÷×´ä¯ÀÀÒÑ¾­±»¹Ø±Õ¡£
 threadt_disabled_desc:		¹ÜÀíÔ±ÒÑ¾­¹Ø±ÕÊ÷×´ä¯ÀÀ£¬ÇëÓÃÕ¹¿ªä¯ÀÀ·½Ê½¡£
-threadt_update:			ä¯ÀÀÂÛÌ³£¨Ê÷×´ä¯ÀÀ£©<a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+threadt_update:			ä¯ÀÀÂÛÌ³£¨Ê÷×´ä¯ÀÀ£©<a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 threadt_more:			&lt;¸ü¶à&gt;
 register_msg_tree_view:		Õ¹¿ªä¯ÀÀ/Ê÷×´ä¯ÀÀ
 register_tree_msg_view:		Ê÷×´ä¯ÀÀ/Õ¹¿ªä¯ÀÀ
@@ -980,7 +980,7 @@ mnav_day:			Ìì
 mnav_week:			ÖÜ
 mnav_month:			ÔÂ
 mnav_title:			Ìû×Óä¯ÀÀÆ÷
-mnav_update:			ÓÃ<a class="GenLink" href="{ROOT}?t=mnav">Ìû×Óä¯ÀÀÆ÷</a>À´²é¿´¡£
+mnav_update:			ÓÃ<a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Ìû×Óä¯ÀÀÆ÷</a>À´²é¿´¡£
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] ÄãÊÕµ½ÁËĞÂÇÄÇÄ»°£¡
 pm_notify_body_email:		ÄãÊÕµ½ÁËĞÂµÄÇÄÇÄ»°£¬±êÌâÊÇ "{VAR: subject}"£¬·¢×Ô "{VAR: from}" ÔÚ "{GVAR: FORUM_TITLE}" ÂÛÌ³¡£\nÒª²é¿´´ËÇÄÇÄ»°£¬Çëµã»÷£º{ROOT}?t=pmsg_view&id={VAR: pid}\n\nÈç¹û²»ÏëÔÙÊÕµ½ĞÂÇÄÇÄ»°ÌáĞÑÓÊ¼ş£¬ÇëÔÚ¡°¸öÈËĞÅÏ¢¡±ÖĞ½ûÖ¹¡°ĞÂÇÄÇÄ»°ÌáĞÑ¡±¡£
 pm_notify_body_icq:		ÄãÊÕµ½ÁËĞÂµÄÇÄÇÄ»°£¬±êÌâÊÇ "{VAR: subject}"£¬·¢×Ô "{VAR: from}" ÔÚ "{GVAR: FORUM_TITLE}" ÂÛÌ³¡£\nÒª²é¿´´ËÇÄÇÄ»°£¬Çëµã»÷£º{ROOT}?t=pmsg_view&id={VAR: pid}\n\nÈç¹û²»ÏëÔÙÊÕµ½ĞÂÇÄÇÄ»°ÌáĞÑ£¬ÇëÔÚ¡°¸öÈËĞÅÏ¢¡±ÖĞ½ûÖ¹¡°ĞÂÇÄÇÄ»°ÌáĞÑ¡±¡£

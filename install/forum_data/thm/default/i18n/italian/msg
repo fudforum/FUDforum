@@ -568,7 +568,7 @@ emailconf_err_invkey_msg:	Chiave di conferma non valida. Per favore, controlla l
 err_inc_criticaltitle:		ERRORE CRITICO
 err_inc_criticalmsg:		Ti sei imbattuto in un errore, ma sfortunatamente c&#39;è un problema con il sistema di segnalazione di errori
 finduser_update:		Cerca utenti
-help_index_update:		Legge le <a href="{ROOT}?t=help_index" class="GenLink">F.A.Q.</a>
+help_index_update:		Legge le <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">F.A.Q.</a>
 iemail_thr_subject:		Nuova risposta a {VAR: thr_subject} da parte di {VAR: poster_login}
 iemail_thr_bodyemail:		Per visualizzare le reply non lette vai a {VAR: goto_url['email']}\n\nSe non vuoi ricevere ulteriori notifiche circa le risposte inviate in questo topic, clicca qui: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Per visualizzare le reply non lette vai a\n{VAR: goto_url['icq']}\n\nSe non vuoi ricevere ulteriori notifiche circa le risposte inviate in questo topic, clicca qui:\n{VAR: unsub_url['icq']}
@@ -582,7 +582,7 @@ ignore_list_err_nu_title:	Utente non trovato
 ignore_list_err_nu_msg:		L&#39;utente che hai cercato di inserire nella ignore list non risulta iscritto al forum. Attenzione: il motore di inserimento degli utenti distingue tra MAIUSCOLE e minuscole: controlla con attenzione!
 ignore_list_cantign_msg:	Non puoi ignorare questo utente
 ignore_list_update:		Sfoglia la propria ignore list
-index_update:			Sfoglia l&#39;<a href="{ROOT}?t=index" class="GenLink">elenco dei forum</a>
+index_update:			Sfoglia l&#39;<a href="{TEMPLATE: index_update_lnk}" class="GenLink">elenco dei forum</a>
 list_referers_update:		Sfoglia i referral
 login_update:			Pagina di login
 msg_err_onlyreg_title:		Solo gli utenti registrati possono accedere a questo forum
@@ -649,7 +649,7 @@ register_err_avatarnotallowed:	L&#39;avatar che stai cercando di spedire non è a
 register_conf_subject:		Conferma della registrazione
 register_conf_msg:		Grazie per esserti registrato al forum di TGM Online,\nper attivare il tuo account vai alla pagina:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUna volta che il tuo account sarà stato attivato, sarai autenticato e portato alla pagina principale del forum.
 register_welcome_subject:	Conferma della registrazione al forum
-register_welcome_msg:		Grazie per esserti registrato,\n\necco i dettagli per effettuare il login al forum:\n\nForum URL: {ROOT}?t=index\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nRicordati che le password fanno distinzione tra MAIUSCOLE e minuscole!!\nPer modificare impostazioni e profilo utente, vai a questa pagina:\n{ROOT}?t=register\n
+register_welcome_msg:		Grazie per esserti registrato,\n\necco i dettagli per effettuare il login al forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nRicordati che le password fanno distinzione tra MAIUSCOLE e minuscole!!\nPer modificare impostazioni e profilo utente, vai a questa pagina:\n{ROOT}?t=register\n
 register_err_cantreg_title:	ERRORE: impossibile registrarsi
 regsiter_err_cantreg_msg:	Impossibile creare l&#39;account utente, contatta l&#39;amministratore all&#39;indirizzo <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Guarda il suo profilo
@@ -687,7 +687,7 @@ ERR_access_msg:			Non disponi dei permessi necessari per eseguire questa azione
 ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registrazione non attiva
 ERR_registration_disabled_msg:	L&#39;amministratore ha disabilitato la registrazione, riprova più tardi
-ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
+ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&{DEF: _rsid}
 ERR_emailconf_ttl:		ERRORE: Il tuo account non è stato confermato
 ERR_emailconf_msg:		Non hai ancora confermato il tuo account via email<br><table border=0><tr><td><ol><li>Se non hai ricevuto una email di conferma <a href="{ROOT}?t=reset&email={VAR: usr_d->email}&{DEF: _rsid}">clicca qui<li>Se {VAR: usr_d->email} non è il tuo indirizzo di posta elettronica <a href="{ROOT}?t=register&{DEF: _rsid}">clicca qui</a></ol></td></tr></table>
 ERR_user_ttl:			ERRORE: Nessun utente
@@ -711,12 +711,12 @@ search_title:			Ricerca {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
 tree_title:			{VAR: frm->name} => {VAR: frm->subject}
 remail_emailsent:		L&#39;email è stata spedita
-remail_email:			C&#39;è una pagina nel forum {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) che ti potrebbe interessare.\nEcco il topic che credo ti interessi, {VAR: data->subject}: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\nDa {VAR: usr->alias}\n
+remail_email:			C&#39;è una pagina nel forum {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) che ti potrebbe interessare.\nEcco il topic che credo ti interessi, {VAR: data->subject}: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\nDa {VAR: usr->alias}\n
 poll_add_option:		Aggiungi risposta:
 post_opt_html_on:		L&#39;<b>HTML</b> è <b>ON</b>
-post_opt_fud_on:		<b><a href="{ROOT}?t=help_index&sect=readingposting&{DEF: _rsid}#style" target=_new>FUDcode</b> è <b>ON</a></b>
+post_opt_fud_on:		<b><a href="{TEMPLATE: help_index_update_lnk}&sect=readingposting&{DEF: _rsid}#style" target=_new>FUDcode</b> è <b>ON</a></b>
 post_opt_images_on:		Le <b>immagini</b> sono <b>ON</b>
-post_opt_smilies_on:		<a href="{ROOT}?t=help_index&sect=readingposting&{DEF: _rsid}#sml" target=_new>Gli <b>smiley</b> sono <b>ON</b></a>
+post_opt_smilies_on:		<a href="{TEMPLATE: help_index_update_lnk}&sect=readingposting&{DEF: _rsid}#sml" target=_new>Gli <b>smiley</b> sono <b>ON</b></a>
 post_opt_html_off:		L&#39;<b>HTML</b> è <b>OFF</b>
 post_opt_fud_off:		<b>FUDcode</b> è <b>OFF</b>
 post_opt_images_off:		Le <b>immagini</b> sono <b>OFF</b>
@@ -873,7 +873,7 @@ polllist_date:			Creato
 polllist_owner:			Creato da
 polllist_votes:			Voti totali
 polllist_action:		Azione
-polllist_update:		<a href="{ROOT}?t=polllist">Sto controllando i sondaggi</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Sto controllando i sondaggi</a>
 userinfo_polls:			Sondaggi:
 show_pollist:			Mostra i sondaggi
 search_and:			AND
@@ -903,7 +903,7 @@ read_message:			Read Message
 threadt_more:			&lt;more&gt;
 threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
 threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
-threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation
 spell_alts:			no alternatives
 insert_uploaded_image:		Insert image into message body
@@ -980,7 +980,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{ROOT}?t=mnav">Message Navigator</a>
+mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

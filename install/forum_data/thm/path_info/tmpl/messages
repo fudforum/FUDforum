@@ -10,10 +10,6 @@
 {ROOT}/u/{VAR: p_user[0]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: member_search_lnk}
-{ROOT}/pml/buddy_add.add_login/1/{DEF: _rsid}
-{SECTOIN: END}
-
 {SECTION: help_index_update_lnk}
 {ROOT}/h/
 {SECTION: END}

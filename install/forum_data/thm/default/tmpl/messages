@@ -10,10 +10,6 @@
 {ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: member_search_lnk}
-{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1
-{SECTOIN: END}
-
 {SECTION: help_index_update_lnk}
 {ROOT}?t=help_index
 {SECTION: END}

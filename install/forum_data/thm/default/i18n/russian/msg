@@ -188,7 +188,7 @@ views:				Просмотров
 vote:				Голосов: {VAR: frm->n_rating}
 vote_button:			Проголосовать
 vote_for_thread:		Оценить
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> перенесено модератором в форум <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a>
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]}</a> перенесено модератором в форум <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a>
 welcome_message:		Добро пожаловать, <b>{VAR: usr->alias}</b>, ваше последнее посещение форума: {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			показать кто чем занимается
 reported_del_report:		Удалить отчет
@@ -210,7 +210,7 @@ list_referes_referrals:		Приглашено
 list_referes_members:		Приглашенные пользователи
 list_referes_member:		Пользователь
 referals_none:			Никто пока не был приглашен.
-referals_refered_by:		Пользователи форума, приглашенные <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_refered_by:		Пользователи форума, приглашенные <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Сообщения
 referals_registered_on:		Дата регистрации
 referals_action:		Действие
@@ -391,7 +391,7 @@ ignore_users:			Игнорируемые пользователи
 add_ignore:			Добавить игнорируемого
 forum_terms:			Правила форума
 forum_rules:			Регистрация на этом форуме является свободной. Мы надеемся, что вы ознакомитесь с приведенными ниже правилами и положениями. Если вы согласны с ними - нажмите кнопку <b>Согласен</b>. Примечание: Нажимая на кнопку, вы подтверждаете, что ваш возраст превышает 13 лет.<p>Несмотря на то, что администраторы и модераторы этого форума следят за соблюдением правил и за чистотой форума, они не всегда имеют возможность полностью просмотреть каждое сообщение. Все сообщения выражают точку зрения их авторов и ни владелец ни разработчики форума не несут никакой ответственности за опубликованную информацию.<p>Нажимая кнопку <b>Согласен</b>, вы гарантируете, что не будете публиковать сообщений непристойного, вульгарного, сексуально-ориентированного, угрожающего характера или каким-либо образом нарушающих текущее законодательство.<p>Владельцы форума имеют право удалить, изменить, перенести или закрыть любую тему по любой причине.<p>
-forum_rules_13:			Все пользователи в возрасте до 13 лет должны получить разрешение от родителей или опекунов на участие в форуме. Мы приветствуем участие в форуме детей, но тем не менее ожидаем подписанное разрешение факсом или по почте, прежде чем предоставим вам право участия.<p>Если вы желаете продолжить регистрацию до момента получения нами разрешения, нажмите кнопку <b>Согласен</b>. В противном случае нажмите кнопку <b>Не согласен</b> для возврата к списку форумов.<p>Копия формы может быть получена <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">по этой ссылке</a>. Для получения дополнительной информации о процессе регистрации вы можете обратиться по адресу <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:			Все пользователи в возрасте до 13 лет должны получить разрешение от родителей или опекунов на участие в форуме. Мы приветствуем участие в форуме детей, но тем не менее ожидаем подписанное разрешение факсом или по почте, прежде чем предоставим вам право участия.<p>Если вы желаете продолжить регистрацию до момента получения нами разрешения, нажмите кнопку <b>Согласен</b>. В противном случае нажмите кнопку <b>Не согласен</b> для возврата к списку форумов.<p>Копия формы может быть получена <a href="{TEMPLATE: err_coppa_msg_lnk}">по этой ссылке</a>. Для получения дополнительной информации о процессе регистрации вы можете обратиться по адресу <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Подтверждение COPPA
 coppa_before:			После {DATE: coppa %B %e, %Y}
 coppa_after:			Ранее {DATE: coppa %B %e, %Y}
@@ -569,7 +569,7 @@ emailconf_err_invkey_msg:	Недопустимый ключ подтверждения. Пожалуйста проверьте 
 err_inc_criticaltitle:		КРИТИЧЕСКАЯ ОШИБКА
 err_inc_criticalmsg:		Вы обнаружили проблему, но, к сожалению, в системе сообщений о проблемах также произошла ошибка
 finduser_update:		Поиск пользователей
-help_index_update:		Чтение <a href="{ROOT}?t=help_index" class="GenLink">F.A.Q.</a>
+help_index_update:		Чтение <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">F.A.Q.</a>
 iemail_thr_subject:		Новый ответ на сообщение {VAR: thr_subject} от {VAR: poster_login}
 iemail_thr_bodyemail:		Для просмотра непрочитанных ответов следуйте по указанной ссылке\n{VAR: goto_url['email']}\n\nЕсли вы не хотите получать извещения об ответах в этой теме в дальнейшем, следуйте по этой ссылке:\n{VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Для просмотра непрочитанных ответов следуйте по указанной ссылке\n{VAR: goto_url['icq']}\n\nЕсли вы не хотите получать извещения об ответах в этой теме в дальнейшем, следуйте по этой ссылке:\n{VAR: unsub_url['icq']}
@@ -583,14 +583,14 @@ ignore_list_err_nu_title:	Пользователь не найден
 ignore_list_err_nu_msg:		Пользователь, которого вы пытаетесь добавить в список игнорируемых, не найден.
 ignore_list_cantign_msg:	Вы не можете игнорировать этого пользователя
 ignore_list_update:		Просмотр списка игнорируемых
-index_update:			Просмотр <a href="{ROOT}?t=index" class="GenLink">списка форумов</a>
+index_update:			Просмотр <a href="{TEMPLATE: index_update_lnk}" class="GenLink">списка форумов</a>
 list_referers_update:		Просмотр приглашенных
 login_update:			Вход в форум
 msg_err_onlyreg_title:		Просмотр данного форума разрешен только зарегистрированным пользователям
-msg_err_onlyreg_msg:		Для просмотра данного форума вы должны быть <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">зарегистрированным пользователем</a>, если вы были зарегистрированы ранее, то вам необходимо <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">войти в форум</a>.
+msg_err_onlyreg_msg:		Для просмотра данного форума вы должны быть <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">зарегистрированным пользователем</a>, если вы были зарегистрированы ранее, то вам необходимо <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">войти в форум</a>.
 msg_err_ininfo_title:		Недостаточно информации
 msg_err_ininfo_msg:		Возникла проблема при создании страницы
-msg_update:			Просмотр темы <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
+msg_update:			Просмотр темы <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ОШИБКА: Система личных сообщений отключена
 pm_err_nopm_msg:		Вы не можете использовать систему личных сообщений, так как она была выключена администратором.
 pm_update:			Личная почта
@@ -599,7 +599,7 @@ post_err_notallowed_msg:	Вам не разрешена отправка сообщений
 post_err_lockedthread_title:	ОШИБКА: Тема закрыта
 post_err_lockedthread_msg:	Эта тема была закрыта, отправка сообщений более не допускается
 err_coppa_title:		ОШИБКА: Ваша регистрация пока не была утверждена
-err_coppa_msg:			Мы пока не получили разрешение от ваших родителей/опекунов на ваше участие в форуме. Если вы потеряли форму разрешения COPPA <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">нажмите здесь</a> для ее повторного получения.
+err_coppa_msg:			Мы пока не получили разрешение от ваших родителей/опекунов на ваше участие в форуме. Если вы потеряли форму разрешения COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">нажмите здесь</a> для ее повторного получения.
 err_blockedaccnt_title:		ОШИБКА: Вам не разрешена отправка сообщений
 err_blockedaccnt_msg:		Отправка сообщений от вашего имени была блокирована
 post_err_notowner_title:	ОШИБКА
@@ -607,9 +607,9 @@ post_err_notowner_msg:		Вы не являетесь автором данного сообщения
 post_err_edttimelimit_title:	ОШИБКА
 post_err_edttimelimit_msg:	Вы более не можете редактировать данное сообщение
 post_err_noannontopics_title:	ОШИБКА: Недостаточен уровень доступа
-post_err_noannontopics_msg:	Анонимным пользователям не разрешено создавать новые темы<br><br>Если вы хотите зарегистрироваться в форуме - заполните <a href="{ROOT}?t=register&amp;{DEF: _rsid}">регистрационную форму</a><br>Если вы уже зарегистрированы и желаете войти в форум - сделать это можно на <a href="{ROOT}?t=login&amp;{DEF: _rsid}">странице регистрации</a>
+post_err_noannontopics_msg:	Анонимным пользователям не разрешено создавать новые темы<br><br>Если вы хотите зарегистрироваться в форуме - заполните <a href="{TEMPLATE: msg_register_lnk}">регистрационную форму</a><br>Если вы уже зарегистрированы и желаете войти в форум - сделать это можно на <a href="{TEMPLATE: msg_login_lnk}">странице регистрации</a>
 post_err_noannonposts_title:	ОШИБКА: Недостаточен уровень доступа
-post_err_noannonposts_msg:	Анонимным пользователям не разрешено отвечать на сообщения<br><br>Если вы хотите зарегистрироваться в форуме - заполните <a href="{ROOT}?t=register&amp;{DEF: _rsid}">регистрационную форму</a><br>Если вы уже зарегистрированы и желаете войти в форум - сделать это можно на <a href="{ROOT}?t=login&amp;{DEF: _rsid}">странице регистрации</a>
+post_err_noannonposts_msg:	Анонимным пользователям не разрешено отвечать на сообщения<br><br>Если вы хотите зарегистрироваться в форуме - заполните <a href="{TEMPLATE: msg_register_lnk}">регистрационную форму</a><br>Если вы уже зарегистрированы и желаете войти в форум - сделать это можно на <a href="{TEMPLATE: msg_login_lnk}">странице регистрации</a>
 post_err_noreplying_title:	ОШИБКА: Ответ не разрешен
 post_err_noreplying_msg:	Вы не можете отвечать по этой тема, поскольку это анонс или сообщение-стикер, ответы на которые запрещены модератором.
 post_err_floodtrig_title:	ОШИБКА: Обнаружен флуд - массовая отправка.
@@ -618,9 +618,9 @@ post_err_attach_size:		<font class="ErrorText">Файл слишком велик (превышает уст
 post_err_attach_ext:		<font class="ErrorText">Загружаемый файл не принадлежит к одному из допустимых типов.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Вы пытаетесь загрузить большее допустимого количество файлов.</font><br>
 post_err_passwd:		Неверный пароль.
-post_reply_update:		Ответ на сообщение <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> в форуме {VAR-HTML: frm->name}
-post_edit_update:		Редактирование сообщение <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> в форуме {VAR-HTML: frm->name}
-post_topic_update:		Создание новой темы в форуме <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Ответ на сообщение <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> в форуме {VAR-HTML: frm->name}
+post_edit_update:		Редактирование сообщение <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> в форуме {VAR-HTML: frm->name}
+post_topic_update:		Создание новой темы в форуме <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Произошла ошибка
 postcheck_max_images_err:	Пожалуйста сократите количество картинок в сообщении до максимально допустимого, которое составляет {GVAR: MAX_IMAGE_COUNT}
 postcheck_subj_needed:		Указание темы является обязательным
@@ -650,7 +650,7 @@ register_err_avatarnotallowed:	Загруженный вами файл картинки не принадлежит к о
 register_conf_subject:		Подтверждение регистрации
 register_conf_msg:		Спасибо за регистрацию,\nДля активации регистрации пожалуйста следуйте по приведенной ниже ссылке:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nПосле того, как регистрация активирована, вы автоматически войдете в форум\nи будете направлены на его главную страницу.
 register_welcome_subject:	Подтверждение регистрации в форуме
-register_welcome_msg:		Спасибо за регистрацию,\n\nНиже приведена информация о вашей регистрации:\n\nURL форума: {ROOT}?t=index\nLogin: {VAR: uent->login}\nПароль: {VAR: _POST['reg_plaintext_passwd']}\n\nИмейте ввиду, что пароли чувствительны к регистру символов!\nИзменить ваши персональные данные и настройки вы сможете по этому адресу:\n{ROOT}?t=register\n
+register_welcome_msg:		Спасибо за регистрацию,\n\nНиже приведена информация о вашей регистрации:\n\nURL форума: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nПароль: {VAR: _POST['reg_plaintext_passwd']}\n\nИмейте ввиду, что пароли чувствительны к регистру символов!\nИзменить ваши персональные данные и настройки вы сможете по этому адресу:\n{ROOT}?t=register\n
 register_err_cantreg_title:	ОШИБКА: регистрация невозможна
 regsiter_err_cantreg_msg:	Невозможно зарегистрировать данного пользователя, пожалуйста сообщите об этом администратору по адресу <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Просмотр собственных данных и настроек
@@ -667,19 +667,19 @@ reset_newpass_title:		Сброс пароля
 reset_newpass_msg:		Привет,\n\nПо вашему запросу вам были отправлены имя пользователя и пароль.\nНиже приведена информация о вашей регистрации:\n\nИмя пользователя: {VAR: ui[1]}\nПароль: {VAR: passwd}\n\nИмейте ввиду что ваш старый пароль был изменен на приведенный выше, и если\nвы хотите его сменить, то можете сделать это в панели управления по адресу:\n{ROOT}?t=register\n\n
 reset_login_notify:		Ваш пароль был отправлен вам на email, и вы сможете получить его через несколько минут. Пожалуйста проверьте ваш почтовый ящик..<br>.<br>.<br>
 search_update:			Поиск сообщений
-selmsg_update:			Просмотр <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">сегодняшних сообщений</a>
-showposts_update:		Просмотр всех сообщений от <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
+selmsg_update:			Просмотр <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">сегодняшних сообщений</a>
+showposts_update:		Просмотр всех сообщений от <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Просмотр личной подписки
 th_err_invid_title:		Недопустимый ID - идентификатор темы
 th_err_invid_msg:		Вы попали на эту страницу по ошибочной ссылке - тема, которую вы пытаетесь просмотреть, не существует.
 thread_err_onlyregview_title:	Только зарегистрированные пользователи могут просматривать этот форум
-thread_err_onlyregview_msg:	Для того, чтобы просмотреть этот форум, вы должны <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">зарегистрироваться</a>, если же вы зарегистрировались ранее, то вам необходимо <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">войти в форум</a>.
-thread_update:			Просмотр форума <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			Просмотр в режиме дерева темы <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->subject}</a>
-userinfo_update:		Просмотр персональной информации о <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>
+thread_err_onlyregview_msg:	Для того, чтобы просмотреть этот форум, вы должны <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">зарегистрироваться</a>, если же вы зарегистрировались ранее, то вам необходимо <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">войти в форум</a>.
+thread_update:			Просмотр форума <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			Просмотр в режиме дерева темы <a class="GenLink" href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:		Просмотр персональной информации о <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_ttl:			ОШИБКА: Если вы не вошли на форум
-ERR_login_msg:			Вы не еще вошли на форум.<br><br>Если вы хотите зарегистрироваться - перейдите к <a href="{ROOT}?t=register&amp;{DEF: _rsid}">странице регистрации</a>.<br>Если вы хотите войди на форум - следуйте к <a href="{ROOT}?t=login&amp;{DEF: _rsid}">входной странице</a>.
-ERR_login_url:			{ROOT}?t=login&amp;{DEF: _rsid}
+ERR_login_msg:			Вы не еще вошли на форум.<br><br>Если вы хотите зарегистрироваться - перейдите к <a href="{TEMPLATE: msg_register_lnk}">странице регистрации</a>.<br>Если вы хотите войди на форум - следуйте к <a href="{TEMPLATE: msg_login_lnk}">входной странице</a>.
+ERR_login_url:			{TEMPLATE: msg_login_lnk}
 ERR_disabled_ttl:		Действие невозможно
 ERR_disabled_msg:		Данная возможность была отключена системным администратором
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -688,9 +688,9 @@ ERR_access_msg:			Ваш уровень доступа недостаточен для выполнения затребованной 
 ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Регистрация отключена
 ERR_registration_disabled_msg:	Администратор запретил регистрацию пользователей, попробуйте еще раз через некоторое время
-ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
+ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		ОШИБКА: Ваша регистрация не была подтверждена
-ERR_emailconf_msg:		Вы пока не подтвердили свою регистрацию по email<br><table border=0><tr><td><ol><li>Если вы не получили email о подтверждении вашей регистрации - <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">нажмите здесь</a><li>Если {VAR: usr_d->email} не является вашим адресом email - <a href="{ROOT}?t=register&amp;{DEF: _rsid}">нажмите здесь</a></ol></td></tr></table>
+ERR_emailconf_msg:		Вы пока не подтвердили свою регистрацию по email<br><table border=0><tr><td><ol><li>Если вы не получили email о подтверждении вашей регистрации - <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">нажмите здесь</a><li>Если {VAR: usr_d->email} не является вашим адресом email - <a href="{TEMPLATE: msg_register_lnk}">нажмите здесь</a></ol></td></tr></table>
 ERR_user_ttl:			ОШИБКА: Несуществующий пользователь
 ERR_user_msg:			Такой пользователь не существует
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -715,9 +715,9 @@ remail_emailsent:		Электронное письмо отправлено
 remail_email:			Привет,\n\nВ форуме "{GVAR: FORUM_TITLE}" имеются сообщения на тему "{VAR: data->subject}", которые вас возможно заинтересуют. Вы можете просмотреть тему по указанному адресу:\n\n{ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ваш друг,\n\n{VAR: usr->alias}\n
 poll_add_option:		Добавить вариант:
 post_opt_html_on:		<b>HTML</b> - <b>включен</b>
-post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUDcode</b> - <b>включен</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> - <b>включен</b></a>
 post_opt_images_on:		<b>Картинки</b> - <b>включены</b>
-post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>Смайлики</b> - <b>включен</b></a>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Смайлики</b> - <b>включен</b></a>
 post_opt_html_off:		<b>HTML</b>  - <b>выключен</b>
 post_opt_fud_off:		<b>FUDcode</b> - <b>выключен</b>
 post_opt_images_off:		<b>Картинки</b> - <b>выключены</b>
@@ -781,7 +781,7 @@ p_LOCK:				Закрытие<br>тем
 p_MOVE:				Перенос<br>тем
 p_SML:				Смайлики
 p_IMG:				Тэги<br>картинок
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Поиск пользователя</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Поиск пользователя</a>
 group_mgr_indicator:		Редактируемая группа: <b>{VAR: grp->name}</b>
 rate_worst:			Так себе
 rate_best:			Лучшая
@@ -851,7 +851,7 @@ forum_home:			Начало
 post_cur_attached:		количество вложенных файлов: {VAR: i}
 ppost_cur_attached:		количество вложенных файлов: {VAR: attach_count}
 ignored_anon_post:		{GVAR: ANON_NICK} игнорирован
-ignored_user_post:		Сообщение от <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> игнорировано
+ignored_user_post:		Сообщение от <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> игнорировано
 smladd_close_window:		закрыть окно
 post_list_smilies:		показать все смайлики
 p_VISIBLE:			Видимый
@@ -880,7 +880,7 @@ polllist_date:			Создано
 polllist_owner:			Создатель
 polllist_votes:			Итого голосов
 polllist_action:		Действие
-polllist_update:		<a href="{ROOT}?t=polllist">Просмотр доступных голосований</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Просмотр доступных голосований</a>
 userinfo_polls:			Голосования:
 show_pollist:			Показать голосования
 search_and:			ИЛИ
@@ -901,7 +901,7 @@ read_message:			Сообщение не прочитано
 threadt_more:			&lt;далее&gt;
 threadt_disabled_ttl:		Возможность просмотра форумов в виде дерева в данный момент выключена.
 threadt_disabled_desc:		Администратор отключил возможность просмотра форумов в виде дерева, используйте просмотр в плоском режиме.
-threadt_update:			Просмотр форума (в виде дерева) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+threadt_update:			Просмотр форума (в виде дерева) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 register_msg_tree_view:		Плоские форумы/Древовидные темы
 register_tree_msg_view:		Древовидные форумы/Плоские темы
 mmod_delete_cofirm_ttl:		Подтверждение удаления темы/сообщения
@@ -980,7 +980,7 @@ mnav_day:			Дни
 mnav_week:			Недели
 mnav_month:			Месяцы
 mnav_title:			Навигатор по сообщениям
-mnav_update:			Просмотр сообщений, используя <a class="GenLink" href="{ROOT}?t=mnav">Навигатор по сообщениям</a>
+mnav_update:			Просмотр сообщений, используя <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Навигатор по сообщениям</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Уведомление о новом личном сообщении
 pm_notify_body_email:		Вы получили новое личное сообщение с заголовком "{VAR: subject}" от "{VAR: from}" с форума "{GVAR: FORUM_TITLE}" forum.\nЧтобы посмотреть сообщение, кликните по ссылке: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nЧтобы не получать более эти уведомления, отключите "Уведомления о личных сообщениях" в своих настройках.
 pm_notify_body_icq:		Вы получили новое личное сообщение с заголовком "{VAR: subject}" от "{VAR: from}" с форума "{GVAR: FORUM_TITLE}" forum.\n\nЧтобы не получать более эти уведомления, отключите "Уведомления о личных сообщениях" в своих настройках.

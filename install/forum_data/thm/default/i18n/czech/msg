@@ -188,7 +188,7 @@ views:				Zobrazení
 vote:				{VAR: frm->n_rating} hlasù
 vote_button:			Hlasovat
 vote_for_thread:		Hlasovat
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> byla pøemístìna do <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a> moderátorem
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]}</a> byla pøemístìna do <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a> moderátorem
 welcome_message:		Vítejte <b>{VAR: usr->alias}</b>, tvoje poslední náv¹tìva byla v {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			uka¾, co dìlají ostatní
 reported_del_report:		Zpráva o smazání
@@ -210,7 +210,7 @@ list_referes_referrals:		Pøivedení
 list_referes_members:		Pøivedení èlenové
 list_referes_member:		Èlen
 referals_none:			Zatím jste do fóra nepøivedl ¾ádné lidi.
-referals_refered_by:		Èlenové fóra pøivedení od <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_refered_by:		Èlenové fóra pøivedení od <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Poèet pøíspìvkù
 referals_registered_on:		Registrace
 referals_action:		Akce
@@ -571,7 +571,7 @@ emailconf_err_invkey_msg:	©patný potvrzující klíè. Prosím, zkontrolujte vá¹ emai
 err_inc_criticaltitle:		KRITICKÁ CHYBA   ...nìco se krutì nepovedlo. Na sobotu svolávám hon na programátora.
 err_inc_criticalmsg:		Narazil(a) jste na chybu, ale nane¹tìstí je to chyba v systému na ohla¹ování chyb   ...tak to u¾ je na mì fakt moc. dneska si ten pøeklad vá¾nì u¾ívám :-))) star trek hadr
 finduser_update:		Vyhledávám u¾ivatele
-help_index_update:		Ètete si <a href="{ROOT}?t=help_index" class="GenLink">nápovìdu.</a>
+help_index_update:		Ètete si <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">nápovìdu.</a>
 iemail_thr_subject:		Nová odpovìd pro {VAR: thr_subject} od {VAR: poster_login}
 iemail_thr_bodyemail:		Pro zobrazení nepøeètených odpovìdí jdìte na {VAR: goto_url['email']}\n\nPokud nechcete nadále dostávat oznámení o reakcích ohlednì tomto tématu, prosím, jdìte sem: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Pro zobrazení nepøeètených odpovìdí jdìte na\n{VAR: goto_url['icq']}\n\nPokud nechcete nadále dostávat oznámení o rekacích ohlednì tohoto tématu, prosím, jdìte sem:\n{VAR: unsub_url['icq']}
@@ -586,14 +586,14 @@ ignore_list_err_nu_title:	U¾ivatel nenalezen
 ignore_list_err_nu_msg:		U¾ivatel, kterého se sna¾íte pøidat na vá¹ seznam ignorovaných u¾ivatelù nebyl v tomto fóru nalezen.
 ignore_list_cantign_msg:	Nemù¾ete ignorovat tohoto u¾ivatele
 ignore_list_update:		Prohlí¾íte si seznam ignorovaných u¾ivatelù
-index_update:			Prohlí¾íte si <a href="{ROOT}?t=index" class="GenLink">seznam fór</a>
+index_update:			Prohlí¾íte si <a href="{TEMPLATE: index_update_lnk}" class="GenLink">seznam fór</a>
 list_referers_update:		Prohlí¾íte si pøivedené lidi
 login_update:			Pøihla¹ovací formuláø
 msg_err_onlyreg_title:		Jen registrovaní u¾ivatelé mohou nahlí¾et do tohoto fóra
-msg_err_onlyreg_msg:		Pokud chcete nahlédnout do tohoto fóra, musíte se <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">zaregistrovat</a>. Pokud jste ji¾ zaregistrován(a), musíte se <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">pøihlásit</a>.
+msg_err_onlyreg_msg:		Pokud chcete nahlédnout do tohoto fóra, musíte se <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">zaregistrovat</a>. Pokud jste ji¾ zaregistrován(a), musíte se <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">pøihlásit</a>.
 msg_err_ininfo_title:		Nedostatek informací
 msg_err_ininfo_msg:		Pøi generování této stránky se vyskytl problém
-msg_update:			Prohlí¾íte si téma <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
+msg_update:			Prohlí¾íte si téma <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		CHYBA: Po¹ta je vypnutá
 pm_err_nopm_msg:		Nemù¾ete pou¾ít po¹tovní systém, byl vypnut administrátorem.
 pm_update:			Pou¾íváte po¹tu
@@ -602,7 +602,7 @@ post_err_notallowed_msg:	Nejste oprávnìn(a) zasílat pøíspìvky
 post_err_lockedthread_title:	CHYBA: Uzamèené téma
 post_err_lockedthread_msg:	Toto téma je uzamèeno, ¾ádné dal¹í pøíspìvky nejsou povoleny
 err_coppa_title:		CHYBA: Vá¹ úèet je¹tì není potvrzen
-err_coppa_msg:			Nedostali jsme potvrzení od va¹ich rodièù a/nebo zákonných opatrovníkù, které by vám umo¾òovalo zasílat zprávy. Pokud jste ztratil(a) svùj potvrzovací formuláø <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">kliknìte zde</a>
+err_coppa_msg:			Nedostali jsme potvrzení od va¹ich rodièù a/nebo zákonných opatrovníkù, které by vám umo¾òovalo zasílat zprávy. Pokud jste ztratil(a) svùj potvrzovací formuláø <a href="{TEMPLATE: err_coppa_msg_lnk}">kliknìte zde</a>
 err_blockedaccnt_title:		CHYBA: nemáte povolení zasílat pøíspìvky
 err_blockedaccnt_msg:		Vá¹ úèet byl zablokován proti zasílání pøíspìvkù
 post_err_notowner_title:	CHYBA
@@ -610,9 +610,9 @@ post_err_notowner_msg:		Nejste vlastník této zprávy
 post_err_edttimelimit_title:	CHYBA
 post_err_edttimelimit_msg:	Ji¾ nemù¾ete mìnit tuto zprávu
 post_err_noannontopics_title:	CHYBA: Nedostateèné pravomoce
-post_err_noannontopics_msg:	Anonymní u¾ivatelé nemají právo vytváøet nová témata<br><br>Pokud se chcete zaregistrovat, jdìte na <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, prosím, jdìte na <a href="{ROOT}?t=login&amp;{DEF: _rsid}">pøihla¹ovací formuláø</a>
+post_err_noannontopics_msg:	Anonymní u¾ivatelé nemají právo vytváøet nová témata<br><br>Pokud se chcete zaregistrovat, jdìte na <a href="{TEMPLATE: msg_register_lnk}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, prosím, jdìte na <a href="{TEMPLATE: msg_login_lnk}">pøihla¹ovací formuláø</a>
 post_err_noannonposts_title:	CHYBA: Nedostateèné pravomoce
-post_err_noannonposts_msg:	Anonymní u¾ivatelé nemají právo odpovídat<br><br>Pokud se chcete zaregistrovat, jdìte na <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, prosím, jdìte na <a href="{ROOT}?t=login&amp;{DEF: _rsid}">pøihla¹ovací formuláø</a>
+post_err_noannonposts_msg:	Anonymní u¾ivatelé nemají právo odpovídat<br><br>Pokud se chcete zaregistrovat, jdìte na <a href="{TEMPLATE: msg_register_lnk}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, prosím, jdìte na <a href="{TEMPLATE: msg_login_lnk}">pøihla¹ovací formuláø</a>
 post_err_noreplying_title:	CHYBA: Odpovìï není povolena
 post_err_noreplying_msg:	Nemù¾ete zasílat odpovìdi na toto téma, proto¾e to je buï oznámení nebo vývìska, na kteru moderátor zakázal odpovìdi.
 post_err_floodtrig_title:	CHYBA: Pøíli¹ mnoho pøíspìvkù na systém.
@@ -621,9 +621,9 @@ post_err_attach_size:		<font class="ErrorText">Pøíloha je moc velká (limit je {V
 post_err_attach_ext:		<font class="ErrorText">Soubor, kerý se sna¾íte nahrát neodpovídá povoleným typùm.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Sna¾íte se nahrát více souborù ne¾ je povoleno.</font><br>
 post_err_passwd:		Nesprávné heslo.
-post_reply_update:		Odpovídáte na <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> ve fóru {VAR-HTML: frm->name}
-post_edit_update:		Mìníte <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> ve fóru {VAR-HTML: frm->name}
-post_topic_update:		Pí¹ete nové téma ve fóru <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Odpovídáte na <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ve fóru {VAR-HTML: frm->name}
+post_edit_update:		Mìníte <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> ve fóru {VAR-HTML: frm->name}
+post_topic_update:		Pí¹ete nové téma ve fóru <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Máte chybu
 postcheck_max_images_err:	Maximální poèet obrázkù na pøíspìvek je {GVAR: MAX_IMAGE_COUNT}, prosím, sni¾te poèet obrázkù
 postcheck_subj_needed:		Nadpis nutný
@@ -653,7 +653,7 @@ register_err_avatarnotallowed:	Ikona u¾ivatele, kterou se sna¾íte nahrát není po
 register_conf_subject:		Potvrzení registrace
 register_conf_msg:		Dìkujeme za va¹i registraci,\npro aktivaci va¹eho úètu, prosím, pøejdìte na následující URL:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPokud je vá¹ ú¹et ji¾ aktivován, budete pøihlá¹eni do fóra a\npøesmìrováni na hlavní stránku fóra.
 register_welcome_subject:	Potvrzení registrace do fóra
-register_welcome_msg:		Dìkujeme za va¹i registraci,\n\nzde jsou údaje nutné k pøihlá¹ení k fóru:\n\nAdresa fóra: {ROOT}?t=index\nU¾ivatelské jméno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamatujte, prosím, ¾e jeslo je citlivé na velikost znakù!\nPro zmìnu va¹ich nastavení nebo profilu pøejdìte sem:\n{ROOT}?t=register\n
+register_welcome_msg:		Dìkujeme za va¹i registraci,\n\nzde jsou údaje nutné k pøihlá¹ení k fóru:\n\nAdresa fóra: {TEMPLATE: index_update_lnk}\nU¾ivatelské jméno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamatujte, prosím, ¾e jeslo je citlivé na velikost znakù!\nPro zmìnu va¹ich nastavení nebo profilu pøejdìte sem:\n{ROOT}?t=register\n
 register_err_cantreg_title:	CHYBA: nelze vás zaregistrovat
 regsiter_err_cantreg_msg:	Není mo¾né vytvoøit u¾ivatelský úèet, prosím, kontaktujte administrátora na <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Prohlí¾íte si vlastní profil
@@ -670,19 +670,19 @@ reset_newpass_title:		Vynulování hesla
 reset_newpass_msg:		Dobrý den,\n\nna základì va¹eho po¾adavku jsou vám zasílány pøihla¹ovací informace.\n\nU¾ivatelské jméno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím, uva¾te, ¾e va¹e heslo by nastaveno na vý¹e uvedený údaj. Pokud chcete\nzmìnit své heslo, mù¾ete tak uèinit pøes nastavení va¹eho úètu na:\n{ROOT}?t=register\n\n
 reset_login_notify:		Va¹e heslo vám bylo zasláno emailem. Mìl(a) by jste ho dostat bìhem nìkolika minut. Prosím, zkontrolujte si svou emailovou schránku.<br>.<br>.<br>
 search_update:			Hledáte pøíspìvky
-selmsg_update:			Prohlí¾íte si <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">dne¹ní pøíspìvky</a>
-showposts_update:		Prohlí¾íte si pøíspìvek od: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
+selmsg_update:			Prohlí¾íte si <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">dne¹ní pøíspìvky</a>
+showposts_update:		Prohlí¾íte si pøíspìvek od: <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Prohlí¾íte si odebíraná témata a fóra
 th_err_invid_title:		Chybné ID tématu
 th_err_invid_msg:		Následoval(a) jste chybný odkaz, toto téma neexistuje.
 thread_err_onlyregview_title:	Jen registrovaní u¾ivatelé mohou nahlí¾et do tohoto fóra
-thread_err_onlyregview_msg:	Aby jste mohl(a) nahlí¾et do tohoto fóra, musíte se <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">zaregistrovat</a>. Pokud jste ji¾ zaregistrován(a), musíte se <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">pøihlásit</a>.
-thread_update:			Prohlí¾íte si fórum <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			Prohlí¾íte si téma (ve stromovém zobrazení) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->subject}</a>
-userinfo_update:		Prohlí¾íte si profil u¾ivatele <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>
+thread_err_onlyregview_msg:	Aby jste mohl(a) nahlí¾et do tohoto fóra, musíte se <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">zaregistrovat</a>. Pokud jste ji¾ zaregistrován(a), musíte se <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">pøihlásit</a>.
+thread_update:			Prohlí¾íte si fórum <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			Prohlí¾íte si téma (ve stromovém zobrazení) <a class="GenLink" href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:		Prohlí¾íte si profil u¾ivatele <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_ttl:			CHYBA: Nejste pøihlá¹en(a)
-ERR_login_msg:			Nejste pøihlá¹ena(a), udìlejte tak<br><br>Pokud se chcete zaregistrovat jdìte na <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, jdìte na<a href="{ROOT}?t=login&amp;{DEF: _rsid}">pøihla¹ovací formuláø</a>
-ERR_login_url:			{ROOT}?t=login&amp;{DEF: _rsid}
+ERR_login_msg:			Nejste pøihlá¹ena(a), udìlejte tak<br><br>Pokud se chcete zaregistrovat jdìte na <a href="{TEMPLATE: msg_register_lnk}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, jdìte na<a href="{TEMPLATE: msg_login_lnk}">pøihla¹ovací formuláø</a>
+ERR_login_url:			{TEMPLATE: msg_login_lnk}
 ERR_disabled_ttl:		Vypnutá vlastnost
 ERR_disabled_msg:		Tato vlastnost byla vypnuta administrátorem
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -691,9 +691,9 @@ ERR_access_msg:			Nemáte dostateèné pravomoci na provedení této akce
 ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registrace vypnuta
 ERR_registration_disabled_msg:	Administrátor vypnul registraci, prosím, zkuste to pozdìji
-ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
+ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		CHYBA: Vá¹ úèet je¹tì není potvrzen
-ERR_emailconf_msg:		Je¹tì jste nepotvrdil(a) svùj úèet pøes email<br><table border=0><tr><td><ol><li>Pokud jste je¹tì nedostal(a) potvrzující email <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">kliknìte zde</a><li>Pokud {VAR: usr_d->email} není va¹e správná emailová adresa <a href="{ROOT}?t=register&amp;{DEF: _rsid}">kliknìte zde</a></ol></td></tr></table>
+ERR_emailconf_msg:		Je¹tì jste nepotvrdil(a) svùj úèet pøes email<br><table border=0><tr><td><ol><li>Pokud jste je¹tì nedostal(a) potvrzující email <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">kliknìte zde</a><li>Pokud {VAR: usr_d->email} není va¹e správná emailová adresa <a href="{TEMPLATE: msg_register_lnk}">kliknìte zde</a></ol></td></tr></table>
 ERR_user_ttl:			CHYBA: ®ádný takový u¾ivatel není
 ERR_user_msg:			®ádný takový u¾ivatel není
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -718,9 +718,9 @@ remail_emailsent:		Email byl odeslán
 remail_email:			Ahoj,\n\nzde je zajímavé téma o "{VAR: data->subject}" na fóru {GVAR: FORUM_TITLE}, které by sis mohl(a) chtít pøeèíst. Téma mù¾e¹ vidìt na:\n {ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Tvùj pøítel,\n\n{VAR: usr->alias}\n
 poll_add_option:		Pøidat volbu:
 post_opt_html_on:		<b>HTML tagy</b> jsou <b>ZAPNUTÉ</b>
-post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUDcode</b> je <b>VYPNUT</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> je <b>VYPNUT</b></a>
 post_opt_images_on:		<b>Obrázky</b> jsou <b>ZAPNUTÉ</b>
-post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>Smajlíci</b> jsou <b>VYPNUTI</b></a>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smajlíci</b> jsou <b>VYPNUTI</b></a>
 post_opt_html_off:		<b>HTML tagy</b> jsou <b>VYPNUTY</b>
 post_opt_fud_off:		<b>FUDcode</b> je <b>VYPNUT</b>
 post_opt_images_off:		<b>Obrázky</b> jsou <b>VYPNUTY</b>
@@ -784,7 +784,7 @@ p_LOCK:				Uzamknout témata
 p_MOVE:				Pøesunout témata
 p_SML:				Pou¾ívat smajlíky
 p_IMG:				Pou¾ívat obrázkové tagy
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Hledat u¾ivatele</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Hledat u¾ivatele</a>
 group_mgr_indicator:		Nyní mìníte: <b>{VAR: grp->name}</b>
 rate_worst:			Nejhor¹í
 rate_best:			Nejlep¹í
@@ -854,7 +854,7 @@ forum_home:			Domù
 post_cur_attached:		máte {VAR: i} pøilo¾ených souborù
 ppost_cur_attached:		máte {VAR: attach_count} pøilo¾ených souborù
 ignored_anon_post:		{GVAR: ANON_NICK} je ignorován
-ignored_user_post:		Pøíspìvek od <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> je ignorován
+ignored_user_post:		Pøíspìvek od <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> je ignorován
 smladd_close_window:		zavøít okno
 post_list_smilies:		seznam v¹ech smajlíkù
 p_VISIBLE:			Viditelný
@@ -883,7 +883,7 @@ polllist_date:			Vytvoøeno dne
 polllist_owner:			Autor
 polllist_votes:			Celkem hlasù
 polllist_action:		Akce
-polllist_update:		<a href="{ROOT}?t=polllist">Pøehlídka aktivních anket</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Pøehlídka aktivních anket</a>
 userinfo_polls:			Ankety:
 show_pollist:			Zobrazit ankety
 search_and:			A
@@ -904,7 +904,7 @@ read_message:			Pøeètená zpráva
 threadt_more:			&lt;více&gt;
 threadt_disabled_ttl:		Stromové zobrazení vláken bylo vypnuto.
 threadt_disabled_desc:		Administrátor vypnul stromové zobrazení vláken, pou¾ijte místo toho ploché zobrazení.
-threadt_update:			Prohlí¾íte si fórum (stromové zobrazení) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+threadt_update:			Prohlí¾íte si fórum (stromové zobrazení) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Potvrzení smazání tématu/zprávy
 spell_alts:			¾ádné alternativy
 insert_uploaded_image:		Vlo¾it obrázek do tìla zprávy
@@ -980,7 +980,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{ROOT}?t=mnav">Message Navigator</a>
+mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

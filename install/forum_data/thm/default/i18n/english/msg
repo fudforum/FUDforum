@@ -189,7 +189,7 @@ views:				Views
 vote:				{VAR: frm->n_rating} Vote(s)
 vote_button:			Vote
 vote_for_thread:		Vote
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> has been moved to <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[12]}</a> by the moderator
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{VAR: r[12]}</a> by the moderator
 welcome_message:		Welcome <b>{VAR: usr->alias}</b>, your last visit was on {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			show what people are doing
 reported_del_report:		Delete Report
@@ -211,7 +211,7 @@ list_referes_referrals:		Referrals
 list_referes_members:		Members Referred
 list_referes_member:		Member
 referals_none:			No referrals yet.
-referals_refered_by:		Forum members referred by: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_refered_by:		Forum members referred by: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Post Count
 referals_registered_on:		Registered On
 referals_action:		Action
@@ -574,7 +574,7 @@ emailconf_err_invkey_msg:	Invalid confirmation key.  Please check your email to 
 err_inc_criticaltitle:		CRITICAL ERROR
 err_inc_criticalmsg:		You have encountered an error, but unfortunately there is a problem with the error reporting system
 finduser_update:		Searching for users
-help_index_update:		Reading the <a href="{ROOT}?t=help_index" class="GenLink">F.A.Q.</a>
+help_index_update:		Reading the <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">F.A.Q.</a>
 iemail_thr_subject:		New reply to {VAR: thr_subject} by {VAR: poster_login}
 iemail_thr_bodyemail:		To view unread replies goto {VAR: goto_url['email']}\n\nIf you do not wish to receive further notifications about replies in this topic, please go here: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		To view unread replies goto\n{VAR: goto_url['icq']}\n\nIf you do not wish to receive further notifications about replies in this topic, please go here:\n{VAR: unsub_url['icq']}
@@ -589,14 +589,14 @@ ignore_list_err_nu_title:	User not found
 ignore_list_err_nu_msg:		The user you&#39;ve tried to add to your ignore list was not found on the forum.
 ignore_list_cantign_msg:	You can&#39;t ignore this user
 ignore_list_update:		Browsing own ignore list
-index_update:			Browsing the <a href="{ROOT}?t=index" class="GenLink">forum list</a>
+index_update:			Browsing the <a href="{TEMPLATE: index_update_lnk}" class="GenLink">forum list</a>
 list_referers_update:		Browsing referrals
 login_update:			Login Form
 msg_err_onlyreg_title:		Only registered users may view this forum
-msg_err_onlyreg_msg:		In order to see this forum you need to <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">register</a>, if you are already registered you&#39;ll need to <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">login</a>.
+msg_err_onlyreg_msg:		In order to see this forum you need to <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">register</a>, if you are already registered you&#39;ll need to <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">login</a>.
 msg_err_ininfo_title:		Insufficient Information
 msg_err_ininfo_msg:		There was a problem generating this page
-msg_update:			Browsing topic <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
+msg_update:			Browsing topic <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERROR: Private Messaging Disabled
 pm_err_nopm_msg:		You cannot use the private messaging system, it has been disabled by the administrator.
 pm_update:			Using private messaging
@@ -605,7 +605,7 @@ post_err_notallowed_msg:	You aren&#39;t allowed to post
 post_err_lockedthread_title:	ERROR: Locked Topic
 post_err_lockedthread_msg:	This topic is locked, no more posting allowed
 err_coppa_title:		ERROR: Your account is not yet confirmed
-err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your coppa form <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">click here</a> to get it
+err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your coppa form <a href="{TEMPLATE: err_coppa_msg_lnk}">click here</a> to get it
 err_blockedaccnt_title:		ERROR: you aren&#39;t allowed to post
 err_blockedaccnt_msg:		Your account has been blocked from posting
 post_err_notowner_title:	ERROR
@@ -613,9 +613,9 @@ post_err_notowner_msg:		You are not the owner of this message
 post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	You can no longer edit this message
 post_err_noannontopics_title:	ERROR: Insufficient Privileges
-post_err_noannontopics_msg:	Anonymous users aren&#39;t allowed to create topics<br><br>If you would like to register go to the <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&amp;{DEF: _rsid}">login form</a>
+post_err_noannontopics_msg:	Anonymous users aren&#39;t allowed to create topics<br><br>If you would like to register go to the <a href="{TEMPLATE: msg_register_lnk}">registration form</a><br>If you would like to login please go to the <a href="{TEMPLATE: msg_login_lnk}">login form</a>
 post_err_noannonposts_title:	ERROR: Insufficient Privileges
-post_err_noannonposts_msg:	Anonymous users aren&#39;t allowed to reply<br><br>If you would like to register go to the <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&amp;{DEF: _rsid}">login form</a>
+post_err_noannonposts_msg:	Anonymous users aren&#39;t allowed to reply<br><br>If you would like to register go to the <a href="{TEMPLATE: msg_register_lnk}">registration form</a><br>If you would like to login please go to the <a href="{TEMPLATE: msg_login_lnk}">login form</a>
 post_err_noreplying_title:	ERROR: Replying Not Allowed
 post_err_noreplying_msg:	You cannot post replies to this topic, because it is either an announcement or sticky message, to which the moderator disallowed replying.
 post_err_floodtrig_title:	ERROR: Post flood triggered.
@@ -624,9 +624,9 @@ post_err_attach_size:		<font class="ErrorText">File Attachment is too big (over 
 post_err_attach_ext:		<font class="ErrorText">The file you are trying to upload doesn&#39;t match the allowed file types.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">You are trying to upload more files then it is allowed.</font><br>
 post_err_passwd:		Incorrect password.
-post_reply_update:		Replying to <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
-post_edit_update:		Editing <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
-post_topic_update:		Writing new topic in <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Replying to <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
+post_edit_update:		Editing <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
+post_topic_update:		Writing new topic in <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		You have an error
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} images are allowed per post, please decrease the number of images
 postcheck_subj_needed:		Subject required
@@ -656,7 +656,7 @@ register_err_avatarnotallowed:	The avatar you are trying to upload is not allowe
 register_conf_subject:		Registration Confirmation
 register_conf_msg:		Thank you for registering,\nTo activate your account please go to the URL below:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nOnce your account is activated you will be logged into the forum and\nredirected to the main page of the forum.
 register_welcome_subject:	Forum Registration Confirmation
-register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {ROOT}?t=index\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nPlease be aware that passwords are case sensitive!\nTo modify your settings & profile, go to this page:\n{ROOT}?t=register\n
+register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nPlease be aware that passwords are case sensitive!\nTo modify your settings & profile, go to this page:\n{ROOT}?t=register\n
 register_err_cantreg_title:	ERROR: unable to register
 regsiter_err_cantreg_msg:	Unable to create user account, please contact the administrator at <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Viewing own profile
@@ -673,19 +673,19 @@ reset_newpass_title:		Reset Password
 reset_newpass_msg:		Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{ROOT}?t=register\n\n
 reset_login_notify:		Your password has been emailed to you. You should receive it within few minutes. Please check your email for your password and login.<br>
 search_update:			Searching posts
-selmsg_update:			Browsing <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Today&#39;s Posts</a>
-showposts_update:		Viewing posts by: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
+selmsg_update:			Browsing <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">Today&#39;s Posts</a>
+showposts_update:		Viewing posts by: <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Browsing own subscriptions
 th_err_invid_title:		Invalid topic ID
 th_err_invid_msg:		You&#39;ve followed an invalid link, the topic you are trying to view does not exist.
 thread_err_onlyregview_title:	Only registered users may view this forum
-thread_err_onlyregview_msg:	In order to see this forum you need to <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">register</a>, if you are already registered you&#39;ll need to <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">login</a>.
-thread_update:			Browsing forum <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			Browsing topic (tree view) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->subject}</a>
-userinfo_update:		Looking at <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}&#39;s</a> profile
+thread_err_onlyregview_msg:	In order to see this forum you need to <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">register</a>, if you are already registered you&#39;ll need to <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">login</a>.
+thread_update:			Browsing forum <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			Browsing topic (tree view) <a class="GenLink" href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:		Looking at <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profile
 ERR_login_ttl:			ERROR: You are not logged in			
-ERR_login_msg:			You are not logged in, please do so<br><br>If you would like to register go to the <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&amp;{DEF: _rsid}">login form</a>
-ERR_login_url:			{ROOT}?t=login&amp;{DEF: _rsid}
+ERR_login_msg:			You are not logged in, please do so<br><br>If you would like to register go to the <a href="{TEMPLATE: msg_register_lnk}">registration form</a><br>If you would like to login please go to the <a href="{TEMPLATE: msg_login_lnk}">login form</a>
+ERR_login_url:			{TEMPLATE: msg_login_lnk}
 ERR_disabled_ttl:		Disabled feature
 ERR_disabled_msg:		This feature has been disabled by the system administrator
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -694,9 +694,9 @@ ERR_access_msg:			You do not have the required permissions to perform this actio
 ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registration Disabled
 ERR_registration_disabled_msg:	The administrator has disabled registration, please try again later
-ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
+ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		ERROR: Your account is not yet confirmed
-ERR_emailconf_msg:		You have not confirmed your account via email yet<br><table border=0><tr><td><ol><li>If you have not received a confirmation email <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;S={VAR: ses_id}">click here</a><li>If {VAR: usr_d->email} is not your correct email address <a href="{ROOT}?t=register&amp;S={VAR: ses_id}">click here</a></ol></td></tr></table>
+ERR_emailconf_msg:		You have not confirmed your account via email yet<br><table border=0><tr><td><ol><li>If you have not received a confirmation email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">click here</a><li>If {VAR: usr_d->email} is not your correct email address <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">click here</a></ol></td></tr></table>
 ERR_user_ttl:			ERROR: No such user
 ERR_user_msg:			There is no such user
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -721,9 +721,9 @@ remail_emailsent:		Email was sent
 remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Your friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Add Option:
 post_opt_html_on:		<b>HTML</b> is <b>ON</b>
-post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUDcode</b> is <b>ON</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> is <b>ON</b></a>
 post_opt_images_on:		<b>Images</b> are <b>ON</b>
-post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>Smilies</b> are <b>ON</b></a>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> are <b>ON</b></a>
 post_opt_html_off:		<b>HTML</b> code is <b>OFF</b>
 post_opt_fud_off:		<b>FUDcode</b> is <b>OFF</b>
 post_opt_images_off:		<b>Images</b> are <b>OFF</b>
@@ -788,7 +788,7 @@ p_MOVE:				Move topics
 p_SML:				Use smilies
 p_IMG:				Use image tags
 p_SEARCH:			Can Search
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Find User</a>
 group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
 rate_worst:			Worst
 rate_best:			Best
@@ -859,7 +859,7 @@ forum_home:			Home
 post_cur_attached:		currently attached {VAR: i} file(s) 
 ppost_cur_attached:		currently attached {VAR: attach_count} file(s) 
 ignored_anon_post:		{GVAR: ANON_NICK} is ignored
-ignored_user_post:		Post by <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> is ignored
+ignored_user_post:		Post by <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> is ignored
 smladd_close_window:		close window
 post_list_smilies:		list all smilies
 p_VISIBLE:			Visible
@@ -888,7 +888,7 @@ polllist_date:			Created On
 polllist_owner:			Created By
 polllist_votes:			Total Votes
 polllist_action:		Action
-polllist_update:		<a href="{ROOT}?t=polllist">Reviewing Available Polls</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Reviewing Available Polls</a>
 userinfo_polls:			Polls:
 show_pollist:			Show Polls
 search_and:			AND
@@ -909,7 +909,7 @@ read_message:			Read Message
 threadt_more:			&lt;more&gt;
 threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
 threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
-threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation
 spell_alts:			no alternatives
 insert_uploaded_image:		Insert image into message body
@@ -981,7 +981,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{ROOT}?t=mnav">Message Navigator</a>
+mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

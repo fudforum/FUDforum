@@ -188,7 +188,7 @@ views:				Vizualizari
 vote:				{VAR: frm->n_rating} Vot(uri)
 vote_button:			Voteaza
 vote_for_thread:		Voteaza
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> a fost mutat la <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[12]}</a> de moderator
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]}</a> a fost mutat la <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{VAR: r[12]}</a> de moderator
 welcome_message:		Bine ati venit <b>{VAR: usr->alias}</b>, ultima vizita a fost pe {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			Arata procesele utilizatorilor
 reported_del_report:		Sterge raport
@@ -210,7 +210,7 @@ list_referes_referrals:		Referinte
 list_referes_members:		Membri cu referinte
 list_referes_member:		Membri
 referals_none:			Nici o referinta inca
-referals_refered_by:		Memebrii forumului au primit referinte de la: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_refered_by:		Memebrii forumului au primit referinte de la: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Numar mesaje trimise
 referals_registered_on:		Inregistrat la
 referals_action:		Actiune
@@ -572,7 +572,7 @@ emailconf_err_invkey_msg:	Cheie de confirmare incorecta.  Va rugam sa va verific
 err_inc_criticaltitle:		EROARE CRITICA
 err_inc_criticalmsg:		EROARE, dar din nefiericire a fost afectat si sistemul de administrare a erorilor.
 finduser_update:		Cauta utilizatori
-help_index_update:		Citire <a href="{ROOT}?t=help_index" class="GenLink">Intrebari frecvente</a>
+help_index_update:		Citire <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">Intrebari frecvente</a>
 iemail_thr_subject:		Raspuns nou la {VAR: thr_subject} trimis de {VAR: poster_login}
 iemail_thr_bodyemail:		Pentru a vedea raspunsurile necitite mergeti la {VAR: goto_url['email']}\n\nDaca nu mai doriti sa primiti notificari despre raspunsurile din aceasta tema, mergeti aici: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Pentru a vedea raspunsurile necitite mergeti la\n{VAR: goto_url['icq']}\n\nDaca nu mai doriti sa primiti notificari despre raspunsurile din aceasta tema, mergeti aici:\n{VAR: unsub_url['icq']}
@@ -587,14 +587,14 @@ ignore_list_err_nu_title:	Utilizatorul nu a fost gasit
 ignore_list_err_nu_msg:		Utilizatorul pe care incercati sa-l ignorati nu poate fi gasit pe forum
 ignore_list_cantign_msg:	Nu puteti ignora caest utilizator
 ignore_list_update:		Navigare in lista de ignorare
-index_update:			Navigare in <a href="{ROOT}?t=index" class="GenLink">lista cu forumuri</a>
+index_update:			Navigare in <a href="{TEMPLATE: index_update_lnk}" class="GenLink">lista cu forumuri</a>
 list_referers_update:		Navigare referinte
 login_update:			Formular de autentificare
 msg_err_onlyreg_title:		Doar utilizatorii autentificati pot vedea acest forum
-msg_err_onlyreg_msg:		Pentru a vedea acest forum <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">inregistrati-va</a>, daca sunteti inregistrat trebuie sa va <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">autentificati</a>.
+msg_err_onlyreg_msg:		Pentru a vedea acest forum <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">inregistrati-va</a>, daca sunteti inregistrat trebuie sa va <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">autentificati</a>.
 msg_err_ininfo_title:		Informatii insuficiente
 msg_err_ininfo_msg:		Este o problema cu generarea paginii
-msg_update:			Navigare in tema <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
+msg_update:			Navigare in tema <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		EROARE: Mesajle personale sunt dezactivate
 pm_err_nopm_msg:		YNu puteti folosi mesajele personale, acestea au fost dezactivate de administrator.
 pm_update:			Folosirea mesajelor personale
@@ -603,7 +603,7 @@ post_err_notallowed_msg:	Nu aveti voie sa trimiteti mesaje
 post_err_lockedthread_title:	EROARE: Tema blocata
 post_err_lockedthread_msg:	Aceasta tema a fost blocata, nu se mai pot trimite mesaje
 err_coppa_title:		EROARE: Contul dumneavoastra nu este inca confirmat
-err_coppa_msg:			Nu s-a primit confirmarea de la un parinte/tutore. Daca a-ti pierdut formularul <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">apasati aici</a> pentru a-l descarca
+err_coppa_msg:			Nu s-a primit confirmarea de la un parinte/tutore. Daca a-ti pierdut formularul <a href="{TEMPLATE: err_coppa_msg_lnk}">apasati aici</a> pentru a-l descarca
 err_blockedaccnt_title:		EROARE: nu aveti voie sa trimiteti mesaje
 err_blockedaccnt_msg:		Contul dumneavoastra a fost blocat. Nu mai puteti trimite mesaje.
 post_err_notowner_title:	EROARE
@@ -611,9 +611,9 @@ post_err_notowner_msg:		Nu sunteti proprietarul mesajului
 post_err_edttimelimit_title:	EROARE
 post_err_edttimelimit_msg:	Nu mai puteti modifica acest mesaj
 post_err_noannontopics_title:	EROARE: Privilegii insuficiente
-post_err_noannontopics_msg:	Vizitatorilor nu li se permite sa creeze teme<br><br>Daca doriti sa va inregistrati mergeti <a href="{ROOT}?t=register&amp;{DEF: _rsid}">aici</a><br>Daca doriti sa va autentificati mergeti <a href="{ROOT}?t=login&amp;{DEF: _rsid}">aici</a>
+post_err_noannontopics_msg:	Vizitatorilor nu li se permite sa creeze teme<br><br>Daca doriti sa va inregistrati mergeti <a href="{TEMPLATE: msg_register_lnk}">aici</a><br>Daca doriti sa va autentificati mergeti <a href="{TEMPLATE: msg_login_lnk}">aici</a>
 post_err_noannonposts_title:	EROARE: Privilegii insufuciente
-post_err_noannonposts_msg:	Vizitatorii nu pot sa raspunda la mesaje<br><br>Daca doriti sa va inregistrati mergeti <a href="{ROOT}?t=register&amp;{DEF: _rsid}">aici</a><br>Daca doriti sa va autentificati mergeti <a href="{ROOT}?t=login&amp;{DEF: _rsid}">aici</a>
+post_err_noannonposts_msg:	Vizitatorii nu pot sa raspunda la mesaje<br><br>Daca doriti sa va inregistrati mergeti <a href="{TEMPLATE: msg_register_lnk}">aici</a><br>Daca doriti sa va autentificati mergeti <a href="{TEMPLATE: msg_login_lnk}">aici</a>
 post_err_noreplying_title:	EROARE: Nu aveti voie sa raspundeti la mesaje
 post_err_noreplying_msg:	Nu puteti sa trimiteti raspunsuri la aceasta tema.
 post_err_floodtrig_title:	EROARE: Incercare de flood prin intermediul mesajului trimis.
@@ -622,9 +622,9 @@ post_err_attach_size:		<font class="ErrorText">Fisierul atasat este prea mare (p
 post_err_attach_ext:		<font class="ErrorText">Extensia fisierului pe care incercati sa-l incarcati nu se potriveste cu tipurile accepatate.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Incercati sa incarcati mai multe fisiere decat este permis</font><br>
 post_err_passwd:		Parola incorecta.
-post_reply_update:		Raspunde la <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
-post_edit_update:		Editeaza <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
-post_topic_update:		Scrie tema noua in <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Raspunde la <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
+post_edit_update:		Editeaza <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
+post_topic_update:		Scrie tema noua in <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Aveti o eroare
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} imagini puteti trimite
 postcheck_subj_needed:		Subictul este obligatoriu
@@ -654,7 +654,7 @@ register_err_avatarnotallowed:	Imaginea pe care doriti sa o incarcati nu are ext
 register_conf_subject:		Confirmarea inregistrarii
 register_conf_msg:		VA multumim pentru ca v-ati inregistrat,\nPentru a activa contul va rugam sa mergeti la adresa:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n
 register_welcome_subject:	Confirmarea inregistrarii la Forum
-register_welcome_msg:		Va multumim pentru ca v-ati inregistrat,\n\nAici sunt datele dumneavoastra de autentificare la acest forum:\n\nForum URL: {ROOT}?t=index\nLogin: {VAR: uent->login}\nParola: {VAR: _POST['reg_plaintext_passwd']}\n\nVa atentionam ca parola este sensibila la majuscule.
+register_welcome_msg:		Va multumim pentru ca v-ati inregistrat,\n\nAici sunt datele dumneavoastra de autentificare la acest forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nParola: {VAR: _POST['reg_plaintext_passwd']}\n\nVa atentionam ca parola este sensibila la majuscule.
 register_err_cantreg_title:	EROARE: nu pot completa inregistrarea
 regsiter_err_cantreg_msg:	Nu pot crea contul, va rugam sa contactati adimistratorul la <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Vizualizare profil
@@ -671,19 +671,19 @@ reset_newpass_title:		Reseteaza Parola
 reset_newpass_msg:		Buna,\n\nLa cerere v-am trimis numele de utilizator.\nAici sunt informatiile dumneavoastra:\n\nUtilizator: {VAR: ui[1]}\nParola: {VAR: passwd}\n\n
 reset_login_notify:		Parola v-a fost trimisa la adresa de email. Va rugam sa verificati email-ul in urmatoarele momente.
 search_update:			Cautare mesaje trimise
-selmsg_update:			Navigeaza <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">mesaje trimise astazi</a>
-showposts_update:		Vizualizare mesaje trimise de: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
+selmsg_update:			Navigeaza <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">mesaje trimise astazi</a>
+showposts_update:		Vizualizare mesaje trimise de: <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Navigare in inscrieri
 th_err_invid_title:		Numarul de identificare a temei este incorect
 th_err_invid_msg:		A-ti urmarit o legatura inexistenta
 thread_err_onlyregview_title:	Doar utilizatorii inregistrati pot vedea acest forum
-thread_err_onlyregview_msg:	Pentru a vedea acest forum trebuie sa va  <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">inregistrati</a>, daca sunteti inregistrat trebuie sa va <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">autentificati</a>.
-thread_update:			Navigare in forumul <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			Navigare teme <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->subject}</a>
-userinfo_update:		Vizualizati profilul utilizatorului <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}&#39;s</a>
+thread_err_onlyregview_msg:	Pentru a vedea acest forum trebuie sa va  <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">inregistrati</a>, daca sunteti inregistrat trebuie sa va <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">autentificati</a>.
+thread_update:			Navigare in forumul <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			Navigare teme <a class="GenLink" href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:		Vizualizati profilul utilizatorului <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a>
 ERR_login_ttl:			EROARE: Nu sunteti autentificat
 ERR_login_msg:			Daca nu sunteti autentificat va rugam s-o faceti
-ERR_login_url:			{ROOT}?t=login&amp;{DEF: _rsid}
+ERR_login_url:			{TEMPLATE: msg_login_lnk}
 ERR_disabled_ttl:		Optiune dezactivata
 ERR_disabled_msg:		Optiune dezactivata de administratorul sistemului
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -692,7 +692,7 @@ ERR_access_msg:			Nu aveti permisiune pentru a executa aceasta actiune
 ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Inregistrarea dezactivata
 ERR_registration_disabled_msg:	Administratorul a dezactivat inregistrarea, va rugam sa reveniti mai tarziu
-ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
+ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		EROARE: Contul dumneavoastra nu este inca confirmat
 ERR_emailconf_msg:		Nu v-ati confirmat inca contul prin email<br><table border=0><tr><td><ol><li>Daca nu a-ti primit email-ul de confirmare apasati <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">aici</a>
 ERR_user_ttl:			EROARE: Nici un asemenea utilizator
@@ -719,9 +719,9 @@ remail_emailsent:		Emailul a fost trimis
 remail_email:			Buna,\n\nEste o tema interesata despre "{VAR: data->subject}" pe {GVAR: FORUM_TITLE} pe care cred ca ai vrea sa o citesti. Poti vedea tema la:\n {ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Your friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Adauga optiune:
 post_opt_html_on:		<b>HTML</b> este <b>PORNIT</b>
-post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>Codul HS</b> este <b>PORNIT</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>Codul HS</b> este <b>PORNIT</b></a>
 post_opt_images_on:		<b>Imaginile</b> sunt <b>ACTIVATE</b>
-post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>Smilies</b> sunt <b>PORNITE</b></a>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> sunt <b>PORNITE</b></a>
 post_opt_html_off:		Codul <b>HTML</b> este <b>OPRIT</b>
 post_opt_fud_off:		<b>Codul HS</b> este <b>OPRIT</b>
 post_opt_images_off:		<b>Imaginile</b> sunt <b>DEZACTIVATE</b>
@@ -785,7 +785,7 @@ p_LOCK:				Blocheaza Tema
 p_MOVE:				Muta tema
 p_SML:				Foloseste smilies
 p_IMG:				Foloseste tag-uri de imagine
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Cauta utilizator</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Cauta utilizator</a>
 group_mgr_indicator:		Editati: <b>{VAR: grp->name}</b>
 rate_worst:			Slab
 rate_best:			Foarte Bun
@@ -855,7 +855,7 @@ forum_home:			Prima Pagina
 post_cur_attached:		fisiere atasate {VAR: i}
 ppost_cur_attached:		fisiere atasate {VAR: attach_count}
 ignored_anon_post:		{VAR: user_login} este ignorat
-ignored_user_post:		Trimis de <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> este ignorat
+ignored_user_post:		Trimis de <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> este ignorat
 smladd_close_window:		inchide fereastra
 post_list_smilies:		arata toate smilies
 p_VISIBLE:			Visibil
@@ -884,7 +884,7 @@ polllist_date:			Creat la data de:
 polllist_owner:			Creat de:
 polllist_votes:			Voturi totale
 polllist_action:		Actiune
-polllist_update:		<a href="{ROOT}?t=polllist">Vezi sondaje disponibile</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Vezi sondaje disponibile</a>
 userinfo_polls:			Sondaje:
 show_pollist:			Arata sondaje
 search_and:			SI
@@ -905,7 +905,7 @@ read_message:			Mesaj citit
 threadt_more:			&lt;mai multe&gt;
 threadt_disabled_ttl:		Vizualizarea arborescenta a fost dezactivata
 threadt_disabled_desc:		Vizualizarea arborescenta a fost dezactivata de administrator.
-threadt_update:			Navigare in forumul <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+threadt_update:			Navigare in forumul <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Confirmare de stergere forum/tema
 spell_alts:			nici o alternativa
 insert_uploaded_image:		Introduce imagine in corpul mesajului
@@ -980,7 +980,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{ROOT}?t=mnav">Message Navigator</a>
+mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

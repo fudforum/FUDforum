@@ -40,7 +40,7 @@ homepage:			Hjemmeside:
 icq_control_panel:		ICQ Online-meldingspanel
 icq_message_form:		ICQ meldingsformuler:
 ignore_user:			ignorer  dette medlemmet
-ignored_user_post:		Innlegg av <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> ignoreres
+ignored_user_post:		Innlegg av <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> ignoreres
 im_aim:				AIM brukernavn:
 im_msnm:			MSN Messenger:
 im_yahoo:			Yahoo Messenger:
@@ -189,7 +189,7 @@ views:				Views
 vote:				{VAR: frm->n_rating}stemmer
 vote_button:			Stem
 vote_for_thread:		Stem
-was_moved_msg:			Moderatoren har flyttet tr&aring;den <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> til forumet <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a>
+was_moved_msg:			Moderatoren har flyttet tr&aring;den <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> til forumet <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a>
 welcome_message:		Velkommen <b>{VAR: usr->alias}</b>! Ditt forrige bes&oslash;k var {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			vis hva folk holder p&aring; med
 reported_del_report:		Slett rapport
@@ -211,7 +211,7 @@ list_referes_referrals:		Refererte medlemmer
 list_referes_members:		Refererte medlemmer
 list_referes_member:		Medlem
 referals_none:			Ingen refererte medlemmer enda.
-referals_refered_by:		Forummedlemmer refererte av: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_refered_by:		Forummedlemmer refererte av: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Antall innlegg
 referals_registered_on:		Registrert den
 referals_action:		Handling
@@ -568,7 +568,7 @@ emailconf_err_invkey_msg:	Ugyldig bekreftelseskode. Vennligst kontroller i din e
 err_inc_criticaltitle:		KRITISK FEIL
 err_inc_criticalmsg:		Du har st&oslash;tt p&aring; en feil, men dessverre har vi et problem med feilrapporteringssystemet
 finduser_update:		S&oslash;ker etter medlemmer
-help_index_update:		Leser <a href="{ROOT}?t=help_index" class="GenLink">hjelpen.</a>
+help_index_update:		Leser <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">hjelpen.</a>
 iemail_thr_subject:		Nytt svar på {VAR: thr_subject} av {VAR: poster_login}
 iemail_thr_bodyemail:		Gå til {VAR: goto_url['email']} for å vise uleste svar\n\nDersom du i fremtiden ikke vil motta meldinger om svar på denne tråden, kan du gå hit: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Gå til {VAR: goto_url['icq']}\n for å vise uleste svar\n\nDersom du i fremtiden ikke vil motta meldinger om svar på denne tråden, kan du gå hit:\n{VAR: unsub_url['icq']}
@@ -582,14 +582,14 @@ ignore_list_err_nu_title:	Kan ikke finne medlemmet
 ignore_list_err_nu_msg:		Kan ikke finne medlemmet du du fors&oslash;kte &aring; legge til  listen din i dette forumet.
 ignore_list_cantign_msg:	Du kan ikke ignorere dette medlemmet
 ignore_list_update:		Viser egen liste over ignorerte medlemmer
-index_update:			Viser <a href="{ROOT}?t=index" class="GenLink">listen over forum</a>
+index_update:			Viser <a href="{TEMPLATE: index_update_lnk}" class="GenLink">listen over forum</a>
 list_referers_update:		Viser refererede medlemmer
 login_update:			Logge inn
 msg_err_onlyreg_title:		Kun registrerte medlemmer kan lese dette forumet
-msg_err_onlyreg_msg:		For &aring; kunne lese dette forumet m&aring; du <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrere</a> deg. Dersom du allerede er registrert m&aring; du <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">logge inn</a>.
+msg_err_onlyreg_msg:		For &aring; kunne lese dette forumet m&aring; du <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">registrere</a> deg. Dersom du allerede er registrert m&aring; du <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">logge inn</a>.
 msg_err_ininfo_title:		Mangelfull information
 msg_err_ininfo_msg:		Et problem oppstod da siden skulle vises
-msg_update:			Leser tr&aring;den med emnet <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
+msg_update:			Leser tr&aring;den med emnet <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		FEIL: Private meldinger er ikke tillatt
 pm_err_nopm_msg:		Du kan ikke bruke systemet for private meldinger, ettersom administrator har stengt av for det.
 pm_update:			Bruker privatmeldinger
@@ -598,7 +598,7 @@ post_err_notallowed_msg:	Du har ikke rett til &aring; skrive innlegg
 post_err_lockedthread_title:	FEIL: L&aring;st tr&aring;d
 post_err_lockedthread_msg:	Denne tr&aring;den er l&aring;st og tar ikke imot flere innlegg
 err_coppa_title:		FEIL: Din konto er ikke bekreftet enda
-err_coppa_msg:			Vi har ikke mottatt en bekreftelse av din forelder eller formynder. Derfor kan vi ikke la deg skrive innlegg. Dersom du har mistet ditt coppaformular kan du <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">trykke her</a> for &aring; f&aring; et nytt
+err_coppa_msg:			Vi har ikke mottatt en bekreftelse av din forelder eller formynder. Derfor kan vi ikke la deg skrive innlegg. Dersom du har mistet ditt coppaformular kan du <a href="{TEMPLATE: err_coppa_msg_lnk}">trykke her</a> for &aring; f&aring; et nytt
 err_blockedaccnt_title:		FEIL: du har ikke rett til &aring; skrive innlegg
 err_blockedaccnt_msg:		Du har blitt fratatt retten til &aring; skrive innlegg
 post_err_notowner_title:	FEIL
@@ -606,9 +606,9 @@ post_err_notowner_msg:		Du er ikke denne meldingens forfatter
 post_err_edttimelimit_title:	FEIL
 post_err_edttimelimit_msg:	Du kan ikke redigere denne meldingen lenger
 post_err_noannontopics_title:	FEIL: Ikke tilstrekkelige rettigheter
-post_err_noannontopics_msg:	Anonyme brukere har ikke rett til &aring; p&aring;begynne tr&aring;der<br><br>Dersom du vil registrere deg skal du g&aring; til <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringssiden</a><br>Vennligst g&aring; til <a href="{ROOT}?t=login&amp;{DEF: _rsid}">innlogginingssiden</a> dersom du vil logge inn
+post_err_noannontopics_msg:	Anonyme brukere har ikke rett til &aring; p&aring;begynne tr&aring;der<br><br>Dersom du vil registrere deg skal du g&aring; til <a href="{TEMPLATE: msg_register_lnk}">registreringssiden</a><br>Vennligst g&aring; til <a href="{TEMPLATE: msg_login_lnk}">innlogginingssiden</a> dersom du vil logge inn
 post_err_noannonposts_title:	FEIL: Ikke tilstrekkelige rettigheter
-post_err_noannonposts_msg:	Anonyme brukere har ikke rett til &aring; besvare innlegg<br><br>Dersom du vil registrere deg skal du g&aring; til <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformuleret</a><br>Vennligst g&aring; til <a href="{ROOT}?t=login&amp;{DEF: _rsid}">innlogginingssiden</a> dersom du vil logge inn
+post_err_noannonposts_msg:	Anonyme brukere har ikke rett til &aring; besvare innlegg<br><br>Dersom du vil registrere deg skal du g&aring; til <a href="{TEMPLATE: msg_register_lnk}">registreringsformuleret</a><br>Vennligst g&aring; til <a href="{TEMPLATE: msg_login_lnk}">innlogginingssiden</a> dersom du vil logge inn
 post_err_noreplying_title:	FEIL: Det er ikke tillatt &aring; svare
 post_err_noreplying_msg:	Du har ikke rett til &aring; svare i denne tr&aring;den ettersom den er en kunngj&oslash;ring eller et klebrig innlegg, som moderatoren ikke gir tillatelse til &aring; svare p&aring;.
 post_err_floodtrig_title:	FEIL: 	Flood-beskyttelse sl&aring;tt p&aring;
@@ -617,9 +617,9 @@ post_err_attach_size:		<font class="ErrorText">Vedlegget er for stort (over gren
 post_err_attach_ext:		<font class="ErrorText">Filen du fors&oslash;ker &aring; sende er ikke av tillatt filtype.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Du fors&oslash;ker &aring; sende flere filer enn det som er tillatt.</font><br>
 post_err_passwd:		Feil passord
-post_reply_update:		Svarer p&aring; <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> i {VAR-HTML: frm->name}
-post_edit_update:		Redigerer <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> i {VAR-HTML: frm->name}
-post_topic_update:		Skriver ny tr&aring;d i <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Svarer p&aring; <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR-HTML: frm->name}
+post_edit_update:		Redigerer <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> i {VAR-HTML: frm->name}
+post_topic_update:		Skriver ny tr&aring;d i <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		En feil har oppst&aring;tt
 postcheck_max_images_err:	Maksimalt {GVAR: MAX_IMAGE_COUNT} bilder er tillatt per innlegg, vennligst reduser antall bilder
 postcheck_subj_needed:		Emne obligatorisk
@@ -649,7 +649,7 @@ register_err_avatarnotallowed:	Avataren du pr&oslash;ver &aring; sende er ikke t
 register_conf_subject:		Bekreftelse av forumregistrering
 register_conf_msg:		Takk for din registrering!\nGå til adressen under for &aring; aktivere din medlemskonto:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEtter at din konto er aktivert blir du innlogget p&aring; forumet og \nvideressendt til hovedsiden.
 register_welcome_subject:	Velkommen til forumet
-register_welcome_msg:		Takk for din registrering!\n\nHer er din innloggignsinformasjon for forumet:\n\nForumets URL: {ROOT}?t=index\nBrukernavn: {VAR: uent->login}\nPassord: {VAR: HTTP_POST_VARS['reg_plaikkext_passwd']}\n\nMerk! Det er forskjell p&aring; sm&aring; og store bokstaver i passordet!\nVil du endre innstillingene og din profil kan du g&aring; til denne siden:\n{ROOT}?t=register\n
+register_welcome_msg:		Takk for din registrering!\n\nHer er din innloggignsinformasjon for forumet:\n\nForumets URL: {TEMPLATE: index_update_lnk}\nBrukernavn: {VAR: uent->login}\nPassord: {VAR: HTTP_POST_VARS['reg_plaikkext_passwd']}\n\nMerk! Det er forskjell p&aring; sm&aring; og store bokstaver i passordet!\nVil du endre innstillingene og din profil kan du g&aring; til denne siden:\n{ROOT}?t=register\n
 register_err_cantreg_title:	FEIL: kan ikke registrere
 regsiter_err_cantreg_msg:	Kan ikke opprette brukerkonto, vennligst kontakt administratoren p&aring; adressen <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Viser sin egen profil
@@ -666,18 +666,18 @@ reset_newpass_title:		Nullstill passord
 reset_newpass_msg:		Hei!\n\nDitt brukernavn og passord har blitt endret p&aring; din foresp&oslash;rsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: ui[1]}\nPassord: {VAR: passwd}\n\nNoter deg at passordet ditt er endret til det overst&aring;ende. Om du vil\nendre passordet ditt kan du gj&oslash;re det i kontrollpanelet:\n{ROOT}?t=register\n\n
 reset_login_notify:		Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter. Vennligst sjekk e-posten din for ditt brukernavn og passord.<br>.<br>.<br>
 search_update:			S&oslash;ker blandt innleggene
-selmsg_update:			Leser <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Dagens innlegg</a>
-showposts_update:		Viser innlegg av: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
+selmsg_update:			Leser <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">Dagens innlegg</a>
+showposts_update:		Viser innlegg av: <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Viser egne abonnement
 th_err_invid_title:		Feilaktig tr&aring;d-ID
 th_err_invid_msg:		Du har fulgt en feilaktig lenke, tr&aring;den du fors&oslash;ker &aring; lese eksisterer ikke.
 thread_err_onlyregview_title:	Kun registrerte medlemmer kan lese dette forumet
-thread_err_onlyregview_msg:	For &aring; kunne lese dette forumet m&aring; du <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrere</a> deg. Dersom du allerede er registrert m&aring; du <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">logge inn</a>.
-thread_update:			Leser forumet <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+thread_err_onlyregview_msg:	For &aring; kunne lese dette forumet m&aring; du <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">registrere</a> deg. Dersom du allerede er registrert m&aring; du <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">logge inn</a>.
+thread_update:			Leser forumet <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Leser tr&aring;den (tr&aring;det visning) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
-userinfo_update:		Ser p&aring; <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}s</a> profil
+userinfo_update:		Ser p&aring; <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
 ERR_login_ttl:			FEIL: Du er ikke inlogget
-ERR_login_msg:			Du er ikke inlogget, vennligst logg inn<br><br>Dersom du vil registrere deg kan du g&aring; til <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformuleret</a><br>Hvis du vil logge inn kan du g&aring; til <a href="{ROOT}?t=login&amp;{DEF: _rsid}">inloggingssiden</a>
+ERR_login_msg:			Du er ikke inlogget, vennligst logg inn<br><br>Dersom du vil registrere deg kan du g&aring; til <a href="{TEMPLATE: msg_register_lnk}">registreringsformuleret</a><br>Hvis du vil logge inn kan du g&aring; til <a href="{TEMPLATE: msg_login_lnk}">inloggingssiden</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		Avstengt funksjon
 ERR_disabled_msg:		Denne funksjonen er lukket av administratoren
@@ -687,9 +687,9 @@ ERR_access_msg:			Du har ikke de rettigheter som er n&oslash;dvendig for &aring;
 ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registrering stengt
 ERR_registration_disabled_msg:	Administratoren har stengt registreringen, pr&oslash;v p&aring; nytt senere
-ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
+ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&{DEF: _rsid}
 ERR_emailconf_ttl:		FEIL: Din brukerkonto er enda ikke bekreftet
-ERR_emailconf_msg:		Du har ikke bekreftet din brukerkonto via e-post <br><table border=0><tr><td><ol><li>Dersom du ikke har f&aring;tt en bekreftelse per e-post <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">trykk her</a><li>Hvis {VAR: usr_d->email} ikke er din riktige e-postadresse <a href="{ROOT}?t=register&amp;{DEF: _rsid}">trykk her</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du har ikke bekreftet din brukerkonto via e-post <br><table border=0><tr><td><ol><li>Dersom du ikke har f&aring;tt en bekreftelse per e-post <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">trykk her</a><li>Hvis {VAR: usr_d->email} ikke er din riktige e-postadresse <a href="{TEMPLATE: msg_register_lnk}">trykk her</a></ol></td></tr></table>
 ERR_user_ttl:			FEIL: Finner ikke et slikt medlem
 ERR_user_msg:			Det finnes ikke et slikt medlem
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}&{DEF: _rsid}
@@ -711,12 +711,12 @@ search_title:			S&oslash;k {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-post sendt
-remail_email:			Det fins en websida her {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) som du kanskje er interressert i &aring; lese.\nTråden som jeg tenkte kunne v&oelig;re av interresse, {VAR: data->subject} finner du her: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
+remail_email:			Det fins en websida her {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) som du kanskje er interressert i &aring; lese.\nTråden som jeg tenkte kunne v&oelig;re av interresse, {VAR: data->subject} finner du her: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
 poll_add_option:		Legg til alternativ:
 post_opt_html_on:		<b>HTML</b>-kode er <b>P&Aring;</b>
-post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUD-kode</b> er <b>P&Aring;</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD-kode</b> er <b>P&Aring;</b></a>
 post_opt_images_on:		<b>Bilder</b> er <b>P&Aring;</b>
-post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>Smilies</b> er <b>P&Aring;</b></a>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> er <b>P&Aring;</b></a>
 post_opt_html_off:		<b>HTML</b>-kode er <b>AV</b>
 post_opt_fud_off:		<b>FUD-kode</b> er <b>AV</b>
 post_opt_images_off:		<b>Bilder</b> er <b>AV</b>
@@ -780,7 +780,7 @@ p_LOCK:				L&aring;s tr&aring;dar
 p_MOVE:				Flytt tr&aring;der
 p_SML:				Tillat smilies
 p_IMG:				Tillat bilde-URL
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Finn medlem</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Finn medlem</a>
 group_mgr_indicator:		Redigeres akkurat n&aring;: <b>{VAR: grp->name}</b>
 rate_worst:			V&aelig;rst
 rate_best:			Best
@@ -880,7 +880,7 @@ polllist_date:			Dato
 polllist_owner:			Laget av
 polllist_votes:			Antall stemmer totalt
 polllist_action:		Aksjon
-polllist_update:		<a href="{ROOT}?t=polllist">Ser p&aring; tilgjenglige avstemninger</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Ser p&aring; tilgjenglige avstemninger</a>
 userinfo_polls:			Avstemninger:
 show_pollist:			Vise avstemninger
 search_and:			OG
@@ -901,7 +901,7 @@ read_message:			Les innlegg
 threadt_more:			&lt;mer&gt;
 threadt_disabled_ttl:		Tr&aring;det visning av tr&aring;dene er ikke tilgjengelig.
 threadt_disabled_desc:		Administratoren har stengt den tr&aring;dete visningen av tr&aring;darna, bruk flat visning istedet.
-threadt_update:			Leser forumet (tr&aring;det visning) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+threadt_update:			Leser forumet (tr&aring;det visning) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 register_msg_tree_view:		Flat tr&aring;dvisning/Tr&aring;det innleggsvisning
 register_tree_msg_view:		Tr&aring;det tr&aring;dvisning/Flat innleggsvisning
 mmod_delete_cofirm_ttl:		Bekreft sletting av tr&aring;d/innlegg
@@ -980,7 +980,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{ROOT}?t=mnav">Message Navigator</a>
+mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

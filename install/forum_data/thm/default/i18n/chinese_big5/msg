@@ -188,7 +188,7 @@ views:				點擊
 vote:				{VAR: frm->n_rating} 投票
 vote_button:			投票
 vote_for_thread:		調查
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> 已經被版主移至<a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> 已經被版主移至<a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a>
 welcome_message:		歡迎！ <b>{VAR: usr->alias}</b>, 你最后一次訪問是 {DATE: last_login %Y-%m-%d %H:%M}
 what_ppl_doing:			顯示瀏覽者的操作
 reported_del_report:		刪除報告
@@ -210,7 +210,7 @@ list_referes_referrals:		被提名者
 list_referes_members:		被提名的用戶
 list_referes_member:		用戶
 referals_none:			目前還沒有被提名的人。
-referals_refered_by:		被推荐的論壇成員是: <b><a class="TableHeading" href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}">{VAR: p_user[1]}</a></b>
+referals_refered_by:		被推荐的論壇成員是: <b><a class="TableHeading" href="{TEMPLATE: referals_refered_by_lnk}">{VAR: p_user[1]}</a></b>
 referals_post_count:		發貼數
 referals_registered_on:		登錄
 referals_action:		操作
@@ -569,7 +569,7 @@ emailconf_err_invkey_msg:	無效的地址。請檢查并確認您的填寫的是正確的地址信息。
 err_inc_criticaltitle:		緊急錯誤
 err_inc_criticalmsg:		發生錯誤,但是很不幸的是錯誤報告系統本身也存在問題。
 finduser_update:		搜索用戶
-help_index_update:		閱讀<a href="{ROOT}?t=help_index" class="GenLink">使用幫助</a>
+help_index_update:		閱讀<a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">使用幫助</a>
 iemail_thr_subject:		新的回復 {VAR: thr_subject} 由{VAR: poster_login}
 iemail_thr_bodyemail:		查看未讀的回復 {VAR: goto_url['email']}\n\n如果你不想收到關于這個主題新的回復通知，請點擊: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		查看未讀的回復\n{VAR: goto_url['icq']}\n\如果你不想收到關于這個主題:\n{VAR: unsub_url['icq']}
@@ -583,14 +583,14 @@ ignore_list_err_nu_title:	沒有找到這個用戶
 ignore_list_err_nu_msg:		本論壇不存在你要添加的用戶。
 ignore_list_cantign_msg:	你無法拒絕該用戶
 ignore_list_update:		瀏覽“被拒絕用戶”名單
-index_update:			瀏覽<a href="{ROOT}?t=index" class="GenLink">論壇列表</a>
+index_update:			瀏覽<a href="{TEMPLATE: index_update_lnk}" class="GenLink">論壇列表</a>
 list_referers_update:		瀏覽被提名者
 login_update:			登錄格式
 msg_err_onlyreg_title:		只有注冊用戶可以查看這個論壇。
-msg_err_onlyreg_msg:		要查看這個論壇，你必須注冊<a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">注冊</a>, 如果已經注冊，請\'ll need to <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">登錄</a>.
+msg_err_onlyreg_msg:		要查看這個論壇，你必須注冊<a href="{TEMPLATE: msg_register_lnk}" class="GenLink">注冊</a>, 如果已經注冊，請\'ll need to <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">登錄</a>.
 msg_err_ininfo_title:		信息不充分
 msg_err_ininfo_msg:		本頁發生錯誤
-msg_update:			展開瀏覽 <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
+msg_update:			展開瀏覽 <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		錯誤：無法發送悄悄話
 pm_err_nopm_msg:		系統管理員禁止您使用悄悄話系統。
 pm_update:			使用悄悄話功能
@@ -599,7 +599,7 @@ post_err_notallowed_msg:	你不能提交
 post_err_lockedthread_title:	錯誤：該帖子已封閉
 post_err_lockedthread_msg:	這個主題已被封閉，不能回復
 err_coppa_title:		錯誤: 你沒有此項權限
-err_coppa_msg:			我們還沒有收到來自你父母或者法定監護人的關于同意你發布帖子的確認証明。 If you lost your coppa form <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">click here</a> to get it
+err_coppa_msg:			我們還沒有收到來自你父母或者法定監護人的關于同意你發布帖子的確認証明。 If you lost your coppa form <a href="{TEMPLATE: err_coppa_msg_lnk}">click here</a> to get it
 err_blockedaccnt_title:		錯誤: 你被禁止登錄
 err_blockedaccnt_msg:		這個賬號被禁止登錄
 post_err_notowner_title:	錯誤
@@ -607,9 +607,9 @@ post_err_notowner_msg:		你不是這個帖子的作者
 post_err_edttimelimit_title:	錯誤
 post_err_edttimelimit_msg:	你不能再編輯這條信息
 post_err_noannontopics_title:	錯誤：你的權限不夠
-post_err_noannontopics_msg:	匿名用戶不允許發布主題<br><br>注冊，請點擊 <a href="{ROOT}?t=register&amp;{DEF: _rsid}">注冊</a><br>登錄請點擊 <a href="{ROOT}?t=login&amp;{DEF: _rsid}">登錄</a>
+post_err_noannontopics_msg:	匿名用戶不允許發布主題<br><br>注冊，請點擊 <a href="{TEMPLATE: msg_register_lnk}">注冊</a><br>登錄請點擊 <a href="{TEMPLATE: msg_login_lnk}">登錄</a>
 post_err_noannonposts_title:	錯誤：你的權限不夠
-post_err_noannonposts_msg:	匿名用戶不允許回復<br><br>注冊，請點擊 <a href="{ROOT}?t=register&amp;{DEF: _rsid}">注冊</a><br>登錄，請點擊<a href="{ROOT}?t=login&amp;{DEF: _rsid}">登錄</a>
+post_err_noannonposts_msg:	匿名用戶不允許回復<br><br>注冊，請點擊 <a href="{TEMPLATE: msg_register_lnk}">注冊</a><br>登錄，請點擊<a href="{TEMPLATE: msg_login_lnk}">登錄</a>
 post_err_noreplying_title:	錯誤：不允許回復
 post_err_noreplying_msg:	您不能回復這條信息，因為版主禁止在這里跟帖或發布通告。
 post_err_floodtrig_title:	錯誤：發布灌水帖子
@@ -618,9 +618,9 @@ post_err_attach_size:		<font class="ErrorText">附件文件太大（超過了允許的最大{VA
 post_err_attach_ext:		<font class="ErrorText">你正在上傳的文件類型不符合論壇對上傳文件類型的設置font><br>
 post_err_attach_filelimit:	<font class="ErrorText">你正在上傳的文件超過了限制的數量。</font><br>
 post_err_passwd:		密碼錯誤。
-post_reply_update:		回復 <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> 在 {VAR-HTML: frm->name}
-post_edit_update:		編輯<a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> 在 {VAR-HTML: frm->name}
-post_topic_update:		發表新主題 <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_reply_update:		回復 <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> 在 {VAR-HTML: frm->name}
+post_edit_update:		編輯<a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> 在 {VAR-HTML: frm->name}
+post_topic_update:		發表新主題 <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		發生錯誤
 postcheck_max_images_err:	一次提交圖片允許的最大數是{GVAR: MAX_IMAGE_COUNT} ，請盡量減少圖片數量。
 postcheck_subj_needed:		輸入主題
@@ -667,18 +667,18 @@ reset_newpass_title:		重新輸入密碼
 reset_newpass_msg:		你好，\n\n你每次登錄的賬號都將發送給你。\nHere 這里是你的登錄信息:\n\n賬號：{VAR: ui[1]}\n密碼: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, 如果你想\n修改密碼，請在個人信息中修改:\n{ROOT}?t=register\n\n
 reset_login_notify:		一會兒，你將通過郵件收到密碼。請檢查你的密碼并登錄。.<br>
 search_update:			搜索
-selmsg_update:			瀏覽 <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">今天發布的主題</a>
-showposts_update:		查看用戶 <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>發布的主題
+selmsg_update:			瀏覽 <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">今天發布的主題</a>
+showposts_update:		查看用戶 <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>發布的主題
 subscribed_update:		瀏覽自己預定的內容
 th_err_invid_title:		錯誤的主題id號
 th_err_invid_msg:		你輸入的連接錯誤,相關主題并不存在。
 thread_err_onlyregview_title:	只有注冊用戶允許查看這個論壇
-thread_err_onlyregview_msg:	要查看本論壇，你必須<a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">注冊</a>, 如果已經注冊，請<a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">登錄</a>.
-thread_update:			瀏覽論壇<a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+thread_err_onlyregview_msg:	要查看本論壇，你必須<a href="{TEMPLATE: msg_register_lnk}" class="GenLink">注冊</a>, 如果已經注冊，請<a href="{TEMPLATE: msg_login_lnk}" class="GenLink">登錄</a>.
+thread_update:			瀏覽論壇<a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			瀏覽（以樹狀方式） <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
-userinfo_update:		查看 <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}的</a> 個人信息
+userinfo_update:		查看 <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 個人信息
 ERR_login_ttl:			錯誤：您尚未注冊
-ERR_login_msg:			您尚未登錄，請登錄<br><br>請<a href="{ROOT}?t=register&amp;{DEF: _rsid}">注冊</a><br>請<a href="{ROOT}?t=login&amp;{DEF: _rsid}">登陸</a>
+ERR_login_msg:			您尚未登錄，請登錄<br><br>請<a href="{TEMPLATE: msg_register_lnk}">注冊</a><br>請<a href="{TEMPLATE: msg_login_lnk}">登陸</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		被禁止的功能
 ERR_disabled_msg:		此項功能已經被系統管理員關閉。
@@ -690,7 +690,7 @@ ERR_registration_disabled_ttl:	注冊失敗
 ERR_registration_disabled_msg:	注冊功能被系統管理員禁止,請重試！
 ERR_registration_disabled_url:	{GVAR: WWW_ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		錯誤: 此賬號無效
-ERR_emailconf_msg:		您注冊的賬號尚未進行郵件確認<br><table border=0><tr><td><ol><li>如果你沒有收到確認郵件 <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">請點擊</a><li>如果 {VAR: usr_d->email} 郵件地址有誤<a href="{ROOT}?t=register&amp;{DEF: _rsid}">請點擊</a></ol></td></tr></table>
+ERR_emailconf_msg:		您注冊的賬號尚未進行郵件確認<br><table border=0><tr><td><ol><li>如果你沒有收到確認郵件 <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">請點擊</a><li>如果 {VAR: usr_d->email} 郵件地址有誤<a href="{TEMPLATE: msg_register_lnk}">請點擊</a></ol></td></tr></table>
 ERR_user_ttl:			錯誤：沒有這個用戶
 ERR_user_msg:			沒有這個用戶
 ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
@@ -715,9 +715,9 @@ remail_emailsent:		郵件已經發送
 remail_email:			這個頁面的內容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能感興趣\n這里是你可能感興趣的主題,{VAR: data->subject} 清點擊: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\n 發件人 {VAR: usr->alias}\n
 poll_add_option:		添加選項：
 post_opt_html_on:		<b>HTML</b><b>代碼：開放</b>
-post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank">FUD代碼：</b><b>開放</a></b>
+post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUD代碼：</b><b>開放</a></b>
 post_opt_images_on:		<b>貼圖功能：</b><b>開放</b>
-post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>表情符號：</b> <b>開放</b></a>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>表情符號：</b> <b>開放</b></a>
 post_opt_html_off:		<b>HTML</b> 代碼： <b>關閉</b>
 post_opt_fud_off:		<b>FUD代碼：</b><b>關閉</b>
 post_opt_images_off:		<b>貼圖功能：</b><b>關閉</b>
@@ -781,7 +781,7 @@ p_LOCK:				封閉帖子
 p_MOVE:				轉移帖子
 p_SML:				應用表情符號
 p_IMG:				應用圖像標簽
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">查找用戶</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">查找用戶</a>
 group_mgr_indicator:		正在編輯: <b>{VAR: grp->name}</b>
 rate_worst:			最差的
 rate_best:			最好的
@@ -851,7 +851,7 @@ forum_home:			主頁
 post_cur_attached:		正在粘貼{VAR: i} file(s)
 ppost_cur_attached:		正在粘貼 {VAR: attach_count} file(s)
 ignored_anon_post:		{GVAR: ANON_NICK} 被拒絕
-ignored_user_post:		您被拒絕提交信息<a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a>
+ignored_user_post:		您被拒絕提交信息<a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a>
 smladd_close_window:		關閉窗口
 post_list_smilies:		顯示所有表情符號
 p_VISIBLE:			可見的
@@ -881,7 +881,7 @@ polllist_date:			發起時間
 polllist_owner:			發起人
 polllist_votes:			總票數
 polllist_action:		操作選項
-polllist_update:		<a href="{ROOT}?t=polllist">以往調查</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">以往調查</a>
 userinfo_polls:			發起調查數
 show_pollist:			調查列表
 search_and:			和
@@ -901,7 +901,7 @@ unread_message:			未讀貼子
 read_message:			閱讀更多貼子:			&lt;更多&gt;
 threadt_disabled_ttl:		樹狀瀏覽已經被關閉.
 threadt_disabled_desc:		管理員已經關閉樹狀瀏覽，請用展開瀏覽方式.
-threadt_update:			瀏覽論壇 (樹狀瀏覽) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+threadt_update:			瀏覽論壇 (樹狀瀏覽) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 threadt_more:			&lt;更多&gt;
 register_msg_tree_view:		展開瀏覽/樹狀瀏覽
 register_tree_msg_view:		樹狀瀏覽/展開瀏覽 
@@ -980,7 +980,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{ROOT}?t=mnav">Message Navigator</a>
+mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

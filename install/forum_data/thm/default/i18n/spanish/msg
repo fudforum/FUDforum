@@ -568,7 +568,7 @@ emailconf_err_invkey_msg:	Llave de confirmación inválida. Por favor revise su e-
 err_inc_criticaltitle:		ERROR CRITICO
 err_inc_criticalmsg:		Ud ha encontrado un error, pero desafortunadamente hay un problema con el sistema de reporte de errores
 finduser_update:		Buscando usuarios
-help_index_update:		Leyendo el <a href="{ROOT}?t=help_index" class="GenLink">F.A.Q.</a>
+help_index_update:		Leyendo el <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">F.A.Q.</a>
 iemail_thr_subject:		Nueva respuesta a {VAR: thr_subject} publicado por {VAR: poster_login}
 iemail_thr_bodyemail:		Para ver respuestas no leídas vaya a {VAR: goto_url['email']}\n\nSi
 iemail_thr_bodyicq:		Para ver respuestas no leídas vaya a\n{VAR: goto_url['icq']}\n\nSi Ud no desea recibir más notificaciones acerca de respuestas en este hilo de discusión, por favor vaya aquí:\n{VAR: unsub_url['icq']}
@@ -582,14 +582,14 @@ ignore_list_err_nu_title:	Usuario no encontrado
 ignore_list_err_nu_msg:		El usuario que Ud ha tratado de agregar a su lista de ignorados no fue encontrado en el foro.
 ignore_list_cantign_msg:	Ud no puede ignorar a este usuario
 ignore_list_update:		Recorriendo lista de ignorados
-index_update:			Recorriendo la <a href="{ROOT}?t=index" class="GenLink">lista de foros</a>
+index_update:			Recorriendo la <a href="{TEMPLATE: index_update_lnk}" class="GenLink">lista de foros</a>
 list_referers_update:		Recorriendo referencias
 login_update:			Formulario de Ingreso
 msg_err_onlyreg_title:		Sólo usuarios registrados pueden ver este foro
 msg_err_onlyreg_msg:		Para ver este foro Ud debe <a href="{ROOT}?t=register&amp;{DEF: _RSID}" class="GenLink">registrarse</a>, si Ud ya se ha registrado Ud sólo necesita <a href="{ROOT}?t=login&amp;{DEF: _RSID}" class="GenLink">ingresar</a>.
 msg_err_ininfo_title:		Información Insuficiente
 msg_err_ininfo_msg:		Se presentó un problema al generar esta página
-msg_update:			Recorriendo hilo de discusión <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
+msg_update:			Recorriendo hilo de discusión <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERROR: Mensajería Privada Deshabilitada
 pm_err_nopm_msg:		Ud no puede usar el sistema de mensajería privada, este ha sido deshabilitado por el administrador.
 pm_update:			Usando mensajería privada
@@ -617,9 +617,9 @@ post_err_attach_size:		<font class="ErrorText">Archivo adjunto es demasiado gran
 post_err_attach_ext:		<font class="ErrorText">El archivo que Ud está tratando de subir no corresponde a los tipo de archivo permitidos.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Ud esta tratando de subir más archivos de los permitidos.</font><br>
 post_err_passwd:		Clave incorrecta.
-post_reply_update:		Respondiendo a <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> en {VAR-HTML: frm->name}
-post_edit_update:		Editando <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> en {VAR-HTML: frm->name}
-post_topic_update:		Escribiendo un nuevo tema en <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Respondiendo a <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> en {VAR-HTML: frm->name}
+post_edit_update:		Editando <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> en {VAR-HTML: frm->name}
+post_topic_update:		Escribiendo un nuevo tema en <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Ud tiene un error
 postcheck_max_images_err:	Se permite un máximo de {GVAR: MAX_IMAGE_COUNT} imágenes por mensaje, por favor reduzca el número de imágenes
 postcheck_subj_needed:		Se requiere asunto
@@ -649,7 +649,7 @@ register_err_avatarnotallowed:	El Avatar que Ud está tratando de subir no está p
 register_conf_subject:		Confirmación de Registro
 register_conf_msg:		Gracias por registrarse,\nPara activar su cuenta por favor vaya a la siguiente URL:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUna vez activada su cuenta, Ud será ingresado en el foro y\nredirigido a la página principal del foro.
 register_welcome_subject:	Confirmación de Registro del Foro
-register_welcome_msg:		Gracias por registrarse,\n\nAquí estan sus detalles de ingreso para el foro:\n\nURL del foro: {ROOT}?t=index\nNombre de usuario: {VAR: uent->login}\nClave: {VAR: _POST['reg_plaintext_passwd']}\n\nRecuerde que las claves distinguen entre mayúsculas y minúsculas!\nPara modificar su configuración y perfil, vaya a esta página:\n{ROOT}?t=register\n
+register_welcome_msg:		Gracias por registrarse,\n\nAquí estan sus detalles de ingreso para el foro:\n\nURL del foro: {TEMPLATE: index_update_lnk}\nNombre de usuario: {VAR: uent->login}\nClave: {VAR: _POST['reg_plaintext_passwd']}\n\nRecuerde que las claves distinguen entre mayúsculas y minúsculas!\nPara modificar su configuración y perfil, vaya a esta página:\n{ROOT}?t=register\n
 register_err_cantreg_title:	ERROR: no se puede registrar
 regsiter_err_cantreg_msg:	No se puede crear cuenta de usuario, por favor contacte al administrador en <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Viendo perfil propio
@@ -666,16 +666,16 @@ reset_newpass_title:		Actualizar Clave
 reset_newpass_msg:		Hola,\n\nComo Ud los solicitó su nombre de usurio y clave le están siendo enviadas.\nAquí está su información de ingreso:\n\nLogin: {VAR: ui[1]}\nClave: {VAR: passwd}\n\nRecuerde que su clave ha sido actualizada al valor anterior, si desea cambiar su clave puede hacerlo mediante el panel de control de información en:\n{ROOT}?t=register\n\n
 reset_login_notify:		Su clave le ha sido enviada vía e-mail. Debería recibirla en unos minutos. Recuerde revisar su correo para obtener su clave y nombre de usuario.<br>.<br>.<br>
 search_update:			Buscando mensajes
-selmsg_update:			Recorriendo <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Mensajes de Hoy</a>
-showposts_update:		Viendo mensajes de: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
+selmsg_update:			Recorriendo <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">Mensajes de Hoy</a>
+showposts_update:		Viendo mensajes de: <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Recorriendo subscripciones propias
 th_err_invid_title:		ID de hilo de discusión es inválida
 th_err_invid_msg:		Ud ha seguido un enlace inválido, el hilo de discusión que esta tratando de ver no existe.
 thread_err_onlyregview_title:	Este foro sólo puede ser visto por usuarios registrados
 thread_err_onlyregview_msg:	Para ver este foro Ud necesita <a href="{ROOT}?t=register&amp;{DEF: _RSID}" class="GenLink">registrarse</a>, si Ud ya esta registrado, Ud debe <a href="{ROOT}?t=login&amp;{DEF: _RSID}" class="GenLink">ingresar</a>.
-thread_update:			Recorriendo foro <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+thread_update:			Recorriendo foro <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Recorriendo hilo de discusión (vista de árbol) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _RSID}">{VAR: frm->subject}</a>
-userinfo_update:		Viendo el perfil de <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>
+userinfo_update:		Viendo el perfil de <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_ttl:			ERROR: Ud no ha ingresado
 ERR_login_msg:			Ud no ha ingresado, por favor ingrese<br><br>Si desea registrarse vaya al <a href="{ROOT}?t=register&amp;{DEF: _RSID}">formulario de registro</a><br>Si desea ingresar por favor vaya al <a href="{ROOT}?t=login&amp;{DEF: _RSID}">formulario de ingreso</a>
 ERR_login_url:			login.php?{DEF: _RSID}
@@ -687,7 +687,7 @@ ERR_access_msg:			Ud no tiene los permisos requeridos para realizar esta acción
 ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _RSID}
 ERR_registration_disabled_ttl:	Registro deshabilitado
 ERR_registration_disabled_msg:	El administrador ha deshabilitado el registro, por favor vuelva a intentar más tarde
-ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _RSID}
+ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&{DEF: _RSID}
 ERR_emailconf_ttl:		ERROR: Su cuenta aún no ha sido confirmada
 ERR_emailconf_msg:		Ud aún no ha confirmado su cuenta vía e-mail<br><table border=0><tr><td><ol><li>Si no ha recibido un e-mail de confirmación <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _RSID}">haga clic aquí</a><li>Si {VAR: usr_d->email} no es su dirección de e-mail correcta <a href="{ROOT}?t=register&amp;{DEF: _RSID}">haga clic aquí</a></ol></td></tr></table>
 ERR_user_ttl:			ERROR: No existe ese usuario
@@ -711,7 +711,7 @@ search_title:			Buscar {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-mail fue enviado
-remail_email:			Hay una página web en {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) que podría ser de su interés.\nEste es el hilo de discusión que creí que podría interesarle, {VAR: data->subject} puede encontrarlo aquí: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&{DEF: _RSID}\nDe {VAR: usr->alias}\n
+remail_email:			Hay una página web en {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) que podría ser de su interés.\nEste es el hilo de discusión que creí que podría interesarle, {VAR: data->subject} puede encontrarlo aquí: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&{DEF: _RSID}\nDe {VAR: usr->alias}\n
 poll_add_option:		Agregar Opción:
 post_opt_html_on:		El código <b>HTML</b> está <b>HABILITADO</b>
 post_opt_fud_on:		El <b><a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _RSID}#style" target="_blank">FUDcode</b> está <b>HABILITADO</a></b>
@@ -880,7 +880,7 @@ polllist_date:			Created On
 polllist_owner:			Created By
 polllist_votes:			Total Votes
 polllist_action:		Action
-polllist_update:		<a href="{ROOT}?t=polllist">Reviewing Avaliable Polls</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Reviewing Avaliable Polls</a>
 userinfo_polls:			Polls:
 show_pollist:			Show Polls
 search_and:			AND
@@ -900,7 +900,7 @@ unread_message:			Unread Message
 read_message:			Read Messagethreadt_more:			&lt;more&gt;
 threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
 threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
-threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 threadt_more:			&lt;more&gt;
 register_msg_tree_view:		Flat thread listing/Tree message listing
 register_tree_msg_view:		Tree thread listing/Flat message listing 
@@ -980,7 +980,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{ROOT}?t=mnav">Message Navigator</a>
+mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

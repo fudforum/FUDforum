@@ -4,14 +4,14 @@ ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_disabled_msg:		Diese Funktion wurde vom Systemadministrator deaktiviert
 ERR_disabled_ttl:		Deaktivierte Funktion
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
-ERR_emailconf_msg:		Du hast Dein Konto noch nicht per Email best&auml;tigt<br><table border=0><tr><td><ol><li>Falls Du keine Best&auml;tigungsemail erhalten haben solltest, klicke <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">hier</a><li>Falls {VAR: usr_d->email} nicht Deine richtige Emailadresse ist, klicke <a href="{ROOT}?t=register&amp;{DEF: _rsid}">hier</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du hast Dein Konto noch nicht per Email best&auml;tigt<br><table border=0><tr><td><ol><li>Falls Du keine Best&auml;tigungsemail erhalten haben solltest, klicke <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">hier</a><li>Falls {VAR: usr_d->email} nicht Deine richtige Emailadresse ist, klicke <a href="{TEMPLATE: msg_register_lnk}">hier</a></ol></td></tr></table>
 ERR_emailconf_ttl:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
-ERR_login_msg:			Du bist nicht angemeldet, bitte hole das jetzt nach<br><br>Falls Du Dich registrieren willst, gehe bitte zur <a href="{ROOT}?t=register&amp;{DEF: _rsid}">Registrierungsseite</a><br>Falls Du Dich anmelden willst, gehe bitte zur <a href="{ROOT}?t=login&amp;{DEF: _rsid}">Anmeldeseite</a>
+ERR_login_msg:			Du bist nicht angemeldet, bitte hole das jetzt nach<br><br>Falls Du Dich registrieren willst, gehe bitte zur <a href="{TEMPLATE: msg_register_lnk}">Registrierungsseite</a><br>Falls Du Dich anmelden willst, gehe bitte zur <a href="{TEMPLATE: msg_login_lnk}">Anmeldeseite</a>
 ERR_login_ttl:			FEHLER: Du bist nicht angemeldet
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
 ERR_registration_disabled_msg:	Der Administrator hat die Registrierung deaktiviert, versuche es bitte sp&auml;ter noch einmal
 ERR_registration_disabled_ttl:	Registrierung ist deaktiviert
-ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
+ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&{DEF: _rsid}
 ERR_systemerr_msg:		Ein Systemfehler ist aufgetreten, bitte berichte dem <a href="mailto:{GVAR: ADMIN_EMAIL}">Webmaster</a> davon.
 ERR_systemerr_ttl:		FEHLER: Systemfehler
 ERR_systemerr_url:		
@@ -119,7 +119,7 @@ emailconf_err_invkey_msg:	Ung&uuml;ltiger Best&auml;tigungsschl&uuml;ssel. Bitte
 emailconf_err_invkey_title:	Fehler
 err_blockedaccnt_msg:		Dein Konto ist für das Erstellen von Beitr&auml;gen gesperrt worden
 err_blockedaccnt_title:		FEHLER: Dir ist es nicht gestattet, Beitr&auml;ge zu erstellen
-err_coppa_msg:			Wir haben noch keine Best&auml;tigung von einem Elternteil oder einem gesetzlichen Vormund erhalten, welche es Dir erlauben w&uuml;rde, Beitr&auml;ge zu erstellen. Falls Du Dein COPPA Formular verloren hast, klicke <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">hier</a> um es zu erhalten
+err_coppa_msg:			Wir haben noch keine Best&auml;tigung von einem Elternteil oder einem gesetzlichen Vormund erhalten, welche es Dir erlauben w&uuml;rde, Beitr&auml;ge zu erstellen. Falls Du Dein COPPA Formular verloren hast, klicke <a href="{TEMPLATE: err_coppa_msg_lnk}">hier</a> um es zu erhalten
 err_coppa_title:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
 err_inc_criticalmsg:		Es ist ein Fehler aufgetreten, aber ungl&uuml;cklicherweise gibt es ein Problem mit dem Benachrichtigungssystem f&uuml;r Fehler
 err_inc_criticaltitle:		KRITISCHER FEHLER
@@ -169,7 +169,7 @@ group_mgr_group:		Gruppe:
 group_mgr_heading:		Auswahl des Gruppeneditors
 group_mgr_indicator:		Im Augenblick wird <b>{VAR: grp->name}</b> bearbeitet
 group_mgr_reged:		Alle registrierten Benutzer
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Benutzer suchen</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Benutzer suchen</a>
 groupmgr_action:		Vorgang
 groupmgr_add_member:		Mitglied hinzuf&uuml;gen
 groupmgr_already_exists:	Benutzer "{VAR-HTML: gr_member}" ist bereits in dieser Gruppe vorhanden.
@@ -183,7 +183,7 @@ groupmgr_no_user:		Es gibt keinen Benutzer mit einem "{VAR-HTML: gr_member}" Log
 groupmgr_update_member:		Mitglied aktualisieren
 groupmgr_yes:			Ja
 help_back_to_top:		Zur&uuml;ck zum Anfang
-help_index_update:		Liest das <a href="{ROOT}?t=help_index" class="GenLink">F.A.Q.</a>
+help_index_update:		Liest das <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">F.A.Q.</a>
 help_return_to_index:		Zur&uuml;ck zum Hilfeindex
 help_title:			F.A.Q.
 home:				Startseite
@@ -206,7 +206,7 @@ ignore_list_update:		Durchsucht die eigene Ignorierliste
 ignore_user:			Alle Beitr&auml;ge dieses Benutzers ignorieren
 ignore_users:			Ignorierte Benutzer
 ignored_anon_post:		{GVAR: ANON_NICK} wird ignoriert
-ignored_user_post:		Beitrag von <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> wird ignoriert
+ignored_user_post:		Beitrag von <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> wird ignoriert
 im_aim:				AIM Benutzername:
 im_jabber:			Jabber: 
 im_msnm:			MSN Messenger:
@@ -219,7 +219,7 @@ index_forum:			Forum
 index_new_posts:		Neue Beitr&auml;ge seit dem letzten Besuch
 index_no_new_posts:		Keine neuen Beitr&auml;ge seit dem letzten Besuch
 index_title:			Willkommen im Forum
-index_update:			Durchsucht die <a href="{ROOT}?t=index" class="GenLink">Forumsliste</a>
+index_update:			Durchsucht die <a href="{TEMPLATE: index_update_lnk}" class="GenLink">Forumsliste</a>
 install_script_present_error:	Aus Sicherheitsgr&uuml;nden mu&szlig;t Du das Installationsskript in <b>{GVAR: WWW_ROOT_DISK}install.php</b> entfernen, bevor Du das Forum verwenden kannst.
 interests:			Interessen:
 last_post:			Letzter Beitrag
@@ -311,11 +311,11 @@ moved_thread_message:		Dieses Thema wurde in ein anderes Forum verschoben
 msg_author:			Verfasser
 msg_err_ininfo_msg:		Beim Erzeugen der Seite ist ein Problem aufgetreten
 msg_err_ininfo_title:		Information reicht nicht aus
-msg_err_onlyreg_msg:		Um dieses Forum ansehen zu k&ouml;nnen mu&szlig;t Du Dich <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrieren</a>, Falls Du das schon gemacht hast, mu&szlig;t Du Dich <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">anmelden</a>.
+msg_err_onlyreg_msg:		Um dieses Forum ansehen zu k&ouml;nnen mu&szlig;t Du Dich <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">registrieren</a>, Falls Du das schon gemacht hast, mu&szlig;t Du Dich <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">anmelden</a>.
 msg_err_onlyreg_title:		Nur registrierte Benutzer k&ouml;nnen dieses Forum ansehen
 msg_thread:			Thema
 msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
-msg_update:			Durchsucht das Thema <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
+msg_update:			Durchsucht das Thema <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 mvthread_request_move:		Um das Verschieben eines Themas bitten
 mvthread_submit_req:		Anfrage abschicken
 my_buddies:			Meine Buddies
@@ -422,7 +422,7 @@ post_count:			Anzahl der Beitr&auml;ge {VAR: u_pcount}
 post_count_l:			Beitragsz&auml;hler:
 post_create_poll:		Abstimmung erstellen
 post_cur_attached:		Momentan {VAR: i} Dateianh&auml;nge 
-post_edit_update:		Bearbeitet <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
+post_edit_update:		Bearbeitet <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
 post_err_attach_ext:		<font class="ErrorText">Der Dateityp, den Du hochladen m&ouml;chtest, ist nicht erlaubt.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Du versuchst, mehr Dateien hochzuladen als erlaubt sind.</font><br>
 post_err_attach_size:		<font class="ErrorText">Dateianhang ist zu gro&szlig; (&uuml;ber der erlaubten Grenze von {VAR: MAX_F_SIZE} bytes)</font><br>
@@ -432,9 +432,9 @@ post_err_floodtrig_msg:		Bitte versuche es in {VAR: tm} Sekunden erneut
 post_err_floodtrig_title:	FEHLER: Schutz vor Flooding mit Beitr&auml;gen aktiviert.
 post_err_lockedthread_msg:	Das Thema ist gesperrt, und es sind keine weiteren Beitr&auml;ge erlaubt
 post_err_lockedthread_title:	FEHLER: gesperrtes Thema
-post_err_noannonposts_msg:	Anonymen Benutzern ist es nicht gestattet zu antworten<br><br>Falls Du Dich registrieren m&ouml;chtest, gehe zur <a href="{ROOT}?t=register&amp;{DEF: _rsid}">Registrierungsseite</a><br>Falls Du Dich am System anmelden willst, gehe zur <a href="{ROOT}?t=login&amp;{DEF: _rsid}">Anmeldeseite</a>
+post_err_noannonposts_msg:	Anonymen Benutzern ist es nicht gestattet zu antworten<br><br>Falls Du Dich registrieren m&ouml;chtest, gehe zur <a href="{TEMPLATE: msg_register_lnk}">Registrierungsseite</a><br>Falls Du Dich am System anmelden willst, gehe zur <a href="{TEMPLATE: msg_login_lnk}">Anmeldeseite</a>
 post_err_noannonposts_title:	FEHLER: Nicht ausreichende Rechte
-post_err_noannontopics_msg:	Anonymen Benutzern ist es nicht gestattet Beitr&auml;ge zu erstellen<br><br>Falls Du Dich registrieren m&ouml;chtest, gehe zur <a href="{ROOT}?t=register&amp;{DEF: _rsid}">Registrierungsseite</a><br>Falls Du Dich am System anmelden willst, gehe zur <a href="{ROOT}?t=login&amp;{DEF: _rsid}">Anmeldeseite</a>
+post_err_noannontopics_msg:	Anonymen Benutzern ist es nicht gestattet Beitr&auml;ge zu erstellen<br><br>Falls Du Dich registrieren m&ouml;chtest, gehe zur <a href="{TEMPLATE: msg_register_lnk}">Registrierungsseite</a><br>Falls Du Dich am System anmelden willst, gehe zur <a href="{TEMPLATE: msg_login_lnk}">Anmeldeseite</a>
 post_err_noannontopics_title:	FEHLER: keine ausreichenden Rechte
 post_err_noreplying_msg:	Du kannst auf diesen Beitrag nicht antworten, weil es entweder eine Ank&uuml;ndigung oder ein angehefteter Beitrag ist, f&uuml; den der Moderator das Antworten nicht getattet hat.
 post_err_noreplying_title:	FEHLER: Antworten nicht erlaubt
@@ -463,13 +463,13 @@ post_notification:		Benachrichtigung &uuml;ber Beitrag
 post_notification_desc:		Benachrichtige mich, wenn jemand auf meinen Beitrag antwortet.
 post_opt:			Forumseinstellungen
 post_opt_fud_off:		<b>FUD Code</b> ist <b>AUS</b>
-post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUD Code</b> ist <b>AN</b></a>
+post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD Code</b> ist <b>AN</b></a>
 post_opt_html_off:		<b>HTML</b> Code ist <b>AUS</b>
 post_opt_html_on:		<b>HTML</b> Code ist <b>AN</b>
 post_opt_images_off:		<b>Bilder</b> sind <b>AUS</b>
 post_opt_images_on:		<b>Bilder</b> sind <b>AN</b>
 post_opt_smilies_off:		<b>Smilies</b> sind <b>AUS</b>
-post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>Smilies</b> sind <b>AN</b></a>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> sind <b>AN</b></a>
 post_options:			Optionen:
 post_passwd:			Passwort zum Erstellen von Beitr&auml;gen:
 post_poll:			Abstimmung:
@@ -482,14 +482,14 @@ post_processing_msg:		Dein Beitrag wird gerade verarbeitet, bitte warten
 post_quote:			Zitat:
 post_quote_msg:			{VAR: msg->login} schrieb am {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_re:			Re: 
-post_reply_update:		Antwortet auf <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
+post_reply_update:		Antwortet auf <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_size:			Gr&ouml;&szlig;e
 post_smiley:			Smiley K&uuml;rzel:
 post_sticky:			Angeheftet
 post_thread_expiry:		Ablaufdatum des Themas:
 post_thread_type:		Art des Themas:
 post_title:			Titel:
-post_topic_update:		Erstellt neues Thema in <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_topic_update:		Erstellt neues Thema in <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_upload_file:		Datei hochladen
 postcheck_email_body:		Du kannst keine Email ohne Inhalt verschicken.
 postcheck_email_subject:	Du kannst keine Email ohne Betreff versenden.
@@ -540,7 +540,7 @@ rating:				Bewertung
 referals_action:		Aktion
 referals_none:			Keine Anwerbungen bisher.
 referals_post_count:		Anzahl der Beitr&auml;ge
-referals_refered_by:		Von <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b> angeworbene Mitglieder
+referals_refered_by:		Von <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b> angeworbene Mitglieder
 referals_registered_on:		Registriert am
 referals_update:		Durchsucht die Anwerbungen
 refresh_list:			Liste aktualisieren
@@ -632,7 +632,7 @@ register_update:		Aktualisieren
 register_uploaded:		Avatar hochladen
 register_use_sig_default:	Standardm&auml;&szlig;ig Signatur verwenden:
 register_use_sig_default_desc:	Die Signatur automatisch jedem Beitrag hinzuf&uuml;gen
-register_welcome_msg:		Vielen Dank für Deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {ROOT}?t=index\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen &amp; das Profil zu verändern, gehe bitte auf diese Seite:\n{ROOT}?t=register\n
+register_welcome_msg:		Vielen Dank für Deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen &amp; das Profil zu verändern, gehe bitte auf diese Seite:\n{ROOT}?t=register\n
 register_welcome_subject:	Registrierungsbestätigung für das Forum
 register_yahoo:			Yahoo Messenger:
 register_year:			Jahr
@@ -643,7 +643,7 @@ regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bit
 remail_anon_opt:		Diesen Beitrag in einen Email Klienten Deiner Wahl kopieren, um sie an Deine Freunde zu schicken.
 remail_continue:		Weiter
 remail_done:			Fertig
-remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) die für Dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\nVon {VAR: usr->alias}\n
+remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) die für Dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\nVon {VAR: usr->alias}\n
 remail_email_topic:		Das Thema an einen Freund versenden
 remail_emailsent:		Die Email wurde verschickt.
 remail_error:			Es ist ein Fehler aufgetreten
@@ -726,7 +726,7 @@ sel_unanswered_posts:		Unbeantwortete Beitr&auml;ge
 sel_unanswered_posts_desc:	Den Filter f&uuml;r unbeantwortete Beitr&auml;ge erzwingen (zeigt nur unbeantwortete Beitr&auml;ge an)
 sel_unread_messages:		Ungelesene Beitr&auml;ge
 sel_unread_messages_desc:	Den Filter f&uuml;r ungelesene Beitr&auml;ge erzwingen (zeigt nur ungelesene Beitr&auml;ge an)
-selmsg_update:			Durchsucht <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">die heutigen Beitr&auml;ge</a>
+selmsg_update:			Durchsucht <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">die heutigen Beitr&auml;ge</a>
 send:				Verschicken
 send_pm_desc:			Eine private Message an diesen Benutzer verschicken
 sender_email:			Email des Absenders:
@@ -735,7 +735,7 @@ sent:				Verschickt
 show_all_posts:			Alle Beitr&auml;ge von {VAR: user_login} anzeigen
 show_posts_by:			Beitr&auml;ge von {VAR: u_alias} anzeigen
 show_show:			Anzeigen:
-showposts_update:		Betrachtet die Beitr&auml;ge von <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
+showposts_update:		Betrachtet die Beitr&auml;ge von <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
 size:				Gr&ouml;&szlig;e:
 smladd_close_window:		Fenster schlie&szlig;en
@@ -801,14 +801,14 @@ thr_exch_submit:		Abschicken
 thread:				Thema:
 thread_announcement:		Ank&uuml;ndigung:
 thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
-thread_err_onlyregview_msg:	Um dieses Forum ansehen zu k&ouml;nnen, mu&szlig;t Du Dich <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrieren</a>, falls Du das bereits schon bist, mu&szlig;t Du Dich am System <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">anmelden</a>.
+thread_err_onlyregview_msg:	Um dieses Forum ansehen zu k&ouml;nnen, mu&szlig;t Du Dich <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">registrieren</a>, falls Du das bereits schon bist, mu&szlig;t Du Dich am System <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">anmelden</a>.
 thread_err_onlyregview_title:	Nur registrierte Benutzer k&ouml;nnen dieses Forum ansehen
 thread_exchange:		Themenwechsel 
 thread_first_unread_msg:	Hier klicken, um zum ersten ungelesenen Beitrag dieses Themas zu gelangen
 thread_mod_delete:		L&ouml;schen
 thread_thread:			Thema
 thread_title:			{VAR-HTML: frm->name}
-thread_update:			Durchsucht Forum <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+thread_update:			Durchsucht Forum <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 threads:			Themen
 time:				Zeit
 todays_posts:			Heutige Beitr&auml;ge
@@ -840,7 +840,7 @@ user_offline:			{VAR: obj->login} ist gerade offline
 user_online:			{VAR: obj->login} ist gerade online
 userinfo_referals:		Angeworbene Benutzer:
 userinfo_referals_count:	{VAR: referals} Mitglieder
-userinfo_update:		Betrachtet das Profil von <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>
+userinfo_update:		Betrachtet das Profil von <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 usrinfo_last_post:		Letzter Beitrag:
 usrinfo_private_message:	Private Message:
 usrinfo_profile:		{VAR: u->alias}s Profil
@@ -852,7 +852,7 @@ views:				Aufrufe
 vote:				{VAR: frm->n_rating} Stimmen
 vote_button:			Abstimmen
 vote_for_thread:		Abstimmen
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> ist vom Moderator nach <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a> verschoben worden
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> ist vom Moderator nach <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a> verschoben worden
 welcome_message:		Willkommen <b>{VAR: usr->alias}</b>, Dein letzter Besuch war am {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			Anzeigen, was die Leute gerade machen
 writing_pm:			Eine private Message schreiben
@@ -880,7 +880,7 @@ polllist_date:			Erstellt am
 polllist_owner:			Erstellt von
 polllist_votes:			Stimmen Insgesamt
 polllist_action:		Aktion
-polllist_update:		<a href="{ROOT}?t=polllist">Verf&uuml;gbare Abstimmungen betrachten</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Verf&uuml;gbare Abstimmungen betrachten</a>
 userinfo_polls:			Abstimmungen:
 show_pollist:			Abstimmungen anzeigen
 search_and:			UND
@@ -901,7 +901,7 @@ read_message:			Gelesene Nachricht
 threadt_more:			&lt;mehr&gt;
 threadt_disabled_ttl:		Die Baumansicht der Themen ist deaktiviert worden.
 threadt_disabled_desc:		Der Administrator hat die Baumansicht für Themen deaktiviert, benutze daher bitte die flache Ansicht.
-threadt_update:			Durchsuche das Forum (Baumansicht) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+threadt_update:			Durchsuche das Forum (Baumansicht) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 register_msg_tree_view:		Flache Themenanzeige/Baumansicht der Themen
 register_tree_msg_view:		Baumansicht der Themen/Flache Themenanzeige 
 mmod_delete_cofirm_ttl:		Best&auml;tigung f&uuml;r Themen/Beitragsl&ouml;schung
@@ -980,7 +980,7 @@ mnav_day:			Tag(e)
 mnav_week:			Woche(n)
 mnav_month:			Monat(e)
 mnav_title:			Message Navigator
-mnav_update:			Durchsuche Beitr&auml;ge mittels des <a class="GenLink" href="{ROOT}?t=mnav">Message Navigators</a>
+mnav_update:			Durchsuche Beitr&auml;ge mittels des <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigators</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Message
 pm_notify_body_email:		Du hast eine neue private Message mit der Überschrift "{VAR: subject}" von "{VAR: from}"  im "{GVAR: FORUM_TITLE}" Forum.\nKlicke hier um diese zu betrachten: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Message" in Deinem Profil.
 pm_notify_body_icq:		Du hast eine neue private Message mit der Überschrift "{VAR: subject}" von "{VAR: from}" im "{GVAR: FORUM_TITLE}" Forum.\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Message" in Deinem Profil.
