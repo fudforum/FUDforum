@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.14 2003/04/25 17:01:18 hackie Exp $
+*   $Id: admgroups.php,v 1.15 2003/04/25 17:32:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,8 +28,6 @@
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
 	/* check for errors */
-	$error = 0;
-	$grp = new fud_group;
 	if (isset($_POST['btn_submit'])) {
 		foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) { 
 			if ($_POST[$k] == 'I' && !$_POST['gr_inherit_id']) { 
@@ -38,12 +36,12 @@
 				break; 
 			}
 		}
-		if (!isset($_POST['gr_resource']) && !$edit || ($edit > 2)) {
+		if (!isset($_POST['gr_resource']) && (!$edit || $edit > 2)) {
 			$error_reason = 'You must assign at least 1 resource to this group';
 			$error = 1;
 		}
 
-		if (!$error) {
+		if (!isset($error)) {
 			foreach ($GLOBALS['__GROUPS_INC']['permlist'] as $v) {
 				$perms[$v] = $_POST[$v];
 			}
@@ -60,14 +58,16 @@
 				}
 			} else if (($gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE id='.$edit))) { /* update an existing group */
 				/* check to ensure circular inheritence does not occur */
-				if (group_check_inheritence((int)$_POST['gr_inherit_id'])) {
-					exit('Circular Inheritence');
+				if (!group_check_inheritence((int)$_POST['gr_inherit_id'])) {
+					group_sync($gid, $_POST['gr_name'], (int)$_POST['gr_inherit_id'], $perms);
+					$edit = '';
+					$_POST = $_GET = NULL;
+				} else {
+					$error = 1;
+					$error_reason = 'Circular Inheritence';
 				}
-				group_sync($gid, $_POST['gr_name'], (int)$_POST['gr_inherit_id'], $perms);
-				$edit = '';
-				$_POST['gr_resource'] = NULL;
 			}
-			if ($gid) {
+			if ($gid && !isset($error)) {
 				grp_rebuild_cache($gid);
 			}
 		}
@@ -77,7 +77,7 @@
 		group_delete((int)$_GET['del']);
 	}
 
-	if (isset($_GET['edit']) && ($data = db_sab('SELECT g.*, f.id AS no_del, f.name AS fname FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id LEFT JOIN '.$tbl.'forum f ON f.id=gr.resource_id AND f.name=g.name WHERE g.id='.$edit))) {
+	if ((isset($_GET['edit']) || isset($error)) && ($data = db_sab('SELECT g.*, f.id AS no_del, f.name AS fname FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id LEFT JOIN '.$tbl.'forum f ON f.id=gr.resource_id AND f.name=g.name WHERE g.id='.$edit))) {
 		$gr_name = $data->name;
 		$gr_inherit_id = $data->inherit_id;
 		foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
@@ -189,7 +189,7 @@
 		'p_POLL' => 'Create polls',
 		'p_VOTE' => 'Vote on polls',
 		'p_FILE' => 'Attach files',
-		'p_SPLIT' => 'Splut topics',
+		'p_SPLIT' => 'Split topics',
 		'p_MOVE' => 'Move topics',
 		'p_SML' => 'Use smilies/emoticons',
 		'p_IMG' => 'Use [img] tags',
@@ -209,9 +209,9 @@
 	}
 	foreach ($GLOBALS['__GROUPS_INC']['permlist'] as $v) {
 		echo '<tr><td>'.$hdr[$v].'</td><td><select name="'.$v.'">
-			  <option value="I"'.($v == 'I' ? ' selected': '').'>Inherit</option>
-			  <option value="Y"'.($v == 'Y' ? ' selected': '').'>Yes</option>
-			  <option value="N"'.($v == 'N' ? ' selected': '').'>No</option>
+			  <option value="I"'.($perms[$v] == 'I' ? ' selected': '').'>Inherit</option>
+			  <option value="Y"'.($perms[$v] == 'Y' ? ' selected': '').'>Yes</option>
+			  <option value="N"'.($perms[$v] == 'N' ? ' selected': '').'>No</option>
 		</select></td>' . (isset($vi) ? '<td align="center">' . ($data->{$v} == 'Y' ? 'Yes' : 'No').'</td>' : '').'</tr>';
 	}
 ?>
