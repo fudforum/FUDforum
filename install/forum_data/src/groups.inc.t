@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groups.inc.t,v 1.29 2003/11/14 10:50:19 hackie Exp $
+* $Id: groups.inc.t,v 1.30 2003/11/30 18:35:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,13 +18,7 @@ function grp_delete_member($id, $user_id)
 
 	q('DELETE FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$id.' AND user_id='.$user_id);
 
-	$list = array();
-	$r = uq("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gm.group_id=gr.group_id WHERE gm.user_id=".$user_id);
-	while ($o = db_rowarr($r)) {
-		$list[] = $o[0];
-	}
-
-	if ($o) {
+	if (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE user_id=".$user_id." LIMIT 1")) {
 		/* we rebuild cache, since this user's permission for a particular resource are controled by
 		 * more the one group. */
 		grp_rebuild_cache(array($user_id));
