@@ -591,6 +591,88 @@ function fud_update_message($subject, $body, $mode, $author, $mid, $icon=null, $
 	return _fud_message_post($subject, $body, $mode, $author, $icon, $mid, $forum, 0, $attach, $poll);
 }
 
+/* {{{ proto: void fud_fetch_user(mixed arg) }}}
+ * This function deletes message(s) specified by arg.
+ */
+function fud_delete_msg($arg)
+{
+	if (!$arg) {
+		return;
+	}
+
+	if (is_numeric($arg)) {
+		$arg = array($arg);
+	}
+
+	fud_use('imsg_edt.inc');
+	fud_use('ipoll.inc');
+	fud_use('th_adm.inc');
+
+	$bak = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : NULL;
+	define('forum_debug', 1);
+	unset($_SERVER['REMOTE_ADDR']);
+
+	fud_use('users.inc');
+
+	foreach ($arg as $mid) {
+		$m = new fud_msg_edit;
+		$m->delete(true, $mid->root_msg_id);
+	}
+
+	$_SERVER['REMOTE_ADDR'] = $bak;
+}
+
+/* {{{ proto: void fud_delete_topic(mixed arg) }}}
+ * This function deletes topic(s) specified by arg.
+ */
+function fud_delete_topic($arg)
+{
+	fud_delete_msg(_fud_simple_fetch_query($arg, "SELECT root_msg_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread WHERE id IN({ARG})"));
+}
+
+/* {{{ proto: void fud_delete_poll(mixed arg) }}}
+ * This function deletes poll(s) specified by arg.
+ */
+function fud_delete_poll($arg)
+{
+	$ent = _fud_simple_fetch_query($arg, "SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."poll WHERE id IN({ARG})");
+
+	if (!$ent) {
+		return;
+	}
+
+	fud_use('ipoll.inc');	
+
+	if (!is_array($ent)) {
+		poll_delete($ent->id);
+	} else {
+		foreach ($ent as $p) {
+			poll_delete($p->id);
+		}
+	}
+}
+
+/* {{{ proto: void fud_delete_attachment(mixed arg) }}}
+ * This function deletes attachment(s) specified by arg.
+ */
+function fud_delete_attachment($arg)
+{
+	$data = _fud_simple_fetch_query($arg, "SELECT id, message_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."attach WHERE id IN({ARG})");
+
+	if (!$data) {
+		return;
+	} else if (!is_array($data)) {
+		$data = array($data);
+	}
+
+	fud_use('attach.inc');
+
+	foreach ($data as $at) {
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."attach WHERE id=".$at->id);
+		$atl = attach_rebuild_cache($at->message_id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET attach_cnt=attach_cnt-1, attach_cache='".addslashes(@serialize($atl))."' WHERE id=".$at->message_id);
+	}
+}
 
 /* API FUNCTIONS END HERE */
 /* INTERNAL FUNCTIONS, DO NOT TOUCH */
