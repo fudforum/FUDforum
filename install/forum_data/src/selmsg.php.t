@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.14 2002/08/28 12:46:35 hackie Exp $
+*   $Id: selmsg.php.t,v 1.15 2002/09/07 06:25:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -57,10 +57,7 @@ function ifstr($opt1, $opt2, $str)
 	$unread_where='';
 	if ( isset($unread) && strlen($unread) && isset($usr) ) {
 		$unread_join = 'LEFT JOIN {SQL_TABLE_PREFIX}read ON {SQL_TABLE_PREFIX}read.user_id='.$usr->id.' AND {SQL_TABLE_PREFIX}read.thread_id={SQL_TABLE_PREFIX}msg.thread_id';
-		
-		if( isset($usr) && $usr->last_read ) 
-			$unread_where = ' AND {SQL_TABLE_PREFIX}msg.post_stamp>'.$usr->last_read;
-		$unread_where .= ' AND ({SQL_TABLE_PREFIX}read.last_view<{SQL_TABLE_PREFIX}msg.post_stamp OR {SQL_TABLE_PREFIX}read.msg_id IS NULL)';
+		$unread_where = ' AND (({SQL_TABLE_PREFIX}read.last_view<{SQL_TABLE_PREFIX}msg.post_stamp AND mm_read.msg_id IS NOT NULL) OR ({SQL_TABLE_PREFIX}read.msg_id IS NULL AND {SQL_TABLE_PREFIX}msg.post_stamp>'.intzero($usr->last_read).'))';
 	}
 	
 	$date_limit = '';
