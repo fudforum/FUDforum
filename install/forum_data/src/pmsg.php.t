@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.5 2002/07/07 22:14:39 hackie Exp $
+*   $Id: pmsg.php.t,v 1.6 2002/07/07 22:21:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -120,6 +120,7 @@
 				$obj->login = $obj->login2;
 				$obj->time_sec = $obj->time_sec2;
 				$obj->ouser_id = $obj->pdest;
+				break;
 			case 'TRASH':
 				$action = '{TEMPLATE: action_buttons_sent_trash}';
 				break;
