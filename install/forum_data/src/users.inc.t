@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.112 2004/01/30 03:43:42 hackie Exp $
+* $Id: users.inc.t,v 1.113 2004/02/25 00:37:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,6 +60,11 @@ function init_user()
 	/* this should allow path_info & normal themes to work properly within 1 forum */
 	if ($o2 & 32768 && !($u->theme_opt & 4)) {
 		$o2 ^= 32768;
+	}
+
+	/* handle PM disabling for users */
+	if (!($u->users_opt & 1048576) && $u->users_opt & 33554432) {
+		$o1 = $o1 &~ 1024;
 	}
 
 	/* set timezone */

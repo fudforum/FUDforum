@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.45 2004/02/24 23:51:45 hackie Exp $
+* $Id: admuser.php,v 1.46 2004/02/25 00:37:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -32,12 +32,14 @@
 		$usr_id = $act = '';
 	}
 
-	$keys = array('block'=>65536, 'coppa'=>262144, 'econf'=>131072);
+	$keys = array('block'=>65536, 'coppa'=>262144, 'econf'=>131072, 'sig'=>67108864, 'pm'=>33554432);
 
 	switch ($act) {
 		case 'block':
 		case 'coppa':
 		case 'econf':
+		case 'sig':
+		case 'pm':
 			if ($u->users_opt & $keys[$act]) {
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt & ~ '.$keys[$act].' WHERE id='.$usr_id);
 				$u->users_opt ^= $keys[$act];
@@ -300,6 +302,9 @@ administration permissions to the forum. This individual will be able to do anyt
 	echo '<tr class="field"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Blocked (banned):</td><td>'.($u->users_opt & 65536 ? 'Yes' : 'No').' [<a href="admuser.php?act=block&usr_id=' . $usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Email Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
+
+	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? 'No' : 'Yes').' [<a href="admuser.php?act=sig&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Can use private messaging:</td><td>'.($u->users_opt & 33554432 ? 'No' : 'Yes').' [<a href="admuser.php?act=pm&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
 
 	if ($FUD_OPT_1 & 1048576) {
 		echo '<tr class="field"><td>COPPA:</td><td>'.($u->users_opt & 262144 ? 'Yes' : 'No').' [<a href="admuser.php?act=coppa&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';

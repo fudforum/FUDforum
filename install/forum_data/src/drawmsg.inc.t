@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.75 2004/01/16 16:43:36 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.76 2004/02/25 00:37:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -359,7 +359,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		$ip_address = ($b & 1048576 || $usr->md || $o1 & 134217728) ? '{TEMPLATE: dmsg_ip_address}' : '';
 		$host_name = ($obj->host_name && $o1 & 268435456) ? '{TEMPLATE: dmsg_host_name}' : '';
 		$msg_icon = !$obj->icon ? '{TEMPLATE: dmsg_no_msg_icon}' : '{TEMPLATE: dmsg_msg_icon}';
-		$signature = ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096) ? '{TEMPLATE: dmsg_signature}' : '';
+		$signature = ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096 && !($a & 67108864)) ? '{TEMPLATE: dmsg_signature}' : '';
 
 		$report_to_mod_link = '{TEMPLATE: dmsg_report_to_mod_link}';
 
