@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.31 2003/04/09 12:20:06 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.32 2003/04/09 12:55:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,16 +18,12 @@
 /* Handle poll votes if any are present */
 function register_vote(&$options, $poll_id, $opt_id, $mid)
 {
-	/* invalid option */
-	if (!isset($options[$opt_id])) {
-		return;
-	}
-	/* already voted */
-	if (q_singleval('SELECT is FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$poll_id.' AND user_id='._uid)) {
+	/* invalid option or previously voted */
+	if (!isset($options[$opt_id]) || q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$poll_id.' AND user_id='._uid)) {
 		return;
 	}
 
-	db_lock('SQL_TABLE_PREFIX}poll_opt_track WRITE');
+	db_lock('{SQL_TABLE_PREFIX}poll_opt_track WRITE');
 	q('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id, poll_opt) VALUES('.$poll_id.', '._uid.', '.$opt_id.')');
 	db_unlock();
 	
@@ -215,9 +211,10 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 	}
 	
 	/* handle poll votes */
-	if (!empty($_GET['poll_opt']) && ($_GET['poll_opt'] = (int)$_GET['poll_opt']) && $obj->locked == 'N' && $perms['p_vote'] == 'Y') {
-		register_vote($obj->poll_cache, $obj->poll_id, $_GET['poll_opt'], $obj->id);
+	if (!empty($_POST['poll_opt']) && ($_POST['poll_opt'] = (int)$_POST['poll_opt']) && $obj->locked == 'N' && $perms['p_vote'] == 'Y') {
+		register_vote($obj->poll_cache, $obj->poll_id, $_POST['poll_opt'], $obj->id);
 		unset($_GET['poll_opt']);
+		$_POST['pl_view'] = $obj->poll_id;
 	}
 	
 	/* display poll if there is one */
@@ -229,7 +226,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 		foreach ($obj->poll_cache as $v) { $n_votes += $v[1]; }
 
 		/* various conditions that may prevent poll voting */		
-		if (!$hide_controls && $perms['p_vote'] == 'Y' && $obj->locked == 'N' && (!isset($_REQUEST['pl_view']) || $_REQUEST['pl_view'] != $obj->poll_id)) {
+		if (!$hide_controls && $perms['p_vote'] == 'Y' && $obj->locked == 'N' && (!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id)) {
 			/* check if the user had previously voted */
 			if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$obj->poll_id.' AND user_id='._uid)) {
 				/* check if the poll has expired */
