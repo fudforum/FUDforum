@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.12 2003/05/26 10:42:20 hackie Exp $
+*   $Id: rdf.php.t,v 1.13 2003/05/26 10:44:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -305,6 +305,7 @@ $basic_rss_data .= '
 			$res = 0;
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
+					header('Content-Type: text/xml');
 					echo '<?xml version="1.0" encoding="utf-8"?> 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/"> 
 <channel rdf:about="'.__ROOT__.'">
@@ -393,6 +394,7 @@ $basic_rss_data .= '
 			$res = 0;
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
+					header('Content-Type: text/xml');
 					echo '<?xml version="1.0" encoding="utf-8"?> 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/"> 
 <channel rdf:about="'.__ROOT__.'">
