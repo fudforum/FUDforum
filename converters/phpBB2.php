@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phpBB2.php,v 1.10 2002/08/22 11:24:05 hackie Exp $
+*   $Id: phpBB2.php,v 1.11 2002/08/22 12:25:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -165,7 +165,7 @@ function import_av_gal($dirn)
 			case 'jpeg':
 			case 'png':
 			case 'gif':
-				if( q_singleval("SELECT id FROM avatar WHERE img='".addslashes($file)."'") ) {
+				if( q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar WHERE img='".addslashes($file)."'") ) {
 					/* dupe avatar */
 					continue;	
 				}
