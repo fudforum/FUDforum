@@ -978,7 +978,7 @@ adm_account_rejected_s:		ÄãÔÚÂÛÌ³ \'{GVAR: FORUM_TITLE}\' ×¢²áµÄÕÊºÅÎ´Í¨¹ıÉóºË£¬
 thread_on:			ÓÚ
 userinfo_buddy:			ºÃÓÑ£º
 register_email_addr:		µç×ÓÓÊ¼şµØÖ·£º
-reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
+reset_suffix:			\n\nÈç¹ûÄãÃ»ÓĞÒªÇóÃÜÂëÖØÖÃ¹¦ÄÜ£¬ÇëÉ¾³ı´ËÓÊ¼ş¡£Èç¹ûÄãÃ»ÓĞÒªÇóÃÜÂëÖØÖÃ¶øÊÕµ½ÁË¶à·âÀàËÆÓÊ¼ş£¬ÇëÁªÂç¹ÜÀíÔ±£º {GVAR: ADMIN_EMAIL}\n\nÃÜÂëÖØÖÃÇëÇóÀ´×Ô£º {VAR: _SERVER['REMOTE_ADDR']}.\n\n
 usrinfo_last_visit:		×î½üÒ»´ÎµÇÂ¼:
 mnav_newer:			ĞÂÓÚ£º
 mnav_older:			¾ÉÓÚ£º
@@ -998,21 +998,21 @@ ERR_login_msg2:			<fieldset><legend>´íÎó£ºÎ´µÇÂ¼</legend>µÇÂ¼ºó²ÅÄÜ·ÃÎÊËùĞèÒ³Ãæ¡
 post_err_mod_forum_edit_ttl:	´íÎó
 post_err_mod_forum_edit_msg:	ÔÚĞèÒªÉó²éµÄÂÛÌ³Àï²»¿É±à¼­Ìû×Ó¡£
 dmsg_num:			ÌûºÅ #{VAR: obj->id}
-postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
-delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
-delete_message_extra_body:	Include the body of the removed message that will be sent to the author.
-delete_msg_removed_ttl:		Your message was removed by administration staff.
-delete_msg_pm_body:		Original message
-delete_msg_pm_subject:		Subject: {VAR: data[15]}
-ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
-ip_whois_title:			<b>ISP Information</b><br />
-register_theme:			Theme:
-pmsg_trash:			Empty Trash
-uc_new_pm:			New Private Messages
-uc_new_topic:			New Topic
-uc_new_cat_forum:		Subscribed Forums With New Messages
-uc_cat_forum:			Category &raquo; Forum
-uc_sub_topics:			Subscribed Topics With New Messages
-uc_page_title:			Viewing personal control panel.
-search_options:			Search Options
-search_user_filter:		Filter by user:
+postcheck_session_invalid:	³¬Ê±£¬ÇëÖØĞÂÌá½»¡£±§Ç¸£¡
+delete_message_extra_desc:	<b>¿É Ñ¡</b><br />ÓÃÇÄÇÄ»°ÏòÔ­Ìû×÷ÕßËµÃ÷É¾ÌûµÄÔ­Òò¡£
+delete_message_extra_body:	Í¬Ê±°üº¬Ô­ÌûÄÚÈİ¡£
+delete_msg_removed_ttl:		Äã·¢µÄÌû×ÓÒÑ±»¹ÜÀíÔ±É¾³ı¡£
+delete_msg_pm_body:		Ô­Ìû
+delete_msg_pm_subject:		Ô­Ìû±êÌâ£º {VAR: data[15]}
+ip_no_whois:			Ã»ÓĞÕÒµ½¹ØÓÚ <b>{VAR: ip}</b> µÄ whois ĞÅÏ¢¡£
+ip_whois_title:			<b>ISP ĞÅÏ¢</b><br />
+register_theme:			Ö÷Ìâ£º
+pmsg_trash:			Çå¿ÕÀ¬»øÏä
+uc_new_pm:			ĞÂÇÄÇÄ»°
+uc_new_topic:			ĞÂÌû
+uc_new_cat_forum:		°üº¬ĞÂÌûµÄÒÑ¶©ÔÄÂÛÌ³
+uc_cat_forum:			·ÖÇø &raquo; ÂÛÌ³
+uc_sub_topics:			°üº¬ĞÂÌûµÄÒÑ¶©ÔÄ»°Ìâ
+uc_page_title:			²é¿´¸öÈË¿ØÖÆÃæ°å
+search_options:			ËÑË÷Ñ¡Ïî
+search_user_filter:		½öÏŞ×÷Õß£º
