@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: remail.tmpl,v 1.13 2004/04/02 22:06:13 hackie Exp $
+* $Id: remail.tmpl,v 1.14 2004/04/23 21:16:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -24,10 +24,10 @@
 {PAGE: REMAIL_PAGE email to friend page}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<div align=center>
+<div class="ctb">
 {TEMPLATE-DATA: remail_error}
 <form action="{TEMPLATE: REMAIL_PAGE_lnk3}" name="remail" method="post"><input type="hidden" name="posted" value="1">
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: remail_email_topic}</th></tr>
 {TEMPLATE-DATA: form_data}
 </table>
@@ -42,23 +42,23 @@
 {SECTION: END}
 
 {SECTION: registed_user}
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" nowrap>{MSG: remail_your_name}</td><td width="100%">{VAR: usr->alias}</td></tr>
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" nowrap>{MSG: remail_your_email}</td><td width="100%">{VAR: usr->email}</td></tr>
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" nowrap>{MSG: remail_friends_name}</td><td width="100%"><input type="text" name="fname" value="{VAR-HTML: fname}"></td></tr>
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" valign="top" nowrap><font class="SmallText">{MSG: remail_friends_email}<br /><i>{MSG: remail_required}</i></font></td><td valign="top"><input type="text" name="femail" value="{VAR-HTML: femail}">{TEMPLATE-DATA: femail_error}</td></tr>
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" valign="top" nowrap><font class="SmallText">{MSG: remail_subject}<br /><i>{MSG: remail_required}</i></font></td><td nowrap valign="top"><input type="text" name="subj" value="{VAR: subject}">{TEMPLATE-DATA: subject_error}</td></tr>
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" valign="top" nowrap>{MSG: remail_message}<font class="SmallText"><br /><i>{MSG: remail_required}</i></font></td><td valign="top" nowrap><textarea name="body" rows="19" cols="78" wrap="PHYSICAL">{VAR: body}</textarea>{TEMPLATE-DATA: body_error}</td></tr>
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" colspan=2 align="right"><input type="submit" class="button" name="submit" value="{MSG: remail_send_now}"></td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw">{MSG: remail_your_name}</td><td width="100%">{VAR: usr->alias}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw">{MSG: remail_your_email}</td><td width="100%">{VAR: usr->email}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw">{MSG: remail_friends_name}</td><td width="100%"><input type="text" name="fname" value="{VAR-HTML: fname}"></td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw vt SmallText">{MSG: remail_friends_email}<br /><i>{MSG: remail_required}</i></td><td valign="top"><input type="text" name="femail" value="{VAR-HTML: femail}">{TEMPLATE-DATA: femail_error}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw vt SmallText">{MSG: remail_subject}<br /><i>{MSG: remail_required}</i></td><td nowrap valign="top"><input type="text" name="subj" value="{VAR: subject}">{TEMPLATE-DATA: subject_error}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw vt">{MSG: remail_message}<font class="SmallText"><br /><i>{MSG: remail_required}</i></font></td><td valign="top" nowrap><textarea name="body" rows="19" cols="78" wrap="PHYSICAL">{VAR: body}</textarea>{TEMPLATE-DATA: body_error}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText ar" colspan=2><input type="submit" class="button" name="submit" value="{MSG: remail_send_now}"></td></tr>
 {SECTION: END}
 
 {SECTION: anon_user}
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" align="center"><font class="SmallText">{MSG: remail_anon_opt}</font></td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText ac SmallText">{MSG: remail_anon_opt}</td></tr>
 <tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText"><textarea name="body" rows="19" cols="78">{VAR: body}</textarea></td></tr>
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" align="right"><input type="submit" class="button" name="done" value="{MSG: remail_done}"></td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText ar"><input type="submit" class="button" name="done" value="{MSG: remail_done}"></td></tr>
 {SECTION: END}
 
 {SECTION: remail_error}
-<h4 align="center" class="ErrorText">{MSG: remail_error}</h4>
+<h4 class="ac ErrorText">{MSG: remail_error}</h4>
 {SECTION: END}
 
 {SECTION: remail_emailsent}

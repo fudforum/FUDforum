@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: referals.tmpl,v 1.15 2004/01/04 16:38:28 hackie Exp $
+* $Id: referals.tmpl,v 1.16 2004/04/23 21:16:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -33,10 +33,10 @@
 
 {SECTION: refered_entry info about a single referred user}
 <tr class="{ALT-VAR: ref_alt RowStyleA RowStyleB}">
-	<td width="100%" nowrap class="GenText"><a href="{TEMPLATE: refered_entry_lnk}">{VAR: r[0]}</a></td>
-	<td nowrap align="center" nowrap class="Gentext">{VAR: r[3]}</td>
-	<td nowrap class="DateText" nowrap>{DATE: r[2] %a, %d %B %Y}</td>
-	<td nowrap class="GenText"><a href="{TEMPLATE: refered_entry_lnk1}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
+	<td class="wa nwGenText"><a href="{TEMPLATE: refered_entry_lnk}">{VAR: r[0]}</a></td>
+	<td class="ac nw Gentext">{VAR: r[3]}</td>
+	<td class="nw DateText">{DATE: r[2] %a, %d %B %Y}</td>
+	<td class="nw GenText"><a href="{TEMPLATE: refered_entry_lnk1}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
 
@@ -48,8 +48,8 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: tabs}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: referals_refered_by}</th><th align="center" nowrap>{MSG: referals_post_count}</th><th nowrap align="center">{MSG: referals_registered_on}</th><th nowrap align="center">{MSG: referals_action}</th></tr>
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th>{MSG: referals_refered_by}</th><th class="ac nw">{MSG: referals_post_count}</th><th class="ac nw">{MSG: referals_registered_on}</th><th class="ac nw">{MSG: referals_action}</th></tr>
 {TEMPLATE-DATA: refered_entry_data}
 </table>
 {TEMPLATE: curtime}
