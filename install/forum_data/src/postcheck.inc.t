@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: postcheck.inc.t,v 1.8 2003/01/22 15:06:15 hackie Exp $
+*   $Id: postcheck.inc.t,v 1.9 2003/04/08 09:49:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,9 +36,7 @@ function get_err($err, $br=0)
 		
 function post_check_images()
 {
-	global $msg_body;
-	
-	if ( $GLOBALS['MAX_IMAGE_COUNT'] && $GLOBALS['MAX_IMAGE_COUNT'] < count_images($msg_body) ) {
+	if ($GLOBALS['MAX_IMAGE_COUNT'] && $GLOBALS['MAX_IMAGE_COUNT'] < count_images($_POST['msg_body'])) {
 		return -1;
 	}
 		
@@ -47,18 +45,14 @@ function post_check_images()
 
 function check_post_form()
 {
-	global $msg_subject;
-	
-	if ( !strlen(trim($msg_subject)) ) {
+	/* make sure we got a valid subject */
+	if (!strlen(trim($_POST['msg_subject']))) {
 		set_err('msg_subject', '{TEMPLATE: postcheck_subj_needed}');
 	}
 	
-	if ( post_check_images() ) {
+	/* make sure the number of images [img] inside the body do not exceed the allowed limit */
+	if (post_check_images()) {
 		set_err('msg_body', '{TEMPLATE: postcheck_max_images_err}');
-	}
-	
-	if ( isset($GLOBALS['ses']->at_name) && filter_ext($GLOBALS['ses']->at_name) ) {
-		set_err('msg_file', '{TEMPLATE: postcheck_not_allowed_file}');
 	}
 	
 	return $GLOBALS['__error__'];
@@ -135,6 +129,6 @@ function count_images($text)
 	$a = substr_count($text, '[img]');
 	$b = substr_count($text, '[/img]');
 	
-	return ( ($a>$b)?$b:$a );
+	return (($a > $b) ? $b : $a);
 }
 ?>

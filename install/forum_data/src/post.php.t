@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.29 2003/04/08 09:40:54 hackie Exp $
+*   $Id: post.php.t,v 1.30 2003/04/08 09:49:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -290,7 +290,7 @@
 			$_POST['btn_submit'] = 1;
 		}
 		
-		if ($usr->is_mod != 'A' && isset($_POST['btn_submit']) && $frm->passwd_posting == 'Y' && $frm->post_passwd != $_POST['frm_passwd']) {
+		if ($usr->is_mod != 'A' && isset($_POST['btn_submit']) && $frm->passwd_posting == 'Y' && (!isset($_POST['frm_passwd']) || $frm->post_passwd != $_POST['frm_passwd']) {
 			set_err('password', '{TEMPLATE: post_err_passwd}');
 		}
 		
