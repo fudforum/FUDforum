@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.16 2004/10/21 00:08:37 hackie Exp $
+* $Id: cat.inc,v 1.17 2004/10/21 14:50:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -165,6 +165,19 @@ function rebuild_forum_cat_order()
 	rename($cache_file.'.tmp', $cache_file);
 
 	unset($ol);
+
+	/* now we build a special cache specifically for the front page */
+	$c = uq("SELECT lvl, c.description, c.name, c.cat_opt, c.parent, c.id FROM ".$tbl."cat c
+			LEFT JOIN ".$tbl."fc_view ON c.id=c");
+	while ($r = db_rowarr($c)) {
+		$cat_cache[array_pop($r)] = $r;
+	}
+
+	$cache_file = $GLOBALS['FORUM_SETTINGS_PATH'] . 'idx.inc';
+	$fp = fopen($cache_file.'.tmp', "w");
+	fwrite($fp, '<?php $cidxc = '.var_export($cat_cache, 1).'; ?>');
+	fclose($fp);
+	rename($cache_file.'.tmp', $cache_file);
 
 	if (isset($ll)) {
 		db_unlock();

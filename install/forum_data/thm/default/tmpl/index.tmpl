@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.40 2004/10/19 00:40:40 hackie Exp $
+* $Id: index.tmpl,v 1.41 2004/10/21 14:50:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,11 +31,11 @@
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
-<tr><td colspan="6" class="CatDesc" style="padding-left: {VAR: tabw}px"><a href="{TEMPLATE: index_category_allow_collapse_Y_lnk}" class="CatLink" title="{VAR: collapse_status}">{VAR: collapse_indicator} {VAR: r[6]}</a>{VAR: r[5]}</td></tr>
+<tr><td colspan="6" class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px"><a href="{TEMPLATE: index_category_allow_collapse_Y_lnk}" class="CatLink" title="{VAR: collapse_status}">{VAR: collapse_indicator} {VAR: i[1]}</a> - {VAR: i[2]}</td></tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr><td class="CatDesc CatLockPad" colspan="6" style="padding-left: {VAR: tabw}px"><span class="CatLockedName">{VAR: r[6]}</span>{VAR: r[5]}</td></tr>
+<tr><td class="CatDesc CatLockPad" colspan="6" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px"><span class="CatLockedName">{VAR: i[1]}</span> - {VAR: i[2]}</td></tr>
 {SECTION: END}
 
 {SECTION: forum_icon}
@@ -50,15 +50,11 @@
 <div class="TopBy"><b>{MSG: moderators}:</b> {VAR: moderators}</div>
 {SECTION: END}
 
-{SECTION: forum_descr}
-<br />{VAR: r[14]}
-{SECTION: END}
-
 {SECTION: index_forum_entry forum entry row}
 <tr>
 	<td class="RowStyleA wo">{TEMPLATE-DATA: forum_icon}</td>
 	<td class="RowStyleB wo">{VAR: forum_read_indicator}</td>
-	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR-HTML: r[13]}</a>{TEMPLATE-DATA: forum_descr}{VAR: moderators}</td>
+	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR-HTML: r[13]}</a>{FUNC: ($r[14] ? '<br />'.$r[14] : '')}{VAR: moderators}</td>
 	<td class="RowStyleB ac">{VAR: r[15]}</td>
 	<td class="RowStyleB ac">{VAR: r[16]}</td>
 	<td class="RowStyleA ac nw">{VAR: last_post}</td>
@@ -182,13 +178,9 @@
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_Y_lnk}
-{ROOT}?t=index&amp;c={FUNC: url_tog_collapse($r[8], $cs)}&amp;{DEF: _rsid}
+{ROOT}?t=index&amp;cat={VAR: cat_id}&amp;c={FUNC: url_tog_collapse($r[8], $cs)}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: index_forum_entry_lnk}
 {ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[10]}&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: cat_tab}
-20
 {SECTION: END}
