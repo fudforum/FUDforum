@@ -582,8 +582,8 @@ post_topic_update:		Создание новой темы в форуме <a href="{TEMPLATE: post_topic_
 post_error_generic:		Произошла ошибка
 postcheck_max_images_err:	Пожалуйста сократите количество картинок в сообщении до максимально допустимого, которое составляет {GVAR: MAX_IMAGE_COUNT}
 postcheck_subj_needed:		Указание темы является обязательным
-postcheck_no_such_user:		В этом форуме нет пользователей с именем "{VAR-HTML: v}"
-postcheck_ignored:		Вы не можете отправить личное сообщение для "{VAR-HTML: v}", поскольку этот пользователь вас игнорирует.
+postcheck_no_such_user:		В этом форуме нет пользователей с именем "{FUNC: char_fix(htmlspecialchars($v))}"
+postcheck_ignored:		Вы не можете отправить личное сообщение для "{FUNC: char_fix(htmlspecialchars($v))}", поскольку этот пользователь вас игнорирует.
 postcheck_no_recepient:		Невозможно послать сообщение если не указан получатель
 postcheck_invalid_email:	Пожалуйста введите правильный адрес e-mail.
 postcheck_email_subject:	Невозможно послать сообщение если не указана тема.
@@ -688,8 +688,8 @@ thr_exch_submit:		Продолжить
 exch_decline_ttl:		В переносе темы {VAR: data->subject} в форум {VAR-HTML: data->f2_name} было отказано.
 ppost_original_msg:		сообщение, которое вы пересылаете или на которое отвечаете
 split_thread:			Разбить тему
-groupmgr_no_user:		Пользователь с именем "{VAR-HTML: gr_member}" не существует
-groupmgr_already_exists:	Пользователь "{VAR-HTML: gr_member}" уже присутствует в этой группе.
+groupmgr_no_user:		Пользователь с именем "{FUNC: char_fix(htmlspecialchars($gr_member))}" не существует
+groupmgr_already_exists:	Пользователь "{FUNC: char_fix(htmlspecialchars($gr_member))}" уже присутствует в этой группе.
 groupmgr_yes:			Да
 groupmgr_no:			Нет
 groupmgr_action:		Действие

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.139 2005/02/18 17:36:11 hackie Exp $
+* $Id: core.inc,v 1.140 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -110,6 +110,14 @@ function ssn($str)
 	} else {
 		return "'" . addslashes($str) . "'";
 	}
+}
+
+function char_fix($str)
+{
+        if (strpos($str, '&amp;#') === false) {
+		return $str;
+	}
+        return preg_replace('!&amp;#([0-9]+);!', '&#\1;', $str);
 }
 
 /* Common DB functions */

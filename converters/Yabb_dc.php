@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: Yabb_dc.php,v 1.10 2004/03/10 16:40:18 hackie Exp $
+* $Id: Yabb_dc.php,v 1.11 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -96,11 +96,8 @@ function yabbctofudcode($str)
 	while( list($k,$v) = each($GLOBALS['SML_CONV']) ) {
 		if( strpos($str, $k) ) $str = str_replace($k, $v, $str);
 	}
-	
-	reverse_FMT($str);
-	$str = str_replace('<br>', "\n", $str);
-	
-	return smiley_to_post(tags_to_html($str));
+
+	return smiley_to_post(tags_to_html(str_replace('<br>', "\n", reverse_fmt($str))));
 }
 
 function mdytostamp($str)

@@ -581,8 +581,8 @@ post_topic_update:		Scrive un nuovo argomento in <a href="{TEMPLATE: post_topic_
 post_error_generic:		Si &egrave; verificato un errore
 postcheck_max_images_err:	Sono consentite un massimo di {GVAR: MAX_IMAGE_COUNT} immagini per messaggio; per cortesia, riduci il numero di immagini
 postcheck_subj_needed:		Oggetto necessario
-postcheck_no_such_user:		Non c&#39;&egrave; alcun utente "{VAR-HTML: v}" in questo forum
-postcheck_ignored:		Non puoi spedire un messaggio personale a "{VAR-HTML: v}", perch&egrave; questo utente ha deciso di ignorarti.
+postcheck_no_such_user:		Non c&#39;&egrave; alcun utente "{FUNC: char_fix(htmlspecialchars($v))}" in questo forum
+postcheck_ignored:		Non puoi spedire un messaggio personale a "{FUNC: char_fix(htmlspecialchars($v))}", perch&egrave; questo utente ha deciso di ignorarti.
 postcheck_no_recepient:		Non &egrave; possibile inviare il messaggio, manca il destinatario
 postcheck_invalid_email:	Inserisci un indirizzo email valido.
 postcheck_email_subject:	Non puoi spedire una email lasciando vuoto il campo Oggetto.
@@ -685,8 +685,8 @@ thr_exch_submit:		Invia
 exch_decline_ttl:		La richiesta di spostamento dell&#39;argomento {VAR: data->subject} nel forum {VAR: frm->name} &egrave; stata rifiutata.
 ppost_original_msg:		messaggio che stai inoltrando a
 split_thread:			Spezza il Topic
-groupmgr_no_user:		Non esiste utente con login "{VAR-HTML: gr_member}"
-groupmgr_already_exists:	L&#39;utente "{VAR-HTML: gr_member}" esiste gi&agrave; all&#39;interno di questo gruppo.
+groupmgr_no_user:		Non esiste utente con login "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	L&#39;utente "{FUNC: char_fix(htmlspecialchars($gr_member))}" esiste gi&agrave; all&#39;interno di questo gruppo.
 groupmgr_yes:			S&igrave;
 groupmgr_no:			No
 groupmgr_action:		Azione

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.php.t,v 1.31 2005/02/27 02:41:15 hackie Exp $
+* $Id: ignore_list.php.t,v 1.32 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,7 @@
 
 function ignore_alias_fetch($al, &$is_mod)
 {
-	if (!($tmp = db_saq("SELECT id, (users_opt & 1048576) FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(htmlspecialchars($al))."'"))) {
+	if (!($tmp = db_saq("SELECT id, (users_opt & 1048576) FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(char_fix(htmlspecialchars($al)))."'"))) {
 		return;
 	}
 	$is_mod = $tmp[1];

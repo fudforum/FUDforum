@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.76 2005/03/04 04:38:39 hackie Exp $
+* $Id: users_reg.inc.t,v 1.77 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,9 +23,7 @@ function make_alias($text)
 	if (strlen($text) > $GLOBALS['MAX_LOGIN_SHOW']) {
 		$text = substr($text, 0, $GLOBALS['MAX_LOGIN_SHOW']);
 	}
-	$text = htmlspecialchars($text);
-	char_fix($text);
-	return $text;
+	return char_fix(htmlspecialchars($text));
 }
 
 class fud_user_reg extends fud_user
@@ -34,8 +32,7 @@ class fud_user_reg extends fud_user
 	{
 		foreach(array('name', 'location', 'occupation', 'interests', 'bio') as $v) {
 			if ($this->{$v}) {
-				$this->{$v} = htmlspecialchars($this->$v);
-				char_fix($this->$v);
+				$this->{$v} = char_fix(htmlspecialchars($this->$v));
 			}
 		}
 	}

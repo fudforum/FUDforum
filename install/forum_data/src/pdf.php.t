@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.35 2005/02/27 02:21:36 hackie Exp $
+* $Id: pdf.php.t,v 1.36 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -256,14 +256,10 @@ class fud_pdf extends FPDF
 	$fpdf->begin_page($subject);
 	do {
 		/* write message header */
-		reverse_fmt($o->alias);
-		reverse_fmt($o->subject);
-		$fpdf->message_header($o->subject, array($o->uid, $o->alias), $o->post_stamp, $o->id, $o->thread_id);
+		$fpdf->message_header(reverse_fmt($o->subject), array($o->uid, reverse_fmt($o->alias)), $o->post_stamp, $o->id, $o->thread_id);
 
 		/* write message body */
-		$msg_body = strip_tags(post_to_smiley(read_msg_body($o->foff, $o->length, $o->file_id), $re));
-		reverse_fmt($msg_body);
-		$fpdf->input_text($msg_body);
+		$fpdf->input_text(reverse_fmt(strip_tags(post_to_smiley(read_msg_body($o->foff, $o->length, $o->file_id), $re))));
 
 		/* handle attachments */
 		if ($o->attach_cnt && $o->attach_cache && ($a = unserialize($o->attach_cache))) {
@@ -277,13 +273,10 @@ class fud_pdf extends FPDF
 		/* handle polls */
 		if ($o->poll_name && $o->poll_cache && ($pc = unserialize($o->poll_cache))) {
 			$votes = array();
-			reverse_fmt($o->poll_name);
 			foreach ($pc as $opt) {
-				$opt[0] = strip_tags(post_to_smiley($opt[0], $re));
-				reverse_fmt($opt[0]);
-				$votes[] = array('name' => $opt[0], 'votes' => $opt[1]);
+				$votes[] = array('name' => reverse_fmt(strip_tags(post_to_smiley($opt[0], $re))), 'votes' => $opt[1]);
 			}
-			$fpdf->add_poll($o->poll_name, $votes, $o->total_votes);
+			$fpdf->add_poll(reverse_fmt($o->poll_name), $votes, $o->total_votes);
 		}
 
 		$fpdf->end_message();

@@ -584,8 +584,8 @@ post_topic_update:		nieuw topic schrijven in <a href="{TEMPLATE: post_topic_upda
 post_error_generic:		u heeft een fout
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} fotos zijn toegelaten per post, verminder het aantal foto&quot;s
 postcheck_subj_needed:		Onderwerp vereist
-postcheck_no_such_user:		Er is geen lid genaamd "{VAR-HTML: v}" in dit forum
-postcheck_ignored:		U kan geen privé berichten versturen naar "{VAR-HTML: v}", Omdat deze persoon u negeert.
+postcheck_no_such_user:		Er is geen lid genaamd "{FUNC: char_fix(htmlspecialchars($v))}" in dit forum
+postcheck_ignored:		U kan geen privé berichten versturen naar "{FUNC: char_fix(htmlspecialchars($v))}", Omdat deze persoon u negeert.
 postcheck_no_recepient:		U kan geen bericht versturen, ontvanger ontbreekt
 postcheck_invalid_email:	Vul een geldig email adres in van uw vriend.
 postcheck_email_subject:	U kan geen email versturen zonder een onderwerp.
@@ -690,8 +690,8 @@ thr_exch_submit:		Verzend
 exch_decline_ttl:		Verplaatsing van topic {VAR: data->subject} in forum {VAR-HTML: data->f2_name} is afgekeurd.
 ppost_original_msg:		bericht wat u doorstuurt of waarop u antwoord
 split_thread:			Split Topic
-groupmgr_no_user:		There is no user with a login of "{VAR-HTML: gr_member}"
-groupmgr_already_exists:	User "{VAR-HTML: gr_member}" already exists in this group.
+groupmgr_no_user:		There is no user with a login of "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	User "{FUNC: char_fix(htmlspecialchars($gr_member))}" already exists in this group.
 groupmgr_yes:			Ja
 groupmgr_no:			Nee
 groupmgr_action:		Actie

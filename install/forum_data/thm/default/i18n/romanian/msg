@@ -586,8 +586,8 @@ post_topic_update:		Scrie tema noua in <a href="{TEMPLATE: post_topic_update_lnk
 post_error_generic:		Aveti o eroare
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} imagini puteti trimite
 postcheck_subj_needed:		Subictul este obligatoriu
-postcheck_no_such_user:		Nu este nici un utilizator numit "{VAR-HTML: v}" in acest forum
-postcheck_ignored:		Nu puteti trimite mesaje personale la "{VAR-HTML: v}", deoarece aceasta persoana va ignora.
+postcheck_no_such_user:		Nu este nici un utilizator numit "{FUNC: char_fix(htmlspecialchars($v))}" in acest forum
+postcheck_ignored:		Nu puteti trimite mesaje personale la "{FUNC: char_fix(htmlspecialchars($v))}", deoarece aceasta persoana va ignora.
 postcheck_no_recepient:		Nu pot trimite mesaj, lipseste destinatarul
 postcheck_invalid_email:	Va rugam sa introduceti o adresa de email valida.
 postcheck_email_subject:	Nu puteti trimite un email fara subiect.
@@ -692,8 +692,8 @@ thr_exch_submit:		OK
 exch_decline_ttl:		Mutarea temei {VAR: data->subject} in forumul {VAR-HTML: data->f2_name} a fost respinsa.
 ppost_original_msg:		mesaj care il trimiteti mai departe sau la care raspundeti
 split_thread:			Imaprte Tema
-groupmgr_no_user:		Nu este nici un utilizator numit "{VAR-HTML: gr_member}"
-groupmgr_already_exists:	Utilizatorul "{VAR-HTML: gr_member}" deja exista in acest grup.
+groupmgr_no_user:		Nu este nici un utilizator numit "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	Utilizatorul "{FUNC: char_fix(htmlspecialchars($gr_member))}" deja exista in acest grup.
 groupmgr_yes:			Da
 groupmgr_no:			Nu
 groupmgr_action:		Actiune

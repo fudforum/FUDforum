@@ -588,8 +588,8 @@ post_topic_update:		Kirjoittaa uutta aihetta <a href="{TEMPLATE: post_topic_upda
 post_error_generic:		Sinulla on virhe
 postcheck_max_images_err:	Maksimissaan {GVAR: MAX_IMAGE_COUNT} kuvaa sallittu per viesti. Ole hyvä ja vähennä kuvien määrää
 postcheck_subj_needed:		Otsikko on pakollinen
-postcheck_no_such_user:		Käyttäjää nimellä "{VAR-HTML: v}" ei löydy tältä foorumilta
-postcheck_ignored:		Et voi lähettää yksityisviestiä käyttäjälle "{VAR-HTML: v}", koska hän on torjunut sinut.
+postcheck_no_such_user:		Käyttäjää nimellä "{FUNC: char_fix(htmlspecialchars($v))}" ei löydy tältä foorumilta
+postcheck_ignored:		Et voi lähettää yksityisviestiä käyttäjälle "{FUNC: char_fix(htmlspecialchars($v))}", koska hän on torjunut sinut.
 postcheck_no_recepient:		Viestiä ei voida lähettää, vastaanottaja puuttuu
 postcheck_invalid_email:	Virheellinen sähköpostiosoite.
 postcheck_email_subject:	Et voi lähettää sähköpostia ilman otsikkoa.
@@ -694,8 +694,8 @@ thr_exch_submit:		Lähetä
 exch_decline_ttl:		Aiheen {VAR: data->subject} siirtopyyntö {VAR-HTML: data->f2_name} foorumille on hylätty.
 ppost_original_msg:		viesti johon olet vastaamassa tai välittämässä
 split_thread:			Pilko Aihe
-groupmgr_no_user:		Käyttäjätunnuksella "{VAR-HTML: gr_member}" ei löydy käyttäjää
-groupmgr_already_exists:	Käyttäjä "{VAR-HTML: gr_member}" on jo tämän ryhmän jäsen.
+groupmgr_no_user:		Käyttäjätunnuksella "{FUNC: char_fix(htmlspecialchars($gr_member))}" ei löydy käyttäjää
+groupmgr_already_exists:	Käyttäjä "{FUNC: char_fix(htmlspecialchars($gr_member))}" on jo tämän ryhmän jäsen.
 groupmgr_yes:			Kyllä
 groupmgr_no:			Ei
 groupmgr_action:		Toiminto

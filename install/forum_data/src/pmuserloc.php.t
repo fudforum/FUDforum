@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.php.t,v 1.22 2005/02/27 02:39:19 hackie Exp $
+* $Id: pmuserloc.php.t,v 1.23 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,6 +33,7 @@
 	switch ($js_redr) {
 		case 'post_form.msg_to_list':
 		case 'groupmgr.gr_member':
+		case 'buddy_add.add_login':
 			break;
 		default:
 			exit;
@@ -40,7 +41,7 @@
 
 	$find_user_data = '';
 	if ($usr_login) {
-		$c = uq("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE alias LIKE '".addslashes(str_replace('\\', '\\\\', $usr_login))."%' AND id>1");
+		$c = uq("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE alias LIKE '".addslashes(char_fix(htmlspecialchars(str_replace('\\', '\\\\', $usr_login))))."%' AND id>1");
 		$i = 0;
 		while ($r = db_rowarr($c)) {
 			if ($overwrite) {

@@ -581,8 +581,8 @@ post_topic_update:		Tworzenie nowego w±tku na forum <a href="{TEMPLATE: post_top
 post_error_generic:		Wiadomo¶æ nie zosta³a wys³ana, gdy¿ wyst±pi³ b³±d:
 postcheck_max_images_err:	Maksimum dozwolonych obrazków w wiadomo¶ci to {GVAR: MAX_IMAGE_COUNT}, dlatego musisz zmniejszyæ ich liczbê.
 postcheck_subj_needed:		Temat jest wymagany
-postcheck_no_such_user:		Nie ma u¿ytkownika o nazwie "{VAR-HTML: v}" w tym forum
-postcheck_ignored:		Nie mo¿esz wys³aæ wiadomo¶ci do "{VAR-HTML: v}", poniewa¿ ta osoba ignoruje Ciê.
+postcheck_no_such_user:		Nie ma u¿ytkownika o nazwie "{FUNC: char_fix(htmlspecialchars($v))}" w tym forum
+postcheck_ignored:		Nie mo¿esz wys³aæ wiadomo¶ci do "{FUNC: char_fix(htmlspecialchars($v))}", poniewa¿ ta osoba ignoruje Ciê.
 postcheck_no_recepient:		Nie mo¿na wys³aæ wiadomo¶ci, gdy¿ brakuje adresata
 postcheck_invalid_email:	Wprowad¼ poprawny adres e-mail Twojego znajomego.
 postcheck_email_subject:	Nie mo¿esz wys³aæ listu bez tematu.
@@ -687,8 +687,8 @@ thr_exch_submit:		Wy¶lij
 exch_decline_ttl:		Przenoszenie w±tku {VAR: data->subject} na forum {VAR-HTML: data->f2_name} zosta³o odrzucone.
 ppost_original_msg:		wiadomo¶æ, któr± przesy³asz dalej lub na któr± odpowiadasz
 split_thread:			Podziel w±tek
-groupmgr_no_user:		Nie ma u¿ytkownika o nazwie "{VAR-HTML: gr_member}"
-groupmgr_already_exists:	U¿ytkownik "{VAR-HTML: gr_member}" ju¿ istnieje w tej grupie.
+groupmgr_no_user:		Nie ma u¿ytkownika o nazwie "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	U¿ytkownik "{FUNC: char_fix(htmlspecialchars($gr_member))}" ju¿ istnieje w tej grupie.
 groupmgr_yes:			Tak
 groupmgr_no:			Nie
 groupmgr_action:		Akcja

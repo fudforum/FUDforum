@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.php.t,v 1.23 2004/11/24 19:53:35 hackie Exp $
+* $Id: poll.php.t,v 1.24 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -66,8 +66,7 @@
 		$pl_max_votes = $_POST['pl_max_votes'];
 		$pl_expiry_date = $_POST['pl_expiry_date'];
 	} else if (!empty($frm->poll_id)) {
-		$pl_name = $frm->name;
-		reverse_fmt($pl_name);
+		$pl_name = reverse_fmt($frm->name);
 		$pl_max_votes = $frm->max_votes;
 		$pl_expiry_date = $frm->expiry_date;
 	} else {
@@ -132,7 +131,7 @@
 			if ($frm->forum_opt & 16) {
 				$pl_option = html_to_tags($pl_option);
 			} else if ($frm->forum_opt & 8) {
-				reverse_nl2br($pl_option);
+				$pl_option = reverse_nl2br($pl_option);
 			}
 
 			$pl_option = apply_reverse_replace($pl_option);

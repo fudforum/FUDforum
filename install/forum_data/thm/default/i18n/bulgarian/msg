@@ -584,8 +584,8 @@ post_topic_update:		Започване на нова тема в <a href="{TEMPLATE: post_topic_upda
 post_error_generic:		Имаш грешка
 postcheck_max_images_err:	Максимално разрешено количество на изображения в една публикация е {GVAR: MAX_IMAGE_COUNT}, моля, намали броя на изображенията
 postcheck_subj_needed:		Заглавието е задължително
-postcheck_no_such_user:		Няма потребител с името "{VAR-HTML: v}" на този форум
-postcheck_ignored:		Не можеш да изпращаш лични съобщения на "{VAR-HTML: v}" защото този потребител те игнорира.
+postcheck_no_such_user:		Няма потребител с името "{FUNC: char_fix(htmlspecialchars($v))}" на този форум
+postcheck_ignored:		Не можеш да изпращаш лични съобщения на "{FUNC: char_fix(htmlspecialchars($v))}" защото този потребител те игнорира.
 postcheck_no_recepient:		Не е възможно да се изпрати съобщението защото не е посочен получател
 postcheck_invalid_email:	Моля, въведи валиден e-mail адрес на твоя приятел.
 postcheck_email_subject:	Не можеш да изпращаш е-мейл ако отсътства заглавие.
@@ -690,8 +690,8 @@ thr_exch_submit:		Потвърди
 exch_decline_ttl:		Преместването на темата {VAR: data->subject} във форум {VAR-HTML: data->f2_name} е отказано.
 ppost_original_msg:		Съобщение на което отговаряте или което препращате
 split_thread:			Раздели темата
-groupmgr_no_user:		Няма участник във форума "{VAR-HTML: gr_member}"
-groupmgr_already_exists:	Участника "{VAR-HTML: gr_member}" вече присъства в тази група.
+groupmgr_no_user:		Няма участник във форума "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	Участника "{FUNC: char_fix(htmlspecialchars($gr_member))}" вече присъства в тази група.
 groupmgr_yes:			Да
 groupmgr_no:			Не
 groupmgr_action:		Действие

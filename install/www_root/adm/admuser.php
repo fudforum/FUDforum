@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.54 2005/02/23 02:02:58 hackie Exp $
+* $Id: admuser.php,v 1.55 2005/03/05 18:47:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,7 +63,7 @@
 				$conf_key = usr_email_unconfirm($u->id);
 				$url = $WWW_ROOT . __fud_index_name__ . '?t=emailconf&conf_key='.$conf_key;
 				send_email($NOTIFY_FROM, $u->email, $register_conf_subject, $reset_confirmation, "");
-				logaction(_uid, 'SEND_ECONF', 0, addslashes(htmlspecialchars($u->login)));
+				logaction(_uid, 'SEND_ECONF', 0, addslashes(char_fix(htmlspecialchars($u->login))));
 			} else {
 				$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? 'theme_opt=3' : 'id='.$u->theme));
 				q("UPDATE ".$DBHOST_TBL_PREFIX."users SET reset_key='".($reset_key = md5(get_random_value(128)))."' WHERE id=".$u->id);
@@ -71,7 +71,7 @@
 				$url = $WWW_ROOT . __fud_index_name__ . '?t=reset&reset_key='.$reset_key;
 				include_once($INCLUDE . 'theme/' . $user_theme_name . '/rst.inc');
 				send_email($NOTIFY_FROM, $u->email, $reset_newpass_title, $reset_reset, "");
-				logaction(_uid, 'ADM_RESET_PASSWD', 0, addslashes(htmlspecialchars($u->login)));
+				logaction(_uid, 'ADM_RESET_PASSWD', 0, addslashes(char_fix(htmlspecialchars($u->login))));
 			}
 			break;
 		case 'del':
@@ -102,7 +102,7 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 <?php
 					exit;
 			} else if (isset($_POST['btn_yes'])) {
-				logaction(_uid, 'DELETE_USER', 0, addslashes(htmlspecialchars($usr->login)));
+				logaction(_uid, 'DELETE_USER', 0, addslashes(char_fix(htmlspecialchars($usr->login))));
 				usr_delete($usr_id);
 				unset($act, $u);
 				$usr_id = '';
@@ -184,11 +184,10 @@ administration permissions to the forum. This individual will be able to do anyt
 		/* changing password */
 		if (!empty($_POST['login_passwd'])) {
 			q("UPDATE ".$DBHOST_TBL_PREFIX."users SET passwd='".md5($_POST['login_passwd'])."' WHERE id=".$usr_id);
-			logaction(_uid, 'ADM_SET_PASSWD', 0, addslashes(htmlspecialchars($u->login)));
+			logaction(_uid, 'ADM_SET_PASSWD', 0, addslashes(char_fix(htmlspecialchars($u->login))));
 		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* chanding login name */
-			$login = addslashes($_POST['login_name']);
-			$alias = "'" . substr(htmlspecialchars($login), 0, $MAX_LOGIN_SHOW) . "'";
-			$login = "'" . $login . "'";
+			$alias = "'" . make_alias($login) . "'";
+			$login = "'" . addslashes($login) . "'";
 
 			if ($FUD_OPT_2 & 128) {
 				if (db_li('UPDATE '.$DBHOST_TBL_PREFIX.'users SET login='.$login.' WHERE id='.$usr_id, $ef) === null) {
@@ -208,7 +207,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				rebuildmodlist();
 				$u->login = $_POST['login_name'];
 				if (!($FUD_OPT_2 & 128)) {
-					$u->alias = substr(htmlspecialchars($login), 0, $MAX_LOGIN_SHOW);
+					$u->alias = make_alias($u->alias);
 				}
 			}
 		}
@@ -220,12 +219,12 @@ administration permissions to the forum. This individual will be able to do anyt
 			$like = 1;
 			$item = str_replace('*', '%', $item);
 			$item_s = str_replace('\\', '\\\\', $item);
-			if ($FUD_OPT_2 & 128) {
-				$item_s = htmlspecialchars($item_s);
-			}
 		} else {
 			$like = 0;
 			$item_s = $item;
+		}
+		if ($FUD_OPT_2 & 128) {
+			$item_s = char_fix(htmlspecialchars($item_s));
 		}
 		$item_s = "'" . addslashes($item_s) . "'";
 
@@ -285,7 +284,7 @@ document.frm_usr.usr_login.focus();
 <table class="datatable solidtable">
 
 <form action="admuser.php" method="post"><?php echo _hs; ?>
-	<tr class="field"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo htmlspecialchars($u->login); ?>" maxLength="<?php echo $MAX_LOGIN_SHOW; ?>" name="login_name"> <input type="submit" name="submit" value="Change Login Name"></td></tr>
+	<tr class="field"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo char_fix(htmlspecialchars($u->login)); ?>" maxLength="<?php echo $MAX_LOGIN_SHOW; ?>" name="login_name"> <input type="submit" name="submit" value="Change Login Name"></td></tr>
 	<tr class="field"><td>Password:</td><td><input type="text" value="" name="login_passwd"> <input type="submit" name="submit" value="Change Password"></td></tr>
 	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 	<input type="hidden" name="act" value="nada">

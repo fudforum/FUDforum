@@ -588,8 +588,8 @@ post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_l
 post_error_generic:		You have an error
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} images are allowed per post, please decrease the number of images
 postcheck_subj_needed:		Subject required
-postcheck_no_such_user:		There is no user named "{VAR-HTML: v}" this forum
-postcheck_ignored:		You cannot send a private message to "{VAR-HTML: v}", because this person is ignoring you.
+postcheck_no_such_user:		There is no user named "{FUNC: char_fix(htmlspecialchars($v))}" this forum
+postcheck_ignored:		You cannot send a private message to "{FUNC: char_fix(htmlspecialchars($v))}", because this person is ignoring you.
 postcheck_no_recepient:		Cannot send a message, missing recipient
 postcheck_invalid_email:	Please enter a valid email address of your friend.
 postcheck_email_subject:	You cannot send an email without a subject.
@@ -694,8 +694,8 @@ thr_exch_submit:		Siøsti
 exch_decline_ttl:		Moving of topic {VAR: data->subject} into forum {VAR-HTML: data->f2_name} was declined.
 ppost_original_msg:		message you are forwarding or replying to
 split_thread:			Padalinti temà
-groupmgr_no_user:		There is no user with a login of "{VAR-HTML: gr_member}"
-groupmgr_already_exists:	User "{VAR-HTML: gr_member}" already exists in this group.
+groupmgr_no_user:		There is no user with a login of "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	User "{FUNC: char_fix(htmlspecialchars($gr_member))}" already exists in this group.
 groupmgr_yes:			Taip
 groupmgr_no:			Ne
 groupmgr_action:		Action

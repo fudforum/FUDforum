@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.40 2004/11/24 19:53:39 hackie Exp $
+* $Id: pmsg.tmpl,v 1.41 2005/03/05 18:47:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -83,7 +83,7 @@
 <tr class="RowStyleB">
 <td class="ac GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}"{IF: !$all_v} checked{ENDIF}></td>
 <td>{IF: $obj->read_stamp}{TEMPLATE: pmsg_unread}{ELSE}{TEMPLATE: pmsg_read}{END}</td><td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}">{VAR: obj->subject}</a>{IF: ($obj->pmsg_opt & 4 && $obj->pmsg_opt & 16 && $obj->duser_id == _uid && $obj->ouser_id != _uid)}{TEMPLATE: deny_recipt}{ENDIF}</td>
-<td class="nw GenText">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: normal_msg_lnk}" title="{VAR: obj->to_list}">{VAR: obj->alias}</a></td>
+<td class="nw GenText">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: normal_msg_lnk}" title="{FUNC: char_fix(htmlspecialchars($obj->to_list))}">{VAR: obj->alias}</a></td>
 <td class="nw DateText">{TEMPLATE: dmsg_post_date}</td>
 <td class="nw ac GenText">{TEMPLATE-DATA: action}</td>
 </tr>

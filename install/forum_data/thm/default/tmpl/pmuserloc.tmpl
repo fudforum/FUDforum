@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.tmpl,v 1.17 2004/11/24 19:53:39 hackie Exp $
+* $Id: pmuserloc.tmpl,v 1.18 2005/03/05 18:47:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,7 +21,7 @@
 <table cellspacing=0 cellpadding=3 class="dashed">
 <tr>
 	<td class="fb">{MSG: pmuserloc_login}</td>
-	<td><input tabindex="1" type="text" name="usr_login" value="{VAR-HTML: usr_login}"></td>
+	<td><input tabindex="1" type="text" name="usr_login" value="{FUNC: char_fix(htmlspecialchars($usr_login))}"></td>
 	<td><input tabindex="2" type="submit" class="button" name="btn_submit" value="{MSG: pmuserloc_submit}"></td>
 </tr>
 </table>

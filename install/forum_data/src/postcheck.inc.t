@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.24 2004/12/08 17:06:56 hackie Exp $
+* $Id: postcheck.inc.t,v 1.25 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -70,10 +70,19 @@ function check_ppost_form($msg_subject)
 		set_err('msg_body', '{TEMPLATE: postcheck_max_images_err}');
 	}
 	$GLOBALS['recv_user_id'] = array();
-	foreach(explode(';', $_POST['msg_to_list']) as $v) {
+	/* hack for login names containing HTML entities ex. &#123; */
+	if (($hack = strpos($_POST['msg_to_list'], '&#')) !== false) {
+		$hack_str = preg_replace('!&#([0-9]+);!', '&#\1#', $_POST['msg_to_list']);
+	} else {
+		$hack_str = $_POST['msg_to_list'];
+	}
+	foreach(explode(';', $hack_str) as $v) {
 		$v = trim($v);
 		if (strlen($v)) {
-			if (!($obj = db_sab('SELECT u.users_opt, u.id, ui.ignore_id FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ui ON ui.user_id=u.id AND ui.ignore_id='._uid.' WHERE u.alias='.strnull(addslashes(htmlspecialchars($v)))))) {
+			if ($hack !== false) {
+				$v = preg_replace('!&#([0-9]+)#!', '&#\1;', $v);
+			}
+			if (!($obj = db_sab('SELECT u.users_opt, u.id, ui.ignore_id FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ui ON ui.user_id=u.id AND ui.ignore_id='._uid.' WHERE u.alias='.strnull(addslashes(char_fix(htmlspecialchars($v))))))) {
 				set_err('msg_to_list', '{TEMPLATE: postcheck_no_such_user}');
 				break;
 			}

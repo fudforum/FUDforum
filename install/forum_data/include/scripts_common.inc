@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: scripts_common.inc,v 1.20 2004/12/10 19:45:39 hackie Exp $
+* $Id: scripts_common.inc,v 1.21 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,9 +38,7 @@ function create_new_user($from_name, $from_email, $reg_date=0)
 
 	$user = new fud_user_reg;
 	if (strlen(htmlspecialchars($login)) + 4 > $GLOBALS['MAX_LOGIN_SHOW']) {
-		$login = substr(htmlspecialchars($login), 0, $GLOBALS['MAX_LOGIN_SHOW'] - 4);
-		reverse_fmt($login);
-		$user->login = $login;
+		$login = $user->login = reverse_fmt(substr(htmlspecialchars($login), 0, $GLOBALS['MAX_LOGIN_SHOW'] - 4));
 	} else {
 		$user->login = $login;
 	}

@@ -815,7 +815,7 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 	if ($forum_opt & 16) {
 		$msg->body = tags_to_html($msg->body, 1);
 	} else if ($forum_opt & 8) {
-		$msg->body = nl2br(htmlspecialchars($msg->body));
+		$msg->body = nl2br(char_fix(htmlspecialchars($msg->body)));
 	}
 
 	if ($mode & 2) {
@@ -823,7 +823,7 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 	}
 
 	fud_wordwrap($msg->body);
-	$msg->subject = htmlspecialchars(apply_custom_replace($msg->subject));
+	$msg->subject = char_fix(htmlspecialchars(apply_custom_replace($msg->subject)));
 
 	if ($attach && is_array($attach)) {
 		fud_use('attach.inc');

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.31 2004/11/24 19:53:42 hackie Exp $
+* $Id: admgrouplead.php,v 1.32 2005/03/05 18:47:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,7 +32,7 @@
 		}
 		rebuild_group_ldr_cache($del);
 	} else if ($gr_leader) {
-		$srch = addslashes(str_replace('\\', '\\\\', htmlspecialchars($gr_leader)));
+		$srch = addslashes(str_replace('\\', '\\\\', char_fix(htmlspecialchars($gr_leader))));
 
 		$c = q("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE alias='".$srch."'");
 		if (!db_count($c)) {
@@ -88,7 +88,7 @@
 <form method="post" action="admgrouplead.php"><?php echo _hs; ?>
 <input type="hidden" value="<?php echo $group_id; ?>" name="group_id">
 <table border=0 cellspacing=0 cellpadding=3>
-<tr><td>Group Leader</td><td><input type="text" name="gr_leader" value="<?php echo $gr_leader; ?>"></td></tr>
+<tr><td>Group Leader</td><td><input type="text" name="gr_leader" value="<?php echo char_fix(htmlspecialchars($gr_leader)); ?>"></td></tr>
 <tr><td colspan=2 align=right><input type="submit" name="btn_submit" value="Add"></td></tr>
 </table>
 

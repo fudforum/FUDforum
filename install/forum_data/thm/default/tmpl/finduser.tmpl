@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.42 2005/01/28 18:34:24 hackie Exp $
+* $Id: finduser.tmpl,v 1.43 2005/03/05 18:47:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@
 <form method="get" name="fufrm" action="{TEMPLATE: FINDUSER_PAGE_lnk3}">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan="3">{MSG: finduser_user_info}</th></tr>
-<tr class="RowStyleA"><td class="GenText">{MSG: finduser_by_login}</td><td class="GenText"><input type="text" name="usr_login" tabindex="1" value="{VAR-HTML: usr_login}"> <input type="submit" class="button" tabindex="2" name="btn_submit" value="{MSG: finduser_submit}"></td><td class="RowStyleC SmallText vt">{MSG: finduser_help}</td></tr>
+<tr class="RowStyleA"><td class="GenText">{MSG: finduser_by_login}</td><td class="GenText"><input type="text" name="usr_login" tabindex="1" value="{FUNC: char_fix(htmlspecialchars($usr_login))}"> <input type="submit" class="button" tabindex="2" name="btn_submit" value="{MSG: finduser_submit}"></td><td class="RowStyleC SmallText vt">{MSG: finduser_help}</td></tr>
 </table><input type="hidden" name="t" value="finduser"></form>
 <script>
 <!--
@@ -84,7 +84,7 @@ document.fufrm.usr_login.focus();
 {SECTION: END}
 
 {SECTION: findu_admin_opts_header}
-<th>{MSG: findu_admin_opts_header}</th>
+<th nowrap>{MSG: findu_admin_opts_header}</th>
 {SECTION: END}
 
 {SECTION: findu_unban}

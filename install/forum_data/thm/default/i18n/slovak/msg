@@ -587,8 +587,8 @@ post_topic_update:		Vytvárate novú tému vo fóre <a href="{TEMPLATE: post_topic_u
 post_error_generic:		Vyskytla sa chyba
 postcheck_max_images_err:	Maximálnu poèet obrázkov na príspevok je {GVAR: MAX_IMAGE_COUNT}, prosím zníte poèet obrázkov
 postcheck_subj_needed:		Predmet je povinnı
-postcheck_no_such_user:		V tomto fóre sa nenachádza uívate¾ s menom "{VAR-HTML: v}"
-postcheck_ignored:		Uívate¾ovi "{VAR-HTML: v}" nemôete posla poštu, pretoe tento uívate¾ Vás ignoruje.
+postcheck_no_such_user:		V tomto fóre sa nenachádza uívate¾ s menom "{FUNC: char_fix(htmlspecialchars($v))}"
+postcheck_ignored:		Uívate¾ovi "{FUNC: char_fix(htmlspecialchars($v))}" nemôete posla poštu, pretoe tento uívate¾ Vás ignoruje.
 postcheck_no_recepient:		Správu nie je moné posla, chıba príjemca
 postcheck_invalid_email:	Prosím pridajte platnú emailovú adresu Vášho priate¾a.
 postcheck_email_subject:	Nemôete posla email bez predmetu.
@@ -693,8 +693,8 @@ thr_exch_submit:		Odosla
 exch_decline_ttl:		Presun témy z fóra {VAR: data->subject} do fóra {VAR-HTML: data->f2_name} bol zamietnutı.
 ppost_original_msg:		správa ktorú preposielate alebo na ktorú odpovedáte
 split_thread:			Rozdeli Tému
-groupmgr_no_user:		Uívate¾ s uívate¾skım menom "{VAR-HTML: gr_member}" neexistuje
-groupmgr_already_exists:	Uívate¾ "{VAR-HTML: gr_member}" sa u v tejto skupine nachádza.
+groupmgr_no_user:		Uívate¾ s uívate¾skım menom "{FUNC: char_fix(htmlspecialchars($gr_member))}" neexistuje
+groupmgr_already_exists:	Uívate¾ "{FUNC: char_fix(htmlspecialchars($gr_member))}" sa u v tejto skupine nachádza.
 groupmgr_yes:			Áno
 groupmgr_no:			Nie
 groupmgr_action:		Akcia

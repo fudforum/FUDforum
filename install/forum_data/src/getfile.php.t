@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.35 2004/12/08 17:15:23 hackie Exp $
+* $Id: getfile.php.t,v 1.36 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,7 +61,7 @@ function &get_preview_img($id)
 		exit;
 	}
 
-	reverse_fmt($r[1]);
+	$r[1] = reverse_fmt($r[1]);
 	if (!$r[0]) {
 		$r[0] = 'application/octet-stream';
 		$append = 'attachment; ';

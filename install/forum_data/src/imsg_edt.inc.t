@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.119 2005/02/27 02:21:36 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.120 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -343,7 +343,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		if ($mtf->alias) {
-			reverse_fmt($mtf->alias);
+			$mtf->alias = reverse_fmt($mtf->alias);
 		} else {
 			$mtf->alias = $GLOBALS['ANON_NICK'];
 		}
@@ -439,11 +439,10 @@ class fud_msg_edit extends fud_msg
 		if (($mtf->nntp_id || $mtf->mlist_id) && !$mtf->mlist_msg_id) {
 			fud_use('email_msg_format.inc', true);
 
-			reverse_fmt($mtf->alias);
-			$from = $mtf->poster_id ? $mtf->alias.' <'.$mtf->email.'>' : $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
+			$from = $mtf->poster_id ? reverse_fmt($mtf->alias).' <'.$mtf->email.'>' : $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
 			$body = $mtf->body . (($mtf->msg_opt & 1 && $mtf->sig) ? "\n--\n" . $mtf->sig : '');
 			plain_text($body);
-			reverse_fmt($mtf->subject);
+			$mtf->subject = reverse_fmt($mtf->subject);
 
 			if ($mtf->reply_to) {
 				$replyto_id = q_singleval('SELECT mlist_msg_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mtf->reply_to);
@@ -677,8 +676,8 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$headers = "Content-Type: text/plain; charset={$CHARSET}\r\n";
 	}
 
-	reverse_fmt($thr_subject);
-	reverse_fmt($poster_login);
+	$thr_subject = reverse_fmt($thr_subject);
+	$poster_login = reverse_fmt($poster_login);
 
 	if ($id_type == 'thr') {
 		$subj = html_entity_decode('{TEMPLATE: iemail_thr_subject}');
@@ -688,7 +687,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			$body_email = html_entity_decode('{TEMPLATE: iemail_thr_bodyemail}');
 		}
 	} else if ($id_type == 'frm') {
-		reverse_fmt($frm_name);
+		$frm_name = reverse_fmt($frm_name);
 
 		$subj = html_entity_decode('{TEMPLATE: iemail_frm_subject}');
 

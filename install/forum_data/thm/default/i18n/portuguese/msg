@@ -585,8 +585,8 @@ post_topic_update:		A escrever novo tópico em <a href="{TEMPLATE: post_topic_upd
 post_error_generic:		tem um erro
 postcheck_max_images_err:	No máximo são permitidas {GVAR: MAX_IMAGE_COUNT} imagens por comentário, por favor diminua o n.º de imagens
 postcheck_subj_needed:		Assunto obrigatório
-postcheck_no_such_user:		Não existe um utlizador chamado "{VAR-HTML: v}" neste forum
-postcheck_ignored:		Não pode enviar uma mensagem privada  para "{VAR-HTML: v}", porque a pessoa está a ignora-lo.
+postcheck_no_such_user:		Não existe um utlizador chamado "{FUNC: char_fix(htmlspecialchars($v))}" neste forum
+postcheck_ignored:		Não pode enviar uma mensagem privada  para "{FUNC: char_fix(htmlspecialchars($v))}", porque a pessoa está a ignora-lo.
 postcheck_no_recepient:		Impossivel enviar mensagem, recipiente inexistente
 postcheck_invalid_email:	Por favor introduza um E-mail válido para o seu amigo.
 postcheck_email_subject:	Não pode mandar um E-mail sem conter um assunto.
@@ -691,8 +691,8 @@ thr_exch_submit:		Submeter
 exch_decline_ttl:		A mudança de tópico {VAR: data->subject} no forum {VAR-HTML: data->f2_name} foi recusada.
 ppost_original_msg:		mensagem que está a encaminhar ou a responder a
 split_thread:			Dividir Tópico
-groupmgr_no_user:		Não há nenhum utilizador com login de "{VAR-HTML: gr_member}"
-groupmgr_already_exists:	Utilizador "{VAR-HTML: gr_member}" já existe neste grupo.
+groupmgr_no_user:		Não há nenhum utilizador com login de "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	Utilizador "{FUNC: char_fix(htmlspecialchars($gr_member))}" já existe neste grupo.
 groupmgr_yes:			Sim
 groupmgr_no:			Não
 groupmgr_action:		Acção

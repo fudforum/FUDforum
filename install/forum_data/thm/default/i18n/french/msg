@@ -582,8 +582,8 @@ post_topic_update:		Écrit un nouveau sujet dans <a href="{TEMPLATE: post_topic_u
 post_error_generic:		Une erreur s&#39;est produite
 postcheck_max_images_err:	Un maximum de {GVAR: MAX_IMAGE_COUNT} images est autorisé par message, veuillez réduire le nombre d&#39;images
 postcheck_subj_needed:		Le champ sujet est obligatoire
-postcheck_no_such_user:		Il n&#39;y a pas d&#39;utilisateur nommé "{VAR-HTML: v}" dans ce forum
-postcheck_ignored:		Vous ne pouvez pas envoyer de message privé à "{VAR-HTML: v}" car cet utilisateur a décidé de vous ignorer.
+postcheck_no_such_user:		Il n&#39;y a pas d&#39;utilisateur nommé "{FUNC: char_fix(htmlspecialchars($v))}" dans ce forum
+postcheck_ignored:		Vous ne pouvez pas envoyer de message privé à "{FUNC: char_fix(htmlspecialchars($v))}" car cet utilisateur a décidé de vous ignorer.
 postcheck_no_recepient:		Impossible d&#39;envoyer le message, il manque le destinataire.
 postcheck_invalid_email:	Veuillez saisir une adresse e-mail valide pour votre correspondant.
 postcheck_email_subject:	Vous ne pouvez pas envoyer d&#39;e-mail sans sujet.
@@ -688,8 +688,8 @@ thr_exch_submit:		Soumettre
 exch_decline_ttl:		Le déplacement du fil {VAR: data->subject} dans le forum {VAR: frm->name} a été refusé.
 ppost_original_msg:		Message que vous faites suivre ou auquel vous répondez
 split_thread:			Découper le fil
-groupmgr_no_user:		Il n&#39;existe pas d&#39;utilisateur nommé "{VAR-HTML: gr_member}"
-groupmgr_already_exists:	L&#39;utilisateur "{VAR-HTML: gr_member}" existe déjà dans ce groupe.
+groupmgr_no_user:		Il n&#39;existe pas d&#39;utilisateur nommé "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	L&#39;utilisateur "{FUNC: char_fix(htmlspecialchars($gr_member))}" existe déjà dans ce groupe.
 groupmgr_yes:			Oui
 groupmgr_no:			Non
 groupmgr_action:		Action

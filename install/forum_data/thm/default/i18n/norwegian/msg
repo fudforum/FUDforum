@@ -581,8 +581,8 @@ post_topic_update:		Skriver ny tr&aring;d i <a href="{TEMPLATE: post_topic_updat
 post_error_generic:		En feil har oppst&aring;tt
 postcheck_max_images_err:	Maksimalt {GVAR: MAX_IMAGE_COUNT} bilder er tillatt per innlegg, vennligst reduser antall bilder
 postcheck_subj_needed:		Emne obligatorisk
-postcheck_no_such_user:		Medlemmet "{VAR-HTML: v}" finnes ikke i dette forumet
-postcheck_ignored:		Du kan ikke sende en privat melding til "{VAR-HTML: v}", ettersom han/hun har valgt &aring; ignorere deg.
+postcheck_no_such_user:		Medlemmet "{FUNC: char_fix(htmlspecialchars($v))}" finnes ikke i dette forumet
+postcheck_ignored:		Du kan ikke sende en privat melding til "{FUNC: char_fix(htmlspecialchars($v))}", ettersom han/hun har valgt &aring; ignorere deg.
 postcheck_no_recepient:		Kan ikke sende meldingen, mangler mottaker
 postcheck_invalid_email:	Gi en korrekt e-postadresse til din kontakt.
 postcheck_email_subject:	Kan ikke sende e-post uten emne.
@@ -687,8 +687,8 @@ thr_exch_submit:		Send
 exch_decline_ttl:		Flyttningen av tr&aring;den {VAR: data->subject} til forumet {VAR-HTML: data->f2_name} godkjennes ikke.
 ppost_original_msg:		melding som du sender videre eller svarer p&aring;
 split_thread:			Splitte tr&aring;d
-groupmgr_no_user:		Det finnes ingen medlemmer med brukernavnet "{VAR-HTML: gr_member}"
-groupmgr_already_exists:	Medlemmet "{VAR-HTML: gr_member}" finnes allerede i denne gruppen.
+groupmgr_no_user:		Det finnes ingen medlemmer med brukernavnet "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	Medlemmet "{FUNC: char_fix(htmlspecialchars($gr_member))}" finnes allerede i denne gruppen.
 groupmgr_yes:			Ja
 groupmgr_no:			Nei
 groupmgr_action:		Handling

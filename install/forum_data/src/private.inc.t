@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.37 2004/12/09 19:04:25 hackie Exp $
+* $Id: private.inc.t,v 1.38 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,7 +49,7 @@ class fud_pmsg
 			) VALUES(
 				".$this->ouser_id.",
 				".$this->ouser_id.",
-				".(isset($GLOBALS['recv_user_id']) ? intzero($GLOBALS['recv_user_id'][0]) : '0').",
+				".(isset($GLOBALS['recv_user_id'][0]) ? intzero($GLOBALS['recv_user_id'][0]) : '0').",
 				".strnull(addslashes($this->to_list)).",
 				'".$this->ip_addr."',
 				".$this->host_name.",
@@ -111,10 +111,8 @@ class fud_pmsg
 		}
 		$c =  uq('SELECT id, email, users_opt, icq FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $GLOBALS['recv_user_id']).') AND users_opt>=64 AND (users_opt & 64) > 0');
 
-		$from = $GLOBALS['usr']->alias;
-		reverse_fmt($from);
-		$subject = $this->subject;
-		reverse_fmt($subject);
+		$from = reverse_fmt($GLOBALS['usr']->alias);
+		$subject = reverse_fmt($this->subject);
 
 		while ($r = db_rowarr($c)) {
 			/* do not send notifications about messages sent to self */

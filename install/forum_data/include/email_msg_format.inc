@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: email_msg_format.inc,v 1.12 2004/11/29 17:17:08 hackie Exp $
+* $Id: email_msg_format.inc,v 1.13 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,9 +34,6 @@ function plain_text(&$data)
 		$data = substr_replace($data, $str, $s, ($e2 + strlen('<br /></td></tr></table>') - $s));
 	}
 
-	$data = strip_tags($data);
-	reverse_fmt($data);
-
-	return html_entity_decode($data);
+	return html_entity_decode(reverse_fmt(strip_tags($data)));
 }
 ?>

@@ -583,8 +583,8 @@ post_topic_update:		Jaunas tçmas izveidoðana <a href="{TEMPLATE: post_topic_upda
 post_error_generic:		Kïûda
 postcheck_max_images_err:	Samaziniet bilþu skaitu publikâcijâ lîdz {GVAR: MAX_IMAGE_COUNT}
 postcheck_subj_needed:		Norâde uz tçmu ir obligâta
-postcheck_no_such_user:		Ðajâ forumâ nav lietotâja ar niku "{VAR-HTML: v}"
-postcheck_ignored:		Ðim lietotâjam "{VAR-HTML: v}" nosûtît privâto vçstuli nevarat, jo viòð Jûs ir iekïavis ignorçjamo sarakstâ.
+postcheck_no_such_user:		Ðajâ forumâ nav lietotâja ar niku "{FUNC: char_fix(htmlspecialchars($v))}"
+postcheck_ignored:		Ðim lietotâjam "{FUNC: char_fix(htmlspecialchars($v))}" nosûtît privâto vçstuli nevarat, jo viòð Jûs ir iekïavis ignorçjamo sarakstâ.
 postcheck_no_recepient:		Nevar nosûtît ziòojumu ja nav norâdîts adresâts
 postcheck_invalid_email:	Ievadiet pareizu E-pasta adresi.
 postcheck_email_subject:	Nevar nosûtît bez tçmas norâdîðanas.
@@ -689,8 +689,8 @@ thr_exch_submit:		Turpinât
 exch_decline_ttl:		Tçmas {VAR: data->subject} pârvietoðana uz {VAR-HTML: data->f2_name} forumu noraidîta.
 ppost_original_msg:		publicçjums kuru pârsûtat vai uz kuru atbildat
 split_thread:			Sadalît tçmu
-groupmgr_no_user:		Lietotâjs "{VAR-HTML: gr_member}" neeksistç
-groupmgr_already_exists:	Lietotâjs "{VAR-HTML: gr_member}" jau ir piederîgs ðai grupai.
+groupmgr_no_user:		Lietotâjs "{FUNC: char_fix(htmlspecialchars($gr_member))}" neeksistç
+groupmgr_already_exists:	Lietotâjs "{FUNC: char_fix(htmlspecialchars($gr_member))}" jau ir piederîgs ðai grupai.
 groupmgr_yes:			Jâ
 groupmgr_no:			Nç
 groupmgr_action:		Darbîba

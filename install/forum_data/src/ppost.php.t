@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.75 2005/02/27 02:58:17 hackie Exp $
+* $Id: ppost.php.t,v 1.76 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,17 +12,16 @@
 
 /*{PRE_HTML_PHP}*/
 
-function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley_disabled, &$msg_show_sig, &$msg_track, &$msg_to_list, $repl=0)
+function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley_disabled, &$msg_show_sig, &$msg_track, &$msg_to_list, $repl=0)
 {
-	$msg_subject = $m->subject;
+	$msg_subject = reverse_fmt($m->subject);
 	$msg_body = read_pmsg_body($m->foff, $m->length);
 	$msg_icon = $m->icon;
 	$msg_smiley_disabled = $m->pmsg_opt & 2 ? '2' : '';
 	$msg_show_sig = $m->pmsg_opt & 1 ? '1' : '';
 	$msg_track = $m->pmsg_opt & 4 ? '4' : '';
-	$msg_to_list = $m->to_list;
+	$msg_to_list = char_fix(htmlspecialchars($m->to_list));
 
-	reverse_fmt($msg_subject);
 	/* we do not revert replacment for forward/quote */
 	if ($repl) {
 		$msg_subject = apply_reverse_replace($msg_subject);
@@ -34,8 +33,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	if ($GLOBALS['FUD_OPT_1'] & 4096) {
 		$msg_body = html_to_tags($msg_body);
 	} else if ($GLOBALS['FUD_OPT_1'] & 2048) {
-		reverse_fmt($msg_body);
-		reverse_nl2br($msg_body);
+		$msg_body = reverse_nl2br(reverse_fmt($msg_body));
 	}
 }
 
@@ -120,7 +118,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				if (strncmp($msg_subject, 'Re: ', 4)) {
 					$old_subject = $msg_subject = 'Re: ' . $msg_subject;
 				}
-				reverse_fmt($msg_subject);
+				$msg_subject = reverse_fmt($msg_subject);
 				unset($msg_r);
 				$msg_ref_msg_id = 'R'.$reply;
 			}
@@ -142,7 +140,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			}
 		}
 
-		$msg_to_list = htmlspecialchars($_POST['msg_to_list']);
+		$msg_to_list = char_fix(htmlspecialchars($_POST['msg_to_list']));
 		$msg_subject = $_POST['msg_subject'];
 		$old_subject = $_POST['old_subject'];
 		$msg_body = $_POST['msg_body'];
@@ -223,7 +221,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		}
 
 		if ($FUD_OPT_1 & 6144) {
-			char_fix($msg_p->body);
+			$msg_p->body = char_fix($msg_p->body);
 		}
 
 		if (!($msg_p->pmsg_opt & 2)) {
@@ -233,10 +231,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 		$msg_p->ouser_id = _uid;
 
-		$msg_p->subject = apply_custom_replace($msg_p->subject);
-		$msg_p->subject = htmlspecialchars($msg_p->subject);
-
-		char_fix($msg_p->subject);
+		$msg_p->subject = char_fix(htmlspecialchars(apply_custom_replace($msg_p->subject)));
 
 		if (empty($_POST['msg_id'])) {
 			$msg_p->pmsg_opt = $msg_p->pmsg_opt &~ 96;
@@ -304,7 +299,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		}
 
 		if ($FUD_OPT_1 & 6144) {
-			char_fix($text);
+			$text = char_fix($text);
 		}
 
 		if ($FUD_OPT_1 & 8192 && !$msg_smiley_disabled) {
@@ -321,17 +316,15 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			if ($FUD_OPT_1 & 4096) {
 				$msg_body = html_to_tags($msg_body);
 			} else if ($FUD_OPT_1 & 2048) {
-				reverse_fmt($msg_body);
+				$msg_body = reverse_fmt($msg_body);
 			}
 			$msg_body = apply_reverse_replace($msg_body);
 		}
 
 		if ($text_s && !$no_spell_subject) {
-			$text_s = htmlspecialchars($text_s);
-			char_fix($text_s);
+			$text_s = char_fix(htmlspecialchars($text_s));
 			$text_s = spell_replace(tokenize_string($text_s), 'subject');
-			reverse_fmt($text_s);
-			$msg_subject = apply_reverse_replace($text_s);
+			$msg_subject = apply_reverse_replace(reverse_fmt($text_s));
 		}
 	}
 
@@ -352,14 +345,13 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		}
 
 		if ($FUD_OPT_1 & 6144) {
-			char_fix($text);
+			$text = char_fix($text);
 		}
 
 		if ($FUD_OPT_1 & 8192 && !$msg_smiley_disabled) {
 			$text = smiley_to_post($text);
 		}
-		$text_s = htmlspecialchars($text_s);
-		char_fix($text_s);
+		$text_s = char_fix(htmlspecialchars($text_s));
 
 		$spell = $spell_check_button && isset($_POST['spell']);
 

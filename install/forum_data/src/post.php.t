@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.129 2005/02/27 02:21:36 hackie Exp $
+* $Id: post.php.t,v 1.130 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -133,16 +133,13 @@ function flood_check()
 		}
 
 		if ($msg_id) {
-			$msg_subject = $msg->subject;
-			reverse_fmt($msg_subject);
-			$msg_subject = apply_reverse_replace($msg_subject);
+			$msg_subject = apply_reverse_replace(reverse_fmt($msg->subject));
 
 			$msg_body = post_to_smiley($msg->body);
 	 		if ($frm->forum_opt & 16) {
 	 			$msg_body = html_to_tags($msg_body);
 	 		} else if ($frm->forum_opt & 8) {
-	 			reverse_fmt($msg_body);
-	 			reverse_nl2br($msg_body);
+	 			$msg_body = reverse_nl2br(reverse_fmt($msg_body));
 	 		}
 	 		$msg_body = apply_reverse_replace($msg_body);
 
@@ -159,8 +156,7 @@ function flood_check()
 		 	}
 		 	$pl_id = (int) $msg->poll_id;
 		} else if ($reply_to || $th_id) {
-			$subj = $reply_to ? $msg->subject : $thr->subject;
-			reverse_fmt($subj);
+			$subj = reverse_fmt($reply_to ? $msg->subject : $thr->subject);
 
 			$msg_subject = strncmp('{TEMPLATE: reply_prefix}', $subj, strlen('{TEMPLATE: reply_prefix}')) ? '{TEMPLATE: reply_prefix}' . ' ' . $subj : $subj;
 			$old_subject = $msg_subject;
@@ -171,15 +167,13 @@ function flood_check()
 				if (!strlen($msg->login)) {
 					$msg->login =& $ANON_NICK;
 				}
-				reverse_fmt($msg->login);
+				$msg->login = reverse_fmt($msg->login);
 
 				if ($frm->forum_opt & 16) {
 					$msg_body = html_to_tags($msg_body);
 				 	$msg_body = '{TEMPLATE: fud_quote}';
 				} else if ($frm->forum_opt & 8) {
-					reverse_fmt($msg_body);
-					reverse_nl2br($msg_body);
-					$msg_body = "> ".str_replace("\n", "\n> ", $msg_body);
+					$msg_body = "> ".str_replace("\n", "\n> ", reverse_nl2br(reverse_fmt($msg_body)));
 					$msg_body = str_replace('<br />', "\n", '{TEMPLATE: plain_quote}');
 				} else {
 					$msg_body = '{TEMPLATE: html_quote}';
@@ -280,7 +274,7 @@ function flood_check()
 			}
 
 			if ($frm->forum_opt & 24) {
-				char_fix($text);
+				$text = char_fix($text);
 			}
 
 			if ($perms & 16384 && !$msg_smiley_disabled) {
@@ -297,7 +291,7 @@ function flood_check()
 				if ($frm->forum_opt & 16) {
 					$msg_body = html_to_tags($msg_body);
 				} else if ($frm->forum_opt & 8) {
-					reverse_fmt($msg_body);
+					$msg_body = reverse_fmt($msg_body);
 				}
 
 				$msg_body = apply_reverse_replace($msg_body);
@@ -305,12 +299,10 @@ function flood_check()
 			$wa = '';
 
 			if (strlen($_POST['msg_subject']) && !$no_spell_subject) {
-				$text_s = htmlspecialchars($text_s);
-				char_fix($text_s);
+				$text_s = char_fix(htmlspecialchars($text_s));
 				$wa = tokenize_string($text_s);
 				$text_s = spell_replace($wa, 'subject');
-				reverse_fmt($text_s);
-				$msg_subject = apply_reverse_replace($text_s);
+				$msg_subject = apply_reverse_replace(reverse_fmt($text_s));
 			}
 		} else if (isset($_POST['spell'])) {
 			$GLOBALS['MINIMSG_OPT_DISABLED'] = 1;
@@ -346,7 +338,7 @@ function flood_check()
 			}
 
 			if ($frm->forum_opt & 24) {
-				char_fix($msg_post->body);
+				$msg_post->body = char_fix($msg_post->body);
 			}
 
 	 		if ($perms & 16384 && !($msg_post->msg_opt & 2)) {
@@ -355,8 +347,7 @@ function flood_check()
 
 			fud_wordwrap($msg_post->body);
 
-			$msg_post->subject = htmlspecialchars(apply_custom_replace($msg_post->subject));
-			char_fix($msg_post->subject);
+			$msg_post->subject = char_fix(htmlspecialchars(apply_custom_replace($msg_post->subject)));
 
 		 	/* chose to create thread OR add message OR update message */
 
@@ -472,15 +463,14 @@ function flood_check()
 		}
 
 		if ($frm->forum_opt & 24) {
-			char_fix($text);
+			$text = char_fix($text);
 		}
 
 		if ($perms & 16384 && !$msg_smiley_disabled) {
 			$text = smiley_to_post($text);
 		}
 
-		$text_s = htmlspecialchars($text_s);
-		char_fix($text_s);
+		$text_s = char_fix(htmlspecialchars($text_s));
 
 		$spell = $spell_check_button && isset($_POST['spell']);
 
@@ -565,12 +555,10 @@ function flood_check()
 		$mod_post_opts = '';
 	}
 
-	$msg_body = $msg_body ? htmlspecialchars(str_replace("\r", '', $msg_body)) : '';
+	$msg_body = $msg_body ? char_fix(htmlspecialchars(str_replace("\r", '', $msg_body))) : '';
 	if ($msg_subject) {
-		$msg_subject = htmlspecialchars($msg_subject);
-		char_fix($msg_subject);
+		$msg_subject = char_fix(htmlspecialchars($msg_subject));
 	}
-	char_fix($msg_body);
 
 	$pivate = '';
 	/* handle file attachments */

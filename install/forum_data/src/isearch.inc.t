@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.49 2005/02/10 14:33:52 hackie Exp $
+* $Id: isearch.inc.t,v 1.50 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,9 +53,8 @@ function text_to_worda($text)
 		$GLOBALS['usr']->lang = 'latvian';
 	}
 
+	$text = reverse_fmt($text);
 	while (1) {
-		reverse_fmt($text);
-	
 		switch ($GLOBALS['usr']->lang) {
 			case 'chinese_big5':
 			case 'chinese':

@@ -157,13 +157,13 @@ group_mgr_reged:		Alle registrierten Benutzer
 group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Benutzer suchen</a>
 groupmgr_action:		Vorgang
 groupmgr_add_member:		Mitglied hinzuf&uuml;gen
-groupmgr_already_exists:	Benutzer "{VAR-HTML: gr_member}" ist bereits in dieser Gruppe vorhanden.
+groupmgr_already_exists:	Benutzer "{FUNC: char_fix(htmlspecialchars($gr_member))}" ist bereits in dieser Gruppe vorhanden.
 groupmgr_cancel:		Abbrechen
 groupmgr_delete:		L&ouml;schen
 groupmgr_edit:			Bearbeiten
 groupmgr_member:		Mitglied
 groupmgr_no:			Nein
-groupmgr_no_user:		Es gibt keinen Benutzer mit einem "{VAR-HTML: gr_member}" Login
+groupmgr_no_user:		Es gibt keinen Benutzer mit einem "{FUNC: char_fix(htmlspecialchars($gr_member))}" Login
 groupmgr_update_member:		Mitglied aktualisieren
 groupmgr_yes:			Ja
 help_back_to_top:		Zur&uuml;ck zum Anfang
@@ -455,11 +455,11 @@ post_topic_update:		Erstellt neues Thema in <a href="{TEMPLATE: post_topic_updat
 post_upload_file:		Datei hochladen
 postcheck_email_body:		Du kannst keine E-Mail ohne Inhalt verschicken.
 postcheck_email_subject:	Du kannst keine E-Mail ohne Betreff versenden.
-postcheck_ignored:		Du kannst keine private Nachricht an "{VAR-HTML: v}" verschicken, weil diese Person dich auf die Ignorierliste gesetzt hat.
+postcheck_ignored:		Du kannst keine private Nachricht an "{FUNC: char_fix(htmlspecialchars($v))}" verschicken, weil diese Person dich auf die Ignorierliste gesetzt hat.
 postcheck_invalid_email:	Bitte trage eine g&uuml;ltige Adresse f&uuml;r deinen Freund ein.
 postcheck_max_images_err:	Maximal {GVAR: MAX_IMAGE_COUNT} Bilder pro Beitrag sind erlaubt, bitte reduziere die Anzahl der Bilder.
 postcheck_no_recepient:		Kann die Nachricht nicht versenden, weil kein Empf&auml;nger angegeben ist
-postcheck_no_such_user:		Es gibt keinen Benutzer mit Namen "{VAR-HTML: v}" in diesem Forum
+postcheck_no_such_user:		Es gibt keinen Benutzer mit Namen "{FUNC: char_fix(htmlspecialchars($v))}" in diesem Forum
 postcheck_subj_needed:		Betreff erforderlich
 posts:				Beitr&auml;ge
 posts_c:			Beitr&auml;ge:

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.73 2005/03/04 03:54:35 hackie Exp $
+* $Id: post_proc.inc.t,v 1.74 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,22 +15,6 @@ $GLOBALS['seps'] = array(' '=>' ', "\n"=>"\n", "\r"=>"\r", "'"=>"'", '"'=>'"', '
 function fud_substr_replace($str, $newstr, $pos, $len)
 {
         return substr($str, 0, $pos).$newstr.substr($str, $pos+$len);
-}
-
-function char_fix(&$str)
-{
-	$src = array('&amp;#0', '&amp;#1', '&amp;#2', '&amp;#3', '&amp;#4', '&amp;#5', '&amp;#6', '&amp;#7','&amp;#8','&amp;#9');
-	$dst = array('&#0', '&#1', '&#2', '&#3', '&#4', '&#5', '&#6', '&#7', '&#8', '&#9');
-
-	foreach ($src as $k => $v) {
-		if (strpos($str, $v) === false) {
-			unset($src[$k], $dst[$k]);
-		}
-	}
-
-	if ($src) {
-		$str = str_replace($src, $dst, $str);
-	}
 }
 
 function tags_to_html($str, $allow_img=1, $no_char=0)
@@ -196,25 +180,20 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					break;
 				case 'code':
 					$param = substr($str, $epos+1, ($cpos-$epos)-1);
-					reverse_nl2br($param);
 
-					$ostr .= '<div class="pre"><pre>'.$param.'</pre></div>';
+					$ostr .= '<div class="pre"><pre>'.reverse_nl2br($param).'</pre></div>';
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
 				case 'pre':
 					$param = substr($str, $epos+1, ($cpos-$epos)-1);
-					reverse_nl2br($param);
 
-					$ostr .= '<pre>'.$param.'</pre>';
+					$ostr .= '<pre>'.reverse_nl2br($param).'</pre>';
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
 				case 'php':
-					$param = substr($str, $epos+1, ($cpos-$epos)-1);
-					reverse_nl2br($param);
-					reverse_fmt($param);
-					$param = trim($param);
+					$param = trim(reverse_fmt(reverse_nl2br(substr($str, $epos+1, ($cpos-$epos)-1))));
 
 					if (strncmp($param, '<?php', 5)) {
 						if (strncmp($param, '<?', 2)) {
@@ -596,9 +575,7 @@ function html_to_tags($fudml)
 	}
 
 	/* unhtmlspecialchars */
-	reverse_fmt($fudml);
-
-	return $fudml;
+	return reverse_fmt($fudml);
 }
 
 
@@ -635,6 +612,10 @@ function safe_tmp_copy($source, $del_source=0, $prefx='')
 
 function reverse_nl2br(&$data)
 {
-	$data = str_replace('<br />', '', $data);
+	if (strpos('<br />', $data) !== false) {
+		return str_replace('<br />', '', $data);
+	} else {
+		return $data;
+	}
 }
 ?>

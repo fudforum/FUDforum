@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.136 2005/03/04 04:38:39 hackie Exp $
+* $Id: register.php.t,v 1.137 2005/03/05 18:46:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -261,9 +261,9 @@ function remove_old_avatar($avatar_str)
 
 function decode_uent(&$uent)
 {
-	reverse_fmt($uent->home_page);
-	reverse_fmt($uent->user_image);
-	reverse_fmt($uent->jabber);
+	$uent->home_page = reverse_fmt($uent->home_page);
+	$uent->user_image = reverse_fmt($uent->user_image);
+	$uent->jabber = reverse_fmt($uent->jabber);
 	$uent->aim = urldecode($uent->aim);
 	$uent->yahoo = urldecode($uent->yahoo);
 	$uent->msnm = urldecode($uent->msnm);
@@ -416,7 +416,7 @@ function decode_uent(&$uent)
 		}
 
 		if ($FUD_OPT_1 & 196608) {
-			char_fix($uent->sig);
+			$uent->sig = char_fix($uent->sig);
 		}
 
 		if ($FUD_OPT_1 & 262144) {
@@ -583,8 +583,7 @@ function decode_uent(&$uent)
 			${'reg_'.$k} = htmlspecialchars($v);
 		}
 		foreach($chr_fix as $v) {
-			reverse_fmt($$v);
-			char_fix($$v);
+			$$v = char_fix(reverse_fmt($$v));
 		}
 
 		$reg_sig = apply_reverse_replace($reg_sig);
@@ -596,11 +595,11 @@ function decode_uent(&$uent)
 		if ($FUD_OPT_1 & 131072) {
 			$reg_sig = html_to_tags($reg_sig);
 		} else if ($FUD_OPT_1 & 65536) {
-			reverse_nl2br($reg_sig);
+			$reg_sig = reverse_nl2br($reg_sig);
 		}
 
 		if ($FUD_OPT_1 & 196608) {
-			char_fix($reg_sig);
+			$reg_sig = char_fix($reg_sig);
 		}
 
 		if ($uent->bday) {
@@ -611,8 +610,7 @@ function decode_uent(&$uent)
 			$b_year = $b_month = $b_day = '';
 		}
 		if (!$reg_avatar && $reg_avatar_loc) { /* custom avatar */
-			reverse_fmt($reg_avatar_loc);
-			if (preg_match('!src="([^"]+)" width="!', $reg_avatar_loc, $tmp)) {
+			if (preg_match('!src="([^"]+)" width="!', reverse_fmt($reg_avatar_loc), $tmp)) {
 				$avatar_arr['file'] = $tmp[1];
 				$avatar_arr['del'] = 0;
 				$avatar_arr['leave'] = 1;
@@ -626,7 +624,7 @@ function decode_uent(&$uent)
 			}
 		}
 		foreach($chr_fix as $v) {
-			char_fix($$v);
+			$$v = char_fix($$v);
 		}
 
 		$b_year = $_POST['b_year'];
@@ -761,8 +759,7 @@ function decode_uent(&$uent)
 						$reg_avatar = '0';
 						$reg_avatar_img = 'blank.gif';
 					} else if (!empty($reg_avatar_loc)) {
-						reverse_fmt($reg_avatar_loc);
-						preg_match('!images/avatars/([^"]+)"!', $reg_avatar_loc, $tmp);
+						preg_match('!images/avatars/([^"]+)"!', reverse_fmt($reg_avatar_loc), $tmp);
 						$reg_avatar_img = 'images/avatars/' . $tmp[1];
 					} else {
 						$reg_avatar_img = 'images/avatars/' . q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='.(int)$reg_avatar);

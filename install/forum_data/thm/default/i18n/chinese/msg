@@ -581,8 +581,8 @@ post_topic_update:		发表新主题 <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-
 post_error_generic:		发生错误
 postcheck_max_images_err:	一次提交图片允许的最大数是{GVAR: MAX_IMAGE_COUNT} ，请尽量减少图片数量。
 postcheck_subj_needed:		输入主题
-postcheck_no_such_user:		本论坛没有 "{VAR-HTML: v}" 用户
-postcheck_ignored:		"{VAR-HTML: v}"用户拒绝接受你的悄悄话。
+postcheck_no_such_user:		本论坛没有 "{FUNC: char_fix(htmlspecialchars($v))}" 用户
+postcheck_ignored:		"{FUNC: char_fix(htmlspecialchars($v))}"用户拒绝接受你的悄悄话。
 postcheck_no_recepient:		因为没有接受方，所以无法发送信息
 postcheck_invalid_email:	请输入你的朋友的正确电子邮箱地址。
 postcheck_email_subject:	如果不输入主题，你将无法发送邮件。
@@ -687,8 +687,8 @@ thr_exch_submit:		发布
 exch_decline_ttl:		把主题 {VAR: data->subject} 转移至{VAR-HTML: data->f2_name} 论坛的要求被拒绝。
 ppost_original_msg:		你正在发送或者回复的信息
 split_thread:			分开主题
-groupmgr_no_user:		此账号不存在 "{VAR-HTML: gr_member}"
-groupmgr_already_exists:	"{VAR-HTML: gr_member}" 本论坛已经存在这个用户
+groupmgr_no_user:		此账号不存在 "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	"{FUNC: char_fix(htmlspecialchars($gr_member))}" 本论坛已经存在这个用户
 groupmgr_yes:			是
 groupmgr_no:			否
 groupmgr_action:		操作

@@ -581,8 +581,8 @@ post_topic_update:		<a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->
 post_error_generic:		Bir hata oluþtu
 postcheck_max_images_err:	Ýleti baþýna en fazla {GVAR: MAX_IMAGE_COUNT} resim gönderilebilir, lütfen resim sayýsýný azaltýn.
 postcheck_subj_needed:		Konu bölümü zorunlu
-postcheck_no_such_user:		Bu forumda "{VAR-HTML: v}" isminde bir kullanýcý yok.
-postcheck_ignored:		"{VAR-HTML: v}" kullanýcýsýna özel ileti gönderemezsiniz, çünkü bu kiþi sizi gözardý ediyor.
+postcheck_no_such_user:		Bu forumda "{FUNC: char_fix(htmlspecialchars($v))}" isminde bir kullanýcý yok.
+postcheck_ignored:		"{FUNC: char_fix(htmlspecialchars($v))}" kullanýcýsýna özel ileti gönderemezsiniz, çünkü bu kiþi sizi gözardý ediyor.
 postcheck_no_recepient:		Ýletiyi gönderemiyor, alýcý belirsiz.
 postcheck_invalid_email:	Lütfen arkadýþýnýzýn geçerli bir e-mektup adresini girin.
 postcheck_email_subject:	Konu bölümü boþ olan bir e-mektup gönderemezsiniz.
@@ -687,8 +687,8 @@ thr_exch_submit:		Gönder
 exch_decline_ttl:		{VAR: data->subject} zincirinin {VAR-HTML: data->f2_name} forumuna taþýnmasý reddedildi.
 ppost_original_msg:		yönlendirdiðiniz veya yanýtladýðýnýz ileti
 split_thread:			Zinciri Böl
-groupmgr_no_user:		"{VAR-HTML: gr_member}" kullanýcý isminde bir kullanýcý yok.
-groupmgr_already_exists:	"{VAR-HTML: gr_member}" kullanýcýsý bu grupta zaten var.
+groupmgr_no_user:		"{FUNC: char_fix(htmlspecialchars($gr_member))}" kullanýcý isminde bir kullanýcý yok.
+groupmgr_already_exists:	"{FUNC: char_fix(htmlspecialchars($gr_member))}" kullanýcýsý bu grupta zaten var.
 groupmgr_yes:			Evet
 groupmgr_no:			Hayýr
 groupmgr_action:		Eylem
