@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.php.t,v 1.14 2004/11/24 19:53:35 hackie Exp $
+* $Id: mklist.php.t,v 1.15 2004/12/03 19:41:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,9 +14,14 @@
 
 /*{PRE_HTML_PHP}*/
 
-	/* decode list if one exists */
 	if (!empty($_POST['opt_list'])) {
-		$_POST['opt_list'] = unserialize(base64_decode($_POST['opt_list']));
+		foreach ((array)$_POST['opt_list'] as $k => $v) {
+			if (!is_numeric($k)) {
+				unset($_POST['opt_list'][$k]);
+			}
+		}
+	} else {
+		$_POST['opt_list'] = array();
 	}
 
 	/* remove list entry */
@@ -58,9 +63,8 @@
 			$list_entry_data .= '{TEMPLATE: list_entry}';
 		}
 		$list_sample = '{TEMPLATE: list_sample}';
-		$_POST['opt_list'] = base64_encode(serialize($_POST['opt_list']));
 	} else {
-		$list_sample = $_POST['opt_list'] = '';
+		$list_sample = '';
 	}
 
 /*{POST_PAGE_PHP_CODE}*/

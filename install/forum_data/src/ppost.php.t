@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.71 2004/11/24 19:53:36 hackie Exp $
+* $Id: ppost.php.t,v 1.72 2004/12/03 19:41:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -156,7 +156,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$msg_ref_msg_id = isset($_POST['msg_ref_msg_id']) ? (int)$_POST['msg_ref_msg_id'] : '';
 
 		/* restore file attachments */
-		if (!empty($_POST['file_array']) && $PRIVATE_ATTACHMENTS > 0) {
+		if (!empty($_POST['file_array']) && $PRIVATE_ATTACHMENTS > 0 && $usr->data === md5($_POST['file_array'])) {
 			$attach_list = unserialize(base64_decode($_POST['file_array']));
 		}
 	}
