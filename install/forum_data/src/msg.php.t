@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.49 2003/09/27 15:49:31 hackie Exp $
+*   $Id: msg.php.t,v 1.50 2003/09/28 11:38:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -95,7 +95,7 @@
 		invl_inp_err();
 	}
 	if ($frm->moved_to) { /* moved thread, we could handle it, but this case is rather rare, so it's cleaner to redirect */
-		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+		if ($USE_PATH_INFO == 'N') {
 			header('Location: {ROOT}?t=msg&goto='.$frm->root_msg_id.'&'._rsidl);
 		} else {
 			header('Location: {ROOT}/m/'.$frm->root_msg_id.'/'._rsidl);
@@ -106,11 +106,11 @@
 	$MOD = $sub_status = 0;
 	$perms = perms_from_obj($frm, ($usr->users_opt & 1048576));
 
-	if ($perms['p_read'] == 'N') {
+	if (!($perms & 2)) {
 		if (!isset($_GET['logoff'])) {
 			std_error('perms');
 		} else {
-			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			if ($USE_PATH_INFO == 'N') {
 				header('Location: {ROOT}?' . _rsidl);
 			} else {
 				header('Location: {ROOT}/i/' . _rsidl);
@@ -158,7 +158,7 @@
 
 	if ($ENABLE_THREAD_RATING == 'Y') {
 		$thread_rating = $frm->rating ? '{TEMPLATE: thread_rating}' : '{TEMPLATE: no_thread_rating}';
-		if ($perms['p_rate'] == 'Y' && !$frm->cant_rate) {
+		if ($perms & 1024 && !$frm->cant_rate) {
 			$rate_thread = '{TEMPLATE: rate_thread}';
 		} else {
 			$rate_thread = '';
@@ -167,25 +167,23 @@
 		$rate_thread = $thread_rating = '';
 	}
 
-	$post_reply = (!($frm->thread_opt & 1) || $perms['p_lock'] == 'Y') ? '{TEMPLATE: post_reply}' : '';
+	$post_reply = (!($frm->thread_opt & 1) || $perms & 4096) ? '{TEMPLATE: post_reply}' : '';
 	$email_page_to_friend = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_page_to_friend}' : '';
 
-	if ($perms['p_lock'] == 'Y') {
+	if ($perms & 4096) {
 		$lock_thread = !($frm->thread_opt & 1) ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
 	} else {
 		$lock_thread = '';
 	}
 
-	$split_thread = ($frm->replies && $perms['p_split'] == 'Y') ? '{TEMPLATE: split_thread}' : '';
+	$split_thread = ($frm->replies && $perms & 2048) ? '{TEMPLATE: split_thread}' : '';
 
 	$result = $query_type('SELECT 
 		m.*, 
 		t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold,
-		u.id AS user_id, u.alias AS login, u.display_email, u.avatar_approved,
-		u.avatar_loc, u.email, u.posted_msg_count, u.join_date,  u.location, 
-		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
-		u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
+		u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location, 
+		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.users_opt, u.last_visit AS time_sec,
 		l.name AS level_name, l.level_opt, l.img AS level_img,
 		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 		pot.id AS cant_vote
@@ -224,7 +222,7 @@
 		}
 	}
 
-	if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+	if ($USE_PATH_INFO == 'N') {
 		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}?t=msg&amp;th=' . $_GET['th'] . '&amp;prevloaded=1&amp;' . _rsid . reveal_lnk . unignore_tmp);
 	} else {
 		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}/mv/msg/' . $_GET['th'] . '/0/', reveal_lnk . unignore_tmp . _rsid);	
@@ -232,8 +230,8 @@
 
 	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
 
-	$pdf_link = $GLOBALS['SHOW_PDF_LINK'] == 'Y' ? '{TEMPLATE: msg_pdf_link}' : '';
-	$xml_link = $GLOBALS['SHOW_XML_LINK'] == 'Y' ? '{TEMPLATE: msg_xml_link}' : '';
+	$pdf_link = $SHOW_PDF_LINK == 'Y' ? '{TEMPLATE: msg_pdf_link}' : '';
+	$xml_link = $SHOW_XML_LINK == 'Y' ? '{TEMPLATE: msg_xml_link}' : '';
 	
 /*{POST_PAGE_PHP_CODE}*/
 ?>

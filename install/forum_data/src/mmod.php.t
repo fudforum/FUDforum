@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.17 2003/09/28 10:29:53 hackie Exp $
+*   $Id: mmod.php.t,v 1.18 2003/09/28 11:38:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -113,7 +113,7 @@
 		}
 		exit;
 	} else if ($th) {
-		if (!($data = db_saq('SELECT mm.id, (CASE WHEN g2.id IS NOT NULL THEN g2.p_LOCK ELSE g1.p_LOCK END) AS p_lock
+		if (!($data = db_saq('SELECT mm.id, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
 			FROM {SQL_TABLE_PREFIX}thread t
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647': '0').' AND g1.resource_id=t.forum_id
@@ -127,10 +127,10 @@
 
 		if (isset($_GET['lock'])) {
 			logaction(_uid, 'THRLOCK', $th);
-			th_lock($th, 'Y');
+			th_lock($th, 1);
 		} else {
 			logaction(_uid, 'THRUNLOCK', $th);
-			th_lock($th, 'N');	
+			th_lock($th, 0);
 		}
 	}
 	check_return($usr->returnto);

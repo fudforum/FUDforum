@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.54 2003/09/26 18:49:02 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.55 2003/09/28 11:38:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,7 +43,7 @@ if (isset($_GET['rev'])) {
 	foreach ($tmp as $v) {
 		$GLOBALS['__FMDSP__'][$v] = 1;
 	}
-	if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+	if ($USE_PATH_INFO != 'Y') {
 		define('reveal_lnk', '&amp;rev=' . $_GET['rev']);
 	} else {
 		define('reveal_lnk', '/' . $_GET['rev']);
@@ -81,12 +81,12 @@ if (_uid) {
 	define('unignore_tmp', '');
 }
 
-if ($GLOBALS['ENABLE_AFFERO'] == 'Y') {
+if ($ENABLE_AFFERO == 'Y') {
 	$GLOBALS['affero_domain'] = parse_url($WWW_ROOT);
 	$GLOBALS['affero_domain'] = $GLOBALS['affero_domain']['host'];
 }
 
-if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+if ($USE_PATH_INFO != 'Y') {
 	$_SERVER['QUERY_STRING_ENC'] = str_replace('&', '&amp;', $_SERVER['QUERY_STRING']);
 } else {
 	$_SERVER['QUERY_STRING_ENC'] = $_SERVER['QUERY_STRING'];
@@ -215,13 +215,13 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	
 	if ($obj->user_id) {
 		if (!$hide_controls) {
-			if ($obj->avatar_loc && $obj->avatar_approved == 'Y' && $usr->show_avatars == 'Y' && $GLOBALS['CUSTOM_AVATARS'] != 'OFF' && $obj->level_opt != 2) {
+			if ($obj->avatar_loc && $obj->users_opt & 8388608 && $usr->users_opt & 8192 && $GLOBALS['CUSTOM_AVATARS'] != 'OFF' && $obj->level_opt != 2) {
 				$avatar = '{TEMPLATE: dmsg_avatar}';
 			} else {
 				$avatar = '{TEMPLATE: dmsg_no_avatar}';
 			}
 
-			if (($GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode == 'N') || $usr->is_mod == 'A') {
+			if (($GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && !($obj->users_opt & 32768)) || $usr->users_opt & 1048576) {
 				$online_indicator = (($obj->time_sec + $GLOBALS['LOGEDIN_TIMEOUT'] * 60) > __request_timestamp__) ? '{TEMPLATE: dmsg_online_indicator}' : '{TEMPLATE: dmsg_offline_indicator}';
 			} else {
 				$online_indicator = '';
@@ -255,7 +255,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 				$level_name = $level_image = '';
 			}
 			/* show im buttons if need be */
-			if ($usr->show_im == 'Y') {
+			if ($usr->users_opt & 16384) {
 				$im_icq		= $obj->icq ? '{TEMPLATE: dmsg_im_icq}' : '';
 				$im_aim		= $obj->aim ? '{TEMPLATE: dmsg_im_aim}' : '';
 				$im_yahoo	= $obj->yahoo ? '{TEMPLATE: dmsg_im_yahoo}' : '';
@@ -299,7 +299,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	}
 	
 	/* handle poll votes */
-	if (!empty($_POST['poll_opt']) && ($_POST['poll_opt'] = (int)$_POST['poll_opt']) && !($obj->thread_opt & 1) && $perms['p_vote'] == 'Y') {
+	if (!empty($_POST['poll_opt']) && ($_POST['poll_opt'] = (int)$_POST['poll_opt']) && !($obj->thread_opt & 1) && $perms & 512) {
 		if (register_vote($obj->poll_cache, $obj->poll_id, $_POST['poll_opt'], $obj->id)) {
 			$obj->total_votes += 1;
 			$obj->cant_vote = 1;
@@ -314,7 +314,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 		/* various conditions that may prevent poll voting */		
 		if (!$hide_controls && !$obj->cant_vote && (!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id)) {
-			if ($perms['p_vote'] == 'Y' && (!($obj->thread_opt & 1) || $perms['p_lock'] == 'Y')) {
+			if ($perms & 512 && (!($obj->thread_opt & 1) || $perms & 4096)) {
 				if (!$obj->expiry_date || ($obj->creation_date + $obj->expiry_date) > __request_timestamp__) {
 					/* check if the max # of poll votes was reached */
 					if (!$obj->max_votes || $obj->total_votes < $obj->max_votes) {
@@ -377,7 +377,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	
 	$rpl = '';
 	if (!$hide_controls) {
-		if ($usr->is_mod != 'N' || $GLOBALS['DISPLAY_IP'] == 'Y') {
+		if (($usr->users_opt & (1048576|524288)) || $GLOBALS['DISPLAY_IP'] == 'Y') {
 			$ip_address = '{TEMPLATE: dmsg_ip_address}';
 		} else {
 			$ip_address = '';
@@ -394,7 +394,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	
 		$msg_icon = !$obj->icon ? '{TEMPLATE: dmsg_no_msg_icon}' : '{TEMPLATE: dmsg_msg_icon}';
 
-		if ($obj->sig && $GLOBALS['ALLOW_SIGS'] == 'Y' && $obj->msg_opt & 1 && $usr->show_sigs == 'Y') {
+		if ($obj->sig && $GLOBALS['ALLOW_SIGS'] == 'Y' && $obj->msg_opt & 1 && $usr->users_opt & 4096) {
 			$signature = '{TEMPLATE: dmsg_signature}';
 		} else {
 			$signature = '';
@@ -413,7 +413,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 		if ($obj->user_id) {
 			$user_profile = '{TEMPLATE: dmsg_user_profile}';
-			$email_link = ($GLOBALS['ALLOW_EMAIL'] == 'Y' && $obj->email_messages == 'Y') ? '{TEMPLATE: dmsg_email_link}' : '';
+			$email_link = ($GLOBALS['ALLOW_EMAIL'] == 'Y' && $obj->users_opt & 16) ? '{TEMPLATE: dmsg_email_link}' : '';
 			$private_msg_link = $GLOBALS['PM_ENABLED'] == 'Y' ? '{TEMPLATE: dmsg_private_msg_link}' : '';
 		} else {
 			$user_profile = $email_link = $private_msg_link = '';
@@ -424,15 +424,15 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			$next_page = '{TEMPLATE: dmsg_no_next_msg_page}';
 		}
 
-		$delete_link = $perms['p_del'] == 'Y' ? '{TEMPLATE: dmsg_delete_link}' : '';
+		$delete_link = $perms & 32 ? '{TEMPLATE: dmsg_delete_link}' : '';
 
-		if ($perms['p_edit'] == 'Y' || (_uid == $obj->poster_id && (!$GLOBALS['EDIT_TIME_LIMIT'] || __request_timestamp__ - $obj->post_stamp < $GLOBALS['EDIT_TIME_LIMIT'] * 60))) {
+		if ($perms & 16 || (_uid == $obj->poster_id && (!$GLOBALS['EDIT_TIME_LIMIT'] || __request_timestamp__ - $obj->post_stamp < $GLOBALS['EDIT_TIME_LIMIT'] * 60))) {
 			$edit_link = '{TEMPLATE: dmsg_edit_link}';
 		} else {
 			$edit_link = '';
 		}
 
-		if (!($obj->thread_opt & 1) || $perms['p_lock'] == 'Y') {
+		if (!($obj->thread_opt & 1) || $perms & 4096) {
 			$reply_link = '{TEMPLATE: dmsg_reply_link}';
 			$quote_link = '{TEMPLATE: dmsg_quote_link}';
 		} else {
@@ -445,5 +445,5 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	}
 
 	return '{TEMPLATE: message_entry}';
-}		
+}
 ?>
