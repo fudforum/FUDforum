@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.6 2002/07/09 13:05:07 hackie Exp $
+*   $Id: finduser.php.t,v 1.7 2002/07/09 14:47:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -88,6 +88,8 @@
 		
 		qf($res);
 	}
+	else 
+		$user_login = $user_email = '';
 
 	if ( empty($np) ) {
 		$total = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users ".(isset($qry)?$qry:''));
