@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.32 2003/04/09 12:55:32 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.33 2003/04/09 12:59:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -245,7 +245,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 		foreach ($obj->poll_cache as $k => $v) {
 			$i++;
 			if ($show_res) {
-				$length = $v[1] ? round($v[1] / $total_votes * 100) : 0;
+				$length = ($v[1] && $n_votes) ? round($v[1] / $n_votes * 100) : 0;
 				$poll_data .= '{TEMPLATE: dmsg_poll_result}';	
 			} else {
 				$poll_data .= '{TEMPLATE: dmsg_poll_option}';
