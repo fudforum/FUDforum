@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: err.inc.t,v 1.41 2004/06/29 13:52:22 hackie Exp $
+* $Id: err.inc.t,v 1.42 2004/06/30 15:26:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,6 +29,11 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 		$error_msg .= '[Referring Page] '.$_SERVER['HTTP_REFERER'].'<br />';
 	}
 	error_log('['.gmdate('D M j G:i:s T Y', __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'fud_errors');
+
+	/* no need to redirect, we just want to log the error */
+	if ($level == 'ATCH') {
+		return;
+	}
 
 	ses_putvar($ses, array('er_msg' => $msg, 'err_t' => $title));
 
@@ -81,17 +86,6 @@ function std_error($type)
 	} else {
 		error_dialog('{TEMPLATE: err_inc_criticaltitle}', '{TEMPLATE: err_inc_criticalmsg}');
 	}
-}
-
-function std_out($text, $level='INFO')
-{
-	$fp = fopen($GLOBALS['ERROR_PATH'].'std_out.log', 'ab');
-	$log_str = gmdate("Y-m-d-H-i-s", __request_timestamp__);
-	$log_str .= " [".$level."] ";
-	$log_str .= str_replace("\n", ' ', str_replace("\r", ' ', $text))."\n";
-	fwrite($fp, $log_str);
-	fclose($fp);
-	@chmod($GLOBALS['ERROR_PATH'].'std_out.log',($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));
 }
 
 function invl_inp_err()

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: attach.inc.t,v 1.34 2004/01/04 16:38:26 hackie Exp $
+* $Id: attach.inc.t,v 1.35 2004/06/30 15:26:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,9 +14,9 @@ function safe_attachment_copy($source, $id, $ext)
 {
 	$loc = $GLOBALS['FILE_STORE'] . $id . '.atch';
 	if (!$ext && !move_uploaded_file($source, $loc)) {
-		std_out('unable to move uploaded file', 'ERR');
+		error_dialog('unable to move uploaded file', 'From: '.$source.' To: '.$loc, 'ATCH');
 	} else if ($ext && !copy($source, $loc)) {
-		std_out('unable to handle file attachment', 'ERR');
+		error_dialog('unable to handle file attachment', 'From: '.$source.' To: '.$loc, 'ATCH');
 	}
 	@unlink($source);
 
