@@ -339,7 +339,7 @@ buddy_status:			Статус
 my_buddies:			Список контактов
 add_buddy:			Добавить в список контактов
 add:				Добавить
-buddy_search:			Enter the login of the user you wish to add.
+buddy_search:			Введите имя пользователя, которого вы хотите добавить.
 buddy_remove:			удалить
 post_normal:			Нормальный
 post_sticky:			Стикер
@@ -535,8 +535,8 @@ tabs_referrals:			Приглашенные
 tabs_buddy_list:		Список контактов
 tabs_ignore_list:		Список игнорируемых
 tabs_private_messaging:		Личная почта
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		Вы хотите <font color="#ff0000" size="4">УДАЛИТЬ</font> сообщение с заголовком: <b>{VAR: data[3]}</b><p>
+thread_delete:			Вы хотите <font color="#ff0000" size="4">УДАЛИТЬ ВСЮ ТЕМУ</font> с заголовком: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Вы действительно хотите продолжить?</b></font>
 delete_yes:			Да
 delete_no:			Нет
@@ -817,7 +817,7 @@ logedin_latest_post:		Последнее сообщение в форуме:
 register_show_avatar:		Показывать картинки:
 register_show_avatar_desc:	Показывать картинки других пользователей при просмотре их сообщений
 drawmsg_view_rest_post:		Показать остальное
-post_re:			Re: 
+post_re:			Re:
 forumsel_goto_forum:		Переход к форуму:
 minimsg_thread_view:		Просмотр темы
 split_th_post_by:		Отправитель:
@@ -845,7 +845,7 @@ pmsg_next_msg:			Следующее сообщение
 pmsg_prev_msg:			Предыдущее сообщение
 post_proc_reveal_spoiler:	Укажите помеху
 register_jabber:		Псевдоним сети Jabber:
-im_jabber:			Jabber: 
+im_jabber:			Jabber:
 forum_contact:			Обратная связь
 forum_home:			Начало
 post_cur_attached:		количество вложенных файлов: {VAR: i}
@@ -917,39 +917,39 @@ err_mod_acc_ttl:		Непроверенный пользователь
 err_mod_acc_msg:		Администратор установил режим ручного просмотра всех учетных записей пользователей перед их активацией. Пока ваша учетная запись не будет проверена администратором, вы не сможете использовать все возможности форума.
 accounts_pending_approval:	Ожидающие утверждения пользователи
 saved:				Сохранено
-register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.
-login_blocked_account_ttl:	Your account has been banned.	
-login_blocked_account_msg:	Your account has been banned from this forum, if do not already know the reason behind this action contact the forum&#39;s administrator(s).
+register_err_time_limit:	Лимит на 1 регистрацию в {GVAR: REG_TIME_LIMIT} секунд превышен. Пожалуйста, подождите {VAR: reg_limit_reached} и попробуйте пройти регистрацию снова.
+login_blocked_account_ttl:	Ваш аккаунт был заблокирован.
+login_blocked_account_msg:	Ваш аккаунт заблокирован в этом форуме, если вы еще не знаете причину &mdash; обратитесь к администратору(ам) форума.
 register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
-im_affero:			Affero Username
-register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
-post_all_ext_allowed:		(unrestricted)
-buddy_offline:			{VAR: r[2]} is currently offline
-buddy_online:			{VAR: r[2]} is currently online
-sml_no_smilies:			No emoticons available.
-login_unapproved_account_ttl:	Unapproved Account
-login_unapproved_account_msg:	The administrator of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefor you will not be able to access some of the features avaliable to registered members until your account is approved.
-remove_from_buddy_list:		remove from buddy list
-iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
-iemail_msg_reply:		Reply
-iemail_msg_quote:		Quote
-iemail_msg_view:		View Topic/Message
-threadt_sticky:			sticky
-threadt_announce:		announcement
-reported_no_messages:		There are no reported messages.
-poll_no_polls:			There are no accessible polls.
-no_unread_messages:		There are no unread messages matching your query.
-thread_mark_all_read:		mark all unread forum messages read
-thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
-private_no_messages:		There are no messages inside this folder
-register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
-iemail_thread_unsub:		Unsubscribe from this thread		
-iemail_forum_unsub:		Unsubscribe from this forum
-primary_group_prefix:		Primary group for forum:
-group_resources:		This group controls permissions of the following forums
+im_affero:			Имя пользователя Affero
+register_err_avatardimtobig:	Размеры персональной картинки <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> превысили допустимые размеры <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+pmsg_download_counter:		Скачано {VAR: r->dlcount} раз(а)
+member_search:			<br>Или воспользуйтесь <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">поиском пользователя</a>.
+post_all_ext_allowed:		(неограничено)
+buddy_offline:			{VAR: r[2]} в оффлайне
+buddy_online:			{VAR: r[2]} в онлайне
+sml_no_smilies:			Нет доступных смайликов.
+login_unapproved_account_ttl:	Неподтвержденный аккаунт
+login_unapproved_account_msg:	Администратор этого форума вручную подтверждает каждый новый аккаунт перед тем, как он будет активирован. Ваш аккаунт пока не подтвержден, поэтому вы не будете иметь доступа к тем функциям, которые доступны только зарегистрированным пользователям до тех пор, пока ваш аккаунт не будет подтвержден.
+remove_from_buddy_list:		удалить из списка контактов
+iemail_msg_author:		<b>Автор:</b> {VAR: obj->alias}
+iemail_msg_subject:		<b>Тема:</b> {VAR: obj->subject}
+iemail_msg_date:		<b>Дата:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_reply:		Ответ
+iemail_msg_quote:		Цитата
+iemail_msg_view:		Просмотр темы/сообщения
+threadt_sticky:			стикер
+threadt_announce:		анонс
+reported_no_messages:		Нет извещений о сообщениях.
+poll_no_polls:			Нет доступных голосований.
+no_unread_messages:		Нет непрочитанных сообщений, удовлетворяющих вашему запросу.
+thread_mark_all_read:		отметить все сообщения в этом форуме как прочитанные
+thread_mark_all_read_desc:	Все сообщения в этом форуме отмечены как прочитанные
+private_no_messages:		Нет сообщений в этой папке
+register_email_change_subject:	Подтверждение смены E-mail
+register_email_change_msg:	Пожалуйста, подтвердите e-mail "{VAR: uent->email}", который заменит старый e-mail "{VAR: old_email}", перейдя по следующей ссылке:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nКак только вы подтвердите новый e-mail, ваш аккаунт будет вновь активирован.
+iemail_thread_unsub:		Отписаться от этой темы
+iemail_forum_unsub:		Отписаться от этого форума
+primary_group_prefix:		Основная группа для этого форума:
+group_resources:		Эта группа содержит разрешения для следующих форумов
 register_email:			Email
