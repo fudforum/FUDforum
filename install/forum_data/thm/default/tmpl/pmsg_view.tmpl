@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg_view.tmpl,v 1.9 2004/04/25 20:18:26 hackie Exp $
+* $Id: pmsg_view.tmpl,v 1.10 2004/11/02 15:38:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,11 +27,11 @@
 {PAGE: PMSG_PAGE form for viewing private messages}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-{TEMPLATE-DATA: cur_ppage}
+{FUNC: tmpl_cur_ppage($m->fldr, $folders, $m->subject)}
 {TEMPLATE-DATA: tabs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: msg_author}</th>
-{TEMPLATE-DATA: private_message_entry}
+{FUNC: tmpl_drawpmsg($m, $usr, false)}
 </table>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
