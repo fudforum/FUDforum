@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: VB2.php,v 1.3 2002/07/01 16:04:28 hackie Exp $
+*   $Id: VB2.php,v 1.4 2002/07/04 14:40:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -424,7 +424,7 @@ $group_map = array(
 			show_sig,
 			smiley_disabled,
 			ip_addr,
-			offset,
+			foff,
 			length,
 			file_id
 			)
@@ -623,7 +623,7 @@ $group_map = array(
 			subject,
 			show_sig,
 			track,
-			offset,
+			foff,
 			length
 			)
 			VALUES(

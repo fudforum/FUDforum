@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: Yabb_dc.php,v 1.3 2002/07/01 16:04:28 hackie Exp $
+*   $Id: Yabb_dc.php,v 1.4 2002/07/04 14:40:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -524,7 +524,7 @@ function getyabbgroupname($str)
 				show_sig,
 				smiley_disabled,
 				ip_addr,
-				offset,
+				foff
 				length,
 				file_id
 			)
