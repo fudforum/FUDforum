@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.22 2003/07/10 16:39:30 hackie Exp $
+*   $Id: pmsg.php.t,v 1.23 2003/07/17 15:50:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -119,7 +119,7 @@
 			$deny_recipt = '';
 		}
 		
-		if ($ONLINE_OFFLINE_STATUS == 'Y' && ($obj->invisible_mode == 'Y' || $usr->is_mod == 'A')) {
+		if ($ONLINE_OFFLINE_STATUS == 'Y' && ($obj->invisible_mode == 'N' || $usr->is_mod == 'A')) {
 			$obj->login =& $obj->alias;
 			if (($obj->time_sec + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__) {
 				$online_indicator = '{TEMPLATE: pmsg_online_indicator}';
