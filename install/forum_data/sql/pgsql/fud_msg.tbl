@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_msg.tbl,v 1.5 2003/05/03 20:24:40 hackie Exp $
+#   $Id: fud_msg.tbl,v 1.6 2003/07/17 18:44:26 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -42,12 +42,12 @@ CREATE TABLE {SQL_TABLE_PREFIX}msg
 	mlist_msg_id 	VARCHAR(100)
 );
 
-CREATE INDEX {SQL_TABLE_PREFIX}msg_index_thread_id_approve ON {SQL_TABLE_PREFIX}msg (thread_id, approved);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_idx_tid_apr ON {SQL_TABLE_PREFIX}msg (thread_id, approved);
 CREATE INDEX {SQL_TABLE_PREFIX}msg_index_post_stamp ON {SQL_TABLE_PREFIX}msg (post_stamp);
-CREATE INDEX {SQL_TABLE_PREFIX}msg_index_poster_id_approve ON {SQL_TABLE_PREFIX}msg (poster_id, approved);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_idx_pid_apr ON {SQL_TABLE_PREFIX}msg (poster_id, approved);
 CREATE INDEX {SQL_TABLE_PREFIX}msg_index_approved ON {SQL_TABLE_PREFIX}msg (approved);
 CREATE INDEX {SQL_TABLE_PREFIX}msg_index_attach_cnt ON {SQL_TABLE_PREFIX}msg (attach_cnt);
 CREATE INDEX {SQL_TABLE_PREFIX}msg_index_poll_id ON {SQL_TABLE_PREFIX}msg (poll_id);
-CREATE INDEX {SQL_TABLE_PREFIX}msg_index_ip_addr_post_stamp ON {SQL_TABLE_PREFIX}msg (ip_addr, post_stamp);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_idx_ipa_ps ON {SQL_TABLE_PREFIX}msg (ip_addr, post_stamp);
 CREATE INDEX {SQL_TABLE_PREFIX}msg_index_subject ON {SQL_TABLE_PREFIX}msg (subject);
 CREATE INDEX {SQL_TABLE_PREFIX}msg_index_mlist_msg_id ON {SQL_TABLE_PREFIX}msg (mlist_msg_id);

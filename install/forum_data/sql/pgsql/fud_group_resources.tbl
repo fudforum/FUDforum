@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_group_resources.tbl,v 1.4 2003/05/09 14:29:37 hackie Exp $
+#   $Id: fud_group_resources.tbl,v 1.5 2003/07/17 18:44:26 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -16,5 +16,5 @@ CREATE TABLE {SQL_TABLE_PREFIX}group_resources
 	resource_id	INT NOT NULL
 );
 
-CREATE INDEX {SQL_TABLE_PREFIX}group_resources_index_group_id_resource_id ON {SQL_TABLE_PREFIX}group_resources (group_id, resource_id);
-CREATE INDEX {SQL_TABLE_PREFIX}group_resources_index_resource_id ON {SQL_TABLE_PREFIX}group_resources (resource_id);
+CREATE INDEX {SQL_TABLE_PREFIX}gr_idx_gid_rid ON {SQL_TABLE_PREFIX}group_resources (group_id, resource_id);
+CREATE INDEX {SQL_TABLE_PREFIX}gr_idx_rid ON {SQL_TABLE_PREFIX}group_resources (resource_id);
