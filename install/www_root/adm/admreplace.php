@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admreplace.php,v 1.11 2003/09/26 18:49:03 hackie Exp $
+*   $Id: admreplace.php,v 1.12 2003/10/03 19:10:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,8 +19,6 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-
 function clean_rgx()
 {
 	if (!$_POST['rpl_replace_opt']) {
@@ -34,16 +32,16 @@ function clean_rgx()
 	if (isset($_POST['btn_submit'])) {
 		clean_rgx();
 		if (!$_POST['rpl_replace_opt']) {
-			q('INSERT INTO '.$tbl.'replace (replace_opt, replace_str, with_str, from_post, to_msg) VALUES(0, \''.addslashes($_POST['rpl_replace_str']).'\', \''.addslashes($_POST['rpl_with_str']).'\', \''.addslashes($_POST['rpl_from_post']).'\', \''.addslashes($_POST['rpl_to_msg']).'\')');
+			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'replace (replace_opt, replace_str, with_str, from_post, to_msg) VALUES(0, \''.addslashes($_POST['rpl_replace_str']).'\', \''.addslashes($_POST['rpl_with_str']).'\', \''.addslashes($_POST['rpl_from_post']).'\', \''.addslashes($_POST['rpl_to_msg']).'\')');
 		} else {
-			q('INSERT INTO '.$tbl.'replace (replace_opt, replace_str, with_str) VALUES(1, \''.addslashes($_POST['rpl_replace_str']).'\', \''.addslashes($_POST['rpl_with_str']).'\')');
+			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'replace (replace_opt, replace_str, with_str) VALUES(1, \''.addslashes($_POST['rpl_replace_str']).'\', \''.addslashes($_POST['rpl_with_str']).'\')');
 		}
 	} else if (isset($_POST['btn_update'], $_POST['edit'])) {
 		clean_rgx();
 		if ($_POST['rpl_replace_opt']) {
 			$_POST['rpl_from_post'] = $_POST['rpl_to_msg'] = '';
 		}
-		q('UPDATE '.$tbl.'replace SET 
+		q('UPDATE '.$DBHOST_TBL_PREFIX.'replace SET 
 			rpl_replace_opt='.(int)$_POST['rpl_replace_opt'].',
 			replace_str=\''.addslashes($_POST['rpl_replace_str']).'\',
 			with_str=\''.addslashes($_POST['rpl_with_str']).'\',
@@ -53,10 +51,10 @@ function clean_rgx()
 	}
 
 	if (isset($_GET['del'])) {
-		q('DELETE FROM '.$tbl.'replace WHERE id='.(int)$_GET['del']);
+		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'replace WHERE id='.(int)$_GET['del']);
 	}
 	if (isset($_GET['edit'])) {
-		list($rpl_replace_opt, $rpl_replace_str, $rpl_with_str, $rpl_from_post, $rpl_to_msg) = db_saq('SELECT replace_opt,replace_str,with_str,from_post,to_msg FROM '.$tbl.'replace WHERE id='.(int)$_GET['edit']);
+		list($rpl_replace_opt, $rpl_replace_str, $rpl_with_str, $rpl_from_post, $rpl_to_msg) = db_saq('SELECT replace_opt,replace_str,with_str,from_post,to_msg FROM '.$DBHOST_TBL_PREFIX.'replace WHERE id='.(int)$_GET['edit']);
 		$edit = (int)$_GET['edit'];
 		if ($rpl_replace_opt) {
 			$rpl_replace_str = str_replace('\\/', '/', substr($rpl_replace_str, 1, -1));
@@ -71,7 +69,7 @@ function clean_rgx()
 		}
 	} else {
 		$edit = $rpl_replace_str = $rpl_with_str = $rpl_from_post = $rpl_to_msg = $rpl_from_post_opt = $rpl_preg_opt = '';
-		$rpl_type = isset($_POST['rpl_replace_opt']) ? (int) $_POST['rpl_replace_opt'] : 1;
+		$rpl_replace_opt = isset($_POST['rpl_replace_opt']) ? (int) $_POST['rpl_replace_opt'] : 1;
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
@@ -82,7 +80,7 @@ function clean_rgx()
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
 		<td>Replacement Type:</td>
-		<td><?php draw_select_ex('rpl_replace_opt', "Simple Replace\nPerl Regex (preg_replace)", "1\n0", $rpl_replace_opt, 'onChange="document.frm_rpl.submit();"'); ?></td>
+		<td><?php echo create_select('rpl_replace_opt', "Simple Replace\nPerl Regex (preg_replace)", "1\n0", ($rpl_replace_opt & 1), 'onChange="document.frm_rpl.submit();"'); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -210,7 +208,7 @@ function clean_rgx()
 	<td>Action</td>
 </tr>
 <?php
-	$c = uq('SELECT * FROM '.$tbl.'replace ORDER BY replace_opt');
+	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'replace ORDER BY replace_opt');
 	$i = 1;
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
