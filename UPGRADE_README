@@ -1,5 +1,5 @@
 /*
- * $Id: UPGRADE_README,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+ * $Id: UPGRADE_README,v 1.2 2002/07/31 14:42:03 hackie Exp $
  *
 */
 
@@ -25,10 +25,10 @@
 *********************************
 
 1) Checkout the latest release of the forum using the command below:
-	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum2 checkout fud2_upgrade
+	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum21 checkout fud21_upgrade
 
 2) Mark the files for edit by running:
-	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum2 edit fud2_upgrade
+	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum21 edit fud21_upgrade
 
 3) Enter the fud2_upgrade directory, which was created by the CVS and run ./create_file_list install >> upgrade.php
 	This requires your to have a php cgi binary installed, if it is not found inside /usr/local/bin/php
