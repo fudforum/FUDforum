@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.php.t,v 1.17 2003/10/02 03:46:19 hackie Exp $
+*   $Id: mvthread.php.t,v 1.18 2003/10/02 12:56:26 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -64,7 +64,7 @@
 			invl_inp_err();
 		}
 
-		if ((!$thr->mod1 && !($thr->gco & 8192)) || (!$thr->mod2 && !($thr->gco & 8192))) {
+		if ((!$thr->mod1 && !($thr->sgco & 8192)) || (!$thr->mod2 && !($thr->dgco & 8192))) {
 			std_error('access');
 		}
 
