@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.22 2003/05/05 18:08:42 hackie Exp $
+*   $Id: err.inc.t,v 1.23 2003/05/08 00:15:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,17 +21,18 @@ function error_dialog($title, $msg, $level='WARN', $ses=NULL)
 		$ses = (int) $GLOBALS['usr']->sid;
 	}
 
-	if (!strcasecmp($level, 'FATAL')) {
-		$error_msg = "[Error Level: $level] $title<br />\n";
-		$error_msg .= "[Message Sent to User] ".trim($msg)."<br />\n";
-		$error_msg .= "[User's IP] ".$_SERVER['REMOTE_ADDR']."<br />\n";
-		$error_msg .= "[Requested URL] http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."<br />\n";
-		if (isset($_SERVER['HTTP_REFERER'])) {
-			$error_msg .= "[Referring Page] ".$_SERVER['HTTP_REFERER']."<br />\n";
-		}
-		
-		error_log('['.gmdate("D M j G:i:s T Y", __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'fud_errors');
+	$error_msg = '[Error] '.$title.'<br />';
+	$error_msg .= '[Message Sent to User] '.trim($msg).'<br />';
+	$error_msg .= '[User IP] '.(isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 'unknown').'<br />';
+	$error_msg .= '[Requested URL] http://';
+	$error_msg .= isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['HTTP_HOST'] : '';
+	$error_msg .= isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+	$error_msg .= '<br />';
+
+	if (isset($_SERVER['HTTP_REFERER'])) {
+		$error_msg .= '[Referring Page] '.$_SERVER['HTTP_REFERER'].'<br />';
 	}
+	error_log('['.gmdate('D M j G:i:s T Y', __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'fud_errors');
 
 	ses_putvar($ses, array('er_msg' => $msg, 'err_t' => $title));
 
@@ -50,17 +51,17 @@ function std_error($type)
 	}
 
 	$err_array = array(
-'ERR_login'=>array('{TEMPLATE: ERR_login_ttl}', '{TEMPLATE: ERR_login_msg}', '{TEMPLATE: ERR_login_url}'),
-'ERR_disabled'=>array('{TEMPLATE: ERR_disabled_ttl}', '{TEMPLATE: ERR_disabled_msg}', '{TEMPLATE: ERR_disabled_url}'),
-'ERR_access'=>array('{TEMPLATE: ERR_access_ttl}', '{TEMPLATE: ERR_access_msg}', '{TEMPLATE: ERR_access_url}'),
-'ERR_registration_disabled'=>array('{TEMPLATE: ERR_registration_disabled_ttl}', '{TEMPLATE: ERR_registration_disabled_msg}', '{TEMPLATE: ERR_registration_disabled_url}'),
-'ERR_user'=>array('{TEMPLATE: ERR_user_ttl}', '{TEMPLATE: ERR_user_msg}', '{TEMPLATE: ERR_user_url}'),
-'ERR_systemerr'=>array('{TEMPLATE: ERR_systemerr_ttl}', '{TEMPLATE: ERR_systemerr_msg}', '{TEMPLATE: ERR_systemerr_url}')
+'ERR_login'=>array('{TEMPLATE: ERR_login_ttl}', '{TEMPLATE: ERR_login_msg}'),
+'ERR_disabled'=>array('{TEMPLATE: ERR_disabled_ttl}', '{TEMPLATE: ERR_disabled_msg}'),
+'ERR_access'=>array('{TEMPLATE: ERR_access_ttl}', '{TEMPLATE: ERR_access_msg}'),
+'ERR_registration_disabled'=>array('{TEMPLATE: ERR_registration_disabled_ttl}', '{TEMPLATE: ERR_registration_disabled_msg}'),
+'ERR_user'=>array('{TEMPLATE: ERR_user_ttl}', '{TEMPLATE: ERR_user_msg}',),
+'ERR_systemerr'=>array('{TEMPLATE: ERR_systemerr_ttl}', '{TEMPLATE: ERR_systemerr_msg}')
 );
 
 	$err = $err_array['ERR_'.$type];
 	if (is_array($err)) {
-		error_dialog($err[0], $err[1], $err[2]);
+		error_dialog($err[0], $err[1]);
 	} else {
 		error_dialog('{TEMPLATE: err_inc_criticaltitle}', '{TEMPLATE: err_inc_criticalmsg}');
 	}
