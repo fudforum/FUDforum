@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.15 2003/10/09 14:34:32 hackie Exp $
+* $Id: admsysinfo.php,v 1.16 2003/10/15 16:40:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -89,7 +89,7 @@ function get_server_software()
 			</tr>
 			<tr>
 				<td>Output Buffering:</td>
-				<td><?php echo get_php_setting('output_buffering'); ?></td>
+				<td><?php echo (is_numeric(ini_get('output_buffering')) ? 'Yes' : 'No'); ?></td>
 			</tr>
 			<tr>
 				<td>Disabled Functions:</td>

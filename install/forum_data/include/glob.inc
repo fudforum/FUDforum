@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: glob.inc,v 1.17 2003/10/09 14:34:25 hackie Exp $
+* $Id: glob.inc,v 1.18 2003/10/15 16:39:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -84,7 +84,7 @@ function change_global_settings($list)
 			if (is_int($v)) {
 				$settings = substr_replace($settings, "\t{$k}\t= {$v};\n", $p, 0);
 			} else {
-				$v = addcslashes($v, '\\"');
+				$v = addcslashes($v, '\\"$');
 				$settings = substr_replace($settings, "\t{$k}\t= \"{$v}\";\n", $p, 0);
 			}
 		} else {
@@ -94,7 +94,7 @@ function change_global_settings($list)
 			if (is_int($v)) {
 				$settings = substr_replace($settings, ' '.$v, $p, ($e - $p));
 			} else {
-				$v = addcslashes($v, '\\"');
+				$v = addcslashes($v, '\\"$');
 				$settings = substr_replace($settings, ' "'.$v.'"', $p, ($e - $p));
 			}
 		}
