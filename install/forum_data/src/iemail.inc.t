@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.37 2005/03/09 21:24:46 hackie Exp $
+* $Id: iemail.inc.t,v 1.38 2005/03/14 15:33:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,8 +55,21 @@ function send_email($from, $to, $subj, $body, $header='')
 		$body = str_replace("\n.", "\n..", $body);
 	}
 
+	/* special handling for multibyte languages */
+	if (!empty($GLOBALS['usr']->lang) && ($GLOBALS['usr']->lang == 'chinese' || $GLOBALS['usr']->lang == 'japanese') && extension_loaded('mbstring')) {
+		if ($GLOBALS['usr']->lang == 'japanese') {
+			mb_language('ja');
+		} else {
+			mb_language('uni');
+		}
+		mb_internal_encoding('UTF-8');
+		$mail_func = 'mb_send_mail';
+	} else {
+		$mail_func = 'mail';
+	}
+
 	foreach ((array)$to as $email) {
-		mail($email, $subj, $body, $header);
+		$mail_func($email, $subj, $body, $header);
 	}
 }
 ?>
