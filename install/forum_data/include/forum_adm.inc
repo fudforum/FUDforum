@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc,v 1.2 2003/04/24 18:19:58 hackie Exp $
+*   $Id: forum_adm.inc,v 1.3 2003/04/24 18:34:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,7 +36,7 @@ class fud_forum
 	
 		if (!db_locked()) {
 			$ll = 1;
-			db_lock($tbl.'forum WRITE, '.$tbl.'groups WRITE, '.$tbl.'group_resources WRITE, '.$tbl.'group_members WRITE, '.$tbl.'group_cache WRITE');
+			db_lock($tbl.'forum WRITE, '.$tbl.'groups WRITE, '.$tbl.'group_resources WRITE, '.$tbl.'group_members WRITE, '.$tbl.'group_resources gr WRITE, '.$tbl.'group_members gm WRITE,'.$tbl.'group_cache WRITE');
 		}
 
 		if ($pos == 'LAST') {
@@ -76,7 +76,7 @@ class fud_forum
 			".(int)$this->message_threshold."
 		)");
 
-		if (($gid = group_add($frm->id, $frm->name, 1))) {
+		if (($gid = group_add($this->id, $this->name, 1))) {
 			grp_rebuild_cache($gid);
 		}
 

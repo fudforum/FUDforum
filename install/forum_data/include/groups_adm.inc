@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups_adm.inc,v 1.1 2003/04/24 16:48:41 hackie Exp $
+*   $Id: groups_adm.inc,v 1.2 2003/04/24 18:34:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,50 +17,9 @@
 
 class fud_group
 {
-	var $id, $name, $permissions, $inherit_id, $joinmode, $res_id, $res;
+	var $id, $name, $permissions, $inherit_id, $joinmode;
 	
-	function add($res_id, $name, $add_gl=0, $perms='', $mk_res='', $inherit_id=0, $joinmode='NONE')
-	{
-		if (!$add_gl && !$perms) {
-			return;
-		}
 	
-		if (!db_locked()) {
-			$ll = 1;
-			db_lock('{SQL_TABLE_PREFIX}groups WRITE, {SQL_TABLE_PREFIX}group_resources WRITE, {SQL_TABLE_PREFIX}group_members WRITE, {SQL_TABLE_PREFIX}group_cache WRITE');
-		}
-
-		/* XXX: This can be done better, unfortunately MySQL does not support SELECT INSERT where the source &
-		 * destination tables are the same. So we are stuck doing all the work in PHP, because there is little to 
-		 * gain from writing a custom solution for each database type.
-		 */
-		
-		/* make group based on 'primary' 1st group */
-		$fld_lst = 'p_' . implode(',p_', $GLOBALS['__GROUPS_INC']['permlist']);
-		$r = db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=2');
-		if ($perms) {
-			$r = array_merge($r, $perms);
-		}
-		$vals = "'" . implode("', '", $r) . "'";
-
-		$gid = db_qid('INSERT INTO '.$tbl.'groups (name, inherit_id, joinmode, '.$fld_lst.') VALUES(\''.addslashes($name).'\', '.$inherit_id.', \''.$joinmode.'\', '.$vals.');
-		$rid = db_qid('INSERT INTO '.$tbl.'group_resources (group_id, resource_id) VALUES ('.$gid.','.$res_id.')');
-		if ($add_gl) {
-			$vals = "'" . implode("', '", db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=1')) . "'";
-			q('INSERT INTO '.$tbl.'group_members (group_id, user_id, '.str_replace('p_', 'up_', $fld_lst).') VALUES ('.$gid.', 0, '.$vals.')');
-			
-			$vals = "'" . implode("', '", db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=2')) . "'";
-			q('INSERT INTO '.$tbl.'group_members (group_id, user_id, '.str_replace('p_', 'up_', $fld_lst).') VALUES ('.$gid.', 2147483647, '.$vals.')');
-		}
-
-		if (isset($ll)) {
-			db_unlock();
-		}
-
-		$this->id = $gid;
-
-		return $gid;
-	}
 
 	function sync($id, $perms)
 	{
@@ -410,5 +369,47 @@ class fud_group
 	{
 		q("UPDATE {SQL_TABLE_PREFIX}groups SET name='$name' WHERE id=$this->id");
 	}
+}
+
+function group_add($res_id, $name, $add_gl=0, $perms='', $mk_res='', $inherit_id=0, $joinmode='NONE')
+{
+	if (!$add_gl && !$perms) {
+		return;
+	}
+
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
+	if (!db_locked()) {
+		$ll = 1;
+		db_lock($tbl.'groups WRITE, '.$tbl.'group_resources WRITE, '.$tbl.'group_members WRITE, '.$tbl.'group_cache WRITE');
+	}
+
+	/* XXX: This can be done better, unfortunately MySQL does not support SELECT INSERT where the source &
+	 * destination tables are the same. So we are stuck doing all the work in PHP, because there is little to 
+	 * gain from writing a custom solution for each database type.
+	 */
+		
+	/* make group based on 'primary' 1st group */
+	$fld_lst = implode(',', $GLOBALS['__GROUPS_INC']['permlist']);
+	$r = db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=2');
+	if ($perms) {
+		$r = array_merge($r, $perms);
+	}
+	$vals = "'" . implode("', '", $r) . "'";
+
+	$gid = db_qid('INSERT INTO '.$tbl.'groups (name, inherit_id, joinmode, '.$fld_lst.') VALUES(\''.addslashes($name).'\', '.$inherit_id.', \''.$joinmode.'\', '.$vals.')');
+	$rid = db_qid('INSERT INTO '.$tbl.'group_resources (group_id, resource_id) VALUES ('.$gid.','.$res_id.')');
+	if ($add_gl) {
+		$vals = "'" . implode("', '", db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=1')) . "'";
+		q('INSERT INTO '.$tbl.'group_members (group_id, user_id, '.str_replace('p_', 'up_', $fld_lst).') VALUES ('.$gid.', 0, '.$vals.')');
+			
+		$vals = "'" . implode("', '", db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=2')) . "'";
+		q('INSERT INTO '.$tbl.'group_members (group_id, user_id, '.str_replace('p_', 'up_', $fld_lst).') VALUES ('.$gid.', 2147483647, '.$vals.')');
+	}
+
+	if (isset($ll)) {
+		db_unlock();
+	}
+	return $gid;
 }
 ?>
