@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.41 2003/04/16 10:35:52 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.42 2003/04/16 14:16:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -357,15 +357,15 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 			$next_page = '{TEMPLATE: dmsg_no_next_msg_page}';
 		}
 
-		$delete_link = ($GLOBALS['MOD'] || $perms['p_del'] == 'Y') ? '{TEMPLATE: dmsg_delete_link}' : '';
+		$delete_link = $perms['p_del'] == 'Y' ? '{TEMPLATE: dmsg_delete_link}' : '';
 
-		if (($GLOBALS['MOD'] || $perms['p_edit'] == 'Y') || (_uid == $obj->poster_id && (!$GLOBALS['EDIT_TIME_LIMIT'] || __request_timestamp__ - $obj->post_stamp < $GLOBALS['EDIT_TIME_LIMIT'] * 60))) {
+		if ($perms['p_edit'] == 'Y' || (_uid == $obj->poster_id && (!$GLOBALS['EDIT_TIME_LIMIT'] || __request_timestamp__ - $obj->post_stamp < $GLOBALS['EDIT_TIME_LIMIT'] * 60))) {
 			$edit_link = '{TEMPLATE: dmsg_edit_link}';
 		} else {
 			$edit_link = '';
 		}
 
-		if ($obj->locked == 'N' || $GLOBALS['MOD'] || $perms['p_lock'] == 'Y') {
+		if ($obj->locked == 'N' || $perms['p_lock'] == 'Y') {
 			$reply_link = '{TEMPLATE: dmsg_reply_link}';
 			$quote_link = '{TEMPLATE: dmsg_quote_link}';
 		} else {

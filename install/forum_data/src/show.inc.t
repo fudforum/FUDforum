@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: show.inc.t,v 1.5 2003/04/14 18:49:51 hackie Exp $
+*   $Id: show.inc.t,v 1.6 2003/04/16 14:16:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,7 @@ if (_uid) {
 } else {
 	$unread_posts = '';
 }
-if ($th) {
+if (!$th) {
 	$unanswered_posts = '{TEMPLATE: unanswered_posts}';
 } else {
 	$unanswered_posts = '';
