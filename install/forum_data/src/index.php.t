@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.53 2004/01/04 16:38:26 hackie Exp $
+* $Id: index.php.t,v 1.54 2004/02/18 19:23:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -138,6 +138,10 @@ function url_tog_collapse($id, $c)
 			$cat = $r[8];
 		}
 
+		if (!empty($GLOBALS['collapse'][$r[8]])) {
+			continue;
+		}
+
 		if (!($r[19] & 2) && !($usr->users_opt & 1048576) && !$r[18]) { /* visible forum with no 'read' permission */
 			$forum_list_table_data .= '{TEMPLATE: forum_with_no_view_perms}';
 			continue;
@@ -150,10 +154,6 @@ function url_tog_collapse($id, $c)
 		/* code to determine the last post id for 'latest' forum message */
 		if ($r[11] > $last_msg_id) {
 			$last_msg_id = $r[11];
-		}
-
-		if (!empty($GLOBALS['collapse'][$r[8]])) {
-			continue;
 		}
 
 		$forum_icon = $r[9] ? '{TEMPLATE: forum_icon}' : '{TEMPLATE: no_forum_icon}';
