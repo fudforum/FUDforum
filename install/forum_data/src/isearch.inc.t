@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.39 2004/10/06 16:36:15 hackie Exp $
+* $Id: isearch.inc.t,v 1.40 2004/10/21 21:38:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,6 +47,11 @@ function mb_word_split($str)
 function text_to_worda($text)
 {
 	$a = array();
+
+	/* if no good locale, default to splitting by spaces */
+	if (!$GLOBALS['good_locale']) {
+		$GLOBALS['usr']->lang = 'latvian';
+	}
 
 	while (1) {
 		reverse_fmt($text);

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.133 2004/10/21 00:08:37 hackie Exp $
+* $Id: users.inc.t,v 1.134 2004/10/21 21:38:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -620,7 +620,7 @@ function init_user()
 		@putenv('TZ=' . $u->time_zone);
 	}
 	/* set locale */
-	setlocale(LC_ALL, $u->locale);
+	$GLOBALS['good_locale'] = setlocale(LC_ALL, $u->locale);
 
 	/* view format for threads & messages */
 	define('d_thread_view', $uo & 256 ? 'msg' : 'tree');
