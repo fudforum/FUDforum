@@ -189,7 +189,7 @@ views:				Просмотров
 vote:				Голосов: {VAR: thread->vote_count()}
 vote_button:			Проголосовать
 vote_for_thread:		Оценить
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> перенесено модератором в форум <a href="{ROOT}?t=thread&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> перенесено модератором в форум <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
 welcome_message:		Добро пожаловать, <b>{VAR: usr->alias}</b>, ваше последнее посещение форума: {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			показать кто чем занимается
 reported_del_report:		Удалить отчет
@@ -622,7 +622,7 @@ post_err_attach_filelimit:	<font class="ErrorText">Вы пытаетесь загрузить больше
 post_err_passwd:		Неверный пароль.
 post_reply_update:		Ответ на сообщение <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> в форуме {VAR-HTML: frm->name}
 post_edit_update:		Редактирование сообщение <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> в форуме {VAR-HTML: frm->name}
-post_topic_update:		Создание новой темы в форуме <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_topic_update:		Создание новой темы в форуме <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Произошла ошибка
 postcheck_max_images_err:	Пожалуйста сократите количество картинок в сообщении до максимально допустимого, которое составляет {GVAR: MAX_IMAGE_COUNT}
 postcheck_subj_needed:		Указание темы является обязательным

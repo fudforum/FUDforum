@@ -491,7 +491,7 @@ post_sticky:			Angeheftet
 post_thread_expiry:		Ablaufdatum des Themas:
 post_thread_type:		Art des Themas:
 post_title:			Titel:
-post_topic_update:		Erstellt neues Thema in <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_topic_update:		Erstellt neues Thema in <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_upload_file:		Datei hochladen
 postcheck_email_body:		Du kannst keine Email ohne Inhalt verschicken.
 postcheck_email_subject:	Du kannst keine Email ohne Betreff versenden.
@@ -856,7 +856,7 @@ views:				Aufrufe
 vote:				{VAR: thread->vote_count()} Stimmen
 vote_button:			Abstimmen
 vote_for_thread:		Abstimmen
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> ist vom Moderator nach <a href="{ROOT}?t=thread&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> verschoben worden
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> ist vom Moderator nach <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> verschoben worden
 welcome_message:		Willkommen <b>{VAR: usr->alias}</b>, Dein letzter Besuch war am {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			Anzeigen, was die Leute gerade machen
 writing_pm:			Eine private Message schreiben

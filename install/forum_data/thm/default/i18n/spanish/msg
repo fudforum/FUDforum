@@ -189,7 +189,7 @@ views:				Vistas
 vote:				{VAR: thread->vote_count()} Voto(s)
 vote_button:			Votar
 vote_for_thread:		Votar
-was_moved_msg:			<a href="{ROOT}?t={DEF: D_THREAD_VIEW}&amp;goto={VAR: obj->root_msg_id}&{DEF: _RSID}" class="GenLink">{VAR: obj->subject}</a> ha sido movido a <a href="{ROOT}?t=thread&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _RSID}" class="GenLink">{VAR: name}</a> por el moderador
+was_moved_msg:			<a href="{ROOT}?t={DEF: D_THREAD_VIEW}&amp;goto={VAR: obj->root_msg_id}&{DEF: _RSID}" class="GenLink">{VAR: obj->subject}</a> ha sido movido a <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _RSID}" class="GenLink">{VAR: name}</a> por el moderador
 welcome_message:		Bienvenido <b>{VAR: usr->alias}</b>, su última visita fue el {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			Mostrar lo que la gente está haciendo
 reported_del_report:		Borrar Reporte
@@ -622,7 +622,7 @@ post_err_attach_filelimit:	<font class="ErrorText">Ud esta tratando de subir más
 post_err_passwd:		Clave incorrecta.
 post_reply_update:		Respondiendo a <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> en {VAR-HTML: frm->name}
 post_edit_update:		Editando <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> en {VAR-HTML: frm->name}
-post_topic_update:		Escribiendo un nuevo tema en <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_topic_update:		Escribiendo un nuevo tema en <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Ud tiene un error
 postcheck_max_images_err:	Se permite un máximo de {GVAR: MAX_IMAGE_COUNT} imágenes por mensaje, por favor reduzca el número de imágenes
 postcheck_subj_needed:		Se requiere asunto

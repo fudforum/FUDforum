@@ -189,7 +189,7 @@ views:				µã»÷
 vote:				{VAR: thread->vote_count()} Í¶Æ±
 vote_button:			Í¶Æ±
 vote_for_thread:		µ÷²é
-was_moved_msg:			<a href="{ROOT}?t={DEF: D_THREAD_VIEW}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> ÒÑ¾­±»°æÖ÷ÒÆÖÁ<a href="{ROOT}?t=thread&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: D_THREAD_VIEW}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> ÒÑ¾­±»°æÖ÷ÒÆÖÁ<a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
 welcome_message:		»¶Ó­£¡ <b>{VAR: usr->alias}</b>, Äã×îºóÒ»´Î·ÃÎÊÊÇ {DATE: last_login %Y-%m-%d %H:%M}
 what_ppl_doing:			ÏÔÊ¾ä¯ÀÀÕßµÄ²Ù×÷
 reported_del_report:		É¾³ı±¨¸æ
@@ -621,7 +621,7 @@ post_err_attach_filelimit:	<font class="ErrorText">ÄãÕıÔÚÉÏ´«µÄÎÄ¼ş³¬¹ıÁËÏŞÖÆµÄÊ
 post_err_passwd:		ÃÜÂë´íÎó¡£
 post_reply_update:		»Ø¸´ <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> ÔÚ {VAR-HTML: frm->name}
 post_edit_update:		±à¼­<a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> ÔÚ {VAR-HTML: frm->name}
-post_topic_update:		·¢±íĞÂÖ÷Ìâ <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_topic_update:		·¢±íĞÂÖ÷Ìâ <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		·¢Éú´íÎó
 postcheck_max_images_err:	Ò»´ÎÌá½»Í¼Æ¬ÔÊĞíµÄ×î´óÊıÊÇ{GVAR: MAX_IMAGE_COUNT} £¬Çë¾¡Á¿¼õÉÙÍ¼Æ¬ÊıÁ¿¡£
 postcheck_subj_needed:		ÊäÈëÖ÷Ìâ

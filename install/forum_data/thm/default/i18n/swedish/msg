@@ -190,7 +190,7 @@ views:				Visningar
 vote:				{VAR: thread->vote_count()} r&ouml;ster
 vote_button:			R&ouml;sta
 vote_for_thread:		R&ouml;sta
-was_moved_msg:			Moderatorn har flyttat tr&aring;den <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> till forumet <a href="{ROOT}?t=thread&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			Moderatorn har flyttat tr&aring;den <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> till forumet <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
 welcome_message:		V&auml;lkommen <b>{VAR: usr->alias}</b>! Ditt senaste bes&ouml;k var {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			visa vad folk h&aring;ller p&aring; med
 reported_del_report:		Radera rapport
@@ -621,7 +621,7 @@ post_err_attach_filelimit:	<font class="ErrorText">Du f&ouml;rs&ouml;ker skicka 
 post_err_passwd:		Fel l&ouml;senord
 post_reply_update:		Svarar p&aring; <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> i {VAR-HTML: frm->name}
 post_edit_update:		Editerar <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> i {VAR-HTML: frm->name}
-post_topic_update:		Skriver ny tr&aring;d i <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_topic_update:		Skriver ny tr&aring;d i <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Ett fel har uppst&aring;tt
 postcheck_max_images_err:	Maximalt {GVAR: MAX_IMAGE_COUNT} bilder &auml;r till&aring;tna per inl&auml;gg, v&auml;nligen minska antalet bilder
 postcheck_subj_needed:		Rubrik obligatorisk

@@ -622,7 +622,7 @@ post_err_attach_filelimit:	<font class="ErrorText">You are trying to upload more
 post_err_passwd:		Incorrect password.
 post_reply_update:		Replying to <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_edit_update:		Editing <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
-post_topic_update:		Writing new topic in <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_topic_update:		Writing new topic in <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		You have an error
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} images are allowed per post, please decrease the number of images
 postcheck_subj_needed:		Subject required

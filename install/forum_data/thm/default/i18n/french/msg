@@ -188,7 +188,7 @@ views:                          Visites
 vote:                           {VAR: thread->vote_count()} Vote(s)
 vote_button:                    Voter
 vote_for_thread:                Vote
-was_moved_msg:                  <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> a été déplacé vers <a href="{ROOT}?t=thread&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> par le modérateur
+was_moved_msg:                  <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> a été déplacé vers <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> par le modérateur
 welcome_message:                Bienvenu <b>{VAR: usr->alias}</b>, votre dernière visite a eu lieu le {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:                 Montrer ce que autres sont en train de faire
 reported_del_report:            Détruire un report
@@ -621,7 +621,7 @@ post_err_attach_filelimit:      <font class="ErrorText">Vous avez atteint la lim
 post_err_passwd:                Mot de passe incorrect.
 post_reply_update:              Répondre à <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> dans {VAR: frm->name}
 post_edit_update:               Editer <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> dans {VAR: frm->name}
-post_topic_update:              Ecrire un nouveau sujet dans<a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+post_topic_update:              Ecrire un nouveau sujet dans<a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR: frm->name}</a>
 post_error_generic:             Vous avez rencontré une erreur
 postcheck_max_images_err:       Un maximum de {GVAR: MAX_IMAGE_COUNT} images est autorisé par message, veuillez réduire le nombre d&#39;images
 postcheck_subj_needed:          Le champ sujet est obligatoire
