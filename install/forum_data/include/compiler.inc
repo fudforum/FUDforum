@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.54 2004/01/30 02:02:27 hackie Exp $
+* $Id: compiler.inc,v 1.55 2004/02/12 03:50:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -332,7 +332,13 @@ function generate_file($php_file)
 				$ins[$k] .= str_replace(array(" ''.", ".'';", ".''"), array(' ', ';', ''), trim(substr($v['compiled'], $s, (strrpos($v['compiled'], '?>') - $s))));
 			}
 
-			$file_data = str_replace(array('/*{PRE_HTML_PHP}*/', '/*{POST_HTML_PHP}*/', '/*{POST_PAGE_PHP_CODE}*/'), array($ins[0], $ins['@'], $ins['!']), $file_data);
+			if (!ini_get("memory_limit")) {
+				$file_data = str_replace(array('/*{PRE_HTML_PHP}*/', '/*{POST_HTML_PHP}*/', '/*{POST_PAGE_PHP_CODE}*/'), array($ins[0], $ins['@'], $ins['!']), $file_data);
+			} else {
+				$file_data = str_replace('/*{PRE_HTML_PHP}*/', $ins[0], $file_data);
+				$file_data = str_replace('/*{POST_HTML_PHP}*/', $ins['@'], $file_data);
+				$file_data = str_replace('/*{POST_PAGE_PHP_CODE}*/', $ins['!'], $file_data);
+			}
 		}
 
 		$dir = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$GLOBALS['__COMPILER__']['tname'].'/';
