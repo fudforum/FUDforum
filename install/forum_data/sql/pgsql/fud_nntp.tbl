@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_nntp.tbl,v 1.2 2002/08/19 03:46:25 hackie Exp $
+#   $Id: fud_nntp.tbl,v 1.3 2002/08/19 03:48:28 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -10,7 +10,7 @@
 
 CREATE TABLE {SQL_TABLE_PREFIX}nntp
 (
-	id			SERIAL KEY,
+	id			SERIAL PRIMARY KEY,
 	forum_id		INT NOT NULL,
 	nntp_post_apr		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT		nntp_post_apr_cnt CHECK (nntp_post_apr='Y' OR nntp_post_apr='N'),
