@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.18 2002/10/24 07:04:37 hackie Exp $
+*   $Id: post.php.t,v 1.19 2002/11/18 16:04:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -205,7 +205,7 @@
 				if ( strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$HTTP_POST_VARS['file_del_opt'].'[/img]') ) 
 					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$HTTP_POST_VARS['file_del_opt'].'[/img]', '', $msg_body);
 					
-				if( !--$attach_count ) unset($attach_list);
+				$attach_count--;
 			}	
 			
 			if ( !empty($attach_control_size) ) {
@@ -355,10 +355,13 @@
 			}
 
 			/* write file attachments */
-			if( is_perms(_uid, $__RESOURCE_ID, 'FILE') && isset($attach_list) ) 
+			if (is_perms(_uid, $__RESOURCE_ID, 'FILE') && isset($attach_list)) {
 				fud_attach::finalize($attach_list, $msg_post->id);
+			}	
 			
-			if ( empty($msg_id) && ($frm->moderated == 'N' || $MOD) ) $msg_post->approve(NULL, TRUE);
+			if (empty($msg_id) && ($frm->moderated == 'N' || $MOD)) {
+				$msg_post->approve(NULL, TRUE);
+			}	
 	
 			/* deal with notifications */
 			$th_not = new fud_thread_notify;

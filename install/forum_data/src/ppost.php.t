@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.12 2002/10/25 00:02:20 hackie Exp $
+*   $Id: ppost.php.t,v 1.13 2002/11/18 16:04:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -190,8 +190,8 @@
 			/* Remove any reference to the image from the body to prevent broken images */
 			if ( strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$HTTP_POST_VARS['file_del_opt'].'&private=1[/img]') ) 
 				$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$HTTP_POST_VARS['file_del_opt'].'&private=1[/img]', '', $msg_body);
-					
-			if( !--$attach_count ) unset($attach_list);
+			
+			$attach_count--;
 		}	
 			
 		if ( !empty($attach_control_size) ) {
