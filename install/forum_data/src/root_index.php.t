@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: root_index.php.t,v 1.37 2004/04/25 20:58:40 hackie Exp $
+* $Id: root_index.php.t,v 1.38 2004/05/28 15:08:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,6 +49,5 @@
 		exit(__fud_banned__);
 	}
 
-	define('__index_page_start__', true);
 	require($WWW_ROOT_DISK . fud_theme . $t . '.php');
 ?>
