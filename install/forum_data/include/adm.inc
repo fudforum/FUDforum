@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: adm.inc,v 1.22 2003/10/09 14:34:25 hackie Exp $
+* $Id: adm.inc,v 1.23 2003/11/06 16:39:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -42,6 +42,4 @@ function errorify($err)
 {
 	return '<font color="red">'.$err.'</font><br />';
 }
-
-header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
 ?>
