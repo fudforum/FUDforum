@@ -16,7 +16,7 @@ custom_avatar_queue:		Coda di avatar personalizzati
 date:				Data
 date_posted:			Data del messaggio
 date_registered:		Data di registrazione:
-download_counter:		Scaricato {VAR: a_obj->dlcount} volte
+download_counter:		Scaricato {VAR: v[3]} volte
 email:				Email:
 email_to_friend:		Email ad un amico
 email_to_friend_desc:		Invia l&#39;indirizzo di questa pagina ai tuoi amici via email
@@ -94,14 +94,14 @@ no_unread_locked:		Questo topic è stato chiuso
 no_unread_msg:			Questo topic non ha messaggi non letti
 no_unread_msg_unreg:		I messaggi letti e non letti possono essere tenuti sotto controllo solo dagli utenti registrati
 num_pages:			Pagine ({VAR: ttl_pg}):
-num_votes:			{VAR: total_votes} voti
+num_votes:			{VAR: obj->total_votes} voti
 occupation:			Occupazione:
 off:				OFF
 on:				ON
 page_timings:			Tempo totale richiesto per generare la pagina: {VAR: page_gen_time} secondi
 pm:				Messaggistica Privata
 poll:				Sondaggio:
-post_count:			Numero di messaggi {VAR: u->posted_msg_count}
+post_count:			Numero di messaggi {VAR: u_pcount}
 post_count_l:			Numero di messaggi:
 poster:				Poster
 posts:				Messaggi
@@ -117,7 +117,7 @@ rating:				Giudizio
 refresh_list:			Aggiorna l&#39;elenco
 register:			Registrati
 registered:			Registrato:
-registered_on:			Registrato il {DATE: u->join_date %a, %d %B %Y}
+registered_on:			Registrato il {DATE: u_reg_date %a, %d %B %Y}
 replies:			Risposte
 report_to_mod:			Segnala il messaggio al moderatore
 reported_messages:		Messaggio segnalato
@@ -139,7 +139,7 @@ show_posts_by:			Mostra i messaggi di: {VAR-HTML: u->login}
 size:				Dimensione:
 started_on:			Aperto il 
 status:				Status:
-status_line:			Ci sono <b>{VAR: reg_u}</b> utenti, <b>{VAR: inv_u}</b> utenti invisibili e <b>{VAR: annon}</b> guest che frequentano questo forum.
+status_line:			Ci sono <b>{VAR: st_obj->online_users_reg}</b> utenti, <b>{VAR: st_obj->online_users_hidden}</b> utenti invisibili e <b>{VAR: st_obj->online_users_anon}</b> guest che frequentano questo forum.
 sticky:				topped:
 stop_ignoring:			smetti di ignorare questo utente
 sub_to_thread:			Iscriviti al topic
@@ -174,7 +174,7 @@ unsubscribe:			Cancella iscrizione
 unsubscribe_desc:		Smetti di ricevere notifiche dei nuovi topic in questo forum
 updated_on:			Aggiornato il :
 user:				Utente
-user_counter:			Abbiamo <b>{VAR: reg_users}</b> utenti registrati.
+user_counter:			Abbiamo <b>{VAR: st_obj->user_count}</b> utenti registrati.
 user_info:			Informazioni utente
 user_info_l:			Informazioni utente {VAR: user_info}
 user_offline:			{VAR: user_login}  è attualmente offline
@@ -184,10 +184,10 @@ view_forum:			Visualizza forum
 view_results:			Visualizza risultati
 view_thread:			Visualizza topic
 views:				View
-vote:				{VAR: thread->vote_count()} Voti
+vote:				{VAR: frm->n_rating} Voti
 vote_button:			Vota
 vote_for_thread:		Vota il topic
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> è stato spostato in <a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _rsid}" class="GenLink">{VAR: name}</a> dal moderatore
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> è stato spostato in <a href="{ROOT}?t=thread&frm_id={VAR: r[11]}&{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a> dal moderatore
 welcome_message:		Benvenuto <b>{VAR: usr->alias}</b>, l&#39;ultima volta sei stato con noi {DATE: usr->last_visit %A, %d %B %Y alle %H:%M}
 what_ppl_doing:			mostra quello che fa la gente
 reported_del_report:		Cancella report
@@ -209,7 +209,7 @@ list_referes_referrals:		Segnalazioni
 list_referes_members:		Utenti segnalati
 list_referes_member:		Utente
 referals_none:			Nessuna segnalazione.
-referals_refered_by:		Utenti del forum segnalati da: <b><a href="{ROOT}?t=usrinfo&id={VAR: r_id}&{DEF: _rsid}" class="th_lnk">{VAR: r_login}</a></b>
+referals_refered_by:		Utenti del forum segnalati da: <b><a href="{ROOT}?t=usrinfo&id={VAR: p_user[0]}&{DEF: _rsid}" class="th_lnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Numero di messaggi
 referals_registered_on:		Registrato 
 referals_action:		Azione
@@ -225,7 +225,7 @@ pmsg_selected:			Selezionato
 pmsg_delete:			Cancella
 cur_ppage_pm:			Messaggi personali
 writing_pm:			Scrivi un messaggio personale
-browsing_folder:		Sfoglia <b>{VAR: folder}</b> cartella
+browsing_folder:		Sfoglia <b>{VAR: folders[$folder_id]}</b> cartella
 inbox:				Posta ricevuta
 draft:				Bozze
 sent:				Posta inviata
@@ -263,7 +263,7 @@ finduser_joindate:		Data di registrazione
 finduser_action:		Azione
 yes:				Sì
 no:				No
-register_email:			Email:
+register_email			Email
 edit_time_limit:		<br><b>Tempo limite per la modifica</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuti
 no_edit_time_limit:		<br><b>Tempo limite per la modifica</b>: <b>illimitato</b>
 pmuserloc_login:		Login:
@@ -474,7 +474,7 @@ remail_message:			Testo:
 remail_send_now:		Spedisci email
 remail_anon_opt:		Copia questo messaggio in un programma di posta elettronica.
 remail_done:			Fatto
-remail_sent_conf:		L&#39;email {VAR: thread->subject} al tuo amico ({VAR: femail}) è stata spedita con successo.
+remail_sent_conf:		L&#39;email {{VAR: data->subject} al tuo amico ({VAR-HTML: _POST['femail']}) è stata spedita con successo.
 remail_continue:		Continua
 remail_error:			Hai un errore
 mklist_type:			Tipo:
@@ -590,7 +590,7 @@ msg_err_onlyreg_title:		Solo gli utenti registrati possono accedere a questo for
 msg_err_onlyreg_msg:		Per accedere a questo forum ti devi <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">registrare</a>; se sei già registrato, allora devi effettuare il <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">login</a>.
 msg_err_ininfo_title:		Informazioni non sufficienti
 msg_err_ininfo_msg:		C&#39;è stato un problema nella generazione di questa pagina
-msg_update:			Sfoglia il topic <a class="GenLink" href="{ROOT}?t=msg&th={VAR: thread->id}">{VAR: thread->subject}</a>
+msg_update:			Sfoglia il topic <a class="GenLink" href="{ROOT}?t=msg&th={VAR: frm->id}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERRORE: Messaggi personali disabilitati
 pm_err_nopm_msg:		Non puoi usare i messaggi personali, sono stati disabilitati dall&#39;amministratore.
 pm_update:			Legge/Scrive i messagi personali
@@ -631,8 +631,8 @@ postcheck_no_recepient:		Non è possibile inviare il messaggio, manca il destinat
 postcheck_invalid_email:	Inserisci un indirizzo email valido.
 postcheck_email_subject:	Non puoi spedire una email lasciando vuoto il campo Oggetto.
 postcheck_email_body:		Non puoi spedire una email lasciando vuoto il campo Testo.
-private_msg_notify_subj:	Leggi la notifica per il topic: {VAR: this->subject}
-private_msg_notify_body:	Ciao,<br>{VAR: GLOBALS["usr"]->login} ha letto il tuo messaggio personale, "{VAR: this->subject}", {DATE: track_msg->post_stamp %a, %d %B %Y %H:%M}<br>
+private_msg_notify_subj:	Leggi la notifica per il topic: {VAR: m->subject}
+private_msg_notify_body:	Ciao,<br>{VAR: usr->login} ha letto il tuo messaggio personale, "{VAR: m->subject}", {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
 referals_update:		Sfoglia i referral
 register_err_short_login:	Il login che hai scelto è troppo corto. Il login deve essere composto da almeno 4 caratteri
 register_err_login_notallowed:	Questo nome non è ammesso
@@ -648,9 +648,9 @@ register_err_notyouremail:	Qualcuno si è già registrato con questo indirizzo ema
 register_err_avatartobig:	Il file che stai cercando di spedite è troppo grande, oltre il limite di {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte 
 register_err_avatarnotallowed:	L&#39;avatar che stai cercando di spedire non è ammesso, controlla i tipi di file supportati.
 register_conf_subject:		Conferma della registrazione
-register_conf_msg:		Grazie per esserti registrato al forum di TGM Online,\nper attivare il tuo account vai alla pagina:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nUna volta che il tuo account sarà stato attivato, sarai autenticato e portato alla pagina principale del forum.
+register_conf_msg:		Grazie per esserti registrato al forum di TGM Online,\nper attivare il tuo account vai alla pagina:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUna volta che il tuo account sarà stato attivato, sarai autenticato e portato alla pagina principale del forum.
 register_welcome_subject:	Conferma della registrazione al forum
-register_welcome_msg:		Grazie per esserti registrato,\n\necco i dettagli per effettuare il login al forum:\n\nForum URL: {ROOT}?t=index\nLogin: {VAR: usr->login}\nPassword: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nRicordati che le password fanno distinzione tra MAIUSCOLE e minuscole!!\nPer modificare impostazioni e profilo utente, vai a questa pagina:\n{ROOT}?t=register\n
+register_welcome_msg:		Grazie per esserti registrato,\n\necco i dettagli per effettuare il login al forum:\n\nForum URL: {ROOT}?t=index\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nRicordati che le password fanno distinzione tra MAIUSCOLE e minuscole!!\nPer modificare impostazioni e profilo utente, vai a questa pagina:\n{ROOT}?t=register\n
 register_err_cantreg_title:	ERRORE: impossibile registrarsi
 regsiter_err_cantreg_msg:	Impossibile creare l&#39;account utente, contatta l&#39;amministratore all&#39;indirizzo <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Guarda il suo profilo
@@ -664,45 +664,45 @@ reset_err_invalidkey_msg:	Invalid password reset key
 reset_err_rstconf_title:	Informazioni
 reset_err_rstconf_msg:		Dovresti ricevere istruzioni nella tua casella di posta elettronica nel giro di pochi minuti
 reset_newpass_title:		Resetta la password
-reset_newpass_msg:		Ciao,\n\nCome da te richiesto, ti sta per essere inviato il tuo .\nQui di seguito trovi le informazioni per il login:\n\nLogin: {VAR: parr['usr']->login}\nPassword: {VAR: parr['passwd']}\n\nNota che la password è stata resettata con il valore che leggi qui sopra. Se desideri\nmodificarla puoi farlo utilizzando il pannello di controllo:\n{ROOT}?t=register\n\n
-reset_login_notify:		La tua password ti è stata inviata per posta elettronica. Dovresti riceverla entro pochi minuti. Controlla la tua casella di posta elettronica per i dati di login e password
+reset_newpass_msg:		Ciao,\n\nCome da te richiesto, ti sta per essere inviato il tuo .\nQui di seguito trovi le informazioni per il login:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nNota che la password è stata resettata con il valore che leggi qui sopra. Se desideri\nmodificarla puoi farlo utilizzando il pannello di controllo:\n{ROOT}?t=register\n\n
+reset_login_notify:		La tua password ti è stata inviata per posta elettronica. Dovresti riceverla entro pochi minuti. Controlla la tua casella di posta elettronica per i dati di login e password.<br>
 search_update:			Cerca nei topic
 selmsg_update:			Sfoglia <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Messaggi odierni</a>
-showposts_update:		Visualizza messaggi per: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR-HTML: u->login}</a>
+showposts_update:		Visualizza messaggi per: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: uid}">{VAR-HTML: u->login}</a>
 subscribed_update:		Sfoglia le proprie sottoscrizioni
 th_err_invid_title:		Topic non valido
 th_err_invid_msg:		Hai seguito un link non valido; il topic che stai cercando di aprire non esiste
 thread_err_onlyregview_title:	Solo gli utenti registrati possono vedere il contenuto di questo forum
 thread_err_onlyregview_msg:	Per poter accedere a questo forum ti devi <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">registrare</a>; se sei già registrato devi effettuare il <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">login</a>.
 thread_update:			Legge il forum <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
-tree_update:			Legge il topic (vista ad albero) <a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
+tree_update:			Legge il topic (vista ad albero) <a class="GenLink" href="{ROOT}?t=tree&th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Guarda il profilo di <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
 ERR_login_ttl:			ERRORE: non ti sei autenticato
 ERR_login_msg:			Non sei autenticato.<br><br>Se desideri registrarti vai alla <a href="{ROOT}?t=register&{DEF: _rsid}">pagina di registrazione</a><br>Se desideri autenticarti vai alla <a href="{ROOT}?t=login&{DEF: _rsid}">pagina di login</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		Opzione non attiva
 ERR_disabled_msg:		Questa opzione è stata disabilitata dall&#39;amministratore
-ERR_disabled_url:		{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			ERRORE: permessi non sufficienti
 ERR_access_msg:			Non disponi dei permessi necessari per eseguire questa azione
-ERR_access_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registrazione non attiva
 ERR_registration_disabled_msg:	L&#39;amministratore ha disabilitato la registrazione, riprova più tardi
 ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
 ERR_emailconf_ttl:		ERRORE: Il tuo account non è stato confermato
-ERR_emailconf_msg:		Non hai ancora confermato il tuo account via email<br><table border=0><tr><td><ol><li>Se non hai ricevuto una email di conferma <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">clicca qui<li>Se {VAR: GLOBALS['usr']->email} non è il tuo indirizzo di posta elettronica <a href="{ROOT}?t=register&{DEF: _rsid}">clicca qui</a></ol></td></tr></table>
+ERR_emailconf_msg:		Non hai ancora confermato il tuo account via email<br><table border=0><tr><td><ol><li>Se non hai ricevuto una email di conferma <a href="{ROOT}?t=reset&email={VAR: usr_d->email}&{DEF: _rsid}">clicca qui<li>Se {VAR: usr_d->email} non è il tuo indirizzo di posta elettronica <a href="{ROOT}?t=register&{DEF: _rsid}">clicca qui</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			ERRORE: Nessun utente
 ERR_user_msg:			Non esiste questo utente
-ERR_user_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		ERRORE: Errore di sistema
 ERR_systemerr_msg:		Se è verificato un errore di sistema, per cortesia segnalalo all&#39;<a href="mailto:{GVAR: ADMIN_EMAIL}">amministratore</a>.
-ERR_systemerr_url:		{GVAR: returnto_d}
+ERR_systemerr_url:		
 email_title:			Email
 finduser_title:			Trova utenti
 help_title:			F.A.Q.
 login_title:			Pagina di login
-msg_title:			{VAR: frm->name} => {VAR: thread->subject}
+msg_title:			{VAR: frm->name} => {VAR: frm->subject}
 poll_title:			Editor di sondaggi
 register_title:			Pagina di registrazione
 reset_title:			Resetta password
@@ -711,9 +711,9 @@ error_title:			Pagina di errore
 index_title:			Benvenuto nel forum di TGM Online!
 search_title:			Ricerca {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
-tree_title:			{VAR: frm->name} => {VAR: thread->subject}
+tree_title:			{VAR: frm->name} => {VAR: frm->subject}
 remail_emailsent:		L&#39;email è stata spedita
-remail_email:			C&#39;è una pagina nel forum {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) che ti potrebbe interessare.\nEcco il topic che credo ti interessi, {VAR: thread->subject}: {ROOT}?t={VAR: def_thread_view}&th={VAR: thread->id}&{DEF: _rsid}\nDa {VAR: u}\n
+remail_email:			C&#39;è una pagina nel forum {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) che ti potrebbe interessare.\nEcco il topic che credo ti interessi, {VAR: data->subject}: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\nDa {VAR: usr->alias}\n
 poll_add_option:		Aggiungi risposta:
 post_opt_html_on:		L&#39;<b>HTML</b> è <b>ON</b>
 post_opt_fud_on:		<b><a href="{ROOT}?t=help_index&sect=readingposting&{DEF: _rsid}#style" target=_new>FUDcode</b> è <b>ON</a></b>
@@ -741,9 +741,9 @@ thr_exch_decline:		rifiuta il topic
 thr_exch_orig_forum:		Forum di partenza:
 thr_exch_dest_forum:		Forum di destinazione:
 thr_exch_no_threads:		Non ci sono topic in attesa di approvazione.
-thr_exch_decl_reason:		Motivazione per il rifiuto dell&#39;inserimento del topic <b>{VAR: thr_name}</b> nel forum <b>{VAR: frm->name}</b>
+thr_exch_decl_reason:		Motivazione per il rifiuto dell&#39;inserimento del topic <b>{VAR-HTML: frm->name}</b> nel forum <b>{VAR: frm->name}</b>
 thr_exch_submit:		Invia
-exch_decline_ttl:		La richiesta di spostamento del topic {VAR: thr_name} nel forum {VAR: frm->name} è stata rifiutata.
+exch_decline_ttl:		La richiesta di spostamento del topic {VAR: data->subject} nel forum {VAR: frm->name} è stata rifiutata.
 ppost_original_msg:		messaggio che stai inoltrando a
 split_thread:			Spezza il Topic
 groupmgr_no_user:		Non esiste utente con login "{VAR-HTML: gr_member}"
@@ -850,10 +850,10 @@ register_jabber:		Jabber Handle:
 im_jabber:			Jabber: 
 forum_contact:			Contatti
 forum_home:			Home
-post_cur_attached:		allegati {VAR: attach_count} file 
+post_cur_attached:		allegati {VAR: i} file 
 ppost_cur_attached:		allegati {VAR: attach_count} file
-ignored_anon_post:		{VAR: user_login} è ignorato
-ignored_user_post:		Il messaggio di <a href="{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> viene ignorato
+ignored_anon_post:		{GVAR: ANON_NICK} è ignorato
+ignored_user_post:		Il messaggio di <a href="{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> viene ignorato
 smladd_close_window:		chiudi finestra
 post_list_smilies:		mostra tutti gli smiley
 p_VISIBLE:			Visibile
@@ -888,7 +888,7 @@ search_sorting:			Mostra i risultati per data, in:
 post_proceed:			Procedi
 post_moderated_forum:		Hai scritto un messaggio in un forum moderato, il che vuol dire che il tuo messaggio non sarà reso pubblico fino a quando uno dei moderatori non l&#39;avrà approvato.
 post_moderated_forum_ttl:	Avviso: forum moderato
-buddy_list_bday:		Oggi {VAR: obj->login} compie {VAR: age} anni!!! AUGURI!!!
+buddy_list_bday:		Oggi {VAR: r[2]} compie {VAR: age} anni!!! AUGURI!!!
 fud_query_stats:		Le query MySQL hanno richiesto {VAR: ttl_time} secondi<br>
 pmsg_recepient:			Destinatario
 register_err_taken_alias:	Username già utilizzato

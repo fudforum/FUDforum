@@ -16,7 +16,7 @@ custom_avatar_queue:		Zátup ikon u¾ivatelù
 date:				Datum
 date_posted:			Pøidáno
 date_registered:		Registrován:
-download_counter:		Sta¾eno {VAR: a_obj->dlcount} krát
+download_counter:		Sta¾eno {VAR: v[3]} krát
 email:				Email:
 email_to_friend:		Poslat email pøíteli
 email_to_friend_desc:		Poslat pøíteli URL na tuto stránku emailem
@@ -94,7 +94,7 @@ no_unread_locked:		Toto téma bylo zamèeno
 no_unread_msg:			®ádné nepøeètené zprávy k tomuto tématu
 no_unread_msg_unreg:		Pøeètené i nepøeètené zprávy jsou k nahlédnutí jen pro registrované u¾ivatele
 num_pages:			Stránek ({VAR: ttl_pg}):
-num_votes:			{VAR: total_votes} hlasù
+num_votes:			{VAR: obj->total_votes} hlasù
 occupation:			Obsazení:
 off:				Vypnuto
 on:				Zapnuto
@@ -102,7 +102,7 @@ page_timings:			Celkový èas potøebný k vygenerování této stránky: {VAR: page_gen
 fud_query_stats:		MySQL dotazy zabraly {VAR: ttl_time} vteøin<br>
 pm:				Po¹ta
 poll:				Anketa:
-post_count:			Poèet pøíspìvkù {VAR: u->posted_msg_count}
+post_count:			Poèet pøíspìvkù {VAR: u_pcount}
 post_count_l:			Poèet pøíspìvkù:
 poster:				Odesilatel
 posts:				Pøíspìvky
@@ -118,7 +118,7 @@ rating:				Hodnocení
 refresh_list:			Aktualizovat seznam
 register:			Registrovat
 registered:			Registerace:
-registered_on:			Registerován(a) {DATE: u->join_date %a, %d %B %Y}
+registered_on:			Registerován(a) {DATE: u_reg_date %a, %d %B %Y}
 replies:			Reakce
 report_to_mod:			Pøednést pøíspìvek moderátorovi
 reported_messages:		Pøednesené pøíspìvky
@@ -136,11 +136,11 @@ send_pm_desc:			Odeslat po¹tu tomuto u¾ivateli
 sender_email:			Email odesílatele:
 sender_name:			Jméno odesílatele:
 show_all_posts:			Zobrazit v¹echny pøíspìvky od {VAR: user_login}
-show_posts_by:			Zobrazit pøíspìvky od: {VAR: u->alias}
+show_posts_by:			Zobrazit pøíspìvky od: {VAR: u_alias}
 size:				Velikost:
 started_on:			Zaèátek v
 status:				Stav:
-status_line:			<b>{VAR: reg_u}</b> èlenù, <b>{VAR: inv_u}</b> skrytých èlenù a <b>{VAR: annon}</b> hostù v tomto klubu.
+status_line:			<b>{VAR: st_obj->online_users_reg}</b> èlenù, <b>{VAR: st_obj->online_users_hidden}</b> skrytých èlenù a <b>{VAR: st_obj->online_users_anon}</b> hostù v tomto klubu.
 sticky:				vývìska:
 stop_ignoring:			pøestat ignorovat tohoto u¾ivatele
 sub_to_thread:			Odebírat téma
@@ -175,7 +175,7 @@ unsubscribe:			Zru¹it odebírání
 unsubscribe_desc:		Zastavit odebírání oznámení o nových tématech v tomto fóru
 updated_on:			Aktualizováno:
 user:				U¾ivatel
-user_counter:			<b>{VAR: reg_users}</b> registrovaných u¾ivatelù.
+user_counter:			<b>{VAR: st_obj->user_count}</b> registrovaných u¾ivatelù.
 user_info:			Informace o u¾ivateli
 user_info_l:			Inforace o u¾ivateli {VAR: u->alias}
 user_offline:			{VAR: obj->login} je nyní offline
@@ -185,10 +185,10 @@ view_forum:			Zobraz fórum
 view_results:			Zobraz výsledky
 view_thread:			Zobraz téma
 views:				Zobrazení
-vote:				{VAR: thread->vote_count()} hlasù
+vote:				{VAR: frm->n_rating} hlasù
 vote_button:			Hlasovat
 vote_for_thread:		Hlasovat
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> byla pøemístìna do <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> moderátorem
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> byla pøemístìna do <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a> moderátorem
 welcome_message:		Vítejte <b>{VAR: usr->alias}</b>, tvoje poslední náv¹tìva byla v {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			uka¾, co dìlají ostatní
 reported_del_report:		Zpráva o smazání
@@ -210,7 +210,7 @@ list_referes_referrals:		Pøivedení
 list_referes_members:		Pøivedení èlenové
 list_referes_member:		Èlen
 referals_none:			Zatím jste do fóra nepøivedl ¾ádné lidi.
-referals_refered_by:		Èlenové fóra pøivedení od <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="thLnk">{VAR: r_login}</a></b>
+referals_refered_by:		Èlenové fóra pøivedení od <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Poèet pøíspìvkù
 referals_registered_on:		Registrace
 referals_action:		Akce
@@ -226,7 +226,7 @@ pmsg_selected:			Vybráno
 pmsg_delete:			Smazat
 cur_ppage_pm:			Po¹ta
 writing_pm:			Pí¹ete po¹tu
-browsing_folder:		Prohlí¾íte si slo¾ku <b>{VAR: folder}</b>
+browsing_folder:		Prohlí¾íte si slo¾ku <b>{VAR: folders[$folder_id]}</b>
 inbox:				Doruèené
 draft:				Rozepsané
 sent:				Odeslané
@@ -266,7 +266,7 @@ finduser_joindate:		Registrace
 finduser_action:		Akce
 yes:				Ano
 no:				Ne
-register_email:			Email:
+register_email			Email
 edit_time_limit:		<br><b>Èasový limit na editaci</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
 no_edit_time_limit:		<br><b>Èasový limit na editaci</b>: <b>Neomezen</b>
 pmuserloc_login:		U¾ivatelské jméno:
@@ -477,7 +477,7 @@ remail_message:			Zpráva:
 remail_send_now:		Odeslat email
 remail_anon_opt:		Zkopírovat zprávu do va¹eho emaulového klienta k odeslání.
 remail_done:			Hotovo
-remail_sent_conf:		Email pro {VAR: femail} ohlednì {VAR: thread->subject} byl úspì¹nì odeslán.
+remail_sent_conf:		Email pro {VAR-HTML: _POST['femail']} ohlednì {{VAR: data->subject} byl úspì¹nì odeslán.
 remail_continue:		Popkraèovat
 remail_error:			Máte chybu
 mklist_type:			Typ:
@@ -502,7 +502,7 @@ email_pg_title:			Email
 email_subject:			napis:
 email_body:			Obsah:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_r->login} napsáno {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} napsáno {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Citace:
 ppost_to:			Pro:
 ppost_from_buddy_list:		Vybrat ze seznamu pøátel
@@ -594,7 +594,7 @@ msg_err_onlyreg_title:		Jen registrovaní u¾ivatelé mohou nahlí¾et do tohoto fóra
 msg_err_onlyreg_msg:		Pokud chcete nahlédnout do tohoto fóra, musíte se <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">zaregistrovat</a>. Pokud jste ji¾ zaregistrován(a), musíte se <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">pøihlásit</a>.
 msg_err_ininfo_title:		Nedostatek informací
 msg_err_ininfo_msg:		Pøi generování této stránky se vyskytl problém
-msg_update:			Prohlí¾íte si téma <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a>
+msg_update:			Prohlí¾íte si téma <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		CHYBA: Po¹ta je vypnutá
 pm_err_nopm_msg:		Nemù¾ete pou¾ít po¹tovní systém, byl vypnut administrátorem.
 pm_update:			Pou¾íváte po¹tu
@@ -611,9 +611,9 @@ post_err_notowner_msg:		Nejste vlastník této zprávy
 post_err_edttimelimit_title:	CHYBA
 post_err_edttimelimit_msg:	Ji¾ nemù¾ete mìnit tuto zprávu
 post_err_noannontopics_title:	CHYBA: Nedostateèné pravomoce
-post_err_noannontopics_msg:	Anonymní u¾ivatelé nemají právo vytváøet nová témata<br><br>Pokud se chcete zaregistrovat, jdìte na <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, prosím, jdìte na <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">pøihla¹ovací formuláø</a>
+post_err_noannontopics_msg:	Anonymní u¾ivatelé nemají právo vytváøet nová témata<br><br>Pokud se chcete zaregistrovat, jdìte na <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, prosím, jdìte na <a href="{ROOT}?t=login&amp;{DEF: _rsid}">pøihla¹ovací formuláø</a>
 post_err_noannonposts_title:	CHYBA: Nedostateèné pravomoce
-post_err_noannonposts_msg:	Anonymní u¾ivatelé nemají právo odpovídat<br><br>Pokud se chcete zaregistrovat, jdìte na <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, prosím, jdìte na <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">pøihla¹ovací formuláø</a>
+post_err_noannonposts_msg:	Anonymní u¾ivatelé nemají právo odpovídat<br><br>Pokud se chcete zaregistrovat, jdìte na <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, prosím, jdìte na <a href="{ROOT}?t=login&amp;{DEF: _rsid}">pøihla¹ovací formuláø</a>
 post_err_noreplying_title:	CHYBA: Odpovìï není povolena
 post_err_noreplying_msg:	Nemù¾ete zasílat odpovìdi na toto téma, proto¾e to je buï oznámení nebo vývìska, na kteru moderátor zakázal odpovìdi.
 post_err_floodtrig_title:	CHYBA: Pøíli¹ mnoho pøíspìvkù na systém.
@@ -635,8 +635,8 @@ postcheck_no_recepient:		Nemohu poslat zprávu, chybí pøíjemce
 postcheck_invalid_email:	Prosím, zadejte platnou emailovou adresu pøíjemce.
 postcheck_email_subject:	Nemù¾ete poslat email bez nadpisu.
 postcheck_email_body:		Nemù¾ete poslat email bez obsahu.
-private_msg_notify_subj:	Pøeèíst oznámení pro: {VAR: this->subject}
-private_msg_notify_body:	Dobrý den,<br>{VAR: GLOBALS["usr"]->login} si pøeèetl(a) zprávu, "{VAR: this->subject}", v {DATE: track_msg->post_stamp %a, %d %B %Y %H:%M}<br>
+private_msg_notify_subj:	Pøeèíst oznámení pro: {VAR: m->subject}
+private_msg_notify_body:	Dobrý den,<br>{VAR: usr->login} si pøeèetl(a) zprávu, "{VAR: m->subject}", v {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
 referals_update:		Prohlí¾íte si pøivedené lidi
 register_err_short_login:	U¾ivatelské jméno je pøíli¹ krátké. Musí mít alespoò 4 znaky
 register_err_login_notallowed:	Toto u¾ivatelské jméno není povoleno
@@ -652,9 +652,9 @@ register_err_notyouremail:	Nìkdo u¾ je zaregistrován s tímto emailem, a vy to NE
 register_err_avatartobig:	Soubor, který se sna¾íte nahrát je pøíli¹ velký, limit je {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytù
 register_err_avatarnotallowed:	Ikona u¾ivatele, kterou se sna¾íte nahrát není povolena. Prohlédnìte si seznam povolených typù.
 register_conf_subject:		Potvrzení registrace
-register_conf_msg:		Dìkujeme za va¹i registraci,\npro aktivaci va¹eho úètu, prosím, pøejdìte na následující URL:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nPokud je vá¹ ú¹et ji¾ aktivován, budete pøihlá¹eni do fóra a\npøesmìrováni na hlavní stránku fóra.
+register_conf_msg:		Dìkujeme za va¹i registraci,\npro aktivaci va¹eho úètu, prosím, pøejdìte na následující URL:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPokud je vá¹ ú¹et ji¾ aktivován, budete pøihlá¹eni do fóra a\npøesmìrováni na hlavní stránku fóra.
 register_welcome_subject:	Potvrzení registrace do fóra
-register_welcome_msg:		Dìkujeme za va¹i registraci,\n\nzde jsou údaje nutné k pøihlá¹ení k fóru:\n\nAdresa fóra: {ROOT}?t=index\nU¾ivatelské jméno: {VAR: usr->login}\nHeslo: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nPamatujte, prosím, ¾e jeslo je citlivé na velikost znakù!\nPro zmìnu va¹ich nastavení nebo profilu pøejdìte sem:\n{ROOT}?t=register\n
+register_welcome_msg:		Dìkujeme za va¹i registraci,\n\nzde jsou údaje nutné k pøihlá¹ení k fóru:\n\nAdresa fóra: {ROOT}?t=index\nU¾ivatelské jméno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamatujte, prosím, ¾e jeslo je citlivé na velikost znakù!\nPro zmìnu va¹ich nastavení nebo profilu pøejdìte sem:\n{ROOT}?t=register\n
 register_err_cantreg_title:	CHYBA: nelze vás zaregistrovat
 regsiter_err_cantreg_msg:	Není mo¾né vytvoøit u¾ivatelský úèet, prosím, kontaktujte administrátora na <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Prohlí¾íte si vlastní profil
@@ -668,45 +668,45 @@ reset_err_invalidkey_msg:	Chybný klíè k vynulování hesla
 reset_err_rstconf_title:	Informace
 reset_err_rstconf_msg:		Bìhem pár minut by jste mìl(a) dostat pokyny emailem
 reset_newpass_title:		Vynulování hesla
-reset_newpass_msg:		Dobrý den,\n\nna základì va¹eho po¾adavku jsou vám zasílány pøihla¹ovací informace.\n\nU¾ivatelské jméno: {VAR: parr['usr']->login}\nHeslo: {VAR: parr['passwd']}\n\nProsím, uva¾te, ¾e va¹e heslo by nastaveno na vý¹e uvedený údaj. Pokud chcete\nzmìnit své heslo, mù¾ete tak uèinit pøes nastavení va¹eho úètu na:\n{ROOT}?t=register\n\n
-reset_login_notify:		Va¹e heslo vám bylo zasláno emailem. Mìl(a) by jste ho dostat bìhem nìkolika minut. Prosím, zkontrolujte si svou emailovou schránku
+reset_newpass_msg:		Dobrý den,\n\nna základì va¹eho po¾adavku jsou vám zasílány pøihla¹ovací informace.\n\nU¾ivatelské jméno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím, uva¾te, ¾e va¹e heslo by nastaveno na vý¹e uvedený údaj. Pokud chcete\nzmìnit své heslo, mù¾ete tak uèinit pøes nastavení va¹eho úètu na:\n{ROOT}?t=register\n\n
+reset_login_notify:		Va¹e heslo vám bylo zasláno emailem. Mìl(a) by jste ho dostat bìhem nìkolika minut. Prosím, zkontrolujte si svou emailovou schránku.<br>
 search_update:			Hledáte pøíspìvky
 selmsg_update:			Prohlí¾íte si <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">dne¹ní pøíspìvky</a>
-showposts_update:		Prohlí¾íte si pøíspìvek od: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>
+showposts_update:		Prohlí¾íte si pøíspìvek od: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
 subscribed_update:		Prohlí¾íte si odebíraná témata a fóra
 th_err_invid_title:		Chybné ID tématu
 th_err_invid_msg:		Následoval(a) jste chybný odkaz, toto téma neexistuje.
 thread_err_onlyregview_title:	Jen registrovaní u¾ivatelé mohou nahlí¾et do tohoto fóra
 thread_err_onlyregview_msg:	Aby jste mohl(a) nahlí¾et do tohoto fóra, musíte se <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">zaregistrovat</a>. Pokud jste ji¾ zaregistrován(a), musíte se <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">pøihlásit</a>.
 thread_update:			Prohlí¾íte si fórum <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			Prohlí¾íte si téma (ve stromovém zobrazení) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&amp;{DEF: _rsid}">{VAR: thread->subject}</a>
+tree_update:			Prohlí¾íte si téma (ve stromovém zobrazení) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Prohlí¾íte si profil u¾ivatele <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>
 ERR_login_ttl:			CHYBA: Nejste pøihlá¹en(a)
 ERR_login_msg:			Nejste pøihlá¹ena(a), udìlejte tak<br><br>Pokud se chcete zaregistrovat jdìte na <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, jdìte na<a href="{ROOT}?t=login&amp;{DEF: _rsid}">pøihla¹ovací formuláø</a>
 ERR_login_url:			{ROOT}?t=login&amp;{DEF: _rsid}
 ERR_disabled_ttl:		Vypnutá vlastnost
 ERR_disabled_msg:		Tato vlastnost byla vypnuta administrátorem
-ERR_disabled_url:		{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			CHYBA: Nedostateèné pravomoci
 ERR_access_msg:			Nemáte dostateèné pravomoci na provedení této akce
-ERR_access_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registrace vypnuta
 ERR_registration_disabled_msg:	Administrátor vypnul registraci, prosím, zkuste to pozdìji
 ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		CHYBA: Vá¹ úèet je¹tì není potvrzen
-ERR_emailconf_msg:		Je¹tì jste nepotvrdil(a) svùj úèet pøes email<br><table border=0><tr><td><ol><li>Pokud jste je¹tì nedostal(a) potvrzující email <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&amp;{DEF: _rsid}">kliknìte zde</a><li>Pokud {VAR: GLOBALS['usr']->email} není va¹e správná emailová adresa <a href="{ROOT}?t=register&amp;{DEF: _rsid}">kliknìte zde</a></ol></td></tr></table>
+ERR_emailconf_msg:		Je¹tì jste nepotvrdil(a) svùj úèet pøes email<br><table border=0><tr><td><ol><li>Pokud jste je¹tì nedostal(a) potvrzující email <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">kliknìte zde</a><li>Pokud {VAR: usr_d->email} není va¹e správná emailová adresa <a href="{ROOT}?t=register&amp;{DEF: _rsid}">kliknìte zde</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			CHYBA: ®ádný takový u¾ivatel není
 ERR_user_msg:			®ádný takový u¾ivatel není
-ERR_user_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		CHYBA: Systémová chyba
 ERR_systemerr_msg:		Objevila se chyba v systému, prosím, nahla¹te to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterovi</a>.
-ERR_systemerr_url:		{GVAR: returnto_d}
+ERR_systemerr_url:		
 email_title:			Emailový formuláø
 finduser_title:			Hledání u¾ivatele
 help_title:			Nápovìda
 login_title:			Pøihla¹ovací formuláø
-msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 poll_title:			Editor anket
 register_title:			Registraèní formuláø
 reset_title:			Vynulovat heslo
@@ -715,9 +715,9 @@ error_title:			Formuláø na hlá¹ení chyb
 index_title:			Vítejte ve fóru
 search_title:			Hledat {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Email byl odeslán
-remail_email:			Ahoj,\n\nzde je zajímavé téma o "{VAR: thread->subject}" na fóru {GVAR: FORUM_TITLE}, které by sis mohl(a) chtít pøeèíst. Téma mù¾e¹ vidìt na:\n {ROOT}?t={VAR: def_thread_view}&amp;th={VAR: thread->id}&amp;{DEF: _rsid}\n\n Tvùj pøítel,\n\n{VAR: u}\n
+remail_email:			Ahoj,\n\nzde je zajímavé téma o "{VAR: data->subject}" na fóru {GVAR: FORUM_TITLE}, které by sis mohl(a) chtít pøeèíst. Téma mù¾e¹ vidìt na:\n {ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Tvùj pøítel,\n\n{VAR: usr->alias}\n
 poll_add_option:		Pøidat volbu:
 post_opt_html_on:		<b>HTML tagy</b> jsou <b>ZAPNUTÉ</b>
 post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUDcode</b> je <b>VYPNUT</b></a>
@@ -745,9 +745,9 @@ thr_exch_decline:		odmítnout téma
 thr_exch_orig_forum:		Pùvodní fórum:
 thr_exch_dest_forum:		Cílové fórum:
 thr_exch_no_threads:		®ádná dal¹í témata neèekají na povolení.
-thr_exch_decl_reason:		Dùvod k zamítnutí pøesunu tématu <b>{VAR: thr_name}</b> do fóra <b>{VAR-HTML: frm->name}</b>
+thr_exch_decl_reason:		Dùvod k zamítnutí pøesunu tématu <b>{VAR-HTML: frm->name}</b> do fóra <b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:		Odeslat
-exch_decline_ttl:		Pøesun tématu {VAR: thr_name} do fóra {VAR-HTML: frm->name} byl zamítnut.
+exch_decline_ttl:		Pøesun tématu {VAR: data->subject} do fóra {VAR-HTML: data->f2_name} byl zamítnut.
 ppost_original_msg:		zpráva, kterou pøedáváte nebo na kerou odpovídáte
 split_thread:			Rozdìlit téma
 groupmgr_no_user:		Neexistuje u¾ivatel s u¾ivatelským jménem "{VAR-HTML: gr_member}"
@@ -854,10 +854,10 @@ register_jabber:		Jabber identifikátor:
 im_jabber:			Jabber: 
 forum_contact:			Kontakt
 forum_home:			Domù
-post_cur_attached:		máte {VAR: attach_count} pøilo¾ených souborù
+post_cur_attached:		máte {VAR: i} pøilo¾ených souborù
 ppost_cur_attached:		máte {VAR: attach_count} pøilo¾ených souborù
-ignored_anon_post:		{VAR: user_login} je ignorován
-ignored_user_post:		Pøíspìvek od <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> je ignorován
+ignored_anon_post:		{GVAR: ANON_NICK} je ignorován
+ignored_user_post:		Pøíspìvek od <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> je ignorován
 smladd_close_window:		zavøít okno
 post_list_smilies:		seznam v¹ech smajlíkù
 p_VISIBLE:			Viditelný
@@ -898,7 +898,7 @@ search_sorting:			Seøadit výsledky podle data:
 post_proceed:			Pokraèovat
 post_moderated_forum:		Zaslal(a) jste pøíspìvek do moderovaného fóra, co¾ znamená, ¾e pøíspìvek bude viditelný teprve po odsouhlasení jedním z moderátorù a/nebo administrítorem.
 post_moderated_forum_ttl:	Poznámka k moderovanému fóru
-buddy_list_bday:		Dnes má {VAR: obj->login} {VAR: age}-té narozeniny
+buddy_list_bday:		Dnes má {VAR: r[2]} {VAR: age}-té narozeniny
 email_warning_msg:		Pkud zmìníte svou emailovou adresu, vá¹ úèet bude oznaèen jako nepotvrzený dokud ho nepotvrdíte emailem pøes novou adresu.
 register_show_im:		Zobrazit IM indikárory
 register_show_im_desc:		Zobrazovat indikátory IM slu¾eb (ICQ, Jabber, Yahoo, ...) u¾ivatelù vedle jejich pøíspìvkù.

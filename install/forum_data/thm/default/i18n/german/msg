@@ -1,10 +1,10 @@
 ERR_access_msg:			Du verf&uuml;gst nicht &uuml;ber die ben&ouml;tigten Rechte, um diese Aktion auszuf&uuml;hren
 ERR_access_ttl:			FEHLER: Nicht ausreichende Rechte
-ERR_access_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_disabled_msg:		Diese Funktion wurde vom Systemadministrator deaktiviert
 ERR_disabled_ttl:		Deaktivierte Funktion
-ERR_disabled_url:		{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
-ERR_emailconf_msg:		Du hast Dein Konto noch nicht per Email best&auml;tigt<br><table border=0><tr><td><ol><li>Falls Du keine Best&auml;tigungsemail erhalten haben solltest, klicke <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">hier</a><li>Falls {VAR: GLOBALS['usr']->email} nicht Deine richtige Emailadresse ist, klicke <a href="{ROOT}?t=register&amp;{DEF: _rsid}">hier</a></ol></td></tr></table>
+ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
+ERR_emailconf_msg:		Du hast Dein Konto noch nicht per Email best&auml;tigt<br><table border=0><tr><td><ol><li>Falls Du keine Best&auml;tigungsemail erhalten haben solltest, klicke <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">hier</a><li>Falls {VAR: usr_d->email} nicht Deine richtige Emailadresse ist, klicke <a href="{ROOT}?t=register&amp;{DEF: _rsid}">hier</a></ol></td></tr></table>
 ERR_emailconf_ttl:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
 ERR_emailconf_url:		
 ERR_login_msg:			Du bist nicht angemeldet, bitte hole das jetzt nach<br><br>Falls Du Dich registrieren willst, gehe bitte zur <a href="{ROOT}?t=register&amp;{DEF: _rsid}">Registrierungsseite</a><br>Falls Du Dich anmelden willst, gehe bitte zur <a href="{ROOT}?t=login&amp;{DEF: _rsid}">Anmeldeseite</a>
@@ -15,10 +15,10 @@ ERR_registration_disabled_ttl:	Registrierung ist deaktiviert
 ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
 ERR_systemerr_msg:		Ein Systemfehler ist aufgetreten, bitte berichte dem <a href="mailto:{GVAR: ADMIN_EMAIL}">Webmaster</a> davon.
 ERR_systemerr_ttl:		FEHLER: Systemfehler
-ERR_systemerr_url:		{GVAR: returnto_d}
+ERR_systemerr_url:		
 ERR_user_msg:			Es gibt diesen Benutzer nicht
 ERR_user_ttl:			FEHLER: Benutzer existiert nicht
-ERR_user_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 action:				Aktion
 action_latest_post:		Letzter Beitrag
 actions_update:			Beschn&uuml;ffelt andere Leute, so wie Du gerade
@@ -40,7 +40,7 @@ avatar_sel_form:		Avatar Auswahl
 average_post_count:		{VAR: u->posted_msg_count} Beitr&auml;ge ({VAR: avg} durchschnittliche Beitr&auml;ge pro Tag)
 biography:			Werdegang:
 birth_date:			Geburtstag:
-browsing_folder:		durchsuche den <b>{VAR: folder}</b> Ordner
+browsing_folder:		durchsuche den <b>{VAR: folders[$folder_id]}</b> Ordner
 buddy_list_err_cantadd:		Du kannst nicht Dich selber zur Buddyliste hinzuf&uuml;gen
 buddy_list_err_dup:		Dieser Benutzer ist bereits auf Deiner Buddyliste
 buddy_list_err_nouser:		Der Benutzer, den Du Deiner Buddyliste hinzuf&uuml;gen wolltest, kann vom System nicht gefunden werden.
@@ -89,7 +89,7 @@ delete_yes:			Ja
 deny_recipt:			Empfangsbest&auml;tigung verweigern
 deny_recipt_desc:		Keine Best&auml;tigung verschicken, da&szlig; die Message gelesen wurde
 disable_smilies:		Smileys in diesem Beitrag deaktivieren
-download_counter:		{VAR: a_obj->dlcount} mal heruntergeladen
+download_counter:		{VAR: v[3]} mal heruntergeladen
 draft:				Entwurf
 drawmsg_view_rest_post:		Den Rest der Nachricht anzeigen
 edit_message:			Beitrag bearbeiten
@@ -128,7 +128,7 @@ err_info:			Info
 error_error:			Fehler
 error_invalidurl:		Ung&uuml;ltige URL
 error_title:			Fehlerseite
-exch_decline_ttl:		Das Verschieben des Themas {VAR: thr_name} ins Forum {VAR-HTML: frm->name} wurde abgelehnt.
+exch_decline_ttl:		Das Verschieben des Themas {VAR: data->subject} ins Forum {VAR-HTML: data->f2_name} wurde abgelehnt.
 faq:				F.A.Q.
 female:				Weiblich
 file_attachments:		Dateianhang:
@@ -206,8 +206,8 @@ ignore_list_err_nu_title:	Benutzer nicht gefunden
 ignore_list_update:		Durchsucht die eigene Ignorierliste
 ignore_user:			Alle Beitr&auml;ge dieses Benutzers ignorieren
 ignore_users:			Ignorierte Benutzer
-ignored_anon_post:		{VAR: user_login} wird ignoriert
-ignored_user_post:		Beitrag von <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> wird ignoriert
+ignored_anon_post:		{GVAR: ANON_NICK} wird ignoriert
+ignored_user_post:		Beitrag von <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> wird ignoriert
 im_aim:				AIM Benutzername:
 im_jabber:			Jabber: 
 im_msnm:			MSN Messenger:
@@ -315,8 +315,8 @@ msg_err_ininfo_title:		Information reicht nicht aus
 msg_err_onlyreg_msg:		Um dieses Forum ansehen zu k&ouml;nnen mu&szlig;t Du Dich <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrieren</a>, Falls Du das schon gemacht hast, mu&szlig;t Du Dich <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">anmelden</a>.
 msg_err_onlyreg_title:		Nur registrierte Benutzer k&ouml;nnen dieses Forum ansehen
 msg_thread:			Thema
-msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
-msg_update:			Durchsucht das Thema <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a>
+msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_update:			Durchsucht das Thema <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
 mvthread_request_move:		Um das Verschieben eines Themas bitten
 mvthread_submit_req:		Anfrage abschicken
 my_buddies:			Meine Buddies
@@ -341,7 +341,7 @@ no_unread_msg:			Dieses Thema enth&auml;t keine ungelesenen Beitr&auml;ge
 no_unread_msg_unreg:		Gelesene &amp; ungelesene Beitr&auml;ge werden nur f&uuml;r registrierte Benutzer weiterverfolgt
 no_view_perm:			Du verf&uuml;gst nicht &uuml;ber die ben&ouml;tigten Rechte, um dieses Thema ansehen zu d&uuml;rfen.
 num_pages:			Seiten ({VAR: ttl_pg}):
-num_votes:			{VAR: total_votes} Stimmen
+num_votes:			{VAR: obj->total_votes} Stimmen
 occupation:			Beruf:
 off:				AUS
 on:				AN
@@ -419,10 +419,10 @@ poll_year:			Jahr
 post_annoncement:		Ank&uuml;ndigung
 post_body:			Inhalt:
 post_color:			Farbe
-post_count:			Anzahl der Beitr&auml;ge {VAR: u->posted_msg_count}
+post_count:			Anzahl der Beitr&auml;ge {VAR: u_pcount}
 post_count_l:			Beitragsz&auml;hler:
 post_create_poll:		Abstimmung erstellen
-post_cur_attached:		Momentan {VAR: attach_count} Dateianh&auml;nge 
+post_cur_attached:		Momentan {VAR: i} Dateianh&auml;nge 
 post_edit_update:		Bearbeitet <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
 post_err_attach_ext:		<font class="ErrorText">Der Dateityp, den Du hochladen m&ouml;chtest, ist nicht erlaubt.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Du versuchst, mehr Dateien hochzuladen als erlaubt sind.</font><br>
@@ -433,9 +433,9 @@ post_err_floodtrig_msg:		Bitte versuche es in {VAR: tm} Sekunden erneut
 post_err_floodtrig_title:	FEHLER: Schutz vor Flooding mit Beitr&auml;gen aktiviert.
 post_err_lockedthread_msg:	Das Thema ist gesperrt, und es sind keine weiteren Beitr&auml;ge erlaubt
 post_err_lockedthread_title:	FEHLER: gesperrtes Thema
-post_err_noannonposts_msg:	Anonymen Benutzern ist es nicht gestattet zu antworten<br><br>Falls Du Dich registrieren m&ouml;chtest, gehe zur <a href="{ROOT}?t=register&amp;{DEF: _rsid}">Registrierungsseite</a><br>Falls Du Dich am System anmelden willst, gehe zur <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">Anmeldeseite</a>
+post_err_noannonposts_msg:	Anonymen Benutzern ist es nicht gestattet zu antworten<br><br>Falls Du Dich registrieren m&ouml;chtest, gehe zur <a href="{ROOT}?t=register&amp;{DEF: _rsid}">Registrierungsseite</a><br>Falls Du Dich am System anmelden willst, gehe zur <a href="{ROOT}?t=login&amp;{DEF: _rsid}">Anmeldeseite</a>
 post_err_noannonposts_title:	FEHLER: Nicht ausreichende Rechte
-post_err_noannontopics_msg:	Anonymen Benutzern ist es nicht gestattet Beitr&auml;ge zu erstellen<br><br>Falls Du Dich registrieren m&ouml;chtest, gehe zur <a href="{ROOT}?t=register&amp;{DEF: _rsid}">Registrierungsseite</a><br>Falls Du Dich am System anmelden willst, gehe zur <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">Anmeldeseite</a>
+post_err_noannontopics_msg:	Anonymen Benutzern ist es nicht gestattet Beitr&auml;ge zu erstellen<br><br>Falls Du Dich registrieren m&ouml;chtest, gehe zur <a href="{ROOT}?t=register&amp;{DEF: _rsid}">Registrierungsseite</a><br>Falls Du Dich am System anmelden willst, gehe zur <a href="{ROOT}?t=login&amp;{DEF: _rsid}">Anmeldeseite</a>
 post_err_noannontopics_title:	FEHLER: keine ausreichenden Rechte
 post_err_noreplying_msg:	Du kannst auf diesen Beitrag nicht antworten, weil es entweder eine Ank&uuml;ndigung oder ein angehefteter Beitrag ist, f&uuml; den der Moderator das Antworten nicht getattet hat.
 post_err_noreplying_title:	FEHLER: Antworten nicht erlaubt
@@ -510,7 +510,7 @@ ppost_find_User:		Benutzer suchen
 ppost_from_buddy_list:		Aus der Buddyliste ausw&auml;hlen
 ppost_original_msg:		Nachricht, die Du weiterleitest oder beantwortest
 ppost_quote:			Zitat:
-ppost_quote_msg:		{VAR: msg_r->login} schrieb am {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} schrieb am {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_save_draft:		Entwurf speichern
 ppost_send:			Verschicken
 ppost_to:			An:
@@ -520,8 +520,8 @@ prereg_agree:			Zustimmen
 prereg_disagree:		Ablehnen
 prereg_info:			Information
 prev_thread:			Vorheriges Thema:
-private_msg_notify_body:	Hallo,<br>{VAR: GLOBALS["usr"]->login} hat Deine private Message, "{VAR: this->subject}", am {DATE: track_msg->post_stamp %a, %d %B %Y %H:%M} gelesen<br>
-private_msg_notify_subj:	Benachrichtigung lesen zu: {VAR: this->subject}
+private_msg_notify_body:	Hallo,<br>{VAR: usr->login} hat Deine private Message, "{VAR: m->subject}", am {DATE: m->post_stamp %a, %d %B %Y %H:%M} gelesen<br>
+private_msg_notify_subj:	Benachrichtigung lesen zu: {VAR: m->subject}
 profile:			Profil
 profile_2:			Profil:
 profile_desc:			Hier klicken um zum Benutzermen&uuml; zu gelangen
@@ -542,7 +542,7 @@ rating:				Bewertung
 referals_action:		Aktion
 referals_none:			Keine Anwerbungen bisher.
 referals_post_count:		Anzahl der Beitr&auml;ge
-referals_refered_by:		Von <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="thLnk">{VAR: r_login}</a></b> angeworbene Mitglieder
+referals_refered_by:		Von <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b> angeworbene Mitglieder
 referals_registered_on:		Registriert am
 referals_update:		Durchsucht die Anwerbungen
 refresh_list:			Liste aktualisieren
@@ -558,7 +558,7 @@ register_bio:			Werdegang:
 register_bio_desc:		Ein paar Details &uuml;ber Dich, wie zum Beispiel Deine Interessen, Beruf usw...
 register_builtin:		Eingebaut
 register_change_passwd:		passwort &auml;ndern
-register_conf_msg:		Vielen Dank für Deine Registrierung,\nUm Dein Konto zu aktivieren, gehe bitte auf die unten angegebene Adresse:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nSobald Dein Konto aktiviert ist, wirst Du am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
+register_conf_msg:		Vielen Dank für Deine Registrierung,\nUm Dein Konto zu aktivieren, gehe bitte auf die unten angegebene Adresse:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald Dein Konto aktiviert ist, wirst Du am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
 register_conf_pass:		Passwort best&auml;tigen:
 register_conf_subject:		Registrierungsbestätigung
 register_custom_avatar_rules:	Der Benutzeravatar wird erst nach der Billigung durch den Administrator angezeigt.<br><font class="SmallText">Der Avatar sollte nicht gr&ouml;&szlig;er als <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} Pixel</b> sein und mu&szlig; das <b>jpg</b>, <b>gif</b> oder <b>png</b> Format besitzen.</font>
@@ -567,7 +567,7 @@ register_custom_avatar_url:	URL zum Benutzeravatar:
 register_day:			Tag
 register_def_thread_view:	Standard Themenansicht:
 register_del_avatar:		Avatar l&ouml;schen
-register_email:			Email:
+register_email			Email
 register_email_desc:		Bitte eine g&uuml;ltige Emailadresse angeben. Du kannst diese dann weiter unten im Men&uuml; verstecken.
 register_err_adminpasswd:	Du mu&szlig;t Dein ADMINISTRATOR Passwort eingeben, um die Ver&auml;nderungen wirkam werden zu lassen
 register_err_avatarnotallowed:	Der Avatar, den Du versuchst hochzuladen, ist nicht erlaubt, &uuml;berpr&uuml;fe die erlaubten Dateitypen.
@@ -635,18 +635,18 @@ register_update:		Aktualisieren
 register_uploaded:		Avatar hochladen
 register_use_sig_default:	Standardm&auml;&szlig;ig Signatur verwenden:
 register_use_sig_default_desc:	Die Signatur automatisch jedem Beitrag hinzuf&uuml;gen
-register_welcome_msg:		Vielen Dank für Deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {ROOT}?t=index\nAnmeldename: {VAR: usr->login}\nPasswort: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen &amp; das Profil zu verändern, gehe bitte auf diese Seite:\n{ROOT}?t=register\n
+register_welcome_msg:		Vielen Dank für Deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {ROOT}?t=index\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen &amp; das Profil zu verändern, gehe bitte auf diese Seite:\n{ROOT}?t=register\n
 register_welcome_subject:	Registrierungsbestätigung für das Forum
 register_yahoo:			Yahoo Messenger:
 register_year:			Jahr
 register_your_pass:		Dein Passwort:
 registered:			Registriert:
-registered_on:			Registriert am {DATE: u->join_date %a, %d %B %Y}
+registered_on:			Registriert am {DATE: u_reg_date %a, %d %B %Y}
 regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nehme Kontakt zum Administrator auf an <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 remail_anon_opt:		Diesen Beitrag in einen Email Klienten Deiner Wahl kopieren, um sie an Deine Freunde zu schicken.
 remail_continue:		Weiter
 remail_done:			Fertig
-remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) die für Dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: thread->subject}, die hier gefunden werden kann: {ROOT}?t={VAR: def_thread_view}&th={VAR: thread->id}&{DEF: _rsid}\nVon {VAR: u}\n
+remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) die für Dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\nVon {VAR: usr->alias}\n
 remail_email_topic:		Das Thema an einen Freund versenden
 remail_emailsent:		Die Email wurde verschickt.
 remail_error:			Es ist ein Fehler aufgetreten
@@ -655,7 +655,7 @@ remail_friends_name:		Name des Freundes:
 remail_message:			Beitrag:
 remail_required:		erforderlich
 remail_send_now:		Email jetzt verschicken
-remail_sent_conf:		Die Email an Deinen Freund {VAR: femail} &uuml;ber {VAR: thread->subject} wurde erfolgreich verschickt.
+remail_sent_conf:		Die Email an Deinen Freund {VAR-HTML: _POST['femail']} &uuml;ber {{VAR: data->subject} wurde erfolgreich verschickt.
 remail_subject:			Betreff:
 remail_your_email:		Deine Email:
 remail_your_name:		Dein Name:
@@ -689,8 +689,8 @@ reset_err_invalidkey_title:	FEHLER
 reset_err_rstconf_msg:		Du solltest in den n&auml;chsten Minuten eine Anleitung per Email erhalten
 reset_err_rstconf_title:	Information
 reset_error:			Email Adresse nicht in der Datenbank gefunden
-reset_login_notify:		Das Passwort wurde an Dich versendet. Du solltest es in den n&auml;chsten Minuten erhalten. Bitte &uuml;berpr&uuml;fe die Email auf Benutzername und Passwort
-reset_newpass_msg:		Hallo,\n\nWie von Dir gewünscht, wird Dir der Anmeldename zugesendet.\nHier sind Deine Anmeldeinformationen:\n\nLogin: {VAR: parr['usr']->login}\nPasswort: {VAR: parr['passwd']}\n\nBitte beachte, daß Dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn Du es ändern willst, so kannst Du das am\nBenutzerinterface vornehmen:\n{ROOT}?t=register\n\n
+reset_login_notify:		Das Passwort wurde an Dich versendet. Du solltest es in den n&auml;chsten Minuten erhalten. Bitte &uuml;berpr&uuml;fe die Email auf Benutzername und Passwort.<br>
+reset_newpass_msg:		Hallo,\n\nWie von Dir gewünscht, wird Dir der Anmeldename zugesendet.\nHier sind Deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, daß Dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn Du es ändern willst, so kannst Du das am\nBenutzerinterface vornehmen:\n{ROOT}?t=register\n\n
 reset_newpass_title:		Passwort zurücksetzen
 reset_remind_pass:		Passwort Hinweis
 reset_reset:			Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, daß sobald Du Dein Passwort eingegeben hast, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode schlage bei MD5 HASH Algorhythmus nach)
@@ -736,9 +736,9 @@ sender_email:			Email des Absenders:
 sender_name:			Name des Absenders:
 sent:				Verschickt
 show_all_posts:			Alle Beitr&auml;ge von {VAR: user_login} anzeigen
-show_posts_by:			Beitr&auml;ge von {VAR: u->alias} anzeigen
+show_posts_by:			Beitr&auml;ge von {VAR: u_alias} anzeigen
 show_show:			Anzeigen:
-showposts_update:		Betrachtet die Beitr&auml;ge von <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>
+showposts_update:		Betrachtet die Beitr&auml;ge von <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
 single_msg_delete:		Du bist gerade dabei, den Beitrag mit dem Titel: <b>{VAR: msg->subject}</b> zu <font color="#ff0000" size="4">L&Ouml;SCHEN</font>.<p>
 size:				Gr&ouml;&szlig;e:
 smladd_close_window:		Fenster schlie&szlig;en
@@ -755,7 +755,7 @@ split_th_subject:		Thema:
 split_thread:			Thema aufteilen
 started_on:			Begonnen am
 status:				Status:
-status_line:			Es sind <b>{VAR: reg_u}</b> Mitglieder, <b>{VAR: inv_u}</b> unsichtbare Mitglieder und <b>{VAR: annon}</b> Besucher auf diesem Board unterwegs.
+status_line:			Es sind <b>{VAR: st_obj->online_users_reg}</b> Mitglieder, <b>{VAR: st_obj->online_users_hidden}</b> unsichtbare Mitglieder und <b>{VAR: st_obj->online_users_anon}</b> Besucher auf diesem Board unterwegs.
 sticky:				Angeheftet:
 stop_ignoring:			Das Ignorieren des Benutzers beenden
 sub_to_thread:			Das Thema abonnieren
@@ -795,7 +795,7 @@ th_expr_two_hr:			2 Stunden
 th_expr_two_month:		2 Monate
 th_expr_two_week:		2 Wochen
 thr_exch_accept:		Thema akzeptieren
-thr_exch_decl_reason:		Begr&uuml;ndung f&uuml;r das Nicht-Verschieben von <b>{VAR: thr_name}</b> ins Forum <b>{VAR-HTML: frm->name}</b>
+thr_exch_decl_reason:		Begr&uuml;ndung f&uuml;r das Nicht-Verschieben von <b>{VAR-HTML: frm->name}</b> ins Forum <b>{VAR-HTML: frm->name}</b>
 thr_exch_decline:		Thema ablehnen
 thr_exch_dest_forum:		Zielforum:
 thr_exch_no_threads:		Keine Themen, die genehmigt werden m&uuml;ssen.
@@ -817,8 +817,8 @@ time:				Zeit
 todays_posts:			Heutige Beitr&auml;ge
 todays_posts_desc:		Alle Beitr&auml;ge anzeigen, die heute erstellt wurden
 trash:				M&uuml;ll
-tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
-tree_update:			Durchsucht das Thema (Baumansicht) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
+tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_update:			Durchsucht das Thema (Baumansicht) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 un_ignore_user:			Die Beitr&auml;ge von diesem Benutzer nicht mehr ignorieren
 unanswered_posts:		Unbeantwortete Beitr&auml;ge
 unanswered_posts_desc:		Alle Beitr&auml;ge anzeigen, die keine Antworten haben
@@ -836,7 +836,7 @@ unsubscribe_desc:		Den Empfang von Benachrichtigungen &uuml;ber neue Themen im F
 updated_on:			Aktualisiert am:
 use_forum_default:		Die Standardeinstellung des Forums benutzen
 user:				Benutzer
-user_counter:			Wir haben <b>{VAR: reg_users}</b> registrierte Benutzer.
+user_counter:			Wir haben <b>{VAR: st_obj->user_count}</b> registrierte Benutzer.
 user_info:			Benutzerinformation
 user_info_l:			Benutzerinformation {VAR: u->alias}
 user_offline:			{VAR: obj->login} ist gerade offline
@@ -852,10 +852,10 @@ view_forum:			Forum ansehen
 view_results:			Ergebnisse ansehen
 view_thread:			Thema ansehen
 views:				Aufrufe
-vote:				{VAR: thread->vote_count()} Stimmen
+vote:				{VAR: frm->n_rating} Stimmen
 vote_button:			Abstimmen
 vote_for_thread:		Abstimmen
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> ist vom Moderator nach <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> verschoben worden
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> ist vom Moderator nach <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a> verschoben worden
 welcome_message:		Willkommen <b>{VAR: usr->alias}</b>, Dein letzter Besuch war am {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			Anzeigen, was die Leute gerade machen
 writing_pm:			Eine private Message schreiben
@@ -895,7 +895,7 @@ search_sorting:			Ergebnisse nach Datum sortieren in:
 post_proceed:			Fortsetzen
 post_moderated_forum:		Du hast einen Beitrag in einem moderierten Forum erstellt, was bedeutet, da&szlig; dieser nicht eher im Forum erscheinen wird, bevor einer der Moderatoren oder Administratoren ihn gebilligt hat
 post_moderated_forum_ttl:	Mitteilung vom moderierten Forum
-buddy_list_bday:		Heute wird {VAR: obj->login} {VAR: age}
+buddy_list_bday:		Heute wird {VAR: r[2]} {VAR: age}
 email_warning_msg:		Wenn Du Deine gegenw&auml;rtige Email Adresse &auml;nderst, wird Dein Benutzerkonto so lange als unbest&auml;tigt gef&uuml;hrt, bis es mit der neuen Adresse best&auml;tigt wird.
 register_show_im:		Den IM Status anzeigen
 register_show_im_desc:		Ob der IM Status des Verfassers neben seinem Beitrag angezeigt werden soll oder nicht.

@@ -16,7 +16,7 @@ custom_avatar_queue:		Опашка от аватарите на потребителите
 date:				Дата
 date_posted:			Дата на публикуване
 date_registered:		Дата на регистрация:
-download_counter:		Заредено {VAR: a_obj->dlcount} пъти
+download_counter:		Заредено {VAR: v[3]} пъти
 email:				Email:
 email_to_friend:		Изпрати по e-mail на приятел
 email_to_friend_desc:		Изпрати адреса на това съобщение по e-mail
@@ -94,7 +94,7 @@ no_unread_locked:		Тази тема е затворена
 no_unread_msg:			Няма непрочетени съобщения в тази тема
 no_unread_msg_unreg:		Само регистрираните потребители имат право да проследяват прочетени &amp;непрочетени съобщения
 num_pages:			({VAR: ttl_pg})страници
-num_votes:			{VAR: total_votes} гласа
+num_votes:			{VAR: obj->total_votes} гласа
 occupation:			професия:
 off:				изкл
 on:				вкл
@@ -102,7 +102,7 @@ page_timings:			бПЕЛЕ, МЕНАУНДХЛН ГЮ ЯЗГДЮБЮМЕ МЮ РЮГХ ЯРПЮМХЖЮ: {VAR: page_gen_
 fud_query_stats:		За изпълнение на&nbsp; MySQL заявките отидоха {VAR: ttl_time} секунди<br>
 pm:				Лична поща
 poll:				Гласуване:
-post_count:			{VAR: u->posted_msg_count} съобщения
+post_count:			{VAR: u_pcount} съобщения
 post_count_l:			Брой на съобщенията:
 poster:				Автор
 posts:				Съобщения
@@ -118,7 +118,7 @@ rating:				Рейтинг
 refresh_list:			Обнови списъка
 register:			Регистрация
 registered:			Регистриран:
-registered_on:			Регистриран на: {DATE: u->join_date %a, %d %B %Y}
+registered_on:			Регистриран на: {DATE: u_reg_date %a, %d %B %Y}
 replies:			Отговори:
 report_to_mod:			Съобщи на модератора
 reported_messages:		Докладвани съобщения
@@ -136,11 +136,11 @@ send_pm_desc:			Изпрати лично съобщение на този потребител
 sender_email:			E-mail на изпращача:
 sender_name:			Името на изпращача:
 show_all_posts:			Покажи всички съобщения, изпратени от {VAR: user_login}
-show_posts_by:			Покажи съобщенията от: {VAR: u->alias}
+show_posts_by:			Покажи съобщенията от: {VAR: u_alias}
 size:				Размер:
 started_on:			Започната на
 status:				Статут:
-status_line:			В момента&nbsp; са <b>{VAR: reg_u}</b> участници, невидимите - <b>{VAR: inv_u}</b>, гостите - <b>{VAR: annon}</b>.
+status_line:			В момента&nbsp; са <b>{VAR: st_obj->online_users_reg}</b> участници, невидимите - <b>{VAR: st_obj->online_users_hidden}</b>, гостите - <b>{VAR: st_obj->online_users_anon}</b>.
 sticky:				табелка:
 stop_ignoring:			Спри да игнорираш този потребител
 sub_to_thread:			Абонирай се за темата
@@ -175,7 +175,7 @@ unsubscribe:			Откажи се от абонамента&nbsp;
 unsubscribe_desc:		Не искам да ме известяват за новите теми на този форум
 updated_on:			Обновления:
 user:				Потребител:
-user_counter:			Брой на регистрираните потребители: <b>{VAR: reg_users}</b>.
+user_counter:			Брой на регистрираните потребители: <b>{VAR: st_obj->user_count}</b>.
 user_info:			Информация за потребителя
 user_info_l:			Информация за потребителя {VAR: u->alias}
 user_offline:			{VAR: obj->login} не присътства в момента
@@ -185,10 +185,10 @@ view_forum:			Преглед на форума
 view_results:			Преглед на резултатите
 view_thread:			Преглед на темата
 views:				Видяно
-vote:				{VAR: thread->vote_count()} гласа
+vote:				{VAR: frm->n_rating} гласа
 vote_button:			Гласувай
 vote_for_thread:		Гласувай
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> е преместено на <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> е преместено на <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a>
 welcome_message:		Добре дошли, <b>{VAR: usr->alias}</b>, вашето последно посещение на форума: {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			покажи кой какво прави
 reported_del_report:		Изтрий доклада
@@ -210,7 +210,7 @@ list_referes_referrals:		Реферали
 list_referes_members:		Регистрирани по твоя покана
 list_referes_member:		Участник
 referals_none:			Няма реферали
-referals_refered_by:		Участници във форума, поканени от <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="thLnk">{VAR: r_login}</a></b>
+referals_refered_by:		Участници във форума, поканени от <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Брой на съобщенията
 referals_registered_on:		Дата на регистрацията
 referals_action:		Действие
@@ -226,7 +226,7 @@ pmsg_selected:			Избрано
 pmsg_delete:			Изтрий
 cur_ppage_pm:			Лична поща
 writing_pm:			Писане на лично съобщение
-browsing_folder:		Разглеждане на <b>{VAR: folder}</b> папка.
+browsing_folder:		Разглеждане на <b>{VAR: folders[$folder_id]}</b> папка.
 inbox:				Входящи
 draft:				Чернови
 sent:				Изпратени
@@ -266,7 +266,7 @@ finduser_joindate:		Дата на регистрация
 finduser_action:		Действие
 yes:				Да
 no:				Не
-register_email:			Email:
+register_email			Email
 edit_time_limit:		<br><b>Ограничено време за редактиране</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> минути
 no_edit_time_limit:		<br><b>Време за редактиране</b>: <b>Неограничено</b>
 pmuserloc_login:		Потребителско име:
@@ -477,7 +477,7 @@ remail_message:			Съобщение:
 remail_send_now:		Изпрати e-mailа
 remail_anon_opt:		Копирай съобщението в твоята програма за изпращане на електронна поща и го прати на приятел.
 remail_done:			Готово
-remail_sent_conf:		Е-мейл за адрес {VAR: femail} със заглавие {VAR: thread->subject} е изпратено успешно.
+remail_sent_conf:		Е-мейл за адрес {VAR-HTML: _POST['femail']} със заглавие {{VAR: data->subject} е изпратено успешно.
 remail_continue:		Продължи
 remail_error:			Възникна грешка
 mklist_type:			Вид:
@@ -502,7 +502,7 @@ email_pg_title:			E-mail
 email_subject:			Заглавие:
 email_body:			Текст:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_r->login} написа на {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} написа на {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Цитат:
 ppost_to:			За:
 ppost_from_buddy_list:		Избери от контактната листа
@@ -593,7 +593,7 @@ msg_err_onlyreg_title:		Само регистрираните потребители имат право да видят този
 msg_err_onlyreg_msg:		За да видищ този форум, трябва да бъдеш <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">регистриран</a>, ако си бил регистрирал преди, трябва <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">влезеш във форума</a>.
 msg_err_ininfo_title:		Информацията е недостатъчна
 msg_err_ininfo_msg:		Изникна проблем със зареждането на тази страница
-msg_update:			Разглеждане на темата <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a>
+msg_update:			Разглеждане на темата <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ГРЕШКА: Личната поща е изключена
 pm_err_nopm_msg:		Не можеш да използваш функцията за лични съобщения, тя е изключена от Администратора.
 pm_update:			Използване на лична поща
@@ -610,9 +610,9 @@ post_err_notowner_msg:		Ти не си автора на това съобщение
 post_err_edttimelimit_title:	ГРЕШКА
 post_err_edttimelimit_msg:	Повече не можеш да променяш това съобщение
 post_err_noannontopics_title:	ГРЕШКА: Недостатъчни права за достъп
-post_err_noannontopics_msg:	нонимните потребители нямат право да започват нова тема<br><br>Ако желаете да се регистрирате, отидете на <a href="{ROOT}?t=register&amp;{DEF: _rsid}">регистрационната форма</a><br>Ако желаете да влезете във форума, отидете на <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">формата за вход</a>
+post_err_noannontopics_msg:	нонимните потребители нямат право да започват нова тема<br><br>Ако желаете да се регистрирате, отидете на <a href="{ROOT}?t=register&amp;{DEF: _rsid}">регистрационната форма</a><br>Ако желаете да влезете във форума, отидете на <a href="{ROOT}?t=login&amp;{DEF: _rsid}">формата за вход</a>
 post_err_noannonposts_title:	ГРЕШКА: Недостатъчни права за достъп
-post_err_noannonposts_msg:	Анонимните потребители нямат право да отговарят на съобщения<br><br>Ако желаете да се регистрирате, отидете на <a href="{ROOT}?t=register&amp;{DEF: _rsid}">регистрационната форма</a><br>Ако желаете да влезете във форума, отидете на <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">формата за вход</a>
+post_err_noannonposts_msg:	Анонимните потребители нямат право да отговарят на съобщения<br><br>Ако желаете да се регистрирате, отидете на <a href="{ROOT}?t=register&amp;{DEF: _rsid}">регистрационната форма</a><br>Ако желаете да влезете във форума, отидете на <a href="{ROOT}?t=login&amp;{DEF: _rsid}">формата за вход</a>
 post_err_noreplying_title:	ГРЕШКА: Не се разрешава да отговаряш
 post_err_noreplying_msg:	Не можеш да публикуваш отговори по тази тема, защото е или официално съобщение, или бележка, на които Модераторът е забранил да се отговаря.
 post_err_floodtrig_title:	ГРЕШКА: Претоварено - прекалено много желаещи да публикуват.
@@ -634,8 +634,8 @@ postcheck_no_recepient:		Не е възможно да се изпрати съобщението защото не е пос
 postcheck_invalid_email:	Моля, въведи валиден e-mail адрес на твоя приятел.
 postcheck_email_subject:	Не можеш да изпращаш е-мейл ако отсътства заглавие.
 postcheck_email_body:		Не можеш да изпращаш е-мейл ако липсва текст на съобщението.
-private_msg_notify_subj:	Виж обратна разписка за: {VAR: this->subject}
-private_msg_notify_body:	Здравей,<br>{VAR: GLOBALS["usr"]->login} прочел изпратеното от теб лично съобщение "{VAR: this->subject}" на {DATE: track_msg->post_stamp %a, %d %B %Y %H:%M}<br>
+private_msg_notify_subj:	Виж обратна разписка за: {VAR: m->subject}
+private_msg_notify_body:	Здравей,<br>{VAR: usr->login} прочел изпратеното от теб лично съобщение "{VAR: m->subject}" на {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
 referals_update:		Преглед на реферали
 register_err_short_login:	Потребителското ти име е много късо. Трябва да бъде най-малко 4 символа
 register_err_login_notallowed:	Не се допуска това потребителско име
@@ -651,9 +651,9 @@ register_err_notyouremail:	Някой вече се е регистрирал със същия e-mail адрес, и
 register_err_avatartobig:	Файлът, който се опитваш да заредиш, е прекаленно голям, превишава ограничението от {GVAR: CUSTOM_AVATAR_MAX_SIZE} байта
 register_err_avatarnotallowed:	Аватарът, който се опитваш да заредиш, не е разрешен. Моля, провери кои формати са позволени.
 register_conf_subject:		Потвърждение за регистрация
-register_conf_msg:		Благодарим за регистрацията,\nза да я активирате отидете към:\n\n{ROOT}?t=emailconf&amp;conf_key={VAR: usr->conf_key}\n\nВеднага щом акаунта Ви е активиран, автоматично ще влезете във форума и\nще бъдете препратени към главната му страница.
+register_conf_msg:		Благодарим за регистрацията,\nза да я активирате отидете към:\n\n{ROOT}?t=emailconf&amp;conf_key={VAR: uent->conf_key}\n\nВеднага щом акаунта Ви е активиран, автоматично ще влезете във форума и\nще бъдете препратени към главната му страница.
 register_welcome_subject:	Потвърждение на регистрацията във форума
-register_welcome_msg:		Благодарим за регистрацията,\n\nТук можеш да намериш детайлите си, необходими за да влизаш във форум::\n\nForum URL: {ROOT}?t=index\nПотребителско име: {VAR: usr->login}\nПарола: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nИмай предвид, че за паролата са важни големите и малки букви!\nЗа да промениш настройките &amp; профила отиди към:\n{ROOT}?t=register\n
+register_welcome_msg:		Благодарим за регистрацията,\n\nТук можеш да намериш детайлите си, необходими за да влизаш във форум::\n\nForum URL: {ROOT}?t=index\nПотребителско име: {VAR: uent->login}\nПарола: {VAR: _POST['reg_plaintext_passwd']}\n\nИмай предвид, че за паролата са важни големите и малки букви!\nЗа да промениш настройките &amp; профила отиди към:\n{ROOT}?t=register\n
 register_err_cantreg_title:	ГРЕШКА: регистрацията е невъзможна
 regsiter_err_cantreg_msg:	Невъзможно е да се направи акаунт на потребителя, моля, свържете се с Администратора на <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Преглед на собствения профил&nbsp;
@@ -667,45 +667,45 @@ reset_err_invalidkey_msg:	Недействителен ключ за смяна на паролата
 reset_err_rstconf_title:	Информация
 reset_err_rstconf_msg:		Би трябвало да получиш инструкциите на твоя e-mail адрес след няколко минути
 reset_newpass_title:		Смяна на парола&nbsp;
-reset_newpass_msg:		Здравей,\n\nКато резултат на запитването изпратихме ти потребителското име.\nДолу е необходимата за влизане информация: n\Потребителско име: {VAR: parr['usr']->login}\nПарола: {VAR: parr['passwd']}\n\nОтбележи, че старата парола е била заменена с дадената горе, и ако\nжелаеш, можеш да я промениш от потребителския контолен панел на \n{ROOT}?t=register\n\n
-reset_login_notify:		Паролата е изпратена по е-мейл. Би трябва да я получиш след няколко минути. Моля, провери е-мейла си за паролата и Логина.
+reset_newpass_msg:		Здравей,\n\nКато резултат на запитването изпратихме ти потребителското име.\nДолу е необходимата за влизане информация: n\Потребителско име: {VAR: ui[1]}\nПарола: {VAR: passwd}\n\nОтбележи, че старата парола е била заменена с дадената горе, и ако\nжелаеш, можеш да я промениш от потребителския контолен панел на \n{ROOT}?t=register\n\n
+reset_login_notify:		Паролата е изпратена по е-мейл. Би трябва да я получиш след няколко минути. Моля, провери е-мейла си за паролата и Логина..<br>
 search_update:			Търсене на съобщения
 selmsg_update:			Разглеждане на <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">днешни съобщения</a>
-showposts_update:		Преглед на съобщенията от <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>
+showposts_update:		Преглед на съобщенията от <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
 subscribed_update:		Разглеждане на собствената абонаментна листа
 th_err_invid_title:		Недействителен ID на темата
 th_err_invid_msg:		Отиде на недействителен адрес. Темата която се опитваш да видиш, не съществува
 thread_err_onlyregview_title:	Само регистриранните потребители имат право да разглеждат този форум
 thread_err_onlyregview_msg:	За да видиш този форум, трябва да <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">се регистрираш</a>, ако вече си регистриран, трябва да <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">влезеш във форума</a>.
 thread_update:			Разглеждане на форума <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			Разглеждане (в разгърнат изглед) на темата <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&amp;{DEF: _rsid}">{VAR: thread->subject}</a>
+tree_update:			Разглеждане (в разгърнат изглед) на темата <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Преглед на личния профил на <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>
 ERR_login_ttl:			ГРЕШКА: Не си влязъл във форума
 ERR_login_msg:			Не си влязъл във форума, влез, моля<br><br>Ако желаеш да се регистрираш, отиди на <a href="{ROOT}?t=register&amp;{DEF: _rsid}">регистрационната бланка</a>.<br>Ако желаеш да влезеш, отиди на <a href="{ROOT}?t=login&amp;{DEF: _rsid}">формата за вход</a>.
 ERR_login_url:			{ROOT}?t=Логин&amp;{DEF: _rsid}
 ERR_disabled_ttl:		Изключена опция
 ERR_disabled_msg:		Тази опция е изключена от системния администратор
-ERR_disabled_url:		{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			ГРЕШКА: Недостатъчно ниво за достъп
 ERR_access_msg:			Нямаш изискваните разрешения за да вършиш тази операция
-ERR_access_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Регистрацията е изключена
 ERR_registration_disabled_msg:	Администраторът забранява регистрацията, опитай пак по-късно
 ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		ГРЕШКА: Акаунтът ти все още не е потвърден
-ERR_emailconf_msg:		Все още не си потвърдил регистрацията си по e-mail<br><table border=0><tr><td><ol><li>Ако не си получил e-mail съобщението за потвърждение <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&amp;{DEF: _rsid}">натисни тук</a><li>Ако {VAR: GLOBALS['usr']->email} не е действителния ти e-mail адрес, <a href="{ROOT}?t=register&amp;{DEF: _rsid}">натисни тук</a></ol></td></tr></table>
+ERR_emailconf_msg:		Все още не си потвърдил регистрацията си по e-mail<br><table border=0><tr><td><ol><li>Ако не си получил e-mail съобщението за потвърждение <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">натисни тук</a><li>Ако {VAR: usr_d->email} не е действителния ти e-mail адрес, <a href="{ROOT}?t=register&amp;{DEF: _rsid}">натисни тук</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			ГРЕШКА: Несъществуващ потребител
 ERR_user_msg:			Такъв потребител не съществува
-ERR_user_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		ГРЕШКА: Системна грешка
 ERR_systemerr_msg:		Стана системна грешка, моля съобщи за нея на <a href="mailto:{GVAR: ADMIN_EMAIL}">уебмастера</a>&amp;&#39;у.
-ERR_systemerr_url:		{GVAR: returnto_d}
+ERR_systemerr_url:		
 email_title:			Форма за е-mail съобщение
 finduser_title:			Намери потребител
 help_title:			F.A.Q.
 login_title:			Вход във форума
-msg_title:			{VAR-HTML: frm->name} =&amp;gt; {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->frm_name} =&amp;gt; {VAR: frm->subject}
 poll_title:			Редактор на гласуването
 register_title:			Регистрация
 reset_title:			Изчисти паролата
@@ -714,9 +714,9 @@ error_title:			Грешка
 index_title:			Добре дошли в нашия форум
 search_title:			Търси {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->name} =&amp;gt; {VAR: thread->subject}
+tree_title:			{VAR-HTML: frm->frm_name} =&amp;gt; {VAR: frm->subject}
 remail_emailsent:		Е-мейл съобщението е изпратено
-remail_email:			Здравей,\n\nИма интересна тема за "{VAR: thread->subject}" във форум "{GVAR: FORUM_TITLE}", която може би искаш да прочетеш. Можеш да я видиш на:\n\n{ROOT}?t={VAR: def_thread_view}&amp;th={VAR: thread->id}&amp;{DEF: _rsid}\n\n Твой \n\n{VAR: u}\n
+remail_email:			Здравей,\n\nИма интересна тема за "{VAR: data->subject}" във форум "{GVAR: FORUM_TITLE}", която може би искаш да прочетеш. Можеш да я видиш на:\n\n{ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Твой \n\n{VAR: usr->alias}\n
 poll_add_option:		Добави Опцията:
 post_opt_html_on:		<b>HTML</b> е <b>разрешен</b>
 post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUDcode</b> е <b>разрешен</b></a>
@@ -744,9 +744,9 @@ thr_exch_decline:		отхвърли
 thr_exch_orig_forum:		Начален форум:
 thr_exch_dest_forum:		Дестинация на преместването:
 thr_exch_no_threads:		Няма теми за утвърждение.
-thr_exch_decl_reason:		Причина за отхвърляне на темата <b>{VAR: thr_name}</b> във форум <b>{VAR-HTML: frm->name}</b>
+thr_exch_decl_reason:		Причина за отхвърляне на темата <b>{VAR-HTML: frm->name}</b> във форум <b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:		Потвърди
-exch_decline_ttl:		Преместването на темата {VAR: thr_name} във форум {VAR-HTML: frm->name} е отказано.
+exch_decline_ttl:		Преместването на темата {VAR: data->subject} във форум {VAR-HTML: data->f2_name} е отказано.
 ppost_original_msg:		Съобщение на което отговаряте или което препращате
 split_thread:			Раздели темата
 groupmgr_no_user:		Няма участник във форума "{VAR-HTML: gr_member}"
@@ -853,10 +853,10 @@ register_jabber:		Логин в Jabber:
 im_jabber:			Jabber:&nbsp;
 forum_contact:			Обратна връзка
 forum_home:			Начало
-post_cur_attached:		броят на прикачени файлове в момента е: {VAR: attach_count}
+post_cur_attached:		броят на прикачени файлове в момента е: {VAR: i}
 ppost_cur_attached:		броят на прикачени файлове в момента е: {VAR: attach_count}
-ignored_anon_post:		{VAR: user_login} е игнориран
-ignored_user_post:		Съобщението от <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> е игнорирано
+ignored_anon_post:		{GVAR: ANON_NICK} е игнориран
+ignored_user_post:		Съобщението от <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> е игнорирано
 smladd_close_window:		затвори прозорец
 post_list_smilies:		покажи всички усмивки
 p_VISIBLE:			Видим
@@ -897,7 +897,7 @@ search_sorting:			Сортиране на резултатите по дата:
 post_proceed:			Обработва се
 post_moderated_forum:		Изпрати съобщение в модериран форум. Това означава,че то няма да бъде публикувано, докато не го одобрят модераторите и/или администраторите на форума.
 post_moderated_forum_ttl:	Бележка на модерирания форум
-buddy_list_bday:		Днес {VAR: obj->login} става на {VAR: age} години
+buddy_list_bday:		Днес {VAR: r[2]} става на {VAR: age} години
 email_warning_msg:		Ако си сменил текущия си е-мейл адрес, акаунтът ти ще се отбелязва като непотвърден, докато не го потвърдиш от новия си e-mail адрес.
 register_show_im:		Покажи IM индикатори (ICQ, AIM, MSN, Yahoo и др.)&nbsp;
 register_show_im_desc:		Да се показват до съобщенията IM индикаторите на автора или не .

@@ -16,7 +16,7 @@ custom_avatar_queue:		Egna avatarer i k&ouml;
 date:				Datum
 date_posted:			Postningsdatum
 date_registered:		Registreringsdatum:
-download_counter:		Laddat ner {VAR: a_obj->dlcount} g&aring;nger
+download_counter:		Laddat ner {VAR: v[3]} g&aring;nger
 email:				E-post:
 email_to_friend:		E-posta till en v&auml;n
 email_to_friend_desc:		Skicka den h&auml;r sidans URL till en v&auml;n per e-post
@@ -40,7 +40,7 @@ homepage:			Hemsida:
 icq_control_panel:		ICQ Online-meddelandepanel
 icq_message_form:		ICQ meddelandeformul&auml;r:
 ignore_user:			ignorera alla inl&auml;gg av den h&auml;r medlemmen
-ignored_user_post:		Inl&auml;gg av <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> ignoreras
+ignored_user_post:		Inl&auml;gg av <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> ignoreras
 im_aim:				AIM anv&auml;ndarnamn:
 im_msnm:			MSN Messenger:
 im_yahoo:			Yahoo Messenger:
@@ -95,7 +95,7 @@ no_unread_locked:		Den h&auml;r diskussionen har l&aring;sts
 no_unread_msg:			Den h&auml;r diskussionen inneh&aring;ller inga ol&auml;sta meddelanden
 no_unread_msg_unreg:		L&auml;sta och ol&auml;sta meddelanden f&ouml;ljs upp endast f&ouml;r registrerade medlemmar
 num_pages:			Sidor ({VAR: ttl_pg}):
-num_votes:			{VAR: total_votes} r&ouml;ster
+num_votes:			{VAR: obj->total_votes} r&ouml;ster
 occupation:			Yrke:
 off:				AV
 on:				P&Aring;
@@ -103,7 +103,7 @@ page_timings:			Total tid f&ouml;r att skapa sidan: {VAR: page_gen_time} sekunde
 fud_query_stats:		MySQL-s&ouml;kningar tog {VAR: ttl_time} sekunder<br>
 pm:				Privata meddelanden
 poll:				Gallup:
-post_count:			Antal inl&auml;gg {VAR: u->posted_msg_count}
+post_count:			Antal inl&auml;gg {VAR: u_pcount}
 post_count_l:			Antal inl&auml;gg:
 poster:				Av
 posts:				Inl&auml;gg
@@ -119,7 +119,7 @@ rating:				Bed&ouml;mning
 refresh_list:			Uppdatera listan
 register:			Registrera
 registered:			Registrerad:
-registered_on:			Registrerad den {DATE: u->join_date %a, %d %B %Y}
+registered_on:			Registrerad den {DATE: u_reg_date %a, %d %B %Y}
 replies:			Svar
 report_to_mod:			Rapportera inl&auml;gg till en moderator
 reported_messages:		Rapporterade inl&auml;gg
@@ -137,11 +137,11 @@ send_pm_desc:			S&auml;nd ett privat meddelande till den h&auml;r medlemmen
 sender_email:			Avs&auml;ndarens e-postadress:
 sender_name:			Avs&auml;ndarens namn:
 show_all_posts:			Visa alla inl&auml;gg av {VAR: user_login}
-show_posts_by:			Visa inl&auml;gg av: {VAR: u->alias}
+show_posts_by:			Visa inl&auml;gg av: {VAR: u_alias}
 size:				Storlek:
 started_on:			P&aring;b&ouml;rjad
 status:				Status:
-status_line:			Vi har <b>{VAR: reg_u}</b> medlemmar, <b>{VAR: inv_u}</b> osynliga medlemmar och <b>{VAR: annon}</b> g&auml;ster p&aring; bes&ouml;k just nu.
+status_line:			Vi har <b>{VAR: st_obj->online_users_reg}</b> medlemmar, <b>{VAR: st_obj->online_users_hidden}</b> osynliga medlemmar och <b>{VAR: st_obj->online_users_anon}</b> g&auml;ster p&aring; bes&ouml;k just nu.
 sticky:				klibbig:
 stop_ignoring:			sluta ignorera den h&auml;r medlemmen
 sub_to_thread:			Best&auml;ll den h&auml;r diskussionen
@@ -176,7 +176,7 @@ unsubscribe:			Avbest&auml;ll
 unsubscribe_desc:		Avbest&auml;ll meddelanden om nya diskussioner i det h&auml;r forumet
 updated_on:			Uppdaterad:
 user:				Medlem
-user_counter:			Vi har <b>{VAR: reg_users}</b> registrerade medlemmar.
+user_counter:			Vi har <b>{VAR: st_obj->user_count}</b> registrerade medlemmar.
 user_info:			Anv&auml;ndarinformation
 user_info_l:			Anv&auml;ndarinformation {VAR: u->alias}
 user_offline:			{VAR: obj->login} &auml;r f&ouml;r tillf&auml;llet offline
@@ -186,10 +186,10 @@ view_forum:			Visa forum
 view_results:			Visa resultat
 view_thread:			Visa diskussion
 views:				Visningar
-vote:				{VAR: thread->vote_count()} r&ouml;ster
+vote:				{VAR: frm->n_rating} r&ouml;ster
 vote_button:			R&ouml;sta
 vote_for_thread:		R&ouml;sta
-was_moved_msg:			Moderatorn har flyttat diskussionen <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> till forumet <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			Moderatorn har flyttat diskussionen <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> till forumet <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a>
 welcome_message:		V&auml;lkommen <b>{VAR: usr->alias}</b>! Ditt senaste bes&ouml;k var {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			visa vad folk h&aring;ller p&aring; med
 reported_del_report:		Radera rapport
@@ -211,7 +211,7 @@ list_referes_referrals:		Refererade medlemmar
 list_referes_members:		Refererade medlemmar
 list_referes_member:		Medlem
 referals_none:			Inga referade medlemmar &auml;nnu.
-referals_refered_by:		Forummedlemmar refererade av: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="thLnk">{VAR: r_login}</a></b>
+referals_refered_by:		Forummedlemmar refererade av: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Antal inl&auml;gg
 referals_registered_on:		Registrerad den
 referals_action:		Handling
@@ -227,7 +227,7 @@ pmsg_selected:			Vald
 pmsg_delete:			Radera
 cur_ppage_pm:			Privata meddelanden
 writing_pm:			Att skriva ett privat meddelande
-browsing_folder:		Visar mappen <b>{VAR: folder}</b>
+browsing_folder:		Visar mappen <b>{VAR: folders[$folder_id]}</b>
 inbox:				INKOMMANDE
 draft:				UTKAST
 sent:				S&Auml;NDA
@@ -264,7 +264,7 @@ finduser_joindate:		Registreringsdatum
 finduser_action:		Handling
 yes:				Ja
 no:				Nej
-register_email:			E-post:
+register_email			E-post
 edit_time_limit:		<br><b>Tidsgr&auml;ns f&ouml;r editering</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuter
 no_edit_time_limit:		<br><b>Tidsgr&auml;ns f&ouml;r editering</b>: <b>Obegr&auml;nsad</b>
 pmuserloc_login:		Anv&auml;ndarnamn:
@@ -474,7 +474,7 @@ remail_message:			Meddelande:
 remail_send_now:		Skicka e-post nu
 remail_anon_opt:		Kopiera det h&auml;r meddelandet till en valbar e-postklient f&ouml;r att s&auml;nda till dina v&auml;nner.
 remail_done:			Klart
-remail_sent_conf:		E-postmeddelandet till din v&auml;n {VAR: femail} med rubriken {VAR: thread->subject} har skickats.
+remail_sent_conf:		E-postmeddelandet till din v&auml;n {VAR-HTML: _POST['femail']} med rubriken {{VAR: data->subject} har skickats.
 remail_continue:  		Forts&auml;tt
 remail_error:  			Ett fel har uppst&aring;tt
 mklist_type:			Typ:
@@ -499,7 +499,7 @@ email_pg_title:			E-post
 email_subject:			Rubrik:
 email_body:			Meddelande:
 email_submit:			Skicka
-ppost_quote_msg:		{VAR: msg_r->login} skrev {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} skrev {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Citat:
 ppost_to:			Till:
 ppost_from_buddy_list:		V&auml;lj fr&aring;n kompislistan
@@ -590,7 +590,7 @@ msg_err_onlyreg_title:		Endast registrerade medlemmar kan l&auml;sa detta forum
 msg_err_onlyreg_msg:		F&ouml;r att kunna l&auml;sa detta forum m&aring;ste du <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">logga in</a>.
 msg_err_ininfo_title:		Otillr&auml;cklig information
 msg_err_ininfo_msg:		Ett problem uppkom n&auml;r sidan skulle g&ouml;ras
-msg_update:			L&auml;ser diskussionen med rubriken <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a>
+msg_update:			L&auml;ser diskussionen med rubriken <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		FEL: Privata meddelanden &auml;r inte till&aring;tna
 pm_err_nopm_msg:		Du kan inte anv&auml;nda systemet f&ouml;r privata meddelanden, eftersom administratorn har st&auml;ngt av det.
 pm_update:			Anv&auml;nder privatmeddelanden
@@ -607,9 +607,9 @@ post_err_notowner_msg:		Du &auml;r inte detta meddelandets skribent
 post_err_edttimelimit_title:	FEL
 post_err_edttimelimit_msg:	Du kan inte editera det h&auml;r meddelandet l&auml;ngre
 post_err_noannontopics_title:	FEL: Otillr&auml;ckliga r&auml;ttigheter
-post_err_noannontopics_msg:	Anonyma anv&auml;ndare har inte r&auml;tt att p&aring;b&ouml;rja diskussioner<br><br>Om du vill registrera dig skall du g&aring; till <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformul&auml;ret</a><br>V&auml;nligen g&aring; till <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">inloggningssidan</a> om du vill logga in
+post_err_noannontopics_msg:	Anonyma anv&auml;ndare har inte r&auml;tt att p&aring;b&ouml;rja diskussioner<br><br>Om du vill registrera dig skall du g&aring; till <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformul&auml;ret</a><br>V&auml;nligen g&aring; till <a href="{ROOT}?t=login&amp;{DEF: _rsid}">inloggningssidan</a> om du vill logga in
 post_err_noannonposts_title:	FEL: Otillr&auml;ckliga r&auml;ttigheter
-post_err_noannonposts_msg:	Anonyma anv&auml;ndare har inte r&auml;tt att besvara inl&auml;gg<br><br>Om du vill registrera dig skall du g&aring; till <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformul&auml;ret</a><br>V&auml;nligen g&aring; till <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">inloggningssidan</a> om du vill logga in
+post_err_noannonposts_msg:	Anonyma anv&auml;ndare har inte r&auml;tt att besvara inl&auml;gg<br><br>Om du vill registrera dig skall du g&aring; till <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformul&auml;ret</a><br>V&auml;nligen g&aring; till <a href="{ROOT}?t=login&amp;{DEF: _rsid}">inloggningssidan</a> om du vill logga in
 post_err_noreplying_title:	FEL: Det &auml;r inte till&aring;tet att svara
 post_err_noreplying_msg:	Du har inte r&auml;tt att svara i den h&auml;r diskussionen eftersom den &auml;r antingen ett meddelande eller ett klibbigt inl&auml;gg, som moderatorn har f&ouml;rbjudit svar till.
 post_err_floodtrig_title:	FEL: Fl&ouml;desstopp p&aring;slaget
@@ -631,8 +631,8 @@ postcheck_no_recepient:		Kan inte skicka meddelandet, ingen mottagare
 postcheck_invalid_email:	Ge en riktig e-postadress till din v&auml;n.
 postcheck_email_subject:	Kan inte skicka e-post utan rubrik.
 postcheck_email_body:		Kan inte skicka e-post utan text.
-private_msg_notify_subj:	Kvittering f&ouml;r: {VAR: this->subject}
-private_msg_notify_body:	Hej!<br>Den {DATE: track_msg->post_stamp %a, %d %B %Y %H:%M} l&auml;ste {VAR: GLOBALS["usr"]->login} ditt privata meddelande med rubriken "{VAR: this->subject}"<br>
+private_msg_notify_subj:	Kvittering f&ouml;r: {VAR: m->subject}
+private_msg_notify_body:	Hej!<br>Den {DATE: m->post_stamp %a, %d %B %Y %H:%M} l&auml;ste {VAR: usr->login} ditt privata meddelande med rubriken "{VAR: m->subject}"<br>
 referals_update:		Visar refererade medlemmar
 register_err_short_login:	Det anv&auml;ndarnamn du valt &auml;r f&ouml;r kort. Anv&auml;ndarnamnet m&aring;ste vara minst 4 tecken l&aring;ngt
 register_err_login_notallowed:	Det h&auml;r anv&auml;ndarnamnet &auml;r inte till&aring;tet
@@ -648,9 +648,9 @@ register_err_notyouremail:	N&aring;gon har redan registrerat sig med den h&auml;
 register_err_avatartobig:	Filen du f&ouml;rs&ouml;ker skicka &auml;r f&ouml;r stor, &ouml;ver gr&auml;nsen p&aring; {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte
 register_err_avatarnotallowed:	Avataren du f&ouml;rs&ouml;ker skicka &auml;r inte till&aring;ten. Kontrollera att den &auml;r av godk&auml;nd filtyp.
 register_conf_subject:		Bekräftelse av forumregistrering
-register_conf_msg:		Tack för din registrering!\nGå till adressen nedan för att aktivera ditt medlemskonto:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nEfter att ditt konto blivit aktiverat blir du inloggad på forumet och \nvidareskickad till huvudsidan.
+register_conf_msg:		Tack för din registrering!\nGå till adressen nedan för att aktivera ditt medlemskonto:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEfter att ditt konto blivit aktiverat blir du inloggad på forumet och \nvidareskickad till huvudsidan.
 register_welcome_subject:	V&auml;lkommen till forumet
-register_welcome_msg:		Tack f&ouml;r din registrering!\n\nH&auml;r &auml;r dina inloggnignsuppgifter f&ouml;r forumet:\n\nForumets URL: {ROOT}?t=index\nAnv&auml;ndarnamn: {VAR: usr->login}\nL&ouml;senord: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nNotera att det &auml;r skillnad p&aring; sm&aring; och stora bokst&auml;ver i l&ouml;senordet!\nVill du &auml;ndra inst&auml;llningarna och din profil skall du g&aring; till den h&auml;r sidan:\n{ROOT}?t=register\n
+register_welcome_msg:		Tack f&ouml;r din registrering!\n\nH&auml;r &auml;r dina inloggnignsuppgifter f&ouml;r forumet:\n\nForumets URL: {ROOT}?t=index\nAnv&auml;ndarnamn: {VAR: uent->login}\nL&ouml;senord: {VAR: _POST['reg_plaintext_passwd']}\n\nNotera att det &auml;r skillnad p&aring; sm&aring; och stora bokst&auml;ver i l&ouml;senordet!\nVill du &auml;ndra inst&auml;llningarna och din profil skall du g&aring; till den h&auml;r sidan:\n{ROOT}?t=register\n
 register_err_cantreg_title:	FEL: kan inte registrera
 regsiter_err_cantreg_msg:	Kan inte skapa anv&auml;ndarkonto, v&auml;nligen kontakta administratorn p&aring; adressen <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Visar sin egen profil
@@ -664,45 +664,45 @@ reset_err_invalidkey_msg:	Ogiltig kod f&aring;r &aring;terst&auml;llning av l&ou
 reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		Du torde f&aring; instruktioner per e-post inom ett par minuter
 reset_newpass_title:		Nollst&auml;ll l&ouml;senord
-reset_newpass_msg:		Hej!\n\nEnligt &ouml;nskem&aring;l har ditt anv&auml;ndarnamn och ditt l&ouml;senord skickats till dig.\nH&auml;r &auml;r dina inloggningsuppgifter:\n\nAnv&auml;ndarnamn: {VAR: parr['usr']->login}\nL&ouml;senord: {VAR: parr['passwd']}\n\nNotera att ditt l&ouml;senord har &auml;ndrats till ovanst&aring;ende. Om du vill\n&auml;ndra ditt l&ouml;senord kan du g&ouml;ra det i medlemmens kontrollpanel:\n{ROOT}?t=register\n\n
-reset_login_notify:		Ditt l&ouml;senord har skickats &aring;t dig per e-post och borde komma fram inom ett par minuter. V&auml;nligen kontrollera din e-post f&ouml;r ditt anv&auml;ndarnamn och l&ouml;senord
+reset_newpass_msg:		Hej!\n\nEnligt &ouml;nskem&aring;l har ditt anv&auml;ndarnamn och ditt l&ouml;senord skickats till dig.\nH&auml;r &auml;r dina inloggningsuppgifter:\n\nAnv&auml;ndarnamn: {VAR: ui[1]}\nL&ouml;senord: {VAR: passwd}\n\nNotera att ditt l&ouml;senord har &auml;ndrats till ovanst&aring;ende. Om du vill\n&auml;ndra ditt l&ouml;senord kan du g&ouml;ra det i medlemmens kontrollpanel:\n{ROOT}?t=register\n\n
+reset_login_notify:		Ditt l&ouml;senord har skickats &aring;t dig per e-post och borde komma fram inom ett par minuter. V&auml;nligen kontrollera din e-post f&ouml;r ditt anv&auml;ndarnamn och l&ouml;senord.<br>
 search_update:			S&ouml;ker bland inl&auml;ggen
 selmsg_update:			L&auml;ser <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Dagens inl&auml;gg</a>
-showposts_update:		Visar inl&auml;gg av: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>
+showposts_update:		Visar inl&auml;gg av: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
 subscribed_update:		Visar egna best&auml;llningar
 th_err_invid_title:		Felaktigt diskussions-ID
 th_err_invid_msg:		Du har f&ouml;ljt en felaktig l&auml;nk, diskussionen du f&ouml;rs&ouml;ker l&auml;sa existerar inte.
 thread_err_onlyregview_title:	Endast registrerade medlemmar kan l&auml;sa det h&auml;r forumet
 thread_err_onlyregview_msg:	F&ouml;r att kunna l&auml;sa det h&auml;r forumet m&aring;ste du <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">logga in</a>.
 thread_update:			L&auml;ser forumet <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			L&auml;ser diskussionen (tr&aring;dad vy) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
+tree_update:			L&auml;ser diskussionen (tr&aring;dad vy) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Ser p&aring; <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}s</a> profil
 ERR_login_ttl:			FEL: Du &auml;r inte inloggad
 ERR_login_msg:			Du &auml;r inte inloggad, v&auml;nligen logga in<br><br>Om du vill registrera dig kan du g&aring; till <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformul&auml;ret</a><br>Om du vill logga in kan du g&aring; till <a href="{ROOT}?t=login&amp;{DEF: _rsid}">inloggningsformul&auml;ret</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		Avst&auml;ngd funktion
 ERR_disabled_msg:		Den h&auml;r funktionen &auml;r avst&auml;ngd av administratorn
-ERR_disabled_url:		{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			FEL: Otillr&auml;ckliga r&auml;ttigheter
 ERR_access_msg:			Du har inte de r&auml;ttigheter som beh&ouml;vs f&ouml;r att g&ouml;ra det h&auml;r
-ERR_access_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registrering avst&auml;ngd
 ERR_registration_disabled_msg:	Administratorn har st&auml;ng av registreringen, f&ouml;rs&ouml;k p&aring; nytt senare
 ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
 ERR_emailconf_ttl:		FEL: Ditt anv&auml;ndarkonto &auml;r &auml;nnu inte bekr&auml;ftat
-ERR_emailconf_msg:		Du har inte bekr&auml;ftat ditt anv&auml;ndarkonto via e-post <br><table border=0><tr><td><ol><li>Om du inte har f&aring;tt ett bekr&auml;ftelsemeddelande per e-post <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">tryck h&auml;r</a><li>Om {VAR: GLOBALS['usr']->email} inte &auml;r din r&auml;tta e-postadress <a href="{ROOT}?t=register&amp;{DEF: _rsid}">tryck h&auml;r</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du har inte bekr&auml;ftat ditt anv&auml;ndarkonto via e-post <br><table border=0><tr><td><ol><li>Om du inte har f&aring;tt ett bekr&auml;ftelsemeddelande per e-post <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">tryck h&auml;r</a><li>Om {VAR: usr_d->email} inte &auml;r din r&auml;tta e-postadress <a href="{ROOT}?t=register&amp;{DEF: _rsid}">tryck h&auml;r</a></ol></td></tr></table>
 ERR_emailconf_url:
 ERR_user_ttl:			FEL: Ingen s&aring;dan medlem
 ERR_user_msg:			Det finns ingen s&aring;dan medlem
-ERR_user_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}&{DEF: _rsid}
+ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}&{DEF: _rsid}
 ERR_systemerr_ttl:		FEL: Systemfel
 ERR_systemerr_msg:		Ett systemfel har uppst&aring;tt, v&auml;nligen rapportera felet till <a href="mailto:{GVAR: ADMIN_EMAIL}">webmastern</a>.
-ERR_systemerr_url:		{GVAR: returnto_d}
+ERR_systemerr_url:		
 email_title:			Skicka e-post
 finduser_title:			S&ouml;k efter medlemmar
 help_title:			Hjälp
 login_title:			Logga in
-msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 poll_title:			Gallupeditor
 register_title:			Registrering
 reset_title:			&Aring;terst&auml;ll l&ouml;senord
@@ -711,9 +711,9 @@ error_title:			FEL
 index_title:			V&auml;lkommen till forumet
 search_title:			S&ouml;k {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-posten skickad
-remail_email:			Det finns en websida här {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) som du kanske är intresserad av att läsa.\nTråden som jag tänkte att du skulle vara intresserad av, {VAR: thread->subject} hittar du här: {ROOT}?t={VAR: def_thread_view}&th={VAR: thread->id}&{DEF: _rsid}\nAv {VAR: u}\n
+remail_email:			Det finns en websida här {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) som du kanske är intresserad av att läsa.\nTråden som jag tänkte att du skulle vara intresserad av, {VAR: data->subject} hittar du här: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
 poll_add_option:		L&auml;gg till alternativ:
 post_opt_html_on:		<b>HTML</b>-kod &auml;r <b>P&Aring;</b>
 post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUD-kod</b> &auml;r <b>P&Aring;</b></a>
@@ -741,9 +741,9 @@ thr_exch_decline:		godk&auml;nn inte diskussion
 thr_exch_orig_forum:		Ursprungligt forum:
 thr_exch_dest_forum:		Nytt forum:
 thr_exch_no_threads:		Inga diskussioner att granska.
-thr_exch_decl_reason:		Orsakt till att inte godk&auml;nna flyttning av diskussionen <b>{VAR: thr_name}</b> till forumet <b>{VAR-HTML: frm->name}</b>
+thr_exch_decl_reason:		Orsakt till att inte godk&auml;nna flyttning av diskussionen <b>{VAR-HTML: frm->name}</b> till forumet <b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:		Sänd
-exch_decline_ttl:		Flyttningen av diskussionen {VAR: thr_name} till forumet {VAR-HTML: frm->name} godk&auml;ndes inte.
+exch_decline_ttl:		Flyttningen av diskussionen {VAR: data->subject} till forumet {VAR-HTML: data->f2_name} godk&auml;ndes inte.
 ppost_original_msg:		meddelande som du skickar vidare eller svarar p&aring;
 split_thread:			Splittra diskussion
 groupmgr_no_user:		Det finns ingen medlem med anv&auml;ndarnamnet "{VAR-HTML: gr_member}"
@@ -851,10 +851,10 @@ register_jabber:		Jabber-anv&auml;ndarnamn:
 im_jabber:			Jabber:
 forum_contact:			Ta kontakt
 forum_home:			Hem
-post_cur_attached:		{VAR: attach_count} filer bifogade f&ouml;r tillf&auml;llet
+post_cur_attached:		{VAR: i} filer bifogade f&ouml;r tillf&auml;llet
 ppost_cur_attached:		{VAR: attach_count} filer bifogade f&ouml;r tillf&auml;llet
 post_list_smilies:		visa alla smilisar
-ignored_anon_post:		{VAR: user_login} ignoreras
+ignored_anon_post:		{GVAR: ANON_NICK} ignoreras
 smladd_close_window:		st&auml;ng f&ouml;nstret
 p_VISIBLE:                    	Synlig
 reported_in_thread:		I diskussionen
@@ -895,7 +895,7 @@ search_sorting:			Sortera resultaten enligt datum i:
 post_moderated_forum:		Du har skrivit ett inl&auml;gg i ett modererat forum, vilket inneb&auml;r att inl&auml;gget syns f&ouml;rst n&auml;r forumets moderator och/eller administrator har godk&auml;nt det.
 post_moderated_forum_ttl:	Meddelande om modererat forum
 post_proceed:			G&aring; vidare
-buddy_list_bday:		Idag fyller {VAR: obj->login} {VAR: age} år
+buddy_list_bday:		Idag fyller {VAR: r[2]} {VAR: age} år
 email_warning_msg:		Om du &auml;ndrar din nuvarande e-postadress kommer ditt anv&auml;ndarkonto att r&auml;knas som obekr&auml;ftat tills du bekr&auml;ftar den nya e-postadressen.
 register_show_im:		Visa IM-indikatorer
 register_show_im_desc:		Avg&ouml;r om författarens IM-indikatorer syns bredvid inl&auml;gget.

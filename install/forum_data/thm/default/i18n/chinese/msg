@@ -16,7 +16,7 @@ custom_avatar_queue:		定制头像列表
 date:				日期
 date_posted:			发布时间
 date_registered:		注册日期：
-download_counter:		下载次数{VAR: a_obj->dlcount}
+download_counter:		下载次数{VAR: v[3]}
 email:				邮件：
 email_to_friend:		发送邮件给朋友
 email_to_friend_desc:		发送邮件，向你的朋友推荐本页网址
@@ -94,7 +94,7 @@ no_unread_locked:		本主题已被封闭。
 no_unread_msg:			这个主题没有未读信息。
 no_unread_msg_unreg:		只有注册用户能够把信息标为已读和未读。
 num_pages:			页 ({VAR: ttl_pg}):
-num_votes:			{VAR: total_votes} 选票
+num_votes:			{VAR: obj->total_votes} 选票
 occupation:			职业：
 off:				关闭
 on:				打开
@@ -102,7 +102,7 @@ page_timings:			生成本页面共花费时间: {VAR: page_gen_time} 秒。
 fud_query_stats:		MySQL 系统花费了{VAR: ttl_time} 秒钟时间<br>
 pm:				悄悄话
 poll:				调查:
-post_count:			点击数 {VAR: u->posted_msg_count}
+post_count:			点击数 {VAR: u_pcount}
 post_count_l:			点击数：
 poster:				发帖人
 posts:				贴子
@@ -136,11 +136,11 @@ send_pm_desc:			发悄悄话给这个用户
 sender_email:			发送者邮件：
 sender_name:			发送者姓名：
 show_all_posts:			显示所有由用户{VAR: user_login}发布的主题
-show_posts_by:			显示用户 {VAR: u->alias}发布的主题
+show_posts_by:			显示用户 {VAR: u_alias}发布的主题
 size:				大小:
 started_on:			发起
 status:				级别：
-status_line:			现在有 <b>{VAR: reg_u}</b> 用户, 包括<b>{VAR: inv_u}</b> 名隐藏用户和 <b>{VAR: annon}</b> 名访客访问本论坛。
+status_line:			现在有 <b>{VAR: st_obj->online_users_reg}</b> 用户, 包括<b>{VAR: st_obj->online_users_hidden}</b> 名隐藏用户和 <b>{VAR: st_obj->online_users_anon}</b> 名访客访问本论坛。
 sticky:				置顶:
 stop_ignoring:			不再拒绝这个用户
 sub_to_thread:			订阅这个主题
@@ -175,7 +175,7 @@ unsubscribe:			不预定
 unsubscribe_desc:		当本论坛有人发布新的主题时，请勿通知我。
 updated_on:			更新:
 user:				用户名
-user_counter:			我们有 <b>{VAR: reg_users}</b> 注册用户。
+user_counter:			我们有 <b>{VAR: st_obj->user_count}</b> 注册用户。
 user_info:			用户信息
 user_info_l:			用户信息 {VAR: u->alias}
 user_offline:			{VAR: obj->login}  现在不在线
@@ -185,10 +185,10 @@ view_forum:			查看论坛
 view_results:			查看结果
 view_thread:			查看主题
 views:				点击
-vote:				{VAR: thread->vote_count()} 投票
+vote:				{VAR: frm->n_rating} 投票
 vote_button:			投票
 vote_for_thread:		调查
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> 已经被版主移至<a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> 已经被版主移至<a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a>
 welcome_message:		欢迎！ <b>{VAR: usr->alias}</b>, 你最后一次访问是 {DATE: usr->last_visit %Y-%m-%d %H:%M}
 what_ppl_doing:			显示浏览者的操作
 reported_del_report:		删除报告
@@ -210,7 +210,7 @@ list_referes_referrals:		被提名者
 list_referes_members:		被提名的用户
 list_referes_member:		用户
 referals_none:			目前还没有被提名的人。
-referals_refered_by:		被推荐的论坛成员是: <b><a class="TableHeading" href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}">{VAR: r_login}</a></b>
+referals_refered_by:		被推荐的论坛成员是: <b><a class="TableHeading" href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}">{VAR: p_user[1]}</a></b>
 referals_post_count:		发贴数
 referals_registered_on:		登录
 referals_action:		操作
@@ -226,7 +226,7 @@ pmsg_selected:			选择
 pmsg_delete:			删除
 cur_ppage_pm:			悄悄话通知
 writing_pm:			写悄悄话
-browsing_folder:		浏览 <b>{VAR: folder}</b> 文件夹
+browsing_folder:		浏览 <b>{VAR: folders[$folder_id]}</b> 文件夹
 inbox:				收件箱
 draft:				草稿箱
 sent:				发件箱
@@ -263,7 +263,7 @@ finduser_joindate:		注册日期
 finduser_action:		操作
 yes:				是
 no:				否
-register_email:			电子信箱：
+register_email			电子信箱：
 edit_time_limit:		<br><b>编辑时间限制为</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> 分钟
 no_edit_time_limit:		<br><b>编辑时间限制</b>: <b>不限</b>
 pmuserloc_login:		登录:
@@ -474,7 +474,7 @@ remail_message:			内容：
 remail_send_now:		发送邮件
 remail_anon_opt:		把这些内容拷贝到你选择的邮件地址中，发送给你的朋友。
 remail_done:			完成
-remail_sent_conf:		给你的朋友 {VAR: femail} 的关于{VAR: thread->subject} 的邮件已经成功发送。
+remail_sent_conf:		给你的朋友 {VAR-HTML: _POST['femail']} 的关于{{VAR: data->subject} 的邮件已经成功发送。
 remail_continue:		继续
 remail_error:			发生了错误
 mklist_type:			类型:
@@ -499,7 +499,7 @@ email_pg_title:			电子邮箱
 email_subject:			主题:
 email_body:			内容:
 email_submit:			发送
-ppost_quote_msg:		{VAR: msg_r->login} 发表于{DATE: msg_r->post_stamp %Y-%m-%d %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} 发表于{DATE: msg_r->post_stamp %Y-%m-%d %H:%M}
 ppost_quote:			引用:
 ppost_to:			至：
 ppost_from_buddy_list:		从好友名单中选择
@@ -590,7 +590,7 @@ msg_err_onlyreg_title:		只有注册用户可以查看这个论坛。
 msg_err_onlyreg_msg:		要查看这个论坛，你必须注册<a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">注册</a>, 如果已经注册，请\'ll need to <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">登录</a>.
 msg_err_ininfo_title:		信息不充分
 msg_err_ininfo_msg:		本页发生错误
-msg_update:			展开浏览 <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a>
+msg_update:			展开浏览 <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		错误：无法发送悄悄话
 pm_err_nopm_msg:		系统管理员禁止您使用悄悄话系统。
 pm_update:			使用悄悄话功能
@@ -607,9 +607,9 @@ post_err_notowner_msg:		你不是这个帖子的作者
 post_err_edttimelimit_title:	错误
 post_err_edttimelimit_msg:	你不能再编辑这条信息
 post_err_noannontopics_title:	错误：你的权限不够
-post_err_noannontopics_msg:	匿名用户不允许发布主题<br><br>注册，请点击 <a href="{ROOT}?t=register&amp;{DEF: _rsid}">注册</a><br>登录请点击 <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">登录</a>
+post_err_noannontopics_msg:	匿名用户不允许发布主题<br><br>注册，请点击 <a href="{ROOT}?t=register&amp;{DEF: _rsid}">注册</a><br>登录请点击 <a href="{ROOT}?t=login&amp;{DEF: _rsid}">登录</a>
 post_err_noannonposts_title:	错误：你的权限不够
-post_err_noannonposts_msg:	匿名用户不允许回复<br><br>注册，请点击 <a href="{ROOT}?t=register&amp;{DEF: _rsid}">注册</a><br>登录，请点击<a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">登录</a>
+post_err_noannonposts_msg:	匿名用户不允许回复<br><br>注册，请点击 <a href="{ROOT}?t=register&amp;{DEF: _rsid}">注册</a><br>登录，请点击<a href="{ROOT}?t=login&amp;{DEF: _rsid}">登录</a>
 post_err_noreplying_title:	错误：不允许回复
 post_err_noreplying_msg:	您不能回复这条信息，因为版主禁止在这里跟帖或发布通告。
 post_err_floodtrig_title:	错误：发布灌水帖子
@@ -631,8 +631,8 @@ postcheck_no_recepient:		因为没有接受方，所以无法发送信息
 postcheck_invalid_email:	请输入你的朋友的正确电子邮箱地址。
 postcheck_email_subject:	如果不输入主题，你将无法发送邮件。
 postcheck_email_body:		如果没有内容，你将无法发送邮件。
-private_msg_notify_subj:	读取通知: {VAR: this->subject}
-private_msg_notify_body:	你好,<br>{VAR: GLOBALS["usr"]->login} 用户已经阅读了你的悄悄话， "{VAR: this->subject}", 在 {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br>
+private_msg_notify_subj:	读取通知: {VAR: m->subject}
+private_msg_notify_body:	你好,<br>{VAR: usr->login} 用户已经阅读了你的悄悄话， "{VAR: m->subject}", 在 {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br>
 referals_update:		浏览被推荐者
 register_err_short_login:	你输入的账号太短，必须至少包括4个字符。
 register_err_login_notallowed:	不能使用这个账号注册。
@@ -648,9 +648,9 @@ register_err_notyouremail:	已经有人用这个电子邮箱地址注册了，但是那个人不是你。
 register_err_avatartobig:	你正在上传的文件太大，超过了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节的最大限制。
 register_err_avatarnotallowed:	你正在上传的头像不能上传，请查看允许上传的文件类型。
 register_conf_subject:		注册确认
-register_conf_msg:		谢谢注册,\n进入当前账号，请点击下列地址：\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
+register_conf_msg:		谢谢注册,\n进入当前账号，请点击下列地址：\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
 register_welcome_subject:	论坛注册确认
-register_welcome_msg:		谢谢注册,\n\n这是您注册的详细资料:\n\n论坛 URL: {GVAR: WWW_ROOT}\n账号：{VAR: usr->login}\n密码：{VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\n请注意密码区分大小写!\n要更改您的设置或者个人信息，请点击：\n{ROOT}?t=register\n
+register_welcome_msg:		谢谢注册,\n\n这是您注册的详细资料:\n\n论坛 URL: {GVAR: WWW_ROOT}\n账号：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写!\n要更改您的设置或者个人信息，请点击：\n{ROOT}?t=register\n
 register_err_cantreg_title:	错误：无法注册
 regsiter_err_cantreg_msg:	无法注册新的账号，请和系统管理员联系<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	查看个人信息
@@ -664,18 +664,18 @@ reset_err_invalidkey_msg:	密码提示错误
 reset_err_rstconf_title:	信息
 reset_err_rstconf_msg:		一会您将通过邮件收到相关说明。
 reset_newpass_title:		重新输入密码
-reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息:\n\n账号：{VAR: parr['usr']->login}\n密码: {VAR: parr['passwd']}\n\nPlease not that your password has been reset the the value above, 如果你想\n修改密码，请在个人信息中修改:\n{ROOT}?t=register\n\n
-reset_login_notify:		一会儿，你将通过邮件收到密码。请检查你的密码并登录。
+reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息:\n\n账号：{VAR: ui[1]}\n密码: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, 如果你想\n修改密码，请在个人信息中修改:\n{ROOT}?t=register\n\n
+reset_login_notify:		一会儿，你将通过邮件收到密码。请检查你的密码并登录。.<br>
 search_update:			搜索
 selmsg_update:			浏览 <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">今天发布的主题</a>
-showposts_update:		查看用户 <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>发布的主题
+showposts_update:		查看用户 <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>发布的主题
 subscribed_update:		浏览自己预定的内容
 th_err_invid_title:		错误的主题id号
 th_err_invid_msg:		你输入的连接错误,相关主题并不存在。
 thread_err_onlyregview_title:	只有注册用户允许查看这个论坛
 thread_err_onlyregview_msg:	要查看本论坛，你必须<a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">注册</a>, 如果已经注册，请<a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">登录</a>.
 thread_update:			浏览论坛<a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			浏览（以树状方式） <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
+tree_update:			浏览（以树状方式） <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		查看 <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}的</a> 个人信息
 ERR_login_ttl:			错误：您尚未注册
 ERR_login_msg:			您尚未登录，请登录<br><br>请<a href="{ROOT}?t=register&amp;{DEF: _rsid}">注册</a><br>请<a href="{ROOT}?t=login&amp;{DEF: _rsid}">登陆</a>
@@ -690,19 +690,19 @@ ERR_registration_disabled_ttl:	注册失败
 ERR_registration_disabled_msg:	注册功能被系统管理员禁止,请重试！
 ERR_registration_disabled_url:	{GVAR: WWW_ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		错误: 此账号无效
-ERR_emailconf_msg:		您注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">请点击</a><li>如果 {VAR: GLOBALS['usr']->email} 邮件地址有误<a href="{ROOT}?t=register&amp;{DEF: _rsid}">请点击</a></ol></td></tr></table>
+ERR_emailconf_msg:		您注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">请点击</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{ROOT}?t=register&amp;{DEF: _rsid}">请点击</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			错误：没有这个用户
 ERR_user_msg:			没有这个用户
 ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
 ERR_systemerr_ttl:		系统错误
 ERR_systemerr_msg:		发生系统错误,请报告错误：<a href="mailto:{GVAR: ADMIN_EMAIL}">网管</a>.
-ERR_systemerr_url:		{GVAR: returnto_d}
+ERR_systemerr_url:		
 email_title:			邮件格式
 finduser_title:			查找用户
 help_title:			使用帮助
 login_title:			登录格式
-msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 poll_title:			调查编辑
 register_title:			注册
 reset_title:			重新输入密码
@@ -711,9 +711,9 @@ error_title:			格式错误
 index_title:			欢迎到来
 search_title:			搜索 {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		邮件已经发送
-remail_email:			这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能感兴趣\n这里是你可能感兴趣的主题,{VAR: thread->subject} 清点击: {ROOT}?t={VAR: def_thread_view}&th={VAR: thread->id}&{DEF: _rsid}\n 发件人 {VAR: u}\n
+remail_email:			这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能感兴趣\n这里是你可能感兴趣的主题,{VAR: data->subject} 清点击: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\n 发件人 {VAR: usr->alias}\n
 poll_add_option:		添加选项：
 post_opt_html_on:		<b>HTML</b><b>代码：开放</b>
 post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank">FUD代码：</b><b>开放</a></b>
@@ -741,9 +741,9 @@ thr_exch_decline:		拒绝该主题
 thr_exch_orig_forum:		转出的论坛:
 thr_exch_dest_forum:		目标论坛:
 thr_exch_no_threads:		没有需要批复的主题。
-thr_exch_decl_reason:		拒绝主题 <b>{VAR: thr_name}</b> 转入<b>{VAR-HTML: frm->name}</b>论坛的理由。
+thr_exch_decl_reason:		拒绝主题 <b>{VAR-HTML: frm->name}</b> 转入<b>{VAR-HTML: frm->name}</b>论坛的理由。
 thr_exch_submit:		发布
-exch_decline_ttl:		把主题 {VAR: thr_name} 转移至{VAR-HTML: frm->name} 论坛的要求被拒绝。
+exch_decline_ttl:		把主题 {VAR: data->subject} 转移至{VAR-HTML: data->f2_name} 论坛的要求被拒绝。
 ppost_original_msg:		你正在发送或者回复的信息
 split_thread:			分开主题
 groupmgr_no_user:		此账号不存在 "{VAR-HTML: gr_member}"
@@ -850,10 +850,10 @@ register_jabber:		Jabber :
 im_jabber:			Jabber: 
 forum_contact:			联系
 forum_home:			主页
-post_cur_attached:		正在粘贴{VAR: attach_count} file(s)
+post_cur_attached:		正在粘贴{VAR: i} file(s)
 ppost_cur_attached:		正在粘贴 {VAR: attach_count} file(s)
-ignored_anon_post:		{VAR: user_login} 被拒绝
-ignored_user_post:		您被拒绝提交信息<a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a>
+ignored_anon_post:		{GVAR: ANON_NICK} 被拒绝
+ignored_user_post:		您被拒绝提交信息<a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a>
 smladd_close_window:		关闭窗口
 post_list_smilies:		显示所有表情符号
 p_VISIBLE:			可见的
@@ -896,7 +896,7 @@ search_sorting:			结果按日期:
 post_moderated_forum:		恭喜！您已经发表成功，等版主或者管理员确认后会发布到网上！
 post_moderated_forum_ttl:	受限论坛说明
 post_proceed:			返回论坛
-buddy_list_bday:		今天是 {VAR: obj->login} 的 {VAR: age} 岁生日
+buddy_list_bday:		今天是 {VAR: r[2]} 的 {VAR: age} 岁生日
 email_warning_msg:		如果您修改了Email, 则此账号会被暂时隐藏，请您查收邮件，点击邮件中的连接以重新激活账号！
 register_show_im:		显示 IM 指示器
 register_show_im_desc:		是否在发表的贴子旁边显示IM.

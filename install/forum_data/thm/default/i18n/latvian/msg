@@ -16,7 +16,7 @@ custom_avatar_queue:		Citas bildîtes
 date:				Datums
 date_posted:			Nosûtîðanas datums
 date_registered:		Reìistrâcijas datums:
-download_counter:		{VAR: a_obj->dlcount} reizes ielâdçts
+download_counter:		{VAR: v[3]} reizes ielâdçts
 email:				E-pasts:
 email_to_friend:		Nosûtît E-pastu
 email_to_friend_desc:		Nosûtît URL-saiti par ðo ierakstu pa E-pastu
@@ -94,7 +94,7 @@ no_unread_locked:		Ðî tçma ir slçgta
 no_unread_msg:			Ðajâ tçmâ nav nelasîtu ierakstu
 no_unread_msg_unreg:		Lasîtu vai nelasîtu ierakstu pârskats pieejams tikai reìistrçtiem lietotâjiem
 num_pages:			({VAR: ttl_pg})lapas:
-num_votes:			{VAR: total_votes} balsis:
+num_votes:			{VAR: obj->total_votes} balsis:
 occupation:			Nodarboðanâs:
 off:				OFF
 on:				ON
@@ -102,7 +102,7 @@ page_timings:			{VAR: page_gen_time} sekundes patçrçtas lapas ìenerçðanai
 fud_query_stats:		MySQL pieprasîjums ilga {VAR: ttl_time} sekundes
 pm:				Privâtâ sarakste
 poll:				Balsojumi:
-post_count:			{VAR: u->posted_msg_count}ieraksti
+post_count:			{VAR: u_pcount}ieraksti
 post_count_l:			Ierakstu skaits:
 poster:				Autors
 posts:				Ieraksti
@@ -118,7 +118,7 @@ rating:				Reitings
 refresh_list:			Atjaunot sarakstu
 register:			Reìistrâcija
 registered:			Piereìistrçts:
-registered_on:			Reìistrâcijas datums: {DATE: u->join_date %a, %d %B %Y}
+registered_on:			Reìistrâcijas datums: {DATE: u_reg_date %a, %d %B %Y}
 replies:			Atbildes
 report_to_mod:			Paziòojums moderâtoram
 reported_messages:		Paziòojumi par ierakstiem
@@ -136,11 +136,11 @@ send_pm_desc:			Nosûtît privâto vçstuli
 sender_email:			Autora E-pasts:
 sender_name:			Autora vârds:
 show_all_posts:			Uzrâdît ierakstus kas nosûtîti {VAR: user_login}
-show_posts_by:			Uzrâdît ierakstus kurus iesûtîja: {VAR: u->alias}
+show_posts_by:			Uzrâdît ierakstus kurus iesûtîja: {VAR: u_alias}
 size:				Izmçrs:
 started_on:			Sâkums
 status:				Statuss:
-status_line:			Ðobrîd forumos <b>{VAR: reg_u}</b>lietotâji, <b>{VAR: inv_u}</b>neredzamie, <b>{VAR: annon}</b>viesi.
+status_line:			Ðobrîd forumos <b>{VAR: st_obj->online_users_reg}</b>lietotâji, <b>{VAR: st_obj->online_users_hidden}</b>neredzamie, <b>{VAR: st_obj->online_users_anon}</b>viesi.
 sticky:				Sticky:
 stop_ignoring:			pârtraukt lietotâju ignorçðanu
 sub_to_thread:			Pierakstîties tçmâ
@@ -175,7 +175,7 @@ unsubscribe:			Atteikties no foruma
 unsubscribe_desc:		Pârtraukt paziòojumu nosûtîðanu par jaunumiem ðajâ forumâ
 updated_on:			Jauninâjumi:
 user:				Lietotâjs:
-user_counter:			<b>{VAR: reg_users}</b> reìistrçtie lietotâji.
+user_counter:			<b>{VAR: st_obj->user_count}</b> reìistrçtie lietotâji.
 user_info:			Info par lietotâju
 user_info_l:			Info par {VAR: u->alias}
 user_offline:			{VAR: obj->login} ðobrîd nav On-Line reþîmâ
@@ -186,10 +186,10 @@ view_last_msg:			Pçdçjais foruma ieraksta pârskats
 view_results:			Rezultâtu pârskats
 view_thread:			Tçmas pârskats
 views:				Pârskati
-vote:				{VAR: thread->vote_count()}balsis
+vote:				{VAR: frm->n_rating}balsis
 vote_button:			Balsot
 vote_for_thread:		Novçrtçjums
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> moderâtors pârcçla uz forumu <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> moderâtors pârcçla uz forumu <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a>
 welcome_message:		Sveiki <b><u>{VAR: usr->alias}</u></b>, prieks Jûs atkal redzçt kopð {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			parâdît ko kurð dara
 reported_del_report:		Dzçst atskaiti
@@ -211,7 +211,7 @@ list_referes_referrals:		Uzaicinâti
 list_referes_members:		Uzaicinâtie lietotâji
 list_referes_member:		Lietotâjs
 referals_none:			Neviens nav uzaicinâts.
-referals_refered_by:		Uzaicinâtie lietotâji <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="thLnk">{VAR: r_login}</a></b>
+referals_refered_by:		Uzaicinâtie lietotâji <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Ieraksti
 referals_registered_on:		Reìistrâcijas datums
 referals_action:		Darbîba
@@ -227,7 +227,7 @@ pmsg_selected:			Izvçlçts
 pmsg_delete:			Dzçst
 cur_ppage_pm:			Privâtais pasts
 writing_pm:			Izveidot privâto vçstuli
-browsing_folder:		Pârskatît mapi <b>{VAR: folder}</b>
+browsing_folder:		Pârskatît mapi <b>{VAR: folders[$folder_id]}</b>
 inbox:				Ienâkoðâs
 draft:				Melnraksti
 sent:				Nosûtîtâs
@@ -265,7 +265,7 @@ finduser_joindate:		Pieslçgðanâs datums
 finduser_action:		Darbîbas
 yes:				Jâ
 no:				Nç
-register_email:			E-pasts:
+register_email			E-pasts
 edit_time_limit:		<br><b>Izmaiòu veikðanas periods</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minûtes
 no_edit_time_limit:		<br><b> Izmaiòu veikðanas periods </b>: <b>Nelimitçts</b>
 pmuserloc_login:		Vârds:
@@ -476,7 +476,7 @@ remail_message:			Publikâcija:
 remail_send_now:		Nosûtît E-pastu
 remail_anon_opt:		Pârkopçjiet publikâciju uz E-pasta klienta programmu (pie. Outlook Express), lai pârsûtîtu saviem draugiem.
 remail_done:			Gatavs
-remail_sent_conf:		Elektroniskâ vçstule uz adresi {VAR: femail} par tçmu {VAR: thread->subject} veiksmîgi nosûtîta.
+remail_sent_conf:		Elektroniskâ vçstule uz adresi {VAR-HTML: _POST['femail']} par tçmu {{VAR: data->subject} veiksmîgi nosûtîta.
 remail_continue:		Turpinât
 remail_error:			Kïûda
 mklist_type:			Tips:
@@ -501,7 +501,7 @@ email_pg_title:			Email
 email_subject:			Tçma:
 email_body:			Teksts:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_r->login} uzrakstîja {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} uzrakstîja {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Citâts:
 ppost_to:			Kam:
 ppost_from_buddy_list:		Izvçlçties no kontaktu saraksta
@@ -593,7 +593,7 @@ msg_err_onlyreg_title:		ðis forums ir tikai reìistrçtiem lietotâjiem
 msg_err_onlyreg_msg:		Lai ieietu ðajâ forumâ Jums jâbût <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">reìistrçtam lietotâjam</a>, ja Jûs bijât reìistrçts agrâk, tad Jums <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">jâieiet forumâ</a>.
 msg_err_ininfo_title:		Nepietiekama informâcija
 msg_err_ininfo_msg:		Kïûda lapas izveidç
-msg_update:			Tçmas <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a> apskats
+msg_update:			Tçmas <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a> apskats
 pm_err_nopm_title:		KÏÛDA: Privâtie paziòojumi aizliegti
 pm_err_nopm_msg:		Privâto paziòojumu sistçmu nevar lietot, jo tâ ir atslçgta.
 pm_update:			Privâtâ sarakste
@@ -610,9 +610,9 @@ post_err_notowner_msg:		Jûs neesat ðîs publikâcijas autors
 post_err_edttimelimit_title:	KÏÛDA
 post_err_edttimelimit_msg:	Jûs vairs nedrîkstat rediìçt ðo publikâciju
 post_err_noannontopics_title:	KÏÛDA: Nepietiekoðs piekïuves lîmenis
-post_err_noannontopics_msg:	Anonîmajiem lietotâjiem nav atïauts izveidot jaunas tçmas<br><br>Lai reìistrçtos aizpildiet <a href="{ROOT}?t=register&amp;{DEF: _rsid}">reìistrâcijas formu</a><br>Ja esat reìitrçts lietotâjs, ieiet forumâ var arî <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">reìistrâcijas lapâ</a>
+post_err_noannontopics_msg:	Anonîmajiem lietotâjiem nav atïauts izveidot jaunas tçmas<br><br>Lai reìistrçtos aizpildiet <a href="{ROOT}?t=register&amp;{DEF: _rsid}">reìistrâcijas formu</a><br>Ja esat reìitrçts lietotâjs, ieiet forumâ var arî <a href="{ROOT}?t=login&amp;{DEF: _rsid}">reìistrâcijas lapâ</a>
 post_err_noannonposts_title:	KÏÛDA: Nepietiekoðs piekïuves lîmenis
-post_err_noannonposts_msg:	Anonîmajiem lietotâjiem nav dotas tiesîbas iesûtît atbildes<br><br>Lai reìistrçtos aizpildiet <a href="{ROOT}?t=register&amp;{DEF: _rsid}">reìistrâcijas formu</a><br>Ja esat reìistrçtais lietotâjs ieiet forumâ var <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">reìistrâcijas lapâ</a>
+post_err_noannonposts_msg:	Anonîmajiem lietotâjiem nav dotas tiesîbas iesûtît atbildes<br><br>Lai reìistrçtos aizpildiet <a href="{ROOT}?t=register&amp;{DEF: _rsid}">reìistrâcijas formu</a><br>Ja esat reìistrçtais lietotâjs ieiet forumâ var <a href="{ROOT}?t=login&amp;{DEF: _rsid}">reìistrâcijas lapâ</a>
 post_err_noreplying_title:	KÏÛDA: Atbilde nav atïauta
 post_err_noreplying_msg:	Uz ðo publikâciju atbildçt nav iespçjams, jo tas ir apzîmets kâ sludinâjums vai sticker un atbildes ir liedzis moderâtors.
 post_err_floodtrig_title:	KÏÛDA: Konstatçts masîvs nosûtîðanas mçìinâjums.
@@ -634,8 +634,8 @@ postcheck_no_recepient:		Nevar nosûtît ziòojumu ja nav norâdîts adresâts
 postcheck_invalid_email:	Ievadiet pareizu E-pasta adresi.
 postcheck_email_subject:	Nevar nosûtît bez tçmas norâdîðanas.
 postcheck_email_body:		Nevar nosûtît bez publikâcijas teksta.
-private_msg_notify_subj:	Paziòojums par: {VAR: this->subject}izlasîðanu
-private_msg_notify_body:	Sveiki <br>{VAR: GLOBALS["usr"]->login}. Izlasîju Jûsu ziòu "{VAR: this->subject}" {DATE: track_msg->post_stamp %a, %d %B %Y %H:%M}<br>
+private_msg_notify_subj:	Paziòojums par: {VAR: m->subject}izlasîðanu
+private_msg_notify_body:	Sveiki <br>{VAR: usr->login}. Izlasîju Jûsu ziòu "{VAR: m->subject}" {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
 referals_update:		Uzaicinâto saraksts
 register_err_short_login:	Pârâk maz simbolu. Minimâlais simbolu skaits nikâ – 4 simboli
 register_err_login_notallowed:	Izvçlçtais niks nav pieejams vai atïauts
@@ -651,9 +651,9 @@ register_err_notyouremail:	Sistçmâ jau ir reìistrçts lietotâjs ar tâdu E-pasta a
 register_err_avatartobig:	Jûsu ielâdçtais nozîmîtes fails ir pârâk liels, maksimâli pieïaujamais nozîmîðu faila izmçrs ir {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:	Ielâdçtais nozîmîtes fails neatbilst nevienam pieïaujamajam failu formâtam.
 register_conf_subject:		Reìistrâcijas apstiprinâjums
-register_conf_msg:		Jûs esat pereìistrçts,\nLai apstiprinâtu sava nika reìistrâciju sekojiet saitei:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nTiklîdz reìistrâcija tiks aktivizçta, Jûs automâtiski ieiesiet foruma\ngalvenajâ lapâ.
+register_conf_msg:		Jûs esat pereìistrçts,\nLai apstiprinâtu sava nika reìistrâciju sekojiet saitei:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTiklîdz reìistrâcija tiks aktivizçta, Jûs automâtiski ieiesiet foruma\ngalvenajâ lapâ.
 register_welcome_subject:	Foruma reìistrâcijas apliecinâjums
-register_welcome_msg:		Paldies par reìistrâciju,\n\nZemâk informâcija par Jûsu reìistrâciju:\n\nforuma URL: {ROOT}?t=index\nLogin: {VAR: usr->login}\nParole: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nAtcerieties, paroles ir reìistra jûtîgas!\nSavus privâtos uzstâdîjumus jûs variet rediìçt ðeit:\n{ROOT}?t=register\n
+register_welcome_msg:		Paldies par reìistrâciju,\n\nZemâk informâcija par Jûsu reìistrâciju:\n\nforuma URL: {ROOT}?t=index\nLogin: {VAR: uent->login}\nParole: {VAR: _POST['reg_plaintext_passwd']}\n\nAtcerieties, paroles ir reìistra jûtîgas!\nSavus privâtos uzstâdîjumus jûs variet rediìçt ðeit:\n{ROOT}?t=register\n
 register_err_cantreg_title:	KÏÛDA! Reìistrâcija nav iespçjama
 regsiter_err_cantreg_msg:	Nevar piereìistrçt ðo lietotâju. Lûdzu paziòojiet Administratoram <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Personîgo uzstâdîjumu un datu pârskats
@@ -667,45 +667,45 @@ reset_err_invalidkey_msg:	Nepareiza paroles nomaiòas atslçga
 reset_err_rstconf_title:	Informâcija
 reset_err_rstconf_msg:		Instrukcijas nosûtîtas uz Jûsu E-pastu un tâs Jûs saòemsiet pçc daþâm minûtçm
 reset_newpass_title:		Paroles nomaiòa
-reset_newpass_msg:		Sveiki,\n\nUz Jûsu pieprasîjumu tiek nosûtîta informâcija par Jûsu <b>Niku</b> un <b>Paroli</b>.\nJûsu reìistrâcijas dati:\n\nNiks: {VAR: parr['usr']->login}\nParole: {VAR: parr['passwd']}\n\nAtcerieties, ka Jûsu vecâ parole ir nomainîta ar ðeit uzrâdîto un tâ paðreiz nav derîga. Ja\nJûs vçlaties to nomainît, tad to varat izdarît vadîbas panelî:\n{ROOT}?t=register\n\n
-reset_login_notify:		Jûsu jaunâ parole ir nosûtîta uz Jûsu E-pastu un to Jûs saòemsiet pçc daþâm minûtçm. Lûdzu pârbaudiet savu E-pasta kastîti.
+reset_newpass_msg:		Sveiki,\n\nUz Jûsu pieprasîjumu tiek nosûtîta informâcija par Jûsu <b>Niku</b> un <b>Paroli</b>.\nJûsu reìistrâcijas dati:\n\nNiks: {VAR: ui[1]}\nParole: {VAR: passwd}\n\nAtcerieties, ka Jûsu vecâ parole ir nomainîta ar ðeit uzrâdîto un tâ paðreiz nav derîga. Ja\nJûs vçlaties to nomainît, tad to varat izdarît vadîbas panelî:\n{ROOT}?t=register\n\n
+reset_login_notify:		Jûsu jaunâ parole ir nosûtîta uz Jûsu E-pastu un to Jûs saòemsiet pçc daþâm minûtçm. Lûdzu pârbaudiet savu E-pasta kastîti..<br>
 search_update:			Publikâciju meklçðana
 selmsg_update:			Ðodienas <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">publikâciju pârskats</a>
-showposts_update:		Visu <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>publikâciju pârskats
+showposts_update:		Visu <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>publikâciju pârskats
 subscribed_update:		Personîgâs sarakstes pârskats
 th_err_invid_title:		Nepieejams ID – Tçmas identifikâtors
 th_err_invid_msg:		Jûs ðai saitç esat nokïuvis kïûdas pçc. Tçma kuru Jûs vçlaties apskatît neeksistç.
 thread_err_onlyregview_title:	Ðis forums ir pieejams tikai rìistrçtajiem lietotâjiem
 thread_err_onlyregview_msg:	Lai piekïûtu ðim forumam Jums nepiecieðams reìistrçties <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">Reìistrçties</a>, Ja esat reìistrçts lietotâjs Jums nepiecieðams <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">ielogoties forumâ</a>.
 thread_update:			Foruma <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>apskate
-tree_update:			Foruma <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&amp;{DEF: _rsid}">{VAR: thread->subject}</a>apskate hierarhija koka veidâ
+tree_update:			Foruma <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->subject}</a>apskate hierarhija koka veidâ
 userinfo_update:		Peronîgâs informâcijas <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>apskats
 ERR_login_ttl:			KÏÛDA: Ja netikât ielaists forumâ
 ERR_login_msg:			Jûs vçl neesat forumâ.<br><br>Lai ieietu forumâ ir jâreìistrçjas <a href="{ROOT}?t=register&amp;{DEF: _rsid}">reìistrâcijas lapâ</a>.<br>Ja vçlatie ieiet forumâ ejiet uz <a href="{ROOT}?t=login&amp;{DEF: _rsid}">ielogoðanâs lapu</a>.
 ERR_login_url:			{ROOT}?t=login&amp;{DEF: _rsid}
 ERR_disabled_ttl:		Darbîba nav iespçjama
 ERR_disabled_msg:		Ðî darbîba ir atslçgta un paðreiz nav pieejama
-ERR_disabled_url:		{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			KÏÛDA: Nepietiekoðs piekïuves lîmenis
 ERR_access_msg:			Jums pieðíirtâs tiesîbas neatïauj pieprasîto darbîbu izpildi
-ERR_access_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Reìistrâcija atslçgta
 ERR_registration_disabled_msg:	Dotajâ brîdî reìistrâcija ir liegta. Lûdzu mçìiniet vçlreiz, bet vçlâk.
 ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		KÏÛDA: Jûsu reìistrâcija nav apstiprinâta
-ERR_emailconf_msg:		Jûs neesat akceptçjis reìistrâciju no E-pasta<br><table border=0><tr><td><ol><li>Ja neesat saòçmis reìistrâcijas apliecinâjuma E-pastu <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&amp;{DEF: _rsid}">spiediet ðeit</a><li>Ja {VAR: GLOBALS['usr']->email} nav Jûsu E-pasta adrese <a href="{ROOT}?t=register&amp;{DEF: _rsid}">spediet ðeit</a></ol></td></tr></table>
+ERR_emailconf_msg:		Jûs neesat akceptçjis reìistrâciju no E-pasta<br><table border=0><tr><td><ol><li>Ja neesat saòçmis reìistrâcijas apliecinâjuma E-pastu <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">spiediet ðeit</a><li>Ja {VAR: usr_d->email} nav Jûsu E-pasta adrese <a href="{ROOT}?t=register&amp;{DEF: _rsid}">spediet ðeit</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			KÏÛDA: Neesoðs lietotâjs
 ERR_user_msg:			Tâda lietotâja datu bâzç nav
-ERR_user_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		KÏÛDA: Sistçmas kïûda
 ERR_systemerr_msg:		Sistçmas kïûda, paziòojiet par to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>&#39;?.
-ERR_systemerr_url:		{GVAR: returnto_d}
+ERR_systemerr_url:		
 email_title:			E-pasta paziòojums
 finduser_title:			Lietotâju meklçðana
 help_title:			F.A.Q.
 login_title:			Ieeja forumâ
-msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 poll_title:			Balsojumu redaktors
 register_title:			Reìistrâcija
 reset_title:			Paroles nomaiòa
@@ -714,9 +714,9 @@ error_title:			Kïûda
 index_title:			Laipni lûdzam mûsu forumâ
 search_title:			Meklçt {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-pasts nosûtîts
-remail_email:			Sveiki,\n\nForumâ "{GVAR: FORUM_TITLE}" publicçtas ziòas par tçmu "{VAR: thread->subject}", kas pçc manâm domâm varçtu Jûs interesçt. Ðîs ziòas Jûs varat izlasît ðeit:\n\n{ROOT}?t={VAR: def_thread_view}&amp;th={VAR: thread->id}&amp;{DEF: _rsid}\n\n Ar cieòu,\n\n{VAR: u}\n
+remail_email:			Sveiki,\n\nForumâ "{GVAR: FORUM_TITLE}" publicçtas ziòas par tçmu "{VAR: data->subject}", kas pçc manâm domâm varçtu Jûs interesçt. Ðîs ziòas Jûs varat izlasît ðeit:\n\n{ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ar cieòu,\n\n{VAR: usr->alias}\n
 poll_add_option:		Pievienot variantu:
 post_opt_html_on:		<b>HTML</b> - <b>ieslçgts</b>
 post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUDcode</b> - <b>ieslçgts</b></a>
@@ -744,9 +744,9 @@ thr_exch_decline:		noraidît
 thr_exch_orig_forum:		Izejoðais forums:
 thr_exch_dest_forum:		Forums pârvietoðanai:
 thr_exch_no_threads:		Nav tçmu uz apstiprinâðanu.
-thr_exch_decl_reason:		Tçmas <b>{VAR: thr_name}</b> pârvietoðanas uz <b>{VAR-HTML: frm->name}</b>forumu iemesls
+thr_exch_decl_reason:		Tçmas <b>{VAR-HTML: frm->name}</b> pârvietoðanas uz <b>{VAR-HTML: frm->name}</b>forumu iemesls
 thr_exch_submit:		Turpinât
-exch_decline_ttl:		Tçmas {VAR: thr_name} pârvietoðana uz {VAR-HTML: frm->name} forumu noraidîta.
+exch_decline_ttl:		Tçmas {VAR: data->subject} pârvietoðana uz {VAR-HTML: data->f2_name} forumu noraidîta.
 ppost_original_msg:		publicçjums kuru pârsûtat vai uz kuru atbildat
 split_thread:			Sadalît tçmu
 groupmgr_no_user:		Lietotâjs "{VAR-HTML: gr_member}" neeksistç
@@ -853,10 +853,10 @@ register_jabber:		Tîkla Jabber pseidonîms:
 im_jabber:			Jabber: 
 forum_contact:			Webmaster
 forum_home:			Sâkums
-post_cur_attached:		{VAR: attach_count} pievienotie faili
+post_cur_attached:		{VAR: i} pievienotie faili
 ppost_cur_attached:		{VAR: attach_count} pievienotie faili
-ignored_anon_post:		{VAR: user_login} ignorçts
-ignored_user_post:		Ziòojums no <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> ignorçts
+ignored_anon_post:		{GVAR: ANON_NICK} ignorçts
+ignored_user_post:		Ziòojums no <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> ignorçts
 smladd_close_window:		aizvçrt logu
 post_list_smilies:		râdît visus smaidiòus
 p_VISIBLE:			Redzams
@@ -897,7 +897,7 @@ search_sorting:			Pçc datuma:
 post_proceed:			Turpinât
 post_moderated_forum:		Publikâcija nosûtîta modçrçjamajai tçmai, lîdz ar to tâ tiks publicçta tikai pçc moderâtora akcepta.
 post_moderated_forum_ttl:	Moderçjamais forums
-buddy_list_bday:		Ðodien {VAR: obj->login} izpildç {VAR: age}
+buddy_list_bday:		Ðodien {VAR: r[2]} izpildç {VAR: age}
 email_warning_msg:		Jûsu E-pasta adreses izmaiòas gadîjumâ Jûsu konta reìistrâcija tiks uzrâdîta kâ neapstiprinâta. Apstiprinâðana notiks tikai pçc reìistrâcijas akcepta no Jûsu jaunâs E-pasta adreses.
 register_show_im:		Uzrâdît tîkla On-Line indikâtorus
 register_show_im_desc:		Uzrâdît publikâcijâs autora On_Line indikâtorus ICQ, AIM u.c. tîklos.

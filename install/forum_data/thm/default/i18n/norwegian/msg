@@ -16,7 +16,7 @@ custom_avatar_queue:		Egne avatarer i k&oslash;
 date:				Dato
 date_posted:			Postet dato
 date_registered:			Registreringsdato:
-download_counter:			Lastet ned {VAR: a_obj->dlcount} ganger
+download_counter:			Lastet ned {VAR: v[3]} ganger
 email:				E-post:
 email_to_friend:			E-post til en kontakt
 email_to_friend_desc:		Send denne sidens URL til en kontakt per e-post
@@ -40,7 +40,7 @@ homepage:			Hjemmeside:
 icq_control_panel:			ICQ Online-meldingspanel
 icq_message_form:		ICQ meldingsformuler:
 ignore_user:			ignorer  dette medlemmet
-ignored_user_post:			Innlegg av <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> ignoreres
+ignored_user_post:			Innlegg av <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> ignoreres
 im_aim:				AIM brukernavn:
 im_msnm:			MSN Messenger:
 im_yahoo:			Yahoo Messenger:
@@ -95,7 +95,7 @@ no_unread_locked:			Denne tr&aring;den er l&aring;st
 no_unread_msg:			Denne tr&aring;den inneholder ingen uleste meldinger
 no_unread_msg_unreg:		Leste og uleste meldinger f&oslash;lges opp bare for registrerte medlemmer
 num_pages:			Sider ({VAR: ttl_pg}):
-num_votes:			{VAR: total_votes} stemmer
+num_votes:			{VAR: obj->total_votes} stemmer
 occupation:			Yrke:
 off:				AV
 on:				P&Aring;
@@ -103,7 +103,7 @@ page_timings:			Total tid for &aring; generere siden: {VAR: page_gen_time} sekun
 fud_query_stats:			MySQL-s&oslash;k tok {VAR: ttl_time} sekunder<br>
 pm:				Private meldinger
 poll:				Avstemning:
-post_count:			Antall innlegg {VAR: u->posted_msg_count}
+post_count:			Antall innlegg {VAR: u_pcount}
 post_count_l:			Antall innlegg:
 poster:				Av
 posts:				Innlegg
@@ -119,7 +119,7 @@ rating:             			rating
 refresh_list:			Oppdatere listen
 register:				Registrer
 registered:			Registrert:
-registered_on:			Registrert den {DATE: u->join_date %a, %d %B %Y}
+registered_on:			Registrert den {DATE: u_reg_date %a, %d %B %Y}
 replies:				Svar
 report_to_mod:			Rapportere innlegg til en moderator
 reported_messages:		Rapporterte innlegg
@@ -137,11 +137,11 @@ send_pm_desc:			Send en privat melding til dette medlemmet
 sender_email:			Avsenderens e-postadresse:
 sender_name:			Avsenderens navn:
 show_all_posts:			Vise alle innlegg av {VAR: user_login}
-show_posts_by:			Vise innlegg av: {VAR: u->alias}
+show_posts_by:			Vise innlegg av: {VAR: u_alias}
 size:				St&oslash;rrelse:
 started_on:			P&aring;begynt
 status:				Status:
-status_line:			Vi har <b>{VAR: reg_u}</b> medlemmer, <b>{VAR: inv_u}</b> usynlige medlemmer og <b>{VAR: annon}</b> gjester p&aring; bes&oslash;k akkurat n&aring;.
+status_line:			Vi har <b>{VAR: st_obj->online_users_reg}</b> medlemmer, <b>{VAR: st_obj->online_users_hidden}</b> usynlige medlemmer og <b>{VAR: st_obj->online_users_anon}</b> gjester p&aring; bes&oslash;k akkurat n&aring;.
 sticky:				klebrig:
 stop_ignoring:			avslutt ignorerinig av dette medlemmet
 sub_to_thread:			Abonner p&aring; denne tr&aring;den
@@ -176,7 +176,7 @@ unsubscribe:			Avbestill
 unsubscribe_desc:			Avbestill meldinger om nye tr&aring;der i dette forumet
 updated_on:		    	Oppdatert:
 user:				Medlem
-user_counter:			Vi har <b>{VAR: reg_users}</b> registrerte medlemmer.
+user_counter:			Vi har <b>{VAR: st_obj->user_count}</b> registrerte medlemmer.
 user_info:			Brukerinformasjon
 user_info_l:			Brukerinformasjon {VAR: u->alias}
 user_offline:			{VAR: obj->login} er offline
@@ -187,10 +187,10 @@ view_last_msg:			Vise det siste innlegget i dette forumet
 view_results:			Vise resultat
 view_thread:			Vise tr&aring;d
 views:				Views
-vote:				{VAR: thread->vote_count()}stemmer
+vote:				{VAR: frm->n_rating}stemmer
 vote_button:            		Stem
 vote_for_thread:        		Stem
-was_moved_msg:			Moderatoren har flyttet tr&aring;den <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> til forumet <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			Moderatoren har flyttet tr&aring;den <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> til forumet <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a>
 welcome_message:		Velkommen <b>{VAR: usr->alias}</b>! Ditt forrige bes&oslash;k var {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			vis hva folk holder p&aring; med
 reported_del_report:		Slett rapport
@@ -212,7 +212,7 @@ list_referes_referrals:		Refererte medlemmer
 list_referes_members:		Refererte medlemmer
 list_referes_member:		Medlem
 referals_none:			Ingen refererte medlemmer enda.
-referals_refered_by:		Forummedlemmer refererte av: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="thLnk">{VAR: r_login}</a></b>
+referals_refered_by:		Forummedlemmer refererte av: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Antall innlegg
 referals_registered_on:		Registrert den
 referals_action:			Handling
@@ -228,7 +228,7 @@ pmsg_selected:			Valgt
 pmsg_delete:			Slett
 cur_ppage_pm:			Private meldinger
 writing_pm:			&aring; skrive en privat melding
-browsing_folder:			Viser mappen <b>{VAR: folder}</b>
+browsing_folder:			Viser mappen <b>{VAR: folders[$folder_id]}</b>
 inbox:				INNBOKS
 draft:				KLADD
 sent:				SENDTE
@@ -265,7 +265,7 @@ finduser_joindate:			Registreringsdato
 finduser_action:			Handling
 yes:				Ja
 no:				Nei
-register_email:			E-post:
+register_email			E-post
 edit_time_limit:			<br><b>Tidsgrense f&oslash;r editering</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutter
 no_edit_time_limit:			<br><b>Tidsgrense f&oslash;r editering</b>: <b>Ubegrenset</b>
 pmuserloc_login:			Brukernavn:
@@ -475,7 +475,7 @@ remail_message:			Melding:
 remail_send_now:			Send e-post n&aring;
 remail_anon_opt:			Kopier denne meldingen til en valgbar e-postklient for &aring; sende til dine kontakter.
 remail_done:			Klart
-remail_sent_conf:			E-posten til din kontakt {VAR: femail} med emnet{VAR: thread->subject} er sendt.
+remail_sent_conf:			E-posten til din kontakt {VAR-HTML: _POST['femail']} med emnet{{VAR: data->subject} er sendt.
 remail_continue:  			Fortsett
 remail_error:  			En feil har oppst&aring;tt
 mklist_type:			Type:
@@ -500,7 +500,7 @@ email_pg_title:			E-post
 email_subject:			Emne:
 email_body:			Melding:
 email_submit:			Send
-ppost_quote_msg:			{VAR: msg_r->login} skrev {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:			{VAR: msg_to_list} skrev {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Sitat:
 ppost_to:				Til:
 ppost_from_buddy_list:		Velg fra kontaktlisten
@@ -591,7 +591,7 @@ msg_err_onlyreg_title:		Kun registrerte medlemmer kan lese dette forumet
 msg_err_onlyreg_msg:		For &aring; kunne lese dette forumet m&aring; du <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrere</a> deg. Dersom du allerede er registrert m&aring; du <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">logge inn</a>.
 msg_err_ininfo_title:		Mangelfull information
 msg_err_ininfo_msg:		Et problem oppstod da siden skulle vises
-msg_update:			Leser tr&aring;den med emnet <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a>
+msg_update:			Leser tr&aring;den med emnet <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
 pm_err_nopm_title:			FEIL: Private meldinger er ikke tillatt
 pm_err_nopm_msg:		Du kan ikke bruke systemet for private meldinger, ettersom administrator har stengt av for det.
 pm_update:			Bruker privatmeldinger
@@ -608,9 +608,9 @@ post_err_notowner_msg:		Du er ikke denne meldingens forfatter
 post_err_edttimelimit_title:		FEIL
 post_err_edttimelimit_msg:		Du kan ikke redigere denne meldingen lenger
 post_err_noannontopics_title:	FEIL: Ikke tilstrekkelige rettigheter
-post_err_noannontopics_msg:	Anonyme brukere har ikke rett til &aring; p&aring;begynne tr&aring;der<br><br>Dersom du vil registrere deg skal du g&aring; til <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringssiden</a><br>Vennligst g&aring; til <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">innlogginingssiden</a> dersom du vil logge inn
+post_err_noannontopics_msg:	Anonyme brukere har ikke rett til &aring; p&aring;begynne tr&aring;der<br><br>Dersom du vil registrere deg skal du g&aring; til <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringssiden</a><br>Vennligst g&aring; til <a href="{ROOT}?t=login&amp;{DEF: _rsid}">innlogginingssiden</a> dersom du vil logge inn
 post_err_noannonposts_title:		FEIL: Ikke tilstrekkelige rettigheter
-post_err_noannonposts_msg:	Anonyme brukere har ikke rett til &aring; besvare innlegg<br><br>Dersom du vil registrere deg skal du g&aring; til <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformuleret</a><br>Vennligst g&aring; til <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">innlogginingssiden</a> dersom du vil logge inn
+post_err_noannonposts_msg:	Anonyme brukere har ikke rett til &aring; besvare innlegg<br><br>Dersom du vil registrere deg skal du g&aring; til <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformuleret</a><br>Vennligst g&aring; til <a href="{ROOT}?t=login&amp;{DEF: _rsid}">innlogginingssiden</a> dersom du vil logge inn
 post_err_noreplying_title:		FEIL: Det er ikke tillatt &aring; svare
 post_err_noreplying_msg:		Du har ikke rett til &aring; svare i denne tr&aring;den ettersom den er en kunngj&oslash;ring eller et klebrig innlegg, som moderatoren ikke gir tillatelse til &aring; svare p&aring;.
 post_err_floodtrig_title:		FEIL: Flood-beskyttelse sl&aring;tt p&aring;
@@ -632,8 +632,8 @@ postcheck_no_recepient:		Kan ikke sende meldingen, mangler mottaker
 postcheck_invalid_email:		Gi en korrekt e-postadresse til din kontakt.
 postcheck_email_subject:		Kan ikke sende e-post uten emne.
 postcheck_email_body:		Kan ikke sende e-post utan tekst.
-private_msg_notify_subj:		Kvittering for: {VAR: this->subject}
-private_msg_notify_body:		Hei!<br>Den {DATE: track_msg->post_stamp %a, %d %B %Y %H:%M} leste {VAR: GLOBALS["usr"]->login} din private melding med emnet "{VAR: this->subject}"<br>
+private_msg_notify_subj:		Kvittering for: {VAR: m->subject}
+private_msg_notify_body:		Hei!<br>Den {DATE: m->post_stamp %a, %d %B %Y %H:%M} leste {VAR: usr->login} din private melding med emnet "{VAR: m->subject}"<br>
 referals_update:			Visar refererte medlemmer
 register_err_short_login:		Brukernavnet du har valgt er for kort. Det m&aring; v&aelig;re minst 4 tegn langt
 register_err_login_notallowed:	Dette brukernavnet er ikke tillatt
@@ -649,9 +649,9 @@ register_err_notyouremail:		Noen har allerede registrert seg med denne e-postadr
 register_err_avatartobig:		Filen du pr&oslash;ver &aring; sende er for stor, over grensen p&aring; {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte
 register_err_avatarnotallowed:	Avataren du pr&oslash;ver &aring; sende er ikke tillatt. Kontroller at den er av godkjent filtype.
 register_conf_subject:		Bekreftelse av forumregistrering
-register_conf_msg:			Takk for din registrering!\nGå til adressen under for &aring; aktivere din medlemskonto:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nEtter at din konto er aktivert blir du innlogget p&aring; forumet og \nvideressendt til hovedsiden.
+register_conf_msg:			Takk for din registrering!\nGå til adressen under for &aring; aktivere din medlemskonto:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEtter at din konto er aktivert blir du innlogget p&aring; forumet og \nvideressendt til hovedsiden.
 register_welcome_subject:		Velkommen til forumet
-register_welcome_msg:		Takk for din registrering!\n\nHer er din innloggignsinformasjon for forumet:\n\nForumets URL: {ROOT}?t=index\nBrukernavn: {VAR: usr->login}\nPassord: {VAR: HTTP_POST_VARS['reg_plaikkext_passwd']}\n\nMerk! Det er forskjell p&aring; sm&aring; og store bokstaver i passordet!\nVil du endre innstillingene og din profil kan du g&aring; til denne siden:\n{ROOT}?t=register\n
+register_welcome_msg:		Takk for din registrering!\n\nHer er din innloggignsinformasjon for forumet:\n\nForumets URL: {ROOT}?t=index\nBrukernavn: {VAR: uent->login}\nPassord: {VAR: HTTP_POST_VARS['reg_plaikkext_passwd']}\n\nMerk! Det er forskjell p&aring; sm&aring; og store bokstaver i passordet!\nVil du endre innstillingene og din profil kan du g&aring; til denne siden:\n{ROOT}?t=register\n
 register_err_cantreg_title:		FEIL: kan ikke registrere
 regsiter_err_cantreg_msg:		Kan ikke opprette brukerkonto, vennligst kontakt administratoren p&aring; adressen <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:		Viser sin egen profil
@@ -665,45 +665,45 @@ reset_err_invalidkey_msg:		Ugyldig kode for nullstilling av passord
 reset_err_rstconf_title:		Informasjon
 reset_err_rstconf_msg:		Du vil motta instruksjoner per e-post innen f&aring; minutter
 reset_newpass_title:		Nullstill passord
-reset_newpass_msg:		Hei!\n\nDitt brukernavn og passord har blitt endret p&aring; din foresp&oslash;rsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: parr['usr']->login}\nPassord: {VAR: parr['passwd']}\n\nNoter deg at passordet ditt er endret til det overst&aring;ende. Om du vil\nendre passordet ditt kan du gj&oslash;re det i kontrollpanelet:\n{ROOT}?t=register\n\n
-reset_login_notify:			Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter. Vennligst sjekk e-posten din for ditt brukernavn og passord
+reset_newpass_msg:		Hei!\n\nDitt brukernavn og passord har blitt endret p&aring; din foresp&oslash;rsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: ui[1]}\nPassord: {VAR: passwd}\n\nNoter deg at passordet ditt er endret til det overst&aring;ende. Om du vil\nendre passordet ditt kan du gj&oslash;re det i kontrollpanelet:\n{ROOT}?t=register\n\n
+reset_login_notify:			Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter. Vennligst sjekk e-posten din for ditt brukernavn og passord.<br>
 search_update:			S&oslash;ker blandt innleggene
 selmsg_update:			Leser <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Dagens innlegg</a>
-showposts_update:		Viser innlegg av: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>
+showposts_update:		Viser innlegg av: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
 subscribed_update:		Viser egne abonnement
 th_err_invid_title:			Feilaktig tr&aring;d-ID
 th_err_invid_msg:			Du har fulgt en feilaktig lenke, tr&aring;den du fors&oslash;ker &aring; lese eksisterer ikke.
 thread_err_onlyregview_title:		Kun registrerte medlemmer kan lese dette forumet
 thread_err_onlyregview_msg:		For &aring; kunne lese dette forumet m&aring; du <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrere</a> deg. Dersom du allerede er registrert m&aring; du <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">logge inn</a>.
 thread_update:			Leser forumet <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			Leser tr&aring;den (tr&aring;det visning) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
+tree_update:			Leser tr&aring;den (tr&aring;det visning) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:			Ser p&aring; <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}s</a> profil
 ERR_login_ttl:			FEIL: Du er ikke inlogget
 ERR_login_msg:			Du er ikke inlogget, vennligst logg inn<br><br>Dersom du vil registrere deg kan du g&aring; til <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformuleret</a><br>Hvis du vil logge inn kan du g&aring; til <a href="{ROOT}?t=login&amp;{DEF: _rsid}">inloggingssiden</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:			Avstengt funksjon
 ERR_disabled_msg:		Denne funksjonen er lukket av administratoren
-ERR_disabled_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_disabled_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			FEIL: Ikke tilstrekkelige rettigheter
 ERR_access_msg:		Du har ikke de rettigheter som er n&oslash;dvendig for &aring; gj&oslash;re dette
-ERR_access_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registrering stengt
 ERR_registration_disabled_msg:	Administratoren har stengt registreringen, pr&oslash;v p&aring; nytt senere
 ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
 ERR_emailconf_ttl:			FEIL: Din brukerkonto er enda ikke bekreftet
-ERR_emailconf_msg:		Du har ikke bekreftet din brukerkonto via e-post <br><table border=0><tr><td><ol><li>Dersom du ikke har f&aring;tt en bekreftelse per e-post <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">trykk her</a><li>Hvis {VAR: GLOBALS['usr']->email} ikke er din riktige e-postadresse <a href="{ROOT}?t=register&amp;{DEF: _rsid}">trykk her</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du har ikke bekreftet din brukerkonto via e-post <br><table border=0><tr><td><ol><li>Dersom du ikke har f&aring;tt en bekreftelse per e-post <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">trykk her</a><li>Hvis {VAR: usr_d->email} ikke er din riktige e-postadresse <a href="{ROOT}?t=register&amp;{DEF: _rsid}">trykk her</a></ol></td></tr></table>
 ERR_emailconf_url:
 ERR_user_ttl:			FEIL: Finner ikke et slikt medlem
 ERR_user_msg:			Det finnes ikke et slikt medlem
-ERR_user_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}&{DEF: _rsid}
+ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}&{DEF: _rsid}
 ERR_systemerr_ttl:		FEIL: Systemfeil
 ERR_systemerr_msg:		En systemfeil har oppst&aring;tt, vennligst rapporter feilen til <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-ERR_systemerr_url:		{GVAR: returnto_d}
+ERR_systemerr_url:		
 email_title:			Send e-post
 finduser_title:			S&oslash;k etter medlemmer
 help_title:			Hjelp
 login_title:			Logg inn
-msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 poll_title:				Gallupeditor
 register_title:			Registrering
 reset_title:			Nullstill passord
@@ -712,9 +712,9 @@ error_title:			FEIL
 index_title:			Velkommen til forumet
 search_title:			S&oslash;k {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:				{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+tree_title:				{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:			E-post sendt
-remail_email:			Det fins en websida her {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) som du kanskje er interressert i &aring; lese.\nTråden som jeg tenkte kunne v&oelig;re av interresse, {VAR: thread->subject} finner du her: {ROOT}?t={VAR: def_thread_view}&th={VAR: thread->id}&{DEF: _rsid}\nAv {VAR: u}\n
+remail_email:			Det fins en websida her {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) som du kanskje er interressert i &aring; lese.\nTråden som jeg tenkte kunne v&oelig;re av interresse, {VAR: data->subject} finner du her: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
 poll_add_option:			Legg til alternativ:
 post_opt_html_on:			<b>HTML</b>-kode er <b>P&Aring;</b>
 post_opt_fud_on:			<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUD-kode</b> er <b>P&Aring;</b></a>
@@ -742,9 +742,9 @@ thr_exch_decline:			godkjenn ikke tr&aring;d
 thr_exch_orig_forum:		Opprinnelig forum:
 thr_exch_dest_forum:		Nytt forum:
 thr_exch_no_threads:		Ingen tr&aring;der &aring; granske.
-thr_exch_decl_reason:		Grunnen til ikke &aring; godkjenne flyttning av tr&aring;den <b>{VAR: thr_name}</b> til forumet <b>{VAR-HTML: frm->name}</b>
+thr_exch_decl_reason:		Grunnen til ikke &aring; godkjenne flyttning av tr&aring;den <b>{VAR-HTML: frm->name}</b> til forumet <b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:			Send
-exch_decline_ttl:			Flyttningen av tr&aring;den {VAR: thr_name} til forumet {VAR-HTML: frm->name} godkjennes ikke.
+exch_decline_ttl:			Flyttningen av tr&aring;den {VAR: data->subject} til forumet {VAR-HTML: data->f2_name} godkjennes ikke.
 ppost_original_msg:		melding som du sender videre eller svarer p&aring;
 split_thread:			Splitte tr&aring;d
 groupmgr_no_user:			Det finnes ingen medlemmer med brukernavnet "{VAR-HTML: gr_member}"
@@ -852,10 +852,10 @@ register_jabber:			Jabber-brukernavn:
 im_jabber:			Jabber:
 forum_contact:			Kontakt
 forum_home:			Hjem
-post_cur_attached:			{VAR: attach_count} filer vedlagt for &oslash;yeblikket
+post_cur_attached:			{VAR: i} filer vedlagt for &oslash;yeblikket
 ppost_cur_attached:		{VAR: attach_count} filer vedlagt for &oslash;yeblikket
 post_list_smilies:			vis alle smilies
-ignored_anon_post:		{VAR: user_login} ignoreres
+ignored_anon_post:		{GVAR: ANON_NICK} ignoreres
 smladd_close_window:		Lukk vinduet
 p_VISIBLE:                    		Synlig
 reported_in_thread:			I tr&aring;den
@@ -896,7 +896,7 @@ search_sorting:			Sorter resultatene etter dato i:
 post_moderated_forum:		Du har skrevet et innlegg i et modererat forum, hvilket inneb&aelig;rer at innlegget synes f&oslash;rst n&aringr forumets moderator og/eller administrator har godkjent det.
 post_moderated_forum_ttl:		Melding om modererat forum
 post_proceed:			Fortsett
-buddy_list_bday:			Idag fyller {VAR: obj->login} {VAR: age} år
+buddy_list_bday:			Idag fyller {VAR: r[2]} {VAR: age} år
 email_warning_msg:		Dersom du endrer din n&aring;v&aelig;rande e-postadresse kommer brukerkontoen din til &aring; bli regnet som ubekreftet inntil du bekrefter den nye e-postadressen.
 register_show_im:			Vis IM-indikatorer
 register_show_im_desc:		Avgj&oslash;r om forfatterens IM-indikatorer skal vises utenfor innlegget.
