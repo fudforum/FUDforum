@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.tmpl,v 1.7 2003/04/15 18:41:58 hackie Exp $
+*   $Id: reported.tmpl,v 1.8 2003/04/30 20:13:25 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -24,6 +24,7 @@
 {REF: stats.tmpl}
 {REF: drawmsg.tmpl}
 {REF: logaction.tmpl}
+{REF: is_perms.tmpl}
 
 {SECTION: reported_reg_user_link reportee profile link}
 <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->report_user_id}&amp;{DEF: _rsid}">{VAR: obj->report_user_login}</a>
