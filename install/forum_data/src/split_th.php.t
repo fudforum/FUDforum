@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.11 2003/04/14 10:05:30 hackie Exp $
+*   $Id: split_th.php.t,v 1.12 2003/04/14 11:06:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,11 +17,6 @@
 
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
-
-function fud_str2int(&$i, $k)
-{
-	$i = (int) $i;
-}
 
 	$th = isset($_GET['th']) ? (int)$_GET['th'] : (isset($_POST['th']) ? (int)$_POST['th'] : 0);
 	if (!$th) {
@@ -47,6 +42,39 @@ function fud_str2int(&$i, $k)
 		if ($usr->is_mod != 'A' && !q_singleval('SELECT f.id FROM {SQL_TABLE_PREFIX}forum f LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.user_id='._uid.' AND mm.forum_id=f.id '.(_uid ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id').' WHERE f.id='.$forum.' AND (mm.id IS NOT NULL OR '.(_uid ? ' (CASE WHEN g2.id IS NOT NULL THEN g2.p_POST ELSE g1.p_POST END)' : ' g1.p_POST').'=\'Y\')')) {
 			std_error('access');
 		}
+
+		foreach ($_POST['sel_th'] as $k => $v) {
+			if (!(int)$v) {
+				unset($_POST['sel_th'][$k]);
+			}	
+		}
+		/* sanity check */
+		if (!count($_POST['sel_th'])) {
+			header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+			exit;
+		}
+
+		if (isset($_POST['btn_selected'])) {
+			sort($_POST['sel_th']);
+			$mids = implode(',', $_POST['sel_th']);
+			$start = $_POST['sel_th'][0];
+			$end = $_POST['sel_th'][($mc - 1)];
+		} else {
+			$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND id NOT IN('.implode(',', $_POST['sel_th']).') AND approved=\'Y\' ORDER BY post_stamp ASC');
+			while ($r = db_rowarr($c)) {
+				$a[] = $r[0];
+			}
+			qf($c);
+			/* sanity check */
+			if (!isset($a)) {
+				header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+				exit;
+			}
+			$mids = implode(',', $a);
+			$mc = count($a);
+			$start = $a[0];
+			$end = $a[($mc - 1)];
+		}
 	
 		/* fetch all relevant information */
 		$data = db_sab('SELECT 
@@ -58,7 +86,7 @@ function fud_str2int(&$i, $k)
 				FROM {SQL_TABLE_PREFIX}thread t 
 				INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON f2.id='.$forum.'
-				INNER JOIN {SQL_TABLE_PREFIX}msg m1 ON m1.id='.$_POST['sel_th'][($mc - 1)].'
+				INNER JOIN {SQL_TABLE_PREFIX}msg m1 ON m1.id='.$end.'
 				INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON m2.id=f2.last_post_id
 		
 		WHERE t.id='.$th);
@@ -72,38 +100,17 @@ function fud_str2int(&$i, $k)
 		apply_custom_replace($_POST['new_title']);
 
 		if ($mc != ($data->replies + 1)) { /* check that we need to move the entire thread */
-			if (isset($_POST['btn_selected'])) {
-				sort($_POST['sel_th']);
-				array_walk($_POST['sel_th'], 'fud_str2int');
-				$mids = implode(',', $_POST['sel_th']);
-			} else {
-				array_walk($_POST['sel_th'], 'fud_str2int');
-				$mids = implode(',', $_POST['sel_th']);
-				$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND id NOT IN('.$mids.') AND approved=\'Y\'');
-				while ($r = db_rowarr($c)) {
-					$a[] = $r[0];
-				}
-				qf($c);
-				/* sanity check */
-				if (!isset($a)) {
-					header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
-					exit;
-				}
-				$mids = implode(',', $a);
-			}
-		
 			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE');
 			
-			$new_th = fud_thread::add($_POST['sel_th'][0], $forum, $data->new_th_lps, 'N', 'N', "'NONE'", 0, ($mc - 1), $data->new_th_lpi);
+			$new_th = fud_thread::add($start, $forum, $data->new_th_lps, 'N', 'N', "'NONE'", 0, ($mc - 1), $data->new_th_lpi);
 		
 			/* Deal with the new thread */
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='.$new_th.' WHERE id IN ('.$mids.')');
-			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to='.$_POST['sel_th'][0].' WHERE thread_id='.$new_th.' AND reply_to NOT IN ('.$mids.')');
-			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject='".htmlspecialchars($_POST['new_title'])."' WHERE id=".$_POST['sel_th'][0]);
+			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to='.$start.' WHERE thread_id='.$new_th.' AND reply_to NOT IN ('.$mids.')');
+			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject='".htmlspecialchars($_POST['new_title'])."' WHERE id=".$start);
 		
 			/* Deal with the old thread */
-			list($lpi, $lpd) = db_singlearr(q("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data->id." AND approved='Y' ORDER BY post_stamp DESC LIMIT 1"));
-			$old_root_msg_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data->id." AND approved='Y' ORDER BY post_stamp ASC LIMIT 1");
+			list($lpi, $lpd) = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data->id." AND approved='Y' ORDER BY post_stamp DESC LIMIT 1");$old_root_msg_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data->id." AND approved='Y' ORDER BY post_stamp ASC LIMIT 1");
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=".$old_root_msg_id." WHERE thread_id=".$data->id." AND reply_to IN(".$mids.")");
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0 WHERE id='.$old_root_msg_id);
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET root_msg_id='.$old_root_msg_id.', replies=replies-'.$mc.', last_post_date='.$lpd.', last_post_id='.$lpi.' WHERE id='.$data->id);

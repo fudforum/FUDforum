@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.34 2003/04/14 09:48:57 hackie Exp $
+*   $Id: th.inc.t,v 1.35 2003/04/14 11:06:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -201,6 +201,6 @@ function th_inc_post_count($id, $r, $lpi=0, $lpd=0)
 
 function th_frm_last_post_id($id, $th)
 {
-	return (int) q_singleval('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}thread_view tv INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id WHERE tv.forum_id='.$data->forum_id.' AND tv.page=1 AND t.id!='.$th.' WHERE t.moved_to=0');
+	return (int) q_singleval('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m t.root_msg_id=m.id ON WHERE t.forum_id='.$id.' AND t.id!='.$th.' AND t.moved_to=0 AND m.approved=\'Y\' ORDER BY t.last_post_date DESC LIMIT 1');
 }
 ?>
