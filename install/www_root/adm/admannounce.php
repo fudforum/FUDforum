@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admannounce.php,v 1.8 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admannounce.php,v 1.9 2003/06/06 12:59:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -189,7 +189,7 @@ function mk_date($y, $m, $d)
 		} else {
 			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
 		}
-		$b = (strlen($r->text) > 25) ? substr($r->text, 0, 25).'...' : $r->text;
+		$b = htmlspecialchars((strlen($r->text) > 25) ? substr($r->text, 0, 25).'...' : $r->text);
 		$st_dt = raw_date($r->date_started);
 		$st_dt = gmdate('F j, Y', gmmktime(1, 1, 1, $st_dt[1], $st_dt[2], $st_dt[0]));
 		$en_dt = raw_date($r->date_ended);
