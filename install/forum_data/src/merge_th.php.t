@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: merge_th.php.t,v 1.2 2003/09/26 18:49:03 hackie Exp $
+*   $Id: merge_th.php.t,v 1.3 2003/09/28 12:22:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,7 +75,7 @@
 			$repl += count($_POST['sel_th']) - 1;
 			list($lpi, $lpd) = db_saq("SELECT last_post_id, last_post_date FROM {SQL_TABLE_PREFIX}thread WHERE id IN({$tl}) ORDER BY last_post_date DESC LIMIT 1");
 			
-			$new_th = th_add($start, $forum, $lpd, 'N', 'N', "'NONE'", 0, $repl, $lpi);
+			$new_th = th_add($start, $forum, $lpd, 0, 0, $repl, $lpi);
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject='".addslashes(htmlspecialchars($_POST['new_title']))."' WHERE id=".$start);
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to={$start} WHERE thread_id IN({$tl}) AND (reply_to=0 OR reply_to=id) AND id!={$start}");
 			if ($forum != $frm) {
