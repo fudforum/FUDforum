@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.33 2004/01/04 16:38:28 hackie Exp $
+* $Id: post.tmpl,v 1.34 2004/01/07 00:00:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -39,7 +39,7 @@
 {REF: is_perms.tmpl}
 
 {SECTION: apply_spell_changes}
-<input type="submit" class="button" name="btn_spell" value="{MSG: apply_spell_changes}">&nbsp;
+<input accesskey="a" type="submit" class="button" name="btn_spell" value="{MSG: apply_spell_changes}">&nbsp;
 {SECTION: END}
 
 {SECTION: signature}
@@ -65,11 +65,11 @@
 {SECTION: END}
 
 {SECTION: create_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: create_poll_lnk1}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a href="javascript://" accesskey="o" onClick="javascript: window_open(\'{TEMPLATE: create_poll_lnk1}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
 {SECTION: END}
 
 {SECTION: edit_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll[1]} [<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: edit_poll_lnk1}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="">[<a href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll[1]} [<a href="javascript://" accesskey="o" onClick="javascript: window_open(\'{TEMPLATE: edit_poll_lnk1}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="">[<a href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: admin_options options for moderators & admins to create announcements and sticky threads}
@@ -105,7 +105,7 @@
 {SECTION: END}
 
 {SECTION: spell_check_button}
-<input type="submit" class="button" value="{MSG: spell_check_msg}" name="spell">&nbsp;
+<input accesskey="p" type="submit" class="button" value="{MSG: spell_check_msg}" name="spell">&nbsp;
 {SECTION: END}
 
 {SECTION: post_error an error message shown at the top of ppage if there was an error with submission}
@@ -163,7 +163,7 @@
 </table>
 </td></tr>
 <tr class="RowStyleA"><td class="GenText" align="right" colspan=2>
-<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
+<input type="submit" accesskey="r" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input accesskey="s" type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
 </table>
 {TEMPLATE-DATA: minimsg}
 {DEF: _hs}
