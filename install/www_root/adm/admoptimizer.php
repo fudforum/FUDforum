@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admoptimizer.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admoptimizer.php,v 1.4 2002/06/28 20:25:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,6 +25,8 @@
 	fud_use('adm.inc', TRUE);
 	
 	list($ses, $usr) = initadm();
+
+	if ( !$tname ) header("Location: admthemes.php?"._rsid);
 
 $O_LEVEL=20;
 
@@ -183,8 +185,9 @@ function optimize_file($file)
 	include('admpanel.php'); 
 
 	if( !empty($btn_submit) ) { 
+		echo "Optimizing $tname<br>";
 		$curdir = getcwd();
-		chdir($GLOBALS['WWW_ROOT_DISK']);
+		chdir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$tname);
 		$dir = opendir('.');
 		readdir($dir); readdir($dir);
 		while( $file = readdir($dir) ) {
@@ -209,21 +212,21 @@ function optimize_file($file)
 		}
 		closedir($dir);
 		chdir($curdir);
-	
-		echo "<b>Optimization Process Complete</b><br>\n";
+		echo "<b>Optimization Process Complete</b><br><a href=\"admthemes.php?"._rsid."\">Return to the theme manager</a>\n";
 	}
 	else {
 ?>
 <table border=0 cellspacing=1 cellpadding=3>
 <form method="post" action="admoptimizer.php">
 <?php echo _hs; ?>
+<input type="hidden" name="tname" value="<? echo $tname; ?>">
 <tr bgcolor="#bff8ff"><td>
 	The optimization process removes unneeded functions, comments and formatting from the php files compiled from the templates.
 	This makes the PHP files smaller, hence have smaller memory foot print and result in faster file parsing by the PHP's parser.
 	Overall performance improvements range from 5-15% depending on your FUDforum usage and your system's configuration.<br>
 	The optimization process takes approximately 45 seconds on a 433Mhz celeron, on your system it is likely to be much faster.
 </td></tr>	
-<tr bgcolor="#bff8ff"><td align=center><input type="submit" name="btn_submit" value="Optimize FUDforum"></td></tr>
+<tr bgcolor="#bff8ff"><td align=center><input type="submit" name="btn_submit" value="Optimize FUDforum Theme"></td></tr>
 </form>
 </table>
 <?php		
