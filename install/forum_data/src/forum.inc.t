@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum.inc.t,v 1.5 2003/04/02 01:46:35 hackie Exp $
+*   $Id: forum.inc.t,v 1.6 2003/04/08 11:23:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -114,6 +114,14 @@ class fud_forum
 function is_moderator($frm_id, $user_id)
 {
 	return q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='.$user_id.' AND forum_id='.$frm_id);
+}
+
+function frm_updt_counts($frm_id, $replies, $threads, $last_post_id)
+{
+	$threads	= !$threads ? '' : ', thread_count=thread_count+'.$threads;
+	$last_post_id	= !$last_post_id ? '' : ', last_post_id='.$last_post_id;
+
+	q('UPDATE {SQL_TABLE_PREFIX}forum SET replies=replies+'.$replies.$threads.$last_post_id.' WHERE id='.$frm_id);
 }
 
 if ( defined('admin_form') && !defined("_forum_adm_inc_") ) fud_use('forum_adm.inc');

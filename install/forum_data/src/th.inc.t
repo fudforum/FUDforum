@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.24 2003/04/02 01:46:35 hackie Exp $
+*   $Id: th.inc.t,v 1.25 2003/04/08 11:23:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -307,8 +307,41 @@ function th_unlock($id)
 {
 	q("UPDATE {SQL_TABLE_PREFIX}thread SET locked='N' WHERE id=".$id);
 }
+
 function th_inc_view_count($id)
 {
 	q('UPDATE {SQL_TABLE_PREFIX}thread SET views=views+1 WHERE id='.$id);
+}
+
+function th_inc_post_count($id, $r, $lpi=0, $lpd=0)
+{
+	if ($lpi && $lpd) {
+		q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+'.$r.', last_post_id='.$lpi.', last_post_date='.$lpd.' WHERE id='.$id);
+	} else {
+		q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+'.$r.' WHERE id='.$id);
+	}
+}
+
+function th_send_notifications($id, $author, $msg_id, $subject, $login, $thread_id, $lpi, $frm)
+{
+	$c = uq('SELECT u.email, u.icq, u.notify_method, (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS read_perm
+			FROM {SQL_TABLE_PREFIX}thread_notify tn
+				INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id 
+				INNER JOIN {SQL_TABLE_PREFIX}read r ON t.thread_id=tn.thread_id AND r.user_id=tn.user_id
+				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$frm.'
+				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=tn.user_id AND g2.resource_id='.$frm.' 
+			WHERE 
+				tn.thread_id='.$this->id.' AND tn.user_id!='.intzero($author).' AND r.msg_id='.$lpi.' AND read_perm=\'Y\'');
+	while ($r = db_rowarr($c)) {
+		$to[$r[2]][] = $r[2] == 'EMAIL' ? $r[0] : $r[1].'@pager.icq.com';	
+	}
+	qf($c);
+	
+	/* no subscribers */
+	if (!isset($to)) {
+		return;
+	}
+
+	send_notifications($to, $msg_id, $subject, $login, 'thr', $thread_id, $frm);
 }
 ?>

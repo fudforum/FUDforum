@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rhost.inc.t,v 1.3 2002/12/05 21:14:33 hackie Exp $
+*   $Id: rhost.inc.t,v 1.4 2003/04/08 11:23:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,9 @@
 	
 function get_host($ip)
 {
-	if( empty($ip) ) return;
+	if (!$ip || $ip == '0.0.0.0') {
+		return;
+	}
 
 	$name = gethostbyaddr($ip);
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.28 2003/04/07 14:23:14 hackie Exp $
+*   $Id: users.inc.t,v 1.29 2003/04/08 11:23:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,25 +30,7 @@ class fud_user
 		return $this->id;
 	}
 	
-	function set_post_count($uid, $val, $mid=0)
-	{
-		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}msg WRITE');
-			$ll = 1;
-		}
 	
-		if (empty($mid)) {
-			$mid = (int) q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='.$uid." AND approved='Y'");
-		}
-		$pcount = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='.$uid) + $val;
-		$level_id = (int) q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}level WHERE post_count <= '.$pcount.' ORDER BY post_count DESC LIMIT 1');
-		
-		q('UPDATE {SQL_TABLE_PREFIX}users SET u_last_post_id='.$mid.', posted_msg_count=posted_msg_count+'.$val.',level_id='.$level_id.' WHERE id='.$uid);
-		
-		if (isset($ll)) {
-			db_unlock();
-		}
-	}
 	
 	
 	
@@ -139,6 +121,13 @@ function register_thread_view($thread_id, $tm=0, $msg_id=0)
 	if (!db_affected(q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.' WHERE thread_id='.$thread_id.' AND user_id='._uid))) {
 		q('INSERT INTO {SQL_TABLE_PREFIX}read(thread_id, user_id, msg_id, last_view) VALUES('.$thread_id.', '._uid.', '.$msg_id.', '.$tm.')');	
 	}
+}
+
+function user_set_post_count($uid)
+{
+	$pd = db_saq(SELECT MAX(id),count(*) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='.$uid." AND approved='Y'");
+	$level_id = (int) q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}level WHERE post_count <= '.$pd[1].' ORDER BY post_count DESC LIMIT 1');
+	q('UPDATE {SQL_TABLE_PREFIX}users SET u_last_post_id='.$pd[0].', posted_msg_count='.$pd[1].',level_id='.$level_id.' WHERE id='.$uid);
 }
 
 if (defined('admin_form')) { 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.30 2003/04/08 09:49:18 hackie Exp $
+*   $Id: post.php.t,v 1.31 2003/04/08 11:23:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -303,6 +303,7 @@
 			$msg_post->poll_id = $pl_id;
 			$msg_post->fetch_vars($_POST, 'msg_');
 		 	$msg_post->smiley_disabled = isset($_POST['msg_smiley_disabled']) ? 'Y' : 'N';
+		 	$msg_post->show_sig = isset($_POST['msg_show_sig']) ? 'Y' : 'N';
 		 	$msg_post->attach_cnt = (int) $attach_cnt;
 			$msg_post->body = apply_custom_replace($msg_post->body);
 			
@@ -323,24 +324,22 @@
 			fud_wordwrap($msg_post->body);
 			
 			$msg_post->subject = apply_custom_replace($msg_post->subject);
-			$msg_post->subject = htmlspecialchars($msg_post->subject);
-			$msg_post->subject = addslashes($msg_post->subject);
 		
 		 	/* chose to create thread OR add message OR update message */
 		 	
 		 	if (!$th_id) {
 		 		$create_thread = 1;
-		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->moderated, FALSE);
+		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->moderated, $frm->p_sticky, $frm->p_locked, FALSE);
 		 		$thr = new fud_thread;
 		 		$thr->get_by_id($msg_post->thread_id);
 		 	} else if ($th_id && !$msg_id) {
 				$msg_post->thread_id = $th_id;
-		 		$msg_post->add_reply($reply_to, $th_id, FALSE);
+		 		$msg_post->add_reply($reply_to, $th_id, $frm->p_sticky, $frm->p_locked, FALSE);
 			} else if ($msg_id) {
 				$msg_post->id = $msg_id;
 				$msg_post->thread_id = $th_id;
 				$msg_post->post_stamp = $msg->post_stamp;
-				$msg_post->sync(_uid, $frm->id, $frm->message_threshold);
+				$msg_post->sync(_uid, $frm->id, $frm->message_threshold, $frm->p_sticky, $frm->p_locked);
 				/* log moderator edit */
 			 	if (_uid && _uid != $msg->poster_id) {
 			 		logaction($usr->id, 'MSGEDIT', $msg_post->id);
