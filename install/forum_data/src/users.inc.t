@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.60 2003/06/09 13:51:52 hackie Exp $
+*   $Id: users.inc.t,v 1.61 2003/06/10 01:29:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,11 +59,11 @@ function init_user()
 	/* define constants used to track URL sessions & referrals */
 	if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
 		define('s', $u->ses_id); define('_hs', '<input type="hidden" name="S" value="'.s.'">');
-		if ($GLOBALS['TRACK_REFERRALS'] == 'Y' && _uid) {
+		if ($GLOBALS['TRACK_REFERRALS'] == 'Y') {
 			if ($GLOBALS['USE_PATH_INFO'] != 'Y') { 
-				define('_rsid', 'rid='._uid.'&amp;S='.s); define('_rsidl', 'rid='._uid.'&S='.s);
+				define('_rsid', 'rid='.__fud_real_user__.'&amp;S='.s); define('_rsidl', 'rid='.__fud_real_user__.'&S='.s);
 			} else {
-				define('_rsid', _uid . '/' . s . '/'); define('_rsidl', _rsid);
+				define('_rsid', __fud_real_user__ . '/' . s . '/'); define('_rsidl', _rsid);
 			}
 		} else {
 			if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
@@ -74,11 +74,11 @@ function init_user()
 		}
 	} else {
 		define('s', ''); define('_hs', '');
-		if ($GLOBALS['TRACK_REFERRALS'] == 'Y' && _uid) { 
+		if ($GLOBALS['TRACK_REFERRALS'] == 'Y') { 
 			if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
-				define('_rsid',  'rid='._uid); define('_rsidl', _rsid);
+				define('_rsid',  'rid='.__fud_real_user__); define('_rsidl', _rsid);
 			} else {
-				define('_rsid', _uid . '/'); define('_rsidl', _rsid);
+				define('_rsid', __fud_real_user__ . '/'); define('_rsidl', _rsid);
 			}
 		} else {
 			define('_rsid', ''); define('_rsidl', ''); 
