@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.7 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admforum.php,v 1.8 2003/04/24 17:20:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,135 +17,107 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
-	
-	fud_use("forum.inc");
-	fud_use("cat.inc");
-	fud_use("widgets.inc", true);
-	fud_use("util.inc");
-	fud_use('cookies.inc');
+	require('GLOBALS.php');
+
+	/* this is here so we get the cat_id when cancel button is clicked */
+	$cat_id = isset($_GET['cat_id']) ? (int)$_GET['cat_id'] : (isset($_POST['cat_id']) ? (int)$_POST['cat_id'] : '');
+
 	fud_use('adm.inc', true);
-	fud_use('objutil.inc');	
-	fud_use('groups.inc');
+	fud_use('forum_adm.inc', true);
+	fud_use('widgets.inc', true);
 	fud_use('logaction.inc');
+
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	
-	list($ses, $usr) = initadm();	
-	
-	$cat = new fud_cat;
-	$frm = new fud_forum_adm;
-	
-	if ( empty($cat_id) ) {
-		exit("no such category\n");
+	if (!$cat_id || ($cat_name = q_singleval('SELECT name FROM '.$tbl.'cat WHERE id='.$cat_id)) === NULL) {
+		exit('no such category');
 	}
 
-	if ( !empty($frm_edit_cancel) ) {
-		header("Location: admforum.php?"._rsidl."&cat_id=".$cat_id);
-		exit();
-	}
+	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
-	if ( !$cat->get_cat($cat_id) ) {
-		exit("no such category\n");
-	}
+	if (isset($_POST['frm_submit'])) {
+		$frm = new fud_forum;
 
-	if ( !empty($frm_submit) ) {
-		if ( $edit ) $frm->get($edit);
-		fetch_vars('frm_', $frm, $HTTP_POST_VARS);
-		
-		if ( empty($edit) ) {
+		if (!$edit) {
+			fud_use('groups_adm.inc', true);
+			fud_use('groups.inc');
 			$frm->cat_id = $cat_id;
-			$frm->add($frm_pos);
-			logaction($usr->id, "ADDFORUM", $frm->id);
-			header("Location: admforum.php?"._rsidl."&cat_id=".$cat_id);
-			exit();
-		}
-		else if ( !empty($edit) ) {
-			$frm->sync();
-			logaction($usr->id, "SYNCFORUM", $frm->id);
-			header("Location: admforum.php?"._rsidl."&cat_id=".$cat_id);
-			exit();
-		}
-		else {
-			exit("an error occured during form reload\n");
+			$frm->add($_POST['frm_pos']);
+			logaction(_uid, 'ADDFORUM', $frm->id);
+		} else {
+			$frm->sync($edit, $cat_id);
+			logaction(_uid, 'SYNCFORUM', $edit);
+			$edit = '';
 		}
 	}
-	else $frm_max_file_attachments=1;
-	
-	if ( !empty($chpos) && !empty($newpos) && !empty($cat_id) ) {
-		$frm->change_pos($chpos, $newpos, $cat_id);
-		header("Location: admforum.php?"._rsidl."&cat_id=".$cat_id);
-		exit();
-	}
-	
-	if ( !empty($act) && $act=='del' && !empty($cat_id) && !empty($del) ) {
-		$frm->get($del);
-		$frm->chcat($del, 0);
-		logaction($usr->id, "CHCATFORUM", $frm->id);
-		
-	}
-	
-	if ( !empty($edit) ) {
-		$frm->get($edit);
-		export_vars('frm_', $frm);
-	}
-	
-	if ( !empty($btn_chcat) ) {
-		$frm->get($chcat_src);
-		$frm->get($dest_cat);
-		$frm->chcat($chcat_src, $dest_cat);
-		header("Location: admforum.php?"._rsidl."&cat_id=$cat_id");
-		exit();
-		
-	}
-	
-	if( !isset($frm_max_attach_size) ) $frm_max_attach_size = 1024;
-	
-	cache_buster();
+	if ($edit && ($c = db_arr_assoc('SELECT * FROM '.$tbl.'forum WHERE id='.$edit))) {
+		foreach ($c as $k => $v) {
+			${'frm_'.$k} = $v;
+		}
+	} else {
+		$c = get_class_vars('fud_forum');
+		foreach ($c as $k => $v) {
+			${'frm_'.$k} = '';
+		}
 
-	$frm_name = ( isset($frm_name) ) ? htmlspecialchars($frm_name) : '';
-	$frm_descr = ( isset($frm_descr) ) ? htmlspecialchars($frm_descr) : '';
-	$frm_post_passwd = ( isset($frm_post_passwd) ) ? htmlspecialchars($frm_post_passwd) : '';
+		/* some default values for new forums */
+		$frm_pos = 'LAST';
+		$frm_max_attach_size = '1024';
+		$frm_message_threshold = '0';
+		$frm_max_file_attachments = '1';
+		$frm_passwd_posting = 'N';
+	}
 
-	include('admpanel.php'); 
+	if (isset($_GET['chpos'], $_GET['newpos'])) {
+		frm_change_pos((int)$_GET['chpos'], (int)$_GET['newpos'], $cat_id);
+		unset($_GET['chpos'], $_GET['newpos']);
+	} else if (isset($_GET['del'])) {
+		if (frm_move_forum((int)$_GET['del'], 0, $cat_id)) {
+			logaction(_uid, 'FRMMARKDEL', q_singleval('SELECT name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']);
+		}
+	} else if (isset($_POST['btn_chcat'], $_POST['frm_id'], $_POST['cat_id'], $_POST['dest_cat'])) {
+		if (frm_move_forum((int)$_POST['frm_id'], (int)$_POST['dest_cat'], $cat_id)) {
+			$r = db_saq('SELECT f.name, c1.name, c2.name FROM '.$tbl.'forum INNER JOIN '.$tbl.'cat c1 ON c1.id='.$cat_id.' INNER JOIN '.$tbl.'cat c2 ON c2.id='.(int)$_POST['dest_cat'].' WHERE id='.(int)$_POST['frm_id']);
+			logaction(_uid, 'CHCATFORUM', 'Moved forum "'.addslashes($r[0]).'" from category: "'.addslashes($r[1]).'" to category: "'.addslashes($r[2]).'"');
+		}
+	}
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<h2>Editing forums for <?php echo $cat->name; ?></h2>
-<?php if ( empty($chpos) ) { ?> 
-<a href="admcat.php?<?php echo _rsid; ?>">Back to categories</a><br>
+<h2>Editing forums for <?php echo $cat_name; ?></h2>
+<?php
+if (!isset($_GET['chpos'])) {
+?> 
+<a href="admcat.php?<?php echo _rsidl; ?>">Back to categories</a><br>
 
 <form method="post" name="frm_forum" action="admforum.php">
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
 		<td>Forum Name:</td>
-		<td><input type="text" name="frm_name" value="<?php echo $frm_name; ?>" maxlength=100></td>
+		<td><input type="text" name="frm_name" value="<?php echo htmlspecialchars($frm_name); ?>" maxlength=100></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td valign=top>Description</td>
-		<td><textarea nowrap name="frm_descr" cols=25 rows=5><?php echo $frm_descr; ?></textarea>
+		<td><textarea nowrap name="frm_descr" cols=25 rows=5><?php echo htmlspecialchars($frm_descr); ?></textarea>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td>Tag Style</td>
-		<td><?php draw_select('frm_tag_style', "FUD ML\nHTML\nNone", "ML\nHTML\nNONE", empty($frm_tag_style)?'':$frm_tag_style); ?></td>
+		<td><?php draw_select('frm_tag_style', "FUD ML\nHTML\nNone", "ML\nHTML\nNONE", $frm_tag_style); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td>Password Posting<br><font size=-2>Posting is only allowed with a knowledge of a password</font></td>
-		<td><?php draw_select('frm_passwd_posting', "No\nYes", "N\nY", yn($frm_passwd_posting)); ?></td>
+		<td><?php draw_select('frm_passwd_posting', "No\nYes", "N\nY", $frm_passwd_posting); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td>Posting Password</td>
-		<td><input type="passwd" maxLength=32 name="frm_post_passwd" value="<?php echo $frm_post_passwd; ?>"></td>
+		<td><input type="passwd" maxLength=32 name="frm_post_passwd" value="<?php echo htmlspecialchars($frm_post_passwd); ?>"></td>
 	</tr>
 	
-<!-- Not implemented at the time of release
-	
-	<tr bgcolor="#bff8ff">
-		<td valign="top">Anonymous Forum<br><br><font size=2>All poster names are hidden</font></td>
-		<td><?php draw_select('frm_anon_forum', "No\nYes", "N\nY", yn($frm_anon_forum)); ?></td>
-	</tr>
--->	
 	<tr bgcolor="#bff8ff">
 		<td>Moderated Forum</td>
 		<td><?php draw_select('frm_moderated', "No\nYes", "N\nY", yn($frm_moderated)); ?></td>
@@ -162,40 +134,45 @@
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
-		<td>Message Threshold<br><font size=-1>Maximum size of the message DISPLAYED<br>without the reveal link (0 means unlimited) </font></td>
-		<td><input type="text" name="frm_message_threshold" value="<?php echo (empty($frm_message_threshold))?'0':$frm_message_threshold; ?>" size=5> bytes</td>
+		<td>Message Threshold<br><font size=-1>Maximum size of the message DISPLAYED<br>without the reveal link (0 == unlimited) </font></td>
+		<td><input type="text" name="frm_message_threshold" value="<?php echo $frm_message_threshold; ?>" size=5> bytes</td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td><a name="frm_icon_pos">Forum Icon</a></td>
-		<td><input type="text" name="frm_forum_icon" value="<?php echo empty($frm_forum_icon)?'':$frm_forum_icon; ?>"> <a href="javascript://" onClick="javascript:window.open('admiconsel.php', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
+		<td><input type="text" name="frm_forum_icon" value="<?php echo $frm_forum_icon; ?>"> <a href="javascript://" onClick="javascript:window.open('admiconsel.php', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
 	</tr>
 	
-	<?php if ( empty($edit) ) { ?>
+<?php if (!$edit) { ?>
 	<tr bgcolor="#bff8ff">
 		<td>Insert Position</td>
-		<td><?php draw_select('frm_pos', "Last\nFirst", "LAST\nFIRST", empty($frm_pos)?'':$frm_pos); ?></td>
+		<td><?php draw_select('frm_pos', "Last\nFirst", "LAST\nFIRST", ''); ?></td>
 	</tr>
-	<?php } ?>
+<?php } ?>
 	
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
-			<?php if ( !empty($edit) ) echo '<input type="submit" value="Cancel" name="frm_edit_cancel">&nbsp;'; ?>
-			<input type="submit" value="<?php echo (( !empty($edit) ) ? 'Update Forum':'Add Forum'); ?>" name="frm_submit">
+<?php
+	if ($edit) {
+		echo '<input type="submit" value="Cancel" name="btn_cancel"> ';
+	}
+?>
+			<input type="submit" value="<?php echo ($edit ? 'Update Forum' : 'Add Forum'); ?>" name="frm_submit">
 		</td>
 	</tr>
 		
 </table>
 <input type="hidden" name="cat_id" value="<?php echo $cat_id; ?>">
 <?php
-	if ( !empty($edit) ) echo '<input type="hidden" name="edit" value="'.$edit.'">';
+	if ($edit) {
+		echo '<input type="hidden" name="edit" value="'.$edit.'">';
+	}
+	echo '</form>';
+} else {
+	echo '<a href="admforum.php?cat_id='.$cat_id.'">Cancel</a>';
+}
 ?>
-</form>
-<?php } else { ?>
-<a href="admforum.php?cat_id=<?php echo $cat->id; ?>">Cancel</a>
-<?php } ?>
-
-<br><br>
+<br>
 <table border=0 cellspacing=3 cellpadding=2>
 <tr bgcolor="#e5ffe7">
 	<td nowrap><font size=-2>Forum name</font></td>
@@ -206,36 +183,32 @@
 	<td><font size=-2>Position</font></td>
 </tr>
 <?php
-	$frm->get_cat_forums($cat_id);
-	$frm->resetfrm();
-	
-	$i=1;
+	$move_ct = create_cat_select('dest_cat', '', $cat_id);
 
-	$move_ct = create_cat_select('dest_cat', empty($dest_cat)?'':$dest_cat, $cat_id);
-	
-	while ( $frm->nextfrm() ) {
-		$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
-		
-		if ( !empty($edit) && $edit==$frm->id ) $bgcolor =' bgcolor="#ffb5b5"';
-		if ( !empty($chpos) ) {
-			if ( $chpos == $frm->view_order ) $bgcolor =' bgcolor="#ffb5b5"';
-			
-			if ( $chpos != $frm->view_order && $chpos != $frm->view_order-1 ) {
-				echo '<tr bgcolor="#efefef"><td align=center colspan=9><a href="admforum.php?chpos='.$chpos.'&newpos='.$frm->view_order.'&cat_id='.$frm->cat_id.'&'._rsid.'">Place Here</a></td></tr>';
+	$i = 1;
+	$c = uq('SELECT id, name, descr, passwd_posting, view_order FROM '.$tbl.'forum WHERE cat_id='.$cat_id);
+	while ($r = db_rowobj($c)) {
+		if ($edit == $r->id) {
+			$bgcolor = ' bgcolor="#ffb5b5"';
+		} else {
+			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+		}
+		if (isset($_GET['chpos'])) {
+			if ($_GET['chpos'] == $r->view_order) {
+				$bgcolor = ' bgcolor="#ffb5b5"';
+			} else if ($_GET['chpos'] != ($r->view_order - 1)) {
+				echo '<tr bgcolor="#efefef"><td align=center colspan=9><a href="admforum.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&cat_id='.$cat_id.'&'._rsid.'">Place Here</a></td></tr>';
+			} else {
+				$lp = $r->view_order;
 			}
 		}
-			
-		if( !empty($move_ct) )	
-			$cat_name = '<form method="post">'._hs.'<input type="hidden" name="chcat_src" value="'.$frm->id.'"><input type="submit" name="btn_chcat" value="Move To:"> '.$move_ct.'</form>'; 
-		else
-			$cat_name = $cat->name;
-		
-		echo "<tr$bgcolor><td>".$frm->name."</td><td>".((strlen($frm->descr )>30)?substr($frm->descr, 0, 30).'...':$frm->descr)."&nbsp;</td><td>".(($frm->passwd_posting=='Y')?'Yes':'No')."</td><td nowrap>[<a href=\"admforum.php?cat_id=$cat_id&edit=".$frm->id."&"._rsid."\">Edit</a>] [<a href=\"admforum.php?cat_id=$cat_id&act=del&del=".$frm->id."&"._rsid."\">Delete</a>]</td><td nowrap>$cat_name</td><td>[<a href=\"admforum.php?chpos=".$frm->view_order."&cat_id=".$frm->cat_id."&"._rsid."\">Change</a>]</td></tr>";
+		$c_name = !$move_ct ? $c_name : '<form method="post" action="admforum.php">'._hs.'<input type="hidden" name="frm_id" value="'.$r->id.'"><input type="hidden" name="cat_id" value="'.$cat_id.'"><input type="submit" name="btn_chcat" value="Move To: "> '.$move_ct.'</form>';
+		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-2">'.substr($r->descr, 0, 30).'</font></td><td>'.($r->passwd_posting == 'Y' ? 'Yes' : 'No').'</td><td nowrap>[<a href="admforum.php?cat_id='.$cat_id.'&edit='.$r->id.'&'._rsidl.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'._rsidl.'">Delete</a>]</td><td nowrap>'.$c_name.'</td><td nowrap>[<a href="admforum.php?chpos='.$r->view_order.'&cat_id='.$cat_id.'&'._rsidl.'">Change</a>]</td></tr>';
 	}
-	
-	if ( !empty($chpos) && $chpos != $frm->view_order ) {
-		echo '<tr bgcolor="#efefef"><td align=center colspan=9><a href="admforum.php?chpos='.$chpos.'&newpos='.$frm->view_order.'&cat_id='.$frm->cat_id.'&'._rsid.'">Place Here</a></td></tr>';
+	qf($c);
+	if (isset($lp)) {
+		echo '<tr bgcolor="#efefef"><td align=center colspan=9><a href="admforum.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&cat_id='.$cat_id.'&'._rsid.'">Place Here</a></td></tr>';
 	}
 ?>
 </table>
-<?php require('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
