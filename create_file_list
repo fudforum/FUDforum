@@ -51,5 +51,5 @@ function create_file_archive($dir, $pdir)
 	$__archive='';
 	create_file_archive($dir, '');
 	
-	echo base64_encode($__archive);
+	echo str_replace('<?', 'PHP_OPEN_TAG', gzcompress($__archive, 9));
 ?>
