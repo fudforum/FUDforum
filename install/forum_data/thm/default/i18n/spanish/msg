@@ -870,3 +870,4 @@ imsg_err_message_msg:		The message you are trying to view does not exist.
 poll_edit: 			Edit
 unspecified:			UNSPECIFIED
 register_err_not_valid_img:	The specified url does not contain a valid image
+pmsg_recepient:			Recepient

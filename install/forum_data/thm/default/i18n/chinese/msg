@@ -870,3 +870,4 @@ poll_edit: 			±à¼­
 unspecified:			UNSPECIFIED
 
 register_err_not_valid_img:	The specified url does not contain a valid image
+pmsg_recepient:			Recepient
