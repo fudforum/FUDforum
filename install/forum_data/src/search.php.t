@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: search.php.t,v 1.4 2002/06/19 19:00:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -93,6 +93,8 @@
 	qf($r);	
 	
 	$search_options = tmpl_draw_radio_opt('field', "all\nsubject", "{TEMPLATE: search_entire_msg}\n{TEMPLATE: search_subect_only}", $field, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	
+	$srch = stripslashes($srch);
 	
 	{POST_PAGE_PHP_CODE}
 ?>
