@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.64 2004/10/06 14:56:06 hackie Exp $
+* $Id: admglobal.php,v 1.65 2004/11/22 13:49:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -133,7 +133,7 @@ function get_max_upload_size()
 ?>
 <h2>Global Configuration</h2>
 <table class="datatable solidtable">
-<form method="post" action="admglobal.php">
+<form method="post" action="admglobal.php" autocomplete="off">
 <?php
 	echo _hs;
 	print_reg_field('Forum Title', 'FORUM_TITLE');
