@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.15 2003/04/14 19:37:52 hackie Exp $
+*   $Id: search.php.t,v 1.16 2003/05/02 13:32:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -139,9 +139,9 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		$c = uq('SELECT f.id,f.name, c.id, c.name AS cat_name 
 				FROM {SQL_TABLE_PREFIX}forum f 
 				INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id 
-				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
-				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g1.resource_id=f.id
+				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
+				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 				WHERE mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\'
 				ORDER BY c.view_order, f.view_order');
 	} else {
@@ -153,7 +153,6 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			$selected = ('c'.$r[2] == $forum_limiter) ? ' selected' : '';
 			$forum_limit_data .= '{TEMPLATE: forum_limit_cat_option}';
 			$old_cat = $r[2];
-			continue;
 		}
 		$selected = $r[0] == $forum_limiter ? ' selected' : '';
 		$forum_limit_data .= '{TEMPLATE: forum_limit_frm_option}';
