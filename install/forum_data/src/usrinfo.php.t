@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.29 2003/12/19 10:59:04 hackie Exp $
+* $Id: usrinfo.php.t,v 1.30 2004/01/03 16:31:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -65,7 +65,7 @@ function convert_bdate($val, $month_fmt)
 
 	$status = (!empty($level_name) || !empty($moderation) || !empty($level_image) || !empty($custom_tags)) ? '{TEMPLATE: status}' : '';
 
-	$avg = sprintf('%.2f', $u->posted_msg_count / ((__request_timestamp__ - $u->join_date) / 86400));
+	$avg = round($u->posted_msg_count / ((__request_timestamp__ - $u->join_date) / 86400), 2);
 	if ($avg > $u->posted_msg_count) {
 		$avg = $u->posted_msg_count;
 	}
