@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc,v 1.1 2003/04/24 17:33:36 hackie Exp $
+*   $Id: forum_adm.inc,v 1.2 2003/04/24 18:19:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,7 +52,6 @@ class fud_forum
 			descr, 
 			passwd_posting, 
 			post_passwd, 
-			anon_forum, 
 			date_created, 
 			view_order, 
 			forum_icon, 
@@ -67,7 +66,6 @@ class fud_forum
 			".strnull(addslashes($this->descr)).",
 			'".yn($this->passwd_posting)."',
 			".strnull(addslashes($this->post_passwd)).",
-			'".yn($this->anon_forum)."',
 			".__request_timestamp__.",
 			".$this->view_order.",
 			".strnull(addslashes($this->forum_icon)).",
@@ -127,7 +125,7 @@ function create_cat_select($name, $def, $blocked)
 	$ret = '';
 	$c = uq('SELECT id, name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat WHERE id!='.$blocked.' ORDER BY view_order');
 	while ($r = db_rowarr($c)) {
-		$ret .= '<option value="'.$r[1].'"'.($r[0] == $def ? ' selected' : '').'>'.$r[1].'</option>';
+		$ret .= '<option value="'.$r[0].'"'.($r[0] == $def ? ' selected' : '').'>'.$r[1].'</option>';
 	}
 	qf($c);
 
@@ -192,7 +190,7 @@ function frm_delete($id)
 {
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
-	db_lock($tbl.'forum WRITE, '.$tbl.'mod WRITE, '.$tbl.'thread WRITE, '.$tbl.'ann_forums WRITE, '.$tbl.'forum_notify WRITE, '.$tbl.'groups WRITE, '.$tbl.'group_resources WRITE, '.$tbl.'group_members WRITE, '.$tbl.'group_cache WRITE');
+	db_lock($tbl.'forum WRITE, '.$tbl.'mod WRITE, '.$tbl.'nntp WRITE, '.$tbl.'mlist WRITE, '.$tbl.'thread WRITE, '.$tbl.'ann_forums WRITE, '.$tbl.'forum_notify WRITE, '.$tbl.'groups WRITE, '.$tbl.'group_resources WRITE, '.$tbl.'group_members WRITE, '.$tbl.'group_cache WRITE');
 
 	q('DELETE FROM '.$tbl.'ann_forums WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'thread WHERE forum_id='.$id);
@@ -200,11 +198,16 @@ function frm_delete($id)
 	q('DELETE FROM '.$tbl.'forum_notify WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'group_cache WHERE resource_id='.$id);
 	q('DELETE FROM '.$tbl.'thread WHERE forum_id='.$id);
+	q('DELETE FROM '.$tbl.'mlist WHERE forum_id='.$id);
+	q('DELETE FROM '.$tbl.'nntp WHERE forum_id='.$id);
 
-	$gid = q_singleval('SELECT '.$tbl.'groups.id FROM '.$tbl.'forum INNER JOIN '.$tbl.'group_resources ON '.$tbl.'group_resources.resource_id=forum.id INNER JOIN '.$tbl.'groups ON '.$tbl.'groups.id='.$tbl.'group_resources.group_id AND '.$tbl.'groups.name=f.name'); 
+	$gid = q_singleval('SELECT '.$tbl.'groups.id FROM '.$tbl.'forum INNER JOIN '.$tbl.'group_resources ON '.$tbl.'group_resources.resource_id='.$tbl.'forum.id INNER JOIN '.$tbl.'groups ON '.$tbl.'groups.id='.$tbl.'group_resources.group_id AND '.$tbl.'groups.name='.$tbl.'forum.name'); 	
+
 	q('DELETE FROM '.$tbl.'groups WHERE id='.$gid);
 	q('DELETE FROM '.$tbl.'group_resources WHERE group_id='.$gid);
 	q('DELETE FROM '.$tbl.'group_members WHERE group_id='.$gid);
+
+	q('DELETE FROM '.$tbl.'forum WHERE id='.$id);
 
 	db_unlock();
 }
