@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.54 2004/02/18 19:23:46 hackie Exp $
+* $Id: index.php.t,v 1.55 2004/05/12 15:49:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -168,11 +168,7 @@ function url_tog_collapse($id, $c)
 		}
 
 		if ($r[11]) {
-			if ($r[3]) {
-				$last_poster_profile = '{TEMPLATE: profile_link_user}';
-			} else {
-				$last_poster_profile = '{TEMPLATE: profile_link_anon}';
-			}
+			$last_poster_profile = $r[3] ? '{TEMPLATE: profile_link_user}' : '{TEMPLATE: profile_link_anon}';
 			$last_post = '{TEMPLATE: last_post}';
 		} else {
 			$last_post = '{TEMPLATE: na}';
