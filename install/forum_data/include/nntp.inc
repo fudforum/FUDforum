@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.22 2003/05/06 12:47:10 hackie Exp $
+*   $Id: nntp.inc,v 1.23 2003/05/06 14:22:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -250,7 +250,6 @@ class fud_nntp
 	function fud_uudecode($data)
 	{
 		$data = trim($data);
-
 		// begin 0-7{3} (.*)\r\n (filename)
 		if (strncmp($data, 'begin', 5)) {
 			return;
@@ -314,26 +313,41 @@ class fud_nntp
 	function parse_attachments()
 	{
 		// uu encoded
-		while (($s = strpos($this->body, "\r\nbegin ")) !== false) {
-			if (($e = strpos($this->body, "\r\nend\r\n", $s)) === false) {
-				if (substr($this->body, -3) == 'end') {
-					$e = strlen($this->body) - 5;
-				} else {
-					break;
+		$s = 0;
+		while (($s = @strpos($this->body, "begin ", $s)) !== false) {
+			if (!$s || ($this->body[$s - 2] == "\r" && $this->body[$s - 1] == "\n")) {
+				if (($e = strpos($this->body, "\r\nend\r\n", $s)) === false) {
+					if (substr($this->body, -3) == 'end') {
+						$e = strlen($this->body) - 5;
+					} else {
+						$s += 6;
+					}
 				}
+				$this->fud_uudecode(str_replace("\r", "", substr($this->body, $s, ($e + 5 - $s))));
+				$this->body = substr($this->body, 0, $s) . substr($this->body, ($e + 7));
+				
+				$s = 0;
 			}
-			$this->fud_uudecode(str_replace("\r", "", substr($this->body, $s, ($e + 5 - $s))));
-			$this->body = substr($this->body, 0, $s) . substr($this->body, ($e + 7));
+			$s += 6;
 		}
 		
 		// base64 encoded
-		while (($s = strpos($this->body, "\r\nbegin-base64 ")) !== false ) {
-			if (($e = strpos($this->body, "====\r\n", $s)) === false) {
-				break;
-			}
+		$s = 0;
+		while (($s = strpos($this->body, "begin-base64 ", $s)) !== false) {
+			if (!$s || ($this->body[$s - 2] == "\r" && $this->body[$s - 1] == "\n")) {
+				if (($e = strpos($this->body, "====\r\n", $s)) === false) {
+					if (substr($this->body, -4) == '====') {
+						$e = strlen($this->body) - 4;
+					} else {
+						$s += 13;
+					}
+				}
 
-			$this->fud_base64decode(str_replace("\r", "", substr($this->body, $s, ($e+4-$s))));
-			$this->body = substr($this->body, 0, $s) . substr($this->body, ($e + 5));
+				$this->fud_base64decode(str_replace("\r", "", substr($this->body, $s, ($e+4-$s))));
+				$this->body = substr($this->body, 0, $s) . substr($this->body, ($e + 5));
+				$s = 0;
+			}
+			$s += 13;
 		}
 	}
 	
@@ -474,7 +488,7 @@ class fud_nntp
 
 			$this->format_headers();
 			$this->parse_attachments();
-			
+
 			$msg_post = new fud_msg_edit;
 			
 			// Handler for our own messages, which do not need to be imported.
@@ -486,7 +500,6 @@ class fud_nntp
 					}
 				}
 			}
-			
 			$msg_post->body = apply_custom_replace($this->body);
 			if ($frm->tag_style == 'ML') {
 				$msg_post->body = tags_to_html($msg_post->body, 'N');
@@ -521,7 +534,7 @@ class fud_nntp
 			// Handle File Attachments
 			if (isset($this->attachments) && is_array($this->attachments)) {
 				foreach($this->attachments as $key => $val) {
-					if ($nntp_adm->allow_nntp_attch != 'Y' && (strlen($val) > $frm->max_attach_size || @count($attach_list) > $frm->max_file_attachments || filter_ext($key))) {
+					if ($nntp_adm->allow_nntp_attch != 'Y' && (strlen($val) > $frm->max_attach_size || (isset($attach_list) && count($attach_list) > $frm->max_file_attachments) || filter_ext($key))) {
 						continue;
 					}
 
@@ -533,7 +546,9 @@ class fud_nntp
 					$id = attach_add(array('name' => $key, 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 'N', 1);
 					$attach_list[$id] = $id;
 				}
-				attach_finalize($attach_list, $msg_post->id);
+				if (isset($attach_list)) {
+					attach_finalize($attach_list, $msg_post->id);
+				}
 			}
 			if ($nntp_adm->nntp_post_apr == 'N') {
 				fud_msg_edit::approve($msg_post->id, TRUE);	
