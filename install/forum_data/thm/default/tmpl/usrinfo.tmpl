@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.42 2004/11/24 19:53:40 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.43 2005/02/25 15:53:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -159,7 +159,7 @@
 {SECTION: END}
 
 {SECTION: moderation_entry link to forum moderated by user}
-<a href="{TEMPLATE: moderation_entry_lnk}">{VAR-HTML: r[1]}</a>&nbsp;
+<a href="{TEMPLATE: moderation_entry_lnk}">{VAR: r[1]}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: status various forum related tags assigned to user}
