@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.3 2002/06/25 01:40:22 hackie Exp $
+*   $Id: getfile.php.t,v 1.4 2002/07/30 14:34:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}{POST_HTML_PHP}
 	$file = new fud_attach;
 

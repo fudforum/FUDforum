@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.1 2002/07/21 22:13:20 hackie Exp $
+*   $Id: polllist.php.t,v 1.2 2002/07/30 14:34:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
 	
 	if ( isset($ses) ) $ses->update('{TEMPLATE: polllist_update}');

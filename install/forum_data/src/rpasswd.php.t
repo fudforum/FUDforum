@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rpasswd.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: rpasswd.php.t,v 1.2 2002/07/30 14:34:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,6 @@
 ***************************************************************************/
 
 	define('plain_form', 1);
-	include_once "GLOBALS.php";
 	
 	{PRE_HTML_PHP}
 	$usr = fud_user_to_reg($usr);

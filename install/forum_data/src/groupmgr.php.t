@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.7 2002/07/22 14:53:37 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.8 2002/07/30 14:34:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
 	
 	if ( empty($usr) || (!empty($group_id) && !bq("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$group_id." AND user_id=".$usr->id." AND group_leader='Y'") && $usr->is_mod!='A') ) {

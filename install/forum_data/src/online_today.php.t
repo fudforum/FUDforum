@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.php.t,v 1.8 2002/07/16 16:33:07 hackie Exp $
+*   $Id: online_today.php.t,v 1.9 2002/07/30 14:34:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
 	
 	if ( isset($ses) ) $ses->update('{TEMPLATE: online_today_update}');

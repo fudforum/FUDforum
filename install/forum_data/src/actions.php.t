@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.11 2002/07/16 17:38:56 hackie Exp $
+*   $Id: actions.php.t,v 1.12 2002/07/30 14:34:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
 	
 	if ( $GLOBALS['ACTION_LIST_ENABLED'] != 'Y' ) std_error('disabled');

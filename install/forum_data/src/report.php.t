@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: report.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
+*   $Id: report.php.t,v 1.5 2002/07/30 14:34:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,6 @@
 ***************************************************************************/
 
 /*#? Post Editor Page */
-	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
 
 	$flt = new fud_ip_filter;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: avatarsel.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: avatarsel.php.t,v 1.3 2002/07/30 14:34:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,6 @@
 
 	define('plain_form', 1);
 	
-	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
 		
 	{POST_HTML_PHP}
