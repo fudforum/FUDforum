@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.126 2004/05/18 21:55:36 hackie Exp $
+* $Id: users.inc.t,v 1.127 2004/05/25 15:32:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -573,6 +573,7 @@ function init_user()
 	header("Expires: Mon, 21 Jan 1980 06:01:01 GMT");
 	header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
 	header("Pragma: no-cache");
+	header('P3P: CP="ALL CUR OUR IND UNI ONL INT CNT STA"'); /* P3P Policy */
 
 	$sq = 0;
 	/* fetch an object with the user's session, profile & theme info */
