@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.19 2003/05/16 10:46:34 hackie Exp $
+*   $Id: db.inc,v 1.20 2003/06/05 16:24:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,6 +43,9 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 			echo $error_msg;
 		} else {
 			trigger_error('SQL Error has occurred, please contact the <a href="mailto:'.$GLOBALS['ADMIN_EMAIL'].'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log', E_USER_ERROR);
+			if (ini_get('display_errors') !== 1) {
+				exit('SQL Error has occurred, please contact the <a href="mailto:'.$GLOBALS['ADMIN_EMAIL'].'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log');
+			}
 		}
 	}
 	exit;
