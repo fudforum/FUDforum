@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: users_adm.inc.t,v 1.4 2002/07/13 22:34:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,7 +44,7 @@ class fud_user_adm extends fud_user_reg
 		$r = q("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$this->id);
 		while( list($pid) = db_rowarr($r) ) {
 			$pmsg = new fud_pmsg;
-			$pmsg->get($pid);
+			$pmsg->id = $pid;
 			$pmsg->del_pmsg('TRASH');
 		}
 		
