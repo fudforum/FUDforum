@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.70 2003/09/28 11:38:50 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.71 2003/09/28 14:45:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,7 +24,7 @@ class fud_msg
 
 class fud_msg_edit extends fud_msg
 {
-	function add_reply($reply_to, $th_id=NULL, $sticky_perm, $lock_perm, $autoapprove=TRUE)
+	function add_reply($reply_to, $th_id=NULL, $perm, $autoapprove=TRUE)
 	{
 		if ($reply_to) {
 			$this->reply_to = $reply_to;
@@ -33,10 +33,10 @@ class fud_msg_edit extends fud_msg
 			$fd = db_saq('SELECT t.forum_id, f.message_threshold, f.forum_opt FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id WHERE t.id='.$th_id);
 		}
 		
-		return $this->add($fd[0], $fd[1], $fd[2], $sticky_perm, $lock_perm, $autoapprove);
+		return $this->add($fd[0], $fd[1], $fd[2], $perm, $autoapprove);
 	}
 	
-	function add($forum_id, $message_threshold, $forum_opt, $sticky_perm, $lock_perm, $autoapprove=TRUE)
+	function add($forum_id, $message_threshold, $forum_opt, $perm, $autoapprove=TRUE)
 	{
 		if (!$this->post_stamp) {
 			$this->post_stamp = __request_timestamp__;
@@ -103,14 +103,10 @@ class fud_msg_edit extends fud_msg
 			".strnull(addslashes($poll_cache))."
 		)");
 
-		if ((!empty($GLOBALS['MOD']) || $lock_perm == 'Y') && isset($_POST['thr_locked'])) {
-			$thread_opt = 1;
-		} else {
-			$thread_opt = 0;
-		}
+		$thread_opt = ($perm & 4096 && isset($_POST['thr_locked']));
 
 		if (!$this->thread_id) { /* new thread */
-			if ((!empty($GLOBALS['MOD']) || $sticky_perm == 'Y') && isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry'])) {
+			if ($perm & 64 && isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry'])) {
 				if ((int)$_POST['thr_ordertype']) {
 					$thread_opt |= (int) $_POST['thr_ordertype'];
 					$thr_orderexpiry = (int) $_POST['thr_orderexpiry'];
@@ -131,7 +127,7 @@ class fud_msg_edit extends fud_msg
 		return $this->id;
 	}
 	
-	function sync($id, $frm_id, $message_threshold, $sticky_perm, $lock_perm)
+	function sync($id, $frm_id, $message_threshold, $perm)
 	{
 		if (!db_locked()) {
 			db_lock('{SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}thread_view WRITE');
@@ -179,7 +175,7 @@ class fud_msg_edit extends fud_msg
 			$orderexpiry = (int) $_POST['thr_orderexpiry'];
 
 			/* confirm that user has ability to change lock status of the thread */
-			if ((!empty($GLOBALS['MOD']) || $lock_perm == 'Y')) {
+			if ($perm & 4096) {
 				$locked = isset($_POST['thr_locked']) ? 1 : 0;
 				if ($locked && !($thread_opt & $locked)) {
 					$thread_opt = $thread_opt ^ 1;
@@ -189,7 +185,7 @@ class fud_msg_edit extends fud_msg
 			}
 
 			/* confirm that user has ability to change sticky status of the thread */
-			if ($th_data[2] == $this->id && isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) && (!empty($GLOBALS['MOD']) || $sticky_perm == 'Y')) {
+			if ($th_data[2] == $this->id && isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) && $perm & 64) {
 				if (!$_POST['thr_ordertype'] && $thread_opt>1) {
 					$orderexpiry = 0;
 					$thread_opt = $thread_opt ^ (4|2);

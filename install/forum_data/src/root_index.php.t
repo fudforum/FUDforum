@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.28 2003/08/05 23:36:59 hackie Exp $
+*   $Id: root_index.php.t,v 1.29 2003/09/28 14:45:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -57,8 +57,8 @@
 		$t = 'index';
 	}
 	
-	if ($GLOBALS['BUST_A_PUNK'] == 'Y' && isset($_COOKIE[$GLOBALS['COOKIE_NAME'].'1']) && $t != 'error') {
-		setcookie($GLOBALS['COOKIE_NAME'].'1', 'd34db33fd34db33fd34db33fd34db33f', __request_timestamp__+63072000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+	if ($BUST_A_PUNK == 'Y' && isset($_COOKIE[$COOKIE_NAME.'1']) && $t != 'error') {
+		setcookie($COOKIE_NAME.'1', 'd34db33fd34db33fd34db33fd34db33f', __request_timestamp__+63072000, $COOKIE_PATH, $COOKIE_DOMAIN);
 		fud_use('errmsg.inc');
 		exit(__fud_banned__);
 	}
