@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.php.t,v 1.39 2004/10/22 22:44:04 hackie Exp $
+* $Id: thread.php.t,v 1.40 2004/10/25 15:23:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,7 +63,7 @@
 		$thread_list_table_data = '{TEMPLATE: no_messages}';
 		$threaded_view = $admin_heading_row = '';
 	} else {
-		$admin_heading_row = ($MOD || $frm->group_cache_opt & 8224);
+		$admin_heading_row = ($MOD || ($mo = $frm->group_cache_opt & 8224));
 		$threaded_view = $FUD_OPT_2 & 512 ? '{TEMPLATE: threaded_view}' : '';
 		$thread_list_table_data = '';
 
@@ -134,9 +134,9 @@
 			}
 
 			if ($admin_heading_row) {
-				if ($MOD || (($frm->group_cache_opt & 8224) == 8224)) {
+				if ($MOD || $mo == 8224) {
 					$admin_control_row = '{TEMPLATE: admin_control_row_all}';
-				} else if ($frm->group_cache_opt & 32) {
+				} else if ($mo & 32) {
 					$admin_control_row = '{TEMPLATE: admin_control_row_del}';
 				} else {
 					$admin_control_row = '{TEMPLATE: admin_control_row_move}';
