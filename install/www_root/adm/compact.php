@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.42 2004/04/21 21:17:47 hackie Exp $
+* $Id: compact.php,v 1.43 2004/05/20 13:54:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -140,9 +140,13 @@ function eta_calc($start, $pos, $pc)
 		q('UPDATE '.$tbl.'msg SET file_id=file_id-'.$base.' WHERE file_id>'.$base);
 		q('UPDATE '.$tbl.'msg SET file_id_preview=file_id_preview-'.$base.' WHERE file_id_preview>'.$base);
 		$j = $base + 1;
+		$u = umask(0);
 		for ($j; $j < $magic_file_id; $j++) {
+			$mode = fileperms('msg_'.($j - $base));
 			rename($MSG_STORE_DIR . 'tmp_msg_'.$j, $MSG_STORE_DIR . 'msg_'.($j - $base));
+			chmod('msg_'.($j - $base), $mode);
 		}
+		umask($u);
 		$j = $magic_file_id - $base;
 		while (@file_exists($MSG_STORE_DIR . 'msg_' . $j)) {
 			@unlink($MSG_STORE_DIR . 'msg_' . $j++);
@@ -193,7 +197,11 @@ function eta_calc($start, $pos, $pc)
 		@unlink($MSG_STORE_DIR . 'private_tmp');
 		@unlink($MSG_STORE_DIR . 'private');
 	} else {
+		$u = umask(0);
+		$mode = fileperms('private');
 		rename($MSG_STORE_DIR . 'private_tmp', $MSG_STORE_DIR . 'private');
+		chmod('private', $mode);
+		umask($u);
 		@chmod($MSG_STORE_DIR . 'private', __file_perms__);
 	}
 
