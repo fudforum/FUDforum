@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.103 2003/11/27 12:31:56 hackie Exp $
+* $Id: register.php.t,v 1.104 2003/12/12 13:05:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -239,10 +239,10 @@ function decode_uent(&$uent)
 	reverse_fmt($uent->location);
 	reverse_fmt($uent->user_image);
 	reverse_fmt($uent->name);
+	reverse_fmt($uent->jabber);
 	$uent->aim = urldecode($uent->aim);
 	$uent->yahoo = urldecode($uent->yahoo);
 	$uent->msnm = urldecode($uent->msnm);
-	$uent->jabber = urldecode($uent->jabber);
 	$uent->affero = urldecode($uent->affero);
 }
 

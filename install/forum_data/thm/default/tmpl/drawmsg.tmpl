@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.46 2003/12/04 13:25:26 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.47 2003/12/12 13:05:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -218,23 +218,23 @@
 {SECTION: END}
 
 {SECTION: dmsg_im_icq}
-<a href="{TEMPLATE: dmsg_im_icq_lnk}"><img src="http://web.icq.com/whitepages/online?icq={VAR: obj->icq}&amp;img=5" alt="" /></a>
+<a href="{TEMPLATE: dmsg_im_icq_lnk}"><img title="{VAR: obj->icq}" src="{THEME_IMAGE_ROOT}/icq.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_im_aim}
-<a href="aim:goim?screenname={VAR-URL: obj->aim}&amp;message=Hi.+Are+you+there?"><img alt="" src="{THEME_IMAGE_ROOT}/aim.gif" /></a>
+<a href="aim:goim?screenname={VAR: obj->aim}&amp;message=Hi.+Are+you+there?" target="_blank"><img alt="" src="{THEME_IMAGE_ROOT}/aim.gif" title="{VAR: obj->aim}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_im_yahoo}
-<a target="_blank" href="http://edit.yahoo.com/config/send_webmesg?.target={VAR-URL: obj->yahoo}&amp;.src=pg"><img alt="" src="{THEME_IMAGE_ROOT}/yahoo.gif" /></a>
+<a target="_blank" href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: obj->yahoo}&amp;.src=pg"><img alt="" src="{THEME_IMAGE_ROOT}/yahoo.gif" title="{VAR: obj->yahoo}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_im_msnm}
-<a href="mailto:{VAR: obj->msnm}"><img alt="" src="{THEME_IMAGE_ROOT}/msnm.gif" /></a>
+<a href="mailto: {VAR: obj->msnm}"><img alt="" src="{THEME_IMAGE_ROOT}/msnm.gif" title="{VAR: obj->msnm}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_im_jabber}
-<img src="{THEME_IMAGE_ROOT}/jabber.gif" title="{VAR-UH: obj->jabber}" alt="{VAR-UH: obj->jabber}" />
+<img src="{THEME_IMAGE_ROOT}/jabber.gif" title="{VAR: obj->jabber}" alt="" />
 {SECTION: END}
 
 {SECTION: dmsg_poll_option}
@@ -437,7 +437,7 @@
 {SECTION: END}
 
 {SECTION: drawmsg_affero_reg}
-<a href="http://svcs.affero.net/rm.php?r={VAR-URL: obj->affero}&amp;ll={VAR: obj->forum_id}.{VAR: GLOBALS['affero_domain']}&amp;lp={VAR: obj->forum_id}.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_reg.gif" /></a>
+<a href="http://svcs.affero.net/rm.php?r={VAR: obj->affero}&amp;ll={VAR: obj->forum_id}.{VAR: GLOBALS['affero_domain']}&amp;lp={VAR: obj->forum_id}.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_reg.gif" /></a>
 {SECTION: END}
 
 {SECTION: drawmsg_affero_noreg}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.49 2003/12/11 15:05:51 hackie Exp $
+* $Id: post_proc.inc.t,v 1.50 2003/12/12 13:05:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -476,7 +476,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			continue;
 		}
 
-		$email = substr($ostr, $es, $ee-$es);
+		$email = str_replace('@', '&#64;', substr($ostr, $es, $ee-$es));
 		$email_url = '<a href="mailto:'.$email.'" target="_blank">'.$email.'</a>';
 		$email_url_l = strlen($email_url);
 		$ostr = fud_substr_replace($ostr, $email_url, $es, $ee-$es);
