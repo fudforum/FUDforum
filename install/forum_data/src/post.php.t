@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.59 2003/05/16 13:30:57 hackie Exp $
+*   $Id: post.php.t,v 1.60 2003/05/18 09:18:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -501,7 +501,7 @@ function flood_check()
 		}
 
 		if ($GLOBALS['ALLOW_SIGS'] == 'Y' && isset($msg_show_sig)) {
-			if ($msg_id && $msg->poster_id && $msg->poster_id != _uid && !reply_to) {
+			if ($msg_id && $msg->poster_id && $msg->poster_id != _uid && !$reply_to) {
 				$sig = q_singleval('SELECT sig FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg->poster_id);
 			} else {
 				$sig = $usr->sig;
