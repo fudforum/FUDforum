@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.65 2003/10/16 21:59:05 hackie Exp $
+* $Id: consist.php,v 1.66 2003/10/17 15:49:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -677,7 +677,7 @@ forum will be disabled.<br><br>
 
 	draw_stat('DONE');
 
-	echo 'It is recommended that you run SQL table optimizer after completing the consistency check. To do so <a href="consist.php?opt=1">click here</a>, keep in mind that this process make take several minutes to perform.';
+	echo 'It is recommended that you run SQL table optimizer after completing the consistency check. To do so <a href="consist.php?opt=1&'._rsid.'">click here</a>, keep in mind that this process make take several minutes to perform.';
 	echo '<script language="Javascript1.2">clearInterval(intervalID);</script>';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>
