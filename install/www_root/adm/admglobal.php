@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.58 2004/03/18 21:24:13 hackie Exp $
+* $Id: admglobal.php,v 1.59 2004/05/12 15:04:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -114,9 +114,12 @@ function get_max_upload_size()
 				$q_data[] = "time_zone='".addslashes($ch_list['SERVER_TZ'])."'";
 			}
 			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & (4|8)) {
+var_dump($NEW_FUD_OPT_2 & 512, !($NEW_FUD_OPT_2 & 4));
+var_dump($NEW_FUD_OPT_3 & 2, !($NEW_FUD_OPT_2 & 8));
 				/* only allow threaded topic view if it is selected & it's enabled */
-				$opt  = $NEW_FUD_OPT_2 & 4 && $NEW_FUD_OPT_2 & 512 ? 128 : 0;
-				$opt |= $NEW_FUD_OPT_2 & 8 || $NEW_FUD_OPT_3 & 2 ? 256 : 0;
+				$opt  = (!($NEW_FUD_OPT_2 & 4) && $NEW_FUD_OPT_2 & 512) ? 128 : 0;
+				$opt |= (!($NEW_FUD_OPT_2 & 8) && !($NEW_FUD_OPT_3 & 2)) ? 256 : 0;
+var_dump($opt);
 				$q_data[] = 'users_opt=(users_opt & ~ 384) | '.$opt;
 			}
 			if ($q_data) {
