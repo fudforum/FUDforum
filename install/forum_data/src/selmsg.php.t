@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.61 2005/02/25 15:57:12 hackie Exp $
+* $Id: selmsg.php.t,v 1.62 2005/02/26 04:58:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -197,7 +197,7 @@ function path_info_lnk($var, $val)
 			}
 		}
 		if ($FUD_OPT_2 & 32768 && isset($_SERVER['PATH_INFO'])) {
-			$p = str_replace(_rsid, '', $_SERVER['PATH_INFO']);
+			$p = htmlspecialchars(str_replace(_rsid, '', $_SERVER['PATH_INFO']));
 			if (strpos($p, 'start/') !== false) {
 				$p = preg_replace('!start/[0-9]+/!', '', $p);
 			}
@@ -208,7 +208,7 @@ function path_info_lnk($var, $val)
 	} else if ($unread_limit) {
 		if (!isset($_GET['mark_page_read'])) {
 			if ($FUD_OPT_2 & 32768) {
-				$_SERVER['QUERY_STRING'] = str_replace(_rsid, '', $_SERVER['PATH_INFO']) . 'make_page_read/1/mr/1/' . _rsid;
+				$_SERVER['QUERY_STRING'] = htmlspecialchars(str_replace(_rsid, '', $_SERVER['PATH_INFO'])) . 'make_page_read/1/mr/1/' . _rsid;
 			} else {
 				$_SERVER['QUERY_STRING'] .= '&amp;mark_page_read=1&amp;mr=1';
 			}

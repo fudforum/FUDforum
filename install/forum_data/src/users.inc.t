@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.145 2005/02/23 05:09:32 hackie Exp $
+* $Id: users.inc.t,v 1.146 2005/02/26 04:58:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,7 +24,7 @@ function init_user()
 		if ($o2 & 8192) {
 			$_GET['rid'] = array_pop($p);
 		}
-		$_SERVER['QUERY_STRING'] = $_SERVER['PATH_INFO'] . '?' . $_SERVER['QUERY_STRING'];
+		$_SERVER['QUERY_STRING'] = htmlspecialchars($_SERVER['PATH_INFO']) . '?' . $_SERVER['QUERY_STRING'];
 
 		/* continuation of path info parsing */
 		if (!isset($p[0])) {
