@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.46 2003/07/18 21:19:06 hackie Exp $
+*   $Id: consist.php,v 1.47 2003/07/18 23:35:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -133,7 +133,7 @@ forum will be disabled.<br><br>
 				$tbl.'msg m', $tbl.'pmsg pm', $tbl.'mod mm', $tbl.'thread_rate_track trt', $tbl.'msg_report mr',
 				$tbl.'forum_notify fn', $tbl.'thread_notify tn', $tbl.'buddy b', $tbl.'user_ignore i', $tbl.'msg m1', $tbl.'msg m2',
 				$tbl.'users u1', $tbl.'users u2', $tbl.'attach a', $tbl.'thr_exchange te', $tbl.'read r', $tbl.'mime mi',
-				$tbl.'group_members gm', $tbl.'group_resources gr', $tbl.'groups g', $tbl.'group_members gm1', $tbl.'group_members gm2');
+				$tbl.'group_members gm', $tbl.'group_resources gr', $tbl.'groups g', $tbl.'group_members gm1', $tbl.'group_members gm2', $tbl.'themes thm');
 	db_lock(implode(' WRITE, ', $tbls).' WRITE');
 	draw_stat('Locked!');
 
@@ -461,10 +461,10 @@ forum will be disabled.<br><br>
 		}
 		unset($todo);
 	} else {
-		$c = q('SELECT MAX(post_stamp), poster_id FROM imp_msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY poster_id');
+		$c = q('SELECT MAX(post_stamp), poster_id FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY poster_id');
 		while (list($ps, $uid) = db_rowarr($c)) {
 			if (!$uid) { continue; }
-			q('UPDATE imp_users SET u_last_post_id=(SELECT id FROM imp_msg WHERE post_stamp='.$ps.' AND approved=\'Y\' AND poster_id='.$uid.') WHERE id='.$uid);
+			q('UPDATE '.$tbl.'users SET u_last_post_id=(SELECT id FROM '.$tbl.'msg WHERE post_stamp='.$ps.' AND approved=\'Y\' AND poster_id='.$uid.') WHERE id='.$uid);
 		}
 		qf($c);
 	}
@@ -619,6 +619,19 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 	draw_stat('Done: Rebuilding group cache');
+
+	draw_stat('Validating User/Theme Relations');
+	$te = array();
+	$c = uq('SELECT u.id FROM '.$tbl.'users u LEFT JOIN '.$tbl.'themes thm ON thm.id=u.theme WHERE thm.id IS NULL');
+	while (list($uid) = db_rowarr($c)) {
+		$te[] = $uid;
+	}
+	qf($c);
+	if ($te) {
+		$tid = q_singleval('SELECT id FROM '.$tbl.'themes WHERE t_default=\'Y\' AND enabled=\'Y\'');
+		q('UPDATE '.$tbl.'users SET theme='.$tid.' WHERE id IN('.implode(',', $te).')');
+	}
+	draw_stat('Done: Validating User/Theme Relations');
 
 	draw_stat('Unlocking database');
 	db_unlock();	
