@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.28 2004/06/07 15:24:55 hackie Exp $
+* $Id: msglist.php,v 1.29 2004/10/06 16:36:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,40 +32,43 @@
 function makedeps()
 {
 	$path = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['tname'].'/tmpl';
-	$dp = opendir($path);
-	readdir($dp); readdir($dp);
-	while( $file = readdir($dp) ) {
-		if (substr($file, -5) == '.tmpl') {
-			$data = file_get_contents($path . '/' . $file);
 
-			// check for msgs int the php code
-			$s = $e = 0;
+	$files = glob($path . '/*.tmpl');
+	if (!$files) {
+		echo "Could not get list of template files from {$path}<br/>";
+		return array();
+	}
 
-			while (($s = strpos($data, '{REF: ', $s)) !== false) {
-				$s += 6;
-				if (($e=strpos($data, '}', $s)) === false) {
-					break;
-				}
+	foreach ($files as $f) {
+		$data = file_get_contents($f);
 
-				$dep = substr($data, $s, ($e - $s));
-				if (!isset($deps[$file][$dep])) {
-					$deps[$file][$dep] = $dep;
-				}
-				$s = $e;
+		// check for msgs int the php code
+		$s = $e = 0;
+
+		while (($s = strpos($data, '{REF: ', $s)) !== false) {
+			$s += 6;
+			if (($e = strpos($data, '}', $s)) === false) {
+				break;
 			}
 
-			while (($s = strpos($data, '{MSG: ', $s)) !== false) {
-				$s += 6;
-				if (($e=strpos($data, '}', $s)) === false) {
-					break;
-				}
-
-				$msg = substr($data, $s, ($e - $s));
-				if (!isset($tmplmsglist[$file][$msg])) {
-					$tmplmsglist[$file][$msg] = $msg;
-				}
-				$s = $e;
+			$dep = substr($data, $s, ($e - $s));
+			if (!isset($deps[$file][$dep])) {
+				$deps[$file][$dep] = $dep;
 			}
+			$s = $e;
+		}
+
+		while (($s = strpos($data, '{MSG: ', $s)) !== false) {
+			$s += 6;
+			if (($e = strpos($data, '}', $s)) === false) {
+				break;
+			}
+
+			$msg = substr($data, $s, ($e - $s));
+			if (!isset($tmplmsglist[$file][$msg])) {
+				$tmplmsglist[$file][$msg] = $msg;
+			}
+			$s = $e;
 		}
 	}
 

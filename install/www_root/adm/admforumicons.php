@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforumicons.php,v 1.16 2004/06/23 16:20:24 hackie Exp $
+* $Id: admforumicons.php,v 1.17 2004/10/06 16:36:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@
 	}
 
 	if (isset($_FILES['iconfile']) && $_FILES['iconfile']['size'] && preg_match('!\.(gif|png|jpg|jpeg)$!i', $_FILES['iconfile']['name'])) {
-		move_uploaded_file($_FILES['iconfile']['tmp_name'], $GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR . '/' . $_FILES['iconfile']['name']);
+		move_uploaded_file($_FILES['iconfile']['tmp_name'], $WWW_ROOT_DISK . $ICONS_DIR . '/' . $_FILES['iconfile']['name']);
 		/* rebuild message icon cache */
 		if ($which_dir) {
 			fud_use('msg_icon_cache.inc', true);
@@ -37,7 +37,7 @@
 		}
 	}
 	if (isset($_GET['del'])) {
-		@unlink($GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR . '/' . basename($_GET['del']));
+		@unlink($WWW_ROOT_DISK . $ICONS_DIR . '/' . basename($_GET['del']));
 		/* rebuild message icon cache */
 		if ($which_dir) {
 			fud_use('msg_icon_cache.inc', true);
@@ -49,7 +49,7 @@
 ?>
 <h2><?php echo $form_descr; ?> Administration System</h2>
 <?php
-	if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR)) {
+	if (@is_writeable($WWW_ROOT_DISK . $ICONS_DIR)) {
 ?>
 <form method="post" enctype="multipart/form-data" action="admforumicons.php">
 <input type="hidden" name="which_dir" value="<?php echo $which_dir; ?>">
@@ -69,7 +69,7 @@
 ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr class="field">
-		<td align=center><font color="red"><?php echo $GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR; ?> is not writeable by the web server, file upload disabled.</td>
+		<td align=center><font color="red"><?php echo $WWW_ROOT_DISK . $ICONS_DIR; ?> is not writeable by the web server, file upload disabled.</td>
 	</tr>
 </table>
 <?php
@@ -79,16 +79,15 @@
 <tr class="resulttopic"><td>Icon</td><td>Action</td></tr>
 <?php
 	$i = 1;
-	$dp = opendir($GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR);
-	readdir($dp); readdir($dp);
-	while ($de = readdir($dp)) {
-		if (!preg_match('!\.(gif|png|jpg|jpeg)$!i', $de)) {
-			continue;
-		}
-		$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-		echo '<tr'.$bgcolor.'><td><img src="'.$GLOBALS['WWW_ROOT'] . $ICONS_DIR . '/' . $de.'"></td><td><a href="admforumicons.php?del='.urlencode($de).'&'.__adm_rsidl.'&which_dir='.$which_dir.'">Delete</a></td></tr>';
+	if (($files = glob($WWW_ROOT_DISK . $ICONS_DIR . '/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE))) {
+		foreach ($files as $file) {
+			$de = basename($file);
+			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
+			echo '<tr'.$bgcolor.'><td><img src="'.$WWW_ROOT . $ICONS_DIR . '/' . $de.'"></td><td><a href="admforumicons.php?del='.urlencode($de).'&'.__adm_rsidl.'&which_dir='.$which_dir.'">Delete</a></td></tr>';
+		}	
+	} else if ($files === FALSE && !is_readable($WWW_ROOT_DISK . $ICONS_DIR)) {
+		echo '<tr colspan="3"><td>Unable to open '.$WWW_ROOT_DISK . $ICONS_DIR.' for reading.</td></tr>';
 	}
-	closedir($dp);
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

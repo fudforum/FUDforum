@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uninstall.php,v 1.7 2004/01/04 16:38:24 hackie Exp $
+* $Id: uninstall.php,v 1.8 2004/10/06 16:36:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -46,27 +46,27 @@ function print_error($msg)
 
 function fud_rmdir($dir)
 {
-	if (!($d = opendir($dir))) {
-		echo '<b>Could not open directory "'.$dir.'"<br>';
-		return;
+	$dirs = array(realpath($dir));
+
+	while (list(,$v) = each($dirs)) {
+		if (!($files = glob($v.'/*'))) {
+			continue;
+		}
+		foreach ($files as $file) {
+			if (is_dir($file) && !is_link($file)) {
+				$dirs[] = $file;
+			} else if (!unlink($file)) {
+				echo '<b>Could not delete file "'.$file.'"<br>';
+			}
+		}
 	}
-	readdir($d); readdir($d);
-	while ($f = readdir($d)) {
-	 	switch (filetype($dir . '/' . $f)) {
-	 		case 'file':
-	 		case 'link':
-	 			if (!unlink($dir . '/' . $f)) {
-	 				echo '<b>Could not delete file "'.$dir . '/' . $f.'"<br>';
-	 			}
-	 			break;
-	 		case 'dir':
-	 			fud_rmdir($dir . '/' . $f);
-	 			break;
-	 	}
-	}
-	closedir($d);
-	if (!rmdir($dir)) {
-		echo '<b>Could not delete directory "'.$dir.'"<br>';
+	
+	$dirs = array_reverse($dirs);
+	
+	foreach ($dirs as $dir) {
+		if (!rmdir($dir)) {
+			echo '<b>Could not delete directory "'.$dir.'"<br>';
+		}
 	}
 }
 

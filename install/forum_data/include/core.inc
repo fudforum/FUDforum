@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.123 2004/09/27 12:49:15 hackie Exp $
+* $Id: core.inc,v 1.124 2004/10/06 16:36:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -128,21 +128,5 @@ function __ffilesize($fp)
 {
 	$st = fstat($fp);
 	return (isset($st['size']) ? $st['size'] : $st[7]);
-}
-
-if (!function_exists('file_get_contents')) {
-	function file_get_contents($fname)
-	{
-		if (!($fp = @fopen($fname, 'rb'))) {
-			return false;
-		}
-		/* this handles urls */
-		if (!($size = @__ffilesize($fp))) {
-			$size = 2 * 1024 * 1024;
-		}
-		$data = fread($fp, $size);
-		fclose($fp);
-		return $data;
-	}
 }
 ?>

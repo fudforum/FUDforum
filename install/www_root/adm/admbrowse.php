@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.21 2004/10/06 14:56:06 hackie Exp $
+* $Id: admbrowse.php,v 1.22 2004/10/06 16:36:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -75,23 +75,28 @@ function mode_string($mode, $de)
 
 function fud_rmdir($dir)
 {
-	if (!($d = opendir($dir))) {
-		return;
-	}
-	readdir($d); readdir($d);
-	while ($f = readdir($d)) {
-		if (@is_dir($dir . '/' . $f)) {
-			if (!fud_rmdir($dir . '/' . $f)) {
-				return;
-			}
-		} else {
-			if (!@unlink($dir . '/' . $f)) {
+	$dirs = array(realpath($dir));
+
+	while (list(,$v) = each($dirs)) {
+		if (!($files = glob($v.'/*'))) {
+			continue;
+		}
+		foreach ($files as $file) {
+			if (is_dir($file) && !is_link($file)) {
+				$dirs[] = $file;
+			} else if (!unlink($file)) {
 				return;
 			}
 		}
 	}
-	closedir($d);
-	return @rmdir($dir);
+	
+	$dirs = array_reverse($dirs);
+	
+	foreach ($dirs as $dir) {
+		if (!rmdir($dir)) {
+			return;
+		}
+	}
 }
 
 if (!extension_loaded('posix')) {
@@ -251,9 +256,9 @@ if (!extension_loaded('posix')) {
 	echo 'Currently Browsing: <b>'.htmlspecialchars($cur_dir)."</b><br>\n";
 
 	clearstatcache();
-	if (!($dp = opendir($cur_dir))) {
+	if (!is_readable($cur_dir)) {
 		echo '<b>PERMISSION DENINED ACCSESING '.$cur_dir.'</b><br>';
-		$dp = opendir($ROOT_PATH[0]);
+		$cur_dir = $ROOT_PATH[0];
 	}
 ?>
 <br>
@@ -290,16 +295,18 @@ if (!extension_loaded('posix')) {
 <tr class="admin_fixed resulttopic"><td>Mode</td><td>Owner</td><td>Group</td><td>Size</td><td>Date</td><td>Time</td><td>Name</td><td align="center" colspan=3>Action</td></tr>
 <?php
 	$file_list = array();
-	$dir_list = array();
+	$dir_list = array('.', '..');
 
-	while ($de = readdir($dp)) {
-		if (@is_dir($cur_dir . '/' . $de)) {
-			$dir_list[] = $de;
-		} else {
-			$file_list[] = $de;
+	if (($files = glob(realpath($cur_dir) . '/*'))) {
+		foreach ($files as $file) {
+			$n = basename($file);
+			if (is_dir($file)) {
+				 $dir_list[] = $n;
+			} else {
+				 $file_list[] = $n;
+			}
 		}
 	}
-	closedir($dp);
 
 	sort($dir_list);
 	sort($file_list);

@@ -1,61 +1,48 @@
 #!/usr/local/bin/php -q
 <?php
 /***************************************************************************
-*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
-*   email                : forum@prohost.org
+* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: create_file_list,v 1.14 2004/10/06 16:36:15 hackie Exp $
 *
-*   $Id: create_file_list,v 1.13 2003/10/17 03:58:08 hackie Exp $
-****************************************************************************
-          
-****************************************************************************
-*
-*	This program is free software; you can redistribute it and/or modify
-*	it under the terms of the GNU General Public License as published by
-*	the Free Software Foundation; either version 2 of the License, or
-*	(at your option) any later version.
-*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; either version 2 of the License, or 
+* (at your option) any later version.
 ***************************************************************************/
-
-if (!function_exists('file_get_contents')) {
-	function file_get_contents($path)
-	{
-		if (!($fp = fopen($path, 'rb'))) {
-			return FALSE;
-		}
-		$data = fread($fp, filesize($path));
-		fclose($fp);
-
-		return $data;
-	}
-}
 
 function create_file_archive($dir, $pdir)
 {
 	$data = '';
 
-	if (!($d = opendir($dir))) {
-		w_err('cannot access "'.$dir.'"');
+	$path = realpath($dir) . '/';
+
+	$files = glob($path . '*');
+	if ($files === FALSE) {
+		w_err('cannot access "'.$path.'"');
 	}
-	readdir($d); readdir($d);
-	$path = $dir . '/';
+
+	if (!$files) { // no files in directory
+		return;
+	}
+
 	$dd = str_replace($pdir, '', $dir);
-	while ($f = readdir($d)) {
-		$ff = $path . $f;
-		switch (filetype($ff)) {
+	foreach ($files as $f) {
+		switch (filetype($f)) {
 			case 'file':
-				$fdata = file_get_contents($ff);
-				$data .= '//' . $f . '//' . fileperms($ff) . '//' . $dd . '//' . md5($fdata) . '//' . strlen($fdata) . "//\n" . $fdata . "\n";
+				$fdata = file_get_contents($f);
+				$data .= '//' . basename($f) . '//' . fileperms($f) . '//' . $dd . '//' . md5($fdata) . '//' . strlen($fdata) . "//\n" . $fdata . "\n";
 				break;
 			case 'dir':
-				if ($f == 'CVS') {
+				$name = basename($f);
+				if ($name == 'CVS') {
 					continue;
 				}
-				$data .= '//' . $f . '//' . fileperms($ff) . '//' . $dd . "//\n";
-				$data .= create_file_archive($ff, $pdir);
+				$data .= '//' . $name . '//' . fileperms($f) . '//' . $dd . "//\n";
+				$data .= create_file_archive($f, $pdir);
 				break;
 		}
 	}
-	closedir($d);
 
 	return $data;
 }

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.67 2004/09/17 02:00:12 hackie Exp $
+* $Id: post_proc.inc.t,v 1.68 2004/10/06 16:36:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -501,13 +501,6 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 	}
 
 	return $ostr;
-}
-
-if (!function_exists('html_entity_decode')) {
-	function html_entity_decode($s)
-	{
-		return strtr($s, array_flip(get_html_translation_table(HTML_ENTITIES)));
-	}
 }
 
 function html_to_tags($fudml)

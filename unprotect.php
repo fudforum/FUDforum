@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: unprotect.php,v 1.5 2004/01/04 16:38:24 hackie Exp $
+* $Id: unprotect.php,v 1.6 2004/10/06 16:36:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -31,27 +31,23 @@ function fud_ini_get($opt)
 
 function fud_unlock($dir)
 {
-	if (!($d = opendir($dir))) {
-		echo '<b>Could not open directory "'.$dir.'"<br>';
-		return;
-	}
-	readdir($d); readdir($d);
-	while ($f = readdir($d)) {
-	 	switch (filetype($dir . '/' . $f)) {
-	 		case 'file':
-	 		case 'link':
-	 			if (!chmod($dir . '/' . $f, 0666)) {
-	 				echo '<b>Could not unlock file "'.$dir . '/' . $f.'"<br>';
-	 			}
-	 			break;
-	 		case 'dir':
-	 			fud_unlock($dir . '/' . $f);
-	 			break;
-	 	}
-	}
-	closedir($d);
-	if (!chmod($dir, 0777)) {
-		echo '<b>Could not unlock directory "'.$dir.'"<br>';
+	$dirs = array(realpath($dir));
+
+	while (list(,$v) = each($dirs)) {
+		if (!($files = glob($v.'/*'))) {
+			continue;
+		}
+		foreach ($files as $file) {
+			if (is_dir($file) && !is_link($file)) {
+				$perm = 0777;
+				$dirs[] = $file;
+			} else {
+				$perm = 0666;
+			}
+			if (!chmod($file, $perm)) {
+				echo '<b>Could not unlock path "'.$file.'"<br>';
+			}
+		}
 	}
 }
 

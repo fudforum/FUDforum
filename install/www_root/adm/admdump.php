@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.45 2004/10/06 14:56:06 hackie Exp $
+* $Id: admdump.php,v 1.46 2004/10/06 16:36:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,45 +51,55 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 {
 	global $BUF_SIZE;
 
-	if (!($d = opendir($dirp))) {
-		echo 'Could not open "'.$dirp.'" for reading<br>';
-		return;
-	}
-	echo 'Processing directory: '.$dirp.'<br>';
+	$dirs = array(realpath($dirp));
+	$repl = realpath($keep_dir) . '/';
+	
+	while (list(,$v) = each($dirs)) {
+		if (!is_readable($v)) {
+			echo 'Could not open "'.$v.'" for reading<br>';
+			return;
+		}
+		echo 'Processing directory: '.$v.'<br>';
 
-	readdir($d); readdir($d);
-	$path = $dirp . '/';
-	$dpath = str_replace($GLOBALS[$keep_dir], $keep_dir . '/', $path);
-	while ($f = readdir($d)) {
-		switch (filetype($path . $f)) {
-			case 'file':
-				if ($f != 'GLOBALS.php') {
-					if (!@is_readable($path . $f)) {
-						echo "WARNING: unable to open '".$path . $f."' for reading<br>\n";
-						break;
-					}
-					$ln = filesize($path . $f);
-					if ($ln < $BUF_SIZE) {
-						$write_func($fp, '||' . $dpath . $f . '||' . $ln . "||\n" . file_get_contents($path . $f) . "\n");
-					} else {
-						$write_func($fp, '||' . $dpath . $f . '||' . $ln . "||\n");
-						$fp2 = fopen($path . $f, 'rb');
-						while (($buf = fread($fp2, $BUF_SIZE))) {
-							$write_func($fp, $buf);
-						}
-						fclose($fp2);
-						$write_func($fp, "\n");
-					}
+		if (!($files = glob($v . '/*'))) {
+			continue;
+		}
+		
+		$dpath = str_replace($repl, '', $v) . '/';
+		
+		foreach ($files as $f) {
+			if (is_link($f)) {
+				continue;
+			}
+			$name = basename($f);
+
+			if (is_dir($f)) {
+				if ($name != 'tmp' && $name != 'theme') {
+					$dirs[] = $f;
 				}
+				continue;
+			}
+			if ($name == 'GLOBALS.php') {
+				continue;
+			}
+			if (!@is_readable($f)) {
+				echo "WARNING: unable to open '".$f."' for reading<br>\n";
 				break;
-			case 'dir':
-				if ($f != 'tmp' && $f != 'theme') {
-					backup_dir($path . $f, $fp, $write_func, $keep_dir);
+			}
+			$ln = filesize($f);
+			if ($ln < $BUF_SIZE) {
+				$write_func($fp, '||' . $dpath . $name . '||' . $ln . "||\n" . file_get_contents($f) . "\n");
+			} else {
+				$write_func($fp, '||' . $dpath . $name . '||' . $ln . "||\n");
+				$fp2 = fopen($f, 'rb');
+				while (($buf = fread($fp2, $BUF_SIZE))) {
+					$write_func($fp, $buf);
 				}
-				break;
+				fclose($fp2);
+				$write_func($fp, "\n");
+			}
 		}
 	}
-	closedir($d);
 }
 
 function sql_num_fields($r)
@@ -190,23 +200,18 @@ function sql_is_null($r, $n, $tbl='')
 		$write_func($fp, "\n----SQL_START----\n");
 
 		/* read sql table defenitions */
-		$path = $DATA_DIR . 'sql';
-		if (!($d = opendir($path))) {
-			exit('Failed to open SQL directory "'.$path.'"');
+		
+		if (!($files = glob($DATA_DIR . 'sql/*.tbl'))) {
+			exit('Failed to open SQL directory "'.$DATA_DIR.'sql/"');
 		}
-		readdir($d); readdir($d);
-		while ($f = readdir($d)) {
-			if (substr($f, -4) != '.tbl') {
-				continue;
-			}
-			$sql_data = file_get_contents($path . '/'. $f);
+		foreach ($files as $f) {
+			$sql_data = file_get_contents($f);
 			$sql_data = preg_replace("!\#.*?\n!s", "\n", $sql_data);
 			$sql_data = preg_replace("!\s+!s", " ", $sql_data);
 			$sql_data = str_replace(";", "\n", $sql_data);
 			$sql_data = str_replace("\r", "", $sql_data);
 			$write_func($fp, $sql_data . "\n");
 		}
-		closedir($d);
 
 		$sql_table_list = get_fud_table_list();
 		db_lock(implode(' WRITE, ', $sql_table_list) . ' WRITE');

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemesel.php,v 1.20 2004/06/07 15:24:55 hackie Exp $
+* $Id: admthemesel.php,v 1.21 2004/10/06 16:36:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,38 +31,34 @@
 <input type="hidden" name="ret" value="<?php echo $ret; ?>">
 <table class="datatable solidtable">
 <tr class="field">
+<td>Template Set:</td><td><select name="tname">
 <?php
 	echo _hs;
-	$path = $GLOBALS['DATA_DIR'].'/thm';
-
-	$dp = opendir($path);
-	readdir($dp); readdir($dp);
-	echo '<td>Template Set:</td><td><select name="tname">';
-	while ($de = readdir($dp)) {
-		if ($de == 'CVS' || !@is_dir($path . '/' . $de)) {
+	
+	$files = glob($GLOBALS['DATA_DIR'].'/thm/*', GLOB_ONLYDIR);
+	foreach ($files as $file) {
+		if (!file_exists($file . '/locale')) {
 			continue;
 		}
-		echo '<option value="'.$de.'"'.($de == $def_thm ? ' selected' : '').'>'.$de.'</option>';
+		$n = basename($file);
+		echo '<option value="'.$n.'"'.($n == $def_thm ? ' selected' : '').'>'.$n.'</option>';
 	}
-	echo '</select></td>';
 ?>
+</select></td>
 </tr>
 <tr class="field">
+<td>Language:</td><td><select name="tlang">
 <?php
-	$path .= '/default/i18n';
-
-	$dp = opendir($path);
-	readdir($dp); readdir($dp);
-	echo '<td>Language:</td><td><select name="tlang">';
-	while ($de = readdir($dp)) {
-		if ($de == 'CVS' || !@is_dir($path . '/' . $de)) {
+	$files = glob(dirname($files[0]) . '/default/i18n/*', GLOB_ONLYDIR);
+	foreach ($files as $file) {
+		if (!file_exists($file . '/msg')) {
 			continue;
 		}
-		echo '<option value="'.$de.'"'.($de == $def_tmpl ? ' selected' : '').'>'.$de.'</option>';
+		$n = basename($file);
+		echo '<option value="'.$n.'"'.($n == $def_tmpl ? ' selected' : '').'>'.$n.'</option>';
 	}
-	echo '</select></td>';
 ?>
-</tr>
+</select></td></tr>
 <?php
 	echo '<tr class="fieldaction" align=right><td colspan=2><input type="submit" name="btn_submit" value="Edit"></td></td>';
 ?>
