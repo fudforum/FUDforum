@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.64 2004/10/22 14:03:19 hackie Exp $
+* $Id: index.php.t,v 1.65 2004/10/25 14:25:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,9 +18,9 @@ function reload_collapse($str)
 		return;
 	}
 	do {
-		@list($key, $val) = explode(':', $tok);
-		if ((int) $key) {
-			$GLOBALS['collapse'][(int) $key] = (int) $val;
+		$t = explode(':', $tok);
+		if ((int) $t[0]) {
+			$GLOBALS['collapse'][(int) $t[0]] = isset($t[1]) ? (int) $t[1] : 0;
 		}
 	} while (($tok = strtok('_')));
 }
