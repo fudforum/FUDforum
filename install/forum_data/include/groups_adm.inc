@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups_adm.inc,v 1.5 2003/05/02 00:32:17 hackie Exp $
+*   $Id: groups_adm.inc,v 1.6 2003/05/02 17:23:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,7 +45,7 @@ function group_add($res_id, $name, $add_gl=0, $perms='', $inherit_id=0, $joinmod
 	/* primary group */
 	$pg = ($add_gl == 2) ? $res_id : 0;
 	if ($pg) {
-		$vals = substr(str_repeat("'Y',", count($GLOBALS['__GROUPS_INC']['permlist'])), -1);
+		$vals = substr(str_repeat("'Y',", count($GLOBALS['__GROUPS_INC']['permlist'])), 0, -1);
 	}
 
 	$gid = db_qid('INSERT INTO '.$tbl.'groups (name, inherit_id, joinmode, '.$fld_lst.', forum_id) VALUES(\''.addslashes($name).'\', '.$inherit_id.', \''.$joinmode.'\', '.$vals.', '.$pg.')');

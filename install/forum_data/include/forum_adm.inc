@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc,v 1.5 2003/05/01 23:12:14 hackie Exp $
+*   $Id: forum_adm.inc,v 1.6 2003/05/02 17:23:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -200,7 +200,7 @@ function frm_delete($id)
 	q('DELETE FROM '.$tbl.'thread WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'mlist WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'nntp WHERE forum_id='.$id);
-	$gid = q_singleval('SELECT '.$tbl.'groups WHERE forum_id='.$id);
+	$gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'forum WHERE id='.$id);
 
 	db_unlock();
