@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.12 2003/10/17 00:58:13 hackie Exp $
+* $Id: merge_th.php.t,v 1.13 2003/11/01 19:11:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -39,6 +39,7 @@
 			if (!(int)$v) {
 				unset($_POST['sel_th'][$k]);
 			}
+			$_POST['sel_th'][$k] = (int) $v;
 		}
 		if (count($_POST['sel_th']) != q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thread WHERE forum_id={$frm} AND id IN(".implode(',', $_POST['sel_th']).")")) {
 			std_error('access');
