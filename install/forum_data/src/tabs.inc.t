@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tabs.inc.t,v 1.17 2004/01/25 19:28:23 hackie Exp $
+* $Id: tabs.inc.t,v 1.18 2004/04/20 19:23:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,6 +13,7 @@
 $tabs = '';
 if (_uid) {
 	$tablist = array(
+'{TEMPLATE: tags_user_cp}'=>'uc',
 '{TEMPLATE: tabs_register}'=>'register',
 '{TEMPLATE: tabs_subscriptions}'=>'subscribed',
 '{TEMPLATE: tabs_referrals}'=>'referals',

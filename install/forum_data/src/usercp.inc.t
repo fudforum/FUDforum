@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usercp.inc.t,v 1.19 2004/01/04 16:38:27 hackie Exp $
+* $Id: usercp.inc.t,v 1.20 2004/04/20 19:23:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,7 @@
 	} else {
 		$admin_control_panel = $usr->users_opt & 1048576 ? '{TEMPLATE: admin_control_panel}' : '';
 		$login_n_logout = '{TEMPLATE: logout}';
-		$register_n_profile = '{TEMPLATE: profile}';
+		$register_n_profile = '{TEMPLATE: usercp_usercp}';
 
 		if ($FUD_OPT_1 & 1024) {
 			$c = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND fldr=1 AND read_stamp=0');

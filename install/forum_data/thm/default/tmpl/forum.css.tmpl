@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.51 2004/04/20 18:12:18 hackie Exp $
+* $Id: forum.css.tmpl,v 1.52 2004/04/20 19:23:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -409,28 +409,30 @@ td.Av2 {
 	background: #fefefe;
 }
 
-td.tabI, td.tabA, td.tabI:hover {
-	background: #dee2e6;
+td.tabI, td.tabA, td.tabI:hover, td.tabOVER, td.tabON {
+	border: 1px solid black;
+	background: #dee7f7;
         padding: 2px;
-        border-top: 2px outset #dee2e6;
-        border-right: 2px ridge #dee2e6;
-        border-left: 2px outset #dee2e6;
 }
 
-td.tabI:hover, td.tabA {
-	background: #333399;
+td.tabOVER, td.tabI:hover, td.tabI:active {
+	background: white;
+}
+
+td.tabON {
+	background: #5279bd;
+}
+
+a.tabON:link, a.tabON:active, a.tabON:visited, a.tabON:hover {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
 }
                                                 
 div.tabT {
 	padding: 1px;
-        background: #c2cdd6;
         padding-left: 10px;
         padding-right: 10px;
-        border: 1px solid black;
-}
-
-tr.tab {
-	border-bottom: 3px solid #dee2e6;
 }
 
 table.tab {
