@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipfilter_adm.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
+*   $Id: ipfilter_adm.inc,v 1.3 2003/02/01 18:10:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,11 +34,11 @@ class fud_ip_filter_adm extends fud_ip_filter
 	
 	function set_ip($ipaddr)
 	{
-		$this->ipset(0xFF);
+		$this->ipset(256);
 		$seg = explode('.', $ipaddr);
 		for ( $i=0; $i<count($seg); $i++ ) {
 			if ( $seg[$i] == '*' ) 
-				$this->ip[$i] = 0xFF;
+				$this->ip[$i] = 256;
 			else
 				$this->ip[$i] = $seg[$i];
 		}
@@ -47,10 +47,10 @@ class fud_ip_filter_adm extends fud_ip_filter
 	function set_ip_list($a, $b, $c, $d)
 	{
 		unset($this->ip);
-		$this->ip[0] = ($a==255)?'*':$a;
-		$this->ip[1] = ($b==255)?'*':$b;
-		$this->ip[2] = ($c==255)?'*':$c;
-		$this->ip[3] = ($d==255)?'*':$d;
+		$this->ip[0] = ($a==256)?'*':$a;
+		$this->ip[1] = ($b==256)?'*':$b;
+		$this->ip[2] = ($c==256)?'*':$c;
+		$this->ip[3] = ($d==256)?'*':$d;
 	}
 	
 	function add($ipaddr)
@@ -126,10 +126,10 @@ class fud_ip_filter_adm extends fud_ip_filter
 		$obj = current($this->iplist);
 		if ( !isset($obj) ) return;
 		if ( !$obj ) return;
-		$ip[0] = ( $obj->ca == 255 ) ? '*' :  $obj->ca;
-		$ip[1] = ( $obj->cb == 255 ) ? '*' :  $obj->cb;
-		$ip[2] = ( $obj->cc == 255 ) ? '*' :  $obj->cc;
-		$ip[3] = ( $obj->cd == 255 ) ? '*' :  $obj->cd;
+		$ip[0] = ( $obj->ca == 256 ) ? '*' :  $obj->ca;
+		$ip[1] = ( $obj->cb == 256 ) ? '*' :  $obj->cb;
+		$ip[2] = ( $obj->cc == 256 ) ? '*' :  $obj->cc;
+		$ip[3] = ( $obj->cd == 256 ) ? '*' :  $obj->cd;
 		$ro->id = $obj->id;
 		$ro->ip = $ip;
 		next($this->iplist);
