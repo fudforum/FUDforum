@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmod.php.t,v 1.31 2004/04/23 19:55:15 hackie Exp $
+* $Id: mmod.php.t,v 1.32 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,7 +62,7 @@
 
 		if (isset($_POST['YES'])) {
 			$if_not_pm = (!empty($_POST['del_reason']) && $data[12]);
-		
+
 			if ($if_not_pm && !empty($_POST['del_inc_body'])) {
 				$body = read_msg_body($data[9], $data[10], $data[11]);
 				un_register_fps();
@@ -77,7 +77,7 @@
 					if ($FUD_OPT_1 & 1024) {
 						/* will be done by send_status_update() */
 						$body = str_replace('<br />', '', $body);
-					} else { 
+					} else {
 						$body = strip_tags($body);
 					}
 					$body = '{TEMPLATE: delete_msg_pm_body}';

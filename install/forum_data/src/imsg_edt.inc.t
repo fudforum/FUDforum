@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.107 2004/06/03 15:25:31 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.108 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -410,7 +410,7 @@ class fud_msg_edit extends fud_msg
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
 					LEFT JOIN {SQL_TABLE_PREFIX}forum_read r ON r.forum_id=fn.forum_id AND r.user_id=fn.user_id
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=fn.user_id AND g2.resource_id='.$mtf->forum_id.'
-					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id='.$mtf->forum_id.' AND mm.user_id=u.id 
+					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id='.$mtf->forum_id.' AND mm.user_id=u.id
 				WHERE
 					fn.forum_id='.$mtf->forum_id.' AND fn.user_id!='.(int)$mtf->poster_id.'
 					'.($GLOBALS['FUD_OPT_3'] & 64 ? 'AND (CASE WHEN (r.last_view IS NULL AND (u.last_read=0 OR u.last_read >= '.$mtf->frm_last_post_date.')) OR r.last_view > '.$mtf->frm_last_post_date.' THEN 1 ELSE 0 END)=1' : '').'
@@ -424,7 +424,7 @@ class fud_msg_edit extends fud_msg
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
 					LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=tn.thread_id AND r.user_id=tn.user_id
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=tn.user_id AND g2.resource_id='.$mtf->forum_id.'
-					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id='.$mtf->forum_id.' AND mm.user_id=u.id 
+					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id='.$mtf->forum_id.' AND mm.user_id=u.id
 				WHERE
 					tn.thread_id='.$mtf->thread_id.' AND tn.user_id!='.(int)$mtf->poster_id.'
 					'.($GLOBALS['FUD_OPT_3'] & 64 ? 'AND (r.msg_id='.$mtf->last_post_id.' OR (r.msg_id IS NULL AND '.$mtf->post_stamp.' > u.last_read))' : '').'

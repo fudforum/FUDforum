@@ -2,11 +2,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaprune.php,v 1.4 2004/04/24 22:22:36 hackie Exp $
+* $Id: admaprune.php,v 1.5 2004/06/07 15:24:53 hackie Exp $
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
 
@@ -73,10 +73,10 @@
 			$al = $ml = array();
 
 			if ($_POST['type'] == '0' || $_POST['type'] == '2') {
-				$c = uq("SELECT a.message_id, a.location, a.id 
+				$c = uq("SELECT a.message_id, a.location, a.id
 					FROM ".$DBHOST_TBL_PREFIX."msg m
 					INNER JOIN ".$DBHOST_TBL_PREFIX."thread t ON t.id=m.thread_id
-					INNER JOIN ".$DBHOST_TBL_PREFIX."attach a ON a.message_id=m.id AND a.attach_opt=0 
+					INNER JOIN ".$DBHOST_TBL_PREFIX."attach a ON a.message_id=m.id AND a.attach_opt=0
 					WHERE m.post_stamp < ".$back.$lmt);
 				while ($r = db_rowarr($c)) {
 					@unlink($r[1]);
@@ -91,7 +91,7 @@
 			if ($_POST['type'] == '0' || $_POST['type'] == '1') {
 				$c = uq("SELECT a.message_id, a.location, a.id
 					FROM ".$DBHOST_TBL_PREFIX."pmsg m
-					INNER JOIN ".$DBHOST_TBL_PREFIX."attach a ON a.message_id=m.id AND a.attach_opt=1 
+					INNER JOIN ".$DBHOST_TBL_PREFIX."attach a ON a.message_id=m.id AND a.attach_opt=1
 					WHERE m.post_stamp < ".$back);
 				while ($r = db_rowarr($c)) {
 					@unlink($r[1]);
@@ -105,7 +105,7 @@
 			if ($al) {
 				q("DELETE FROM ".$DBHOST_TBL_PREFIX."attach WHERE id IN(".implode(',', $al).")");
 			}
-			unset($c, $r, $al, $ml); 
+			unset($c, $r, $al, $ml);
 		}
 	}
 

@@ -2,11 +2,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.84 2004/05/20 22:49:42 hackie Exp $
+* $Id: consist.php,v 1.85 2004/06/07 15:24:55 hackie Exp $
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
 
@@ -153,8 +153,8 @@ forum will be disabled.
 
 	draw_stat('Checking if all private messages have users');
 	$dpm = array();
-	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm 
-		LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id 
+	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm
+		LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id
 		LEFT JOIN '.$tbl.'users u2 ON u2.id=pm.duser_id
 		WHERE (pm.pmsg_opt & 16) AND (u.id IS NULL OR u2.id IS NULL)');
 	while ($r = db_rowarr($c)) {

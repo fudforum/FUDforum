@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.61 2004/05/12 15:26:08 hackie Exp $
+* $Id: post_proc.inc.t,v 1.62 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -546,10 +546,10 @@ function html_to_tags($fudml)
 		'<ul>', '</ul>', '<span name="notag">', '</span>', '<li>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>'
 	),
 	array(
-		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', 
+		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]',
 		'[code]', '[/code]', '[align=center]', '[align=left]', '[align=right]', '[/align]', '[list]', '[/list]',
 		'[notag]', '[/notag]', '[*]', '@', '://', '', '[pre]', '[/pre]'
-	), 
+	),
 	$fudml);
 
 	while (preg_match('!<img src="(.*?)" border=0 alt="\\1">!is', $fudml)) {
@@ -574,7 +574,7 @@ function html_to_tags($fudml)
 	if (strpos($fudml, '<a href="mailto:') !== false) {
 		$fudml = preg_replace('!<a href="mailto:(.+?)" target="_blank">(.+?)</a>!is', '[email=\1]\2[/email]', $fudml);
 	}
-	if (strpos($fudml, '<a href="') !== false) { 
+	if (strpos($fudml, '<a href="') !== false) {
 		$fudml = preg_replace('!<a href="(.+?)" target="_blank">(.+?)</a>!is', '[url=\1]\2[/url]', $fudml);
 	}
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.40 2004/05/24 17:19:15 hackie Exp $
+* $Id: rdf.php.t,v 1.41 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -121,7 +121,7 @@ function fud_xml_encode($str)
 			if (isset($_GET['de'])) {
 				$lmt .= ' AND m.post_stamp <='.(int)$_GET['de'];
 			}
-			/* This is an optimization so that the forum does not need to 
+			/* This is an optimization so that the forum does not need to
 			 * go through the entire message db to fetch latest messages.
 			 * So, instead we set an arbitrary search limit if 5 days.
 			 */
@@ -291,7 +291,7 @@ $basic_rss_data .= '
 				$lmt .= ' AND t.last_post_date <='.(int)$_GET['de'];
 			}
 
-			/* This is an optimization so that the forum does not need to 
+			/* This is an optimization so that the forum does not need to
 			 * go through the entire message db to fetch latest messages.
 			 * So, instead we set an arbitrary search limit if 5 days.
 			 */

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: spell.inc.t,v 1.17 2004/05/12 15:26:08 hackie Exp $
+* $Id: spell.inc.t,v 1.18 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -40,7 +40,7 @@ function tokenize_string($data)
 
 	$i = $p = 0;
 	$seps = array(','=>1,' '=>1,'/'=>1,'\\'=>1,'.'=>1,'=>1,'=>1,'!'=>1,'>'=>1,'?'=>1,"\n"=>1,"\r"=>1,"\t"=>1,")"=>1,"("=>1,"}"=>1,"{"=>1,"["=>1,"]"=>1,"*"=>1,";"=>1,'='=>1,':'=>1,'1'=>1,'2'=>1,'3'=>1,'4'=>1,'5'=>1,'6'=>1,'7'=>1,'8'=>1,'9'=>1,'0'=>1);
-	
+
 	while ($i < $len) {
 		if (isset($seps[$data{$i}])) {
 			if (isset($str)) {

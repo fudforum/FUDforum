@@ -2,11 +2,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admipfilter.php,v 1.19 2004/04/24 22:22:36 hackie Exp $
+* $Id: admipfilter.php,v 1.20 2004/06/07 15:24:53 hackie Exp $
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
 

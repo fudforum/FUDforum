@@ -2,11 +2,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.45 2004/04/27 21:14:07 hackie Exp $
+* $Id: admthemes.php,v 1.46 2004/06/07 15:24:55 hackie Exp $
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
 
@@ -109,7 +109,7 @@ function clean_code($path, $toks)
 	fud_use('theme.inc', true);
 
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
-	
+
 	/* Limit theme names to sane characters */
 	if (isset($_POST['newname'])) {
 		$_POST['newname'] = preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);

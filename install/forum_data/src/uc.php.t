@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.php.t,v 1.2 2004/04/21 21:36:36 hackie Exp $
+* $Id: uc.php.t,v 1.3 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,10 +51,10 @@
 	if ($uc_new_pms) {
 		$uc_new_pms = '{TEMPLATE: uc_new_pm}';
 	}
-		
+
 	$uc_sub_forum = '';
-	$c = uq("SELECT 
-		f.name, f.id, f.descr, f.thread_count, f.post_count, 
+	$c = uq("SELECT
+		f.name, f.id, f.descr, f.thread_count, f.post_count,
 		u.alias,
 		m.subject, m.id AS mid, m.post_stamp, m.poster_id,
 		c.name AS cat_name
@@ -67,9 +67,9 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
 		LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id="._uid."
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id="._uid." AND mo.forum_id=f.id
-		WHERE fn.user_id="._uid." 
+		WHERE fn.user_id="._uid."
 		AND ".$usr->last_read." < m.post_stamp AND (fr.last_view IS NULL OR m.post_stamp > fr.last_view)
-		".($usr->users_opt & 1048576 ? '' : " AND (mo.id IS NOT NULL OR 
+		".($usr->users_opt & 1048576 ? '' : " AND (mo.id IS NOT NULL OR
 		(CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END & 1) > 0)")."
 		ORDER BY m.post_stamp DESC");
 	while ($r = db_rowobj($c)) {
@@ -126,7 +126,7 @@
 		} else {
 			$mini_thread_pager = '';
 		}
-		
+
 		$uc_sub_topic .= '{TEMPLATE: uc_sub_topic}';
 	}
 	if ($uc_sub_topic) {

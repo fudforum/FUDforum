@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.87 2004/05/18 15:41:30 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.88 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -320,8 +320,8 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		}
 
 		/* various conditions that may prevent poll voting */
-		if (!$hide_controls && !$obj->cant_vote && 
-			(!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id) && 
+		if (!$hide_controls && !$obj->cant_vote &&
+			(!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id) &&
 			($perms & 512 && (!($obj->thread_opt & 1) || $perms & 4096)) &&
 			(!$obj->expiry_date || ($obj->creation_date + $obj->expiry_date) > __request_timestamp__) &&
 			/* check if the max # of poll votes was reached */

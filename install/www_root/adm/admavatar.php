@@ -2,11 +2,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.18 2004/04/21 21:17:46 hackie Exp $
+* $Id: admavatar.php,v 1.19 2004/06/07 15:24:53 hackie Exp $
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
 
@@ -38,7 +38,7 @@ function import_avatars($path)
 				$list[] = $dir . '/' . $f;
 			}
 		}
-		
+
 		closedir($d);
 	}
 
@@ -51,7 +51,7 @@ function import_avatars($path)
 		$name = clean_name(substr($name_r, 0, strrpos($name_r, '.')));
 		if (!$name) {
 			continue;
-		}		
+		}
 		$sect = basename(dirname($file));
 		$sect = $sect == $base ? 'default' : clean_name($sect);
 		if (!$sect) {
@@ -72,7 +72,7 @@ function import_avatars($path)
 }
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-	
+
 
 	if (!empty($_GET['del']) && ($im = q_singleval('SELECT img FROM '.$tbl.'avatar WHERE id='.(int)$_GET['del']))) {
 		q('DELETE FROM '.$tbl.'avatar WHERE id='.(int)$_GET['del']);
@@ -89,7 +89,7 @@ function import_avatars($path)
 		$gallery_import = 0;
 	}
 
-	// gallery removal 
+	// gallery removal
 	if (!empty($_POST['gal_del'])) {
 		$r = uq("SELECT img FROM ".$tbl."avatar WHERE gallery='".addslashes($_POST['gal_del'])."'");
 		while ($l = db_rowarr($r)) {
@@ -168,7 +168,7 @@ function import_avatars($path)
 ?>
 
 		<tr><td colspan=2>&nbsp;</td></tr>
-	
+
 		<tr class="field">
 			<td colspan=2><b>Avatar Upload</b> (upload avatars into the system)</td>
 		</tr>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.php.t,v 1.17 2004/05/18 18:33:14 hackie Exp $
+* $Id: mnav.php.t,v 1.18 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -103,8 +103,8 @@
 				WHERE
 					m.post_stamp > '.$tm.' '.$date_limit.' AND m.apr=1 '.$qry_lmt.'
 					'.($usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)'));
-		}				
-		
+		}
+
 		if (!$total) {
 			$mnav_pager = '';
 			$mnav_data = '{TEMPLATE: mnav_no_results}';

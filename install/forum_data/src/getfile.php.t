@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.30 2004/05/07 20:32:35 hackie Exp $
+* $Id: getfile.php.t,v 1.31 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,7 @@ function &get_preview_img($id)
 {
 	return db_saq('SELECT mm.mime_hdr, a.original_name, a.location, 0, 0, 0, a.fsize FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type WHERE a.message_id=0 AND a.id='.$id);
 }
-                
+
 
 	if (!isset($_GET['id']) || !($id = (int)$_GET['id'])) {
 		invl_inp_err();
@@ -88,7 +88,7 @@ function &get_preview_img($id)
 	 * MS advisories:
 	 *	http://support.microsoft.com/?kbid=812935
 	 *	http://support.microsoft.com/default.aspx?scid=kb;en-us;316431
-	 */	
+	 */
 	if ($_SERVER["SERVER_PORT"] == "443" && (strpos($_SERVER["HTTP_USER_AGENT"], 'MSIE') !== false)) {
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0", 1);
 		header("Pragma: public", 1);
