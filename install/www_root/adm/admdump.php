@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.11 2002/07/22 14:53:37 hackie Exp $
+*   $Id: admdump.php,v 1.12 2002/08/22 01:30:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -84,6 +84,10 @@ function backup_dir($dirp, $key, $keep_dir='')
 		
 		if( !@is_file($file) || $file == 'GLOBALS.php' ) continue;
 
+		if( !@is_readable($file) ) {
+			echo "WARNING: unable to open '".realpath($file)."' for reading<br>\n";
+			continue;
+		}
 		$file_data = filetomem($file);
 		$file_ln = strlen($file_data);
 		
