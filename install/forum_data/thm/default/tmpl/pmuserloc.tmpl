@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmuserloc.tmpl,v 1.5 2002/08/05 05:58:21 hackie Exp $
+*   $Id: pmuserloc.tmpl,v 1.6 2003/04/17 13:20:31 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -18,14 +18,11 @@
 {REF: security.tmpl}
 {REF: header.tmpl}
 {REF: footer.tmpl}
-{REF: imsg.tmpl}
-{REF: th.tmpl}
-{REF: forum.tmpl}
 {REF: alt_var.tmpl}
 
 {PAGE: PMUSERLOC_PAGE find user popup used by private message post form}
 {TEMPLATE: header_plain}
-<form action="{ROOT}?t=pmuserloc" method="post">{DEF: _hs}
+<form action="{ROOT}" method="get">{DEF: _hs}
 <table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
 <tr>
 	<td>{MSG: pmuserloc_login}</td>
@@ -40,7 +37,10 @@
 <td colspan=2 align=right><input type="submit" class="button" name="btn_submit" value="{MSG: pmuserloc_submit}"></td>
 </tr>
 </table>
-<input type="hidden" name="js_redr" value="{VAR: js_redr}"><input type="hidden" name="overwrite" value="{VAR: overwrite}"></form>
+<input type="hidden" name="js_redr" value="{VAR: js_redr}">
+<input type="hidden" name="overwrite" value="{VAR: overwrite}">
+<input type="hidden" name="t" value="pmuserloc">
+</form>
 <br />
 <table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
 <tr><td bgcolor="#efefef">{MSG: pmuserloc_user}</td></tr>
@@ -51,7 +51,7 @@
 {PAGE: END}
 
 {SECTION: user_result_entry}
-<tr class="{ALT-VAR: pmuserloc_alt RowStyleA RowStyleB}"><td><a href="{VAR: retlink}">{VAR: obj->alias}</a></td></tr>
+<tr class="{ALT-VAR: pmuserloc_alt RowStyleA RowStyleB}"><td><a href="{VAR: retlink}">{VAR: r[0]}</a></td></tr>
 {SECTION: END}
 
 {SECTION: no_result_entry}

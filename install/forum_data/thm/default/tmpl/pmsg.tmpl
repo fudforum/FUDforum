@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.tmpl,v 1.9 2002/11/21 22:33:11 hackie Exp $
+*   $Id: pmsg.tmpl,v 1.10 2003/04/17 13:20:31 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -84,7 +84,7 @@
 
 {SECTION: private_msg_entry}
 <tr class="RowStyleB"><td>{TEMPLATE-DATA: pmsg_status}</td><td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}" class="GenLink">{VAR: obj->subject}</a>{TEMPLATE-DATA: deny_recipt}</td>
-<td nowrap class="GenText">{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->ouser_id}" class="GenLink">{VAR: obj->login}</a></td>
+<td nowrap class="GenText">{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->ouser_id}" class="GenLink">{VAR: obj->alias}</a></td>
 <td nowrap class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</td>
 <td nowrap align="center" class="GenText">{TEMPLATE-DATA: action}</td>
 <td align="center" class="GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}"{VAR: checked}></td></tr>
@@ -113,10 +113,7 @@
 	<th nowrap>{MSG: pmsg_selected} [<a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;all={VAR: all_v}" class="thLnk">{VAR: desc}</a>]</th>
 </tr>
 {TEMPLATE-DATA: private_msg_entry}
-<tr class="RowStyleB"><td colspan=6 class="GenText" align=right>
-<input type="submit" class="button" name="btn_move" value="{VAR: btn_action}">
-<select name="moveto">{TEMPLATE-DATA: moveto_list}</select>
-&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_delete" value="{MSG: pmsg_delete}"></td></tr>
+{TEMPLATE-DATA: private_tools}
 </table></form>
 <img src="blank.gif" alt="" width=1 height=2 border=0 />
 <div align="right"><a class="GenLink" href="{ROOT}?t=ppost&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0 alt="" /></a></div>
@@ -135,22 +132,6 @@
 
 {SECTION: pm_update}
 {MSG: pm_update}
-{SECTION: END}
-
-{SECTION: inbox}
-{MSG: inbox}
-{SECTION: END}
-
-{SECTION: draft}
-{MSG: draft}
-{SECTION: END}
-
-{SECTION: sent}
-{MSG: sent}
-{SECTION: END}
-
-{SECTION: trash}
-{MSG: trash}
 {SECTION: END}
 
 {SECTION: pmsg_all}
@@ -205,6 +186,13 @@
 {MSG: pmsg_recepient}
 {SECTION: END}
 
-{SECTION: saved}
-{MSG: saved}
+{SECTION: private_no_messages}
+<tr class="RowStyleC"><td colspan="6" align="center">{MSG: private_no_messages}</td></tr>
+{SECTION: END}
+
+{SECTION: private_tools}
+<tr class="RowStyleB"><td colspan=6 class="GenText" align=right>
+<input type="submit" class="button" name="btn_move" value="{VAR: btn_action}">
+<select name="moveto">{TEMPLATE-DATA: moveto_list}</select>
+&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_delete" value="{MSG: pmsg_delete}"></td></tr>
 {SECTION: END}

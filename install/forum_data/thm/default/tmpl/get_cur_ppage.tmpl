@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: get_cur_ppage.tmpl,v 1.5 2002/08/05 05:58:21 hackie Exp $
+*   $Id: get_cur_ppage.tmpl,v 1.6 2003/04/17 13:20:31 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -25,9 +25,29 @@
 {SECTION: END}
 
 {SECTION: viewing_message}
-<a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: folder}</a> &raquo; {VAR: msg_subject}
+<a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: folders[$folder_id]}</a> &raquo; {VAR: msg_subject}
 {SECTION: END}
 
 {MAIN_SECTION: cur_ppage private messaging action indicator}
 <font class="SmallText"><a class="GenLink" href="{ROOT}?t=pmsg&amp;{DEF: _rsid}">{MSG: cur_ppage_pm}</a>&nbsp;&raquo;&nbsp;{TEMPLATE-DATA: user_action}</font><br /><img src="blank.gif" alt="" height=4 width=1 border=0 /><br />
 {MAIN_SECTION: END}
+
+{SECTION: inbox}
+{MSG: inbox}
+{SECTION: END}
+
+{SECTION: draft}
+{MSG: draft}
+{SECTION: END}
+
+{SECTION: sent}
+{MSG: sent}
+{SECTION: END}
+
+{SECTION: trash}
+{MSG: trash}
+{SECTION: END}
+
+{SECTION: saved}
+{MSG: saved}
+{SECTION: END}

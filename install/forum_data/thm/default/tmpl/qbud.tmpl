@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: qbud.tmpl,v 1.4 2002/08/05 05:58:21 hackie Exp $
+*   $Id: qbud.tmpl,v 1.5 2003/04/17 13:20:31 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -18,8 +18,6 @@
 {REF: security.tmpl}
 {REF: header.tmpl}
 {REF: footer.tmpl}
-{REF: users_reg.tmpl}
-{REF: buddy.tmpl}
 {REF: alt_var.tmpl}
 
 {SECTION: no_buddies}
@@ -27,7 +25,7 @@
 {SECTION: END}
 
 {SECTION: buddy_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText">{VAR: obj->alias}</td><td align="center"><input type="checkbox" name="names[]" value="{VAR: obj->alias}"{VAR: checked}></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText">{VAR: r[0]}</td><td align="center"><input type="checkbox" name="names[]" value="{VAR: r[0]}"{VAR: checked}></td></tr>
 {SECTION: END}
 
 {SECTION: buddy_list}

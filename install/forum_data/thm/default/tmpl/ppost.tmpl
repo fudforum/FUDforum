@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.14 2003/04/08 14:14:38 hackie Exp $
+*   $Id: ppost.tmpl,v 1.15 2003/04/17 13:20:31 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -31,13 +31,13 @@
 {REF: private.tmpl}
 {REF: post_opt.tmpl}
 {REF: rev_fmt.tmpl}
-{REF: return.tmpl}
 {REF: post_proc.tmpl}
 {REF: replace.tmpl}
 {REF: get_cur_ppage.tmpl}
 {REF: tabs.tmpl}
 {REF: allowed_user_lnk.tmpl}
 {REF: post_common.tmpl} 
+{REF: objutil.tmpl}
 
 {SECTION: post_error}
 <h4 align="center"><font class="ErrorText">{MSG: post_error_generic}</font></h4>
@@ -131,8 +131,6 @@
 <input type="hidden" name="old_subject" value="{VAR: old_subject}">
 <input type="hidden" name="msg_ref_msg_id" value="{VAR: msg_ref_msg_id}">
 <input type="hidden" name="prev_loaded" value="1">
-<input type="hidden" name="attach_enabled" value="{VAR: attach_enabled}">
-{VAR: ret}
 </form>
 {TEMPLATE-DATA: reference_msg}
 {TEMPLATE: curtime}
