@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.inc.t,v 1.42 2005/03/16 21:12:42 hackie Exp $
+* $Id: drawpmsg.inc.t,v 1.43 2005/03/30 14:55:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,9 +45,6 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 			$online_indicator = '';
 		}
 
-		$host_name = ($obj->host_name && $o1 & 268435456) ? '{TEMPLATE: dpmsg_host_name}' : '';
-		$ip_address = '';
-
 		if ($obj->location) {
 			if (strlen($obj->location) > $GLOBALS['MAX_LOCATION_SHOW']) {
 				$location = substr($obj->location, 0, $GLOBALS['MAX_LOCATION_SHOW']) . '...';
@@ -58,7 +55,6 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 		} else {
 			$location = '{TEMPLATE: dpmsg_no_location}';
 		}
-		$msg_icon = !$obj->icon ? '{TEMPLATE: dpmsg_no_msg_icon}' : '{TEMPLATE: dpmsg_msg_icon}';
 		$usr->buddy_list = $usr->buddy_list ? unserialize($usr->buddy_list) : array();
 		if ($obj->user_id != _uid && $obj->user_id > 0) {
 			$buddy_link = !isset($usr->buddy_list[$obj->user_id]) ? '{TEMPLATE: dpmsg_buddy_link}' : '{TEMPLATE: dpmsg_buddy_link_remove}';
@@ -88,18 +84,9 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 		} else {
 			$user_profile = $email_link = $private_msg_link = '';
 		}
-		$edit_link = $obj->fldr == 4 ? '{TEMPLATE: dpmsg_edit_link}' : '';
-		if ($obj->fldr == 1) {
-			$reply_link = '{TEMPLATE: dpmsg_reply_link}';
-			$quote_link = '{TEMPLATE: dpmsg_quote_link}';
-		} else {
-			$reply_link = $quote_link = '';
-		}
-		$profile_link = '{TEMPLATE: dpmsg_profile_link}';
 		$msg_toolbar = '{TEMPLATE: dpmsg_msg_toolbar}';
 	} else {
-		$dmsg_tags = $dmsg_im_row = $user_profile = $msg_toolbar = $buddy_link = $avatar = $online_indicator = $host_name = $location = $msg_icon = '';
-		$profile_link = '{TEMPLATE: dpmsg_profile_no_link}';
+		$dmsg_tags = $dmsg_im_row = $user_profile = $msg_toolbar = $buddy_link = $avatar = $online_indicator = $host_name = $location = '';
 	}
 	$msg_body = $obj->length ? read_pmsg_body($obj->foff, $obj->length) : '{TEMPLATE: dpmsg_no_msg_body}';
 
@@ -130,8 +117,6 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 			}
 		}
 	}
-
-	$signature = ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096) ? '{TEMPLATE: dpmsg_signature}' : '';
 
 	return '{TEMPLATE: private_message_entry}';
 }

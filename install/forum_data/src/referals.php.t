@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: referals.php.t,v 1.18 2004/11/24 19:53:36 hackie Exp $
+* $Id: referals.php.t,v 1.19 2005/03/30 14:55:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,7 +21,7 @@
 		ses_update_status($usr->sid, '{TEMPLATE: referals_update}');
 
 		$c = uq('SELECT alias, id, join_date, posted_msg_count, home_page FROM {SQL_TABLE_PREFIX}users WHERE referer_id='.(int)$_GET['id']);
-		if (($r = @db_rowarr($c))) {
+		if (($r = db_rowarr($c))) {
 			$refered_entry_data = '';
 			do {
 				$refered_entry_data .= '{TEMPLATE: refered_entry}';

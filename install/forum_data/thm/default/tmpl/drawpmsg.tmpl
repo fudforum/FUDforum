@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.tmpl,v 1.47 2005/03/16 21:12:43 hackie Exp $
+* $Id: drawpmsg.tmpl,v 1.48 2005/03/30 14:55:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,7 +20,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_host_name}
-<b>{MSG: from}</b> {VAR: obj->host_name}<br />
+
 {SECTION: END}
 
 {SECTION: dpmsg_location}
@@ -32,9 +32,6 @@
 
 {SECTION: dpmsg_msg_icon}
 <img src="images/message_icons/{VAR: obj->icon}" alt="" />&nbsp;&nbsp;
-{SECTION: END}
-
-{SECTION: dpmsg_no_msg_icon}
 {SECTION: END}
 
 {SECTION: dpmsg_buddy_link_lnk}
@@ -85,10 +82,6 @@
 <a href="{TEMPLATE: dpmsg_file_attachment_lnk}"><img src="images/mime/{VAR: r->icon}" class="at" alt="" /></a>
 <span class="GenText fb">{MSG: attachment}</span> <a href="{TEMPLATE: dpmsg_file_attachment_lnk}">{VAR: r->original_name}</a><br />
 <span class="SmallText">({MSG: size} {VAR: sz}, {MSG: pmsg_download_counter})<p /></span>
-{SECTION: END}
-
-{SECTION: dpmsg_signature}
-<p /><hr class="sig" />{VAR: obj->sig}
 {SECTION: END}
 
 {SECTION: dpmsg_user_profile_lnk}
@@ -142,18 +135,18 @@
 {MAIN_SECTION: private_message_entry draws a single private message}
 <tr><td><table cellspacing=0 cellpadding=0 class="MsgTable">
 <tr>
-<td class="MsgR1 al vt MsgSubText">{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}</td>
+<td class="MsgR1 al vt MsgSubText">{IF: !$mini && $obj->icon}{TEMPLATE: dpmsg_msg_icon}{ENDIFI}{VAR: obj->subject}</td>
 <td class="MsgR1 vt ar DateText">{TEMPLATE: dmsg_post_date}</td>
 </tr>
 <tr class="MsgR2"><td class="MsgR2" colspan=2><table cellspacing="0" cellpadding="0" class="ContentTable">
 <tr class="MsgR2">
 {TEMPLATE-DATA: avatar}
-<td class="msgud">{TEMPLATE-DATA: online_indicator}{TEMPLATE-DATA: profile_link}{IF: !$mini}<br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br /><b>{MSG: registered}</b> {TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}</td>
+<td class="msgud">{TEMPLATE-DATA: online_indicator}{IF: !$min}{TEMPLATE: dpmsg_profile_link}{ELSE}{VAR: obj->alias}{ENDI}{IF: !$mini}<br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br /><b>{MSG: registered}</b> {TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}</td>
 <td class="msgud">{TEMPLATE-DATA: dmsg_tags}</td>
-<td class="msgot">{TEMPLATE-DATA: buddy_link}{TEMPLATE-DATA: dmsg_im_row}</td>
+<td class="msgot">{TEMPLATE-DATA: buddy_link}{TEMPLATE-DATA: dmsg_im_row}{IF: !$mini && $obj->host_name && $o1 & 268435456}<b>{MSG: from}</b> {VAR: obj->host_name}<br />{ENDIFI}</td>
 </tr></table></td>
 </tr>
-<tr><td class="MsgR3" colspan=2>{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: file_attachments}{TEMPLATE-DATA: signature}</td></tr>
+<tr><td class="MsgR3" colspan=2>{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: file_attachments}{IF: ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096)}<p /><hr class="sig" />{VAR: obj->sig}{ENDIFI}</td></tr>
 {TEMPLATE-DATA: msg_toolbar}
 <tr><td class="MsgR2 ac" colspan=2>{GVAR: dpmsg_prev_message} {GVAR: dpmsg_next_message}</td></tr>
 </table></td></tr>
@@ -174,7 +167,7 @@
 {SECTION: dpmsg_msg_toolbar buttons for replying,editing,deliting and forwarding the message}
 <tr><td colspan="2" class="MsgToolBar"><table border=0 cellspacing=0 cellpadding=0 class="wa"><tr>
 <td class="nw al">{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}</td>
-<td class="nw ar"><a href="{TEMPLATE: dpmsg_msg_toolbar_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_delete.gif" alt="" /></a>&nbsp;{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}<a href="{TEMPLATE: dpmsg_msg_toolbar_lnk2}"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a></td>
+<td class="nw ar"><a href="{TEMPLATE: dpmsg_msg_toolbar_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_delete.gif" alt="" /></a>&nbsp;{IF: $obj->fldr == 4}{TEMPLATE: dpmsg_edit_link}{ENDIFI}{IF: $obj->fldr == 1}{TEMPLATE: dpmsg_reply_link}{TEMPLATE: dpmsg_quote_link}{ENDIFI}<a href="{TEMPLATE: dpmsg_msg_toolbar_lnk2}"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a></td>
 </tr></table></td></tr>
 {SECTION: END}
 
@@ -184,10 +177,6 @@
 
 {SECTION: dpmsg_profile_link}
 <a href="{TEMPLATE: dpmsg_profile_link_lnk}">{VAR: obj->alias}</a>
-{SECTION: END}
-
-{SECTION: dpmsg_profile_no_link user's name without the link to the profile}
-{VAR: obj->alias}
 {SECTION: END}
 
 {SECTION: dpmsg_prev_message_lnk}
