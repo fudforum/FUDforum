@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.71 2003/11/18 16:19:52 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.72 2003/11/26 19:43:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -283,6 +283,10 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	if ($obj->poll_id && $obj->poll_cache) {
 		/* we need to determine if we allow the user to vote or see poll results */
 		$show_res = 1;
+
+		if (isset($_GET['pl_view']) && !isset($_POST['pl_view'])) {
+			$_POST['pl_view'] = $_GET['pl_view'];
+		}
 
 		/* various conditions that may prevent poll voting */
 		if (!$hide_controls && !$obj->cant_vote && (!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id)) {

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.98 2003/11/26 19:33:41 hackie Exp $
+* $Id: users.inc.t,v 1.99 2003/11/26 19:43:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -358,7 +358,7 @@ function init_user()
 				case 'pv':
 					$_GET['t'] = d_thread_view;
 					$_GET['goto'] = $p[1];
-					$_GET['pl_view'] = $p[2];
+					$_POST['pl_view'] = $p[2];
 					break;
 
 				case 'rm': /* report message */
