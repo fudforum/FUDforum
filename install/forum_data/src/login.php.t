@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.21 2003/04/11 09:52:56 hackie Exp $
+*   $Id: login.php.t,v 1.22 2003/04/21 17:42:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -115,12 +115,10 @@ function error_check()
 			}
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else {
-			fud_use('login.inc', true);
-			
 			/* Perform check to ensure that the user is allowed to login */
 			
 			/* Login & E-mail Filter & IP */
-			if (is_blocked_login($usr_d->login) || is_email_blocked($usr_d->email) || $usr_d->blocked == 'Y' || (isset($_SERVER['REMOTE_ADDR']) && fud_ip_filter::is_blocked($_SERVER['REMOTE_ADDR']))) {
+			if (is_blocked_login($usr_d->login) || is_email_blocked($usr_d->email) || $usr_d->blocked == 'Y' || (isset($_SERVER['REMOTE_ADDR']) && is_ip_blocked($_SERVER['REMOTE_ADDR']))) {
 				error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}');
 			}
 
@@ -147,7 +145,7 @@ function error_check()
 
 /*{POST_HTML_PHP}*/
 
-	$login_error_msg = (isset($_GET['msg']) && strlen($_GET['msg'])) ? '{TEMPLATE: login_error_msg}' : '';
+	$login_error_msg = (!empty($usr->data) && is_string($usr->data)) ? $usr->data : '';
 	
 	$login_error	= login_php_get_err('login');
 	$passwd_error	= login_php_get_err('password');

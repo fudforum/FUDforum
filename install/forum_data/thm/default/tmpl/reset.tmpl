@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reset.tmpl,v 1.6 2003/04/21 14:14:54 hackie Exp $
+*   $Id: reset.tmpl,v 1.7 2003/04/21 17:42:47 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -23,18 +23,18 @@
 {REF: iemail.tmpl}
 {REF: users_reg.tmpl}
 
-{PAGE: RESET_PAGE  reset password for an account form}{TEMPLATE: header}
+{PAGE: RESET_PAGE  reset password for an account form}
+{TEMPLATE: header}
 {TEMPLATE: usercp}
 <div align="center">
+<form method="post" action="{ROOT}?t=reset">
 <table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
 <tr><th colspan=2>{MSG: reset_remind_pass}</th></tr>
-<form method="post" action="{ROOT}?t=reset">
 <tr class="RowStyleA"><td colspan=2 class="RowStyleA"><font class="GenText">{MSG: reset_reset_conf}</font></td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: reset_email}</td><td>{TEMPLATE-DATA: no_such_email}<input type="text" name="email" value="{VAR: email}"></td></tr>
 <tr class="RowStyleA"><td colspan=2 nowrap align="right"><input type="submit" class="button" name="reset_passwd" value="{MSG: reset_reset_button}"></td></tr>
-{DEF: _hs}{VAR: return_field}
-</form>
 </table>
+{DEF: _hs}</form>
 </div>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
@@ -86,4 +86,8 @@
 
 {SECTION: reset_title}
 {MSG: reset_title}
+{SECTION: END}
+
+{SECTION: register_conf_msg}
+{MSG: register_conf_msg}
 {SECTION: END}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.tmpl,v 1.10 2003/04/21 14:14:54 hackie Exp $
+*   $Id: login.tmpl,v 1.11 2003/04/21 17:42:47 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -23,6 +23,7 @@
 {REF: return.tmpl}
 {REF: users_reg.tmpl}
 {REF: logaction.tmpl}
+{REF: allowed_user_lnk.tmpl}
 
 {PAGE: LOGIN_PAGE}
 {TEMPLATE: header}
@@ -31,7 +32,7 @@
 <div align="center">
 <table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
 <tr><th colspan=3>{MSG: login_title}</th></tr>
-<tr class="RowStyleA"><td class="RowStyleA" colspan=3><font class="GenText">{VAR-HTML: login_error_msg} {MSG: login_not_logedin}</font>
+<tr class="RowStyleA"><td class="RowStyleA" colspan=3><font class="GenText">{VAR: login_error_msg} {MSG: login_not_logedin}</font>
 <ol>
 <li><font class="GenText">{MSG: login_cookie_expired}</font>
 <li><font class="GenText">{MSG: login_perm_denied}</font>
