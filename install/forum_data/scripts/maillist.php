@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.26 2003/05/20 19:25:28 hackie Exp $
+*   $Id: maillist.php,v 1.27 2003/06/12 18:18:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -328,7 +328,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	if (!ini_get("register_argc_argv")) {
 		exit("Enable the 'register_argc_argv' php.ini directive\n");	
 	}
-	if ($_SERVER['argc'] < 2 || (!($fid = (int)$_SERVER['argv'][1]))) {
+	if ($_SERVER['argc'] < 2) {
 		exit("Missing Forum ID Paramater\n");	
 	}
 
@@ -363,7 +363,11 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 
 	define('sql_p', $GLOBALS['DBHOST_TBL_PREFIX']);
 
-	$mlist = db_sab('SELECT * FROM '.sql_p.'mlist WHERE id='.$fid);
+	if (is_numeric($_SERVER['argv'][1])) {
+		$mlist = db_sab('SELECT * FROM '.sql_p.'mlist WHERE id='.$_SERVER['argv'][1]);
+	} else {
+		$mlist = db_sab('SELECT * FROM '.sql_p.'mlist WHERE name=\''.addslashes($_SERVER['argv'][1]).'\'');
+	}
 	$GLOBALS['CREATE_NEW_USERS'] = $mlist->create_users;
 	$GLOBALS['MODERATE_USER_REGS'] = 'N';
 
