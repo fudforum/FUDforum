@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.31 2003/05/26 08:14:38 hackie Exp $
+*   $Id: compiler.inc,v 1.32 2003/05/29 13:14:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -200,6 +200,11 @@ function resolve_sections($str)
 			case 'CHARSET':
 				$ret .= $GLOBALS['char_set'];
 				break;
+
+			case 'FUNC':
+				$ret .= "'." . substr($str, $te, ($e - $te)) . ".'";
+				break;
+
 			case 'ROOT':
 			case 'THEME_ROOT':
 			case 'THEME_IMAGE_ROOT':
