@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.37 2004/11/24 19:53:42 hackie Exp $
+* $Id: admforum.php,v 1.38 2005/02/08 21:44:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,7 +42,7 @@ function get_max_upload_size()
 
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
-	if (isset($_POST['frm_submit'])) {
+	if (isset($_POST['frm_submit']) && !empty($_POST['frm_name'])) {
 		if ($_POST['frm_max_attach_size'] > $max_upload_size) {
 			$_POST['frm_max_attach_size'] = floor($max_upload_size / 1024);
 		}
