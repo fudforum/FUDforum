@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.32 2003/10/07 13:46:24 hackie Exp $
+*   $Id: search.php.t,v 1.33 2003/10/07 13:50:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -33,6 +33,10 @@
 
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
+	$cs = array('\W', '!\s+!');
+	$cd = array(' ', ' ');
+	$qry = trim(preg_replace($cs, $cd, $qry));
+
 	$w = array_unique(explode(' ', strtolower($qry)));
 	$qr = ''; $i = 0;
 	foreach ($w as $v) {
