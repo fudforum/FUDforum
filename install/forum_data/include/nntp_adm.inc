@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp_adm.inc,v 1.17 2004/06/07 15:24:53 hackie Exp $
+* $Id: nntp_adm.inc,v 1.18 2004/10/04 13:55:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,7 @@
 class fud_nntp_adm
 {
 	// NNTP Settings
-	var $server, $port=119, $login, $pass, $timeout=25, $newsgroup, $auth;
+	var $server, $port=119, $login, $pass, $timeout=25, $newsgroup, $auth, $imp_limit;
 
 	// General Settings
 	var $forum_id, $id, $nntp_opt=33;
@@ -29,7 +29,7 @@ class fud_nntp_adm
 			}
 
 			$this->nntp_opt = 0;
-			foreach (array('nntp_post_apr', 'allow_frm_post', 'frm_post_apr', 'allow_nntp_attch', 'complex_reply_match', 'create_users', 'auth') as $v) {
+			foreach (array('nntp_post_apr', 'allow_frm_post', 'frm_post_apr', 'allow_nntp_attch', 'complex_reply_match', 'create_users', 'auth', 'imp_limit') as $v) {
 				if (isset($_POST['nntp_'.$v])) {
 					$this->nntp_opt |= (int) $_POST['nntp_'.$v];
 				}
@@ -47,7 +47,8 @@ class fud_nntp_adm
 			pass,
 			timeout,
 			newsgroup,
-			nntp_opt
+			nntp_opt,
+			imp_limit
 			)
 			VALUES(
 			".(int)$this->forum_id.",
@@ -57,7 +58,8 @@ class fud_nntp_adm
 			'".addslashes($this->pass)."',
 			".(int)$this->timeout.",
 			'".addslashes($this->newsgroup)."',
-			".$this->nntp_opt."
+			".$this->nntp_opt.",
+			".(int)$this->imp_limit."
 			)");
 
 		if ($this->nntp_opt & 1) {
@@ -78,6 +80,7 @@ class fud_nntp_adm
 			login='".addslashes($this->login)."',
 			pass='".addslashes($this->pass)."',
 			timeout=".(int)$this->timeout.",
+			imp_limit=".(int)$this->imp_limit.",
 			newsgroup='".addslashes($this->newsgroup)."',
 			nntp_opt=".$this->nntp_opt."
 		WHERE id=".$id);

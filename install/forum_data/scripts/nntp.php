@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.php,v 1.22 2004/09/17 01:23:22 hackie Exp $
+* $Id: nntp.php,v 1.23 2004/10/04 13:55:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -76,6 +76,7 @@
 	$nntp->nntp_opt 	= $nntp_adm->nntp_opt;
 	$nntp->user 		= $nntp_adm->login;
 	$nntp->pass 		= $nntp_adm->pass;
+	$nntp->imp_limit	= $nntp_adm->imp_limit;
 
 	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$nntp_adm->forum_id);
 

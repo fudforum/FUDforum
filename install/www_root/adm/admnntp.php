@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.23 2004/06/07 15:24:54 hackie Exp $
+* $Id: admnntp.php,v 1.24 2004/10/04 13:55:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -173,6 +173,18 @@
 			to the anonymous user.</font>
 		</td>
 		<td><?php draw_select('nntp_create_users', "No\nYes", "0\n32", ($nntp_nntp_opt & 32 ? 32 : 0)); ?></td>
+	</tr>
+
+	<tr class="field">
+		<td>Max Messages to Import:<br>
+			<font size="-1">Maximum number of messages to import per run.
+			Leaving the value at 0 or empty means unlimited. When doing a 1st
+			import which may need to import a lot of messages, since there is no
+			starting point, it is important to set this option to prevent the 
+			import script from timing out.
+			</font>
+		</td>
+		<td><input type="text" name="nntp_imp_limit" value="<?php echo htmlspecialchars($nntp_imp_limit); ?>" maxlength=10></td>
 	</tr>
 
 	<tr class="fieldaction">
