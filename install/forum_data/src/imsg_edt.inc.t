@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.88 2003/11/14 10:50:19 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.89 2003/12/19 09:53:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -328,7 +328,7 @@ class fud_msg_edit extends fud_msg
 		/* fetch info about the message, poll (if one exists), thread & forum */
 		$mtf = db_sab('SELECT
 					m.id, m.poster_id, m.apr, m.subject, m.foff, m.length, m.file_id, m.thread_id, m.poll_id, m.attach_cnt,
-					m.post_stamp, m.reply_to, m.mlist_msg_id,
+					m.post_stamp, m.reply_to, m.mlist_msg_id, m.msg_opt,
 					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date,
 					m2.post_stamp AS frm_last_post_date,
 					f.name AS frm_name,
