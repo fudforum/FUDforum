@@ -2,23 +2,13 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: spell.inc.t,v 1.18 2004/06/07 15:24:53 hackie Exp $
+* $Id: spell.inc.t,v 1.19 2004/11/15 19:57:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
-
-function get_spell_suggest($word)
-{
-	return pspell_suggest(__FUD_PSPELL_LINK__, $word);
-}
-
-function spell_check_w($word)
-{
-	return pspell_check(__FUD_PSPELL_LINK__, $word);
-}
 
 function init_spell($type, $dict)
 {
@@ -123,7 +113,7 @@ function draw_spell_sug_select($v,$k,$type)
 	$sel_name = 'spell_chk_'.$type.'_'.$k;
 	$data = '<select name="'.$sel_name.'">';
 	$data .= '<option value="'.htmlspecialchars($v['token']).'">'.htmlspecialchars($v['token']).'</option>';
-	$sug = get_spell_suggest($v['token']);
+	$sug = pspell_suggest(__FUD_PSPELL_LINK__, $v['token']);
 	$i=0;
 	foreach($sug as $va) {
 		$data .= '<option value="'.$va.'">'.++$i.') '.$va.'</option>';
@@ -156,7 +146,7 @@ function spell_replace($wa,$type)
 function spell_check_ar($wa,$type)
 {
 	foreach($wa as $k => $v) {
-		if ($v['check'] > 0 && !spell_check_w($v['token'])) {
+		if ($v['check'] > 0 && !pspell_check(__FUD_PSPELL_LINK__, $v['token'])) {
 			$wa[$k]['token'] = draw_spell_sug_select($v, $k, $type);
 		}
 	}
