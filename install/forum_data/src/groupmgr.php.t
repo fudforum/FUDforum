@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.19 2003/05/02 00:32:11 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.20 2003/05/09 15:22:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -184,7 +184,9 @@ function make_perms_uob(&$obj)
 	if (isset($mbr) && !$mbr->user_id) {
 		$maxperms['p_VOTE'] = $maxperms['p_RATE'] = 'N';
 	}
-
+	if (!isset($perms)) { /* no members inside the group */
+		$perms = $maxperms;	
+	}
 	$perm_select = draw_permissions('', $perms, $maxperms);
 
 	if (!$edit) {
