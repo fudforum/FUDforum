@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.35 2003/10/15 15:25:09 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.36 2003/10/15 16:31:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -163,7 +163,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_tags}
-<font class="LevelText"> ( <font class="LevelText">{VAR: level_name} {VAR: custom_tag} )</font>
+<font class="LevelText"> ( {VAR: level_name} {VAR: custom_tag} )</font>
 {SECTION: END}
 
 {SECTION: dmsg_custom_tags}
@@ -449,5 +449,5 @@
 {SECTION: END}
 
 {SECTION: dmsg_reply_to}
-<font class="SmallText"> [ <a href="{TEMPLATE: dmsg_reply_to_lnk}" class="SmallText">{MSG: dmsg_reply_to}</a> ]
+<font class="small"> [ <a href="{TEMPLATE: dmsg_reply_to_lnk}" class="small">{MSG: dmsg_reply_to}</a> ]</font>
 {SECTION: END}
