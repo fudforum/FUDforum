@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.34 2004/01/25 19:28:23 hackie Exp $
+* $Id: usrinfo.php.t,v 1.35 2004/02/13 23:28:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,6 +23,13 @@ function convert_bdate($val, $month_fmt)
 
 	if (!isset($_GET['id']) || !(int)$_GET['id']) {
 		invl_inp_err();
+	}
+	if ($FUD_OPT_3 & 32 && !_uid) {
+		if (__fud_real_user__) {
+			is_allowed_user($usr);
+		} else {
+			std_error('login');
+		}
 	}
 
 	if (!($u = db_sab('SELECT u.*, l.name AS level_name, l.level_opt, l.img AS level_img FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}level l ON l.id=u.level_id WHERE u.id='.(int)$_GET['id']))) {

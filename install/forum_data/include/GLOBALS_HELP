@@ -391,3 +391,6 @@ Whether or not to obfuscate user e-mails when sending e-mails from FUDforum to n
 
 {{{SESSION_IP_CHECK	FUD_OPT_3	16
 Whether or not to validate session's against user IP While this may increase security it will cause annoyances for users who's IP address frequently changes as they will need to re-login each time their IP changes.}}}
+
+{{{HIDE_PROFILES_FROM_ANON	FUD_OPT_3	32
+If enabled, anonymous and unconfirmed forum members will not be able to view profiles of registered users.}}}
