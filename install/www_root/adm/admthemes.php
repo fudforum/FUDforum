@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.38 2003/10/16 21:59:05 hackie Exp $
+* $Id: admthemes.php,v 1.39 2003/11/08 00:37:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -108,6 +108,11 @@ function clean_code($path, $toks)
 	fud_use('theme.inc', true);
 
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
+	
+	/* Limit theme names to sane characters */
+	if (isset($_POST['newname'])) {
+		$_POST['newname'] = preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
+	}
 
 	if (isset($_POST['newname']) && !q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."themes WHERE name='".addslashes($_POST['newname'])."'")) {
 		$root = $DATA_DIR . 'thm/';
