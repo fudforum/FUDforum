@@ -189,7 +189,7 @@ vote:				{VAR: frm->n_rating} 投票
 vote_button:			投票
 vote_for_thread:		調查
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> 已經被版主移至<a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a>
-welcome_message:		歡迎！ <b>{VAR: usr->alias}</b>, 你最后一次訪問是 {DATE: last_login %Y-%m-%d %H:%M}
+welcome_message:		歡迎！ <b>{VAR: usr->alias}</b>, 你最后一次訪問是 {DATE: usr->last_visit %Y-%m-%d %H:%M}
 what_ppl_doing:			顯示瀏覽者的操作
 reported_del_report:		刪除報告
 reported_reason:		原因

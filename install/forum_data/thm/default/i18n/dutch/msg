@@ -189,7 +189,7 @@ vote:				{VAR: frm->n_rating} stemmen
 vote_button:			stem
 vote_for_thread:		stem
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a> door de moderator
-welcome_message:		Welkom <b>{VAR: usr->alias}</b>, je laatste bezoek was op {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		Welkom <b>{VAR: usr->alias}</b>, je laatste bezoek was op {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			laat zien wat de mensen aan het doen zijn
 reported_del_report:		Verwijder Raport
 reported_reason:		Reden
