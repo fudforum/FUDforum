@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phorum.php,v 1.14 2004/01/14 01:44:30 hackie Exp $
+* $Id: phorum.php,v 1.15 2004/11/08 15:03:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -383,7 +383,7 @@ function phorum2fudcode($str)
 /* Update user profiles with dates */
 	print_msg('Finalizing user profiles');
 	q("UPDATE ".$DBHOST_TBL_PREFIX."users SET last_visit=".time().", last_read=".time().", join_date=".time());
-	$r = q("SELECT poster_id, MAX(post_stamp) AS mx, MIN(post_stamp) as mi FROM fud26_msg GROUP BY poster_id");
+	$r = q("SELECT poster_id, MAX(post_stamp) AS mx, MIN(post_stamp) as mi FROM {$DBHOST_TBL_PREFIX}msg GROUP BY poster_id");
 	while ($obj = db_rowobj($r)) {
 		q("UPDATE {$DBHOST_TBL_PREFIX}users SET last_visit={$obj->mx}, last_read={$obj->mx}, join_date={$obj->mi} WHERE id=".$obj->poster_id);
 	}
