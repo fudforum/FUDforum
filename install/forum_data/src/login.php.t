@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.18 2003/04/02 15:39:11 hackie Exp $
+*   $Id: login.php.t,v 1.19 2003/04/10 09:26:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,8 +27,14 @@
 	}	
 
 	if (!empty($_GET['logout'])) {
-		preg_match('/\?t=([A-Z0-9a-z_]+)(\&|$)/', $ses->returnto, $regs);
-		switch ($regs[1]) {
+		if ($usr->returnto) {
+			parse_str($usr->returnto, $tmp);
+			$page = isset($tmp['t']) ? $tmp['t'] : '';
+		} else {
+			$page = '';
+		}
+	
+		switch ($page) {
 			case 'register':
 			case 'pmsg_view':
 			case 'pmsg':
@@ -43,15 +49,16 @@
 			case 'ppost':
 			case 'finduser':
 			case 'error':
+			case '':
 				$returnto = '';
 				break;
 			default:
-				$returnto = $ses->returnto ? $ses->returnto . '&logoff=1' : '{ROOT}';
+				$returnto = str_replace('S='.$tmp['S'], '', $usr->returnto);
 				break;
 		}
 		
-		$ses->delete_session();
-		header('Location: '.$returnto);
+		ses_delete($usr->sid);
+		header('Location: {ROOT}?'. $returnto);
 		exit;
 	}
 	
@@ -96,54 +103,57 @@ function error_check()
 	if (isset($_POST['quick_login']) && isset($_POST['quick_password'])) {
 		$_POST['login'] = $_POST['quick_login'];
 		$_POST['password'] = $_POST['quick_password'];
-		$_POST['use_cookie'] = $_POST['quick_use_cookies'];
+		$_POST['use_cookie'] = isset($_POST['quick_use_cookies']);
 	}
 	
 	if (isset($_POST['login']) && !error_check()) {
-		if (!($id = get_id_by_radius($_POST['login'], $_POST['password']))) {
-			/* If failed login attempt it for admin user we log it */
-			if (($aid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($_POST['login'])."' AND is_mod='A'"))) {
-				logaction($aid, 'WRONGPASSWD', 0, (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0'));
+		if (!($usr_d = db_sab('SELECT id, passwd, login, email, blocked, acc_status, email_conf, is_mod FROM {SQL_TABLE_PREFIX}users WHERE login=\''.addslashes($_POST['login']).'\''))) {
+			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
+		}
+		if ($usr_d->passwd != md5($_POST['password'])) {
+			if ($usr_d->is_mod == 'A') {
+				logaction(0, 'WRONGPASSWD', 0, (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0'));
 			}
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
-		} else {
-			fud_use('login.inc', true);
-			$usr = new fud_user_reg;
-			$usr->get_user_by_id($id);
-			
-			/* Perform check to ensure that the user is allowed to login */
-			
-			/* Login & E-mail Filter & IP */
-			if (is_blocked_login($usr->login) || is_email_blocked($usr->email) || $usr->blocked == 'Y' || (isset($_SERVER['REMOTE_ADDR']) && fud_ip_filter::is_blocked($_SERVER['REMOTE_ADDR']))) {
-				error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}', $returnto_d);
-				exit();
-			}
-			
-			$ses->save_session($id, (empty($_POST['use_cookie']) ? 1 : NULL));
-			
-			if ($usr->email_conf != 'Y') {
-				std_error('emailconf');
-				exit();
-			}
-			
-			if (isset($_POST['adm']) && $usr->is_mod == 'A') {
-				header('Location: adm/admglobal.php?'._rsidl);
-				exit;
-			}
-			
-			check_return($ses->returnto);
 		}
+
+		fud_use('login.inc', true);
+			
+		/* Perform check to ensure that the user is allowed to login */
+			
+		/* Login & E-mail Filter & IP */
+		if (is_blocked_login($usr_d->login) || is_email_blocked($usr_d->email) || $usr_d->blocked == 'Y' || (isset($_SERVER['REMOTE_ADDR']) && fud_ip_filter::is_blocked($_SERVER['REMOTE_ADDR']))) {
+			error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}', '');
+		}
+
+		$ses_id = user_login($usr_d->id, $usr->ses_id, ((!empty($_POST['use_cookie']) || $GLOBALS['SESSION_USE_URL'] != 'Y') ? TRUE : FALSE));
+
+		if ($usr_d->email_conf != 'Y') {
+			error_dialog('{TEMPLATE: ERR_emailconf_ttl}', '{TEMPLATE: ERR_emailconf_msg}', '');
+		}
+		if ($usr_d->acc_status != 'A') {
+			error_dialog('{TEMPLATE: login_unapproved_account_ttl}', '{TEMPLATE: login_unapproved_account_msg}', '');
+		}
+
+		if (isset($_POST['adm']) && $usr_d->is_mod == 'A') {
+			header('Location: adm/admglobal.php?S='.$ses_id);
+			exit;
+		}
+
+		check_return(str_replace('S='.s, '', $usr->returnto) . 'S=' . $ses_id);
 	}
 	
-	$ses->update('{TEMPLATE: login_update}');
+	ses_update_status($usr->sid, '{TEMPLATE: login_update}', 0, 0);
 	$TITLE_EXTRA = ': {TEMPLATE: login_title}';
 
 /*{POST_HTML_PHP}*/
 
-	$login_error_msg = (isset($_REQUEST['msg']) && strlen($_REQUEST['msg'])) ? '{TEMPLATE: login_error_msg}' : '';
+	$login_error_msg = (isset($_GET['msg']) && strlen($_GET['msg'])) ? '{TEMPLATE: login_error_msg}' : '';
 	
 	$login_error	= login_php_get_err('login');
 	$passwd_error	= login_php_get_err('password');
+
+	$login_use_cookies = $GLOBALS['SESSION_USE_URL'] == 'Y' ? '{TEMPLATE: login_use_cookies}' : '';
 
 	if (!isset($_POST['adm'])) {
 		$_POST['adm'] = '';

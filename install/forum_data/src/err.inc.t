@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.15 2003/04/08 09:04:19 hackie Exp $
+*   $Id: err.inc.t,v 1.16 2003/04/10 09:26:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,6 @@ function std_error($type)
 'ERR_disabled'=>array('{TEMPLATE: ERR_disabled_ttl}', '{TEMPLATE: ERR_disabled_msg}', '{TEMPLATE: ERR_disabled_url}'),
 'ERR_access'=>array('{TEMPLATE: ERR_access_ttl}', '{TEMPLATE: ERR_access_msg}', '{TEMPLATE: ERR_access_url}'),
 'ERR_registration_disabled'=>array('{TEMPLATE: ERR_registration_disabled_ttl}', '{TEMPLATE: ERR_registration_disabled_msg}', '{TEMPLATE: ERR_registration_disabled_url}'),
-'ERR_emailconf'=>array('{TEMPLATE: ERR_emailconf_ttl}', '{TEMPLATE: ERR_emailconf_msg}', '{TEMPLATE: ERR_emailconf_url}'),
 'ERR_user'=>array('{TEMPLATE: ERR_user_ttl}', '{TEMPLATE: ERR_user_msg}', '{TEMPLATE: ERR_user_url}'),
 'ERR_systemerr'=>array('{TEMPLATE: ERR_systemerr_ttl}', '{TEMPLATE: ERR_systemerr_msg}', '{TEMPLATE: ERR_systemerr_url}')
 );

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.19 2003/04/09 18:04:02 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.20 2003/04/10 09:26:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -327,5 +327,24 @@ function &usr_reg_get_full($id)
 		return $r;
 	}
 	return;
+}
+
+function user_login($id, $cur_ses_id, $use_cookies)
+{
+	if (!$use_cookies && isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
+		/* remove cookie so it does not confuse us */
+		setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);	
+	}
+	if ($GLOBALS['MULTI_HOST_LOGIN'] == 'Y' && $use_cookies && !($ses_id = q_singleval('SELECT ses_id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id))) {
+		setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+
+		return $ses_id;
+	} else {
+		/* if we can only have 1 login per account, 'remove' all other logins */
+		q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id);
+		q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='.$id.' WHERE ses_id=\''.$cur_ses_id.'\'');
+
+		return $cur_ses_id;
+	}
 }
 ?>

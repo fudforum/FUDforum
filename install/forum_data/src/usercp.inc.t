@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usercp.inc.t,v 1.7 2003/03/29 11:40:09 hackie Exp $
+*   $Id: usercp.inc.t,v 1.8 2003/04/10 09:26:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,9 +15,7 @@
 *
 ***************************************************************************/
 		
-	$ret_to = '&amp;returnto='.urlencode(!empty($GLOBALS['returnto'])?urldecode($GLOBALS['returnto']):$_SERVER['REQUEST_URI']);
-
-	if (!_uid) {
+	if (!__fud_real_user__) {
 		$login_n_logout = '{TEMPLATE: login}';
 		$register_n_profile = '{TEMPLATE: register}';
 		$admin_control_panel = $private_msg = '';

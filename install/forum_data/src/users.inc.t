@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.34 2003/04/10 07:32:46 hackie Exp $
+*   $Id: users.inc.t,v 1.35 2003/04/10 09:26:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -69,7 +69,8 @@ function init_user()
 	define('fud_theme', 'theme/' . $u->theme_name . '/');
 		
 	/* define _uid, which, will tell us if this is a 'real' user or not */
-	define('_uid', ($u->email_conf == 'Y' ? $u->id : 0));
+	define('_uid', (($u->email_conf == 'Y' && $u->acc_status == 'A') ? $u->id : 0));
+	define('__fud_real_user__', ($u->id != 1 ? $u->id : 0));
 
 	/* define constants used to track URL sessions & referrals */
 	if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
@@ -89,18 +90,6 @@ function init_user()
 	}
 
 	return $u;
-}
-
-function user_login($id, $cur_ses_id, $use_cookies)
-{
-	if ($GLOBALS['MULTI_HOST_LOGIN'] == 'Y' && $use_cookies && ($ses_id = q_singleval('SELECT ses_id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id))) {
-		q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='.$cur_ses_id);
-		setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
-		return $ses_id;
-	} else {
-		q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='.$id.' WHERE ses_id=\''.$cur_ses_id.'\'');
-		return $cur_ses_id;
-	}
 }
 
 function user_alias_by_id($id)

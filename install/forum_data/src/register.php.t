@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.34 2003/04/10 07:32:46 hackie Exp $
+*   $Id: register.php.t,v 1.35 2003/04/10 09:26:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -207,7 +207,7 @@ function remove_old_avatar($avatar_str)
 	}
 }
 
-	if (!_uid && $ALLOW_REGISTRATION != 'Y') {
+	if (!__fud_real_user__ && $ALLOW_REGISTRATION != 'Y') {
 		std_error('registration_disabled');
 	}
 
@@ -218,7 +218,7 @@ function remove_old_avatar($avatar_str)
 		$_POST['reg_coppa'] = $_GET['reg_coppa'];
 	}
 
-	if (!_uid && !isset($_POST['reg_coppa'])) {
+	if (!__fud_real_user__ && !isset($_POST['reg_coppa'])) {
 		if ($GLOBALS['COPPA'] == 'Y') {
 			header('Location: {ROOT}?t=coppa&'._rsidl);
 		} else if ($GLOBALS['COPPA'] != 'Y') {
@@ -241,8 +241,8 @@ function remove_old_avatar($avatar_str)
 			exit('Invalid User Id');
 		}
 	} else {
-		if (_uid) {
-			$uent =& usr_reg_get_full(_uid);
+		if (__fud_real_user__) {
+			$uent =& usr_reg_get_full($usr->id);
 		} else {
 			$uent = new fud_user_reg;
 			$uent->id = 0;
@@ -327,7 +327,7 @@ function remove_old_avatar($avatar_str)
 			$uent->notify_method = 'EMAIL';
 		}
 	
-		if (!_uid) { /* new user */
+		if (!__fud_real_user__) { /* new user */
 			$uent->id = $uent->add_user();
 			if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y') {
 				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
@@ -418,7 +418,7 @@ function remove_old_avatar($avatar_str)
 	}
 
 	/* populate form variables based on user's profile */
-	if (_uid && empty($_POST['prev_loaded']) && empty($_REQUEST['forced_new_reg'])) {
+	if (__fud_real_user__ && empty($_POST['prev_loaded']) && empty($_REQUEST['forced_new_reg'])) {
 		foreach ($uent as $k => $v) {
 			${'reg_'.$k} = htmlspecialchars($v);
 		}
@@ -469,7 +469,7 @@ function remove_old_avatar($avatar_str)
 	}
 	
 	/* When we need to create a new user, define default values for various options */
-	if (!_uid && !isset($_POST['prev_loaded'])) {
+	if (!__fud_real_user__ && !isset($_POST['prev_loaded'])) {
 		$vars = array_keys(get_object_vars($uent));
 		foreach ($vars as $v) {
 			 ${'reg_'.$v} = '';
@@ -487,7 +487,7 @@ function remove_old_avatar($avatar_str)
 	}
 	
 	if (!$mod_id) {
-		if (_uid) {
+		if (__fud_real_user__) {
 			ses_update_status($usr->sid, '{TEMPLATE: register_profile_update}', 0, 0);
 		} else {
 			ses_update_status($usr->sid, '{TEMPLATE: register_register_update}', 0, 0);
@@ -515,7 +515,7 @@ function remove_old_avatar($avatar_str)
 	/* Initialize avatar options */
 	$avatar = $avatar_type_sel = '';
 
-	if (!_uid) {
+	if (!__fud_real_user__) {
 		$reg_login_err			= draw_err('reg_login');
 		$reg_plaintext_passwd_err	= draw_err('reg_plaintext_passwd');
 		$reg_time_limit_err		= draw_err('reg_time_limit');

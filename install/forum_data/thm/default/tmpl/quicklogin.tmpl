@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: quicklogin.tmpl,v 1.3 2002/08/05 00:47:55 hackie Exp $
+*   $Id: quicklogin.tmpl,v 1.4 2003/04/10 09:27:03 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -28,11 +28,15 @@
 <tr>
 	<td><input class="SmallText" type="text" name="quick_login" size=18></td>
 	<td><input class="SmallText" type="password" name="quick_password" size=18></td>
-	<td><input type="checkbox" name="quick_use_cookies" value="1"><font class="SmallText"> {MSG: quicklogin_use_cookies}</font> </td>
+	{TEMPLATE-DATA: quick_login_cookie}
 	<td><input type="submit" class="button" name="quick_login_submit" value="{MSG: quicklogin_login_btn}"></td>
 </tr>
-</table><input type="hidden" name="returnto" value="{ROOT}?t=index"></form></td></tr></table>
+</table></form></td></tr></table>
 {MAIN_SECTION: END}
+
+{SECTION: quick_login_cookie}
+<td><input type="checkbox" name="quick_use_cookies" value="1"><font class="SmallText"> {MSG: quicklogin_use_cookies}</font> </td>
+{SECTION: END}
 
 {MAIN_SECTION: quick_login_loged_in}
 {MAIN_SECTION: END}

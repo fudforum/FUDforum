@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.13 2003/04/09 09:03:24 hackie Exp $
+*   $Id: msg.tmpl,v 1.14 2003/04/10 09:27:03 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -98,7 +98,7 @@
 <option value="5">5 {MSG: rate_best}</option>
 </select>
 </td><td>&nbsp;<input type="submit" class="button" name="btn_vote" value="{MSG: rate_this_thread}">
-<input type="hidden" name="rate_thread_id" value="{VAR: frm->id}">
+<input type="hidden" name="rate_thread_id" value="{VAR: frm->id}">{DEF: _hs}
 </td></form></tr></table>
 {SECTION: END}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.21 2003/04/10 07:32:46 hackie Exp $
+*   $Id: cookies.inc.t,v 1.22 2003/04/10 09:26:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -213,13 +213,11 @@ function ses_putvar($ses_id, $data)
 	}	
 }
 
-function ses_delete(&$usr)
+function ses_delete($ses_id)
 {
-	if (!$usr->sid) {
-		return;	
+	if ($GLOBALS['MULTI_HOST_LOGIN'] != 'Y') {
+		q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id='.$ses_id);
 	}
-	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id='.$usr->sid);
-	unset($usr->sid, $usr->ses_id, $usr->id, $usr->returnto);
 	setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 
 	return 1;

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.20 2003/04/09 12:03:32 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.21 2003/04/10 09:27:03 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -25,7 +25,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page previous page arrrow drawn on the message}
-<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}&amp;count={VAR: count}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
+<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_prev_message_prev_page previous page (tree view) arrrow drawn on the message}
@@ -37,7 +37,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
-<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}&amp;count={VAR: count}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" /></a>
+<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_next_message_next_page next page (tree view) arrow drawn on the message}
@@ -188,7 +188,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_poll_option}
-<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}"><td>{VAR: i}.</td><td colspan=2><input type="radio" name="opt" value="{VAR: k}">&nbsp;&nbsp;{VAR: v[0]}</td></tr>
+<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}"><td>{VAR: i}.</td><td colspan=2><input type="radio" name="poll_opt" value="{VAR: k}">&nbsp;&nbsp;{VAR: v[0]}</td></tr>
 {SECTION: END}
 
 {SECTION: dmsg_poll_result}
@@ -216,12 +216,12 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 
 {SECTION: dmsg_poll}
 <p>
-<form action="{GVAR: __POLL_ACTION_URL}" method="post" style="padding: 0px; margin: 0px;">
+<form action="{ROOT}?{VAR: _SERVER['QUERY_STRING']}" method="post" style="padding: 0px; margin: 0px;">
 <table border=0 cellspacing=1 cellpadding=2 class="PollTable">
 <tr><th nowrap colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" border=0 height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
 {TEMPLATE-DATA: poll_data}
 {TEMPLATE-DATA: poll_buttons}
-</table>{DEF: _hs}<input type="hidden" name="pl_view" value="{VAR: obj->poll_id}">{DEF: _hs}<input type="hidden" name="pl_msg" value="{VAR: obj->id}"></form><p>
+</table><input type="hidden" name="pl_view" value="{VAR: obj->poll_id}"></form><p>
 {SECTION: END}
 
 {SECTION: dmsg_drawmsg_file_attachments the file attachments list}
@@ -267,7 +267,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_next_msg_page next page link that appears in the message}
-<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}&amp;count={VAR: count}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" border=0 /></a>
+<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_no_next_msg_page}

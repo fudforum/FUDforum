@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.3 2003/04/06 15:52:04 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.4 2003/04/10 09:26:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 /* make sure that we have what appears to be a valid forum id */
-if (!isset($_GET['frm_id']) || (!($_GET['frm_id'] = (int)$_GET['frm_id']))) {
+if (!isset($_GET['frm_id']) || (!($frm_id = (int)$_GET['frm_id']))) {
 	invl_inp_err();
 }
 
@@ -31,11 +31,7 @@ if (isset($_REQUEST['start'])) {
  * forum.
  */
 
-if (_uid) {
-	$perm_q = "g.user_id IN("._uid.", 2147483647) AND resource_type='forum' AND resource_id=f.id";
-} else {
-	$perm_q = "g.user_id=0 AND resource_type='forum' AND resource_id=f.id";
-}
+make_perms_query($fields, $join);
 
 $frm = db_sab('SELECT 
 			f.id,
@@ -44,23 +40,22 @@ $frm = db_sab('SELECT
 			c.name AS cat_name,
 			fn.forum_id AS subscribed,
 			m.forum_id AS mod,
-			g.p_VISIBLE as p_visible, g.p_READ as p_read, g.p_post as p_post, g.p_REPLY as p_reply, g.p_EDIT as p_edit, g.p_DEL as p_del, g.p_STICKY as p_sticky, g.p_POLL as p_poll, g.p_FILE as p_file, g.p_VOTE as p_vote, g.p_RATE as p_rate, g.p_SPLIT as p_split, g.p_LOCK as p_lock, g.p_MOVE as p_move, g.p_SML as p_sml, g.p_IMG as p_img,
-			a.id AS is_ann
+			a.id AS is_ann,
+			'.$fields.'
 		FROM {SQL_TABLE_PREFIX}forum f
 		INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-		LEFT JOIN {SQL_TABLE_PREFIX}forum_notify fn ON fn.user_id='._uid.' AND fn.forum_id='.$_GET['frm_id'].'
-		LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id='.$_GET['frm_id'].'
-		INNER JOIN {SQL_TABLE_PREFIX}group_cache g ON '.$perm_q.'
+		LEFT JOIN {SQL_TABLE_PREFIX}forum_notify fn ON fn.user_id='._uid.' AND fn.forum_id='.$frm_id.'
+		LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id='.$frm_id.'
 		LEFT JOIN {SQL_TABLE_PREFIX}ann_forums a ON a.forum_id=f.id
-		WHERE f.id='.$_GET['frm_id'].' ORDER BY g.id ASC LIMIT 1');
+		'.$join.'
+		WHERE f.id='.$frm_id.' LIMIT 1');
 
 if (!$frm) {
 	invl_inp_err();
 }
 
 /* check that the user has permissions to access this forum */
-$perms = perms_from_obj($frm, $usr->is_mod);
-if ($perms['read'] != 'Y') {
+if ($frm->p_read != 'Y') {
 	if (!isset($_GET['logoff'])) {
 		error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
 	} else {
