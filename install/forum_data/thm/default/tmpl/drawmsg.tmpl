@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.58 2004/04/13 14:50:13 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.59 2004/04/13 20:39:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -78,7 +78,7 @@
 <tr><td>
 <table border=0 cellspacing=0 cellpadding=0 class="MsgTable">
 <tr>
-<td align="left" class="MsgIg">
+<td class="MsgIg al">
 <a name="msg_num_{VAR: m_num}"></a>
 <a name="msg_{VAR: obj->id}"></a>
 {VAR: user_login_td}
@@ -108,7 +108,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_avatar}
-<td class="avatarPad" width="1">{VAR: obj->avatar_loc}{TEMPLATE-DATA: level_image}</td>
+<td class="avatarPad wo">{VAR: obj->avatar_loc}{TEMPLATE-DATA: level_image}</td>
 {SECTION: END}
 
 {SECTION: dmsg_reg_user_link_lnk}
@@ -242,7 +242,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_poll_buttons}
-<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}"><td colspan=3 align="right">{TEMPLATE: dmsg_vote_button}&nbsp;{TEMPLATE-DATA: view_poll_results_button}</td></tr>
+<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA} ar"><td colspan=3>{TEMPLATE: dmsg_vote_button}&nbsp;{TEMPLATE-DATA: view_poll_results_button}</td></tr>
 {SECTION: END}
 
 {SECTION: dmsg_vote_button}
@@ -255,7 +255,7 @@
 
 {SECTION: mini_dmsg_poll}
 <p><table border=0 cellspacing=1 cellpadding=2 class="PollTable">
-<tr><th nowrap colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
+<tr><th class="nw" colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
 {TEMPLATE-DATA: poll_data}
 </table><p>
 {SECTION: END}
@@ -268,7 +268,7 @@
 <p>
 <form action="{TEMPLATE: dmsg_poll_lnk}" method="post">{DEF: _hs}
 <table border=0 cellspacing=1 cellpadding=2 class="PollTable">
-<tr><th nowrap colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
+<tr><th class="nw" colspan=3>{VAR: obj->poll_name}<font class="ptp">[ {MSG: num_votes} ]</font></th></tr>
 {TEMPLATE-DATA: poll_data}
 {TEMPLATE-DATA: poll_buttons}
 </table><input type="hidden" name="pl_view" value="{VAR: obj->poll_id}"></form><p>
@@ -288,7 +288,7 @@
 {SECTION: dmsg_drawmsg_file_attachment file attachment entry row}
 <li />
 <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}"><img alt="" src="images/mime/{VAR: v[4]}" class="l" /></a>
-<font class="GenText"><b>{MSG: attachment}</b></font> <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}">{VAR: v[1]}</a><br />
+<font class="GenText fb">{MSG: attachment}</font> <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}">{VAR: v[1]}</a><br />
 <font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</font>
 {SECTION: END}
 
@@ -301,7 +301,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_signature}
-<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />{VAR: obj->sig}
+<p /><hr class="sig" />{VAR: obj->sig}
 {SECTION: END}
 
 {SECTION: dmsg_report_to_mod_link_lnk}
@@ -309,7 +309,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_report_to_mod_link}
-<div align="right"><a href="{TEMPLATE: dmsg_report_to_mod_link_lnk}">{MSG: report_to_mod}</a></div>
+<div class="ar"><a href="{TEMPLATE: dmsg_report_to_mod_link_lnk}">{MSG: report_to_mod}</a></div>
 {SECTION: END}
 
 {SECTION: dmsg_user_profile_lnk}
@@ -382,9 +382,9 @@
 
 {SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote type buttons}
 <tr><td colspan="2" class="MsgToolBar"><table border=0 cellspacing=0 cellpadding=0 width="100%"><tr>
-<td nowrap align="left">{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}</td>
-<td width="100%" align="center" class="GenText">{TEMPLATE-DATA: next_page}</td>
-<td nowrap align="right">{TEMPLATE-DATA: delete_link}{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}</td>
+<td class="al nw">{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}</td>
+<td class="GenText wa ac">{TEMPLATE-DATA: next_page}</td>
+<td class="nw ar">{TEMPLATE-DATA: delete_link}{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}</td>
 </tr></table></td></tr>
 {SECTION: END}
 
@@ -398,7 +398,7 @@
 
 {SECTION: dmsg_short_message_body}
 <font class="MsgBodyText">{VAR: msg_body}</font>
-<br /><div align="center">[<a href="{TEMPLATE: dmsg_short_message_body_lnk}">{MSG: drawmsg_view_rest_post}</a>]</div>
+<br /><div class="ac">[<a href="{TEMPLATE: dmsg_short_message_body_lnk}">{MSG: drawmsg_view_rest_post}</a>]</div>
 {SECTION: END}
 
 {SECTION: dmsg_im_row a row displaying various instant messenger links}
@@ -408,8 +408,8 @@
 {MAIN_SECTION: message_entry Message Entry (a single message)}
 <tr><td class="MsgSpacer"><table cellspacing=0 cellpadding=0 class="MsgTable">
 <tr>
-<td valign="top" align="left" class="MsgR1"><font class="MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}{TEMPLATE-DATA: rpl}</font></td>
-<td valign="top" align="right" class="MsgR1"><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}{TEMPLATE-DATA: rpl}</td>
+<td class="MsgR1" vt ar><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
 </tr>
 <tr class="MsgR2"><td class="MsgR2" colspan=2><table border="0" cellspacing="0" cellpadding="0" class="ContentTable">
 <tr class="MsgR2">

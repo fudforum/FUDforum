@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.tmpl,v 1.36 2004/04/13 14:51:04 hackie Exp $
+* $Id: drawpmsg.tmpl,v 1.37 2004/04/13 20:39:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -90,12 +90,12 @@
 {SECTION: dpmsg_file_attachment file attachment entry row}
 <li />
 <a href="{TEMPLATE: dpmsg_file_attachment_lnk}"><img src="images/mime/{VAR: r->icon}" class="l" alt="" /></a>
-<font class="GenText"><b>{MSG: attachment}</b></font> <a href="{TEMPLATE: dpmsg_file_attachment_lnk}">{VAR: r->original_name}</a><br />
+<font class="GenText fb">{MSG: attachment}</font> <a href="{TEMPLATE: dpmsg_file_attachment_lnk}">{VAR: r->original_name}</a><br />
 <font class="SmallText">({MSG: size} {VAR: sz}, {MSG: pmsg_download_counter})</font>
 {SECTION: END}
 
 {SECTION: dpmsg_signature}
-<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />{VAR: obj->sig}
+<p /><hr class="sig" />{VAR: obj->sig}
 {SECTION: END}
 
 {SECTION: dpmsg_user_profile_lnk}
