@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.142 2004/12/02 19:50:45 hackie Exp $
+* $Id: users.inc.t,v 1.143 2004/12/02 23:48:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -680,6 +680,11 @@ function init_user()
 
 function user_register_forum_view($frm_id)
 {
+	if ($GLOBALS['FUD_OPT_3'] & 1024) {
+		q('INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES ('.$frm_id.', '._uid.', '.__request_timestamp__.') ON DUPLICATE KEY UPDATE last_view=VALUES(last_view)');
+		return;
+	}
+	
 	if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES ('.$frm_id.', '._uid.', '.__request_timestamp__.')', $ef)) {
 		q('UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.' WHERE forum_id='.$frm_id.' AND user_id='._uid);
 	}
@@ -687,6 +692,11 @@ function user_register_forum_view($frm_id)
 
 function user_register_thread_view($thread_id, $tm=__request_timestamp__, $msg_id=0)
 {
+	if ($GLOBALS['FUD_OPT_3'] & 1024) {
+		q('INSERT INTO {SQL_TABLE_PREFIX}read (last_view, msg_id, thread_id, user_id) VALUES('.$tm.', '.$msg_id.', '.$thread_id.', '._uid.') ON DUPLICATE KEY UPDATE last_view=VALUES(last_view), msg_id=VALUES(msg_id)');
+		return;
+	}
+
 	if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}read (last_view, msg_id, thread_id, user_id) VALUES('.$tm.', '.$msg_id.', '.$thread_id.', '._uid.')', $ef)) {
 		q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.' WHERE thread_id='.$thread_id.' AND user_id='._uid);
 	}
@@ -708,6 +718,12 @@ function user_mark_all_read($id)
 
 function user_mark_forum_read($id, $fid, $last_view)
 {
+	if ($GLOBALS['FUD_OPT_3'] & 1024) {
+		q("INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES(".$fid.",".$id.",".__request_timestamp__.") ON DUPLICATE KEY UPDATE last_view=VALUES(last_view)");
+		q('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view.' ON DUPLICATE KEY UPDATE last_view=VALUES(last_view), msg_id=VALUES(msg_id)');
+		return;
+	}
+
 	if (__dbtype__ == 'mysql') {
 		q('REPLACE INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view);
 	} else {
@@ -715,10 +731,7 @@ function user_mark_forum_read($id, $fid, $last_view)
 			q("UPDATE {SQL_TABLE_PREFIX}read SET user_id=".$id.", msg_id=t.last_post_id, last_view=".__request_timestamp__." FROM (SELECT id, last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE forum_id=".$fid." AND last_post_date > ".$last_view.") t WHERE user_id=".$id." AND thread_id=t.id");
 		}
 	}
-	q("UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view=".__request_timestamp__." where user_id=".$id." AND forum_id=".$fid);
-	if (!db_affected()) {
-		db_li("INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES(".$fid.",".$id.",".__request_timestamp__.")", $t);
-	}
+	user_register_forum_view($fid);
 }
 
 function sq_check($post, &$sq, $uid=__fud_real_user__, $ses=s)

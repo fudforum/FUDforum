@@ -407,3 +407,6 @@ If disabled the browser will not attempt to 'remember' the values for the login 
 {{{APACHE_PUTENV	FUD_OPT_3	512
 If enabled the forum will never try to set a timezone by exporting TZ environment variable via putenv(). In Apache 2 where PHP is used in conjunction with mod_perl using PHP's putenv() may result in frequent crashes.}}}
 
+{{{MYSQL_4_1_OPT	FUD_OPT_3	1024
+If enabled the forum will use various query optimization tricks available through MySQL 4.1.2+ functionality.}}}
+
