@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.50 2003/08/01 01:14:02 hackie Exp $
+*   $Id: consist.php,v 1.51 2003/09/18 16:49:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,6 +39,7 @@
 	fud_use('attach.inc');	
 	fud_use('groups.inc');
 	fud_use('th_adm.inc');
+	fud_use('users_reg.inc');
 
 function draw_stat($text)
 {

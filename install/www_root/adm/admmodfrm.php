@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmodfrm.php,v 1.12 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admmodfrm.php,v 1.13 2003/09/18 16:49:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,6 +40,7 @@
 		}
 
 		/* mod rebuild */	
+		fud_use('users_reg.inc');
 		rebuildmodlist();
 ?>
 <html>

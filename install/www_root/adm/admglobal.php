@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.36 2003/07/24 03:16:37 hackie Exp $
+*   $Id: admglobal.php,v 1.37 2003/09/18 16:49:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -90,6 +90,7 @@ function get_max_upload_size()
 			/* some fields require us to make special changes */
 			if (isset($ch_list['SHOW_N_MODS'])) {
 				$GLOBALS['SHOW_N_MODS'] = $ch_list['SHOW_N_MODS'];
+				fud_use('users_reg.inc');
 				rebuildmodlist();
 			}
 			if (isset($ch_list['USE_ALIASES']) && $ch_list['USE_ALIASES'] == 'N') {

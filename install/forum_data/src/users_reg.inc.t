@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.33 2003/07/23 02:45:14 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.34 2003/09/18 16:49:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -174,12 +174,21 @@ class fud_user_reg extends fud_user
 	function sync_user()
 	{
 		$passwd = !empty($this->plaintext_passwd) ? "'".md5($this->plaintext_passwd)."'," : '';
-		
+
 		if ($GLOBALS['USE_ALIASES'] != 'Y' || !$this->alias) {
 			$this->alias = htmlspecialchars((strlen($this->login) < $GLOBALS['MAX_LOGIN_SHOW']) ? $this->login : substr($this->login, 0,  $GLOBALS['MAX_LOGIN_SHOW']));
 		} else if ($GLOBALS['USE_ALIASES'] == 'Y' && $this->alias) {
 			$this->alias = htmlspecialchars($this->alias);
 		}
+
+		if ($this->is_mod != 'N' && ($is_mod = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id={$this->id}"))) {
+			if (q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id={$this->id}") == $this->alias) {
+				$is_mod = '';
+			}
+		} else {
+			$is_mod = '';
+		}
+
 		if ($this->gender != 'MALE' && $this->gender != 'FEMALE') {
 			$this->gender = 'UNSPECIFIED';
 		}
@@ -227,6 +236,10 @@ class fud_user_reg extends fud_user
 			home_page=".ssn(htmlspecialchars($this->home_page)).",
 			bio=".ssn(htmlspecialchars($this->bio))."
 		WHERE id=".$this->id);
+
+		if ($is_mod) {
+			rebuildmodlist();			
+		}
 	}
 }
 
@@ -290,6 +303,32 @@ function user_login($id, $cur_ses_id, $use_cookies)
 		q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='.$id.($use_cookies ? ', sys_id=0' : '').' WHERE ses_id=\''.$cur_ses_id.'\'');
 
 		return $cur_ses_id;
+	}
+}
+
+function rebuildmodlist()
+{
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	$lmt = $GLOBALS['SHOW_N_MODS'];
+	$c = uq('SELECT u.id, u.alias, f.id FROM '.$tbl.'mod mm INNER JOIN '.$tbl.'users u ON mm.user_id=u.id INNER JOIN '.$tbl.'forum f ON f.id=mm.forum_id ORDER BY f.id,u.alias');
+	while ($r = db_rowarr($c)) {
+		$u[] = $r[0];
+		if (isset($ar[$r[2]]) && count($ar[$r[2]]) >= $lmt) {
+			continue;
+		}
+		$ar[$r[2]][$r[0]] = $r[1];
+	}
+	qf($c);
+
+	q('UPDATE '.$tbl.'forum SET moderators=NULL');
+	if (isset($ar)) {
+		foreach ($ar as $k => $v) {
+			q('UPDATE '.$tbl.'forum SET moderators='.strnull(addslashes(@serialize($v))).' WHERE id='.$k); 
+		}
+	}
+	q('UPDATE '.$tbl.'users SET is_mod=\'N\' WHERE is_mod=\'Y\'');
+	if (isset($u)) {
+		q('UPDATE '.$tbl.'users SET is_mod=\'Y\' WHERE id IN('.implode(',', $u).') AND is_mod!=\'A\'');
 	}
 }
 ?>
