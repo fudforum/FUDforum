@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.92 2004/11/24 19:53:34 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.93 2004/11/29 19:51:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -155,13 +155,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		++$m_num;
 	}
 
-	if (!$obj->user_id) {
-		$user_login =& $GLOBALS['ANON_NICK'];
-		$user_login_td = '{TEMPLATE: dmsg_ignored_user_message_anon}';
-	} else {
-		$user_login =& $obj->login;
-		$user_login_td = '{TEMPLATE: dmsg_ignored_user_message_regged}';
-	}
+	$user_login = $obj->user_id ? $obj->login : $GLOBALS['ANON_NICK'];
 
 	/* check if the message should be ignored and it is not temporarily revelead */
 	if ($usr->ignore_list && !empty($usr->ignore_list[$obj->poster_id]) && !isset($GLOBALS['__FMDSP__'][$obj->id])) {

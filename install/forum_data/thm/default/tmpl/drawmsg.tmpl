@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.73 2004/11/24 19:53:37 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.74 2004/11/29 19:51:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -78,7 +78,7 @@
 <tr><td><table border=0 cellspacing=0 cellpadding=0 class="MsgTable"><tr><td class="MsgIg al">
 <a name="msg_num_{VAR: m_num}"></a>
 <a name="msg_{VAR: obj->id}"></a>
-{VAR: user_login_td}
+{IF: $obj->user_id}{TEMPLATE: dmsg_ignored_user_message_regged}{ELSE}{TEMPLATE: dmsg_ignored_user_message_anon}{ENDI}
 [<a href="{TEMPLATE: dmsg_ignored_user_message_lnk2}">{MSG: reveal_post}</a>]&nbsp;
 [<a href="{TEMPLATE: dmsg_ignored_user_message_lnk3}">{MSG: reveal_all_posts}</a>]&nbsp;
 [<a href="{TEMPLATE: dmsg_ignored_user_message_lnk}">{MSG: stop_ignoring}</a>]</td>
