@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admipfilter.php,v 1.4 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admipfilter.php,v 1.5 2002/12/05 20:56:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,7 +37,7 @@
 	if( substr($ipaddr,-1) == '.' ) $ipaddr = substr($ipaddr, 0, -1);
 	
 	/* Handle double .. */
-	$ipaddr = str_replace('..', '.255.', $ipaddr);
+	$ipaddr = str_replace('..', '.256.', $ipaddr);
 	
 	if ( !empty($edit) && !empty($btn_update) ) {
 		$flt = new fud_ip_filter_adm;

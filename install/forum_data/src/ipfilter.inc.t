@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipfilter.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: ipfilter.inc.t,v 1.4 2002/12/05 20:56:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,11 +25,11 @@ class fud_ip_filter
 	
 	function mk_mask($ipaddr)
 	{
-		for ( $i=0; $i<4; $i++ ) $ip[$i] = 255;
+		for ( $i=0; $i<4; $i++ ) $ip[$i] = 256;
 		$seg = explode('.', $ipaddr);
 		for ( $i=0; $i<count($seg); $i++ ) {
 			if ( $seg[$i] == '*' ) 
-				$ip[$i] = 255;
+				$ip[$i] = 256;
 			else
 				$ip[$i] = $seg[$i];
 		}
@@ -45,9 +45,9 @@ class fud_ip_filter
 				WHERE 
 					ca=".$ip[0]." 
 					AND 
-					cb IN(".$ip[1].", 255) 
-					AND cc IN(".$ip[2].", 255) 
-					AND cd IN(".$ip[3].", 255) 
+					cb IN(".$ip[1].", 256) 
+					AND cc IN(".$ip[2].", 256) 
+					AND cd IN(".$ip[3].", 256) 
 				LIMIT 1");
 	}
 
