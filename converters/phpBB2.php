@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phpBB2.php,v 1.7 2002/07/12 12:45:14 hackie Exp $
+*   $Id: phpBB2.php,v 1.8 2002/08/22 09:23:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -147,12 +147,12 @@ function print_status($str)
 
 /* Import phpBB avatar galleries */
 
-function import_av_gal($dir)
+function import_av_gal($dirn)
 {
 	print_status("\tfrom: $dir");
 	
 	$odir = getcwd();
-	chdir($dir);
+	chdir($dirn);
 	$dir = opendir('.');
 	readdir($dir); readdir($dir);
 	while( $file = readdir($dir) ) {
@@ -170,7 +170,7 @@ function import_av_gal($dir)
 					exit;				
 				}
 				@chmod($GLOBALS['IMG_ROOT_DISK'].'avatars/'.$file, 0666);
-				q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar (img,descr) VALUES('".addslashes($file)."','".addslashes($dir.' '.$file)."')");
+				q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar (img,descr) VALUES('".addslashes($file)."','".addslashes($dirn.' '.$file)."')");
 				$GLOBALS["av_gal"]++;
 				break;
 		}
