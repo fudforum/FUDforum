@@ -106,7 +106,7 @@ posts:				Сообщений
 posts_c:			Сообщений:
 prev_thread:			Предыдущая тема:
 usrinfo_private_message:	Личное сообщение:
-profile:			Настройки
+profile:			Профиль
 profile_desc:			Нажмите для перехода в панель управления
 rate_thread:			Дать оценку теме
 refresh_list:			Обновить список
@@ -976,9 +976,9 @@ register_theme:			Тема:
 pmsg_trash:			Очистить корзину
 uc_new_pm:			Новые личные сообщения
 uc_new_topic:			Новая тема
-uc_new_cat_forum:		Форумы, на котороые вы подписаны, содержащие с новые сообщения
+uc_new_cat_forum:		Форумы, на котороые вы подписаны, содержащие новые сообщения
 uc_cat_forum:			Категория &raquo; Форум
-uc_sub_topics:			Темы, на которые вы подписаны, содержащие с новые сообщения
+uc_sub_topics:			Темы, на которые вы подписаны, содержащие новые сообщения
 uc_page_title:			Viewing personal control panel.
 search_options:			Настройки поиска
 search_user_filter:		Отобрать по пользователю:
