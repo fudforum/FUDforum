@@ -1,10 +1,10 @@
-#!/usr/local/bin/php -q
+#!/usr/local/bin/php -q -d register_argc_argv=1
 <?php
 /***************************************************************************
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.php,v 1.6 2002/10/06 23:23:16 hackie Exp $
+*   $Id: nntp.php,v 1.7 2002/10/07 20:42:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,9 +17,6 @@
 ***************************************************************************/
 
 	set_time_limit(600);
-	if( !ini_get("register_argc_argv") ) {
-		ini_set("register_argc_argv", 1);
-	}
 	define('forum_debug', 1);
 
 	if( $HTTP_SERVER_VARS['argc'] < 2 ) exit("Missing Forum ID Paramater\n");	

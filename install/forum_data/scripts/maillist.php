@@ -1,11 +1,11 @@
-#!/usr/local/bin/php -q
+#!/usr/local/bin/php -q -d register_argc_argv=1
 <?php
 
 /***************************************************************************
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.17 2002/10/06 23:23:16 hackie Exp $
+*   $Id: maillist.php,v 1.18 2002/10/07 20:42:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,10 +29,6 @@
 ***************************************************************************/
 	
 	set_time_limit(100);
-
-	if( !ini_get("register_argc_argv") ) {
-		ini_set("register_argc_argv", 1);
-	}
 
 class fud_emsg
 {
