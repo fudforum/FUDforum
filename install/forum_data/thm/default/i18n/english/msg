@@ -49,7 +49,7 @@ index_forum:			Forum
 index_new_posts:		New messages since last read
 index_no_new_posts:		No new messages since last read
 interests:			Interests:
-last_post:			Last message;
+last_post:			Last message
 last_thread_msg:		Go to the last message in this topic
 legend:				Legend
 location:			Location:
