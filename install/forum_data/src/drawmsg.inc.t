@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.12 2002/08/01 14:43:22 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.13 2002/08/01 18:37:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -138,7 +138,7 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 		$user_reg_date = '{TEMPLATE: dmsg_user_reg_date}';
 
 		if ( !empty($obj->location) ) {
-			$location = trim_show_len($obj->location, 'LOCATION');
+			$location = trim_show_len($obj->location);
 			$location = '{TEMPLATE: dmsg_location}';
 		}
 		else $location = '{TEMPLATE: dmsg_no_location}';
