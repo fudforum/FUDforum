@@ -1,79 +1,73 @@
-TOPIC_TITLE: <a name="bsearch">How can I search?</a>
+TOPIC_TITLE: <a name="bsearch">Hoe kan ik zoeken?</a>
 TOPIC_HELP:
-Unless disabled by the administrator, you can <a href="{ROOT}?t=search&%_rsid%" class="GenLink">search for messages</a> that were posted inside the forum. You can search for a message by 
-specifying one or more keywords you wish to be found and choosing where to find those keywords, you can either search in subject alone 
-or do a full text search on both the message body & subject. You can also limit your search to a forum of your choice if you do not wish to search 
-in all the forums.<br>
-You can also search for other forum members, by their login name or email address via the <a href="{ROOT}?t=finduser&%_rsid%" class="GenLink">user search form</a>.
+Tenzij uitgezet door de beheerder, kun je <a href="{ROOT}?t=search&%_rsid%" class="GenLink">zoeken naar berichten</a> die op het forum geplaatst zijn.
+Je kunt naar een bericht zoeken door het opgeven van een of meerdere zoekwoorden waar je mee wilt zoeken en kiezen waar je deze zoekwoorden wilt vinden. Je kunt zoeken in alleen de onderwerpregels
+maar ook zoeken in volledige berichten inclusief de onderwerpregel. Tevens kun je je zoekopdracht beperken tot een forum van je keuze als je niet in alle forums
+wilt zoeken.<br>
+Je kunt ook zoeken naar andere forumleden, via hun loginnaam of e-mailadres via het <a href="{ROOT}?t=finduser&%_rsid%" class="GenLink">gebruikers zoekformulier</a>.
 
 
-TOPIC_TITLE: <a name="email">Can I email other forum members?</a>
+TOPIC_TITLE: <a name="email">Kan ik andere forumleden e-mailen?</a>
+TOPIC_HELP:
 <tr><td class="ForumBackground"><table cellspacing=2 cellpadding=2 width="100%" class="dashed"><tr><td class="GenText">
-Unless disabled by the administrator, you will be able to get in touch with other forum members via email.<br>
-To send a member and email, you can either find them through the member list page and then click on the <b>Contact</b> button 
-or simply click on the <b>Email</b> button located near their every post. This will take you to a new page where you will have the opportunity to 
-enter you intended email subject & body. When you're done, simple click on the <b>Email</b> button and you're email will be sent.
-<br><br>
-In addition to sending emails to forum members, you can also use the <b>Email to friend</b> link to recommend a particular page to your friend 
-by sending them a URL with the description. This link can be found on the topic & message view pages of the forum.
+Tenzij uitgezet door de beheerder, is het mogelijk via e-mail met andere forumleden in contact te komen.<br>
+Het sturen van een e-mail naar een ander forumlid kun je doen door naar de ledenlijstpagina te gaan en dan op de <b>E-mail</b> knop
+te klikken of door te klikken op de <B>E-mail</b> knop die onder elk bericht te vinden is. Hierdoor ga je naar een nieuwe pagina
+waar je het onderwerp en het bericht van de e-mail kunt invoeren. Als je klaar bent, klik je gewoon op de <b>E-mail</b> knop en je
+e-mail zal worden verzonden.<P>
+Naast het verzenden van e-mails naar forumleden, kun je ook de link <b>Naar een vriend(in) sturen</b> gebruiken om een specifieke
+pagina bij je vriend(in) onder de aandacht te brengen door hem/haar een URL met beschrijving te sturen. Deze link vind je
+linksbovenaan de pagina met berichten van het forum.
 </td></tr></table></td></tr>
 
 
-TOPIC_TITLE: <a name="pmsg">What are private messages and how do I send them?</a> 
+TOPIC_TITLE: <a name="pmsg">Wat zijn privé berichten en hoe kan ik ze verzenden?</a> 
 TOPIC_HELP:
-If the administrator has not disabled Private Messaging system, you may send private messages to one or more registered 
-members of the forum. To access the PM system, simply click on the <a href="{ROOT}?t=pmsg&%_rsid%" class="GenLink">Private Messaging</a> link 
-which can be found at the top of the page's right corner. If you have any unread private messages, this link will indicate how many unread messages you have.
-<p>
-<b>Sending a private message</b><br>
-Private messages are very similar to email, you specify the person(s) who you wish to send the message to, enter the subject & the message 
-and click send. There are 2 links available, that would allow you to easily find members who you wish to send your message to,
-<b>Select from Buddy List</b>, which will allow to select people from your buddy list, by listing all your buddies and <b>Find User</b>, which
-will allow to search the forum's entire member list for people to whom you wish to address your message.
-A copy of every sent message will be stored inside your <b>SENT</b> folder, for future reference, you can always delete those message should 
-your choose to do so.
-<p>
-There are 3 other folders that you should be aware of:
-<p>
-<b>Inbox</b> folder contains any messages that you have received, each message has an read/unread indicator to allow you to see if you 
-have read this message or not. You will also be able to see who sent this message and if that person is currently online or not, the date when 
-the message was sent is also shown.
-<p>
-<b>Drafts</b> Folder contains the messages you have written but did not yet send yet. By clicking on the message you will go to edit mode, 
-which will allow you to further modify the message as well as send it if you choose to. Once the message is sent it will be moved from the DRAFTS 
-folder to your SENT folder.
-<p>
-<b>Trash</b> folder stores all the message you have marked for deletion, but did not delete as of yet. If you delete a message which is located 
-inside TRASH this message will become permanently deleted.
-<p>
-<b>Message Tracking</b><p>
-When you send a message you have the ability to request a read-receipt, when the recipient reads the message you will receive a system message 
-notifying you that your message has been read.<br>
-However, if you request such a receipt the recipient may choose to decline sending the read-receipt, so if you have requested a receipt and 
-did not receive it this does not necessarily mean your message was not read.
+Als de beheerder het systeem van priv&eacute; berichten niet heeft uitgezet, kun je priv&eacute; berichten sturen naar een of meer geregistreerde
+leden van het forum. Om toegang te krijgen tot het PB systeem, klik je gewoon op de link <a href="{ROOT}?t=pmsg&%_rsid%" class="GenLink">Priv&eacute; berichten</a>
+in de rechter bovenhoek van de pagina. Als je ongelezen priv&eacute; berichten hebt, geeft deze link aan hoeveel ongelezen berichten je hebt.
+<p><b>Een priv&eacute; bericht verzenden</b><br>
+Priv&eacute; berichten lijken erg veel op e-mail, je geeft een persoon op aan wie je een bericht wilt sturen, voert een onderwerp en een bericht in
+en klikt op verzenden. Er zijn twee links beschikbaar die je in staat stellen om gemakkelijk leden te vinden aan wie je je bericht wilt verzenden,
+<b>Selecteer van vriendenlijst</b>, hiermee kun je mensen selecteren van je vriendenlijst door al je vrienden weer te geven en <b>Gebruiker zoeken</b>, waarmee
+je kunt zoeken in de volledige lijst met leden van het forum naar mensen aan wie je je bericht wilt sturen.
+Van elk verzonden bericht wordt een kopie opgeslagen in je map met <b>Verzonden items</b>, later kun je deze berichten altijd
+weer verwijderen als je dat zou willen.
+<p>Denk eraan dat er nog drie andere mappen zijn:<p>
+<b>Postvak in</b> bevat alle berichten die je hebt ontvangen, elk bericht heeft een gelezen/ongelezen indicator zodat je kunt
+zien of je het bericht gelezen hebt of niet. Tevens kun je zien wie dit bericht naar je toegestuurd heeft en of die persoon momenteel online is of niet, de datum wanneer
+het bericht verzonden is kun je hier ook zien.
+<p><b>Concepten</b> bevat alle berichten die je hebt geschreven maar nog niet hebt verzonden. Door te klikken op een bericht, zul je het kunnen wijzigen
+of verzenden als je dat wilt. Als het bericht eenmaal is verzonden zal het worden verplaatst van de map <b>Concepten</b> naar de map <b>Verzonden items</b>.
+<p><b>Verwijderde items</b> bevat alle berichten die je hebt gemarkeerd voor verwijdering, maar die je nog niet daadwerkelijk verwijderd hebt. Wanneer je een bericht verwijdert dat zich bevindt
+in de map <b>Verwijderde items</b> zal het bericht voorgoed verwijderd worden.
+<p><b>Nagaan of een bericht door de ontvanger gelezen is</b><p>
+Wanneer je een bericht verstuurt heb je de mogelijkheid om een leesbevestiging te vragen. Wanneer de ontvanger het bericht leest, ontvang je een systeembericht
+met de melding dat het bericht door de ontvanger gelezen is.<br>
+Echter, wanneer je een dergelijke bevestiging vraagt, kan de ontvanger er voor kiezen om geen leesbevestiging te verzenden, wat betekent
+dat wanneer je om een bevestiging hebt gevraagd en er geen ontvangen hebt, dit niet noodzakelijkerwijs hoeft te betekenen dat je bericht niet gelezen is.
 
 
-TOPIC_TITLE: <a name="mlist">Member List?</a>
+TOPIC_TITLE: <a name="mlist">Ledenlijst?</a>
 TOPIC_HELP:
-The member list is a complete list of all the registered users on a forum. 
-You can sort the list in 3 ways: by login name alphabetically, by number of posts & the date of registration.
-<br><br>
-The member list also has a search capability, allowing you to find a particular member by either login name or email address.
+De ledenlijst is de volledige lijst van alle geregisteerde gebruikers van het forum. 
+Ze zijn op drie manieren te sorteren: alfabetisch op inlognaam, op het aantal geplaatste berichten en op de datum van registratie.
+<P>Je kunt de ledenlijst ook doorzoeken, zodat je een bepaald lid kunt opzoeken aan de hand van zijn/haar inlognaam of e-mailadres.
 
-TOPIC_TITLE:<a name="ann">What are announcements & sticky messages?</a>
+TOPIC_TITLE:<a name="ann">Wat zijn aankondigingen en lange berichten?</a>
 TOPIC_HELP:
-These are special messages that can be created by administrators & moderators and stay at the top of a forum(s) for a period of time.
-Generally they are used to inform the users of the forum of a certain event or outline rules etc...
+Dit zijn speciale berichten die aangemaakt kunnen worden door moderators en beheerders en gedurende een bepaalde tijd bovenaan het forum blijven staan.
+Normaal gesproken worden deze berichten gebruikt om de gebruikers van het forum te informeren over een bepaalde gebeurtenis of om regels uit te leggen enzovoort...
 
 
-TOPIC_TITLE: <a name="rate">Can I rate topics?</a>
+TOPIC_TITLE: <a name="rate">Kan ik onderwerpen waarderen?</a>
 TOPIC_HELP:
-You may have noticed that certain topics have a rating. If allowed by the administrator you can contribute your own rating of the topic.
-You can do so by going to the bottom of the message view page and choose a number between 1-5 (5 highest rating) from the 
-<b>Rate Topic</b> select box.
+Zoals je misschien al hebt gezien hebben sommige onderwerpen een waardering. Indien toegestaan door de beheerder kun je je eigen waardering van het onderwerp toevoegen.
+Dit kun je doen door naar de onderkant van de pagina te gaan en daar een nummer te kiezen tussen 1 en 5 (5 is de hoogste waardering)
+in het <b>Waardeer onderwerp</b> selectievak.
 
-TOPIC_TITLE: <a name="ref">What are referrals?</a>
+TOPIC_TITLE: <a name="ref">Wat zijn verwijzingen?</a>
 TOPIC_HELP:
-Referrals allows you to see, which forum members you or other members of the forum have referred. 
-The referrals are tracked automatically, when you give someone a URL to the forum and they register you will be credit 
-with the referral of that person. The list of people you have referred can be viewed from your profile, when you click on the <b>Referrals</b> tab.
+Verwijzingen stellen je in staat om te zien, welke forumleden je hebt verwezen of welke forumleden andere leden van het forum hebben verwezen.
+De verwijzingen worden automatisch getraceerd wanneer je iemand een URL van het forum geeft en hij/zij zich registreert, deze
+persoon komt dan op jouw lijst met verwijzingen te staan. De lijst met mensen die jij verwezen hebt kun je bekijken in je profiel door te klikken op de tab <b>Verwijzingen</b>.

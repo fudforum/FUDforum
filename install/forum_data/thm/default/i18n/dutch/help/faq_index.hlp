@@ -1,34 +1,34 @@
-TOPIC_TITLE: User Maintenance
+TOPIC_TITLE: Onderhoud
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register" class="GenLink">Why Register?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies" class="GenLink">How FUDforum uses cookies?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie" class="GenLink">How to remove FUDforum cookie?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile" class="GenLink">What's a profile?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs" class="GenLink">What's a signature?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd" class="GenLink">What to do if you lost your password</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat" class="GenLink">Custom Tags, what are they & how can I get one?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars" class="GenLink">What's an avatar?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist" class="GenLink">What's a buddy list?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist" class="GenLink">What does the ignore list do?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register" class="GenLink">Waarom registreren?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies" class="GenLink">Hoe gebruikt het forum cookies?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie" class="GenLink">Hoe kan ik de cookies van het forum verwijderen?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile" class="GenLink">Wat is een profiel?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs" class="GenLink">Wat is een handtekening?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd" class="GenLink">Wat moet ik doen als ik mijn wachtwoord vergeten ben?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat" class="GenLink">Eigen tags, wat zijn het en hoe kan ik er een maken?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars" class="GenLink">Wat is een pasfoto?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist" class="GenLink">Wat is een vriendenlijst?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist" class="GenLink">Wat doet de lijst met te negeren gebruikers?</a><br>
 
-TOPIC_TITLE: General Board Usage
+TOPIC_TITLE: Algemeen gebruik
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch" class="GenLink">How can I search?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email" class="GenLink">Can I email other forum members?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg" class="GenLink">What are private messages and how do I send them?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist" class="GenLink">Member List?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann" class="GenLink">What are announcements & sticky messages?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate" class="GenLink">Can I rate topics?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref" class="GenLink">What are referrals?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch" class="GenLink">Hoe kan ik zoeken?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email" class="GenLink">Kan ik andere forumleden e-mailen?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg" class="GenLink">Wat zijn priv&eacute; berichten en hoe kan ik ze verzenden?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist" class="GenLink">Ledenlijst?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann" class="GenLink">Wat zijn aankondigingen en lange berichten?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate" class="GenLink">Kan ik onderwerpen waarderen?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref" class="GenLink">Wat zijn verwijzingen?</a><br>
 
-TOPIC_TITLE: Reading and Posting Messages
+TOPIC_TITLE: Berichten lezen en plaatsen
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style" class="GenLink">How to format text?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml" class="GenLink">What are Smilies/Emoticons?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls" class="GenLink">How do I use Polls?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach" class="GenLink">Can I attach files to messages?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico" class="GenLink">What's a post icon?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit" class="GenLink">Can I edit my message?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod" class="GenLink">Who are the moderators & administrators?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens" class="GenLink">Censorship?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not" class="GenLink">Can I be notified of replies to my messages?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style" class="GenLink">Hoe kan ik tekst opmaken?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml" class="GenLink">Wat zijn smilies/Emoticons?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls" class="GenLink">Hoe gebruik ik polls?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach" class="GenLink">Kan ik bestanden aan berichten toevoegen?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico" class="GenLink">Wat is een post icoon?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit" class="GenLink">Kan ik mijn bericht wijzigen?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod" class="GenLink">Wie zijn de moderatoren en beheerders?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens" class="GenLink">Censuur?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not" class="GenLink">Kan ik op de hoogte worden gebracht wanneer er op mijn berichten gereageerd wordt?</a><br>

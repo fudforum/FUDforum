@@ -1,89 +1,77 @@
-TOPIC_TITLE: <a name="register">Why Register?</a>
+TOPIC_TITLE: <a name="register">Waarom registreren?</a>
 TOPIC_HELP:
-On most forums you will find it impossible to post new topics or reply to existing ones, unless the Admin 
-allows this explicitly. So, in order for you to be able to participate in the discussion, you would likely be 
-required to register. By registering you will also obtain access to many other features of the forum such as:
-<ul>
-	<li>Email/ICQ Notification, when someone replies to your messages
-	<li>Customized signature, avatar, personal tag etc...
-	<li>Ability to send private messages to one or more members of the forum
-	<li>You'll be able to choose a time zone so that forum's time is equivalent to that of the region you live in 
+Op de meeste forums is het niet mogelijk om berichten te plaatsen, tenzij dit door de beheerder uitdrukkelijk is toegestaan.
+Om deel te kunnen nemen in de discussie is het dus handig om je te registreren. Door je te registreren krijg je tevens toegang tot vele andere mogelijkheden van het forum zoals:
+<ul><li>E-mail/ICQ melding, wanneer iemand reageert op jouw berichten
+<li>Aangepaste handtekening, pasfoto, persoonlijke tag enz...
+<li>Mogelijkheid om priv&eacute; berichten te sturen naar een of meer leden van het forum
+<li>Je kunt een tijdzone kiezen die overeenkomt met de plaats waar je woont.</ul>
+Tenzij anders vermeld is de registratie voor het forum gratis en is er een minimum aan informatie benodigd zoals je e-mailadres en een nicknaam van je keuze.<br>
+Als COPPA aanstaat en je jonger bent dan 13 jaar, zal een ouder of voogd toestemming moeten geven voordat je je account kunt gebruiken om berichten te posten.
+Op forums waar COPPA aanstaat zullen leden die jonger zijn dan 13 jaar naar een formulier gebracht worden, dat hun ouder of voogd moet invullen en dat verzonden moet worden naar het adres dat op die pagina vermeld wordt.
+
+TOPIC_TITLE: <a name="cookies">Hoe gebruikt het forum cookies?</a>
+TOPIC_HELP:
+Normaal gesproken gebruikt FUDforum cookies om een klein beetje informatie op te slaan waaraan het forum kan zien of je wel of niet bent ingelogd.
+Als je browser om de een of andere reden geen cookies ondersteunt, zal FUDforum in plaats hiervan sessies gebruiken, die geen informatie
+op je computer opslaan. Tijdens het inloggen kun je ervoor kiezen om geen cookies aan te nemen en op die manier kiezen voor het sessiessyteem, dit wordt aanbevolen
+wanneer je een openbare computer gebruikt. Hierdoor kun je voorkomen dat je identiteit gestolen wordt, wat zou kunnen gebeuren wanneer je niet uitlogt nadat je het forum gebruikt hebt.
+In de meeste gevallen zul je waarschijnlijk wel gebruik maken van cookies wat op de lange duur toch comfortabeler is.
+Je hoeft dan bijvoorbeeld niet elke keer in te loggen wanneer je het forum bezoekt.
+
+TOPIC_TITLE: <a name="clrcookie">Hoe kan ik de cookies van het forum verwijderen?</a>
+TOPIC_HELP:
+Om het cookie dat door het forum geplaatst wordt, te verwijderen, klik je gewoon op de link uitloggen, waarna het automatisch zal worden verwijderd.
+
+TOPIC_TITLE: <a name="updprofile">Wat is een profiel?</a>
+TOPIC_HELP:
+Elk forumlid heeft een persoonlijk profiel waarin hij verschillende informatie over zichzelf kan opslaan, zoals ids voor instant messaging programma's, handtekening,
+biografie, enz... In je profiel staat ook een aantal instellingen, dat te maken heeft met het forum. Elke keer wanneer je ingelogd bent kun je de instellingen in je profiel wijzigen,
+denk er wel aan dat de informatie die in je profiel staat, ook zichtbaar is voor andere forumleden. Het is dus niet verstandig om gevoelige informatie
+in je profiel te zetten waarvan je liever niet wilt dat andere mensen dat kunnen zien.<br>
+Je profiel heeft een optie <b>"E-mailadres tonen"</b>, wanneer je dit op <b>Nee</b> zet zal je e-mailadres verborgen worden. Je kunt van deze optie gebruik
+maken wanneer je niet wilt dat andere mensen je e-mailadres kunnen zien.
+
+TOPIC_TITLE: <a name="sigs">Wat is een handtekening?</a>
+TOPIC_HELP:
+De handtekening is een stuk tekst dat je automatisch aan het eind van elk bericht kunt toevoegen. In je profiel heb je een optie,
+<b>"Handtekening gebruiken"</b> waarmee je deze optie standaard aan of uit kunt zetten. Verder kun je ook nog op elk formulier waarop je een
+bericht opstelt kiezen voor deze optie voor dat specifieke bericht.<br>
+In navolging van kale tekst, kan dit stuk tekst verschillende stukjes code bevatten (als dat wordt toegestaan door de beheerder) zoals links naar je favoriete URLs,
+persoonlijke foto's, enz...<br>
+Als je de handtekeningen van andere mensen niet wilt zien, dan kun je ze uitzetten door de optie <b>"Toon handtekeningen"</b> op <b>Nee</b> te zetten in je profiel.
+
+TOPIC_TITLE: <a name="rstpasswd">Wat moet ik doen als ik mijn wachtwoord vergeten ben?</a>
+TOPIC_HELP:
+Als je je wachtwoord voor FUDforum niet meer herinneren kunt, moet je naar de <a href="{ROOT}?t=reset&%_rsid%" class="GenLink">pagina wachtwoord resetten</a> gaan, 
+op die pagina voer je je e-mailadres in en druk je op de knop reset wachtwoord. Er zal dan een e-mail naar je toe worden gestuurd met een speciale URL, wanneer je naar deze URL gaat
+zal je wachtwoord worden gereset en zul je een nieuwe e-mail ontvangen met je nieuwe wachtwoord.<p>
+<b>Let op:</b> Je wachtwoord wordt opgeslagen in een eenrichting encryptieformaat dat MD5 HASH genoemd wordt.
+Dit is een militaire vorm van 128-bit encryptie, er is geen manier om je wachtwoord terug te kunnen halen.
+Het werkt door de gegevens die je invoert elke keer te coderen en het dan te vergelijken met de gecodeerde versie.
+Daarom kan je wachtwoord niet terug gevonden worden wanneer je het vergeet. Bij het opvragen van je wachtwoord zal het forum dus willekeurig een nieuw wachtwoord voor je aanmaken en dat naar je opsturen.
+
+TOPIC_TITLE: <a name="cstat">Eigen tags, wat zijn het en hoe kan ik er een maken?</a>
+TOPIC_HELP:
+Eigen tags kunnen alleen worden aangemaakt door de beheerder(s) van het forum, wanneer je een eigen tag wilt, moet je dit dus even vragen aan de beheerder.
+
+TOPIC_TITLE: <a name="avatars">Wat is een pasfoto?</a>
+TOPIC_HELP:
+Een pasfoto is een afbeelding die beneden je gebruikersnaam komt te staan in je berichten die je post en ook verschijnt op je gebruikers informatie pagina.
+FUDforum ondersteunt drie soorten pasfoto's waarvan sommige wel en andere niet aangezet zijn door de beheerder. Je kunt zelf een pasfoto uitzoeken op je profielpagina.
+<ul><li><b>Van het forum</b> - Dit zijn de pasfoto's die door de beheerder beschikbaar gesteld zijn, je kunt er hier een van uitzoeken en zodra je de veranderingen aan je profiel hebt opgeslagen
+zal deze pasfoto jouw pasfoto zijn.
+<li><b>Pasfoto uploaden</b> - Als dit aanstaat kun je een afbeelding uploaden naar de server zodat dat je pasfoto wordt. Wanneer de pasfoto eenmaal op de server staat moet hij eerst nog worden goedgekeurd door de beheerder voordat het daadwerkelijk jouw pasfoto wordt.
+<li><b>Geef een URL</b> - Als dit aanstaat kun je een url naar een afbeelding opgeven waarvan jij graag wilt dat het jouw pasfoto wordt. Wanneer het wordt goedgekeurd door de beheerder wordt deze afbeelding jouw pasfoto.
 </ul>
-Unless otherwise specified, the registration for the forum is completely free and requires only minimal information such as 
-your email address and a nick name of your choice.<br>
-If COPPA is enabled and you are under 13 years of age, you will need to have your legal guardian provide consent before your 
-account can be used to post messages. Upon completion of the registration process on COPPA enabled forums, members younger then 13 years of age 
-will be taken to a form, which their legal guardian will need to fill out and send to the appropriate address shown on that page.
+<b>Let op:</b> Je kunt je pasfoto op elk moment wijzigen, maar de geuploade pasfoto's en de pasfoto's met een url moeten eerst door de beheerder worden goedgekeurd voordat je ze terug kunt zien op het forum.
 
-TOPIC_TITLE: <a name="cookies">How FUDforum uses cookies?</a>
+TOPIC_TITLE: <a name="blist">Wat is een vriendenlijst?</a>
 TOPIC_HELP:
-Normally FUDforum uses cookies to store a small bit of information that allows the forum to see if you are logged in or not. 
-If for some reason your browser does not support cookies, FUDforum will instead use sessions, which do not store any information 
-on your computer. During the login process you can choose to bypass the cookie system and opt for the session system, this is recommended 
-if you are using a public terminal. Doing so will prevent the possible identity theft, which may occur if you do not logout after using the forum. 
-In most cases however, you probably should leave cookies enabled as it is much more convenient in the long run. 
-For example, you will not need to login each time you visit the forum.
+De vriendenlijst is je eigen lijstje van forumleden met wie je wat vaker van gedachten wilt wisselen. Door iemand op je vriendenlijst te plaatsen,
+zul je zijn/haar verjaardag kunnen zien (als hij/zij die tenminste heeft ingevoerd) en tevens hem/haar makkelijk kunnen toevoegen als ontvanger van een van je priv&eacute; berichten.
 
-
-TOPIC_TITLE: <a name="clrcookie">How to remove FUDforum cookie?</a>
+TOPIC_TITLE: <a name="ignlist">Wat doet de lijst met te negeren gebruikers?</a>
 TOPIC_HELP:
-To remove the cookie set by FUDforum, simply click the logout link and it will automatically delete the cookie.
-
-TOPIC_TITLE: <a name="updprofile">What's a profile?</a>
-TOPIC_HELP: As a forum member you have a personal profile inside which you can store various information about yourself, such as IM client ids, signature, 
-biography, etc... Your profile also stores various settings, which deal with the forum. Any time you are logged in you may change your profile settings, 
-you should be aware that most data inside your profile can be viewed by other forum members. So, you should try to not store any sensitive information 
-that you do not wish other people to see.<br>
-Your profile has an option <b>"Show Email Address"</b>, which if set to <b>NO</b> will hide your email address from view. You may want to use this option 
-if you do not want other people to see your email address.
-
-TOPIC_TITLE: <a name="sigs">What's a signature?</a>
-TOPIC_HELP:
-Signature is a string of text that you may automatically append to the end of every message you post. In your profile you have an option, 
-<b>"Use Signature by default"</b> that will enable or disable this feature by default. However, on every post form you can change this option for 
-that particular post.<br>
-In addition to plain text, this string can contain (if allowed by administrator) various tidbits such as links to favorite URLs, 
-personal photos, etc...
-<br>
-If you do not wish to see the signatures of other people, you can turn them off by setting the <b>"Show Signature"</b> to <b>NO</b> in your profile.
-
-
-TOPIC_TITLE: <a name="rstpasswd">What to do if you lost your password</a>
-TOPIC_HELP:
-If cannot remember your password for FUDforum, you should go to the <a href="{ROOT}?t=reset&%_rsid%" class="GenLink">reset password page</a>, 
-on that page enter your email address inside the text box and press the GO button. This will send you an email with a special URL, when you access that URL 
-your password will be reset and you will receive a new email with your password.<br>
-<br>
-<b>Note:</b> Your passwords are stored in a one-way encryption format called MD5 HASH.
-This is military grade 128-bit encryption, there is no way to restore your password.
-It works by encrypting the data every time you enter it and then comparing against
-encrypted version.
-Therefor if you forget your password it can not be restored back, so, upon a restore
-password request the forum will randomly generate you a new password.
-
-TOPIC_TITLE: <a name="cstat">Custom Tags, what are they & how can I get one?</a>
-TOPIC_HELP:
-Custom Tags can only be assigned by the forum administrator(s), so if you want a custom tag, ask the forum's Admin for it.
-
-TOPIC_TITLE: <a name="avatars">What's an avatar?</a>
-TOPIC_HELP:
-Avatars are images that appear below your user name on the messages that you've posted as well as your user information page. 
-FUDforum supports 3 types of avatars, some of which may or may not be enabled by the forum's administrator. You may choose an avatar for yourself 
-from your profile page.
-<ul>
-	<li><b>Built In</b> - These are the avatars the Admin has made available, you can choose one of those avatars and it will become your avatar as soon as 
-	you submit the change to your profile page.
-	<li><b>Upload Avatar</b> - If enabled, you can upload an image that would be your avatar to the server. Once uploaded, it would need to be approved by the administrator before it becomes your avatar.
-	<li><b>Specify URL</b> - If enabled, you can specify a URL to an image, that you wish to be your avatar. If approved by the administrator, this image will become your avatar.
-</ul>
-<b>note:</b> You may change your avatar at any time, however the Uploaded & URL avatars will always need to be approved prior to going live on the forum.
-
-TOPIC_TITLE: <a name="blist">What's a buddy list?</a>
-TOPIC_HELP:
-A buddy list is your own little list of forum members with whom you wish to converse more frequently. By putting a person on your buddy list, 
-you will be able to see their birthday (if they entered one) as well as easily choose them as recipients of your Private Messages.
-
-TOPIC_TITLE: <a name="ignlist">What does the ignore list do?</a>
-TOPIC_HELP:
-Ignore List is a database of forum members who's messages you do not wish to see as well as not allow these members to send you 
-private messages. On every message there is a quick link that would give you an opportunity to add the author of that message to your ignore list.
+De lijst met te negeren gebruikers is een database met forumleden waarvan je geen berichten wilt zien en waarvan je ook niet wilt dat ze je priv&eacute; berichten kunnen
+sturen. Bij elk bericht is er een link die je de mogelijkheid biedt om de auteur van dat bericht toe te voegen aan je lijst met te negeren gebruikers.
