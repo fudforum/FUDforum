@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admerr.php,v 1.5 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admerr.php,v 1.6 2002/09/18 21:53:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,11 +29,11 @@
 	fud_use('fileio.inc');
 	fud_use('err.inc');
 
-	if( !empty($clear_sql_log) && file_exists($GLOBALS['ERROR_PATH'].'sql_errors') ) {
+	if( !empty($HTTP_GET_VARS['clear_sql_log']) && file_exists($GLOBALS['ERROR_PATH'].'sql_errors') ) {
 		unlink($GLOBALS['ERROR_PATH'].'sql_errors');
 	}
 	
-	if( !empty($clear_fud_log) && file_exists($GLOBALS['ERROR_PATH'].'fud_errors') ) {
+	if( !empty($HTTP_GET_VARS['clear_fud_log']) && file_exists($GLOBALS['ERROR_PATH'].'fud_errors') ) {
 		unlink($GLOBALS['ERROR_PATH'].'fud_errors');
 	}
 	
