@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
+*   $Id: consist.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,11 +21,11 @@
 	include_once "GLOBALS.php";
 	
 	fud_use('db.inc');
-	fud_use('static/glob.inc');
-	fud_use('static/adm.inc');
-	fud_use('static/widgets.inc');
-	fud_use('static/ext.inc');
-	fud_use('static/level_adm.inc');
+	fud_use('glob.inc', TRUE);
+	fud_use('adm.inc', TRUE);
+	fud_use('widgets.inc', TRUE);
+	fud_use('ext.inc', TRUE);
+	fud_use('level_adm.inc', TRUE);
 	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('err.inc');
@@ -86,11 +86,12 @@ forum will be disabled.<br><br>
 			{
 				window.scroll(0, 30000);
 			}
-			intervalID=setInterval("scrolldown()", 100);
+			//intervalID=setInterval("scrolldown()", 100);
 		</script>';
 	
 	draw_stat('Locking the database for checking');
 	/* normal forum messages */
+	//'.$GLOBALS['MYSQL_TBL_PREFIX'].'users AS fud_users_2+, 
 	db_lock('
 		'.$GLOBALS['MYSQL_TBL_PREFIX'].'thread+, 
 		'.$GLOBALS['MYSQL_TBL_PREFIX'].'thread_view+,
@@ -100,7 +101,7 @@ forum will be disabled.<br><br>
 		'.$GLOBALS['MYSQL_TBL_PREFIX'].'ses+, 
 		'.$GLOBALS['MYSQL_TBL_PREFIX'].'mod+, 
 		'.$GLOBALS['MYSQL_TBL_PREFIX'].'users+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'users AS fud_users_2+, 
+		
 		'.$GLOBALS['MYSQL_TBL_PREFIX'].'read+, 
 		'.$GLOBALS['MYSQL_TBL_PREFIX'].'poll+, 
 		'.$GLOBALS['MYSQL_TBL_PREFIX'].'poll_opt+, 
@@ -123,7 +124,6 @@ forum will be disabled.<br><br>
 		'.$GLOBALS['MYSQL_TBL_PREFIX'].'group_cache+
 	');
 	draw_stat('Locked!');
-
 	draw_stat('Validating category order');
 	$i=1;
 	$r = q("SELECT id,view_order FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."cat ORDER BY view_order,id");
@@ -241,11 +241,10 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Checking file attachments against messages');
 	
 	draw_stat('Checking attachment counts in messages');
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id,count(*) AS attach_count,".$GLOBALS['MYSQL_TBL_PREFIX']."msg.attach_cnt FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."attach LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."attach.message_id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id IS NOT NULL GROUP BY ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id");
+	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id, count(*) AS attach_count FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."attach LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."attach.message_id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id IS NOT NULL GROUP BY ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id");
 	if( db_count($result) ) {
 		while( $obj = db_rowobj($result) ) {
-			if( $obj->attach_count != $obj->attach_cnt ) 
-				q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg SET attach_cnt=".$obj->attach_count." WHERE id=".$obj->id);
+			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg SET attach_cnt=".$obj->attach_count." WHERE id=".$obj->id);
 		}
 	}
 	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."attach ON ".$GLOBALS['MYSQL_TBL_PREFIX']."attach.message_id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.attach_cnt>0 AND ".$GLOBALS['MYSQL_TBL_PREFIX']."attach.id IS NULL GROUP BY ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id");
@@ -482,10 +481,22 @@ forum will be disabled.<br><br>
 	draw_info($cnt);
 	
 	draw_stat('Updating Thread Last_Post_Id Field');
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id,MAX(".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id) AS mid,".$GLOBALS['MYSQL_TBL_PREFIX']."msg.post_stamp FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.thread_id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.approved='Y' GROUP BY ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.thread_id");
+	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.thread_id AS id,
+			MAX(".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id) AS mid
+		FROM 
+			".$GLOBALS['MYSQL_TBL_PREFIX']."msg 
+		WHERE 
+			".$GLOBALS['MYSQL_TBL_PREFIX']."msg.approved='Y' 
+		GROUP BY 
+			".$GLOBALS['MYSQL_TBL_PREFIX']."msg.thread_id");
+
 	if( db_count($r) ) {
 		while ( $obj = db_rowobj($r) ) {
-			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."thread SET last_post_id=".$obj->mid.",last_post_date=".$obj->post_stamp." WHERE id=".$obj->id);
+			$r = q("SELECT post_stamp FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg WHERE id=$obj->mid");
+			$obj2 = db_rowobj($r);
+			qf($r);
+			
+			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."thread SET last_post_id=".$obj->mid.",last_post_date=".$obj2->post_stamp." WHERE id=".$obj->id);
 		}
 	}
 	draw_stat('Done: Updating Thread Last_Post_Id Field');
@@ -543,7 +554,19 @@ forum will be disabled.<br><br>
 		$r = q("SELECT 
 			".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id, 
 			".$GLOBALS['MYSQL_TBL_PREFIX']."thread.forum_id,
-			IF(is_sticky='Y' AND (".$GLOBALS['MYSQL_TBL_PREFIX']."msg.post_stamp+".$GLOBALS['MYSQL_TBL_PREFIX']."thread.orderexpiry>".$tm." OR ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.orderexpiry=0), 4200000000, ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.last_post_id) AS sort_order_fld
+			CASE WHEN
+				is_sticky='Y' 
+				AND 
+					(".$GLOBALS['MYSQL_TBL_PREFIX']."msg.post_stamp
+						+".$GLOBALS['MYSQL_TBL_PREFIX']."thread.orderexpiry>".$tm." 
+						OR ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.orderexpiry=0
+					)
+			THEN
+				2147483647
+			ELSE
+				".$GLOBALS['MYSQL_TBL_PREFIX']."thread.last_post_id
+			END
+			AS sort_order_fld
 		FROM 
 			".$GLOBALS['MYSQL_TBL_PREFIX']."thread
 			INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg
@@ -561,19 +584,11 @@ forum will be disabled.<br><br>
 		$page = 1;
 		while ( $obj = db_rowobj($r) ) {
 			if ( $i && !($i%$GLOBALS['THREADS_PER_PAGE']) ) {
-				$vlist = substr($vlist, 0, -2);
-				q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_view (page, forum_id, thread_id, pos) VALUES $vlist");
-				$vlist = '';
 				$page++;
 				$cnt = 0;
 			}	
-			
-			$vlist .= "($page, $obj->forum_id, $obj->id, ".++$cnt."),\n";
-			$i++;
-		}
-		if ( strlen($vlist) ) {
-			$vlist = substr($vlist, 0, -2);
-			q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_view (page, forum_id, thread_id, pos) VALUES $vlist");
+			$i++;			
+			q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_view (page, forum_id, thread_id, pos) VALUES ($page, $obj->forum_id, $obj->id, ".++$cnt.")");
 		}
 		qf($r);	
 	}

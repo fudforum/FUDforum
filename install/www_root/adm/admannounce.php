@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admannounce.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admannounce.php,v 1.2 2002/06/26 19:41:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,13 +19,19 @@
 
 	include_once "GLOBALS.php";
 	
-	fud_use('static/widgets.inc');
+	fud_use('widgets.inc', TRUE);
 	fud_use('util.inc');
-	fud_use('static/announce_adm.inc');
+	fud_use('announce_adm.inc', TRUE);
 	fud_use('forum.inc');
 	fud_use('cat.inc');
-	fud_use('static/adm.inc');
+	fud_use('adm.inc', TRUE);
 	
+function raw_date($dt)
+{
+	return array(substr($dt, 0, 4), substr($dt, 4, 2), substr($dt, -2));
+}
+
+
 	list($ses, $usr) = initadm();
 	
 	if ( !empty($btn_cancel) ) {
@@ -47,14 +53,12 @@
 		$a_r->get($edit);
 		$a_r->export_vars('a_');
 		
-		list($d_year, $d_month, $d_day) = explode('-', $a_r->date_started);
-		list($d2_year, $d2_month, $d2_day) = explode('-', $a_r->date_ended);
+		list($d_year, $d_month, $d_day) = raw_date($a_r->date_started);
+		list($d2_year, $d2_month, $d2_day) = raw_date($a_r->date_ended);
 		
 		$a_r->get_frm_list();
 		$a_r->reset_forums();
-		while ( $obj = $a_r->each_forum() ) {
-			$GLOBALS['frm_'.$obj->forum_id] = 1;
-		}
+		while ( $obj = $a_r->each_forum() ) $GLOBALS['frm_'.$obj->forum_id] = 1;
 	}
 	
 	if ( !empty($btn_submit) ) {
@@ -267,8 +271,13 @@
 		else 
 			$b = $obj->text;
 		
+		$st_dt = raw_date($obj->date_started);
+		$st_dt = gmdate("F j, Y", mktime(0,0,0,$st_dt[1], $st_dt[2], $st_dt[0]));
+		$en_dt = raw_date($obj->date_ended);
+		$en_dt = gmdate("F j, Y", mktime(0,0,0,$en_dt[1], $en_dt[2], $en_dt[0]));
+		
 		$ctl = "<td>[<a href=\"admannounce.php?edit=".$obj->id."&"._rsid."\">Edit</a>] [<a href=\"admannounce.php?del=".$obj->id."&"._rsid."\">Delete</a>]</td>";
-		echo "<tr".$bgcolor."><td>".$obj->subject."&nbsp;</td><td>".$b."&nbsp;</td><td>".$obj->date_started."</td><td>".$obj->date_ended."</td>".$ctl."</tr>\n";
+		echo "<tr".$bgcolor."><td>".$obj->subject."&nbsp;</td><td>".$b."&nbsp;</td><td>".$st_dt."</td><td>".$en_dt."</td>".$ctl."</tr>\n";
 	}
 ?>
 </table>

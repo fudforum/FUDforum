@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.4 2002/06/19 00:08:19 hackie Exp $
+*   $Id: admthemes.php,v 1.5 2002/06/26 19:41:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,15 +19,15 @@
 	
 	include_once "GLOBALS.php";
 	
-	fud_use('static/widgets.inc');
+	fud_use('widgets.inc', TRUE);
 	fud_use('util.inc');
 	fud_use('objutil.inc');
-	fud_use('static/adm.inc');
+	fud_use('adm.inc', TRUE);
 	@fud_use('theme.inc');
 	
 	if ( !function_exists('default_theme') ) {
 		echo "<html>Can't locate theme header, compiling default theme<br>";
-		fud_use('static/compiler.inc');
+		fud_use('compiler.inc', TRUE);
 		compile_all('default', 'english', 'default');
 		echo('<a href="admthemes.php?'._rsid.'&rand='.get_random_value().'">Try again</a></html>');
 		exit();
@@ -67,7 +67,7 @@ function cleandir($dir)
 	if ( $nn=$HTTP_POST_VARS['newname'] ) {
 		if ( !bq("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."themes WHERE name='$nn'") ) 
 		{
-			fud_use('static/compiler.inc');
+			fud_use('compiler.inc', TRUE);
 			$root = $GLOBALS['DATA_DIR'].'thm/';
 			$root_nn = $root.$nn;
 			$u=umask(0);
@@ -82,7 +82,7 @@ function cleandir($dir)
 	if ( !$btn_cancel && $HTTP_POST_VARS['thm_theme'] && !$edit ) {
 		fetch_vars('thm_', $thm, $HTTP_POST_VARS);
 		$thm->add();
-		fud_use('static/compiler.inc');
+		fud_use('compiler.inc', TRUE);
 		compile_all($thm->theme, $thm->lang, $thm->name);
 		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
 		exit();
@@ -94,7 +94,7 @@ function cleandir($dir)
 		fetch_vars('thm_', $thm, $HTTP_POST_VARS);
 		if ( $thm->id == 1 ) $thm->name = 'default';
 		$thm->sync();
-		fud_use('static/compiler.inc');
+		fud_use('compiler.inc', TRUE);
 		compile_all($thm->theme, $thm->lang, $thm->name);
 		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
 		exit();
@@ -102,7 +102,7 @@ function cleandir($dir)
 
 	if ( $rebuild ) {
 		$thm->get($rebuild);
-		fud_use('static/compiler.inc');
+		fud_use('compiler.inc', TRUE);
 		compile_all($thm->theme, $thm->lang, $thm->name);
 		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
 		exit();

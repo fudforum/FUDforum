@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
+*   $Id: compact.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,9 +25,9 @@
 	
 	fud_use('db.inc');
 	fud_use('fileio.inc');
-	fud_use('static/adm.inc');
+	fud_use('adm.inc', TRUE);
 	fud_use('private.inc');
-	fud_use('static/glob.inc');
+	fud_use('glob.inc', TRUE);
 	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('replace.inc');
@@ -100,7 +100,7 @@ and the amount of messages your forum has.<br><br>
 	$stm = time();
 	db_lock($GLOBALS['MYSQL_TBL_PREFIX'].'msg+, '.$GLOBALS['MYSQL_TBL_PREFIX'].'thread+, '.$GLOBALS['MYSQL_TBL_PREFIX'].'forum+, '.$GLOBALS['MYSQL_TBL_PREFIX'].'replace+');
 	$files = array();
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id,offset,length,file_id,message_threshold
+	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id,foff,length,file_id,message_threshold
 			FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg 
 			INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."thread
 				ON ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.thread_id=".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id
@@ -125,7 +125,7 @@ and the amount of messages your forum has.<br><br>
 	while( $obj = db_rowobj($r) ) {
 		if( empty($files[$obj->file_id]) ) $files[$obj->file_id]=1;
 		
-		$msg = read_msg_body($obj->offset, $obj->length, $obj->file_id);
+		$msg = read_msg_body($obj->off, $obj->length, $obj->file_id);
 
 		if( $do_rvs_replace ) $msg = preg_replace($rvs_rpl_arr['pattern'], $rvs_rpl_arr['replace'], $msg);
 		if( $do_replace ) $msg = preg_replace($rpl_arr['pattern'], $rpl_arr['replace'], $msg);
@@ -138,7 +138,7 @@ and the amount of messages your forum has.<br><br>
 		}
 		
 		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg SET 
-			offset=".$off.", 
+			foff=".$off.", 
 			length=".$len.",
 			file_id=".$file_id.", 
 			file_id_preview=".intzero($file_id_preview).",
@@ -174,22 +174,22 @@ and the amount of messages your forum has.<br><br>
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private_tmp', 'wb');
 	set_file_buffer($fp, 40960);
 	
-	q("ALTER TABLE ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg ADD INDEX(offset)");
+	q("ALTER TABLE ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg ADD INDEX(foff)");
 	
-	$r = q("SELECT distinct(offset),length FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg");
+	$r = q("SELECT distinct(foff),length FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg");
 	
 	$i=0;
 	$ten_percent = round(db_count($r)/10);
 	
 	while ( $obj = db_rowobj($r) ) {
-		$b = read_pmsg_body($obj->offset, $obj->length); 
+		$b = read_pmsg_body($obj->off, $obj->length); 
 
 		if( $do_rvs_replace ) $b = preg_replace($rvs_rpl_arr['pattern'], $rvs_rpl_arr['replace'], $b);
 		if( $do_replace ) $b = preg_replace($rpl_arr['pattern'], $rpl_arr['replace'], $b);
 
 		$len = fwrite($fp, $b);
 		
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg SET offset=".$off.", length=".$len." WHERE offset=".$obj->offset);
+		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg SET foff=".$off.", length=".$len." WHERE foff=".$obj->off);
 		
 		$off += $len;
 		
@@ -201,7 +201,7 @@ and the amount of messages your forum has.<br><br>
 		$i++;
 	}
 	
-	q("ALTER TABLE ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg DROP index offset");
+	q("ALTER TABLE ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg DROP index foff");
 	
 	echo "100% Done<br>\n";
 	flush();

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforumicons.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admforumicons.php,v 1.2 2002/06/26 19:41:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,8 +19,8 @@
 	
 	include_once "GLOBALS.php";
 	
-	fud_use('static/widgets.inc');
-	fud_use('static/adm.inc');
+	fud_use('widgets.inc', TRUE);
+	fud_use('adm.inc', TRUE);
 	fud_use('util.inc');
 
 	list($ses, $usr) = initadm();

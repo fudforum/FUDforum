@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsysinfo.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
+*   $Id: admsysinfo.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,7 @@
 	
 	include_once "GLOBALS.php";
 	
-	fud_use('static/adm.inc');
+	fud_use('adm.inc', TRUE);
 
 function get_php_setting($val)
 {

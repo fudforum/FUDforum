@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
+*   $Id: admprune.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,12 +20,12 @@
 
 	include_once "GLOBALS.php";
 	
-	fud_use('static/widgets.inc');
+	fud_use('widgets.inc', TRUE);
 	fud_use('util.inc');
 	fud_use('forum.inc');
 	fud_use('cat.inc');
 	fud_use('fileio.inc');
-	fud_use('static/adm.inc');
+	fud_use('adm.inc', TRUE);
 	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('th.inc');
@@ -66,6 +66,9 @@
 		
 		if ( !$btn_conf && !$btn_cancel ) { /* confirmation dialog */
 			$v = q_singleval("SELECT count(*) ".$QRY_TAIL);
+			
+			echo LAST_QUERY(1);
+			
 			$str_time = strftime("%Y-%m-%d %T", $back_t);
 			exit('
 			<html>
@@ -116,9 +119,7 @@
 
  			if ( isset($idlist) ) {
 				reset($idlist);
-				while ( list(,$v) = each($idlist) ) {
-					rebuild_forum_view($v);
-				}
+				while ( list(,$v) = each($idlist) ) rebuild_forum_view($v);
 			}
 			db_unlock();
 		}

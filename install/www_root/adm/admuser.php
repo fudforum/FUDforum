@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
+*   $Id: admuser.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,9 +19,9 @@
 	
 	include_once "GLOBALS.php";
 	
-	fud_use('static/adm.inc');
+	fud_use('adm.inc', TRUE);
 	fud_use('users.inc');	
-	fud_use('static/widgets.inc');
+	fud_use('widgets.inc', TRUE);
 	fud_use('util.inc');
 	fud_use('customtags.inc');
 	fud_use('private.inc');
@@ -155,7 +155,7 @@ if( !empty($act) ) {
 	
 	if( !empty($usr_login) ) {
 		$usr_login = str_replace("*","%",$usr_login);
-		$r = q("SELECT id, login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE login LIKE '".addslashes($usr_login)."'");
+		$r = q("SELECT id, login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE LOWER(login) LIKE '".strtolower(addslashes($usr_login))."'");
 		if( !db_count($r) ) 
 			$usr->id=0;
 		else {
@@ -237,7 +237,7 @@ if( !empty($act) ) {
 	?><tr bgcolor="#f1f1f1"><td>Birthday:</td><td><?php echo strftime('%B, %d, %Y', mktime(1,1,1, $b_month, $b_day, $b_year)); ?></td></tr><?php
 	 	}
 	?>
-	<tr bgcolor="#f1f1f1"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../register.php?mod_id=<?php echo $usr->id; ?>&<?php echo _rsid; ?>&returnto=<?php echo $returnto.'&'._rsid; ?>">Change User's Profile</a> &lt;&lt;</font></td></tr>
+	<tr bgcolor="#f1f1f1"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../index.php?t=register&mod_id=<?php echo $usr->id; ?>&<?php echo _rsid; ?>&returnto=<?php echo $returnto.'&'._rsid; ?>">Change User's Profile</a> &lt;&lt;</font></td></tr>
 	<tr bgcolor="#f1f1f1"><td><font size="+1"><b>Forum Administrator:</b></td><td><?php echo (($usr->is_mod!='A')?'N':'<b><font size="+2" color="red">Y</font>'); ?> [<a href="admuser.php?act=admin&usr_id=<?php echo $usr->id.'&'._rsid; ?>">Toggle</a>]</td></tr>
 	<tr bgcolor="#f1f1f1"><td>Blocked:</td><td><?php echo $usr->blocked; ?> [<a href="admuser.php?act=block&usr_id=<?php echo $usr->id.'&'._rsid; ?>">Toggle</a>]</td></tr>
 	<?php
@@ -297,13 +297,13 @@ if( !empty($act) ) {
 <?php
 	echo '<td colspan=2>';
 
-	if( $PM_ENABLED == 'Y' ) echo '<a href="../ppost.php?returnto='.urlencode($HTTP_SERVER_VARS["REQUEST_URI"]).'&'._rsid.'&msg_to_list='.urlencode($usr->login).'">Send Private Message</a> | ';
+	if( $PM_ENABLED == 'Y' ) echo '<a href="../index.php?t=ppost&returnto='.urlencode($HTTP_SERVER_VARS["REQUEST_URI"]).'&'._rsid.'&msg_to_list='.urlencode($usr->login).'">Send Private Message</a> | ';
 	if( $ALLOW_EMAIL == 'Y' ) 
-		echo '<a href="../email.php?tx_name='.urlencode($usr->login).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->login).'&'._rsid).'">Send Email</a> | ';
+		echo '<a href="../index.php?t=email&tx_name='.urlencode($usr->login).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->login).'&'._rsid).'">Send Email</a> | ';
 	else
 		echo '<a href="mailto:'.$usr->email.'">Send Email</a> | ';
 	
-	echo '	<a href="../showposts.php?id='.$usr->id.'&'._rsid.'">See Posts</a> | <a href="../reset.php?email='.urlencode($usr->email).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->login).'&'._rsid).'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr->id.'&'._rsid.'">Delete User</a></td></tr>';
+	echo '	<a href="../index.php?t=showposts&id='.$usr->id.'&'._rsid.'">See Posts</a> | <a href="../index.php?t=reset&email='.urlencode($usr->email).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->login).'&'._rsid).'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr->id.'&'._rsid.'">Delete User</a></td></tr>';
 	
 	} else if ( !empty($usr_login) || !empty($usr_email) ) { ?>
 	<tr>
