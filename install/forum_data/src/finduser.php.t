@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.20 2003/07/24 22:47:30 hackie Exp $
+*   $Id: finduser.php.t,v 1.21 2003/09/18 14:16:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,6 +70,8 @@
 		if ($adm) {
 			$admi = $r->blocked == 'Y' ? '{TEMPLATE: findu_unban}' : '{TEMPLATE: findu_ban}';
 			$admi = '{TEMPLATE: findu_admin_opts}';
+		} else {
+			$admi = '';
 		}
 
 		$find_user_data .= '{TEMPLATE: find_user_entry}';

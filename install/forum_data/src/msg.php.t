@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.46 2003/07/24 03:16:36 hackie Exp $
+*   $Id: msg.php.t,v 1.47 2003/09/18 14:16:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -201,7 +201,7 @@
 		m.thread_id='.$_GET['th'].' AND m.approved=\'Y\'
 	ORDER BY m.id ASC LIMIT ' . qry_limit($count, $_GET['start']));
 	
-	$message_data = '';
+	$obj2 = $message_data = '';
 
 	$m_num = 0;
 	while ($obj = db_rowobj($result)) {
@@ -214,7 +214,7 @@
 
 	if (!isset($_GET['prevloaded'])) {
 		th_inc_view_count($frm->id);
-		if (_uid) {
+		if (_uid && $obj2) {
 			if ($frm->last_forum_view < $obj2->post_stamp) {
 				user_register_forum_view($frm->forum_id);
 			}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.16 2003/05/15 18:53:42 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.17 2003/09/18 14:16:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,7 +36,7 @@ function convert_bdate($val, $month_fmt)
 
 	if ($u->level_pri) {
 		$level_name = $u->level_name ? '{TEMPLATE: level_name}' : '';
-		$level_image = ($u->level_img && $obj->level_pri != 'A') ? '{TEMPLATE: level_image}' : '';
+		$level_image = ($u->level_img && $u->level_pri != 'A') ? '{TEMPLATE: level_image}' : '';
 	} else {
 		$level_name = $level_image = '';
 	}
@@ -50,7 +50,7 @@ function convert_bdate($val, $month_fmt)
 	$moderation = '';
 	$c = uq('SELECT f.id, f.name FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}forum f ON mm.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id WHERE mm.user_id='.$u->id);
 	while ($r = db_rowarr($c)) {
-		if (!isset($frm_perms) || $frm_perms[$r[0]]) {
+		if (!empty($frm_perms[$r[0]])) {
 			$moderation .= '{TEMPLATE: moderation_entry}';
 		}
 	}
@@ -79,7 +79,7 @@ function convert_bdate($val, $month_fmt)
 	$last_post = '';
 	if ($u->u_last_post_id) {
 		$r = db_saq('SELECT m.subject, m.id, m.post_stamp, t.forum_id FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id WHERE m.id='.$u->u_last_post_id);
-		if (!isset($frm_perms) || $frm_perms[$r[3]]) {
+		if (!empty($frm_perms[$r[3]])) {
 			$last_post = '{TEMPLATE: last_post}';
 		}
 	}

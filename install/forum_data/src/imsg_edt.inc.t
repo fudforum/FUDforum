@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.65 2003/07/23 01:57:09 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.66 2003/09/18 14:16:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -210,7 +210,7 @@ class fud_msg_edit extends fud_msg
 				rebuild_forum_view($frm_id);
 			} else if (isset($thr_locked)) {
 				q("UPDATE {SQL_TABLE_PREFIX}thread SET locked='".yn($thr_locked)."' WHERE id=".$this->thread_id);
-			} else {
+			} else if (isset($is_sticky)) {
 				q("UPDATE {SQL_TABLE_PREFIX}thread SET is_sticky='".yn($is_sticky)."', ordertype=".ifnull($ordertype, "'NONE'").", orderexpiry=".intzero($orderexpiry)." WHERE id=".$this->thread_id);
 				rebuild_forum_view($frm_id);
 			}
@@ -698,7 +698,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 	if ($id_type == 'thr') {
 		$subj = '{TEMPLATE: iemail_thr_subject}';
 		
-		if (!isset($body_email)) {
+		if (!isset($body_email) && isset($do_email)) {
 			$unsub_url['email'] = '{ROOT}?t=rview&th='.$id.'&notify=1&opt=off';
 			$body_email = '{TEMPLATE: iemail_thr_bodyemail}';
 		}	
@@ -716,7 +716,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&unsub=1&frm_id=".$id."';";
 			$body_icq = '{TEMPLATE: iemail_frm_bodyicq}';
 		}
-		if (!isset($body_email)) {
+		if (!isset($body_email) && isset($do_email)) {
 			$unsub_url['email'] = '{ROOT}?t=rview&unsub=1&frm_id='.$id;
 			$body_email = '{TEMPLATE: iemail_frm_bodyemail}';
 		}	
