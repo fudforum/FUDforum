@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.7 2002/08/06 20:35:52 hackie Exp $
+*   $Id: ppost.tmpl,v 1.8 2002/08/23 03:32:42 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -247,7 +247,7 @@
 <tr><th colspan=2>{MSG: post_form}<a name="ptop"> </a></th></tr>
 <tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR: usr->login} [<a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;logout=1" class="GenLink">{MSG: post_logout}</a>]</td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: ppost_to}</td><td class="GenText"><input type="text" name="msg_to_list" value="{VAR: msg_to_list}"> [<a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=post_form.msg_to_list','user_list',250,250);">{MSG: ppost_find_User}</a>] [<a href="javascript://" onClick="javascript: window_open('{ROOT}?t=qbud&amp;{DEF: _rsid}&amp;1=1', 'buddy_list',275,300);" class="GenLink">{MSG: ppost_from_buddy_list}</a>]{VAR: to_err}</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR-HTML: msg_subject}" size=50> {VAR: msg_subect_err}</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR-HTML: msg_subject}" size=50 tabindex="1"> {VAR: msg_subect_err}</td></tr>
 {TEMPLATE-DATA: post_icons}
 {TEMPLATE-DATA: post_smilies}
 {TEMPLATE-DATA: fud_code_icons}
