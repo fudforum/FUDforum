@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.58 2005/01/05 20:34:29 hackie Exp $
+* $Id: search.php.t,v 1.59 2005/03/11 23:59:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -116,7 +116,8 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	}
 
 	return uq('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
-			m.poster_id, m.id, m.thread_id, m.subject, m.poster_id, m.foff, m.length, m.post_stamp, m.file_id, m.icon
+			m.poster_id, m.id, m.thread_id, m.subject, m.poster_id, m.foff, m.length, m.post_stamp, m.file_id, m.icon, 
+			mm.id AS md, (t.root_msg_id = m.id) AS is_rootm, (t.thread_opt & 1) AS is_lckd
 		FROM {SQL_TABLE_PREFIX}search_cache sc
 		INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=sc.msg_id
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id

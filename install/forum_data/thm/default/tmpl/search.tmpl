@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.tmpl,v 1.29 2005/02/27 02:21:36 hackie Exp $
+* $Id: search.tmpl,v 1.30 2005/03/11 23:59:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,7 +53,14 @@
 {SECTION: END}
 
 {SECTION: search_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText wa">{FUNC: ++$i}. <a href="{TEMPLATE: search_entry_lnk}">{VAR: r->subject}</a><br />{FUNC: trim_body(read_msg_body($r->foff, $r->length, $r->file_id))}</td><td class="GenText" nowrap><a href="{TEMPLATE: search_entry_lnk1}">{VAR: r->forum_name}</a></td><td class="GenText" nowrap><span class="DateText">{TEMPLATE: search_post_date}</span> {MSG: by} {IF: !empty($r->poster_id)}{TEMPLATE: registered_poster}{ELSE}{TEMPLATE: unregistered_poster}{END}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText wa">{FUNC: ++$i}. <a href="{TEMPLATE: search_entry_lnk}">{VAR: r->subject}</a><br />{FUNC: trim_body(read_msg_body($r->foff, $r->length, $r->file_id))}
+{IF: ($is_a || $r->md)}
+<hr /><div class="ModOpt">{MSG: moderator_options}: <a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}&amp;del={VAR: r->id}">{MSG: thread_mod_delete}</a>
+{IF: $r->is_rootm}
+ | <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}&amp;{IF: $r->is_lckd}unlock{ELSE}lock{ENDI}=1&amp;SQ={GVAR: sq}">{IF: $r->is_lckd}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a>
+{ENDIFI}
+</div>
+{ENDIFI}</td><td class="GenText" nowrap><a href="{TEMPLATE: search_entry_lnk1}">{VAR: r->forum_name}</a></td><td class="GenText" nowrap><span class="DateText">{TEMPLATE: search_post_date}</span> {MSG: by} {IF: !empty($r->poster_id)}{TEMPLATE: registered_poster}{ELSE}{TEMPLATE: unregistered_poster}{END}</td></tr>
 {SECTION: END}
 
 {SECTION: registered_poster}
