@@ -1020,5 +1020,3 @@ findu_no_conf:			unconfirmed user
 register_max_sig_len:		Maximum Length:
 register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum

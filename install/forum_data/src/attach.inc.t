@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: attach.inc.t,v 1.37 2004/08/31 12:32:48 hackie Exp $
+* $Id: attach.inc.t,v 1.36 2004/08/17 13:26:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,7 +62,7 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 	}
 
 	/* delete any unneeded (removed, temporary) attachments */
-	q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mid." ".$id_list);
+	q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mid." AND id NOT IN(".$id_list.")");
 
 	if (!$attach_opt && ($atl = attach_rebuild_cache($mid))) {
 		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cnt='.$attach_count.', attach_cache=\''.addslashes(@serialize($atl)).'\' WHERE id='.$mid);

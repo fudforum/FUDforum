@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.30 2004/09/15 06:03:29 hackie Exp $
+* $Id: admmassemail.php,v 1.29 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,10 +15,6 @@
 	fud_use('widgets.inc', true);
 	fud_use('smtp.inc');
 	fud_use('iemail.inc');
-
-	/* special user groups */
-	$all_mods = -1000000000;
-	$all_grp_lead = -1000000001;	
 
 	/* find groups with members */
 	$groups = array();
@@ -37,16 +33,7 @@
 			$err = 1;
 			$c = uq('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE id=-1');
 		} else {
-			$gid = (int) $_POST['group'];
-			if ($gid > 0) {
-				$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$gid.(isset($POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
-			} else if ($gid == $all_mods) {
-				$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'mod m INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=m.user_id '.(isset($POST['ignore_override']) ? '' : ' WHERE (users_opt & 8)=0'));
-			} else if ($gid == $all_grp_lead) {
-				$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE (gm.group_members_opt & 131072) '.(isset($POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
-			} else {
-				$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'users WHERE level_id='.($gid * -1).(isset($POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
-			}
+			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$_POST['group'].(isset($POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
 		}
 
 		$email_block = 50;
@@ -113,16 +100,9 @@
 	if ($groups) {
 		echo '<tr class="field"><td valign=top>Send E-mails To</td><td><select name="group">';
 		echo '<option value="0">All Forum Members</option>';
-		echo '<option value="'.$all_mod.'">All Forum Moderators</option>';
-		echo '<option value="'.$all_grp_lead.'">All Group Leaders</option>';
 		foreach ($groups as $k => $v) {
 			echo '<option value="'.$k.'">'.$v[1].' member(s) of group '.htmlspecialchars($v[0]).'</option>';
 		}
-		$r = uq("SELECT id, name FROM ".$DBHOST_TBL_PREFIX."level");
-		while (($v = db_rowarr($r))) {
-			echo '<option value="'.$v[0].'">User Rank: '.$v[1].'</option>';
-		}
-
 		echo '</select></td></tr>';
 	} else {
 		echo '<input type="hidden" name="group" value="0">';

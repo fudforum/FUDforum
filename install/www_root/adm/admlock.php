@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.28 2004/08/31 23:26:46 hackie Exp $
+* $Id: admlock.php,v 1.26 2004/08/09 11:01:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,7 +33,8 @@
 
 		$m1 = realpath($WWW_ROOT_DISK);
 		$m2 = realpath($DATA_DIR);
-		$u = umask(0);
+		$m1l = strlen($m1);
+		$m2l = strlen($m2);
 
 		$dirs = array($m1, $m2);
 		while (list(,$v) = each($dirs)) {
@@ -44,18 +45,23 @@
 			}
 			while ($f = readdir($d)) {
 				$path = $v . '/' . $f;
-				if (@is_file($path) && !@chmod($path, $fileperms)) {
+				if (@is_file($path) && !@chmod($path, $filep)) {
 					echo 'ERROR: couldn\'t chmod "'.$path.'"<br>';
 				} else if (@is_dir($path)) {
-					if ($f == '.' || $f == '..' || is_link($path)) {
+					if ($d == '.' || $d == '..') {
 						continue;
+					}
+					if (is_link($path) && ($path = readlink($path))) {
+						if (strncmp($path, $m1, $m1l) && strncmp($path, $m2, $m12)) {
+							/* skip symlinks to outside of base */
+							continue;
+						}
 					}
 					$dirs[] = $path;
 				}
 			}
 			closedir($d);
 		}
-		umask($u);
 
 		change_global_settings(array('FUD_OPT_2' => $FUD_OPT_2));
 	}
