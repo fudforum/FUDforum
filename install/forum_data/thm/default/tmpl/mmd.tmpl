@@ -1,0 +1,67 @@
+/**
+* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: mmd.tmpl,v 1.1 2005/02/23 05:09:32 hackie Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
+* (at your option) any later version.
+**/
+
+{PHP_FILE: input: mmd.php.t; output: mmd.php;}
+{REF: security.tmpl}
+{REF: imsg.tmpl}
+{REF: forum.tmpl}
+{REF: imsg_edt.tmpl}
+{REF: return.tmpl}
+{REF: logaction.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: th.tmpl}
+{REF: th_adm.tmpl}
+{REF: stats.tmpl}
+
+{SECTION: mmd_topic_ent}
+{VAR: v}<br />
+<input type="hidden" name="_sel[]" value="{VAR: k}" />
+{SECTION: END}
+
+{SECTION: cat_entry category entry}
+<tr><td class="RowStyleC" style="padding-left: {FUNC: ($tabw = ($i[0] * 10 + 2))}px">{VAR: i[1]}</td></tr>
+{SECTION: END}
+
+{SECTION: forum_entry}
+<tr><td class="RowStyleB" style="padding-left: {VAR: tabw}px"><input type="radio" name="forum_id" value="{VAR: r[1]}" />{VAR: r[0]}</td></tr>
+{SECTION: END}
+
+{PAGE: MMD mass move/delete control panel}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<form method="post" action="{ROOT}?t=mmd">{DEF: _hs}
+<div align="center">
+<b>{IF: !empty($_POST['del_sel_all'])}{MSG: mmd_del_title}{ELSE}{MSG: mmd_mov_title}{END}:</b><br />
+<span class="SmallText">
+{TEMPLATE-DATA: mmd_topic_ents}
+</span><p />
+{IF: !empty($_POST['del_sel_all'])}
+<input type="submit" name="NO" value="{MSG: delete_no}"> 
+<input type="hidden" name="del_sel_all" value="1">
+<input type="submit" name="del_conf" value="{MSG: delete_yes}"> 
+{ELSE}
+<table cellspacing=0 cellpadding=3 class="DialogTable dashed">
+<tr><th>{MSG: mmd_move_threads_to}</th></tr>
+{TEMPLATE-DATA: table_data}
+</table>
+<input type="submit" name="NO" value="{MSG: mmd_abort_move}"> 
+<input type="hidden" name="mov_sel_all" value="1">
+<input type="submit" name="submit" value="{MSG: mmd_move}"> 
+{END}
+</div>
+</form>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}

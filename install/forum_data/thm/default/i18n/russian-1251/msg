@@ -1023,3 +1023,8 @@ register_err_turing:		Неверный код подтверждения.
 modque_forum:			Forum
 modque_cat:			Category
 idx_compact_forum_row:		Available Forums:
+mmd_del_title:			Delete Topics
+mmd_mov_title:			Move Topics
+mmd_move_threads_to:		Destination Forum:
+mmd_abort_move:			Cancel
+mmd_move:			Move Topics

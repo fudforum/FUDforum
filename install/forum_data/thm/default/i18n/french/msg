@@ -1023,3 +1023,8 @@ register_err_turing:		Code de validation incorrect.
 modque_cat:			Catégorie
 modque_forum:			Forum
 idx_compact_forum_row:		Forums disponibles :
+mmd_del_title:			Delete Topics
+mmd_mov_title:			Move Topics
+mmd_move_threads_to:		Destination Forum:
+mmd_abort_move:			Cancel
+mmd_move:			Move Topics

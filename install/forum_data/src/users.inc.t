@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.144 2004/12/03 00:53:18 hackie Exp $
+* $Id: users.inc.t,v 1.145 2005/02/23 05:09:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -563,6 +563,10 @@ function init_user()
 				if (isset($p[1], $p[2])) {
 					$_GET[$p[1]] = $p[2];
 				}
+				break;
+
+			case 'mmd':
+				$_GET['t'] = 'mmd';
 				break;
 
 			default:

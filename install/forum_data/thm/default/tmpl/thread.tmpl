@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.50 2005/02/23 02:31:49 hackie Exp $
+* $Id: thread.tmpl,v 1.51 2005/02/23 05:09:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -95,7 +95,7 @@
 {SECTION: END}
 
 {SECTION: admin_control_row_all moderator link for moving & deleting a thread}
-<div class="ModOpt">{MSG: moderator_options}: <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a> | <a href="{TEMPLATE: admin_control_row_lock_lnk}">{IF: $r[18] & 1}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a></div>
+<div class="ModOpt">{MSG: moderator_options}: <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a> | <a href="{TEMPLATE: admin_control_row_lock_lnk}">{IF: $r[18] & 1}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a> <input type="checkbox" name="_sel[]" value="{VAR: r[13]}" /></div>
 {SECTION: END}
 
 {SECTION: admin_control_row_move moderator link for moving a thread}
@@ -124,7 +124,12 @@
 </tr>
 {SECTION: END}
 
+{SECTION: thread_mod_mass_lnk}
+{ROOT}?t=mmd
+{SECTION: END}
+
 {SECTION: thread_list}
+{IF: $MOD || $mo == 8224}<form method="post" action="{TEMPLATE: thread_mod_mass_lnk}">{ENDIF}
 <table border="0" cellspacing="1" cellpadding="2" class="pad">
 <tr>
 	<th>&nbsp;</th>
@@ -136,7 +141,13 @@
 </tr>
 {TEMPLATE-DATA: announcements}
 {TEMPLATE-DATA: thread_list_table_data}
-</table>
+{IF: $MOD || $mo == 8224}
+<tr>
+	<td colspan="3" class="RowStyleC ar"><input type="submit" name="del_sel_all" value="Delete All Selected"> <input type="submit" name="mov_sel_all" value="Move All Selected"></td>
+	<td colspan="3" class="RowStyleC"> </td>
+</tr>
+{ENDIF}
+</table>{IF: $MOD || $mo == 8224}{DEF: _hs}</form>{ENDIF}
 {SECTION: END}
 
 {PAGE: THREAD_PAGE shows the threads in a particular forum}

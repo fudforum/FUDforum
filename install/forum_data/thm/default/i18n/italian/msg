@@ -1023,3 +1023,8 @@ index_title:			Welcome to the forum
 modque_cat:			Category
 modque_forum:			Forum
 idx_compact_forum_row:		Available Forums:
+mmd_del_title:			Delete Topics
+mmd_mov_title:			Move Topics
+mmd_move_threads_to:		Destination Forum:
+mmd_abort_move:			Cancel
+mmd_move:			Move Topics
