@@ -1,8 +1,14 @@
 <?php
-
-	if (empty($_SERVER['PATH_INFO'])) {
-		$p = explode('/', $_SERVER['PATH_INFO']);
-
+	$p = explode('/', $_SERVER['PATH_INFO']);
+	if ($SESSION_USE_URL == 'Y') {
+		$_GET['S'] = array_pop($p);
+	}
+	if ($TRACK_REFERRALS == 'Y') {
+		$_GET['rid'] = array_pop($p);
+	}
+	if (count($p) < 2) {
+		$_GET['t'] = count($p) ? $p[0] : 'index';
+	} else {
 		switch ($p[0]) {
 			case 'm': /* goto specific message */
 				$_GET['t'] = d_thread_view;
@@ -48,10 +54,6 @@
 				$_GET['id'] = $p[1];
 				break;
 
-			case 'p': /* goto own profile */
-				$_GET['t'] = 'register';
-				break;
-
 			case 'i':
 				$_GET['t'] = 'index';
 				if (isset($p[1])) {
@@ -67,10 +69,6 @@
 				}
 				break;
 
-			case 's': /* search */
-				$_GET['t'] = 'search';
-				break;
-
 			case 'sp': /* show posts */
 				$_GET['t'] = 'showposts';
 				$_GET['id'] = $p[1];
@@ -81,10 +79,6 @@
 				if (isset($p[1])) {
 					$_GET['logout'] = 1;
 				}
-				break;
-
-			case 'pm': /* pm control panel */
-				$_GET['t'] = 'pmsg';
 				break;
 
 			case 'st':
@@ -142,14 +136,6 @@
 				}
 				break;
 
-			case 'ot': /* online today */
-				$_GET['t'] = 'online_today';
-				break;
-
-			case 'a': /* I-SPY */
-				$_GET['t'] = 'actions';
-				break;
-
 			case 'm': /* member list */
 				$_GET['t'] = 'finduser';
 				if (isset($p[1])) {
@@ -179,14 +165,6 @@
 			case 'mv': /* change message view mode */
 				$_GET['t'] = $p[1];
 				$_GET['th'] = $p[2];
-				break;
-
-			case 'mq': /* moderation queue */
-				$_GET['t'] = 'modque';
-				break;
-
-			case 'g': /* group manager */
-				$_GET['t'] = 'groupmgr';
 				break;
 
 			case 'rm': /* report message */
