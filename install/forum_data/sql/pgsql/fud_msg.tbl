@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_msg.tbl,v 1.2 2002/06/26 22:54:43 hackie Exp $
+#   $Id: fud_msg.tbl,v 1.3 2002/07/25 13:19:30 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -35,7 +35,9 @@ CREATE TABLE {SQL_TABLE_PREFIX}msg
 	file_id		INT8 NOT NULL DEFAULT 1,
 	offset_preview  INT8 NOT NULL DEFAULT 0,
 	length_preview	INT8 NOT NULL DEFAULT 0,
-	file_id_preview	INT8 NOT NULL DEFAULT 0
+	file_id_preview	INT8 NOT NULL DEFAULT 0,
+	
+	mlist_msg_id 	VARCHAR(100),
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}msg_index_thread_id_approve ON {SQL_TABLE_PREFIX}msg (thread_id, approved);
@@ -45,3 +47,5 @@ CREATE INDEX {SQL_TABLE_PREFIX}msg_index_approved ON {SQL_TABLE_PREFIX}msg (appr
 CREATE INDEX {SQL_TABLE_PREFIX}msg_index_attach_cnt ON {SQL_TABLE_PREFIX}msg (attach_cnt);
 CREATE INDEX {SQL_TABLE_PREFIX}msg_index_poll_id ON {SQL_TABLE_PREFIX}msg (poll_id);
 CREATE INDEX {SQL_TABLE_PREFIX}msg_index_ip_addr_post_stamp ON {SQL_TABLE_PREFIX}msg (ip_addr, post_stamp);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_index_subject ON {SQL_TABLE_PREFIX}msg (subject);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_index_mlist_msg_id ON {SQL_TABLE_PREFIX}msg (mlist_msg_id);
