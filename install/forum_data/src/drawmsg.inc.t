@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.16 2002/08/14 11:59:39 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.17 2002/08/19 08:47:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -177,7 +177,7 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 		if( !empty($obj->level_img) && strtolower($obj->level_pri)!='a' ) $level_image = '{TEMPLATE: dmsg_level_image}';
 	}	
 
-	if ( empty($hide_controls) ) {
+	if ( empty($hide_controls) && (!_uid || $GLOBALS['usr']->show_im == 'Y') ) {
 		/* determine IM status */
 		if ( $obj->icq ) 	$im_icq =   '{TEMPLATE: dmsg_im_icq}';
 		if ( $obj->aim ) 	{ $im_aim = urlencode($obj->aim); $im_aim = '{TEMPLATE: dmsg_im_aim}'; }
@@ -185,7 +185,6 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 		if ( $obj->msnm ) 	$im_msnm =  '{TEMPLATE: dmsg_im_msnm}';
 		if ( $obj->jabber ) 	$im_jabber =  '{TEMPLATE: dmsg_im_jabber}';
 	}
-	
 	
 	if( $obj->message_threshold && $obj->length_preview && empty($GLOBALS['__REVEALED_POSTS__'][$obj->id]) && $obj->length > $obj->message_threshold ) {
 		$msg_body = read_msg_body($obj->offset_preview, $obj->length_preview, $obj->file_id_preview);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.9 2002/08/05 05:58:21 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.10 2002/08/19 08:47:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,11 +63,13 @@ function tmpl_drawpmsg(&$obj)
 		}	
 	
 		/* determine IM status */
-		if ( $obj->icq ) 	$im_icq =   '{TEMPLATE: dpmsg_im_icq}';
-		if ( $obj->aim ) 	{ $im_aim = urlencode($obj->aim); $im_aim = '{TEMPLATE: dpmsg_im_aim}'; }
-		if ( $obj->yahoo ) 	{ $im_yahoo = urlencode($obj->yahoo); $im_yahoo = '{TEMPLATE: dpmsg_im_yahoo}'; }
-		if ( $obj->msnm ) 	$im_msnm =  '{TEMPLATE: dpmsg_im_msnm}';
-		if ( $obj->jabber ) 	$im_jabber =  '{TEMPLATE: dpmsg_im_jabber}';
+		if( $GLOBALS['usr']->show_im == 'Y' ) {
+			if ( $obj->icq ) 	$im_icq =   '{TEMPLATE: dpmsg_im_icq}';
+			if ( $obj->aim ) 	{ $im_aim = urlencode($obj->aim); $im_aim = '{TEMPLATE: dpmsg_im_aim}'; }
+			if ( $obj->yahoo ) 	{ $im_yahoo = urlencode($obj->yahoo); $im_yahoo = '{TEMPLATE: dpmsg_im_yahoo}'; }
+			if ( $obj->msnm ) 	$im_msnm =  '{TEMPLATE: dpmsg_im_msnm}';
+			if ( $obj->jabber ) 	$im_jabber =  '{TEMPLATE: dpmsg_im_jabber}';
+		}
 	
 		if( $obj->ouser_id != $GLOBALS["usr"]->id ) {
 			$user_profile = '{TEMPLATE: dpmsg_user_profile}';

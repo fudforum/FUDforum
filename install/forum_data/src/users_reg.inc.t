@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.9 2002/07/31 21:56:50 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.10 2002/08/19 08:47:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -76,6 +76,7 @@ class fud_user_reg extends fud_user
 				referer_id,
 				show_sigs,
 				show_avatars,
+				show_im,
 				last_read,
 				avatar_loc,
 				avatar_approved,
@@ -120,6 +121,7 @@ class fud_user_reg extends fud_user
 				".intzero($ref_id).",
 				'".yn($this->show_sigs)."',
 				'".yn($this->show_avatars)."',
+				'".yn($this->show_im)."',
 				".$tm.",
 				".strnull($this->avatar_loc).",
 				'NO',
@@ -176,6 +178,7 @@ class fud_user_reg extends fud_user
 				append_sig='".yn($this->append_sig)."',
 				show_sigs='".yn($this->show_sigs)."',
 				show_avatars='".yn($this->show_avatars)."',
+				show_im='".yn($this->show_im)."',
 				posts_ppg='".$this->posts_ppg."',
 				time_zone='".$this->time_zone."',
 				invisible_mode='".yn($this->invisible_mode)."',
