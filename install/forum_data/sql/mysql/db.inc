@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.39 2004/03/22 14:37:57 hackie Exp $
+* $Id: db.inc,v 1.40 2004/04/05 21:11:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -119,7 +119,6 @@ if (!defined('fud_query_stats')) {
 			$r = mysql_unbuffered_query($query,fud_sql_lnk) or die (fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version()));
 			return $r;
 		}
-		function last_query() {}
 	} else {
 		function q($query) 
 		{
@@ -132,14 +131,6 @@ if (!defined('fud_query_stats')) {
 			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 			$r = mysql_unbuffered_query($query,fud_sql_lnk) or die (fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version()));
 			return $r;
-		}
-		function last_query($filter='')
-		{
-			if ($filter) {
-				return str_replace("\t", " ", str_replace("\n", " ", $GLOBALS['__DB_INC_INTERNALS__']['last_query']));
-			} else {
-				return $GLOBALS['__DB_INC_INTERNALS__']['last_query'];
-			}
 		}
 	}
 } else {
@@ -170,29 +161,10 @@ if (!defined('fud_query_stats')) {
 
 		return $result; 
 	}
+
 	function uq($query)
 	{
 		return q($query);
-	}
-	function query_count()
-	{
-		return $GLOBALS['__DB_INC_INTERNALS__']['query_count'];
-	}
-	function last_time()
-	{
-		return $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-	}
-	function total_time()
-	{
-		return $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'];
-	}
-	function last_query($filter='')
-	{
-		if ($filter) {
-			return str_replace("\t", "", str_replace("\n", " ", $GLOBALS['__DB_INC_INTERNALS__']['last_query']));
-		} else {
-			return $GLOBALS['__DB_INC_INTERNALS__']['last_query'];
-		}
 	}
 }
 
@@ -220,11 +192,6 @@ function &q_singleval($query)
 	} else {
 		return $res[0];
 	}
-}
-
-function get_field_list($tbl)
-{
-	return uq('show fields from ' . $tbl);
 }
 
 function qry_limit($limit, $off)

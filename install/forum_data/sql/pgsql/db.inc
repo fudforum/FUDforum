@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.44 2004/01/04 16:38:26 hackie Exp $
+* $Id: db.inc,v 1.45 2004/04/05 21:11:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -175,30 +175,6 @@ if (!defined('fud_query_stats')) {
 
 		return $GLOBALS['__FLPG__'];
 	}
-
-	function query_count()
-	{
-		return $GLOBALS['__DB_INC_INTERNALS__']['query_count'];
-	}
-
-	function last_query($filter='')
-	{
-		if ($filter) {
-			return str_replace("\t", "", str_replace("\n", " ", $GLOBALS['__DB_INC_INTERNALS__']['last_query']));
-		} else {
-			return $GLOBALS['__DB_INC_INTERNALS__']['last_query'];
-		}
-	}
-
-	function last_time()
-	{
-		return $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-	}
-
-	function total_time()
-	{
-		return $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'];
-	}
 }
 
 function db_count($r)
@@ -228,11 +204,6 @@ function &db_rowarr(&$result)
 function &q_singleval($query)
 {
 	return @current(@pg_fetch_row(q($query)));
-}
-
-function get_field_list($tbl)
-{
-	return q("SELECT a.attname AS Field FROM pg_class c, pg_attribute a WHERE c.relname = '$tbl' AND a.attnum > 0 AND a.attrelid = c.oid ORDER BY a.attnum");
 }
 
 function qry_limit($limit, $off)
