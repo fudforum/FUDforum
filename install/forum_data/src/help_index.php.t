@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: help_index.php.t,v 1.9 2003/11/14 10:50:19 hackie Exp $
+* $Id: help_index.php.t,v 1.10 2003/11/18 16:32:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,7 +44,7 @@
 		$topic_help = substr($str, 0, strlen($str)-strlen($end_of_str));
 		$str = $end_of_str;
 		if ($FUD_OPT_2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
-			$rs = str_replace('/', '&amp;', _rsid);
+			$rs = 'S=' . str_replace(array('/', '?'), array('&amp;', ''), _rsid);
 		} else {
 			$rs = _rsid;
 		}
