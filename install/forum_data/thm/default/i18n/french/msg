@@ -15,10 +15,10 @@ current_time:			Heure Actuelle
 custom_avatar_queue:		File d&#39;Avatars Personnalisés
 date:				Date
 date_posted:			Posté Le
-date_registered:			Enregistré Le:
+date_registered:		Enregistré Le:
 download_counter:		Téléchargé {VAR: v[3]} fois
 email:				E-mail:
-email_to_friend:			L&#39;envoyer par e-mail à un ami
+email_to_friend:		L&#39;envoyer par e-mail à un ami
 email_to_friend_desc:		Envoyez l&#39;URL de cette page à un/des ami(s) par e-mail
 email_user:			Cliquez ici pour envoyer un e-mail à l&#39;utilisateur
 faq:				F.A.Q.
@@ -105,10 +105,10 @@ post_count:			Compteur de messages {VAR: u_pcount}
 post_count_l:			Compteur de messages:
 poster:				Créé par
 posts:				messages
-posts_c:				messages:
+posts_c:			messages:
 prev_thread:			Fil précédent:
-usrinfo_private_message:		Message Privé:
-profile:				Profil
+usrinfo_private_message:	Message Privé:
+profile:			Profil
 profile_2:			Profil:
 profile_desc:			Cliquez ici pour accéder au panneau de contrôle utilisateur
 rate:				La note
@@ -116,9 +116,9 @@ rate_thread:			Donner une note à ce Fil
 rating:				Note
 refresh_list:			Rafraîchir la  Liste
 register:			S&#39;enregistrer
-registered:			Enregistrés:
+registered:			Enregistré:
 registered_on:			Enregistré le {DATE: u_reg_date %a, %d %B %Y}
-replies:				Réponses
+replies:			Réponses
 report_to_mod:			Reporter un message au modérateur
 reported_messages:		Messages Reportés
 reveal_all_posts:		Afficher toutes les messages de {VAR: user_login}
@@ -126,8 +126,8 @@ reveal_post:			Afficher le(s) message(s)
 search:				Chercher
 sel_todays_posts:		Les messages du jour
 sel_todays_posts_desc:		Activer/Désactiver le filtrage pour les messages du jour (pour n&#39;afficher que les messages créés aujourd&#39;hui)
-sel_unanswered_posts:		messages sans réponse(s)
-sel_unanswered_posts_desc:	Activer/Désactiver le filtrage pour les messages sans réponse(s) (pour ne montrer que les messages qui n&#39;ont pas encore reçu de réponse)
+sel_unanswered_posts:		messages sans réponse
+sel_unanswered_posts_desc:	Activer/Désactiver le filtrage pour les messages sans réponse (pour ne montrer que les messages qui n&#39;ont pas encore reçu de réponse)
 sel_unread_messages:		Marquer le message comme non-lu
 sel_unread_messages_desc:	Activer/Désactiver le filtrage pour les messages non-lus (pour ne montrer que les messages que vous n&#39;avez pas encore lus)
 send:				Envoyer
@@ -137,7 +137,7 @@ sender_name:			Nom de l&#39;auteur:
 show_all_posts:			Montrer toutes les messages envoyés par {VAR: user_login}
 show_posts_by:			Montrer les messages de: {VAR: u_alias}
 size:				Taille:
-started_on:			Initié le
+started_on:			Commencé le
 status:				État:
 status_line:			Il y a <b>{VAR: st_obj->online_users_reg}</b> membre(s), <b>{VAR: st_obj->online_users_hidden}</b> membre(s) invisible(s) et <b>{VAR: st_obj->online_users_anon}</b> invités(s) actuellement sur le forum.
 sticky:				épingler:
@@ -161,7 +161,7 @@ time:				Heure
 todays_posts:			Les messages du jour
 todays_posts_desc:		Montrer tous les messages qui ont été postés aujourd&#39;hui
 un_ignore_user:			Cesser d&#39;ignorer les messages de cet utilisateur
-unanswered_posts:		messages sans réponse(s)
+unanswered_posts:		messages sans réponse
 unanswered_posts_desc:		Montrer tous les messages qui n&#39;ont pas encore reçu de réponse
 unlock_thread:			Déverrouiller le Fil
 unread_msg:			Ce Fil contient des messages que vous n&#39;avez pas encore lus
@@ -338,8 +338,8 @@ buddy_status:			État
 my_buddies:			Mes amis
 add_buddy:			Ajouter un ami
 add:				Ajouter
-buddy_search:			Entrez le nom de l&#39;utilisateur que vous désirez ajouter.
-buddy_remove:			Enlever de ma liste d&#39;amis
+buddy_search:			Entrez le nom de l&#39;utilisateur que vous souhaitez ajouter à votre liste.<br>Ou utilisez la fonctionnalité <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">chercher un utilisateur</a> pour trouver cette personne.
+buddy_remove:			Enlever de ma liste
 post_normal:			Normal
 post_sticky:			Épingler
 post_annoncement:		Annonces
@@ -390,7 +390,7 @@ ignore_users:			Ignorer les utilisateurs
 add_ignore:			Ignorer quelqu&#39;un d&#39;autre
 forum_terms:			Forum
 forum_rules:			L&#39;enregistrement à ce forum est gratuit! Nous vous faisons cependant remarquer que vous êtes redevable des conditions et détails ci-dessous. Si vous acceptez ces conditions, veuillez presser le bouton "J&#39;accepte" à la fin de la page. Note: En pressant le bouton "J&#39;accepte", vous déclarez avoir plus de 13 ans. Si vous n&#39;avez pas encore 13 ans, vous devez utiliser le formulaire d&#39;autorisation parentale.<p>Bien que les administrateurs et modérateurs de ce forum s&#39;assurent d&#39;écarter tout message qui ne serait pas jugé décent ou approprié sur l&#39;un des forums, il nous est cependant impossible de les lire et contrôler tous. Chaque message représente les perspectives et idées propres de son auteur, et nous ne pouvons (administrateurs et modérateurs) être portés responsables ou blâmables pour le contenu de quelque message que ce soit.<p>En cliquant sur le bouton "J&#39;accepte", vous garantissez que vous n&#39;avez pas l&#39;intention de poster de messages à caractère obscène, vulgaire, en relation avec la sexualité, propos haineux, menaces, ou violant toute loi en aucune façon. <p>Les responsables de ce forum ont le pouvoir et le droit d&#39;effacer, éditer, corriger, déplacer, ou même fermer n&#39;importe quel fil / message pour quelque raison que ce soit et sans préavis.<p>
-forum_rules_13:			Tout utilisateur de moins de 13 ans doit obtenir la permission de ses parents ou d'un tuteur légal afin de pouvoir devenir un membre de ce forum. Bien que la participation des personnes de moins de 13 ans soit la bienvenue, nous devons obtenir une autorisation signée d&#39;un parent ou tuteur par fax ou lettre. C&#39;est seulement après réception de ce document que la personne de moins de 13 ans sera effectivement enregistrée et pourra interagir sur le forum.<p> Si vous désirez cependant commencer la procédure d&#39;enregistrement immédiatement (avant que le document signé ne nous parvienne), veuillez cliquer sur le bouton "J&#39;accepte" ci-dessous. Si vous préférez annuler la procédure d&#39;enregistrement, cliquez sur le bouton "Annuler" afin de retourner à la page d&#39;index des forums. <p>Une copie du formulaire d&#39;autorisation parentale est disponible ici. Pour plus d&#39;informations à propos de la procédure d&#39;enregistrement, veuillez envoyer un e-mail à <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:			Tout utilisateur de moins de 13 ans doit obtenir la permission de ses parents ou d&#39;un tuteur légal afin de pouvoir devenir un membre de ce forum. Bien que la participation des personnes de moins de 13 ans soit la bienvenue, nous devons obtenir une autorisation signée d&#39;un parent ou tuteur par fax ou lettre. C&#39;est seulement après réception de ce document que la personne de moins de 13 ans sera effectivement enregistrée et pourra interagir sur le forum.<p> Si vous désirez cependant commencer la procédure d&#39;enregistrement immédiatement (avant que le document signé ne nous parvienne), veuillez cliquer sur le bouton "J&#39;accepte" ci-dessous. Si vous préférez annuler la procédure d&#39;enregistrement, cliquez sur le bouton "Annuler" afin de retourner à la page d&#39;index des forums. <p>Une copie du formulaire d&#39;autorisation parentale est disponible ici. Pour plus d&#39;informations à propos de la procédure d&#39;enregistrement, veuillez envoyer un e-mail à <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Confirmation COPPA
 coppa_before:			Avant {DATE: coppa %B %e, %Y}
 coppa_after:			Après {DATE: coppa %B %e, %Y}
@@ -403,7 +403,7 @@ coppa_fax_instructions:		Instructions aux parents ou tuteur(s)
 coppa_fax_instructions2:		Veuillez imprimer cette page, la signer et la faxer ou l&#39;envoyer par la poste à:
 coppa_fax_reg_form:		Formulaire d&#39;enregistrement
 coppa_fax_sign:			Veuillez signer le formulaire ci-dessous et nous l&#39;envoyer
-coppa_fax_conf:			J&#39;ai vérifié les informations que mon enfant vous a fournies et j&#39;ai lu la charte sur la vie privée de votre site web. Je comprends que les informations relatives au profil d&#39;un membre peuvent être modifiées en utilisant un mot de passe. Je comprends que je peux demander à ce que ce profil d'enregistrement soit définitivement effacé.
+coppa_fax_conf:			J&#39;ai vérifié les informations que mon enfant vous a fournies et j&#39;ai lu la charte sur la vie privée de votre site web. Je comprends que les informations relatives au profil d&#39;un membre peuvent être modifiées en utilisant un mot de passe. Je comprends que je peux demander à ce que ce profil d&#39;enregistrement soit définitivement effacé.
 coppa_fax_permission:		Signez ici si vous donnez votre permission
 coppa_fax_no_permission:		Signez ici si vous désirez que ce compte soit détruit
 coppa_fax_parent_name:		Parent/Tuteur Nom complet:
@@ -568,7 +568,7 @@ emailconf_err_invkey_msg:	Clef de confirmation Invalide. Veuillez vérifier votre
 err_inc_criticaltitle:		ERREUR CRITIQUE
 err_inc_criticalmsg:		Vous êtes en présence d&#39;une erreur, mais malheureusement il y a un problème avec notre système de report d&#39;erreurs
 finduser_update:			Chercher un utilisateur
-index_update:			Parcourir la <a href="{ROOT}?t=index" class="GenLink">liste des forum</a>
+index_update:			Parcourir la <a href="{ROOT}?t=index" class="GenLink">liste des forums</a>
 help_index_update:		La <a href="{ROOT}?t=help_index" class="GenLink">F.A.Q.</a> (Questions fréquemment posées)
 iemail_thr_subject:		Nouvelle réponse au sujet  {VAR: thr_subject} par {VAR: poster_login}
 iemail_thr_bodyemail:		Pour voir les réponses non-lues, veuillez cliquer ici {VAR: goto_url['email']}\n\nSi vous ne souhaitez pas recevoir de notifications relatives aux réponses reçues sur ce fil à l&#39;avenir, veuillez cliquer ici: {VAR: unsub_url['email']}
@@ -759,7 +759,7 @@ groupmgr_delete:			Effacer
 group_mgr_anon:			Anonyme
 group_mgr_reged:			Tous les utilisateurs enregistrés
 show_show:			Montrer:
-group_mgr:			Administration des Groupe(s)
+group_mgr:			Administration des Groupes
 group_mgr_edit_btn:		Éditer le Groupe
 group_mgr_heading:		Sélection d&#39;éditeur de groupe
 group_mgr_group:			Groupe:
@@ -920,9 +920,9 @@ saved:				Sauvé
 register_err_time_limit:		La limite d&#39;enregistrement de 1 enregistrement par {GVAR: REG_TIME_LIMIT} secondes a été atteinte. Veuillez patienter {VAR: reg_limit_reached}, puis réessayer de vous enregistrer.
 login_blocked_account_ttl:	Votre compte a été interdit.
 login_blocked_account_msg:	Votre compte a été interdit de ce forum, si vous n&#39;en connaissez pas encore la raison, veuillez contacter l&#39;administreur du forum.
-register_affero:			Nom d'utilisateur Affero:<br /><font class="SmallText">Si vous avez un nom d'utilisateur <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>, entrez-le ici.</font>
-im_affero:			Nom d'utilisateur Affero
-register_err_avatardimtobig:	Les dimensions de l&#39;avatar de <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excèdent les dimensions permises de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+register_affero:			Nom d&#39;utilisateur Affero:<br /><font class="SmallText">Si vous avez un nom d&#39;utilisateur <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>, entrez-le ici.</font>
+im_affero:			Nom d&#39;utilisateur Affero
+register_err_avatardimtobig:	Les dimensions de l&#39;avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excèdent les dimensions autorisées <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Téléchargé {VAR: r->dlcount} fois
 member_search:			<br>Ou utilisez la fonctionnalité <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Trouver un utilisateur</a> pour trouver une personne.
 post_all_ext_allowed:		(non-restreint)
