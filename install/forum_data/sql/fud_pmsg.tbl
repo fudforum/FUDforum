@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_pmsg.tbl,v 1.4 2003/09/25 16:52:49 hackie Exp $
+#   $Id: fud_pmsg.tbl,v 1.5 2003/09/25 21:08:31 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -14,10 +14,10 @@ CREATE TABLE {SQL_TABLE_PREFIX}pmsg
 (
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	to_list		TEXT,
-	ouser_id	INT NOT NULL,
+	ouser_id	INT NOT NULL DEFAULT 0,
 	duser_id	INT NOT NULL DEFAULT 0,
 	pdest		INT NOT NULL DEFAULT 0,
-	ip_addr		CHAR(15) NOT NULL DEFAULT '0.0.0.0',
+	ip_addr		VARCHAR(15) NOT NULL DEFAULT '0.0.0.0',
 	host_name	VARCHAR(255),
 	post_stamp	BIGINT NOT NULL DEFAULT 0,
 	read_stamp	BIGINT NOT NULL DEFAULT 0,
@@ -27,7 +27,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}pmsg
 	subject		VARCHAR(100) NOT NULL,
 	attach_cnt	INT NOT NULL DEFAULT 0,
 
-	foff		BIGINT NULL DEFAULT 0,
+	foff		BIGINT NOT NULL DEFAULT 0,
 	length		INT NOT NULL DEFAULT 0,
 
 	ref_msg_id	VARCHAR(11),

@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_announce.tbl,v 1.3 2003/09/25 16:52:49 hackie Exp $
+#   $Id: fud_announce.tbl,v 1.4 2003/09/25 21:08:31 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -13,8 +13,8 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}announce;
 CREATE TABLE {SQL_TABLE_PREFIX}announce
 (
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	date_started	BIGINT NOT NULL,
-	date_ended	BIGINT NOT NULL,
+	date_started	BIGINT NOT NULL DEFAULT 0,
+	date_ended	BIGINT NOT NULL DEFAULT 0,
 
 	subject		VARCHAR(255) NOT NULL,
 	text		TEXT NOT NULL

@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_thread.tbl,v 1.3 2003/09/25 16:52:49 hackie Exp $
+#   $Id: fud_thread.tbl,v 1.4 2003/09/25 21:08:32 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -13,9 +13,9 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}thread;
 CREATE TABLE {SQL_TABLE_PREFIX}thread
 (
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	forum_id	INT NOT NULL,
-	root_msg_id	INT NOT NULL,
-	last_post_date 	BIGINT NOT NULL,
+	forum_id	INT NOT NULL DEFAULT 0,
+	root_msg_id	INT NOT NULL DEFAULT 0,
+	last_post_date 	BIGINT NOT NULL DEFAULT 0,
 	replies		INT NOT NULL DEFAULT 0,
 	views		INT NOT NULL DEFAULT 0,
 	rating		INT NOT NULL DEFAULT 0,

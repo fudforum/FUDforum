@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.4 2003/09/25 16:52:49 hackie Exp $
+#   $Id: fud_users.tbl,v 1.5 2003/09/25 21:08:32 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	bday			INT NOT NULL DEFAULT 0,
 	join_date		BIGINT NOT NULL DEFAULT 0,
 
-	conf_key		CHAR(32) NOT NULL DEFAULT '0',
+	conf_key		VARCHAR(32) NOT NULL DEFAULT '0',
 	user_image		VARCHAR(255),
 	theme			INT NOT NULL DEFAULT 0,
 
@@ -55,7 +55,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	home_page		VARCHAR(255), 
 	bio			TEXT,
 	cat_collapse_status	TEXT,
-	custom_color		VARCHAR(255) DEFAULT NULL,
+	custom_color		VARCHAR(255),
 	buddy_list		TEXT,
 	ignore_list		TEXT,
 	group_leader_list	TEXT,
