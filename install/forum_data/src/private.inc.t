@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.30 2003/11/14 10:50:19 hackie Exp $
+* $Id: private.inc.t,v 1.31 2003/11/19 09:59:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -236,7 +236,7 @@ function send_pm_notification($email, $pid, $subject, $from, $not_mthd)
 {
 	$sub = '{TEMPLATE: pm_notify_subject}';
 
-	if ($not_mthd == 'EMAIL') {
+	if ($not_mthd & 4) {
 		$pfx = '';
 		if ($GLOBALS['FUD_OPT_2'] & 32768 && !empty($_SERVER['PATH_INFO'])) {
 			if ($GLOBALS['FUD_OPT_1'] & 128) {
