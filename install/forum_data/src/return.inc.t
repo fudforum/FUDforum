@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: return.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: return.inc.t,v 1.2 2002/07/27 05:52:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@ function create_return()
 function check_return()
 {
         if ( empty($GLOBALS['returnto']) ) 
-        	$GLOBALS['returnto']='index.php?'._rsid;
+        	$GLOBALS['returnto']='{ROOT}?'._rsid;
         else if ( !strstr($GLOBALS['returnto'], 'S=') ) {
         	if ( !strstr($GLOBALS['returnto'], '?') ) 
 	         	$GLOBALS['returnto'] .= '?'._rsid;
