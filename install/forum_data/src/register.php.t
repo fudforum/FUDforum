@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.8 2002/07/09 23:48:20 hackie Exp $
+*   $Id: register.php.t,v 1.9 2002/07/17 17:04:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -655,6 +655,7 @@ else {
 	$notify_default_radio = tmpl_draw_radio_opt('reg_notify', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_notify, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$notification_select = tmpl_draw_select_opt("EMAIL\nICQ", "{TEMPLATE: register_email}\n{TEMPLATE: register_icq}", $reg_notify_method, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$accept_user_email = tmpl_draw_radio_opt('reg_email_messages', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_email_messages, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$accept_pm = tmpl_draw_radio_opt('reg_pm_messages', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_pm_messages, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$show_sig_radio = tmpl_draw_radio_opt('reg_show_sigs', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_show_sigs, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$show_avatar_radio = tmpl_draw_radio_opt('reg_show_avatars', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_show_avatars, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$append_sig_radio = tmpl_draw_radio_opt('reg_append_sig', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_append_sig, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');

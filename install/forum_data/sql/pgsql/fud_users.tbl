@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.4 2002/07/08 23:15:18 hackie Exp $
+#   $Id: fud_users.tbl,v 1.5 2002/07/17 17:04:52 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -31,6 +31,8 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	CONSTRAINT		ignore_admin_cnt CHECK (ignore_admin='Y' OR ignore_admin='N'),
 	email_messages		VARCHAR(1) NOT NULL DEFAULT 'Y',
 	CONSTRAINT		email_messages_cnt CHECK (email_messages='Y' OR email_messages='N'),
+	pm_messages		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		pm_messages_cnt CHECK (pm_messages='Y' OR pm_messages='N'),
 	avatar			INT NOT NULL DEFAULT 0,
 	avatar_loc		VARCHAR(255),
 	avatar_approved		VARCHAR(2) NOT NULL DEFAULT 'NO',

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.6 2002/07/13 00:10:26 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.7 2002/07/17 17:04:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,7 +43,8 @@ class fud_user_reg extends fud_user
 				notify, 
 				notify_method, 
 				ignore_admin, 
-				email_messages, 
+				email_messages,
+				pm_messages, 
 				gender, 
 				icq, 
 				aim,
@@ -87,6 +88,7 @@ class fud_user_reg extends fud_user
 				'".$this->notify_method."',
 				'".yn($this->ignore_admin)."',
 				'".yn($this->email_messages)."',
+				'".yn($this->pm_messages)."',
 				'".$this->gender."',
 				".intnull($this->icq).",
 				".strnull($this->aim).",
@@ -150,6 +152,7 @@ class fud_user_reg extends fud_user
 				notify_method='".$this->notify_method."',
 				ignore_admin='".yn($this->ignore_admin)."',
 				email_messages='".yn($this->email_messages)."',
+				pm_messages='".yn($this->pm_messages)."',
 				gender='".$this->gender."',
 				icq=".intnull($this->icq).",
 				aim=".strnull($this->aim).",

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.4 2002/07/08 23:15:19 hackie Exp $
+*   $Id: register.tmpl,v 1.5 2002/07/17 17:04:52 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -178,6 +178,7 @@
 <tr><td class="RowStyleA">{MSG: register_notification}<br><font class="SmallText">{MSG: register_notification_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: notify_default_radio}</td></tr>
 <tr><td class="RowStyleA">{MSG: register_notify_method}<br><font class="SmallText">{MSG: register_notify_method_desc}</font></td><td class="RowStyleA"><select name="reg_notify_method" onChange="javascript: re=/[^0-9]/g; a=document.fud_register.reg_icq.value.replace(re, ''); if(this.value=='ICQ' && !a.length ) { alert('{MSG: register_notify_js_error}'); this.value='EMAIL'; }">{TEMPLATE-DATA: notification_select}</select></td></tr>
 <tr><td class="RowStyleA">{MSG: register_allow_email_msg}<br><font class="SmallText">{MSG: register_allow_email_msg_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: accept_user_email}</td></tr>
+<tr><td class="RowStyleA">{MSG: register_allow_pm_msg}<br><font class="SmallText">{MSG: register_allow_pm_msg_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: accept_pm}</td></tr>
 <tr><td class="RowStyleA">{MSG: register_use_sig_default}<br><font class="SmallText">{MSG: register_use_sig_default_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: append_sig_radio}</td></tr>
 <tr><td class="RowStyleA">{MSG: register_show_sig}<br><font class="SmallText">{MSG: register_show_sig_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: show_sig_radio}</td></tr>
 <tr><td class="RowStyleA">{MSG: register_show_avatar}<br><font class="SmallText">{MSG: register_show_avatar_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: show_avatar_radio}</td></tr>
