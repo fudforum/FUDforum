@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mlist.inc,v 1.1 2002/07/24 12:47:24 hackie Exp $
+*   $Id: mlist.inc,v 1.2 2002/07/24 16:38:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,7 +70,7 @@ class fud_mlist
 			forum_id=".$this->forum_id.",
 			name='".$this->name."',
 			mlist_post_apr='".yn($this->mlist_post_apr)."',
-			allow_frm_post='".yn($this->allow_frm_post)."'
+			allow_frm_post='".yn($this->allow_frm_post)."',
 			frm_post_apr='".yn($this->frm_post_apr)."',
 			allow_mlist_attch='".yn($this->allow_mlist_attch)."',
 			allow_mlist_html='".yn($this->allow_mlist_html)."',
