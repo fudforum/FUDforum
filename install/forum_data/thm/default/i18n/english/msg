@@ -823,7 +823,7 @@ report_already_reported_msg:	This message was already reported and the report is
 register_err_toomanyimages:	You are trying to use more than the allowed {GVAR: FORUM_IMG_CNT_SIG} images in your signature.
 pmsg_next_msg:			Next message
 pmsg_prev_msg:			Previous message
-post_proc_reveal_spoiler:	Reveal Spoiler
+post_proc_reveal_spoiler:	Toggle Spoiler
 register_jabber:		Jabber Handle:
 im_jabber:			Jabber: 
 forum_contact:			Contact
