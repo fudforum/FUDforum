@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.104 2003/12/01 21:20:16 hackie Exp $
+* $Id: users.inc.t,v 1.105 2003/12/16 18:15:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -72,7 +72,7 @@ function init_user()
 	define('t_thread_view', $u->users_opt & 128 ? 'thread' : 'threadt');
 
 	/* theme path */
-	@define('fud_theme', 'theme/' . $u->theme_name . '/');
+	@define('fud_theme', 'theme/' . ($u->theme_name ? $u->theme_name : 'default') . '/');
 
 	/* define _uid, which, will tell us if this is a 'real' user or not */
 	define('__fud_real_user__', ($u->id != 1 ? $u->id : 0));
