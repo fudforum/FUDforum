@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsysinfo.php,v 1.10 2003/06/10 15:49:25 hackie Exp $
+*   $Id: admsysinfo.php,v 1.11 2003/08/01 17:35:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -74,7 +74,7 @@ function get_server_software()
 			</tr>
 			<tr>
 				<td>Open basedir:</td>
-				<td><?php echo (($ob = ini_get('open_basedir')) ? $df : 'none'); ?></td>
+				<td><?php echo (($ob = ini_get('open_basedir')) ? $ob : 'none'); ?></td>
 			</tr>
 			<tr>
 				<td>Display Errors:</td>
