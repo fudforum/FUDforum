@@ -646,7 +646,7 @@ regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bit
 remail_anon_opt:		Diesen Beitrag in einen Email Klienten Deiner Wahl kopieren, um sie an Deine Freunde zu schicken.
 remail_continue:		Weiter
 remail_done:			Fertig
-remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) die für Dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: thread->subject}, das hier gefunden werden kann: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\nVon {VAR: u}\n
+remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) die für Dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: thread->subject}, die hier gefunden werden kann: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\nVon {VAR: u}\n
 remail_email_topic:		Das Thema an einen Freund versenden
 remail_emailsent:		Die Email wurde verschickt.
 remail_error:			Es ist ein Fehler aufgetreten
@@ -739,7 +739,7 @@ show_all_posts:			Alle Beitr&auml;ge von {VAR: user_login} anzeigen
 show_posts_by:			Beitr&auml;ge von {VAR: u->alias} anzeigen
 show_show:			Anzeigen:
 showposts_update:		Betrachtet die Beitr&auml;ge von <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>
-single_msg_delete:		Du bist gerade dabei, den Beitrag mit dem Titel: <b>{VAR: msg->subject}</b> zu <font color="#ff0000" size="4">L&Ouml;SCHEN</font><p>
+single_msg_delete:		Du bist gerade dabei, den Beitrag mit dem Titel: <b>{VAR: msg->subject}</b> zu <font color="#ff0000" size="4">L&Ouml;SCHEN</font>.<p>
 size:				Gr&ouml;&szlig;e:
 smladd_close_window:		Fenster schlie&szlig;en
 spell_check_msg:		Rechtschreibung des Beitrages &uuml;berpr&uuml;fen
@@ -880,8 +880,8 @@ postcheck_pm_disabled:		Du kannst an "{VAR-HTML: v}" keine privaten Messages ver
 polllist_vote:			Abstimmen
 polllist_view_results:		Ergebnisse ansehen
 polllist_name:			Titel der Abstimmung
-polllist_date:			Erstellt Am
-polllist_owner:			Erstellt Von
+polllist_date:			Erstellt am
+polllist_owner:			Erstellt von
 polllist_votes:			Stimmen Insgesamt
 polllist_action:		Aktion
 polllist_update:		<a href="{ROOT}?t=polllist">Verf&uuml;gbare Abstimmungen betrachten</a>
@@ -892,7 +892,7 @@ search_or:			ODER
 search_desc_order:		Absteigende Sortierung		
 search_asc_order:		Aufsteigende Sortierung
 search_logic:			Suchlogik:
-search_sorting:			Ergebnisse Nach Datum Sortieren In:
+search_sorting:			Ergebnisse nach Datum sortieren in:
 post_proceed:			Fortsetzen
 post_moderated_forum:		Du hast einen Beitrag in einem moderierten Forum erstellt, was bedeutet, da&szlig; dieser nicht eher im Forum erscheinen wird, bevor einer der Moderatoren oder Administratoren ihn gebilligt hat
 post_moderated_forum_ttl:	Mitteilung vom moderierten Forum
@@ -902,14 +902,15 @@ register_show_im:		Den IM Status anzeigen
 register_show_im_desc:		Ob der IM Status des Verfassers neben seinem Beitrag angezeigt werden soll oder nicht.
 unread_message:			Ungelesene Nachricht
 read_message:			Gelesene Nachricht
-threadt_more:			&lt;more&gt;
-threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
+threadt_more:			&lt;mehr&gt;
+threadt_disabled_ttl:		Die Baumansicht der Themen ist deaktiviert worden.
 threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
-threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-register_msg_tree_view:		Flat thread listing/Tree message listing
-register_tree_msg_view:		Tree thread listing/Flat message listing 
-mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation
-err_inc_query_err:		SQL Error has occured, please contact the <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log
-spell_alts:			no alternatives
-insert_uploaded_image:		Insert image into message body
-finduser_help:			The search engine will automatically add * mask to your query. ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
+threadt_disabled_desc:		Der Administrator hat die Baumansicht für Themen deaktiviert, benutze daher bitte die flache Ansicht.
+threadt_update:			Durchsuche das Forum (Baumansicht) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+register_msg_tree_view:		Flache Themenanzeige/Baumansicht der Themen
+register_tree_msg_view:		Baumansicht der Themen/Flache Themenanzeige 
+mmod_delete_cofirm_ttl:		Best&auml;tigung f&uuml;r Themen/Beitragsl&ouml;schung
+err_inc_query_err:		Ein SQL Fehler ist aufgetreten, bitte kontaktiere den <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">Administrator</a> des Forums und la&szlig; ihn die Logdatei der SQL-Abfragen durchsehen.
+spell_alts:			keine Alternativen
+insert_uploaded_image:		Ein Bild in den Beitrag einf&uuml;gen
+finduser_help:			Die Suchmaschine f&uuml;gt automatisch eine * Maske Deiner Anfrage hinzu. Um zum Bsp. alle Benutzer zu suchen, deren Login mit einem &#39;a&#39; beginnt, tr&auml;gt man &#39;a&#39; in die Sucheingabe ein.
