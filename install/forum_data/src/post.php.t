@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.10 2002/08/06 02:18:51 hackie Exp $
+*   $Id: post.php.t,v 1.11 2002/08/18 10:26:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -426,7 +426,7 @@
 					$returnto = $returnto_d;
 		 	}
 		 	
-			if( !empty($msg_id) && $frm->moderated == 'Y' && !$MOD ) {
+			if( $frm->moderated == 'Y' && !$MOD ) {
 				$ret = create_return();
 				$fp = fopen($GLOBALS['INCLUDE'].'theme/'.$GLOBALS['FUD_THEME']->theme.'/usercp.inc', "rb");
 				$data = fread($fp, __ffilesize($fp));
