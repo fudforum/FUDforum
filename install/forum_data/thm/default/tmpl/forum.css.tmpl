@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.35 2003/12/19 18:20:07 hackie Exp $
+* $Id: forum.css.tmpl,v 1.36 2003/12/20 12:56:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -23,7 +23,7 @@ text,	.ForumBackground, a:link, a:visited, a:active, a.CatLink, .CatDesc, a.User
 	.GenTextRed, .ErrorText, .SmallText, .DateText, .TopBy, th, a.thLnk:link, a.thLnk:active, a.thLnk:visited, 
 	a.thLnk:active, .RowStyleA, .RowStyleB, .RowStyleC, .MsgToolBar, .PollTable, .MsgIg, td.pmH, td.miniMH,
 	.ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable, .AnnText, td.NoAvatar, td.Av1, td.Av2, td.tabA,
-	.AnnSubjText, .PagerLink, .LevelText, .MsgSubText, .MsgBodyText, th.SelTS, th.SelFS, div.LegendH, td.tabH, div.tabT,
+	.AnnSubjText, a.PagerLink, .LevelText, .MsgSubText, .MsgBodyText, th.SelTS, th.SelFS, div.LegendH, td.tabH, div.tabT,
 	.FormattingToolsBG, .FormattingToolsCLR, .MiniTable, .quote, .dashed, .adminColor, .modsColor, td.tabI, td.tabA:hover,
 	.brdrNormal, .brdrSelected, input.button, form, img, .StClr, .AnClr, td.msgot, td.msgud, div.ctags, td.mvTc, td.pmNav,
 	.ModOpt, .MsgR1, .MsgR2, .MsgR3, .mnavMsg, .mnavWarnTbl, .manvNoRes, font.lg, td.tt, table.tt, tr.tab, table.tab,
@@ -43,7 +43,7 @@ text, .GenText {
 	border: 1px solid #AEBDC4;
 }
 
-a:link, a:visited, a:active {
+a:link, a:visited, a:active, a.PagerLink {
 	color: #006699;
 	text-decoration: underline;
 }
@@ -167,11 +167,6 @@ a.thLnk:visited {
 
 .AnnSubjText {
 	font-weight: bold;
-}
-
-.PagerLink {
-	color: #000000;
-	text-decoration: none;
 }
 
 .LevelText, div.ctags {
@@ -540,7 +535,7 @@ div.pre {
 
 a.big:active, a.big:hover, a:active, a:hover, a.CatLink:active, a.CatLink:hover, 
 a.UserControlPanel:active, a.UserControlPanel:hover, a.thLnk:active, 
-a.thLnk:hover, a.small:active, a.small:hover {
+a.thLnk:hover, a.small:active, a.small:hover, a.PagerLink:active, a.PagerLink:hover {
 	color: crimson;
 }
 {PAGE: END}
