@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.22 2002/09/25 00:52:57 hackie Exp $
+*   $Id: register.php.t,v 1.23 2002/09/30 20:44:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -190,6 +190,8 @@ function register_form_check($user_id)
 
 function fmt_year($val)
 {
+	$val = intval($val);
+
 	if( empty($val) ) return;
 	if ( $val > 1000 ) return $val;
 	else if ( $val < 100 && $val > 5 ) return '19'.$val;
