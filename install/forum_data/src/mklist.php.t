@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.php.t,v 1.7 2003/10/09 14:34:26 hackie Exp $
+* $Id: mklist.php.t,v 1.8 2003/10/24 22:18:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -37,7 +37,7 @@
 
 		$tag = '[LIST TYPE='.$list_type.']\n';
 		foreach ($_POST['opt_list'] as $o) {
-			$tag .= '[*]'.$o.'\n';
+			$tag .= '[*]'.addslashes($o).'\n';
 		}
 		$tag .= '[/LIST]';
 

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.tmpl,v 1.5 2003/10/10 14:39:24 hackie Exp $
+* $Id: mklist.tmpl,v 1.6 2003/10/24 22:18:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -60,7 +60,7 @@
 {SECTION: END}
 
 {SECTION: list_entry preview list entry row}
-<li>{VAR-FORM: op}&nbsp;&nbsp;&nbsp;<font size="-1"><a href="javascript:document.list.del.value=\'{VAR: k}\'; document.list.submit();">{MSG: mklist_delete}</a></font>
+<li>{VAR-HTML: op}&nbsp;&nbsp;&nbsp;<font size="-1"><a href="javascript:document.list.del.value=\'{VAR: k}\'; document.list.submit();">{MSG: mklist_delete}</a></font>
 {SECTION: END}
 
 {SECTION: mklist_numerical}
