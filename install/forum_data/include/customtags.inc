@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: customtags.inc,v 1.3 2003/10/09 14:34:25 hackie Exp $
+* $Id: customtags.inc,v 1.4 2003/10/10 01:02:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -15,10 +15,9 @@ function ctag_rebuild_cache($id)
 	$ct = '';
 	$c = uq('SELECT name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'custom_tags WHERE user_id='.$id);
 	while ($r = db_rowarr($c)) {
-		$ct .= addslashes($r[0]) . '<br>';
+		$ct .= ', ' . addslashes($r[0]);
 	}
 	qf($c);
-	$ct = $ct ? "'<font class=\"LevelText\">" . $ct  . "'" : 'NULL';
-	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET custom_status='.$ct.' WHERE id='.$id);
+	q("UPDATE ".$GLOBALS["DBHOST_TBL_PREFIX"]."users SET custom_status='".$ct."' WHERE id=".$id);
 }
 ?>
