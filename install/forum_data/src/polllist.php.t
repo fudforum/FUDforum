@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.15 2003/09/28 20:12:13 hackie Exp $
+*   $Id: polllist.php.t,v 1.16 2003/09/30 02:57:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -87,7 +87,7 @@
 			}
 			$view_res_lnk = $obj->total_votes ? '{TEMPLATE: poll_view_res_lnk}' : '';
 
-			if ($obj->owner && (!($obj->users_opt & 32768) || $usr->users_opt & 1048576) && $ONLINE_OFFLINE_STATUS == 'Y') {
+			if ($obj->owner && (!($obj->users_opt & 32768) || $usr->users_opt & 1048576) && $FUD_OPT_2 & 32) {
 				$online_indicator = $obj->last_visit > __request_timestamp__ ? '{TEMPLATE: polllist_online_indicator}' : '{TEMPLATE: polllist_offline_indicator}';
 			} else {
 				$online_indicator = '';	
@@ -95,12 +95,12 @@
 			$poll_entries .= '{TEMPLATE: poll_entry}';
 		}
 		qf($c);
-		
+
 		if ($ttl > $POLLS_PER_PAGE) {
-			if ($USE_PATH_INFO == 'N') {
-				$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}?t=polllist&amp;oby='.$oby.'&amp;uid='.$uid);
-			} else {
+			if ($FUD_OPT_2 & 32768) {
 				$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}/pl/'.$uid.'/', '/' . $oby . '/' . _rsid);
+			} else {
+				$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}?t=polllist&amp;oby='.$oby.'&amp;uid='.$uid);
 			}
 		}
 	} else {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: stats.inc.t,v 1.7 2003/09/26 21:35:21 hackie Exp $
+*   $Id: stats.inc.t,v 1.8 2003/09/30 02:57:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,11 +17,11 @@
 
 if (_uid && $usr->users_opt & 1048576) {
 	$page_gen_end = gettimeofday();
-	$page_gen_time = sprintf('%.5f', ($page_gen_end['sec'] - $GLOBALS['PAGE_TIME']['sec'] + (($page_gen_end['usec'] - $GLOBALS['PAGE_TIME']['usec'])/1000000)));
+	$page_gen_time = sprintf('%.5f', ($page_gen_end['sec'] - $PAGE_TIME['sec'] + (($page_gen_end['usec'] - $PAGE_TIME['usec'])/1000000)));
 	$page_stats = '{TEMPLATE: admin_page_stats}';
-} else if ($GLOBALS['PUBLIC_STATS'] == 'Y') {
+} else if ($FUD_OPT_2 & 2) {
 	$page_gen_end = gettimeofday();
-	$page_gen_time = sprintf('%.5f', ($page_gen_end['sec'] - $GLOBALS['PAGE_TIME']['sec'] + (($page_gen_end['usec'] - $GLOBALS['PAGE_TIME']['usec'])/1000000)));
+	$page_gen_time = sprintf('%.5f', ($page_gen_end['sec'] - $PAGE_TIME['sec'] + (($page_gen_end['usec'] - $PAGE_TIME['usec'])/1000000)));
 	$page_stats = '{TEMPLATE: public_page_stats}';
 } else {
 	$page_stats = '';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.21 2003/09/28 20:12:13 hackie Exp $
+*   $Id: threadt.php.t,v 1.22 2003/09/30 02:57:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	if ($TREE_THREADS_ENABLE == 'N') {
+	if (!($FUD_OPT_2 & 512)) {
 		error_dialog('{TEMPLATE: threadt_disabled_ttl}', '{TEMPLATE: threadt_disabled_desc}');
 	}
 
@@ -141,10 +141,10 @@
 	}
 	qf($r); 	
 
-	if ($USE_PATH_INFO == 'N') {
-		$page_pager = tmpl_create_pager($start, 1, ceil($frm->thread_count / $THREADS_PER_PAGE), '{ROOT}?t=threadt&amp;frm_id='.$frm->id.'&amp;'._rsid);
-	} else {
+	if ($FUD_OPT_2 & 32768) {
 		$page_pager = tmpl_create_pager($start, 1, ceil($frm->thread_count / $THREADS_PER_PAGE), '{ROOT}/sf/threadt/'.$frm->id.'/1/', '/' . _rsid);
+	} else {
+		$page_pager = tmpl_create_pager($start, 1, ceil($frm->thread_count / $THREADS_PER_PAGE), '{ROOT}?t=threadt&amp;frm_id='.$frm->id.'&amp;'._rsid);
 	}
 
 /*{POST_PAGE_PHP_CODE}*/

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.27 2003/09/28 17:23:43 hackie Exp $
+*   $Id: thread.php.t,v 1.28 2003/09/30 02:57:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -69,8 +69,8 @@
 		$threaded_view = $rating_heading = $admin_heading_row = '';
 	} else {
 		$admin_heading_row = ($MOD || $frm->group_cache_opt & (32|8192)) ? '{TEMPLATE: admin_heading_row}' : '';
-		$rating_heading = $ENABLE_THREAD_RATING == 'Y' ? '{TEMPLATE: rating_heading}' : '';
-		$threaded_view = $TREE_THREADS_ENABLE == 'N' ? '' : '{TEMPLATE: threaded_view}';
+		$rating_heading = $FUD_OPT_2 & 4096 ? '{TEMPLATE: rating_heading}' : '';
+		$threaded_view = $FUD_OPT_2 & 512 ? '{TEMPLATE: threaded_view}' : '';
 		$thread_list_table_data = '';
 
 		do {
@@ -109,7 +109,7 @@
 			$thread_poll_indicator = $r[1] ? '{TEMPLATE: thread_poll_indicator}' : '';
 			$thread_attach_indicator = $r[0] ? '{TEMPLATE: thread_attach_indicator}' : '';
 			$thread_icon = $r[3] ? '{TEMPLATE: thread_icon}' : '{TEMPLATE: thread_icon_none}';
-			if ($ENABLE_THREAD_RATING == 'Y') {
+			if ($FUD_OPT_2 & 4096) {
 				$rating = $r[17] ? '{TEMPLATE: rating}' : '{TEMPLATE: rating_none}';
 			} else {
 				$rating = '';
@@ -163,10 +163,10 @@
 	}
 	qf($result);
 
-	if ($USE_PATH_INFO == 'N') {
-		$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='.$frm_id.'&amp;'._rsid);
-	} else {
+	if ($FUD_OPT_2 & 32768) {
 		$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}/sf/thread/'.$frm_id.'/1/', '/' ._rsid);
+	} else {
+		$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='.$frm_id.'&amp;'._rsid);
 	}
 
 /*{POST_PAGE_PHP_CODE}*/

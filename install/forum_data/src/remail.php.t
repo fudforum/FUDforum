@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.php.t,v 1.12 2003/09/28 12:01:53 hackie Exp $
+*   $Id: remail.php.t,v 1.13 2003/09/30 02:57:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,11 +49,7 @@
 
 		error_dialog('{TEMPLATE: remail_emailsent}', '{TEMPLATE: remail_sent_conf}');
 	} else if (!isset($_POST['posted'])) {
-		if ($TREE_THREADS_ENABLE == 'N' || !strncmp($DEFAULT_THREAD_VIEW, 'msg', 3)) {
-			$def_thread_view = 'msg';
-		} else {
-			$def_thread_view = 'tree';
-		}
+		$def_thread_view = $FUD_OPT_2 & 4 ? 'msg' : 'tree';
 	}
 
 	$remail_error = is_post_error() ? '{TEMPLATE: remail_error}' : '';
