@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.tmpl,v 1.2 2002/06/21 01:50:15 hackie Exp $
+*   $Id: groupmgr.tmpl,v 1.3 2002/07/09 14:54:09 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -125,14 +125,14 @@
 <tr class="{ALT-VAR: mem_list_alt RowStyleA RowStyleB}">
 <td nowrap>{VAR: member_name}</td>
 {TEMPLATE-DATA: perm_table}
-<td nowrap>[<a href="{ROOT}?t=groupmgr&{DEF: _rsid}&edit={VAR: obj->MMID}&group_id={VAR: obj->group_id}">{MSG: groupmgr_edit}</a>] [<a href="{ROOT}?t=groupmgr&{DEF: _rsid}&del={VAR: obj->user_id}&group_id={VAR: obj->group_id}">{MSG: groupmgr_delete}</a>]</td></tr>
+<td nowrap>[<a href="{ROOT}?t=groupmgr&{DEF: _rsid}&edit={VAR: obj->mmid}&group_id={VAR: obj->group_id}">{MSG: groupmgr_edit}</a>] [<a href="{ROOT}?t=groupmgr&{DEF: _rsid}&del={VAR: obj->user_id}&group_id={VAR: obj->group_id}">{MSG: groupmgr_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: group_const_entry permissions for a constant (hardcoded) in a group}
 <tr class="{ALT-VAR: mem_list_alt RowStyleA RowStyleB}">
 <td nowrap>{VAR: member_name}</td>
 {TEMPLATE-DATA: perm_table}
-<td nowrap>[<a href="{ROOT}?t=groupmgr&{DEF: _rsid}&edit={VAR: obj->MMID}&group_id={VAR: obj->group_id}">{MSG: groupmgr_edit}</a>]</td></tr>
+<td nowrap>[<a href="{ROOT}?t=groupmgr&{DEF: _rsid}&edit={VAR: obj->mmid}&group_id={VAR: obj->group_id}">{MSG: groupmgr_edit}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: groupmgr_no_user no such user error}
