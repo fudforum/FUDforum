@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.47 2004/12/08 15:35:37 hackie Exp $
+* $Id: rdf.php.t,v 1.48 2005/02/22 14:09:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -161,7 +161,7 @@ function fud_xml_encode($str)
 					LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 					'.$join.'
 				WHERE
-					' . $lmt  . (isset($_GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
+					' . $lmt  . ' ORDER BY m.post_stamp ' . (isset($_GET['l']) ? 'DESC LIMIT ' : 'ASC LIMIT ') . qry_limit($limit, $offset));
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					header('Content-Type: text/xml');
