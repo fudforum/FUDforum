@@ -772,15 +772,15 @@ p_REPLY:			Ответ
 p_EDIT:				Правка
 p_DEL:				Удаление
 p_STICKY:			Стикер
-p_POLL:				Создание<br>голосований
-p_FILE:				Вложение<br>файлов
+p_POLL:				Создание голосований
+p_FILE:				Вложение файлов
 p_VOTE:				Голосовать
-p_RATE:				Оценка<br>тем
-p_SPLIT:			Разбивка<br>тем
-p_LOCK:				Закрытие<br>тем
-p_MOVE:				Перенос<br>тем
+p_RATE:				Оценка тем
+p_SPLIT:			Разбивка тем
+p_LOCK:				Закрытие тем
+p_MOVE:				Перенос тем
 p_SML:				Смайлики
-p_IMG:				Тэги<br>картинок
+p_IMG:				Тэги картинок
 group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Поиск пользователя</a>
 group_mgr_indicator:		Редактируемая группа: <b>{VAR: grp->name}</b>
 rate_worst:			Так себе
@@ -999,12 +999,12 @@ merge_merge:			Объединить выбранные темы
 merge_next:			Следующие темы
 merge_prev:			Предыдущие темы
 split_cp:			Панель управления разделением тем
-p_SEARCH:			Can Search
-groups_perms_header:		Permissions <font size="-1">(move mouse over the permission to see permission type)</font>
-register_err_sig_too_long:	Your signature exceeds the maximum allowed length of {GVAR: FORUM_SIG_ML} characters.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'Your Signature is \'+document.fud_register.reg_sig.value.length+\' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML}\');" class="SmallText">Check Signature Length</a>
-adm_account_accepted:		Your account \'{VAR: GLOBALS['r']->login}\' was approved by the administrator and is now active. You may now access the {GVAR: FORUM_TITLE}\' forum as a confirmed registered user.
-adm_account_accepted_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was accepted.
-adm_account_rejected:		Your account \'{VAR: GLOBALS['r']->login}\' was declined by the administrator and is now active. If you would like to know the reason behind this decision feel free to contact the administrator at \'{GVAR: ADMIN_EMAIL}\'.
-adm_account_rejected_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was declined.
-thread_on:			on
+p_SEARCH:			Право поиска
+groups_perms_header:		Права доступа <font size="-1">(удерживайте курсор мыши над правом для получения информации о возможном действии)</font>
+register_err_sig_too_long:	Длина вашей подписи превышает допустимый максимум в {GVAR: FORUM_SIG_ML} символов.
+register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'Длина вашей подписи составляет \'+document.fud_register.reg_sig.value.length+\' символов. Максимально допустимая длина - {GVAR: FORUM_SIG_ML}.\');" class="SmallText">Проверить длину подписи</a>
+adm_account_accepted:		Ваша учетная запись \'{VAR: GLOBALS['r']->login}\' была утверждена администратором и в дальнейшем вы можете участвовать в форумах \'{GVAR: FORUM_TITLE}\' как зарегистрированный пользователь.
+adm_account_accepted_s:		Ваш запрос на регистрацию в форуме \'{GVAR: FORUM_TITLE}\' был удовлетворен.
+adm_account_rejected:		Ваш запрос на регистрацию в форуме \'{VAR: GLOBALS['r']->login}\' был отклонен администратором. Узнать подробнее о причинах отказа в регистрации вы можете, связавшись с администратором форума по адресу \'{GVAR: ADMIN_EMAIL}\'.
+adm_account_rejected_s:		Ваш запрос на регистрацию в форуме \'{GVAR: FORUM_TITLE}\' отклонен.
+thread_on:			вкл
