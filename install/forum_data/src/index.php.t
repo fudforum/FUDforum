@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.81 2004/11/25 15:27:19 hackie Exp $
+* $Id: index.php.t,v 1.82 2004/11/29 18:55:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -141,7 +141,11 @@ function url_tog_collapse($id, $c)
 				if ($i[4] && !empty($collapse[$i[4]])) {
 					$collapse[$k] = 1;
 					$cat = $k;
-					continue;
+					if ($k == $cid) {
+						break;
+					} else {
+						continue;
+					}
 				}
 
 				if ($i[3] & 1 && $k != $cat_id && !$r[17]) {
