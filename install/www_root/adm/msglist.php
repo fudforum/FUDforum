@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msglist.php,v 1.6 2002/07/22 14:53:37 hackie Exp $
+*   $Id: msglist.php,v 1.7 2002/08/02 13:33:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -54,30 +54,36 @@ function makedeps()
 	readdir($dp); readdir($dp);
 	while( $file = readdir($dp) ) {
 		if( substr($file, -5) == '.tmpl' ) {
-			$fp = fopen($file, 'rb');
-				$data = fread($fp, __ffilesize($fp));
-			fclose($fp);
+			$data = filetomem($file);
+
+			// check for msgs int the php code
+			$s=$e=0;
 			
-			/* check for msgs int the php code */
-			
-			if ( preg_match_all('!{MSG: (.*?)}!', $data, $regs, PREG_SET_ORDER) ) {
-				foreach($regs as $v) { 
-					if ( !isset($tmplmsglist[$file][$v[1]]) ) $tmplmsglist[$file][$v[1]] = 1;
-				}
+			while( ($s = strpos($data, '{REF: ', $s)) !== false ) {
+				$s += 6;
+				if( ($e=strpos($data, '}', $s)) === false ) break;
+				
+				$dep = trim(substr($data, $s, ($e-$s)));
+				if( !isset($deps[$file][$dep]) ) $deps[$file][$dep] = $dep;
+				$s = $e;
 			}
 			
-			preg_match_all('!{REF: (.*?)}!s', $data, $matches, PREG_SET_ORDER);
-			foreach($matches as $v) $deps[$file][$v[1]] = 1;
+			while( ($s = strpos($data, '{MSG: ', $s)) !== false ) {
+				$s += 6;
+				if( ($e=strpos($data, '}', $s)) === false ) break;
+				
+				$msg = trim(substr($data, $s, ($e-$s)));
+				if( !isset($tmplmsglist[$file][$msg]) ) $tmplmsglist[$file][$msg] = $msg;
+				$s = $e;
+			}
 		}
 	}
 	chdir($oldcwd);
 	
-	/* build reverse deps */
+	// build reverse deps
 	foreach($deps as $file => $reflist) {
-		foreach($reflist as $k => $depfile) $filedeps[$depfile][] = $file;
+		foreach($reflist as $depfile) $filedeps[$depfile][] = $file;
 	}
-	
-	reset($tmplmsglist);
 	
 	$v[0] = $tmplmsglist;
 	$v[1] = $filedeps;
@@ -108,8 +114,8 @@ function makedeps()
 		list($tmplmsglist, $filedeps) = makedeps();
 		/* build msg->file */
 		foreach($tmplmsglist as $k => $v) {
-			foreach($v as $k2 => $v2) {
-				if ( !isset($msgdeps[$k2][$k]) ) $msgdeps[$k2][$k] = 1;
+			foreach($v as $v2) {
+				if ( !isset($msgdeps[$v2][$k]) ) $msgdeps[$v2][$k] = $k;
 			}
 		}
 		
