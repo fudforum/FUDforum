@@ -788,7 +788,7 @@ group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: 
 group_mgr_indicator:		Está a Editar: <b>{VAR: grp->name}</b>
 rate_worst:			Pior
 rate_best:			Melhor
-post_quote_msg:			{VAR: msg->login} Escrito em {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote_msg:			{VAR: msg->login} Escreveu em {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_quote:			- Disse - :
 userinfo_referals:		Utilizadores Referidos:
 userinfo_referals_count:	{VAR: referals} Membros
