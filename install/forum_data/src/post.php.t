@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.17 2002/10/23 12:16:37 hackie Exp $
+*   $Id: post.php.t,v 1.18 2002/10/24 07:04:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -459,7 +459,7 @@ if ( !empty($preview) || !empty($spell) ) {
 			$subj .= $text_s;
 	}
 	if( $GLOBALS['ALLOW_SIGS']=='Y' && $msg_show_sig == 'Y' ) {
-		if ( isset($HTTP_POST_VARS['msg_id']) && !empty($msg->poster_id) && $msg->poster_id != _uid ) 
+		if ( isset($HTTP_POST_VARS['msg_id']) && !empty($msg->poster_id) && $msg->poster_id != _uid && empty($HTTP_POST_VARS['reply_to']) ) 
 			$sig = q_singleval("SELECT sig FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg->poster_id);
 		else
 			$sig = $usr->sig;	
