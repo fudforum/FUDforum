@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.16 2003/04/25 18:27:15 hackie Exp $
+*   $Id: admgroups.php,v 1.17 2003/04/25 19:17:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,7 +50,7 @@
 				$perms[$v] = $_POST[$v];
 			}
 			if (!$edit) { /* create new group */
-				$gid = group_add((int)$_POST['gr_resource'][0], $_POST['gr_name'], ($_POST['gr_ramasks'] == 'Y' ? 1 : 0), $perms, (int)$_POST['gr_inherit_id']);
+				$gid = group_add((int)$_POST['gr_resource'][0], $_POST['gr_name'], (int)$_POST['gr_ramasks'], $perms, (int)$_POST['gr_inherit_id']);
 				if (!$gid) {
 					$error_reason = 'Failed to add group';
 					$error = 1;
@@ -59,6 +59,7 @@
 					foreach ($_POST['gr_resource'] as $v) {
 						q('INSERT INTO '.$tbl.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$gid.')');
 					}
+					grp_rebuild_cache($gid);
 				}
 			} else if (($gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE id='.$edit))) { /* update an existing group */
 				/* check to ensure circular inheritence does not occur */
@@ -66,13 +67,26 @@
 					group_sync($gid, $_POST['gr_name'], (int)$_POST['gr_inherit_id'], $perms);
 					$edit = '';
 					$_POST = $_GET = NULL;
+
+					/* the group's permissions may be inherited by other groups, so we go looking
+					 * for those groups updating their permissions as we go
+					 */
+					$ih_id[$gid] = $gid;
+					while (list(,$v) = each($ih_id)) {
+						if (($c = q('SELECT id FROM '.$tbl.'groups WHERE inherit_id='.$v))) {
+							while ($r = db_rowarr($c)) {
+								if (!isset($ih_id[$r[0]])) {
+									$ih_id[$r[0]] = $r[0];
+								}
+							}
+						}
+						qf($c);
+						grp_rebuild_cache($v);
+					}
 				} else {
 					$error = 1;
 					$error_reason = 'Circular Inheritence';
 				}
-			}
-			if ($gid && !isset($error)) {
-				grp_rebuild_cache($gid);
 			}
 		}
 		/* restore form values */
@@ -90,6 +104,7 @@
 					$gr_resource[$v] = $v;
 				}
 			}
+			$data = db_sab('SELECT g.*, f.id AS no_del, f.name AS fname FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id LEFT JOIN '.$tbl.'forum f ON f.id=gr.resource_id AND f.name=g.name WHERE g.id='.$edit);
 		}
 	}
 	if (!isset($error)) {
@@ -101,9 +116,8 @@
 			}
 		} else {
 			/* default form values */
-			$gr_ramasks = 'N';
+			$gr_ramasks = $gr_name = '';
 			$gr_inherit_id = 2;
-			$gr_name = '';
 			foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
 				$perms[$k] = 'I';
 			}
