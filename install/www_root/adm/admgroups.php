@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.29 2003/10/01 03:01:09 hackie Exp $
+*   $Id: admgroups.php,v 1.30 2003/10/01 03:29:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -111,9 +111,11 @@
 				if (!$gid) {
 					$error_reason = 'Failed to add group';
 					$error = 1;
-				} else if ($gr_resource) {
-					foreach ($gr_resource as $v) {
-						q('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$gid.')');
+				} else {
+					if ($gr_resource) {
+						foreach ($gr_resource as $v) {
+							q('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$gid.')');
+						}
 					}
 
 					/* only rebuild the group cache if the all ANON/REG users were added */
@@ -243,7 +245,7 @@
 <tr><td valign="top" colspan=2 align="center"><font size="+2"><b>Maximum Permissions</b></font><br><font size="-1">(group leaders won't be able to assign permissions higher then these)</font></td></tr>
 <tr><td><table cellspacing=2 cellpadding=2 border=0>
 <?php	
-	if ($edit && $gr_inherit_id && $permi) {
+	if (($edit || $error) && $gr_inherit_id && $permi) {
 		echo '<tr><th nowrap><font size="+1">Permission</font></th><th><font size="+1">Value</font></th><th><font size="+1">Via Inheritance</font></th></tr>';
 		$v1 = 1;
 	} else {
@@ -317,7 +319,7 @@
 
 		echo '<tr style="font-size: x-small;"><td><a name="g'.$k.'">'.$v['gn'].'</a></td>';
 		foreach ($hdr as $v2) {
-			echo '<td nowrap align="center">';
+			echo '<td nowrap align="center" title="'.$v2[1].'">';
 			if ($v['inherit_id'] && $v['groups_opti'] & $v2[0]) {
 				echo '<a href="#g'.$v['inherit_id'].'" title="Inheriting permissions from '.$gl[$v['inherit_id']]['gn'].'">(I: '.($v['groups_opt'] & $v2[0] ? '<font color="green">Y</font>' : '<font color="red">N</font>').')</a>';
 			} else {
