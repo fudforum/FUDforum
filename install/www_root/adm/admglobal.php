@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.22 2003/04/29 18:20:23 hackie Exp $
+*   $Id: admglobal.php,v 1.23 2003/05/07 21:53:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -76,12 +76,13 @@ function print_tag_style($descr, $field)
 			if (isset($ch_list['USE_ALIASES']) && $ch_list['USE_ALIASES'] == 'N') {
 				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET alias=login');
 			}
-			if (isset($ch_list['POSTS_PER_PAGE']) || isset($ch_list['DEFAULT_THREAD_VIEW']) || isset($ch_list['ANON_NICK'])) {
+			if (isset($ch_list['POSTS_PER_PAGE']) || isset($ch_list['DEFAULT_THREAD_VIEW']) || isset($ch_list['ANON_NICK']) || isset($ch_list['SERVER_TZ'])) {
 				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET 
 					posts_ppg='.(int)$ch_list['POSTS_PER_PAGE'].',
 					default_view=\''.addslashes($ch_list['DEFAULT_THREAD_VIEW']).'\',
 					login=\''.addslashes($ch_list['ANON_NICK']).'\',
-					alias=\''.addslashes(htmlspecialchars($ch_list['ANON_NICK'])).'\'
+					alias=\''.addslashes($ch_list['SERVER_TZ']).'\',
+					time_zone=\''.addslashes($ch_list['SERVER_TZ']).'\'
 					WHERE id=1');
 			}
 
@@ -221,6 +222,7 @@ function print_tag_style($descr, $field)
 
 	print_string_field('Posts Per Page', 'POSTS_PER_PAGE', 1);
 	print_string_field('Topics Per Page', 'THREADS_PER_PAGE', 1);
+	print_string_field('Message icons per row', 'POST_ICONS_PER_ROW', 1);
 
 	print_yn_field('Allow Tree View of Thread Listing', 'TREE_THREADS_ENABLE');
 ?>
@@ -243,6 +245,7 @@ function print_tag_style($descr, $field)
 	print_string_field('Search results cache', 'SEARCH_CACHE_EXPIRY', 1);
 	print_yn_field('Member Search', 'MEMBER_SEARCH_ENABLED');
 	print_string_field('Members Per Page', 'MEMBERS_PER_PAGE', 1);
+	print_string_field('Maximum logged-in users', 'MAX_LOGGEDIN_USERS', 1);
 	print_string_field('Anonymous Username', 'ANON_NICK');
 	print_string_field('Quick Pager Link Count', 'THREAD_MSG_PAGER', 1);
 	print_string_field('General Pager Link Count', 'GENERAL_PAGER_COUNT', 1);
