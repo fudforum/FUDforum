@@ -1,0 +1,232 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: threadt.tmpl,v 1.1 2002/08/23 01:05:04 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: threadt.php.t; output: threadt.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: announcement.tmpl}
+{REF: draw_pager.tmpl}
+{REF: forumsel.tmpl}
+{REF: show.tmpl}
+{REF: forum.tmpl}
+{REF: return.tmpl}
+{REF: cat.tmpl}
+{REF: th.tmpl}
+{REF: is_perms.tmpl}
+
+{SECTION: thread_legend}
+<br />
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+	<tr><td class="RowStyleB"><font class="SmallText"><b>{MSG: legend}</b></font><br /></td></tr>
+	<tr><td align=left class="RowStyleB">
+		<table border=0 cellspacing=0 cellpadding=0 align=left>
+			<tr>
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/unread.gif" alt="{MSG: new_posts}" border=0 /></td><td class="SmallText">{MSG: new_posts}</td></tr>
+				</table>
+				</td>
+				
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/read.gif" border=0 alt="{MSG: no_new_posts}" /></td><td class="SmallText">{MSG: no_new_posts}</td></tr>
+				</table>
+				</td>
+				
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" border=0 alt="{MSG: locked_with_new_posts}" /></td><td class="SmallText">{MSG: locked_with_new_posts}</td></tr>
+				</table>
+				</td>
+				
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/readlocked.gif" border=0 alt="{MSG: locked}" /></td><td class="SmallText">{MSG: locked}</td></tr>
+				</table>
+				</td>
+				
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/moved.gif" border=0 alt="{MSG: moved}" /></td><td class="SmallText">{MSG: moved}</td></tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+	</td></tr>
+</table>	
+{SECTION: END}
+
+{SECTION: forum_path}
+<a class="GenLink" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: cat->name}</a><font class="GenText"> &raquo; <b>{VAR-HTML: frm->name}</b></font>
+{SECTION: END}
+
+{SECTION: unsubscribe_link}
+<a class="GenLink" href="{ROOT}?t=threadt&amp;unsub=1&amp;frm_id={VAR: frm_id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}" title="{MSG: unsubscribe_desc}">{MSG: unsubscribe}</a>
+{SECTION: END}
+
+{SECTION: subscribe_link}
+<a class="GenLink" href="{ROOT}?t=threadt&amp;sub=1&amp;frm_id={VAR: frm_id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}" title="{MSG: subscribe_desc}">{MSG: subscribe}</a>
+{SECTION: END}
+
+{SECTION: new_thread_link}
+<a class="GenLink" href="{ROOT}?t=post&amp;{VAR: returnto}&amp;frm_id={VAR: frm_id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" border=0 /></a>
+{SECTION: END}
+
+{SECTION: flat_view switch to flat view link}
+<a href="{ROOT}?t=thread&amp;frm_id={VAR: frm_id}&amp;{DEF: _rsid}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" border=0 /></a>
+{SECTION: END}
+
+{SECTION: no_messages}
+<font class="GenText">{MSG: no_messages}</font>
+{SECTION: END}
+
+{SECTION: thread_poll_indicator}
+{MSG: poll}&nbsp;
+{SECTION: END}
+
+{SECTION: thread_attach_indicator}
+<img src="{THEME_IMAGE_ROOT}/attachment.gif" border=0 alt="" />
+{SECTION: END}
+
+{SECTION: thread_read}
+<img src="{THEME_IMAGE_ROOT}/read.gif" border=0 title="{MSG: no_unread_msg}" alt="" />
+{SECTION: END}
+
+{SECTION: thread_read_unreg}
+<img src="{THEME_IMAGE_ROOT}/read.gif" border=0 title="{MSG: no_unread_msg_unreg}" alt="" />
+{SECTION: END}
+
+{SECTION: thread_read_locked}
+<img src="{THEME_IMAGE_ROOT}/readlocked.gif" border=0 title="{MSG: no_unread_locked}" alt="" />
+{SECTION: END}
+
+{SECTION: thread_unread}
+<img src="{THEME_IMAGE_ROOT}/unread.gif" border=0 title="{MSG: unread_msg}" alt="" />
+{SECTION: END}
+
+{SECTION: thread_unread_locked}
+<img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" border=0 title="{MSG: unread_msg_locked}" alt="" />
+{SECTION: END}
+
+{SECTION: thread_icon}
+<img src="images/message_icons/{VAR: cur->th_icon}" border=0 alt="{VAR: cur->th_icon}" />
+{SECTION: END}
+
+{SECTION: thread_icon_none}
+&nbsp;
+{SECTION: END}
+
+{SECTION: unreg_user_link}
+{GVAR: ANON_NICK}
+{SECTION: END}
+
+{SECTION: reg_user_link}
+<a href="{ROOT}?t=usrinfo&amp;id={VAR: cur->poster_id}&amp;{DEF: _rsid}">{VAR: cur->alias}</a>
+{SECTION: END}
+
+{SECTION: thread_row}
+<tr>		
+<td width=1 class="RowStyleB">{TEMPLATE-DATA: thread_read_status}</td>
+<td class="RowStyleB" width=1>{TEMPLATE-DATA: thread_icon}</td>
+<td class="RowStyleA">{TEMPLATE: tree_tab}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: cur->id}&amp;{DEF: _rsid}">{VAR: cur->subject}</a></td>
+<td class="RowStyleB" nowrap>{TEMPLATE-DATA: user_link}</td>
+<td class="RowStyleB" nowrap><font class="DateText">{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</font></td>
+</tr>
+{SECTION: END}
+
+{SECTION: thread_row_moved a row indicating that the thread has been moved}
+<tr>
+<td>&nbsp;</td><td width=1 class="RowStyleB"><img src="{THEME_IMAGE_ROOT}/moved.gif" border=0 title="{MSG: moved_thread_message}" /></td>
+<td class="RowStyleB" colspan=3 align="center" class="GenText">{MSG: was_moved_msg}</td>
+</tr>
+{SECTION: END}
+
+{SECTION: tree_tab image used to show the position of each msg inside the tree}
+<img border=0 src="blank.gif" alt="" width="{VAR: width}" height=1 />
+{SECTION: END}
+
+{SECTION: max_depth_reached maximum allowed depth of thread reached}
+<tr>
+<td class="RowStyleB" colspan=2>&nbsp;</td>
+<td class="RowStyleA" class="GenText">{TEMPLATE: tree_tab}<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: cur->id}&amp;{DEF: _rsid}">{MSG: threadt_more}</a></td>
+<td class="RowStyleB" colspan=2>&nbsp;</td>
+</tr>
+{SECTION: END}
+
+{SECTION: thread_list}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr>
+	<th>&nbsp;</th>
+	<th>&nbsp;</th>
+	<th width="100%">{MSG: thread_thread}</th>
+	<th nowrap>{MSG: msg_author}</th>
+	<th nowrap>{MSG: started_on}</th>
+</tr>
+{TEMPLATE-DATA: thread_list_table_data}
+</table>
+{SECTION: END}
+
+{PAGE: THREAD_PAGE shows the threads in a particular forum}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<table width="100%" border=0 cellspacing=0 cellpadding=0><tr>
+<td valign="bottom" align="left" width="100%">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: admin_cp}</td>
+<td valign="bottom" align="right" class="GenText">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
+</tr></table><img src="blank.gif" alt="" height=2 border=0 />
+{TEMPLATE-DATA: announcements}
+{TEMPLATE: thread_list}
+<img src="blank.gif" alt="" width=1 height=2 /><br />
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+<tr>
+<td valign="top">{TEMPLATE-DATA: page_pager}&nbsp;</td>
+<td align="right" class="GenText" valign="bottom" nowrap>{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
+</tr>
+</table>
+{TEMPLATE-DATA: forum_select}
+{TEMPLATE: thread_legend}
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: permission_denied_title}
+{MSG: permission_denied_title}
+{SECTION: END}
+
+{SECTION: permission_denied_msg}
+{MSG: permission_denied_msg}
+{SECTION: END}
+
+{SECTION: threadt_update}
+{MSG: threadt_update}
+{SECTION: END}
+
+{SECTION: thread_title}
+{MSG: thread_title}
+{SECTION: END}
+
+{SECTION: threadt_disabled_ttl}
+{MSG: threadt_disabled_ttl}
+{SECTION: END}
+
+{SECTION: threadt_disabled_desc}
+{MSG: threadt_disabled_desc}
+{SECTION: END}
