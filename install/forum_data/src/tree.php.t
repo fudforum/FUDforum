@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.69 2004/11/18 18:03:36 hackie Exp $
+* $Id: tree.php.t,v 1.70 2004/11/18 18:04:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -199,9 +199,7 @@
 		reset($tree->kiddies);
 		$stack[0] = &$tree;
 		$stack_cnt = $tree->kiddie_count;
-		$j = 0;
-		$lev = 0;
-		$prev_id = 0;
+		$j = $lev = $prev_id = 0;
 
 		while ($stack_cnt > 0) {
 			$cur = &$stack[$stack_cnt-1];
