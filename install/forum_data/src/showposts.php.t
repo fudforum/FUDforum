@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: showposts.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: showposts.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,6 @@
 
 	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
-	
 	
 	if( !is_numeric($id) ) invl_inp_err();
 	
@@ -74,13 +73,8 @@
 				{SQL_TABLE_PREFIX}msg.id DESC 
 			LIMIT ".$start.",".$count);
 		
-		set_row_color_alt(true);
-	
 		$post_entry='';
-		while ( $obj = DB_ROWOBJ($r) ) {
-			$style = ROW_BGCOLOR();
-			$post_entry .= '{TEMPLATE: post_entry}';
-		}
+		while ( $obj = DB_ROWOBJ($r) ) $post_entry .= '{TEMPLATE: post_entry}';
 		QF($r);
 	
 		$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?t=showposts&id='.$id.'&start='.$start.'&'._rsid);

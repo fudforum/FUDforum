@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: modque.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -97,8 +97,6 @@
 		{SQL_TABLE_PREFIX}forum.id, 
 		{SQL_TABLE_PREFIX}msg.id DESC");
 	
-	set_row_color_alt(true);
-
 	{POST_HTML_PHP}
 	
 	$md = new fud_modque;

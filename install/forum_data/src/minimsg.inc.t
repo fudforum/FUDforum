@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: minimsg.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: minimsg.inc.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -61,7 +61,6 @@ if ( !empty($th) && empty($GLOBALS['MINIMSG_OPT']['DISABLED']) ) {
 	$m_count--;
 	
 	$message_data='';
-	set_row_color_alt(true);
 	while ( $obj = DB_ROWOBJ($result) ) {
 		$message_data .= tmpl_drawmsg($obj, $m_count, true);
 		$mid = $obj->id;

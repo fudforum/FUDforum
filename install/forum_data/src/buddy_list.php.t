@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,11 +86,8 @@
 			{SQL_TABLE_PREFIX}buddy.user_id=".$usr->id);
 	
 	if( DB_COUNT($res) ) {
-		set_row_color_alt(true);
 		$buddies='';
 		while( $obj = DB_ROWOBJ($res) ) {
-			$style = ROW_BGCOLOR();
-
 			$homepage_link = !empty($obj->home_page) ? '{TEMPLATE: homepage_link}' : '';
 			$online_status = ( $obj->invisible_mode=='Y' && $obj->time_sec+$GLOBALS['LOGEDIN_TIMEOUT']*60 > __request_timestamp__ ) ? '{TEMPLATE: online_indicator}' : '{TEMPLATE: offline_indicator}';
 			

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: finduser.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,8 +24,6 @@
 		exit();
 	}
 	
-	set_row_color_alt(true);
-
 	if ( !empty($js_redr) ) define('plain_form', 1);
 	
 	$TITLE_EXTRA = ': {TEMPLATE: finduser_title}';

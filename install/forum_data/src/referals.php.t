@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: referals.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: referals.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,8 +24,6 @@
 	if( empty($id) || !is_numeric($id) ) $id = NULL;
 	$returnto = urlencode($GLOBALS["REQUEST_URI"]);
 
-	set_row_color_alt(true);
-		
 	if( $id ) {
 		$r = Q("SELECT id,login, home_page FROM {SQL_TABLE_PREFIX}users WHERE id=".$id);
 		if( ($ttl=DB_COUNT($r)) ) {

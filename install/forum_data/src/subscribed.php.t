@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: subscribed.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: subscribed.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,37 +42,24 @@
 	
 	if ( isset($ses) ) $ses->update('{TEMPLATE: subscribed_update}');
 	
-	
 	{POST_HTML_PHP}
 	
 	$r=Q("SELECT *, {SQL_TABLE_PREFIX}forum.id AS frm_id FROM {SQL_TABLE_PREFIX}forum_notify LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}forum_notify.forum_id={SQL_TABLE_PREFIX}forum.id WHERE {SQL_TABLE_PREFIX}forum_notify.user_id=".$usr->id." ORDER BY last_post_id DESC");
 
-	set_row_color_alt(true);
 	$subscribed_forum_data = '';
-	while ( $obj = DB_ROWOBJ($r) ) {
-		$style = ROW_BGCOLOR();
-		$subscribed_forum_data .= '{TEMPLATE: subscribed_forum_entry}';
-	}
+	while ( $obj = DB_ROWOBJ($r) ) $subscribed_forum_data .= '{TEMPLATE: subscribed_forum_entry}';
 	
-	if( !DB_COUNT($r) ) {
-		$style = ROW_BGCOLOR();
-		$subscribed_forum_data = '{TEMPLATE: no_subscribed_forums}';
-	}
+	if( !DB_COUNT($r) ) $subscribed_forum_data = '{TEMPLATE: no_subscribed_forums}';
 	QF($r);
 
 	$total = Q_SINGLEVAL("SELECT count(*) FROM {SQL_TABLE_PREFIX}thread_notify LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread_notify.thread_id={SQL_TABLE_PREFIX}thread.id LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id WHERE {SQL_TABLE_PREFIX}thread_notify.user_id=".$usr->id." ORDER BY last_post_id DESC");
 	
 	$subscribed_thread_data = '';
 	$r=Q("SELECT *, {SQL_TABLE_PREFIX}thread.id AS th_id FROM {SQL_TABLE_PREFIX}thread_notify LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread_notify.thread_id={SQL_TABLE_PREFIX}thread.id LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id WHERE {SQL_TABLE_PREFIX}thread_notify.user_id=".$usr->id." ORDER BY last_post_id DESC LIMIT $start,$count");
-	while ( $obj = DB_ROWOBJ($r) ) {
-		$style = ROW_BGCOLOR();
-		$subscribed_thread_data .= '{TEMPLATE: subscribed_thread_entry}';
-	}
 	
-	if( !DB_COUNT($r) ) {
-		$style = ROW_BGCOLOR();
-		$subscribed_thread_data = '{TEMPLATE: no_subscribed_threads}';
-	}
+	while ( $obj = DB_ROWOBJ($r) ) $subscribed_thread_data .= '{TEMPLATE: subscribed_thread_entry}';
+	
+	if( !DB_COUNT($r) ) $subscribed_thread_data = '{TEMPLATE: no_subscribed_threads}';
 	QF($r);
 	
 	$pager = tmpl_create_pager($start, $count, $total, "{ROOT}?t=subscribed&a=1&"._rsid, "#fff");

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: post.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -444,8 +444,6 @@
 	if ( !empty($spell) ) $GLOBALS['MINIMSG_OPT']['DISABLED'] = TRUE;
 	{POST_HTML_PHP}
 	
-	set_row_color_alt(true);
-
 if ( !empty($preview) || !empty($spell) ) {
 	$text = apply_custom_replace($HTTP_POST_VARS['msg_body']);
 	$text_s = apply_custom_replace($HTTP_POST_VARS['msg_subject']);
@@ -492,7 +490,6 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 	 */
 		
 	if ( $frm->passwd_posting == 'Y' ) {
-		$style = ROW_BGCOLOR();
 		$pass_err = get_err('password');
 		$post_password = '{TEMPLATE: post_password}';
 	}

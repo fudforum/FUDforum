@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: list_referers.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: list_referers.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,8 +23,6 @@
 
 	$returnto = urlencode($GLOBALS["REQUEST_URI"]);
 
-	set_row_color_alt(true);
-	
 	if( empty($start) || $start>$ttl ) $start=0;
 
 	$res = Q("SELECT fud_users_ref.login,fud_users_ref.id,SUM(1) AS cnt FROM {SQL_TABLE_PREFIX}users LEFT JOIN {SQL_TABLE_PREFIX}users AS fud_users_ref ON fud_users_ref.id={SQL_TABLE_PREFIX}users.referer_id WHERE {SQL_TABLE_PREFIX}users.referer_id>0 AND fud_users_ref.id IS NOT NULL GROUP BY fud_users_ref.id ORDER BY cnt DESC");

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: tree.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -192,8 +192,6 @@
 	if ( isset($usr) ) $subscribe_status = ( Q_SINGLEVAL("SELECT id FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id=".$th." AND user_id=".$usr->id) ) ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
 	if ( $thread->locked == 'N' ) $post_reply = '{TEMPLATE: post_reply}';
 	
-	
-	set_row_color_alt(true);
 	$message_data = tmpl_drawmsg($msg_obj);
 	un_register_fps();
 

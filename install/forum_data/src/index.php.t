@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: index.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -156,7 +156,6 @@ function index_view_perms($usr_id)
 				$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_N}';
 			}
 			$cat = $data->cat_id;
-			set_row_color_alt(true);
 		}
 		
 		if( iscollapsed($data->cat_id) ) continue;

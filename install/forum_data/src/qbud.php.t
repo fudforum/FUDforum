@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: qbud.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: qbud.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,7 +47,6 @@
 	$res = Q("SELECT {SQL_TABLE_PREFIX}users.id, {SQL_TABLE_PREFIX}users.login FROM {SQL_TABLE_PREFIX}buddy LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}buddy.bud_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}buddy.user_id=".$usr->id);
 	
 	if( DB_COUNT($res) ) {
-		set_row_color_alt(true);
 		$buddies='';
 		
 		if( $all ) {
@@ -60,16 +59,14 @@
 		}
 		
 		while( $obj = DB_ROWOBJ($res) ) {
-			$style = ROW_BGCOLOR();
 			$checked = $all ? ' checked' : '';
 			$buddies .= '{TEMPLATE: buddy_entry}';
 		}
-		$style = ROW_BGCOLOR();
 		$qbud_data = '{TEMPLATE: buddy_list}';
 	}
-	else {
+	else
 		$qbud_data = '{TEMPLATE: no_buddies}';
-	}
+	
 	QF($res);
 	
 	{POST_PAGE_PHP_CODE}

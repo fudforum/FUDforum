@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: msg.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -201,7 +201,6 @@
 	
 	$m_count--;
 	
-	set_row_color_alt(true);
 	$message_data='';
 	
 	while ( $obj = DB_ROWOBJ($result) ) {

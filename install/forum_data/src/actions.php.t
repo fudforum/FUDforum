@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: actions.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,8 +23,6 @@
 	if ( isset($ses) ) $ses->update('{TEMPLATE: actions_update}');
 
 	{POST_HTML_PHP}
-	
-	set_row_color_alt(true);
 	
 	$rand_val = get_random_value();
 	
@@ -65,7 +63,6 @@
 	while ( $obj = DB_ROWOBJ($r) ) {
 		if( $obj->invisible_mode == 'Y' ) continue;
 
-		$style = ROW_BGCOLOR();
 		if ( strlen($obj->login) ) {
 			$user_login = htmlspecialchars($obj->login);
 			switch( $obj->is_mod )

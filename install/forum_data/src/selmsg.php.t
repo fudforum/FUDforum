@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: selmsg.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -312,7 +312,6 @@ function ifstr($opt1, $opt2, $str)
 		$more_unread_messages = '{TEMPLATE: more_unread_messages}';
 	}
 	
-	set_row_color_alt(true);
 	if ( ($m_count = DB_COUNT($r)) ) {
 		$m_count--;
 		$message_data='';
