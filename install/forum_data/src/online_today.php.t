@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: online_today.php.t,v 1.23 2004/11/01 20:48:26 hackie Exp $
+* $Id: online_today.php.t,v 1.24 2004/11/12 15:30:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,8 +16,8 @@
 
 /*{POST_HTML_PHP}*/
 
-	$dt = explode(' ', date('m d Y', __request_timestamp__));
-	$today = mktime(0, 0, 0, $dt[0], $dt[1], $dt[2]);
+	$dt = getdate(__request_timestamp__);
+	$today = mktime(0, 0, 0, $dt['mon'], $dt['mday'], $dt['year']);
 
 	$c = uq('SELECT
 			u.alias AS login, u.users_opt, u.id, u.last_visit, u.custom_color,
