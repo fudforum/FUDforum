@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.63 2003/10/09 14:34:26 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.64 2003/10/09 22:32:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -36,7 +36,7 @@ if (isset($_GET['rev'])) {
 	foreach ($tmp as $v) {
 		$GLOBALS['__FMDSP__'][$v] = 1;
 	}
-	if ($FUD_OPT_2 & 32768) {
+	if ($GLOBALS['FUD_OPT_2'] & 32768) {
 		define('reveal_lnk', '/' . $_GET['rev']);
 	} else {
 		define('reveal_lnk', '&amp;rev=' . $_GET['rev']);
@@ -62,7 +62,7 @@ if (_uid) {
 				$usr->ignore_list[$v] = 0;
 			}
 		}
-		if ($FUD_OPT_2 & 32768) {
+		if ($GLOBALS['FUD_OPT_2'] & 32768) {
 			define('unignore_tmp', '/' . $_GET['reveal']);
 		} else {
 			define('unignore_tmp', '&amp;reveal='.$_GET['reveal']);
@@ -74,12 +74,12 @@ if (_uid) {
 	define('unignore_tmp', '');
 }
 
-if ($FUD_OPT_2 & 2048) {
+if ($GLOBALS['FUD_OPT_2'] & 2048) {
 	$GLOBALS['affero_domain'] = parse_url($WWW_ROOT);
 	$GLOBALS['affero_domain'] = $GLOBALS['affero_domain']['host'];
 }
 
-if ($FUD_OPT_2 & 32768) {
+if ($GLOBALS['FUD_OPT_2'] & 32768) {
 	$_SERVER['QUERY_STRING_ENC'] = $_SERVER['QUERY_STRING'];
 } else {
 	$_SERVER['QUERY_STRING_ENC'] = str_replace('&', '&amp;', $_SERVER['QUERY_STRING']);
@@ -87,7 +87,7 @@ if ($FUD_OPT_2 & 32768) {
 
 function make_tmp_unignore_lnk($id)
 {
-	if ($FUD_OPT_2 & 32768) {
+	if ($GLOBALS['FUD_OPT_2'] & 32768) {
 		$p = explode('/', substr($GLOBALS['QUERY_STRING_ENC'], 1, -1));
 		$p[3] = $_GET['start'];
 		if (empty($_GET['reveal'])) {
@@ -115,7 +115,7 @@ function make_tmp_unignore_lnk($id)
 
 function make_reveal_link($id)
 {
-	if ($FUD_OPT_2 & 32768) {
+	if ($GLOBALS['FUD_OPT_2'] & 32768) {
 		$p = explode('/', substr($GLOBALS['QUERY_STRING_ENC'], 1, -1));
 		$p[3] = $_GET['start'];
 
@@ -214,28 +214,33 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 	if ($obj->user_id) {
 		if (!$hide_controls) {
+			$custom_tag = $obj->custom_status ? '{TEMPLATE: dmsg_custom_tags}' : '{TEMPLATE: dmsg_no_custom_tags}';
+
 			if ($obj->avatar_loc && $a & 8388608 && $b & 8192 && $o1 & 28 && !($c & 2)) {
-				$avatar = '{TEMPLATE: dmsg_avatar}';
 				if (!($c & 1)) {
-					$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
+					$level_name =& $obj->level_name;
 					$level_image = $obj->level_img ? '{TEMPLATE: dmsg_level_image}' : '';
 				} else {
 					$level_name = $level_image = '';
 				}
 			} else {
-				$avatar = '{TEMPLATE: dmsg_no_avatar}';
-				$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
 				$level_image = $obj->level_img ? '{TEMPLATE: dmsg_level_image}' : '';
+				$obj->avatar_loc = '';
+				$level_name =& $obj->level_name;
 			}
+			$avatar = ($obj->avatar_loc && $level_image) ? '{TEMPLATE: dmsg_avatar}' : '';
+			if (!$level_name && $custom_tag) {
+				$custom_tag = substr($custom_tag, 2);
+			}
+			$dmsg_tags = ($custom_tag || $level_name) ? '{TEMPLATE: dmsg_tags}' : '';
 
 			if (($o2 & 32 && !($a & 32768)) || $b & 1048576) {
 				$online_indicator = (($obj->time_sec + $GLOBALS['LOGEDIN_TIMEOUT'] * 60) > __request_timestamp__) ? '{TEMPLATE: dmsg_online_indicator}' : '{TEMPLATE: dmsg_offline_indicator}';
 			} else {
 				$online_indicator = '';
 			}
+
 			$user_link = '{TEMPLATE: dmsg_reg_user_link}';
-			$user_posts = '{TEMPLATE: dmsg_user_posts}';
-			$user_reg_date = '{TEMPLATE: dmsg_user_reg_date}';
 
 			if ($obj->location) {
 				if (strlen($obj->location) > $GLOBALS['MAX_LOCATION_SHOW']) {
@@ -247,7 +252,6 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			} else {
 				$location = '{TEMPLATE: dmsg_no_location}';
 			}
-			$custom_tag = $obj->custom_status ? '{TEMPLATE: dmsg_custom_tags}' : '{TEMPLATE: dmsg_no_custom_tags}';
 
 			if (_uid && _uid != $obj->user_id) {
 				$buddy_link	= !isset($usr->buddy_list[$obj->user_id]) ? '{TEMPLATE: dmsg_buddy_link_add}' : '{TEMPLATE: dmsg_buddy_link_remove}';
@@ -268,16 +272,17 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 				} else {
 					$im_affero = '';
 				}
+				$dmsg_im_row = ($im_icq || $im_aim || $im_yahoo || $im_msnm || $im_jabber || $im_affero) ? '{TEMPLATE: dmsg_im_row}' : '';
 			} else {
-				$im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = '';
+				$dmsg_im_row = '';
 			}
 		 } else {
 		 	$user_link = '{TEMPLATE: dmsg_reg_user_no_link}';
-		 	$im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = $level_name = $level_image = $buddy_link = $ignore_link = $location = $custom_tag = $user_reg_date = $online_indicator = $user_posts = $user_reg_date = $avatar = '';
+		 	$dmsg_tags = $dmsg_im_row = $buddy_link = $ignore_link = $location = $online_indicator = $avatar = '';
 		 }
 	} else {
 		$user_link = '{TEMPLATE: dmsg_anon_user}';
-		$im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = $level_name = $level_image = $buddy_link = $ignore_link = $location = $custom_tag = $user_reg_date = $online_indicator = $user_posts = $user_reg_date = $avatar = '';
+		$dmsg_tags = $dmsg_im_row = $buddy_link = $ignore_link = $location = $online_indicator = $avatar = '';
 	}
 
 	/* Display message body
@@ -379,28 +384,10 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 	$rpl = '';
 	if (!$hide_controls) {
-		if ($b & 1048576 || $usr->md || $o1 & 134217728) {
-			$ip_address = '{TEMPLATE: dmsg_ip_address}';
-		} else {
-			$ip_address = '';
-		}
-
-		if ($obj->host_name && $o1 & 268435456) {
-			if (strlen($obj->host_name) > 30) {
-				$obj->host_name = wordwrap($obj->host_name, 30, '<br />', 1);
-			}
-			$host_name = '{TEMPLATE: dmsg_host_name}';
-		} else {
-			$host_name = '';
-		}
-
+		$ip_address = ($b & 1048576 || $usr->md || $o1 & 134217728) ? '{TEMPLATE: dmsg_ip_address}' : '';
+		$host_name = ($obj->host_name && $o1 & 268435456) ? '{TEMPLATE: dmsg_host_name}' : '';
 		$msg_icon = !$obj->icon ? '{TEMPLATE: dmsg_no_msg_icon}' : '{TEMPLATE: dmsg_msg_icon}';
-
-		if ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096) {
-			$signature = '{TEMPLATE: dmsg_signature}';
-		} else {
-			$signature = '';
-		}
+		$signature = ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096) ? '{TEMPLATE: dmsg_signature}' : '';
 
 		$report_to_mod_link = '{TEMPLATE: dmsg_report_to_mod_link}';
 
@@ -417,8 +404,10 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			$user_profile = '{TEMPLATE: dmsg_user_profile}';
 			$email_link = ($o1 & 4194304 && $a & 16) ? '{TEMPLATE: dmsg_email_link}' : '';
 			$private_msg_link = $o1 & 1024 ? '{TEMPLATE: dmsg_private_msg_link}' : '';
+			$dmsg_user_info = '{TEMPLATE: dmsg_user_info}';
 		} else {
 			$user_profile = $email_link = $private_msg_link = '';
+			$dmsg_user_info = ($host_name || $ip_address) ? '{TEMPLATE: dmsg_anon_info}' : '';
 		}
 
 		/* little trick, this variable will only be avaliable if we have a next link leading to another page */
@@ -443,7 +432,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 		$message_toolbar = '{TEMPLATE: dmsg_message_toolbar}';
 	} else {
-		$msg_icon = $ip_address = $host_name = $signature = $report_to_mod_link = $message_toolbar = '';
+		$dmsg_user_info = $msg_icon = $signature = $report_to_mod_link = $message_toolbar = '';
 	}
 
 	return '{TEMPLATE: message_entry}';
