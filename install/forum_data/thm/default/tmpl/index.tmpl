@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.51 2004/10/30 16:56:49 hackie Exp $
+* $Id: index.tmpl,v 1.52 2004/11/01 23:35:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -135,6 +135,7 @@
 </table>
 {IF: _uid}{TEMPLATE: mark_all_read}{ELSE}{END}
 {TEMPLATE-DATA: quick_login}
+{IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
 {TEMPLATE-DATA: loged_in_list}
 {TEMPLATE: forum_icon_legend}
 {TEMPLATE: curtime}

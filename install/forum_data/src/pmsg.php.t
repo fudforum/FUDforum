@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.43 2004/06/11 14:37:07 hackie Exp $
+* $Id: pmsg.php.t,v 1.44 2004/11/01 23:35:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,10 +56,6 @@
 
 	ses_update_status($usr->sid, '{TEMPLATE: pm_update}');
 
-	$cur_ppage = tmpl_cur_ppage($folder_id, $folders);
-
-	$author_dest_col = $folder_id == 3 ? '{TEMPLATE: pmsg_recepient}' : '{TEMPLATE: pmsg_author}';
-
 	$select_options_cur_folder = tmpl_draw_select_opt(implode("\n", array_keys($folders)), implode("\n", $folders), $folder_id, '{TEMPLATE: cur_folder_opt}', '{TEMPLATE: cur_folder_opt_selected}');
 
 	$disk_usage = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid);
@@ -73,8 +69,6 @@
 	} else {
 		$full_indicator = '{TEMPLATE: full_full_indicator}';
 	}
-
-	$desc = ($all_v = empty($_GET['all'])) ? '{TEMPLATE: pmsg_all}' : '{TEMPLATE: pmsg_none}';
 
 	$ttl = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id="._uid." AND fldr=".$folder_id);
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
@@ -109,18 +103,11 @@
 				$action = '{TEMPLATE: action_buttons_draft}';
 				break;
 		}
+
 		if ($FUD_OPT_2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
 			$goto = $folder_id != 4 ? '{ROOT}/pmv/'.$obj->id.'/'._rsid : '{ROOT}/pmm/msg_id/'.$obj->id.'/'._rsid;
 		} else {
 			$goto = $folder_id != 4 ? '{ROOT}?t=pmsg_view&amp;'._rsid.'&amp;id='.$obj->id : '{ROOT}?t=ppost&amp;'._rsid.'&amp;msg_id='.$obj->id;
-		}
-
-
-		$pmsg_status = $obj->read_stamp ? '{TEMPLATE: pmsg_unread}' : '{TEMPLATE: pmsg_read}';
-		if ($obj->pmsg_opt & 4 && $obj->pmsg_opt & 16 && $obj->duser_id == _uid && $obj->ouser_id != _uid) {
-			$deny_recipt = '{TEMPLATE: deny_recipt}';
-		} else {
-			$deny_recipt = '';
 		}
 
 		if ($FUD_OPT_2 & 32 && (!($obj->users_opt & 32768) || $usr->users_opt & 1048576)) {
@@ -141,8 +128,6 @@
 		} else {
 			$msg_type ='{TEMPLATE: forwarded_msg}';
 		}
-
-		$checked = !$all_v ? ' checked' : '';
 
 		$private_msg_entry .= '{TEMPLATE: private_msg_entry}';
 	}

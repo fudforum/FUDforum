@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.inc.t,v 1.32 2004/10/25 16:54:07 hackie Exp $
+* $Id: logedin.inc.t,v 1.33 2004/11/01 23:35:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,23 +48,16 @@ if ($FUD_OPT_1 & 1073741824 || $FUD_OPT_2 & 16) {
 		$st_obj->online_users_text = unserialize($st_obj->online_users_text);
 	}
 
-	$i_spy = $FUD_OPT_1 & 536870912 ? '{TEMPLATE: i_spy}' : '';
-
 	if ($FUD_OPT_1 & 1073741824) {
 		if (!empty($st_obj->online_users_text)) {
 			foreach($st_obj->online_users_text as $k => $v) {
 				$logedin .= '{TEMPLATE: online_user_link} ';
 			}
-		} else {
-			$logedin = '';
 		}
 		$logedin = '{TEMPLATE: logedin}';
 	}
 	if ($FUD_OPT_2 & 16) {
-		$last_msg = $last_msg_id ? '{TEMPLATE: last_msg}' : '';
 		$forum_info = '{TEMPLATE: forum_info}';
 	}
 }
-
-$loged_in_list = ($logedin || $forum_info) ? '{TEMPLATE: loged_in_list}' : '';
 ?>
