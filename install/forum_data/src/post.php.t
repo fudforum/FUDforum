@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.21 2002/12/05 21:09:15 hackie Exp $
+*   $Id: post.php.t,v 1.22 2002/12/11 01:05:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -425,7 +425,7 @@
 	if ( !empty($spell) ) $GLOBALS['MINIMSG_OPT']['DISABLED'] = TRUE;
 	{POST_HTML_PHP}
 
-	if (!empty($create_thread)) {
+	if (empty($th_id)) {
 		$label = '{TEMPLATE: create_thread}';
 	} else if ($msg_id) {
 		$label = '{TEMPLATE: edit_message}';
@@ -626,9 +626,6 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 		$msg_smiley_disabled_check = ($msg_smiley_disabled=='Y' ? ' checked' : '');
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
 	}	
-	
-	
-	if ( $msg_id ) $label = '{TEMPLATE: edit_message}';
 	
 	if( $GLOBALS["SPELL_CHECK_ENABLED"]=='Y' && function_exists('pspell_config_create') && $GLOBALS['FUD_THEME']->pspell_lang ) $spell_check_button = '{TEMPLATE: spell_check_button}';
 
