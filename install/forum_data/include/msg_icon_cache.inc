@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg_icon_cache.inc,v 1.2 2004/10/06 16:36:15 hackie Exp $
+* $Id: msg_icon_cache.inc,v 1.3 2004/10/06 17:15:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@ function rebuild_icon_cache()
 	$files = glob($GLOBALS['WWW_ROOT_DISK'] . 'images/message_icons/{*.gif,*.jpg,*.png,*.jpeg}', GLOB_BRACE);
 	$iconl = array();
 	foreach ($files as $file) {
-		$iconl[] = basename($f);
+		$iconl[] = basename($file);
 	}
 
 	$fp = fopen($GLOBALS['TMP'].'icon_cache', "w");
