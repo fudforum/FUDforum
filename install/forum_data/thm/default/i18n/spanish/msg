@@ -263,7 +263,6 @@ finduser_joindate:		Fecha de Incorporación
 finduser_action:		Acción
 yes:				Si
 no:				No
-register_email			E-mail
 edit_time_limit:		<br><b>Editando Límite de Tiempo</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
 no_edit_time_limit:		<br><b>Editando Límite de Tiempo</b>: <b>Ilimitado</b>
 pmuserloc_login:		Login:
@@ -572,7 +571,6 @@ finduser_update:		Buscando usuarios
 help_index_update:		Leyendo el <a href="{ROOT}?t=help_index" class="GenLink">F.A.Q.</a>
 iemail_thr_subject:		Nueva respuesta a {VAR: thr_subject} publicado por {VAR: poster_login}
 iemail_thr_bodyemail:		Para ver respuestas no leídas vaya a {VAR: goto_url['email']}\n\nSi
-Ud no desea recibir más notificaciones acerca de respuestas en este hilo de discusión, por favor vaya aquí{VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Para ver respuestas no leídas vaya a\n{VAR: goto_url['icq']}\n\nSi Ud no desea recibir más notificaciones acerca de respuestas en este hilo de discusión, por favor vaya aquí:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Nuevo hilo de discusión en el foro {VAR: frm_name} llamado {VAR: thr_subject} creado por {VAR: poster_login}
 iemail_frm_bodyemail:		Para ver este hilo de discusión vaya a:\n{VAR: goto_url['email']}\n\nPara no recibir más notificaciones acerca de nuevos hilos de discusión en este foro, por favor vaya aquí: {VAR: unsub_url['email']}
@@ -692,7 +690,6 @@ ERR_registration_disabled_msg:	El administrador ha deshabilitado el registro, po
 ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _RSID}
 ERR_emailconf_ttl:		ERROR: Su cuenta aún no ha sido confirmada
 ERR_emailconf_msg:		Ud aún no ha confirmado su cuenta vía e-mail<br><table border=0><tr><td><ol><li>Si no ha recibido un e-mail de confirmación <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _RSID}">haga clic aquí</a><li>Si {VAR: usr_d->email} no es su dirección de e-mail correcta <a href="{ROOT}?t=register&amp;{DEF: _RSID}">haga clic aquí</a></ol></td></tr></table>
-ERR_emailconf_url:		
 ERR_user_ttl:			ERROR: No existe ese usuario
 ERR_user_msg:			No existe ese usuario
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _RSID}
@@ -837,7 +834,6 @@ quicklogin_password:		Clave
 quicklogin_use_cookies:		Usar Cookies?
 quicklogin_login_btn:		Login
 post_notification_desc:		Notificarme cuando alguien responda a este mensaje.
-post_proc_all_ext_allowed:	(sin restricción)
 maximize_category:		Maximizar Categoría
 no_view_perm:			Ud no tiene permisos para ver este hilo de discusión.
 report_empty_report:		No puede enviar un reporte vacío, por favor ingrese una razón para su reporte.
@@ -867,7 +863,7 @@ msg_err_nosuchmsg_msg:		No existe ese mensaje en este hilo de discusión
 msg_err_nosuchmsg_title:	Error
 imsg_err_message_title:		Invalid Message
 imsg_err_message_msg:		The message you are trying to view does not exist.
-poll_edit: 			Edit
+poll_edit:			Edit
 unspecified:			UNSPECIFIED
 register_err_not_valid_img:	The specified url does not contain a valid image
 pmsg_recepient:			Recepient

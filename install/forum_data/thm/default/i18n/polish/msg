@@ -264,7 +264,6 @@ finduser_joindate:		Data rejestracji
 finduser_action:		Akcja
 yes:				Tak
 no:				Nie
-register_email			E-mail
 edit_time_limit:		<br><b>Ograniczenie czasu edycji</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
 no_edit_time_limit:		<br><b>Ograniczenie czasu edycji</b>: <b>Nieograniczony</b>
 pmuserloc_login:		Nazwa u¿ytkownika:
@@ -363,7 +362,6 @@ post_poll_edit:			EDYTUJ
 post_mod_opt:			Opcje Moderatora:
 post_thread_type:		Typ w±tku:
 post_thread_expiry:		Wyga¶niêcie w±tku:
-post_reply_allowed:		Odpowiadanie dozwolone
 post_icons:			Ikona wiadomo¶ci:
 post_no_icon:			Brak ikony
 post_smiley:			Wstaw u¶mieszek:
@@ -692,7 +690,6 @@ ERR_registration_disabled_msg:	Administrator wy³±czy³ rejestracjê, wiêc spróbuj 
 ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		B£¡D: Twoje konto nie jest jeszcze potwierdzone
 ERR_emailconf_msg:		Nie potwierdzi³e¶ jeszcze swojego konta poprzez e-mail<br><table border=0><tr><td><ol><li>Je¶li nie otrzyma³e¶ potwierdzaj±cego listu, <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">przejd¼ tutaj</a>.<li>Je¶li {VAR: usr_d->email} nie jest Twoim poprawnym adresem, <a href="{ROOT}?t=register&amp;{DEF: _rsid}">przejd¼ tutaj</a></ol></td></tr></table>
-ERR_emailconf_url:		
 ERR_user_ttl:			B£¡D: Brak takiego u¿ytkownika
 ERR_user_msg:			Nie ma takiego u¿ytkownika
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -811,42 +808,41 @@ th_expr_two_month:		2 miesi±ce
 th_expr_four_month:		4 miesi±ce
 th_expr_one_year:		1 rok
 thread_mod_delete:		Usuñ
-action_latest_post:             Ostatnia wiadomo¶æ
-online_today_last_visit:        Dzisiejsza ostatnia wizyta
-online_today_update:            Ogl±danie listy ludzi, którzy byli dzisiaj na forum.
-logedin_todays_visitors:        dzisiejsi go¶cie
-logedin_latest_post:            Ostatnia wiadomo¶æ na forum:
-register_show_avatar:           Poka¿ avatary
-register_show_avatar_desc:      Pozwala Ci ukryæ avatary innych u¿ytkowników podczas ogl±dania ich wiadomo¶ci
-drawmsg_view_rest_post:         Poka¿ resztê wiadomo¶ci
-post_re:                        Odp:
-forumsel_goto_forum:            Id¼ do forum:
-minimsg_thread_view:            Widok w±tku
-split_th_post_by:               Wiadomo¶æ zamieszczona przez:
-split_th_posted_on:             Zamieszczona dnia: 
-split_th_subject:               Temat:   
-split_th_new_thread_title:      Nowy temat w±tku:
-split_th_forum:                 Forum:
-split_th_split_sel:             Podziel wybrane wiadomo¶ci
-split_th_split_unsel:           Podziel niewybrane wiadomo¶ci
-split_th_messages:             	Wiadomo¶ci
-split_th_select:                Wybierz  
-report_report_post:             Zg³o¶ wiadomo¶æ
-quicklogin_login:               Nazwa u¿ytkownika
-quicklogin_password:            Has³o
-quicklogin_use_cookies:         U¿ywaj ciasteczek?
-quicklogin_login_btn:           Zaloguj siê
-post_notification_desc:         Powiadom mnie, gdy kto¶ odpowie na t± wiadomo¶æ.
-post_proc_all_ext_allowed:      (bez restrykcji)
-maximize_category:              Maksymalizuje Kategoriê
-post_locked:                    W±tek zablokowany
-no_view_perm:                   Nie masz odpowiednich uprawnieñ, aby zobaczyæ ten w±tek.
-report_empty_report:            Nie mo¿esz wys³aæ pustego zg³oszenia, wiêc podaj powód zg³oszenia.
-report_already_reported_title:  Ju¿ zg³oszone
-report_already_reported_msg:    Ten w±tek zosta³ ju¿ zg³oszony i jest aktualnie w kolejce do przejrzenia przez moderatorów.
-register_err_toomanyimages:     Próbujesz u¿yæ wiêcej ni¿ dozwolone {GVAR: FORUM_IMG_CNT_SIG} obrazków w twoim podpisie.
-pmsg_next_msg:                  Nastêpna prywatna wiadomo¶æ
-pmsg_prev_msg:                  Poprzednia prywatna wiadomo¶æ
+action_latest_post:		Ostatnia wiadomo¶æ
+online_today_last_visit:	Dzisiejsza ostatnia wizyta
+online_today_update:		Ogl±danie listy ludzi, którzy byli dzisiaj na forum.
+logedin_todays_visitors:	dzisiejsi go¶cie
+logedin_latest_post:		Ostatnia wiadomo¶æ na forum:
+register_show_avatar:		Poka¿ avatary
+register_show_avatar_desc:	Pozwala Ci ukryæ avatary innych u¿ytkowników podczas ogl±dania ich wiadomo¶ci
+drawmsg_view_rest_post:		Poka¿ resztê wiadomo¶ci
+post_re:			Odp:
+forumsel_goto_forum:		Id¼ do forum:
+minimsg_thread_view:		Widok w±tku
+split_th_post_by:		Wiadomo¶æ zamieszczona przez:
+split_th_posted_on:		Zamieszczona dnia: 
+split_th_subject:		Temat:   
+split_th_new_thread_title:	Nowy temat w±tku:
+split_th_forum:			Forum:
+split_th_split_sel:		Podziel wybrane wiadomo¶ci
+split_th_split_unsel:		Podziel niewybrane wiadomo¶ci
+split_th_messages:		Wiadomo¶ci
+split_th_select:		Wybierz  
+report_report_post:		Zg³o¶ wiadomo¶æ
+quicklogin_login:		Nazwa u¿ytkownika
+quicklogin_password:		Has³o
+quicklogin_use_cookies:		U¿ywaj ciasteczek?
+quicklogin_login_btn:		Zaloguj siê
+post_notification_desc:		Powiadom mnie, gdy kto¶ odpowie na t± wiadomo¶æ.
+maximize_category:		Maksymalizuje Kategoriê
+post_locked:			W±tek zablokowany
+no_view_perm:			Nie masz odpowiednich uprawnieñ, aby zobaczyæ ten w±tek.
+report_empty_report:		Nie mo¿esz wys³aæ pustego zg³oszenia, wiêc podaj powód zg³oszenia.
+report_already_reported_title:	Ju¿ zg³oszone
+report_already_reported_msg:	Ten w±tek zosta³ ju¿ zg³oszony i jest aktualnie w kolejce do przejrzenia przez moderatorów.
+register_err_toomanyimages:	Próbujesz u¿yæ wiêcej ni¿ dozwolone {GVAR: FORUM_IMG_CNT_SIG} obrazków w twoim podpisie.
+pmsg_next_msg:			Nastêpna prywatna wiadomo¶æ
+pmsg_prev_msg:			Poprzednia prywatna wiadomo¶æ
 post_proc_reveal_spoiler:	Ujawnij Spoiler
 register_jabber:		Identyfikator Jabber:
 im_jabber:			Jabber: 
@@ -867,7 +863,7 @@ msg_err_nosuchmsg_msg:		Nie ma takiej wiadomo¶ci w tym w±tku
 msg_err_nosuchmsg_title:	B³±d
 imsg_err_message_title:		Niepoprawna wiadomo¶æ
 imsg_err_message_msg:		Wiadomo¶æ, któr± chcesz obejrzeæ, nie istnieje.
-poll_edit: 			Edytuj
+poll_edit:			Edytuj
 unspecified:			UNSPECIFIED
 register_err_not_valid_img:	Podany adres URL nie zawiera poprawnego obazu
 pmsg_recepient:			Odbiorca

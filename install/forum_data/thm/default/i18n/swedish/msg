@@ -264,7 +264,6 @@ finduser_joindate:		Registreringsdatum
 finduser_action:		Handling
 yes:				Ja
 no:				Nej
-register_email			E-post
 edit_time_limit:		<br><b>Tidsgr&auml;ns f&ouml;r editering</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuter
 no_edit_time_limit:		<br><b>Tidsgr&auml;ns f&ouml;r editering</b>: <b>Obegr&auml;nsad</b>
 pmuserloc_login:		Anv&auml;ndarnamn:
@@ -475,8 +474,8 @@ remail_send_now:		Skicka e-post nu
 remail_anon_opt:		Kopiera det h&auml;r meddelandet till en valbar e-postklient f&ouml;r att s&auml;nda till dina v&auml;nner.
 remail_done:			Klart
 remail_sent_conf:		E-postmeddelandet till din v&auml;n {VAR-HTML: _POST['femail']} med rubriken {{VAR: data->subject} har skickats.
-remail_continue:  		Forts&auml;tt
-remail_error:  			Ett fel har uppst&aring;tt
+remail_continue:		Forts&auml;tt
+remail_error:			Ett fel har uppst&aring;tt
 mklist_type:			Typ:
 mklist_option:			Alternativ:
 mklist_additem:			L&auml;gg till sak[??]
@@ -550,7 +549,7 @@ buddy_list_err_cantadd:		Du kan l&auml;gga dig sj&auml;lv till kompislistan
 buddy_list_err_dup:		Den h&auml;r medlemmen finns redan p&aring; din kompislista
 buddy_list_err_nouser:		Medlemmen du f&ouml;rs&ouml;kte l&auml;gga till kompislistan g&aring;r inte att hitta bland detta forums medlemmar.
 buddy_list_err_nouser_title:	Kan inte l&auml;gga till medlemmen
-buddy_list_update:  		Visar egen kompislista
+buddy_list_update:		Visar egen kompislista
 core_err_invinp_title:		Ogiltig input(??)
 core_err_invinp_err:		Du har f&ouml;ljt en felaktig l&auml;nk, v&auml;nligen meddela <a href="mailto:{GVAR: ADMIN_EMAIL}">webmastern</a>
 core_adm_login_msg:		<br>Administrat&ouml;rer kan logga in <a href="adm/admloginuser.php">h&auml;r</a>
@@ -594,7 +593,7 @@ msg_update:			L&auml;ser diskussionen med rubriken <a class="GenLink" href="{ROO
 pm_err_nopm_title:		FEL: Privata meddelanden &auml;r inte till&aring;tna
 pm_err_nopm_msg:		Du kan inte anv&auml;nda systemet f&ouml;r privata meddelanden, eftersom administratorn har st&auml;ngt av det.
 pm_update:			Anv&auml;nder privatmeddelanden
-post_err_notallowed_title: 	Inte till&aring;tet
+post_err_notallowed_title:Inte till&aring;tet
 post_err_notallowed_msg:	Du har inte r&auml;tt att skriva inl&auml;gg
 post_err_lockedthread_title:	FEL: L&aring;st diskussion
 post_err_lockedthread_msg:	Den h&auml;r diskussionen &auml;r l&aring;st och inga fler inl&auml;gg tas emot
@@ -691,7 +690,6 @@ ERR_registration_disabled_msg:	Administratorn har st&auml;ng av registreringen, 
 ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
 ERR_emailconf_ttl:		FEL: Ditt anv&auml;ndarkonto &auml;r &auml;nnu inte bekr&auml;ftat
 ERR_emailconf_msg:		Du har inte bekr&auml;ftat ditt anv&auml;ndarkonto via e-post <br><table border=0><tr><td><ol><li>Om du inte har f&aring;tt ett bekr&auml;ftelsemeddelande per e-post <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">tryck h&auml;r</a><li>Om {VAR: usr_d->email} inte &auml;r din r&auml;tta e-postadress <a href="{ROOT}?t=register&amp;{DEF: _rsid}">tryck h&auml;r</a></ol></td></tr></table>
-ERR_emailconf_url:
 ERR_user_ttl:			FEL: Ingen s&aring;dan medlem
 ERR_user_msg:			Det finns ingen s&aring;dan medlem
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}&{DEF: _rsid}
@@ -811,7 +809,7 @@ th_expr_four_month:		4 m&aring;nader
 th_expr_one_year:		1 &aring;r
 thread_mod_delete:		Radera
 action_latest_post:		Senaste inl&auml;gg
-post_locked:                    L&aring;s diskussionen
+post_locked:			L&aring;s diskussionen
 online_today_last_visit:	Senaste bes&ouml;k
 online_today_update:		Viewing the list of people who were on the forum today.
 logedin_todays_visitors:	dagens bes&ouml;kare
@@ -837,7 +835,6 @@ quicklogin_password:		L&ouml;senord
 quicklogin_use_cookies:		Anv&auml;nd kakor?
 quicklogin_login_btn:		Logga in
 post_notification_desc:		Meddela mig n&auml;r n&aring;gon svarar p&aring; detta inl&auml;gg.
-post_proc_all_ext_allowed:	(inga begr&auml;nsningar)
 maximize_category:		Maximera kategori
 no_view_perm:			Du har inte tillr&auml;ckliga r&auml;ttigheter f&ouml;r att l&auml;sa den h&auml;r diskussionen.
 report_empty_report:		Du kan inte s&auml;nda en tom rapport. Var v&auml;nlig ange orsak till rapporten.
@@ -856,7 +853,7 @@ ppost_cur_attached:		{VAR: attach_count} filer bifogade f&ouml;r tillf&auml;llet
 post_list_smilies:		visa alla smilisar
 ignored_anon_post:		{GVAR: ANON_NICK} ignoreras
 smladd_close_window:		st&auml;ng f&ouml;nstret
-p_VISIBLE:                    	Synlig
+p_VISIBLE:			Synlig
 reported_in_thread:		I diskussionen
 help_back_to_top:		tillbaka till b&ouml;rjan
 help_return_to_index:		tillbaka till hj&auml;lpindex
@@ -866,7 +863,7 @@ msg_err_nosuchmsg_msg:		Ett s&aring;dant inl&auml;gg finns inte i denna diskussi
 msg_err_nosuchmsg_title:	Fel
 imsg_err_message_title:		Ogiltigt inl&auml;gg
 imsg_err_message_msg:		Inl&auml;gget du f&ouml;rs&ouml;ker visa finns inte.
-poll_edit: 			Editera
+poll_edit:			Editera
 unspecified:			OSPECIFICERAD
 register_err_not_valid_img:	Den valda url:en inneh&aring;ller inte en giltig bild
 pmsg_recepient:			Mottagare

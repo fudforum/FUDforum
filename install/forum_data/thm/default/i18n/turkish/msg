@@ -263,7 +263,6 @@ finduser_joindate:		Katýlým Tarihi
 finduser_action:		Eylem
 yes:				Evet
 no:				Hayýr
-register_email			E-mektup
 edit_time_limit:		<br><b>Düzeltme süre sýnýrý</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> dakika
 no_edit_time_limit:		<br><b>Düzeltme süre sýnýrý</b>: <b>Sýnýrsýz</b>
 pmuserloc_login:		Kullanýcý ismi:
@@ -676,7 +675,7 @@ thread_err_onlyregview_title:	Sadece kayýtlý kullanýcýlar bu forumu görüntüleyeb
 thread_err_onlyregview_msg:	Bu forumu görebilmek için <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">kayýt olmanýz</a>, kayýt olduysanýz <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">giriþ yapmanýz</a> gerekiyor.
 thread_update:			<a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a> forumunda dolaþýyor
 tree_update:			<a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a> zincirinde dolaþýyor (aðaç görünümü)
-userinfo_update:			<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a> kullanýcýsýnýn kiþisel bilgilerine bakýyor
+userinfo_update:		<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a> kullanýcýsýnýn kiþisel bilgilerine bakýyor
 ERR_login_ttl:			HATA: Giriþ yapmamýþ durumdasýnýz			
 ERR_login_msg:			Lütfen giriþ yapýn.<br><br>Kayýt olmak isterseniz <a href="{ROOT}?t=register&amp;{DEF: _rsid}">kayýt formunu</a> kullanabilirsiniz<br>Giriþ yapmak istiyorsanýz lütfen <a href="{ROOT}?t=login&amp;{DEF: _rsid}">giriþ formunu</a> kullanýn.
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
@@ -691,7 +690,6 @@ ERR_registration_disabled_msg:	Yönetici kayýtý engellemiþ durumda. Lütfen daha s
 ERR_registration_disabled_url:	{GVAR: WWW_ROOT}{ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		HATA: Hesabýnýz henüz doðrulanmadý
 ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">buraya týklayýn</a><li>Eðer {VAR: usr_d->email} adresi sizin doðru adresiniz deðilse <a href="{ROOT}?t=register&amp;{DEF: _rsid}">buraya týklayýn</a></ol></td></tr></table>
-ERR_emailconf_url:		
 ERR_user_ttl:			HATA: Kullanýcý yok
 ERR_user_msg:			Böyle bir kullanýcý yok
 ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
@@ -836,7 +834,6 @@ quicklogin_password:		Parola
 quicklogin_use_cookies:		Kurabiye kullanýlsýn mý?
 quicklogin_login_btn:		Giriþ yap
 post_notification_desc:		Bu iletiye yanýt yazýldýðýnda bana haber ver.
-post_proc_all_ext_allowed:	(sýnýrlama yok)
 maximize_category:		Kategoriyi Aç
 no_view_perm:			Bu zinciri görmek için uygun eriþim iznine sahip deðilsiniz.
 report_empty_report:		Boþ bir bildirim gönderemezsiniz, lütfen bildirim için bir sebep belirtin.
@@ -866,7 +863,7 @@ msg_err_nosuchmsg_msg:		Bu zincir içinde böyle bir ileti yok
 msg_err_nosuchmsg_title:	Hata
 imsg_err_message_title:		Geçersiz Ýleti
 imsg_err_message_msg:		Görüntülemeye çalýþtýðýnýz ileti yok.
-poll_edit: 			Düzelt
+poll_edit:			Düzelt
 unspecified:			Belirtilmemiþ
 register_err_not_valid_img:	Belirtilen adreste geçerli bir resim yok
 pmsg_recepient:			Alýcý

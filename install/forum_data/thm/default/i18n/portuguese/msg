@@ -63,7 +63,7 @@ mark_all_read:			marcar todas as mensagens como lidas
 mark_all_read_desc:		Todas a suas mensagens serão marcadas como lidas
 members:			Membros
 message:			Mensagem
-message_counter:		Os nossos membros colocaram um total de <b>{VAR: post_count}</b> mensagens neste <b>{VAR:thread_count}</b> tópico.
+message_counter:		Os nossos membros colocaram um total de <b>{VAR: post_count}</b> mensagens neste <b>{VAR: thread_count}</b> tópico.
 message_index:			Indice da mensagem
 message_index_desc:		Ver lista de mensagens
 minimize_category:		Minimizar Categoria
@@ -182,7 +182,6 @@ user_offline:			{VAR: obj->login}  está neste momento offline
 user_online:			{VAR: obj->login} está neste momento online
 usrinfo_last_post:		Ultimo Post:
 view_forum:			Ver Forum
-view_last_msg:			Ver a última mensagem neste forum
 view_results:			Ver resultados
 view_thread:			Ver Tópico
 views:				Vistas
@@ -267,7 +266,6 @@ finduser_joindate:		Data de adesão
 finduser_action:		Acção
 yes:				Sim
 no:				Não
-register_email			Email
 edit_time_limit:		<br><b>Editar tempo limite</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
 no_edit_time_limit:		<br><b>Editar tempo limite</b>: <b>Ilimitado</b>
 pmuserloc_login:		Login:
@@ -580,7 +578,7 @@ iemail_thr_bodyicq:		Para ver todas as respostas não lidas vá a\n{VAR: goto_url[
 iemail_frm_subject:		Novo tópico no forum {VAR: frm_name} chamado {VAR: thr_subject} by {VAR: poster_login}
 iemail_frm_bodyemail:		Para ver o tópico vá a:\n{VAR: goto_url['email']}\n\nPara parar de receber notificações acerca de novos tópicos neste forum, vá aqui: {VAR: unsub_url['email']}
 iemail_frm_bodyicq:		Para ver o tópico vá a:\n{VAR: goto_url['icq']}\n\nPara parar de receber notificações acerca de novos tópicos neste forum, vá aqui:\n{VAR: unsub_url['icq']}
-iemail_participate:             Para participar na discussão vá aqui 
+iemail_participate:		Para participar na discussão vá aqui 
 ignore_list_err_info_title:	Info
 ignore_list_err_noign_msg:	Não pode ignorar este utilizador
 ignore_list_err_dup_msg:	Já tem este utilizador na lista de ignorados
@@ -696,7 +694,6 @@ ERR_registration_disabled_msg:	O administrador desabiliotu o registo de utilizad
 ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		ERRO: A sua conta ainda não está confirmada
 ERR_emailconf_msg:		Ainda não confirmou a sua conta via Email<br><table border=0><tr><td><ol><li>se não recebeu um email de confirmação <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">clique aqui</a><li>se {VAR: usr_d->email} não é o endereço de email correcto <a href="{ROOT}?t=register&amp;{DEF: _rsid}">clique aqui</a></ol></td></tr></table>
-ERR_emailconf_url:		Ainda não confirmou a sua conta via email<br><table border=0><tr><td><ol><li>se não recebeu um email de confirmação <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&amp;{DEF: _rsid}">clique aqui</a><li>se {VAR: GLOBALS['usr']->email} não é o endereço de email correcto <a href="{ROOT}?t=register&amp;{DEF: _rsid}">clique aqui</a></ol></td></tr></table>
 ERR_user_ttl:			ERRO: Utilizador inexistente
 ERR_user_msg:			Utilizador não existe 
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -841,7 +838,6 @@ quicklogin_password:		Password
 quicklogin_use_cookies:		Usa Cookies?
 quicklogin_login_btn:		Login
 post_notification_desc:		Notificar quando alguém responder a esta mensagem.
-post_proc_all_ext_allowed:	(aberto a todos)
 maximize_category:		Maximizar Categoria
 no_view_perm:			Não tem as permissões necessárias para ver este tópico.
 report_empty_report:		Não pode enviar um relatório vazio, por favor coloque uma razão para o seu relatório.
@@ -871,7 +867,7 @@ msg_err_nosuchmsg_msg:		Não existe essa mensagem neste tópico
 msg_err_nosuchmsg_title:	Erro
 imsg_err_message_title:		Mensagem inválida
 imsg_err_message_msg:		A mensagem que está a tentar visualisar não existe.
-poll_edit: 			Editar
+poll_edit:			Editar
 register_err_not_valid_img:	O Url especificado não contém uma imagem valida
 pmsg_recepient:			Recipiente
 register_err_taken_alias:	O alias que está a tentar usar já está a ser utilizado por outro membro do forum, por favor escolha outro.
