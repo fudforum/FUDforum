@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.5 2002/07/08 11:56:41 hackie Exp $
+*   $Id: modque.php.t,v 1.6 2002/07/08 12:32:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,7 +26,24 @@
 		exit(); 
 	}
 	
-	if ( !empty($appr) ) {
+	if( $usr->is_mod != 'A' && $usr->is_mod != 'Y' )
+		error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+
+	if( is_numeric($appr) ) 
+		$act_id = $appr;
+	else if ( is_numeric($del) )
+		$act_id = $del;	
+	else
+		$act_id = NULL;	
+
+	if( $usr->is_mod != 'A' && $act_id ) {
+		if( !bq("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id="._uid) ) 
+			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+			
+		exit(LAST_QUERY(1));	
+	}
+	
+	if ( is_numeric($appr) ) {
 		$msg = new fud_msg_edit;
 		$msg->get_by_id($appr);
 		$msg->subject = addslashes($msg->subject);
@@ -35,7 +52,7 @@
 		header("Location: {ROOT}?t=modque&"._rsid.'&rand='.get_random_value());
 		exit();
 	}
-	else if( !empty($del) ) {
+	else if( is_numeric($del) ) {
 		$msg = new fud_msg_edit;
 		$msg->get_by_id($del);
 		logaction($usr->id, 'DELMSG', $msg->id);
@@ -64,6 +81,7 @@
 		{SQL_TABLE_PREFIX}users.aim,
 		{SQL_TABLE_PREFIX}users.msnm,
 		{SQL_TABLE_PREFIX}users.yahoo,
+		{SQL_TABLE_PREFIX}users.last_visit AS time_sec,
 		{SQL_TABLE_PREFIX}users.invisible_mode,
 		{SQL_TABLE_PREFIX}users.avatar_loc,
 		{SQL_TABLE_PREFIX}users.avatar_approved,
@@ -72,24 +90,22 @@
 		{SQL_TABLE_PREFIX}level.name AS level_name,
 		{SQL_TABLE_PREFIX}level.pri AS level_pri,
 		{SQL_TABLE_PREFIX}level.img AS level_img,
-		{SQL_TABLE_PREFIX}forum.name AS frm_name,
-		{SQL_TABLE_PREFIX}ses.time_sec
+		{SQL_TABLE_PREFIX}forum.name AS frm_name
+		
 	FROM
 		{SQL_TABLE_PREFIX}msg 
-	LEFT JOIN {SQL_TABLE_PREFIX}thread 
+	INNER JOIN {SQL_TABLE_PREFIX}thread 
 		ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id 
-	LEFT JOIN {SQL_TABLE_PREFIX}forum 
+	INNER JOIN {SQL_TABLE_PREFIX}forum 
 		ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id 
-	LEFT JOIN {SQL_TABLE_PREFIX}mod 
-		ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id=".$usr->id."
-	LEFT JOIN {SQL_TABLE_PREFIX}cat
+	INNER JOIN {SQL_TABLE_PREFIX}mod 
+		ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id="._uid."
+	INNER JOIN {SQL_TABLE_PREFIX}cat
 		ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id	
 	LEFT JOIN {SQL_TABLE_PREFIX}users
 		ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id
 	LEFT JOIN {SQL_TABLE_PREFIX}avatar
 		ON {SQL_TABLE_PREFIX}users.avatar={SQL_TABLE_PREFIX}avatar.id
-	LEFT JOIN {SQL_TABLE_PREFIX}ses
-		ON {SQL_TABLE_PREFIX}ses.user_id={SQL_TABLE_PREFIX}msg.poster_id
 	LEFT JOIN {SQL_TABLE_PREFIX}level
 			ON {SQL_TABLE_PREFIX}users.level_id={SQL_TABLE_PREFIX}level.id
 	WHERE 
