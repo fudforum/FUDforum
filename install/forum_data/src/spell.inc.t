@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: spell.inc.t,v 1.4 2002/09/02 20:04:04 hackie Exp $
+*   $Id: spell.inc.t,v 1.5 2002/09/02 21:39:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,7 +70,7 @@ function tokenize_string($data)
 			case ':':
 				if( isset($str) ) {
 					$wa[] = array('token'=>$str, 'check'=>1);
-					unset($str)
+					unset($str);
 				}
 				
 				$wa[] = array('token'=>$data[$i], 'check'=>0);
@@ -80,7 +80,7 @@ function tokenize_string($data)
 				if( ($p=strpos($data, '>', $i)) ) {
 					if( isset($str) ) {
 						$wa[] = array('token'=>$str, 'check'=>1);
-						unset($str)
+						unset($str);
 					}
 
 					$wrd = substr($data,$i,($p-$i)+1);
@@ -126,7 +126,7 @@ function tokenize_string($data)
 					$regs = array();
 					if( preg_match("!([A-Za-z0-9\-_\.\%\?\&=/]+)!is", $tmp_string, $regs) ) {
 						$wa[] = array('token'=>$str.'//'.$regs[1], 'check'=>0);
-						unset($str)
+						unset($str);
 						                                         
 						$i += 2+strlen($regs[1]);
 						break;
@@ -134,13 +134,13 @@ function tokenize_string($data)
 				}
 				else if ( $str == 'Re' ) {
 					$wa[] = array('token'=>$str.':', 'check'=>0);
-					unset($str)
+					unset($str);
 					break;                                        
 				}
 				
 				if( isset($str) ) {
 					$wa[] = array('token'=>$str, 'check'=>1);
-					unset($str)
+					unset($str);
 				}
 				$wa[] = array('token'=>$data[$i], 'check'=>0);
 			
@@ -148,7 +148,7 @@ function tokenize_string($data)
 			case '&':
 				if( isset($str) ) {
 					$wa[] = array('token'=>$str, 'check'=>1);
-					unset($str)
+					unset($str);
 				}
 				
 				$regs = array();
@@ -183,7 +183,7 @@ function draw_spell_sug_select($v,$k,$type)
 		$data .= '<option value="'.$va.'">'.++$i.') '.$va.'</option>';
 	
 	if( !count($sug) ) 
-		$data .= '<option value="">no alternatives</option>';
+		$data .= '<option value="">{TEMPLATE: spell_alts}</option>';
 	
 	$data .= '</select>';
 
