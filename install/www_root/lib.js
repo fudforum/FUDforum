@@ -41,6 +41,10 @@ function insertTagMoz(obj, stag, etag)
 	if (!txt || txt == '') {
 		t = document.getElementById('txtb');
 		h = document.getElementsByTagName('textarea')[0];
+		if (t == h) {
+			t.value = t.value.substring(0, t.selectionStart) + stag + etag +  t.value.substring(t.selectionEnd, t.value.length);
+			return;
+		}
 		txt = t.value.substring(t.selectionStart, t.selectionEnd);
 		if (txt) {
 			t.value = t.value.substring(0, t.selectionStart) + stag + t.value.substring(t.selectionStart, t.selectionEnd) + etag +  t.value.substring(t.selectionEnd, t.value.length);
