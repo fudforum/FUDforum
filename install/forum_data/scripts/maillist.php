@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.42 2004/04/25 15:34:34 hackie Exp $
+* $Id: maillist.php,v 1.43 2004/05/22 18:02:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -109,7 +109,6 @@ class fud_emsg
 		// Remove 1st & last boundry since they are not needed for our perpouses
 		$this->body = substr($this->body, strpos($this->body, $boundry)+$b_len);
 		$this->body = substr($this->body, 0, strrpos($this->body, $boundry)-$b_len-1);
-
 		// Isolate boundry sections
 		$tmp = explode($boundry, $this->body);
 
@@ -128,10 +127,12 @@ class fud_emsg
 			case 'text/plain':
 				$this->decode_message_body();
 				break;
+
 			case 'text/html':
 				$this->decode_message_body();
 				$this->body = (!$html ? strip_tags($this->body) : $this->body);
 				break;
+
 			case 'multipart/parallel': // Apparently same as multipart/mixed but order of body parts does not matter
 	                case 'multipart/report': // RFC1892 ( 1st part is human readable, identical to multipart/mixed )
         	        case 'multipart/signed': // PGP or OpenPGP (appear same) ( 1st part is human readable )
@@ -145,7 +146,6 @@ class fud_emsg
 				}
 
 				$this->boudry_split($this->headers['__other_hdr__']['content-type']['boundary'], $html);
-
 				// In some cases in multi-part messages there will only be 1 body,
 				// in those situations we assing that body and info to the primary message
 				// and hide the fact this was multi-part message
@@ -155,20 +155,16 @@ class fud_emsg
 				} else if ($this->body_sc > 1) {
 					// We got many bodies to pick from, Yey!. Lets find something we can use,
 					// preference given to 'text/plain' or if not found go for 'text/html'
-
-					$final_id = $html_id = null;
+					$final_id = $html_id = array();
 
 					for ($i = 0; $i < $this->body_sc; $i++) {
 						switch ($this->body_s[$i]->headers['content-type']) {
 							case 'text/html':
-								if (!isset($html_id)) {
-									$html_id = $i;
-								}
+								$html_id[] = $i;
 								break;
+
 							case 'text/plain':
-								if (!isset($final_id)) {
-									$final_id = $i;
-								}
+								$final_id[] = $i;
 								break;
 						}
 						// look if message has any attached files
@@ -186,15 +182,18 @@ class fud_emsg
 						}
 					}
 
-					if (!isset($final_id) && isset($html_id)) {
+					if (!$final_id && $html_id) {
 						$final_id = $html_id;
 					}
-
-					if (isset($final_id)) {
-						$this->body = $this->body_s[$final_id]->body;
-						if (isset($this->body_s[$final_id]->headers['__other_hdr__'])) {
-							$this->headers['__other_hdr__'] = $this->body_s[$final_id]->headers['__other_hdr__'];
+					if ($final_id) {
+						$this->body = '';
+						foreach ($final_id as $fid) {
+							$this->body .= $this->body_s[$fid]->body;
 						}
+						if (isset($this->body_s[$final_id[0]]->headers['__other_hdr__'])) {
+							$this->headers['__other_hdr__'] = $this->body_s[$final_id[0]]->headers['__other_hdr__'];
+						}
+						$this->headers['content-type'] = $this->body_s[$final_id[0]]->headers['content-type'];
 					} else {
 						$this->body = '';
 					}
@@ -202,6 +201,7 @@ class fud_emsg
 					$this->body = '';
 				}
 				break;
+
 			default:
 				$this->decode_message_body();
 				break;
@@ -387,7 +387,6 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$emsg->body_cleanup_rep = $mlist->body_regex_needle;
 
 	$emsg->parse_input($mlist->mlist_opt & 16);
-
 	$emsg->fetch_useful_headers();
 	$emsg->clean_up_data();
 
