@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.13 2003/04/07 14:23:14 hackie Exp $
+*   $Id: err.inc.t,v 1.14 2003/04/08 08:24:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,12 +51,11 @@ function std_error($type)
 'ERR_systemerr'=>array('{TEMPLATE: ERR_systemerr_ttl}', '{TEMPLATE: ERR_systemerr_msg}', '{TEMPLATE: ERR_systemerr_url}')
 );
 
-	$err = $err_array["ERR_".$type];
+	$err = $err_array['ERR_'.$type];
 	if (is_array($err)) {
 		error_dialog($err[0], $err[1], $err[2]);
 	} else {
 		error_dialog('{TEMPLATE: err_inc_criticaltitle}', '{TEMPLATE: err_inc_criticalmsg}', '{ROOT}?t=index&'._rsid, 'FATAL');
-		exit();
 	}
 }
 

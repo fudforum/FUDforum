@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.26 2003/04/07 14:23:14 hackie Exp $
+*   $Id: post.php.t,v 1.27 2003/04/08 08:24:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -483,7 +483,7 @@
 	/* handle polls */
 	$poll = '';
 	if ($MOD || $perms['p_poll'] == 'Y') {
-		if (!isset($_POST['pl_id'])) {
+		if (empty($_POST['pl_id'])) {
 			$poll = '{TEMPLATE: create_poll}';
 		} else if (($poll = db_saq('SELECT id,name FROM {SQL_TABLE_PREFIX}poll WHERE id='.(int)$_POST['pl_id']))) {
 			$poll = '{TEMPLATE: edit_poll}';
