@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.38 2003/09/28 12:07:37 hackie Exp $
+*   $Id: tree.php.t,v 1.39 2003/09/28 13:23:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -200,16 +200,16 @@
 	$prev_msg = $next_msg = 0;
 	$rev = isset($_GET['rev']) ? $_GET['rev'] : '';
 	$reveal = isset($_GET['reveal']) ? $_GET['reveal'] : '';
+	$tree_data = '';
 
-	if(is_array($tree->kiddies)) {
+	if(isset($tree->kiddies)) {
 		reset($tree->kiddies);
 		$stack[0] = &$tree;
 		$stack_cnt = $tree->kiddie_count;
 		$j = 0;
 		$lev = 0;
 		$prev_id = 0;
-	
-		$tree_data = '';
+
 		while ($stack_cnt > 0) {
 			$cur = &$stack[$stack_cnt-1];
 		
