@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.121 2004/06/07 17:11:46 hackie Exp $
+* $Id: register.php.t,v 1.122 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -614,9 +614,6 @@ function decode_uent(&$uent)
 		}
 
 		$b_year = $b_month = $b_day = '';
-	}
-
-	if (empty($reg_time_zone)) {
 		$reg_time_zone = $SERVER_TZ;
 	}
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.17 2004/05/12 15:26:08 hackie Exp $
+* $Id: merge_th.php.t,v 1.18 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -81,7 +81,7 @@
 					$p[] = $r[0];
 				}
 				unset($c);
-				if (!empty($p)) {
+				if ($p) {
 					q('UPDATE {SQL_TABLE_PREFIX}poll SET forum_id='.$forum.' WHERE id IN('.implode(',', $p).')');
 				}
 			}

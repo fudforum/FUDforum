@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.116 2004/06/07 17:10:35 hackie Exp $
+* $Id: post.php.t,v 1.117 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -118,7 +118,7 @@ function flood_check()
 	}
 
 	$attach_list = array();
-	$msg_subject = $msg_body = '';
+	$msg_smiley_disabled = $msg_subject = $msg_body = '';
 
 	/* Retrieve Message */
 	if (!isset($_POST['prev_loaded'])) {
@@ -265,9 +265,7 @@ function flood_check()
 			$pl_id = 0;
 		}
 
-		if ($reply_to && $old_subject == $msg_subject) {
-			$no_spell_subject = 1;
-		}
+		$no_spell_subject = ($reply_to && $old_subject == $msg_subject);
 
 		if (isset($_POST['btn_spell'])) {
 			$GLOBALS['MINIMSG_OPT']['DISABLED'] = 1;
@@ -305,7 +303,7 @@ function flood_check()
 			}
 			$wa = '';
 
-			if (strlen($_POST['msg_subject']) && empty($no_spell_subject)) {
+			if (strlen($_POST['msg_subject']) && !$no_spell_subject) {
 				$text_s = htmlspecialchars($text_s);
 				char_fix($text_s);
 				$wa = tokenize_string($text_s);
@@ -492,7 +490,7 @@ function flood_check()
 		}
 		fud_wordwrap($text);
 
-		if ($spell && empty($no_spell_subject) && $text_s) {
+		if ($spell && !$no_spell_subject && $text_s) {
 			$subj = check_data_spell($text_s, 'subject', $usr->pspell_lang);
 		} else {
 			$subj = $text_s;
@@ -622,7 +620,7 @@ function flood_check()
 
 	/* handle smilies */
 	if ($perms & 16384) {
-		$msg_smiley_disabled_check = !empty($msg_smiley_disabled) ? ' checked' : '';
+		$msg_smiley_disabled_check = $msg_smiley_disabled ? ' checked' : '';
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
 		$post_smilies = draw_post_smiley_cntrl();
 	} else {

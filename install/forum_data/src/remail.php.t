@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: remail.php.t,v 1.21 2004/05/13 19:34:25 hackie Exp $
+* $Id: remail.php.t,v 1.22 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,10 +30,13 @@
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=t.forum_id
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
 				WHERE t.id='.$th);
-	}
-	if (empty($data)) {
+		if (!$data) {
+			invl_inp_err();
+		}
+	} else {
 		invl_inp_err();
 	}
+
 	if (!($usr->users_opt & 1048576) && !$data->md && !($data->gco & 2)) {
 		std_error('access');
 	}

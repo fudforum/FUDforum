@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.41 2004/06/07 15:24:53 hackie Exp $
+* $Id: rdf.php.t,v 1.42 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -84,6 +84,7 @@ function fud_xml_encode($str)
 
 	define('__ROOT__', $WWW_ROOT . 'index.php');
 
+	$res = 0;
 	$offset = isset($_GET['o']) ? (int)$_GET['o'] : 0;
 	$limit  = (isset($_GET['n']) && $_GET['n'] <= $RDF_MAX_N_RESULTS) ? (int)$_GET['n'] : $RDF_MAX_N_RESULTS;
 
@@ -162,7 +163,6 @@ function fud_xml_encode($str)
 					'.$join.'
 				WHERE
 					' . $lmt  . (isset($_GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
-			$res = 0;
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					header('Content-Type: text/xml');
@@ -223,8 +223,7 @@ $basic_rss_data .= '
 	<body>'.str_replace("\n", '', sp(read_msg_body($r->foff, $r->length, $r->file_id))).'</body>
 ';
 					if ($r->attach_cnt && $r->attach_cache) {
-						$al = @unserialize($r->attach_cache);
-						if (!empty($al)) {
+						if (($al = @unserialize($r->attach_cache))) {
 							echo '<content:items><rdf:Bag>';
 							foreach ($al as $a) {
 								echo '<rdf:li>
@@ -242,8 +241,7 @@ $basic_rss_data .= '
 					if ($r->poll_name) {
 						echo '<content:items><rdf:Bag><poll_name>'.sp($r->poll_name).'</poll_name><total_votes>'.$r->total_votes.'</total_votes>';
 						if ($r->poll_cache) {
-							$pc = @unserialize($r->poll_cache);
-							if (!empty($pc)) {
+							if (($pc = @unserialize($r->poll_cache))) {
 								foreach ($pc as $o) {
 									echo '<rdf:li>
 										<content:item rdf:about="poll_opt">
@@ -327,7 +325,6 @@ $basic_rss_data .= '
 					'.$join.'
 				WHERE
 					' . $lmt  . (isset($_GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
-			$res = 0;
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					header('Content-Type: text/xml');
@@ -416,7 +413,6 @@ $basic_rss_data .= '
 					'.$join.'
 					WHERE
 						' . $lmt . ' ORDER BY ' . $order_by . ' DESC LIMIT ' . qry_limit($limit, $offset));
-			$res = 0;
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					header('Content-Type: text/xml');
@@ -479,7 +475,7 @@ $basic_rss_data .= '
 
 			break;
 	}
-	if (!empty($res)) {
+	if ($res) {
 		un_register_fps();
 		echo '</rdf:RDF>';
 	} else {

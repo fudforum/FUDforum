@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.25 2004/06/07 17:10:35 hackie Exp $
+* $Id: pdf.php.t,v 1.26 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -110,22 +110,22 @@ class fud_pdf
 				$parts = explode("\n", wordwrap($line, $max_cpl, "\n", 1));
 				$line = $parts[0];
 				unset($parts[0]);
+			} else {
+				$parts = array();
 			}
 			if (pdf_get_value($this->pdf, 'texty', 0) <= ($this->hmargin + 12)) {
 				$this->end_page();
 				$this->begin_page($this->pg_title);
 			}
 			pdf_continue_text($this->pdf, $line);
-			if (!empty($parts)) {
-				foreach ($parts as $p) {
-					if (pdf_get_value($this->pdf, 'texty', 0) <= ($this->hmargin + 12)) {
-						$this->end_page();
-						$this->begin_page($this->pg_title);
-					}
-					pdf_continue_text($this->pdf, $p);
+			foreach ($parts as $p) {
+				if (pdf_get_value($this->pdf, 'texty', 0) <= ($this->hmargin + 12)) {
+					$this->end_page();
+					$this->begin_page($this->pg_title);
 				}
-				unset($parts);
+				pdf_continue_text($this->pdf, $p);
 			}
+			unset($parts);
 		}
 	}
 
@@ -392,8 +392,7 @@ function post_to_smiley($text, $re)
 
 		/* handle attachments */
 		if ($o->attach_cnt && $o->attach_cache) {
-			$a = unserialize($o->attach_cache);
-			if (!empty($a)) {
+			if (($a = unserialize($o->attach_cache))) {
 				foreach ($a as $i) {
 					$attch[] = array('id' => $i[0], 'name' => $i[1], 'nd' => $i[3]);
 				}
@@ -403,8 +402,7 @@ function post_to_smiley($text, $re)
 
 		/* handle polls */
 		if ($o->poll_name && $o->poll_cache) {
-			$pc = @unserialize($o->poll_cache);
-			if (!empty($pc)) {
+			if (($pc = @unserialize($o->poll_cache))) {
 				reverse_fmt($o->poll_name);
 				foreach ($pc as $opt) {
 					$opt[0] = strip_tags(post_to_smiley($opt[0], $re));

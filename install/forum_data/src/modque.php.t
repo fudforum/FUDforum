@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.php.t,v 1.40 2004/04/21 19:55:20 hackie Exp $
+* $Id: modque.php.t,v 1.41 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -90,7 +90,7 @@
 	}
 	unset($r);
 
-	if (empty($modque_message)) {
+	if ($modque_message) {
 		$modque_message = '{TEMPLATE: no_modque_msg}';
 	}
 
