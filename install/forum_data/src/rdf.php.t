@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.18 2003/06/05 20:16:02 hackie Exp $
+*   $Id: rdf.php.t,v 1.19 2003/06/07 19:56:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -125,6 +125,10 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 			if (isset($_GET['de'])) {
 				$lmt .= ' AND m.post_stamp <='.(int)$_GET['de'];
 			}
+			if ($lmt == " m.approved='Y'") {
+				$lmt .= ' AND m.post_stamp >= ' . (time() - 86400 * 5);
+			}
+	
 			if ($AUTH == 'Y') {
 				if ($AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
