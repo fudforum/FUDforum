@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.23 2003/05/06 14:22:54 hackie Exp $
+*   $Id: nntp.inc,v 1.24 2003/05/06 14:31:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -681,8 +681,7 @@ class fud_nntp
 	        // handle file attachments, if there are any
 	        if (is_array($attch)) {
 	        	foreach ($attch as $fname => $file_data) {
-	                	$file_data = wordwrap(base64_encode($file_data), 60, "\r\n", 1);
-	                        fputs($this->fs, "begin-base64 644 $fname\r\n$file_data\r\====\r\n");
+	                        fputs($this->fs, "begin-base64 644 ".$fname."\r\n".chunk_split(base64_encode($file_data))."\r\====\r\n");
 			}
 		}
 		
