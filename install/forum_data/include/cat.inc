@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.26 2004/12/23 13:53:22 hackie Exp $
+* $Id: cat.inc,v 1.27 2005/01/04 21:46:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -164,6 +164,10 @@ function rebuild_forum_cat_order()
 	$fp = fopen($cache_file.'.tmp', "w");
 	fwrite($fp, '<?php $cat_cache = '.var_export($cat_cache, 1).'; $cat_par = '.var_export($cat_par, 1).'; ?>');
 	fclose($fp);
+	
+	if (!strncasecmp('win', PHP_OS, 3)) {
+		@unlink($cache_file);
+	}
 	rename($cache_file.'.tmp', $cache_file);
 
 	/* now we build a special cache specifically for the front page */
@@ -188,6 +192,9 @@ function rebuild_forum_cat_order()
 	$fp = fopen($cache_file.'.tmp', "w");
 	fwrite($fp, '<?php $cidxc = '.var_export($cat_cache, 1).'; ?>');
 	fclose($fp);
+	if (!strncasecmp('win', PHP_OS, 3)) {
+		@unlink($cache_file);
+	}
 	rename($cache_file.'.tmp', $cache_file);
 
 	if (isset($ll)) {
