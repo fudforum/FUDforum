@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.7 2002/09/17 01:33:31 hackie Exp $
+*   $Id: login.php.t,v 1.8 2002/09/17 01:51:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@
 
 	/* Remove old unconfirmed users */
 	if( $EMAIL_CONFIRMATION == 'Y' ) 
-		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE email_conf='N' AND join_date<".(__request_timestamp__-86400*$UNCONF_USER_EXPIRY)." AND posted_msg_count>0");
+		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE email_conf='N' AND join_date<".(__request_timestamp__-86400*$UNCONF_USER_EXPIRY)." AND posted_msg_count<0 AND is_mod!='A'");
 
 	if ( !empty($HTTP_GET_VARS['logout']) && isset($ses) ) {
 		preg_match('/\?t=([A-Z0-9a-z_]+)(\&|$)/', $returnto, $regs);
