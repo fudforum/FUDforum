@@ -41,12 +41,12 @@ icq_control_panel:		ICQ Ýleti Denetim Masasý
 icq_message_form:		ICQ Ýleti Formu:
 ignore_user:			bu kullanýcýnýn tüm gönderilerini gözardý et
 im_aim:				AIM:
-im_msnm:			MSN Messenger:
-im_yahoo:			Yahoo Messenger:
+im_msnm:			MSN:
+im_yahoo:			Yahoo:
 image:				Resim:
 index_forum:			Forum
-index_new_posts:		Son ziyaret tarihinden sonra yeni ileti gönderilmiþ
-index_no_new_posts:		Son ziyaret tarihinden sonra yeni ileti gönderilmemiþ 
+index_new_posts:		Son ziyaretinizden sonra yeni ileti gönderilmiþ
+index_no_new_posts:		Son ziyaretinizden sonra yeni ileti gönderilmemiþ 
 interests:			Ýlgi alanlarý:
 last_post:			Son ileti
 last_thread_msg:		Bu zincirdeki son iletiye git
@@ -158,7 +158,7 @@ thread_announcement:		Duyuru:
 thread_first_unread_msg:	Bu zincirdeki ilk okunmamýþ iletiye gitmek için buraya týklayýn
 thread_thread:			Zincir
 threads:			Zincirler
-time:				Zaman
+time:				Saat
 todays_posts:			Bugünkü iletiler
 todays_posts_desc:		Bugün gönderilen tüm iletileri göster
 un_ignore_user:			bu kullanýcýnýn gönderdiklerini gözardý etmeyi durdur
@@ -204,7 +204,7 @@ pmsg_new_messages:		Özel iletiyi okunmamýþ say
 pmsg_old_messages:		Özel iletiyi oku
 deny_recipt:			okundu bilgisini gönderme
 deny_recipt_desc:		Bu iletiyi okuduðunuza dair haber gönderilmesini engeller
-restore_to:			Restore To:
+restore_to:			Buraya çýkar:
 move_to:			Buraya Taþý:
 list_referes_referrals:		Tanýtým
 list_referes_members:		Tanýtým Yapýlan Üyeler
@@ -297,10 +297,10 @@ register_location:		Yer:
 register_occupation:		Ýþ:
 register_interests:		Ýlgi Alanlarý:
 register_image:			Resim:
-register_icq:			ICQ
+register_icq:			ICQ:
 register_aim:			AIM:
 register_yahoo:			Yahoo:
-register_msnm:			MSN Messenger:
+register_msnm:			MSN:
 register_homepage:		Ana Sayfa:
 register_bday:			Doðum Tarihi:
 register_bday_desc:		Doðum tarihinizi belirtirseniz, diðer üyeler kiþisel bilgilerinizde görebilecek.
@@ -338,7 +338,7 @@ buddy_status:			Durum
 my_buddies:			Arkadaþlarým
 add_buddy:			Arkadaþ Ekle
 add:				Ekle
-buddy_search:			Eklemek istediðiniz kullanýcýnýn kullanýcý ismini girin.
+buddy_search:			Eklemek istediðiniz kullanýcýnýn ismini girin.
 buddy_remove:			çýkar
 post_normal:			Olaðan
 post_sticky:			Yapýþkan
@@ -534,8 +534,8 @@ tabs_referrals:			Tanýtýmlar
 tabs_buddy_list:		Arkadaþ Listesi
 tabs_ignore_list:		Gözardý Listesi
 tabs_private_messaging:		Özel Ýleti
-single_msg_delete:		<b>{VAR: data[3]}</b> baþlýklý mesajý <font color="#ff0000" size="4">SÝLMEK</font> üzeresiniz.<p>
-thread_delete:			<b>{VAR: data[3]}</b> baþlýklý <font color="#ff0000" size="4">TÜM ZÝNCÝRÝ</font> <font color="#ff0000" size="4">SÝLMEK</font> üzeresiniz.<p>
+single_msg_delete:		<b>{VAR: data[3]}</b> baþlýklý iletiyi <font color="#ff0000" size="4">SýLMEK</font> üzeresiniz.<p>
+thread_delete:			<b>{VAR: data[3]}</b> baþlýklý <font color="#ff0000" size="4">TÜM ZÝNCÝRÝ</font> silmek üzeresiniz.<p>
 delete_proceed:			<font size="3"><b>Devam etmek istiyor musunuz?</b></font>
 delete_yes:			Evet
 delete_no:			Hayýr
@@ -664,7 +664,7 @@ reset_err_rstconf_title:	Bilgi
 reset_err_rstconf_msg:		Yapmanýz gerekenler bir kaç dakika içinde e-mektup adresinize ulaþacak.
 reset_newpass_title:		Parolayý Yeniden Belirle
 reset_newpass_msg:		Selam,\n\nÝsteðiniz üzerine kayýt bilgileriniz gönderildi.\nGiriþ bilgileriniz:\n\nKullanýcý ismi: {VAR: ui[1]}\nParola: {VAR: passwd}\n\nYukarýda belirtilen yeni parolanýzý deðiþtirmek isterseniz, kullanýcý bilgileri denetim masasýndan yapabilirsiniz:\n{ROOT}?t=register\n\n
-reset_login_notify:		Parolanýz e-mektup adresinize gönderildi. Bir kaç dakika içinde elinizde olmalý. Lütfen parolanýzý gözden geçirin ve giriþ yapýn..<br>.<br>.<br>
+reset_login_notify:		Parolanýz e-mektup adresinize gönderildi. Bir kaç dakika içinde elinizde olmalý. Lütfen parolanýzý gözden geçirin ve giriþ yapýn..<br>.<br>.<br>.<br>.<br>.<br>
 search_update:			Ýletileri arýyor
 selmsg_update:			<a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Bugünkü Ýletilerde</a> dolaþýyor
 showposts_update:		<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a> tarafýndan gönderilen iletileri görüntülüyor.
@@ -907,7 +907,7 @@ register_tree_msg_view:		Zincirler için aðaç/Ýletiler için düz görünüm
 mmod_delete_cofirm_ttl:		Konu/Ýleti Silmeyi Doðrula
 spell_alts:			alternatif yok
 insert_uploaded_image:		Ýleti gövdesinin içine resim yerleþtir
-finduser_help:			Arama motoru otomatik olarak * jokerini sorgunuza ekleyecek. örn. kullanýcý ismi &#39;a&#39; ile baþlayan tüm kullanýcýlarý aramak için, arama kutusuna &#39;a&#39; yazmanýz yeterli.
+finduser_help:			Arama motoru otomatik olarak * jokerini sorgunuza ekleyecek. Örneðin kullanýcý ismi &#39;a&#39; ile baþlayan tüm kullanýcýlarý aramak için, arama kutusuna &#39;a&#39; yazmanýz yeterli.
 back_to_top:			Yukarý dön
 iemail_participate:		Tartýþma katýlmak için buraya gidin:
 pm_err_disabled_title:		Özel Ýleti Sistemi engellenmiþ durumda
@@ -915,7 +915,7 @@ pm_err_disabled_msg:		Kiþisel bilgiler bölümündeki &#39;Özel iletilere izin ver&
 err_mod_acc_ttl:		Onaylanmamýþ Hesap
 err_mod_acc_msg:		Tüm hesaplarýn etkinleþmeden önce yönetici tarafýndan onaylanmasý gerekiyor. Hesabýnýz yönetici tarafýndan etkinleþtirilinceye dek hesabýnýzýn tüm özelliklerini kullanamayabilirsiniz. 
 accounts_pending_approval:	Onay bekleyen hesaplar
-saved:				Kaydedildi
+saved:				Saklanan
 register_err_time_limit:	{GVAR: REG_TIME_LIMIT} saniye içinde sadece bir kayýt gerçekleþtirilebilir. Lütfen {VAR: reg_limit_reached} saniye bekledikten sonra tekrar deneyin.
 login_blocked_account_ttl:	Hesabýnýz yasaklanmýþ durumda.
 login_blocked_account_msg:	Hesabýnýz bu forumda yasaklanmýþ durumda. Eðer yasaklanma sebebini bilmiyorsanýz, forum yöneticileriyle iletiþime geçerek öðrenebilirsiniz.
@@ -923,7 +923,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Kullanýcý Ýsmi
 register_err_avatardimtobig:	<b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> boyutundaki avatar izin verilen boyutlarýn <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> dýþýnda.
 pmsg_download_counter:		{VAR: r->dlcount} kez indirildi.
-member_search:			<br>Veya <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Kullanýcý bul</a> özelliðini kullanabilirsiniz.
+member_search:			<br><a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Kullanýcý bul</a> özelliðini kullanabilirsiniz.
 post_all_ext_allowed:		(kýsýtsýz)
 buddy_offline:			{VAR: r[2]} þu anda baðlý deðil.
 buddy_online:			{VAR: r[2]} þu anda baðlý.
@@ -946,48 +946,48 @@ thread_mark_all_read:		tüm okunmamýþ forum iletilerini okundu olarak iþaretle
 thread_mark_all_read_desc:	Bu forumdaki tüm iletiler okundu olarak iþaretlenecek.
 private_no_messages:		Bu klasörde ileti yok.
 register_email_change_subject:	E-mektup adres deðiþiklik onayý.
-register_email_change_msg:	Lütfen yeni e-mektup adresiniz olarak belirttiðiniz "{VAR: uent->email}" adresinin eski adres olan "{VAR: old_email}" adresinin yerine geçeceðini, aþaðýdaki URL'yi ziyaret ederek doðrulayýn:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nYeni adresinizi onayladýktan sonra hesabýnýz tekrar etkin hale getirilecek.
+register_email_change_msg:	Lütfen yeni e-mektup adresiniz olarak belirttiðiniz "{VAR: uent->email}" adresinin eski adres olan "{VAR: old_email}" adresinin yerine geçeceðini, aþaðýdaki URL\'yi ziyaret ederek doðrulayýn:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nYeni adresinizi onayladýktan sonra hesabýnýz tekrar etkin hale getirilecek.
 iemail_thread_unsub:		Bu zincir aboneliðinden çýk
 iemail_forum_unsub:		Bu forum aboneliðinden çýk
 primary_group_prefix:		Bu forum için birincil grup:
 group_resources:		Bu grup þu forumlarýn izinlerini kontrol ediyor:
-register_email:			E-mektup
 register_admin_newuser_title:	Yeni bir kullanýcý kayýt oldu ve hesabý onaylanmayý bekliyor.
 register_admin_newuser_msg:	({VAR: uent->login}) kullanýcý isimli yeni bir kullanýcý foruma kayýt olmuþ durumda, ve kayýt denetimi etkin durumda olduðu için yeni kullanýcýnýn hesabý siz veya diðer forum yöneticilerinden biri tarafýndan onaylanmadýðý sürece etkin hale getirilmeyecek. Yeni hesabý gözden geçirmek için bu adrese gidebilirsiniz: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nBu otomatik bir iletidir, lütfen yanýt yazmayýn.\nEðer gelecekte yeni kaydolan kullanýcýlar için bu tür uyarýlar almak istemiyorsanýz Admin Control Panel içindeki "New Account Notification" ayarýný deðiþtirerek bunu yapabilirsiniz.
 post_mod_msg_notify_title:	"{VAR: frm->name}" forumunda onay bekleyen yeni ileti
 post_mod_msg_notify_msg:	"{VAR: msg_post->subject}" baþlýklý yeni bir ileti denetlediðiniz forumlardan birine gönderilmiþ durumda. Bu iletiyi gözden geçirmek ve onaylamak için bu adrese gidin: {ROOT}?t=modque\n\nBu otomatik bir iletidir, lütfen yanýt yazmayýn.\n
 thread_printable_pdf:		Yazdýrýlabilir PDF Üret
-thread_syndicate:		Syndicate this forum (XML)
+thread_syndicate:		Haber baþlýklarý (XML)
 reg_conf_title:			Kayýt Onayý
 reg_conf_email:			<b>E-mektup Onayý</b><br /> Hesabýnýzýn etkinleþtirilmesi için özel bir adres içeren bir e-mektup adresinize gönderilmiþ durumda. Bu mektup
 reg_conf_account:		<b>Kayýt Onayý</b><br />Hesabýnýzýn etkinleþtirilmeden önce forum yöneticisi tarafýndan onaylanmasý gerekiyor. Onaylandýðý zaman bunu size bildiren bir e-mektup alacaksýnýz. Onaylanana kadar foruma kullanýcý isminiz ve parolanýz ile giriþ yapabilir, fakat kayýtlý kullanýcýlara açýk olan tüm özelliklere ulaþamayabilirsiniz.
 forum_banned_user:		Davranýþlarýnýzdan dolayý bu forumda süresiz þekilde yasaklanmýþ durumdasýnýz. Güle güle.
-mnav_description:		Message Navigator
-mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
-mnav_forum_limit:		Only search In:
-mnav_all_forums:		Search all forums
-mnav_submit:			Begin Search
-mnav_no_range:			You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
-mnav_invalid_unit:		You must specify a valid time unit.
-mnav_invalid_date:		The date range you&#39;ve specified is larger then the one allowed by the administrator, narrow down date range of your search.
-mnav_no_results:		There are no messages matching query.
-mnav_posted_by:			Posted By:
-mnav_more:			More &raquo;&raquo;
-mnav_minute:			Minute(s)
-mnav_hour:			Hour(s)
-mnav_day:			Day(s)
-mnav_week:			Week(s)
-mnav_month:			Month(s)
-mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{ROOT}?t=mnav">Message Navigator</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-register_pm_notification:	Private Message Notification
-register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.
-findu_admin_opts_header:	Admin Opts.
-findu_unban:			UnBan
-findu_ban:			Ban
-findu_edit:			Edit
-findu_delete:			Delete
+mnav_description:		Ýleti Gezgini
+mnav_date_limit:		Tarih aralýðý:
+mnav_time_unit:			Tarih-saat birimi:
+mnav_forum_limit:		Aranacak forumlar:
+mnav_all_forums:		Tüm forumlarda ara
+mnav_submit:			Aramayý baþlat
+mnav_no_range:			Geçerli bir tarih aralýðý girmelisiniz. Ondalýklý sayýlar girebilirsiniz (0.12 gibi), fakat gireceðiniz sayý sýfýrdan büyük olmalý.
+mnav_invalid_unit:		Geçerli bir saat birimi girmelisiniz.
+mnav_invalid_date:		Belirttiðiniz aralýk yönetici tarafýndan izin verilenden daha geniþ, bu yüzden tarih aralýðýný biraz daha daraltmanýz gerekiyor.
+mnav_no_results:		Sorgunuza karþýlýk gelen bir ileti bulunamadý.
+mnav_posted_by:			Gönderen:
+mnav_more:			Devamý &raquo;&raquo;
+mnav_minute:			Dakika
+mnav_hour:			Saat
+mnav_day:			Gün
+mnav_week:			Hafta
+mnav_month:			Ay
+mnav_title:			Ýleti Gezgini
+mnav_update:			<a class="GenLink" href="{ROOT}?t=mnav">Ýleti Gezginini</a> kullanarak iletileri dolaþýyor.
+pm_notify_subject:		[{GVAR: FORUM_TITLE}] Yeni Özel Ýleti Uyarýsý
+pm_notify_body_email:		"{GVAR: FORUM_TITLE}" forumunda "{VAR: from}" tarafýndan gönderilmiþ "{VAR: subject}" konu baþlýklý yeni bir özel iletiniz var.\nÝletiyi görüntülemek için buraya týklayýn: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nBu tür uyarýlarý almak istemiyorsanýz kiþisel bilgiler bölümündeki "Özel Ýleti Uyarýsý" seçeneðini kapatýn.
+pm_notify_body_icq:		"{GVAR: FORUM_TITLE}" forumunda "{VAR: from}" tarafýndan gönderilmiþ "{VAR: subject}" konu baþlýklý yeni bir özel iletiniz var.\n\nBu tür uyarýlarý almak istemiyorsanýz kiþisel bilgiler bölümündeki "Özel Ýleti Uyarýsý" seçeneðini kapatýn.
+register_pm_notification:	Özel Ýleti Uyarýsý
+register_pm_notification_desc:	Size bir özel ileti gönderildiðinde belirttiðiniz yöntemle uyarý almanýzý saðlar.
+findu_admin_opts_header:	Yönetici Seçenekleri
+findu_unban:			Yasaðý Kaldýr
+findu_ban:			Yasakla
+findu_edit:			Düzenle
+findu_delete:			Sil
+register_email:			Email
