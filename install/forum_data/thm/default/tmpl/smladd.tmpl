@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smladd.tmpl,v 1.2 2002/08/04 15:08:08 hackie Exp $
+*   $Id: smladd.tmpl,v 1.3 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -21,17 +21,15 @@
 
 {PAGE: SMLLIST_PAGE}
 {TEMPLATE: header_plain}
-<table border=0 cellspacing=0 cellspacing=3 width="100%" class="dashed">
+<table border=0 cellspacing=1 cellpadding=0 width="100%" class="dashed">
 {TEMPLATE-DATA: sml_smiley_row}
-<tr><td align=middle colspan=99>[<a href="javascript://" onClick="javascript: window.close();">{MSG: smladd_close_window}</a>]</td></tr>
+<tr><td align="center" colspan="{VAR: col_count}">[<a href="javascript://" onClick="javascript: window.close();">{MSG: smladd_close_window}</a>]</td></tr>
 </table>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 
 {SECTION: sml_smiley_entry}
-<a href="javascript: insertParentTag(\' {VAR: obj->code} \',\'\');">
-	<img src="{VAR: smiley_www}{VAR: obj->img}" border=0 title="{VAR: obj->descr}" />
-</a>&nbsp;&nbsp;
+<a href="javascript: insertParentTag(\' {VAR: obj->code} \',\'\');"><img src="{VAR: smiley_www}{VAR: obj->img}" border=0 title="{VAR: obj->descr}" alt="{VAR: obj->descr}" /></a>&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: sml_smiley_row}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: list_referers.tmpl,v 1.2 2002/07/31 21:56:50 hackie Exp $
+*   $Id: list_referers.tmpl,v 1.3 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -26,11 +26,11 @@
 {REF: alt_var.tmpl}
 
 {SECTION: refered_entry a refered user LINK}
-<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: rf_id}&{DEF: _rsid}">{VAR: rf_login}</a> &nbsp;
+<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: rf_id}&amp;{DEF: _rsid}">{VAR: rf_login}</a> &nbsp;
 {SECTION: END}
 
 {SECTION: referer_entry refered users row}
-<tr class="{ALT-VAR: list_referers_alt RowStyleA RowStyleB}"><td nowrap class="GenText" valign="top"><a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->login}</a></td><td align="center" class="GenText">{VAR: obj->cnt}</td><td class="GenText">{TEMPLATE-DATA: refered_entry_data}</td></tr>
+<tr class="{ALT-VAR: list_referers_alt RowStyleA RowStyleB}"><td nowrap class="GenText" valign="top"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: obj->login}</a></td><td align="center" class="GenText">{VAR: obj->cnt}</td><td class="GenText">{TEMPLATE-DATA: refered_entry_data}</td></tr>
 {SECTION: END}
 
 {PAGE: REFERALS_PAGE A list of all the users who referred people to the forum and who they referred}

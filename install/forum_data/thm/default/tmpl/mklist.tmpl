@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mklist.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+*   $Id: mklist.tmpl,v 1.2 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -29,9 +29,10 @@
 
 {PAGE: MKLIST_PAGE a popup assistant for creating lists using FUDcode}
 {TEMPLATE: header_plain}
-<table border=0 cellspacing=2 cellspacing=0 width="99%" class="dashed">
+<form name="list" method="post" action="{ROOT}?t=mklist">
+<table border=0 cellspacing=2 cellpadding=0 width="99%" class="dashed">
 <tr>
-	<td><form name="list" method="post" action="{ROOT}?t=mklist">{MSG: mklist_type}</td>
+	<td>{MSG: mklist_type}</td>
 	<td><select name="tp" onChange="document.list.submit();">{TEMPLATE-DATA: tp_select_data}</select></td>
 </tr>
 <tr>
@@ -46,7 +47,7 @@
 <td colspan=2 align=right>
 <input type="submit" class="button" name="go" value="{MSG: mklist_apply}">
 <input type="button" class="button" name="close" value="{MSG: mklist_close}" onClick="javascript: window.close();">
-</tr></td>
+</td></tr>
 </table>
 <input type="hidden" name="opt_list" value="{VAR: form_option_list}"><input type="hidden" name="del" value="">{DEF: _hs}
 </form>

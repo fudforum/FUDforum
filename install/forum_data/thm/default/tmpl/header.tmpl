@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: header.tmpl,v 1.4 2002/08/05 00:47:55 hackie Exp $
+*   $Id: header.tmpl,v 1.5 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -28,12 +28,13 @@
 {MAIN_SECTION: END}
 
 {MAIN_SECTION: header_plain header for small popup forms}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 {META-CONTENT-LANGUAGE}
 <title>{GVAR: FORUM_TITLE}{VAR: TITLE_EXTRA}</title>
 <BASE HREF="{GVAR: WWW_ROOT}">
-<script language="JavaScript" src="lib.js"></script>
+<script language="JavaScript" src="lib.js" type="text/javascript"></script>
 <link rel="StyleSheet" href="{THEME_ROOT}/forum.css" type="text/css">
 </head>
 <body>

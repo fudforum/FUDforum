@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: referals.tmpl,v 1.4 2002/08/04 15:08:08 hackie Exp $
+*   $Id: referals.tmpl,v 1.5 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -26,7 +26,7 @@
 {REF: forum.tmpl}
 
 {SECTION: pm_link}
-&nbsp;<a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_to_list={VAR-URL: obj->login}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a>
+&nbsp;<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;msg_to_list={VAR-URL: obj->login}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: homepage_link}
@@ -34,17 +34,17 @@
 {SECTION: END}
 
 {SECTION: email_link}
-&nbsp;<a href="{ROOT}?t=email&tx_name={VAR-URL: obj->login}&returnto={VAR: returnto}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 /></a>
+&nbsp;<a href="{ROOT}?t=email&amp;tx_name={VAR-URL: obj->login}&amp;returnto={VAR: returnto}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: refered_entry info about a single referred user}
 <tr class="{VAR: style}">
 	<td width="100%" nowrap class="GenText">
-		<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->login}</a>
+		<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: obj->login}</a>
 	</td>
 	<td nowrap align="center" nowrap class="Gentext">{VAR: obj->posted_msg_count}</td>
 	<td nowrap class="DateText" nowrap>{DATE: obj->join_date %a, %d %B %Y}</td>
-	<td nowrap class="GenText"><a href="{ROOT}?t=showposts&id={VAR: obj->id}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" border=0 /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
+	<td nowrap class="GenText"><a href="{ROOT}?t=showposts&amp;id={VAR: obj->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" border=0 /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
 

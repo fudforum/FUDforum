@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.8 2002/08/01 18:37:27 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.9 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -72,7 +72,7 @@ function tmpl_drawpmsg(&$obj)
 		if( $obj->ouser_id != $GLOBALS["usr"]->id ) {
 			$user_profile = '{TEMPLATE: dpmsg_user_profile}';
 			$encoded_login = urlencode($obj->login);
-			$ret_n_sid = 'returnto='.urlencode($GLOBALS["HTTP_SERVER_VARS"]["REQUEST_URI"]).'&'._rsid;
+			$ret_n_sid = 'returnto='.urlencode($GLOBALS["HTTP_SERVER_VARS"]["REQUEST_URI"]).'&amp;'._rsid;
 			if( $GLOBALS["ALLOW_EMAIL"] == 'Y' && $obj->email_messages == 'Y' ) $email_link = '{TEMPLATE: dpmsg_email_link}';
 			if( $GLOBALS['PM_ENABLED']=='Y' ) $private_msg_link = '{TEMPLATE: dpmsg_private_msg_link}';
 		}			

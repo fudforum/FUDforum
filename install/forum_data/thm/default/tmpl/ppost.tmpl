@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.5 2002/08/04 15:09:12 hackie Exp $
+*   $Id: ppost.tmpl,v 1.6 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -61,7 +61,7 @@
 {SECTION: END}
 
 {SECTION: post_icon_entry}
-<td nowrap valign=middle><input type="radio" name="msg_icon" value="{VAR: de}"{VAR: checked}><img src="{VAR: icon_path_www}{VAR: de}" /></td>
+<td nowrap valign=middle><input type="radio" name="msg_icon" value="{VAR: de}"{VAR: checked}><img src="{VAR: icon_path_www}{VAR: de}" alt="" border=0 /></td>
 {SECTION: END}
 
 {SECTION: post_icon_row}
@@ -78,7 +78,7 @@
 {SECTION: END}
 
 {SECTION: post_smiley_entry}
-<td><a href="javascript: insertTag(document.post_form.msg_body, \'\', \' {VAR: obj->code} \');"><img title="{VAR: obj->descr}" src="{VAR: smiley_www}{VAR: obj->img}" border=0 /></a></td>
+<td><a href="javascript: insertTag(document.post_form.msg_body, \'\', \' {VAR: obj->code} \');"><img title="{VAR: obj->descr}" alt="{VAR: obj->descr}" src="{VAR: smiley_www}{VAR: obj->img}" border=0 /></a></td>
 {SECTION: END}
 
 {SECTION: post_smiley_row}
@@ -100,19 +100,19 @@
 <tr><td>
 <table border=0 cellspacing=1 cellpadding=2 class="FormattingToolsBG">
 <tr>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[B]\', \'[/B]\');"><img id="bold_anc" name="bold_anc" src="{THEME_IMAGE_ROOT}/b_bold.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[I]\', \'[/I]\');""><img id="italic_anc" name="italic_anc" src="{THEME_IMAGE_ROOT}/b_italic.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[U]\', \'[/U]\');"><img id="underline_anc" name="underline_anc" src="{THEME_IMAGE_ROOT}/b_underline.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=left]\', \'[/ALIGN]\');"><img id="left_anc" name="left_anc" src="{THEME_IMAGE_ROOT}/b_aleft.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=center]\', \'[/ALIGN]\');"><img id="center_anc" name="center_anc" src="{THEME_IMAGE_ROOT}/b_acenter.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=right]\', \'[/ALIGN]\');"><img id="right_anc" name="right_anc" src="{THEME_IMAGE_ROOT}/b_aright.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: url_insert();"><img id="url_anc" name="url_anc" src="{THEME_IMAGE_ROOT}/b_url.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: email_insert();"><img id="email_anc" name="email_anc" src="{THEME_IMAGE_ROOT}/b_email.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: image_insert();"><img id="image_anc" name="image_anc" src="{THEME_IMAGE_ROOT}/b_image.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}?t=mklist&{DEF: _rsid}&tp=OL:1\', \'listmaker\', 350, 350);"><img id="nlist_anc" name="nlist_anc" src="{THEME_IMAGE_ROOT}/b_numlist.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}?t=mklist&{DEF: _rsid}&tp=UL:square\', \'listmaker\', 350, 350);"><img id="blist_anc" name="blist_anc" src="{THEME_IMAGE_ROOT}/b_bulletlist.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[QUOTE]\', \'[/QUOTE]\');"><img id="quote_anc" name="quote_anc" src="{THEME_IMAGE_ROOT}/b_quote.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[CODE]\', \'[/CODE]\');"><img id="code_anc" name="code_anc" src="{THEME_IMAGE_ROOT}/b_code.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[B]\', \'[/B]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_bold.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[I]\', \'[/I]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_italic.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[U]\', \'[/U]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_underline.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=left]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_aleft.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=center]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_acenter.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=right]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_aright.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: url_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_url.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: email_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_email.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: image_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_image.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}?t=mklist&amp;{DEF: _rsid}&amp;tp=OL:1\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_numlist.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}?t=mklist&amp;{DEF: _rsid}&amp;tp=UL:square\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_bulletlist.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[QUOTE]\', \'[/QUOTE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_quote.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[CODE]\', \'[/CODE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_code.gif" border=0 /></a></td>
 </tr>
 </table>
 </td>
@@ -199,7 +199,7 @@
 {VAR: attach_control_error}
 <font class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br /><b>{MSG: max_file_size}</b> {VAR: MAX_F_SIZE}Kb<br /><b>{MSG: max_files_per_msg}</b> {VAR: PRIVATE_ATTACHMENTS}
 {TEMPLATE-DATA: attached_status}
-<p></font>
+</font><p>
 {TEMPLATE-DATA: upload_file}
 </td></tr>
 {SECTION: END}
@@ -245,8 +245,8 @@
 {TEMPLATE-DATA: preview_message}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: post_form}<a name="ptop"> </a></th></tr>
-<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR: usr->login} [<a href="{ROOT}?t=login&{DEF: _rsid}&logout=1" class="GenLink">{MSG: post_logout}</a>]</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: ppost_to}</td><td class="GenText"><input type="text" name="msg_to_list" value="{VAR: msg_to_list}"> [<a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=post_form.msg_to_list','user_list',250,250);">{MSG: ppost_find_User}</a>] [<a href="javascript://" onClick="javascript: window_open('{ROOT}?t=qbud&{DEF: _rsid}&1=1', 'buddy_list',275,300);" class="GenLink">{MSG: ppost_from_buddy_list}</a>]</font>{VAR: to_err}</td></tr>
+<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR: usr->login} [<a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;logout=1" class="GenLink">{MSG: post_logout}</a>]</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: ppost_to}</td><td class="GenText"><input type="text" name="msg_to_list" value="{VAR: msg_to_list}"> [<a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=post_form.msg_to_list','user_list',250,250);">{MSG: ppost_find_User}</a>] [<a href="javascript://" onClick="javascript: window_open('{ROOT}?t=qbud&amp;{DEF: _rsid}&amp;1=1', 'buddy_list',275,300);" class="GenLink">{MSG: ppost_from_buddy_list}</a>]{VAR: to_err}</td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR-HTML: msg_subject}" size=50> {VAR: msg_subect_err}</td></tr>
 {TEMPLATE-DATA: post_icons}
 {TEMPLATE-DATA: post_smilies}
@@ -266,6 +266,7 @@
 </td>
 </tr>
 <tr class="RowStyleA"><td class="GenText" align="right" colspan=2><input type="submit" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onClick="javascript: document.post_form.btn_action.value='draft';">&nbsp;<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" onClick="javascript: document.post_form.btn_action.value='send';"></td></tr>
+</table>
 {DEF: _hs}
 <input type="hidden" name="btn_action" value="">
 <input type="hidden" name="msg_id" value="{VAR: msg_id}">
@@ -277,7 +278,6 @@
 <input type="hidden" name="attach_enabled" value="{VAR: attach_enabled}">
 {VAR: ret}
 </form>
-</table>
 {TEMPLATE-DATA: reference_msg}
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

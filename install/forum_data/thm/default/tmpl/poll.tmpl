@@ -1,8 +1,8 @@
-l_smiley_disabled_chk/***************************************************************************
+/***************************************************************************
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+*   $Id: poll.tmpl,v 1.2 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -34,7 +34,7 @@ l_smiley_disabled_chk/**********************************************************
 {SECTION: END}
 
 {PAGE: POLL_PAGE  poll creator}{TEMPLATE: header_plain}
-<script language="javascript">
+<script language="javascript" type="text/javascript">
 function check_submission()
 {
 	var a;
@@ -53,11 +53,9 @@ function check_submission()
 	return true;	
 }
 </script>
-<table border=0 cellspacing=2 width="99%" cellpadding=0 class="dashed">
 <form action="{ROOT}?t=poll" method="post" name="poll_submit">
-<input type="hidden" name="frm_id" value="{VAR: frm_id}">
-<input type="hidden" name="pl_id" value="{VAR: pl_id}">
-{DEF: _hs}
+<input type="hidden" name="frm_id" value="{VAR: frm_id}"><input type="hidden" name="pl_id" value="{VAR: pl_id}">{DEF: _hs}
+<table border=0 cellspacing=2 width="99%" cellpadding=0 class="dashed">
 	<tr>
 		<td class="GenText">{MSG: poll_name}</td>
 		<td><input type="text" name="pl_name" value="{VAR-HTML: pl_name}"></td>
@@ -121,12 +119,12 @@ function check_submission()
 <tr><td colspan=2><table>
 {TEMPLATE-DATA: poll_option_entry_data}
 </table>
-</tr></td>
+</td></tr>
 </table>
 {SECTION: END}
 
 {SECTION: poll_option_entry}
-<tr><td class="GenText">{VAR: obj->name}</td><td nowrap>[<a class="GenLink" href="{ROOT}?t=poll&pl_smiley_disabled={VAR: pl_smiley_disabled}&frm_id={VAR: frm_id}&{DEF: _rsid}&pl_id={VAR: pl_id}&pl_optedit={VAR: obj->id}">{MSG: poll_edit}</a>] [<a href="{ROOT}?t=poll&pl_smiley_disabled={VAR: pl_smiley_disabled}&frm_id={VAR: frm_id}&pl_id={VAR: pl_id}&del_id={VAR: obj->id}&{DEF: _rsid}">{MSG: poll_delete}</a>]</td></tr>
+<tr><td class="GenText">{VAR: obj->name}</td><td nowrap>[<a class="GenLink" href="{ROOT}?t=poll&amp;pl_smiley_disabled={VAR: pl_smiley_disabled}&amp;frm_id={VAR: frm_id}&amp;{DEF: _rsid}&amp;pl_id={VAR: pl_id}&amp;pl_optedit={VAR: obj->id}">{MSG: poll_edit}</a>] [<a href="{ROOT}?t=poll&amp;pl_smiley_disabled={VAR: pl_smiley_disabled}&amp;frm_id={VAR: frm_id}&amp;pl_id={VAR: pl_id}&amp;del_id={VAR: obj->id}&amp;{DEF: _rsid}">{MSG: poll_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: pl_upd hidden field needed for the form to work}

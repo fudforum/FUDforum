@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.tmpl,v 1.5 2002/08/05 00:47:55 hackie Exp $
+*   $Id: selmsg.tmpl,v 1.6 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -41,35 +41,35 @@
 {SECTION: END}
 
 {SECTION: todays_posts todays posts link}
-<a class="GenLink" href="{ROOT}?t=selmsg&date={VAR: dt_opt}&unread={VAR: unread}&reply_count={VAR: reply_count}&sub_forums={VAR: sub_forums}&sub_threads={VAR: sub_threads}&{DEF: _rsid}"><acronym title="{MSG: sel_todays_posts_desc}">{MSG: sel_todays_posts} {VAR: s_today}</acronym></a>
+<a class="GenLink" href="{ROOT}?t=selmsg&amp;date={VAR: dt_opt}&amp;unread={VAR: unread}&amp;reply_count={VAR: reply_count}&amp;sub_forums={VAR: sub_forums}&amp;sub_threads={VAR: sub_threads}&amp;{DEF: _rsid}"><acronym title="{MSG: sel_todays_posts_desc}">{MSG: sel_todays_posts} {VAR: s_today}</acronym></a>
 {SECTION: END}
 
 {SECTION: unread_messages unread messages link}
-&nbsp;| <a class="GenLink" href="{ROOT}?t=selmsg&date={VAR: date}&unread={VAR: un_opt}&reply_count={VAR: reply_count}&sub_forums={VAR: sub_forums}&sub_threads={VAR: sub_threads}&{DEF: _rsid}"><acronym title="{MSG: sel_unread_messages_desc}">{MSG: sel_unread_messages} {VAR: s_unread}</acronym></a>
+&nbsp;| <a class="GenLink" href="{ROOT}?t=selmsg&amp;date={VAR: date}&amp;unread={VAR: un_opt}&amp;reply_count={VAR: reply_count}&amp;sub_forums={VAR: sub_forums}&amp;sub_threads={VAR: sub_threads}&amp;{DEF: _rsid}"><acronym title="{MSG: sel_unread_messages_desc}">{MSG: sel_unread_messages} {VAR: s_unread}</acronym></a>
 {SECTION: END}
 
 {SECTION: unanswered unreplied posts link}
-&nbsp;| <a class="GenLink" href="{ROOT}?t=selmsg&date={VAR: date}&unread={VAR: unread}&reply_count={VAR: rp_opt}&sub_forums={VAR: sub_forums}&sub_threads={VAR: sub_threads}&{DEF: _rsid}"><acronym title="{MSG: sel_unanswered_posts_desc}">{MSG: sel_unanswered_posts} {VAR: s_unu}</acronym></a>
+&nbsp;| <a class="GenLink" href="{ROOT}?t=selmsg&amp;date={VAR: date}&amp;unread={VAR: unread}&amp;reply_count={VAR: rp_opt}&amp;sub_forums={VAR: sub_forums}&amp;sub_threads={VAR: sub_threads}&amp;{DEF: _rsid}"><acronym title="{MSG: sel_unanswered_posts_desc}">{MSG: sel_unanswered_posts} {VAR: s_unu}</acronym></a>
 {SECTION: END}
 
 {SECTION: subscribed_frm subscribed forum link}
-&nbsp;| <a class="GenLink" href="{ROOT}?t=selmsg&date={VAR: date}&unread={VAR: unread}&reply_count={VAR: reply_count}&sub_forums={VAR: frm_opt}&sub_threads={VAR: sub_threads}&{DEF: _rsid}"><acronym title="{MSG: subscribed_forums_desc}">{MSG: subscribed_forums} {VAR: s_subf}</acronym></a>
+&nbsp;| <a class="GenLink" href="{ROOT}?t=selmsg&amp;date={VAR: date}&amp;unread={VAR: unread}&amp;reply_count={VAR: reply_count}&amp;sub_forums={VAR: frm_opt}&amp;sub_threads={VAR: sub_threads}&amp;{DEF: _rsid}"><acronym title="{MSG: subscribed_forums_desc}">{MSG: subscribed_forums} {VAR: s_subf}</acronym></a>
 {SECTION: END}
 
 {SECTION: subscribed_thr subscribed thread link}
-&nbsp;| <a class="GenLink" href="{ROOT}?t=selmsg&date={VAR: date}&unread={VAR: unread}&reply_count={VAR: reply_count}&sub_forums={VAR: sub_forums}&sub_threads={VAR: th_opt}&{DEF: _rsid}"><acronym title="{MSG: subscribed_threads_desc}">{MSG: subscribed_threads} {VAR: s_subt}</acronym></a>
+&nbsp;| <a class="GenLink" href="{ROOT}?t=selmsg&amp;date={VAR: date}&amp;unread={VAR: unread}&amp;reply_count={VAR: reply_count}&amp;sub_forums={VAR: sub_forums}&amp;sub_threads={VAR: th_opt}&amp;{DEF: _rsid}"><acronym title="{MSG: subscribed_threads_desc}">{MSG: subscribed_threads} {VAR: s_subt}</acronym></a>
 {SECTION: END}
 
 {SECTION: more_unread_messages more unread messages link}
-<div align="center" class="GenText">[<a href="{ROOT}?t=selmsg&mark_page_read=1&{VAR: LAST_ID}&{VAR: url_param}" class="GenLink"><acronym title="{MSG: more_unread_messages_desc}">{MSG: more_unread_messages}</acronym></a>]</div><img src="blank.gif" alt="" height=3 border=0 />
+<div align="center" class="GenText">[<a href="{ROOT}?t=selmsg&amp;mark_page_read=1&amp;{VAR: LAST_ID}&amp;{VAR: url_param}" class="GenLink"><acronym title="{MSG: more_unread_messages_desc}">{MSG: more_unread_messages}</acronym></a>]</div><img src="blank.gif" alt="" height=3 border=0 />
 {SECTION: END}
 
 {SECTION: forum_row forum heading row}
-<tr><th colspan=2>{MSG: forum} <a class="thLnk" href="{ROOT}?t=thread&frm_id={VAR: obj->frm_id}&{DEF: _rsid}"><font style="font-size: 12px;">{VAR: obj->frm_name}</font></a></th></tr>
+<tr><th colspan=2>{MSG: forum} <a class="thLnk" href="{ROOT}?t=thread&amp;frm_id={VAR: obj->frm_id}&amp;{DEF: _rsid}"><font style="font-size: 12px;">{VAR: obj->frm_name}</font></a></th></tr>
 {SECTION: END}
 
 {SECTION: thread_row thread heading row}
-<tr><th colspan=2>&nbsp;{MSG: thread} <a class="thLnk" href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->thr_subject}</a></th></tr>
+<tr><th colspan=2>&nbsp;{MSG: thread} <a class="thLnk" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: obj->thr_subject}</a></th></tr>
 {SECTION: END}
 
 {SECTION: no_result}

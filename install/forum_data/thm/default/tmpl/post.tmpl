@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.tmpl,v 1.6 2002/08/05 00:47:55 hackie Exp $
+*   $Id: post.tmpl,v 1.7 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -67,7 +67,7 @@
 {SECTION: END}
 
 {SECTION: loged_in_user shows who you're logged in as and offers a logout link}
-<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR-HTML: usr->login} [<a href="{ROOT}?t=login&amp;amp;{DEF: _rsid}&amp;amp;logout=1" class="GenLink">{MSG: post_logout}</a>]</td></tr>
+<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR-HTML: usr->login} [<a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;logout=1" class="GenLink">{MSG: post_logout}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: post_password if password posting enable this allows the user to enter a password}
@@ -75,11 +75,11 @@
 {SECTION: END}
 
 {SECTION: create_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=poll&amp;amp;{DEF: _rsid}&amp;amp;frm_id={VAR: frm->id}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=poll&amp;{DEF: _rsid}&amp;frm_id={VAR: frm->id}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
 {SECTION: END}
 
 {SECTION: edit_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll->name} [<a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=poll&amp;amp;{DEF: _rsid}&amp;amp;pl_id={VAR: pl_id}&amp;amp;frm_id={VAR: frm->id}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="">[<a class="GenLink" href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll->name} [<a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=poll&amp;{DEF: _rsid}&amp;pl_id={VAR: pl_id}&amp;frm_id={VAR: frm->id}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="">[<a class="GenLink" href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: admin_options options for moderators & admins to create announcements and sticky threads}

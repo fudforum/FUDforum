@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.7 2002/07/30 14:34:37 hackie Exp $
+*   $Id: selmsg.php.t,v 1.8 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -218,7 +218,7 @@ function ifstr($opt1, $opt2, $str)
 	}
 	else $r = $rid;	
 
-	$url_param = _rsid.'&unread='.(isset($unread)?$unread:'').'&reply_count='.$reply_count.'&date='.(isset($date)?$date:'').'&frm_id='.(isset($frm_id)?$frm_id:'').'&th='.(isset($th)?$th:'').'&rand='.get_random_value();
+	$url_param = _rsid.'&amp;unread='.(isset($unread)?$unread:'').'&amp;reply_count='.$reply_count.'&amp;date='.(isset($date)?$date:'').'&amp;frm_id='.(isset($frm_id)?$frm_id:'').'&amp;th='.(isset($th)?$th:'').'&amp;rand='.get_random_value();
 	
 	if ( !empty($mark_page_read) && isset($usr) ) {
 		while ( $obj = db_rowobj($r) ) {
@@ -358,7 +358,7 @@ function ifstr($opt1, $opt2, $str)
 		$message_data = '{TEMPLATE: no_result}';
 
 	if( empty($unread) ) 
-		$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?t=selmsg&'."date=".$date."&unread=".$unread."&"._rsid."&frm_id=".$frm_id."&th=".$th."&reply_count=".$reply_count);
+		$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?t=selmsg&amp;'."date=".$date."&amp;unread=".$unread."&amp;"._rsid."&amp;frm_id=".$frm_id."&amp;th=".$th."&amp;reply_count=".$reply_count);
 	else if ( $unread && $total ) {
 		/* nop */
 	}

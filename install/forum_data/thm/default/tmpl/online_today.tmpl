@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.tmpl,v 1.4 2002/08/05 00:47:55 hackie Exp $
+*   $Id: online_today.tmpl,v 1.5 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -26,7 +26,7 @@
 
 {SECTION: last_post last by a user}
 {DATE: obj->post_stamp %a, %d %B %Y %H:%M}<br />
-<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->mid}&{DEF: _rsid}">{VAR: obj->subject}</a>
+<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->mid}&amp;{DEF: _rsid}">{VAR: obj->subject}</a>
 {SECTION: END}
 
 {SECTION: last_post_na no last post}
@@ -42,15 +42,15 @@
 {SECTION: END}
 
 {SECTION: reg_user_link registered user link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->login}</a>
+<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: obj->login}</a>
 {SECTION: END}
 
 {SECTION: adm_user_link administator link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}"><font class="adminColor">{VAR: obj->login}</font></a>
+<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->id}&amp;{DEF: _rsid}"><font class="adminColor">{VAR: obj->login}</font></a>
 {SECTION: END}
 
 {SECTION: mod_user_link moderator link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}"><font class="modsColor">{VAR: obj->login}</font></a>
+<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->id}&amp;{DEF: _rsid}"><font class="modsColor">{VAR: obj->login}</font></a>
 {SECTION: END}
 
 {PAGE: ONLINE_TODAY_PAGE List of users who were online today}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.tmpl,v 1.6 2002/08/05 00:47:55 hackie Exp $
+*   $Id: pmsg.tmpl,v 1.7 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -40,23 +40,23 @@
 {SECTION: END}
 
 {SECTION: action_buttons_inbox}
-<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;reply={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" border=0 /></a>&nbsp;<a href="{ROOT}?t=ppost&amp;quote={VAR: obj->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" border=0 /></a>&nbsp;<a href="{ROOT}?t=ppost&amp;forward={VAR: obj->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0 /></a>
+<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;reply={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" alt="" border=0 /></a>&nbsp;<a href="{ROOT}?t=ppost&amp;quote={VAR: obj->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" border=0 alt="" /></a>&nbsp;<a href="{ROOT}?t=ppost&amp;forward={VAR: obj->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0 alt="" /></a>
 {SECTION: END}
 
 {SECTION: action_buttons_sent_trash}
-<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;forward={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0 /></a>
+<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;forward={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0 alt="" /></a>
 {SECTION: END}
 
 {SECTION: action_buttons_draft}
-<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;msg_id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" border=0 /></a>
+<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;msg_id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" border=0 alt="" /></a>
 {SECTION: END}
 
 {SECTION: pmsg_read private message read}
-<img src="{THEME_IMAGE_ROOT}/pmsg_unread.gif" border=0 title="{MSG: pmsg_new_messages}" />
+<img src="{THEME_IMAGE_ROOT}/pmsg_unread.gif" border=0 alt="{MSG: pmsg_new_messages}" title="{MSG: pmsg_new_messages}" />
 {SECTION: END}
 
 {SECTION: pmsg_unread private message unread}
-<img src="{THEME_IMAGE_ROOT}/pmsg_read.gif" border=0 title="{MSG: pmsg_old_messages}" />
+<img src="{THEME_IMAGE_ROOT}/pmsg_read.gif" border=0 alt="{MSG: pmsg_old_messages}" title="{MSG: pmsg_old_messages}" />
 {SECTION: END}
 
 {SECTION: deny_recipt deny recipt link}
@@ -64,11 +64,11 @@
 {SECTION: END}
 
 {SECTION: pmsg_online_indicator}
-<img src="{THEME_IMAGE_ROOT}/online.gif" border=0 title="{MSG: user_online}" />&nbsp;
+<img src="{THEME_IMAGE_ROOT}/online.gif" border=0 alt="{MSG: user_online}" title="{MSG: user_online}" />&nbsp;
 {SECTION: END}
 
 {SECTION: pmsg_offline_indicator}
-<img src="{THEME_IMAGE_ROOT}/offline.gif" border=0 title="{MSG: user_offline}" />&nbsp;
+<img src="{THEME_IMAGE_ROOT}/offline.gif" border=0 alt="{MSG: user_offline}" title="{MSG: user_offline}" />&nbsp;
 {SECTION: END}
 
 {SECTION: replied_msg replied message indicator}
@@ -99,7 +99,7 @@
 {TEMPLATE-DATA: tabs}
 <form action="{ROOT}?t=pmsg" method="post" name="priv_frm">{DEF: _hs}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr class="RowStyleB"><td align=right colspan=6 class="GenText" align="right">
+<tr class="RowStyleB"><td colspan=6 class="GenText" align="right">
 {MSG: folder} <select name="folder_id" onChange="javascript: document.priv_frm.submit();">
 {TEMPLATE-DATA: select_options_cur_folder}
 </select> <input type="submit" class="button" name="sel_folder" value="{MSG: go}">

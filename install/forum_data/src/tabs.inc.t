@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tabs.inc.t,v 1.4 2002/07/22 14:53:37 hackie Exp $
+*   $Id: tabs.inc.t,v 1.5 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,8 +31,8 @@ if( isset($usr) ) {
 	if( $pg == 'pmsg_view' || $pg == 'ppost' ) $pg = 'pmsg';
 	
 	foreach($tablist as $tab_name => $tab) { 
-		$tab_url = '{ROOT}?t='.$tab.'&'._rsid;
-		if( $tab == 'referals' ) $tab_url .= '&id='._uid;	
+		$tab_url = '{ROOT}?t='.$tab.'&amp;'._rsid;
+		if( $tab == 'referals' ) $tab_url .= '&amp;id='._uid;	
 		$tabs .= ($pg == $tab) ? '{TEMPLATE: active_tab}' : '{TEMPLATE: inactive_tab}';
 	}
 	

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tabs.tmpl,v 1.4 2002/08/05 00:47:55 hackie Exp $
+*   $Id: tabs.tmpl,v 1.5 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -17,15 +17,15 @@
 {PHP_FILE: input: tabs.inc.t; output: @tabs.inc;}
 
 {SECTION: active_tab}
-<td class="brdrSelected" valign="top" background="{THEME_IMAGE_ROOT}/tab_start.gif"><img src="{THEME_IMAGE_ROOT}/tab_start_top.gif" border=0 alt="" /></td>
-<td background="{THEME_IMAGE_ROOT}/tab_top.gif" nowrap bgcolor="#dee2e6" class="brdrSelected"><img src="blank.gif" alt="" width=10 height=1 alt="" /><a href="{VAR: tab_url}">{VAR: tab_name}</a><img src="blank.gif" alt="" width=10 height=1 /></td>
-<td class="brdrSelected" valign="top" background="{THEME_IMAGE_ROOT}/tab_end.gif"><img src="{THEME_IMAGE_ROOT}/tab_end_top.gif" border=0 alt="" /></td>
+<td class="brdrSelected" valign="top" style="background-image: url({THEME_IMAGE_ROOT}/tab_start.gif);"><img src="{THEME_IMAGE_ROOT}/tab_start_top.gif" border=0 alt="" /></td>
+<td style="background-image: url({THEME_IMAGE_ROOT}/tab_top.gif);" nowrap bgcolor="#dee2e6" class="brdrSelected"><img src="blank.gif" width=10 height=1 alt="" /><a href="{VAR: tab_url}">{VAR: tab_name}</a><img src="blank.gif" width=10 height=1 alt="" /></td>
+<td class="brdrSelected" valign="top" style="background-image: url({THEME_IMAGE_ROOT}/tab_end.gif);"><img src="{THEME_IMAGE_ROOT}/tab_end_top.gif" border=0 alt="" /></td>
 {SECTION: END}
 
 {SECTION: inactive_tab}
-<td class="brdrNormal" valign="top" background="{THEME_IMAGE_ROOT}/tab_start.gif"><img src="{THEME_IMAGE_ROOT}/tab_start_top.gif" border=0 alt="" /></td>
-<td background="{THEME_IMAGE_ROOT}/tab_top.gif" nowrap bgcolor="#c2cdd6" class="brdrNormal"><img src="blank.gif" alt="" width=10 height=1 alt="" /><a href="{VAR: tab_url}">{VAR: tab_name}</a><img src="blank.gif" alt="" width=10 height=1 /></td>
-<td class="brdrNormal" valign="top" background="{THEME_IMAGE_ROOT}/tab_end.gif"><img src="{THEME_IMAGE_ROOT}/tab_end_top.gif" border=0 alt="" /></td>
+<td class="brdrNormal" valign="top" style="background-image: url({THEME_IMAGE_ROOT}/tab_start.gif);"><img src="{THEME_IMAGE_ROOT}/tab_start_top.gif" border=0 alt="" /></td>
+<td style="background-image: url({THEME_IMAGE_ROOT}/tab_top.gif);" nowrap bgcolor="#c2cdd6" class="brdrNormal"><img src="blank.gif" alt="" width=10 height=1 /><a href="{VAR: tab_url}">{VAR: tab_name}</a><img src="blank.gif" alt="" width=10 height=1 /></td>
+<td class="brdrNormal" valign="top" style="background-image: url({THEME_IMAGE_ROOT}/tab_end.gif);"><img src="{THEME_IMAGE_ROOT}/tab_end_top.gif" border=0 alt="" /></td>
 {SECTION: END}
 
 {MAIN_SECTION: tablist tablist used in the profile control panels}

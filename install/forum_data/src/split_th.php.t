@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.6 2002/07/30 14:34:37 hackie Exp $
+*   $Id: split_th.php.t,v 1.7 2002/08/05 05:58:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -136,7 +136,7 @@
 	$vl = $kl = '';
 	foreach($fl as $obj) {
 		$vl .= $obj->id."\n";
-		$kl .= $obj->name."\n";
+		$kl .= htmlspecialchars($obj->name)."\n";
 	}
 	
 	$vl = substr($vl, 0, -1);
