@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.75 2003/09/27 13:15:38 hackie Exp $
+*   $Id: register.php.t,v 1.76 2003/09/27 13:25:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -358,7 +358,7 @@ function decode_uent(&$uent)
 		$old_avatar = $uent->avatar;
 		
 		/* import data from _POST into $uent object */
-		$vars = get_class_vars("fud_user");
+		$vars = array_keys(get_class_vars("fud_user"));
 		foreach ($vars as $v) {
 			if (isset($_POST['reg_'.$v])) {
 				$uent->{$v} = $_POST['reg_'.$v];

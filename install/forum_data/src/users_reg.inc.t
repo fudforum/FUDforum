@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.39 2003/09/26 22:46:03 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.40 2003/09/27 13:25:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -202,25 +202,20 @@ function usr_email_unconfirm($id)
 	return $conf_key;
 }
 
-if (!function_exists('aggregate_methods'))
-{
-	function aggregate_methods(&$obj, $class_name)
-	{
-		$o = new $class_name;
-		foreach ($obj as $k => $v) {
-			$o->{$k} = $v;
-		}
-		$obj = $o;
-	}
-}
-
 function &usr_reg_get_full($id)
 {
 	if (($r = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}users WHERE id='.$id))) {
-		aggregate_methods($r, 'fud_user_reg');
-		return $r;
+		if (!function_exists('aggregate_methods')) {
+			$o = new fud_user_reg;
+			foreach ($r as $k => $v) {
+				$o->{$k} = $v;
+			}
+			$r = $o;
+		} else {
+			aggregate_methods($r, 'fud_user_reg');
+		}
 	}
-	return;
+	return $r;
 }
 
 function user_login($id, $cur_ses_id, $use_cookies)
