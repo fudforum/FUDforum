@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.27 2003/09/30 03:27:52 hackie Exp $
+*   $Id: actions.php.t,v 1.28 2003/10/01 21:51:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -29,7 +29,7 @@
 
 	$limit = &get_all_read_perms(_uid, ($usr->users_opt & (524288|1048576)));
 
-	$c = uq('SELECT 
+	$c = uq('SELECT
 			s.action, s.user_id, s.forum_id,
 			u.alias, u.custom_color, s.time_sec, u.users_opt,
 			m.id, m.subject, m.post_stamp,
@@ -42,7 +42,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mm1 ON mm1.forum_id=t.forum_id AND mm1.user_id='._uid.'
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mm2 ON mm2.forum_id=s.forum_id AND mm2.user_id='._uid.'
 		WHERE s.time_sec>'.(__request_timestamp__ - ($LOGEDIN_TIMEOUT * 60)).' AND s.user_id!='._uid.' ORDER BY u.alias, s.time_sec DESC');
-		
+
 	$action_data = '';
 	while ($r = db_rowarr($c)) {
 		if ($r[6] & 32768 && !($usr->users_opt & 1048576)) {
@@ -87,13 +87,13 @@
 					$action = $r[0];
 				}
 			} else {
-				
+
 				if (($p = strpos($r[0], '?')) !== false) {
 					$action = substr_replace($r[0], '?'._rsid.'&', $p, 1);
 				} else if (($p = strpos($r[0], '.php')) !== false) {
 					$action = substr_replace($r[0], '.php?'._rsid.'&', $p, 4);
 				} else {
-					$action = $r[0];	
+					$action = $r[0];
 				}
 			}
 		} else {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.41 2003/10/01 19:29:50 hackie Exp $
+*   $Id: index.php.t,v 1.42 2003/10/01 21:48:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -115,7 +115,7 @@ function url_tog_collapse($id, $c)
 		      LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
 		      LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=f.id
 		      '.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : '').'
-		      '.($usr->users_opt & 1048576 ? 'WHERE mo.id IS NOT NULL OR '.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END' : 'g1.group_cache_opt').' & 1' : '').'
+		      '.($usr->users_opt & 1048576 ? '' : 'WHERE mo.id IS NOT NULL OR '.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END' : 'g1.group_cache_opt').' & 1').'
 		      ORDER BY c.view_order, f.view_order');
 		
 	$post_count = $thread_count = $last_msg_id = $cat = 0;	

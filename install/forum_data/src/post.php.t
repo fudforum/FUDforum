@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.81 2003/09/30 04:08:42 hackie Exp $
+*   $Id: post.php.t,v 1.82 2003/10/01 21:48:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -77,7 +77,8 @@ function flood_check()
 		std_error('systemerr');
 	}
 	$frm = db_sab('SELECT id, name, max_attach_size, forum_opt, max_file_attachments, post_passwd, message_threshold FROM {SQL_TABLE_PREFIX}forum WHERE id='.$frm_id);
-	
+	$frm->forum_opt = (int) $frm->forum_opt;
+
 	/* fetch permissions & moderation status */
 	$MOD = (int) ($usr->users_opt & 1048576 || ($usr->users_opt & 524288 && is_moderator($frm->id, _uid)));
 	$perms = perms_from_obj(db_sab('SELECT group_cache_opt, '.$MOD.' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_id='.$frm->id.' ORDER BY user_id ASC LIMIT 1'), ($usr->users_opt & 1048576));
@@ -613,7 +614,7 @@ function flood_check()
 	}
 
 	if (_uid) {
-		$msg_poster_notif_check = isset($msg_poster_notif) ? ' checked' : '';
+		$msg_poster_notif_check = $msg_poster_notif ? ' checked' : '';
 		$msg_show_sig_check = $msg_show_sig ? ' checked' : '';
 		$reg_user_options = '{TEMPLATE: reg_user_options}';
 	} else {
@@ -622,7 +623,7 @@ function flood_check()
 	
 	/* handle smilies */
 	if ($perms & 16384) {
-		$msg_smiley_disabled_check = isset($msg_smiley_disabled) ? ' checked' : '';
+		$msg_smiley_disabled_check = $msg_smiley_disabled ? ' checked' : '';
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
 		$post_smilies = draw_post_smiley_cntrl();
 	} else {
