@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.14 2003/04/21 14:14:39 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.15 2003/04/21 14:17:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 	
 	if ( empty($usr) || (!empty($group_id) && !bq("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$group_id." AND user_id=".$usr->id." AND group_leader='Y'") && $usr->is_mod!='A') ) {
 		std_error('access');
@@ -54,7 +54,7 @@
 	}
 	qf($r);
 	
-	{POST_HTML_PHP}
+/*{POST_HTML_PHP}*/
 
 function draw_tmpl_perm_table($perm_arr)
 {
@@ -201,6 +201,6 @@ function draw_tmpl_perm_table($perm_arr)
 	else
 		$group_control_panel = '{TEMPLATE: no_group_control_panel}';
 
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: GROUP_MANAGER}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.9 2003/04/21 14:14:39 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.10 2003/04/21 14:17:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -81,6 +81,6 @@ function is_email_blocked($addr)
 			}
 		}
 	}
-	return (($not && $allowed) || !$not) 0 : 1;
+	return (($not && $allowed) || !$not) ? 0 : 1;
 }
 ?>
