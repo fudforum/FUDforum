@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.14 2002/08/07 12:18:43 hackie Exp $
+*   $Id: register.php.t,v 1.15 2002/08/08 16:59:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -341,7 +341,10 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 		fud_wordwrap($reg_sig);
 		$reg_sig = addslashes($reg_sig);
 		
-		if( !isset($usr) ) $usr = new fud_user_reg;
+		if( !isset($usr) ) 
+			$usr = new fud_user_reg;
+		else
+			$old_email = $usr->email;	
 
 		$old_avatar_loc = $usr->avatar_loc;
 		fetch_vars("reg_", $usr, $GLOBALS['MYSQL_DATA']);
@@ -356,7 +359,6 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 		$usr->alias = addslashes($usr->alias);
 
 		if( empty($usr->id) ) {
-
 			$usr->login = stripslashes($usr->login);
 			reverse_FMT($usr->login);
 			$usr->login = addslashes($usr->login);
@@ -376,12 +378,10 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 				}	
 			}
 			
-			if ( $GLOBALS['EMAIL_CONFIRMATION'] == 'Y' ) {
+			if ( $GLOBALS['EMAIL_CONFIRMATION'] == 'Y' )
 				send_email($GLOBALS['NOTIFY_FROM'], $usr->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', "");
-			}
-			else {
+			else 
 				send_email($GLOBALS['NOTIFY_FROM'], $usr->email, '{TEMPLATE: register_welcome_subject}', '{TEMPLATE: register_welcome_msg}', "");
-			}
 			
 			if ( $GLOBALS['COPPA'] == 'Y' && strtolower($reg_coppa) == 'y' ) {
 				header("Location: {ROOT}?t=coppa_fax&"._rsidl);
@@ -434,6 +434,11 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 			if ( $usr->avatar_approved == 'N' && $GLOBALS['CUSTOM_AVATAR_APPOVAL'] == 'N' ) $usr->avatar_approved = 'Y';
 			
 			$usr->sync_user();
+			
+			if ( $GLOBALS['EMAIL_CONFIRMATION'] == 'Y' && $old_email != $usr->email ) {
+				$usr->email_unconfirm();
+				send_email($GLOBALS['NOTIFY_FROM'], $usr->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', "");
+			}
 			
 			if( $avatar_arr['file'] && file_exists($GLOBALS['TMP'].$avatar_arr['file']) && is_file($GLOBALS['TMP'].$avatar_arr['file']) ) 
 				unlink($GLOBALS['TMP'].$avatar_arr['file']);
@@ -538,6 +543,11 @@ if( empty($usr->id) ) {
 	$submit_button = '{TEMPLATE: register_button}';
 }
 else { 
+	if( $usr->email_conf!='N' && $GLOBALS['EMAIL_CONFIRMATION']=='Y' ) 
+		$email_warning_msg = '{TEMPLATE: email_warning_msg}';
+	else
+		$email_warning_msg = '';
+		
 	$reg_confirm_passwd_err = draw_err('reg_confirm_passwd');
 	$user_login = htmlspecialchars($usr->login);
 	if( empty($mod_id) ) $change_passwd_link = '{TEMPLATE: change_passwd_link}';

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.11 2002/08/05 05:58:21 hackie Exp $
+*   $Id: register.tmpl,v 1.12 2002/08/08 16:59:29 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -66,7 +66,7 @@
 <tr><td class="RowStyleA">{MSG: register_login}</td><td class="RowStyleA"><b>{VAR: user_login}</b></td></tr>
 {TEMPLATE-DATA: reg_alias_t}
 <tr><td class="RowStyleA">{MSG: register_your_pass}{VAR: reg_confirm_passwd_err}</td><td class="RowStyleA"><input type="password" name="reg_confirm_passwd" size=25 maxlength=16>{TEMPLATE-DATA: change_passwd_link}</td></tr>
-<tr><td class="RowStyleA">{MSG: register_email}{VAR: reg_email_err}<br /><font class="SmallText">{MSG: register_email_desc}</font></td><td class="RowStyleA"><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
+<tr><td class="RowStyleA">{MSG: register_email}{VAR: reg_email_err}<br /><font class="SmallText">{MSG: register_email_desc}</font>{TEMPLATE-DATA: email_warning_msg}</td><td class="RowStyleA"><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
 <tr><td class="RowStyleA">{MSG: register_name}{VAR: reg_name_err}</td><td class="RowStyleA"><input type="text" name="reg_name" size=25 value="{VAR: reg_name}"></td></tr>
 <tr><td align="center" colspan=2 class="RowStyleC"><input type="submit" class="button" name="fud_submit" value="{MSG: register_update}"></td></tr>
 {SECTION: END}
@@ -404,4 +404,8 @@
 
 {SECTION: reg_alias}
 <tr><td class="RowStyleA">{MSG: register_alias}{VAR: reg_alias_err}<br /><font class="SmallText">{MSG: register_alias_desc}</font></td><td class="RowStyleA"><input type="text" name="reg_alias" size=25 value="{VAR-HTML: reg_alias}" maxLength={GVAR: MAX_LOGIN_SHOW}></td></tr>
+{SECTION: END}
+
+{SECTION: email_warning_msg}
+<br /><font style="font-size: xx-small; color: 005500;"><b>{MSG: email_warning_msg}</b></font>
 {SECTION: END}
