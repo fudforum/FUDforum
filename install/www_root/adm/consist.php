@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.21 2003/04/22 23:03:05 hackie Exp $
+*   $Id: consist.php,v 1.22 2003/04/22 23:05:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,6 +28,7 @@
 	fud_use('ext.inc', true);
 	fud_use('level_adm.inc', true);
 	fud_use('ipfilter.inc', true);
+	fud_use('login_filter.inc', true);
 	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('err.inc');
@@ -477,6 +478,10 @@ forum will be disabled.<br><br>
 	draw_stat('Rebuilding ip filter cache');
 	ip_cache_rebuild();
 	draw_stat('Done: Rebuilding ip filter cache');
+	
+	draw_stat('Rebuilding login filter cache');
+	login_cache_rebuild();
+	draw_stat('Done: Rebuilding login filter cache');
 
 /*	
 	draw_stat('Rebuilding custom tags for users');
