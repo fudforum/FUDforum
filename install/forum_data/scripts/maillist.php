@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.37 2004/01/04 16:38:26 hackie Exp $
+* $Id: maillist.php,v 1.38 2004/01/16 18:15:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -401,6 +401,21 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		}
 	}
 
+	if (!$emsg->from_email || !$emsg->from_name) {
+		$msg_post->poster_id = 0;
+	} else {
+		$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $mlist->mlist_opt & 64, $emsg->user_id);
+	}
+
+	/* for anonymous users prefix 'contact' link */
+	if (!$msg_post->poster_id) {
+		if ($frm->forum_opt & 16) {
+			$msg_post->body = "[b]Originally posted by:[/b] [email={(!empty($this->from_name) ? $this->from_name : '')}]{$this->from_email}[/email]\n\n".$msg_post->body;
+		} else {
+			$msg_post->body = "Originally posted by: ".str_replace('@', '&#64', $this->from_email)."\n\n".$msg_post->body;
+		}
+	}
+
 	$msg_post->body = apply_custom_replace($emsg->body);
 	if (!($mlist->mlist_opt & 16)) {
 		if ($frm->forum_opt & 16) {
@@ -416,11 +431,6 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		mlist_error_log("Blank Subject", $emsg->raw_msg);
 	}
 
-	if (!$emsg->from_email || !$emsg->from_name) {
-		$msg_post->poster_id = 0;
-	} else {
-		$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $mlist->mlist_opt & 64, $emsg->user_id);
-	}
 	$msg_post->ip_addr = $emsg->ip;
 	$msg_post->mlist_msg_id = addslashes($emsg->msg_id);
 	$msg_post->attach_cnt = 0;

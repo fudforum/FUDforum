@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.41 2004/01/04 16:38:25 hackie Exp $
+* $Id: nntp.inc,v 1.42 2004/01/16 18:15:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -381,6 +381,19 @@ class fud_nntp
 					}
 				}
 			}
+
+			$msg_post->subject = htmlspecialchars(apply_custom_replace($this->subject));
+			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->nntp_opt & 32, $this->user_id);
+
+			/* for anonymous users prefix 'contact' link */
+			if (!$msg_post->poster_id) {
+				if ($frm->forum_opt & 16) {
+					$msg_post->body = "[b]Originally posted by:[/b] [email={(!empty($this->from_name) ? $this->from_name : '')}]{$this->from_email}[/email]\n\n".$msg_post->body;
+				} else {
+					$msg_post->body = "Originally posted by: ".str_replace('@', '&#64', $this->from_email)."\n\n".$msg_post->body;
+				}
+			}
+
 			$msg_post->body = apply_custom_replace($this->body);
 			if ($frm->forum_opt & 16) {
 				$msg_post->body = tags_to_html($msg_post->body, 'N');
@@ -397,8 +410,6 @@ class fud_nntp
 				}
 			}
 
-			$msg_post->subject = htmlspecialchars(apply_custom_replace($this->subject));
-			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->nntp_opt & 32, $this->user_id);
 			$msg_post->ip_addr = $this->ip;
 			$msg_post->mlist_msg_id = addslashes($this->msg_id);
 			$msg_post->attach_cnt = 0;
