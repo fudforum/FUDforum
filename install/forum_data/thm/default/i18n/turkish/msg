@@ -873,3 +873,6 @@ pmsg_recepient:			Alýcý
 register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
 register_alias:			Alias
 register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.
+register_allow_pm_msg:		Allow Private Messages	
+register_allow_pm_msg_desc:	Allow other users to send you private messages via FUDforum.
+postcheck_pm_disabled:		You cannot send a private message to "{VAR-HTML: v}", because this person is not accepting private messages.
