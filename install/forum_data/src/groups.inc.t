@@ -1,14 +1,14 @@
 <?php
-/***************************************************************************
+/**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groups.inc.t,v 1.32 2004/02/18 14:35:56 hackie Exp $
+* $Id: groups.inc.t,v 1.33 2004/11/24 19:53:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
-***************************************************************************/
+**/
 
 function grp_delete_member($id, $user_id)
 {

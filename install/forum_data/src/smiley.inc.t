@@ -1,14 +1,14 @@
 <?php
-/***************************************************************************
+/**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smiley.inc.t,v 1.17 2004/07/07 21:10:20 hackie Exp $
+* $Id: smiley.inc.t,v 1.18 2004/11/24 19:53:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
-***************************************************************************/
+**/
 
 $GLOBALS['__SML_CHR_CHK__'] = array("\n"=>1, "\r"=>1, "\t"=>1, " "=>1, "]"=>1, "["=>1, "<"=>1, ">"=>1, "'"=>1, '"'=>1, "("=>1, ")"=>1, "."=>1, ","=>1, "!"=>1, "?"=>1);
 

@@ -1,14 +1,14 @@
 <?php
-/***************************************************************************
+/**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.inc.t,v 1.22 2004/11/16 15:46:04 hackie Exp $
+* $Id: admincp.inc.t,v 1.23 2004/11/24 19:53:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
-***************************************************************************/
+**/
 
 if (_uid) {
 	$admin_cp = $accounts_pending_approval = $group_mgr = $reported_msgs = $custom_avatar_queue = $mod_que = $thr_exch = '';

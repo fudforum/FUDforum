@@ -1,14 +1,14 @@
 <?php
-/***************************************************************************
+/**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.66 2004/05/19 03:31:03 hackie Exp $
+* $Id: cookies.inc.t,v 1.67 2004/11/24 19:53:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
-***************************************************************************/
+**/
 
 function ses_make_sysid()
 {
