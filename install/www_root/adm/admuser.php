@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.8 2002/07/31 23:26:29 hackie Exp $
+*   $Id: admuser.php,v 1.9 2002/08/02 12:41:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -186,8 +186,11 @@ if( !empty($act) ) {
 	
 	if( !empty($user_id) && !empty($login_name) ) {
 		if( !($id = get_id_by_login($login_name)) ) {
-			if( $GLOBALS['USE_ALIASES'] != 'Y' ) 
-				$alias = ", alias='".$login_name."'";
+			if( $GLOBALS['USE_ALIASES'] != 'Y' ) {
+				$alias = stripslashes($login_name);
+				if( isset($alias[$GLOBALS['MAX_LOGIN_SHOW']+1]) ) $alias = substr($alias, 0, $GLOBALS['MAX_LOGIN_SHOW']);
+				$alias = ", alias='".addslashes(htmlspecialchars($alias))."'";
+			}	
 			else
 				$alias = '';	
 			
@@ -240,7 +243,7 @@ if( !empty($act) ) {
 <?php if ( !empty($usr->id) ) { ?>
 <form action="admuser.php" method="post">
 	<?php echo _hs; ?>
-	<tr bgcolor="#f1f1f1"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo htmlspecialchars($usr->login); ?>" name="login_name"> <input type="submit" name="submit" value="Change Login Name"></td></tr>
+	<tr bgcolor="#f1f1f1"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo htmlspecialchars($usr->login); ?>" maxLength="<?php echo $GLOBALS['MAX_LOGIN_SHOW'] ?>" name="login_name"> <input type="submit" name="submit" value="Change Login Name"></td></tr>
 	<tr bgcolor="#f1f1f1"><td>Password:</td><td><?php echo $passwd_error; ?><input type="text" value="<?php echo $login_passwd; ?>" name="login_passwd"> <input type="submit" name="submit" value="Change Password"></td></tr>
 <input type="hidden" name="user_id" value="<?php echo $usr->id; ?>">	
 </form>	
