@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smtp.inc.t,v 1.14 2005/04/07 02:31:14 hackie Exp $
+* $Id: smtp.inc.t,v 1.15 2005/04/07 02:43:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -115,19 +115,19 @@ class fud_smtp
 	function send_smtp_email()
 	{
 		if (!$this->open_smtp_connex()) {
-			exit("Invalid SMTP return code: ".$this->last_ret."<br>\n");
+			exit("OC: Invalid SMTP return code: ".$this->last_ret."<br>\n");
 		}
 		if (!$this->send_from_hdr()) {
 			$this->close_connex();
-			exit("Invalid SMTP return code: ".$this->last_ret."<br>\n");
+			exit("FH: Invalid SMTP return code: ".$this->last_ret."<br>\n");
 		}
 		if (!$this->send_to_hdr()) {
 			$this->close_connex();
-			exit("Invalid SMTP return code: ".$this->last_ret."<br>\n");
+			exit("TH: Invalid SMTP return code: ".$this->last_ret."<br>\n");
 		}
 		if (!$this->send_data()) {
 			$this->close_connex();
-			exit("Invalid SMTP return code: ".$this->last_ret."<br>\n");
+			exit("SD: Invalid SMTP return code: ".$this->last_ret."<br>\n");
 		}
 
 		$this->close_connex();
