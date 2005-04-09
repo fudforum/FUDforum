@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.31 2005/04/05 23:16:53 hackie Exp $
+* $Id: cat.inc,v 1.32 2005/04/09 17:33:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -105,14 +105,15 @@ function rebuild_forum_cat_order()
 	$max_depth = q_singleval("SELECT max(c.parent) FROM ".$tbl."cat c");
 
 	/* we use left join to catch categories without any forums, but with sub-categories */
-	$c = uq("SELECT c.id, f.id, c.parent, c.name, (c.view_order * POW(10, ".$max_depth." - c.parent)) 
+	$c = q("SELECT c.id, f.id, c.parent, c.name, (c.view_order * POW(10, ".$max_depth." - c.parent)) 
 			FROM ".$tbl."cat c 
 			LEFT JOIN ".$tbl."forum f ON f.cat_id=c.id
 			ORDER BY c.parent, c.view_order, f.view_order");
 	
 	$lvl = $cat_cache = $cat_par = $p = $data = array();
 	while ($r = db_rowarr($c)) {
-		$val = $p[$r[0]] = $r[4] + ($r[2] ? $p[$r[2]] : 0);
+		/* this is slow, but we have no other way of avoiding int overflows in PHP on 32bit machines */
+		$val = $p[$r[0]] = q_singleval("SELECT ".$r[4]." + ".($r[2] ? $p[$r[2]] : 0));
 
 		$cat_par[$r[0]] = (int) $r[2];
 
