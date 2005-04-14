@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipb.php,v 1.9 2005/04/14 12:53:57 hackie Exp $
+* $Id: ipb.php,v 1.10 2005/04/14 20:12:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -668,6 +668,10 @@ function make_avatar_loc($path, $disk, $web)
 	$GLOBALS['usr']->alias = NULL;
 
 	while ($obj = mysql_fetch_object($r)) {
+		if (!isset($ib_u[$obj->from_id])) {
+			continue;
+		}
+
 		$p->subject = html_entity_decode($pp->unconvert($obj->title, $INFO['msg_allow_code'], $INFO['msg_allow_html']));
 		$p->subject = str_replace('Sent:  ', '', str_replace('Re:', 'Re: ', $p->subject));
 		$p->pmsg_opt = $obj->tracking ? 4 : 0;
@@ -683,6 +687,9 @@ function make_avatar_loc($path, $disk, $web)
 		$p->ouser_id = $ib_u[$obj->from_id];
 		$GLOBALS['send_to_array'] = array();
 		if ($obj->recipient_id && $obj->recipient_id != 'N/A') {
+			if (!isset($ib_u[$obj->recipient_id])) {
+				continue;
+			}
 			$GLOBALS['recv_user_id'] = array($ib_u[$obj->recipient_id]);
 			$p->to_list = q_singleval("SELECT alias FROM {$DBHOST_TBL_PREFIX}users WHERE id=".$ib_u[$obj->recipient_id]);
 			if (!$obj->read_date) {
