@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipb.php,v 1.8 2005/03/11 23:01:14 hackie Exp $
+* $Id: ipb.php,v 1.9 2005/04/14 12:53:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -589,8 +589,11 @@ function make_avatar_loc($path, $disk, $web)
 		if (!isset($ib_f[$obj->forum_id])) {
 			print_msg("Invalid forum id {$obj->forum_id} in poll id {$obj->pid}");
 			continue;
+		} else if (!isset($ib_u[$obj->starter_id])) {
+			print_msg("Invalid poll owner id {$obj->starter_id} in poll id {$obj->pid}");
+			continue;
 		}
-	
+
 		$mid = $ib_t[$obj->tid][1];
 
 		list($poll_name, $poll_status) = mysql_fetch_row(mysql_query("SELECT title, poll_state FROM {$ipb}topics WHERE tid=".$obj->tid, $ib));
