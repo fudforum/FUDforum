@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.146 2005/04/06 23:04:09 hackie Exp $
+* $Id: register.php.t,v 1.147 2005/04/20 13:21:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -524,9 +524,15 @@ function decode_uent(&$uent)
 					/* add new avatar if needed */
 					if ($common_av_name) {
 						$common_av_name = basename($common_av_name);
-						$av_path = 'images/custom_avatars/' . substr($common_av_name, 0, strpos($common_av_name, '_'));
-						copy($TMP . basename($common_av_name), $WWW_ROOT_DISK . $av_path);
-						@unlink($TMP . basename($common_av_name));
+						if (DIRECTORY_SEPARATOR == '/') { /* *nix */
+							$av_path = 'images/custom_avatars/' . substr($common_av_name, 0, strpos($common_av_name, '_'));
+						} else {
+							$ext = array(1=>'gif', 2=>'jpg', 3=>'png', 4=>'swf');
+							$img_info = getimagesize($TMP . $common_av_name);
+							$av_path = 'images/custom_avatars/' . $uent->id . "." . $ext[$img_info[2]];
+						}
+						copy($TMP . $common_av_name, $WWW_ROOT_DISK . $av_path);
+						@unlink($TMP . $common_av_name);
 						if (($uent->avatar_loc = make_avatar_loc($av_path, $WWW_ROOT_DISK, $WWW_ROOT))) {
 						 	if (!($FUD_OPT_1 & 32) || $uent->users_opt & 1048576) {
 						 		$uent->users_opt ^= 16777216|4194304;
