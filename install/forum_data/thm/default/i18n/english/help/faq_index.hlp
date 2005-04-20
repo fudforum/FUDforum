@@ -13,6 +13,7 @@ TOPIC_HELP:
 
 TOPIC_TITLE: General Board Usage
 TOPIC_HELP:
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#post">How do I post messages?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch">How can I search?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email">Can I email other forum members?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg">What are private messages and how do I send them?</a><br>

@@ -1,3 +1,12 @@
+TOPIC_TITLE: <a name="post">How do I post messages?</a>
+TOPIC_HELP:
+To start a new topic you should click on the 'New Topic' button that can be found on message/topic listing pages.
+You will then be taken to a message composer form allowing you to write the content of your message. To reply
+to existing messages, simply click on the 'reply', or 'quote' buttons found on the lower right side of each message.<br>
+In some cases clicking on those buttons will give you a permission error. This means that your may be required to login
+or register on the forum to gain posting priveleges or that the posting in this forum is restricted.
+
+
 TOPIC_TITLE: <a name="bsearch">How can I search?</a>
 TOPIC_HELP:
 Unless disabled by the administrator, you can <a href="{ROOT}?t=search&%_rsid%">search for messages</a> that were posted inside the forum. You can search for a message by 
