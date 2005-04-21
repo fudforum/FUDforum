@@ -621,7 +621,7 @@ register_register_update:	Registration Page
 report_err_nosuchmsg_title:	ERROR
 report_err_nosuchmsg_msg:	No Such Message
 reset_err_invalidkey_title:	ERROR
-reset_err_invalidkey_msg:	Invalid password reset key
+reset_err_invalidkey_msg:	Invalid password reset key. It is possible that your e-mail client had already automatically open this page, invalidating the reset key. If this is the case, you should shortly receive an e-mail with your new password. If such an e-mail does not arrive, please retry resetting the password.
 reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		You should receive instructions in your e-mail in the next few minutes.
 reset_newpass_title:		Reset Password
