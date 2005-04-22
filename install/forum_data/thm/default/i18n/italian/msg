@@ -648,7 +648,7 @@ rpasswd_title:			Pagina per il cambio di password
 error_title:			Pagina di errore
 search_title:			Ricerca {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
-tree_title:			{VAR: frm->frm_name} => {VAR: frm->subject}
+tree_title:			{VAR: frm->name} => {VAR: frm->subject}
 remail_emailsent:		L&#39;email &egrave; stata spedita
 remail_email:			C&#39;&egrave; una pagina nel forum {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) che ti potrebbe interessare.\nEcco l&#39;argomento che credo ti interessi, {VAR: data->subject}: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nDa {VAR: usr->alias}\n
 poll_add_option:		Aggiungi risposta:
