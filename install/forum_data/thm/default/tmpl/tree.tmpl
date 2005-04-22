@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.63 2005/03/27 19:23:02 hackie Exp $
+* $Id: tree.tmpl,v 1.64 2005/04/22 13:12:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -239,7 +239,7 @@ highlightSearchTerms("{VAR-HTML: _GET['srch']}");
 {SECTION: END}
 
 {SECTION: tree_pdf_link_lnk}
-{GVAR: WWW_ROOT}pdf.php?msg={VAR: mid}
+{GVAR: WWW_ROOT}pdf.php?msg={VAR: mid}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: tree_pdf_link}
