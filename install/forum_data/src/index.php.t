@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.87 2005/03/31 21:45:31 hackie Exp $
+* $Id: index.php.t,v 1.88 2005/04/27 14:03:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -131,7 +131,8 @@ function url_tog_collapse($id, $c)
 			}
 
 			while (list($k, $i) = each($cidxc)) {
-				if ($cat_id && !isset($cf[$k])) {
+				/* 2nd check ensures that we don't end up displaying categories without any children */ 
+				if (($cat_id && !isset($cf[$k])) || ($cid != $k && $i[4] >= $cidxc[$cid][4])) {
 					continue;
 				}
 
