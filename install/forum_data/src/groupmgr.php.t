@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.php.t,v 1.47 2005/03/18 15:25:54 hackie Exp $
+* $Id: groupmgr.php.t,v 1.48 2005/04/28 13:38:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -84,6 +84,25 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		$maxperms = 2147483647;
 	} else {
 		$maxperms = (int) $grp->groups_opt;
+		$inh = (int) $grp->groups_opti;
+		$inh_id = (int) $grp->inherit_id;
+		if ($inh_id && $inh) {
+			$res = array($group_id => $group_id);
+			while ($inh > 0) {
+				if (isset($res[$inh_id])) { // permissions loop
+					break;
+				} else if (!($row = db_saq("SELECT groups_opt, groups_opti, inherit_id FROM {SQL_TABLE_PREFIX}groups WHERE id=".$inh_id))) {
+					break; // invalid group id
+				}
+				$maxperms |= $inh & $row[0]; // fetch permissions of new group
+				if (!$row[2] || !$row[1]) { // nothing more to inherit
+					break;
+				}
+				$inh &= (int) $row[1];
+				$inh_id = (int) $row[2];
+				$res[$inh_id] = $inh_id;
+			}
+		}
 	}
 
 	$login_error = '';
