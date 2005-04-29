@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.77 2005/03/06 18:51:27 hackie Exp $
+* $Id: ppost.php.t,v 1.78 2005/04/29 12:32:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -368,7 +368,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		$file_attachments = '';
 	}
 
-	if ($reply && ($mm = db_sab('SELECT p.*, u.sig, u.alias, u.users_opt, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {
+	if ($reply && ($mm = db_sab('SELECT p.*, u.id AS user_id, u.sig, u.alias, u.users_opt, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {
 		fud_use('drawpmsg.inc');
 		$dpmsg_prev_message = $dpmsg_next_message = '';
 		$reference_msg = '{TEMPLATE: reference_msg}';
