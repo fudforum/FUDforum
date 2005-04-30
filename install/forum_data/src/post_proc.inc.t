@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.76 2005/03/10 16:56:59 hackie Exp $
+* $Id: post_proc.inc.t,v 1.77 2005/04/30 18:02:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,6 +15,14 @@ $GLOBALS['seps'] = array(' '=>' ', "\n"=>"\n", "\r"=>"\r", "'"=>"'", '"'=>'"', '
 function fud_substr_replace($str, $newstr, $pos, $len)
 {
         return substr($str, 0, $pos).$newstr.substr($str, $pos+$len);
+}
+
+function url_check($url)
+{
+	if (strpos($url, '&amp;#') !== false) {
+		return preg_replace('!&#([0-9]{2,3});!e', "chr(\\1)", char_fix($url));
+	}
+	return $url;
 }
 
 function tags_to_html($str, $allow_img=1, $no_char=0)
@@ -134,6 +142,8 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 						$url = $parms;
 					}
 
+					$url = url_check($url);
+
 					if (!strncasecmp($url, 'www.', 4)) {
 						$url = 'http&#58;&#47;&#47;'. $url;
 					} else if (strpos(strtolower($url), 'javascript:') !== false) {
@@ -220,13 +230,13 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 						if (!$parms) {
 							$parms = substr($str, $epos+1, ($cpos-$epos)-1);
-							if (strpos(strtolower($parms), 'javascript:') === false) {
+							if (strpos(strtolower(url_check($parms)), 'javascript:') === false) {
 								$ostr .= '<img '.$class.'src="'.$parms.'" border=0 alt="'.$parms.'">';
 							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 							}
 						} else {
-							if (strpos(strtolower($parms), 'javascript:') === false) {
+							if (strpos(strtolower(url_check($parms)), 'javascript:') === false) {
 								$ostr .= '<img '.$class.'src="'.$parms.'" border=0 alt="'.substr($str, $epos+1, ($cpos-$epos)-1).'">';
 							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
