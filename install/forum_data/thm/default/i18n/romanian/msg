@@ -1,5 +1,5 @@
 action:				Actiune
-add_to_buddy_list:		aduaga la lista cu prieteni
+add_to_buddy_list:		adauga la lista cu prieteni
 admin:				Administrator 
 admin_control_panel:		Panou de Control Administrator
 administrator:			Administrator
@@ -17,7 +17,7 @@ date_registered:		Data inregistrarii:
 download_counter:		Descarcat de {VAR: v[3]} ori
 email:				Email:
 email_to_friend:		Trimite un email pritenului(lor)
-email_to_friend_desc:		Trimite adresa acestei pagini unui prieten perin email
+email_to_friend_desc:		Trimite adresa acestei pagini unui prieten prin email
 email_user:			Apasati aici pentru a trimite
 faq:				Intrebari frecvente
 first_unread_msg:		Du-te la mesajele necitite
@@ -57,9 +57,9 @@ logged_in_list:			Logheaza in lista de utilizatori
 login:				Autentifica
 login_header:			Autentifica:
 logout:				Iesire
-mark_all_read:			marcheaza toate mesajele citite
+mark_all_read:			marcheaza toate mesajele ca citite
 mark_all_read_desc:		Toate mesajele necitite vor fi marcate ca citite
-members:			Memberi
+members:			Membri
 message:			Mesaj
 message_counter:		Utilizatorii au trimis un numar de <b>{VAR: post_count}</b> mesaje in <b>{VAR: thread_count}</b> teme.
 message_index:			Indexul mesajului
@@ -96,7 +96,7 @@ num_votes:			{VAR: obj->total_votes} vot(uri)
 occupation:			Ocupatia:
 off:				OPRIT
 on:				PORNIT
-page_timings:			Total time taken to generate the page: {VAR: page_gen_time} seconds
+page_timings:			Timp total pentru a genera pagina: {VAR: page_gen_time} secunde
 pm:				Mesaje personale
 poll:				Sondaj:
 post_count:			Mesaje trimise {VAR: u_pcount}
@@ -123,7 +123,7 @@ sel_todays_posts_desc:		Schimba filtrul de mesaje trimise astazi
 sel_unanswered_posts:		Mesaje trimise astazi
 sel_unanswered_posts_desc:	Schimba filtrul de mesaje trimise fara raspuns
 sel_unread_messages:		Mesaje fara raspuns
-sel_unread_messages_desc:	Schimba filtrul de fesaje necitite
+sel_unread_messages_desc:	Schimba filtrul de mesaje necitite
 send:				Trimite
 send_pm_desc:			Trimite un mesaj personal utilizatorului
 sender_email:			Email-ul trimitatorului:
@@ -131,7 +131,7 @@ sender_name:			Numele trimitatorului:
 show_posts_by:			Arata mesaje trimise de: {VAR: u_alias}
 size:				Marimea:
 status:				Statut:
-status_line:			Sunt <b>{VAR: st_obj->online_users_reg}</b> memberi, <b>{VAR: st_obj->online_users_hidden}</b> membri invizibili si <b>{VAR: st_obj->online_users_anon}</b> vizitatori.
+status_line:			Sunt <b>{VAR: st_obj->online_users_reg}</b> membri, <b>{VAR: st_obj->online_users_hidden}</b> membri invizibili si <b>{VAR: st_obj->online_users_anon}</b> vizitatori.
 sticky:				sticky:
 stop_ignoring:			nu mai ignora acest utilizator
 sub_to_thread:			Inscriere la tema
@@ -160,8 +160,8 @@ unread_msg:			Aceasta tema contine mesaje care nu au fost citite inca
 unread_msg_locked:		Tema blocata cu mesaje necitite
 unread_posts:			Mesaje necitite
 unread_posts_desc:		Arata toate mesajele necitite
-unsub_from_thread:		Anuleaza inregisrarea la acest forum
-unsub_from_thread_desc:		Nu mai primi notificari despre mesaje noi in acasta tema
+unsub_from_thread:		Anuleaza inregistrarea la acest forum
+unsub_from_thread_desc:		Nu mai primi notificari despre mesaje noi in aceasta tema
 unsubscribe:			Anuleaza inregistrarea
 unsubscribe_desc:		Nu mai primi notificari despre noi teme in forum
 updated_on:			Updatat la data de:
@@ -191,7 +191,7 @@ modque_delete:			Sterge
 modque_no_message:		Nu este nici un mesaj care asteapta aprobare
 pmsg_new_messages:		Mesaj personal necitit
 pmsg_old_messages:		Mesaj personal citit
-deny_recipt:			blocheaza recipt
+deny_recipt:			blocheaza confirmarea
 deny_recipt_desc:		Nu trimite confirmare de citere a acestui mesaj
 restore_to:			Refa la:
 move_to:			Muta la:
@@ -262,7 +262,7 @@ pmuserloc_user:			Utilizator
 pmuserloc_no_result:		Nici un rezultat
 register_builtin:		Incorporat
 register_specify_url:		Specifica URL
-register_uploaded:		Incarac imagine
+register_uploaded:		Incarca imagine
 register_login:			Utilizator:
 register_password:		Parola:
 register_conf_pass:		Confira Parola:
@@ -274,7 +274,7 @@ register_avatar_type:		Tipul imaginii:
 register_del_avatar:		Sterge imaginea
 register_avatar:		Imagine:
 register_sel_avatar:		Alege imaginea
-register_custom_avatar_rules:	Imaginea dumneavoastra nu va aparea fara aprobarea administratorului<br><font class="SmallText">Imagine nu trebuie sa fie mai mare de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixeli</b> si trebuie sa fie in format <b>jpg</b>, <b>gif</b> sau <b>png</b></font>
+register_custom_avatar_rules:	Imaginea dumneavoastra nu va aparea fara aprobarea administratorului<br><font class="SmallText">Imaginea nu trebuie sa fie mai mare de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixeli</b> si trebuie sa fie in format <b>jpg</b>, <b>gif</b> sau <b>png</b></font>
 register_custom_avatar_url:	Adresa URL a imaginii:
 register_preview:		Previzualizare
 register_custom_avatar_upload:	Fisier imagine:
@@ -282,7 +282,7 @@ register_register:		Inregistrare
 register_required:		Informatii necesare
 register_required_desc:		Toate campurile 
 register_optional:		Informatii optionale
-register_optional_desc:		Este recomandat sa nu aratati toate informatii despre dumneavoastra.
+register_optional_desc:		Este recomandat sa nu aratati toate informatiile despre dumneavoastra.
 register_location:		Locatia:
 register_occupation:		Ocupatia:
 register_interests:		Interese:
@@ -302,12 +302,12 @@ register_bio:			Biografie:
 register_bio_desc:		Cateva detalii despre dumneavoastra:
 register_prefs:			Preferinte:
 register_sig:			Semnatura:
-register_sig_desc:		Semnatura este optiunala si va aparea la mesajele trimise de dumneavoastra.
+register_sig_desc:		Semnatura este optionala si va aparea la mesajele trimise de dumneavoastra.
 register_reset:			Reseteaza
 register_def_thread_view:	Tipul vizualizarii temelor:
 register_msg_per_page:		Mesaje per pagina:
-register_show_sig:		Arata semnaturi:
-register_show_sig_desc:		Permite ca ceilalti sa-si ascunda sau sa arate semnetura.
+register_show_sig:		Arata semnatura:
+register_show_sig_desc:		Permite ca ceilalti sa-si ascunda sau sa arate semnatura.
 register_use_sig_default:	Foloseste semnatura ca predefinita:
 register_use_sig_default_desc:	Adauga automat semnatura la mesajele trimise
 register_timezone:		Zona:
@@ -319,14 +319,14 @@ register_show_email_desc:	Selectati aceasta optiune daca doriti sa fie afisata a
 register_notification:		Alege notificari ca predefinite:
 register_notification_desc:	Daca notificarea este activata ca predefinita, aceasta poate fi dezactivata cand trimiteti mesaje.
 register_notify_method:		Alegeti metoda de notificare:
-register_notify_js_error:	A-ti specificat notofocari prin ICQ dar nu a-ti introdus numarul ICQ. Predefinit ve-ti primi notificarile prin email.
+register_notify_js_error:	Ati specificat notificari prin ICQ dar nu ati introdus numarul ICQ. Predefinit veti primi notificarile prin email.
 register_allow_email_msg:	Accepta mesaje pe adresa de email:
-register_allow_email_msg_desc:	Permite celorlalti utilizatori sa trimita adresa de email prin inermediul forumului.
+register_allow_email_msg_desc:	Permite celorlalti utilizatori sa trimita adresa de email prin intermediul forumului.
 buddy_status:			Statut
 my_buddies:			Prietenii mei
 add_buddy:			Adauga prieteni
 add:				Adauga
-buddy_search:			Enter the login of the user you wish to add.
+buddy_search:			Introduceti numele celui pe care doriti sa il cautati.
 buddy_remove:			sterge
 post_normal:			Normal
 post_sticky:			Sticky
@@ -365,7 +365,7 @@ max_files_per_msg:		Numar maxim de fisiere per mesaj:
 post_notification:		Notificare de trimitere
 include_sig:			Include Semnatura
 include_sig_desc:		Include semnatura profilului meu
-disable_smilies:		Deactiveaza smilies
+disable_smilies:		Dezactiveaza smilies
 spell_check_msg:		Verifica limba mesajului
 post_form:			Trimite Forum
 post_forum:			Forum:
@@ -376,18 +376,18 @@ post_preview_btn:		Previzualizeaza mesaj
 ignore_users:			Utilizatori ignorati
 add_ignore:			Adauga ingorare
 forum_terms:			Termenii Forumului
-forum_rules:			Inregistrare la acest forum este libera! Insistam insa sa respectati regulile si termenii specificati mai jos. Daca sunteti de acord apasati butonul DE ACORD de la sfarsitul paginii.<p>
+forum_rules:			Inregistrarea la acest forum este libera! Insistam insa sa respectati regulile si termenii specificati mai jos. Daca sunteti de acord apasati butonul DE ACORD de la sfarsitul paginii.<p>
 forum_rules_13:			Toti utilizatorii sub 13 ani trebuie sa primeasca acordul parintilor sau tutorilor pentru a putea fi membri ai acestui forum. Trebuie sa primim prim mail sau fax acorul semnat al parintilor sau tutorilor.<p>Daca doriti sa continuati cu inregistrarea apasati butonul DE ACORD de mai jos. Daca doriti sa renuntati apsati butonul RENUNTA din josul paginii <p>O copie a formularului de permisiune poate fi descarcata de aici. Pentru mai multe informatii trimiteti un email administratorului <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Confirmare Parinti/Tutori
 coppa_before:			Inainte {TEMPLATE: coppa_date}
 coppa_after:			Dupa {TEMPLATE: coppa_date}
-coppa_link:			Apasati pe legatura care corespunde datei dumneavoastra de nastere
+coppa_link:			Apasati pe link&#39;ul care corespunde datei dumneavoastra de nastere
 coppa:				Un parinte/tutore trebuie sa trimita aprobarea pentru ca persoanele sub 13 ani sa poata fi inregistrati.<p>Pentru mai multe informatii contactati <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informatii
 prereg_agree:			DE ACORD
 prereg_disagree:		RENUNTA
 coppa_fax_instructions:		Instructiuni pentru parinte/tutore
-coppa_fax_instructions2:	Va rugam tipariti pagina, semati-o si trimite-ti-o prin fax la: 40.233.208.208
+coppa_fax_instructions2:	Va rugam tipariti pagina, semnati-o si trimite-ti-o prin fax la: 
 coppa_fax_reg_form:		Formular de inregistrare
 coppa_fax_sign:			Va rugam semnati formularul inainte de a-l trimite
 coppa_fax_conf:			Am primit informatiile furnizate de copilul meu si am citit termenii de utilizare ai acestui forum. Am inteles ca profilul poate fi schimbat utilizand o parola. Am inteles ca pot cere ca contul sa fie sters definitiv.
@@ -407,19 +407,19 @@ login_not_logedin:		Nu sunteti autentificat. Aceasta se poate intampla din mai m
 login_cookie_expired:		Variabilele cookie au expirat, va trebui sa va autentificati din nou.
 login_perm_denied:		Ca vizitator nu aveti permisiunea sa folositi acea resursa.
 login_want_to_register:		Doriti sa va inregistrati?
-login_forgot_passwd:		A-ti uitat parola?
+login_forgot_passwd:		Ati uitat parola?
 login_use_cookie:		Foloseste cookies <br><font class="SmallText">Daca folositi un calculator public nu ar trebui sa bifati aceasta optiune.
 login_login:			Utilizator
 login_login_btn:		Autentifica
 login_name_required:		Numele de utilizator este necesar
 login_passwd_required:		Parola este necesara
 login_invalid_radius:		Combinatie gresita utilizator/parola
-reset_confirmation:		Va multumim pentru ca v-ati inregistrat,\n\nPentru a va activa contul mergeti la agresa de mai jos:\n\n{VAR: url}\n\nOdata ce contul dumneavoastra va fi confirmat ve-ti fi automat autentificat si trimis la prima pagina a forumului.\n
-reset_reset:			Buna,\n\nA-ti cerut ca parola sa fie resetata, pentru a o reseta urmariti adresa URL\n\n{VAR: url}\n\n
+reset_confirmation:		Va multumim pentru ca v-ati inregistrat,\n\nPentru a va activa contul mergeti la agresa de mai jos:\n\n{VAR: url}\n\nOdata ce contul dumneavoastra va fi confirmat veti fi automat autentificat si trimis la prima pagina a forumului.\n
+reset_reset:			Ziua buna,\n\nAti cerut ca parola sa fie resetata, pentru a o reseta mergeti la adresa URL\n\n{VAR: url}\n\n
 rpasswd_invalid_passwd:		Parola incorecta
 rpasswd_passwd_nomatch:		Parolele nu se potrivesc
 rpasswd_passwd_length:		Parola trebuie sa aiba minim 6 caractre
-reset_remind_pass:		Adu aminte parola
+reset_remind_pass:		Reseteaza parola
 reset_reset_conf:		Parola va fi resetata si trimisa prin email. Va rugam sa raspundeti la email pentru a confirma primirea parolei.
 reset_error:			Adresa de email nu a fost gasita in baza de date.
 rpasswd_change_pass:		Schimba parola
@@ -431,11 +431,11 @@ login_passwd:			Parola:
 reset_email:			Email:
 reset_reset_button:		Reseteaza Parola
 rate_this_thread:		Rata
-report_reporting_about:		Subectul raportului:
+report_reporting_about:		Subiectul raportului:
 report_subject:			Subiect:
 report_by:			De:
 report_posted_on:		Trimis la data de:
-report_give_reason:		Va rugam sa introduceti un motiv pentru care a-ti raportat acest mesaj:
+report_give_reason:		Va rugam sa introduceti un motiv pentru care ati raportat acest mesaj:
 report_submit_report:		Trimite raport
 search_entire_msg:		Tot mesajul
 search_subect_only:		Doar subiectul
@@ -495,7 +495,7 @@ poll_timelimit:			Limita de timp
 poll_maxiumvotes:		Numarul maxim de voturi accepat
 poll_create:			Creeaza
 poll_update:			Updateaza
-poll_disablesmilies:		Deactiveaza smilies
+poll_disablesmilies:		Dezactiveaza smilies
 poll_create_poll:		Creeaza sondaj
 poll_update_poll:		Updateaza Sondaj
 poll_delete:			Sterge
@@ -528,15 +528,15 @@ actions_update:			Streseaza alti oameni, exact ca tine
 err_info:			Informatii
 buddy_list_err_cantadd:		Nu va puteti adauga in lista cu prieteni
 buddy_list_err_dup:		Utilizatorul deja exista in lista cu prieteni
-buddy_list_err_nouser:		Utilizatorul pe care a-ti incercat sa-l adaugati nu exista
+buddy_list_err_nouser:		Utilizatorul pe care ati incercat sa-l adaugati nu exista
 buddy_list_err_nouser_title:	Nu pot adauga utilizator
 buddy_list_update:		Navigare in lista cu prieteni
 core_err_invinp_title:		Introducere gresita
-core_err_invinp_err:		A-ti urmarit o adresa gresita
-core_adm_login_msg:		<br>Administratori se pot autentifica <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aici</a>
+core_err_invinp_err:		Ati ales o adresa gresita
+core_adm_login_msg:		<br>Administratorii se pot autentifica <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aici</a>
 email_err_unabletoemail_title:	EROARE: nu pot trimite email
-email_err_unabletoemail_msg:	Sistemul de trimitere a email-urilor a fost dezactivat de administrator
-email_error_unabletolocaddr:	Ne cerem scuze, sitemul nu poate trimite email-ul la {VAR-HTML: _POST['tx_name']} deoarece nu a putut fi gasit.
+email_err_unabletoemail_msg:	Sistemul de trimitere al email-urilor a fost dezactivat de administrator
+email_error_unabletolocaddr:	Ne cerem scuze, sistemul nu poate trimite email la {VAR-HTML: _POST['tx_name']} deoarece nu a putut fi gasit.
 email_error_body:		Continutul mesajului este camp obligatoriu
 email_error_subject:		Subiectul este obligatoriu
 email_error_namerequired:	Numele este obligatoriu
@@ -544,7 +544,7 @@ email_error_invaliduser:	Utilizator inexistent
 emailconf_err_invkey_title:	Eroare
 emailconf_err_invkey_msg:	Cheie de confirmare incorecta.  Va rugam sa va verificati adresa de email.
 err_inc_criticaltitle:		EROARE CRITICA
-err_inc_criticalmsg:		EROARE, dar din nefiericire a fost afectat si sistemul de administrare a erorilor.
+err_inc_criticalmsg:		EROARE dar din nefericire a fost afectat si sistemul de administrare a erorilor.
 finduser_update:		Cauta utilizatori
 help_index_update:		Citire <a href="{TEMPLATE: help_index_update_lnk}">Intrebari frecvente</a>
 iemail_thr_subject:		Raspuns nou la {VAR: thr_subject} trimis de {VAR: poster_login}
@@ -556,19 +556,19 @@ ignore_list_err_info_title:	Informatii
 ignore_list_err_dup_msg:	Utilizatorul deja exista in lista de ignorare
 ignore_list_err_nu_title:	Utilizatorul nu a fost gasit
 ignore_list_err_nu_msg:		Utilizatorul pe care incercati sa-l ignorati nu poate fi gasit pe forum
-ignore_list_cantign_msg:	Nu puteti ignora caest utilizator
+ignore_list_cantign_msg:	Nu puteti ignora acest utilizator
 ignore_list_update:		Navigare in lista de ignorare
 index_update:			Navigare in <a href="{TEMPLATE: index_update_lnk}">lista cu forumuri</a>
 list_referers_update:		Navigare referinte
 login_update:			Formular de autentificare
 msg_update:			Navigare in tema <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		EROARE: Mesajle personale sunt dezactivate
-pm_err_nopm_msg:		YNu puteti folosi mesajele personale, acestea au fost dezactivate de administrator.
+pm_err_nopm_msg:		Nu puteti folosi mesajele personale, acestea au fost dezactivate de administrator.
 pm_update:			Folosirea mesajelor personale
 post_err_lockedthread_title:	EROARE: Tema blocata
 post_err_lockedthread_msg:	Aceasta tema a fost blocata, nu se mai pot trimite mesaje
 err_coppa_title:		EROARE: Contul dumneavoastra nu este inca confirmat
-err_coppa_msg:			Nu s-a primit confirmarea de la un parinte/tutore. Daca a-ti pierdut formularul <a href="{TEMPLATE: err_coppa_msg_lnk}">apasati aici</a> pentru a-l descarca
+err_coppa_msg:			Nu s-a primit confirmarea de la un parinte/tutore. Daca ati pierdut formularul <a href="{TEMPLATE: err_coppa_msg_lnk}">apasati aici</a> pentru a-l descarca
 err_blockedaccnt_title:		EROARE: nu aveti voie sa trimiteti mesaje
 err_blockedaccnt_msg:		Contul dumneavoastra a fost blocat. Nu mai puteti trimite mesaje.
 post_err_edttimelimit_title:	EROARE
@@ -583,7 +583,7 @@ post_reply_update:		Raspunde la <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->su
 post_topic_update:		Scrie tema noua in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Aveti o eroare
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} imagini puteti trimite
-postcheck_subj_needed:		Subictul este obligatoriu
+postcheck_subj_needed:		Subiectul este obligatoriu
 postcheck_no_such_user:		Nu este nici un utilizator numit "{FUNC: char_fix(htmlspecialchars($v))}" in acest forum
 postcheck_ignored:		Nu puteti trimite mesaje personale la "{FUNC: char_fix(htmlspecialchars($v))}", deoarece aceasta persoana va ignora.
 postcheck_no_recepient:		Nu pot trimite mesaj, lipseste destinatarul
@@ -607,7 +607,7 @@ register_err_notyouremail:	Cineva este deja inregistrat cu aceasta adresa de ema
 register_err_avatartobig:	Fisierul pe care incercati sa-l incarcati este prea mare, peste {GVAR: CUSTOM_AVATAR_MAX_SIZE}
 register_err_avatarnotallowed:	Imaginea pe care doriti sa o incarcati nu are extensia corecta
 register_conf_subject:		Confirmarea inregistrarii
-register_conf_msg:		VA multumim pentru ca v-ati inregistrat,\nPentru a activa contul va rugam sa mergeti la adresa:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n
+register_conf_msg:		Va multumim pentru ca v-ati inregistrat,\nPentru a activa contul va rugam sa mergeti la adresa:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n
 register_welcome_subject:	Confirmarea inregistrarii la Forum
 register_welcome_msg:		Va multumim pentru ca v-ati inregistrat,\n\nAici sunt datele dumneavoastra de autentificare la acest forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nParola: {VAR: _POST['reg_plaintext_passwd']}\n\nVa atentionam ca parola este sensibila la majuscule.
 register_err_cantreg_title:	EROARE: nu pot completa inregistrarea
@@ -619,9 +619,9 @@ report_err_nosuchmsg_msg:	Nici un mesaj de acest tip
 reset_err_invalidkey_title:	EROARE
 reset_err_invalidkey_msg:	Cheia de resetare a parolei este gresita
 reset_err_rstconf_title:	Informatie
-reset_err_rstconf_msg:		Ve-ti primi instructiuni la adresa de email, in cateva momente
+reset_err_rstconf_msg:		Veti primi instructiuni la adresa de email, in cateva momente
 reset_newpass_title:		Reseteaza Parola
-reset_newpass_msg:		Buna,\n\nLa cerere v-am trimis numele de utilizator.\nAici sunt informatiile dumneavoastra:\n\nUtilizator: {VAR: ui[1]}\nParola: {VAR: passwd}\n\n
+reset_newpass_msg:		Ziua buna,\n\nLa cerere v-am trimis numele de utilizator.\nAici sunt informatiile dumneavoastra:\n\nUtilizator: {VAR: ui[1]}\nParola: {VAR: passwd}\n\n
 reset_login_notify:		Parola v-a fost trimisa la adresa de email. Va rugam sa verificati email-ul in urmatoarele momente.
 search_update:			Cautare mesaje trimise
 selmsg_update:			Navigeaza <a href="{TEMPLATE: selmsg_update_lnk}">mesaje trimise astazi</a>
@@ -637,7 +637,7 @@ ERR_access_msg:			Nu aveti permisiune pentru a executa aceasta actiune
 ERR_registration_disabled_ttl:	Inregistrarea dezactivata
 ERR_registration_disabled_msg:	Administratorul a dezactivat inregistrarea, va rugam sa reveniti mai tarziu
 ERR_emailconf_ttl:		EROARE: Contul dumneavoastra nu este inca confirmat
-ERR_emailconf_msg:		Nu v-ati confirmat inca contul prin email<br><table border=0><tr><td><ol><li>Daca nu a-ti primit email-ul de confirmare apasati <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">aici</a><li>If {VAR: usr_d->email} is not your correct e-mail address, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">click here</a></ol></td></tr></table>
+ERR_emailconf_msg:		Nu v-ati confirmat inca contul prin email<br><table border=0><tr><td><ol><li>Daca nu ati primit email-ul de confirmare apasati <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">aici</a><li>If {VAR: usr_d->email} is not your correct e-mail address, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">click here</a></ol></td></tr></table>
 ERR_user_ttl:			EROARE: Nici un asemenea utilizator
 ERR_user_msg:			Nici un asemenea utilizator
 ERR_systemerr_ttl:		EROARE: Eroare de sistem
@@ -652,12 +652,12 @@ register_title:			Formular de inregistrare
 reset_title:			Reseteaza Parola
 rpasswd_title:			Formular schimbare parola
 error_title:			Formular erori
-index_title:			Bine a-ti venit la forum
+index_title:			Bine ati venit la forum
 search_title:			Cauta {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Emailul a fost trimis
-remail_email:			Buna,\n\nEste o tema interesata despre "{VAR: data->subject}" pe {GVAR: FORUM_TITLE} pe care cred ca ai vrea sa o citesti. Poti vedea tema la:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Your friend,\n\n{VAR: usr->alias}\n
+remail_email:			Buna,\n\nEste o tema interesata despre "{VAR: data->subject}" pe {GVAR: FORUM_TITLE} pe care cred ca ai vrea sa o citesti. Poti vedea tema la:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Al tau,\n\n{VAR: usr->alias}\n
 poll_add_option:		Adauga optiune:
 post_opt_html_on:		<b>HTML</b> este <b>PORNIT</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>Codul HS</b> este <b>PORNIT</b></a>
@@ -689,7 +689,7 @@ thr_exch_decl_reason:		Motivul respingerii mutarii temei <b>{VAR: data->subject}
 thr_exch_submit:		OK
 exch_decline_ttl:		Mutarea temei {VAR: data->subject} in forumul {VAR-HTML: data->f2_name} a fost respinsa.
 ppost_original_msg:		mesaj care il trimiteti mai departe sau la care raspundeti
-split_thread:			Imaprte Tema
+split_thread:			Imparte Tema
 groupmgr_no_user:		Nu este nici un utilizator numit "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:	Utilizatorul "{FUNC: char_fix(htmlspecialchars($gr_member))}" deja exista in acest grup.
 groupmgr_yes:			Da
@@ -754,14 +754,14 @@ th_expr_one_year:		1 An
 thread_mod_delete:		Sterge
 action_latest_post:		Ultimul mesaj trimis
 online_today_last_visit:	Ultima pagina vizitata
-online_today_update:		Lista cu persoane care au vizitat astazi forum-ul.
+online_today_update:		Lista cu persoane care au vizitat astazi forumul.
 logedin_todays_visitors:	Vizitatori
-logedin_latest_post:		Ultimiul mesaj trimis: 
+logedin_latest_post:		Ultimul mesaj trimis: 
 register_show_avatar:		Arata imagini:
 register_show_avatar_desc:	Permite ascunderea si afisarea mesajelor
 drawmsg_view_rest_post:		Arata restul mesajelor
 post_re:			Re: 
-forumsel_goto_forum:		Du-te la forum:
+forumsel_goto_forum:		Mergi la forum:
 minimsg_thread_view:		Vizualizare Forum
 split_th_post_by:		Trimis de:
 split_th_posted_on:		Trimis la:
@@ -769,7 +769,7 @@ split_th_subject:		Subiect:
 split_th_new_thread_title:	Noul titlu al temei:
 split_th_forum:			Forum:
 split_th_split_sel:		Imparte mesajele selectate
-split_th_split_unsel:		Imparte mesajele ne-selectate
+split_th_split_unsel:		Imparte mesajele neselectate
 split_th_messages:		Mesaje
 split_th_select:		Selecteaza
 report_report_post:		Trimite raport
@@ -787,7 +787,7 @@ register_err_toomanyimages:	Incercati sa folositi mai multe imagini {GVAR: FORUM
 pmsg_next_msg:			Urmatorul mesaj
 pmsg_prev_msg:			Mesaj precedent
 post_proc_reveal_spoiler:	Arata spoiler
-register_jabber:		Jabber Handle:
+register_jabber:		Numele pentru Jabber:
 im_jabber:			Jabber: 
 forum_contact:			Contactare
 forum_home:			Prima Pagina
@@ -802,15 +802,15 @@ help_back_to_top:		Inceputul paginii
 help_return_to_index:		Intoarcere la ajutor
 imsg_err_message_title:		Mesaj incorect
 imsg_err_message_msg:		Mesajul nu exista
-poll_edit:		Editare
+poll_edit:			Editare
 register_err_not_valid_img:	Adresa specificata nu contine nici o imagine
 pmsg_recepient:			Destinatar
 register_err_taken_alias:	Porecla pe care doriti sa o folositi este deja folosita de alt utilizator al forumului
 register_alias:			Porecla
 register_alias_desc:		Daca doriti alt nume de utilizator decat cel ce apare in forum, introduceti-l aici.
 register_allow_pm_msg:		Accepta mesaje personale
-register_allow_pm_msg_desc:	Permite altor utilizatori sa trimita mesaje prin intremediul forumului
-postcheck_pm_disabled:		Nu puteti trimite mesajul personal "{VAR-HTML: v}", deoarece aceasta persona nu accepta mesaje personale
+register_allow_pm_msg_desc:	Permite altor utilizatori sa trimita mesaje prin intermediul forumului
+postcheck_pm_disabled:		Nu puteti trimite mesajul personal "{VAR-HTML: v}", deoarece aceasta persoana nu accepta mesaje personale
 polllist_vote:			Voteaza
 polllist_view_results:		Rezultate
 polllist_name:			Numele sondajului
@@ -828,7 +828,7 @@ search_asc_order:		Ordine ascendenta
 search_logic:			Cautare logica:
 search_sorting:			Sorteaza rezultatele dupa data:
 post_proceed:			OK
-post_moderated_forum:		A-ti trimis un mesaj intr-un forum moderat
+post_moderated_forum:		Ati trimis un mesaj intr-un forum moderat
 post_moderated_forum_ttl:	Atentionare Forum moderat
 buddy_list_bday:		Astazi {VAR: r[2]} impliniti {VAR: age}
 email_warning_msg:		Daca va schimbati adresa de email, contul dumneavoastra nu va fi confirmat pana nu raspundeti la email.
@@ -842,7 +842,7 @@ threadt_disabled_desc:		Vizualizarea arborescenta a fost dezactivata de administ
 threadt_update:			Navigare in forumul <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Confirmare de stergere forum/tema
 spell_alts:			nici o alternativa
-insert_uploaded_image:		Introduce imagine in corpul mesajului
+insert_uploaded_image:		Introdu imagine in corpul mesajului
 finduser_help:			Motorul de cautare va aduga automat masca * la inerogarea dumnavoastra. ex. pentru a cauta toti utlizatorii al caror nume de utilizator incepe cu &#39;a&#39;, introduceti &#39;a&#39; in campul de cautare.
 back_to_top:			Inceputul paginii
 pm_err_disabled_title:		Mesajele personale au fost dezactivate
@@ -857,12 +857,12 @@ login_blocked_account_msg:	Contul dumneavoastra a fost blocat pe acest forum, da
 register_affero:		Nume de utilizator optional:<br /><font class="SmallText">Daca aveti un nume de utilizator <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">optional</a> introduceti-l aici.</font>
 im_affero:			Nume utilizator optional
 pmsg_download_counter:		Descarcat de {VAR: r->dlcount} ori
-member_search:			<br>Sau foloseste optiunea <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Cauata persoana</a> pentru a gasi o persoana.
+member_search:			<br>Sau foloseste optiunea <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Cauta persoana</a> pentru a gasi o persoana.
 post_all_ext_allowed:		(nerestrictionat)
 register_err_avatardimtobig:	Dimensiunile imaginii <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> depasesc dimensiunile permise de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:			{VAR: r[2]} este offline
 buddy_online:			{VAR: r[2]} este online
-sml_no_smilies:			Nici o "emotie" disponibila.
+sml_no_smilies:			Nici un "smilie" disponibil.
 login_unapproved_account_ttl:	Cont care nu a fost acceptat.
 login_unapproved_account_msg:	Administratorul acestui forum a ales sa confirme fiecare cont nou manual.
 remove_from_buddy_list:		serge din lista cu prieteni
@@ -886,7 +886,7 @@ iemail_thread_unsub:		Anuleaza inregistrarea la aceasta discutie
 iemail_forum_unsub:		Anuleaza inregistrarea la acest forum
 primary_group_prefix:		Grupul primar al forumului:
 group_resources:		Acest grup controleaza permisiunile forumului
-register_admin_newuser_title:	S-a inregistrat un nou utilizator si contul sau asteapta confirmare
+register_admin_newuser_title:	S-a inregistrat un nou utilizator sau contul sau asteapta confirmare
 register_admin_newuser_msg:	Un nou utilizator ({VAR: uent->login}) abia s-a inregistrat.
 post_mod_msg_notify_title:	Mesaj nou care asteapta aprobare in forumul "{VAR: frm->name}" 
 post_mod_msg_notify_msg:	Un nou mesaj intitulat "{VAR: msg_post->subject}" au fost postati intr-un forum moderat. Pentru a revedea mesajul mergeti apsati aici: {FULL_ROOT}{ROOT}?t=modque\n\nAcesta este un proces automat, nu raspundeti la acest email.\n
@@ -895,106 +895,106 @@ thread_syndicate:		Sorteaza forumul (XML)
 reg_conf_title:			Confirmarea inregistrarii
 reg_conf_email:			<b>Confirmarea adresei de email</b><br />V-a fost trimis un email care contine o adresa URL de unde va puteti activa contul.
 reg_conf_account:		<b>Confirmarea contului</b><br/>Inainte de a se activa contul, acesta trebuie sa fie aprobat de administrator.
-forum_banned_user:		Activitatile anterioare au facut ca contul dumneavoastra sa fie blocat permanent. Va multumim ca a-ti alesl acest forum. La revedere.
-mnav_description:		Message Navigator
-mnav_date_limit:		Date range:
-mnav_forum_limit:		Only search In:
-mnav_all_forums:		Search all forums
-mnav_submit:			Begin Search
-mnav_no_range:			You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
-mnav_invalid_unit:		You must specify a valid time unit.
-mnav_invalid_date:		The date range you&#39;ve specified is larger then the one allowed by the administrator, narrow down date range of your search.
-mnav_no_results:		There are no messages matching query.
-mnav_posted_by:			Posted By:
-mnav_more:			More &raquo;&raquo;
-mnav_minute:			Minute(s)
-mnav_hour:			Hour(s)
-mnav_day:			Day(s)
-mnav_week:			Week(s)
-mnav_month:			Month(s)
-mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-register_pm_notification:	Private Message Notification
-register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.
-findu_admin_opts_header:	Admin Opts.
-findu_unban:			UnBan
-findu_ban:			Ban
+forum_banned_user:		Activitatile anterioare au facut ca contul dumneavoastra sa fie blocat permanent. Va multumim ca ati alesl acest forum. La revedere.
+mnav_description:		Navigatorul de mesaje
+mnav_date_limit:		Interval de timp:
+mnav_forum_limit:		Cauta doar in:
+mnav_all_forums:		Cauta in toate forumurile
+mnav_submit:			Incepe cautarea
+mnav_no_range:			Trebuie sa introduceti un interval de timp valid. Aceasta valoare poate fi cu virgula (0,12) dar trebuie sa fie mai mare decat zero.
+mnav_invalid_unit:		Trebuie sa specificati o unitate de timp valida.
+mnav_invalid_date:		Intervalul de timp pe care l&#39;ati specificat depaseste limita existenta, va rog sa reduceti intervalul de timp.
+mnav_no_results:		Nu a fost gasit nici un mesaj care sa corespunda criteriilor de cautare.
+mnav_posted_by:			Trimis de:
+mnav_more:			Mai mult[e] &raquo;&raquo;
+mnav_minute:			Minut(e)
+mnav_hour:			Ora/Ore
+mnav_day:			Zi/Zile
+mnav_week:			Saptamana(i)
+mnav_month:			Luna(i)
+mnav_title:			Navigatorul de mesaje
+mnav_update:			Trecerea in revista a mesajelor folosind <a href="{TEMPLATE: mnav_update_lnk}">Navigatorul de mesaje</a>
+pm_notify_subject:		[{GVAR: FORUM_TITLE}] Notificare pentru un nou mesaj privat
+pm_notify_body_email:		Aveti un nou mesaj privat care se intituleaza "{VAR: subject}" de la "{VAR: from}" pe data de "{GVAR: FORUM_TITLE}" forum.\nPentru a vedea mesajul, apasati aici: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPentru a nu mai primi notificari, deselectati "Notificare Mesaj Privat" in profilul dumneavoastra.
+register_pm_notification:	Notificare Mesaj Privat
+register_pm_notification_desc:	Daca este activata aceasta optiune veti fi notificat prin metoda aleasa atunci cand veti primi un mesaj privat.
+findu_admin_opts_header:	Optiuni Admin.
+findu_unban:			DeBlocheaza
+findu_ban:			Blocheaza
 findu_edit:			Edit
-findu_delete:			Delete
-dmsg_reply_to:			is a reply to message #{VAR: obj->reply_to}
-merge_topics:			Merge Topics
-merge_topics_cp:		Merge Topic Control Panel
-merge_topics_tpl:		Select Topics To Merge <font class="SmallText">(you must select more then 1 topic)</font>
-merge_merge:			Merge Selected Topics
-merge_next:			Next Topics
-merge_prev:			Previous Topics
-split_cp:			Thread Split Control Panel
-groups_perms_header:		Permissions <font size="-1">(move mouse over the permission to see permission type)</font>
-register_err_sig_too_long:	Your signature exceeds the maximum allowed length of {GVAR: FORUM_SIG_ML} characters characters.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Your Signature is \'+document.fud_register.reg_sig.value.length+\' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML}\');" class="SmallText">Check Signature Length</a>
-p_SEARCH:			Can Search
-adm_account_accepted:		Your account \'{VAR: GLOBALS['r']->login}\' was approved by the administrator and is now active. You may now access the {GVAR: FORUM_TITLE}\' forum as a confirmed registered user.
-adm_account_accepted_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was accepted.
-adm_account_rejected:		Your account \'{VAR: GLOBALS['r']->login}\' was declined by the administrator and is now active. If you would like to know the reason behind this decision feel free to contact the administrator at \'{GVAR: ADMIN_EMAIL}\'.
-adm_account_rejected_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was declined.
-thread_on:			on
-userinfo_buddy:			Buddy:
-register_email_addr:		E-mail Address:
-reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
+findu_delete:			Sterge
+dmsg_reply_to:			este un raspuns la mesajul #{VAR: obj->reply_to}
+merge_topics:			Combina Temele
+merge_topics_cp:		Panoul de Control pentru Combinarea Temelor
+merge_topics_tpl:		Selectati Temele pentru Combinat <font class="SmallText">(trebuie sa selectati cel putin 1 tema)</font>
+merge_merge:			Combina Temele Selectate
+merge_next:			Urmatoarele Teme
+merge_prev:			Temele Precedente
+split_cp:			Panou Control pentru Thread Split
+groups_perms_header:		Permisiuni <font size="-1">(mutati cursorul peste permisiuni pentru detalii)</font>
+register_err_sig_too_long:	Semnatura dumneavoastra depaseste lungimea maxima admisa de {GVAR: FORUM_SIG_ML} caractere.
+register_sig_limit:		{GVAR: FORUM_SIG_ML} caractere <a href="javascript: alert(\'Your Signature is \'+document.fud_register.reg_sig.value.length+\' caractere lungime. Lungimea maxima a semnaturii este de {GVAR: FORUM_SIG_ML}\');" class="SmallText">Verifica Lungimea Semnaturii</a>
+p_SEARCH:			Cautare posibila
+adm_account_accepted:		Contul dumneavoastra \'{VAR: GLOBALS['r']->login}\' a fost aprobat de catre administrator si este acum activ. Puteti accesa forumul {GVAR: FORUM_TITLE}\' ca utilizator inregistrat.
+adm_account_accepted_s:		Cererea dumneavoastra pentru contul \'{GVAR: FORUM_TITLE}\' a fost acceptata.
+adm_account_rejected:		Contul dumneavostra \'{VAR: GLOBALS['r']->login}\' a fost respins de catre administrator si nu este activ. Daca doriti sa aflati motivele acestei decizii puteti sa trimiteti un email administratorului la \'{GVAR: ADMIN_EMAIL}\'.
+adm_account_rejected_s:		Cererea dumneavoastra pentru \'{GVAR: FORUM_TITLE}\' a fost respinsa.
+thread_on:			la
+userinfo_buddy:			Prieten:
+register_email_addr:		Adresa E-mail:
+reset_suffix:			\n\nDaca ati primit acest mesaj din greseala, va rugam sa il ignorati. Daca ati primit mai multe copii sau versiuni similare cu acest mesaj, si nu l\'ati cerut, va rugam sa contactati administratorul forumului la {GVAR: ADMIN_EMAIL}\n\nAceasta cerere a fost initiata de la: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
 usrinfo_last_visit:		Ultima pagina vizitata:
-mnav_newer:			newer then
-mnav_older:			older then
+mnav_newer:			mai nou decat
+mnav_older:			mai vechi decat
 ip_search_by_ip:		Search users by IP
 ip_search_syntax:		Supported syntax: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:			Search
 ip_analyze_usage:		Analyze IP usage
 ip_analyze_usage_descr:		Please specify the user&#39;s exact login.
 ip_users_using:			User(s) using &#39;{VAR: ip}&#39; IP address
-ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
+ip_all_ips:			Toate IP(urile) sunt folosite de &#39;{VAR: user}&#39;
 ip_title:			IP Browser
-userinfo_real_name:		Real Name:
+userinfo_real_name:		Nume real:
 register_err_alias_notallowed:	This alias is not allowed
 post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
 post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
 ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
 post_err_mod_forum_edit_ttl:	ERROR
-post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
+post_err_mod_forum_edit_msg:	Mesajele intr&#39;un forum moderat nu pot fi editate.
 dmsg_num:			message #{VAR: obj->id}
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.
-delete_msg_removed_ttl:		Your message was removed by administration staff.
-delete_msg_pm_body:		Original message
+delete_msg_removed_ttl:		Mesajul dumneavoastra a fost sters de catre administrator.
+delete_msg_pm_body:		Mesaj original
 delete_msg_pm_subject:		Subject: {VAR: data[15]}
 ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
-ip_whois_title:			<b>ISP Information</b><br />
-register_theme:			Theme:
-pmsg_trash:			Empty Trash
-uc_new_pm:			New Private Messages
-uc_new_topic:			New Topic
+ip_whois_title:			<b>Informatii despre ISP</b><br />
+register_theme:			Tema:
+pmsg_trash:			Goleste Cosul
+uc_new_pm:			Mesaje Private Noi
+uc_new_topic:			Tema Noua
 uc_new_cat_forum:		Subscribed Forums With New Messages
-uc_cat_forum:			Category &raquo; Forum
+uc_cat_forum:			&raquo; Forum Categorie
 uc_sub_topics:			Subscribed Topics With New Messages
-uc_page_title:			Viewing personal control panel.
-search_options:			Search Options
-search_user_filter:		Filter by user:
-register_none:			Don&#39;t Notify
-findu_no_conf:			unconfirmed user
-register_max_sig_len:		Maximum Length:
-register_turing:		Please enter the code shown below:
-register_err_turing:		Invalid validation code.
-modque_cat:			Category
+uc_page_title:			Vizualizare panou de control personal.
+search_options:			Optiuni de cautare
+search_user_filter:		Filtrat de utilizator:
+register_none:			Fara Notificare
+findu_no_conf:			Utilizator neconfirmat
+register_max_sig_len:		Lungimea Maxima:
+register_turing:		Va rog sa introduceti codul afisat mai jos:
+register_err_turing:		Cod de validare incorect.
+modque_cat:			Categorie
 modque_forum:			Forum
-idx_compact_forum_row:		Available Forums:
-mmd_del_title:			Delete Topics
-mmd_mov_title:			Move Topics
-mmd_move_threads_to:		Destination Forum:
-mmd_abort_move:			Cancel
-mmd_move:			Move Topics
-pmsg_pdf_btn:			Make PDF Archive
-search_results_hdr:		{VAR: total} Search Results Found
-thread_del_all:			Delete All Selected
-thread_mov_all:			Move All Selected
+idx_compact_forum_row:		Forumuri Disponibile:
+mmd_del_title:			Sterge Temele
+mmd_mov_title:			Muta Temele
+mmd_move_threads_to:		Forumul Destinatie:
+mmd_abort_move:			Anuleaza
+mmd_move:			Muta Temele
+pmsg_pdf_btn:			Creeaza Arhiva PDF
+search_results_hdr:		{VAR: total} Rezultate Gasite
+thread_del_all:			Sterge Toata Selectia
+thread_mov_all:			Muta Toata Selectia
 dmsg_ip:			IP:
