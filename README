@@ -1,5 +1,5 @@
 /*
- * $Id: README,v 1.6 2003/07/31 01:26:41 hackie Exp $
+ * $Id: README,v 1.7 2005/05/07 15:05:33 hackie Exp $
  *
  */ 
 
@@ -37,3 +37,12 @@
 
 4) Now you have latest working install script, you can now begin the installation process by following
    the installation instructions above.
+
+*****************************************
+*	Uninstall Script		*
+*****************************************
+
+1) FUDforum distribution includes uninstall.php that will remove all files in a specified directory, 
+presumably files created by a FUDforum installation. Because the installation may have failed the script
+does not have any authentication in it. Which is why it is ABSOLUTELY IMPERATIVE that it is not placed inside
+wed accessible directories.
