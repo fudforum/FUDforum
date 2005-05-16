@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.57 2005/01/26 20:54:12 hackie Exp $
+* $Id: nntp.inc,v 1.58 2005/05/16 14:50:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -194,7 +194,7 @@ class fud_nntp
 			$this->from_email = trim($matches[2]);
 
 			if (!empty($matches[1])) {
-				$matches[1] = trim($matches[1]);
+				$matches[1] = decode_header_value(trim($matches[1]));
 				if ($matches[1][0] == '"' && substr($matches[1], -1) == '"') {
 					$this->from_name = substr($matches[1], 1, -1);
 				} else {
@@ -203,7 +203,7 @@ class fud_nntp
 			} else {
 				$this->from_name = $this->from_email;
 			}
-			if (preg_match('![^A-Za-z0-9\-_\s]!', $this->from_name)) {
+			if (preg_match('![^\w\-\s]!', $this->from_name)) {
 				$this->from_name = substr($this->from_email, 0, strpos($this->from_email, '@'));
 			}
 		} else {
