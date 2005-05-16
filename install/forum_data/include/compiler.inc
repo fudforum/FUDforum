@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.77 2005/03/18 16:38:54 hackie Exp $
+* $Id: compiler.inc,v 1.78 2005/05/16 14:47:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -539,6 +539,11 @@ function resolve_compile($file)
 	}
 	resolve_refs($file, $file);
 	resolve_inc_refs($file);
+
+	if (!empty($GLOBALS['file_cache'][$file]['inline'])) {
+		return;
+	}
+
 	if (empty($GLOBALS['file_cache'][$file]['src'])) {
 		exit('No source for '.$file);
 	}
