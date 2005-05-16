@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.58 2005/05/16 14:50:42 hackie Exp $
+* $Id: nntp.inc,v 1.59 2005/05/16 18:56:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -333,7 +333,7 @@ class fud_nntp
 		}
 	}
 
-	function exit_handler()
+	function exit_handler($exit=1)
 	{
 		if (!empty($this->error)) {
 			$u = umask(0111);
@@ -342,7 +342,10 @@ class fud_nntp
 			fclose($fp);
 			umask($u);
 		}
-		exit($this->close_connection());
+		$this->close_connection();
+		if ($exit) {
+			exit($this->error);
+		}
 	}
 
 	function parse_msgs($frm, $nntp_adm, $start_id=0)
@@ -502,12 +505,12 @@ class fud_nntp
 	function post_message($subject, $body, $from, $forum_msg_id, $reply_to='', $attch='')
 	{
 		if (!$this->connect()) {
-			$this->exit_handler();
+			$this->exit_handler(0);
 		}
 
 		if ($this->cmd("POST") != 340) {
 	        	$this->error = "Failed to recieve proper response to POST command, NNTP server replied: ".$this->lrc."\n";
-			$this->exit_handler();
+			$this->exit_handler(0);
 		}
 
 		if ($GLOBALS['FUD_OPT_3'] & 8) {
@@ -548,7 +551,7 @@ class fud_nntp
 
 		if (!$this->compare_return_codes(240)) {
 			$this->error = "Posting Failed, NNTP Server Said: ".$this->lrc."\n";
-			$this->exit_handler();
+			$this->exit_handler(0);
 		}
 
 		$this->close_connection();
