@@ -1,5 +1,5 @@
 /*
- * $Id: UPGRADE_README,v 1.8 2005/05/07 15:05:33 hackie Exp $
+ * $Id: UPGRADE_README,v 1.9 2005/05/17 17:03:25 hackie Exp $
  *
 */
 
@@ -48,4 +48,4 @@
 1) FUDforum distribution includes uninstall.php that will remove all files in a specified directory, 
 presumably files created by a FUDforum installation. Because the installation may have failed the script
 does not have any authentication in it. Which is why it is ABSOLUTELY IMPERATIVE that it is not placed inside
-wed accessible directories.
+the web accessible directories.
