@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.54 2005/02/26 22:01:18 hackie Exp $
+* $Id: db.inc,v 1.55 2005/05/19 01:58:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -280,11 +280,19 @@ function db_li($q, &$ef, $li=0)
 
 function ins_m($tbl, $flds, $vals, $type)
 {
-	$pid = $GLOBALS['DBHOST_TBL_PREFIX'] . substr(md5(rand()), 0, 10);
+	$pid = $GLOBALS['DBHOST_TBL_PREFIX'] . substr(md5(mt_rand()), 0, 10);
 
 	pg_query(fud_sql_lnk, 'PREPARE '.$pid.' ('.$type.') AS INSERT INTO '.$tbl.' ('.$flds.') VALUES($'.implode(',$', range(1, substr_count($flds, ',') + 1)).')');
+
+	$err = error_reporting(0);
 	foreach ($vals as $v) {
-		@pg_query(fud_sql_lnk, 'EXECUTE '.$pid.' ('.$v.')');
+		pg_query(fud_sql_lnk, 'EXECUTE '.$pid.' ('.$v.')');
+	}
+	error_reporting($err);
+
+	/* if persistent connections are used de-allocte the prepared statement to prevent query failures */
+	if ($GLOBALS['FUD_OPT_1'] & 256) {
+		pg_query(fud_sql_lnk, 'DEALLOCATE '.$pid);
 	}
 }
 ?>

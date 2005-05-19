@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.50 2005/03/05 18:46:59 hackie Exp $
+* $Id: isearch.inc.t,v 1.51 2005/05/19 01:58:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -109,26 +109,8 @@ function index_text($subj, $body, $msg_id)
 	}
 
 	$w2 = array_unique($w2);
-	if (__dbtype__ == 'mysql') {
-		ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2);
-	} else {
-		if (!defined('search_prep')) {
-			define('search_prep', 'PREPARE {SQL_TABLE_PREFIX}srch_ins (text) AS INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES($1)');
-			define('search_prep2', 'PREPARE {SQL_TABLE_PREFIX}srch_sel (text) AS SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word= $1');
-			pg_query(fud_sql_lnk, search_prep);
-			pg_query(fud_sql_lnk, search_prep2);
-		}
-		foreach ($w2 as $w) {			
-			if (pg_num_rows(pg_query(fud_sql_lnk, "EXECUTE {SQL_TABLE_PREFIX}srch_sel (".$w.")")) < 1) {
-				pg_query(fud_sql_lnk, "EXECUTE {SQL_TABLE_PREFIX}srch_ins (".$w.")");
-			}
-		}
-		/* if persistent connections are used de-allocte the prepared statement to prevent query failures */
-		if ($GLOBALS['FUD_OPT_1'] & 256) {
-			pg_query(fud_sql_lnk, 'DEALLOCATE {SQL_TABLE_PREFIX}srch_sel');
-			pg_query(fud_sql_lnk, 'DEALLOCATE {SQL_TABLE_PREFIX}srch_ins');
-		}
-	}
+
+	ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2, 'text');
 
 	if ($w1) {
 		db_li('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE word IN('.implode(',', $w1).')', $ef);
