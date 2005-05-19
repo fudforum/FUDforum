@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.49 2005/02/26 22:01:18 hackie Exp $
+* $Id: db.inc,v 1.50 2005/05/19 03:08:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -249,10 +249,6 @@ function db_li($q, &$ef, $li=0)
 
 function ins_m($tbl, $flds, $vals, $type=0)
 {
-	if (!$type) {
-		q("INSERT IGNORE INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
-	} else {
-		q("INSERT INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
-	}
+	q("INSERT IGNORE INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
 }
 ?>
