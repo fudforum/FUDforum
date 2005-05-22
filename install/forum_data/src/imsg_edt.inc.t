@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.123 2005/05/22 15:57:24 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.124 2005/05/22 15:59:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -626,7 +626,7 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 		}
 	}
 
-	if ($GLOBALS['FUD_OPT_2'] & 32768) {
+	if ($GLOBALS['FUD_OPT_2'] & 32768 && defined('_rsid')) {
 		$pfx = str_repeat('/', substr_count(_rsid, '/'));
 	}
 
