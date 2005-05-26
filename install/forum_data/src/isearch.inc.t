@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.51 2005/05/19 01:58:34 hackie Exp $
+* $Id: isearch.inc.t,v 1.52 2005/05/26 03:17:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,11 +23,11 @@ function mb_word_split($str)
 	$lang = $GLOBALS['usr']->lang == 'chinese' ? 'EUC-CN' : 'BIG-5';
 
 	if (extension_loaded('iconv')) {
-		preg_match_all('!(\w)!u', @iconv($lang, 'UTF-8', $str), $m);
+		preg_match_all('!((?:[\x0-\x7f]+) | (?:[\xc0-\xfd]{1}[\x80-\xbf]+) )!xs', @iconv($lang, 'UTF-8', $str), $m);
 	} else if (extension_loaded('mbstring')) {
-		preg_match_all('!(\w)!u', @mb_convert_encoding($str, 'UTF-8', $lang), $m);
+		preg_match_all('!((?:[\x0-\x7f]+) | (?:[\xc0-\xfd]{1}[\x80-\xbf]+) )!xs', @mb_convert_encoding($str, 'UTF-8', $lang), $m);
 	} else { /* poor man's alternative to proper multi-byte support */
-		preg_match_all("!([\\1-\\255]{1,2})!", $str, $m);
+		preg_match_all("!([\x0-\xff]{2})!", $str, $m);
 	}
 
 	if (!$m) {
