@@ -546,9 +546,9 @@ finduser_update:		Chercher un utilisateur
 index_update:			Parcourt la <a href="{TEMPLATE: index_update_lnk}">liste des forums</a>
 help_index_update:		Lit la <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> (Foire Aux Questions, questions fréquemment posées)
 iemail_thr_subject:		Nouvelle réponse au sujet {VAR: thr_subject} par {VAR: poster_login}
-iemail_thr_bodyemail:		Pour lire les réponses non lues, veuillez cliquer ici : {VAR: goto_url['email']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux réponses reçues sur ce fil à l&#39;avenir, veuillez cliquer ici : {VAR: unsub_url['email']}
+iemail_thr_bodyemail:		Pour lire les réponses non lues, veuillez cliquer ici : {VAR: goto_url['email']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux réponses reçues sur ce fil à l\'avenir, veuillez cliquer ici : {VAR: unsub_url['email']}
 iemail_frm_subject:		Nouveau fil dans le forum {VAR: frm_name} intitulé {VAR: thr_subject} par {VAR: poster_login}
-iemail_frm_bodyemail:		Pour lire le fil, allez à :\n{VAR: goto_url['email']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux nouveaux fils dans ce forum à l&#39;avenir, veuillez cliquer ici : {VAR: unsub_url['email']}
+iemail_frm_bodyemail:		Pour lire le fil, allez à :\n{VAR: goto_url['email']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux nouveaux fils dans ce forum à l\'avenir, veuillez cliquer ici : {VAR: unsub_url['email']}
 ignore_list_err_info_title:	Info
 ignore_list_err_dup_msg:	Cet utilisateur figure déjà dans votre liste de personnes à ignorer
 ignore_list_err_nu_title:	L&#39;utilisateur n&#39;a pas été trouvé
