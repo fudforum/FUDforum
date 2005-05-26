@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.59 2005/05/21 17:29:09 hackie Exp $
+* $Id: register.tmpl,v 1.60 2005/05/26 03:48:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,7 +54,7 @@
 {SECTION: END}
 
 {SECTION: theme_select_value}
-<option value="{VAR: t[0]}"{VAR: selected}>{VAR: t[1]}</option>
+<option value="{VAR: t[0]}"{IF: $t[0] == $reg_theme} selected{ENDIFI}>{VAR: t[1]}</option>
 {SECTION: END}
 
 {SECTION: change_passwd_link}
@@ -185,7 +185,7 @@
 <tr class="RowStyleA"><td>{MSG: register_show_im}<br /><span class="SmallText">{MSG: register_show_im_desc}</span></td><td>{TEMPLATE-DATA: show_im_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_msg_per_page}</td><td><select name="reg_posts_ppg">{TEMPLATE-DATA: mppg_select}</select></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_def_thread_view}</td><td><select name="reg_default_view">{TEMPLATE-DATA: view_select}</select></td></tr>
-{TEMPLATE-DATA: theme_select}
+{IF: $theme_select}{TEMPLATE: theme_select}{ENDIF}
 
 <tr class="RowStyleC"><td colspan=2 class="ac">{IF: !__fud_real_user__}{TEMPLATE: register_button}{ELSE}{TEMPLATE: update_button}{END}&nbsp;<INPUT TYPE="reset" class="button" NAME="Reset" VALUE="{MSG: register_reset}"></td></tr>
 </table>
