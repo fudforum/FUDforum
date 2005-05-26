@@ -903,7 +903,7 @@ mnav_all_forums:		Cauta in toate forumurile
 mnav_submit:			Incepe cautarea
 mnav_no_range:			Trebuie sa introduceti un interval de timp valid. Aceasta valoare poate fi cu virgula (0,12) dar trebuie sa fie mai mare decat zero.
 mnav_invalid_unit:		Trebuie sa specificati o unitate de timp valida.
-mnav_invalid_date:		Intervalul de timp pe care l'ati specificat depaseste limita existenta, va rog sa reduceti intervalul de timp.
+mnav_invalid_date:		Intervalul de timp pe care l&#39;ati specificat depaseste limita existenta, va rog sa reduceti intervalul de timp.
 mnav_no_results:		Nu a fost gasit nici un mesaj care sa corespunda criteriilor de cautare.
 mnav_posted_by:			Trimis de:
 mnav_more:			Mai mult[e] &raquo;&raquo;
@@ -942,7 +942,7 @@ adm_account_rejected_s:		Cererea dumneavoastra pentru \'{GVAR: FORUM_TITLE}\' a 
 thread_on:			la
 userinfo_buddy:			Prieten:
 register_email_addr:		Adresa E-mail:
-reset_suffix:			\n\nDaca ati primit acest mesaj din greseala, va rugam sa il ignorati. Daca ati primit mai multe copii sau versiuni similare cu acest mesaj, si nu l'ati cerut, va rugam sa contactati administratorul forumului la {GVAR: ADMIN_EMAIL}\n\nAceasta cerere a fost initiata de la: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
+reset_suffix:			\n\nDaca ati primit acest mesaj din greseala, va rugam sa il ignorati. Daca ati primit mai multe copii sau versiuni similare cu acest mesaj, si nu l\'ati cerut, va rugam sa contactati administratorul forumului la {GVAR: ADMIN_EMAIL}\n\nAceasta cerere a fost initiata de la: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
 usrinfo_last_visit:		Ultima pagina vizitata:
 mnav_newer:			mai nou decat
 mnav_older:			mai vechi decat
@@ -960,7 +960,7 @@ post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</l
 post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
 ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
 post_err_mod_forum_edit_ttl:	ERROR
-post_err_mod_forum_edit_msg:	Mesajele intr'un forum moderat nu pot fi editate.
+post_err_mod_forum_edit_msg:	Mesajele intr&#39;un forum moderat nu pot fi editate.
 dmsg_num:			message #{VAR: obj->id}
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
