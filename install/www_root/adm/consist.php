@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.103 2005/03/31 17:00:23 hackie Exp $
+* $Id: consist.php,v 1.104 2005/05/27 04:00:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -522,7 +522,7 @@ forum will be disabled.
 		if ($oldu != $r[1]) {
 			if ($oldu) {
 				q('UPDATE '.$tbl.'users SET ignore_list='.strnull(addslashes(@serialize($ir))).' WHERE id='.$oldu);
-				$bi = array();
+				$ir = array();
 			}
 			$oldu = $r[1];
 		}
