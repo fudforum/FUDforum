@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.70 2005/04/06 23:04:09 hackie Exp $
+* $Id: admglobal.php,v 1.71 2005/05/31 03:29:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -98,12 +98,13 @@ function get_max_upload_size()
 
 			/* Topic/Message tree view disabling code */
 			$o = 0;
-			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & 512 && !($NEW_FUD_OPT_2 & 512)) {
+			if (!($NEW_FUD_OPT_2 & 512)) {
 				$o |= 128;
 			}
-			if (($FUD_OPT_3 ^ $NEW_FUD_OPT_3) & 2 && !($NEW_FUD_OPT_3 & 2)) {
+			if ($NEW_FUD_OPT_3 & 2) {
 				$o |= 256;
 			}
+
 			if ($o) {
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt|'.$o.' WHERE (users_opt & '.$o.')=0');
 			}
@@ -118,12 +119,13 @@ function get_max_upload_size()
 			if (isset($ch_list['SERVER_TZ'])) {
 				$q_data[] = "time_zone='".addslashes($ch_list['SERVER_TZ'])."'";
 			}
-			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & (4|8)) {
+			if (!($NEW_FUD_OPT_2 & 12)) {
 				/* only allow threaded topic view if it is selected & it's enabled */
-				$opt  = (!($NEW_FUD_OPT_2 & 4) && $NEW_FUD_OPT_2 & 512) ? 128 : 0;
-				$opt |= (!($NEW_FUD_OPT_2 & 8) && !($NEW_FUD_OPT_3 & 2)) ? 256 : 0;
-				$q_data[] = 'users_opt=(users_opt & ~ 384) | '.$opt;
+				$opt  = $NEW_FUD_OPT_2 & 512 ? 0 : 128;
+				$opt |= $NEW_FUD_OPT_3 & 2 ? 256 : 0;
+				$q_data[] = 'users_opt=users_opt | '.$opt;
 			}
+
 			if ($q_data) {
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET '.implode(',', $q_data).' WHERE id=1');
 			}
