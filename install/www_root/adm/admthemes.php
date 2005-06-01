@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.55 2005/03/06 18:27:17 hackie Exp $
+* $Id: admthemes.php,v 1.56 2005/06/01 19:39:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -222,7 +222,7 @@ function update_locale()
 <table class="resulttable fulltable">
 <tr class="resulttopic">
 	<td>Name</td>
-	<td>Theme</td>
+	<td>Template Set</td>
 	<td>Language</td>
 	<td>Locale</td>
 	<td>pSpell Lang</td>
