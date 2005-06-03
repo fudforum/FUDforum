@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.21 2004/12/04 20:17:37 hackie Exp $
+* $Id: phpBB2.php,v 1.22 2005/06/03 19:39:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -387,8 +387,8 @@ $group_map = array(
 'auth_read'=> 2 | 1024 | 16384 | 32768,
 'auth_post'=> 4,
 'auth_reply'=> 8,
-'auth_edit'=> 16,
-'auth_delete'=> 32 | 4096 | 8192,
+'auth_edit'=> 0,
+'auth_delete'=> 0,
 'auth_sticky'=> 64,
 'auth_vote'=> 512,
 'auth_pollcreate'=> 128,
