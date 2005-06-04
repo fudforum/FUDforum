@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.50 2005/05/19 03:08:30 hackie Exp $
+* $Id: db.inc,v 1.51 2005/06/04 20:39:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -166,14 +166,12 @@ function db_count($result)
 {
 	return (int) mysql_num_rows($result);
 }
-function db_seek($result, $pos)
-{
-	return mysql_data_seek($result, $pos);
-}
+
 function &db_rowobj($result)
 {
 	return mysql_fetch_object($result);
 }
+
 function &db_rowarr($result)
 {
 	return mysql_fetch_row($result);

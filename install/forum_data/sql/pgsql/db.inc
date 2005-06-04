@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.55 2005/05/19 01:58:34 hackie Exp $
+* $Id: db.inc,v 1.56 2005/06/04 20:39:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -184,11 +184,6 @@ function db_count($r)
 		return 0;
 	}
 	return $r;
-}
-
-function db_seek($result, $pos)
-{
-	return pg_result_seek($result, $pos);
 }
 
 function &db_rowobj($result)
