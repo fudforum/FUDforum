@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.36 2005/02/23 20:37:47 hackie Exp $
+* $Id: threadt.php.t,v 1.37 2005/06/04 20:38:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@
 
 	$TITLE_EXTRA = ': {TEMPLATE: thread_title}';
 
-	$r = q("SELECT
+	$r = uq("SELECT
 			t.moved_to, t.thread_opt, t.root_msg_id, r.last_view,
 			m.subject, m.reply_to, m.poll_id, m.attach_cnt, m.icon, m.poster_id, m.post_stamp, m.thread_id, m.id,
 			u.alias
@@ -33,89 +33,91 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id="._uid."
 		WHERE tv.forum_id=".$frm->id." AND tv.page=".$cur_frm_page." ORDER by pos ASC, m.id");
 
-	if (!db_count($r)) {
+	if (!($obj = db_rowobj($r))) {
 		$thread_list_table_data = '{TEMPLATE: no_messages}';
 	} else {
 		$thread_list_table_data = '';
-		$p = $cur_th_id = 0;
+		$s = $cur_th_id = 0;
 		error_reporting(0);
-		while ($obj = db_rowobj($r)) {
-			unset($stack, $tree, $arr, $cur);
-			db_seek($r, $p);
 
-			$cur_th_id = $obj->thread_id;
-			while ($obj = db_rowobj($r)) {
-				if ($obj->thread_id != $cur_th_id) {
-					db_seek($r, $p);
-					break;
-				}
-
-				$arr[$obj->id] = $obj;
-				$arr[$obj->reply_to]->kiddie_count++;
-				$arr[$obj->reply_to]->kiddies[] = &$arr[$obj->id];
-
-				if (!$obj->reply_to) {
-					$tree->kiddie_count++;
-					$tree->kiddies[] = &$arr[$obj->id];
-				}
-				$p++;
+		unset($stack, $tree, $arr, $cur);
+		while (1) {
+			if ($s) { /* 1st run handler */
+				$obj = db_rowobj($r);
 			}
+			$s = 1;
 
-			if (is_array($tree->kiddies)) {
-				reset($tree->kiddies);
-				$stack[0] = &$tree;
-				$stack_cnt = isset($tree->kiddie_count) ? $tree->kiddie_count : 0;
-				$j = $lev = 0;
+			if ($obj->thread_id != $cur_th_id) {
+				if (is_array($tree->kiddies)) {
+					reset($tree->kiddies);
+					$stack[0] = &$tree;
+					$stack_cnt = isset($tree->kiddie_count) ? $tree->kiddie_count : 0;
+					$j = $lev = 0;
 
-				$thread_list_table_data .= '{TEMPLATE: thread_sep_s}';
+					$thread_list_table_data .= '{TEMPLATE: thread_sep_s}';
 
-				while ($stack_cnt > 0) {
-					$cur = &$stack[$stack_cnt-1];
+					while ($stack_cnt > 0) {
+						$cur = &$stack[$stack_cnt-1];
 
-					if (isset($cur->subject) && empty($cur->sub_shown)) {
-						if ($TREE_THREADS_MAX_DEPTH > $lev) {
-							if (isset($cur->subject[$TREE_THREADS_MAX_SUBJ_LEN])) {
-								$cur->subject = substr($cur->subject, 0, $TREE_THREADS_MAX_SUBJ_LEN).'...';
-							}
-							if (_uid) {
-								if ($usr->last_read < $cur->post_stamp && $cur->post_stamp>$cur->last_view) {
-									$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_unread_locked}'	: '{TEMPLATE: thread_unread}';
-								} else {
-									$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_read_locked}' : '{TEMPLATE: thread_read}';
+						if (isset($cur->subject) && empty($cur->sub_shown)) {
+							if ($TREE_THREADS_MAX_DEPTH > $lev) {
+								if (isset($cur->subject[$TREE_THREADS_MAX_SUBJ_LEN])) {
+									$cur->subject = substr($cur->subject, 0, $TREE_THREADS_MAX_SUBJ_LEN).'...';
 								}
-							} else {
-								$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_read_locked}' : '{TEMPLATE: thread_read_unreg}';
+								if (_uid) {
+									if ($usr->last_read < $cur->post_stamp && $cur->post_stamp>$cur->last_view) {
+										$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_unread_locked}'	: '{TEMPLATE: thread_unread}';
+									} else {
+										$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_read_locked}' : '{TEMPLATE: thread_read}';
+									}
+								} else {
+									$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_read_locked}' : '{TEMPLATE: thread_read_unreg}';
+								}
+
+								$thread_list_table_data .= '{TEMPLATE: thread_row}';
+							} else if ($TREE_THREADS_MAX_DEPTH == $lev) {
+								$thread_list_table_data .= '{TEMPLATE: max_depth_reached}';
 							}
 
-							$thread_list_table_data .= '{TEMPLATE: thread_row}';
-						} else if ($TREE_THREADS_MAX_DEPTH == $lev) {
-							$thread_list_table_data .= '{TEMPLATE: max_depth_reached}';
+							$cur->sub_shown = 1;
 						}
 
-						$cur->sub_shown = 1;
-					}
+						if (!isset($cur->kiddie_count)) {
+							$cur->kiddie_count = 0;
+						}
 
-					if (!isset($cur->kiddie_count)) {
-						$cur->kiddie_count = 0;
-					}
+						if ($cur->kiddie_count && isset($cur->kiddie_pos)) {
+							++$cur->kiddie_pos;
+						} else {
+							$cur->kiddie_pos = 0;
+						}
 
-					if ($cur->kiddie_count && isset($cur->kiddie_pos)) {
-						++$cur->kiddie_pos;
-					} else {
-						$cur->kiddie_pos = 0;
+						if ($cur->kiddie_pos < $cur->kiddie_count) {
+							++$lev;
+							$stack[$stack_cnt++] = &$cur->kiddies[$cur->kiddie_pos];
+						} else { // unwind the stack if needed
+							unset($stack[--$stack_cnt]);
+							--$lev;
+						}
 					}
-
-					if ($cur->kiddie_pos < $cur->kiddie_count) {
-						++$lev;
-						$stack[$stack_cnt++] = &$cur->kiddies[$cur->kiddie_pos];
-					} else { // unwind the stack if needed
-						unset($stack[--$stack_cnt]);
-						--$lev;
-					}
+					$thread_list_table_data .= '{TEMPLATE: thread_sep_e}';
 				}
-				unset($cur);
 
-				$thread_list_table_data .= '{TEMPLATE: thread_sep_e}';
+				$cur_th_id = $obj->thread_id;
+				unset($stack, $tree, $arr, $cur);
+			}
+
+			if (!$obj) {
+				break;
+			}
+
+			$arr[$obj->id] = clone($obj);
+			$arr[$obj->reply_to]->kiddie_count++;
+			$arr[$obj->reply_to]->kiddies[] = &$arr[$obj->id];
+
+			if (!$obj->reply_to) {
+				$tree->kiddie_count++;
+				$tree->kiddies[] = &$arr[$obj->id];
 			}
 		}
 	}
