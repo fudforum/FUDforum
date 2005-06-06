@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.34 2005/05/03 01:03:21 hackie Exp $
+* $Id: cat.inc,v 1.35 2005/06/06 23:58:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -128,6 +128,7 @@ function rebuild_forum_cat_order()
 	}
 
 	$p = array();
+	$c = 0;
 	foreach ($tmp as $k => $v) {
 		if ($v[2]) {
 			$c = $p[$v[2]];
