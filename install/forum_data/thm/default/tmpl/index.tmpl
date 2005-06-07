@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.59 2005/03/16 21:12:43 hackie Exp $
+* $Id: index.tmpl,v 1.60 2005/06/07 00:01:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -159,7 +159,7 @@
 {SECTION: END}
 
 {SECTION: idx_compact_forum_entry}
-&nbsp;&nbsp;<a href="{TEMPLATE: index_forum_entry_lnk}">{VAR: r[10]}</a>
+&nbsp;&nbsp;{IF: _uid && $r[14] < $r[2] && $usr->last_read < $r[2]}**{ENDIFI}<a href="{TEMPLATE: index_forum_entry_lnk}">{VAR: r[10]}</a>
 {SECTION: END}
 
 {SECTION: idx_compact_forum_row}
