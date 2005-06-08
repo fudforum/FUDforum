@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reg_conf.tmpl,v 1.8 2004/11/24 19:53:39 hackie Exp $
+* $Id: reg_conf.tmpl,v 1.9 2005/06/08 23:08:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,13 +37,13 @@
 <div class="ctb">
 <table class="regConf" cellspacing=2 cellpadding=2>
 <tr>
-	<th>Registration Confirmation</th>
+	<th>{MSG: reg_conf_title}</th>
 </tr>
 <tr class="RowStyleA">
 	<td>{TEMPLATE-DATA: msg}</td>
 </tr>
 <tr class="RowStyleC">
-	<td class="ac"><form method="GET" action="{TEMPLATE: REG_CONF_lnk3}"><input type="submit" name="rc" value="Done"></form></td>
+	<td class="ac"><form method="GET" action="{TEMPLATE: REG_CONF_lnk3}"><input type="submit" name="rc" value="{MSG: remail_done}"></form></td>
 </tr>
 </table>
 </div>
