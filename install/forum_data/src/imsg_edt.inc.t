@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.124 2005/05/22 15:59:58 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.125 2005/06/09 00:09:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -132,7 +132,7 @@ class fud_msg_edit extends fud_msg
 		/* determine if preview needs building */
 		if ($message_threshold && $message_threshold < strlen($this->body)) {
 			$thres_body = trim_html($this->body, $message_threshold);
-			$file_id_preview = write_body($thres_body, $length_preview, $offset_preview, $forum_id);
+			$file_id_preview = write_body($thres_body, $length_preview, $offset_preview, $frm_id);
 		} else {
 			$file_id_preview = $offset_preview = $length_preview = 0;
 		}
