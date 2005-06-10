@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.tmpl,v 1.46 2005/03/06 18:51:27 hackie Exp $
+* $Id: ppost.tmpl,v 1.47 2005/06/10 17:59:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -101,7 +101,14 @@
 {FUNC: draw_post_icons($msg_icon)}
 {IF: $FUD_OPT_1 & 8192}{FUNC: draw_post_smiley_cntrl()}{ENDIF}
 {IF: $FUD_OPT_1 & 4096}{TEMPLATE: fud_code_icons}{ENDIF}
-<tr class="RowStyleA"><td class="nw vt GenText">{MSG: post_body}<br /><br />{FUNC: tmpl_post_options('private')}</td><td>{FUNC: get_err('msg_body',1)}<textarea id="txtb" rows="20" cols="65" wrap="virtual" tabindex="3" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea></td></tr>
+<tr class="RowStyleA"><td class="nw vt GenText">{MSG: post_body}<br /><br />{FUNC: tmpl_post_options('private')}</td><td>{FUNC: get_err('msg_body',1)}<textarea id="txtb" style="float: left" rows="20" cols="65" wrap="virtual" tabindex="3" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea>
+
+<a href="javascript://" onClick="document.getElementById('txtb').cols += 5;">&#8658;</a><br />
+<a href="javascript://" onClick="document.getElementById('txtb').rows += 10;">&#8659;</a><br />
+<a href="javascript://" onClick="document.getElementById('txtb').cols -= 5;">&#8656;</a><br />
+<a href="javascript://" onClick="document.getElementById('txtb').rows -= 10;">&#8657;</a>
+
+</td></tr>
 {TEMPLATE-DATA: file_attachments}
 <tr class="RowStyleB vt">
 <td class="GenText">{MSG: post_options}</td>
