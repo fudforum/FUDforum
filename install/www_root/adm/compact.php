@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.48 2005/01/04 21:46:28 hackie Exp $
+* $Id: compact.php,v 1.49 2005/06/10 17:25:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,30 +54,32 @@ and the amount of messages your forum has.
 	intervalID = setInterval('scrolldown()', 100);
 </script>
 <?php
-
-function write_body_c($data, $i, &$len, &$offset)
+$GLOBALS['__FUD_TMP_F__'] = array();
+function write_body_c($data, &$len, &$offset, $fid)
 {
-	$MAX_FILE_SIZE = 2147483647;
+	$MAX_FILE_SIZE = 2140000000;
 	$len = strlen($data);
 
+	$s = $fid * 10000;
+
 	if (!isset($GLOBALS['__FUD_TMP_F__'])) {
-		$GLOBALS['__FUD_TMP_F__'][$i][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$i, 'ab');
-		flock($GLOBALS['__FUD_TMP_F__'][$i][0], LOCK_EX);
-		$GLOBALS['__FUD_TMP_F__'][$i][1] = __ffilesize($GLOBALS['__FUD_TMP_F__'][$i][0]);
+		$GLOBALS['__FUD_TMP_F__'][$s][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$s, 'ab');
+		flock($GLOBALS['__FUD_TMP_F__'][$s][0], LOCK_EX);
+		$GLOBALS['__FUD_TMP_F__'][$s][1] = __ffilesize($GLOBALS['__FUD_TMP_F__'][$s][0]);
 	}
-	while ($GLOBALS['__FUD_TMP_F__'][$i][1] + $len > $MAX_FILE_SIZE) {
-		$i++;
-		$GLOBALS['__FUD_TMP_F__'][$i][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$i, 'ab');
-		flock($GLOBALS['__FUD_TMP_F__'][$i][0], LOCK_EX);
-		$GLOBALS['__FUD_TMP_F__'][$i][1] = __ffilesize($GLOBALS['__FUD_TMP_F__'][$i][0]);
+	while ($GLOBALS['__FUD_TMP_F__'][$s][1] + $len > $MAX_FILE_SIZE) {
+		++$s;
+		$GLOBALS['__FUD_TMP_F__'][$s][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$s, 'ab');
+		flock($GLOBALS['__FUD_TMP_F__'][$s][0], LOCK_EX);
+		$GLOBALS['__FUD_TMP_F__'][$s][1] = __ffilesize($GLOBALS['__FUD_TMP_F__'][$s][0]);
 	}
-	if (fwrite($GLOBALS['__FUD_TMP_F__'][$i][0], $data) != $len || !fflush($GLOBALS['__FUD_TMP_F__'][$i][0])) {
+	if (fwrite($GLOBALS['__FUD_TMP_F__'][$s][0], $data) != $len || !fflush($GLOBALS['__FUD_TMP_F__'][$s][0])) {
 		exit("FATAL ERROR: system has ran out of disk space<br>\n");
 	}
-	$offset = $GLOBALS['__FUD_TMP_F__'][$i][1];
-	$GLOBALS['__FUD_TMP_F__'][$i][1] += $len;
+	$offset = $GLOBALS['__FUD_TMP_F__'][$s][1];
+	$GLOBALS['__FUD_TMP_F__'][$s][1] += $len;
 
-	return $i;
+	return $s;
 }
 
 function eta_calc($start, $pos, $pc)
@@ -105,23 +107,24 @@ function eta_calc($start, $pos, $pc)
 	echo "Compacting normal messages...<br>\n";
 
 	$tbl =& $DBHOST_TBL_PREFIX;
-	$base = $magic_file_id = 10000001;
-	$base -= 1;
-	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'msg WHERE file_id<'.$magic_file_id) / 10);
+	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'msg WHERE file_id>0') / 10);
 	$i = 0;
 	$stm = time();
 	if ($pc) {
 		db_lock($tbl.'msg m WRITE, '.$tbl.'thread t WRITE, '.$tbl.'forum f WRITE, '.$tbl.'msg WRITE');
-		$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id<'.$magic_file_id);
+		
+		$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold, f.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id>0');
+		
 		while ($r = db_rowarr($c)) {
 			if ($r[4] && $r[2] > $r[4]) {
-				$m1 = $magic_file_id = write_body_c(($body = read_msg_body($r[1], $r[2], $r[3])), $magic_file_id, $len, $off);
-				$magic_file_id = write_body_c(trim_html($body, $r[4]), $magic_file_id, $len2, $off2);
-				q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.$m1.', file_id_preview='.$magic_file_id.', offset_preview='.$off2.', length_preview='.$len2.' WHERE id='.$r[0]);
+				$m2 = write_body_c(trim_html(read_msg_body($r[1], $r[2], $r[3]), $r[4]), $len2, $off2, $r[5]);
 			} else {
-				$magic_file_id = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $magic_file_id, $len, $off);
-				q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.$magic_file_id.' WHERE id='.$r[0]);
+				$m2 = $len2 = $off2 = 0;				
 			}
+
+			$m1 = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $len, $off, $r[5]);
+			q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.(-$m1).', file_id_preview='.(-$m2).', offset_preview='.$off2.', length_preview='.$len2.' WHERE id='.$r[0]);
+
 			if ($i && !($i % $pc)) {
 				eta_calc($stm, $i, $pc);
 			}
@@ -129,30 +132,29 @@ function eta_calc($start, $pos, $pc)
 		}
 		unset($c);
 
-		if (isset($GLOBALS['__FUD_TMP_F__'])) {
-			foreach ($GLOBALS['__FUD_TMP_F__'] as $f) {
-				fclose($f[0]);
-			}
+		foreach ($GLOBALS['__FUD_TMP_F__'] as $f) {
+			fclose($f[0]);
 		}
-		$magic_file_id++;
+
 		/* rename our temporary files & update the database */
-		q('UPDATE '.$tbl.'msg SET file_id=file_id-'.$base.' WHERE file_id>'.$base);
-		q('UPDATE '.$tbl.'msg SET file_id_preview=file_id_preview-'.$base.' WHERE file_id_preview>'.$base);
-		$j = $base + 1;
-		$u = umask(0);
-		for ($j; $j < $magic_file_id; $j++) {
-			$mode = fileperms($MSG_STORE_DIR . 'msg_'.($j - $base));
-			if (!strncasecmp('win', PHP_OS, 3)) {
-				@unlink($MSG_STORE_DIR . 'msg_'.($j - $base));
+		q('UPDATE '.$tbl.'msg SET file_id=-file_id, file_id_preview=-file_id_preview WHERE file_id<0');
+
+		/* remove old message files */
+		foreach (glob($MSG_STORE_DIR.'*') as $f) {
+			$n = basename($f);
+			if (strncmp($n, 'tmp_', 4)) {
+				unlink($f);
 			}
-			rename($MSG_STORE_DIR . 'tmp_msg_'.$j, $MSG_STORE_DIR . 'msg_'.($j - $base));
-			chmod($MSG_STORE_DIR . 'msg_'.($j - $base), $mode);
 		}
-		umask($u);
-		$j = $magic_file_id - $base;
-		while (@file_exists($MSG_STORE_DIR . 'msg_' . $j)) {
-			@unlink($MSG_STORE_DIR . 'msg_' . $j++);
+
+		$mode = ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666);
+
+		/* move new message files to the new location */
+		foreach ($GLOBALS['__FUD_TMP_F__'] as $k => $f) {
+			rename($MSG_STORE_DIR . 'tmp_msg_'.$k, $MSG_STORE_DIR . 'msg_'.$k);
+			chmod($MSG_STORE_DIR . 'msg_'.$k, $mode);
 		}
+
 		db_unlock();
 	}
 	/* Private Messages */

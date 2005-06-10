@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.125 2005/06/09 00:09:25 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.126 2005/06/10 17:25:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -498,7 +498,7 @@ class fud_msg_edit extends fud_msg
 
 function write_body($data, &$len, &$offset, $fid=0)
 {
-	$MAX_FILE_SIZE = 2147483647;
+	$MAX_FILE_SIZE = 2140000000;
 
 	$len = strlen($data);
 	$i = 1;
@@ -507,8 +507,11 @@ function write_body($data, &$len, &$offset, $fid=0)
 		db_lock('{SQL_TABLE_PREFIX}fl_'.$fid.' WRITE');
 	}
 
-	while ($i < 100) {
-		$fp = fopen($GLOBALS['MSG_STORE_DIR'].'msg_'.$i, 'ab');
+	$s = $fid * 10000;
+	$e = $s + 100;
+	
+	while ($s < $e) {
+		$fp = fopen($GLOBALS['MSG_STORE_DIR'].'msg_'.$s, 'ab');
 		fseek($fp, 0, SEEK_END);
 		if (!($off = ftell($fp))) {
 			$off = __ffilesize($fp);
@@ -517,7 +520,7 @@ function write_body($data, &$len, &$offset, $fid=0)
 			break;
 		}
 		fclose($fp);
-		$i++;
+		$s++;
 	}
 
 	if (fwrite($fp, $data) !== $len) {
@@ -533,11 +536,11 @@ function write_body($data, &$len, &$offset, $fid=0)
 	}
 
 	if (!$off) {
-		@chmod('msg_'.$i, ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));
+		@chmod('msg_'.$s, ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));
 	}
 	$offset = $off;
 
-	return $i;
+	return $s;
 }
 
 function trim_html($str, $maxlen)
