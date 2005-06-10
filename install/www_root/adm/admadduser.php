@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.21 2004/11/24 19:53:42 hackie Exp $
+* $Id: admadduser.php,v 1.22 2005/06/10 18:07:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -64,28 +64,11 @@ function validate_input()
 			".__request_timestamp__.", ".$default_theme.", ".$users_opt.", ".__request_timestamp__.")",
 			$ef, 1)) === null) {
 
-			if (__dbtype__ == 'pgsql') {
-				if ($ef == $DBHOST_TBL_PREFIX.'users_i_l') {
-					$ef = 2;
-				} else if ($ef == $DBHOST_TBL_PREFIX.'users_i_e') {
-					$ef = 3;
-				} else if ($ef == $DBHOST_TBL_PREFIX.'users_i_a') {
-					$ef = 4;
-				}
-			} else {
-				if (strpos(mysql_error(), $_POST['login'])) {
-					$ef = 2;
-				} else if (strpos(mysql_error(), $_POST['email'])) {
-					$ef = 3;
-				} else {
-					$ef = 4;
-				}
-			}
-			if ($ef == 2) {
+			if (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($_POST['login'])."'")) {
 				$error = 1;
 				$err_login = errorify('Login ('.htmlspecialchars($_POST['login']).') is already in use.');
 				break;
-			} else if ($ef == 3) {
+			} else if (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE email='".addslashes($_POST['email'])."'")) {
 				$error = 1;
 				$err_email = errorify('Email ('.htmlspecialchars($_POST['email']).') is already in use.');
 				break;
