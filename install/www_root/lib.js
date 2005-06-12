@@ -263,3 +263,10 @@ function highlightSearchTerms(searchText)
 	document.body.innerHTML = bodyText;
 	return true;
 }
+
+function rs_txt_box(objname, col_inc, row_inc)
+{
+	var obj = document.all[objname];
+	obj.style.height = parseInt(obj.style.height) + row_inc + "px";
+	obj.style.width  = parseInt(obj.style.width)  + col_inc + "px";
+}
