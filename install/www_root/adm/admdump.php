@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.52 2004/11/24 19:53:42 hackie Exp $
+* $Id: admdump.php,v 1.53 2005/06/12 17:06:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -104,7 +104,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 
 function sql_num_fields($r)
 {
-	 return __dbtype__ == 'pgsql' ? pg_num_fields($r) : mysql_num_fields($r);
+	return __dbtype__ == 'pgsql' ? pg_num_fields($r) : mysql_num_fields($r);
 }
 
 function sql_field_type($r,$n)
