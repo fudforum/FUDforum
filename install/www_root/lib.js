@@ -264,9 +264,14 @@ function highlightSearchTerms(searchText)
 	return true;
 }
 
-function rs_txt_box(objname, col_inc, row_inc)
+function rs_txt_box2(name, col_inc, row_inc)
 {
-	var obj = document.all[objname];
-	obj.style.height = parseInt(obj.style.height) + row_inc + "px";
-	obj.style.width  = parseInt(obj.style.width)  + col_inc + "px";
+        if (IE4) {  
+                var obj = document.all[name];
+        } else {
+                var obj = document.getElementById(name);
+        }                                   
+
+        obj.rows += row_inc;           
+        obj.cols += col_inc;            
 }
