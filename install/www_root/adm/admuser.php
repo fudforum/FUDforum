@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.59 2005/06/14 15:46:40 hackie Exp $
+* $Id: admuser.php,v 1.60 2005/06/14 15:47:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -229,7 +229,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		$item_s = "'" . addslashes($item_s) . "'";
 
 		if (($cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50'))) {
-			$c = q('SELECT id, alias, email FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
+			$c = uq('SELECT id, alias, email FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
 		}
 		switch ($cnt) {
 			case 0:
@@ -246,9 +246,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				while ($r = db_rowarr($c)) {
 					echo '<a href="admuser.php?usr_id='.$r[0].'&act=m&'.__adm_rsidl.'">Pick user</a> <b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b><br>';
 				}
-				unset($c);
 				exit;
-				break;
 		}
 	}
 
