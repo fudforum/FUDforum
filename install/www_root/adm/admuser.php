@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.58 2005/05/23 23:22:37 hackie Exp $
+* $Id: admuser.php,v 1.59 2005/06/14 15:46:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -228,16 +228,18 @@ administration permissions to the forum. This individual will be able to do anyt
 		}
 		$item_s = "'" . addslashes($item_s) . "'";
 
-		$c = q('SELECT id, alias, email FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
-		switch (($cnt = db_count($c))) {
+		if (($cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50'))) {
+			$c = q('SELECT id, alias, email FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
+		}
+		switch ($cnt) {
 			case 0:
 				$search_error = errorify('There are no users matching the specified '.$field.' mask.');
 				unset($c);
 				break;
 			case 1:
 				list($usr_id) = db_rowarr($c);
-				$u = db_sab('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id);
 				unset($c);
+				$u = db_sab('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id);
 				break;
 			default:
 				echo 'There are '.$cnt.' users that match this '.$field.' mask:<br>';
