@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.50 2005/06/14 03:00:45 hackie Exp $
+* $Id: maillist.php,v 1.51 2005/06/14 03:06:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -401,9 +401,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	// Handler for our own messages, which do not need to be imported.
 	if (isset($emsg->headers['x-fudforum']) && preg_match('!'.md5($GLOBALS['WWW_ROOT']).' <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
 		q("UPDATE ".sql_p."msg SET mlist_msg_id='".addslashes($emsg->msg_id)."' WHERE id=".(int)$m[1]." AND mlist_msg_id IS NULL");
-		if (db_affected()) {
-			exit;
-		}
+		return;
 	}
 
 	$msg_post->post_stamp = !empty($emsg->headers['date']) ? strtotime($emsg->headers['date']) : 0;
