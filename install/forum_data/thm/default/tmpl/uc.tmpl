@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.tmpl,v 1.17 2005/02/27 02:21:36 hackie Exp $
+* $Id: uc.tmpl,v 1.18 2005/06/14 15:07:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,11 +26,11 @@
 {REF: forum_notify.tmpl}
 
 {SECTION: uc_online_indicator}
-<img src="{THEME_IMAGE_ROOT}/online.png" alt="{MSG: user_online}" title="{MSG: user_online}" />
+<img src="{THEME_IMAGE_ROOT}/online{DEF: img_ext}" alt="{MSG: user_online}" title="{MSG: user_online}" />
 {SECTION: END}
 
 {SECTION: uc_offline_indicator}
-<img src="{THEME_IMAGE_ROOT}/offline.png" alt="{MSG: user_offline}" title="{MSG: user_offline}" />
+<img src="{THEME_IMAGE_ROOT}/offline{DEF: img_ext}" alt="{MSG: user_offline}" title="{MSG: user_offline}" />
 {SECTION: END}
 
 {SECTION: uc_pm_lnk}

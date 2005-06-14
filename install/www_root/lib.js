@@ -202,20 +202,6 @@ function chng_focus(phash)
 	window.location.hash = phash;
 }
 
-if (!OPERA && !MAC && navigator.appName == "Microsoft Internet Explorer") {
-	window.attachEvent("onload", ie_png_hack);
-}
-
-function ie_png_hack()
-{
-	var i = document.images.length - 1;
-	while ((img = document.images[i--])) {
-		if (img.src.indexOf(".png") > -1 && img.src.indexOf("/images/") > -1 && img.src.indexOf("/theme/") > -1) {
-			img.src = img.src.replace(/\.png$/i, ".gif");
-		}
-	}
-}
-
 function doHighlight(bodyText, searchTerm, highlightStartTag, highlightEndTag) 
 {
 	// find all occurences of the search term in the given text,
@@ -264,7 +250,7 @@ function highlightSearchTerms(searchText)
 	return true;
 }
 
-function rs_txt_box2(name, col_inc, row_inc)
+function rs_txt_box(name, col_inc, row_inc)
 {
         if (IE4) {  
                 var obj = document.all[name];

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.43 2005/03/18 01:58:51 hackie Exp $
+* $Id: pmsg.tmpl,v 1.44 2005/06/14 15:07:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,11 +37,11 @@
 {SECTION: END}
 
 {SECTION: pmsg_read private message read}
-<img src="{THEME_IMAGE_ROOT}/pmsg_unread.png" alt="{MSG: pmsg_new_messages}" title="{MSG: pmsg_new_messages}" />
+<img src="{THEME_IMAGE_ROOT}/pmsg_unread{DEF: img_ext}" alt="{MSG: pmsg_new_messages}" title="{MSG: pmsg_new_messages}" />
 {SECTION: END}
 
 {SECTION: pmsg_unread private message unread}
-<img src="{THEME_IMAGE_ROOT}/pmsg_read.png" alt="{MSG: pmsg_old_messages}" title="{MSG: pmsg_old_messages}" />
+<img src="{THEME_IMAGE_ROOT}/pmsg_read{DEF: img_ext}" alt="{MSG: pmsg_old_messages}" title="{MSG: pmsg_old_messages}" />
 {SECTION: END}
 
 {SECTION: deny_recipt deny recipt link}
@@ -49,11 +49,11 @@
 {SECTION: END}
 
 {SECTION: pmsg_online_indicator}
-<img src="{THEME_IMAGE_ROOT}/online.png" alt="{MSG: user_online}" title="{MSG: user_online}" />&nbsp;
+<img src="{THEME_IMAGE_ROOT}/online{DEF: img_ext}" alt="{MSG: user_online}" title="{MSG: user_online}" />&nbsp;
 {SECTION: END}
 
 {SECTION: pmsg_offline_indicator}
-<img src="{THEME_IMAGE_ROOT}/offline.png" alt="{MSG: user_offline}" title="{MSG: user_offline}" />&nbsp;
+<img src="{THEME_IMAGE_ROOT}/offline{DEF: img_ext}" alt="{MSG: user_offline}" title="{MSG: user_offline}" />&nbsp;
 {SECTION: END}
 
 {SECTION: replied_msg replied message indicator}

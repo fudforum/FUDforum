@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.60 2005/06/07 00:01:45 hackie Exp $
+* $Id: index.tmpl,v 1.61 2005/06/14 15:07:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@
 {REF: quicklogin.tmpl}
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
-<tr><td colspan="6" class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px"><a href="{TEMPLATE: index_category_allow_collapse_Y_lnk}" class="CatLink" title="{IF: !empty($collapse[$k])}{MSG: maximize_category}{ELSE}{MSG: minimize_category}{END}">{IF: !empty($collapse[$k])}<img src="{THEME_IMAGE_ROOT}/max.png" alt="" />{ELSE}<img src="{THEME_IMAGE_ROOT}/min.png" alt="" />{END}</a> <a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td></tr>
+<tr><td colspan="6" class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px"><a href="{TEMPLATE: index_category_allow_collapse_Y_lnk}" class="CatLink" title="{IF: !empty($collapse[$k])}{MSG: maximize_category}{ELSE}{MSG: minimize_category}{END}">{IF: !empty($collapse[$k])}<img src="{THEME_IMAGE_ROOT}/max{DEF: img_ext}" alt="" />{ELSE}<img src="{THEME_IMAGE_ROOT}/min{DEF: img_ext}" alt="" />{END}</a> <a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td></tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
@@ -51,15 +51,15 @@
 {SECTION: END}
 
 {SECTION: forum_read}
-<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: forum_old_messages}" />
+<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: forum_old_messages}" />
 {SECTION: END}
 
 {SECTION: forum_unread}
-<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: forum_new_messages}" />
+<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content{DEF: img_ext}" alt="{MSG: forum_new_messages}" />
 {SECTION: END}
 
 {SECTION: forum_no_indicator no new message indicator}
-<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: forum_none_messages}" />
+<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: forum_none_messages}" />
 {SECTION: END}
 
 {SECTION: profile_link_user}
@@ -98,8 +98,8 @@
 {IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
 <br /><fieldset>
 <legend>{MSG: legend}</legend>
-<img src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}
+<img src="{THEME_IMAGE_ROOT}/new_content{DEF: img_ext}" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}
 </fieldset>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

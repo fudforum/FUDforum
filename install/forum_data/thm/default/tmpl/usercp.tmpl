@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usercp.tmpl,v 1.28 2004/12/01 19:33:17 hackie Exp $
+* $Id: usercp.tmpl,v 1.29 2005/06/14 15:07:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,11 +24,11 @@
 {SECTION: END}
 
 {SECTION: u_forum_search}
-<a class="UserControlPanel" href="{TEMPLATE: usercp_lnk}"><img src="{THEME_IMAGE_ROOT}/top_search.png" alt="{MSG: search}" /> {MSG: search}</a>&nbsp;&nbsp;
+<a class="UserControlPanel" href="{TEMPLATE: usercp_lnk}"><img src="{THEME_IMAGE_ROOT}/top_search{DEF: img_ext}" alt="{MSG: search}" /> {MSG: search}</a>&nbsp;&nbsp;
 {SECTION: END}
 
 {MAIN_SECTION: usercp user control panel}
-<div class="UserControlPanel">{TEMPLATE-DATA: private_msg} {IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: member_search}{ENDIF} {IF: $FUD_OPT_1 & 16777216}{TEMPLATE: u_forum_search}{ENDIF} <a class="UserControlPanel" accesskey="h" href="{TEMPLATE: usercp_lnk2}"><img src="{THEME_IMAGE_ROOT}/top_help.png" alt="{MSG: faq}" /> {MSG: faq}</a> {IF: __fud_real_user__}{TEMPLATE: usercp_usercp}{ELSE}{TEMPLATE: register}{END} {IF: __fud_real_user__}{TEMPLATE: logout}{ELSE}{TEMPLATE: login}{END}&nbsp;&nbsp; <a class="UserControlPanel" href="{TEMPLATE: usercp_lnk3}"><img src="{THEME_IMAGE_ROOT}/top_home.png" alt="{MSG: home}" /> {MSG: home}</a> {IF: $is_a}{TEMPLATE: admin_control_panel}{ENDIF}</div>
+<div class="UserControlPanel">{TEMPLATE-DATA: private_msg} {IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: member_search}{ENDIF} {IF: $FUD_OPT_1 & 16777216}{TEMPLATE: u_forum_search}{ENDIF} <a class="UserControlPanel" accesskey="h" href="{TEMPLATE: usercp_lnk2}"><img src="{THEME_IMAGE_ROOT}/top_help{DEF: img_ext}" alt="{MSG: faq}" /> {MSG: faq}</a> {IF: __fud_real_user__}{TEMPLATE: usercp_usercp}{ELSE}{TEMPLATE: register}{END} {IF: __fud_real_user__}{TEMPLATE: logout}{ELSE}{TEMPLATE: login}{END}&nbsp;&nbsp; <a class="UserControlPanel" href="{TEMPLATE: usercp_lnk3}"><img src="{THEME_IMAGE_ROOT}/top_home{DEF: img_ext}" alt="{MSG: home}" /> {MSG: home}</a> {IF: $is_a}{TEMPLATE: admin_control_panel}{ENDIF}</div>
 {MAIN_SECTION: END}
 
 {SECTION: login_lnk}
@@ -36,7 +36,7 @@
 {SECTION: END}
 
 {SECTION: login login link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: login_lnk}"><img src="{THEME_IMAGE_ROOT}/top_login.png" alt="{MSG: login}" /> {MSG: login}</a>
+&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: login_lnk}"><img src="{THEME_IMAGE_ROOT}/top_login{DEF: img_ext}" alt="{MSG: login}" /> {MSG: login}</a>
 {SECTION: END}
 
 {SECTION: logout_lnk}
@@ -44,7 +44,7 @@
 {SECTION: END}
 
 {SECTION: logout logout link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: logout_lnk}"><img src="{THEME_IMAGE_ROOT}/top_logout.png" alt="{MSG: logout}" /> {MSG: logout} [ {VAR: usr->alias} ]</a>
+&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: logout_lnk}"><img src="{THEME_IMAGE_ROOT}/top_logout{DEF: img_ext}" alt="{MSG: logout}" /> {MSG: logout} [ {VAR: usr->alias} ]</a>
 {SECTION: END}
 
 {SECTION: register_lnk}
@@ -52,15 +52,15 @@
 {SECTION: END}
 
 {SECTION: register register link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: register_lnk}"><img src="{THEME_IMAGE_ROOT}/top_register.png" alt="{MSG: register}" /> {MSG: register}</a>
+&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: register_lnk}"><img src="{THEME_IMAGE_ROOT}/top_register{DEF: img_ext}" alt="{MSG: register}" /> {MSG: register}</a>
 {SECTION: END}
 
 {SECTION: usercp_usercp User control panel link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: usercp_usercp_lnk}"><img src="{THEME_IMAGE_ROOT}/top_profile.png" title="{MSG: profile_desc}" alt="{MSG: profile}" /> {MSG: profile}</a>
+&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: usercp_usercp_lnk}"><img src="{THEME_IMAGE_ROOT}/top_profile{DEF: img_ext}" title="{MSG: profile_desc}" alt="{MSG: profile}" /> {MSG: profile}</a>
 {SECTION: END}
 
 {SECTION: admin_control_panel admin control panel link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="adm/admglobal.php?S={DEF: s}&amp;SQ={GVAR: sq}"><img src="{THEME_IMAGE_ROOT}/top_admin.png" alt="{MSG: admin_control_panel}" /> {MSG: admin_control_panel}</a>
+&nbsp;&nbsp;<a class="UserControlPanel" href="adm/admglobal.php?S={DEF: s}&amp;SQ={GVAR: sq}"><img src="{THEME_IMAGE_ROOT}/top_admin{DEF: img_ext}" alt="{MSG: admin_control_panel}" /> {MSG: admin_control_panel}</a>
 {SECTION: END}
 
 {SECTION: private_msg_empty_lnk}
@@ -68,7 +68,7 @@
 {SECTION: END}
 
 {SECTION: private_msg_empty link to private msg control panel}
-<a href="{TEMPLATE: private_msg_empty_lnk}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.png" alt="{MSG: pm}" /> {MSG: pm}</a>&nbsp;&nbsp;
+<a href="{TEMPLATE: private_msg_empty_lnk}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm{DEF: img_ext}" alt="{MSG: pm}" /> {MSG: pm}</a>&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: private_msg_unread_lnk}
@@ -76,7 +76,7 @@
 {SECTION: END}
 
 {SECTION: private_msg_unread link to private msg control panel with unread messages indicator}
-<a href="{TEMPLATE: private_msg_unread_lnk}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.png" alt="{MSG: pm}" /> {MSG: new_private_messages}</a>&nbsp;&nbsp;
+<a href="{TEMPLATE: private_msg_unread_lnk}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm{DEF: img_ext}" alt="{MSG: pm}" /> {MSG: new_private_messages}</a>&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: member_search_lnk}
@@ -84,7 +84,7 @@
 {SECTION: END}
 
 {SECTION: member_search link to member search}
-<a class="UserControlPanel" href="{TEMPLATE: member_search_lnk}"><img src="{THEME_IMAGE_ROOT}/top_members.png" alt="{MSG: members}" /> {MSG: members}</a>&nbsp;&nbsp;
+<a class="UserControlPanel" href="{TEMPLATE: member_search_lnk}"><img src="{THEME_IMAGE_ROOT}/top_members{DEF: img_ext}" alt="{MSG: members}" /> {MSG: members}</a>&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: usercp_usercp_lnk}

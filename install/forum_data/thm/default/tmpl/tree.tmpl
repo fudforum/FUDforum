@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.64 2005/04/22 13:12:37 hackie Exp $
+* $Id: tree.tmpl,v 1.65 2005/06/14 15:07:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,11 +30,11 @@
 {REF: draw_forum_path.tmpl}
 
 {SECTION: tree_unread_message new message}
-<img src="{THEME_IMAGE_ROOT}/unread.png" alt="{MSG: unread_message}" title="{MSG: unread_message}" />
+<img src="{THEME_IMAGE_ROOT}/unread{DEF: img_ext}" alt="{MSG: unread_message}" title="{MSG: unread_message}" />
 {SECTION: END}
 
 {SECTION: tree_read_message read message}
-<img src="{THEME_IMAGE_ROOT}/read.png" alt="{MSG: read_message}" title="{MSG: read_message}" />
+<img src="{THEME_IMAGE_ROOT}/read{DEF: img_ext}" alt="{MSG: read_message}" title="{MSG: read_message}" />
 {SECTION: END}
 
 {SECTION: thread_rating}

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.tmpl,v 1.31 2005/04/22 13:12:37 hackie Exp $
+* $Id: thread_view_common.tmpl,v 1.32 2005/06/14 15:07:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,23 +58,23 @@
 {SECTION: END}
 
 {SECTION: thread_read}
-<img src="{THEME_IMAGE_ROOT}/read.png" title="{MSG: no_unread_msg}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/read{DEF: img_ext}" title="{MSG: no_unread_msg}" alt="" />
 {SECTION: END}
 
 {SECTION: thread_read_unreg}
-<img src="{THEME_IMAGE_ROOT}/read.png" title="{MSG: no_unread_msg_unreg}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/read{DEF: img_ext}" title="{MSG: no_unread_msg_unreg}" alt="" />
 {SECTION: END}
 
 {SECTION: thread_read_locked}
-<img src="{THEME_IMAGE_ROOT}/readlocked.png" title="{MSG: no_unread_locked}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/readlocked{DEF: img_ext}" title="{MSG: no_unread_locked}" alt="" />
 {SECTION: END}
 
 {SECTION: thread_unread}
-<img src="{THEME_IMAGE_ROOT}/unread.png" title="{MSG: unread_msg}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/unread{DEF: img_ext}" title="{MSG: unread_msg}" alt="" />
 {SECTION: END}
 
 {SECTION: thread_unread_locked}
-<img src="{THEME_IMAGE_ROOT}/unreadlocked.png" title="{MSG: unread_msg_locked}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/unreadlocked{DEF: img_ext}" title="{MSG: unread_msg_locked}" alt="" />
 {SECTION: END}
 
 {SECTION: thread_icon_none}
@@ -116,11 +116,11 @@
 {SECTION: thread_legend}
 <fieldset>
         <legend>{MSG: legend}</legend>
-<img src="{THEME_IMAGE_ROOT}/unread.png" alt="{MSG: new_posts}" />&nbsp;{MSG: new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/read.png" alt="{MSG: no_new_posts}" />&nbsp;{MSG: no_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/unreadlocked.png" alt="{MSG: locked_with_new_posts}" />&nbsp;{MSG: locked_with_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/readlocked.png" alt="{MSG: locked}" />&nbsp;{MSG: locked}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/moved.png" alt="{MSG: moved}" />&nbsp;{MSG: moved}
+<img src="{THEME_IMAGE_ROOT}/unread{DEF: img_ext}" alt="{MSG: new_posts}" />&nbsp;{MSG: new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/read{DEF: img_ext}" alt="{MSG: no_new_posts}" />&nbsp;{MSG: no_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/unreadlocked{DEF: img_ext}" alt="{MSG: locked_with_new_posts}" />&nbsp;{MSG: locked_with_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/readlocked{DEF: img_ext}" alt="{MSG: locked}" />&nbsp;{MSG: locked}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" alt="{MSG: moved}" />&nbsp;{MSG: moved}
 </fieldset>
 {SECTION: END}
 

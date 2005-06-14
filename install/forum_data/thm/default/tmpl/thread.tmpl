@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.56 2005/03/18 01:58:51 hackie Exp $
+* $Id: thread.tmpl,v 1.57 2005/06/14 15:07:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -80,7 +80,7 @@
 
 {SECTION: thread_row_moved a row indicating that the thread has been moved}
 <tr>
-<td class="RowStyleB wo"><img src="{THEME_IMAGE_ROOT}/moved.png" title="{MSG: moved_thread_message}" /></td>
+<td class="RowStyleB wo"><img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" title="{MSG: moved_thread_message}" /></td>
 <td class="RowStyleB ac GenText" colspan="5">{MSG: was_moved_msg}</td>
 </tr>
 {SECTION: END}
