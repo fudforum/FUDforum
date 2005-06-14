@@ -58,7 +58,8 @@
 	<a href="admgroups.php?<?php echo __adm_rsidl; ?>">Groups Manager</a><br>
 	<a href="admmassemail.php?<?php echo __adm_rsidl; ?>">Mass Email</a><br>
 	<a href="admlevel.php?<?php echo __adm_rsidl; ?>">Rank Manager</a><br>
-	<a href="admslist.php?<?php echo __adm_rsidl; ?>">Privileged User List</a><br><br>
+	<a href="admslist.php?<?php echo __adm_rsidl; ?>">Privileged User List</a><br>
+	<a href="admbanlist.php?<?php echo __adm_rsidl; ?>">Banned User List</a><br><br>
 
 	<span class="linkgroup">Template Management</span><br>
 	<a href="admthemes.php?<?php echo __adm_rsidl; ?>">Theme Manager</a><br>
