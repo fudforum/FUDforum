@@ -568,8 +568,6 @@ post_err_lockedthread_title:	ERRO: Tópico Bloqueado
 post_err_lockedthread_msg:	Este tópico está bloqueado, não é permitido colocar comentários
 err_coppa_title:		ERRO: A sua conta ainda não foi confirmada
 err_coppa_msg:			Não foi recebida uma confirmação dos seus pais ou tutores legais, que permitam que coloque mensagens. Se perdeu o seu formulário <a href="{TEMPLATE: err_coppa_msg_lnk}">clique aqui</a> para o obter
-err_blockedaccnt_title:		ERRO: Não lhe é permitido colocar comentários 
-err_blockedaccnt_msg:		A sua conta foi bloqueada no que diz respeito a colocar comentários
 post_err_edttimelimit_title:	ERRO
 post_err_edttimelimit_msg:	Já não pode editar esta mensagem
 post_err_floodtrig_title:	ERRO: Segurança contra floods ativada.
@@ -851,8 +849,6 @@ err_mod_acc_msg:		O administrador escolheu ver todas as contas manualmente antes
 accounts_pending_approval:	Contas à espera de aprovação
 saved:				Guardado
 register_err_time_limit:	O limite de 1 registo por {GVAR: REG_TIME_LIMIT} segundo(s) foi alcançado. Por favor aguarde {VAR: reg_limit_reached} segundo(s) e tente registar-se novamente
-login_blocked_account_ttl:	A sua conta foi banida.
-login_blocked_account_msg:	A sua conta foi banida deste fórum, se não sabe qual foi a razão para este acto, contacte o administrador do fórum.
 register_affero:		Login para Affero:<br /><font class="SmallText">Se tem um login para <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> introduza-o.</font>
 im_affero:			Login para Affero
 register_err_avatardimtobig:	As dimensões do Avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedem as dimensões permitidas de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
@@ -998,3 +994,7 @@ search_results_hdr:		{VAR: total} Resultados encontrados
 thread_del_all:			Apagar Todos os selecionados
 thread_mov_all:			Mover Todos os selecionados
 dmsg_ip:			IP:
+err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_blockedaccnt_title:		ERROR: Your account has been filtered out.
+err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.

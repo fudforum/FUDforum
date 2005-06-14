@@ -571,8 +571,6 @@ post_err_lockedthread_title:	VIRHE: Aihe Lukittu
 post_err_lockedthread_msg:	Tämä aihe on lukittu, uusia viestejä ei sallita
 err_coppa_title:		VIRHE: Käyttäjätiliä ei ole vielä hyväksytty
 err_coppa_msg:			Emme ole vastaanottaneet varmistusta vanhemmiltasi tai lailliselta huoltajaltasi, joten et voi vielä lähettää viestejä foorumille. Jos olet hukannut COPPA kaavakkeen, saat sen <a href="{TEMPLATE: err_coppa_msg_lnk}">täältä</a>.
-err_blockedaccnt_title:		VIRHE: Ei viestien lähetysoikeutta
-err_blockedaccnt_msg:		Et voi lähettää viestejä koska sinut on häädetty.
 post_err_edttimelimit_title:	VIRHE
 post_err_edttimelimit_msg:	Et voi enää muokata tätä viestiä.
 post_err_floodtrig_title:	VIRHE: Viestitulva (message flood)
@@ -856,8 +854,6 @@ err_mod_acc_msg:		Ylläpitäjä tarkistaa kaikki käyttäjätilit ennen niiden aktivoi
 accounts_pending_approval:	Hyväksymättömät Käyttäjät
 saved:				Tallennetut
 register_err_time_limit:	Rekisteröitymiset on rajoitettu {GVAR: REG_TIME_LIMIT} sekuntiin per rekisteröinti. Odota {VAR: reg_limit_reached} sekuntia ja yritä rekisteröityä uudelleen.
-login_blocked_account_ttl:	Sinut on häädetty.
-login_blocked_account_msg:	Sinut on häädetty tältä foorumilta. Jos et vielä tiedä häädön syytä, ota yhteyttä foorumin ylläpitoon.
 register_affero:		Affero tunnus:<br /><font class="SmallText">Voit antaa mahdollisen <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> tunnuksesi tässä.</font>
 im_affero:			Affero tunnus
 register_err_avatardimtobig:	Avatarin kuvakoko <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ylittää suurimman sallitun koon <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
@@ -998,3 +994,7 @@ search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
 thread_mov_all:			Move All Selected
 dmsg_ip:			IP:
+err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_blockedaccnt_title:		ERROR: Your account has been filtered out.
+err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.

@@ -564,8 +564,6 @@ post_err_lockedthread_title:	FEL: L&aring;st diskussion
 post_err_lockedthread_msg:	Den h&auml;r diskussionen &auml;r l&aring;st och inga fler inl&auml;gg tas emot
 err_coppa_title:		FEL: Ditt konto &auml;r inte bekr&auml;ftat &auml;nnu
 err_coppa_msg:			Vi har inte f&aring;tt en bekr&auml;ftelse av din f&ouml;r&auml;lder eller f&ouml;rmyndare. D&auml;rf&ouml;r kan vi inte l&aring;ta dig skriva inl&auml;gg. Ifall du tappade ditt coppaformul&auml;r kan du <a href="{TEMPLATE: err_coppa_msg_lnk}">trycka h&auml;r</a> f&ouml;r att f&aring; ett nytt
-err_blockedaccnt_title:		FEL: du har inte r&auml;tt att skriva inl&auml;gg
-err_blockedaccnt_msg:		Du har fr&aring;ntagits r&auml;tten att skriva inl&auml;gg
 post_err_edttimelimit_title:	FEL
 post_err_edttimelimit_msg:	Du kan inte editera det h&auml;r meddelandet l&auml;ngre
 post_err_floodtrig_title:	FEL: Fl&ouml;desstopp p&aring;slaget
@@ -851,8 +849,6 @@ err_mod_acc_msg:		Administratorn har valt att sj&auml;lv granska alla anv&auml;n
 accounts_pending_approval:	Ej granskade anv&auml;ndare
 saved:				Sparade
 register_err_time_limit:	Registreringsbegränsningen av 1 registrering per {GVAR: REG_TIME_LIMIT} sekunder har överskridits. Vänligen vänta {VAR: reg_limit_reached} sekunder och försök sedan registrera er igen.
-login_blocked_account_ttl:	Ditt konto har bannlysts.
-login_blocked_account_msg:	Ditt konto har bannlysts från detta forum, om du inte redan känner till orsaken för detta vänligen kontakta forumets administratör(er).
 register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
 im_affero:			Affero Användarnamn
 register_err_avatardimtobig:	Visningsbildens dimensiontioner på <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> överskrider den maximala storleken på <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
@@ -998,3 +994,7 @@ search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
 thread_mov_all:			Move All Selected
 dmsg_ip:			IP:
+err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_blockedaccnt_title:		ERROR: Your account has been filtered out.
+err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.

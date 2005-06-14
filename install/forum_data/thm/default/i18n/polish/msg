@@ -564,8 +564,6 @@ post_err_lockedthread_title:	B£¡D: Zablokowany w±tek
 post_err_lockedthread_msg:	Ten w±tek jest zablokowany, wiêc nie wolno zamieszczaæ wiêcej wiadomo¶ci
 err_coppa_title:		B£¡D: Twoje konto nie jest jeszcze potwierdzone
 err_coppa_msg:			Nie otrzymali¶my potwierdzenia od Twojego rodzica lub prawnego opiekuna, co pozwoli³oby ci zamieszczaæ wiadomo¶ci. Je¶li zgubi³e¶ swój formularz COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">przejd¼ tutaj</a>, aby go otrzymaæ
-err_blockedaccnt_title:		B£AD: nie wolno Ci zamieszczaæ wiadomo¶ci
-err_blockedaccnt_msg:		Twoje konto zosta³o zablokowane i nie mo¿esz zamieszczaæ wiadomo¶ci
 post_err_edttimelimit_title:	B£¡D
 post_err_edttimelimit_msg:	Nie mo¿esz ju¿ edytowaæ tej wiadomo¶ci
 post_err_floodtrig_title:	B£¡D: Wykryto zbyt du¿± ilo¶æ zamieszczanych wiadomo¶ci.
@@ -851,8 +849,6 @@ err_mod_acc_msg:		Administrator zdecydowa³ siê zatwierdzaæ rêcznie wszystkie kon
 accounts_pending_approval:	Konta oczekuj±ce na zatwierdzenie
 saved:				Zachowane
 register_err_time_limit:	Administracyjny limit <u>jednej</u> rejestracji na {GVAR: REG_TIME_LIMIT} sekund zosta³ przekroczony. Poczekaj {VAR: reg_limit_reached} sekund i spróbuj ponownie siê zarejestrowaæ.
-login_blocked_account_ttl:	Twoje konto zosta³o zablokowane.
-login_blocked_account_msg:	Twoje konto zosta³o zablokowane na tym forum. Je¶li jeszcze nie znasz powodu blokady, proponujemy skontaktowaæ siê z administratorem(ami).
 register_affero:		Nazwa u¿ytkownika systemu Affero: <br /><font class="SmallText">Je¶li posiadasz konto w <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>, podaj je tutaj.</font>
 im_affero:			Nazwa u¿ytkownika systemu Affero
 register_err_avatardimtobig:	Wymiary avatara <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> przekraczaj± dopuszczalny limit <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
@@ -998,3 +994,7 @@ search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
 thread_mov_all:			Move All Selected
 dmsg_ip:			IP:
+err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_blockedaccnt_title:		ERROR: Your account has been filtered out.
+err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.

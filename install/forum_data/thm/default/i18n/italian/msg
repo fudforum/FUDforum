@@ -564,8 +564,6 @@ post_err_lockedthread_title:	ERRORE: Argomento chiuso
 post_err_lockedthread_msg:	Questo argomento &egrave; chiuso, non &egrave; pi&ugrave; possibile inserire messaggi
 err_coppa_title:		ERRORE: il tuo account non &egrave; stato ancora confermato
 err_coppa_msg:			Non abbiamo ricevuto una conferma dai tuoi genitori e/o tutori legali, la quale ti permetterebbe di inserire messaggi. Se hai perso il modulo COPPA (Children&#39;s Online Privacy Protection Act) <a href="{TEMPLATE: err_coppa_msg_lnk}">fai click qui</a> per ottenerlo
-err_blockedaccnt_title:		ERRORE: non sei autorizzato a postare messaggi
-err_blockedaccnt_msg:		A questo account &egrave; stata impedita la possibilit&agrave; di scrivere messaggi
 post_err_edttimelimit_title:	ERRORE
 post_err_edttimelimit_msg:	Non puoi pi&ugrave; modificare questo messaggio
 post_err_floodtrig_title:	ERRORE: &egrave; attivo il controllo sui messaggi.
@@ -848,8 +846,6 @@ err_mod_acc_msg:		L\'amministratore ha scelto di controllare tutti gli account m
 accounts_pending_approval:	Account in attesa di Approvazione
 saved:				Salvato
 register_err_time_limit:	Il limite di registrazione di 1 registrazione per {GVAR: REG_TIME_LIMIT} secondo &egrave; stato raggiunto. Aspetta {VAR: reg_limit_reached} secondi e poi riprova nuovamente a registrarti.
-login_blocked_account_ttl:	Il tuo account &egrave; stato bannato.	
-login_blocked_account_msg:	Il tuo account &egrave; stato bannato da questp forum: se non ne conosci ancora il motivo, contatta l&#39;amministratore/gli amministratori del forum forum.
 register_affero:		Username Affero:<br /><font class="SmallText">Se possiedi una username<a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> inseriscila qui.</font>
 im_affero:			Username affero
 register_err_avatardimtobig:	Le dimensioni dell&#39;Avatar di <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> superano la dimensione consentita di <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
@@ -998,3 +994,7 @@ search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
 thread_mov_all:			Move All Selected
 dmsg_ip:			IP:
+err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_blockedaccnt_title:		ERROR: Your account has been filtered out.
+err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.

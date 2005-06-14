@@ -564,8 +564,6 @@ post_err_lockedthread_title:	错误：该帖子已被锁定
 post_err_lockedthread_msg:	这个主题已被锁定，不能回复
 err_coppa_title:		错误：你没有此项权限
 err_coppa_msg:			我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认证明。 如果丢失了申请表，<a href="{TEMPLATE: err_coppa_msg_lnk}">请点这里</a>。
-err_blockedaccnt_title:		错误：你被禁止登录
-err_blockedaccnt_msg:		这个账号被禁止登录
 post_err_edttimelimit_title:	错误
 post_err_edttimelimit_msg:	你不能再编辑这条信息
 post_err_floodtrig_title:	错误：发布灌水帖子
@@ -851,8 +849,6 @@ err_mod_acc_msg:		账号在被激活之前必须得到系统管理员的确认，在得到确认之前，你的
 accounts_pending_approval:	待审核帐号
 saved:				珍藏夹
 register_err_time_limit:	每 {GVAR: REG_TIME_LIMIT} 秒限制一个用户可以注册， 请稍等 {VAR: reg_limit_reached} 秒再来注册。
-login_blocked_account_ttl:	你的账号已经被封掉。
-login_blocked_account_msg:	你的账号已经被封掉，如果你不知道原因，请联系系统管理员，或者版主。
 register_affero:		Affero用户名：<br /><font class="SmallText">如果你有<a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>帐户，请在此处输入用户名。</font>
 im_affero:			Affero用户名
 register_err_avatardimtobig:	头像大小 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> 超出了论坛限制的： <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
@@ -998,3 +994,7 @@ search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
 thread_mov_all:			Move All Selected
 dmsg_ip:			IP:
+err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_blockedaccnt_title:		ERROR: Your account has been filtered out.
+err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.

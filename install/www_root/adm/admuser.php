@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.60 2005/06/14 15:47:51 hackie Exp $
+* $Id: admuser.php,v 1.61 2005/06/14 21:55:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -40,11 +40,28 @@
 		case 'econf':
 		case 'sig':
 		case 'pm':
+			if ($act == 'block' && isset($_POST['ban_duration'])) {
+				/* for post requests involving ban, do not act as a toggle */
+				if (isset($_POST['block'])) {
+					$u->users_opt &= ~$keys[$act];
+				} else {
+					$u->users_opt |= $keys[$act];
+				}
+			
+				if ($u->users_opt & $keys[$act]) {
+					$u->ban_expiry = $block = 0;
+				} else {
+					$u->ban_expiry = $block = (int)$_POST['ban_duration'] * 86400 + __request_timestamp__;
+				}
+			} else {
+				$block = 'ban_expiry';
+			}
+
 			if ($u->users_opt & $keys[$act]) {
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt & ~ '.$keys[$act].' WHERE id='.$usr_id);
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry='.$block.', users_opt=users_opt & ~ '.$keys[$act].' WHERE id='.$usr_id);
 				$u->users_opt ^= $keys[$act];
 			} else {
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt|'.$keys[$act].' WHERE id='.$usr_id);
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry='.$block.', users_opt=users_opt|'.$keys[$act].' WHERE id='.$usr_id);
 				$u->users_opt |= $keys[$act];
 			}
 
@@ -307,7 +324,6 @@ document.frm_usr.usr_login.focus();
 
 	echo '<tr class="field"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../'.__fud_index_name__.'?t=register&mod_id='.$usr_id.'&'.__adm_rsidl.'">Change User\'s Profile</a> &lt;&lt;</font></td></tr>';
 	echo '<tr class="field"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . __adm_rsidl.'">Toggle</a>]</td></tr>';
-	echo '<tr class="field"><td>Blocked (banned):</td><td>'.($u->users_opt & 65536 ? 'Yes' : 'No').' [<a href="admuser.php?act=block&usr_id=' . $usr_id . '&' . __adm_rsidl.'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Email Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 
 	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? 'No' : 'Yes').' [<a href="admuser.php?act=sig&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
@@ -332,6 +348,8 @@ document.frm_usr.usr_login.focus();
 ?>
 	<a name="mod_here"> </a>
 	<a href="#mod_here" onClick="javascript: window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&' . __adm_rsidl; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
+
+
 	<tr class="field"><td valign=top>Custom Tags:</td><td valign="top">
 <?php
 	$c = uq('SELECT name, id FROM '.$DBHOST_TBL_PREFIX.'custom_tags WHERE user_id='.$usr_id);
@@ -358,6 +376,26 @@ document.frm_usr.usr_login.focus();
 		</form>
 		</td>
 	</tr>
+
+<form name="ban" action="admuser.php" method="post">
+<?php echo _hs; ?>
+<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
+<input type="hidden" name="act" value="block">
+	<tr class="field" align="center"><td colspan="2"><b>Ban User</b><br />
+	<font size="-1">To set a temporary ban specify the duration of the ban in number of days, 
+	for permanent ban leave duration value at 0. The value of the duration field for non-permanent bans will show
+	days remaining till ban expiry.</font></td></tr>
+	<tr class="field"><td>Is Banned:</td><td><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked' : ''); ?>> Yes</td></tr>
+	<tr class="field"><td colsan="2">Ban Duration (in days)</td><td><input type="text" value="<?php 
+	if ($u->ban_expiry) {
+		printf("%.2f", ($u->ban_expiry - __request_timestamp__) / 86400);
+	} else {
+		echo 0;	
+	}
+	?>" name="ban_duration">
+	<input type="submit" name="ban_user" value="Ban/Unban"></td></tr>
+</form>
+
 	<tr class="field">
 		<td colspan=2><br><br><b>Actions:</b></td>
 	</tr>

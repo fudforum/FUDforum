@@ -567,8 +567,6 @@ post_err_lockedthread_title:	FOUT: gesloten Topic
 post_err_lockedthread_msg:	Dit topic is gesloten, geen posts meer toegelaten
 err_coppa_title:		FOUT: Uw account is nog niet toegelaten
 err_coppa_msg:			We hebben geen toestemming ontvangen van uw voogd welke u zou toelaten om berichten te posten. Indien u uw coppa formulier heeft verloren <a href="{TEMPLATE: err_coppa_msg_lnk}">klik hier</a> om het te krijgen
-err_blockedaccnt_title:		FOUT: U heeft niet de toestemming om te posten
-err_blockedaccnt_msg:		Uw account is geblokeerd, u kan dus niet posten
 post_err_edttimelimit_title:	FOUT
 post_err_edttimelimit_msg:	U can dit bericht niet langer wijzigen
 post_err_floodtrig_title:	FOUT: Post flood ingeschakeld.
@@ -850,8 +848,6 @@ err_mod_acc_msg:		De administrator heeft ervoor gekozen om manueel alle accounts
 accounts_pending_approval:	Accounts afhangend van goedkeuring
 saved:				Opslaan
 register_err_time_limit:	De registratie limiet van 1 registratie per {GVAR: REG_TIME_LIMIT} seconden is overschreden. wacht {VAR: reg_limit_reached} seconden en probeer dan opnieuw te registreren.
-login_blocked_account_ttl:	Uw account is gebanned
-login_blocked_account_msg:	Uw account is gebanned van dit forum, indien u de reden van deze handeling nog niet weet, contacteer de forum administrator(s).
 register_affero:		Affero Gebruikersnam:<br /><font class="SmallText">als u een  <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> gebruikersnaam typ het hier in.</font>
 im_affero:			Affero Gebruikersnaam
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
@@ -998,3 +994,7 @@ search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
 thread_mov_all:			Move All Selected
 dmsg_ip:			IP:
+err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_blockedaccnt_title:		ERROR: Your account has been filtered out.
+err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.

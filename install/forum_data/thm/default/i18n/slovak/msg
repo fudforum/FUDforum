@@ -570,8 +570,6 @@ post_err_lockedthread_title:	CHYBA: Téma je uzamknutá
 post_err_lockedthread_msg:	Táto téma je uzamknutá, iadne ïalšie príspevky niesu povolené
 err_coppa_title:		CHYBA: Vaše konto ešte nebolo potvrdené
 err_coppa_msg:			Nedostali sme ešte potvrdenie Vašich rodièov a/alebo zákonnıch zástupcov, ktoré by Vám umoòovalo uverejòovanie správ na fóre. Ak ste Váš COOPA formulár stratili <a href="{TEMPLATE: err_coppa_msg_lnk}">kliknite sem</a> na vydanie nového
-err_blockedaccnt_title:		CHYBA: Nemáte povolenie posiela príspevky
-err_blockedaccnt_msg:		Vaše konto bolo zablokované proti zasielaniu príspevkov
 post_err_edttimelimit_title:	CHYBA
 post_err_edttimelimit_msg:	Túto správu u nie je moné editova
 post_err_floodtrig_title:	CHYBA: Príliš ve¾a odoslanıch príspevkov do systému
@@ -855,8 +853,6 @@ err_mod_acc_msg:		Administrátor sa rozhodol pre manuálne potvrdzovanie všetkıch 
 accounts_pending_approval:	Kontá èakajúce na schválenie
 saved:				Uloené
 register_err_time_limit:	Limit jednej registrácie za {GVAR: REG_TIME_LIMIT} sekúnd bol dosiahnutı. Prosím poèkajte {VAR: reg_limit_reached} sekúnd a potom sa pokúste o registráciu opä.
-login_blocked_account_ttl:	Vaše konto bolo zablokované.	
-login_blocked_account_msg:	Vaše konto na tomto fóre bolo zablokované, ak Vám nie je zrejmí dôvod tohoto zablokovania, kontaktujte administrátora tohoto fóra.
 register_affero:		Affero uívate¾ské meno:<br /><font class="SmallText">Ak máte <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> uívate¾ské meno, zadajte ho sem.</font>
 im_affero:			Affero uívate¾ské meno
 register_err_avatardimtobig:	Rozmery Vašej uívate¾skej ikony <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> su väèšie ako povolené rozmery <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
@@ -998,3 +994,7 @@ search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
 thread_mov_all:			Move All Selected
 dmsg_ip:			IP:
+err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_blockedaccnt_title:		ERROR: Your account has been filtered out.
+err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.

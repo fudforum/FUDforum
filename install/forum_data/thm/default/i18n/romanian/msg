@@ -569,8 +569,6 @@ post_err_lockedthread_title:	EROARE: Tema blocata
 post_err_lockedthread_msg:	Aceasta tema a fost blocata, nu se mai pot trimite mesaje
 err_coppa_title:		EROARE: Contul dumneavoastra nu este inca confirmat
 err_coppa_msg:			Nu s-a primit confirmarea de la un parinte/tutore. Daca ati pierdut formularul <a href="{TEMPLATE: err_coppa_msg_lnk}">apasati aici</a> pentru a-l descarca
-err_blockedaccnt_title:		EROARE: nu aveti voie sa trimiteti mesaje
-err_blockedaccnt_msg:		Contul dumneavoastra a fost blocat. Nu mai puteti trimite mesaje.
 post_err_edttimelimit_title:	EROARE
 post_err_edttimelimit_msg:	Nu mai puteti modifica acest mesaj
 post_err_floodtrig_title:	EROARE: Incercare de flood prin intermediul mesajului trimis.
@@ -852,8 +850,6 @@ err_mod_acc_msg:		Administratorul a ales vizualizarea tuturor utilizatorilor man
 accounts_pending_approval:	Conturi care asteapta aprobare
 saved:				Salvat
 register_err_time_limit:	Limita de 1 inregistrare la {GVAR: REG_TIME_LIMIT} secunde a fost atinsa. Va rugam asteptati {VAR: reg_limit_reached} secunde apoi incercati din nou.
-login_blocked_account_ttl:	Contul dumneavoastra a fost blocat.	
-login_blocked_account_msg:	Contul dumneavoastra a fost blocat pe acest forum, daca nu stiti motivul contactati administratorul.
 register_affero:		Nume de utilizator optional:<br /><font class="SmallText">Daca aveti un nume de utilizator <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">optional</a> introduceti-l aici.</font>
 im_affero:			Nume utilizator optional
 pmsg_download_counter:		Descarcat de {VAR: r->dlcount} ori
@@ -998,3 +994,7 @@ search_results_hdr:		{VAR: total} Rezultate Gasite
 thread_del_all:			Sterge Toata Selectia
 thread_mov_all:			Muta Toata Selectia
 dmsg_ip:			IP:
+err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_blockedaccnt_title:		ERROR: Your account has been filtered out.
+err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.

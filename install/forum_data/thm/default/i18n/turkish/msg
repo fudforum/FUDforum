@@ -564,8 +564,6 @@ post_err_lockedthread_title:	HATA: Kilitli Zincir
 post_err_lockedthread_msg:	Bu zincir kilitlenmiþ durumda, baþka ileti gönderilmesine izin verilmiyor.
 err_coppa_title:		HATA: Hesabýnýz henüz doðrulanmamýþ durumda.
 err_coppa_msg:			Anne-babanýz ve/veya yasal koruyucunuz tarafýndan bir doðrulama almamýþ durumdayýz, bu yüzden henüz ileti gönderme izniniz yok. Eðer coppa formunuzu kaybettiyseniz almak için <a href="{TEMPLATE: err_coppa_msg_lnk}">buraya týklayýn</a>
-err_blockedaccnt_title:		HATA: Ýleti gönderme izniniz yok
-err_blockedaccnt_msg:		Hesabýnýzdan ileti gönderme engellenmiþ durumda.
 post_err_edttimelimit_title:	HATA
 post_err_edttimelimit_msg:	Bu iletiyi artýk düzeltemezsiniz
 post_err_floodtrig_title:	HATA: Üstüste ileti gönderemezsiniz.
@@ -851,8 +849,6 @@ err_mod_acc_msg:		Tüm hesaplarýn etkinleþmeden önce yönetici tarafýndan onaylanm
 accounts_pending_approval:	Onay bekleyen hesaplar
 saved:				Saklanan
 register_err_time_limit:	{GVAR: REG_TIME_LIMIT} saniye içinde sadece bir kayýt gerçekleþtirilebilir. Lütfen {VAR: reg_limit_reached} saniye bekledikten sonra tekrar deneyin.
-login_blocked_account_ttl:	Hesabýnýz yasaklanmýþ durumda.
-login_blocked_account_msg:	Hesabýnýz bu forumda yasaklanmýþ durumda. Eðer yasaklanma sebebini bilmiyorsanýz, forum yöneticileriyle iletiþime geçerek öðrenebilirsiniz.
 register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
 im_affero:			Affero Kullanýcý Ýsmi
 register_err_avatardimtobig:	<b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> boyutundaki avatar izin verilen boyutlarýn <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> dýþýnda.
@@ -998,3 +994,7 @@ search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
 thread_mov_all:			Move All Selected
 dmsg_ip:			IP:
+err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_blockedaccnt_title:		ERROR: Your account has been filtered out.
+err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.

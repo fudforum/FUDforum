@@ -102,8 +102,6 @@ email_to_friend_desc:		Verschicke die URL dieser Seite an deine Freunde per E-Ma
 email_user:			Hier klicken, um eine E-Mail an den Benutzer zu verschicken
 emailconf_err_invkey_msg:	Ung&uuml;ltiger Best&auml;tigungsschl&uuml;ssel. Bitte &uuml;berpr&uuml;fe in deiner E-Mail, ob du die URL auch richtig aufgerufen hast
 emailconf_err_invkey_title:	Fehler
-err_blockedaccnt_msg:		Dein Konto ist f&uuml;r das Erstellen von Beitr&auml;gen gesperrt worden
-err_blockedaccnt_title:		FEHLER: Dir ist es nicht gestattet, Beitr&auml;ge zu erstellen
 err_coppa_msg:			Wir haben noch keine Best&auml;tigung von einem Elternteil oder einem gesetzlichen Vormund erhalten, welche dir erlauben w&uuml;rde, Beitr&auml;ge zu erstellen. Falls du dein COPPA Formular verloren hast, klicke <a href="{TEMPLATE: err_coppa_msg_lnk}">hier</a> um es zu erhalten
 err_coppa_title:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
 err_inc_criticalmsg:		Es ist ein Fehler aufgetreten, aber ungl&uuml;cklicherweise gibt es ein Problem mit dem Benachrichtigungssystem f&uuml;r Fehler
@@ -851,8 +849,6 @@ err_mod_acc_msg:		Der Administrator hat beschlossen, alle Konten vor der Aktivie
 accounts_pending_approval:	Billigung des sich in der Schwebe befindlichen Kontos
 saved:				Abgespeichert
 register_err_time_limit:	Die Beschr&auml;nkung auf eine Registrierung pro {GVAR: REG_TIME_LIMIT} Sekunden ist erreicht worden. Bitte warte {VAR: reg_limit_reached} Sekunden und versuche danach noch einmal dich zu registrieren.
-login_blocked_account_ttl:	Dein Konto wurde gesperrt.	
-login_blocked_account_msg:	Dein Konto ist in diesem Forum gesperrt worden, falls du nicht schon den Grund daf&uuml;r kennst, nimm zum /zu den Administrator(en) des Forums Kontakt auf.
 register_affero:		Affero Benutzername:<br /><font class="SmallText">Falls du einen <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> Benutzernamen hast, trage ihn hier ein.</font>
 im_affero:			Affero Benutzername
 register_err_avatardimtobig:	Die Ausma&szlig;e des Avatar von <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
@@ -998,3 +994,7 @@ search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
 thread_mov_all:			Move All Selected
 dmsg_ip:			IP:
+err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_blockedaccnt_title:		ERROR: Your account has been filtered out.
+err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.

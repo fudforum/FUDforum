@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: allowed_user_lnk.inc.t,v 1.26 2004/11/24 19:53:34 hackie Exp $
+* $Id: allowed_user_lnk.inc.t,v 1.27 2005/06/14 21:55:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -72,8 +72,32 @@ function is_email_blocked($addr)
 	return;
 }
 
-function is_allowed_user(&$usr)
+function is_allowed_user(&$usr, $simple=0)
 {
+	/* check if the ban expired */
+	if (($banned = $usr->users_opt & 65536) && $usr->ban_expiry && $usr->ban_expiry < __request_timestamp__) {
+		q("UPDATE {SQL_TABLE_PREFIX}users SET users_opt = users_opt &~ 65536 WHERE id=".$usr->id);
+		$usr->users_opt ^= 65536; 
+	} 
+
+	if ($banned || is_email_blocked($usr->email) || is_login_blocked($usr->login) || is_ip_blocked(get_ip())) {
+		$ban_expiry = (int) $usr->ban_expiry;
+		if (!$simple) { // on login page we already have anon session
+			ses_delete($usr->sid);
+			$usr = ses_anon_make();
+		}
+		setcookie($GLOBALS['COOKIE_NAME'].'1', 'd34db33fd34db33fd34db33fd34db33f', ($ban_expiry ? $ban_expiry : (__request_timestamp__ + 63072000)), $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+		if ($banned) {
+			error_dialog('{TEMPLATE: err_banned_acct_title}', '{TEMPLATE: err_banned_acct_msg}');
+		} else {
+			error_dialog('{TEMPLATE: err_blockedaccnt_title}', '{TEMPLATE: err_blockedaccnt_msg}');
+		}
+	}
+
+	if ($simple) {
+		return;
+	}
+
 	if ($GLOBALS['FUD_OPT_1'] & 1048576 && $usr->users_opt & 262144) {
 		error_dialog('{TEMPLATE: err_coppa_title}', '{TEMPLATE: err_coppa_msg}');
 	}
@@ -84,13 +108,6 @@ function is_allowed_user(&$usr)
 
 	if ($GLOBALS['FUD_OPT_2'] & 1024 && $usr->users_opt & 2097152) {
 		error_dialog('{TEMPLATE: err_mod_acc_ttl}', '{TEMPLATE: err_mod_acc_msg}');
-	}
-
-	if ($usr->users_opt & 65536 || is_email_blocked($usr->email) || is_login_blocked($usr->login) || is_ip_blocked(get_ip())) {
-		ses_delete($usr->sid);
-		$usr = ses_anon_make();
-		setcookie($GLOBALS['COOKIE_NAME'].'1', 'd34db33fd34db33fd34db33fd34db33f', __request_timestamp__+63072000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
-		error_dialog('{TEMPLATE: err_blockedaccnt_title}', '{TEMPLATE: err_blockedaccnt_msg}');
 	}
 }
 ?>

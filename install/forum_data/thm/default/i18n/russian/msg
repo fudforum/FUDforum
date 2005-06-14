@@ -565,8 +565,6 @@ post_err_lockedthread_title:	ОШИБКА: Тема закрыта
 post_err_lockedthread_msg:	Эта тема была закрыта, отправка сообщений более не допускается
 err_coppa_title:		ОШИБКА: Ваша регистрация пока не была утверждена
 err_coppa_msg:			Мы пока не получили разрешение от ваших родителей/опекунов на ваше участие в форуме. Если вы потеряли форму разрешения COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">нажмите здесь</a> для ее повторного получения.
-err_blockedaccnt_title:		ОШИБКА: Вам не разрешена отправка сообщений
-err_blockedaccnt_msg:		Отправка сообщений от вашего имени была блокирована
 post_err_edttimelimit_title:	ОШИБКА
 post_err_edttimelimit_msg:	Вы более не можете редактировать данное сообщение
 post_err_floodtrig_title:	ОШИБКА: Обнаружен флуд - массовая отправка.
@@ -851,8 +849,6 @@ err_mod_acc_msg:		Администратор установил режим ручного просмотра всех учетных з
 accounts_pending_approval:	Ожидающие утверждения пользователи
 saved:				Сохранено
 register_err_time_limit:	Превышен лимит на 1 регистрацию в течение {GVAR: REG_TIME_LIMIT} секунд. Пожалуйста подождите {VAR: reg_limit_reached} секунд и попробуйте еще раз.
-login_blocked_account_ttl:	Ваша учетная запись была заблокирована.	
-login_blocked_account_msg:	Ваша учетная запись в этом форуме была заблокирована, if do not already know the reason behind this action contact the forum&#39;s administrator(s).
 register_affero:		Имя в системе Affero:<br /><font class="SmallText">Если у вас имеется зарегистрированное имя в системе <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> - введите его здесь.</font>
 im_affero:			Имя в системе Affero
 register_err_avatardimtobig:	Размер картинки <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> превышает максимально разрешенный, который составляет <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
@@ -998,3 +994,7 @@ search_results_hdr:		В результате поиска найдено страниц: {VAR: total}
 thread_del_all:			Удалить отмеченные
 thread_mov_all:			Перенести отмеченные
 dmsg_ip:			IP:
+err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_blockedaccnt_title:		ERROR: Your account has been filtered out.
+err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
