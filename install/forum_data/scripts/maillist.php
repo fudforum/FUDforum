@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.49 2004/11/24 19:53:34 hackie Exp $
+* $Id: maillist.php,v 1.50 2005/06/14 03:00:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -399,12 +399,10 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 
 	// Handler for our own messages, which do not need to be imported.
-	if (isset($emsg->headers['x-fudforum']) && preg_match('!([A-Za-z0-9]{32}) <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
-		if ($m[1] == md5($GLOBALS['WWW_ROOT'])) {
-			q("UPDATE ".sql_p."msg SET mlist_msg_id='".addslashes($emsg->msg_id)."' WHERE id=".intval($m[2])." AND mlist_msg_id IS NULL");
-			if (db_affected()) {
-				exit;
-			}
+	if (isset($emsg->headers['x-fudforum']) && preg_match('!'.md5($GLOBALS['WWW_ROOT']).' <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
+		q("UPDATE ".sql_p."msg SET mlist_msg_id='".addslashes($emsg->msg_id)."' WHERE id=".(int)$m[1]." AND mlist_msg_id IS NULL");
+		if (db_affected()) {
+			exit;
 		}
 	}
 
