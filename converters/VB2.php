@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: VB2.php,v 1.11 2004/03/10 16:40:18 hackie Exp $
+* $Id: VB2.php,v 1.12 2005/06/15 21:41:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -399,6 +399,8 @@ $group_map = array(
 	print_status('Finished Importing Threads');
 	
 /* Import Messages */
+	$ffid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."forum LIMIT 1");	
+
 	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg");
 	$r = Q2("SELECT * FROM post ORDER BY threadid,postid");
 	print_status('Importing '.db_count($r).' Messages');
@@ -411,7 +413,7 @@ $group_map = array(
 		
 		$obj->pagetext = tags_to_html($obj->pagetext);
 		if( $obj->allowsmilie ) $obj->pagetext = smiley_to_post($obj->pagetext);
-		$fileid = write_body($obj->pagetext, $len, $off);
+		$fileid = write_body($obj->pagetext, $len, $off, $ffid);
 		
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg (
 			id,

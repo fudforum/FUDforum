@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ikon.php,v 1.7 2005/03/05 18:46:59 hackie Exp $
+* $Id: ikon.php,v 1.8 2005/06/15 21:41:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -373,6 +373,7 @@ function fetch_img($url)
 	$r = iq("SELECT 
 			ib_forum_posts.*,
 			ib_forum_topics.TOPIC_TITLE,
+			ib_forum_topics.FORUM_ID,
 			ibf_members.id AS aid
 		FROM 
 			ib_forum_posts 
@@ -383,7 +384,7 @@ function fetch_img($url)
 			
 	print_status('Importing Messages');
 	while( $obj = db_rowobj($r) ) {
-		$fileid = write_body(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->POST), $len, $off);
+		$fileid = write_body(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->POST), $len, $off, $obj->FORUM_ID);
 	
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg (
 			id,

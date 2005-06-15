@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.126 2005/06/10 17:25:39 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.127 2005/06/15 21:41:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -496,16 +496,14 @@ class fud_msg_edit extends fud_msg
 	}
 }
 
-function write_body($data, &$len, &$offset, $fid=0)
+function write_body($data, &$len, &$offset, $fid)
 {
 	$MAX_FILE_SIZE = 2140000000;
 
 	$len = strlen($data);
 	$i = 1;
 
-	if ($fid) {
-		db_lock('{SQL_TABLE_PREFIX}fl_'.$fid.' WRITE');
-	}
+	db_lock('{SQL_TABLE_PREFIX}fl_'.$fid.' WRITE');
 
 	$s = $fid * 10000;
 	$e = $s + 100;
@@ -531,9 +529,7 @@ function write_body($data, &$len, &$offset, $fid=0)
 	}
 	fclose($fp);
 
-	if ($fid) {
-		db_unlock();
-	}
+	db_unlock();
 
 	if (!$off) {
 		@chmod('msg_'.$s, ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));

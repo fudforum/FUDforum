@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: Yabb.php,v 1.11 2005/03/05 18:46:59 hackie Exp $
+* $Id: Yabb.php,v 1.12 2005/06/15 21:41:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -496,7 +496,7 @@ function yabbstamp($str)
 /* Import YaBB Messages */
 
 	print_status('Importing Messages');
-		
+	$ffid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."forum LIMIT 1");
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."msg");	
 	$msg_count=0;
 	chdir($YABB_CFG['datadir']);
@@ -509,7 +509,7 @@ function yabbstamp($str)
 		
 			$msg_data = explode('|', $thread_msg_list[$i]);
 			
-			$fileid = write_body(yabbctofudcode($msg_data[8]), $len, $off);
+			$fileid = write_body(yabbctofudcode($msg_data[8]), $len, $off, $ffid);
 			q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg
 			(
 				thread_id,

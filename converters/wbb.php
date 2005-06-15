@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: wbb.php,v 1.5 2005/03/05 18:46:59 hackie Exp $
+* $Id: wbb.php,v 1.6 2005/06/15 21:41:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -335,11 +335,13 @@ function fetch_img($url)
 	// import messages
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."msg");
 	$r = wq("SELECT * FROM {WBB}posts");
+		
+	$ffid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."forum LIMIT 1");	
 			
 	print_status('Importing Messages');
 	while( $obj = db_rowobj($r) ) {
 		$obj->message = smiley_to_post(tags_to_html($obj->message));
-		$fileid = write_body($obj->message, $len, $off);
+		$fileid = write_body($obj->message, $len, $off, $ffid);
 	
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg (
 			id,

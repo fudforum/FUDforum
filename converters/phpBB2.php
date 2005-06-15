@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.22 2005/06/03 19:39:47 hackie Exp $
+* $Id: phpBB2.php,v 1.23 2005/06/15 21:41:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -489,14 +489,14 @@ $group_map = array(
 /* Import phpBB messages */
 
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."msg");
-	$r = bbq("SELECT t.topic_title, p.*, pt.post_subject, pt.post_text FROM {$bb2}posts p INNER JOIN {$bb2}posts_text pt ON p.post_id=pt.post_id INNER JOIN {$bb2}topics t ON t.topic_id=p.topic_id");
+	$r = bbq("SELECT t.forum_id., t.topic_title, p.*, pt.post_subject, pt.post_text FROM {$bb2}posts p INNER JOIN {$bb2}posts_text pt ON p.post_id=pt.post_id INNER JOIN {$bb2}topics t ON t.topic_id=p.topic_id");
 	print_msg('Importing Messages '.db_count($r));
 	while( $obj = db_rowobj($r) ) {
 		if (!$obj->post_subject) {
 			$obj->post_subject = $obj->topic_title;
 		}
 
-		$fileid = write_body(bbcode2fudcode($obj->post_text), $len, $off);
+		$fileid = write_body(bbcode2fudcode($obj->post_text), $len, $off, (int)$obj->forum_id);
 		$updated_by = $obj->post_edit_time ? $obj->poster_id : 0;
 		$msg_opt = ($obj->enable_sig ? 1 : 0) | ($obj->enable_smilies ? 0 : 2);
 		if ($obj->poster_id == -1) {

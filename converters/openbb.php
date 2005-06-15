@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: openbb.php,v 1.10 2004/03/10 16:40:18 hackie Exp $
+* $Id: openbb.php,v 1.11 2005/06/15 21:41:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -414,7 +414,7 @@ $group_map = array(
 			}	
 			
 			$obj2->message = openBBcode2fudcode($obj2->message);
-			$fileid = write_body($obj2->message, $len, $off);
+			$fileid = write_body($obj2->message, $len, $off, $obj->forumid);
 			
 			$poster = intzero(q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj2->poster)."'"));
 			if( !$poster && $unimported_users[$obj2->poster] ) $poster = $unimported_users[$obj2->poster];

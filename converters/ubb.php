@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ubb.php,v 1.7 2004/03/10 16:40:18 hackie Exp $
+* $Id: ubb.php,v 1.8 2005/06/15 21:41:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -350,7 +350,7 @@ while (1) {
 			}
 			q("INSERT IGNORE INTO ".$DBHOST_TBL_PREFIX."thread (id, forum_id) VALUES(".(int)$obj->B_Number.", ".(int)$obj->Bo_Number.")");
 		}
-		$fileid = write_body($obj->B_Body, $len, $off);
+		$fileid = write_body($obj->B_Body, $len, $off, (int)$obj->Bo_Number);
 
 		if (isset($dupe_list[$obj->B_PosterId])) {
 			$obj->B_PosterId = $dupe_list[$obj->B_PosterId];		
@@ -410,7 +410,7 @@ while (1) {
 				print_msg("Couldn't copy file attachment (".$config['files']."/".$obj->B_File.") to (".$FILE_STORE.$attach_id.'.atch'.")");
 				exit;
 			}
-			q("UPDATE ".$DBHOST_TBL_PREFIX."attach SET location='".$FILE_STORE.$attach_id.'.atch'."' WHERE id=".$attach_id);		
+			q("UPDATE ".$DBHOST_TBL_PREFIX."attach SET location='".$FILE_STORE.$attach_id.'.atch'."' WHERE id=".$attach_id);
 		}		
 
 		// handle polls
