@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.77 2005/04/30 18:02:35 hackie Exp $
+* $Id: post_proc.inc.t,v 1.78 2005/06/16 12:41:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -417,6 +417,9 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 	/* email parser */
 	$pos = 0;
 	$ppos = 0;
+
+	$er = array_flip(array_merge(range(0,9), range('A', 'Z'), range('a','z'), array('.','-',"'")));
+
 	while (($pos = @strpos($ostr, '@', $pos)) !== false) {
 		if ($pos < $ppos) {
 			break;
@@ -460,11 +463,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		}
 
 		for ($es = ($pos - 1); $es > ($ppos - 1); $es--) {
-			if (
-				( ord($ostr[$es]) >= ord('A') && ord($ostr[$es]) <= ord('z') ) ||
-				( ord($ostr[$es]) >= ord(0) && ord($ostr[$es]) <= ord(9) ) ||
-				( $ostr[$es] == '.' || $ostr[$es] == '-' || $ostr[$es] == '\'')
-			) { continue; }
+			if (isset($er[ $ostr[$es] ])) continue;
 			++$es;
 			break;
 		}
@@ -477,11 +476,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		}
 
 		for ($ee = ($pos + 1); @isset($ostr[$ee]); $ee++) {
-			if (
-				( ord($ostr[$ee]) >= ord('A') && ord($ostr[$ee]) <= ord('z') ) ||
-				( ord($ostr[$ee]) >= ord(0) && ord($ostr[$ee]) <= ord(9) ) ||
-				( $ostr[$ee] == '.' || $ostr[$ee] == '-' )
-			) { continue; }
+			if (isset($er[ $ostr[$ee] ])) continue;
 			break;
 		}
 		if ($ee == ($pos+1)) {
