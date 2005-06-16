@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.32 2005/03/05 18:47:00 hackie Exp $
+* $Id: admgrouplead.php,v 1.33 2005/06/16 23:45:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,12 +34,14 @@
 	} else if ($gr_leader) {
 		$srch = addslashes(str_replace('\\', '\\\\', char_fix(htmlspecialchars($gr_leader))));
 
-		$c = q("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE alias='".$srch."'");
-		if (!db_count($c)) {
-			unset($c);
+		if (($cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."users WHERE alias='".$srch."'"))) {
+			$c = q("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE alias='".$srch."'");
+		} else if (($cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."users WHERE alias LIKE '".$srch."%'"))) {
+			if ($cnt > 50) $cnt = 50;
 			$c = q("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE alias LIKE '".$srch."%' LIMIT 50");
 		}
-		switch (($cnt = db_count($c))) {
+
+		switch ($cnt) {
 			case 0:
 				$error = 'Could not find a user who matches the "'.$srch.'" login mask';
 				break;
