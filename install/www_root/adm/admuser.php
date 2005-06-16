@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.61 2005/06/14 21:55:44 hackie Exp $
+* $Id: admuser.php,v 1.62 2005/06/16 13:33:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -334,12 +334,12 @@ document.frm_usr.usr_login.focus();
 	}
 
 	echo '<tr class="field"><td nowrap valign="top">Moderating Forums:</td><td valign="top">';
-	$c = q('SELECT f.name FROM '.$DBHOST_TBL_PREFIX.'mod mm INNER JOIN '.$DBHOST_TBL_PREFIX.'forum f ON mm.forum_id=f.id WHERE mm.user_id='.$usr_id);
-	if (db_count($c)) {
+	$c = uq('SELECT f.name FROM '.$DBHOST_TBL_PREFIX.'mod mm INNER JOIN '.$DBHOST_TBL_PREFIX.'forum f ON mm.forum_id=f.id WHERE mm.user_id='.$usr_id);
+	if ($r = db_rowarr($c)) {
 		echo '<table border=0 cellspacing=1 cellpadding=3>';
-		while ($r = db_rowarr($c)) {
+		do {
 			echo '<tr><td>'.$r[0].'</td></tr>';
-		}
+		} while ($r = db_rowarr($c));
 		echo '</table>';
 	} else {
 		echo 'None<br>';
