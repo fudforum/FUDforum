@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: email_msg_format.inc,v 1.16 2005/06/19 20:46:22 hackie Exp $
+* $Id: email_msg_format.inc,v 1.17 2005/06/20 02:19:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,7 +48,11 @@ function plain_text(&$data, $qs, $qm, $qe)
 
 	/* handle encoded e-mails */
 	if (strpos($data, '&#64;') !== false) {
+		&#58;&#47;&#47;
 		$data = str_replace('&#64;', '@', $data);
+	}
+	if (strpos($data, '&#58;&#47;&#47;') !== false) {
+		$data = str_replace('&#58;&#47;&#47;', '://', $data);
 	}
 
 	return html_entity_decode(reverse_fmt(strip_tags($data)));
