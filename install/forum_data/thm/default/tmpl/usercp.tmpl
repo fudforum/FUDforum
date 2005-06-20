@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usercp.tmpl,v 1.29 2005/06/14 15:07:33 hackie Exp $
+* $Id: usercp.tmpl,v 1.30 2005/06/20 14:06:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,7 +28,7 @@
 {SECTION: END}
 
 {MAIN_SECTION: usercp user control panel}
-<div class="UserControlPanel">{TEMPLATE-DATA: private_msg} {IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: member_search}{ENDIF} {IF: $FUD_OPT_1 & 16777216}{TEMPLATE: u_forum_search}{ENDIF} <a class="UserControlPanel" accesskey="h" href="{TEMPLATE: usercp_lnk2}"><img src="{THEME_IMAGE_ROOT}/top_help{DEF: img_ext}" alt="{MSG: faq}" /> {MSG: faq}</a> {IF: __fud_real_user__}{TEMPLATE: usercp_usercp}{ELSE}{TEMPLATE: register}{END} {IF: __fud_real_user__}{TEMPLATE: logout}{ELSE}{TEMPLATE: login}{END}&nbsp;&nbsp; <a class="UserControlPanel" href="{TEMPLATE: usercp_lnk3}"><img src="{THEME_IMAGE_ROOT}/top_home{DEF: img_ext}" alt="{MSG: home}" /> {MSG: home}</a> {IF: $is_a}{TEMPLATE: admin_control_panel}{ENDIF}</div>
+<div class="UserControlPanel nw">{TEMPLATE-DATA: private_msg} {IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: member_search}{ENDIF} {IF: $FUD_OPT_1 & 16777216}{TEMPLATE: u_forum_search}{ENDIF} <a class="UserControlPanel" accesskey="h" href="{TEMPLATE: usercp_lnk2}"><img src="{THEME_IMAGE_ROOT}/top_help{DEF: img_ext}" alt="{MSG: faq}" /> {MSG: faq}</a> {IF: __fud_real_user__}{TEMPLATE: usercp_usercp}{ELSE}{TEMPLATE: register}{END} {IF: __fud_real_user__}{TEMPLATE: logout}{ELSE}{TEMPLATE: login}{END}&nbsp;&nbsp; <a class="UserControlPanel" href="{TEMPLATE: usercp_lnk3}"><img src="{THEME_IMAGE_ROOT}/top_home{DEF: img_ext}" alt="{MSG: home}" /> {MSG: home}</a> {IF: $is_a}{TEMPLATE: admin_control_panel}{ENDIF}</div>
 {MAIN_SECTION: END}
 
 {SECTION: login_lnk}
