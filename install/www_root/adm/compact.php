@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.49 2005/06/10 17:25:39 hackie Exp $
+* $Id: compact.php,v 1.50 2005/06/22 03:30:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,7 +62,7 @@ function write_body_c($data, &$len, &$offset, $fid)
 
 	$s = $fid * 10000;
 
-	if (!isset($GLOBALS['__FUD_TMP_F__'])) {
+	if (empty($GLOBALS['__FUD_TMP_F__'][$s])) {
 		$GLOBALS['__FUD_TMP_F__'][$s][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$s, 'ab');
 		flock($GLOBALS['__FUD_TMP_F__'][$s][0], LOCK_EX);
 		$GLOBALS['__FUD_TMP_F__'][$s][1] = __ffilesize($GLOBALS['__FUD_TMP_F__'][$s][0]);
@@ -73,6 +73,7 @@ function write_body_c($data, &$len, &$offset, $fid)
 		flock($GLOBALS['__FUD_TMP_F__'][$s][0], LOCK_EX);
 		$GLOBALS['__FUD_TMP_F__'][$s][1] = __ffilesize($GLOBALS['__FUD_TMP_F__'][$s][0]);
 	}
+
 	if (fwrite($GLOBALS['__FUD_TMP_F__'][$s][0], $data) != $len || !fflush($GLOBALS['__FUD_TMP_F__'][$s][0])) {
 		exit("FATAL ERROR: system has ran out of disk space<br>\n");
 	}
