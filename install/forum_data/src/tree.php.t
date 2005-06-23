@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.77 2005/02/27 02:21:36 hackie Exp $
+* $Id: tree.php.t,v 1.78 2005/06/23 16:20:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -111,7 +111,9 @@
 		}
 		$subscribe_status = $frm->subscribed ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
 	} else {
-		header("Last-Modified: " . gmdate("D, d M Y H:i:s", $frm->last_post_date) . " GMT");
+		if (__fud_cache($frm->last_post_date)) {
+			return;
+		}
 		$subscribe_status = '';
 	}
 

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.149 2005/06/15 13:22:45 hackie Exp $
+* $Id: core.inc,v 1.150 2005/06/23 16:20:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -136,5 +136,19 @@ function __ffilesize($fp)
 {
 	$st = fstat($fp);
 	return (isset($st['size']) ? $st['size'] : $st[7]);
+}
+
+function __fud_cache($t)
+{
+	$mod = gmdate("D, d M Y H:i:s", $t) . " GMT";
+
+	/* send caching headers */
+	header("Last-Modified: " . $mod);
+	if (isset($_SERVER["HTTP_IF_MODIFIED_SINCE"]) && !isset($_SERVER['HTTP_RANGE']) && $_SERVER["HTTP_IF_MODIFIED_SINCE"] == $mod) {
+		header('HTTP/1.1 304 Not Modified');
+		header('Status: 304 Not Modified');
+		return 1;
+	}
+	return 0;
 }
 ?>
