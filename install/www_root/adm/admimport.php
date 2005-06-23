@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.43 2004/11/24 19:53:42 hackie Exp $
+* $Id: admimport.php,v 1.44 2005/06/23 13:12:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,7 +14,7 @@
 
 	/* Uncomment the line below if you wish to import data without authentication */
 	/* This is useful if the previous import had failed resulting in the loss of old SQL data */
-	// define('recovery_mode', 1);
+	//define('recovery_mode', 1);
 
 	require('./GLOBALS.php');
 
@@ -26,7 +26,8 @@
 
 function resolve_dest_path($path)
 {
-	$path = str_replace('WWW_ROOT_DISK', $GLOBALS['WWW_ROOT_DISK'], str_replace('DATA_DIR', $GLOBALS['DATA_DIR'], $path));
+	$path = str_replace(array('WWW_ROOT_DISK','DATA_DIR'), 
+				array($GLOBALS['WWW_ROOT_DISK'], $GLOBALS['DATA_DIR']), $path);
 	$dir = dirname($path);
 	if (!@is_dir($dir)) {
 		while ($dir && $dir != "/" && !@is_dir($dir)) {
@@ -79,6 +80,7 @@ function resolve_dest_path($path)
 					continue;
 				}
 				list(,$path,$size,) = explode("||", $line);
+
 				$path = resolve_dest_path($path);
 				if (!($fd = fopen($path, 'wb'))) {
 					echo "WARNING: couldn't create '".$path."'<br>\n";
@@ -111,68 +113,103 @@ function resolve_dest_path($path)
 			while ($getf($fp, 1024) != "----SQL_START----\n" && !$feoff($fp));
 
 			/* clear SQL data */
-			$tbl_list = get_fud_table_list();
-			foreach($tbl_list as $v) {
+			foreach(get_fud_table_list() as $v) {
 				q('DROP TABLE '.$v);
 			}
+
 			/* If we are dealing with pgSQL drop all sequences too */
 			if (__dbtype__ == 'pgsql') {
-				$c = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".str_replace("_", "\\_", $DBHOST_TBL_PREFIX)."'");
+				$c = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".str_replace("_", '\\\\_', $DBHOST_TBL_PREFIX)."'");
 				while($r = db_rowarr($c)) {
 					q('drop sequence '.$r[0]);
 				}
 				unset($c);
 			}
 
-			/* It is possible that the database type in the dump != database type in the current forum.
-			 * No worries, we can handle that ;), but we need to get table defenitions else where
-			 */
-			preg_match("!define\('__dbtype__', '(mysql|pgsql)'\);!", file_get_contents($DATA_DIR.'src/db.inc.t'), $tmp);
-			if ($tmp[1] != __dbtype__) {
-				/* read the table definitions from appropriate SQL directory */
-				if (!($files = glob($DATA_DIR . 'sql/*.tbl', GLOB_NOSORT))) {
-					exit("Couldn't open ".$DATA_DIR."sql/ directory<br>\n");
-				}
-				foreach ($files as $f) {
-					$tbl_data = file_get_contents($f);
-					$tbl_data = preg_replace("!#.*?\n!", '', $tbl_data);
-					$tbl_data = preg_replace('!\s+!', ' ', trim($tbl_data));
-					$tmp = explode(';', str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $tbl_data));
-					foreach($tmp as $qry) {
-						if (($qry = trim($qry)) && strncmp($qry, 'DROP', 4) && strncmp($qry, 'ALTER', 5)) {
-							if (__dbtype__ != 'mysql' && !strncmp($qry, 'CREATE', 6)) {
-								$qry = str_replace(array('BINARY', 'INT NOT NULL AUTO_INCREMENT'), array('', 'SERIAL'), $qry);
-							}
-							q($qry);
-						}
-					}
-				}
-
-				/* copy appropriate db.inc.t */
-				copy($DATA_DIR.'sql/'.__dbtype__.'/db.inc', $DATA_DIR . '/src/db.inc.t');
-
-				/* skip table defenitions inside the archive */
-				while (($line = $getf($fp, 1000000)) && !$feoff($fp)) {
-					if (($line = trim($line))) {
-						if (strncmp($line, 'DROP', 4) && strncmp($line, 'CREATE', 6) && strncmp($line, 'ALTER', 5)) {
-							q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));
-							break;
-						}
-					}
-				}
+			/* check if MySQL version > 4.1.2 */
+			if (__dbtype__ == 'mysql') {
+				$my412 = version_compare(q_singleval("SELECT VERSION()"), '4.1.2', '>=');
+			} else {
+				$my412 = 0;
 			}
 
-			$i = 0;
-			while (($line = $getf($fp, 1000000)) && $line != "----SQL_END----\n") {
+			$idx = array();
+
+			/* create table structure */
+			while (($line = $getf($fp, 1000000)) && !$feoff($fp)) {
 				if (($line = trim($line))) {
+					if (!strncmp($line, 'DROP', 4)) {
+						continue; // no need to drop tables, already gone
+					}
+
+					if (!strncmp($line, 'ALTER TABLE', strlen('ALTER TABLE'))) {
+						if (__dbtype__ == 'mysql') {
+							$idx[] = $line;
+						}
+						continue;
+					}
+
+					if (strncmp($line, 'CREATE', 6)) {
+						break;
+					}
+
+					// speed up inserts, create indexes later
+					if (strpos($line, ' INDEX ') !== false) {
+						$idx[] = $line;
+						continue;
+					}
+
+					if (__dbtype__ != 'mysql') {
+						$line = strtr($line, array('BINARY'=>'', 'INT NOT NULL AUTO_INCREMENT'=>'SERIAL'));
+					} else if ($my412 && !strncmp($line, 'CREATE TABLE', strlen('CREATE TABLE'))) { 
+						if (strpos($line, 'thread_view') !== false) {
+							$line .= ' ENGINE=MyISAM ' ;
+						}
+						/* for MySQL 4.1.2+ we need to specify a default charset */
+						$line .= " DEFAULT CHARACTER SET latin1";
+					}
+
 					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));
+				}
+			}
+			$i = 0; $tmp = $pfx = ''; $m = __dbtype__ == 'mysql';
+			do {
+				if (($line = trim($line))) {
+					if ($line{0} != '(') {
+						if ($tmp) {
+							q($pfx.substr($tmp, 0, -1));
+							$tmp = '';
+						}
+						$pfx = 'INSERT INTO '.$DBHOST_TBL_PREFIX.$line.' VALUES ';
+						continue;
+					}
+					if (!$m) {
+						q($pfx.$line);
+					} else {
+						$tmp .= $line;
+						if ($i && !($i % 1000)) {
+							q($pfx.$tmp);
+							$tmp = '';
+						} else {
+							$tmp .= ',';
+						}
+					}
+
 					if ($i && !($i % 10000)) {
 						echo 'Processed '.$i.' queries<br>';
 					}
 					++$i;
 				}
+			} while (($line = $getf($fp, 1000000)) && $line != "----SQL_END----\n");
+
+			if ($tmp) {
+				q($pfx.substr($tmp, 0, -1));
+				unset($tmp);
 			}
-			q('DELETE FROM '.$DBHOST_TBL_PREFIX.'ses');
+
+			foreach ($idx as $v) {
+				q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $v));
+			}
 
 			if (__dbtype__ == 'pgsql') {
 				/* we need to restore sequence numbers for postgreSQL */
