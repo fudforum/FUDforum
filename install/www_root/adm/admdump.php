@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.54 2005/06/23 03:36:51 hackie Exp $
+* $Id: admdump.php,v 1.55 2005/06/23 13:11:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -175,6 +175,10 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 					$tmp = '';
 					foreach ($r as $v) {
 						$tmp .= "'".addslashes($v)."',";
+					}
+					/* make sure new lines inside queries don't cause problems */
+					if (strpos($tmp, "\n") !== false) {
+						$tmp = str_replace("\n", '\n', $tmp);
 					}
 					$write_func($fp, "(".substr($tmp, 0, -1).")\n");
 				}
