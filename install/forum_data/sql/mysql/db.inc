@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.51 2005/06/04 20:39:31 hackie Exp $
+* $Id: db.inc,v 1.52 2005/06/23 15:06:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -191,12 +191,14 @@ function qry_limit($limit, $off)
 
 function get_fud_table_list($tbl='')
 {
-	if (!$tbl) {
-		$r = uq("SHOW TABLES LIKE '".str_replace("_", "\\_", $GLOBALS['DBHOST_TBL_PREFIX'])."%'");
-		while (list($ret[]) = db_rowarr($r));
-		array_pop($ret);
-	} else {
-		return q_singleval("SHOW TABLES LIKE '".str_replace("_", "\\_", $tbl)."'");
+	if ($tbl) {
+		return q_singleval("SHOW TABLES LIKE '".$tbl."'");
+	}
+
+	$ret = array();
+	$c = uq("SHOW TABLES LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
+	while ($r = db_rowarr($c)) {
+		$ret[] = $r[0];
 	}
 
 	return $ret;	
