@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.106 2005/06/23 15:19:37 hackie Exp $
+* $Id: consist.php,v 1.107 2005/06/23 22:25:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -136,6 +136,7 @@ forum will be disabled.
 	if (__dbtype__ == 'mysql') {
 		q('DROP TABLE IF EXISTS '.$tbl.'tmp_consist');
 		q('CREATE TABLE '.$tbl.'tmp_consist (p INT, ps INT UNSIGNED, c INT)');
+		$tbl = strtolower($tbl); // table names on mysql need to be lowercase
 	}
 	$tbls = get_fud_table_list();
 	// add the various table aliases
