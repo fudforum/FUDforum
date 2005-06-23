@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.53 2005/06/12 17:06:19 hackie Exp $
+* $Id: admdump.php,v 1.54 2005/06/23 03:36:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,41 +11,6 @@
 **/
 
 	@set_time_limit(6000);
-
-function make_insrt_qry($obj, $tbl, $field_data)
-{
-	$vl = $kv = '';
-
-	foreach($obj as $k => $v) {
-		if (!isset($field_data[$k])) {
-			continue;
-		}
-
-		switch (strtolower($field_data[$k]['type'])) {
-			case 'string':
-			case 'blob':
-			case 'text':
-			case 'date':
-			case 'varchar':
-				if (empty($v) && !$field_data[$k]['not_null']) {
-					$vl .= 'NULL,';
-				} else {
-					$vl .= "'".str_replace("\n", '\n', str_replace("\t", '\t', str_replace("\r", '\r', addslashes($v))))."',";
-				}
-				break;
-			default:
-				if (empty($v) && !$field_data[$k]['not_null']) {
-					$vl .= 'NULL,';
-				} else {
-					$vl .= $v.',';
-				}
-		}
-
-		$kv .= $field_data[$k]['name'].',';
-	}
-
-	return 'INSERT INTO '.$tbl.' ('.substr($kv, 0, -1).') VALUES('.substr($vl, 0, -1).')';
-}
 
 function backup_dir($dirp, $fp, $write_func, $keep_dir)
 {
@@ -99,31 +64,6 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 				$write_func($fp, "\n");
 			}
 		}
-	}
-}
-
-function sql_num_fields($r)
-{
-	return __dbtype__ == 'pgsql' ? pg_num_fields($r) : mysql_num_fields($r);
-}
-
-function sql_field_type($r,$n)
-{
-	return __dbtype__ == 'pgsql' ? pg_field_type($r, $n) : mysql_field_type($r, $n);
-}
-
-function sql_field_name($r, $n)
-{
-	return __dbtype__ == 'pgsql' ? pg_field_name($r, $n) : mysql_field_name($r, $n);
-}
-
-function sql_is_null($r, $n, $tbl='')
-{
-	if (__dbtype__ == 'pgsql') {
-		$res = q_singleval("select a.attnotnull from pg_class c, pg_attribute a WHERE c.relname = '".$tbl."' AND a.attname = '".sql_field_name($r, $n)."' AND a.attnum > 0 AND a.attrelid = c.oid");
-		return ($res == 't' ? true : false);
-	} else {
-		return (strpos(mysql_field_flags($r, $n), 'not_null') !== false) ? true : false;
 	}
 }
 
@@ -206,35 +146,37 @@ function sql_is_null($r, $n, $tbl='')
 		}
 		foreach ($files as $f) {
 			$sql_data = file_get_contents($f);
-			$sql_data = preg_replace("!\#.*?\n!s", "\n", $sql_data);
-			$sql_data = preg_replace("!\s+!s", " ", $sql_data);
+			$sql_data = preg_replace(array("!\#.*?\n!s","!\s+!s"), array("\n"," "), $sql_data);
 			$sql_data = str_replace(";", "\n", $sql_data);
-			$sql_data = str_replace("\r", "", $sql_data);
 			$write_func($fp, $sql_data . "\n");
 		}
+		unset($files);
 
 		$sql_table_list = get_fud_table_list();
 		db_lock(implode(' WRITE, ', $sql_table_list) . ' WRITE');
 
 		foreach($sql_table_list as $tbl_name) {
 			/* not needed, will be rebuilt by consistency checker */
-			if ($tbl_name == $DBHOST_TBL_PREFIX . 'thread_view' || $tbl_name == $DBHOST_TBL_PREFIX . 'ses') {
+			if ($tbl_name == $DBHOST_TBL_PREFIX . 'thread_view' || 
+					$tbl_name == $DBHOST_TBL_PREFIX . 'ses' ||
+					!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'fl_', strlen($DBHOST_TBL_PREFIX.'fl_'))
+				) {
 				continue;
 			}
 			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);
 
 			echo 'Processing table: '.$tbl_name.' ('.$num_entries.') .... ';
 			if ($num_entries) {
-				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '{SQL_TABLE_PREFIX}', $tbl_name);
-				// get field defenitions
-				$r = q('SELECT * FROM '.$tbl_name.' LIMIT 1');
-				$nf = sql_num_fields($r);
-				for ($i = 0; $i < $nf; $i++) {
-					$field_data[sql_field_name($r, $i)] = array('name' => sql_field_name($r, $i), 'type' => sql_field_type($r, $i), 'not_null' => sql_is_null($r, $i, $tbl_name));
-				}
+				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '', $tbl_name);
+				$write_func($fp, "\0\0\0\0".$db_name."\n");
+				
 				$c = uq('SELECT * FROM '.$tbl_name);
-				while ($r = db_rowobj($c)) {
-					$write_func($fp, make_insrt_qry($r, $db_name, $field_data)."\n");
+				while ($r = db_rowarr($c)) {
+					$tmp = '';
+					foreach ($r as $v) {
+						$tmp .= "'".addslashes($v)."',";
+					}
+					$write_func($fp, "(".substr($tmp, 0, -1).")\n");
 				}
 			}
 
