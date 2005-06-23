@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.68 2005/06/14 21:55:43 hackie Exp $
+* $Id: cookies.inc.t,v 1.69 2005/06/23 21:29:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -103,7 +103,7 @@ function &ses_anon_make()
 
 function ses_update_status($ses_id, $str=null, $forum_id=0, $ret='')
 {
-	q('UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=\''.ses_make_sysid().'\', forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action='.($str ? "'".addslashes($str)."'" : 'NULL').', returnto='.(!is_int($ret) ? strnull(addslashes($_SERVER['QUERY_STRING'])) : 'returnto').' WHERE id='.$ses_id);
+	q('UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=\''.ses_make_sysid().'\', forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action='.($str ? "'".addslashes($str)."'" : 'NULL').', returnto='.(!is_int($ret) ? (isset($_SERVER['QUERY_STRING']) ? addslashes($_SERVER['QUERY_STRING']) : 'NULL') : 'returnto').' WHERE id='.$ses_id);
 }
 
 function ses_putvar($ses_id, $data)
