@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.105 2005/06/20 23:18:40 hackie Exp $
+* $Id: consist.php,v 1.106 2005/06/23 15:19:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,6 +52,11 @@ function draw_stat($text)
 function draw_info($cnt)
 {
 	draw_stat(($cnt < 1 ? 'OK' : $cnt . ' entries unmatched, deleted'));
+}
+
+function stop_js()
+{
+	echo '<script language="Javascript1.2">clearInterval(intervalID);</script>';
 }
 
 function delete_zero($tbl, $q)
@@ -114,6 +119,7 @@ forum will be disabled.
 		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 		exit;
 	}
+	register_shutdown_function('stop_js');
 ?>
 <script language="Javascript1.2">
 	var intervalID;
@@ -143,19 +149,22 @@ forum will be disabled.
 	draw_stat('Locked!');
 
 	draw_stat('Validating category order');
-	$oldp = -1;
-	$c = q('SELECT id, view_order, parent FROM '.$tbl.'cat ORDER BY parent, view_order, id');
+	$oldp = -1; $tmp = array();
+	$c = uq('SELECT id, view_order, parent FROM '.$tbl.'cat ORDER BY parent, view_order, id');
 	while ($r = db_rowarr($c)) {
 		if ($oldp != $r[2]) {
 			$i = 1;
 			$oldp = $r[2];
 		}
 		if ($r[1] != $i) {
-			q('UPDATE '.$tbl.'cat SET view_order='.$i.' WHERE id='.$r[0]);
+			$tmp[(int)$r[0]] = $i;
 		}
 		++$i;
 	}
-	unset($r);
+	foreach ($tmp as $k => $v) {
+		q('UPDATE '.$tbl.'cat SET view_order='.$v.' WHERE id='.$k);
+	}
+	unset($r, $tmp);
 	draw_stat('Done: Validating category order');
 
 	draw_stat('Checking if moderator and users table match');
@@ -180,7 +189,7 @@ forum will be disabled.
 	while ($r = db_rowarr($c)) {
 		$m[] = $r[0];
 	}
-	if (count($m)) {
+	if ($m) {
 		q('UPDATE '.$tbl.'msg SET apr=1 WHERE id IN('.implode(',', $m).')');
 		unset($m);
 	}
@@ -199,7 +208,7 @@ forum will be disabled.
 			$tr[$r[2] - 1][] = $r[1];
 		}
 	}
-	if (count($del)) {
+	if ($del) {
 		q('DELETE FROM '.$tbl.'thread WHERE id='.implode(',', $del));
 	}
 	unset($tr[0]);
@@ -210,42 +219,52 @@ forum will be disabled.
 	draw_info($cnt);
 
 	draw_stat('Checking thread last & first post ids');
-	$c = q('SELECT m1.id, m2.id, t.id FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m1 ON t.root_msg_id=m1.id LEFT JOIN '.$tbl.'msg m2 ON t.last_post_id=m2.id WHERE m1.id IS NULL or m2.id IS NULL');
+	$m1 = $m2 = array();
+	$c = uq('SELECT m1.id, m2.id, t.id FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m1 ON t.root_msg_id=m1.id LEFT JOIN '.$tbl.'msg m2 ON t.last_post_id=m2.id WHERE m1.id IS NULL or m2.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		if (!$r[0]) {
-			if (!($root = q_singleval('SELECT id FROM '.$tbl.'msg WHERE thread_id='.$r[2].' ORDER BY post_stamp LIMIT 1'))) {
-				q('DELETE FROM '.$tbl.'thread WHERE id='.$r[2]);
-				continue;
-			} else {
-				q('UPDATE '.$tbl.'thread SET root_msg_id='.$root.' WHERE id='.$r[2]);
-			}
+			$m1[] = (int) $r[2];
 		}
-		$r2 = db_saq('SELECT id, post_stamp FROM '.$tbl.'msg WHERE thread_id='.$r[2].' ORDER BY post_stamp DESC LIMIT 1');
-		if (!$r2) {
-			q('DELETE FROM '.$tbl.'thread WHERE id='.$r[2]);
-		} else {
-			q('UPDATE '.$tbl.'thread SET last_post_id='.$r2[0].', last_post_date='.$r2[1].' WHERE id='.$r[2]);
+		if (!$r[1]) {
+			$m2[] = (int) $r[2];
 		}
 	}
+	foreach ($m1 as $v) {
+		if (!($root = q_singleval('SELECT id FROM '.$tbl.'msg WHERE thread_id='.$v.' ORDER BY post_stamp LIMIT 1'))) {
+			q('DELETE FROM '.$tbl.'thread WHERE id='.$v);
+		} else {
+			q('UPDATE '.$tbl.'thread SET root_msg_id='.$root.' WHERE id='.$v);
+		}
+	}
+	foreach ($m2 as $v) {
+		$r2 = db_saq('SELECT id, post_stamp FROM '.$tbl.'msg WHERE thread_id='.$v.' ORDER BY post_stamp DESC LIMIT 1');
+		if (!$r2) {
+			q('DELETE FROM '.$tbl.'thread WHERE id='.$v);
+		} else {
+			q('UPDATE '.$tbl.'thread SET last_post_id='.$r2[0].', last_post_date='.$r2[1].' WHERE id='.$v);
+		}
+	}
+	unset($m[1], $m[2]);
 	draw_stat('Done: Checking thread last & first post ids');
 
 	draw_stat('Checking forum & topic relations');
-	$c = q('SELECT id FROM '.$tbl.'forum');
-	while ($f = db_rowarr($c)) {
-		$r = db_saq('select SUM(replies), COUNT(*) FROM '.$tbl.'thread t INNER JOIN '.$tbl.'msg m ON t.root_msg_id=m.id AND m.apr=1 WHERE t.forum_id='.$f[0]);
-		if (!$r[1]) {
-			q('UPDATE '.$tbl.'forum SET thread_count=0, post_count=0, last_post_id=0 WHERE id='.$f[0]);
-		} else {
-			$lpi = q_singleval('SELECT MAX(last_post_id) FROM '.$tbl.'thread WHERE forum_id='.$f[0].' AND moved_to=0');
-			q('UPDATE '.$tbl.'forum SET thread_count='.$r[1].', post_count='.($r[0] + $r[1]).', last_post_id='.(int)$lpi.' WHERE id='.$f[0]);
+	q('UPDATE '.$tbl.'forum SET thread_count=0, post_count=0, last_post_id=0');
+	$tmp = array();
+	$c = uq('SELECT SUM(replies), COUNT(*), t.forum_id, MAX(t.last_post_id) FROM '.$tbl.'thread t INNER JOIN '.$tbl.'msg m ON t.root_msg_id=m.id AND m.apr=1 WHERE t.moved_to=0 GROUP BY t.forum_id');
+	while ($r = db_rowarr($c)) {
+		if ($r[1]) {
+			$tmp[] = $r;
 		}
 	}
-	unset($c);
+	foreach ($tmp as $r) {
+		q('UPDATE '.$tbl.'forum SET thread_count='.$r[1].', post_count='.($r[0] + $r[1]).', last_post_id='.(int)$r[3].' WHERE id='.$r[2]);
+	}
+	unset($c, $tmp);
 	draw_stat('Done: Checking forum & topic relations');
 
 	draw_stat('Validating Forum Order');
-	$cat = 0;
-	$c = q('SELECT id, cat_id, view_order FROM '.$tbl.'forum WHERE cat_id>0 ORDER BY cat_id, view_order');
+	$cat = 0; $tmp = array();
+	$c = uq('SELECT id, cat_id, view_order FROM '.$tbl.'forum WHERE cat_id>0 ORDER BY cat_id, view_order');
 	while ($f = db_rowarr($c)) {
 		if ($cat != $f[1]) {
 			$i = 0;
@@ -253,23 +272,32 @@ forum will be disabled.
 		}
 		++$i;
 		if ($i != $f[2]) {
-			q('UPDATE '.$tbl.'forum SET view_order='.$i.' WHERE id='.$f[0]);
+			$tmp[(int)$f[0]] = $i;
 		}
 	}
+	foreach ($tmp as $k => $v) {
+		q('UPDATE '.$tbl.'forum SET view_order='.$v.' WHERE id='.$k);
+	}
+	unset($tmp, $c);
 	draw_stat('Done: Validating Forum Order');
 
 	draw_stat('Checking for presence of forum lock tables');
 	$tbl_k = array_flip($tbls);
-	$c = q('SELECT id FROM '.$tbl.'forum');
+	$tmp = array();
+	$c = uq('SELECT id FROM '.$tbl.'forum');
 	while ($f = db_rowarr($c)) {
 		if (!isset($tbl_k[$tbl.'fl_'.$f[0]])) {
-			q("CREATE TABLE ".$tbl."fl_".$f[0]." (id INT)");
+			$tmp[] = (int)$f[0];
 		}
+	}
+	foreach ($tmp as $v) {
+		q("CREATE TABLE ".$tbl."fl_".$v." (id INT)");
 	}
 	/* private message lock table */
 	if (!isset($tbl_k[$tbl.'fl_pm'])) {
 		q("CREATE TABLE ".$tbl."fl_pm (id INT)");
 	}
+	unset($tmp);
 	draw_stat('Done: Checking for presence of forum lock tables');
 
 	draw_stat('Checking thread_exchange');
@@ -313,8 +341,9 @@ forum will be disabled.
 		$atr[] = $r;
 	}
 	unset($c);
-	if (count($atr)) {
+	if ($atr) {
 		q('UPDATE '.$tbl.'msg SET attach_cnt='.count($atr).', attach_cache='.strnull(addslashes(@serialize($atr))).' WHERE id='.$oldm);
+		unset($atr);
 	}
 	draw_stat('Done: Rebuild attachment cache for regular messages');
 
@@ -331,18 +360,18 @@ forum will be disabled.
 	delete_zero($tbl.'msg_report', 'SELECT mr.id FROM '.$tbl.'msg_report mr LEFT JOIN '.$tbl.'msg m ON mr.msg_id=m.id WHERE m.id IS NULL');
 
 	draw_stat('Checking polls against messages');
-	$cnt = 0;
-	$c = q('SELECT p.id, m.id FROM '.$tbl.'poll p LEFT JOIN '.$tbl.'msg m ON p.id=m.poll_id WHERE m.id IS NULL OR p.id IS NULL');
+	delete_zero($tbl.'poll', 'SELECT p.id FROM '.$tbl.'poll p LEFT JOIN '.$tbl.'msg m ON p.id=m.poll_id WHERE m.id IS NULL');
+
+	draw_stat('Checking messages against polls');
+	$tmp = array();
+	$c = uq('SELECT m.id FROM '.$tbl.'msg m LEFT JOIN '.$tbl.'poll p ON p.id=m.poll_id WHERE p.id IS NULL');
 	while ($r = db_rowarr($c)) {
-		if ($r[0]) {
-			q('DELETE FROM '.$tbl.'poll WHERE id='.$r[0]);
-			++$cnt;
-		} else {
-			q('UPDATE '.$tbl.'msg SET poll_id=0, poll_cache=NULL WHERE id='.$r[1]);
-		}
+		$tmp[] = (int) $r[0];
 	}
-	unset($c);
-	draw_info($cnt);
+	if ($tmp) {
+		q('UPDATE '.$tbl.'msg SET poll_id=0, poll_cache=NULL WHERE id IN('.implode(',', $tmp).')');
+		unset($tmp);
+	}
 
 	draw_stat('Checking polls options against polls');
 	delete_zero($tbl.'poll_opt', 'SELECT po.id FROM '.$tbl.'poll_opt po LEFT JOIN '.$tbl.'poll p ON p.id=po.poll_id WHERE p.id IS NULL');
@@ -378,7 +407,7 @@ forum will be disabled.
 		$vt += $r[2];
 	}
 	unset($c);
-	if (count($opts)) {
+	if ($opts) {
 		q('UPDATE '.$tbl.'msg SET poll_cache='.strnull(addslashes(@serialize($opts))).' WHERE poll_id='.$oldp);
 		q('UPDATE '.$tbl.'poll SET total_votes='.$vt.' WHERE id='.$oldp);
 	}
@@ -508,7 +537,7 @@ forum will be disabled.
 		$br[$r[0]] = 1;
 	}
 	unset($c);
-	if (count($br)) {
+	if ($br) {
 		q('UPDATE '.$tbl.'users SET buddy_list='.strnull(addslashes(@serialize($br))).' WHERE id='.$oldu);
 		unset($br);
 	}
@@ -529,7 +558,7 @@ forum will be disabled.
 		$ir[$r[0]] = 1;
 	}
 	unset($c);
-	if (count($ir)) {
+	if ($ir) {
 		q('UPDATE '.$tbl.'users SET ignore_list='.strnull(addslashes(@serialize($ir))).' WHERE id='.$oldu);
 		unset($ir);
 	}
@@ -706,6 +735,5 @@ forum will be disabled.
 	draw_stat('DONE');
 
 	echo 'It is recommended that you run SQL table optimizer after completing the consistency check. To do so <a href="consist.php?opt=1&'.__adm_rsidl.'">click here</a>, keep in mind that this process make take several minutes to perform.';
-	echo '<script language="Javascript1.2">clearInterval(intervalID);</script>';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>
