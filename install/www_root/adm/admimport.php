@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.44 2005/06/23 13:12:12 hackie Exp $
+* $Id: admimport.php,v 1.45 2005/06/23 14:52:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -222,6 +222,11 @@ function resolve_dest_path($path)
 					}
 				}
 			}
+
+			/* handle importing of GLOBAL options */
+			eval(trim($readf($fp, 100000))); // should be enough to read all options in one shot
+			fud_use('glob.inc', true);
+			change_global_settings($global_vals);
 
 			/* Try to restore the current admin's account by seeing if he exists in the imported database */
 			if (($uid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".$usr->login."' AND users_opt>=1048576 AND (users_opt & 1048576) > 0"))) {

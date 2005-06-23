@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.55 2005/06/23 13:11:22 hackie Exp $
+* $Id: admdump.php,v 1.56 2005/06/23 14:52:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -188,6 +188,21 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 		}
 
 		$write_func($fp, "\n----SQL_END----\n");
+
+		/* backup GLOBALS.php */
+		fud_use('glob.inc', true);
+		$skip = array_flip(array('WWW_ROOT','COOKIE_PATH','COOKIE_DOMAIN','COOKIE_NAME',
+			'DBHOST','DBHOST_USER','DBHOST_PASSWORD','DBHOST_DBNAME','DBHOST_TBL_PREFIX',
+			'ADMIN_EMAIL','DATA_DIR','WWW_ROOT_DISK','INCLUDE','ERROR_PATH',
+			'MSG_STORE_DIR','TMP','FILE_STORE','FORUM_SETTINGS_PATH'));
+		$vars = array();
+		foreach (read_help() as $k => $v) {
+			if ($v[1] != NULL || isset($skip[$k])) {
+				continue;
+			}
+			$vars[$k] = $$k;
+		}
+		$write_func($fp, "\n\$global_vals = ".var_export($vars, 1).";\n");
 
 		if (isset($_POST['compress'])) {
 			gzclose($fp);
