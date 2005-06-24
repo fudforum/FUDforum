@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.50 2005/06/22 03:30:37 hackie Exp $
+* $Id: compact.php,v 1.51 2005/06/24 02:27:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,6 +55,7 @@ and the amount of messages your forum has.
 </script>
 <?php
 $GLOBALS['__FUD_TMP_F__'] = array();
+
 function write_body_c($data, &$len, &$offset, $fid)
 {
 	$MAX_FILE_SIZE = 2140000000;
@@ -62,23 +63,21 @@ function write_body_c($data, &$len, &$offset, $fid)
 
 	$s = $fid * 10000;
 
-	if (empty($GLOBALS['__FUD_TMP_F__'][$s])) {
-		$GLOBALS['__FUD_TMP_F__'][$s][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$s, 'ab');
-		flock($GLOBALS['__FUD_TMP_F__'][$s][0], LOCK_EX);
-		$GLOBALS['__FUD_TMP_F__'][$s][1] = __ffilesize($GLOBALS['__FUD_TMP_F__'][$s][0]);
-	}
-	while ($GLOBALS['__FUD_TMP_F__'][$s][1] + $len > $MAX_FILE_SIZE) {
-		++$s;
-		$GLOBALS['__FUD_TMP_F__'][$s][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$s, 'ab');
-		flock($GLOBALS['__FUD_TMP_F__'][$s][0], LOCK_EX);
-		$GLOBALS['__FUD_TMP_F__'][$s][1] = __ffilesize($GLOBALS['__FUD_TMP_F__'][$s][0]);
+	$f =& $GLOBALS['__FUD_TMP_F__'];
+
+	while (!isset($f[$s]) || $f[$s][1] + $len > $MAX_FILE_SIZE) {
+		if (isset($f[$s])) ++$s;
+
+		$f[$s][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$s, 'ab');
+		flock($f[$s][0], LOCK_EX);
+		$f[$s][1] = __ffilesize($f[$s][0]);
 	}
 
-	if (fwrite($GLOBALS['__FUD_TMP_F__'][$s][0], $data) != $len || !fflush($GLOBALS['__FUD_TMP_F__'][$s][0])) {
+	if (fwrite($f[$s][0], $data) != $len) {
 		exit("FATAL ERROR: system has ran out of disk space<br>\n");
 	}
-	$offset = $GLOBALS['__FUD_TMP_F__'][$s][1];
-	$GLOBALS['__FUD_TMP_F__'][$s][1] += $len;
+	$offset = $f[$s][1];
+	$f[$s][1] += $len;
 
 	return $s;
 }
@@ -113,14 +112,14 @@ function eta_calc($start, $pos, $pc)
 	$stm = time();
 	if ($pc) {
 		db_lock($tbl.'msg m WRITE, '.$tbl.'thread t WRITE, '.$tbl.'forum f WRITE, '.$tbl.'msg WRITE');
-		
+
 		$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold, f.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id>0');
-		
+
 		while ($r = db_rowarr($c)) {
 			if ($r[4] && $r[2] > $r[4]) {
 				$m2 = write_body_c(trim_html(read_msg_body($r[1], $r[2], $r[3]), $r[4]), $len2, $off2, $r[5]);
 			} else {
-				$m2 = $len2 = $off2 = 0;				
+				$m2 = $len2 = $off2 = 0;
 			}
 
 			$m1 = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $len, $off, $r[5]);
@@ -132,10 +131,6 @@ function eta_calc($start, $pos, $pc)
 			$i++;
 		}
 		unset($c);
-
-		foreach ($GLOBALS['__FUD_TMP_F__'] as $f) {
-			fclose($f[0]);
-		}
 
 		/* rename our temporary files & update the database */
 		q('UPDATE '.$tbl.'msg SET file_id=-file_id, file_id_preview=-file_id_preview WHERE file_id<0');
@@ -152,6 +147,7 @@ function eta_calc($start, $pos, $pc)
 
 		/* move new message files to the new location */
 		foreach ($GLOBALS['__FUD_TMP_F__'] as $k => $f) {
+			fclose($GLOBALS['__FUD_TMP_F__'][$k][0]);
 			rename($MSG_STORE_DIR . 'tmp_msg_'.$k, $MSG_STORE_DIR . 'msg_'.$k);
 			chmod($MSG_STORE_DIR . 'msg_'.$k, $mode);
 		}
