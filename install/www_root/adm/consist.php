@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.107 2005/06/23 22:25:03 hackie Exp $
+* $Id: consist.php,v 1.108 2005/06/24 23:16:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -365,7 +365,7 @@ forum will be disabled.
 
 	draw_stat('Checking messages against polls');
 	$tmp = array();
-	$c = uq('SELECT m.id FROM '.$tbl.'msg m LEFT JOIN '.$tbl.'poll p ON p.id=m.poll_id WHERE p.id IS NULL');
+	$c = uq('SELECT m.id FROM '.$tbl.'msg m LEFT JOIN '.$tbl.'poll p ON p.id=m.poll_id WHERE p.id IS NULL AND m.poll_id > 0');
 	while ($r = db_rowarr($c)) {
 		$tmp[] = (int) $r[0];
 	}
