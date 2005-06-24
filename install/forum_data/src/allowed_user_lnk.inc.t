@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: allowed_user_lnk.inc.t,v 1.27 2005/06/14 21:55:43 hackie Exp $
+* $Id: allowed_user_lnk.inc.t,v 1.28 2005/06/24 20:00:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -78,6 +78,7 @@ function is_allowed_user(&$usr, $simple=0)
 	if (($banned = $usr->users_opt & 65536) && $usr->ban_expiry && $usr->ban_expiry < __request_timestamp__) {
 		q("UPDATE {SQL_TABLE_PREFIX}users SET users_opt = users_opt &~ 65536 WHERE id=".$usr->id);
 		$usr->users_opt ^= 65536; 
+		$banned = 0;
 	} 
 
 	if ($banned || is_email_blocked($usr->email) || is_login_blocked($usr->login) || is_ip_blocked(get_ip())) {
