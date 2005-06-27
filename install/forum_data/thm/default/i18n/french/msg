@@ -984,17 +984,17 @@ register_err_turing:		Code de validation incorrect.
 modque_cat:			Catégorie
 modque_forum:			Forum
 idx_compact_forum_row:		Forums disponibles :
-mmd_del_title:			Delete Topics
-mmd_mov_title:			Move Topics
-mmd_move_threads_to:		Destination Forum:
-mmd_abort_move:			Cancel
-mmd_move:			Move Topics
-pmsg_pdf_btn:			Make PDF Archive
-search_results_hdr:		{VAR: total} Search Results Found
-thread_del_all:			Delete All Selected
-thread_mov_all:			Move All Selected
-dmsg_ip:			IP:
-err_banned_acct_title:		ERROR: You have been banned.
-err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
-err_blockedaccnt_title:		ERROR: Your account has been filtered out.
-err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
+mmd_del_title:			Effacement de sujets
+mmd_mov_title:			Déplacement de sujets
+mmd_move_threads_to:		Forum de destination :
+mmd_abort_move:			Annuler
+mmd_move:			Déplacer les sujets
+pmsg_pdf_btn:			Constituer une archive PDF
+search_results_hdr:		{VAR: total} résultats pour cette recherche
+thread_del_all:			Supprimer tout ce qui est sélectionné
+thread_mov_all:			Déplacer tout ce qui est sélectionné
+dmsg_ip:			IP :
+err_banned_acct_title:		ERREUR: Vous êtes banni.
+err_banned_acct_msg:		Votre compte a été banni {IF: $ban_expiry}temporairement jusqu\'au {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}de façon permanente{ENDI} de l\'accès à ce site, pour avoir violé les règles du forum.
+err_blockedaccnt_title:		ERREUR: Votre compte a été filtré.
+err_blockedaccnt_msg:		Votre compte ne peut pas accéder à ce forum à cause de l\'un des filtres utilisateurs installés.
