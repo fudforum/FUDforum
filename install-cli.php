@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.14 2005/06/27 15:15:06 hackie Exp $
+* $Id: install-cli.php,v 1.15 2005/06/27 16:14:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -216,7 +216,8 @@ function dbperms_check()
 	/* version check */
 	if (($r = dbquery('SELECT VERSION()'))) {
 		$fetch = __dbtype__ == 'pgsql' ? 'pg_fetch_row' : 'mysql_fetch_row';
-		if (preg_match('!([3-8]\.[0-9]+(?:\.[0-9]+)?)!', @current($fetch($r)), $m)) {
+		$val = $fetch($r);
+		if ($val && preg_match('!([3-8]\.[0-9]+(?:\.[0-9]+)?)!', $val[0], $m)) {
 			$version = $m[1];
 		} else {
 			$version = 0;

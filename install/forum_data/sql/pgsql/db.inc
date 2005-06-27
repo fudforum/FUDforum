@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.56 2005/06/04 20:39:31 hackie Exp $
+* $Id: db.inc,v 1.57 2005/06/27 16:14:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -85,7 +85,8 @@ if (!defined('fud_sql_lnk')) {
 function get_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		define('__FUD_SQL_VERSION__', @current(pg_fetch_row(pg_query('SELECT VERSION()', fud_sql_lnk))));
+		$val = pg_fetch_row(pg_query('SELECT VERSION()', fud_sql_lnk))
+		define('__FUD_SQL_VERSION__', $val ? $val[0] : null);
 	}
 	return __FUD_SQL_VERSION__;
 }
@@ -198,7 +199,8 @@ function &db_rowarr(&$result)
 
 function q_singleval($query)
 {
-	return @current(pg_fetch_row(q($query)));
+	$val = pg_fetch_row(q($query));
+	return $val ? $val[0] : null;
 }
 
 function qry_limit($limit, $off)
