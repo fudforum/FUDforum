@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admspell.php,v 1.9 2004/11/24 19:53:43 hackie Exp $
+* $Id: admspell.php,v 1.10 2005/06/27 13:56:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,6 +39,7 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Custom Dictionary Spell Checker</h2>
+<b>Custom Dictionary Location: </b><?php echo $FORUM_SETTINGS_PATH."forum.pws"; ?><br />
 <form method="post" name="spell" action="admspell.php">
 <?php
 	echo _hs;
