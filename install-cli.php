@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.13 2005/04/03 17:14:49 hackie Exp $
+* $Id: install-cli.php,v 1.14 2005/06/27 15:15:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -244,9 +244,6 @@ function dbperms_check()
 			if (!mysql_query('DROP TABLE fud_forum_install_test_table')) {
 				fe("Your MySQL account does not have permissions to run DROP TABLE queries on existing MySQL tables\nEnable this functionality and restart the script.\n");
 			}
-			if (!mysql_query("CREATE TEMPORARY TABLE fud_forum_install_test_table (test_val INT)")) {
-				fe("Your MySQL account does not have permissions to create temporary tables.\nEnable this functionality and restart the script.\n");
-			}
 			break;
 		case 'pgsql':
 			@pg_query(__FUD_SQL_LNK__, 'DROP TABLE fud_forum_install_test_table');
@@ -260,9 +257,6 @@ function dbperms_check()
 
 			if (!pg_query(__FUD_SQL_LNK__, 'DROP TABLE fud_forum_install_test_table')) {
 				fe("Your PostgreSQL account does not have permissions to run DROP TABLE queries on existing PostgreSQL tables\nEnable this functionality and restart the script.\n");
-			}
-			if (!pg_query(__FUD_SQL_LNK__, "CREATE TEMPORARY TABLE fud_forum_install_test_table (test_val INT)")) {
-				fe("Your PostgreSQL account does not have permissions to create temporary tables.\nEnable this functionality and restart the script.\n");
 			}
 			break;
 	}
