@@ -411,3 +411,6 @@ If enabled the forum will use various query optimization tricks available throug
 
 {{{DISABLE_WELCOME_EMAIL	FUD_OPT_3	2048
 If enabled the forum will no longer send welcome e-mails when new users register.}}}
+
+{{{USE_TEMP_TABLES	FUD_OPT_3	4096
+Use temporary SQL tables to optimize some operations (dependant on the ability to create temp tables).}}}

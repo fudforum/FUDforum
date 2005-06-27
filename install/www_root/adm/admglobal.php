@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.71 2005/05/31 03:29:01 hackie Exp $
+* $Id: admglobal.php,v 1.72 2005/06/27 15:54:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -68,6 +68,21 @@ function get_max_upload_size()
 		/* disable apache_setenv() is no such function */
 		if ($GLOBALS['NEW_FUD_OPT_3'] & 512 && !function_exists('apache_setenv')) {
 			$GLOBALS['NEW_FUD_OPT_3'] ^= 512;
+		}
+
+		/* Check for TEMP table usage */
+		if ($NEW_FUD_OPT_3 & 4096) {
+			$qry = '';
+			if ($DBHOST_TYPE) {
+				$res = @db::$db->exec($qry);
+			} else if (__dbtype__ == 'mysql') {
+				$res = @pg_query(fud_sql_lnk, $qry);
+			} else {
+				$res = @mysql_query($qry, fud_sql_lnk);
+			}
+			if ($res === FALSE) {
+			 	$GLOBALS['NEW_FUD_OPT_3'] ^= 4096;
+			}
 		}
 
 		for ($i = 1; $i < 10; $i++) {
@@ -332,6 +347,7 @@ function get_max_upload_size()
 	print_bit_field('Disable Turing Test', 'DISABLE_TURING_TEST');
 	print_bit_field('Disable AutoComplete', 'DISABLE_AUTOCOMPLETE');
 	print_bit_field('Do not set timezone', 'APACHE_PUTENV');
+	print_bit_field('Use Temporary Tables', 'USE_TEMP_TABLES');
 ?>
 <tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 </table>

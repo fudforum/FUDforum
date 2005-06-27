@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groups.inc.t,v 1.34 2004/12/02 20:18:35 hackie Exp $
+* $Id: groups.inc.t,v 1.35 2005/06/27 15:54:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -77,22 +77,15 @@ function grp_rebuild_cache($user_id=null)
 		return;
 	}
 	
-	$tmp_t = "{SQL_TABLE_PREFIX}gc_".__request_timestamp__;
-	q("CREATE TEMPORARY TABLE ".$tmp_t." (a INT, b INT, c INT)");
-	ins_m($tmp_t, "a,b,c", $tmp, "integer, integer, integer");
-
 	if (($ll = !db_locked())) {
 		db_lock("{SQL_TABLE_PREFIX}group_cache WRITE");
 	}
 
-	q("DELETE FROM {SQL_TABLE_PREFIX}group_cache" . ($lmt ? ' WHERE '.$lmt : ''));
-	q("INSERT INTO {SQL_TABLE_PREFIX}group_cache (resource_id, group_cache_opt, user_id) SELECT a,b,c FROM ".$tmp_t);
+	ins_m("{SQL_TABLE_PREFIX}group_cache", "resource_id, group_cache_opt, user_id", $tmp, "integer, integer, integer");
 
 	if ($ll) {
 		db_unlock();
 	}
-
-	q("DROP TABLE ".$tmp_t);
 }
 
 function group_perm_array()
