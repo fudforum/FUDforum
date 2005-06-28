@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.2 2005/06/28 00:25:52 hackie Exp $
+* $Id: db.inc,v 1.3 2005/06/28 01:01:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -64,7 +64,7 @@ class db { public static $db, $ar, $res; }
 
 if (!defined('fud_sql_lnk')) {
 	switch ($GLOBALS['DBHOST_DBTYPE']) {
-		case 'mysql':
+		case 'pdo_mysql':
 			if ($GLOBALS['DBHOST']{0} == ':') {
 				$host = 'unix_socket='.substr($GLOBALS['DBHOST'], 1);
 			} else {
@@ -73,10 +73,10 @@ if (!defined('fud_sql_lnk')) {
 		
 			$dsn = 'mysql:'.$host.';dbname='.$GLOBALS['DBHOST_DBNAME'];
 			break;
-		case 'sqlite':
+		case 'pdo_sqlite':
 			$dsn = 'sqlite:'.$GLOBALS['DBHOST'];
 			break;
-		case 'pgsql':
+		case 'pdo_pgsql':
 			$dsn = 'pgsql:';
 			if ($GLOBALS['DBHOST']) {
 				$dsn .= 'host='.$GLOBALS['DBHOST'];
@@ -99,7 +99,7 @@ if (!defined('fud_sql_lnk')) {
 		fud_sql_error_handler("Failed to establish database connection, PDO says: ".$e->getMessage(), '', '', '');
 	}
 
-	define('__dbtype__', $GLOBALS['DBHOST_DBTYPE']);
+	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
 	define('__FUD_SQL_CONCAT__', 'CONCAT');
 }
 
