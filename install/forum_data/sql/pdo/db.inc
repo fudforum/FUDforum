@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.7 2005/06/28 03:31:56 hackie Exp $
+* $Id: db.inc,v 1.8 2005/06/28 14:58:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -128,10 +128,8 @@ function db_lock($tables)
 			// need this because pgsql can't handle lock aliases
 			$tbl = array();
 			foreach (explode(',', str_replace(' WRITE', '', $tables)) as $v) {
-				$n = ($p = strpos($v, ' ')) !== false ? substr($v,0,$p) : $v;
-				if (($n = trim($n))) {
-					$tbl[$n] = $n;
-				}
+				if (!($v = trim($v))) continue;
+				$tbl[] = ($p = strpos($v, ' ')) !== false ? substr($v,0,$p) : $v;
 			}
 			q('BEGIN WORK');
 			q('LOCK TABLE '.implode(',', $tbl).' IN ACCESS EXCLUSIVE MODE');
@@ -374,10 +372,10 @@ function ins_m($tbl, $flds, $vals, $type=0)
 	}
 				
 	$sth = db::$db->prepare('INSERT INTO '.$tbl.' ('.$flds.') VALUES(?'.str_repeat(',?',substr_count($flds, ',')).')');
-	$err = error_reporting(0);
 	foreach ($vals as $v) {
-		$sth->execute(explode(',', $v));
+		if (!$sth->execute(explode(',', $v))) {
+			die(fud_sql_error_handler($sth->queryString, db::$db->errorCode(), __enifo(db::$db->errorInfo()), get_version()));
+		}
 	}
-	error_reporting($err);
 }
 ?>
