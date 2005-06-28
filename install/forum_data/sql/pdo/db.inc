@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.8 2005/06/28 14:58:24 hackie Exp $
+* $Id: db.inc,v 1.9 2005/06/28 22:10:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -60,7 +60,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 	exit;
 }
 
-class db { public static $db, $ar, $res; }
+class db { public static $db, $ar, $res, $buf; }
 
 if (!defined('fud_sql_lnk')) {
 	switch ($GLOBALS['DBHOST_DBTYPE']) {
@@ -189,10 +189,14 @@ function uq($query, $buf=0)
 {
 	if (!strncasecmp($query, 'SELECT', 6)) {
 		db::$res = NULL;
+		db::$buf = $buf;
 		if ($buf && __dbtype__ == 'mysql') db::$db->setAttribute(PDO_MYSQL_ATTR_USE_BUFFERED_QUERY, 1);
 		db::$res = db::$db->query($query) or die (fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), get_version()));
 		if ($buf && __dbtype__ == 'mysql') db::$db->setAttribute(PDO_MYSQL_ATTR_USE_BUFFERED_QUERY, 0);
 		return db::$res;
+	}
+	if (!db::$buf) {
+		db::$res = NULL;
 	}
 	if ((db::$ar = db::$db->exec($query)) === FALSE) {
 		die (fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), get_version()));
@@ -222,7 +226,7 @@ function &db_rowarr($result)
 
 function q_singleval($query)
 {
-	return q($query)->fetchColumn();
+	return uq($query)->fetchColumn();
 }
 
 function qry_limit($limit, $off)
@@ -283,32 +287,32 @@ function optimize_tables($tbl_list=null)
 
 	switch (__dbtype__) {
 		case 'mysql':
-			q('OPTIMIZE TABLE '. implode(', ', $tbl_list));
+			uq('OPTIMIZE TABLE '. implode(', ', $tbl_list));
 			break;
 
 		case 'pgsql':
-			foreach ($tbl_list as $t) { q('VACUUM ANALYZE ' . $t); }
+			foreach ($tbl_list as $t) { uq('VACUUM ANALYZE ' . $t); }
 			break;
 
 		case 'sqlite':
-			q("VACUUM");
+			uq("VACUUM");
 			break;
 	}
 }
 
 function &db_saq($q)
 {
-	return q($q)->fetch(PDO_FETCH_NUM);
+	return uq($q)->fetch(PDO_FETCH_NUM);
 }
 
 function db_sab($q)
 {
-	return q($q)->fetch(PDO_FETCH_OBJ);
+	return uq($q)->fetch(PDO_FETCH_OBJ);
 }
 
 function db_qid($q)
 {
-	q($q);
+	uq($q);
 	switch (__dbtype__) {
 		case 'mysql':
 		case 'sqlite':
@@ -323,7 +327,7 @@ function db_qid($q)
 
 function &db_arr_assoc($q)
 {
-	return q($q)->fetch(PDO_FETCH_ASSOC);
+	return uq($q)->fetch(PDO_FETCH_ASSOC);
 }
 
 function db_li($q, &$ef, $li=0)
@@ -368,7 +372,7 @@ function db_li($q, &$ef, $li=0)
 function ins_m($tbl, $flds, $vals, $type=0)
 {
 	if (__dbtype__ == 'mysql') {
-		return q("INSERT IGNORE INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
+		return uq("INSERT IGNORE INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
 	}
 				
 	$sth = db::$db->prepare('INSERT INTO '.$tbl.' ('.$flds.') VALUES(?'.str_repeat(',?',substr_count($flds, ',')).')');
