@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.1 2005/06/28 00:05:19 hackie Exp $
+* $Id: db.inc,v 1.2 2005/06/28 00:25:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -63,7 +63,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 class db { public static $db, $ar, $res; }
 
 if (!defined('fud_sql_lnk')) {
-	switch ($GLOBALS['DHOST_TYPE']) {
+	switch ($GLOBALS['DBHOST_DBTYPE']) {
 		case 'mysql':
 			if ($GLOBALS['DBHOST']{0} == ':') {
 				$host = 'unix_socket='.substr($GLOBALS['DBHOST'], 1);
@@ -99,7 +99,7 @@ if (!defined('fud_sql_lnk')) {
 		fud_sql_error_handler("Failed to establish database connection, PDO says: ".$e->getMessage(), '', '', '');
 	}
 
-	define('__dbtype__', $GLOBALS['DHOST_TYPE']);
+	define('__dbtype__', $GLOBALS['DBHOST_DBTYPE']);
 	define('__FUD_SQL_CONCAT__', 'CONCAT');
 }
 
