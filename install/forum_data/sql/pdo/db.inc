@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.6 2005/06/28 03:12:29 hackie Exp $
+* $Id: db.inc,v 1.7 2005/06/28 03:31:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -72,6 +72,7 @@ if (!defined('fud_sql_lnk')) {
 			}
 		
 			$dsn = 'mysql:'.$host.';dbname='.$GLOBALS['DBHOST_DBNAME'];
+			define('__FUD_SQL_CONCAT__', 'CONCAT');
 			break;
 		case 'pdo_sqlite':
 			$dsn = 'sqlite:'.$GLOBALS['DBHOST'];
@@ -90,6 +91,7 @@ if (!defined('fud_sql_lnk')) {
 			if ($GLOBALS['DBHOST_DBNAME']) {
 				$dsn .= ' dbname='.$GLOBALS['DBHOST_DBNAME'];
 			}
+			define('__FUD_SQL_CONCAT__', 'textcat');
 			break;
 	}
 
@@ -100,7 +102,6 @@ if (!defined('fud_sql_lnk')) {
 	}
 
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
-	define('__FUD_SQL_CONCAT__', 'CONCAT');
 }
 
 function get_version()
@@ -124,8 +125,16 @@ function db_lock($tables)
 			break;
 
 		case 'pgsql':
+			// need this because pgsql can't handle lock aliases
+			$tbl = array();
+			foreach (explode(',', str_replace(' WRITE', '', $tables)) as $v) {
+				$n = ($p = strpos($v, ' ')) !== false ? substr($v,0,$p) : $v;
+				if (($n = trim($n))) {
+					$tbl[$n] = $n;
+				}
+			}
 			q('BEGIN WORK');
-			q('LOCK TABLE '.str_replace(' WRITE', '', $tables).' IN ACCESS EXCLUSIVE MODE');
+			q('LOCK TABLE '.implode(',', $tbl).' IN ACCESS EXCLUSIVE MODE');
 			break;
 
 		case 'sqlite':
