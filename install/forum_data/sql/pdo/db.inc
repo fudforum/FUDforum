@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.3 2005/06/28 01:01:10 hackie Exp $
+* $Id: db.inc,v 1.4 2005/06/28 02:08:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -190,9 +190,9 @@ function uq($query, $buf=0)
 {
 	if (!strncasecmp($query, 'SELECT', 6)) {
 		db::$res = NULL;
-		if ($buf) db::$db->setAttribute(PDO_MYSQL_ATTR_USE_BUFFERED_QUERY, 1);
+		if ($buf && __dbtype__ == 'mysql') db::$db->setAttribute(PDO_MYSQL_ATTR_USE_BUFFERED_QUERY, 1);
 		db::$res = db::$db->query($query) or die (fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), get_version()));
-		if ($buf) db::$db->setAttribute(PDO_MYSQL_ATTR_USE_BUFFERED_QUERY, 0);
+		if ($buf && __dbtype__ == 'mysql') db::$db->setAttribute(PDO_MYSQL_ATTR_USE_BUFFERED_QUERY, 0);
 		return db::$res;
 	}
 	if ((db::$ar = db::$db->exec($query)) === FALSE) {
@@ -317,8 +317,7 @@ function db_qid($q)
 
 		case 'pgsql':
 			// INSERT INTO 
-			$tbl = substr($q, 12, strpos($q, ' ', 13) - 12);
-			return q_singleval('SELECT id FROM '.$tbl.' WHERE oid='.db::$db->lastInsertId());
+			return q_singleval("SELECT currval('".substr($q, 12, strpos($q, ' ', 13) - 12)."_id_seq')");
 	}
 }
 
@@ -343,8 +342,7 @@ function db_li($q, &$ef, $li=0)
 
 			case 'pgsql':
 				// INSERT INTO 
-				$tbl = substr($q, 12, strpos($q, ' ', 13) - 12);
-				return q_singleval('SELECT id FROM '.$tbl.' WHERE oid='.db::$db->lastInsertId());
+				return q_singleval("SELECT currval('".substr($q, 12, strpos($q, ' ', 13) - 12)."_id_seq')");
 		}
 	}
 
