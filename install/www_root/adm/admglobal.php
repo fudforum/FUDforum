@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.72 2005/06/27 15:54:12 hackie Exp $
+* $Id: admglobal.php,v 1.73 2005/06/28 00:43:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -73,7 +73,7 @@ function get_max_upload_size()
 		/* Check for TEMP table usage */
 		if ($NEW_FUD_OPT_3 & 4096) {
 			$qry = '';
-			if ($DBHOST_TYPE) {
+			if ($DBHOST_DBTYPE) {
 				$res = @db::$db->exec($qry);
 			} else if (__dbtype__ == 'mysql') {
 				$res = @pg_query(fud_sql_lnk, $qry);
