@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.74 2005/06/28 15:33:46 hackie Exp $
+* $Id: admglobal.php,v 1.75 2005/06/28 15:39:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -72,7 +72,7 @@ function get_max_upload_size()
 
 		/* Check for TEMP table usage */
 		if ($NEW_FUD_OPT_3 & 4096) {
-			$qry = '';
+			$qry = 'CREATE TEMPORARY TABLE '.$DBHOST_TBL_PREFIX.'temp_test (val INT)';
 			if ($DBHOST_DBTYPE) {
 				$res = @db::$db->exec($qry);
 			} else if (__dbtype__ == 'pgsql') {
