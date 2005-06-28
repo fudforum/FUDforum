@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.4 2005/06/28 02:08:22 hackie Exp $
+* $Id: db.inc,v 1.5 2005/06/28 02:32:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -124,16 +124,8 @@ function db_lock($tables)
 			break;
 
 		case 'pgsql':
-			foreach (explode(',', str_replace(' WRITE', '', $tables)) as $k => $t) {
-				$t = trim($t);
-				if (($p = strpos($t, ' '))) {
-					$tbls[$k] = substr($t, 0, $p);
-				}
-			}
-			$tables = implode(',', $tbls);
-
 			q('BEGIN WORK');
-			q('LOCK TABLE '.$tables.' IN ACCESS EXCLUSIVE MODE');
+			q('LOCK TABLE '.str_replace(' WRITE', '', $tables).' IN ACCESS EXCLUSIVE MODE');
 			break;
 
 		case 'sqlite':
@@ -316,8 +308,9 @@ function db_qid($q)
 			return db::$db->lastInsertId();
 
 		case 'pgsql':
-			// INSERT INTO 
-			return q_singleval("SELECT currval('".substr($q, 12, strpos($q, ' ', 13) - 12)."_id_seq')");
+			$p = strpos($q, $GLOBALS['DBHOST_TBL_PREFIX']);
+			$e = strcspn($q, "\r\n\t (", $p);
+			return q_singleval("SELECT currval('".substr($q, $p, $e)."_id_seq')");
 	}
 }
 
@@ -341,8 +334,9 @@ function db_li($q, &$ef, $li=0)
 				return db::$db->lastInsertId();
 
 			case 'pgsql':
-				// INSERT INTO 
-				return q_singleval("SELECT currval('".substr($q, 12, strpos($q, ' ', 13) - 12)."_id_seq')");
+				$p = strpos($q, $GLOBALS['DBHOST_TBL_PREFIX']);
+				$e = strcspn($q, "\r\n\t (", $p);
+				return q_singleval("SELECT currval('".substr($q, $p, $e)."_id_seq')");
 		}
 	}
 
