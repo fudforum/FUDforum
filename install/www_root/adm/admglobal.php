@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.73 2005/06/28 00:43:35 hackie Exp $
+* $Id: admglobal.php,v 1.74 2005/06/28 15:33:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -75,7 +75,7 @@ function get_max_upload_size()
 			$qry = '';
 			if ($DBHOST_DBTYPE) {
 				$res = @db::$db->exec($qry);
-			} else if (__dbtype__ == 'mysql') {
+			} else if (__dbtype__ == 'pgsql') {
 				$res = @pg_query(fud_sql_lnk, $qry);
 			} else {
 				$res = @mysql_query($qry, fud_sql_lnk);
