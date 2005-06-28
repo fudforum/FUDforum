@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groups.inc.t,v 1.36 2005/06/28 13:14:45 hackie Exp $
+* $Id: groups.inc.t,v 1.37 2005/06/28 14:55:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,7 +62,7 @@ function grp_rebuild_cache($user_id=null)
 	$tmp = array();
 	foreach ($list as $k => $v) {
 		foreach ($v as $u => $p) {
-			$tmp[] = $k.", ".$p.", ".$u;
+			$tmp[] = $k.",".$p.",".$u;
 		}
 	}
 
@@ -81,7 +81,7 @@ function grp_rebuild_cache($user_id=null)
 		db_lock("{SQL_TABLE_PREFIX}group_cache WRITE");
 	}
 
-	q("DELETE FROM fud26_group_cache" . ($lmt ? ' WHERE '.$lmt : ''));
+	q("DELETE FROM {SQL_TABLE_PREFIX}group_cache" . ($lmt ? ' WHERE '.$lmt : ''));
 	ins_m("{SQL_TABLE_PREFIX}group_cache", "resource_id, group_cache_opt, user_id", $tmp, "integer, integer, integer");
 
 	if ($ll) {
