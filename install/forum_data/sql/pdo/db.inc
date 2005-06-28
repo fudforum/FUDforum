@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.5 2005/06/28 02:32:48 hackie Exp $
+* $Id: db.inc,v 1.6 2005/06/28 03:12:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -341,7 +341,7 @@ function db_li($q, &$ef, $li=0)
 	}
 
 	/* duplicate key */
-	if (db::$db->errorCode() == '23000') {
+	if (($c = db::$db->errorCode()) == '23000' || $c == '23505') {
 		switch (__dbtype__) {
 			case 'mysql':
 			case 'pgsql':
