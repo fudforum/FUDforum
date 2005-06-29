@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.24 2005/06/29 04:03:36 hackie Exp $
+* $Id: phpBB2.php,v 1.25 2005/06/29 13:14:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -409,6 +409,10 @@ $group_map = array(
 		$id = $frm->add('LAST');
 
 		q("UPDATE {$DBHOST_TBL_PREFIX}forum SET id={$obj->forum_id} WHERE id=".$id);
+
+		q("DROP TABLE /*!10000 IF EXISTS*/ {$DBHOST_TBL_PREFIX}fl_{$obj->forum_id}");
+		q("ALTER TABLE {$DBHOST_TBL_PREFIX}fl_{$id} RENAME TO {$DBHOST_TBL_PREFIX}fl_{$obj->forum_id}");
+
 		q("UPDATE {$DBHOST_TBL_PREFIX}groups SET forum_id={$obj->forum_id} WHERE forum_id=".$id);
 		q("UPDATE {$DBHOST_TBL_PREFIX}group_resources SET resource_id={$obj->forum_id} WHERE resource_id=".$id);
 
