@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.25 2004/11/24 19:53:42 hackie Exp $
+* $Id: admnntp.php,v 1.26 2005/06/30 13:00:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,6 +28,9 @@
 		}
 	} else if (isset($_GET['del'])) {
 		nntp_del((int)$_GET['del']);
+	} else if (isset($_GET['trk']) && ($nn = db_sab('SELECT * FROM '.$tbl.'nntp WHERE id='.(int)$_GET['trk']))) {
+		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup.'.lock');
+		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup);
 	}
 
 	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'nntp WHERE id='.$edit))) {
@@ -215,7 +218,8 @@
 		}
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
 			<td nowrap><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/nntp.php '.$r[0].' </font></td>
-			<td>[<a href="admnntp.php?edit='.$r[0].'&'.__adm_rsidl.'">Edit</a>] [<a href="admnntp.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
+			<td>[<a href="admnntp.php?edit='.$r[0].'&'.__adm_rsidl.'">Edit</a>] [<a href="admnntp.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]
+			[<a href="admnntp.php?trk='.$r[0].'&'.__adm_rsidl.'">Clear Tracker</a>]</td></tr>';
 	}
 ?>
 </table>
