@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.52 2005/05/26 03:17:42 hackie Exp $
+* $Id: isearch.inc.t,v 1.53 2005/07/01 21:29:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -110,7 +110,7 @@ function index_text($subj, $body, $msg_id)
 
 	$w2 = array_unique($w2);
 
-	ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2, 'text');
+	ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2, 'text', 0);
 
 	if ($w1) {
 		db_li('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE word IN('.implode(',', $w1).')', $ef);

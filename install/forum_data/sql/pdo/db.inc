@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.9 2005/06/28 22:10:06 hackie Exp $
+* $Id: db.inc,v 1.10 2005/07/01 21:29:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -369,7 +369,7 @@ function db_li($q, &$ef, $li=0)
 	}
 }
 
-function ins_m($tbl, $flds, $vals, $type=0)
+function ins_m($tbl, $flds, $vals, $type=0, $strict=1)
 {
 	if (__dbtype__ == 'mysql') {
 		return uq("INSERT IGNORE INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
@@ -377,7 +377,7 @@ function ins_m($tbl, $flds, $vals, $type=0)
 				
 	$sth = db::$db->prepare('INSERT INTO '.$tbl.' ('.$flds.') VALUES(?'.str_repeat(',?',substr_count($flds, ',')).')');
 	foreach ($vals as $v) {
-		if (!$sth->execute(explode(',', $v))) {
+		if (!$sth->execute(explode(',', trim($v,"'"))) && $strict) {
 			die(fud_sql_error_handler($sth->queryString, db::$db->errorCode(), __enifo(db::$db->errorInfo()), get_version()));
 		}
 	}

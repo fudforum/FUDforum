@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.15 2004/12/09 19:04:25 hackie Exp $
+* $Id: th_adm.inc.t,v 1.16 2005/07/01 21:29:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -97,9 +97,13 @@ function rebuild_forum_view($forum_id, $page=0)
 			q("INSERT INTO {SQL_TABLE_PREFIX}thread_view (thread_id,forum_id,page) SELECT {SQL_TABLE_PREFIX}thread.id, ".$forum_id.", 2147483645 FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$forum_id." AND {SQL_TABLE_PREFIX}msg.apr=1 ORDER BY (CASE WHEN thread_opt>=2 AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>".$tm." OR {SQL_TABLE_PREFIX}thread.orderexpiry=0) THEN 4294967294 ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) DESC, {SQL_TABLE_PREFIX}thread.last_post_id DESC");
 			q('UPDATE {SQL_TABLE_PREFIX}thread_view SET page=CEILING(pos/'.$GLOBALS['THREADS_PER_PAGE'].'), pos=pos-(CEILING(pos/'.$GLOBALS['THREADS_PER_PAGE'].')-1)*'.$GLOBALS['THREADS_PER_PAGE'].' WHERE forum_id='.$forum_id);
 		}
-	} else if (__dbtype__ == 'pgsql') {
+	} else {
 		$tmp_tbl_name = "{SQL_TABLE_PREFIX}ftvt_".get_random_value();
-		q("CREATE TEMP TABLE ".$tmp_tbl_name." ( forum_id INT NOT NULL, page INT NOT NULL, thread_id INT NOT NULL, pos SERIAL)");
+		if (__dbtype__ == 'pgsql') {
+			q("CREATE TEMP TABLE ".$tmp_tbl_name." ( forum_id INT NOT NULL, page INT NOT NULL, thread_id INT NOT NULL, pos SERIAL)");
+		} else {/* sqlite */
+			q("CREATE TABLE ".$tmp_tbl_name." ( forum_id INT NOT NULL, page INT NOT NULL, thread_id INT NOT NULL, pos INTEGER PRIMARY KEY)");
+		}
 
 		if ($page) {
 			q("DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$forum_id." AND page<".($page+1));
@@ -109,7 +113,11 @@ function rebuild_forum_view($forum_id, $page=0)
 			q("INSERT INTO ".$tmp_tbl_name." (thread_id,forum_id,page) SELECT {SQL_TABLE_PREFIX}thread.id, ".$forum_id.", 2147483647 FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$forum_id." AND {SQL_TABLE_PREFIX}msg.apr=1 ORDER BY (CASE WHEN thread_opt>=2 AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>".$tm." OR {SQL_TABLE_PREFIX}thread.orderexpiry=0) THEN 2147483647 ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) DESC, {SQL_TABLE_PREFIX}thread.last_post_id DESC");
 		}
 
-		q("INSERT INTO {SQL_TABLE_PREFIX}thread_view (thread_id,forum_id,page,pos) SELECT thread_id,forum_id,CEIL(pos/".$GLOBALS['THREADS_PER_PAGE'].".0),(pos-(CEIL(pos/".$GLOBALS['THREADS_PER_PAGE'].".0)-1)*".$GLOBALS['THREADS_PER_PAGE'].") FROM ".$tmp_tbl_name);
+		if (__dbtype__ == 'pgsql') {
+			q("INSERT INTO {SQL_TABLE_PREFIX}thread_view (thread_id,forum_id,page,pos) SELECT thread_id,forum_id,CEIL(pos/".$GLOBALS['THREADS_PER_PAGE'].".0),(pos-(CEIL(pos/".$GLOBALS['THREADS_PER_PAGE'].".0)-1)*".$GLOBALS['THREADS_PER_PAGE'].") FROM ".$tmp_tbl_name);
+		} else { /* sqlite */
+			q("INSERT INTO {SQL_TABLE_PREFIX}thread_view (thread_id,forum_id,page,pos) SELECT thread_id,forum_id, (pos/".$GLOBALS['THREADS_PER_PAGE'].")+1,(pos-(pos/".$GLOBALS['THREADS_PER_PAGE'].")*".$GLOBALS['THREADS_PER_PAGE'].") FROM ".$tmp_tbl_name);
+		}
 		q("DROP TABLE ".$tmp_tbl_name);
 	}
 
