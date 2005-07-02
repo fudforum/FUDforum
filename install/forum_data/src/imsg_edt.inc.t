@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.127 2005/06/15 21:41:40 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.128 2005/07/02 05:05:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -629,7 +629,8 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 		$pfx = str_repeat('/', substr_count(_rsid, '/'));
 	}
 
-	return '{TEMPLATE: iemail_body}';
+	// we need this for spam filters like SpamAssassin
+	return str_replace('<script language="JavaScript" src="lib.js" type="text/javascript"></script>', '', '{TEMPLATE: iemail_body}');
 }
 
 function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type, $id, $frm_name, $frm_id)
