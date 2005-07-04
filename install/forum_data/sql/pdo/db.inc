@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.10 2005/07/01 21:29:50 hackie Exp $
+* $Id: db.inc,v 1.11 2005/07/04 19:54:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -102,6 +102,18 @@ if (!defined('fud_sql_lnk')) {
 	}
 
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));
+
+	/* special sqlite handling for lack of native concat function */
+	if ($GLOBALS['DBHOST_DBTYPE'] == 'pdo_sqlite') {
+		db::$db->sqliteCreateFunction('concat', 'pdo_concat');
+		define('__FUD_SQL_CONCAT__', 'concat');
+	}
+}
+
+function pdo_concat()
+{
+	$tmp = func_get_args();
+	return implode('', $tmp);
 }
 
 function get_version()
@@ -273,7 +285,7 @@ function get_fud_table_list($tbl='')
 
 		case 'sqlite':
 			if (!$tbl) {
-				return __all_pdo(db::$db->query("SELECT tbl_name FROM sqlite_master WHERE type='table' AND  name LIKE '".$idx."%'")->fetchAll(PDO_FETCH_NUM));
+				return __all_pdo(db::$db->query("SELECT tbl_name FROM sqlite_master WHERE type='table' AND  name LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'")->fetchAll(PDO_FETCH_NUM));
 			}
 			return q_singleval("SELECT tbl_name FROM sqlite_master WHERE type='table' AND name='".$tbl."'");
 	}
