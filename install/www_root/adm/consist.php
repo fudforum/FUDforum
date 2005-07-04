@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.108 2005/06/24 23:16:25 hackie Exp $
+* $Id: consist.php,v 1.109 2005/07/04 20:51:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -200,7 +200,7 @@ forum will be disabled.
 	$del = $tr = array();
 	draw_stat('Checking threads against messages');
 	q('UPDATE '.$tbl.'thread SET replies=0');
-	$c = uq('SELECT m.thread_id, t.id, count(*) as cnt FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m ON t.id=m.thread_id WHERE m.apr=1 GROUP BY m.thread_id,t.id ORDER BY cnt');
+	$c = uq('SELECT m.thread_id, t.id, count(*) as cnt FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m ON t.id=m.thread_id WHERE m.apr=1 GROUP BY m.thread_id,t.id ORDER BY '.(__dbtype__ != 'sqlite' ? 'cnt' : 'count(*)'));
 	while ($r = db_rowarr($c)) {
 		if (!$r[0]) {
 			$del[] = $r[1];
@@ -476,11 +476,16 @@ forum will be disabled.
 
 	draw_stat('Rebuilding Topic Views');
 	q('DELETE FROM '.$tbl.'thread_view');
+	$forums = array();
 	$c = q('SELECT id FROM '.$tbl.'forum');
 	while ($r = db_rowarr($c)) {
-		rebuild_forum_view($r[0]);
+		$forums[] = (int) $r[0];
 	}
-	unset($fr);
+	unset($c);
+	foreach ($forums as $v) {
+		rebuild_forum_view($v);
+	}
+	unset($forums);
 	draw_stat('Done: Rebuilding Topic Views');
 
 	draw_stat('Rebuilding user ranks, message counts & last post ids');
