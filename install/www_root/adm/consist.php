@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.109 2005/07/04 20:51:20 hackie Exp $
+* $Id: consist.php,v 1.110 2005/07/05 13:18:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,7 +61,7 @@ function stop_js()
 
 function delete_zero($tbl, $q)
 {
-	if (__dbtype__ == 'pgsql') {
+	if (__dbtype__ == 'pgsql' || __dbtype__ == 'sqlite') {
 		q("DELETE FROM ".$tbl." WHERE id IN (".$q.")");
 		draw_info(db_affected());
 	} else if ($GLOBALS['FUD_OPT_3'] & 1024) { /* mysql 4.1 optimization */
@@ -662,7 +662,7 @@ forum will be disabled.
 	draw_stat('Done: Rebuilding group cache');
 
 	draw_stat('Validating User/Theme Relations');
-	if (__dbtype__ == 'pgsql' || $FUD_OPT_3 & 1024) {
+	if (__dbtype__ == 'pgsql' || __dbtype__ == 'sqlite' || $FUD_OPT_3 & 1024) {
 		q('UPDATE '.$tbl.'users SET theme=(SELECT id FROM '.$tbl.'themes thm WHERE (theme_opt & 3) > 0 ) WHERE theme NOT IN( (SELECT id FROM '.$tbl.'themes WHERE (theme_opt & 1) > 0) )');
 	} else {
 		$te = array();
