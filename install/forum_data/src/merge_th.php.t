@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.25 2005/03/24 17:38:47 hackie Exp $
+* $Id: merge_th.php.t,v 1.26 2005/07/06 14:00:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -136,6 +136,7 @@
 		$vl .= $r[0] . "\n";
 		$kl .= $r[1] . "\n";
 	}
+	unset($c);
 
 	$forum_sel = tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $frm);
 
@@ -152,12 +153,13 @@
 		while ($r = db_rowarr($c)) {
 			$thread_sel .= '{TEMPLATE: m_sel_opt_selected}';
 		}
-		unset($_POST['sel_th']);
+		unset($c, $_POST['sel_th']);
 	}
 	$c = uq("SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}thread_view tv INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=tv.thread_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id WHERE tv.forum_id={$frm} AND page={$page} ORDER BY pos");
 	while ($r = db_rowarr($c)) {
 		$thread_sel .= '{TEMPLATE: m_sel_opt}';
 	}
+	unset($c);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
