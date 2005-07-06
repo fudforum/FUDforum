@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.11 2005/07/04 19:54:26 hackie Exp $
+* $Id: db.inc,v 1.12 2005/07/06 13:19:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -200,7 +200,7 @@ function __enifo($a)
 function uq($query, $buf=0)
 {
 	if (!strncasecmp($query, 'SELECT', 6)) {
-		db::$res = NULL;
+		db::$res = null;
 		db::$buf = $buf;
 		if ($buf && __dbtype__ == 'mysql') db::$db->setAttribute(PDO_MYSQL_ATTR_USE_BUFFERED_QUERY, 1);
 		db::$res = db::$db->query($query) or die (fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), get_version()));
@@ -208,7 +208,7 @@ function uq($query, $buf=0)
 		return db::$res;
 	}
 	if (!db::$buf) {
-		db::$res = NULL;
+		db::$res = null;
 	}
 	if ((db::$ar = db::$db->exec($query)) === FALSE) {
 		die (fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), get_version()));
