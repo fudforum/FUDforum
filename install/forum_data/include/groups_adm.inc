@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groups_adm.inc,v 1.17 2004/11/24 19:53:34 hackie Exp $
+* $Id: groups_adm.inc,v 1.18 2005/07/06 14:42:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -113,6 +113,7 @@ function rebuild_group_ldr_cache($id)
 	while ($r = db_rowarr($c)) {
 		$g[] = $r[0];
 	}
+	unset($c);
 
 	if (isset($g)) {
 		q('UPDATE '.$tbl.'users SET group_leader_list='.strnull(addslashes(@serialize($g))).' WHERE id='.$id);

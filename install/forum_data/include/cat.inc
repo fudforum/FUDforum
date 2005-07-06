@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.35 2005/06/06 23:58:56 hackie Exp $
+* $Id: cat.inc,v 1.36 2005/07/06 14:42:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -126,6 +126,7 @@ function rebuild_forum_cat_order()
 
 		$tmp[] = $r;
 	}
+	unset($c);
 
 	$p = array();
 	$c = 0;
@@ -209,6 +210,7 @@ function rebuild_forum_cat_order()
 		$cat_cache[$cid][0] = $lvl;
 		$cat_cache[$cid][] = $ch;
 	}
+	unset($c);
 
 	$cache_file = $GLOBALS['FORUM_SETTINGS_PATH'] . 'idx.inc';
 	$fp = fopen($cache_file.'.tmp', "w");

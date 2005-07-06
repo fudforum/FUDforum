@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login_filter.inc,v 1.7 2004/11/24 19:53:34 hackie Exp $
+* $Id: login_filter.inc,v 1.8 2005/07/06 14:42:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,6 +16,7 @@ function login_cache_rebuild()
 	while ($r = db_rowarr($c)) {
 		$a[] = '/' . addcslashes($r[0], '\'/\\') . '/i';
 	}
+	unset($c);
 	$data = '$GLOBALS[\'__FUD_LGN_FILTER__\'] = array(' . (isset($a) ? "'" . implode("', '", $a) . "'" : ''). ');';
 
 	$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'] . 'login_filter_cache', 'w');

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: sml_rcache.inc,v 1.4 2005/01/04 21:46:28 hackie Exp $
+* $Id: sml_rcache.inc,v 1.5 2005/07/06 14:42:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,6 +24,7 @@ function smiley_rebuild_cache()
 			$rep[$v] = $co;
 		}
 	}
+	unset($c);
 
 	$fp = fopen($GLOBALS['TMP'].'ps_cache', "w");
 	fwrite($fp, '<?php $PS_SRC = '.var_export($src, 1).'; $PS_DST = '.var_export($dst, 1).'; ?>');
