@@ -998,3 +998,4 @@ thread_mov_all:			Move All Selected
 dmsg_ip:			IP:
 err_blockedaccnt_title:		ERROR: Your account has been filtered out.
 err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
+merge_th_page_list:		Topic Page Selection

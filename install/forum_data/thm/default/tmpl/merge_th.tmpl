@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.tmpl,v 1.8 2005/03/18 01:58:51 hackie Exp $
+* $Id: merge_th.tmpl,v 1.9 2005/07/06 14:13:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,6 +43,10 @@
 	<td colspan=2 class="ac">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr><td colspan=3 class="ac">{MSG: merge_topics_tpl}</td></tr>
+			<tr><td colspan=3 class="ac">{MSG: merge_th_page_list}: 
+			<select name="tmp" onChange="javascript: document.merge_th.page.value=this.value; document.merge_th.submit();">
+			{FUNC: tmpl_draw_select_opt($pages, $pages, $page)}
+			</select></td></tr>
 			<tr><td colspan=3 class="ac"><select name="sel_th[]" size=10 multiple>{VAR: thread_sel}</select></td></tr>
 			<tr>
 				<td class="al" width="100"><input type="submit" name="prev" value="{MSG: merge_prev}"></td>

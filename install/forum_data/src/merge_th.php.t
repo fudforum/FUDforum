@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.26 2005/07/06 14:00:59 hackie Exp $
+* $Id: merge_th.php.t,v 1.27 2005/07/06 14:13:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -160,6 +160,8 @@
 		$thread_sel .= '{TEMPLATE: m_sel_opt}';
 	}
 	unset($c);
+
+	$pages = implode("\n", range(1, q_singleval("SELECT MAX(page) FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$frm)));
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
