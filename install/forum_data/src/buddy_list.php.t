@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.php.t,v 1.37 2005/03/05 18:46:59 hackie Exp $
+* $Id: buddy_list.php.t,v 1.38 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -76,7 +76,7 @@
 	 * 7 - home_page	8 - last_visit
 	 */
 
-	if (($r = @db_rowarr($c))) {
+	if (($r = db_rowarr($c))) {
 		$dt = getdate(__request_timestamp__);
 		$md = sprintf("%02d%02d", $dt['mon'], $dt['mday']);
 
@@ -98,6 +98,7 @@
 		} while (($r = db_rowarr($c)));
 		$buddies = '{TEMPLATE: buddy_list}';
 	}
+	unset($c);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

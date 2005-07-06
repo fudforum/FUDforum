@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.inc.t,v 1.35 2004/11/24 19:53:35 hackie Exp $
+* $Id: logedin.inc.t,v 1.36 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,6 +24,7 @@ function rebuild_stats_cache($last_msg_id)
 	while ($r = db_rowarr($c)) {
 		$obj->online_users_text[$r[0]] = draw_user_link($r[1], $r[2], $r[3]);
 	}
+	unset($c);
 
 	q('UPDATE {SQL_TABLE_PREFIX}stats_cache SET
 		cache_age='.__request_timestamp__.',

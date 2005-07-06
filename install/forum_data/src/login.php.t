@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.73 2005/06/14 21:55:43 hackie Exp $
+* $Id: login.php.t,v 1.74 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,6 +20,7 @@
 		while ($r = db_rowarr($c)) {
 			$list[] = $r[0];
 		}
+		unset($c);
 		if ($list) {
 			fud_use('private.inc');
 			fud_use('users_adm.inc', true);

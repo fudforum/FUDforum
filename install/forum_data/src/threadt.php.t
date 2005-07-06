@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.38 2005/06/07 00:12:08 hackie Exp $
+* $Id: threadt.php.t,v 1.39 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -121,6 +121,7 @@
 			}
 		}
 	}
+	unset($r);
 
 	if ($FUD_OPT_2 & 32768) {
 		$page_pager = tmpl_create_pager($start, 1, ceil($frm->thread_count / $THREADS_PER_PAGE), '{ROOT}/sf/threadt/'.$frm->id.'/1/', '/' . _rsid);

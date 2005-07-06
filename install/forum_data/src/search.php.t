@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.62 2005/04/03 19:15:49 hackie Exp $
+* $Id: search.php.t,v 1.63 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -154,6 +154,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			while ($r = db_rowobj($c)) {
 				$search_data .= '{TEMPLATE: search_entry}';
 			}
+			unset($c);
 			$search_data = '{TEMPLATE: search_results}';
 			if ($FUD_OPT_2 & 32768) {
 				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/s/'.urlencode($srch).'/'.$field.'/'.$search_logic.'/'.$sort_order.'/'.($forum_limiter ? $forum_limiter : 0).'/', '/'.urlencode($author).'/'._rsid);

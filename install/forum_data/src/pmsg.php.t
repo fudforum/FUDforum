@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.50 2005/03/18 01:58:51 hackie Exp $
+* $Id: pmsg.php.t,v 1.51 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -137,6 +137,7 @@
 
 		$private_msg_entry .= '{TEMPLATE: private_msg_entry}';
 	}
+	unset($c);
 
 	if (!$private_msg_entry) {
 		$private_msg_entry = '{TEMPLATE: private_no_messages}';

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groups.inc.t,v 1.37 2005/06/28 14:55:32 hackie Exp $
+* $Id: groups.inc.t,v 1.38 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,6 +58,7 @@ function grp_rebuild_cache($user_id=null)
 			$list[$o->rid][$o->uid] = $o->gco;
 		}
 	}
+	unset($r);
 
 	$tmp = array();
 	foreach ($list as $k => $v) {

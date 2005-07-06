@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.php.t,v 1.9 2005/03/05 18:46:59 hackie Exp $
+* $Id: ip.php.t,v 1.10 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -90,6 +90,7 @@ function fud_whois($ip)
 		while ($r = db_rowarr($o)) {
 			$user_list .= '{TEMPLATE: ip_user_entry}';
 		}
+		unset($o);
 		$page_data = '{TEMPLATE: ip_users}';
 	} else if ($user) {
 		$o = uq("SELECT DISTINCT(ip_addr) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id=".$user_id);
@@ -98,6 +99,7 @@ function fud_whois($ip)
 		while ($r = db_rowarr($o)) {
 			$ip_list .= '{TEMPLATE: ip_ip_entry}';
 		}
+		unset($o);
 		$page_data = '{TEMPLATE: ip_info}';
 	} else {
 		$page_data = '';

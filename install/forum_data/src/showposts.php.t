@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.php.t,v 1.29 2004/12/13 15:54:56 hackie Exp $
+* $Id: showposts.php.t,v 1.30 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,6 +58,7 @@
 		while ($r = db_rowarr($c)) {
 			$post_entry .= '{TEMPLATE: post_entry}';
 		}
+		unset($c);
 
 		/* we need the total for the pager & we don't trust the user to pass it via GET or POST */
 		if (($total = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {

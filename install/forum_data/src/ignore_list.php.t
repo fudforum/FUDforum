@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.php.t,v 1.32 2005/03/05 18:46:59 hackie Exp $
+* $Id: ignore_list.php.t,v 1.33 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -93,6 +93,7 @@ function ignore_alias_fetch($al, &$is_mod)
 		} while (($r = db_rowarr($c)));
 		$ignore_list = '{TEMPLATE: ignore_list}';
 	}
+	unset($c);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

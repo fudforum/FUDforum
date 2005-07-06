@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.38 2005/04/05 13:51:16 hackie Exp $
+* $Id: pdf.php.t,v 1.39 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -231,6 +231,7 @@ class fud_pdf extends FPDF
 		$im = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
 		$re[$im] = (($p = strpos($r[0], '~')) !== false) ? substr($r[0], 0, $p) : $r[0];
 	}
+	unset($c);
 
 	if (_uid) {
 		if (!$is_a) {
@@ -303,6 +304,7 @@ class fud_pdf extends FPDF
 				while ($r2 = db_rowarr($c2)) {
 					$attch[] = array('id' => $r2[0], 'name' => $r2[1], 'nd' => $r2[2]);
 				}
+				unset($c2);
 				if ($attch) {
 					$fpdf->add_attacments($attch, 1);
 				}
@@ -320,6 +322,7 @@ class fud_pdf extends FPDF
 
 		$fpdf->end_message();
 	} while (($o = db_rowobj($c)));
+	unset($c);
 
 	$fpdf->Output('FUDforum'.date('Ymd').'.pdf', 'I');
 ?>

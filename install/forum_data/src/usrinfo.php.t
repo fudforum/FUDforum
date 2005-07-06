@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.47 2005/06/23 16:20:18 hackie Exp $
+* $Id: usrinfo.php.t,v 1.48 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,6 +71,7 @@ function convert_bdate($val, $month_fmt)
 		while ($r = db_rowarr($c)) {
 			$moderation .= '{TEMPLATE: moderation_entry}';
 		}
+		unset($c);
 		if ($moderation) {
 			$moderation = '{TEMPLATE: moderation}';
 		}

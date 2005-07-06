@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.88 2005/04/27 14:03:44 hackie Exp $
+* $Id: index.php.t,v 1.89 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -206,6 +206,7 @@ function url_tog_collapse($id, $c)
 
 		$forum_list_table_data .= '{TEMPLATE: index_forum_entry}';
 	}
+	unset($c);
 
 	if ($cbuf) { /* if previous category was using compact view, print forum row */
 		$forum_list_table_data .= '{TEMPLATE: idx_compact_forum_row}';

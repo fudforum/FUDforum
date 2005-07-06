@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg.inc.t,v 1.19 2004/11/30 16:40:38 hackie Exp $
+* $Id: imsg.inc.t,v 1.20 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,6 +31,7 @@ function poll_cache_rebuild($poll_id, &$data)
 		while ($r = db_rowarr($c)) {
 			$data[$r[0]] = array($r[1], $r[2]);
 		}
+		unset($c);
 		if (!$data) {
 			$data = null;
 		}

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.50 2005/03/03 15:00:18 hackie Exp $
+* $Id: rdf.php.t,v 1.51 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -255,6 +255,7 @@ $basic_rss_data .= '
 					echo '</item>';
 				}
 			}
+			unset($c);
 			if ($basic && $res) {
 				echo $basic_rss_header . "\t\t</rdf:Seq>\n\t</items>\n</channel>\n" . $basic_rss_data;
 			}
@@ -359,6 +360,7 @@ $basic_rss_data .= '
 	<last_post_date>'.$r->last_post_date.'</last_post_date>
 </item>';
 			}
+			unset($c);
 			break;
 
 		case 'u':
@@ -471,6 +473,7 @@ $basic_rss_data .= '
 				}
 				echo '</item>';
 			}
+			unset($c);
 
 			break;
 	}

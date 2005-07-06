@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: subscribed.php.t,v 1.25 2005/02/27 02:58:17 hackie Exp $
+* $Id: subscribed.php.t,v 1.26 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,6 +41,7 @@
 		while ($r = db_rowarr($c)) {
 			$lmt .= $r[0] . ',';
 		}
+		unset($c);
 		if ($lmt) {
 			$lmt[strlen($lmt) - 1] = ' ';
 			$lmt = ' AND forum_id NOT IN('.$lmt.') ';
@@ -55,6 +56,7 @@
 	while (($r = db_rowarr($c))) {
 		$subscribed_forum_data .= '{TEMPLATE: subscribed_forum_entry}';
 	}
+	unset($c);
 
 	if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
 		$start = 0;
@@ -65,6 +67,7 @@
 	while (($r = db_rowarr($c))) {
 		$subscribed_thread_data .= '{TEMPLATE: subscribed_thread_entry}';
 	}
+	unset($c);
 
 	/* Since a person can have MANY subscribed threads, we need a pager & for the pager we need a entry count */
 	if (($total = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {

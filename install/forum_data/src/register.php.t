@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.149 2005/05/26 03:48:31 hackie Exp $
+* $Id: register.php.t,v 1.150 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -442,6 +442,7 @@ function decode_uent(&$uent)
 				while ($r = db_rowarr($c)) {
 					$admins[] = $r[0];
 				}
+				unset($c);
 				send_email($NOTIFY_FROM, $admins, '{TEMPLATE: register_admin_newuser_title}', '{TEMPLATE: register_admin_newuser_msg}', '');
 			}
 

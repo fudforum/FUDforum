@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: list_referers.php.t,v 1.21 2004/11/25 19:25:40 hackie Exp $
+* $Id: list_referers.php.t,v 1.22 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,6 +33,7 @@
 			while ($r2 = db_rowarr($c2)) {
 				$refered_entry_data .= '{TEMPLATE: refered_entry}';
 			}
+			unset($c2);
 			$referer_entry_data .= '{TEMPLATE: referer_entry}';
 		}
 

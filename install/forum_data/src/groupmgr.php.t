@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.php.t,v 1.48 2005/04/28 13:38:58 hackie Exp $
+* $Id: groupmgr.php.t,v 1.49 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,6 +46,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 	        $kl .= ($e[2] ? '* ' : '') . htmlspecialchars($e[1]) . "\n";
 		$n++;
 	}
+	unset($r);
 
 	if (!$n) {
 		std_error('access');
@@ -75,6 +76,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		while ($r = db_rowarr($c)) {
 			$group_resources .= '{TEMPLATE: group_resource_ent}';
 		}
+		unset($c);
 	} else {
 		$fname = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}forum WHERE id='.$grp->forum_id);
 		$group_resources = '{TEMPLATE: primary_group_resource}';
@@ -257,6 +259,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			}
 		}
 	}
+	unset($r);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

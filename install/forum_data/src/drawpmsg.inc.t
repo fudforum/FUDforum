@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.inc.t,v 1.43 2005/03/30 14:55:26 hackie Exp $
+* $Id: drawpmsg.inc.t,v 1.44 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -101,6 +101,7 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 			}
 			$file_attachments .= '{TEMPLATE: dpmsg_file_attachment}';
 		}
+		unset($c);
 		if ($file_attachments) {
 			$file_attachments = '{TEMPLATE: dpmsg_file_attachments}';
 			/* append session to getfile */

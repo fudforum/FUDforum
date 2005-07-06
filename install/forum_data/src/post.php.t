@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.134 2005/03/26 15:00:12 hackie Exp $
+* $Id: post.php.t,v 1.135 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -394,6 +394,7 @@ function flood_check()
 					while ($r = db_rowarr($c)) {
 						$modl[] = $r[0];
 					}
+					unset($c);
 					if ($modl) {
 						send_email($NOTIFY_FROM, $modl, '{TEMPLATE: post_mod_msg_notify_title}', '{TEMPLATE: post_mod_msg_notify_msg}', '');
 					}

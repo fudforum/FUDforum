@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: online_today.php.t,v 1.27 2005/03/09 21:04:04 hackie Exp $
+* $Id: online_today.php.t,v 1.28 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,6 +50,7 @@
 
 		$user_entries .= '{TEMPLATE: user_entry}';
 	}
+	unset($c);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.46 2005/03/05 18:46:59 hackie Exp $
+* $Id: finduser.php.t,v 1.47 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,6 +53,7 @@
 	while ($r = db_rowobj($c)) {
 		$find_user_data .= '{TEMPLATE: find_user_entry}';
 	}
+	unset($c);
 	if (!$find_user_data) {
 		$find_user_data = '{TEMPLATE: find_user_no_results}';
 	}

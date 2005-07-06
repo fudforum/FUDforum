@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.128 2005/07/02 05:05:11 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.129 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -462,6 +462,7 @@ class fud_msg_edit extends fud_msg
 						$attach_mime[$ent[1]] = $ent[2];
 					}
 				}
+				unset($r);
 			} else {
 				$attach_mime = $attach = null;
 			}

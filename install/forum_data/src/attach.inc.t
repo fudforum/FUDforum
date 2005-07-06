@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: attach.inc.t,v 1.44 2005/01/05 20:35:58 hackie Exp $
+* $Id: attach.inc.t,v 1.45 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -78,6 +78,7 @@ function attach_rebuild_cache($id)
 	while ($r = db_rowarr($c)) {
 		$ret[] = $r;
 	}
+	unset($c);
 	return $ret;
 }
 

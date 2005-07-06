@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.39 2005/03/09 00:24:14 hackie Exp $
+* $Id: private.inc.t,v 1.40 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -121,6 +121,7 @@ class fud_pmsg
 			}
 			send_pm_notification($r[1], $um[$r[0]], $subject, $from);
 		}
+		unset($c);
 	}
 
 	function sync()
@@ -224,6 +225,7 @@ function pmsg_del($mid, $fldr=0)
 		while ($r = db_rowarr($c)) {
 			@unlink($GLOBALS['FILE_STORE'] . $r[0] . '.atch');
 		}
+		unset($c);
 		q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=1');
 	}
 }

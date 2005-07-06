@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.php.t,v 1.20 2004/11/24 19:53:36 hackie Exp $
+* $Id: qbud.php.t,v 1.21 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,6 +44,7 @@ window.close();
 	while ($r = db_rowarr($c)) {
 		$buddies .= '{TEMPLATE: buddy_entry}';
 	}
+	unset($c);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

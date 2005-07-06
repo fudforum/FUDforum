@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.php.t,v 1.23 2005/03/05 18:46:59 hackie Exp $
+* $Id: pmuserloc.php.t,v 1.24 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,8 +56,9 @@
 					window.close();';
 			}
 			$find_user_data .= '{TEMPLATE: user_result_entry}';
-			$i++;
+			++$i;
 		}
+		unset($c);
 		if (!$find_user_data) {
 			$find_user_data = '{TEMPLATE: no_result_entry}';
 		}

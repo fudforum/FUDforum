@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search_forum_sel.inc.t,v 1.17 2005/06/24 22:25:34 hackie Exp $
+* $Id: search_forum_sel.inc.t,v 1.18 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,6 +45,7 @@ while ($r = db_rowarr($c)) {
 	}
 	$forum_limit_data .= '{TEMPLATE: forum_limit_frm_option}';
 }
+unset($c);
 
 /* user has no permissions to any forum, so as far as they are concerned the search is disabled */
 if (!$forum_limit_data) {

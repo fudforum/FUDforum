@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmd.php.t,v 1.1 2005/02/23 05:09:32 hackie Exp $
+* $Id: mmd.php.t,v 1.2 2005/07/06 14:39:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,6 +60,7 @@
 			$ext[$r[1]] = array($r[4], $r[5], $r[6]);
 		}
 	}
+	unset($c);
 	if (!$list) {
 		invl_inp_err();
 	}
@@ -135,6 +136,7 @@
 				$table_data .= '{TEMPLATE: forum_entry}';
 			}
 		}
+		unset($c);
 	}
 /*{POST_PAGE_PHP_CODE}*/
 ?>
