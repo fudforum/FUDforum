@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.12 2005/07/06 13:19:36 hackie Exp $
+* $Id: db.inc,v 1.13 2005/07/06 15:47:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -253,15 +253,6 @@ function qry_limit($limit, $off)
 	}
 }
 
-function __all_pdo($array)
-{
-	$out = array();
-	foreach ($array as $v) {
-		$out[] = $v[0];
-	}
-	return $out;
-}
-
 function get_fud_table_list($tbl='')
 {
 	if (!$tbl) {
@@ -273,19 +264,19 @@ function get_fud_table_list($tbl='')
 	switch (__dbtype__) {
 		case 'mysql':
 			if (!$tbl) {
-				return __all_pdo(db::$db->query("SHOW TABLES LIKE '".$idx."%'")->fetchAll(PDO_FETCH_NUM));
+				return db::$db->query("SHOW TABLES LIKE '".$idx."%'")->fetchAll(PDO_FETCH_COLUMN);
 			}
 			return q_singleval("SHOW TABLES LIKE '".str_replace("_", "\\_", $tbl)."'");
 
 		case 'pgsql':
 			if (!$tbl) {
-				return __all_pdo(db::$db->query("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".$idx."%'")->fetchAll(PDO_FETCH_NUM));
+				return db::$db->query("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".$idx."%'")->fetchAll(PDO_FETCH_COLUMN);
 			}
 			return q_singleval("SELECT relname FROM pg_class WHERE relkind='r' AND relname='".$tbl."'");
 
 		case 'sqlite':
 			if (!$tbl) {
-				return __all_pdo(db::$db->query("SELECT tbl_name FROM sqlite_master WHERE type='table' AND  name LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'")->fetchAll(PDO_FETCH_NUM));
+				return db::$db->query("SELECT tbl_name FROM sqlite_master WHERE type='table' AND  name LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'")->fetchAll(PDO_FETCH_COLUMN);
 			}
 			return q_singleval("SELECT tbl_name FROM sqlite_master WHERE type='table' AND name='".$tbl."'");
 	}
