@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmodfrm.php,v 1.22 2004/11/24 19:53:42 hackie Exp $
+* $Id: admmodfrm.php,v 1.23 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -66,6 +66,7 @@
 		}
 		echo '<tr class="field"><td><input type="checkbox" name="mod_allow[]" value="'.$r[2].'"'.($r[3] ? ' checked': '').'>'.$r[1].'</td></tr>';
 	}
+	unset($c);
 ?>
 <tr class="fieldaction">
 	<td colspan=2 align=right><input type="submit" name="mod_submit" value="Apply"></td>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.47 2004/11/24 19:53:42 hackie Exp $
+* $Id: admgroups.php,v 1.48 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,6 +60,7 @@
 						while ($o = db_rowobj($r)) {
 							$res[$o->id] = $o;
 						}
+						unset($c);
 					}
 					$ih = $gr_inherit_id;
 					$ihl = array($edit=>1);
@@ -164,6 +165,7 @@
 		$gid = array_shift($o);
 		$gl[$gid] = $o;
 	}
+	unset($r);
 
 	if (!$error) {
 		if ($edit && isset($gl[$edit])) {
@@ -224,11 +226,13 @@
 				while ($r = db_rowarr($c)) {
 					$gr_resource[$r[0]] = $r[0];
 				}
+				unset($c);
 			}
 			$c = uq('SELECT f.id, f.name, c.name FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON c.id=f.cat_id ORDER BY c.view_order, f.view_order');
 			while ($r = db_rowarr($c)) {
 				echo '<option value="'.$r[0].'"'.(isset($gr_resource[$r[0]]) ? ' selected' : '').'>'.$r[2].' &raquo; '.$r[1].'</option>';
 			}
+			unset($c);
 			echo '</select>';
 		}
 		echo '</td></tr><tr><td>Inherit From: </td><td><select name="gr_inherit_id"><option value="0">No where</option>';
@@ -315,6 +319,7 @@ for the group's they manage. To change the user permissions please use the <a hr
 	while ($r = db_rowarr($c)) {
 		$gll[$r[0]][] = $r[1];
 	}
+	unset($c);
 
 	foreach ($gl as $k => $v) {
 		if (isset($gll[$k])) {

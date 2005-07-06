@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbanlist.php,v 1.2 2005/06/15 13:35:37 hackie Exp $
+* $Id: admbanlist.php,v 1.3 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,6 +31,7 @@
 		echo '<td class="resultrow1">' . ($r[3] ? date("r", $r[3]) : 'never').'</td>';
 		echo '<td><a href="admuser.php?act=1&usr_id='.$r[0].'&'.__adm_rsidl.'">Edit</a></td></tr>';
 	}
+	unset($c);
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

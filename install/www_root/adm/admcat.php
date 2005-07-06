@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.38 2005/02/23 20:41:30 hackie Exp $
+* $Id: admcat.php,v 1.39 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -86,6 +86,7 @@
 		}
 		$ol[$r->parent][] = $r;
 	}
+	unset($c);
 	$lvl = array(0); 
 	$i = $l = 0;
 	while (1) {

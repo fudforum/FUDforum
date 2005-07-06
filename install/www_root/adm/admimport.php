@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.45 2005/06/23 14:52:35 hackie Exp $
+* $Id: admimport.php,v 1.46 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -242,6 +242,7 @@ function resolve_dest_path($path)
 			while ($r = db_rowarr($c)) {
 				compile_all($r[0], $r[1], $r[2]);
 			}
+			unset($c);
 
 			/* we now need to correct cached paths for file attachments and avatars */
 			echo "Correcting Avatar Paths<br>\n";

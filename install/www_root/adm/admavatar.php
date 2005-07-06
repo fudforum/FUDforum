@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.22 2004/11/24 19:53:42 hackie Exp $
+* $Id: admavatar.php,v 1.23 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -92,6 +92,7 @@ function import_avatars($path)
 		while ($l = db_rowarr($r)) {
 			@unlink($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/' . $l[0]);
 		}
+		unset($r);
 		q("DELETE FROM ".$tbl."avatar WHERE gallery='".addslashes($_POST['gal_del'])."'");
 	}
 
@@ -280,6 +281,7 @@ function import_avatars($path)
 				<td>[<a href="admavatar.php?edit='.$r[0].'&'.__adm_rsidl.'#img">Edit</a>] [<a href="admavatar.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td>
 			</tr>';
 	}
+	unset($c);
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admipfilter.php,v 1.21 2004/11/24 19:53:42 hackie Exp $
+* $Id: admipfilter.php,v 1.22 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -89,9 +89,9 @@ document.ipf.ipaddr.focus();
 </tr>
 <?php
 	if (__dbtype__ == 'mysql') {
-		$c = uq('SELECT id, CONCAT(ca, \'.\', cb, \'.\', cc, \'.\', cd) FROM '.$tbl.'ip_block');
+		$c = uq("SELECT id, CONCAT(ca, '.', cb, '.', cc, '.', cd) FROM ".$tbl.'ip_block');
 	} else {
-		$c = uq('SELECT id, ca || \'.\' || cb || \'.\' || cc || \'.\' || cd FROM '.$tbl.'ip_block');
+		$c = uq("SELECT id, ca || '.' || cb || '.' || cc || '.' || cd FROM ".$tbl.'ip_block');
 	}
 	$i = 1;
 	while ($r = db_rowarr($c)) {
@@ -103,6 +103,7 @@ document.ipf.ipaddr.focus();
 		}
 		echo '<tr '.$bgcolor.'><td>'.$r[1].'</td><td>[<a href="admipfilter.php?edit='.$r[0].'&'.__adm_rsidl.'">Edit</a>] [<a href="admipfilter.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
 	}
+	unset($c);
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.33 2005/06/16 23:45:37 hackie Exp $
+* $Id: admgrouplead.php,v 1.34 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -104,6 +104,7 @@
 		[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'.__adm_rsidl.'">Remove From Group</a>]
 		</td></tr>';
 	}
+	unset($c);
 ?>
 </table>
 </form>

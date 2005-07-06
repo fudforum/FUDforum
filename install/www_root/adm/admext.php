@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.19 2004/11/24 19:53:42 hackie Exp $
+* $Id: admext.php,v 1.20 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -93,5 +93,6 @@ document.exf.c_ext.focus();
 		}
 		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admext.php?edit='.$r[1].'&'.__adm_rsidl.'">Edit</a>] [<a href="admext.php?del='.$r[1].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
 	}
+	unset($c);
 ?>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

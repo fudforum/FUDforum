@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admemail.php,v 1.18 2004/11/24 19:53:42 hackie Exp $
+* $Id: admemail.php,v 1.19 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -92,6 +92,7 @@ document.ef.e_string.focus();
 
 		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.($r[1] ? 'Simple' : 'Regex').'</td><td>[<a href="admemail.php?edit='.$r[0].'&'.__adm_rsidl.'">Edit</a>] [<a href="admemail.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
 	}
+	unset($c);
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

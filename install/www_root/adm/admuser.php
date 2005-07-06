@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.62 2005/06/16 13:33:10 hackie Exp $
+* $Id: admuser.php,v 1.63 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -263,6 +263,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				while ($r = db_rowarr($c)) {
 					echo '<a href="admuser.php?usr_id='.$r[0].'&act=m&'.__adm_rsidl.'">Pick user</a> <b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b><br>';
 				}
+				unset($c);
 				exit;
 		}
 	}
@@ -356,6 +357,7 @@ document.frm_usr.usr_login.focus();
 	while ($r = db_rowarr($c)) {
 		echo $r[0] . ' [<a href="admuser.php?act=nada&usr_id='.$usr_id.'&deltag=' . $r[1] . '&' . __adm_rsidl . '">Delete</a>]<br>';
 	}
+	unset($c);
 ?>
 	<form name="extra_tags" action="admuser.php" method="post">
 	<?php echo _hs; ?>

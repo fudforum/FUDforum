@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.33 2005/03/18 02:03:22 hackie Exp $
+* $Id: admstats.php,v 1.34 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,6 +52,7 @@ function get_sql_disk_usage()
 	while ($r = db_rowobj($c)) {
 		$sql_size += $r->Data_length + $r->Index_length;
 	}
+	unset($c);
 
 	return $sql_size;
 }
@@ -135,6 +136,7 @@ function get_sql_disk_usage()
 				$day_list[$ds]++;
 			}
 		}
+		unset($c);
 
 		ksort($day_list, SORT_NUMERIC);
 

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlogin.php,v 1.18 2005/03/05 18:47:00 hackie Exp $
+* $Id: admlogin.php,v 1.19 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -81,5 +81,6 @@ document.alf.login.focus();
 		}
 		echo '<tr '.$bgcolor.'><td>'.char_fix(htmlspecialchars($r[0])).'</td><td>[<a href="admlogin.php?edit='.$r[1].'&'.__adm_rsidl.'">Edit</a>] [<a href="admlogin.php?del='.$r[1].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
 	}
+	unset($c);
 ?>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

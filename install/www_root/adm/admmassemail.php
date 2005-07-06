@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.35 2005/03/15 21:59:54 hackie Exp $
+* $Id: admmassemail.php,v 1.36 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,6 +26,7 @@
 	while (list($cnt, $gid, $gname) = db_rowarr($c)) {
 		$groups[$gid] = array($gname, $cnt);
 	}
+	unset($c);
 	$err = 0;
 
 	if (!empty($_POST['subject']) && !empty($_POST['body'])) {
@@ -68,7 +69,8 @@
 				}
 				++$total;
 			}
-			if (count($to)) {
+			unset($c);
+			if ($to) {
 				$bcc = implode(', ', $to) . "\r\n";
 				mail(' ', encode_subject($_POST['subject']), $_POST['body'], "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\nBcc: ".$bcc);
 			}
@@ -122,6 +124,7 @@
 	while (($v = db_rowarr($r))) {
 		echo '<option value="'.$v[0].'">User Rank: '.$v[1].'</option>';
 	}
+	unset($r);
 	echo '</select></td></tr>';
 ?>
 	<tr class="field">

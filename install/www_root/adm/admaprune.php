@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaprune.php,v 1.9 2005/04/06 02:52:28 hackie Exp $
+* $Id: admaprune.php,v 1.10 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,6 +28,7 @@
 			while ($r = db_rowarr($c)) {
 				$l[] = $r[0];
 			}
+			unset($c);
 			if ($l) {
 				$lmt .= ' AND forum_id IN('.implode(',', $l).') ';
 			}
@@ -85,6 +86,7 @@
 					$al[] = $r[2];
 					$ml[] = $r[0];
 				}
+				unset($c);
 				if ($ml) {
 					q("UPDATE ".$DBHOST_TBL_PREFIX."msg SET attach_cnt=0, attach_cache=NULL WHERE id IN(".implode(',', $ml).")");
 				}
@@ -100,6 +102,7 @@
 					$al[] = $r[2];
 					$ml[] = $r[0];
 				}
+				unset($c);
 				if ($ml) {
 					q("UPDATE ".$DBHOST_TBL_PREFIX."pmsg SET attach_cnt=0 WHERE id IN(".implode(',', $ml).")");
 				}
@@ -148,6 +151,7 @@ this form will offer to delete attachments olders then 10 days.<p>
 			}
 			echo '<option value="'.$r[0].'">&nbsp;&nbsp;-&nbsp;'.$r[1].'</option>';
 		}
+		unset($c);
 		echo '</select>';
 	?>
 </tr>

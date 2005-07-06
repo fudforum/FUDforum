@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.110 2005/07/05 13:18:24 hackie Exp $
+* $Id: consist.php,v 1.111 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -162,6 +162,7 @@ forum will be disabled.
 		}
 		++$i;
 	}
+	unset($c);
 	foreach ($tmp as $k => $v) {
 		q('UPDATE '.$tbl.'cat SET view_order='.$v.' WHERE id='.$k);
 	}
@@ -190,6 +191,7 @@ forum will be disabled.
 	while ($r = db_rowarr($c)) {
 		$m[] = $r[0];
 	}
+	unset($c);
 	if ($m) {
 		q('UPDATE '.$tbl.'msg SET apr=1 WHERE id IN('.implode(',', $m).')');
 		unset($m);
@@ -209,6 +211,7 @@ forum will be disabled.
 			$tr[$r[2] - 1][] = $r[1];
 		}
 	}
+	unset($c);
 	if ($del) {
 		q('DELETE FROM '.$tbl.'thread WHERE id='.implode(',', $del));
 	}
@@ -230,6 +233,7 @@ forum will be disabled.
 			$m2[] = (int) $r[2];
 		}
 	}
+	unset($c);
 	foreach ($m1 as $v) {
 		if (!($root = q_singleval('SELECT id FROM '.$tbl.'msg WHERE thread_id='.$v.' ORDER BY post_stamp LIMIT 1'))) {
 			q('DELETE FROM '.$tbl.'thread WHERE id='.$v);
@@ -257,6 +261,7 @@ forum will be disabled.
 			$tmp[] = $r;
 		}
 	}
+	unset($c);
 	foreach ($tmp as $r) {
 		q('UPDATE '.$tbl.'forum SET thread_count='.$r[1].', post_count='.($r[0] + $r[1]).', last_post_id='.(int)$r[3].' WHERE id='.$r[2]);
 	}
@@ -276,10 +281,11 @@ forum will be disabled.
 			$tmp[(int)$f[0]] = $i;
 		}
 	}
+	unset($c);
 	foreach ($tmp as $k => $v) {
 		q('UPDATE '.$tbl.'forum SET view_order='.$v.' WHERE id='.$k);
 	}
-	unset($tmp, $c);
+	unset($tmp);
 	draw_stat('Done: Validating Forum Order');
 
 	draw_stat('Checking for presence of forum lock tables');
@@ -291,6 +297,7 @@ forum will be disabled.
 			$tmp[] = (int)$f[0];
 		}
 	}
+	unset($c);
 	foreach ($tmp as $v) {
 		q("CREATE TABLE ".$tbl."fl_".$v." (id INT)");
 	}
@@ -313,6 +320,7 @@ forum will be disabled.
 	while ($r = db_rowarr($c)) {
 		$arm[] = $r[0];
 	}
+	unset($c);
 	$c = uq('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'pmsg pm ON a.message_id=pm.id WHERE pm.id IS NULL AND attach_opt=1');
 	while ($r = db_rowarr($c)) {
 		$arm[] = $r[0];
@@ -369,6 +377,7 @@ forum will be disabled.
 	while ($r = db_rowarr($c)) {
 		$tmp[] = (int) $r[0];
 	}
+	unset($c);
 	if ($tmp) {
 		q('UPDATE '.$tbl.'msg SET poll_id=0, poll_cache=NULL WHERE id IN('.implode(',', $tmp).')');
 		unset($tmp);
@@ -637,6 +646,7 @@ forum will be disabled.
 			$glm[$r[0]][] = 2147483647;
 		}
 	}
+	unset($c);
 	if (isset($glm)) {
 		// make group based on 'primary' 1st group
 		$anon = q_singleval("SELECT groups_opt FROM ".$tbl."groups WHERE id=1");
@@ -670,6 +680,7 @@ forum will be disabled.
 		while (list($uid) = db_rowarr($c)) {
 			$te[] = $uid;
 		}
+		unset($c);
 		if ($te) {
 			q('UPDATE '.$tbl.'users SET theme='.q_singleval('SELECT id FROM '.$tbl.'themes WHERE (theme_opt & 3) > 0').' WHERE id IN('.implode(',', $te).')');
 		}

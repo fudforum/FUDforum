@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.26 2005/06/30 13:00:38 hackie Exp $
+* $Id: admnntp.php,v 1.27 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -115,6 +115,7 @@
 			while ($r = db_rowarr($c)) {
 				echo '<option value="'.$r[0].'"'.($r[0] != $nntp_forum_id ? '' : ' selected').'>'.$r[2].' &raquo; '.$r[1].'</option>';
 			}
+			unset($c);
 		?>
 		</select></td>
 	</tr>
@@ -221,6 +222,7 @@
 			<td>[<a href="admnntp.php?edit='.$r[0].'&'.__adm_rsidl.'">Edit</a>] [<a href="admnntp.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]
 			[<a href="admnntp.php?trk='.$r[0].'&'.__adm_rsidl.'">Clear Tracker</a>]</td></tr>';
 	}
+	unset($c);
 ?>
 </table>
 <p>

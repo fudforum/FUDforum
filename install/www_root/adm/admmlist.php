@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.30 2004/11/24 19:53:42 hackie Exp $
+* $Id: admmlist.php,v 1.31 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -91,6 +91,7 @@ function format_regex(&$regex)
 			while ($r = db_rowarr($c)) {
 				echo '<option value="'.$r[0].'"'.($r[0] != $ml_forum_id ? '' : ' selected').'>'.$r[2].' &raquo; '.$r[1].'</option>';
 			}
+			unset($c);
 		?>
 		</select></td>
 	</tr>
@@ -254,6 +255,7 @@ function format_regex(&$regex)
 		<td nowrap><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/maillist.php '.$r[0].'</font></td>
 		<td>[<a href="admmlist.php?edit='.$r[0].'&'.__adm_rsidl.'">Edit</a>] [<a href="admmlist.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
 	}
+	unset($c);
 ?>
 </table>
 <p>

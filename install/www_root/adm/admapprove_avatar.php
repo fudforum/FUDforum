@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admapprove_avatar.php,v 1.23 2004/11/24 19:53:42 hackie Exp $
+* $Id: admapprove_avatar.php,v 1.24 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,6 +36,7 @@
 		echo '<tr class="field"><td>'.$r[2].'</td><td>[<a href="admapprove_avatar.php?usr_id='.$r[0].'&'.__adm_rsidl.'">Approve</a>] [<a href="admapprove_avatar.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
 		echo '<tr class="field"><td align="center" colspan=2>'.$r[1].'</td></tr>';
 	}
+	unset($c);
 ?>
 </table>
 <?php

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.56 2005/06/23 14:52:35 hackie Exp $
+* $Id: admdump.php,v 1.57 2005/07/06 15:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -182,6 +182,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 					}
 					$write_func($fp, "(".substr($tmp, 0, -1).")\n");
 				}
+				unset($c);
 			}
 
 			echo "DONE<br>\n";
