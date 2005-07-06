@@ -514,6 +514,197 @@ function &fud_fetch_top_poster()
 	return _fud_simple_fetch_query(0, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users ORDER BY posted_msg_count DESC LIMIT 1");
 }
 
+/* {{{ proto: object fud_add_user($vals, &$err) }}}
+ * Return the id of a newly created user, on error returns 0 and populates $err with the error message.
+ * Vals is an array of fields found inside the users table
+ *	login	- login name for the account, must be unique. **required**
+ *	passwd	- password for the account (plain-text). **required**
+ *	email	- e-mail address of the user, must be unique. **required**
+ *	name	- the user's real first & last name. **required**
+ *	alias	- must be unique, if not available will be generated based on login.
+ * 	icq	- ICQ IM id (integer)
+ *	aim	- AIM IM id.
+ * 	yahoo	- Yahoo IM id.
+ *	msnm	- MSN IM id.
+ * 	jabber	- Jabber IM id.
+ * 	affero	- Affero IM id.
+ * 	posts_ppg - Host many messages to display per page, will default to POSTS_PER_PAGE.
+ * 	time_zone - Time zone, will default to server timezone as specified in admin settings.
+ * 	bday	- Birth day YYYYMMDD format, must be an integer.
+ * 	last_visit -  Unix Timestamp of last visitation date.
+ *	conf_key - 32 byte confirmation key for unconfirmed accounts.
+ *	user_image - url to the user's image
+ * 	join_date - Account creation date, will default to current time.
+ * 	location - City/Province/Country
+ *	theme - the ID of the theme to use, if left blank will pick default theme.
+ *	occupation - Job
+ *	interests - Interestes
+ *	referer_id - User id of the user who referred this user.
+ *	last_read - Unix timestamp of last "mark all read" will default to current time.
+ *	sig - Signature
+ *	home_page - Home Page URL
+ *	bio - Biography
+ *	users_opt - Account settings, consult fud_users.sql inside the sql/ directory for details.
+ *	reg_ip - Registration IP, will default to 127.0.0.1
+ */
+function fud_add_user($vals, &$err)
+{
+	// check for required fields 
+	foreach (array('login','passwd','email','name') as $v) {
+		if (empty($vals[$v])) {
+			$err = "missing value for a required field {$v}";
+			return 0;
+		}
+	}
+
+	$vals['passwd'] = md5($vals['passwd']);
+
+	if (empty($vals['alias'])) {
+		if (strlen($vals['login']) > $GLOBALS['MAX_LOGIN_SHOW']) {
+			$vals['alias'] = substr($vals['login'], 0, $GLOBALS['MAX_LOGIN_SHOW']);
+		} else {
+			$vals['alias'] = $vals['login'];
+		}
+		$vals['alias'] = htmlspecialchars($vals['alias']);
+	}
+
+	// some fields must be unique, check them
+	foreach (array('login','email','alias')	as $v) {
+		if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE {$v}='".addslashes($vals[$v])."'")) {
+			$err = "value for {$v} must be unique, specified value of {$vals[$v]} already exists.";
+			return 0;
+		}
+	}
+
+	$o2 =& $GLOBALS['FUD_OPT_2'];
+	$users_opt = 4|16|32|128|256|512|2048|4096|8192|16384|131072|4194304;
+	$theme = q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1");
+	$time_zone =& $GLOBALS['SERVER_TZ'];
+	$posts_ppg =& $GLOBALS['POSTS_PER_PAGE'];
+	if (!($o2 & 4)) {
+		$users_opt ^= 128;
+	}
+	if (!($o2 & 8)) {
+		$users_opt ^= 256;
+	}
+	if ($o2 & 1) {
+		$o2 ^= 1;
+	}
+	$reg_ip = "127.0.0.1";
+	$last_visit = $last_read = $join_date = __request_timestamp__;
+
+	// make sure all fields are set 
+	foreach( array('login','alias','passwd','name','email','icq','aim','yahoo','msnm','jabber',
+		'affero','posts_ppg','time_zone','bday','last_visit','conf_key','user_image',
+		'join_date','location','theme','occupation','interests','referer_id','last_read',
+		'sig','home_page','bio','users_opt','reg_ip') as $v) {
+		if (empty($vals[$v])) {
+			$vals[$v] = isset($$v) ? $$v : '';
+		}
+	}
+
+	return db_qid("INSERT INTO
+			".$GLOBALS['DBHOST_TBL_PREFIX']."users (
+				login,
+				alias,
+				passwd,
+				name,
+				email,
+				icq,
+				aim,
+				yahoo,
+				msnm,
+				jabber,
+				affero,
+				posts_ppg,
+				time_zone,
+				bday,
+				last_visit,
+				conf_key,
+				user_image,
+				join_date,
+				location,
+				theme,
+				occupation,
+				interests,
+				referer_id,
+				last_read,
+				sig,
+				home_page,
+				bio,
+				users_opt,
+				reg_ip
+			) VALUES (
+				'".addslashes($vals['login'])."',
+				'".addslashes($vals['alias'])."',
+				'".$vals['passwd']."',
+				'".addslashes($vals['name'])."',
+				'".addslashes($vals['email'])."',
+				".(int)$vals['icq'].",
+				".ssn(urlencode($vals['aim'])).",
+				".ssn(urlencode($vals['yahoo'])).",
+				".ssn(urlencode($vals['msnm'])).",
+				".ssn(htmlspecialchars($vals['jabber'])).",
+				".ssn(urlencode($vals['affero'])).",
+				".(int)$vals['posts_ppg'].",
+				'".addslashes($vals['time_zone'])."',
+				".(int)$vals['bday'].",
+				".(int)$vals['last_visit'].",
+				'".$vals['conf_key']."',
+				".ssn(htmlspecialchars($vals['user_image'])).",
+				".$vals['join_date'].",
+				".ssn($vals['location']).",
+				".(int)$vals['theme'].",
+				".ssn($vals['occupation']).",
+				".ssn($vals['interests']).",
+				".(int)$vals['ref_id'].",
+				".(int)$vals['last_read'].",
+				".ssn($vals['sig']).",
+				".ssn(htmlspecialchars($vals['home_page'])).",
+				".ssn($vals['bio']).",
+				".(int)$vals['users_opt'].",
+				".ip2long($vals['reg_ip'])."
+			)
+		");
+}
+
+/* {{{ proto: object fud_add_user($vals, &$err) }}}
+ * Returns 1on success, on error returns 0 and populates $err with the error message.
+ * Vals is an array of fields found inside the users table (same as for fud_add_user)
+ * The specified values inside the vals array should ONLY be the ones you wish to modify
+ */
+function fud_update_user($uid, $vals, &$err)
+{
+	$uid = (int) $uid;
+
+	if (!q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE id=".$uid)) {
+		$err = "Invalid user id";
+		return 0;
+	}
+
+	foreach (array('login','email','alias')	as $v) {
+		if (empty($vals[$v])) continue;
+	
+		if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE {$v}='".addslashes($vals[$v])."' AND id!=".$uid)) {
+			$err = "value for {$v} must be unique, specified value of {$vals[$v]} already exists.";
+			return 0;
+		}
+	}
+
+	$qry = "UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET ";
+	// apply changes
+	foreach( array('login','alias','passwd','name','email','icq','aim','yahoo','msnm','jabber',
+		'affero','posts_ppg','time_zone','bday','last_visit','conf_key','user_image',
+		'join_date','location','theme','occupation','interests','referer_id','last_read',
+		'sig','home_page','bio','users_opt','reg_ip') as $v) {
+		if (isset($vals[$v])) {
+			$qry = "{$v}='".addslashes($vals[$v])."',";
+		}
+	}
+	uq($qry." WHERE id=".$uid);
+	return 1;
+}
+
 /* {{{ proto: int message_id fud_new_topic(string subject, string body, int mode *, mixed author, int forum 
 					    [, string icon [, array attachmet_list ** [, array poll ***]]]) }}}
  * Create a new topic based on the provided information. (* denoted variables explained below)
