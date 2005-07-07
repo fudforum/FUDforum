@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.39 2005/07/06 14:39:22 hackie Exp $
+* $Id: pdf.php.t,v 1.40 2005/07/07 13:45:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -225,14 +225,6 @@ class fud_pdf extends FPDF
 		invl_inp_err();
 	}
 
-	$re = array();
-	$c = uq('SELECT code, '.__FUD_SQL_CONCAT__.'(\'images/smiley_icons/\', img), descr FROM {SQL_TABLE_PREFIX}smiley');
-	while ($r = db_rowarr($c)) {
-		$im = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
-		$re[$im] = (($p = strpos($r[0], '~')) !== false) ? substr($r[0], 0, $p) : $r[0];
-	}
-	unset($c);
-
 	if (_uid) {
 		if (!$is_a) {
 			$join .= '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
@@ -288,7 +280,7 @@ class fud_pdf extends FPDF
 			$body = read_pmsg_body($o->foff, $o->length);
 		}
 
-		$fpdf->input_text(reverse_fmt(strip_tags(post_to_smiley($body, $re))));
+		$fpdf->input_text(reverse_fmt(strip_tags(post_to_smiley($body))));
 
 		/* handle attachments */
 		if ($o->attach_cnt) {
@@ -315,7 +307,7 @@ class fud_pdf extends FPDF
 		if (!empty($o->poll_name) && $o->poll_cache && ($pc = unserialize($o->poll_cache))) {
 			$votes = array();
 			foreach ($pc as $opt) {
-				$votes[] = array('name' => reverse_fmt(strip_tags(post_to_smiley($opt[0], $re))), 'votes' => $opt[1]);
+				$votes[] = array('name' => reverse_fmt(strip_tags(post_to_smiley($opt[0]))), 'votes' => $opt[1]);
 			}
 			$fpdf->add_poll(reverse_fmt($o->poll_name), $votes, $o->total_votes);
 		}
