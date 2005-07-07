@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groups_adm.inc,v 1.18 2005/07/06 14:42:07 hackie Exp $
+* $Id: groups_adm.inc,v 1.19 2005/07/07 21:30:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -109,13 +109,9 @@ function rebuild_group_ldr_cache($id)
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
-	$c = uq('SELECT group_id FROM '.$tbl.'group_members WHERE user_id='.$id.' AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0');
-	while ($r = db_rowarr($c)) {
-		$g[] = $r[0];
-	}
-	unset($c);
+	$g = db_all('SELECT group_id FROM '.$tbl.'group_members WHERE user_id='.$id.' AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0');
 
-	if (isset($g)) {
+	if ($g) {
 		q('UPDATE '.$tbl.'users SET group_leader_list='.strnull(addslashes(@serialize($g))).' WHERE id='.$id);
 	} else {
 		q('UPDATE '.$tbl.'users SET group_leader_list=NULL WHERE id='.$id);

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.53 2005/06/27 16:14:43 hackie Exp $
+* $Id: db.inc,v 1.54 2005/07/07 21:30:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -251,5 +251,15 @@ function db_li($q, &$ef, $li=0)
 function ins_m($tbl, $flds, $vals, $type=0)
 {
 	q("INSERT IGNORE INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
+}
+
+function db_all($q)
+{
+	$f = array();
+	$c = uq($q);
+	while ($r = mysql_fetch_row($c)) {
+		$f[] = $r[0];
+	}
+	return $f;
 }
 ?>

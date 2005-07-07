@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.111 2005/07/06 15:12:43 hackie Exp $
+* $Id: consist.php,v 1.112 2005/07/07 21:30:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -67,18 +67,9 @@ function delete_zero($tbl, $q)
 	} else if ($GLOBALS['FUD_OPT_3'] & 1024) { /* mysql 4.1 optimization */
 		q("DELETE ".$tbl." ".substr($q, 7, strpos($q, '.') - 7)." ".strstr($q, "FROM"));
 		draw_info(db_affected());
-	} else { /* mysql 3.23-4.0 */
-		$cnt = 0;
-		$c = q($q);
-		while ($r = db_rowarr($c)) {
-			$a[] = $r[0];
-			++$cnt;
-		}
-		if ($cnt) {
-			q('DELETE FROM '.$tbl.' WHERE id IN ('.implode(',', $a).')');
-		}
-		unset($c);
-		draw_info($cnt);
+	} else if (($a = db_all($q))) { /* mysql 3.23-4.0 */
+		q('DELETE FROM '.$tbl.' WHERE id IN ('.implode(',', $a).')');
+		draw_info(count($a));
 	}
 }
 
@@ -186,12 +177,7 @@ forum will be disabled.
 	delete_zero($tbl.'thread', 'SELECT t.id FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'forum f ON f.id=t.forum_id WHERE f.id IS NULL');
 
 	draw_stat('Checking message approvals');
-	$m = array();
-	$c = uq('SELECT m.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.apr=0 AND (f.forum_opt & 2) = 0');
-	while ($r = db_rowarr($c)) {
-		$m[] = $r[0];
-	}
-	unset($c);
+	$m = db_all('SELECT m.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.apr=0 AND (f.forum_opt & 2) = 0');
 	if ($m) {
 		q('UPDATE '.$tbl.'msg SET apr=1 WHERE id IN('.implode(',', $m).')');
 		unset($m);
@@ -315,16 +301,9 @@ forum will be disabled.
 	delete_zero($tbl.'read', 'SELECT r.id FROM '.$tbl.'read r LEFT JOIN '.$tbl.'users u ON r.user_id=u.id LEFT JOIN '.$tbl.'thread t ON r.thread_id=t.id WHERE t.id IS NULL OR u.id IS NULL');
 
 	draw_stat('Checking file attachments against messages');
-	$arm = array();
-	$c = uq('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'msg m ON a.message_id=m.id WHERE m.id IS NULL AND attach_opt=0');
-	while ($r = db_rowarr($c)) {
-		$arm[] = $r[0];
-	}
-	unset($c);
-	$c = uq('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'pmsg pm ON a.message_id=pm.id WHERE pm.id IS NULL AND attach_opt=1');
-	while ($r = db_rowarr($c)) {
-		$arm[] = $r[0];
-	}
+	$arm = db_all('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'msg m ON a.message_id=m.id WHERE m.id IS NULL AND attach_opt=0');
+	$arm = array_merge($arm, db_all('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'pmsg pm ON a.message_id=pm.id WHERE pm.id IS NULL AND attach_opt=1'));
+
 	if (($cnt = count($arm))) {
 		foreach ($arm as $a) {
 			@unlink($FILE_STORE . $a . 'atch');
@@ -372,12 +351,7 @@ forum will be disabled.
 	delete_zero($tbl.'poll', 'SELECT p.id FROM '.$tbl.'poll p LEFT JOIN '.$tbl.'msg m ON p.id=m.poll_id WHERE m.id IS NULL');
 
 	draw_stat('Checking messages against polls');
-	$tmp = array();
-	$c = uq('SELECT m.id FROM '.$tbl.'msg m LEFT JOIN '.$tbl.'poll p ON p.id=m.poll_id WHERE p.id IS NULL AND m.poll_id > 0');
-	while ($r = db_rowarr($c)) {
-		$tmp[] = (int) $r[0];
-	}
-	unset($c);
+	$tmp = db_all('SELECT m.id FROM '.$tbl.'msg m LEFT JOIN '.$tbl.'poll p ON p.id=m.poll_id WHERE p.id IS NULL AND m.poll_id > 0');
 	if ($tmp) {
 		q('UPDATE '.$tbl.'msg SET poll_id=0, poll_cache=NULL WHERE id IN('.implode(',', $tmp).')');
 		unset($tmp);
@@ -485,16 +459,9 @@ forum will be disabled.
 
 	draw_stat('Rebuilding Topic Views');
 	q('DELETE FROM '.$tbl.'thread_view');
-	$forums = array();
-	$c = q('SELECT id FROM '.$tbl.'forum');
-	while ($r = db_rowarr($c)) {
-		$forums[] = (int) $r[0];
-	}
-	unset($c);
-	foreach ($forums as $v) {
+	foreach (db_all('SELECT id FROM '.$tbl.'forum') as $v) {
 		rebuild_forum_view($v);
 	}
-	unset($forums);
 	draw_stat('Done: Rebuilding Topic Views');
 
 	draw_stat('Rebuilding user ranks, message counts & last post ids');

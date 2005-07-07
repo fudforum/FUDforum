@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.27 2005/07/06 14:13:14 hackie Exp $
+* $Id: merge_th.php.t,v 1.28 2005/07/07 21:30:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -75,12 +75,7 @@
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject='".addslashes(htmlspecialchars($_POST['new_title']))."' WHERE id=".$start);
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to={$start} WHERE thread_id IN({$tl}) AND (reply_to=0 OR reply_to=id) AND id!={$start}");
 			if ($forum != $frm) {
-				$p = array();
-				$c = q('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id IN('.$tl.') AND apr=1 AND poll_id>0');
-				while ($r = db_rowarr($c)) {
-					$p[] = $r[0];
-				}
-				unset($c);
+				$p = db_all('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id IN('.$tl.') AND apr=1 AND poll_id>0');
 				if ($p) {
 					q('UPDATE {SQL_TABLE_PREFIX}poll SET forum_id='.$forum.' WHERE id IN('.implode(',', $p).')');
 				}

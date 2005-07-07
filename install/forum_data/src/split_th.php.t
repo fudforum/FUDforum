@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.44 2005/07/06 14:39:22 hackie Exp $
+* $Id: split_th.php.t,v 1.45 2005/07/07 21:30:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,12 +60,7 @@
 			$start = $_POST['sel_th'][0];
 			$end = $_POST['sel_th'][($mc - 1)];
 		} else {
-			$a = array();
-			$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND id NOT IN('.implode(',', $_POST['sel_th']).') AND apr=1 ORDER BY post_stamp ASC');
-			while ($r = db_rowarr($c)) {
-				$a[] = $r[0];
-			}
-			unset($c);
+			$a = db_all('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND id NOT IN('.implode(',', $_POST['sel_th']).') AND apr=1 ORDER BY post_stamp ASC');
 			/* sanity check */
 			if (!$a) {
 				if ($FUD_OPT_2 & 32768) {
@@ -124,12 +119,7 @@
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET root_msg_id='.$old_root_msg_id.', replies=replies-'.$mc.', last_post_date='.$lpd.', last_post_id='.$lpi.' WHERE id='.$data->id);
 
 			if ($forum != $data->forum_id) {
-				$p = array();
-				$c = q('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$new_th.' AND apr=1 AND poll_id>0');
-				while ($r = db_rowarr($c)) {
-					$p[] = $r[0];
-				}
-				unset($c);
+				$p = db_all('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$new_th.' AND apr=1 AND poll_id>0');
 				if ($p) {
 					q('UPDATE {SQL_TABLE_PREFIX}poll SET forum_id='.$data->forum_id.' WHERE id IN('.implode(',', $p).')');
 				}

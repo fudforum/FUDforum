@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.74 2005/07/06 14:39:22 hackie Exp $
+* $Id: login.php.t,v 1.75 2005/07/07 21:30:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,18 +15,14 @@
 	/* Remove old unconfirmed users */
 	if ($FUD_OPT_2 & 1) {
 		$account_expiry_date = __request_timestamp__ - (86400 * $UNCONF_USER_EXPIRY);
-		$c = uq("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE (users_opt & 131072)=0 AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND id!=1 AND (users_opt & 1048576)=0");
-		$list = array();
-		while ($r = db_rowarr($c)) {
-			$list[] = $r[0];
-		}
-		unset($c);
+		$list = db_all("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE (users_opt & 131072)=0 AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND id!=1 AND (users_opt & 1048576)=0");
+
 		if ($list) {
 			fud_use('private.inc');
 			fud_use('users_adm.inc', true);
 			usr_delete($list);
 		}
-		unset($c, $list);
+		unset($list);
 	}
 
 	if (!empty($_GET['logout']) && sq_check(0, $usr->sq)) {

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaprune.php,v 1.10 2005/07/06 15:12:43 hackie Exp $
+* $Id: admaprune.php,v 1.11 2005/07/07 21:30:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,12 +23,7 @@
 		if ($_POST['forumsel'] == '0') {
 			$msg = '<font color="red">from all forums</font>';
 		} else if (!strncmp($_POST['forumsel'], 'cat_', 4)) {
-			$l = array();
-			$c = uq('SELECT id FROM '.$DBHOST_TBL_PREFIX.'forum WHERE cat_id='.(int)substr($_POST['forumsel'], 4));
-			while ($r = db_rowarr($c)) {
-				$l[] = $r[0];
-			}
-			unset($c);
+			$l = db_all('SELECT id FROM '.$DBHOST_TBL_PREFIX.'forum WHERE cat_id='.(int)substr($_POST['forumsel'], 4));
 			if ($l) {
 				$lmt .= ' AND forum_id IN('.implode(',', $l).') ';
 			}

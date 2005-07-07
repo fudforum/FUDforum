@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.58 2005/06/27 20:09:37 hackie Exp $
+* $Id: db.inc,v 1.59 2005/07/07 21:30:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -291,5 +291,16 @@ function ins_m($tbl, $flds, $vals, $type)
 	if ($GLOBALS['FUD_OPT_1'] & 256) {
 		pg_query(fud_sql_lnk, 'DEALLOCATE '.$pid);
 	}
+}
+function db_all($q)
+{
+	if (!($r = pg_fetch_all(q($q)))) {
+		return array();
+	}
+	$f = array();
+	foreach ($r as $v) {
+		$f[] = $v[0];
+	}
+	return $f;
 }
 ?>
