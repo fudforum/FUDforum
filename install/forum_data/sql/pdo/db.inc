@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.13 2005/07/06 15:47:03 hackie Exp $
+* $Id: db.inc,v 1.14 2005/07/07 00:53:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -259,7 +259,7 @@ function get_fud_table_list($tbl='')
 		$idx = str_replace("_", "\\_", $GLOBALS['DBHOST_TBL_PREFIX']);
 	}
 
-	db::$res = NULL;
+	db::$buf = db::$res = null;
 
 	switch (__dbtype__) {
 		case 'mysql':
@@ -335,7 +335,7 @@ function &db_arr_assoc($q)
 
 function db_li($q, &$ef, $li=0)
 {
-	db::$res = NULL;
+	db::$buf = db::$res = null;
 	$r = db::$db->exec($q);
 	
 	if ($r) {
@@ -350,7 +350,7 @@ function db_li($q, &$ef, $li=0)
 			case 'pgsql':
 				$p = strpos($q, $GLOBALS['DBHOST_TBL_PREFIX']);
 				$e = strcspn($q, "\r\n\t (", $p);
-				return q_singleval("SELECT currval('".substr($q, $p, $e)."_id_seq')");
+				return db::$db->lastInsertId(substr($q, $p, $e)."_id_seq");
 		}
 	}
 
