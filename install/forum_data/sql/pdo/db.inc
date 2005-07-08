@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.15 2005/07/07 21:30:11 hackie Exp $
+* $Id: db.inc,v 1.16 2005/07/08 14:03:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -124,7 +124,6 @@ function get_version()
 	return __FUD_SQL_VERSION__;
 }
 
-
 function db_lock($tables)
 {
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
@@ -165,7 +164,6 @@ function db_unlock()
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", get_version());
 	}
-	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 
 	switch (__dbtype__) {
 		case 'mysql':
@@ -180,6 +178,7 @@ function db_unlock()
 			q('COMMIT');
 			break;
 	}
+	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 }
 
 function db_locked()
@@ -243,14 +242,10 @@ function q_singleval($query)
 
 function qry_limit($limit, $off)
 {
-	switch (__dbtype__) {
-		case 'mysql':
-			return $off.','.$limit;
-
-		case 'pgsql':
-		case 'sqlite':
-			return $limit.' OFFSET '.$off;
+	if (__dbtype__ == 'mysql') {
+		return $off.','.$limit;
 	}
+	return $limit.' OFFSET '.$off;
 }
 
 function get_fud_table_list($tbl='')
