@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.16 2005/07/08 14:03:23 hackie Exp $
+* $Id: db.inc,v 1.17 2005/07/08 20:04:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -383,6 +383,7 @@ function ins_m($tbl, $flds, $vals, $type=0, $strict=1)
 
 function db_all($q)
 {
+	db::$buf = db::$res = null;
 	return db::$db->query($q)->fetchAll(PDO_FETCH_COLUMN);
 }
 ?>
