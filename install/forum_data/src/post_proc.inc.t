@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.78 2005/06/16 12:41:09 hackie Exp $
+* $Id: post_proc.inc.t,v 1.79 2005/07/08 14:18:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -615,7 +615,7 @@ function safe_tmp_copy($source, $del_source=0, $prefx='')
 	return basename($name);
 }
 
-function reverse_nl2br(&$data)
+function reverse_nl2br($data)
 {
 	if (strpos($data, '<br />') !== false) {
 		return str_replace('<br />', '', $data);
