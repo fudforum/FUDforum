@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.22 2005/07/06 15:12:43 hackie Exp $
+* $Id: admsmiley.php,v 1.23 2005/07/08 14:29:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,10 +47,10 @@
 		$sml_img = $_FILES['icoul']['name'];
 	}
 
-	if (isset($_POST['btn_update'], $_POST['edit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code'])) {
+	if (isset($_POST['btn_update'], $_POST['edit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code']) && $_POST['sml_code']{strlen($_POST['sml_code']) - 1} != '~') {
 		q('UPDATE '.$tbl.'smiley SET code='.strnull(addslashes($_POST['sml_code'])).', img='.strnull(addslashes($_POST['sml_img'])).', descr='.strnull(addslashes($_POST['sml_descr'])).' WHERE id='.(int)$_POST['edit']);
 		smiley_rebuild_cache();
-	} else if (isset($_POST['btn_submit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code'])) {
+	} else if (isset($_POST['btn_submit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code']) && $_POST['sml_code']{strlen($_POST['sml_code']) - 1} != '~') {
 		$view_order = q_singleval('SELECT MAX(vieworder) FROM '.$tbl.'smiley') + 1;
 		q('INSERT INTO '.$tbl.'smiley (code, img, descr, vieworder) VALUES('.strnull(addslashes($_POST['sml_code'])).', '.strnull(addslashes($_POST['sml_img'])).', '.strnull(addslashes($_POST['sml_descr'])).', '.$view_order.')');
 		smiley_rebuild_cache();
@@ -81,10 +81,25 @@
 
 	if (!isset($_GET['chpos'])) {
 ?>
+<script language="javascript" type="text/javascript">
+<!--
+function sml_form_check() 
+{
+	var a = document.frm_sml.sml_code.value;
+	if (a[a.length - 1] == '~') {
+		alert('FUDforum separates emoticons with a tilde (~) therefor the last char of the smiley/emoticon code cannot be a ~.');
+		return false;	
+	}
+	return true;
+}
+-->
+</script>
+
 
 <h2>Smiley Management System</h2>
 
-<form name="frm_sml" method="post" enctype="multipart/form-data" action="admsmiley.php">
+<form name="frm_sml" method="post" enctype="multipart/form-data" action="admsmiley.php" 
+onSubmit="javascript: return sml_form_check();">
 <table class="datatable solidtable">
 <?php
 	echo _hs;
