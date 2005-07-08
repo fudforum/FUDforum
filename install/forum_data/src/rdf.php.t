@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.51 2005/07/06 14:39:22 hackie Exp $
+* $Id: rdf.php.t,v 1.52 2005/07/08 14:01:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -85,6 +85,10 @@ function fud_xml_encode($str)
 
 	$res = 0;
 	$offset = isset($_GET['o']) ? (int)$_GET['o'] : 0;
+
+	if ($RDF_MAX_N_RESULTS < 1) { // handler for events when the value is not set
+		$RDF_MAX_N_RESULTS = 100;
+	}
 	$limit  = (isset($_GET['n']) && $_GET['n'] <= $RDF_MAX_N_RESULTS) ? (int)$_GET['n'] : $RDF_MAX_N_RESULTS;
 
 	$basic_rss_data = $basic_rss_header = $join = '';
