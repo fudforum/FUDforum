@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smiley.inc.t,v 1.19 2004/11/29 16:05:12 hackie Exp $
+* $Id: smiley.inc.t,v 1.20 2005/07/08 14:18:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,6 +16,19 @@ function smiley_to_post($text)
 {
 	$text_l = strtolower($text);
 	include $GLOBALS['FORUM_SETTINGS_PATH'].'sp_cache';
+
+	/* remove all non-formatting blocks */
+	foreach (array('</pre>'=>'<pre>', '</span>' => '<span name="php">') as $k => $v) {
+		$p = 0;
+		while (($p = strpos($text_l, $v, $p)) !== false) {
+			if (($e = strpos($text_l, $k, $p)) === false) {
+				$p += 5;
+				continue;
+			}
+			$text_l = substr_replace($text_l, str_repeat(' ', $e - $p), $p, ($e - $p));
+			$p = $e;
+		}
+	}
 
 	foreach ($SML_REPL as $k => $v) {
 		$a = 0;
