@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: minimsg.inc.t,v 1.31 2005/07/06 14:39:22 hackie Exp $
+* $Id: minimsg.inc.t,v 1.32 2005/07/08 20:53:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,7 +43,7 @@ if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 			LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id' .
-		($use_tmp ? ' ORDER BY m.id ASC' : " WHERE m.thread_id=".$th_id." AND m.apr=1 ORDER BY m.id ASC LIMIT " . qry_limit($count, $start)));
+		($use_tmp ? ' ORDER BY m.id '.$msg_order_by : " WHERE m.thread_id=".$th_id." AND m.apr=1 ORDER BY m.id ".$msg_order_by." LIMIT " . qry_limit($count, $start)));
 
 	$message_data='';
 	$m_count = 0;
