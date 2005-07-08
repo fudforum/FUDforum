@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.60 2005/07/08 14:40:41 hackie Exp $
+* $Id: db.inc,v 1.61 2005/07/08 16:20:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -294,6 +294,10 @@ function ins_m($tbl, $flds, $vals, $type)
 }
 function db_all($q)
 {
+	if (function_exists('pg_fetch_all_columns')) {
+		return pg_fetch_all_columns(q($q));
+	}
+
 	if (!($r = pg_fetch_all(q($q)))) {
 		return array();
 	}
