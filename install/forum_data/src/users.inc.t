@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.147 2005/04/03 19:15:49 hackie Exp $
+* $Id: users.inc.t,v 1.148 2005/07/11 16:15:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,7 +10,7 @@
 * (at your option) any later version.
 **/
 
-function init_user()
+function &init_user()
 {
 	$o1 =& $GLOBALS['FUD_OPT_1'];
 	$o2 =& $GLOBALS['FUD_OPT_2'];
@@ -768,6 +768,6 @@ function regen_sq($uid=__fud_real_user__)
 }
 
 if (isset($_SERVER['REMOTE_ADDR']) || !defined('forum_debug')) {
-	$GLOBALS['usr'] =& init_user();
+	$GLOBALS['usr'] = init_user();
 }
 ?>
