@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.25 2005/06/29 13:14:56 hackie Exp $
+* $Id: phpBB2.php,v 1.26 2005/07/11 17:28:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -349,6 +349,10 @@ function import_av_gal($dirn)
 				}
 				$dest = $IMG_ROOT_DISK.'avatars/'.basename($obj->user_avatar);
 				$im = getimagesize($dest);
+				break;
+			default:
+				print_msg("Unsupported avatar type {$obj->user_avatar_type}");
+				continue;
 				break;
 		}
 		$avatar_loc = '<img src="'.str_replace($WWW_ROOT_DISK, $WWW_ROOT, $dest).'" '.$im[3].'>';
