@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.37 2005/06/23 16:20:18 hackie Exp $
+* $Id: getfile.php.t,v 1.38 2005/07/11 16:46:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,7 @@
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
-function &get_preview_img($id)
+function get_preview_img($id)
 {
 	return db_saq('SELECT mm.mime_hdr, a.original_name, a.location, 0, 0, 0, a.fsize FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type WHERE a.message_id=0 AND a.id='.$id);
 }

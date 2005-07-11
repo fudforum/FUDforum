@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.17 2005/07/08 20:04:41 hackie Exp $
+* $Id: db.inc,v 1.18 2005/07/11 16:46:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -225,12 +225,12 @@ function db_count($result)
 	return (int) $result->rowCount();
 }
 
-function &db_rowobj($result)
+function db_rowobj($result)
 {
 	return $result->fetch(PDO_FETCH_OBJ);
 }
 
-function &db_rowarr($result)
+function db_rowarr($result)
 {
 	return $result->fetch(PDO_FETCH_NUM);
 }
@@ -298,7 +298,7 @@ function optimize_tables($tbl_list=null)
 	}
 }
 
-function &db_saq($q)
+function db_saq($q)
 {
 	return uq($q)->fetch(PDO_FETCH_NUM);
 }
@@ -323,7 +323,7 @@ function db_qid($q)
 	}
 }
 
-function &db_arr_assoc($q)
+function db_arr_assoc($q)
 {
 	return uq($q)->fetch(PDO_FETCH_ASSOC);
 }

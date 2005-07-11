@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.151 2005/07/07 21:30:11 hackie Exp $
+* $Id: register.php.t,v 1.152 2005/07/11 16:46:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -303,13 +303,13 @@ function decode_uent(&$uent)
 
 	/* allow the root to modify settings other lusers */
 	if (_uid && $is_a && $mod_id) {
-		if (!($uent =& usr_reg_get_full($mod_id))) {
+		if (!($uent = usr_reg_get_full($mod_id))) {
 			exit('Invalid User Id');
 		}
 		decode_uent($uent);
 	} else {
 		if (__fud_real_user__) {
-			$uent =& usr_reg_get_full($usr->id);
+			$uent = usr_reg_get_full($usr->id);
 			decode_uent($uent);
 		} else {
 			$uent = new fud_user_reg;

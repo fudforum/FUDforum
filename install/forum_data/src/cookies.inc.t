@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.70 2005/06/23 22:57:37 hackie Exp $
+* $Id: cookies.inc.t,v 1.71 2005/07/11 16:46:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,7 +30,7 @@ function ses_make_sysid()
 	return md5($pfx);
 }
 
-function &ses_get($id=0)
+function ses_get($id=0)
 {
 	if (!$id) {
 		if (!empty($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
@@ -85,7 +85,7 @@ function &ses_get($id=0)
 	return;
 }
 
-function &ses_anon_make()
+function ses_anon_make()
 {
 	do {
 		$uid = 2000000000 + mt_rand(1, 147483647);

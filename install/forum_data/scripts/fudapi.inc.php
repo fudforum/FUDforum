@@ -107,7 +107,7 @@ stdClass Object
 --- End of Attachment data ---
 )
 */
-function &fud_fetch_msg($arg)
+function fud_fetch_msg($arg)
 {
 	$arg = is_numeric($arg) ? array($arg) : $arg;
 
@@ -162,7 +162,7 @@ function &fud_fetch_msg($arg)
  * messages inside the selected topics.
  * The output is identical to that of the fud_fetch_msg() function.
  */
-function &fud_fetch_full_topic($arg)
+function fud_fetch_full_topic($arg)
 {
 	return _fud_msg_multi($arg, "SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE thread_id IN ({ARG}) AND apr=1");
 }
@@ -173,7 +173,7 @@ function &fud_fetch_full_topic($arg)
  * then 1 day will be returned.
  * The output is identical to that of the fud_fetch_msg() function.
  */
-function &fud_fetch_recent_msg($arg=1)
+function fud_fetch_recent_msg($arg=1)
 {
 	$range = time() - 86400 * (float) $arg;
 	return _fud_msg_multi(0, "SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE apr=1 AND post_stamp > ".$range);
@@ -183,7 +183,7 @@ function &fud_fetch_recent_msg($arg=1)
  * This function returns all messages posted by the specified user(s).
  * The output is identical to that of the fud_fetch_msg() function.
  */
-function &fetch_fetch_msg_by_user($arg)
+function fetch_fetch_msg_by_user($arg)
 {
 	return _fud_msg_multi(arg, "SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE poster_id IN ({ARG}) AND apr=1");
 }
@@ -209,7 +209,7 @@ stdClass Object
     [type] => // sticky || announcement || null (normal topic)
 )
  */
-function &fud_fetch_topic($arg)
+function fud_fetch_topic($arg)
 {
 	$arg = is_numeric($arg) ? array($arg) : $arg;
 
@@ -271,7 +271,7 @@ stdClass Object
         )
 )
 */
-function &fud_fetch_poll($arg)
+function fud_fetch_poll($arg)
 {
 	$arg = is_numeric($arg) ? array($arg) : $arg;
 	$result = array();
@@ -322,7 +322,7 @@ stdClass Object
     [download_url] => // download URL
 )
 */ 
-function &fud_fetch_attachment($arg)
+function fud_fetch_attachment($arg)
 {
 	$res = _fud_simple_fetch_query($arg, "SELECT 
 			a.*, u.alias, m.mime_hdr, m.descr, m.icon 
@@ -366,7 +366,7 @@ stdClass Object
         )
 )
 */
-function &fud_fetch_forum($arg)
+function fud_fetch_forum($arg)
 {
 	return _fud_decode_forum(_fud_simple_fetch_query($arg, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE id IN({ARG})"));
 }
@@ -381,7 +381,7 @@ stdClass Object
     [description] => // category description (may contain raw html)
 )
  */
-function &fud_fetch_cat($arg)
+function fud_fetch_cat($arg)
 {
 	return _fud_simple_fetch_query($arg, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."cat WHERE id IN({ARG})");
 }
@@ -390,7 +390,7 @@ function &fud_fetch_cat($arg)
  * This function returns information about forum(s) inside specified categories.
  * The output is identical to that of the fud_fetch_forum() function.
  */
-function &fud_fetch_cat_forums($arg)
+function fud_fetch_cat_forums($arg)
 {
 	return _fud_decode_forum(_fud_simple_fetch_query($arg, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE cat_id IN({ARG})"));
 }
@@ -411,7 +411,7 @@ Array
         )
 )
 */
-function &fud_forum_stats()
+function fud_forum_stats()
 {
 	$tm_expire = __request_timestamp__ - ($GLOBALS['LOGEDIN_TIMEOUT'] * 60);
 
@@ -439,7 +439,7 @@ stdClass Object
     [private] => // wether or not user want's their online status hidden
 )
 */
-function &fud_fetch_online_users()
+function fud_fetch_online_users()
 {
 	$tm_expire = __request_timestamp__ - ($GLOBALS['LOGEDIN_TIMEOUT'] * 60);
 
@@ -485,7 +485,7 @@ stdClass Object
     [bio] => // HTML safe biography
 )
 */
-function &fud_fetch_user($arg)
+function fud_fetch_user($arg)
 {
 	return _fud_simple_fetch_query($arg, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE id IN({ARG})");
 }
@@ -493,7 +493,7 @@ function &fud_fetch_user($arg)
 /* {{{ proto: object fud_fetch_newest_user() }}}
  * Return profile information about the forum's newest member.
  */
-function &fud_fetch_newest_user()
+function fud_fetch_newest_user()
 {
 	fud_fetch_user(q_singleval("SELECT MAX(id) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users"));
 }
@@ -501,7 +501,7 @@ function &fud_fetch_newest_user()
 /* {{{ proto: object fud_fetch_random_user() }}}
  * Fetch profile information about a random forum member.
  */
-function &fud_fetch_random_user()
+function fud_fetch_random_user()
 {
 	return _fud_simple_fetch_query(0, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users ORDER BY RAND()");
 }
@@ -509,7 +509,7 @@ function &fud_fetch_random_user()
 /* {{{ proto: object fud_fetch_top_poster() }}}
  * Return profile information about a forum member with a greatest number of posts.
  */
-function &fud_fetch_top_poster()
+function fud_fetch_top_poster()
 {
 	return _fud_simple_fetch_query(0, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users ORDER BY posted_msg_count DESC LIMIT 1");
 }
@@ -879,7 +879,7 @@ function fud_delete_attachment($arg)
 /* API FUNCTIONS END HERE */
 /* INTERNAL FUNCTIONS, DO NOT TOUCH */
 
-function &_fud_msg_multi($arg, $query)
+function _fud_msg_multi($arg, $query)
 {
 	$arg = is_numeric($arg) ? array($arg) : (int) $arg;
 	$ids = array();
@@ -894,7 +894,7 @@ function &_fud_msg_multi($arg, $query)
 	return fud_fetch_msg($ids);
 }
 
-function &_fud_simple_fetch_query($arg, $query)
+function _fud_simple_fetch_query($arg, $query)
 {
         if ($arg) {    
 		$arg = is_numeric($arg) ? array($arg) : $arg;
@@ -920,7 +920,7 @@ function &_fud_simple_fetch_query($arg, $query)
 	}
 }
 
-function &_fud_decode_forum($data)
+function _fud_decode_forum($data)
 {
 	if (is_array($data)) {
 		foreach ($data as $k => $v) {
@@ -935,7 +935,7 @@ function &_fud_decode_forum($data)
 	return $data;
 }
 
-function &_fud_add_poll($poll, $forum_id, $forum_opt, $mode, $uid)
+function _fud_add_poll($poll, $forum_id, $forum_opt, $mode, $uid)
 {	
 	if (empty($poll['title']) || empty($poll['options']) || !is_array($poll['options'])) {
 		return;
