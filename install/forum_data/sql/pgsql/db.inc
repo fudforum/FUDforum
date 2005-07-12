@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.62 2005/07/11 16:46:23 hackie Exp $
+* $Id: db.inc,v 1.63 2005/07/12 13:22:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -303,7 +303,7 @@ function db_all($q)
 	}
 	$f = array();
 	foreach ($r as $v) {
-		$f[] = $v[0];
+		$f[] = current($v);
 	}
 	return $f;
 }
