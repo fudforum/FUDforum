@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.26 2005/07/11 17:28:02 hackie Exp $
+* $Id: phpBB2.php,v 1.27 2005/07/12 14:06:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -170,8 +170,9 @@ function import_av_gal($dirn)
 	$odir = getcwd();
 	chdir($dirn);
 	$dir = opendir('.');
-	readdir($dir); readdir($dir);
 	while ($file = readdir($dir)) {
+		if ($file == '.' || $file == '..') continue;
+
 		if (@is_dir($file)) {
 			import_av_gal($file);
 			continue;
@@ -289,13 +290,13 @@ function import_av_gal($dirn)
 				if (!file_exists($PHPBB_INSTALL_ROOT.$board_config['avatar_path']."/".$obj->user_avatar)) {
 					print_msg("\tuser: ".$obj->username);
 					print_msg("\t\tWARNING: missing avatar file: ".$PHPBB_INSTALL_ROOT.$board_config['avatar_path']."/".$obj->user_avatar);
-					continue;
+					continue 2;
 					break;	
 				}
 
 				if (!($im = getimagesize($PHPBB_INSTALL_ROOT.$board_config['avatar_path']."/".$obj->user_avatar))) {
 					print_msg($PHPBB_INSTALL_ROOT.$board_config['avatar_path']."/".$obj->user_avatar." is invalid image");
-					continue;
+					continue 2;
 				}
 
 				$dest = $IMG_ROOT_DISK . "custom_avatars/". $obj->user_id . strrchr($obj->user_avatar, '.');
@@ -311,7 +312,7 @@ function import_av_gal($dirn)
 			case USER_AVATAR_REMOTE:
 				if (!($im = @getimagesize($obj->user_avatar))) {
 					print_msg($obj->user_avatar." is invalid image");
-					continue;
+					continue 2;
 				}
 
 				switch ($im[2]) {
@@ -326,7 +327,7 @@ function import_av_gal($dirn)
 						break;
 					default:
 						print_msg("Unsupported imagetype");
-						continue;
+						continue 2;
 						break;
 				}
 
@@ -345,16 +346,17 @@ function import_av_gal($dirn)
 			case USER_AVATAR_GALLERY:
 				$avatar = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}avatar WHERE img='".addslashes(basename($obj->user_avatar))."'");
 				if (!$avatar) {
-					continue;
+					continue 2;
 				}
 				$dest = $IMG_ROOT_DISK.'avatars/'.basename($obj->user_avatar);
 				$im = getimagesize($dest);
 				break;
 			default:
 				print_msg("Unsupported avatar type {$obj->user_avatar_type}");
-				continue;
+				continue 2;
 				break;
 		}
+
 		$avatar_loc = '<img src="'.str_replace($WWW_ROOT_DISK, $WWW_ROOT, $dest).'" '.$im[3].'>';
 		q("UPDATE {$DBHOST_TBL_PREFIX}users SET avatar={$avatar}, users_opt=(users_opt & ~ 4194304)|8388608, avatar_loc='{$avatar_loc}' WHERE id=".$obj->user_id);
 	}
@@ -399,6 +401,7 @@ $group_map = array(
 'auth_attachments'=> 256
 );
 
+	$tmp = array();
 	$r = bbq("select * from {$bb2}forums ORDER BY forum_order");
 	print_msg('Importing Forums '.db_count($r));
 	while ($obj = db_rowobj($r)) {
@@ -414,8 +417,7 @@ $group_map = array(
 
 		q("UPDATE {$DBHOST_TBL_PREFIX}forum SET id={$obj->forum_id} WHERE id=".$id);
 
-		q("DROP TABLE /*!10000 IF EXISTS*/ {$DBHOST_TBL_PREFIX}fl_{$obj->forum_id}");
-		q("ALTER TABLE {$DBHOST_TBL_PREFIX}fl_{$id} RENAME TO {$DBHOST_TBL_PREFIX}fl_{$obj->forum_id}");
+		$tmp[$id] = (int) $obj->forum_id;
 
 		q("UPDATE {$DBHOST_TBL_PREFIX}groups SET forum_id={$obj->forum_id} WHERE forum_id=".$id);
 		q("UPDATE {$DBHOST_TBL_PREFIX}group_resources SET resource_id={$obj->forum_id} WHERE resource_id=".$id);
@@ -436,6 +438,20 @@ $group_map = array(
 		q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET group_members_opt={$perms_reg} WHERE group_id={$gid} AND user_id=2147483647");
 	}
 	unset($r);
+	// remove all lock tables
+	foreach (get_fud_table_list() as $v) {
+		if (strncmp($v, "{$DBHOST_TBL_PREFIX}fl_", strlen("{$DBHOST_TBL_PREFIX}fl_"))) {
+			continue;
+		}
+		if ($v == "{$DBHOST_TBL_PREFIX}fl_pm") {
+			continue;
+		}
+		q("DROP TABLE {$v}");
+	}
+	foreach ($tmp as $k => $v) {
+		q("CREATE TABLE {$DBHOST_TBL_PREFIX}fl_{$v} ( id INT )");
+	}
+	unset($tmp);
 	print_msg('Finished Importing Forums');
 
 /* Import phpBB moderators */
