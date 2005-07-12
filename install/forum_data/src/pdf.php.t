@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.40 2005/07/07 13:45:29 hackie Exp $
+* $Id: pdf.php.t,v 1.41 2005/07/12 17:01:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,7 +41,7 @@ class fud_pdf extends FPDF
 		$this->SetTextColor(0);
 	}
 
-	function add_attacments($attch, $private)
+	function add_attacments($attch, $private=0)
 	{
 		$this->Ln(5);
 		$this->SetFont('courier', '', 16);
