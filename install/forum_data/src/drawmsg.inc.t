@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.97 2005/03/16 16:53:28 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.98 2005/07/13 14:15:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -77,6 +77,9 @@ if (_uid) {
 	}
 } else {
 	define('unignore_tmp', '');
+	if (isset($_GET['reveal'])) {
+		unset($_GET['reveal']);
+	}
 }
 
 if ($GLOBALS['FUD_OPT_2'] & 2048) {
