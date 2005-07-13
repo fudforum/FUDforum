@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.71 2005/07/11 16:46:23 hackie Exp $
+* $Id: cookies.inc.t,v 1.72 2005/07/13 02:24:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@ function ses_get($id=0)
 			$q_opt = "s.ses_id='".addslashes($_COOKIE[$GLOBALS['COOKIE_NAME']])."'";
 		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['FUD_OPT_1'] & 128) {
 			$url_s = 1;
-			$q_opt = "s.ses_id='".addslashes((isset($_GET['S']) ? $_GET['S'] : $_POST['S']))."'";
+			$q_opt = "s.ses_id='".addslashes((isset($_GET['S']) ? (string) $_GET['S'] : (string) $_POST['S']))."'";
 			/* do not validate against expired URL sessions */
 			$q_opt .= " AND s.time_sec > ".(__request_timestamp__ - $GLOBALS['SESSION_TIMEOUT']);
 		} else {
