@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.47 2005/07/06 14:39:22 hackie Exp $
+* $Id: finduser.php.t,v 1.48 2005/07/13 03:20:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,7 +39,7 @@
 	} else {
 		$ord = 'id DESC';
 	}
-	$usr_login = !empty($_GET['usr_login']) ? trim($_GET['usr_login']) : '';
+	$usr_login = !empty($_GET['usr_login']) ? trim((string)$_GET['usr_login']) : '';
 
 	if ($usr_login) {
 		$qry = "alias LIKE '".addslashes(char_fix(htmlspecialchars(str_replace('\\', '\\\\', $usr_login))))."%' AND";
