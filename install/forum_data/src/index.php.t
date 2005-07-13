@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.89 2005/07/06 14:39:22 hackie Exp $
+* $Id: index.php.t,v 1.90 2005/07/13 02:04:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,9 +12,12 @@
 
 /*{PRE_HTML_PHP}*/
 
-function reload_collapse($str)
+function reload_collapse(&$str)
 {
+	$GLOBALS['collapse'] = array();
+
 	if (!($tok = strtok($str, '_'))) {
+		$str = '';
 		return;
 	}
 	do {
@@ -23,6 +26,14 @@ function reload_collapse($str)
 			$GLOBALS['collapse'][(int) $t[0]] = isset($t[1]) ? (int) $t[1] : 0;
 		}
 	} while (($tok = strtok('_')));
+
+	$str = '';
+	foreach ($GLOBALS['collapse'] as $k => $v) {
+		if ($str) {
+			$str .= '_';
+		}
+		$str .= $k.':'.$v;
+	}
 }
 
 function url_tog_collapse($id, $c)
