@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.45 2005/07/07 21:30:11 hackie Exp $
+* $Id: split_th.php.t,v 1.46 2005/07/13 14:03:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -181,7 +181,8 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.resource_id=f.id AND g1.user_id='.(_uid ? '2147483647' : '0').'
 			'.(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.resource_id=f.id AND g2.user_id='._uid : '').'
-			'.($is_a ? '' : ' WHERE mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END) & 4) > 0').'
+			'.($is_a ? '' : ' WHERE mm.id IS NOT NULL OR (
+			'.(_uid ? '(CASE WHEN g2.id IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END)' : 'g1.group_cache_opt'). ' & 4) > 0').'
 			ORDER BY v.id');
 	$vl = $kl = '';
 	while ($r = db_rowarr($c)) {
