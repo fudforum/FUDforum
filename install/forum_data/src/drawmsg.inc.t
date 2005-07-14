@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.98 2005/07/13 14:15:12 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.99 2005/07/14 17:10:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,7 +33,7 @@ $GLOBALS['__FMDSP__'] = array();
 
 /* needed for message threshold & reveling messages */
 if (isset($_GET['rev'])) {
-	$_GET['rev'] = htmlspecialchars($_GET['rev']);
+	$_GET['rev'] = htmlspecialchars((string)$_GET['rev']);
 	foreach (explode(':', $_GET['rev']) as $v) {
 		$GLOBALS['__FMDSP__'][(int)$v] = 1;
 	}
@@ -60,7 +60,7 @@ if (_uid) {
 
 	/* handle temporarily un-hidden users */
 	if (isset($_GET['reveal'])) {
-		$_GET['reveal'] = htmlspecialchars($_GET['reveal']);
+		$_GET['reveal'] = htmlspecialchars((string)$_GET['reveal']);
 		foreach(explode(':', $_GET['reveal']) as $v) {
 			$v = (int) $v;
 			if (isset($usr->ignore_list[$v])) {
