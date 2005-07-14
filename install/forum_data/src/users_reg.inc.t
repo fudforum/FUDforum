@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.80 2005/07/06 14:39:22 hackie Exp $
+* $Id: users_reg.inc.t,v 1.81 2005/07/14 16:13:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -81,6 +81,9 @@ class fud_user_reg extends fud_user
 			$this->users_opt |= 131072;
 		}
 		$this->icq = (int)$this->icq ? (int)$this->icq : 'NULL';
+		if (is_numeric($this->bday)) {
+			$this->bday = '';
+		}
 
 		$this->html_fields();
 
@@ -129,7 +132,7 @@ class fud_user_reg extends fud_user
 				".ssn(urlencode($this->affero)).",
 				".(int)$this->posts_ppg.",
 				'".addslashes($this->time_zone)."',
-				".(int)$this->bday.",
+				".$this->bday.",
 				".__request_timestamp__.",
 				'".$this->conf_key."',
 				".ssn(htmlspecialchars($this->user_image)).",
@@ -174,7 +177,7 @@ class fud_user_reg extends fud_user
 			affero=".ssn(urlencode($this->affero)).",
 			posts_ppg='".(int)$this->posts_ppg."',
 			time_zone='".addslashes($this->time_zone)."',
-			bday=".(int)$this->bday.",
+			bday=".$this->bday.",
 			user_image=".ssn(htmlspecialchars($this->user_image)).",
 			location=".ssn($this->location).",
 			occupation=".ssn($this->occupation).",

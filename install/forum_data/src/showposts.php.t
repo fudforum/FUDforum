@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.php.t,v 1.30 2005/07/06 14:39:22 hackie Exp $
+* $Id: showposts.php.t,v 1.31 2005/07/14 16:13:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,7 +35,7 @@
 		$fids = implode(',', array_keys(get_all_read_perms(_uid, ($usr->users_opt & 524288)), 2));
 	}
 
-	if (isset($_GET['so']) && !strcasecmp($_GET['so'], 'asc')) {
+	if (isset($_GET['so']) && !strcasecmp((string)$_GET['so'], 'asc')) {
 		$SORT_ORDER = 'ASC';
 		$SORT_ORDER_R = 'DESC';
 	} else {

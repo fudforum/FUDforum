@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.152 2005/07/11 16:46:23 hackie Exp $
+* $Id: register.php.t,v 1.153 2005/07/14 16:13:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -198,8 +198,8 @@ function register_form_check($user_id)
 
 function fmt_year($val)
 {
-	if (!($val = (int)$val)) {
-		return;
+	if (!$val) {
+		return '0000';
 	}
 	if ($val > 1000) {
 		return $val;
@@ -322,7 +322,10 @@ function decode_uent(&$uent)
 	/* deal with avatars, only done for regged users */
 	if (_uid) {
 		if (!empty($_POST['avatar_tmp'])) {
-			list($avatar_arr['file'], $avatar_arr['del'], $avatar_arr['leave']) = explode("\n", base64_decode($_POST['avatar_tmp']));
+			$tmp = explode("\n", base64_decode($_POST['avatar_tmp'])); 
+			if (count($tmp) == 3) {
+				list($avatar_arr['file'], $avatar_arr['del'], $avatar_arr['leave']) = $tmp;
+			}
 		}
 		if (isset($_POST['btn_detach'], $avatar_arr)) {
 			$avatar_arr['del'] = 1;
@@ -396,7 +399,7 @@ function decode_uent(&$uent)
 			$uent->theme = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1");
 		}
 
-		$uent->bday = fmt_year($_POST['b_year']) . str_pad((int)$_POST['b_month'], 2, '0', STR_PAD_LEFT) . str_pad((int)$_POST['b_day'], 2, '0', STR_PAD_LEFT);
+		$uent->bday = fmt_year((int)$_POST['b_year']) . sprintf("%02d%02d", (int)$_POST['b_month'], (int)$_POST['b_day']);
 		$uent->sig = apply_custom_replace($uent->sig);
 		if ($FUD_OPT_1 & 131072) {
 			$uent->sig = tags_to_html($uent->sig, $FUD_OPT_1 & 524288);
@@ -598,9 +601,12 @@ function decode_uent(&$uent)
 		}
 
 		if ($uent->bday) {
-			$b_year = substr($uent->bday, 0, 4);
-			$b_month = substr($uent->bday, 4, 2);
-			$b_day = substr($uent->bday, 6, 8);
+			if (strlen($uent->bday) != 8) {
+				$uent->bday = str_pad($uent->bday, 8, '0', STR_PAD_LEFT);
+			}
+			$b_year = (int) substr($uent->bday, 0, 4);
+			$b_month = sprintf("%02d", substr($uent->bday, 4, 2));
+			$b_day = sprintf("%02d", substr($uent->bday, 6, 8));
 		} else {
 			$b_year = $b_month = $b_day = '';
 		}
@@ -619,14 +625,18 @@ function decode_uent(&$uent)
 			}
 		}
 		foreach($chr_fix as $v) {
-			$$v = char_fix($$v);
+			$$v = isset($_POST[$v]) ? char_fix($$v) : '';
 		}
 
-		$b_year = $_POST['b_year'];
-		$b_month = $_POST['b_month'];
-		$b_day = $_POST['b_day'];
+		foreach (array('b_year','b_month','b_day','reg_theme','reg_posts_ppg') as $v) {
+			$$v = isset($_POST[$v]) ? (int) $_POST[$v] : 0;
+		}
+
 		if (isset($_POST['avatar_type'])) {
 			$avatar_type = $_POST['avatar_type'];
+		}
+		if (!isset($_POST['reg_time_zone'])) {
+			$reg_time_zone = $SERVER_TZ;
 		}
 	}
 

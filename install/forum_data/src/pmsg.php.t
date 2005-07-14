@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.51 2005/07/06 14:39:22 hackie Exp $
+* $Id: pmsg.php.t,v 1.52 2005/07/14 16:13:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,10 +52,10 @@
 		}
 	}
 
-	if (isset($_GET['folder_id'], $folders[$_GET['folder_id']])) {
-		$folder_id = $_GET['folder_id'];
-	} else if (isset($_POST['folder_id'], $folders[$_POST['folder_id']])) {
-		$folder_id = $_POST['folder_id'];
+	if (isset($_GET['folder_id'], $folders[(int)$_GET['folder_id']])) {
+		$folder_id = (int) $_GET['folder_id'];
+	} else if (isset($_POST['folder_id'], $folders[(int)$_POST['folder_id']])) {
+		$folder_id = (int) $_POST['folder_id'];
 	} else {
 		$folder_id = 1;
 	}

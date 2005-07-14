@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.136 2005/07/07 21:30:11 hackie Exp $
+* $Id: post.php.t,v 1.137 2005/07/14 16:13:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -195,8 +195,8 @@ function flood_check()
 		$msg_smiley_disabled	= isset($_POST['msg_smiley_disabled']) ? $_POST['msg_smiley_disabled'] : '';
 		$msg_poster_notif	= isset($_POST['msg_poster_notif']) ? $_POST['msg_poster_notif'] : '';
 		$pl_id			= !empty($_POST['pl_id']) ? poll_validate((int)$_POST['pl_id'], $msg_id) : 0;
-		$msg_body		= $_POST['msg_body'];
-		$msg_subject		= $_POST['msg_subject'];
+		$msg_body		= isset($_POST['msg_body']) ? $_POST['msg_body'] : '';
+		$msg_subject		= isset($_POST['msg_subject']) ? $_POST['msg_subject'] : '';
 
 		if ($perms & 256) {
 			$attach_count = 0;
