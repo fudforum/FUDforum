@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.63 2005/07/12 13:22:50 hackie Exp $
+* $Id: db.inc,v 1.64 2005/07/15 22:28:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -27,16 +27,12 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 	$error_msg .= "Query: ".htmlspecialchars($query)."<br />\n";
 	if (!empty($_GET)) {
 		$error_msg .= "_GET: ";
-		foreach ($_GET as $k => $v) {
-			$error_msg .= "{$k}=".htmlspecialchars($v)."&";
-		}
+		$error_msg .= htmlspecialchars(var_export($_GET, 1));
 		$error_msg .= "<br />\n";
 	}
 	if (!empty($_POST)) {
 		$error_msg .= "_POST: ";
-		foreach ($_POST as $k => $v) {
-			$error_msg .= "{$k}=".htmlspecialchars($v)."&";
-		}
+		$error_msg .= htmlspecialchars(var_export($_POST, 1));
 		$error_msg .= "<br />\n";
 	}
 	$error_msg .= "Server Version: ".$server_version."<br />\n";
