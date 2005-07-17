@@ -657,7 +657,7 @@ function fud_add_user($vals, &$err)
 				".(int)$vals['theme'].",
 				".ssn($vals['occupation']).",
 				".ssn($vals['interests']).",
-				".(int)$vals['ref_id'].",
+				".(int)$vals['referer_id'].",
 				".(int)$vals['last_read'].",
 				".ssn($vals['sig']).",
 				".ssn(htmlspecialchars($vals['home_page'])).",
