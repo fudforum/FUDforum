@@ -557,7 +557,11 @@ function fud_add_user($vals, &$err)
 		}
 	}
 
-	$vals['passwd'] = md5($vals['passwd']);
+	if (strncmp($vals['passwd'], 'md5', 3)) {
+		$vals['passwd'] = md5($vals['passwd']);
+	} else {
+		$vals['passwd'] = substr($vals['passwd'], 3);
+	}
 
 	if (empty($vals['alias'])) {
 		if (strlen($vals['login']) > $GLOBALS['MAX_LOGIN_SHOW']) {
