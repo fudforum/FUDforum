@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.79 2005/06/28 00:26:07 hackie Exp $
+* $Id: compiler.inc,v 1.80 2005/07/18 13:09:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -573,6 +573,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$GLOBALS['TC']                  = array();
 	$GLOBALS['file_cache']          = array();
 
+	@unlink($GLOBALS['DATA_DIR'].'src/db.inc.t'); // win32 hack
 	if (!$GLOBALS['DBHOST_DBTYPE']) {
 		copy($GLOBALS['DATA_DIR'].'sql/'.__dbtype__.'/db.inc', $GLOBALS['DATA_DIR'].'src/db.inc.t');
 	} else {
