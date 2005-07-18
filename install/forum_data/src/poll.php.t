@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.php.t,v 1.25 2005/03/18 01:58:51 hackie Exp $
+* $Id: poll.php.t,v 1.26 2005/07/18 14:23:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,22 +49,24 @@
 			WHERE f.id='.$frm_id);
 	}
 
-	$frm->group_cache_opt = (int) $frm->group_cache_opt;
-	$frm->forum_opt = (int) $frm->forum_opt;
+	if ($frm) {
+		$frm->group_cache_opt = (int) $frm->group_cache_opt;
+		$frm->forum_opt = (int) $frm->forum_opt;
+	}
 
 	if (!$frm || (!$frm->md && !$is_a && (!empty($frm->old_poll) && (!($frm->group_cache_opt & 4096) || (!($frm->group_cache_opt & 16) && $frm->owner != _uid))) && !($frm->group_cache_opt & 4))) {
 		std_error('access');
 	}
 
 	if (isset($_POST['pl_submit'])) {
+		$pl_name = isset($_POST['pl_name']) ? (string) $_POST['pl_name'] : '';
+		$pl_max_votes = isset($_POST['pl_max_votes']) ? (int) $_POST['pl_max_votes'] : 0;
+		$pl_expiry_date = isset($_POST['pl_expiry_date']) ? (int) $_POST['pl_expiry_date'] : 0;
 		if ($pl_id) { /* update a poll */
-			poll_sync($pl_id, $_POST['pl_name'], $_POST['pl_max_votes'], $_POST['pl_expiry_date']);
+			poll_sync($pl_id, $pl_name, $pl_max_votes, $pl_expiry_date);
 		} else { /* adding a new poll */
-			$pl_id = poll_add($_POST['pl_name'], $_POST['pl_max_votes'], $_POST['pl_expiry_date']);
+			$pl_id = poll_add($pl_name, $pl_max_votes, $pl_expiry_date);
 		}
-		$pl_name = $_POST['pl_name'];
-		$pl_max_votes = $_POST['pl_max_votes'];
-		$pl_expiry_date = $_POST['pl_expiry_date'];
 	} else if (!empty($frm->poll_id)) {
 		$pl_name = reverse_fmt($frm->name);
 		$pl_max_votes = $frm->max_votes;
