@@ -994,6 +994,7 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 		$GLOBALS['FUD_OPT_1'] ^= 268435456;
 	}
 
+	$GLOBALS['good_locale'] = setlocale(LC_ALL, q_singleval("SELECT locale FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt=1|2 LIMIT 1"));
 	list($forum_opt, $message_threshold) = db_saq("SELECT forum_opt, message_threshold FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE id=".$forum);
 	if ($rep_id) {
 		$th_id = q_singleval("SELECT thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE id=".$rep_id);
