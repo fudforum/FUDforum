@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: err.inc.t,v 1.47 2005/03/18 00:13:54 hackie Exp $
+* $Id: err.inc.t,v 1.48 2005/07/18 19:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 	$error_msg .= '[Requested URL] http://';
 	$error_msg .= isset($_SERVER['HTTP_HOST']) ? htmlspecialchars($_SERVER['HTTP_HOST']) : '';
 	$error_msg .= isset($_SERVER['REQUEST_URI']) ? htmlspecialchars($_SERVER['REQUEST_URI']) : '';
-	$error_msg .= !empty($_POST) ? '<br />[Post-Data] '.base64_encode(htmlspecialchars(serialize($_POST))) : '';
+	$error_msg .= !empty($_POST) ? '<br />[Post-Data] '.base64_encode(serialize($_POST)) : '';
 	$error_msg .= '<br />';
 
 	if (isset($_SERVER['HTTP_REFERER'])) {
