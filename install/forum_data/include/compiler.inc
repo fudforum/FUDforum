@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.80 2005/07/18 13:09:34 hackie Exp $
+* $Id: compiler.inc,v 1.81 2005/07/18 13:19:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -694,7 +694,7 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 			$d = $dest . '/' . str_replace($src, '', $v) . '/' . basename($file);
 		
 			if (is_dir($file)) {
-				if (!mkdir($d)) {
+				if (!is_dir($d) && !mkdir($d)) {
 					echo "Cannot create directory '".$d."'<br>";
 					return;
 				}
