@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: widgets.inc,v 1.12 2004/11/24 19:53:34 hackie Exp $
+* $Id: widgets.inc,v 1.13 2005/07/20 20:12:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,7 +63,7 @@ function create_month_select($name, $allow_null, $def)
 	if ( $allow_null ) $rval .= '<option value="0">';
 
 	for ( $i=1; $i<13; $i++ ) {
-		$month = date("F", mktime(1, 1, 1, $i, 1, 0));
+		$month = date("F", mktime(1, 1, 1, $i, 1));
 		$rval .= '<option value="'.$i.'"'.(($i==$def)?' selected':'').'>'.$month."</option>\n";
 	}
 	$rval .= '</select>';
