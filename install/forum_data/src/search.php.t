@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.64 2005/07/11 16:46:23 hackie Exp $
+* $Id: search.php.t,v 1.65 2005/07/20 22:34:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,14 +20,14 @@
 	}
 
 	$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
-	$srch = isset($_GET['srch']) ? trim($_GET['srch']) : '';
-	$forum_limiter = isset($_GET['forum_limiter']) ? $_GET['forum_limiter'] : '';
+	$srch = isset($_GET['srch']) ? trim((string)$_GET['srch']) : '';
+	$forum_limiter = isset($_GET['forum_limiter']) ? (string)$_GET['forum_limiter'] : '';
 	$field = !isset($_GET['field']) ? 'all' : ($_GET['field'] == 'subject' ? 'subject' : 'all');
 	$search_logic = (isset($_GET['search_logic']) && $_GET['search_logic'] == 'OR') ? 'OR' : 'AND';
 	$sort_order = (isset($_GET['sort_order']) && $_GET['sort_order'] == 'ASC') ? 'ASC' : 'DESC';
 	if (!empty($_GET['author'])) {
-		$author = $_GET['author'];
-		$author_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes($_GET['author'])."'");
+		$author = (string) $_GET['author'];
+		$author_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes($author)."'");
 	} else {
 		$author = $author_id = '';
 	}
