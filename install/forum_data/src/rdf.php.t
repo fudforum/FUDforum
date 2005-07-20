@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.52 2005/07/08 14:01:57 hackie Exp $
+* $Id: rdf.php.t,v 1.53 2005/07/20 20:28:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -434,7 +434,7 @@ $basic_rss_data .= '
 						$y = substr($r->bday, 0, 4);
 						$m = substr($r->bday, 4, 2);
 						$d = substr($r->bday, 6, 2);
-						$r->bday = gmdate('r', gmmktime(1, 1, 1, $m, $d, y));
+						$r->bday = gmdate('r', gmmktime(1, 1, 1, $m, $d, $y));
 					} else {
 						$r->bday = '';
 					}
