@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.72 2005/07/13 02:24:47 hackie Exp $
+* $Id: cookies.inc.t,v 1.73 2005/07/20 14:54:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,7 @@ function ses_make_sysid()
 	}
 
 	$keys = array('HTTP_USER_AGENT', 'SERVER_PROTOCOL', 'HTTP_ACCEPT_CHARSET', 'HTTP_ACCEPT_ENCODING', 'HTTP_ACCEPT_LANGUAGE');
-	if ($GLOBALS['FUD_OPT_3'] & 16 && strpos($_SERVER['HTTP_USER_AGENT'], 'AOL') === false) {
+	if ($GLOBALS['FUD_OPT_3'] & 16 && !$GLOBALS['is_aol']) {
 		$keys[] = 'HTTP_X_FORWARDED_FOR';
 		$keys[] = 'REMOTE_ADDR';
 	}

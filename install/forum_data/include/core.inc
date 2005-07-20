@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.153 2005/07/11 17:18:59 hackie Exp $
+* $Id: core.inc,v 1.154 2005/07/20 14:54:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,6 +27,7 @@ register_shutdown_function('rls_db_lck');
 
 $GLOBALS['TITLE_EXTRA'] = '';
 $GLOBALS['is_post'] = !empty($_POST);
+$GLOBALS['is_aol'] = (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'AOL') !== false);
 
 if (get_magic_quotes_gpc()) {
 	function strip_quotes(&$var)
@@ -140,6 +141,9 @@ function __ffilesize($fp)
 
 function __fud_cache($t)
 {
+	if ($GLOBALS['is_aol']) {
+		return 0;
+	}
 	$mod = gmdate("D, d M Y H:i:s", $t) . " GMT";
 
 	/* send caching headers */
