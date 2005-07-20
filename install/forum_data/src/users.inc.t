@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.149 2005/07/13 02:24:47 hackie Exp $
+* $Id: users.inc.t,v 1.150 2005/07/20 02:15:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -573,7 +573,7 @@ function &init_user()
 				$_GET['t'] = 'index';
 				break;
 		}
-		$GLOBALS['t'] = (string) $_GET['t'];
+		$GLOBALS['t'] = $_GET['t'];
 	} else if (isset($_GET['t'])) {
 		$GLOBALS['t'] = (string) $_GET['t'];
 	} else if (isset($_POST['t'])) {
