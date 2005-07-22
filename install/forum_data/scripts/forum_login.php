@@ -1,6 +1,6 @@
 <?php
 /* --------- CONFIG OPTIONS START (required) ----------- */
-$GLOBALS['PATH_TO_FUD_FORUM_GLOBALS_PHP'] = '';
+$GLOBALS['PATH_TO_FUD_FORUM_GLOBALS_PHP'] = './GLOBALS.php';
 // this value is usually $DATA_DIR/include/theme/default/db.inc, if this is the case
 // leave the value empty.
 $GLOBALS['PATH_TO_FUD_FORUM_DB_INC'] = '';
@@ -12,10 +12,33 @@ $GLOBALS['PATH_TO_FUD_FORUM_DB_INC'] = '';
 */
 function external_fud_login($user_id)
 {
-	if (($user_id = (int) $user_id) < 2) {
+	if (($user_id = (int) $user_id) < 2 || !__fud_login_common()) {
 		return;
-	} 
+	}
 
+	/* create session */
+	$sys_id = __ses_make_sysid(($FUD_OPT_2 & 256), ($FUD_OPT_3 & 16));
+	$ses_id = md5($user_id . time() . getmypid());
+	q("REPLACE INTO ".$DBHOST_TBL_PREFIX."ses (ses_id, time_sec, sys_id, user_id) VALUES ('".$ses_id."', ".time().", '".$sys_id."', ".$user_id.")");
+	setcookie($COOKIE_NAME, $ses_id, time()+$COOKIE_TIMEOUT, $COOKIE_PATH, $COOKIE_DOMAIN);
+
+	return $ses_id;
+}
+
+function external_fud_logout($user_id)
+{
+	if (($user_id = (int) $user_id) < 2 || !__fud_login_common()) {
+		return;
+	}
+
+	// remove session from database
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."ses WHERE user_id=".$user_id);
+	// trash cookie
+	setcookie($COOKIE_NAME, '', 0, $COOKIE_PATH, $COOKIE_DOMAIN);
+}
+
+function __fud_login_common()
+{
 	/* load forum config */
 	$data = file_get_contents($GLOBALS['PATH_TO_FUD_FORUM_GLOBALS_PHP']);
 	eval(str_replace('<?php', '', substr_replace($data, '', strpos($data, 'require'))));
@@ -36,13 +59,7 @@ function external_fud_login($user_id)
 		return;
 	}
 
-	/* create session */
-	$sys_id = __ses_make_sysid(($FUD_OPT_2 & 256), ($FUD_OPT_3 & 16));
-	$ses_id = md5($user_id . time() . getmypid());
-	q("REPLACE INTO ".$DBHOST_TBL_PREFIX."ses (ses_id, time_sec, sys_id, user_id) VALUES ('".$ses_id."', ".time().", '".$sys_id."', ".$user_id.")");
-	setcookie($COOKIE_NAME, $ses_id, time()+$COOKIE_TIMEOUT, $COOKIE_PATH, $COOKIE_DOMAIN);
-
-	return $ses_id;
+	return 1;
 }
 
 /* internal functions, do not modify */
