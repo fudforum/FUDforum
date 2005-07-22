@@ -28,7 +28,7 @@ OFF - Avatars are disabled.}}}
 This is the maximum size (in bytes) of the custom avatar image (uploaded to server).}}}
 
 {{{CUSTOM_AVATAR_MAX_DIM
-This is the maximum dimension that a custom avatar can be.}}}
+This is the maximum dimension that a custom avatar can be. Format of this setting is WIDTHxHEIGHT, ex. 100x200}}}
 
 {{{CUSTOM_AVATAR_APPROVAL	FUD_OPT_1	32
 If set to yes the administrator will have to approve every custom avatar the user uploads or provides a url to.}}}
