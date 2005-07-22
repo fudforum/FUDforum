@@ -514,7 +514,7 @@ function fud_fetch_top_poster()
 	return _fud_simple_fetch_query(0, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users ORDER BY posted_msg_count DESC LIMIT 1");
 }
 
-/* {{{ proto: object fud_add_user($vals, &$err) }}}
+/* {{{ proto: user_id fud_add_user($vals, &$err) }}}
  * Return the id of a newly created user, on error returns 0 and populates $err with the error message.
  * Vals is an array of fields found inside the users table
  *	login	- login name for the account, must be unique. **required**
@@ -686,6 +686,15 @@ function fud_update_user($uid, $vals, &$err)
 		return 0;
 	}
 
+	if (empty($vals['alias']) && !empty($vals['login'])) {
+		if (strlen($vals['login']) > $GLOBALS['MAX_LOGIN_SHOW']) {
+			$vals['alias'] = substr($vals['login'], 0, $GLOBALS['MAX_LOGIN_SHOW']);
+		} else {
+			$vals['alias'] = $vals['login'];
+		}
+		$vals['alias'] = htmlspecialchars($vals['alias']);
+	}
+
 	foreach (array('login','email','alias')	as $v) {
 		if (empty($vals[$v])) continue;
 	
@@ -702,10 +711,10 @@ function fud_update_user($uid, $vals, &$err)
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
 		'sig','home_page','bio','users_opt','reg_ip') as $v) {
 		if (isset($vals[$v])) {
-			$qry = "{$v}='".addslashes($vals[$v])."',";
+			$qry .= "{$v}='".addslashes($vals[$v])."',";
 		}
 	}
-	uq($qry." WHERE id=".$uid);
+	uq(rtrim($qry,',')." WHERE id=".$uid);
 	return 1;
 }
 
