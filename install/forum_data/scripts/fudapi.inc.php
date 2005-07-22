@@ -889,6 +889,24 @@ function fud_delete_attachment($arg)
 	}
 }
 
+/* {{{ proto: void fud_delete_user(mixed arg) }}}
+ * This function deletes users(s) specified by arg.
+ */
+function fud_delete_user($arg)
+{
+	$data = _fud_simple_fetch_query($arg, "SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE id IN({ARG})");
+
+	if (!$data) {
+		return;
+	} else if (!is_array($data)) {
+		$data = array($data);
+	}
+
+	fud_use('users_adm.inc', true);
+
+	usr_delete($data);
+}
+
 /* API FUNCTIONS END HERE */
 /* INTERNAL FUNCTIONS, DO NOT TOUCH */
 
