@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.53 2005/06/16 12:51:24 hackie Exp $
+* $Id: maillist.php,v 1.54 2005/07/25 02:37:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -256,7 +256,7 @@ class fud_emsg
 				$this->from_name = $this->from_email;
 			}
 
-			if (preg_match('![^A-Za-z0-9\-_\s]!', $this->from_name)) {
+			if (preg_match('![^A-Za-z0-9\-_ ]!', $this->from_name)) {
 				$this->from_name = substr($this->from_email, 0, strpos($this->from_email, '@'));
 			}
 		} else {
