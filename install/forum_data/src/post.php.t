@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.137 2005/07/14 16:13:10 hackie Exp $
+* $Id: post.php.t,v 1.138 2005/07/25 02:51:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,25 +32,9 @@ function flood_check()
 	}
 
 	/* we do this because we don't want to take a chance that data is passed via cookies */
-	if (isset($_GET['reply_to']) || isset($_POST['reply_to'])) {
-		$reply_to = (int) (isset($_GET['reply_to']) ? $_GET['reply_to'] : $_POST['reply_to']);
-	} else {
-		$reply_to = 0;
-	}
-	if (isset($_GET['msg_id']) || isset($_POST['msg_id'])) {
-		$msg_id = (int) (isset($_GET['msg_id']) ? $_GET['msg_id'] : $_POST['msg_id']);
-	} else {
-		$msg_id = 0;
-	}
-	if (isset($_GET['th_id']) || isset($_POST['th_id'])) {
-		$th_id = (int) (isset($_GET['th_id']) ? $_GET['th_id'] : $_POST['th_id']);
-	} else {
-		$th_id = 0;
-	}
-	if (isset($_GET['frm_id']) || isset($_POST['frm_id'])) {
-		$frm_id = (int) (isset($_GET['frm_id']) ? $_GET['frm_id'] : $_POST['frm_id']);
-	} else {
-		$frm_id = 0;
+	$src = empty($_POST) ? '_GET' : '_POST';
+	foreach (array('reply_to','msg_id','th_id','frm_id') as $v) {
+		$$v = isset(${$src}[$v]) ? (int) ${$src}[$v] : 0;
 	}
 
 	/* replying or editing a message */
