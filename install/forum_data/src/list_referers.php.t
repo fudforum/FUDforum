@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: list_referers.php.t,v 1.22 2005/07/06 14:39:22 hackie Exp $
+* $Id: list_referers.php.t,v 1.23 2005/07/25 23:04:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,6 +36,7 @@
 			unset($c2);
 			$referer_entry_data .= '{TEMPLATE: referer_entry}';
 		}
+		unset($c);
 
 		if ($ttl > $MEMBERS_PER_PAGE) {
 			if ($FUD_OPT_2 & 32768) {
