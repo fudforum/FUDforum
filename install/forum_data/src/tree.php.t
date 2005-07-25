@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.79 2005/07/06 14:39:22 hackie Exp $
+* $Id: tree.php.t,v 1.80 2005/07/25 02:37:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -104,9 +104,9 @@
 		/* Deal with thread subscriptions */
 		if (isset($_GET['notify'], $_GET['opt']) && sq_check(0, $usr->sq)) {
 			if (($frm->subscribed = ($_GET['opt'] == 'on'))) {
-				thread_notify_add(_uid, $_GET['th']);
+				thread_notify_add(_uid, $th);
 			} else {
-				thread_notify_del(_uid, $_GET['th']);
+				thread_notify_del(_uid, $th);
 			}
 		}
 		$subscribe_status = $frm->subscribed ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
