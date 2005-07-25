@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.139 2005/07/25 02:57:01 hackie Exp $
+* $Id: post.php.t,v 1.140 2005/07/25 23:21:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,7 +39,11 @@ function flood_check()
 
 	/* replying or editing a message */
 	if ($reply_to || $msg_id) {
-		$msg = msg_get(($reply_to ? $reply_to : $msg_id));
+		if (($msg = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}msg WHERE id='.($reply_to ? $reply_to : $msg_id)))) {
+			$msg->body = read_msg_body($msg->foff, $msg->length, $msg->file_id);
+		} else {
+			error_dialog('{TEMPLATE: imsg_err_message_title}', '{TEMPLATE: imsg_err_message_msg}');
+		}
 	 	$th_id = $msg->thread_id;
 	 	$msg->login = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg->poster_id);
 	}
