@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.138 2005/07/25 02:51:40 hackie Exp $
+* $Id: post.php.t,v 1.139 2005/07/25 02:57:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -473,11 +473,9 @@ function flood_check()
 		$preview_message = '';
 	}
 
-	$post_error = is_post_error() ? '{TEMPLATE: post_error}' : '';
-
-	$session_error = get_err('msg_session');
-	if ($session_error) {
-		$post_error = $session_error;
+	$post_error = get_err('msg_session');
+	if (!$post_error && is_post_error()) {
+		$post_error = '{TEMPLATE: post_error}';
 	}
 
 	/* handle polls */
