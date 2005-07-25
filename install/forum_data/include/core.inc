@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.154 2005/07/20 14:54:17 hackie Exp $
+* $Id: core.inc,v 1.155 2005/07/25 03:18:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 
 $FORUM_VERSION = "2.6.15";
 
-ignore_user_abort(true);
+ignore_user_abort('1');
 set_magic_quotes_runtime(0);
 
 function rls_db_lck()
@@ -30,27 +30,21 @@ $GLOBALS['is_post'] = !empty($_POST);
 $GLOBALS['is_aol'] = (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'AOL') !== false);
 
 if (get_magic_quotes_gpc()) {
-	function strip_quotes(&$var)
-	{
-        	if (is_array($var)) {
-			array_walk($var, 'strip_quotes');
-		} else {
-			$var = stripslashes($var);
+	$in = array(&$_GET, &$_POST, &$_COOKIE);
+	while (list($k,$v) = each($in)) {
+		foreach ($v as $key => $val) {
+			if (!is_array($val)) {
+				$in[$k][$key] = stripslashes($val);
+				continue;
+			}
+			$in[] =& $in[$k][$key];
 		}
 	}
+	unset($in);
 
-	if (!empty($_GET)) {
-		array_walk($_GET, 'strip_quotes');
-	}
-        if ($GLOBALS['is_post']) {
-		array_walk($_POST, 'strip_quotes');
-	}
-        if (!empty($_COOKIE)) {
-		array_walk($_COOKIE, 'strip_quotes');
-	}
 	if (!empty($_FILES)) {
 		foreach ($_FILES as $k => $v) {
-			$_FILES[$k]['name'] = stripslashes($v['name']);
+			$_FILES[$k]['name'] = stripslashes((string)$v['name']);
 		}
 	}
 }
@@ -59,7 +53,7 @@ $GLOBALS['PAGE_TIME'] = gettimeofday();
 define('__request_timestamp__', $GLOBALS['PAGE_TIME']['sec']);
 mt_srand($GLOBALS['PAGE_TIME']['usec']);
 
-function fud_use($file, $static=false)
+function fud_use($file, $static=0)
 {
 	if ($static) {
 		include_once $GLOBALS['INCLUDE'] . $file;
