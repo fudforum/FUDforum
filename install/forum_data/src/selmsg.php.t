@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.64 2005/07/26 13:41:24 hackie Exp $
+* $Id: selmsg.php.t,v 1.65 2005/07/26 16:21:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -82,7 +82,7 @@ function path_info_lnk($var, $val)
 		$date_limit = ' AND m.post_stamp>'.$tm_today_start.' AND m.post_stamp<'.$tm_today_end . ' ';
 	}
 
-	$_SERVER['QUERY_STRING'] = htmlspecialchars($_SERVER['QUERY_STRING']);
+	$_SERVER['QUERY_STRING'] = htmlspecialchars($_SERVER['QUERY_STRING'], ENT_QUOTES);
 
 	/* date limit */
 	if ($FUD_OPT_2 & 32768) {
