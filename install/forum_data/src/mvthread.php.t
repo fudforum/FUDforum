@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mvthread.php.t,v 1.33 2005/07/06 14:39:22 hackie Exp $
+* $Id: mvthread.php.t,v 1.34 2005/07/26 22:26:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -90,9 +90,9 @@
 		logaction(_uid, 'THRMOVE', $th);
 
 		if ($FUD_OPT_2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
-			exit("<html><script>window.opener.location='{FULL_ROOT}{ROOT}/f/".$thr->forum_id."/"._rsid."'; window.close();</script></html>");
+			exit('<html><script>window.opener.location=\'{FULL_ROOT}{ROOT}/f/'.$thr->forum_id."/"._rsid."'; window.close();</script></html>");
 		} else {
-			exit("<html><script>window.opener.location='{FULL_ROOT}{ROOT}?t=".t_thread_view."&"._rsid."&frm_id=".$thr->forum_id."'; window.close();</script></html>");
+			exit('<html><script>window.opener.location=\'{FULL_ROOT}{ROOT}?t='.t_thread_view."&"._rsid."&frm_id=".$thr->forum_id."'; window.close();</script></html>");
 		}
 	}
 
