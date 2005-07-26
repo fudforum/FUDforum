@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.73 2005/07/20 14:54:18 hackie Exp $
+* $Id: cookies.inc.t,v 1.74 2005/07/26 22:24:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -131,9 +131,9 @@ function ses_anonuser_auth($id, $error)
 {
 	q("UPDATE {SQL_TABLE_PREFIX}ses SET data='".addslashes(serialize($error))."', returnto=".strnull(addslashes($_SERVER['QUERY_STRING']))." WHERE id=".$id);
 	if ($GLOBALS['FUD_OPT_2'] & 32768) {
-		header("Location: {FULL_ROOT}{ROOT}/l/"._rsidl);
+		header('Location: {FULL_ROOT}{ROOT}/l/'._rsidl);
 	} else {
-		header("Location: {FULL_ROOT}{ROOT}?t=login&"._rsidl);
+		header('Location: {FULL_ROOT}{ROOT}?t=login&'._rsidl);
 	}
 	exit;
 }

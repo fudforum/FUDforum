@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.php.t,v 1.34 2005/07/06 14:39:22 hackie Exp $
+* $Id: polllist.php.t,v 1.35 2005/07/26 22:24:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,7 +16,7 @@
 		$pl_view = empty($_GET['vote']) ? 0 : (int)$_GET['goto'];
 		$mid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE poll_id=".(int)$_GET['goto']);
 		/* PATH_INFO is handled via /pv/ */
-		header("Location: {FULL_ROOT}{ROOT}?t=".d_thread_view."&goto=".$mid."&pl_view=".$pl_view."&"._rsidl.'#msg_'.$mid);
+		header('Location: {FULL_ROOT}{ROOT}?t='.d_thread_view.'&goto='.$mid.'&pl_view='.$pl_view.'&'._rsidl.'#msg_'.$mid);
 		return;
 	}
 

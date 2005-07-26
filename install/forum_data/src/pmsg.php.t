@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.52 2005/07/14 16:13:10 hackie Exp $
+* $Id: pmsg.php.t,v 1.53 2005/07/26 22:24:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,7 +38,7 @@
 	/* moving or deleting a message */
 	if (isset($_POST['sel']) || isset($_GET['sel'])) {
 		if (!empty($_POST['btn_pdf'])) {
-			header("Location: {FULL_ROOT}pdf.php?sel[]=".implode("&sel[]=", $_POST['sel'])."&"._rsidl);
+			header('Location: {FULL_ROOT}pdf.php?sel[]='.implode('&sel[]=', $_POST['sel']).'&'._rsidl);
 			exit;		
 		}
 		$sel = isset($_POST['sel']) ? (array)$_POST['sel'] : (array)$_GET['sel'];
