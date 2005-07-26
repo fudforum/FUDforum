@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.63 2005/07/26 03:38:21 hackie Exp $
+* $Id: selmsg.php.t,v 1.64 2005/07/26 13:41:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@ function path_info_lnk($var, $val)
 		$url .= '/' . $var . '/' . $val;
 	}
 
-	return htmlspecialchars($url, ENT_QUOTE) . '/' . _rsid;
+	return htmlspecialchars($url, ENT_QUOTES) . '/' . _rsid;
 }
 
 	ses_update_status($usr->sid, '{TEMPLATE: selmsg_update}');
