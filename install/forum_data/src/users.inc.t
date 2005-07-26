@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.151 2005/07/20 14:54:18 hackie Exp $
+* $Id: users.inc.t,v 1.152 2005/07/26 15:21:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,6 +30,13 @@ function &init_user()
 		if (!isset($p[0])) {
 			$p[0] = 'i';
 		}
+		/* notice prevention code */
+		for ($i = 1; $i < 5; $i++) {
+			if (!isset($p[$i])) {
+				$p[$i] = null;
+			}
+		}
+		
 		switch ($p[0]) {
 			case 'm': /* goto specific message */
 				$_GET['t'] = 0;
@@ -154,7 +161,9 @@ function &init_user()
 				$_GET['th'] = $p[2];
 				$_GET['notify'] = $p[3];
 				$_GET['opt'] = $p[4] ? 'on' : 'off';
-				$_GET['start'] = $p[5];
+				if (isset($p[5])) {
+					$_GET['start'] = $p[5];
+				}
 				break;
 
 			case 'sf':
@@ -425,10 +434,12 @@ function &init_user()
 				$_GET['th'] = $p[2];
 				$_GET['notify'] = $p[3];
 				$_GET['opt'] = $p[4];
-				if ($p[1] == 'msg') {
-					$_GET['start'] = $p[5];
-				} else {
-					$_GET['mid'] = $p[5];
+				if (isset($p[5])) {
+					if ($p[1] == 'msg') {
+						$_GET['start'] = $p[5];
+					} else {
+						$_GET['mid'] = $p[5];
+					}
 				}
 				break;
 
@@ -500,10 +511,14 @@ function &init_user()
 
 			case 'sel':
 				$_GET['t'] = 'selmsg';
-				$c = (count($p) - 1) / 2;
-				$j = 0;
-				for ($i = 0; $i < $c; $i++) {
-					@$_GET[$p[++$j]] = @$p[++$j];
+				$c = count($p) - 1;
+				if ($c % 2) {
+					--$c;
+				}
+				$c /= 2;
+				$i = 0;
+				while ($c--) {
+					$_GET[$p[++$i]] = $p[++$i];
 				}
 				break;
 
