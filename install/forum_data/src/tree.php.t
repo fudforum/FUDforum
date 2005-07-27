@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.81 2005/07/27 17:23:34 hackie Exp $
+* $Id: tree.php.t,v 1.82 2005/07/27 23:39:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -140,6 +140,10 @@
 		(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid : ' ').'
 	WHERE
 		m.id='.$mid.' AND m.apr=1');
+
+	if (!$msg_obj) { // invalid message id
+		invl_inp_err();
+	}
 
 	if (!isset($_GET['prevloaded'])) {
 		th_inc_view_count($th);
