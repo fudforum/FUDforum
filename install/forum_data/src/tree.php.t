@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.80 2005/07/25 02:37:41 hackie Exp $
+* $Id: tree.php.t,v 1.81 2005/07/27 17:23:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -193,7 +193,9 @@
 	$tree_data = '';
 
 	if($arr) {
-		reset($tree->kiddies);
+		if (isset($tree->kiddies)) {
+			reset($tree->kiddies);
+		}
 		$stack[0] = &$tree;
 		$stack_cnt = isset($tree->kiddie_count) ? $tree->kiddie_count : 0;
 		$j = $lev = $prev_id = 0;
