@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: xmb.php,v 1.6 2004/09/27 12:48:57 hackie Exp $
+* $Id: xmb.php,v 1.7 2005/07/27 18:57:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -97,7 +97,6 @@ function html_clean($str)
 	fud_use('wordwrap.inc');
 	fud_use('cat.inc', true);
 	fud_use('groups.inc');
-	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('th.inc');
 	fud_use('th_adm.inc');

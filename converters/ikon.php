@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ikon.php,v 1.8 2005/06/15 21:41:40 hackie Exp $
+* $Id: ikon.php,v 1.9 2005/07/27 18:57:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -127,7 +127,6 @@ function fetch_img($url)
 	include_once "GLOBALS.php";
 	fud_use('post_proc.inc');
 	fud_use('db.inc');
-	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('post_proc.inc');
 	fud_use('rhost.inc');

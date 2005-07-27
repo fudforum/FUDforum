@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.112 2005/07/07 21:30:11 hackie Exp $
+* $Id: consist.php,v 1.113 2005/07/27 18:57:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,7 +33,6 @@
 	fud_use('sml_rcache.inc', true);
 	fud_use('msg_icon_cache.inc', true);
 	fud_use('cat.inc', true);
-	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('err.inc');
 	fud_use('private.inc');

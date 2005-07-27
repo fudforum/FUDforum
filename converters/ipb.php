@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipb.php,v 1.10 2005/04/14 20:12:28 hackie Exp $
+* $Id: ipb.php,v 1.11 2005/07/27 18:57:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -83,7 +83,6 @@ function make_avatar_loc($path, $disk, $web)
 	fud_use('wordwrap.inc');
 	fud_use('cat.inc', true);
 	fud_use('groups.inc');
-	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('th.inc');
 	fud_use('th_adm.inc');

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.130 2005/07/27 18:16:25 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.131 2005/07/27 18:57:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,11 +56,6 @@ class fud_msg_edit extends fud_msg
 			$file_id_preview = $offset_preview = $length_preview = 0;
 		}
 
-		poll_cache_rebuild($this->poll_id, $poll_cache);
-		if ($poll_cache) {
-			$poll_cache = addslashes(serialize($poll_cache));
-		}
-
 		$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}msg (
 			thread_id,
 			poster_id,
@@ -100,7 +95,7 @@ class fud_msg_edit extends fud_msg
 			".$offset_preview.",
 			".$length_preview.",
 			".strnull($this->mlist_msg_id).",
-			".strnull($poll_cache)."
+			".strnull(poll_cache_rebuild($this->poll_id))."
 		)");
 
 		$thread_opt = (int) ($perm & 4096 && isset($_POST['thr_locked']));
@@ -139,11 +134,6 @@ class fud_msg_edit extends fud_msg
 			$file_id_preview = $offset_preview = $length_preview = 0;
 		}
 
-		poll_cache_rebuild($this->poll_id, $poll_cache);
-		if ($poll_cache) {
-			$poll_cache = addslashes(serialize($poll_cache));
-		}
-
 		q("UPDATE {SQL_TABLE_PREFIX}msg SET
 			file_id=".$file_id.",
 			foff=".(int)$offset.",
@@ -158,7 +148,7 @@ class fud_msg_edit extends fud_msg
 			poll_id=".(int)$this->poll_id.",
 			update_stamp=".__request_timestamp__.",
 			icon=".strnull(addslashes($this->icon))." ,
-			poll_cache=".strnull($poll_cache).",
+			poll_cache=".strnull(poll_cache_rebuild($this->poll_id)).",
 			subject=".strnull(addslashes($this->subject))."
 		WHERE id=".$this->id);
 
@@ -636,6 +626,26 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 
 	// we need this for spam filters like SpamAssassin
 	return str_replace('<script language="JavaScript" src="lib.js" type="text/javascript"></script>', '', '{TEMPLATE: iemail_body}');
+}
+
+function poll_cache_rebuild($poll_id)
+{
+	if (!$poll_id) {
+		return;
+	}
+
+	$data = array();
+	$c = uq('SELECT id, name, count FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='.$poll_id);
+	while ($r = db_rowarr($c)) {
+		$data[$r[0]] = array($r[1], $r[2]);
+	}
+	unset($c);
+	
+	if ($data) {
+		return addslashes(serialize($data));
+	} else {
+		return;
+	}
 }
 
 function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type, $id, $frm_name, $frm_id)

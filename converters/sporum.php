@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: sporum.php,v 1.5 2005/06/15 21:41:40 hackie Exp $
+* $Id: sporum.php,v 1.6 2005/07/27 18:57:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -94,7 +94,6 @@ function bbq($q, $err=0)
 	fud_use('forum_notify.inc');
 	fud_use('cat.inc', true);
 	fud_use('groups.inc');
-	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('th.inc');
 	fud_use('th_adm.inc');

@@ -996,7 +996,6 @@ function _fud_add_poll($poll, $forum_id, $forum_opt, $mode, $uid)
 function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, $rep_id=0, $attach=null, $poll=null)
 {
 	fud_use('imsg_edt.inc');
-	fud_use('imsg.inc');
 	fud_use('post_proc.inc');
 	fud_use('smiley.inc');
 	fud_use('th_adm.inc');
