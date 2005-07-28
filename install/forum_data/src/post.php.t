@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.140 2005/07/25 23:21:47 hackie Exp $
+* $Id: post.php.t,v 1.141 2005/07/28 18:29:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -152,7 +152,7 @@ function flood_check()
 			$msg_subject = strncmp('{TEMPLATE: reply_prefix}', $subj, strlen('{TEMPLATE: reply_prefix}')) ? '{TEMPLATE: reply_prefix}' . ' ' . $subj : $subj;
 			$old_subject = $msg_subject;
 
-			if (isset($_GET['quote'])) {
+			if (isset($_GET['quote']) && $reply_to) {
 				$msg_body = post_to_smiley(str_replace("\r", '', $msg->body));
 
 				if (!strlen($msg->login)) {
