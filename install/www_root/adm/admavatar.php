@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.25 2005/07/28 13:29:01 hackie Exp $
+* $Id: admavatar.php,v 1.26 2005/07/28 16:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,14 +120,14 @@ function import_avatars($path)
 
 	if (isset($_POST['btn_update'], $_POST['edit']) && !empty($_POST['avt_img'])) {
 		$old_img = q_singleval('SELECT img FROM '.$tbl.'avatar WHERE id='.(int)$_POST['edit']);
-		q('UPDATE '.$tbl.'avatar SET gallery='.ssn(addslashes($avt_gal)).', img='.ssn(addslashes($_POST['avt_img'])).', descr='.ssn(addslashes($_POST['avt_descr'])).' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '.$tbl.'avatar SET gallery='.ssn($avt_gal).', img='.ssn($_POST['avt_img']).', descr='.ssn($_POST['avt_descr']).' WHERE id='.(int)$_POST['edit']);
 		if (db_affected() && $old_img != $_POST['avt_img']) {
 			$size = getimagesize($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/' . $_POST['avt_img']);
 			$new_loc = '<img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$_POST['avt_img'].'" '.$size[3].' />';
 			q('UPDATE '.$tbl.'users SET avatar_loc=\''.$new_loc.'\' WHERE avatar='.(int)$_POST['edit']);
 		}
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['avt_img'])) {
-		q('INSERT INTO '.$tbl.'avatar (img, descr, gallery) VALUES ('.ssn(addslashes($_POST['avt_img'])).', '.ssn(addslashes($_POST['avt_descr'])).', '.ssn(addslashes($avt_gal)).')');
+		q('INSERT INTO '.$tbl.'avatar (img, descr, gallery) VALUES ('.ssn($_POST['avt_img']).', '.ssn($_POST['avt_descr']).', '.ssn($avt_gal).')');
 	}
 
 	// fetch a list of avaliable galleries

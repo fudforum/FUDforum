@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: wbb.php,v 1.9 2005/07/28 14:18:03 hackie Exp $
+* $Id: wbb.php,v 1.10 2005/07/28 16:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -290,13 +290,13 @@ function fetch_img($url)
 				'".addslashes($obj->location)."',
 				".$THEME.",
 				'N',
-				".ssn(addslashes($obj->interests)).",
+				".ssn($obj->interests).",
 				'".intyn($obj->view_sigs)."',
 				'".intyn($obj->hide_userpic)."',
 				".(int)$obj->lastactivity.",
-				".ssn(addslashes(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->signatur))).",
+				".ssn(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->signatur)).",
 				'msg',
-				".ssn(addslashes($obj->userhp)).",
+				".ssn($obj->userhp).",
 				'Y',
 				'".$avatar_approved."'
 			)

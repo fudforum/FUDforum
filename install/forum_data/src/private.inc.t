@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.42 2005/07/28 14:18:03 hackie Exp $
+* $Id: private.inc.t,v 1.43 2005/07/28 16:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,7 +50,7 @@ class fud_pmsg
 				".$this->ouser_id.",
 				".$this->ouser_id.",
 				".(isset($GLOBALS['recv_user_id'][0]) ? (int)$GLOBALS['recv_user_id'][0] : '0').",
-				".ssn(addslashes($this->to_list)).",
+				".ssn($this->to_list).",
 				'".$this->ip_addr."',
 				".$this->host_name.",
 				".$this->post_stamp.",
@@ -92,7 +92,7 @@ class fud_pmsg
 				ref_msg_id,
 				pmsg_opt
 			) VALUES (
-				".ssn(addslashes($this->to_list)).",
+				".ssn($this->to_list).",
 				".$this->ouser_id.",
 				'".$this->ip_addr."',
 				".$this->host_name.",
@@ -133,7 +133,7 @@ class fud_pmsg
 		list($this->foff, $this->length) = write_pmsg_body($this->body);
 
 		q("UPDATE {SQL_TABLE_PREFIX}pmsg SET
-			to_list=".ssn(addslashes($this->to_list)).",
+			to_list=".ssn($this->to_list).",
 			icon=".ssn($this->icon).",
 			ouser_id=".$this->ouser_id.",
 			duser_id=".$this->ouser_id.",

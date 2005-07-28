@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipb.php,v 1.12 2005/07/28 13:29:01 hackie Exp $
+* $Id: ipb.php,v 1.13 2005/07/28 16:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -264,7 +264,7 @@ function make_avatar_loc($path, $disk, $web)
 		}
 
 		if ($obj->title) {
-			q("INSERT INTO {$DBHOST_TBL_PREFIX}custom_tags (name, user_id) VALUES(".ssn(addslashes($obj->title)).", {$uid})");
+			q("INSERT INTO {$DBHOST_TBL_PREFIX}custom_tags (name, user_id) VALUES(".ssn($obj->title).", {$uid})");
 		}
 
 		q("UPDATE {$DBHOST_TBL_PREFIX}users SET

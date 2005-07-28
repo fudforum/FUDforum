@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.132 2005/07/28 13:29:01 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.133 2005/07/28 16:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -83,10 +83,10 @@ class fud_msg_edit extends fud_msg
 			'".$this->ip_addr."',
 			".$this->host_name.",
 			".$this->post_stamp.",
-			".ssn(addslashes($this->subject)).",
+			".ssn($this->subject).",
 			".(int)$this->attach_cnt.",
 			".(int)$this->poll_id.",
-			".ssn(addslashes($this->icon)).",
+			".ssn($this->icon).",
 			".$this->msg_opt.",
 			".$file_id.",
 			".(int)$offset.",
@@ -138,7 +138,7 @@ class fud_msg_edit extends fud_msg
 			file_id=".$file_id.",
 			foff=".(int)$offset.",
 			length=".(int)$length.",
-			mlist_msg_id=".ssn(addslashes($this->mlist_msg_id)).",
+			mlist_msg_id=".ssn($this->mlist_msg_id).",
 			file_id_preview=".$file_id_preview.",
 			offset_preview=".$offset_preview.",
 			length_preview=".$length_preview.",
@@ -147,9 +147,9 @@ class fud_msg_edit extends fud_msg
 			attach_cnt=".(int)$this->attach_cnt.",
 			poll_id=".(int)$this->poll_id.",
 			update_stamp=".__request_timestamp__.",
-			icon=".ssn(addslashes($this->icon))." ,
+			icon=".ssn($this->icon)." ,
 			poll_cache=".ssn(poll_cache_rebuild($this->poll_id)).",
-			subject=".ssn(addslashes($this->subject))."
+			subject=".ssn($this->subject)."
 		WHERE id=".$this->id);
 
 		/* determine wether or not we should deal with locked & sticky stuff

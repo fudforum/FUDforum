@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ikon.php,v 1.11 2005/07/28 14:18:03 hackie Exp $
+* $Id: ikon.php,v 1.12 2005/07/28 16:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -322,13 +322,13 @@ function fetch_img($url)
 				'".addslashes($obj->location)."',
 				".$THEME.",
 				'N',
-				".ssn(addslashes($obj->interests)).",
+				".ssn($obj->interests).",
 				'".intyn($obj->view_sigs)."',
 				'".intyn($obj->view_avs)."',
 				".(int)$obj->last_activity.",
-				".ssn(addslashes(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->signature))).",
+				".ssn(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->signature)).",
 				'msg',
-				".ssn(addslashes($obj->website)).",
+				".ssn($obj->website).",
 				'Y',
 				'".$avatar_approved."'
 			)

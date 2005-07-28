@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.114 2005/07/28 13:29:01 hackie Exp $
+* $Id: consist.php,v 1.115 2005/07/28 16:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -319,7 +319,7 @@ forum will be disabled.
 	while ($r = db_rowarr($c)) {
 		if ($oldm != $r[5]) {
 			if ($oldm) {
-				q('UPDATE '.$tbl.'msg SET attach_cnt='.count($atr).', attach_cache='.ssn(addslashes(@serialize($atr))).' WHERE id='.$oldm);
+				q('UPDATE '.$tbl.'msg SET attach_cnt='.count($atr).', attach_cache='.ssn(serialize($atr)).' WHERE id='.$oldm);
 				$atr = array();
 			}
 			$oldm = $r[5];
@@ -329,7 +329,7 @@ forum will be disabled.
 	}
 	unset($c);
 	if ($atr) {
-		q('UPDATE '.$tbl.'msg SET attach_cnt='.count($atr).', attach_cache='.ssn(addslashes(@serialize($atr))).' WHERE id='.$oldm);
+		q('UPDATE '.$tbl.'msg SET attach_cnt='.count($atr).', attach_cache='.ssn(serialize($atr)).' WHERE id='.$oldm);
 		unset($atr);
 	}
 	draw_stat('Done: Rebuild attachment cache for regular messages');
@@ -379,7 +379,7 @@ forum will be disabled.
 	while ($r = db_rowarr($c)) {
 		if ($oldp != $r[3]) {
 			if ($oldp) {
-				q('UPDATE '.$tbl.'msg SET poll_cache='.ssn(addslashes(@serialize($opts))).' WHERE poll_id='.$oldp);
+				q('UPDATE '.$tbl.'msg SET poll_cache='.ssn(serialize($opts)).' WHERE poll_id='.$oldp);
 				q('UPDATE '.$tbl.'poll SET total_votes='.$vt.' WHERE id='.$oldp);
 				$opts = array();
 				$vt = 0;
@@ -391,7 +391,7 @@ forum will be disabled.
 	}
 	unset($c);
 	if ($opts) {
-		q('UPDATE '.$tbl.'msg SET poll_cache='.ssn(addslashes(@serialize($opts))).' WHERE poll_id='.$oldp);
+		q('UPDATE '.$tbl.'msg SET poll_cache='.ssn(serialize($opts)).' WHERE poll_id='.$oldp);
 		q('UPDATE '.$tbl.'poll SET total_votes='.$vt.' WHERE id='.$oldp);
 	}
 	draw_stat('Done: Rebuilding poll cache');
@@ -510,7 +510,7 @@ forum will be disabled.
 	while ($r = db_rowarr($c)) {
 		if ($oldu != $r[1]) {
 			if ($oldu) {
-				q('UPDATE '.$tbl.'users SET buddy_list='.ssn(addslashes(@serialize($br))).' WHERE id='.$oldu);
+				q('UPDATE '.$tbl.'users SET buddy_list='.ssn(serialize($br)).' WHERE id='.$oldu);
 				$br = array();
 			}
 			$oldu = $r[1];
@@ -519,7 +519,7 @@ forum will be disabled.
 	}
 	unset($c);
 	if ($br) {
-		q('UPDATE '.$tbl.'users SET buddy_list='.ssn(addslashes(@serialize($br))).' WHERE id='.$oldu);
+		q('UPDATE '.$tbl.'users SET buddy_list='.ssn(serialize($br)).' WHERE id='.$oldu);
 		unset($br);
 	}
 	draw_stat('Done: Rebuilding buddy list cache');
@@ -531,7 +531,7 @@ forum will be disabled.
 	while ($r = db_rowarr($c)) {
 		if ($oldu != $r[1]) {
 			if ($oldu) {
-				q('UPDATE '.$tbl.'users SET ignore_list='.ssn(addslashes(@serialize($ir))).' WHERE id='.$oldu);
+				q('UPDATE '.$tbl.'users SET ignore_list='.ssn(serialize($ir)).' WHERE id='.$oldu);
 				$ir = array();
 			}
 			$oldu = $r[1];
@@ -540,7 +540,7 @@ forum will be disabled.
 	}
 	unset($c);
 	if ($ir) {
-		q('UPDATE '.$tbl.'users SET ignore_list='.ssn(addslashes(@serialize($ir))).' WHERE id='.$oldu);
+		q('UPDATE '.$tbl.'users SET ignore_list='.ssn(serialize($ir)).' WHERE id='.$oldu);
 		unset($ir);
 	}
 	draw_stat('Done: Rebuilding ignore list cache');

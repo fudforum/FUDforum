@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.83 2005/07/28 13:29:01 hackie Exp $
+* $Id: users_reg.inc.t,v 1.84 2005/07/28 16:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -273,7 +273,7 @@ function rebuildmodlist()
 
 	q('UPDATE '.$tbl.'forum SET moderators=NULL');
 	foreach ($ar as $k => $v) {
-		q('UPDATE '.$tbl.'forum SET moderators='.ssn(addslashes(serialize($v))).' WHERE id='.$k);
+		q('UPDATE '.$tbl.'forum SET moderators='.ssn(serialize($v)).' WHERE id='.$k);
 	}
 	q('UPDATE '.$tbl.'users SET users_opt=users_opt & ~ 524288 WHERE users_opt>=524288 AND (users_opt & 524288) > 0');
 	if ($u) {

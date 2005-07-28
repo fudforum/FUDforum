@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum_adm.inc,v 1.24 2005/07/28 13:29:01 hackie Exp $
+* $Id: forum_adm.inc,v 1.25 2005/07/28 16:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,11 +50,11 @@ class fud_forum
 		) VALUES (
 			".$this->cat_id.",
 			'".addslashes(htmlspecialchars($this->name))."',
-			".ssn(addslashes($this->descr)).",
-			".ssn(addslashes($this->post_passwd)).",
+			".ssn($this->descr).",
+			".ssn($this->post_passwd).",
 			".__request_timestamp__.",
 			".$this->view_order.",
-			".ssn(addslashes($this->forum_icon)).",
+			".ssn($this->forum_icon).",
 			".(int)$this->max_attach_size.",
 			".(int)$this->max_file_attachments.",
 			".(int)$this->message_threshold.",
@@ -83,9 +83,9 @@ class fud_forum
 		q("UPDATE ".$tbl."forum SET
 			cat_id=".$cat_id.",
 			name='".addslashes(htmlspecialchars($this->name))."',
-			descr=".ssn(addslashes($this->descr)).",
-			post_passwd=".ssn(addslashes($this->post_passwd)).",
-			forum_icon=".ssn(addslashes($this->forum_icon)).",
+			descr=".ssn($this->descr).",
+			post_passwd=".ssn($this->post_passwd).",
+			forum_icon=".ssn($this->forum_icon).",
 			max_attach_size=".(int)$this->max_attach_size.",
 			max_file_attachments=".(int)$this->max_file_attachments.",
 			message_threshold=".(int)$this->message_threshold.",

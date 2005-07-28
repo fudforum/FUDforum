@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: VB2.php,v 1.15 2005/07/28 14:18:03 hackie Exp $
+* $Id: VB2.php,v 1.16 2005/07/28 16:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -215,7 +215,7 @@ function append_perm_str($perm, $who)
 			'".addslashes($obj->username)."',
 			'".addslashes($obj->password)."',
 			'".addslashes($obj->email)."',
-			".ssn(addslashes($obj->homepage)).",
+			".ssn($obj->homepage).",
 			".intval($obj->icq).",
 			'".addslashes($obj->aim)."',
 			'".addslashes($obj->yahoo)."',

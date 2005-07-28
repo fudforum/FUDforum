@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: xmb.php,v 1.8 2005/07/28 13:29:01 hackie Exp $
+* $Id: xmb.php,v 1.9 2005/07/28 16:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -238,7 +238,7 @@ function html_clean($str)
 		}
 
 		if ($obj->customstatus) {
-			q("INSERT INTO {$DBHOST_TBL_PREFIX}custom_tags (name, user_id) VALUES(".ssn(addslashes($obj->customstatus)).", {$uid})");
+			q("INSERT INTO {$DBHOST_TBL_PREFIX}custom_tags (name, user_id) VALUES(".ssn($obj->customstatus).", {$uid})");
 		}
 
 		q("UPDATE {$DBHOST_TBL_PREFIX}users SET

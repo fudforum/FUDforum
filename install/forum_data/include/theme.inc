@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: theme.inc,v 1.24 2005/07/28 13:29:01 hackie Exp $
+* $Id: theme.inc,v 1.25 2005/07/28 16:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,7 +44,7 @@ class fud_theme
 		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."themes
 				(name, theme, lang, locale, theme_opt, pspell_lang)
 			VALUES
-				('".addslashes($this->name)."', '".addslashes($this->theme)."', '".addslashes($this->lang)."', '".addslashes($this->locale)."', ".$this->theme_opt.", ".ssn(addslashes($this->pspell_lang)).")");
+				('".addslashes($this->name)."', '".addslashes($this->theme)."', '".addslashes($this->lang)."', '".addslashes($this->locale)."', ".$this->theme_opt.", ".ssn($this->pspell_lang).")");
 
 		/* set anonymous user's theme to default */
 		if ($this->theme_opt & 2) {
@@ -79,7 +79,7 @@ class fud_theme
 			lang='".addslashes($this->lang)."',
 			locale='".addslashes($this->locale)."',
 			theme_opt=".$this->theme_opt.",
-			pspell_lang=".ssn(addslashes($this->pspell_lang))."
+			pspell_lang=".ssn($this->pspell_lang)."
 		WHERE id=".$id);
 
 		if (!($this->theme_opt & 1) && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE (theme_opt & 1) > 0")) {
