@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmime.php,v 1.20 2005/07/06 15:12:43 hackie Exp $
+* $Id: admmime.php,v 1.21 2005/07/28 13:29:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,9 +35,9 @@
 	}
 
 	if (isset($_POST['btn_update'], $_POST['edit'])) {
-		q('UPDATE '.$tbl.'mime SET descr='.strnull(addslashes($_POST['mime_descr'])).', mime_hdr='.strnull(addslashes($_POST['mime_mime_hdr'])).', fl_ext='.strnull(addslashes($_POST['mime_fl_ext'])).', icon='.strnull(addslashes($_POST['mime_icon'])).' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '.$tbl.'mime SET descr='.ssn(addslashes($_POST['mime_descr'])).', mime_hdr='.ssn(addslashes($_POST['mime_mime_hdr'])).', fl_ext='.ssn(addslashes($_POST['mime_fl_ext'])).', icon='.ssn(addslashes($_POST['mime_icon'])).' WHERE id='.(int)$_POST['edit']);
 	} else if (isset($_POST['btn_submit'])) {
-		q('INSERT INTO '.$tbl.'mime (descr, mime_hdr, fl_ext, icon) VALUES ('.strnull(addslashes($_POST['mime_descr'])).', '.strnull(addslashes($_POST['mime_mime_hdr'])).', '.strnull(addslashes($_POST['mime_fl_ext'])).', '.strnull(addslashes($_POST['mime_icon'])).')');
+		q('INSERT INTO '.$tbl.'mime (descr, mime_hdr, fl_ext, icon) VALUES ('.ssn(addslashes($_POST['mime_descr'])).', '.ssn(addslashes($_POST['mime_mime_hdr'])).', '.ssn(addslashes($_POST['mime_fl_ext'])).', '.ssn(addslashes($_POST['mime_icon'])).')');
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');

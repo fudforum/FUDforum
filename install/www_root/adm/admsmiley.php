@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.23 2005/07/08 14:29:20 hackie Exp $
+* $Id: admsmiley.php,v 1.24 2005/07/28 13:29:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,11 +48,11 @@
 	}
 
 	if (isset($_POST['btn_update'], $_POST['edit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code']) && $_POST['sml_code']{strlen($_POST['sml_code']) - 1} != '~') {
-		q('UPDATE '.$tbl.'smiley SET code='.strnull(addslashes($_POST['sml_code'])).', img='.strnull(addslashes($_POST['sml_img'])).', descr='.strnull(addslashes($_POST['sml_descr'])).' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '.$tbl.'smiley SET code='.ssn(addslashes($_POST['sml_code'])).', img='.ssn(addslashes($_POST['sml_img'])).', descr='.ssn(addslashes($_POST['sml_descr'])).' WHERE id='.(int)$_POST['edit']);
 		smiley_rebuild_cache();
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code']) && $_POST['sml_code']{strlen($_POST['sml_code']) - 1} != '~') {
 		$view_order = q_singleval('SELECT MAX(vieworder) FROM '.$tbl.'smiley') + 1;
-		q('INSERT INTO '.$tbl.'smiley (code, img, descr, vieworder) VALUES('.strnull(addslashes($_POST['sml_code'])).', '.strnull(addslashes($_POST['sml_img'])).', '.strnull(addslashes($_POST['sml_descr'])).', '.$view_order.')');
+		q('INSERT INTO '.$tbl.'smiley (code, img, descr, vieworder) VALUES('.ssn(addslashes($_POST['sml_code'])).', '.ssn(addslashes($_POST['sml_img'])).', '.ssn(addslashes($_POST['sml_descr'])).', '.$view_order.')');
 		smiley_rebuild_cache();
 	}
 

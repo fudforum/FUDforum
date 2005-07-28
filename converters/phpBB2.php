@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.28 2005/07/27 18:57:29 hackie Exp $
+* $Id: phpBB2.php,v 1.29 2005/07/28 13:29:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -615,7 +615,7 @@ $group_map = array(
 			}
 		}
 		$file_name = '';
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."level (name,post_count,img) VALUES('".addslashes($obj->rank_title)."',".(int)$obj->rank_min.",".strnull($file_name).")");
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."level (name,post_count,img) VALUES('".addslashes($obj->rank_title)."',".(int)$obj->rank_min.",".ssn($file_name).")");
 	}
 	unset($r);
 	print_msg('Finished Importing User Ranks (post count based)');

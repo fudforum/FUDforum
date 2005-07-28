@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlevel.php,v 1.24 2005/07/06 15:12:43 hackie Exp $
+* $Id: admlevel.php,v 1.25 2005/07/28 13:29:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,9 +15,9 @@
 	fud_use('widgets.inc', true);
 
 	if (isset($_POST['lev_submit'])) {
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."level (name, img, level_opt, post_count) VALUES ('".addslashes($_POST['lev_name'])."', ".strnull(addslashes($_POST['lev_img'])).", ".(int)$_POST['lev_level_opt'].", ".(int)$_POST['lev_post_count'].")");
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."level (name, img, level_opt, post_count) VALUES ('".addslashes($_POST['lev_name'])."', ".ssn(addslashes($_POST['lev_img'])).", ".(int)$_POST['lev_level_opt'].", ".(int)$_POST['lev_post_count'].")");
 	} else if (isset($_POST['edit'], $_POST['lev_update'])) {
-		q("UPDATE ".$DBHOST_TBL_PREFIX."level SET name='".addslashes($_POST['lev_name'])."', img=".strnull(addslashes($_POST['lev_img'])).", level_opt=".(int)$_POST['lev_level_opt'].", post_count=".(int)$_POST['lev_post_count']." WHERE id=".(int)$_POST['edit']);
+		q("UPDATE ".$DBHOST_TBL_PREFIX."level SET name='".addslashes($_POST['lev_name'])."', img=".ssn(addslashes($_POST['lev_img'])).", level_opt=".(int)$_POST['lev_level_opt'].", post_count=".(int)$_POST['lev_post_count']." WHERE id=".(int)$_POST['edit']);
 	}
 
 	if (isset($_GET['edit'])) {

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.155 2005/07/25 03:18:41 hackie Exp $
+* $Id: core.inc,v 1.156 2005/07/28 13:29:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -121,10 +121,6 @@ function intzero($val)
 	return (!empty($val) ? $val : '0');
 }
 
-function strnull($val)
-{
-	return (!is_null($val) ? "'".$val."'" : 'NULL');
-}
 /* END: Common DB Functions */
 
 function __ffilesize($fp)

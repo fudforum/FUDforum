@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ikon.php,v 1.9 2005/07/27 18:57:29 hackie Exp $
+* $Id: ikon.php,v 1.10 2005/07/28 13:29:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -307,9 +307,9 @@ function fetch_img($url)
 				'Y',
 				'Y',
 				".intnull($obj->icq_number).",
-				".strnull($obj->aim_name).",
-				".strnull($obj->yahoo).",
-				".strnull($obj->msnname).",
+				".ssn($obj->aim_name).",
+				".ssn($obj->yahoo).",
+				".ssn($obj->msnname).",
 				'Y',
 				'".$GLOBALS['POSTS_PER_PAGE']."',
 				'".$GLOBALS['SERVER_TZ']."',
@@ -317,18 +317,18 @@ function fetch_img($url)
 				'N',
 				".intzero($obj->last_visit).",
 				'0',
-				".strnull($obj->photo).",
+				".ssn($obj->photo).",
 				".intzero($obj->joined).",
 				'".addslashes($obj->location)."',
 				".$THEME.",
 				'N',
-				".strnull(addslashes($obj->interests)).",
+				".ssn(addslashes($obj->interests)).",
 				'".intyn($obj->view_sigs)."',
 				'".intyn($obj->view_avs)."',
 				".intzero($obj->last_activity).",
-				".strnull(addslashes(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->signature))).",
+				".ssn(addslashes(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->signature))).",
 				'msg',
-				".strnull(addslashes($obj->website)).",
+				".ssn(addslashes($obj->website)).",
 				'Y',
 				'".$avatar_approved."'
 			)
@@ -409,7 +409,7 @@ function fetch_img($url)
 			".intzero($off).",
 			".intzero($len).",
 			".$fileid.",
-			".strnull($obj->IP_ADDR)."
+			".ssn($obj->IP_ADDR)."
 		)");	
 	}
 	print_status('Finished Importing ('.db_count($r).') Messages');

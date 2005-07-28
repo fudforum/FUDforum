@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: wbb.php,v 1.7 2005/07/27 18:57:29 hackie Exp $
+* $Id: wbb.php,v 1.8 2005/07/28 13:29:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -278,8 +278,8 @@ function fetch_img($url)
 				'Y',
 				'Y',
 				".intnull($obj->usericq).",
-				".strnull($obj->aim).",
-				".strnull($obj->yim).",
+				".ssn($obj->aim).",
+				".ssn($obj->yim).",
 				'Y',
 				'".$GLOBALS['POSTS_PER_PAGE']."',
 				'".$GLOBALS['SERVER_TZ']."',
@@ -290,13 +290,13 @@ function fetch_img($url)
 				'".addslashes($obj->location)."',
 				".$THEME.",
 				'N',
-				".strnull(addslashes($obj->interests)).",
+				".ssn(addslashes($obj->interests)).",
 				'".intyn($obj->view_sigs)."',
 				'".intyn($obj->hide_userpic)."',
 				".intzero($obj->lastactivity).",
-				".strnull(addslashes(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->signatur))).",
+				".ssn(addslashes(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->signatur))).",
 				'msg',
-				".strnull(addslashes($obj->userhp)).",
+				".ssn(addslashes($obj->userhp)).",
 				'Y',
 				'".$avatar_approved."'
 			)
@@ -371,7 +371,7 @@ function fetch_img($url)
 			".intzero($off).",
 			".intzero($len).",
 			".$fileid.",
-			".strnull($obj->ip).",
+			".ssn($obj->ip).",
 			'Y'
 		)");	
 	}

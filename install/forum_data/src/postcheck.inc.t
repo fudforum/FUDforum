@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.26 2005/07/14 16:13:10 hackie Exp $
+* $Id: postcheck.inc.t,v 1.27 2005/07/28 13:29:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -82,7 +82,7 @@ function check_ppost_form($msg_subject)
 			if ($hack !== false) {
 				$v = preg_replace('!&#([0-9]+)#!', '&#\1;', $v);
 			}
-			if (!($obj = db_sab('SELECT u.users_opt, u.id, ui.ignore_id FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ui ON ui.user_id=u.id AND ui.ignore_id='._uid.' WHERE u.alias='.strnull(addslashes(char_fix(htmlspecialchars($v))))))) {
+			if (!($obj = db_sab('SELECT u.users_opt, u.id, ui.ignore_id FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ui ON ui.user_id=u.id AND ui.ignore_id='._uid.' WHERE u.alias='.ssn(addslashes(char_fix(htmlspecialchars($v))))))) {
 				set_err('msg_to_list', '{TEMPLATE: postcheck_no_such_user}');
 				break;
 			}

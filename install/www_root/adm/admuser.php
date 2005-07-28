@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.64 2005/07/20 14:38:30 hackie Exp $
+* $Id: admuser.php,v 1.65 2005/07/28 13:29:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -73,7 +73,7 @@
 			break;
 		case 'color':
 			$u->custom_color = trim($_POST['custom_color']);
-			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET custom_color='.strnull(addslashes($u->custom_color)).' WHERE id='.$usr_id);
+			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET custom_color='.ssn(addslashes($u->custom_color)).' WHERE id='.$usr_id);
 			break;
 		case 'reset':
 			$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? "theme_opt>=2 AND (theme_opt & 2) > 0" : 'id='.$u->theme));
@@ -189,7 +189,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	if ($usr_id) {
 		/* deal with custom tags */
 		if (!empty($_POST['c_tag'])) {
-			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'custom_tags (name, user_id) VALUES('.strnull(addslashes($_POST['c_tag'])).', '.$usr_id.')');
+			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'custom_tags (name, user_id) VALUES('.ssn(addslashes($_POST['c_tag'])).', '.$usr_id.')');
 		} else if (!empty($_GET['deltag'])) {
 			q('DELETE FROM '.$DBHOST_TBL_PREFIX.'custom_tags WHERE id='.(int)$_GET['deltag']);
 		} else {

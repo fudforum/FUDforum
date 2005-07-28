@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.40 2005/07/06 14:39:22 hackie Exp $
+* $Id: private.inc.t,v 1.41 2005/07/28 13:29:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,16 +50,16 @@ class fud_pmsg
 				".$this->ouser_id.",
 				".$this->ouser_id.",
 				".(isset($GLOBALS['recv_user_id'][0]) ? intzero($GLOBALS['recv_user_id'][0]) : '0').",
-				".strnull(addslashes($this->to_list)).",
+				".ssn(addslashes($this->to_list)).",
 				'".$this->ip_addr."',
 				".$this->host_name.",
 				".$this->post_stamp.",
-				".strnull($this->icon).",
+				".ssn($this->icon).",
 				".$this->fldr.",
 				'".addslashes($this->subject)."',
 				".(int)$this->attach_cnt.",
 				".$this->read_stamp.",
-				".strnull($this->ref_msg_id).",
+				".ssn($this->ref_msg_id).",
 				".(int)$this->foff.",
 				".(int)$this->length.",
 				".$this->pmsg_opt."
@@ -92,19 +92,19 @@ class fud_pmsg
 				ref_msg_id,
 				pmsg_opt
 			) VALUES (
-				".strnull(addslashes($this->to_list)).",
+				".ssn(addslashes($this->to_list)).",
 				".$this->ouser_id.",
 				'".$this->ip_addr."',
 				".$this->host_name.",
 				".$this->post_stamp.",
-				".strnull($this->icon).",
+				".ssn($this->icon).",
 				1,
 				'".addslashes($this->subject)."',
 				".intzero($this->attach_cnt).",
 				".$this->foff.",
 				".$this->length.",
 				".$v.",
-				".strnull($this->ref_msg_id).",
+				".ssn($this->ref_msg_id).",
 				".$this->pmsg_opt.")");
 			$GLOBALS['send_to_array'][] = array($v, $id);
 			$um[$v] = $id;
@@ -133,8 +133,8 @@ class fud_pmsg
 		list($this->foff, $this->length) = write_pmsg_body($this->body);
 
 		q("UPDATE {SQL_TABLE_PREFIX}pmsg SET
-			to_list=".strnull(addslashes($this->to_list)).",
-			icon=".strnull($this->icon).",
+			to_list=".ssn(addslashes($this->to_list)).",
+			icon=".ssn($this->icon).",
 			ouser_id=".$this->ouser_id.",
 			duser_id=".$this->ouser_id.",
 			post_stamp=".$this->post_stamp.",
