@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.17 2005/07/27 18:48:02 hackie Exp $
+* $Id: msg.tmpl,v 1.18 2005/07/28 17:55:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -29,35 +29,35 @@
 {REF: draw_forum_path.tmpl}
 
 {SECTION: split_thread_lnk}
-{ROOT}/stt/{VAR: _GET['th']}/{DEF: _rsid}
+{ROOT}/stt/{VAR: th}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: mod_lock_thread_lnk}
-{ROOT}/lk/{VAR: _GET['th']}/lock/{DEF: _rsid}?SQ={GVAR: sq}
+{ROOT}/lk/{VAR: th}/lock/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: mod_unlock_thread_lnk}
-{ROOT}/lk/{VAR: _GET['th']}/unlock/{DEF: _rsid}?SQ={GVAR: sq}
+{ROOT}/lk/{VAR: th}/unlock/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: email_page_to_friend_lnk}
-{ROOT}/ef/{VAR: _GET['th']}/{DEF: _rsid}
+{ROOT}/ef/{VAR: th}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: first_unread_message_link_lnk}
-{ROOT}/t/{VAR: _GET['th']}/0/unread/{DEF: _rsid}
+{ROOT}/t/{VAR: th}/0/unread/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: sub_from_thread_lnk}
-{ROOT}/mn/msg/{VAR: _GET['th']}/1/on/{VAR: _GET['start']}/{DEF: _rsid}?SQ={GVAR: sq}
+{ROOT}/mn/msg/{VAR: th}/1/on/{VAR: _GET['start']}/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: unsub_to_thread_lnk}
-{ROOT}/mn/msg/{VAR: _GET['th']}/1/off/{VAR: _GET['start']}/{DEF: _rsid}?SQ={GVAR: sq}
+{ROOT}/mn/msg/{VAR: th}/1/off/{VAR: _GET['start']}/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: threaded_view_lnk}
-{ROOT}/mv/tree/{VAR: _GET['th']}/{DEF: _rsid}
+{ROOT}/mv/tree/{VAR: th}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: new_thread_lnk}
@@ -65,7 +65,7 @@
 {SECTION: END}
 
 {SECTION: post_reply_lnk}
-{ROOT}/r/th_id/{VAR: _GET['th']}/{VAR: frm->root_msg_id}/0/{VAR: _GET['start']}/{DEF: _rsid}
+{ROOT}/r/th_id/{VAR: th}/{VAR: frm->root_msg_id}/0/{VAR: _GET['start']}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: rate_thread_lnk3}
