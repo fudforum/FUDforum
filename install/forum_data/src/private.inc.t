@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.41 2005/07/28 13:29:01 hackie Exp $
+* $Id: private.inc.t,v 1.42 2005/07/28 14:18:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,7 +49,7 @@ class fud_pmsg
 			) VALUES(
 				".$this->ouser_id.",
 				".$this->ouser_id.",
-				".(isset($GLOBALS['recv_user_id'][0]) ? intzero($GLOBALS['recv_user_id'][0]) : '0').",
+				".(isset($GLOBALS['recv_user_id'][0]) ? (int)$GLOBALS['recv_user_id'][0] : '0').",
 				".ssn(addslashes($this->to_list)).",
 				'".$this->ip_addr."',
 				".$this->host_name.",
@@ -100,7 +100,7 @@ class fud_pmsg
 				".ssn($this->icon).",
 				1,
 				'".addslashes($this->subject)."',
-				".intzero($this->attach_cnt).",
+				".(int)$this->attach_cnt.",
 				".$this->foff.",
 				".$this->length.",
 				".$v.",

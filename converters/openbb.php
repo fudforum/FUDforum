@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: openbb.php,v 1.12 2005/07/27 18:57:29 hackie Exp $
+* $Id: openbb.php,v 1.13 2005/07/28 14:18:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -210,7 +210,7 @@ function openBBcode2fudcode($str)
 				'".addslashes($obj->username)."',
 				'".addslashes($obj->username)."',
 				'".$obj->password."',
-				".intzero($obj->joindate).",
+				".(int)$obj->joindate.",
 				'".INT_yn(!$obj->showemail)."',
 				'".INT_yn(!$obj->showsig)."',
 				'".INT_yn(!$obj->autosubscribe)."',
@@ -415,12 +415,12 @@ $group_map = array(
 			$obj2->message = openBBcode2fudcode($obj2->message);
 			$fileid = write_body($obj2->message, $len, $off, $obj->forumid);
 			
-			$poster = intzero(q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj2->poster)."'"));
+			$poster = (int)q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj2->poster)."'");
 			if( !$poster && $unimported_users[$obj2->poster] ) $poster = $unimported_users[$obj2->poster];
 			
 			
 			if( $obj2->lastupdateby ) 
-				$updated_by  = intzero(q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj2->lastupdateby)."'"));
+				$updated_by  = (int)q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj2->lastupdateby)."'");
 			else if( ($updated_by=$unimported_users[$obj2->lastupdateby]) ) {
 				/* noop */
 			}	
@@ -450,14 +450,14 @@ $group_map = array(
 				$obj2->threadid,
 				$poster,
 				$obj2->dateline,
-				".intzero($obj2->lastupdate).",
+				".(int)$obj2->lastupdate.",
 				$updated_by,
 				'".addslashes($obj2->title)."',
 				'Y',
 				'".INT_yn(!$obj2->dsmiley)."',
 				'".$obj2->ip."',
-				".intzero($off).",
-				".intzero($len).",
+				".(int)$off.",
+				".(int)$len.",
 				$fileid,
 				'".addslashes($icon)."'
 			)");
@@ -479,7 +479,7 @@ $group_map = array(
 	while( $obj = db_rowobj($r) ) {
 		list($owner,$mid) = db_singlearr(q("SELECT ".$DBHOST_TBL_PREFIX."msg.poster_id,".$DBHOST_TBL_PREFIX."msg.id FROM ".$DBHOST_TBL_PREFIX."thread INNER JOIN ".$DBHOST_TBL_PREFIX."msg ON ".$DBHOST_TBL_PREFIX."thread.root_msg_id=".$DBHOST_TBL_PREFIX."msg.id WHERE ".$DBHOST_TBL_PREFIX."thread.id=".$obj->thread_id));
 	
-		$owner = intzero($owner);
+		$owner = (int)$owner;
 	
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."poll (id,name,owner) VALUES($obj->id, '".addslashes($obj->description)."', $owner)");
 		

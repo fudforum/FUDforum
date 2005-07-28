@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: Yabb_dc.php,v 1.13 2005/07/27 18:57:29 hackie Exp $
+* $Id: Yabb_dc.php,v 1.14 2005/07/28 14:18:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -342,7 +342,7 @@ function getyabbgroupname($str)
 				'".addslashes(trim($user_data[10]))."',
 				'".addslashes(trim($user_data[4]))."',
 				'".$gender."',
-				'".intzero($avatar_id)."',
+				'".(int)$avatar_id."',
 				'".$avatar_approved."',
 				'".$avatar_loc."',
 				'".INT_yn(!trim($user_data[15]))."',
@@ -523,15 +523,15 @@ function getyabbgroupname($str)
 			VALUES
 			(
 				".$v.",
-				".intzero($users_db[$msg_data[4]]).",
-				".intzero(yabbstamp($msg_data[3])).",
+				".(int)$users_db[$msg_data[4]].",
+				".(int)yabbstamp($msg_data[3]).",
 				'".addslashes($msg_data[0])."',
 				'Y',
 				'Y',
 				'Y',
 				'".$msg_data[7]."',
-				".intzero($off).",
-				".intzero($len).",
+				".(int)$off.",
+				".(int)$len.",
 				$fileid
 			)");
 			

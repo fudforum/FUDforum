@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ikon.php,v 1.10 2005/07/28 13:29:01 hackie Exp $
+* $Id: ikon.php,v 1.11 2005/07/28 14:18:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -313,19 +313,19 @@ function fetch_img($url)
 				'Y',
 				'".$GLOBALS['POSTS_PER_PAGE']."',
 				'".$GLOBALS['SERVER_TZ']."',
-				".intzero($obj->bday_year.$obj->bday_month.$obj->bday_day).",
+				".(int)($obj->bday_year.$obj->bday_month.$obj->bday_day).",
 				'N',
-				".intzero($obj->last_visit).",
+				".(int)$obj->last_visit.",
 				'0',
 				".ssn($obj->photo).",
-				".intzero($obj->joined).",
+				".(int)$obj->joined.",
 				'".addslashes($obj->location)."',
 				".$THEME.",
 				'N',
 				".ssn(addslashes($obj->interests)).",
 				'".intyn($obj->view_sigs)."',
 				'".intyn($obj->view_avs)."',
-				".intzero($obj->last_activity).",
+				".(int)$obj->last_activity.",
 				".ssn(addslashes(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->signature))).",
 				'msg',
 				".ssn(addslashes($obj->website)).",
@@ -361,7 +361,7 @@ function fetch_img($url)
 			".$obj->FORUM_ID.",
 			".$obj->TOPIC_VIEWS.",
 			'".$locked."',
-			".intzero($obj->MOVED_TO)."
+			".(int)$obj->MOVED_TO."
 			)
 		");
 	}
@@ -401,13 +401,13 @@ function fetch_img($url)
 			VALUES(
 			".$obj->POST_ID.",
 			".$obj->TOPIC_ID.",
-			".intzero($obj->aid).",
+			".(int)$obj->aid.",
 			".$obj->POST_DATE.",
 			'".addslashes(htmlspecialchars(decode_ib3($obj->TOPIC_TITLE)))."',
 			'".intyn($obj->ENABLE_SIG)."',
 			'".intyn(!$obj->ENABLE_EMO)."',
-			".intzero($off).",
-			".intzero($len).",
+			".(int)$off.",
+			".(int)$len.",
 			".$fileid.",
 			".ssn($obj->IP_ADDR)."
 		)");	
@@ -438,7 +438,7 @@ function fetch_img($url)
 	print_status('Importing Member Titles');
 	$r = iq("SELECT * FROM ibf_titles");
 	while( $obj = db_rowobj($r) ) 
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."level (name,post_count) VALUES('".addslashes($obj->title)."',".intzero($obj->posts).")");
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."level (name,post_count) VALUES('".addslashes($obj->title)."',".(int)$obj->posts.")");
 	print_status('Finished Importing ('.db_count($r).') Member Titles');
 	qf($r);
 
@@ -497,7 +497,7 @@ function fetch_img($url)
 			".$obj->POLL_ID.",
 			'".addslashes(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->POLL_TITLE))."',
 			".$uid.",
-			".intzero($obj->POLL_STARTED).",
+			".(int)$obj->POLL_STARTED.",
 			".(($obj->POLL_STATE=='closed')?($obj->POLL_STARTED+1):0)."
 		)");
 		
@@ -506,7 +506,7 @@ function fetch_img($url)
 		// Import poll options
 		foreach( $poll_opts[1] as $opt_name ) {
 			list($count) = each($poll_opts[2]);
-			q("INSERT INTO ".$DBHOST_TBL_PREFIX."poll_opt (name,poll_id,count) VALUES('".addslashes(preg_replace('!&#(\d+);!e', "chr(\\1)", $opt_name))."', ".$obj->POLL_ID.", ".intzero($count).")");
+			q("INSERT INTO ".$DBHOST_TBL_PREFIX."poll_opt (name,poll_id,count) VALUES('".addslashes(preg_replace('!&#(\d+);!e', "chr(\\1)", $opt_name))."', ".$obj->POLL_ID.", ".(int)$count.")");
 		}	
 	}
 	print_status('Finished Importing ('.db_count($r).') Polls');
@@ -551,15 +551,15 @@ function fetch_img($url)
 	change_global_val('THREADS_PER_PAGE', $GLOBALS['__IKON_CFG__']['DISPLAY_MAX_TOPICS'], $global_config);
 	change_global_val('SITE_HOME_PAGE', $GLOBALS['__IKON_CFG__']['HOME_URL'], $global_config);
 	change_global_val('MAX_LOCATION_SHOW', $GLOBALS['__IKON_CFG__']['MAX_LOCATION_LENGTH'], $global_config);
-	change_global_val('FLOOD_CHECK_TIME', intzero($GLOBALS['__IKON_CFG__']['FLOOD_CONTROL']), $global_config);
+	change_global_val('FLOOD_CHECK_TIME', (int)$GLOBALS['__IKON_CFG__']['FLOOD_CONTROL'], $global_config);
 	change_global_val('EMAIL_CONFIRMATION', intyn($GLOBALS['__IKON_CFG__']['VERIFY_MAIL']), $global_config);
 	change_global_val('PUBLIC_STATS', intyn($GLOBALS['__IKON_CFG__']['SHOW_STATS']), $global_config);
 	change_global_val('SHOW_ONLINE', intyn($GLOBALS['__IKON_CFG__']['ONLINE_OFFLINE_STATUS']), $global_config);
 	change_global_val('SESSION_TIMEOUT', $GLOBALS['__IKON_CFG__']['SESSION_EXPIRATION'], $global_config);
 	change_global_val('FORUM_CODE_SIG', $code, $global_config);
 	change_global_val('PRIVATE_TAGS', $code, $global_config);
-	change_global_val('FORUM_IMG_CNT_SIG', intzero($GLOBALS['__IKON_CFG__']['MAX_IMAGES']), $global_config);
-	change_global_val('MAX_IMAGE_COUNT', intzero($GLOBALS['__IKON_CFG__']['MAX_IMAGES']), $global_config);
+	change_global_val('FORUM_IMG_CNT_SIG', (int)$GLOBALS['__IKON_CFG__']['MAX_IMAGES'], $global_config);
+	change_global_val('MAX_IMAGE_COUNT', (int)$GLOBALS['__IKON_CFG__']['MAX_IMAGES'], $global_config);
 	change_global_val('ALLOW_EMAIL', intyn($GLOBALS['__IKON_CFG__']['USE_MAIL_FORM']), $global_config);
 	
 	write_global_config($global_config);

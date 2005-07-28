@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.156 2005/07/28 13:29:01 hackie Exp $
+* $Id: core.inc,v 1.157 2005/07/28 14:18:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -114,14 +114,6 @@ function char_fix($str)
 	}
         return preg_replace('!&amp;#([0-9]+);!', '&#\1;', $str);
 }
-
-/* Common DB functions */
-function intzero($val)
-{
-	return (!empty($val) ? $val : '0');
-}
-
-/* END: Common DB Functions */
 
 function __ffilesize($fp)
 {

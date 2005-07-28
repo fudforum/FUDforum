@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: Yabb.php,v 1.13 2005/07/27 18:57:29 hackie Exp $
+* $Id: Yabb.php,v 1.14 2005/07/28 14:18:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -335,7 +335,7 @@ function yabbstamp($str)
 				'".addslashes($u_name)."',
 				'".addslashes($u_name)."',
 				'".md5(trim($user_data[0]))."',
-				".intzero(mdytostamp($user_data[14])).",
+				".(int)mdytostamp($user_data[14]).",
 				'".$append_sig."',
 				'".$u_email."',
 				".intnull(trim($user_data[8])).",
@@ -344,7 +344,7 @@ function yabbstamp($str)
 				'".addslashes(trim($user_data[9]))."',
 				'".addslashes(trim($user_data[10]))."',
 				'".addslashes(trim($user_data[4]))."',
-				".intzero($bday).",
+				".(int)$bday.",
 				'".$gender."',
 				'".$avatar_approved."',
 				'".$avatar_loc."',
@@ -526,15 +526,15 @@ function yabbstamp($str)
 			VALUES
 			(
 				".$v.",
-				".intzero($users_db[$msg_data[4]]).",
-				".intzero(yabbstamp($msg_data[3])).",
+				".(int)$users_db[$msg_data[4]].",
+				".(int)yabbstamp($msg_data[3]).",
 				'".addslashes($msg_data[0])."',
 				'Y',
 				'Y',
 				'Y',
 				'".$msg_data[7]."',
-				".intzero($off).",
-				".intzero($len).",
+				".(int)$off.",
+				".(int)$len.",
 				$fileid
 			)");
 			

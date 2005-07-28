@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: VB2.php,v 1.14 2005/07/28 13:29:01 hackie Exp $
+* $Id: VB2.php,v 1.15 2005/07/28 14:18:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -435,15 +435,15 @@ $group_map = array(
 			".intval($obj->threadid).",
 			".intval($obj->userid).",
 			".intval($obj->dateline).",
-			".intzero($obj->editdate).",
-			".intzero($obj->edituserid).",
+			".(int)$obj->editdate.",
+			".(int)$obj->edituserid.",
 			'".addslashes($obj->title)."',
 			'Y',
 			'".INT_yn($obj->showsignature)."',
 			'".INT_yn($obj->allowsmilie)."',
 			'".$obj->ipaddress."',
-			".intzero($off).",
-			".intzero($len).",
+			".(int)$off.",
+			".(int)$len.",
 			".$fileid."
 			)
 		");

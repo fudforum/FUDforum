@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: wbb.php,v 1.8 2005/07/28 13:29:01 hackie Exp $
+* $Id: wbb.php,v 1.9 2005/07/28 14:18:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -284,16 +284,16 @@ function fetch_img($url)
 				'".$GLOBALS['POSTS_PER_PAGE']."',
 				'".$GLOBALS['SERVER_TZ']."',
 				'".intyn($obj->invisible)."',
-				".intzero($obj->lastvisit).",
+				".(int)$obj->lastvisit.",
 				'0',
-				".intzero($obj->regdate).",
+				".(int)$obj->regdate.",
 				'".addslashes($obj->location)."',
 				".$THEME.",
 				'N',
 				".ssn(addslashes($obj->interests)).",
 				'".intyn($obj->view_sigs)."',
 				'".intyn($obj->hide_userpic)."',
-				".intzero($obj->lastactivity).",
+				".(int)$obj->lastactivity.",
 				".ssn(addslashes(preg_replace('!&#(\d+);!e', "chr(\\1)", $obj->signatur))).",
 				'msg',
 				".ssn(addslashes($obj->userhp)).",
@@ -361,15 +361,15 @@ function fetch_img($url)
 			VALUES(
 			".$obj->postid.",
 			".$obj->threadparentid.",
-			".intzero($obj->userid).",
+			".(int)$obj->userid.",
 			".$obj->posttime.",
 			".$obj->edittime.",
 			".$obj->editorid.",
 			'".addslashes(htmlspecialchars($obj->posttopic))."',
 			'".intyn($obj->signature)."',
 			'".intyn(!$obj->disable_smilies)."',
-			".intzero($off).",
-			".intzero($len).",
+			".(int)$off.",
+			".(int)$len.",
 			".$fileid.",
 			".ssn($obj->ip).",
 			'Y'
@@ -401,7 +401,7 @@ function fetch_img($url)
 	print_status('Importing Member Titles');
 	$r = wq("select posts,rank,grafik from {WBB}ranks INNER JOIN {WBB}groups ON {WBB}ranks.groupid={WBB}groups.id WHERE title='User' ORDER BY posts;");
 	while( $obj = db_rowobj($r) ) {
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."level (name,post_count,img) VALUES('".addslashes($obj->rank)."',".intzero($obj->posts).", '".addslashes($obj->grafik)."')");
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."level (name,post_count,img) VALUES('".addslashes($obj->rank)."',".(int)$obj->posts.", '".addslashes($obj->grafik)."')");
 	}	
 	print_status('Finished Importing ('.db_count($r).') Member Titles');
 	qf($r);
@@ -444,7 +444,7 @@ function fetch_img($url)
 		}	
 		
 		// Import poll options
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."poll_opt (name,poll_id,count) VALUES('".addslashes($obj->field)."', ".$poll_id.", ".intzero($obj->votes).")");
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."poll_opt (name,poll_id,count) VALUES('".addslashes($obj->field)."', ".$poll_id.", ".(int)$obj->votes.")");
 	}
 	print_status('Finished Importing ('.db_count($r).') Polls');
 	qf($r);

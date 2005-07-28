@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipoll.inc.t,v 1.25 2005/07/06 14:39:22 hackie Exp $
+* $Id: ipoll.inc.t,v 1.26 2005/07/28 14:18:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,12 +52,12 @@ function poll_activate($poll_id, $frm_id)
 
 function poll_sync($poll_id, $name, $max_votes, $expiry)
 {
-	q("UPDATE {SQL_TABLE_PREFIX}poll SET name='".addslashes(htmlspecialchars($name))."', expiry_date=".intzero($expiry).", max_votes=".intzero($max_votes)." WHERE id=".$poll_id);
+	q("UPDATE {SQL_TABLE_PREFIX}poll SET name='".addslashes(htmlspecialchars($name))."', expiry_date=".(int)$expiry.", max_votes=".(int)$max_votes." WHERE id=".$poll_id);
 }
 
 function poll_add($name, $max_votes, $expiry, $uid=_uid)
 {
-	return db_qid("INSERT INTO {SQL_TABLE_PREFIX}poll (name, owner, creation_date, expiry_date, max_votes) VALUES ('".addslashes(htmlspecialchars($name))."', ".$uid.", ".__request_timestamp__.", ".intzero($expiry).", ".intzero($max_votes).")");
+	return db_qid("INSERT INTO {SQL_TABLE_PREFIX}poll (name, owner, creation_date, expiry_date, max_votes) VALUES ('".addslashes(htmlspecialchars($name))."', ".$uid.", ".__request_timestamp__.", ".(int)$expiry.", ".(int)$max_votes.")");
 }
 
 function poll_opt_sync($id, $name)
