@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.46 2005/07/13 14:03:27 hackie Exp $
+* $Id: split_th.php.t,v 1.47 2005/07/28 00:29:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -89,6 +89,10 @@
 				LEFT JOIN {SQL_TABLE_PREFIX}msg m1 ON m1.id='.$end.'
 				LEFT JOIN {SQL_TABLE_PREFIX}msg m2 ON m2.id=f2.last_post_id
 		WHERE t.id='.$th);
+
+		if (!$data) {
+			invl_inp_err();
+		}
 
 		/* sanity check */
 		if (!$data->replies) {

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mvthread.php.t,v 1.34 2005/07/26 22:26:12 hackie Exp $
+* $Id: mvthread.php.t,v 1.35 2005/07/28 00:29:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -100,6 +100,9 @@
 
 	if (!$thx) {
 		$thr = db_sab('SELECT f.name AS frm_name, m.subject, t.forum_id, t.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='.$th);
+		if (!$thr) {
+			invl_inp_err();
+		}		
 
 		$c = uq('SELECT f.name, f.id, c.id, m.user_id, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
 			FROM {SQL_TABLE_PREFIX}forum f
