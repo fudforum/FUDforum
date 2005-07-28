@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipb.php,v 1.13 2005/07/28 16:07:18 hackie Exp $
+* $Id: ipb.php,v 1.14 2005/07/28 17:26:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -136,7 +136,6 @@ function make_avatar_loc($path, $disk, $web)
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}custom_tags");
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}ses");
 	$i = 0;
-	$r = mysql_query("SELECT * FROM {$ipb}members WHERE id>0 ORDER BY id", $ib) or die(mysql_error($ib));
 
 	/* common settings for all users */
 	$u = new fud_user_reg;
@@ -155,10 +154,11 @@ function make_avatar_loc($path, $disk, $web)
 
 	$pp = new post_parser();
 
+	$r = mysql_query("SELECT * FROM {$ipb}members WHERE id>0 ORDER BY id", $ib) or die(mysql_error($ib));
 	while ($obj = mysql_fetch_object($r)) {
 		/* uniqueness checks */
 		if (($id = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE name='".addslashes($obj->name)."' OR email='".addslashes($obj->email)."'"))) {
-			$ib_u[$obj->id]	= $id;
+			$ib_u[$obj->id]	= (int) $id;
 			continue;
 		}
 
