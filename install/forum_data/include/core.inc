@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.157 2005/07/28 14:18:03 hackie Exp $
+* $Id: core.inc,v 1.158 2005/07/28 14:57:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -100,7 +100,7 @@ function get_ip()
 
 function ssn($str)
 {
-	if (is_null($str) || $str === '') {
+	if ($str === null || $str === '') {
 		return 'NULL';
 	} else {
 		return "'" . addslashes($str) . "'";
