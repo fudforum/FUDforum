@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th.inc.t,v 1.46 2004/11/24 19:53:36 hackie Exp $
+* $Id: th.inc.t,v 1.47 2005/07/28 21:58:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,10 +27,5 @@ function th_inc_post_count($id, $r, $lpi=0, $lpd=0)
 	} else {
 		q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+'.$r.' WHERE id='.$id);
 	}
-}
-
-function th_frm_last_post_id($id, $th)
-{
-	return (int) q_singleval('SELECT {SQL_TABLE_PREFIX}thread.last_post_id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id WHERE {SQL_TABLE_PREFIX}thread.forum_id='.$id.' AND {SQL_TABLE_PREFIX}thread.id!='.$th.' AND {SQL_TABLE_PREFIX}thread.moved_to=0 AND {SQL_TABLE_PREFIX}msg.apr=1 ORDER BY {SQL_TABLE_PREFIX}thread.last_post_date DESC LIMIT 1');
 }
 ?>

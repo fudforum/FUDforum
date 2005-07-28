@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.47 2005/07/28 00:29:02 hackie Exp $
+* $Id: split_th.php.t,v 1.48 2005/07/28 21:58:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,6 +12,11 @@
 
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
+
+function th_frm_last_post_id($id, $th)
+{
+	return (int) q_singleval('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='.$id.' AND t.id!='.$th.' AND t.moved_to=0 AND m.apr=1 ORDER BY t.last_post_date DESC LIMIT 1');
+}
 
 	$th = isset($_GET['th']) ? (int)$_GET['th'] : (isset($_POST['th']) ? (int)$_POST['th'] : 0);
 	if (!$th) {
@@ -32,20 +37,21 @@
 
 	$forum = isset($_POST['forum']) ? (int)$_POST['forum'] : 0;
 
-	if ($forum && !empty($_POST['new_title']) && isset($_POST['sel_th']) && ($mc = count($_POST['sel_th']))) {
+	if ($forum && !empty($_POST['new_title']) && !empty($_POST['sel_th']) && is_array($_POST['sel_th'])) {
 		/* we need to make sure that the user has access to destination forum */
 		if (!$is_a && !q_singleval('SELECT f.id FROM {SQL_TABLE_PREFIX}forum f LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.user_id='._uid.' AND mm.forum_id=f.id '.(_uid ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id').' WHERE f.id='.$forum.' AND (mm.id IS NOT NULL OR '.(_uid ? ' ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : ' (g1.group_cache_opt').' & 4) > 0)')) {
 			std_error('access');
 		}
 
-		foreach ($_POST['sel_th'] as $k => $v) {
-			if (!(int)$v) {
-				unset($_POST['sel_th'][$k]);
+		$m = array();
+		foreach ($_POST['sel_th'] as $v) {
+			if ((int)$v) {
+				$m[] = (int) $v;
 			}
-			$_POST['sel_th'][$k] = (int) $v;
 		}
+
 		/* sanity check */
-		if (empty($_POST['sel_th'])) {
+		if (!$m) {
 			if ($FUD_OPT_2 & 32768) {
 				header('Location: {FULL_ROOT}{ROOT}/t/'.$th.'/'._rsidl);
 			} else {
@@ -54,13 +60,14 @@
 			exit;
 		}
 
+		$mc = count($m);
 		if (isset($_POST['btn_selected'])) {
-			sort($_POST['sel_th']);
-			$mids = implode(',', $_POST['sel_th']);
-			$start = $_POST['sel_th'][0];
-			$end = $_POST['sel_th'][($mc - 1)];
+			sort($m);
+			$mids = implode(',', $m);
+			$start = $m[0];
+			$end = $m[($mc - 1)];
 		} else {
-			$a = db_all('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND id NOT IN('.implode(',', $_POST['sel_th']).') AND apr=1 ORDER BY post_stamp ASC');
+			$a = db_all('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND id NOT IN('.implode(',', $m).') AND apr=1 ORDER BY post_stamp ASC');
 			/* sanity check */
 			if (!$a) {
 				if ($FUD_OPT_2 & 32768) {
@@ -109,7 +116,7 @@
 		if ($mc != ($data->replies + 1)) { /* check that we need to move the entire thread */
 			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}poll WRITE');
 
-			$new_th = th_add($start, $forum, $data->new_th_lps, 0, 0, ($mc - 1), $data->new_th_lpi);
+			$new_th = th_add($start, $forum, (int)$data->new_th_lps, 0, 0, ($mc - 1), (int)$data->new_th_lpi);
 
 			/* Deal with the new thread */
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='.$new_th.' WHERE id IN ('.$mids.')');
