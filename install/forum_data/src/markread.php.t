@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: markread.php.t,v 1.13 2004/11/24 19:53:35 hackie Exp $
+* $Id: markread.php.t,v 1.14 2005/07/29 16:20:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,8 +20,8 @@
 			/* mark all forums inside a category and it's child categories */
 			require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';
 
-			if (!empty($cat_cache[$_GET['cat']])) {
-				$c = $cat_cache[$_GET['cat']];
+			if (!empty($cat_cache[(int)$_GET['cat']])) {
+				$c = $cat_cache[(int)$_GET['cat']];
 
 				$cids = array();
 				/* fetch all sub-categories if there are any */
