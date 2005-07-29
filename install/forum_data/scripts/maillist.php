@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.55 2005/07/27 18:57:29 hackie Exp $
+* $Id: maillist.php,v 1.56 2005/07/29 17:49:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -396,6 +396,11 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 
 	/* set locale */
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
+
+	/* check if message was already imported */
+	if ($emsg->msg_id && q_singelval("SELECT id FROM ".sql_p."msg WHERE mlist_msg_id='".addslashes($emsg->msg_id)."'")) {
+		return;
+	}
 
 	// Handler for our own messages, which do not need to be imported.
 	if (isset($emsg->headers['x-fudforum']) && preg_match('!'.md5($GLOBALS['WWW_ROOT']).' <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
