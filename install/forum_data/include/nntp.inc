@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.60 2005/07/30 20:20:33 hackie Exp $
+* $Id: nntp.inc,v 1.61 2005/07/30 20:38:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -238,6 +238,11 @@ class fud_nntp
 		if (($e2 = strrpos($data, 'end')) === false) {
 			return;
 		}
+		if (function_exists('convert_uudecode')) {
+			$this->attachments[$filename] = convert_uudecode(trim(substr($data, $e, ($e2-$e))));
+			return;
+		}
+
 		$data = trim(substr($data, $e, ($e2-$e)));
 
 		$out = '';
