@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.56 2005/07/29 17:49:37 hackie Exp $
+* $Id: maillist.php,v 1.57 2005/07/30 20:40:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -471,7 +471,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 			fwrite($fp, $val);
 			fclose($fp);
 
-			$id = attach_add(array('name' => $key, 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 0, 1);
+			$id = attach_add(array('name' => basename($key), 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 0, 1);
 			$attach_list[$id] = $id;
 		}
 

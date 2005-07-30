@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.61 2005/07/30 20:38:20 hackie Exp $
+* $Id: nntp.inc,v 1.62 2005/07/30 20:40:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -452,7 +452,7 @@ class fud_nntp
 					fwrite($fp, $val);
 					fclose($fp);
 
-					$id = attach_add(array('name' => $key, 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 0, 1);
+					$id = attach_add(array('name' => basename($key), 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 0, 1);
 					$attach_list[$id] = $id;
 				}
 				if (isset($attach_list)) {
