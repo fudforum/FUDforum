@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.59 2005/05/16 18:56:21 hackie Exp $
+* $Id: nntp.inc,v 1.60 2005/07/30 20:20:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -562,8 +562,11 @@ class fud_nntp
 function uuencode($in, $file_name)
 {
 	$out = 'begin 644 ' . $file_name . "\r\n";
-	$n = strlen($in);
+	if (function_exists('convert_uuencode')) {
+		return $out . convert_uuencode($in)."end\r\n";
+	}
 
+	$n = strlen($in);
 	for ($i = 0; $i < $n; $i += 3) {
 		if (!($i % 45)) {
 			if ($i) {
