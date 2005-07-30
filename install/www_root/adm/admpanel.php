@@ -1,7 +1,15 @@
 <html>
 <head>
 <link rel="StyleSheet" href="adm.css" type="text/css">
-<meta http-equiv="Content-Type" content="text/html; charset=<?php readfile($DATA_DIR . 'thm/' . $usr->theme_name . '/i18n/' . $usr->lang . '/charset'); ?>">
+<meta http-equiv="Content-Type" content="text/html; charset=<?php 
+	if (file_exists($DATA_DIR . 'thm/' . $usr->theme_name . '/i18n/' . $usr->lang . '/charset')) {
+		readfile($DATA_DIR . 'thm/' . $usr->theme_name . '/i18n/' . $usr->lang . '/charset'); 
+	} else if (file_exists($DATA_DIR . 'thm/default/i18n/' . $usr->lang . '/charset')) {
+		readfile($DATA_DIR . 'thm/default/i18n/' . $usr->lang . '/charset'); 
+	} else {
+		echo 'us-ascii';
+	}
+?>">
 </head>
 <body>
 <table class="maintable">
