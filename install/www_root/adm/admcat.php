@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.39 2005/07/06 15:12:43 hackie Exp $
+* $Id: admcat.php,v 1.40 2005/08/08 12:48:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,9 @@
 
 		$cat = new fud_cat;
 		if ($edit) {
-			$cat->sync($edit);
+			if (isset($_POST['cat_parent']) && $edit != $_POST['cat_parent']) {
+				$cat->sync($edit);
+			}
 			$edit = '';
 		} else {
 			$cat->add($_POST['cat_pos']);
@@ -142,6 +144,9 @@
 <?php
 	$c_ids = $c_names = "\n";
 	foreach ($cat_list as $c) {
+		if ($edit == $c->id) {
+			continue;
+		}
 		$c_ids .= $c->id . "\n";
 		$c_names .= str_repeat("-- ", $c->lvl) . $c->name . "\n";
 	}
