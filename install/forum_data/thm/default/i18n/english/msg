@@ -294,7 +294,7 @@ register_yahoo:			Yahoo Messenger:
 register_msnm:			MSN Messenger:
 register_homepage:		Homepage:
 register_bday:			Birth Date:
-register_bday_desc:		If you enter a birthdate, then other forum members will be able to see it in your profile
+register_bday_desc:		If you enter a birth date, then other forum members will be able to see it in your profile
 register_day:			Day
 register_month:			Month
 register_year:			Year
@@ -383,7 +383,7 @@ forum_rules_13:			All users under the age of 13 must seek permission from their 
 coppa_conf:			COPPA Confirmation
 coppa_before:			Before {TEMPLATE: coppa_date}
 coppa_after:			After {TEMPLATE: coppa_date}
-coppa_link:			Click the link that corresponds to your birthdate
+coppa_link:			Click the link that corresponds to your birth date
 coppa:				A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete registration.<p>For further information contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Information
 prereg_agree:			Agree
@@ -850,7 +850,7 @@ threadt_update:			Browsing forum (tree view) <a href="{TEMPLATE: threadt_update_
 mmod_delete_cofirm_ttl:		Confirm Topic/Message Deletion
 spell_alts:			no alternatives
 insert_uploaded_image:		Insert image into message body
-finduser_help:			The search engine will automatically add * mask to your query, the <b>search is case-sensetive</b>.<br />ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
+finduser_help:			The search engine will automatically add * mask to your query, the <b>search is case-sensitive</b>.<br />ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
 back_to_top:			Back to Top
 pm_err_disabled_title:		Private Messaging Disabled
 pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.
