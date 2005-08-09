@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.84 2005/07/28 16:07:18 hackie Exp $
+* $Id: users_reg.inc.t,v 1.85 2005/08/09 00:24:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -81,8 +81,8 @@ class fud_user_reg extends fud_user
 			$this->users_opt |= 131072;
 		}
 		$this->icq = (int)$this->icq ? (int)$this->icq : 'NULL';
-		if (is_numeric($this->bday)) {
-			$this->bday = '';
+		if (!is_numeric($this->bday)) {
+			$this->bday = '0';
 		}
 
 		$this->html_fields();
