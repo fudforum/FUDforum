@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.117 2005/08/11 01:26:13 hackie Exp $
+* $Id: consist.php,v 1.118 2005/08/11 12:52:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -282,9 +282,9 @@ forum will be disabled.
 		if (!isset($tbl_k[$tbl.'fl_'.$f[0]])) {
 			$tmp[] = (int)$f[0];
 		}
-//XXX		if (!isset($tbl_k[$tbl.'tv_'.$f[0]])) {
+		if (!isset($tbl_k[$tbl.'tv_'.$f[0]])) {
 			$view_tbl[] = (int)$f[0];
-//XXX		}
+		}
 	}
 	unset($c);
 	foreach ($tmp as $v) { // add lock table
@@ -663,7 +663,6 @@ forum will be disabled.
 	db_unlock();
 
 	foreach ($view_tbl as $v) { // add view table
-		/* XXX */ q('DROP TABLE '.$tbl."tv_".$v);
 		frm_add_view_tbl($tbl."tv_".$v);
 	}
 	draw_stat('Rebuilding Topic Views');
