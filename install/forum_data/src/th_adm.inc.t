@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.18 2005/08/11 00:44:21 hackie Exp $
+* $Id: th_adm.inc.t,v 1.19 2005/08/11 13:04:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -136,7 +136,11 @@ function th_delete_rebuild($forum_id, $th)
 			q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=(id * -1)+1 WHERE id>'.$pos);
 			q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id= id * -1 WHERE id<0');
 		}
-		q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=last_view_id-1 WHERE id=".$forum_id);
+		if (!q_singleval("SELECT last_sticky_id=last_view_id FROM  {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id)) {
+			q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=last_view_id-1 WHERE id=".$forum_id);
+		} else {
+			q("UPDATE {SQL_TABLE_PREFIX}forum SET last_sticky_id=last_sticky_id-1, last_view_id=last_view_id-1 WHERE id=".$forum_id);
+		}
 		if (__dbtype__ == 'pgsql') {
 			q("ALTER SEQUENCE {SQL_TABLE_PREFIX}tv_".$forum_id."_id_seq RESTART WITH ".max(1,q_singleval("SELECT last_view_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id)));
 		}
@@ -155,13 +159,14 @@ function th_new_rebuild($forum_id, $th, $sticky=0)
 
 	if (!db_locked()) {
 		$ll = 1;
-		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}forum WRITE');
+		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}forum READ');
 	}
 
 	$id = q_singleval("SELECT last_sticky_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id);
 
 	if (!$id || $sticky) {
 		$l = db_qid("INSERT INTO {SQL_TABLE_PREFIX}tv_".$forum_id." (thread_id) VALUES(".$th.")");
+		if (isset($ll)) { db_unlock(); }
 		if (!$sticky) {
 			$l = 0;
 		}
@@ -174,11 +179,8 @@ function th_new_rebuild($forum_id, $th, $sticky=0)
 			q("UPDATE {SQL_TABLE_PREFIX}tv_".$forum_id." SET id=id * -1 WHERE id < 0");
 		}
 		q("INSERT INTO {SQL_TABLE_PREFIX}tv_".$forum_id." (id, thread_id) VALUES(".$id.",".$th.")");
+		if (isset($ll)) { db_unlock(); }
 		q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=last_view_id+1, last_sticky_id=last_sticky_id+1 WHERE id=".$forum_id);
-	}
-
-	if (isset($ll)) {
-		db_unlock();
 	}
 }
 
