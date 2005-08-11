@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.48 2005/07/28 21:58:42 hackie Exp $
+* $Id: split_th.php.t,v 1.49 2005/08/11 00:44:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -114,7 +114,12 @@ function th_frm_last_post_id($id, $th)
 		apply_custom_replace($_POST['new_title']);
 
 		if ($mc != ($data->replies + 1)) { /* check that we need to move the entire thread */
-			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}poll WRITE');
+			if ($forum != $data->forum_id) {
+				$lk_pfx = '{SQL_TABLE_PREFIX}tv_'.$forum.' WRITE,';
+			} else {
+				$lk_pfx = '';
+			}
+			db_lock($lk_pfx.'{SQL_TABLE_PREFIX}tv_'.$data->forum_id.' WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}poll WRITE');
 
 			$new_th = th_add($start, $forum, (int)$data->new_th_lps, 0, 0, ($mc - 1), (int)$data->new_th_lpi);
 
@@ -149,7 +154,7 @@ function th_frm_last_post_id($id, $th)
 					q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+'.$mc.', thread_count=thread_count+1, last_post_id='.$data->new_th_lpi.' WHERE id='.$forum);
 				}
 
-				rebuild_forum_view($forum);
+				rebuild_forum_view_ttl($forum);
 			} else {
 				if ($data->src_lpi == $data->last_post_id && $data->last_post_date >= $lpd) {
 					q('UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count+1 WHERE id='.$data->forum_id);
@@ -157,7 +162,7 @@ function th_frm_last_post_id($id, $th)
 					q('UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count+1, last_post_id='.$data->new_th_lpi.' WHERE id='.$data->forum_id);
 				}
 			}
-			rebuild_forum_view($data->forum_id);
+			rebuild_forum_view_ttl($data->forum_id);
 			db_unlock();
 			logaction(_uid, 'THRSPLIT', $new_th);
 			$th_id = $new_th;

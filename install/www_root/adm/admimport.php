@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.46 2005/07/06 15:12:43 hackie Exp $
+* $Id: admimport.php,v 1.47 2005/08/11 00:44:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -142,13 +142,6 @@ function resolve_dest_path($path)
 						continue; // no need to drop tables, already gone
 					}
 
-					if (!strncmp($line, 'ALTER TABLE', strlen('ALTER TABLE'))) {
-						if (__dbtype__ == 'mysql') {
-							$idx[] = $line;
-						}
-						continue;
-					}
-
 					if (strncmp($line, 'CREATE', 6)) {
 						break;
 					}
@@ -162,9 +155,6 @@ function resolve_dest_path($path)
 					if (__dbtype__ != 'mysql') {
 						$line = strtr($line, array('BINARY'=>'', 'INT NOT NULL AUTO_INCREMENT'=>'SERIAL'));
 					} else if ($my412 && !strncmp($line, 'CREATE TABLE', strlen('CREATE TABLE'))) { 
-						if (strpos($line, 'thread_view') !== false) {
-							$line .= ' ENGINE=MyISAM ' ;
-						}
 						/* for MySQL 4.1.2+ we need to specify a default charset */
 						$line .= " DEFAULT CHARACTER SET latin1";
 					}

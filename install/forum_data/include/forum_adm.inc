@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum_adm.inc,v 1.25 2005/07/28 16:07:18 hackie Exp $
+* $Id: forum_adm.inc,v 1.26 2005/08/11 00:44:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -65,6 +65,12 @@ class fud_forum
 		/* only create lock table if it does not already exist */
 		if (!get_fud_table_list($lck_tbl)) {
 			q("CREATE TABLE ".$lck_tbl." (id INT)");
+		}
+		
+		$view_tbl = $tbl."tv_".$this->id;
+		/* only view lock table if it does not already exist */
+		if (!get_fud_table_list($view_tbl)) {
+			frm_add_view_tbl($view_tbl);
 		}
 
 		if (($gid = group_add($this->id, $this->name, 2))) {
@@ -157,6 +163,20 @@ function frm_move_forum($id, $dest_cat, $src_cat)
 	return;
 }
 
+function frm_add_view_tbl($view_tbl)
+{
+	foreach (explode(';', file_get_contents($GLOBALS['DATA_DIR'].'/sql/fud_thread_view.tbl')) as $v) {
+		if (!strncmp(($v = trim($v)), 'CREATE', 6)) {
+			if (__dbtype__ == 'pgsql') {
+				$v = str_replace('INT NOT NULL AUTO_INCREMENT', 'SERIAL', $v);
+			} else if (__dbtype__ == 'sqlite') {
+				$v = str_replace('INT NOT NULL AUTO_INCREMENT', 'INTEGER', $v);
+			}
+			q(str_replace('{SQL_TABLE_PREFIX}tv_1', $view_tbl, $v));
+		}
+	}
+}
+
 function frm_delete($id)
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -171,6 +191,7 @@ function frm_delete($id)
 	q('DELETE FROM '.$tbl.'nntp WHERE forum_id='.$id);
 	$gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE forum_id='.$id);
 	q("DROP TABLE ".$tbl."fl_".$id);
+	q("DROP TABLE ".$tbl."tv_".$id);
 	q('DELETE FROM '.$tbl.'forum WHERE id='.$id);
 
 	if ($gid) {

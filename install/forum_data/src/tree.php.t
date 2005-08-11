@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.83 2005/08/08 13:36:52 hackie Exp $
+* $Id: tree.php.t,v 1.84 2005/08/11 00:44:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,14 +56,12 @@
 			m.subject,
 			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt, t.root_msg_id, t.last_post_date, '.
 			(_uid ? ' tn.thread_id AS subscribed, mo.forum_id AS md, tr.thread_id AS cant_rate, r.last_view, r2.last_view AS last_forum_view, ' : ' 0 AS md, 1 AS cant_rate, ').'
-			tv.pos AS th_pos, tv.page AS th_page,
 			m2.thread_id AS last_thread,
 			'.$fields.'
 		FROM {SQL_TABLE_PREFIX}thread t
 			INNER JOIN {SQL_TABLE_PREFIX}msg		m ON m.id=t.root_msg_id
 			INNER JOIN {SQL_TABLE_PREFIX}forum		f ON f.id=t.forum_id
 			INNER JOIN {SQL_TABLE_PREFIX}cat		c ON f.cat_id=c.id
-			INNER JOIN {SQL_TABLE_PREFIX}thread_view	tv ON tv.forum_id=t.forum_id AND tv.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg 		m2 ON f.last_post_id=m2.id
 			'.(_uid ? 'LEFT  JOIN {SQL_TABLE_PREFIX}thread_notify 	tn ON tn.user_id='._uid.' AND tn.thread_id='.$th.'
 			LEFT  JOIN {SQL_TABLE_PREFIX}mod 		mo ON mo.user_id='._uid.' AND mo.forum_id=t.forum_id
@@ -249,7 +247,7 @@
 	$n = 0; $_GET['start'] = '';
 	$usr->md = $frm->md;
 
-	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
+	get_prev_next_th_id($frm->forum_id, $th, $prev_thread_link, $next_thread_link);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

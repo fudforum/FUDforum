@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_nav.tmpl,v 1.10 2005/02/27 02:21:36 hackie Exp $
+* $Id: th_nav.tmpl,v 1.11 2005/08/11 00:44:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,17 +12,17 @@
 {PHP_FILE: input: th_nav.inc.t; output: th_nav.inc;}
 
 {SECTION: next_thread_link}
-<tr><td class="GenText ar">{MSG: next_thread}</td><td class="GenText al"><a href="{TEMPLATE: next_thread_link_lnk}">{VAR: n[1]}</a></td></tr>
+<tr><td class="GenText ar">{MSG: next_thread}</td><td class="GenText al"><a href="{TEMPLATE: next_thread_link_lnk}">{VAR: r[1]}</a></td></tr>
 {SECTION: END}
 
 {SECTION: prev_thread_link}
-<tr><td class="ar GenText">{MSG: prev_thread}</td><td class="GenText al"><a href="{TEMPLATE: prev_thread_link_lnk}">{VAR: p[1]}</a></td></tr>
+<tr><td class="ar GenText">{MSG: prev_thread}</td><td class="GenText al"><a href="{TEMPLATE: prev_thread_link_lnk}">{VAR: r[1]}</a></td></tr>
 {SECTION: END}
 
 {SECTION: next_thread_link_lnk}
-{ROOT}?t={VAR: _GET['t']}&amp;goto={VAR: n[0]}&amp;{DEF: _rsid}#msg_{VAR: n[0]}
+{ROOT}?t={VAR: _GET['t']}&amp;goto={VAR: r[0]}&amp;{DEF: _rsid}#msg_{VAR: r[0]}
 {SECTION: END}
 
 {SECTION: prev_thread_link_lnk}
-{ROOT}?t={VAR: _GET['t']}&amp;goto={VAR: p[0]}&amp;{DEF: _rsid}#msg_{VAR: p[0]}
+{ROOT}?t={VAR: _GET['t']}&amp;goto={VAR: r[0]}&amp;{DEF: _rsid}#msg_{VAR: r[0]}
 {SECTION: END}

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.57 2005/07/06 15:12:43 hackie Exp $
+* $Id: admdump.php,v 1.58 2005/08/11 00:44:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -157,10 +157,10 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 
 		foreach($sql_table_list as $tbl_name) {
 			/* not needed, will be rebuilt by consistency checker */
-			if ($tbl_name == $DBHOST_TBL_PREFIX . 'thread_view' || 
-					$tbl_name == $DBHOST_TBL_PREFIX . 'ses' ||
-					!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'fl_', strlen($DBHOST_TBL_PREFIX.'fl_'))
-				) {
+			if (!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'tv_', strlen($DBHOST_TBL_PREFIX.'tv_') || 
+				$tbl_name == $DBHOST_TBL_PREFIX . 'ses' ||
+				!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'fl_', strlen($DBHOST_TBL_PREFIX.'fl_'))
+			) {
 				continue;
 			}
 			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);

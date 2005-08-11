@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.115 2005/07/28 16:07:18 hackie Exp $
+* $Id: consist.php,v 1.116 2005/08/11 00:44:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,6 +33,7 @@
 	fud_use('sml_rcache.inc', true);
 	fud_use('msg_icon_cache.inc', true);
 	fud_use('cat.inc', true);
+	fud_use('forum_adm.inc', true);
 	fud_use('imsg_edt.inc');
 	fud_use('err.inc');
 	fud_use('private.inc');
@@ -275,17 +276,21 @@ forum will be disabled.
 
 	draw_stat('Checking for presence of forum lock tables');
 	$tbl_k = array_flip($tbls);
-	$tmp = array();
+	$view_tbl = $tmp = array();
 	$c = uq('SELECT id FROM '.$tbl.'forum');
 	while ($f = db_rowarr($c)) {
 		if (!isset($tbl_k[$tbl.'fl_'.$f[0]])) {
 			$tmp[] = (int)$f[0];
 		}
+//XXX		if (!isset($tbl_k[$tbl.'tv_'.$f[0]])) {
+			$view_tbl[] = (int)$f[0];
+//XXX		}
 	}
 	unset($c);
-	foreach ($tmp as $v) {
+	foreach ($tmp as $v) { // add lock table
 		q("CREATE TABLE ".$tbl."fl_".$v." (id INT)");
 	}
+	
 	/* private message lock table */
 	if (!isset($tbl_k[$tbl.'fl_pm'])) {
 		q("CREATE TABLE ".$tbl."fl_pm (id INT)");
@@ -455,13 +460,6 @@ forum will be disabled.
 	}
 	unset($c);
 	draw_stat('Done: Rebuild topic rating cache');
-
-	draw_stat('Rebuilding Topic Views');
-	q('DELETE FROM '.$tbl.'thread_view');
-	foreach (db_all('SELECT id FROM '.$tbl.'forum') as $v) {
-		rebuild_forum_view($v);
-	}
-	draw_stat('Done: Rebuilding Topic Views');
 
 	draw_stat('Rebuilding user ranks, message counts & last post ids');
 	q('UPDATE '.$tbl.'users SET level_id=0, posted_msg_count=0, u_last_post_id=0, custom_status=NULL');
@@ -663,6 +661,17 @@ forum will be disabled.
 
 	draw_stat('Unlocking database');
 	db_unlock();
+
+	foreach ($view_tbl as $v) { // add view table
+		/* XXX */ q('DROP TABLE '.$tbl."tv_".$v);
+		frm_add_view_tbl($tbl."tv_".$v);
+	}
+	draw_stat('Rebuilding Topic Views');
+	foreach (db_all('SELECT id FROM '.$tbl.'forum') as $v) {
+		rebuild_forum_view_ttl($v);
+	}
+	draw_stat('Done: Rebuilding Topic Views');
+
 	if (__dbtype__ == 'mysql') {
 		q('DROP TABLE '.$tbl.'tmp_consist');
 	}

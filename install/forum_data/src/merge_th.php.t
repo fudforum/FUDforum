@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.29 2005/07/29 16:21:28 hackie Exp $
+* $Id: merge_th.php.t,v 1.30 2005/08/11 00:44:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,7 +63,12 @@
 		} else if (count($_POST['sel_th']) > 1) {
 			apply_custom_replace($_POST['new_title']);
 
-			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}poll WRITE');
+			if ($forum != $frm) {
+				$lk_pfx = '{SQL_TABLE_PREFIX}tv_'.$frm.' WRITE,';
+			} else {
+				$lk_pfx = '';
+			}
+			db_lock($lk_pfx.'{SQL_TABLE_PREFIX}tv_'.$forum.' WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}poll WRITE');
 
 			$tl = implode(',', $_POST['sel_th']);
 
@@ -83,9 +88,9 @@
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET thread_id={$new_th} WHERE thread_id IN({$tl})");
 			q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id IN({$tl})");
 
-			rebuild_forum_view($forum);
+			rebuild_forum_view_ttl($forum);
 			if ($forum != $frm) {
-				rebuild_forum_view($frm);
+				rebuild_forum_view_ttl($frm);
 				foreach (array($frm, $forum) as $v) {
 					$r = db_saq("SELECT MAX(last_post_id), SUM(replies), COUNT(*) FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON root_msg_id={SQL_TABLE_PREFIX}msg.id AND {SQL_TABLE_PREFIX}msg.apr=1 WHERE forum_id={$v}");
 					if (empty($r[2])) {
@@ -102,11 +107,13 @@
 			if (__dbtype__ == 'mysql') {
 				q("UPDATE IGNORE {SQL_TABLE_PREFIX}thread_notify SET thread_id={$new_th} WHERE thread_id IN({$tl})");
 				q("UPDATE IGNORE {SQL_TABLE_PREFIX}read SET thread_id={$new_th} WHERE thread_id IN({$tl})");
+			} else if (__dbtype__ == 'sqlite') {
+				q("UPDATE OR IGNORE {SQL_TABLE_PREFIX}thread_notify SET thread_id={$new_th} WHERE thread_id IN({$tl})");
+				q("UPDATE OR IGNORE {SQL_TABLE_PREFIX}read SET thread_id={$new_th} WHERE thread_id IN({$tl})");
 			} else {
-				q("REPLACE INTO {SQL_TABLE_PREFIX}thread_notify (user_id, thread_id)
-					SELECT user_id, {$new_th} FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id IN({$tl})");
-				q("REPLACE INTO {SQL_TABLE_PREFIX}read (thread_id, user_id, msg_id, last_view)
-					SELECT {$new_th}, user_id, msg_id, last_view FROM {SQL_TABLE_PREFIX}read WHERE thread_id IN({$tl})");
+				foreach (db_all("SELECT user_id FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id IN({$tl}) AND thread_id!=".$new_th) as $v) {
+					db_li("INSERT INTO {SQL_TABLE_PREFIX}thread_notify (user_id, thread_id) VALUES(".$v.",".$new_th.")", $tmp);
+				}
 			}
 			q("DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id IN({$tl})");
 			q("DELETE FROM {SQL_TABLE_PREFIX}read WHERE thread_id IN({$tl})");
@@ -150,13 +157,20 @@
 		}
 		unset($c, $_POST['sel_th']);
 	}
-	$c = uq("SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}thread_view tv INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=tv.thread_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id WHERE tv.forum_id={$frm} AND page={$page} ORDER BY pos");
+	
+	$lwi = q_singleval("SELECT last_view_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$frm);
+	
+	$c = uq('SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}tv_'.$frm.' tv 
+			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=tv.thread_id 
+			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id 
+			WHERE tv.id BETWEEN '.($lwi - ($page * $THREADS_PER_PAGE)).' AND '.($lwi - (($page - 1) * $THREADS_PER_PAGE)).'
+			ORDER BY tv.id');
 	while ($r = db_rowarr($c)) {
 		$thread_sel .= '{TEMPLATE: m_sel_opt}';
 	}
 	unset($c);
 
-	$pages = implode("\n", range(1, q_singleval("SELECT MAX(page) FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$frm)));
+	$pages = implode("\n", range(1, ceil($lwi / $THREADS_PER_PAGE)));
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

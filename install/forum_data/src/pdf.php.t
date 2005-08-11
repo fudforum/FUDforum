@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.41 2005/07/12 17:01:50 hackie Exp $
+* $Id: pdf.php.t,v 1.42 2005/08/11 00:44:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -176,14 +176,19 @@ class fud_pdf extends FPDF
 		}
 
 		if ($page) {
-			$join = 'FROM {SQL_TABLE_PREFIX}thread_view tv
+			$lwi = q_singleval("SELECT last_view_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum);
+			if ($lwi === NULL || $lwi === FALSE) {
+				invl_inp_err();
+			}
+
+			$join = 'FROM {SQL_TABLE_PREFIX}tv_'.$forum.' tv
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=tv.thread_id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id='.$forum.'
 				INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.thread_id=t.id
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 				LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 			';
-			$lmt = ' AND tv.forum_id='.$forum.' AND tv.page='.$page;
+			$lmt = ' AND tv.id BETWEEN '.($lwi - ($page * $THREADS_PER_PAGE)).' AND '.($lwi - (($page - 1) * $THREADS_PER_PAGE));
 		} else {
 			$join = 'FROM {SQL_TABLE_PREFIX}forum f
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.forum_id=f.id

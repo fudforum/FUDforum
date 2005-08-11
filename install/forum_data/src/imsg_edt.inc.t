@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.133 2005/07/28 16:07:18 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.134 2005/08/11 00:44:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -191,7 +191,7 @@ class fud_msg_edit extends fud_msg
 				 */
 				$diff = $thread_opt ^ $th_data[1];
 				if (($diff > 1 && !($diff & 6)) || $orderexpiry != $th_data[0]) {
-					rebuild_forum_view($frm_id);
+					rebuild_forum_view_ttl($frm_id);
 				}
 			}
 		}
@@ -208,20 +208,19 @@ class fud_msg_edit extends fud_msg
 			$mid = $this->id;
 		}
 
+		if (!($del = db_sab('SELECT m.id, m.attach_cnt, m.poll_id, m.thread_id, m.reply_to, m.apr, m.poster_id, t.replies, t.root_msg_id AS root_msg_id, t.last_post_id AS thread_lip, t.forum_id, f.last_post_id AS forum_lip 
+					FROM {SQL_TABLE_PREFIX}msg m 
+					LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id 
+					LEFT JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id WHERE m.id='.$mid))) {
+			return;
+		}
+
 		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}thr_exchange WRITE, {SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}forum_read WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}attach WRITE, {SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}poll_opt_track WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}thread_notify WRITE, {SQL_TABLE_PREFIX}msg_report WRITE, {SQL_TABLE_PREFIX}thread_rate_track WRITE');
+			db_lock('{SQL_TABLE_PREFIX}forum f WRITE, {SQL_TABLE_PREFIX}thr_exchange WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' tv WRITE, {SQL_TABLE_PREFIX}msg m WRITE, {SQL_TABLE_PREFIX}thread t WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}forum_read WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}attach WRITE, {SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}poll_opt_track WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}thread_notify WRITE, {SQL_TABLE_PREFIX}msg_report WRITE, {SQL_TABLE_PREFIX}thread_rate_track WRITE');
 			$ll = 1;
 		}
 
-		if (!($del = db_sab('SELECT
-				{SQL_TABLE_PREFIX}msg.id, {SQL_TABLE_PREFIX}msg.attach_cnt, {SQL_TABLE_PREFIX}msg.poll_id, {SQL_TABLE_PREFIX}msg.thread_id, {SQL_TABLE_PREFIX}msg.reply_to, {SQL_TABLE_PREFIX}msg.apr, {SQL_TABLE_PREFIX}msg.poster_id,
-				{SQL_TABLE_PREFIX}thread.replies, {SQL_TABLE_PREFIX}thread.root_msg_id AS root_msg_id, {SQL_TABLE_PREFIX}thread.last_post_id AS thread_lip, {SQL_TABLE_PREFIX}thread.forum_id,
-				{SQL_TABLE_PREFIX}forum.last_post_id AS forum_lip FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id WHERE {SQL_TABLE_PREFIX}msg.id='.$mid))) {
-			if (isset($ll)) {
-				db_unlock();
-			}
-			return;
-		}
+		q('DELETE FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mid);
 
 		/* attachments */
 		if ($del->attach_cnt) {
@@ -246,7 +245,7 @@ class fud_msg_edit extends fud_msg
 			if ($del->replies) {
 				$rmsg = q('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND id != '.$del->id);
 				while ($dim = db_rowarr($rmsg)) {
-					fud_msg_edit::delete(false, $dim[0], 1);
+					fud_msg_edit::delete(0, $dim[0], 1);
 				}
 				unset($rmsg);
 			}
@@ -258,7 +257,7 @@ class fud_msg_edit extends fud_msg
 
 			if ($del->apr) {
 				/* we need to determine the last post id for the forum, it can be null */
-				$lpi = (int) q_singleval('SELECT {SQL_TABLE_PREFIX}thread.last_post_id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id AND {SQL_TABLE_PREFIX}msg.apr=1 WHERE forum_id='.$del->forum_id.' AND moved_to=0 ORDER BY {SQL_TABLE_PREFIX}msg.post_stamp DESC LIMIT 1');
+				$lpi = (int) q_singleval('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.last_post_id=m.id AND m.apr=1 WHERE t.forum_id='.$del->forum_id.' AND t.moved_to=0 ORDER BY m.post_stamp DESC LIMIT 1');
 				q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$lpi.', thread_count=thread_count-1, post_count=post_count-'.$del->replies.'-1 WHERE id='.$del->forum_id);
 			}
 		} else if (!$th_rm  && $del->apr) {
@@ -266,7 +265,7 @@ class fud_msg_edit extends fud_msg
 
 			/* check if the message is the last in thread */
 			if ($del->thread_lip == $del->id) {
-				list($lpi, $lpd) = db_saq('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND apr=1 AND id!='.$del->id.' ORDER BY post_stamp DESC LIMIT 1');
+				list($lpi, $lpd) = db_saq('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND apr=1 ORDER BY post_stamp DESC LIMIT 1');
 				q('UPDATE {SQL_TABLE_PREFIX}thread SET last_post_id='.$lpi.', last_post_date='.$lpd.', replies=replies-1 WHERE id='.$del->thread_id);
 			} else {
 				q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-1 WHERE id='.$del->thread_id);
@@ -274,7 +273,11 @@ class fud_msg_edit extends fud_msg
 
 			/* check if the message is the last in the forum */
 			if ($del->forum_lip == $del->id) {
-				$lp = db_saq('SELECT {SQL_TABLE_PREFIX}thread.last_post_id, {SQL_TABLE_PREFIX}thread.last_post_date FROM {SQL_TABLE_PREFIX}thread_view INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread_view.forum_id={SQL_TABLE_PREFIX}thread.forum_id AND {SQL_TABLE_PREFIX}thread_view.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}thread_view.forum_id='.$del->forum_id.' AND {SQL_TABLE_PREFIX}thread_view.page=1 AND {SQL_TABLE_PREFIX}thread.moved_to=0 ORDER BY {SQL_TABLE_PREFIX}thread.last_post_date DESC LIMIT 1');
+				$page = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' WHERE thread_id='.$del->thread_id);
+				$lp = db_saq('SELECT t.last_post_id, t.last_post_date 
+					FROM {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' tv
+					INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id 
+					WHERE tv.id IN('.$page.','.($page - 1).') AND t.moved_to=0 ORDER BY t.last_post_date DESC LIMIT 1');
 				if (!isset($lpd) || $lp[1] > $lpd) {
 					$lpi = $lp[0];
 				}
@@ -284,31 +287,33 @@ class fud_msg_edit extends fud_msg
 			}
 		}
 
-		q('DELETE FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mid);
-
 		if ($del->apr) {
 			if ($del->poster_id) {
 				user_set_post_count($del->poster_id);
 			}
-
 			if ($rebuild_view) {
-				rebuild_forum_view($del->forum_id);
-
-				/* needed for moved thread pointers */
-				$r = q('SELECT forum_id, id FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id='.$del->root_msg_id);
-				while (($res = db_rowarr($r))) {
-					if ($th_rm) {
-						q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id='.$res[1]);
-					}
-					rebuild_forum_view($res[0]);
+				if ($th_rm) {
+					th_delete_rebuild($del->forum_id, $del->thread_id);
+				} else if ($del->thread_lip == $del->id) {
+					rebuild_forum_view_ttl($del->forum_id);
 				}
-				unset($r);
 			}
 		}
-
 		if (isset($ll)) {
 			db_unlock();
 		}
+		
+		if (!$del->apr || !$th_rm) {
+			return;
+		}
+
+		/* needed for moved thread pointers */
+		$r = q('SELECT forum_id, id FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id='.$del->root_msg_id);
+		while (($res = db_rowarr($r))) {
+			q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id='.$res[1]);
+			th_delete_rebuild($res[0], $res[1]);
+		}
+		unset($r);
 	}
 
 	function approve($id)
@@ -317,7 +322,7 @@ class fud_msg_edit extends fud_msg
 		$mtf = db_sab('SELECT
 					m.id, m.poster_id, m.apr, m.subject, m.foff, m.length, m.file_id, m.thread_id, m.poll_id, m.attach_cnt,
 					m.post_stamp, m.reply_to, m.mlist_msg_id, m.msg_opt,
-					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date,
+					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.thread_opt,
 					m2.post_stamp AS frm_last_post_date,
 					f.name AS frm_name,
 					u.alias, u.email, u.sig,
@@ -351,7 +356,7 @@ class fud_msg_edit extends fud_msg
 		$last_post_id = $mtf->post_stamp > $mtf->frm_last_post_date ? $mtf->id : 0;
 
 		if ($mtf->root_msg_id == $mtf->id) {	/* new thread */
-			rebuild_forum_view($mtf->forum_id);
+			th_new_rebuild($mtf->forum_id, $mtf->thread_id, $mtf->thread_opt>=2);
 			$threads = 1;
 		} else {				/* reply to thread */
 			if ($mtf->post_stamp > $mtf->last_post_date) {
@@ -359,7 +364,7 @@ class fud_msg_edit extends fud_msg
 			} else {
 				th_inc_post_count($mtf->thread_id, 1);
 			}
-			rebuild_forum_view($mtf->forum_id, q_singleval('SELECT page FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id='.$mtf->forum_id.' AND thread_id='.$mtf->thread_id));
+			th_reply_rebuild($mtf->forum_id, $mtf->thread_id, $mtf->thread_opt>=2);
 			$threads = 0;
 		}
 
