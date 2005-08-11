@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mvthread.php.t,v 1.35 2005/07/28 00:29:02 hackie Exp $
+* $Id: mvthread.php.t,v 1.36 2005/08/11 01:26:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,8 +50,8 @@
 				t.id, t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.last_post_id,
 				f1.last_post_id AS f1_lpi, f2.last_post_id AS f2_lpi,
 				'.($is_a ? ' 1 AS mod1, 1 AS mod2' : ' mm1.id AS mod1, mm2.id AS mod2').',
-				(CASE WHEN gs2.id IS NOT NULL THEN gs2.group_cache_opt ELSE gs1.group_cache_opt END) AS sgco,
-				(CASE WHEN gd2.id IS NOT NULL THEN gd2.group_cache_opt ELSE gd1.group_cache_opt END) AS dgco
+				COALESCE(gs2.group_cache_opt, gs1.group_cache_opt) AS sgco,
+				COALESCE(gd2.group_cache_opt, gd1.group_cache_opt) AS dgco
 			FROM {SQL_TABLE_PREFIX}thread t
 			INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
 			INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON f2.id='.$to.'
@@ -104,14 +104,14 @@
 			invl_inp_err();
 		}		
 
-		$c = uq('SELECT f.name, f.id, c.id, m.user_id, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
+		$c = uq('SELECT f.name, f.id, c.id, m.user_id, COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco
 			FROM {SQL_TABLE_PREFIX}forum f
 			INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
 			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-			WHERE c.id!=0 AND f.id!='.$thr->forum_id.($is_a ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 1) > 0 THEN 1 ELSE 0 END)=1').'
+			WHERE c.id!=0 AND f.id!='.$thr->forum_id.($is_a ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0 THEN 1 ELSE 0 END)=1').'
 			ORDER BY v.id');
 
 		$table_data = $oldc = '';

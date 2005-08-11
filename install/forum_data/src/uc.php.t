@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.php.t,v 1.7 2004/11/24 19:53:37 hackie Exp $
+* $Id: uc.php.t,v 1.8 2005/08/11 01:26:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -69,8 +69,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id="._uid." AND mo.forum_id=f.id
 		WHERE fn.user_id="._uid."
 		AND ".$usr->last_read." < m.post_stamp AND (fr.last_view IS NULL OR m.post_stamp > fr.last_view)
-		".($is_a ? '' : " AND (mo.id IS NOT NULL OR
-		(CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END & 1) > 0)")."
+		".($is_a ? '' : " AND (mo.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0)")."
 		ORDER BY m.post_stamp DESC");
 	while ($r = db_rowobj($c)) {
 		$uc_sub_forum .= '{TEMPLATE: uc_sub_forum}';
@@ -96,7 +95,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id="._uid."
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id="._uid." AND mo.forum_id=t.forum_id
 		WHERE tn.user_id="._uid." AND m.post_stamp > ".$usr->last_read." AND m.post_stamp > r.last_view ".
-		($is_a ? '' : " AND (mo.id IS NOT NULL OR (CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END & 1) > 0)").
+		($is_a ? '' : " AND (mo.id IS NOT NULL OR COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0)").
 		"ORDER BY m.post_stamp DESC LIMIT ".($usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE));
 	while ($r = db_rowobj($c)) {
 		$msg_count = $r->replies + 1;

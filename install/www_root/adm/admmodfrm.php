@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmodfrm.php,v 1.23 2005/07/06 15:12:43 hackie Exp $
+* $Id: admmodfrm.php,v 1.24 2005/08/11 01:26:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -57,7 +57,7 @@
 <?php echo _hs; ?>
 <table class="datatable fulltable">
 <?php
-	$c = uq('SELECT CASE WHEN c.name IS NULL THEN \'DELETED FORUMS\' ELSE c.name END, f.name, f.id, mm.id FROM '.$tbl.'forum f LEFT JOIN '.$tbl.'cat c ON c.id=f.cat_id LEFT JOIN '.$tbl.'mod mm ON mm.forum_id=f.id AND mm.user_id='.$usr_id.' ORDER BY c.view_order, f.view_order');
+	$c = uq('SELECT COALESCE(c.name, \'DELETED FORUMS\'), f.name, f.id, mm.id FROM '.$tbl.'forum f LEFT JOIN '.$tbl.'cat c ON c.id=f.cat_id LEFT JOIN '.$tbl.'mod mm ON mm.forum_id=f.id AND mm.user_id='.$usr_id.' ORDER BY c.view_order, f.view_order');
 	$pc = '';
 	while ($r = db_rowarr($c)) {
 		if ($pc != $r[0]) {

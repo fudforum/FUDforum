@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.66 2005/07/27 17:21:15 hackie Exp $
+* $Id: selmsg.php.t,v 1.67 2005/08/11 01:26:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,7 +60,7 @@ function path_info_lnk($var, $val)
 	$unread_limit = (isset($_GET['unread']) && _uid) ? ' AND m.post_stamp > '.$usr->last_read.' AND (r.id IS NULL OR r.last_view < m.post_stamp) ' : '';
 	$th = isset($_GET['th']) ? (int)$_GET['th'] : 0;
 	$frm_id = isset($_GET['frm_id']) ? (int)$_GET['frm_id'] : 0;
-	$perm_limit = $is_a ? '' : ' AND (mm.id IS NOT NULL OR ' . (_uid ? '((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : '(g1.group_cache_opt') . ' & 2) > 0)';
+	$perm_limit = $is_a ? '' : ' AND (mm.id IS NOT NULL OR ' . (_uid ? '(COALESCE(g2.group_cache_opt, g1.group_cache_opt)' : '(g1.group_cache_opt') . ' & 2) > 0)';
 
 	/* mark messages read for registered users */
 	if (_uid && isset($_GET['mr']) && !empty($usr->data)) {

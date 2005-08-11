@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmd.php.t,v 1.2 2005/07/06 14:39:22 hackie Exp $
+* $Id: mmd.php.t,v 1.3 2005/08/11 01:26:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@
 	}
 
 	/* permission check, based on last thread since all threads are supposed to be from the same forum */
-	if (!($perms = db_saq('SELECT t.forum_id, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco, mm.id AS md
+	if (!($perms = db_saq('SELECT t.forum_id, COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco, mm.id AS md
 				FROM {SQL_TABLE_PREFIX}thread t
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647': '0').' AND g1.resource_id=t.forum_id
@@ -76,7 +76,7 @@
 		if (!($_POST['forum_id'] = (int) $_POST['forum_id'])) {
 			invl_inp_err();
 		}
-		if (!($mv_perms = db_saq('SELECT (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco, mm.id AS md
+		if (!($mv_perms = db_saq('SELECT COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco, mm.id AS md
 				FROM {SQL_TABLE_PREFIX}forum f
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647': '0').' AND g1.resource_id=f.id
@@ -110,14 +110,14 @@
 	if (!empty($_POST['mov_sel_all'])) {
 		$table_data = $oldc = '';
 	
-		$c = uq('SELECT f.name, f.id, c.id, m.user_id, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
+		$c = uq('SELECT f.name, f.id, c.id, m.user_id, COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco
 				FROM {SQL_TABLE_PREFIX}forum f
 				INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=f.id
 				INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
 				LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-				WHERE c.id!=0 AND f.id!='.$perms[0].($is_a ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 1) > 0 THEN 1 ELSE 0 END)=1').'
+				WHERE c.id!=0 AND f.id!='.$perms[0].($is_a ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0 THEN 1 ELSE 0 END)=1').'
 				ORDER BY v.id');
 
 		require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';

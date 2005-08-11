@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: subscribed.php.t,v 1.26 2005/07/06 14:39:22 hackie Exp $
+* $Id: subscribed.php.t,v 1.27 2005/08/11 01:26:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@
 				FROM {SQL_TABLE_PREFIX}group_cache g1
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g1.resource_id=g2.resource_id
 				LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.forum_id=g1.resource_id AND m.user_id='._uid.'
-				WHERE g1.user_id=2147483647 AND (m.id IS NULL AND ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)=0)');
+				WHERE g1.user_id=2147483647 AND (m.id IS NULL AND (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2)=0)');
 		while ($r = db_rowarr($c)) {
 			$lmt .= $r[0] . ',';
 		}

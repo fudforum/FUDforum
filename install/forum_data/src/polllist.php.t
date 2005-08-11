@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.php.t,v 1.35 2005/07/26 22:24:49 hackie Exp $
+* $Id: polllist.php.t,v 1.36 2005/08/11 01:26:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@
 	}
 
 	if (!$is_a) {
-		$usr_lmt = $usr_lmt . ($usr_lmt ? ' AND ' : ' WHERE ') . ' (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)';
+		$usr_lmt = $usr_lmt . ($usr_lmt ? ' AND ' : ' WHERE ') . ' (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)';
 	}
 
 	if ($_GET['oby'] == 'ASC') {
@@ -53,7 +53,7 @@
 			p.owner, p.name, p.creation_date, p.id, p.max_votes, p.total_votes,
 			u.alias, u.alias AS login, (u.last_visit + '.($LOGEDIN_TIMEOUT * 60).') AS last_visit, u.users_opt,
 			'.($is_a ? '1' : 'mm.id').' AS md,
-			(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
+			COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco
 			FROM {SQL_TABLE_PREFIX}poll p
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=p.forum_id
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id

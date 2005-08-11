@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.116 2005/08/11 00:44:21 hackie Exp $
+* $Id: consist.php,v 1.117 2005/08/11 01:26:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -320,7 +320,7 @@ forum will be disabled.
 	$oldm = '';
 	$atr = array();
 	q('UPDATE '.$tbl.'msg SET attach_cnt=0, attach_cache=NULL');
-	$c = q('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN mi.icon IS NULL THEN \'unknown.gif\' ELSE mi.icon END, a.message_id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'mime mi ON a.mime_type=mi.id WHERE attach_opt=0');
+	$c = q('SELECT a.id, a.original_name, a.fsize, a.dlcount, COALESCE(mi.icon, \'unknown.gif\'), a.message_id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'mime mi ON a.mime_type=mi.id WHERE attach_opt=0');
 	while ($r = db_rowarr($c)) {
 		if ($oldm != $r[5]) {
 			if ($oldm) {

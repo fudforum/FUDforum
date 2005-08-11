@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmod.php.t,v 1.38 2005/03/15 15:12:36 hackie Exp $
+* $Id: mmod.php.t,v 1.39 2005/08/11 01:26:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,7 +34,7 @@
 
 	if ($del) {
 		if (!($data = db_saq('SELECT t.forum_id, m.thread_id, m.id, m.subject, t.root_msg_id, m.reply_to, t.replies, mm.id,
-			(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco,
+			COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco,
 			m.foff, m.length, m.file_id, m.poster_id, u.alias, u.email, m.subject
 			FROM {SQL_TABLE_PREFIX}msg m
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id
@@ -136,7 +136,7 @@
 		}
 		exit;
 	} else if ($th && (!isset($_GET['th']) || sq_check(0, $usr->sq))) {
-		if (!($data = db_saq('SELECT mm.id, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
+		if (!($data = db_saq('SELECT mm.id, COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco
 			FROM {SQL_TABLE_PREFIX}thread t
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647': '0').' AND g1.resource_id=t.forum_id
