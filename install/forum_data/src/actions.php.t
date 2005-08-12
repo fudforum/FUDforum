@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: actions.php.t,v 1.40 2005/07/06 14:39:22 hackie Exp $
+* $Id: actions.php.t,v 1.41 2005/08/12 14:47:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,8 +36,12 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mm2 ON mm2.forum_id=s.forum_id AND mm2.user_id='._uid.'
 		WHERE s.time_sec>'.(__request_timestamp__ - ($LOGEDIN_TIMEOUT * 60)).' AND s.user_id!='._uid.' ORDER BY u.alias, s.time_sec DESC');
 
-	$action_data = '';
+	$action_data = ''; $uc = 0;
 	while ($r = db_rowarr($c)) {
+		if ($r[3]) { // update loggedin user count
+			++$uc;
+		}
+	
 		if ($r[6] & 32768 && !$is_a) {
 			continue;
 		}
@@ -98,3 +102,7 @@
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: ACTION_PAGE}
+<?php
+	/* update loggedin user stats if needed */
+	q('UPDATE {SQL_TABLE_PREFIX}stats_cache SET most_online='.$uc.', most_online_time='.__request_timestamp__.' WHERE most_online < '.$uc);
+?>

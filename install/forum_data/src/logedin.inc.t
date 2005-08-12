@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.inc.t,v 1.39 2005/07/28 16:07:18 hackie Exp $
+* $Id: logedin.inc.t,v 1.40 2005/08/12 14:47:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,6 +48,15 @@ if ($FUD_OPT_1 & 1073741824 || $FUD_OPT_2 & 16) {
 		$st_obj = rebuild_stats_cache($last_msg_id);
 	} else if ($st_obj->online_users_text) {
 		$st_obj->online_users_text = unserialize($st_obj->online_users_text);
+	}
+
+	/* update most online users stats if needed */
+	if (($st_obj->online_users_reg + $st_obj->online_users_hidden) > $st_obj->most_online) {
+		$st_obj->most_online = $st_obj->online_users_reg + $st_obj->online_users_hidden;
+		$st_obj->most_online_time = __request_timestamp__;
+		q('UPDATE {SQL_TABLE_PREFIX}stats_cache SET most_online='.$st_obj->most_online.', most_online_time='.$st_obj->most_online_time);
+	} else if (!$st_obj->most_online_time) {
+		$st_obj->most_online_time = __request_timestamp__;
 	}
 
 	if ($FUD_OPT_1 & 1073741824) {
