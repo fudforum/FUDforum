@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.21 2005/08/12 15:54:32 hackie Exp $
+* $Id: th_adm.inc.t,v 1.22 2005/08/12 16:26:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -113,7 +113,7 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 	$q = "SELECT {SQL_TABLE_PREFIX}tv_".$forum_id.".id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}tv_".$forum_id." ON {SQL_TABLE_PREFIX}tv_".$forum_id.".thread_id={SQL_TABLE_PREFIX}thread.id WHERE thread_opt>=2 ORDER BY {SQL_TABLE_PREFIX}tv_".$forum_id.".id LIMIT 1";
 	$q2 = "SELECT count(*) FROM {SQL_TABLE_PREFIX}tv_".$forum_id;
 	if (__dbtype__ != 'mysql' || $GLOBALS['FUD_OPT_3'] & 1024) {
-		q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=COALESCE((".$q2."), 0), last_sticky_id=COALESCE((".$q."),0) WHERE id=".$forum_id);
+		q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=".(int)q_singleval($q2).", last_sticky_id=COALESCE((".$q."),0) WHERE id=".$forum_id);
 	} else {
 		q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=".(int)q_singleval($q2).", last_sticky_id=".(int)q_singleval($q)." WHERE id=".$forum_id);
 	}
