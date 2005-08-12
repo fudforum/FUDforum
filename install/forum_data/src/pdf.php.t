@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.43 2005/08/11 01:26:13 hackie Exp $
+* $Id: pdf.php.t,v 1.44 2005/08/12 18:25:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -251,7 +251,7 @@ class fud_pdf extends FPDF
 				m.id, m.thread_id, m.subject, m.post_stamp,
 				m.attach_cnt, m.attach_cache, m.poll_cache,
 				m.foff, m.length, m.file_id, u.id AS uid,
-				COALESCE(u.alias \''.$ANON_NICK.'\') as alias,
+				COALESCE(u.alias, \''.$ANON_NICK.'\') as alias,
 				p.name AS poll_name, p.total_votes
 			'.$join.'
 			WHERE
