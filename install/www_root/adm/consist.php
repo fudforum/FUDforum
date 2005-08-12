@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.119 2005/08/12 15:53:01 hackie Exp $
+* $Id: consist.php,v 1.120 2005/08/12 16:27:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -130,6 +130,16 @@ forum will be disabled.
 		$tbl = strtolower($tbl); // table names on mysql need to be lowercase
 	}
 	$tbls = get_fud_table_list();
+
+	// add view tables as needed 
+	foreach (db_all("SELECT id FROM ".$tbl."forum") as $v) {
+		$n = $tbl.'tv_'.$v;
+		if (!isset($tbls[$n])) {
+			frm_add_view_tbl($n);
+			$tbls[$n] = $n;
+		}
+	}
+
 	// add the various table aliases
 	array_push($tbls, 	$tbl.'users u', $tbl.'forum f', $tbl.'thread t', $tbl.'poll p', $tbl.'poll_opt po', $tbl.'poll_opt_track pot',
 				$tbl.'msg m', $tbl.'pmsg pm', $tbl.'mod mm', $tbl.'thread_rate_track trt', $tbl.'msg_report mr', $tbl.'cat c',
@@ -276,15 +286,13 @@ forum will be disabled.
 
 	draw_stat('Checking for presence of forum lock tables');
 	$tbl_k = array_flip($tbls);
-	$view_tbl = $tmp = array();
+	$tmp = array();
 	$c = uq('SELECT id FROM '.$tbl.'forum');
 	while ($f = db_rowarr($c)) {
 		if (!isset($tbl_k[$tbl.'fl_'.$f[0]])) {
 			$tmp[] = (int)$f[0];
 		}
-		if (!isset($tbl_k[$tbl.'tv_'.$f[0]])) {
-			$view_tbl[] = (int)$f[0];
-		}
+		
 	}
 	unset($c);
 	foreach ($tmp as $v) { // add lock table
@@ -659,18 +667,15 @@ forum will be disabled.
 	q("DELETE FROM ".$tbl."ses WHERE user_id>2000000000 AND time_sec < ".(__request_timestamp__ - $SESSION_TIMEOUT));
 	draw_stat('Done: Removing absolete entries inside sessions table');
 
-	draw_stat('Unlocking database');
-	db_unlock();
-	draw_stat('Database unlocked');
-
-	foreach ($view_tbl as $v) { // add view table
-		frm_add_view_tbl($tbl."tv_".$v);
-	}
 	draw_stat('Rebuilding Topic Views');
 	foreach (db_all('SELECT id FROM '.$tbl.'forum') as $v) {
 		rebuild_forum_view_ttl($v);
 	}
 	draw_stat('Done: Rebuilding Topic Views');
+
+	draw_stat('Unlocking database');
+	db_unlock();
+	draw_stat('Database unlocked');
 
 	if (__dbtype__ == 'mysql') {
 		q('DROP TABLE '.$tbl.'tmp_consist');
