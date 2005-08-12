@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.135 2005/08/11 01:26:13 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.136 2005/08/12 15:23:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -311,6 +311,7 @@ class fud_msg_edit extends fud_msg
 		$r = q('SELECT forum_id, id FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id='.$del->root_msg_id);
 		while (($res = db_rowarr($r))) {
 			q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id='.$res[1]);
+			q('UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-1 WHERE id='.$res[0]);
 			th_delete_rebuild($res[0], $res[1]);
 		}
 		unset($r);
