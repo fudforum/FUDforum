@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.inc.t,v 1.40 2005/08/12 14:47:39 hackie Exp $
+* $Id: logedin.inc.t,v 1.41 2005/08/12 15:46:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,6 +38,16 @@ function &rebuild_stats_cache($last_msg_id)
 	$obj->last_user_alias = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$obj->last_user_id);
 	$obj->last_msg_subject = q_singleval('SELECT subject FROM {SQL_TABLE_PREFIX}msg WHERE id='.$last_msg_id);
 
+	list($obj->most_online,$obj->most_online_time) = db_saq("SELECT most_online, most_online_time FROM {SQL_TABLE_PREFIX}stats_cache");
+	/* update most online users stats if needed */
+	if (($obj->online_users_reg + $obj->online_users_hidden) > $obj->most_online) {
+		$obj->most_online = $obj->online_users_reg + $obj->online_users_hidden;
+		$obj->most_online_time = __request_timestamp__;
+		q('UPDATE {SQL_TABLE_PREFIX}stats_cache SET most_online='.$obj->most_online.', most_online_time='.$obj->most_online_time);
+	} else if (!$obj->most_online_time) {
+		$obj->most_online_time = __request_timestamp__;
+	}
+
 	return $obj;
 }
 
@@ -50,12 +60,7 @@ if ($FUD_OPT_1 & 1073741824 || $FUD_OPT_2 & 16) {
 		$st_obj->online_users_text = unserialize($st_obj->online_users_text);
 	}
 
-	/* update most online users stats if needed */
-	if (($st_obj->online_users_reg + $st_obj->online_users_hidden) > $st_obj->most_online) {
-		$st_obj->most_online = $st_obj->online_users_reg + $st_obj->online_users_hidden;
-		$st_obj->most_online_time = __request_timestamp__;
-		q('UPDATE {SQL_TABLE_PREFIX}stats_cache SET most_online='.$st_obj->most_online.', most_online_time='.$st_obj->most_online_time);
-	} else if (!$st_obj->most_online_time) {
+	if (!$st_obj->most_online_time) {
 		$st_obj->most_online_time = __request_timestamp__;
 	}
 
