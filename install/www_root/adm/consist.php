@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.120 2005/08/12 16:27:12 hackie Exp $
+* $Id: consist.php,v 1.121 2005/08/12 16:39:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -134,9 +134,9 @@ forum will be disabled.
 	// add view tables as needed 
 	foreach (db_all("SELECT id FROM ".$tbl."forum") as $v) {
 		$n = $tbl.'tv_'.$v;
-		if (!isset($tbls[$n])) {
+		if (!in_array($n, $tbls)) {
 			frm_add_view_tbl($n);
-			$tbls[$n] = $n;
+			$tbls[] = $n;
 		}
 	}
 
