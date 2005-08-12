@@ -999,4 +999,4 @@ dmsg_ip:			IP:
 err_blockedaccnt_title:		ERROR: Your account has been filtered out.
 err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
 merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was {VAR: st_obj->most_online} on {DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}
+most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
