@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.118 2005/08/11 12:52:25 hackie Exp $
+* $Id: consist.php,v 1.119 2005/08/12 15:53:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -661,6 +661,7 @@ forum will be disabled.
 
 	draw_stat('Unlocking database');
 	db_unlock();
+	draw_stat('Database unlocked');
 
 	foreach ($view_tbl as $v) { // add view table
 		frm_add_view_tbl($tbl."tv_".$v);
@@ -674,7 +675,6 @@ forum will be disabled.
 	if (__dbtype__ == 'mysql') {
 		q('DROP TABLE '.$tbl.'tmp_consist');
 	}
-	draw_stat('Database unlocked');
 
 	draw_stat('Cleaning forum\'s tmp directory');
 	if (($files = glob($TMP.'*', GLOB_NOSORT))) {
