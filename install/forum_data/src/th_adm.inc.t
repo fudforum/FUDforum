@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.19 2005/08/11 13:04:56 hackie Exp $
+* $Id: th_adm.inc.t,v 1.20 2005/08/12 15:02:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -199,7 +199,7 @@ function th_reply_rebuild($forum_id, $th=0, $sticky=0)
 
 	$pos = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th);
 	if ($pos) {
-		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id='.($lv+1).' WHERE id='.$pos);
+		q('UPDATE /* first */ {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id='.($lv+1).' WHERE id='.$pos);
 		if (!$id || $sticky) {
 			if (__dbtype__ == 'mysql') {
 				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=id-1 WHERE id>='.$pos.' ORDER BY id');
@@ -214,7 +214,7 @@ function th_reply_rebuild($forum_id, $th=0, $sticky=0)
 				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=(id * -1)+1 WHERE id>='.$pos.' AND id<'.$id);
 				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id= id * -1 WHERE id<0');
 			}
-			q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id='.($id-1).' WHERE id='.($lv+1));
+			q('UPDATE /* last */ {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id='.($id-1).' WHERE id='.($lv+1));
 		}
 	}
 
