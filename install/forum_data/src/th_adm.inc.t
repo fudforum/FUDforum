@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.20 2005/08/12 15:02:56 hackie Exp $
+* $Id: th_adm.inc.t,v 1.21 2005/08/12 15:54:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -81,20 +81,22 @@ function __th_cron_emu($forum_id, $run=1)
 	}
 
 	if ($reflow && $run) {
-		rebuild_forum_view_ttl($forum_id);
+		rebuild_forum_view_ttl($forum_id,1);
 	}
 
 	return $reflow;
 }
 
-function rebuild_forum_view_ttl($forum_id)
+function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 {
 	if (!db_locked()) {
 		$ll = 1;
 		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg READ, {SQL_TABLE_PREFIX}forum WRITE');
 	}
 
-	__th_cron_emu($forum_id, 0);
+	if (!$skip_cron) {
+		__th_cron_emu($forum_id, 0);
+	}
 
 	q('DELETE FROM {SQL_TABLE_PREFIX}tv_'.$forum_id);
 	if (__dbtype__ == 'mysql') {
