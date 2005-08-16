@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.75 2005/07/07 21:30:11 hackie Exp $
+* $Id: login.php.t,v 1.76 2005/08/16 01:10:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,8 +120,8 @@ function login_php_get_err($type)
 
 function error_check()
 {
-	$_POST['login'] = trim($_POST['login']);
-	$_POST['password'] = trim($_POST['password']);
+	$_POST['login'] = trim((string)$_POST['login']);
+	$_POST['password'] = trim((string)$_POST['password']);
 
 	if (!strlen($_POST['login'])) {
 		login_php_set_err('login', '{TEMPLATE: login_name_required}');
