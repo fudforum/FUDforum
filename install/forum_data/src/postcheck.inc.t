@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.29 2005/08/16 02:20:40 hackie Exp $
+* $Id: postcheck.inc.t,v 1.30 2005/08/16 13:32:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,7 +43,7 @@ function post_check_images()
 function check_post_form()
 {
 	/* make sure we got a valid subject */
-	if (!strlen(trim($_POST['msg_subject']))) {
+	if (!strlen(trim((string)$_POST['msg_subject']))) {
 		set_err('msg_subject', '{TEMPLATE: postcheck_subj_needed}');
 	}
 

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.php.t,v 1.18 2005/07/26 15:47:57 hackie Exp $
+* $Id: mklist.php.t,v 1.19 2005/08/16 13:32:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,7 +26,7 @@
 
 	/* remove list entry */
 	if (isset($_POST['del'])) {
-		unset($_POST['opt_list'][$_POST['del']]);
+		unset($_POST['opt_list'][(string)$_POST['del']]);
 	}
 
 	/* append list entry */
@@ -34,7 +34,7 @@
 		$_POST['opt_list'][] = $_POST['opt'];
 	}
 
-	if (isset($_POST['go'], $_POST['tp'])) {
+	if (isset($_POST['go'], $_POST['tp']) && is_string($_POST['tp'])) {
 		if (empty($_POST['opt_list']) || strpos($_POST['tp'], ':') === false) {
 			exit('<html><script>window.close();</script></html>');
 		}
@@ -42,7 +42,7 @@
 
 		$tag = '[LIST TYPE='.$list_type.']\n';
 		foreach ($_POST['opt_list'] as $o) {
-			$tag .= '[*]'.addslashes($o).'\n';
+			$tag .= '[*]'.addslashes((string)$o).'\n';
 		}
 		$tag .= '[/LIST]';
 
@@ -56,7 +56,7 @@
 /*{POST_HTML_PHP}*/
 
 	$tp_select_data = tmpl_draw_select_opt("OL:1\nOL:a\nUL:square\nUL:disc\nUL:circle", "{TEMPLATE: mklist_numerical}\n{TEMPLATE: mklist_aplha}\n{TEMPLATE: mklist_square}\n{TEMPLATE: mklist_disc}\n{TEMPLATE: mklist_circle}", (isset($_POST['tp']) ? $_POST['tp'] : (isset($_GET['tp']) ? $_GET['tp'] : '')));
-	if (isset($_POST['opt_list'], $_POST['tp']) && strpos($_POST['tp'], ':') !== false) {
+	if (isset($_POST['opt_list'], $_POST['tp']) && is_string($_POST['tp']) && strpos($_POST['tp'], ':') !== false) {
 		list($list_tag, $list_type) = explode(':', trim($_POST['tp']), 2);
 		$list_entry_data = '';
 		foreach ($_POST['opt_list'] as $k => $op) {

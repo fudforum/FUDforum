@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.php.t,v 1.28 2005/08/11 01:26:13 hackie Exp $
+* $Id: mnav.php.t,v 1.29 2005/08/16 13:32:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@
 	if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
 		$start = 0;
 	}
-	$forum_limiter = isset($_GET['forum_limiter']) ? $_GET['forum_limiter'] : '';
+	$forum_limiter = isset($_GET['forum_limiter']) ? (string)$_GET['forum_limiter'] : '';
 	$rng = isset($_GET['rng']) ? (float) $_GET['rng'] : 1;
 	$rng2 = isset($_GET['rng2']) ? (float) $_GET['rng2'] : 0;
 	$unit = isset($_GET['u']) ? (int) $_GET['u'] : 86400;

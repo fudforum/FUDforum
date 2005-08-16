@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.50 2005/08/11 01:26:13 hackie Exp $
+* $Id: split_th.php.t,v 1.51 2005/08/16 13:32:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@ function th_frm_last_post_id($id, $th)
 
 	$forum = isset($_POST['forum']) ? (int)$_POST['forum'] : 0;
 
-	if ($forum && !empty($_POST['new_title']) && !empty($_POST['sel_th']) && is_array($_POST['sel_th'])) {
+	if ($forum && !empty($_POST['new_title']) && is_string($_POST['new_title']) && !empty($_POST['sel_th']) && is_array($_POST['sel_th'])) {
 		/* we need to make sure that the user has access to destination forum */
 		if (!$is_a && !q_singleval('SELECT f.id FROM {SQL_TABLE_PREFIX}forum f LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.user_id='._uid.' AND mm.forum_id=f.id '.(_uid ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id').' WHERE f.id='.$forum.' AND (mm.id IS NOT NULL OR '.(_uid ? ' (COALESCE(g2.group_cache_opt, g1.group_cache_opt)' : ' (g1.group_cache_opt').' & 4) > 0)')) {
 			std_error('access');

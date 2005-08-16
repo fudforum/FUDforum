@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.143 2005/08/16 02:18:53 hackie Exp $
+* $Id: post.php.t,v 1.144 2005/08/16 13:32:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -312,7 +312,7 @@ function flood_check()
 			$msg_post->poll_id = $pl_id;
 			$msg_post->subject = $msg_subject;
 			$msg_post->body = $msg_body;
-			$msg_post->icon = (isset($_POST['msg_icon']) && basename($_POST['msg_icon']) == $_POST['msg_icon'] && @file_exists($WWW_ROOT_DISK.'images/message_icons/'.$_POST['msg_icon'])) ? $_POST['msg_icon'] : '';
+			$msg_post->icon = (isset($_POST['msg_icon']) && is_string($_POST['msg_icon']) && basename($_POST['msg_icon']) == $_POST['msg_icon'] && @file_exists($WWW_ROOT_DISK.'images/message_icons/'.$_POST['msg_icon'])) ? $_POST['msg_icon'] : '';
 		 	$msg_post->msg_opt =  $msg_smiley_disabled ? 2 : 0;
 		 	$msg_post->msg_opt |= $msg_show_sig ? 1 : 0;
 		 	$msg_post->attach_cnt = (int) $attach_cnt;

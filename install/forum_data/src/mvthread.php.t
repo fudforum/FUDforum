@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mvthread.php.t,v 1.36 2005/08/11 01:26:13 hackie Exp $
+* $Id: mvthread.php.t,v 1.37 2005/08/16 13:32:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,8 +18,12 @@
 	$thx = isset($_POST['thx']) ? (int)$_POST['thx'] : (isset($_GET['thx']) ? (int)$_GET['thx'] : 0);
 	$to = isset($_GET['to']) ? (int)$_GET['to'] : 0;
 
+	if (!$th) {
+		invl_inp_err();
+	}
+
 	/* thread x-change */
-	if ($th && $thx) {
+	if ($thx) {
 		if (!$GLOBALS['is_post'] && !sq_check(0, $usr->sq)) {
 			return;
 		}
@@ -36,12 +40,15 @@
 			exit('<html><script>window.close();</script></html>');
 		} else {
 			$thr = db_sab('SELECT f.name AS frm_name, m.subject FROM {SQL_TABLE_PREFIX}forum f INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id='.$th.' INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE f.id='.$thx);
+			if (!$thr) {
+				invl_inp_err();
+			}
 			$table_data = '{TEMPLATE: move_thread_request}';
 		}
 	}
 
 	/* moving a thread */
-	if ($th && $to) {
+	if ($to) {
 		if (!$GLOBALS['is_post'] && !sq_check(0, $usr->sq)) {
 			return;
 		}
