@@ -151,7 +151,7 @@ thread_first_unread_msg:	Click here to go the first unread message in this topic
 thread_thread:			Topic
 threads:			Topics
 time:				Time
-todays_posts:			Today's Messages
+todays_posts:			Today&#39;s Messages
 todays_posts_desc:		Show all messages that were posted today
 un_ignore_user:			stop ignoring messages by this user
 unanswered_posts:		Unanswered Messages

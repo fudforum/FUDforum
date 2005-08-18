@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: show.tmpl,v 1.22 2004/11/24 19:53:40 hackie Exp $
+* $Id: show.tmpl,v 1.23 2005/08/18 14:19:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,15 +24,15 @@
 {SECTION: END}
 
 {SECTION: unread_posts_lnk}
-{ROOT}?t=selmsg&amp;unread=1&amp;{DEF: _rsid}&amp;frm_id={VAR: frm->id}
+{ROOT}?t=selmsg&amp;unread=1&amp;{DEF: _rsid}&amp;frm_id={IF: isset($frm->forum_id)}{VAR: frm->forum_id}{ELSE}{VAR: frm->id}{ENDI}
 {SECTION: END}
 
 {SECTION: unanswered_posts_lnk}
-{ROOT}?t=selmsg&amp;reply_count=0&amp;{DEF: _rsid}&amp;frm_id={VAR: frm->id}
+{ROOT}?t=selmsg&amp;reply_count=0&amp;{DEF: _rsid}&amp;frm_id={IF: isset($frm->forum_id)}{VAR: frm->forum_id}{ELSE}{VAR: frm->id}{ENDI}
 {SECTION: END}
 
 {SECTION: show_links_lnk}
-{ROOT}?t=selmsg&amp;date=today&amp;{DEF: _rsid}&amp;frm_id={VAR: frm->id}&amp;th={VAR: th}
+{ROOT}?t=selmsg&amp;date=today&amp;{DEF: _rsid}&amp;frm_id={IF: isset($frm->forum_id)}{VAR: frm->forum_id}{ELSE}{VAR: frm->id}{ENDI}&amp;th={VAR: th}
 {SECTION: END}
 
 {SECTION: show_links_lnk1}
