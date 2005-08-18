@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmd.php.t,v 1.3 2005/08/11 01:26:13 hackie Exp $
+* $Id: mmd.php.t,v 1.4 2005/08/18 15:05:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,7 +47,7 @@
 	$final_mv = !empty($_POST['mov_sel_all']) && !empty($_POST['forum_id']);
 
 	/* ensure that all threads are from the same forum and that they exist */
-	$c = uq("SELECT m.subject, t.id, t.root_msg_id, t.replies, t.root_msg_id, t.last_post_date, t.last_post_id
+	$c = uq("SELECT m.subject, t.id, t.root_msg_id, t.replies, t.last_post_date, t.last_post_id
 			FROM {SQL_TABLE_PREFIX}thread t 
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id
 			WHERE t.id IN(".implode(',', $list).") AND t.forum_id=".$perms[0]);
@@ -57,7 +57,7 @@
 		if ($final_del) {
 			$ext[$r[1]] = array($r[2], $r[3]);
 		} else if ($final_mv) {
-			$ext[$r[1]] = array($r[4], $r[5], $r[6]);
+			$ext[$r[1]] = array($r[2], $r[4], $r[5]);
 		}
 	}
 	unset($c);
@@ -68,7 +68,7 @@
 	if ($final_del) { /* remove threads, one by one */
 		foreach ($ext as $k => $v) {
 			logaction(_uid, 'DELTHR', 0, '"'.addslashes($list[$k]).'" w/'.$v[1].' replies');
-			fud_msg_edit::delete(true, $v[0], 1);
+			fud_msg_edit::delete(1, $v[0], 1);
 		}
 		check_return($usr->returnto);
 	} else if ($final_mv) { /* move threads one by one */
