@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.58 2005/08/11 00:44:21 hackie Exp $
+* $Id: admdump.php,v 1.59 2005/08/18 00:36:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -157,7 +157,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 
 		foreach($sql_table_list as $tbl_name) {
 			/* not needed, will be rebuilt by consistency checker */
-			if (!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'tv_', strlen($DBHOST_TBL_PREFIX.'tv_') || 
+			if (!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'tv_', strlen($DBHOST_TBL_PREFIX.'tv_')) || 
 				$tbl_name == $DBHOST_TBL_PREFIX . 'ses' ||
 				!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'fl_', strlen($DBHOST_TBL_PREFIX.'fl_'))
 			) {

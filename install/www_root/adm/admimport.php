@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.47 2005/08/11 00:44:21 hackie Exp $
+* $Id: admimport.php,v 1.48 2005/08/18 00:36:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -138,7 +138,7 @@ function resolve_dest_path($path)
 			/* create table structure */
 			while (($line = $getf($fp, 1000000)) && !$feoff($fp)) {
 				if (($line = trim($line))) {
-					if (!strncmp($line, 'DROP', 4)) {
+					if (!strncmp($line, 'DROP', 4) || !strncmp($line, 'ALTER', 5)) {
 						continue; // no need to drop tables, already gone
 					}
 
@@ -162,7 +162,7 @@ function resolve_dest_path($path)
 					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));
 				}
 			}
-			$i = 0; $tmp = $pfx = ''; $m = __dbtype__ == 'mysql';
+			$r = $i = 0; $tmp = $pfx = ''; $m = __dbtype__ == 'mysql'; $p = __dbtype__ == 'pgsql';
 			do {
 				if (($line = trim($line))) {
 					if ($line{0} != '(') {
@@ -171,9 +171,13 @@ function resolve_dest_path($path)
 							$tmp = '';
 						}
 						$pfx = 'INSERT INTO '.$DBHOST_TBL_PREFIX.$line.' VALUES ';
+						$r = $line != 'mime';
 						continue;
 					}
 					if (!$m) {
+						if ($r && $p) {
+							$line = str_replace("''", 'NULL', $line);
+						}
 						q($pfx.$line);
 					} else {
 						$tmp .= $line;
