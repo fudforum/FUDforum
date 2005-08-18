@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.22 2005/08/12 16:26:52 hackie Exp $
+* $Id: th_adm.inc.t,v 1.23 2005/08/18 00:41:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -102,7 +102,7 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 	if (__dbtype__ == 'mysql') {
 		q('ALTER TABLE {SQL_TABLE_PREFIX}tv_'.$forum_id.' AUTO_INCREMENT=1');
 	} else if (__dbtype__ == 'pgsql') {
-		q("ALTER SEQUENCE {SQL_TABLE_PREFIX}tv_".$forum_id."_id_seq RESTART WITH 1");
+		q("SELECT setval('{SQL_TABLE_PREFIX}tv_".$forum_id."_id_seq', 1, false)");
 	}
 	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'.$forum_id.' (thread_id) SELECT {SQL_TABLE_PREFIX}thread.id FROM {SQL_TABLE_PREFIX}thread 
 		INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
