@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.54 2005/08/11 01:26:13 hackie Exp $
+* $Id: rdf.php.t,v 1.55 2005/08/18 12:52:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -231,10 +231,10 @@ $basic_rss_data .= '
 							foreach ($al as $a) {
 								echo '<rdf:li>
 									<content:item rdf:about="attachments">
-										<a_title>'.sp($r[1]).'</a_title>
-										<a_id>'.$r[0].'</a_id>
-										<a_size>'.$r[2].'</a_size>
-										<a_nd>'.$r[3].'</a_nd>
+										<a_title>'.sp($a[1]).'</a_title>
+										<a_id>'.$a[0].'</a_id>
+										<a_size>'.$a[2].'</a_size>
+										<a_nd>'.$a[3].'</a_nd>
 									</content:item>
 								</rdf:li>';
 							}
