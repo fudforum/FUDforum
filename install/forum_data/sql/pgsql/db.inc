@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.65 2005/08/16 21:25:44 hackie Exp $
+* $Id: db.inc,v 1.66 2005/08/18 14:22:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -35,7 +35,7 @@ if (!defined('fud_sql_lnk')) {
 function get_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		$val = pg_fetch_row(pg_query('SELECT VERSION()', fud_sql_lnk));
+		$val = @pg_fetch_row(pg_query('SELECT VERSION()', fud_sql_lnk));
 		define('__FUD_SQL_VERSION__', ($val ? $val[0] : null));
 	}
 	return __FUD_SQL_VERSION__;
