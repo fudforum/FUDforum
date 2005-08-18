@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rpasswd.php.t,v 1.15 2005/02/23 02:16:25 hackie Exp $
+* $Id: rpasswd.php.t,v 1.16 2005/08/18 01:10:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,8 +18,8 @@
 		std_error('login');
 	}
 
-	if (isset($_POST['btn_submit'])) {
-		if (__fud_real_user__ != q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($usr->login)."' AND passwd='".md5($_POST['cpasswd'])."'")) {
+	if (isset($_POST['btn_submit'], $_POST['passwd1'], $_POST['cpasswd']) && is_string($_POST['passwd1'])) {
+		if (__fud_real_user__ != q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($usr->login)."' AND passwd='".md5((string)$_POST['cpasswd'])."'")) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_invalid_passwd}';
 		} else if ($_POST['passwd1'] !== $_POST['passwd2']) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_passwd_nomatch}';

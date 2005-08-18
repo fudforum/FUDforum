@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: report.php.t,v 1.23 2005/08/11 01:26:13 hackie Exp $
+* $Id: report.php.t,v 1.24 2005/08/18 01:10:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,7 +43,7 @@
 		error_dialog('{TEMPLATE: report_already_reported_title}', '{TEMPLATE: report_already_reported_msg}');
 	}
 
-	if (!empty($_POST['reason']) && ($reason = trim($_POST['reason']))) {
+	if (!empty($_POST['reason']) && is_string($_POST['reason']) && ($reason = trim($_POST['reason']))) {
 		q("INSERT INTO {SQL_TABLE_PREFIX}msg_report (user_id, msg_id, reason, stamp) VALUES("._uid.", ".$msg_id.", '".addslashes(htmlspecialchars($reason))."', ".__request_timestamp__.")");
 		check_return($usr->returnto);
 	} else if ($GLOBALS['is_post']) {

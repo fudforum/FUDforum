@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.153 2005/07/14 16:13:10 hackie Exp $
+* $Id: register.php.t,v 1.154 2005/08/18 01:10:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -321,7 +321,7 @@ function decode_uent(&$uent)
 	$reg_avatar_loc_file = $avatar_tmp = $avatar_arr = null;
 	/* deal with avatars, only done for regged users */
 	if (_uid) {
-		if (!empty($_POST['avatar_tmp'])) {
+		if (!empty($_POST['avatar_tmp']) && is_string($_POST['avatar_tmp'])) {
 			$tmp = explode("\n", base64_decode($_POST['avatar_tmp'])); 
 			if (count($tmp) == 3) {
 				list($avatar_arr['file'], $avatar_arr['del'], $avatar_arr['leave']) = $tmp;
@@ -621,7 +621,7 @@ function decode_uent(&$uent)
 	} else if (isset($_POST['prev_loaded'])) { /* import data from POST data */
 		foreach ($_POST as $k => $v) {
 			if (!strncmp($k, 'reg_', 4)) {
-				${$k} = htmlspecialchars($v);
+				${$k} = htmlspecialchars((string)$v);
 			}
 		}
 		foreach($chr_fix as $v) {

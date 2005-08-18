@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.php.t,v 1.24 2005/07/06 14:39:22 hackie Exp $
+* $Id: pmuserloc.php.t,v 1.25 2005/08/18 01:10:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,7 +26,7 @@
 
 /*{POST_HTML_PHP}*/
 
-	$usr_login = isset($_GET['usr_login']) ? trim($_GET['usr_login']) : '';
+	$usr_login = isset($_GET['usr_login']) && is_string($_GET['usr_login']) ? trim($_GET['usr_login']) : '';
 	$overwrite = isset($_GET['overwrite']) ? (int)$_GET['overwrite'] : 0;
 
 	$js_redr = $_GET['js_redr'];
