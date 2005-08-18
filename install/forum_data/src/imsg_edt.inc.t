@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.136 2005/08/12 15:23:30 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.137 2005/08/18 15:16:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -303,7 +303,7 @@ class fud_msg_edit extends fud_msg
 			db_unlock();
 		}
 		
-		if (!$del->apr || !$th_rm) {
+		if (!$del->apr || !$th_rm || ($del->root_msg_id != $del->id)) {
 			return;
 		}
 
