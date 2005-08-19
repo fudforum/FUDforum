@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.66 2005/08/18 14:22:54 hackie Exp $
+* $Id: db.inc,v 1.67 2005/08/19 13:32:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -161,9 +161,7 @@ function qry_limit($limit, $off)
 function get_fud_table_list($tbl='')
 {
 	if (!$tbl) {
-		$r = q("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".str_replace("_", "\\_", $GLOBALS['DBHOST_TBL_PREFIX'])."%'");
-		while (list($ret[]) = db_rowarr($r));
-		array_pop($ret);
+		return db_all("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".addcslashes($GLOBALS['DBHOST_TBL_PREFIX'],"_")."%'");
 	} else {
 		return q_singleval("SELECT relname FROM pg_class WHERE relkind='r' AND relname='".$tbl."'");
 	}
