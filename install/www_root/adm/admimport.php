@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.49 2005/08/19 13:30:26 hackie Exp $
+* $Id: admimport.php,v 1.50 2005/08/19 13:50:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -207,13 +207,11 @@ function resolve_dest_path($path)
 
 			if (__dbtype__ == 'pgsql') {
 				/* we need to restore sequence numbers for postgreSQL */
-				foreach(get_fud_table_list() as $v) {
-					if (q_singleval("SELECT a.attname FROM pg_class c, pg_attribute a WHERE c.relname = '{$v}' AND a.attnum > 0 AND a.attrelid = c.oid AND a.attname='id'")) {
-						if (!($m = q_singleval('SELECT MAX(id) FROM '.$v))) {
-							$m = 1;
-						}
-						q("SELECT setval('{$v}_id_seq', {$m})");
+				foreach(db_all("SELECT relname FROM pg_class WHERE relkind='S' AND relname LIKE '".addcslashes($DBHOST_TBL_PREFIX, '_')."%\_id\_seq'") as $v) {
+					if (!($m = q_singleval('SELECT MAX(id) FROM '.basename($v, '_id_seq')))) {
+						$m = 1;
 					}
+					q("SELECT setval('{$v}', {$m})");
 				}
 			}
 
