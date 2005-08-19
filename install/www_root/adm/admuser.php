@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.66 2005/07/28 16:07:18 hackie Exp $
+* $Id: admuser.php,v 1.67 2005/08/19 18:24:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,6 +31,10 @@
 	if ($act && $usr_id && !($u = db_sab('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id))) {
 		$usr_id = $act = '';
 	}
+	/* check if ban had expired */
+	if ($usr_id && !$act && $u->users_opt & 65536 && $u->ban_expiry && $u->ban_expiry < __request_timestamp__) {
+		q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry=0, users_opt=users_opt &~ 65536 WHERE id='.$usr_id);
+	}
 
 	$keys = array('block'=>65536, 'coppa'=>262144, 'econf'=>131072, 'sig'=>67108864, 'pm'=>33554432, 'conf'=>2097152);
 
@@ -43,17 +47,17 @@
 		case 'pm':
 			if ($act == 'block' && isset($_POST['ban_duration'])) {
 				/* for post requests involving ban, do not act as a toggle */
-				if (isset($_POST['block'])) {
-					$u->users_opt &= ~$keys[$act];
-				} else {
+				if (!isset($_POST['block'])) {
 					$u->users_opt |= $keys[$act];
-				}
-			
-				if ($u->users_opt & $keys[$act]) {
-					$u->ban_expiry = $block = 0;
+					$u->ban_expiry = 0;
 				} else {
-					$u->ban_expiry = $block = (int)$_POST['ban_duration'] * 86400 + __request_timestamp__;
+					$u->users_opt &= ~$keys[$act];
+					$u->ban_expiry = (int) $_POST['ban_duration'] * 86400;
+					if ($u->ban_expiry) {
+						$u->ban_expiry += __request_timestamp__;
+					}
 				}
+				$block = $u->ban_expiry;
 			} else {
 				$block = 'ban_expiry';
 			}
@@ -258,6 +262,10 @@ administration permissions to the forum. This individual will be able to do anyt
 				list($usr_id) = db_rowarr($c);
 				unset($c);
 				$u = db_sab('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id);
+				/* check if ban had expired */
+				if ($u->users_opt & 65536 && $u->ban_expiry && $u->ban_expiry < __request_timestamp__) {
+					q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry=0, users_opt=users_opt &~ 65536 WHERE id='.$usr_id);
+				}
 				break;
 			default:
 				echo 'There are '.$cnt.' users that match this '.$field.' mask:<br>';
