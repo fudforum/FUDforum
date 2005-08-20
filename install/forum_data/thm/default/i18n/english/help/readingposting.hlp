@@ -191,6 +191,16 @@ the tags not be parsed by the FUDforum's tag parser. This allows you to give exa
 and not have them converted to equivalent HTML.
 <p>
 
+<p>
+<b>Horizontal Line Tag</b><br>
+The <font color="#ff0000"><b>[hr]</b></font> tag allows you to draw horizontal line on screen, this
+is the equivalent of the HTML &lt;hr&gt; tag.<br>
+ it used like this: <br>
+<font color="#ff0000"><b>[hr]</b></font><br>
+<br>which produces:<br><br>
+<hr>
+<p>
+
 <b>Spoiler</b><br>
 The <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> tag allows you to hide a portion of message
 from being displayed. To see the hidden portion the users must click a link that will display the 
