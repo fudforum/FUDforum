@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.154 2005/08/18 01:10:56 hackie Exp $
+* $Id: register.php.t,v 1.155 2005/08/20 14:31:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -337,14 +337,13 @@ function decode_uent(&$uent)
 			if ($_FILES['avatar_upload']['size'] >= $CUSTOM_AVATAR_MAX_SIZE) {
 				set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
 			} else {
-				/* [user_id].[file_extension]_'random data' */
-				$file_name = $uent->id . strrchr($_FILES['avatar_upload']['name'], '.') . '_';
-				$tmp_name = safe_tmp_copy($_FILES['avatar_upload']['tmp_name'], 0, $file_name);
-
-				if (!($img_info = @getimagesize($TMP . $tmp_name))) {
+				$ext = array(1=>'gif', 2=>'jpg', 3=>'png', 4=>'swf');
+				if (!($img_info = @getimagesize($_FILES['avatar_upload']['tmp_name']))) {
 					set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
-					unlink($TMP . $tmp_name);
 				}
+				/* [user_id].[file_extension]_'random data' */
+				$file_name = $uent->id . '.' . $ext[$img_info[2]] . '_';
+				$tmp_name = safe_tmp_copy($_FILES['avatar_upload']['tmp_name'], 0, $file_name);
 
 				list($max_w, $max_y) = explode('x', $CUSTOM_AVATAR_MAX_DIM);
 				if ($img_info[2] > ($FUD_OPT_1 & 64 ? 4 : 3)) {
