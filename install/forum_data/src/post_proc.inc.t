@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.80 2005/07/22 19:56:06 hackie Exp $
+* $Id: post_proc.inc.t,v 1.81 2005/08/20 18:40:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -70,6 +70,12 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			case 'list type':
 				$tag = 'list';
 				break;
+			case 'hr':
+				$str{$pos} = '<';
+				$str{$pos+1} = 'h';
+				$str{$pos+2} = 'r';
+				$str{$epos} = '>';
+				continue 2;
 		}
 
 		if ($tag[0] == '/') {
@@ -542,12 +548,12 @@ function html_to_tags($fudml)
 	array(
 		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>', '<del>', '</del>',
 		'<div class="pre"><pre>', '</pre></div>', '<div align="center">', '<div align="left">', '<div align="right">', '</div>',
-		'<ul>', '</ul>', '<span name="notag">', '</span>', '<li>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>'
+		'<ul>', '</ul>', '<span name="notag">', '</span>', '<li>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>','<hr>'
 	),
 	array(
 		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', '[del]', '[/del]', 
 		'[code]', '[/code]', '[align=center]', '[align=left]', '[align=right]', '[/align]', '[list]', '[/list]',
-		'[notag]', '[/notag]', '[*]', '@', '://', '', '[pre]', '[/pre]'
+		'[notag]', '[/notag]', '[*]', '@', '://', '', '[pre]', '[/pre]','[hr]'
 	),
 	$fudml);
 
