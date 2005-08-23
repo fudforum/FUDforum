@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.26 2005/08/23 20:55:49 hackie Exp $
+* $Id: th_adm.inc.t,v 1.27 2005/08/23 21:22:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -132,7 +132,7 @@ function th_delete_rebuild($forum_id, $th)
 
 	if (($pos = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th))) {
 		q('DELETE FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE id='.$pos);
-		if (__dbtype__ == 'mysql') {
+		if (__dbtype__ == 'mysql' && version_compare(get_version(), "4.0.0", ">=")) {
 			q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=id-1 WHERE id>'.$pos.' ORDER BY id');
 		} else {
 			q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=(id * -1)+1 WHERE id>'.$pos);
@@ -144,7 +144,7 @@ function th_delete_rebuild($forum_id, $th)
 			q("UPDATE {SQL_TABLE_PREFIX}forum SET last_sticky_id=last_sticky_id-1, last_view_id=last_view_id-1 WHERE id=".$forum_id);
 		}
 		if (__dbtype__ == 'pgsql') {
-			q("ALTER SEQUENCE {SQL_TABLE_PREFIX}tv_".$forum_id."_id_seq RESTART WITH ".max(1,q_singleval("SELECT last_view_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id)));
+			q("SELECT setval('{SQL_TABLE_PREFIX}tv_".$forum_id."_id_seq', ".max(1,q_singleval("SELECT last_view_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id)).", false)");
 		}
 	}
 
@@ -174,7 +174,7 @@ function th_new_rebuild($forum_id, $th, $sticky=0)
 		}
 		q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=last_view_id+1, last_sticky_id=".$l." WHERE id=".$forum_id);
 	} else {
-		if (__dbtype__ == 'mysql') {
+		if (__dbtype__ == 'mysql' && version_compare(get_version(), "4.0.0", ">=")) {
 			q("UPDATE {SQL_TABLE_PREFIX}tv_".$forum_id." SET id=id+1 WHERE id>=".$id." ORDER BY id DESC");
 		} else {
 			q("UPDATE {SQL_TABLE_PREFIX}tv_".$forum_id." SET id=(id+1)*-1 WHERE id>=".$id);
@@ -218,14 +218,14 @@ function th_reply_rebuild($forum_id, $th=0, $sticky=0)
 	if ($pos) {
 		q('UPDATE /* first */ {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id='.($lv+1).' WHERE id='.$pos);
 		if (!$id || $sticky) {
-			if (__dbtype__ == 'mysql') {
+			if (__dbtype__ == 'mysql' && version_compare(get_version(), "4.0.0", ">=")) {
 				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=id-1 WHERE id>='.$pos.' ORDER BY id');
 			} else {
 				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=(id * -1)+1 WHERE id>='.$pos);
 				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id= id * -1 WHERE id<0');
 			}
 		} else {
-			if (__dbtype__ == 'mysql') {
+			if (__dbtype__ == 'mysql' && version_compare(get_version(), "4.0.0", ">=")) {
 				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=id-1 WHERE id>='.$pos.' AND id<'.$id.' ORDER BY id');
 			} else {
 				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=(id * -1)+1 WHERE id>='.$pos.' AND id<'.$id);
