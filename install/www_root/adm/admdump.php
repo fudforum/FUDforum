@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.61 2005/08/23 21:36:36 hackie Exp $
+* $Id: admdump.php,v 1.62 2005/08/23 22:54:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 
 	@set_time_limit(6000);
 
-function backup_dir($dirp, $fp, $write_func, $keep_dir)
+function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 {
 	global $BUF_SIZE;
 
@@ -35,6 +35,12 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 		}
 		$dpath = trim(str_replace($repl, $keep_dir, $v), '/') . '/';
 
+		if ($p) {
+			$write_func($fp, '||WWW_ROOT_DISK/blank.gif||' . filesize($GLOBALS['WWW_ROOT_DISK'].'blank.gif') . "||\n" . file_get_contents($GLOBALS['WWW_ROOT_DISK'].'lib.js') . "\n");
+			$write_func($fp, '||WWW_ROOT_DISK/lib.js||' . filesize($GLOBALS['WWW_ROOT_DISK'].'lib.js') . "||\n" . file_get_contents($GLOBALS['WWW_ROOT_DISK'].'blank.gif') . "\n");
+			$p = 0;
+		}
+
 		foreach ($files as $f) {
 			if (is_link($f)) {
 				continue;
@@ -42,12 +48,15 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 			$name = basename($f);
 
 			if (is_dir($f)) {
-				if ($name != 'tmp' && $name != 'theme') {
-					$dirs[] = $f;
+				if ($name == 'tmp' || $name == 'theme') {
+					continue;
+				} else if ($keep_dir == 'DATA_DIR' && ($name == 'adm' || $name == 'images')) {
+					continue;
 				}
+				$dirs[] = $f;
 				continue;
 			}
-			if ($name == 'GLOBALS.php') {
+			if ($name == 'GLOBALS.php' || ($keep_dir == 'DATA_DIR' && ($name == 'lib.js' || $name == 'blank.gif'))) {
 				continue;
 			}
 			if (!is_readable($f)) {
@@ -134,10 +143,10 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 
 		echo "Compressing forum datafiles<br>\n";
 		$write_func($fp, "\n----FILES_START----\n");
-		backup_dir(realpath($DATA_DIR), $fp, $write_func, 'DATA_DIR');
-		if ($DATA_DIR != $WWW_ROOT_DISK) {
-			backup_dir(realpath($WWW_ROOT_DISK.'images/'), $fp, $write_func, 'WWW_ROOT_DISK');
-		}
+		backup_dir($DATA_DIR, $fp, $write_func, 'DATA_DIR');
+		backup_dir($WWW_ROOT_DISK.'images/', $fp, $write_func, 'WWW_ROOT_DISK', 1);
+		backup_dir($WWW_ROOT_DISK.'adm/', $fp, $write_func, 'WWW_ROOT_DISK');
+
 		$write_func($fp, "\n----FILES_END----\n");
 
 		$write_func($fp, "\n----SQL_START----\n");
