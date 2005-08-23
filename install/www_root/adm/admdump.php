@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.59 2005/08/18 00:36:42 hackie Exp $
+* $Id: admdump.php,v 1.60 2005/08/23 13:22:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,6 +18,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 
 	$dirs = array(realpath($dirp));
 	$repl = realpath($GLOBALS[$keep_dir]);
+	$is_win = !strncasecmp('win', PHP_OS, 3);
 	
 	while (list(,$v) = each($dirs)) {
 		if (!is_readable($v)) {
@@ -29,7 +30,9 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 		if (!($files = glob($v . '/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
 		}
-
+		if ($is_win) {
+			$v = str_relace("\\", '/', $v);
+		}
 		$dpath = trim(str_replace($repl, $keep_dir, $v), '/') . '/';
 
 		foreach ($files as $f) {
