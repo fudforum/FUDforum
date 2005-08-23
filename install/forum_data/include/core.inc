@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.161 2005/08/23 13:10:36 hackie Exp $
+* $Id: core.inc,v 1.162 2005/08/23 22:59:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,7 +10,7 @@
 * (at your option) any later version.
 **/
 
-$FORUM_VERSION = "2.7.0";
+$FORUM_VERSION = "2.7.1";
 
 ignore_user_abort('1');
 set_magic_quotes_runtime(0);
