@@ -1,1 +1,1 @@
-INSERT INTO {SQL_TABLE_PREFIX}stats_cache VALUES(0,0,0,0,0,0,0);
+INSERT INTO {SQL_TABLE_PREFIX}stats_cache (online_users_hidden) VALUES('');
