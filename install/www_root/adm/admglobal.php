@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.75 2005/06/28 15:39:39 hackie Exp $
+* $Id: admglobal.php,v 1.76 2005/08/23 13:04:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,11 +51,12 @@ function get_max_upload_size()
 		}
 
 		/* make a list of the fields we need to change */
+		$sk = array('DBHOST_USER','DBHOST_PASSWORD','DBHOST_DBNAME');
 		foreach ($_POST as $k => $v) {
 			if (!strncmp($k, 'CF_', 3)) {
 				$k = substr($k, 3);
 				if (!isset($GLOBALS[$k]) || $GLOBALS[$k] != $v) {
-					$ch_list[$k] = is_numeric($v) ? (int) $v : $v;
+					$ch_list[$k] = is_numeric($v) && !in_array($k, $sk) ? (int) $v : $v;
 				}
 			} else if (!strncmp($k, 'FUD_OPT_', 8)) {
 				$GLOBALS['NEW_' . substr($k, 0, 9)] |= (int) $v;
