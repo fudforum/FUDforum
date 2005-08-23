@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.25 2005/08/19 01:46:13 hackie Exp $
+* $Id: th_adm.inc.t,v 1.26 2005/08/23 20:55:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -200,7 +200,13 @@ function th_reply_rebuild($forum_id, $th=0, $sticky=0)
 	}
 
 	/* consistency check */
-	if (q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}tv_'.$forum_id) != $lv) {
+	if (__dbtype__ != 'pgsql') {
+		$mid = q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}tv_'.$forum_id);
+	} else {
+		$mid = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' ORDER BY id DESC LIMIT 1');
+	}
+
+	if ($mid != $lv) {
 		if (isset($ll)) {
 			db_unlock();
 		}
