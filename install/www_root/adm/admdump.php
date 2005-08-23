@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.60 2005/08/23 13:22:14 hackie Exp $
+* $Id: admdump.php,v 1.61 2005/08/23 21:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 			continue;
 		}
 		if ($is_win) {
-			$v = str_relace("\\", '/', $v);
+			$v = str_replace("\\", '/', $v);
 		}
 		$dpath = trim(str_replace($repl, $keep_dir, $v), '/') . '/';
 
