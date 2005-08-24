@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: subscribed.php.t,v 1.27 2005/08/11 01:26:13 hackie Exp $
+* $Id: subscribed.php.t,v 1.28 2005/08/24 23:13:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,6 +24,24 @@
 	/* delete thread subscription */
 	if (isset($_GET['th']) && ($_GET['th'] = (int)$_GET['th']) && sq_check(0, $usr->sq)) {
 		thread_notify_del(_uid, $_GET['th']);
+	}
+
+	if (!empty($_POST['f_unsub_all'])) {
+		q("DELETE FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id="._uid);
+	} else if (!empty($_POST['t_unsub_all'])) {
+		q("DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id="._uid);
+	} else if (isset($_POST['f_unsub_sel'], $_POST['fe'])) {
+		$list = array();
+		foreach((array)$_POST['fe'] as $v) {
+			$list[(int)$v] = (int) $v;
+		}
+		q("DELETE FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id="._uid." AND forum_id IN(".implode(',', $list).")");
+	} else if (isset($_POST['t_unsub_sel'], $_POST['te'])) {
+		$list = array();
+		foreach((array)$_POST['te'] as $v) {
+			$list[(int)$v] = (int) $v;
+		}
+		q("DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id="._uid." AND thread_id IN(".implode(',', $list).")");
 	}
 
 	ses_update_status($usr->sid, '{TEMPLATE: subscribed_update}');
