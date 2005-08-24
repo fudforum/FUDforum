@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.27 2005/08/23 21:22:38 hackie Exp $
+* $Id: th_adm.inc.t,v 1.28 2005/08/24 13:32:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -192,27 +192,12 @@ function th_reply_rebuild($forum_id, $th=0, $sticky=0)
 		return;
 	}
 
-	list($lv,$id) = db_saq("SELECT last_view_id,last_sticky_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id);
-
 	if (!db_locked()) {
 		$ll = 1;
-		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE');
+		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}forum READ');
 	}
 
-	/* consistency check */
-	if (__dbtype__ != 'pgsql') {
-		$mid = q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}tv_'.$forum_id);
-	} else {
-		$mid = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' ORDER BY id DESC LIMIT 1');
-	}
-
-	if ($mid != $lv) {
-		if (isset($ll)) {
-			db_unlock();
-		}
-		th_reply_rebuild($forum_id, $th, $sticky);
-		return;
-	}
+	list($lv,$id) = db_saq("SELECT last_view_id,last_sticky_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id);
 
 	$pos = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th);
 	if ($pos) {
