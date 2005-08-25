@@ -999,5 +999,6 @@ err_banned_acct_msg:		Votre compte a été banni {IF: $ban_expiry}temporairement j
 err_blockedaccnt_title:		ERREUR: Votre compte a été filtré.
 err_blockedaccnt_msg:		Votre compte ne peut pas accéder à ce forum à cause de l\'un des filtres utilisateurs installés.
 merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>sub_unsub_all_forums:		Unsubscribe From All Forums
+most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:		Unsubscribe From All Forums
 sub_unsub_all_topics:		Unsubscribe From All Topics
