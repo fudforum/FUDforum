@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.101 2005/07/27 18:45:19 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.102 2005/08/25 13:39:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,7 +21,7 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 	if (db_li('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id, poll_opt) VALUES('.$poll_id.', '._uid.', '.$opt_id.')', $a)) {
 		q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id='.$opt_id);
 		q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=total_votes+1 WHERE id='.$poll_id);
-		$options[$poll_id][1] += 1;
+		$options[$opt_id][1] += 1;
 		q("UPDATE {SQL_TABLE_PREFIX}msg SET poll_cache='".addslashes(serialize($options))."' WHERE id=".$mid);
 	}
 
