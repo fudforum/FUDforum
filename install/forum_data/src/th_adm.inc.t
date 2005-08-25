@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.29 2005/08/25 00:44:21 hackie Exp $
+* $Id: th_adm.inc.t,v 1.30 2005/08/25 02:20:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -168,7 +168,6 @@ function th_new_rebuild($forum_id, $th, $sticky=0)
 
 	if (!$id || $sticky) {
 		$l = db_qid("INSERT INTO {SQL_TABLE_PREFIX}tv_".$forum_id." (thread_id) VALUES(".$th.")");
-		
 		if (!$sticky) {
 			$l = 0;
 		}
@@ -203,7 +202,7 @@ function th_reply_rebuild($forum_id, $th=0, $sticky=0)
 	$lv = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' ORDER BY id DESC LIMIT 1');
 	$pos = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th);
 
-	if ($pos) {
+	if ($pos && $pos != $lv) {
 		q('UPDATE /* first */ {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id='.($lv+1).' WHERE id='.$pos);
 		if (!$id || $sticky) {
 			if (__dbtype__ == 'mysql' && version_compare(get_version(), "4.0.0", ">=")) {
