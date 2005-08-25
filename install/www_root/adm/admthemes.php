@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.57 2005/07/06 15:12:43 hackie Exp $
+* $Id: admthemes.php,v 1.58 2005/08/25 13:24:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,10 +22,12 @@
 
 	/* Limit theme names to sane characters */
 	if (isset($_POST['newname'])) {
-		$_POST['newname'] = preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
+		$_POST['newname'] = preg_replace('![^A-Za-z0-9_]!', '_', trim($_POST['newname']));
+	} else {
+		$_POST['newname'] = '';
 	}
 
-	if (isset($_POST['newname']) && !q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."themes WHERE name='".addslashes($_POST['newname'])."'")) {
+	if ($_POST['newname'] && !q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."themes WHERE name='".addslashes($_POST['newname'])."'")) {
 		$root = $DATA_DIR . 'thm/';
 		$root_nn = $root . preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
 		$u = umask(0);
@@ -50,15 +52,19 @@
 
 	if (isset($_POST['thm_theme']) && !$edit) {
 		$thm = new fud_theme;
-		$thm->add();
-		compile_all($thm->theme, $thm->lang, $thm->name);
+		if ($thm->name) {
+			$thm->add();
+			compile_all($thm->theme, $thm->lang, $thm->name);
+		}
 	} else if (isset($_POST['edit'])) {
 		$thm = new fud_theme;
 		if ($edit == 1) {
 			$thm->name = 'default';
 		}
-		$thm->sync((int)$_POST['edit']);
-		compile_all($thm->theme, $thm->lang, $thm->name);
+		if ($thm->name) {
+			$thm->sync((int)$_POST['edit']);
+			compile_all($thm->theme, $thm->lang, $thm->name);
+		}
 		$edit = '';
 	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.(int)$_GET['rebuild']))) {
 		compile_all($data[0], $data[1], $data[2]);
