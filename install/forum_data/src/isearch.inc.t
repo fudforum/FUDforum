@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.53 2005/07/01 21:29:50 hackie Exp $
+* $Id: isearch.inc.t,v 1.54 2005/08/25 16:00:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -78,7 +78,7 @@ function text_to_worda($text)
 				break;
 		}
 
-		/* this is mostly a hack for php verison < 4.3 because isset(string[bad offset]) returns a warning */
+		/* this is mostly a hack for php version < 4.3 because isset(string[bad offset]) returns a warning */
 		error_reporting(0);
 	
 		foreach ($t1 as $v) {
