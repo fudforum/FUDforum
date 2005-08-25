@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.28 2005/08/24 13:32:42 hackie Exp $
+* $Id: th_adm.inc.t,v 1.29 2005/08/25 00:44:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -161,14 +161,14 @@ function th_new_rebuild($forum_id, $th, $sticky=0)
 
 	if (!db_locked()) {
 		$ll = 1;
-		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}forum READ');
+		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}forum WRITE');
 	}
 
 	$id = q_singleval("SELECT last_sticky_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id);
 
 	if (!$id || $sticky) {
 		$l = db_qid("INSERT INTO {SQL_TABLE_PREFIX}tv_".$forum_id." (thread_id) VALUES(".$th.")");
-		if (isset($ll)) { db_unlock(); }
+		
 		if (!$sticky) {
 			$l = 0;
 		}
@@ -181,8 +181,10 @@ function th_new_rebuild($forum_id, $th, $sticky=0)
 			q("UPDATE {SQL_TABLE_PREFIX}tv_".$forum_id." SET id=id * -1 WHERE id < 0");
 		}
 		q("INSERT INTO {SQL_TABLE_PREFIX}tv_".$forum_id." (id, thread_id) VALUES(".$id.",".$th.")");
-		if (isset($ll)) { db_unlock(); }
 		q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=last_view_id+1, last_sticky_id=last_sticky_id+1 WHERE id=".$forum_id);
+	}
+	if (isset($ll)) {
+		db_unlock();
 	}
 }
 
@@ -197,9 +199,10 @@ function th_reply_rebuild($forum_id, $th=0, $sticky=0)
 		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}forum READ');
 	}
 
-	list($lv,$id) = db_saq("SELECT last_view_id,last_sticky_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id);
-
+	$id = q_singleval('SELECT last_sticky_id FROM {SQL_TABLE_PREFIX}forum WHERE id='.$forum_id);
+	$lv = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' ORDER BY id DESC LIMIT 1');
 	$pos = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th);
+
 	if ($pos) {
 		q('UPDATE /* first */ {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id='.($lv+1).' WHERE id='.$pos);
 		if (!$id || $sticky) {
