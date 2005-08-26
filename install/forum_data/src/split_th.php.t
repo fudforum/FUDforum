@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.51 2005/08/16 13:32:26 hackie Exp $
+* $Id: split_th.php.t,v 1.52 2005/08/26 13:57:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -115,7 +115,7 @@ function th_frm_last_post_id($id, $th)
 
 		if ($mc != ($data->replies + 1)) { /* check that we need to move the entire thread */
 			if ($forum != $data->forum_id) {
-				$lk_pfx = '{SQL_TABLE_PREFIX}tv_'.$forum.' WRITE,';
+				$lk_pfx = '{SQL_TABLE_PREFIX}tv_'.$forum.' WRITE,{SQL_TABLE_PREFIX}thread t,{SQL_TABLE_PREFIX}msg m WRITE';
 			} else {
 				$lk_pfx = '';
 			}
