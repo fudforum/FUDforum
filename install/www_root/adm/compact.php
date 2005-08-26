@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.51 2005/06/24 02:27:30 hackie Exp $
+* $Id: compact.php,v 1.52 2005/08/26 22:29:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -113,24 +113,27 @@ function eta_calc($start, $pos, $pc)
 	if ($pc) {
 		db_lock($tbl.'msg m WRITE, '.$tbl.'thread t WRITE, '.$tbl.'forum f WRITE, '.$tbl.'msg WRITE');
 
-		$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold, f.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id>0');
+		while (1) {
+			$j = $i;
+			$r = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold, f.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id>0 LIMIT 100');
+			while ($r = db_rowarr($c)) {
+				if ($r[4] && $r[2] > $r[4]) {
+					$m2 = write_body_c(trim_html(read_msg_body($r[1], $r[2], $r[3]), $r[4]), $len2, $off2, $r[5]);
+				} else {
+					$m2 = $len2 = $off2 = 0;
+				}
 
-		while ($r = db_rowarr($c)) {
-			if ($r[4] && $r[2] > $r[4]) {
-				$m2 = write_body_c(trim_html(read_msg_body($r[1], $r[2], $r[3]), $r[4]), $len2, $off2, $r[5]);
-			} else {
-				$m2 = $len2 = $off2 = 0;
+				$m1 = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $len, $off, $r[5]);
+				q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.(-$m1).', file_id_preview='.(-$m2).', offset_preview='.$off2.', length_preview='.$len2.' WHERE id='.$r[0]);
+
+				if ($i && !($i % $pc)) {
+					eta_calc($stm, $i, $pc);
+				}
+				$i++;
 			}
-
-			$m1 = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $len, $off, $r[5]);
-			q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.(-$m1).', file_id_preview='.(-$m2).', offset_preview='.$off2.', length_preview='.$len2.' WHERE id='.$r[0]);
-
-			if ($i && !($i % $pc)) {
-				eta_calc($stm, $i, $pc);
-			}
-			$i++;
+			unset($c);
+			if ($i == $j) break;
 		}
-		unset($c);
 
 		/* rename our temporary files & update the database */
 		q('UPDATE '.$tbl.'msg SET file_id=-file_id, file_id_preview=-file_id_preview WHERE file_id<0');
