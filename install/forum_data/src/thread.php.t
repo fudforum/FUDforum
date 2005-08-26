@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.php.t,v 1.48 2005/08/11 00:44:21 hackie Exp $
+* $Id: thread.php.t,v 1.49 2005/08/26 18:00:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,8 +34,8 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}users	u2	ON u2.id=m2.poster_id
 			LEFT JOIN {SQL_TABLE_PREFIX}forum	f	ON f.id=t.moved_to
 			LEFT JOIN {SQL_TABLE_PREFIX}read 	r	ON t.id=r.thread_id AND r.user_id='._uid.'
-			WHERE tv.id BETWEEN '.($frm->last_view_id - ($cur_frm_page * $THREADS_PER_PAGE)).' AND '.($frm->last_view_id - (($cur_frm_page - 1) * $THREADS_PER_PAGE)).'
-			ORDER BY tv.id DESC');
+			WHERE tv.seq BETWEEN '.($lwi - ($cur_frm_page * $THREADS_PER_PAGE)).' AND '.($lwi - (($cur_frm_page - 1) * $THREADS_PER_PAGE)).'
+			ORDER BY tv.seq DESC');
 	/* Field Defenitions
 	 * 0 msg.attach_cnt
 	 * 1 msg.poll_id

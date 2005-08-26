@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.44 2005/08/12 18:25:24 hackie Exp $
+* $Id: pdf.php.t,v 1.45 2005/08/26 18:00:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -176,7 +176,7 @@ class fud_pdf extends FPDF
 		}
 
 		if ($page) {
-			$lwi = q_singleval("SELECT last_view_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum);
+			$lwi = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$frm_id.' ORDER BY id DESC LIMIT 1')
 			if ($lwi === NULL || $lwi === FALSE) {
 				invl_inp_err();
 			}
@@ -188,7 +188,7 @@ class fud_pdf extends FPDF
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 				LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 			';
-			$lmt = ' AND tv.id BETWEEN '.($lwi - ($page * $THREADS_PER_PAGE)).' AND '.($lwi - (($page - 1) * $THREADS_PER_PAGE));
+			$lmt = ' AND tv.seq BETWEEN '.($lwi - ($page * $THREADS_PER_PAGE)).' AND '.($lwi - (($page - 1) * $THREADS_PER_PAGE));
 		} else {
 			$join = 'FROM {SQL_TABLE_PREFIX}forum f
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.forum_id=f.id

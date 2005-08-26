@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.30 2005/08/25 02:20:12 hackie Exp $
+* $Id: th_adm.inc.t,v 1.31 2005/08/26 18:00:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,92 +60,87 @@ function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last
 
 function __th_cron_emu($forum_id, $run=1)
 {
-	$tm = __request_timestamp__;
-	$reflow = 0;
-
-	if (q_singleval("SELECT last_sticky_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id)) {
-		/* De-announce expired announcments and sticky messages */
-		$r = q("SELECT {SQL_TABLE_PREFIX}thread.id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id WHERE {SQL_TABLE_PREFIX}thread.forum_id=".$forum_id." AND thread_opt>=2 AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry)<=".$tm);
-		while ($tid = db_rowarr($r)) {
-			q("UPDATE {SQL_TABLE_PREFIX}thread SET orderexpiry=0, thread_opt=thread_opt & ~ (2|4) WHERE id=".$tid[0]);
-			$reflow = 1;
-		}
-		unset($r);
+	/* let's see if we have sticky threads that have expired */
+	$exp = db_all('SELECT {SQL_TABLE_PREFIX}thread.id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.'
+			INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}tv_'.$forum_id.'.thread_id
+			INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id
+			WHERE {SQL_TABLE_PREFIX}tv_'.$forum_id.'.id>'.(q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' ORDER BY seq DESC LIMIT 1') - 50).' 
+				AND {SQL_TABLE_PREFIX}tv_'.$forum_id.'.iss=1
+				AND {SQL_TABLE_PREFIX}thread.thread_opt>=2 
+				AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry)<='.__request_timestamp__);
+	if ($exp) {
+		q('UPDATE {SQL_TABLE_PREFIX}thread SET orderexpiry=0, thread_opt=thread_opt & ~ (2|4) WHERE id IN('.implode(',', $exp).')');
+		$exp = 1;
 	}
 
 	/* Remove expired moved thread pointers */
-	q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$forum_id.' AND last_post_date<'.($tm-86400*$GLOBALS['MOVED_THR_PTR_EXPIRY']).' AND moved_to!=0');
+	q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$forum_id.' AND moved_to>0 AND last_post_date<'.(__request_timestamp__ - 86400 * $GLOBALS['MOVED_THR_PTR_EXPIRY']));
 	if (($aff_rows = db_affected())) {
 		q('UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-'.$aff_rows.' WHERE id='.$forum_id);
-		$reflow = 1;
+		if (!$exp) {
+			$exp = 1;
+		}
 	}
 
-	if ($reflow && $run) {
+	if ($exp && $run) {
 		rebuild_forum_view_ttl($forum_id,1);
 	}
 
-	return $reflow;
+	return $exp;
 }
 
 function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 {
-	if (!db_locked()) {
-		$ll = 1;
-		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg READ, {SQL_TABLE_PREFIX}forum WRITE');
-	}
 
 	if (!$skip_cron) {
 		__th_cron_emu($forum_id, 0);
 	}
 
-	q('DELETE FROM {SQL_TABLE_PREFIX}tv_'.$forum_id);
-	if (__dbtype__ == 'mysql') {
-		q('ALTER TABLE {SQL_TABLE_PREFIX}tv_'.$forum_id.' AUTO_INCREMENT=1');
-	} else if (__dbtype__ == 'pgsql') {
-		q("SELECT setval('{SQL_TABLE_PREFIX}tv_".$forum_id."_id_seq', 1, false)");
+	if (!db_locked()) {
+		$ll = 1;
+		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}thread READ, {SQL_TABLE_PREFIX}msg READ, {SQL_TABLE_PREFIX}forum READ');
 	}
-	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'.$forum_id.' (thread_id) SELECT {SQL_TABLE_PREFIX}thread.id FROM {SQL_TABLE_PREFIX}thread 
+
+	if (__dbtype__ == 'mysql') {
+		q('SET @seq=0');
+		$val = '(@seq:=@seq+1)';
+	} else if (__dbtype__ == 'pgsql') {
+		q('CREATE TEMPORARY SEQUENCE {SQL_TABLE_PREFIX}tv_'.$forum_id.'_seq');
+		$val = "nextval('{SQL_TABLE_PREFIX}tv_".$forum_id."_seq')";
+	} else {
+		$val = '(last_insert_rowid()+1)';
+	}
+
+	q('DELETE FROM {SQL_TABLE_PREFIX}tv_'.$forum_id); /* in sqlite, this resets row counter */
+	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'.$forum_id.' (thread_id,iss,seq) SELECT {SQL_TABLE_PREFIX}thread.id, (thread_opt>=2), '.$val.' FROM {SQL_TABLE_PREFIX}thread 
 		INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
 		WHERE forum_id='.$forum_id.' AND {SQL_TABLE_PREFIX}msg.apr=1 
-		ORDER BY (CASE WHEN thread_opt>=2 THEN 4294967294 ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC, {SQL_TABLE_PREFIX}thread.last_post_id ASC');
+		ORDER BY (CASE WHEN thread_opt>=2 THEN 4294967294 ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC');
 
-	/* update last sticky id */
-	$q = "SELECT {SQL_TABLE_PREFIX}tv_".$forum_id.".id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}tv_".$forum_id." ON {SQL_TABLE_PREFIX}tv_".$forum_id.".thread_id={SQL_TABLE_PREFIX}thread.id WHERE thread_opt>=2 ORDER BY {SQL_TABLE_PREFIX}tv_".$forum_id.".id LIMIT 1";
-	$q2 = "SELECT count(*) FROM {SQL_TABLE_PREFIX}tv_".$forum_id;
-	if (__dbtype__ != 'mysql' || $GLOBALS['FUD_OPT_3'] & 1024) {
-		q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=".(int)q_singleval($q2).", last_sticky_id=COALESCE((".$q."),0) WHERE id=".$forum_id);
-	} else {
-		q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=".(int)q_singleval($q2).", last_sticky_id=".(int)q_singleval($q)." WHERE id=".$forum_id);
-	}
-	
+	if (__dbtype__ == 'pgsql' && $GLOBALS['FUD_OPT_1'] & 256) { /* if persistent connection, drop sequence */
+		q('DROP SEQUENCE {SQL_TABLE_PREFIX}tv_'.$forum_id.'_seq');
+	} else if (__dbtype__ == 'sqlite') { /* adjust 1st value, since it can come from previous insert */
+		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=1 WHERE id=1');
+	} 
+
 	if (isset($ll)) {
 		db_unlock();
 	}
 }
+
 
 function th_delete_rebuild($forum_id, $th)
 {
 	if (!db_locked()) {
 		$ll = 1;
-		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}forum WRITE');
+		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE');
 	}
 
-	if (($pos = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th))) {
-		q('DELETE FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE id='.$pos);
-		if (__dbtype__ == 'mysql' && version_compare(get_version(), "4.0.0", ">=")) {
-			q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=id-1 WHERE id>'.$pos.' ORDER BY id');
-		} else {
-			q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=(id * -1)+1 WHERE id>'.$pos);
-			q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id= id * -1 WHERE id<0');
-		}
-		if (!q_singleval("SELECT last_sticky_id=last_view_id FROM  {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id)) {
-			q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=last_view_id-1 WHERE id=".$forum_id);
-		} else {
-			q("UPDATE {SQL_TABLE_PREFIX}forum SET last_sticky_id=last_sticky_id-1, last_view_id=last_view_id-1 WHERE id=".$forum_id);
-		}
-		if (__dbtype__ == 'pgsql') {
-			q("SELECT setval('{SQL_TABLE_PREFIX}tv_".$forum_id."_id_seq', ".max(1,q_singleval("SELECT last_view_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id)).", false)");
-		}
+	/* get position */
+	if (($pos = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th))) {
+		q('DELETE FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th);
+		/* move every one down one, if placed after removed topic */
+		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=seq-1 WHERE seq>'.$pos);
 	}
 
 	if (isset($ll)) {
@@ -153,7 +148,7 @@ function th_delete_rebuild($forum_id, $th)
 	}
 }
 
-function th_new_rebuild($forum_id, $th, $sticky=0)
+function th_new_rebuild($forum_id, $th, $sticky)
 {
 	if (__th_cron_emu($forum_id)) {
 		return;
@@ -161,65 +156,52 @@ function th_new_rebuild($forum_id, $th, $sticky=0)
 
 	if (!db_locked()) {
 		$ll = 1;
-		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}forum WRITE');
+		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE');
 	}
 
-	$id = q_singleval("SELECT last_sticky_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id);
+	list($max,$iss) = db_saq('SELECT seq,iss FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' ORDER BY seq DESC LIMIT 1');
+	if (!$sticky && $iss) { /* sub-optimal case, non-sticky topic and thre are stickies in the forum */
+		/* find oldest sticky message */
+		$iss = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE seq>'.($max - 50).' AND iss>0 ORDER BY seq ASC LIMIT 1');
+		/* move all stickies up one */
+		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=seq+1 WHERE seq>='.$iss);
+		/* we do this, since in optimal case we just do ++max */
+		$max = --$iss;
+	} 
+	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'.$forum_id.' (thread_id,iss,seq) VALUES('.$th.','.(int)$sticky.','.(++$max).')');
 
-	if (!$id || $sticky) {
-		$l = db_qid("INSERT INTO {SQL_TABLE_PREFIX}tv_".$forum_id." (thread_id) VALUES(".$th.")");
-		if (!$sticky) {
-			$l = 0;
-		}
-		q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=last_view_id+1, last_sticky_id=".$l." WHERE id=".$forum_id);
-	} else {
-		if (__dbtype__ == 'mysql' && version_compare(get_version(), "4.0.0", ">=")) {
-			q("UPDATE {SQL_TABLE_PREFIX}tv_".$forum_id." SET id=id+1 WHERE id>=".$id." ORDER BY id DESC");
-		} else {
-			q("UPDATE {SQL_TABLE_PREFIX}tv_".$forum_id." SET id=(id+1)*-1 WHERE id>=".$id);
-			q("UPDATE {SQL_TABLE_PREFIX}tv_".$forum_id." SET id=id * -1 WHERE id < 0");
-		}
-		q("INSERT INTO {SQL_TABLE_PREFIX}tv_".$forum_id." (id, thread_id) VALUES(".$id.",".$th.")");
-		q("UPDATE {SQL_TABLE_PREFIX}forum SET last_view_id=last_view_id+1, last_sticky_id=last_sticky_id+1 WHERE id=".$forum_id);
-	}
 	if (isset($ll)) {
 		db_unlock();
 	}
 }
 
-function th_reply_rebuild($forum_id, $th=0, $sticky=0)
+function th_reply_rebuild($forum_id, $th, $sticky)
 {
-	if (!(__request_timestamp__ % 250) && __th_cron_emu($forum_id)) {
-		return;
-	}
-
 	if (!db_locked()) {
 		$ll = 1;
-		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}forum READ');
+		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE');
 	}
 
-	$id = q_singleval('SELECT last_sticky_id FROM {SQL_TABLE_PREFIX}forum WHERE id='.$forum_id);
-	$lv = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' ORDER BY id DESC LIMIT 1');
-	$pos = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th);
+	list($max,$tid,$iss) = db_saq('SELECT seq,thread_id,iss FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' ORDER BY seq DESC LIMIT 1');
 
-	if ($pos && $pos != $lv) {
-		q('UPDATE /* first */ {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id='.($lv+1).' WHERE id='.$pos);
-		if (!$id || $sticky) {
-			if (__dbtype__ == 'mysql' && version_compare(get_version(), "4.0.0", ">=")) {
-				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=id-1 WHERE id>='.$pos.' ORDER BY id');
-			} else {
-				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=(id * -1)+1 WHERE id>='.$pos);
-				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id= id * -1 WHERE id<0');
-			}
-		} else {
-			if (__dbtype__ == 'mysql' && version_compare(get_version(), "4.0.0", ">=")) {
-				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=id-1 WHERE id>='.$pos.' AND id<'.$id.' ORDER BY id');
-			} else {
-				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id=(id * -1)+1 WHERE id>='.$pos.' AND id<'.$id);
-				q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id= id * -1 WHERE id<0');
-			}
-			q('UPDATE /* last */ {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET id='.($id-1).' WHERE id='.($lv+1));
-		}
+	if ($tid == $th) {
+		/* NOOP: quick elimination, topic is already 1st */
+	} else if (!$iss || $sticky) { /* moving to the very top */
+		/* get position */
+		$pos = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th);
+		/* move everyone ahead, 1 down */
+		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=seq-1 WHERE seq>'.$pos);
+		/* move to top of the stack */
+		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq='.$max.' WHERE thread_id='.$th);
+	} else {
+		/* get position */
+		$pos = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th);
+		/* find oldest sticky message */
+		$iss = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE seq>'.($max - 50).' AND iss>0 ORDER BY seq ASC LIMIT 1');
+		/* move everyone ahead, unless sticky, 1 down */
+		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=seq-1 WHERE seq BETWEEN '.($pos + 1).' AND '.($iss - 1));
+		/* move to top of the stack */
+		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq='.($iss - 1).' WHERE thread_id='.$th);
 	}
 
 	if (isset($ll)) {

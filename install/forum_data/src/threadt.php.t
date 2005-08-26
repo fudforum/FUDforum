@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.40 2005/08/11 00:44:21 hackie Exp $
+* $Id: threadt.php.t,v 1.41 2005/08/26 18:00:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,8 +31,8 @@
 		INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.id=m.thread_id AND m.apr=1
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id="._uid."
-		WHERE tv.id BETWEEN ".($frm->last_view_id - ($cur_frm_page * $THREADS_PER_PAGE))." AND ".($frm->last_view_id - (($cur_frm_page - 1) * $THREADS_PER_PAGE))."
-		ORDER BY tv.id DESC, m.id");
+		WHERE tv.seq BETWEEN ".($lwi - ($cur_frm_page * $THREADS_PER_PAGE))." AND ".($lwi - (($cur_frm_page - 1) * $THREADS_PER_PAGE))."
+		ORDER BY tv.seq DESC, m.id");
 
 	if (!($obj = db_rowobj($r))) {
 		$thread_list_table_data = '{TEMPLATE: no_messages}';

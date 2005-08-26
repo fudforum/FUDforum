@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.138 2005/08/24 20:59:50 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.139 2005/08/26 18:00:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -273,11 +273,11 @@ class fud_msg_edit extends fud_msg
 
 			/* check if the message is the last in the forum */
 			if ($del->forum_lip == $del->id) {
-				$page = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' WHERE thread_id='.$del->thread_id);
+				$page = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' WHERE thread_id='.$del->thread_id);
 				$lp = db_saq('SELECT t.last_post_id, t.last_post_date 
 					FROM {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' tv
 					INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id 
-					WHERE tv.id IN('.$page.','.($page - 1).') AND t.moved_to=0 ORDER BY t.last_post_date DESC LIMIT 1');
+					WHERE tv.seq IN('.$page.','.($page - 1).') AND t.moved_to=0 ORDER BY t.last_post_date DESC LIMIT 1');
 				if (!isset($lpd) || $lp[1] > $lpd) {
 					$lpi = $lp[0];
 				}
