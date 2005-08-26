@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.45 2005/08/26 18:00:05 hackie Exp $
+* $Id: pdf.php.t,v 1.46 2005/08/26 19:20:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -176,7 +176,7 @@ class fud_pdf extends FPDF
 		}
 
 		if ($page) {
-			$lwi = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$frm_id.' ORDER BY id DESC LIMIT 1')
+			$lwi = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$frm_id.' ORDER BY seq DESC LIMIT 1')
 			if ($lwi === NULL || $lwi === FALSE) {
 				invl_inp_err();
 			}

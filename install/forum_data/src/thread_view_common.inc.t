@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.50 2005/08/26 18:00:05 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.51 2005/08/26 19:20:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,7 +56,7 @@ if (!$frm) {
 }
 
 $MOD = ($is_a || $frm->md);
-$lwi = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}tv_'.$frm_id.' ORDER BY id DESC LIMIT 1');
+$lwi = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$frm_id.' ORDER BY seq DESC LIMIT 1');
 
 /* check that the user has permissions to access this forum */
 if (!($frm->group_cache_opt & 2) && !$MOD) {
