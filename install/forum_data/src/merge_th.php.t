@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.32 2005/08/26 18:00:05 hackie Exp $
+* $Id: merge_th.php.t,v 1.33 2005/08/26 19:17:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -160,7 +160,7 @@
 	
 	$lwi = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$frm.' ORDER BY id DESC LIMIT 1');
 
-	$c = uq('SELECT t.seq, m.subject FROM {SQL_TABLE_PREFIX}tv_'.$frm.' tv 
+	$c = uq('SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}tv_'.$frm.' tv 
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=tv.thread_id 
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id 
 			WHERE tv.seq BETWEEN '.($lwi - ($page * $THREADS_PER_PAGE)).' AND '.($lwi - (($page - 1) * $THREADS_PER_PAGE)).'
