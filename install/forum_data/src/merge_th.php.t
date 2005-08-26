@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.34 2005/08/26 19:20:53 hackie Exp $
+* $Id: merge_th.php.t,v 1.35 2005/08/26 21:46:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -149,6 +149,12 @@
 		++$page;
 	}
 
+	$lwi = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$frm.' ORDER BY seq DESC LIMIT 1');
+	$max_p = ceil($lwi / $THREADS_PER_PAGE);
+	if ($page > $max_p || $page < 1) {
+		$page = 1;
+	}
+
 	$thread_sel = '';
 	if (isset($_POST['sel_th'])) {
 		$c = uq("SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id IN(".implode(',', $_POST['sel_th']).")");
@@ -157,8 +163,6 @@
 		}
 		unset($c, $_POST['sel_th']);
 	}
-	
-	$lwi = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$frm.' ORDER BY seq DESC LIMIT 1');
 
 	$c = uq('SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}tv_'.$frm.' tv 
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=tv.thread_id 
@@ -170,7 +174,7 @@
 	}
 	unset($c);
 
-	$pages = implode("\n", range(1, ceil($lwi / $THREADS_PER_PAGE)));
+	$pages = implode("\n", range(1, $max_p));
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
