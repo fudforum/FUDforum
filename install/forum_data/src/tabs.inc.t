@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tabs.inc.t,v 1.20 2004/11/24 19:53:36 hackie Exp $
+* $Id: tabs.inc.t,v 1.21 2005/08/29 14:38:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,9 @@ if (_uid) {
 '{TEMPLATE: tabs_subscriptions}'=>'subscribed',
 '{TEMPLATE: tabs_referrals}'=>'referals',
 '{TEMPLATE: tabs_buddy_list}'=>'buddy_list',
-'{TEMPLATE: tabs_ignore_list}'=>'ignore_list');
+'{TEMPLATE: tabs_ignore_list}'=>'ignore_list',
+'{TEMPLATE: tabs_own_posts}'=>'showposts&amp;id='._uid
+);
 
 	if (!($FUD_OPT_2 & 8192)) {
 		unset($tablist['{TEMPLATE: tabs_referrals}']);
