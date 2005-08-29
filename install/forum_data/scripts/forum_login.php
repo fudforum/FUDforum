@@ -49,12 +49,12 @@ function __fud_login_common()
 	eval(str_replace('<?php', '', substr_replace($data, '', strpos($data, 'require'))));
 
 	/* db.inc needs certain vars inside the global scope to work, so we export them */
-	foreach (array('FUD_OPT_1', 'DBHOST', 'DBHOST_USER', 'DBHOST_PASSWORD', 'DBHOST_DBNAME') as $v) {
+	foreach (array('FUD_OPT_1', 'DBHOST', 'DBHOST_USER', 'DBHOST_PASSWORD', 'DBHOST_DBNAME','DATA_DIR') as $v) {
 		$GLOBALS[$v] = $$v;
 	}
 
 	if (!$GLOBALS['PATH_TO_FUD_FORUM_DB_INC']) {
-		require_once $DATA_DIR . 'include/theme/default/db.inc';
+		require_once $GLOBALS['DATA_DIR'] . 'include/theme/default/db.inc';
 	} else {
 		require_once $GLOBALS['PATH_TO_FUD_FORUM_DB_INC'];
 	}
