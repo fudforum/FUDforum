@@ -37,6 +37,11 @@ function external_fud_logout($user_id)
 	setcookie($COOKIE_NAME, '', 0, $COOKIE_PATH, $COOKIE_DOMAIN);
 }
 
+function external_get_user_by_auth($login,$passwd)
+{
+	return q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($login)."' AND passwd='".md5($passwd)."'");
+}
+
 function __fud_login_common()
 {
 	/* load forum config */
