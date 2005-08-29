@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.20 2005/08/16 21:25:44 hackie Exp $
+* $Id: db.inc,v 1.21 2005/08/29 16:18:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -149,6 +149,10 @@ function __enifo($a)
 
 function uq($query, $buf=0)
 {
+	if (__dbtype__ == 'sqlite') {
+		$query = stripslashes($query);
+	}
+
 	if (!strncasecmp($query, 'SELECT', 6)) {
 		db::$res = null;
 		db::$buf = $buf;
