@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.57 2005/08/16 21:25:44 hackie Exp $
+* $Id: db.inc,v 1.58 2005/08/29 17:56:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -211,5 +211,10 @@ function db_all($q)
 		$f[] = $r[0];
 	}
 	return $f;
+}
+
+function _esc($s)
+{
+	return mysql_real_escape_string($s, fud_sql_lnk);
 }
 ?>
