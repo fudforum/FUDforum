@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.54 2005/08/25 16:00:59 hackie Exp $
+* $Id: isearch.inc.t,v 1.55 2005/08/29 20:13:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@ function mb_word_split($str)
 	$m2 = array();
 	foreach (array_unique($m[0]) as $v) {
 		if (isset($v[1])) {
-			$m2[] = "'".addslashes($v)."'";
+			$m2[] = _esc($v);
 		}
 	}
 
@@ -83,7 +83,7 @@ function text_to_worda($text)
 	
 		foreach ($t1 as $v) {
 			if (isset($v[51]) || !isset($v[2])) continue;
-			$a[] = "'".addslashes($v)."'";
+			$a[] = _esc($v);
 		}
 
 		error_reporting(2047); /* restore error reporting */
