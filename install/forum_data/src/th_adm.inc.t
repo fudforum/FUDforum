@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.33 2005/08/26 20:34:35 hackie Exp $
+* $Id: th_adm.inc.t,v 1.34 2005/08/29 16:39:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -106,9 +106,9 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 		$val = '(@seq:=@seq+1)';
 	} else if (__dbtype__ == 'pgsql') {
 		$cur = q("SELECT nextval('{SQL_TABLE_PREFIX}tv_".$forum_id."_id_seq')") - 1;
-		$val = "0";
+		$val = '0';
 	} else {
-		$val = '(last_insert_rowid()+1)';
+		$val = '0';
 	}
 
 	q('DELETE FROM {SQL_TABLE_PREFIX}tv_'.$forum_id); /* in sqlite, this resets row counter */
@@ -120,7 +120,7 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 	if (__dbtype__ == 'pgsql') {
 		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=id - '.$cur);
 	} else if (__dbtype__ == 'sqlite') { /* adjust 1st value, since it can come from previous insert */
-		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=1 WHERE id=1');
+		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=id');
 	} 
 
 	if (isset($ll)) {
