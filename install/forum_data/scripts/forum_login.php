@@ -37,12 +37,14 @@ function external_fud_logout($user_id)
 	setcookie($COOKIE_NAME, '', 0, $COOKIE_PATH, $COOKIE_DOMAIN);
 }
 
-function external_get_user_by_auth($login,$passwd)
+function external_get_user_by_auth($login, $passwd)
 {
+	__fud_login_common(1);
+
 	return q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($login)."' AND passwd='".md5($passwd)."'");
 }
 
-function __fud_login_common()
+function __fud_login_common($skip=0)
 {
 	/* load forum config */
 	$data = file_get_contents($GLOBALS['PATH_TO_FUD_FORUM_GLOBALS_PHP']);
@@ -57,6 +59,10 @@ function __fud_login_common()
 		require_once $GLOBALS['DATA_DIR'] . 'include/theme/default/db.inc';
 	} else {
 		require_once $GLOBALS['PATH_TO_FUD_FORUM_DB_INC'];
+	}
+
+	if ($skip) {
+		return;
 	}
 
 	/* validate user */
