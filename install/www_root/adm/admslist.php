@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admslist.php,v 1.3 2005/07/06 15:12:43 hackie Exp $
+* $Id: admslist.php,v 1.4 2005/08/30 20:18:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,7 +42,7 @@ function print_ul($qry)
 <?php
 	print_ul("SELECT u.id, u.alias FROM ".$DBHOST_TBL_PREFIX."mod m
 		INNER JOIN ".$DBHOST_TBL_PREFIX."users u ON u.id=m.user_id
-		GROUP BY u.id ORDER BY u.alias");
+		GROUP BY u.id, u.alias ORDER BY u.alias");
 ?>
 </td>
 <td valign="top" class="resultrow1">
@@ -50,7 +50,7 @@ function print_ul($qry)
 	print_ul("SELECT u.id, u.alias FROM ".$DBHOST_TBL_PREFIX."group_members g
 		INNER JOIN ".$DBHOST_TBL_PREFIX."users u ON u.id=g.user_id
 		WHERE group_members_opt & 131072
-		GROUP BY u.id ORDER BY u.alias");
+		GROUP BY u.id, u.alias ORDER BY u.alias");
 ?>
 </td>
 </tr>
