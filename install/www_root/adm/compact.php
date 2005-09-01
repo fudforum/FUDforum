@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.52 2005/08/26 22:29:33 hackie Exp $
+* $Id: compact.php,v 1.53 2005/09/01 18:34:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -171,6 +171,9 @@ function eta_calc($start, $pos, $pc)
 	$i = $off = $len = 0;
 	$stm2 = time();
 	$fp = fopen($MSG_STORE_DIR.'private_tmp', 'wb');
+	if (!$fp) {
+		exit("Failed to open temporary private message store.");
+	}
 	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'pmsg') / 10);
 	$c = q('SELECT distinct(foff), length FROM '.$tbl.'pmsg');
 

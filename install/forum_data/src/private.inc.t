@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.43 2005/07/28 16:07:18 hackie Exp $
+* $Id: private.inc.t,v 1.44 2005/09/01 18:34:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -166,6 +166,9 @@ function write_pmsg_body($text)
 	}
 
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private', 'ab');
+	if (!$fp) {
+		exit("FATAL ERROR: cannot open private message store<br>\n");
+	}
 
 	fseek($fp, 0, SEEK_END);
 	if (!($s = ftell($fp))) {
