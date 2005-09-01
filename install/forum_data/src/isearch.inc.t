@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.55 2005/08/29 20:13:06 hackie Exp $
+* $Id: isearch.inc.t,v 1.56 2005/09/01 23:48:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,7 +53,7 @@ function text_to_worda($text)
 		$GLOBALS['usr']->lang = 'latvian';
 	}
 
-	$text = reverse_fmt($text);
+	$text = strip_tags(reverse_fmt($text));
 	while (1) {
 		switch ($GLOBALS['usr']->lang) {
 			case 'chinese_big5':
@@ -70,7 +70,7 @@ function text_to_worda($text)
 				break;
 
 			default:
-				$t1 = array_unique(str_word_count(strip_tags(strtolower($text)), 1));
+				$t1 = array_unique(str_word_count(strtolower($text), 1));
 				if (!$t1) { /* fall through to split by special chars */
 					$GLOBALS['usr']->lang = 'latvian';
 					continue;		
