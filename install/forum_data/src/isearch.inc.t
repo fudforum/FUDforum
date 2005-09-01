@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.56 2005/09/01 23:48:28 hackie Exp $
+* $Id: isearch.inc.t,v 1.57 2005/09/01 23:50:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,10 +58,8 @@ function text_to_worda($text)
 		switch ($GLOBALS['usr']->lang) {
 			case 'chinese_big5':
 			case 'chinese':
-				return array_unique(mb_word_split($text));
-		
 			case 'japanese':
-				preg_match_all('!(\w)!u', $text, $tmp);
+				return array_unique(mb_word_split($text));
 				break;
 
 			case 'latvian':
