@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.34 2005/08/29 16:39:44 hackie Exp $
+* $Id: th_adm.inc.t,v 1.35 2005/09/01 20:47:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -98,7 +98,7 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 
 	if (!db_locked()) {
 		$ll = 1;
-		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}thread READ, {SQL_TABLE_PREFIX}msg READ, {SQL_TABLE_PREFIX}forum READ');
+		db_lock('{SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}thread READ, {SQL_TABLE_PREFIX}msg READ');
 	}
 
 	if (__dbtype__ == 'mysql') {
