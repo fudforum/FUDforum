@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.140 2005/09/01 18:34:33 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.141 2005/09/02 15:29:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,7 +42,7 @@ class fud_msg_edit extends fud_msg
 		if (!isset($this->ip_addr)) {
 			$this->ip_addr = get_ip();
 		}
-		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
+		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? _esc(get_host($this->ip_addr)) : 'NULL';
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
 		$this->reply_to = isset($this->reply_to) ? $this->reply_to : 0;
 
@@ -197,8 +197,9 @@ class fud_msg_edit extends fud_msg
 		}
 
 		if ($GLOBALS['FUD_OPT_1'] & 16777216) {
-			delete_msg_index($this->id);
-			index_text((preg_match('!^Re: !i', $this->subject) ? '': $this->subject), $this->body, $this->id);
+			q('DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id='.$this->id);
+			q('DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id='.$this->id);
+			index_text((!strncasecmp('Re: ', $this->subject, 4) ? '' : $this->subject), $this->body, $this->id);
 		}
 	}
 

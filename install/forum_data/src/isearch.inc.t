@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.57 2005/09/01 23:50:44 hackie Exp $
+* $Id: isearch.inc.t,v 1.58 2005/09/02 15:29:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,24 +10,20 @@
 * (at your option) any later version.
 **/
 
-
-function delete_msg_index($msg_id)
-{
-	q('DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id='.$msg_id);
-	q('DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id='.$msg_id);
-}
-
 function mb_word_split($str)
 {
 	$m = array();
-	$lang = $GLOBALS['usr']->lang == 'chinese' ? 'EUC-CN' : 'BIG-5';
 
-	if (extension_loaded('iconv')) {
-		preg_match_all('!((?:[\x0-\x7f]+) | (?:[\xc0-\xfd]{1}[\x80-\xbf]+) )!xs', @iconv($lang, 'UTF-8', $str), $m);
-	} else if (extension_loaded('mbstring')) {
-		preg_match_all('!((?:[\x0-\x7f]+) | (?:[\xc0-\xfd]{1}[\x80-\xbf]+) )!xs', @mb_convert_encoding($str, 'UTF-8', $lang), $m);
-	} else { /* poor man's alternative to proper multi-byte support */
-		preg_match_all("!([\x0-\xff]{2})!", $str, $m);
+	switch ($lang) {
+		case 'chinese_big5':
+			preg_match_all('!((?:[A-Za-z]+) | (?:[\xa1-\xfe] [\x40-\x7e] | [\xa1-\xfe] )!xs', $str, $m);
+			break;
+		case 'chinese': /* bg2312 */
+			preg_match_all('!((?:[A-Za-z]+) | (?:[\xa1-\xf7] [\xa1-\xfe] )!xs', $str, $m);
+			break;
+		case 'japanese': /* utf-8 */
+			preg_match_all('!((?:[\x0-\x7f]+) | (?:[\xc0-\xfd]{1}[\x80-\xbf]+) )!xs', $str, $m);
+			break;
 	}
 
 	if (!$m) {
@@ -59,7 +55,7 @@ function text_to_worda($text)
 			case 'chinese_big5':
 			case 'chinese':
 			case 'japanese':
-				return array_unique(mb_word_split($text));
+				return mb_word_split($text);
 				break;
 
 			case 'latvian':
@@ -69,7 +65,7 @@ function text_to_worda($text)
 
 			default:
 				$t1 = array_unique(str_word_count(strtolower($text), 1));
-				if (!$t1) { /* fall through to split by special chars */
+				if ($text && !$t1) { /* fall through to split by special chars */
 					$GLOBALS['usr']->lang = 'latvian';
 					continue;		
 				} 
