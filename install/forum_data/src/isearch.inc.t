@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.58 2005/09/02 15:29:27 hackie Exp $
+* $Id: isearch.inc.t,v 1.59 2005/09/02 20:13:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -95,8 +95,11 @@ function index_text($subj, $body, $msg_id)
 		$body = preg_replace('!{TEMPLATE: post_html_quote_start_p1}(.*?){TEMPLATE: post_html_quote_start_p2}(.*?){TEMPLATE: post_html_quote_end}!is', '', $body);
 	}
 
-	$w1 = text_to_worda($subj);
-	$w2 = $w1 ? array_merge($w1, text_to_worda($body)) : text_to_worda($body);
+	if ($subj && ($w1 = text_to_worda($subj))) {
+		$w2 = array_merge($w1, text_to_worda($body));
+	} else {
+		$w2 = text_to_worda($body);
+	}
 
 	if (!$w2) {
 		return;
@@ -106,7 +109,7 @@ function index_text($subj, $body, $msg_id)
 
 	ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2, 'text', 0);
 
-	if ($w1) {
+	if ($subj && $w1) {
 		db_li('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE word IN('.implode(',', $w1).')', $ef);
 	}
 	db_li('INSERT INTO {SQL_TABLE_PREFIX}index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE word IN('.implode(',', $w2).')', $ef);
