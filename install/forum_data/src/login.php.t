@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.77 2005/08/16 13:32:26 hackie Exp $
+* $Id: login.php.t,v 1.78 2005/09/02 16:34:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -146,10 +146,10 @@ function error_check()
 			ses_putvar((int)$usr->sid, null);
 		}
 
-		if (!($usr_d = db_sab("SELECT id, passwd, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($_POST['login'])."'"))) {
+		if (!($usr_d = db_sab("SELECT id, passwd, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login="._esc($_POST['login'])))) {
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else if ($usr_d->passwd != md5($_POST['password'])) {
-			logaction($usr_d->id, 'WRONGPASSWD', 0, ($usr_d->users_opt & 1048576 ? 'ADMIN: ' : '')."Invalid Password \'".htmlspecialchars(addslashes($_POST['password']))."\' for login \'".htmlspecialchars(addslashes($_POST['login']))."\'. IP: ".get_ip());
+			logaction($usr_d->id, 'WRONGPASSWD', 0, ($usr_d->users_opt & 1048576 ? 'ADMIN: ' : '')."Invalid Password ".htmlspecialchars(_esc($_POST['password']))." for login ".htmlspecialchars(_esc($_POST['login'])).". IP: ".get_ip());
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else { /* Perform check to ensure that the user is allowed to login */
 			$usr_d->users_opt = (int) $usr_d->users_opt;
@@ -193,8 +193,8 @@ function error_check()
 				}
 			} else { /* PATH_INFO url or GET url with no args */
 				if ($FUD_OPT_1 & 128 && $FUD_OPT_2 & 32768 && !$sesp) {
-					if (preg_match('!([a-z0-9]{32})!', $usr->returnto, $m)) {
-						$usr->returnto = str_replace($m[1], $ses_id, $usr->returnto);
+					if (preg_match('![a-z0-9]{32}!', $usr->returnto, $m)) {
+						$usr->returnto = str_replace($m[0], $ses_id, $usr->returnto);
 					}
 				}
 				$usr->returnto .= '?SQ='.$new_sq.'&S='.$ses_id;
