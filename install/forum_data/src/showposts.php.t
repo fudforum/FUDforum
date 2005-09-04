@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.php.t,v 1.31 2005/07/14 16:13:10 hackie Exp $
+* $Id: showposts.php.t,v 1.32 2005/09/04 02:11:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,10 +15,7 @@
 	if (!isset($_GET['id']) || !($tmp = db_saq('SELECT id, alias, posted_msg_count, join_date FROM {SQL_TABLE_PREFIX}users WHERE id='.(int)$_GET['id']))) {
 		invl_inp_err();
 	} else {
-		$uid = $tmp[0];
-		$u_alias = $tmp[1];
-		$u_pcount = $tmp[2];
-		$u_reg_date = $tmp[3];
+		list($uid,$u_alias,$u_pcount,$u_reg_date) = $tmp;
 	}
 
 /*{POST_HTML_PHP}*/
