@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.55 2005/08/18 12:52:35 hackie Exp $
+* $Id: rdf.php.t,v 1.56 2005/09/04 18:37:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -105,8 +105,15 @@ function fud_xml_encode($str)
 			 * o		- offset
 			 * n		- number of rows to get
 			 * l		- latest
+			 * sf		- subcribed forums based on user id
+			 * st		- subcribed topics based on user id
 			 * basic	- output basic info parsable by all rdf parsers
 			 */
+			if (isset($_GET['sf'])) {
+				$_GET['frm'] = db_all("SELECT forum_id FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id=".(int)$_GET['sf']);
+			} else if (isset($_GET['st'])) {
+				$_GET['th'] = db_all("SELECT thread_id FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id=".(int)$_GET['sf']);
+			}
 			if (isset($_GET['cat'])) {
 			 	$lmt .= ' AND f.cat_id IN('.multi_id($_GET['cat']).')';
 			}

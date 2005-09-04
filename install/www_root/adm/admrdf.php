@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admrdf.php,v 1.14 2004/11/24 19:53:42 hackie Exp $
+* $Id: admrdf.php,v 1.15 2005/09/04 18:37:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -103,6 +103,8 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 		<tr><td><i>n</i></td><td>Fetch no more then <i>n</i> messages (cannot be higher then overall maximum).</td></tr>
 		<tr><td><i>o</i></td><td>Starting offset from which to begin fetching messages.</td></tr>
 		<tr><td><i>l</i></td><td>Order messages from newest to oldest.</td></tr>
+		<tr><td><i>sf</i></td><td>Subcribed forums based on user id.</td></tr>
+		<tr><td><i>st</i></td><td>Subcribed topics based on user id.</td></tr>
 		<tr><td><i>basic</i></td><td>Output basic data parse-able by most RDF parsers.</td></tr>
 	</table>
 </blockquote>
