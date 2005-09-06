@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.35 2005/09/01 20:47:24 hackie Exp $
+* $Id: th_adm.inc.t,v 1.36 2005/09/06 21:04:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -115,7 +115,7 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'.$forum_id.' (thread_id,iss,seq) SELECT {SQL_TABLE_PREFIX}thread.id, (thread_opt & (2|4)), '.$val.' FROM {SQL_TABLE_PREFIX}thread 
 		INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
 		WHERE forum_id='.$forum_id.' AND {SQL_TABLE_PREFIX}msg.apr=1 
-		ORDER BY (CASE WHEN thread_opt>=2 THEN 4294967294 ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC');
+		ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC');
 
 	if (__dbtype__ == 'pgsql') {
 		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=id - '.$cur);
