@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: scripts_common.inc,v 1.28 2005/07/28 16:07:18 hackie Exp $
+* $Id: scripts_common.inc,v 1.29 2005/09/06 14:47:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,11 +13,15 @@
 function match_user_to_post($from_email, $from_name, $create_users, &$user_id, $reg_date=0)
 {
 	/* Try to identify user by email */
-	$user_id = q_singleval("SELECT id FROM ".sql_p."users WHERE email='".addslashes($from_email)."'");
+	$user_id = q_singleval("SELECT id FROM ".sql_p."users WHERE email="._esc($from_email));
 
 	/* If user was not found via email, try to look the user up by login */
 	if (empty($user_id) && !empty($from_name)) {
-		$user_id = q_singleval("SELECT id FROM ".sql_p."users WHERE login='".addslashes($from_name)."'");
+		if ($GLOBALS['FUD_OPT_2'] & 128) {
+			$user_id = q_singleval("SELECT id FROM ".sql_p."users WHERE alias="._esc(make_alias($from_name)));
+		} else {
+			$user_id = q_singleval("SELECT id FROM ".sql_p."users WHERE login="._esc($from_name));
+		}
 	}
 
 	if (empty($user_id)) {
@@ -47,13 +51,13 @@ function create_new_user($from_name, $from_email, $reg_date=0)
 	 * This code ensures that creation of user does not fail in the event another user on the forum
 	 * is already signed up under the same login name and/or alias
 	 */
-	while (q_singleval("SELECT id FROM ".sql_p."users WHERE login='".addslashes($user->login)."'")) {
+	while (q_singleval("SELECT id FROM ".sql_p."users WHERE login="._esc($user->login))) {
 		$user->login = $login.'['.$i++.']';
 	}
 
 	$alias = $user->alias = htmlspecialchars($user->login);
 
-	while (q_singleval("SELECT id FROM ".sql_p."users WHERE alias='".addslashes($user->alias)."'")) {
+	while (q_singleval("SELECT id FROM ".sql_p."users WHERE alias="._esc($user->alias))) {
 		$user->alias = $alias.'['.$i++.']';
 	}
 
@@ -76,7 +80,7 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 		}
 
 		foreach ($data as $reply_id) {
-			if (($r = db_saq("SELECT id, thread_id FROM ".sql_p."msg WHERE mlist_msg_id='".addslashes($reply_id)."' ORDER BY post_stamp DESC LIMIT 1"))) {
+			if (($r = db_saq("SELECT id, thread_id FROM ".sql_p."msg WHERE mlist_msg_id="._esc($reply_id)." ORDER BY post_stamp DESC LIMIT 1"))) {
 				break;
 			}
 		}
@@ -86,7 +90,7 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 		if (preg_match('!(?:Re|Wa)\s*:\s*(.*)$!i', $subject, $matches)) {
 			$r = db_saq('SELECT m.id, m.thread_id FROM '.sql_p.'msg m INNER JOIN '.sql_p.'thread t ON m.thread_id=t.id WHERE t.forum_id='.$forum_id.' AND m.subject='.ssn(trim($matches[1])).' ORDER BY m.post_stamp');
 			if (!$r) {
-				$r = db_saq("SELECT m.id, m.thread_id FROM ".sql_p."msg m INNER JOIN ".sql_p."thread t ON m.thread_id=t.id WHERE t.forum_id=".$forum_id." AND m.subject LIKE '".str_replace('_', '\\_', addslashes(trim($matches[1])))."%' ORDER BY m.post_stamp DESC LIMIT 1");
+				$r = db_saq("SELECT m.id, m.thread_id FROM ".sql_p."msg m INNER JOIN ".sql_p."thread t ON m.thread_id=t.id WHERE t.forum_id=".$forum_id." AND m.subject LIKE ".addcslashes(_esc(trim($matches[1]).'%'),'_')." ORDER BY m.post_stamp DESC LIMIT 1");
 			}
 		}
 	}
