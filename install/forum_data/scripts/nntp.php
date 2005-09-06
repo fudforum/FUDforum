@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.php,v 1.27 2005/08/09 13:52:24 hackie Exp $
+* $Id: nntp.php,v 1.28 2005/09/06 02:02:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -65,6 +65,9 @@
 	define('sql_p', $GLOBALS['DBHOST_TBL_PREFIX']);
 
 	$nntp_adm = db_sab('SELECT * FROM '.sql_p.'nntp WHERE id='.$fid);
+	if (!$nntp_adm) {
+		exit("Invalid NNTP rule id\n");
+	}
 
 	$nntp = new fud_nntp;
 
