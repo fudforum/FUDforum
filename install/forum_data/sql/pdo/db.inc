@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.22 2005/08/29 17:56:13 hackie Exp $
+* $Id: db.inc,v 1.23 2005/09/07 21:22:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -212,7 +212,7 @@ function get_fud_table_list($tbl='')
 			if (!$tbl) {
 				return db::$db->query("SHOW TABLES LIKE '".$idx."%'")->fetchAll(PDO_FETCH_COLUMN);
 			}
-			return q_singleval("SHOW TABLES LIKE '".str_replace("_", "\\_", $tbl)."'");
+			return db::$db->query("SHOW TABLES LIKE '".str_replace("_", "\\_", $tbl)."'")->fetchColumn();
 
 		case 'pgsql':
 			if (!$tbl) {
