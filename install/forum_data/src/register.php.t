@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.155 2005/08/20 14:31:30 hackie Exp $
+* $Id: register.php.t,v 1.156 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -183,7 +183,7 @@ function register_form_check($user_id)
 			if (is_login_blocked($_POST['reg_alias'])) {
 				set_err('reg_alias', '{TEMPLATE: register_err_alias_notallowed}');
 			}
-			if (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(make_alias($_POST['reg_alias']))."' AND id!=".$user_id)) {
+			if (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias="._esc(make_alias($_POST['reg_alias']))." AND id!=".$user_id)) {
 				set_err('reg_alias', '{TEMPLATE: register_err_taken_alias}');
 			}
 		}

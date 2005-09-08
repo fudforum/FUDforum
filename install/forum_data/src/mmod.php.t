@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmod.php.t,v 1.39 2005/08/11 01:26:13 hackie Exp $
+* $Id: mmod.php.t,v 1.40 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,7 +87,7 @@
 			}
 
 			if ($data[2] == $data[4]) {
-				logaction(_uid, 'DELTHR', 0, '"'.addslashes($data[3]).'" w/'.$data[6].' replies');
+				logaction(_uid, 'DELTHR', 0, '"'.$data[3].'" w/'.$data[6].' replies');
 
 				fud_msg_edit::delete(true, $data[2], 1);
 
@@ -102,7 +102,7 @@
 					check_return($usr->returnto);
 				}
 			} else {
-				logaction(_uid, 'DELMSG', 0, addslashes($data[3]));
+				logaction(_uid, 'DELMSG', 0, $data[3]);
 				fud_msg_edit::delete(true, $data[2], 0);
 			}
 		}

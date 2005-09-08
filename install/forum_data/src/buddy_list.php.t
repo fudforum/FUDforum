@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.php.t,v 1.39 2005/08/18 01:10:55 hackie Exp $
+* $Id: buddy_list.php.t,v 1.40 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,7 @@
 	}
 
 	if (isset($_POST['add_login']) && is_string($_POST['add_login'])) {
-		if (!($buddy_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(char_fix(htmlspecialchars($_POST['add_login'])))."'"))) {
+		if (!($buddy_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias="._esc(char_fix(htmlspecialchars($_POST['add_login'])))))) {
 			error_dialog('{TEMPLATE: buddy_list_err_nouser_title}', '{TEMPLATE: buddy_list_err_nouser}');
 		}
 		if ($buddy_id == _uid) {

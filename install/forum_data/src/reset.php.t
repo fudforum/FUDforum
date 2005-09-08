@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reset.php.t,v 1.24 2005/07/13 14:07:11 hackie Exp $
+* $Id: reset.php.t,v 1.25 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@
 	}
 
 	if (isset($_GET['reset_key'])) {
-		if (($ui = db_saq("SELECT email, login, id FROM {SQL_TABLE_PREFIX}users WHERE reset_key='".addslashes((string)$_GET['reset_key'])."'"))) {
+		if (($ui = db_saq("SELECT email, login, id FROM {SQL_TABLE_PREFIX}users WHERE reset_key="._esc((string)$_GET['reset_key'])))) {
 			q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5(($passwd = dechex(get_random_value(32))))."', reset_key='0' WHERE id=".$ui[2]);
 			send_email($NOTIFY_FROM, $ui[0], '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_newpass_msg}');
 			ses_putvar((int)$usr->sid, '{TEMPLATE: reset_login_notify}');
@@ -45,7 +45,7 @@
 	}
 
 	if ($email) {
-		if ($uobj = db_sab("SELECT id, users_opt FROM {SQL_TABLE_PREFIX}users WHERE email='".addslashes($email)."'")) {
+		if ($uobj = db_sab("SELECT id, users_opt FROM {SQL_TABLE_PREFIX}users WHERE email="._esc($email))) {
 			if ($FUD_OPT_2 & 1 && !($uobj->users_opt & 131072)) {
 				$uent->conf_key= usr_email_unconfirm($uobj->id);
 				send_email($NOTIFY_FROM, $email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}');

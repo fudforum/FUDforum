@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.93 2005/08/19 17:42:59 hackie Exp $
+* $Id: index.php.t,v 1.94 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,7 +60,7 @@ function url_tog_collapse($id, $c)
 		$cs = (string) $_GET['c'];
 		reload_collapse($cs);
 		if (_uid && $cs != $usr->cat_collapse_status) {
-			q("UPDATE {SQL_TABLE_PREFIX}users SET cat_collapse_status='".addslashes($cs)."' WHERE id="._uid);
+			q("UPDATE {SQL_TABLE_PREFIX}users SET cat_collapse_status="._esc($cs)." WHERE id="._uid);
 		}
 	} else if (_uid && $usr->cat_collapse_status) {
 		$cs = $usr->cat_collapse_status;

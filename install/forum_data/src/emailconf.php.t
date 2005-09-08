@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: emailconf.php.t,v 1.22 2004/11/24 19:53:34 hackie Exp $
+* $Id: emailconf.php.t,v 1.23 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,7 +24,7 @@
 		check_return($usr->returnto);
 	}
 
-	$uid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".addslashes($_GET['conf_key'])."'");
+	$uid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key="._esc($_GET['conf_key']));
 	if (!$uid || (__fud_real_user__ && __fud_real_user__ != $uid)) {
 		error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 	}

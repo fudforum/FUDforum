@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.85 2005/08/09 00:24:41 hackie Exp $
+* $Id: users_reg.inc.t,v 1.86 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -119,11 +119,11 @@ class fud_user_reg extends fud_user
 				users_opt,
 				reg_ip
 			) VALUES (
-				'".addslashes($this->login)."',
-				'".addslashes($this->alias)."',
+				"._esc($this->login).",
+				"._esc($this->alias).",
 				'".$md5pass."',
-				'".addslashes($this->name)."',
-				'".addslashes($this->email)."',
+				"._esc($this->name).",
+				"._esc($this->email).",
 				".$this->icq.",
 				".ssn(urlencode($this->aim)).",
 				".ssn(urlencode($this->yahoo)).",
@@ -131,7 +131,7 @@ class fud_user_reg extends fud_user
 				".ssn(htmlspecialchars($this->jabber)).",
 				".ssn(urlencode($this->affero)).",
 				".(int)$this->posts_ppg.",
-				'".addslashes($this->time_zone)."',
+				"._esc($this->time_zone).",
 				".$this->bday.",
 				".__request_timestamp__.",
 				'".$this->conf_key."',
@@ -166,17 +166,17 @@ class fud_user_reg extends fud_user
 		$this->html_fields();
 
 		q("UPDATE {SQL_TABLE_PREFIX}users SET ".$passwd."
-			name='".addslashes($this->name)."',
-			alias='".addslashes($this->alias)."',
-			email='".addslashes($this->email)."',
+			name="._esc($this->name).",
+			alias="._esc($this->alias).",
+			email="._esc($this->email).",
 			icq=".$this->icq.",
 			aim=".ssn(urlencode($this->aim)).",
 			yahoo=".ssn(urlencode($this->yahoo)).",
 			msnm=".ssn(urlencode($this->msnm)).",
 			jabber=".ssn(htmlspecialchars($this->jabber)).",
 			affero=".ssn(urlencode($this->affero)).",
-			posts_ppg='".(int)$this->posts_ppg."',
-			time_zone='".addslashes($this->time_zone)."',
+			posts_ppg=".(int)$this->posts_ppg.",
+			time_zone="._esc($this->time_zone).",
 			bday=".$this->bday.",
 			user_image=".ssn(htmlspecialchars($this->user_image)).",
 			location=".ssn($this->location).",
@@ -199,12 +199,12 @@ class fud_user_reg extends fud_user
 
 function get_id_by_email($email)
 {
-	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE email='".addslashes($email)."'");
+	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE email="._esc($email));
 }
 
 function get_id_by_login($login)
 {
-	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($login)."'");
+	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login="._esc($login));
 }
 
 function usr_email_unconfirm($id)

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.66 2005/08/11 01:26:13 hackie Exp $
+* $Id: search.php.t,v 1.67 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,7 +27,7 @@
 	$sort_order = (isset($_GET['sort_order']) && $_GET['sort_order'] == 'ASC') ? 'ASC' : 'DESC';
 	if (!empty($_GET['author'])) {
 		$author = (string) $_GET['author'];
-		$author_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes($author)."'");
+		$author_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias="._esc($author));
 	} else {
 		$author = $author_id = '';
 	}
@@ -36,17 +36,15 @@
 
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
-	$wa = text_to_worda($qry);
+	if (!($wa = text_to_worda($qry))) {
+		return;
+	}
 	$lang =& $GLOBALS['usr']->lang;
 	
 	if ($lang != 'chinese_big5' && $lang != 'chinese' && $lang != 'japanese') {
 		if (count($wa) > 10) {
 			$wa = array_slice($wa, 0, 10);
 		}
-	}
-
-	if (!$wa) {
-		return;
 	}
 
 	$qr = implode(',', $wa);

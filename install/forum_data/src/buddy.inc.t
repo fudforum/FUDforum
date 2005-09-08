@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy.inc.t,v 1.13 2005/07/27 23:34:32 hackie Exp $
+* $Id: buddy.inc.t,v 1.14 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,7 +32,7 @@ function buddy_rebuild_cache($uid)
 	unset($q);
 
 	if ($arr) {
-		q('UPDATE {SQL_TABLE_PREFIX}users SET buddy_list=\''.addslashes(serialize($arr)).'\' WHERE id='.$uid);
+		q('UPDATE {SQL_TABLE_PREFIX}users SET buddy_list='._esc(serialize($arr)).' WHERE id='.$uid);
 		return $arr;
 	}
 	q('UPDATE {SQL_TABLE_PREFIX}users SET buddy_list=NULL WHERE id='.$uid);

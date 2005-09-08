@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.php.t,v 1.49 2005/07/06 14:39:22 hackie Exp $
+* $Id: groupmgr.php.t,v 1.50 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -123,7 +123,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		if (empty($_POST['edit'])) {
 			$gr_member = $_POST['gr_member'];
 
-			if (!($usr_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(char_fix(htmlspecialchars($gr_member)))."'"))) {
+			if (!($usr_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias="._esc(char_fix(htmlspecialchars($gr_member)))))) {
 				$login_error = '{TEMPLATE: groupmgr_no_user}';
 			} else if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='.$usr_id)) {
 				$login_error = '{TEMPLATE: groupmgr_already_exists}';

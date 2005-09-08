@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.76 2005/07/28 16:07:18 hackie Exp $
+* $Id: cookies.inc.t,v 1.77 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,10 +34,10 @@ function ses_get($id=0)
 {
 	if (!$id) {
 		if (!empty($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
-			$q_opt = "s.ses_id='".addslashes($_COOKIE[$GLOBALS['COOKIE_NAME']])."'";
+			$q_opt = "s.ses_id="._esc($_COOKIE[$GLOBALS['COOKIE_NAME']]);
 		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['FUD_OPT_1'] & 128) {
 			$url_s = 1;
-			$q_opt = "s.ses_id='".addslashes((isset($_GET['S']) ? (string) $_GET['S'] : (string) $_POST['S']))."'";
+			$q_opt = "s.ses_id='"._esc((isset($_GET['S']) ? (string) $_GET['S'] : (string) $_POST['S']));
 			/* do not validate against expired URL sessions */
 			$q_opt .= " AND s.time_sec > ".(__request_timestamp__ - $GLOBALS['SESSION_TIMEOUT']);
 		} else {
@@ -103,7 +103,7 @@ function ses_anon_make()
 
 function ses_update_status($ses_id, $str=null, $forum_id=0, $ret='')
 {
-	q('UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=\''.ses_make_sysid().'\', forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action='.($str ? "'".addslashes($str)."'" : 'NULL').', returnto='.(!is_int($ret) ? (isset($_SERVER['QUERY_STRING']) ? "'".addslashes($_SERVER['QUERY_STRING'])."'" : 'NULL') : 'returnto').' WHERE id='.$ses_id);
+	q('UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=\''.ses_make_sysid().'\', forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action='.($str ? _esc($str) : 'NULL').', returnto='.(!is_int($ret) ? (isset($_SERVER['QUERY_STRING']) ? _esc($_SERVER['QUERY_STRING']) : 'NULL') : 'returnto').' WHERE id='.$ses_id);
 }
 
 function ses_putvar($ses_id, $data)
@@ -113,7 +113,7 @@ function ses_putvar($ses_id, $data)
 	if (empty($data)) {
 		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=NULL WHERE '.$cond);
 	} else {
-		q("UPDATE {SQL_TABLE_PREFIX}ses SET data='".addslashes(serialize($data))."' WHERE ".$cond);
+		q("UPDATE {SQL_TABLE_PREFIX}ses SET data="._esc(serialize($data))." WHERE ".$cond);
 	}
 }
 
@@ -129,7 +129,7 @@ function ses_delete($ses_id)
 
 function ses_anonuser_auth($id, $error)
 {
-	q("UPDATE {SQL_TABLE_PREFIX}ses SET data='".addslashes(serialize($error))."', returnto=".ssn($_SERVER['QUERY_STRING'])." WHERE id=".$id);
+	q("UPDATE {SQL_TABLE_PREFIX}ses SET data="._esc(serialize($error)).", returnto=".ssn($_SERVER['QUERY_STRING'])." WHERE id=".$id);
 	if ($GLOBALS['FUD_OPT_2'] & 32768) {
 		header('Location: {FULL_ROOT}{ROOT}/l/'._rsidl);
 	} else {

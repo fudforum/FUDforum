@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: attach.inc.t,v 1.46 2005/08/11 01:26:13 hackie Exp $
+* $Id: attach.inc.t,v 1.47 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,7 +27,7 @@ function safe_attachment_copy($source, $id, $ext)
 
 function attach_add($at, $owner, $attach_opt=0, $ext=0)
 {
-	$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}attach (location,message_id,original_name,owner,attach_opt,mime_type,fsize) SELECT '', 0, '".addslashes($at['name'])."', ".$owner.", ".$attach_opt.", id, ".$at['size']." FROM {SQL_TABLE_PREFIX}mime WHERE fl_ext IN('', '".addslashes(substr(strrchr($at['name'], '.'), 1))."') ORDER BY fl_ext DESC LIMIT 1");
+	$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}attach (location,message_id,original_name,owner,attach_opt,mime_type,fsize) SELECT '', 0, "._esc($at['name']).", ".$owner.", ".$attach_opt.", id, ".$at['size']." FROM {SQL_TABLE_PREFIX}mime WHERE fl_ext IN('', "._esc(substr(strrchr($at['name'], '.'), 1)).") ORDER BY fl_ext DESC LIMIT 1");
 
 	safe_attachment_copy($at['tmp_name'], $id, $ext);
 
@@ -63,7 +63,7 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 	q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mid." ".$id_list);
 
 	if (!$attach_opt && ($atl = attach_rebuild_cache($mid))) {
-		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cnt='.$attach_count.', attach_cache=\''.addslashes(serialize($atl)).'\' WHERE id='.$mid);
+		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cnt='.$attach_count.', attach_cache='._esc(serialize($atl)).' WHERE id='.$mid);
 	}
 
 	if (!empty($GLOBALS['usr']->sid)) {
@@ -86,7 +86,7 @@ function attach_inc_dl_count($id, $mid)
 {
 	q('UPDATE {SQL_TABLE_PREFIX}attach SET dlcount=dlcount+1 WHERE id='.$id);
 	if (($a = attach_rebuild_cache($mid))) {
-		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cache=\''.addslashes(serialize($a)).'\' WHERE id='.$mid);
+		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cache='._esc(serialize($a)).' WHERE id='.$mid);
 	}
 }
 ?>

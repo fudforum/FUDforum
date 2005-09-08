@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.44 2005/09/01 18:34:33 hackie Exp $
+* $Id: private.inc.t,v 1.45 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,7 +21,7 @@ class fud_pmsg
 	{
 		$this->post_stamp = __request_timestamp__;
 		$this->ip_addr = get_ip();
-		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
+		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? _esc(get_host($this->ip_addr)) : 'NULL';
 
 		if ($this->fldr != 1) {
 			$this->read_stamp = $this->post_stamp;
@@ -56,7 +56,7 @@ class fud_pmsg
 				".$this->post_stamp.",
 				".ssn($this->icon).",
 				".$this->fldr.",
-				'".addslashes($this->subject)."',
+				"._esc($this->subject).",
 				".(int)$this->attach_cnt.",
 				".$this->read_stamp.",
 				".ssn($this->ref_msg_id).",
@@ -99,7 +99,7 @@ class fud_pmsg
 				".$this->post_stamp.",
 				".ssn($this->icon).",
 				1,
-				'".addslashes($this->subject)."',
+				"._esc($this->subject).",
 				".(int)$this->attach_cnt.",
 				".$this->foff.",
 				".$this->length.",
@@ -128,7 +128,7 @@ class fud_pmsg
 	{
 		$this->post_stamp = __request_timestamp__;
 		$this->ip_addr = get_ip();
-		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
+		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? _esc(get_host($this->ip_addr)) : 'NULL';
 
 		list($this->foff, $this->length) = write_pmsg_body($this->body);
 
@@ -138,7 +138,7 @@ class fud_pmsg
 			ouser_id=".$this->ouser_id.",
 			duser_id=".$this->ouser_id.",
 			post_stamp=".$this->post_stamp.",
-			subject='".addslashes($this->subject)."',
+			subject="._esc($this->subject).",
 			ip_addr='".$this->ip_addr."',
 			host_name=".$this->host_name.",
 			attach_cnt=".(int)$this->attach_cnt.",

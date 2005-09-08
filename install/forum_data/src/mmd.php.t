@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmd.php.t,v 1.4 2005/08/18 15:05:12 hackie Exp $
+* $Id: mmd.php.t,v 1.5 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -67,7 +67,7 @@
 
 	if ($final_del) { /* remove threads, one by one */
 		foreach ($ext as $k => $v) {
-			logaction(_uid, 'DELTHR', 0, '"'.addslashes($list[$k]).'" w/'.$v[1].' replies');
+			logaction(_uid, 'DELTHR', 0, '"'.$list[$k].'" w/'.$v[1].' replies');
 			fud_msg_edit::delete(1, $v[0], 1);
 		}
 		check_return($usr->returnto);

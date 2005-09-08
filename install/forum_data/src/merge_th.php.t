@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.35 2005/08/26 21:46:16 hackie Exp $
+* $Id: merge_th.php.t,v 1.36 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -77,7 +77,7 @@
 			list($lpi, $lpd) = db_saq("SELECT last_post_id, last_post_date FROM {SQL_TABLE_PREFIX}thread WHERE id IN({$tl}) ORDER BY last_post_date DESC LIMIT 1");
 
 			$new_th = th_add($start, $forum, $lpd, 0, 0, $repl, $lpi);
-			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject='".addslashes(htmlspecialchars($_POST['new_title']))."' WHERE id=".$start);
+			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject="._esc(htmlspecialchars($_POST['new_title']))." WHERE id=".$start);
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to={$start} WHERE thread_id IN({$tl}) AND (reply_to=0 OR reply_to=id) AND id!={$start}");
 			if ($forum != $frm) {
 				$p = db_all('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id IN('.$tl.') AND apr=1 AND poll_id>0');

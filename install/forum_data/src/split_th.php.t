@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.53 2005/08/26 19:23:00 hackie Exp $
+* $Id: split_th.php.t,v 1.54 2005/09/08 14:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -126,7 +126,7 @@ function th_frm_last_post_id($id, $th)
 			/* Deal with the new thread */
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='.$new_th.' WHERE id IN ('.$mids.')');
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to='.$start.' WHERE thread_id='.$new_th.' AND reply_to NOT IN ('.$mids.')');
-			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject='".addslashes(htmlspecialchars($_POST['new_title']))."' WHERE id=".$start);
+			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject="._esc(htmlspecialchars($_POST['new_title']))." WHERE id=".$start);
 
 			/* Deal with the old thread */
 			list($lpi, $lpd) = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data->id." AND apr=1 ORDER BY post_stamp DESC LIMIT 1");$old_root_msg_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data->id." AND apr=1 ORDER BY post_stamp ASC LIMIT 1");
@@ -167,7 +167,7 @@ function th_frm_last_post_id($id, $th)
 			logaction(_uid, 'THRSPLIT', $new_th);
 			$th_id = $new_th;
 		} else { /* moving entire thread */
-			q("UPDATE {SQL_TABLE_PREFIX}msg SET subject='".addslashes(htmlspecialchars($_POST['new_title']))."' WHERE id=".$data->root_msg_id);
+			q("UPDATE {SQL_TABLE_PREFIX}msg SET subject="._esc(htmlspecialchars($_POST['new_title']))." WHERE id=".$data->root_msg_id);
 			if ($forum != $data->forum_id) {
 				th_move($data->id, $forum, $data->root_msg_id, $thr->forum_id, $data->last_post_date, $data->last_post_id);
 
