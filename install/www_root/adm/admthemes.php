@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.58 2005/08/25 13:24:34 hackie Exp $
+* $Id: admthemes.php,v 1.59 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,7 +27,7 @@
 		$_POST['newname'] = '';
 	}
 
-	if ($_POST['newname'] && !q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."themes WHERE name='".addslashes($_POST['newname'])."'")) {
+	if ($_POST['newname'] && !q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."themes WHERE name="._esc($_POST['newname']))) {
 		$root = $DATA_DIR . 'thm/';
 		$root_nn = $root . preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
 		$u = umask(0);

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mlist.inc,v 1.16 2004/11/24 19:53:34 hackie Exp $
+* $Id: mlist.inc,v 1.17 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,13 +60,13 @@ class fud_mlist
 			)
 			VALUES(
 			".$this->forum_id.",
-			'".addslashes($this->name)."',
+			"._esc($this->name).",
 			".$this->mlist_opt.",
-			'".addslashes($this->subject_regex_haystack)."',
-			'".addslashes($this->subject_regex_needle)."',
-			'".addslashes($this->body_regex_haystack)."',
-			'".addslashes($this->body_regex_needle)."',
-			'".addslashes($this->additional_headers)."'
+			"._esc($this->subject_regex_haystack).",
+			"._esc($this->subject_regex_needle).",
+			"._esc($this->body_regex_haystack).",
+			"._esc($this->body_regex_needle).",
+			"._esc($this->additional_headers)."
 			)");
 		if ($this->mlist_opt & 4) {
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt|2 WHERE id='.$this->forum_id);
@@ -87,13 +87,13 @@ class fud_mlist
 
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist SET
 			forum_id=".$this->forum_id.",
-			name='".addslashes($this->name)."',
+			name="._esc($this->name).",
 			mlist_opt=".$this->mlist_opt.",
-			subject_regex_haystack='".addslashes($this->subject_regex_haystack)."',
-			subject_regex_needle='".addslashes($this->subject_regex_needle)."',
-			body_regex_haystack='".addslashes($this->body_regex_haystack)."',
-			body_regex_needle='".addslashes($this->body_regex_needle)."',
-			additional_headers='".addslashes($this->additional_headers)."'
+			subject_regex_haystack="._esc($this->subject_regex_haystack).",
+			subject_regex_needle="._esc($this->subject_regex_needle).",
+			body_regex_haystack="._esc($this->body_regex_haystack).",
+			body_regex_needle="._esc($this->body_regex_needle).",
+			additional_headers="._esc($this->additional_headers)."
 		WHERE id=".$id);
 
 		if ($old_frm_id != $this->forum_id && $mlist_opt & 4) {

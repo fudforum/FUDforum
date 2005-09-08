@@ -574,7 +574,7 @@ function fud_add_user($vals, &$err)
 
 	// some fields must be unique, check them
 	foreach (array('login','email','alias')	as $v) {
-		if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE {$v}='".addslashes($vals[$v])."'")) {
+		if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE {$v}="._esc($vals[$v]))) {
 			$err = "value for {$v} must be unique, specified value of {$vals[$v]} already exists.";
 			return 0;
 		}
@@ -639,11 +639,11 @@ function fud_add_user($vals, &$err)
 				users_opt,
 				reg_ip
 			) VALUES (
-				'".addslashes($vals['login'])."',
-				'".addslashes($vals['alias'])."',
+				"._esc($vals['login']).",
+				"._esc($vals['alias']).",
 				'".$vals['passwd']."',
-				'".addslashes($vals['name'])."',
-				'".addslashes($vals['email'])."',
+				"._esc($vals['name']).",
+				"._esc($vals['email']).",
 				".(int)$vals['icq'].",
 				".ssn(urlencode($vals['aim'])).",
 				".ssn(urlencode($vals['yahoo'])).",
@@ -651,7 +651,7 @@ function fud_add_user($vals, &$err)
 				".ssn(htmlspecialchars($vals['jabber'])).",
 				".ssn(urlencode($vals['affero'])).",
 				".(int)$vals['posts_ppg'].",
-				'".addslashes($vals['time_zone'])."',
+				"._esc($vals['time_zone']).",
 				".(int)$vals['bday'].",
 				".(int)$vals['last_visit'].",
 				'".$vals['conf_key']."',
@@ -698,7 +698,7 @@ function fud_update_user($uid, $vals, &$err)
 	foreach (array('login','email','alias')	as $v) {
 		if (empty($vals[$v])) continue;
 	
-		if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE {$v}='".addslashes($vals[$v])."' AND id!=".$uid)) {
+		if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE {$v}="._esc($vals[$v])." AND id!=".$uid)) {
 			$err = "value for {$v} must be unique, specified value of {$vals[$v]} already exists.";
 			return 0;
 		}
@@ -711,7 +711,7 @@ function fud_update_user($uid, $vals, &$err)
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
 		'sig','home_page','bio','users_opt','reg_ip') as $v) {
 		if (isset($vals[$v])) {
-			$qry .= "{$v}='".addslashes($vals[$v])."',";
+			$qry .= "{$v}="._esc($vals[$v]).",";
 		}
 	}
 	uq(rtrim($qry,',')." WHERE id=".$uid);
@@ -885,7 +885,7 @@ function fud_delete_attachment($arg)
 	foreach ($data as $at) {
 		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."attach WHERE id=".$at->id);
 		$atl = attach_rebuild_cache($at->message_id);
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET attach_cnt=attach_cnt-1, attach_cache='".addslashes(@serialize($atl))."' WHERE id=".$at->message_id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET attach_cnt=attach_cnt-1, attach_cache="._esc(@serialize($atl))." WHERE id=".$at->message_id);
 	}
 }
 
@@ -1027,7 +1027,7 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 	}
 
 	$msg = new fud_msg_edit();
-	$msg->poster_id = is_numeric($author) ? (int) $author : (int) q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".addslashes($author)."'");
+	$msg->poster_id = is_numeric($author) ? (int) $author : (int) q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login="._esc($author));
 	$msg->subject = $subject;
 	$msg->body = apply_custom_replace($body);
 	$msg->icon = $icon;

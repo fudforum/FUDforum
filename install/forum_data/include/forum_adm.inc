@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum_adm.inc,v 1.26 2005/08/11 00:44:21 hackie Exp $
+* $Id: forum_adm.inc,v 1.27 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,7 +49,7 @@ class fud_forum
 			forum_opt
 		) VALUES (
 			".$this->cat_id.",
-			'".addslashes(htmlspecialchars($this->name))."',
+			"._esc(htmlspecialchars($this->name)).",
 			".ssn($this->descr).",
 			".ssn($this->post_passwd).",
 			".__request_timestamp__.",
@@ -88,7 +88,7 @@ class fud_forum
 
 		q("UPDATE ".$tbl."forum SET
 			cat_id=".$cat_id.",
-			name='".addslashes(htmlspecialchars($this->name))."',
+			name="._esc(htmlspecialchars($this->name)).",
 			descr=".ssn($this->descr).",
 			post_passwd=".ssn($this->post_passwd).",
 			forum_icon=".ssn($this->forum_icon).",
@@ -98,7 +98,7 @@ class fud_forum
 			forum_opt=".(int)$this->forum_opt."
 		WHERE id=".$id);
 
-		q('UPDATE '.$tbl.'groups SET name=\''.addslashes($this->name).'\' WHERE id='.$gid);
+		q('UPDATE '.$tbl.'groups SET name='._esc($this->name).' WHERE id='.$gid);
 	}
 }
 

@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.59 2005/08/26 02:42:12 hackie Exp $
+* $Id: maillist.php,v 1.60 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -367,7 +367,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	if (is_numeric($_SERVER['argv'][1])) {
 		$mlist = db_sab('SELECT * FROM '.sql_p.'mlist WHERE id='.$_SERVER['argv'][1]);
 	} else {
-		$mlist = db_sab("SELECT * FROM ".sql_p."mlist WHERE name='".addslashes($_SERVER['argv'][1])."'");
+		$mlist = db_sab("SELECT * FROM ".sql_p."mlist WHERE name=".esc($_SERVER['argv'][1]));
 	}
 	if (!$mlist) {
 		exit('Invalid list identifier');
@@ -398,13 +398,13 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 
 	/* check if message was already imported */
-	if ($emsg->msg_id && q_singleval("SELECT id FROM ".sql_p."msg WHERE mlist_msg_id='".addslashes($emsg->msg_id)."'")) {
+	if ($emsg->msg_id && q_singleval("SELECT id FROM ".sql_p."msg WHERE mlist_msg_id="._esc($emsg->msg_id))) {
 		return;
 	}
 
 	// Handler for our own messages, which do not need to be imported.
 	if (isset($emsg->headers['x-fudforum']) && preg_match('!'.md5($GLOBALS['WWW_ROOT']).' <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
-		q("UPDATE ".sql_p."msg SET mlist_msg_id='".addslashes($emsg->msg_id)."' WHERE id=".(int)$m[1]." AND mlist_msg_id IS NULL");
+		q("UPDATE ".sql_p."msg SET mlist_msg_id="._esc($emsg->msg_id)." WHERE id=".(int)$m[1]." AND mlist_msg_id IS NULL");
 		return;
 	}
 
@@ -453,7 +453,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	}
 
 	$msg_post->ip_addr = $emsg->ip;
-	$msg_post->mlist_msg_id = addslashes($emsg->msg_id);
+	$msg_post->mlist_msg_id = $emsg->msg_id;
 	$msg_post->attach_cnt = 0;
 	$msg_post->poll_id = 0;
 	$msg_post->msg_opt = 2;

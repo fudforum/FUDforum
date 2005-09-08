@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.122 2005/08/26 18:00:05 hackie Exp $
+* $Id: consist.php,v 1.123 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -604,7 +604,7 @@ forum will be disabled.
 	$c = q('SELECT g.id, f.name FROM '.$tbl.'groups g INNER JOIN '.$tbl.'forum f ON f.id=g.forum_id WHERE g.id>2 AND f.name!=g.name');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
-		q("UPDATE ".$tbl."groups SET name='".addslashes($r[1])."' WHERE id=".$r[0]);
+		q("UPDATE ".$tbl."groups SET name="._esc($r[1])." WHERE id=".$r[0]);
 		++$i;
 	}
 	unset($r);

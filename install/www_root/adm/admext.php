@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.20 2005/07/06 15:12:43 hackie Exp $
+* $Id: admext.php,v 1.21 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,9 +25,9 @@
 	}
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && $c_ext) {
-		q('UPDATE '.$tbl.'ext_block SET ext=\''.addslashes($c_ext).'\' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '.$tbl.'ext_block SET ext='._esc($c_ext).' WHERE id='.(int)$_POST['edit']);
 	} else if (isset($_POST['btn_submit']) && $c_ext) {
-		q('INSERT INTO '.$tbl.'ext_block (ext) VALUES(\''.addslashes($c_ext).'\')');
+		q('INSERT INTO '.$tbl.'ext_block (ext) VALUES('._esc($c_ext).')');
 	} else if (isset($_GET['del'])) {
 		q('DELETE FROM '.$tbl.'ext_block WHERE id='.(int)$_GET['del']);
 	} else {

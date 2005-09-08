@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp_adm.inc,v 1.21 2004/12/08 16:22:28 hackie Exp $
+* $Id: nntp_adm.inc,v 1.22 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,12 +51,12 @@ class fud_nntp_adm
 			)
 			VALUES(
 			".(int)$this->forum_id.",
-			'".addslashes($this->server)."',
+			"._esc($this->server).",
 			".(int)$this->port.",
-			'".addslashes($this->login)."',
-			'".addslashes($this->pass)."',
+			"._esc($this->login).",
+			"._esc($this->pass).",
 			".(int)$this->timeout.",
-			'".addslashes($this->newsgroup)."',
+			"._esc($this->newsgroup).",
 			".$this->nntp_opt.",
 			".(int)$this->imp_limit."
 			)");
@@ -74,13 +74,13 @@ class fud_nntp_adm
 
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp SET
 			forum_id=".(int)$this->forum_id.",
-			server='".addslashes($this->server)."',
+			server="._esc($this->server).",
 			port=".(int)$this->port.",
-			login='".addslashes($this->login)."',
-			pass='".addslashes($this->pass)."',
+			login="._esc($this->login).",
+			pass="._esc($this->pass).",
 			timeout=".(int)$this->timeout.",
 			imp_limit=".(int)$this->imp_limit.",
-			newsgroup='".addslashes($this->newsgroup)."',
+			newsgroup="._esc($this->newsgroup).",
 			nntp_opt=".$this->nntp_opt."
 		WHERE id=".$id);
 

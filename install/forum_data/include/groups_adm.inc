@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groups_adm.inc,v 1.22 2005/08/12 15:01:19 hackie Exp $
+* $Id: groups_adm.inc,v 1.23 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@ function group_add($res_id, $name, $add_gl=0, $perm=0, $permi=2147483647, $inher
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	$gid = db_qid("INSERT INTO ".$tbl."groups (name, inherit_id, groups_opt, groups_opti, forum_id) VALUES
-		('".addslashes($name)."', ".$inherit_id.", ".$perm.", ".$permi.", ".($add_gl == 2 ? $res_id : 0).")");
+		("._esc($name).", ".$inherit_id.", ".$perm.", ".$permi.", ".($add_gl == 2 ? $res_id : 0).")");
 
 	foreach ((array)$res_id as $v) {
 		q("INSERT INTO ".$tbl."group_resources (group_id, resource_id) VALUES (".$gid.", ".$v.")");
@@ -34,7 +34,7 @@ function group_add($res_id, $name, $add_gl=0, $perm=0, $permi=2147483647, $inher
 
 function group_sync($id, $name, $inherit, $perm, $permi)
 {
-	$name = is_null($name) ? '' : "name='".addslashes($name)."', ";
+	$name = is_null($name) ? '' : "name=".esc($name).", ";
 	if (!$inherit) {
 		$permi = 0;
 	}

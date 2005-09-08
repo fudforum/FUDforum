@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.50 2005/08/19 13:50:19 hackie Exp $
+* $Id: admimport.php,v 1.51 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -240,7 +240,7 @@ function resolve_dest_path($path)
 			echo "Correcting Avatar Paths<br>\n";
 			if (($old_path = q_singleval('SELECT location FROM '.$DBHOST_TBL_PREFIX.'attach LIMIT 1'))) {
 				preg_match('!(.*)/!', $old_path, $m);
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'attach SET location=REPLACE(location, \''.addslashes($m[1]).'/\', \''.addslashes($GLOBALS['FILE_STORE']).'\')');
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'attach SET location=REPLACE(location, '._esc($m[1]).'/, '._esc($GLOBALS['FILE_STORE']).')');
 			}
 
 			echo "Correcting Attachment Paths<br>\n";
@@ -248,7 +248,7 @@ function resolve_dest_path($path)
 				preg_match('!http://(.*)/images/!', $old_path, $m);
 				preg_match('!//(.*)/!', $GLOBALS['WWW_ROOT'], $m2);
 
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET avatar_loc=REPLACE(avatar_loc, \''.addslashes($m[1]).'\', \''.addslashes($m2[1]).'\') WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0');
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET avatar_loc=REPLACE(avatar_loc, '._esc($m[1]).', '._esc($m2[1]).') WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0');
 			}
 
 			echo '<b>Import process is now complete</b><br>';

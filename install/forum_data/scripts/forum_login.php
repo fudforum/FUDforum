@@ -41,7 +41,7 @@ function external_get_user_by_auth($login, $passwd)
 {
 	__fud_login_common(1);
 
-	return q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($login)."' AND passwd='".md5($passwd)."'");
+	return q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._esc($login)." AND passwd='".md5($passwd)."'");
 }
 
 function __fud_login_common($skip=0)

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mlist_post.inc,v 1.13 2005/07/29 17:49:38 hackie Exp $
+* $Id: mlist_post.inc,v 1.14 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,7 +46,7 @@ function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to=
 	/* Set our own message id */
 	$tmp = parse_url($GLOBALS['WWW_ROOT']);
 	$mid = dechex($msg_id).'.'.dechex(__request_timestamp__).'@'. $tmp['host'];
-	q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET mlist_msg_id='".addslashes($mid)."' WHERE id=".$msg_id);
+	q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET mlist_msg_id="._esc($mid)." WHERE id=".$msg_id);
 	$header .= "Message-ID: <".$mid.">\n";
 
 	if (is_array($additional_headers)) {

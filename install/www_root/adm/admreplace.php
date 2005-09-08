@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admreplace.php,v 1.23 2005/07/06 15:12:43 hackie Exp $
+* $Id: admreplace.php,v 1.24 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,9 +27,9 @@ function clean_rgx()
 	if (isset($_POST['btn_submit'])) {
 		clean_rgx();
 		if (!$_POST['rpl_replace_opt']) {
-			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'replace (replace_opt, replace_str, with_str, from_post, to_msg) VALUES(0, \''.addslashes($_POST['rpl_replace_str']).'\', \''.addslashes($_POST['rpl_with_str']).'\', \''.addslashes($_POST['rpl_from_post']).'\', \''.addslashes($_POST['rpl_to_msg']).'\')');
+			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'replace (replace_opt, replace_str, with_str, from_post, to_msg) VALUES(0, '._esc($_POST['rpl_replace_str']).', '._esc($_POST['rpl_with_str']).', '._esc($_POST['rpl_from_post']).', '._esc($_POST['rpl_to_msg']).')');
 		} else {
-			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'replace (replace_opt, replace_str, with_str) VALUES(1, \''.addslashes($_POST['rpl_replace_str']).'\', \''.addslashes($_POST['rpl_with_str']).'\')');
+			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'replace (replace_opt, replace_str, with_str) VALUES(1, '._esc($_POST['rpl_replace_str']).', '._esc($_POST['rpl_with_str']).')');
 		}
 	} else if (isset($_POST['btn_update'], $_POST['edit'])) {
 		clean_rgx();
@@ -38,10 +38,10 @@ function clean_rgx()
 		}
 		q('UPDATE '.$DBHOST_TBL_PREFIX.'replace SET
 			replace_opt='.(int)$_POST['rpl_replace_opt'].',
-			replace_str=\''.addslashes($_POST['rpl_replace_str']).'\',
-			with_str=\''.addslashes($_POST['rpl_with_str']).'\',
-			from_post=\''.addslashes($_POST['rpl_from_post']).'\',
-			to_msg=\''.addslashes($_POST['rpl_to_msg']).'\'
+			replace_str='._esc($_POST['rpl_replace_str']).',
+			with_str='._esc($_POST['rpl_with_str']).',
+			from_post='._esc($_POST['rpl_from_post']).',
+			to_msg='._esc($_POST['rpl_to_msg']).'
 		WHERE id='.(int)$_POST['edit']);
 	}
 

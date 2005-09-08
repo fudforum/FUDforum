@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.67 2005/08/19 18:24:19 hackie Exp $
+* $Id: admuser.php,v 1.68 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -85,7 +85,7 @@
 				$conf_key = usr_email_unconfirm($u->id);
 				$url = $WWW_ROOT . __fud_index_name__ . '?t=emailconf&conf_key='.$conf_key;
 				send_email($NOTIFY_FROM, $u->email, $register_conf_subject, $reset_confirmation, "");
-				logaction(_uid, 'SEND_ECONF', 0, addslashes(char_fix(htmlspecialchars($u->login))));
+				logaction(_uid, 'SEND_ECONF', 0, char_fix(htmlspecialchars($u->login)));
 			} else {
 				$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? 'theme_opt=3' : 'id='.$u->theme));
 				q("UPDATE ".$DBHOST_TBL_PREFIX."users SET reset_key='".($reset_key = md5(get_random_value(128)))."' WHERE id=".$u->id);
@@ -93,7 +93,7 @@
 				$url = $WWW_ROOT . __fud_index_name__ . '?t=reset&reset_key='.$reset_key;
 				include_once($INCLUDE . 'theme/' . $user_theme_name . '/rst.inc');
 				send_email($NOTIFY_FROM, $u->email, $reset_newpass_title, $reset_reset, "");
-				logaction(_uid, 'ADM_RESET_PASSWD', 0, addslashes(char_fix(htmlspecialchars($u->login))));
+				logaction(_uid, 'ADM_RESET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
 			}
 			break;
 		case 'del':
@@ -124,7 +124,7 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 <?php
 					exit;
 			} else if (isset($_POST['btn_yes'])) {
-				logaction(_uid, 'DELETE_USER', 0, addslashes(char_fix(htmlspecialchars($usr->login))));
+				logaction(_uid, 'DELETE_USER', 0, char_fix(htmlspecialchars($usr->login)));
 				usr_delete($usr_id);
 				unset($act, $u);
 				$usr_id = '';
@@ -206,10 +206,10 @@ administration permissions to the forum. This individual will be able to do anyt
 		/* changing password */
 		if (!empty($_POST['login_passwd'])) {
 			q("UPDATE ".$DBHOST_TBL_PREFIX."users SET passwd='".md5($_POST['login_passwd'])."' WHERE id=".$usr_id);
-			logaction(_uid, 'ADM_SET_PASSWD', 0, addslashes(char_fix(htmlspecialchars($u->login))));
+			logaction(_uid, 'ADM_SET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
 		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* chanding login name */
-			$alias = "'" . addslashes(make_alias($_POST['login_name'])) . "'";
-			$login = "'" . addslashes($_POST['login_name']) . "'";
+			$alias = _esc(make_alias($_POST['login_name']));
+			$login = _esc($_POST['login_name']);
 
 			if ($FUD_OPT_2 & 128) {
 				if (db_li('UPDATE '.$DBHOST_TBL_PREFIX.'users SET login='.$login.' WHERE id='.$usr_id, $ef) === null) {
@@ -248,7 +248,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		if ($FUD_OPT_2 & 128) {
 			$item_s = char_fix(htmlspecialchars($item_s));
 		}
-		$item_s = "'" . addslashes($item_s) . "'";
+		$item_s = _esc($item_s);
 
 		if (($cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50'))) {
 			$c = uq('SELECT id, alias, email FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');

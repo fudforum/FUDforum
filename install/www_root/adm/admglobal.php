@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.76 2005/08/23 13:04:18 hackie Exp $
+* $Id: admglobal.php,v 1.77 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -130,10 +130,10 @@ function get_max_upload_size()
 				$q_data[] = 'posts_ppg='.(int)$ch_list['POSTS_PER_PAGE'];
 			}
 			if (isset($ch_list['ANON_NICK'])) {
-				$q_data[] = "login='".addslashes($ch_list['ANON_NICK'])."', alias='".addslashes(htmlspecialchars($ch_list['ANON_NICK']))."', name='".htmlspecialchars(addslashes($ch_list['ANON_NICK']))."'";
+				$q_data[] = "login="._esc($ch_list['ANON_NICK']).", alias="._esc(htmlspecialchars($ch_list['ANON_NICK'])).", name=".htmlspecialchars(_esc($ch_list['ANON_NICK']));
 			}
 			if (isset($ch_list['SERVER_TZ'])) {
-				$q_data[] = "time_zone='".addslashes($ch_list['SERVER_TZ'])."'";
+				$q_data[] = "time_zone="._esc($ch_list['SERVER_TZ']);
 			}
 			if (!($NEW_FUD_OPT_2 & 12)) {
 				/* only allow threaded topic view if it is selected & it's enabled */

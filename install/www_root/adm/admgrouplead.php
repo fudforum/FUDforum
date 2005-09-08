@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.34 2005/07/06 15:12:43 hackie Exp $
+* $Id: admgrouplead.php,v 1.35 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,13 +32,13 @@
 		}
 		rebuild_group_ldr_cache($del);
 	} else if ($gr_leader) {
-		$srch = addslashes(str_replace('\\', '\\\\', char_fix(htmlspecialchars($gr_leader))));
+		$srch = char_fix(htmlspecialchars($gr_leader));
 
-		if (($cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."users WHERE alias='".$srch."'"))) {
-			$c = q("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE alias='".$srch."'");
-		} else if (($cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."users WHERE alias LIKE '".$srch."%'"))) {
+		if (($cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."users WHERE alias="._esc($srch)))) {
+			$c = q("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE alias="._esc($srch));
+		} else if (($cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."users WHERE alias LIKE "._esc(addcslashes($srch,'\\').'%')))) {
 			if ($cnt > 50) $cnt = 50;
-			$c = q("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE alias LIKE '".$srch."%' LIMIT 50");
+			$c = q("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE alias LIKE "._esc(addcslashes($srch,'\\').'%')." LIMIT 50");
 		}
 
 		switch ($cnt) {

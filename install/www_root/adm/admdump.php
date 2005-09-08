@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.62 2005/08/23 22:54:27 hackie Exp $
+* $Id: admdump.php,v 1.63 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -112,7 +112,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		exit('Authorization Required.');
 	}
 	if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {
-		if (!q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login=\''.addslashes($_SERVER['PHP_AUTH_USER']).'\' AND passwd=\''.md5($_SERVER['PHP_AUTH_PW']).'\' AND users_opt>=1048576 AND (users_opt & 1048576) > 0')) {
+		if (!q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login='._esc($_SERVER['PHP_AUTH_USER']).' AND passwd=\''.md5($_SERVER['PHP_AUTH_PW']).'\' AND users_opt>=1048576 AND (users_opt & 1048576) > 0')) {
 			header('WWW-Authenticate: Basic realm="Private"');
 			header('HTTP/1.0 401 Unauthorized');
 			exit('Authorization Required.');
@@ -186,7 +186,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				while ($r = db_rowarr($c)) {
 					$tmp = '';
 					foreach ($r as $v) {
-						$tmp .= "'".addslashes($v)."',";
+						$tmp .= _esc($v).',';
 					}
 					/* make sure new lines inside queries don't cause problems */
 					if (strpos($tmp, "\n") !== false) {

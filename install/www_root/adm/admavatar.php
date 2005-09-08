@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.26 2005/07/28 16:07:18 hackie Exp $
+* $Id: admavatar.php,v 1.27 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,7 +56,7 @@ function import_avatars($path)
 		}
 		$name_r = str_replace(' ', '_', $sect) . '_' . $name_r;
 
-		$id = db_li("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar (img, descr, gallery) VALUES('".addslashes($name_r)."', '".addslashes($name)."', '".addslashes($sect)."')", $em, 1);
+		$id = db_li("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar (img, descr, gallery) VALUES("._esc($name_r).", "._esc($name).", "._esc($sect).")", $em, 1);
 		if ($id) {
 			if (!copy($file, $av_path . $name_r)) {
 				q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar WHERE id=".$id);
@@ -88,12 +88,12 @@ function import_avatars($path)
 
 	// gallery removal
 	if (!empty($_POST['gal_del'])) {
-		$r = uq("SELECT img FROM ".$tbl."avatar WHERE gallery='".addslashes($_POST['gal_del'])."'");
+		$r = uq("SELECT img FROM ".$tbl."avatar WHERE gallery="._esc($_POST['gal_del']));
 		while ($l = db_rowarr($r)) {
 			@unlink($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/' . $l[0]);
 		}
 		unset($r);
-		q("DELETE FROM ".$tbl."avatar WHERE gallery='".addslashes($_POST['gal_del'])."'");
+		q("DELETE FROM ".$tbl."avatar WHERE gallery="._esc($_POST['gal_del']));
 	}
 
 	if (isset($_GET['edit'])) {
@@ -262,7 +262,7 @@ function import_avatars($path)
 	<td align="center">Action</td>
 </tr>
 <?php
-	$c = uq('SELECT id, img, descr FROM '.$tbl.'avatar WHERE gallery=\''.addslashes($avt_gal).'\'');
+	$c = uq('SELECT id, img, descr FROM '.$tbl.'avatar WHERE gallery='._esc($avt_gal));
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {

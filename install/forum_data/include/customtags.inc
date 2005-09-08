@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: customtags.inc,v 1.11 2005/07/06 14:42:07 hackie Exp $
+* $Id: customtags.inc,v 1.12 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,6 +18,6 @@ function ctag_rebuild_cache($id)
 		$ct .= $r[0] . '<br />';
 	}
 	unset($c);
-	q("UPDATE ".$GLOBALS["DBHOST_TBL_PREFIX"]."users SET custom_status='".addslashes(substr($ct, 0, -6))."' WHERE id=".$id);
+	q("UPDATE ".$GLOBALS["DBHOST_TBL_PREFIX"]."users SET custom_status="._esc(substr($ct, 0, -6))." WHERE id=".$id);
 }
 ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.22 2005/06/10 18:07:31 hackie Exp $
+* $Id: admadduser.php,v 1.23 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -59,16 +59,16 @@ function validate_input()
 		$al = $alias;
 		while (($user_added = db_li("INSERT INTO ".$DBHOST_TBL_PREFIX."users
 			(login, alias, passwd, name, email, time_zone, join_date, theme, users_opt, last_read) VALUES (
-			'".addslashes($_POST['login'])."', '".$al."', '".md5($_POST['passwd'])."',
-			'".addslashes($_POST['name'])."', '".addslashes($_POST['email'])."', '".$SERVER_TZ."',
+			"._esc($_POST['login']).", '".$al."', '".md5($_POST['passwd'])."',
+			"._esc($_POST['name']).", "._esc($_POST['email']).", '".$SERVER_TZ."',
 			".__request_timestamp__.", ".$default_theme.", ".$users_opt.", ".__request_timestamp__.")",
 			$ef, 1)) === null) {
 
-			if (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($_POST['login'])."'")) {
+			if (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._esc($_POST['login']))) {
 				$error = 1;
 				$err_login = errorify('Login ('.htmlspecialchars($_POST['login']).') is already in use.');
 				break;
-			} else if (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE email='".addslashes($_POST['email'])."'")) {
+			} else if (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE email="._esc($_POST['email']))) {
 				$error = 1;
 				$err_email = errorify('Email ('.htmlspecialchars($_POST['email']).') is already in use.');
 				break;

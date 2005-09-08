@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.62 2005/07/30 20:40:32 hackie Exp $
+* $Id: nntp.inc,v 1.63 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -381,7 +381,7 @@ class fud_nntp
 			// Handler for our own messages, which do not need to be imported.
 			if (isset($this->headers['x-fudforum']) && preg_match('!([A-Za-z0-9]{32}) <([0-9]+)>!', $this->headers['x-fudforum'], $m)) {
 				if ($m[1] == md5($GLOBALS['WWW_ROOT'])) {
-					q("UPDATE ".sql_p."msg SET mlist_msg_id='".addslashes($this->msg_id)."' WHERE id=".intval($m[2])." AND mlist_msg_id IS NULL");
+					q("UPDATE ".sql_p."msg SET mlist_msg_id="._esc($this->msg_id)." WHERE id=".intval($m[2])." AND mlist_msg_id IS NULL");
 					if (db_affected()) {
 						continue;
 					}
@@ -430,7 +430,7 @@ class fud_nntp
 			fud_wordwrap($msg_post->body);
 
 			$msg_post->ip_addr = $this->ip;
-			$msg_post->mlist_msg_id = addslashes($this->msg_id);
+			$msg_post->mlist_msg_id = $this->msg_id;
 			$msg_post->attach_cnt = 0;
 			$msg_post->msg_opt = 2;
 			$msg_post->poll_id = 0;

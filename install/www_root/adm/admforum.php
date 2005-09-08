@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.39 2005/07/06 15:12:43 hackie Exp $
+* $Id: admforum.php,v 1.40 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -95,7 +95,7 @@ function get_max_upload_size()
 		if (frm_move_forum((int)$_POST['frm_id'], (int)$_POST['dest_cat'], $cat_id)) {
 			rebuild_forum_cat_order();
 			$r = db_saq('SELECT f.name, c1.name, c2.name FROM '.$tbl.'forum f INNER JOIN '.$tbl.'cat c1 ON c1.id='.$cat_id.' INNER JOIN '.$tbl.'cat c2 ON c2.id='.(int)$_POST['dest_cat'].' WHERE f.id='.(int)$_POST['frm_id']);
-			logaction(_uid, 'CHCATFORUM', 'Moved forum "'.addslashes($r[0]).'" from category: "'.addslashes($r[1]).'" to category: "'.addslashes($r[2]).'"');
+			logaction(_uid, 'CHCATFORUM', 'Moved forum "'.$r[0].'" from category: "'.$r[1].'" to category: "'.$r[2].'"');
 		}
 	}
 	if (isset($_GET['o'], $_GET['ot'])) {

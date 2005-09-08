@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admemail.php,v 1.20 2005/08/15 13:05:04 hackie Exp $
+* $Id: admemail.php,v 1.21 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,11 +17,11 @@
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && !empty($_POST['e_string'])) {
 		$e_email_block_opt = (int) $_POST['e_email_block_opt'];
-		$e_string = "'".addslashes(trim($_POST['e_string']))."'";
+		$e_string = _esc(trim($_POST['e_string']));
 		q('UPDATE '.$DBHOST_TBL_PREFIX.'email_block SET email_block_opt='.$e_email_block_opt.', string='.$e_string.' WHERE id='.(int)$_POST['edit']);
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['e_string'])) {
 		$e_email_block_opt = (int) $_POST['e_email_block_opt'];
-		$e_string = "'".addslashes(trim($_POST['e_string']))."'";
+		$e_string = _esc(trim($_POST['e_string']));
 		db_li('INSERT INTO '.$DBHOST_TBL_PREFIX.'email_block (email_block_opt, string) VALUES('.$e_email_block_opt.', '.$e_string.')', $tmp);
 	} else if (isset($_GET['del'])) {
 		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'email_block WHERE id='.(int)$_GET['del']);

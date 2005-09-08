@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlogin.php,v 1.19 2005/07/06 15:12:43 hackie Exp $
+* $Id: admlogin.php,v 1.20 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,9 +17,9 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && !empty($_POST['login'])) {
-		q('UPDATE '.$tbl.'blocked_logins SET login=\''.addslashes(trim($_POST['login'])).'\' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '.$tbl.'blocked_logins SET login='._esc(trim($_POST['login'])).' WHERE id='.(int)$_POST['edit']);
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['login'])) {
-		q('INSERT INTO '.$tbl.'blocked_logins (login) VALUES(\''.addslashes(trim($_POST['login'])).'\')');
+		q('INSERT INTO '.$tbl.'blocked_logins (login) VALUES('._esc(trim($_POST['login'])).')');
 	} else if (isset($_GET['del'])) {
 		q('DELETE FROM '.$tbl.'blocked_logins WHERE id='.(int)$_GET['del']);
 	} else {

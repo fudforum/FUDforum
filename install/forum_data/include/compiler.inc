@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.81 2005/07/18 13:19:48 hackie Exp $
+* $Id: compiler.inc,v 1.82 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -689,7 +689,6 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 		if (!($files = glob($v . '/' . $mask, GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
 		}
-
 		foreach ($files as $file) {
 			$d = $dest . '/' . str_replace($src, '', $v) . '/' . basename($file);
 		
@@ -720,6 +719,7 @@ function copyimages($thm)
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
 		exit('Failed Creating: '.$path.'<br>');
 	}
+
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 

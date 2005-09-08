@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admannounce.php,v 1.19 2005/07/06 15:12:43 hackie Exp $
+* $Id: admannounce.php,v 1.20 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,14 +61,14 @@ function mk_date($y, $m, $d)
 	}
 
 	if (isset($_POST['btn_submit'])) {
-		$id = db_qid('INSERT INTO '.$tbl.'announce (date_started, date_ended, subject, text) VALUES ('.mk_date($_POST['d_year'], $_POST['d_month'], $_POST['d_day']).', '.mk_date($_POST['d2_year'], $_POST['d2_month'], $_POST['d2_day']).', \''.addslashes($_POST['a_subject']).'\', \''.addslashes($_POST['a_text']).'\')');
+		$id = db_qid('INSERT INTO '.$tbl.'announce (date_started, date_ended, subject, text) VALUES ('.mk_date($_POST['d_year'], $_POST['d_month'], $_POST['d_day']).', '.mk_date($_POST['d2_year'], $_POST['d2_month'], $_POST['d2_day']).', '._esc($_POST['a_subject']).', '._esc($_POST['a_text']).')');
 	} else if (isset($_POST['btn_update'], $_POST['edit'])) {
 		$id = (int)$_POST['edit'];
 		q('UPDATE '.$tbl.'announce SET
 			date_started='.mk_date($_POST['d_year'], $_POST['d_month'], $_POST['d_day']).',
 			date_ended='.mk_date($_POST['d2_year'], $_POST['d2_month'], $_POST['d2_day']).',
-			subject=\''.addslashes($_POST['a_subject']).'\',
-			text=\''.addslashes($_POST['a_text']).'\'
+			subject='._esc($_POST['a_subject']).',
+			text='._esc($_POST['a_text']).'
 			WHERE id='.$id);
 	}
 

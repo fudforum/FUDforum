@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: theme.inc,v 1.26 2005/08/25 13:24:34 hackie Exp $
+* $Id: theme.inc,v 1.27 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,7 +44,7 @@ class fud_theme
 		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."themes
 				(name, theme, lang, locale, theme_opt, pspell_lang)
 			VALUES
-				('".addslashes($this->name)."', '".addslashes($this->theme)."', '".addslashes($this->lang)."', '".addslashes($this->locale)."', ".$this->theme_opt.", ".ssn($this->pspell_lang).")");
+				("._esc($this->name).", "._esc($this->theme).", "._esc($this->lang).", "._esc($this->locale).", ".$this->theme_opt.", ".ssn($this->pspell_lang).")");
 
 		/* set anonymous user's theme to default */
 		if ($this->theme_opt & 2) {
@@ -74,10 +74,10 @@ class fud_theme
 		}
 
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET
-			name='".addslashes($this->name)."',
-			theme='".addslashes($this->theme)."',
-			lang='".addslashes($this->lang)."',
-			locale='".addslashes($this->locale)."',
+			name="._esc($this->name).",
+			theme="._esc($this->theme).",
+			lang="._esc($this->lang).",
+			locale="._esc($this->locale).",
 			theme_opt=".$this->theme_opt.",
 			pspell_lang=".ssn($this->pspell_lang)."
 		WHERE id=".$id);

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.40 2005/07/30 20:04:47 hackie Exp $
+* $Id: tmpllist.php,v 1.41 2005/09/08 14:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -144,7 +144,7 @@ function goto_tmpl($tmpl)
 			fwrite($fp, $data);
 			fclose($fp);
 			fud_use('compiler.inc', true);
-			$c = q("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme='".addslashes($tname)."' AND lang='".addslashes($tlang)."'");
+			$c = q("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme="._esc($tname)." AND lang="._esc($tlang));
 			while ($r = db_rowarr($c)) {
 				compile_all($tname, $tlang, $r[0]);
 			}
