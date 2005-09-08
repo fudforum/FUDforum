@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.35 2005/09/08 15:31:59 hackie Exp $
+* $Id: admstats.php,v 1.36 2005/09/08 15:45:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,7 +11,7 @@
 **/
 
 	require('./GLOBALS.php');
-	fud_use('adm.inc', true);
+	fud_use('adm.inc', 1);
 	fud_use('draw_select_opt.inc');
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -51,8 +51,8 @@ function get_sql_disk_usage()
 	if ($GLOBALS['DBHOST_DBTYPE'] != 'pdo_mysql') {
 		$c = uq('SHOW TABLE STATUS FROM `'.$GLOBALS['DBHOST_DBNAME'].'` LIKE \''.$GLOBALS['DBHOST_TBL_PREFIX'].'%\'');
 	} else {
-		db::$res = null;
-		$c = db::$db->query('SHOW TABLE STATUS FROM `'.$GLOBALS['DBHOST_DBNAME'].'` LIKE \''.$GLOBALS['DBHOST_TBL_PREFIX'].'%\'');
+		eval('db::$res = null; $tmp = db::$db;');
+		$c = $tmp->query('SHOW TABLE STATUS FROM `'.$GLOBALS['DBHOST_DBNAME'].'` LIKE \''.$GLOBALS['DBHOST_TBL_PREFIX'].'%\'');
 	}
 	while ($r = db_rowobj($c)) {
 		$sql_size += $r->Data_length + $r->Index_length;
@@ -69,13 +69,15 @@ function get_sql_disk_usage()
 		list($s_year,$s_month,$s_day) = explode(' ', date('Y n j', $forum_start));
 		list($e_year,$e_month,$e_day) = explode(' ', date('Y n j', q_singleval('SELECT MAX(post_stamp) FROM '.$tbl.'msg')));
 	} else {
-		list($s_year,$s_month,$s_day) = explode(' ', date('Y n j'));
-		list($e_year,$e_month,$e_day) = explode(' ', date('Y n j'));
+		$dt = getdate(__request_timestamp__);
+		$s_year = $e_year = $dt['year'];
+		$s_month = $e_month = $dt['mon'];
+		$s_day = $e_day = $dt['mday'];
 	}
 
-	$vl_m = $kl_m = implode("\n", array_keys(array_fill(1, 12, '')));
-	$vl_d = $kl_d = implode("\n", array_keys(array_fill(1, 31, '')));
-	$vl_y = $kl_y = implode("\n", array_keys(array_fill($s_year, ($e_year - $s_year + 1), '')));
+	$vl_m = $kl_m = implode("\n", range(1, 12));
+	$vl_d = $kl_d = implode("\n", range(1, 31));
+	$vl_y = $kl_y = implode("\n", range($s_year, ($e_year - $s_year + 1)));
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
