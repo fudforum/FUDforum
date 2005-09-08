@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.53 2005/09/01 18:34:33 hackie Exp $
+* $Id: compact.php,v 1.54 2005/09/08 14:04:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -139,9 +139,8 @@ function eta_calc($start, $pos, $pc)
 		q('UPDATE '.$tbl.'msg SET file_id=-file_id, file_id_preview=-file_id_preview WHERE file_id<0');
 
 		/* remove old message files */
-		foreach (glob($MSG_STORE_DIR.'*') as $f) {
-			$n = basename($f);
-			if (strncmp($n, 'tmp_', 4)) {
+		foreach (glob($MSG_STORE_DIR.'msg_*') as $f) {
+			if (strncmp(basename($f), 'tmp_', 4)) {
 				unlink($f);
 			}
 		}
