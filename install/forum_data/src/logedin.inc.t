@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.inc.t,v 1.41 2005/08/12 15:46:18 hackie Exp $
+* $Id: logedin.inc.t,v 1.42 2005/09/08 01:29:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -40,8 +40,8 @@ function &rebuild_stats_cache($last_msg_id)
 
 	list($obj->most_online,$obj->most_online_time) = db_saq("SELECT most_online, most_online_time FROM {SQL_TABLE_PREFIX}stats_cache");
 	/* update most online users stats if needed */
-	if (($obj->online_users_reg + $obj->online_users_hidden) > $obj->most_online) {
-		$obj->most_online = $obj->online_users_reg + $obj->online_users_hidden;
+	if (($obj->online_users_reg + $obj->online_users_hidden + $obj->online_users_anon) > $obj->most_online) {
+		$obj->most_online = $obj->online_users_reg + $obj->online_users_hidden + $obj->online_users_anon;
 		$obj->most_online_time = __request_timestamp__;
 		q('UPDATE {SQL_TABLE_PREFIX}stats_cache SET most_online='.$obj->most_online.', most_online_time='.$obj->most_online_time);
 	} else if (!$obj->most_online_time) {
