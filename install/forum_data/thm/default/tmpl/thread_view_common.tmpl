@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.tmpl,v 1.32 2005/06/14 15:07:33 hackie Exp $
+* $Id: thread_view_common.tmpl,v 1.33 2005/09/08 01:28:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -99,6 +99,7 @@
 
 {SECTION: thread_syndicate}
 &nbsp;[ <a href="{TEMPLATE: thread_syndicate_lnk}">{MSG: thread_syndicate}</a> ]
+[ <a href="rdf.php?mode=m&amp;l=1&amp;basic=1&amp;frm={VAR: frm->id}&amp;n=25"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" /></a> ]
 {SECTION: END}
 
 {SECTION: thread_pdf_rdf}

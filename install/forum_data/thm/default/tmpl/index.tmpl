@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.61 2005/06/14 15:07:33 hackie Exp $
+* $Id: index.tmpl,v 1.62 2005/09/08 01:28:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -93,7 +93,9 @@
 </tr>
 {TEMPLATE-DATA: forum_list_table_data}
 </table>
-{IF: _uid}<div class="SmallText ar">[<a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>]</div>{ENDIF}
+{IF: _uid}<div class="SmallText ar">[ <a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a> ]
+{IF: $FUD_OPT_2 & 1048576}[ <a href="rdf.php?mode=m&amp;l=1&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" /></a> ]{ENDIF}
+</div>{ENDIF}
 {IF: __fud_real_user__}{TEMPLATE: quick_login_loged_in}{ELSE}{TEMPLATE: quick_login_on}{END}
 {IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
 <br /><fieldset>
