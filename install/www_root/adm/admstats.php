@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.37 2005/09/09 21:40:09 hackie Exp $
+* $Id: admstats.php,v 1.38 2005/09/09 23:17:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -76,7 +76,7 @@ function get_sql_disk_usage()
 
 	$vl_m = $kl_m = implode("\n", range(1, 12));
 	$vl_d = $kl_d = implode("\n", range(1, 31));
-	$vl_y = $kl_y = implode("\n", range($s_year, ($e_year - $s_year + 1)));
+	$vl_y = $kl_y = implode("\n", range($s_year, ($e_year + 1)));
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
@@ -110,14 +110,26 @@ function get_sql_disk_usage()
 				$fmt = 'Ymd';
 		}
 
+		if (!empty($_POST['lmt'])) {
+			if ($_POST['lmt']{0} == 'c') {
+				$lmt = db_all('SELECT id FROM '.$tbl.'forum WHERE cat_id='.(int)substr($_POST['lmt'],1));
+			} else {
+				$lmt = array((int)$_POST['lmt']);
+			}
+		}
+
 		switch ($_POST['type']) {
 			case 'msg':
 				$g_title = 'Messages posted';
-				$c = uq('SELECT post_stamp FROM '.$tbl.'msg WHERE post_stamp>'.$start_tm.' AND post_stamp<'.$end_tm);
+				if (!$lmt) {
+					$c = uq('SELECT post_stamp FROM '.$tbl.'msg WHERE post_stamp>'.$start_tm.' AND post_stamp<'.$end_tm);
+				} else {
+					$c = uq('SELECT m.post_stamp FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id WHERE m.post_stamp>'.$start_tm.' AND m.post_stamp<'.$end_tm.' AND t.forum_id IN('.implode(',', $lmt).')');
+				}
 				break;
 			case 'thr':
 				$g_title = 'Topics created';
-				$c = uq('SELECT post_stamp FROM '.$tbl.'thread INNER JOIN '.$tbl.'msg ON '.$tbl.'thread.root_msg_id='.$tbl.'msg.id WHERE post_stamp>'.$start_tm.' AND post_stamp<'.$end_tm);
+				$c = uq('SELECT post_stamp FROM '.$tbl.'thread INNER JOIN '.$tbl.'msg ON '.$tbl.'thread.root_msg_id='.$tbl.'msg.id WHERE post_stamp>'.$start_tm.' AND post_stamp<'.$end_tm.($lmt ? ' AND forum_id IN('.implode(',', $lmt).') ' : ''));
 				break;
 			case 'usr':
 				$g_title = 'Registered users';
@@ -179,6 +191,8 @@ function get_sql_disk_usage()
 		$total_disk_usage += $disk_usage_array['DATA_DIR'] = dir_space_usage($DATA_DIR);
 		if ($DATA_DIR != $WWW_ROOT_DISK) {
 			$total_disk_usage += $disk_usage_array['WWW_ROOT_DISK'] = dir_space_usage($WWW_ROOT_DISK);
+		} else {
+			$disk_usage_array['WWW_ROOT_DISK'] = $disk_usage_array['DATA_DIR'];
 		}
 
 		$sql_disk_usage = get_sql_disk_usage();
@@ -194,6 +208,11 @@ function get_sql_disk_usage()
 		$forum_stats['GROUPS'] = q_singleval('SELECT count(*) FROM '.$tbl.'groups');
 		$forum_stats['GROUP_MEMBERS'] = q_singleval('SELECT count(*) FROM '.$tbl.'group_members');
 	}
+
+	$is_a = 1;
+	$forum_limiter = '';
+	require $FORUM_SETTINGS_PATH.'cat_cache.inc';
+        include_once $INCLUDE . fud_theme . 'search_forum_sel.inc';
 ?>
 <table class="datatable">
 <form action="admstats.php" method="post">
@@ -217,6 +236,10 @@ function get_sql_disk_usage()
 	<td valign="top"><b>Graph Data: </b></td>
 	<td colspan=3><select name="type"><?php echo tmpl_draw_select_opt("msg\nthr\nusr", "Posted Messages\nCreated Topics\nRegistered users", $_POST['type']); ?></select></td>
 </tr>
+<tr>
+	<td valign="top"><b>Limit to Forum/Category: </b></td>
+	<td colspan=3><select name="lmt"><option>-- Unrestricted --</option><?php echo $forum_limit_data; ?></select></td>
+</tr>
 <tr><td colspan=4 align="right"><input type="submit" name="submit" value="Submit"></td></tr>
 <?php echo _hs; ?>
 <input type="hidden" name="submitted" value="1">
@@ -229,7 +252,7 @@ function get_sql_disk_usage()
 <h4>Disk Usage</h4>
 <table class="resulttable fulltable">
 <?php
-	if ($WWW_ROOT_DISK != $DATA_DIR) {
+	if ($GLOBALS['WWW_ROOT_DISK'] != $GLOBALS['DATA_DIR']) {
 ?>
 <tr class="field">
 	<td><b>Web Dir:</b><br><font size="-1"><b><?php echo $WWW_ROOT_DISK; ?></b><br>this is where all the forum's web browseable files are stored</font></td>
