@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.141 2005/09/02 15:29:28 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.142 2005/09/09 23:23:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -355,7 +355,9 @@ class fud_msg_edit extends fud_msg
 			user_set_post_count($mtf->poster_id);
 		}
 
-		$last_post_id = $mtf->post_stamp > $mtf->frm_last_post_date ? $mtf->id : 0;
+		if ($mtf->post_stamp > $mtf->frm_last_post_date) {
+			$mtf->last_post_id = $mtf->id;
+		}		
 
 		if ($mtf->root_msg_id == $mtf->id) {	/* new thread */
 			th_new_rebuild($mtf->forum_id, $mtf->thread_id, $mtf->thread_opt>=2);
@@ -371,7 +373,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		/* update forum thread & post count as well as last_post_id field */
-		frm_updt_counts($mtf->forum_id, 1, $threads, $last_post_id);
+		q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+1, thread_count=thread_count+'.$threads.', last_post_id='.$mtf->last_post_id.' WHERE id='.$mtf->forum_id);
 
 		if ($mtf->poll_id) {
 			poll_activate($mtf->poll_id, $mtf->forum_id);
