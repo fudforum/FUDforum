@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.142 2005/09/09 23:23:54 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.143 2005/09/09 23:58:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -392,7 +392,7 @@ class fud_msg_edit extends fud_msg
 			}
 
 			/* send new thread notifications to forum subscribers */
-			$c = uq('SELECT u.email
+			$to = db_all('SELECT u.email
 					FROM {SQL_TABLE_PREFIX}forum_notify fn
 					INNER JOIN {SQL_TABLE_PREFIX}users u ON fn.user_id=u.id AND (u.users_opt & 134217728) = 0
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
@@ -406,7 +406,7 @@ class fud_msg_edit extends fud_msg
 			$notify_type = 'frm';
 		} else {
 			/* send new reply notifications to thread subscribers */
-			$c = uq('SELECT u.email, r.msg_id, u.id
+			$to = db_all('SELECT u.email
 					FROM {SQL_TABLE_PREFIX}thread_notify tn
 					INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id AND (u.users_opt & 134217728) = 0
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
@@ -418,21 +418,6 @@ class fud_msg_edit extends fud_msg
 					'.($GLOBALS['FUD_OPT_3'] & 64 ? 'AND (r.msg_id='.$mtf->last_post_id.' OR (r.msg_id IS NULL AND '.$mtf->post_stamp.' > u.last_read))' : '').'
 					AND ((COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0 OR (u.users_opt & 1048576) > 0 OR mm.id IS NOT NULL)');
 			$notify_type = 'thr';
-		}
-		$tl = $to = array();
-		while ($r = db_rowarr($c)) {
-			$to[] = $r[0];
-
-			if (isset($r[2]) && !$r[1]) {
-				$tl[] = $r[2];
-			}
-		}
-		unset($c);
-		if ($tl) {
-			/* this allows us to mark the message we are sending notification about as read, so that we do not re-notify the user
-			 * until this message is read.
-			 */
-			db_li('INSERT INTO {SQL_TABLE_PREFIX}read (thread_id, msg_id, last_view, user_id) SELECT '.$mtf->thread_id.', 0, 0, id FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $tl).')', $dummy);
 		}
 		if ($to) {
 			send_notifications($to, $mtf->id, $mtf->subject, $mtf->alias, $notify_type, ($notify_type == 'thr' ? $mtf->thread_id : $mtf->forum_id), $mtf->frm_name, $mtf->forum_id);
