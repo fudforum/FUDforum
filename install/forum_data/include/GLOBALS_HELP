@@ -414,3 +414,6 @@ If enabled the forum will no longer send welcome e-mails when new users register
 
 {{{USE_TEMP_TABLES	FUD_OPT_3	4096
 Use temporary SQL tables to optimize some operations (dependant on the ability to create temp tables).}}}
+
+{{{USE_ANON_TURING	FUD_OPT_3	8192
+When anonymous users post messages perform turing (captcha) test.}}}

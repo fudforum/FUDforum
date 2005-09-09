@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.60 2005/09/09 13:44:25 hackie Exp $
+* $Id: post.tmpl,v 1.61 2005/09/09 15:12:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,6 +36,12 @@
 {REF: post_common.tmpl}
 {REF: th.tmpl}
 {REF: is_perms.tmpl}
+{REF: captcha.tmpl}
+
+{SECTION: post_turing_test}
+<tr class="RowStyleA"><td>{MSG: register_turing}{FUNC: get_err('reg_turing')}</td><td class="vt"><input type="text" name="turing_test" value=""></td></tr>
+<tr class="RowStyleB"><td colspan="2"><div style="white-space: pre; font-family: Courier, monospace; color: black; background-color: #C0C0C0;">{FUNC: generate_turing_val($turing_res)}<input type="hidden" name="turing_res" value="{VAR: turing_res}"></div></td></tr>
+{SECTION: END}
 
 {SECTION: apply_spell_changes}
 <input accesskey="a" type="submit" class="button" name="btn_spell" value="{MSG: apply_spell_changes}">&nbsp;
@@ -151,6 +157,8 @@
 </td></tr>
 
 {TEMPLATE-DATA: file_attachments}
+{IF: !_uid && $FUD_OPT_3 & 8192}{TEMPLATE: post_turing_test}{ENDIF}
+
 <tr class="RowStyleB vt">
 <td class="GenText">{MSG: post_options}</td>
 <td>

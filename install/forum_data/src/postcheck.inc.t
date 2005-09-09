@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.30 2005/08/16 13:32:26 hackie Exp $
+* $Id: postcheck.inc.t,v 1.31 2005/09/09 15:12:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,6 +50,11 @@ function check_post_form()
 	/* make sure the number of images [img] inside the body do not exceed the allowed limit */
 	if (post_check_images()) {
 		set_err('msg_body', '{TEMPLATE: postcheck_max_images_err}');
+	}
+
+	/* captcha check for anon users */
+	if (!_uid && $GLOBALS['FUD_OPT_3'] & 8192 && (empty($_POST['turing_test']) || empty($_POST['turing_res']) || md5(strtoupper(trim($_POST['turing_test']))) != $_POST['turing_res'])) {
+		set_err('reg_turing', '{TEMPLATE: register_err_turing}');
 	}
 
 	if (defined('fud_bad_sq')) {
