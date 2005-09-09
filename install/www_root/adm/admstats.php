@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.36 2005/09/08 15:45:35 hackie Exp $
+* $Id: admstats.php,v 1.37 2005/09/09 21:40:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,7 +63,6 @@ function get_sql_disk_usage()
 }
 
 	$forum_start = (int) q_singleval('SELECT MIN(post_stamp) FROM '.$tbl.'msg');
-	$days_ago = round((__request_timestamp__ - $forum_start) / 86400);
 
 	if ($forum_start) {
 		list($s_year,$s_month,$s_day) = explode(' ', date('Y n j', $forum_start));
@@ -180,8 +179,6 @@ function get_sql_disk_usage()
 		$total_disk_usage += $disk_usage_array['DATA_DIR'] = dir_space_usage($DATA_DIR);
 		if ($DATA_DIR != $WWW_ROOT_DISK) {
 			$total_disk_usage += $disk_usage_array['WWW_ROOT_DISK'] = dir_space_usage($WWW_ROOT_DISK);
-		} else {
-			$disk_usage_array['WWW_ROOT_DISK'] = $disk_usage_array['DATA_DIR'];
 		}
 
 		$sql_disk_usage = get_sql_disk_usage();
@@ -232,7 +229,7 @@ function get_sql_disk_usage()
 <h4>Disk Usage</h4>
 <table class="resulttable fulltable">
 <?php
-	if ($GLOBALS['WWW_ROOT_DISK'] != $GLOBALS['DATA_DIR']) {
+	if ($WWW_ROOT_DISK != $DATA_DIR) {
 ?>
 <tr class="field">
 	<td><b>Web Dir:</b><br><font size="-1"><b><?php echo $WWW_ROOT_DISK; ?></b><br>this is where all the forum's web browseable files are stored</font></td>
