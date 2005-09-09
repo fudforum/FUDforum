@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.tmpl,v 1.29 2005/02/25 16:18:49 hackie Exp $
+* $Id: ignore_list.tmpl,v 1.30 2005/09/09 13:44:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -64,7 +64,7 @@
 <td class="GenText nw Smalltext">{MSG: buddy_search}{IF: ($FUD_OPT_1 & (8388608|4194304))}{TEMPLATE: ignore_member_search}{ENDIF}<p>
 <input type="text" name="add_login" tabindex="1" value="" maxlength=100 size=25> <input tabindex="2" type="submit" class="button" name="submit" value="{MSG: add}"></td></tr>
 </table></div></form>
-<script>
+<script language="javascript" type="text/javascript">
 <!--
 document.buddy_add.add_login.focus();
 //-->

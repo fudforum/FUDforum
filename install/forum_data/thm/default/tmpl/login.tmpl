@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.tmpl,v 1.30 2005/06/14 21:55:43 hackie Exp $
+* $Id: login.tmpl,v 1.31 2005/09/09 13:44:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@
 {IF: $FUD_OPT_1 & 128}{TEMPLATE: login_use_cookies}{ENDIF}
 <tr><td colspan=3 class="RowStyleA ar"><input type="submit" class="button" tabindex="3" value="{MSG: login_login_btn}"></td></tr>
 </table></div>{DEF: _hs}<input type="hidden" name="adm" value="{IF: isset($_GET['adm'])}1{ENDIF}"></form>
-<script>
+<script language="javascript" type="text/javascript">
 <!--
 document.login.login.focus();
 //-->

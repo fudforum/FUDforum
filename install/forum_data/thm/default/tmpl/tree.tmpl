@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.67 2005/09/08 01:28:11 hackie Exp $
+* $Id: tree.tmpl,v 1.68 2005/09/09 13:44:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -221,7 +221,7 @@
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {IF: !empty($_GET['srch'])}
-<script>
+<script language="javascript" type="text/javascript">
 <!--
 highlightSearchTerms("{VAR-HTML: _GET['srch']}");
 //-->

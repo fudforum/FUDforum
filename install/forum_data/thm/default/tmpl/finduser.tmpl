@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.44 2005/07/25 23:21:47 hackie Exp $
+* $Id: finduser.tmpl,v 1.45 2005/09/09 13:44:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,7 +30,7 @@
 <tr><th colspan="3">{MSG: finduser_user_info}</th></tr>
 <tr class="RowStyleA"><td class="GenText">{MSG: finduser_by_login}</td><td class="GenText"><input type="text" name="usr_login" tabindex="1" value="{FUNC: char_fix(htmlspecialchars($usr_login))}"> <input type="submit" class="button" tabindex="2" name="btn_submit" value="{MSG: finduser_submit}"></td><td class="RowStyleC SmallText vt">{MSG: finduser_help}</td></tr>
 </table><input type="hidden" name="t" value="finduser"></form>
-<script>
+<script language="javascript" type="text/javascript">
 <!--
 document.fufrm.usr_login.focus();
 //-->
