@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.29 2005/07/28 13:29:01 hackie Exp $
+* $Id: phpBB2.php,v 1.30 2005/09/09 13:52:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -415,6 +415,7 @@ $group_map = array(
 		$id = $frm->add('LAST');
 
 		q("UPDATE {$DBHOST_TBL_PREFIX}forum SET id={$obj->forum_id} WHERE id=".$id);
+		q("RENAME TABLE {$DBHOST_TBL_PREFIX}fl_{$id} TO {$DBHOST_TBL_PREFIX}fl_{$obj->forum_id}");
 
 		$tmp[$id] = (int) $obj->forum_id;
 
