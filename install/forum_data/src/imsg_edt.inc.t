@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.143 2005/09/09 23:58:20 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.144 2005/09/10 00:00:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -382,7 +382,7 @@ class fud_msg_edit extends fud_msg
 		$mtf->body = read_msg_body($mtf->foff, $mtf->length, $mtf->file_id);
 
 		if ($GLOBALS['FUD_OPT_1'] & 16777216) {
-			index_text((preg_match('!Re: !i', $mtf->subject) ? '': $mtf->subject), $mtf->body, $mtf->id);
+			index_text((strncasecmp($mtf->subject, 'Re: ', 4) ? $mtf->subject : ''), $mtf->body, $mtf->id);
 		}
 
 		/* handle notifications */
