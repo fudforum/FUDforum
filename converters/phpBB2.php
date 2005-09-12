@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.30 2005/09/09 13:52:47 hackie Exp $
+* $Id: phpBB2.php,v 1.31 2005/09/12 14:08:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -399,8 +399,21 @@ $group_map = array(
 'auth_pollcreate'=> 128,
 'auth_attachments'=> 256
 );
+$forum_map = array();
 
-	$tmp = array();
+	// remove all lock & view tables
+	foreach (get_fud_table_list() as $v) {
+		if (strncmp($v, "{$DBHOST_TBL_PREFIX}fl_", strlen("{$DBHOST_TBL_PREFIX}fl_")) && 
+			strncmp($v, "{$DBHOST_TBL_PREFIX}tv_", strlen("{$DBHOST_TBL_PREFIX}tv_"))
+		) {
+			continue;
+		}
+		if ($v == "{$DBHOST_TBL_PREFIX}fl_pm") {
+			continue;
+		}
+		q("DROP TABLE {$v}");
+	}
+
 	$r = bbq("select * from {$bb2}forums ORDER BY forum_order");
 	print_msg('Importing Forums '.db_count($r));
 	while ($obj = db_rowobj($r)) {
@@ -413,14 +426,7 @@ $group_map = array(
 
 		$frm = new fud_forum();
 		$id = $frm->add('LAST');
-
-		q("UPDATE {$DBHOST_TBL_PREFIX}forum SET id={$obj->forum_id} WHERE id=".$id);
-		q("RENAME TABLE {$DBHOST_TBL_PREFIX}fl_{$id} TO {$DBHOST_TBL_PREFIX}fl_{$obj->forum_id}");
-
-		$tmp[$id] = (int) $obj->forum_id;
-
-		q("UPDATE {$DBHOST_TBL_PREFIX}groups SET forum_id={$obj->forum_id} WHERE forum_id=".$id);
-		q("UPDATE {$DBHOST_TBL_PREFIX}group_resources SET resource_id={$obj->forum_id} WHERE resource_id=".$id);
+		$forum_map[(int) $obj->forum_id] = $id;
 
 		$perms_reg = $perms_anon = 65536;
 
@@ -433,25 +439,11 @@ $group_map = array(
 			}
 		}
 
-		$gid = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}groups WHERE forum_id=".$obj->forum_id);
+		$gid = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}groups WHERE forum_id=".$id);
 		q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET group_members_opt={$perms_anon} WHERE group_id={$gid} AND user_id=0");
 		q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET group_members_opt={$perms_reg} WHERE group_id={$gid} AND user_id=2147483647");
 	}
 	unset($r);
-	// remove all lock tables
-	foreach (get_fud_table_list() as $v) {
-		if (strncmp($v, "{$DBHOST_TBL_PREFIX}fl_", strlen("{$DBHOST_TBL_PREFIX}fl_"))) {
-			continue;
-		}
-		if ($v == "{$DBHOST_TBL_PREFIX}fl_pm") {
-			continue;
-		}
-		q("DROP TABLE {$v}");
-	}
-	foreach ($tmp as $k => $v) {
-		q("CREATE TABLE {$DBHOST_TBL_PREFIX}fl_{$v} ( id INT )");
-	}
-	unset($tmp);
 	print_msg('Finished Importing Forums');
 
 /* Import phpBB moderators */
@@ -468,7 +460,7 @@ $group_map = array(
 			WHERE auth_mod=1 GROUP BY ua.forum_id, ug.user_id");
 
 	while ($obj = db_rowobj($r)) {
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."mod (user_id, forum_id) VALUES(".(int)$obj->user_id.", ".(int)$obj->forum_id.")");
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."mod (user_id, forum_id) VALUES(".(int)$obj->user_id.", ".$forum_map[(int)$obj->forum_id].")");
 	}
 	unset($r);
 	print_msg('Finished Importing Moderators');
@@ -496,7 +488,7 @@ $group_map = array(
 			replies
 			) VALUES(
 			".(int)$obj->topic_id.",
-			".(int)$obj->forum_id.",
+			".$forum_map[(int)$obj->forum_id].",
 			".(int)$obj->topic_first_post_id.",
 			".(int)$obj->topic_last_post_id.",
 			".(int)$obj->topic_views.",
@@ -520,7 +512,7 @@ $group_map = array(
 			$obj->post_subject = $obj->topic_title;
 		}
 
-		$fileid = write_body(bbcode2fudcode($obj->post_text), $len, $off, (int)$obj->forum_id);
+		$fileid = write_body(bbcode2fudcode($obj->post_text), $len, $off, $forum_map[(int)$obj->forum_id]);
 		$updated_by = $obj->post_edit_time ? $obj->poster_id : 0;
 		$msg_opt = ($obj->enable_sig ? 1 : 0) | ($obj->enable_smilies ? 0 : 2);
 		if ($obj->poster_id == -1) {
@@ -568,7 +560,7 @@ $group_map = array(
 				".(int)$obj->poster_id.",
 				".(int)$obj->vote_start.",
 				".(int)$vote_length.",
-				".(int)$obj->forum_id.")"
+				".$forum_map[(int)$obj->forum_id].")"
 		);
 		q("UPDATE ".$DBHOST_TBL_PREFIX."msg SET poll_id={$obj->vote_id} WHERE id=".$obj->post_id);
 
