@@ -417,3 +417,6 @@ Use temporary SQL tables to optimize some operations (dependant on the ability t
 
 {{{USE_ANON_TURING	FUD_OPT_3	8192
 When anonymous users post messages perform turing (captcha) test.}}}
+
+{{{FORUM_NOTIFY_ALL	FUD_OPT_3	16384
+If enabled, subscribers to a forum will recieve notifications about every new message in the forum, rather then just new topics in the forum.}}}

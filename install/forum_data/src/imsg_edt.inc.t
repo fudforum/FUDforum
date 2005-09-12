@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.144 2005/09/10 00:00:31 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.145 2005/09/12 20:52:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -386,7 +386,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		/* handle notifications */
-		if ($mtf->root_msg_id == $mtf->id) {
+		if ($mtf->root_msg_id == $mtf->id || $GLOBALS['FUD_OPT_3'] & 16384) {
 			if (empty($mtf->frm_last_post_date)) {
 				$mtf->frm_last_post_date = 0;
 			}
@@ -403,7 +403,11 @@ class fud_msg_edit extends fud_msg
 					fn.forum_id='.$mtf->forum_id.' AND fn.user_id!='.(int)$mtf->poster_id.'
 					'.($GLOBALS['FUD_OPT_3'] & 64 ? 'AND (CASE WHEN (r.last_view IS NULL AND (u.last_read=0 OR u.last_read >= '.$mtf->frm_last_post_date.')) OR r.last_view > '.$mtf->frm_last_post_date.' THEN 1 ELSE 0 END)=1' : '').'
 					AND ((COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0 OR (u.users_opt & 1048576) > 0 OR mm.id IS NOT NULL)');
-			$notify_type = 'frm';
+			if ($GLOBALS['FUD_OPT_3'] & 16384) {
+				$notify_type = 'thr';
+			} else {
+				$notify_type = 'frm';
+			}
 		} else {
 			/* send new reply notifications to thread subscribers */
 			$to = db_all('SELECT u.email
