@@ -532,6 +532,7 @@ buddy_list_err_cantadd:		You cannot add yourself to your buddy list
 buddy_list_err_dup:		You already have this user on your buddy list
 buddy_list_err_nouser:		The user you tried to add to your buddy list was not found.
 buddy_list_err_nouser_title:	Unable to add user
+buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
 buddy_list_update:		Browsing own buddy list
 core_err_invinp_title:		Invalid Input
 core_err_invinp_err:		You have followed an invalid link. Please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> how you got here.
