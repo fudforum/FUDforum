@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.tmpl,v 1.18 2005/06/14 15:07:33 hackie Exp $
+* $Id: uc.tmpl,v 1.19 2005/09/12 14:31:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -99,7 +99,7 @@
 {SECTION: END}
 
 {SECTION: uc_last_post}
-<a href="{TEMPLATE: uc_last_post_lnk}">{VAR: r->subject}</a><br />
+<a href="{TEMPLATE: uc_last_post_lnk}" title="{VAR: r->subject}">{FUNC: substr($r->subject, 0, min(25, strlen($r->subject)))}</a><br />
 <span class="DateText">{TEMPLATE: uc_last_post_date}</span><br />{MSG: by} {IF: $r->alias}{TEMPLATE: uc_link_user}{ELSE}{TEMPLATE: uc_link_anon}{END}
 {SECTION: END}
 
