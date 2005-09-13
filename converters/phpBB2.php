@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.31 2005/09/12 14:08:43 hackie Exp $
+* $Id: phpBB2.php,v 1.32 2005/09/13 22:00:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -460,7 +460,9 @@ $forum_map = array();
 			WHERE auth_mod=1 GROUP BY ua.forum_id, ug.user_id");
 
 	while ($obj = db_rowobj($r)) {
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."mod (user_id, forum_id) VALUES(".(int)$obj->user_id.", ".$forum_map[(int)$obj->forum_id].")");
+		if (isset($forum_map[(int)$obj->forum_id])) {
+			q("INSERT INTO ".$DBHOST_TBL_PREFIX."mod (user_id, forum_id) VALUES(".(int)$obj->user_id.", ".$forum_map[(int)$obj->forum_id].")");
+		}
 	}
 	unset($r);
 	print_msg('Finished Importing Moderators');
@@ -482,7 +484,9 @@ $forum_map = array();
 		if ($obj->topic_status == TOPIC_LOCKED) {
 			$thread_opt |= 1;
 		}
-
+		if (!isset($forum_map[(int)$obj->forum_id])) {
+			continue;
+		}
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread (
 			id, forum_id, root_msg_id, last_post_id, views, thread_opt, orderexpiry, moved_to, last_post_date, 
 			replies
@@ -510,6 +514,9 @@ $forum_map = array();
 	while( $obj = db_rowobj($r) ) {
 		if (!$obj->post_subject) {
 			$obj->post_subject = $obj->topic_title;
+		}
+		if (!isset($forum_map[(int)$obj->forum_id])) {
+			continue;
 		}
 
 		$fileid = write_body(bbcode2fudcode($obj->post_text), $len, $off, $forum_map[(int)$obj->forum_id]);
@@ -552,6 +559,9 @@ $forum_map = array();
 	print_msg('Importing Polls '.db_count($r));
 
 	while ($obj = db_rowobj($r)) {
+		if (!isset($forum_map[(int)$obj->forum_id])) {
+			continue;
+		}
 		$vote_length = $obj->vote_length ? $obj->vote_start + $obj->vote_length : 0;
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."poll (id, name, owner, creation_date, expiry_date, forum_id)
 			VALUES(
