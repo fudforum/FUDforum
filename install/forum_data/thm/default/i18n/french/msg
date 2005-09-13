@@ -411,7 +411,7 @@ login_login_btn:		Connexion
 login_name_required:		Veuillez saisir votre nom d&#39;utilisateur
 login_passwd_required:		Veuillez saisir votre mot de passe
 login_invalid_radius:		Association Nom d&#39;utilisateur / mot de passe invalide
-reset_confirmation:		Merci de vous être inscrit.\n\nAfin d&#39;activer votre compte, veuillez visiter l&#39;URL suivante:\n\n{VAR: url}\n\nUne fois votre compte activé, vous serez connecté sur le forum et conduit vers la page d&#39;accueil.\n
+reset_confirmation:		Merci de vous être inscrit.\n\nAfin d\'activer votre compte, veuillez visiter l\'URL suivante:\n\n{VAR: url}\n\nUne fois votre compte activé, vous serez connecté sur le forum et conduit vers la page d\'accueil.\n
 reset_reset:			Vous avez décidé de réinitialiser votre mot de passe. Afin de poursuivre cette opération,\nveuillez vous diriger vers cette URL\n\n{VAR: url}\n\nNOTE: Le forum enregistre les mots de passe dans sa base de données en utilisant un mécanisme d\'encodage à sens unique, ce qui signifie qu\'une fois que vous avez soumis votre mot de passe, ce dernier\nest encodé de telle sorte qu\'il n\'est plus possible de le décrypter.\nCeci est possible par perpétuel réencryptage de votre mot de passe. Pour plus d\'information sur cette sécurité, veuillez vous référer à une documentation détaillant l\'algorithme de hachage MD5.
 rpasswd_invalid_passwd:		Le mot de passe est invalide
 rpasswd_passwd_nomatch:		Le mot de passe et sa confirmation ne sont pas identiques
@@ -479,7 +479,7 @@ email_submit:			e-mail
 ppost_quote_msg:		{VAR: msg_to_list} a écrit le {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Citation :
 ppost_to:			À :
-ppost_from_buddy_list:		Sélectionner dans la liste d&#39;amis
+ppost_from_buddy_list:		Sélectionner dans la liste d
 ppost_find_User:		Trouver un utilisateur
 ppost_track_msg:		Suivre ce message
 ppost_track_msg_desc:		Me notifier (via message privé) lorsque ce message a été lu.
@@ -601,7 +601,7 @@ register_err_notyouremail:	Quelqu&#39;un s&#39;est déjà inscrit avec cette addre
 register_err_avatartobig:	Le fichier que vous essayez de télécharger est trop gros, la taille limite autorisée est de {GVAR: CUSTOM_AVATAR_MAX_SIZE} octets
 register_err_avatarnotallowed:	L&#39;avatar que vous essayez de télécharger n&#39;est pas autorisé, veuillez vérifier les types de fichier autorisés.
 register_conf_subject:		Confirmation de votre inscription
-register_conf_msg:		Merci de votre inscription.\nPour activer votre compte, veuillez visiter l&#39;URL ci-dessous :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUne fois que votre compte activé, vous serez connecté au forum et  redirigé vers la page d&#39;accueil du forum.
+register_conf_msg:		Merci de votre inscription.\nPour activer votre compte, veuillez visiter l\'URL ci-dessous :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUne fois votre compte activé, vous serez connecté au forum et redirigé vers la page d\'accueil du forum.
 register_welcome_subject:	Confirmation de votre inscription au forum.
 register_welcome_msg:		Merci de vous être inscrit,\n\nVoici résumé de vos données de connexion au forum :\n\nURL du forum: {TEMPLATE: index_update_lnk}\nNom d&#39;utilisateur: {VAR: uent->login}\nMot de passe: {VAR: _POST['reg_plaintext_passwd']}\n\nN&#39;oubliez pas que les mots de passe différencient les majuscules des minuscules !\nPour modifier vos réglages et votre profil, visitez cette page :\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	ERREUR : Nous n&#39;avons pas pu vous inscrire
@@ -615,8 +615,8 @@ reset_err_invalidkey_msg:	Clé de réinitialisation de mot de passe invalide
 reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		Vous devriez recevoir des instructions par e-mail dans quelques minutes.
 reset_newpass_title:		Réinitialisation du mot de passe
-reset_newpass_msg:		Bonjour,\n\nveuillez trouver ci-joint les informations dont vous avez besoin pour accéder au forum :\n\n\nNom d&#39;utilisateur : {VAR: ui[1]}\nMot de passe: {VAR: passwd}\n\nNotez que vous pouvez modifier votre mot de passe à tout moment via le panneau de configuration de votre profil sur le site du forum, également accessible à l&#39;URL suivante:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Nous venons de vous envoyer un e-mail contenant vos informations d&#39;inscription. Vous devriez le recevoir dans quelques instants. Cet e-mail contient votre nom d&#39;utilisateur ainsi que votre mot de passe actuel.<br>.<br>.<br>
+reset_newpass_msg:		Bonjour,\n\nveuillez trouver ci-joint les informations dont vous avez besoin pour accéder au forum :\n\n\nNom d\'utilisateur: {VAR: ui[1]}\nMot de passe: {VAR: passwd}\n\nNotez que vous pouvez modifier votre mot de passe à tout moment via le panneau de configuration de votre profil sur le site du forum, également accessible à l\'URL suivante:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_login_notify:		Nous venons de vous envoyer un e-mail contenant vos informations d&#39;inscription. Vous devriez le recevoir dans quelques instants. Cet e-mail contient votre nom d&#39;utilisateur ainsi que votre mot de passe actuel.<br>
 search_update:			Recherche des messages
 selmsg_update:			Parcourt les <a href="{TEMPLATE: selmsg_update_lnk}">messages envoyés aujourd&#39;hui</a>
 showposts_update:		Classe les messages par : <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -822,7 +822,7 @@ search_sorting:			Trier les résultats par date et par :
 register_allow_pm_msg:		Autoriser les messages privés
 register_allow_pm_msg_desc:	Permettre aux autres utilisateurs de vous envoyer des messages privés via le forum.
 post_proceed:			Confirmer
-post_moderated_forum:		Vous avez écrit dans un forum modédé, cela signifie que votre message ne sera pas visible dans le forum tant qu&#39;il n&#39;aura pas été approuvé par l&#39;un des modérateurs et/ou administrateurs du forum.\n
+post_moderated_forum:		Vous avez écrit dans un forum modéré, cela signifie que votre message ne sera pas visible dans le forum tant qu&#39;il n&#39;aura pas été approuvé par l&#39;un des modérateurs et/ou administrateurs du forum.\n
 post_moderated_forum_ttl:	Modération du forum
 buddy_list_bday:		Aujourd&#39;hui, {VAR: r[2]} a {VAR: age} ans.
 email_warning_msg:		Si vous changez votre adresse e-mail, votre compte sera marqué comme non confirmé jusqu&#39;à ce que vous le confirmiez par e-mail.
@@ -861,9 +861,9 @@ sml_no_smilies:			Aucun smiley disponible.
 login_unapproved_account_ttl:	Compte non approuvé
 login_unapproved_account_msg:	L&#39;administrateur du forum a choisi de passer en revue chaque nouveau compte manuellement avant son activation. Votre compte n&#39;a pas encore été confirmé, vous ne pourrez donc pas accéder à certaines fonctionnalités réservées aux membres inscrits avant que votre compte ne soit approuvé.
 remove_from_buddy_list:		Retirer de la liste d&#39;amis
-iemail_msg_author:		<b>Auteur :</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Sujet :</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date :</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_author:		<b>Auteur&nbsp;:</b> {VAR: obj->alias}
+iemail_msg_subject:		<b>Sujet&nbsp;:</b> {VAR: obj->subject}
+iemail_msg_date:		<b>Date&nbsp;:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Répondre
 iemail_msg_quote:		Citer
 iemail_msg_view:		Voir le message
@@ -889,9 +889,9 @@ post_mod_msg_notify_msg:	Un nouveau message intitulé "{VAR: msg_post->subject}" 
 thread_printable_pdf:		Générer du PDF imprimable
 thread_syndicate:		Publier ce forum (XML)
 reg_conf_title:			Confirmation d&#39;inscription
-reg_conf_email:			<b>E-mail de confirmation</b><br />Un e-mail vous a été envoyé, contenant une URL spéciale que vous devrez visiter avant que votre compte ne soit activé. Si vous ne recevez pas cet e-mail dans les prochaines minutes, connectez-vous avec votre compte et assurez-vous que l&#39;adresse e-mail que vous avez spécifiée est correcte. Une fois que vous aurez confirmé votre compte, vous pourrez accéder aux fonctionnalités du forum disponibles aux utilisateurs ayant confirmé leur inscription.
-reg_conf_account:		<b>Confirmation de votre compte</b><br />Avant que votre compte ne soit activé, il doit être approuvé par le (ou les) administrateur(s), une fois ceci fait, vous recevrez un e-mail indiquant que votre compte a été confirmé. Avant cela, vous pouvez vous connecter avec votre compte, mais vous ne pourrez pas accéder aux fonctionnalités restreintes aux utilisateurs approuvés.
-forum_banned_user:		Vos actions antérieures ont entrainé votre bannissement permanent de ce forum. Au revoir.
+reg_conf_email:			<b>E-mail de confirmation</b><br />Un e-mail vous a été envoyé, contenant une URL spéciale que vous devrez visiter avant que votre compte ne soit activé. Si vous ne recevez pas cet e-mail dans les prochaines minutes, connectez-vous avec votre compte et assurez-vous que l&#39;adresse e-mail que vous avez spécifiée est correcte. Une fois que vous aurez confirmé votre compte, vous pourrez accéder aux fonctionnalités du forum disponibles pour les utilisateurs ayant confirmé leur inscription.
+reg_conf_account:		<b>Confirmation de votre compte</b><br />Avant que votre compte ne soit activé, il doit être approuvé par le (ou les) administrateur(s). Une fois ceci fait, vous recevrez un e-mail indiquant que votre compte a été confirmé. Avant cela, vous pouvez vous connecter avec votre compte, mais vous ne pourrez pas accéder aux fonctionnalités disponibles uniquement pour les utilisateurs approuvés.
+forum_banned_user:		Vos actions antérieures ont entraîné votre bannissement permanent de ce forum. Au revoir.
 mnav_description:		Navigateur de messages
 mnav_date_limit:		Intervalle de dates :
 mnav_forum_limit:		Ne chercher que dans :
@@ -931,14 +931,14 @@ groups_perms_header:		Permissions <font size="-1">(déplacer la souris au-dessus 
 register_err_sig_too_long:	Votre signature excède la longueur maximale autorisée de {GVAR: FORUM_SIG_ML} caractères.
 register_sig_limit:		{GVAR: FORUM_SIG_ML} caractères <a href="javascript: alert(\'Votre signature comporte \'+document.fud_register.reg_sig.value.length+\' caractères en trop. La longueur maximale autorisée pour une signature est de {GVAR: FORUM_SIG_ML}\');" class="SmallText">Vérifier la longueur de la signature</a>
 p_SEARCH:			Peut effectuer une recherche
-adm_account_accepted:		Votre compte \'{VAR: GLOBALS['r']->login}\' a été approuvé par l&#39;administrateur et est maintenant actif. Vous pouvez désormais accéder au forum {GVAR: FORUM_TITLE}\' en tant qu&#39;utilisateur inscrit et confirmé.
+adm_account_accepted:		Votre compte \'{VAR: GLOBALS['r']->login}\' a été approuvé par l&#39;administrateur, et est maintenant actif. Vous pouvez désormais accéder au forum {GVAR: FORUM_TITLE}\' en tant qu&#39;utilisateur inscrit et confirmé.
 adm_account_accepted_s:		Votre demande de compte pour \'{GVAR: FORUM_TITLE}\' a été acceptée.
-adm_account_rejected:		Votre compte \'{VAR: GLOBALS['r']->login}\' a été refusé par l&#39;administrateur et est maintenant désactivé. Si vous voulez connaître la raison de cette décision, veuillez contacter l&#39;administrateur à \'{GVAR: ADMIN_EMAIL}\'.
+adm_account_rejected:		Votre compte \'{VAR: GLOBALS['r']->login}\' a été refusé par l&#39;administrateur, et est maintenant désactivé. Si vous voulez connaître la raison de cette décision, veuillez contacter l&#39;administrateur à \'{GVAR: ADMIN_EMAIL}\'.
 adm_account_rejected_s:		Votre demande de compte pour \'{GVAR: FORUM_TITLE}\' a été refusée.
 thread_on:			le
 userinfo_buddy:			Ami :
 register_email_addr:		Adresse E-mail :
-reset_suffix:			\n\nSi vous avez reçu ce message par erreur, merci de l&#39;ignorer. Si vous recevez plusieurs copies non sollicitées de ce mail, merci de contacter l&#39;administrateur à {GVAR: ADMIN_EMAIL}\n\nCette requête a été initiée depuis : {VAR: _SERVER['REMOTE_ADDR']}.\n\n
+reset_suffix:			\n\nSi vous avez reçu ce message par erreur, merci de l\'ignorer. Si vous recevez plusieurs copies non sollicitées de ce mail, merci de contacter l\'administrateur à {GVAR: ADMIN_EMAIL}\n\nCette requête a été initiée depuis : {VAR: _SERVER['REMOTE_ADDR']}.\n\n
 usrinfo_last_visit:		Dernière visite aujourd&#39;hui:
 mnav_newer:			plus récents que
 mnav_older:			plus anciens que
@@ -963,7 +963,7 @@ delete_message_extra_desc:	<b>Optionnel</b><br />Indiquez une raison justifiant 
 delete_message_extra_body:	Inclure le corps du message et l&#39;envoyer à l&#39;auteur.
 delete_msg_removed_ttl:		Votre message a été effacé par l&#39;équipe d&#39;administration.
 delete_msg_pm_body:		Message original
-delete_msg_pm_subject:		Sujet : {VAR: data[15]}
+delete_msg_pm_subject:		Sujet&nbsp;: {VAR: data[15]}
 ip_no_whois:			Information Whois pour <b>{VAR: ip}</b> non disponible.
 ip_whois_title:			<b>Information ISP</b><br />
 register_theme:			Thème :
@@ -979,7 +979,7 @@ search_user_filter:		Filtrer par utilisateur :
 register_none:			Ne pas notifier
 findu_no_conf:			utilisateur non confirmé
 register_max_sig_len:		Longueur maximale :
-register_turing:		Veuillez entrer le code ci-dessous :
+register_turing:		Veuillez entrer le code ci-dessous:
 register_err_turing:		Code de validation incorrect.
 modque_cat:			Catégorie
 modque_forum:			Forum
@@ -999,8 +999,8 @@ err_banned_acct_msg:		Votre compte a été banni {IF: $ban_expiry}temporairement j
 err_blockedaccnt_title:		ERREUR: Votre compte a été filtré.
 err_blockedaccnt_msg:		Votre compte ne peut pas accéder à ce forum à cause de l\'un des filtres utilisateurs installés.
 merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
-tabs_own_posts:			Show Own Posts
+most_users_online:		Le nombre maximum d\'utilisateurs en ligne était de <b>{VAR: st_obj->most_online}</b> le <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:		Cesser la surveillance de tous les forums
+sub_unsub_all_topics:		Cesser la surveillance de tous les fils
+tabs_own_posts:			Montrer ses propres messages
 buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
