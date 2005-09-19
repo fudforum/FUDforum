@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.38 2005/09/09 23:17:25 hackie Exp $
+* $Id: admstats.php,v 1.39 2005/09/19 13:56:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -110,10 +110,11 @@ function get_sql_disk_usage()
 				$fmt = 'Ymd';
 		}
 
+		$lmt = array();
 		if (!empty($_POST['lmt'])) {
 			if ($_POST['lmt']{0} == 'c') {
 				$lmt = db_all('SELECT id FROM '.$tbl.'forum WHERE cat_id='.(int)substr($_POST['lmt'],1));
-			} else {
+			} else if ((int)$_POST['lmt'] > 0) {
 				$lmt = array((int)$_POST['lmt']);
 			}
 		}
@@ -122,14 +123,14 @@ function get_sql_disk_usage()
 			case 'msg':
 				$g_title = 'Messages posted';
 				if (!$lmt) {
-					$c = uq('SELECT post_stamp FROM '.$tbl.'msg WHERE post_stamp>'.$start_tm.' AND post_stamp<'.$end_tm);
+					$c = uq('SELECT post_stamp FROM '.$tbl.'msg WHERE post_stamp BETWEEN '.$start_tm.' AND '.$end_tm);
 				} else {
 					$c = uq('SELECT m.post_stamp FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id WHERE m.post_stamp>'.$start_tm.' AND m.post_stamp<'.$end_tm.' AND t.forum_id IN('.implode(',', $lmt).')');
 				}
 				break;
 			case 'thr':
 				$g_title = 'Topics created';
-				$c = uq('SELECT post_stamp FROM '.$tbl.'thread INNER JOIN '.$tbl.'msg ON '.$tbl.'thread.root_msg_id='.$tbl.'msg.id WHERE post_stamp>'.$start_tm.' AND post_stamp<'.$end_tm.($lmt ? ' AND forum_id IN('.implode(',', $lmt).') ' : ''));
+				$c = uq('SELECT post_stamp FROM '.$tbl.'thread INNER JOIN '.$tbl.'msg ON '.$tbl.'thread.root_msg_id='.$tbl.'msg.id WHERE post_stamp BETWEEN '.$start_tm.' AND '.$end_tm.($lmt ? ' AND forum_id IN('.implode(',', $lmt).') ' : ''));
 				break;
 			case 'usr':
 				$g_title = 'Registered users';
