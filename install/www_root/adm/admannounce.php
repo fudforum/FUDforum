@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admannounce.php,v 1.20 2005/09/08 14:17:13 hackie Exp $
+* $Id: admannounce.php,v 1.21 2005/09/19 14:53:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -92,26 +92,32 @@ function mk_date($y, $m, $d)
 		<td><table border=0 cellspacing=1 cellpadding=2>
 			<tr><td colspan=5"><input type="submit" name="btn_none" value="None"> <input type="submit" name="btn_all" value="All"></td></tr>
 <?php
-	$c = uq('SELECT f.name, f.id, c.name FROM '.$tbl.'forum f INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id ORDER BY c.view_order, f.view_order');
-	$old_c = '';
-	$rows = 6;
-	$row = 0;
+	 require $FORUM_SETTINGS_PATH.'cat_cache.inc';
+	$pfx = $oldc = ''; $row = 0;
+	$c = uq('SELECT f.id, f.name, c.id FROM '.$tbl.'fc_view v INNER JOIN '.$tbl.'forum f ON f.id=v.f INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id ORDER BY v.id');
 	while ($r = db_rowarr($c)) {
-		if ($old_c != $r[2]) {
-			if ($row < $rows) {
-				echo '<td colspan="'.($rows - $row).'"> </td></tr>';
+		if ($oldc != $r[2]) {
+			if ($row < 6) {
+				echo '<td colspan="'.(6 - $row).'"> </td></tr>';
 			}
-			echo '<tr class="fieldtopic"><td colspan='.$rows.'><font size=-2>'.$r[2].'</font></td></tr><tr class="field">';
+			while (list($k, $i) = each($GLOBALS['cat_cache'])) {
+				$pfx = str_repeat('&nbsp;&nbsp;&nbsp;', $i[0]);
+
+				echo '<tr class="fieldtopic"><td colspan=6>'.$pfx.'<font size=-2>'.$i[1].'</font></td></tr><tr class="field">';
+				if ($k == $r[2]) {
+					break;
+				}
+			}
+			$oldc = $r[2];
 			$row = 1;
-			$old_c = $r[2];
 		}
-		if ($row >= $rows) {
+		if ($row >= 6) {
 			$row = 2;
 			echo '</tr><tr class="field">';
 		} else {
 			++$row;
 		}
-		echo '<td>'.create_checkbox('frm_list['.$r[1].']', $r[1], isset($frm_list[$r[1]])).' <font size=-2> '.$r[0].'</font></td>';
+		echo '<td>'.($row == 2 ? $pfx : '').create_checkbox('frm_list['.$r[0].']', $r[0], isset($frm_list[$r[0]])).' <font size=-2> '.$r[1].'</font></td>';
 	}
 	unset($c);
 ?>
