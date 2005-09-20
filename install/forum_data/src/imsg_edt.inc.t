@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.145 2005/09/12 20:52:59 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.146 2005/09/20 13:35:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -409,8 +409,11 @@ class fud_msg_edit extends fud_msg
 				$notify_type = 'frm';
 			}
 		} else {
+			$to = array();
+		}
+		if ($mtf->root_msg_id != $mtf->id) {
 			/* send new reply notifications to thread subscribers */
-			$to = db_all('SELECT u.email
+			$to = array_unique(array_merge($to, db_all('SELECT u.email
 					FROM {SQL_TABLE_PREFIX}thread_notify tn
 					INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id AND (u.users_opt & 134217728) = 0
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
@@ -420,7 +423,7 @@ class fud_msg_edit extends fud_msg
 				WHERE
 					tn.thread_id='.$mtf->thread_id.' AND tn.user_id!='.(int)$mtf->poster_id.'
 					'.($GLOBALS['FUD_OPT_3'] & 64 ? 'AND (r.msg_id='.$mtf->last_post_id.' OR (r.msg_id IS NULL AND '.$mtf->post_stamp.' > u.last_read))' : '').'
-					AND ((COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0 OR (u.users_opt & 1048576) > 0 OR mm.id IS NOT NULL)');
+					AND ((COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0 OR (u.users_opt & 1048576) > 0 OR mm.id IS NOT NULL)')));
 			$notify_type = 'thr';
 		}
 		if ($to) {
