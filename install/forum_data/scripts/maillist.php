@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.60 2005/09/08 14:17:13 hackie Exp $
+* $Id: maillist.php,v 1.61 2005/09/20 14:46:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -277,9 +277,9 @@ class fud_emsg
 		}
 
 		// This fetches the id of the message if this is a reply to an existing message
-		if (!empty($this->headers['in-reply-to']) && preg_match('!.*<([^>]+)>$!', trim($this->headers['in-reply-to']), $match)) {
+		if (!empty($this->headers['in-reply-to']) && preg_match('!<([^>]+)>$!', trim($this->headers['in-reply-to']), $match)) {
 			$this->reply_to_msg_id = $match[1];
-		} else if (!empty($this->headers['references']) && preg_match('!.*<([^>]+)>!', trim($this->headers['references']), $match)) {
+		} else if (!empty($this->headers['references']) && preg_match('!<([^>]+)>$!', trim($this->headers['references']), $match)) {
 			$this->reply_to_msg_id = $match[1];
 		}
 	}
