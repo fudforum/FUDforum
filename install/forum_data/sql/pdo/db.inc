@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.24 2005/09/14 16:51:55 hackie Exp $
+* $Id: db.inc,v 1.25 2005/09/20 15:04:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -70,7 +70,7 @@ function pdo_concat()
 function get_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		define('__FUD_SQL_VERSION__', db::$db->getAttribute(PDO_ATTR_SERVER_VERSION));
+		define('__FUD_SQL_VERSION__', db::$db->getAttribute(PDO::ATTR_SERVER_VERSION));
 	}
 	return __FUD_SQL_VERSION__;
 }
@@ -152,9 +152,9 @@ function uq($query, $buf=0)
 	if (!strncasecmp($query, 'SELECT', 6)) {
 		db::$res = null;
 		db::$buf = $buf;
-		if ($buf && __dbtype__ == 'mysql') db::$db->setAttribute(PDO_MYSQL_ATTR_USE_BUFFERED_QUERY, 1);
+		if ($buf && __dbtype__ == 'mysql') db::$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 1);
 		db::$res = db::$db->query($query) or die (fud_sql_error_handler($query, db::$db->errorCode(), __enifo(db::$db->errorInfo()), get_version()));
-		if ($buf && __dbtype__ == 'mysql') db::$db->setAttribute(PDO_MYSQL_ATTR_USE_BUFFERED_QUERY, 0);
+		if ($buf && __dbtype__ == 'mysql') db::$db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 0);
 		return db::$res;
 	}
 	if (!db::$buf) {
@@ -178,12 +178,12 @@ function db_count($result)
 
 function db_rowobj($result)
 {
-	return $result->fetch(PDO_FETCH_OBJ);
+	return $result->fetch(PDO::FETCH_OBJ);
 }
 
 function db_rowarr($result)
 {
-	return $result->fetch(PDO_FETCH_NUM);
+	return $result->fetch(PDO::FETCH_NUM);
 }
 
 function q_singleval($query)
@@ -210,19 +210,19 @@ function get_fud_table_list($tbl='')
 	switch (__dbtype__) {
 		case 'mysql':
 			if (!$tbl) {
-				return db::$db->query("SHOW TABLES LIKE '".$idx."%'")->fetchAll(PDO_FETCH_COLUMN);
+				return db::$db->query("SHOW TABLES LIKE '".$idx."%'")->fetchAll(PDO::FETCH_COLUMN);
 			}
 			return db::$db->query("SHOW TABLES LIKE '".str_replace("_", "\\_", $tbl)."'")->fetchColumn();
 
 		case 'pgsql':
 			if (!$tbl) {
-				return db::$db->query("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".$idx."%'")->fetchAll(PDO_FETCH_COLUMN);
+				return db::$db->query("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".$idx."%'")->fetchAll(PDO::FETCH_COLUMN);
 			}
 			return q_singleval("SELECT relname FROM pg_class WHERE relkind='r' AND relname='".$tbl."'");
 
 		case 'sqlite':
 			if (!$tbl) {
-				return db::$db->query("SELECT tbl_name FROM sqlite_master WHERE type='table' AND  name LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'")->fetchAll(PDO_FETCH_COLUMN);
+				return db::$db->query("SELECT tbl_name FROM sqlite_master WHERE type='table' AND  name LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'")->fetchAll(PDO::FETCH_COLUMN);
 			}
 			return q_singleval("SELECT tbl_name FROM sqlite_master WHERE type='table' AND name='".$tbl."'");
 	}
@@ -252,12 +252,12 @@ function optimize_tables($tbl_list=null)
 
 function db_saq($q)
 {
-	return uq($q)->fetch(PDO_FETCH_NUM);
+	return uq($q)->fetch(PDO::FETCH_NUM);
 }
 
 function db_sab($q)
 {
-	return uq($q)->fetch(PDO_FETCH_OBJ);
+	return uq($q)->fetch(PDO::FETCH_OBJ);
 }
 
 function db_qid($q)
@@ -277,7 +277,7 @@ function db_qid($q)
 
 function db_arr_assoc($q)
 {
-	return uq($q)->fetch(PDO_FETCH_ASSOC);
+	return uq($q)->fetch(PDO::FETCH_ASSOC);
 }
 
 function db_li($q, &$ef, $li=0)
@@ -336,7 +336,7 @@ function ins_m($tbl, $flds, $vals, $type=0, $strict=1)
 function db_all($q)
 {
 	db::$buf = db::$res = null;
-	return db::$db->query($q)->fetchAll(PDO_FETCH_COLUMN);
+	return db::$db->query($q)->fetchAll(PDO::FETCH_COLUMN);
 }
 
 function _esc($s)
