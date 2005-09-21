@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.67 2005/08/11 01:26:13 hackie Exp $
+* $Id: selmsg.php.t,v 1.68 2005/09/21 13:29:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -114,6 +114,8 @@ function path_info_lnk($var, $val)
 /*{POST_HTML_PHP}*/
 
 	if ($unread_limit || $total) {
+		$ord = $unread_limit ? ' DESC ' : ' ASC ';
+
 		/* figure out the query */
 		$c = $query_type('SELECT
 			m.*,
@@ -152,7 +154,7 @@ function path_info_lnk($var, $val)
 			'.$unread_limit.'
 			'.$perm_limit.'
 		ORDER BY
-			f.last_post_id, t.last_post_date, m.post_stamp
+			f.last_post_id '.$ord.', t.last_post_date '.$ord.', m.post_stamp '.$ord.'
 		LIMIT '.qry_limit($count, $start));
 
 		/* message drawing code */
