@@ -17,10 +17,10 @@ function external_fud_login($user_id)
 	}
 
 	/* create session */
-	$sys_id = __ses_make_sysid(($FUD_OPT_2 & 256), ($FUD_OPT_3 & 16));
+	$sys_id = __ses_make_sysid(($GLOBALS['FUD_OPT_2'] & 256), ($GLOBALS['FUD_OPT_3'] & 16));
 	$ses_id = md5($user_id . time() . getmypid());
-	q("REPLACE INTO ".$DBHOST_TBL_PREFIX."ses (ses_id, time_sec, sys_id, user_id) VALUES ('".$ses_id."', ".time().", '".$sys_id."', ".$user_id.")");
-	setcookie($COOKIE_NAME, $ses_id, time()+$COOKIE_TIMEOUT, $COOKIE_PATH, $COOKIE_DOMAIN);
+	q("REPLACE INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."ses (ses_id, time_sec, sys_id, user_id) VALUES ('".$ses_id."', ".time().", '".$sys_id."', ".$user_id.")");
+	setcookie($GLOBALS['COOKIE_NAME'], $ses_id, time()+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 
 	return $ses_id;
 }
@@ -32,16 +32,16 @@ function external_fud_logout($user_id)
 	}
 
 	// remove session from database
-	q("DELETE FROM ".$DBHOST_TBL_PREFIX."ses WHERE user_id=".$user_id);
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ses WHERE user_id=".$user_id);
 	// trash cookie
-	setcookie($COOKIE_NAME, '', 0, $COOKIE_PATH, $COOKIE_DOMAIN);
+	setcookie($GLOBALS['COOKIE_NAME'], '', 0, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 }
 
 function external_get_user_by_auth($login, $passwd)
 {
 	__fud_login_common(1);
 
-	return q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._esc($login)." AND passwd='".md5($passwd)."'");
+	return q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login="._esc($login)." AND passwd='".md5($passwd)."'");
 }
 
 function __fud_login_common($skip=0, $user_id=0)
@@ -51,7 +51,7 @@ function __fud_login_common($skip=0, $user_id=0)
 	eval(str_replace('<?php', '', substr_replace($data, '', strpos($data, 'require'))));
 
 	/* db.inc needs certain vars inside the global scope to work, so we export them */
-	foreach (array('FUD_OPT_1', 'DBHOST', 'DBHOST_USER', 'DBHOST_PASSWORD', 'DBHOST_DBNAME','DATA_DIR') as $v) {
+	foreach (array('COOKIE_DOMAIN','COOKIE_NAME','COOKIE_TIMEOUT','COOKIE_PATH','FUD_OPT_1', 'FUD_OPT_3', 'FUD_OPT_2', 'DBHOST', 'DBHOST_USER', 'DBHOST_PASSWORD', 'DBHOST_DBNAME','DATA_DIR') as $v) {
 		$GLOBALS[$v] = $$v;
 	}
 
@@ -66,7 +66,7 @@ function __fud_login_common($skip=0, $user_id=0)
 	}
 
 	/* validate user */
-	if (!q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".$user_id)) {
+	if (!q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE id=".$user_id)) {
 		return;
 	}
 
