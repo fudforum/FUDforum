@@ -12,7 +12,7 @@ $GLOBALS['PATH_TO_FUD_FORUM_DB_INC'] = '';
 */
 function external_fud_login($user_id)
 {
-	if (($user_id = (int) $user_id) < 2 || !__fud_login_common()) {
+	if (($user_id = (int) $user_id) < 2 || !__fud_login_common(0, $user_id)) {
 		return;
 	}
 
@@ -27,7 +27,7 @@ function external_fud_login($user_id)
 
 function external_fud_logout($user_id)
 {
-	if (($user_id = (int) $user_id) < 2 || !__fud_login_common()) {
+	if (($user_id = (int) $user_id) < 2 || !__fud_login_common(0, $user_id)) {
 		return;
 	}
 
@@ -44,7 +44,7 @@ function external_get_user_by_auth($login, $passwd)
 	return q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._esc($login)." AND passwd='".md5($passwd)."'");
 }
 
-function __fud_login_common($skip=0)
+function __fud_login_common($skip=0, $user_id=0)
 {
 	/* load forum config */
 	$data = file_get_contents($GLOBALS['PATH_TO_FUD_FORUM_GLOBALS_PHP']);
