@@ -994,13 +994,13 @@ search_results_hdr:		{VAR: total} résultats pour cette recherche
 thread_del_all:			Supprimer tout ce qui est sélectionné
 thread_mov_all:			Déplacer tout ce qui est sélectionné
 dmsg_ip:			IP :
-err_banned_acct_title:		ERREUR: Vous êtes banni.
+err_banned_acct_title:		ERREUR : Vous êtes banni.
 err_banned_acct_msg:		Votre compte a été banni {IF: $ban_expiry}temporairement jusqu\'au {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}de façon permanente{ENDI} de l\'accès à ce site, pour avoir violé les règles du forum.
-err_blockedaccnt_title:		ERREUR: Votre compte a été filtré.
+err_blockedaccnt_title:		ERREUR : Votre compte a été filtré.
 err_blockedaccnt_msg:		Votre compte ne peut pas accéder à ce forum à cause de l\'un des filtres utilisateurs installés.
-merge_th_page_list:		Topic Page Selection
+merge_th_page_list:		Sélection de page de sujet
 most_users_online:		Le nombre maximum d\'utilisateurs en ligne était de <b>{VAR: st_obj->most_online}</b> le <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:		Cesser la surveillance de tous les forums
 sub_unsub_all_topics:		Cesser la surveillance de tous les fils
 tabs_own_posts:			Montrer ses propres messages
-buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
+buddy_list_err_ignore:		Impossible d\'ajouter à votre liste d'amis des utilisateurs qui vous ignorent.
