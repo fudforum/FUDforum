@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.25 2005/09/20 15:04:02 hackie Exp $
+* $Id: db.inc,v 1.26 2005/09/23 01:24:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -285,7 +285,7 @@ function db_li($q, &$ef, $li=0)
 	db::$buf = db::$res = null;
 	$r = db::$db->exec($q);
 	
-	if ($r) {
+	if ($r !== false) {
 		if (!$li) {
 			return $r;
 		}
