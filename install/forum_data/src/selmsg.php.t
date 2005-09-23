@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.68 2005/09/21 13:29:38 hackie Exp $
+* $Id: selmsg.php.t,v 1.69 2005/09/23 16:44:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -114,7 +114,7 @@ function path_info_lnk($var, $val)
 /*{POST_HTML_PHP}*/
 
 	if ($unread_limit || $total) {
-		$ord = $unread_limit ? ' DESC ' : ' ASC ';
+		$ord = isset($_GET['reply_count']) ? ' DESC ' : ' ASC ';
 
 		/* figure out the query */
 		$c = $query_type('SELECT
