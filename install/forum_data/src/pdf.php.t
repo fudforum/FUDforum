@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.49 2005/09/04 18:14:26 hackie Exp $
+* $Id: pdf.php.t,v 1.50 2005/09/27 19:59:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -275,7 +275,7 @@ class fud_pdf extends FPDF
 		$subject = 'Private Message Archive';
 	}
 
-	$fpdf = new fud_pdf('FUDforum ' . $FORUM_VERSION, $FORUM_TITLE, $subject, $PDF_PAGE, $PDF_WMARGIN, $PDF_HMARGIN);
+	$fpdf = new fud_pdf('FUDforum ' . $FORUM_VERSION, html_entity_decode($FORUM_TITLE), $subject, $PDF_PAGE, $PDF_WMARGIN, $PDF_HMARGIN);
 	$fpdf->begin_page($subject);
 	do {
 		/* write message header */
