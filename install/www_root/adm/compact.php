@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.57 2005/09/27 22:28:44 hackie Exp $
+* $Id: compact.php,v 1.58 2005/09/27 22:35:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -101,7 +101,7 @@ function eta_calc($start, $pos, $pc)
 
 	echo "<br>Please wait while forum is being compacted.<br>This may take a while depending on the size of your forum.<br>\n";
 
-	$mode = ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666);
+	$mode = ($FUD_OPT_2 & 8388608 ? 0600 : 0666);
 
 	/* Normal Messages */
 	echo "Compacting normal messages...<br>\n";
