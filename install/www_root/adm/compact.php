@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.56 2005/09/27 22:17:05 hackie Exp $
+* $Id: compact.php,v 1.57 2005/09/27 22:28:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -156,11 +156,7 @@ function eta_calc($start, $pos, $pc)
 	echo "100% Done<br>\n";
 	echo "Compacting private messages...<br>\n";
 
-	if (__dbtype__ == 'mysql') {
-		q('ALTER TABLE '.$tbl.'pmsg ADD INDEX(foff)');
-	} else {
-		q('CREATE INDEX '.$tbl.'pmsg_foff_idx ON '.$tbl.'pmsg (foff)');
-	}
+	q('CREATE INDEX '.$tbl.'pmsg_foff_idx ON '.$tbl.'pmsg (foff)');
 
 	db_lock($tbl.'pmsg WRITE');
 	$i = $off = $len = 0;
@@ -187,11 +183,7 @@ function eta_calc($start, $pos, $pc)
 	unset($c);
 	fclose($fp);
 
-	if (__dbtype__ == 'mysql') {
-		q('ALTER TABLE '.$tbl.'pmsg DROP index foff');
-	} else {
-		q('DROP INDEX '.$tbl.'pmsg_foff_idx');
-	}
+	q('DROP INDEX '.$tbl.'pmsg_foff_idx'.(__dbtype__ == 'mysql' ? ' ON '.$tbl.'pmsg' : ''));
 
 	echo "100% Done<br>\n";
 
