@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.55 2005/09/27 22:15:32 hackie Exp $
+* $Id: compact.php,v 1.56 2005/09/27 22:17:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -101,7 +101,7 @@ function eta_calc($start, $pos, $pc)
 
 	echo "<br>Please wait while forum is being compacted.<br>This may take a while depending on the size of your forum.<br>\n";
 
-	define('__file_perms__', ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
+	$mode = ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666);
 
 	/* Normal Messages */
 	echo "Compacting normal messages...<br>\n";
@@ -142,8 +142,6 @@ function eta_calc($start, $pos, $pc)
 		foreach (glob($MSG_STORE_DIR.'msg_*') as $f) {
 			unlink($f);
 		}
-
-		$mode = ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666);
 
 		/* move new message files to the new location */
 		foreach ($GLOBALS['__FUD_TMP_F__'] as $k => $f) {
@@ -201,11 +199,8 @@ function eta_calc($start, $pos, $pc)
 	if (!$i) {
 		@unlink($MSG_STORE_DIR . 'private_tmp');
 	} else {
-		$u = umask(0);
-		$mode = fileperms($MSG_STORE_DIR . 'private');
 		rename($MSG_STORE_DIR . 'private_tmp', $MSG_STORE_DIR . 'private');
 		chmod($MSG_STORE_DIR . 'private', $mode);
-		umask($u);
 	}
 
 	db_unlock();
