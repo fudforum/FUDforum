@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.63 2005/09/08 14:17:13 hackie Exp $
+* $Id: nntp.inc,v 1.64 2005/09/28 14:15:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -405,11 +405,15 @@ class fud_nntp
 			} else {
 				$enc = '';
 			}
-			$this->body = decode_string($this->body, $enc, $charset);
+
+			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->nntp_opt & 32, $this->user_id, $msg_post->post_stamp);
+			// skip_non_forum_users is set
+			if (!$msg_post->poster_id && $this->nntp_opt & 256) {
+				return;
+			}
 
 			$msg_post->subject = apply_custom_replace($this->subject);
-			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->nntp_opt & 32, $this->user_id, $msg_post->post_stamp);
-			$msg_post->body = $this->body;
+			$msg_post->body = decode_string($this->body, $enc, $charset);
 
 			/* for anonymous users prefix 'contact' link */
 			if (!$msg_post->poster_id) {

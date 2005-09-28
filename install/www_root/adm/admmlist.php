@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.31 2005/07/06 15:12:43 hackie Exp $
+* $Id: admmlist.php,v 1.32 2005/09/28 14:15:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -162,6 +162,15 @@ function format_regex(&$regex)
 			to the anonymous user.</font>
 		</td>
 		<td><?php draw_select('ml_create_users', "Yes\nNo", "64\n0", ($ml_mlist_opt & 64 ? 64 : 0)); ?></td>
+	</tr>
+
+	<tr class="field">
+		<td>
+			Skip Non-Forum Users:<br>
+			<font size="-1">When importing messages, should the messages posted from users who cannot be matched
+			to existing forum members be ignored.</font>
+		</td>
+		<td><?php draw_select('ml_skip_non_forum_users', "Yes\nNo", "128\n0", ($ml_mlist_opt & 128 ? 128 : 0)); ?></td>
 	</tr>
 
 	<tr>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp_adm.inc,v 1.22 2005/09/08 14:17:13 hackie Exp $
+* $Id: nntp_adm.inc,v 1.23 2005/09/28 14:15:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,7 +28,7 @@ class fud_nntp_adm
 			}
 
 			$this->nntp_opt = 0;
-			foreach (array('nntp_post_apr', 'allow_frm_post', 'frm_post_apr', 'allow_nntp_attch', 'complex_reply_match', 'create_users', 'auth') as $v) {
+			foreach (array('skip_non_forum_users','nntp_post_apr', 'allow_frm_post', 'frm_post_apr', 'allow_nntp_attch', 'complex_reply_match', 'create_users', 'auth') as $v) {
 				if (isset($_POST['nntp_'.$v])) {
 					$this->nntp_opt |= (int) $_POST['nntp_'.$v];
 				}

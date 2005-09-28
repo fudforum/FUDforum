@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.27 2005/07/06 15:12:43 hackie Exp $
+* $Id: admnntp.php,v 1.28 2005/09/28 14:15:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -177,6 +177,15 @@
 			to the anonymous user.</font>
 		</td>
 		<td><?php draw_select('nntp_create_users', "No\nYes", "0\n32", ($nntp_nntp_opt & 32 ? 32 : 0)); ?></td>
+	</tr>
+
+	<tr class="field">
+		<td>
+			Skip Non-Forum Users:<br>
+			<font size="-1">When importing messages, should the messages posted from users who cannot be matched
+			to existing forum members be ignored.</font>
+		</td>
+		<td><?php draw_select('nntp_skip_non_forum_users', "Yes\nNo", "256\n0", ($ml_mlist_opt & 256 ? 256 : 0)); ?></td>
 	</tr>
 
 	<tr class="field">
