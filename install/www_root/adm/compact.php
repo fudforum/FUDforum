@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.58 2005/09/27 22:35:54 hackie Exp $
+* $Id: compact.php,v 1.59 2005/09/28 13:45:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -107,7 +107,7 @@ function eta_calc($start, $pos, $pc)
 	echo "Compacting normal messages...<br>\n";
 
 	$tbl =& $DBHOST_TBL_PREFIX;
-	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'msg WHERE file_id>0') / 10);
+	$pc = ceil(q_singleval('SELECT count(*) FROM '.$tbl.'msg WHERE file_id>0') / 10);
 	$i = 0;
 	$stm = time();
 	if ($pc) {
@@ -115,14 +115,13 @@ function eta_calc($start, $pos, $pc)
 
 		while (1) {
 			$j = $i;
-			$r = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold, f.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id>0 LIMIT 100');
+			$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold, f.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id>0 LIMIT 100');
 			while ($r = db_rowarr($c)) {
 				if ($r[4] && $r[2] > $r[4]) {
 					$m2 = write_body_c(trim_html(read_msg_body($r[1], $r[2], $r[3]), $r[4]), $len2, $off2, $r[5]);
 				} else {
 					$m2 = $len2 = $off2 = 0;
 				}
-
 				$m1 = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $len, $off, $r[5]);
 				q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.(-$m1).', file_id_preview='.(-$m2).', offset_preview='.$off2.', length_preview='.$len2.' WHERE id='.$r[0]);
 
