@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.157 2005/09/09 15:12:45 hackie Exp $
+* $Id: register.php.t,v 1.158 2005/09/30 20:03:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -358,6 +358,10 @@ function decode_uent(&$uent)
 		$old_avatar_loc = $uent->avatar_loc;
 		$old_avatar = $uent->avatar;
 
+		if (!($FUD_OPT_1 & 32768)) {
+			unset($_POST['reg_sig']);
+		}
+
 		/* import data from _POST into $uent object */
 		foreach (array_keys(get_class_vars("fud_user")) as $v) {
 			if (isset($_POST['reg_'.$v])) {
@@ -371,21 +375,24 @@ function decode_uent(&$uent)
 		}
 
 		$uent->bday = fmt_year((int)$_POST['b_year']) . sprintf("%02d%02d", (int)$_POST['b_month'], (int)$_POST['b_day']);
-		$uent->sig = apply_custom_replace($uent->sig);
-		if ($FUD_OPT_1 & 131072) {
-			$uent->sig = tags_to_html($uent->sig, $FUD_OPT_1 & 524288);
-		} else if ($FUD_OPT_1 & 65536) {
-			$uent->sig = nl2br(htmlspecialchars($uent->sig));
-		}
 
-		if ($FUD_OPT_1 & 196608) {
-			$uent->sig = char_fix($uent->sig);
-		}
+		if ($FUD_OPT_1 & 32768 && $uent->sig) {
+			$uent->sig = apply_custom_replace($uent->sig);
+			if ($FUD_OPT_1 & 131072) {
+				$uent->sig = tags_to_html($uent->sig, $FUD_OPT_1 & 524288);
+			} else if ($FUD_OPT_1 & 65536) {
+				$uent->sig = nl2br(htmlspecialchars($uent->sig));
+			}
 
-		if ($FUD_OPT_1 & 262144) {
-			$uent->sig = smiley_to_post($uent->sig);
+			if ($FUD_OPT_1 & 196608) {
+				$uent->sig = char_fix($uent->sig);
+			}
+	
+			if ($FUD_OPT_1 & 262144) {
+				$uent->sig = smiley_to_post($uent->sig);
+			}
+			fud_wordwrap($uent->sig);
 		}
-		fud_wordwrap($uent->sig);
 
 		if (!__fud_real_user__) { /* new user */
 			/* new users do not have avatars */
