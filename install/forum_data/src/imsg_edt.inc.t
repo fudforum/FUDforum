@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.147 2005/09/30 03:33:16 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.148 2005/09/30 18:43:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -327,7 +327,7 @@ class fud_msg_edit extends fud_msg
 					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.thread_opt,
 					m2.post_stamp AS frm_last_post_date,
 					f.name AS frm_name,
-					u.alias, u.email, u.sig,
+					u.alias, u.email, u.sig, u.name as real_name,
 					n.id AS nntp_id, ml.id AS mlist_id
 				FROM {SQL_TABLE_PREFIX}msg m
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
@@ -435,7 +435,7 @@ class fud_msg_edit extends fud_msg
 		if (($mtf->nntp_id || $mtf->mlist_id) && !$mtf->mlist_msg_id) {
 			fud_use('email_msg_format.inc', 1);
 
-			$from = $mtf->poster_id ? reverse_fmt($mtf->alias).' <'.$mtf->email.'>' : $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
+			$from = $mtf->poster_id ? reverse_fmt($mtf->real_name).' <'.$mtf->email.'>' : $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
 			$body = $mtf->body . (($mtf->msg_opt & 1 && $mtf->sig) ? "\n--\n" . $mtf->sig : '');
 			$body = plain_text($body, '{TEMPLATE: post_html_quote_start_p1}', '{TEMPLATE: post_html_quote_start_p2}', '{TEMPLATE: post_html_quote_end}');
 			$mtf->subject = reverse_fmt($mtf->subject);
