@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.64 2005/09/28 14:15:54 hackie Exp $
+* $Id: nntp.inc,v 1.65 2005/10/03 14:16:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -515,11 +515,13 @@ class fud_nntp
 	{
 		if (!$this->connect()) {
 			$this->exit_handler(0);
+			return;
 		}
 
 		if ($this->cmd("POST") != 340) {
 	        	$this->error = "Failed to recieve proper response to POST command, NNTP server replied: ".$this->lrc."\n";
 			$this->exit_handler(0);
+			return;
 		}
 
 		if ($GLOBALS['FUD_OPT_3'] & 8) {
@@ -561,6 +563,7 @@ class fud_nntp
 		if (!$this->compare_return_codes(240)) {
 			$this->error = "Posting Failed, NNTP Server Said: ".$this->lrc."\n";
 			$this->exit_handler(0);
+			return;
 		}
 
 		$this->close_connection();
