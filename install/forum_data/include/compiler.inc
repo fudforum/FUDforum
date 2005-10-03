@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.83 2005/09/23 20:14:26 hackie Exp $
+* $Id: compiler.inc,v 1.84 2005/10/03 15:09:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -731,8 +731,12 @@ function copyimages($thm)
 	}
 
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
-	fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
-
+	// some translations don't have customized image buttons
+	if (file_exists($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img/flat_view.gif')) {
+		fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+	} else {
+		fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/english/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+	}
 	if ($thm->theme != 'default') {
 		if (@file_exists($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images')) {
 			fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
