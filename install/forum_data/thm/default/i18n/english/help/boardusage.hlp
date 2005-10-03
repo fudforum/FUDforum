@@ -17,7 +17,7 @@ You can also search for other forum members, by their login name or email addres
 
 
 TOPIC_TITLE: <a name="email">Can I email other forum members?</a>
-<tr><td class="ForumBackground"><table cellspacing=2 cellpadding=2 width="100%" class="dashed"><tr><td class="GenText">
+TOPIC_HELP:
 Unless disabled by the administrator, you will be able to get in touch with other forum members via email.<br>
 To send a member and email, you can either find them through the member list page and then click on the <b>Contact</b> button 
 or simply click on the <b>Email</b> button located near their every post. This will take you to a new page where you will have the opportunity to 
@@ -25,7 +25,6 @@ enter you intended email subject & body. When you're done, simple click on the <
 <br><br>
 In addition to sending emails to forum members, you can also use the <b>Email to friend</b> link to recommend a particular page to your friend 
 by sending them a URL with the description. This link can be found on the topic & message view pages of the forum.
-</td></tr></table></td></tr>
 
 
 TOPIC_TITLE: <a name="pmsg">What are private messages and how do I send them?</a> 

@@ -5,12 +5,12 @@ Vous pouvez également chercher d'autres membres du forum par leur nom de connexi
 
 
 TOPIC_TITLE: <a name="email">Comment envoyer un courrier à d'autres membres de forum&nbsp;?</a>
-<tr><td class="ForumBackground"><table cellspacing=2 cellpadding=2 width="100%" class="dashed"><tr><td class="GenText">
+TOPIC_HELP:
 Sauf si cela a été désactivé par l'administrateur, vous pouvez entrer en contact avec d'autres membres du forum par courrier électronique.<br>
 Pour envoyer un courrier à un membre, vous pouvez soit le choisir par la page de la liste des membres et cliquer sur le bouton <b>Contact</b> ou simplement cliquer sur le bouton <b>Courrier</b> situé près de chacun de leurs messages. Ceci vous conduira à une nouvelle page où vous aurez la possibilité d'entrer les sujet et corps du courrier désiré. Quand vous avez fini, cliquez simplement sur le bouton <b>Courrier</b> et votre courrier sera envoyé.
 <br><br>
 En plus d'envoyer des courriers aux membres du forum, vous pouvez également utiliser le lien <b>L'envoyer par e-mail à un ami</b> pour recommander une page particulière à un ami en lui envoyant l'adresse (URL) avec la description. Ce lien peut être trouvé dans les pages de vue sujet et message du forum.
-</td></tr></table></td></tr>
+
 
 TOPIC_TITLE: <a name="pmsg">Que sont les messages privés et comment en envoyer un&nbsp;?</a> 
 TOPIC_HELP:

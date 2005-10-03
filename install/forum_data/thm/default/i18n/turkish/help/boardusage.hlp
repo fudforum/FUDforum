@@ -9,7 +9,7 @@ kullanarak arayabilirsiniz.
 
 
 TOPIC_TITLE: <a name="email">Diðer forum üyelerine e-mektup gönderebilir miyim?</a>
-TOPIC_HELP: <tr><td class="ForumBackground"><table cellspacing=2 cellpadding=2 width="100%" class="dashed"><tr><td class="GenText">
+TOPIC_HELP: 
 Yönetici tarafýndan engellenmediði sürece, diðer forum üyeleri ile e-mektup yoluyla iletiþim kurabilirsiniz.<br>
 Bir üyeye e-mektup göndermek için, üye listesinden bulup <b>Ýletiþim</b> düðmesine, veya basitçe gönderilen
 iletilerdeki <b>E-mektup</b> düðmesine týklatabilirsiniz. Bu sizi yeni bir sayfaya yönlendirir, ve göndereceðiniz
@@ -18,7 +18,6 @@ gönderilecektir.
 <br><br>
 Forum üyelerine e-mektup göndermeye ek olarak, beðendiðiniz bir sayfayýnýn linkini arkadaþýnýza bir açýklama ile birlikte <b>Arkadaþýna gönder</b>
 linkini kullanarak gönderebilirsiniz. Bu link forumun zincir ve ileti görüntüleme sayfalarýnda bulunabilir.
-</td></tr></table></td></tr>
 
 
 TOPIC_TITLE: <a name="pmsg">Özel ileti nedir ve nasýl özel ileti gönderebilirim?</a> 

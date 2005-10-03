@@ -6,12 +6,11 @@ TOPIC_HELP:
 
 
 TOPIC_TITLE:<a name="email">我可以向别的论坛成员发送邮件么？</a>
-<tr><td class="ForumBackground"><table cellspacing=2 cellpadding=2 width="100%" class="dashed"><tr><td class="GenText">
+TOPIC_HELP:
 如果系统管理员没有禁止使用该项功能，那么你可以通过邮件和别的论坛成员联系。<br>
 需要给别的成员发送邮件，你可以到成员列表页面，点击<b>联系</b>按钮或者在他们发布的帖子上点击<b>电子邮箱</b> 按钮。然后你将进入一个页面，填写电子邮件主题和内容，完成以后，再点击<b>发送</b>按钮即可。
 <br><br>
 此外，你还可以在论坛的主题或者帖子查看页面，使用<b>发送邮件给朋友</b>这个连接，向他们推荐某个页面，告诉他们URL，同时附上简单的介绍。
-</td></tr></table></td></tr>
 
 
 TOPIC_TITLE:<a name="pmsg">什么是“悄悄话”，我该如何发送？</a> 

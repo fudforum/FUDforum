@@ -8,14 +8,13 @@ Puoi anche ricercare altri utenti del forum, sia inserendo il loro nickname che 
 
 
 TOPIC_TITLE: <a name="email">Posso inviare email agli altro utenti del forum?</a>
-<tr><td class="ForumBackground"><table cellspacing=2 cellpadding=2 width="100%" class="dashed"><tr><td class="GenText">
+TOPIC_HELP:
 A meno che questa funzione non venga disabilitata dall'amministratore del forum, puoi tenerti in contatto con gli altri membri del forum inviando loro delle email.<br>
 Per inviare un'email ad un utente, puoi ricercarlo nella pagina degli utenti registrati del forum e selezionare il bottone <b>E-mail</b>, che trovi anche in ogni singolo messaggio scritto dall'utente nel forum. Così facendo accederai ad una pagina dove scrivere la tua email, specificando l'oggetto e il testo della lettera
 Quando hai scritto il tuo messaggio, sarà sufficiente cliccare sul tasto <b>Email</b> e la lettera verrà spedita al suo indirizzo di posta elettronica.
 <br><br>
 Oltre a spedire email agli utenti del forum, puoi anche utilizzare il link <b>Email ad un amico</b> per segnalare una particolare pagina ad un tuo amico, 
 spedendogli l'indirizzo della pagina con una breve descrizione. Questo link si trova nella pagina iniziale di un topic.
-</td></tr></table></td></tr>
 
 
 TOPIC_TITLE: <a name="pmsg">Cosa sono i messaggi privati, e come posso spedirli?</a> 
