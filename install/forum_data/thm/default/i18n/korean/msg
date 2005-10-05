@@ -5,7 +5,7 @@ administrator:			최고관리자
 attachment:			첨부:
 avatar:				아바타:
 average_post_count:		{VAR: u->posted_msg_count} Messages(s) ({VAR: avg} average messages per day)
-biography:			Biography:
+biography:			추가정보:
 birth_date:			생일:
 by:				By:
 by_mod:				중재자
@@ -13,8 +13,8 @@ current_time:			시간대
 custom_avatar_queue:		사용자 아바타 제출
 date_posted:			제출날짜
 date_registered:		등록날짜:
-download_counter:		Downloaded {VAR: v[3]} time(s)
-pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
+download_counter:		다운로드 {VAR: v[3]}
+pmsg_download_counter:		다운로드 {VAR: r->dlcount}
 email:				이메일:
 email_to_friend:		친구에게 이메일 발송
 email_to_friend_desc:	이 사이트의 주소를 친구에게 보냅니다
@@ -26,7 +26,7 @@ flat_view:			기본 플랫뷰로 돌아갑니다
 forum:				포럼:
 forum_icon:			포럼 아이콘
 forum_new_messages:		새 메시지
-forum_none_messages:		Only registered forum members can track read &amp; unread messages
+forum_none_messages:		등록된 포럼 사용자만 게시글을 읽을 수 있습니다&amp;
 forum_old_messages:		새 메시지가 없습니다
 from:				From:
 gender:				성별:
@@ -37,10 +37,10 @@ home:				Home
 homepage:			Homepage:
 icq_control_panel:		ICQ Online-Message Panel
 icq_message_form:		ICQ Message Form:
-ignore_user:			ignore all messages by this user
-im_aim:				AIM Handle:
-im_msnm:			MSN Messenger:
-im_yahoo:			Yahoo Messenger:
+ignore_user:			이 사용자의 모든 메시지 차단
+im_aim:				AIM :
+im_msnm:			MSN 메신저:
+im_yahoo:			Yahoo 메신저:
 image:				Image:
 index_forum:		포럼
 index_new_posts:		최근 순서로 새 메시지 읽기
@@ -119,11 +119,11 @@ reveal_all_posts:		{VAR: user_login}로부터 모든 메시지 공개
 reveal_post:			메시지 공개
 search:				검색
 sel_todays_posts:		오늘의 게시글&#39;
-sel_todays_posts_desc:		Toggle today&#39;s messages filter (will only show messages made today)
+sel_todays_posts_desc:		오늘 등록된 게시글&#39;s 필터 전환 (오늘 등록된 게시글만 출력)
 sel_unanswered_posts:		답글 없는 게시글
-sel_unanswered_posts_desc:	Toggle the un-answered messages filter (will show only messages that have no replies)
+sel_unanswered_posts_desc:	답글이 없는 게시글 필터로 전환 (답글이 없는 게시글 출력)
 sel_unread_messages:		읽지 않은 게시글
-sel_unread_messages_desc:	Toggle unread messages filter (will only show unread messages)
+sel_unread_messages_desc:	읽지않은 게시글 필터로 전환 (일지않은 게시글 출력)
 send:				전송
 send_pm_desc:			이 사용자에게 쪽지 전송
 sender_email:			이메일 전송:
@@ -133,44 +133,44 @@ size:				사이즈:
 status:				상태:
 status_line:			There are <b>{VAR: st_obj->online_users_reg}</b> members(s), <b>{VAR: st_obj->online_users_hidden}</b> invisible members and <b>{VAR: st_obj->online_users_anon}</b> guest(s) visiting this board.
 sticky:				끈끈이:
-stop_ignoring:			stop ignoring this user
+stop_ignoring:			사용자 차단 해제
 sub_to_thread:			토픽에 서명
-sub_to_thread_desc:		Receive notification about new messages inside this topic
+sub_to_thread_desc:		이 토픽 내의 새 게시글에 관한 통보를 받음
 subject:			제목
 subscribe:			서명
-subscribe_desc:			Receive notifications when someone creates a new topic in this forum
-subscribed_forums:		Subscribed Forums
-subscribed_forums_desc:		Toggle the subscribed forums filter (will only show messages from the forums you are subscribed to)
-subscribed_threads:		Subscribed Topics
-subscribed_threads_desc:	Toggle the subscribed topics filter (will only show messages from the topics you are subscribed to)
-switch_to_thread_view:		Switch to threaded view of this topic
+subscribe_desc:			이 포럼 내의 새 토픽 생성에 대한 통보를 받음
+subscribed_forums:		포럼 구독
+subscribed_forums_desc:		구독하는 포럼 필터로 전환 (당신이 구독하는 포럼의 게시글만 출력)
+subscribed_threads:		토픽 구독
+subscribed_threads_desc:	구독하는 토픽 필터로 전환 (당신이 구독하는 토픽의 게시글만 출력)
+switch_to_thread_view:		이 토픽을 계단식 배열로 전환
 thread:				토픽:
 thread_announcement:		알림:
-thread_first_unread_msg:	Click here to go the first unread message in this topic
+thread_first_unread_msg:	여기를 클릭하면 현재 토픽에서 읽지 않은 첫번째 게시글로 이동합니다
 thread_thread:			토픽
 threads:			토픽
 time:				시간
-todays_posts:			Today&#39;s Messages
-todays_posts_desc:		Show all messages that were posted today
-un_ignore_user:			stop ignoring messages by this user
+todays_posts:			오늘의 게시글&#39;
+todays_posts_desc:		오늘 게시된 모든 글 출력
+un_ignore_user:			이 사용자 게시글 무시 해제
 unanswered_posts:		답글 없는 게시글
 unanswered_posts_desc:		보이는 모든 게시글에 답글이 없습니다
 unlock_thread:			토픽 잠금 해제
-unread_msg:			This topic contains messages you have not yet read
-unread_msg_locked:		Locked topic with unread messages
+unread_msg:			이 토픽에는 읽지 않은 게시글이 있습니다
+unread_msg_locked:		읽지 않은 게시글이 있지만 토픽이 잠겨있습니다
 unread_posts:			읽지 않은 게시글
 unread_posts_desc:		읽지 않은 모든 메시지 보기
-unsub_from_thread:		Unsubscribe from topic
-unsub_from_thread_desc:		Stop receiving notifications about new messages in this topic
-unsubscribe:			Unsubscribe
-unsubscribe_desc:		Stop receiving notifications about new topics in the forum
-updated_on:			Updated on:
+unsub_from_thread:		토픽 구독 해제
+unsub_from_thread_desc:		이 토픽의 새 게시글 알림 중지
+unsubscribe:			구독 해지
+unsubscribe_desc:		이 포럼의 새 토픽 알림 중지
+updated_on:			업데이트:
 user:			사용자
 user_counter:			We have <b>{VAR: st_obj->user_count}</b> registered user(s).
-user_info:			User Information
-user_info_l:			User Information {VAR: u->alias}
-user_offline:			{VAR: obj->login}  is currently offline
-user_online:			{VAR: obj->login} is currently online
+user_info:			사용자 정보
+user_info_l:			사용자 정보 {VAR: u->alias}
+user_offline:			{VAR: obj->login} 오프라인
+user_online:			{VAR: obj->login} 온라인
 usrinfo_last_post:		최근 게시글:
 view_results:			결과 보기
 views:				보기
@@ -179,30 +179,30 @@ vote_button:			투표
 vote_for_thread:		투표
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> by the moderator
 welcome_message:		Welcome <b>{VAR: usr->alias}</b>, your last visit was on {TEMPLATE: welcome_message_date}
-what_ppl_doing:			show what people are doing
+what_ppl_doing:			사용자들이 무엇을 하는지 보여줍니다
 reported_del_report:		레포트 삭제
-reported_reason:		Reason
+reported_reason:		이유
 reported_on:			On:
-reported_reported_by:		Reported By:
-reported_reported_msg:		Reported Messages
-modque_pending_approval:	Messages pending approval
-modque_approve:			Approve
+reported_reported_by:		보고자:
+reported_reported_msg:		게시글 보고
+modque_pending_approval:	게시글이 승인 대기중 입니다
+modque_approve:			승인
 modque_delete:			삭제
-modque_no_message:		There are no messages pending approval
-pmsg_new_messages:		Unread private message
-pmsg_old_messages:		Read private message
-deny_recipt:			deny receipt
+modque_no_message:		승인 대기중인 게시글 없음
+pmsg_new_messages:		읽지 않은 쪽지
+pmsg_old_messages:		쪽지 읽기
+deny_recipt:			수신 거부
 deny_recipt_desc:		Do not send a confirmation that you&#39;ve read this message
 restore_to:			복구:
 move_to:			이동:
-list_referes_referrals:		Referrals
-list_referes_members:		Members Referred
+list_referes_referrals:		추천
+list_referes_members:		추천 멤버
 list_referes_member:		멤버
-referals_none:			No referrals yet.
-referals_refered_by:		Forum members referred by: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:		Message Count
-referals_registered_on:		Registered On
-referals_action:		Action
+referals_none:			추천 없음
+referals_refered_by:		추천 멤버: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:		게시글
+referals_registered_on:		등록됨
+referals_action:		활동
 pmsg_all:		전체
 pmsg_none:		없음
 folder:				폴더:
@@ -237,18 +237,18 @@ month_11:			11월
 month_12:			12월
 male:				남
 female:				여
-unspecified:			UNSPECIFIED
-register_tree_view:		Tree View message and topic listing 
-register_msg_tree_view:		Flat topic listing/Tree message listing
-register_tree_msg_view:		Tree topic listing/Flat message listing 
-register_flat_view:		Flat View message and topic listing 
+unspecified:			미지정
+register_tree_view:		토픽 및 게시글 목록을 트리 구조로 보기
+register_msg_tree_view:		토픽 목록 평면구조/게시글 목록 트리구조
+register_tree_msg_view:		토픽 목록 트리구조/게시글 목록 평면구조
+register_flat_view:		토픽 및 게시글 목록 평면구조로 보기
 use_forum_default:		기본 포럼 사용
 finduser_user_info:		사용자 정보
 finduser_by_login:		로그인 사용자:
 finduser_submit:		찾기
 finduser_no_such_user:		일치하는 사용자 없음
 finduser_user:			사용자
-finduser_postcount:		Message Count
+finduser_postcount:		게시글
 finduser_joindate:		가입일
 finduser_action:		활동
 yes:				Yes
@@ -261,7 +261,7 @@ pmuserloc_submit:		제출
 pmuserloc_user:			사용자
 pmuserloc_no_result:		결과 없음
 register_builtin:		Built In
-register_specify_url:		Specify URL
+register_specify_url:		URL
 register_uploaded:		아바타 업로드
 register_login:			로그인:
 register_password:		패스워드:
@@ -274,7 +274,7 @@ register_avatar_type:		아바타 형태:
 register_del_avatar:		아바타 삭제
 register_avatar:		아바타:
 register_sel_avatar:		아바타 선택
-register_custom_avatar_rules:	The custom avatar will not appear until it is approved by the administrator.<br><span class="SmallText">The avatar, should be no larger than <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> and must be in <b>jpg</b>, <b>gif</b> or <b>png</b> format.</span>
+register_custom_avatar_rules:	사용자가 설정한 아바타는 관리자의 승인후에 나타납니다.<br><span class="SmallText">The avatar, should be no larger than <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> and must be in <b>jpg</b>, <b>gif</b> or <b>png</b> format.</span>
 register_custom_avatar_url:	사용자 지정 아바타 URL:
 register_preview:		미리보기
 register_custom_avatar_upload:	아바타 파일:
@@ -282,15 +282,15 @@ register_register:		등록
 register_required:		필수 입력
 register_required_desc:		빈칸을 모두 채우십시오
 register_optional:		선택 입력
-register_optional_desc:		It is recommended that you not reveal any personal or identifying information in your profile.  All information will be viewable by other forum members.
+register_optional_desc:		중요한 개인정보를 입력하지 마십시오. 다른 멤버에게 공개될 수 있습니다.
 register_location:		위치:
 register_occupation:		직업:
 register_interests:		관심분야:
 register_image:			Image:
 register_icq:			ICQ
-register_aim:			AIM Handle:
-register_yahoo:			Yahoo Messenger:
-register_msnm:			MSN Messenger:
+register_aim:			AIM:
+register_yahoo:			Yahoo 메신저:
+register_msnm:			MSN 메신저:
 register_homepage:		Homepage:
 register_bday:			생일:
 register_bday_desc:		입력한 생일은 포럼 멤버에게 공개 됩니다
@@ -298,35 +298,35 @@ register_day:			일
 register_month:			월
 register_year:			년
 register_gender:		성별:
-register_bio:			Biography:
-register_bio_desc:		A few details about yourself, such as your interests, job, etc...
-register_prefs:			Preferences
+register_bio:			추가정보:
+register_bio_desc:		자신의 세부정보, 관심분야, 직업, 취미 등...
+register_prefs:			선택사항
 register_sig:			서명:
 register_sig_desc:		서명은 선택 사항이며 서명을 할 경우 게시글 밑에 표시됩니다
 register_reset:			리셋
 register_def_thread_view:	토픽 보기:
 register_msg_per_page:		페이지당 게시글:
 register_show_sig:		서명 보기:
-register_show_sig_desc:		Allows you to either hide or show other forum members&#39; signatures
-register_use_sig_default:	Use Signature by Default:
-register_use_sig_default_desc:	Automatically append your signature to every message you post
+register_show_sig_desc:		당신의 서명을 포럼 사용자에게 보이게 또는 숨길 수 있습니다&#39;
+register_use_sig_default:	기본 서명:
+register_use_sig_default_desc:	게시글을 작성하여 제출할 때에 서명이 자동으로 삽입 됩니다
 register_timezone:		시간대:
-register_ignore_admin:		Ignore Administrative Messages:
+register_ignore_admin:		관리자 메시지 차단:
 register_invisible_mode:	숨김 모드:
 register_invisible_mode_desc:	온라인 상태 숨김
-register_show_email:		이메일 주소 보기:
-register_show_email_desc:	Choose this option if you want your e-mail address to be displayed publicly.
-register_notification:		Select Notification by Default:
-register_notification_desc:	If notification is enabled by default, it can be disabled when posting.
-register_notify_method:		Choose Notification Method:
+register_show_email:		이메일 주소 공개:
+register_show_email_desc:	이 옵션을 선택하면 당신의 이메일 주소를 누구 볼 수 있습니다.
+register_notification:		알림 기능 선택:
+register_notification_desc:	알림 기능을 선택하면 게시글 제출시에 사용하지 못할 수 있습니다.
+register_notify_method:		알림 수신 방법:
 register_notify_js_error:	You chose ICQ notification, but did not specify an ICQ #. Defaulting to E-mail&#46;
-register_allow_email_msg:	Allow E-mail Messages:
-register_allow_email_msg_desc:	Allow other users to send you e-mails via this forum.
+register_allow_email_msg:	이메일 수신 허가:
+register_allow_email_msg_desc:	이 포럼에서 다른 사용자가 당신에게 이메일을 발송하는 것을 허락 합니다.
 buddy_status:			상태
-my_buddies:			My Buddies
-add_buddy:			Add Buddy
+my_buddies:			나의 친구
+add_buddy:			친구 추가
 add:				추가
-buddy_search:			Enter the login of the user you wish to add.
+buddy_search:			추가를 위해 로그인 하십시오.
 member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 buddy_remove:			제거
 post_normal:			일반
@@ -342,19 +342,19 @@ apply_spell_changes:		맞춤법 변경 적용
 post_preview:			미리보기
 post_logedin_user:		로그인 사용자:
 post_logout:			로그아웃
-post_passwd:			Posting Password:
+post_passwd:			패스워드 제출:
 post_poll:			투표:
 post_create_poll:		투표 생성
 post_poll_delete:		삭제
 post_poll_edit:			편집
 post_mod_opt:			중재자 옵션:
 post_thread_type:		토픽 형태:
-post_thread_expiry:		Topic Expiration:
+post_thread_expiry:		토픽 기간 만료:
 post_locked:			토픽 잠금
 post_icons:			아이콘:
 post_no_icon:			아이콘 없음
-post_smiley:			Smiley Shortcuts:
-post_format_tools:		Formatting Tools:
+post_smiley:			이모티콘 바로가기:
+post_format_tools:		기능 설정:
 post_upload_file:		업로드 파일
 post_file_del:			삭제
 post_file_name:			이름
@@ -363,39 +363,39 @@ file_attachments:		파일 첨부:
 allowed_files:			허가된 확장자:
 max_file_size:			최대 파일 사이즈:
 max_files_per_msg:		게시글 당 최대 파일:
-post_notification:		Post Notification
+post_notification:		공지사항 제출
 include_sig:			서명 포함
-include_sig_desc:		Include your profile signature.
-disable_smilies:		Disable smilies in this message.
-spell_check_msg:		Spell-check Message
-post_form:			Post Form
-post_forum:			Forum:
+include_sig_desc:		당신의 프로파일에 서명이 포함되었습니다.
+disable_smilies:		이 게시글은 이모티콘 사용이 금지되었습니다.
+spell_check_msg:		게시글 문법 체크
+post_form:			게시 형식
+post_forum:			포럼:
 post_title:			제목:
 post_body:			본문:
 post_options:			옵션:
 post_preview_btn:		쪽지
-ignore_users:			Ignored Users
-add_ignore:			Add Ignoramus
+ignore_users:			차단 멤버
+add_ignore:			차단 멤버 추가
 forum_terms:			포럼 기간
-forum_rules:			Registration to this forum is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please press the Agree button at the end of the page. Note: By pressing the button you declare that you are over the age of 13. If you are 13 or under, please use this registration form.<p>Although the administrators and moderators of this forum will attempt to keep all objectionable messages off this forum, it is impossible for us to review all messages. All messages express the views of the author, and neither the owners of forum or the developers will be held responsible for the content of any message.<p>By clicking the Agree button, you warrant that you will not post any messages that are obscene, vulgar, sexually-oriented, hateful, threatening, or otherwise violate any laws. <p>The owners of this forum  have the right to remove, edit, move or close any topic for any reason.<p>
-forum_rules_13:			All users under the age of 13 must seek permission from their parent or guardian in order to gain membership to the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send e-mail to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
-coppa_conf:			COPPA Confirmation
+forum_rules:			이 포럼의 가입은 자유입니다! 아래의 규칙을 준수하십시오. 준수사항에 동의 한나면 동의 버튼을 클릭 하십시오. 주의: 버튼을 클릭하는 것은 13세 이상임을 확인하는 행위입니다. 만일 13세 이하면 이 양식을 이용하십시오.<p>관리자 및 중재자는 포럼의 규칙 준수를 위해 모든 게시글을 감시하여 포럼의 원할한 운영을 유지합니다. 모든 게시물에 대한 법적 책임은 작성자에게 있으며, 포럼의 운영자는 불법적이거나 음란한 내용의 게시물을 삭제시키거나 포럼을 폐쇄 시킬 수 있습니다.
+forum_rules_13:			만13세 이하의 사용자는 부모의 동의서를 제출하여야 멤버로 가입할 수 있습니다. 13세 미만의 멤버를 회원으로 승인하기 위해 운영자는 13세 미만 멤버 신청자의 부모에게 팩스 또는 이메일을 통해 멤버 가입 사실을 발송합니다.<p>위 사항을 준수하고 멤버에 가입하고 싶으면 아래의 동의 버튼을 클릭 하십시오 <p>허가 양식은 이곳에서 다운로드 할 수 있으며 추가의 정보를 원하시면 이메일을 통해 요청하십시오 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+coppa_conf:			청소년 온라인 정보보호 검증
 coppa_before:			{TEMPLATE: coppa_date}전
 coppa_after:			{TEMPLATE: coppa_date}후
-coppa_link:			Click the link that corresponds to your birth date
-coppa:				A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete registration.<p>For further information contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa_link:			해당 출생일을 클릭하십시오
+coppa:				13세 미만의 사용자가 멤버로 가입하기 위해선 반드시 부모님의 동의가 필요하며 이메일로 부모님의 동의서를 발송하시기 바랍니다.<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			정보
 prereg_agree:			동의
 prereg_disagree:		비동의
-coppa_fax_instructions:		Instructions for a Parent or Guardian
-coppa_fax_instructions2:	Please print this page, sign it, and fax it to:
+coppa_fax_instructions:		부모님을 위한 지시사항
+coppa_fax_instructions2:	현 페이지를 출력하여 서명한 후, 팩스로 발송하십시오:
 coppa_fax_reg_form:		등록 형식
-coppa_fax_sign:			Please sign the form below and send it to us
-coppa_fax_conf:			I have reviewed the information my child has supplied and I have read the Privacy Policy for the web site. I understand that the profile information may be changed using a password. I understand that I may ask that this registration profile be removed entirely from the forum.
-coppa_fax_permission:		Sign here if you give permission
-coppa_fax_no_permission:	Sign here if you would like the account to be deleted
-coppa_fax_parent_name:		Parent/Guardian Full Name:
-coppa_fax_relation:		Relation to Child:
+coppa_fax_sign:			서명후 발송하십시오
+coppa_fax_conf:			나는 우리 아이가 제공하는 정보를 검토했으며 웹사이트의 정책 및 준수 사항을 이해했고 모든 사항에 대해 동의합니다.
+coppa_fax_permission:		허가를 위해 이곳에 서명하십시오
+coppa_fax_no_permission:	계정을 삭제하기 원한다면 이곳에 서명하십시오
+coppa_fax_parent_name:		이름:
+coppa_fax_relation:		관계:
 coppa_fax_telephone:		전화:
 coppa_fax_email:		이메일 주소:
 coppa_fax_date:			날짜:
@@ -404,18 +404,18 @@ coppa_fax_login:		로그인
 coppa_fax_passwd:	패스워드
 coppa_fax_remail:		이메일
 coppa_fax_name:			이름
-login_not_logedin:		You are not logged in. This could be due to one of several reasons:
-login_cookie_expired:		Your cookie has expired, and you need to login to renew your cookie.
-login_perm_denied:		You do not have permission to access the requested resource as an anonymous user. You must login to gain permission.
+login_not_logedin:		로그인 상태가 아닙니다. 몇가지 이유에 의해 만료될 수 있습니다:
+login_cookie_expired:		쿠키가 만료되었습니다. 쿠키를 갱신하십시오.
+login_perm_denied:		당신은 현재 익명사용자 상태 입니다. 로그인 하십시오.
 login_want_to_register:		등록을 원하십니까?
 login_forgot_passwd:		패스워드 분실
-login_use_cookie:		Use cookies<br><span class="SmallText">If you&#39;re using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br>If you leave this option selected then you will be automatically logged-into the forum the next time you visit.
+login_use_cookie:		쿠키사용<br><span class="SmallText">If you&#39;re using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br>If you leave this option selected then you will be automatically logged-into the forum the next time you visit.
 login_login:			로그인
 login_login_btn:		로그인
 login_name_required:		사용자 ID가 필요합니다
 login_passwd_required:		패스워드가 필요합니다
 login_invalid_radius:		패스워드가 맞지 않습니다
-reset_confirmation:		Thank you for registering,\n\nTo activate your account please go to the URL below:\n\n{VAR: url}\n\nOnce your account is activated you will be logged-into the forum and\nredirected to the main page.\n
+reset_confirmation:		등록해 주셔서 감사합니다,\n\n 계정 활성화를 위해 아래의 URL로 접속하십시오:\n\n{VAR: url}\n\n계정이 활성화되고 포럼으로 포럼 메인 페이지로 이동될 것 입니다.\n\n
 reset_reset:			Hello,\n\nYou have requested for your password to be reset. To complete the process,\nplease go to this URL:\n\n{VAR: url}\n\nNOTE: This forum stores the passwords in a one-way encryption mechanism, which means that\nonce you have entered your password it is encoded so that there is NO WAY to get it back.\nThis works by comparing the encoded version we have on record with the encoded version of what you type into the Login prompt.\n(If you are interested in how this mechanism works, read up on MD5 HASH algorithm)
 rpasswd_invalid_passwd:		패스워드 틀림
 rpasswd_passwd_nomatch:		패스워드가 일치하지 않습니다
@@ -432,16 +432,16 @@ login_passwd:			패스워드:
 reset_email:			이메일:
 reset_reset_button:		패스워드 초기화
 rate_this_thread:		평가
-report_reporting_about:		Reporting About:
+report_reporting_about:		보고 대상:
 report_subject:			제목:
 report_by:			By:
-report_posted_on:		Posted on:
-report_give_reason:		Please give a reason why you are reporting this message:
-report_submit_report:		Submit Report
-search_entire_msg:		Entire Message
-search_subect_only:		Subject Only
+report_posted_on:		게시:
+report_give_reason:		게시글 보고서 작성 이유:
+report_submit_report:		보고서 제출
+search_entire_msg:		전체 게시글
+search_subect_only:		제목
 search_forum:			포럼
-search_posted_on:		Posted On
+search_posted_on:		게시
 search_no_results:		결과 없음
 search_all_forums:		모든 포럼 검색
 search_in_forum:		포럼내 검색:
@@ -456,19 +456,19 @@ remail_required:		필수입력
 remail_subject:			제목:
 remail_message:			메시지:
 remail_send_now:		지금 이메일 발송
-remail_anon_opt:		Copy this message into a mail client of your choice to send it to your friend(s).
+remail_anon_opt:		이 게시글을 이메일 클라이언트에 복사한 후, 전송할 친구를 선택하십시오.
 remail_done:			완료
 remail_sent_conf:		The e-mail to your friend at {VAR-HTML: _POST['femail']} about the {VAR: data->subject} topic was successfully sent.
 remail_error:			오류
 mklist_type:			형식:
 mklist_option:			옵션:
-mklist_additem:			Add Item
+mklist_additem:			항목 추가
 mklist_apply:			적용
 mklist_delete:			삭제
 qbud_nick_name:			별명
 qbud_add_selected:		추가 선택
 qbud_selected:			선택
-qbud_no_buddies:		No buddies to choose from
+qbud_no_buddies:		선택된 친구 없음
 mklist_numerical:		숫자
 mklist_aplha:			알파벳
 mklist_square:			사각
@@ -483,14 +483,14 @@ email_submit:			이메일
 ppost_quote_msg:		{VAR: msg_to_list} wrote on {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			인용:
 ppost_to:			To:
-ppost_from_buddy_list:		Select from Buddy List
+ppost_from_buddy_list:		친구 목록에서 선택
 ppost_find_User:		사용자 찾기
-ppost_track_msg:		Track This Message
-ppost_track_msg_desc:		Notify me (via private message) when this message gets read.
+ppost_track_msg:		이 메시지 추적
+ppost_track_msg_desc:		이 메시지을 읽으면 나에게 통보함(쪽지글).
 ppost_send:			전송
 ppost_save_draft:		발췌 및 저장
-poll_blank_option:		You cannot add a blank option.
-poll_del_conf:			If you want to delete this option, press OK
+poll_blank_option:		선택 항목이 없습니다.
+poll_del_conf:			이 옵션을 삭제하려면 OK를 누르십시오
 poll_name:			투표 이름:
 poll_timelimit:			시간 제한
 poll_maxiumvotes:		최대 투표
@@ -524,52 +524,52 @@ delete_no:			No
 error_invalidurl:		URL 오류
 error_error:			오류
 usrinfo_profile:		{VAR: u->alias}&#39;의 프로파일
-usrinfo_show_all_posts:		Show all messages by {VAR: u->alias}
-actions_update:			Snooping on other people, just like you
+usrinfo_show_all_posts:		모든 게시글 보기{VAR: u->alias}
+actions_update:			당신을 좋아하는 멤버 참견하기
 err_info:			정보
-buddy_list_err_cantadd:		You cannot add yourself to your buddy list
-buddy_list_err_dup:		You already have this user on your buddy list
-buddy_list_err_nouser:		The user you tried to add to your buddy list was not found.
-buddy_list_err_nouser_title:	Unable to add user
-buddy_list_update:		Browsing own buddy list
-core_err_invinp_title:		Invalid Input
-core_err_invinp_err:		You have followed an invalid link. Please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> how you got here.
-core_adm_login_msg:		<br>Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>
-email_err_unabletoemail_title:	ERROR: Unable to e-mail
-email_err_unabletoemail_msg:	The e-mail system has been disabled by the administrator.
-email_error_unabletolocaddr:	Sorry, the system was unable to e-mail {VAR-HTML: _POST['tx_name']} because it was unable to determine the e-mail address
+buddy_list_err_cantadd:		본인을 친구 목록에 추가할 수 없습니다
+buddy_list_err_dup:		친구 목록에 있는 사용자 입니다
+buddy_list_err_nouser:		친구 목록에 없는 사용자 입니다
+buddy_list_err_nouser_title:	사용자 추가를 할 수 없습니다
+buddy_list_update:		친구 목록 탐색
+core_err_invinp_title:		입력 오류
+core_err_invinp_err:		잘못된 링크 입니다. <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>에게 통보하여 주십시오.
+core_adm_login_msg:		<br>최고관리자는 <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">여기</a>로 로그인 할 수 있습니다.
+email_err_unabletoemail_title:	오류: 이메일 발송 불가
+email_err_unabletoemail_msg:	최고관리자가 이메일 발송을 금지시켰습니다.
+email_error_unabletolocaddr:	죄송합니다. 이메일 발송이 금지되었습니다. {VAR-HTML: _POST['tx_name']}
 email_error_body:		본문을 작성하십시오
 email_error_subject:		제목을 작성하십시오
 email_error_namerequired:	이름을 입력하십시오
 email_error_invaliduser:	확인되지 않은 사용자
 emailconf_err_invkey_title:	오류
-emailconf_err_invkey_msg:	Invalid confirmation key.  Please check your e-mail to make sure that you have entered the URL correctly.
+emailconf_err_invkey_msg:	확인 Key 오류.  수신된 이메일을 확인하십시오.
 err_inc_criticaltitle:		치명적 오류
-err_inc_criticalmsg:		An error has occurred. Unfortunately, there is also a problem with the error reporting system.
+err_inc_criticalmsg:		오류 발생. 보고 체계에 문제가 발생했습니다.
 finduser_update:		사용자 검색
-help_index_update:		Reading the <a href="{TEMPLATE: help_index_update_lnk}">FAQ</a>
-iemail_thr_subject:		New reply to {VAR: thr_subject} by {VAR: poster_login}
+help_index_update:		<a href="{TEMPLATE: help_index_update_lnk}">FAQ</a>
+iemail_thr_subject:		{VAR: poster_login}의 {VAR: thr_subject}에 답글쓰기
 iemail_thr_bodyemail:		To view unread replies go to {VAR: goto_url['email']}\n\nIf you do not wish to receive further notifications about replies in this topic, please go here: {VAR: unsub_url['email']}
 iemail_frm_subject:		New topic in forum {VAR: frm_name}, called {VAR: thr_subject}, by {VAR: poster_login}
 iemail_frm_bodyemail:		To view the topic go to:\n{VAR: goto_url['email']}\n\nTo stop receiving notifications about new topics in this forum, please go here: {VAR: unsub_url['email']}
-iemail_participate:		To participate in the discussion, go here:
-ignore_list_err_info_title:	Info
+iemail_participate:		토론 참가를 위한 이동:
+ignore_list_err_info_title:	정보
 ignore_list_err_dup_msg:	이 사용자는 이미 차단 목록에 등록되어 있습니다
 ignore_list_err_nu_title:	사용자를 찾을 수 없습니다
-ignore_list_err_nu_msg:		The user you tried to add to your ignore list was not found.
+ignore_list_err_nu_msg:		그 사용자는 차단 목록에 없습니다.
 ignore_list_cantign_msg:	이 사용자를 차단할 수 없습니다
-ignore_list_update:		Browsing own ignore list
-index_update:			Browsing the <a href="{TEMPLATE: index_update_lnk}">forum list</a>
-list_referers_update:		Browsing referrals
+ignore_list_update:		차단 목록 탐색
+index_update:			<a href="{TEMPLATE: index_update_lnk}">포럼목록</a> 탐색
+list_referers_update:		추천 목록 탐색
 login_update:			로그인 형식
-msg_update:			Browsing topic <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+msg_update:			토픽 탐색 <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		오류: 쪽지를 사용할 수 없습니다
-pm_err_nopm_msg:		You cannot use the private messaging system. It has been disabled by the administrator.
+pm_err_nopm_msg:		쪽지를 이용할 수 없습니다. 관리자가 금지 시켰습니다.
 pm_update:			쪽지 사용중
 post_err_lockedthread_title:	오류: 잠금 토픽
 post_err_lockedthread_msg:	이 토픽은 잠겨있습니다. 더이상 글을 올릴수 없습니다.
 err_coppa_title:		오류: 당신의 계정은 인증 절차를 마치지 않았습니다
-err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your COPPA form, <a href="{TEMPLATE: err_coppa_msg_lnk}">click here</a> to see it again.
+err_coppa_msg:			부모님의 동의서가 도착하지 않았습니다. 청소년 온라인 정보보호에 대해 자세히 알고 싶다면 <a href="{TEMPLATE: err_coppa_msg_lnk}">여기</a>를 클릭 하십시오.
 err_banned_acct_title:		오류: 당신은 사이트 접속 차단 상태 입니다.
 err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
 post_err_edttimelimit_title:	오류
@@ -577,75 +577,75 @@ post_err_edttimelimit_msg:	이 게시글은 더 이상 편집할 수 없습니�
 post_err_noannontopics_msg2:	<fieldset><legend>오류: Insufficient Privileges</legend>Anonymous users are not allowed to create topics.</fieldset><br />
 post_err_noannonposts_msg2:	<fieldset><legend>오류: Insufficient Privileges</legend>Anonymous users are not allowed to reply.</fieldset><br />
 post_err_floodtrig_title:	오류: Post flood triggered.
-post_err_floodtrig_msg:		Please try again in {VAR: tm} second(s)
-post_err_attach_size:		<span class="ErrorText">File Attachment is too big (over allowed limit of {VAR: MAX_F_SIZE} bytes)</span><br>
-post_err_attach_ext:		<span class="ErrorText">The file you are trying to upload does not match the allowed file types.</span><br>
-post_err_attach_filelimit:	<span class="ErrorText">You are trying to upload more files than are allowed.</span><br>
+post_err_floodtrig_msg:		{VAR: tm}초 안에 다시시도해 주십시오.
+post_err_attach_size:		<span class="ErrorText">파일 크기가 너무 큽니다 (최대 크기인 {VAR: MAX_F_SIZE} bytes를 초과했습니다)</span><br>
+post_err_attach_ext:		<span class="ErrorText">승인된 파일 형식이 아닙니다. 다시한번 확인 바랍니다.</span><br>
+post_err_attach_filelimit:	<span class="ErrorText">파일 갯수가 초과 되었습니다.</span><br>
 post_err_passwd:		패스워드가 일치하지 않습니다.
-post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name}
-post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_reply_update:		답글 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name}
+post_topic_update:		<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>에 새 토픽 쓰기
 post_error_generic:		오류 발생
-postcheck_max_images_err:	No more than {GVAR: MAX_IMAGE_COUNT} images are allowed per message. Please reduce the number of images.
+postcheck_max_images_err:	{GVAR: MAX_IMAGE_COUNT} 이미지 갯수가 초과되었습니다. 이미지 갯수를 줄이십시오.
 postcheck_subj_needed:		제목을 입력하십시오
-postcheck_no_such_user:		There is no user named "{FUNC: char_fix(htmlspecialchars($v))}" in this forum.
-postcheck_ignored:		You cannot send a private message to "{FUNC: char_fix(htmlspecialchars($v))}", because this person is ignoring you.
-postcheck_no_recepient:		Cannot send a message, missing recipient
-postcheck_invalid_email:	Please enter a valid e-mail address for your friend.
-postcheck_email_subject:	You cannot send an e-mail without a subject.
-postcheck_email_body:		You cannot send an e-mail without the message body.
-private_msg_notify_subj:	Read Notification For: {VAR: m->subject}
+postcheck_no_such_user:		이 포럼에는 "{FUNC: char_fix(htmlspecialchars($v))}"와 일치하는 사용자가 없습니다.
+postcheck_ignored:		차단 리스트에 등록되었기 때문에 "{FUNC: char_fix(htmlspecialchars($v))}"에게 쪽지를 전송할 수 없습니다.
+postcheck_no_recepient:		전송불가 : 수신자 오류
+postcheck_invalid_email:	검증된 이메일 주소를 입력하십시오.
+postcheck_email_subject:	전송 불가: 제목이 없습니다.
+postcheck_email_body:		전송 불가: 본문 내용 없음.
+private_msg_notify_subj:	공지사항: {VAR: m->subject}
 private_msg_notify_body:	Hello,<br>{VAR: usr->login} has read your private message, "{VAR: m->subject}", on {TEMPLATE: private_msg_notify_body_date}<br>
-referals_update:		Browsing referrals
-register_err_short_login:	The Login you have selected is too short. Login names must be at least 4 characters long.
+referals_update:		추천 탐색
+register_err_short_login:	로그인 ID는 최소한 4자 이상이어야 합니다.
 register_err_login_notallowed:	허가되지 않은 사용자 이름 입니다.
-register_err_loginunique:	Forum login names must be unique. There is already a user with this name.
-register_err_emailexists:	This e-mail address is already associated with an account. If you have forgotten your password please use the Restore option, instead of re-registering.
+register_err_loginunique:	동일한 ID가 존재 합니다.
+register_err_emailexists:	동일한 이메일 주소가 존재 합니다. 패스워드 분실시 이메일을 통해 복구 하오니 신중히 입력하십시오.
 register_err_shortpasswd:	패스워드는 최소한 6자 이상으로 만들어야 합니다.
 register_err_passwdnomatch:	패스워드가 일치하지 않습니다, 다시 시도해 주십시오.
-register_err_invalidemail:	The e-mail address you have specified does not appear to be valid.
-register_err_needname:		To successfully complete this registration you must enter your name.
-register_err_enterpasswd:	You must enter your current password to complete the changes.
-register_err_adminpasswd:	You must enter your ADMINISTRATOR password to complete the changes.
-register_err_notyouremail:	Someone else is already registered with this e-mail address.
-register_err_avatartobig:	The file you are trying to upload is too big, more than {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
-register_err_avatarnotallowed:	The avatar you are trying to upload is not allowed. Check the allowed file types.
-register_conf_subject:		Registration Confirmation
+register_err_invalidemail:	유효하지 않은 이메일 입니다.
+register_err_needname:		이름을 입력하십시오.
+register_err_enterpasswd:	패스워드 변경을 위해선 현재 사용중인 패스워드를 입력하십시오.
+register_err_adminpasswd:	변경을 완료하기 위해 관리자 패스워드를 입력하십시오.
+register_err_notyouremail:	누군가가 이미 동일한 이메일 주소로 등록했습니다.
+register_err_avatartobig:	파일 사이즈가 너무 큽니다. 최대 파일 사이즈: {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
+register_err_avatarnotallowed:	허가되지 않은 파일 형식 입니다. 파일 형식을 확인 하십시오.
+register_conf_subject:		등록 형식
 register_conf_msg:		Thank you for registering,\nTo activate your account please go to the URL below:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nOnce your account is activated you will be logged-into the forum and\nredirected to the main page.
-register_welcome_subject:	Forum Registration Confirmation
+register_welcome_subject:	포럼 등록 확인
 register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nPlease note that passwords are case sensitive!\nTo modify your settings or profile, go to this page:\n{FULL_ROOT}{ROOT}?t=register\n
-register_err_cantreg_title:	ERROR: unable to register
-regsiter_err_cantreg_msg:	Unable to create user account, please contact the administrator at <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_err_cantreg_title:	오류: 등록불가
+regsiter_err_cantreg_msg:	계정 생성 불가. 관리자에게 연락하십시오<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	내 프로파일 보기
 register_register_update:	등록 페이지
 report_err_nosuchmsg_title:	오류
 report_err_nosuchmsg_msg:	게시글이 없습니다
 reset_err_invalidkey_title:	오류
-reset_err_invalidkey_msg:	패스워드 초기화 key가 일치하지 않습니다. It is possible that your e-mail client had already automatically open this page, invalidating the reset key. If this is the case, you should shortly receive an e-mail with your new password. If such an e-mail does not arrive, please retry resetting the password.
+reset_err_invalidkey_msg:	패스워드 초기화 key가 일치하지 않습니다. 이메일을 통해 발송된 패스워드 초기화 Key가 만료되어 발생한 문제일 수 있으니 다시 시도하여 빠른 시간 내에 초기화 하시기 바랍니다.
 reset_err_rstconf_title:	정보
-reset_err_rstconf_msg:		You should receive instructions in your e-mail in the next few minutes.
+reset_err_rstconf_msg:		몇분 내로 당신의 이메일로 발송될 예정입니다.
 reset_newpass_title:		패스워드 초기화
 reset_newpass_msg:		Hello,\n\nAs requested, your login information appears below:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease note that your password has been reset to the value above. If you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Your password has been e-mailed to you. You should receive it within the next few minutes.<br>
+reset_login_notify:		패스워드가 이메일로 발송되었습니다. 몇 분내로 도착될 것 입니다.<br>
 search_update:			게시글 검색중
-selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Today&#39;s Posts</a>
+selmsg_update:			<a href="{TEMPLATE: selmsg_update_lnk}">오늘의&#39; 게시글</a> 탐색
 showposts_update:		Viewing posts by: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-subscribed_update:		Browsing own subscriptions
-thread_update:			Browsing forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
-tree_update:			Browsing topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+subscribed_update:		구독자 탐색
+thread_update:			<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a> 포럼 탐색
+tree_update:			<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> 토픽 탐색(트리구조)
 userinfo_update:		Looking at <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profile
 ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
-ERR_disabled_ttl:		Disabled feature
-ERR_disabled_msg:		This feature has been disabled by the system administrator
+ERR_disabled_ttl:		기능 제한
+ERR_disabled_msg:		이 기능은 관리자에 의해 제한 되었습니다
 ERR_access_ttl:			오류: Insufficient Permissions
 ERR_access_msg:			You do not have the required permissions to perform this action
 ERR_registration_disabled_ttl:	등록불가
 ERR_registration_disabled_msg:	The administrator has disabled registration. Please try again later.
-ERR_emailconf_ttl:		오류: Your account is not yet confirmed
-ERR_emailconf_msg:		You have not confirmed your account via e-mail yet<br><table border=0><tr><td><ol><li>If you have not received a confirmation e-mail, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">click here</a><li>If {VAR: usr_d->email} is not your correct e-mail address, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">click here</a></ol></td></tr></table>
+ERR_emailconf_ttl:		오류: 계정 확인 절차를 마치지 않았습니다
+ERR_emailconf_msg:		이메일을 이용한 계정 확인 절차를 마치지 않았습니다<br><table border=0><tr><td><ol><li>만일 이메일을 받지 못했다면, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">여기</a>를 클릭하십시오.<li>만일 {VAR: usr_d->email} 이메일 주소가 틀리다면 , <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">여기</a>를 클릭 하십시오.</ol></td></tr></table>
 ERR_user_ttl:			오류: 일치하는 사용자가 없습니다
 ERR_user_msg:			일치하는 사용자가 없습니다
 ERR_systemerr_ttl:		오류: 시스템 오류
-ERR_systemerr_msg:		A system error has occurred. Please report it to the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+ERR_systemerr_msg:		시스템 오류 발생. <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>에게 이메일 발송.
 email_title:			이메일 양식
 finduser_title:			사용자 찾기
 help_title:			FAQ
@@ -673,22 +673,22 @@ post_opt_images_off:		<b>Images</b> are <b>OFF</b>
 post_opt_smilies_off:		<b>Smilies</b> are <b>OFF</b>
 post_opt:			포럼 옵션
 register_change_passwd:		패스워드 변경
-install_script_present_error:	For security reasons, you must remove the installation script at <b>{GVAR: WWW_ROOT_DISK}install.php</b> before you can use the forum.
-approved_avatar_title:		Your custom avatar was approved.
-approved_avatar_msg:		Your avatar was approved by the administrator. It should now appear as your avatar on all your messages. If you do not see it, or see your old avatar, it is because your browser has cached the page. Try refreshing it once or twice. In most cases this will solve the caching problem.
-unapproved_avatar_title:	Your custom avatar was declined.
-unapproved_avatar_msg:		The administrator did not approve your avatar. The most common reasons are that your avatar was too big (size and/or dimensions) or it contains inappropriate subject matter. If you would like more information about why your avatar was rejected, contact the administrator.
+install_script_present_error:	사이트 보안을 위해 <b>{GVAR: WWW_ROOT_DISK}install.php</b> 파일을 삭제 하십시오.
+approved_avatar_title:		사용자 아바타 승인.
+approved_avatar_msg:		사용자 아바타가 관리자로부터 승인되었습니다. 본인이 작성한 모든 게시글에 아바타가 보일 것 입니다. 만일 보이지 않거나 이전에 사용하던 아바타가 보인다면 쿠키를 삭제한 후, 다시 확인하시기 바랍니다. 대분분의 경우 이와 같은 방법으로 해결이 가능합니다.
+unapproved_avatar_title:	사용자 아바타 승인 거부.
+unapproved_avatar_msg:		사용자 아바타가 관리자로부터 거승인이 거부되었습니다. 대부분의 경우 파일 사이즈 초과나 제목에 포함된 적절하지 않은 단어나 글자의 문제로 나타나는 현상입니다. 이와 같은 문제를 해결한 후에도 동일한 문제가 발생한다면 관리자에 연락하시기 바랍니다.
 mvthread_request_move:		이동 요청
 move_request_reason:		토픽을 이동시키고자 하는 이유?
 mvthread_submit_req:		요청서 제출
-thread_exchange:		Topic Exchange 
+thread_exchange:		토픽 경로 이동
 move_request_by:		토픽 이동 요청자:
 move_reason:			토픽 이동 요구 이유:
 thr_exch_accept:		승인
 thr_exch_decline:		거부
 thr_exch_orig_forum:		원래 위치:
 thr_exch_dest_forum:		이동 위치:
-thr_exch_no_threads:		No topics waiting approval.
+thr_exch_no_threads:		승인 대기 중인 토픽이 없습니다.
 thr_exch_decl_reason:		Reason for declining topic <b>{VAR: data->subject}</b> into forum <b>{VAR: data->f2_name}</b>
 thr_exch_submit:		제출
 exch_decline_ttl:		Moving of topic {VAR: data->subject} into forum {VAR: data->f2_name} was declined.
@@ -728,18 +728,18 @@ p_SPLIT:			토픽 분리
 p_LOCK:				토픽 잠금
 p_MOVE:				토픽 이동
 p_SML:				Use smilies
-p_IMG:				Use image tags
-p_SEARCH:			Can Search
+p_IMG:				이미지 태그 사용
+p_SEARCH:			검색가능
 group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Find User</a>
-group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
+group_mgr_indicator:		현재 편집중: <b>{VAR: grp->name}</b>
 rate_worst:			최악
 rate_best:			최고
 post_quote_msg:			{VAR: msg->login} wrote on {TEMPLATE: make_report_date}
 post_quote:			인용:
 userinfo_referals:		추천 사용자:
 userinfo_referals_count:	{VAR: referals} 멤버
-pm_no_space_title:		No space left!
-pm_no_space_msg:		Your private message folders exceed the allowed storage size of <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. They currently contain <b>{VAR: fldr_size} bytes</b> worth of messages.<br><br><span class="ErrorText">Remove some old messages to clear up space.</span>.
+pm_no_space_title:		좌측 공간 없음!
+pm_no_space_msg:		쪽지함의 최대 저장 크기인 <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes를</b> 초관하였습니다. 현재 사용 중인 크기는 <b>{VAR: fldr_size} bytes 입니다.</b> worth of messages. <br><br><span class="ErrorText">불필요한 파일을 정리하기 바랍니다.</span>.
 pm_space_indct_msg:		Your private message folders are {VAR: percent_full}% full.
 th_expr_never:			무제한
 th_expr_one_hr:			1 시간
@@ -759,7 +759,7 @@ th_expr_one_year:		1 년
 thread_mod_delete:		삭제
 action_latest_post:		최근 게시글
 online_today_last_visit:	최근 방문
-online_today_update:		Viewing the list of people who were on the forum today.
+online_today_update:		오늘의 포럼 방문자 목록.
 logedin_todays_visitors:	오늘의 방문자&#39;
 logedin_latest_post:		최근 게시글:
 register_show_avatar:		아바타 보기:
@@ -782,90 +782,90 @@ quicklogin_login:		로그인
 quicklogin_password:		패스워드
 quicklogin_use_cookies:		쿠키사용?
 quicklogin_login_btn:		로그인
-post_notification_desc:		Notify me when someone replies to this message.
-post_all_ext_allowed:		(unrestricted)
+post_notification_desc:		이 게시글에 대한 답글 통보.
+post_all_ext_allowed:		(제한 해제)
 maximize_category:		최대 분류
-no_view_perm:			You do not have appropriate permissions needed to see this topic.
-report_empty_report:		You cannot send an empty report. Please enter a reason for your report.
-report_already_reported_title:	Already Reported
-report_already_reported_msg:	This message was already reported and the report is currently in the moderator&#39;s queue.
+no_view_perm:			이 게시글을 보기 위해선 적당한 권한이 필요합니다.
+report_empty_report:		보고 내용이 없어서 전송할 수 없습니다. 보고 내용을 작성하십시오.
+report_already_reported_title:	이미 보고가 있습니다
+report_already_reported_msg:	이 게시글에 대한 보고서가 제출되었으며 중재자 컴토중 입니다&#39;.
 register_err_toomanyimages:	You are trying to use more than the allowed {GVAR: FORUM_IMG_CNT_SIG} images in your signature.
 pmsg_next_msg:			다음 게시글
 pmsg_prev_msg:			이전 게시글
-post_proc_reveal_spoiler:	Toggle Spoiler
-register_jabber:		Jabber Handle:
-im_jabber:			Jabber: 
+post_proc_reveal_spoiler:	훼방꾼 전환
+register_jabber:		도배꾼 제어:
+im_jabber:			도배꾼:
 forum_contact:			Contact
 forum_home:			Home
 post_cur_attached:		현재 첨부 파일 {VAR: i}
 ignored_anon_post:		{GVAR: ANON_NICK} 무시
-ignored_user_post:		Message by <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> is ignored
+ignored_user_post:		<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>의 게시글 무시
 smladd_close_window:		윈도우 닫기
 post_list_smilies:		list all smilies
-p_VISIBLE:			Visible
-reported_in_thread:		In topic
+p_VISIBLE:			보임
+reported_in_thread:		토픽내
 help_back_to_top:		위로가기
-help_return_to_index:		Return to Help Index
-imsg_err_message_title:		Invalid Message
-imsg_err_message_msg:		The message you are trying to view does not exist.
+help_return_to_index:		도움말로 돌아가기
+imsg_err_message_title:		근거 없는 게시글
+imsg_err_message_msg:		게시글이 존재하지 않습니다.
 poll_edit:			편집
-register_err_not_valid_img:	The specified url does not contain a valid image.
-pmsg_recepient:			Recipient
-register_err_taken_alias:	The alias you are trying to use is already in use by another forum member. Please choose another.
-register_alias:			Alias:
-register_alias_desc:		If you want a nickname other than your login to be displayed in the forum, enter it here.
-register_allow_pm_msg:		Allow Private Messages
-register_allow_pm_msg_desc:	Allow other users to send you private messages in this forum.
-postcheck_pm_disabled:		You cannot send a private message to "{VAR-HTML: v}", because this person is not accepting private messages.
+register_err_not_valid_img:	지정한 URL에 이미지가 포함되지 않았습니다.
+pmsg_recepient:			수신
+register_err_taken_alias:	동일한 별명이 사용 중 입니다. 다른 별명을 선택하십시오.
+register_alias:			별명:
+register_alias_desc:		포럼에서도 별명이 보이게 하기 위해선 여기에 기입하십시오.
+register_allow_pm_msg:		쪽지 허용
+register_allow_pm_msg_desc:	현재 포럼 내에서 쪽지 수신 허용.
+postcheck_pm_disabled:		"{VAR-HTML: v}"에게 쪽지를 보낼 수 없습니다.
 polllist_vote:			투표
 polllist_view_results:		결과보기
 polllist_name:			투표이름
-polllist_date:			Created On
-polllist_owner:			Created By
+polllist_date:			작성일
+polllist_owner:			작성자
 polllist_votes:			전체 투표
-polllist_action:		Action
+polllist_action:		활성화
 polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Reviewing Available Polls</a>
 userinfo_polls:			투표:
 show_pollist:			투표보기
 search_and:			AND
 search_or:			OR
-search_desc_order:		Descending Order
-search_asc_order:		Ascending Order
-search_logic:			Search Logic:
-search_sorting:			Sort Results by Date in:
-post_proceed:			Proceed
-post_moderated_forum:		You have made a post in a moderated forum. Your message will not be visible to others until it is approved by one of the forum&#39;s moderator(s) or administrator(s).
-post_moderated_forum_ttl:	Moderated Forum Notice
+search_desc_order:		내림차순
+search_asc_order:		오름차순
+search_logic:			검색 규칙:
+search_sorting:			날짜별 정렬:
+post_proceed:			진행
+post_moderated_forum:		당신은 중재 포럼에 게시글을 작성할 수 있습니다. 작성된 게시글은 중재나 또는 관리자의 승인이 완료된 이후에 볼 수 있습니다.
+post_moderated_forum_ttl:	중재 포럼 공지
 buddy_list_bday:		Today {VAR: r[2]} turns {VAR: age}
-email_warning_msg:		If you change your current e-mail address, your account will be marked unconfirmed until you confirm it via e-mail.
+email_warning_msg:		만일 이메일 주소를 변경하면 당신의 계정은 이메일 확인 절차를 마치기 전까지 확인되지 않은 계정으로 표시됩니다.
 register_show_im:		Show IM indicators
 register_show_im_desc:		Whether or not to show IM indicators of the author beside their messages.
-unread_message:			Unread Message
-read_message:			Read Message
+unread_message:			읽지않은 게시글
+read_message:			읽은 게시글
 threadt_more:			&lt;more&gt;
-threadt_disabled_ttl:		Tree view of the topic listing has been disabled.
-threadt_disabled_desc:		The administrator has disabled the tree view of the topic listing. Please use the flat view instead.
-threadt_update:			Browsing forum (tree view) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
-mmod_delete_cofirm_ttl:		Confirm Topic/Message Deletion
-spell_alts:			no alternatives
-insert_uploaded_image:		Insert image into message body
+threadt_disabled_ttl:		토픽 목록을 계단식으로 볼 수 없습니다.
+threadt_disabled_desc:		관리자가 계단식 보기를 금지 시켰습니다. 기본 모드로 이용하십시오.
+threadt_update:			포럼 탐색 (계단식) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:		토픽/게시글 삭제 확인
+spell_alts:			대안 없음
+insert_uploaded_image:		본문에 이미지 삽입
 finduser_help:			The search engine will automatically add * mask to your query, the <b>search is case-sensitive</b>.<br />ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
-back_to_top:			Back to Top
-pm_err_disabled_title:		Private Messaging Disabled
-pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.
-err_mod_acc_ttl:		Unverified Account
-err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account has been validated by the administrator you will not be able to utilize the full capabilities of your account.
-accounts_pending_approval:	Accounts Pending Approval
+back_to_top:			위로가기
+pm_err_disabled_title:		쪽지 사용 불가
+pm_err_disabled_msg:		개인 프로파일에서 쪽지 기능을 활성화시켜야 쪽지를 이용할 수 있습니다.
+err_mod_acc_ttl:		검증되지 않은 계정
+err_mod_acc_msg:		관리가 수동으로 사용자 계정을 인증 및 활성화하고 있습니다. 관리자가 계정을 인증하여 활성화 시키기전까지 일부 기능이 제한됩니다.
+accounts_pending_approval:	계정 승인 제출중
 saved:				저장
 register_err_time_limit:	The limit of one registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} second(s), and then try to register once again.
 register_affero:		Affero Username:<br /><span class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username, enter it here.</span>
 im_affero:			Affero Username
-register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
+register_err_avatardimtobig:	아바타 사이즈는 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b>를 초과할 수 없습니다. <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
 sml_no_smilies:			사용 가능한 이모티콘이 없습니다.
 login_unapproved_account_ttl:	승인되지 않은 계정
-login_unapproved_account_msg:	The administrator of the forum has chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefore you will not be able to access some of the features available to confirmed members.
+login_unapproved_account_msg:	관리가 수동으로 사용자 계정을 인증 및 활성화하고 있습니다. 당신의 계정은 현재까지 인증되지 않았으니 활성화될때 까지 대기하여 주시기 바랍니다.
 remove_from_buddy_list:		친구 목록에서 제거
 iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
@@ -875,9 +875,9 @@ iemail_msg_quote:		인용
 iemail_msg_view:		토픽/게시글 보기
 threadt_sticky:			끈끈이
 threadt_announce:		알림
-reported_no_messages:		There are no reported messages.
+reported_no_messages:		게시글에 대한 보고서가 없습니다.
 poll_no_polls:			참여가능 투표가 없습니다.
-no_unread_messages:		There are no unread messages matching your query.
+no_unread_messages:		당신이 요구한 읽지 않은 게시글이 없습니다.
 thread_mark_all_read:		읽지 않은 모든 게시글을 읽음으로 표시
 thread_mark_all_read_desc:	현재 포럼 내에 있는 읽지 않은 모든 게시글이 읽음으로 표시될 것 입니다
 private_no_messages:		이 폴더에는 메시지가 없습니다.
@@ -906,7 +906,7 @@ mnav_no_range:			You must enter a valid date range. This value can contain a dec
 mnav_invalid_unit:		You must specify a valid time unit.
 mnav_invalid_date:		The date range you specified is larger then the one allowed by the administrator. Try a smaller range of dates.
 mnav_no_results:		There are no messages matching the query.
-mnav_posted_by:			Posted By:
+mnav_posted_by:			게시자:
 mnav_more:			More &raquo;&raquo;
 mnav_minute:			분
 mnav_hour:			시간
@@ -917,7 +917,7 @@ mnav_title:			Message Navigator
 mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}", from "{VAR: from}", in the forum "{GVAR: FORUM_TITLE}".\nTo view the message, click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-register_pm_notification:	Private Message Notification
+register_pm_notification:	쪽지알림
 register_pm_notification_desc:	If enabled, you will be notified whenever a private message is sent to you.
 findu_admin_opts_header:	관리자 옵션
 findu_unban:			차단해제
@@ -946,16 +946,16 @@ reset_suffix:			\n\nIf you received this message in error, please ignore it. If 
 usrinfo_last_visit:		최근 방문:
 mnav_newer:			newer than
 mnav_older:			older than
-ip_search_by_ip:		Search users by IP
+ip_search_by_ip:		IP로 사용자 검색
 ip_search_syntax:		Supported syntax: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:			검색
-ip_analyze_usage:		Analyze IP usage
-ip_analyze_usage_descr:		Please specify the user&#39;s exact login.
+ip_analyze_usage:		IP 분석
+ip_analyze_usage_descr:		지정한 사용자가 로그인 하였습니다.
 ip_users_using:			User(s) using &#39;{VAR: ip}&#39; IP address
 ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP 보기
 userinfo_real_name:		실명:
-register_err_alias_notallowed:	This alias is not allowed
+register_err_alias_notallowed:	이 별명은 승인되지 않았습니다
 post_err_mod_forum_edit_ttl:	오류
 post_err_mod_forum_edit_msg:	중재자 및 관리자만 편집할 수 있습니다.
 dmsg_num:			message #{VAR: obj->id}
