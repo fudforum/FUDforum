@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.61 2005/10/03 15:13:31 hackie Exp $
+* $Id: isearch.inc.t,v 1.62 2005/10/05 02:51:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,7 +10,7 @@
 * (at your option) any later version.
 **/
 
-function mb_word_split($str)
+function mb_word_split($str, $lang)
 {
 	$m = array();
 
@@ -57,7 +57,7 @@ function text_to_worda($text)
 			case 'chinese':
 			case 'japanese':
 			case 'korean':
-				return mb_word_split($text);
+				return mb_word_split($text, $GLOBALS['usr']->lang);
 				break;
 
 			case 'latvian':
