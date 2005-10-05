@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.148 2005/09/30 18:43:21 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.149 2005/10/05 03:01:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -473,7 +473,7 @@ class fud_msg_edit extends fud_msg
 				$nntp->port = $nntp_adm->port;
 				$nntp->timeout = $nntp_adm->timeout;
 				$nntp->nntp_opt = $nntp_adm->nntp_opt;
-				$nntp->login = $nntp_adm->login;
+				$nntp->user = $nntp_adm->login;
 				$nntp->pass = $nntp_adm->pass;
 
 				define('sql_p', '{SQL_TABLE_PREFIX}');
