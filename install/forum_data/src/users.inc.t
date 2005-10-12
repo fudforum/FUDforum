@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.153 2005/09/01 23:17:27 hackie Exp $
+* $Id: users.inc.t,v 1.154 2005/10/12 14:16:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -188,8 +188,11 @@ function &init_user()
 
 			case 'pmm':
 				$_GET['t'] = 'ppost';
-				if (isset($p[1])) {
+				if (isset($p[1], $p[2])) {
 					$_GET[$p[1]] = $p[2];
+					if (isset($p[3])) {
+						$_GET['rmid'] = $p[3];
+					}
 				}
 				break;
 

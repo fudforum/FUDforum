@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.80 2005/09/08 14:17:00 hackie Exp $
+* $Id: ppost.php.t,v 1.81 2005/10/12 14:16:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,6 +71,18 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 			$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$toi.' AND id>1');
 		} else {
 			$msg_to_list = '';
+		}
+
+		/* see if we have pre-defined subject being passed (via message id) */
+		if (isset($_GET['rmid']) && ($rmid = (int)$_GET['rmid'])) {
+			fud_use('is_perms.inc');
+			make_perms_query(&$fields, &$join, 't.forum_id');
+
+			$msg_subject = q_singleval('SELECT m.subject FROM {SQL_TABLE_PREFIX}msg m 
+							INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id
+							'.$join.'
+							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
+							WHERE m.id='.$rmid.($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0 )'));
 		}
 
 		if (isset($_GET['msg_id']) && ($msg_id = (int)$_GET['msg_id'])) { /* editing a message */
