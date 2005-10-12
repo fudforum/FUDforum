@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.70 2005/10/04 13:22:35 hackie Exp $
+* $Id: db.inc,v 1.71 2005/10/12 13:40:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -211,7 +211,7 @@ function db_li($q, &$ef, $li=0)
 	$err = pg_last_error(fud_sql_lnk);
 
 	/* duplicate key */
-	if (strpos($err, 'duplicate key') !== false) {
+	if (strpos($err, '_pkey') !== false) {
 		$ef = ltrim(strrchr($err, ' '));
 		return null;
 	} else {
