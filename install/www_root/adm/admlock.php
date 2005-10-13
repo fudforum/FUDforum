@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.36 2005/09/08 14:17:13 hackie Exp $
+* $Id: admlock.php,v 1.37 2005/10/13 18:25:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,7 +14,7 @@
 	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
 
-	if (isset($_POST['usr_passwd'], $_POST['usr_login']) && q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._sc($_POST['usr_login'])." AND passwd='".md5($_POST['usr_passwd'])."' AND (users_opt & 1048576) > 0")) {
+	if (isset($_POST['usr_passwd'], $_POST['usr_login']) && q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._esc($_POST['usr_login'])." AND passwd='".md5($_POST['usr_passwd'])."' AND (users_opt & 1048576) > 0")) {
 		$FUD_OPT_2 |= 8388608;
 		if (isset($_POST['btn_unlock'])) {
 			$dirperms = 0777;
