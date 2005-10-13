@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.32 2005/09/13 22:00:51 hackie Exp $
+* $Id: phpBB2.php,v 1.33 2005/10/13 16:14:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -153,7 +153,7 @@ function phpbb_decode_ip($int_ip)
 			}
 			q("INSERT INTO ".$DBHOST_TBL_PREFIX."smiley (img,code,descr,vieworder) VALUES('{$obj->smile_url}','".addslashes($obj->code)."','".addslashes($obj->emoticon)."', '{$i}')");
 		} else {
-			q("UPDATE ".$DBHOST_TBL_PREFIX."smiley SET code=".__FUD_SQL_CONCAT__."(code, '~', '".addslashes($obj->code)."') WHERE img='{$obj->smile_url}'");
+			q("UPDATE ".$DBHOST_TBL_PREFIX."smiley SET code=".__FUD_SQL_CONCAT__."(code, '~".addslashes($obj->code)."') WHERE img='{$obj->smile_url}'");
 		}
 	}
 	umask($old_umask);
