@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.84 2005/10/03 15:09:19 hackie Exp $
+* $Id: compiler.inc,v 1.85 2005/10/13 15:33:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -601,8 +601,8 @@ function compile_all($tset='default', $lang='english', $tname='default')
 
 	fud_mkdir($GLOBALS['WWW_ROOT_DISK'].'theme', $perms);
 	fud_mkdir($GLOBALS['WWW_ROOT_DISK'] . 'theme/' . $tname, $perms);
-	fud_mkdir($GLOBALS['DATA_DIR'] . 'include/theme', $perms);
-	fud_mkdir($GLOBALS['DATA_DIR'] . 'include/theme/' . $tname, $perms);
+	fud_mkdir($GLOBALS['INCLUDE'] . 'theme', $perms);
+	fud_mkdir($GLOBALS['INCLUDE'] . 'theme/' . $tname, $perms);
 	umask($u);
 
 	$GLOBALS['CMP_LOC_S'] = array('{ROOT}', '{FULL_ROOT}', '{THEME_ROOT}', '{THEME_ROOT_DISK}', ".'';", ".''.");

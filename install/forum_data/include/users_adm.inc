@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_adm.inc,v 1.16 2004/11/24 19:53:34 hackie Exp $
+* $Id: users_adm.inc,v 1.17 2005/10/13 15:33:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,7 +62,7 @@ function usr_adm_avatar($id, $del=0)
 	}
 	$ud->name = preg_replace('![^A-Za-z0-9]!', '_', $ud->name);
 
-	include_once($GLOBALS['DATA_DIR'] . 'include/theme/' . $ud->name . '/avatar_msg.inc');
+	include_once($GLOBALS['INCLUDE'] . 'theme/' . $ud->name . '/avatar_msg.inc');
 
 	if (!$del) {
 		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET users_opt=(users_opt|4194304|16777216) & ~ (4194304|16777216) | 8388608 WHERE id='.$id);
