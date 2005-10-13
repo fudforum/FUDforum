@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.62 2005/09/28 14:15:54 hackie Exp $
+* $Id: maillist.php,v 1.63 2005/10/13 19:32:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -348,7 +348,6 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	fud_use('wordwrap.inc');
 	fud_use('isearch.inc');
 	fud_use('replace.inc');
-	fud_use('forum.inc');
 	fud_use('rev_fmt.inc');
 	fud_use('iemail.inc');
 	fud_use('post_proc.inc');

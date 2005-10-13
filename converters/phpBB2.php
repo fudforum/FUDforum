@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.33 2005/10/13 16:14:05 hackie Exp $
+* $Id: phpBB2.php,v 1.34 2005/10/13 19:32:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -116,7 +116,6 @@ function phpbb_decode_ip($int_ip)
 	fud_use('th.inc');
 	fud_use('th_adm.inc');
 	fud_use('rev_fmt.inc');
-	fud_use('forum.inc');
 	fud_use('fileio.inc');
 	fud_use('isearch.inc');
 	fud_use('attach.inc');

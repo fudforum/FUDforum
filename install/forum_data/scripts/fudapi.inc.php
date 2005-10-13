@@ -1005,7 +1005,6 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 	fud_use('rev_fmt.inc');
 	fud_use('wordwrap.inc');
 	fud_use('ipoll.inc');
-	fud_use('forum.inc');
 	fud_use('fileio.inc');
 	fud_use('th.inc');
 

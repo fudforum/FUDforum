@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: Yabb.php,v 1.14 2005/07/28 14:18:03 hackie Exp $
+* $Id: Yabb.php,v 1.15 2005/10/13 19:32:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -127,7 +127,6 @@ function yabbstamp($str)
 	fud_use('post_proc.inc');
 	fud_use('db.inc');
 	fud_Use('smiley.inc');
-	fud_use('forum.inc');
 	fud_use('forum_adm.inc');
 	fud_use('groups.inc');
 	fud_use('util.inc');
