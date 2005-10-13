@@ -80,7 +80,7 @@ na:				n/a
 new_posts:			新規メッセージ
 new_private_messages:		<span class="GenTextRed">({VAR: c})</span> 個の未読プライベートメッセージがあります。
 new_thread:			新規トピック作成
-newest_user:			最新の登録ユーザーです
+newest_user:			最新の登録ユーザー:
 next_page:			次のページ
 next_thread:			次のトピック:
 no_messages:			このフォーラムにはメッセージがありません。
@@ -517,8 +517,8 @@ tabs_referrals:			紹介
 tabs_buddy_list:		仲間リスト
 tabs_ignore_list:		無視リスト
 tabs_private_messaging:		プライベートメッセージ
-single_msg_delete:		You are about to <span class="ErrorText">DELETE</span> the message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <span class="ErrorText">DELETE</span> the <span class="ErrorText">ENTIRE TOPIC</span> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		次のタイトルのメッセージを<span class="ErrorText">削除</span>します: <b>{VAR: data[3]}</b><p>
+thread_delete:			次のタイトルのある<span class="ErrorText">トピック全体</span>を<span class="ErrorText">削除</span>: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<span class="fb">進みますか?</span>
 delete_yes:			はい
 delete_no:			いいえ
@@ -584,7 +584,7 @@ post_err_passwd:		パスワードが違います。
 post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		エラーがありました。
-postcheck_max_images_err:	No more than {GVAR: MAX_IMAGE_COUNT} images are allowed per message. Please reduce the number of images.
+postcheck_max_images_err:	メッセージ当りの画像は {GVAR: MAX_IMAGE_COUNT} 子まで許可されています。画像の数を減らしてみてください。
 postcheck_subj_needed:		件名が必要です。
 postcheck_no_such_user:		このフォーラムに "{FUNC: char_fix(htmlspecialchars($v))}" という名前のユーザーはいません。
 postcheck_ignored:		この人はあなたを無視しているので、プライベートメッセージを "{FUNC: char_fix(htmlspecialchars($v))}" に送信できませんでした。
@@ -611,7 +611,7 @@ register_err_avatarnotallowed:	アップロードしようとしているアバ�
 register_conf_subject:		登録確認
 register_conf_msg:		登録してくれてありがとう。\nアカウントを有効にするために下記の URL に行ってください:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n一度有効になったアカウントはフォーラムにログインし、\nメインページに転送されるでしょう。
 register_welcome_subject:	フォーラム登録確認
-register_welcome_msg:		登録ありがとうございます。\n\n
+register_welcome_msg:		登録ありがとうございます。\n\nここに、フォーラムへのログインの詳細があります。:\n\nフォーラム URL: {TEMPLATE: index_update_lnk}\nログイン: {VAR: uent->login}\nパスワード: {VAR: _POST['reg_plaintext_passwd']}\n\n
 register_err_cantreg_title:	エラー: 登録が出来ません。
 regsiter_err_cantreg_msg:	ユーザーアカウントを作成できませんでした。管理者 <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> に連絡してください。
 register_profile_update:	私のプロフィールを閲覧
@@ -712,7 +712,7 @@ group_mgr_edit_btn:		グループ編集
 group_mgr_heading:		グループエディタセクション
 group_mgr_group:		グループ:
 permission_denied_title:	許可されていません!
-permission_denied_msg:		Your user permissions do not allow you to perform the action you are attempting.
+permission_denied_msg:		あなたのユーザー権限は、試みている行為を行なうことを許可しません。
 p_READ:				読む
 p_POST:				投稿
 p_REPLY:			返信
@@ -738,7 +738,7 @@ post_quote:			引用:
 userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} メンバー
 pm_no_space_title:		空きがありません!
-pm_no_space_msg:		プライベートメッセージのフォルダーが許可された <b>{GVAR: MAX_PMSG_FLDR_SIZE} バイトのサイズを超えました。現在 <b>{VAR: fldr_size} バイト</b> のメッセージがあります。<br><br><span class="ErrorText">空きを整理するため、いくつかのメッセージを削除します。</span>.
+pm_no_space_msg:		プライベートメッセージのフォルダーが許可された <b>{GVAR: MAX_PMSG_FLDR_SIZE} バイトのサイズを超えました。現在 <b>{VAR: fldr_size} バイト</b> のメッセージがあります。<br><br><span class="ErrorText">空きを整理するため、いくつかのメッセージを削除します。</span>
 pm_space_indct_msg:		プライベートメッセージのフォルダーは {VAR: percent_full}% 使用しています。
 th_expr_never:			永久
 th_expr_one_hr:			1 時間
@@ -758,11 +758,11 @@ th_expr_one_year:		1 年間
 thread_mod_delete:		削除
 action_latest_post:		最後のメッセージ
 online_today_last_visit:	最終訪問日時
-online_today_update:		Viewing the list of people who were on the forum today.
+online_today_update:		今日フォーラム上に居た人々を閲覧中
 logedin_todays_visitors:	今日の訪問者
 logedin_latest_post:		最終メッセージがあるフォーラム: 
 register_show_avatar:		アバター表示:
-register_show_avatar_desc:	Allows you to hide avatars of other users when viewing their messages
+register_show_avatar_desc:	それらのメッセージを閲覧する場合、他のユーザのアバターを隠すことを許可します。
 drawmsg_view_rest_post:		Show the rest of the message
 post_re:			Re: 
 forumsel_goto_forum:		フォーラム移動:
@@ -810,7 +810,7 @@ imsg_err_message_msg:		閲覧しようとしているメッセージは存在し
 poll_edit:			編集
 register_err_not_valid_img:	指定された URL は有効な画像を含んでいません。
 pmsg_recepient:			受取人
-register_err_taken_alias:	The alias you are trying to use is already in use by another forum member. Please choose another.
+register_err_taken_alias:	The alias you are trying to use is already in use by another forum member. その他を選んでください。
 register_alias:			エイリアス:
 register_alias_desc:		If you want a nickname other than your login to be displayed in the forum, enter it here.
 register_allow_pm_msg:		プライベートメッセージを許可
@@ -834,7 +834,7 @@ search_logic:			検索ロジック:
 search_sorting:			日付での結果ソート:
 post_proceed:			進む
 post_moderated_forum:		You have made a post in a moderated forum. Your message will not be visible to others until it is approved by one of the forum&#39;s moderator(s) or administrator(s).
-post_moderated_forum_ttl:	Moderated Forum Notice
+post_moderated_forum_ttl:	モデレート済フォーラムの通知
 buddy_list_bday:		Today {VAR: r[2]} turns {VAR: age}
 email_warning_msg:		もし現在の電子メールアドレスを変更した場合、電子メールにて確認されるまでアカウントは未確認に設定されます。
 register_show_im:		IM インジケーターの表示
@@ -856,7 +856,7 @@ err_mod_acc_ttl:		未確認アカウント
 err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account has been validated by the administrator you will not be able to utilize the full capabilities of your account.
 accounts_pending_approval:	承認保留アカウント
 saved:				保存済み
-register_err_time_limit:	The limit of one registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} second(s), and then try to register once again.
+register_err_time_limit:	The limit of one registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. {VAR: reg_limit_reached} 秒待って、もう一度登録を試みてください。
 register_affero:		Affero Username:<br /><span class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username, enter it here.</span>
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
@@ -864,7 +864,7 @@ buddy_offline:			{VAR: r[2]} は現在オフラインです
 buddy_online:			{VAR: r[2]} は現在オンラインです
 sml_no_smilies:			表情アイコンは利用できません。
 login_unapproved_account_ttl:	未承認アカウント
-login_unapproved_account_msg:	The administrator of the forum has chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefore you will not be able to access some of the features available to confirmed members.
+login_unapproved_account_msg:	フォーラムの管理者は、アクティベーションの前にアカウントを手動で確認することに決めました。Your account has not yet been confirmed, therefore you will not be able to access some of the features available to confirmed members.
 remove_from_buddy_list:		仲間一覧から削除する
 iemail_msg_author:		<b>著者:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>件名:</b> {VAR: obj->subject}
@@ -881,21 +881,21 @@ thread_mark_all_read:		このフォーラムの未読メッセージはすべて
 thread_mark_all_read_desc:	このフォーラムの未読メッセージはすべて既読にマークします。
 private_no_messages:		このフォルダーにメッセージはありません。
 register_email_change_subject:	電子メール変更確認
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}", by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your forum account will be re-activated.
+register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}", by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n一度新しい電子メールアドレスを確認すれば、フォーラムアカウントは再アクティベートされるでしょう。
 iemail_thread_unsub:		このトピックは未購読です。
 iemail_forum_unsub:		このフォーラムは未購読です。
 primary_group_prefix:		フォーラムの一次グループ:
 group_resources:		このグループは次のフォーラムの権限を制御する
 register_admin_newuser_title:	新規のユーザーが登録されました。それらのアカウントは確認待ちです。
-register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered, and since account confirmation is enabled, their account will not become active until it is confirmed by you or another forum administrator. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process. Do not reply to this message.\nIf you want to turn off future e-mail notifications of new user registrations, you can do so via the Admin Control Panel. Change the "New Account Notification" setting.
+register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered, and since account confirmation is enabled, their account will not become active until it is confirmed by you or another forum administrator. このメッセージの調査に移動してください: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nこれは自動処理です。このメッセージに返答しません。\n新規のユーザー登録での将来の電子メール通告を止めたければ、管理用コントロールパネルによって行うことができます。「New Account Notification」設定で変更します。
 post_mod_msg_notify_title:	フォーラム "{VAR: frm->name}" で認証待ちの新規メッセージ
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process. Do not reply to this message.\n
+post_mod_msg_notify_msg:	新規メッセージでタイトル「{VAR: msg_post->subject}」は、モデレートフォーラムで投稿されました。
 thread_printable_pdf:		印刷用 PDF を生成する
-thread_syndicate:		Syndicate this forum (XML)
+thread_syndicate:		このフォーラムを配信する (XML)
 reg_conf_title:			登録確認
 reg_conf_email:			<b>電子メール確認</b><br />電子メールは、アカウントを有効にする前にアクセスする必要がある特別の URL を含んで、あなたの元へ送信されました。数分でこの電子メールを受け取らない場合は、アカウントにログインして、指定した電子メールアドレスが正確であることを確認してください。一度アカウントを確認すれば承認され、公認のユーザーにのみ利用可能なフォーラム機能にアクセスすることができるでしょう。
-reg_conf_account:		<b>アカウント確認</b><br />Before your account is made active it needs to be approved by the administrator(s). Once that happens you will receive an e-mail indicating that your account has been confirmed. In the meantime you can log-into your account, however you will not be able to access certain features.
-forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Goodbye.
+reg_conf_account:		<b>アカウント確認</b><br />あなたのアカウントがアクティブになる前に、管理者はそれを承認する必要があります。一旦それが発生すれば、あなたのアカウントが承認されたことということを知らせる電子メールを受け取るでしょう。その間に、アカウントログインできます。しかしながら、ある機能にアクセスすることができないでしょう。
+forum_banned_user:		あなたの先の行為でこのフォーラムから永久に禁止になる結果になりました。さようなら。
 mnav_description:		メッセージナビゲーター
 mnav_date_limit:		日付範囲:
 mnav_forum_limit:		この中だけ検索:
@@ -903,7 +903,7 @@ mnav_all_forums:		全フォーラム検索
 mnav_submit:			検索開始
 mnav_no_range:			正しい日付の範囲を指定なければなりません。この値は小数点(0.12)を含むことができます。しかし、それは 0 より大きくなければなりません。
 mnav_invalid_unit:		正しい時間単位を指定しなければなりません。
-mnav_invalid_date:		The date range you specified is larger then the one allowed by the administrator. Try a smaller range of dates.
+mnav_invalid_date:		The date range you specified is larger then the one allowed by the administrator. 期日のより小さな範囲を試みてください。
 mnav_no_results:		照会に一致するメッセージはありません。
 mnav_posted_by:			投稿者:
 mnav_more:			もっと &raquo;&raquo;
@@ -919,8 +919,8 @@ pm_notify_body_email:		新しいフォーラム「{GVAR: FORUM_TITLE}」 の「{
 register_pm_notification:	プライベートメッセージ通知
 register_pm_notification_desc:	もし有効の場合、プライベートメッセージがあなたに届けられた場合、常に通知されるでしょう。
 findu_admin_opts_header:	管理オプション
-findu_unban:			追放取り消し
-findu_ban:			追放
+findu_unban:			禁止取り消し
+findu_ban:			禁止
 findu_edit:			編集
 findu_delete:			削除
 dmsg_reply_to:			#{VAR: obj->reply_to} への返信
@@ -949,9 +949,9 @@ ip_search_by_ip:		IP でユーザーを検索
 ip_search_syntax:		サポートする文法: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:			検索
 ip_analyze_usage:		IP 使用解析
-ip_analyze_usage_descr:		Please specify the user&#39;s exact login.
-ip_users_using:			ユーザーは &#39;{VAR: ip}&#39; 個の IP アドレスを使用しました。
-ip_all_ips:			&#39;{VAR: user}&#39; が使用したすべての IP アドレス
+ip_analyze_usage_descr:		ユーザーの正確なログインを指定してください。
+ip_users_using:			ユーザーは {VAR: ip} 個の IP アドレスを使用しました。
+ip_all_ips:			「{VAR: user}」が使用したすべての IP アドレス
 ip_title:			IP ブラウザー
 userinfo_real_name:		本名:
 register_err_alias_notallowed:	この別名は許可されません。
@@ -994,13 +994,13 @@ search_results_hdr:		{VAR: total} 個の検索結果が見つかりました。
 thread_del_all:			すべての選択を削除する
 thread_mov_all:			すべての選択を移動する
 dmsg_ip:			IP:
-err_banned_acct_title:		ERROR: You have been banned.
+err_banned_acct_title:		エラー: 禁止されました。
 err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
-err_blockedaccnt_title:		ERROR: Your account has been filtered out.
-err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
-merge_th_page_list:		Topic Page Selection
+err_blockedaccnt_title:		エラー: アカウントはフィルターされました。
+err_blockedaccnt_msg:		アカウントは、インストールされたユーザーフィルターのうちのつ 1 により、フォーラムにアクセスすることを遮断されました。
+merge_th_page_list:		トピックページ選択
 most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
+sub_unsub_all_forums:		すべてのフォーラムの購読を止める
+sub_unsub_all_topics:		すべてのトピックの購読を止める
 tabs_own_posts:			Show Own Posts
-buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
+buddy_list_err_ignore:		あなたの友達リストに自分を無視するユーザーとして追加することはできません。
