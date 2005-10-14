@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.144 2005/08/16 13:32:26 hackie Exp $
+* $Id: post.php.t,v 1.145 2005/10/14 02:52:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -392,6 +392,10 @@ function flood_check()
 				exit;
 			} else {
 				$t = d_thread_view;
+
+				if ($msg_id && ($frm->forum_opt & 2) && !q_singleval('SELECT apr FROM {SQL_TABLE_PREFIX}msg WHERE id='.$msg_id)) { /* editing unapproved message in moderated forum */
+					check_return($usr->returnto);
+				}
 
 				if ($usr->returnto) {
 					if (!strncmp('t=selmsg', $usr->returnto, 8) || !strncmp('/sel/', $usr->returnto, 5)) {
