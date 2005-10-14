@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.56 2005/09/04 18:37:08 hackie Exp $
+* $Id: rdf.php.t,v 1.57 2005/10/14 03:07:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,6 +63,14 @@ $enc_dst = array('<br />', '&amp;', '&#13;', ' ', '&lt;', '&gt;', '&#0;');
 function fud_xml_encode($str)
 {
 	return str_replace($GLOBALS['enc_src'], $GLOBALS['enc_dst'], $str);
+}
+
+// change relative smiley URLs to full ones
+function smiley_full(&$data)
+{
+	if (strpos($data, '<img src="images/smiley_icons/') !== false) {
+		$data = str_replace('<img src="images/smiley_icons/', '<img src="'.$GLOBALS['WWW_ROOT'].'images/smiley_icons/', $data);
+	}
 }
 
 	$charset = '{TEMPLATE: rdf_CHARSET}';
@@ -201,16 +209,16 @@ function fud_xml_encode($str)
 					$res = 1;
 				}
 
+				$body = read_msg_body($r->foff, $r->length, $r->file_id);
+				smiley_full($body);
 				if ($basic) {
-					$body = fud_xml_encode(read_msg_body($r->foff, $r->length, $r->file_id));
-
 $basic_rss_header .= "\t\t\t<rdf:li rdf:resource=\"".$WWW_ROOT."index.php?t=rview&amp;goto=".$r->id."&amp;th=".$r->thread_id."#msg_".$r->id."\" />\n";
 
 $basic_rss_data .= '
 <item rdf:about="'.$WWW_ROOT.'index.php?t=rview&amp;goto='.$r->id.'&amp;th='.$r->thread_id.'#msg_'.$r->id.'">
 	<title>'.htmlspecialchars($r->subject).'</title>
 	<link>'.$WWW_ROOT.'index.php?t=rview&amp;goto='.$r->id.'&amp;th='.$r->thread_id.'#msg_'.$r->id.'</link>
-	<description>'.$body.'</description>
+	<description>'.fud_xml_encode($body).'</description>
 	<dc:subject></dc:subject>
 	<dc:creator>'.$r->alias.'</dc:creator>
 	<dc:date>'.gmdate('Y-m-d\TH:i:s', $r->post_stamp).'-00:00</dc:date>
@@ -230,7 +238,7 @@ $basic_rss_data .= '
 	<category_title>'.sp($r->cat_name).'</category_title>
 	<author>'.sp($r->alias).'</author>
 	<author_id>'.$r->poster_id.'</author_id>
-	<body>'.str_replace("\n", '', sp(read_msg_body($r->foff, $r->length, $r->file_id))).'</body>
+	<body>'.str_replace("\n", '', sp($body)).'</body>
 ';
 					if ($r->attach_cnt && $r->attach_cache) {
 						if (($al = unserialize($r->attach_cache))) {
