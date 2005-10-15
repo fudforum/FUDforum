@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.53 2005/07/26 22:24:49 hackie Exp $
+* $Id: pmsg.php.t,v 1.54 2005/10/15 18:59:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,6 +31,9 @@
 			pmsg_del((int)$r[0], 5);
 		}
 		unset($c, $_POST['sel'], $_GET['sel']); /* prevent message selection cofusion */
+		if (isset($_POST['old_folder_id'])) {
+			$_GET['folder_id'] = $_POST['old_folder_id'];
+		}
 	}
 
 	$all_v = empty($_GET['all']);
@@ -48,6 +51,9 @@
 				pmsg_move((int)$m, $move_to, 0);
 			} else {
 				pmsg_del((int)$m);
+				if (isset($_POST['old_folder_id'])) {
+					$_GET['folder_id'] = $_POST['old_folder_id'];
+				}
 			}
 		}
 	}
