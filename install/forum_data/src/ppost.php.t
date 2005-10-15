@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.81 2005/10/12 14:16:59 hackie Exp $
+* $Id: ppost.php.t,v 1.82 2005/10/15 18:33:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -287,6 +287,10 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 			}
 		}
 
+		if ($usr->returnto) {
+			check_return($usr->returnto);
+		}
+
 		if ($FUD_OPT_2 & 32768) {
 			header('Location: {FULL_ROOT}{ROOT}/pdm/1/'._rsidl);
 		} else {
@@ -333,7 +337,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		}
 	}
 
-	ses_update_status($usr->sid, '{TEMPLATE: pm_update}');
+	ses_update_status($usr->sid, '{TEMPLATE: pm_update}', 0, 1);
 
 /*{POST_HTML_PHP}*/
 
