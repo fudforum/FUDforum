@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.25 2005/07/28 16:07:18 hackie Exp $
+* $Id: admsmiley.php,v 1.26 2005/10/15 18:24:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -108,7 +108,7 @@ onSubmit="javascript: return sml_form_check();">
 			<td colspan=2><b>Smilies Upload (upload smiley into the system)</td>
 		</tr>
 		<tr class="field">
-			<td>Smilies Upload:<br><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
+			<td>Smilies Upload:<br><font size="-1">Only (*.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
 			<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"></td>
 			<input type="hidden" name="tmp_f_val" value="1">
 		</tr>
@@ -144,7 +144,7 @@ onSubmit="javascript: return sml_form_check();">
 						} else {
 							document.prev_icon.src='../blank.gif';
 						}">
-			[<a href="javascript://" onClick="javascript:window.open('admsmileysel.php?<?php echo __adm_rsidl; ?>', 'admsmileysel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT ICON</a>]
+			[<a href="javascript://" onClick="javascript:window.open('admiconsel.php?type=3&amp;<?php echo __adm_rsidl; ?>', 'admsmileysel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT ICON</a>]
 		</td>
 	</tr>
 

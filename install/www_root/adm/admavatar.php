@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.27 2005/09/08 14:17:13 hackie Exp $
+* $Id: admavatar.php,v 1.28 2005/10/15 18:24:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -209,11 +209,11 @@ function import_avatars($path)
 			<input type="text" name="avt_img" value="<?php echo htmlspecialchars($avt_img); ?>"
 				onChange="javascript:
 					if (document.frm_avt.avt_img.value.length) {
-						document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT_DISK']; ?>images/avatars/' + document.frm_avt.avt_img.value;
+						document.prev_icon.src='<?php echo $WWW_ROOT_DISK; ?>images/avatars/' + document.frm_avt.avt_img.value;
 					} else {
 						document.prev_icon.src='../blank.gif';
 					}">
-			[<a href="#avt_sel" onClick="javascript:window.open('admavatarsel.php?<?php echo __adm_rsidl; ?>', 'admavatarsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT AVATAR</a>]
+			[<a href="#avt_sel" onClick="javascript:window.open('admiconsel.php?type=4&amp;<?php echo __adm_rsidl; ?>', 'admavatarsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT AVATAR</a>]
 		</td>
 	</tr>
 
