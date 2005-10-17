@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.72 2005/10/13 19:14:52 hackie Exp $
+* $Id: db.inc,v 1.73 2005/10/17 15:44:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -46,13 +46,13 @@ function db_lock($tables)
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		fud_sql_error_handler("Recursive Lock", "internal", "internal", get_version());
 	} else {
-		$tbls = str_replace(array(' WRITE,', ' WRITE'), array('',''), $tables);
-		if (strpos($tbls, ' ') !== false) {
-			$tbls = preg_replace('!\s+\w+,!', ',', $tbls);
+		$tbl = array();
+		foreach (explode(',', str_replace(' WRITE', '', $tables)) as $v) {
+			if (!($v = trim($v))) continue;
+			$tbl[] = strtok($v, ' ');
 		}
-
 		q('BEGIN WORK');
-		q('LOCK TABLE '.$tbls.' IN ACCESS EXCLUSIVE MODE');
+		q('LOCK TABLE '.implode(',', $tbl).' IN ACCESS EXCLUSIVE MODE');
 		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
 	}
 }
