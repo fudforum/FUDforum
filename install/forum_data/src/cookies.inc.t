@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.78 2005/09/26 14:33:38 hackie Exp $
+* $Id: cookies.inc.t,v 1.79 2005/10/17 20:30:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -129,6 +129,9 @@ function ses_delete($ses_id)
 
 function ses_anonuser_auth($id, $error)
 {
+	if (!empty($_POST)) {
+		$_SERVER['QUERY_STRING'] = '';
+	}
 	q("UPDATE {SQL_TABLE_PREFIX}ses SET data="._esc(serialize($error)).", returnto=".ssn($_SERVER['QUERY_STRING'])." WHERE id=".$id);
 	if ($GLOBALS['FUD_OPT_2'] & 32768) {
 		header('Location: {FULL_ROOT}{ROOT}/l/'._rsidl);
