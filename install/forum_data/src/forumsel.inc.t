@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forumsel.inc.t,v 1.32 2005/08/11 01:26:13 hackie Exp $
+* $Id: forumsel.inc.t,v 1.33 2005/10/17 16:10:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,6 +35,10 @@ function tmpl_create_forum_select($frm_id, $mod)
 	while ($r = db_rowarr($c)) {
 		if ($oldc != $r[2]) {
 			while (list($k, $i) = each($GLOBALS['cat_cache'])) {
+				if ($r[2] != $k && $i[0] >= $GLOBALS['cat_cache'][$r[2]][0]) {
+					continue;
+				}
+	
 				$selection_options .= '{TEMPLATE: category_option}';
 				if ($k == $r[2]) {
 					break;
