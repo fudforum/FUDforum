@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.php.t,v 1.35 2004/11/30 16:40:38 hackie Exp $
+* $Id: reported.php.t,v 1.36 2005/10/18 03:32:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,6 +11,24 @@
 **/
 
 /*{PRE_HTML_PHP}*/
+
+require $FORUM_SETTINGS_PATH.'cat_cache.inc';
+
+function draw_path($cid)
+{
+	global $cat_par, $cat_cache;
+
+	if (!$cid) {
+		return;
+	}
+
+	$data = '';
+	do {
+		$data = '{TEMPLATE: reported_cat_path}' . $data;
+	} while (($cid = $cat_par[$cid]) > 0);
+
+	return $data;
+}
 
 	if (isset($_GET['del']) && ($del = (int)$_GET['del']) && sq_check(0, $usr->sq)) {
 		if ($is_a || q_singleval('SELECT mr.id FROM {SQL_TABLE_PREFIX}msg_report mr INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mr.msg_id INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.' WHERE mr.id='.$del)) {
@@ -28,7 +46,7 @@
 	$r = $query_type('SELECT
 			m.*,
 			t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
-			f.message_threshold, f.name AS frm_name,
+			f.message_threshold, f.name AS frm_name, f.cat_id,
 			u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
 			u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.users_opt, u.last_visit AS time_sec,
 			l.name AS level_name, l.level_opt, l.img AS level_img,

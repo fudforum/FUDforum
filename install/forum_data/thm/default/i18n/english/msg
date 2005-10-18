@@ -805,7 +805,7 @@ ignored_user_post:		Message by <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR:
 smladd_close_window:		close window
 post_list_smilies:		list all smilies
 p_VISIBLE:			Visible
-reported_in_thread:		In topic
+reported_in_thread:		In
 help_back_to_top:		back to top
 help_return_to_index:		Return to Help Index
 imsg_err_message_title:		Invalid Message
