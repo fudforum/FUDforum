@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.170 2005/10/18 14:48:14 hackie Exp $
+* $Id: core.inc,v 1.171 2005/10/18 22:18:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -178,6 +178,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 	}
 
 	$pfx = sprintf("?%-10d?%-10d?", strlen($error_msg) + 1, __request_timestamp__);
+	ini_set('log_errors_max_len', 0);
 	if (!error_log($pfx.$error_msg."\n", 3, $GLOBALS['ERROR_PATH'].'sql_errors')) {
 		echo "<b>UNABLE TO WRITE TO SQL LOG FILE</b><br>\n";
 		echo $error_msg;

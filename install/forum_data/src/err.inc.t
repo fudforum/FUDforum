@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: err.inc.t,v 1.49 2005/10/11 23:24:57 hackie Exp $
+* $Id: err.inc.t,v 1.50 2005/10/18 22:18:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,6 +29,7 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 		$error_msg .= '[Referring Page] '.htmlspecialchars($_SERVER['HTTP_REFERER']).'<br />';
 	}
 	$pfx = sprintf("?%-10d?%-10d?", strlen($error_msg) + 1, __request_timestamp__);
+	ini_set('log_errors_max_len', 0);
 	error_log($pfx.$error_msg."\n", 3, $GLOBALS['ERROR_PATH'].'fud_errors');
 
 	/* no need to redirect, we just want to log the error */
