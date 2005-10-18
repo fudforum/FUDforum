@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smtp.inc.t,v 1.15 2005/04/07 02:43:02 hackie Exp $
+* $Id: smtp.inc.t,v 1.16 2005/10/18 22:23:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,7 +39,8 @@ class fud_smtp
 		if (!$this->get_return_code(220)) {
 			return;
 		}
-		$this->wts("HELO ".$GLOBALS['FUD_SMTP_SERVER']);
+
+		$this->wts(((strpos($this->last_ret, 'ESMTP') === false) ? 'HELO ' : 'EHLO').$GLOBALS['FUD_SMTP_SERVER']);
 		if (!$this->get_return_code()) {
 			return;
 		}
@@ -108,7 +109,7 @@ class fud_smtp
 
 	function close_connex()
 	{
-		$this->wts('quit');
+		$this->wts('QUIT');
 		fclose($this->fs);
 	}
 
