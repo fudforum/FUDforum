@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smladd.tmpl,v 1.12 2004/11/24 19:53:40 hackie Exp $
+* $Id: smladd.tmpl,v 1.13 2005/10/18 15:51:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,28 +13,21 @@
 {REF: security.tmpl}
 {REF: header.tmpl}
 {REF: footer.tmpl}
+{REF: alt_var.tmpl}
 
 {PAGE: SMLLIST_PAGE}
 {TEMPLATE: header_plain}
 <table cellspacing=1 cellpadding=0 width="100%" class="dashed">
-{TEMPLATE-DATA: sml_smiley_row}
-<tr><td class="ac" colspan="{VAR: col_count}">[<a href="javascript://" onClick="javascript: window.close();">{MSG: smladd_close_window}</a>]</td></tr>
+<tr>
+	<th>Emoticon</th>
+	<th>Code</th>
+</tr>
+{IF: $smileys}{TEMPLATE-DATA: smileys}{ELSE}{MSG: sml_no_smilies}{END}
+<tr><td colspan="2" class="ac RowStyleC" colspan="{VAR: col_count}">[<a href="javascript://" onClick="javascript: window.close();">{MSG: smladd_close_window}</a>]</td></tr>
 </table>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 
-{SECTION: sml_smiley_entry}
-<a href="javascript: insertParentTag(\' {VAR: PS_DST[$k]} \',\'\');">{VAR: v}</a>&nbsp;&nbsp;
-{SECTION: END}
-
 {SECTION: sml_smiley_row}
-<tr class="vb"><td>{TEMPLATE-DATA: sml_smiley_entry}</td></tr>
-{SECTION: END}
-
-{SECTION: sml_no_smilies}
-{MSG: sml_no_smilies}
-{SECTION: END}
-
-{SECTION: sml_per_row how many smilies to put per row}
-7
+<tr class="vb {ALT-VAR: sml_alt RowStyleA RowStyleB}"><td><a href="javascript: insertParentTag(\' {VAR: PS_DST[$k]} \',\'\');">{VAR: v}</a></td><td>{VAR: PS_DST[$k]}</td></tr>
 {SECTION: END}

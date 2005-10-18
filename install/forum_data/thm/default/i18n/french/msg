@@ -1004,3 +1004,5 @@ sub_unsub_all_forums:		Cesser la surveillance de tous les forums
 sub_unsub_all_topics:		Cesser la surveillance de tous les fils
 tabs_own_posts:			Montrer ses propres messages
 buddy_list_err_ignore:		Impossible d\'ajouter à votre liste d\'amis des utilisateurs qui vous ignorent.
+sml_emoticon:			Emoticon
+sml_code:			Code

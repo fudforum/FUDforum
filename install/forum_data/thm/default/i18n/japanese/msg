@@ -1004,3 +1004,5 @@ sub_unsub_all_forums:		すべてのフォーラムの購読を止める
 sub_unsub_all_topics:		すべてのトピックの購読を止める
 tabs_own_posts:			Show Own Posts
 buddy_list_err_ignore:		あなたの友達リストに自分を無視するユーザーとして追加することはできません。
+sml_emoticon:			Emoticon
+sml_code:			Code

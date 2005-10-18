@@ -1004,3 +1004,5 @@ sub_unsub_all_forums:		Unsubscribe From All Forums
 sub_unsub_all_topics:		Unsubscribe From All Topics
 tabs_own_posts:			Show Own Posts
 buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
+sml_emoticon:			Emoticon
+sml_code:			Code
