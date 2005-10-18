@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.38 2005/03/14 15:33:22 hackie Exp $
+* $Id: iemail.inc.t,v 1.39 2005/10/18 16:08:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,6 +28,11 @@ function send_email($from, $to, $subj, $body, $header='')
 {
 	if (empty($to)) {
 		return;
+	}
+
+	/* html entities check */
+	if (strpos($subj, '&') !== false) {
+		$subj = html_entity_decode($subj);
 	}
 
 	if ($GLOBALS['FUD_OPT_1'] & 512) {
