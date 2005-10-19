@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smtp.inc.t,v 1.16 2005/10/18 22:23:26 hackie Exp $
+* $Id: smtp.inc.t,v 1.17 2005/10/19 02:13:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,16 +33,23 @@ class fud_smtp
 
 	function open_smtp_connex()
 	{
-		if( !($this->fs = fsockopen($GLOBALS['FUD_SMTP_SERVER'], 25, $errno, $errstr, $GLOBALS['FUD_SMTP_TIMEOUT'])) ) {
+		if( !($this->fs = fsockopen($GLOBALS['FUD_SMTP_SERVER'], $GLOBALS['FUD_SMTP_PORT'], $errno, $errstr, $GLOBALS['FUD_SMTP_TIMEOUT'])) ) {
 			exit("ERROR: stmp server at ".$GLOBALS['FUD_SMTP_SERVER']." is not available<br>\nAdditional Problem Info: $errno -> $errstr <br>\n");
 		}
 		if (!$this->get_return_code(220)) {
 			return;
 		}
 
-		$this->wts(((strpos($this->last_ret, 'ESMTP') === false) ? 'HELO ' : 'EHLO').$GLOBALS['FUD_SMTP_SERVER']);
+		$es = strpos($this->last_ret, 'ESMTP') === false;
+
+		$this->wts(($es ? 'HELO ' : 'EHLO').$GLOBALS['FUD_SMTP_SERVER']);
 		if (!$this->get_return_code()) {
 			return;
+		}
+
+		/* we need to scan all other lines */
+		if ($es) {
+			while (!feof($this->fs) && fgets($this->fs));
 		}
 
 		/* Do SMTP Auth if needed */

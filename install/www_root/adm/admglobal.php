@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.79 2005/09/12 20:52:59 hackie Exp $
+* $Id: admglobal.php,v 1.80 2005/10/19 02:13:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -258,6 +258,7 @@ function get_max_upload_size()
 	print_bit_field('Allow Email', 'ALLOW_EMAIL');
 	print_bit_field('Use SMTP To Send Email', 'USE_SMTP');
 	print_reg_field('SMTP Server', 'FUD_SMTP_SERVER');
+	print_reg_field('SMTP Server Port', 'FUD_SMTP_PORT', 1);
 	print_reg_field('SMTP Server Timeout', 'FUD_SMTP_TIMEOUT', 1);
 	print_reg_field('SMTP Server Login', 'FUD_SMTP_LOGIN');
 	print_reg_field('SMTP Server Password', 'FUD_SMTP_PASS');

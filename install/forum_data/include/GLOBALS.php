@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: GLOBALS.php,v 1.46 2005/06/28 00:43:35 hackie Exp $
+* $Id: GLOBALS.php,v 1.47 2005/10/19 02:13:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,6 +41,7 @@
 	$DBHOST_DBTYPE		= "";
 
 	$FUD_SMTP_SERVER	= "";
+	$FUD_SMTP_PORT		= 25;
 	$FUD_SMTP_TIMEOUT	= 10;		/* seconds */
 	$FUD_SMTP_LOGIN		= "";
 	$FUD_SMTP_PASS		= "";

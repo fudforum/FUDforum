@@ -84,6 +84,9 @@ Whether or not to use FUDforum SMTP gateway to send email instead of standard PH
 {{{FUD_SMTP_SERVER
 The ip or host name of the SMTP server.}}}
 
+{{{FUD_SMTP_PORT
+The the port on which to connect to the SMTP server.}}}
+
 {{{FUD_SMTP_TIMEOUT
 The number of seconds to wait for the SMTP server to respond to a request.}}}
 
