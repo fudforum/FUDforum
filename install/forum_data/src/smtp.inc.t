@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smtp.inc.t,v 1.17 2005/10/19 02:13:15 hackie Exp $
+* $Id: smtp.inc.t,v 1.18 2005/10/19 02:35:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,13 +16,12 @@ class fud_smtp
 
 	function get_return_code($cmp_code='250')
 	{
-		if (!($this->last_ret = fgets($this->fs, 1024))) {
+		if (!($this->last_ret = fgets($this->fs))) {
 			return;
 		}
-		if (substr($this->last_ret, 0, 3) == $cmp_code) {
+		if ((int)$this->last_ret == $cmp_code) {
 			return 1;
 		}
-
 		return;
 	}
 
@@ -40,16 +39,18 @@ class fud_smtp
 			return;
 		}
 
-		$es = strpos($this->last_ret, 'ESMTP') === false;
+		$es = strpos($this->last_ret, 'ESMTP') !== false;
 
-		$this->wts(($es ? 'HELO ' : 'EHLO').$GLOBALS['FUD_SMTP_SERVER']);
+		$this->wts(($es ? 'EHLO ' : 'HELO ').$GLOBALS['FUD_SMTP_SERVER']);
 		if (!$this->get_return_code()) {
 			return;
 		}
 
 		/* we need to scan all other lines */
 		if ($es) {
-			while (!feof($this->fs) && fgets($this->fs));
+			stream_set_blocking($this->fs, 0);
+			while (fgets($this->fs));
+			stream_set_blocking($this->fs, 1);
 		}
 
 		/* Do SMTP Auth if needed */
