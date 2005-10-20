@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mvthread.php.t,v 1.37 2005/08/16 13:32:26 hackie Exp $
+* $Id: mvthread.php.t,v 1.38 2005/10/20 20:38:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -123,7 +123,7 @@
 
 		$table_data = $oldc = '';
 
-		require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';
+		require $FORUM_SETTINGS_PATH.'cat_cache.inc';
 		while ($r = db_rowarr($c)) {
 			if ($oldc != $r[2]) {
 				while (list($k, $i) = each($cat_cache)) {

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.67 2005/09/08 14:17:00 hackie Exp $
+* $Id: search.php.t,v 1.68 2005/10/20 20:38:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,12 +27,12 @@
 	$sort_order = (isset($_GET['sort_order']) && $_GET['sort_order'] == 'ASC') ? 'ASC' : 'DESC';
 	if (!empty($_GET['author'])) {
 		$author = (string) $_GET['author'];
-		$author_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias="._esc($author));
+		$author_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc($author));
 	} else {
 		$author = $author_id = '';
 	}
 
-	require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';
+	require $FORUM_SETTINGS_PATH.'cat_cache.inc';
 
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {

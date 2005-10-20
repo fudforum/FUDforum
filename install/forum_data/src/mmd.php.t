@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmd.php.t,v 1.5 2005/09/08 14:17:00 hackie Exp $
+* $Id: mmd.php.t,v 1.6 2005/10/20 20:38:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,7 +120,7 @@
 				WHERE c.id!=0 AND f.id!='.$perms[0].($is_a ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0 THEN 1 ELSE 0 END)=1').'
 				ORDER BY v.id');
 
-		require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';
+		require $FORUM_SETTINGS_PATH.'cat_cache.inc';
 		while ($r = db_rowarr($c)) {
 			if ($oldc != $r[2]) {
 				while (list($k, $i) = each($cat_cache)) {

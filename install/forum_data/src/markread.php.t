@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: markread.php.t,v 1.14 2005/07/29 16:20:42 hackie Exp $
+* $Id: markread.php.t,v 1.15 2005/10/20 20:38:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,7 @@
 			user_mark_forum_read(_uid, (int)$_GET['id'], $usr->last_read);
 		} else if (!empty($_GET['cat'])) {
 			/* mark all forums inside a category and it's child categories */
-			require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';
+			require $FORUM_SETTINGS_PATH.'cat_cache.inc';
 
 			if (!empty($cat_cache[(int)$_GET['cat']])) {
 				$c = $cat_cache[(int)$_GET['cat']];

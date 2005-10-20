@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.39 2005/08/11 01:26:13 hackie Exp $
+* $Id: getfile.php.t,v 1.40 2005/10/20 20:38:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -67,7 +67,7 @@ function get_preview_img($id)
 		$append = 'attachment; ';
 	} else if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') && preg_match('!^(audio|video|image)/!i', $r[0])) {
 		$append = 'inline; ';
-	} else if (strncmp($r[0], "image/", 6)) {
+	} else if (strncmp($r[0], 'image/', 6)) {
 		$append = 'attachment; ';
 	} else {
 		$append = '';
