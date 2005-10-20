@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.23 2005/09/08 14:17:13 hackie Exp $
+* $Id: admadduser.php,v 1.24 2005/10/20 20:32:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -83,15 +83,12 @@ function validate_input()
 		}
 	}
 
-	if (!count($_POST) || (!$error && count($_POST))) {
-		$login = $passwd = $email = $name = '';
-	}
-
 	if ($error) {
-		$login = isset($_POST['login']) ? htmlspecialchars($_POST['login']) : '';
-		$passwd = isset($_POST['passwd']) ? htmlspecialchars($_POST['passwd']) : '';
-		$email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '';
-		$name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
+		foreach (array('login','passwd','email','name') as $v) {
+			$$v = isset($_POST[$v]) ? htmlspecialchars($_POST[$v]) : '';
+		}
+	} else {
+		$login = $passwd = $email = $name = '';
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
@@ -113,15 +110,15 @@ function validate_input()
 
 	<tr class="field">
 		<td>Login:</td>
-		<td><?php if (isset($err_login)) { echo $err_login; } ?><input tabindex="1" type="text" name="login" value="<?php echo $login; ?>" size="30"></td>
+		<td><?php if ($error && isset($err_login)) { echo $err_login; } ?><input tabindex="1" type="text" name="login" value="<?php echo $login; ?>" size="30"></td>
 	</tr>
 	<tr class="field">
 		<td>Password:</td>
-		<td><?php if (isset($err_passwd)) { echo $err_passwd; } ?><input tabindex="2" type="text" name="passwd" value="<?php echo $passwd; ?>" size="30"></td>
+		<td><?php if ($error && isset($err_passwd)) { echo $err_passwd; } ?><input tabindex="2" type="text" name="passwd" value="<?php echo $passwd; ?>" size="30"></td>
 	</tr>
 	<tr class="field">
 		<td>E-mail:</td>
-		<td><?php if (isset($err_email)) { echo $err_email; } ?><input tabindex="3" type="text" name="email" value="<?php echo $email; ?>" size="30"></td>
+		<td><?php if ($error && isset($err_email)) { echo $err_email; } ?><input tabindex="3" type="text" name="email" value="<?php echo $email; ?>" size="30"></td>
 	</tr>
 	<tr class="field">
 		<td>Real Name:</td>
