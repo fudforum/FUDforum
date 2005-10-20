@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: actions.php.t,v 1.41 2005/08/12 14:47:39 hackie Exp $
+* $Id: actions.php.t,v 1.42 2005/10/20 20:25:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,10 +38,8 @@
 
 	$action_data = ''; $uc = 0;
 	while ($r = db_rowarr($c)) {
-		if ($r[3]) { // update loggedin user count
-			++$uc;
-		}
-	
+		++$uc; // update loggedin user count
+
 		if ($r[6] & 32768 && !$is_a) {
 			continue;
 		}
