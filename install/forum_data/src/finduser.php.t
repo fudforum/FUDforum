@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.49 2005/09/08 14:17:00 hackie Exp $
+* $Id: finduser.php.t,v 1.50 2005/10/20 20:08:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,7 +30,6 @@
 	if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
 		$start = 0;
 	}
-	$count = $MEMBERS_PER_PAGE;
 
 	if (isset($_GET['pc'])) {
 		$ord = 'posted_msg_count DESC';
@@ -42,14 +41,13 @@
 	$usr_login = !empty($_GET['usr_login']) ? trim((string)$_GET['usr_login']) : '';
 
 	if ($usr_login) {
-		$qry = "alias LIKE "._esc(char_fix(htmlspecialchars(addcslashes($usr_login.'%','\\'))))." AND";
+		$qry = 'alias LIKE '._esc(char_fix(htmlspecialchars(addcslashes($usr_login.'%','\\')))).' AND';
 	} else {
 		$qry = '';
 	}
-	$lmt = ' LIMIT '.qry_limit($count, $start);
 
 	$find_user_data = '';
-	$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ home_page, users_opt, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' ' . $lmt);
+	$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ home_page, users_opt, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' LIMIT '.qry_limit($MEMBERS_PER_PAGE, $start));
 	while ($r = db_rowobj($c)) {
 		$find_user_data .= '{TEMPLATE: find_user_entry}';
 	}
@@ -58,15 +56,11 @@
 		$find_user_data = '{TEMPLATE: find_user_no_results}';
 	}
 
-	if ($FUD_OPT_2 & 32768) {
-		$ul = $usr_login ? urlencode($usr_login) : 0;
-	}
-
 	$pager = '';
-	if (($total = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {
+	if (($total = (int) q_singleval('SELECT /*!40000 FOUND_ROWS(), */ -1')) < 0) {
 		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id > 1');
 	}
-	if ($total > $count) {
+	if ($total > $MEMBERS_PER_PAGE) {
 		if ($FUD_OPT_2 & 32768) {
 			$pg = '{ROOT}/ml/';
 			if (isset($_GET['pc'])) {
@@ -84,7 +78,7 @@
 			}
 			$pg2 .= _rsid;
 
-			$pager = tmpl_create_pager($start, $count, $total, $pg, $pg2);
+			$pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $total, $pg, $pg2);
 		} else {
 			$pg = '{ROOT}?t=finduser&amp;' . _rsid . '&amp;';
 			if ($usr_login) {
@@ -99,7 +93,7 @@
 			if (isset($_GET['js_redr'])) {
 				$pg .= 'js_redr='.urlencode($_GET['js_redr']).'&amp;';
 			}
-			$pager = tmpl_create_pager($start, $count, $total, $pg);
+			$pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $total, $pg);
 		}
 	}
 
