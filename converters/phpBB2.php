@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.34 2005/10/13 19:32:08 hackie Exp $
+* $Id: phpBB2.php,v 1.35 2005/10/21 15:16:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -487,18 +487,15 @@ $forum_map = array();
 			continue;
 		}
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread (
-			id, forum_id, root_msg_id, last_post_id, views, thread_opt, orderexpiry, moved_to, last_post_date, 
-			replies
+			id, forum_id, root_msg_id, views, thread_opt, orderexpiry, moved_to, replies
 			) VALUES(
 			".(int)$obj->topic_id.",
 			".$forum_map[(int)$obj->forum_id].",
 			".(int)$obj->topic_first_post_id.",
-			".(int)$obj->topic_last_post_id.",
 			".(int)$obj->topic_views.",
 			".$thread_opt.",
 			".$orderexpiry.",
 			".(int)$obj->topic_moved_id.",
-			".(int)$obj->post_time.",
 			".(int)$obj->topic_replies.")
 		");
 	}
