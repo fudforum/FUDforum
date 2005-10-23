@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.24 2005/10/20 20:32:59 hackie Exp $
+* $Id: admadduser.php,v 1.25 2005/10/23 17:41:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,7 +45,7 @@ function validate_input()
 		}
 		$alias = addslashes(htmlspecialchars($alias));
 
-		$users_opt = 1|2|4|16|32|64|128|256|512|2048|4096|8192|16384|131072|4194304;
+		$users_opt = 2|4|16|32|64|128|256|512|2048|4096|8192|16384|131072|4194304;
 
 		if (!($FUD_OPT_2 & 4)) {
 			$users_opt ^= 128;
