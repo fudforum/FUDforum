@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.php.t,v 1.41 2005/09/12 21:05:07 hackie Exp $
+* $Id: buddy_list.php.t,v 1.42 2005/10/24 01:14:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@
 			$usr->buddy_list = unserialize($usr->buddy_list);
 		}
 
-		if (!isset($usr->buddy_list[$buddy_id])) {
+		if (!isset($usr->buddy_list[$buddy_id]) && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='.$buddy_id.' AND ignore_id='._uid)) {
 			$usr->buddy_list = buddy_add(_uid, $buddy_id);
 		} else {
 			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_dup}');
@@ -48,7 +48,7 @@
 			$usr->buddy_list = unserialize($usr->buddy_list);
 		}
 
-		if (($buddy_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='.$_GET['add'])) && !isset($usr->buddy_list[$buddy_id]) && _uid != $buddy_id && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='.$buddy_id.' AND ignore_id='._uid)) {
+		if (($buddy_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='.$_GET['add'])) && !isset($usr->buddy_list[$buddy_id]) && _uid != $buddy_id && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='.$buddy_id.' AND ignore_id='._uid)) {
 			buddy_add(_uid, $buddy_id);
 		}
 		check_return($usr->returnto);
