@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.54 2005/10/15 18:59:36 hackie Exp $
+* $Id: pmsg.php.t,v 1.55 2005/10/24 01:00:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,15 +46,20 @@
 		}
 		$sel = isset($_POST['sel']) ? (array)$_POST['sel'] : (array)$_GET['sel'];
 		$move_to = (!isset($_POST['btn_delete']) && isset($_POST['moveto'], $folders[$_POST['moveto']])) ? (int) $_POST['moveto'] : 0;
+
+		if (!$move_to && !isset($_POST['old_folder_id'])) {
+			$_POST['old_folder_id'] = q_singleval('SELECT fldr FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$sel[0]);
+		}
+
 		foreach ($sel as $m) {
 			if ($move_to) {
 				pmsg_move((int)$m, $move_to, 0);
 			} else {
 				pmsg_del((int)$m);
-				if (isset($_POST['old_folder_id'])) {
-					$_GET['folder_id'] = $_POST['old_folder_id'];
-				}
 			}
+		}
+		if (!$move_to && isset($_POST['old_folder_id'])) {
+			$_GET['folder_id'] = $_POST['old_folder_id'];
 		}
 	}
 
