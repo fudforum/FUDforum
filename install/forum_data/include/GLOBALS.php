@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: GLOBALS.php,v 1.47 2005/10/19 02:13:15 hackie Exp $
+* $Id: GLOBALS.php,v 1.48 2005/10/25 15:15:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -98,6 +98,7 @@
 	$PDF_WMARGIN		= 15;		/* int */
 	$PDF_HMARGIN		= 15;		/* int */
 	$PDF_MAX_CPU		= 60;		/* seconds */
+	$FUD_WHOIS_SERVER	= "whois.ripe.net";
 
 /* DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING */
 

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.php.t,v 1.11 2005/09/08 14:17:00 hackie Exp $
+* $Id: ip.php.t,v 1.12 2005/10/25 15:15:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,8 +19,12 @@
 		invl_inp_err();
 	}
 
-function __fud_whois($ip, $whois_server='whois.arin.net')
+function __fud_whois($ip, $whois_server='')
 {
+	if (!$whois_server) {
+		$whois_server = $GLOBALS['FUD_WHOIS_SERVER'];
+	}
+
 	$er = error_reporting(0);
 
 	if (!$sock = fsockopen($whois_server, 43, $n, $e, 20)) {

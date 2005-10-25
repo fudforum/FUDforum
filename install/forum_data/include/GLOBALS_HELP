@@ -423,3 +423,6 @@ When anonymous users post messages perform turing (captcha) test.}}}
 
 {{{FORUM_NOTIFY_ALL	FUD_OPT_3	16384
 If enabled, subscribers to a forum will recieve notifications about every new message in the forum, rather then just new topics in the forum.}}}
+
+{{{FUD_WHOIS_SERVER
+Hostname or IP address of the whois server to use for IP address analysis.}}}

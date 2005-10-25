@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.80 2005/10/19 02:13:15 hackie Exp $
+* $Id: admglobal.php,v 1.81 2005/10/25 15:15:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -352,6 +352,7 @@ function get_max_upload_size()
 	print_bit_field('Use Temporary Tables', 'USE_TEMP_TABLES');
 	print_bit_field('Anonymous User Turing/Captcha Test', 'USE_ANON_TURING');
 	print_bit_field('All Message Forum Notification', 'FORUM_NOTIFY_ALL');
+	print_reg_field('Whois Server Address', 'FUD_WHOIS_SERVER');
 ?>
 <tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 </table>
