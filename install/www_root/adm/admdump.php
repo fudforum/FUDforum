@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.63 2005/09/08 14:17:13 hackie Exp $
+* $Id: admdump.php,v 1.64 2005/10/26 14:11:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -84,6 +84,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	fud_use('mem_limit.inc', true);
 	// uncomment the lines below if you wish to run this script via command line
 	// fud_use('adm_cli.inc', 1); // this contains cli_execute() function.
+	// cli_execute('');
 	// when using this the script accepts 2 arguments
 	// php admdump.php /path/to/dump_file [compress]
 	// compress is optional and should only be specified if you want to datadump to be compressed
