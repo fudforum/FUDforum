@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.63 2005/10/13 19:32:08 hackie Exp $
+* $Id: maillist.php,v 1.64 2005/10/27 14:31:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -397,7 +397,9 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 
 	/* check if message was already imported */
-	if ($emsg->msg_id && q_singleval("SELECT id FROM ".sql_p."msg WHERE mlist_msg_id="._esc($emsg->msg_id))) {
+	if ($emsg->msg_id && q_singleval("SELECT m.id FROM ".sql_p."msg m
+						INNER JOIN ".sql_p."thread t ON t.id=m.thread_id
+						WHERE mlist_msg_id="._esc($emsg->msg_id)." AND t.forum_id=".$frm->id)) {
 		return;
 	}
 
