@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: scripts_common.inc,v 1.29 2005/09/06 14:47:34 hackie Exp $
+* $Id: scripts_common.inc,v 1.30 2005/10/28 14:09:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -80,7 +80,7 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 		}
 
 		foreach ($data as $reply_id) {
-			if (($r = db_saq("SELECT id, thread_id FROM ".sql_p."msg WHERE mlist_msg_id="._esc($reply_id)." ORDER BY post_stamp DESC LIMIT 1"))) {
+			if (($r = db_saq("SELECT m.id, m.thread_id FROM ".sql_p."msg m INNER JOIN ".sql_p."thread t ON m.thread_id=t.id WHERE m.mlist_msg_id="._esc($reply_id)." AND t.forum_id=".$forum_id." ORDER BY m.post_stamp DESC LIMIT 1"))) {
 				break;
 			}
 		}
