@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.62 2005/10/05 02:51:14 hackie Exp $
+* $Id: isearch.inc.t,v 1.63 2005/11/01 20:59:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,10 +16,10 @@ function mb_word_split($str, $lang)
 
 	switch ($lang) {
 		case 'chinese_big5':
-			preg_match_all('!((?:[A-Za-z]+) | (?:[\xa1-\xfe] [\x40-\x7e] | [\xa1-\xfe] )!xs', $str, $m);
+			preg_match_all('!((?:[A-Za-z]+) | (?:[\xa1-\xfe] [\x40-\x7e] | [\xa1-\xfe] ) )!xs', $str, $m);
 			break;
 		case 'chinese': /* bg2312 */
-			preg_match_all('!((?:[A-Za-z]+) | (?:[\xa1-\xf7] [\xa1-\xfe] )!xs', $str, $m);
+			preg_match_all('!((?:[A-Za-z]+) | (?:[\xa1-\xf7] [\xa1-\xfe] ) )!xs', $str, $m);
 			break;
 		case 'japanese': /* utf-8 */
 		case 'korean':
