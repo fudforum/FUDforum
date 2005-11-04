@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.62 2005/09/30 20:03:06 hackie Exp $
+* $Id: register.tmpl,v 1.63 2005/11/04 22:26:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@
 {REF: allowed_user_lnk.tmpl}
 {REF: captcha.tmpl}
 
-{SECTION: new_user new user section is shown to a new user tring to register}
+{SECTION: new_user new user section is shown to a new user trying to register}
 {IF: !__fud_real_user__}{FUNC: draw_err('reg_time_limit')}{ENDIFI}
 <tr class="RowStyleA"><td>{MSG: register_login}{FUNC: draw_err('reg_login')}</td><td><input type="text" size=25 name="reg_login" value="{VAR: reg_login}" maxLength={GVAR: MAX_LOGIN_SHOW}></td></tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
