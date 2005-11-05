@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.39 2005/11/03 15:10:05 hackie Exp $
+* $Id: admmassemail.php,v 1.40 2005/11/05 21:24:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,13 +41,13 @@
 			$fld = !empty($_POST['pm']) ? $DBHOST_TBL_PREFIX.'users.id' : 'email';
 
 			if ($gid > 0) {
-				$c = uq('SELECT'.$fld.' FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$gid.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
+				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$gid.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
 			} else if ($gid == $all_mods) {
-				$c = uq('SELECT'.$fld.' FROM '.$DBHOST_TBL_PREFIX.'mod m INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=m.user_id '.(isset($_POST['ignore_override']) ? '' : ' WHERE (users_opt & 8)=0'));
+				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'mod m INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=m.user_id '.(isset($_POST['ignore_override']) ? '' : ' WHERE (users_opt & 8)=0'));
 			} else if ($gid == $all_grp_lead) {
-				$c = uq('SELECT'.$fld.' FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE (gm.group_members_opt & 131072) '.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
+				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE (gm.group_members_opt & 131072) '.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
 			} else {
-				$c = uq('SELECT'.$fld.' FROM '.$DBHOST_TBL_PREFIX.'users WHERE level_id='.($gid * -1).(isset($_POST['ignore_override']) ? '' : ' AND id > 1 AND (users_opt & 8)=0'));
+				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'users WHERE level_id='.($gid * -1).(isset($_POST['ignore_override']) ? '' : ' AND id > 1 AND (users_opt & 8)=0'));
 			}
 		}
 
