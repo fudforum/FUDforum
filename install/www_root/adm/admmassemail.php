@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.40 2005/11/05 21:24:56 hackie Exp $
+* $Id: admmassemail.php,v 1.41 2005/11/11 15:02:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,6 +52,7 @@
 		}
 
 		if (!empty($_POST['pm'])) {
+			define('no_inline', 1);
 			fud_use('ssu.inc');
 			$to = array();
 			while ($r = db_rowarr($c)) {
