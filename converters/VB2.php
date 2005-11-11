@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: VB2.php,v 1.17 2005/10/13 19:32:08 hackie Exp $
+* $Id: VB2.php,v 1.18 2005/11/11 14:45:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -110,7 +110,7 @@ function append_perm_str($perm, $who)
 	while( $obj = db_rowobj($r) ) {
 		$VB2SET[$obj->varname] = $obj->value;
 	}
-	qf($r);
+	unset($r);
 
 /* Import Avatar Gallery */
 	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar");
@@ -141,7 +141,7 @@ function append_perm_str($perm, $who)
 			exit;
 		}
 	}
-	qf($r);
+	unset($r);
 	umask($umask);
 	print_status('Finished Importing Avatars');
 
@@ -264,7 +264,7 @@ function append_perm_str($perm, $who)
 		if( $obj->customtitle ) 
 			q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."custom_tags (name,user_id) VALUES('".addslashes($obj->usertitle)."',".$obj->userid.")");
 	}
-	qf($r);
+	unset($r);
 	print_status('Finished Importing Users');
 
 /* Import Global Permissions for unregged & regged users */
@@ -299,7 +299,7 @@ $group_map = array(
 		$data = substr($data, 0, -1);
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."groups SET ".$data." WHERE id=".$obj->usergroupid);
 	}
-	qf($r);
+	unset($r);
 
 /* Import Categories */
 	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."cat");
@@ -322,7 +322,7 @@ $group_map = array(
 			)
 		");	
 	}
-	qf($r);
+	unset($r);
 	print_status('Finished Importing Categories');
 	
 /* Import Forums */
@@ -354,7 +354,7 @@ $group_map = array(
 		q("UPDATE ".$DBHOST_TBL_PREFIX."group_resources SET resource_id=".$obj->forumid." WHERE group_id=".$gid);
 		q("UPDATE ".$DBHOST_TBL_PREFIX."forum SET id=".$obj->forumid." WHERE id=".$id);
 	}
-	qf($r);
+	unset($r);
 	print_status('Finished Importing Forums');
 
 /* Import Moderators */
@@ -364,7 +364,7 @@ $group_map = array(
 	while( $obj = db_rowobj($r) ) {
 		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."mod (user_id,forum_id) VALUES(".$obj->userid.",".$obj->forumid.")");
 	}
-	qf($r);
+	unset($r);
 	print_status('Finished Importing Moderators');
 
 /* Import Threads */
@@ -393,7 +393,7 @@ $group_map = array(
 			)
 		");
 	}
-	qf($r);
+	unset($r);
 	print_status('Finished Importing Threads');
 	
 /* Import Messages */
@@ -447,7 +447,7 @@ $group_map = array(
 			)
 		");
 	}
-	qf($r);
+	unset($r);
 	print_status('Finished Importing Messages');
 
 	
@@ -501,7 +501,7 @@ $group_map = array(
 			)");
 		}
 	}
-	qf($r);
+	unset($r);
 	
 	$r = Q2("SELECT * FROM pollvote");
 	while( $obj = db_rowobj($r) ) {
@@ -514,7 +514,7 @@ $group_map = array(
 			".$obj->userid."
 		)");
 	}
-	qf($r);
+	unset($r);
 	print_status('Finished Importing Polls');
 	
 /* Import File Attachments */
@@ -552,7 +552,7 @@ $group_map = array(
 			fwrite($fp, $obj->filedata);
 		fclose($fp);
 	}
-	qf($r);
+	unset($r);
 	print_status('Finished Importing File Attachments');
 	
 /* Import Thread Subscriptions */
@@ -569,7 +569,7 @@ $group_map = array(
 			".$obj->threadid."
 		)");
 	}
-	qf($r);
+	unset($r);
 	print_status('Finished Importing Thread Subscriptions');
 	
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."forum_notify");
@@ -585,7 +585,7 @@ $group_map = array(
 			".$obj->forumid."
 		)");
 	}
-	qf($r);
+	unset($r);
 	print_status('Finished Importing Forum Subscriptions');
 	
 /* Importing User Ranks */
@@ -602,7 +602,7 @@ $group_map = array(
 			".intval($obj->minposts)."
 		)");	
 	}
-	qf($r);
+	unset($r);
 	print_status('Finished Importing User Ranks');
 
 /* Import Private Messages */
@@ -641,7 +641,7 @@ $group_map = array(
 			".$len."
 		)");
 	}
-	qf($r);
+	unset($r);
 	print_status('Finished Importing Private Messages');
 	
 /* Import Allowed File Extensions */
@@ -715,7 +715,7 @@ $group_map = array(
 	print_status('Importing '.db_count($r).' Administrators');
 	while( list($uid) = db_rowarr($r) ) 
 		q("UPDATE ".$DBHOST_TBL_PREFIX."users SET is_mod='A' WHERE id=".$uid);
-	qf($r);
+	unset($r);
 	print_status('Finished Importing Administrators');
 
 /* Import VBulletin Settings */
