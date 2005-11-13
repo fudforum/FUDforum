@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.35 2005/10/21 15:16:34 hackie Exp $
+* $Id: phpBB2.php,v 1.36 2005/11/13 16:34:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -253,6 +253,11 @@ function import_av_gal($dirn)
 			$users_opt |= 131072;
 		}
 
+		/* hack for user id of 1, since this id is reserved for anon user in FUDforum */
+		if ($obj->user_id == 1) {
+			$obj->user_id = $hack_id = q_singleval("SELECT MAX(id) FROM {$bb2}users") + 1;
+		}
+
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."users 
 			(id, login, alias, passwd, last_visit, join_date, email, icq, location,
 			 sig, aim, yahoo, msnm, occupation, interests, conf_key, users_opt, home_page, theme, last_read)
@@ -460,6 +465,9 @@ $forum_map = array();
 
 	while ($obj = db_rowobj($r)) {
 		if (isset($forum_map[(int)$obj->forum_id])) {
+			if ($obj->user_id == 1) {
+				$obj->user_id = $hack_id;
+			}
 			q("INSERT INTO ".$DBHOST_TBL_PREFIX."mod (user_id, forum_id) VALUES(".(int)$obj->user_id.", ".$forum_map[(int)$obj->forum_id].")");
 		}
 	}
@@ -520,6 +528,8 @@ $forum_map = array();
 		$msg_opt = ($obj->enable_sig ? 1 : 0) | ($obj->enable_smilies ? 0 : 2);
 		if ($obj->poster_id == -1) {
 			$obj->poster_id = 0;
+		} else if ($obj->poster_id == 1) {
+			$obj->poster_id = $hack_id;
 		}
 
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg
@@ -558,6 +568,9 @@ $forum_map = array();
 		if (!isset($forum_map[(int)$obj->forum_id])) {
 			continue;
 		}
+		if ($obj->poster_id == 1) {
+			$obj->poster_id = $hack_id;
+		}
 		$vote_length = $obj->vote_length ? $obj->vote_start + $obj->vote_length : 0;
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."poll (id, name, owner, creation_date, expiry_date, forum_id)
 			VALUES(
@@ -572,6 +585,9 @@ $forum_map = array();
 
 		$r2 = bbq("SELECT * FROM {$bb2}vote_voters");
 		while ($o = db_rowobj($r2)) {
+			if ($obj->vote_user_id == 1) {
+				$obj->vote_user_id = $hack_id;
+			}
 			if (q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}poll_opt_track WHERE poll_id={$o->vote_id} AND user_id=".$o->vote_user_id)) {
 				continue;
 			}
@@ -626,6 +642,9 @@ $forum_map = array();
 	while ($obj = db_rowobj($r)) {
 		$r2 = bbq("SELECT user_id FROM {$bb2}users WHERE user_rank=".$obj->rank_id);
 		while ($o = db_rowobj($r2)) {
+			if ($obj->user_id == 1) {
+				$obj->user_id = $hack_id;
+			}
 			q("INSERT INTO ".$DBHOST_TBL_PREFIX."custom_tags (name,user_id) VALUES('".addslashes($obj->rank_title)."',".$o->user_id.")");
 		}
 		unset($r2);
@@ -662,6 +681,9 @@ $forum_map = array();
 	print_msg('Importing Banned Users '.db_count($r));
 	while ($obj = db_rowobj($r)) {
 		if ($obj->ban_userid) {
+			if ($obj->ban_userid == 1) {
+				$obj->ban_userid = $hack_id;
+			}
 			q("UPDATE {$DBHOST_TBL_PREFIX}users SET users_opt=users_opt|65536 WHERE id=".$obj->ban_userid);
 		}
 		if ($obj->ban_ip) {
@@ -689,6 +711,13 @@ $forum_map = array();
 		$pmsg_opt = ($obj->privmsgs_attach_sig ? 1 : 0) | ($obj->privmsgs_enable_smilies ? 0 : 2);
 		$read_stamp = $obj->privmsgs_type != PRIVMSGS_NEW_MAIL ? $obj->privmsgs_date : 0;
 		$folder = $obj->privmsgs_type != PRIVMSGS_SENT_MAIL ? 1 : 3;
+
+		if ($obj->privmsgs_to_userid == 1) {
+			$obj->privmsgs_to_userid = $hack_id;
+		}
+		if ($obj->privmsgs_from_userid == 1) {
+			$obj->privmsgs_from_userid = $hack_id;
+		}
 
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."pmsg 
 			(ouser_id, duser_id, ip_addr, post_stamp, read_stamp, fldr, subject, pmsg_opt, foff, length, to_list)
@@ -728,6 +757,9 @@ $forum_map = array();
 			}
 
 			$mime = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."mime WHERE fl_ext='".substr(strrchr($obj->filename, '.'), 1)."'");
+			if ($obj->user_id == 1) {
+				$obj->user_id = $hack_id;
+			}
 
 			$attach_id = db_qid("INSERT INTO ".$DBHOST_TBL_PREFIX."attach 
 				(original_name, owner, message_id, dlcount, mime_type, fsize)
