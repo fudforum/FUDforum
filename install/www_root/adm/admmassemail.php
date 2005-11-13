@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.41 2005/11/11 15:02:33 hackie Exp $
+* $Id: admmassemail.php,v 1.42 2005/11/13 16:12:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,7 +38,7 @@
 			$c = uq('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE id=-1');
 		} else {
 			$gid = (int) $_POST['group'];
-			$fld = !empty($_POST['pm']) ? $DBHOST_TBL_PREFIX.'users.id' : 'email';
+			$fld = !empty($_POST['pm']) ? 'u.id' : 'email';
 
 			if ($gid > 0) {
 				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$gid.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
@@ -47,7 +47,7 @@
 			} else if ($gid == $all_grp_lead) {
 				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE (gm.group_members_opt & 131072) '.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
 			} else {
-				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'users WHERE level_id='.($gid * -1).(isset($_POST['ignore_override']) ? '' : ' AND id > 1 AND (users_opt & 8)=0'));
+				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'users u WHERE level_id='.($gid * -1).(isset($_POST['ignore_override']) ? '' : ' AND id > 1 AND (users_opt & 8)=0'));
 			}
 		}
 
@@ -58,6 +58,7 @@
 			while ($r = db_rowarr($c)) {
 				$to[] = (int)$r[0];
 			}
+			$total = count($to);
 			send_status_update($to, '', '', $_POST['subject'], $_POST['body']);
 		} else {
 			$email_block = 50;

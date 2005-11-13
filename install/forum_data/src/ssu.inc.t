@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ssu.inc.t,v 1.18 2005/09/08 14:17:00 hackie Exp $
+* $Id: ssu.inc.t,v 1.19 2005/11/13 16:12:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,7 @@ function send_status_update($uid, $ulogin, $uemail, $title, $msg)
 			fud_use('iemail.inc');
 			fud_use('rev_fmt.inc');
 		}
-		$GLOBALS['recv_user_id'] = array($uid);
+		$GLOBALS['recv_user_id'] = (array)$uid;
 		$pmsg = new fud_pmsg;
 		$pmsg->to_list = $ulogin;
 		$pmsg->ouser_id = _uid;
