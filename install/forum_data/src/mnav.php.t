@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.php.t,v 1.30 2005/10/20 20:38:47 hackie Exp $
+* $Id: mnav.php.t,v 1.31 2005/11/14 20:37:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,6 +20,7 @@
 	$rng2 = isset($_GET['rng2']) ? (float) $_GET['rng2'] : 0;
 	$unit = isset($_GET['u']) ? (int) $_GET['u'] : 86400;
 	$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
+	$subl = !empty($_GET['sub']);
 
 	require $FORUM_SETTINGS_PATH.'cat_cache.inc';
 
@@ -57,6 +58,14 @@
 			$date_limit = ' AND m.post_stamp < '.(__request_timestamp__ - ($rng2 * $unit));
 		} else {
 			$date_limit = '';
+		}
+
+		if (_uid && $subl) {
+			if ($sf = db_all('SELECT id FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id='._uid)) {
+				$qry_lmt .= ' AND f.id IN('.implode(',', $sf).') ';
+			} else {
+				$qry_lmt .= ' AND f.id=-1 ';
+			}
 		}
 
 		$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ u.alias, f.name AS forum_name, f.id AS forum_id,

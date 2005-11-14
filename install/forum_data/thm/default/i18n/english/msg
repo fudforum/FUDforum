@@ -1006,3 +1006,4 @@ sub_unsub_all_topics:		Unsubscribe From All Topics
 tabs_own_posts:			Show Own Posts
 sml_emoticon:			Emoticon
 sml_code:			Code
+mnav_sub_only:			Search in subscribed forums only

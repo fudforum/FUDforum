@@ -1006,3 +1006,4 @@ tabs_own_posts:			Show Own Posts
 buddy_list_err_ignore:		あなたの友達リストに自分を無視するユーザーとして追加することはできません。
 sml_emoticon:			Emoticon
 sml_code:			Code
+mnav_sub_only:			Search in subscribed forums only
