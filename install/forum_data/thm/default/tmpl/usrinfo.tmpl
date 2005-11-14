@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.45 2005/03/18 15:59:20 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.46 2005/11/14 16:44:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -149,6 +149,18 @@
 {IF: $u->msnm}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_msnm}</td><td class="GenText">{VAR-UH: u->msnm}</td></tr>{ENDIF}
 {IF: $u->jabber}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_jabber}</td><td class="GenText">{VAR: u->jabber}</td></tr>{ENDIF}
 {IF: ($FUD_OPT_2 & 2048 && $u->affero)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR: u->affero}" target="_blank">{VAR-UH: u->affero}</a></td></tr>{ENDIF}
+{IF: $is_a}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: findu_admin_opts_header}</td>
+<td>
+<a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: u->id}&amp;S={DEF: s}&amp;act=1&amp;SQ={GVAR: sq}">{MSG: findu_edit}</a> || <a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: u->id}&amp;S={DEF: s}&amp;act=del&amp;SQ={GVAR: sq}">{MSG: findu_delete}</a> || 
+{IF: $u->users_opt & 65536}
+<a href="{GVAR: WWW_ROOT}adm/admuser.php?act=block&amp;usr_id={VAR: u->id}&amp;S={DEF: s}&amp;SQ={GVAR: sq}">{MSG: findu_unban}</a>
+{ELSE}
+<a href="{GVAR: WWW_ROOT}adm/admuser.php?act=block&amp;usr_id={VAR: u->id}&amp;S={DEF: s}&amp;SQ={GVAR: sq}">{MSG: findu_ban}</a>
+{ENDI}
+</td></tr>
+{ENDIF}
+
 <tr class="RowStyleC"><td class="nw ar GenText" colspan=2><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
 </table>
 {TEMPLATE: curtime}
