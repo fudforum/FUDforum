@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.149 2005/10/05 03:01:51 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.150 2005/11/15 14:57:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -326,7 +326,7 @@ class fud_msg_edit extends fud_msg
 					m.post_stamp, m.reply_to, m.mlist_msg_id, m.msg_opt,
 					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.thread_opt,
 					m2.post_stamp AS frm_last_post_date,
-					f.name AS frm_name,
+					f.name AS frm_name, f.forum_opt,
 					u.alias, u.email, u.sig, u.name as real_name,
 					n.id AS nntp_id, ml.id AS mlist_id
 				FROM {SQL_TABLE_PREFIX}msg m
@@ -427,6 +427,12 @@ class fud_msg_edit extends fud_msg
 			$to = !$to ? $tmp : array_unique(array_merge($to, $tmp));
 			$notify_type = 'thr';
 		}
+	
+		if ($mtf->forum_opt & 64) {
+			$tmp = db_all('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='.$mtf->forum_id);
+			$to = !$to ? $tmp : array_unique(array_merge($to, $tmp));
+		}
+
 		if ($to) {
 			send_notifications($to, $mtf->id, $mtf->subject, $mtf->alias, $notify_type, ($notify_type == 'thr' ? $mtf->thread_id : $mtf->forum_id), $mtf->frm_name, $mtf->forum_id);
 		}
