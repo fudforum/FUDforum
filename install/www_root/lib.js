@@ -27,6 +27,7 @@ function insertTag(obj, stag, etag)
 	} else {
 		insertTagNS(obj, stag, etag);
 	}
+	obj.focus();
 }
 
 function insertTagNS(obj, stag, etag)
@@ -167,7 +168,8 @@ function insertParentTag(stag, etag)
 		insertParentTagIE(stag, etag);
 	else
 		insertParentTagNS(stag, etag);
-	
+
+	window.opener.document.post_form.msg_body.focus();	
 }
 
 function window_open(url,winName,width,height)
