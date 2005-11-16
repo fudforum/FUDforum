@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.63 2005/11/01 20:59:42 hackie Exp $
+* $Id: isearch.inc.t,v 1.64 2005/11/16 15:17:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -113,8 +113,8 @@ function index_text($subj, $body, $msg_id)
 		ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2, 'text', 0);
 	} else {
 		foreach ($w2 as $w) {
-			if (!q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word='".$w."'")) {
-				q("INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES('".$w."')");
+			if (!q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word=".$w)) {
+				q("INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES(".$w.")");
 			}
 		}	
 	}	
