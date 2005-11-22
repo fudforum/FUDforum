@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.tmpl,v 1.22 2005/02/27 02:21:36 hackie Exp $
+* $Id: showposts.tmpl,v 1.23 2005/11/22 22:57:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,6 +20,7 @@
 {REF: draw_pager.tmpl}
 {REF: is_perms.tmpl}
 {REF: alt_var.tmpl}
+{REF: tabs.tmpl}
 
 {SECTION: post_entry}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText"><a href="{TEMPLATE: post_entry_lnk}">{VAR: r[2]}</a></td><td class="GenText" nowrap><a href="{TEMPLATE: post_entry_lnk1}">{VAR: r[0]}</a></td><td class="DateText nw">{TEMPLATE: showposts_ent_date}</td></tr>
@@ -28,7 +29,8 @@
 {PAGE: SHOWPOSTS_PAGE show all posts by a user}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<br />{TEMPLATE-DATA: admin_cp}
+<br />{IF: isset($_GET['id']) && _uid == $_GET['id']}{TEMPLATE-DATA: tabs}{ENDIF}
+{TEMPLATE-DATA: admin_cp}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=3>{MSG: user_info}</th></tr>
 <tr class="RowStyleA"><td class="GenText wa">{MSG: login_header} <a href="{TEMPLATE: SHOWPOSTS_PAGE_lnk}">{VAR: u_alias}</a></td>
