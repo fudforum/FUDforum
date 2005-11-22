@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.85 2005/10/13 15:33:58 hackie Exp $
+* $Id: compiler.inc,v 1.86 2005/11/22 02:17:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -238,8 +238,11 @@ function resolve_sections($str)
 				$ret .= "' : '' )  .'";
 				break;
 
-			case 'ROOT':
 			case 'FULL_ROOT':
+				$ret .= "'.\$GLOBALS['WWW_ROOT'].'";
+				break;
+
+			case 'ROOT':
 			case 'THEME_ROOT':
 			case 'THEME_IMAGE_ROOT':
 				$ret .= $GLOBALS['__COMPILER__'][$tag];
@@ -785,7 +788,7 @@ function copyhelp($thm)
 			exit('Failed to write to: '.$path . $de.'<br>');
 		}
 		fwrite($fp, str_replace(array('{ROOT}', '{FULL_ROOT}'), 
-					array($rp, $GLOBALS['WWW_ROOT']), 
+					array($rp, "'.\$GLOBALS['WWW_ROOT'].'"), 
 					file_get_contents($file))
 		);
 		fclose($fp);
