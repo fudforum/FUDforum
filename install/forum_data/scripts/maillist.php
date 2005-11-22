@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.65 2005/11/22 01:55:26 hackie Exp $
+* $Id: maillist.php,v 1.66 2005/11/22 21:23:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -20,7 +20,7 @@ class fud_emsg
 	var $reply_to, $thread_id;
 	var $raw_msg;
 	var $body_s, $body_sc;
-	var $attachments;
+	var $attachments  = array(), $inline_files = array();
 
 	function read_data($data='')
 	{
@@ -103,21 +103,13 @@ class fud_emsg
 
 	function boudry_split($boundry, $html)
 	{
-		$boundry = '--'.$boundry;
-		$b_len = strlen($boundry);
-
-		// Remove 1st & last boundry since they are not needed for our perpouses
-		$this->body = substr($this->body, strpos($this->body, $boundry)+$b_len);
-		$this->body = substr($this->body, 0, strrpos($this->body, $boundry)-$b_len-1);
 		// Isolate boundry sections
-		$tmp = explode($boundry, $this->body);
-
 		$this->body_sc = 0;
-		foreach ($tmp as $p) {
+		foreach (explode('--'.$boundry, $this->body) as $p) {
+			if (!trim($p)) continue;
 			// Parse inidividual body sections
 			$this->body_s[$this->body_sc] = new fud_emsg;
-			$this->body_s[$this->body_sc]->parse_input($html, $p, true);
-			$this->body_sc++;
+			$this->body_s[$this->body_sc++]->parse_input($html, $p);
 		}
 	}
 
@@ -144,7 +136,6 @@ class fud_emsg
 					$this->body = '';
 					return;
 				}
-
 				$this->boudry_split($this->headers['__other_hdr__']['content-type']['boundary'], $html);
 				// In some cases in multi-part messages there will only be 1 body,
 				// in those situations we assing that body and info to the primary message
@@ -167,8 +158,9 @@ class fud_emsg
 								$final_id[] = $i;
 								break;
 						}
+
 						// look if message has any attached files
-						if ($this->body_s[$i]->headers['content-disposition'] == 'attachment') {
+						if ($this->body_s[$i]->headers['content-disposition'] == 'attachment' || isset($this->body_s[$i]->headers['content-id'])) {
 							// Determine the file name
 							if (isset($this->body_s[$i]->headers['__other_hdr__']['content-disposition']['filename'])) {
 								$file_name = $this->body_s[$i]->headers['__other_hdr__']['content-disposition']['filename'];
@@ -179,9 +171,11 @@ class fud_emsg
 							}
 
 							$this->attachments[$file_name] = $this->body_s[$i]->body;
+							if (isset($this->body_s[$i]->headers['content-id']) && $this->body_s[$i]->headers['content-disposition'] == 'inline') {
+								$this->inline_files[$file_name] = trim($this->body_s[$i]->headers['content-id'], ' <>');
+							}
 						}
 					}
-
 					if (($html || !$final_id) && $html_id) {
 						$final_id = $html_id;
 					}
@@ -189,6 +183,12 @@ class fud_emsg
 						$this->body = '';
 						foreach ($final_id as $fid) {
 							$this->body .= $this->body_s[$fid]->body;
+							foreach ($this->body_s[$fid]->attachments as $k => $v) {
+								$this->attachments[$k] = $v;
+							}
+							foreach ($this->body_s[$fid]->inline_files as $k => $v) {
+								$this->inline_files[$k] = $v;
+							}
 						}
 						if (isset($this->body_s[$final_id[0]]->headers['__other_hdr__'])) {
 							$this->headers['__other_hdr__'] = $this->body_s[$final_id[0]]->headers['__other_hdr__'];
@@ -215,7 +215,7 @@ class fud_emsg
 		$this->body = decode_string($this->body, $this->headers['content-transfer-encoding']);
 	}
 
-	function parse_input($html=0, $data='', $internal=false)
+	function parse_input($html=0, $data='')
 	{
 		$this->read_data($data);
 		$this->split_hdr_body();
@@ -320,6 +320,17 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		exit;
 	}
 }
+
+function add_attachment($name, $data, $pid)
+{
+	$tmpfname = tempnam($GLOBALS['TMP'], 'FUDf_');
+	$fp = fopen($tmpfname, 'wb');
+	$len = fwrite($fp, $data);
+	fclose($fp);
+
+	return attach_add(array('name' => basename($name), 'size' => $len, 'tmp_name' => $tmpfname), $pid, 0, 1);
+}
+
 	define('forum_debug', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
@@ -379,7 +390,6 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$mlist->forum_id);
 
 	$emsg = new fud_emsg();
-
 	$emsg->subject_cleanup_rgx = $mlist->subject_regex_haystack;
 	$emsg->subject_cleanup_rep = $mlist->subject_regex_needle;
 	$emsg->body_cleanup_rgx = $mlist->body_regex_haystack;
@@ -389,6 +399,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$emsg->fetch_useful_headers();
 	$emsg->clean_up_data();
 
+	
 	$msg_post = new fud_msg_edit;
 
 	list($GLOBALS['usr']->lang, $locale) = db_saq("SELECT lang, locale FROM ".sql_p."themes WHERE theme_opt=1|2 LIMIT 1");
@@ -432,6 +443,19 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		return;
 	}
 
+	$attach_list = array();
+	/* handle inlined attachements */
+	if ($mlist->mlist_opt & 8) {
+		foreach ($emsg->inline_files as $k => $v) {
+			if (strpos($emsg->body, 'cid:'.$v) !== false) {
+				$id = add_attachment($k, $emsg->attachments[$k], $msg_post->poster_id);
+				$attach_list[$id] = $id;
+				$emsg->body = str_replace('cid:'.$v, $WWW_ROOT.'index.php?t=getfile&amp;id='.$id, $emsg->body);
+			}
+			unset($emsg->attachments[$k]);
+		}
+	}
+
 	$msg_post->body = $emsg->body;
 
 	/* for anonymous users prefix 'contact' link */
@@ -470,20 +494,14 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$msg_post->add($frm->id, $frm->message_threshold, 0, 0, false);
 
 	// Handle File Attachments
-	if ($mlist->mlist_opt & 8 && isset($emsg->attachments) && is_array($emsg->attachments)) {
+	if ($mlist->mlist_opt & 8) {
 		foreach($emsg->attachments as $key => $val) {
-			$tmpfname = tempnam($TMP, 'FUDf_');
-			$fp = fopen($tmpfname, 'wb');
-			fwrite($fp, $val);
-			fclose($fp);
-
-			$id = attach_add(array('name' => basename($key), 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 0, 1);
+			$id = add_attachment($key, $val, $msg_post->poster_id);			
 			$attach_list[$id] = $id;
 		}
-
-		if (isset($attach_list)) {
-			attach_finalize($attach_list, $msg_post->id);
-		}
+	}
+	if ($attach_list) {
+		attach_finalize($attach_list, $msg_post->id);
 	}
 
 	if (!($mlist->mlist_opt & 1)) {
