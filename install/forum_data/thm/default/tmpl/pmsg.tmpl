@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.46 2005/10/15 18:59:36 hackie Exp $
+* $Id: pmsg.tmpl,v 1.47 2005/11/22 22:43:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -80,10 +80,22 @@
 {PAGE: PMSG_PAGE private messages control panel}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-{FUNC: tmpl_cur_ppage($folder_id, $folders)}
-{TEMPLATE: pmsg_disk_usage}
-<div class="ar"><a href="{TEMPLATE: PMSG_PAGE_lnk}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" alt="" /></a></div>
 {TEMPLATE-DATA: tabs}
+<br />{FUNC: tmpl_cur_ppage($folder_id, $folders)}
+<table cellspacing="1" cellpadding="2" class="pmDu">
+<tr>
+	<td colspan="3" class="RowStyleA wa nw SmallText">{MSG: pm_space_indct_msg}</td>
+</tr>
+<tr>
+	<td colspan="3" class="RowStyleB wa"><table cellspacing="0" cellpadding="1" border="0"><tr>{TEMPLATE-DATA: full_indicator}</tr></table></td>
+</tr>
+<tr class="RowStyleA">
+	<td class="SmallText" width="58">0%</td>
+	<td class="SmallText ac" width="58">50%</td>
+	<td class="SmallText ar" width="58">100%</td>
+</tr>
+</table>
+<div class="ar"><a href="{TEMPLATE: PMSG_PAGE_lnk}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" alt="" /></a></div>
 <form action="{TEMPLATE: PMSG_PAGE_lnk3}" method="post" name="priv_frm">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleB"><td colspan=6 class="GenText ar">
@@ -135,22 +147,6 @@
 
 {SECTION: move_to}
 {MSG: move_to}
-{SECTION: END}
-
-{SECTION: pmsg_disk_usage indicator that shows how much of the allowed pmsg space the user uses}
-<table cellspacing="1" cellpadding="2" class="pmDu">
-<tr>
-	<td colspan="3" class="RowStyleA wa nw SmallText">{MSG: pm_space_indct_msg}</td>
-</tr>
-<tr>
-	<td colspan="3" class="RowStyleB wa"><table cellspacing="0" cellpadding="1" border="0"><tr>{TEMPLATE-DATA: full_indicator}</tr></table></td>
-</tr>
-<tr class="RowStyleA">
-	<td class="SmallText" width="58">0%</td>
-	<td class="SmallText ac" width="58">50%</td>
-	<td class="SmallText ar" width="58">100%</td>
-</tr>
-</table>
 {SECTION: END}
 
 {SECTION: normal_full_indicator normal indicator of space in PM}
