@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.64 2005/10/27 14:31:09 hackie Exp $
+* $Id: maillist.php,v 1.65 2005/11/22 01:55:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -182,7 +182,7 @@ class fud_emsg
 						}
 					}
 
-					if (!$final_id && $html_id) {
+					if (($html || !$final_id) && $html_id) {
 						$final_id = $html_id;
 					}
 					if ($final_id) {
