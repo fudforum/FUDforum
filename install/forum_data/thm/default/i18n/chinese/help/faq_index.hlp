@@ -1,35 +1,35 @@
-rTOPIC_TITLE: �û�ʹ���ֲ�
+rTOPIC_TITLE: 用户使用手册
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register">ΪʲôҪע��?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies">FUD��̳���ʹ��cookies���ܣ�</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie">������FUD��̳��cookie��</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile">ʲô�Ǹ�����Ϣ��</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs">ʲô�Ǹ���ǩ����</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd">������������ô�죿</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat">ʲô�Ƕ��Ʊ�ǩ���Ҹ���ζ��ƣ�</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars">ʲô��ͷ��</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist">ʲô�Ǻ����б���</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist">�������Ĺ�����ʲô��</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register">为什么要注册?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies">FUD论坛如何使用cookies功能？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie">如何清除FUD论坛的cookie？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile">什么是个人信息？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs">什么是个人签名？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd">忘记了密码怎么办？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat">什么是定制标签？我该如何定制？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars">什么是头像？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist">什么是好友列表？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist">黑名单的功能是什么？</a><br>
 
-TOPIC_TITLE: ��̳��һ�㹦��
+TOPIC_TITLE: 论坛的一般功能
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch">�����������</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email">�ҿ���������̳��Ա�����ʼ�ô��</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg">ʲô�����Ļ����Ҹ���η������Ļ���</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist">ʲô���û��б���</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">ʲô�ǹ������ʱ���棿</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">������������ô��</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref">ʲô�Ǳ��Ƽ��ߣ�</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch">我如何搜索？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email">我可以向别的论坛成员发送邮件么？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg">什么是悄悄话，我该如何发送悄悄话？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist">什么是用户列表？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">什么是公告和临时公告？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">我能评价帖子么？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref">什么是被推荐者？</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
 
-TOPIC_TITLE: �鿴�ͷ�����Ϣ
+TOPIC_TITLE: 查看和发布信息
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style">��α༭Ҫ��������Ϣ��</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml">ʲô�Ǳ�����ţ�</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls">�Ҹ����ʹ�á����顱���ܣ�</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach">���ܷ����ύ����Ϣ�����Ӹ�����</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico">�ύ��Ϣʱ���ӵ�ͼ����ʲô��</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit">���ܱ༭��Ҫ��������Ϣô��</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod">˭�ǰ�����ϵͳ����Ա��</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens">ʲô������ƶȣ�</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not">�����˻ظ�ʱ�ܷ�֪ͨ�ң�</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style">如何编辑要发布的信息？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml">什么是表情符号？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls">我该如何使用“调查”功能？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach">我能否在提交的信息中添加附件？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico">提交信息时添加的图标是什么？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit">我能编辑我要发布的信息么？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod">谁是版主和系统管理员？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens">什么是审查制度？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not">当有人回复时能否通知我？</a><br>

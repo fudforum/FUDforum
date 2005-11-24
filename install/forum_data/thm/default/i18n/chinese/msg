@@ -1,1009 +1,1009 @@
-action:				²Ù×÷
-add_to_buddy_list:		¼ÓÈëºÃÓÑÁĞ±í
-admin:				¹ÜÀí
-admin_control_panel:		¹ÜÀí½çÃæ
-administrator:			ÏµÍ³¹ÜÀíÔ±
-attachment:			¸½¼ş£º
-avatar:				Í·Ïñ£º
-average_post_count:		{VAR: u->posted_msg_count} Ìû×Ó(ÈÕ¾ù·¢ÌûÊı{VAR: avg} )
-biography:			¸öÈË¼ò½é£º
-birth_date:			ÉúÈÕ£º
-by:				·¢Ìû£º
-by_mod:				°æÖ÷
-current_time:			µ±Ç°Ê±¼ä
-custom_avatar_queue:		¶¨ÖÆÍ·ÏñÁĞ±í
-date_posted:			·¢²¼Ê±¼ä
-date_registered:		×¢²áÈÕÆÚ£º
-download_counter:		ÏÂÔØ´ÎÊı{VAR: v[3]}
-email:				ÓÊ¼ş£º
-email_to_friend:		·¢ËÍÓÊ¼ş¸øÅóÓÑ
-email_to_friend_desc:		·¢ËÍÓÊ¼ş£¬ÏòÄãµÄÅóÓÑÍÆ¼öÕâ¸öÌû×Ó
-email_user:			µã»÷ÕâÀïÏò´ËÓÃ»§·¢ËÍÓÊ¼ş¡£
-faq:				°ïÖú
-first_unread_msg:		×ªÈëÎ´¶ÁµÄÌû×Ó
-first_unread_msg_desc:		×ªÈë±¾Ö÷ÌâµÚÒ»¸öÎ´¶ÁÌû×Ó
-flat_view:			·µ»ØÖÁÄ¬ÈÏä¯ÀÀ·½Ê½
-forum:				ÂÛÌ³£º
-forum_icon:			ÂÛÌ³Í¼±ê
-forum_new_messages:		ĞÂÏûÏ¢
-forum_none_messages:		Ö»ÓĞ±¾ÂÛÌ³µÄ×¢²áÓÃ»§ÄÜ¹»°ÑÌû×Ó±êÎª¡°ÒÑ¶Á¡±»ò¡°Î´¶Á¡±
-forum_old_messages:		Ã»ÓĞĞÂÏûÏ¢
-from:				À´×Ô£º
-gender:				ĞÔ±ğ£º
-go:				Ìø×ª
-goto_next_msg:			ÏÂÒ»Â¥
-goto_prev_msg:			Â¥ÉÏ
-home:				Ö÷Ò³
-homepage:			Ö÷Ò³£º
-icq_control_panel:		ICQ ÔÚÏßĞÅÏ¢
-icq_message_form:		ICQ ĞÅÏ¢ÁĞ±í£º
-ignore_user:			¼ÓÈëºÚÃûµ¥
-im_aim:				AIM£º
-im_msnm:			MSNĞÅÏ¢£º
-im_yahoo:			YahooĞÅÏ¢£º
-image:				ÕÕÆ¬£º
-index_forum:			ÂÛÌ³
-index_new_posts:		ÉÏ´Îä¯ÀÀÒÔºóµÄĞÂÌû
-index_no_new_posts:		×Ô´ÓÉÏ´Îä¯ÀÀÒÔºóÃ»ÓĞĞÂÌû
-interests:			ĞËÈ¤£º
-last_post:			×îĞÂÌû×Ó
-last_thread_msg:		×ªÈë±¾Ö÷Ìâ×îºóÒ»¸öÌû×Ó¡£
-legend:				Í¼Àı£º
-location:			µØÇø£º
-lock_thread:			Ëø¶¨±¾Ö÷Ìâ
-locked:				±»Ëø¶¨
-locked_with_new_posts:		Ëø¶¨£¨ÇÒÎ´¶Á£©
-logged_in_list:			µÇÂ¼ÓÃ»§ÁĞ±í
-login:				µÇÂ¼
-login_header:			êÇ³Æ£º
-logout:				×¢Ïú
-mark_all_read:			±ê¼ÇËùÓĞĞÅÏ¢ÎªÒÑ¶Á
-mark_all_read_desc:		ËùÓĞÄãÃ»ÓĞ¶Á¹ıµÄĞÅÏ¢¶¼½«±»±êÎªÒÑ¶Á¡£
-members:			³ÉÔ±
-message:			ĞÅÏ¢
-message_counter:		ÓÃ»§ÒÑ¾­Ìá½» <b>{VAR: post_count}</b>¸öÌû×Ó£¬·Ö²¼ÔÚ<b>{VAR: thread_count}</b>¸öÖ÷ÌâÀï¡£
-message_index:			ĞÅÏ¢Ë÷Òı
-message_index_desc:		²é¿´ĞÅÏ¢ÁĞ±í
-minimize_category:		¼õÉÙÄ¿Â¼²ã´Î
-moderation_queue:		°æÖ÷ÁĞ±í
-moderator:			°æÖ÷
-moderator_of:			°æÖ÷£º
-moderator_options:		°æÖ÷¹¦ÄÜ
-moderators:			°æÖ÷
-more_unread_messages:		¸ü¶àÎ´¶ÁĞÅÏ¢
-more_unread_messages_desc:	ÏÔÊ¾¸ü¶àÎ´¶ÁĞÅÏ¢£¬²¢ÇÒ°ÑÏÖÔÚµÄĞÅÏ¢±êÎªÒÑ¶Á¡£
-move_thread:			×ªÒÆ
-moved:				×ªÒÆÖÁ±ğµÄÂÛÌ³
-moved_thread_message:		Õâ¸öÖ÷ÌâÒÑ±»×ªÒÆÖÁ±ğµÄÂÛÌ³¡£
-na:				ÔİÎŞ
-new_posts:			ĞÂµÄÖ÷Ìâ
-new_private_messages:		ÄãÓĞ <span class="GenText" style="color: #ff0000">({VAR: c})</span> ÌõÎ´¶ÁÇÄÇÄ»°¡£
-new_thread:			Éú³ÉĞÂµÄÖ÷Ìâ
-newest_user:			×îĞÂ×¢²áµÄÓÃ»§ÊÇ
-next_page:			ÏÂÒ»Ò³
-next_thread:			ÉÏÒ»¸öÖ÷Ìâ£º
-no_messages:			±¾ÂÛÌ³Ã»ÓĞÈÎºÎ·¢ÑÔ¡£
-no_msg_body:			Ã»ÓĞÄÚÈİ£¡
-no_new_posts:			Ã»ÓĞĞÂµÄÖ÷Ìâ
-no_posts:			Ã»ÓĞĞÂÖ÷Ìâ
-no_subscribed_forums:		Ã»ÓĞÔ¤¶¨µÄÂÛÌ³
-no_subscribed_threads:		Ã»ÓĞÔ¤¶¨µÄÖ÷Ìâ
-no_unread_locked:		±¾Ö÷ÌâÒÑ±»Ëø¶¨£¨²»¿É»Ø¸´£©¡£
-no_unread_msg:			Õâ¸öÖ÷ÌâÃ»ÓĞÎ´¶ÁĞÅÏ¢¡£
-no_unread_msg_unreg:		Ö»ÓĞ×¢²áÓÃ»§ÄÜ¹»°ÑĞÅÏ¢±êÎªÒÑ¶ÁºÍÎ´¶Á¡£
-num_pages:			Ò³£¨{VAR: ttl_pg}£©£º
-num_votes:			{VAR: obj->total_votes} Ñ¡Æ±
-occupation:			Ö°Òµ£º
-off:				¹Ø±Õ
-on:				´ò¿ª
-page_timings:			Éú³É±¾Ò³Ãæ¹²»¨·ÑÊ±¼ä£º{VAR: page_gen_time} Ãë¡£
-pm:				ÇÄÇÄ»°
-poll:				µ÷²é£º
-post_count:			·¢ÌûÊı£º {VAR: u_pcount}
-post_count_l:			Ìû×ÓÊı£º
-posts:				Ìû×Ó
-posts_c:			·¢ÌûÊı£º
-prev_thread:			ÏÂÒ»¸öÖ÷Ìâ£º
-usrinfo_private_message:	ÇÄÇÄ»°
-profile:			¸öÈËĞÅÏ¢
-profile_desc:			µã»÷ÕâÀïÖÁÓÃ»§¹ÜÀí½çÃæ
-rate_thread:			Ö÷ÌâÆÀ¼Û
-refresh_list:			¸üĞÂÄ¿Â¼
-register:			×¢²á
-registered:			×¢²áÊ±¼ä£º
-registered_on:			×¢²áÈÕÆÚ£º{DATE: u_reg_date %Y-%m-%d}
-replies:			»Ø¸´
-report_to_mod:			Î¥¹æÌû¾Ù±¨
-reported_messages:		ÒÑÏò°æÖ÷¾Ù±¨µÄÎ¥¹æÌû
-reveal_all_posts:		ÏÔÊ¾ËùÓĞ½á¹û {VAR: user_login}
-reveal_post:			ÏÔÊ¾½á¹û
-search:				ËÑË÷
-sel_todays_posts:		½ñÌìµÄÖ÷Ìâ
-sel_todays_posts_desc:		Ö»ÏÔÊ¾½ñÌìµÄÖ÷Ìâ
-sel_unanswered_posts:		Î´»Ø¸´Ö÷Ìâ
-sel_unanswered_posts_desc:	Ö»ÏÔÊ¾Î´»Ø¸´Ö÷Ìâ
-sel_unread_messages:		Î´¶ÁĞÅÏ¢
-sel_unread_messages_desc:	Ö»ÏÔÊ¾Î´¶ÁĞÅÏ¢
-send:				·¢ËÍ
-send_pm_desc:			·¢ÇÄÇÄ»°¸øÕâ¸öÓÃ»§
-sender_email:			·¢ËÍÕßÓÊ¼ş£º
-sender_name:			·¢ËÍÕßĞÕÃû£º
-show_posts_by:			ÏÔÊ¾ÓÃ»§ {VAR: u_alias}·¢²¼µÄÖ÷Ìâ
-size:				´óĞ¡£º
-status:				¼¶±ğ£º
-status_line:			ÏÖÔÚ¹²ÓĞ <b>{VAR: st_obj->online_users_reg}</b> ÓÃ»§£¬°üÀ¨<b>{VAR: st_obj->online_users_hidden}</b> Ãû²»Ô¸Í¸Â¶Éí·İµÄÓÃ»§ºÍ <b>{VAR: st_obj->online_users_anon}</b> Ãû·Ã¿Í·ÃÎÊ±¾ÂÛÌ³¡£
-sticky:				ÖÃ¶¥£º
-stop_ignoring:			²»ÔÙ¾Ü¾øÕâ¸öÓÃ»§
-sub_to_thread:			¶©ÔÄÕâ¸öÖ÷Ìâ
-sub_to_thread_desc:		½ÓÊÜ¹ØÓÚÕâ¸öÖ÷ÌâµÄ×îĞÂ»Ø¸´µÄÍ¨Öª
-subject:			Ö÷Ìâ
-subscribe:			Ô¤¶¨
-subscribe_desc:			µ±±¾ÂÛÌ³ÓĞÈË·¢²¼ĞÂµÄÖ÷ÌâÊ±£¬ÇëÍ¨ÖªÎÒ¡£
-subscribed_forums:		Ô¤¶¨ÂÛÌ³ĞÅÏ¢
-subscribed_forums_desc:		Ö»ÏÔÊ¾Ô¤¶¨µÄÂÛÌ³ĞÅÏ¢
-subscribed_threads:		Ô¤¶¨ÂÛÌ³Ö÷Ìâ
-subscribed_threads_desc:	Ö»ÏÔÊ¾Ô¤¶¨ÂÛÌ³Ö÷Ìâ
-switch_to_thread_view:		×ª»»³ÉÒÔÊı×´·½Ê½ä¯ÀÀ
-thread:				Ö÷Ìâ£º
-thread_announcement:		¹«¸æ£º
-thread_first_unread_msg:	µã»÷ÕâÀïµ½´ï±¾Ö÷ÌâµÄµÚÒ»ÌõÎ´¶ÁĞÅÏ¢¡£
-thread_thread:			Ö÷Ìâ
-threads:			Ö÷Ìâ
-time:				Ê±¼ä
-todays_posts:			½ñÌìµÄÖ÷Ìâ
-todays_posts_desc:		ÏÔÊ¾ËùÓĞ½ñÌì·¢²¼µÄÖ÷Ìâ
-un_ignore_user:			²»ÔÙ¾Ü¾øÕâ¸öÓÃ»§Ìá½»µÄĞÅÏ¢
-unanswered_posts:		Î´»Ø¸´Ö÷Ìâ
-unanswered_posts_desc:		ÏÔÊ¾Î´»Ø¸´ĞÅÏ¢
-unlock_thread:			½â¿ª±»Ëø¶¨µÄÖ÷Ìâ
-unread_msg:			Õâ¸öÖ÷ÌâÖĞÓĞÄãÎ´¶ÁµÄĞÅÏ¢¡£
-unread_msg_locked:		±»Ëø¶¨µÄÖ÷Ìâ£¨ÇÒÎ´¶Á£©
-unread_posts:			Î´¶ÁµÄÖ÷Ìâ
-unread_posts_desc:		ÏÔÊ¾ËùÓĞÎ´¶ÁĞÅÏ¢
-unsub_from_thread:		²»Ô¤¶¨±¾Ö÷Ìâ
-unsub_from_thread_desc:		²»½ÓÊÜ¹ØÓÚÕâ¸öÖ÷ÌâµÄ×îĞÂ»Ø¸´µÄÓÊ¼şÍ¨Öª
-unsubscribe:			²»Ô¤¶¨
-unsubscribe_desc:		µ±±¾ÂÛÌ³ÓĞÈË·¢²¼ĞÂµÄÖ÷ÌâÊ±£¬ÇëÎğÍ¨ÖªÎÒ¡£
-updated_on:			¸üĞÂ£º
-user:				ÓÃ»§Ãû
-user_counter:			ÎÒÃÇÓĞ <b>{VAR: st_obj->user_count}</b> ×¢²áÓÃ»§¡£
-user_info:			ÓÃ»§ĞÅÏ¢
-user_info_l:			ÓÃ»§ĞÅÏ¢ {VAR: u->alias}
-user_offline:			{VAR: obj->login}  ÏÖÔÚ²»ÔÚÏß
-user_online:			{VAR: obj->login} ÏÖÔÚÔÚÏß
-usrinfo_last_post:		ÉÏÒ»´ÎµÇÂ¼£º
-view_results:			²é¿´½á¹û
-views:				µã»÷
-vote:				{VAR: frm->n_rating} Í¶Æ±
-vote_button:			Í¶Æ±
-vote_for_thread:		µ÷²é
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ÒÑ¾­±»°æÖ÷ÒÆÖÁ<a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
-welcome_message:		»¶Ó­£¡ <b>{VAR: usr->alias}</b>£¬ÄãÉÏÒ»´Î·ÃÎÊÊÇ {DATE: usr->last_visit %Y-%m-%d %H:%M}
-what_ppl_doing:			ÏÔÊ¾ä¯ÀÀÕßµÄ²Ù×÷
-reported_del_report:		É¾³ı±¨¸æ
-reported_reason:		Ô­Òò
-reported_on:			¹ØÓÚ£º
-reported_reported_by:		±¨¸æÌá³öÈË£º
-reported_reported_msg:		±¨¸æÏà¹ØÄÚÈİ
-modque_pending_approval:	µÈ´ıÅú¸´µÄĞÅÏ¢
-modque_approve:			Åú¸´
-modque_delete:			É¾³ı
-modque_no_message:		Ã»ÓĞĞèÒªÅú¸´µÄĞÅÏ¢
-pmsg_new_messages:		Î´¶ÁÇÄÇÄ»°
-pmsg_old_messages:		ÔÄ¶ÁÇÄÇÄ»°
-deny_recipt:			¾Ü¾ø½ÓÊÜ
-deny_recipt_desc:		Ô¼¶ÁÕâÌõÏûÏ¢ºó²»·¢ËÍÈ·ÈÏĞÅÏ¢
-restore_to:			´æÈë£º
-move_to:			ÒÆÖÁ£º
-list_referes_referrals:		±»ÌáÃûÕß
-list_referes_members:		±»ÌáÃûµÄÓÃ»§
-list_referes_member:		ÓÃ»§
-referals_none:			Ä¿Ç°»¹Ã»ÓĞ±»ÌáÃûµÄÈË¡£
-referals_refered_by:		±»ÍÆ¼öµÄÂÛÌ³³ÉÔ±ÊÇ£º<b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:		·¢ÌûÊı
-referals_registered_on:		µÇÂ¼
-referals_action:		²Ù×÷
-pmsg_all:			ËùÓĞ
-pmsg_none:			Ã»ÓĞ
-folder:				ÎÄ¼ş¼Ğ£º
-pmsg_replied:			»Ø¸´
-pmsg_forwarded:			ÏòÇ°
-pmsg_subject:			Ö÷Ìâ
-pmsg_author:			×÷Õß
-pmsg_time:			ÈÕÆÚ
-pmsg_selected:			Ñ¡Ôñ
-pmsg_delete:			É¾³ı
-cur_ppage_pm:			ÇÄÇÄ»°Í¨Öª
-writing_pm:			Ğ´ÇÄÇÄ»°
-browsing_folder:		ä¯ÀÀ <b>{VAR: folders[$folder_id]}</b> ÎÄ¼ş¼Ğ
-inbox:				ÊÕ¼şÏä
-draft:				²İ¸åÏä
-sent:				·¢¼şÏä
-trash:				À¬»øÏä
-msg_author:			×÷Õß
-avatar_sel_form:		Ñ¡ÔñÍ·Ïñ
-no_avatars:			Ã»ÓĞ¿ÉÓÃµÄÍ·Ïñ
-month_1:			1ÔÂ
-month_2:			2ÔÂ
-month_3:			3ÔÂ
-month_4:			4ÔÂ
-month_5:			5ÔÂ
-month_6:			6ÔÂ
-month_7:			7ÔÂ
-month_8:			8ÔÂ
-month_9:			9ÔÂ
-month_10:			10ÔÂ
-month_11:			11ÔÂ
-month_12:			12ÔÂ
-male:				ÄĞ
-female:				Å®
-register_tree_view:		Ê÷×´ä¯ÀÀ
-register_flat_view:		Õ¹¿ªä¯ÀÀ
-use_forum_default:		Ê¹ÓÃÂÛÌ³Ä¬ÈÏÖµ
-finduser_user_info:		ÓÃ»§ĞÅÏ¢
-finduser_by_login:		ÕËºÅ£º
-finduser_submit:		²éÕÒ
-finduser_no_such_user:		Ã»ÓĞÕâ¸öÓÃ»§
-finduser_user:			ÓÃ»§Ãû
-finduser_postcount:		·¢ÌûÊı
-finduser_joindate:		×¢²áÈÕÆÚ
-finduser_action:		²Ù×÷
-yes:				ÊÇ
-no:				·ñ
-edit_time_limit:		<br><b>±à¼­Ê±¼äÏŞÖÆÎª</b>£º<b>{GVAR: EDIT_TIME_LIMIT}</b> ·ÖÖÓ
-no_edit_time_limit:		<br><b>±à¼­Ê±¼äÏŞÖÆ</b>£º<b>²»ÏŞ</b>
-pmuserloc_login:		µÇÂ¼£º
-pmuserloc_submit:		Ìá½»
-pmuserloc_user:			ÓÃ»§
-pmuserloc_no_result:		Ã»ÓĞ½á¹û
-register_builtin:		Ñ¡ÔñÍ·Ïñ£º
-register_specify_url:		Ö¸¶¨µØÖ·
-register_uploaded:		ÉÏ´«Í·Ïñ
-register_login:			ÕËºÅ£º
-register_password:		ÃÜÂë£º
-register_conf_pass:		ÃÜÂëÈ·ÈÏ£º
-register_email_desc:		ÇëÊäÈëÕıÈ·µÄµç×ÓÓÊ¼şµØÖ·¡£ÔÚÏÂÃæµÄ²ÎÊıÑ¡ÏîÖĞÄã¿ÉÒÔÑ¡Ôñ²»ÔÚÂÛÌ³ÖĞÏÔÊ¾×Ô¼ºµÄÓÊ¼şµØÖ·¡£
-register_name:			ĞÕÃû£º
-register_your_pass:		ÃÜÂë£º<br /><font color=red><b>ĞŞ¸ÄÈÎºÎ¸öÈËĞÅÏ¢¶¼±ØĞëÌîĞ´µ±Ç°ÃÜÂë£¡</b></font>
-register_update:		¸üĞÂ
-register_avatar_type:		Í·ÏñÀàĞÍ£º
-register_del_avatar:		É¾³ıÍ·Ïñ
-register_avatar:		Í·Ïñ£º
-register_sel_avatar:		Ñ¡ÔñÍ·Ïñ
-register_custom_avatar_rules:	Ö»ÓĞ¾­¹ıÏµÍ³¹ÜÀíÔ±ÔÊĞíºó£¬²ÅÄÜ³öÏÖ¶¨ÖÆµÄÍ·Ïñ¡£<br><font class="SmallText">Í·Ïñ²»ÄÜ´óÓÚ<b>{GVAR: CUSTOM_AVATAR_MAX_DIM} ÏñËØ</b> ¾ßÌå´óĞ¡ÊÇ<b>jpg</b>, <b>gif</b> or <b>png</b> </font>
-register_custom_avatar_url:	¶¨ÖÆÍ·ÏñµØÖ·£º
-register_preview:		Ô¤ÀÀ
-register_custom_avatar_upload:	¶¨ÖÆÍ·ÏñÎÄ¼ş£º
-register_register:		×¢²á
-register_required:		±ØÌîĞÅÏ¢
-register_required_desc:		ËùÓĞÄÚÈİ¶¼±ØĞëÌîĞ´¡£Çë×¢ÒâÃÜÂëÊÇÇø·Ö´óĞ¡Ğ´µÄ¡£
-register_optional:		¿ÉÑ¡ÔñµÄĞÅÏ¢
-register_optional_desc:		ÓÉÓÚÄãµÄĞÅÏ¢½«»á±»±ğµÄÂÛÌ³³ÉÔ±¿´µ½£¬Òò´ËÎÒÃÇ½¨ÒéÄãÌîĞ´ĞÅÏ¢Ê±²»Òª±©Â¶×Ô¼ºµÄ¸öÈËÉí·İ¡£
-register_location:		µØÖ·£º
-register_occupation:		Ö°Òµ£º
-register_interests:		ĞËÈ¤£º
-register_image:			Í·Ïñ£º
-register_icq:			ICQ£º
-register_aim:			AIM£º
-register_yahoo:			YahooĞÅÏ¢£º
-register_msnm:			MSNĞÅÏ¢£º
-register_homepage:		Ö÷Ò³£º
-register_bday:			ÉúÈÕ£º
-register_bday_desc:		Èç¹ûÄãÑ¡ÔñÁË¡°ÉúÈÕ¡±Ñ¡Ïî£¬±ğµÄÂÛÌ³³ÉÔ±½«ÔÚÄãµÄ¸öÈËĞÅÏ¢ÖĞ¿´µ½¡£
-register_day:			ÈÕ
-register_month:			ÔÂ
-register_year:			Äê
-register_gender:		ĞÔ±ğ
-register_bio:			¸öÈË¼ò½é£º
-register_bio_desc:		ÆäËüµÄÒ»Ğ©¸öÈËĞÅÏ¢£¬±ÈÈçĞËÈ¤¡¢Ö°ÒµµÈµÈ¡£
-register_prefs:			²ÎÊıÑ¡Ôñ
-register_sig:			Ç©Ãû£º
-register_sig_desc:		¸úÔÚÄãµÄ·¢ÑÔºóµÄ¸öĞÔ»¯Ç©Ãû¡£
-register_reset:			ÖØÌî
-register_def_thread_view:	Ä¬ÈÏÖ÷Ìâä¯ÀÀ·½Ê½£º
-register_msg_per_page:		Ã¿Ò³Ìû×ÓÊı£º
-register_show_sig:		ÏÔÊ¾Ç©Ãû£º
-register_show_sig_desc:		Ñ¡ÔñÊÇ·ñÔÚ·¢ÌûºóÏÔÊ¾ÄãµÄÇ©Ãûµµ¡£
-register_use_sig_default:	ÏÔÊ¾ÆäËû³ÉÔ±Ç©Ãû£º
-register_use_sig_default_desc:	ÊÇ·ñÏÔÊ¾ÆäËûÂÛÌ³³ÉÔ±µÄÇ©Ãûµµ¡£
-register_timezone:		Ê±Çø£º
-register_ignore_admin:		ºöÂÔ¹ÜÀíĞÅÏ¢£º
-register_invisible_mode:	ÒşÉíµÇÂ¼£º
-register_invisible_mode_desc:	µÇÂ¼ºóÊÇ·ñÏÔÊ¾ÔÚÔÚÏßÓÃ»§ÁĞ±íÖĞ¡£
-register_show_email:		ÏÔÊ¾µç×ÓÓÊ¼şµØÖ·£º
-register_show_email_desc:	Èç¹ûÄãÏë¹«¿ª×Ô¼ºµÄµç×ÓÓÊ¼şµØÖ·£¬ÇëÑ¡ÔñÕâ¸öÑ¡Ïî¡£
-register_notification:		ÊÇ·ñÄ¬ÈÏ´ò¿ªÌáĞÑ¹¦ÄÜ£º
-register_notification_desc:	Èç¹ûÑ¡Ôñ"ÊÇ"£¬ÔÚ·¢ÌûÊ±ÒÀÈ»¿ÉÒÔÑ¡ÔñÊÇ·ñÌáĞÑ¡£
-register_notify_method:		ÇëÑ¡ÔñÌáĞÑ·½Ê½£º
-register_notify_js_error:	ÄãÑ¡ÔñÁËÍ¨¹ıICQ½ÓÊÕÍ¨¸æ, µ«ÊÇÃ»ÓĞÌîÈëICQ #. Ä¬ÈÏµÄµç×ÓÓÊ¼şµØÖ·ÊÇEmail&#46;
-register_allow_email_msg:	ÔÊĞíÏòÄãµÄµç×ÓÓÊÏä·¢ËÍĞÅÏ¢£º
-register_allow_email_msg_desc:	ÔÊĞí±ğµÄÓÃ»§Í¨¹ı±¾ÂÛÌ³ÏòÄã·¢ËÍÓÊ¼ş¡£
-buddy_status:			¼¶±ğ
-my_buddies:			ÎÒµÄºÃÓÑ
-add_buddy:			Ìí¼ÓºÃÓÑ
-add:				Ìí¼Ó
-buddy_search:			ÊäÈëÒªÌí¼ÓµÄÓÃ»§Ãû¡£
-buddy_remove:			É¾³ı
-post_normal:			Õı³£
-post_sticky:			ÖÃ¶¥
-post_annoncement:		¹«¸æ
-post_size:			´óĞ¡
-post_color:			ÑÕÉ«
-post_font:			×ÖÌå
-create_thread:			Éú³ÉÖ÷Ìâ
-submit_reply:			»Ø¸´
-edit_message:			±à¼­ĞÅÏ¢
-apply_spell_changes:		Ó¦ÓÃÆ´Ğ´¼ì²éµÄ¸ü¸Ä¡£
-post_preview:			Ô¤ÀÀ
-post_logedin_user:		µÇÂ¼ÓÃ»§£º
-post_logout:			×¢Ïú
-post_passwd:			ÊäÈëÃÜÂë
-post_poll:			µ÷²é£º
-post_create_poll:		·¢Æğµ÷²é
-post_poll_delete:		É¾³ı
-post_poll_edit:			±à¼­
-post_mod_opt:			°æÖ÷Ñ¡Ïî
-post_thread_type:		Ö÷ÌâÀàĞÍ
-post_thread_expiry:		Ö÷Ìâµ½ÆÚÆÚÏŞ£º
-post_locked:			±»Ëø¶¨£¨²»¿É»Ø¸´£©µÄÖ÷Ìâ
-post_icons:			Ìí¼ÓÍ¼±ê£º
-post_no_icon:			²»ÓÃÍ¼±ê
-post_smiley:			±íÇé·ûºÅ£º
-post_format_tools:		±à¼­¹¤¾ß£º
-post_upload_file:		ÉÏ´«
-post_file_del:			É¾³ı
-post_file_name:			ĞÕÃû
-post_file_size:			´óĞ¡
-file_attachments:		Ìí¼Ó¸½¼ş£º
-allowed_files:			ÔÊĞíµÄÎÄ¼şÀ©Õ¹Ãû£º
-max_file_size:			ÎÄ¼şµÄ×î´óÏŞÖÆ£º
-max_files_per_msg:		Ã¿ÌõĞÅÏ¢ÔÊĞíÌí¼ÓµÄ×î¶àÎÄ¼ş£º
-post_notification:		·¢²¼Í¨¸æ
-include_sig:			Ê¹ÓÃÇ©Ãû
-include_sig_desc:		°üÀ¨ÎÒµÄ¸öÈËÇ©Ãû¡£
-disable_smilies:		ÕâÌõĞÅÏ¢ÖĞ²»Ê¹ÓÃ±íÇé·ûºÅ
-spell_check_msg:		Æ´Ğ´¼ì²éĞÅÏ¢
-post_form:			·¢²¼±í¸ñ
-post_forum:			ÂÛÌ³£º
-post_title:			Ö÷Ìâ£º
-post_body:			ÄÚÈİ£º
-post_options:			Ñ¡Ïî£º
-post_preview_btn:		Ô¤ÀÀ
-ignore_users:			±»¾Ü¾øµÄÓÃ»§
-add_ignore:			Ìí¼Ó±»¾Ü¾øµÄÓÃ»§
-forum_terms:			ÂÛÌ³Ğ­Òé
-forum_rules:			±¾ÂÛÌ³Ãâ·Ñ×¢²á£¡ÎÒÃÇÏ£ÍûÄãÎñ±Ø×ñÊØÏÂÁĞÕş²ßºÍ¹æ¶¨¡£Èç¹ûÄãÍ¬ÒâÕâĞ©¹æ¶¨£¬Çëµã»÷±¾Ò³×îÏÂÃæµÄ¡°ÎÒÍ¬Òâ¡±°´Å¥¡£×¢£ºÈç¹ûÄãµã»÷ÁË´Ë°´Å¥¼´±íÃ÷ÄãĞû¸æ×Ô¼ºÊÇ13ËêÒÔÉÏ¹«Ãñ£»Èç¹ûÄãÎ´Âú13Ëê£¬ÇëÁìÈ¡×¢²á±í¡£<p>¾¡¹ÜÂÛÌ³¹ÜÀíÔ±ºÍ°æÖ÷½«¾¡Á¦Çå³ı·Ç·¨ÑÔÂÛ£¬µ«ÊÇÄÑÃâ¹ÒÒ»Â©Íò¡£Òò´ËÎÒÃÇÔÚ´ËÖ£ÖØÉùÃ÷£¬ËùÓĞ·¢ÑÔ¶¼½ö´ú±í×÷Õß¹Ûµã£¬×÷ÕßÑÔÔğ×Ô¸º¡£ÂÛÌ³ËùÓĞÕßºÍ·¢Õ¹ÉÌ¶Ô´Ë²»¸ºÈÎºÎÔğÈÎ¡£<p>µã»÷ÁË¡°ÎÒÍ¬Òâ¡±°´Å¥¼´±íÃ÷Äã±£Ö¤²»ÔÚÂÛÌ³ÉÏ·¢²¼ÈÎºÎÒù»à¡¢É«Çé¡¢·´¶¯¡¢±©Á¦µÈ·Ç·¨ÑÔÂÛ¡£<p>ÂÛÌ³¹ÜÀíÕßÓĞÈ¨ÒòÎªÈÎºÎÀíÓÉ±à¼­¡¢É¾³ı»òÕß¹Ø±ÕÈÎºÎ·¢ÑÔ¡£<p>
-forum_rules_13:			ËùÓĞ13ËêÒÔÏÂÓÃ»§±ØĞë¾­¹ı¸¸Ä¸»òÕß¼àÊÓÈËÔÊĞí²ÅÄÜ³ÉÎªÂÛÌ³³ÉÔ±¡£ÎÒÃÇ»¶Ó­13ËêÒÔÏÂÓÃ»§¼ÓÈë£¬µ«ÊÇÖ»ÓĞÔÚÊÕµ½ÄãµÄ¸¸Ä¸»òÕß¼à»¤ÈËÍ¨¹ı´«Õæ»òÕßµç×ÓÓÊ¼ş¸øÎÒÃÇµÄÇ©ÃûÊÚÈ¨ÎÄ¼şÒÔºó£¬ÎÒÃÇ²ÅÄÜÍ¨¹ıÄãµÄÉêÇë¡£<p>Èç¹ûÄãÏëÔÚÎÒÃÇÊÕµ½ÊÚÈ¨ÎÄ¼şÖ®Ç°×¢²á£¬Çëµã»÷ÏÂÃæµÄ¡°ÎÒÍ¬Òâ¡±°´Å¥£¬Èç¹ûÄã²»Ïë¼ÌĞø×¢²á£¬Çëµã»÷¡°É¾³ı¡±°´Å¥»Øµ½ÂÛÌ³Ö÷Ò³¡£<p>Äã¿ÉÒÔÔÚÕâÀïÏÂÔØÊÚÈ¨ÎÄ¼ş£¬ÏëÁË½â¸ü¶àµÄĞÅÏ¢Çë·¢ÓÊ¼şÖÁ<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>¡£<p>
-coppa_conf:			×¢²áÈ·ÈÏ
-coppa_before:			Ö®Ç° {DATE: coppa %Y-%m-%d}
-coppa_after:			Ö®ºó{DATE: coppa %Y-%m-%d}
-coppa_link:			¸ù¾İÄãµÄ³öÉúÈÕÆÚ£¬ÇëÑ¡Ôñ
-coppa:				¶ÔÓÚ13ËêÒÔÏÂµÄÓÃ»§£¬Ö»ÓĞµ±ÂÛÌ³¹ÜÀíÔ±ÊÕµ½ÁËÄãµÄ¸¸Ä¸»òÕß¼à»¤ÈËµÄÈ·ÈÏÓÊ¼ş»òÕß´«ÕæÒÔºó²ÅÄÜÍê³É×¢²á¡£<p>ÒªÁË½â¸ü¶àµÄĞÅÏ¢£¬ÇëÁªÏµ<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
-prereg_info:			ĞÅÏ¢
-prereg_agree:			Í¬Òâ
-prereg_disagree:		²»Í¬Òâ
-coppa_fax_instructions:		¸¸Ä¸»ò¼à»¤ÈË½éÉÜ
-coppa_fax_instructions2:	Çë´òÓ¡ÕâÒ³£¬²¢Ç©Ãû´«ÕæÖÁ£º
-coppa_fax_reg_form:		µÇ¼Ç±í
-coppa_fax_sign:			ÇëÔÚÏÂÃæµÄ±í¸ñÇ©×Ö²¢ÇÒ¼Ä¸øÎÒÃÇ
-coppa_fax_conf:			ÎÒÒÑ¾­ÖªµÀÁËÎÒµÄº¢×ÓÔÚ¹óÍøÕ¾Ìá½»µÄÏà¹Ø×¢²áĞÅÏ¢²¢ÇÒ×ĞÏ¸ÔÄ¶ÁÁË¹óÍøÕ¾µÄÏà¹ØÒşË½Ìõ¿î¡£ ÎÒÖªµÀÍ¨¹ıÃÜÂë¿ÉÒÔĞŞ¸ÄÏà¹ØĞÅÏ¢²¢ÇÒÎÒ¿ÉÒÔÒªÇó¸ü¸ÄËùÓĞĞÅÏ¢¡£
-coppa_fax_permission:		Èç¹ûÍ¬ÒâÇëÇ©×Ö
-coppa_fax_no_permission:	Èç¹û²»Í¬ÒâÇëÇ©×Ö
-coppa_fax_parent_name:		¸¸Ä¸/¼à»¤ÈËµÄÕæÊµĞÕÃû
-coppa_fax_relation:		ºÍº¢×ÓµÄ¹ØÏµ£º
-coppa_fax_telephone:		µç»°
-coppa_fax_email:		µç×ÓÓÊÏä
-coppa_fax_date:			ÈÕÆÚ
-coppa_fax_questions:		ÓĞÈÎºÎÎÊÌâÇëÁªÏµ <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
-coppa_fax_login:		ÕËºÅ
-coppa_fax_passwd:		ÃÜÂë
-coppa_fax_remail:		µç×ÓÓÊÏä
-coppa_fax_name:			ĞÕÃû
-login_not_logedin:		ÄãÉĞÎ´µÇÂ¼¡£Ô­ÒòÊÇ£º
-login_cookie_expired:		ÄãµÄcookie¹¦ÄÜ±»ÖÕÖ¹ÁË¡£ĞèÒªµÇÂ¼ÖØĞÂ¿ªÆôcookie¹¦ÄÜ¡£
-login_perm_denied:		×÷ÎªÄäÃûÓÃ»§£¬Ö»ÓĞµÇÂ¼ÒÔºó²ÅÓĞÈ¨ÏŞ·ÃÎÊÏà¹Ø×ÊÔ´¡£
-login_want_to_register:		ÏÈ×¢²á?
-login_forgot_passwd:		ÃÜÂëÍüÁË
-login_use_cookie:		Ê¹ÓÃcookies¹¦ÄÜ<br><font class="SmallText">Èç¹ûÄãÊÇÔÚÑ§Ğ£¡¢Í¼Êé¹İ¡¢Íø°ÉµÈ¹«¹²³¡ºÏÊ¹ÓÃ¼ÆËã»ú£¬Îª°²È«Æğ¼û£¬½¨ÒéÄã²»ÒªÊ¹ÓÃÕâ¸ö¹¦ÄÜ¡£
-login_login:			µÇÂ¼
-login_login_btn:		µÇÂ¼
-login_name_required:		µÇÂ¼Ê±±ØĞëÊäÈëÕËºÅ
-login_passwd_required:		ÊäÈëÃÜÂë
-login_invalid_radius:		´íÎóµÄÕËºÅ»òÃÜÂë
-reset_confirmation:		Ğ»Ğ»×¢²á£¡\n\n½øÈëµ±Ç°ÕËºÅ£¬Çëµã»÷ÏÂÃæµÄµØÖ·£º\n\n{VAR: url}\n\nÒ»µ©½øÈëµ±Ç°ÕË»§£¬Äã½«Ö±½Ó½øÈë\nÂÛÌ³Ö÷Ò³¡£\n
-reset_reset:			ÄãºÃ,\n\nÄãÌá½»ÁËÖØĞÂÉèÖÃÃÜÂëµÄÇëÇó£¬ĞèÒªÖØĞÂÉèÖÃÃÜÂë\nÇëµã»÷\n\n{VAR: url}\n\n×¢Òâ£º±¾ÂÛÌ³ÒÔµ¥Ïò¼ÓÃÜµÄ·½Ê½´¢´æÃÜÂë£¬¼´\nÃÜÂëÒ»¾­ÊäÈë¼´±»ÖØĞÂ±àÂë¡¢ÎŞ·¨ÕÒ»Ø¡£\nÄãÃ¿´ÎµÇÂ¼ÊäÈëÃÜÂëÊ±£¬\n¸ÃÏµÍ³½«×Ô¶¯¶ÔÃÜÂë½øĞĞĞ£Ñé¡££¨Èç¹ûÄã¶Ô´Ë¼ÓÃÜ·½Ê½¸ĞĞËÈ¤£¬Çë²éÔÄ¹ØÓÚMD5¼ÓÃÜËã·¨µÄÏà¹Ø×ÊÁÏ¡££©
-rpasswd_invalid_passwd:		ÃÜÂë´íÎó
-rpasswd_passwd_nomatch:		ÃÜÂë²»·û
-rpasswd_passwd_length:		ÃÜÂë±ØĞëÖÁÉÙ6¸ö×Ö·û
-reset_remind_pass:		ÃÜÂëÌáÊ¾ÎÊÌâ
-reset_reset_conf:		ÄãµÄÃÜÂëÒÑ¾­ÖØĞÂÉè¶¨£¬²¢½«·¢ËÍµç×ÓÓÊ¼ş¸øÄã½øĞĞÈ·ÈÏ¡£Èç¹ûÃ»ÓĞÈ·ÈÏ£¬ÏµÍ³½«ÔÙ´Î·¢ËÍÈ·ÈÏÓÊ¼ş¡£
-reset_error:			ÄãµÄ¸öÈË×ÊÁÏÖĞÃ»ÓĞÕâ¸öµç×ÓÓÊ¼şµØÖ·¡£
-rpasswd_change_pass:		ĞŞ¸ÄÃÜÂë
-rpasswd_login:			µÇÂ¼
-rpasswd_cur_pass:		µ±Ç°ÃÜÂë£º
-rpasswd_new_pass:		ĞÂÃÜÂë£º
-rpasswd_conf_pass:		ÃÜÂëÈ·ÈÏ£º
-login_passwd:			ÃÜÂë£º
-reset_email:			µç×ÓÓÊÏä£º
-reset_reset_button:		ÖØĞÂÊäÈëÃÜÂë
-rate_this_thread:		ÆÀ¼Û
-report_reporting_about:		±¨¸æÖ÷Ìâ£º
-report_subject:			Ö÷Ìâ£º
-report_by:			·¢²¼£º
-report_posted_on:		·¢ÌûÊ±¼ä£º
-report_give_reason:		ÇëÌîĞ´Äã±¨¸æÕâ¸öÖ÷ÌâµÄÔ­Òò£º
-report_submit_report:		Íê³É
-search_entire_msg:		È«ÎÄËÑË÷
-search_subect_only:		Ö÷ÌâËÑË÷
-search_forum:			ÂÛÌ³
-search_posted_on:		Ìá½»
-search_no_results:		Ã»ÓĞ²éÑ¯½á¹û
-search_all_forums:		ËÑË÷ËùÓĞÂÛÌ³
-search_in_forum:		ËÑË÷Õâ¸öÂÛÌ³£º
-search_forum_search:		ÂÛÌ³ËÑË÷
-move_thread_to:			°Ñ±¾Ö÷ÌâÒÆÖÁ <b>{VAR: thr->subject}</b> £º
-remail_email_topic:		Í¨¹ıµç×ÓÓÊ¼şÏòÅóÓÑÍÆ¼öÕâ¸öÖ÷Ìâ
-remail_your_name:		ÄãµÄĞÕÃû£º
-remail_your_email:		ÄãµÄµç×ÓÓÊÏä£º
-remail_friends_name:		ÅóÓÑµÄÃû×Ö£º
-remail_friends_email:		ÅóÓÑµÄµç×ÓÓÊÏä£º
-remail_required:		±ØÌîµÄ
-remail_subject:			Ö÷Ìâ£º
-remail_message:			ÄÚÈİ£º
-remail_send_now:		·¢ËÍÓÊ¼ş
-remail_anon_opt:		°ÑÕâĞ©ÄÚÈİ¿½±´µ½ÄãÑ¡ÔñµÄÓÊ¼şµØÖ·ÖĞ£¬·¢ËÍ¸øÄãµÄÅóÓÑ¡£
-remail_done:			Íê³É
-remail_sent_conf:		¸øÄãµÄÅóÓÑ {VAR-HTML: _POST['femail']} µÄ¹ØÓÚ{{VAR: data->subject} µÄÓÊ¼şÒÑ¾­³É¹¦·¢ËÍ¡£
-remail_error:			·¢ÉúÁË´íÎó
-mklist_type:			ÀàĞÍ£º
-mklist_option:			Ñ¡Ïî£º
-mklist_additem:			Ìí¼ÓÌõÄ¿
-mklist_apply:			Ìá½»
-mklist_delete:			É¾³ı
-qbud_nick_name:			êÇ³Æ
-qbud_add_selected:		Ìí¼ÓÑ¡¶¨ÓÃ»§
-qbud_selected:			Ñ¡Ôñ
-qbud_no_buddies:		Ã»ÓĞÓÃ»§Ñ¡Ôñ
-mklist_numerical:		Êı×Ö
-mklist_aplha:			×ÖÄ¸
-mklist_square:			·½µã
-mklist_disc:			Ô²µã
-mklist_circle:			Ô²È¦
-mklist_close:			È¡Ïû
-email_to:			ÖÁ£º
-email_pg_title:			µç×ÓÓÊÏä
-email_subject:			Ö÷Ìâ£º
-email_body:			ÄÚÈİ£º
-email_submit:			·¢ËÍ
-ppost_quote_msg:		{VAR: msg_to_list} ÓÚ {DATE: msg_r->post_stamp %Y-%m-%d %H:%M} ÔÚ´ó×÷ÖĞÌáµ½£º
-ppost_quote:			ÒıÓÃ£º
-ppost_to:			ÖÁ£º
-ppost_from_buddy_list:		´ÓºÃÓÑÃûµ¥ÖĞÑ¡Ôñ
-ppost_find_User:		²éÕÒÓÃ»§
-ppost_track_msg:		¸ú×ÙÕâÌõĞÅÏ¢
-ppost_track_msg_desc:		µ±ÕâÌõĞÅÏ¢±»ÔÄ¶ÁÊ±ÇëÓÃÇÄÇÄ»°Í¨ÖªÎÒ¡£
-ppost_send:			·¢ËÍ
-ppost_save_draft:		±£´æ²İ¸å
-poll_blank_option:		Äã²»ÄÜÌá½»¿ÕµÄÑ¡Ïî¡£
-poll_del_conf:			Èç¹ûÄãÏëÉ¾³ıÕâ¸öÑ¡Ïî£¬Çë°´OK
-poll_name:			µ÷²éÃû³Æ£º
-poll_timelimit:			Ê±¼äÏŞÖÆ
-poll_maxiumvotes:		×î´óµÄÍ¶Æ±Á¿
-poll_create:			Íê³É
-poll_update:			¸üĞÂ
-poll_disablesmilies:		²»Ê¹ÓÃ±íÇé·ûºÅ
-poll_create_poll:		·¢Æğµ÷²é
-poll_update_poll:		¸üĞÂµ÷²é
-poll_delete:			É¾³ı
-poll_updateoption:		¸üĞÂÑ¡Ïî
-poll_addoption:			Ìí¼ÓÑ¡Ïî
-poll_unlimited:			²»ÏŞÖÆ
-poll_day:			ÈÕÆÚ
-poll_days:			Ìì
-poll_hour:			Ğ¡Ê±
-poll_hours:			Ğ¡Ê±
-poll_month:			ÔÂ
-poll_year:			Äê
-poll_week:			ÖÜ
-tabs_register:			ÉèÖÃ
-tabs_subscriptions:		Ô¤¶¨ÄÚÈİ
-tabs_referrals:			ÍÆ¼ö
-tabs_buddy_list:		ºÃÓÑÁĞ±í
-tabs_ignore_list:		ºÚÃûµ¥
-tabs_private_messaging:		ÇÄÇÄ»°
-single_msg_delete:		ÄãÕıÒª<font color="#ff0000" size="4">É¾³ı</font>±êÌâÎª£º<b>{VAR: data[3]}</b>µÄÌû×Ó¡£<p>
-thread_delete:			ÄãÕıÒª<font color="#ff0000" size="4">É¾³ıÕû¸öÖ÷Ìâ</font> ±êÌâÎª£º<b>{VAR: data[3]}</b><p>
-delete_proceed:			<font size="3"><b>ÊÇ·ñ¼ÌĞø?</b></font>
-delete_yes:			ÊÇ
-delete_no:			·ñ
-error_invalidurl:		¸ÃµØÖ·ÎŞĞ§
-error_error:			´íÎó
-usrinfo_profile:		{VAR: u->alias}µÄ¸öÈËĞÅÏ¢
-usrinfo_show_all_posts:		ÏÔÊ¾ÓÃ»§ {VAR: u->alias}·¢²¼µÄËùÓĞÖ÷Ìâ
-actions_update:			²éÕÒºÍÄãµÄ¸öÈËĞÅÏ¢ÄÚÈİÏàÆ¥ÅäµÄÓÃ»§¡£
-err_info:			ĞÅÏ¢
-buddy_list_err_cantadd:		ÎŞ·¨°ÑÄã¼ÓÈëºÃÓÑÃûµ¥
-buddy_list_err_dup:		ÄãµÄºÃÓÑÁĞ±íÖĞÒÑ¾­Ìí¼ÓÁËÕâ¸öÓÃ»§
-buddy_list_err_nouser:		ÄãÒªÌí¼ÓµÄÓÃ»§²»´æÔÚ
-buddy_list_err_nouser_title:	ÎŞ·¨Ìí¼Ó
-buddy_list_update:		ä¯ÀÀÎÒµÄºÃÓÑÁĞ±í
-core_err_invinp_title:		ÊäÈë´íÎó
-core_err_invinp_err:		ÄãÊäÈëÁËÒ»¸ö´íÎóµÄÁ´½Ó£¬Çë¸üÕı
-core_adm_login_msg:		<br><a href="adm/admloginuser.php">¹ÜÀíÔ±µÇÂ½</a>
-email_err_unabletoemail_title:	´íÎó£ºÎŞ·¨·¢ËÍÓÊ¼ş
-email_err_unabletoemail_msg:	ÏµÍ³¹ÜÀíÔ±ÉèÖÃÓÊ¼şÏµÍ³ÎŞ·¨Ê¹ÓÃ¡£
-email_error_unabletolocaddr:	¶Ô²»Æğ£¬ÒòÎªÎŞ·¨µÇÂ¼¶Ô·½µÄÓÊ¼ş·şÎñÆ÷µ¼ÖÂÏµÍ³ÎŞ·¨·¢ËÍÓÊ¼ş{VAR-HTML: _POST['tx_name']}
-email_error_body:		±ØĞëÌîĞ´ÓÊ¼şÄÚÈİ
-email_error_subject:		±ØĞëÌîĞ´ÓÊ¼şÖ÷Ìâ
-email_error_namerequired:	±ØĞëÌîĞ´ÓÊ¼ş½ÓÊÜÕßĞÕÃû
-email_error_invaliduser:	ÓÃ»§Ãû´íÎó
-emailconf_err_invkey_title:	´íÎó
-emailconf_err_invkey_msg:	ÎŞĞ§µÄµØÖ·¡£Çë¼ì²é²¢È·ÈÏÄãµÄÌîĞ´µÄÊÇÕıÈ·µÄµØÖ·ĞÅÏ¢¡£
-err_inc_criticaltitle:		½ô¼±´íÎó
-err_inc_criticalmsg:		·¢Éú´íÎó£¬¶øÇÒºÜ²»ĞÒµÄÊÇ´íÎó±¨¸æÏµÍ³±¾ÉíÒ²´æÔÚÎÊÌâ¡£
-finduser_update:		ËÑË÷ÓÃ»§
-help_index_update:		ÔÄ¶Á<a href="{TEMPLATE: help_index_update_lnk}">Ê¹ÓÃ°ïÖú</a>
-iemail_thr_subject:		ĞÂµÄ»Ø¸´ {VAR: thr_subject} ÓÉ{VAR: poster_login}
-iemail_thr_bodyemail:		²é¿´Î´¶ÁµÄ»Ø¸´ {VAR: goto_url['email']}\n\nÈç¹ûÄã²»ÏëÊÕµ½¹ØÓÚÕâ¸öÖ÷ÌâĞÂµÄ»Ø¸´Í¨Öª£¬Çëµã»÷£º {VAR: unsub_url['email']}
-iemail_frm_subject:		ÂÛÌ³ĞÂÖ÷Ìâ {VAR: frm_name} called {VAR: thr_subject}ÓÉ{VAR: poster_login}
-iemail_frm_bodyemail:		²é¿´Ö÷Ìâ£º\n{VAR: goto_url['email']}\n\n²»ÔÙ½ÓÊÜ±¾ÂÛÌ³µÄĞÂÖ÷Ìâ·¢²¼Í¨Öª£¬Çëµã»÷£º {VAR: unsub_url['email']}
-ignore_list_err_info_title:	ĞÅÏ¢
-ignore_list_err_dup_msg:	ÄãÒÑ¾­°ÑÕâÓÃ»§Ìí¼Óµ½ÄãµÄ¡°±»¾Ü¾øÓÃ»§¡±Ãûµ¥ÖĞ¡£
-ignore_list_err_nu_title:	Ã»ÓĞÕÒµ½Õâ¸öÓÃ»§
-ignore_list_err_nu_msg:		±¾ÂÛÌ³²»´æÔÚÄãÒªÌí¼ÓµÄÓÃ»§¡£
-ignore_list_cantign_msg:	ÄãÎŞ·¨¾Ü¾ø¸ÃÓÃ»§
-ignore_list_update:		ä¯ÀÀ¡°±»¾Ü¾øÓÃ»§¡±Ãûµ¥
-index_update:			ä¯ÀÀ<a href="{TEMPLATE: index_update_lnk}">ÂÛÌ³ÁĞ±í</a>
-list_referers_update:		ä¯ÀÀ±»ÌáÃûÕß
-login_update:			µÇÂ¼¸ñÊ½
-msg_update:			Õ¹¿ªä¯ÀÀ <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:		´íÎó£ºÎŞ·¨·¢ËÍÇÄÇÄ»°
-pm_err_nopm_msg:		ÏµÍ³¹ÜÀíÔ±½ûÖ¹ÄãÊ¹ÓÃÇÄÇÄ»°ÏµÍ³¡£
-pm_update:			Ê¹ÓÃÇÄÇÄ»°¹¦ÄÜ
-post_err_lockedthread_title:	´íÎó£º¸ÃÌû×ÓÒÑ±»Ëø¶¨
-post_err_lockedthread_msg:	Õâ¸öÖ÷ÌâÒÑ±»Ëø¶¨£¬²»ÄÜ»Ø¸´
-err_coppa_title:		´íÎó£ºÄãÃ»ÓĞ´ËÏîÈ¨ÏŞ
-err_coppa_msg:			ÎÒÃÇ»¹Ã»ÓĞÊÕµ½À´×ÔÄã¸¸Ä¸»òÕß·¨¶¨¼à»¤ÈËµÄ¹ØÓÚÍ¬ÒâÄã·¢²¼Ìû×ÓµÄÈ·ÈÏÖ¤Ã÷¡£ Èç¹û¶ªÊ§ÁËÉêÇë±í£¬<a href="{TEMPLATE: err_coppa_msg_lnk}">ÇëµãÕâÀï</a>¡£
-post_err_edttimelimit_title:	´íÎó
-post_err_edttimelimit_msg:	Äã²»ÄÜÔÙ±à¼­ÕâÌõĞÅÏ¢
-post_err_floodtrig_title:	´íÎó£º·¢²¼¹àË®Ìû×Ó
-post_err_floodtrig_msg:		ÇëÔÚ{VAR: tm}ÃëÒÔÄÚÖØÊÔ
-post_err_attach_size:		<font class="ErrorText">¸½¼şÎÄ¼şÌ«´ó£¨³¬¹ıÁËÔÊĞíµÄ×î´ó{VAR: MAX_F_SIZE}×Ö½Ú)</font><br>
-post_err_attach_ext:		<font class="ErrorText">ÄãÕıÔÚÉÏ´«µÄÎÄ¼şÀàĞÍ²»·ûºÏÂÛÌ³¶ÔÉÏ´«ÎÄ¼şÀàĞÍµÄÉèÖÃ¡£</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">ÄãÕıÔÚÉÏ´«µÄÎÄ¼ş³¬¹ıÁËÏŞÖÆµÄÊıÁ¿¡£</font><br>
-post_err_passwd:		ÃÜÂë´íÎó¡£
-post_reply_update:		»Ø¸´ <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ÔÚ {VAR-HTML: frm->name}
-post_topic_update:		·¢±íĞÂÖ÷Ìâ <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
-post_error_generic:		·¢Éú´íÎó
-postcheck_max_images_err:	Ò»´ÎÌá½»Í¼Æ¬ÔÊĞíµÄ×î´óÊıÊÇ{GVAR: MAX_IMAGE_COUNT} £¬Çë¾¡Á¿¼õÉÙÍ¼Æ¬ÊıÁ¿¡£
-postcheck_subj_needed:		ÊäÈëÖ÷Ìâ
-postcheck_no_such_user:		±¾ÂÛÌ³Ã»ÓĞ "{FUNC: char_fix(htmlspecialchars($v))}" ÓÃ»§
-postcheck_ignored:		"{FUNC: char_fix(htmlspecialchars($v))}"ÓÃ»§¾Ü¾ø½ÓÊÜÄãµÄÇÄÇÄ»°¡£
-postcheck_no_recepient:		ÒòÎªÃ»ÓĞ½ÓÊÜ·½£¬ËùÒÔÎŞ·¨·¢ËÍĞÅÏ¢
-postcheck_invalid_email:	ÇëÊäÈëÄãµÄÅóÓÑµÄÕıÈ·µç×ÓÓÊÏäµØÖ·¡£
-postcheck_email_subject:	Èç¹û²»ÊäÈëÖ÷Ìâ£¬Äã½«ÎŞ·¨·¢ËÍÓÊ¼ş¡£
-postcheck_email_body:		Èç¹ûÃ»ÓĞÄÚÈİ£¬Äã½«ÎŞ·¨·¢ËÍÓÊ¼ş¡£
-private_msg_notify_subj:	¶ÁÈ¡Í¨Öª£º{VAR: m->subject}
-private_msg_notify_body:	ÄãºÃ£¬<br>{VAR: usr->login} ÓÃ»§ÒÑ¾­ÔÄ¶ÁÁËÄãµÄÇÄÇÄ»°£¬ "{VAR: m->subject}"£¬ÔÚ {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br>
-referals_update:		ä¯ÀÀ±»ÍÆ¼öÕß
-register_err_short_login:	ÄãÊäÈëµÄÕËºÅÌ«¶Ì£¬±ØĞëÖÁÉÙ°üÀ¨4¸ö×Ö·û¡£
-register_err_login_notallowed:	²»ÄÜÊ¹ÓÃÕâ¸öÕËºÅ×¢²á¡£
-register_err_loginunique:	ÂÛÌ³ÕËºÅ±ØĞëÊÇÎ¨Ò»µÄ£¬Õâ¸öÕËºÅÒÑ¾­ÓĞÈËÊ¹ÓÃ¡£
-register_err_emailexists:	Õâ¸öµç×ÓÓÊ¼şµØÖ·ÒÑ¾­´æÔÚ£¬Çë²»ÒªÖØ¸´×¢²á¡£Èç¹ûÄãÍü¼ÇÁËÃÜÂë£¬ÇëÍ¨¹ı¡°ÕÒ»ØÃÜÂë¡±³ÌĞòÕÒ»ØÄãµÄÃÜÂë¡£
-register_err_shortpasswd:	ÃÜÂë±ØĞëÖÁÉÙÓĞ6¸ö×Ö·û¡£
-register_err_passwdnomatch:	ÄãµÄÃÜÂë²»¶Ô¡£
-register_err_invalidemail:	ÄãÊäÈëµÄµç×ÓÓÊ¼şµØÖ·²»ÕıÈ·¡£
-register_err_needname:		Äã±ØĞëÊäÈëÄãµÄĞÕÃû²ÅÄÜÍê³É´Ë´Î×¢²á¡£
-register_err_enterpasswd:	Äã±ØĞëÊäÈëÃÜÂë²ÅÄÜ½øĞĞĞŞ¸Ä¡£
-register_err_adminpasswd:	Äã±ØĞëÊäÈëÏµÍ³¹ÜÀíÔ±ÃÜÂë²ÅÄÜÍê³ÉÕâĞ©ĞŞ¸Ä¡£
-register_err_notyouremail:	ÒÑ¾­ÓĞÈËÓÃÕâ¸öµç×ÓÓÊÏäµØÖ·×¢²áÁË£¬µ«ÊÇÄÇ¸öÈË²»ÊÇÄã¡£
-register_err_avatartobig:	ÄãÕıÔÚÉÏ´«µÄÎÄ¼şÌ«´ó£¬³¬¹ıÁË{GVAR: CUSTOM_AVATAR_MAX_SIZE} ×Ö½ÚµÄ×î´óÏŞÖÆ¡£
-register_err_avatarnotallowed:	ÄãÕıÔÚÉÏ´«µÄÍ·Ïñ²»ÄÜÉÏ´«£¬Çë²é¿´ÔÊĞíÉÏ´«µÄÎÄ¼şÀàĞÍ¡£
-register_conf_subject:		×¢²áÈ·ÈÏ
-register_conf_msg:		Ğ»Ğ»×¢²á,\n½øÈëµ±Ç°ÕËºÅ£¬Çëµã»÷ÏÂÁĞµØÖ·£º\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n½øÈëµ±Ç°ÕËºÅºó£¬Äã½«Ö±½Ó½øÈëÂÛÌ³\n×ªÈëÂÛÌ³µÄÖ÷Ò³¡£
-register_welcome_subject:	ÂÛÌ³×¢²áÈ·ÈÏ
-register_welcome_msg:		Ğ»Ğ»×¢²á£¬\n\nÕâÊÇÄã×¢²áµÄÏêÏ¸×ÊÁÏ£º\n\nÂÛÌ³URL£º{GVAR: WWW_ROOT}\nÕËºÅ£º{VAR: uent->login}\nÃÜÂë£º{VAR: _POST['reg_plaintext_passwd']}\n\nÇë×¢ÒâÃÜÂëÇø·Ö´óĞ¡Ğ´£¡\nÒª¸ü¸ÄÄãµÄÉèÖÃ»òÕß¸öÈËĞÅÏ¢£¬Çëµã»÷£º\n{FULL_ROOT}{ROOT}?t=register\n
-register_err_cantreg_title:	´íÎó£ºÎŞ·¨×¢²á
-regsiter_err_cantreg_msg:	ÎŞ·¨×¢²áĞÂµÄÕËºÅ£¬ÇëºÍÏµÍ³¹ÜÀíÔ±ÁªÏµ<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-register_profile_update:	²é¿´¸öÈËĞÅÏ¢
-register_register_update:	×¢²áÒ³
-report_err_nosuchmsg_title:	´íÎó
-report_err_nosuchmsg_msg:	Ã»ÓĞÕâÑùµÄĞÅÏ¢
-reset_err_invalidkey_title:	´íÎó
-reset_err_invalidkey_msg:	ÃÜÂëÌáÊ¾´íÎó
-reset_err_rstconf_title:	ĞÅÏ¢
-reset_err_rstconf_msg:		Ò»»áÄã½«Í¨¹ıÓÊ¼şÊÕµ½Ïà¹ØËµÃ÷¡£
-reset_newpass_title:		ÖØĞÂÊäÈëÃÜÂë
-reset_newpass_msg:		ÄãºÃ£¬\n\nÄãÃ¿´ÎµÇÂ¼µÄÕËºÅ¶¼½«·¢ËÍ¸øÄã¡£\nHere ÕâÀïÊÇÄãµÄµÇÂ¼ĞÅÏ¢£º\n\nÕËºÅ£º{VAR: ui[1]}\nÃÜÂë£º{VAR: passwd}\n\n×¢Òâ£ºÄãµÄÃÜÂëÒÑ¾­±»¸ÄÎªÉÏÃæµÄÖµ×Ö·û×éºÏ£¬Èç¹ûÄãÏë\nĞŞ¸ÄÃÜÂë£¬ÇëÔÚ¸öÈËĞÅÏ¢ÖĞĞŞ¸Ä£º\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Ò»»á¶ù£¬Äã½«Í¨¹ıÓÊ¼şÊÕµ½ÃÜÂë¡£Çë¼ì²éÄãµÄÃÜÂë²¢µÇÂ¼¡£.<br>.<br>.<br>
-search_update:			ËÑË÷
-selmsg_update:			ä¯ÀÀ <a href="{TEMPLATE: selmsg_update_lnk}">½ñÌì·¢²¼µÄÖ÷Ìâ</a>
-showposts_update:		²é¿´ÓÃ»§ <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>·¢²¼µÄÖ÷Ìâ
-subscribed_update:		ä¯ÀÀ×Ô¼ºÔ¤¶¨µÄÄÚÈİ
-thread_update:			ä¯ÀÀÂÛÌ³<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			ä¯ÀÀ£¨ÒÔÊ÷×´·½Ê½£© <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:		²é¿´ <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}µÄ</a> ¸öÈËĞÅÏ¢
-ERR_disabled_ttl:		±»½ûÖ¹µÄ¹¦ÄÜ
-ERR_disabled_msg:		´ËÏî¹¦ÄÜÒÑ¾­±»ÏµÍ³¹ÜÀíÔ±¹Ø±Õ¡£
-ERR_access_ttl:			´íÎó£ºÈ¨ÏŞ²»¹»
-ERR_access_msg:			ÄãÃ»ÓĞÈ¨Àû½øĞĞ´ËÏî²Ù×÷
-ERR_registration_disabled_ttl:	×¢²áÊ§°Ü
-ERR_registration_disabled_msg:	×¢²á¹¦ÄÜ±»ÏµÍ³¹ÜÀíÔ±½ûÖ¹£¬ÇëÖØÊÔ£¡
-ERR_emailconf_ttl:		´íÎó£º´ËÕËºÅÎŞĞ§
-ERR_emailconf_msg:		Äã×¢²áµÄÕËºÅÉĞÎ´½øĞĞÓÊ¼şÈ·ÈÏ<br><table border=0><tr><td><ol><li>Èç¹ûÄãÃ»ÓĞÊÕµ½È·ÈÏÓÊ¼ş <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">Çëµã»÷ÕâÀï</a><li>Èç¹û {VAR: usr_d->email} ÓÊ¼şµØÖ·ÓĞÎó<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">Çëµã»÷ÕâÀï</a></ol></td></tr></table>
-ERR_user_ttl:			´íÎó£ºÃ»ÓĞÕâ¸öÓÃ»§
-ERR_user_msg:			Ã»ÓĞÕâ¸öÓÃ»§
-ERR_systemerr_ttl:		ÏµÍ³´íÎó
-ERR_systemerr_msg:		·¢ÉúÏµÍ³´íÎó£¬Çë±¨¸æ´íÎó¸ø¹ÜÀíÈËÔ±¡£
-email_title:			ÓÊ¼ş¸ñÊ½
-finduser_title:			²éÕÒÓÃ»§
-help_title:			Ê¹ÓÃ°ïÖú
-login_title:			µÇÂ¼¸ñÊ½
+action:				æ“ä½œ
+add_to_buddy_list:		åŠ å…¥å¥½å‹åˆ—è¡¨
+admin:				ç®¡ç†
+admin_control_panel:		ç®¡ç†ç•Œé¢
+administrator:			ç³»ç»Ÿç®¡ç†å‘˜
+attachment:			é™„ä»¶ï¼š
+avatar:				å¤´åƒï¼š
+average_post_count:		{VAR: u->posted_msg_count} å¸–å­(æ—¥å‡å‘å¸–æ•°{VAR: avg} )
+biography:			ä¸ªäººç®€ä»‹ï¼š
+birth_date:			ç”Ÿæ—¥ï¼š
+by:				å‘å¸–ï¼š
+by_mod:				ç‰ˆä¸»
+current_time:			å½“å‰æ—¶é—´
+custom_avatar_queue:		å®šåˆ¶å¤´åƒåˆ—è¡¨
+date_posted:			å‘å¸ƒæ—¶é—´
+date_registered:		æ³¨å†Œæ—¥æœŸï¼š
+download_counter:		ä¸‹è½½æ¬¡æ•°{VAR: v[3]}
+email:				é‚®ä»¶ï¼š
+email_to_friend:		å‘é€é‚®ä»¶ç»™æœ‹å‹
+email_to_friend_desc:		å‘é€é‚®ä»¶ï¼Œå‘ä½ çš„æœ‹å‹æ¨èè¿™ä¸ªå¸–å­
+email_user:			ç‚¹å‡»è¿™é‡Œå‘æ­¤ç”¨æˆ·å‘é€é‚®ä»¶ã€‚
+faq:				å¸®åŠ©
+first_unread_msg:		è½¬å…¥æœªè¯»çš„å¸–å­
+first_unread_msg_desc:		è½¬å…¥æœ¬ä¸»é¢˜ç¬¬ä¸€ä¸ªæœªè¯»å¸–å­
+flat_view:			è¿”å›è‡³é»˜è®¤æµè§ˆæ–¹å¼
+forum:				è®ºå›ï¼š
+forum_icon:			è®ºå›å›¾æ ‡
+forum_new_messages:		æ–°æ¶ˆæ¯
+forum_none_messages:		åªæœ‰æœ¬è®ºå›çš„æ³¨å†Œç”¨æˆ·èƒ½å¤ŸæŠŠå¸–å­æ ‡ä¸ºâ€œå·²è¯»â€æˆ–â€œæœªè¯»â€
+forum_old_messages:		æ²¡æœ‰æ–°æ¶ˆæ¯
+from:				æ¥è‡ªï¼š
+gender:				æ€§åˆ«ï¼š
+go:				è·³è½¬
+goto_next_msg:			ä¸‹ä¸€æ¥¼
+goto_prev_msg:			æ¥¼ä¸Š
+home:				ä¸»é¡µ
+homepage:			ä¸»é¡µï¼š
+icq_control_panel:		ICQ åœ¨çº¿ä¿¡æ¯
+icq_message_form:		ICQ ä¿¡æ¯åˆ—è¡¨ï¼š
+ignore_user:			åŠ å…¥é»‘åå•
+im_aim:				AIMï¼š
+im_msnm:			MSNä¿¡æ¯ï¼š
+im_yahoo:			Yahooä¿¡æ¯ï¼š
+image:				ç…§ç‰‡ï¼š
+index_forum:			è®ºå›
+index_new_posts:		ä¸Šæ¬¡æµè§ˆä»¥åçš„æ–°å¸–
+index_no_new_posts:		è‡ªä»ä¸Šæ¬¡æµè§ˆä»¥åæ²¡æœ‰æ–°å¸–
+interests:			å…´è¶£ï¼š
+last_post:			æœ€æ–°å¸–å­
+last_thread_msg:		è½¬å…¥æœ¬ä¸»é¢˜æœ€åä¸€ä¸ªå¸–å­ã€‚
+legend:				å›¾ä¾‹ï¼š
+location:			åœ°åŒºï¼š
+lock_thread:			é”å®šæœ¬ä¸»é¢˜
+locked:				è¢«é”å®š
+locked_with_new_posts:		é”å®šï¼ˆä¸”æœªè¯»ï¼‰
+logged_in_list:			ç™»å½•ç”¨æˆ·åˆ—è¡¨
+login:				ç™»å½•
+login_header:			æ˜µç§°ï¼š
+logout:				æ³¨é”€
+mark_all_read:			æ ‡è®°æ‰€æœ‰ä¿¡æ¯ä¸ºå·²è¯»
+mark_all_read_desc:		æ‰€æœ‰ä½ æ²¡æœ‰è¯»è¿‡çš„ä¿¡æ¯éƒ½å°†è¢«æ ‡ä¸ºå·²è¯»ã€‚
+members:			æˆå‘˜
+message:			ä¿¡æ¯
+message_counter:		ç”¨æˆ·å·²ç»æäº¤ <b>{VAR: post_count}</b>ä¸ªå¸–å­ï¼Œåˆ†å¸ƒåœ¨<b>{VAR: thread_count}</b>ä¸ªä¸»é¢˜é‡Œã€‚
+message_index:			ä¿¡æ¯ç´¢å¼•
+message_index_desc:		æŸ¥çœ‹ä¿¡æ¯åˆ—è¡¨
+minimize_category:		å‡å°‘ç›®å½•å±‚æ¬¡
+moderation_queue:		ç‰ˆä¸»åˆ—è¡¨
+moderator:			ç‰ˆä¸»
+moderator_of:			ç‰ˆä¸»ï¼š
+moderator_options:		ç‰ˆä¸»åŠŸèƒ½
+moderators:			ç‰ˆä¸»
+more_unread_messages:		æ›´å¤šæœªè¯»ä¿¡æ¯
+more_unread_messages_desc:	æ˜¾ç¤ºæ›´å¤šæœªè¯»ä¿¡æ¯ï¼Œå¹¶ä¸”æŠŠç°åœ¨çš„ä¿¡æ¯æ ‡ä¸ºå·²è¯»ã€‚
+move_thread:			è½¬ç§»
+moved:				è½¬ç§»è‡³åˆ«çš„è®ºå›
+moved_thread_message:		è¿™ä¸ªä¸»é¢˜å·²è¢«è½¬ç§»è‡³åˆ«çš„è®ºå›ã€‚
+na:				æš‚æ— 
+new_posts:			æ–°çš„ä¸»é¢˜
+new_private_messages:		ä½ æœ‰ <span class="GenText" style="color: #ff0000">({VAR: c})</span> æ¡æœªè¯»æ‚„æ‚„è¯ã€‚
+new_thread:			ç”Ÿæˆæ–°çš„ä¸»é¢˜
+newest_user:			æœ€æ–°æ³¨å†Œçš„ç”¨æˆ·æ˜¯
+next_page:			ä¸‹ä¸€é¡µ
+next_thread:			ä¸Šä¸€ä¸ªä¸»é¢˜ï¼š
+no_messages:			æœ¬è®ºå›æ²¡æœ‰ä»»ä½•å‘è¨€ã€‚
+no_msg_body:			æ²¡æœ‰å†…å®¹ï¼
+no_new_posts:			æ²¡æœ‰æ–°çš„ä¸»é¢˜
+no_posts:			æ²¡æœ‰æ–°ä¸»é¢˜
+no_subscribed_forums:		æ²¡æœ‰é¢„å®šçš„è®ºå›
+no_subscribed_threads:		æ²¡æœ‰é¢„å®šçš„ä¸»é¢˜
+no_unread_locked:		æœ¬ä¸»é¢˜å·²è¢«é”å®šï¼ˆä¸å¯å›å¤ï¼‰ã€‚
+no_unread_msg:			è¿™ä¸ªä¸»é¢˜æ²¡æœ‰æœªè¯»ä¿¡æ¯ã€‚
+no_unread_msg_unreg:		åªæœ‰æ³¨å†Œç”¨æˆ·èƒ½å¤ŸæŠŠä¿¡æ¯æ ‡ä¸ºå·²è¯»å’Œæœªè¯»ã€‚
+num_pages:			é¡µï¼ˆ{VAR: ttl_pg}ï¼‰ï¼š
+num_votes:			{VAR: obj->total_votes} é€‰ç¥¨
+occupation:			èŒä¸šï¼š
+off:				å…³é—­
+on:				æ‰“å¼€
+page_timings:			ç”Ÿæˆæœ¬é¡µé¢å…±èŠ±è´¹æ—¶é—´ï¼š{VAR: page_gen_time} ç§’ã€‚
+pm:				æ‚„æ‚„è¯
+poll:				è°ƒæŸ¥ï¼š
+post_count:			å‘å¸–æ•°ï¼š {VAR: u_pcount}
+post_count_l:			å¸–å­æ•°ï¼š
+posts:				å¸–å­
+posts_c:			å‘å¸–æ•°ï¼š
+prev_thread:			ä¸‹ä¸€ä¸ªä¸»é¢˜ï¼š
+usrinfo_private_message:	æ‚„æ‚„è¯
+profile:			ä¸ªäººä¿¡æ¯
+profile_desc:			ç‚¹å‡»è¿™é‡Œè‡³ç”¨æˆ·ç®¡ç†ç•Œé¢
+rate_thread:			ä¸»é¢˜è¯„ä»·
+refresh_list:			æ›´æ–°ç›®å½•
+register:			æ³¨å†Œ
+registered:			æ³¨å†Œæ—¶é—´ï¼š
+registered_on:			æ³¨å†Œæ—¥æœŸï¼š{DATE: u_reg_date %Y-%m-%d}
+replies:			å›å¤
+report_to_mod:			è¿è§„å¸–ä¸¾æŠ¥
+reported_messages:		å·²å‘ç‰ˆä¸»ä¸¾æŠ¥çš„è¿è§„å¸–
+reveal_all_posts:		æ˜¾ç¤ºæ‰€æœ‰ç»“æœ {VAR: user_login}
+reveal_post:			æ˜¾ç¤ºç»“æœ
+search:				æœç´¢
+sel_todays_posts:		ä»Šå¤©çš„ä¸»é¢˜
+sel_todays_posts_desc:		åªæ˜¾ç¤ºä»Šå¤©çš„ä¸»é¢˜
+sel_unanswered_posts:		æœªå›å¤ä¸»é¢˜
+sel_unanswered_posts_desc:	åªæ˜¾ç¤ºæœªå›å¤ä¸»é¢˜
+sel_unread_messages:		æœªè¯»ä¿¡æ¯
+sel_unread_messages_desc:	åªæ˜¾ç¤ºæœªè¯»ä¿¡æ¯
+send:				å‘é€
+send_pm_desc:			å‘æ‚„æ‚„è¯ç»™è¿™ä¸ªç”¨æˆ·
+sender_email:			å‘é€è€…é‚®ä»¶ï¼š
+sender_name:			å‘é€è€…å§“åï¼š
+show_posts_by:			æ˜¾ç¤ºç”¨æˆ· {VAR: u_alias}å‘å¸ƒçš„ä¸»é¢˜
+size:				å¤§å°ï¼š
+status:				çº§åˆ«ï¼š
+status_line:			ç°åœ¨å…±æœ‰ <b>{VAR: st_obj->online_users_reg}</b> ç”¨æˆ·ï¼ŒåŒ…æ‹¬<b>{VAR: st_obj->online_users_hidden}</b> åä¸æ„¿é€éœ²èº«ä»½çš„ç”¨æˆ·å’Œ <b>{VAR: st_obj->online_users_anon}</b> åè®¿å®¢è®¿é—®æœ¬è®ºå›ã€‚
+sticky:				ç½®é¡¶ï¼š
+stop_ignoring:			ä¸å†æ‹’ç»è¿™ä¸ªç”¨æˆ·
+sub_to_thread:			è®¢é˜…è¿™ä¸ªä¸»é¢˜
+sub_to_thread_desc:		æ¥å—å…³äºè¿™ä¸ªä¸»é¢˜çš„æœ€æ–°å›å¤çš„é€šçŸ¥
+subject:			ä¸»é¢˜
+subscribe:			é¢„å®š
+subscribe_desc:			å½“æœ¬è®ºå›æœ‰äººå‘å¸ƒæ–°çš„ä¸»é¢˜æ—¶ï¼Œè¯·é€šçŸ¥æˆ‘ã€‚
+subscribed_forums:		é¢„å®šè®ºå›ä¿¡æ¯
+subscribed_forums_desc:		åªæ˜¾ç¤ºé¢„å®šçš„è®ºå›ä¿¡æ¯
+subscribed_threads:		é¢„å®šè®ºå›ä¸»é¢˜
+subscribed_threads_desc:	åªæ˜¾ç¤ºé¢„å®šè®ºå›ä¸»é¢˜
+switch_to_thread_view:		è½¬æ¢æˆä»¥æ•°çŠ¶æ–¹å¼æµè§ˆ
+thread:				ä¸»é¢˜ï¼š
+thread_announcement:		å…¬å‘Šï¼š
+thread_first_unread_msg:	ç‚¹å‡»è¿™é‡Œåˆ°è¾¾æœ¬ä¸»é¢˜çš„ç¬¬ä¸€æ¡æœªè¯»ä¿¡æ¯ã€‚
+thread_thread:			ä¸»é¢˜
+threads:			ä¸»é¢˜
+time:				æ—¶é—´
+todays_posts:			ä»Šå¤©çš„ä¸»é¢˜
+todays_posts_desc:		æ˜¾ç¤ºæ‰€æœ‰ä»Šå¤©å‘å¸ƒçš„ä¸»é¢˜
+un_ignore_user:			ä¸å†æ‹’ç»è¿™ä¸ªç”¨æˆ·æäº¤çš„ä¿¡æ¯
+unanswered_posts:		æœªå›å¤ä¸»é¢˜
+unanswered_posts_desc:		æ˜¾ç¤ºæœªå›å¤ä¿¡æ¯
+unlock_thread:			è§£å¼€è¢«é”å®šçš„ä¸»é¢˜
+unread_msg:			è¿™ä¸ªä¸»é¢˜ä¸­æœ‰ä½ æœªè¯»çš„ä¿¡æ¯ã€‚
+unread_msg_locked:		è¢«é”å®šçš„ä¸»é¢˜ï¼ˆä¸”æœªè¯»ï¼‰
+unread_posts:			æœªè¯»çš„ä¸»é¢˜
+unread_posts_desc:		æ˜¾ç¤ºæ‰€æœ‰æœªè¯»ä¿¡æ¯
+unsub_from_thread:		ä¸é¢„å®šæœ¬ä¸»é¢˜
+unsub_from_thread_desc:		ä¸æ¥å—å…³äºè¿™ä¸ªä¸»é¢˜çš„æœ€æ–°å›å¤çš„é‚®ä»¶é€šçŸ¥
+unsubscribe:			ä¸é¢„å®š
+unsubscribe_desc:		å½“æœ¬è®ºå›æœ‰äººå‘å¸ƒæ–°çš„ä¸»é¢˜æ—¶ï¼Œè¯·å‹¿é€šçŸ¥æˆ‘ã€‚
+updated_on:			æ›´æ–°ï¼š
+user:				ç”¨æˆ·å
+user_counter:			æˆ‘ä»¬æœ‰ <b>{VAR: st_obj->user_count}</b> æ³¨å†Œç”¨æˆ·ã€‚
+user_info:			ç”¨æˆ·ä¿¡æ¯
+user_info_l:			ç”¨æˆ·ä¿¡æ¯ {VAR: u->alias}
+user_offline:			{VAR: obj->login}  ç°åœ¨ä¸åœ¨çº¿
+user_online:			{VAR: obj->login} ç°åœ¨åœ¨çº¿
+usrinfo_last_post:		ä¸Šä¸€æ¬¡ç™»å½•ï¼š
+view_results:			æŸ¥çœ‹ç»“æœ
+views:				ç‚¹å‡»
+vote:				{VAR: frm->n_rating} æŠ•ç¥¨
+vote_button:			æŠ•ç¥¨
+vote_for_thread:		è°ƒæŸ¥
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> å·²ç»è¢«ç‰ˆä¸»ç§»è‡³<a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
+welcome_message:		æ¬¢è¿ï¼ <b>{VAR: usr->alias}</b>ï¼Œä½ ä¸Šä¸€æ¬¡è®¿é—®æ˜¯ {DATE: usr->last_visit %Y-%m-%d %H:%M}
+what_ppl_doing:			æ˜¾ç¤ºæµè§ˆè€…çš„æ“ä½œ
+reported_del_report:		åˆ é™¤æŠ¥å‘Š
+reported_reason:		åŸå› 
+reported_on:			å…³äºï¼š
+reported_reported_by:		æŠ¥å‘Šæå‡ºäººï¼š
+reported_reported_msg:		æŠ¥å‘Šç›¸å…³å†…å®¹
+modque_pending_approval:	ç­‰å¾…æ‰¹å¤çš„ä¿¡æ¯
+modque_approve:			æ‰¹å¤
+modque_delete:			åˆ é™¤
+modque_no_message:		æ²¡æœ‰éœ€è¦æ‰¹å¤çš„ä¿¡æ¯
+pmsg_new_messages:		æœªè¯»æ‚„æ‚„è¯
+pmsg_old_messages:		é˜…è¯»æ‚„æ‚„è¯
+deny_recipt:			æ‹’ç»æ¥å—
+deny_recipt_desc:		çº¦è¯»è¿™æ¡æ¶ˆæ¯åä¸å‘é€ç¡®è®¤ä¿¡æ¯
+restore_to:			å­˜å…¥ï¼š
+move_to:			ç§»è‡³ï¼š
+list_referes_referrals:		è¢«æåè€…
+list_referes_members:		è¢«æåçš„ç”¨æˆ·
+list_referes_member:		ç”¨æˆ·
+referals_none:			ç›®å‰è¿˜æ²¡æœ‰è¢«æåçš„äººã€‚
+referals_refered_by:		è¢«æ¨èçš„è®ºå›æˆå‘˜æ˜¯ï¼š<b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:		å‘å¸–æ•°
+referals_registered_on:		ç™»å½•
+referals_action:		æ“ä½œ
+pmsg_all:			æ‰€æœ‰
+pmsg_none:			æ²¡æœ‰
+folder:				æ–‡ä»¶å¤¹ï¼š
+pmsg_replied:			å›å¤
+pmsg_forwarded:			å‘å‰
+pmsg_subject:			ä¸»é¢˜
+pmsg_author:			ä½œè€…
+pmsg_time:			æ—¥æœŸ
+pmsg_selected:			é€‰æ‹©
+pmsg_delete:			åˆ é™¤
+cur_ppage_pm:			æ‚„æ‚„è¯é€šçŸ¥
+writing_pm:			å†™æ‚„æ‚„è¯
+browsing_folder:		æµè§ˆ <b>{VAR: folders[$folder_id]}</b> æ–‡ä»¶å¤¹
+inbox:				æ”¶ä»¶ç®±
+draft:				è‰ç¨¿ç®±
+sent:				å‘ä»¶ç®±
+trash:				åƒåœ¾ç®±
+msg_author:			ä½œè€…
+avatar_sel_form:		é€‰æ‹©å¤´åƒ
+no_avatars:			æ²¡æœ‰å¯ç”¨çš„å¤´åƒ
+month_1:			1æœˆ
+month_2:			2æœˆ
+month_3:			3æœˆ
+month_4:			4æœˆ
+month_5:			5æœˆ
+month_6:			6æœˆ
+month_7:			7æœˆ
+month_8:			8æœˆ
+month_9:			9æœˆ
+month_10:			10æœˆ
+month_11:			11æœˆ
+month_12:			12æœˆ
+male:				ç”·
+female:				å¥³
+register_tree_view:		æ ‘çŠ¶æµè§ˆ
+register_flat_view:		å±•å¼€æµè§ˆ
+use_forum_default:		ä½¿ç”¨è®ºå›é»˜è®¤å€¼
+finduser_user_info:		ç”¨æˆ·ä¿¡æ¯
+finduser_by_login:		è´¦å·ï¼š
+finduser_submit:		æŸ¥æ‰¾
+finduser_no_such_user:		æ²¡æœ‰è¿™ä¸ªç”¨æˆ·
+finduser_user:			ç”¨æˆ·å
+finduser_postcount:		å‘å¸–æ•°
+finduser_joindate:		æ³¨å†Œæ—¥æœŸ
+finduser_action:		æ“ä½œ
+yes:				æ˜¯
+no:				å¦
+edit_time_limit:		<br><b>ç¼–è¾‘æ—¶é—´é™åˆ¶ä¸º</b>ï¼š<b>{GVAR: EDIT_TIME_LIMIT}</b> åˆ†é’Ÿ
+no_edit_time_limit:		<br><b>ç¼–è¾‘æ—¶é—´é™åˆ¶</b>ï¼š<b>ä¸é™</b>
+pmuserloc_login:		ç™»å½•ï¼š
+pmuserloc_submit:		æäº¤
+pmuserloc_user:			ç”¨æˆ·
+pmuserloc_no_result:		æ²¡æœ‰ç»“æœ
+register_builtin:		é€‰æ‹©å¤´åƒï¼š
+register_specify_url:		æŒ‡å®šåœ°å€
+register_uploaded:		ä¸Šä¼ å¤´åƒ
+register_login:			è´¦å·ï¼š
+register_password:		å¯†ç ï¼š
+register_conf_pass:		å¯†ç ç¡®è®¤ï¼š
+register_email_desc:		è¯·è¾“å…¥æ­£ç¡®çš„ç”µå­é‚®ä»¶åœ°å€ã€‚åœ¨ä¸‹é¢çš„å‚æ•°é€‰é¡¹ä¸­ä½ å¯ä»¥é€‰æ‹©ä¸åœ¨è®ºå›ä¸­æ˜¾ç¤ºè‡ªå·±çš„é‚®ä»¶åœ°å€ã€‚
+register_name:			å§“åï¼š
+register_your_pass:		å¯†ç ï¼š<br /><font color=red><b>ä¿®æ”¹ä»»ä½•ä¸ªäººä¿¡æ¯éƒ½å¿…é¡»å¡«å†™å½“å‰å¯†ç ï¼</b></font>
+register_update:		æ›´æ–°
+register_avatar_type:		å¤´åƒç±»å‹ï¼š
+register_del_avatar:		åˆ é™¤å¤´åƒ
+register_avatar:		å¤´åƒï¼š
+register_sel_avatar:		é€‰æ‹©å¤´åƒ
+register_custom_avatar_rules:	åªæœ‰ç»è¿‡ç³»ç»Ÿç®¡ç†å‘˜å…è®¸åï¼Œæ‰èƒ½å‡ºç°å®šåˆ¶çš„å¤´åƒã€‚<br><font class="SmallText">å¤´åƒä¸èƒ½å¤§äº<b>{GVAR: CUSTOM_AVATAR_MAX_DIM} åƒç´ </b> å…·ä½“å¤§å°æ˜¯<b>jpg</b>, <b>gif</b> or <b>png</b> </font>
+register_custom_avatar_url:	å®šåˆ¶å¤´åƒåœ°å€ï¼š
+register_preview:		é¢„è§ˆ
+register_custom_avatar_upload:	å®šåˆ¶å¤´åƒæ–‡ä»¶ï¼š
+register_register:		æ³¨å†Œ
+register_required:		å¿…å¡«ä¿¡æ¯
+register_required_desc:		æ‰€æœ‰å†…å®¹éƒ½å¿…é¡»å¡«å†™ã€‚è¯·æ³¨æ„å¯†ç æ˜¯åŒºåˆ†å¤§å°å†™çš„ã€‚
+register_optional:		å¯é€‰æ‹©çš„ä¿¡æ¯
+register_optional_desc:		ç”±äºä½ çš„ä¿¡æ¯å°†ä¼šè¢«åˆ«çš„è®ºå›æˆå‘˜çœ‹åˆ°ï¼Œå› æ­¤æˆ‘ä»¬å»ºè®®ä½ å¡«å†™ä¿¡æ¯æ—¶ä¸è¦æš´éœ²è‡ªå·±çš„ä¸ªäººèº«ä»½ã€‚
+register_location:		åœ°å€ï¼š
+register_occupation:		èŒä¸šï¼š
+register_interests:		å…´è¶£ï¼š
+register_image:			å¤´åƒï¼š
+register_icq:			ICQï¼š
+register_aim:			AIMï¼š
+register_yahoo:			Yahooä¿¡æ¯ï¼š
+register_msnm:			MSNä¿¡æ¯ï¼š
+register_homepage:		ä¸»é¡µï¼š
+register_bday:			ç”Ÿæ—¥ï¼š
+register_bday_desc:		å¦‚æœä½ é€‰æ‹©äº†â€œç”Ÿæ—¥â€é€‰é¡¹ï¼Œåˆ«çš„è®ºå›æˆå‘˜å°†åœ¨ä½ çš„ä¸ªäººä¿¡æ¯ä¸­çœ‹åˆ°ã€‚
+register_day:			æ—¥
+register_month:			æœˆ
+register_year:			å¹´
+register_gender:		æ€§åˆ«
+register_bio:			ä¸ªäººç®€ä»‹ï¼š
+register_bio_desc:		å…¶å®ƒçš„ä¸€äº›ä¸ªäººä¿¡æ¯ï¼Œæ¯”å¦‚å…´è¶£ã€èŒä¸šç­‰ç­‰ã€‚
+register_prefs:			å‚æ•°é€‰æ‹©
+register_sig:			ç­¾åï¼š
+register_sig_desc:		è·Ÿåœ¨ä½ çš„å‘è¨€åçš„ä¸ªæ€§åŒ–ç­¾åã€‚
+register_reset:			é‡å¡«
+register_def_thread_view:	é»˜è®¤ä¸»é¢˜æµè§ˆæ–¹å¼ï¼š
+register_msg_per_page:		æ¯é¡µå¸–å­æ•°ï¼š
+register_show_sig:		æ˜¾ç¤ºç­¾åï¼š
+register_show_sig_desc:		é€‰æ‹©æ˜¯å¦åœ¨å‘å¸–åæ˜¾ç¤ºä½ çš„ç­¾åæ¡£ã€‚
+register_use_sig_default:	æ˜¾ç¤ºå…¶ä»–æˆå‘˜ç­¾åï¼š
+register_use_sig_default_desc:	æ˜¯å¦æ˜¾ç¤ºå…¶ä»–è®ºå›æˆå‘˜çš„ç­¾åæ¡£ã€‚
+register_timezone:		æ—¶åŒºï¼š
+register_ignore_admin:		å¿½ç•¥ç®¡ç†ä¿¡æ¯ï¼š
+register_invisible_mode:	éšèº«ç™»å½•ï¼š
+register_invisible_mode_desc:	ç™»å½•åæ˜¯å¦æ˜¾ç¤ºåœ¨åœ¨çº¿ç”¨æˆ·åˆ—è¡¨ä¸­ã€‚
+register_show_email:		æ˜¾ç¤ºç”µå­é‚®ä»¶åœ°å€ï¼š
+register_show_email_desc:	å¦‚æœä½ æƒ³å…¬å¼€è‡ªå·±çš„ç”µå­é‚®ä»¶åœ°å€ï¼Œè¯·é€‰æ‹©è¿™ä¸ªé€‰é¡¹ã€‚
+register_notification:		æ˜¯å¦é»˜è®¤æ‰“å¼€æé†’åŠŸèƒ½ï¼š
+register_notification_desc:	å¦‚æœé€‰æ‹©"æ˜¯"ï¼Œåœ¨å‘å¸–æ—¶ä¾ç„¶å¯ä»¥é€‰æ‹©æ˜¯å¦æé†’ã€‚
+register_notify_method:		è¯·é€‰æ‹©æé†’æ–¹å¼ï¼š
+register_notify_js_error:	ä½ é€‰æ‹©äº†é€šè¿‡ICQæ¥æ”¶é€šå‘Š, ä½†æ˜¯æ²¡æœ‰å¡«å…¥ICQ #. é»˜è®¤çš„ç”µå­é‚®ä»¶åœ°å€æ˜¯Email&#46;
+register_allow_email_msg:	å…è®¸å‘ä½ çš„ç”µå­é‚®ç®±å‘é€ä¿¡æ¯ï¼š
+register_allow_email_msg_desc:	å…è®¸åˆ«çš„ç”¨æˆ·é€šè¿‡æœ¬è®ºå›å‘ä½ å‘é€é‚®ä»¶ã€‚
+buddy_status:			çº§åˆ«
+my_buddies:			æˆ‘çš„å¥½å‹
+add_buddy:			æ·»åŠ å¥½å‹
+add:				æ·»åŠ 
+buddy_search:			è¾“å…¥è¦æ·»åŠ çš„ç”¨æˆ·åã€‚
+buddy_remove:			åˆ é™¤
+post_normal:			æ­£å¸¸
+post_sticky:			ç½®é¡¶
+post_annoncement:		å…¬å‘Š
+post_size:			å¤§å°
+post_color:			é¢œè‰²
+post_font:			å­—ä½“
+create_thread:			ç”Ÿæˆä¸»é¢˜
+submit_reply:			å›å¤
+edit_message:			ç¼–è¾‘ä¿¡æ¯
+apply_spell_changes:		åº”ç”¨æ‹¼å†™æ£€æŸ¥çš„æ›´æ”¹ã€‚
+post_preview:			é¢„è§ˆ
+post_logedin_user:		ç™»å½•ç”¨æˆ·ï¼š
+post_logout:			æ³¨é”€
+post_passwd:			è¾“å…¥å¯†ç 
+post_poll:			è°ƒæŸ¥ï¼š
+post_create_poll:		å‘èµ·è°ƒæŸ¥
+post_poll_delete:		åˆ é™¤
+post_poll_edit:			ç¼–è¾‘
+post_mod_opt:			ç‰ˆä¸»é€‰é¡¹
+post_thread_type:		ä¸»é¢˜ç±»å‹
+post_thread_expiry:		ä¸»é¢˜åˆ°æœŸæœŸé™ï¼š
+post_locked:			è¢«é”å®šï¼ˆä¸å¯å›å¤ï¼‰çš„ä¸»é¢˜
+post_icons:			æ·»åŠ å›¾æ ‡ï¼š
+post_no_icon:			ä¸ç”¨å›¾æ ‡
+post_smiley:			è¡¨æƒ…ç¬¦å·ï¼š
+post_format_tools:		ç¼–è¾‘å·¥å…·ï¼š
+post_upload_file:		ä¸Šä¼ 
+post_file_del:			åˆ é™¤
+post_file_name:			å§“å
+post_file_size:			å¤§å°
+file_attachments:		æ·»åŠ é™„ä»¶ï¼š
+allowed_files:			å…è®¸çš„æ–‡ä»¶æ‰©å±•åï¼š
+max_file_size:			æ–‡ä»¶çš„æœ€å¤§é™åˆ¶ï¼š
+max_files_per_msg:		æ¯æ¡ä¿¡æ¯å…è®¸æ·»åŠ çš„æœ€å¤šæ–‡ä»¶ï¼š
+post_notification:		å‘å¸ƒé€šå‘Š
+include_sig:			ä½¿ç”¨ç­¾å
+include_sig_desc:		åŒ…æ‹¬æˆ‘çš„ä¸ªäººç­¾åã€‚
+disable_smilies:		è¿™æ¡ä¿¡æ¯ä¸­ä¸ä½¿ç”¨è¡¨æƒ…ç¬¦å·
+spell_check_msg:		æ‹¼å†™æ£€æŸ¥ä¿¡æ¯
+post_form:			å‘å¸ƒè¡¨æ ¼
+post_forum:			è®ºå›ï¼š
+post_title:			ä¸»é¢˜ï¼š
+post_body:			å†…å®¹ï¼š
+post_options:			é€‰é¡¹ï¼š
+post_preview_btn:		é¢„è§ˆ
+ignore_users:			è¢«æ‹’ç»çš„ç”¨æˆ·
+add_ignore:			æ·»åŠ è¢«æ‹’ç»çš„ç”¨æˆ·
+forum_terms:			è®ºå›åè®®
+forum_rules:			æœ¬è®ºå›å…è´¹æ³¨å†Œï¼æˆ‘ä»¬å¸Œæœ›ä½ åŠ¡å¿…éµå®ˆä¸‹åˆ—æ”¿ç­–å’Œè§„å®šã€‚å¦‚æœä½ åŒæ„è¿™äº›è§„å®šï¼Œè¯·ç‚¹å‡»æœ¬é¡µæœ€ä¸‹é¢çš„â€œæˆ‘åŒæ„â€æŒ‰é’®ã€‚æ³¨ï¼šå¦‚æœä½ ç‚¹å‡»äº†æ­¤æŒ‰é’®å³è¡¨æ˜ä½ å®£å‘Šè‡ªå·±æ˜¯13å²ä»¥ä¸Šå…¬æ°‘ï¼›å¦‚æœä½ æœªæ»¡13å²ï¼Œè¯·é¢†å–æ³¨å†Œè¡¨ã€‚<p>å°½ç®¡è®ºå›ç®¡ç†å‘˜å’Œç‰ˆä¸»å°†å°½åŠ›æ¸…é™¤éæ³•è¨€è®ºï¼Œä½†æ˜¯éš¾å…æŒ‚ä¸€æ¼ä¸‡ã€‚å› æ­¤æˆ‘ä»¬åœ¨æ­¤éƒ‘é‡å£°æ˜ï¼Œæ‰€æœ‰å‘è¨€éƒ½ä»…ä»£è¡¨ä½œè€…è§‚ç‚¹ï¼Œä½œè€…è¨€è´£è‡ªè´Ÿã€‚è®ºå›æ‰€æœ‰è€…å’Œå‘å±•å•†å¯¹æ­¤ä¸è´Ÿä»»ä½•è´£ä»»ã€‚<p>ç‚¹å‡»äº†â€œæˆ‘åŒæ„â€æŒ‰é’®å³è¡¨æ˜ä½ ä¿è¯ä¸åœ¨è®ºå›ä¸Šå‘å¸ƒä»»ä½•æ·«ç§½ã€è‰²æƒ…ã€ååŠ¨ã€æš´åŠ›ç­‰éæ³•è¨€è®ºã€‚<p>è®ºå›ç®¡ç†è€…æœ‰æƒå› ä¸ºä»»ä½•ç†ç”±ç¼–è¾‘ã€åˆ é™¤æˆ–è€…å…³é—­ä»»ä½•å‘è¨€ã€‚<p>
+forum_rules_13:			æ‰€æœ‰13å²ä»¥ä¸‹ç”¨æˆ·å¿…é¡»ç»è¿‡çˆ¶æ¯æˆ–è€…ç›‘è§†äººå…è®¸æ‰èƒ½æˆä¸ºè®ºå›æˆå‘˜ã€‚æˆ‘ä»¬æ¬¢è¿13å²ä»¥ä¸‹ç”¨æˆ·åŠ å…¥ï¼Œä½†æ˜¯åªæœ‰åœ¨æ”¶åˆ°ä½ çš„çˆ¶æ¯æˆ–è€…ç›‘æŠ¤äººé€šè¿‡ä¼ çœŸæˆ–è€…ç”µå­é‚®ä»¶ç»™æˆ‘ä»¬çš„ç­¾åæˆæƒæ–‡ä»¶ä»¥åï¼Œæˆ‘ä»¬æ‰èƒ½é€šè¿‡ä½ çš„ç”³è¯·ã€‚<p>å¦‚æœä½ æƒ³åœ¨æˆ‘ä»¬æ”¶åˆ°æˆæƒæ–‡ä»¶ä¹‹å‰æ³¨å†Œï¼Œè¯·ç‚¹å‡»ä¸‹é¢çš„â€œæˆ‘åŒæ„â€æŒ‰é’®ï¼Œå¦‚æœä½ ä¸æƒ³ç»§ç»­æ³¨å†Œï¼Œè¯·ç‚¹å‡»â€œåˆ é™¤â€æŒ‰é’®å›åˆ°è®ºå›ä¸»é¡µã€‚<p>ä½ å¯ä»¥åœ¨è¿™é‡Œä¸‹è½½æˆæƒæ–‡ä»¶ï¼Œæƒ³äº†è§£æ›´å¤šçš„ä¿¡æ¯è¯·å‘é‚®ä»¶è‡³<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>ã€‚<p>
+coppa_conf:			æ³¨å†Œç¡®è®¤
+coppa_before:			ä¹‹å‰ {DATE: coppa %Y-%m-%d}
+coppa_after:			ä¹‹å{DATE: coppa %Y-%m-%d}
+coppa_link:			æ ¹æ®ä½ çš„å‡ºç”Ÿæ—¥æœŸï¼Œè¯·é€‰æ‹©
+coppa:				å¯¹äº13å²ä»¥ä¸‹çš„ç”¨æˆ·ï¼Œåªæœ‰å½“è®ºå›ç®¡ç†å‘˜æ”¶åˆ°äº†ä½ çš„çˆ¶æ¯æˆ–è€…ç›‘æŠ¤äººçš„ç¡®è®¤é‚®ä»¶æˆ–è€…ä¼ çœŸä»¥åæ‰èƒ½å®Œæˆæ³¨å†Œã€‚<p>è¦äº†è§£æ›´å¤šçš„ä¿¡æ¯ï¼Œè¯·è”ç³»<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+prereg_info:			ä¿¡æ¯
+prereg_agree:			åŒæ„
+prereg_disagree:		ä¸åŒæ„
+coppa_fax_instructions:		çˆ¶æ¯æˆ–ç›‘æŠ¤äººä»‹ç»
+coppa_fax_instructions2:	è¯·æ‰“å°è¿™é¡µï¼Œå¹¶ç­¾åä¼ çœŸè‡³ï¼š
+coppa_fax_reg_form:		ç™»è®°è¡¨
+coppa_fax_sign:			è¯·åœ¨ä¸‹é¢çš„è¡¨æ ¼ç­¾å­—å¹¶ä¸”å¯„ç»™æˆ‘ä»¬
+coppa_fax_conf:			æˆ‘å·²ç»çŸ¥é“äº†æˆ‘çš„å­©å­åœ¨è´µç½‘ç«™æäº¤çš„ç›¸å…³æ³¨å†Œä¿¡æ¯å¹¶ä¸”ä»”ç»†é˜…è¯»äº†è´µç½‘ç«™çš„ç›¸å…³éšç§æ¡æ¬¾ã€‚ æˆ‘çŸ¥é“é€šè¿‡å¯†ç å¯ä»¥ä¿®æ”¹ç›¸å…³ä¿¡æ¯å¹¶ä¸”æˆ‘å¯ä»¥è¦æ±‚æ›´æ”¹æ‰€æœ‰ä¿¡æ¯ã€‚
+coppa_fax_permission:		å¦‚æœåŒæ„è¯·ç­¾å­—
+coppa_fax_no_permission:	å¦‚æœä¸åŒæ„è¯·ç­¾å­—
+coppa_fax_parent_name:		çˆ¶æ¯/ç›‘æŠ¤äººçš„çœŸå®å§“å
+coppa_fax_relation:		å’Œå­©å­çš„å…³ç³»ï¼š
+coppa_fax_telephone:		ç”µè¯
+coppa_fax_email:		ç”µå­é‚®ç®±
+coppa_fax_date:			æ—¥æœŸ
+coppa_fax_questions:		æœ‰ä»»ä½•é—®é¢˜è¯·è”ç³» <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa_fax_login:		è´¦å·
+coppa_fax_passwd:		å¯†ç 
+coppa_fax_remail:		ç”µå­é‚®ç®±
+coppa_fax_name:			å§“å
+login_not_logedin:		ä½ å°šæœªç™»å½•ã€‚åŸå› æ˜¯ï¼š
+login_cookie_expired:		ä½ çš„cookieåŠŸèƒ½è¢«ç»ˆæ­¢äº†ã€‚éœ€è¦ç™»å½•é‡æ–°å¼€å¯cookieåŠŸèƒ½ã€‚
+login_perm_denied:		ä½œä¸ºåŒ¿åç”¨æˆ·ï¼Œåªæœ‰ç™»å½•ä»¥åæ‰æœ‰æƒé™è®¿é—®ç›¸å…³èµ„æºã€‚
+login_want_to_register:		å…ˆæ³¨å†Œ?
+login_forgot_passwd:		å¯†ç å¿˜äº†
+login_use_cookie:		ä½¿ç”¨cookiesåŠŸèƒ½<br><font class="SmallText">å¦‚æœä½ æ˜¯åœ¨å­¦æ ¡ã€å›¾ä¹¦é¦†ã€ç½‘å§ç­‰å…¬å…±åœºåˆä½¿ç”¨è®¡ç®—æœºï¼Œä¸ºå®‰å…¨èµ·è§ï¼Œå»ºè®®ä½ ä¸è¦ä½¿ç”¨è¿™ä¸ªåŠŸèƒ½ã€‚
+login_login:			ç™»å½•
+login_login_btn:		ç™»å½•
+login_name_required:		ç™»å½•æ—¶å¿…é¡»è¾“å…¥è´¦å·
+login_passwd_required:		è¾“å…¥å¯†ç 
+login_invalid_radius:		é”™è¯¯çš„è´¦å·æˆ–å¯†ç 
+reset_confirmation:		è°¢è°¢æ³¨å†Œï¼\n\nè¿›å…¥å½“å‰è´¦å·ï¼Œè¯·ç‚¹å‡»ä¸‹é¢çš„åœ°å€ï¼š\n\n{VAR: url}\n\nä¸€æ—¦è¿›å…¥å½“å‰è´¦æˆ·ï¼Œä½ å°†ç›´æ¥è¿›å…¥\nè®ºå›ä¸»é¡µã€‚\n
+reset_reset:			ä½ å¥½,\n\nä½ æäº¤äº†é‡æ–°è®¾ç½®å¯†ç çš„è¯·æ±‚ï¼Œéœ€è¦é‡æ–°è®¾ç½®å¯†ç \nè¯·ç‚¹å‡»\n\n{VAR: url}\n\næ³¨æ„ï¼šæœ¬è®ºå›ä»¥å•å‘åŠ å¯†çš„æ–¹å¼å‚¨å­˜å¯†ç ï¼Œå³\nå¯†ç ä¸€ç»è¾“å…¥å³è¢«é‡æ–°ç¼–ç ã€æ— æ³•æ‰¾å›ã€‚\nä½ æ¯æ¬¡ç™»å½•è¾“å…¥å¯†ç æ—¶ï¼Œ\nè¯¥ç³»ç»Ÿå°†è‡ªåŠ¨å¯¹å¯†ç è¿›è¡Œæ ¡éªŒã€‚ï¼ˆå¦‚æœä½ å¯¹æ­¤åŠ å¯†æ–¹å¼æ„Ÿå…´è¶£ï¼Œè¯·æŸ¥é˜…å…³äºMD5åŠ å¯†ç®—æ³•çš„ç›¸å…³èµ„æ–™ã€‚ï¼‰
+rpasswd_invalid_passwd:		å¯†ç é”™è¯¯
+rpasswd_passwd_nomatch:		å¯†ç ä¸ç¬¦
+rpasswd_passwd_length:		å¯†ç å¿…é¡»è‡³å°‘6ä¸ªå­—ç¬¦
+reset_remind_pass:		å¯†ç æç¤ºé—®é¢˜
+reset_reset_conf:		ä½ çš„å¯†ç å·²ç»é‡æ–°è®¾å®šï¼Œå¹¶å°†å‘é€ç”µå­é‚®ä»¶ç»™ä½ è¿›è¡Œç¡®è®¤ã€‚å¦‚æœæ²¡æœ‰ç¡®è®¤ï¼Œç³»ç»Ÿå°†å†æ¬¡å‘é€ç¡®è®¤é‚®ä»¶ã€‚
+reset_error:			ä½ çš„ä¸ªäººèµ„æ–™ä¸­æ²¡æœ‰è¿™ä¸ªç”µå­é‚®ä»¶åœ°å€ã€‚
+rpasswd_change_pass:		ä¿®æ”¹å¯†ç 
+rpasswd_login:			ç™»å½•
+rpasswd_cur_pass:		å½“å‰å¯†ç ï¼š
+rpasswd_new_pass:		æ–°å¯†ç ï¼š
+rpasswd_conf_pass:		å¯†ç ç¡®è®¤ï¼š
+login_passwd:			å¯†ç ï¼š
+reset_email:			ç”µå­é‚®ç®±ï¼š
+reset_reset_button:		é‡æ–°è¾“å…¥å¯†ç 
+rate_this_thread:		è¯„ä»·
+report_reporting_about:		æŠ¥å‘Šä¸»é¢˜ï¼š
+report_subject:			ä¸»é¢˜ï¼š
+report_by:			å‘å¸ƒï¼š
+report_posted_on:		å‘å¸–æ—¶é—´ï¼š
+report_give_reason:		è¯·å¡«å†™ä½ æŠ¥å‘Šè¿™ä¸ªä¸»é¢˜çš„åŸå› ï¼š
+report_submit_report:		å®Œæˆ
+search_entire_msg:		å…¨æ–‡æœç´¢
+search_subect_only:		ä¸»é¢˜æœç´¢
+search_forum:			è®ºå›
+search_posted_on:		æäº¤
+search_no_results:		æ²¡æœ‰æŸ¥è¯¢ç»“æœ
+search_all_forums:		æœç´¢æ‰€æœ‰è®ºå›
+search_in_forum:		æœç´¢è¿™ä¸ªè®ºå›ï¼š
+search_forum_search:		è®ºå›æœç´¢
+move_thread_to:			æŠŠæœ¬ä¸»é¢˜ç§»è‡³ <b>{VAR: thr->subject}</b> ï¼š
+remail_email_topic:		é€šè¿‡ç”µå­é‚®ä»¶å‘æœ‹å‹æ¨èè¿™ä¸ªä¸»é¢˜
+remail_your_name:		ä½ çš„å§“åï¼š
+remail_your_email:		ä½ çš„ç”µå­é‚®ç®±ï¼š
+remail_friends_name:		æœ‹å‹çš„åå­—ï¼š
+remail_friends_email:		æœ‹å‹çš„ç”µå­é‚®ç®±ï¼š
+remail_required:		å¿…å¡«çš„
+remail_subject:			ä¸»é¢˜ï¼š
+remail_message:			å†…å®¹ï¼š
+remail_send_now:		å‘é€é‚®ä»¶
+remail_anon_opt:		æŠŠè¿™äº›å†…å®¹æ‹·è´åˆ°ä½ é€‰æ‹©çš„é‚®ä»¶åœ°å€ä¸­ï¼Œå‘é€ç»™ä½ çš„æœ‹å‹ã€‚
+remail_done:			å®Œæˆ
+remail_sent_conf:		ç»™ä½ çš„æœ‹å‹ {VAR-HTML: _POST['femail']} çš„å…³äº{{VAR: data->subject} çš„é‚®ä»¶å·²ç»æˆåŠŸå‘é€ã€‚
+remail_error:			å‘ç”Ÿäº†é”™è¯¯
+mklist_type:			ç±»å‹ï¼š
+mklist_option:			é€‰é¡¹ï¼š
+mklist_additem:			æ·»åŠ æ¡ç›®
+mklist_apply:			æäº¤
+mklist_delete:			åˆ é™¤
+qbud_nick_name:			æ˜µç§°
+qbud_add_selected:		æ·»åŠ é€‰å®šç”¨æˆ·
+qbud_selected:			é€‰æ‹©
+qbud_no_buddies:		æ²¡æœ‰ç”¨æˆ·é€‰æ‹©
+mklist_numerical:		æ•°å­—
+mklist_aplha:			å­—æ¯
+mklist_square:			æ–¹ç‚¹
+mklist_disc:			åœ†ç‚¹
+mklist_circle:			åœ†åœˆ
+mklist_close:			å–æ¶ˆ
+email_to:			è‡³ï¼š
+email_pg_title:			ç”µå­é‚®ç®±
+email_subject:			ä¸»é¢˜ï¼š
+email_body:			å†…å®¹ï¼š
+email_submit:			å‘é€
+ppost_quote_msg:		{VAR: msg_to_list} äº {DATE: msg_r->post_stamp %Y-%m-%d %H:%M} åœ¨å¤§ä½œä¸­æåˆ°ï¼š
+ppost_quote:			å¼•ç”¨ï¼š
+ppost_to:			è‡³ï¼š
+ppost_from_buddy_list:		ä»å¥½å‹åå•ä¸­é€‰æ‹©
+ppost_find_User:		æŸ¥æ‰¾ç”¨æˆ·
+ppost_track_msg:		è·Ÿè¸ªè¿™æ¡ä¿¡æ¯
+ppost_track_msg_desc:		å½“è¿™æ¡ä¿¡æ¯è¢«é˜…è¯»æ—¶è¯·ç”¨æ‚„æ‚„è¯é€šçŸ¥æˆ‘ã€‚
+ppost_send:			å‘é€
+ppost_save_draft:		ä¿å­˜è‰ç¨¿
+poll_blank_option:		ä½ ä¸èƒ½æäº¤ç©ºçš„é€‰é¡¹ã€‚
+poll_del_conf:			å¦‚æœä½ æƒ³åˆ é™¤è¿™ä¸ªé€‰é¡¹ï¼Œè¯·æŒ‰OK
+poll_name:			è°ƒæŸ¥åç§°ï¼š
+poll_timelimit:			æ—¶é—´é™åˆ¶
+poll_maxiumvotes:		æœ€å¤§çš„æŠ•ç¥¨é‡
+poll_create:			å®Œæˆ
+poll_update:			æ›´æ–°
+poll_disablesmilies:		ä¸ä½¿ç”¨è¡¨æƒ…ç¬¦å·
+poll_create_poll:		å‘èµ·è°ƒæŸ¥
+poll_update_poll:		æ›´æ–°è°ƒæŸ¥
+poll_delete:			åˆ é™¤
+poll_updateoption:		æ›´æ–°é€‰é¡¹
+poll_addoption:			æ·»åŠ é€‰é¡¹
+poll_unlimited:			ä¸é™åˆ¶
+poll_day:			æ—¥æœŸ
+poll_days:			å¤©
+poll_hour:			å°æ—¶
+poll_hours:			å°æ—¶
+poll_month:			æœˆ
+poll_year:			å¹´
+poll_week:			å‘¨
+tabs_register:			è®¾ç½®
+tabs_subscriptions:		é¢„å®šå†…å®¹
+tabs_referrals:			æ¨è
+tabs_buddy_list:		å¥½å‹åˆ—è¡¨
+tabs_ignore_list:		é»‘åå•
+tabs_private_messaging:		æ‚„æ‚„è¯
+single_msg_delete:		ä½ æ­£è¦<font color="#ff0000" size="4">åˆ é™¤</font>æ ‡é¢˜ä¸ºï¼š<b>{VAR: data[3]}</b>çš„å¸–å­ã€‚<p>
+thread_delete:			ä½ æ­£è¦<font color="#ff0000" size="4">åˆ é™¤æ•´ä¸ªä¸»é¢˜</font> æ ‡é¢˜ä¸ºï¼š<b>{VAR: data[3]}</b><p>
+delete_proceed:			<font size="3"><b>æ˜¯å¦ç»§ç»­?</b></font>
+delete_yes:			æ˜¯
+delete_no:			å¦
+error_invalidurl:		è¯¥åœ°å€æ— æ•ˆ
+error_error:			é”™è¯¯
+usrinfo_profile:		{VAR: u->alias}çš„ä¸ªäººä¿¡æ¯
+usrinfo_show_all_posts:		æ˜¾ç¤ºç”¨æˆ· {VAR: u->alias}å‘å¸ƒçš„æ‰€æœ‰ä¸»é¢˜
+actions_update:			æŸ¥æ‰¾å’Œä½ çš„ä¸ªäººä¿¡æ¯å†…å®¹ç›¸åŒ¹é…çš„ç”¨æˆ·ã€‚
+err_info:			ä¿¡æ¯
+buddy_list_err_cantadd:		æ— æ³•æŠŠä½ åŠ å…¥å¥½å‹åå•
+buddy_list_err_dup:		ä½ çš„å¥½å‹åˆ—è¡¨ä¸­å·²ç»æ·»åŠ äº†è¿™ä¸ªç”¨æˆ·
+buddy_list_err_nouser:		ä½ è¦æ·»åŠ çš„ç”¨æˆ·ä¸å­˜åœ¨
+buddy_list_err_nouser_title:	æ— æ³•æ·»åŠ 
+buddy_list_update:		æµè§ˆæˆ‘çš„å¥½å‹åˆ—è¡¨
+core_err_invinp_title:		è¾“å…¥é”™è¯¯
+core_err_invinp_err:		ä½ è¾“å…¥äº†ä¸€ä¸ªé”™è¯¯çš„é“¾æ¥ï¼Œè¯·æ›´æ­£
+core_adm_login_msg:		<br><a href="adm/admloginuser.php">ç®¡ç†å‘˜ç™»é™†</a>
+email_err_unabletoemail_title:	é”™è¯¯ï¼šæ— æ³•å‘é€é‚®ä»¶
+email_err_unabletoemail_msg:	ç³»ç»Ÿç®¡ç†å‘˜è®¾ç½®é‚®ä»¶ç³»ç»Ÿæ— æ³•ä½¿ç”¨ã€‚
+email_error_unabletolocaddr:	å¯¹ä¸èµ·ï¼Œå› ä¸ºæ— æ³•ç™»å½•å¯¹æ–¹çš„é‚®ä»¶æœåŠ¡å™¨å¯¼è‡´ç³»ç»Ÿæ— æ³•å‘é€é‚®ä»¶{VAR-HTML: _POST['tx_name']}
+email_error_body:		å¿…é¡»å¡«å†™é‚®ä»¶å†…å®¹
+email_error_subject:		å¿…é¡»å¡«å†™é‚®ä»¶ä¸»é¢˜
+email_error_namerequired:	å¿…é¡»å¡«å†™é‚®ä»¶æ¥å—è€…å§“å
+email_error_invaliduser:	ç”¨æˆ·åé”™è¯¯
+emailconf_err_invkey_title:	é”™è¯¯
+emailconf_err_invkey_msg:	æ— æ•ˆçš„åœ°å€ã€‚è¯·æ£€æŸ¥å¹¶ç¡®è®¤ä½ çš„å¡«å†™çš„æ˜¯æ­£ç¡®çš„åœ°å€ä¿¡æ¯ã€‚
+err_inc_criticaltitle:		ç´§æ€¥é”™è¯¯
+err_inc_criticalmsg:		å‘ç”Ÿé”™è¯¯ï¼Œè€Œä¸”å¾ˆä¸å¹¸çš„æ˜¯é”™è¯¯æŠ¥å‘Šç³»ç»Ÿæœ¬èº«ä¹Ÿå­˜åœ¨é—®é¢˜ã€‚
+finduser_update:		æœç´¢ç”¨æˆ·
+help_index_update:		é˜…è¯»<a href="{TEMPLATE: help_index_update_lnk}">ä½¿ç”¨å¸®åŠ©</a>
+iemail_thr_subject:		æ–°çš„å›å¤ {VAR: thr_subject} ç”±{VAR: poster_login}
+iemail_thr_bodyemail:		æŸ¥çœ‹æœªè¯»çš„å›å¤ {VAR: goto_url['email']}\n\nå¦‚æœä½ ä¸æƒ³æ”¶åˆ°å…³äºè¿™ä¸ªä¸»é¢˜æ–°çš„å›å¤é€šçŸ¥ï¼Œè¯·ç‚¹å‡»ï¼š {VAR: unsub_url['email']}
+iemail_frm_subject:		è®ºå›æ–°ä¸»é¢˜ {VAR: frm_name} called {VAR: thr_subject}ç”±{VAR: poster_login}
+iemail_frm_bodyemail:		æŸ¥çœ‹ä¸»é¢˜ï¼š\n{VAR: goto_url['email']}\n\nä¸å†æ¥å—æœ¬è®ºå›çš„æ–°ä¸»é¢˜å‘å¸ƒé€šçŸ¥ï¼Œè¯·ç‚¹å‡»ï¼š {VAR: unsub_url['email']}
+ignore_list_err_info_title:	ä¿¡æ¯
+ignore_list_err_dup_msg:	ä½ å·²ç»æŠŠè¿™ç”¨æˆ·æ·»åŠ åˆ°ä½ çš„â€œè¢«æ‹’ç»ç”¨æˆ·â€åå•ä¸­ã€‚
+ignore_list_err_nu_title:	æ²¡æœ‰æ‰¾åˆ°è¿™ä¸ªç”¨æˆ·
+ignore_list_err_nu_msg:		æœ¬è®ºå›ä¸å­˜åœ¨ä½ è¦æ·»åŠ çš„ç”¨æˆ·ã€‚
+ignore_list_cantign_msg:	ä½ æ— æ³•æ‹’ç»è¯¥ç”¨æˆ·
+ignore_list_update:		æµè§ˆâ€œè¢«æ‹’ç»ç”¨æˆ·â€åå•
+index_update:			æµè§ˆ<a href="{TEMPLATE: index_update_lnk}">è®ºå›åˆ—è¡¨</a>
+list_referers_update:		æµè§ˆè¢«æåè€…
+login_update:			ç™»å½•æ ¼å¼
+msg_update:			å±•å¼€æµè§ˆ <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:		é”™è¯¯ï¼šæ— æ³•å‘é€æ‚„æ‚„è¯
+pm_err_nopm_msg:		ç³»ç»Ÿç®¡ç†å‘˜ç¦æ­¢ä½ ä½¿ç”¨æ‚„æ‚„è¯ç³»ç»Ÿã€‚
+pm_update:			ä½¿ç”¨æ‚„æ‚„è¯åŠŸèƒ½
+post_err_lockedthread_title:	é”™è¯¯ï¼šè¯¥å¸–å­å·²è¢«é”å®š
+post_err_lockedthread_msg:	è¿™ä¸ªä¸»é¢˜å·²è¢«é”å®šï¼Œä¸èƒ½å›å¤
+err_coppa_title:		é”™è¯¯ï¼šä½ æ²¡æœ‰æ­¤é¡¹æƒé™
+err_coppa_msg:			æˆ‘ä»¬è¿˜æ²¡æœ‰æ”¶åˆ°æ¥è‡ªä½ çˆ¶æ¯æˆ–è€…æ³•å®šç›‘æŠ¤äººçš„å…³äºåŒæ„ä½ å‘å¸ƒå¸–å­çš„ç¡®è®¤è¯æ˜ã€‚ å¦‚æœä¸¢å¤±äº†ç”³è¯·è¡¨ï¼Œ<a href="{TEMPLATE: err_coppa_msg_lnk}">è¯·ç‚¹è¿™é‡Œ</a>ã€‚
+post_err_edttimelimit_title:	é”™è¯¯
+post_err_edttimelimit_msg:	ä½ ä¸èƒ½å†ç¼–è¾‘è¿™æ¡ä¿¡æ¯
+post_err_floodtrig_title:	é”™è¯¯ï¼šå‘å¸ƒçŒæ°´å¸–å­
+post_err_floodtrig_msg:		è¯·åœ¨{VAR: tm}ç§’ä»¥å†…é‡è¯•
+post_err_attach_size:		<font class="ErrorText">é™„ä»¶æ–‡ä»¶å¤ªå¤§ï¼ˆè¶…è¿‡äº†å…è®¸çš„æœ€å¤§{VAR: MAX_F_SIZE}å­—èŠ‚)</font><br>
+post_err_attach_ext:		<font class="ErrorText">ä½ æ­£åœ¨ä¸Šä¼ çš„æ–‡ä»¶ç±»å‹ä¸ç¬¦åˆè®ºå›å¯¹ä¸Šä¼ æ–‡ä»¶ç±»å‹çš„è®¾ç½®ã€‚</font><br>
+post_err_attach_filelimit:	<font class="ErrorText">ä½ æ­£åœ¨ä¸Šä¼ çš„æ–‡ä»¶è¶…è¿‡äº†é™åˆ¶çš„æ•°é‡ã€‚</font><br>
+post_err_passwd:		å¯†ç é”™è¯¯ã€‚
+post_reply_update:		å›å¤ <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> åœ¨ {VAR-HTML: frm->name}
+post_topic_update:		å‘è¡¨æ–°ä¸»é¢˜ <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_error_generic:		å‘ç”Ÿé”™è¯¯
+postcheck_max_images_err:	ä¸€æ¬¡æäº¤å›¾ç‰‡å…è®¸çš„æœ€å¤§æ•°æ˜¯{GVAR: MAX_IMAGE_COUNT} ï¼Œè¯·å°½é‡å‡å°‘å›¾ç‰‡æ•°é‡ã€‚
+postcheck_subj_needed:		è¾“å…¥ä¸»é¢˜
+postcheck_no_such_user:		æœ¬è®ºå›æ²¡æœ‰ "{FUNC: char_fix(htmlspecialchars($v))}" ç”¨æˆ·
+postcheck_ignored:		"{FUNC: char_fix(htmlspecialchars($v))}"ç”¨æˆ·æ‹’ç»æ¥å—ä½ çš„æ‚„æ‚„è¯ã€‚
+postcheck_no_recepient:		å› ä¸ºæ²¡æœ‰æ¥å—æ–¹ï¼Œæ‰€ä»¥æ— æ³•å‘é€ä¿¡æ¯
+postcheck_invalid_email:	è¯·è¾“å…¥ä½ çš„æœ‹å‹çš„æ­£ç¡®ç”µå­é‚®ç®±åœ°å€ã€‚
+postcheck_email_subject:	å¦‚æœä¸è¾“å…¥ä¸»é¢˜ï¼Œä½ å°†æ— æ³•å‘é€é‚®ä»¶ã€‚
+postcheck_email_body:		å¦‚æœæ²¡æœ‰å†…å®¹ï¼Œä½ å°†æ— æ³•å‘é€é‚®ä»¶ã€‚
+private_msg_notify_subj:	è¯»å–é€šçŸ¥ï¼š{VAR: m->subject}
+private_msg_notify_body:	ä½ å¥½ï¼Œ<br>{VAR: usr->login} ç”¨æˆ·å·²ç»é˜…è¯»äº†ä½ çš„æ‚„æ‚„è¯ï¼Œ "{VAR: m->subject}"ï¼Œåœ¨ {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br>
+referals_update:		æµè§ˆè¢«æ¨èè€…
+register_err_short_login:	ä½ è¾“å…¥çš„è´¦å·å¤ªçŸ­ï¼Œå¿…é¡»è‡³å°‘åŒ…æ‹¬4ä¸ªå­—ç¬¦ã€‚
+register_err_login_notallowed:	ä¸èƒ½ä½¿ç”¨è¿™ä¸ªè´¦å·æ³¨å†Œã€‚
+register_err_loginunique:	è®ºå›è´¦å·å¿…é¡»æ˜¯å”¯ä¸€çš„ï¼Œè¿™ä¸ªè´¦å·å·²ç»æœ‰äººä½¿ç”¨ã€‚
+register_err_emailexists:	è¿™ä¸ªç”µå­é‚®ä»¶åœ°å€å·²ç»å­˜åœ¨ï¼Œè¯·ä¸è¦é‡å¤æ³¨å†Œã€‚å¦‚æœä½ å¿˜è®°äº†å¯†ç ï¼Œè¯·é€šè¿‡â€œæ‰¾å›å¯†ç â€ç¨‹åºæ‰¾å›ä½ çš„å¯†ç ã€‚
+register_err_shortpasswd:	å¯†ç å¿…é¡»è‡³å°‘æœ‰6ä¸ªå­—ç¬¦ã€‚
+register_err_passwdnomatch:	ä½ çš„å¯†ç ä¸å¯¹ã€‚
+register_err_invalidemail:	ä½ è¾“å…¥çš„ç”µå­é‚®ä»¶åœ°å€ä¸æ­£ç¡®ã€‚
+register_err_needname:		ä½ å¿…é¡»è¾“å…¥ä½ çš„å§“åæ‰èƒ½å®Œæˆæ­¤æ¬¡æ³¨å†Œã€‚
+register_err_enterpasswd:	ä½ å¿…é¡»è¾“å…¥å¯†ç æ‰èƒ½è¿›è¡Œä¿®æ”¹ã€‚
+register_err_adminpasswd:	ä½ å¿…é¡»è¾“å…¥ç³»ç»Ÿç®¡ç†å‘˜å¯†ç æ‰èƒ½å®Œæˆè¿™äº›ä¿®æ”¹ã€‚
+register_err_notyouremail:	å·²ç»æœ‰äººç”¨è¿™ä¸ªç”µå­é‚®ç®±åœ°å€æ³¨å†Œäº†ï¼Œä½†æ˜¯é‚£ä¸ªäººä¸æ˜¯ä½ ã€‚
+register_err_avatartobig:	ä½ æ­£åœ¨ä¸Šä¼ çš„æ–‡ä»¶å¤ªå¤§ï¼Œè¶…è¿‡äº†{GVAR: CUSTOM_AVATAR_MAX_SIZE} å­—èŠ‚çš„æœ€å¤§é™åˆ¶ã€‚
+register_err_avatarnotallowed:	ä½ æ­£åœ¨ä¸Šä¼ çš„å¤´åƒä¸èƒ½ä¸Šä¼ ï¼Œè¯·æŸ¥çœ‹å…è®¸ä¸Šä¼ çš„æ–‡ä»¶ç±»å‹ã€‚
+register_conf_subject:		æ³¨å†Œç¡®è®¤
+register_conf_msg:		è°¢è°¢æ³¨å†Œ,\nè¿›å…¥å½“å‰è´¦å·ï¼Œè¯·ç‚¹å‡»ä¸‹åˆ—åœ°å€ï¼š\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nè¿›å…¥å½“å‰è´¦å·åï¼Œä½ å°†ç›´æ¥è¿›å…¥è®ºå›\nè½¬å…¥è®ºå›çš„ä¸»é¡µã€‚
+register_welcome_subject:	è®ºå›æ³¨å†Œç¡®è®¤
+register_welcome_msg:		è°¢è°¢æ³¨å†Œï¼Œ\n\nè¿™æ˜¯ä½ æ³¨å†Œçš„è¯¦ç»†èµ„æ–™ï¼š\n\nè®ºå›URLï¼š{GVAR: WWW_ROOT}\nè´¦å·ï¼š{VAR: uent->login}\nå¯†ç ï¼š{VAR: _POST['reg_plaintext_passwd']}\n\nè¯·æ³¨æ„å¯†ç åŒºåˆ†å¤§å°å†™ï¼\nè¦æ›´æ”¹ä½ çš„è®¾ç½®æˆ–è€…ä¸ªäººä¿¡æ¯ï¼Œè¯·ç‚¹å‡»ï¼š\n{FULL_ROOT}{ROOT}?t=register\n
+register_err_cantreg_title:	é”™è¯¯ï¼šæ— æ³•æ³¨å†Œ
+regsiter_err_cantreg_msg:	æ— æ³•æ³¨å†Œæ–°çš„è´¦å·ï¼Œè¯·å’Œç³»ç»Ÿç®¡ç†å‘˜è”ç³»<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:	æŸ¥çœ‹ä¸ªäººä¿¡æ¯
+register_register_update:	æ³¨å†Œé¡µ
+report_err_nosuchmsg_title:	é”™è¯¯
+report_err_nosuchmsg_msg:	æ²¡æœ‰è¿™æ ·çš„ä¿¡æ¯
+reset_err_invalidkey_title:	é”™è¯¯
+reset_err_invalidkey_msg:	å¯†ç æç¤ºé”™è¯¯
+reset_err_rstconf_title:	ä¿¡æ¯
+reset_err_rstconf_msg:		ä¸€ä¼šä½ å°†é€šè¿‡é‚®ä»¶æ”¶åˆ°ç›¸å…³è¯´æ˜ã€‚
+reset_newpass_title:		é‡æ–°è¾“å…¥å¯†ç 
+reset_newpass_msg:		ä½ å¥½ï¼Œ\n\nä½ æ¯æ¬¡ç™»å½•çš„è´¦å·éƒ½å°†å‘é€ç»™ä½ ã€‚\nHere è¿™é‡Œæ˜¯ä½ çš„ç™»å½•ä¿¡æ¯ï¼š\n\nè´¦å·ï¼š{VAR: ui[1]}\nå¯†ç ï¼š{VAR: passwd}\n\næ³¨æ„ï¼šä½ çš„å¯†ç å·²ç»è¢«æ”¹ä¸ºä¸Šé¢çš„å€¼å­—ç¬¦ç»„åˆï¼Œå¦‚æœä½ æƒ³\nä¿®æ”¹å¯†ç ï¼Œè¯·åœ¨ä¸ªäººä¿¡æ¯ä¸­ä¿®æ”¹ï¼š\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_login_notify:		ä¸€ä¼šå„¿ï¼Œä½ å°†é€šè¿‡é‚®ä»¶æ”¶åˆ°å¯†ç ã€‚è¯·æ£€æŸ¥ä½ çš„å¯†ç å¹¶ç™»å½•ã€‚.<br>.<br>.<br>
+search_update:			æœç´¢
+selmsg_update:			æµè§ˆ <a href="{TEMPLATE: selmsg_update_lnk}">ä»Šå¤©å‘å¸ƒçš„ä¸»é¢˜</a>
+showposts_update:		æŸ¥çœ‹ç”¨æˆ· <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>å‘å¸ƒçš„ä¸»é¢˜
+subscribed_update:		æµè§ˆè‡ªå·±é¢„å®šçš„å†…å®¹
+thread_update:			æµè§ˆè®ºå›<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			æµè§ˆï¼ˆä»¥æ ‘çŠ¶æ–¹å¼ï¼‰ <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:		æŸ¥çœ‹ <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}çš„</a> ä¸ªäººä¿¡æ¯
+ERR_disabled_ttl:		è¢«ç¦æ­¢çš„åŠŸèƒ½
+ERR_disabled_msg:		æ­¤é¡¹åŠŸèƒ½å·²ç»è¢«ç³»ç»Ÿç®¡ç†å‘˜å…³é—­ã€‚
+ERR_access_ttl:			é”™è¯¯ï¼šæƒé™ä¸å¤Ÿ
+ERR_access_msg:			ä½ æ²¡æœ‰æƒåˆ©è¿›è¡Œæ­¤é¡¹æ“ä½œ
+ERR_registration_disabled_ttl:	æ³¨å†Œå¤±è´¥
+ERR_registration_disabled_msg:	æ³¨å†ŒåŠŸèƒ½è¢«ç³»ç»Ÿç®¡ç†å‘˜ç¦æ­¢ï¼Œè¯·é‡è¯•ï¼
+ERR_emailconf_ttl:		é”™è¯¯ï¼šæ­¤è´¦å·æ— æ•ˆ
+ERR_emailconf_msg:		ä½ æ³¨å†Œçš„è´¦å·å°šæœªè¿›è¡Œé‚®ä»¶ç¡®è®¤<br><table border=0><tr><td><ol><li>å¦‚æœä½ æ²¡æœ‰æ”¶åˆ°ç¡®è®¤é‚®ä»¶ <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">è¯·ç‚¹å‡»è¿™é‡Œ</a><li>å¦‚æœ {VAR: usr_d->email} é‚®ä»¶åœ°å€æœ‰è¯¯<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">è¯·ç‚¹å‡»è¿™é‡Œ</a></ol></td></tr></table>
+ERR_user_ttl:			é”™è¯¯ï¼šæ²¡æœ‰è¿™ä¸ªç”¨æˆ·
+ERR_user_msg:			æ²¡æœ‰è¿™ä¸ªç”¨æˆ·
+ERR_systemerr_ttl:		ç³»ç»Ÿé”™è¯¯
+ERR_systemerr_msg:		å‘ç”Ÿç³»ç»Ÿé”™è¯¯ï¼Œè¯·æŠ¥å‘Šé”™è¯¯ç»™ç®¡ç†äººå‘˜ã€‚
+email_title:			é‚®ä»¶æ ¼å¼
+finduser_title:			æŸ¥æ‰¾ç”¨æˆ·
+help_title:			ä½¿ç”¨å¸®åŠ©
+login_title:			ç™»å½•æ ¼å¼
 msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-poll_title:			µ÷²é±à¼­
-register_title:			×¢²á
-reset_title:			ÖØĞÂÊäÈëÃÜÂë
-rpasswd_title:			ĞŞ¸ÄÃÜÂëÒ³Ãæ
-error_title:			¸ñÊ½´íÎó
-index_title:			»¶Ó­µ½À´
-search_title:			ËÑË÷ {VAR-HTML: srch}
+poll_title:			è°ƒæŸ¥ç¼–è¾‘
+register_title:			æ³¨å†Œ
+reset_title:			é‡æ–°è¾“å…¥å¯†ç 
+rpasswd_title:			ä¿®æ”¹å¯†ç é¡µé¢
+error_title:			æ ¼å¼é”™è¯¯
+index_title:			æ¬¢è¿åˆ°æ¥
+search_title:			æœç´¢ {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-remail_emailsent:		ÓÊ¼şÒÑ¾­·¢ËÍ
-remail_email:			Õâ¸öÒ³ÃæµÄÄÚÈİ{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) Äã¿ÉÄÜ»á¸ĞĞËÈ¤£¡\nÕâÀïÊÇÄã¿ÉÄÜ¸ĞĞËÈ¤µÄÖ÷Ìâ£º{VAR: data->subject} Çëµã»÷£º{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n ·¢¼şÈË {VAR: usr->alias}\n
-poll_add_option:		Ìí¼ÓÑ¡Ïî£º
-post_opt_html_on:		<b>HTML</b><b>´úÂë£º¿ª·Å</b>
-post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUD´úÂë£º</b><b>¿ª·Å</a></b>
-post_opt_images_on:		<b>ÌûÍ¼¹¦ÄÜ£º</b><b>¿ª·Å</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>±íÇé·ûºÅ£º</b> <b>¿ª·Å</b></a>
-post_opt_html_off:		<b>HTML</b> ´úÂë£º <b>¹Ø±Õ</b>
-post_opt_fud_off:		<b>FUD´úÂë£º</b><b>¹Ø±Õ</b>
-post_opt_images_off:		<b>ÌûÍ¼¹¦ÄÜ£º</b><b>¹Ø±Õ</b>
-post_opt_smilies_off:		<b>±íÇé·ûºÅ£º</b><b>¹Ø±Õ</b>
-post_opt:			ÂÛÌ³Ñ¡Ïî
-register_change_passwd:		¸Ä±äÃÜÂë
-install_script_present_error:	ÎªÁË°²È«Æğ¼û£¬ÇëÔÚÊ¹ÓÃÂÛÌ³Ç°É¾³ı°²×°ÎÄ¼şinstall.php¡£<b>{GVAR: WWW_ROOT_DISK}install.php</b>
-approved_avatar_title:		Äã¶¨ÖÆµÄÍ·ÏñÒÑ±»¹ÜÀíÔ±Åú×¼¡£
-approved_avatar_msg:		Äã¶¨ÖÆµÄÍ·ÏñÒÑ±»ÏµÍ³¹ÜÀíÔ±Åú×¼£¬ÒÔºóÄã·¢²¼µÄËùÓĞĞÅÏ¢¶¼½«ÏÔÊ¾¸ÃÍ·Ïñ¡£Èç¹ûÄãÉĞÎ´¿´µ½»òÕß¿´µ½µÄÊÇ¾ÉµÄÍ·Ïñ£¬ÄÇ¿ÉÄÜÊÇÄãµÄä¯ÀÀÆ÷»º´æÁËÏà¹ØÒ³Ãæ£¬³¢ÊÔ¶àË¢ĞÂ¼¸´Î»òĞíÄÜ½â¾öÕâ¸öÎÊÌâ¡£
-unapproved_avatar_title:	Äã¶¨ÖÆµÄÍ·ÏñÎ´±»Åú×¼¡£
-unapproved_avatar_msg:		ÏµÍ³¹ÜÀíÔ±Ã»ÓĞÅú×¼ÄãµÄÍ·Ïñ¡£×î¿ÉÄÜµÄÔ­ÒòÊÇÄãµÄÍ·ÏñÌ«´ó£¨×Ö½Ú»òÕß³ß´ç£©£¬»¹ÓĞ¿ÉÄÜÊÇÒòÎª°üÀ¨²»ºÏÊÊµÄÖ÷ÌâÎÄ¼ş¡£Èç¹ûĞèÒªÁË½â¸ü¶àµÄÏà¹ØĞÅÏ¢£¬ÇëºÍÏµÍ³¹ÜÀíÔ±ÁªÏµ¡£
-mvthread_request_move:		ÉêÇëÒÆ¶¯±¾Ö÷Ìâ
-move_request_reason:		ÄãÎªÊ²Ã´ÒªÒÆ¶¯±¾Ö÷Ìâ
-mvthread_submit_req:		Ìá½»ÉêÇë
-thread_exchange:		×ªÒÆÖ÷Ìâ
-move_request_by:		Ö÷Ìâ×ªÒÆÈË£º
-move_reason:			×ªÒÆÖ÷ÌâµÄÀíÓÉ£º
-thr_exch_accept:		½ÓÊÜ¸ÃÖ÷Ìâ
-thr_exch_decline:		¾Ü¾ø¸ÃÖ÷Ìâ
-thr_exch_orig_forum:		×ª³öµÄÂÛÌ³£º
-thr_exch_dest_forum:		Ä¿±êÂÛÌ³£º
-thr_exch_no_threads:		Ã»ÓĞĞèÒªÅú¸´µÄÖ÷Ìâ¡£
-thr_exch_decl_reason:		¾Ü¾øÖ÷Ìâ <b>{VAR-HTML: frm->name}</b> ×ªÈë<b>{VAR-HTML: frm->name}</b>ÂÛÌ³µÄÀíÓÉ¡£
-thr_exch_submit:		·¢²¼
-exch_decline_ttl:		°ÑÖ÷Ìâ {VAR: data->subject} ×ªÒÆÖÁ{VAR-HTML: data->f2_name} ÂÛÌ³µÄÒªÇó±»¾Ü¾ø¡£
-ppost_original_msg:		ÄãÕıÔÚ·¢ËÍ»òÕß»Ø¸´µÄĞÅÏ¢
-split_thread:			·Ö¿ªÖ÷Ìâ
-groupmgr_no_user:		´ËÕËºÅ²»´æÔÚ "{FUNC: char_fix(htmlspecialchars($gr_member))}"
-groupmgr_already_exists:	"{FUNC: char_fix(htmlspecialchars($gr_member))}" ±¾ÂÛÌ³ÒÑ¾­´æÔÚÕâ¸öÓÃ»§
-groupmgr_yes:			ÊÇ
-groupmgr_no:			·ñ
-groupmgr_action:		²Ù×÷
-groupmgr_member:		³ÉÔ±
-groupmgr_cancel:		É¾³ı
-groupmgr_add_member:		Ìí¼Ó³ÉÔ±
-groupmgr_update_member:		¸üĞÂ³ÉÔ±Ãûµ¥
-groupmgr_edit:			±à¼­
-groupmgr_delete:		É¾³ı
-group_mgr_anon:			ÄäÃû
-group_mgr_reged:		ËùÓĞ×¢²áÓÃ»§
-show_show:			ÏÔÊ¾£º
-group_mgr:			ÂÛÌ³°å¿é¹ÜÀí
-group_mgr_edit_btn:		±à¼­ÂÛÌ³
-group_mgr_heading:		Ñ¡ÔñÂÛÌ³¹ÜÀíÔ±
-group_mgr_group:		ÂÛÌ³£º
-permission_denied_title:	ÄãµÄÒªÇó±»¾Ü¾ø
-permission_denied_msg:		ÄãÃ»ÓĞÈ¨ÏŞÖ´ĞĞ´ËÏî²Ù×÷
-p_READ:				²é¿´
-p_POST:				·¢²¼
-p_REPLY:			»Ø¸´
-p_EDIT:				±à¼­
-p_DEL:				É¾³ı
-p_STICKY:			·¢²¼ÂÛÌ³¹«¸æ
-p_POLL:				·¢Æğµ÷²é
-p_FILE:				Ìí¼Ó¸½¼ş
-p_VOTE:				Í¶Æ±
-p_RATE:				ÆÀ¼ÛÌû×Ó
-p_SPLIT:			·Ö¿ªÖ÷Ìâ
-p_LOCK:				·â±ÕÌû×Ó
-p_MOVE:				×ªÒÆÌû×Ó
-p_SML:				Ó¦ÓÃ±íÇé·ûºÅ
-p_IMG:				Ó¦ÓÃÍ¼Ïñ±êÇ©
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">²éÕÒÓÃ»§</a>
-group_mgr_indicator:		ÕıÔÚ±à¼­£º<b>{VAR: grp->name}</b>
-rate_worst:			×î²îµÄ
-rate_best:			×îºÃµÄ
-post_quote_msg:			{VAR: msg->login} ÓÚ {DATE: msg->post_stamp %Y-%m-%d %H:%M} ÔÚ´ó×÷ÖĞÌáµ½£º
-post_quote:			ÒıÓÃ£º
-userinfo_referals:		±»ÍÆ¼öµÄÓÃ»§£º
-userinfo_referals_count:	{VAR: referals} ³ÉÔ±£º
-pm_no_space_title:		¿Õ¼ä²»¹»
-pm_no_space_msg:		ÄãµÄÇÄÇÄ»°ÎÄ¼ş¼ĞÒÑ¾­³¬³öÁËÏµÍ³ÏŞÖÆµÄ¿Õ¼ä·¶Î§ <b>{GVAR: MAX_PMSG_FLDR_SIZE} ×Ö½Ú</b>£¬ÆäÖĞ°üÀ¨ <b>{VAR: fldr_size} ×Ö½ÚµÄ</b> ÓĞÓÃĞÅÏ¢£¬<br><br><font class="ErrorText">ÇëÉ¾³ıÒ»Ğ©¾ÉĞÅÏ¢ÒÔÌÚ³ö¿Õ¼ä</font>¡£
-pm_space_indct_msg:		ÄãµÄÇÄÇÄ»°ĞÅÏäÒÑÕ¼ÓÃ{VAR: percent_full}%¿Õ¼ä¡£
-th_expr_never:			´Ó²»
-th_expr_one_hr:			1¸öĞ¡Ê±
-th_expr_three_hr:		3¸öĞ¡Ê±
-th_expr_four_hr:		4¸öĞ¡Ê±
-th_expr_eight_hr:		8¸öĞ¡Ê±
-th_expr_sixteen_hr:		16Ğ¡Ê±
-th_expr_one_day:		Ò»Ìì
-th_expr_two_day:		2Ìì
-th_expr_four_day:		4Ìì
-th_expr_one_week:		1ÖÜ
-th_expr_two_week:		2ÖÜ
-th_expr_one_month:		1¸öÔÂ
-th_expr_two_month:		2¸öÔÂ
-th_expr_four_month:		4¸öÔÂ
-th_expr_one_year:		1Äê
-thread_mod_delete:		É¾³ı
-action_latest_post:		×î½üÒ»´ÎµÇÂ¼
-online_today_last_visit:	×î½üÒ»´ÎµÇÂ¼
-online_today_update:		²é¿´±¾ÂÛÌ³½ñÌìµÄÔÚÏßÓÃ»§
-logedin_todays_visitors:	½ñÌìµÄ·ÃÎÊÕß
-logedin_latest_post:		±¾ÂÛÌ³×îĞÂ·¢²¼µÄÖ÷Ìâ
-register_show_avatar:		ÏÔÊ¾Í·Ïñ£º
-register_show_avatar_desc:	ÊÇ·ñÏÔÊ¾ÓÃ»§µÄÍ·Ïñ¡£
-drawmsg_view_rest_post:		ÏÔÊ¾Ê£ÓàĞÅÏ¢
-post_re:			»Ø¸´£º
-forumsel_goto_forum:		×ªÖÁÂÛÌ³£º
-minimsg_thread_view:		ä¯ÀÀÖ÷Ìâ
-split_th_post_by:		×÷Õß£º
-split_th_posted_on:		·¢±íÊ±¼ä£º
-split_th_subject:		Ö÷Ìâ£º
-split_th_new_thread_title:	ĞÂµÄÖ÷Ìâ£º
-split_th_forum:			ÂÛÌ³£º
-split_th_split_sel:		·Ö³öÑ¡ÖĞµÄÌû×Ó
-split_th_split_unsel:		·Ö³öÃ»ÓĞÑ¡ÖĞµÄÌû×Ó
-split_th_messages:		ĞÅÏ¢
-split_th_select:		Ñ¡Ôñ
-report_report_post:		±¨¸æ·¢²¼
-quicklogin_login:		µÇÂ¼
-quicklogin_password:		ÃÜÂë
-quicklogin_use_cookies:		ÊÇ·ñÊ¹ÓÃCookies¹¦ÄÜ£¿
-quicklogin_login_btn:		µÇÂ¼
-post_notification_desc:		µ±ÓĞÈË»Ø¸´±¾Ö÷ÌâÊ±ÇëÍ¨ÖªÎÒ¡£
-maximize_category:		Ôö¼ÓÄ¿Â¼²ã´Î
-no_view_perm:			ºÜ±§Ç¸£¬ÄãÃ»ÓĞ²ì¿´Õâ¸öÒ³ÃæµÄÈ¨ÏŞ
-report_empty_report:		Äã²»ÄÜÌá½»¿ÕµÄ±¨¸æ£¬ÇëËµÃ÷ÍÆ¼öÀíÓÉ¡£
-report_already_reported_title:	±¨¸æÒÑ¾­Ìá½»
-report_already_reported_msg:	ÕâÌõĞÅÏ¢ÒÑ±»ÍÆ¼ö£¬Ïà¹ØÍÆ¼ö±¨¸æÔÚÂÛÌ³¹ÜÀíĞÅÏ¢ÁĞ±íÖĞ¡£
-register_err_toomanyimages:	ÄãµÄ¸öÈËÇ©ÃûÖĞÊ¹ÓÃÁË½ûÖ¹Ê¹ÓÃµÄÍ¼Æ¬{GVAR: FORUM_IMG_CNT_SIG}¡£
-pmsg_next_msg:			ÏÂÒ»ÌõĞÅÏ¢
-pmsg_prev_msg:			Ç°Ò»ÌõĞÅÏ¢
-post_proc_reveal_spoiler:	ÏÔÊ¾Òş²ØÄÚÈİ
-register_jabber:		Jabber£º
-im_jabber:			Jabber£º
-forum_contact:			ÁªÏµ
-forum_home:			Ö÷Ò³
-post_cur_attached:		ÕıÔÚÕ³Ìû{VAR: i} ¸öÎÄ¼ş
-ignored_anon_post:		{GVAR: ANON_NICK} ±»ºöÂÔ
-ignored_user_post:		ÉèÖÃºöÂÔĞÅÏ¢<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>
-smladd_close_window:		¹Ø±Õ´°¿Ú
-post_list_smilies:		ÏÔÊ¾ËùÓĞ±íÇé·ûºÅ
-p_VISIBLE:			¿É¼ûµÄ
-reported_in_thread:		Õ¹¿ªä¯ÀÀ
-help_back_to_top:		»Øµ½Ò³Ê×
-help_return_to_index:		·µ»Ø°ïÖúË÷Òı
-imsg_err_message_title:		Ìû×Ó³ö´í
-imsg_err_message_msg:		ÄãÒª²é¿´µÄÌû×Ó²»´æÔÚ¡£
-poll_edit:			±à¼­
-unspecified:			±£ÃÜ
-register_err_not_valid_img:	Ö¸¶¨µÄÍ¼Æ¬Á¬½Ó²»ÕıÈ·
-pmsg_recepient:			ÊÕĞÅÈË
-register_err_taken_alias:	Õâ¸öêÇ³ÆÒÑ¾­´æÔÚ£¬Çë¸ü»»
-register_alias:			êÇ³Æ
-register_alias_desc:		Èç¹ûÄãÏëÓ¦ÓÃêÇ³Æ´úÌæÄãµÄÓÃ»§ÃûÀ´ÏÔÊ¾ÔÚÂÛÌ³ÉÏ¾ÍÇëÄãÌîÈëÄãÏëÒªµÄêÇ³Æ¡£
-register_allow_pm_msg:		½ÓÊÜÇÄÇÄ»°
-register_allow_pm_msg_desc:	½ÓÊÜÂÛÌ³ÆäËûÓÃ»§ÏòÄã·¢ËÍµÄÇÄÇÄ»°¡£
-postcheck_pm_disabled:		Äã²»ÄÜ¸ø "{VAR-HTML: v}" ·¢ËÍÇÄÇÄ»°£¬ÒòÎªËûÃ»ÓĞ¿ªÆôÇÄÇÄ»°¹¦ÄÜ¡£
-polllist_vote:			²Î¼Óµ÷²é
-polllist_view_results:		²é¿´½á¹û
-polllist_name:			µ÷²éÖ÷Ìâ
-polllist_date:			·¢ÆğÊ±¼ä
-polllist_owner:			·¢ÆğÈË
-polllist_votes:			×ÜÆ±Êı
-polllist_action:		²Ù×÷
-polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">ÒÔÍùµ÷²é</a>
-userinfo_polls:			·¢Æğµ÷²éÊı
-show_pollist:			µ÷²éÁĞ±í
-search_and:			ºÍ
-search_or:			»ò
-search_desc_order:		½µĞòÅÅÁĞ
-search_asc_order:		ÉıĞòÅÅÁĞ
-search_logic:			·½Ê½£º
-search_sorting:			½á¹û°´ÈÕÆÚ£º
-post_moderated_forum:		¹§Ï²£¡ÄãÒÑ¾­·¢±í³É¹¦£¬µÈ°æÖ÷»òÕß¹ÜÀíÔ±È·ÈÏºó»á·¢²¼µ½ÍøÉÏ£¡
-post_moderated_forum_ttl:	ÊÜÏŞÂÛÌ³ËµÃ÷
-post_proceed:			·µ»ØÂÛÌ³
-buddy_list_bday:		½ñÌìÊÇ {VAR: r[2]} µÄ {VAR: age} ËêÉúÈÕ
-email_warning_msg:		Èç¹ûÄãĞŞ¸ÄÁËEmail£¬Ôò´ËÕËºÅ»á±»ÔİÊ±Òş²Ø£¬ÇëÄã²éÊÕÓÊ¼ş£¬µã»÷ÓÊ¼şÖĞµÄÁ¬½ÓÒÔÖØĞÂ¼¤»îÕËºÅ£¡
-register_show_im:		ÏÔÊ¾ IM Ö¸Ê¾Æ÷
-register_show_im_desc:		ÊÇ·ñÔÚÓÃ»§Ìû×ÓÅÔ±ßÏÔÊ¾IM¡£
-unread_message:			Î´¶ÁÌû×Ó
-read_message:			ÔÄ¶Á¸ü¶àÌû×Ó£º			&lt;¸ü¶à&gt;
-threadt_disabled_ttl:		Ê÷×´ä¯ÀÀÒÑ¾­±»¹Ø±Õ¡£
-threadt_disabled_desc:		¹ÜÀíÔ±ÒÑ¾­¹Ø±ÕÊ÷×´ä¯ÀÀ£¬ÇëÓÃÕ¹¿ªä¯ÀÀ·½Ê½¡£
-threadt_update:			ä¯ÀÀÂÛÌ³£¨Ê÷×´ä¯ÀÀ£©<a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
-threadt_more:			&lt;¸ü¶à&gt;
-register_msg_tree_view:		Õ¹¿ªä¯ÀÀ/Ê÷×´ä¯ÀÀ
-register_tree_msg_view:		Ê÷×´ä¯ÀÀ/Õ¹¿ªä¯ÀÀ
-mmod_delete_cofirm_ttl:		È·ÈÏÉ¾³ıÖ÷Ìâ/ÄÚÈİ
-spell_alts:			Ã»ÓĞÑ¡Ôñ
-insert_uploaded_image:		½«´ËÍ¼Æ¬ÏÔÊ¾ÔÚÎÄÕÂÖĞ
-finduser_help:			Ğ¡ÌáÊ¾£ºÊäÈëµ¥¸ö×ÖÄ¸¾Í¿ÉÒÔËÑË÷µ½ÒÔÕâ¸ö×ÖÄ¸¿ªÍ·µÄÓÃ»§¡£
-back_to_top:			·µ»Ø¶¥²¿
-iemail_participate:		²ÎÓëÌÖÂÛ£¬µã´Ë£º
-pm_err_disabled_title:		²»ÄÜ·¢ËÍÇÄÇÄ»°
-pm_err_disabled_msg:		Äãµ±Ç°ÉèÖÃÎª²»ÄÜ·¢ËÍÇÄÇÄ»°£¡¿ÉÒÔÔÚ¸öÈËĞÅÏ¢ÖĞĞŞ¸ÄÉèÖÃ£¬ÒÔ¼¤»îÇÄÇÄ»°¹¦ÄÜ¡£
-err_mod_acc_ttl:		Î´±»Åú×¼µÄÕËºÅ
-err_mod_acc_msg:		ÕËºÅÔÚ±»¼¤»îÖ®Ç°±ØĞëµÃµ½ÏµÍ³¹ÜÀíÔ±µÄÈ·ÈÏ£¬ÔÚµÃµ½È·ÈÏÖ®Ç°£¬ÄãµÄÕËºÅ²»ÏíÓĞ×¢²áÓÃ»§µÄËùÓĞ¹¦ÄÜ£¡
-accounts_pending_approval:	´ıÉóºËÕÊºÅ
-saved:				Õä²Ø¼Ğ
-register_err_time_limit:	Ã¿ {GVAR: REG_TIME_LIMIT} ÃëÏŞÖÆÒ»¸öÓÃ»§¿ÉÒÔ×¢²á£¬ ÇëÉÔµÈ {VAR: reg_limit_reached} ÃëÔÙÀ´×¢²á¡£
-register_affero:		AfferoÓÃ»§Ãû£º<br /><font class="SmallText">Èç¹ûÄãÓĞ<a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>ÕÊ»§£¬ÇëÔÚ´Ë´¦ÊäÈëÓÃ»§Ãû¡£</font>
-im_affero:			AfferoÓÃ»§Ãû
-register_err_avatardimtobig:	Í·Ïñ´óĞ¡ <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ³¬³öÁËÂÛÌ³ÏŞÖÆµÄ£º <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-pmsg_download_counter:		ÏÂÔØÁË {VAR: r->dlcount} ´Î
-member_search:			<br>»òÕßÊ¹ÓÃ <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">ÓÃ»§²éÕÒ</a> ¹¦ÄÜÀ´ÕÒÈË¡£
-post_all_ext_allowed:		£¨Ã»ÓĞÏŞÖÆ£©
-buddy_offline:			{VAR: r[2]} µ±Ç°²»ÔÚÏß
-buddy_online:			{VAR: r[2]} µ±Ç°ÔÚÏß
-sml_no_smilies:			Ã»ÓĞ±íÇé·ûºÅ¹©Ñ¡Ôñ¡£
-login_unapproved_account_ttl:	Î´ÉóºËµÄÕÊºÅ
-login_unapproved_account_msg:	ÕÊºÅĞèÒª¹ÜÀíÔ±ÉóºËºó²ÅÄÜ¼¤»îÊ¹ÓÃ¡£ÄãµÄÕÊºÅ»¹Î´Í¨¹ıÉóºË£¬ÔÚÍ¨¹ıÉóºËÖ®Ç°£¬¿ÉÄÜ²»ÄÜÊ¹ÓÃÂÛÌ³µÄÄ³Ğ©¹¦ÄÜ¡£
-remove_from_buddy_list:		´ÓºÃÓÑÃûµ¥ÖĞÉ¾³ı
-iemail_msg_author:		<b>×÷Õß£º</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Ö÷Ìâ£º</b> {VAR: obj->subject}
-iemail_msg_date:		<b>ÈÕÆÚ£º</b> {DATE: obj->post_stamp %Y-%m-%d %H:%M}
-iemail_msg_reply:		»Ø¸´
-iemail_msg_quote:		ÒıÓÃ
-iemail_msg_view:		²é¿´Ö÷Ìâ/Ìû×Ó
-threadt_sticky:			ÖÃ¶¥
-threadt_announce:		¹«¸æ
-reported_no_messages:		Ã»ÓĞ±¨¸æµÄÌû×Ó¡£
-poll_no_polls:			Ã»ÓĞ¿ÉÓÃµÄÍ¶Æ±¡£
-no_unread_messages:		Ã»ÓĞ·ûºÏÌõ¼şµÄÎ´¶ÁÌû×Ó¡£
-thread_mark_all_read:		±ê¼ÇËùÓĞÌû×ÓÎªÒÑ¶Á
-thread_mark_all_read_desc:	ÂÛÌ³ÖĞËùÓĞµÄÎ´¶Á±ê¼Ç½«±»Çå³ı
-private_no_messages:		´Ë°åÉÏÃ»ÓĞÌû×Ó
-register_email_change_subject:	µç×ÓÓÊ¼ş¸ü¸ÄÈ·ÈÏ
-register_email_change_msg:	ÇëÈ·ÈÏÄãµÄĞÂÓÊ¼şµØÖ· "{VAR: uent->email}"£¨ÓÃÓÚÌæ»»ÀÏµØÖ· "{VAR: old_email}"£©£¬µã»÷ÒÔÏÂµÄURL£º\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nÄãµÄÕÊºÅ½«ÔÚĞÂÓÊ¼şµØÖ·±»È·ÈÏºó±»ÖØĞÂ¼¤»î¡£
-iemail_thread_unsub:		È¡Ïû¶Ô´ËÖ÷ÌâµÄ¶©ÔÄ
-iemail_forum_unsub:		È¡Ïû¶Ô´Ë°å¿éµÄ¶©ÔÄ
-primary_group_prefix:		ÖĞĞÄ×é¶ÔÓÚ°å¿é£º
-group_resources:		´Ë×é¿ØÖÆÏÂÁĞ°å¿éµÄ·ÃÎÊÈ¨ÏŞ
-register_email:			µç×ÓÓÊ¼ş£º
-register_admin_newuser_title:	ÓĞĞÂÓÃ»§×¢²á²¢µÈºòÅú¸´
-register_admin_newuser_msg:	ĞÂÓÃ»§ ({VAR: uent->login}) ¸Õ¸Õ×¢²á£¬ÕıµÈ´ı¹ÜÀíÔ±µÄÉóºËÅú¸´¡£ÒªÅú¸´ÓÃ»§£¬Çë×ªµ½£º {GVAR: WWW_ROOT}adm/admaccapr.php\n\nÕâÊÇÒ»·â×Ô¶¯·¢³öµÄÓÊ¼ş£¬ÇëÎğ»Ø¸´´ËÓÊ¼ş¡£\nÈç¹ûÒªÈ¡Ïû´ËÌáĞÑ£¬ÇëÔÚ¹ÜÀí½çÃæµÄ "New Account Notification" ÖĞÉèÖÃ¡£
-post_mod_msg_notify_title:	ÓĞĞÂÌûÔÚ "{VAR: frm->name}" °åÉÏµÈ´ıÉóºË
-post_mod_msg_notify_msg:	ĞÂÌû×Ó "{VAR: msg_post->subject}" ¸Õ¸Õ·¢²¼£¬µÈºòÉóºË¡£ÒªÉóºË´ËÌû£¬Çëµ½£º{FULL_ROOT}{ROOT}?t=modque\n\nÕâÊÇÒ»·â×Ô¶¯·¢³öµÄÓÊ¼ş£¬ÇëÎğ»Ø¸´´ËÓÊ¼ş¡£\n
-thread_printable_pdf:		Éú³É¿É´òÓ¡µÄPDF¸ñÊ½
-thread_syndicate:		Í¬²½´Ë°å¿é£¨XML¸ñÊ½£©
-reg_conf_title:			ÂÛÌ³×¢²áÑéÖ¤ÓÊ¼ş
-reg_conf_email:			<b>µç×ÓÓÊ¼şÑéÖ¤</b><br />Ò»·âÌØÊâµÄÓÊ¼şÒÑ¾­·¢ÍùÄãÌîĞ´µÄÓÊÏä£¬ÓÊ¼şÀï°üº¬ÁËÒ»¸öÌØÊâµÄURLÍøÖ·£¬ÄãĞèÒª·ÃÎÊ´ËÍøÖ·ÒÔÍ¨¹ıÂÛÌ³µÄµç×ÓÓÊ¼şÑéÖ¤²½Öè¡£Èç¹û¼¸·ÖÖÓºóÄãÃ»ÓĞÊÕµ½ÕâÑùµÄÓÊ¼ş£¬ÇëµÇÂ¼ÂÛÌ³²¢¼ì²éÓÊ¼şµØÖ·ÊÇ·ñÌîĞ´ÕıÈ·¡£ÔÚÍ¨¹ıÑéÖ¤Ö®Ç°Äã½«²»ÄÜÊ¹ÓÃÂÛÌ³µÄÄ³Ğ©¹¦ÄÜ¡£
-reg_conf_account:		<b>ÕÊºÅÈ·ÈÏ</b><br />ÔÚÕÊºÅ±»¼¤»îÆôÓÃÖ®Ç°£¬±ØĞëÍ¨¹ı¹ÜÀíÔ±µÄÉóºËºÍÅú¸´¡£ÕÊºÅ±»¹ÜÀíÔ±Åú¸´Ö®ºóÔÚÄã×¢²áÊ±ÌîĞ´µÄÓÊÏäÀï»áÊÕµ½Ò»·âÌáÊ¾×¢²á³É¹¦µÄÓÊ¼ş£¬ÔÚÍ¨¹ıÅú¸´Ö®Ç°£¬Äã½«²»ÄÜÊ¹ÓÃÂÛÌ³µÄÄ³Ğ©¹¦ÄÜ¡£
-forum_banned_user:		ÓÉÓÚ´ËÕÊºÅÉÏ´ÎÔÚÂÛÌ³µÄËù×÷ËùÎªÑÏÖØÎ¥·´ÂÛÌ³¹æ¶¨£¬µ¼ÖÂÕÊºÅ±»ÂÛÌ³¹ÜÀíÔ±·â±Õ£¬ÔÙ¼û¡£
-mnav_description:		Ìû×Óä¯ÀÀÆ÷
-mnav_date_limit:		ÈÕÆÚ·¶Î§£º
-mnav_forum_limit:		ÏŞÖÆÔÚÈçÏÂµÄ°æÃæÉÏ²éÕÒ£º
-mnav_all_forums:		ËùÓĞÂÛÌ³°æÃæ
-mnav_submit:			ä¯ ÀÀ
-mnav_no_range:			ÇëÊäÈëºÏÀíµÄÈÕÆÚ·¶Î§¡£Äã¿ÉÒÔÊäÈë´Ó0µ½12ÖĞÈÎÒâÊı×Ö£¬×¢ÒâÊı×Ö±ØĞë´óÓÚ0¡£
-mnav_invalid_unit:		ÇëÖ¸¶¨ºÏÀíµÄÊ±¼äµ¥Î»¡£
-mnav_invalid_date:		ÊäÈëµÄÈÕÆÚ·¶Î§³¬³öÂÛÌ³ÏŞÖÆ£¬Çë¸ÄĞ¡ºóÖØĞÂÊäÈë¡£
-mnav_no_results:		Ã»ÓĞ·ûºÏÌõ¼şµÄÌû×Ó¡£
-mnav_posted_by:			·¢ÌûÈË£º
-mnav_more:			¸ü¶à &raquo;&raquo;
-mnav_minute:			·ÖÖÓ
-mnav_hour:			Ğ¡Ê±
-mnav_day:			Ìì
-mnav_week:			ÖÜ
-mnav_month:			ÔÂ
-mnav_title:			Ìû×Óä¯ÀÀÆ÷
-mnav_update:			ÓÃ<a href="{TEMPLATE: mnav_update_lnk}">Ìû×Óä¯ÀÀÆ÷</a>À´²é¿´¡£
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] ÄãÊÕµ½ÁËĞÂÇÄÇÄ»°£¡
-pm_notify_body_email:		ÄãÊÕµ½ÁËĞÂµÄÇÄÇÄ»°£¬±êÌâÊÇ "{VAR: subject}"£¬·¢×Ô "{VAR: from}" ÔÚ "{GVAR: FORUM_TITLE}" ÂÛÌ³¡£\nÒª²é¿´´ËÇÄÇÄ»°£¬Çëµã»÷£º{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nÈç¹û²»ÏëÔÙÊÕµ½ĞÂÇÄÇÄ»°ÌáĞÑÓÊ¼ş£¬ÇëÔÚ¡°¸öÈËĞÅÏ¢¡±ÖĞ½ûÖ¹¡°ĞÂÇÄÇÄ»°ÌáĞÑ¡±¡£
-register_pm_notification:	ĞÂÇÄÇÄ»°ÌáĞÑ
-register_pm_notification_desc:	Èç¹ûÑ¡¡°ÊÇ¡±£¬ÔòÔÚÓĞĞÂÇÄÇÄ»°ÊÕµ½Ê±£¬ÂÛÌ³»áÍ¨¹ıËùÑ¡µÄ·½Ê½Í¨ÖªÄã¡£
-findu_admin_opts_header:	¹ÜÀíÔ±Ñ¡Ïî
-findu_unban:			½â·â
-findu_ban:			·â
-findu_edit:			±à¼­
-findu_delete:			É¾³ı
-dmsg_reply_to:			ÊÇ¶ÔÓÚÌû×Ó #{VAR: obj->reply_to} µÄ»Ø¸´
-merge_topics:			ºÏ²¢Ö÷Ìâ
-merge_topics_cp:		ºÏ²¢Ö÷Ìâ¹¦ÄÜÃæ°å
-merge_topics_tpl:		Ñ¡ÔñÒªºÏ²¢µÄÖ÷Ìâ<font class="SmallText">£¨ÖÁÉÙĞèÒªÑ¡ÔñÁ½¸öÖ÷Ìâ£©</font>
-merge_merge:			ºÏ²¢ËùÑ¡Ö÷Ìâ
-merge_next:			ÏÂÒ»Ò³
-merge_prev:			ÉÏÒ»Ò³
-split_cp:			´òÉ¢Ö÷Ìâ¹¦ÄÜÃæ°å
-groups_perms_header:		È¨ÏŞÁĞ±í<font size="-1">£¨½«Êó±êÖ¸ÕëÅ²ÖÁÏàÓ¦È¨ÏŞÎ»ÒÔ²é¿´ÏàÓ¦È¨ÏŞ£©</font>
-register_err_sig_too_long:	ÄãµÄÇ©Ãû³¬³¤ÁË£¬×î¶àÖ»ÄÜ {GVAR: FORUM_SIG_ML} characters ¸ö×Ö·û£¨Ò»¸öºº×ÓËãÁ½¸ö×Ö·û£©¡£
-register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'ÄãµÄÇ©Ãûµµ¹² \'+document.fud_register.reg_sig.value.length+\' ×Ö·û³¤¡£±¾ÂÛÌ³ÏŞÖÆ³¤¶ÈÎª {GVAR: FORUM_SIG_ML} ¸ö×Ö·û¡£\');" class="SmallText">¼ì²éÇ©Ãûµµ³¤¶È</a>
-p_SEARCH:			ÔÊĞíËÑË÷
-adm_account_accepted:		ÄãµÄÕÊºÅ \'{VAR: GLOBALS['r']->login}\' ÒÑ¾­Í¨¹ıÉóºËÇÒÒÑ±»¼¤»î¡£¹§Ï²Äã£¬ÄãÏÖÔÚÒÑ¾­ÊÇ {GVAR: FORUM_TITLE}\' ÂÛÌ³µÄÕıÊ½×¢²áÓÃ»§ÁË£¡
-adm_account_accepted_s:		ÄãÔÚÂÛÌ³ \'{GVAR: FORUM_TITLE}\' µÄ×¢²áÒÑ±»½ÓÊÜ£¡
-adm_account_rejected:		ÄãµÄÕÊºÅ \'{VAR: GLOBALS['r']->login}\' Ã»ÓĞÍ¨¹ı¹ÜÀíÔ±µÄÉóºË¡£Çë¼ì²éÕÊºÅÊÇ·ñ·ûºÏÂÛÌ³Ïà¹Ø¹æ¶¨£¬Èç¹û²»ÄÜÈ·¶¨ÎÊÌâ£¬ÇëÁªÏµ \'{GVAR: ADMIN_EMAIL}\'.
-adm_account_rejected_s:		ÄãÔÚÂÛÌ³ \'{GVAR: FORUM_TITLE}\' ×¢²áµÄÕÊºÅÎ´Í¨¹ıÉóºË£¬Çë¼ì²éÊÇ·ñ·ûºÏÂÛÌ³Ïà¹Ø¹æ¶¨¡£
-thread_on:			ÓÚ
-userinfo_buddy:			ºÃÓÑ£º
-register_email_addr:		µç×ÓÓÊ¼şµØÖ·£º
-reset_suffix:			\n\nÈç¹ûÄãÃ»ÓĞÒªÇóÃÜÂëÖØÖÃ¹¦ÄÜ£¬ÇëÉ¾³ı´ËÓÊ¼ş¡£Èç¹ûÄãÃ»ÓĞÒªÇóÃÜÂëÖØÖÃ¶øÊÕµ½ÁË¶à·âÀàËÆÓÊ¼ş£¬ÇëÁªÂç¹ÜÀíÔ±£º {GVAR: ADMIN_EMAIL}\n\nÃÜÂëÖØÖÃÇëÇóÀ´×Ô£º {VAR: _SERVER['REMOTE_ADDR']}.\n\n
-usrinfo_last_visit:		×î½üÒ»´ÎµÇÂ¼:
-mnav_newer:			ĞÂÓÚ£º
-mnav_older:			¾ÉÓÚ£º
-ip_search_by_ip:		¸ù¾İ IP ²éÕÒÊ¹ÓÃÕß
-ip_search_syntax:		Ö§³ÖµÄ¸ñÊ½£º1.2.3.4, 1.2.3, 1.2, 1
-ip_search:			²é ÕÒ
-ip_analyze_usage:		·ÖÎö IP Ê¹ÓÃÇé¿ö
-ip_analyze_usage_descr:		ÇëÊäÈëÊ¹ÓÃÕßµÄÈ·ÇĞµÇÂ¼Ãû¡£
-ip_users_using:			Ê¹ÓÃ IP µØÖ· &#39;{VAR: ip}&#39; µÄÓÃ»§
-ip_all_ips:			ÓÃ»§ &#39;{VAR: user}&#39; Ê¹ÓÃµÄËùÓĞ IP µØÖ·
-ip_title:			IP ä¯ÀÀÆ÷
-userinfo_real_name:		ÕæÊµĞÕÃû£º
-register_err_alias_notallowed:	´ËêÇ³Æ±»½ûÓÃ
-post_err_noannontopics_msg2:	<fieldset><legend>´íÎó£ºÈ¨ÏŞ²»¹»</legend>ÄäÃûÓÃ»§²»ÔÊĞí·¢Ìû¡£</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>´íÎó£ºÈ¨ÏŞ²»¹»</legend>ÄäÃûÓÃ»§²»Ğí»ØÌû¡£</fieldset><br />
-ERR_login_msg2:			<fieldset><legend>´íÎó£ºÎ´µÇÂ¼</legend>µÇÂ¼ºó²ÅÄÜ·ÃÎÊËùĞèÒ³Ãæ¡£</fieldset><br />
-post_err_mod_forum_edit_ttl:	´íÎó
-post_err_mod_forum_edit_msg:	ÔÚĞèÒªÉó²éµÄÂÛÌ³Àï²»¿É±à¼­Ìû×Ó¡£
-dmsg_num:			ÌûºÅ #{VAR: obj->id}
-postcheck_session_invalid:	³¬Ê±£¬ÇëÖØĞÂÌá½»¡£±§Ç¸£¡
-delete_message_extra_desc:	<b>¿É Ñ¡</b><br />ÓÃÇÄÇÄ»°ÏòÔ­Ìû×÷ÕßËµÃ÷É¾ÌûµÄÔ­Òò¡£
-delete_message_extra_body:	Í¬Ê±°üº¬Ô­ÌûÄÚÈİ¡£
-delete_msg_removed_ttl:		Äã·¢µÄÌû×ÓÒÑ±»¹ÜÀíÔ±É¾³ı¡£
-delete_msg_pm_body:		Ô­Ìû
-delete_msg_pm_subject:		Ô­Ìû±êÌâ£º {VAR: data[15]}
-ip_no_whois:			Ã»ÓĞÕÒµ½¹ØÓÚ <b>{VAR: ip}</b> µÄ whois ĞÅÏ¢¡£
-ip_whois_title:			<b>ISP ĞÅÏ¢</b><br />
-register_theme:			Ö÷Ìâ£º
-pmsg_trash:			Çå¿ÕÀ¬»øÏä
-uc_new_pm:			ĞÂÇÄÇÄ»°
-uc_new_topic:			ĞÂÌû
-uc_new_cat_forum:		°üº¬ĞÂÌûµÄÒÑ¶©ÔÄÂÛÌ³
-uc_cat_forum:			·ÖÇø &raquo; ÂÛÌ³
-uc_sub_topics:			°üº¬ĞÂÌûµÄÒÑ¶©ÔÄ»°Ìâ
-uc_page_title:			²é¿´¸öÈË¿ØÖÆÃæ°å
-search_options:			ËÑË÷Ñ¡Ïî
-search_user_filter:		½öÏŞ×÷Õß£º
-register_none:			²»ÒªÍ¨Öª
-findu_no_conf:			Î´ÑéÖ¤Email
-register_max_sig_len:		Maximum Length:
-register_turing:		Please enter the code shown below:
-register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum
-idx_compact_forum_row:		Available Forums:
-mmd_del_title:			Delete Topics
-mmd_mov_title:			Move Topics
-mmd_move_threads_to:		Destination Forum:
-mmd_abort_move:			Cancel
-mmd_move:			Move Topics
-pmsg_pdf_btn:			Make PDF Archive
-search_results_hdr:		{VAR: total} Search Results Found
-thread_del_all:			Delete All Selected
-thread_mov_all:			Move All Selected
+remail_emailsent:		é‚®ä»¶å·²ç»å‘é€
+remail_email:			è¿™ä¸ªé¡µé¢çš„å†…å®¹{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) ä½ å¯èƒ½ä¼šæ„Ÿå…´è¶£ï¼\nè¿™é‡Œæ˜¯ä½ å¯èƒ½æ„Ÿå…´è¶£çš„ä¸»é¢˜ï¼š{VAR: data->subject} è¯·ç‚¹å‡»ï¼š{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n å‘ä»¶äºº {VAR: usr->alias}\n
+poll_add_option:		æ·»åŠ é€‰é¡¹ï¼š
+post_opt_html_on:		<b>HTML</b><b>ä»£ç ï¼šå¼€æ”¾</b>
+post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDä»£ç ï¼š</b><b>å¼€æ”¾</a></b>
+post_opt_images_on:		<b>å¸–å›¾åŠŸèƒ½ï¼š</b><b>å¼€æ”¾</b>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>è¡¨æƒ…ç¬¦å·ï¼š</b> <b>å¼€æ”¾</b></a>
+post_opt_html_off:		<b>HTML</b> ä»£ç ï¼š <b>å…³é—­</b>
+post_opt_fud_off:		<b>FUDä»£ç ï¼š</b><b>å…³é—­</b>
+post_opt_images_off:		<b>å¸–å›¾åŠŸèƒ½ï¼š</b><b>å…³é—­</b>
+post_opt_smilies_off:		<b>è¡¨æƒ…ç¬¦å·ï¼š</b><b>å…³é—­</b>
+post_opt:			è®ºå›é€‰é¡¹
+register_change_passwd:		æ”¹å˜å¯†ç 
+install_script_present_error:	ä¸ºäº†å®‰å…¨èµ·è§ï¼Œè¯·åœ¨ä½¿ç”¨è®ºå›å‰åˆ é™¤å®‰è£…æ–‡ä»¶install.phpã€‚<b>{GVAR: WWW_ROOT_DISK}install.php</b>
+approved_avatar_title:		ä½ å®šåˆ¶çš„å¤´åƒå·²è¢«ç®¡ç†å‘˜æ‰¹å‡†ã€‚
+approved_avatar_msg:		ä½ å®šåˆ¶çš„å¤´åƒå·²è¢«ç³»ç»Ÿç®¡ç†å‘˜æ‰¹å‡†ï¼Œä»¥åä½ å‘å¸ƒçš„æ‰€æœ‰ä¿¡æ¯éƒ½å°†æ˜¾ç¤ºè¯¥å¤´åƒã€‚å¦‚æœä½ å°šæœªçœ‹åˆ°æˆ–è€…çœ‹åˆ°çš„æ˜¯æ—§çš„å¤´åƒï¼Œé‚£å¯èƒ½æ˜¯ä½ çš„æµè§ˆå™¨ç¼“å­˜äº†ç›¸å…³é¡µé¢ï¼Œå°è¯•å¤šåˆ·æ–°å‡ æ¬¡æˆ–è®¸èƒ½è§£å†³è¿™ä¸ªé—®é¢˜ã€‚
+unapproved_avatar_title:	ä½ å®šåˆ¶çš„å¤´åƒæœªè¢«æ‰¹å‡†ã€‚
+unapproved_avatar_msg:		ç³»ç»Ÿç®¡ç†å‘˜æ²¡æœ‰æ‰¹å‡†ä½ çš„å¤´åƒã€‚æœ€å¯èƒ½çš„åŸå› æ˜¯ä½ çš„å¤´åƒå¤ªå¤§ï¼ˆå­—èŠ‚æˆ–è€…å°ºå¯¸ï¼‰ï¼Œè¿˜æœ‰å¯èƒ½æ˜¯å› ä¸ºåŒ…æ‹¬ä¸åˆé€‚çš„ä¸»é¢˜æ–‡ä»¶ã€‚å¦‚æœéœ€è¦äº†è§£æ›´å¤šçš„ç›¸å…³ä¿¡æ¯ï¼Œè¯·å’Œç³»ç»Ÿç®¡ç†å‘˜è”ç³»ã€‚
+mvthread_request_move:		ç”³è¯·ç§»åŠ¨æœ¬ä¸»é¢˜
+move_request_reason:		ä½ ä¸ºä»€ä¹ˆè¦ç§»åŠ¨æœ¬ä¸»é¢˜
+mvthread_submit_req:		æäº¤ç”³è¯·
+thread_exchange:		è½¬ç§»ä¸»é¢˜
+move_request_by:		ä¸»é¢˜è½¬ç§»äººï¼š
+move_reason:			è½¬ç§»ä¸»é¢˜çš„ç†ç”±ï¼š
+thr_exch_accept:		æ¥å—è¯¥ä¸»é¢˜
+thr_exch_decline:		æ‹’ç»è¯¥ä¸»é¢˜
+thr_exch_orig_forum:		è½¬å‡ºçš„è®ºå›ï¼š
+thr_exch_dest_forum:		ç›®æ ‡è®ºå›ï¼š
+thr_exch_no_threads:		æ²¡æœ‰éœ€è¦æ‰¹å¤çš„ä¸»é¢˜ã€‚
+thr_exch_decl_reason:		æ‹’ç»ä¸»é¢˜ <b>{VAR-HTML: frm->name}</b> è½¬å…¥<b>{VAR-HTML: frm->name}</b>è®ºå›çš„ç†ç”±ã€‚
+thr_exch_submit:		å‘å¸ƒ
+exch_decline_ttl:		æŠŠä¸»é¢˜ {VAR: data->subject} è½¬ç§»è‡³{VAR-HTML: data->f2_name} è®ºå›çš„è¦æ±‚è¢«æ‹’ç»ã€‚
+ppost_original_msg:		ä½ æ­£åœ¨å‘é€æˆ–è€…å›å¤çš„ä¿¡æ¯
+split_thread:			åˆ†å¼€ä¸»é¢˜
+groupmgr_no_user:		æ­¤è´¦å·ä¸å­˜åœ¨ "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	"{FUNC: char_fix(htmlspecialchars($gr_member))}" æœ¬è®ºå›å·²ç»å­˜åœ¨è¿™ä¸ªç”¨æˆ·
+groupmgr_yes:			æ˜¯
+groupmgr_no:			å¦
+groupmgr_action:		æ“ä½œ
+groupmgr_member:		æˆå‘˜
+groupmgr_cancel:		åˆ é™¤
+groupmgr_add_member:		æ·»åŠ æˆå‘˜
+groupmgr_update_member:		æ›´æ–°æˆå‘˜åå•
+groupmgr_edit:			ç¼–è¾‘
+groupmgr_delete:		åˆ é™¤
+group_mgr_anon:			åŒ¿å
+group_mgr_reged:		æ‰€æœ‰æ³¨å†Œç”¨æˆ·
+show_show:			æ˜¾ç¤ºï¼š
+group_mgr:			è®ºå›æ¿å—ç®¡ç†
+group_mgr_edit_btn:		ç¼–è¾‘è®ºå›
+group_mgr_heading:		é€‰æ‹©è®ºå›ç®¡ç†å‘˜
+group_mgr_group:		è®ºå›ï¼š
+permission_denied_title:	ä½ çš„è¦æ±‚è¢«æ‹’ç»
+permission_denied_msg:		ä½ æ²¡æœ‰æƒé™æ‰§è¡Œæ­¤é¡¹æ“ä½œ
+p_READ:				æŸ¥çœ‹
+p_POST:				å‘å¸ƒ
+p_REPLY:			å›å¤
+p_EDIT:				ç¼–è¾‘
+p_DEL:				åˆ é™¤
+p_STICKY:			å‘å¸ƒè®ºå›å…¬å‘Š
+p_POLL:				å‘èµ·è°ƒæŸ¥
+p_FILE:				æ·»åŠ é™„ä»¶
+p_VOTE:				æŠ•ç¥¨
+p_RATE:				è¯„ä»·å¸–å­
+p_SPLIT:			åˆ†å¼€ä¸»é¢˜
+p_LOCK:				å°é—­å¸–å­
+p_MOVE:				è½¬ç§»å¸–å­
+p_SML:				åº”ç”¨è¡¨æƒ…ç¬¦å·
+p_IMG:				åº”ç”¨å›¾åƒæ ‡ç­¾
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">æŸ¥æ‰¾ç”¨æˆ·</a>
+group_mgr_indicator:		æ­£åœ¨ç¼–è¾‘ï¼š<b>{VAR: grp->name}</b>
+rate_worst:			æœ€å·®çš„
+rate_best:			æœ€å¥½çš„
+post_quote_msg:			{VAR: msg->login} äº {DATE: msg->post_stamp %Y-%m-%d %H:%M} åœ¨å¤§ä½œä¸­æåˆ°ï¼š
+post_quote:			å¼•ç”¨ï¼š
+userinfo_referals:		è¢«æ¨èçš„ç”¨æˆ·ï¼š
+userinfo_referals_count:	{VAR: referals} æˆå‘˜ï¼š
+pm_no_space_title:		ç©ºé—´ä¸å¤Ÿ
+pm_no_space_msg:		ä½ çš„æ‚„æ‚„è¯æ–‡ä»¶å¤¹å·²ç»è¶…å‡ºäº†ç³»ç»Ÿé™åˆ¶çš„ç©ºé—´èŒƒå›´ <b>{GVAR: MAX_PMSG_FLDR_SIZE} å­—èŠ‚</b>ï¼Œå…¶ä¸­åŒ…æ‹¬ <b>{VAR: fldr_size} å­—èŠ‚çš„</b> æœ‰ç”¨ä¿¡æ¯ï¼Œ<br><br><font class="ErrorText">è¯·åˆ é™¤ä¸€äº›æ—§ä¿¡æ¯ä»¥è…¾å‡ºç©ºé—´</font>ã€‚
+pm_space_indct_msg:		ä½ çš„æ‚„æ‚„è¯ä¿¡ç®±å·²å ç”¨{VAR: percent_full}%ç©ºé—´ã€‚
+th_expr_never:			ä»ä¸
+th_expr_one_hr:			1ä¸ªå°æ—¶
+th_expr_three_hr:		3ä¸ªå°æ—¶
+th_expr_four_hr:		4ä¸ªå°æ—¶
+th_expr_eight_hr:		8ä¸ªå°æ—¶
+th_expr_sixteen_hr:		16å°æ—¶
+th_expr_one_day:		ä¸€å¤©
+th_expr_two_day:		2å¤©
+th_expr_four_day:		4å¤©
+th_expr_one_week:		1å‘¨
+th_expr_two_week:		2å‘¨
+th_expr_one_month:		1ä¸ªæœˆ
+th_expr_two_month:		2ä¸ªæœˆ
+th_expr_four_month:		4ä¸ªæœˆ
+th_expr_one_year:		1å¹´
+thread_mod_delete:		åˆ é™¤
+action_latest_post:		æœ€è¿‘ä¸€æ¬¡ç™»å½•
+online_today_last_visit:	æœ€è¿‘ä¸€æ¬¡ç™»å½•
+online_today_update:		æŸ¥çœ‹æœ¬è®ºå›ä»Šå¤©çš„åœ¨çº¿ç”¨æˆ·
+logedin_todays_visitors:	ä»Šå¤©çš„è®¿é—®è€…
+logedin_latest_post:		æœ¬è®ºå›æœ€æ–°å‘å¸ƒçš„ä¸»é¢˜
+register_show_avatar:		æ˜¾ç¤ºå¤´åƒï¼š
+register_show_avatar_desc:	æ˜¯å¦æ˜¾ç¤ºç”¨æˆ·çš„å¤´åƒã€‚
+drawmsg_view_rest_post:		æ˜¾ç¤ºå‰©ä½™ä¿¡æ¯
+post_re:			å›å¤ï¼š
+forumsel_goto_forum:		è½¬è‡³è®ºå›ï¼š
+minimsg_thread_view:		æµè§ˆä¸»é¢˜
+split_th_post_by:		ä½œè€…ï¼š
+split_th_posted_on:		å‘è¡¨æ—¶é—´ï¼š
+split_th_subject:		ä¸»é¢˜ï¼š
+split_th_new_thread_title:	æ–°çš„ä¸»é¢˜ï¼š
+split_th_forum:			è®ºå›ï¼š
+split_th_split_sel:		åˆ†å‡ºé€‰ä¸­çš„å¸–å­
+split_th_split_unsel:		åˆ†å‡ºæ²¡æœ‰é€‰ä¸­çš„å¸–å­
+split_th_messages:		ä¿¡æ¯
+split_th_select:		é€‰æ‹©
+report_report_post:		æŠ¥å‘Šå‘å¸ƒ
+quicklogin_login:		ç™»å½•
+quicklogin_password:		å¯†ç 
+quicklogin_use_cookies:		æ˜¯å¦ä½¿ç”¨CookiesåŠŸèƒ½ï¼Ÿ
+quicklogin_login_btn:		ç™»å½•
+post_notification_desc:		å½“æœ‰äººå›å¤æœ¬ä¸»é¢˜æ—¶è¯·é€šçŸ¥æˆ‘ã€‚
+maximize_category:		å¢åŠ ç›®å½•å±‚æ¬¡
+no_view_perm:			å¾ˆæŠ±æ­‰ï¼Œä½ æ²¡æœ‰å¯Ÿçœ‹è¿™ä¸ªé¡µé¢çš„æƒé™
+report_empty_report:		ä½ ä¸èƒ½æäº¤ç©ºçš„æŠ¥å‘Šï¼Œè¯·è¯´æ˜æ¨èç†ç”±ã€‚
+report_already_reported_title:	æŠ¥å‘Šå·²ç»æäº¤
+report_already_reported_msg:	è¿™æ¡ä¿¡æ¯å·²è¢«æ¨èï¼Œç›¸å…³æ¨èæŠ¥å‘Šåœ¨è®ºå›ç®¡ç†ä¿¡æ¯åˆ—è¡¨ä¸­ã€‚
+register_err_toomanyimages:	ä½ çš„ä¸ªäººç­¾åä¸­ä½¿ç”¨äº†ç¦æ­¢ä½¿ç”¨çš„å›¾ç‰‡{GVAR: FORUM_IMG_CNT_SIG}ã€‚
+pmsg_next_msg:			ä¸‹ä¸€æ¡ä¿¡æ¯
+pmsg_prev_msg:			å‰ä¸€æ¡ä¿¡æ¯
+post_proc_reveal_spoiler:	æ˜¾ç¤ºéšè—å†…å®¹
+register_jabber:		Jabberï¼š
+im_jabber:			Jabberï¼š
+forum_contact:			è”ç³»
+forum_home:			ä¸»é¡µ
+post_cur_attached:		æ­£åœ¨ç²˜å¸–{VAR: i} ä¸ªæ–‡ä»¶
+ignored_anon_post:		{GVAR: ANON_NICK} è¢«å¿½ç•¥
+ignored_user_post:		è®¾ç½®å¿½ç•¥ä¿¡æ¯<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>
+smladd_close_window:		å…³é—­çª—å£
+post_list_smilies:		æ˜¾ç¤ºæ‰€æœ‰è¡¨æƒ…ç¬¦å·
+p_VISIBLE:			å¯è§çš„
+reported_in_thread:		å±•å¼€æµè§ˆ
+help_back_to_top:		å›åˆ°é¡µé¦–
+help_return_to_index:		è¿”å›å¸®åŠ©ç´¢å¼•
+imsg_err_message_title:		å¸–å­å‡ºé”™
+imsg_err_message_msg:		ä½ è¦æŸ¥çœ‹çš„å¸–å­ä¸å­˜åœ¨ã€‚
+poll_edit:			ç¼–è¾‘
+unspecified:			ä¿å¯†
+register_err_not_valid_img:	æŒ‡å®šçš„å›¾ç‰‡è¿æ¥ä¸æ­£ç¡®
+pmsg_recepient:			æ”¶ä¿¡äºº
+register_err_taken_alias:	è¿™ä¸ªæ˜µç§°å·²ç»å­˜åœ¨ï¼Œè¯·æ›´æ¢
+register_alias:			æ˜µç§°
+register_alias_desc:		å¦‚æœä½ æƒ³åº”ç”¨æ˜µç§°ä»£æ›¿ä½ çš„ç”¨æˆ·åæ¥æ˜¾ç¤ºåœ¨è®ºå›ä¸Šå°±è¯·ä½ å¡«å…¥ä½ æƒ³è¦çš„æ˜µç§°ã€‚
+register_allow_pm_msg:		æ¥å—æ‚„æ‚„è¯
+register_allow_pm_msg_desc:	æ¥å—è®ºå›å…¶ä»–ç”¨æˆ·å‘ä½ å‘é€çš„æ‚„æ‚„è¯ã€‚
+postcheck_pm_disabled:		ä½ ä¸èƒ½ç»™ "{VAR-HTML: v}" å‘é€æ‚„æ‚„è¯ï¼Œå› ä¸ºä»–æ²¡æœ‰å¼€å¯æ‚„æ‚„è¯åŠŸèƒ½ã€‚
+polllist_vote:			å‚åŠ è°ƒæŸ¥
+polllist_view_results:		æŸ¥çœ‹ç»“æœ
+polllist_name:			è°ƒæŸ¥ä¸»é¢˜
+polllist_date:			å‘èµ·æ—¶é—´
+polllist_owner:			å‘èµ·äºº
+polllist_votes:			æ€»ç¥¨æ•°
+polllist_action:		æ“ä½œ
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">ä»¥å¾€è°ƒæŸ¥</a>
+userinfo_polls:			å‘èµ·è°ƒæŸ¥æ•°
+show_pollist:			è°ƒæŸ¥åˆ—è¡¨
+search_and:			å’Œ
+search_or:			æˆ–
+search_desc_order:		é™åºæ’åˆ—
+search_asc_order:		å‡åºæ’åˆ—
+search_logic:			æ–¹å¼ï¼š
+search_sorting:			ç»“æœæŒ‰æ—¥æœŸï¼š
+post_moderated_forum:		æ­å–œï¼ä½ å·²ç»å‘è¡¨æˆåŠŸï¼Œç­‰ç‰ˆä¸»æˆ–è€…ç®¡ç†å‘˜ç¡®è®¤åä¼šå‘å¸ƒåˆ°ç½‘ä¸Šï¼
+post_moderated_forum_ttl:	å—é™è®ºå›è¯´æ˜
+post_proceed:			è¿”å›è®ºå›
+buddy_list_bday:		ä»Šå¤©æ˜¯ {VAR: r[2]} çš„ {VAR: age} å²ç”Ÿæ—¥
+email_warning_msg:		å¦‚æœä½ ä¿®æ”¹äº†Emailï¼Œåˆ™æ­¤è´¦å·ä¼šè¢«æš‚æ—¶éšè—ï¼Œè¯·ä½ æŸ¥æ”¶é‚®ä»¶ï¼Œç‚¹å‡»é‚®ä»¶ä¸­çš„è¿æ¥ä»¥é‡æ–°æ¿€æ´»è´¦å·ï¼
+register_show_im:		æ˜¾ç¤º IM æŒ‡ç¤ºå™¨
+register_show_im_desc:		æ˜¯å¦åœ¨ç”¨æˆ·å¸–å­æ—è¾¹æ˜¾ç¤ºIMã€‚
+unread_message:			æœªè¯»å¸–å­
+read_message:			é˜…è¯»æ›´å¤šå¸–å­ï¼š			&lt;æ›´å¤š&gt;
+threadt_disabled_ttl:		æ ‘çŠ¶æµè§ˆå·²ç»è¢«å…³é—­ã€‚
+threadt_disabled_desc:		ç®¡ç†å‘˜å·²ç»å…³é—­æ ‘çŠ¶æµè§ˆï¼Œè¯·ç”¨å±•å¼€æµè§ˆæ–¹å¼ã€‚
+threadt_update:			æµè§ˆè®ºå›ï¼ˆæ ‘çŠ¶æµè§ˆï¼‰<a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_more:			&lt;æ›´å¤š&gt;
+register_msg_tree_view:		å±•å¼€æµè§ˆ/æ ‘çŠ¶æµè§ˆ
+register_tree_msg_view:		æ ‘çŠ¶æµè§ˆ/å±•å¼€æµè§ˆ
+mmod_delete_cofirm_ttl:		ç¡®è®¤åˆ é™¤ä¸»é¢˜/å†…å®¹
+spell_alts:			æ²¡æœ‰é€‰æ‹©
+insert_uploaded_image:		å°†æ­¤å›¾ç‰‡æ˜¾ç¤ºåœ¨æ–‡ç« ä¸­
+finduser_help:			å°æç¤ºï¼šè¾“å…¥å•ä¸ªå­—æ¯å°±å¯ä»¥æœç´¢åˆ°ä»¥è¿™ä¸ªå­—æ¯å¼€å¤´çš„ç”¨æˆ·ã€‚
+back_to_top:			è¿”å›é¡¶éƒ¨
+iemail_participate:		å‚ä¸è®¨è®ºï¼Œç‚¹æ­¤ï¼š
+pm_err_disabled_title:		ä¸èƒ½å‘é€æ‚„æ‚„è¯
+pm_err_disabled_msg:		ä½ å½“å‰è®¾ç½®ä¸ºä¸èƒ½å‘é€æ‚„æ‚„è¯ï¼å¯ä»¥åœ¨ä¸ªäººä¿¡æ¯ä¸­ä¿®æ”¹è®¾ç½®ï¼Œä»¥æ¿€æ´»æ‚„æ‚„è¯åŠŸèƒ½ã€‚
+err_mod_acc_ttl:		æœªè¢«æ‰¹å‡†çš„è´¦å·
+err_mod_acc_msg:		è´¦å·åœ¨è¢«æ¿€æ´»ä¹‹å‰å¿…é¡»å¾—åˆ°ç³»ç»Ÿç®¡ç†å‘˜çš„ç¡®è®¤ï¼Œåœ¨å¾—åˆ°ç¡®è®¤ä¹‹å‰ï¼Œä½ çš„è´¦å·ä¸äº«æœ‰æ³¨å†Œç”¨æˆ·çš„æ‰€æœ‰åŠŸèƒ½ï¼
+accounts_pending_approval:	å¾…å®¡æ ¸å¸å·
+saved:				çè—å¤¹
+register_err_time_limit:	æ¯ {GVAR: REG_TIME_LIMIT} ç§’é™åˆ¶ä¸€ä¸ªç”¨æˆ·å¯ä»¥æ³¨å†Œï¼Œ è¯·ç¨ç­‰ {VAR: reg_limit_reached} ç§’å†æ¥æ³¨å†Œã€‚
+register_affero:		Afferoç”¨æˆ·åï¼š<br /><font class="SmallText">å¦‚æœä½ æœ‰<a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>å¸æˆ·ï¼Œè¯·åœ¨æ­¤å¤„è¾“å…¥ç”¨æˆ·åã€‚</font>
+im_affero:			Afferoç”¨æˆ·å
+register_err_avatardimtobig:	å¤´åƒå¤§å° <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> è¶…å‡ºäº†è®ºå›é™åˆ¶çš„ï¼š <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+pmsg_download_counter:		ä¸‹è½½äº† {VAR: r->dlcount} æ¬¡
+member_search:			<br>æˆ–è€…ä½¿ç”¨ <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">ç”¨æˆ·æŸ¥æ‰¾</a> åŠŸèƒ½æ¥æ‰¾äººã€‚
+post_all_ext_allowed:		ï¼ˆæ²¡æœ‰é™åˆ¶ï¼‰
+buddy_offline:			{VAR: r[2]} å½“å‰ä¸åœ¨çº¿
+buddy_online:			{VAR: r[2]} å½“å‰åœ¨çº¿
+sml_no_smilies:			æ²¡æœ‰è¡¨æƒ…ç¬¦å·ä¾›é€‰æ‹©ã€‚
+login_unapproved_account_ttl:	æœªå®¡æ ¸çš„å¸å·
+login_unapproved_account_msg:	å¸å·éœ€è¦ç®¡ç†å‘˜å®¡æ ¸åæ‰èƒ½æ¿€æ´»ä½¿ç”¨ã€‚ä½ çš„å¸å·è¿˜æœªé€šè¿‡å®¡æ ¸ï¼Œåœ¨é€šè¿‡å®¡æ ¸ä¹‹å‰ï¼Œå¯èƒ½ä¸èƒ½ä½¿ç”¨è®ºå›çš„æŸäº›åŠŸèƒ½ã€‚
+remove_from_buddy_list:		ä»å¥½å‹åå•ä¸­åˆ é™¤
+iemail_msg_author:		<b>ä½œè€…ï¼š</b> {VAR: obj->alias}
+iemail_msg_subject:		<b>ä¸»é¢˜ï¼š</b> {VAR: obj->subject}
+iemail_msg_date:		<b>æ—¥æœŸï¼š</b> {DATE: obj->post_stamp %Y-%m-%d %H:%M}
+iemail_msg_reply:		å›å¤
+iemail_msg_quote:		å¼•ç”¨
+iemail_msg_view:		æŸ¥çœ‹ä¸»é¢˜/å¸–å­
+threadt_sticky:			ç½®é¡¶
+threadt_announce:		å…¬å‘Š
+reported_no_messages:		æ²¡æœ‰æŠ¥å‘Šçš„å¸–å­ã€‚
+poll_no_polls:			æ²¡æœ‰å¯ç”¨çš„æŠ•ç¥¨ã€‚
+no_unread_messages:		æ²¡æœ‰ç¬¦åˆæ¡ä»¶çš„æœªè¯»å¸–å­ã€‚
+thread_mark_all_read:		æ ‡è®°æ‰€æœ‰å¸–å­ä¸ºå·²è¯»
+thread_mark_all_read_desc:	è®ºå›ä¸­æ‰€æœ‰çš„æœªè¯»æ ‡è®°å°†è¢«æ¸…é™¤
+private_no_messages:		æ­¤æ¿ä¸Šæ²¡æœ‰å¸–å­
+register_email_change_subject:	ç”µå­é‚®ä»¶æ›´æ”¹ç¡®è®¤
+register_email_change_msg:	è¯·ç¡®è®¤ä½ çš„æ–°é‚®ä»¶åœ°å€ "{VAR: uent->email}"ï¼ˆç”¨äºæ›¿æ¢è€åœ°å€ "{VAR: old_email}"ï¼‰ï¼Œç‚¹å‡»ä»¥ä¸‹çš„URLï¼š\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nä½ çš„å¸å·å°†åœ¨æ–°é‚®ä»¶åœ°å€è¢«ç¡®è®¤åè¢«é‡æ–°æ¿€æ´»ã€‚
+iemail_thread_unsub:		å–æ¶ˆå¯¹æ­¤ä¸»é¢˜çš„è®¢é˜…
+iemail_forum_unsub:		å–æ¶ˆå¯¹æ­¤æ¿å—çš„è®¢é˜…
+primary_group_prefix:		ä¸­å¿ƒç»„å¯¹äºæ¿å—ï¼š
+group_resources:		æ­¤ç»„æ§åˆ¶ä¸‹åˆ—æ¿å—çš„è®¿é—®æƒé™
+register_email:			ç”µå­é‚®ä»¶ï¼š
+register_admin_newuser_title:	æœ‰æ–°ç”¨æˆ·æ³¨å†Œå¹¶ç­‰å€™æ‰¹å¤
+register_admin_newuser_msg:	æ–°ç”¨æˆ· ({VAR: uent->login}) åˆšåˆšæ³¨å†Œï¼Œæ­£ç­‰å¾…ç®¡ç†å‘˜çš„å®¡æ ¸æ‰¹å¤ã€‚è¦æ‰¹å¤ç”¨æˆ·ï¼Œè¯·è½¬åˆ°ï¼š {GVAR: WWW_ROOT}adm/admaccapr.php\n\nè¿™æ˜¯ä¸€å°è‡ªåŠ¨å‘å‡ºçš„é‚®ä»¶ï¼Œè¯·å‹¿å›å¤æ­¤é‚®ä»¶ã€‚\nå¦‚æœè¦å–æ¶ˆæ­¤æé†’ï¼Œè¯·åœ¨ç®¡ç†ç•Œé¢çš„ "New Account Notification" ä¸­è®¾ç½®ã€‚
+post_mod_msg_notify_title:	æœ‰æ–°å¸–åœ¨ "{VAR: frm->name}" æ¿ä¸Šç­‰å¾…å®¡æ ¸
+post_mod_msg_notify_msg:	æ–°å¸–å­ "{VAR: msg_post->subject}" åˆšåˆšå‘å¸ƒï¼Œç­‰å€™å®¡æ ¸ã€‚è¦å®¡æ ¸æ­¤å¸–ï¼Œè¯·åˆ°ï¼š{FULL_ROOT}{ROOT}?t=modque\n\nè¿™æ˜¯ä¸€å°è‡ªåŠ¨å‘å‡ºçš„é‚®ä»¶ï¼Œè¯·å‹¿å›å¤æ­¤é‚®ä»¶ã€‚\n
+thread_printable_pdf:		ç”Ÿæˆå¯æ‰“å°çš„PDFæ ¼å¼
+thread_syndicate:		åŒæ­¥æ­¤æ¿å—ï¼ˆXMLæ ¼å¼ï¼‰
+reg_conf_title:			è®ºå›æ³¨å†ŒéªŒè¯é‚®ä»¶
+reg_conf_email:			<b>ç”µå­é‚®ä»¶éªŒè¯</b><br />ä¸€å°ç‰¹æ®Šçš„é‚®ä»¶å·²ç»å‘å¾€ä½ å¡«å†™çš„é‚®ç®±ï¼Œé‚®ä»¶é‡ŒåŒ…å«äº†ä¸€ä¸ªç‰¹æ®Šçš„URLç½‘å€ï¼Œä½ éœ€è¦è®¿é—®æ­¤ç½‘å€ä»¥é€šè¿‡è®ºå›çš„ç”µå­é‚®ä»¶éªŒè¯æ­¥éª¤ã€‚å¦‚æœå‡ åˆ†é’Ÿåä½ æ²¡æœ‰æ”¶åˆ°è¿™æ ·çš„é‚®ä»¶ï¼Œè¯·ç™»å½•è®ºå›å¹¶æ£€æŸ¥é‚®ä»¶åœ°å€æ˜¯å¦å¡«å†™æ­£ç¡®ã€‚åœ¨é€šè¿‡éªŒè¯ä¹‹å‰ä½ å°†ä¸èƒ½ä½¿ç”¨è®ºå›çš„æŸäº›åŠŸèƒ½ã€‚
+reg_conf_account:		<b>å¸å·ç¡®è®¤</b><br />åœ¨å¸å·è¢«æ¿€æ´»å¯ç”¨ä¹‹å‰ï¼Œå¿…é¡»é€šè¿‡ç®¡ç†å‘˜çš„å®¡æ ¸å’Œæ‰¹å¤ã€‚å¸å·è¢«ç®¡ç†å‘˜æ‰¹å¤ä¹‹ååœ¨ä½ æ³¨å†Œæ—¶å¡«å†™çš„é‚®ç®±é‡Œä¼šæ”¶åˆ°ä¸€å°æç¤ºæ³¨å†ŒæˆåŠŸçš„é‚®ä»¶ï¼Œåœ¨é€šè¿‡æ‰¹å¤ä¹‹å‰ï¼Œä½ å°†ä¸èƒ½ä½¿ç”¨è®ºå›çš„æŸäº›åŠŸèƒ½ã€‚
+forum_banned_user:		ç”±äºæ­¤å¸å·ä¸Šæ¬¡åœ¨è®ºå›çš„æ‰€ä½œæ‰€ä¸ºä¸¥é‡è¿åè®ºå›è§„å®šï¼Œå¯¼è‡´å¸å·è¢«è®ºå›ç®¡ç†å‘˜å°é—­ï¼Œå†è§ã€‚
+mnav_description:		å¸–å­æµè§ˆå™¨
+mnav_date_limit:		æ—¥æœŸèŒƒå›´ï¼š
+mnav_forum_limit:		é™åˆ¶åœ¨å¦‚ä¸‹çš„ç‰ˆé¢ä¸ŠæŸ¥æ‰¾ï¼š
+mnav_all_forums:		æ‰€æœ‰è®ºå›ç‰ˆé¢
+mnav_submit:			æµ è§ˆ
+mnav_no_range:			è¯·è¾“å…¥åˆç†çš„æ—¥æœŸèŒƒå›´ã€‚ä½ å¯ä»¥è¾“å…¥ä»0åˆ°12ä¸­ä»»æ„æ•°å­—ï¼Œæ³¨æ„æ•°å­—å¿…é¡»å¤§äº0ã€‚
+mnav_invalid_unit:		è¯·æŒ‡å®šåˆç†çš„æ—¶é—´å•ä½ã€‚
+mnav_invalid_date:		è¾“å…¥çš„æ—¥æœŸèŒƒå›´è¶…å‡ºè®ºå›é™åˆ¶ï¼Œè¯·æ”¹å°åé‡æ–°è¾“å…¥ã€‚
+mnav_no_results:		æ²¡æœ‰ç¬¦åˆæ¡ä»¶çš„å¸–å­ã€‚
+mnav_posted_by:			å‘å¸–äººï¼š
+mnav_more:			æ›´å¤š &raquo;&raquo;
+mnav_minute:			åˆ†é’Ÿ
+mnav_hour:			å°æ—¶
+mnav_day:			å¤©
+mnav_week:			å‘¨
+mnav_month:			æœˆ
+mnav_title:			å¸–å­æµè§ˆå™¨
+mnav_update:			ç”¨<a href="{TEMPLATE: mnav_update_lnk}">å¸–å­æµè§ˆå™¨</a>æ¥æŸ¥çœ‹ã€‚
+pm_notify_subject:		[{GVAR: FORUM_TITLE}] ä½ æ”¶åˆ°äº†æ–°æ‚„æ‚„è¯ï¼
+pm_notify_body_email:		ä½ æ”¶åˆ°äº†æ–°çš„æ‚„æ‚„è¯ï¼Œæ ‡é¢˜æ˜¯ "{VAR: subject}"ï¼Œå‘è‡ª "{VAR: from}" åœ¨ "{GVAR: FORUM_TITLE}" è®ºå›ã€‚\nè¦æŸ¥çœ‹æ­¤æ‚„æ‚„è¯ï¼Œè¯·ç‚¹å‡»ï¼š{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nå¦‚æœä¸æƒ³å†æ”¶åˆ°æ–°æ‚„æ‚„è¯æé†’é‚®ä»¶ï¼Œè¯·åœ¨â€œä¸ªäººä¿¡æ¯â€ä¸­ç¦æ­¢â€œæ–°æ‚„æ‚„è¯æé†’â€ã€‚
+register_pm_notification:	æ–°æ‚„æ‚„è¯æé†’
+register_pm_notification_desc:	å¦‚æœé€‰â€œæ˜¯â€ï¼Œåˆ™åœ¨æœ‰æ–°æ‚„æ‚„è¯æ”¶åˆ°æ—¶ï¼Œè®ºå›ä¼šé€šè¿‡æ‰€é€‰çš„æ–¹å¼é€šçŸ¥ä½ ã€‚
+findu_admin_opts_header:	ç®¡ç†å‘˜é€‰é¡¹
+findu_unban:			è§£å°
+findu_ban:			å°
+findu_edit:			ç¼–è¾‘
+findu_delete:			åˆ é™¤
+dmsg_reply_to:			æ˜¯å¯¹äºå¸–å­ #{VAR: obj->reply_to} çš„å›å¤
+merge_topics:			åˆå¹¶ä¸»é¢˜
+merge_topics_cp:		åˆå¹¶ä¸»é¢˜åŠŸèƒ½é¢æ¿
+merge_topics_tpl:		é€‰æ‹©è¦åˆå¹¶çš„ä¸»é¢˜<font class="SmallText">ï¼ˆè‡³å°‘éœ€è¦é€‰æ‹©ä¸¤ä¸ªä¸»é¢˜ï¼‰</font>
+merge_merge:			åˆå¹¶æ‰€é€‰ä¸»é¢˜
+merge_next:			ä¸‹ä¸€é¡µ
+merge_prev:			ä¸Šä¸€é¡µ
+split_cp:			æ‰“æ•£ä¸»é¢˜åŠŸèƒ½é¢æ¿
+groups_perms_header:		æƒé™åˆ—è¡¨<font size="-1">ï¼ˆå°†é¼ æ ‡æŒ‡é’ˆæŒªè‡³ç›¸åº”æƒé™ä½ä»¥æŸ¥çœ‹ç›¸åº”æƒé™ï¼‰</font>
+register_err_sig_too_long:	ä½ çš„ç­¾åè¶…é•¿äº†ï¼Œæœ€å¤šåªèƒ½ {GVAR: FORUM_SIG_ML} characters ä¸ªå­—ç¬¦ï¼ˆä¸€ä¸ªæ±‰å­ç®—ä¸¤ä¸ªå­—ç¬¦ï¼‰ã€‚
+register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'ä½ çš„ç­¾åæ¡£å…± \'+document.fud_register.reg_sig.value.length+\' å­—ç¬¦é•¿ã€‚æœ¬è®ºå›é™åˆ¶é•¿åº¦ä¸º {GVAR: FORUM_SIG_ML} ä¸ªå­—ç¬¦ã€‚\');" class="SmallText">æ£€æŸ¥ç­¾åæ¡£é•¿åº¦</a>
+p_SEARCH:			å…è®¸æœç´¢
+adm_account_accepted:		ä½ çš„å¸å· \'{VAR: GLOBALS['r']->login}\' å·²ç»é€šè¿‡å®¡æ ¸ä¸”å·²è¢«æ¿€æ´»ã€‚æ­å–œä½ ï¼Œä½ ç°åœ¨å·²ç»æ˜¯ {GVAR: FORUM_TITLE}\' è®ºå›çš„æ­£å¼æ³¨å†Œç”¨æˆ·äº†ï¼
+adm_account_accepted_s:		ä½ åœ¨è®ºå› \'{GVAR: FORUM_TITLE}\' çš„æ³¨å†Œå·²è¢«æ¥å—ï¼
+adm_account_rejected:		ä½ çš„å¸å· \'{VAR: GLOBALS['r']->login}\' æ²¡æœ‰é€šè¿‡ç®¡ç†å‘˜çš„å®¡æ ¸ã€‚è¯·æ£€æŸ¥å¸å·æ˜¯å¦ç¬¦åˆè®ºå›ç›¸å…³è§„å®šï¼Œå¦‚æœä¸èƒ½ç¡®å®šé—®é¢˜ï¼Œè¯·è”ç³» \'{GVAR: ADMIN_EMAIL}\'.
+adm_account_rejected_s:		ä½ åœ¨è®ºå› \'{GVAR: FORUM_TITLE}\' æ³¨å†Œçš„å¸å·æœªé€šè¿‡å®¡æ ¸ï¼Œè¯·æ£€æŸ¥æ˜¯å¦ç¬¦åˆè®ºå›ç›¸å…³è§„å®šã€‚
+thread_on:			äº
+userinfo_buddy:			å¥½å‹ï¼š
+register_email_addr:		ç”µå­é‚®ä»¶åœ°å€ï¼š
+reset_suffix:			\n\nå¦‚æœä½ æ²¡æœ‰è¦æ±‚å¯†ç é‡ç½®åŠŸèƒ½ï¼Œè¯·åˆ é™¤æ­¤é‚®ä»¶ã€‚å¦‚æœä½ æ²¡æœ‰è¦æ±‚å¯†ç é‡ç½®è€Œæ”¶åˆ°äº†å¤šå°ç±»ä¼¼é‚®ä»¶ï¼Œè¯·è”ç»œç®¡ç†å‘˜ï¼š {GVAR: ADMIN_EMAIL}\n\nå¯†ç é‡ç½®è¯·æ±‚æ¥è‡ªï¼š {VAR: _SERVER['REMOTE_ADDR']}.\n\n
+usrinfo_last_visit:		æœ€è¿‘ä¸€æ¬¡ç™»å½•:
+mnav_newer:			æ–°äºï¼š
+mnav_older:			æ—§äºï¼š
+ip_search_by_ip:		æ ¹æ® IP æŸ¥æ‰¾ä½¿ç”¨è€…
+ip_search_syntax:		æ”¯æŒçš„æ ¼å¼ï¼š1.2.3.4, 1.2.3, 1.2, 1
+ip_search:			æŸ¥ æ‰¾
+ip_analyze_usage:		åˆ†æ IP ä½¿ç”¨æƒ…å†µ
+ip_analyze_usage_descr:		è¯·è¾“å…¥ä½¿ç”¨è€…çš„ç¡®åˆ‡ç™»å½•åã€‚
+ip_users_using:			ä½¿ç”¨ IP åœ°å€ &#39;{VAR: ip}&#39; çš„ç”¨æˆ·
+ip_all_ips:			ç”¨æˆ· &#39;{VAR: user}&#39; ä½¿ç”¨çš„æ‰€æœ‰ IP åœ°å€
+ip_title:			IP æµè§ˆå™¨
+userinfo_real_name:		çœŸå®å§“åï¼š
+register_err_alias_notallowed:	æ­¤æ˜µç§°è¢«ç¦ç”¨
+post_err_noannontopics_msg2:	<fieldset><legend>é”™è¯¯ï¼šæƒé™ä¸å¤Ÿ</legend>åŒ¿åç”¨æˆ·ä¸å…è®¸å‘å¸–ã€‚</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>é”™è¯¯ï¼šæƒé™ä¸å¤Ÿ</legend>åŒ¿åç”¨æˆ·ä¸è®¸å›å¸–ã€‚</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>é”™è¯¯ï¼šæœªç™»å½•</legend>ç™»å½•åæ‰èƒ½è®¿é—®æ‰€éœ€é¡µé¢ã€‚</fieldset><br />
+post_err_mod_forum_edit_ttl:	é”™è¯¯
+post_err_mod_forum_edit_msg:	åœ¨éœ€è¦å®¡æŸ¥çš„è®ºå›é‡Œä¸å¯ç¼–è¾‘å¸–å­ã€‚
+dmsg_num:			å¸–å· #{VAR: obj->id}
+postcheck_session_invalid:	è¶…æ—¶ï¼Œè¯·é‡æ–°æäº¤ã€‚æŠ±æ­‰ï¼
+delete_message_extra_desc:	<b>å¯ é€‰</b><br />ç”¨æ‚„æ‚„è¯å‘åŸå¸–ä½œè€…è¯´æ˜åˆ å¸–çš„åŸå› ã€‚
+delete_message_extra_body:	åŒæ—¶åŒ…å«åŸå¸–å†…å®¹ã€‚
+delete_msg_removed_ttl:		ä½ å‘çš„å¸–å­å·²è¢«ç®¡ç†å‘˜åˆ é™¤ã€‚
+delete_msg_pm_body:		åŸå¸–
+delete_msg_pm_subject:		åŸå¸–æ ‡é¢˜ï¼š {VAR: data[15]}
+ip_no_whois:			æ²¡æœ‰æ‰¾åˆ°å…³äº <b>{VAR: ip}</b> çš„ whois ä¿¡æ¯ã€‚
+ip_whois_title:			<b>ISP ä¿¡æ¯</b><br />
+register_theme:			ä¸»é¢˜ï¼š
+pmsg_trash:			æ¸…ç©ºåƒåœ¾ç®±
+uc_new_pm:			æ–°æ‚„æ‚„è¯
+uc_new_topic:			æ–°å¸–
+uc_new_cat_forum:		åŒ…å«æ–°å¸–çš„å·²è®¢é˜…è®ºå›
+uc_cat_forum:			åˆ†åŒº &raquo; è®ºå›
+uc_sub_topics:			åŒ…å«æ–°å¸–çš„å·²è®¢é˜…è¯é¢˜
+uc_page_title:			æŸ¥çœ‹ä¸ªäººæ§åˆ¶é¢æ¿
+search_options:			æœç´¢é€‰é¡¹
+search_user_filter:		ä»…é™ä½œè€…ï¼š
+register_none:			ä¸è¦é€šçŸ¥
+findu_no_conf:			æœªéªŒè¯Email
+register_max_sig_len:		æœ€å¤§é•¿åº¦:
+register_turing:		è¯·è¾“å…¥ä¸‹é¢æ˜¾ç¤ºçš„ä»£ç :
+register_err_turing:		æ— æ•ˆçš„éªŒè¯ç .
+modque_cat:			ç±»åˆ«:
+modque_forum:			è®ºå›
+idx_compact_forum_row:		å¯ç”¨è®ºå›
+mmd_del_title:			åˆ é™¤è¯é¢˜
+mmd_mov_title:			ç§»åŠ¨è¯é¢˜
+mmd_move_threads_to:		ç›®æ ‡è®ºå›
+mmd_abort_move:			å–æ¶ˆ
+mmd_move:			ç§»åŠ¨è¯é¢˜
+pmsg_pdf_btn:			ç”Ÿäº§PDFæ–‡æ¡£
+search_results_hdr:		{VAR: total} æœç´¢ç»“æœ 
+thread_del_all:			åˆ é™¤æ‰€æœ‰é€‰ä¸­çš„
+thread_mov_all:			ç§»åŠ¨æ‰€æœ‰é€‰ä¸­çš„
 dmsg_ip:			IP:
-err_banned_acct_title:		ERROR: You have been banned.
-err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
-err_blockedaccnt_title:		ERROR: Your account has been filtered out.
-err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
-merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
-tabs_own_posts:			Show Own Posts
-buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
-sml_emoticon:			Emoticon
-sml_code:			Code
+err_banned_acct_title:		é”™è¯¯:ä½ è¢«bannedäº†.
+err_banned_acct_msg:		ä½ çš„å¸å·è¢«æš‚æ—¶{IF: $ban_expiry}é”å®šç›´åˆ°{DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}å…è®¸{ENDI} ç™»å½•æœ¬ç«™ï¼Œå› ä¸ºæœ¬ç«™çš„&#39sè§„åˆ™.
+err_blockedaccnt_title:		é”™è¯¯:ä½ çš„å¸å·å·²ç»è¢«è¿‡æ»¤äº†ã€‚
+err_blockedaccnt_msg:		ä½ çš„å¸å·å› ä¸ºä¸€ä¸ªå·²ç»å®‰è£…çš„ç”¨æˆ·è¿‡æ»¤å™¨è€Œè¢«é˜»æ­¢äº†ã€‚
+merge_th_page_list:		è¯é¢˜é¡µé¢é€‰æ‹©
+most_users_online:		å¤§å¤šç”¨æˆ·æ›¾ç»åœ¨çº¿ <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:		ä»æ‰€æœ‰çš„è®ºå›å–æ¶ˆè®¢é˜…
+sub_unsub_all_topics:		ä»æ‰€æœ‰çš„è¯é¢˜å–æ¶ˆè®¢é˜…
+tabs_own_posts:			æ˜¾ç¤ºè‡ªå·±å‘çš„å¸–å­
+buddy_list_err_ignore:		ä¸èƒ½å¢åŠ å¿½ç•¥ä½ çš„ç”¨æˆ·åˆ°ä½ çš„æœ‹å‹åˆ—è¡¨.
+sml_emoticon:			è¡¨æƒ…
+sml_code:			ä»£ç 
 mnav_sub_only:			Search in subscribed forums only
