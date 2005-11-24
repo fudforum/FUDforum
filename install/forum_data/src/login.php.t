@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.79 2005/09/08 14:17:00 hackie Exp $
+* $Id: login.php.t,v 1.80 2005/11/24 00:28:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,6 +48,7 @@
 			case 'ppost':
 			case 'finduser':
 			case 'error':
+			case 'uc':
 			case '':
 				$returnto = '';
 				break;
