@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.28 2005/10/15 18:24:55 hackie Exp $
+* $Id: admavatar.php,v 1.29 2005/11/24 01:18:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -262,7 +262,9 @@ function import_avatars($path)
 	<td align="center">Action</td>
 </tr>
 <?php
-	$c = uq('SELECT id, img, descr FROM '.$tbl.'avatar WHERE gallery='._esc($avt_gal));
+	$show_def = in_array($avt_gal, $galleries) ? $avt_gal : $galleries[0];
+
+	$c = uq('SELECT id, img, descr FROM '.$tbl.'avatar WHERE gallery='._esc($show_def));
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {
