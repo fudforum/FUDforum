@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.82 2005/10/15 18:33:54 hackie Exp $
+* $Id: ppost.php.t,v 1.83 2005/11/28 00:38:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -76,7 +76,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		/* see if we have pre-defined subject being passed (via message id) */
 		if (isset($_GET['rmid']) && ($rmid = (int)$_GET['rmid'])) {
 			fud_use('is_perms.inc');
-			make_perms_query(&$fields, &$join, 't.forum_id');
+			make_perms_query($fields, $join, 't.forum_id');
 
 			$msg_subject = q_singleval('SELECT m.subject FROM {SQL_TABLE_PREFIX}msg m 
 							INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id
