@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipb.php,v 1.15 2005/10/13 19:32:08 hackie Exp $
+* $Id: ipb.php,v 1.16 2005/11/28 17:58:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -463,7 +463,6 @@ function make_avatar_loc($path, $disk, $web)
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}thr_exchange");
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}thread_notify");
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}thread_rate_track");
-	q("DELETE FROM {$DBHOST_TBL_PREFIX}thread_view");
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}msg");
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}msg_report");
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}mod_que");
