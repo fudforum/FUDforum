@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.65 2005/10/03 14:16:08 hackie Exp $
+* $Id: nntp.inc,v 1.66 2005/11/28 17:05:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@ class fud_nntp
 	var $server, $port=119, $user, $pass, $timeout=25, $newsgroup, $imp_limit;
 	var $error, $lrc;
 	var $fs;
-	var $group_na, $group_first, $group_last, $nntp_opt;
+	var $group_na, $group_first, $group_last, $nntp_opt, $custom_sig;
 	// Per Message Varaibles
 	var $headers, $body;
 	var $raw_msg;

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp_adm.inc,v 1.23 2005/09/28 14:15:54 hackie Exp $
+* $Id: nntp_adm.inc,v 1.24 2005/11/28 17:05:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,7 +16,7 @@ class fud_nntp_adm
 	var $server, $port=119, $login, $pass, $timeout=25, $newsgroup, $auth, $imp_limit;
 
 	// General Settings
-	var $forum_id, $id, $nntp_opt=33;
+	var $forum_id, $id, $nntp_opt=33, $custom_sig;
 
 	function fud_nntp_adm()
 	{
@@ -26,6 +26,7 @@ class fud_nntp_adm
 					$this->{$v} = $_POST['nntp_' . $v];
 				}
 			}
+			$this->custom_sig = trim($this->custom_sig);
 
 			$this->nntp_opt = 0;
 			foreach (array('skip_non_forum_users','nntp_post_apr', 'allow_frm_post', 'frm_post_apr', 'allow_nntp_attch', 'complex_reply_match', 'create_users', 'auth') as $v) {
@@ -47,7 +48,8 @@ class fud_nntp_adm
 			timeout,
 			newsgroup,
 			nntp_opt,
-			imp_limit
+			imp_limit,
+			custom_sig
 			)
 			VALUES(
 			".(int)$this->forum_id.",
@@ -58,7 +60,8 @@ class fud_nntp_adm
 			".(int)$this->timeout.",
 			"._esc($this->newsgroup).",
 			".$this->nntp_opt.",
-			".(int)$this->imp_limit."
+			".(int)$this->imp_limit.",
+			"._esc($this->custom_sig)."
 			)");
 
 		if ($this->nntp_opt & 1) {
@@ -81,7 +84,8 @@ class fud_nntp_adm
 			timeout=".(int)$this->timeout.",
 			imp_limit=".(int)$this->imp_limit.",
 			newsgroup="._esc($this->newsgroup).",
-			nntp_opt=".$this->nntp_opt."
+			nntp_opt=".$this->nntp_opt.",
+			custom_sig="._esc($this->custom_sig)."
 		WHERE id=".$id);
 
 		if ($old_frm_id != $this->forum_id && $nntp_opt & 1) {

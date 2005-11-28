@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.150 2005/11/15 14:57:22 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.151 2005/11/28 17:05:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -485,14 +485,14 @@ class fud_msg_edit extends fud_msg
 				define('sql_p', '{SQL_TABLE_PREFIX}');
 
 				$lock = $nntp->get_lock();
-				$nntp->post_message($mtf->subject, $body, $from, $mtf->id, $replyto_id, $attach);
+				$nntp->post_message($mtf->subject, $body.$nntp_adm->custom_sig, $from, $mtf->id, $replyto_id, $attach);
 				$nntp->close_connection();
 				$nntp->release_lock($lock);
 			} else {
 				fud_use('mlist_post.inc', true);
 				
-				$r = db_saq('SELECT name, additional_headers FROM {SQL_TABLE_PREFIX}mlist WHERE id='.$mtf->mlist_id);
-				mail_list_post($r[0], $from, $mtf->subject, $body, $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
+				$r = db_saq('SELECT name, additional_headers, custom_sig FROM {SQL_TABLE_PREFIX}mlist WHERE id='.$mtf->mlist_id);
+				mail_list_post($r[0], $from, $mtf->subject, $body.$r[2], $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
 			}
 		}
 	}

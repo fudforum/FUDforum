@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.29 2005/10/03 14:06:17 hackie Exp $
+* $Id: admnntp.php,v 1.30 2005/11/28 17:05:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,8 +38,7 @@
 			${'nntp_' . $k} = $v;
 		}
 	} else { /* Set the some default values */
-		$c = get_class_vars('fud_nntp_adm');
-		foreach ($c as $k => $v) {
+		foreach (get_class_vars('fud_nntp_adm') as $k => $v) {
 			${'nntp_' . $k} = $v;
 		}
 	}
@@ -198,6 +197,14 @@
 			</font>
 		</td>
 		<td><input type="text" name="nntp_imp_limit" value="<?php echo htmlspecialchars($nntp_imp_limit); ?>" maxlength=10></td>
+	</tr>
+
+	<tr class="field">
+		<td>Forum Signature:<br>
+			<font size="-1">A string of text to append to the end of every message 
+			sent from the forum back to the newsgroup.</font>
+		</td>
+		<td><textarea name="nntp_custom_sig" rows="7" cols="30"><?php echo htmlspecialchars($nntp_custom_sig); ?></textarea></td>
 	</tr>
 
 	<tr class="fieldaction">

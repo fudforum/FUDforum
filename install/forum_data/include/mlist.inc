@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mlist.inc,v 1.18 2005/09/28 14:15:54 hackie Exp $
+* $Id: mlist.inc,v 1.19 2005/11/28 17:05:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 
 class fud_mlist
 {
-	var $id, $forum_id, $name;
+	var $id, $forum_id, $name, $custom_sig;
 	var $mlist_opt=73;
 	var $subject_regex_haystack, $subject_regex_needle, $body_regex_haystack, $body_regex_needle, $additional_headers;
 
@@ -24,6 +24,11 @@ class fud_mlist
 		        	if (isset($_POST['ml_' . $v])) {
 					$this->{$v} = $_POST['ml_' . $v];
 				}
+			}
+
+			// text fields 
+			foreach (array('custom_sig','additional_headers') as $v) {
+				$this->$v = trim($this->$v);
 			}
 
 			$this->mlist_opt =0;
@@ -66,7 +71,8 @@ class fud_mlist
 			"._esc($this->subject_regex_needle).",
 			"._esc($this->body_regex_haystack).",
 			"._esc($this->body_regex_needle).",
-			"._esc($this->additional_headers)."
+			"._esc($this->additional_headers).",
+			"._esc($this->custom_sig)."
 			)");
 		if ($this->mlist_opt & 4) {
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt|2 WHERE id='.$this->forum_id);
@@ -93,7 +99,8 @@ class fud_mlist
 			subject_regex_needle="._esc($this->subject_regex_needle).",
 			body_regex_haystack="._esc($this->body_regex_haystack).",
 			body_regex_needle="._esc($this->body_regex_needle).",
-			additional_headers="._esc($this->additional_headers)."
+			additional_headers="._esc($this->additional_headers).",
+			custom_sig="._esc($this->custom_sig)."
 		WHERE id=".$id);
 
 		if ($old_frm_id != $this->forum_id && $mlist_opt & 4) {

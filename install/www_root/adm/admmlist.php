@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.32 2005/09/28 14:15:54 hackie Exp $
+* $Id: admmlist.php,v 1.33 2005/11/28 17:05:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,8 +51,7 @@ function format_regex(&$regex)
 		$ml_subject_regex_haystack_opt = format_regex($ml_subject_regex_haystack);
 		$ml_body_regex_haystack_opt = format_regex($ml_body_regex_haystack);
 	} else {
-		$c = get_class_vars('fud_mlist');
-		foreach ($c as $k => $v) {
+		foreach (get_class_vars('fud_mlist') as $k => $v) {
 			${'ml_' . $k} = $v;
 		}
 		$ml_subject_regex_haystack_opt = $ml_body_regex_haystack_opt = '';
@@ -228,6 +227,14 @@ function format_regex(&$regex)
 	<tr class="field">
 		<td valign="top">Custom Headers:</td>
 		<td nowrap><textarea nowrap cols=50 rows=5 name="ml_additional_headers"><?php echo htmlspecialchars($ml_additional_headers); ?></textarea></td>
+	</tr>
+
+	<tr class="field">
+		<td>Forum Signature:<br>
+			<font size="-1">A string of text to append to the end of every message 
+			sent from the forum back to the mailing list.</font>
+		</td>
+		<td><textarea name="ml_custom_sig" rows="7" cols="30"><?php echo htmlspecialchars($ml_custom_sig); ?></textarea></td>
 	</tr>
 
 	<tr>
