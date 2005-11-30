@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.154 2005/10/12 14:16:59 hackie Exp $
+* $Id: users.inc.t,v 1.155 2005/11/30 17:47:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -600,6 +600,10 @@ function &init_user()
 		$GLOBALS['t'] = 'index';
 	}
 
+	if ($GLOBALS['t'] == 'register') {
+		$GLOBALS['THREADS_PER_PAGE_F'] = $GLOBALS['THREADS_PER_PAGE']; // store old value
+	}
+
 	header('P3P: CP="ALL CUR OUR IND UNI ONL INT CNT STA"'); /* P3P Policy */
 
 	$sq = 0;
@@ -668,6 +672,11 @@ function &init_user()
 	/* define _uid, which, will tell us if this is a 'real' user or not */
 	define('__fud_real_user__', ($u->id != 1 ? $u->id : 0));
 	define('_uid', __fud_real_user__ && ($uo & 131072) && !($uo & 2097152) ? $u->id : 0);
+
+	/* allow user to set their own topics per page value, as long as it is smaller then the max */
+	if (__fud_real_user__ && $GLOBALS['THREADS_PER_PAGE'] > $u->topics_per_page) {
+		$GLOBALS['THREADS_PER_PAGE'] = (int) $u->topics_per_page;
+	}
 
 	$GLOBALS['sq'] = $sq;
 

@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.18 2005/06/14 21:55:43 hackie Exp $
+#   $Id: fud_users.tbl,v 1.19 2005/11/30 17:47:00 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -62,7 +62,8 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	users_opt		INT NOT NULL DEFAULT 4488117,
 	sq	                VARCHAR(32),
 	reg_ip			BIGINT NOT NULL DEFAULT 0,
-	ban_expiry		BIGINT NOT NULL DEFAULT 0
+	ban_expiry		BIGINT NOT NULL DEFAULT 0,
+	topics_per_page		INT NOT NULL DEFAULT 40,
 );
 
 CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_i_l ON {SQL_TABLE_PREFIX}users (login);

@@ -1007,3 +1007,4 @@ buddy_list_err_ignore:		Не могу добавить пользователей, которые Вас игнорируют.
 sml_emoticon:			Смайлик
 sml_code:			Код
 mnav_sub_only:			Search in subscribed forums only
+register_topics_per_page:	Topics Per Page:

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.86 2005/09/08 14:17:00 hackie Exp $
+* $Id: users_reg.inc.t,v 1.87 2005/11/30 17:47:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 
 class fud_user
 {
-	var $id, $login, $alias, $passwd, $plaintext_passwd, $name, $email, $location, $occupation, $interests,
+	var $id, $login, $alias, $passwd, $plaintext_passwd, $name, $email, $location, $occupation, $interests, $topics_per_page,
 	    $icq, $aim, $yahoo, $msnm, $jabber, $affero, $avatar, $avatar_loc, $posts_ppg, $time_zone, $bday, $home_page,
 	    $sig, $bio, $posted_msg_count, $last_visit, $last_event, $conf_key, $user_image, $join_date, $theme, $last_read,
 	    $mod_list, $mod_cur, $level_id, $u_last_post_id, $users_opt, $cat_collapse_status, $ignore_list, $buddy_list;
@@ -66,6 +66,7 @@ class fud_user_reg extends fud_user
 				$o2 ^= 1;
 			}
 			$reg_ip = "127.0.0.1";
+			$topics_per_page = $GLOBALS['THREADS_PER_PAGE'];
 		} else {
 			$reg_ip = get_ip();
 		}
@@ -117,7 +118,8 @@ class fud_user_reg extends fud_user
 				home_page,
 				bio,
 				users_opt,
-				reg_ip
+				reg_ip,
+				topics_per_page
 			) VALUES (
 				"._esc($this->login).",
 				"._esc($this->alias).",
@@ -147,7 +149,8 @@ class fud_user_reg extends fud_user
 				".ssn(htmlspecialchars($this->home_page)).",
 				".ssn($this->bio).",
 				".$this->users_opt.",
-				".ip2long($reg_ip)."
+				".ip2long($reg_ip).",
+				".(int)$this-topics_per_page."
 			)
 		");
 
@@ -188,7 +191,8 @@ class fud_user_reg extends fud_user
 			sig=".ssn($this->sig).",
 			home_page=".ssn(htmlspecialchars($this->home_page)).",
 			bio=".ssn($this->bio).",
-			users_opt=".$this->users_opt."
+			users_opt=".$this->users_opt.",
+			topics_per_page=".$this->topics_per_page."
 		WHERE id=".$this->id);
 
 		if ($rb_mod_list) {
@@ -199,12 +203,12 @@ class fud_user_reg extends fud_user
 
 function get_id_by_email($email)
 {
-	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE email="._esc($email));
+	return q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE email='._esc($email));
 }
 
 function get_id_by_login($login)
 {
-	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login="._esc($login));
+	return q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($login));
 }
 
 function usr_email_unconfirm($id)

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.36 2005/09/08 14:17:00 hackie Exp $
+* $Id: merge_th.php.t,v 1.37 2005/11/30 17:47:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -167,7 +167,7 @@
 	$c = uq('SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}tv_'.$frm.' tv 
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=tv.thread_id 
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id 
-			WHERE tv.seq BETWEEN '.($lwi - ($page * $THREADS_PER_PAGE)).' AND '.($lwi - (($page - 1) * $THREADS_PER_PAGE)).'
+			WHERE tv.seq BETWEEN '.($lwi - ($page * $THREADS_PER_PAGE) + 1).' AND '.($lwi - (($page - 1) * $THREADS_PER_PAGE)).'
 			ORDER BY tv.seq DESC');
 	while ($r = db_rowarr($c)) {
 		$thread_sel .= '{TEMPLATE: m_sel_opt}';

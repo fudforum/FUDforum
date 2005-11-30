@@ -1007,3 +1007,4 @@ buddy_list_err_ignore:		不能增加忽略你的用户到你的朋友列表.
 sml_emoticon:			表情
 sml_code:			代码
 mnav_sub_only:			Search in subscribed forums only
+register_topics_per_page:	Topics Per Page:

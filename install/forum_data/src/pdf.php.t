@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.51 2005/11/24 00:33:20 hackie Exp $
+* $Id: pdf.php.t,v 1.52 2005/11/30 17:47:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -191,7 +191,7 @@ class fud_pdf extends FPDF
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 				LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 			';
-			$lmt = ' AND tv.seq BETWEEN '.($lwi - ($page * $THREADS_PER_PAGE)).' AND '.($lwi - (($page - 1) * $THREADS_PER_PAGE));
+			$lmt = ' AND tv.seq BETWEEN '.($lwi - ($page * $THREADS_PER_PAGE) + 1).' AND '.($lwi - (($page - 1) * $THREADS_PER_PAGE));
 		} else {
 			$join = 'FROM {SQL_TABLE_PREFIX}forum f
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.forum_id=f.id

@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.63 2005/11/04 22:26:34 hackie Exp $
+* $Id: register.tmpl,v 1.64 2005/11/30 17:47:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -183,6 +183,7 @@
 <tr class="RowStyleA"><td>{MSG: register_show_avatar}<br /><span class="SmallText">{MSG: register_show_avatar_desc}</span></td><td>{TEMPLATE-DATA: show_avatar_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_show_im}<br /><span class="SmallText">{MSG: register_show_im_desc}</span></td><td>{TEMPLATE-DATA: show_im_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_msg_per_page}</td><td><select name="reg_posts_ppg">{TEMPLATE-DATA: mppg_select}</select></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_topics_per_page}</td><td><select name="reg_topics_per_page">{TEMPLATE-DATA: topics_per_page}</select></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_def_thread_view}</td><td><select name="reg_default_view">{TEMPLATE-DATA: view_select}</select></td></tr>
 {IF: $theme_select}{TEMPLATE: theme_select}{ENDIF}
 
