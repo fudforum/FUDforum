@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.80 2005/11/24 00:28:15 hackie Exp $
+* $Id: login.php.t,v 1.81 2005/11/30 16:22:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@
 	/* Remove old unconfirmed users */
 	if ($FUD_OPT_2 & 1) {
 		$account_expiry_date = __request_timestamp__ - (86400 * $UNCONF_USER_EXPIRY);
-		$list = db_all("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE (users_opt & 131072)=0 AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND id!=1 AND (users_opt & 1048576)=0");
+		$list = db_all('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE (users_opt & 131072)=0 AND join_date<'.$account_expiry_date.' AND posted_msg_count=0 AND last_visit<'.$account_expiry_date.' AND id!=1 AND (users_opt & 1048576)=0');
 
 		if ($list) {
 			fud_use('private.inc');
@@ -55,25 +55,25 @@
 			default:
 				if ($page == 'msg' || $page == 'tree') {
 					if (empty($tmp['th'])) {
-						if (empty($tmp['goto']) || !q_singleval("SELECT t.forum_id
+						if (empty($tmp['goto']) || !q_singleval('SELECT t.forum_id
 								FROM {SQL_TABLE_PREFIX}msg m
 								INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 								INNER JOIN {SQL_TABLE_PREFIX}group_cache g ON g.user_id=0 AND g.resource_id=t.forum_id AND (g.group_cache_opt & 2) > 0
-								WHERE m.id=".(int)$tmp['goto'])) {
+								WHERE m.id='.(int)$tmp['goto'])) {
 							$returnto = '';
 							break;
 						}
 					} else {
-						if (!q_singleval("SELECT t.forum_id
+						if (!q_singleval('SELECT t.forum_id
 								FROM {SQL_TABLE_PREFIX}thread t
 								INNER JOIN {SQL_TABLE_PREFIX}group_cache g ON g.user_id=0 AND g.resource_id=t.forum_id AND (g.group_cache_opt & 2) > 0
-								WHERE t.id=".(int)$tmp['th'])) {
+								WHERE t.id='.(int)$tmp['th'])) {
 							$returnto = '';
 							break;
 						}
 					}
 				} else if ($page == 'thread' || $page == 'threadt') {
-					if (!q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=0 AND resource_id=".(isset($tmp['frm_id']) ? (int) $tmp['frm_id'] : 0)." AND (group_cache_opt & 2) > 0")) {
+					if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=0 AND resource_id='.(isset($tmp['frm_id']) ? (int) $tmp['frm_id'] : 0).' AND (group_cache_opt & 2) > 0')) {
 						$returnto = '';
 						break;
 					}
@@ -147,7 +147,7 @@ function error_check()
 			ses_putvar((int)$usr->sid, null);
 		}
 
-		if (!($usr_d = db_sab("SELECT id, passwd, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login="._esc($_POST['login'])))) {
+		if (!($usr_d = db_sab('SELECT id, passwd, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($_POST['login'])))) {
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else if ($usr_d->passwd != md5($_POST['password'])) {
 			logaction($usr_d->id, 'WRONGPASSWD', 0, ($usr_d->users_opt & 1048576 ? 'ADMIN: ' : '')."Invalid Password ".htmlspecialchars(_esc($_POST['password']))." for login ".htmlspecialchars(_esc($_POST['login'])).". IP: ".get_ip());

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.158 2005/09/30 20:03:06 hackie Exp $
+* $Id: register.php.t,v 1.159 2005/11/30 16:22:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -155,7 +155,7 @@ function register_form_check($user_id)
 			if (is_login_blocked($_POST['reg_alias'])) {
 				set_err('reg_alias', '{TEMPLATE: register_err_alias_notallowed}');
 			}
-			if (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias="._esc(make_alias($_POST['reg_alias']))." AND id!=".$user_id)) {
+			if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc(make_alias($_POST['reg_alias'])).' AND id!='.$user_id)) {
 				set_err('reg_alias', '{TEMPLATE: register_err_taken_alias}');
 			}
 		}
@@ -371,10 +371,10 @@ function decode_uent(&$uent)
 
 		/* only one theme avaliable, so no select */
 		if (!$uent->theme) {
-			$uent->theme = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1");
+			$uent->theme = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1');
 		}
 
-		$uent->bday = fmt_year((int)$_POST['b_year']) . sprintf("%02d%02d", (int)$_POST['b_month'], (int)$_POST['b_day']);
+		$uent->bday = fmt_year((int)$_POST['b_year']) . sprintf('%02d%02d', (int)$_POST['b_month'], (int)$_POST['b_day']);
 
 		if ($FUD_OPT_1 & 32768 && $uent->sig) {
 			$uent->sig = apply_custom_replace($uent->sig);
@@ -418,7 +418,7 @@ function decode_uent(&$uent)
 
 			/* we notify all admins about the new user, so that they can approve him */
 			if (($FUD_OPT_2 & 132096) == 132096) {
-				$admins = db_all("SELECT email FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=1048576 AND (users_opt & 1048576) > 0");
+				$admins = db_all('SELECT email FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=1048576 AND (users_opt & 1048576) > 0');
 				send_email($NOTIFY_FROM, $admins, '{TEMPLATE: register_admin_newuser_title}', '{TEMPLATE: register_admin_newuser_msg}', '');
 			}
 
@@ -495,7 +495,7 @@ function decode_uent(&$uent)
 						} else {
 							$ext = array(1=>'gif', 2=>'jpg', 3=>'png', 4=>'swf');
 							$img_info = getimagesize($TMP . $common_av_name);
-							$av_path = 'images/custom_avatars/' . $uent->id . "." . $ext[$img_info[2]];
+							$av_path = 'images/custom_avatars/' . $uent->id . '.' . $ext[$img_info[2]];
 						}
 						copy($TMP . $common_av_name, $WWW_ROOT_DISK . $av_path);
 						@unlink($TMP . $common_av_name);
@@ -583,8 +583,8 @@ function decode_uent(&$uent)
 				$uent->bday = str_pad($uent->bday, 8, '0', STR_PAD_LEFT);
 			}
 			$b_year = (int) substr($uent->bday, 0, 4);
-			$b_month = sprintf("%02d", substr($uent->bday, 4, 2));
-			$b_day = sprintf("%02d", substr($uent->bday, 6, 8));
+			$b_month = sprintf('%02d', substr($uent->bday, 4, 2));
+			$b_day = sprintf('%02d', substr($uent->bday, 6, 8));
 		} else {
 			$b_year = $b_month = $b_day = '';
 		}
@@ -764,7 +764,7 @@ function decode_uent(&$uent)
 	}
 
 	$theme_select = '';
-	$r = uq("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY ((theme_opt & 2) > 0) DESC");
+	$r = uq('SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY ((theme_opt & 2) > 0) DESC');
 	/* only display theme select if there is >1 theme */
 	while ($t = db_rowarr($r)) {
 		$theme_select .= '{TEMPLATE: theme_select_value}';
