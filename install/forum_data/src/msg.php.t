@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.93 2005/09/02 17:25:00 hackie Exp $
+* $Id: msg.php.t,v 1.94 2005/11/30 16:21:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,7 +42,7 @@
 			if (!$th) {
 				$th = (int) q_singleval('SELECT thread_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$_GET['goto']);
 			}
-			if (!($pos = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND id<=".$_GET['goto']." AND apr=1"))) {
+			if (!($pos = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND id<='.$_GET['goto'].' AND apr=1'))) {
 				invl_inp_err();
 			}
 			if ($msg_page_focus !== null) {
@@ -151,7 +151,7 @@
 
 	/* This is an optimization intended for topics with many messages */
 	if ($use_tmp) {
-		q("CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_".__request_timestamp__." AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND apr=1 ORDER BY id ASC LIMIT " . qry_limit($count, $_GET['start']));
+		q('CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_'.__request_timestamp__.' AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND apr=1 ORDER BY id ASC LIMIT ' . qry_limit($count, $_GET['start']));
 	}
 
 	$result = $query_type('SELECT
@@ -170,7 +170,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id'.
 		(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid : ' ').
-		($use_tmp ? ' ORDER BY m.id ASC' : " WHERE m.thread_id=".$th." AND m.apr=1 ORDER BY m.id ASC LIMIT " . qry_limit($count, $_GET['start'])));
+		($use_tmp ? ' ORDER BY m.id ASC' : ' WHERE m.thread_id='.$th.' AND m.apr=1 ORDER BY m.id ASC LIMIT ' . qry_limit($count, $_GET['start'])));
 
 	$obj2 = $message_data = '';
 

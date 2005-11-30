@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.51 2005/08/26 19:20:53 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.52 2005/11/30 16:21:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,10 +14,10 @@
 function th_moved_perm_chk($frm_id)
 {
 	make_perms_query($fields, $join, $frm_id);
-	$res = db_sab("SELECT m.forum_id, ".$fields."
-		FROM {SQL_TABLE_PREFIX}forum f ".$join."
-		LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id="._uid." AND m.forum_id=".$frm_id."
-		WHERE f.id=".$frm_id." LIMIT 1");
+	$res = db_sab('SELECT m.forum_id, '.$fields.
+		' FROM {SQL_TABLE_PREFIX}forum f '.$join.
+		' LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id='.$frm_id.
+		' WHERE f.id='.$frm_id.' LIMIT 1');
 	if (!$res || (!($res->group_cache_opt & 2) && !$res->forum_id)) {
 		return;
 	}

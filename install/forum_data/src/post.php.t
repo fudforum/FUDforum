@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.145 2005/10/14 02:52:51 hackie Exp $
+* $Id: post.php.t,v 1.146 2005/11/30 16:21:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -117,7 +117,7 @@ function flood_check()
 			$msg_show_sig = !$msg_id ? ($usr->users_opt & 2048) : ($msg->msg_opt & 1);
 
 			if ($msg_id || $reply_to) {
-				$msg_poster_notif = (($usr->users_opt & 2) && !q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$msg->thread_id." AND poster_id="._uid)) || is_notified(_uid, $msg->thread_id);
+				$msg_poster_notif = (($usr->users_opt & 2) && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$msg->thread_id.' AND poster_id='._uid)) || is_notified(_uid, $msg->thread_id);
 			} else {
 				$msg_poster_notif = ($usr->users_opt & 2);
 			}
@@ -138,7 +138,7 @@ function flood_check()
 			$_POST['msg_icon'] = $msg->icon;
 
 	 		if ($msg->attach_cnt) {
-	 			$r = q("SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg->id." AND attach_opt=0");
+	 			$r = q('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg->id.' AND attach_opt=0');
 	 			while ($fa_id = db_rowarr($r)) {
 	 				$attach_list[$fa_id[0]] = $fa_id[0];
 	 			}

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.42 2005/09/02 17:25:00 hackie Exp $
+* $Id: threadt.php.t,v 1.43 2005/11/30 16:21:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,17 +22,17 @@
 
 	$TITLE_EXTRA = ': {TEMPLATE: thread_title}';
 
-	$r = uq("SELECT
+	$r = uq('SELECT
 			t.moved_to, t.thread_opt, t.root_msg_id, r.last_view,
 			m.subject, m.reply_to, m.poll_id, m.attach_cnt, m.icon, m.poster_id, m.post_stamp, m.thread_id, m.id,
 			u.alias
-		FROM {SQL_TABLE_PREFIX}tv_".$frm->id." tv
+		FROM {SQL_TABLE_PREFIX}tv_'.$frm->id.' tv
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id
 		INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.id=m.thread_id AND m.apr=1
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
-		LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id="._uid."
-		WHERE tv.seq BETWEEN ".($lwi - ($cur_frm_page * $THREADS_PER_PAGE))." AND ".($lwi - (($cur_frm_page - 1) * $THREADS_PER_PAGE))."
-		ORDER BY tv.seq DESC, m.id");
+		LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id='._uid.'
+		WHERE tv.seq BETWEEN '.($lwi - ($cur_frm_page * $THREADS_PER_PAGE)).' AND '.($lwi - (($cur_frm_page - 1) * $THREADS_PER_PAGE)).'
+		ORDER BY tv.seq DESC, m.id');
 
 	if (!($obj = db_rowobj($r))) {
 		$thread_list_table_data = '{TEMPLATE: no_messages}';
