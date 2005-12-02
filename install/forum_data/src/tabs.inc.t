@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tabs.inc.t,v 1.21 2005/08/29 14:38:20 hackie Exp $
+* $Id: tabs.inc.t,v 1.22 2005/12/02 15:59:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,7 +41,7 @@ if (_uid) {
 		$pg = ($_GET['t'] == 'pmsg_view' || $_GET['t'] == 'ppost') ? 'pmsg' : $_GET['t'];
 
 		foreach($tablist as $tab_name => $tab) {
-			$tab_url = '{ROOT}?t='.$tab.'&amp;S='.s;
+			$tab_url = '{ROOT}?t='.$tab.(s ? '&amp;S='.s : '');
 			if ($tab == 'referals') {
 				if (!($FUD_OPT_2 & 8192)) {
 					continue;
