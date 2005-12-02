@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.36 2005/09/06 21:04:44 hackie Exp $
+* $Id: th_adm.inc.t,v 1.37 2005/12/02 15:48:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@ function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last
 		db_lock('{SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}tv_'.$to_forum.' WRITE, {SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE');
 		$ll = 1;
 	}
-	$msg_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thread LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.apr=1 AND {SQL_TABLE_PREFIX}thread.id=".$id);
+	$msg_count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}thread LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.apr=1 AND {SQL_TABLE_PREFIX}thread.id='.$id);
 
 	q('UPDATE {SQL_TABLE_PREFIX}thread SET forum_id='.$to_forum.' WHERE id='.$id);
 	q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-'.$msg_count.' WHERE id='.$forum_id);
@@ -91,7 +91,6 @@ function __th_cron_emu($forum_id, $run=1)
 
 function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 {
-
 	if (!$skip_cron) {
 		__th_cron_emu($forum_id, 0);
 	}
@@ -127,7 +126,6 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 		db_unlock();
 	}
 }
-
 
 function th_delete_rebuild($forum_id, $th)
 {

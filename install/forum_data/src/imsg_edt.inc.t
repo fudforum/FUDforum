@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.151 2005/11/28 17:05:14 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.152 2005/12/02 15:48:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -185,7 +185,7 @@ class fud_msg_edit extends fud_msg
 
 			/* Determine if any work needs to be done */
 			if ($thread_opt != $th_data[1] || $orderexpiry != $th_data[0]) {
-				q("UPDATE {SQL_TABLE_PREFIX}thread SET thread_opt=".$thread_opt.", orderexpiry=".$orderexpiry." WHERE id=".$this->thread_id);
+				q('UPDATE {SQL_TABLE_PREFIX}thread SET thread_opt='.$thread_opt.', orderexpiry='.$orderexpiry.' WHERE id='.$this->thread_id);
 				/* Avoid rebuilding the forum view whenever possible, since it's a rather slow process
 				 * Only rebuild if expiry time has changed or message gained/lost sticky status
 				 */
@@ -225,12 +225,12 @@ class fud_msg_edit extends fud_msg
 
 		/* attachments */
 		if ($del->attach_cnt) {
-			$res = q('SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid." AND attach_opt=0");
+			$res = q('SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=0');
 			while ($loc = db_rowarr($res)) {
 				@unlink($loc[0]);
 			}
 			unset($res);
-			q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid." AND attach_opt=0");
+			q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=0');
 		}
 
 		q('DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE msg_id='.$mid);
@@ -349,7 +349,7 @@ class fud_msg_edit extends fud_msg
 			$mtf->alias = $GLOBALS['ANON_NICK'];
 		}
 
-		q("UPDATE {SQL_TABLE_PREFIX}msg SET apr=1 WHERE id=".$mtf->id);
+		q('UPDATE {SQL_TABLE_PREFIX}msg SET apr=1 WHERE id='.$mtf->id);
 
 		if ($mtf->poster_id) {
 			user_set_post_count($mtf->poster_id);
