@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: VB2.php,v 1.18 2005/11/11 14:45:15 hackie Exp $
+* $Id: VB2.php,v 1.19 2005/12/02 15:29:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -31,7 +31,15 @@
 		exit("FATAL ERROR: The Vbulletin configuration file ".$VB2_CONFIG_PATH." does not exist, or cannot be opened by the conversion script\n");
 	
 
-	include_once "GLOBALS.php";
+
+	/* prevent session initialization */
+	unset($_SERVER['REMOTE_ADDR']);
+	define('forum_debug', 1);
+	$gl = @include("./GLOBALS.php"); 
+	if ($gl === FALSE) {
+		exit("This script must be placed in FUDforum's main web directory.\n");
+	}
+
 	$IMG_ROOT_DISK = $WWW_ROOT_DISK.'images/';
 	fud_use('rev_fmt.inc');
 	fud_use('post_proc.inc');
