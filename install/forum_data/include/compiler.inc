@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.86 2005/11/22 02:17:11 hackie Exp $
+* $Id: compiler.inc,v 1.87 2005/12/05 16:38:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -593,7 +593,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$tname;
 	$cmpl['THEME_IMAGE_ROOT'] = $cmpl['THEME_ROOT'].'/images';
 
-	$file1 = $GLOBALS['DATA_DIR'].'thm/'.$tset.'i18n/'.$lang.'/charset';
+	$file1 = $GLOBALS['DATA_DIR'].'thm/'.$tset.'/i18n/'.$lang.'/charset';
 	$file2 = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$lang.'/charset';
 
 	$u = umask(0);
@@ -629,8 +629,18 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	 */
 	build_msg($back_msg_file);
 
+	$fl = array();
+	if ($cmpl['tset'] != 'default') {
+		/* check custom theme for templates not found in the default theme */
+		foreach (glob($GLOBALS['DATA_DIR'].'/thm/'.$cmpl['tset'].'/tmpl/*.tmpl') as $fe) {
+			$fl[basename($fe)] = $fe;
+		}
+	}
 	foreach (glob($GLOBALS['DATA_DIR'].'/thm/default/tmpl/*.tmpl') as $fe) {
-		$file = basename($fe);
+		$fl[basename($fe)] = $fe;
+	}
+
+	foreach (array_keys($fl) as $file) {
 		if ($file == 'date_formats.tmpl') continue;
 
 		resolve_compile($file);
