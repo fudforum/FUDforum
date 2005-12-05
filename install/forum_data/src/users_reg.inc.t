@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.87 2005/11/30 17:47:00 hackie Exp $
+* $Id: users_reg.inc.t,v 1.88 2005/12/05 15:57:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -150,7 +150,7 @@ class fud_user_reg extends fud_user
 				".ssn($this->bio).",
 				".$this->users_opt.",
 				".ip2long($reg_ip).",
-				".(int)$this-topics_per_page."
+				".(int)$this->topics_per_page."
 			)
 		");
 
