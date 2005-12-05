@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.57 2005/10/14 03:07:55 hackie Exp $
+* $Id: rdf.php.t,v 1.58 2005/12/05 23:54:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,7 +51,7 @@ function email_format($data)
 function multi_id($data)
 {
 	$out = array();
-	foreach (explode(',', $data) as $v) {
+	foreach (explode(',', (string)$data) as $v) {
 		$out[] = (int) $v;
 	}
 	return implode(',', $out);

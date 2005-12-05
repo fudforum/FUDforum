@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.php.t,v 1.12 2005/10/25 15:15:23 hackie Exp $
+* $Id: ip.php.t,v 1.13 2005/12/05 23:54:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,9 +71,9 @@ function fud_whois($ip)
 	}
 	if (isset($_GET['user'])) {
 		if (($user_id = (int) $_GET['user'])) {
-			$user = q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id=".$user_id);
+			$user = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$user_id);
 		} else {
-			list($user_id, $user) = db_saq("SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE alias="._esc(char_fix(htmlspecialchars($_GET['user']))));
+			list($user_id, $user) = db_saq('SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc(char_fix(htmlspecialchars($_GET['user']))));
 		}
 	} else {
 		$user = '';
@@ -88,7 +88,7 @@ function fud_whois($ip)
 			$cond = "m.ip_addr LIKE '".$ip."%'";
 		}
 
-		$o = uq("SELECT DISTINCT(m.poster_id), u.alias from {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE ".$cond);
+		$o = uq('SELECT DISTINCT(m.poster_id), u.alias from {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE '.$cond);
 		$user_list = '';
 		$i = 0;
 		while ($r = db_rowarr($o)) {
@@ -97,7 +97,7 @@ function fud_whois($ip)
 		unset($o);
 		$page_data = '{TEMPLATE: ip_users}';
 	} else if ($user) {
-		$o = uq("SELECT DISTINCT(ip_addr) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id=".$user_id);
+		$o = uq('SELECT DISTINCT(ip_addr) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='.$user_id);
 		$ip_list = '';
 		$i = 0;
 		while ($r = db_rowarr($o)) {

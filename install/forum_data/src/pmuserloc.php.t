@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.php.t,v 1.26 2005/09/08 14:17:00 hackie Exp $
+* $Id: pmuserloc.php.t,v 1.27 2005/12/05 23:54:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,7 +41,7 @@
 
 	$find_user_data = '';
 	if ($usr_login) {
-		$c = uq("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE alias LIKE "._esc(char_fix(htmlspecialchars(addcslashes($usr_login.'%','\\'))))." AND id>1");
+		$c = uq('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE alias LIKE '._esc(char_fix(htmlspecialchars(addcslashes($usr_login.'%','\\')))).' AND id>1');
 		$i = 0;
 		while ($r = db_rowarr($c)) {
 			if ($overwrite) {

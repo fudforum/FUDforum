@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: markread.php.t,v 1.15 2005/10/20 20:38:47 hackie Exp $
+* $Id: markread.php.t,v 1.16 2005/12/05 23:54:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,7 +30,7 @@
 				}
 				$cids[] = (int)$_GET['cat'];
 
-				$c = q("SELECT id FROM {SQL_TABLE_PREFIX}forum WHERE cat_id IN(".implode(',', $cids).")");
+				$c = q('SELECT id FROM {SQL_TABLE_PREFIX}forum WHERE cat_id IN('.implode(',', $cids).')');
 				while ($r = db_rowarr($c)) {
 					user_mark_forum_read(_uid, $r[0], $usr->last_read);
 				}
@@ -41,5 +41,4 @@
 	}
 
 	check_return($usr->returnto);
-	exit;
 ?>
