@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.php.t,v 1.32 2005/09/04 02:11:12 hackie Exp $
+* $Id: showposts.php.t,v 1.33 2005/12/05 22:04:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,13 +44,13 @@
 	if ($is_a || $fids) {
 		$qry_limit = $is_a ? '' : 'f.id IN ('.$fids.') AND ';
 
-		$c = uq("SELECT /*!40000 SQL_CALC_FOUND_ROWS */ f.name, f.id, m.subject, m.id, m.post_stamp
+		$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ f.name, f.id, m.subject, m.id, m.post_stamp
 			FROM {SQL_TABLE_PREFIX}msg m
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-			WHERE ".$qry_limit." m.apr=1 AND m.poster_id=".$uid."
-			ORDER BY m.post_stamp ".$SORT_ORDER." LIMIT ".qry_limit($THREADS_PER_PAGE, $start));
+			WHERE '.$qry_limit.' m.apr=1 AND m.poster_id='.$uid.'
+			ORDER BY m.post_stamp '.$SORT_ORDER.' LIMIT '.qry_limit($THREADS_PER_PAGE, $start));
 
 		while ($r = db_rowarr($c)) {
 			$post_entry .= '{TEMPLATE: post_entry}';
@@ -58,13 +58,13 @@
 		unset($c);
 
 		/* we need the total for the pager & we don't trust the user to pass it via GET or POST */
-		if (($total = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {
-			$total = q_singleval("SELECT count(*)
+		if (($total = (int) q_singleval('SELECT /*!40000 FOUND_ROWS(), */ -1')) < 0) {
+			$total = q_singleval('SELECT count(*)
 					FROM {SQL_TABLE_PREFIX}msg m
 					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 					INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-					WHERE ".$qry_limit." m.apr=1 AND m.poster_id=".$uid);
+					WHERE '.$qry_limit.' m.apr=1 AND m.poster_id='.$uid);
 		}
 
 		if ($FUD_OPT_2 & 32768) {
