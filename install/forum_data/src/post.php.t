@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.146 2005/11/30 16:21:18 hackie Exp $
+* $Id: post.php.t,v 1.147 2005/12/05 21:38:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@ function flood_check()
 	$check_time = __request_timestamp__-$GLOBALS['FLOOD_CHECK_TIME'];
 
 	if (($v = q_singleval("SELECT post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE ip_addr='".get_ip()."' AND poster_id="._uid." AND post_stamp>".$check_time." ORDER BY post_stamp DESC LIMIT 1"))) {
-		return (($v + $GLOBALS['FLOOD_CHECK_TIME']) - __request_timestamp__);
+		return ($v - $check_time);
 	}
 
 	return;
