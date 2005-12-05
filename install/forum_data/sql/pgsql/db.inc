@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.75 2005/11/24 00:37:33 hackie Exp $
+* $Id: db.inc,v 1.76 2005/12/05 15:55:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -208,15 +208,9 @@ function db_li($q, &$ef, $li=0)
 		return $r;
 	}
 
-	$err = pg_last_error(fud_sql_lnk);
-
 	/* duplicate key */
-	if (strpos($err, 'key') !== false) {
-		$ef = ltrim(strrchr($err, ' '));
-		return null;
-	} else {
-		die(fud_sql_error_handler($q, $err, '', get_version()));
-	}
+	$ef = ltrim(strrchr(pg_last_error(fud_sql_lnk), ' '));
+	return null;
 }
 
 function ins_m($tbl, $flds, $vals, $type)
