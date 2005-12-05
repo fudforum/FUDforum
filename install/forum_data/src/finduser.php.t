@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.50 2005/10/20 20:08:46 hackie Exp $
+* $Id: finduser.php.t,v 1.51 2005/12/05 16:07:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,7 +71,8 @@
 				$pg .= '0/';
 			}
 
-			$pg2 = '/' . ($usr_login ? urlencode($usr_login) : 0) . '/';
+			$ul = $usr_login ? urlencode($usr_login) : 0;
+			$pg2 = '/' . $ul . '/';
 
 			if (isset($_GET['js_redr'])) {
 				$pg2 .= '1/';
