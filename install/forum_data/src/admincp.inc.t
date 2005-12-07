@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.inc.t,v 1.23 2004/11/24 19:53:34 hackie Exp $
+* $Id: admincp.inc.t,v 1.24 2005/12/07 18:05:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@ if (_uid) {
 
 	if ($usr->users_opt & 524288 || $is_a) {
 		if ($is_a) {
-			if ($FUD_OPT_1 & 32 && ($avatar_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=16777216 AND (users_opt & 16777216) > 0"))) {
+			if ($FUD_OPT_1 & 32 && ($avatar_count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=16777216 AND (users_opt & 16777216) > 0'))) {
 				$custom_avatar_queue = '{TEMPLATE: custom_avatar_queue}';
 			}
 			if ($report_count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg_report')) {
@@ -26,7 +26,7 @@ if (_uid) {
 				$thr_exch = '{TEMPLATE: thr_exch}';
 			}
 
-			if ($FUD_OPT_2 & 1024 && ($accounts_pending_approval = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0"))) {
+			if ($FUD_OPT_2 & 1024 && ($accounts_pending_approval = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0'))) {
 				$accounts_pending_approval = '{TEMPLATE: accounts_pending_approval}';
 			}
 
@@ -43,7 +43,7 @@ if (_uid) {
 			$q_limit = ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON f.id=mm.forum_id AND mm.user_id='._uid;
 		}
 
-		if ($approve_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id ".$q_limit." WHERE m.apr=0 AND (f.forum_opt>=2 AND (f.forum_opt & 2) > 0)")) {
+		if ($approve_count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id '.$q_limit.' WHERE m.apr=0 AND (f.forum_opt>=2 AND (f.forum_opt & 2) > 0)')) {
 			$mod_que = '{TEMPLATE: mod_que}';
 		}
 	}

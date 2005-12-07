@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: avatarsel.php.t,v 1.15 2005/07/06 14:39:22 hackie Exp $
+* $Id: avatarsel.php.t,v 1.16 2005/12/07 18:05:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,7 @@
 	$TITLE_EXTRA = ': {TEMPLATE: avatar_sel_form}';
 
 	$galleries = array();
-	$c = uq("SELECT DISTINCT(gallery) FROM {SQL_TABLE_PREFIX}avatar");
+	$c = uq('SELECT DISTINCT(gallery) FROM {SQL_TABLE_PREFIX}avatar');
 	while ($r = db_rowarr($c)) {
 		$galleries[$r[0]] = htmlspecialchars($r[0]);
 	}

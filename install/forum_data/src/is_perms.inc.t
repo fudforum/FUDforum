@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: is_perms.inc.t,v 1.36 2005/08/11 01:26:13 hackie Exp $
+* $Id: is_perms.inc.t,v 1.37 2005/12/07 18:05:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@ function &get_all_read_perms($uid, $mod)
 			unset($r);
 		}
 
-		$r = uq("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_id NOT IN (".implode(',', array_keys($limit)).") AND user_id=2147483647 AND (group_cache_opt & 2) > 0");
+		$r = uq('SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_id NOT IN ('.implode(',', array_keys($limit)).') AND user_id=2147483647 AND (group_cache_opt & 2) > 0');
 		while ($ent = db_rowarr($r)) {
 			if (!isset($limit[$ent[0]])) {
 				$limit[$ent[0]] = 2;
