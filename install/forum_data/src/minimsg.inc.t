@@ -1,8 +1,8 @@
 <?php
 /**
-* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: minimsg.inc.t,v 1.32 2005/07/08 20:53:56 hackie Exp $
+* $Id: minimsg.inc.t,v 1.33 2005/12/07 18:07:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the

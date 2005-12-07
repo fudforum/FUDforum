@@ -1,8 +1,8 @@
 <?php
 /**
-* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.php.t,v 1.36 2005/10/18 03:32:12 hackie Exp $
+* $Id: reported.php.t,v 1.37 2005/12/07 18:07:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the

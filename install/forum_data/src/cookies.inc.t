@@ -1,8 +1,8 @@
 <?php
 /**
-* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.80 2005/11/30 17:47:00 hackie Exp $
+* $Id: cookies.inc.t,v 1.81 2005/12/07 18:07:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the

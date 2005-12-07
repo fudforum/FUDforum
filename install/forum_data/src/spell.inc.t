@@ -1,8 +1,8 @@
 <?php
 /**
-* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: spell.inc.t,v 1.23 2004/12/08 15:25:07 hackie Exp $
+* $Id: spell.inc.t,v 1.24 2005/12/07 18:07:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the

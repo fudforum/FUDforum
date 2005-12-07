@@ -1,8 +1,8 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: VB2.php,v 1.19 2005/12/02 15:29:50 hackie Exp $
+* $Id: VB2.php,v 1.20 2005/12/07 18:07:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 

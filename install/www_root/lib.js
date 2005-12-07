@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,13 +9,13 @@
 * (at your option) any later version.
 ***************************************************************************/
 
-JS_HELPOFF = false;
+var JS_HELPOFF = false;
 /* indentify the browser */
-DOM = (document.getElementById) ? 1 : 0;
-NS4 = (document.layers) ? 1 : 0;
-IE4 = (document.all) ? 1 : 0;
-OPERA = navigator.userAgent.indexOf("Opera") > -1 ? 1 : 0;
-MAC = navigator.userAgent.indexOf("Mac") > -1 ? 1 : 0;
+var DOM = (document.getElementById) ? 1 : 0;
+var NS4 = (document.layers) ? 1 : 0;
+var IE4 = (document.all) ? 1 : 0;
+var OPERA = navigator.userAgent.indexOf("Opera") > -1 ? 1 : 0;
+var MAC = navigator.userAgent.indexOf("Mac") > -1 ? 1 : 0;
 
 /* edit box stuff */
 function insertTag(obj, stag, etag)
@@ -37,11 +37,11 @@ function insertTagNS(obj, stag, etag)
 
 function insertTagMoz(obj, stag, etag)
 {
-	txt = window.getSelection();
+	var txt = window.getSelection();
 
 	if (!txt || txt == '') {
-		t = document.getElementById('txtb');
-		h = document.getElementsByTagName('textarea')[0];
+		var t = document.getElementById('txtb');
+		var h = document.getElementsByTagName('textarea')[0];
 		if (t.selectionStart == t.selectionEnd) {
 			t.value = t.value.substring(0, t.selectionStart) + stag + etag +  t.value.substring(t.selectionEnd, t.value.length);
 			return;
@@ -57,7 +57,7 @@ function insertTagMoz(obj, stag, etag)
 
 function insertTagIE(obj, stag, etag)
 {
-	r=document.selection.createRange();
+	var r = document.selection.createRange();
 	if( document.selection.type == 'Text' && (obj.value.indexOf(r.text) != -1) ) {
 		a = r.text;
 		r.text = stag+r.text+etag;
@@ -70,8 +70,7 @@ function insertTagIE(obj, stag, etag)
 
 function dialogTag(obj, qst, def, stag, etag)
 {
-var q;
-	q = prompt(qst, def);
+	var q = prompt(qst, def);
 	if ( !q ) return;
 	stag = stag.replace(/%s/i, q);
 	insertTag(obj, stag, etag);
@@ -87,8 +86,9 @@ function url_insert()
 
 function check_selection()
 {
-var rn;
-var sel;
+	var rn;
+	var sel;
+	var r;
 
 	if ( document.layers ) return 0;
 	if ( navigator.userAgent.indexOf("MSIE") < 0 ) return 0;
