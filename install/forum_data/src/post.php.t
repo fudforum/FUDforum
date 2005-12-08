@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.148 2005/12/07 18:07:45 hackie Exp $
+* $Id: post.php.t,v 1.149 2005/12/08 14:54:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -190,13 +190,22 @@ function flood_check()
 			$attach_count = 0;
 
 			/* restore the attachment array */
-			if (!empty($_POST['file_array']) && $usr->data === md5($_POST['file_array'])) {
-				if (($attach_list = unserialize(base64_decode($_POST['file_array'])))) {
-					foreach ($attach_list as $v) {
-						if ($v) {
-							$attach_count++;
+			if (!empty($_POST['file_array'])) {
+				if ($usr->data === md5($_POST['file_array'])) {
+					if (($attach_list = unserialize(base64_decode($_POST['file_array'])))) {
+						foreach ($attach_list as $v) {
+							if ($v) {
+								$attach_count++;
+							}
 						}
 					}
+				} else if ($msg_id) { /* if checksum fails and we're editing a message, get attachment data from db */
+					$r = q('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_id.' AND attach_opt=0');
+		 			while ($fa_id = db_rowarr($r)) {
+		 				$attach_list[$fa_id[0]] = $fa_id[0];
+	 				}
+	 				unset($r);
+	 				$attach_count = count($attach_list);
 				}
 			}
 
