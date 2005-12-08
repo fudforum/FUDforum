@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: attach.inc.t,v 1.49 2005/12/07 18:07:45 hackie Exp $
+* $Id: attach.inc.t,v 1.50 2005/12/08 15:00:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,7 +42,7 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 	$tbl = !$attach_opt ? 'msg' : 'pmsg';
 
 	foreach ($attach_list as $key => $val) {
-		if (empty($val)) {
+		if (!$val) {
 			@unlink($GLOBALS['FILE_STORE'].(int)$key.'.atch');
 		} else {
 			$attach_count++;
@@ -53,14 +53,14 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 	if ($id_list) {
 		$id_list = substr($id_list, 0, -1);
 		$cc = __FUD_SQL_CONCAT__.'('.__FUD_SQL_CONCAT__."("._esc($GLOBALS['FILE_STORE']).", id), '.atch')";
-		q("UPDATE {SQL_TABLE_PREFIX}attach SET location=".$cc.", message_id=".$mid." WHERE id IN(".$id_list.") AND attach_opt=".$attach_opt);
+		q('UPDATE {SQL_TABLE_PREFIX}attach SET location='.$cc.', message_id='.$mid.' WHERE id IN('.$id_list.') AND attach_opt='.$attach_opt);
 		$id_list = ' AND id NOT IN('.$id_list.')';
 	} else {
 		$id_list = '';
 	}
 
 	/* delete any unneeded (removed, temporary) attachments */
-	q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mid." ".$id_list);
+	q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' '.$id_list);
 
 	if (!$attach_opt && ($atl = attach_rebuild_cache($mid))) {
 		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cnt='.$attach_count.', attach_cache='._esc(serialize($atl)).' WHERE id='.$mid);
