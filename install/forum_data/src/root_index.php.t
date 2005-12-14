@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: root_index.php.t,v 1.42 2005/12/07 18:07:45 hackie Exp $
+* $Id: root_index.php.t,v 1.43 2005/12/14 04:27:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,8 +50,8 @@
 
 	/* this is needed to determine what extension to use for alpha-transparency images */
 	if (!empty($_SERVER['HTTP_USER_AGENT']) && 
-		strpos($_SERVER["HTTP_USER_AGENT"], 'MSIE') !== false && 
-		strpos($_SERVER["HTTP_USER_AGENT"], 'Opera') === false) {
+		strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false && 
+		strpos($_SERVER['HTTP_USER_AGENT'], 'Opera') === false) {
 		define('img_ext', '.gif');
 	} else {
 		define('img_ext', '.png');
