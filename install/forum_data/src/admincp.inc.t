@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.inc.t,v 1.25 2005/12/07 18:07:45 hackie Exp $
+* $Id: admincp.inc.t,v 1.26 2005/12/15 00:51:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,7 +26,7 @@ if (_uid) {
 				$thr_exch = '{TEMPLATE: thr_exch}';
 			}
 
-			if ($FUD_OPT_2 & 1024 && ($accounts_pending_approval = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0'))) {
+			if ($FUD_OPT_2 & 1024 && ($accounts_pending_approval = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0 AND id > 0'))) {
 				$accounts_pending_approval = '{TEMPLATE: accounts_pending_approval}';
 			}
 

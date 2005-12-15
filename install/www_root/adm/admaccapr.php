@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaccapr.php,v 1.23 2005/12/07 18:07:46 hackie Exp $
+* $Id: admaccapr.php,v 1.24 2005/12/15 00:51:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,7 +47,7 @@ function print_if_avail($descr, $value, $no_html=1)
 <tr class="fieldtopic">
 <td><b>Account Information</b></td><td align="center"><b>Action</b></td></tr>
 <?php
-	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0');
+	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0 AND id >0');
 	while ($obj = db_rowobj($c)) {
 		echo '<tr><td class="field">'.
 		print_if_avail('Login', $obj->login) .
