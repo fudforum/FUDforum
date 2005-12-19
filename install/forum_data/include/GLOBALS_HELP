@@ -355,6 +355,9 @@ The maximum number of results that can be fetched within a single request throug
 {{{RDF_ALLOW_USER_DATA	FUD_OPT_2	67108864
 Whether or not to allow user profile data to be fetched via RDF.}}}
 
+{{{RDF_CACHE_AGE
+Duration of time for which to cache the RSS/XML forum feeds (in seconds), set to 0 to disable caching.}}}
+
 {{{PDF_ENABLED	FUD_OPT_2	134217728
 Whether or not to enable PDF output.}}}
 

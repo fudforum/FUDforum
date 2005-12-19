@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.59 2005/12/07 18:07:45 hackie Exp $
+* $Id: rdf.php.t,v 1.60 2005/12/19 17:20:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -65,6 +65,15 @@ function fud_xml_encode($str)
 	return str_replace($GLOBALS['enc_src'], $GLOBALS['enc_dst'], $str);
 }
 
+function rss_cache_cleanup()
+{
+	foreach (glob($GLOBALS['FORUM_SETTINGS_PATH'].'rss_cache_*') as $v) {
+		if (filemtime($v) + $GLOBALS['RDF_CACHE_AGE'] < __request_timestamp__) {
+			unlink($v);
+		}
+	}
+}
+
 // change relative smiley URLs to full ones
 function smiley_full(&$data)
 {
@@ -93,6 +102,31 @@ function smiley_full(&$data)
 
 	$res = 0;
 	$offset = isset($_GET['o']) ? (int)$_GET['o'] : 0;
+
+	if ($RDF_CACHE_AGE) {
+		register_shutdown_function('rss_cache_cleanup');
+
+		$key = $_GET; 
+		if ($RDF_AUTH_ID) {
+			$key['auth_id'] = $RDF_AUTH_ID;
+		}
+		unset($key['S'], $key['rid'], $key['SQ']); // remove not relavent components
+
+		$file_name = $FORUM_SETTINGS_PATH.'rss_cache_'.md5(serialize($key));
+		if (file_exists($file_name) && (($t = filemtime($file_name)) + $RDF_CACHE_AGE) > __request_timestamp__) {
+			$mod = gmdate('D, d M Y H:i:s', $t) . ' GMT';
+			if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && !isset($_SERVER['HTTP_RANGE']) && $_SERVER['HTTP_IF_MODIFIED_SINCE'] == $mod) {
+				header('HTTP/1.1 304 Not Modified');
+				header('Status: 304 Not Modified');
+				return;
+			}
+			header('Content-Type: text/xml');
+			header('Last-Modified: ' . $mod);
+			readfile($file_name);
+			return;
+		}
+		ob_start();
+	}
 
 	if ($RDF_MAX_N_RESULTS < 1) { // handler for events when the value is not set
 		$RDF_MAX_N_RESULTS = 100;
@@ -498,6 +532,12 @@ $basic_rss_data .= '
 	}
 	if ($res) {
 		echo '</rdf:RDF>';
+		if ($RDF_CACHE_AGE) {
+			echo ($out = ob_get_clean());
+			$fp = fopen($file_name, "w");
+			fwrite($fp, $out);
+			fclose($fp);
+		}
 	} else {
 		exit('<xml><error>no data matching data</error></xml>');
 	}
