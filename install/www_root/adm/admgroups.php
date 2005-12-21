@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.49 2005/12/07 18:07:46 hackie Exp $
+* $Id: admgroups.php,v 1.50 2005/12/21 23:47:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -251,7 +251,7 @@
 		echo '</td></tr>';
 	}
 ?>
-<tr><td valign="top" colspan=2 align="center"><font size="+2"><b>Maximum Permissions</b></font><br><font size="-1">(group leaders won't be able to assign permissions higher then these)</font></td></tr>
+<tr><td valign="top" colspan=2 align="center"><font size="+2"><b>Maximum Permissions</b></font><br><font size="-1">(group leaders won't be able to assign permissions higher than these)</font></td></tr>
 <tr><td><table cellspacing=2 cellpadding=2 border=0>
 <?php
 	if (($edit || $error) && $gr_inherit_id && $permi) {
