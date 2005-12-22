@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.23 2005/12/07 18:07:46 hackie Exp $
+* $Id: admsysinfo.php,v 1.24 2005/12/22 00:04:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,6 +55,15 @@ function get_server_software()
 	<td><b>WebServer to PHP interface:</b></td>
 	<td><?php echo php_sapi_name(); ?></td>
 </tr>
+<?php
+	if (extension_loaded('posix')) {
+echo '<tr>
+	<td><b>WebServer User/Group:</b></td>
+	<td>'. posix_getgid().' / '.posix_getuid().'</td>
+</tr>';
+	}
+?>
+
 <tr>
 	<td><b>Forum Version:</b></td>
 	<td><?php echo $FORUM_VERSION; ?></td>
