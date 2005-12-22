@@ -48,7 +48,8 @@
 	<a href="admstats.php?<?php echo __adm_rsidl; ?>">Forum Statistics</a><br>
 	<a href="admlog.php?<?php echo __adm_rsidl; ?>">Action Log Viewer</a><br>
 	<a href="admerr.php?<?php echo __adm_rsidl; ?>">Error Log Viewer</a><br>
-	<a href="admsysinfo.php?<?php echo __adm_rsidl; ?>">System Info</a><br><?php if (__dbtype__ == 'mysql') { ?>
+	<a href="admsysinfo.php?<?php echo __adm_rsidl; ?>">System Info</a><br>
+	<a href="admphpinfo.php?<?php echo __adm_rsidl; ?>">PHP Info</a><br><?php if (__dbtype__ == 'mysql') { ?>
 	<a href="admmysql.php?<?php echo __adm_rsidl; ?>">MySQL Charset Changer</a><br><?php } ?><br>
 
 	<span class="linkgroup">Forum Management</span><br>
