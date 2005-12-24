@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.inc.t,v 1.43 2005/12/07 18:07:45 hackie Exp $
+* $Id: logedin.inc.t,v 1.44 2005/12/24 01:23:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,7 +54,7 @@ function &rebuild_stats_cache($last_msg_id)
 $logedin = $forum_info = '';
 
 if ($FUD_OPT_1 & 1073741824 || $FUD_OPT_2 & 16) {
-	if (!($st_obj = db_sab('SELECT sc.*,m.subject AS last_msg_subject, u.alias AS last_user_alias FROM {SQL_TABLE_PREFIX}stats_cache sc INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=sc.last_user_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id='.$last_msg_id.' WHERE sc.cache_age>'.(__request_timestamp__ - $STATS_CACHE_AGE)))) {
+	if (!($st_obj = db_sab('SELECT sc.*,m.subject AS last_msg_subject, u.alias AS last_user_alias FROM {SQL_TABLE_PREFIX}stats_cache sc INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=sc.last_user_id LEFT JOIN {SQL_TABLE_PREFIX}msg m ON m.id='.$last_msg_id.' WHERE sc.cache_age>'.(__request_timestamp__ - $STATS_CACHE_AGE)))) {
 		$st_obj = rebuild_stats_cache($last_msg_id);
 	} else if ($st_obj->online_users_text) {
 		$st_obj->online_users_text = unserialize($st_obj->online_users_text);
