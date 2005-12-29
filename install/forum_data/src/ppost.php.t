@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.84 2005/12/07 18:07:45 hackie Exp $
+* $Id: ppost.php.t,v 1.85 2005/12/29 02:51:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -161,7 +161,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		$msg_smiley_disabled = isset($_POST['msg_smiley_disabled']) ? '2' : '';
 		$msg_show_sig = isset($_POST['msg_show_sig']) ? '1' : '';
 
-		$reply = isset($_POST['quote']) ? (int)$_POST['quote'] : 0;
+		$reply = isset($_POST['reply']) ? (int)$_POST['reply'] : 0;
 		$forward = isset($_POST['forward']) ? (int)$_POST['forward'] : 0;
 		$msg_id = isset($_POST['msg_id']) ? (int)$_POST['msg_id'] : 0;
 		$msg_ref_msg_id = isset($_POST['msg_ref_msg_id']) ? (int)$_POST['msg_ref_msg_id'] : '';
