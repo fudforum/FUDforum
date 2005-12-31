@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.154 2005/12/08 18:14:39 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.155 2005/12/31 20:10:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -402,7 +402,8 @@ class fud_msg_edit extends fud_msg
 				WHERE
 					fn.forum_id='.$mtf->forum_id.' AND fn.user_id!='.(int)$mtf->poster_id.
 					($GLOBALS['FUD_OPT_3'] & 64 ? ' AND (CASE WHEN (r.last_view IS NULL AND (u.last_read=0 OR u.last_read >= '.$mtf->frm_last_post_date.')) OR r.last_view > '.$mtf->frm_last_post_date.' THEN 1 ELSE 0 END)=1 ' : '').
-					' AND ((COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0 OR (u.users_opt & 1048576) > 0 OR mm.id IS NOT NULL)');
+					' AND ((COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0 OR (u.users_opt & 1048576) > 0 OR mm.id IS NOT NULL)'.
+					' AND (u.users_opt & 65536) = 0');
 			if ($GLOBALS['FUD_OPT_3'] & 16384) {
 				$notify_type = 'thr';
 			} else {
@@ -423,7 +424,8 @@ class fud_msg_edit extends fud_msg
 				WHERE
 					tn.thread_id='.$mtf->thread_id.' AND tn.user_id!='.(int)$mtf->poster_id.
 					($GLOBALS['FUD_OPT_3'] & 64 ? ' AND (r.msg_id='.$mtf->last_post_id.' OR (r.msg_id IS NULL AND '.$mtf->post_stamp.' > u.last_read)) ' : '').
-					' AND ((COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0 OR (u.users_opt & 1048576) > 0 OR mm.id IS NOT NULL)');
+					' AND ((COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0 OR (u.users_opt & 1048576) > 0 OR mm.id IS NOT NULL)'.
+					' AND (u.users_opt & 65536) = 0');
 			$to = !$to ? $tmp : array_unique(array_merge($to, $tmp));
 			$notify_type = 'thr';
 		}
