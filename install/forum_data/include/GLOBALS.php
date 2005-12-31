@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: GLOBALS.php,v 1.50 2005/12/19 17:20:17 hackie Exp $
+* $Id: GLOBALS.php,v 1.51 2005/12/31 20:52:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -100,6 +100,7 @@
 	$PDF_MAX_CPU		= 60;		/* seconds */
 	$FUD_WHOIS_SERVER	= "whois.ripe.net";
 	$RDF_CACHE_AGE		= 600;
+	$MIN_TIME_BETWEEN_LOGIN = 10;		/* seconds */
 
 /* DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING */
 

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.83 2005/12/31 20:22:36 hackie Exp $
+* $Id: login.php.t,v 1.84 2005/12/31 20:52:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -147,10 +147,14 @@ function error_check()
 			ses_putvar((int)$usr->sid, null);
 		}
 
-		if (!($usr_d = db_sab('SELECT id, passwd, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($_POST['login'])))) {
+		if (!($usr_d = db_sab('SELECT last_login, id, passwd, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($_POST['login'])))) {
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
+		} else if (($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN) > __request_timestamp__) { 
+			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
+			login_php_set_err('login', '{TEMPLATE: login_min_time}');
 		} else if ($usr_d->passwd != md5($_POST['password'])) {
 			logaction($usr_d->id, 'WRONGPASSWD', 0, ($usr_d->users_opt & 1048576 ? 'ADMIN: ' : '').'Invalid Password '.htmlspecialchars(_esc($_POST['password'])).' for login '.htmlspecialchars(_esc($_POST['login'])).'. IP: '.get_ip());
+			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else { /* Perform check to ensure that the user is allowed to login */
 			$usr_d->users_opt = (int) $usr_d->users_opt;

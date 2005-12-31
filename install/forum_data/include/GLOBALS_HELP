@@ -429,3 +429,6 @@ If enabled, subscribers to a forum will recieve notifications about every new me
 
 {{{FUD_WHOIS_SERVER
 Hostname or IP address of the whois server to use for IP address analysis.}}}
+
+{{{MIN_TIME_BETWEEN_LOGIN
+Minimum time between login attempts in seconds. This option is intended as a throttle mechanism against dictionary attacks on forum passwords.}}}

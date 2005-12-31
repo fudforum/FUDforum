@@ -1008,3 +1008,4 @@ sml_emoticon:			Emoticon
 sml_code:			Code
 mnav_sub_only:			Search in subscribed forums only
 register_topics_per_page:	Topics Per Page:
+login_min_time:			This forum allows one login attempt every {VAR: MIN_TIME_BETWEEN_LOGIN} seconds, please wait {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconds before your next attempt.

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admloginuser.php,v 1.24 2005/12/07 18:07:46 hackie Exp $
+* $Id: admloginuser.php,v 1.25 2005/12/31 20:52:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,11 +19,12 @@
 	fud_use('users_reg.inc');
 
 	if (isset($_POST['login'])) {
-		if (($id = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._esc($_POST['login'])." AND passwd='".md5($_POST['passwd'])."' AND users_opt>=1048576 AND (users_opt & 1048576) > 0"))) {
+		if (($id = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._esc($_POST['login'])." AND passwd='".md5($_POST['passwd'])."' AND users_opt>=1048576 AND (users_opt & 1048576) > 0 AND (last_login + ".$MIN_TIME_BETWEEN_LOGIN.") < ".__request_timestamp__))) {
 			$sid = user_login($id, $usr->ses_id, true);
 			header('Location: '.$WWW_ROOT.'adm/admglobal.php?S='.$sid.'&SQ='.$new_sq);
 			exit;
 		} else {
+			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET last_login='.__request_timestamp__.' WHERE login='._esc($_POST['login']));
 			logaction(0, 'WRONGPASSWD', 0, "Invalid admin login attempt via adminstrative control panel from: ".get_ip());
 			$err = 'Only administrators with proper access credentials can login via this control panel';
 		}
