@@ -10,6 +10,12 @@ $GLOBALS['PATH_TO_FUD_FORUM_DB_INC'] = '';
    On successful execution the return value will be the session id for the user.
    Upon failure the return value will be NULL, this can only happen if invalid user id is specified.
 */
+
+function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
+{
+	exit("Query {$query} failed due to: {$error_string}");
+}
+
 function external_fud_login($user_id)
 {
 	if (($user_id = (int) $user_id) < 2 || !__fud_login_common(0, $user_id)) {
