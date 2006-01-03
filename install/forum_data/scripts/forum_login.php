@@ -59,7 +59,7 @@ function __fud_login_common($skip=0, $user_id=0)
 	eval(str_replace('<?php', '', substr_replace($data, '', strpos($data, 'require'))));
 
 	/* db.inc needs certain vars inside the global scope to work, so we export them */
-	foreach (array('COOKIE_DOMAIN','COOKIE_NAME','COOKIE_TIMEOUT','COOKIE_PATH','FUD_OPT_1', 'FUD_OPT_3', 'FUD_OPT_2', 'DBHOST', 'DBHOST_USER', 'DBHOST_PASSWORD', 'DBHOST_DBNAME','DATA_DIR','INCLUDE') as $v) {
+	foreach (array('COOKIE_DOMAIN','COOKIE_NAME','COOKIE_TIMEOUT','COOKIE_PATH','FUD_OPT_1', 'FUD_OPT_3', 'FUD_OPT_2', 'DBHOST', 'DBHOST_USER', 'DBHOST_PASSWORD', 'DBHOST_DBNAME','DATA_DIR','INCLUDE','DBHOST_TBL_PREFIX') as $v) {
 		$GLOBALS[$v] = $$v;
 	}
 
