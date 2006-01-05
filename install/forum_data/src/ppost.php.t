@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.85 2005/12/29 02:51:31 hackie Exp $
+* $Id: ppost.php.t,v 1.86 2006/01/05 23:16:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -378,6 +378,11 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 	$session_error = get_err('msg_session');
 	if ($session_error) {
 		$post_error = $session_error;
+	}
+
+	$msg_body = $msg_body ? char_fix(htmlspecialchars(str_replace("\r", '', $msg_body))) : '';
+	if ($msg_subject) {
+		$msg_subject = char_fix(htmlspecialchars($msg_subject));
 	}
 
 	if ($PRIVATE_ATTACHMENTS > 0) {
