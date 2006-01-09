@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.40 2005/12/07 18:07:45 hackie Exp $
+* $Id: iemail.inc.t,v 1.41 2006/01/09 16:10:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,29 @@
 
 function validate_email($email)
 {
-        return !preg_match('!^([-_A-Za-z0-9\.]+)\@([-_A-Za-z0-9\.]+)\.([A-Za-z0-9]{2,4})$!', $email);
+	$bits = explode('@', $email);
+	if (count($bits) != 2) {
+		return 1;
+	}
+	$doms = explode('.', $bits[1]);
+	$last = array_pop($doms);
+
+	// validate domain extension 2-4 characters A-Z
+	if (!preg_match('!^[A-Za-z]{2,4}$!', $last)) {
+		return 1;
+	}
+
+	// (sub)domain name 63 chars long max A-Za-z0-9_
+	foreach ($doms as $v) {
+		if (!$v || strlen($v) > 63 || !preg_match('!^[A-Za-z0-9_-]+$!', $v)) {
+			return 1;
+		}
+	}
+
+	// now the hard part, validate the e-mail address itself 
+	if (!$bits[0] || strlen($bits[0]) > 255 || !preg_match('!^[-A-Za-z0-9_.+{}~\']+$!', $bits[0])) {
+		return 1;
+	}
 }
 
 function encode_subject($text)
