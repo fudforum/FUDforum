@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemesel.php,v 1.27 2005/12/07 18:07:46 hackie Exp $
+* $Id: admthemesel.php,v 1.28 2006/01/09 15:24:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,7 +48,7 @@
 <tr class="field">
 <td>Language:</td><td><select name="tlang">
 <?php
-	foreach (glob(dirname($files[0]) . '/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT) as $file) {
+	foreach (glob($GLOBALS['DATA_DIR'] . 'thm/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT) as $file) {
 		if (!file_exists($file . '/msg')) {
 			continue;
 		}
