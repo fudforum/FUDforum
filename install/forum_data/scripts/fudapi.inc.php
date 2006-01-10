@@ -3,7 +3,7 @@
  * uncomment the line below and specify the full path to
  * the FUDforum's GLOBALS.php file.
  */
-// require("/path/to/GLOBALS.php");
+// require_once("/path/to/GLOBALS.php");
 
 /* 
 General Information

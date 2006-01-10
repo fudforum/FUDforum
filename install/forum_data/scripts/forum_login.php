@@ -55,12 +55,14 @@ function external_get_user_by_auth($login, $passwd)
 function __fud_login_common($skip=0, $user_id=0)
 {
 	/* load forum config */
-	$data = file_get_contents($GLOBALS['PATH_TO_FUD_FORUM_GLOBALS_PHP']);
-	eval(str_replace('<?php', '', substr_replace($data, '', strpos($data, 'require'))));
+	if (!isset($GLOBALS['FUD_OPT_1'])) {
+		$data = file_get_contents($GLOBALS['PATH_TO_FUD_FORUM_GLOBALS_PHP']);
+		eval(str_replace('<?php', '', substr_replace($data, '', strpos($data, 'require'))));
 
-	/* db.inc needs certain vars inside the global scope to work, so we export them */
-	foreach (array('COOKIE_DOMAIN','COOKIE_NAME','COOKIE_TIMEOUT','COOKIE_PATH','FUD_OPT_1', 'FUD_OPT_3', 'FUD_OPT_2', 'DBHOST', 'DBHOST_USER', 'DBHOST_PASSWORD', 'DBHOST_DBNAME','DATA_DIR','INCLUDE','DBHOST_TBL_PREFIX') as $v) {
-		$GLOBALS[$v] = $$v;
+		/* db.inc needs certain vars inside the global scope to work, so we export them */
+		foreach (array('COOKIE_DOMAIN','COOKIE_NAME','COOKIE_TIMEOUT','COOKIE_PATH','FUD_OPT_1', 'FUD_OPT_3', 'FUD_OPT_2', 'DBHOST', 'DBHOST_USER', 'DBHOST_PASSWORD', 'DBHOST_DBNAME','DATA_DIR','INCLUDE','DBHOST_TBL_PREFIX') as $v) {
+			$GLOBALS[$v] = $$v;
+		}
 	}
 
 	if (!$GLOBALS['PATH_TO_FUD_FORUM_DB_INC']) {
