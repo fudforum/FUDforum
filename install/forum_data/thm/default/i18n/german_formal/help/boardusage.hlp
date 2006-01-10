@@ -1,0 +1,165 @@
+TOPIC_TITLE: <a name="bsearch">Wie kann ich suchen?</a>
+TOPIC_HELP:
+Sofern nicht vom Administrator deaktiviert, kannst du <a href="{ROOT}?t=search&%_rsid%">nach Beitr&auml;gen suchen</a>, die im Forum erstellt wurden. Beitr&auml;ge lassen sich durch
+Angabe von ein oder mehreren Schl&uuml;sselbegriffen suchen, wobei sich ausw&auml;hlen l&auml;sst, wo diese gesucht werden sollen. Du kannst entweder nur die &Uuml;berschrift oder den gesamten Beitrag durchsuchen. Au&szlig;erdem l&auml;sst sich die Suche auf ein bestimmtes Forum einschr&auml;nken, falls nicht alle durchsucht werden sollen.<br>
+Du kannst auch andere Forumsmitglieder &uuml;ber ihren Namen oder Email Adresse mit der <a href="{ROOT}?t=finduser&%_rsid%">Benutzersuche</a> ausfindig machen.
+
+
+TOPIC_TITLE: <a name="email">Kann ich anderen Benutzern eine Email schreiben?</a>
+TOPIC_HELP:
+Sofern nicht vom Administrator deaktiviert, kannst per Email zu anderen Forumsmitgliedern Verbindung aufnehmen.<br>
+Um einem Mitglied eine Email zu schicken, kannst du sie entweder &uuml;ber die Mitgliederseite ausfindig machen und dann den <b>Kontakt</b> Knopf anklicken
+oder direkt auf den <b>Email</b> Knopf neben jedem Beitrag klicken. Das f&uuml;hrt dich auf eine neue Seite, auf der du deine beabsichtigte Mitteilung 
+verfassen kannst. Wenn du fertig bist, klickst du auf den <b>Email</b> Knopf und verschickst damit deine Nachricht.
+<br><br>
+Au&szlig;er Emails an Forumsmitglieder verschicken, kannst du auch mit dem <b>Email an einen Bekannten</b> Link eine bestimmte Seite deinen Bekannten 
+weiterempfehlen, in dem du ihnen die URL mit einer Beschreibung zukommen l&auml;sst. Dieser Link kann auf den Seiten mit den Themen und Beitr&auml;gen gefunden werden.
+
+
+TOPIC_TITLE: <a name="pmsg">Was sind private Messages und wie verschicke ich sie?</a> 
+TOPIC_HELP:
+Sofern nicht vom Administrator deaktiviert, kannst du private Messages an ein oder mehrere registrierte Mitglieder des Forums versenden. Um auf das 
+PM System zugreifen zu k&ouml;nnen, klicke einfach auf den <a href="{ROOT}?t=pmsg&%_rsid%">Private Messages</a> Link, 
+der auf der Seite oben rechts gefunden werden kann. Falls du noch ungelesene private Messages hast, teilt dir dieser Link deren Anzahl mit.
+<p>
+<b>Eine private Message verschicken</b><br>
+Das Verschicken von privaten Messages &auml;hnelt sehr dem Vorgang bei Emails: Du gibst den/die Empf&auml;nger an, denen du schreiben willst, schreibst die Nachricht und klickst auf "senden". Es stehen 2 Links zur Verf&uuml;gung, die es dir erleichtern, Mitglieder, denen du schreiben m&ouml;chtest, zu finden:
+<b>von der Buddyliste ausw&auml;hlen</b>, erm&ouml;glicht dir, Leute von dieser Liste auszuw&auml;hlen und <b>Benutzer suchen</b> erlaubt dir, die gesamte 
+Mitgliederliste nach Leuten zu durchsuchen, denen du deine Nachricht schicken m&ouml;chtest.
+Eine Kopie von jeder versendeten Message wird im <b>Verschickt</b> Ordner aufbewahrt, um sich sp&auml;ter einmal darauf beziehen zu k&ouml;nnen. Diese lassen sich jederzeit auf Wunsch l&ouml;schen.
+<p>
+
+
+Es gibt 3 weitere Ordner, die du kennen solltest:
+<p>
+<b>Inbox</b> Ordner enth&auml;lt alle Messages die du erhalten hast, jede einzelne hat eine gelesen/ungelesen Anzeige, um dir einen &Uuml;berblick dar&uuml;ber 
+zu verschaffen, ob eine Message schon gelesen wurde oder nicht. Es wird auch der Absender angezeigt und ob dieser momentan auf dem Forum unterwegs ist, 
+dabei wird auch der Zeitpunkt des Versendens angezeigt.
+<p>
+<b>Entwurf</b> Ordner enth&auml;lt alle Messages die du zwar geschrieben, aber noch nicht verschickt hast. Das Anklicken der Message aktiviert den Editiermodus, 
+um es dir zu erm&ouml;glichen, die Message weiter zu bearbeiten und bei Bedarf zu verschicken. Sobald diese versendet wurde, wird sie vom Entwurfs in den Verschickt 
+Ordner verschoben.
+<p>
+<b>M&uuml;ll</b> Ordner bewahrt alle Messages auf, die zum L&ouml;schen markiert sind, aber noch nicht gel&ouml;scht wurden. Wenn eine Message innerhalb dieses Ordners 
+gel&ouml;scht wird, so geschieht das unwiderruflich.
+<p>
+<b>Weiterverfolgen von Messages</b><p>
+Wenn du eine Message mit aktivierter Empfangsbest&auml;tigung verschickst, erh&auml;ltst du eine Systembenachrichtigung, sobald die Message vom Empf&auml;nger 
+gelesen wurde.<br>
+Allerdings kann der Empf&auml;nger auch das Versenden der Best&auml;tigung verweigern, sodass der Nicht-Erhalt einer Best&auml;tigung nicht zwangsl&auml;ufig bedeutet, 
+dass die Message nicht gelesen wurde.
+
+
+TOPIC_TITLE: <a name="mlist">Mitgliederliste?</a>
+TOPIC_HELP:
+Die Mitgliederliste ist eine vollst&auml;ndige Liste aller registrierten Mitglieder eines Forums. 
+Du kannst diese nach 3 Kriterien anordnen lassen: alphabetisch nach dem Benutzernamen, nach der Anzahl der Beitr&auml;ge und dem Registrierungsdatum.
+<br><br>
+Die Mitgliederliste verf&uuml;gt auch &uuml;ber eine Suchfunktion, die es erm&ouml;glicht, ein bestimmtes Mitglied anhand des Benutzernamens oder der Email 
+Adresse ausfindig zu machen.
+
+TOPIC_TITLE:<a name="ann">Was sind Ank&uuml;ndigungen und angeheftete Beitr&auml;ge?</a>
+TOPIC_HELP:
+Das sind spezielle Beitragsformen, die von Administratoren und Moderatoren eines Forums erstellt werden k&ouml;nnen und f&uuml;r einen festgelegten Zeitraum an 
+oberster Position stehen bleiben.
+Im Allgemeinen werden diese verwendet, um Benutzer &uuml;ber besondere Ereignisse oder Ver&auml;nderungen zu informieren...
+
+
+TOPIC_TITLE: <a name="rate">Kann ich Beitr&auml;ge bewerten?</a>
+TOPIC_HELP:
+Vielleicht ist es dir schon aufgefallen, dass manche Beitr&auml;ge bewertet k&ouml;nnen. Sofern vom Administrator gestattet, kannst du deine eigene Wertung f&uuml;r einen 
+Beitrag abgeben, in dem du zum unteren Ende der Beitragsseite gehst und eine Zahl zwischen 1 und 5 (5 h&ouml;chste Wertung) aus dem Men&uuml;  
+<b>Thema bewerten</b> ausw&auml;hlst.
+
+TOPIC_TITLE: <a name="ref">Was sind Anwerbungen?</a>
+TOPIC_HELP:
+Anwerbungen erm&ouml;glichen es, einen &Uuml;berblick &uuml;ber Forumsmitglieder zu verschaffen, die entweder durch dich oder andere Mitglieder zum Forum hinzugesto&szlig;en 
+sind.
+Die Anwerbungen werden automatisch aufgezeichnet, sobald du die Forums URL weiterreichst und sie sich aufgrund dessen Leute registrieren. Die 
+Anwerbung dieser Personen wird dir dann zugeschrieben. Eine Auflistung aller Leute, die von dir angeworben worden sind, kannst du in deinem Profil durch Klicken des 
+<b>Anwerbungen</b> Men&uuml;s anzeigen lassen.
+
+TOPIC_TITLE: <a name="syndicate">Das Forum als Newsticker verf&uuml;gbar machen (Syndicate)</a>
+TOPIC_HELP:
+Falls vom Administrator gestattet, ermöglicht das FUDforum mittels XML (rdf) eine Reihe von Daten als Syndicate zug&auml;nglich zu machen. Das RDF Feed funktioniert haupts&auml;chlich
+In 3 Modi, Empfang von Beitr&auml;gen, Themen and Benutzern. Jeder Betriebsmodus unterst&uuml;tzt eine Reihe von ver&auml;nderbaren Parametern, die
+es dir gestatten festzulegen welche Art von Daten abgegriffen werden sollen. Unten ist eine Beschreibung der unterst&uuml;tzten Parameter für jeden
+Betriebsmodus.<br />
+<br /><br />
+<h4><u><b>'m' Modus (Beitr&auml;ge)</b></u></h4>
+<blockquote>
+	<table border=0 cellspacing=1 cellpadding=3>
+		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Nur Beitr&auml;ge der Kategorie mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Nur Beitr&auml;ge des Forums mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>th<i></td><td class="GenText">Nur Beitr&auml;ge des Themas mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>id<i></td><td class="GenText">Einen einzelnen Beitrag mit der angegebenen id.</td></tr>
+		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Nur Beitr&auml;ge die nach dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>de<i></td><td class="GenText">Nur Beitr&auml;ge die vor dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> Beiträge abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset) ab dem Beitr&auml;ge abgerufen werden sollen.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Beitr&auml;ge vom &auml;ltesten zum neusten sortieren.</td></tr>
+	</table>
+</blockquote>
+<h4><u><b>'t' Modus (Themen)</b></u></h4>
+<blockquote>
+	<table border=0 cellspacing=1 cellpadding=3>
+		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Nur Themen der Kategorie mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Nur Themen des Forums mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>id<i></td><td class="GenText">Ein einzelnes Thema mit der angegebenen id.</td></tr>
+		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Nur Themen die nach dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>de<i></td><td class="GenText">Nur Themen die vor dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> Themen abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset) ab dem Themen abgerufen werden sollen.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Themen vom &auml;ltesten zum neusten sortieren.</td></tr>
+	</table>
+</blockquote>
+<h4><u><b>'u' Modus (Benutzer) <i>**K&ouml;nnte deaktiviert sein**</i></b></u></h4>
+<blockquote>
+	<table border=0 cellspacing=1 cellpadding=3>
+		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Benutzer nach der Beitragsanzahl anordnen, von der gr&ouml;&szlig;ten zur kleinsten.</td></tr>
+		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Benutzer nach der Registrierung anordnen, von der &auml;ltesten zur neusten.</td></tr>
+		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Nur Benutzer anzeigen die momentan online sind.</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> Benutzer abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset) ab dem Benutzer abgerufen werden sollen.</td></tr>
+	</table>
+</blockquote>
+<b>Beispiel:</b><br />
+Der folgende Link ruft die aktuellsten 10 Beitr&auml;ge dieses Forums ab:<br />
+<a href="rdf.php?mode=m&l=1&n=10&basic=1" target="_blank">rdf.php?mode=m&l=1&n=10&basic=1</a>
+
+TOPIC_TITLE: <a name="accesskeys">Zugriffstasten</a>
+TOPIC_HELP:
+Zugriffstasten sind Tastaturk&uuml;rzel, die den Sinn haben die Navigation mit Hilfe der Tastatur zu vereinfachen. FUDforum macht von dieser Funktionalit&auml;t Gebrauch, um verschiedene Aufgaben, die in erster Linie dem Erstellen von Beiträgen dienen, zu vereinfachen.<br />
+
+<fieldset style="width: 350px;">
+	<legend><b>Browser Unterst&uuml;tzung</b></legend>
+	<b>Mozilla/Netscape:</b> CTRL + ALT + [Zugriffstaste]<br />
+	<b>Mozilla/IE:</b> ALT + [Zugriffstaste]<br />
+	<b>Opera:</b> SHIFT + ESC + [Zugriffstaste]<br />
+</fieldset>
+
+<b>Unterst&uuml;tzte Zugriffstasten:</b>
+<blockquote>
+	<b>H</b> - Umleitung zur Forumshilfe.<br />
+	<b>N</b> - Auf Seiten mit Unterteilung, rufe die n&auml;chste Seite auf (falls vorhanden).<br />
+	<b>P</b> - Auf Seiten mit Unterteilung, rufe die vorherige Seite auf (falls vorhanden).<br />
+	<b>S</b> - Forumsbeitrag oder private Nachricht abschicken.<br />
+
+	<b>R</b> - Vorschau eines Forumsbeitrags oder privaten Nachricht.<br />
+	<b>K</b> - Die Rechtschreibung des Beitrags oder der Nachricht &uuml;berpr&uuml;fen.<br />
+	<b>A</b> - Ver&auml;nderungen am Text &uuml;bernehmen.<br />
+	<b>D</b> - Private Nachricht als Entwurf abspeichern.<br />
+	<br /><br /><b>FUDcode Abk&uuml;rzungen:</b>
+	<blockquote>
+		<b>B</b> - Fett<br />
+		<b>I</b> - Kursiv<br />
+		<b>U</b> - Unterstrichen<br />
+		<b>Q</b> - Zitat<br />
+		<b>C</b> - Code<br />
+		<b>L</b> - Liste<br />
+		<b>M</b> - Bild<br />
+		<b>W</b> - URL<br />
+		<b>E</b> - Email
+	</blockquote>
+</blockquote>
+
