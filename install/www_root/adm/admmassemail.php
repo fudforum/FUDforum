@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.43 2005/12/07 18:07:46 hackie Exp $
+* $Id: admmassemail.php,v 1.44 2006/01/10 15:41:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,7 +32,7 @@
 	if (!empty($_POST['subject']) && !empty($_POST['body'])) {
 		if (!$_POST['group']) {
 			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'users '.(isset($_POST['ignore_override']) ? '' : 'WHERE id > 1 AND (users_opt & 8)=0'));
-		} else if (!isset($groups[$_POST['group']])) {
+		} else if (!isset($groups[$_POST['group']]) && $_POST['group'] != $all_mods && $_POST['group'] != $all_grp_lead) {
 			echo '<font color="+1" color="red">Invalid group id</font><br />';
 			$err = 1;
 			$c = uq('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE id=-1');
