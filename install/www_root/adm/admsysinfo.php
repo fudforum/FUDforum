@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.24 2005/12/22 00:04:06 hackie Exp $
+* $Id: admsysinfo.php,v 1.25 2006/01/10 15:40:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,6 +87,10 @@ echo '<tr>
 			<tr>
 				<td>File Uploads:</td>
 				<td><?php echo get_php_setting('file_uploads'); ?></td>
+			</tr>
+			<tr>
+				<td>Maximum File Upload Size:</td>
+				<td><?php echo ini_get('upload_max_filesize'); ?></td>
 			</tr>
 			<tr>
 				<td>Magic Quotes:</td>
