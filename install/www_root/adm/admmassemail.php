@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.44 2006/01/10 15:41:22 hackie Exp $
+* $Id: admmassemail.php,v 1.45 2006/01/11 14:40:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,7 +43,7 @@
 			if ($gid > 0) {
 				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$gid.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
 			} else if ($gid == $all_mods) {
-				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'mod m INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=m.user_id '.(isset($_POST['ignore_override']) ? '' : ' WHERE (users_opt & 8)=0'));
+				$c = uq('SELECT DISTINCT('.$fld.') FROM '.$DBHOST_TBL_PREFIX.'mod m INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=m.user_id '.(isset($_POST['ignore_override']) ? '' : ' WHERE (users_opt & 8)=0'));
 			} else if ($gid == $all_grp_lead) {
 				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE (gm.group_members_opt & 131072) '.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
 			} else {
