@@ -11,9 +11,12 @@ $GLOBALS['PATH_TO_FUD_FORUM_DB_INC'] = '';
    Upon failure the return value will be NULL, this can only happen if invalid user id is specified.
 */
 
+if (!function_exists('fud_sql_error_handler'))
+{
 function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
 {
 	exit("Query {$query} failed due to: {$error_string}");
+}
 }
 
 function external_fud_login($user_id)
