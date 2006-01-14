@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.60 2005/12/07 18:07:46 hackie Exp $
+* $Id: compact.php,v 1.61 2006/01/14 18:01:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -164,22 +164,26 @@ function eta_calc($start, $pos, $pc)
 	if (!$fp) {
 		exit("Failed to open temporary private message store.");
 	}
-	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'pmsg') / 10);
-	$c = q('SELECT distinct(foff), length FROM '.$tbl.'pmsg');
+	$pc = q_singleval('SELECT count(*) FROM '.$tbl.'pmsg');
+	if ($pc) {
+		$pc = round($pc / 10);
 
-	while ($r = db_rowarr($c)) {
-		if (($len = fwrite($fp, read_pmsg_body($r[0], $r[1]))) != $r[1] || !fflush($fp)) {
-			exit("FATAL ERROR: system has ran out of disk space<br>\n");
-		}
-		q('UPDATE '.$tbl.'pmsg SET foff='.$off.', length='.$len.' WHERE foff='.$r[0]);
-		$off += $len;
+		$c = q('SELECT distinct(foff), length FROM '.$tbl.'pmsg');
 
-		if ($i && !($i % $pc)) {
-			eta_calc($stm2, $i, $pc);
+		while ($r = db_rowarr($c)) {
+			if (($len = fwrite($fp, read_pmsg_body($r[0], $r[1]))) != $r[1] || !fflush($fp)) {
+				exit("FATAL ERROR: system has ran out of disk space<br>\n");
+			}
+			q('UPDATE '.$tbl.'pmsg SET foff='.$off.', length='.$len.' WHERE foff='.$r[0]);
+			$off += $len;
+
+			if ($i && !($i % $pc)) {
+				eta_calc($stm2, $i, $pc);
+			}
+			$i++;
 		}
-		$i++;
+		unset($c);
 	}
-	unset($c);
 	fclose($fp);
 
 	q('DROP INDEX '.$tbl.'pmsg_foff_idx'.(__dbtype__ == 'mysql' ? ' ON '.$tbl.'pmsg' : ''));
