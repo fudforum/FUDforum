@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.61 2006/01/14 18:01:56 hackie Exp $
+* $Id: compact.php,v 1.62 2006/01/16 16:21:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -166,7 +166,7 @@ function eta_calc($start, $pos, $pc)
 	}
 	$pc = q_singleval('SELECT count(*) FROM '.$tbl.'pmsg');
 	if ($pc) {
-		$pc = round($pc / 10);
+		$pc = ceil($pc / 10);
 
 		$c = q('SELECT distinct(foff), length FROM '.$tbl.'pmsg');
 
