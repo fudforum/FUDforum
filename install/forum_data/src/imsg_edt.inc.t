@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.157 2006/01/17 23:08:02 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.158 2006/01/17 23:10:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -334,7 +334,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		if ($GLOBALS['FUD_OPT_3'] & 32768) {
-			q('DELETE FROM {}msg_store WHERE id IN('.$del->file_id.','.$del->file_id_preview.')');
+			q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id IN('.$del->file_id.','.$del->file_id_preview.')');
 		}
 
 		if (!$del->apr || !$th_rm || ($del->root_msg_id != $del->id)) {
