@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.inc.t,v 1.45 2005/12/07 18:07:45 hackie Exp $
+* $Id: drawpmsg.inc.t,v 1.46 2006/01/17 23:00:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -88,6 +88,12 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 	} else {
 		$dmsg_tags = $dmsg_im_row = $user_profile = $msg_toolbar = $buddy_link = $avatar = $online_indicator = $host_name = $location = '';
 	}
+	if ($obj->length > 0) {
+		$msg_body = read_pmsg_body($obj->foff, $obj->length);
+	} else {
+		$msg_body = '{TEMPLATE: dpmsg_no_msg_body}';
+	}
+
 	$msg_body = $obj->length ? read_pmsg_body($obj->foff, $obj->length) : '{TEMPLATE: dpmsg_no_msg_body}';
 
 	$file_attachments = '';

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.155 2005/12/31 20:10:19 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.156 2006/01/17 23:00:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,14 +46,20 @@ class fud_msg_edit extends fud_msg
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
 		$this->reply_to = isset($this->reply_to) ? $this->reply_to : 0;
 
-		$file_id = write_body($this->body, $length, $offset, $forum_id);
-
-		/* determine if preview needs building */
-		if ($message_threshold && $message_threshold < strlen($this->body)) {
-			$thres_body = trim_html($this->body, $message_threshold);
-			$file_id_preview = write_body($thres_body, $length_preview, $offset_preview, $forum_id);
+		if ($FUD_OPT_3 & 32768) {
+			$file_id = $file_id_preview = $length_preview = 0;
+			$offset = $offset_preview = -1;
+			$length = strlen($this->body);
 		} else {
-			$file_id_preview = $offset_preview = $length_preview = 0;
+			$file_id = write_body($this->body, $length, $offset, $forum_id);
+
+			/* determine if preview needs building */
+			if ($message_threshold && $message_threshold < strlen($this->body)) {
+				$thres_body = trim_html($this->body, $message_threshold);
+				$file_id_preview = write_body($thres_body, $length_preview, $offset_preview, $forum_id);
+			} else {
+				$file_id_preview = $offset_preview = $length_preview = 0;
+			}
 		}
 
 		$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}msg (
@@ -98,6 +104,14 @@ class fud_msg_edit extends fud_msg
 			".ssn(poll_cache_rebuild($this->poll_id))."
 		)");
 
+		if ($FUD_OPT_3 & 32768) {
+			$file_id = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
+			if ($message_threshold && $length > $message_threshold) {
+				$file_id_preview = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc(trim_html($this->body, $message_threshold)).')');
+			}
+			q('UPDATE {SQL_TABLE_PREFIX}msg SET file_id='.$file_id.', file_id_preview='.$file_id_preview.' WHERE id='.$this->id);
+		}
+
 		$thread_opt = (int) ($perm & 4096 && isset($_POST['thr_locked']));
 
 		if (!$this->thread_id) { /* new thread */
@@ -124,14 +138,20 @@ class fud_msg_edit extends fud_msg
 
 	function sync($id, $frm_id, $message_threshold, $perm)
 	{
-		$file_id = write_body($this->body, $length, $offset, $frm_id);
-
-		/* determine if preview needs building */
-		if ($message_threshold && $message_threshold < strlen($this->body)) {
-			$thres_body = trim_html($this->body, $message_threshold);
-			$file_id_preview = write_body($thres_body, $length_preview, $offset_preview, $frm_id);
+		if ($FUD_OPT_3 & 32768) {
+			$file_id = $file_id_preview = $length_preview = 0;
+			$offset = $offset_preview = -1;
+			$length = strlen($this->body);
 		} else {
-			$file_id_preview = $offset_preview = $length_preview = 0;
+			$file_id = write_body($this->body, $length, $offset, $frm_id);
+
+			/* determine if preview needs building */
+			if ($message_threshold && $message_threshold < strlen($this->body)) {
+				$thres_body = trim_html($this->body, $message_threshold);
+				$file_id_preview = write_body($thres_body, $length_preview, $offset_preview, $frm_id);
+			} else {
+				$file_id_preview = $offset_preview = $length_preview = 0;
+			}
 		}
 
 		q("UPDATE {SQL_TABLE_PREFIX}msg SET
@@ -151,6 +171,15 @@ class fud_msg_edit extends fud_msg
 			poll_cache=".ssn(poll_cache_rebuild($this->poll_id)).",
 			subject=".ssn($this->subject)."
 		WHERE id=".$this->id);
+
+		if ($FUD_OPT_3 & 32768) {
+			q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id IN('.$this->file_id.','.$this->file_id_preview.')');
+			$file_id = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
+			if ($message_threshold && $length > $message_threshold) {
+				$file_id_preview = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc(trim_html($this->body, $message_threshold)).')');
+			}
+			q('UPDATE {SQL_TABLE_PREFIX}msg SET file_id='.$file_id.', file_id_preview='.$file_id_preview.' WHERE id='.$this->id);
+		}
 
 		/* determine wether or not we should deal with locked & sticky stuff
 		 * current approach may seem a little redundant, but for (most) users who
@@ -209,7 +238,7 @@ class fud_msg_edit extends fud_msg
 			$mid = $this->id;
 		}
 
-		if (!($del = db_sab('SELECT m.id, m.attach_cnt, m.poll_id, m.thread_id, m.reply_to, m.apr, m.poster_id, t.replies, t.root_msg_id AS root_msg_id, t.last_post_id AS thread_lip, t.forum_id, f.last_post_id AS forum_lip 
+		if (!($del = db_sab('SELECT m.file_id, m.file_id_preview, m.id, m.attach_cnt, m.poll_id, m.thread_id, m.reply_to, m.apr, m.poster_id, t.replies, t.root_msg_id AS root_msg_id, t.last_post_id AS thread_lip, t.forum_id, f.last_post_id AS forum_lip 
 					FROM {SQL_TABLE_PREFIX}msg m 
 					LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id 
 					LEFT JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id WHERE m.id='.$mid))) {
@@ -303,7 +332,11 @@ class fud_msg_edit extends fud_msg
 		if (isset($ll)) {
 			db_unlock();
 		}
-		
+
+		if ($FUD_OPT_3 & 32768) {
+			q('DELETE FROM {}msg_store WHERE id IN('.$del->file_id.','.$del->file_id_preview.')');
+		}
+
 		if (!$del->apr || !$th_rm || ($del->root_msg_id != $del->id)) {
 			return;
 		}

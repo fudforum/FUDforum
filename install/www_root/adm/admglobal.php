@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.84 2005/12/31 20:52:07 hackie Exp $
+* $Id: admglobal.php,v 1.85 2006/01/17 23:00:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -354,6 +354,7 @@ function get_max_upload_size()
 	print_bit_field('All Message Forum Notification', 'FORUM_NOTIFY_ALL');
 	print_reg_field('Whois Server Address', 'FUD_WHOIS_SERVER');
 	print_reg_field('Time between login attempts', 'MIN_TIME_BETWEEN_LOGIN', 1);
+	print_bit_field('Use Database for message storage', 'DB_MESSAGE_STORAGE');
 ?>
 <tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 </table>

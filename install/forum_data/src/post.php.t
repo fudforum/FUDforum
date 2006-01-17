@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.149 2005/12/08 14:54:57 hackie Exp $
+* $Id: post.php.t,v 1.150 2006/01/17 23:00:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -354,6 +354,8 @@ function flood_check()
 				$msg_post->thread_id = $th_id;
 				$msg_post->post_stamp = $msg->post_stamp;
 				$msg_post->mlist_msg_id = $msg->mlist_msg_id;
+				$msg_post->file_id = $msg->file_id;
+				$msg_post->file_id_preview = $msg->file_id_preview;
 				$msg_post->sync(_uid, $frm->id, $frm->message_threshold, ($perms & (64|4096)));
 				/* log moderator edit */
 			 	if (_uid && _uid != $msg->poster_id) {

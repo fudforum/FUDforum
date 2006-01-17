@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.62 2006/01/16 16:21:22 hackie Exp $
+* $Id: compact.php,v 1.63 2006/01/17 23:00:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,6 +15,11 @@
 	define('back_to_main', 1);
 
 	require('./GLOBALS.php');
+
+	if ($FUD_OPT_3 & 32768) {
+		exit('Unnecessary if database used for message storage');
+	}
+
 	// uncomment the lines below if you wish to run this script via command line
 	// fud_use('adm_cli.inc', 1); // this contains cli_execute() function.
 	// cli_execute(1);
