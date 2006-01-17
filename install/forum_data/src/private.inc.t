@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.49 2006/01/17 23:08:02 hackie Exp $
+* $Id: private.inc.t,v 1.50 2006/01/17 23:18:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -172,7 +172,7 @@ class fud_pmsg
 
 		if ($GLOBALS['FUD_OPT_3'] & 32768 && $this->body) {
 			$fid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
-			q('UPDATE {SQL_TABLE_PREFIX}pmsg SET length='.$fid.' WHERE id='.$id);
+			q('UPDATE {SQL_TABLE_PREFIX}pmsg SET length='.$fid.' WHERE id='.$this->id);
 		}
 
 		if ($this->fldr == 3) {
@@ -225,7 +225,7 @@ function read_pmsg_body($offset, $length)
 	}
 
 	if ($GLOBALS['FUD_OPT_3'] & 32768 && $offset != -1) {
-		return q_singleval('SELECT data FROM {SQL_TABLE_PREFIX}msg_store WHERE id='.$obj->length);
+		return q_singleval('SELECT data FROM {SQL_TABLE_PREFIX}msg_store WHERE id='.$length);
 	}
 
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private', 'rb');
