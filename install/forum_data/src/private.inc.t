@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.48 2006/01/17 23:00:54 hackie Exp $
+* $Id: private.inc.t,v 1.49 2006/01/17 23:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,7 +27,7 @@ class fud_pmsg
 			$this->read_stamp = $this->post_stamp;
 		}
 
-		if ($FUD_OPT_3 & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {
 			list($this->foff, $this->length) = write_pmsg_body($this->body);
 		} else {
 			$this->foff = $this->length = -1;
@@ -69,7 +69,7 @@ class fud_pmsg
 				".$this->pmsg_opt."
 			)");
 
-		if ($FUD_OPT_3 & 32768 && $this->body) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768 && $this->body) {
 			$fid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
 			q('UPDATE {SQL_TABLE_PREFIX}pmsg SET length='.$fid.' WHERE id='.$this->id);
 		}
@@ -116,7 +116,7 @@ class fud_pmsg
 				".ssn($this->ref_msg_id).",
 				".$this->pmsg_opt.")");
 
-			if ($FUD_OPT_3 & 32768 && $this->body) {
+			if ($GLOBALS['FUD_OPT_3'] & 32768 && $this->body) {
 				$fid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
 				q('UPDATE {SQL_TABLE_PREFIX}pmsg SET length='.$fid.' WHERE id='.$id);
 			}
@@ -145,7 +145,7 @@ class fud_pmsg
 		$this->ip_addr = get_ip();
 		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? _esc(get_host($this->ip_addr)) : 'NULL';
 
-		if ($FUD_OPT_3 & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {
 			list($this->foff, $this->length) = write_pmsg_body($this->body);
 		} else {
 			if ($fid = q_singleval('SELECT length FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$this->id.' AND foff!=-1')) {
@@ -170,7 +170,7 @@ class fud_pmsg
 			pmsg_opt=".$this->pmsg_opt."
 		WHERE id=".$this->id);
 
-		if ($FUD_OPT_3 & 32768 && $this->body) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768 && $this->body) {
 			$fid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
 			q('UPDATE {SQL_TABLE_PREFIX}pmsg SET length='.$fid.' WHERE id='.$id);
 		}
@@ -224,7 +224,7 @@ function read_pmsg_body($offset, $length)
 		return;
 	}
 
-	if ($FUD_OPT_3 & 32768 && $offset != -1) {
+	if ($GLOBALS['FUD_OPT_3'] & 32768 && $offset != -1) {
 		return q_singleval('SELECT data FROM {SQL_TABLE_PREFIX}msg_store WHERE id='.$obj->length);
 	}
 
@@ -254,7 +254,7 @@ function pmsg_del($mid, $fldr=0)
 	if ($fldr != 5) {
 		pmsg_move($mid, 5, 0);
 	} else {
-		if ($FUD_OPT_3 & 32768 && ($fid = q_singleval('SELECT length FROM pmsg WHERE id='.$mid.' AND foff=-1'))) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768 && ($fid = q_singleval('SELECT length FROM pmsg WHERE id='.$mid.' AND foff=-1'))) {
 			q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id='.$id);
 		}
 		q('DELETE FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$mid);

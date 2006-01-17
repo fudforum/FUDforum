@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.156 2006/01/17 23:00:54 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.157 2006/01/17 23:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,7 +46,7 @@ class fud_msg_edit extends fud_msg
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
 		$this->reply_to = isset($this->reply_to) ? $this->reply_to : 0;
 
-		if ($FUD_OPT_3 & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {
 			$file_id = $file_id_preview = $length_preview = 0;
 			$offset = $offset_preview = -1;
 			$length = strlen($this->body);
@@ -104,7 +104,7 @@ class fud_msg_edit extends fud_msg
 			".ssn(poll_cache_rebuild($this->poll_id))."
 		)");
 
-		if ($FUD_OPT_3 & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {
 			$file_id = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
 			if ($message_threshold && $length > $message_threshold) {
 				$file_id_preview = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc(trim_html($this->body, $message_threshold)).')');
@@ -138,7 +138,7 @@ class fud_msg_edit extends fud_msg
 
 	function sync($id, $frm_id, $message_threshold, $perm)
 	{
-		if ($FUD_OPT_3 & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {
 			$file_id = $file_id_preview = $length_preview = 0;
 			$offset = $offset_preview = -1;
 			$length = strlen($this->body);
@@ -172,7 +172,7 @@ class fud_msg_edit extends fud_msg
 			subject=".ssn($this->subject)."
 		WHERE id=".$this->id);
 
-		if ($FUD_OPT_3 & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {
 			q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id IN('.$this->file_id.','.$this->file_id_preview.')');
 			$file_id = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
 			if ($message_threshold && $length > $message_threshold) {
@@ -333,7 +333,7 @@ class fud_msg_edit extends fud_msg
 			db_unlock();
 		}
 
-		if ($FUD_OPT_3 & 32768) {
+		if ($GLOBALS['FUD_OPT_3'] & 32768) {
 			q('DELETE FROM {}msg_store WHERE id IN('.$del->file_id.','.$del->file_id_preview.')');
 		}
 
