@@ -28,8 +28,8 @@
 	<a href="consist.php?<?php echo __adm_rsidl; ?>">Forum Consistency</a><br>
 	<a href="indexdb.php?<?php echo __adm_rsidl; ?>">Rebuild Search Index</a><br>
 <?php if (!($FUD_OPT_3 & 32768)) { ?>
-	<a href="compact.php?<?php echo __adm_rsidl; ?>">Compact Messages</a><br><br>
-<?php } ?>
+	<a href="compact.php?<?php echo __adm_rsidl; ?>">Compact Messages</a><br>
+<?php } ?><br>
 	<span class="linkgroup">General Management</span><br>
 	<a href="admglobal.php?<?php echo __adm_rsidl; ?>">Global Settings Manager</a><br>
 	<a href="admreplace.php?<?php echo __adm_rsidl; ?>">Replacement & Censorship System</a><br>
