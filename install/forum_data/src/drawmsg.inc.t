@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.105 2005/12/07 18:07:45 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.106 2006/01/17 23:49:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,7 +28,11 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 	return 1;
 }
 
-$query_type = (empty($_POST['poll_opt']) || !($_POST['poll_opt'] = (int)$_POST['poll_opt']) ? 'uq' : 'q');
+if ($GLOBALS['FUD_OPT_3'] & 32768 || !empty($_POST['poll_opt'])) {
+	$query_type = 'q';
+} else {
+	$query_type = 'uq'; 
+}
 $GLOBALS['__FMDSP__'] = array();
 
 /* needed for message threshold & reveling messages */
