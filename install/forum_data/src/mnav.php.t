@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.php.t,v 1.33 2005/12/07 18:07:45 hackie Exp $
+* $Id: mnav.php.t,v 1.34 2006/01/18 14:20:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,7 +61,7 @@
 		}
 
 		if (_uid && $subl) {
-			if ($sf = db_all('SELECT id FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id='._uid)) {
+			if ($sf = db_all('SELECT forum_id FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id='._uid)) {
 				$qry_lmt .= ' AND f.id IN('.implode(',', $sf).') ';
 			} else {
 				$qry_lmt .= ' AND f.id=-1 ';
