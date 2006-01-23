@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.php.t,v 1.34 2006/01/18 14:20:48 hackie Exp $
+* $Id: mnav.php.t,v 1.35 2006/01/23 14:34:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -119,9 +119,9 @@
 			/* handle pager if needed */
 			if ($total > $ppg) {
 				if ($FUD_OPT_2 & 32768) {
-					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/ma/'.$rng.'/'.$rng2.'/'.$unit.'/', '/'._rsid);
+					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/ma/'.$rng.'/'.$rng2.'/'.$unit.'/', '/'.$subl.'/'._rsid);
 				} else {
-					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=mnav&amp;rng='.$rng.'&amp;u='.$unit.'&amp;'._rsid.'&amp;forum_limiter='.$forum_limiter.'&mbsp;rng2='.$rng2);
+					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=mnav&amp;rng='.$rng.'&amp;u='.$unit.'&amp;'._rsid.'&amp;forum_limiter='.$forum_limiter.'&amp;rng2='.$rng2.'&amp;sub='.$subl);
 				}
 			}
 		}

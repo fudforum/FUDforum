@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.156 2005/12/07 18:07:45 hackie Exp $
+* $Id: users.inc.t,v 1.157 2006/01/23 14:34:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -559,6 +559,7 @@ function &init_user()
 					$_GET['rng2'] = isset($p[2]) ? $p[2] : 0;
 					$_GET['u'] = isset($p[3]) ? $p[3] : 0;
 					$_GET['start'] = isset($p[4]) ? $p[4] : 0;
+					$_GET['sub'] = !empty($p[5]);
 				}
 				break;
 
