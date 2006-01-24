@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.161 2005/12/07 18:07:45 hackie Exp $
+* $Id: register.php.t,v 1.162 2006/01/24 23:32:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,15 +54,17 @@ function sanitize_url($url)
 	return $url;
 }
 
-function sanitize_login($login, $is_alias=0)
+function sanitize_login($login)
 {
-	$list = '';
+	$list = '&'.chr(173);
 
-	for ($i = 0; $i < 32; $i++) $list .= chr($i);
-	if (!$is_alias) {
-		for ($i = 127; $i < 160; $i++) $list .= chr($i);
+	for ($i = 0; $i < 32; $i++) {
+		$list .= chr($i);
 	}
-	return str_replace("\0", "", strtr($login, $list, str_repeat("\0", strlen($list))));
+	for ($i = 127; $i < 161; $i++) {
+		$list .= chr($i);
+	}
+	return strtr($login, $list, str_repeat(" ", strlen($list)));
 }
 
 function register_form_check($user_id)
@@ -151,7 +153,7 @@ function register_form_check($user_id)
 
 	/* Alias Check */
 	if ($GLOBALS['FUD_OPT_2'] & 128 && isset($_POST['reg_alias'])) {
-		if (($_POST['reg_alias'] = trim(sanitize_login($_POST['reg_alias'], true)))) {
+		if (($_POST['reg_alias'] = trim(sanitize_login($_POST['reg_alias'])))) {
 			if (is_login_blocked($_POST['reg_alias'])) {
 				set_err('reg_alias', '{TEMPLATE: register_err_alias_notallowed}');
 			}
