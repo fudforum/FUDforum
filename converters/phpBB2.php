@@ -1,8 +1,8 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.38 2005/12/07 18:07:45 hackie Exp $
+* $Id: phpBB2.php,v 1.39 2006/01/25 14:37:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -255,7 +255,7 @@ function import_av_gal($dirn)
 
 		/* hack for user id of 1, since this id is reserved for anon user in FUDforum */
 		if ($obj->user_id == 1) {
-			$obj->user_id = $hack_id = q_singleval("SELECT MAX(user_id) FROM {$bb2}users") + 1;
+			$obj->user_id = $hack_id = q_singleval("SELECT MAX(id) FROM {$bb2}users") + 1;
 		}
 
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."users 
