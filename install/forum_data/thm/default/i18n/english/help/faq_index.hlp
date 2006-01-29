@@ -27,6 +27,28 @@ TOPIC_HELP:
 TOPIC_TITLE: Reading and Posting Messages
 TOPIC_HELP:
 <a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style">How to format text?</a><br>
+<ul style="margin: 2px;">
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Bold [b]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Underline [u]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Italics [i]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Subscript [sub]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Superscript [sup]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Colors [color]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Fonts [font]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Alignment [align]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Lists [list]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Images [img]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Links [link]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Quotes [quote]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Alignment [align]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Reformatted [pre]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">PHP Code [php]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Code [code]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">FUDcode Free [notag]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Horizontal Line [hr]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Spoiler [spoiler]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#">Acronym [spoiler]</a></li>
+</ul>
 <a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml">What are Smilies/Emoticons?</a><br>
 <a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls">How do I use Polls?</a><br>
 <a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach">Can I attach files to messages?</a><br>
