@@ -8,7 +8,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 <p>
 <b>Here is a list of the supported FUDcode tags & short examples on it's usage</b>
 
-<b>URL Hyperlinking</b><br><br>
+<a name="b"><b>URL Hyperlinking</b></a><br><br>
 
 The forum can automatically pick up on many forms of URLs, for example:<br>
 	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br>
@@ -23,7 +23,7 @@ this will result in a generation fo the following link:
 You can add a description to your URL by using a different syntax inside the <font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">My Homepage</font>[/URL]</b></font> this code will result in the following:<br>
 	<div align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></div><br>
 <p>
-<b>Email Hyperlinking</b><br><br>
+<a name="email"><b>Email Hyperlinking</b></a><br><br>
          To create an email link simply type the email address as it would
  normally    appear, for example:<br>
 <div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br>
@@ -36,25 +36,25 @@ You can add a description to your URL by using a different syntax inside the <fo
 are:<br>
 <br>
 <ul>
-  <li><font color="#ff0000"><b>[b]</b></font>bold<font color="#ff0000"><b>
+  <li><a name="b"><font color="#ff0000"><b>[b]</b></font>bold<font color="#ff0000"><b>
          [/b]</b></font> produces <b>bold</b> text</li>
-  <li><font color="#ff0000"><b>[u]</b></font>underline<font color="#ff0000"><b>
+  <li><a name="u"><font color="#ff0000"><b>[u]</b></font>underline<font color="#ff0000"><b></a>
          [/u]</b></font> produces <u>underlined</u> text</li>
-  <li><font color="#ff0000"><b>[i]</b></font>italic<font color="#ff0000"><b>
+  <li><a name="i"><font color="#ff0000"><b>[i]</b></font>italic<font color="#ff0000"><b></a>
          [/i]</b></font> produces <i>italicized</i> text</li>
-  <li><font color="#ff0000"><b>[sub]</b></font>subscript<font color="#ff0000"><b>
+  <li><a name="sub"><font color="#ff0000"><b>[sub]</b></font>subscript<font color="#ff0000"><b></a>
          [/sub]</b></font> produces <sub>subscript</sub> text</li>
-  <li><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>
+  <li><a name="sup"><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b></a>
          [/sup]</b></font> produces <sup>superscript</sup> text</li>
 </ul>
          It is also possible to control color/size and even font face.<br>
 <ul>
-  <li><font color="#ff0000"><b>[color=red]</b></font>red text<font color="#ff0000"><b>
+  <li><a name="color"><font color="#ff0000"><b>[color=red]</b></font>red text<font color="#ff0000"><b></a>
          [/color]</b></font> produces <font color="#ff0000">red text</font></li>
-  <li><font color="#ff0000"><b>[size=4]</b></font>big text<font color="#ff0000"><b>
+  <li><a name="size"><font color="#ff0000"><b>[size=4]</b></font>big text<font color="#ff0000"><b></a>
         [/size]</b></font> produces text in the specified <font size="4">
 size</font></li>
-  <li><font color="#ff0000"><b>[font=courier]</b></font>text<font color="#ff0000"><b>
+  <li><a name="font"><font color="#ff0000"><b>[font=courier]</b></font>text<font color="#ff0000"><b></a>
         [/font]</b></font> produces text using the named <font face="Courier New, Courier, monospace">
         type face</font></li>
 </ul>
@@ -64,10 +64,10 @@ size</font></li>
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Formatted Text</b></i></u></font></div>
 <br>
 <br>
-<b>Text Alignment</b><br>
+<a name="align"><b>Text Alignment</b></a><br>
 FUDcode supports text alignment via the [align] tag, which allows your to align your text in 3 ways:
 <ul>
-	<li><font color="#ff0000"><b>[align=center]</b></font>centered text<font color="#ff0000"><b>[/align]</b></font> produces:</li>
+	<li>A<font color="#ff0000"><b>[align=center]</b></font>centered text<font color="#ff0000"><b>[/align]</b></font> produces:</li>
 		<div align="center">centered text</div>
 	<li><font color="#ff0000"><b>[align=left]</b></font>left aligned<font color="#ff0000"><b>[/align]</b></font> produces:</li>
 		<div align="left">left aligned</div>
@@ -76,7 +76,7 @@ FUDcode supports text alignment via the [align] tag, which allows your to align 
 </ul>
 <br>
 <br>
-<b>Various Lists</b><br>
+<a name="list"><b>Various Lists</b><br></a>
       You can create various kinds of lists using Form Code:<br>
 <br>
       Un-ordered bulleted list:<br>
@@ -113,7 +113,7 @@ an  numerical  ordered list:<br>
   <li>first item</li>
   <li>second item</li>
 </ol>
-<b>Adding Images</b><br>
+<a name="img"><b>Adding Images</b></a><br>
     It is possible to include in-line images with the message. using the <font color="#ff0000"><b>
     [img][/img]</b></font> tags. <br>
 <br>
@@ -127,7 +127,8 @@ an  numerical  ordered list:<br>
     which will create a linked image such as<br>
 <div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br></div><br>
 
-<br><b>Quoting other messages</b><br>
+<br>
+<a name="quote"><b>Quoting other messages</b></a><br>
   It is possible to quote something that has already been posted, by just 
 putting <font color="#ff0000"><b>[quote][/quote]</b></font> tags around it. 
 <br>
@@ -136,7 +137,7 @@ putting <font color="#ff0000"><b>[quote][/quote]</b></font> tags around it.
 
 <table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hello World<br></td></tr></table>
 <p>
-<b>Pre-formatted Text</b><br>
+<a name="pre"><b>Pre-formatted Text</b></a><br>
  The <font color="#ff0000"><b>[pre][/pre]</b></font> tags allows to post 
 text exactly as it is, maintaining relational formatting such as tabs and multiple 
 spaces. <br>
@@ -151,7 +152,7 @@ spaces. <br>
 <br>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
 <p>
-<b>PHP Code</b><br>
+<a name="php"><b>PHP Code</b></a><br>
 The <font color="#ff0000"><b>[php][/php]</b></font> tag allows you to post PHP scripts
 and have the forum automatically syntax highlight the code for easier readability.<br>
 <br>it used like this: <br>
@@ -171,7 +172,7 @@ hello();
 </font>
 </code>
 <p>
-<b>Non-PHP Program Code</b><br>
+<a name="code"><b>Non-PHP Program Code</b></a><br>
  The <font color="#ff0000"><b>[code][/code]</b></font> tags work the same was as the <font color="#ff0000"><b>[pre]</b></font>
 tags with a noteable exception of putting the text is a visually identifiable box.<br>
 <br>
@@ -185,14 +186,14 @@ tags with a noteable exception of putting the text is a visually identifiable bo
 <br>
 
 <p>
-<b>No Tag</b><br>
+<a name="notag"><b>No Tag</b></a><br>
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
 the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
 and not have them converted to equivalent HTML.
 <p>
 
 <p>
-<b>Horizontal Line Tag</b><br>
+<a name="hr"><b>Horizontal Line Tag</b></a><br>
 The <font color="#ff0000"><b>[hr]</b></font> tag allows you to draw horizontal line on screen, this
 is the equivalent of the HTML &lt;hr&gt; tag.<br>
  it used like this: <br>
@@ -201,7 +202,7 @@ is the equivalent of the HTML &lt;hr&gt; tag.<br>
 <hr>
 <p>
 
-<b>Spoiler</b><br>
+<a name="spoiler"><b>Spoiler</b></a><br>
 The <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> tag allows you to hide a portion of message
 from being displayed. To see the hidden portion the users must click a link that will display the 
 hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually 
@@ -226,7 +227,7 @@ More visible text.
 <p>
 
 <p>
-<b>Acronym</b><br>
+<a name="acronym"><b>Acronym</b></a><br>
 The <font color="#ff0000"><b>[acronym][/acronym]</b></font> tag allows you to identify the text as an
 acronym and provide a full name when the user moves their mouse over the tag.
 <font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
