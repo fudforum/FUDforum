@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.157 2006/01/23 14:34:45 hackie Exp $
+* $Id: users.inc.t,v 1.158 2006/02/05 16:58:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -238,11 +238,11 @@ function &init_user()
 			case 'ml': /* member list */
 				$_GET['t'] = 'finduser';
 				if (isset($p[1])) {
-					if ($p[1] == '1') { /* order by reg date */
-						$_GET['pc'] = 1;
-					} else if ($p[1] == '2') { /* order by login */
-						$_GET['us'] = 1;
-					} /* else order by date */
+					switch ($p[1]) {
+						case 1: case 2: $_GET['pc'] = $p[1]; break;
+						case 3: case 4: $_GET['us'] = $p[1]; break;
+						case 5: case 6: $_GET['rd'] = $p[1]; break;
+					}
 					if (isset($p[2])) {
 						$_GET['start'] = $p[2];
 						if (isset($p[3])) {

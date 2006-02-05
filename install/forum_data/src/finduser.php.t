@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.52 2005/12/07 18:07:45 hackie Exp $
+* $Id: finduser.php.t,v 1.53 2006/02/05 16:58:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,9 +32,11 @@
 	}
 
 	if (isset($_GET['pc'])) {
-		$ord = 'posted_msg_count DESC';
+		$ord = 'posted_msg_count ' . ($_GET['pc'] % 2 ? 'DESC' : 'ASC');
 	} else if (isset($_GET['us'])) {
-		$ord = 'alias';
+		$ord = 'alias ' . ($_GET['us'] % 2 ? 'DESC' : 'ASC');
+	} else if (isset($_GET['rd'])) {
+		$ord = 'id ' . ($_GET['rd'] % 2 ? 'DESC' : 'ASC');
 	} else {
 		$ord = 'id DESC';
 	}
@@ -63,10 +65,13 @@
 	if ($total > $MEMBERS_PER_PAGE) {
 		if ($FUD_OPT_2 & 32768) {
 			$pg = '{ROOT}/ml/';
+
 			if (isset($_GET['pc'])) {
-				$pg .= '1/';
+				$pg .= (int)$_GET['pc'].'/';
 			} else if (isset($_GET['us'])) {
-				$pg .= '2/';
+				$pg .= (int)$_GET['us'].'/';
+			} else if (isset($_GET['rd'])) {
+				$pg .= (int)$_GET['rd'].'/';
 			} else {
 				$pg .= '0/';
 			}
@@ -86,10 +91,13 @@
 				$pg .= 'usr_login='.urlencode($usr_login) . '&amp;';
 			}
 			if (isset($_GET['pc'])) {
-				$pg .= 'pc=1&amp;';
+				$pg .= 'pc='.(int)$_GET['pc'].'&amp;';
 			}
 			if (isset($_GET['us'])) {
-				$pg .= 'us=1&amp;';
+				$pg .= 'us='.(int)$_GET['us'].'&amp;';
+			}
+			if (isset($_GET['rd'])) {
+				$pg .= 'rd='.(int)$_GET['rd'].'&amp;';
 			}
 			if (isset($_GET['js_redr'])) {
 				$pg .= 'js_redr='.urlencode($_GET['js_redr']).'&amp;';
