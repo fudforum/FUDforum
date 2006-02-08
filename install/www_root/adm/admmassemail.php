@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.45 2006/01/11 14:40:01 hackie Exp $
+* $Id: admmassemail.php,v 1.46 2006/02/08 00:44:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -59,7 +59,9 @@
 				$to[] = (int)$r[0];
 			}
 			$total = count($to);
-			send_status_update($to, '', '', $_POST['subject'], $_POST['body']);
+			if ($to) {
+				send_status_update($to, '', '', $_POST['subject'], $_POST['body']);
+			}
 		} else {
 			$email_block = 50;
 			$total = $email_block_stat = 0;
