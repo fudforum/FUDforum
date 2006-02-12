@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mlist.inc,v 1.20 2005/12/07 18:07:45 hackie Exp $
+* $Id: mlist.inc,v 1.21 2006/02/12 19:06:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,7 +61,8 @@ class fud_mlist
 			subject_regex_needle,
 			body_regex_haystack,
 			body_regex_needle,
-			additional_headers
+			additional_headers,
+			custom_sig
 			)
 			VALUES(
 			".$this->forum_id.",
