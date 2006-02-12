@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.26 2005/12/07 18:07:46 hackie Exp $
+* $Id: indexdb.php,v 1.27 2006/02/12 19:03:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,7 +55,7 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 		$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 	}
 
-	db_lock($tbl.'search_cache WRITE, '.$tbl.'search WRITE, '.$tbl.'index WRITE, '.$tbl.'title_index WRITE, '.$tbl.'msg WRITE');
+	db_lock($tbl.'msg_store WRITE, '.$tbl.'search_cache WRITE, '.$tbl.'search WRITE, '.$tbl.'index WRITE, '.$tbl.'title_index WRITE, '.$tbl.'msg WRITE');
 	q('DELETE FROM '.$tbl.'search');
 	q('DELETE FROM '.$tbl.'index');
 	q('DELETE FROM '.$tbl.'title_index');
