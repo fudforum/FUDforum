@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.38 2005/12/07 18:07:45 hackie Exp $
+* $Id: th_adm.inc.t,v 1.39 2006/02/13 15:50:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -76,7 +76,7 @@ function __th_cron_emu($forum_id, $run=1)
 	/* Remove expired moved thread pointers */
 	q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$forum_id.' AND moved_to>0 AND last_post_date<'.(__request_timestamp__ - 86400 * $GLOBALS['MOVED_THR_PTR_EXPIRY']));
 	if (($aff_rows = db_affected())) {
-		q('UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-'.$aff_rows.' WHERE id='.$forum_id);
+		q('UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-'.$aff_rows.' WHERE thread_count>0 AND id='.$forum_id);
 		if (!$exp) {
 			$exp = 1;
 		}
