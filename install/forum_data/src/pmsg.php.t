@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.56 2005/12/07 18:07:45 hackie Exp $
+* $Id: pmsg.php.t,v 1.57 2006/02/13 15:40:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -75,7 +75,12 @@
 
 	$select_options_cur_folder = tmpl_draw_select_opt(implode("\n", array_keys($folders)), implode("\n", $folders), $folder_id);
 
-	$disk_usage = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid);
+	if ($GLOBALS['FUD_OPT_3'] & 32768) {
+		$disk_usage  = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE foff>0 AND duser_id='._uid);
+		$disk_usage += q_singleval('SELECT SUM(LENGTH(data)) FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}msg_store m ON p.length=m.id WHERE foff>0 AND duser_id='._uid);
+	} else {
+		$disk_usage = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid);
+	}
 	$percent_full = ceil($disk_usage / $MAX_PMSG_FLDR_SIZE * 100);
 	$full_indicator = ceil($percent_full * 1.69);
 

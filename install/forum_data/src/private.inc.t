@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.51 2006/01/26 03:52:07 hackie Exp $
+* $Id: private.inc.t,v 1.52 2006/02/13 15:40:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -224,7 +224,7 @@ function read_pmsg_body($offset, $length)
 		return;
 	}
 
-	if ($GLOBALS['FUD_OPT_3'] & 32768 && $offset != -1) {
+	if ($GLOBALS['FUD_OPT_3'] & 32768 && $offset == -1) {
 		return q_singleval('SELECT data FROM {SQL_TABLE_PREFIX}msg_store WHERE id='.$length);
 	}
 
