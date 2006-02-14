@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.47 2006/02/11 23:04:46 hackie Exp $
+* $Id: admmassemail.php,v 1.48 2006/02/14 14:09:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -114,7 +114,7 @@
 			}
 		}
 		if (!$err) {
-			echo '<font size="+1" color="green">'.$total.' E-mails were sent</font><br />';
+			echo '<font size="+1" color="green">'.$total.' '.(empty($_POST['pm']) ? 'E-mails' : 'Private Mesages').' were sent</font><br />';
 		}
 	}
 
