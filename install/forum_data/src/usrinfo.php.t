@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.49 2005/12/07 18:07:45 hackie Exp $
+* $Id: usrinfo.php.t,v 1.50 2006/02/19 21:02:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,12 +44,15 @@ function convert_bdate($val, $month_fmt)
 		}
 	}
 
-	if (!($u = db_sab('SELECT u.*, l.name AS level_name, l.level_opt, l.img AS level_img FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}level l ON l.id=u.level_id WHERE u.id='.(int)$_GET['id']))) {
+	if (!($u = db_sab('SELECT s.time_sec, u.*, u.alias AS login, l.name AS level_name, l.level_opt, l.img AS level_img FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}ses s ON u.id=s.user_id LEFT JOIN {SQL_TABLE_PREFIX}level l ON l.id=u.level_id WHERE u.id='.(int)$_GET['id']))) {
 		std_error('user');
 	}
+
 	if (!_uid && __fud_cache($u->last_visit)) {
 		return;
 	}
+
+	$obj = $u; // a little hack for online status, so we don't need to add more messages
 
 	if ($FUD_OPT_1 & 28 && $u->users_opt & 8388608 && $u->level_opt & (2|1) == 1) {
 		$level_name = $level_image = '';
