@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.158 2006/01/17 23:10:40 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.159 2006/02/19 21:01:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -246,7 +246,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}forum f WRITE, {SQL_TABLE_PREFIX}thr_exchange WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' tv WRITE, {SQL_TABLE_PREFIX}msg m WRITE, {SQL_TABLE_PREFIX}thread t WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}forum_read WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}attach WRITE, {SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}poll_opt_track WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}thread_notify WRITE, {SQL_TABLE_PREFIX}msg_report WRITE, {SQL_TABLE_PREFIX}thread_rate_track WRITE');
+			db_lock('{SQL_TABLE_PREFIX}msg_store WRITE, {SQL_TABLE_PREFIX}forum f WRITE, {SQL_TABLE_PREFIX}thr_exchange WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' tv WRITE, {SQL_TABLE_PREFIX}msg m WRITE, {SQL_TABLE_PREFIX}thread t WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}forum_read WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}attach WRITE, {SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}poll_opt_track WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}thread_notify WRITE, {SQL_TABLE_PREFIX}msg_report WRITE, {SQL_TABLE_PREFIX}thread_rate_track WRITE');
 			$ll = 1;
 		}
 
