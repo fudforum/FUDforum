@@ -90,6 +90,10 @@ function check_selection()
 	var sel;
 	var r;
 
+	if (window.getSelection && window.getSelection()) {
+		return 1;
+	}
+
 	if ( document.layers ) return 0;
 	if ( navigator.userAgent.indexOf("MSIE") < 0 ) return 0;
 
