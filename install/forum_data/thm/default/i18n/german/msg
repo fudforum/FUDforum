@@ -1010,3 +1010,16 @@ mnav_sub_only:			Search in subscribed forums only
 register_topics_per_page:	Topics Per Page:
 login_min_time:			This forum allows one login attempt every {VAR: MIN_TIME_BETWEEN_LOGIN} seconds, please wait {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconds before your next attempt.
 post_not_logged_in:		You are not currently logged in, the message will be posted anonymously.
+post_common_bold:		Bold
+post_common_italics:		Italics
+post_common_underline:		Underline
+post_common_align_left:		Align Left
+post_common_align_center:	Align Center
+post_common_align_right:	Align Right
+post_common_link:		Insert a Link
+post_common_email:		Insert an E-mail address
+post_common_image:		Insert an image
+post_common_nlist:		Add numbered list
+post_common_blist:		Add bulleted list
+post_common_quote:		Add Quote
+post_common_code:		Add Code

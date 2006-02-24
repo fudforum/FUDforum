@@ -1010,3 +1010,16 @@ mnav_sub_only:			Rechercher dans les forums surveillés seulement
 register_topics_per_page:	Sujets par page :
 login_min_time:			Ce forum ne permet qu\'une tentative de connexion par période de {VAR: MIN_TIME_BETWEEN_LOGIN} secondes, veuillez patienter {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} secondes avant votre prochaine tentative.
 post_not_logged_in:		Vous n\'êtes pas connecté, le message sera posté anonymement.
+post_common_bold:		Bold
+post_common_italics:		Italics
+post_common_underline:		Underline
+post_common_align_left:		Align Left
+post_common_align_center:	Align Center
+post_common_align_right:	Align Right
+post_common_link:		Insert a Link
+post_common_email:		Insert an E-mail address
+post_common_image:		Insert an image
+post_common_nlist:		Add numbered list
+post_common_blist:		Add bulleted list
+post_common_quote:		Add Quote
+post_common_code:		Add Code

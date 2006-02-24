@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.22 2005/12/07 18:07:46 hackie Exp $
+* $Id: post_common.tmpl,v 1.23 2006/02/24 18:32:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,19 +29,19 @@
 <tr><td>
 <table cellspacing=1 cellpadding=2 class="FormattingToolsBG">
 <tr>
-<td class="FormattingToolsCLR"><a accesskey="b" href="javascript: insertTag(document.post_form.msg_body, \'[B]\', \'[/B]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_bold.gif" /></a></td>
-<td class="FormattingToolsCLR"><a accesskey="i" href="javascript: insertTag(document.post_form.msg_body, \'[I]\', \'[/I]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_italic.gif" /></a></td>
-<td class="FormattingToolsCLR"><a accesskey="u" href="javascript: insertTag(document.post_form.msg_body, \'[U]\', \'[/U]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_underline.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=left]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_aleft.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=center]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_acenter.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=right]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_aright.gif" /></a></td>
-<td class="FormattingToolsCLR"><a accesskey="w" href="javascript: url_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_url.gif" /></a></td>
-<td class="FormattingToolsCLR"><a accesskey="e" href="javascript: email_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_email.gif" /></a></td>
-<td class="FormattingToolsCLR"><a accesskey="m" href="javascript: image_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_image.gif" /></a></td>
-<td class="FormattingToolsCLR"><a accesskey="l" href="javascript: window_open(\'{TEMPLATE: fud_code_icons_lnk1}\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_numlist.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{TEMPLATE: fud_code_icons_lnk2}\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_bulletlist.gif" /></a></td>
-<td class="FormattingToolsCLR"><a accesskey="q" href="javascript: insertTag(document.post_form.msg_body, \'[QUOTE]\', \'[/QUOTE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_quote.gif" /></a></td>
-<td class="FormattingToolsCLR"><a accesskey="c" href="javascript: insertTag(document.post_form.msg_body, \'[CODE]\', \'[/CODE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_code.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_bold}" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, \'[B]\', \'[/B]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_bold.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_italics}" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, \'[I]\', \'[/I]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_italic.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_underline}" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, \'[U]\', \'[/U]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_underline.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_align_left}" href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=left]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_aleft.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_align_center}" href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=center]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_acenter.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_align_right}" href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=right]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_aright.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_link}" accesskey="w" href="javascript: url_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_url.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_email}" accesskey="e" href="javascript: email_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_email.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_image}" accesskey="m" href="javascript: image_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_image.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_nlist}" accesskey="l" href="javascript: window_open(\'{TEMPLATE: fud_code_icons_lnk1}\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_numlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_blist}" href="javascript: window_open(\'{TEMPLATE: fud_code_icons_lnk2}\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_bulletlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_quote}" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, \'[QUOTE]\', \'[/QUOTE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_quote.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_code}" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, \'[CODE]\', \'[/CODE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_code.gif" /></a></td>
 </tr>
 </table>
 </td>
