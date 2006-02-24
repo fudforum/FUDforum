@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ratethread.php.t,v 1.16 2005/12/07 18:07:45 hackie Exp $
+* $Id: ratethread.php.t,v 1.17 2006/02/24 18:34:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,9 +13,8 @@
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
-	if (isset($_POST['rate_thread_id'], $_POST['sel_vote'])) {
+	if (isset($_POST['rate_thread_id'], $_POST['sel_vote']) && ($rt = (int) $_POST['sel_vote'])) {
 		$th = (int) $_POST['rate_thread_id'];
-		$rt = (int) $_POST['sel_vote'];
 
 		/* determine if the user has permission to rate the thread */
 		if (!q_singleval('SELECT t.id
