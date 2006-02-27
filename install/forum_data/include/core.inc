@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.177 2006/02/01 15:36:07 hackie Exp $
+* $Id: core.inc,v 1.178 2006/02/27 14:17:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -126,14 +126,14 @@ function __ffilesize($fp)
 
 function __fud_cache($t)
 {
-	if ($GLOBALS['is_aol']) {
+	if ($GLOBALS['FUD_OPT_3'] & 65536 || $GLOBALS['is_aol']) {
 		return 0;
 	}
-	$mod = gmdate("D, d M Y H:i:s", $t) . " GMT";
+	$mod = gmdate('D, d M Y H:i:s', $t) . ' GMT';
 
 	/* send caching headers */
-	header("Last-Modified: " . $mod);
-	if (isset($_SERVER["HTTP_IF_MODIFIED_SINCE"]) && !isset($_SERVER['HTTP_RANGE']) && $_SERVER["HTTP_IF_MODIFIED_SINCE"] == $mod) {
+	header('Last-Modified: ' . $mod);
+	if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && !isset($_SERVER['HTTP_RANGE']) && $_SERVER['HTTP_IF_MODIFIED_SINCE'] == $mod) {
 		header('HTTP/1.1 304 Not Modified');
 		header('Status: 304 Not Modified');
 		return 1;

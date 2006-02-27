@@ -430,6 +430,9 @@ If enabled, subscribers to a forum will recieve notifications about every new me
 {{{DB_MESSAGE_STORAGE	FUD_OPT_3	32768
 If enabled, regular and private messages will be stored inside a database. This is not recommended for performance reasons!}}}
 
+{{{DISABLE_ANON_CACHE	FUD_OPT_3	65536
+Disable sending of page-cache headers to anonymous users, this may solve extended caching by browsers non-complaint with web specs.}}}
+
 {{{FUD_WHOIS_SERVER
 Hostname or IP address of the whois server to use for IP address analysis.}}}
 
