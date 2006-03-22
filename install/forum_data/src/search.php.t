@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.69 2005/12/07 18:07:45 hackie Exp $
+* $Id: search.php.t,v 1.70 2006/03/22 16:58:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -91,7 +91,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		$qry_lmt = '';
 	}
 	if ($GLOBALS['author_id']) {
-		$qry_lmt = ' AND m.poster_id='.$GLOBALS['author_id'].' ';
+		$qry_lmt .= ' AND m.poster_id='.$GLOBALS['author_id'].' ';
 	}
 
 	$qry_lck = "'" . $qry_lck . "'";
