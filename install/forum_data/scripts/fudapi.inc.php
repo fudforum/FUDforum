@@ -50,6 +50,7 @@ stdClass Object
     [updated_by] => // id of the person who edited the message (0 == never edited)
     [icon] => // message icon, !!could be empty!!
     [subject] => // htmlencoded subject
+    [body] => // htmlencoded body of the message
     [attach_cnt] => // number of file attachments
     [poll_id] => // id of a poll included in the message, !!could be empty!!
     [mlist_msg_id] => // mailing list or nntp message identifier !!could be empty!!
@@ -109,6 +110,8 @@ stdClass Object
 */
 function fud_fetch_msg($arg)
 {
+	fud_use('fileio.inc');
+
 	$arg = is_numeric($arg) ? array($arg) : $arg;
 
 	$result = array();
@@ -138,6 +141,7 @@ function fud_fetch_msg($arg)
 			}
 			$r->attachments = fud_fetch_attachment($alist);
 		}
+		$r->body = read_msg_body($r->foff, $r->length, $r->file_id);
 		unset(
 			$r->foff, $r->length, $r->file_id, $r->offset_preview, $r->length_preview, $r->file_id_preview,
 			$r->attach_cache, $r->poll_cache, $r->apr, $r->msg_opt
