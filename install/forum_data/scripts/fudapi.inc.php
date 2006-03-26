@@ -862,12 +862,8 @@ function fud_delete_poll($arg)
 
 	fud_use('ipoll.inc');	
 
-	if (!is_array($ent)) {
-		poll_delete($ent->id);
-	} else {
-		foreach ($ent as $p) {
-			poll_delete($p->id);
-		}
+	foreach ((array)$ent as $p) {
+		poll_delete($p->id);
 	}
 }
 
@@ -880,13 +876,11 @@ function fud_delete_attachment($arg)
 
 	if (!$data) {
 		return;
-	} else if (!is_array($data)) {
-		$data = array($data);
 	}
 
 	fud_use('attach.inc');
 
-	foreach ($data as $at) {
+	foreach ((array)$data as $at) {
 		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."attach WHERE id=".$at->id);
 		$atl = attach_rebuild_cache($at->message_id);
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET attach_cnt=attach_cnt-1, attach_cache="._esc(@serialize($atl))." WHERE id=".$at->message_id);
@@ -922,7 +916,7 @@ function _fud_msg_multi($arg, $query)
 	while ($row = db_rowarr($r)) {
 		$ids[] = $row[0];
 	}
-	if (!count($ids)) {
+	if (!$ids) {
 		return FALSE;
 	}
 

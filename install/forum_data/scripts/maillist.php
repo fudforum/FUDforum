@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.67 2005/12/07 18:07:45 hackie Exp $
+* $Id: maillist.php,v 1.68 2006/03/26 18:42:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -67,7 +67,7 @@ class fud_emsg
 		if (($p = strpos($val, ';')) !== false) {
 			$this->headers[$key] = strtolower(trim(substr($val, 0, $p)));
 			$val = ltrim(substr($val, $p+1));
-			if (!empty($val) && preg_match_all('!([-A-Za-z]+)="?(.*?)"?\s*(;|$)!', $val, $m)) {
+			if (!empty($val) && preg_match_all('!([-A-Za-z]+)="?(.*?)"?\s*(?:;|$)!', $val, $m)) {
 				$c = count($m[0]);
 				for ($i=0; $i<$c; $i++) {
 					$this->headers['__other_hdr__'][$key][strtolower($m[1][$i])] = $m[2][$i];
