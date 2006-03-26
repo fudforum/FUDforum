@@ -1069,7 +1069,7 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 			$attach_list[$val] = $val;
 		}
 
-		$msg->attach_cnt = (int) @count($attach_list);
+		$msg->attach_cnt = isset($attach_list) ? count($attach_list) : 0;
 	}
 
 	if ($poll && is_array($poll)) {
