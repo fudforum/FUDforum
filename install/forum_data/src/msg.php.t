@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.95 2005/12/07 18:07:45 hackie Exp $
+* $Id: msg.php.t,v 1.96 2006/03/28 15:18:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -196,9 +196,7 @@
 {TEMPLATE: MSG_PAGE}
 <?php
 	if (!isset($_GET['prevloaded'])) {
-		while (ob_get_level() > 0) {
-			ob_end_flush();
-		}
+		while (@ob_end_flush());
 		th_inc_view_count($frm->id);
 		if (_uid && $obj2) {
 			if ($frm->last_forum_view < $obj2->post_stamp) {

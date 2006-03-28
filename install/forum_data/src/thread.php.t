@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.php.t,v 1.52 2005/12/07 18:07:45 hackie Exp $
+* $Id: thread.php.t,v 1.53 2006/03/28 15:18:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -137,9 +137,7 @@
 {TEMPLATE: THREAD_PAGE}
 <?php
 	if (_uid) {
-		while (ob_get_level() > 0) {
-			ob_end_flush();
-		}
+		while (@ob_end_flush());
 		user_register_forum_view($frm_id);
 	}
 ?>
