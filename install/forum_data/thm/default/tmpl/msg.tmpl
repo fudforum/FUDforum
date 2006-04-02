@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.58 2005/12/07 18:07:46 hackie Exp $
+* $Id: msg.tmpl,v 1.59 2006/04/02 18:46:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,13 +27,7 @@
 {REF: is_perms.tmpl}
 {REF: th_nav.tmpl}
 {REF: draw_forum_path.tmpl}
-
-{SECTION: thread_rating}
-&nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: frm->rating}stars.gif" alt="{VAR: frm->rating}" />) {MSG: vote}
-{SECTION: END}
-
-{SECTION: no_thread_rating}
-{SECTION: END}
+{REF: topic_rating.tmpl}
 
 {SECTION: first_unread_message_link}
 | <a href="{TEMPLATE: first_unread_message_link_lnk}" title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</a>&nbsp;
@@ -60,8 +54,8 @@
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}
-<table border=0 cellspacing=0 cellpadding=0><tr><form action="{TEMPLATE: rate_thread_lnk3}" name="vote_frm" method="post"><td nowrap>
-<select name="sel_vote" onChange="javascript: if ( !this.value ) return false; document.vote_frm.submit();">
+<form id="RateFrm">
+<select onChange="javascript: if (this.value) topicVote(this.value, {VAR: frm->id}, \'{DEF: s}\', \'{VAR: usr->sq}\');">
 <option>{MSG: rate_thread}</option>
 <option value="1">1 {MSG: rate_worst}</option>
 <option value="2">2</option>
@@ -69,9 +63,7 @@
 <option value="4">4</option>
 <option value="5">5 {MSG: rate_best}</option>
 </select>
-</td><td>&nbsp;<input type="submit" class="button" name="btn_vote" value="{MSG: rate_this_thread}">
-<input type="hidden" name="rate_thread_id" value="{VAR: frm->id}">{DEF: _hs}
-</td></form></tr></table>
+</form>
 {SECTION: END}
 
 {PAGE: MSG_PAGE  draws a flat view of the messages inside a thread}
@@ -79,7 +71,8 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
 <a name="page_top"> </a>
-{FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)} {TEMPLATE-DATA: thread_rating}
+{FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)}
+<span id="threadRating">{IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}</span>
 <table cellspacing=0 cellpadding=0 border=0 class="wa">
 <tr>
 <td class="GenText al">{TEMPLATE: show_links}
@@ -102,7 +95,7 @@
 {TEMPLATE-DATA: prev_thread_link}
 {TEMPLATE-DATA: next_thread_link}
 </table>
-{TEMPLATE-DATA: rate_thread}
+{IF: ($FUD_OPT_2 & 4096 && $perms & 1024 && !$frm->cant_rate)}{TEMPLATE: rate_thread}{ENDIF}
 {FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
 <br /><div class="wa ac">-=] <a href="javascript://" onClick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
 <div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: msg_pdf_link}{ENDIF} {IF: $FUD_OPT_2 & 1048576}{TEMPLATE: msg_xml_link}{ENDIF}</div>
@@ -177,10 +170,6 @@ highlightSearchTerms("{VAR-HTML: _GET['srch']}");
 
 {SECTION: msg_xml_link_lnk}
 {ROOT}?t=help_index&amp;section=boardusage#syndicate
-{SECTION: END}
-
-{SECTION: rate_thread_lnk3}
-{ROOT}?t=ratethread
 {SECTION: END}
 
 {SECTION: msg_mv_thread}

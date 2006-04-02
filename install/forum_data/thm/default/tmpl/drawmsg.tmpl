@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.82 2005/12/07 18:07:45 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.83 2006/04/02 18:46:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,12 +25,8 @@
 <a href="{TEMPLATE: dmsg_prev_message_prev_page_lnk}"><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width=16 height=11 /></a>
 {SECTION: END}
 
-{SECTION: dmsg_tree_prev_message_prev_page_lnk}
-{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;mid={VAR: misc[0]}
-{SECTION: END}
-
 {SECTION: dmsg_tree_prev_message_prev_page previous page (tree view) arrrow drawn on the message}
-<a href="{TEMPLATE: dmsg_tree_prev_message_prev_page_lnk}"><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width=16 height=11 /></a>
+<a href="javascript://" onClick="changeMsgFocus({VAR: misc[0]})"><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width=16 height=11 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_message next message arrow drawn on the message}
@@ -45,12 +41,8 @@
 <a href="{TEMPLATE: dmsg_next_message_next_page_lnk}"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" width=16 height=11 /></a>
 {SECTION: END}
 
-{SECTION: dmsg_tree_next_message_next_page_lnk}
-{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;mid={VAR: misc[1]}
-{SECTION: END}
-
 {SECTION: dmsg_tree_next_message_next_page next page (tree view) arrow drawn on the message}
-<a href="{TEMPLATE: dmsg_tree_next_message_next_page_lnk}"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" width=16 height=11 /></a>
+<a href="javascript://" onClick="changeMsgFocus({VAR: misc[1]})"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" width=16 height=11 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_lnk}

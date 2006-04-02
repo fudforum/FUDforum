@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ratethread.php.t,v 1.17 2006/02/24 18:34:20 hackie Exp $
+* $Id: ratethread.php.t,v 1.18 2006/04/02 18:46:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,8 +13,8 @@
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
-	if (isset($_POST['rate_thread_id'], $_POST['sel_vote']) && ($rt = (int) $_POST['sel_vote'])) {
-		$th = (int) $_POST['rate_thread_id'];
+	if (isset($_GET['rate_thread_id'], $_GET['sel_vote']) && ($rt = (int) $_GET['sel_vote'])) {
+		$th = (int) $_GET['rate_thread_id'];
 
 		/* determine if the user has permission to rate the thread */
 		if (!q_singleval('SELECT t.id
@@ -29,7 +29,11 @@
 		if (db_li('INSERT INTO {SQL_TABLE_PREFIX}thread_rate_track (thread_id, user_id, stamp, rating) VALUES('.$th.', '._uid.', '.__request_timestamp__.', '.$rt.')', $ef)) {
 			$rt = db_saq('SELECT count(*), ROUND(AVG(rating)) FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$th);
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET rating='.(int)$rt[1].', n_rating='.(int)$rt[0].' WHERE id='.$th);
+
+			$frm = new StdClass;
+			$frm->n_rating = (int) $rt[0];
+			$frm->rating = (int) $rt[1];
+
+			exit('{TEMPLATE: thread_rating}');
 		}
 	}
-	check_return($usr->returnto);
-?>

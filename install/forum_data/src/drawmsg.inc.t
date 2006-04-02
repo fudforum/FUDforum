@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.106 2006/01/17 23:49:00 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.107 2006/04/02 18:46:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -136,7 +136,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	/* draw next/prev message controls */
 	if (!$hide_controls && $misc) {
 		/* tree view is a special condition, we only show 1 message per page */
-		if ($_GET['t'] == 'tree') {
+		if ($_GET['t'] == 'tree' || $_GET['t'] == 'tree_msg') {
 			$prev_message = $misc[0] ? '{TEMPLATE: dmsg_tree_prev_message_prev_page}' : '';
 			$next_message = $misc[1] ? '{TEMPLATE: dmsg_tree_next_message_next_page}' : '';
 		} else {

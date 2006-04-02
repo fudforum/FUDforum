@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.96 2006/03/28 15:18:15 hackie Exp $
+* $Id: msg.php.t,v 1.97 2006/04/02 18:46:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -139,13 +139,6 @@
 /*{POST_HTML_PHP}*/
 
 	$TITLE_EXTRA = ': {TEMPLATE: msg_title}';
-
-	if ($FUD_OPT_2 & 4096) {
-		$thread_rating = $frm->rating ? '{TEMPLATE: thread_rating}' : '{TEMPLATE: no_thread_rating}';
-		$rate_thread = ($perms & 1024 && !$frm->cant_rate) ? '{TEMPLATE: rate_thread}' : '';
-	} else {
-		$rate_thread = $thread_rating = '';
-	}
 
 	$use_tmp = $FUD_OPT_3 & 4096 && $frm->replies > 250;
 

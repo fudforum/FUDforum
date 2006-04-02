@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.85 2005/12/07 18:07:45 hackie Exp $
+* $Id: tree.php.t,v 1.86 2006/04/02 18:46:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -160,13 +160,6 @@
 
 	$TITLE_EXTRA = ': {TEMPLATE: tree_title}';
 
-	if ($FUD_OPT_2 & 4096) {
-		$thread_rating = $frm->rating ? '{TEMPLATE: thread_rating}' : '{TEMPLATE: no_thread_rating}';
-		$rate_thread = ($perms & 1024 && !$frm->cant_rate) ? '{TEMPLATE: rate_thread}' : '';
-	} else {
-		$rate_thread = $thread_rating = '';
-	}
-
 	if ($perms & 4096) {
 		$lock_thread = !($frm->thread_opt & 1) ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
 	} else {
@@ -206,11 +199,8 @@
 			$cur = &$stack[$stack_cnt-1];
 
 			if (isset($cur->subject) && empty($cur->sub_shown)) {
-				if (isset($cur->kiddies) && $cur->kiddie_count) {
-					$tree_data .= $cur->id == $mid ? '{TEMPLATE: tree_branch_selected}' : '{TEMPLATE: tree_branch}';
-				} else {
-					$tree_data .= $cur->id == $mid ? '{TEMPLATE: tree_entry_selected}' : '{TEMPLATE: tree_entry}';
-				}
+				$tree_data .= '{TEMPLATE: tree_branch}';
+
 				$cur->sub_shown = 1;
 
 				if ($cur->id == $mid) {
