@@ -219,7 +219,7 @@ More visible text.
 <p>and the result:<p>
 
 Visible part of the message<br />
-<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Reveal Spoiler</a><div align="left" id="1482055279834293165" style="visibility: hidden;"><br />
+<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Reveal Spoiler</a><div align="left" id="1482055279834293165" style="display: none;"><br />
 Hidden part of the message<br />
 </div></div><br />
 More visible text.
