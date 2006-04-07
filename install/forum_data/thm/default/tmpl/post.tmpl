@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.64 2006/01/29 18:45:12 hackie Exp $
+* $Id: post.tmpl,v 1.65 2006/04/07 00:54:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,7 +51,7 @@
 {SECTION: END}
 
 {SECTION: preview_message}
-<div class="ctb">
+<div id="preview" class="ctb">
 <table cellspacing="1" cellpadding="2" class="PreviewTable">
 <tr><th colspan=2>{MSG: post_preview}</th></tr>
 <tr><td class="RowStyleA MsgSubText">{VAR: subj}</td></tr>
@@ -183,10 +183,12 @@
 </form>
 <script language="javascript" type="text/javascript">
 <!--
-if (!document.post_form.msg_subject.value.length) {
-	document.post_form.msg_subject.focus();
-} else {
-	document.post_form.msg_body.focus();
+if (!document.getElementByid('preview')) {
+	if (!document.post_form.msg_subject.value.length) {
+		document.post_form.msg_subject.focus();
+	} else {
+		document.post_form.msg_body.focus();
+	}
 }
 //-->
 </script>
