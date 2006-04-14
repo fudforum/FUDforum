@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.40 2005/12/07 18:07:46 hackie Exp $
+* $Id: admstats.php,v 1.41 2006/04/14 20:56:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -253,7 +253,7 @@ function get_sql_disk_usage()
 <h4>Disk Usage</h4>
 <table class="resulttable fulltable">
 <?php
-	if ($GLOBALS['WWW_ROOT_DISK'] != $GLOBALS['DATA_DIR']) {
+	if ($WWW_ROOT_DISK != $DATA_DIR) {
 ?>
 <tr class="field">
 	<td><b>Web Dir:</b><br><font size="-1"><b><?php echo $WWW_ROOT_DISK; ?></b><br>this is where all the forum's web browseable files are stored</font></td>
