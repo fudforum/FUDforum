@@ -22,7 +22,7 @@ function insertTag(obj, stag, etag)
 {
 	if (navigator.userAgent.indexOf("MSIE") > -1 && !OPERA) {
 		insertTagIE(obj, stag, etag);
-	} else if (window.getSelection && navigator.userAgent.indexOf("Safari") == -1) {
+	} else if (window.getSelection) {
 		insertTagMoz(obj, stag, etag);
 	} else {
 		insertTagNS(obj, stag, etag);
@@ -37,7 +37,15 @@ function insertTagNS(obj, stag, etag)
 
 function insertTagMoz(obj, stag, etag)
 {
-	var txt = window.getSelection();
+	var txt;
+
+	if (window.getSelection) {
+		txt = window.getSelection();
+	} else if (document.getSelection) {
+		txt = document.getSelection();
+	} else if (document.selection) {
+		txt = document.selection.createRange().text;
+	}
 
 	if (!txt || txt == '') {
 		var t = document.getElementById('txtb');
