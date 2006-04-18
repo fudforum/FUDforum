@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.41 2006/04/14 20:56:25 hackie Exp $
+* $Id: admstats.php,v 1.42 2006/04/18 14:03:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -78,6 +78,7 @@ function get_sql_disk_usage()
 	$vl_d = $kl_d = implode("\n", range(1, 31));
 	$vl_y = $kl_y = implode("\n", range($s_year, ($e_year + 1)));
 
+	$same_dir = (!strncmp($WWW_ROOT_DISK, $DATA_DIR, strlen($WWW_ROOT_DISK)) || !strncmp($DATA_DIR, $WWW_ROOT_DISK, strlen($DATA_DIR)));
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Statistics</h2>
@@ -190,7 +191,8 @@ function get_sql_disk_usage()
 		$total_disk_usage = 0;
 
 		$total_disk_usage += $disk_usage_array['DATA_DIR'] = dir_space_usage($DATA_DIR);
-		if ($DATA_DIR != $WWW_ROOT_DISK) {
+
+		if (!$same_dir) {
 			$total_disk_usage += $disk_usage_array['WWW_ROOT_DISK'] = dir_space_usage($WWW_ROOT_DISK);
 		} else {
 			$disk_usage_array['WWW_ROOT_DISK'] = $disk_usage_array['DATA_DIR'];
@@ -253,7 +255,7 @@ function get_sql_disk_usage()
 <h4>Disk Usage</h4>
 <table class="resulttable fulltable">
 <?php
-	if ($WWW_ROOT_DISK != $DATA_DIR) {
+	if (!$same_dir) {
 ?>
 <tr class="field">
 	<td><b>Web Dir:</b><br><font size="-1"><b><?php echo $WWW_ROOT_DISK; ?></b><br>this is where all the forum's web browseable files are stored</font></td>
@@ -265,7 +267,7 @@ function get_sql_disk_usage()
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $disk_usage_array['DATA_DIR']/1024)); ?> Kb</td>
 </tr>
 <?php
-	} else { /* $GLOBALS['WWW_ROOT_DISK'] != $GLOBALS['DATA_DIR'] */
+	} else { /* $same_dir */
 ?>
 	<td><b>Forum Directories:</b></td>
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $total_disk_usage/1024)); ?> Kb</td>
