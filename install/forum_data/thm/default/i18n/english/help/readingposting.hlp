@@ -67,7 +67,7 @@ size</font></li>
 <a name="align"><b>Text Alignment</b></a><br>
 FUDcode supports text alignment via the [align] tag, which allows your to align your text in 3 ways:
 <ul>
-	<li>A<font color="#ff0000"><b>[align=center]</b></font>centered text<font color="#ff0000"><b>[/align]</b></font> produces:</li>
+	<li><font color="#ff0000"><b>[align=center]</b></font>centered text<font color="#ff0000"><b>[/align]</b></font> produces:</li>
 		<div align="center">centered text</div>
 	<li><font color="#ff0000"><b>[align=left]</b></font>left aligned<font color="#ff0000"><b>[/align]</b></font> produces:</li>
 		<div align="left">left aligned</div>

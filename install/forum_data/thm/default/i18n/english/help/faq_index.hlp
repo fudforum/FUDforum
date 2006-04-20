@@ -40,7 +40,6 @@ TOPIC_HELP:
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#img">Images [img]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#url">Links [url]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#quote">Quotes [quote]</a></li>
-	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#align">Alignment [align]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#pre">Reformatted [pre]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#php">PHP Code [php]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#code">Code [code]</a></li>
@@ -49,7 +48,7 @@ TOPIC_HELP:
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#spoiler">Spoiler [spoiler]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#acronym">Acronym [acronym]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#email">Email [email]</a></li>
-	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#email">Test Size [size]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#size">Text Size [size]</a></li>
 </ul>
 <a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml">What are Smilies/Emoticons?</a><br>
 <a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls">How do I use Polls?</a><br>
