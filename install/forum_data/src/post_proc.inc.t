@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.82 2005/12/07 18:07:45 hackie Exp $
+* $Id: post_proc.inc.t,v 1.83 2006/04/20 21:03:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -312,6 +312,16 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					$end_tag[$cpos] = '</acronym>';
 					$ostr .= '<acronym title="'.($parms ? $parms : ' ').'">';
 					break;
+				case 'wikipedia':
+					$end_tag[$cpos] = '</a>';
+					$url = substr($str, $epos+1, ($cpos-$epos)-1);
+					if ($parms && preg_match('!^[A-Za-z]+$!', $parms)) {
+						$parms .= '.';
+					} else {
+						$parms = '';
+					}
+					$ostr .= '<a href="http://'.$parms.'wikipedia.com/wiki/'.$url.'" target="_blank" name="WikiPediaLink">';
+					break;
 			}
 
 			$str[$pos] = '<';
@@ -510,6 +520,14 @@ function html_to_tags($fudml)
 		$m = md5($tmp);
 		$php[$m] = $tmp;
 		$fudml = str_replace($res[0], "[php]\n".$m."\n[/php]", $fudml);
+	}
+
+	while (preg_match('<a href="http://(?:([A-ZA-z]+)?\.)?wikipedia.com/wiki/([^"]+)" target="_blank" name="WikiPediaLink">(.*?)</a>', $fudml, $res)) {
+		if (count($res) == 3) {
+			$fudml = str_replace($res[0], '[wikipedia='.$res[1].']'.$res[2].'[/wikipedia]',$fudml);
+		} else {
+			$fudml = str_replace($res[0], '[wikipedia]'.$res[1].'[/wikipedia]',$fudml);
+		}
 	}
 
 	if (strpos($fudml, '{TEMPLATE: post_html_quote_start_p1}')  !== false) {
