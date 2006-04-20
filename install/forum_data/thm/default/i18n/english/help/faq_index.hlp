@@ -49,6 +49,7 @@ TOPIC_HELP:
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#acronym">Acronym [acronym]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#email">Email [email]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#size">Text Size [size]</a></li>
+	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#wikipedia">Wikipedia [wikipedia]</a></li>
 </ul>
 <a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml">What are Smilies/Emoticons?</a><br>
 <a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls">How do I use Polls?</a><br>

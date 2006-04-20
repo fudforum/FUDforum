@@ -233,6 +233,14 @@ acronym and provide a full name when the user moves their mouse over the tag.
 <font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
 <p>
 
+<p>
+<a name="wikipedia"><b>Wikipedia</b></a><br>
+The <font color="#ff0000"><b>[wikipedia][/wikipedia]</b></font> tag allows you to create a reference to a wikipedia page based on the subject.
+To use the tag, surround the term with [wikipedia] tags, if you want to link to a particular wikipedia mirror you can use [wikipedia=ca] format
+for openning the tag, where ca is the prefix of the mirror. For example:
+<font color="#ff0000"><b>[wikipedia=ca]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font> produces <a href="http://ca.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a>.
+<p>
+
 You may also find that the administrator has enabled smilies, which allow
 you to use small icons to convey emotion, and the [img] code, which allows
 you to add pictures to your message.
