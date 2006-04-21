@@ -216,52 +216,58 @@ function chng_focus(phash)
 	window.location.hash = phash;
 }
 
-function doHighlight(bodyText, searchTerm, highlightStartTag, highlightEndTag) 
+function highlightWord(node,word,Wno)
 {
-	// find all occurences of the search term in the given text,
-	// and add some "highlight" tags to them (we're not using a
-	// regular expression search, because we want to filter out
-	// matches that occur within HTML tags and script blocks, so
-	// we have to do a little extra validation)
-	var newText = "";
-	var i = 0, j = 0;
-	var lcSearchTerm = searchTerm.toLowerCase();
-	var lcBodyText = bodyText.toLowerCase();
-
-	while ((i = lcBodyText.indexOf(lcSearchTerm, i)) > 0) {
-		if (lcBodyText.lastIndexOf(">", i) >= lcBodyText.lastIndexOf("<", i)) {
-			if (lcBodyText.lastIndexOf("/script>", i) >= lcBodyText.lastIndexOf("<script", i)) {
-				newText += bodyText.substring(j, i) + highlightStartTag + bodyText.substr(i, searchTerm.length) + highlightEndTag;
-				i += searchTerm.length;
-				j = i;
-				continue;
-			}
+	// Iterate into this nodes childNodes
+	if (node.hasChildNodes) {
+		for (var i = 0; node.childNodes[i]; i++) {
+			highlightWord(node.childNodes[i], word, Wno);
 		}
-		i++;
 	}
-	newText += bodyText.substring(j, bodyText.length);
 
-	return newText;
+	// And do this node itself
+	if (node.nodeType == 3) { // text node
+		var tempNodeVal = node.nodeValue.toLowerCase();
+		var pn = node.parentNode;
+		var nv = node.nodeValue;
+
+		if ((ni = tempNodeVal.indexOf(word)) == -1 || pn.className.indexOf('st') != -1) return;
+
+		// Create a load of replacement nodes
+		before = document.createTextNode(nv.substr(0,ni));
+		after = document.createTextNode(nv.substr(ni+word.length));
+		hiword = document.createElement("span");
+		hiword.setAttribute('class', 'st'+Wno);
+		hiword.appendChild(document.createTextNode(word));
+		pn.insertBefore(before,node);
+		pn.insertBefore(hiword,node);
+		pn.insertBefore(after,node);
+		pn.removeChild(node);
+	}
 }
 
 function highlightSearchTerms(searchText)
 {
-	if (!document.body || typeof(document.body.innerHTML) == "undefined") {
-		return false;
-	}
-  
-	var bodyText = document.body.innerHTML;
-	searchArray = searchText.split(" ");
+	searchText = searchText.toLowerCase()
+	var terms = searchText.split(" ");
+	var e = document.getElementsByTagName('span'); // message body
 
-	var j = 0;
-	for (var i = 0; i < searchArray.length; i++) {
-		if (j > 9) j = 0;
-		bodyText = doHighlight(bodyText, searchArray[i], '<span class="st'+j+'">', '</span>');
-		j++;
+	for (var i = 0; e[i]; i++) {
+		if (e[i].className != 'MsgBodyText') continue;
+		for (var j = 0, k = 0; j < terms.length; j++, k++) {
+			if (k > 9) k = 0; // we only have 9 colors
+			highlightWord(e[i], terms[j], k);
+		}
 	}
 
-	document.body.innerHTML = bodyText;
-	return true;
+	e = document.getElementsByTagName('td'); // subject
+	for (var i = 0; e[i]; i++) {
+		if (e[i].className.indexOf('MsgSubText') == -1) continue;
+		for (var j = 0, k = 0; j < terms.length; j++, k++) {
+			if (k > 9) k = 0; // we only have 9 colors
+			highlightWord(e[i], terms[j], k);
+		}
+	}
 }
 
 function rs_txt_box(name, col_inc, row_inc)
