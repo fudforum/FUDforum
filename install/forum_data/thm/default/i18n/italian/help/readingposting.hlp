@@ -198,6 +198,14 @@ acronym and provide a full name when the user moves their mouse over the tag.
 <font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
 <p>
 
+<a name="wikipedia"><b>Wikipedia</b></a><br />
+Il tag <font color="#ff0000"><b>[wikipedia][/wikipedia]</b></font> crea un link Wikipedia al termine desiderato
+Per usare il tag, circonda la parola con il tag [wikipedia]. Normalmente viene presa in considerazione la Wikipedia inglese, ma puoi facilmente cambiare la lingua utilizzando il parametro della lingua in questo modo [wikipedia=it].<br />
+Esempio:
+<font color="#ff0000"><b>[wikipedia=it]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font> produce <a href="http://it.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a>.
+<p>
+
+
 <p>
 
 TOPIC_TITLE: <a name="sml">Cosa sono gli smiley/faccine/emoticon?</a> 
