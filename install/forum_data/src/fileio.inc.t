@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: fileio.inc.t,v 1.17 2006/01/17 23:08:02 hackie Exp $
+* $Id: fileio.inc.t,v 1.18 2006/04/21 15:33:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 
 function read_msg_body($off, $len, $id)
 {
-	if ($off == -1 && $GLOBALS['FUD_OPT_3'] & 32768) { // fetch from DB
+	if ($off == -1) { // fetch from DB
 		return q_singleval('SELECT data FROM {SQL_TABLE_PREFIX}msg_store WHERE id='.$id);
 	}
 
