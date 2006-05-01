@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.65 2005/12/07 18:07:46 hackie Exp $
+* $Id: index.tmpl,v 1.66 2006/05/01 04:08:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,12 +21,13 @@
 {REF: show.tmpl}
 {REF: quicklogin.tmpl}
 
+
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
-<tr><td colspan="6" class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px"><a href="{TEMPLATE: index_category_allow_collapse_Y_lnk}" class="CatLink" title="{IF: !empty($collapse[$k])}{MSG: maximize_category}{ELSE}{MSG: minimize_category}{END}">{IF: !empty($collapse[$k])}<img src="{THEME_IMAGE_ROOT}/max{DEF: img_ext}" alt="" />{ELSE}<img src="{THEME_IMAGE_ROOT}/min{DEF: img_ext}" alt="" />{END}</a> <a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td></tr>
+<tr id="c{VAR: k}" p="{VAR: i[0]}" style="display: {IF: empty($collapse[$cid]) || $cid == $k}table-row{ELSE}none{ENDI};"><td colspan="6"  class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;"><a href="javascript://" onClick="toggleCategory({VAR: k}, {VAR: i[0]});" class="CatLink" title="{IF: !empty($collapse[$k])}{MSG: maximize_category}{ELSE}{MSG: minimize_category}{END}"><img id="c{VAR: k}img" src="{THEME_IMAGE_ROOT}/{IF: empty($collapse[$k])}min{ELSE}max{ENDI}{DEF: img_ext}" alt="" /></a> <a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td></tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr><td class="CatDesc CatLockPad" colspan="6" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px"><span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}</td></tr>
+<tr id="c{VAR: k}" p="{VAR: i[0]}" style="display: table-row;"><td class="CatDesc CatLockPad" colspan="6" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;"><span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}</td></tr>
 {SECTION: END}
 
 {SECTION: moderators moderator list}
@@ -34,7 +35,7 @@
 {SECTION: END}
 
 {SECTION: index_forum_entry forum entry row}
-<tr>
+<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" p="{VAR: i[0]}">
 	<td class="RowStyleA wo">{IF: $r[6]}<img src="images/forum_icons/{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
 	<td class="RowStyleB wo">{VAR: forum_read_indicator}</td>
 	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
@@ -45,8 +46,8 @@
 {SECTION: END}
 
 {SECTION: forum_with_no_view_perms}
-<tr>
-	<td class="RowStyleA" colspan=6>{VAR: r[10]}{FUNC: ($r[11] ? '<br />'.$r[11] : '')}</td>
+<tr p="{VAR: i[0]}" style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}">
+	<td class="RowStyleA" colspan="6">{VAR: r[10]}{FUNC: ($r[11] ? '<br />'.$r[11] : '')}</td>
 </tr>
 {SECTION: END}
 
@@ -84,6 +85,42 @@
 {IF: _uid}<span class="GenText">{MSG: welcome_message}</span><br />{ENDIF}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
 {TEMPLATE-DATA: cat_path}
+
+<script type="text/javascript">
+function toggleCategory(cid, level)
+{
+	var c = document.getElementById('c'+cid).nextSibling;
+	var on = c.style.display == 'table-row' ? 'none' : 'table-row';
+
+	while (c && c.hasAttribute('p')) {
+		if ((c.getAttribute('p') > level) || (c.getAttribute('p') == level && !c.hasAttribute('id'))) {
+			c.style.display = on;
+			c = c.nextSibling
+		} else {
+			break;
+		}
+	}
+
+	if (on == 'none') {
+		document.getElementById('c'+cid+'img').src = document.getElementById('c'+cid+'img').src.replace(/min\.([a-z]+)$/, "max.$1");
+	} else {
+		document.getElementById('c'+cid+'img').src = document.getElementById('c'+cid+'img').src.replace(/max\.([a-z]+)$/, "min.$1");
+	}
+
+{IF: _uid}
+
+	var catChange = function(o) { return }
+	var callback = 
+	{
+		success:catChange,
+		failure:catChange
+	}
+	YAHOO.util.Connect.asyncRequest("POST","index.php?t=cat_focus", callback, "SQ={VAR: usr->sq}&S={DEF: s}&c="+cid+"&on="+(on == "none" ? "1" : "0"));
+
+{ENDIFI}
+}
+</script>
+
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 	<th colspan=3 class="wa">{MSG: index_forum}</th>
@@ -132,12 +169,8 @@
 {ROOT}?t=markread&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}&amp;cat={VAR: cat_id}
 {SECTION: END}
 
-{SECTION: index_category_allow_collapse_Y_lnk}
-{ROOT}?t=index&amp;cat={VAR: cat_id}&amp;c={FUNC: url_tog_collapse($k, $cs)}&amp;{DEF: _rsid}
-{SECTION: END}
-
 {SECTION: index_to_cat_lnk}
-{ROOT}?t=index&amp;cat={VAR: k}&amp;c={VAR: cs}&amp;{DEF: _rsid}
+{ROOT}?t=index&amp;cat={VAR: k}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: index_forum_entry_lnk}
@@ -165,5 +198,5 @@
 {SECTION: END}
 
 {SECTION: idx_compact_forum_row}
-<tr class="RowStyleB"><td colspan="6">{MSG: idx_compact_forum_row}{VAR: cbuf}</td></tr>
+<tr class="RowStyleB" p="{VAR: i[0]}"><td colspan="6">{MSG: idx_compact_forum_row}{VAR: cbuf}</td></tr>
 {SECTION: END}

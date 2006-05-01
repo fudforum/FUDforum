@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.96 2005/12/07 18:07:45 hackie Exp $
+* $Id: index.php.t,v 1.97 2006/05/01 04:08:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,63 +12,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-function reload_collapse(&$str)
-{
-	$GLOBALS['collapse'] = array();
-
-	if (!($tok = strtok($str, '_'))) {
-		$str = '';
-		return;
-	}
-	do {
-		$t = explode(':', $tok);
-		if ((int) $t[0]) {
-			$GLOBALS['collapse'][(int) $t[0]] = isset($t[1]) ? (int) $t[1] : 0;
-		}
-	} while (($tok = strtok('_')));
-
-	$str = '';
-	foreach ($GLOBALS['collapse'] as $k => $v) {
-		if ($str) {
-			$str .= '_';
-		}
-		$str .= $k.':'.$v;
-	}
-}
-
-function url_tog_collapse($id, $c)
-{
-	if (!isset($GLOBALS['collapse'][$id])) {
-		return;
-	}
-
-	if (!$c) {
-		return $id . ':'.(empty($GLOBALS['collapse'][$id]) ? '1' : '0');
-	} else {
-		$c_status = (empty($GLOBALS['collapse'][$id]) ? 1 : 0);
-
-		if (isset($GLOBALS['collapse'][$id]) && ($p = strpos('_' . $c, '_' . $id . ':' . (int)!$c_status)) !== false) {
-			$c[$p + strlen($id) + 1] = $c_status;
-			return $c;
-		} else {
-			return $c . '_' . $id . ':' . $c_status;
-		}
-	}
-}
-
-	if (isset($_GET['c'])) {
-		$cs = (string) $_GET['c'];
-		reload_collapse($cs);
-		if (_uid && $cs != $usr->cat_collapse_status) {
-			q('UPDATE {SQL_TABLE_PREFIX}users SET cat_collapse_status='._esc($cs).' WHERE id='._uid);
-		}
-	} else if (_uid && $usr->cat_collapse_status) {
-		$cs = $usr->cat_collapse_status;
-		reload_collapse($cs);
-	} else {
-		$cs = '';
-	}
-
+	$collapse = $usr->cat_collapse_status ? unserialize($usr->cat_collapse_status) : array();
 	$cat_id = !empty($_GET['cat']) ? (int) $_GET['cat'] : 0;
 
 	ses_update_status($usr->sid, '{TEMPLATE: index_update}');
@@ -183,10 +127,6 @@ function url_tog_collapse($id, $c)
 		/* compact view check */
 		if ($r[17]) {
 			$cbuf .= '{TEMPLATE: idx_compact_forum_entry}';
-			continue;
-		}
-
-		if (!empty($collapse[$cid]) && $cat_id != $cid) {
 			continue;
 		}
 
