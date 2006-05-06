@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.84 2006/05/06 20:15:17 hackie Exp $
+* $Id: post_proc.inc.t,v 1.85 2006/05/06 20:18:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -526,7 +526,7 @@ function html_to_tags($fudml)
 		if (count($res) == 3) {
 			$fudml = str_replace($res[0], '[wikipedia='.$res[1].']'.$res[2].'[/wikipedia]',$fudml);
 		} else {
-			$fudml = str_replace($res[0], '[wikipedia]'.$res[1].'[/wikipedia]',$fudml);
+			$fudml = str_replace($res[0], '[wikipedia]'.$res[2].'[/wikipedia]',$fudml);
 		}
 	}
 
