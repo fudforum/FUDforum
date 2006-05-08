@@ -20,7 +20,7 @@ email:				E-mail:
 email_to_friend:		E-mail to friend
 email_to_friend_desc:		Send the URL to this page to your friend(s) via e-mail
 email_user:			Click here to e-mail the user
-faq:				FAQ
+faq:				Help
 first_unread_msg:		Go to unread message(s)
 first_unread_msg_desc:		Go to the 1st unread message inside this topic
 flat_view:			Return to the default flat view
@@ -549,7 +549,7 @@ emailconf_err_invkey_msg:	Invalid confirmation key.  Please check your e-mail to
 err_inc_criticaltitle:		CRITICAL ERROR
 err_inc_criticalmsg:		An error has occurred. Unfortunately, there is also a problem with the error reporting system.
 finduser_update:		Searching for users
-help_index_update:		Reading the <a href="{TEMPLATE: help_index_update_lnk}">FAQ</a>
+help_index_update:		Reading the <a href="{TEMPLATE: help_index_update_lnk}">Help</a>
 iemail_thr_subject:		New reply to {VAR: thr_subject} by {VAR: poster_login}
 iemail_thr_bodyemail:		To view unread replies go to {VAR: goto_url['email']}\n\nIf you do not wish to receive further notifications about replies in this topic, please go here: {VAR: unsub_url['email']}
 iemail_frm_subject:		New topic in forum {VAR: frm_name}, called {VAR: thr_subject}, by {VAR: poster_login}
@@ -650,7 +650,7 @@ ERR_systemerr_ttl:		ERROR: System Error
 ERR_systemerr_msg:		A system error has occurred. Please report it to the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
 email_title:			E-mail Form
 finduser_title:			Find User
-help_title:			FAQ
+help_title:			Help
 login_title:			Login Form
 msg_title:			{VAR: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Poll Editor
