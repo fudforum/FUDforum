@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.71 2006/04/02 18:46:18 hackie Exp $
+* $Id: tree.tmpl,v 1.72 2006/05/08 14:42:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,7 +30,7 @@
 {REF: topic_rating.tmpl}
 
 {SECTION: tree_unread_message new message}
-<img src="{THEME_IMAGE_ROOT}/unread{DEF: img_ext}" alt="{MSG: unread_message}" title="{MSG: unread_message}" />
+<img id="msgIm{VAR: cur->id}" src="{THEME_IMAGE_ROOT}/unread{DEF: img_ext}" alt="{MSG: unread_message}" title="{MSG: unread_message}" />
 {SECTION: END}
 
 {SECTION: tree_read_message read message}
@@ -181,6 +181,12 @@ function changeMsgFocus(mid)
 
 	var responseFailure = function(o) { alert('XMLHTTPRequest Failure: ' + o.statusText); }
 	var setMsgBody = function(o) { 
+		var r = document.getElementById('msgIm'+mid);
+		if (r) {
+			r.setAttribute('src', '{THEME_IMAGE_ROOT}/read{DEF: img_ext}');
+			r.setAttribute('alt', '{MSG: read_message}');
+			r.setAttribute('title', r.getAttribute('alt'));
+		}
 		document.getElementById('msgTbl').innerHTML = o.responseText;
 		chng_focus('page_top');
 	}
