@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.53 2006/02/05 16:58:08 hackie Exp $
+* $Id: finduser.php.t,v 1.54 2006/05/09 22:14:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,7 +32,7 @@
 	}
 
 	if (isset($_GET['pc'])) {
-		$ord = 'posted_msg_count ' . ($_GET['pc'] % 2 ? 'DESC' : 'ASC');
+		$ord = 'posted_msg_count ' . ($_GET['pc'] % 2 ? 'ASC' : 'DESC');
 	} else if (isset($_GET['us'])) {
 		$ord = 'alias ' . ($_GET['us'] % 2 ? 'DESC' : 'ASC');
 	} else if (isset($_GET['rd'])) {
