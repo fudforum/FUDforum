@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smladd.tmpl,v 1.14 2005/12/07 18:07:46 hackie Exp $
+* $Id: smladd.tmpl,v 1.15 2006/05/10 04:50:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,6 +17,24 @@
 
 {PAGE: SMLLIST_PAGE}
 {TEMPLATE: header_plain}
+<script type="text/javascript">
+function insertSmiley(txt)
+{
+	var t = window.opener.document.getElementById('txtb');
+	if (window.opener.document.selection) { // IE
+		window.opener.document.selection.createRange();	
+		if (t.createTextRange && t.caretPos) {
+			var caretPos = t.caretPos;
+			caretPos.text = txt + caretPos.text;
+		} else {
+			t.value += txt;
+		}
+	} else {
+		var n = t.value.substring(0, t.selectionStart) + txt + t.value.substring(t.selectionStart, t.value.length);
+		t.value = n;
+	}
+}
+</script>
 <table cellspacing=1 cellpadding=0 width="100%" class="dashed">
 <tr>
 	<th>Emoticon</th>
@@ -29,5 +47,5 @@
 {PAGE: END}
 
 {SECTION: sml_smiley_row}
-<tr class="vb {ALT-VAR: sml_alt RowStyleA RowStyleB}"><td><a href="javascript: insertParentTag(\' {VAR: PS_DST[$k]} \',\'\');">{VAR: v}</a></td><td>{VAR: PS_DST[$k]}</td></tr>
+<tr class="vb {ALT-VAR: sml_alt RowStyleA RowStyleB}"><td><a href="javascript: insertSmiley(\' {VAR: PS_DST[$k]} \',\'\');">{VAR: v}</a></td><td>{VAR: PS_DST[$k]}</td></tr>
 {SECTION: END}
