@@ -22,10 +22,8 @@ function insertTag(obj, stag, etag)
 {
 	if (navigator.userAgent.indexOf("MSIE") > -1 && !OPERA) {
 		insertTagIE(obj, stag, etag);
-	} else if (window.getSelection) {
-		insertTagMoz(obj, stag, etag);
 	} else {
-		insertTagNS(obj, stag, etag);
+		insertTagMoz(obj, stag, etag);
 	}
 	obj.focus();
 }
@@ -43,13 +41,10 @@ function insertTagMoz(obj, stag, etag)
 		txt = window.getSelection();
 	} else if (document.getSelection) {
 		txt = document.getSelection();
-	} else if (document.selection) {
-		txt = document.selection.createRange().text;
 	}
 
 	if (!txt || txt == '') {
 		var t = document.getElementById('txtb');
-		var h = document.getElementsByTagName('textarea')[0];
 		if (t.selectionStart == t.selectionEnd) {
 			t.value = t.value.substring(0, t.selectionStart) + stag + etag +  t.value.substring(t.selectionEnd, t.value.length);
 			return;
@@ -152,36 +147,6 @@ function email_insert()
 function image_insert()
 {
 	dialogTag(document.post_form.msg_body, 'Image URL:', 'http://', '[img]%s[/img]', '');
-}
-
-function insertParentTagIE(stag, etag)
-{
-	r=window.opener.document.selection.createRange();
-	obj = window.opener.document.post_form.msg_body;
-	
-	if( window.opener.document.selection.type == 'Text' && (obj.value.indexOf(r.text) != -1) ) {
-		a = r.text;
-		r.text = stag+r.text+etag;
-		if ( obj.value.indexOf(window.opener.document.selection.createRange().text) == -1 ) {
-			window.opener.document.selection.createRange().text = a;
-		}
-	}
-	else insertAtCaret(obj, stag+etag);
-}
-
-function insertParentTagNS(stag, etag)
-{
-	window.opener.document.post_form.msg_body.value = window.opener.document.post_form.msg_body.value + stag + etag;
-}
-
-function insertParentTag(stag, etag)
-{
-	if ( document.all ) 
-		insertParentTagIE(stag, etag);
-	else
-		insertParentTagNS(stag, etag);
-
-	window.opener.document.post_form.msg_body.focus();	
 }
 
 function window_open(url,winName,width,height)
