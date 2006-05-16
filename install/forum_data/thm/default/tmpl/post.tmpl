@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.66 2006/05/09 22:42:35 hackie Exp $
+* $Id: post.tmpl,v 1.67 2006/05/16 02:40:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -132,6 +132,16 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <form action="{TEMPLATE: POST_PAGE_lnk3}" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true;">
+{DEF: _hs}
+<input type="hidden" name="submitted" value="">
+<input type="hidden" name="reply_to" value="{VAR: reply_to}">
+<input type="hidden" name="th_id" value="{VAR: th_id}">
+<input type="hidden" name="frm_id" value="{VAR: frm_id}">
+<input type="hidden" name="start" value="{VAR: start}">
+<input type="hidden" name="msg_id" value="{VAR: msg_id}">
+<input type="hidden" name="pl_id" value="{VAR: pl_id}">
+<input type="hidden" name="old_subject" value="{VAR-HTML: old_subject}">
+<input type="hidden" name="prev_loaded" value="1">
 {TEMPLATE-DATA: post_error}
 {TEMPLATE-DATA: preview_message}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
@@ -170,16 +180,6 @@
 <input type="submit" accesskey="r" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input accesskey="s" type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
 </table>
 {TEMPLATE-DATA: minimsg}
-{DEF: _hs}
-<input type="hidden" name="submitted" value="">
-<input type="hidden" name="reply_to" value="{VAR: reply_to}">
-<input type="hidden" name="th_id" value="{VAR: th_id}">
-<input type="hidden" name="frm_id" value="{VAR: frm_id}">
-<input type="hidden" name="start" value="{VAR: start}">
-<input type="hidden" name="msg_id" value="{VAR: msg_id}">
-<input type="hidden" name="pl_id" value="{VAR: pl_id}">
-<input type="hidden" name="old_subject" value="{VAR-HTML: old_subject}">
-<input type="hidden" name="prev_loaded" value="1">
 </form>
 <script language="javascript" type="text/javascript">
 <!--
