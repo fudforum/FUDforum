@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.72 2006/05/08 14:42:33 hackie Exp $
+* $Id: tree.tmpl,v 1.73 2006/05/16 02:00:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -160,7 +160,7 @@
 <td class="vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
 </tr>
 </table>
-<table cellspacing="0" cellpadding="0" id="msgTbl" class="ContentTable">{FUNC: tmpl_drawmsg($msg_obj, $usr, $perms, false, $n, array($prev_msg, $next_msg))}</table>
+<div><table cellspacing="0" cellpadding="0" id="msgTbl" class="ContentTable">{FUNC: tmpl_drawmsg($msg_obj, $usr, $perms, false, $n, array($prev_msg, $next_msg))}</table></div>
 <div class="ac GenText">[<a href="javascript://" onClick="chng_focus('tree_view');" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
 <p>
 <table cellspacing="1" cellpadding="2" class="MsgTable">
@@ -172,11 +172,11 @@
 </table>
 <script language="javascript" type="text/javascript">
 var cur_msg = {VAR: mid};
-document.getElementById('b' + cur_msg).setAttribute('class', 'RowStyleC');
+document.getElementById('b' + cur_msg).className = 'RowStyleC';
 function changeMsgFocus(mid)
 {
-	document.getElementById('b' + mid).setAttribute('class', 'RowStyleC');
-	document.getElementById('b' + cur_msg).setAttribute('class', (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB'));
+	document.getElementById('b' + mid).className = 'RowStyleC';
+	document.getElementById('b' + cur_msg).className = (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB');
 	cur_msg = mid;
 
 	var responseFailure = function(o) { alert('XMLHTTPRequest Failure: ' + o.statusText); }
@@ -187,7 +187,11 @@ function changeMsgFocus(mid)
 			r.setAttribute('alt', '{MSG: read_message}');
 			r.setAttribute('title', r.getAttribute('alt'));
 		}
-		document.getElementById('msgTbl').innerHTML = o.responseText;
+
+		var p = document.getElementById('msgTbl').parentNode;
+		p.removeChild(document.getElementById('msgTbl'));
+		p.innerHTML += o.responseText;
+
 		chng_focus('page_top');
 	}
 
