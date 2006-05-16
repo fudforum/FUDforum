@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.39 2006/02/13 15:50:08 hackie Exp $
+* $Id: th_adm.inc.t,v 1.40 2006/05/16 02:35:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,7 +26,13 @@ function th_add($root, $forum_id, $last_post_date, $thread_opt, $orderexpiry, $r
 function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last_post_id)
 {
 	if (!db_locked()) {
-		db_lock('{SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}tv_'.$to_forum.' WRITE, {SQL_TABLE_PREFIX}tv_'.$forum_id.' WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE');
+		if ($to_forum != $forum_id) {
+			$lock = '{SQL_TABLE_PREFIX}tv_'.$to_forum.' WRITE, {SQL_TABLE_PREFIX}tv_'.$forum_id;
+		} else {
+			$lock = '{SQL_TABLE_PREFIX}tv_'.$to_forum;
+		}
+		
+		db_lock('{SQL_TABLE_PREFIX}poll WRITE, '.$lock.' WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE');
 		$ll = 1;
 	}
 	$msg_count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}thread LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.apr=1 AND {SQL_TABLE_PREFIX}thread.id='.$id);
