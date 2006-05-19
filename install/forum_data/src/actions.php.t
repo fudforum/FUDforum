@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: actions.php.t,v 1.43 2005/12/07 18:07:45 hackie Exp $
+* $Id: actions.php.t,v 1.44 2006/05/19 15:36:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	if (!($FUD_OPT_1 & 536870912)) {
+	if (!($FUD_OPT_1 & 536870912) || (!_uid && $FUD_OPT_3 & 131072)) {
 		std_error('disabled');
 	}
 

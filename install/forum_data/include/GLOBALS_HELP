@@ -438,3 +438,9 @@ Hostname or IP address of the whois server to use for IP address analysis.}}}
 
 {{{MIN_TIME_BETWEEN_LOGIN
 Minimum time between login attempts in seconds. This option is intended as a throttle mechanism against dictionary attacks on forum passwords.}}}
+
+{{{NO_ANON_ACTION_LIST	FUD_OPT_3	131072
+Disable displaying of the action list to the anonymous users.}}}
+
+{{{NO_ANON_WHO_ONLINE	FUD_OPT_3	262144
+Disable displaying of who's online to the anonymous users.}}}

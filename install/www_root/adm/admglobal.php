@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.86 2006/02/27 14:17:42 hackie Exp $
+* $Id: admglobal.php,v 1.87 2006/05/19 15:36:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -356,6 +356,8 @@ function get_max_upload_size()
 	print_reg_field('Time between login attempts', 'MIN_TIME_BETWEEN_LOGIN', 1);
 	print_bit_field('Use Database for message storage', 'DB_MESSAGE_STORAGE');
 	print_bit_field('Disable caching for anonymous users', 'DISABLE_ANON_CACHE');
+	print_bit_field('Disable actions list for anonymous users', 'NO_ANON_ACTION_LIST');
+	print_bit_field('Disable who\'s online for anonymous users', 'NO_ANON_WHO_ONLINE');
 ?>
 <tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 </table>

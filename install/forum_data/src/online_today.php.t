@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: online_today.php.t,v 1.31 2006/01/24 19:19:44 hackie Exp $
+* $Id: online_today.php.t,v 1.32 2006/05/19 15:36:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,6 +11,10 @@
 **/
 
 /*{PRE_HTML_PHP}*/
+
+	if (!_uid && $FUD_OPT_3 & 262144) {
+		std_error('disabled');
+	}
 
 	ses_update_status($usr->sid, '{TEMPLATE: online_today_update}');
 

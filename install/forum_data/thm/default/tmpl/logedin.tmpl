@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.tmpl,v 1.27 2005/12/07 18:07:46 hackie Exp $
+* $Id: logedin.tmpl,v 1.28 2006/05/19 15:36:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,7 +21,7 @@
 {MAIN_SECTION: END}
 
 {SECTION: logedin}
-<tr><th class="wa">{MSG: logged_in_list} {IF: $FUD_OPT_1 & 536870912}{TEMPLATE: i_spy}{ENDIF}</th></tr>
+<tr><th class="wa">{MSG: logged_in_list} {IF: ($FUD_OPT_1 & 536870912)}{TEMPLATE: i_spy}{ENDIF}</th></tr>
 <tr><td class="RowStyleA">
 <span class="SmallText">{MSG: status_line}&nbsp;&nbsp;&nbsp;<span class="adminColor">[{MSG: administrator}]</span>&nbsp;&nbsp;<span class="modsColor">[{MSG: moderator}]</span></span><br />
 {VAR: logedin}
@@ -29,7 +29,7 @@
 {SECTION: END}
 
 {SECTION: i_spy logged in users list}
-[<a href="{TEMPLATE: i_spy_lnk}" class="thLnk">{MSG: what_ppl_doing}</a>] [<a href="{TEMPLATE: i_spy_lnk1}" class="thLnk">{MSG: logedin_todays_visitors}</a>]
+{IF: _uid || !($FUD_OPT_3 & 131072)}[<a href="{TEMPLATE: i_spy_lnk}" class="thLnk">{MSG: what_ppl_doing}</a>]{ENDIF}{IF: _uid || !($FUD_OPT_3 & 262144)} [<a href="{TEMPLATE: i_spy_lnk1}" class="thLnk">{MSG: logedin_todays_visitors}</a>]{ENDIF}
 {SECTION: END}
 
 {SECTION: online_user_link}
