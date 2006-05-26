@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ikon.php,v 1.14 2005/12/07 18:07:45 hackie Exp $
+* $Id: ikon.php,v 1.15 2006/05/26 19:51:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -34,10 +34,12 @@ function parse_ikon_cfg()
 {
 	$GLOBALS['__IKON_CFG__'] = array();
 
-	$file = file($GLOBALS['IKONBOARD_CFG_PATH']);
-	foreach( $file as $ln ) {
-		list($k,$v) = explode('=', $ln, 2);
-		$GLOBALS['__IKON_CFG__'][trim($k)] = trim($v);
+	if (!preg_match_all("@'([A-Z_]+)'\s*=>\s*q!(.*?)!,@", file_get_contents($GLOBALS['IKONBOARD_CFG_PATH']), $m)) {
+		exit("Failed to parse IkonBoard configuration file.\n");
+	}
+
+	foreach ($m[1] as $k => $v) {
+		$GLOBALS['__IKON_CFG__'][$v] = $m[2][$k];
 	}
 }
 
