@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: theme.inc,v 1.29 2005/12/07 18:07:45 hackie Exp $
+* $Id: theme.inc,v 1.30 2006/05/26 14:16:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@ class fud_theme
 			$this->theme_opt |= 1;
 		}
 
-		if ($this->theme == 'path_info') {
+		if ($this->theme == 'path_info' || @file_exists($GLOBALS['DATA_DIR'].'thm/'.$this->theme.'/.path_info')) {
 			$this->theme_opt |= 4;
 		}
 
