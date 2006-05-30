@@ -7,7 +7,7 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
 set of tags that allows you to apply certain formatting to your text. FUDcode is very easy to use and is a lot more secure then HTML.
 <p>
 
-<a name="b"><b>URL Hyperlinking</b></a><br>
+<a name="url"><b>URL Hyperlinking</b></a><br>
 
 <table>
   <tr>
