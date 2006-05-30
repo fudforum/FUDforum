@@ -27,7 +27,7 @@ TOPIC_HELP:
 TOPIC_TITLE: Reading and Posting Messages
 TOPIC_HELP:
 <a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style">How to format text?</a><br>
-<ul style="margin: 2px;">
+<ul>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#b">Bold [b]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#u">Underline [u]</a></li>
 	<li><a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#i">Italics [i]</a></li>
