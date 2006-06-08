@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.41 2005/12/07 18:07:45 hackie Exp $
+* $Id: getfile.php.t,v 1.42 2006/06/08 22:58:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,10 +62,19 @@ function get_preview_img($id)
 	}
 
 	$r[1] = reverse_fmt($r[1]);
+	if (!$r[2]) {
+		$r[2] = $GLOBALS['FILE_STORE'] . $id . '.atch';
+	}
+
+	if (!strncmp($r[0], 'image/', 6)) {
+		$s = getimagesize($r[2]);
+		$r[0] = $s['mime'];
+	}
+
 	if (!$r[0]) {
 		$r[0] = 'application/octet-stream';
 		$append = 'attachment; ';
-	} else if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') && preg_match('!^(audio|video|image)/!i', $r[0])) {
+	} else if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') && preg_match('!^(?:audio|video|image)/!i', $r[0])) {
 		$append = 'inline; ';
 	} else if (strncmp($r[0], 'image/', 6)) {
 		$append = 'attachment; ';
@@ -99,10 +108,6 @@ function get_preview_img($id)
 	header('Content-Type: '.$r[0]);
 	header('Content-Disposition: '.$append.'filename="'.$r[1].'"');
 	header('Content-Length: '.array_pop($r));
-
-	if (!$r[2]) {
-		$r[2] = $GLOBALS['FILE_STORE'] . $id . '.atch';
-	}
 
 	attach_inc_dl_count($id, $r[3]);
 	@readfile($r[2]);
