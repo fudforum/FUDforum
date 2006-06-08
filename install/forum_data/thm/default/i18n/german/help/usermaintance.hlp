@@ -1,16 +1,16 @@
-TOPIC_TITLE: <a name="register">Warum Registrieren?</a>
+TOPIC_TITLE: <a name="register">Warum registrieren?</a>
 TOPIC_HELP:
 In den meisten Foren wird es dir nicht m&ouml;glich sein, neue Themen zu erstellen oder auf bestehende zu antworten, au&szlig;er der Admin 
 hat dies ausdr&uuml;cklich erlaubt. Daher wird es wahrscheinlich f&uuml;r dich erforderlich werden, dich zu registrieren um an der Diskussion
 teilnehmen zu k&ouml;nnen. Durch die Registrierung erh&auml;ltst du auch Zugriff auf viele Zusatzfunktionen des Forums wie zum Beispiel:
 <ul>
-	<li>Email/ICQ Benachrichtigung, wenn jemand auf deine Beitr&auml;ge geantwortet hat
+	<li>E-Mail-Benachrichtigung, wenn jemand auf deine Beitr&auml;ge geantwortet hat
 	<li>Eigene Signatur, Avatar, pers&ouml;nlicher Rang usw...
 	<li>M&ouml;glichkeit, private Messages an ein oder mehrere Forumsmitglieder zu verschicken
 	<li>Du kannst eine Zeitzone ausw&auml;hlen, sodass die Zeitangabe des Forums der Region entspricht, in der du lebst.
 </ul>
 Sofern nicht anders angegeben, ist die Registrierung f&uuml;r das Forum vollst&auml;ndig kostenlos und erfordert nur minimale Informationen wie deine 
-Email Adresse und einen Benutzernamen deiner Wahl.<br>
+E-Mail-Adresse und einen Benutzernamen deiner Wahl.<br>
 Wenn COPPA aktiviert ist und du unter 13 Jahre alt bist, ben&ouml;tigst du die Zustimmung deines gesetzlichen Vormunds bevor dein Account zum 
 Erstellen von Beitr&auml;gen verwendet werden kann. W&auml;hrend des Registrierungsvorgangs auf Foren mit aktivierten COPPA werden Mitglieder die j&uuml;nger 
 als 13 Jahre alt sind zu einem Formular gef&uuml;hrt, welches vom gesetzlichen Vormund ausgef&uuml;llt und an die angegebene Adresse auf der Seite geschickt 
@@ -23,7 +23,7 @@ Wenn aus irgendwelchen Gr&uuml;nden dein Browser keine Cookies unterst&uuml;tzen
 Rechner abspeichern. W&auml;hrend des Anmeldevorgangs kannst du ausw&auml;hlen, das Cookiesystem zu umgehen und stattdessen das Sessionsystem zu verwenden, 
 was auf &ouml;ffentlich zug&auml;ngigen Rechner zu empfehlen ist. Dadurch kann eine m&ouml;gliche &Uuml;bername des Profils verhindert werden, falls jemand sich nach 
 Verwendung des Forums nicht abgemeldet hat. Ansonsten solltest du wahrscheinlich die Cookies aktiviert lassen, da es langfristig wesentlich komfortabler ist.
-Zum Beispiel musst du dich nicht bei jedem Besuch erneut ins Forum einloggen
+Zum Beispiel musst du dich nicht bei jedem Besuch erneut ins Forum einloggen.
 
 TOPIC_TITLE: <a name="clrcookie">Wie entfernt man FUDforum Cookies?</a>
 TOPIC_HELP:
@@ -34,8 +34,8 @@ TOPIC_HELP: Als Forumsmitglied hast du ein pers&ouml;nliches Profil, worin du ve
 Signaturen, Werdegang usw. eintragen kannst. Dein Profil speichert auch verschiedene Forumseinstellungen. Jedesmal wenn du dich einloggst, kannst du deine Einstellungen 
 im Profil ver&auml;ndern. Dir sollte klar sein, dass die meisten Angaben im Profil von anderen Forenmitgliedern angesehen werden k&ouml;nnen. Daher solltest du nach 
 M&ouml;glichkeit keine sensiblen Daten abspeichern, die nicht von anderen gesehen werden sollen.<br>
-Dein Profil verf&uuml;gt &uuml;ber die Option <b>"Email Adresse anzeigen"</b>, die, falls sie auf <b>NEIN</b> gesetzt wurde, deren Anzeige unterdr&uuml;ckt. 
-Wenn du nicht willst, dass irgendwelche Leute deine Email Adresse sehen k&ouml;nnen,
+Dein Profil verf&uuml;gt &uuml;ber die Option <b>"E-Mail-Adresse anzeigen"</b>, die, falls sie auf <b>NEIN</b> gesetzt wurde, deren Anzeige unterdr&uuml;ckt. 
+Wenn du nicht willst, dass irgendwelche Leute deine E-Mail-Adresse sehen k&ouml;nnen,
 solltest du unbedingt von dieser Option Gebrauch machen.
 
 TOPIC_TITLE: <a name="sigs">Was ist eine Signatur?</a>
@@ -52,7 +52,7 @@ Falls du die Signaturen von anderen Leuten nicht sehen m&ouml;chtest, kannst sie
 TOPIC_TITLE: <a name="rstpasswd">Was beim Verlust des Passwortes zu tun ist</a>
 TOPIC_HELP:
 Falls du dich ans Passwort f&uuml;r das FUDforum nicht mehr erinnern kannst, solltest du das <a href="{ROOT}?t=reset&%_rsid%">Passwort zur&uuml;cksetzen</a> lassen. 
-Dort tr&auml;gst du deine Email Adresse ein und dr&uuml;ckst den LOS Knopf. Dir wird dann eine Email mit einer besonderen URL zugeschickt, mit der dein Passwort zur&uuml;ckgesetzt wird und du 
+Dort tr&auml;gst du deine E-Mail-Adresse ein und dr&uuml;ckst den LOS Knopf. Dir wird dann eine E-Mail mit einer besonderen URL zugeschickt, mit der dein Passwort zur&uuml;ckgesetzt wird und du 
 anschlie&szlig;end eine weitere Mail mit deinem neuen Passwort erh&auml;ltst.<br>
 <br>
 <b>Achtung:</b> Deine Passw&ouml;rter werden in einem Einweg Verschl&uuml;sselungsformat namens MD5 HASH abgespeichert.
@@ -76,7 +76,7 @@ ausw&auml;hlen.
 	<li><b>Avatar hochladen</b> - Falls aktiviert, kannst du ein eigenes Bild als Avatar hochladen. Es muss dann lediglich vom Administrator genehmigt werden, bevor es zu deinem Avatar wird.
 	<li><b>URL angeben</b> - Falls aktiviert, kannst du eine URL zu einem Bild angeben, welches dein Avatar werden soll. Was er dann auch wird, sofern der Administrator ihn als solchen akzeptiert.
 </ul>
-<b>Achtung:</b> Du kannst deinen Avatar jederzeit &auml;ndern, allerdings muss dieser dann erst wieder vom Administrator genehmigt werden, 
+<b>Beachte:</b> Du kannst deinen Avatar jederzeit &auml;ndern, allerdings muss dieser dann erst wieder vom Administrator genehmigt werden, 
 bevor er im Forum erscheint.
 
 TOPIC_TITLE: <a name="blist">Was ist eine Buddyliste?</a>

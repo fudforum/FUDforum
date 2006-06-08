@@ -1,161 +1,353 @@
 TOPIC_TITLE: <a name="style">Wie formatiert man Text?</a>
 TOPIC_HELP:
-Im Allgemeinen bestehen Forumsbeitr&auml;ge meistens aus unformatierten Text, es ist jedoch bei Bedarf m&ouml;glich; 
+Im Allgemeinen bestehen Forumsbeitr&auml;ge meistens aus unformatierten Text, es ist jedoch bei Bedarf m&ouml;glich,
 eine gewisse Formatierung anzuwenden, wie zum Beispiel W&ouml;rter fett oder kursiv schreiben &hellip;
 <p>
-Da in den meisten F&auml;llen der Admin die Verwendung von HTML nicht gestatten wird, kann daf&uuml;r FUDcode verwendet werden. Dieser besteht aus einer Reihe
+Da in den meisten F&auml;llen der Administrator die Verwendung von HTML nicht gestatten wird, kann daf&uuml;r FUDcode verwendet werden. Dieser besteht aus einer Reihe
 von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist sehr leicht zu erlernen und erheblich sicherer als HTML.
 <p>
-<b>Hier eine Auflistung der unterst&uuml;tzten FUDcode Tags und kurze Anwendungsbeispiele daf&uuml;r</b>
 
-<b>Setzen von Links auf Webseiten</b><br><br>
+<a name="url"><b>Links zu Webseiten</b></a><br>
 
-Das Forum ist in der Lage, automatisch viele URL-Varianten zu erkennen, zum Beispiel:<br>
-	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br>
-wird automatisch als URL aufgefa&szlig;t und zu einer solchen umgewandelt, was dann folgenderma&szlig;en aussieht:
-	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br>
-	
-	
-Du kannst auch mit FUDcode selber eine URL erstellen, wof&uuml;r es 2 M&ouml;glichkeiten gibt, eine davon funktioniert so:
-	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.meineseite.de</font>[/URL]</font></b></div><br>
-das erzeugt den folgenden Link:
-	<div align="center"><a href="http://www.meineseite.de" target=_blank>http://www.meineseite.de</a></div><br>
-Du kannst eine Beschreibung der URL durch eine andere Syntax innerhalb des Tags hinzuf&uuml;gen <font color="#ff0000"><b>[URL=<font color="#006600">http://www.meineseite.de</font>]<font color="#006600">Meine Seite</font>[/URL]</b></font> Dieser Code bewirkt das folgende:<br>
-	<div align="center"><a href="http://www.meineseite.de" target=_blank>Meine Seite</a></div><br>
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#FF0000">http://fud.prohost.org</font></td>
+    <td valign="middle" align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> FUDforum wandelt Links automatisch in URLs um.
+<br><br>	
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.meinehomepage.com</font>[/URL]</font></b></td>
+    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.meinehomepage.com</a></td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> Du kannst auch FUDcode verwenden, um Links zu Webseiten zu erstellen. 
+<br><br>
+ 
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.meinehomepage.com</font>]<font color="#006600"><br>My Homepage<br></font>[/URL]</b></font></td>
+    <td valign="middle" align="center"><a href="http://www.meinehomepage.com" target=_blank>Meine Homepage</a></td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> Du kannst mit FUDcode Links mit eigener Beschriftung erstellen.
+<br><br><br>
+
 <p>
-<b>Verlinken von Emailadressen</b><br><br>
-         Um einen Email Link zu erstellen, muss nur die Adresse so wie sie normalerweise 
-		 erscheint, geschrieben werden, zum Beispiel:<br>
-<div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br>
-       Das Forum erkennt und wandelt den Link selbstt&auml;tig um.  Au&szlig;erdem
-   ist es m&ouml;glich, einen richtigen Email Link durch das Verwenden dieses Formates zu erstellen<br>
-<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Hier klicken um unsere technische Unterst&uuml;tzung zu erhalten<font color="#ff0000"><b>[/email]</b></font><br></div>
+<a name="email"><b>E-Mail-Links</b></a><br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>support@prohost.org</b></font></td>
+    <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">support@prohost.org</a></td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> FUDforum wandelt E-Mail-Links automatisch in funktionierende Links um.
+<br><br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font><br>Support<br><font color="#ff0000"><b>[/email]</b></font></td>
+    <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Support</a></td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> Mit FUDcode kannst du E-Mail-Links mit eigener Beschriftung erstellen.
+<br><br>
+
 <br>
 <b>Textformatierung</b><br>
-         Es gibt eine Reihe von Tags, die zur Textformatierung verwendet werden k&ouml;nnen, als da 
-w&auml;ren:<br>
-<br>
-<ul>
-  <li><font color="#ff0000"><b>[b]</b></font>fett<font color="#ff0000"><b>
-         [/b]</b></font> erzeugt <b>fett</b> geschriebenen Text</li>
-  <li><font color="#ff0000"><b>[u]</b></font>unterstrichen<font color="#ff0000"><b>
-         [/u]</b></font> erzeugt <u>unterstrichenen</u> Text</li>
-  <li><font color="#ff0000"><b>[i]</b></font>kursiv<font color="#ff0000"><b>
-         [/i]</b></font> erzeugt <i>kursiven</i> Text</li>
-   <li><font color="#ff0000"><b>[sub]</b></font>subscript<font color="#ff0000"><b>
-          [/sub]</b></font> produces <sub>subscript</sub> text</li>
-   <li><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>
-          [/sup]</b></font> produces <sup>superscript</sup> text</li>
-</ul>
-         Es ist ferner m&ouml;glich, Farbe/Gr&ouml;&szlig;e und sogar den Fonttyp festzulegen.<br>
-<ul>
-  <li><font color="#ff0000"><b>[color=red]</b></font>Roter Text<font color="#ff0000"><b>
-         [/color]</b></font> erzeugt <font color="#ff0000">roten Text</font></li>
-  <li><font color="#ff0000"><b>[size=4]</b></font>gro&szlig;er Text<font color="#ff0000"><b>
-        [/size]</b></font> erzeugt Text in der angegebenen <font size="4">
-Gr&ouml;&szlig;e</font></li>
-  <li><font color="#ff0000"><b>[font=courier]</b></font>Text<font color="#ff0000"><b>
-        [/font]</b></font> erzeugt Text, der den angegebenen <font face="Courier New, Courier, monospace">
-        Schrifttyp</font> verwendet.</li>
-</ul>
-        Genauso ist es m&ouml;glich, mehrere Tags miteinander zu kombinieren:<br>
-<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Formatierter Text<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
-       dieses Beispiel wird zu:<br>
-<div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Formatierter Text</b></i></u></font></div>
-<br>
-<br>
-<b>Textausrichtung</b><br>
-FUDcode unterst&uuml;tzt duch den [align] Tag die Textausrichtung, f&uuml;r die 3 M&ouml;glichkeiten zur Wahl stehen:
-<ul>
-	<li><font color="#ff0000"><b>[align=center]</b></font>Zentrierter Text<font color="#ff0000"><b>[/align]</b></font> erzeugt:</li>
-		<div align="center">Zentrierter Text</div>
-	<li><font color="#ff0000"><b>[align=left]</b></font>Linksb&uuml;ndig<font color="#ff0000"><b>[/align]</b></font> erzeugt:</li>
-		<div align="left">Linksb&uuml;ndig</div>
-	<li><font color="#ff0000"><b>[align=right]</b></font>Rechtsb&uuml;ndig<font color="#ff0000"><b>[/align]</b></font> erzeugt:</li>
-		<div align="right">Rechtsb&uuml;ndig</div>	
-</ul>
-<br>
-<br>
-<b>Verschiedene Listen</b><br>
-      Du kannst durch die Verwendung des FUD Codes verschiedene Listentypen erstellen:<br>
-<br>
-      Ungeordnete Auflistung:<br>
-<font color="#ff0000"><b>[list]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>Erster Stichpunkt<br>
-<font color="#ff0000"><b>[*]</b></font>Zweiter Stichpunkt<br>
-<font color="#ff0000"><b>[/list]<br>
-</b></font><br>
-      w&uuml;rde erzeugen:<br>
-<ul>
-  <li>Erster Stichpunkt</li>
-  <li>Zweiter Stichpunkt</li>
-</ul>
-      Es sind verschiedene Listentypen m&ouml;glich, zum Beispiel eine
-	  numerisch angeordnete Liste:<br>
-<font color="#ff0000"><b>[list type=1]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>Erster Stichpunkt<br>
-<font color="#ff0000"><b>[*]</b></font>Zweiter Stichpunkt<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
-     erzeugt:<br>
-<ol>
-  <li>Erster Stichpunkt</li>
-  <li>Zweiter Stichpunkt<br>
-  </li>
-</ol>
-     Um eine alphabetische Liste zu erzeugen:<br>
-<font color="#ff0000"><b>[list type=A]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>Erster Stichpunkt<br>
-<font color="#ff0000"><b>[*]</b></font>Zweiter Stichpunkt<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
-<br>
-     wird zu:<br>
-<ol type="a">
-  <li>Erster Stichpunkt</li>
-  <li>Zweiter Stichpunkt</li>
-</ol>
-<b>Bilder hinzuf&uuml;gen</b><br>
-    Innerhalb eines Beitrages k&ouml;nnen Bilder eingebettet werden, indem man die<font color="#ff0000"><b>
-    [img][/img]</b></font> Tags verwendet. <br>
-  <br>
-    beispielsweise,<br>
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
-    f&uuml;gt folgendes Bild in den Beitrag mit ein:<br>
-<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br></div>
-    Zus&auml;tzlich k&ouml;nnen auch Links mit Bildern erzeugt werden, indem man diese innerhalb der
-<font color="#ff0000"><b>    [url][/url]</b></font> Tags wie<br>
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
-   mit einschlie&szlig;t, was zu einem Bilderlink wie diesem f&uuml;hrt<br>
-<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br></div><br>
+<a name="b"></a>
 
-<br><b>Andere Beitr&auml;ge zitieren</b><br>
-  Es besteht die M&ouml;glichkeit, etwas bereits Geschriebenes zu zitieren, indem man einfach 
- <font color="#ff0000"><b>[quote][/quote]</b></font> Tags mit anf&uuml;hrt. 
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[b]</b></font>fett<font color="#ff0000"><b>[/b]</b></font></td>
+    <td valign="middle" align="center"><b>fett</b></td>
+  </tr>
+</table>
 <br>
-<div align="Center"><font color="#ff0000"><b>[quote]</b></font>Hallo Welt<font color="#ff0000"><b>[/quote]</b></font><br></div>
-  w&uuml;rde folgenderma&szlig;en erscheinen:<br>
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Zitat:</b></td></tr><tr><td class="quote">Hallo Welt<br></td></tr></table>
-<p>
-<b>Computer Code und bereits formatierter Text</b><br>
-Die <font color="#ff0000"><b>[code][/code]</b></font> Tags erm&ouml;glichen eine 
-originalgetreue Wiedergabe des Beitrages, womit relative Formatierungen wie Einsch&uuml;be und 
-mehrfache Leerzeichen gewahrt bleiben. <br>
+<a name="u"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[u]</b></font>unterstrichen<font color="#ff0000"><b>[/u]</b></font></td>
+    <td valign="middle" align="center"><u>unterstrichen</u></td>
+  </tr>
+</table>
 <br>
- Sie werden folgenderma&szlig;en verwendet: <br>
-<font color="#ff0000"><b>[code]</b></font>
-<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre>
-<font color="#ff0000"><b>[/code]</b></font><br>
+
+<a name="i"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[i]</b></font>kursiv<font color="#ff0000"><b>[/i]</b></font></td>
+    <td valign="middle" align="center"><i>kursiv</i></td>
+  </tr>
+</table>
 <br>
- was den Text so wiedergibt, wie er urspr&uuml;nglich geschrieben wurde inklusive aller Formatierungen. 
+
+<a name="sub"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[sub]</b></font>tiefgestellt<font color="#ff0000"><b>[/sub]</b></font></td>
+    <td valign="middle" align="center"><sub>tiefgestellt</sub></td>
+  </tr>
+</table>
 <br>
+
+<a name="sup"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[sup]</b></font>hochgestellt<font color="#ff0000"><b>[/sup]</b></font></td>
+    <td valign="middle" align="center"><sup>hochgestellt</sup></td>
+  </tr>
+</table>
 <br>
-<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
-<p>
-<b>PHP Code</b><br>
-Der <font color="#ff0000"><b>[php][/php]</b></font> Tag erm&ouml;glicht es dir, PHP Skripte zu posten
-und dabei vom Forum wegen der besseren Lesbarkeit die Syntax hervorheben zu lassen.<br>
-<br>Die Verwendung ist wie folgt: <br>
-<font color="#ff0000"><b>[code]</b></font>
+
+<a name="color"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[color=red]</b></font>Roter Text<font color="#ff0000"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000">Roter Text</font></td>
+  </tr>
+</table>
+<br>
+
+<a name="size"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[size=4]</b></font>Gro&szlig;er Text<font color="#ff0000"><b>[/size]</b></font></td>
+    <td valign="middle" align="center"><font size="4">Gro&szlig;er Text</font></td>
+  </tr>
+</table>
+<br>
+
+<a name="font"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[font=courier]</b></font>Text<font color="#ff0000"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font face="Courier New, Courier, monospace">Text</font></td>
+  </tr>
+</table>
+<br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=red][size=4][font=courier]</b></font><br>Formatierter Text<br><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000" size="4" face="Courier New, Courier, monospace"><u><i><b>Formatierter Text</b></i></u></font></td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> Du kannst beliebig viele Textformatierung miteinander kombinieren.
+<br><br><br>
+        
+<a name="align"><b>Textausrichtung</b></a><br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=center]</b></font>Zentrierter Text<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="center">Zentrierter Text</td>
+  </tr>
+</table>
+<br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=right]</b></font>Rechtsb&uuml;ndig<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="right">Rechtsb&uuml;ndig</td>
+  </tr>
+</table>
+<br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=left]</b></font>Linksb&uuml;ndig<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="left">Linksb&uuml;ndig</td>
+  </tr>
+</table>
+<br><br>
+
+<a name="list"><b>Verschiende Listen</b></a>
+<br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[/list]<br></td>
+    <td valign="middle" align="center"><ul><li>Listeneintrag</li><li>Listeneintrag</li></ul></td>
+  </tr>
+</table>
+<br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[/list]<br></td>
+    <td valign="middle" align="center"><ol><li>Listeneintrag</li><li>Listeneintrag</li></ol></td>
+  </tr>
+</table>
+<br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[/list]<br></td>
+    <td valign="middle" align="center"><ol type="a"><li>Listeneintrag</li><li>Listeneintrag</li></ol></td>
+  </tr>
+</table>
+<br><br>
+
+<a name="img"><b>Bilder einf&uuml;gen</b></a><br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br></font><font color="#ff0000"><b>[/img]</b></font></td>
+    <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31"></td>
+  </tr>
+</table>
+<br>    
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br>[img]</b></font><br>http://www.prohost.org/img/pro_logo.gif<br><b><font color="#ff0000">[/img]<br>[/url]</font></b></font></td>
+    <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="Bild" width="204" height="31" border="0"></a></td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> Du kannst auch Bilderlinks erzeugen, indem du den [img][/img] Tag in [url][/url] einschlie&szlig;t.
+<br><br><br>
+
+<a name="quote"><b>Andere Beitr&auml;ge zitieren</b></a><br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[quote]</b></font>Hallo Welt<font color="#ff0000"><b>[/quote]</b></font></td>
+    <td valign="middle" align="center"><table border="0" align="center" width="50%" cellpadding="3" cellspacing="1"><tr><td class="SmallText" align="left"><b>Zitat:</b></td></tr><tr><td class="quote" align="left">Hallo Welt<br></td></tr></table></td>
+  </tr>
+</table>
+<br><br>
+
+<a name="pre"><b>Vorformatierter Text</b></a><br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle"><font color="#ff0000"><b>[pre]</b><br></font>
+<pre>$fp = fopen('Datei', 'w');<br>if ( !$fp ) {<br>	exit('Datei nicht gefunden!');       <br>} <br>else { <br>	fwrite($fp, 'Hallo Welt');<br>	fclose($fp);<br>} <br></pre>
+<font color="#ff0000"><b>[/pre]</b></font></td>
+    <td valign="middle"><pre>$fp = fopen('Datei', 'w');<br>if ( !$fp ) {<br>	exit('Datei nicht gefunden!');<br>} <br>else { <br>	fwrite($fp, 'Hallo Welt');<br>	fclose($fp);<br>} <br></pre></td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> Dieser Tag gibt den Text genauso aus wie er eingeben wurde, w&auml;hrend die Formatierungen beibehalten werden.
+<br><br><br>
+
+<a name="php"><b>PHP Code</b></a><br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle"><font color="#ff0000"><b>[php]</b></font>
 <pre>
 function hallo()
 {
@@ -164,63 +356,119 @@ function hallo()
 
 hallo();
 </pre>
-<font color="#ff0000"><b>[/php]</b></font><br>
-<br>was ergibt:<br><br>
-<code><font color="#000000">
+<font color="#ff0000"><b>[/php]</b></font></td>
+    <td valign="middle"><code><font color="#000000">
 <font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hallo</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hallo Welt!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hallo</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
+</font>
+</code></td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> Mit Hilfe von [php][/php] kannst du PHP Code mit Syntaxhervorhebung durch das Forum schreiben .
+<br><br><br>
 
-</code>
-<p>
+<a name="code"><b>Code</b></a><br>
 
-<b>No Tag</b><br>
-Der <font color="#ff0000"><b>[notag][/notag]</b></font> Tag erm&ouml;glicht es dir, den Text innerhalb
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle"><font color="#ff0000"><b>[code]</b></font><pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('Datei nicht gefunden!');<br>}<br>else { <br>	fwrite($fp, 'Hallo Welt');<br>	fclose($fp);<br>}<br></pre><font color="#ff0000"><b>[/code]</b></font>
+    </td>
+    <td valign="middle"><div class="pre"><pre>$fp = fopen('Datei', 'w');<br>if ( !$fp ) {<br>	exit('Datei nicht gefunden!');<br>} <br>else { <br>	fwrite($fp, 'Hallo Welt');<br>	fclose($fp);<br>} <br></pre></div>
+    </td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> [code][/code] funktioniert fast genauso wie [pre][/pre], allerdings setzt das Forum einen deutlich sichtbaren Rahmen um den Text.
+<br><br><br>
+
+<a name="notag"><b>Kein FUDcode</b></a><br>
+<i>Erkl&auml;rung:</i> Der <font color="#ff0000"><b>[notag][/notag]</b></font> Tag erm&ouml;glicht es dir, den Text innerhalb
 der Tags nicht vom FUDForum eigenem Tag Parser interpretieren zu lassen. Das erm&ouml;glicht dir, Beispiele f&uuml;r
-FUD Code zu nennen, ohne sie in die jeweiligen HTML Entsprechungen umwandeln zu lassen.
-<p>
+FUDcode zu nennen, ohne sie in HTML umwandeln zu lassen.
+<br><br><br>
 
-<b>Spoiler</b><br>
-Der <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> Tag erm&ouml;glicht es dir, einen Teil des Beitrages
+<a name="hr"><b>Horizontale Linie </b></a><br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[hr]</b></font></td>
+    <td valign="middle" align="center"><hr></td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> Der [hr] Tag erzeugt eine horizontale Linie, er ist eine Entsprechung des HTML Tags &lt;hr&gt;.
+<br><br><br>
+
+<a name="spoiler"><b>Spoiler</b></a><br>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center">Sichtbarer Teil des Beitrags<br>
+<font color="#ff0000"><b>[spoiler]</b></font>
+<br>Versteckter Teil des Beitrags</br>
+<font color="#ff0000"><b>[/spoiler]</b></font><br>
+Weiterer sichtbarer Text.</td>
+    <td valign="middle" align="center">Sichtbarer Teil des Beitrags<br />
+<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Spoiler anzeigen</a><div align="left" id="1482055279834293165" style="display: none;"><br />
+Versteckter Teil des Beitrags<br /></div></div>
+<br />
+Weiterer sichtbarer Text.</td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> Der [spoiler][/spoiler] Tag erm&ouml;glicht es dir, einen Teil des Beitrages
 nicht anzeigen zu lassen. Um den versteckten Anteil sehen zu k&ouml;nnen, m&uuml;ssen die Benutzer einen Link anklicken, 
 der dann den Rest des Textes anzeigt. Intern wird dies mit Hilfe von Javascript bewerkstelligt, womit die Seite nicht
 wirklich neu geladen wird, sondern eine versteckte Layer sichtbar gemacht wird.<br>
-<br>
-Hier ein Beispiel f&uuml;r diesen Tag in Aktion: <br>
+<br><br><br>
 
-Sichtbarer Teil des Beitrages
-<font color="#ff0000"><b>[spoiler]</b></font>
-<br>Versteckter Teil des Beitrages</br>
-<font color="#ff0000"><b>[/spoiler]</b></font><br>
-Mehr sichtbarer Text.
+<a name="acronym"><b>Abk&uuml;rzung</b></a><br>
 
-<p>und das Ergebnis:<p>
-
-Sichtbarer Teil des Beitrages<br />
-<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Spoiler anzeigen</a><div align="left" id="1482055279834293165" style="visibility: hidden;"><br />
-Versteckter Teil des Beitrages<br />
-</div></div><br />
-Mehr sichtbarer Text.
-
-<p>
-
-<p>
-<b>Acronym</b><br>
-Der <font color="#ff0000"><b>[acronym][/acronym]</b></font> Tag wird benutzt,
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font><br>FUDforum<br><font color="#ff0000"><b>[/acronym]</b></font></td>
+    <td valign="middle" align="center"><acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym></td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> Der [acronym][/acronym] Tag wird benutzt,
 um &bdquo;Abk&uuml;rzungen mit Bedeutung&rdquo; zu kennzeichnen. Wenn der Benutzer seine Maus darüber parkt, wird die Bedeutung sichtbar.
-<font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
-<p>
 
-Unter Umst&auml;nden stellst du fest, dass der Administrator Smileys aktiviert hat, die dir
-das &Uuml;bermitteln von Emotionen durch kleine Icons erm&ouml;glichen, oder auch den [img] Code, mit dem
-Bilder zu einem Beitrag hinzugef&uuml;gt werden k&ouml;nnen.
+<br><br><br>
 
+<a name="wikipedia"><b>Wikipedia</b></a><br>
 
-TOPIC_TITLE: <a name="sml">Was sind Smilies/Emoticons?</a> 
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=ca]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
+    <td valign="middle" align="center"><a href="http://ca.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
+  </tr>
+</table>
+<i>Erkl&auml;rung:</i> Der [wikipedia][/wikipedia] Tag erlaubt dir, einen Link zu einem Wikipedia-Artikel mit einem bestimmten Thema zu erstellen. Um den Tag zu verwenden, schlie&szlig;e den Ausdruck in [wikipedia][/wikipedia] ein, wenn du du einen bestimmten Mirror verwenden m&ouml;chtest, verwende [wikipedia=ca] als einleitendes Tag, dabei ist ca der zu verwendende Mirror.
+<br>
+
+TOPIC_TITLE: <a name="sml">Was sind Smileys/Emoticons?</a> 
 TOPIC_HELP:
-Smilies sind kleine Icons, die in einem Beitrag als Ausdruck verschiedener Gef&uuml;hle und Stimmungen verwendet werden k&ouml;nnen.
+Smileys sind kleine Icons, die in einem Beitrag als Ausdruck verschiedener Gef&uuml;hle und Stimmungen verwendet werden k&ouml;nnen.
 Wenn diese aktiviert sind, wird eine Auflistung der vom Forum unterst&uuml;tzten Smileys &uuml;ber dem Eingabefeld, in welchem man auch den Beitrag
 erstellt, angezeigt. Durch einfaches Anklicken k&ouml;nnen diese dann in den Beitrag eingef&uuml;gt werden.<br>
 Gebr&auml;uchliche Smileys k&ouml;nnen automatisch durch das entsprechende Symbol ersetzt werden, falls das nicht von dir erw&uuml;nscht ist, kannst du
-das <b>Smilies deaktivieren</b> K&auml;stchen ausw&auml;hlen.<p>
+das <b>Smileys deaktivieren</b> K&auml;stchen ausw&auml;hlen.<p>
 
 TOPIC_TITLE: <a name="polls">Wie erstelle ich Umfragen?</a>
 TOPIC_HELP:
@@ -282,12 +530,10 @@ daher kann alles, was du nicht sehen kannst, auch von anderen nicht gesehen werd
 
 TOPIC_TITLE: <a name="not">Kann ich &uuml;ber Antworten auf meine Beitr&auml;ge informiert werden?</a> 
 TOPIC_HELP:
-Wenn du ein neues Thema erstellst oder zu einem bestehenden Thema eine Antwort schreibst, kannst du ausw&auml;hlen per Email oder ICQ (Einstellung im Benutzerprofil) &uuml;ber 
-Antworten informiert zu werden. Du kannst auch ein Thema oder ganzes Forum abonnieren, ohne darin eine Antwort zu verfassen, indem du den <b>Abonnieren</b> Link am oberen 
+Wenn du ein neues Thema erstellst oder zu einem bestehenden Thema eine Antwort schreibst, kannst du ausw&auml;hlen per E-Mail &uuml;ber Antworten informiert zu werden. Du kannst auch ein Thema oder ganzes Forum abonnieren, ohne darin eine Antwort zu verfassen, indem du den <b>Abonnieren</b> Link am oberen 
 Ende der Seite anklickst. Immer wenn ein neues Thema in diesem Forum erstellt worden ist, erh&auml;ltst du dar&uuml;ber eine Benachrichtigung.
 <p>
 Wenn du keine weiteren Benachrichtigungen mehr w&uuml;nscht, kannst du beim Lesen des Themas oder Forums den <b>Das Abonnement f&uuml;r das Forum aufheben</b> Link anklicken.
 Oder du rufst den <b>Abonnements</b> Reiter in deinem Profil auf und l&ouml;scht so das Thema oder Forum von der Liste.
 <p>
 Nur registrierte Benutzer k&ouml;nnen Benachrichtigungen erhalten.
-

@@ -301,7 +301,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br>[img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img]<br>[/url]</font></b></font></td>
+    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br>[img]</b></font><br>http://www.prohost.org/img/pro_logo.gif<br><b><font color="#ff0000">[/img]<br>[/url]</font></b></font></td>
     <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0"></a></td>
   </tr>
 </table>
@@ -331,9 +331,9 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
   </tr>
   <tr>
     <td valign="middle"><font color="#ff0000"><b>[pre]</b><br></font>
-$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');       <br>} <br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>} <br>
+<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>} <br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>} <br></pre>
 <font color="#ff0000"><b>[/pre]</b></font></td>
-    <td valign="middle"><pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');       <br>} <br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>} <br></pre></td>
+    <td valign="middle"><pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>} <br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>} <br></pre></td>
   </tr>
 </table>
 <i>Explanation:</i> This tag produces the text exactly as it was typed maintaining the formatting.
@@ -363,7 +363,7 @@ hello();
 </code></td>
   </tr>
 </table>
-<i>Explanation:</i> The [php][php] allows to post PHP-code with automatic syntax highlighting by the forum.
+<i>Explanation:</i> The [php][/php] tag allows to post PHP-code with automatic syntax highlighting by the forum.
 <br><br><br>
 
 <a name="code"><b>Non-PHP Program Code</b></a><br>
@@ -380,7 +380,7 @@ hello();
     </td>
   </tr>
 </table>
-<i>Explanation:</i> The [code][/code] works pretty much the same way as the [pre][/pre] tag but it puts a visually identifiable box around the text.
+<i>Explanation:</i> The [code][/code] tag works pretty much the same way as the [pre][/pre] tag but it puts a visually identifiable box around the text.
 <br><br><br>
 
 <a name="notag"><b>No Tag</b></a><br>
@@ -525,8 +525,7 @@ so the same things you cannot see, other people will also not be able to see.
 
 TOPIC_TITLE: <a name="not">Can I be notified of replies to my messages?</a> 
 TOPIC_HELP:
-When you post a new topic or make a reply to an existing topic, you may choose to be notified via Email or ICQ (select via your profile) 
-of the replies. You can also subscribe to a topic without posting a reply, by clicking on the <b>Subscribe</b> link at the top of the page or if you 
+When you post a new topic or make a reply to an existing topic, you may choose to be notified via Email of the replies. You can also subscribe to a topic without posting a reply, by clicking on the <b>Subscribe</b> link at the top of the page or if you 
 want you can subscribe to a forum, so that whenever a new topic is made in that forum you will receive a notification about it.
 <p>
 If you choose to stop receiving notifications from a topic or forum, you can click on the <b>Un-subscribe</b> link, while viewing that topic or forum.
