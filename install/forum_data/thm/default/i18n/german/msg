@@ -2,7 +2,7 @@ ERR_access_msg:			Du verf&uuml;gst nicht &uuml;ber die ben&ouml;tigten Rechte, u
 ERR_access_ttl:			FEHLER: Nicht ausreichende Rechte
 ERR_disabled_msg:		Diese Funktion wurde vom Systemadministrator deaktiviert
 ERR_disabled_ttl:		Deaktivierte Funktion
-ERR_emailconf_msg:		Du hast dein Konto noch nicht per E-Mail best&auml;tigt<br><table border=0><tr><td><ol><li>Falls du keine Best&auml;tigungsemail erhalten haben solltest, klicke <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">hier</a><li>Falls {VAR: usr_d->email} nicht deine richtige Emailadresse ist, klicke <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">hier</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du hast dein Konto noch nicht per E-Mail best&auml;tigt<br><table border=0><tr><td><ol><li>Falls du keine Best&auml;tigungs-E-Mail erhalten haben solltest, klicke auf <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">hier</a><li>Falls {VAR: usr_d->email} nicht deine richtige E-Mail-Adresse ist, klicke auf <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">hier</a></ol></td></tr></table>
 ERR_emailconf_ttl:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
 ERR_registration_disabled_msg:	Der Administrator hat die Registrierung deaktiviert, versuche es bitte sp&auml;ter noch einmal
 ERR_registration_disabled_ttl:	Registrierung ist deaktiviert
@@ -30,7 +30,7 @@ avatar_sel_form:		Avatar Auswahl
 average_post_count:		{VAR: u->posted_msg_count} Beitr&auml;ge ({VAR: avg} durchschnittliche Beitr&auml;ge pro Tag)
 biography:			Werdegang:
 birth_date:			Geburtstag:
-browsing_folder:		durchsuche den <b>{VAR: folders[$folder_id]}</b> Ordner
+browsing_folder:		Durchsucht den <b>{VAR: folders[$folder_id]}</b> Ordner
 buddy_list_err_cantadd:		Du kannst nicht dich selber zur Buddyliste hinzuf&uuml;gen
 buddy_list_err_dup:		Dieser Benutzer ist bereits auf deiner Buddyliste
 buddy_list_err_nouser:		Der Benutzer, den du deiner Buddyliste hinzuf&uuml;gen wolltest, kann vom System nicht gefunden werden.
@@ -47,7 +47,7 @@ coppa_before:			Vor dem {DATE: coppa %e %B, %Y}
 coppa_conf:			COPPA Best&auml;tigung
 coppa_fax_conf:			Ich habe die Informationen meines Kindes begutachtet und die Handhabung der Privatssph&auml;re auf der Webseite gelesen. Mir ist bekannt, dass die Informationen im Profil durch das Benutzen eines Passwortes ge&auml;ndert werden k&ouml;nnen. Mir ist bekannt, dass ich um vollst&auml;ndige Entfernung des Benutzerprofils bitten kann.
 coppa_fax_date:			Datum:
-coppa_fax_email:		Emailadresse:
+coppa_fax_email:		E-Mail-Adresse:
 coppa_fax_instructions2:	Bitte drucken Sie dieses Formular aus, unterschreiben und schicken es an:
 coppa_fax_instructions:		Anleitung f&uuml;r ein Elternteil oder Vormund
 coppa_fax_login:		Login:
@@ -85,13 +85,13 @@ edit_message:			Beitrag bearbeiten
 edit_time_limit:		<br><b>Zeitspanne zum Bearbeiten</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> Minuten
 email:				E-Mail:
 email_body:			Inhalt:
-email_err_unabletoemail_msg:	Das Emailsystem wurde vom Administrator deaktiviert.
+email_err_unabletoemail_msg:	Das E-Mail-System wurde vom Administrator deaktiviert.
 email_err_unabletoemail_title:	FEHLER: Kann E-Mail nicht verschicken
 email_error_body:		Inhalt ist erforderlich
 email_error_invaliduser:	Ung&uuml;ltiger Benutzer
 email_error_namerequired:	Name ist erforderlich
 email_error_subject:		Betreff ist erforderlich
-email_error_unabletolocaddr:	Entschuldigung, das System konnte die E-Mail an {VAR-HTML: _POST['tx_name']} nicht verschicken, weil es die Emailadresse nicht finden kann
+email_error_unabletolocaddr:	Entschuldigung, das System konnte die E-Mail an {VAR-HTML: _POST['tx_name']} nicht verschicken, weil es die E-Mail-Adresse nicht finden kann.
 email_pg_title:			E-Mail
 email_subject:			Betreff:
 email_submit:			E-Mail
@@ -111,7 +111,7 @@ error_error:			Fehler
 error_invalidurl:		Ung&uuml;ltige URL
 error_title:			Fehlerseite
 exch_decline_ttl:		Das Verschieben des Themas {VAR: data->subject} ins Forum {VAR-HTML: data->f2_name} wurde abgelehnt.
-faq:				F.A.Q.
+faq:				Hilfe
 female:				Weiblich
 file_attachments:		Dateianhang:
 finduser_action:		Aktion
@@ -164,9 +164,9 @@ groupmgr_no_user:		Es gibt keinen Benutzer mit einem "{FUNC: char_fix(htmlspecia
 groupmgr_update_member:		Mitglied aktualisieren
 groupmgr_yes:			Ja
 help_back_to_top:		Zur&uuml;ck zum Anfang
-help_index_update:		Liest das <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
+help_index_update:		Liest die <a href="{TEMPLATE: help_index_update_lnk}">Hilfe</a>
 help_return_to_index:		Zur&uuml;ck zum Hilfeindex
-help_title:			F.A.Q.
+help_title:			Hilfe
 home:				Startseite
 homepage:			Homepage:
 icq_control_panel:		ICQ Online-Men&uuml;
@@ -296,7 +296,7 @@ na:				n/a
 new_posts:			Neue Beitr&auml;ge
 new_private_messages:		Du hast <span class="GenText" style="color: #ff0000">({VAR: c})</span> ungelesene private Nachrichten
 new_thread:			Ein neues Thema erstellen
-newest_user:			Das neuste registrierte Mitglied ist
+newest_user:			Das neueste registrierte Mitglied ist
 next_page:			N&amul;chste Seite
 next_thread:			N&auml;chstes Thema:
 no:				Nein
@@ -329,17 +329,17 @@ p_POLL:				Umfragen erstellen
 p_POST:				Beitrag
 p_RATE:				Themen bewerten
 p_REPLY:			Antworten
-p_SML:				Smilies verwenden
+p_SML:				Smileys verwenden
 p_SPLIT:			Themen aufteilen
 p_STICKY:			Angeheftete Beitr&auml;ge
-p_READ:				Read
+p_READ:				Lesen
 p_VISIBLE:			Sichtbar
 p_VOTE:				Abstimmen
 page_timings:			Insgesamt ben&ouml;tigte Zeit, um die Seite zu erzeugen: {VAR: page_gen_time} Sekunden
 permission_denied_msg:		Deine Benutzerrechte gestatten es dir nicht, den von dir geplanten Vorgang durchzuf&uuml;hren.
 permission_denied_title:	Zugriff verweigert!
 pm:				Private Nachrichten
-pm_err_nopm_msg:		Du kannst das System f&uuml;r private Nachrichten nicht verwenden, das es vom Administrator deaktiviert worden ist.
+pm_err_nopm_msg:		Du kannst das System f&uuml;r private Nachrichten nicht verwenden, da es vom Administrator deaktiviert worden ist.
 pm_err_nopm_title:		FEHLER: Private Nachrichten deaktiviert
 pm_no_space_msg:		Deine Ordner f&uuml;r private Nachrichten &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>{GVAR: MAX_PMSG_FLDR_SIZE} Bytes</b>, weil sie momentan <b>{VAR: fldr_size} Bytes</b> mit Nachrichten belegen.<br><br><font class="ErrorText">Entferne einige alte Nachrichten, um wieder Platz zu schaffen</font>.
 pm_no_space_title:		Kein freier Platz mehr &uuml;brig!
@@ -359,7 +359,7 @@ pmsg_selected:			Ausgew&auml;hlt
 pmsg_subject:			Betreff
 pmsg_time:			Zeit
 pmuserloc_login:		Login:
-pmuserloc_no_result:		Kein Ergebnis
+pmuserloc_no_result:		Keine Ergebnisse
 pmuserloc_submit:		Abschicken
 pmuserloc_user:			Benutzer
 poll:				Abstimmung:
@@ -422,14 +422,14 @@ post_normal:			Normal
 post_notification:		Benachrichtigung &uuml;ber Beitrag
 post_notification_desc:		Benachrichtige mich, wenn jemand auf meinen Beitrag antwortet.
 post_opt:			Forumseinstellungen
-post_opt_fud_off:		<b>FUD Code</b> ist <b>AUS</b>
-post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD Code</b> ist <b>AN</b></a>
+post_opt_fud_off:		<b>FUDCode</b> ist <b>AUS</b>
+post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDCode</b> ist <b>AN</b></a>
 post_opt_html_off:		<b>HTML</b> Code ist <b>AUS</b>
 post_opt_html_on:		<b>HTML</b> Code ist <b>AN</b>
 post_opt_images_off:		<b>Bilder</b> sind <b>AUS</b>
 post_opt_images_on:		<b>Bilder</b> sind <b>AN</b>
-post_opt_smilies_off:		<b>Smilies</b> sind <b>AUS</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> sind <b>AN</b></a>
+post_opt_smilies_off:		<b>Smileys</b> sind <b>AUS</b>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smileys</b> sind <b>AN</b></a>
 post_options:			Optionen:
 post_passwd:			Passwort zum Erstellen von Beitr&auml;gen:
 post_poll:			Abstimmung:
@@ -500,7 +500,7 @@ refresh_list:			Liste aktualisieren
 register:			Registrieren
 register_aim:			AIM Benutzername:
 register_allow_email_msg:	E-Mail Nachrichten erlauben:
-register_allow_email_msg_desc:	Anderen Benutzern erlauben, dir E-Mails &uuml;ber das FUD Forum zu schicken.
+register_allow_email_msg_desc:	Anderen Benutzern erlauben, dir E-Mails &uuml;ber das FUDforum zu schicken.
 register_avatar:		Avatar:
 register_avatar_type:		Avatar Typ:
 register_bday:			Geburtsdatum:
@@ -518,14 +518,14 @@ register_custom_avatar_url:	URL zum Benutzeravatar:
 register_day:			Tag
 register_def_thread_view:	Standard Themenansicht:
 register_del_avatar:		Avatar l&ouml;schen
-register_email_desc:		Bitte eine g&uuml;ltige Emailadresse angeben. Du kannst diese dann weiter unten im Men&uuml; verstecken.
-register_err_adminpasswd:	Du musst dein ADMINISTRATOR Passwort eingeben, um die Ver&auml;nderungen wirkam werden zu lassen
+register_email_desc:		Bitte eine g&uuml;ltige E-Mail-Adresse angeben. Du kannst diese dann weiter unten im Men&uuml; verstecken.
+register_err_adminpasswd:	Du musst dein ADMINISTRATOR Passwort eingeben, um die Ver&auml;nderungen wirkam werden zu lassen.
 register_err_avatarnotallowed:	Der Avatar, den du versuchst hochzuladen, ist nicht erlaubt, &uuml;berpr&uuml;fe die erlaubten Dateitypen.
-register_err_avatartobig:	Die Datei, die du versuchst hochzuladen, ist zu gro&szlig; und liegt &uuml;ber der {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte Grenze
-register_err_cantreg_title:	Fehler: Registrierung nicht m&ouml;glich
-register_err_emailexists:	Diese E-Mail Adresse wurde schon verwendet, falls du dein Passwort vergessen hast, la&szlig; es bitte zur&uuml;cksetzen, anstatt dich neu zu registrieren
+register_err_avatartobig:	Die Datei, die du versuchst hochzuladen, ist zu gro&szlig; und liegt &uuml;ber der Grenze von {GVAR: CUSTOM_AVATAR_MAX_SIZE} Byte.
+register_err_cantreg_title:	FEHLER: Registrierung nicht m&ouml;glich
+register_err_emailexists:	Diese E-Mail-Adresse wurde schon verwendet, falls du dein Passwort vergessen hast, la&szlig; es bitte zur&uuml;cksetzen, anstatt dich neu zu registrieren
 register_err_enterpasswd:	Du musst dein aktuelles Passwort eingeben, um die Ver&auml;nderungen wirksam werden zu lassen
-register_err_invalidemail:	Die E-Mail Adresse, die du angegeben hast ist anscheinend nicht g&uuml;ltig.
+register_err_invalidemail:	Die E-Mail-Adresse, die du angegeben hast ist anscheinend nicht g&uuml;ltig.
 register_err_login_notallowed:	Dieser Anmeldename ist nicht erlaubt
 register_err_loginunique:	Anmeldenamen f&uuml;r das Forum m&uuml;ssen einmalig sein, es gibt bereits einen Benutzer mit diesen Anmeldenamen im System
 register_err_needname:		Um die Registrierung erfolgreich abzuschlie&szlig;en, musst du deinen Namen angeben.
@@ -552,7 +552,7 @@ register_msnm:			MSN Messenger:
 register_name:			Name:
 register_notification:		Standardm&auml;&szlig;ige Benachrichtigung ausw&auml;hlen:
 register_notification_desc:	Soll die Benachrichtigung aktiviert sein? (kann beim Erstellen eines Beitrags deaktiviert werden)
-register_notify_js_error:	Du hast Benachrichtigung &uuml;ber ICQ ausgew&auml;hlt, aber keine ICQ Nr angegeben. Es wird daher E-Mail als Standard gew&auml;hlt&#46;
+register_notify_js_error:	Du hast Benachrichtigung &uuml;ber ICQ ausgew&auml;hlt, aber keine ICQ-Nr. angegeben. Es wird daher E-Mail als Standard gew&auml;hlt&#46;
 register_notify_method:		Benachrichtigungsmethode ausw&auml;hlen:
 register_occupation:		Beruf:
 register_optional:		Freiwillige Angaben
@@ -569,8 +569,8 @@ register_reset:			Zur&uuml;cksetzen
 register_sel_avatar:		Avatar ausw&auml;hlen
 register_show_avatar:		Avatare anzeigen:
 register_show_avatar_desc:	Erm&ouml;glicht dir, die Avatare der anderen zu verstecken w&auml;hrend du deren Beitr&auml;ge liest
-register_show_email:		E-Mail Adresse anzeigen:
-register_show_email_desc:	W&auml;hle diese Option aus, wenn du deine Emailadresse &ouml;ffentlich anzeigen m&ouml;chtest.
+register_show_email:		E-Mail-Adresse anzeigen:
+register_show_email_desc:	W&auml;hle diese Option aus, wenn du deine E-Mail-Adresse &ouml;ffentlich anzeigen m&ouml;chtest.
 register_show_sig:		Signatur anzeigen:
 register_show_sig_desc:		Erm&ouml;glicht es, die Signaturen von Forumsmitgliedern anzuzeigen oder zu verstecken
 register_sig:			Signatur:
@@ -591,7 +591,7 @@ register_your_pass:		Dein Passwort:
 registered:			Registriert:
 registered_on:			Registriert am {TEMPLATE: registered_on_date}
 regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nimm Kontakt zum Administrator auf an <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-remail_anon_opt:		Diesen Beitrag in einen E-Mail Klienten deiner Wahl kopieren, um sie an deine Freunde zu schicken.
+remail_anon_opt:		Diesen Beitrag in einen E-Mail-Programm deiner Wahl kopieren, um sie an deine Freunde zu schicken.
 remail_done:			Fertig
 remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) die für dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nVon {VAR: usr->alias}\n
 remail_email_topic:		Das Thema an einen Freund versenden
@@ -633,12 +633,12 @@ reset_err_invalidkey_msg:	Ung&uuml;ltiger Schl&uuml;ssel zum Zur&uuml;cksetzen d
 reset_err_invalidkey_title:	FEHLER
 reset_err_rstconf_msg:		Du solltest in den n&auml;chsten Minuten eine Anleitung per E-Mail erhalten
 reset_err_rstconf_title:	Information
-reset_error:			E-Mail Adresse nicht in der Datenbank gefunden
+reset_error:			E-Mail-Adresse nicht in der Datenbank gefunden
 reset_login_notify:		Das Passwort wurde an dich versendet. Du solltest es in den n&auml;chsten Minuten erhalten. Bitte &uuml;berpr&uuml;fe die E-Mail auf Benutzername und Passwort.<br>.<br>.<br>
-reset_newpass_msg:		Hallo,\n\nWie von dir gewünscht, wird dir der Anmeldename zugesendet.\nHier sind deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, dass dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn du es ändern willst, so kannst du das am\nBenutzerinterface vornehmen:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		Hallo,\n\nWie von dir gewünscht, wird dir der Anmeldename zugesendet.\nHier sind deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, dass dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn du es ändern willst, so kannst du das in\nden persönlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_newpass_title:		Passwort zurücksetzen
 reset_remind_pass:		Passwort Hinweis
-reset_reset:			Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, dass sobald du dein Passwort eingegeben hast, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode schlage bei MD5 HASH Algorhythmus nach)
+reset_reset:			Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, dass sobald du dein Passwort eingegeben hast, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode, schlage unter MD5 HASH Algorithmus nach.)
 reset_reset_button:		Passwort zur&uuml;cksetzen
 reset_reset_conf:		Dein Passwort wird zur&uuml;ckgesetzt und an dich verschickt, oder falls du deine E-Mail noch nicht best&auml;tigt hast, wird diese Best&auml;tigungsanfrage erneut an dich versendet.
 reset_title:			Passwort zur&uuml;cksetzen
@@ -660,7 +660,7 @@ search_entire_msg:		Ganzer Beitrag
 search_forum:			Forum
 search_forum_search:		Forumssuche
 search_in_forum:		Suchen im Forum:
-search_no_results:		Kein Ergebnis
+search_no_results:		Keine Ergebnisse
 search_posted_on:		Erstellt am
 search_subect_only:		Nur Betreff
 search_title:			Suche nach {VAR-HTML: srch}
@@ -724,7 +724,7 @@ th_expr_never:			Nie
 th_expr_one_day:		1 Tag
 th_expr_one_hr:			1 Stunde
 th_expr_one_month:		1 Monate
-th_expr_one_week:		1 Tage
+th_expr_one_week:		1 Woche
 th_expr_one_year:		1 Jahr
 th_expr_sixteen_hr:		16 Stunden
 th_expr_three_hr:		3 Stunden
@@ -757,7 +757,7 @@ tree_update:			Durchsucht das Thema (Baumansicht) <a href="{TEMPLATE: tree_updat
 un_ignore_user:			Die Beitr&auml;ge von diesem Benutzer nicht mehr ignorieren
 unanswered_posts:		Unbeantwortete Beitr&auml;ge
 unanswered_posts_desc:		Alle Beitr&auml;ge anzeigen, die keine Antworten haben
-unapproved_avatar_msg:		Der Administrator hat deinen Avatar nicht genehmigt. Die h&auml;figste Ursache daf&uuml;r ist das dieser zu gro&szlig; (Dateigr&ouml;&szlig;e und/oder Ausma&szlig;e)war oder einen unangemessenen Inhalt darstellte. Falls du mehr Informationen &uuml;ber die Gr&uuml;nde der Ablehnung wssen m&ouml;chtest, nimm Kontakt zum Administrator auf.
+unapproved_avatar_msg:		Der Administrator hat deinen Avatar nicht genehmigt. Die h&auml;figste Ursache daf&uuml;r ist das dieser zu gro&szlig; (Dateigr&ouml;&szlig;e und/oder Ausma&szlig;e)war oder einen unangemessenen Inhalt darstellte. Falls du mehr Informationen &uuml;ber die Gr&uuml;nde der Ablehnung erfahren m&ouml;chtest, nimm Kontakt zum Administrator auf.
 unapproved_avatar_title:	Dein Benutzeravatar wurde abgelehnt.
 unlock_thread:			Sperre des Themas aufheben
 unread_msg:			Dieses Thema enth&auml;lt noch ungelesene Beitr&auml;ge
@@ -803,7 +803,7 @@ register_err_taken_alias:	Der Alias, welchen du verwenden m&ouml;chtest, wird be
 register_alias:			Alias
 register_alias_desc:		Wenn du m&ouml;chtest, dass dein Nickname, der im Forum angezeigt wird, sich vom Loginnamen unterscheidet, dann trage hier jenen ein, der angezeigt werden soll.
 register_allow_pm_msg:		Private Nachrichten erlauben	
-register_allow_pm_msg_desc:	Anderen Benutzern erlauben, dir &uuml;ber das FUDForum private Nachrichten zu schicken.
+register_allow_pm_msg_desc:	Anderen Benutzern erlauben, dir &uuml;ber das FUDforum private Nachrichten zu schicken.
 postcheck_pm_disabled:		Du kannst an "{VAR-HTML: v}" keine privaten Nachrichten verschicken, weil diese Person das nicht m&ouml;chte.
 polllist_vote:			Abstimmen
 polllist_view_results:		Ergebnisse ansehen
@@ -824,8 +824,8 @@ search_sorting:			Ergebnisse nach Datum sortieren in:
 post_proceed:			Fortsetzen
 post_moderated_forum:		Du hast einen Beitrag in einem moderierten Forum erstellt, was bedeutet, dass dieser nicht eher im Forum erscheinen wird, bevor einer der Moderatoren oder Administratoren ihn gebilligt hat
 post_moderated_forum_ttl:	Mitteilung vom moderierten Forum
-buddy_list_bday:		Heute wird {VAR: r[2]} {VAR: age}
-email_warning_msg:		Wenn du deine gegenw&auml;rtige E-Mail Adresse &auml;nderst, wird dein Benutzerkonto so lange als unbest&auml;tigt gef&uuml;hrt, bis es mit der neuen Adresse best&auml;tigt wird.
+buddy_list_bday:		Heute wird {VAR: r[2]} {VAR: age} Jahre alt
+email_warning_msg:		Wenn du deine gegenw&auml;rtige E-Mail-Adresse &auml;nderst, wird dein Benutzerkonto so lange als unbest&auml;tigt gef&uuml;hrt, bis es mit der neuen Adresse best&auml;tigt wird.
 register_show_im:		Den IM Status anzeigen
 register_show_im_desc:		Ob der IM Status des Verfassers neben seinem Beitrag angezeigt werden soll oder nicht.
 unread_message:			Ungelesene Nachricht
@@ -833,13 +833,13 @@ read_message:			Gelesene Nachricht
 threadt_more:			&lt;mehr&gt;
 threadt_disabled_ttl:		Die Baumansicht der Themen ist deaktiviert worden.
 threadt_disabled_desc:		Der Administrator hat die Baumansicht f&uuml;r Themen deaktiviert, benutze daher bitte die flache Ansicht.
-threadt_update:			Durchsuche das Forum (Baumansicht) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:			Durchsucht das Forum (Baumansicht) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 register_msg_tree_view:		Flache Themenanzeige/Baumansicht der Themen
 register_tree_msg_view:		Baumansicht der Themen/Flache Themenanzeige 
 mmod_delete_cofirm_ttl:		Best&auml;tigung f&uuml;r Themen/Beitragsl&ouml;schung
 spell_alts:			keine Alternativen
-insert_uploaded_image:		Ein Bild in den Beitrag einf&uuml;gen
-finduser_help:			Die Suchmaschine f&uuml;gt automatisch eine * Maske deiner Anfrage hinzu. Um zum Bsp. alle Benutzer zu suchen, deren Login mit einem &#39;a&#39; beginnt, tr&auml;gt man &#39;a&#39; in die Sucheingabe ein.
+insert_uploaded_image:		Bild in den Beitrag einf&uuml;gen
+finduser_help:			Die Suchmaschine f&uuml;gt automatisch eine * Maske deiner Anfrage hinzu, die Suche <b>ber&uuml;cksichtigt Groß- und Kleinschreibung</b>. Um zum Bsp. alle Benutzer zu suchen, deren Login mit einem &#39;a&#39; beginnt, tr&auml;gt man &#39;a&#39; in die Sucheingabe ein.
 back_to_top:			Zur&uuml;ck zum Anfang
 iemail_participate:		Zur Teilnahme an der Diskussion geht es hier entlang:
 pm_err_disabled_title:		Private Nachrichten deaktiviert
@@ -857,7 +857,7 @@ member_search:			<br>Oder verwende die <a href="javascript://" onClick="javascri
 post_all_ext_allowed:		(unbegrenzt)
 buddy_offline:			{VAR: r[2]} ist gerade offline
 buddy_online:			{VAR: r[2]} ist gerade online
-sml_no_smilies:			Keine Emoticons vorhanden.
+sml_no_smilies:			Keine Smileys vorhanden.
 login_unapproved_account_ttl:	Unbest&auml;tigtes Konto
 login_unapproved_account_msg:	Der Administrator dieses Forums hat sich daf&uuml;r entschieden, jedes neue Konto vor der Aktivierung eigenh&auml;ndig zu billigen. Dein Konto ist bisher noch nicht gebilligt worden, weswegen es dir nicht m&ouml;glich sein wird, auf einige Optionen zuzugreifen, die bereits registrierten Mitgliedern zur Verf&uuml;gung stehen, bis dein Konto gebilligt worden ist.
 remove_from_buddy_list:		von der Buddyliste entfernen
@@ -875,23 +875,23 @@ no_unread_messages:		Es gibt keine ungelesenen Beitr&auml;ge, die den Suchkriter
 thread_mark_all_read:		Alle ungelesenen Beitr&auml;ge im Forum als gelesen kennzeichnen
 thread_mark_all_read_desc:	Alle ungelesenen Beitr&auml;ge in diesem Forum werden als gelesen gekennzeichnet
 private_no_messages:		Es sind keine Nachrichten in diesen Ordner vorhanden
-register_email_change_subject:	Bestätigung der geänderten E-Mail Adresse
-register_email_change_msg:	Bitte bestätige deine neue E-Mail Adresse "{VAR: uent->email}" welche die alte ersetzen wird "{VAR: old_email}" in dem du die untere URL aufrufst:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald du die neue Adresse bestätigt hast, wird dein Konto wieder aktiviert werden.
+register_email_change_subject:	Bestätigung der geänderten E-Mail-Adresse
+register_email_change_msg:	Bitte bestätige deine neue E-Mail-Adresse "{VAR: uent->email}", welche die alte Adresse "{VAR: old_email}" ersetzen wird, in dem du die folgende URL aufrufst:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald du die neue Adresse bestätigt hast, wird dein Konto wieder aktiviert werden.
 iemail_thread_unsub:		Abonnement f&uuml;r dieses Thema aufheben		
 iemail_forum_unsub:		Das Abonnement f&uuml;r dieses Forum beenden
 primary_group_prefix:		Hauptgruppe f&uuml;r Forum:
 group_resources:		Diese Gruppe kontrolliert die Berechtigungen f&uuml;r folgende Foren
 register_email:			E-Mail
 register_admin_newuser_title:	Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
-register_admin_newuser_msg:	Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor du oder ein anderer Forumsadministrator es bestätigt haben. Um das Konto zu begutachten gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail Benachrichtigungen über neue Benutzerregistrierungen zukünftig abstellen willst kannst du dies über das Administratormenü durch Ändern des Wertes der "New Account Notification" Einstellung erledigen.
+register_admin_newuser_msg:	Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor es durch dich oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen zukünftig abstellen willst kannst du dies über das Administratormenü und durch Ändern des Wertes der "New Account Notification" Einstellung erledigen.
 post_mod_msg_notify_title:	Neuer Beitrag im Forum "{VAR: frm->name}" wartet auf Bestätigung
 post_mod_msg_notify_msg:	Ein neuer Beitrag mit der Überschrift "{VAR: msg_post->subject}" wurde gerade in einem Forum, welches von dir moderiert wird, erstellt. Um diesen Beitrag zu begutachten, gehe zu: {FULL_ROOT}{ROOT}?t=modque\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Benachrichtigung nicht.\n
 thread_printable_pdf:		Druckbares PDF erzeugen
 thread_syndicate:		Themen als Syndicate anderen Seiten zur Verf&uuml;gung stellen (XML)
 reg_conf_title:			Registrierungsbest&auml;tigung
-reg_conf_email:			<b>E-Mail Best&auml;tigung</b><br />An dich wurde eine E-Mail mit einer speziellen URL versendet, welche von dir aufgesucht werden muss, bevor dein Konto aktiviert werden kann. Falls du diese E-Mail nicht in den n&auml;chsten Minuten erh&auml;tst, solltest du dich mit deinem Konto anmelden und sicherstellen, dass die angegebene E-mail Adresse korrekt ist. Sobald du dein Konto best&auml;tigt hast, wirst du auch die Optionen verwenden k&ouml;nnen, die bereits best&auml;tigten Mitgliedern vorbehalten sind.
-reg_conf_account:		<b>Konto Best&auml;tigung</b><br />Bevor dein Konto aktiviert wird, muss es von den Administratoren gebilligt werden. Sobald dies geschehen ist, wirst du eine E-mail erhalten, die dich &uuml;ber die Best&auml;tigung unterrichtet. Bis dahin wirst du dich zwar mit deinem Konto anmelden, jedoch keine der gebilligten Benutzern vorbehaltenen Optionen verwenden k&ouml;nnen.
-forum_banned_user:		Dein vorausgegangenes Verhalten hat dazu gef&uuml;hrt, dass du dauerhaft aus diesem Forum verbannt worden bist. Auf Wiedersehen.
+reg_conf_email:			<b>E-Mail-Best&auml;tigung</b><br />An dich wurde eine E-Mail mit einer speziellen URL versendet, welche von dir aufgesucht werden muss, bevor dein Konto aktiviert werden kann. Falls du diese E-Mail nicht in den n&auml;chsten Minuten erh&auml;tst, solltest du dich mit deinem Konto anmelden und sicherstellen, dass die angegebene E-Mail-Adresse korrekt ist. Sobald du dein Konto best&auml;tigt hast, wirst du auch die Optionen verwenden k&ouml;nnen, die bereits best&auml;tigten Mitgliedern vorbehalten sind.
+reg_conf_account:		<b>Konto Best&auml;tigung</b><br />Bevor dein Konto aktiviert wird, muss es von den Administratoren gebilligt werden. Sobald dies geschehen ist, wirst du eine E-Mail erhalten, die dich &uuml;ber die Best&auml;tigung unterrichtet. Bis dahin wirst du dich zwar mit deinem Konto anmelden, jedoch keine der gebilligten Benutzern vorbehaltenen Optionen verwenden k&ouml;nnen.
+forum_banned_user:		Dein vorausgegangenes Verhalten hat dazu gef&uuml;hrt, dass du aus diesem Forum verbannt worden bist. Auf Wiedersehen.
 mnav_description:		Beitragsnavigator
 mnav_date_limit:		Datumsbereich:
 mnav_forum_limit:		Suche nur in:
@@ -909,7 +909,7 @@ mnav_day:			Tag(e)
 mnav_week:			Woche(n)
 mnav_month:			Monat(e)
 mnav_title:			Beitragsnavigator
-mnav_update:			Durchsuche Beitr&auml;ge mit Hilfe des <a href="{TEMPLATE: mnav_update_lnk}">Beitragsnavigators</a>
+mnav_update:			Durchsucht Beitr&auml;ge mit Hilfe des <a href="{TEMPLATE: mnav_update_lnk}">Beitragsnavigators</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Nachricht
 pm_notify_body_email:		Du hast eine neue private Nachricht mit der Überschrift "{VAR: subject}" von "{VAR: from}"  im "{GVAR: FORUM_TITLE}" Forum.\nKlicke hier um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Nachrichten" in deinem Profil.
 register_pm_notification:	Benachrichtigung &uuml;ber private Nachricht
@@ -919,7 +919,7 @@ findu_unban:			Bann aufheben
 findu_ban:			Verbannen
 findu_edit:			Bearbeiten
 findu_delete:			L&ouml;schen
-dmsg_reply_to:			antworten auf {VAR: obj->reply_to}
+dmsg_reply_to:			ist eine Antwort auf #{VAR: obj->reply_to}
 merge_topics:			Themen zusammenf&uuml;hren
 merge_topics_cp:		Men&uuml; zum Zusammenf&uuml;hren von Themen
 merge_topics_tpl:		Themen zum Zusammenf&uuml;hren ausw&auml;hlen <font class="SmallText">(Du musst mehr als ein Thema ausw&auml;hlen)</font>
@@ -937,8 +937,8 @@ adm_account_rejected:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Admin
 adm_account_rejected_s:		Deine Bitte um ein Konto für \'{GVAR: FORUM_TITLE}\' wurde abgewiesen.
 thread_on:			an
 userinfo_buddy:			Buddy:
-register_email_addr:		Emailadresse:
-reset_suffix:			\n\nFalls du diese Nachricht unbeabsichtigt erhalten hast, ignoriere sie bitte. Falls du mehrfache Kopien dieser E-Mail erhalten hast und um diese du gar nicht gebeten hast, so kontaktiere bitte den Forumsadministrator an {GVAR: ADMIN_EMAIL}\n\nDiese Anfrage wurde von: {VAR: _SERVER['REMOTE_ADDR']} gestellt.\n\n
+register_email_addr:		E-Mail-Adresse:
+reset_suffix:			\n\nFalls du diese Nachricht unbeabsichtigt erhalten hast, ignoriere sie bitte. Falls du mehrfache Kopien dieser E-Mail erhalten hast und um diese du gar nicht gebeten hast, so kontaktiere bitte den Forumsadministrator {GVAR: ADMIN_EMAIL}\n\nDiese Anfrage wurde von {VAR: _SERVER['REMOTE_ADDR']} gestellt.\n\n
 usrinfo_last_visit:		Letzter Besuch:
 mnav_newer:			neuer als
 mnav_older:			&auml;lter als
@@ -946,80 +946,80 @@ ip_search_by_ip:		Benutzer nach deren IP suchen
 ip_search_syntax:		Unterst&uuml;tzte Syntax: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:			Suche
 ip_analyze_usage:		IP Nutzung analysieren
-ip_analyze_usage_descr:		Bitte gebe den genauen Benutzernnamen des Benutzers an.
+ip_analyze_usage_descr:		Bitte gebe den genauen Benutzernamen des Benutzers an.
 ip_users_using:			Benutzer, die die IP Adresse &#39;{VAR: ip}&#39; benutzt haben
 ip_all_ips:			Alle IP(s), die von &#39;{VAR: user}&#39; verwendet worden sind
 ip_title:			IP Browser
 userinfo_real_name:		Tats&auml;chlicher Name:
-register_err_alias_notallowed:	This alias is not allowed
-post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
-ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
-post_err_mod_forum_edit_ttl:	ERROR
-post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
-dmsg_num:			message #{VAR: obj->id}
-postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
-delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
-delete_message_extra_body:	Include the body of the removed message that will be sent to the author.
-delete_msg_removed_ttl:		Your message was removed by administration staff.
-delete_msg_pm_body:		Original message
-delete_msg_pm_subject:		Subject: {VAR: data[15]}
-ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
-ip_whois_title:			<b>ISP Information</b><br />
-register_theme:			Theme:
-pmsg_trash:			Empty Trash
-uc_new_pm:			New Private Messages
-uc_new_topic:			New Topic
-uc_new_cat_forum:		Subscribed Forums With New Messages
-uc_cat_forum:			Category &raquo; Forum
-uc_sub_topics:			Subscribed Topics With New Messages
-uc_page_title:			Viewing personal control panel.
-search_options:			Search Options
-search_user_filter:		Filter by user:
-register_none:			Don&#39;t Notify
-findu_no_conf:			unconfirmed user
-register_max_sig_len:		Maximum Length:
-register_turing:		Please enter the code shown below:
-register_err_turing:		Invalid validation code.
-modque_cat:			Category
+register_err_alias_notallowed:	Dieser Alias ist nicht erlaubt
+post_err_noannontopics_msg2:	<fieldset><legend>FEHLER: Nicht ausreichende Rechte</legend>Anonyme Benutzer d&uuml;rfen keine Themen erstellen.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>FEHLER: Nicht ausreichende Rechte</legend>Anonyme Benutzer d&uuml;rfen nicht antworten.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>FEHLER: Du bist nicht angemeldet</legend>Um Zugriff auf diese Seite zu erhalten, musst du Mitglied dieses Forums sein.</fieldset><br />
+post_err_mod_forum_edit_ttl:	FEHLER
+post_err_mod_forum_edit_msg:	Du kannst in einem moderierten Forum keine Beiträge bearbeiten.
+dmsg_num:			Beitrag #{VAR: obj->id}
+postcheck_session_invalid:	Deine Sitzung ist abgelaufen, sende das Formular bitte erneut ab. Entschuldige die Unanehmlichkeiten.
+delete_message_extra_desc:	<b>Optional</b><br />Gib einen Grund f&uuml;r die L&ouml;schung an, der mit einer privaten Nachricht an den Autor geschickt wird.
+delete_message_extra_body:	F&uuml;ge den Text des entfernten Beitrags in die Nachricht ein, die an den Autor geschickt wird.
+delete_msg_removed_ttl:		Deine Nachricht wurde durch den Administrator entfernt.
+delete_msg_pm_body:		Urspr&uuml;ngliche Nachricht
+delete_msg_pm_subject:		Thema: {VAR: data[15]}
+ip_no_whois:			Whois Information f&uuml;r <b>{VAR: ip}</b> ist nicht verf&uuml;gbar.
+ip_whois_title:			<b>Provider-Informationen</b><br />
+register_theme:			Style:
+pmsg_trash:			Papierkorb leeren
+uc_new_pm:			Neue Private Nachrichten
+uc_new_topic:			Neues Thema
+uc_new_cat_forum:		Abonnierte Foren mit neuen Beiträgen
+uc_cat_forum:			Kategorie &raquo; Forum
+uc_sub_topics:			Abonnierte Themen mit neuen Beiträgen
+uc_page_title:			Bearbeitet eigenes Profil
+search_options:			Suchoptionen
+search_user_filter:		Nach Benutzer filtern:
+register_none:			Nicht benachrichtigen
+findu_no_conf:			unbestätigter Benutzer
+register_max_sig_len:		Maximale Länge:
+register_turing:		Bitte den unten angezeigen Code eingeben:
+register_err_turing:		Ung&uuml;ltiger Code
+modque_cat:			Kategorie
 modque_forum:			Forum
-idx_compact_forum_row:		Available Forums:
-mmd_del_title:			Delete Topics
-mmd_mov_title:			Move Topics
-mmd_move_threads_to:		Destination Forum:
-mmd_abort_move:			Cancel
-mmd_move:			Move Topics
-pmsg_pdf_btn:			Make PDF Archive
-search_results_hdr:		{VAR: total} Search Results Found
-thread_del_all:			Delete All Selected
-thread_mov_all:			Move All Selected
+idx_compact_forum_row:		Verf&uuml;gbare Foren:
+mmd_del_title:			Themen l&ouml;schen
+mmd_mov_title:			Themen verschieben
+mmd_move_threads_to:		Zielforum:
+mmd_abort_move:			Abbrechen
+mmd_move:			Thema verschieben
+pmsg_pdf_btn:			PDF Archiv erzeugen
+search_results_hdr:		{VAR: total} Suchergebnisse gefunden
+thread_del_all:			Alle markierten l&ouml;schen
+thread_mov_all:			Alle markierten verschieben
 dmsg_ip:			IP:
-err_banned_acct_title:		ERROR: You have been banned.
-err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
-err_blockedaccnt_title:		ERROR: Your account has been filtered out.
-err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
-merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
-tabs_own_posts:			Show Own Posts
-buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
-sml_emoticon:			Emoticon
+err_banned_acct_title:		FEHLER: Du wurdest verbannt.
+err_banned_acct_msg:		Dein Konto wurde aufgrund von Verletzungen der Forumsregeln {IF: $ban_expiry}vor&uuml;bergehend bis zum {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent{ENDI} gebannt.
+err_blockedaccnt_title:		FEHLER: Dein Konto wurde ausgefiltert.
+err_blockedaccnt_msg:		Deinem Konto wurde aufgrund der aktivierten Benutzerfilter der Zugriff auf das Forum verwehrt .
+merge_th_page_list:		Seite der Themenauswahl
+most_users_online:		Mit <b>{VAR: st_obj->most_online}</b> Benutzern waren am <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> die meisten Benutzer gleichzeitig online.
+sub_unsub_all_forums:		Abonnement f&uuml;r alle Foren beenden
+sub_unsub_all_topics:		Abonnement f&uuml;r alle Themen beenden
+tabs_own_posts:			Eigene Beitr&auml;ge ansehen
+buddy_list_err_ignore:		Du kannst keine Benutzer zu deiner Buddyliste hinzuf&uuml;gen, die dich ignorieren.
+sml_emoticon:			Smiley
 sml_code:			Code
-mnav_sub_only:			Search in subscribed forums only
-register_topics_per_page:	Topics Per Page:
-login_min_time:			This forum allows one login attempt every {VAR: MIN_TIME_BETWEEN_LOGIN} seconds, please wait {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconds before your next attempt.
-post_not_logged_in:		You are not currently logged in, the message will be posted anonymously.
-post_common_bold:		Bold
-post_common_italics:		Italics
-post_common_underline:		Underline
-post_common_align_left:		Align Left
-post_common_align_center:	Align Center
-post_common_align_right:	Align Right
-post_common_link:		Insert a Link
-post_common_email:		Insert an E-mail address
-post_common_image:		Insert an image
-post_common_nlist:		Add numbered list
-post_common_blist:		Add bulleted list
-post_common_quote:		Add Quote
-post_common_code:		Add Code
+mnav_sub_only:			Nur in abonnierten Foren suchen
+register_topics_per_page:	Themen pro Seite:
+login_min_time:			Das Forum erlaubt Anmeldeversuche alle {VAR: MIN_TIME_BETWEEN_LOGIN} Sekunden, bitte warte {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} Sekunde(n) vor deinem n&auml;chsten Versuch.
+post_not_logged_in:		Du bist zur Zeit nicht angemeldet, der Beitrag wird anonym gepostet.
+post_common_bold:		Fett
+post_common_italics:		Kursiv
+post_common_underline:		Unterstrichen
+post_common_align_left:		Linksbündig
+post_common_align_center:	Zentriert
+post_common_align_right:	Rechtsbündig
+post_common_link:		Link einfügen
+post_common_email:		E-Mail-Addresse einfügen
+post_common_image:		Bild einfügen
+post_common_nlist:		Nummerierte Liste einfügen
+post_common_blist:		Aufzählung einfügen
+post_common_quote:		Zitat einfügen
+post_common_code:		Code einfügen
