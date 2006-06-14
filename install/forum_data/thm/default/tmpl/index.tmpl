@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.67 2006/05/19 17:55:23 hackie Exp $
+* $Id: index.tmpl,v 1.68 2006/06/14 14:25:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -90,17 +90,23 @@
 function toggleCategory(cid, level)
 {
 	var c = document.getElementById('c'+cid).nextSibling;
-	var on = c.style.display == 'table-row' ? 'none' : 'table-row';
+	var on = c.style.display != 'none' ? 'none' : (document.all ? '' : 'table-row');
 
 	while (c) {
 		if (c.nodeType != 1) {
 			c = c.nextSibling;
+		} else if (document.all) {
+			if (c.p && ((c.p > level) || (c.p == level && !c.id))) { 
+				c.style.display = on;
+				c = c.nextSibling;
+				continue;
+			}
 		} else if (c.hasAttribute('p') && ((c.getAttribute('p') > level) || (c.getAttribute('p') == level && !c.hasAttribute('id')))) {
 			c.style.display = on;
 			c = c.nextSibling;
-		} else {
-			break;
+			continue;
 		}
+		break;
 	}
 
 	if (on == 'none') {
