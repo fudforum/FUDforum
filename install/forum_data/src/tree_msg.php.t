@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree_msg.php.t,v 1.2 2006/05/19 14:47:21 hackie Exp $
+* $Id: tree_msg.php.t,v 1.3 2006/06/18 16:47:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,7 +25,7 @@ $msg_obj = db_sab('SELECT
 	u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.last_visit AS time_sec, u.users_opt,
 	l.name AS level_name, l.level_opt, l.img AS level_img,
 	p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
-	'.(_uid ? ' pot.id AS cant_vote ' : ' 1 AS cant_vote ').',
+	'.(_uid ? ' pot.id AS cant_vote, r.last_view, r2.last_view AS last_forum_view ' : ' 1 AS cant_vote ').',
 	'.$fields.', mo.id AS md
 FROM
 	{SQL_TABLE_PREFIX}msg m
@@ -36,7 +36,11 @@ FROM
 	LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 	LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 	LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id'.
-	(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid : ' ').'
+	(_uid ? ' 
+		LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
+		LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=t.id AND r.user_id='._uid.'
+		LEFT JOIN {SQL_TABLE_PREFIX}forum_read r2 ON r2.forum_id=t.forum_id AND r2.user_id='._uid
+	 : ' ').'
 WHERE
 	m.id='.$mid.' AND m.apr=1');
 
@@ -72,3 +76,15 @@ WHERE
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: TREE_MSG_PAGE}
+<?php
+	while (@ob_end_flush());
+	th_inc_view_count($msg_obj->thread_id);
+	if (_uid && $msg_obj) {
+		if ($msg_obj->last_forum_view < $msg_obj->post_stamp) {
+			user_register_forum_view($msg_obj->forum_id);
+		}
+		if ($msg_obj->last_view < $msg_obj->post_stamp) {
+			user_register_thread_view($msg_obj->thread_id, $msg_obj->post_stamp, $msg_obj->id);
+		}
+	}
+?>
