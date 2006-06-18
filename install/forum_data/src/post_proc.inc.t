@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.85 2006/05/06 20:18:42 hackie Exp $
+* $Id: post_proc.inc.t,v 1.86 2006/06/18 16:25:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,6 +19,8 @@ function fud_substr_replace($str, $newstr, $pos, $len)
 
 function url_check($url)
 {
+	$url = preg_replace('!\s+!','', $url);
+
 	if (strpos($url, '&amp;#') !== false) {
 		return preg_replace('!&#([0-9]{2,3});!e', "chr(\\1)", char_fix($url));
 	}
@@ -152,7 +154,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 					if (!strncasecmp($url, 'www.', 4)) {
 						$url = 'http&#58;&#47;&#47;'. $url;
-					} else if (strpos(strtolower($url), 'javascript:') !== false) {
+					} else if (strpos(strtolower($url), 'script:') !== false) {
 						$ostr .= substr($str, $pos, $cepos - $pos + 1);
 						$epos = $cepos;
 						$str[$cpos] = '<';
@@ -236,13 +238,13 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 						if (!$parms) {
 							$parms = substr($str, $epos+1, ($cpos-$epos)-1);
-							if (strpos(strtolower(url_check($parms)), 'javascript:') === false) {
+							if (strpos(strtolower(url_check($parms)), 'script:') === false) {
 								$ostr .= '<img '.$class.'src="'.$parms.'" border=0 alt="'.$parms.'">';
 							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 							}
 						} else {
-							if (strpos(strtolower(url_check($parms)), 'javascript:') === false) {
+							if (strpos(strtolower(url_check($parms)), 'script:') === false) {
 								$ostr .= '<img '.$class.'src="'.$parms.'" border=0 alt="'.substr($str, $epos+1, ($cpos-$epos)-1).'">';
 							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
@@ -420,8 +422,8 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		}
 		$GLOBALS['seps']['='] = '=';
 
-		$url = substr($ostr, $us+1, $ue-$us-1);
-		if (!strncasecmp($url, 'javascript', strlen('javascript')) || ($ue - $us - 1) < 9) {
+		$url = url_check(substr($ostr, $us+1, $ue-$us-1));
+		if (strpos($url, 'script', strlen('script')) !== false || ($ue - $us - 1) < 9) {
 			$pos = $ue;
 			continue;
 		}
