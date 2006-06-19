@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.32 2005/12/07 18:07:45 hackie Exp $
+* $Id: postcheck.inc.t,v 1.33 2006/06/19 23:43:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,37 +74,38 @@ function check_ppost_form($msg_subject)
 	if (post_check_images()) {
 		set_err('msg_body', '{TEMPLATE: postcheck_max_images_err}');
 	}
-	$GLOBALS['recv_user_id'] = array();
-	/* hack for login names containing HTML entities ex. &#123; */
-	if (($hack = strpos($_POST['msg_to_list'], '&#')) !== false) {
-		$hack_str = preg_replace('!&#([0-9]+);!', '&#\1#', $_POST['msg_to_list']);
-	} else {
-		$hack_str = $_POST['msg_to_list'];
-	}
-	foreach(explode(';', $hack_str) as $v) {
-		$v = trim($v);
-		if (strlen($v)) {
-			if ($hack !== false) {
-				$v = preg_replace('!&#([0-9]+)#!', '&#\1;', $v);
-			}
-			if (!($obj = db_sab('SELECT u.users_opt, u.id, ui.ignore_id FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ui ON ui.user_id=u.id AND ui.ignore_id='._uid.' WHERE u.alias='.ssn(char_fix(htmlspecialchars($v)))))) {
-				set_err('msg_to_list', '{TEMPLATE: postcheck_no_such_user}');
-				break;
-			}
-			if (!empty($obj->ignore_id)) {
-				set_err('msg_to_list', '{TEMPLATE: postcheck_ignored}');
-				break;
-			} else if (!($obj->users_opt & 32) && !$GLOBALS['is_a']) {
-				set_err('msg_to_list', '{TEMPLATE: postcheck_pm_disabled}');
-				break;
-			} else {
-				$GLOBALS['recv_user_id'][] = $obj->id;
-			}
-		}
-	}
 
 	if (empty($_POST['msg_to_list'])) {
 		set_err('msg_to_list', '{TEMPLATE: postcheck_no_recepient}');
+	} else {
+		$GLOBALS['recv_user_id'] = array();
+		/* hack for login names containing HTML entities ex. &#123; */
+		if (($hack = strpos($_POST['msg_to_list'], '&#')) !== false) {
+			$hack_str = preg_replace('!&#([0-9]+);!', '&#\1#', $_POST['msg_to_list']);
+		} else {
+			$hack_str = $_POST['msg_to_list'];
+		}
+		foreach(explode(';', $hack_str) as $v) {
+			$v = trim($v);
+			if (strlen($v)) {
+				if ($hack !== false) {
+					$v = preg_replace('!&#([0-9]+)#!', '&#\1;', $v);
+				}
+				if (!($obj = db_sab('SELECT u.users_opt, u.id, ui.ignore_id FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ui ON ui.user_id=u.id AND ui.ignore_id='._uid.' WHERE u.alias='.ssn(char_fix(htmlspecialchars($v)))))) {
+					set_err('msg_to_list', '{TEMPLATE: postcheck_no_such_user}');
+					break;
+				}
+				if (!empty($obj->ignore_id)) {
+					set_err('msg_to_list', '{TEMPLATE: postcheck_ignored}');
+					break;
+				} else if (!($obj->users_opt & 32) && !$GLOBALS['is_a']) {
+					set_err('msg_to_list', '{TEMPLATE: postcheck_pm_disabled}');
+					break;
+				} else {
+					$GLOBALS['recv_user_id'][] = $obj->id;
+				}
+			}
+		}
 	}
 
 	if (defined('fud_bad_sq')) {
