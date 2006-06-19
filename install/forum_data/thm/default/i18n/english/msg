@@ -511,7 +511,7 @@ poll_hours:			hours
 poll_month:			month
 poll_year:			year
 poll_week:			week
-tabs_register:			Settings
+tabs_register:			Account Settings
 tabs_subscriptions:		Subscriptions
 tabs_referrals:			Referrals
 tabs_buddy_list:		Buddy List
