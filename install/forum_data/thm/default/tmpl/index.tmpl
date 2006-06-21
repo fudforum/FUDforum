@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.68 2006/06/14 14:25:43 hackie Exp $
+* $Id: index.tmpl,v 1.69 2006/06/21 18:19:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,11 +23,15 @@
 
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
-<tr id="c{VAR: k}" p="{VAR: i[0]}" style="display: {IF: empty($collapse[$cid]) || $cid == $k}table-row{ELSE}none{ENDI};"><td colspan="6"  class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;"><a href="javascript://" onClick="toggleCategory({VAR: k}, {VAR: i[0]});" class="CatLink" title="{IF: !empty($collapse[$k])}{MSG: maximize_category}{ELSE}{MSG: minimize_category}{END}"><img id="c{VAR: k}img" src="{THEME_IMAGE_ROOT}/{IF: empty($collapse[$k])}min{ELSE}max{ENDI}{DEF: img_ext}" alt="" /></a> <a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td></tr>
+<tr id="c{VAR: k}" p="{VAR: i[0]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
+<td colspan="6"  class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
+<a href="javascript://" onClick="toggleCategory({VAR: k}, {VAR: i[0]});" class="CatLink" title="{IF: !empty($collapse[$k])}{MSG: maximize_category}{ELSE}{MSG: minimize_category}{END}">
+<img id="c{VAR: k}img" src="{THEME_IMAGE_ROOT}/{IF: empty($collapse[$k])}min{ELSE}max{ENDI}{DEF: img_ext}" alt="" /></a> 
+<a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td></tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr id="c{VAR: k}" p="{VAR: i[0]}" style="display: table-row;"><td class="CatDesc CatLockPad" colspan="6" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;"><span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}</td></tr>
+<tr id="c{VAR: k}" p="{VAR: i[0]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};"><td class="CatDesc CatLockPad" colspan="6" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;"><span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}</td></tr>
 {SECTION: END}
 
 {SECTION: moderators moderator list}
@@ -35,7 +39,7 @@
 {SECTION: END}
 
 {SECTION: index_forum_entry forum entry row}
-<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" p="{VAR: i[0]}">
+<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" p="{VAR: i[0]}" c="{VAR: k}">
 	<td class="RowStyleA wo">{IF: $r[6]}<img src="images/forum_icons/{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
 	<td class="RowStyleB wo">{VAR: forum_read_indicator}</td>
 	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
@@ -46,7 +50,7 @@
 {SECTION: END}
 
 {SECTION: forum_with_no_view_perms}
-<tr p="{VAR: i[0]}" style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}">
+<tr p="{VAR: i[0]}" style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" c="{VAR: k}">
 	<td class="RowStyleA" colspan="6">{VAR: r[10]}{FUNC: ($r[11] ? '<br />'.$r[11] : '')}</td>
 </tr>
 {SECTION: END}
@@ -87,33 +91,65 @@
 {TEMPLATE-DATA: cat_path}
 
 <script type="text/javascript">
+function minCatImage(cid, on)
+{
+	if (on == 'none') {
+		document.getElementById(cid+'img').src = document.getElementById(cid+'img').src.replace(/min\.([a-z]+)$/, "max.$1");
+	} else {
+		document.getElementById(cid+'img').src = document.getElementById(cid+'img').src.replace(/max\.([a-z]+)$/, "min.$1");
+	}
+}
+
 function toggleCategory(cid, level)
 {
 	var c = document.getElementById('c'+cid).nextSibling;
 	var on = c.style.display != 'none' ? 'none' : (document.all ? '' : 'table-row');
+	var p, id, cat = 'c'+cid;
+
+	minCatImage(cat, on);
 
 	while (c) {
 		if (c.nodeType != 1) {
 			c = c.nextSibling;
-		} else if (document.all) {
-			if (c.p && ((c.p > level) || (c.p == level && !c.id))) { 
-				c.style.display = on;
-				c = c.nextSibling;
-				continue;
-			}
-		} else if (c.hasAttribute('p') && ((c.getAttribute('p') > level) || (c.getAttribute('p') == level && !c.hasAttribute('id')))) {
+			continue;
+		}
+		if (document.all) {
+			p = c.p;
+			id = c.id;
+		} else {
+			p = c.getAttribute('p');
+			id = c.getAttribute('id');
+		}
+
+		if (!p) {
+			break;
+		}
+
+		if (p > level && id) { // category
 			c.style.display = on;
+			c = c.nextSibling;
+			cat = id;
+			continue;
+		} else if (!id && p == level) { // forums that are children of the current category
+			c.style.display = on;
+			c = c.nextSibling;
+			continue;
+		} else if (!id && p > level) { // forums of the child category
+			if (on == 'none') { // if hiding, hide everything
+				c.style.display = on;
+			} else {
+				if (document.getElementById(cat+'img').src.indexOf('min') != -1 && document.getElementById(cat).style.display != 'none') {
+					c.style.display = (document.all ? '' : 'table-row');
+				} else {
+					c.style.display = 'none';
+				}
+			}
 			c = c.nextSibling;
 			continue;
 		}
 		break;
 	}
 
-	if (on == 'none') {
-		document.getElementById('c'+cid+'img').src = document.getElementById('c'+cid+'img').src.replace(/min\.([a-z]+)$/, "max.$1");
-	} else {
-		document.getElementById('c'+cid+'img').src = document.getElementById('c'+cid+'img').src.replace(/max\.([a-z]+)$/, "min.$1");
-	}
 
 {IF: _uid}
 
