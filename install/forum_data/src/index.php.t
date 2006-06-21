@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.97 2006/05/01 04:08:49 hackie Exp $
+* $Id: index.php.t,v 1.98 2006/06/21 18:20:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -97,12 +97,6 @@
 				/* if parent category is collapsed, hide child category */
 				if ($i[4] && !empty($collapse[$i[4]])) {
 					$collapse[$k] = 1;
-					$cat = $k;
-					if ($k == $cid) {
-						break;
-					} else {
-						continue;
-					}
 				}
 
 				if ($i[3] & 1 && $k != $cat_id && !($i[3] & 4)) {
