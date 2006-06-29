@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.65 2005/12/07 18:07:46 hackie Exp $
+* $Id: admdump.php,v 1.66 2006/06/29 23:19:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -187,7 +187,11 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				while ($r = db_rowarr($c)) {
 					$tmp = '';
 					foreach ($r as $v) {
-						$tmp .= _esc($v).',';
+						if ($v === null) {
+							$tmp .= 'NULL,';
+						} else {
+							$tmp .= _esc($v).',';
+						}
 					}
 					/* make sure new lines inside queries don't cause problems */
 					if (strpos($tmp, "\n") !== false) {
