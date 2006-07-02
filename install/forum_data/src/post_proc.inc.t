@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.86 2006/06/18 16:25:33 hackie Exp $
+* $Id: post_proc.inc.t,v 1.87 2006/07/02 13:33:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -525,7 +525,7 @@ function html_to_tags($fudml)
 	}
 
 	while (preg_match('!<a href="http://(?:([A-ZA-z]+)?\.)?wikipedia.com/wiki/([^"]+)" target="_blank" name="WikiPediaLink">(.*?)</a>!s', $fudml, $res)) {
-		if (count($res) == 3) {
+		if (count($res) == 4) {
 			$fudml = str_replace($res[0], '[wikipedia='.$res[1].']'.$res[2].'[/wikipedia]',$fudml);
 		} else {
 			$fudml = str_replace($res[0], '[wikipedia]'.$res[2].'[/wikipedia]',$fudml);
