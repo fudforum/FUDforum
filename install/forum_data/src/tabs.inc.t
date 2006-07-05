@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tabs.inc.t,v 1.23 2005/12/07 18:07:45 hackie Exp $
+* $Id: tabs.inc.t,v 1.24 2006/07/05 17:45:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,7 +19,7 @@ if (_uid) {
 '{TEMPLATE: tabs_referrals}'=>'referals',
 '{TEMPLATE: tabs_buddy_list}'=>'buddy_list',
 '{TEMPLATE: tabs_ignore_list}'=>'ignore_list',
-'{TEMPLATE: tabs_own_posts}'=>'showposts&amp;id='._uid
+'{TEMPLATE: tabs_own_posts}'=>'showposts'
 );
 
 	if (!($FUD_OPT_2 & 8192)) {
@@ -46,6 +46,8 @@ if (_uid) {
 				if (!($FUD_OPT_2 & 8192)) {
 					continue;
 				}
+				$tab_url .= '&amp;id='._uid;
+			} else if ($tab == 'showposts') {
 				$tab_url .= '&amp;id='._uid;
 			}
 			$tabs .= $pg == $tab ? '{TEMPLATE: active_tab}' : '{TEMPLATE: inactive_tab}';
