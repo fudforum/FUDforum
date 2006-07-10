@@ -29,8 +29,8 @@ function external_fud_login($user_id)
 	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ses WHERE user_id=".$user_id);
 	$sys_id = __ses_make_sysid(($GLOBALS['FUD_OPT_2'] & 256), ($GLOBALS['FUD_OPT_3'] & 16));
 	do {
-		$ses_id = md5($user_id . __request_timestamp__ . getmypid());
-	} while (!($id = db_li("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."ses (ses_id, time_sec, sys_id, user_id) VALUES ('".$ses_id."', ".__request_timestamp__.", '".$sys_id."', ".$user_id.")", $ef, 1)));
+		$ses_id = md5($user_id . time() . getmypid());
+	} while (!($id = db_li("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."ses (ses_id, time_sec, sys_id, user_id) VALUES ('".$ses_id."', ".time().", '".$sys_id."', ".$user_id.")", $ef, 1)));
 	setcookie($GLOBALS['COOKIE_NAME'], $ses_id, time()+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 
 	return $ses_id;
