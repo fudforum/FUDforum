@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.38 2005/12/07 18:07:45 hackie Exp $
+* $Id: merge_th.php.t,v 1.39 2006/07/18 00:05:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -161,18 +161,19 @@
 		while ($r = db_rowarr($c)) {
 			$thread_sel .= '{TEMPLATE: m_sel_opt_selected}';
 		}
-		unset($c, $_POST['sel_th']);
+		unset($c);
 	}
 
 	$c = uq('SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}tv_'.$frm.' tv 
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=tv.thread_id 
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id 
 			WHERE tv.seq BETWEEN '.($lwi - ($page * $THREADS_PER_PAGE) + 1).' AND '.($lwi - (($page - 1) * $THREADS_PER_PAGE)).'
+			'.(isset($_POST['sel_th']) ? 'AND t.id NOT IN('.implode(',', $_POST['sel_th']).')' : '').'
 			ORDER BY tv.seq DESC');
 	while ($r = db_rowarr($c)) {
 		$thread_sel .= '{TEMPLATE: m_sel_opt}';
 	}
-	unset($c);
+	unset($c, $_POST['sel_th']);
 
 	$pages = implode("\n", range(1, $max_p));
 
