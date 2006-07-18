@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.25 2006/01/10 15:40:59 hackie Exp $
+* $Id: admsysinfo.php,v 1.26 2006/07/18 16:30:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,7 +41,7 @@ function get_server_software()
 </tr>
 <tr>
 	<td><b>Database Version:</b></td>
-	<td><?php echo q_singleval('SELECT VERSION()'); ?></td>
+	<td><?php echo get_version(); ?></td>
 </tr>
 <tr>
 	<td><b>PHP Version:</b></td>
