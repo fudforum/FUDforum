@@ -14,6 +14,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$lang.'/charset')) {
 <body>
 <table class="maintable">
 <tr>
+<?php if ($is_a) { ?>
 <td class="linkdata">
 <table class="linktable">
 <tr>
@@ -98,4 +99,5 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$lang.'/charset')) {
 </td></tr>
 </table>
 </td>
+<?php } ?>
 <td class="maindata">

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.70 2006/05/08 14:50:37 hackie Exp $
+* $Id: admuser.php,v 1.71 2006/07/24 18:43:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,7 +36,7 @@
 		q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry=0, users_opt=users_opt &~ 65536 WHERE id='.$usr_id);
 	}
 
-	$keys = array('block'=>65536, 'coppa'=>262144, 'econf'=>131072, 'sig'=>67108864, 'pm'=>33554432, 'conf'=>2097152);
+	$keys = array('block'=>65536, 'coppa'=>262144, 'econf'=>131072, 'sig'=>67108864, 'pm'=>33554432, 'conf'=>2097152, 'accmod'=>268435456);
 
 	switch ($act) {
 		case 'block':
@@ -45,6 +45,7 @@
 		case 'conf':
 		case 'sig':
 		case 'pm':
+		case 'accmod':
 			if ($act == 'block' && isset($_POST['ban_duration'])) {
 				/* for post requests involving ban, do not act as a toggle */
 				if (!isset($_POST['block'])) {
@@ -337,9 +338,9 @@ document.frm_usr.usr_login.focus();
 	echo '<tr class="field"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . __adm_rsidl.'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Email Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Confirmed Account:</td><td>'.($u->users_opt & 2097152 ? 'No' : 'Yes').' [<a href="admuser.php?act=conf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
-
 	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? 'No' : 'Yes').' [<a href="admuser.php?act=sig&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Can use private messaging:</td><td>'.($u->users_opt & 33554432 ? 'No' : 'Yes').' [<a href="admuser.php?act=pm&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Account Moderator:</td><td>'.($u->users_opt & 268435456 ? 'Yes' : 'No').' [<a href="admuser.php?act=accmod&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 
 	if ($FUD_OPT_1 & 1048576) {
 		echo '<tr class="field"><td>COPPA:</td><td>'.($u->users_opt & 262144 ? 'Yes' : 'No').' [<a href="admuser.php?act=coppa&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
@@ -425,7 +426,10 @@ document.frm_usr.usr_login.focus();
 		echo '<a href="mailto:'.$u->email.'">Send Email</a> | ';
 	}
 
-	echo '	<a href="../'.__fud_index_name__.'?t=showposts&id='.$usr_id.'&'.__adm_rsidl.'">See Posts</a><br /><a href="admuser.php?act=reset&usr_id='.$usr_id.'&'.__adm_rsidl.'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr_id.'&'.__adm_rsidl.'">Delete User</a> | <a href="admprune.php?usr_id='.$usr_id.'&'.__adm_rsidl.'">Delete All messages by this user.</a></td></tr>';
+	echo '	<a href="../'.__fud_index_name__.'?t=showposts&id='.$usr_id.'&'.__adm_rsidl.'">See Posts</a> | <a href="admuser.php?act=reset&usr_id='.$usr_id.'&'.__adm_rsidl.'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr_id.'&'.__adm_rsidl.'">Delete User</a>';
+	if ($is_a) {	
+		echo ' | <a href="admprune.php?usr_id='.$usr_id.'&'.__adm_rsidl.'">Delete All messages by this user.</a></td></tr>';
+	}
 }
 ?>
 </table>
