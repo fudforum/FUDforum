@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlog.php,v 1.31 2005/12/07 18:07:46 hackie Exp $
+* $Id: admlog.php,v 1.32 2006/07/24 17:24:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -99,6 +99,9 @@ function return_forum_name($id)
 				break;
 			case "DELMSG":
 				echo '<td>Deleted Message</td><td>'.$obj->logaction.'</td>';
+				break;
+			case "DELRATING":
+				echo '<td>Deleted Rating</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
 			case "DELTHR":
 				echo '<td>Deleted Topic</td><td>'.$obj->logaction.'</td>';

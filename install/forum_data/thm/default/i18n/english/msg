@@ -109,6 +109,8 @@ usrinfo_private_message:	Private Message:
 profile:			Settings
 profile_desc:			Click here to access user control panel
 rate_thread:			Rate Topic
+rating:				Rating
+rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
 refresh_list:			Refresh List
 register:			Register
 registered:			Registered:
@@ -1023,3 +1025,4 @@ post_common_nlist:		Add numbered list
 post_common_blist:		Add bulleted list
 post_common_quote:		Add Quote
 post_common_code:		Add Code
+rating_delete:			Delete

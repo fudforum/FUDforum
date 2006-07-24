@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ratethread.php.t,v 1.18 2006/04/02 18:46:18 hackie Exp $
+* $Id: ratethread.php.t,v 1.19 2006/07/24 17:24:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,7 +30,14 @@
 			$rt = db_saq('SELECT count(*), ROUND(AVG(rating)) FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$th);
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET rating='.(int)$rt[1].', n_rating='.(int)$rt[0].' WHERE id='.$th);
 
+			if ($is_a) {
+				$MOD = 1;
+			} else {
+				$MOD = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}mod m ON m.forum_id=t.forum_id WHERE t.id='.$th);
+			}
+
 			$frm = new StdClass;
+			$frm->id = $th;
 			$frm->n_rating = (int) $rt[0];
 			$frm->rating = (int) $rt[1];
 

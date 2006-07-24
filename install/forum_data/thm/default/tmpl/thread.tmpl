@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.59 2006/04/17 22:53:02 hackie Exp $
+* $Id: thread.tmpl,v 1.60 2006/07/24 17:24:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,11 +71,15 @@
 <tr>
 <td class="RowStyleB wo">{TEMPLATE-DATA: thread_read_status}</td>
 <td class="RowStyleB wo ac">{IF: $r[3]}<img src="images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />{ELSE}&nbsp;{END}</td>
-<td class="RowStyleA">{IF: ($r[18] > 1)}{IF: $r[18] & 4}<span class="StClr">{MSG: sticky}&nbsp;</span>{ELSE}<span class="AnClr">{MSG: thread_announcement}&nbsp;</span>{ENDI}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a> {IF: ($FUD_OPT_2 & 4096)}{IF: $r[17]}<img src="{THEME_IMAGE_ROOT}/{VAR: r[17]}stars.gif" alt="{VAR: r[17]}" />{ENDIFI}{ENDIF} {TEMPLATE-DATA: mini_thread_pager} <div class="TopBy">{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <span class="DateText">{TEMPLATE: thread_first_post_date}</span></div>{TEMPLATE-DATA: admin_control_row}</td>
+<td class="RowStyleA">{IF: ($r[18] > 1)}{IF: $r[18] & 4}<span class="StClr">{MSG: sticky}&nbsp;</span>{ELSE}<span class="AnClr">{MSG: thread_announcement}&nbsp;</span>{ENDI}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a> {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF} {TEMPLATE-DATA: mini_thread_pager} <div class="TopBy">{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <span class="DateText">{TEMPLATE: thread_first_post_date}</span></div>{TEMPLATE-DATA: admin_control_row}</td>
 <td class="RowStyleB ac">{VAR: r[16]}</td>
 <td class="RowStyleB ac">{VAR: r[19]}</td>
 <td class="RowStyleC nw"><span class="DateText">{TEMPLATE: thread_last_post_date}</span><br />{MSG: by} {IF: $r[8]}<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: r[8]}</a>{ELSE}{GVAR: ANON_NICK}{END} <a href="{TEMPLATE: last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
 </tr>
+{SECTION: END}
+
+{SECTION: thread_rating}
+{IF: $MOD || $mo == 8224}<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_ratingtrack_lnk1}\', \'th_rating_track\', 300, 400);">{ENDIF}<img src="{THEME_IMAGE_ROOT}/{VAR: r[17]}stars.gif" alt="{VAR: r[17]}" />{IF: $MOD || $mo == 8224}</a>{ENDIF}
 {SECTION: END}
 
 {SECTION: thread_row_moved a row indicating that the thread has been moved}
@@ -190,4 +194,8 @@
 
 {SECTION: admin_control_row_move_lnk1}
 {FULL_ROOT}{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: r[13]}
+{SECTION: END}
+
+{SECTION: admin_control_ratingtrack_lnk1}
+{FULL_ROOT}{ROOT}?t=ratingtrack&amp;{DEF: _rsid}&amp;th={VAR: r[13]}
 {SECTION: END}

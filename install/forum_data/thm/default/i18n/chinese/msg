@@ -1023,3 +1023,6 @@ post_common_nlist:		Add numbered list
 post_common_blist:		Add bulleted list
 post_common_quote:		Add Quote
 post_common_code:		Add Code
+rating:				Rating
+rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
+rating_delete:			Delete

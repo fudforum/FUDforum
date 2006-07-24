@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.86 2006/04/02 18:46:18 hackie Exp $
+* $Id: tree.php.t,v 1.87 2006/07/24 17:24:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -84,7 +84,8 @@
 		exit;
 	}
 
-	$perms = perms_from_obj($frm, $is_a);
+	$MOD = ($is_a || $frm->md);
+	$perms = perms_from_obj($frm, $MOD);
 
 	if (!($perms & 2)) {
 		if (!isset($_GET['logoff'])) {
