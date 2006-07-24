@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.70 2006/07/24 17:37:27 hackie Exp $
+* $Id: index.tmpl,v 1.71 2006/07/24 18:19:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -93,11 +93,14 @@
 <script type="text/javascript">
 function minCatImage(cid, on)
 {
+	var src = document.getElementById(cid+'img').src;
 	if (on == 'none') {
-		document.getElementById(cid+'img').src = document.getElementById(cid+'img').src.replace(/min\.([a-z]+)$/, "max.$1");
+		src = src.replace(/min\.([a-z]+)$/, "max.$1") + '';
 	} else {
-		document.getElementById(cid+'img').src = document.getElementById(cid+'img').src.replace(/max\.([a-z]+)$/, "min.$1");
+		src = src.replace(/max\.([a-z]+)$/, "min.$1") + '';
 	}
+	document.getElementById(cid+'img').src = src;
+	if (document.all) { document.getElementById(cid+'img').style.background = 'url('+src+')'; }
 }
 
 function toggleCategory(cid, level)
