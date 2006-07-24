@@ -267,45 +267,52 @@ function topicVote(rating, topic_id, ses, sq)
 	YAHOO.util.Connect.asyncRequest('GET','index.php?t=ratethread&sel_vote='+rating+'&rate_thread_id='+topic_id+'&S='+ses+'&SQ='+sq,callback);
 }
 
+/*                                                                                                                                                      
+Copyright (c) 2006, Yahoo! Inc. All rights reserved.                                                                                                    
+Code licensed under the BSD License:                                                                                                                    
+http://developer.yahoo.net/yui/license.txt                                                                                                              
+version: 0.10.0                                                                                                                                         
+*/ 
+
 /* Copyright (c) 2006 Yahoo! Inc. All rights reserved. */
 
-/**
- * @class The Yahoo global namespace
- */
-var YAHOO = function() {
+var YAHOO = window.YAHOO || {};
 
-    return {
-        util: {},
-        widget: {},
-        example: {},
-        namespace: function( sNameSpace ) {
+YAHOO.namespace = function( sNameSpace ) {
 
-            if (!sNameSpace || !sNameSpace.length) {
-                return null;
-            }
+    if (!sNameSpace || !sNameSpace.length) {
+        return null;
+    }
 
-            var levels = sNameSpace.split(".");
+    var levels = sNameSpace.split(".");
 
-            var currentNS = YAHOO;
+    var currentNS = YAHOO;
 
-            for (var i=(levels[0] == "YAHOO") ? 1 : 0; i<levels.length; ++i) {
-                currentNS[levels[i]] = currentNS[levels[i]] || {};
-                currentNS = currentNS[levels[i]];
-            }
+    for (var i=(levels[0] == "YAHOO") ? 1 : 0; i<levels.length; ++i) {
+        currentNS[levels[i]] = currentNS[levels[i]] || {};
+        currentNS = currentNS[levels[i]];
+    }
 
-            return currentNS;
+    return currentNS;
+};
 
-        }
-    };
+YAHOO.log = function(sMsg,sCategory) {
+    if(YAHOO.widget.Logger) {
+        YAHOO.widget.Logger.log(null, sMsg, sCategory);
+    } else {
+        return false;
+    }
+};
 
-} ();
+YAHOO.namespace("util");
+YAHOO.namespace("widget");
+YAHOO.namespace("example");
 
 /*
-Copyright (c) 2006 Yahoo! Inc. All rights reserved.
-version 0.9.0
+Copyright (c) 2006, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
 */
-
-YAHOO.util.Connect = {};
 
 YAHOO.util.Connect =
 {
@@ -317,15 +324,30 @@ YAHOO.util.Connect =
 		'Microsoft.XMLHTTP'
 		],
 
-	_http_header:[],
-	_isFormPost:false,
+	_http_header:{},
+
+	_has_http_headers:false,
+
+	_isFormSubmit:false,
+
 	_sFormData:null,
-	_polling_interval:300,
+
+	_poll:[],
+
+	_polling_interval:50,
+
 	_transaction_id:0,
 
 	setProgId:function(id)
 	{
 		this.msxml_progid.unshift(id);
+	},
+
+	setPollingInterval:function(i)
+	{
+		if(typeof i == 'number' && isFinite(i)){
+			this._polling_interval = i;
+		}
 	},
 
 	createXhrObject:function(transactionId)
@@ -342,7 +364,10 @@ YAHOO.util.Connect =
 				try
 				{
 					http = new ActiveXObject(this._msxml_progid[i]);
-					obj = { conn:http, tId:transactionId };
+					if(http){
+						obj = { conn:http, tId:transactionId };
+						break;
+					}
 				}
 				catch(e){}
 			}
@@ -374,28 +399,34 @@ YAHOO.util.Connect =
 
 	asyncRequest:function(method, uri, callback, postData)
 	{
-		var errorObj;
 		var o = this.getConnectionObject();
 
 		if(!o){
 			return null;
 		}
 		else{
-			var oConn = this;
-			o.conn.open(method, uri, true);
-			this.handleReadyState(o, callback);
-
-			if(this._isFormPost){
-				postData = this._sFormData;
-				this._isFormPost = false;
+			if(this._isFormSubmit){
+				if(method == 'GET'){
+					uri += "?" +  this._sFormData;
+				}
+				else if(method == 'POST'){
+					postData =  this._sFormData;
+				}
+				this._sFormData = '';
+				this._isFormSubmit = false;
 			}
-			else if(postData){
+
+			o.conn.open(method, uri, true);
+
+			if(postData){
 				this.initHeader('Content-Type','application/x-www-form-urlencoded');
 			}
 
-			if(this._http_header.length>0){
+			if(this._has_http_headers){
 				this.setHeader(o);
 			}
+
+			this.handleReadyState(o, callback);
 			postData?o.conn.send(postData):o.conn.send(null);
 
 			return o;
@@ -405,29 +436,45 @@ YAHOO.util.Connect =
 	handleReadyState:function(o, callback)
 	{
 		var oConn = this;
-		var poll = window.setInterval(
-			function(){
-				if(o.conn.readyState==4){
-					oConn.handleTransactionResponse(o, callback);
-					window.clearInterval(poll);
+		try
+		{
+			this._poll[o.tId] = window.setInterval(
+				function(){
+					if(o.conn && o.conn.readyState == 4){
+						window.clearInterval(oConn._poll[o.tId]);
+						oConn._poll.splice(o.tId);
+						oConn.handleTransactionResponse(o, callback);
+					}
 				}
-			}
-		,this._polling_interval);
+			,this._polling_interval);
+		}
+		catch(e)
+		{
+			window.clearInterval(oConn._poll[o.tId]);
+			oConn._poll.splice(o.tId);
+			oConn.handleTransactionResponse(o, callback);
+		}
 	},
 
 	handleTransactionResponse:function(o, callback)
 	{
+		if(!callback){
+			this.releaseObject(o);
+			return;
+		}
+
 		var httpStatus;
 		var responseObject;
 
-		try{
+		try
+		{
 			httpStatus = o.conn.status;
 		}
 		catch(e){
 			httpStatus = 13030;
 		}
 
-		if(httpStatus == 200){
+		if(httpStatus >= 200 && httpStatus < 300){
 			responseObject = this.createResponseObject(o, callback.argument);
 			if(callback.success){
 				if(!callback.scope){
@@ -475,18 +522,35 @@ YAHOO.util.Connect =
 	createResponseObject:function(o, callbackArg)
 	{
 		var obj = {};
+		var headerObj = {};
 
-		obj.tId = o.tId;
-		obj.status = o.conn.status;
-		obj.statusText = o.conn.statusText;
-		obj.allResponseHeaders = o.conn.getAllResponseHeaders();
-		obj.responseText = o.conn.responseText;
-		obj.responseXML = o.conn.responseXML;
-		if(callbackArg){
-			obj.argument = callbackArg;
+		try
+		{
+			var headerStr = o.conn.getAllResponseHeaders();
+			var header = headerStr.split("\n");
+			for(var i=0; i < header.length; i++){
+				var delimitPos = header[i].indexOf(':');
+				if(delimitPos != -1){
+					headerObj[header[i].substring(0,delimitPos)] = header[i].substring(delimitPos+1);
+				}
+			}
+
+			obj.tId = o.tId;
+			obj.status = o.conn.status;
+			obj.statusText = o.conn.statusText;
+			obj.getResponseHeader = headerObj;
+			obj.getAllResponseHeaders = headerStr;
+			obj.responseText = o.conn.responseText;
+			obj.responseXML = o.conn.responseXML;
+			if(typeof callbackArg !== undefined){
+				obj.argument = callbackArg;
+			}
 		}
-
-		return obj;
+		catch(e){}
+		finally
+		{
+			return obj;
+		}
 	},
 
 	createExceptionObject:function(tId, callbackArg)
@@ -508,75 +572,118 @@ YAHOO.util.Connect =
 
 	initHeader:function(label,value)
 	{
-		var oHeader = [label,value];
-		this._http_header.push(oHeader);
+		if(this._http_header[label] === undefined){
+			this._http_header[label] = value;
+		}
+		else{
+			this._http_header[label] =  value + "," + this._http_header[label];
+		}
+
+		this._has_http_headers = true;
 	},
 
 	setHeader:function(o)
 	{
-		var oHeader = this._http_header;
-		for(var i=0;i<oHeader.length;i++){
-			o.conn.setRequestHeader(oHeader[i][0],oHeader[i][1]);
+		for(var prop in this._http_header){
+			o.conn.setRequestHeader(prop, this._http_header[prop]);
 		}
-		oHeader.splice(0,oHeader.length);
+		delete this._http_header;
+
+		this._http_header = {};
+		this._has_http_headers = false;
 	},
 
-	setForm:function(formName)
+	setForm:function(formId)
 	{
 		this._sFormData = '';
-		var oForm = document.forms[formName];
-		var oElement, elName, elValue;
+		if(typeof formId == 'string'){
+			var oForm = (document.getElementById(formId) || document.forms[formId] );
+		}
+		else if(typeof formId == 'object'){
+			var oForm = formId;
+		}
+		else{
+			return;
+		}
+		var oElement, oName, oValue, oDisabled;
+		var hasSubmit = false;
+
 		for (var i=0; i<oForm.elements.length; i++){
-			oElement = oForm.elements[i];
-			elName = oForm.elements[i].name;
-			elValue = oForm.elements[i].value;
-			switch (oElement.type)
+			oDisabled = oForm.elements[i].disabled;
+			if(oForm.elements[i].name != ""){
+				oElement = oForm.elements[i];
+				oName = oForm.elements[i].name;
+				oValue = oForm.elements[i].value;
+			}
+
+			if(!oDisabled)
 			{
-				case 'select-multiple':
-					for(var j=0; j<oElement.options.length; j++){
-						if(oElement.options[j].selected){
-							this._sFormData += encodeURIComponent(elName) + '=' + encodeURIComponent(oElement.options[j].value) + '&';
+				switch (oElement.type)
+				{
+					case 'select-one':
+					case 'select-multiple':
+						for(var j=0; j<oElement.options.length; j++){
+							if(oElement.options[j].selected){
+								this._sFormData += encodeURIComponent(oName) + '=' + encodeURIComponent(oElement.options[j].value || oElement.options[j].text) + '&';
+							}
 						}
-					}
-					break;
-				case 'radio':
-				case 'checkbox':
-					if(oElement.checked){
-						this._sFormData += encodeURIComponent(elName) + '=' + encodeURIComponent(elValue) + '&';
-					}
-					break;
-				case 'file':
-					break;
-				case undefined:
-					break;
-				default:
-					this._sFormData += encodeURIComponent(elName) + '=' + encodeURIComponent(elValue) + '&';
-					break;
+						break;
+					case 'radio':
+					case 'checkbox':
+						if(oElement.checked){
+							this._sFormData += encodeURIComponent(oName) + '=' + encodeURIComponent(oValue) + '&';
+						}
+						break;
+					case 'file':
+					case undefined:
+					case 'reset':
+					case 'button':
+						break;
+					case 'submit':
+						if(hasSubmit == false){
+							this._sFormData += encodeURIComponent(oName) + '=' + encodeURIComponent(oValue) + '&';
+							hasSubmit = true;
+						}
+						break;
+					default:
+						this._sFormData += encodeURIComponent(oName) + '=' + encodeURIComponent(oValue) + '&';
+						break;
+				}
 			}
 		}
+
+		this._isFormSubmit = true;
 		this._sFormData = this._sFormData.substr(0, this._sFormData.length - 1);
-		this._isFormPost = true;
-		this.initHeader('Content-Type','application/x-www-form-urlencoded');
 	},
 
 	abort:function(o)
 	{
 		if(this.isCallInProgress(o)){
+			window.clearInterval(this._poll[o.tId]);
+			this._poll.splice(o.tId);
 			o.conn.abort();
 			this.releaseObject(o);
+
+			return true;
+		}
+		else{
+			return false;
 		}
 	},
 
 	isCallInProgress:function(o)
 	{
-		if(o){
+		if(o.conn){
 			return o.conn.readyState != 4 && o.conn.readyState != 0;
+		}
+		else{
+			return false;
 		}
 	},
 
 	releaseObject:function(o)
 	{
-			o.conn = null;
-			o = null;
+		o.conn = null;
+		o = null;
 	}
-}
+};
