@@ -37,6 +37,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$lang.'/charset')) {
 	<a href="admmime.php?<?php echo __adm_rsidl; ?>">MIME Managment System</a><br>
 	<a href="admrdf.php?<?php echo __adm_rsidl; ?>">RDF Feed Managment</a><br>
 	<a href="admpdf.php?<?php echo __adm_rsidl; ?>">PDF Generation Managment</a><br>
+	<a href="admgeoip.php?<?php echo __adm_rsidl; ?>">Geolocation Management</a><br>
 <?php
 	if (extension_loaded('pspell')) {
 		echo '<a href="admspell.php?'.__adm_rsidl.'">Custom Dictionary Spell Checker</a><br>';
