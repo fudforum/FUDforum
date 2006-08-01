@@ -444,3 +444,6 @@ Disable displaying of the action list to the anonymous users.}}}
 
 {{{NO_ANON_WHO_ONLINE	FUD_OPT_3	262144
 Disable displaying of who's online to the anonymous users.}}}
+
+{{{ENABLE_GEO_LOCATION	FUD_OPT_3	524288
+Enable country identifier flags beside each message poster, requires import of Geolocation database, see the Geolocation Management control panel for more details.}}}

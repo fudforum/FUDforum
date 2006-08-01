@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.70 2005/12/07 18:07:45 hackie Exp $
+* $Id: selmsg.php.t,v 1.71 2006/08/01 03:11:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -117,8 +117,8 @@ function path_info_lnk($var, $val)
 		$ord = isset($_GET['reply_count']) ? ' DESC ' : ' ASC ';
 
 		/* figure out the query */
-		$c = $query_type('SELECT
-			m.*,
+		$c = q('SELECT
+			m.*, COALESCE(m.flag_cc, u.flag_cc) AS flag_cc, COALESCE(m.flag_country, u.flag_country) AS flag_country,
 			t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			f.message_threshold, f.name,
 			u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.107 2006/04/02 18:46:18 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.108 2006/08/01 03:11:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,11 +28,6 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 	return 1;
 }
 
-if ($GLOBALS['FUD_OPT_3'] & 32768 || !empty($_POST['poll_opt'])) {
-	$query_type = 'q';
-} else {
-	$query_type = 'uq'; 
-}
 $GLOBALS['__FMDSP__'] = array();
 
 /* needed for message threshold & reveling messages */
@@ -165,6 +160,12 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	/* check if the message should be ignored and it is not temporarily revelead */
 	if ($usr->ignore_list && !empty($usr->ignore_list[$obj->poster_id]) && !isset($GLOBALS['__FMDSP__'][$obj->id])) {
 		return !$hide_controls ? '{TEMPLATE: dmsg_ignored_user_message}' : '{TEMPLATE: dmsg_ignored_user_message_static}';
+	}
+
+	if (!$hide_controls && $GLOBALS['FUD_OPT_3'] & 524288) {
+		$geo = db_saq("SELECT cc,country FROM {SQL_TABLE_PREFIX}geoip WHERE ".sprintf("%u", ip2long($obj->ip_addr))." BETWEEN ips AND ipe");
+	} else {
+		$geo = null;
 	}
 
 	if ($obj->user_id && !$hide_controls) {

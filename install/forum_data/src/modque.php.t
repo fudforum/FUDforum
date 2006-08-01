@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.php.t,v 1.48 2005/12/07 18:07:45 hackie Exp $
+* $Id: modque.php.t,v 1.49 2006/08/01 03:11:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,8 +48,8 @@
 	/* for sanity sake, we only select up to POSTS_PER_PAGE messages, simply because otherwise the form will
 	 * become unmanageable.
 	 */
-	$r = $query_type("SELECT
-		m.*,
+	$r = q("SELECT
+		m.*, COALESCE(m.flag_cc, u.flag_cc) AS flag_cc, COALESCE(m.flag_country, u.flag_country) AS flag_country,
 		t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold, f.name AS frm_name,
 		c.name AS cat_name,

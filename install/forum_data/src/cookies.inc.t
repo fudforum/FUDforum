@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.81 2005/12/07 18:07:45 hackie Exp $
+* $Id: cookies.inc.t,v 1.82 2006/08/01 03:11:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -59,7 +59,7 @@ function ses_get($id=0)
 		s.id AS sid, s.ses_id, s.data, s.returnto, s.sys_id,
 		t.id AS theme_id, t.lang, t.name AS theme_name, t.locale, t.theme, t.pspell_lang, t.theme_opt,
 		u.alias, u.posts_ppg, u.time_zone, u.sig, u.last_visit, u.last_read, u.cat_collapse_status, u.users_opt, u.topics_per_page,
-		u.ignore_list, u.ignore_list, u.buddy_list, u.id, u.group_leader_list, u.email, u.login, u.sq, u.ban_expiry
+		u.ignore_list, u.ignore_list, u.buddy_list, u.id, u.group_leader_list, u.email, u.login, u.sq, u.ban_expiry, u.flag_cc
 	FROM {SQL_TABLE_PREFIX}ses s
 		INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=(CASE WHEN s.user_id>2000000000 THEN 1 ELSE s.user_id END)
 		INNER JOIN {SQL_TABLE_PREFIX}themes t ON t.id=u.theme

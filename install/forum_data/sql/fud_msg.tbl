@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_msg.tbl,v 1.10 2005/12/07 18:07:45 hackie Exp $
+#   $Id: fud_msg.tbl,v 1.11 2006/08/01 03:11:00 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -38,7 +38,10 @@ CREATE TABLE {SQL_TABLE_PREFIX}msg
 
 	mlist_msg_id 	VARCHAR(100),
 	msg_opt		INT NOT NULL DEFAULT 1,
-	apr		INT NOT NULL DEFAULT 0
+	apr		INT NOT NULL DEFAULT 0,
+
+	flag_cc			CHAR(2),
+	flag_country		VARCHAR(50)
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}msg_i_ta ON {SQL_TABLE_PREFIX}msg (thread_id, apr);

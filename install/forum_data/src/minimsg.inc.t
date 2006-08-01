@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: minimsg.inc.t,v 1.34 2006/01/30 15:18:21 hackie Exp $
+* $Id: minimsg.inc.t,v 1.35 2006/08/01 03:11:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,13 +35,7 @@ if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 		q("CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_".__request_timestamp__." AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th_id." AND apr=1 ORDER BY id ".$msg_order_by." LIMIT " . qry_limit($count, $start));
 	}
 
-	if ($GLOBALS['FUD_OPT_3'] & 32768) {
-		$query_type = 'q';
-	} else {
-		$query_type = 'uq'; 
-	}
-
-	$c = $query_type('SELECT m.*, t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
+	$c = q('SELECT m.*, t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			u.id AS user_id, u.alias AS login, u.users_opt, u.last_visit AS time_sec,
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name,  p.total_votes
 		FROM

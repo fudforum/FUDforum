@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.159 2006/02/19 21:01:37 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.160 2006/08/01 03:11:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,6 +61,10 @@ class fud_msg_edit extends fud_msg
 				$file_id_preview = $offset_preview = $length_preview = 0;
 			}
 		}
+		$flag = db_saq("SELECT cc, country FROM {SQL_TABLE_PREFIX}geoip WHERE ".sprintf("%u", ip2long($this->ip_addr))." BETWEEN ips AND ipe");
+		if (!$flag) {
+			$flag = array(null,null);
+		}
 
 		$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}msg (
 			thread_id,
@@ -81,7 +85,9 @@ class fud_msg_edit extends fud_msg
 			offset_preview,
 			length_preview,
 			mlist_msg_id,
-			poll_cache
+			poll_cache,
+			flag_cc,
+			flag_country
 		) VALUES(
 			".$this->thread_id.",
 			".$this->poster_id.",
@@ -101,7 +107,9 @@ class fud_msg_edit extends fud_msg
 			".$offset_preview.",
 			".$length_preview.",
 			".ssn($this->mlist_msg_id).",
-			".ssn(poll_cache_rebuild($this->poll_id))."
+			".ssn(poll_cache_rebuild($this->poll_id)).",
+			".ssn($flag[0]).",
+			".ssn($flag[1])."
 		)");
 
 		if ($GLOBALS['FUD_OPT_3'] & 32768) {

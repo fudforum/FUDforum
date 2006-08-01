@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.89 2005/12/07 18:07:45 hackie Exp $
+* $Id: users_reg.inc.t,v 1.90 2006/08/01 03:11:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -88,6 +88,8 @@ class fud_user_reg extends fud_user
 
 		$this->html_fields();
 
+		$flag = ret_flag($reg_ip);
+
 		$this->id = db_qid("INSERT INTO
 			{SQL_TABLE_PREFIX}users (
 				login,
@@ -119,7 +121,9 @@ class fud_user_reg extends fud_user
 				bio,
 				users_opt,
 				reg_ip,
-				topics_per_page
+				topics_per_page,
+				flag_cc,
+				flag_country
 			) VALUES (
 				"._esc($this->login).",
 				"._esc($this->alias).",
@@ -150,7 +154,9 @@ class fud_user_reg extends fud_user
 				".ssn($this->bio).",
 				".$this->users_opt.",
 				".ip2long($reg_ip).",
-				".(int)$this->topics_per_page."
+				".(int)$this->topics_per_page.",
+				".ssn($flag[0]).",
+				".ssn($flag[1])."
 			)
 		");
 
@@ -254,7 +260,7 @@ function user_login($id, $cur_ses_id, $use_cookies)
 	q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$id." AND ses_id!='".$cur_ses_id."'");
 	q("UPDATE {SQL_TABLE_PREFIX}ses SET user_id=".$id.", sys_id='".ses_make_sysid()."' WHERE ses_id='".$cur_ses_id."'");
 	$GLOBALS['new_sq'] = regen_sq();
-	q("UPDATE {SQL_TABLE_PREFIX}users SET sq='".$GLOBALS['new_sq']."' WHERE id=".$id);
+	q("UPDATE {SQL_TABLE_PREFIX}users SET ".ret_flag()." sq='".$GLOBALS['new_sq']."' WHERE id=".$id);
 
 	return $cur_ses_id;
 }
@@ -282,6 +288,28 @@ function rebuildmodlist()
 	q('UPDATE '.$tbl.'users SET users_opt=users_opt & ~ 524288 WHERE users_opt>=524288 AND (users_opt & 524288) > 0');
 	if ($u) {
 		q('UPDATE '.$tbl.'users SET users_opt=users_opt|524288 WHERE id IN('.implode(',', $u).') AND (users_opt & 1048576)=0');
+	}
+}
+
+function ret_flag($raw=0)
+{
+	if ($raw) {
+		$ip = $raw;
+	} else {
+		$ip = get_ip();
+	}
+
+	if ($GLOBALS['FUD_OPT_3'] & 524288) {
+		$val = db_saq("SELECT cc, country FROM {SQL_TABLE_PREFIX}geoip WHERE ".sprintf("%u", ip2long($ip))." BETWEEN ips AND ipe");
+		if ($raw) {
+			return $val ? $val : array(null,null);
+		}
+		if ($val) {
+			return "flag_cc="._esc($val[0]).",flag_country="._esc($val[1]).",";
+		}
+	}
+	if ($raw) {
+		return array(null,null);
 	}
 }
 ?>

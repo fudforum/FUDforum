@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.98 2006/07/24 17:24:36 hackie Exp $
+* $Id: msg.php.t,v 1.99 2006/08/01 03:11:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -148,8 +148,8 @@
 		q('CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_'.__request_timestamp__.' AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND apr=1 ORDER BY id ASC LIMIT ' . qry_limit($count, $_GET['start']));
 	}
 
-	$result = $query_type('SELECT
-		m.*,
+	$result = q('SELECT
+		m.*, COALESCE(m.flag_cc, u.flag_cc) AS flag_cc, COALESCE(m.flag_country, u.flag_country) AS flag_country,
 		t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold,
 		u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,

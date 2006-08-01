@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.php.t,v 1.37 2005/12/07 18:07:45 hackie Exp $
+* $Id: reported.php.t,v 1.38 2006/08/01 03:11:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,8 +43,8 @@ function draw_path($cid)
 
 /*{POST_HTML_PHP}*/
 
-	$r = $query_type('SELECT
-			m.*,
+	$r = q('SELECT
+			m.*, COALESCE(m.flag_cc, u.flag_cc) AS flag_cc, COALESCE(m.flag_country, u.flag_country) AS flag_country,
 			t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			f.message_threshold, f.name AS frm_name, f.cat_id,
 			u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
