@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgeoip.php,v 1.2 2006/08/01 01:27:56 hackie Exp $
+* $Id: admgeoip.php,v 1.3 2006/08/01 20:56:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,15 +62,24 @@ The fields marked in orange are the ones the forum cares about, the rest of the 
 <p />
 <b>The import process usually takes a few minutes.</b>
 	</td></tr>
-	<tr>
+	<tr class="field">
 		<td>Database Format</td>
 		<td><select name="format"><?php echo tmpl_draw_select_opt(implode("\n", $format_vals), implode("\n", $format_names), '', '', ''); ?></select></td>
 	</tr>
-	<tr>
+	<tr class="field">
 		<td>Data File</td>
 		<td><input type="file" name="file" /></td>
 	</tr>
-	<tr class="fieldaction"><td colspan="2" align="center"><input type="submit" name="btn_submit" value="Upload IP Database"></td></tr>	
+	<tr class="fieldaction"><td colspan="2" align="center"><input type="submit" name="btn_submit" value="Upload IP Database"></td></tr>
+	<tr><td class="tutor" colspan="2">
+When enabling Geo-Location functionality on an existing forum it is recommended that the user and message location caches are rebuilt,
+without them, old messages will not have a flag appearing beside them. Please note that this is a <b>SLOW</b> process, which may take a few
+hours on a large forum.
+	</td></tr>
+	<tr class="fieldaction"><td colspan="2" align="center">
+		<input type="submit" name="rebuild_user_geoip" value="Rebuild User Cache">
+		<input type="submit" name="rebuild_msg_geoip" value="Rebuild Message Cache">
+	</td></tr>
 <table>
 </form>
 <?php 
@@ -99,4 +108,38 @@ The fields marked in orange are the ones the forum cares about, the rest of the 
 		}
 		fclose($fp);
 		echo '<script>changeCaption("Import Completed, '.$i.' entries were imported!");</script>';
+	} else if (!empty($_POST['rebuild_user_geoip'])) {
+		while (@ob_end_flush());
+		flush();
+		$c = q("SELECT id, reg_ip FROM ".$DBHOST_TBL_PREFIX."users");
+		while ($r = db_rowarr($c)) {
+			++$i;
+			if (!$r[1] || (!$flag = db_saq("SELECT cc, country FROM ".$DBHOST_TBL_PREFIX."geoip WHERE ".sprintf("%u", $r[1])." BETWEEN ips AND ipe"))) {
+				continue;
+			}
+			q("UPDATE ".$DBHOST_TBL_PREFIX."users SET flag_cc="._esc($flag[0]).", flag_country="._esc($flag[1])." WHERE id=".$r[0]);
+			if (!($i % 500)) {
+				echo '<script>changeCaption("'.$i.' user geo-location cache entries updated.");</script>';
+				echo "\n";
+				flush();
+			}
+		}
+		echo '<script>changeCaption("'.$i.' user geo-location cache entries updated.");</script>';
+	} else if (!empty($_POST['rebuild_msg_geoip'])) {
+		while (@ob_end_flush());
+		flush();
+		$c = q("SELECT distinct(ip_addr) FROM ".$DBHOST_TBL_PREFIX."msg");
+		while ($r = db_rowarr($c)) {
+			++$i;
+			if ($r[0] == '0.0.0.0' || (!$flag = db_saq("SELECT cc, country FROM ".$DBHOST_TBL_PREFIX."geoip WHERE ".sprintf("%u", ip2long($r[0]))." BETWEEN ips AND ipe"))) {
+				continue;
+			}
+			q("UPDATE ".$DBHOST_TBL_PREFIX."msg SET flag_cc="._esc($flag[0]).", flag_country="._esc($flag[1])." WHERE ip_addr="._esc($r[0]));
+			if (!($i % 500)) {
+				echo '<script>changeCaption("'.$i.' message geo-location cache entries updated.");</script>';
+				echo "\n";
+				flush();
+			}
+		}
+		echo '<script>changeCaption("'.$i.' message geo-location cache entries updated.");</script>';
 	}
