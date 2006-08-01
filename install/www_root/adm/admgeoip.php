@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgeoip.php,v 1.1 2006/08/01 01:22:09 hackie Exp $
+* $Id: admgeoip.php,v 1.2 2006/08/01 01:27:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -84,11 +84,11 @@ The fields marked in orange are the ones the forum cares about, the rest of the 
 		while ($l = fgetcsv($fp, 100000)) {
 			if ($_POST['format'] == 'GEO') {
 				if (isset($l[2], $l[3], $l[4], $l[5])) {
-					q("INSERT INTO ".$DBHOST_TBL_PREFIX."geoip (ips, ipe, cc, country) VALUES("._esc($l[2]).","._esc($l[3]).","._esc($l[4]).","._esc($l[5]).")");
+					q("INSERT INTO ".$DBHOST_TBL_PREFIX."geoip (ips, ipe, cc, country) VALUES("._esc($l[2]).","._esc($l[3]).","._esc(strtolower($l[4])).","._esc($l[5]).")");
 					++$i;
 				}
 			} else if (isset($l[0], $l[1], $l[2], $l[4])) { // IP2C
-				q("INSERT INTO ".$DBHOST_TBL_PREFIX."geoip (ips, ipe, cc, country) VALUES("._esc($l[0]).","._esc($l[1]).","._esc($l[2]).","._esc($l[4]).")");
+				q("INSERT INTO ".$DBHOST_TBL_PREFIX."geoip (ips, ipe, cc, country) VALUES("._esc($l[0]).","._esc($l[1]).","._esc(strtolower($l[2])).","._esc($l[4]).")");
 				++$i;
 			}
 			if (!($i % 500)) {
