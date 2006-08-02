@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.72 2006/08/02 03:59:46 hackie Exp $
+* $Id: index.tmpl,v 1.73 2006/08/02 04:18:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,23 +22,22 @@
 {REF: quicklogin.tmpl}
 
 {SECTION: index_cat_up_down_arrows up/down arrows for navigating category list}
-<span style="text-align: right; float: right;">
-		{IF: key($cidxc)}<a href="javascript://" onClick=\'nextCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/down.png" border="0" /></a>{ENDIFI}
-		{IF: $cat}<a href="javascript://" onClick=\'prevCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/up.png" border="0" /></a>{ENDIFI}
-	
-</span>
+<td class="CatDesc">
+	{IF: key($cidxc)}<a href="javascript://" onClick=\'nextCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" border="0"  style="vertical-align: top; float: right;" /></a>{ENDIFI}
+	{IF: $cat}<a href="javascript://" onClick=\'prevCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" border="0"  style="vertical-align: top; float: right;" /></a>{ENDIFI}
+</td>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
 <tr id="c{VAR: k}" p="{VAR: i[0]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
-<td colspan="6" class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
+<td colspan="5" class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
 <a name="c{VAR: k}" href="javascript://" onClick="toggleCategory({VAR: k}, {VAR: i[0]});" class="CatLink" title="{IF: !empty($collapse[$k])}{MSG: maximize_category}{ELSE}{MSG: minimize_category}{END}">
 <img id="c{VAR: k}img" src="{THEME_IMAGE_ROOT}/{IF: empty($collapse[$k])}min{ELSE}max{ENDI}{DEF: img_ext}" alt="" /></a> 
 <a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}{TEMPLATE: index_cat_up_down_arrows}</td></tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr name="c{VAR: k}" id="c{VAR: k}" p="{VAR: i[0]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};"><td class="CatDesc CatLockPad" colspan="6" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;"><span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}{TEMPLATE: index_cat_up_down_arrows}</td></tr>
+<tr name="c{VAR: k}" id="c{VAR: k}" p="{VAR: i[0]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};"><td class="CatDesc CatLockPad" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;"><span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}{TEMPLATE: index_cat_up_down_arrows}</td></tr>
 {SECTION: END}
 
 {SECTION: moderators moderator list}
