@@ -598,7 +598,7 @@ postcheck_invalid_email:	Please enter a valid e-mail address for your friend.
 postcheck_email_subject:	You cannot send an e-mail without a subject.
 postcheck_email_body:		You cannot send an e-mail without the message body.
 private_msg_notify_subj:	Read Notification For: {VAR: m->subject}
-private_msg_notify_body:	Hello,<br>{VAR: usr->login} has read your private message, "{VAR: m->subject}", on {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Hello,<br>{VAR: usr->login} has opened your private message titled, "{VAR: m->subject}".<br>This is an automated notification generated at {TEMPLATE: private_msg_notify_body_date}<br>
 referals_update:		Browsing referrals
 register_err_short_login:	The Login you have selected is too short. Login names must be at least 4 characters long.
 register_err_login_notallowed:	This login name is not allowed.

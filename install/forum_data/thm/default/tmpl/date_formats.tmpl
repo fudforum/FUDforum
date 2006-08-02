@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: date_formats.tmpl,v 1.5 2005/12/07 18:07:45 hackie Exp $
+* $Id: date_formats.tmpl,v 1.6 2006/08/02 03:04:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -138,5 +138,5 @@
 {SECTION: END}
 
 {SECTION: private_msg_notify_body_date}
-{DATE: m->post_stamp %a, %d %B %Y %H:%M}
+{DATE: !__request_timestamp__ %a, %d %B %Y %H:%M}
 {SECTION: END}
