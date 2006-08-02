@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.57 2006/02/13 15:40:30 hackie Exp $
+* $Id: pmsg.php.t,v 1.58 2006/08/02 02:13:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -170,7 +170,7 @@
 		}
 		$tmp = $folders;
 		unset($tmp[$folder_id]);
-		$moveto_list = tmpl_draw_select_opt(implode("\n", array_keys($tmp)), implode("\n", $tmp), '');
+		$moveto_list = tmpl_draw_select_opt(implode("\n", array_keys($tmp)), implode("\n", $tmp), 2);
 		$private_tools = '{TEMPLATE: private_tools}';
 	}
 
