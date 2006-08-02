@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.58 2006/08/02 02:13:30 hackie Exp $
+* $Id: pmsg.php.t,v 1.59 2006/08/02 02:36:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -92,6 +92,26 @@
 		$full_indicator = '{TEMPLATE: full_full_indicator}';
 	}
 
+	if (isset($_GET['o'])) {
+		switch ($_GET['o']) {
+			case 'subject':
+			case 'alias':
+			case 'alias2':
+				$o = $_GET['o'];
+				break;
+			default:
+				$o = 'post_stamp';
+		}	
+	} else {
+		$o = 'post_stamp';
+	}
+
+	if (isset($_GET['s']) && $_GET['s'] == 'a') {
+		$s = 'ASC';
+	} else {
+		$s = 'DESC';
+	}
+
 	$ttl = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id="._uid." AND fldr=".$folder_id);
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 	$start = (empty($_GET['start']) || $_GET['start'] >= $ttl) ? 0 : (int) $_GET['start'];
@@ -102,7 +122,7 @@
 		FROM {SQL_TABLE_PREFIX}pmsg p
 		INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON p.pdest=u2.id
-		WHERE duser_id='._uid.' AND fldr='.$folder_id.' ORDER BY post_stamp DESC LIMIT '.qry_limit($count, $start));
+		WHERE duser_id='._uid.' AND fldr='.$folder_id.' ORDER BY '.$o.' '.$s.' LIMIT '.qry_limit($count, $start));
 
 	$private_msg_entry = '';
 	while ($obj = db_rowobj($c)) {

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.48 2005/12/07 18:07:46 hackie Exp $
+* $Id: pmsg.tmpl,v 1.49 2006/08/02 02:36:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -106,9 +106,9 @@
 <tr>
 	<th class="nw">{MSG: pmsg_selected} [<a href="{TEMPLATE: PMSG_PAGE_lnk1}" class="thLnk">{IF: $all_v}{TEMPLATE: pmsg_all}{ELSE}{TEMPLATE: pmsg_none}{END}</a>]</th>
 	<th>&nbsp;</th>
-	<th class="wa">{MSG: pmsg_subject}</th>
-	<th class="ac">{IF: $folder_id == 3}{TEMPLATE: pmsg_recepient}{ELSE}{TEMPLATE: pmsg_author}{END}</th>
-	<th class="ac">{MSG: pmsg_time}</th>
+	<th class="wa"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o=subject&amp;s={IF: $o=='subject' && $s=='ASC'}d{ELSE}a{END}">{MSG: pmsg_subject}</a></th>
+	<th class="ac"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o={IF: $folder_id == 3}alias2{ELSE}alias{ENDI}&amp;s={IF: ($o=='alias' || $o=='alias2') && $s=='ASC'}d{ELSE}a{ENDI}">{IF: $folder_id == 3}{TEMPLATE: pmsg_recepient}{ELSE}{TEMPLATE: pmsg_author}{END}</a></th>
+	<th class="ac"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o=post_stamp&amp;s={IF: $o=='post_stamp' && $s=='ASC'}d{ELSE}a{END}">{MSG: pmsg_time}</a></th>
 	<th class="ac">{MSG: action}</th>
 </tr>
 {TEMPLATE-DATA: private_msg_entry}
