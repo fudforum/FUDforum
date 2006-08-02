@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.40 2006/05/16 02:35:35 hackie Exp $
+* $Id: th_adm.inc.t,v 1.41 2006/08/02 23:28:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,7 +120,7 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'.$forum_id.' (thread_id,iss,seq) SELECT {SQL_TABLE_PREFIX}thread.id, (thread_opt & (2|4)), '.$val.' FROM {SQL_TABLE_PREFIX}thread 
 		INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
 		WHERE forum_id='.$forum_id.' AND {SQL_TABLE_PREFIX}msg.apr=1 
-		ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC');
+		ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + ((thread_opt & 8) * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC');
 
 	if (__dbtype__ == 'pgsql') {
 		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=id - '.$cur);
@@ -164,14 +164,18 @@ function th_new_rebuild($forum_id, $th, $sticky)
 	}
 
 	list($max,$iss) = db_saq('SELECT seq,iss FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' ORDER BY seq DESC LIMIT 1');
-	if (!$sticky && $iss) { /* sub-optimal case, non-sticky topic and thre are stickies in the forum */
+	if ((!$sticky && $iss) || $iss >=8) { /* sub-optimal case, non-sticky topic and thre are stickies in the forum */
 		/* find oldest sticky message */
-		$iss = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE seq>'.($max - 50).' AND iss>0 ORDER BY seq ASC LIMIT 1');
+		if ($sticky && $iss >= 8) {
+			$iss = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE seq>'.($max - 50).' AND iss>=8 ORDER BY seq ASC LIMIT 1');
+		} else {
+			$iss = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE seq>'.($max - 50).' AND iss>0 ORDER BY seq ASC LIMIT 1');
+		}
 		/* move all stickies up one */
 		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=seq+1 WHERE seq>='.$iss);
 		/* we do this, since in optimal case we just do ++max */
 		$max = --$iss;
-	} 
+	}
 	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'.$forum_id.' (thread_id,iss,seq) VALUES('.$th.','.(int)$sticky.','.(++$max).')');
 
 	if (isset($ll)) {

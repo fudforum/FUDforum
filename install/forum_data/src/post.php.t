@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.151 2006/03/09 15:10:26 hackie Exp $
+* $Id: post.php.t,v 1.152 2006/08/02 23:28:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -534,16 +534,24 @@ function flood_check()
 
 	/* thread locking controls */
 	if ($perms & 4096) {
-		if (!isset($_POST['prev_loaded']) && $thr) {
-			$thr_locked_checked = $thr->thread_opt & 1 ? ' checked' : '';
-		} else if (isset($_POST['prev_loaded'])) {
-			$thr_locked_checked = isset($_POST['thr_locked']) ? ' checked' : '';
-		} else {
-			$thr_locked_checked = '';
+		$thr_locked_checked = '';
+		if (!isset($_POST['prev_loaded']) && $thr && $thr->thread_opt & 1) {
+			$thr_locked_checked = ' checked';
+		} else if (isset($_POST['prev_loaded']) && isset($_POST['thr_locked'])) {
+			$thr_locked_checked = ' checked';
 		}
 		$mod_post_opts = '{TEMPLATE: mod_post_opts}';
 	} else {
 		$mod_post_opts = '';
+	}
+
+	$thr_always_on_top = '';
+	if ($perms & 64) {
+		if (!isset($_POST['prev_loaded']) && $thr && $thr->thread_opt & 8) {
+			$thr_always_on_top = ' checked';
+		} else if (isset($_POST['prev_loaded']) && isset($_POST['thr_always_on_top'])) {
+			$thr_always_on_top = ' checked';
+		}
 	}
 
 	$msg_body = $msg_body ? char_fix(htmlspecialchars(str_replace("\r", '', $msg_body))) : '';

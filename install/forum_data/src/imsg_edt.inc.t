@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.160 2006/08/01 03:11:00 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.161 2006/08/02 23:28:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -123,10 +123,13 @@ class fud_msg_edit extends fud_msg
 		$thread_opt = (int) ($perm & 4096 && isset($_POST['thr_locked']));
 
 		if (!$this->thread_id) { /* new thread */
-			if ($perm & 64 && isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry'])) {
-				if ((int)$_POST['thr_ordertype']) {
+			if ($perm & 64) {
+				if (isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) && (int)$_POST['thr_ordertype']) {
 					$thread_opt |= (int) $_POST['thr_ordertype'];
 					$thr_orderexpiry = (int) $_POST['thr_orderexpiry'];
+				}
+				if (!empty($_POST['thr_always_on_top'])) {
+					$thread_opt |= 8;
 				}
 			}
 
@@ -210,13 +213,18 @@ class fud_msg_edit extends fud_msg
 
 			/* confirm that user has ability to change sticky status of the thread */
 			if ($th_data[2] == $this->id && isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) && $perm & 64) {
-				if (!$_POST['thr_ordertype'] && $thread_opt>1) {
+				if (!$_POST['thr_ordertype'] && $thread_opt > 1) {
 					$orderexpiry = 0;
 					$thread_opt &= ~6;
 				} else if ($thread_opt < 2 && (int) $_POST['thr_ordertype']) {
 					$thread_opt |= $_POST['thr_ordertype'];
 				} else if (!($thread_opt & (int) $_POST['thr_ordertype'])) {
 					$thread_opt = $_POST['thr_ordertype'] | ($thread_opt & 1);
+				}
+				if (!empty($_POST['thr_always_on_top'])) {
+					$thread_opt |= 8;
+				} else {
+					$thread_opt &= ~8;
 				}
 			}
 
@@ -227,7 +235,7 @@ class fud_msg_edit extends fud_msg
 				 * Only rebuild if expiry time has changed or message gained/lost sticky status
 				 */
 				$diff = $thread_opt ^ $th_data[1];
-				if (($diff > 1 && !($diff & 6)) || $orderexpiry != $th_data[0]) {
+				if (($diff > 1 && $diff & 14) || $orderexpiry != $th_data[0]) {
 					rebuild_forum_view_ttl($frm_id);
 				}
 			}
@@ -401,7 +409,7 @@ class fud_msg_edit extends fud_msg
 		}		
 
 		if ($mtf->root_msg_id == $mtf->id) {	/* new thread */
-			th_new_rebuild($mtf->forum_id, $mtf->thread_id, $mtf->thread_opt>=2);
+			th_new_rebuild($mtf->forum_id, $mtf->thread_id, $mtf->thread_opt & (2|4|8));
 			$threads = 1;
 		} else {				/* reply to thread */
 			if ($mtf->post_stamp > $mtf->last_post_date) {
@@ -409,7 +417,7 @@ class fud_msg_edit extends fud_msg
 			} else {
 				th_inc_post_count($mtf->thread_id, 1);
 			}
-			th_reply_rebuild($mtf->forum_id, $mtf->thread_id, $mtf->thread_opt>=2);
+			th_reply_rebuild($mtf->forum_id, $mtf->thread_id, $mtf->thread_opt & (2|4|8));
 			$threads = 0;
 		}
 
