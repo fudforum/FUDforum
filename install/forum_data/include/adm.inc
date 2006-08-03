@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: adm.inc,v 1.36 2006/07/24 18:43:46 hackie Exp $
+* $Id: adm.inc,v 1.37 2006/08/03 03:04:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,9 +28,13 @@ define('__fud_index_name__', 'index.php');
 
 if (!($GLOBALS['usr']->users_opt & 1048576)) {
 	if ($GLOBALS['usr']->users_opt & 268435456) {
-		if (basename($_SERVER['PHP_SELF']) != 'admuser.php') {
-			header('Location: '.$GLOBALS['WWW_ROOT'].'adm/admuser.php?'.__adm_rsidl);
-			exit;
+		switch (basename($_SERVER['PHP_SELF'])) {
+			case 'admaccapr.php':
+			case 'admuser.php':
+				break;
+			default:
+				header('Location: '.$GLOBALS['WWW_ROOT'].'adm/admuser.php?'.__adm_rsidl);
+				exit;
 		}
 	} else {
 		header('Location: '.$GLOBALS['WWW_ROOT'].'adm/admloginuser.php?'.__adm_rsidl);

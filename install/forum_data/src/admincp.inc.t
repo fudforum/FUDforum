@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.inc.t,v 1.26 2005/12/15 00:51:53 hackie Exp $
+* $Id: admincp.inc.t,v 1.27 2006/08/03 03:04:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,6 +46,8 @@ if (_uid) {
 		if ($approve_count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id '.$q_limit.' WHERE m.apr=0 AND (f.forum_opt>=2 AND (f.forum_opt & 2) > 0)')) {
 			$mod_que = '{TEMPLATE: mod_que}';
 		}
+	} else if ($usr->users_opt & 268435456 && $FUD_OPT_2 & 1024 && ($accounts_pending_approval = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0 AND id > 0'))) {
+		$accounts_pending_approval = '{TEMPLATE: accounts_pending_approval}';
 	}
 	if ($is_a || $usr->group_leader_list) {
 		$group_mgr = '{TEMPLATE: group_mgr}';
