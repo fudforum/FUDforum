@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.42 2006/08/04 16:25:16 hackie Exp $
+* $Id: th_adm.inc.t,v 1.43 2006/08/04 18:32:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -205,7 +205,7 @@ function th_reply_rebuild($forum_id, $th, $sticky)
 		/* get position */
 		$pos = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th);
 		/* find oldest sticky message */
-		$iss = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE seq>'.($max - 50).' AND iss>'.($iss >= 8 ? '=8' : '0').' ORDER BY seq ASC LIMIT 1');
+		$iss = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE seq>'.($max - 50).' AND iss>'.($sticky && $iss >= 8 ? '=8' : '0').' ORDER BY seq ASC LIMIT 1');
 		/* move everyone ahead, unless sticky, 1 down */
 		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=seq-1 WHERE seq BETWEEN '.($pos + 1).' AND '.($iss - 1));
 		/* move to top of the stack */
