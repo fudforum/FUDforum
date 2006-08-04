@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: VB2.php,v 1.20 2005/12/07 18:07:45 hackie Exp $
+* $Id: VB2.php,v 1.21 2006/08/04 13:14:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -45,14 +45,13 @@
 	fud_use('post_proc.inc');
 	fud_use('db.inc');
 	fud_Use('smiley.inc');
-	fud_use('forum_adm.inc');
+	fud_use('forum_adm.inc', true);
 	fud_use('groups.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('post_proc.inc');
 	fud_use('rhost.inc');
 	fud_use('private.inc');
-	fud_use('mime.inc');
-	fud_use('glob.inc', TRUE);
+	fud_use('glob.inc', true);
 	
 	include_once $VB2_CONFIG_PATH;
 	define ("VB2DIR", realpath(dirname($VB2_CONFIG_PATH).'/../'));
