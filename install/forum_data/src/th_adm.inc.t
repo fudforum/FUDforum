@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.41 2006/08/02 23:28:25 hackie Exp $
+* $Id: th_adm.inc.t,v 1.42 2006/08/04 16:25:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -117,7 +117,7 @@ function rebuild_forum_view_ttl($forum_id, $skip_cron=0)
 	}
 
 	q('DELETE FROM {SQL_TABLE_PREFIX}tv_'.$forum_id); /* in sqlite, this resets row counter */
-	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'.$forum_id.' (thread_id,iss,seq) SELECT {SQL_TABLE_PREFIX}thread.id, (thread_opt & (2|4)), '.$val.' FROM {SQL_TABLE_PREFIX}thread 
+	q('INSERT INTO {SQL_TABLE_PREFIX}tv_'.$forum_id.' (thread_id,iss,seq) SELECT {SQL_TABLE_PREFIX}thread.id, (thread_opt & (2|4|8)), '.$val.' FROM {SQL_TABLE_PREFIX}thread 
 		INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
 		WHERE forum_id='.$forum_id.' AND {SQL_TABLE_PREFIX}msg.apr=1 
 		ORDER BY (CASE WHEN thread_opt>=2 THEN (4294967294 + ((thread_opt & 8) * 100000000) + {SQL_TABLE_PREFIX}thread.last_post_date) ELSE {SQL_TABLE_PREFIX}thread.last_post_date END) ASC');
@@ -194,7 +194,7 @@ function th_reply_rebuild($forum_id, $th, $sticky)
 
 	if ($tid == $th) {
 		/* NOOP: quick elimination, topic is already 1st */
-	} else if (!$iss || $sticky) { /* moving to the very top */
+	} else if (!$iss || ($sticky && $iss < 8)) { /* moving to the very top */
 		/* get position */
 		$pos = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th);
 		/* move everyone ahead, 1 down */
@@ -205,7 +205,7 @@ function th_reply_rebuild($forum_id, $th, $sticky)
 		/* get position */
 		$pos = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE thread_id='.$th);
 		/* find oldest sticky message */
-		$iss = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE seq>'.($max - 50).' AND iss>0 ORDER BY seq ASC LIMIT 1');
+		$iss = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$forum_id.' WHERE seq>'.($max - 50).' AND iss>'.($iss >= 8 ? '=8' : '0').' ORDER BY seq ASC LIMIT 1');
 		/* move everyone ahead, unless sticky, 1 down */
 		q('UPDATE {SQL_TABLE_PREFIX}tv_'.$forum_id.' SET seq=seq-1 WHERE seq BETWEEN '.($pos + 1).' AND '.($iss - 1));
 		/* move to top of the stack */

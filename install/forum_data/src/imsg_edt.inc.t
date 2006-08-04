@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.161 2006/08/02 23:28:25 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.162 2006/08/04 16:25:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -221,13 +221,15 @@ class fud_msg_edit extends fud_msg
 				} else if (!($thread_opt & (int) $_POST['thr_ordertype'])) {
 					$thread_opt = $_POST['thr_ordertype'] | ($thread_opt & 1);
 				}
+			}
+
+			if ($perm & 64) {
 				if (!empty($_POST['thr_always_on_top'])) {
 					$thread_opt |= 8;
 				} else {
 					$thread_opt &= ~8;
 				}
 			}
-
 			/* Determine if any work needs to be done */
 			if ($thread_opt != $th_data[1] || $orderexpiry != $th_data[0]) {
 				q('UPDATE {SQL_TABLE_PREFIX}thread SET thread_opt='.$thread_opt.', orderexpiry='.$orderexpiry.' WHERE id='.$this->thread_id);
