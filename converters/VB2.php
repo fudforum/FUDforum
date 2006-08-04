@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: VB2.php,v 1.21 2006/08/04 13:14:03 hackie Exp $
+* $Id: VB2.php,v 1.22 2006/08/04 22:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -161,14 +161,14 @@ function append_perm_str($perm, $who)
 	$r = Q2("SELECT *,user.userid AS userid FROM user LEFT JOIN userfield ON user.userid=userfield.userid LEFT JOIN customavatar ON user.userid=customavatar.userid");
 	print_status('Importing '.db_count($r).' Users');
 	while( $obj = db_rowobj($r) ) {
-		if( bq("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj->username)."' OR email='".addslashes($obj->email)."'") ) {
+		if( q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj->username)."' OR email='".addslashes($obj->email)."'") ) {
 			print_status("\t\tWARNING: Cannot import user ".$obj->username.", user with this email and/or login already exists");
 			continue;
 		}
 	
 		$ppg = $obj->maxposts > 0 ? $obj->maxposts : $VB2SET['maxposts'];
 	
-		if( $obj->avatarid && bq("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar WHERE id=".$obj->avatarid) ) {
+		if( $obj->avatarid && q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar WHERE id=".$obj->avatarid) ) {
 			$avatar = $obj->avatarid;
 			$avatar_approved = 'Y';
 		}
