@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.48 2006/02/19 21:02:19 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.49 2006/08/07 19:01:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -148,6 +148,8 @@
 {IF: $u->yahoo}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_yahoo}</td><td class="GenText"><a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: u->yahoo}&amp;.src=pg">{VAR: u->yahoo}</a></td></tr>{ENDIF}
 {IF: $u->msnm}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_msnm}</td><td class="GenText">{VAR-UH: u->msnm}</td></tr>{ENDIF}
 {IF: $u->jabber}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_jabber}</td><td class="GenText">{VAR: u->jabber}</td></tr>{ENDIF}
+{IF: $u->google}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_google}</td><td class="GenText">{VAR: u->google}</td></tr>{ENDIF}
+{IF: $u->skype}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_skype}</td><td class="GenText">{VAR: u->skype}</td></tr>{ENDIF}
 {IF: ($FUD_OPT_2 & 2048 && $u->affero)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR: u->affero}" target="_blank">{VAR-UH: u->affero}</a></td></tr>{ENDIF}
 {IF: $is_a}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: findu_admin_opts_header}</td>

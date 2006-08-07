@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg_view.php.t,v 1.24 2005/12/07 18:07:45 hackie Exp $
+* $Id: pmsg_view.php.t,v 1.25 2006/08/07 19:01:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@
 	$m = db_sab('SELECT
 		p.*,
 		u.id AS user_id, u.alias, u.users_opt, u.avatar_loc, u.email, u.posted_msg_count, u.join_date,
-		u.location, u.sig, u.icq, u.aim, u.msnm, u.yahoo, u.jabber, u.affero, u.custom_status, u.last_visit,
+		u.location, u.sig, u.icq, u.aim, u.msnm, u.yahoo, u.jabber, u.affero, u.google, u.skype, u.custom_status, u.last_visit,
 		l.name AS level_name, l.level_opt, l.img AS level_img
 	FROM
 		{SQL_TABLE_PREFIX}pmsg p

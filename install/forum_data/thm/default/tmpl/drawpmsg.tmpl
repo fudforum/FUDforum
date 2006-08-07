@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.tmpl,v 1.52 2005/12/07 18:07:45 hackie Exp $
+* $Id: drawpmsg.tmpl,v 1.53 2006/08/07 19:01:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,6 +60,14 @@
 
 {SECTION: dpmsg_im_jabber}
 <img src="{THEME_IMAGE_ROOT}/jabber{DEF: img_ext}" title="{VAR: obj->jabber}" alt="" />
+{SECTION: END}
+
+{SECTION: dpmsg_im_google}
+<img src="{THEME_IMAGE_ROOT}/google{DEF: img_ext}" title="{VAR: obj->google}" alt="" />
+{SECTION: END}
+
+{SECTION: dpmsg_im_skype}
+<img src="{THEME_IMAGE_ROOT}/skype{DEF: img_ext}" title="{VAR: obj->skype}" alt="" />
 {SECTION: END}
 
 {SECTION: dpmsg_file_attachments the file attachments list}

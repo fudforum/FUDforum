@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.90 2006/08/01 03:11:00 hackie Exp $
+* $Id: users_reg.inc.t,v 1.91 2006/08/07 19:01:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,7 @@
 class fud_user
 {
 	var $id, $login, $alias, $passwd, $plaintext_passwd, $name, $email, $location, $occupation, $interests, $topics_per_page,
-	    $icq, $aim, $yahoo, $msnm, $jabber, $affero, $avatar, $avatar_loc, $posts_ppg, $time_zone, $bday, $home_page,
+	    $icq, $aim, $yahoo, $msnm, $jabber, $affero, $google, $skype, $avatar, $avatar_loc, $posts_ppg, $time_zone, $bday, $home_page,
 	    $sig, $bio, $posted_msg_count, $last_visit, $last_event, $conf_key, $user_image, $join_date, $theme, $last_read,
 	    $mod_list, $mod_cur, $level_id, $u_last_post_id, $users_opt, $cat_collapse_status, $ignore_list, $buddy_list;
 }
@@ -103,6 +103,8 @@ class fud_user_reg extends fud_user
 				msnm,
 				jabber,
 				affero,
+				google,
+				skype,
 				posts_ppg,
 				time_zone,
 				bday,
@@ -136,6 +138,8 @@ class fud_user_reg extends fud_user
 				".ssn(urlencode($this->msnm)).",
 				".ssn(htmlspecialchars($this->jabber)).",
 				".ssn(urlencode($this->affero)).",
+				".ssn(urlencode($this->google)).",
+				".ssn(urlencode($this->skype)).",
 				".(int)$this->posts_ppg.",
 				"._esc($this->time_zone).",
 				".$this->bday.",
@@ -184,6 +188,8 @@ class fud_user_reg extends fud_user
 			msnm=".ssn(urlencode($this->msnm)).",
 			jabber=".ssn(htmlspecialchars($this->jabber)).",
 			affero=".ssn(urlencode($this->affero)).",
+			google=".ssn(urlencode($this->google)).",
+			skype=".ssn(urlencode($this->skype)).",
 			posts_ppg=".(int)$this->posts_ppg.",
 			time_zone="._esc($this->time_zone).",
 			bday=".$this->bday.",

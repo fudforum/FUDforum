@@ -798,7 +798,11 @@ pmsg_next_msg:			Next message
 pmsg_prev_msg:			Previous message
 post_proc_reveal_spoiler:	Toggle Spoiler
 register_jabber:		Jabber Handle:
+register_skype:			Skype Handle:
+register_google:		Google Chat/IM Handle:
 im_jabber:			Jabber: 
+im_google:			Google Talk: 
+im_skype:			Skype: 
 forum_contact:			Contact
 forum_home:			Home
 post_cur_attached:		currently attached {VAR: i} file(s) 

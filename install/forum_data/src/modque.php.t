@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.php.t,v 1.49 2006/08/01 03:11:00 hackie Exp $
+* $Id: modque.php.t,v 1.50 2006/08/07 19:01:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,7 +54,7 @@
 		f.message_threshold, f.name AS frm_name,
 		c.name AS cat_name,
 		u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
-		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.last_visit AS time_sec, u.users_opt,
+		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.skype, u.google, u.last_visit AS time_sec, u.users_opt,
 		l.name AS level_name, l.level_opt, l.img AS level_img,
 		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 		pot.id AS cant_vote

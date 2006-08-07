@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.108 2006/08/01 03:11:00 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.109 2006/08/07 19:01:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -207,17 +207,40 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 		/* show im buttons if need be */
 		if ($b & 16384) {
-			$im_icq		= $obj->icq ? '{TEMPLATE: dmsg_im_icq}' : '';
-			$im_aim		= $obj->aim ? '{TEMPLATE: dmsg_im_aim}' : '';
-			$im_yahoo	= $obj->yahoo ? '{TEMPLATE: dmsg_im_yahoo}' : '';
-			$im_msnm	= $obj->msnm ? '{TEMPLATE: dmsg_im_msnm}' : '';
-			$im_jabber	= $obj->jabber ? '{TEMPLATE: dmsg_im_jabber}' : '';
-			if ($o2 & 2048) {
-				$im_affero = $obj->affero ? '{TEMPLATE: drawmsg_affero_reg}' : '{TEMPLATE: drawmsg_affero_noreg}';
-			} else {
-				$im_affero = '';
+			$im = '';
+			if ($obj->icq) {
+				$im .= '{TEMPLATE: dmsg_im_icq}';
 			}
-			$dmsg_im_row = ($im_icq || $im_aim || $im_yahoo || $im_msnm || $im_jabber || $im_affero) ? '{TEMPLATE: dmsg_im_row}' : '';
+			if ($obj->aim) {
+				$im .= '{TEMPLATE: dmsg_im_aim}';
+			}
+			if ($obj->yahoo) {
+				$im .= '{TEMPLATE: dmsg_im_yahoo}';
+			}
+			if ($obj->msnm) {
+				$im .= '{TEMPLATE: dmsg_im_msnm}';
+			}
+			if ($obj->jabber) {
+				$im .=  '{TEMPLATE: dmsg_im_jabber}';
+			}
+			if ($obj->google) {
+				$im .= '{TEMPLATE: dmsg_im_google}';
+			}
+			if ($obj->skype) {
+				$im .=  '{TEMPLATE: dmsg_im_skype}';
+			}
+			if ($o2 & 2048) {
+				if ($obj->affero) {
+					$im .= '{TEMPLATE: drawmsg_affero_reg}';
+				} else {
+					$im .= '{TEMPLATE: drawmsg_affero_noreg}';
+				}
+			}
+			if ($im) {
+				$dmsg_im_row = '{TEMPLATE: dmsg_im_row}';
+			} else {
+				$dmsg_im_row = '';
+			}
 		} else {
 			$dmsg_im_row = '';
 		}

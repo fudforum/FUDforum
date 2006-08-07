@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.162 2006/01/24 23:32:25 hackie Exp $
+* $Id: register.php.t,v 1.163 2006/08/07 19:01:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -231,6 +231,8 @@ function decode_uent(&$uent)
 	$uent->yahoo = urldecode($uent->yahoo);
 	$uent->msnm = urldecode($uent->msnm);
 	$uent->affero = urldecode($uent->affero);
+	$uent->google = urldecode($uent->google);
+	$uent->skype = urldecode($uent->skype);
 }
 
 	if (!__fud_real_user__ && !($FUD_OPT_1 & 2)) {

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree_msg.php.t,v 1.3 2006/06/18 16:47:11 hackie Exp $
+* $Id: tree_msg.php.t,v 1.4 2006/08/07 19:01:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@ $msg_obj = db_sab('SELECT
 	t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 	f.message_threshold,
 	u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
-	u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.last_visit AS time_sec, u.users_opt,
+	u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.skype, u.google, u.last_visit AS time_sec, u.users_opt,
 	l.name AS level_name, l.level_opt, l.img AS level_img,
 	p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 	'.(_uid ? ' pot.id AS cant_vote, r.last_view, r2.last_view AS last_forum_view ' : ' 1 AS cant_vote ').',

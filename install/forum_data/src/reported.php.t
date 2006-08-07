@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.php.t,v 1.38 2006/08/01 03:11:00 hackie Exp $
+* $Id: reported.php.t,v 1.39 2006/08/07 19:01:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,7 +48,7 @@ function draw_path($cid)
 			t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			f.message_threshold, f.name AS frm_name, f.cat_id,
 			u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
-			u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.users_opt, u.last_visit AS time_sec,
+			u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.skype, u.google, u.users_opt, u.last_visit AS time_sec,
 			l.name AS level_name, l.level_opt, l.img AS level_img,
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 			mr.id AS report_id, mr.stamp AS report_stamp, mr.reason AS report_reason,
