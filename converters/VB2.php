@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: VB2.php,v 1.22 2006/08/04 22:27:43 hackie Exp $
+* $Id: VB2.php,v 1.23 2006/08/08 15:39:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -168,22 +168,28 @@ function append_perm_str($perm, $who)
 	
 		$ppg = $obj->maxposts > 0 ? $obj->maxposts : $VB2SET['maxposts'];
 	
+		$avatar_approved = 4194304;
 		if( $obj->avatarid && q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar WHERE id=".$obj->avatarid) ) {
 			$avatar = $obj->avatarid;
-			$avatar_approved = 'Y';
-		}
-		else if( !empty($obj->avatardata) ) {
+			$avatar_approved = 8388608;
+		} else if( !empty($obj->avatardata) ) {
 			$fp = fopen($IMG_ROOT_DISK.'custom_avatars/'.$obj->userid, "wb");
 			fwrite($fp, $obj->avatardata);
 			fclose($fp);
 			$avatar = 0;
-			$avatar_approved = 'Y';
-		}
-		else {
-			$avatar_approved = 'NO';
+			$avatar_approved = 8388608;
+		} else {
 			$avatar = 0;
 		}
 		
+		$users_opt = 131072|262144|$avatar_approved;
+		if ($obj->showemail) $users_opt |= 1;
+		if ($obj->emailnotification) $users_opt |= 2|4;
+		if (!$obj->adminemail) $users_opt |= 8;
+		if ($obj->invisible) $users_opt |= 32768;
+		if ($obj->options&SHOWSIGNATURES) $users_opt |= 4096;
+		if ($obj->options&SHOWAVATARS) $users_opt |= 8192;
+
 		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."users (
 			id,
 			login,
@@ -194,15 +200,9 @@ function append_perm_str($perm, $who)
 			icq,
 			aim,
 			yahoo,
-			display_email,
-			notify,
-			ignore_admin,
-			invisible_mode,
 			join_date,
 			bday,
 			posts_ppg,
-			show_sigs,
-			show_avatars,
 			location,
 			interests,
 			occupation,
@@ -211,8 +211,7 @@ function append_perm_str($perm, $who)
 			last_visit,
 			referer_id,
 			avatar,
-			avatar_approved,
-			email_conf,
+			users_opt,
 			conf_key
 			)
 			VALUES(
@@ -225,15 +224,9 @@ function append_perm_str($perm, $who)
 			".intval($obj->icq).",
 			'".addslashes($obj->aim)."',
 			'".addslashes($obj->yahoo)."',
-			'".INT_yn(!$obj->showemail)."',
-			'".INT_yn($obj->emailnotification)."',
-			'".INT_yn($obj->adminemail)."',
-			'".INT_yn($obj->invisible)."',
 			".intval($obj->joindate).",
 			".intval(str_replace('-', '', $obj->birthday)).",
 			".intval($ppg).",
-			'".INT_yn(($obj->options&SHOWSIGNATURES))."',
-			'".INT_yn(($obj->options&SHOWAVATARS))."',
 			'".addslashes($obj->field2)."',
 			'".addslashes($obj->field3)."',
 			'".addslashes($obj->field4)."',
@@ -242,8 +235,7 @@ function append_perm_str($perm, $who)
 			".intval($obj->lastvisit).",
 			".intval($obj->referrerid).",
 			".$avatar.",
-			'".$avatar_approved."',
-			'Y',
+			".$users_opt.",
 			'".md5(get_random_value(64))."'
 			)
 		");
@@ -277,19 +269,19 @@ function append_perm_str($perm, $who)
 /* Import Global Permissions for unregged & regged users */
 
 $group_map = array(
-'canview'=>'p_VISIBLE',
-'canview'=>'p_READ',
-'canpostnew'=>'p_POST',
-'canreplyothers'=>'p_REPLY',
-'caneditpost'=>'p_EDIT',
-'candeletethread'=>'p_DEL',
-'auth_sticky'=>'p_STICKY',
-'canvote'=>'p_VOTE',
-'canpostpoll'=>'p_POLL',
-'canopenclose'=>'p_LOCK',
-'canmove'=>'p_MOVE',
-'canthreadrate'=>'p_RATE',
-'canpostattachment'=>'p_FILE'
+'canview'=>1|262144,
+'canview'=>2,
+'canpostnew'=>4,
+'canreplyothers'=>8,
+'caneditpost'=>16,
+'candeletethread'=>32,
+'auth_sticky'=>64,
+'canvote'=>512,
+'canpostpoll'=>128,
+'canopenclose'=>4096,
+'canmove'=>8192,
+'canthreadrate'=>1024,
+'canpostattachment'=>256
 );
 
 	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."groups WHERE id>2");
@@ -300,11 +292,13 @@ $group_map = array(
 	print_status('Importing Permissions for all anonymous & registered users');
 	$r = Q2("select * from usergroup where usergroupid<3 ORDER BY usergroupid");
 	while( $obj = db_rowobj($r) ) {
-		reset($group_map);
-		$data='';
-		while( list($k,$v) = each($group_map) ) $data .= $v."='".INT_yn($obj->{$k})."',";
-		$data = substr($data, 0, -1);
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."groups SET ".$data." WHERE id=".$obj->usergroupid);
+		$opt = 0;
+		foreach ($group_map as $k => $v) {
+			if ($obj->$k) {
+				$opt |= $v;
+			}
+		}
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."groups SET groups_opt=".$opt." WHERE id=".$obj->usergroupid);
 	}
 	unset($r);
 
@@ -340,20 +334,26 @@ $group_map = array(
 	while( $obj = db_rowobj($r) ) {
 		$pa = explode(',', $obj->parentlist);
 		$pid = $pa[count($pa)-2];
+		$opt = 0;
 		
-		if( $obj->allowhtml ) 
-			$code = 'HTML';
-		else if( $obj->allowbbcode )
-			$code = 'ML';
-		else
-			$code = 'NONE';		
+		if ($obj->allowhtml)  {
+
+		} else if ($obj->allowbbcode) {
+			$opt |= 16;
+		} else {
+			$opt |= 8;
+		}
+
+		if ($obj->moderatenew) {
+			$opt |= 2;
+		}
 
 		$frm = new fud_forum_adm;
 		$frm->cat_id = $pid;
 		$frm->name = addslashes($obj->title);
 		$frm->descr = addslashes($obj->description);
 		$frm->tag_style = $code;
-		$frm->moderated = INT_yn($obj->moderatenew);
+		$frm->forum_opt = $opt;
 		$id = $frm->add($i);
 				
 		$gid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."groups WHERE res='forum' AND res_id=".$id);
@@ -379,24 +379,24 @@ $group_map = array(
 	$r = Q2("SELECT * FROM thread");
 	print_status('Importing '.db_count($r).' Threads');
 	while( $obj = db_rowobj($r) ) {
-		
-		$ordertype = $obj->sticky ? 'STICKY' : 'NONE';
+		$opt = $obj->sticky ? 2 : 0;
+		if (!$obj->open) {
+			$opt |= 1;
+		}
 		
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread (
 			id,
 			forum_id,
 			last_post_id,
 			views,
-			ordertype,
-			locked
+			thread_opt
 			)
 			VALUES(
 			".$obj->threadid.",
 			".$obj->forumid.",
 			".$obj->lastpost.",
 			".$obj->views.",
-			'".$ordertype."',
-			'".INT_yn(!$obj->open)."'
+			".$thread_opt."
 			)
 		");
 	}
@@ -416,8 +416,14 @@ $group_map = array(
 			$th_id = $obj->threadid;
 		}
 		
+		$opt = $obj->showsignature ? 1 : 0;
+
 		$obj->pagetext = tags_to_html($obj->pagetext);
-		if( $obj->allowsmilie ) $obj->pagetext = smiley_to_post($obj->pagetext);
+		if ($obj->allowsmilie) {
+			$obj->pagetext = smiley_to_post($obj->pagetext);
+		} else {
+			$opt |= 2;
+		}
 		$fileid = write_body($obj->pagetext, $len, $off, $ffid);
 		
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg (
@@ -428,9 +434,8 @@ $group_map = array(
 			update_stamp,
 			updated_by,
 			subject,
-			approved,
-			show_sig,
-			smiley_disabled,
+			apr,
+			msg_opt,
 			ip_addr,
 			foff,
 			length,
@@ -444,9 +449,8 @@ $group_map = array(
 			".(int)$obj->editdate.",
 			".(int)$obj->edituserid.",
 			'".addslashes($obj->title)."',
-			'Y',
-			'".INT_yn($obj->showsignature)."',
-			'".INT_yn($obj->allowsmilie)."',
+			1,
+			".$opt.",
 			'".$obj->ipaddress."',
 			".(int)$off.",
 			".(int)$len.",
@@ -536,27 +540,27 @@ $group_map = array(
 			id,
 			original_name,
 			owner,
-			private,
+			attach_opt,
 			message_id,
 			dlcount,
 			mime_type,
-			proto,
-			location
+			location,
+			fsize
 			)
 			VALUES(
 			".$obj->attachmentid.",
 			'".addslashes($obj->filename)."',
 			".intval($obj->userid).",
-			'N',
+			0,
 			".$obj->postid.",
 			".intval($obj->counter).",
 			".intval(get_mime_by_ext(substr(strrchr($obj->filename, '.'), 1))).",
-			'LOCAL',
-			'".$FILE_STORE.$obj->attachmentid.".atch'
+			'".$FILE_STORE.$obj->attachmentid.".atch',
+			".filesize($FILE_STORE.$obj->attachmentid.'.atch')."
 		)");
 		
-		$fp = fopen($GLOBALS['FILE_STORE'].$obj->attachmentid.'.atch', "wb");
-			fwrite($fp, $obj->filedata);
+		$fp = fopen($FILE_STORE.$obj->attachmentid.'.atch', "wb");
+		fwrite($fp, $obj->filedata);
 		fclose($fp);
 	}
 	unset($r);
@@ -619,7 +623,10 @@ $group_map = array(
 	while( $obj = db_rowobj($r) ) {
 		list($off, $len) = write_pmsg_body(vb2tofudcode($obj->message));
 	
-		$folder = $obj->fromuserid == $obj->touserid ? 'SENT' : 'INBOX';
+		$folder = $obj->fromuserid == $obj->touserid ? 3 : 1;
+		$opt = 16;
+		if ($obj->showsignature) $opt |= 1;
+		if ($obj->receipt) $opt |= 4;
 	
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."pmsg (
 			ouser_id,
@@ -627,12 +634,11 @@ $group_map = array(
 			post_stamp,
 			read_stamp,
 			mailed,
-			folder_id,
+			fldr,
 			subject,
-			show_sig,
-			track,
 			foff,
-			length
+			length,
+			pmsg_opt
 			)
 			VALUES(
 			".intval($obj->fromuserid).",
@@ -640,12 +646,11 @@ $group_map = array(
 			".intval($obj->dateline).",
 			".intval($obj->readtime).",
 			'Y',
-			'".$folder."',
+			".$folder.",
 			'".addslashes($obj->title)."',
-			'".INT_yn($obj->showsignature)."',
-			'".INT_yn($obj->receipt)."',
 			".$off.",
-			".$len."
+			".$len.",
+			".$opt."
 		)");
 	}
 	unset($r);
@@ -721,7 +726,7 @@ $group_map = array(
 	$r = Q2("SELECT userid FROM usergroup INNER JOIN user ON user.usergroupid=usergroup.usergroupid WHERE cancontrolpanel=1");
 	print_status('Importing '.db_count($r).' Administrators');
 	while( list($uid) = db_rowarr($r) ) 
-		q("UPDATE ".$DBHOST_TBL_PREFIX."users SET is_mod='A' WHERE id=".$uid);
+		q("UPDATE ".$DBHOST_TBL_PREFIX."users SET users_opt=users_opt|1048576 WHERE id=".$uid);
 	unset($r);
 	print_status('Finished Importing Administrators');
 
