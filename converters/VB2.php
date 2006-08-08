@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: VB2.php,v 1.23 2006/08/08 15:39:51 hackie Exp $
+* $Id: VB2.php,v 1.24 2006/08/08 23:40:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -305,7 +305,7 @@ $group_map = array(
 /* Import Categories */
 	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."cat");
 
-	$r = Q2("SELECT * FROM forum WHERE parentid=-1 AND active=1 ORDER BY displayorder");
+	$r = Q2("SELECT * FROM forum WHERE parentid=-1 ORDER BY displayorder");
 	print_status('Importing '.db_count($r).' Categories');
 	$i=1;
 	while( $obj = db_rowobj($r) ) {
@@ -328,7 +328,7 @@ $group_map = array(
 	
 /* Import Forums */
 	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum");
-	$r = Q2("SELECT * FROM forum WHERE cancontainthreads=1 AND active=1 ORDER BY displayorder,forumid");
+	$r = Q2("SELECT * FROM forum WHERE cancontainthreads=1 ORDER BY displayorder,forumid");
 	print_status('Importing '.db_count($r).' Forums');
 	$i=1;
 	while( $obj = db_rowobj($r) ) {
