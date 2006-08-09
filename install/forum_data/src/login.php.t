@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.85 2006/03/28 15:06:06 hackie Exp $
+* $Id: login.php.t,v 1.86 2006/08/09 14:53:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -157,6 +157,7 @@ function error_check()
 			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else { /* Perform check to ensure that the user is allowed to login */
+			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
 			$usr_d->users_opt = (int) $usr_d->users_opt;
 			$usr_d->sid = $usr_d->id;
 			is_allowed_user($usr_d, 1);
