@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.66 2006/08/07 19:01:57 hackie Exp $
+* $Id: register.tmpl,v 1.67 2006/08/09 23:49:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -171,7 +171,7 @@
 {IF: $FUD_OPT_1 & 32768}
 <tr class="RowStyleA"><td class="vt">{MSG: register_sig}<br /><span class="SmallText">{MSG: register_sig_desc}<br /></span>{FUNC: tmpl_post_options('sig')}{IF: $FORUM_SIG_ML}<br /><b>{MSG: register_max_sig_len} </b>{MSG: register_sig_limit}{ENDIFI}</td><td>{FUNC: draw_err('reg_sig')}<textarea name="reg_sig" rows=8 cols=50>{VAR: reg_sig}</textarea></td></tr>
 {ENDIF}
-<tr class="RowStyleA"><td>{MSG: register_timezone}</td><td><select name="reg_time_zone" class="SmallText">{TEMPLATE-DATA: timezone_select}</select></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_timezone}</td><td><select name="reg_time_zone" class="SmallText" style="width: 390px">{TEMPLATE-DATA: timezone_select}</select></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_ignore_admin}</td><td>{TEMPLATE-DATA: ignore_admin_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_invisible_mode}<br /><span class="SmallText">{MSG: register_invisible_mode_desc}</span></td><td>{TEMPLATE-DATA: invisible_mode_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_show_email}<br /><span class="SmallText">{MSG: register_show_email_desc}</span></td><td>{TEMPLATE-DATA: show_email_radio}</td></tr>
