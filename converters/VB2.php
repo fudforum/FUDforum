@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: VB2.php,v 1.25 2006/08/09 00:00:03 hackie Exp $
+* $Id: VB2.php,v 1.26 2006/08/09 00:15:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -348,7 +348,7 @@ $group_map = array(
 			$opt |= 2;
 		}
 
-		$frm = new fud_forum_adm;
+		$frm = new fud_forum;
 		$frm->cat_id = $pid;
 		$frm->name = addslashes($obj->title);
 		$frm->descr = addslashes($obj->description);
