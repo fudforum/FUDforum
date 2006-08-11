@@ -1029,3 +1029,5 @@ rating_delete:			Delete
 post_always_on_top:		Make the topic always appear at the top of the topic listing
 register_skype:			Skype Handle:
 register_google:		Google Chat/IM Handle:
+im_google:			Google Talk: 
+im_skype:			Skype: 
