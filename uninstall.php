@@ -1,8 +1,9 @@
 <?php
+exit("To run the un-installer, comment out the 2nd line of the script!\n");
 /***************************************************************************
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uninstall.php,v 1.14 2005/12/07 18:07:45 hackie Exp $
+* $Id: uninstall.php,v 1.15 2006/08/11 20:27:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
