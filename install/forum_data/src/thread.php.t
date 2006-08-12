@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.php.t,v 1.53 2006/03/28 15:18:15 hackie Exp $
+* $Id: thread.php.t,v 1.54 2006/08/12 16:42:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,7 +25,7 @@
 		m2.id, m2.post_stamp,
 		f.id, f.name,
 		t.id, t.moved_to, t.root_msg_id, t.replies, t.rating, t.thread_opt, t.views,
-		r.last_view
+		r.last_view, t.n_rating
 		FROM {SQL_TABLE_PREFIX}tv_'.$frm_id.' tv
 			INNER JOIN {SQL_TABLE_PREFIX}thread	t	ON tv.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg	m	ON t.root_msg_id=m.id
@@ -58,6 +58,7 @@
 	 * 18 thread.rating
 	 * 19 thread.views
 	 * 20 read.last_view
+	 * 21 thread.n_rating
 	 */
 
 	if (!($r = db_rowarr($result))) {

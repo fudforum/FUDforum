@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: topic_rating.tmpl,v 1.2 2006/07/24 17:24:36 hackie Exp $
+* $Id: topic_rating.tmpl,v 1.3 2006/08/12 16:42:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,5 +10,5 @@
 ***************************************************************************/
 
 {MAIN_SECTION: thread_rating}
-&nbsp;({IF: $MOD}<a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=ratingtrack&amp;{DEF: _rsid}&amp;th={VAR: frm->id}\', \'th_rating_track\', 300, 400);">{ENDIFI}<img src="{THEME_IMAGE_ROOT}/{VAR: frm->rating}stars.gif" alt="{VAR: frm->rating}" />{IF: $MOD}</a>{ENDIFI}) {MSG: vote}
+&nbsp;({IF: $MOD}<a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=ratingtrack&amp;{DEF: _rsid}&amp;th={VAR: frm->id}\', \'th_rating_track\', 300, 400);">{ENDIFI}<img src="{THEME_IMAGE_ROOT}/{VAR: frm->rating}stars.gif" title="{MSG: topic_rating}" />{IF: $MOD}</a>{ENDIFI}) {MSG: vote}
 {MAIN_SECTION: END}
