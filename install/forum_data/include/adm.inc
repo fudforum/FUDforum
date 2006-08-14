@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: adm.inc,v 1.37 2006/08/03 03:04:45 hackie Exp $
+* $Id: adm.inc,v 1.38 2006/08/14 15:02:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,15 +41,15 @@ if (!($GLOBALS['usr']->users_opt & 1048576)) {
         	exit;
 	}
 }
+if (!count($_POST)) {
+	sq_check(0, $GLOBALS['usr']->sq);
+}
 if (isset($_POST['btn_cancel'])) {
 	if (defined('back_to_main')) {
 		header('Location: '.$GLOBALS['WWW_ROOT'].'adm/admglobal.php?'.__adm_rsidl);
 		exit;
 	}
 	$_POST = $_GET = null;
-}
-if (!count($_POST)) {
-	sq_check(0, $GLOBALS['usr']->sq);
 }
 function errorify($err)
 {
