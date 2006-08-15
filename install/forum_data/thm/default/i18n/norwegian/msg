@@ -1031,3 +1031,5 @@ register_skype:			Skype Handle:
 register_google:		Google Chat/IM Handle:
 im_google:			Google Talk: 
 im_skype:			Skype: 
+topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
+topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
