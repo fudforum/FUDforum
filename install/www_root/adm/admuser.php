@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.71 2006/07/24 18:43:46 hackie Exp $
+* $Id: admuser.php,v 1.72 2006/08/21 15:15:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -110,6 +110,7 @@
 <body color="white">
 <form method="post" action="admuser.php"><?php echo _hs; ?>
 <input type="hidden" name="act" value="del">
+<input type="hidden" name="f" value="<?php echo (int) isset($_GET['f']); ?>">
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 <input type="hidden" name="del_confirm" value="1">
 <div align="center">You are about to delete <font color="red"><b><?php echo $u->alias; ?></b></font>'s account!<br><br>
@@ -132,7 +133,7 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 				$usr_id = '';
 			}
 			if (isset($_POST['f']) || isset($_GET['f'])) {
-				header('Location: '.$WWW_ROOT.__fud_index_name__.$usr->returnto);
+				header('Location: '.$WWW_ROOT.__fud_index_name__.'?'.$usr->returnto);
 				exit;
 			}
 			break;

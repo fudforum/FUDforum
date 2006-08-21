@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.47 2006/02/05 16:58:08 hackie Exp $
+* $Id: finduser.tmpl,v 1.48 2006/08/21 15:15:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -95,7 +95,7 @@ document.fufrm.usr_login.focus();
 {SECTION: END}
 
 {SECTION: findu_admin_opts}
-<td class="SmallText nw"><a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&amp;S={DEF: s}&amp;act=1&amp;SQ={GVAR: sq}">{MSG: findu_edit}</a> || <a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&amp;S={DEF: s}&amp;act=del&amp;SQ={GVAR: sq}">{MSG: findu_delete}</a> || {IF: $r->users_opt & 65536}{TEMPLATE: findu_unban}{ELSE}{TEMPLATE: findu_ban}{END}</td>
+<td class="SmallText nw"><a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&amp;S={DEF: s}&amp;act=1&amp;SQ={GVAR: sq}">{MSG: findu_edit}</a> || <a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&amp;S={DEF: s}&amp;act=del&amp;f=1&amp;SQ={GVAR: sq}">{MSG: findu_delete}</a> || {IF: $r->users_opt & 65536}{TEMPLATE: findu_unban}{ELSE}{TEMPLATE: findu_ban}{END}</td>
 {SECTION: END}
 
 {SECTION: find_user_entry_lnk}
