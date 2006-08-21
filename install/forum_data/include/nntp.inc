@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.67 2005/12/07 18:07:45 hackie Exp $
+* $Id: nntp.inc,v 1.68 2006/08/21 14:59:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -296,24 +296,28 @@ class fud_nntp
 	{
 		// uu encoded
 		$s = 0;
-		while (($s = @strpos($this->body, "begin ", $s)) !== false) {
+		while (($s = strpos($this->body, "begin ", $s)) !== false) {
 			if (!$s || ($this->body[$s - 2] == "\r" && $this->body[$s - 1] == "\n")) {
 				if (($e = strpos($this->body, "\r\nend\r\n", $s)) === false) {
-					if (substr($this->body, -3) == 'end') {
-						$e = strlen($this->body) - 5;
+					if (($e = strpos($this->body, "\nend\n", $s)) === false) { // invalid line endings
+						if (substr($this->body, -3) == 'end') {
+							$e = strlen($this->body) - 5;
+						} else {
+							$s += 6;
+							continue;
+						}
 					} else {
-						$s += 6;
-						continue;
+						$e -= 2;
 					}
 				}
 				if ($this->nntp_opt & 8) {
 					$this->fud_uudecode(str_replace("\r", "", substr($this->body, $s, ($e + 5 - $s))));
 				}
 				$this->body = substr($this->body, 0, $s) . substr($this->body, ($e + 7));
-
 				$s = 0;
+			} else {
+				$s += 6;
 			}
-			$s += 6;
 		}
 
 		// base64 encoded
