@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.68 2006/08/21 14:59:19 hackie Exp $
+* $Id: nntp.inc,v 1.69 2006/08/24 15:37:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -552,6 +552,7 @@ class fud_nntp
 	        }
 
 	        fputs($this->fs, "User-Agent: FUDforum ".$GLOBALS['FORUM_VERSION']."\r\n");
+		fputs($this->fs, "Content-Type: text/plain; charset=".$GLOBALS['CHARSET']."; format=flowed\r\n");
 	        fputs($this->fs, "\r\n$body\r\n");
 
 	        // handle file attachments, if there are any
