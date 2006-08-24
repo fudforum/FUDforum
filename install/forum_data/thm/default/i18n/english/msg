@@ -322,6 +322,7 @@ register_show_email_desc:	Choose this option if you want your e-mail address to 
 register_notification:		Select Notification by Default:
 register_notification_desc:	If notification is enabled by default, it can be disabled when posting.
 register_notify_method:		Choose Notification Method:
+register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
 register_notify_js_error:	You chose ICQ notification, but did not specify an ICQ #. Defaulting to E-mail&#46;
 register_allow_email_msg:	Allow E-mail Messages:
 register_allow_email_msg_desc:	Allow other users to send you e-mails via this forum.
