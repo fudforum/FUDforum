@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.69 2006/08/24 15:37:39 hackie Exp $
+* $Id: nntp.inc,v 1.70 2006/08/29 13:41:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -440,7 +440,7 @@ class fud_nntp
 			$msg_post->ip_addr = $this->ip;
 			$msg_post->mlist_msg_id = $this->msg_id;
 			$msg_post->attach_cnt = 0;
-			$msg_post->msg_opt = 2;
+			$msg_post->msg_opt = 1|2;
 			$msg_post->poll_id = 0;
 
 			/* try to determine whether this message is a reply or a new thread */

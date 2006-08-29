@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.68 2006/03/26 18:42:37 hackie Exp $
+* $Id: maillist.php,v 1.69 2006/08/29 13:41:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -486,7 +486,7 @@ function add_attachment($name, $data, $pid)
 	$msg_post->mlist_msg_id = $emsg->msg_id;
 	$msg_post->attach_cnt = 0;
 	$msg_post->poll_id = 0;
-	$msg_post->msg_opt = 2;
+	$msg_post->msg_opt = 1|2;
 
 	// try to determine whether this message is a reply or a new thread
 	list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id($mlist->mlist_opt & 32, $frm->id, $msg_post->subject, $emsg->reply_to_msg_id);
