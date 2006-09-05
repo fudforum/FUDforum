@@ -1,12 +1,11 @@
 #   copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_msg_store.tbl,v 1.1 2006/01/17 23:00:54 hackie Exp $
+#   $Id: fud_msg_store.tbl,v 1.2 2006/09/05 13:20:18 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
-#       the Free Software Foundation; either version 2 of the License, or
-#       (at your option) any later version.
+#       the Free Software Foundation; either version 2 of the License.
 
 DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}msg_store;
 
