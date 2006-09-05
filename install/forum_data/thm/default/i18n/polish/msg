@@ -1034,3 +1034,4 @@ im_skype:			Skype:
 topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
 topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
 register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
+tabs_notifications:		Notifications

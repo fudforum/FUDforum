@@ -1034,3 +1034,4 @@ rating_delete:			Delete
 post_always_on_top:		Make the topic always appear at the top of the topic listing
 topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
 topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
+tabs_notifications:		Notifications
