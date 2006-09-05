@@ -2,12 +2,11 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.53 2006/01/17 19:32:25 hackie Exp $
+* $Id: admimport.php,v 1.54 2006/09/05 12:58:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
-* Free Software Foundation; either version 2 of the License, or
-* (at your option) any later version.
+* Free Software Foundation; either version 2 of the License.
 **/
 
 	@set_time_limit(6000);

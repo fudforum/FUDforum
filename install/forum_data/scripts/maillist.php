@@ -3,12 +3,11 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.69 2006/08/29 13:41:03 hackie Exp $
+* $Id: maillist.php,v 1.70 2006/09/05 12:58:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
-* (at your option) any later version.
+* Free Software Foundation; either version 2 of the License. 
 **/
 
 class fud_emsg
