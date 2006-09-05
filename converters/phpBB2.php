@@ -2,12 +2,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.39 2006/01/25 14:37:14 hackie Exp $
+* $Id: phpBB2.php,v 1.40 2006/09/05 13:48:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; either version 2 of the License, or 
-* (at your option) any later version.
 ***************************************************************************/
 
 	/* PHPBB 2 (2.0.X) - FUDforum Conversion script - Brief Instructions */
