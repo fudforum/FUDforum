@@ -2,12 +2,11 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: errmsg.inc.t,v 1.10 2006/02/15 15:40:10 hackie Exp $
+* $Id: errmsg.inc.t,v 1.11 2006/09/05 13:16:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
-* Free Software Foundation; either version 2 of the License, or
-* (at your option) any later version.
+* Free Software Foundation; either version 2 of the License.
 **/
 
 define('__fud_ecore_adm_login_msg', '{TEMPLATE: core_adm_login_msg}');

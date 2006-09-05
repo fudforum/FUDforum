@@ -2,12 +2,11 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat_focus.php.t,v 1.1 2006/05/01 04:08:49 hackie Exp $
+* $Id: cat_focus.php.t,v 1.2 2006/09/05 13:16:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
-* Free Software Foundation; either version 2 of the License, or
-* (at your option) any later version.
+* Free Software Foundation; either version 2 of the License.
 **/
 
 /*{PRE_HTML_PHP}*/

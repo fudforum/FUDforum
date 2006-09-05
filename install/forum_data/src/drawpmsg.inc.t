@@ -2,12 +2,11 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.inc.t,v 1.47 2006/08/07 19:01:54 hackie Exp $
+* $Id: drawpmsg.inc.t,v 1.48 2006/09/05 13:16:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
-* Free Software Foundation; either version 2 of the License, or
-* (at your option) any later version.
+* Free Software Foundation; either version 2 of the License.
 **/
 
 $GLOBALS['affero_domain'] = parse_url($GLOBALS['WWW_ROOT']);
