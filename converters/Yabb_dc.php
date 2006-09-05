@@ -2,11 +2,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: Yabb_dc.php,v 1.17 2006/09/05 13:48:07 hackie Exp $
+* $Id: Yabb_dc.php,v 1.18 2006/09/05 13:48:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* Free Software Foundation; either version 2 of the License. 
 ***************************************************************************/
 
 	@set_time_limit(6000);
