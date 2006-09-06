@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.74 2006/09/05 12:51:53 hackie Exp $
+* $Id: index.tmpl,v 1.75 2006/09/06 15:03:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,7 +32,7 @@
 <td colspan="5" class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
 <a name="c{VAR: k}" href="javascript://" onClick="toggleCategory({VAR: k}, {VAR: i[0]});" class="CatLink" title="{IF: !empty($collapse[$k])}{MSG: maximize_category}{ELSE}{MSG: minimize_category}{END}">
 <img id="c{VAR: k}img" src="{THEME_IMAGE_ROOT}/{IF: empty($collapse[$k])}min{ELSE}max{ENDI}{DEF: img_ext}" alt="" /></a> 
-<a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}{TEMPLATE: index_cat_up_down_arrows}</td></tr>
+<a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}{TEMPLATE: index_cat_up_down_arrows}</tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
