@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.70 2006/09/05 12:58:00 hackie Exp $
+* $Id: maillist.php,v 1.71 2006/09/07 13:59:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -131,6 +131,7 @@ class fud_emsg
 			case 'multipart/related': // ignore those, contains urls/links to 'stuff' on the net
  			case 'multipart/mixed':
  			case 'message/rfc822': // *scary*
+
 				if (!isset($this->headers['__other_hdr__']['content-type']['boundary'])) {
 					$this->body = '';
 					return;
@@ -159,7 +160,9 @@ class fud_emsg
 						}
 
 						// look if message has any attached files
-						if ($this->body_s[$i]->headers['content-disposition'] == 'attachment' || isset($this->body_s[$i]->headers['content-id'])) {
+						if ($this->body_s[$i]->headers['content-disposition'] == 'attachment' || 
+								$this->body_s[$i]->headers['content-disposition'] == 'inline' ||
+								isset($this->body_s[$i]->headers['content-id'])) {
 							// Determine the file name
 							if (isset($this->body_s[$i]->headers['__other_hdr__']['content-disposition']['filename'])) {
 								$file_name = $this->body_s[$i]->headers['__other_hdr__']['content-disposition']['filename'];
@@ -460,7 +463,7 @@ function add_attachment($name, $data, $pid)
 	/* for anonymous users prefix 'contact' link */
 	if (!$msg_post->poster_id) {
 		if ($frm->forum_opt & 16) {
-			$msg_post->body = "[b]Originally posted by:[/b] [email={(!empty($emsg->from_name) ? $emsg->from_name : '')}]{$emsg->from_email}[/email]\n\n".$msg_post->body;
+			$msg_post->body = "[b]Originally posted by:[/b] [email=".$emsg->from_email."]".(!empty($emsg->from_name) ? $emsg->from_name : $emsg->from_email)."[/email]\n\n".$msg_post->body;
 		} else {
 			$msg_post->body = "Originally posted by: ".str_replace('@', '&#64', $emsg->from_email)."\n\n".$msg_post->body;
 		}
