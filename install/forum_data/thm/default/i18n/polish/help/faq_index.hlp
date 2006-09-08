@@ -1,35 +1,35 @@
 TOPIC_TITLE: Zarz±dzanie kontem u¿ytkownika
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register">Po co siê rejestrowaæ?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies">W jaki sposób forum u¿ywa ciasteczek?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie">Jak usun±æ ciasteczko wys³ane przez forum?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile">Co to jest profil?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs">Co to jest podpis?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd">Co zrobiæ je¶li zapomnia³em has³a?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat">W³asne oznaczenia - co to jest i jak mogê je stworzyæ?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars">Co to jest avatar?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist">Co to jest lista znajomych?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist">Do czego s³u¿y lista ignorowania?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#register">Po co siê rejestrowaæ?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">W jaki sposób forum u¿ywa ciasteczek?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie">Jak usun±æ ciasteczko wys³ane przez forum?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#updprofile">Co to jest profil?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#sigs">Co to jest podpis?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#rstpasswd">Co zrobiæ je¶li zapomnia³em has³a?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cstat">W³asne oznaczenia - co to jest i jak mogê je stworzyæ?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#avatars">Co to jest avatar?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#blist">Co to jest lista znajomych?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#ignlist">Do czego s³u¿y lista ignorowania?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#accesskeys">Access Keys</a><br>
 
 TOPIC_TITLE: U¿ywanie forum
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch">Jak mo¿na przeszukiwaæ forum?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email">Czy mogê wysy³aæ listy elektroniczne do innych u¿ytkowników?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg">Co to s± prywatne wiadomo¶ci i jak je wysy³aæ?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist">Co to jest lista u¿ytkowników?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">Co to og³oszenia i przyczepione wiadomo¶ci?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">Czy mogê oceniaæ w±tki?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref">Kim s± osoby polecone?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#bsearch">Jak mo¿na przeszukiwaæ forum?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email">Czy mogê wysy³aæ listy elektroniczne do innych u¿ytkowników?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#pmsg">Co to s± prywatne wiadomo¶ci i jak je wysy³aæ?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#mlist">Co to jest lista u¿ytkowników?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ann">Co to og³oszenia i przyczepione wiadomo¶ci?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#rate">Czy mogê oceniaæ w±tki?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ref">Kim s± osoby polecone?</a><br>
 
 TOPIC_TITLE: Czytanie i wysy³anie wiadomo¶ci
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style">Jak formatowaæ tekst?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml">Co to s± u¶mieszki?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls">Jak u¿ywaæ g³osowañ?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach">Jak do³±czaæ pliki do wiadomo¶ci?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico">Co to ikona wiadomo¶ci?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit">Czy mogê modyfikowaæ uprzednio wys³an± wiadomo¶æ?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod">Kim s± moderatorzy i administratorzy?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens">Cenzura?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not">Czy mogê otrzymywaæ powiadomienia o odpowiedziach na moje wiadomo¶ci?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#style">Jak formatowaæ tekst?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sml">Co to s± u¶mieszki?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#polls">Jak u¿ywaæ g³osowañ?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#attach">Jak do³±czaæ pliki do wiadomo¶ci?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#msgico">Co to ikona wiadomo¶ci?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#edit">Czy mogê modyfikowaæ uprzednio wys³an± wiadomo¶æ?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#mod">Kim s± moderatorzy i administratorzy?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#cens">Cenzura?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#not">Czy mogê otrzymywaæ powiadomienia o odpowiedziach na moje wiadomo¶ci?</a><br>

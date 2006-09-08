@@ -1,34 +1,34 @@
 TOPIC_TITLE: User Maintenance
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register">Perché mi devo registrare?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies">Come utilizza i cookie FUDforum?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie">Come faccio a cancellare il cookie di FUDforum?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile">Che cos'è il profilo?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs">Che cos'è la signature?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd">Che cosa devo fare se mi dimentico la password?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat">Che cosa sono le Custom Tag e come faccio ad averne una?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars">Che cos'è un avatar?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist">Che cos'è la buddy list?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist">A che cosa serve la ignore list?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#register">Perché mi devo registrare?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">Come utilizza i cookie FUDforum?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie">Come faccio a cancellare il cookie di FUDforum?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#updprofile">Che cos'è il profilo?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#sigs">Che cos'è la signature?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#rstpasswd">Che cosa devo fare se mi dimentico la password?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cstat">Che cosa sono le Custom Tag e come faccio ad averne una?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#avatars">Che cos'è un avatar?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#blist">Che cos'è la buddy list?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#ignlist">A che cosa serve la ignore list?</a><br>
 
 TOPIC_TITLE: General Board Usage
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch">Come posso effettuare delle ricerche?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email">Posso inviare email agli altro utenti del forum?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg">Cosa sono i messaggi privati, e come posso spedirli?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist">Elenco utenti?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">Cosa sono gli annunci e i messaggi <I>topped</I>?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">Posso votare i topic?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#bsearch">Come posso effettuare delle ricerche?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email">Posso inviare email agli altro utenti del forum?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#pmsg">Cosa sono i messaggi privati, e come posso spedirli?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#mlist">Elenco utenti?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ann">Cosa sono gli annunci e i messaggi <I>topped</I>?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#rate">Posso votare i topic?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#accesskeys">Access Keys</a><br>
 
 TOPIC_TITLE: Reading and Posting Messages
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style">Come si formatta il testo?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml">Cosa sono gli smiley/faccine/emoticon?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls">Come faccio a creare un sondaggio?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach">Posso allegare file ai messaggi?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico">Che cos'è l'icona di un messaggio?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit">Posso modificare un mio messaggio?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod">Chi sono i moderatori e gli amministratori?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens">Censura?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not">Come posso essere avvisato di eventuali risposte ad un mio messaggio?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#style">Come si formatta il testo?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sml">Cosa sono gli smiley/faccine/emoticon?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#polls">Come faccio a creare un sondaggio?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#attach">Posso allegare file ai messaggi?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#msgico">Che cos'è l'icona di un messaggio?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#edit">Posso modificare un mio messaggio?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#mod">Chi sono i moderatori e gli amministratori?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#cens">Censura?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#not">Come posso essere avvisato di eventuali risposte ad un mio messaggio?</a><br>

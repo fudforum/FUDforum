@@ -1,35 +1,35 @@
 TOPIC_TITLE: Benutzerverwaltung
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register">Warum Registrieren?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies">Wie verwendet das FUDForum Cookies?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie">Wie l&ouml;scht man FUDForum Cookies?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile">Was ist ein Profil?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs">Was ist eine Signatur?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd">Was beim Verlust des Passwortes zu tun ist</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat">Individueller R&auml;nge, was sie sind und wie man sie erlangt</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars">Was ist ein Avatar?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist">Was ist eine Buddyliste?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist">F&uuml;r was ist die Ignorierliste da?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#register">Warum Registrieren?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">Wie verwendet das FUDForum Cookies?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie">Wie l&ouml;scht man FUDForum Cookies?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#updprofile">Was ist ein Profil?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#sigs">Was ist eine Signatur?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#rstpasswd">Was beim Verlust des Passwortes zu tun ist</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cstat">Individueller R&auml;nge, was sie sind und wie man sie erlangt</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#avatars">Was ist ein Avatar?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#blist">Was ist eine Buddyliste?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#ignlist">F&uuml;r was ist die Ignorierliste da?</a><br>
 
 TOPIC_TITLE: Allgemeine Boardnutzung
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch">Wie kann ich suchen?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email">Kann ich anderen Mitgliedern eine Email schreiben?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg">Was sind private Messages und wie verschicke ich sie?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist">Mitgliederliste?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">Was sind Ank&uuml;ndigungen und angeheftete Beitr&auml;ge?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">Kann ich Themen bewerten?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref">Was sind Anwerbungen?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#bsearch">Wie kann ich suchen?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email">Kann ich anderen Mitgliedern eine Email schreiben?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#pmsg">Was sind private Messages und wie verschicke ich sie?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#mlist">Mitgliederliste?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ann">Was sind Ank&uuml;ndigungen und angeheftete Beitr&auml;ge?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#rate">Kann ich Themen bewerten?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ref">Was sind Anwerbungen?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#accesskeys">Access Keys</a><br>
 
 TOPIC_TITLE: Beitr&auml;ge lesen und verfassen
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style">Wie formatiert man Text?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml">Was sind Smileys/Emoticons?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls">Wie erstelle ich Umfragen?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach">Kann ich Dateien an Beitr&auml;ge anh&auml;ngen?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico">Was ist ein Beitrags-Icon?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit">Kann ich meinen Beitrag bearbeiten?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod">Wer sind die Moderatoren und Administratoren?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens">Zensur?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not">Kann ich &uuml;ber Antworten auf meine Beitr&auml;ge informiert werden?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#style">Wie formatiert man Text?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sml">Was sind Smileys/Emoticons?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#polls">Wie erstelle ich Umfragen?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#attach">Kann ich Dateien an Beitr&auml;ge anh&auml;ngen?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#msgico">Was ist ein Beitrags-Icon?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#edit">Kann ich meinen Beitrag bearbeiten?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#mod">Wer sind die Moderatoren und Administratoren?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#cens">Zensur?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#not">Kann ich &uuml;ber Antworten auf meine Beitr&auml;ge informiert werden?</a><br>
