@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.89 2006/09/05 12:58:00 hackie Exp $
+* $Id: admglobal.php,v 1.90 2006/09/08 00:25:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -225,7 +225,7 @@ function get_max_upload_size()
 	print_bit_field('Allow Flash (swf) avatars', 'CUSTOM_AVATAR_ALLOW_SWF');
 	print_bit_field('Custom Avatars', 'CUSTOM_AVATARS');
 	print_reg_field('Custom Avatar Max Size (bytes)', 'CUSTOM_AVATAR_MAX_SIZE', 1);
-	print_reg_field('Custom Avatar Max Dimentions', 'CUSTOM_AVATAR_MAX_DIM');
+	print_reg_field('Custom Avatar Max Dimensions', 'CUSTOM_AVATAR_MAX_DIM');
 ?>
 <tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
