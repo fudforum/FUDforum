@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.100 2006/09/05 13:16:49 hackie Exp $
+* $Id: index.php.t,v 1.101 2006/09/08 14:56:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,6 +13,10 @@
 
 	$collapse = $usr->cat_collapse_status ? unserialize($usr->cat_collapse_status) : array();
 	$cat_id = !empty($_GET['cat']) ? (int) $_GET['cat'] : 0;
+
+	if ($cat_id && $collapse[$cat_id]) {
+		$collapse[$cat_id] = 0;
+	}
 
 	ses_update_status($usr->sid, '{TEMPLATE: index_update}');
 
