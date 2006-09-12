@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.92 2006/09/05 13:16:49 hackie Exp $
+* $Id: users_reg.inc.t,v 1.93 2006/09/12 15:13:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -134,10 +134,10 @@ class fud_user_reg extends fud_user
 				".$this->icq.",
 				".ssn(urlencode($this->aim)).",
 				".ssn(urlencode($this->yahoo)).",
-				".ssn(urlencode($this->msnm)).",
+				".ssn($this->msnm).",
 				".ssn(htmlspecialchars($this->jabber)).",
 				".ssn(urlencode($this->affero)).",
-				".ssn(urlencode($this->google)).",
+				".ssn($this->google).",
 				".ssn(urlencode($this->skype)).",
 				".(int)$this->posts_ppg.",
 				"._esc($this->time_zone).",
@@ -184,10 +184,10 @@ class fud_user_reg extends fud_user
 			icq=".$this->icq.",
 			aim=".ssn(urlencode($this->aim)).",
 			yahoo=".ssn(urlencode($this->yahoo)).",
-			msnm=".ssn(urlencode($this->msnm)).",
+			msnm=".ssn($this->msnm).",
 			jabber=".ssn(htmlspecialchars($this->jabber)).",
 			affero=".ssn(urlencode($this->affero)).",
-			google=".ssn(urlencode($this->google)).",
+			google=".ssn($this->google).",
 			skype=".ssn(urlencode($this->skype)).",
 			posts_ppg=".(int)$this->posts_ppg.",
 			time_zone="._esc($this->time_zone).",

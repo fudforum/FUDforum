@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.164 2006/09/05 13:16:49 hackie Exp $
+* $Id: register.php.t,v 1.165 2006/09/12 15:13:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -234,6 +234,11 @@ function decode_uent(&$uent)
 	$uent->skype = urldecode($uent->skype);
 }
 
+function email_encode($val)
+{
+	return str_replace(array('@','.'), array('&#64;','&#46;'), htmlspecialchars($val));
+}
+
 	if (!__fud_real_user__ && !($FUD_OPT_1 & 2)) {
 		std_error('registration_disabled');
 	}
@@ -379,6 +384,8 @@ function decode_uent(&$uent)
 		}
 
 		$uent->bday = fmt_year((int)$_POST['b_year']) . sprintf('%02d%02d', (int)$_POST['b_month'], (int)$_POST['b_day']);
+		$uent->msnm = email_encode($uent->msnm);
+		$uent->google = email_encode($uent->google);
 
 		if ($FUD_OPT_1 & 32768 && $uent->sig) {
 			$uent->sig = apply_custom_replace($uent->sig);
@@ -547,7 +554,7 @@ function decode_uent(&$uent)
 	}
 
 	$avatar_type = '';
-	$chr_fix = array('reg_sig', 'reg_name', 'reg_bio', 'reg_location', 'reg_occupation', 'reg_interests'); 
+	$chr_fix = array('reg_sig', 'reg_name', 'reg_bio', 'reg_location', 'reg_occupation', 'reg_interests', 'reg_msnm', 'reg_google'); 
 	if ($FUD_OPT_2 & 128) {
 		$chr_fix[] = 'reg_alias';
 	}
