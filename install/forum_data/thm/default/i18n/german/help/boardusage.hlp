@@ -2,17 +2,16 @@ TOPIC_TITLE: <a name="post">Wie schreibe ich Beiträge?</a>
 TOPIC_HELP:
 Um ein neues Thema zu starten, klicke auf die "Neues Thema"-Schaltfläche, den du auf der Beiträge-/Themenübersicht 
 findest. Du wirst dann zu einem Formular weitergeleitet, das dir erlaubt, den Inhalt deines Beitrags zu schreiben.
-Um auf einen bereits existierenden Beitrag zu antworten, klicke einfach auf eine "Antwort"- oder "Zitat"-Schaltfläche, die du
+Um auf einen bereits existierenden Beitrag zu antworten, klicke einfach auf eine "Antwort"- oder "Zitat"-Schaltfläche, die
 du links unter jedem Beitrag findest. <br> Unter Umständen bekommst du nach dem Klicken auf diese Schaltflächen eine Fehlermeldung,
-dass du nicht genügend Rechte hast. Das heißt, dass du dich zum Schreiben eines Beitrages erst anmelden oder registrieren musst oder
-dass das Schreiben von Beiträgen in diesem Forum generell nicht erlaubt ist.
+dass du nicht genügend Rechte hast. Das heißt, dass du dich zum Schreiben eines Beitrages erst anmelden oder registrieren musst oder dass das Schreiben von Beiträgen in diesem Forum generell nicht erlaubt ist.
 
 
 TOPIC_TITLE: <a name="bsearch">Wie kann ich suchen?</a>
 TOPIC_HELP:
-Sofern nicht vom Administrator deaktiviert, kannst du <a href="{ROOT}?t=search&%_rsid%">nach Beitr&auml;gen suchen</a>, die im Forum erstellt wurden. Beitr&auml;ge lassen sich durch
+Sofern nicht vom Administrator deaktiviert, kannst du <a href="{ROOT}?t=search&amp;%_rsid%">nach Beitr&auml;gen suchen</a>, die im Forum erstellt wurden. Beitr&auml;ge lassen sich durch
 Angabe von ein oder mehreren Schl&uuml;sselbegriffen suchen, wobei sich ausw&auml;hlen l&auml;sst, wo diese gesucht werden sollen. Du kannst entweder nur die &Uuml;berschrift oder den gesamten Beitrag durchsuchen. Au&szlig;erdem l&auml;sst sich die Suche auf ein bestimmtes Forum einschr&auml;nken, falls nicht alle durchsucht werden sollen.<br>
-Du kannst auch andere Forumsmitglieder &uuml;ber ihren Namen oder E-Mail-Adresse mit der <a href="{ROOT}?t=finduser&%_rsid%">Benutzersuche</a> ausfindig machen.
+Du kannst auch andere Forumsmitglieder &uuml;ber ihren Namen oder E-Mail-Adresse mit der <a href="{ROOT}?t=finduser&amp;%_rsid%">Benutzersuche</a> ausfindig machen.
 
 
 TOPIC_TITLE: <a name="email">Kann ich anderen Benutzern eine E-Mail schreiben?</a>
@@ -22,18 +21,18 @@ Um einem Mitglied eine E-Mail zu schicken, kannst du sie entweder &uuml;ber die 
 oder direkt auf den <b>E-Mail</b> Knopf neben jedem Beitrag klicken. Das f&uuml;hrt dich auf eine neue Seite, auf der du deine beabsichtigte Mitteilung 
 verfassen kannst. Wenn du fertig bist, klickst du auf den <b>E-Mail</b> Knopf und verschickst damit deine Nachricht.
 <br><br>
-Au&szlig;er E-Mails an Forumsmitglieder verschicken, kannst du auch mit dem <b>E-Mail an einen Bekannten</b> Link eine bestimmte Seite deinen Bekannten 
+Au&szlig;er E-Mails an Forumsmitglieder verschicken, kannst du auch mit dem <b>E-Mail an einen Freund</b> Link eine bestimmte Seite einem Bekannten 
 weiterempfehlen, in dem du ihnen die URL mit einer Beschreibung zukommen l&auml;sst. Dieser Link kann auf den Seiten mit den Themen und Beitr&auml;gen gefunden werden.
 
 
 TOPIC_TITLE: <a name="pmsg">Was sind private Nachrichten und wie verschicke ich sie?</a> 
 TOPIC_HELP:
-Sofern nicht vom Administrator deaktiviert, kannst du private Nachrichts an ein oder mehrere registrierte Mitglieder des Forums versenden. Um auf das 
-PM System zugreifen zu k&ouml;nnen, klicke einfach auf den <a href="{ROOT}?t=pmsg&%_rsid%">Private Nachrichts</a> Link, 
-der auf der Seite oben rechts gefunden werden kann. Falls du noch ungelesene private Nachrichts hast, teilt dir dieser Link deren Anzahl mit.
+Sofern nicht vom Administrator deaktiviert, kannst du private Nachrichten an ein oder mehrere registrierte Mitglieder des Forums versenden. Um auf das 
+PM System zugreifen zu k&ouml;nnen, klicke einfach auf den <a href="{ROOT}?t=pmsg&amp;%_rsid%">Private Nachrichten</a> Link, 
+der auf der Seite oben rechts gefunden werden kann. Falls du noch ungelesene private Nachrichten hast, teilt dir dieser Link deren Anzahl mit.
 <p>
 <b>Eine private Nachricht verschicken</b><br>
-Das Verschicken von privaten Nachrichts &auml;hnelt sehr dem Vorgang bei E-Mails: Du gibst den/die Empf&auml;nger an, denen du schreiben willst, schreibst die Nachricht und klickst auf "senden". Es stehen 2 Links zur Verf&uuml;gung, die es dir erleichtern, Mitglieder, denen du schreiben m&ouml;chtest, zu finden:
+Das Verschicken von privaten Nachrichten &auml;hnelt sehr dem Vorgang bei E-Mails: Du gibst den/die Empf&auml;nger an, denen du schreiben willst, schreibst die Nachricht und klickst auf "senden". Es stehen 2 Links zur Verf&uuml;gung, die es dir erleichtern, Mitglieder, denen du schreiben m&ouml;chtest, zu finden:
 <b>von der Buddyliste ausw&auml;hlen</b>, erm&ouml;glicht dir, Leute von dieser Liste auszuw&auml;hlen und <b>Benutzer suchen</b> erlaubt dir, die gesamte 
 Mitgliederliste nach Leuten zu durchsuchen, denen du deine Nachricht schicken m&ouml;chtest.
 Eine Kopie von jeder versendeten Nachricht wird im <b>Verschickt</b> Ordner aufbewahrt, um sich sp&auml;ter einmal darauf beziehen zu k&ouml;nnen. Diese lassen sich jederzeit auf Wunsch l&ouml;schen.
@@ -42,21 +41,21 @@ Eine Kopie von jeder versendeten Nachricht wird im <b>Verschickt</b> Ordner aufb
 
 Es gibt 3 weitere Ordner, die du kennen solltest:
 <p>
-<b>Inbox</b> Ordner enth&auml;lt alle Nachrichts die du erhalten hast, jede einzelne hat eine gelesen/ungelesen Anzeige, um dir einen &Uuml;berblick dar&uuml;ber 
+<b>Posteingang</b> Ordner enth&auml;lt alle Nachrichten, die du erhalten hast, jede einzelne hat eine gelesen/ungelesen Anzeige, um dir einen &Uuml;berblick dar&uuml;ber 
 zu verschaffen, ob eine Nachricht schon gelesen wurde oder nicht. Es wird auch der Absender angezeigt und ob dieser momentan auf dem Forum unterwegs ist, 
 dabei wird auch der Zeitpunkt des Versendens angezeigt.
 <p>
-<b>Entwurf</b> Ordner enth&auml;lt alle Nachrichts die du zwar geschrieben, aber noch nicht verschickt hast. Das Anklicken der Nachricht aktiviert den Editiermodus, 
-um es dir zu erm&ouml;glichen, die Nachricht weiter zu bearbeiten und bei Bedarf zu verschicken. Sobald diese versendet wurde, wird sie vom Entwurfs in den Verschickt 
+<b>Entwurf</b> Ordner enth&auml;lt alle Nachrichten, die du zwar geschrieben, aber noch nicht verschickt hast. Das Anklicken der Nachricht aktiviert den Editiermodus, 
+um es dir zu erm&ouml;glichen, die Nachricht weiter zu bearbeiten und bei Bedarf zu verschicken. Sobald diese versendet wurde, wird sie vom Entwurfs- in den Verschickt- 
 Ordner verschoben.
 <p>
-<b>M&uuml;ll</b> Ordner bewahrt alle Nachrichts auf, die zum L&ouml;schen markiert sind, aber noch nicht gel&ouml;scht wurden. Wenn eine Nachricht innerhalb dieses Ordners 
+<b>M&uuml;ll</b> Ordner bewahrt alle Nachrichten auf, die zum L&ouml;schen markiert sind, aber noch nicht gel&ouml;scht wurden. Wenn eine Nachricht innerhalb dieses Ordners 
 gel&ouml;scht wird, so geschieht das unwiderruflich.
 <p>
 <b>Weiterverfolgen von Nachrichten</b><p>
 Wenn du eine Nachricht mit aktivierter Empfangsbest&auml;tigung verschickst, erh&auml;ltst du eine Systembenachrichtigung, sobald die Nachricht vom Empf&auml;nger 
 gelesen wurde.<br>
-Allerdings kann der Empf&auml;nger auch das Versenden der Best&auml;tigung verweigern, sodass der Nicht-Erhalt einer Best&auml;tigung nicht zwangsl&auml;ufig bedeutet, 
+Allerdings kann der Empf&auml;nger auch das Versenden der Best&auml;tigung verweigern, so dass der Nicht-Erhalt einer Best&auml;tigung nicht zwangsl&auml;ufig bedeutet, 
 dass die Nachricht nicht gelesen wurde.
 
 
@@ -84,7 +83,7 @@ TOPIC_TITLE: <a name="ref">Was sind Anwerbungen?</a>
 TOPIC_HELP:
 Anwerbungen erm&ouml;glichen es, einen &Uuml;berblick &uuml;ber Forumsmitglieder zu verschaffen, die entweder durch dich oder andere Mitglieder zum Forum hinzugesto&szlig;en 
 sind.
-Die Anwerbungen werden automatisch aufgezeichnet, sobald du die Forums URL weiterreichst und sie sich aufgrund dessen Leute registrieren. Die 
+Die Anwerbungen werden automatisch aufgezeichnet, sobald du die Adresse des Forums weiterreichst und sie sich aufgrund dessen Leute registrieren. Die 
 Anwerbung dieser Personen wird dir dann zugeschrieben. Eine Auflistung aller Leute, die von dir angeworben worden sind, kannst du in deinem Profil durch Klicken des 
 <b>Anwerbungen</b> Men&uuml;s anzeigen lassen.
 
@@ -98,12 +97,12 @@ Betriebsmodus.<br />
 <h4><u><b>'m' Modus (Beitr&auml;ge)</b></u></h4>
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
-		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Nur Beitr&auml;ge der Kategorie mit dieser id.</td></tr>
-		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Nur Beitr&auml;ge des Forums mit dieser id.</td></tr>
-		<tr><td class="GenText"><i>th<i></td><td class="GenText">Nur Beitr&auml;ge des Themas mit dieser id.</td></tr>
-		<tr><td class="GenText"><i>id<i></td><td class="GenText">Einen einzelnen Beitrag mit der angegebenen id.</td></tr>
-		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Nur Beitr&auml;ge die nach dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
-		<tr><td class="GenText"><i>de<i></td><td class="GenText">Nur Beitr&auml;ge die vor dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Nur Beitr&auml;ge der Kategorie mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Nur Beitr&auml;ge des Forums mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>th</i></td><td class="GenText">Nur Beitr&auml;ge des Themas mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>id</i></td><td class="GenText">Einen einzelnen Beitrag mit der angegebenen id.</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Nur Beitr&auml;ge die nach dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>de</i></td><td class="GenText">Nur Beitr&auml;ge die vor dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> Beiträge abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
 		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset) ab dem Beitr&auml;ge abgerufen werden sollen.</td></tr>
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">Beitr&auml;ge vom &auml;ltesten zum neusten sortieren.</td></tr>
@@ -114,11 +113,11 @@ Betriebsmodus.<br />
 <h4><u><b>'t' Modus (Themen)</b></u></h4>
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
-		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Nur Themen der Kategorie mit dieser id.</td></tr>
-		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Nur Themen des Forums mit dieser id.</td></tr>
-		<tr><td class="GenText"><i>id<i></td><td class="GenText">Ein einzelnes Thema mit der angegebenen id.</td></tr>
-		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Nur Themen die nach dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
-		<tr><td class="GenText"><i>de<i></td><td class="GenText">Nur Themen die vor dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Nur Themen der Kategorie mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Nur Themen des Forums mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>id</i></td><td class="GenText">Ein einzelnes Thema mit der angegebenen id.</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Nur Themen die nach dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>de</i></td><td class="GenText">Nur Themen die vor dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> Themen abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
 		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset) ab dem Themen abgerufen werden sollen.</td></tr>
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">Themen vom &auml;ltesten zum neusten sortieren.</td></tr>
@@ -136,7 +135,7 @@ Betriebsmodus.<br />
 </blockquote>
 <b>Beispiel:</b><br />
 Der folgende Link ruft die aktuellsten 10 Beitr&auml;ge dieses Forums ab:<br />
-<a href="rdf.php?mode=m&l=1&n=10&basic=1" target="_blank">rdf.php?mode=m&l=1&n=10&basic=1</a>
+<a href="rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">rdf.php?mode=m&amp;l=1&amp;n=10amp;basic=1</a>
 
 TOPIC_TITLE: <a name="accesskeys">Zugriffstasten</a>
 TOPIC_HELP:
@@ -173,4 +172,3 @@ Zugriffstasten sind Tastaturk&uuml;rzel, die den Sinn haben die Navigation mit H
 		<b>E</b> - E-Mail
 	</blockquote>
 </blockquote>
-

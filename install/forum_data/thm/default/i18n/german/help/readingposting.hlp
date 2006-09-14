@@ -251,7 +251,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[/list]<br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[/list]</b></font><br></td>
     <td valign="middle" align="center"><ul><li>Listeneintrag</li><li>Listeneintrag</li></ul></td>
   </tr>
 </table>
@@ -263,7 +263,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[/list]<br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[/list]</b></font><br></td>
     <td valign="middle" align="center"><ol><li>Listeneintrag</li><li>Listeneintrag</li></ol></td>
   </tr>
 </table>
@@ -275,7 +275,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[/list]<br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[/list]</b></font><br></td>
     <td valign="middle" align="center"><ol type="a"><li>Listeneintrag</li><li>Listeneintrag</li></ol></td>
   </tr>
 </table>
@@ -414,7 +414,7 @@ FUDcode zu nennen, ohne sie in HTML umwandeln zu lassen.
   <tr>
     <td valign="middle" align="center">Sichtbarer Teil des Beitrags<br>
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br>Versteckter Teil des Beitrags</br>
+<br>Versteckter Teil des Beitrags<br>
 <font color="#ff0000"><b>[/spoiler]</b></font><br>
 Weiterer sichtbarer Text.</td>
     <td valign="middle" align="center">Sichtbarer Teil des Beitrags<br />
@@ -521,7 +521,7 @@ zu bewilligen. Sie sind auch die Ansprechpartner, falls du etwas Anst&ouml;&szli
 Du kannst dich auch mit Fragen zur Benutzung des Forums an sie wenden.<p>
 Administratoren sind die Forenverwalter, sie k&ouml;nnen ALLES tun, daher sei immer nett zu ihnen, wenn du mit ihnen redest ;-). Administratoren k&ouml;nnen zus&auml;tzlich auch 
 alle Moderatorenfunktionen ausf&uuml;hren, also Avatare billigen, individuelle R&auml;nge zuweisen und entfernen, Benutzer sperren und auf verschiedene Fragen antworten.
-Wenn bei der Nutzung des Forums irgendwelche Bugs auftreten sollten, ist der Administrator der Ansprechpartner.
+Wenn bei der Nutzung des Forums irgendwelche Fehler auftreten sollten, ist der Administrator der Ansprechpartner.
 
 TOPIC_TITLE: <a name="cens">Zensur?</a>
 TOPIC_HELP:
@@ -533,7 +533,7 @@ TOPIC_HELP:
 Wenn du ein neues Thema erstellst oder zu einem bestehenden Thema eine Antwort schreibst, kannst du ausw&auml;hlen per E-Mail &uuml;ber Antworten informiert zu werden. Du kannst auch ein Thema oder ganzes Forum abonnieren, ohne darin eine Antwort zu verfassen, indem du den <b>Abonnieren</b> Link am oberen 
 Ende der Seite anklickst. Immer wenn ein neues Thema in diesem Forum erstellt worden ist, erh&auml;ltst du dar&uuml;ber eine Benachrichtigung.
 <p>
-Wenn du keine weiteren Benachrichtigungen mehr w&uuml;nscht, kannst du beim Lesen des Themas oder Forums den <b>Das Abonnement f&uuml;r das Forum aufheben</b> Link anklicken.
+Wenn du keine weiteren Benachrichtigungen mehr w&uuml;nscht, kannst du beim Lesen des Themas oder Forums den <b>Das Abonnement f&uuml;r das Forum beenden</b> Link anklicken.
 Oder du rufst den <b>Abonnements</b> Reiter in deinem Profil auf und l&ouml;scht so das Thema oder Forum von der Liste.
 <p>
 Nur registrierte Benutzer k&ouml;nnen Benachrichtigungen erhalten.

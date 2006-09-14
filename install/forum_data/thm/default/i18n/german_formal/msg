@@ -73,7 +73,7 @@ custom_avatar_queue:		Zu &uuml;berpr&uuml;fende Benutzeravatare
 date_posted:			Beitragsdatum
 date_registered:		Datum der Registrierung:
 delete_no:			Nein
-delete_proceed:			<font size="3"><b>M&ouml;chtest du weitermachen?</b></font>
+delete_proceed:			<span class="fb">M&ouml;chtest du weitermachen?</span>
 delete_yes:			Ja
 deny_recipt:			Empfangsbest&auml;tigung verweigern
 deny_recipt_desc:		Keine Best&auml;tigung verschicken, dass die Nachricht gelesen wurde
@@ -190,7 +190,7 @@ im_jabber:			Jabber:
 im_msnm:			MSN Messenger:
 im_yahoo:			Yahoo Messenger:
 image:				Bild:
-inbox:				Inbox
+inbox:				Posteingang
 include_sig:			Signatur anh&auml;ngen
 include_sig_desc:		Die Signatur aus Ihrem Profil anh&auml;ngen.
 index_forum:			Forum
@@ -228,7 +228,7 @@ login_passwd_required:		Passwort erforderlich
 login_perm_denied:		Es ist Ihnen als anonymem Benutzer nicht gestattet, auf die angeforderte Quelle zuzugreifen und m&uuml;ssen sich daher erst einmal anmelden.
 login_title:			Anmeldeseite
 login_update:			Anmeldeseite
-login_use_cookie:		Cookies verwenden<br><font class="SmallText">Falls Sie einen &ouml;ffentlich zug&auml;nglichen Rechner (z.B. in Bibliotheken, Schulen oder Internet Cafes) verwenden, ist es ratsam, diesen Men&uuml;punkt f&uuml;r eine erh&ouml;hte Sicherheit abzuw&auml;hlen.
+login_use_cookie:		Cookies verwenden<br><span class="SmallText">Falls Sie einen &ouml;ffentlich zug&auml;nglichen Rechner (z.B. in Bibliotheken, Schulen oder Internet Cafes) verwenden, ist es ratsam, diesen Men&uuml;punkt f&uuml;r eine erh&ouml;hte Sicherheit abzuw&auml;hlen.
 login_want_to_register:		M&ouml;chtest du dich registrieren?
 logout:				Abmelden
 male:				M&auml;nnlich
@@ -341,7 +341,7 @@ permission_denied_title:	Zugriff verweigert!
 pm:				Private Nachrichten
 pm_err_nopm_msg:		Sie können das System f&uuml;r private Nachrichten nicht verwenden, da es vom Administrator deaktiviert worden ist.
 pm_err_nopm_title:		FEHLER: Private Nachrichten deaktiviert
-pm_no_space_msg:		Ihre Ordner f&uuml;r private Nachrichten &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>{GVAR: MAX_PMSG_FLDR_SIZE} Bytes</b>, weil sie momentan <b>{VAR: fldr_size} Bytes</b> mit Nachrichten belegen.<br><br><font class="ErrorText">Entfernen Sie einige alte Nachrichten, um wieder Platz zu schaffen</font>.
+pm_no_space_msg:		Ihre Ordner f&uuml;r private Nachrichten &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>{GVAR: MAX_PMSG_FLDR_SIZE} Bytes</b>, weil sie momentan <b>{VAR: fldr_size} Bytes</b> mit Nachrichten belegen.<br><br><span class="ErrorText">Entfernen Sie einige alte Nachrichten, um wieder Platz zu schaffen</span>.
 pm_no_space_title:		Kein freier Platz mehr &uuml;brig!
 pm_space_indct_msg:		Ihre PN Ordner sind zu {VAR: percent_full}% belegt.
 pm_update:			Benutzt das System f&uuml;r private Nachrichten
@@ -393,9 +393,9 @@ post_count:			Anzahl der Beitr&auml;ge {VAR: u_pcount}
 post_count_l:			Beitragsz&auml;hler:
 post_create_poll:		Abstimmung erstellen
 post_cur_attached:		Momentan {VAR: i} Dateianh&auml;nge 
-post_err_attach_ext:		<font class="ErrorText">Der Dateityp, den Sie hochladen m&ouml;chten, ist nicht erlaubt.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Sie versuchen, mehr Dateien hochzuladen als erlaubt sind.</font><br>
-post_err_attach_size:		<font class="ErrorText">Dateianhang ist zu gro&szlig; (&uuml;ber der erlaubten Grenze von {VAR: MAX_F_SIZE} bytes)</font><br>
+post_err_attach_ext:		<span class="ErrorText">Der Dateityp, den Sie hochladen m&ouml;chten, ist nicht erlaubt.</span><br>
+post_err_attach_filelimit:	<span class="ErrorText">Sie versuchen, mehr Dateien hochzuladen als erlaubt sind.</span><br>
+post_err_attach_size:		<span class="ErrorText">Dateianhang ist zu gro&szlig; (&uuml;ber der erlaubten Grenze von {VAR: MAX_F_SIZE} bytes)</span><br>
 post_err_edttimelimit_msg:	Sie können Ihren Beitrag nicht mehr bearbeiten
 post_err_edttimelimit_title:	FEHLER
 post_err_floodtrig_msg:		Bitte versuchen Sie es in {VAR: tm} Sekunden erneut
@@ -423,7 +423,7 @@ post_notification:		Benachrichtigung &uuml;ber Beitrag
 post_notification_desc:		Benachrichtige mich, wenn jemand auf meinen Beitrag antwortet.
 post_opt:			Forumseinstellungen
 post_opt_fud_off:		<b>FUDCode</b> ist <b>AUS</b>
-post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDCode</b> ist <b>AN</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDCode</b> ist <b>AN</b></a>
 post_opt_html_off:		<b>HTML</b> Code ist <b>AUS</b>
 post_opt_html_on:		<b>HTML</b> Code ist <b>AN</b>
 post_opt_images_off:		<b>Bilder</b> sind <b>AUS</b>
@@ -512,7 +512,7 @@ register_change_passwd:		Passwort &auml;ndern
 register_conf_msg:		Vielen Dank für Ihre Registrierung,\nUm Ihr Konto zu aktivieren, gehe Sie bitte auf die unten angegebene Adresse:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald Ihr Konto aktiviert ist, werden Sie am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
 register_conf_pass:		Passwort best&auml;tigen:
 register_conf_subject:		Registrierungsbestätigung
-register_custom_avatar_rules:	Der Benutzeravatar wird erst nach der Billigung durch den Administrator angezeigt.<br><font class="SmallText">Der Avatar sollte nicht gr&ouml;&szlig;er als <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} Pixel</b> sein und muss das <b>jpg</b>, <b>gif</b> oder <b>png</b> Format besitzen.</font>
+register_custom_avatar_rules:	Der Benutzeravatar wird erst nach der Billigung durch den Administrator angezeigt.<br><span class="SmallText">Der Avatar sollte nicht gr&ouml;&szlig;er als <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} Pixel</b> sein und muss das <b>jpg</b>, <b>gif</b> oder <b>png</b> Format besitzen.</span>
 register_custom_avatar_upload:	Benutzeravatar Datei:
 register_custom_avatar_url:	URL zum Benutzeravatar:
 register_day:			Tag
@@ -680,7 +680,7 @@ sent:				Verschickt
 show_posts_by:			Beitr&auml;ge von {VAR: u_alias} anzeigen
 show_show:			Anzeigen:
 showposts_update:		Betrachtet die Beitr&auml;ge von <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-single_msg_delete:		Sie sind gerade dabei, den Beitrag: <b>{VAR: data[3]}</b> zu <font color="#ff0000" size="4">L&Ouml;SCHEN</font><p>
+single_msg_delete:		Sie sind gerade dabei, den Beitrag: <b>{VAR: data[3]}</b> zu <span class="ErrorText">L&Ouml;SCHEN</span><p>
 size:				Gr&ouml;&szlig;e:
 smladd_close_window:		Fenster schlie&szlig;en
 spell_check_msg:		Rechtschreibung des Beitrages &uuml;berpr&uuml;fen
@@ -740,7 +740,7 @@ thr_exch_orig_forum:		Urspr&uuml;ngliches Forum:
 thr_exch_submit:		Abschicken
 thread:				Thema:
 thread_announcement:		Ank&uuml;ndigung:
-thread_delete:			Sie sind gerade dabei, das <font color="#ff0000" size="4">KOMPLETTE THEMA</font>: <b>{VAR: data[3]}</b> zu <font color="#ff0000" size="4">L&Ouml;SCHEN</font><p>
+thread_delete:			Sie sind gerade dabei, das <span class="ErrorText">KOMPLETTE THEMA</span>: <b>{VAR: data[3]}</b> zu <span class="ErrorText">L&Ouml;SCHEN</span><p>
 thread_exchange:		Themenwechsel 
 thread_first_unread_msg:	Hier klicken, um zum ersten ungelesenen Beitrag dieses Themas zu gelangen
 thread_mod_delete:		L&ouml;schen
@@ -785,7 +785,7 @@ usrinfo_profile:		{VAR: u->alias}s Profil
 usrinfo_show_all_posts:		Alle Beitr&auml;ge von {VAR: u->alias} anzeigen
 view_results:			Ergebnisse ansehen
 views:				Aufrufe
-vote:				{VAR: frm->n_rating} Stimmen
+vote:				{VAR: frm->n_rating} Bewertungen
 vote_button:			Abstimmen
 vote_for_thread:		Abstimmen
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ist vom Moderator nach <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> verschoben worden
@@ -849,7 +849,7 @@ err_mod_acc_msg:		Der Administrator hat beschlossen, alle Konten vor der Aktivie
 accounts_pending_approval:	Billigung des sich in der Schwebe befindlichen Kontos
 saved:				Abgespeichert
 register_err_time_limit:	Die Beschr&auml;nkung auf eine Registrierung pro {GVAR: REG_TIME_LIMIT} Sekunden ist erreicht worden. Bitte warten Sie {VAR: reg_limit_reached} Sekunden und versuchen Sie danach noch einmal sich zu registrieren.
-register_affero:		Affero Benutzername:<br /><font class="SmallText">Falls Sie einen <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> Benutzernamen haben, tragen Sie ihn hier ein.</font>
+register_affero:		Affero Benutzername:<br /><span class="SmallText">Falls Sie einen <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> Benutzernamen haben, tragen Sie ihn hier ein.</span>
 im_affero:			Affero Benutzername
 register_err_avatardimtobig:	Die Ausma&szlig;e des Avatar von <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		{VAR: r->dlcount} mal heruntergeladen
@@ -922,12 +922,12 @@ findu_delete:			L&ouml;schen
 dmsg_reply_to:			ist eine Antwort auf #{VAR: obj->reply_to}
 merge_topics:			Themen zusammenf&uuml;hren
 merge_topics_cp:		Men&uuml; zum Zusammenf&uuml;hren von Themen
-merge_topics_tpl:		Themen zum Zusammenf&uuml;hren ausw&auml;hlen <font class="SmallText">(Sie m&uuml;ssen mehr als ein Thema ausw&auml;hlen)</font>
+merge_topics_tpl:		Themen zum Zusammenf&uuml;hren ausw&auml;hlen <span class="SmallText">(Sie m&uuml;ssen mehr als ein Thema ausw&auml;hlen)</span>
 merge_merge:			Ausgew&auml;hlte Themen zusammenf&uuml;hren
 merge_next:			N&auml;chste Themen
 merge_prev:			Vorherige Themen
 split_cp:			Men&uuml; zum Teilen von Themen
-groups_perms_header:		Rechte <font size="-1">(Bewegen Sie den Mauszeiger &uuml;ber die Rechte um deren Typ zu erkennen)</font>
+groups_perms_header:		Rechte <span class="small">(Bewegen Sie den Mauszeiger &uuml;ber die Rechte um deren Typ zu erkennen)</span>
 register_err_sig_too_long:	Ihre Signatur &uuml;berschreitet die maximal erlaubte L&auml;nge von {GVAR: FORUM_SIG_ML} Zeichen.
 register_sig_limit:		{GVAR: FORUM_SIG_ML} Zeichen <a href="javascript: alert(\'Ihre Signatur ist \'+document.fud_register.reg_sig.value.length+\' Zeichen lang. Die maximal erlaubte Signaturlänge beträgt {GVAR: FORUM_SIG_ML}\');" class="SmallText">&Uuml;berpr&uuml;fe die Signaturl&auml;nge</a>
 p_SEARCH:			Kann suchen
@@ -1023,15 +1023,15 @@ post_common_nlist:		Nummerierte Liste einfügen
 post_common_blist:		Aufzählung einfügen
 post_common_quote:		Zitat einfügen
 post_common_code:		Code einfügen
-rating:				Rating
-rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
-rating_delete:			Delete
-post_always_on_top:		Make the topic always appear at the top of the topic listing
-register_skype:			Skype Handle:
-register_google:		Google Chat/IM Handle:
+rating:				Bewertung
+rating_track:			Verwaltung der Bewertungen für das Thema <b>{VAR: thr->subject}</b>:
+rating_delete:			L&ouml;schen
+post_always_on_top:		Dieses Thema immer am Anfang der Themenliste anzeigen
+register_skype:			Skype:
+register_google:		Google Chat/IM:
 im_google:			Google Talk: 
 im_skype:			Skype: 
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
-register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
-tabs_notifications:		Notifications
+topic_rating:			{VAR: frm->rating} aus {VAR: frm->n_rating} Bewertungen
+topic_list_rating:		{VAR: r[17]} aus {VAR: r[21]} Bewertungen
+register_notify_method_desc:	W&aauml;hlen Sie Ihre bevorzugte Benachrichtigungsmethode oder deaktivieren Sie Benachrichtigungen (zum Beispiel, wenn Sie Urlaub machen)
+tabs_notifications:		Benachrichtigungen
