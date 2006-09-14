@@ -251,7 +251,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br><font color="#ff0000"><b>[*]</b></font>list item<br><font color="#ff0000"><b>[*]</b></font>list item<br><font color="#ff0000"><b>[/list]<br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br><font color="#ff0000"><b>[*]</b></font>list item<br><font color="#ff0000"><b>[*]</b></font>list item<br><font color="#ff0000"><b>[/list]</b></font><br></td>
     <td valign="middle" align="center"><ul><li>list item</li><li>list item</li></ul></td>
   </tr>
 </table>
@@ -263,7 +263,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br><font color="#ff0000"><b>[*]</b></font>list item<br><font color="#ff0000"><b>[*]</b></font>list item<br><font color="#ff0000"><b>[/list]<br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br><font color="#ff0000"><b>[*]</b></font>list item<br><font color="#ff0000"><b>[*]</b></font>list item<br><font color="#ff0000"><b>[/list]</b></font><br></td>
     <td valign="middle" align="center"><ol><li>list item</li><li>list item</li></ol></td>
   </tr>
 </table>
@@ -275,7 +275,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br><font color="#ff0000"><b>[*]</b></font>list item<br><font color="#ff0000"><b>[*]</b></font>list item<br><font color="#ff0000"><b>[/list]<br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br><font color="#ff0000"><b>[*]</b></font>list item<br><font color="#ff0000"><b>[*]</b></font>list item<br><font color="#ff0000"><b>[/list]</b></font><br></td>
     <td valign="middle" align="center"><ol type="a"><li>list item</li><li>list item</li></ol></td>
   </tr>
 </table>
@@ -289,7 +289,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><font color="#006600"><br>http://www.prohost.org/img/pro_logo.gif<br></font><font color="#ff0000"><b>[/img]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br></font><font color="#ff0000"><b>[/img]</b></font></td>
     <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31"></td>
   </tr>
 </table>
@@ -415,7 +415,7 @@ and not have them converted to equivalent HTML.
   <tr>
     <td valign="middle" align="center">Visible part of the message<br>
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br>Hidden part of the message</br>
+<br>Hidden part of the message<br>
 <font color="#ff0000"><b>[/spoiler]</b></font><br>
 More visible text.</td>
     <td valign="middle" align="center">Visible part of the message<br />
