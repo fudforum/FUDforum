@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admloginuser.php,v 1.26 2006/09/05 12:58:00 hackie Exp $
+* $Id: admloginuser.php,v 1.27 2006/09/18 16:44:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,7 +24,7 @@
 			exit;
 		} else {
 			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET last_login='.__request_timestamp__.' WHERE login='._esc($_POST['login']));
-			logaction(0, 'WRONGPASSWD', 0, "Invalid admin login attempt via adminstrative control panel from: ".get_ip());
+			logaction(0, 'WRONGPASSWD', 0, "Invalid admin login attempt from: ".get_ip()." using ".htmlspecialchars($_POST['login'], ENT_QUOTES)." / ".htmlspecialchars($_POST['passwd'], ENT_QUOTES));
 			$err = 'Only administrators with proper access credentials can login via this control panel';
 		}
 	} else {
