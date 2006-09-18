@@ -201,8 +201,12 @@ function highlightWord(node,word,Wno)
 		// Create a load of replacement nodes
 		before = document.createTextNode(nv.substr(0,ni));
 		after = document.createTextNode(nv.substr(ni+word.length));
-		hiword = document.createElement("span");
-		hiword.setAttribute('class', 'st'+Wno);
+		if (document.all) {
+			hiword = document.createElement('<span class="st'+Wno+'"></span>');
+		} else {
+			hiword = document.createElement("span");
+			hiword.setAttribute('class', 'st'+Wno);
+		}
 		hiword.appendChild(document.createTextNode(word));
 		pn.insertBefore(before,node);
 		pn.insertBefore(hiword,node);
