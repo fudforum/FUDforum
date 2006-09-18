@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.tmpl,v 1.18 2006/09/05 12:51:53 hackie Exp $
+* $Id: mklist.tmpl,v 1.19 2006/09/18 17:10:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,17 +31,28 @@ function changeListType(type)
 }
 function addOption()
 {
+	var li;
+	var dl;
+
 	if (document.forms['list'].opt.value.length < 1) {
 		return;
 	}
 
-	var li = document.createElement('li');
-	li.setAttribute('id', 'opt_'+opt_count);
+	if (!document.all) {
+		li = document.createElement('li');
+		li.setAttribute('id', 'opt_'+opt_count);
+	} else {
+		li = document.createElement('<li id="opt_'+opt_count+'"></li>');
+	}
 	li.appendChild(document.createTextNode(document.forms['list'].opt.value));
 
-	var dl = document.createElement('a');
-	dl.setAttribute('href', 'javascript://');
-	dl.setAttribute('onClick', 'delOption(\'opt_'+opt_count+'\')');
+	if (!document.all) {
+		dl = document.createElement('a');
+		dl.setAttribute('href', 'javascript://');
+		dl.setAttribute('onClick', 'delOption(\'opt_'+opt_count+'\')');
+	} else {
+		dl = document.createElement('<a href="javascript://" onClick="delOption(\'opt_'+opt_count+'\')"></a>');
+	}
 	dl.appendChild(document.createTextNode('{MSG: mklist_delete}'));
 	
 	li.appendChild(document.createTextNode(' [ '));
