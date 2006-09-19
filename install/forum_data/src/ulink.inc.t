@@ -2,11 +2,11 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ulink.inc.t,v 1.11 2006/09/05 13:16:49 hackie Exp $
+* $Id: ulink.inc.t,v 1.12 2006/09/19 14:37:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
-* Free Software Foundation; either version 2 of the License.
+* Free Software Foundation; version 2 of the License.
 **/
 
 function draw_user_link($login, $type, $custom_color='')

@@ -2,11 +2,11 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.93 2006/09/12 15:13:48 hackie Exp $
+* $Id: users_reg.inc.t,v 1.94 2006/09/19 14:37:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
-* Free Software Foundation; either version 2 of the License.
+* Free Software Foundation; version 2 of the License.
 **/
 
 class fud_user

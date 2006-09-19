@@ -2,11 +2,11 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.44 2006/09/05 13:16:49 hackie Exp $
+* $Id: th_adm.inc.t,v 1.45 2006/09/19 14:37:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
-* Free Software Foundation; either version 2 of the License.
+* Free Software Foundation; version 2 of the License.
 **/
 
 function th_add($root, $forum_id, $last_post_date, $thread_opt, $orderexpiry, $replies=0, $lpi=0)

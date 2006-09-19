@@ -2,11 +2,11 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_notify.inc.t,v 1.13 2006/09/05 13:16:49 hackie Exp $
+* $Id: thread_notify.inc.t,v 1.14 2006/09/19 14:37:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
-* Free Software Foundation; either version 2 of the License.
+* Free Software Foundation; version 2 of the License.
 **/
 
 function is_notified($user_id, $thread_id)

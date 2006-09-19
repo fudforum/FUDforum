@@ -2,11 +2,11 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groups_adm.inc,v 1.27 2006/09/05 12:58:00 hackie Exp $
+* $Id: groups_adm.inc,v 1.28 2006/09/19 14:37:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
-* Free Software Foundation; either version 2 of the License.
+* Free Software Foundation; version 2 of the License.
 **/
 
 function group_add($res_id, $name, $add_gl=0, $perm=0, $permi=2147483647, $inherit_id=2)
