@@ -201,7 +201,7 @@ function highlightWord(node,word,Wno)
 		// Create a load of replacement nodes
 		before = document.createTextNode(nv.substr(0,ni));
 		after = document.createTextNode(nv.substr(ni+word.length));
-		if (document.all) {
+		if (document.all && !OPERA) {
 			hiword = document.createElement('<span class="st'+Wno+'"></span>');
 		} else {
 			hiword = document.createElement("span");
