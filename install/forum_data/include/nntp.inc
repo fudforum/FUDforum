@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.72 2006/09/19 14:37:55 hackie Exp $
+* $Id: nntp.inc,v 1.73 2006/09/21 22:00:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -449,6 +449,8 @@ class fud_nntp
 
 			// Handle File Attachments
 			if (isset($this->attachments) && is_array($this->attachments)) {
+				$attach_list = array();
+
 				foreach($this->attachments as $key => $val) {
 					if (!($nntp_adm->nntp_opt & 8) && (strlen($val) > $frm->max_attach_size || (isset($attach_list) && count($attach_list) > $frm->max_file_attachments) || filter_ext($key))) {
 						continue;
