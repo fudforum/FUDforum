@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.94 2006/09/19 14:37:56 hackie Exp $
+* $Id: users_reg.inc.t,v 1.95 2006/09/22 16:54:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -65,7 +65,7 @@ class fud_user_reg extends fud_user
 				$o2 ^= 1;
 			}
 			$reg_ip = "127.0.0.1";
-			$topics_per_page = $GLOBALS['THREADS_PER_PAGE'];
+			$this->topics_per_page = $GLOBALS['THREADS_PER_PAGE'];
 		} else {
 			$reg_ip = get_ip();
 		}
