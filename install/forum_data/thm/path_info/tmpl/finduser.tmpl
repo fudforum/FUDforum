@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.18 2006/09/19 14:37:56 hackie Exp $
+* $Id: finduser.tmpl,v 1.19 2006/09/22 21:01:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -29,7 +29,11 @@
 {SECTION: END}
 
 {SECTION: FINDUSER_PAGE_lnk2}
-{ROOT}/ml/{IF: isset($_GET['rd']) && !($_GET['rd'] % 2)}5{ELSE}6{ENDI} /0/{VAR: ul}/{DEF: _rsid}
+{ROOT}/ml/{IF: isset($_GET['rd']) && !($_GET['rd'] % 2)}5{ELSE}6{ENDI}/0/{VAR: ul}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: FINDUSER_PAGE_lnk4}
+{ROOT}/ml/{IF: isset($_GET['fl']) && !($_GET['fl'] % 2)}7{ELSE}8{ENDI}/0/{VAR: ul}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: FINDUSER_PAGE_lnk3}

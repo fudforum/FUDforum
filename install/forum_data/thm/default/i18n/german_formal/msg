@@ -1034,4 +1034,4 @@ im_skype:			Skype:
 topic_rating:			{VAR: frm->rating} aus {VAR: frm->n_rating} Bewertungen
 topic_list_rating:		{VAR: r[17]} aus {VAR: r[21]} Bewertungen
 register_notify_method_desc:	W&aauml;hlen Sie Ihre bevorzugte Benachrichtigungsmethode oder deaktivieren Sie Benachrichtigungen (zum Beispiel, wenn Sie Urlaub machen)
-tabs_notifications:		Benachrichtigungen
+tabs_notifications:		Benachrichtigungenfinduser_flag:			Flag
