@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.tmpl,v 1.21 2006/09/21 21:50:53 hackie Exp $
+* $Id: mklist.tmpl,v 1.22 2006/09/22 16:51:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,7 +46,7 @@ function addOption()
 	}
 	li.appendChild(document.createTextNode(document.forms['list'].opt.value));
 
-	if (!document.all) {
+	if (!document.all || OPERA) {
 		dl = document.createElement('a');
 		dl.setAttribute('href', 'javascript://');
 		dl.setAttribute('onClick', 'delOption(\'opt_'+opt_count+'\')');
