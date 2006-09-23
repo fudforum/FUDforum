@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.164 2006/09/19 14:37:55 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.165 2006/09/23 19:18:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -494,7 +494,7 @@ class fud_msg_edit extends fud_msg
 			fud_use('email_msg_format.inc', 1);
 
 			$from = $mtf->poster_id ? reverse_fmt($mtf->real_name).' <'.$mtf->email.'>' : $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
-			$body = $mtf->body . (($mtf->msg_opt & 1 && $mtf->sig) ? "\n--\n" . $mtf->sig : '');
+			$body = $mtf->body . (($mtf->msg_opt & 1 && $mtf->sig) ? "\n-- \n" . $mtf->sig : '');
 			$body = plain_text($body, '{TEMPLATE: post_html_quote_start_p1}', '{TEMPLATE: post_html_quote_start_p2}', '{TEMPLATE: post_html_quote_end}');
 			$mtf->subject = reverse_fmt($mtf->subject);
 
