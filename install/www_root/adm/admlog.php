@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlog.php,v 1.34 2006/09/19 14:37:56 hackie Exp $
+* $Id: admlog.php,v 1.35 2006/09/23 19:30:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,7 +55,11 @@ function return_forum_name($id)
 		$logtime = '<td>'.gmdate('D, d M Y H:i:s', $obj->logtime).'</td>';
 
 		if ($obj->users_opt == null) {
-			$user_info = 'User is no longer in the system.';
+			if ($obj->a_res == 'WRONGPASSWD') {
+				$user_info = 'Unauthenticated User';
+			} else {
+				$user_info = 'User is no longer in the system.';
+			}
 		} else if ($obj->users_opt & 1048576) {
 			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'.__adm_rsidl.'">'.$obj->alias.'</a> <font size="-2">[Administrator]</font>';
 		} else if ($obj->users_opt & 524288) {
