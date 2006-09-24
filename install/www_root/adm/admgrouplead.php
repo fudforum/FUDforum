@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.38 2006/09/19 14:37:56 hackie Exp $
+* $Id: admgrouplead.php,v 1.39 2006/09/24 17:19:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,6 +21,8 @@
 		header('Location: '.$WWW_ROOT.'adm/admgroups.php?'.__adm_rsidl);
 		exit;
 	}
+
+	$error = '';
 
 	if (isset($_GET['del']) && ($del = (int)$_GET['del'])) {
 		if (isset($_GET['ug'])) {
@@ -86,6 +88,11 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <a href="admgroups.php?<?php echo __adm_rsidl; ?>">Back to Groups</a>
+<?php
+	if ($error) {
+		echo '<br /><span class="alert">' . htmlspecialchars($error).'</span>';
+	}
+?>
 <form method="post" action="admgrouplead.php"><?php echo _hs; ?>
 <input type="hidden" value="<?php echo $group_id; ?>" name="group_id">
 <table border=0 cellspacing=0 cellpadding=3>
