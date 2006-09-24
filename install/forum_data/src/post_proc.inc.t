@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.89 2006/09/19 14:37:55 hackie Exp $
+* $Id: post_proc.inc.t,v 1.90 2006/09/24 19:14:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -288,6 +288,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 					switch (strtolower($parms)) {
 						case '1':
+						case 'decimal':
 						case 'a':
 							$end_tag[$cpos] = '</ol>';
 							$ostr .= '<ol type="'.$parms.'">';
