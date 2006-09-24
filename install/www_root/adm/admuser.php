@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.74 2006/09/19 14:37:57 hackie Exp $
+* $Id: admuser.php,v 1.75 2006/09/24 19:24:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -126,7 +126,7 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 <?php
 					exit;
 			} else if (isset($_POST['btn_yes'])) {
-				logaction(_uid, 'DELETE_USER', 0, char_fix(htmlspecialchars($usr->login)));
+				logaction(_uid, 'DELETE_USER', 0, $u->alias);
 				usr_delete($usr_id);
 				unset($act, $u);
 				$usr_id = '';
