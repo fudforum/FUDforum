@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.91 2006/09/19 14:37:56 hackie Exp $
+* $Id: admglobal.php,v 1.92 2006/09/28 14:24:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -267,6 +267,7 @@ function get_max_upload_size()
 	print_reg_field('Notify From', 'NOTIFY_FROM');
 	print_bit_field('Notify W/Body', 'NOTIFY_WITH_BODY');
 	print_bit_field('Smart Notification', 'SMART_EMAIL_NOTIFICATION');
+	print_bit_field('Disable e-mail notifications', 'DISABLE_NOTIFICATION_EMAIL');
 ?>
 <tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 

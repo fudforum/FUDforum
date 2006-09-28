@@ -419,13 +419,13 @@ If enabled the forum will use various query optimization tricks available throug
 If enabled the forum will no longer send welcome e-mails when new users register.}}}
 
 {{{USE_TEMP_TABLES	FUD_OPT_3	4096
-Use temporary SQL tables to optimize some operations (dependant on the ability to create temp tables).}}}
+Use temporary SQL tables to optimize some operations (dependent on the ability to create temp tables).}}}
 
 {{{USE_ANON_TURING	FUD_OPT_3	8192
 When anonymous users post messages perform turing (captcha) test.}}}
 
 {{{FORUM_NOTIFY_ALL	FUD_OPT_3	16384
-If enabled, subscribers to a forum will recieve notifications about every new message in the forum, rather then just new topics in the forum.}}}
+If enabled, subscribers to a forum will receive notifications about every new message in the forum, rather then just new topics in the forum.}}}
 
 {{{DB_MESSAGE_STORAGE	FUD_OPT_3	32768
 If enabled, regular and private messages will be stored inside a database. This is not recommended for performance reasons!}}}
@@ -447,3 +447,6 @@ Disable displaying of who's online to the anonymous users.}}}
 
 {{{ENABLE_GEO_LOCATION	FUD_OPT_3	524288
 Enable country identifier flags beside each message poster, requires import of Geolocation database, see the Geolocation Management control panel for more details.}}}
+
+{{{DISABLE_NOTIFICATION_EMAIL	FUD_OPT_3	1048576
+Disable the system for sending e-mail notification pertaining to new messages and topics being posted to the forums regardless of the user's settings.}}}
