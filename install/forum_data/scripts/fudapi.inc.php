@@ -742,9 +742,9 @@ function fud_update_user($uid, $vals, &$err)
  *	'max_votes' => int // (maximum number of votes to allow) **optional**
  * )
  */
-function fud_new_topic($subject, $body, $mode, $author, $forum, $icon=null, $attach=null, $poll=null)
+function fud_new_topic($subject, $body, $mode, $author, $forum, $icon=null, $attach=null, $poll=null, $time=null)
 {
-	return _fud_message_post($subject, $body, $mode, $author, $icon, 0, $forum, 0, $attach, $poll);
+	return _fud_message_post($subject, $body, $mode, $author, $icon, 0, $forum, 0, $attach, $poll, $time);
 }
 
 /* {{{ proto: int message_id fud_new_reply(string subject, string body, int mode *, mixed author, int reply_id 
@@ -767,10 +767,10 @@ function fud_new_topic($subject, $body, $mode, $author, $forum, $icon=null, $att
  *	'max_votes' => int // (maximum number of votes to allow) **optional**
  * )
  */
-function fud_new_reply($subject, $body, $mode, $author, $rep_id, $icon=null, $attach=null, $poll=null)
+function fud_new_reply($subject, $body, $mode, $author, $rep_id, $icon=null, $attach=null, $poll=null, $time=null)
 {
 	$forum = q_singleval("SELECT t.forum_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg m INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread t ON t.id=m.thread_id WHERE m.id=".$rep_id);
-	return _fud_message_post($subject, $body, $mode, $author, $icon, 0, $forum, $rep_id, $attach, $poll);
+	return _fud_message_post($subject, $body, $mode, $author, $icon, 0, $forum, $rep_id, $attach, $poll, $time);
 }
 
 /* {{{ proto: int message_id fud_update_message(string subject, string body, int mode *, mixed author, int message_id 
@@ -991,7 +991,7 @@ function _fud_add_poll($poll, $forum_id, $forum_opt, $mode, $uid)
 	return $pl_id;
 }
 
-function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, $rep_id=0, $attach=null, $poll=null)
+function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, $rep_id=0, $attach=null, $poll=null, $time=null)
 {
 	fud_use('imsg_edt.inc');
 	fud_use('post_proc.inc');
@@ -1030,6 +1030,12 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 	$msg->icon = $icon;
 	$msg->thread_id = $id ? q_singleval("SELECT thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE id=".$id) : 0;
 	$msg->msg_opt = $mode;
+	if ($time) {
+		$msg->post_stamp = $time;
+	} else {
+		$msg->post_stamp = time();
+	}
+
 
 	if ($forum_opt & 16) {
 		$msg->body = tags_to_html($msg->body, 1);
@@ -1078,7 +1084,6 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 		$msg->add_reply($rep_id, $th_id, 64|4096, false);
 	} else if ($id) {
 		$msg->id = $id;
-		$msg->post_stamp = time();
 		$msg->sync($msg->poster_id, $forum, $message_threshold, 64|4096);
 	}
 
