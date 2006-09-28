@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.70 2006/09/19 14:37:56 hackie Exp $
+* $Id: register.tmpl,v 1.71 2006/09/28 14:07:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,12 +32,12 @@
 
 {SECTION: new_user new user section is shown to a new user trying to register}
 {IF: !__fud_real_user__}{FUNC: draw_err('reg_time_limit')}{ENDIFI}
-<tr class="RowStyleA"><td>{MSG: register_login}{FUNC: draw_err('reg_login')}</td><td><input type="text" size=25 name="reg_login" value="{VAR: reg_login}" maxLength={GVAR: MAX_LOGIN_SHOW}></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_login}{FUNC: draw_err('reg_login')}</td><td><input type="text" size="25" name="reg_login" value="{VAR: reg_login}" maxLength={GVAR: MAX_LOGIN_SHOW}></td></tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
-<tr class="RowStyleA"><td>{MSG: register_password}{FUNC: draw_err('reg_plaintext_passwd')}</td><td><input type="password" name="reg_plaintext_passwd" size=25 maxlength=16></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_conf_pass}</td><td><input type="password" name="reg_plaintext_passwd_conf" size=25 maxlength=16></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span></td><td><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td><td><input type="text" name="reg_name" size=25 value="{VAR: reg_name}"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_password}{FUNC: draw_err('reg_plaintext_passwd')}</td><td><input type="password" name="reg_plaintext_passwd" size="25"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_conf_pass}</td><td><input type="password" name="reg_plaintext_passwd_conf" size="25" maxlength="16"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span></td><td><input type="text" name="reg_email" size="25" value="{VAR: reg_email}"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td><td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}"></td></tr>
 {IF: !($FUD_OPT_3 & 128)}{TEMPLATE: register_turing_test}{ENDIFI}
 {SECTION: END}
 
@@ -60,7 +60,7 @@
 {SECTION: update_user update user section, is used when a registered user is editing their profile}
 <tr class="RowStyleA"><td>{MSG: register_login}</td><td class="fb">{VAR: reg_login}</td></tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
-<tr class="RowStyleA"><td>{MSG: register_your_pass}{FUNC: draw_err('reg_confirm_passwd')}</td><td><input type="password" name="reg_confirm_passwd" size=25 maxlength=16>{IF: !$mod_id}{TEMPLATE: change_passwd_link}{ENDIFI}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_your_pass}{FUNC: draw_err('reg_confirm_passwd')}</td><td><input type="password" name="reg_confirm_passwd" size="25">{IF: !$mod_id}{TEMPLATE: change_passwd_link}{ENDIFI}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: email_warning_msg}</td><td><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td><td><input type="text" name="reg_name" size=25 value="{VAR: reg_name}"></td></tr>
 <tr><td colspan=2 class="ac RowStyleC"><input type="submit" class="button" name="fud_submit" value="{MSG: register_update}"></td></tr>
