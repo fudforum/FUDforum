@@ -450,3 +450,6 @@ Enable country identifier flags beside each message poster, requires import of G
 
 {{{DISABLE_NOTIFICATION_EMAIL	FUD_OPT_3	1048576
 Disable the system for sending e-mail notification pertaining to new messages and topics being posted to the forums regardless of the user's settings.}}}
+
+{{{UPDATE_GEOLOC_ON_LOGIN	FUD_OPT_3	2097152
+If enabled then user's country (name and flag) will be updated each time they login. This option depends on Geo Location being enabled.}}}

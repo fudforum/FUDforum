@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.92 2006/09/28 14:24:58 hackie Exp $
+* $Id: admglobal.php,v 1.93 2006/09/29 14:30:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -359,6 +359,7 @@ function get_max_upload_size()
 	print_bit_field('Disable actions list for anonymous users', 'NO_ANON_ACTION_LIST');
 	print_bit_field('Disable who\'s online for anonymous users', 'NO_ANON_WHO_ONLINE');
 	print_bit_field('Enable Geo-Location', 'ENABLE_GEO_LOCATION');
+	print_bit_field('Update Geo-Location on login', 'UPDATE_GEOLOC_ON_LOGIN');
 ?>
 <tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 </table>

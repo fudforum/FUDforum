@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.95 2006/09/22 16:54:47 hackie Exp $
+* $Id: users_reg.inc.t,v 1.96 2006/09/29 14:30:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -265,7 +265,12 @@ function user_login($id, $cur_ses_id, $use_cookies)
 	q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$id." AND ses_id!='".$cur_ses_id."'");
 	q("UPDATE {SQL_TABLE_PREFIX}ses SET user_id=".$id.", sys_id='".ses_make_sysid()."' WHERE ses_id='".$cur_ses_id."'");
 	$GLOBALS['new_sq'] = regen_sq();
-	q("UPDATE {SQL_TABLE_PREFIX}users SET ".ret_flag()." sq='".$GLOBALS['new_sq']."' WHERE id=".$id);
+	if ($GLOBALS['FUD_OPT_3'] & 2097152) {
+		$flag = ret_flag();
+	} else {
+		$flag = '';	
+	}
+	q("UPDATE {SQL_TABLE_PREFIX}users SET ".$flag." sq='".$GLOBALS['new_sq']."' WHERE id=".$id);
 
 	return $cur_ses_id;
 }
