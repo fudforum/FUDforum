@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.186 2006/09/19 14:38:34 hackie Exp $
+* $Id: core.inc,v 1.187 2006/10/02 18:07:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,7 +24,7 @@ function rls_db_lck()
 
 register_shutdown_function('rls_db_lck');
 
-$GLOBALS['TITLE_EXTRA'] = '';
+$GLOBALS['RSS'] = $GLOBALS['TITLE_EXTRA'] = '';
 $GLOBALS['is_post'] = !empty($_POST);
 $GLOBALS['is_aol'] = (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'AOL') !== false);
 

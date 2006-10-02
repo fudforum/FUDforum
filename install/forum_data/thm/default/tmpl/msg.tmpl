@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.61 2006/09/19 14:37:56 hackie Exp $
+* $Id: msg.tmpl,v 1.62 2006/10/02 18:07:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -117,6 +117,12 @@ highlightSearchTerms("{VAR-HTML: _GET['srch']}");
 
 {SECTION: msg_xml_link}
 [ <a href="{TEMPLATE: msg_xml_link_lnk}">{MSG: thread_syndicate}</a> ] [ <a href="rdf.php?mode=m&amp;th={VAR: th}&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" /></a> ]
+{SECTION: END}
+
+{SECTION: msg_RSS}
+{IF: $FUD_OPT_2 & 1048576}
+<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}rdf.php?mode=m&amp;th={VAR: th}&amp;basic=1" />
+{ENDIFI}
 {SECTION: END}
 
 {SECTION: msg_update}

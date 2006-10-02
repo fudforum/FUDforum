@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.91 2006/09/19 14:37:56 hackie Exp $
+* $Id: tree.php.t,v 1.92 2006/10/02 18:07:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,6 +14,7 @@
 	if ($FUD_OPT_3 & 2) {
 		std_error('disabled');
 	}
+	$RSS = '{TEMPLATE: tree_RSS}';
 
 	if (!isset($_GET['th']) || !($th = (int)$_GET['th'])) {
 		$th = 0;

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.102 2006/09/19 14:37:55 hackie Exp $
+* $Id: msg.php.t,v 1.103 2006/10/02 18:07:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,6 +11,7 @@
 
 /*{PRE_HTML_PHP}*/
 
+	$RSS = '{TEMPLATE: msg_RSS}';
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 	$th = isset($_GET['th']) ? (int) $_GET['th'] : 0;
 

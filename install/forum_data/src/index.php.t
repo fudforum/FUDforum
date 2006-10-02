@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.104 2006/09/24 19:27:42 hackie Exp $
+* $Id: index.php.t,v 1.105 2006/10/02 18:07:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,6 +11,7 @@
 
 /*{PRE_HTML_PHP}*/
 
+	$RSS = '{TEMPLATE: index_RSS}';
 	$collapse = $usr->cat_collapse_status ? unserialize($usr->cat_collapse_status) : array();
 	$cat_id = !empty($_GET['cat']) ? (int) $_GET['cat'] : 0;
 

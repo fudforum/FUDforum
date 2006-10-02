@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.62 2006/09/19 14:37:55 hackie Exp $
+* $Id: rdf.php.t,v 1.63 2006/10/02 18:07:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -251,7 +251,7 @@ $basic_rss_data .= '
 <item rdf:about="'.$WWW_ROOT.'index.php?t=rview&amp;goto='.$r->id.'&amp;th='.$r->thread_id.'#msg_'.$r->id.'">
 	<title>'.htmlspecialchars($r->subject).'</title>
 	<link>'.$WWW_ROOT.'index.php?t=rview&amp;goto='.$r->id.'&amp;th='.$r->thread_id.'#msg_'.$r->id.'</link>
-	<description>'.fud_xml_encode($body).'</description>
+	<description>'.sp($body).'</description>
 	<dc:subject></dc:subject>
 	<dc:creator>'.$r->alias.'</dc:creator>
 	<dc:date>'.gmdate('Y-m-d\TH:i:s', $r->post_stamp).'-00:00</dc:date>

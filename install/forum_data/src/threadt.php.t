@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.48 2006/09/19 14:37:56 hackie Exp $
+* $Id: threadt.php.t,v 1.49 2006/10/02 18:07:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,6 +16,7 @@
 	}
 
 	ses_update_status($usr->sid, '{TEMPLATE: threadt_update}', $frm->id);
+	$RSS = '{TEMPLATE: thread_RSS}';
 
 /*{POST_HTML_PHP}*/
 
