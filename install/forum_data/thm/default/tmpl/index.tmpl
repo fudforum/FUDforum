@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.77 2006/10/02 18:07:07 hackie Exp $
+* $Id: index.tmpl,v 1.78 2006/10/03 15:46:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -133,13 +133,13 @@ function minCatImage(cid, on)
 		src = src.replace(/max\.([a-z]+)$/, "min.$1") + '';
 	}
 	document.getElementById(cid+'img').src = src;
-	if (document.all) { document.getElementById(cid+'img').style.background = 'url('+src+')'; }
+	if (document.all && !OPERA) { document.getElementById(cid+'img').style.background = 'url('+src+')'; }
 }
 
 function toggleCategory(cid, level)
 {
 	var c = document.getElementById('c'+cid).nextSibling;
-	var on = c.style.display != 'none' ? 'none' : (document.all ? '' : 'table-row');
+	var on = c.style.display != 'none' ? 'none' : (document.all && !OPERA ? '' : 'table-row');
 	var p, id, cat = 'c'+cid;
 
 	minCatImage(cat, on);
@@ -149,7 +149,7 @@ function toggleCategory(cid, level)
 			c = c.nextSibling;
 			continue;
 		}
-		if (document.all) {
+		if (document.all && !OPERA) {
 			p = c.p;
 			id = c.id;
 		} else {
@@ -175,7 +175,7 @@ function toggleCategory(cid, level)
 				c.style.display = on;
 			} else if (document.getElementById(cat+'img')) {
 				if (document.getElementById(cat+'img').src.indexOf('min') != -1 && document.getElementById(cat).style.display != 'none') {
-					c.style.display = (document.all ? '' : 'table-row');
+					c.style.display = (document.all && !OPERA ? '' : 'table-row');
 				} else {
 					c.style.display = 'none';
 				}
