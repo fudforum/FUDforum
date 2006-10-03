@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.55 2006/09/19 14:37:56 hackie Exp $
+* $Id: admimport.php,v 1.56 2006/10/03 15:22:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -226,15 +226,6 @@ function resolve_dest_path($path)
 				echo '<font color="#ff0000">Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br>Therefor you\'ll need to re-login once the import process is complete<br></font>';
 			}
 
-			echo "Recompiling Templates<br>\n";
-
-			fud_use('compiler.inc', true);
-			$c = uq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0');
-			while ($r = db_rowarr($c)) {
-				compile_all($r[0], $r[1], $r[2]);
-			}
-			unset($c);
-
 			/* we now need to correct cached paths for file attachments and avatars */
 			echo "Correcting Avatar Paths<br>\n";
 			if (($old_path = q_singleval('SELECT location FROM '.$DBHOST_TBL_PREFIX.'attach LIMIT 1'))) {
@@ -249,6 +240,15 @@ function resolve_dest_path($path)
 
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET avatar_loc=REPLACE(avatar_loc, '._esc($m[1]).', '._esc($m2[1]).') WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0');
 			}
+
+			echo "Recompiling Templates<br>\n";
+
+			fud_use('compiler.inc', true);
+			$c = uq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0');
+			while ($r = db_rowarr($c)) {
+				compile_all($r[0], $r[1], $r[2]);
+			}
+			unset($c);
 
 			echo '<b>Import process is now complete</b><br>';
 			echo '<font color="red" size="+1">To finalize the import process you should now run the <a href="consist.php">consistency checker</a>.<font><br>';
