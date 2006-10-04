@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.111 2006/09/19 14:37:55 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.112 2006/10/04 23:09:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -159,12 +159,6 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	/* check if the message should be ignored and it is not temporarily revelead */
 	if ($usr->ignore_list && !empty($usr->ignore_list[$obj->poster_id]) && !isset($GLOBALS['__FMDSP__'][$obj->id])) {
 		return !$hide_controls ? '{TEMPLATE: dmsg_ignored_user_message}' : '{TEMPLATE: dmsg_ignored_user_message_static}';
-	}
-
-	if (!$hide_controls && $GLOBALS['FUD_OPT_3'] & 524288) {
-		$geo = db_saq("SELECT cc,country FROM {SQL_TABLE_PREFIX}geoip WHERE ".sprintf("%u", ip2long($obj->ip_addr))." BETWEEN ips AND ipe");
-	} else {
-		$geo = null;
 	}
 
 	if ($obj->user_id && !$hide_controls) {
