@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.90 2006/09/24 19:14:01 hackie Exp $
+* $Id: post_proc.inc.t,v 1.91 2006/10/09 13:53:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -269,7 +269,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 'list':
 					$tmp = substr($str, $epos, ($cpos-$epos));
 					$tmp_l = strlen($tmp);
-					$tmp2 = str_replace(array('[*]', '<br />'), array('<li>', ''), $tmp);
+					$tmp2 = str_replace('[*]', '<li>', $tmp);
 					$tmp2_l = strlen($tmp2);
 					$str = str_replace($tmp, $tmp2, $str);
 
