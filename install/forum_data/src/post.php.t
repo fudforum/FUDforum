@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.154 2006/09/19 14:37:55 hackie Exp $
+* $Id: post.php.t,v 1.155 2006/10/09 14:23:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -184,6 +184,11 @@ function flood_check()
 		$pl_id			= !empty($_POST['pl_id']) ? poll_validate((int)$_POST['pl_id'], $msg_id) : 0;
 		$msg_body		= isset($_POST['msg_body']) ? (string)$_POST['msg_body'] : '';
 		$msg_subject		= isset($_POST['msg_subject']) ? (string)$_POST['msg_subject'] : '';
+
+		/* Microsoft Word Hack to eliminate special characters */
+		$in = array('”','“','’','‘','…'); $out = array('"','"',"'","'",'...');
+		$msg_body = str_replace($in,$out,$msg_body);
+		$msg_subject = str_replace($in,$out,$msg_subject);
 
 		if ($perms & 256) {
 			$attach_count = 0;
