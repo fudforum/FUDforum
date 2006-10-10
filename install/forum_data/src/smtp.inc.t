@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smtp.inc.t,v 1.22 2006/10/10 16:53:59 hackie Exp $
+* $Id: smtp.inc.t,v 1.23 2006/10/10 17:39:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,7 +47,7 @@ class fud_smtp
 
 		/* we need to scan all other lines */
 		if ($es) {
-			stream_set_timeout($this->fs, 0, 500000);
+			stream_set_timeout($this->fs, 2, 500000);
 			while (fgets($this->fs));
 		}
 
