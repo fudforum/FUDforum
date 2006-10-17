@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: sml_rcache.inc,v 1.8 2006/09/19 14:37:55 hackie Exp $
+* $Id: sml_rcache.inc,v 1.9 2006/10/17 15:55:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,7 +20,9 @@ function smiley_rebuild_cache()
 		$codes = explode('~', strtolower($r[0]));
 		$dst[] = $codes[0];
 		foreach ($codes as $v) {
-			$rep[$v] = $co;
+			if ($v) {
+				$rep[$v] = $co;
+			}
 		}
 	}
 	unset($c);
