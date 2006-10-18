@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.91 2006/10/09 13:53:24 hackie Exp $
+* $Id: post_proc.inc.t,v 1.92 2006/10/18 14:12:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,6 +62,10 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			$parms = '';
 		}
 
+		if (!$parms && ($tpos = strpos($tag, '[')) !== false) {
+			$pos += $tpos;
+			continue;
+		}
 		$tag = strtolower($tag);
 
 		switch ($tag) {
