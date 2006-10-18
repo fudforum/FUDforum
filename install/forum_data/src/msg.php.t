@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.103 2006/10/02 18:07:07 hackie Exp $
+* $Id: msg.php.t,v 1.104 2006/10/18 13:42:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -176,6 +176,10 @@
 		$obj2 = $obj;
 	}
 	unset($result);
+
+	if ($use_tmp && $FUD_OPT_1 & 256) {
+		q("DROP TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_".__request_timestamp__);
+	}
 
 	if ($FUD_OPT_2 & 32768) {
 		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}/mv/msg/' . $th . '/0/', '/' . reveal_lnk . unignore_tmp . _rsid);
