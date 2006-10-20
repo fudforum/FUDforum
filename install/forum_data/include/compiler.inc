@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.90 2006/09/19 14:37:55 hackie Exp $
+* $Id: compiler.inc,v 1.91 2006/10/20 14:52:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -608,7 +608,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	umask($u);
 
 	$GLOBALS['CMP_LOC_S'] = array('{ROOT}', '{FULL_ROOT}', '{THEME_ROOT}', '{THEME_ROOT_DISK}', ".'';", ".''.");
-	$GLOBALS['CMP_LOC_K'] = array($cmpl['ROOT'], $cmpl['FULL_ROOT'], $cmpl['THEME_ROOT'], $cmpl['THEME_ROOT_DISK'], ';', '.');
+	$GLOBALS['CMP_LOC_K'] = array($cmpl['ROOT'], "'.\$GLOBALS['WWW_ROOT'].'", $cmpl['THEME_ROOT'], $cmpl['THEME_ROOT_DISK'], ';', '.');
 
 	$charset = @is_file($file1) ? $file1 : $file2;
 
