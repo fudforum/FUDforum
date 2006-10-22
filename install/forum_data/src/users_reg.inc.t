@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.97 2006/10/15 17:32:39 hackie Exp $
+* $Id: users_reg.inc.t,v 1.98 2006/10/22 22:11:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -264,7 +264,7 @@ function user_login($id, $cur_ses_id, $use_cookies)
 	/* if we can only have 1 login per account, 'remove' all other logins */
 	q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$id." AND ses_id!='".$cur_ses_id."'");
 	q("UPDATE {SQL_TABLE_PREFIX}ses SET user_id=".$id.", sys_id='".ses_make_sysid()."' WHERE ses_id='".$cur_ses_id."'");
-	$GLOBALS['new_sq'] = regen_sq();
+	$GLOBALS['new_sq'] = regen_sq($id);
 	if ($GLOBALS['FUD_OPT_3'] & 2097152) {
 		$flag = ret_flag();
 	} else {
