@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.93 2006/09/29 14:30:08 hackie Exp $
+* $Id: admglobal.php,v 1.94 2006/10/22 22:03:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -202,6 +202,8 @@ function get_max_upload_size()
 	print_bit_field('Allow Images (fudcode only)', 'PRIVATE_IMAGES');
 	print_bit_field('Tag Style', 'PRIVATE_TAGS');
 	print_reg_field('Maximum Private Messages Folder Size', 'MAX_PMSG_FLDR_SIZE', 1);
+	print_reg_field('Maximum Private Messages Folder Size (for moderators)', 'MAX_PMSG_FLDR_SIZE_PM', 1);
+	print_reg_field('Maximum Private Messages Folder Size (for administrators)', 'MAX_PMSG_FLDR_SIZE_AD', 1);
 ?>
 <tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 

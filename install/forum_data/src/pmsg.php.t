@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.61 2006/09/19 14:37:55 hackie Exp $
+* $Id: pmsg.php.t,v 1.62 2006/10/22 22:03:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -80,7 +80,15 @@
 	} else {
 		$disk_usage = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid);
 	}
-	$percent_full = ceil($disk_usage / $MAX_PMSG_FLDR_SIZE * 100);
+	if ($usr->users_opt & 524288) {
+		$ms = $MAX_PMSG_FLDR_SIZE_PM;
+	} else if ($usr->users_opt & 1048576) {
+		$ms = $MAX_PMSG_FLDR_SIZE_AD;
+	} else {
+		$ms = $MAX_PMSG_FLDR_SIZE;
+	}
+
+	$percent_full = ceil($disk_usage / $ms * 100);
 	$full_indicator = ceil($percent_full * 1.69);
 
 	if ($percent_full < 90) {

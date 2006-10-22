@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: GLOBALS.php,v 1.54 2006/09/19 14:37:55 hackie Exp $
+* $Id: GLOBALS.php,v 1.55 2006/10/22 22:03:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,6 +50,8 @@
 	$PRIVATE_ATTACHMENTS	= 5;		/* int */
 	$PRIVATE_ATTACH_SIZE	= 1000000;	/* bytes */
 	$MAX_PMSG_FLDR_SIZE	= 300000;	/* bytes */
+	$MAX_PMSG_FLDR_SIZE_AD	= 1000000;	/* bytes */
+	$MAX_PMSG_FLDR_SIZE_PM	= 1000000;	/* bytes */
 
 	$FORUM_IMG_CNT_SIG	= 2;		/* int */
 	$FORUM_SIG_ML		= 256;		/* int */

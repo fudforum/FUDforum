@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.90 2006/10/09 14:23:46 hackie Exp $
+* $Id: ppost.php.t,v 1.91 2006/10/22 22:03:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,7 +48,16 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 	if (!($usr->users_opt & 32)) {
 		error_dialog('{TEMPLATE: pm_err_disabled_title}', '{TEMPLATE: pm_err_disabled_msg}');
 	}
-	if (($fldr_size = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid)) > $MAX_PMSG_FLDR_SIZE) {
+	
+	if ($usr->users_opt & 524288) {
+		$ms = $MAX_PMSG_FLDR_SIZE_PM;
+	} else if ($usr->users_opt & 1048576) {
+		$ms = $MAX_PMSG_FLDR_SIZE_AD;
+	} else {
+		$ms = $MAX_PMSG_FLDR_SIZE;
+	}
+
+	if (($fldr_size = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid)) > $ms) {
 		error_dialog('{TEMPLATE: pm_no_space_title}', '{TEMPLATE: pm_no_space_msg}');
 	}
 

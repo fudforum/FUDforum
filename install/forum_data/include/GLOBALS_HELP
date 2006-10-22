@@ -119,6 +119,12 @@ Enable/disable images in private messages.}}}
 {{{MAX_PMSG_FLDR_SIZE
 The maximum number of bytes of private messages that a user can have at a time.}}}
 
+{{{MAX_PMSG_FLDR_SIZE_PM
+The maximum number of bytes of private messages that a moderator can have at a time.}}}
+
+{{{MAX_PMSG_FLDR_SIZE_AD
+The maximum number of bytes of private messages that an administrator can have at a time.}}}
+
 #SIGNATURE SETTINGS
 
 {{{ALLOW_SIGS	FUD_OPT_1	32768
