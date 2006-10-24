@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.tmpl,v 1.39 2006/09/19 14:37:56 hackie Exp $
+* $Id: search.tmpl,v 1.40 2006/10/24 17:19:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -84,7 +84,7 @@
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th>{MSG: search_forum_search}</th><th class="wa">{MSG: search_options}</th></tr>
 <tr class="RowStyleA">
-	<td class="vt nw"><input type="text" name="srch" tabindex="1" value="{VAR-HTML: srch}"> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: search}"><br /><span class="SmallText">{TEMPLATE-DATA: search_options}</span></td>
+	<td class="vt nw"><input spellcheck="true" type="text" name="srch" tabindex="1" value="{VAR-HTML: srch}"> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: search}"><br /><span class="SmallText">{TEMPLATE-DATA: search_options}</span></td>
 	<td class="RowStyleB SmallText">
 <div class="sr">{MSG: search_in_forum}<br /><select class="SmallText" name="forum_limiter"><option value="">{MSG: search_all_forums}</option>{TEMPLATE-DATA: forum_limit_data}</select></div>
 <div class="sr">{MSG: search_logic}<br /><select class="SmallText" name="search_logic">{TEMPLATE-DATA: logic_options}</select></div>

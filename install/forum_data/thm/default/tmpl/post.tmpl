@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.70 2006/09/19 14:37:56 hackie Exp $
+* $Id: post.tmpl,v 1.71 2006/10/24 17:19:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -151,7 +151,7 @@
 {IF: _uid}{TEMPLATE: loged_in_user}{ELSE}<tr class="RowStyleA"><td colspan="2" class="GenTextRed fb">{MSG: post_not_logged_in}</td></tr>{ENDI}
 {IF: $frm->forum_opt & 4 && !$is_a}{TEMPLATE: post_password}{ENDIF}
 <tr class="RowStyleB"><td class="GenText">{MSG: post_forum}</td><td class="GenText">{VAR: frm->name}</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR: msg_subject}" size=50 tabindex="2"> {FUNC: get_err('msg_subject')}</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text"  spellcheck="true" maxLength="100" name="msg_subject" value="{VAR: msg_subject}" size="50" tabindex="2" /> {FUNC: get_err('msg_subject')}</td></tr>
 {TEMPLATE-DATA: poll}
 {TEMPLATE-DATA: admin_options}
 {FUNC: draw_post_icons((isset($_POST['msg_icon']) ? $_POST['msg_icon'] : ''))}

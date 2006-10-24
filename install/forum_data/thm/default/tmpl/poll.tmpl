@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.tmpl,v 1.20 2006/09/19 14:37:56 hackie Exp $
+* $Id: poll.tmpl,v 1.21 2006/10/24 17:19:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,7 +44,7 @@ function check_submission()
 <table cellspacing=2 width="99%" cellpadding=0 class="dashed">
 	<tr>
 		<td class="GenText">{MSG: poll_name}</td>
-		<td><input tabindex="1" type="text" name="pl_name" value="{VAR-HTML: pl_name}"></td>
+		<td><input tabindex="1" type="text" spellcheck="true" name="pl_name" value="{VAR-HTML: pl_name}"></td>
 	</tr>
 	<tr>
 		<td class="GenText">{MSG: poll_timelimit}</td>
@@ -98,7 +98,7 @@ if (document.poll_submit.pl_option) {
 
 {SECTION: poll_editor}
 <table width="99%" cellspacing=2 cellpadding=0 class="dashed">
-<tr><td class="GenText">{MSG: poll_add_option}</td><td class="ar"><input type="text" name="pl_option" value="{VAR-HTML: pl_option}">
+<tr><td class="GenText">{MSG: poll_add_option}</td><td class="ar"><input type="text" spellcheck="true" name="pl_option" value="{VAR-HTML: pl_option}">
 {TEMPLATE-DATA: pl_smiley_disabled_chk}
 <tr><td colspan=2 class="ar">{IF: !isset($_GET['pl_optedit'])}{TEMPLATE: pl_add}{ELSE}{TEMPLATE: pl_upd}{END}</td></tr>
 <tr><td colspan=2><table>

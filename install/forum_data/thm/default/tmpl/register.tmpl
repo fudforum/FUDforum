@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.71 2006/09/28 14:07:28 hackie Exp $
+* $Id: register.tmpl,v 1.72 2006/10/24 17:19:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -135,9 +135,9 @@
 {IF: !__fud_real_user__}{TEMPLATE: new_user}{ELSE}{TEMPLATE: update_user}{ENDI}
 <tr><th colspan=2>{MSG: register_optional}</th></tr>
 <tr><td colspan="2" class="RowStyleC">{MSG: register_optional_desc}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_location}</td><td><input type="text" name="reg_location" value="{VAR: reg_location}"maxlength=255 size=30></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_occupation}</td><td><input type="text" name="reg_occupation" value="{VAR: reg_occupation}"maxlength=255 size=30></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_interests}</td><td><input type="text" name="reg_interests" value="{VAR: reg_interests}"maxlength=255 size=30></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_location}</td><td><input type="text" spellcheck="true" name="reg_location" value="{VAR: reg_location}"maxlength=255 size=30></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_occupation}</td><td><input type="text" spellcheck="true" name="reg_occupation" value="{VAR: reg_occupation}"maxlength=255 size=30></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_interests}</td><td><input type="text" spellcheck="true" name="reg_interests" value="{VAR: reg_interests}"maxlength=255 size=30></td></tr>
 {IF: $FUD_OPT_2 & 65536}{TEMPLATE: reg_user_image}{ENDIF}
 <tr class="RowStyleA"><td>{MSG: register_icq}</td><td><input type="text" name="reg_icq" value="{VAR: reg_icq}" maxLength=32 size=25></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_aim}</td><td><input type="text" name="reg_aim" value="{VAR: reg_aim}" maxLength=32 size=25></td></tr>
