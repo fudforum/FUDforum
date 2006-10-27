@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.55 2006/09/19 14:37:55 hackie Exp $
+* $Id: pdf.php.t,v 1.56 2006/10/27 17:50:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -249,7 +249,7 @@ class fud_pdf extends FPDF
 	}
 
 	if (!$sel) {
-		$c = uq('SELECT
+		$c = q('SELECT
 				m.id, m.thread_id, m.subject, m.post_stamp,
 				m.attach_cnt, m.attach_cache, m.poll_cache,
 				m.foff, m.length, m.file_id, u.id AS uid,

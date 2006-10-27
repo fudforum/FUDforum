@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.63 2006/10/02 18:07:07 hackie Exp $
+* $Id: rdf.php.t,v 1.64 2006/10/27 17:50:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -193,7 +193,7 @@ function smiley_full(&$data)
 				}
 			}
 
-			$c = uq('SELECT
+			$c = q('SELECT
 					m.*,
 					u.alias,
 					t.forum_id,
@@ -360,7 +360,7 @@ $basic_rss_data .= '
 					$lmt .= " AND (g1.group_cache_opt & 2) > 0";
 				}
 			}
-			$c = uq('SELECT
+			$c = q('SELECT
 					t.*,
 					f.name AS frm_name,
 					c.name AS cat_name,
@@ -448,7 +448,7 @@ $basic_rss_data .= '
 			} else {
 				$perms = ', 1 AS can_show_msg';
 			}
-			$c = uq('SELECT
+			$c = q('SELECT
 						u.id, u.alias, u.join_date, u.posted_msg_count, u.avatar_loc, u.users_opt,
 						u.home_page, u.bday, u.last_visit, u.icq, u.aim, u.yahoo, u.msnm, u.jabber, u.affero,
 						u.name, u.email,
