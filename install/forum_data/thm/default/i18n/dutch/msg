@@ -1,33 +1,33 @@
 action:				actie
-add_to_buddy_list:		voeg toe aan je buddy lijst
-admin:				Admin 
-admin_control_panel:		Admin Control Panel
-administrator:			Administrator
+add_to_buddy_list:		voeg toe aan je vriendenlijst
+admin:				Administratie 
+admin_control_panel:		Configuratie
+administrator:			beheerder
 attachment:			Bijvoegsel:
 avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} Post(s) ({VAR: avg} average posts per day)
 biography:			Biografie:
 birth_date:			Geboortedatum:
 by:				door:
-by_mod:				door Moderator
+by_mod:				door moderator
 current_time:			huidig tijdstip
-custom_avatar_queue:		Custom Avatar Queue
+custom_avatar_queue:		Aangepast Avatar wachtrij
 date_posted:			Datum gepost
 date_registered:		Datum geregistreerd:
 download_counter:		{VAR: v[3]} keer gedownload
 email:				Email:
-email_to_friend:		Email naar een vriend(en)
-email_to_friend_desc:		zend de URL van deze pagina naar een vriend(en) via email
+email_to_friend:		Email naar (een) vriend(en)
+email_to_friend_desc:		zend de URL van deze pagina naar (een) vriend(en) via email
 email_user:			Klik hier om email te sturen naar deze gebruiker
 faq:				F.A.Q.
 first_unread_msg:		naar ongelezen berichten
-first_unread_msg_desc:		naar 1ste ongelezen bericht binnen dit topic
-flat_view:			Opnieuw het standaard &quot;flat view&quot; weergeven
+first_unread_msg_desc:		naar eerste ongelezen bericht binnen dit onderwerp
+flat_view:			Geef weer in de de &quot;standaardweergave&quot;
 forum:				Forum:
-forum_icon:			Forum Icoontje
+forum_icon:			Forumicoontje
 forum_new_messages:		Nieuwe berichten
-forum_none_messages:		Enkel geregistreerde forumleden kunnen gelezen en ongelezen berichten opsporen
-forum_old_messages:		Geen Nieuwe Berichten new messages
+forum_none_messages:		Alleen geregistreerde forumleden kunnen gelezen en ongelezen berichten opsporen
+forum_old_messages:		Geen nieuwe berichten
 from:				Van:
 gender:				Geslacht:
 go:				Go
@@ -35,9 +35,9 @@ goto_next_msg:			naar volgend bericht
 goto_prev_msg:			naar vorig bericht
 home:				Home
 homepage:			Homepage:
-icq_control_panel:		ICQ Online-Message Panel
-icq_message_form:		ICQ Message Message Formulier:
-ignore_user:			Negeer alle posts van deze gebruiker
+icq_control_panel:		ICQ online berichten panel
+icq_message_form:		ICQ berichtenformulier:
+ignore_user:			Negeer alle berichten van deze gebruiker
 im_aim:				AIM Handle:
 im_msnm:			MSN Messenger:
 im_yahoo:			Yahoo Messenger:
@@ -46,50 +46,50 @@ index_forum:			Forum
 index_new_posts:		Nieuwe berichten sinds laatste bezoek
 index_no_new_posts:		Geen nieuwe berichten sinds laatste bezoek
 interests:			Intresses:
-last_post:			Laatste Post
-last_thread_msg:		naar laatste bericht in dit topic
+last_post:			Laatste bericht
+last_thread_msg:		naar laatste bericht in dit onderwerp
 legend:				Legenda:
 location:			Locatie:
-lock_thread:			Sluit Topic
+lock_thread:			Sluit onderwerp
 locked:				Gesloten
 locked_with_new_posts:		Gesloten (w/ ongelezen posts)
-logged_in_list:			Logged in ledenlijst
-login:				inloggen
+logged_in_list:			Ingelogde gebruikers
+login:				Inloggen
 login_header:			inloggen:
-logout:				uitloggen
-mark_all_read:			markeer alle boodschappen als gelezen
-mark_all_read_desc:		alle boodschappen die je nog niet gelezen hebt zullen als &quot;gelezen&quot; gemarkeerd worden
+logout:				Uitloggen
+mark_all_read:			markeer alle berichten als gelezen
+mark_all_read_desc:		alle berichten die je nog niet gelezen hebt zullen als &quot;gelezen&quot; gemarkeerd worden
 members:			Leden
 message:			Bericht
 message_counter:		Onze gebruikers hebben in totaal <b>{VAR: post_count}</b> berichten gepost, in <b>{VAR: thread_count}</b> verschillende topics.
-message_index:			Berichten index
+message_index:			Berichtenlijst
 message_index_desc:		bekijk de berichtenlijst
 minimize_category:		Minimaliseer de categorie
-moderation_queue:		Moderation Queue
+moderation_queue:		Moderatie wachtrij
 moderator:			Moderator
 moderator_of:			Moderator van:
-moderator_options:		Moderator Opties
+moderator_options:		Moderatieopties
 moderators:			Moderator(s)
 more_unread_messages:		meer ongelezen berichten
-more_unread_messages_desc:	Toon meer ongelezen berichten en markeer de huidig bekijkbare boodschapen als gelezen
+more_unread_messages_desc:	Toon meer ongelezen berichten en markeer de huidig bekijkbare boodschappen als gelezen
 move_thread:			Verplaats
 moved:				Verplaats naar een ander forum
-moved_thread_message:		Dit topic is verplaatst naar een ander forum
+moved_thread_message:		Dit onderwerp is verplaatst naar een ander forum
 na:				leeg
-new_posts:			Nieuwe Posts
-new_private_messages:		U heeft <span class="GenText" style="color: #ff0000">({VAR: c})</span> ongelezen privé berichten
-new_thread:			Creëer een nieuw topic
+new_posts:			Nieuwe berichten
+new_private_messages:		U heeft <span class="GenText" style="color: #ff0000">({VAR: c})</span> ongelezen privé-berichten
+new_thread:			Creëer een nieuw onderwerp
 newest_user:			Het nieuwste geregistreerde lid is
 next_page:			Volgende pagina
-next_thread:			Volgend Topic:
+next_thread:			Volgend onderwerp:
 no_messages:			Er zijn geen nieuwe berichten in dit forum
 no_msg_body:			Geen boodschap in dit bericht
-no_new_posts:			Geen nieuwe posts
-no_posts:			Geen posts
-no_subscribed_forums:		Geen subscribed forums
-no_subscribed_threads:		Geen subscribed topics
-no_unread_locked:		Dit topic is gesloten
-no_unread_msg:			Dit topic heeft geen ongelezen berichten
+no_new_posts:			Geen nieuwe berichten
+no_posts:			Geen berichten
+no_subscribed_forums:		Geen geabbonneerde forums
+no_subscribed_threads:		Geen geabbonneerde topics
+no_unread_locked:		Dit onderwerp is gesloten
+no_unread_msg:			Dit onderwerp heeft geen ongelezen berichten
 no_unread_msg_unreg:		De gelezen &amp; ongelezen berichten kunnen alleen door geregistreerde gebruikser getraceerd worden
 num_pages:			Pagina&#39;s ({VAR: ttl_pg}):
 num_votes:			{VAR: obj->total_votes} stemmen
@@ -97,102 +97,102 @@ occupation:			Beroep:
 off:				Uit
 on:				Aan
 page_timings:			Totale tijd voor oproepen van de pagina: {VAR: page_gen_time} seconden
-pm:				Privé Bericht
+pm:				Privébericht
 poll:				Poll:
-post_count:			Post aantal {VAR: u_pcount}
-post_count_l:			Post aantal:
-posts:				Posts
-posts_c:			Posts:
-prev_thread:			Vorige topic:
-usrinfo_private_message:	Privé Bericht:
+post_count:			Aantal berichten {VAR: u_pcount}
+post_count_l:			Aantal berichten:
+posts:				Berichten
+posts_c:			Berichten:
+prev_thread:			Vorige onderwerp:
+usrinfo_private_message:	Privébericht:
 profile:			Profiel
-profile_desc:			Klik hier om toegang te krijgen tot het leden controle paneel
-rate_thread:			Beoordeel Topic
-refresh_list:			Ververs Lijst
+profile_desc:			Klik hier om toegang te krijgen tot het leden administratiescherm
+rate_thread:			Beoordeel onderwerp
+refresh_list:			Ververs lijst
 register:			Registreer
 registered:			Geregistreerd:
 registered_on:			Geregistreerd op {TEMPLATE: registered_on_date}
 replies:			Reacties
-report_to_mod:			Raporteer het bericht aan een moderator
-reported_messages:		Geraporteerde berichten
-reveal_all_posts:		laat alle posts zien per {VAR: user_login}
-reveal_post:			toon post
-search:				zoek
-sel_todays_posts:		Posts van vandaag
-sel_todays_posts_desc:		Zet de &quot;vandaag&quot; filter aan (dit laat enkel de posts van vandaag zien)
-sel_unanswered_posts:		Onbeantwoorde posts
-sel_unanswered_posts_desc:	Zet de &quot;onbeantwoorde-posts&quot; filter aan (dit laat enkel de posts zien zonder reacties)
+report_to_mod:			Rapporteer het bericht aan een moderator
+reported_messages:		Gerapporteerde berichten
+reveal_all_posts:		laat alle berichten zien per {VAR: user_login}
+reveal_post:			toon bericht
+search:				Zoek
+sel_todays_posts:		Berichten vandaag
+sel_todays_posts_desc:		Zet het &quot;vandaag&quot; filter aan (dit laat enkel de berichten van vandaag zien)
+sel_unanswered_posts:		Onbeantwoorde berichten
+sel_unanswered_posts_desc:	Zet het &quot;onbeantwoorde berichten&quot; filter aan (dit laat enkel de posts zien zonder reacties)
 sel_unread_messages:		Ongelezen berichten
-sel_unread_messages_desc:	Zet de &quot;ongelezen-berichten&quot; filter aan (dit laat enkel de ongelezen berichten zien)
+sel_unread_messages_desc:	Zet de &quot;ongelezen berichten&quot; filter aan (dit laat enkel de ongelezen berichten zien)
 send:				Verstuur
-send_pm_desc:			Verstuur een privé bericht naar deze gebruiker
+send_pm_desc:			Verstuur een privébericht naar deze gebruiker
 sender_email:			Email verzender:
 sender_name:			Naam verzender:
-show_posts_by:			Toon posts van: {VAR: u_alias}
-size:				Groote:
+show_posts_by:			Toon berichten van: {VAR: u_alias}
+size:				Grootte:
 status:				Status:
-status_line:			Er zijn <b>{VAR: st_obj->online_users_reg}</b> leden, <b>{VAR: st_obj->online_users_hidden}</b> onzichtbare leden en <b>{VAR: st_obj->online_users_anon}</b> gasten die dit &quot;board&quot; bezoeken.
+status_line:			Er zijn <b>{VAR: st_obj->online_users_reg}</b> leden, <b>{VAR: st_obj->online_users_hidden}</b> onzichtbare leden en <b>{VAR: st_obj->online_users_anon}</b> gasten die dit &quot;forum&quot; bezoeken.
 sticky:				sticky:
 stop_ignoring:			stop met het negeren van dit lid
-sub_to_thread:			Inschrijven op topic
-sub_to_thread_desc:		Ontvang een bericht indien er nieuwe posts in dit topic zijn
+sub_to_thread:			Inschrijven op onderwerp
+sub_to_thread_desc:		Ontvang een bericht indien er nieuwe berichten in dit onderwerp zijn
 subject:			Onderwerp
 subscribe:			Inschrijven
-subscribe_desc:			Ontvang een bericht indien iemand een nieuw topic aanmaakt in dit forum
-subscribed_forums:		Ingeschreven Fora
-subscribed_forums_desc:		Zet de &quot;ingeschreven-fora&quot; filter aan (dit laat enkel posts zien van fora waar je bent voor ingeschreven)
+subscribe_desc:			Ontvang een bericht indien iemand een nieuw onderwerp aanmaakt in dit forum
+subscribed_forums:		Ingeschreven forums
+subscribed_forums_desc:		Zet de &quot;ingeschreven forums&quot; filter aan (dit laat enkel berichten zien van forums waar je bent voor ingeschreven)
 subscribed_threads:		Ingeschreven Topics
-subscribed_threads_desc:	Zet de &quot;ingeschreven-topics&quot; filter aan (dit laat enkel posts zien van topics waar je bent voor ingeschreven)
-switch_to_thread_view:		Omschakelen naar "threaded" weergave van dit topic
+subscribed_threads_desc:	Zet de &quot;ingeschreven onderwerpen&quot; filter aan (dit laat enkel berichten zien van onderwerpen waar je bent voor ingeschreven)
+switch_to_thread_view:		Omschakelen naar "threaded" weergave van dit onderwerp
 thread:				Topic:
 thread_announcement:		Mededeling:
-thread_first_unread_msg:	KLik hier om het eerste ongelezen boodschap in dit topic te zien
-thread_thread:			Topic
-threads:			Topics
+thread_first_unread_msg:	Klik hier om het eerste ongelezen bericht in dit onderwerp te zien
+thread_thread:			Onderwerp
+threads:			Onderwerpen
 time:				Tijd
-todays_posts:			Posts van vandaag
+todays_posts:			Berichten van vandaag
 todays_posts_desc:		Geef alle berichten weer die vandaag gepost werden
-un_ignore_user:			Posts van dit lid niet meer negeren
-unanswered_posts:		Onbeantwoorde Posts
+un_ignore_user:			Berichten van dit lid niet meer negeren
+unanswered_posts:		Onbeantwoorde berichten
 unanswered_posts_desc:		Toon alle berichten die geen reacties hebben
-unlock_thread:			Unlock Topic
-unread_msg:			Dit topic bevat berichten die je nog niet gelezen hebt
-unread_msg_locked:		Gesloten topic met ongelezen berichten
-unread_posts:			Ongelezen Posts
+unlock_thread:			Ontgrendel onderwerp
+unread_msg:			Dit onderwerp bevat berichten die je nog niet gelezen hebt
+unread_msg_locked:		Gesloten onderwerp met ongelezen berichten
+unread_posts:			Ongelezen berichten
 unread_posts_desc:		Toon alle ongelezen berichten
-unsub_from_thread:		Unsubscribe uit topic
-unsub_from_thread_desc:		Geen berichten meer ontvangen over nieuwe posts in dit topic
-unsubscribe:			Unsubscribe
-unsubscribe_desc:		Geen berichten meer ontvangen over nieuwe topics in dit forum
-updated_on:			Upgedate op:
+unsub_from_thread:		Afmelden van dit onderwerp
+unsub_from_thread_desc:		Geen berichten meer ontvangen over nieuwe berichten in dit onderwerp
+unsubscribe:			Afmelden
+unsubscribe_desc:		Geen berichten meer ontvangen over nieuwe onderwerpen in dit forum
+updated_on:			Geupdate op:
 user:				Lid
-user_counter:			we hebben <b>{VAR: st_obj->user_count}</b> geregistreerde leden.
-user_info:			Leden Informatie
-user_info_l:			Leden Informatie {VAR: u->alias}
+user_counter:			We hebben <b>{VAR: st_obj->user_count}</b> geregistreerde leden.
+user_info:			Ledeninformatie
+user_info_l:			Ledeninformatie {VAR: u->alias}
 user_offline:			{VAR: obj->login}  is op dit moment offline
 user_online:			{VAR: obj->login} is op dit moment online
-usrinfo_last_post:		Laatste Post:
+usrinfo_last_post:		Laatste bericht:
 view_results:			Bekijk resultaten
 views:				keer bekeken
 vote:				{VAR: frm->n_rating} stemmen
 vote_button:			stem
 vote_for_thread:		stem
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> door de moderator
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> is verplaatst naar <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> door de moderator
 welcome_message:		Welkom <b>{VAR: usr->alias}</b>, je laatste bezoek was op {TEMPLATE: welcome_message_date}
 what_ppl_doing:			laat zien wat de mensen aan het doen zijn
-reported_del_report:		Verwijder Raport
+reported_del_report:		Verwijder rapport
 reported_reason:		Reden
 reported_on:			op:
-reported_reported_by:		Geraporteerd door:
-reported_reported_msg:		Geraporteerd Bericht
-modque_pending_approval:	Berichten die afhangen van goedkeuring
+reported_reported_by:		Gerapporteerd door:
+reported_reported_msg:		Gerapporteerd bericht
+modque_pending_approval:	Berichten die nog goedgekeurd moeten worden
 modque_approve:			Goedkeuren
 modque_delete:			Verwijder
-modque_no_message:		Er zijn geen berichten die van goedkeuring afhangen
-pmsg_new_messages:		ongelezen privé berichten
-pmsg_old_messages:		Lees privé berichten
-deny_recipt:			ontken ontvangst
-deny_recipt_desc:		Zend geen bevestiging door dat u dit bericht gelezen hebt
+modque_no_message:		Er zijn geen berichten die nog goedgekeurd moeten worden
+pmsg_new_messages:		ongelezen privé-berichten
+pmsg_old_messages:		Lees privé-berichten
+deny_recipt:			stuur geen ontvangstbevestiging
+deny_recipt_desc:		Stuur geen bevestiging dat u dit bericht gelezen hebt
 restore_to:			Herstel naar:
 move_to:			Verplaats naar:
 list_referes_referrals:		Verwijzingen
@@ -200,41 +200,41 @@ list_referes_members:		verwezen leden
 list_referes_member:		Lid
 referals_none:			Nog geen verwijzingen
 referals_refered_by:		Forum leden gerefereerd door: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:		Post Teller
+referals_post_count:		Berichtenteller
 referals_registered_on:		Geregistreerd op
 referals_action:		Actie
 pmsg_all:			ieder
 pmsg_none:			geen
 folder:				Folder:
-pmsg_replied:			replied
-pmsg_forwarded:			forwarded
+pmsg_replied:			beantwoord
+pmsg_forwarded:			doorgestuurd
 pmsg_subject:			onderwerp
-pmsg_author:			schrijver
+pmsg_author:			verzender
 pmsg_time:			Tijd
 pmsg_selected:			Geselecteerd
 pmsg_delete:			Verwijder
-cur_ppage_pm:			Privé Berichting
-writing_pm:			Een privé bericht schrijven
+cur_ppage_pm:			Privéberichten
+writing_pm:			Een privébericht schrijven
 browsing_folder:		folder <b>{VAR: folders[$folder_id]}</b> doorbladeren
-inbox:				Inbox
-draft:				Draft
-sent:				Sent
-trash:				Vuilbak
+inbox:				Postvak in
+draft:				Klad
+sent:				Verzonden
+trash:				Prullenbak
 msg_author:			Schrijver
-avatar_sel_form:		Avatar Selectie Formulier
+avatar_sel_form:		Avatar selectieformulier
 no_avatars:			Geen Avatars beschikbaar
-month_1:			Januari
-month_2:			Februari
-month_3:			Maart
-month_4:			April
-month_5:			Mei
-month_6:			Juni
-month_7:			Juli
-month_8:			Augustus
-month_9:			September
-month_10:			October
-month_11:			November
-month_12:			December
+month_1:			januari
+month_2:			februari
+month_3:			maart
+month_4:			april
+month_5:			mei
+month_6:			juni
+month_7:			juli
+month_8:			augustus
+month_9:			september
+month_10:			oktober
+month_11:			november
+month_12:			december
 male:				Man
 female:				Vrouw
 unspecified:			ONGEDEFINIEERD
@@ -243,7 +243,7 @@ register_msg_tree_view:		Flat thread listing/Tree message listing
 register_tree_msg_view:		Tree thread listing/Flat message listing 
 register_flat_view:		Flat View message en thread listing 
 use_forum_default:		Gebruik forum standaard
-finduser_user_info:		Gebruikers Informatie
+finduser_user_info:		Gebruikersinformatie
 finduser_by_login:		via Login:
 finduser_submit:		vind
 finduser_no_such_user:		onbekend lid
@@ -269,7 +269,7 @@ register_email_desc:		Geef alsjeblieft een geldig email adres op. Je kan kiezen 
 register_name:			Naam:
 register_your_pass:		Uw Paswoord:
 register_update:		Update
-register_avatar_type:		Avatar Type:
+register_avatar_type:		Avatar type:
 register_del_avatar:		Verwijder Avatar
 register_avatar:		Avatar:
 register_sel_avatar:		Selecteer Avatar
@@ -279,7 +279,7 @@ register_preview:		Preview
 register_custom_avatar_upload:	Custom Avatar bestand:
 register_register:		Registreer
 register_required:		Vereiste Informatie
-register_required_desc:		Alle velden zijn vereist.  Opgepast! paswoorden zijn hoofdletter gevoelig
+register_required_desc:		Alle velden zijn vereist.  Opgepast! wachtwoorden zijn hoofdletter gevoelig
 register_optional:		Bijkomende informatie
 register_optional_desc:		Het is aangewezen dat u geen persoonlijke of identificerende info weergeeft in uw profiel.  Alle info zal zichtbaar zijn voor andere forum leden
 register_location:		Locatie:
@@ -350,7 +350,7 @@ post_thread_expiry:		Topic Expiratie:
 post_locked:			Topic Gesloten
 post_icons:			Post Icoontje:
 post_no_icon:			Geen Icoontje
-post_smiley:			Smiley Shortcuts:
+post_smiley:			Smilies:
 post_format_tools:		Formatting Tools:
 post_upload_file:		Upload Bestand
 post_file_del:			Verwijder
@@ -388,7 +388,7 @@ coppa_fax_instructions:		Instructies voor de voogd
 coppa_fax_instructions2:	Print deze pagina uit en fax het naar:
 coppa_fax_reg_form:		Registratie Formulier
 coppa_fax_sign:			Onderteken het onderstaande formulier en verstuur het naar ons.
-coppa_fax_conf:			Ik heb de info die mijn kind me heeft bezorgd nagekeken en heb de Privacy Policy van de website gelezen. Ik begrijp dat de profiel informatie mogelijk verandert door het gebruik van een paswoord. Ik begrijp dat ik erom mag vragen dat de registratie van dit profiel volledig wordt verwijdert.
+coppa_fax_conf:			Ik heb de info die mijn kind me heeft bezorgd nagekeken en heb de Privacy Policy van de website gelezen. Ik begrijp dat de profiel informatie mogelijk verandert door het gebruik van een wachtwoord. Ik begrijp dat ik erom mag vragen dat de registratie van dit profiel volledig wordt verwijdert.
 coppa_fax_permission:		Teken hier indien u toestemming geeft
 coppa_fax_no_permission:	Teken hier indien u wil dat het lidmaatschap verwijdert wordt
 coppa_fax_parent_name:		volledige naam v/d voogd:
@@ -405,29 +405,29 @@ login_not_logedin:		U bent niet ingelogd.  Dit kan zijn om verschillende redenen
 login_cookie_expired:		Uw "cookie" is verlopen, en u moet opnieuw inloggen om uw cookie te vernieuwen.
 login_perm_denied:		U heeft geen toegang tot de gevraagde gegevens als ongeregistreerd gebruiker, U moet inloggen om toegang te krijgen tot de gegevens.
 login_want_to_register:		Wilt u zich registreren?
-login_forgot_passwd:		paswoord vergeten
+login_forgot_passwd:		wachtwoord vergeten
 login_use_cookie:		gebruik "cookies" <br><font class="SmallText">indien u gebruik maakt van een publieke terminal zoals een pc in een bib, school of Internet cafe is het aangeraden om deze optie uit te vinken voor meer veiligheid.<br>indien u deze optie geselecteerd laat staan wordt u automatisch ingelogd in het forum.
 login_login:			Login
 login_login_btn:		Login
 login_name_required:		inlog naam is vereist
 login_passwd_required:		Paswoord is vereist
-login_invalid_radius:		ongeldige login/paswoord combinatie
+login_invalid_radius:		ongeldige login/wachtwoord combinatie
 reset_confirmation:		Hartelijk dank om u te registreren,\n\nVoor de activering van uw account ga naar deonderstaande URL:\n\n{VAR: url}\n\nEenmaal uw account is geactiveerd zal u ingelogd worden op het forum en\ndoorgezonden naar de hoofdpaginavan het forum.\n
-reset_reset:			Hallo,\n\nU heeft ervoor gekozen dat uw paswoord wordt gereset, indien u effectief uw paswoord wilt reseten\ngaan dan naar de volgende URL\n\n{VAR: url}\n\nNOTA: Dit forum slaat het paswoord op in een one-way encryption mechanisme wat betekend, dat\neenmaal u uw paswoord heeft ingegeven het gecodeerd waarna er GEEN manier is om het terug op te vragen.\nDit werkt door simpelweg uw paswoord te coderen iedere keer u het ingeeft en\ndaarna te zien of het met het gecodeerde overeenstemt. (Indien u geïntereseerd bent hoe dit mechanisme werkt lees info over het MD5 HASH algoritme)
-rpasswd_invalid_passwd:		ongeldig Paswoord
-rpasswd_passwd_nomatch:		Paswoorden stemmen niet overeen
-rpasswd_passwd_length:		Paswoord moet op zijn minst 6 tekens lang zijn
-reset_remind_pass:		Paswoord onthouden
-reset_reset_conf:		Uw paswoord zal gereset worden en naar u opgestuurd worden of indien u uw email nog niet bevestigd heeft wordt de email bevestiging opnieuw naar u opgestuurd.
+reset_reset:			Hallo,\n\nU heeft ervoor gekozen dat uw wachtwoord wordt gereset, indien u effectief uw wachtwoord wilt reseten\ngaan dan naar de volgende URL\n\n{VAR: url}\n\nNOTA: Dit forum slaat het wachtwoord op in een one-way encryption mechanisme wat betekend, dat\neenmaal u uw wachtwoord heeft ingegeven het gecodeerd waarna er GEEN manier is om het terug op te vragen.\nDit werkt door simpelweg uw wachtwoord te coderen iedere keer u het ingeeft en\ndaarna te zien of het met het gecodeerde overeenstemt. (Indien u geïntereseerd bent hoe dit mechanisme werkt lees info over het MD5 HASH algoritme)
+rpasswd_invalid_passwd:		ongeldig wachtwoord
+rpasswd_passwd_nomatch:		Wachtwoorden zijn niet gelijk
+rpasswd_passwd_length:		Wachtwoord moet op zijn minst 6 tekens lang zijn
+reset_remind_pass:		Wachtwoord onthouden
+reset_reset_conf:		Uw wachtwoord zal gereset worden en naar u opgestuurd worden of indien u uw email nog niet bevestigd heeft wordt de email bevestiging opnieuw naar u opgestuurd.
 reset_error:			Email niet gevonden in database
-rpasswd_change_pass:		Verander Paswoord
+rpasswd_change_pass:		Verander wachtwoord
 rpasswd_login:			Login
-rpasswd_cur_pass:		Huidig Paswoord:
-rpasswd_new_pass:		Nieuw Paswoord:
-rpasswd_conf_pass:		bevestig Paswoord:
-login_passwd:			Paswoord:
+rpasswd_cur_pass:		Huidig wachtwoord:
+rpasswd_new_pass:		Nieuw wachtwoord:
+rpasswd_conf_pass:		bevestig wachtwoord:
+login_passwd:			Wachtwoord:
 reset_email:			Email:
-reset_reset_button:		Reset Paswoord
+reset_reset_button:		Reset wachtwoord
 rate_this_thread:		beoordeel
 report_reporting_about:		Rapport over:
 report_subject:			onderwerp:
@@ -510,9 +510,9 @@ poll_week:			week
 tabs_register:			Instellingen
 tabs_subscriptions:		Inschrijvingen
 tabs_referrals:			Verwijzingen
-tabs_buddy_list:		Buddy Lijst
-tabs_ignore_list:		Negeer Lijst
-tabs_private_messaging:		Privé Berichting
+tabs_buddy_list:		Vriendelijst
+tabs_ignore_list:		Negeerlijst
+tabs_private_messaging:		Privéconversaties
 single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
 thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Wenst u door te gaan?</b></font>
@@ -520,11 +520,11 @@ delete_yes:			Ja
 delete_no:			Nee
 error_invalidurl:		ongeldige URL
 error_error:			Fout
-usrinfo_profile:		{VAR: u->alias}&#39;s Profiel
+usrinfo_profile:		{VAR: u->alias}&#39;s profiel
 usrinfo_show_all_posts:		Toon alle posts van {VAR: u->alias}
 actions_update:			Neuzen in andermans zaken, net iets voor jou.
 err_info:			Info
-buddy_list_err_cantadd:		Je kan jezelf niet aan je &quot;buddy&quot; lijst toevoegen
+buddy_list_err_cantadd:		Je kunt jezelf niet aan je &quot;buddy&quot; lijst toevoegen
 buddy_list_err_dup:		U heeft deze gebruiker al in uw &quot;buddy&quot; lijst staan
 buddy_list_err_nouser:		Het lid dat u probeerde toe te voegen aan uw &quot;buddy&quot; lijst is niet gevonden op het forum.
 buddy_list_err_nouser_title:	Niet in staat om lid toe te voegen
@@ -541,7 +541,7 @@ email_error_namerequired:	Naam is vereist
 email_error_invaliduser:	ongeldig lid
 emailconf_err_invkey_title:	Fout
 emailconf_err_invkey_msg:	ongeldige bevestigings sleutel.  Controleer uw email en verzeker u dat u correct naar de URL bent gegaan
-err_inc_criticaltitle:		CRITICAL ERROR
+err_inc_criticaltitle:		KRITIEKE FOUT
 err_inc_criticalmsg:		u heeft een fout opgelopen maar jammer genoeg is er een probleem met het fouten rapporteer systeem
 finduser_update:		Zoeken naar leden
 help_index_update:		De <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> lezen
@@ -555,26 +555,26 @@ ignore_list_err_dup_msg:	U heeft dit lid al in uw negeer lijst
 ignore_list_err_nu_title:	lid niet gevonden
 ignore_list_err_nu_msg:		Het lid die u trachte toe te voegen aan uw negeer lijst kon niet op het forum gevonden worden.
 ignore_list_cantign_msg:	U kan dit lid niet negeren
-ignore_list_update:		Browsing in eigen negeer lijst
-index_update:			Browsing door de <a href="{TEMPLATE: index_update_lnk}">forum lijst</a>
-list_referers_update:		Browsing door verwijzingen
-login_update:			inlog Formulier
-msg_update:			Browsing door topic <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:		FOUT: Privé Berichtgeving Uitgeschakeld
-pm_err_nopm_msg:		U kan het privé berichtgeving systeem niet gebruiken, het is uitgeschakeld door de administrator.
-pm_update:			Gebruik van privé berichtgeving
-post_err_lockedthread_title:	FOUT: gesloten Topic
-post_err_lockedthread_msg:	Dit topic is gesloten, geen posts meer toegelaten
-err_coppa_title:		FOUT: Uw account is nog niet toegelaten
-err_coppa_msg:			We hebben geen toestemming ontvangen van uw voogd welke u zou toelaten om berichten te posten. Indien u uw coppa formulier heeft verloren <a href="{TEMPLATE: err_coppa_msg_lnk}">klik hier</a> om het te krijgen
+ignore_list_update:		Bladeren in eigen negeer lijst
+index_update:			Bladeren door de <a href="{TEMPLATE: index_update_lnk}">forum lijst</a>
+list_referers_update:		Bladeren door verwijzingen
+login_update:			inlogformulier
+msg_update:			Bladeren door topic <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:		FOUT: Privéconversaties ingeschakeld
+pm_err_nopm_msg:		U kunt het systeem voor privéconversaties  niet gebruiken, het is uitgeschakeld door de administrator.
+pm_update:			Gebruik van privéconversaties
+post_err_lockedthread_title:	FOUT: gesloten onderwerp
+post_err_lockedthread_msg:	Dit onderwerp is gesloten, geen berichten meer toegelaten
+err_coppa_title:		FOUT: Uw account is nog niet bevestigd
+err_coppa_msg:			We hebben geen toestemming ontvangen van uw voogd die u zou toelaten om berichten toe te voegen. Indien u uw coppa formulier heeft verloren <a href="{TEMPLATE: err_coppa_msg_lnk}">klik hier</a> om het te krijgen
 post_err_edttimelimit_title:	FOUT
-post_err_edttimelimit_msg:	U can dit bericht niet langer wijzigen
+post_err_edttimelimit_msg:	U kunt dit bericht niet langer wijzigen
 post_err_floodtrig_title:	FOUT: Post flood ingeschakeld.
-post_err_floodtrig_msg:		probeer opnieuw binnen {VAR: tm} seconden
-post_err_attach_size:		<font class="ErrorText">Bestand bijvoegsel is te groot (over toegelaten limiet van {VAR: MAX_F_SIZE} bytes)</font><br>
-post_err_attach_ext:		<font class="ErrorText">het bestand dat u tracht up te loaden stemt niet overeen met de toegelaten bestands types.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">U probeert meer bestanden up te loaden dan is toegelaten.</font><br>
-post_err_passwd:		ongeldig paswoord.
+post_err_floodtrig_msg:		probeer opnieuw over {VAR: tm} seconden
+post_err_attach_size:		<font class="ErrorText">Bijlage is te groot (over toegelaten limiet van {VAR: MAX_F_SIZE} bytes)</font><br>
+post_err_attach_ext:		<font class="ErrorText">het bestand dat u tracht bij te voegen is van een bestandsformaat dat niet is toegestaan.</font><br>
+post_err_attach_filelimit:	<font class="ErrorText">U probeert meer bestanden toe te voegen dan is toegestaan.</font><br>
+post_err_passwd:		ongeldig wachtwoord.
 post_reply_update:		Antwoorden op <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		nieuw topic schrijven in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		u heeft een fout
@@ -592,20 +592,20 @@ referals_update:		Browsing door verwijzingen
 register_err_short_login:	De login die u heeft geselecteer is te kort. De login moet op zijn minst 4 karakters lang zijn
 register_err_login_notallowed:	Deze login is niet toegelaten
 register_err_loginunique:	Forum inlognamen moeten uniek zijn, er is reeds een gebruiker met deze naam aanwezig op het systeem
-register_err_emailexists:	Deze email bestaat reeds, indien u uw paswoord vergeten bent gebruik dan de herstel optie, inplaats van opnieuw te registreren
-register_err_shortpasswd:	het paswoord moet op zijn minst 6 karakters lang zijn
-register_err_passwdnomatch:	Uw paswoorden kloppen niet
+register_err_emailexists:	Deze email bestaat reeds, indien u uw wachtwoord vergeten bent gebruik dan de herstel optie, inplaats van opnieuw te registreren
+register_err_shortpasswd:	het wachtwoord moet op zijn minst 6 karakters lang zijn
+register_err_passwdnomatch:	Uw wachtwoorden kloppen niet
 register_err_invalidemail:	het e-mail adres dat u gekozen heeft blijkt niet geldig te zijn.
 register_err_needname:		Om deze registratie succesvol af te sluiten moet u uw naam opgeven.
-register_err_enterpasswd:	U moet uw huidig paswoord opgeven om de wijzigingen door te geven
-register_err_adminpasswd:	U moet uw ADMINISTRATOR paswoord opgeven om de wijzigingen door te geven
+register_err_enterpasswd:	U moet uw huidig wachtwoord opgeven om de wijzigingen door te geven
+register_err_adminpasswd:	U moet uw ADMINISTRATOR wachtwoord opgeven om de wijzigingen door te geven
 register_err_notyouremail:	Iemand is al geregistreerd via deze email, en die iemand bent u NIET
 register_err_avatartobig:	Het bestand dat u tracht up te loaden is te groot, boven de {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte limiet
 register_err_avatarnotallowed:	De avatar die u tracht up te loaden is niet toegestaan, controleer de toegelaten bestandstypen.
 register_conf_subject:		Registratie bevestiging
 register_conf_msg:		Dank u voor uw registratie,\nOm uw lidmaatschap te activeren ga naar de onderstaande URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEenmaal uw account is geactiveerd zal u ingelogd worden op het forum en\ndoorgestuurd naar de hoofdpagina van dit forum.
 register_welcome_subject:	Forum Registratie bevestiging
-register_welcome_msg:		Dank u voor uw registratie,\n\nhier zijn uw inlog voor op het forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\npaswoord: {VAR: _POST['reg_plaintext_passwd']}\n\nOpgepast, paswoorden zijn hoofdlettergevoelig!\nOm uw instellingen &amp; profiel aan te passen ga naar deze pagina:\n{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		Dank u voor uw registratie,\n\nhier zijn uw inlog voor op het forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nwachtwoord: {VAR: _POST['reg_plaintext_passwd']}\n\nOpgepast, wachtwoorden zijn hoofdlettergevoelig!\nOm uw instellingen &amp; profiel aan te passen ga naar deze pagina:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	FOUT: niet in staat om te registreren
 regsiter_err_cantreg_msg:	Niet in staat om lidmaatschap aan te maken, contacteer aub de administrator via <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Bekijk eigen profiel
@@ -613,12 +613,12 @@ register_register_update:	Registratie Pagina
 report_err_nosuchmsg_title:	FOUT
 report_err_nosuchmsg_msg:	onbekend bericht
 reset_err_invalidkey_title:	FOUT
-reset_err_invalidkey_msg:	ongeldige paswoord reset sleutel
+reset_err_invalidkey_msg:	ongeldige wachtwoord reset sleutel
 reset_err_rstconf_title:	Informatie
 reset_err_rstconf_msg:		U zou binnen enkele minuten instructies moeten ontvangen in uw mailbox 
-reset_newpass_title:		Reset paswoord
-reset_newpass_msg:		Hallo,\n\n uw inlog naam word naar u verzonden.\nHier is uw inlog informatie:\n\nLogin: {VAR: ui[1]}\npaswoord: {VAR: passwd}\n\nOpgelet, uw paswoord is gereset naar de bovenstaande waarde, indien u wenst\n uw paswoord te veranderen mag u dit doen via het lid info controle paneel op:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Uw paswoord is door gemaild naar u. U zou het moeten ontvangen binnen enkele minuten. Controleer uw mailbox voor uw paswoord en login.<br>
+reset_newpass_title:		Reset wachtwoord
+reset_newpass_msg:		Hallo,\n\n uw inlog naam word naar u verzonden.\nHier is uw inlog informatie:\n\nLogin: {VAR: ui[1]}\nwachtwoord: {VAR: passwd}\n\nOpgelet, uw wachtwoord is gereset naar de bovenstaande waarde, indien u wenst\n uw wachtwoord te veranderen mag u dit doen via het lid info controle paneel op:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_login_notify:		Uw wachtwoord is door gemaild naar u. U zou het moeten ontvangen binnen enkele minuten. Controleer uw mailbox voor uw wachtwoord en login.<br>
 search_update:			Zoeken van posts
 selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Posts van vandaag</a>
 showposts_update:		Bekijk posts van: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -626,27 +626,27 @@ subscribed_update:		Browsing in eigen inschrijvingen
 thread_update:			Browsing door forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Browsing door topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		kijken naar <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profiel
-ERR_disabled_ttl:		uitgeschakeld feature
-ERR_disabled_msg:		dit feature is uitgeschakeld door de administrator
-ERR_access_ttl:			FOUT: onvoldoende permissies
-ERR_access_msg:			u heeft niet de vereiste permissies om deze handeling uit te voeren
+ERR_disabled_ttl:		uitgeschakelde optie
+ERR_disabled_msg:		deze optie is uitgeschakeld door de beheerder
+ERR_access_ttl:			FOUT: onvoldoende toegang
+ERR_access_msg:			u heeft niet de vereiste toegang om deze handeling uit te voeren
 ERR_registration_disabled_ttl:	Registratie uitgeschakeld
 ERR_registration_disabled_msg:	De administrator heeft de registratie uitgeschakeld, probeer later opnieuw
 ERR_emailconf_ttl:		FOUT: U lidmaatschap is nog niet bevestigd
 ERR_emailconf_msg:		U heeft uw account nog niet bevestigd via email<br><table border=0><tr><td><ol><li>Indien u geen bevestigings&shy;email  ontvangen heeft<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik hier</a><li>If {VAR: usr_d->email} is niet jouw correcte email adres <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klik hier</a></ol></td></tr></table>
 ERR_user_ttl:			FOUT: onbekend lid
 ERR_user_msg:			dit is een onbekend lid
-ERR_systemerr_ttl:		FOUT: Systeem FOUT
-ERR_systemerr_msg:		Er is een Systeem FOUT is opgetreden, rapporteer dit aub aan de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+ERR_systemerr_ttl:		FOUT: SYSTEEMFOUT
+ERR_systemerr_msg:		Er is een SYSTEEMFOUT is opgetreden, rapporteer dit aub aan de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
 email_title:			Email Formulier
 finduser_title:			Vind lid
 help_title:			F.A.Q.
-login_title:			Login Formulier
+login_title:			Aanmeldformulier
 msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Poll Editor
-register_title:			Registratie formulier
-reset_title:			Reset paswoord
-rpasswd_title:			paswoord aanpassingsformulier
+register_title:			Registratieformulier
+reset_title:			Reset wachtwoord
+rpasswd_title:			wachtwoordaanpassingsformulier
 error_title:			Fout formulier
 index_title:			Welkom op het forum
 search_title:			Zoek naar {VAR-HTML: srch}
@@ -664,7 +664,7 @@ post_opt_fud_off:		<b>FUDcode</b> staat <b>UIT</b>
 post_opt_images_off:		<b>Fotos</b> staan <b>UIT</b>
 post_opt_smilies_off:		<b>Smilies</b> staan <b>UIT</b>
 post_opt:			Forum Opties
-register_change_passwd:		verander paswoord
+register_change_passwd:		verander wachtwoord
 install_script_present_error:	vanwege veiligheidsmaatregelen moet u het installatie script op <b>{GVAR: WWW_ROOT_DISK}install.php</b> verwijderen voor u gebruik kan maken van het forum.
 approved_avatar_title:		Uw custom avatar is goedgekeurd.
 approved_avatar_msg:		Uw avatar is goedgekeurd door de administrator. Het zou nu moeten verschijnen als uw avatar in al jouw berichten. Indien u het niet ziet, of uw oude avatar ziet komt dat omdat uw browser de pagina gecached heeft. probeer 1 of 2x op verversen te klikken (in sommige browsers werkt de functietoets "F5" ook) hiermee lost u in de meeste gevallen het caching probleem op.
@@ -770,7 +770,7 @@ split_th_messages:		Berichten
 split_th_select:		Selecteer
 report_report_post:		Rapporteer Post
 quicklogin_login:		Login
-quicklogin_password:		paswoord
+quicklogin_password:		wachtwoord
 quicklogin_use_cookies:		Cookies gebruiken?
 quicklogin_login_btn:		inloggen
 post_notification_desc:		Waarschuw me wanneer iemand antwoord op dit bericht.
@@ -822,18 +822,18 @@ search_or:			OF
 search_desc_order:		dalende volgorde		
 search_asc_order:		stijgende volgorde
 search_logic:			logisch zoeken:
-search_sorting:			Sorteer Resultaten op datum in:
+search_sorting:			Sorteer resultaten op datum in:
 post_proceed:			Vooruit
-post_moderated_forum:		U heeft een post gezet in een gemodereerd forum, wat betekend dat uw post niet op het forum wordt zichtbaar gemaakt totdat het is goedgekeurd door één van de moderator(s) van het forum en of de administrator(s).
-post_moderated_forum_ttl:	Moderated Forum Notice
+post_moderated_forum:		U heeft een bericht geplaatst in een gemodereerd forum, wat betekend dat uw bericht niet op het forum wordt zichtbaar gemaakt totdat het is goedgekeurd door één van de moderator(s) van het forum en of de administrator(s).
+post_moderated_forum_ttl:	Gemodereerd forum bericht
 buddy_list_bday:		vandaag wordt {VAR: r[2]}&nbsp;{VAR: age} jaar
-email_warning_msg:		Indien u uw huidig email adres wijzigt zal uw account als &quot;niet bevestigd&quot; gemarkeerd worden totdat u het bevestigd via email.
-register_show_im:		toon IM indicators
-register_show_im_desc:		Indien u wel of niet IM indicators wil laten zien van de auteur naast zijn berichten.
+email_warning_msg:		Indien u uw huidig emailadres wijzigt zal uw account als &quot;niet bevestigd&quot; gemarkeerd worden totdat u het bevestigd via email.
+register_show_im:		toon IM indicatoren
+register_show_im_desc:		Indien u wel of niet IM indicatoren wil laten zien van de auteur naast zijn berichten.
 unread_message:			ongelezen berichten
 read_message:			lees berichten
 threadt_more:			&lt;meer&gt;
-threadt_disabled_ttl:		Tree view van de thread is uitgeschakeld.
+threadt_disabled_ttl:		Boomstructuur van de reeks is uitgeschakeld.
 threadt_disabled_desc:		De administrator heeft de tree view van de threads uitgeschakeld, gebruik aub de flat view in de plaats.
 threadt_update:			Browsing het forum (tree view) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Topic/Bericht verwijdering bevestiging
@@ -853,63 +853,63 @@ im_affero:			Affero Gebruikersnaam
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
 register_password:		Password:
 member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
-submit_reply:			Submit Reply
+submit_reply:			Vestuur antwoord
 post_all_ext_allowed:		(unrestricted)
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-buddy_offline:			{VAR: r[2]} is currently offline
-buddy_online:			{VAR: r[2]} is currently online
-sml_no_smilies:			No emoticons available.
-login_unapproved_account_ttl:	Unapproved Account
+buddy_offline:			{VAR: r[2]} is op dit moment offline
+buddy_online:			{VAR: r[2]} is op dit moment online
+sml_no_smilies:			Geen smilies beschikbaar.
+login_unapproved_account_ttl:	Onbevestigd account
 login_unapproved_account_msg:	The administrator of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefore you will not be able to access some of the features available to registered members until your account is approved.
-remove_from_buddy_list:		remove from buddy list
-iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {TEMPLATE: dmsg_post_date}
-iemail_msg_reply:		Reply
-iemail_msg_quote:		Quote
-iemail_msg_view:		View Topic/Message
-threadt_sticky:			sticky
-threadt_announce:		announcement
-reported_no_messages:		There are no reported messages.
-poll_no_polls:			There are no accessible polls.
-no_unread_messages:		There are no unread messages matching your query.
-thread_mark_all_read:		mark all unread forum messages read
-thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
-private_no_messages:		There are no messages inside this folder
+remove_from_buddy_list:		verwijder van vriendenlijst
+iemail_msg_author:		<b>Verzender:</b> {VAR: obj->alias}
+iemail_msg_subject:		<b>Onderwerp:</b> {VAR: obj->subject}
+iemail_msg_date:		<b>Datum:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:		Beantwoord
+iemail_msg_quote:		Citeer
+iemail_msg_view:		Bekijk onderwerp/bericht
+threadt_sticky:			fixeer
+threadt_announce:		bekendmaking
+reported_no_messages:		Er zijn geen gerapporteerde berichten.
+poll_no_polls:			Er zijn geen polls beschikbaar.
+no_unread_messages:		Er zijn geen ongelezen berichten die aan de zoekopdracht voldoen.
+thread_mark_all_read:		markeer alle berichten als gelezen
+thread_mark_all_read_desc:	Alle ongelezen berichten in dit forum worden als gelezen gemarkeerd
+private_no_messages:		Er zijn geen berichten in deze map
 register_email_change_subject:	E-mail change confirmation
 register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
-iemail_thread_unsub:		Unsubscribe from this thread		
-iemail_forum_unsub:		Unsubscribe from this forum
+iemail_thread_unsub:		Afmelden van deze reeks		
+iemail_forum_unsub:		Afmelden van dit forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
 register_admin_newuser_title:	A new user has registered and their account is pending confirmation
 register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
 post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
 post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
-thread_printable_pdf:		Generate printable PDF
-thread_syndicate:		Syndicate this forum (XML)
-reg_conf_title:			Registration Confirmation
-reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you&#39;ve specified is correct. Once you confirm your account you will be able to access the forum features available to the confirmed registered users.
-reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s), once that happens you will recieve an e-mail indicating that your account has been confirmed. Until that point you will be able to login to your account, however will not be able to access features limited to approved users.
+thread_printable_pdf:		Genereer PDF
+thread_syndicate:		Syndiceer dit forum (XML)
+reg_conf_title:			Bevestiging van registratie
+reg_conf_email:			<b>E-mailbevestiging</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you&#39;ve specified is correct. Once you confirm your account you will be able to access the forum features available to the confirmed registered users.
+reg_conf_account:		<b>Accountbewvestiging</b><br />Before your account is made active it needs to be approved by the administrator(s), once that happens you will recieve an e-mail indicating that your account has been confirmed. Until that point you will be able to login to your account, however will not be able to access features limited to approved users.
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
-mnav_description:		Message Navigator
-mnav_date_limit:		Date range:
-mnav_forum_limit:		Only search In:
-mnav_all_forums:		Search all forums
-mnav_submit:			Begin Search
-mnav_no_range:			You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
-mnav_invalid_unit:		You must specify a valid time unit.
+mnav_description:		Berichtennavigatie
+mnav_date_limit:		Periode:
+mnav_forum_limit:		Zoek alleen in:
+mnav_all_forums:		Zie in alle forums
+mnav_submit:			Start zoeken
+mnav_no_range:			Vul een geldige periode in. Dit mag een gebroken getal zijn (0.12) maar het moet hoger zijn dan nul.
+mnav_invalid_unit:		Geef een geldige tijd op.
 mnav_invalid_date:		The date range you&#39;ve specified is larger then the one allowed by the administrator, narrow down date range of your search.
-mnav_no_results:		There are no messages matching query.
-mnav_posted_by:			Posted By:
-mnav_more:			More &raquo;&raquo;
-mnav_minute:			Minute(s)
-mnav_hour:			Hour(s)
-mnav_day:			Day(s)
-mnav_week:			Week(s)
-mnav_month:			Month(s)
-mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
+mnav_no_results:		Geen resutlaat op basis van zoekopdracht.
+mnav_posted_by:			Geplaatst door:
+mnav_more:			Meer &raquo;&raquo;
+mnav_minute:			Minuut(en)
+mnav_hour:			Uur(en)
+mnav_day:			Dag(en)
+mnav_week:			Week(en)
+mnav_month:			Maand(en)
+mnav_title:			Navigatie
+mnav_update:			Navigeren door berichten met <a href="{TEMPLATE: mnav_update_lnk}">Berichtennavigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Private Message Notification
@@ -917,11 +917,11 @@ register_pm_notification_desc:	If enabled you will be notified the via your noti
 findu_admin_opts_header:	Admin Opts.
 findu_unban:			UnBan
 findu_ban:			Ban
-findu_edit:			Edit
-findu_delete:			Delete
+findu_edit:			Wijzig
+findu_delete:			Verwijder
 dmsg_reply_to:			is a reply to message #{VAR: obj->reply_to}
-merge_topics:			Merge Topics
-merge_topics_cp:		Merge Topic Control Panel
+merge_topics:			Onderwerpen samenvoegen
+merge_topics_cp:		Administratiescherm onderwerp samenvoegen
 merge_topics_tpl:		Select Topics To Merge <font class="SmallText">(you must select more then 1 topic)</font>
 merge_merge:			Merge Selected Topics
 merge_next:			Next Topics
@@ -969,7 +969,7 @@ ip_whois_title:			<b>ISP Information</b><br />
 register_theme:			Theme:
 pmsg_trash:			Empty Trash
 uc_new_pm:			New Private Messages
-uc_new_topic:			New Topic
+uc_new_topic:			Nieuw onderwerp
 uc_new_cat_forum:		Subscribed Forums With New Messages
 uc_cat_forum:			Category &raquo; Forum
 uc_sub_topics:			Subscribed Topics With New Messages
@@ -983,26 +983,26 @@ register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
 modque_cat:			Category
 modque_forum:			Forum
-idx_compact_forum_row:		Available Forums:
-mmd_del_title:			Delete Topics
-mmd_mov_title:			Move Topics
+idx_compact_forum_row:		Beschikbare forums:
+mmd_del_title:			Verwijder onderwerpen
+mmd_mov_title:			Verplaats onderwerpen
 mmd_move_threads_to:		Destination Forum:
 mmd_abort_move:			Cancel
-mmd_move:			Move Topics
-pmsg_pdf_btn:			Make PDF Archive
+mmd_move:			Verplaats topics
+pmsg_pdf_btn:			Maak PDF-archief
 search_results_hdr:		{VAR: total} Search Results Found
-thread_del_all:			Delete All Selected
-thread_mov_all:			Move All Selected
+thread_del_all:			Verwijder selectie
+thread_mov_all:			Verplaats selectie
 dmsg_ip:			IP:
 err_banned_acct_title:		ERROR: You have been banned.
 err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
 err_blockedaccnt_title:		ERROR: Your account has been filtered out.
 err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
 merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
-tabs_own_posts:			Show Own Posts
+most_users_online:		Het hoogste aantal online gebruikers was <b>{VAR: st_obj->most_online}</b> op <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:		Afmelden van alle Forums
+sub_unsub_all_topics:		Afmelden van alle Topics
+tabs_own_posts:			Toon eigen berichten
 buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
 sml_emoticon:			Emoticon
 sml_code:			Code
@@ -1016,17 +1016,17 @@ post_common_underline:		Underline
 post_common_align_left:		Align Left
 post_common_align_center:	Align Center
 post_common_align_right:	Align Right
-post_common_link:		Insert a Link
-post_common_email:		Insert an E-mail address
-post_common_image:		Insert an image
-post_common_nlist:		Add numbered list
-post_common_blist:		Add bulleted list
-post_common_quote:		Add Quote
-post_common_code:		Add Code
-rating:				Rating
-rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
-rating_delete:			Delete
-post_always_on_top:		Make the topic always appear at the top of the topic listing
+post_common_link:		Voeg een link toe
+post_common_email:		Voeg een mailadres toe
+post_common_image:		Voeg een afbeelding toe
+post_common_nlist:		Voeg een genummerde lijst toe
+post_common_blist:		Voeg een bolletjeslijst toe
+post_common_quote:		Voeg een citaat toe
+post_common_code:		Voeg code toe
+rating:				Waarderiing
+rating_track:			Beheer waardering voor reeks <b>{VAR: thr->subject}</b>:
+rating_delete:			Verwijder
+post_always_on_top:		Laat het onderwerp altijd bovenaan de onderwerpenlijst verschijnen.
 register_skype:			Skype Handle:
 register_google:		Google Chat/IM Handle:
 im_google:			Google Talk: 
@@ -1034,5 +1034,4 @@ im_skype:			Skype:
 topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
 topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
 register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
-tabs_notifications:		Notifications
-finduser_flag:			Flag
+tabs_notifications:		Attenderingen
