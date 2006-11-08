@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.44 2006/09/19 14:37:56 hackie Exp $
+* $Id: admstats.php,v 1.45 2006/11/08 17:29:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -91,7 +91,7 @@ function get_sql_disk_usage()
 		switch ($_POST['sep']) {
 			case 'week':
 				$g_type = 'weekly';
-				$fmt = 'YmW';
+				$fmt = 'YW';
 				break;
 			case 'month':
 				$g_type = 'monthly';
