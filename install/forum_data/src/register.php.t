@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.166 2006/09/19 14:37:55 hackie Exp $
+* $Id: register.php.t,v 1.167 2006/11/08 17:51:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -323,8 +323,12 @@ function email_encode($val)
 					set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
 				}
 				/* [user_id].[file_extension]_'random data' */
-				$file_name = $uent->id . '.' . $ext[$img_info[2]] . '_';
-				$tmp_name = safe_tmp_copy($_FILES['avatar_upload']['tmp_name'], 0, $file_name);
+				define('real_avatar_name', $uent->id . '.' . $ext[$img_info[2]]);
+				if (move_uploaded_file($source, ($tmp_name = tempnam($GLOBALS['TMP'])))) {
+					$tmp_name = basename($tmp_name);
+				} else {
+					$tmp_name = null;
+				}
 
 				list($max_w, $max_y) = explode('x', $CUSTOM_AVATAR_MAX_DIM);
 				if ($img_info[2] > ($FUD_OPT_1 & 64 ? 4 : 3)) {
@@ -500,14 +504,15 @@ function email_encode($val)
 
 					/* add new avatar if needed */
 					if ($common_av_name) {
-						$common_av_name = basename($common_av_name);
-						if (DIRECTORY_SEPARATOR == '/') { /* *nix */
-							$av_path = 'images/custom_avatars/' . substr($common_av_name, 0, strpos($common_av_name, '_'));
+						if (defined('real_avatar_name')) {
+							$av_path = 'images/custom_avatars/' . real_avatar_name;
 						} else {
+							$common_av_name = basename($common_av_name);
 							$ext = array(1=>'gif', 2=>'jpg', 3=>'png', 4=>'swf');
 							$img_info = getimagesize($TMP . $common_av_name);
-							$av_path = 'images/custom_avatars/' . $uent->id . '.' . $ext[$img_info[2]];
 						}
+						$av_path = 'images/custom_avatars/' . $uent->id . '.' . $ext[$img_info[2]];
+
 						copy($TMP . $common_av_name, $WWW_ROOT_DISK . $av_path);
 						@unlink($TMP . $common_av_name);
 						if (($uent->avatar_loc = make_avatar_loc($av_path, $WWW_ROOT_DISK, $WWW_ROOT))) {
