@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: installation.xml,v 1.6 2002/09/29 21:20:10 hackie Exp $ -->
+<!-- $Id: installation.xml,v 1.7 2006/11/10 15:32:20 hackie Exp $ -->
 <chapter id="installation">
 	<title>Installation</title>
 	
@@ -38,7 +38,7 @@
 <?php
 	mysql_connect("127.0.0.1", "USER_NAME", "PASSWORD");
 	$result = mysql_query("SELECT VERSION()");
-	list($mysql_version) = mysql_row_arr($result);
+	list($mysql_version) = mysql_fetch_row($result);
 	echo "MySQL Version: ".$mysql_version."<br>\n";
 	mysql_free_result($result);
 ?>
