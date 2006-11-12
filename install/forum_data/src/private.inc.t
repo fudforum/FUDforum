@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.55 2006/10/13 20:42:49 hackie Exp $
+* $Id: private.inc.t,v 1.56 2006/11/12 16:17:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -254,7 +254,7 @@ function pmsg_del($mid, $fldr=0)
 		pmsg_move($mid, 5, 0);
 	} else {
 		if ($GLOBALS['FUD_OPT_3'] & 32768 && ($fid = q_singleval('SELECT length FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$mid.' AND foff=-1'))) {
-			q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id='.$id);
+			q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id='.$fid);
 		}
 		q('DELETE FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$mid);
 		$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=1');
