@@ -142,7 +142,7 @@ to simplify several tasks primary used for message posting forms.<br />
 
 <fieldset style="width: 350px;">
 	<legend><b>Browser Support</b></legend>
-	<b>Mozilla/Netscape:</b> CTRL + ALT + [accesskey]<br />
+	<b>Firefox 2.0/Mozilla/Netscape:</b> CTRL + ALT + [accesskey]<br />
 	<b>Mozilla/IE:</b> ALT + [accesskey]<br />
 	<b>Opera:</b> SHIFT + ESC + [accesskey]<br />
 </fieldset>
