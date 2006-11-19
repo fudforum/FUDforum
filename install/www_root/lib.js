@@ -44,13 +44,16 @@ function insertTagMoz(obj, stag, etag)
 
 	if (!txt || txt == '') {
 		var t = document.getElementById('txtb');
+		var scrollPos = t.scrollTop;
 		if (t.selectionStart == t.selectionEnd) {
 			t.value = t.value.substring(0, t.selectionStart) + stag + etag +  t.value.substring(t.selectionEnd, t.value.length);
+			t.scrollTop = scrollPos;
 			return;
 		}
 		txt = t.value.substring(t.selectionStart, t.selectionEnd);
 		if (txt) {
 			t.value = t.value.substring(0, t.selectionStart) + stag + txt + etag +  t.value.substring(t.selectionEnd, t.value.length);
+			t.scrollTop = scrollPos;
 			return;
 		}
 	}
