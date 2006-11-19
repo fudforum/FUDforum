@@ -1,0 +1,182 @@
+TOPIC_TITLE: <a name="post">¿Cómo envío mensajes?</a>
+TOPIC_HELP:
+Para iniciar un nuevo hilo deberá pulsar sobre el botón "Nuevo Hilo" que puede encontrar en las páginas con el
+listado de los hilos y mensajes. A continuación se le presentará un editor para su mensaje que le permitirá teclear
+el contenido de su mensaje. Para responder a mensajes previos, simplemente pulse los botones "Resp." o "Citar" en
+el extremo inferior derecho de cada mensaje.<br>
+En algunos casos tras pulsar en esos botones le aparecerá un mensaje sobre error de permisos. Esto significa que debe
+identificarse o registrarse en el foro para adquirir privilegios suficientes para enviar mensajes, o que el envío de
+mensajes a ese foro está restringido.
+
+
+TOPIC_TITLE: <a name="bsearch">¿Cómo puedo hacer búsquedas?</a>
+TOPIC_HELP:
+Salvo que el administrador lo desactive, puede <a href="{ROOT}?t=search&amp;%_rsid%">buscar mensajes</a> previamente escritos en
+los foros. Puede buscar un mensaje especificando una o más palabras clave en los mensajes y elegir dónde deben aparecer dichas 
+palabras, bien sólo en el asunto de los mensajes, bien en el contenido de los mismos (incluyendo el asunto). También puede limitar
+la búsqueda a un foro de su elección si no desea hacer una búsqueda en todos los foros.<br>
+También puede buscar otros miembros del foro, a partir de su apodo ("nick") o de su dirección de correo electrónico mediante el
+<a href="{ROOT}?t=finduser&amp;%_rsid%">formulario de búsqueda de usuarios</a>.
+
+
+TOPIC_TITLE: <a name="email">¿Puedo enviar emails a otros miembros del foro?</a>
+TOPIC_HELP:
+Salvo que el administrador lo desactive, podrá mantenerse en contacto con otros miembros del foro mediante correo electrónico.<br>
+Para enviar un email a un miembro, puede buscarlo en la página de la lista de miembros y entonces pulsar el botón <b>Contactar</b>,
+o simplemente pulsar sobre el botón <b>Email</b> situado junto a cada uno de sus mensajes. Esto le llevará a una nueva págian donde
+tendrá la oportunidad de introducir el asunto de mensaje y el cuerpo del mismo. Cuando haya acabado, pulse en el botón <b>Email</b> y
+el correo electrónico se enviará al destinatarario.
+<br><br>
+Además de enviar correos electrónicos a los miembros del foro, también puede usar el enlace <b>Enviar a un amigo</b> para recomendar
+una página en concreto a su amigo, enviándole una URL junto con la descripción. Puede encontrar este enlace en las páginas de hilos
+y en la vista de mensajes del foro.
+
+
+TOPIC_TITLE: <a name="pmsg">¿Qué son los mensajes privados y cómo puedo enviarlos?</a> 
+TOPIC_HELP:
+Si el administrador no ha desactiva el sistema de mensajería privada podrá enviar mensajes a uno o más miembros registrador del foro.
+Para acceder al sistema de mensajería privada, pulse sobre el enlace <a href="{ROOT}?t=pmsg&amp;%_rsid%">Mensajes privados</a>, que
+puede encontrar en la parte superior derecha de cada página. Si tiene algún mensaje privado sin leer este enlace le indicará cuántos
+mensajes sin leer tiene.
+<p>
+<b>Envío de un mensaje privado</b><br>
+Los mensajes privados son muy parecidos a los correos electrónicos, pues debe especificar la persona o personas a los que desea enviar el
+mensaje, introducir el asunto del mismo y el mensaje propiamente dicho, y a continuación pulsar "Enviar". Hay dos enlaces que le permitirán
+encontrar fácilmente los miembros del foro a los que desea enviar el mensaje. <b>Seleccionar de lista de amigos</b>, que le permitirá 
+seleccionar personas de su lista de amigos mostrándole todos sus amigos, y <b>Encontrar usuario</b>, que le permite buscar en la lista
+completa de miembros del foro la persona a la que desea dirigir el mensaje.
+Se almacenará una copia de cada mensaje privado enviado por usted en la carpeta <b>Enviados</b>, para consulta posterior, aunque en 
+cualquier momento podrá borrar estos mensajes si así lo desea.
+<p>
+Hay otras tres carpetas de las que debe tener conocimiento:
+<p>
+La carpeta <b>Bandeja de entrada</b> contiene los mensajes que haya recibido, cada mensaje tiene un indicador de leído/no leído para que
+pueda ver si ha leído o no sus mensajes. También podrá ver quién le envió cada mensaje y si dicha persona está en esos momentos conectada
+o no, y también se muestra la fecha en que se envió el mensaje.
+<p>
+La carpeta <b>Borradores </b> contiene los mensajes que ha escrito pero que todavía no ha enviado. Cuando pulse sobre cualquier mensaje
+entrará en el modo edición del mismo, que le permitirá seguir modificando el mensaje así como enviarlo si así lo desea. Una vez enviado
+el mensaje se moverá desde la carpeta <b>Borradores</b> a su carpeta <b>Enviados</b>.
+<p>
+La carpeta <b>Basura</b> almacena todos los mensajes que haya marcado para ser borrados, pero que aún no ha borrado. Si borra un mensaje
+ubicado en la <b>Basura</b> el mensaje se borrará de forma permanente.
+<p>
+<b>Seguimiento de mensajes</b><p>
+Cuando envía un mensaje tiene la posibilidad de solicitar un comprobante de lectura, para cuando el destinatario lea el mensaje usted
+reciba un mensaje del sistema notificándole de que se ha leído su mensaje.<br>
+Sin embargo, si solicita tal mensaje de confirmación el destinatario podría optar por no enviarlo, de manera que si ha solicitado una
+confirmación de lectura y no la ha recibido esto no significa necesariamente que aún no hayan leído su mensaje.
+
+
+TOPIC_TITLE: <a name="mlist">¿Lista de Miembros?</a>
+TOPIC_HELP:
+La lista de miembros es una lista completa de todos los usuarios registrados en un foro.
+Puede ordenar la lista de tres maneras: alfabéticamente por el alias o "nick", por el número de mensajes enviados y por la fecha
+en que se incorporó al foro.
+<br><br>
+La lista de miembros también tiene capacidades de búsqueda, permitiéndole encontrar a un miembro en concreto bien por su alias
+o "nick", bien por su dirección de correo electrónico.
+
+TOPIC_TITLE:<a name="ann">¿Qué son los anuncios y los mensajes fijos?</a>
+TOPIC_HELP:
+Estos son mensajes especiales creados por los administradores y los moderadores que permanecen en la parte superior de los foros
+durante un tiempo determinad. En general se usan para informar a los usuarios del foro de un cierto evento, para exponer ciertas
+reglas de uso y participación, etc.
+
+
+TOPIC_TITLE: <a name="rate">¿Cómo valorar los hilos?</a>
+TOPIC_HELP:
+Puede que se haya dado cuenta de que ciertos hilos tienen una valoración. Si el administrador lo permite usted puede contribuir con
+su propia valoración del hilo. Para hacerlo vaya a la parte inferior de la vista de mensajes y elija un número entre uno y cinco (el 
+cinco es la valoración más alta) en la caja de selección <b>Valore el hilo</b>.
+
+TOPIC_TITLE: <a name="ref">¿Qué son las referencias?</a>
+TOPIC_HELP:
+Las referencias le permiten ver a qué miembros del foro usted u otros miembros del foro se ha relacionado. Las referencias se mantienen
+de manera automática, cuando usted le da a alguien una URL del foro y esta persona se registra usted será reconocido como relacionado 
+con dicha persona. Puede ver la lista de personas a las que ha referido en su perfil personal, pulsando en la pestaña <b>Referencias</b>.
+
+TOPIC_TITLE: <a name="syndicate">Sindicar este foro</a>
+TOPIC_HELP:
+Si el administrador lo permite, FUDforum le permite sindicar una selección de los datos del foro mediante XML (rdf). La fuente RDF 
+funciona principalmente en tres modos, descarga de mensajes, descarga de hilos y descarga de usuarios. Cada modo de funcionamiento
+soporta una cierto número de parámetros modificadores que le permitirán especificar el tipo de los datos que desea obtener. A 
+continuacio se explican los parámetros soportados para cada modo de operación:<br />
+<br /><br />
+<h4><u><b>Modo 'm' (mensajes)</b></u></h4>
+<blockquote>
+	<table border=0 cellspacing=1 cellpadding=3>
+		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Sólo descargarse los mensajes de la categoría con este identificador.</td></tr>
+		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Sólo descargarse los mensajes del foro con este identificador.</td></tr>
+		<tr><td class="GenText"><i>th</i></td><td class="GenText">Sólo descargarse los mensajes del hilo con este identificador.</td></tr>
+		<tr><td class="GenText"><i>id</i></td><td class="GenText">Descargarse sólo el mensaje con el identificador especificado.</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Sólo descargarse los mensajes enviados después de la fecha (unix timestamp) especificada.</td></tr>
+		<tr><td class="GenText"><i>de</i></td><td class="GenText">Sólo descargarse los mensajes enviados antes de la fechar (unix timestamp) especificada..</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">No descargarse más de <i>n</i> mensajes (no puede ser superior al máximo global).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Desplazamiento inicial a partir del que comenzar a bajarse mensajes.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Ordenar los mensajes desde el más moderno al más antiguo.</td></tr>
+		<tr><td class="GenText"><i>basic</i></td><td class="GenText">Generar los mensajes en un formato interpretable por la mayoría de los lectores RDF/RSS.</td></tr>
+	</table>
+</blockquote>
+<h4><u><b>Modo 't' (hilos)</b></u></h4>
+<blockquote>
+	<table border=0 cellspacing=1 cellpadding=3>
+		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Sólo descargarse hilos de la categoría con este identificador.</td></tr>
+		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Sólo descargarse hilos del foro con este identificador.</td></tr>
+		<tr><td class="GenText"><i>id</i></td><td class="GenText">Descargarse sólo el hilo con el identificador especificado.</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Sólo descargar los hilos cuyo último mensaje haya sido enviado después de la fecha (unix timestamp) especificada.</td></tr>
+		<tr><td class="GenText"><i>de</i></td><td class="GenText">Sólo descargar los hilos cuyo último mensaje haya sido enviado antes de la fecha (unix timestamp) especificada.</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">No descargarse más de <i>n</i> hilos (no puede ser superior al máximo global).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Desplazamiento iniciarl a partir del que comenzar a descargarse hilos.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Ordenar los hilos desde el más moderno al más antiguo.</td></tr>
+	</table>
+</blockquote>
+<h4><u><b>Modo 'u' (usuarios) <i>**could be disabled**</i></b></u></h4>
+<blockquote>
+	<table border=0 cellspacing=1 cellpadding=3>
+		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Ordenar los usuarios por el número de mensajes enviado, de mayor a menor.</td></tr>
+		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Ordenar los usuarios por la fecha de registro, de más recientes a más antiguos.</td></tr>
+		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Sólo mostrar los usuarios que están conectados ahora mismo.</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">No descargarse más de <i>n</i> usuarios (no puede ser superior al máximo global).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Desplazamiento inicial a partir del que comenzar a bajarse usuarios.</td></tr>
+	</table>
+</blockquote>
+<b>Ejemplo:</b><br />
+El enlace siguiente descargará los 10 mensajes más recientes de este foro:<br />
+<a href="rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1</a>
+
+TOPIC_TITLE: <a name="accesskeys">Teclas de Acceso</a>
+TOPIC_HELP:
+Las teclas de acceso son atajos de teclado pensados para simplificar la navegación mediante el teclado. FUDforum utiliza esta
+funcionalidad para simplificar varias tareas relacionadas con los formularios de envío de mensajes.<br />
+
+<fieldset style="width: 350px;">
+	<legend><b>Soporte de navegadores</b></legend>
+	<b>Mozilla/Netscape:</b> CTRL + ALT + [tecla de acceso]<br />
+	<b>Mozilla/IE:</b> ALT + [tecla de acceso]<br />
+	<b>Opera:</b> SHIFT + ESC + [tecla de acceso]<br />
+</fieldset>
+
+<b>Teclas de acceso soportadas:</b>
+<blockquote>
+	<b>H</b> - Redirigir a la ayuda del foro.<br />
+	<b>N</b> - En páginas con paginador, redirigir a la página siguiente (si hay alguna disponible).<br />
+	<b>P</b> - En páginas con paginador, redirigir a la página anterior (si hay alguna disponible).<br />
+	<b>S</b> - Enviar el mensaje en el formulario de envío público o privado.<br />
+	<b>R</b> - Previsualizar el mensaje en el formulario de envío público o privado.<br />
+	<b>K</b> - Revisar la ortografía de este mensaje.<br />
+	<b>A</b> - Aplicar las correcciones ortográficas.<br />
+	<b>D</b> - Guardar el mensaje privado como borrador.<br />
+	<br /><br /><b>Atajos para FUDcode:</b>
+	<blockquote>
+		<b>B</b> - Negrita<br />
+		<b>I</b> - Cursiva<br />
+		<b>U</b> - Subrayado<br />
+		<b>Q</b> - Cita<br />
+		<b>C</b> - Código<br />
+		<b>L</b> - Lista<br />
+		<b>M</b> - Imagen<br />
+		<b>W</b> - URL<br />
+		<b>E</b> - E-mail
+	</blockquote>
+</blockquote>

@@ -1,0 +1,96 @@
+TOPIC_TITLE: <a name="register">¿Por qué registrarse?</a>
+TOPIC_HELP:
+En la mayoría de los foros le resultará imposible abrir nuevos hilos o responder en los existentes salvo 
+que el Administrador lo permita de manera explícita. Por lo tanto, para poder participar en las conversaciones
+probablemente necesitará registrarse. Al registrarse también obtendrá acceso a otras muchas características del 
+foro tales como:
+<ul>
+	<li>Notificaciones por correo electrónico cuando alguien responda a sus mensajes
+	<li>Firma personalizada, avatar, etiqueta personal, etc.
+	<li>Posibilidad de enviar mensajes privados a uno o más miembros del foro
+	<li>Podrá elegir una zona horaria para que la hora mostrada por el foro coincida con la oficial de donde vive
+</ul>
+Salvo que se indique lo contrario el registro en el foro es completamente gratuito y sólo necesita un mínimo de información,
+tal como su dirección de correo electrónico y la elección de un identificador o "nick".<br>
+Si está activado COPPA y tiene menos de 13 años de edad, deberá hacer que su tutor legal de su consentimiento antes de que 
+pueda usar su cuenta en el foro para enviar mensajes. Tras completar el proceso de registro en los foros con COPPA activado,
+los miembros menores de 13 años serán dirigidos a un formulario que su tutor legal deberá rellenar y remitir a la dirección
+correspondiente que se indique en dicha página.
+
+TOPIC_TITLE: <a name="cookies">¿Cómo usa FUDforum las cookies?</a>
+TOPIC_HELP:
+Por lo general FUDforum usa cookies para almacenar pequeños fragmentos de información, que permiten al foro comprobar si usted
+se ha identificado o no. Si por algún motivo su navegador no soporta cookie, FUDforum usará sesiones en su lugar, que no almacenan
+ninguna información en su ordenador. Durante el proceso de identificación puede elegir no usar el sistema de cookies y decantarse
+por el sistema de sesiones, que es lo recomendado si está usando un terminal público. Seguir este consejo evitará el posible robo 
+de su identidad en el foro, lo cual podría suceder si no cierra la sesión tras haber navegado el foro. Sin embargo, en la
+mayoría de los casos probablemente debería dejar las cookies activas puesto que a la larga es menos engorroso. Por ejemplo, no
+necesitará identificarse cada vez que desee visitar el foro.
+
+
+TOPIC_TITLE: <a name="clrcookie">¿Cómo eliminar la cookie de FUDforum?</a>
+TOPIC_HELP:
+Para eliminar la cookie establecida por FUDforum, simplemente pulse el enlace "Desconectar" y automáticamente se borrará la cookie.
+
+TOPIC_TITLE: <a name="updprofile">¿Qué es un perfil?</a>
+TOPIC_HELP: Como miembro del foro dispone de un perfil personal en el que puede almacenar diversa información sobre usted, tal como sus
+identificadores en mensajería instantánea, firma que añadir a los mensajes, biografía, etc. Su perfil además almacena diversas opciones
+que tienen que ver con el foro. Puede cambiar las opciones en su perfil en cualquier momento siempre que se haya identificado ante el 
+foro, dese cuenta de que la mayoría de la información presente en su perfil la podrán ver otros miembros del foro. Por lo tanto no 
+debería almacenar información sensible o que los demás usuarios no deban ver.<br>
+
+Su perfil tiene una opción <b>"Mostrar email"</b>, que si está a <b>NO</b> ocultará su dirección de correo a los demás usuarios. Puede
+usar esta opción si no desea que otras personas averigüen su dirección de correo electrónico.
+
+TOPIC_TITLE: <a name="sigs">¿Qué es una firma?</a>
+TOPIC_HELP:
+Una firma es una cadena de texte que se añade automáticamente al final de todos los mensajes que envíe. En su perfil dispone de una 
+opción, <b>"Usar firma de manera predeterminada"</b> que activará o desactivará esta característica. Sin embargo, puede cambiar
+el valor de esta opción en cada mensaje individual que envíe.<br>
+Si lo permite el administrador además de texto la firma puede contener varios elementos tales como enlaces a sus URL favoritas,
+fotografías personales, etc.
+<br>
+Si no desea ver las firmas de otras personas puede desactivarlas poniendo la opción <b>"Mostrar firmas"</b> a <b>NO</b> en su perfil.
+
+
+TOPIC_TITLE: <a name="rstpasswd">>Qué hacer si pierde u olvida su contraseña</a>
+TOPIC_HELP:
+Si no puede recordar la contraseña de FUDforum, deberá ir a la <a href="{ROOT}?t=reset&amp;%_rsid%">página para resetear la contraseña</a>,
+introducir en esa página su dirección de correo electrónico y pulsar el botón IR. De esta forma se enviará a su dirección 
+de correo una URL especial, que cuando acceda a ella reseteará la contraseña y le enviará una nueva por correo electrónico.<br>
+<b>Nota:</b> sus contraseñas se almacenan en un formato de cifrado de un sólo sentido llamado HASH MD5. Se trata de cifrado de 
+grado militar de 128 bits de longitud, que por diseño hace imposible recuperar el valor original de la contraseña. Funciona 
+cifrando los datos cada vez que los introduce y comparando el resultado con la versión cifrada almacenada.
+Por lo tanto, si olvida su contraseña ésta no puede ser recuperada, de manera que ante la solictud para recordar una contraseña
+el foro simplemente generará una nueva contraseña aleatoria y se la enviará por correo.
+
+TOPIC_TITLE: <a name="cstat">Custom Tags, ¿qué son y cómo puedo obtener una?</a>
+TOPIC_HELP:
+Las Custom Tags sólo las puede asignar el administrador del foro, de manera que si desea una Custom Tag, pregúntele a uno
+cualquiera de los administradores del foro.
+
+TOPIC_TITLE: <a name="avatars">¿Qué es un avatar?</a>
+TOPIC_HELP:
+Los avatares son imágene que aparecen bajo su nombre de usuario en los mensajes que ha enviado, así como en su página de 
+información de usuario. FUDforum soporta tres tipos de avatares, algunos de los cuales podrían estar desactivados por el 
+administrador del foro. Puede elegir su propio avatar desde la página de su perfil personal.
+<ul>
+	<li><b>Incorporados</b> - Estos son los avatares que el administrador ha hecho accesibles a tal fin, puede elegir uno cualquiera 
+	    de ellos y se convertirá en el suyo tan pronto envíe los cambios realizados a su perfil.
+	<li><b>Subir Avatar</b> - De estar activado podrá subir una imagen al servidor que se convertirá en su avatar. Una vez subida
+	    necesitará ser aprobada por el administrador antes de convertirse en su avatar.
+	<li><b>Especificar URL</b> - De estar activado podrá especificar la URL de una imagen que desee utilizar como su avatar. Si el 
+	    administrador lo aprueba esta imagen se convertirá en su avatar.
+</ul>
+<b>Nota:</b> Puede cambiar su avatar en cualquier momento, aunque si usa las opciones "Subir Avatar" y "Especificar URL" siempre necesitará 
+la aprobación previa del administrador antes de que el cambio surta efectos.
+
+TOPIC_TITLE: <a name="blist">¿Qué es una lista de amigos?</a>
+TOPIC_HELP:
+Una lista de amigos es su propia lista de miembros del foro con los que desearía conversar más a menudo. Al poner a una persona en su lista
+de amigos podrá ver su fecha de cumpleaños (si la introdujo) así como elegirlo fácilmente como destinatario de sus mensajes privados.
+
+TOPIC_TITLE: <a name="ignlist">¿Qué hace la lista de ignorados?</a>
+TOPIC_HELP:
+La lista de ignorados es una base de datos con los miembros del foro cuyos mensajes no desea ver ni de los que desea recibir
+mensaajes privados. En cada mensaje hay un enlace rápido que le permitirá añadir al autor del mensaje a su lista de ignorados.
