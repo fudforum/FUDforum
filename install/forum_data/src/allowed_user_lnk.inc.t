@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: allowed_user_lnk.inc.t,v 1.31 2006/09/19 14:37:55 hackie Exp $
+* $Id: allowed_user_lnk.inc.t,v 1.32 2006/11/22 15:57:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,7 +44,9 @@ function is_ip_blocked($ip)
 		return;
 	}
 
-	return (isset($t[$d]) || isset($t[256])) ? 1 : null;
+	if (isset($t[$d]) || isset($t[256])) {
+		return 1;
+	}
 }
 
 function is_login_blocked($l)
