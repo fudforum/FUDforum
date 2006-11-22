@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.57 2006/09/22 21:01:20 hackie Exp $
+* $Id: finduser.php.t,v 1.58 2006/11/22 15:39:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -73,6 +73,8 @@
 				$pg .= (int)$_GET['us'].'/';
 			} else if (isset($_GET['rd'])) {
 				$pg .= (int)$_GET['rd'].'/';
+			} else if (isset($_GET['fl'])) {
+				$pg .= ($_GET['fl']+6).'/';
 			} else {
 				$pg .= '0/';
 			}
@@ -99,6 +101,9 @@
 			}
 			if (isset($_GET['rd'])) {
 				$pg .= 'rd='.(int)$_GET['rd'].'&amp;';
+			}
+			if (isset($_GET['fl'])) {
+				$pg .= 'fl='.(int)$_GET['fl'].'&amp;';
 			}
 			if (isset($_GET['js_redr'])) {
 				$pg .= 'js_redr='.urlencode($_GET['js_redr']).'&amp;';
