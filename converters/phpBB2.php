@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.42 2006/09/19 14:37:55 hackie Exp $
+* $Id: phpBB2.php,v 1.43 2006/11/27 23:58:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -360,7 +360,7 @@ function import_av_gal($dirn)
 		}
 
 		$avatar_loc = '<img src="'.str_replace($WWW_ROOT_DISK, $WWW_ROOT, $dest).'" '.$im[3].'>';
-		q("UPDATE {$DBHOST_TBL_PREFIX}users SET avatar={$avatar}, users_opt=(users_opt & ~ 4194304)|8388608, avatar_loc='{$avatar_loc}' WHERE id=".$obj->user_id);
+		q("UPDATE {$DBHOST_TBL_PREFIX}users SET avatar=".(int)$avatar.", users_opt=(users_opt & ~ 4194304)|8388608, avatar_loc='{$avatar_loc}' WHERE id=".$obj->user_id);
 	}
 	unset($r);
 	umask($old_umask);
