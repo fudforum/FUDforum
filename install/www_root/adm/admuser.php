@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.75 2006/09/24 19:24:22 hackie Exp $
+* $Id: admuser.php,v 1.76 2006/11/28 16:03:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -411,7 +411,20 @@ document.frm_usr.usr_login.focus();
 </form>
 
 	<tr class="field">
-		<td colspan=2><br><br><b>Actions:</b></td>
+		<td valign="top"><b>Group Membership:</b></td>
+		<td><?php
+		
+	$c = uq('SELECT g.name FROM '.$DBHOST_TBL_PREFIX.'group_members m INNER JOIN '.$DBHOST_TBL_PREFIX.'groups g ON g.id=m.group_id WHERE m.user_id='.$usr_id);
+	while ($r = db_rowarr($c)) {
+		echo $r[0] . '<br />';
+	}
+	unset($c);
+	
+		?></td>
+	</tr>
+	
+	<tr class="field">
+		<td colspan="2"><br /><br /><b>Actions:</b></td>
 	</tr>
 
 	<tr class="field">
