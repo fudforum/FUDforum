@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.52 2006/09/19 14:37:56 hackie Exp $
+* $Id: admgroups.php,v 1.53 2006/11/29 15:36:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -227,7 +227,7 @@
 				}
 				unset($c);
 			}
-			$c = uq('SELECT f.id, f.name, c.name FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON c.id=f.cat_id ORDER BY c.view_order, f.view_order');
+			$c = uq('SELECT f.id, f.name, c.name FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON c.id=f.cat_id ORDER BY c.parent, c.view_order, f.view_order');
 			while ($r = db_rowarr($c)) {
 				echo '<option value="'.$r[0].'"'.(isset($gr_resource[$r[0]]) ? ' selected' : '').'>'.$r[2].' &raquo; '.$r[1].'</option>';
 			}

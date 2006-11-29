@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.33 2006/09/19 14:37:56 hackie Exp $
+* $Id: admnntp.php,v 1.34 2006/11/29 15:36:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -109,7 +109,7 @@
 				LEFT JOIN '.$tbl.'nntp n ON f.id=n.forum_id
 				LEFT JOIN '.$tbl.'mlist ml ON f.id=ml.forum_id
 				WHERE ml.id IS NULL AND (n.id IS NULL OR n.id='.(int)$edit.')
-				ORDER BY c.view_order, f.view_order');
+				ORDER BY c.parent, c.view_order, f.view_order');
 			while ($r = db_rowarr($c)) {
 				echo '<option value="'.$r[0].'"'.($r[0] != $nntp_forum_id ? '' : ' selected').'>'.$r[2].' &raquo; '.$r[1].'</option>';
 			}

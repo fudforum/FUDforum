@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaprune.php,v 1.14 2006/09/19 14:37:56 hackie Exp $
+* $Id: admaprune.php,v 1.15 2006/11/29 15:36:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -136,7 +136,7 @@ this form will offer to delete attachments olders then 10 days.<p>
 	<td colspan=2 nowrap>
 	<?php
 		$oldc = '';
-		$c = uq('SELECT f.id, f.name, c.name, c.id FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON f.cat_id=c.id ORDER BY c.view_order, f.view_order');
+		$c = uq('SELECT f.id, f.name, c.name, c.id FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON f.cat_id=c.id ORDER BY c.parent, c.view_order, f.view_order');
 		echo '<select name="forumsel"><option value="0">- All Forums -</option>';
 		while ($r = db_rowarr($c)) {
 			if ($oldc != $r[3]) {
