@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.94 2006/10/22 22:03:43 hackie Exp $
+* $Id: admglobal.php,v 1.95 2006/11/30 16:51:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -348,11 +348,11 @@ function get_max_upload_size()
 		print_reg_field('PHP compression level', 'PHP_COMPRESSION_LEVEL', 1);
 	}
 	print_bit_field('Use PATH_INFO style URLs<br><a href="'.$WWW_ROOT.'index.php/a/b/c" target="_blank">Test Link</a>', 'USE_PATH_INFO');
-	print_bit_field('Disable Turing Test', 'DISABLE_TURING_TEST');
+	print_bit_field('Disable Captcha Test', 'DISABLE_TURING_TEST');
 	print_bit_field('Disable AutoComplete', 'DISABLE_AUTOCOMPLETE');
 	print_bit_field('Do not set timezone', 'APACHE_PUTENV');
 	print_bit_field('Use Temporary Tables', 'USE_TEMP_TABLES');
-	print_bit_field('Anonymous User Turing/Captcha Test', 'USE_ANON_TURING');
+	print_bit_field('Anonymous User Captcha Test', 'USE_ANON_TURING');
 	print_bit_field('All Message Forum Notification', 'FORUM_NOTIFY_ALL');
 	print_reg_field('Whois Server Address', 'FUD_WHOIS_SERVER');
 	print_reg_field('Time between login attempts', 'MIN_TIME_BETWEEN_LOGIN', 1);

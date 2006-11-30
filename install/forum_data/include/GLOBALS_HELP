@@ -410,7 +410,7 @@ If enabled, anonymous and unconfirmed forum members will not be able to view pro
 Enable 'smart' e-mail notification mechanism that would only notify users if they read previous notification. This prevents filling up of the user's mailbox with notifications if they are not reading them.}}}
 
 {{{DISABLE_TURING_TEST	FUD_OPT_3	128
-If disabled users will not need to complete a turing test intended to prevent automated account creation bots. Turing test involves identifying a series of random letters that are displayed in ASCII form.}}}
+If disabled users will not need to complete a turing test intended to prevent automated account creation bots. Captcha test involves identifying a series of random letters that are displayed in ASCII form.}}}
 
 {{{DISABLE_AUTOCOMPLETE	FUD_OPT_3	256
 If disabled the browser will not attempt to 'remember' the values for the login form.}}}
@@ -428,7 +428,7 @@ If enabled the forum will no longer send welcome e-mails when new users register
 Use temporary SQL tables to optimize some operations (dependent on the ability to create temp tables).}}}
 
 {{{USE_ANON_TURING	FUD_OPT_3	8192
-When anonymous users post messages perform turing (captcha) test.}}}
+When anonymous users post messages perform captcha test.}}}
 
 {{{FORUM_NOTIFY_ALL	FUD_OPT_3	16384
 If enabled, subscribers to a forum will receive notifications about every new message in the forum, rather then just new topics in the forum.}}}
