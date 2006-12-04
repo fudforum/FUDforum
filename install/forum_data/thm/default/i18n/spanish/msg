@@ -1036,3 +1036,4 @@ topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
 register_notify_method_desc:	Establezca su mecanismo de notificación preferido o desactive las notificaciones (por ejemplo cuando se marche de vacaciones)
 tabs_notifications:		Notificaciones
 finduser_flag:			Flag
+post_descr:			Topic Description

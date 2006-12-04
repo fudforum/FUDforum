@@ -211,6 +211,7 @@ stdClass Object
     [rating] => // rating
     [views] => // number of views
     [type] => // sticky || announcement || null (normal topic)
+    [tdescr] => // description of the topic
 )
  */
 function fud_fetch_topic($arg)
@@ -224,7 +225,7 @@ function fud_fetch_topic($arg)
 		u.alias, u.id,
 		u2.id, u2.alias,
 		m2.id, m2.post_stamp,
-		t.id AS topic_id, t.moved_to, t.root_msg_id, t.replies, t.rating, t.thread_opt, t.views
+		t.id AS topic_id, t.moved_to, t.root_msg_id, t.replies, t.rating, t.thread_opt, t.views, t.descr
 		FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread t
 			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg	m	ON t.root_msg_id=m.id
 			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg	m2	ON m2.id=t.last_post_id
@@ -742,9 +743,9 @@ function fud_update_user($uid, $vals, &$err)
  *	'max_votes' => int // (maximum number of votes to allow) **optional**
  * )
  */
-function fud_new_topic($subject, $body, $mode, $author, $forum, $icon=null, $attach=null, $poll=null, $time=null)
+function fud_new_topic($subject, $body, $mode, $author, $forum, $icon=null, $attach=null, $poll=null, $time=null, $tdescr=null)
 {
-	return _fud_message_post($subject, $body, $mode, $author, $icon, 0, $forum, 0, $attach, $poll, $time);
+	return _fud_message_post($subject, $body, $mode, $author, $icon, 0, $forum, 0, $attach, $poll, $time, $tdescr);
 }
 
 /* {{{ proto: int message_id fud_new_reply(string subject, string body, int mode *, mixed author, int reply_id 
@@ -991,7 +992,7 @@ function _fud_add_poll($poll, $forum_id, $forum_opt, $mode, $uid)
 	return $pl_id;
 }
 
-function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, $rep_id=0, $attach=null, $poll=null, $time=null)
+function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, $rep_id=0, $attach=null, $poll=null, $time=null, $tdescr=null)
 {
 	fud_use('imsg_edt.inc');
 	fud_use('post_proc.inc');
@@ -1078,13 +1079,13 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 
 	if (!$rep_id && !$id) {
 		$create_thread = 1;
-		$msg->add($forum, $message_threshold, $forum_opt, 64|4096, false);
+		$msg->add($forum, $message_threshold, $forum_opt, 64|4096, 0, $tdescr);
 	} else if ($rep_id && !$id) {
 		$msg->thread_id = $th_id;
 		$msg->add_reply($rep_id, $th_id, 64|4096, false);
 	} else if ($id) {
 		$msg->id = $id;
-		$msg->sync($msg->poster_id, $forum, $message_threshold, 64|4096);
+		$msg->sync($msg->poster_id, $forum, $message_threshold, 64|4096, $tdescr);
 	}
 
 	if (isset($attach_list)) {

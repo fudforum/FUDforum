@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.155 2006/10/09 14:23:46 hackie Exp $
+* $Id: post.php.t,v 1.156 2006/12/04 17:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,7 +48,7 @@ function flood_check()
 	}
 
 	if ($th_id) {
-		$thr = db_sab('SELECT t.forum_id, t.replies, t.thread_opt, t.root_msg_id, t.orderexpiry, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='.$th_id);
+		$thr = db_sab('SELECT t.forum_id, t.replies, t.thread_opt, t.root_msg_id, t.orderexpiry, t.tdescr, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='.$th_id);
 		if (!$thr) {
 			invl_inp_err();
 		}
@@ -124,6 +124,7 @@ function flood_check()
 
 		if ($msg_id) {
 			$msg_subject = apply_reverse_replace(reverse_fmt($msg->subject));
+			$msg_tdescr = apply_reverse_replace(reverse_fmt($thr->tdescr));
 
 			$msg_body = post_to_smiley($msg->body);
 	 		if ($frm->forum_opt & 16) {
@@ -184,11 +185,13 @@ function flood_check()
 		$pl_id			= !empty($_POST['pl_id']) ? poll_validate((int)$_POST['pl_id'], $msg_id) : 0;
 		$msg_body		= isset($_POST['msg_body']) ? (string)$_POST['msg_body'] : '';
 		$msg_subject		= isset($_POST['msg_subject']) ? (string)$_POST['msg_subject'] : '';
+		$msg_tdescr		= isset($_POST['msg_tdescr']) ? (string)$_POST['msg_tdescr'] : '';
 
 		/* Microsoft Word Hack to eliminate special characters */
 		$in = array('”','“','’','‘','…'); $out = array('"','"',"'","'",'...');
 		$msg_body = str_replace($in,$out,$msg_body);
 		$msg_subject = str_replace($in,$out,$msg_subject);
+		$msg_tdescr = str_replace($in,$out,$msg_tdescr);
 
 		if ($perms & 256) {
 			$attach_count = 0;
@@ -344,15 +347,16 @@ function flood_check()
 			fud_wordwrap($msg_post->body);
 
 			$msg_post->subject = char_fix(htmlspecialchars(apply_custom_replace($msg_post->subject)));
+			$msg_tdescr = char_fix(htmlspecialchars(apply_custom_replace($_POST['msg_tdescr'])));
 
 		 	/* chose to create thread OR add message OR update message */
 
 		 	if (!$th_id) {
 		 		$create_thread = 1;
-		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->forum_opt, ($perms & (64|4096)), false);
+		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->forum_opt, ($perms & (64|4096)), 0, $msg_tdescr);
 		 	} else if ($th_id && !$msg_id) {
 				$msg_post->thread_id = $th_id;
-		 		$msg_post->add_reply($reply_to, $th_id, ($perms & (64|4096)), false);
+		 		$msg_post->add_reply($reply_to, $th_id, ($perms & (64|4096)), 0);
 			} else if ($msg_id) {
 				$msg_post->id = $msg_id;
 				$msg_post->thread_id = $th_id;
@@ -360,7 +364,7 @@ function flood_check()
 				$msg_post->mlist_msg_id = $msg->mlist_msg_id;
 				$msg_post->file_id = $msg->file_id;
 				$msg_post->file_id_preview = $msg->file_id_preview;
-				$msg_post->sync(_uid, $frm->id, $frm->message_threshold, ($perms & (64|4096)));
+				$msg_post->sync(_uid, $frm->id, $frm->message_threshold, ($perms & (64|4096)), $msg_tdescr);
 				/* log moderator edit */
 			 	if (_uid && _uid != $msg->poster_id) {
 			 		logaction($usr->id, 'MSGEDIT', $msg_post->id);
@@ -562,6 +566,7 @@ function flood_check()
 	if ($msg_subject) {
 		$msg_subject = char_fix(htmlspecialchars($msg_subject));
 	}
+	$msg_tdescr = char_fix(htmlspecialchars($msg_tdescr));
 
 	/* handle file attachments */
 	if ($perms & 256) {

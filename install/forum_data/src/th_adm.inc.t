@@ -2,14 +2,14 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.45 2006/09/19 14:37:56 hackie Exp $
+* $Id: th_adm.inc.t,v 1.46 2006/12/04 17:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-function th_add($root, $forum_id, $last_post_date, $thread_opt, $orderexpiry, $replies=0, $lpi=0)
+function th_add($root, $forum_id, $last_post_date, $thread_opt, $orderexpiry, $replies=0, $lpi=0, $descr='')
 {
 	if (!$lpi) {
 		$lpi = $root;
@@ -17,9 +17,9 @@ function th_add($root, $forum_id, $last_post_date, $thread_opt, $orderexpiry, $r
 
 	return db_qid("INSERT INTO
 		{SQL_TABLE_PREFIX}thread
-			(forum_id, root_msg_id, last_post_date, replies, views, rating, last_post_id, thread_opt, orderexpiry)
+			(forum_id, root_msg_id, last_post_date, replies, views, rating, last_post_id, thread_opt, orderexpiry, tdescr)
 		VALUES
-			(".$forum_id.", ".$root.", ".$last_post_date.", ".$replies.", 0, 0, ".$lpi.", ".$thread_opt.", ".$orderexpiry.")");
+			(".$forum_id.", ".$root.", ".$last_post_date.", ".$replies.", 0, 0, ".$lpi.", ".$thread_opt.", ".$orderexpiry.","._esc($descr).")");
 }
 
 function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last_post_id)

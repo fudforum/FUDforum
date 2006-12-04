@@ -1036,3 +1036,4 @@ topic_list_rating:		{VAR: r[17]} aus {VAR: r[21]} Bewertungen
 register_notify_method_desc:	W&aauml;hlen Sie Ihre bevorzugte Benachrichtigungsmethode oder deaktivieren Sie Benachrichtigungen (zum Beispiel, wenn Sie Urlaub machen)
 tabs_notifications:		Benachrichtigungenfinduser_flag:			Flag
 finduser_flag:			Flag
+post_descr:			Topic Description

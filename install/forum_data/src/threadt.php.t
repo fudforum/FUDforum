@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.49 2006/10/02 18:07:07 hackie Exp $
+* $Id: threadt.php.t,v 1.50 2006/12/04 17:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,7 +23,7 @@
 	$TITLE_EXTRA = ': {TEMPLATE: thread_title}';
 
 	$r = uq('SELECT
-			t.moved_to, t.thread_opt, t.root_msg_id, r.last_view,
+			t.tdescr, t.moved_to, t.thread_opt, t.root_msg_id, r.last_view,
 			m.subject, m.reply_to, m.poll_id, m.attach_cnt, m.icon, m.poster_id, m.post_stamp, m.thread_id, m.id,
 			u.alias
 		FROM {SQL_TABLE_PREFIX}tv_'.$frm->id.' tv

@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_thread.tbl,v 1.12 2006/09/19 14:37:55 hackie Exp $
+#   $Id: fud_thread.tbl,v 1.13 2006/12/04 17:17:13 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -22,7 +22,8 @@ CREATE TABLE {SQL_TABLE_PREFIX}thread
 	last_post_id	INT NOT NULL DEFAULT 0,
 	moved_to	INT NOT NULL DEFAULT 0,
 	orderexpiry	BIGINT NOT NULL DEFAULT 0,
-	thread_opt	INT NOT NULL DEFAULT 0
+	thread_opt	INT NOT NULL DEFAULT 0,
+	tdescr		VARCHAR(200)
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}thread_i_flm ON {SQL_TABLE_PREFIX}thread (forum_id,moved_to);

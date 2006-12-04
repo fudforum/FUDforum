@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.166 2006/09/28 14:24:58 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.167 2006/12/04 17:17:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,7 +32,7 @@ class fud_msg_edit extends fud_msg
 		return $this->add($fd[0], $fd[1], $fd[2], $perm, $autoapprove);
 	}
 
-	function add($forum_id, $message_threshold, $forum_opt, $perm, $autoapprove=1)
+	function add($forum_id, $message_threshold, $forum_opt, $perm, $autoapprove=1, $msg_tdescr='')
 	{
 		if (!$this->post_stamp) {
 			$this->post_stamp = __request_timestamp__;
@@ -132,7 +132,7 @@ class fud_msg_edit extends fud_msg
 				}
 			}
 
-			$this->thread_id = th_add($this->id, $forum_id, $this->post_stamp, $thread_opt, (isset($thr_orderexpiry) ? $thr_orderexpiry : 0));
+			$this->thread_id = th_add($this->id, $forum_id, $this->post_stamp, $thread_opt, (isset($thr_orderexpiry) ? $thr_orderexpiry : 0), 0, 0, $msg_tdescr);
 
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='.$this->thread_id.' WHERE id='.$this->id);
 		} else {
@@ -146,7 +146,7 @@ class fud_msg_edit extends fud_msg
 		return $this->id;
 	}
 
-	function sync($id, $frm_id, $message_threshold, $perm)
+	function sync($id, $frm_id, $message_threshold, $perm, $msg_tdescr='')
 	{
 		if ($GLOBALS['FUD_OPT_3'] & 32768) {
 			$file_id = $file_id_preview = $length_preview = 0;
@@ -195,7 +195,7 @@ class fud_msg_edit extends fud_msg
 		 * current approach may seem a little redundant, but for (most) users who
 		 * do not have access to locking & sticky this eliminated a query.
 		 */
-		$th_data = db_saq('SELECT orderexpiry, thread_opt, root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$this->thread_id);
+		$th_data = db_saq('SELECT orderexpiry, thread_opt, root_msg_id, tdescr FROM {SQL_TABLE_PREFIX}thread WHERE id='.$this->thread_id);
 		$locked = (int) isset($_POST['thr_locked']);
 		if (isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) || (($th_data[1] ^ $locked) & 1)) {
 			$thread_opt = (int) $th_data[1];
@@ -229,9 +229,10 @@ class fud_msg_edit extends fud_msg
 					$thread_opt &= ~8;
 				}
 			}
+
 			/* Determine if any work needs to be done */
 			if ($thread_opt != $th_data[1] || $orderexpiry != $th_data[0]) {
-				q('UPDATE {SQL_TABLE_PREFIX}thread SET thread_opt='.$thread_opt.', orderexpiry='.$orderexpiry.' WHERE id='.$this->thread_id);
+				q('UPDATE {SQL_TABLE_PREFIX}thread SET tdescr='._esc($msg_tdescr).', thread_opt='.$thread_opt.', orderexpiry='.$orderexpiry.' WHERE id='.$this->thread_id);
 				/* Avoid rebuilding the forum view whenever possible, since it's a rather slow process
 				 * Only rebuild if expiry time has changed or message gained/lost sticky status
 				 */
@@ -239,6 +240,8 @@ class fud_msg_edit extends fud_msg
 				if (($diff > 1 && $diff & 14) || $orderexpiry != $th_data[0]) {
 					rebuild_forum_view_ttl($frm_id);
 				}
+			} else if ($msg_tdescr != $thdata[3]) {
+				q('UPDATE {SQL_TABLE_PREFIX}thread SET tdescr='._esc($msg_tdescr).' WHERE id='.$this->thread_id);
 			}
 		}
 
