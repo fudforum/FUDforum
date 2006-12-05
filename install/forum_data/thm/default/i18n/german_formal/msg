@@ -1037,3 +1037,5 @@ register_notify_method_desc:	W&aauml;hlen Sie Ihre bevorzugte Benachrichtigungsm
 tabs_notifications:		Benachrichtigungenfinduser_flag:			Flag
 finduser_flag:			Flag
 post_descr:			Topic Description
+pmsg_on				on
+pmsg_download_dump:		Download Message Dump
