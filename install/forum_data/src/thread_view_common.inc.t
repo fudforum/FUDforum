@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.55 2006/09/19 14:37:56 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.56 2006/12/05 16:24:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,7 +53,7 @@ $frm = db_sab('SELECT	f.id, f.name, f.thread_count, f.cat_id,'.
 if (!$frm) {
 	invl_inp_err();
 }
-
+$frm->forum_id = $frm->id;
 $MOD = ($is_a || $frm->md);
 $lwi = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$frm_id.' ORDER BY seq DESC LIMIT 1');
 
