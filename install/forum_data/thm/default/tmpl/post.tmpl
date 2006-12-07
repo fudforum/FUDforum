@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.72 2006/12/04 17:17:14 hackie Exp $
+* $Id: post.tmpl,v 1.73 2006/12/07 18:27:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -152,6 +152,9 @@
 {IF: $frm->forum_opt & 4 && !$is_a}{TEMPLATE: post_password}{ENDIF}
 <tr class="RowStyleB"><td class="GenText">{MSG: post_forum}</td><td class="GenText">{VAR: frm->name}</td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text"  spellcheck="true" maxLength="100" name="msg_subject" value="{VAR: msg_subject}" size="50" tabindex="2" /> {FUNC: get_err('msg_subject')}</td></tr>
+{IF: !$th_id || ($msg_id && $msg_id == $thr->root_msg_id)}
+<tr class="RowStyleB"><td class="GenText">{MSG: post_descr}</td><td><input size="60" type="text" name="msg_tdescr" value="{VAR: msg_tdescr}" /></td></tr>
+{ENDIF}
 {TEMPLATE-DATA: poll}
 {TEMPLATE-DATA: admin_options}
 {FUNC: draw_post_icons((isset($_POST['msg_icon']) ? $_POST['msg_icon'] : ''))}
@@ -169,9 +172,6 @@
 
 {TEMPLATE-DATA: file_attachments}
 {IF: !_uid && $FUD_OPT_3 & 8192}{TEMPLATE: post_turing_test}{ENDIF}
-{IF: !$th_id || ($msg_id && $msg_id == $thr->root_msg_id)}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_descr}</td><td><input size="60" type="text" name="msg_tdescr" value="{VAR: msg_tdescr}" /></td></tr>
-{ENDIF}
 <tr class="RowStyleB vt">
 <td class="GenText">{MSG: post_options}</td>
 <td>
