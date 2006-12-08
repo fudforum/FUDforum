@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.63 2006/10/27 20:15:15 hackie Exp $
+* $Id: pmsg.php.t,v 1.64 2006/12/08 16:30:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -202,9 +202,9 @@
 	}
 
 	if ($FUD_OPT_2 & 32768) {
-		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}/pdm/' . $folder_id . '/0/', '/' . _rsid);
+		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}/pdm/' . $folder_id . '/0/'.strtolower($s[0]).'/'.$o.'/', '/' . _rsid);
 	} else {
-		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}?t=pmsg&amp;folder_id=' . $folder_id . '&amp;'. _rsid);
+		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}?t=pmsg&amp;s='.strtolower($s[0]).'&amp;o='.$o.'&amp;folder_id=' . $folder_id . '&amp;'. _rsid);
 	}
 
 /*{POST_PAGE_PHP_CODE}*/
