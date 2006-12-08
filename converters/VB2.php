@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: VB2.php,v 1.29 2006/09/19 14:37:55 hackie Exp $
+* $Id: VB2.php,v 1.30 2006/12/08 15:14:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -29,7 +29,14 @@
 	else if( !@file_exists($VB2_CONFIG_PATH) || !@is_readable($VB2_CONFIG_PATH) ) 
 		exit("FATAL ERROR: The Vbulletin configuration file ".$VB2_CONFIG_PATH." does not exist, or cannot be opened by the conversion script\n");
 	
-
+	include_once $VB2_CONFIG_PATH;
+	define ("VB2DIR", realpath(dirname($VB2_CONFIG_PATH).'/../'));
+	define ("SHOWSIGNATURES", 1);
+	define ("SHOWAVATARS", 2);
+	define ("SHOWIMAGES", 4);
+	define ("SHOWVBCODE", 8);
+	
+	$vb2db = mysql_connect($servername,$dbusername,$dbpassword);
 
 	/* prevent session initialization */
 	unset($_SERVER['REMOTE_ADDR']);
@@ -52,14 +59,7 @@
 	fud_use('private.inc');
 	fud_use('glob.inc', true);
 	
-	include_once $VB2_CONFIG_PATH;
-	define ("VB2DIR", realpath(dirname($VB2_CONFIG_PATH).'/../'));
-	define ("SHOWSIGNATURES", 1);
-	define ("SHOWAVATARS", 2);
-	define ("SHOWIMAGES", 4);
-	define ("SHOWVBCODE", 8);
-	
-	$vb2db = mysql_connect($servername,$dbusername,$dbpassword);
+
 
 	if( isset($HTTP_SERVER_VARS['REMOTE_ADDR']) ) echo '<pre>';
 	if( !isset($DBHOST_TBL_PREFIX) ) $DBHOST_TBL_PREFIX = $MYSQL_TBL_PREFIX;
@@ -70,11 +70,6 @@ function Q2($str)
 	$r= mysql_db_query($GLOBALS['dbname'], $str, $GLOBALS['vb2db']);
 	if( !$r ) exit(mysql_error($GLOBALS['vb2db'])."<br>\n");
 	return $r; 
-}
-
-function Q_W()
-{
-	mysql_select_db($GLOBALS['MYSQL_DB'],$GLOBALS['__DB_INC__']['SQL_LINK']);
 }
 
 function filetomem($fn)
