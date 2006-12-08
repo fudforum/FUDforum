@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.98 2006/10/22 22:11:43 hackie Exp $
+* $Id: users_reg.inc.t,v 1.99 2006/12/08 17:24:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -270,7 +270,7 @@ function user_login($id, $cur_ses_id, $use_cookies)
 	} else {
 		$flag = '';	
 	}
-	q("UPDATE {SQL_TABLE_PREFIX}users SET ".$flag." sq='".$GLOBALS['new_sq']."' WHERE id=".$id);
+	q("UPDATE {SQL_TABLE_PREFIX}users SET last_known_ip=".ip2long(get_ip()).", ".$flag." sq='".$GLOBALS['new_sq']."' WHERE id=".$id);
 
 	return $cur_ses_id;
 }
