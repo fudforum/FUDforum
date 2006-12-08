@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.php.t,v 1.16 2006/09/19 14:37:55 hackie Exp $
+* $Id: ip.php.t,v 1.17 2006/12/08 17:20:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,10 +87,16 @@ function fud_whois($ip)
 			$cond = "m.ip_addr LIKE '".$ip."%'";
 		}
 
-		$o = uq('SELECT DISTINCT(m.poster_id), u.alias from {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE '.$cond);
+		$o = uq('SELECT DISTINCT(m.poster_id), u.alias FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE '.$cond);
 		$user_list = '';
 		$i = 0;
 		while ($r = db_rowarr($o)) {
+			$user_list .= '{TEMPLATE: ip_user_entry}';
+		}
+		unset($o);
+		$o = uq('SELECT reg_ip, alias FROM {SQL_TABLE_PREFIX}users WHERE reg_ip='.ip2long($_GET['ip']));
+		while ($r = db_rowarr($o)) {
+			$r[0] = long2ip($r[0]);
 			$user_list .= '{TEMPLATE: ip_user_entry}';
 		}
 		unset($o);
@@ -103,6 +109,14 @@ function fud_whois($ip)
 			$ip_list .= '{TEMPLATE: ip_ip_entry}';
 		}
 		unset($o);
+		
+		$o = uq('SELECT reg_ip FROM {SQL_TABLE_PREFIX}users WHERE id='.$user_id);
+		while ($r = db_rowarr($o)) {
+			$r[0] = long2ip($r[0]);
+			$ip_list .= '{TEMPLATE: ip_ip_entry}';
+		}
+		unset($o);
+
 		$page_data = '{TEMPLATE: ip_info}';
 	} else {
 		$page_data = '';
