@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.77 2006/12/08 17:25:21 hackie Exp $
+* $Id: admuser.php,v 1.78 2006/12/12 14:35:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,6 +17,8 @@
 	fud_use('logaction.inc');
 	fud_use('iemail.inc');
 	fud_use('private.inc');
+
+	$acc_mod_only = !($GLOBALS['usr']->users_opt & 1048576) && $GLOBALS['usr']->users_opt & 268435456;
 
 	if (isset($_GET['act'], $_GET['usr_id'])) {
 		$act = $_GET['act'];
@@ -45,6 +47,11 @@
 		case 'sig':
 		case 'pm':
 		case 'accmod':
+			/* only admins can do this */
+			if ($act == 'accmod' && $acc_mod_only) {
+				break;
+			}
+
 			if ($act == 'block' && isset($_POST['ban_duration'])) {
 				/* for post requests involving ban, do not act as a toggle */
 				if (!isset($_POST['block'])) {
@@ -338,13 +345,20 @@ document.frm_usr.usr_login.focus();
 	}
 
 	echo '<tr class="field"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../'.__fud_index_name__.'?t=register&mod_id='.$usr_id.'&'.__adm_rsidl.'">Change User\'s Profile</a> &lt;&lt;</font></td></tr>';
+if ($acc_mod_only) {
 	echo '<tr class="field"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . __adm_rsidl.'">Toggle</a>]</td></tr>';
+} else {
+	echo '<tr class="field"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').'</td></tr>';
+}
 	echo '<tr class="field"><td>Email Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Confirmed Account:</td><td>'.($u->users_opt & 2097152 ? 'No' : 'Yes').' [<a href="admuser.php?act=conf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? 'No' : 'Yes').' [<a href="admuser.php?act=sig&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Can use private messaging:</td><td>'.($u->users_opt & 33554432 ? 'No' : 'Yes').' [<a href="admuser.php?act=pm&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
+if ($acc_mod_only) {
+	echo '<tr class="field"><td>Account Moderator:</td><td>'.($u->users_opt & 268435456 ? 'Yes' : 'No').'</td></tr>';
+} else {
 	echo '<tr class="field"><td>Account Moderator:</td><td>'.($u->users_opt & 268435456 ? 'Yes' : 'No').' [<a href="admuser.php?act=accmod&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
-
+}
 	if ($FUD_OPT_1 & 1048576) {
 		echo '<tr class="field"><td>COPPA:</td><td>'.($u->users_opt & 262144 ? 'Yes' : 'No').' [<a href="admuser.php?act=coppa&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	}
