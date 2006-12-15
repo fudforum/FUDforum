@@ -576,7 +576,7 @@ post_err_lockedthread_msg:	This topic is locked. Posting is no longer allowed.
 err_coppa_title:		ERROR: Your account is not yet confirmed
 err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your COPPA form, <a href="{TEMPLATE: err_coppa_msg_lnk}">click here</a> to see it again.
 err_banned_acct_title:		ERROR: You have been banned.
-err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently banned{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
 post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	You can no longer edit this message
 post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users are not allowed to create topics.</fieldset><br />
