@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admiconsel.php,v 1.16 2006/09/19 14:37:56 hackie Exp $
+* $Id: admiconsel.php,v 1.17 2007/01/01 17:48:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,10 +17,22 @@ function print_image_list($dir,$js_field,$type)
 	$web_dir = $GLOBALS['WWW_ROOT'] . $dir . '/';
 	$path = $GLOBALS['WWW_ROOT_DISK'] . $dir;
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
-<title><?php echo $type; ?> Selection</title>
+<head>
+<?php echo '<title>'.$GLOBALS['FORUM_TITLE'].': Admin Control Panel - '.$type.' Selection</title>' ?>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php 
+if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
+} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
+} else {
+	echo 'us-ascii';
+}
+?>">
+</head>
 <body bgcolor="#ffffff">
-<table border=0 cellspacing=1 cellpadding=2>
+<table border="0" cellspacing="1" cellpadding="2">
 <tr>
 <?php
 
@@ -29,7 +41,7 @@ function print_image_list($dir,$js_field,$type)
 		foreach ($files as $file) {
 			$bgcolor = !($col % 2) ? ' bgcolor="#f4f4f4"' : '';
 			$f = basename($file);
-			if (!($col++%9)) {
+			if (!($col++%9) && ($col!=1)) {
 				echo '</tr><tr>';
 			}
 			echo '<td align="center"'.$bgcolor.'><a href="javascript:
@@ -37,7 +49,7 @@ function print_image_list($dir,$js_field,$type)
 					if (window.opener.document.prev_icon) 
 						window.opener.document.prev_icon.src=\''.$web_dir.$f.'\';
 					window.close();">
-				<img src="'.$web_dir.$f.'" border="0"><br /><font size=-2>'.$f.'</font></a></td>';
+				<img src="'.$web_dir.$f.'" border="0" alt="avatar"><br /><font size="-2">'.$f.'</font></a></td>';
 		}
 	} else if (!is_readable($path)) {
 		echo '<td>Unable to open '.$path.' for reading.</td>';

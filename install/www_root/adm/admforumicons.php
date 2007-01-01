@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforumicons.php,v 1.22 2006/09/19 14:37:56 hackie Exp $
+* $Id: admforumicons.php,v 1.23 2007/01/01 17:53:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -57,18 +57,18 @@
 	<tr class="field">
 		<td>Upload Icon:<br><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
 		<td><input type="file" name="iconfile"></td>
-		<input type="hidden" name="tmp_f_val" value="1">
+		<td><input type="hidden" name="tmp_f_val" value="1"></td>
 	</tr>
 
-	<tr class="fieldaction"><td align=right colspan=2><input type="submit" name="btn_upload" value="Add"></td></tr>
+	<tr class="fieldaction"><td align="right" colspan="2"><input type="submit" name="btn_upload" value="Add"></td></tr>
 </table>
 </form>
 <?php
 	} else {
 ?>
-<table border=0 cellspacing=1 cellpadding=3>
+<table border="0" cellspacing="1" cellpadding="3">
 	<tr class="field">
-		<td align=center><font color="red"><?php echo $WWW_ROOT_DISK . $ICONS_DIR; ?> is not writeable by the web server, file upload disabled.</td>
+		<td align="center"><font color="red"><?php echo $WWW_ROOT_DISK . $ICONS_DIR; ?> is not writeable by the web server, file upload disabled.</td>
 	</tr>
 </table>
 <?php
@@ -82,7 +82,7 @@
 		foreach ($files as $file) {
 			$de = basename($file);
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-			echo '<tr'.$bgcolor.'><td><img src="'.$WWW_ROOT . $ICONS_DIR . '/' . $de.'"></td><td><a href="admforumicons.php?del='.urlencode($de).'&'.__adm_rsidl.'&which_dir='.$which_dir.'">Delete</a></td></tr>';
+			echo '<tr'.$bgcolor.'><td><img src="'.$WWW_ROOT . $ICONS_DIR . '/' . $de.'" alt="Icon"></td><td><a href="admforumicons.php?del='.urlencode($de).'&amp;'.__adm_rsid.'&amp;which_dir='.$which_dir.'">Delete</a></td></tr>';
 		}	
 	} else if ($files === FALSE && !is_readable($WWW_ROOT_DISK . $ICONS_DIR)) {
 		echo '<tr colspan="3"><td>Unable to open '.$WWW_ROOT_DISK . $ICONS_DIR.' for reading.</td></tr>';

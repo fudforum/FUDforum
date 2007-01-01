@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.40 2006/09/19 14:37:56 hackie Exp $
+* $Id: admlock.php,v 1.41 2007/01/01 17:47:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -69,10 +69,10 @@
 	For security reasons remember to lock your forum's files after you are done editing them.
 </div>
 <form method="post">
-<table border=0 cellspacing=0 cellpadding=3>
+<table border="0" cellspacing="0" cellpadding="3">
 <tr><td>Login:</td><td><input type="text" name="usr_login" value="<?php echo $usr->alias; ?>"></td></tr>
 <tr><td>Password:</td><td><input type="password" name="usr_passwd"></td></tr>
-<tr><td colspan=2 algin=middle>
+<tr><td colspan=2 align=center>
 	<input type="submit" name="btn_lock" value="Lock Files">
 	<input type="submit" name="btn_unlock" value="Unlock Files">
 </td></tr>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgeoip.php,v 1.5 2006/09/19 14:37:56 hackie Exp $
+* $Id: admgeoip.php,v 1.6 2007/01/01 17:53:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,13 +35,13 @@
 <style type="text/css">
 .o { color: orange }
 </style>
-<script>
+<script type="text/javascript">
 function changeCaption(txt)
 {
 	document.getElementById('progress').firstChild.nodeValue = txt;
 }
 </script>
-<span id="progress"> <span>
+<span id="progress"> </span>
 <h2>Geo-Location Configuration</h2>
 <form method="post" action="admgeoip.php" enctype="multipart/form-data"><?php echo _hs; ?>
 <table class="datatable solidtable">
@@ -79,7 +79,7 @@ hours on a large forum.
 		<input type="submit" name="rebuild_user_geoip" value="Rebuild User Cache">
 		<input type="submit" name="rebuild_msg_geoip" value="Rebuild Message Cache">
 	</td></tr>
-<table>
+</table>
 </form>
 <?php 
 	require($WWW_ROOT_DISK . 'adm/admclose.html');
@@ -100,13 +100,13 @@ hours on a large forum.
 				++$i;
 			}
 			if (!($i % 500)) {
-				echo '<script>changeCaption("'.$i.' entries were imported!");</script>';
+				echo '<script type="text/javascript">changeCaption("'.$i.' entries were imported!");</script>';
 				echo "\n";
 				flush();
 			}
 		}
 		fclose($fp);
-		echo '<script>changeCaption("Import Completed, '.$i.' entries were imported!");</script>';
+		echo '<script type="text/javascript">changeCaption("Import Completed, '.$i.' entries were imported!");</script>';
 	} else if (!empty($_POST['rebuild_user_geoip'])) {
 		while (@ob_end_flush());
 		flush();
@@ -118,12 +118,12 @@ hours on a large forum.
 			}
 			q("UPDATE ".$DBHOST_TBL_PREFIX."users SET flag_cc="._esc($flag[0]).", flag_country="._esc($flag[1])." WHERE id=".$r[0]);
 			if (!($i % 500)) {
-				echo '<script>changeCaption("'.$i.' user geo-location cache entries updated.");</script>';
+				echo '<script type="text/javascript">changeCaption("'.$i.' user geo-location cache entries updated.");</script>';
 				echo "\n";
 				flush();
 			}
 		}
-		echo '<script>changeCaption("'.$i.' user geo-location cache entries updated.");</script>';
+		echo '<script type="text/javascript">changeCaption("'.$i.' user geo-location cache entries updated.");</script>';
 	} else if (!empty($_POST['rebuild_msg_geoip'])) {
 		while (@ob_end_flush());
 		flush();
@@ -135,10 +135,10 @@ hours on a large forum.
 			}
 			q("UPDATE ".$DBHOST_TBL_PREFIX."msg SET flag_cc="._esc($flag[0]).", flag_country="._esc($flag[1])." WHERE ip_addr="._esc($r[0]));
 			if (!($i % 500)) {
-				echo '<script>changeCaption("'.$i.' message geo-location cache entries updated.");</script>';
+				echo '<script type="text/javascript">changeCaption("'.$i.' message geo-location cache entries updated.");</script>';
 				echo "\n";
 				flush();
 			}
 		}
-		echo '<script>changeCaption("'.$i.' message geo-location cache entries updated.");</script>';
+		echo '<script type="text/javascript">changeCaption("'.$i.' message geo-location cache entries updated.");</script>';
 	}

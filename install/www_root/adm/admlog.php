@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlog.php,v 1.35 2006/09/23 19:30:41 hackie Exp $
+* $Id: admlog.php,v 1.36 2007/01/01 17:47:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,7 +45,7 @@ function return_forum_name($id)
 	include('admpanel.php');
 ?>
 <h2>Admin Log</h2>
-<a href="admlog.php?clear=1&<?php echo __adm_rsidl; ?>">Clear Log</a>
+<a href="admlog.php?clear=1&amp;<?php echo __adm_rsid; ?>">Clear Log</a>
 <table class="resulttable">
 <tr class="resulttopic"><td>User</td><td>Action</td><td>Object</td><td>Time (<b>GMT</b>)</td></tr>
 <?php
@@ -61,11 +61,11 @@ function return_forum_name($id)
 				$user_info = 'User is no longer in the system.';
 			}
 		} else if ($obj->users_opt & 1048576) {
-			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'.__adm_rsidl.'">'.$obj->alias.'</a> <font size="-2">[Administrator]</font>';
+			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&amp;id='.$obj->user_id.'&amp;'.__adm_rsid.'">'.$obj->alias.'</a> <font size="-2">[Administrator]</font>';
 		} else if ($obj->users_opt & 524288) {
-			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'.__adm_rsidl.'">'.$obj->alias.'</a> <font size="-2">[Moderator]</font>';
+			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&amp;id='.$obj->user_id.'&amp;'.__adm_rsid.'">'.$obj->alias.'</a> <font size="-2">[Moderator]</font>';
 		} else {
-			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'.__adm_rsidl.'">'.$obj->alias.'</a> <font size="-2">[Priveleged User]</font>';
+			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&amp;id='.$obj->user_id.'&amp;'.__adm_rsid.'">'.$obj->alias.'</a> <font size="-2">[Priveleged User]</font>';
 		}
 		echo '<tr><td>'.$user_info.'</td>';
 
@@ -140,7 +140,7 @@ function return_forum_name($id)
 				echo '<td>User Changed Own Password</td><td>ip address: '.$obj->logaction.'</td>';
 				break;
 			default:
-				echo '<td colspan=2>Unknown</td>';
+				echo '<td colspan="2">Unknown</td>';
 				break;
 		}
 
