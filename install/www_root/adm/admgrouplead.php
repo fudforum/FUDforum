@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.39 2006/09/24 17:19:05 hackie Exp $
+* $Id: admgrouplead.php,v 1.40 2007/01/01 17:51:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,9 +74,9 @@
 				break;
 			default:
 				/* more then 1 user found, draw a selection form */
-				echo '<html><body bgcolor="#ffffff">There are '.$cnt.' users matching your search mask:<br><table border=0 cellspacing=0 cellpadding=3>';
+				echo '<html><body bgcolor="#ffffff">There are '.$cnt.' users matching your search mask:<br><table border="0" cellspacing="0" cellpadding="3">';
 				while ($r = db_rowarr($c)) {
-					echo '<tr><td><a href="admgrouplead.php?gr_leader='.urlencode($r[1]).'&group_id='.$group_id.'&'.__adm_rsidl.'">'.$r[1].'</a></td></tr>';
+					echo '<tr><td><a href="admgrouplead.php?gr_leader='.urlencode($r[1]).'&group_id='.$group_id.'&amp;'.__adm_rsid.'">'.$r[1].'</a></td></tr>';
 				}
 				unset($c);
 				echo '</table></body></html>';
@@ -87,7 +87,7 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<a href="admgroups.php?<?php echo __adm_rsidl; ?>">Back to Groups</a>
+<a href="admgroups.php?<?php echo __adm_rsid; ?>">Back to Groups</a>
 <?php
 	if ($error) {
 		echo '<br /><span class="alert">' . htmlspecialchars($error).'</span>';
@@ -95,19 +95,19 @@
 ?>
 <form method="post" action="admgrouplead.php"><?php echo _hs; ?>
 <input type="hidden" value="<?php echo $group_id; ?>" name="group_id">
-<table border=0 cellspacing=0 cellpadding=3>
+<table border="0" cellspacing="0" cellpadding="3">
 <tr><td>Group Leader</td><td><input type="text" name="gr_leader" value="<?php echo char_fix(htmlspecialchars($gr_leader)); ?>"></td></tr>
-<tr><td colspan=2 align=right><input type="submit" name="btn_submit" value="Add"></td></tr>
+<tr><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Add"></td></tr>
 </table>
 
-<table border=1 cellspacing=1 cellpadding=3>
+<table border="1" cellspacing="1" cellpadding="3">
 <tr><td>Leader Login</td><td>Action</td></tr>
 <?php
 	$c = uq('SELECT u.id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id.' AND gm.group_members_opt>=131072 AND (gm.group_members_opt & 131072) > 0');
 	while ($r = db_rowarr($c)) {
 		echo '<tr><td>'.$r[1].'</td><td>
-		[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'.__adm_rsidl.'&ug=1">Remove Group Leader Permission</a>]
-		[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'.__adm_rsidl.'">Remove From Group</a>]
+		[<a href="admgrouplead.php?group_id='.$group_id.'&amp;del='.$r[0].'&amp;'.__adm_rsid.'&amp;ug=1">Remove Group Leader Permission</a>]
+		[<a href="admgrouplead.php?group_id='.$group_id.'&amp;del='.$r[0].'&amp;'.__adm_rsid.'">Remove From Group</a>]
 		</td></tr>';
 	}
 	unset($c);

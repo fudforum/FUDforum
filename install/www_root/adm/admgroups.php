@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.53 2006/11/29 15:36:16 hackie Exp $
+* $Id: admgroups.php,v 1.54 2007/01/01 17:51:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -200,9 +200,9 @@
 ?>
 <h2>Admin Group Manager: Add/Edit groups or group leaders</h2>
 <form method="post" action="admgroups.php">
-<table class="datatable field">
 <?php echo _hs; ?>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
+<table class="datatable field">
 <tr><td>Group Name: </td><td>
 <?php
 	if ($edit && ($edit < 3 || $gl[$edit]['forum_id'])) {
@@ -215,7 +215,7 @@
 </td></tr>
 <?php
 	if (!$edit || $edit > 2) {
-		echo '<tr><td valign=top>Group Resources: </td><td>';
+		echo '<tr><td valign="top">Group Resources: </td><td>';
 		if ($edit && $gl[$edit]['forum_id']) {
 			echo 'FORUM: '.$gl[$edit]['fname'];
 		} else {
@@ -250,14 +250,14 @@
 		echo '</td></tr>';
 	}
 ?>
-<tr><td valign="top" colspan=2 align="center"><font size="+2"><b>Maximum Permissions</b></font><br><font size="-1">(group leaders won't be able to assign permissions higher than these)</font></td></tr>
-<tr><td><table cellspacing=2 cellpadding=2 border=0>
+<tr><td valign="top" colspan="2" align="center"><font size="+2"><b>Maximum Permissions</b></font><br><font size="-1">(group leaders won't be able to assign permissions higher than these)</font></td></tr>
+<tr><td><table cellspacing="2" cellpadding="2" border="0">
 <?php
 	if (($edit || $error) && $gr_inherit_id && $permi) {
-		echo '<tr><th nowrap><font size="+1">Permission</font></th><th><font size="+1">Value</font></th><th><font size="+1">Via Inheritance</font></th></tr>';
+		echo '<tr><th nowrap="nowrap"><font size="+1">Permission</font></th><th><font size="+1">Value</font></th><th><font size="+1">Via Inheritance</font></th></tr>';
 		$v1 = 1;
 	} else {
-		echo '<tr><th nowrap><font size="+1">Permission</font></th><th><font size="+1">Value</font></th></tr>';
+		echo '<tr><th nowrap="nowrap"><font size="+1">Permission</font></th><th><font size="+1">Value</font></th></tr>';
 		$v1 = 0;
 	}
 
@@ -282,19 +282,19 @@
 	}
 ?>
 </table></td></tr>
-<tr><td colspan=2 align=left>
+<tr><td colspan="2" align="left">
 <?php
 	if ($edit) {
 		echo '<input type="submit" name="btn_cancel" value="Cancel"> ';
 	}
 ?>
 <input type="submit" name="btn_submit" value="<?php echo (!$edit ? 'Add' : 'Update'); ?>"></td></tr>
-<input type="hidden" name="prevloaded" value="1">
 </table>
+<input type="hidden" name="prevloaded" value="1">
 </form>
 <br />
 <span class="linkhead">The permissions shown below ONLY control the permissions group leaders will be able to change
-for the group's they manage. To change the user permissions please use the <a href="../index.php?t=groupmgr&<?php echo __adm_rsidl; ?>">user-land group manager</a>.</span>
+for the group's they manage. To change the user permissions please use the <a href="../index.php?t=groupmgr&amp;<?php echo __adm_rsid; ?>">user-land group manager</a>.</span>
 <br />
 
 <table class="datatable fulltable">
@@ -327,12 +327,12 @@ for the group's they manage. To change the user permissions please use the <a hr
 			$grl = 'No Leaders';
 		}
 
-		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='.$k.'&'.__adm_rsidl.'">Delete</a>]' : '';
-		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'<br>[<a href="admgrouplead.php?group_id='.$k.'&'.__adm_rsidl.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&group_id='.$k.'&'.__adm_rsidl.'" target=_new>Manage Users</a>]' : '';
+		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='.$k.'&amp;'.__adm_rsid.'">Delete</a>]' : '';
+		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'<br>[<a href="admgrouplead.php?group_id='.$k.'&amp;'.__adm_rsid.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&amp;group_id='.$k.'&amp;'.__adm_rsid.'" target=_new>Manage Users</a>]' : '';
 
 		echo '<tr class="tiny field"><td><a name="g'.$k.'">'.$v['gn'].'</a></td>';
 		foreach ($hdr as $v2) {
-			echo '<td nowrap align="center" title="'.$v2[1].'">';
+			echo '<td nowrap="nowrap" align="center" title="'.$v2[1].'">';
 			if ($v['inherit_id'] && $v['groups_opti'] & $v2[0]) {
 				echo '<a href="#g'.$v['inherit_id'].'" title="Inheriting permissions from '.$gl[$v['inherit_id']]['gn'].'">(I: '.($gl[$v['inherit_id']]['groups_opt'] & $v2[0] ? '<font color="green">Y</font>' : '<font color="red">N</font>').')</a>';
 			} else {
@@ -340,7 +340,7 @@ for the group's they manage. To change the user permissions please use the <a hr
 			}
 			echo '</td>';
 		}
-		echo '<td valign="middle" align="center">'.$grl.'</td> <td nowrap>[<a href="admgroups.php?edit='.$k.'&'.__adm_rsidl.'">Edit</a>] '.$user_grp_mgr.'</td></tr>';
+		echo '<td valign="middle" align="center">'.$grl.'</td> <td nowrap="nowrap">[<a href="admgroups.php?edit='.$k.'&amp;'.__adm_rsid.'">Edit</a>] '.$user_grp_mgr.'</td></tr>';
 	}
 ?>
 </table>
