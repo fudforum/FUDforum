@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbanlist.php,v 1.6 2006/09/19 14:37:56 hackie Exp $
+* $Id: admbanlist.php,v 1.7 2007/01/01 17:20:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,7 +28,7 @@
 		echo '<tr><td class="resultrow1">' . htmlspecialchars($r[0]).' ( '.$r[1].' ) </td>';
 		echo '<td>' . htmlspecialchars($r[2]).'</td>';
 		echo '<td class="resultrow1">' . ($r[3] ? date("r", $r[3]) : 'never').'</td>';
-		echo '<td><a href="admuser.php?act=1&usr_id='.$r[0].'&'.__adm_rsidl.'">Edit</a></td></tr>';
+		echo '<td><a href="admuser.php?act=1&amp;usr_id='.$r[0].'&amp;'.__adm_rsid.'">Edit</a></td></tr>';
 	}
 	unset($c);
 ?>

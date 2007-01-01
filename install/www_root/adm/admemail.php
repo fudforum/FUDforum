@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admemail.php,v 1.24 2006/09/19 14:37:56 hackie Exp $
+* $Id: admemail.php,v 1.25 2007/01/01 17:21:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,7 +55,7 @@
 	</tr>
 
 	<tr class="fieldaction">
-		<td colspan=2 align=right>
+		<td colspan="2" align="right">
 		<?php
 			if ($edit) {
 				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" tabindex="2" name="btn_update" value="Update">';
@@ -68,7 +68,7 @@
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
-<script>
+<script type="text/javascript">
 <!--
 document.ef.e_string.focus();
 //-->
@@ -89,7 +89,7 @@ document.ef.e_string.focus();
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 
-		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.($r[1] ? 'Simple' : 'Regex').'</td><td>[<a href="admemail.php?edit='.$r[0].'&'.__adm_rsidl.'">Edit</a>] [<a href="admemail.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
+		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.($r[1] ? 'Simple' : 'Regex').'</td><td>[<a href="admemail.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admemail.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 ?>

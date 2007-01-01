@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.28 2006/09/19 14:37:56 hackie Exp $
+* $Id: admbrowse.php,v 1.29 2007/01/01 17:20:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,7 +10,7 @@
 **/
 
 	if (isset($_POST['btn_mini_cancel']) || isset($_GET['btn_mini_cancel'])) {
-		exit('<html><script>window.close();</script></html>');
+		exit('<html><script type="text/javascript">window.close();</script></html>');
 	}
 
 	require('./GLOBALS.php');
@@ -162,7 +162,7 @@ if (!extension_loaded('posix')) {
 			} else if (@is_file($cur_dir.'/'.$dest) && !unlink($cur_dir.'/'.$dest)) {
 				exit('<h2 color="red">ERROR: failed to remove file '.$cur_dir . '/' . $dest.'</h2>');
 			} else {
-				exit('<html><script> window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
+				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 			}
 		} else {
 			$file = $cur_dir.'/'.$dest;
@@ -214,10 +214,10 @@ if (!extension_loaded('posix')) {
 			<td><?php draw_checkbox('wread', 0004, bit_test($st[2], 0004)); ?></td>
 			<td><?php draw_checkbox('wwrite', 0002, bit_test($st[2], 0002)); ?></td>
 			<td><?php draw_checkbox('wexec', 0001, bit_test($st[2], 0001)); ?></td></tr>
-		<tr><td colspan=4><?php draw_checkbox('setuid', 0004000, bit_test($st[2], 0004000)); ?> setuid</td></tr>
-		<tr><td colspan=4><?php draw_checkbox('setgid', 0002000, bit_test($st[2], 0002000)); ?> setgid</td></tr>
-		<tr><td colspan=4><?php draw_checkbox('sticky', 0001000, bit_test($st[2], 0001000)); ?> sticky</td></tr>
-		<tr><td colspan=4 align=right><input type="submit" name="btn_submit" value="Apply"> <input type="submit" name="btn_mini_cancel" value="Cancel"></td></tr>
+		<tr><td colspan="4"><?php draw_checkbox('setuid', 0004000, bit_test($st[2], 0004000)); ?> setuid</td></tr>
+		<tr><td colspan="4"><?php draw_checkbox('setgid', 0002000, bit_test($st[2], 0002000)); ?> setgid</td></tr>
+		<tr><td colspan="4"><?php draw_checkbox('sticky', 0001000, bit_test($st[2], 0001000)); ?> sticky</td></tr>
+		<tr><td colspan="4" align="right"><input type="submit" name="btn_submit" value="Apply"> <input type="submit" name="btn_mini_cancel" value="Cancel"></td></tr>
 		</table>
 		</form>
 	</html>
@@ -238,7 +238,7 @@ if (!extension_loaded('posix')) {
 		if (!@chmod($file, $new_mode)) {
 			exit('<html>Unable to chmod <b>'.$file.'</b><br><a href="javscript: return false;" onClick="javascript: window.close();">close</a></html>');
 		} else {
-			exit('<html><script> window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
+			exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 		}
 	}
 
@@ -250,8 +250,8 @@ if (!extension_loaded('posix')) {
 		$cur_dir = $ROOT_PATH[0];
 	}
 
-	echo 'WWW_SERVER_ROOT: <a href="admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($ROOT_PATH[0]).'">'.$ROOT_PATH[0].'</a><br>
-		DATA_ROOT:  <a href="admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($ROOT_PATH[1]).'">'.$ROOT_PATH[1].'</a><br>';
+	echo 'WWW_SERVER_ROOT: <a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($ROOT_PATH[0]).'">'.$ROOT_PATH[0].'</a><br>
+		DATA_ROOT:  <a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($ROOT_PATH[1]).'">'.$ROOT_PATH[1].'</a><br>';
 	echo 'Currently Browsing: <b>'.htmlspecialchars($cur_dir)."</b><br>\n";
 
 	clearstatcache();
@@ -261,20 +261,21 @@ if (!extension_loaded('posix')) {
 	}
 ?>
 <br>
+<form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>"><?php echo _hs; ?>
 <table class="datatable">
-	<form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>"><?php echo _hs; ?>
 	<tr style="font-size: x-small;">
 		<td>Directory Name:</td>
 		<td><input type="text" name="mkdir" value=""></td>
-		<td align="right" colspan=2><input  style="font-size: x-small;" type="submit" name="btn_mkdir" value="Create Directory">
+		<td align="right" colspan="2"><input style="font-size: x-small;" type="submit" name="btn_mkdir" value="Create Directory">
 	</tr>
-	</form>
 </table>
+</form>
 <br>
-<table cellspacing=2 cellpadding=2 border=0>
-	<form method="post" action="admbrowse.php" enctype="multipart/form-data"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>"><?php echo _hs; ?>
+
+<form method="post" action="admbrowse.php" enctype="multipart/form-data"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>"><?php echo _hs; ?>
+<table cellspacing="2" cellpadding="2" border="0">
 	<tr style="font-size: x-small;">
-		<td colspan=2><b>File Upload</b></td>
+		<td colspan="2"><b>File Upload</b></td>
 	</tr>
 	<tr style="font-size: x-small;">
 		<td>File To Upload:</td>
@@ -285,12 +286,12 @@ if (!extension_loaded('posix')) {
 		<td><input type="text" name="d_name" value=""></td>
 	</tr>
 	<tr style="font-size: x-small;">
-		<td colspan=2 align="right"><input type="submit" name="file_upload" value="Upload File"></td>
+		<td colspan="2" align="right"><input type="submit" name="file_upload" value="Upload File"></td>
 	</tr>
-	</form>
 </table>
+</form>
 <br>
-<table border=0 cellspacing=1 cellpadding=3>
+<table border="0" cellspacing="1" cellpadding="3">
 <tr class="admin_fixed resulttopic"><td>Mode</td><td>Owner</td><td>Group</td><td>Size</td><td>Date</td><td>Time</td><td>Name</td><td align="center" colspan=3>Action</td></tr>
 <?php
 	$file_list = array();
@@ -321,7 +322,7 @@ if (!extension_loaded('posix')) {
 			$name = htmlspecialchars($de);
 			$st = stat($fpath);
 		} else if (@is_dir($fpath)) {
-			$name = '<a href="admbrowse.php?cur='.urlencode($fpath).'&'.__adm_rsidl.'">'.htmlspecialchars($de).'</a>';
+			$name = '<a href="admbrowse.php?cur='.urlencode($fpath).'&amp;'.__adm_rsid.'">'.htmlspecialchars($de).'</a>';
 			$st = stat($fpath);
 		}
 
@@ -343,15 +344,15 @@ if (!extension_loaded('posix')) {
 		echo '<tr class="admin_fixed"><td nowrap>'.$mode_str.' ('.$mode_o.')</td><td>'.$owner.'</td><td>'.$group.'</td><td nowrap>'.$size.' KB</td><td nowrap>'.$date_str.'</td><td>'.$time_str.'</td><td>'.$name.'</td>';
 		if (@is_readable($fpath)) {
 			if (@is_writeable($fpath)) {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onClick="javascript: window.open(\'admbrowse.php?chmod=1&cur='.$cur_enc.'&dest='.$de_enc.'&'.__adm_rsidl.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onClick="javascript: window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';
 			} else {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}
 
-			echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="admbrowse.php?down=1&cur='.$cur_enc.'&dest='.$de_enc.'&'.__adm_rsidl.'">download</a></td>';
+			echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="admbrowse.php?down=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'">download</a></td>';
 
 			if (@is_writeable($fpath)) {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onClick="javascript: window.open(\'admbrowse.php?del=1&cur='.$cur_enc.'&dest='.$de_enc.'&'.__adm_rsidl.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onClick="javascript: window.open(\'admbrowse.php?del=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
 			} else {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}
@@ -360,6 +361,7 @@ if (!extension_loaded('posix')) {
 		}
 		echo '</tr>';
 	}
+echo '</table>';
 
 require($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

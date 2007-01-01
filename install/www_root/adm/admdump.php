@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.68 2006/09/19 14:37:56 hackie Exp $
+* $Id: admdump.php,v 1.69 2007/01/01 17:21:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -253,7 +253,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 <table class="datatable solidtable">
 <tr class="field">
 	<td>Backup Save Path<br><font size="-1">path on the disk, where you wish the forum data dump to be saved.</font></td>
-	<td><?php echo $path_error; ?><input type="text" value="<?php echo $path; ?>" name="path" size=40></td>
+	<td><?php echo $path_error; ?><input type="text" value="<?php echo $path; ?>" name="path" size="40"></td>
 </tr>
 <?php if($gz) { ?>
 <tr class="field">
@@ -261,10 +261,9 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	<td><input type="checkbox" name="compress" value="1" <?php echo $compress; ?>> Yes</td>
 </tr>
 <?php } ?>
-<tr class="fieldaction"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Make Backup"></td></tr>
-<input type="hidden" name="submitted" value="1">
-</form>
+<tr class="fieldaction"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Make Backup"><input type="hidden" name="submitted" value="1"></td></tr>
 </table>
+</form>
 <?php
 	} /* isset($_POST['submitted']) */
 
