@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.36 2006/11/29 15:36:16 hackie Exp $
+* $Id: admprune.php,v 1.37 2007/01/01 17:15:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,9 +58,23 @@
 				$umsg = ' <font color="red">posted by "'.q_singleval("SELECT alias FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".$usr_id).'"</font>';
 			}
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
+<head>
+<?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel - Confirm topic pruning'.'</title>' ?>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php 
+if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
+} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
+} else {
+	echo 'us-ascii';
+}
+?>">
+
+</head>
 <body bgcolor="white">
-<div align=center>You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics containing <font color="red"><?php echo $msg_cnt; ?></font> messages,
+<div align="center">You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics containing <font color="red"><?php echo $msg_cnt; ?></font> messages,
 which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $umsg . $msg; ?><br><br>
 			Are you sure you want to do this?<br>
 			<form method="post">
@@ -137,7 +151,7 @@ delete topics with no messages in the last 10 days.<p>
 
 <tr class="field">
 	<td >Limit to forum:</td>
-	<td colspan=2 nowrap>
+	<td colspan="2" nowrap="nowrap">
 	<?php
 		$oldc = '';
 		$c = uq('SELECT f.id, f.name, c.name, c.id FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON f.cat_id=c.id ORDER BY c.parent, c.view_order, f.view_order');
@@ -155,13 +169,13 @@ delete topics with no messages in the last 10 days.<p>
 </tr>
 
 <tr class="field">
-	<td align=right colspan=3><input tabindex="2" type="submit" name="btn_prune" value="Prune"></td>
+	<td align="right" colspan="3"><input tabindex="2" type="submit" name="btn_prune" value="Prune"></td>
 </tr>
 </table>
 <?php echo _hs; ?>
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 </form>
-<script>
+<script type="text/javascript">
 <!--
 document.adp.thread_age.focus();
 //-->
