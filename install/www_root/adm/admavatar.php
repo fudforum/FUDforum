@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.32 2006/09/19 14:37:56 hackie Exp $
+* $Id: admavatar.php,v 1.33 2007/01/01 17:17:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -141,7 +141,7 @@ function import_avatars($path)
 <table class="datatable solidtable">
 	<?php if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars')) { ?>
 		<tr class="field">
-			<td colspan=2><b>Import Gallery</b><br><font size="-1">Recursively process specified directory, creating avatars from all files with (*.gif, *.jpg, *.png, *.jpeg) extensions.<br>A new gallery will be created for every encountered sub-directory.</font></td>
+			<td colspan="2"><b>Import Gallery</b><br /><font size="-1">Recursively process specified directory, creating avatars from all files with (*.gif, *.jpg, *.png, *.jpeg) extensions.<br>A new gallery will be created for every encountered sub-directory.</font></td>
 		</tr>
 		<tr class="field">
 			<td>Gallery directory:</td>
@@ -159,26 +159,26 @@ function import_avatars($path)
 	}
 ?>
 
-		<tr><td colspan=2>&nbsp;</td></tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
 
 		<tr class="field">
 			<td colspan=2><b>Avatar Upload</b> (upload avatars into the system)</td>
 		</tr>
 		<tr class="field">
-			<td>Avatar Upload:<br><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
+			<td>Avatar Upload:<br /><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
 			<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"></td>
-			<input type="hidden" name="tmp_f_val" value="1">
+			<td><input type="hidden" name="tmp_f_val" value="1"></td>
 		</tr>
 	<?php } else { ?>
 		<tr class="field">
-			<td colspan=2><font color="#ff0000">Web server doesn't have write permission to write to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/avatars'; ?>'</b>, avatar upload disabled</font></td>
+			<td colspan="2"><font color="#ff0000">Web server doesn't have write permission to write to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/avatars'; ?>'</b>, avatar upload disabled</font></td>
 		</tr>
 	<?php } ?>
 
-	<tr><td colspan=2>&nbsp;</td></tr>
+	<tr><td colspan="2">&nbsp;</td></tr>
 
 	<tr class="field">
-		<td colspan=2><a name="img"><b>Avatar Management</b></a></td>
+		<td colspan="2"><a name="img"><b>Avatar Management</b></a></td>
 	</tr>
 
 	<tr class="field">
@@ -212,16 +212,16 @@ function import_avatars($path)
 					} else {
 						document.prev_icon.src='../blank.gif';
 					}">
-			[<a href="#avt_sel" onClick="javascript:window.open('admiconsel.php?type=4&amp;<?php echo __adm_rsidl; ?>', 'admavatarsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT AVATAR</a>]
+			[<a href="#avt_sel" onClick="javascript:window.open('admiconsel.php?type=4&amp;<?php echo __adm_rsid; ?>', 'admavatarsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT AVATAR</a>]
 		</td>
 	</tr>
 
 	<tr class="field">
 		<td>Preview Image:</td>
 		<td>
-			<table border=1 cellspacing=1 cellpadding=2 bgcolor="#ffffff">
-				<tr><td align=center valign=center>
-					<img src="<?php echo ($avt_img ? $GLOBALS['WWW_ROOT'] . 'images/avatars/' . $avt_img : '../blank.gif'); ?>" name="prev_icon" border=0>
+			<table border="1" cellspacing="1" cellpadding="2" bgcolor="#ffffff">
+				<tr><td align="center" valign="middle">
+					<img src="<?php echo ($avt_img ? $GLOBALS['WWW_ROOT'] . 'images/avatars/' . $avt_img : '../blank.gif'); ?>" name="prev_icon" border=0 alt="blank">
 				</td></tr>
 			</table>
 		</td>
@@ -230,9 +230,9 @@ function import_avatars($path)
 	<tr class="fieldaction">
 		<?php
 			if (!$edit) {
-				echo '<td colspan=2 align=right><input type="submit" name="btn_submit" value="Add Avatar"></td>';
+				echo '<td colspan="2" align="right"><input type="submit" name="btn_submit" value="Add Avatar"></td>';
 			} else {
-				echo '<td colspan=2 align=right><input type="submit" name="btn_cancel" value="Cancel"><input type="submit" name="btn_update" value="Update"></td>';
+				echo '<td colspan="2" align="right"><input type="submit" name="btn_cancel" value="Cancel"><input type="submit" name="btn_update" value="Update"></td>';
 			}
 		?>
 	</tr>
@@ -274,7 +274,7 @@ function import_avatars($path)
 		echo '<tr '.$bgcolor.'>
 				<td><img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$r[1].'" alt="'.$r[2].'" border=0 /></td>
 				<td>'.$r[2].'</td>
-				<td>[<a href="admavatar.php?edit='.$r[0].'&'.__adm_rsidl.'#img">Edit</a>] [<a href="admavatar.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td>
+				<td>[<a href="admavatar.php?edit='.$r[0].'&amp;'.__adm_rsid.'#img">Edit</a>] [<a href="admavatar.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td>
 			</tr>';
 	}
 	unset($c);

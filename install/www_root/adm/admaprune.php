@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaprune.php,v 1.15 2006/11/29 15:36:16 hackie Exp $
+* $Id: admaprune.php,v 1.16 2007/01/01 17:17:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,9 +45,24 @@
 				$a_cnt = 0;
 			}
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
+<head>
+<?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel - Confirm attachment pruning</title>' ?>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php 
+if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
+} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
+} else {
+	echo 'us-ascii';
+}
+?>">
+
+</head>
+
 <body bgcolor="white">
-<div align=center>You are about to delete <font color="red"><?php echo $a_cnt; ?></font> public file attachments AND <font color="red"><?php echo $pa_cnt; ?></font> private file attachments.
+<div align="center">You are about to delete <font color="red"><?php echo $a_cnt; ?></font> public file attachments AND <font color="red"><?php echo $pa_cnt; ?></font> private file attachments.
 <br />That were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $msg; ?><br><br>
 			Are you sure you want to do this?<br>
 			<form method="post">
@@ -123,17 +138,17 @@ this form will offer to delete attachments olders then 10 days.<p>
 <tr class="field">
 	<td nowrap>Attachments Older Then:</td>
 	<td ><input type="text" name="thread_age" tabindex="1"></td>
-	<td nowrap><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
+	<td nowrap="nowrap"><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 
 <tr class="field">
-	<td nowrap>Attachment Type:</td>
-	<td colspan=2 nowrap><?php draw_select("type", "All\nPrivate Only\nPublic Only", "0\n1\n2", '0'); ?></td>
+	<td nowrap="nowrap">Attachment Type:</td>
+	<td colspan="2" nowrap="nowrap"><?php draw_select("type", "All\nPrivate Only\nPublic Only", "0\n1\n2", '0'); ?></td>
 </tr>
 
 <tr class="field">
 	<td >Limit to forum:<font size="-1"><br />(not applicable for private attachment removal)</font></td>
-	<td colspan=2 nowrap>
+	<td colspan="2" nowrap="nowrap">
 	<?php
 		$oldc = '';
 		$c = uq('SELECT f.id, f.name, c.name, c.id FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON f.cat_id=c.id ORDER BY c.parent, c.view_order, f.view_order');
@@ -151,12 +166,12 @@ this form will offer to delete attachments olders then 10 days.<p>
 </tr>
 
 <tr class="fieldaction">
-	<td align=right colspan=3><input tabindex="2" type="submit" name="btn_prune" value="Prune"></td>
+	<td align="right" colspan="3"><input tabindex="2" type="submit" name="btn_prune" value="Prune"></td>
 </tr>
 </table>
 <?php echo _hs; ?>
 </form>
-<script>
+<script type="text/javascript">
 <!--
 document.adpa.thread_age.focus();
 //-->
