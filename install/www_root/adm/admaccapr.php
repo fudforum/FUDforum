@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaccapr.php,v 1.26 2006/09/19 14:37:56 hackie Exp $
+* $Id: admaccapr.php,v 1.27 2007/01/01 17:11:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -64,7 +64,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		print_if_avail('Signature', $obj->sig, 0) .
 		print_if_avail('IP Address', long2ip($obj->reg_ip), 0) .
 		'</td>
-		<td class="fieldaction">[ <a href="admaccapr.php?apr='.$obj->id.'&'.__adm_rsidl.'">Approve Account</a> | <a href="admaccapr.php?rm='.$obj->id.'&'.__adm_rsidl.'">Delete Account</a> ]</td></tr>';
+		<td class="fieldaction">[ <a href="admaccapr.php?apr='.$obj->id.'&amp;'.__adm_rsid.'">Approve Account</a> | <a href="admaccapr.php?rm='.$obj->id.'&amp;'.__adm_rsid.'">Delete Account</a> ]</td></tr>';
 	}
 	unset($c);
 ?>

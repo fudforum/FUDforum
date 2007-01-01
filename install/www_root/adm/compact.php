@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.65 2006/09/19 14:37:57 hackie Exp $
+* $Id: compact.php,v 1.66 2007/01/01 17:05:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,7 +49,7 @@ and the amount of messages your forum has.
 		exit;
 	}
 ?>
-<script language="Javascript1.2">
+<script language="Javascript1.2" type="text/javascript">
 	var intervalID;
 	function scrolldown()
 	{
@@ -210,9 +210,9 @@ function eta_calc($start, $pos, $pc)
 		echo '<br>Re-enabling the forum.<br>';
 		maintenance_status($DISABLED_REASON, 0);
 	} else {
-		echo '<br><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsidl.'">Global Settings Manager</a> and re-enable it.</font>';
+		echo '<br><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
-	echo '<script language="Javascript1.2">clearInterval(intervalID);</script>';
+	echo '<script language="Javascript1.2" type="text/javascript">clearInterval(intervalID);</script>';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

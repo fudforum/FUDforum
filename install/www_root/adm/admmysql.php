@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmysql.php,v 1.4 2006/09/19 14:37:56 hackie Exp $
+* $Id: admmysql.php,v 1.5 2007/01/01 17:05:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -40,7 +40,7 @@
 </tr>
 </table>
 </form>
-<script>
+<script type="text/javascript">
 <!--
 document.a_frm.subject.focus();
 //-->

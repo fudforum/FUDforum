@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.38 2006/09/19 14:37:57 hackie Exp $
+* $Id: msglist.php,v 1.39 2007/01/01 17:08:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -118,9 +118,9 @@ function makedeps()
 		unset($c);
 
 		if (isset($_POST['NO_TREE_LIST'])) {
-			exit('<html><script>window.close();</script></html>');
+			exit('<html><script type="text/javascript">window.close();</script></html>');
 		}
-		exit('<br><a href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'">Back to control panel</a>');
+		exit('<br><a href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsidl.'">Back to control panel</a>');
 	}
 
 if (!isset($_GET['NO_TREE_LIST'])) {
@@ -129,7 +129,7 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<style>
+<style type="text/css">
 .file_name {
 	font-weight: bold;
 	color: #ff0000;
@@ -153,7 +153,7 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 <?php
 
 if (isset($warn)) {
-	echo '<div align="center"><font color="green" size="+2">WARNING: EDITING DEFAULT MESSAGE FILE, BECAUSE THIS TEMPLATE DOESN\'T HAVE ONE</font><br><br></div>';
+	echo '<div align="center"><font color="green" size="+2">WARNING: EDITING DEFAULT MESSAGE FILE, BECAUSE THIS TEMPLATE DOESN\'T HAVE ONE</font><br /><br /></div>';
 }
 	$tab = str_repeat('&nbsp;', 5);
 
@@ -161,10 +161,10 @@ if (isset($warn)) {
 		$list = $msgnamelist = '';
 		foreach($msg as $k => $msgname) {
 			$msgnamelist .= urlencode($msgname).':';
-			$list .='<tr><td><img src="../blank.gif" height=1 width=20><a class="deps" href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&msglist='.urlencode($msgname).'&fl='.$file.'">'.$msgname.'</a></td></tr>';
+			$list .='<tr><td><img src="../blank.gif" height="1" width="20" alt="blank"><a class="deps" href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;msglist='.urlencode($msgname).'&amp;fl='.$file.'">'.$msgname.'</a></td></tr>';
 		}
 		$msgnamelist = substr($msgnamelist, 0, -1);
-		echo '<tr><td><a class="file_name" href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&msglist='.$msgnamelist.'&fl='.$file.'">'.$file.'</a><a name="'.$file.'"></a></td></tr>' . $list;
+		echo '<tr><td><a class="file_name" href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;msglist='.$msgnamelist.'&amp;fl='.$file.'">'.$file.'</a><a name="'.$file.'"></a></td></tr>' . $list;
 		if (isset($filedeps[$file])) {
 			echo '<tr><td class="depson">'.$tab.'<b>&raquo; Used By:</b></td></tr>'."\n";
 			foreach($filedeps[$file] as $v) {
@@ -179,7 +179,7 @@ if (isset($warn)) {
 	$msglist = isset($_GET['msglist']) ? $_GET['msglist'] : (isset($_POST['msglist']) ? $_POST['msglist'] : '');
 
 	if ($msglist) {
-		echo '<td valign=top><form method="post" action="msglist.php?tname='.$tname.'&tlang='.$tlang.'"><table border=0>'._hs;
+		echo '<td valign=top><form method="post" action="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'">'._hs.'<table border=0>';
 		$msglist_arr[] = strtok(trim($msglist), ':');
 		while (($v = strtok(':'))) {
 			$msglist_arr[] = trim($v);
@@ -199,21 +199,21 @@ if (isset($warn)) {
 
 			$txt = htmlspecialchars(trim(substr($data, $s, ($e - $s))));
 			if (strlen($txt) > 50) {
-				$inptd = '<textarea name="'.$v.'" rows=20 cols=60>'.$txt.'</textarea>';
+				$inptd = '<textarea name="'.$v.'" rows="20" cols="60">'.$txt.'</textarea>';
 			} else {
-				$inptd = '<input type="text" name="'.$v.'" value="'.$txt.'" size=50>';
+				$inptd = '<input type="text" name="'.$v.'" value="'.$txt.'" size="50">';
 			}
-			echo '<tr><td valign=top nowrap><a name="'.$v.'"><b>'.$v.'</b></a>:</td><td valign=top>'.$inptd.'</td></tr>';
+			echo '<tr><td valign="top" nowrap="nowrap"><a name="'.$v.'"><b>'.$v.'</b></a>:</td><td valign=top>'.$inptd.'</td></tr>';
 		}
-		echo '<tr><td align=right colspan=2><input type="submit" name="btn_submit" value="Edit"></td></tr>';
-		echo '<input type="hidden" name="msglist" value="'.$msglist.'">';
+		echo '<tr><td align="right" colspan="2"><input type="submit" name="btn_submit" value="Edit"></td></tr>';
+		echo '<tr><td><input type="hidden" name="msglist" value="'.$msglist.'"></td></tr></table>';
 		if (isset($_GET['fl'])) {
 			echo '<input type="hidden" name="fl" value="'.$_GET['fl'].'">';
 		}
 		if (isset($_GET['NO_TREE_LIST'])) {
 			echo '<input type="hidden" name="NO_TREE_LIST" value="1">';
 		}
-		echo '</table></td></form>';
+		echo '</form></td>';
 	}
 ?>
 </tr></table>

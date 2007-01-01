@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.127 2006/09/19 14:37:57 hackie Exp $
+* $Id: consist.php,v 1.128 2007/01/01 17:10:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,7 +55,7 @@ function draw_info($cnt)
 
 function stop_js()
 {
-	echo '<script language="Javascript1.2">clearInterval(intervalID);</script>';
+	echo '<script language="Javascript1.2" type="text/javascript">clearInterval(intervalID);</script>';
 }
 
 function delete_zero($tbl, $q)
@@ -103,7 +103,7 @@ forum will be disabled.
 			draw_stat('Re-enabling the forum.');
 			maintenance_status($DISABLED_REASON, 0);
 		} else {
-			echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsidl.'">Global Settings Manager</a> and re-enable it.</font><br>';
+			echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font><br>';
 		}
 
 		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
@@ -111,7 +111,7 @@ forum will be disabled.
 	}
 	register_shutdown_function('stop_js');
 ?>
-<script language="Javascript1.2">
+<script language="Javascript1.2" type="text/javascript">
 	var intervalID;
 	function scrolldown()
 	{
@@ -726,11 +726,11 @@ forum will be disabled.
 		draw_stat('Re-enabling the forum.');
 		maintenance_status($DISABLED_REASON, 0);
 	} else {
-		echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsidl.'">Global Settings Manager</a> and re-enable it.</font><br>';
+		echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font><br>';
 	}
 
 	draw_stat('DONE');
 
-	echo 'It is recommended that you run SQL table optimizer after completing the consistency check. To do so <a href="consist.php?opt=1&'.__adm_rsidl.'">click here</a>, keep in mind that this process make take several minutes to perform.';
+	echo 'It is recommended that you run SQL table optimizer after completing the consistency check. To do so <a href="consist.php?opt=1&amp;'.__adm_rsid.'">click here</a>, keep in mind that this process make take several minutes to perform.';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

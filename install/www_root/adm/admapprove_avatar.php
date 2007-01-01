@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admapprove_avatar.php,v 1.27 2006/09/19 14:37:56 hackie Exp $
+* $Id: admapprove_avatar.php,v 1.28 2007/01/01 17:14:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,16 +32,17 @@
 	$c = uq('SELECT id, avatar_loc, alias FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE users_opt>=16777216 AND (users_opt & 16777216) > 0 ORDER BY id');
 	while ($r = db_rowarr($c)) {
 		$a = 1;
-		echo '<tr class="field"><td>'.$r[2].'</td><td>[<a href="admapprove_avatar.php?usr_id='.$r[0].'&'.__adm_rsidl.'">Approve</a>] [<a href="admapprove_avatar.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
-		echo '<tr class="field"><td align="center" colspan=2>'.$r[1].'</td></tr>';
+		echo '<tr class="field"><td>'.$r[2].'</td><td>[<a href="admapprove_avatar.php?usr_id='.$r[0].'&amp;'.__adm_rsid.'">Approve</a>] [<a href="admapprove_avatar.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr class="field"><td align="center" colspan="2">'.$r[1].'</td></tr>';
 	}
 	unset($c);
+
+	if (!$a) {
+		echo '<tr><td>There are no avatars pending approval.</td></tr>';
+	}
 ?>
 </table>
 <?php
-	if (!$a) {
-		echo 'There are no avatars pending approval.';
-	}
 
 	require($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

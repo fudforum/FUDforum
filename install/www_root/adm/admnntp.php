@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.34 2006/11/29 15:36:16 hackie Exp $
+* $Id: admnntp.php,v 1.35 2007/01/01 17:01:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -234,8 +234,8 @@
 		}
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
 			<td nowrap><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/nntp.php '.$r[0].' </font></td>
-			<td>[<a href="admnntp.php?edit='.$r[0].'&'.__adm_rsidl.'">Edit</a>] [<a href="admnntp.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]
-			[<a href="admnntp.php?trk='.$r[0].'&'.__adm_rsidl.'">Clear Tracker</a>]</td></tr>';
+			<td>[<a href="admnntp.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admnntp.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
+			[<a href="admnntp.php?trk='.$r[0].'&amp;'.__adm_rsid.'">Clear Tracker</a>]</td></tr>';
 	}
 	unset($c);
 ?>

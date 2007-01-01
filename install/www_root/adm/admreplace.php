@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admreplace.php,v 1.27 2006/09/19 14:37:56 hackie Exp $
+* $Id: admreplace.php,v 1.28 2007/01/01 17:00:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -95,11 +95,11 @@ function clean_rgx()
 	if (!$rpl_replace_opt) {
 ?>
 	<tr>
-		<td colspan=2><br></td>
+		<td colspan="2"><br></td>
 	</tr>
 
 	<tr class="fieldtopic">
-		<td colspan=2><b><font size=-2>Optional with the Perl Regex</font></b><br><font size=-1>(Reverse replacement logic, e.g upon editing a post)</font></td>
+		<td colspan="2"><b><font size="-2">Optional with the Perl Regex</font></b><br><font size="-1">(Reverse replacement logic, e.g upon editing a post)</font></td>
 	</tr>
 
 	<tr class="field">
@@ -139,11 +139,11 @@ function clean_rgx()
 		}
 ?>
 	<tr>
-		<td colspan=2><br></td>
+		<td colspan="2"><br></td>
 	</tr>
 
 	<tr class="fieldtopic">
-		<td colspan=2><b><font size=-2>Test Area, tryout your regex here</font></b></td>
+		<td colspan="2"><b><font size="-2">Test Area, tryout your regex here</font></b></td>
 	</tr>
 
 	<tr class="field">
@@ -167,14 +167,14 @@ function clean_rgx()
 	<tr class="fieldresult">
 		<td valign=top>Result:</td>
 		<td>
-			<font size=-1>
+			<font size="-1">
 			'<?php echo htmlspecialchars($regex_str); ?>' applied to: <br>
-			<table border=1 cellspacing=0 cellpadding=3>
+			<table border="1" cellspacing="0" cellpadding="3">
 			<tr><td><?php echo htmlspecialchars($regex_src); ?></td></tr>
 			</table>
 			<br>
 			produces:<br>
-			<table border=1 cellspacing=0 cellpadding=3>
+			<table border="1" cellspacing="0" cellpadding="3">
 			<tr><td><?php echo htmlspecialchars($str); ?></td></tr>
 			</table>
 			</font>
@@ -185,14 +185,14 @@ function clean_rgx()
 ?>
 
 	<tr class="fieldaction" align=right>
-		<td colspan=2><input type="submit" name="btn_regex" value="Run"></td>
+		<td colspan="2"><input type="submit" name="btn_regex" value="Run"></td>
 	</tr>
 <?php } /* !$rpl_replace_opt */ ?>
 
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
-<script>
+<script type="text/javascript">
 <!--
 document.frm_rpl.rpl_replace_str.focus();
 //-->
@@ -202,8 +202,8 @@ document.frm_rpl.rpl_replace_str.focus();
 	<td>Replace Type</td>
 	<td>Replace</td>
 	<td>With</td>
-	<td valign=center><font size=-3>(only if regexp:</font> From</td>
-	<td valign=center>To<font size=-3>)</font></td>
+	<td valign="middle"><font size="-3">(only if regexp:</font> From</td>
+	<td valign="middle">To<font size="-3">)</font></td>
 	<td>Action</td>
 </tr>
 <?php
@@ -228,7 +228,7 @@ document.frm_rpl.rpl_replace_str.focus();
 		} else {
 			echo '<td>'.htmlspecialchars($r->from_post).'</td><td>'.htmlspecialchars($r->to_msg).'</td>';
 		}
-		echo '<td>[<a href="admreplace.php?edit='.$r->id.'&'.__adm_rsidl.'">Edit</a>] [<a href="admreplace.php?del='.$r->id.'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
+		echo '<td>[<a href="admreplace.php?edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admreplace.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 ?>

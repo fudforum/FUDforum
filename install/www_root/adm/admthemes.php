@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.64 2006/09/19 14:37:56 hackie Exp $
+* $Id: admthemes.php,v 1.65 2007/01/01 17:03:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -93,7 +93,7 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<h2>Theme Management [ <a href="admthemes.php?rebuild_all=1&<?php echo __adm_rsidl; ?>">Rebuild all Themes</a> ]</h2>
+<h2>Theme Management [ <a href="admthemes.php?rebuild_all=1&amp;<?php echo __adm_rsid; ?>">Rebuild all Themes</a> ]</h2>
 
 <form name="admthm" action="admthemes.php" method="post">
 <?php echo _hs; ?>
@@ -156,7 +156,7 @@
 			$cases .= "break;\n";
 		}
 	?>
-<script>
+<script type="text/javascript">
 function update_locale()
 {
 	switch (document.admthm.thm_lang.value) {
@@ -255,8 +255,8 @@ function update_locale()
 			<td>'.(!$r->pspell_lang ? '<font color="green">disabled</font> ' : htmlspecialchars($r->pspell_lang)).'</td>
 			<td>'.($r->theme_opt & 1 ? 'Yes' : '<font color="green">No</font>').'</td>
 			<td>'.($r->theme_opt & 2 ? 'Yes' : '<font color="green">No</font>').'</td>
-			<td nowrap>[<a href="admthemes.php?'.__adm_rsidl.'&edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'.__adm_rsidl.'&rebuild='.$r->id.'">Rebuild Theme</a>]
-			'.($r->id != 1 ? '[<a href="admthemes.php?'.__adm_rsidl.'&del='.$r->id.'">Delete</a>]' : '').'
+			<td nowrap>[<a href="admthemes.php?'.__adm_rsid.'&amp;edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'.__adm_rsid.'&amp;rebuild='.$r->id.'">Rebuild Theme</a>]
+			'.($r->id != 1 ? '[<a href="admthemes.php?'.__adm_rsid.'&amp;del='.$r->id.'">Delete</a>]' : '').'
 			</td>
 		</tr>';
 	}

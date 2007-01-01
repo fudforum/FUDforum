@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admpdf.php,v 1.17 2006/09/19 14:37:56 hackie Exp $
+* $Id: admpdf.php,v 1.18 2007/01/01 17:04:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -70,18 +70,17 @@
 	$names = "A3: 842 x 1190\nA4: 595 x 842\nA5: 421 x 595\nletter: 612 x 792\nlegal: 612 x 1008";
 
 	$sel = create_select('CF_PDF_PAGE', $names, $opts, $PDF_PAGE);
-	echo '<tr class="field"><td>Page Dimensions: <br><font size="-1">The sizes are in points, each point is 1/72 of an inch.</font></td><td valign="top">'.$sel.'</td></tr>';
+	echo '<tr class="field"><td>Page Dimensions: <br /><font size="-1">The sizes are in points, each point is 1/72 of an inch.</font></td><td valign="top">'.$sel.'</td></tr>';
 
 	print_reg_field('Horizontal Margin', 'PDF_WMARGIN', 1);
 	print_reg_field('Vertical Margin', 'PDF_HMARGIN', 1);
 	print_reg_field('Maximum CPU Time', 'PDF_MAX_CPU', 1);
 ?>
-<tr class="fieldaction"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Change Settings"></td></tr>
+<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Change Settings"><input type="hidden" name="form_posted" value="1"></td></tr>
 </table>
-<input type="hidden" name="form_posted" value="1">
 </form>
 <br>
-<table border=0 cellspacing=1 cellpadding=3>
+<table border="0" cellspacing="1" cellpadding="3">
 <tr><th><b>Quick PDF Tutorial</b></th></tr>
 <tr class="tutor"><td>
 If enabled, this feature will allow forum visitors to generate PDF files based on the forum data for easy printing and other uses.<br />
@@ -89,8 +88,9 @@ This facility supports 3 data retrieval modes, messages, topics & entire forums.
 <b>Examples:</b>
 <blockquote>
 	<a href="<?php echo $rdf_url; ?>?frm=1"><?php echo $rdf_url; ?>?frm=1</a> will generate a pdf with all the messages from forum with an id of 1.<br />
-	<a href="<?php echo $rdf_url; ?>?frm=1&page=3"><?php echo $rdf_url; ?>?frm=1&page=3</a> will generate a pdf with all the messages from forum with an id of 1, which can be found on page 3.<br />
+	<a href="<?php echo $rdf_url; ?>?frm=1&amp;page=3"><?php echo $rdf_url; ?>?frm=1&amp;page=3</a> will generate a pdf with all the messages from forum with an id of 1, which can be found on page 3.<br />
 	<a href="<?php echo $rdf_url; ?>?thread=1"><?php echo $rdf_url; ?>?thread=1</a> will generate a pdf with all the messages from topic with an id of 1.<br />
 	<a href="<?php echo $rdf_url; ?>?msg=1"><?php echo $rdf_url; ?>?msg=1</a> will generate a pdf contaning a message with an id of 1.<br />
 </blockquote>
+</table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
