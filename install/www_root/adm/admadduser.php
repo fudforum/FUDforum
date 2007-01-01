@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.28 2006/09/19 14:37:56 hackie Exp $
+* $Id: admadduser.php,v 1.29 2007/01/01 17:11:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -97,7 +97,7 @@ function validate_input()
 	if ($error) {
 		echo '<h1 style="color: red">Error Has Occured</h1>';
 	} else if (!empty($user_added)) {
-		echo '<font size="+1" color="green">User ('.$_POST['login'].') was successfully added.<font><br>';
+		echo '<font size="+1" color="green">User ('.$_POST['login'].') was successfully added.</font><br>';
 	}
 ?>
 <form name="frm_usr" method="post" action="admadduser.php">
@@ -128,7 +128,7 @@ function validate_input()
 	</tr>
 </table>
 </form>
-<script>
+<script type="text/javascript">
 <!--
 document.frm_usr.login.focus();
 //-->
