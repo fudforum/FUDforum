@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.35 2007/01/01 17:01:01 hackie Exp $
+* $Id: admnntp.php,v 1.36 2007/01/01 18:16:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -101,7 +101,7 @@
 			<font size="-1">Messages imported from the newsgroup will be imported into this forum.
 			It is <b>**highly recommeded**</b> that you setup a seperate forum for each newsgroup.</font>
 		</td>
-		<td><select name="nntp_forum_id">
+		<td><select name="nntp_forum_id"><option></option>
 		<?php
 			$c = uq('SELECT f.id, f.name, c.name
 				FROM '.$tbl.'forum f
