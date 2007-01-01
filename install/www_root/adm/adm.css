@@ -136,3 +136,17 @@ span.linkgroup {
 	text-align: center;
 	border: 2px dashed red;
 }
+
+phpinfo {border-collapse: collapse;}
+.center {text-align: center;}
+.center table { margin-left: auto; margin-right: auto; text-align: left;}
+.center th { text-align: center !important; }
+.p {text-align: left;}
+.e {background-color: #ccccff; font-weight: bold; color: #000000;}
+.h {background-color: #9999cc; font-weight: bold; color: #000000;}
+.v {background-color: #cccccc; color: #000000;}
+.vr {background-color: #cccccc; text-align: right; color: #000000;}
+hr {width: 600px; background-color: #cccccc; border: 0px; height: 1px; color: #000000;}
+
+
+img {float: right; border: 0px;}
