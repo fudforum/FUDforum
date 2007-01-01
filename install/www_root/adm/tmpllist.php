@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.45 2006/09/19 14:37:57 hackie Exp $
+* $Id: tmpllist.php,v 1.46 2007/01/01 17:30:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -114,21 +114,21 @@ function goto_tmpl($tmpl)
 
 	if ($edit) {
 		if (!isset($fl)) {
-			exit('Missing template name<br>');
+			exit('Missing template name<br />');
 		}
 		$f_path = $GLOBALS['DATA_DIR'].'thm/'.$tname.'/tmpl/'.$fl;
 		if (!@file_exists($f_path)) {
-			exit('Non-existent template<br>');
+			exit('Non-existent template<br />');
 		} else if (!($data = @file_get_contents($f_path))) {
-			exit('Could not open template<br>');
+			exit('Could not open template<br />');
 		}
 		$tmpl = $sec ? $sec : $msec;
 		$tmpl_type = $sec ? 'SECTION' : 'MAIN';
 		if (!$tmpl) {
-			exit('Section parameter not avaliable<br>');
+			exit('Section parameter not avaliable<br />');
 		}
 		if (($sdata = fetch_section($data, $f_path, $tmpl, $tmpl_type)) === false) {
-			exit('Couldn\'t locate template "'.$tmpl.'" inside "'.$f_path.'"<br>');
+			exit('Couldn\'t locate template "'.$tmpl.'" inside "'.$f_path.'"<br />');
 		}
 
 		if (!isset($_POST['submitted'])) {
@@ -158,13 +158,13 @@ function goto_tmpl($tmpl)
 			$p = $e;
 		}
 		if (isset($msg_list)) {
-			$msg_list = ' <font size="-1">[ <a href="#" onClick="javascript: window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&NO_TREE_LIST=1&msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
+			$msg_list = ' <font size="-1">[ <a href="#" onClick="javascript: window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsid.'&NO_TREE_LIST=1&msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
 		}
 	}
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<script language="JavaScript" src="../lib.js"></script>
-<style>
+<script language="JavaScript" src="../lib.js" type="text/javascript"></script>
+<style type="text/css">
 .file_name {
 	font-weight: bold;
 	color: #ff0000;
@@ -196,15 +196,15 @@ function goto_tmpl($tmpl)
 }
 </style>
 
-<table width="100%" border=1 cellspacing=2 cellpadding=2>
+<table width="100%" cellspacing="2" cellpadding="2">
 <tr>
-<td nowrap>
+<td nowrap="nowrap">
 <?php
 	$path = $DATA_DIR . 'thm/' . $tname . '/tmpl';
 	$pathl = $path . '/';
 
 	if (!($files = glob($pathl . '*.tmpl', GLOB_NOSORT))) {
-		exit('Unable to open template directory at: "'.$path.'"<br>');
+		exit('Unable to open template directory at: "'.$path.'"<br />');
 	}
 	foreach ($files as $f) {
 		$data = file_get_contents($f);
@@ -254,12 +254,12 @@ function goto_tmpl($tmpl)
 						$d = explode(' ', substr($data, $p, ($e - $p)), 3);
 
 						if (!isset($file_info_array[$file])) {
-							$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&max_list='.minimize($file, $max_list).'" title="minimize">[ - ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a><br>';
+							$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;max_list='.minimize($file, $max_list).'" title="minimize">[ - ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a><br />';
 						}
 						if ($tag != 'SECTION') {
-							$file_info_array[$file] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="msec" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&edit=1&fl='.$file.'&msec='.urlencode($d[1]).'&max_list='.$max_list.'">'.$d[1].'</a>';
+							$file_info_array[$file] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="msec" href="tmpllist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;edit=1&amp;fl='.$file.'&amp;msec='.urlencode($d[1]).'&amp;max_list='.$max_list.'">'.$d[1].'</a>';
 						} else {
-							$file_info_array[$file] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="sec" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&edit=1&fl='.$file.'&sec='.urlencode($d[1]).'&max_list='.$max_list.'">'.$d[1].'</a>';
+							$file_info_array[$file] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="sec" href="tmpllist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;edit=1&amp;fl='.$file.'&amp;sec='.urlencode($d[1]).'&amp;max_list='.$max_list.'">'.$d[1].'</a>';
 						}
 						if (isset($d[2]) && ($d[2] = trim($d[2]))) {
 							if (!$edit) {
@@ -267,7 +267,7 @@ function goto_tmpl($tmpl)
 							}
 							$file_info_help[$d[1]] = $d[2];
 						}
-						$file_info_array[$file] .= '<br>';
+						$file_info_array[$file] .= '<br />';
 						$p = $e2 + 6;
 						break;
 					default:
@@ -276,7 +276,7 @@ function goto_tmpl($tmpl)
 				}
 			}
 		} else { /* just parse the title & help if avaliable */
-			$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&max_list='.maximize($file, $max_list).'" title="maximize">[ + ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a>';
+			$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;max_list='.maximize($file, $max_list).'" title="maximize">[ + ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a>';
 		}
 	}
 
@@ -311,22 +311,22 @@ function goto_tmpl($tmpl)
 			if( is_array($php_deps[$k]) ) {
 				$deps = '';
 				foreach($php_deps[$k] as $k2 => $v2) {
-					if( $file_info_array[$k2] ) $deps .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&max_list='.goto_tmpl($k2).'" class="deps">'.$k2.'</a><br>';
+					if( $file_info_array[$k2] ) $deps .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;max_list='.goto_tmpl($k2).'" class="deps">'.$k2.'</a><br />';
 				}
 
-				if( !empty($deps) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#00AA00"><b>Dependencies</b></font><br>'.$deps;
+				if( !empty($deps) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#00AA00"><b>Dependencies</b></font><br />'.$deps;
 			}
 
 			if( is_array($deps_on[$k]) ) {
 				$dp = '';
 				foreach($deps_on[$k] as $k2) {
-					if( $file_info_array[$k2] ) $dp .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&max_list='.goto_tmpl($k2).'" class="depson">'.$k2.'</a><br>';
+					if( $file_info_array[$k2] ) $dp .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;max_list='.goto_tmpl($k2).'" class="depson">'.$k2.'</a><br />';
 				}
 
-				if( !empty($dp) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#CC6600"><b>Used By</b></font><br>'.$dp;
+				if( !empty($dp) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#CC6600"><b>Used By</b></font><br />'.$dp;
 			}
 		}
-		echo '<br>';
+		echo '<br />';
 	}
 ?>
 </td>
@@ -334,7 +334,7 @@ function goto_tmpl($tmpl)
 <td width="100%" valign="top">
 <?php
 	if (isset($update_ok)) {
-		echo '<font color="black"><b>***Theme was successfully updated.***</b></font><br><br>';
+		echo '<font color="black"><b>***Theme was successfully updated.***</b></font><br /><br />';
 	}
 ?>
 <font color="#008800"><b>Explanation:</b>
@@ -345,27 +345,29 @@ function goto_tmpl($tmpl)
 		echo $sdata['comment'];
 	}
 ?>
-</font><br>
-<table cellspacing=2 cellpadding=1 border=0>
-<form method="post" action="tmpllist.php?tname=<?php echo $tname; ?>&tlang=<?php echo $tlang; ?>" name="tmpledit">
+</font><br />
+<form method="post" action="tmpllist.php?tname=<?php echo $tname; ?>&amp;tlang=<?php echo $tlang; ?>" name="tmpledit">
 <?php echo _hs; ?>
+<table cellspacing="2" cellpadding="1" border="0">
 <tr>
 	<td>
-		<b><?php echo $tmpl; ?></b>:<?php echo (isset($msg_list) ? $msg_list : ''); ?><br>
+		<b><?php echo $tmpl; ?></b>:<?php echo (isset($msg_list) ? $msg_list : ''); ?><br />
 		<textarea rows="20" cols="60" name="tmpl_data"><?php echo htmlspecialchars($tmpl_data); ?></textarea>
 	</td>
 </tr>
 <tr>
 	<td align="right"><input type="reset" name="reset" value="Undo Changes">&nbsp;&nbsp;&nbsp;<input type="Submit" name="Submit" value="Save Changes"></td>
+    <td>
+		<input type="hidden" name="msec" value="<?php echo $msec; ?>">
+		<input type="hidden" name="max_list" value="<?php echo $max_list; ?>">
+		<input type="hidden" name="sec" value="<?php echo $sec; ?>">
+		<input type="hidden" name="submitted" value="1">
+		<input type="hidden" name="edit" value="1">
+		<input type="hidden" name="fl" value="<?php echo $fl; ?>">
+	</td>
 </tr>
-<input type="hidden" name="msec" value="<?php echo $msec; ?>">
-<input type="hidden" name="max_list" value="<?php echo $max_list; ?>">
-<input type="hidden" name="sec" value="<?php echo $sec; ?>">
-<input type="hidden" name="submitted" value="1">
-<input type="hidden" name="edit" value="1">
-<input type="hidden" name="fl" value="<?php echo $fl; ?>">
-</form>
 </table>
+</form>
 </td>
 </tr>
 <?php } ?>
