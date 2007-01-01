@@ -1,8 +1,8 @@
 <?php
 /**
-* copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ssu.inc.t,v 1.22 2006/09/19 14:37:55 hackie Exp $
+* $Id: ssu.inc.t,v 1.23 2007/01/01 18:23:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the

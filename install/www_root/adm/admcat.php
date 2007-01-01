@@ -1,8 +1,8 @@
 <?php
 /**
-* copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.44 2007/01/01 17:28:43 hackie Exp $
+* $Id: admcat.php,v 1.45 2007/01/01 18:23:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
