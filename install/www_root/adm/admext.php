@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.24 2006/09/19 14:37:56 hackie Exp $
+* $Id: admext.php,v 1.25 2007/01/01 17:22:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,7 +49,7 @@
 <form name="exf" method="post" action="admext.php">
 <table class="datatable solidtable">
 	<tr class="tutor">
-		<td colspan=2><b>note:</b> if no file extension is entered, all files will be allowed</td>
+		<td colspan="2"><b>note:</b> if no file extension is entered, all files will be allowed</td>
 	</tr>
 	<tr class="field">
 		<td>Extension:</td>
@@ -57,7 +57,7 @@
 	</tr>
 
 	<tr class="fieldaction">
-		<td colspan=2 align=right>
+		<td colspan="2" align=right>
 		<?php
 			if ($edit) {
 				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update" tabindex="2">';
@@ -71,7 +71,7 @@
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 <?php echo _hs; ?>
 </form>
-<script>
+<script type="text/javascript">
 <!--
 document.exf.c_ext.focus();
 //-->
@@ -90,8 +90,9 @@ document.exf.c_ext.focus();
 		} else {
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
-		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admext.php?edit='.$r[1].'&'.__adm_rsidl.'">Edit</a>] [<a href="admext.php?del='.$r[1].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
+		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admext.php?edit='.$r[1].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admext.php?del='.$r[1].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 ?>
+</table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
