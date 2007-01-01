@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admrdf.php,v 1.19 2006/09/19 14:37:56 hackie Exp $
+* $Id: admrdf.php,v 1.20 2007/01/01 17:37:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,7 +74,7 @@
 	print_bit_field('Allow user data retrieval', 'RDF_ALLOW_USER_DATA');
 	print_reg_field('Cache Controls', 'RDF_CACHE_AGE');
 ?>
-<tr class="fieldaction"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Change Settings"></td></tr>
+<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Change Settings"></td></tr>
 </table>
 <input type="hidden" name="form_posted" value="1">
 </form>
@@ -93,13 +93,13 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 <br /><br />
 <h4><u><b>'m' mode (messages)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
-		<tr><td><i>cat<i></td><td>Only retrieve messages from category with this id.</td></tr>
-		<tr><td><i>frm<i></td><td>Only retrieve messages from forum with this id.</td></tr>
-		<tr><td><i>th<i></td><td>Only retrieve messages from topic with this id.</td></tr>
-		<tr><td><i>id<i></td><td>Retrieve a single message with the specified id.</td></tr>
-		<tr><td><i>ds<i></td><td>Only retrieve messages posted after the specified date (unix timestamp).</td></tr>
-		<tr><td><i>de<i></td><td>Only retrieve messages posted before the specified date (unix timestamp).</td></tr>
+	<table border="0" cellspacing="1" cellpadding="3">
+		<tr><td><i>cat</i></td><td>Only retrieve messages from category with this id.</td></tr>
+		<tr><td><i>frm</i></td><td>Only retrieve messages from forum with this id.</td></tr>
+		<tr><td><i>th</i></td><td>Only retrieve messages from topic with this id.</td></tr>
+		<tr><td><i>id</i></td><td>Retrieve a single message with the specified id.</td></tr>
+		<tr><td><i>ds</i></td><td>Only retrieve messages posted after the specified date (unix timestamp).</td></tr>
+		<tr><td><i>de</i></td><td>Only retrieve messages posted before the specified date (unix timestamp).</td></tr>
 		<tr><td><i>n</i></td><td>Fetch no more then <i>n</i> messages (cannot be higher then overall maximum).</td></tr>
 		<tr><td><i>o</i></td><td>Starting offset from which to begin fetching messages.</td></tr>
 		<tr><td><i>l</i></td><td>Order messages from newest to oldest.</td></tr>
@@ -110,12 +110,12 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 </blockquote>
 <h4><u><b>'t' mode (topics)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
-		<tr><td><i>cat<i></td><td>Only retrieve topics from category with this id.</td></tr>
-		<tr><td><i>frm<i></td><td>Only retrieve topics from forum with this id.</td></tr>
-		<tr><td><i>id<i></td><td>Retrieve a single topic with the specified id.</td></tr>
-		<tr><td><i>ds<i></td><td>Only retrieve topics where the last message was posted after the specified date (unix timestamp).</td></tr>
-		<tr><td><i>de<i></td><td>Only retrieve topics where the last message was posted before the specified date (unix timestamp).</td></tr>
+	<table border="0" cellspacing="1" cellpadding="3">
+		<tr><td><i>cat</i></td><td>Only retrieve topics from category with this id.</td></tr>
+		<tr><td><i>frm</i></td><td>Only retrieve topics from forum with this id.</td></tr>
+		<tr><td><i>id</i></td><td>Retrieve a single topic with the specified id.</td></tr>
+		<tr><td><i>ds</i></td><td>Only retrieve topics where the last message was posted after the specified date (unix timestamp).</td></tr>
+		<tr><td><i>de</i></td><td>Only retrieve topics where the last message was posted before the specified date (unix timestamp).</td></tr>
 		<tr><td><i>n</i></td><td>Fetch no more then <i>n</i> topics (cannot be higher then overall maximum).</td></tr>
 		<tr><td><i>o</i></td><td>Starting offset from which to begin fetching topics.</td></tr>
 		<tr><td><i>l</i></td><td>Order topics from newest to oldest.</td></tr>
@@ -123,7 +123,7 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 </blockquote>
 <h4><u><b>'u' mode (users)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td><i>pc</i></td><td>Order users by number of messages posted, from largest to smallest.</td></tr>
 		<tr><td><i>rd</i></td><td>Order users by registration, from most recent to oldest.</td></tr>
 		<tr><td><i>cl</i></td><td>Only show users who are currently online.</td></tr>
@@ -133,7 +133,7 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 </blockquote>
 <b>Example:</b><br />
 The following link will fetch 10 most recent messages from your forum:<br />
-<a href="<?php echo $rdf_url; ?>?mode=m&l=1&n=10&basic=1" target="_blank"><?php echo $rdf_url; ?>?mode=m&l=1&n=10</a>
+<a href="<?php echo $rdf_url; ?>?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank"><?php echo $rdf_url; ?>?mode=m&amp;l=1&amp;n=10</a>
 </td></tr>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

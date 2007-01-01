@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admloginuser.php,v 1.28 2006/09/19 14:37:56 hackie Exp $
+* $Id: admloginuser.php,v 1.29 2007/01/01 17:45:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,21 @@
 		$err = '';
 	}
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
+<head>
+<?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel - Login</title>' ?>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php 
+if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
+} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
+} else {
+	echo 'us-ascii';
+}
+?>">
+</head>
+<body>
 <h2>Login Into the Forum</h2>
 <?php
 	if ($err) {
@@ -39,18 +53,18 @@
 	}
 ?>
 <form method="post" action="admloginuser.php"><?php echo _hs; ?>
-<table border=0 cellspacing=0 cellpadding=3>
+<table border="0" cellspacing="0" cellpadding="3">
 <tr>
 	<td>Login:</td>
-	<td><input type="text" name="login" value="<?php if (isset($_POST['login'])) { echo htmlspecialchars($_POST['login']); } ?>" size=25></td>
+	<td><input type="text" name="login" value="<?php if (isset($_POST['login'])) { echo htmlspecialchars($_POST['login']); } ?>" size="25"></td>
 </tr>
 <tr>
 	<td>Password:</td>
-	<td><input type="password" name="passwd" size=25></td>
+	<td><input type="password" name="passwd" size="25"></td>
 </tr>
 
 <tr>
-	<td align=right colspan=2><input type="submit" name="btn_login" value="Login"></td>
+	<td align="right" colspan="2"><input type="submit" name="btn_login" value="Login"></td>
 </tr>
 </table>
 </form>

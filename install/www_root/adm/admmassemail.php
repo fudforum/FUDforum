@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.50 2006/09/19 14:37:56 hackie Exp $
+* $Id: admmassemail.php,v 1.51 2007/01/01 17:45:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -130,7 +130,7 @@
 </tr>
 <?php
 }
-	echo '<tr class="field"><td valign=top>Send Messages To</td><td><select name="group">';
+	echo '<tr class="field"><td valign="top">Send Messages To</td><td><select name="group">';
 	echo '<option value="0">All Forum Members</option>';
 	echo '<option value="'.$all_mods.'">All Forum Moderators</option>';
 	echo '<option value="'.$all_grp_lead.'">All Group Leaders</option>';
@@ -147,23 +147,23 @@
 	echo '</select></td></tr>';
 ?>
 	<tr class="field">
-		<td valign=top>Subject</td>
+		<td valign="top">Subject</td>
 		<td><input tabindex="1" type="text" name="subject" value=""></td>
 	</tr>
 	<tr class="field">
-		<td colspan=2 valign=top>
+		<td colspan="2" valign="top">
 			<b>Body</b><br>
-			<textarea tabindex="2" name="body" cols=80 rows=25></textarea>
+			<textarea tabindex="2" name="body" cols="80" rows="25"></textarea>
 		</td>
 	</tr>
 	<tr class="fieldaction">
-		<td colspan=2 align=right>
+		<td colspan="2" align=right>
 			<input type="checkbox" name="ignore_override" value="1"> Ignore User Override <input tabindex="3" type="submit" value="Send" name="btn_submit">
 		</td>
 	</tr>
 </table>
 </form>
-<script>
+<script type="text/javascript">
 <!--
 document.a_frm.subject.focus();
 //-->

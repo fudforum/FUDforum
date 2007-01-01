@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admslist.php,v 1.8 2006/09/19 14:37:56 hackie Exp $
+* $Id: admslist.php,v 1.9 2007/01/01 17:37:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,8 +17,8 @@ function print_ul($qry)
 	$i = 0;
 	$c = uq($qry);
 	while ($r = db_rowarr($c)) {
-		echo ++$i.') <b>'.$r[1].'</b> <a href="../'.__fud_index_name__.'?t=usrinfo&id='.$r[0].'&'.__adm_rsidl.'">View Profile</a> | 
-		<a href="admuser.php?act=1&usr_id='.$r[0].'&'.__adm_rsidl.'">Edit</a><br />';
+		echo ++$i.') <b>'.$r[1].'</b> <a href="../'.__fud_index_name__.'?t=usrinfo&amp;id='.$r[0].'&amp;'.__adm_rsid.'">View Profile</a> | 
+		<a href="admuser.php?act=1&amp;usr_id='.$r[0].'&amp;'.__adm_rsid.'">Edit</a><br />';
 	}
 	unset($c);
 }

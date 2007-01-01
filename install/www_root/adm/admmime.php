@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmime.php,v 1.26 2006/09/19 14:37:56 hackie Exp $
+* $Id: admmime.php,v 1.27 2007/01/01 17:39:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,29 +42,26 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>MIME Management System</h2>
-<table class="datatable solidtable">
 <form action="admmime.php" name="frm_mime" method="post" enctype="multipart/form-data">
-<?php
-	echo _hs;
-	if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/mime/')) {
-?>
+<?php echo _hs; ?>
+<table class="datatable solidtable">
+<?php if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/mime/')) { ?>
 <tr class="fieldtopic">
-	<td colspan=2><b>MIME Icon Upload (upload mime icons into the system)</td>
+	<td colspan="2"><b>MIME Icon Upload (upload mime icons into the system)</b></td>
 </tr>
 <tr class="field">
 	<td>MIME Icon Upload:<br><font size="-1">Only (.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
-	<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"></td>
-	<input type="hidden" name="tmp_f_val" value="1">
+	<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"><input type="hidden" name="tmp_f_val" value="1"></td>
 </tr>
 <?php } else { ?>
 <tr class="fieldtopic">
-	<td colspan=2><font color="#ff0000">Web server does not have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK']; ?>images/mime/'</b>, mime icon upload disabled</font></td>
+	<td colspan="2"><font color="#ff0000">Web server does not have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK']; ?>images/mime/'</b>, mime icon upload disabled</font></td>
 </tr>
 <?php } ?>
-<tr><td colspan=2>&nbsp;</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
 
 <tr class="fieldtopic">
-	<td colspan=2><a name="img"><b>MIME Management</b></a></td>
+	<td colspan="2"><a name="img"><b>MIME Management</b></a></td>
 </tr>
 
 <tr class="field">
@@ -89,14 +86,14 @@
 					document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/mime/' + document.frm_sml.mime_icon.value;
 				} else {
 					document.prev_icon.src='../blank.gif';
-				}"> [<a href="#mime_sel" onClick="javascript:window.open('admiconsel.php?type=2&amp;<?php echo __adm_rsidl; ?>', 'admmimesel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">select MIME icon</a>]</td>
+				}"> [<a href="#mime_sel" onClick="javascript:window.open('admiconsel.php?type=2&amp;<?php echo __adm_rsid; ?>', 'admmimesel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">select MIME icon</a>]</td>
 </tr>
 
 <tr class="field">
 	<td valign="top">Preview Image:</td>
 	<td>
 		<table border=1 cellspacing=1 cellpadding=2 bgcolor="#ffffff">
-		<tr><td align=center valign=center><img src="<?php echo ($mime_icon ? $GLOBALS['WWW_ROOT'] . 'images/mime/' . $mime_icon : '../blank.gif'); ?>" name="prev_icon" border=0></td></tr>
+		<tr><td align=center valign=middle><img src="<?php echo ($mime_icon ? $GLOBALS['WWW_ROOT'] . 'images/mime/' . $mime_icon : '../blank.gif'); ?>" name="prev_icon" border=0 alt="Preview"></td></tr>
 		</table>
 	</td>
 </tr>
@@ -112,9 +109,9 @@
 ?>
 	</td>
 </tr>
+</table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
-</table>
 <p>
 <table class="resulttable fulltable">
 <tr class="resulttopic">
@@ -131,9 +128,9 @@
 		if ($edit == $r[0]) {
 			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2""' : ' class="resultrow1"';
+			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
-		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$GLOBALS['WWW_ROOT'].'images/mime/'.$r[1].'" border=0></td><td>'.$r[2].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td nowrap>[<a href="admmime.php?edit='.$r[0].'&'.__adm_rsidl.'#img">Edit</a>] [<a href="admmime.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
+		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$GLOBALS['WWW_ROOT'].'images/mime/'.$r[1].'" border=0 alt="'.$r[4].'"></td><td>'.$r[2].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td nowrap>[<a href="admmime.php?edit='.$r[0].'&amp;'.__adm_rsid.'#img">Edit</a>] [<a href="admmime.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 ?>

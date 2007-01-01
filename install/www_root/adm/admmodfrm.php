@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmodfrm.php,v 1.28 2006/11/29 15:36:16 hackie Exp $
+* $Id: admmodfrm.php,v 1.29 2007/01/01 17:40:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,8 +38,8 @@
 		rebuildmodlist();
 ?>
 <html>
-<script language="JavaScript">
-	window.opener.location = 'admuser.php?act=1&usr_id=<?php echo $usr_id; ?>&<?php echo __adm_rsidl; ?>';
+<script language="JavaScript" type="text/javascript">
+	window.opener.location = 'admuser.php?act=1&usr_id=<?php echo $usr_id; ?>&<?php echo __adm_rsid; ?>';
 	window.close();
 </script>
 </html>
@@ -47,9 +47,21 @@
 		exit;
 	}
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
 <head>
+<?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel'.'</title>' ?>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php 
+if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
+} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
+} else {
+	echo 'us-ascii';
+}
+?>">
 <link rel="StyleSheet" href="adm.css" type="text/css">
+</head>
 <body class="popup">
 <h3>Allowing <?php echo $login; ?> to moderate:</h3>
 <form name="frm_mod" action="admmodfrm.php" method="post">
@@ -60,7 +72,7 @@
 	$pc = '';
 	while ($r = db_rowarr($c)) {
 		if ($pc != $r[0]) {
-			echo '<tr class="fieldtopic"><td colspan=2>'.$r[0].'</td></tr>';
+			echo '<tr class="fieldtopic"><td colspan="2">'.$r[0].'</td></tr>';
 			$pc = $r[0];
 		}
 		echo '<tr class="field"><td><input type="checkbox" name="mod_allow[]" value="'.$r[2].'"'.($r[3] ? ' checked': '').'>'.$r[1].'</td></tr>';
@@ -68,7 +80,7 @@
 	unset($c);
 ?>
 <tr class="fieldaction">
-	<td colspan=2 align=right><input type="submit" name="mod_submit" value="Apply"></td>
+	<td colspan="2" align="right"><input type="submit" name="mod_submit" value="Apply"></td>
 </tr>
 </table>
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.37 2006/11/29 15:36:16 hackie Exp $
+* $Id: admmlist.php,v 1.38 2007/01/01 17:42:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -86,10 +86,10 @@ function format_regex(&$regex)
 				LEFT JOIN '.$tbl.'mlist ml ON f.id=ml.forum_id
 				WHERE n.id IS NULL AND (ml.id IS NULL OR ml.id='.(int)$edit.')
 				ORDER BY c.parent, c.view_order, f.view_order');
-			while ($r = db_rowarr($c)) {
-				echo '<option value="'.$r[0].'"'.($r[0] != $ml_forum_id ? '' : ' selected').'>'.$r[2].' &raquo; '.$r[1].'</option>';
-			}
-			unset($c);
+				while ($r = db_rowarr($c)) {
+					echo '<option value="'.$r[0].'"'.($r[0] != $ml_forum_id ? '' : ' selected').'>'.$r[2].' &raquo; '.$r[1].'</option>';
+				}
+				unset($c);
 		?>
 		</select></td>
 	</tr>
@@ -172,18 +172,18 @@ function format_regex(&$regex)
 	</tr>
 
 	<tr>
-		<td colspan=2><br></td>
+		<td colspan="2"><br></td>
 	</tr>
 
 	<tr class="field">
-		<td colspan=2><font size="-1"><b>Optional</b> Subject Mangling<br><font size="-1">This field allows you to specify a regular expression, that
+		<td colspan="2"><font size="-1"><b>Optional</b> Subject Mangling<br>This field allows you to specify a regular expression, that
 		will be applied to the subjects of messages imported from the mailing list. This is useful to remove
 		automatically appended strings that are often used to identify mailing list messages. ex. [PHP]</font></td>
 	</tr>
 
 	<tr class="field">
 		<td>Replace mask:</td>
-		<td nowrap>/<input type="text" name="ml_subject_regex_haystack" value="<?php echo htmlspecialchars($ml_subject_regex_haystack); ?>">/<input type="text" name="ml_subject_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_subject_regex_haystack_opt)); ?>"></td>
+		<td nowrap="nowrap">/<input type="text" name="ml_subject_regex_haystack" value="<?php echo htmlspecialchars($ml_subject_regex_haystack); ?>">/<input type="text" name="ml_subject_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_subject_regex_haystack_opt)); ?>"></td>
 	</tr>
 
 	<tr class="field">
@@ -192,11 +192,11 @@ function format_regex(&$regex)
 	</tr>
 
 	<tr>
-		<td colspan=2><br></td>
+		<td colspan="2"><br></td>
 	</tr>
 
 	<tr class="field">
-		<td colspan=2><font size="-1"><b>Optional</b> Body Mangling<br><font size="-1">This field allows you to specify a regular expression, that
+		<td colspan="2"><font size="-1"><b>Optional</b> Body Mangling<br>This field allows you to specify a regular expression, that
 		will be applied to the bodies of messages imported from the mailing list. It is recommended you use this option
 		to remove the automatically prepended text added by the mailing list to the bottom of each message. This text often
 		informs the user on how to unsubscribe from the list and is merely a waste of space in a forum enviroment.</font>
@@ -205,7 +205,7 @@ function format_regex(&$regex)
 
 	<tr class="field">
 		<td>Replace mask:</td>
-		<td nowrap>/<input type="text" name="ml_body_regex_haystack" value="<?php echo htmlspecialchars($ml_body_regex_haystack); ?>">/<input type="text" name="ml_body_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_body_regex_haystack_opt)); ?>"></td>
+		<td nowrap="nowrap">/<input type="text" name="ml_body_regex_haystack" value="<?php echo htmlspecialchars($ml_body_regex_haystack); ?>">/<input type="text" name="ml_body_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_body_regex_haystack_opt)); ?>"></td>
 	</tr>
 
 	<tr class="field">
@@ -214,18 +214,18 @@ function format_regex(&$regex)
 	</tr>
 
 	<tr>
-		<td colspan=2><br></td>
+		<td colspan="2"><br></td>
 	</tr>
 
 	<tr class="field">
-		<td colspan=2><font size="-1"><b>Optional</b> Custom Headers<br><font size="-1">This field allows you to specify custom headers, that
+		<td colspan="2"><font size="-1"><b>Optional</b> Custom Headers<br>This field allows you to specify custom headers, that
 		will be appended to any existing headers sent by the forum when posting a message to the mailing list. To avoid problem
 		enter each header on a seperate line and do not place blank lines.</font></td>
 	</tr>
 
 	<tr class="field">
 		<td valign="top">Custom Headers:</td>
-		<td nowrap><textarea nowrap cols=50 rows=5 name="ml_additional_headers"><?php echo htmlspecialchars($ml_additional_headers); ?></textarea></td>
+		<td nowrap="nowrap"><textarea nowrap="nowrap" cols="50" rows="5" name="ml_additional_headers"><?php echo htmlspecialchars($ml_additional_headers); ?></textarea></td>
 	</tr>
 
 	<tr class="field">
@@ -237,11 +237,11 @@ function format_regex(&$regex)
 	</tr>
 
 	<tr>
-		<td colspan=2><br></td>
+		<td colspan="2"><br></td>
 	</tr>
 
 	<tr class="fieldaction">
-		<td colspan=2 align=right>
+		<td colspan="2" align="right">
 			<?php if ($edit) { echo '<input type="submit" value="Cancel" name="btn_cancel">&nbsp;'; } ?>
 			<input type="submit" value="<?php echo ($edit ? 'Update Mailing List Rule' : 'Add Mailing List Rule'); ?>" name="ml_submit">
 		</td>
@@ -252,7 +252,7 @@ function format_regex(&$regex)
 <br>
 <table class="resulttable fulltable">
 	<tr class="resulttopic">
-		<td nowrap>Mailing List Rule</td>
+		<td nowrap="nowrap">Mailing List Rule</td>
 		<td>Forum</td>
 		<td>Exec Line</td>
 		<td align="center">Action</td>
@@ -267,8 +267,8 @@ function format_regex(&$regex)
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
-		<td nowrap><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/maillist.php '.$r[0].'</font></td>
-		<td>[<a href="admmlist.php?edit='.$r[0].'&'.__adm_rsidl.'">Edit</a>] [<a href="admmlist.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
+		<td nowrap="nowrap"><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/maillist.php '.$r[0].'</font></td>
+		<td>[<a href="admmlist.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admmlist.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 ?>
