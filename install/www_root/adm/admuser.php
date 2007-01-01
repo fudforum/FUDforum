@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.79 2006/12/14 19:26:22 hackie Exp $
+* $Id: admuser.php,v 1.80 2007/01/01 17:32:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -111,16 +111,29 @@
 
 			if (!isset($_POST['del_confirm'])) {
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
-<title>User Deletion confirmation</title>
-<body color="white">
+<head>
+<?php echo '<title>'.$FORUM_TITLE.': Admin Control Panel - User Deletion confirmation'.'</title>' ?>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php 
+if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
+} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
+} else {
+	echo 'us-ascii';
+}
+?>">
+
+</head>
+<body bgcolor="white">
 <form method="post" action="admuser.php"><?php echo _hs; ?>
 <input type="hidden" name="act" value="del">
 <input type="hidden" name="f" value="<?php echo (int) isset($_GET['f']); ?>">
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 <input type="hidden" name="del_confirm" value="1">
-<div align="center">You are about to delete <font color="red"><b><?php echo $u->alias; ?></b></font>'s account!<br><br>
-Are you sure you want to do this, once deleted the account cannot be recovered?<br>
+<div align="center">You are about to delete <font color="red"><b><?php echo $u->alias; ?></b></font>'s account!<br /><br />
+Are you sure you want to do this, once deleted the account cannot be recovered?<br />
 <input type="submit" value="Yes" name="btn_yes"> <input type="submit" value="No" name="btn_no">
 </div>
 <?php
@@ -147,15 +160,27 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 			if ($u->users_opt & 1048576) {
 				if (!isset($_POST['adm_confirm'])) {
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
-<title>Adminstrator confirmation</title>
-<body color="white">
+<head>
+<?php echo '<title>'.$FORUM_TITLE.': Admin Control Panel - Adminstrator confirmation'.'</title>' ?>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php 
+if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
+} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
+} else {
+	echo 'us-ascii';
+}
+?>">
+</head>
+<body bgcolor="white">
 <form method="post" action="admuser.php"><?php echo _hs; ?>
 <input type="hidden" name="act" value="admin">
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 <input type="hidden" name="adm_confirm" value="1">
-<div align="center">You are taking away administration privileges from <font color="red"><b><?php echo $u->alias; ?></b></font>!<br><br>
-Are you sure you want to do this?<br>
+<div align="center">You are taking away administration privileges from <font color="red"><b><?php echo $u->alias; ?></b></font>!<br /><br />
+Are you sure you want to do this?<br />
 <input type="submit" value="Yes" name="btn_yes"> <input type="submit" value="No" name="btn_no">
 </div>
 </form>
@@ -174,16 +199,28 @@ Are you sure you want to do this?<br>
 			} else {
 				if (!isset($_POST['adm_confirm'])) {
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
-<title>Adminstrator confirmation</title>
-<body color="white">
+<head>
+<?php echo '<title>'.$FORUM_TITLE.': Admin Control Panel - Adminstrator confirmation'.'</title>' ?>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php 
+if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
+} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
+} else {
+	echo 'us-ascii';
+}
+?>">
+</head>
+<body bgcolor="white">
 <form method="post" action="admuser.php"><?php echo _hs; ?>
 <input type="hidden" name="act" value="admin">
 <input type="hidden" name="adm_confirm" value="1">
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 <div align="center">WARNING: Making <font color="red"><b><?php echo $u->alias; ?></b></font> an <font color="red"><b>administrator</b></font> will give this person full
 administration permissions to the forum. This individual will be able to do anything with the forum, including taking away your own administration permissions.
-<br><br>Are you sure you want to do this?<br>
+<br /><br />Are you sure you want to do this?<br />
 <input type="submit" value="Yes" name="btn_yes"> <input type="submit" value="No" name="btn_no">
 </div>
 </form>
@@ -277,9 +314,21 @@ administration permissions to the forum. This individual will be able to do anyt
 				}
 				break;
 			default:
-				echo 'There are '.$cnt.' users that match this '.$field.' mask:<br>';
+echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd"><html><head>';
+echo '<title>'.$FORUM_TITLE.': Admin Control Panel - Select user</title>';
+
+echo '<meta http-equiv="Content-Type" content="text/html; charset=';
+if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
+} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
+	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
+} else {
+	echo 'us-ascii';
+}
+echo '"></head><body bgcolor="white">';
+				echo 'There are '.$cnt.' users that match this '.$field.' mask:<br />';
 				while ($r = db_rowarr($c)) {
-					echo '<a href="admuser.php?usr_id='.$r[0].'&act=m&'.__adm_rsidl.'">Pick user</a> <b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b><br>';
+					echo '<a href="admuser.php?usr_id='.$r[0].'&amp;act=m&amp;'.__adm_rsid.'">Pick user</a> <b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b><br />';
 				}
 				unset($c);
 				exit;
@@ -293,7 +342,7 @@ administration permissions to the forum. This individual will be able to do anyt
 <?php echo _hs . $search_error; ?>
 <table class="datatable solidtable">
 	<tr class="field">
-		<td colspan=2>Search for User</td>
+		<td colspan="2">Search for User</td>
 	</tr>
 
 	<tr class="field">
@@ -307,25 +356,27 @@ administration permissions to the forum. This individual will be able to do anyt
 	</tr>
 
 	<tr class="fieldaction">
-		<td colspan=2 align=right><input tabindex="3" type="submit" value="Search" name="usr_search"></td>
+		<td colspan="2" align="right"><input tabindex="3" type="submit" value="Search" name="usr_search"></td>
 	</tr>
 </table>
 </form>
-<script>
+<script type="text/javascript">
 <!--
 document.frm_usr.usr_login.focus();
 //-->
 </script>
 <?php if ($usr_id) { ?>
+<form action="admuser.php" method="post"><?php echo _hs; ?>
 <table class="datatable solidtable">
 
-<form action="admuser.php" method="post"><?php echo _hs; ?>
 	<tr class="field"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo char_fix(htmlspecialchars($u->login)); ?>" maxLength="<?php echo $MAX_LOGIN_SHOW; ?>" name="login_name"> <input type="submit" name="submit" value="Change Login Name"></td></tr>
 	<tr class="field"><td>Password:</td><td><input type="text" value="" name="login_passwd"> <input type="submit" name="submit" value="Change Password"></td></tr>
+</table>
 	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 	<input type="hidden" name="act" value="nada">
 
 </form>
+<table class="datatable solidtable">
 <?php
 	if($FUD_OPT_2 & 128) {
 		echo '<tr class="field"><td>Alias:</td><td>'.$u->alias.'</td></tr>';
@@ -344,11 +395,11 @@ document.frm_usr.usr_login.focus();
 		echo '<tr class="field"><td>Last Used IP:</td><td>' . long2ip($u->last_known_ip) . '</td></tr>';
 	}
 
-	echo '<tr class="field"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../'.__fud_index_name__.'?t=register&mod_id='.$usr_id.'&'.__adm_rsidl.'">Change User\'s Profile</a> &lt;&lt;</font></td></tr>';
+	echo '<tr class="field"><td align="middle" colspan="2"><font size="+1">&gt;&gt; <a href="../'.__fud_index_name__.'?t=register&mod_id='.$usr_id.'&'.__adm_rsidl.'">Change User\'s Profile</a> &lt;&lt;</font></td></tr>';
 if (!$acc_mod_only) {
-	echo '<tr class="field"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . __adm_rsidl.'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td nowrap="nowrap"><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . __adm_rsidl.'">Toggle</a>]</td></tr>';
 } else {
-	echo '<tr class="field"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').'</td></tr>';
+	echo '<tr class="field"><td nowrap="nowrap"><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').'</td></tr>';
 }
 	echo '<tr class="field"><td>Email Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Confirmed Account:</td><td>'.($u->users_opt & 2097152 ? 'No' : 'Yes').' [<a href="admuser.php?act=conf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
@@ -363,7 +414,7 @@ if ($acc_mod_only) {
 		echo '<tr class="field"><td>COPPA:</td><td>'.($u->users_opt & 262144 ? 'Yes' : 'No').' [<a href="admuser.php?act=coppa&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	}
 
-	echo '<tr class="field"><td nowrap valign="top">Moderating Forums:</td><td valign="top">';
+	echo '<tr class="field"><td nowrap="nowrap" valign="top">Moderating Forums:</td><td valign="top">';
 	$c = uq('SELECT f.name FROM '.$DBHOST_TBL_PREFIX.'mod mm INNER JOIN '.$DBHOST_TBL_PREFIX.'forum f ON mm.forum_id=f.id WHERE mm.user_id='.$usr_id);
 	if ($r = db_rowarr($c)) {
 		echo '<table border=0 cellspacing=1 cellpadding=3>';
@@ -372,19 +423,19 @@ if ($acc_mod_only) {
 		} while ($r = db_rowarr($c));
 		echo '</table>';
 	} else {
-		echo 'None<br>';
+		echo 'None<br />';
 	}
 	unset($c);
 ?>
 	<a name="mod_here"> </a>
-	<a href="#mod_here" onClick="javascript: window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&' . __adm_rsidl; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
+	<a href="#mod_here" onClick="javascript: window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&amp;' . __adm_rsid; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
 
 
-	<tr class="field"><td valign=top>Custom Tags:</td><td valign="top">
+	<tr class="field"><td valign="top">Custom Tags:</td><td valign="top">
 <?php
 	$c = uq('SELECT name, id FROM '.$DBHOST_TBL_PREFIX.'custom_tags WHERE user_id='.$usr_id);
 	while ($r = db_rowarr($c)) {
-		echo $r[0] . ' [<a href="admuser.php?act=nada&usr_id='.$usr_id.'&deltag=' . $r[1] . '&' . __adm_rsidl . '">Delete</a>]<br>';
+		echo $r[0] . ' [<a href="admuser.php?act=nada&amp;usr_id='.$usr_id.'&amp;deltag=' . $r[1] . '&amp;' . __adm_rsid . '">Delete</a>]<br />';
 	}
 	unset($c);
 ?>
@@ -407,17 +458,18 @@ if ($acc_mod_only) {
 		</form>
 		</td>
 	</tr>
-
+<tr><td colspan="2">
 <form name="ban" action="admuser.php" method="post">
 <?php echo _hs; ?>
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 <input type="hidden" name="act" value="block">
+	<table cellspacing="0" border="0" cellpadding="0">
 	<tr class="field" align="center"><td colspan="2"><b>Ban User</b><br />
 	<font size="-1">To set a temporary ban specify the duration of the ban in number of days, 
 	for permanent ban leave duration value at 0. The value of the duration field for non-permanent bans will show
 	days remaining till ban expiry.</font></td></tr>
 	<tr class="field"><td>Is Banned:</td><td><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked' : ''); ?>> Yes</td></tr>
-	<tr class="field"><td colsan="2">Ban Duration (in days)</td><td><input type="text" value="<?php 
+	<tr class="field"><td>Ban Duration (in days)</td><td><input type="text" value="<?php 
 	if ($u->ban_expiry) {
 		printf("%.2f", ($u->ban_expiry - __request_timestamp__) / 86400);
 	} else {
@@ -425,8 +477,6 @@ if ($acc_mod_only) {
 	}
 	?>" name="ban_duration">
 	<input type="submit" name="ban_user" value="Ban/Unban"></td></tr>
-</form>
-
 	<tr class="field">
 		<td valign="top"><b>Group Membership:</b></td>
 		<td><?php
@@ -445,22 +495,24 @@ if ($acc_mod_only) {
 	</tr>
 
 	<tr class="field">
-	<td colspan=2>
+	<td colspan="2">
 <?php
 	if ($FUD_OPT_1 & 1024) {
-		echo '<a href="../'.__fud_index_name__.'?t=ppost&'.__adm_rsidl.'&toi='.$usr_id.'">Send Private Message</a> | ';
+		echo '<a href="../'.__fud_index_name__.'?t=ppost&amp;'.__adm_rsid.'&amp;toi='.$usr_id.'">Send Private Message</a> | ';
 	}
 	if ($FUD_OPT_1 & 4194304) {
-		echo '<a href="../'.__fud_index_name__.'?t=email&toi='.$usr_id.'&'.__adm_rsidl.'">Send Email</a> | ';
+		echo '<a href="../'.__fud_index_name__.'?t=email&amp;toi='.$usr_id.'&amp;'.__adm_rsid.'">Send Email</a> | ';
 	} else {
 		echo '<a href="mailto:'.$u->email.'">Send Email</a> | ';
 	}
 
-	echo '	<a href="../'.__fud_index_name__.'?t=showposts&id='.$usr_id.'&'.__adm_rsidl.'">See Posts</a> | <a href="admuser.php?act=reset&usr_id='.$usr_id.'&'.__adm_rsidl.'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr_id.'&'.__adm_rsidl.'">Delete User</a>';
+	echo '	<a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'">See Posts</a> | <a href="admuser.php?act=reset&amp;usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Reset Password</a> | <a href="admuser.php?act=del&amp;usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Delete User</a>';
 	if ($is_a) {	
-		echo ' | <a href="admprune.php?usr_id='.$usr_id.'&'.__adm_rsidl.'">Delete All messages by this user.</a></td></tr>';
+		echo ' | <a href="admprune.php?usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Delete All messages by this user.</a></td></tr>';
 	}
 }
 ?>
+	</table>
+</form>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

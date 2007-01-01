@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.43 2006/09/19 14:37:56 hackie Exp $
+* $Id: admcat.php,v 1.44 2007/01/01 17:28:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,12 +120,12 @@
 <table class="datatable">
 	<tr class="field">
 		<td>Category Name:</td>
-		<td><input type="text" name="cat_name" value="<?php echo htmlspecialchars($cat_name); ?>" maxLength=50></td>
+		<td><input type="text" name="cat_name" value="<?php echo htmlspecialchars($cat_name); ?>" maxLength="50"></td>
 	</tr>
 
 	<tr class="field">
 		<td>Description:</td>
-		<td><input type="text" name="cat_description" value="<?php echo htmlspecialchars($cat_description); ?>" maxLength=255></td>
+		<td><input type="text" name="cat_description" value="<?php echo htmlspecialchars($cat_description); ?>" maxLength="255"></td>
 	</tr>
 
 	<tr class="field">
@@ -167,7 +167,7 @@
 	<?php } ?>
 
 	<tr class="fieldaction">
-		<td colspan=2 align=right>
+		<td colspan="2" align="right">
 <?php
 	if ($edit) {
 		echo '<input type="submit" name="btn_cancel" value="Cancel">&nbsp;';
@@ -183,7 +183,7 @@
 		}
 		echo '</form>';
 	} else {
-		echo '<a href="admcat.php?'.__adm_rsidl.'">Cancel</a><br>';
+		echo '<a href="admcat.php?'.__adm_rsid.'">Cancel</a><br>';
 	}
 ?>
 <br>
@@ -203,13 +203,13 @@
 	$stat = array(0 => 'Collapsed', 2 => 'Open', 4 => 'Compact');
 
 	foreach ($cat_list as $i => $r) {
-		$bgcolor = (($i % 2) && ($edit != $r->id)) ? ' class="resultrow2""' : ' class="resultrow1"';
+		$bgcolor = (($i % 2) && ($edit != $r->id)) ? ' class="resultrow2"' : ' class="resultrow1"';
 
 		if ($r->parent == $cpid) {
 			if ($_GET['chpos'] == $r->view_order) {
 				$bgcolor = ' class="resultrow2"';
 			} else if ($_GET['chpos'] != ($r->view_order - 1)) {
-				echo '<tr class="field"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&par='.$r->parent.'&'.__adm_rsidl.'">Place Here</a></font></td></tr>';
+				echo '<tr class="field"><td align="center" colspan="7"><font size="-1"><a href="admcat.php?chpos='.$_GET['chpos'].'&amp;newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&amp;par='.$r->parent.'&amp;'.__adm_rsid.'">Place Here</a></font></td></tr>';
 			}
 			$lp = $r->view_order;
 		} else if ($cpid > -1) {
@@ -227,11 +227,11 @@
 			<td>'.htmlspecialchars(substr($r->description, 0, 30)).'</td>
 			<td>'.($r->cat_opt & 1 ? 'Yes' : 'No').'</td>
 			<td>'.$stat[($r->cat_opt & (2|4))].'</td>
-			<td nowrap>[<a href="admforum.php?cat_id='.$r->id.'&'.__adm_rsidl.'">Edit Forums</a>] [<a href="admcat.php?edit='.$r->id.'&'.__adm_rsidl.'">Edit Category</a>] [<a href="admcat.php?del='.$r->id.'&'.__adm_rsidl.'">Delete</a>]</td>
-			<td>[<a href="admcat.php?chpos='.$r->view_order.'&cpid='.$r->id.'&'.__adm_rsidl.'">Change</a>]</td></tr>';
+			<td nowrap="nowrap">[<a href="admforum.php?cat_id='.$r->id.'&amp;'.__adm_rsid.'">Edit Forums</a>] [<a href="admcat.php?edit='.$r->id.'&amp;'.__adm_rsid.'">Edit Category</a>] [<a href="admcat.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td>
+			<td>[<a href="admcat.php?chpos='.$r->view_order.'&amp;cpid='.$r->id.'&amp;'.__adm_rsid.'">Change</a>]</td></tr>';
 	}
 	if ($lp && $parent == $cpid) {
-		echo '<tr class="field"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&par='.$parent.'&'.__adm_rsidl.'">Place Here</a></font></td></tr>';
+		echo '<tr class="field"><td align="center" colspan="7"><font size="-1"><a href="admcat.php?chpos='.$_GET['chpos'].'&amp;newpos='.($lp + 1).'&amp;par='.$parent.'&amp;'.__adm_rsid.'">Place Here</a></font></td></tr>';
 	}
 ?>
 </table>

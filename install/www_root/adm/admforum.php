@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2006 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.45 2006/09/19 14:37:56 hackie Exp $
+* $Id: admforum.php,v 1.46 2007/01/01 17:28:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -114,7 +114,7 @@ function get_max_upload_size()
 <?php
 if (!isset($_GET['chpos'])) {
 ?>
-<a href="admcat.php?<?php echo __adm_rsidl; ?>">Back to categories</a><br>
+<a href="admcat.php?<?php echo __adm_rsid; ?>">Back to categories</a><br>
 
 <form method="post" name="frm_forum" action="admforum.php">
 <?php echo _hs; ?>
@@ -126,7 +126,7 @@ if (!isset($_GET['chpos'])) {
 
 	<tr class="field">
 		<td valign=top>Description</td>
-		<td><textarea nowrap name="frm_descr" cols=28 rows=5><?php echo htmlspecialchars($frm_descr); ?></textarea>
+		<td><textarea nowrap name="frm_descr" cols="28" rows="5"><?php echo htmlspecialchars($frm_descr); ?></textarea>
 	</tr>
 
 	<tr class="field">
@@ -135,7 +135,7 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
-		<td>Password Posting<br><font size=-2>Posting is only allowed with a knowledge of a password</font></td>
+		<td>Password Posting<br /><font size="-2">Posting is only allowed with a knowledge of a password</font></td>
 		<td><?php draw_select('frm_passwd_posting', "No\nYes", "0\n4", $frm_forum_opt & 4); ?></td>
 	</tr>
 
@@ -150,13 +150,13 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
-		<td>Max Attachment Size:<br><font size="-1">Your php's maximum file upload size is <b><?php echo floor($max_upload_size / 1024); ?></b> KB.<br />You cannot set the forum's attachment size limit higher than that.</font></td>
-		<td><input type="text" name="frm_max_attach_size" value="<?php echo $frm_max_attach_size; ?>" maxlength=100 size=5>kb</td>
+		<td>Max Attachment Size:<br /><font size="-1">Your php's maximum file upload size is <b><?php echo floor($max_upload_size / 1024); ?></b> KB.<br />You cannot set the forum's attachment size limit higher than that.</font></td>
+		<td><input type="text" name="frm_max_attach_size" value="<?php echo $frm_max_attach_size; ?>" maxlength="100" size="5">kb</td>
 	</tr>
 
 	<tr class="field">
 		<td>Max Number of file Attachments:</td>
-		<td><input type="text" name="frm_max_file_attachments" value="<?php echo $frm_max_file_attachments; ?>" maxlength=100 size=5></td>
+		<td><input type="text" name="frm_max_file_attachments" value="<?php echo $frm_max_file_attachments; ?>" maxlength="100" size="5"></td>
 	</tr>
 
 	<tr class="field">
@@ -170,13 +170,13 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
-		<td>Message Threshold<br><font size=-1>Maximum size of the message DISPLAYED<br>without the reveal link (0 == unlimited) </font></td>
-		<td><input type="text" name="frm_message_threshold" value="<?php echo $frm_message_threshold; ?>" size=5> bytes</td>
+		<td>Message Threshold<br><font size="-1">Maximum size of the message DISPLAYED<br />without the reveal link (0 == unlimited) </font></td>
+		<td><input type="text" name="frm_message_threshold" value="<?php echo $frm_message_threshold; ?>" size="5"> bytes</td>
 	</tr>
 
 	<tr class="field">
 		<td><a name="frm_icon_pos">Forum Icon</a></td>
-		<td><input type="text" name="frm_forum_icon" value="<?php echo $frm_forum_icon; ?>"> <a href="javascript://" onClick="javascript:window.open('admiconsel.php?type=1&amp;<?php echo __adm_rsidl; ?>', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
+		<td><input type="text" name="frm_forum_icon" value="<?php echo $frm_forum_icon; ?>"> <a href="javascript://" onClick="javascript:window.open('admiconsel.php?type=1&amp;<?php echo __adm_rsid; ?>', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
 	</tr>
 
 <?php if (!$edit) { ?>
@@ -205,26 +205,26 @@ if (!isset($_GET['chpos'])) {
 	}
 	echo '</form>';
 } else {
-	echo '<a href="admforum.php?cat_id='.$cat_id.'&'.__adm_rsidl.'">Cancel</a>';
+	echo '<a href="admforum.php?cat_id='.$cat_id.'&'.__adm_rsid.'">Cancel</a>';
 }
 ?>
 <table class="datatable">
 <tr class="fieldtopic"><td valign="top" nowrap>Reorder All Forums by:</td></tr>
-<tr><td class="field"><font size=-2>
-	<b>Forum Name</b> [ <a href="admforum.php?o=1&ot=name&cat_id=<?php echo $cat_id; ?>&<?php echo __adm_rsidl; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=name&cat_id=<?php echo $cat_id; ?>&<?php echo __adm_rsidl; ?>">Descending</a> ]<br />
-	<b>Forum Description</b> [ <a href="admforum.php?o=1&ot=descr&cat_id=<?php echo $cat_id; ?>&<?php echo __adm_rsidl; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=descr&cat_id=<?php echo $cat_id; ?>&<?php echo __adm_rsidl; ?>">Descending</a> ]<br />
-	<b>Forum Creation Date</b> [ <a href="admforum.php?o=1&ot=date_created&cat_id=<?php echo $cat_id; ?>&<?php echo __adm_rsidl; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=date_created&cat_id=<?php echo $cat_id; ?>&<?php echo __adm_rsidl; ?>">Descending</a> ]<br />
+<tr><td class="field"><font size="-2">
+	<b>Forum Name</b> [ <a href="admforum.php?o=1&amp;ot=name&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Ascending</a> - <a href="admforum.php?o=0&amp;ot=name&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Descending</a> ]<br />
+	<b>Forum Description</b> [ <a href="admforum.php?o=1&amp;ot=descr&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Ascending</a> - <a href="admforum.php?o=0&amp;ot=descr&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Descending</a> ]<br />
+	<b>Forum Creation Date</b> [ <a href="admforum.php?o=1&amp;ot=date_created&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Ascending</a> - <a href="admforum.php?o=0&amp;ot=date_created&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Descending</a> ]<br />
 </font></td></tr>
 </table>
 <br>
 <table class="resulttable fulltable">
 <tr class="resulttopic">
-	<td nowrap><font size=-2>Forum name</font></td>
-	<td><font size=-2>Description</font></td>
-	<td nowrap><font size=-2>Password Posting</font></td>
-	<td align="center"><font size=-2>Action</font></td>
-	<td><font size=-2>Category</font></td>
-	<td><font size=-2>Position</font></td>
+	<td nowrap="nowrap"><font size="-2">Forum name</font></td>
+	<td><font size="-2">Description</font></td>
+	<td nowrap="nowrap"><font size="-2">Password Posting</font></td>
+	<td align="center"><font size="-2">Action</font></td>
+	<td><font size="-2">Category</font></td>
+	<td><font size="-2">Position</font></td>
 </tr>
 <?php
 	$move_ct = create_cat_select('dest_cat', '', $cat_id);
@@ -241,16 +241,16 @@ if (!isset($_GET['chpos'])) {
 			if ($_GET['chpos'] == $r->view_order) {
 				$bgcolor = ' class="resultrow2"';
 			} else if ($_GET['chpos'] != ($r->view_order - 1)) {
-				echo '<tr class="field"><td align=center colspan=9><a href="admforum.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&cat_id='.$cat_id.'&'.__adm_rsidl.'">Place Here</a></td></tr>';
+				echo '<tr class="field"><td align="center" colspan="9"><a href="admforum.php?chpos='.$_GET['chpos'].'&amp;newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
 			}
 			$lp = $r->view_order;
 		}
 		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'._hs.'<input type="hidden" name="frm_id" value="'.$r->id.'"><input type="hidden" name="cat_id" value="'.$cat_id.'"><input type="submit" name="btn_chcat" value="Move To: "> '.$move_ct.'</form>';
-		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-2">'.htmlspecialchars(substr($r->descr, 0, 30)).'</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap>[<a href="admforum.php?cat_id='.$cat_id.'&edit='.$r->id.'&'.__adm_rsidl.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'.__adm_rsidl.'">Delete</a>]</td><td nowrap>'.$cat_name.'</td><td nowrap>[<a href="admforum.php?chpos='.$r->view_order.'&cat_id='.$cat_id.'&'.__adm_rsidl.'">Change</a>]</td></tr>';
+		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-2">'.htmlspecialchars(substr($r->descr, 0, 30)).'</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap>[<a href="admforum.php?cat_id='.$cat_id.'&amp;edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'.__adm_rsid.'">Delete</a>]</td><td nowrap="nowrap">'.$cat_name.'</td><td nowrap="nowrap">[<a href="admforum.php?chpos='.$r->view_order.'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Change</a>]</td></tr>';
 	}
 	unset($c);
 	if (isset($lp)) {
-		echo '<tr class="field""><td align=center colspan=9><a href="admforum.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&cat_id='.$cat_id.'&'.__adm_rsidl.'">Place Here</a></td></tr>';
+		echo '<tr class="field""><td align="center" colspan="9"><a href="admforum.php?chpos='.$_GET['chpos'].'&amp;newpos='.($lp + 1).'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
 	}
 ?>
 </table>
