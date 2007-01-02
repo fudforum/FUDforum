@@ -1038,4 +1038,6 @@ tabs_notifications:		Notifications
 finduser_flag:			Flag
 post_descr:			Topic Description
 pmsg_on				on
-pmsg_download_dump:		Download Message Dump
+pmsg_download_dump:		Download Message Dumpmove_messages:			Move messages
+move_msg_btn:			Move Selected Messages
+move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)

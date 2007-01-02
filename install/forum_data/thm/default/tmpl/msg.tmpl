@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.63 2007/01/01 18:23:47 hackie Exp $
+* $Id: msg.tmpl,v 1.64 2007/01/02 16:36:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -76,6 +76,7 @@
 <tr>
 <td class="GenText al">{TEMPLATE: show_links}
 {IF: ($frm->replies && $perms & 2048)}<a href="{TEMPLATE: split_thread_lnk}">{MSG: split_thread}</a>&nbsp;|&nbsp;{ENDIF}
+{IF: ($frm->replies && $perms & 8192)}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIF}
 {IF: $perms & 8192}<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: msg_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}
 {IF: $perms & 4096}{IF: $frm->thread_opt & 1}<a href="{TEMPLATE: mod_unlock_thread_lnk}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;{ELSE}<a href="{TEMPLATE: mod_lock_thread_lnk}">{MSG: lock_thread}</a>&nbsp;|&nbsp;{END}{ENDIF}
 {IF: $FUD_OPT_2 & 1073741824}<a href="{TEMPLATE: email_page_to_friend_lnk}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>&nbsp;{ENDIF}
