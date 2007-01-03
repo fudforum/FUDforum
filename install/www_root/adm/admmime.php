@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmime.php,v 1.28 2007/01/01 18:23:48 hackie Exp $
+* $Id: admmime.php,v 1.29 2007/01/03 23:32:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,9 +34,9 @@
 	}
 
 	if (isset($_POST['btn_update'], $_POST['edit'])) {
-		q('UPDATE '.$tbl.'mime SET descr='.ssn($_POST['mime_descr']).', mime_hdr='.ssn($_POST['mime_mime_hdr']).', fl_ext='.ssn($_POST['mime_fl_ext']).', icon='.ssn($_POST['mime_icon']).' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '.$tbl.'mime SET descr='._esc($_POST['mime_descr']).', mime_hdr='._esc($_POST['mime_mime_hdr']).', fl_ext='._esc($_POST['mime_fl_ext']).', icon='._esc($_POST['mime_icon']).' WHERE id='.(int)$_POST['edit']);
 	} else if (isset($_POST['btn_submit'])) {
-		q('INSERT INTO '.$tbl.'mime (descr, mime_hdr, fl_ext, icon) VALUES ('.ssn($_POST['mime_descr']).', '.ssn($_POST['mime_mime_hdr']).', '.ssn($_POST['mime_fl_ext']).', '.ssn($_POST['mime_icon']).')');
+		q('INSERT INTO '.$tbl.'mime (descr, mime_hdr, fl_ext, icon) VALUES ('._esc($_POST['mime_descr']).', '._esc($_POST['mime_mime_hdr']).', '._esc($_POST['mime_fl_ext']).', '._esc($_POST['mime_icon']).')');
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
