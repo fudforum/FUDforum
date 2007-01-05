@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.37 2007/01/01 18:23:48 hackie Exp $
+* $Id: admnntp.php,v 1.38 2007/01/05 00:33:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,7 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
-	if (isset($_POST['nntp_forum_id'])) {
+	if (!empty($_POST['nntp_forum_id'])) {
 		$nntp_adm = new fud_nntp_adm;
 		if ($edit) {
 			$nntp_adm->sync($edit);
