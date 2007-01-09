@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: movemsg.php.t,v 1.1 2007/01/02 16:36:56 hackie Exp $
+* $Id: movemsg.php.t,v 1.2 2007/01/09 14:33:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,6 +32,15 @@
 		if (!$perms || (!$perms[0] && !($perms[1] & 8192))) {
 			std_error('access');
 		}
+	}
+
+	if (!($sth_info = db_arr_assoc("SELECT forum_id, root_msg_id, replies, last_post_id, last_post_date FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th))) {
+		check_return($usr->returnto);
+	}	
+
+	/* do the work */
+	if (!empty($_POST['dest_th']) && !empty($_POST['msg_ids'])) {
+		$dth = (int)$_POST['dest_th'];
 
 		// destination
 		$perms = db_saq('SELECT mm.id, '.(_uid ? ' COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco ' : ' g1.group_cache_opt AS gco ').'
@@ -43,15 +52,7 @@
 		if (!$perms || (!$perms[0] && !($perms[1] & 8))) {
 			std_error('access');
 		}
-	}
 
-	if (!($sth_info = db_arr_assoc("SELECT forum_id, root_msg_id, replies, last_post_id, last_post_date FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th))) {
-		check_return($usr->returnto);
-	}	
-
-	/* do the work */
-	if (!empty($_POST['dest_th']) && !empty($_POST['msg_ids'])) {
-		$dth = (int)$_POST['dest_th'];
 		$mids = array();
 		foreach ($_POST['msg_ids'] as $m) {
 			if (($m = (int)$m) > 0) {
