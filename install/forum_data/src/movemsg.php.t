@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: movemsg.php.t,v 1.2 2007/01/09 14:33:34 hackie Exp $
+* $Id: movemsg.php.t,v 1.3 2007/01/10 15:57:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,11 @@
 				'.(_uid ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=t.forum_id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=t.forum_id').'
 				WHERE t.id='.$th);
 
-		if (!$perms || (!$perms[0] && !($perms[1] & 8192))) {
+		if (!$perms) {
+			check_return($usr->returnto);
+		}
+
+		if ((!$perms[0] && !($perms[1] & 8192))) {
 			std_error('access');
 		}
 	}
