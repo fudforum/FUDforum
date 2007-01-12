@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.39 2007/01/01 18:23:48 hackie Exp $
+* $Id: admmlist.php,v 1.40 2007/01/12 02:14:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -77,7 +77,7 @@ function format_regex(&$regex)
 			<font size="-1">Messages imported from the mailing list will be imported into this forum.
 			It is <b>**highly recommeded**</b> that you setup a seperate forum for each mailing list.</font>
 		</td>
-		<td><select name="ml_forum_id">
+		<td><select name="ml_forum_id"><option></option>
 		<?php
 			$c = uq('SELECT f.id, f.name, c.name
 				FROM '.$tbl.'forum f
