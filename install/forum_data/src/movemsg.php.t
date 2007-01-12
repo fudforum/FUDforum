@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: movemsg.php.t,v 1.3 2007/01/10 15:57:13 hackie Exp $
+* $Id: movemsg.php.t,v 1.4 2007/01/12 02:41:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,7 +30,7 @@
 				WHERE t.id='.$th);
 
 		if (!$perms) {
-			check_return($usr->returnto);
+			invl_inp_err();
 		}
 
 		if ((!$perms[0] && !($perms[1] & 8192))) {
@@ -39,7 +39,7 @@
 	}
 
 	if (!($sth_info = db_arr_assoc("SELECT forum_id, root_msg_id, replies, last_post_id, last_post_date FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th))) {
-		check_return($usr->returnto);
+		invl_inp_err();
 	}	
 
 	/* do the work */
@@ -53,7 +53,11 @@
 				'.(_uid ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=t.forum_id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=t.forum_id').'
 				WHERE t.id='.$dth);
 
-		if (!$perms || (!$perms[0] && !($perms[1] & 8))) {
+		if (!$perms) {
+			invl_inp_err();
+		}
+
+		if ((!$perms[0] && !($perms[1] & 8))) {
 			std_error('access');
 		}
 
@@ -86,6 +90,7 @@
 			} else {
 				$pfx = '';
 			}
+			
 			q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+".$c_mids.$pfx." WHERE id=".$dth);
 			if (q_singleval("SELECT last_post_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$dth) == $th_info['last_post_id']) {
 				$pfx .= ', last_post_id='.$minfo[0];
@@ -95,19 +100,28 @@
 			q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+".$c_mids.$pfx." WHERE id=".$th_info['forum_id']);
 
 			// update source thread
-			if (in_array($mids, $sth_info['last_post_id'])) {
-				$sinfo = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." ORDER BY post_stamp DESC LIMIT 1");
-				q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-".$c_mids.", last_post_date=".$sinfo[1].", last_post_id=".$sinfo[0]." WHERE id=".$th);
+			if ($sth_info['replies']+1 == $c_mids) { // complete thread move
+				q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th);
 				rebuild_forum_view_ttl($sth_info['forum_id']);
 				$lp = q_singleval("SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}_tv_".$sth_info['forum_id']." v 
-							INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=v.thread_id
-							WHERE tv_seq=1");
-				$pfx .= ', last_post_id='.$lp;
+								INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=v.thread_id
+								WHERE tv_seq=1");
+				$pfx .= ', thread_count=MAX(thread_count-1, 0), last_post_id='.$lp;
 			} else {
-				q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-".$c_mids." WHERE id=".$th);
-				$pfx = '';
+				if (in_array($mids, $sth_info['last_post_id'])) {
+					$sinfo = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." ORDER BY post_stamp DESC LIMIT 1");
+					q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-".$c_mids.", last_post_date=".$sinfo[1].", last_post_id=".$sinfo[0]." WHERE id=".$th);
+					rebuild_forum_view_ttl($sth_info['forum_id']);
+					$lp = q_singleval("SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}_tv_".$sth_info['forum_id']." v 
+								INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=v.thread_id
+								WHERE tv_seq=1");
+					$pfx .= ', last_post_id='.$lp;
+				} else {
+					q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-".$c_mids." WHERE id=".$th);
+					$pfx = '';
+				}
 			}
-			q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-".$c_mids.$pfx." WHERE id=".$th_info['forum_id']);
+			q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=MAX(post_count-".$c_mids.",0)".$pfx." WHERE id=".$th_info['forum_id']);
 		}
 	}
 
