@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: movemsg.php.t,v 1.6 2007/01/14 17:06:13 hackie Exp $
+* $Id: movemsg.php.t,v 1.7 2007/01/16 00:15:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -103,7 +103,7 @@
 			if ($sth_info['replies']+1 == $c_mids) { // complete thread move
 				q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th);
 				rebuild_forum_view_ttl($sth_info['forum_id']);
-				$lp = q_singleval("SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}_tv_".$sth_info['forum_id']." v 
+				$lp = q_singleval("SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}tv_".$sth_info['forum_id']." v 
 								INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=v.thread_id
 								WHERE tv_seq=1");
 				$pfx = ', thread_count=MAX(thread_count-1, 0), last_post_id='.$lp;
