@@ -903,7 +903,9 @@ function fud_delete_user($arg)
 
 	fud_use('users_adm.inc', true);
 
-	usr_delete($data);
+	foreach ($data as $v) {
+		usr_delete($v);
+	}
 }
 
 /* API FUNCTIONS END HERE */
