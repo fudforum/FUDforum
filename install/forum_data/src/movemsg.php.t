@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: movemsg.php.t,v 1.8 2007/01/19 23:38:31 hackie Exp $
+* $Id: movemsg.php.t,v 1.9 2007/01/21 19:41:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -106,7 +106,7 @@
 				$lp = q_singleval("SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}tv_".$sth_info['forum_id']." v 
 								INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=v.thread_id
 								WHERE seq=1");
-				$pfx = ', thread_count=MAX(thread_count-1, 0), last_post_id='.$lp;
+				$pfx = ', thread_count=thread_count-1, last_post_id='.$lp;
 			} else {
 				if (in_array($mids, $sth_info['last_post_id'])) {
 					$sinfo = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." ORDER BY post_stamp DESC LIMIT 1");
