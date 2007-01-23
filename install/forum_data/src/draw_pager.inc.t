@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: draw_pager.inc.t,v 1.26 2007/01/01 18:23:45 hackie Exp $
+* $Id: draw_pager.inc.t,v 1.27 2007/01/23 01:05:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,7 +14,7 @@ function pager_replace(&$str, $s, $c)
 	$str = str_replace(array('%s', '%c'), array($s, $c), $str);
 }
 
-function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js_pager=0)
+function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js_pager=0, $no_append=0)
 {
 	if (!$count) {
 		$count =& $GLOBALS['POSTS_PER_PAGE'];
@@ -30,7 +30,7 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 			$suf = preg_replace('!/+!', '/', $suf);
 		}
 		$upfx = '';
-	} else {
+	} else if (!$no_append) {
 		$upfx = '&amp;start=';
 	}
 

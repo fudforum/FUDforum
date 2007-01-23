@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: minimsg.inc.t,v 1.39 2007/01/01 18:23:46 hackie Exp $
+* $Id: minimsg.inc.t,v 1.40 2007/01/23 01:05:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,7 +55,7 @@ if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 		q("DROP TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_".__request_timestamp__);
 	}
 
-	$minimsg_pager = tmpl_create_pager($start, $count, $total, "javascript: document.post_form.minimsg_pager_switch.value='%s'; document.post_form.submit();", null, false, false);
+	$minimsg_pager = tmpl_create_pager($start, $count, $total, "javascript: document.post_form.minimsg_pager_switch.value='%s'; document.post_form.submit();", '', 0, 0, 1);
 	$minimsg = '{TEMPLATE: minimsg_form}';
 } else if ($th_id) {
 	$minimsg = '{TEMPLATE: minimsg_hidden}';
