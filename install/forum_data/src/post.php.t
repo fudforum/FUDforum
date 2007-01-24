@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.157 2007/01/01 18:23:46 hackie Exp $
+* $Id: post.php.t,v 1.158 2007/01/24 23:57:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -108,7 +108,7 @@ function flood_check()
 	}
 
 	$attach_list = array();
-	$msg_smiley_disabled = $msg_subject = $msg_body = '';
+	$msg_tdescr = $msg_smiley_disabled = $msg_subject = $msg_body = '';
 
 	/* Retrieve Message */
 	if (!isset($_POST['prev_loaded'])) {
@@ -347,7 +347,11 @@ function flood_check()
 			fud_wordwrap($msg_post->body);
 
 			$msg_post->subject = char_fix(htmlspecialchars(apply_custom_replace($msg_post->subject)));
-			$msg_tdescr = char_fix(htmlspecialchars(apply_custom_replace($_POST['msg_tdescr'])));
+			if (!empty($_POST['msg_tdescr'])) {
+				$msg_tdescr = char_fix(htmlspecialchars(apply_custom_replace($_POST['msg_tdescr'])));
+			} else {
+				$msg_tdescr = '';
+			}
 
 		 	/* chose to create thread OR add message OR update message */
 
