@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: movemsg.php.t,v 1.10 2007/01/23 00:26:31 hackie Exp $
+* $Id: movemsg.php.t,v 1.11 2007/01/24 00:48:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -85,7 +85,7 @@
 			// determine if we need to update last_post_* in destination thread
 			$minfo = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE id IN(".$mstr.") ORDER BY post_stamp DESC LIMIT 1");
 			if ($minfo[1] > $th_info['last_post_date']) {
-				$pfx .= ', last_post_date='.$minfo[1].', last_post_id='.$minfo[0];
+				$pfx = ', last_post_date='.$minfo[1].', last_post_id='.$minfo[0];
 				rebuild_forum_view_ttl($th_info['forum_id']);
 			} else {
 				$pfx = '';
@@ -93,7 +93,7 @@
 			
 			q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+".$c_mids.$pfx." WHERE id=".$dth);
 			if (q_singleval("SELECT last_post_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$dth) == $th_info['last_post_id']) {
-				$pfx .= ', last_post_id='.$minfo[0];
+				$pfx = ', last_post_id='.$minfo[0];
 			} else {
 				$pfx = '';
 			}
