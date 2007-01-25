@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: movemsg.php.t,v 1.11 2007/01/24 00:48:52 hackie Exp $
+* $Id: movemsg.php.t,v 1.12 2007/01/25 23:48:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -108,7 +108,7 @@
 								WHERE seq=1");
 				$pfx = ', thread_count=thread_count-1, last_post_id='.(int)$lp;
 			} else {
-				if (in_array($mids, $sth_info['last_post_id'])) {
+				if (in_array($sth_info['last_post_id'], $mids)) {
 					$sinfo = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." ORDER BY post_stamp DESC LIMIT 1");
 					q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-".$c_mids.", last_post_date=".$sinfo[1].", last_post_id=".$sinfo[0]." WHERE id=".$th);
 					rebuild_forum_view_ttl($sth_info['forum_id']);
