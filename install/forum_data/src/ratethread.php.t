@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ratethread.php.t,v 1.22 2007/01/01 18:23:46 hackie Exp $
+* $Id: ratethread.php.t,v 1.23 2007/01/28 16:17:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,7 +32,7 @@
 			if ($is_a) {
 				$MOD = 1;
 			} else {
-				$MOD = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}mod m ON m.forum_id=t.forum_id WHERE t.id='.$th);
+				$MOD = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}mod m ON m.forum_id=t.forum_id WHERE t.id='.$th.' AND m.user_id='._uid);
 			}
 
 			$frm = new StdClass;
