@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_adm.inc,v 1.21 2007/01/01 18:23:42 hackie Exp $
+* $Id: users_adm.inc,v 1.22 2007/01/30 14:11:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@ function usr_delete($id)
 
 	if (!db_locked()) {
 		$ll = 1;
-		db_lock($tbl.'forum WRITE, '.$tbl.'msg WRITE, '.$tbl.'group_members WRITE, '.$tbl.'poll_opt_track WRITE, '.$tbl.'users WRITE, '.$tbl.'pmsg WRITE, '.$tbl.'attach WRITE, '.$tbl.'mod WRITE, '.$tbl.'custom_tags WRITE, '.$tbl.'thread_notify WRITE, '.$tbl.'forum_notify WRITE, '.$tbl.'read WRITE, '.$tbl.'forum_read WRITE, '.$tbl.'thread_rate_track WRITE, '.$tbl.'user_ignore WRITE, '.$tbl.'buddy WRITE, '.$tbl.'mod mm WRITE, '.$tbl.'users u WRITE, '.$tbl.'forum f WRITE');
+		db_lock($tbl.'msg_store WRITE', $tbl.'forum WRITE, '.$tbl.'msg WRITE, '.$tbl.'group_members WRITE, '.$tbl.'poll_opt_track WRITE, '.$tbl.'users WRITE, '.$tbl.'pmsg WRITE, '.$tbl.'attach WRITE, '.$tbl.'mod WRITE, '.$tbl.'custom_tags WRITE, '.$tbl.'thread_notify WRITE, '.$tbl.'forum_notify WRITE, '.$tbl.'read WRITE, '.$tbl.'forum_read WRITE, '.$tbl.'thread_rate_track WRITE, '.$tbl.'user_ignore WRITE, '.$tbl.'buddy WRITE, '.$tbl.'mod mm WRITE, '.$tbl.'users u WRITE, '.$tbl.'forum f WRITE');
 	}
 
 	if (!is_array($id)) {
