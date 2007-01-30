@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: movemsg.php.t,v 1.12 2007/01/25 23:48:57 hackie Exp $
+* $Id: movemsg.php.t,v 1.13 2007/01/30 01:07:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -101,12 +101,8 @@
 
 			// update source thread
 			if ($sth_info['replies']+1 == $c_mids) { // complete thread move
-				q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th);
-				rebuild_forum_view_ttl($sth_info['forum_id']);
-				$lp = q_singleval("SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}tv_".$sth_info['forum_id']." v 
-								INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=v.thread_id
-								WHERE seq=1");
-				$pfx = ', thread_count=thread_count-1, last_post_id='.(int)$lp;
+				$del = new fud_msg_edit();
+				$del->delete(1, q_singleval('SELECT root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$id), 1);
 			} else {
 				if (in_array($sth_info['last_post_id'], $mids)) {
 					$sinfo = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." ORDER BY post_stamp DESC LIMIT 1");
@@ -120,8 +116,8 @@
 					q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-".$c_mids." WHERE id=".$th);
 					$pfx = '';
 				}
+				q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-".$c_mids.$pfx." WHERE id=".$th_info['forum_id']);
 			}
-			q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-".$c_mids.$pfx." WHERE id=".$th_info['forum_id']);
 		}
 	}
 
