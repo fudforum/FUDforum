@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.92 2007/01/01 18:23:42 hackie Exp $
+* $Id: compiler.inc,v 1.93 2007/02/04 16:43:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -705,7 +705,7 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 		} else {
 			$files = array();
 			foreach (explode(',', trim($mask, '{}')) as $m) {
-				$files = array_merge($files, glob($v . '/' . $m, GLOB_NOSORT));
+				$files = array_merge($files, (array)glob($v . '/' . $m, GLOB_NOSORT));
 			}
 			if (!$files) {
 				continue;
