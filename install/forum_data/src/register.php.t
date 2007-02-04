@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.168 2007/01/01 18:23:46 hackie Exp $
+* $Id: register.php.t,v 1.169 2007/02/04 18:30:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -324,7 +324,7 @@ function email_encode($val)
 				}
 				/* [user_id].[file_extension]_'random data' */
 				define('real_avatar_name', $uent->id . '.' . $ext[$img_info[2]]);
-				if (move_uploaded_file($source, ($tmp_name = tempnam($GLOBALS['TMP'])))) {
+				if (move_uploaded_file($_FILES['avatar_upload']['tmp_name'], ($tmp_name = tempnam($GLOBALS['TMP'], 'av_')))) {
 					$tmp_name = basename($tmp_name);
 				} else {
 					$tmp_name = null;
