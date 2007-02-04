@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: open_search.php,v 1.2 2007/01/01 18:23:47 hackie Exp $
+* $Id: open_search.php,v 1.3 2007/02/04 19:08:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -11,8 +11,8 @@
 
 require "./GLOBALS.php";
 header("Content-Type: text/xml; charset=UTF-8");
+echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>
-<?xml version="1.0" encoding="UTF-8"?> 
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"> 
 	<ShortName><?php echo htmlentities($FORUM_TITLE); ?> Search</ShortName> 
 	<Description>Search <?php echo htmlentities($FORUM_TITLE); ?> Messages</Description> 
