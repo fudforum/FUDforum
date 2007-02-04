@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.129 2007/01/01 18:23:48 hackie Exp $
+* $Id: consist.php,v 1.130 2007/02/04 16:44:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -434,7 +434,16 @@ forum will be disabled.
 
 	draw_stat('Checking disk files against smilies');
 	$cnt = 0;
-	$files = glob($WWW_ROOT_DISK . 'images/smiley_icons/{*.gif,*.jpg,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT);
+	if (!defined('GLOB_BRACE')) {
+		$files = array_merge(
+			(array)glob($WWW_ROOT_DISK . 'images/smiley_icons/*.gif', GLOB_NOSORT),
+			(array)glob($WWW_ROOT_DISK . 'images/smiley_icons/*.jpg', GLOB_NOSORT),
+			(array)glob($WWW_ROOT_DISK . 'images/smiley_icons/*.png', GLOB_NOSORT),
+			(array)glob($WWW_ROOT_DISK . 'images/smiley_icons/*.jpeg', GLOB_NOSORT)
+		);
+	} else {
+		$files = glob($WWW_ROOT_DISK . 'images/smiley_icons/{*.gif,*.jpg,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT);
+	}
 	foreach ($files as $file) {
 		if (!isset($sml[basename($file)])) {
 			if (@unlink($file)) {
