@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.53 2007/01/01 18:23:47 hackie Exp $
+* $Id: pmsg.tmpl,v 1.54 2007/02/16 02:01:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -98,7 +98,7 @@
 <form action="{TEMPLATE: PMSG_PAGE_lnk3}" method="post" name="priv_frm">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleB">
-<td class="GenText al" colspan="3"><a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a></td>
+{IF: $private_tools}<td class="GenText al" colspan="3"><a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a></td>{ENDIF}
 <td colspan="3" class="GenText ar">
 {MSG: folder} <select name="folder_id" onChange="javascript: document.priv_frm.submit();">
 {TEMPLATE-DATA: select_options_cur_folder}
