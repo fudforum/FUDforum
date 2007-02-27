@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.74 2007/01/01 18:23:47 hackie Exp $
+* $Id: post.tmpl,v 1.75 2007/02/27 00:38:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -153,7 +153,7 @@
 <tr class="RowStyleB"><td class="GenText">{MSG: post_forum}</td><td class="GenText">{VAR: frm->name}</td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text"  spellcheck="true" maxLength="100" name="msg_subject" value="{VAR: msg_subject}" size="50" tabindex="2" /> {FUNC: get_err('msg_subject')}</td></tr>
 {IF: !$th_id || ($msg_id && $msg_id == $thr->root_msg_id)}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_descr}</td><td><input size="60" type="text" name="msg_tdescr" value="{VAR: msg_tdescr}" /></td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_descr}</td><td><input size="60" type="text" name="msg_tdescr" tabindex="3" value="{VAR: msg_tdescr}" /></td></tr>
 {ENDIF}
 {TEMPLATE-DATA: poll}
 {TEMPLATE-DATA: admin_options}
@@ -161,7 +161,7 @@
 {IF: $perms & 16384}{FUNC: draw_post_smiley_cntrl()}{ENDIF}
 {IF: $frm->forum_opt & 16}{TEMPLATE: fud_code_icons}{ENDIF}
 
-<tr class="RowStyleA"><td class="vt nw GenText">{MSG: post_body}<br /><br />{FUNC: tmpl_post_options($frm->forum_opt, $perms)}</td><td>{FUNC: get_err('msg_body', 1)}<textarea rows="20" cols="65" tabindex="3" wrap="virtual" id="txtb" style="float: left" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea>
+<tr class="RowStyleA"><td class="vt nw GenText">{MSG: post_body}<br /><br />{FUNC: tmpl_post_options($frm->forum_opt, $perms)}</td><td>{FUNC: get_err('msg_body', 1)}<textarea rows="20" cols="65" tabindex="4" wrap="virtual" id="txtb" style="float: left" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea>
 
 <a href="javascript://" onClick="rs_txt_box('txtb', 5, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hb.gif" style="margin: 2px" /></a><br />
 <a href="javascript://" onClick="rs_txt_box('txtb', 0, 10);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_vb.gif" style="margin: 2px" /></a><br />
