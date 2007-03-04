@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.74 2007/01/01 18:23:42 hackie Exp $
+* $Id: nntp.inc,v 1.75 2007/03/04 17:38:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -364,7 +364,7 @@ class fud_nntp
 
 		$this->group_last++;
 
-		if ($start_id && $start_id > $this->group_first && $start_id <= $this->group_last) {
+		if ($start_id && $start_id > $this->group_first/* && $start_id <= $this->group_last*/) {
 			$this->group_first = $start_id;
 		}
 
