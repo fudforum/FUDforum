@@ -1068,7 +1068,9 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 			$at['tmp_name'] = tempnam($GLOBALS['TMP'], 'fuda_');
 			copy($file, $at['tmp_name']);
 
-			$val = attach_add($at, $msg->poster_id, 1);
+=== END_DOC
+" vim: set ts=4 sw=4 foldmethod=marker foldmarker={{{,}}} foldlevel=2:
+			$val = attach_add($at, $msg->poster_id, 0, 1);
 			$attach_list[$val] = $val;
 		}
 
