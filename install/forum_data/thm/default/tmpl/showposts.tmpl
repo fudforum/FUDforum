@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.tmpl,v 1.27 2007/01/01 18:23:47 hackie Exp $
+* $Id: showposts.tmpl,v 1.28 2007/03/11 18:46:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,7 +28,7 @@
 {PAGE: SHOWPOSTS_PAGE show all posts by a user}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<br />{IF: isset($_GET['id']) && _uid == $_GET['id']}{TEMPLATE-DATA: tabs}{ENDIF}
+{IF: isset($_GET['id']) && _uid == $_GET['id']}{TEMPLATE-DATA: tabs}{ENDIF}
 {TEMPLATE-DATA: admin_cp}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=3>{MSG: user_info}</th></tr>
