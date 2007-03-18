@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.tmpl,v 1.39 2007/01/01 18:23:47 hackie Exp $
+* $Id: thread_view_common.tmpl,v 1.40 2007/03/18 18:23:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,7 @@
 {REF: draw_forum_path.tmpl}
 
 {SECTION: thread_mark_all_read_lnk}
-{ROOT}?t=markread&amp;{DEF: _rsid}&id={VAR: frm->id}&amp;SQ={GVAR: sq}
+{ROOT}?t=markread&amp;{DEF: _rsid}&amp;id={VAR: frm->id}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: thread_mark_all_read}
@@ -45,7 +45,7 @@
 {SECTION: END}
 
 {SECTION: no_messages}
-<span class="GenText">{MSG: no_messages}</span>
+<tr><td class="RowStyleA ac" colspan="{VAR: ann_cols}"><span class="GenText">{MSG: no_messages}</span></td></tr>
 {SECTION: END}
 
 {SECTION: thread_poll_indicator}
@@ -98,7 +98,7 @@
 
 {SECTION: thread_syndicate}
 &nbsp;[ <a href="{TEMPLATE: thread_syndicate_lnk}">{MSG: thread_syndicate}</a> ]
-[ <a href="rdf.php?mode=m&amp;l=1&amp;basic=1&amp;frm={VAR: frm->id}&amp;n=25"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" /></a> ]
+[ <a href="rdf.php?mode=m&amp;l=1&amp;basic=1&amp;frm={VAR: frm->id}&amp;n=25"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}"></a> ]
 {SECTION: END}
 
 {SECTION: thread_RSS}

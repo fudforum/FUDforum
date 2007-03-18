@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.78 2007/01/02 16:36:57 hackie Exp $
+* $Id: tree.tmpl,v 1.79 2007/03/18 18:23:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -165,10 +165,12 @@
 <table cellspacing="1" cellpadding="2" class="MsgTable">
 {TEMPLATE-DATA: tree_data}
 </table>
+{IF: (!empty($prev_thread_link) || !empty($next_thread_link))}
 <table border=0 cellspacing=1 cellpadding=1 align="right">
 {TEMPLATE-DATA: prev_thread_link}
 {TEMPLATE-DATA: next_thread_link}
 </table>
+{ENDIF}
 <script language="javascript" type="text/javascript">
 var cur_msg = {VAR: mid};
 document.getElementById('b' + cur_msg).className = 'RowStyleC';
