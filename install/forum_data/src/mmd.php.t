@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmd.php.t,v 1.10 2007/01/01 18:23:46 hackie Exp $
+* $Id: mmd.php.t,v 1.11 2007/03/18 18:15:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,10 +36,12 @@
 				WHERE t.id='.end($list)))) {
 		check_return($usr->returnto);		
 	}
-	if (!$is_a && !$perms[2] && 
-		!(!empty($_POST['mov_sel_all']) && !($perms[1] & 8192)) &&
-		!(!empty($_POST['del_sel_all']) && !($perms[1] & 32))) {
-		std_error('access');	
+	if (!$is_a && !$perms[2]) {
+		if (!empty($_POST['mov_sel_all']) && !($perms[1] & 8192)) {
+			std_error('access');
+		} else if (!empty($_POST['del_sel_all']) && !($perms[1] & 32)) {
+			std_error('access');
+		}
 	}
 
 	$final_del = !empty($_POST['del_sel_all']) && !empty($_POST['del_conf']);
