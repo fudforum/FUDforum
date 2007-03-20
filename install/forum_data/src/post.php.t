@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.158 2007/01/24 23:57:08 hackie Exp $
+* $Id: post.php.t,v 1.159 2007/03/20 23:18:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -84,7 +84,7 @@ function flood_check()
 			std_error('perms');
 		} else if ($msg_id && $msg->poster_id != $usr->id && !($perms & 16)) {
 			std_error('perms');
-		} else if ($msg_id && $EDIT_TIME_LIMIT && !$MOD && ($msg->post_stamp + $EDIT_TIME_LIMIT * 60 <__request_timestamp__)) {
+		} else if ($msg_id && $EDIT_TIME_LIMIT && (!$MOD && !($perms & 16)) && ($msg->post_stamp + $EDIT_TIME_LIMIT * 60 <__request_timestamp__)) {
 			error_dialog('{TEMPLATE: post_err_edttimelimit_title}', '{TEMPLATE: post_err_edttimelimit_msg}');
 		} else if ($msg_id && !$MOD && $frm->forum_opt & 2) {
 			error_dialog('{TEMPLATE: post_err_mod_forum_edit_ttl}', '{TEMPLATE: post_err_mod_forum_edit_msg}');
