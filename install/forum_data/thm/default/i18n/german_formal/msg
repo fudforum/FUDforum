@@ -228,7 +228,7 @@ login_passwd_required:		Passwort erforderlich
 login_perm_denied:		Es ist Ihnen als anonymem Benutzer nicht gestattet, auf die angeforderte Quelle zuzugreifen und m&uuml;ssen sich daher erst einmal anmelden.
 login_title:			Anmeldeseite
 login_update:			Anmeldeseite
-login_use_cookie:		Cookies verwenden<br><span class="SmallText">Falls Sie einen &ouml;ffentlich zug&auml;nglichen Rechner (z.B. in Bibliotheken, Schulen oder Internet Cafes) verwenden, ist es ratsam, diesen Men&uuml;punkt f&uuml;r eine erh&ouml;hte Sicherheit abzuw&auml;hlen.
+login_use_cookie:		Cookies verwenden<br><span class="SmallText">Falls Sie einen &ouml;ffentlich zug&auml;nglichen Rechner (z.B. in Bibliotheken, Schulen oder Internetcaf&eacute;s) verwenden, ist es ratsam, diesen Men&uuml;punkt f&uuml;r eine erh&ouml;hte Sicherheit abzuw&auml;hlen.
 login_want_to_register:		M&ouml;chtest du dich registrieren?
 logout:				Abmelden
 male:				M&auml;nnlich
@@ -249,7 +249,7 @@ mklist_aplha:			Alphabetisch
 mklist_apply:			Anwenden
 mklist_circle:			Kreis
 mklist_close:			Abschlie&szlig;en
-mklist_delete:			L&ouml;schen
+mklist_delete:			Löschen
 mklist_disc:			Scheibe
 mklist_numerical:		Nummeriert
 mklist_option:			Auswahl:
@@ -297,7 +297,7 @@ new_posts:			Neue Beitr&auml;ge
 new_private_messages:		Sie haben <span class="GenText" style="color: #ff0000">({VAR: c})</span> ungelesene private Nachrichten
 new_thread:			Ein neues Thema erstellen
 newest_user:			Das neueste registrierte Mitglied ist
-next_page:			N&amul;chste Seite
+next_page:			N&auml;chste Seite
 next_thread:			N&auml;chstes Thema:
 no:				Nein
 no_avatars:			Keine Avatare verf&uuml;gbar
@@ -422,8 +422,8 @@ post_normal:			Normal
 post_notification:		Benachrichtigung &uuml;ber Beitrag
 post_notification_desc:		Benachrichtige mich, wenn jemand auf meinen Beitrag antwortet.
 post_opt:			Forumseinstellungen
-post_opt_fud_off:		<b>FUDCode</b> ist <b>AUS</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDCode</b> ist <b>AN</b></a>
+post_opt_fud_off:		<b>FUDcode</b> ist <b>AUS</b>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> ist <b>AN</b></a>
 post_opt_html_off:		<b>HTML</b> Code ist <b>AUS</b>
 post_opt_html_on:		<b>HTML</b> Code ist <b>AN</b>
 post_opt_images_off:		<b>Bilder</b> sind <b>AUS</b>
@@ -525,7 +525,7 @@ register_err_avatartobig:	Die Datei, die Sie hochladen möchten, ist zu gro&szlig
 register_err_cantreg_title:	FEHLER: Registrierung nicht m&ouml;glich
 register_err_emailexists:	Diese E-Mail-Adresse wurde schon verwendet, falls Sie ihr Passwort vergessen haben, lassen Sie es bitte zur&uuml;cksetzen, anstatt sich neu zu registrieren
 register_err_enterpasswd:	Sie m&uuml;ssen Ihr aktuelles Passwort eingeben, um die Ver&auml;nderungen wirksam werden zu lassen.
-register_err_invalidemail:	Die E-Mail-Adresse, die Sie angegeben haben ist anscheinend nicht g&uuml;ltig.
+register_err_invalidemail:	Die E-Mail-Adresse, die Sie angegeben haben, ist anscheinend nicht g&uuml;ltig.
 register_err_login_notallowed:	Dieser Anmeldename ist nicht erlaubt.
 register_err_loginunique:	Anmeldenamen f&uuml;r das Forum m&uuml;ssen einmalig sein, es gibt bereits einen Benutzer mit diesen Anmeldenamen im System
 register_err_needname:		Um die Registrierung erfolgreich abzuschlie&szlig;en, m&uuml;ssen Sie Ihren Namen angeben.
@@ -1033,12 +1033,11 @@ im_google:			Google Talk:
 im_skype:			Skype: 
 topic_rating:			{VAR: frm->rating} aus {VAR: frm->n_rating} Bewertungen
 topic_list_rating:		{VAR: r[17]} aus {VAR: r[21]} Bewertungen
-register_notify_method_desc:	W&aauml;hlen Sie Ihre bevorzugte Benachrichtigungsmethode oder deaktivieren Sie Benachrichtigungen (zum Beispiel, wenn Sie Urlaub machen)
-tabs_notifications:		Benachrichtigungenfinduser_flag:			Flag
-finduser_flag:			Flag
-post_descr:			Topic Description
-pmsg_on				on
-pmsg_download_dump:		Download Message Dump
-move_messages:			Move messages
-move_msg_btn:			Move Selected Messages
-move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
+register_notify_method_desc:	W&auml;hlen Sie Ihre bevorzugte Benachrichtigungsmethode oder deaktivieren Sie Benachrichtigungen (zum Beispiel, wenn Sie Urlaub machen)
+tabs_notifications:		Benachrichtigungen
+finduser_flag:			Flagge
+post_descr:			Themenbeschreibung:
+pmsg_download_dump:		Nachrichtenarchiv herunterladen
+move_messages:			Beitr&auml;ge verschieben
+move_msg_btn:			Verschiebe ausgew&auml;hlte Beiträge
+move_msg_th_expl:		Geben Sie die ID des Zielthema an (kann in einem anderem Forum sein)pmsg_on				on
