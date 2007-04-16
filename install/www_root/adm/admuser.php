@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.81 2007/01/01 18:23:48 hackie Exp $
+* $Id: admuser.php,v 1.82 2007/04/16 22:50:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,6 +32,12 @@
 	if ($act && $usr_id && !($u = db_sab('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id))) {
 		$usr_id = $act = '';
 	}
+
+	if ($user_id && $acc_mod_only && $u->users_opt & (268435456|1048576)) {
+		echo '<h2>Account moderators are not allowed to modify administrator accounts or accounts of other account moderators.</h2>';
+		$u = $user_id = null;
+	}
+
 	/* check if ban had expired */
 	if ($usr_id && !$act && $u->users_opt & 65536 && $u->ban_expiry && $u->ban_expiry < __request_timestamp__) {
 		q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry=0, users_opt=users_opt &~ 65536 WHERE id='.$usr_id);
