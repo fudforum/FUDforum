@@ -1013,16 +1013,16 @@ post_not_logged_in:		Du bist zur Zeit nicht angemeldet, der Beitrag wird anonym 
 post_common_bold:		Fett
 post_common_italics:		Kursiv
 post_common_underline:		Unterstrichen
-post_common_align_left:		Linksbündig
+post_common_align_left:		Linksb&uuml;ndig
 post_common_align_center:	Zentriert
-post_common_align_right:	Rechtsbündig
-post_common_link:		Link einfügen
-post_common_email:		E-Mail-Addresse einfügen
-post_common_image:		Bild einfügen
-post_common_nlist:		Nummerierte Liste einfügen
-post_common_blist:		Aufzählung einfügen
-post_common_quote:		Zitat einfügen
-post_common_code:		Code einfügen
+post_common_align_right:	Rechtsb&uuml;ndig
+post_common_link:		Link einf&uuml;gen
+post_common_email:		E-Mail-Addresse einf&uuml;gen
+post_common_image:		Bild einf&uuml;gen
+post_common_nlist:		Nummerierte Liste einf&uuml;gen
+post_common_blist:		Aufzählung einf&uuml;gen
+post_common_quote:		Zitat einf&uuml;gen
+post_common_code:		Code einf&uuml;gen
 rating:				Bewertung
 rating_track:			Verwaltung der Bewertungen für das Thema <b>{VAR: thr->subject}</b>:
 rating_delete:			L&ouml;schen
