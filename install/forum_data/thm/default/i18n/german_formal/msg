@@ -1040,4 +1040,5 @@ post_descr:			Themenbeschreibung:
 pmsg_download_dump:		Nachrichtenarchiv herunterladen
 move_messages:			Beitr&auml;ge verschieben
 move_msg_btn:			Verschiebe ausgew&auml;hlte Beiträge
-move_msg_th_expl:		Geben Sie die ID des Zielthema an (kann in einem anderem Forum sein)pmsg_on				on
+move_msg_th_expl:		Geben Sie die ID des Zielthema an (kann in einem anderem Forum sein)
+pmsg_on				on
