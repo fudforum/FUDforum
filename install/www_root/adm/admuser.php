@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.82 2007/04/16 22:50:05 hackie Exp $
+* $Id: admuser.php,v 1.83 2007/04/29 14:15:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,9 +33,9 @@
 		$usr_id = $act = '';
 	}
 
-	if ($user_id && $acc_mod_only && $u->users_opt & (268435456|1048576)) {
+	if ($usr_id && $acc_mod_only && $u->users_opt & (268435456|1048576)) {
 		echo '<h2>Account moderators are not allowed to modify administrator accounts or accounts of other account moderators.</h2>';
-		$u = $user_id = null;
+		$u = $usr_id = null;
 	}
 
 	/* check if ban had expired */
