@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.94 2007/01/01 18:23:46 hackie Exp $
+* $Id: post_proc.inc.t,v 1.95 2007/05/08 19:01:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -227,7 +227,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 						$param .= "\n?>";
 					}
 
-					$ostr .= '<span name="php">'.trim(@highlight_string($param, true)).'</span>';
+					$ostr .= '<SPAN name="php">'.trim(@highlight_string($param, true)).'</SPAN>';
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
@@ -521,6 +521,13 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 function html_to_tags($fudml)
 {
+	while (preg_match('!<SPAN name="php">(.*?)</SPAN>!s', $fudml, $res)) {
+		$tmp = trim(html_entity_decode(strip_tags(str_replace('<br />', "\n", $res[1]))));
+		$m = md5($tmp);
+		$php[$m] = $tmp;
+		$fudml = str_replace($res[0], "[php]\n".$m."\n[/php]", $fudml);
+	}
+
 	while (preg_match('!<span name="php">(.*?)</span>!is', $fudml, $res)) {
 		$tmp = trim(html_entity_decode(strip_tags(str_replace('<br />', "\n", $res[1]))));
 		$m = md5($tmp);
