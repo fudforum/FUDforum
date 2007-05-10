@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: draw_pager.inc.t,v 1.27 2007/01/23 01:05:41 hackie Exp $
+* $Id: draw_pager.inc.t,v 1.28 2007/05/10 00:00:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,13 +23,13 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 		return;
 	}
 
+	$upfx = '';
 	if ($GLOBALS['FUD_OPT_2'] & 32768 && (!empty($_SERVER['PATH_INFO']) || strpos($arg, '?') === false)) {
 		if (!$suf) {
 			$suf = '/';
 		} else if (strpos($suf, '//') !== false) {
 			$suf = preg_replace('!/+!', '/', $suf);
 		}
-		$upfx = '';
 	} else if (!$no_append) {
 		$upfx = '&amp;start=';
 	}
