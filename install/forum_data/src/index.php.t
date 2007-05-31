@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.107 2007/01/01 18:23:45 hackie Exp $
+* $Id: index.php.t,v 1.108 2007/05/31 18:12:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -64,7 +64,7 @@
 				u.id, u.alias,
 				f.cat_id, f.forum_icon, f.id, f.last_post_id, f.moderators, f.name, f.descr, f.post_count, f.thread_count,
 				'.(_uid ? 'fr.last_view, mo.id, COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS group_cache_opt' : '0,0,g1.group_cache_opt').',
-				c.cat_opt & 4
+				(c.cat_opt & 4)=4
 			FROM {SQL_TABLE_PREFIX}fc_view v
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
