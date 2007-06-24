@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.95 2007/05/08 19:01:21 hackie Exp $
+* $Id: post_proc.inc.t,v 1.96 2007/06/24 17:42:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,7 +38,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 	$pos = $old_pos = 0;
 
 	while (($pos = strpos($str, '[', $pos)) !== false) {
-		if (isset($GLOBALS['seps'][$str[$pos + 1]])) {
+		if (isset($str[$pos + 1], $GLOBALS['seps'][$str[$pos + 1]])) {
 			++$pos;
 			continue;
 		}
