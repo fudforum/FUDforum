@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.52 2007/01/01 18:23:46 hackie Exp $
+* $Id: finduser.tmpl,v 1.53 2007/07/22 20:01:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,6 +19,7 @@
 {REF: draw_pager.tmpl}
 {REF: rev_fmt.tmpl}
 {REF: alt_var.tmpl}
+{REF: ulink.tmpl}
 
 {PAGE: FINDUSER_PAGE user search form}
 {TEMPLATE: header}
@@ -37,7 +38,7 @@ document.fufrm.usr_login.focus();
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 {IF: $GLOBALS['FUD_OPT_3'] & 524288}<th width="1"><a href="{TEMPLATE: FINDUSER_PAGE_lnk4}">{MSG: finduser_flag}</a></th>{ENDIF}
-<th class="wa"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk}">{MSG: finduser_user}</a></th><th nowrap><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{IF: $is_a}{TEMPLATE: findu_admin_opts_header}{ENDIF}
+<th class="wa"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk}">{FUNC: draw_user_link($r->alias, $r->users_opt, $r->custom_color)}</a></th><th nowrap><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{IF: $is_a}{TEMPLATE: findu_admin_opts_header}{ENDIF}
 </tr>
 {TEMPLATE-DATA: find_user_data}
 </table>

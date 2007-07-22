@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.59 2007/01/01 18:23:45 hackie Exp $
+* $Id: finduser.php.t,v 1.60 2007/07/22 20:01:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,7 +50,7 @@
 	}
 
 	$find_user_data = '';
-	$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ flag_cc, flag_country, home_page, users_opt, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' LIMIT '.qry_limit($MEMBERS_PER_PAGE, $start));
+	$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ flag_cc, flag_country, home_page, users_opt, alias, join_date, posted_msg_count, id, custom_color FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' LIMIT '.qry_limit($MEMBERS_PER_PAGE, $start));
 	while ($r = db_rowobj($c)) {
 		$find_user_data .= '{TEMPLATE: find_user_entry}';
 	}
