@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.164 2007/01/01 18:23:46 hackie Exp $
+* $Id: users.inc.t,v 1.165 2007/07/24 22:27:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,6 +13,10 @@ function &init_user()
 {
 	$o1 =& $GLOBALS['FUD_OPT_1'];
 	$o2 =& $GLOBALS['FUD_OPT_2'];
+
+	if ($o2 & 32768 && empty($_SERVER['PATH_INFO']) && !empty($_SERVER['ORIG_PATH_INFO'])) {
+		$_SERVER['PATH_INFO'] = $_SERVER['ORIG_PATH_INFO'];
+	}
 
 	/* we need to parse S & rid right away since they are used during user init */
 	if ($o2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
