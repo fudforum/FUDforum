@@ -138,14 +138,27 @@ The following link will fetch 10 most recent messages from this forum:<br />
 TOPIC_TITLE: <a name="accesskeys">Access Keys</a>
 TOPIC_HELP:
 Access keys are keyboard shortcuts intended to simplify keyboard navigation. FUDforum uses this functionality
-to simplify several tasks primary used for message posting forms.<br />
+to simplify several tasks primary used for message posting forms.<br /><br />
 
 <fieldset style="width: 350px;">
 	<legend><b>Browser Support</b></legend>
-	<b>Firefox 2.0/Mozilla/Netscape:</b> CTRL + ALT + [accesskey]<br />
-	<b>Mozilla/IE:</b> ALT + [accesskey]<br />
+	<i>Windows</i><br />
+	<b>Firefox 1/Mozilla/Netscape:</b> ALT + [accesskey]<br />
+	<b>Firefox 2:</b> ALT + SHIFT + [accesskey]<br />
+	<b>Internet Explorer:</b> ALT + [accesskey], ENTER<br />
 	<b>Opera:</b> SHIFT + ESC + [accesskey]<br />
-</fieldset>
+	<br />
+	<i>Linux</i><br />
+	<b>Firefox/Mozilla/Netscape:</b> ALT + [accesskey]<br />
+	<b>Opera:</b> SHIFT + ESC + [accesskey]<br />
+	<b>Konqueror:</b> CTRL, [accesskey]<br />
+	<br />
+	<i>Mac OS X</i><br />
+	<b>Firefox/Mozilla/Netscape:</b> CTRL + [accesskey]<br />
+	<b>Internet Explorer:</b> CTRL + [accesskey]<br />
+	<b>Opera:</b> SHIFT + ESC + [accesskey]<br />
+	<b>Safari:</b> CTRL + [accesskey]<br />
+</fieldset><br />
 
 <b>Supported Access Keys:</b>
 <blockquote>
