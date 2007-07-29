@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.53 2007/07/22 20:01:14 hackie Exp $
+* $Id: finduser.tmpl,v 1.54 2007/07/29 15:18:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,7 +38,7 @@ document.fufrm.usr_login.focus();
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 {IF: $GLOBALS['FUD_OPT_3'] & 524288}<th width="1"><a href="{TEMPLATE: FINDUSER_PAGE_lnk4}">{MSG: finduser_flag}</a></th>{ENDIF}
-<th class="wa"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk}">{FUNC: draw_user_link($r->alias, $r->users_opt, $r->custom_color)}</a></th><th nowrap><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{IF: $is_a}{TEMPLATE: findu_admin_opts_header}{ENDIF}
+<th class="wa"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk}">{MSG: finduser_user}</a></th><th nowrap><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{IF: $is_a}{TEMPLATE: findu_admin_opts_header}{ENDIF}
 </tr>
 {TEMPLATE-DATA: find_user_data}
 </table>
@@ -55,7 +55,7 @@ document.fufrm.usr_login.focus();
 {SECTION: find_user_entry}
 <tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}">
 {IF: $GLOBALS['FUD_OPT_3'] & 524288}<td>{IF: $r->flag_cc}<img src="images/flags/{VAR: r->flag_cc}.png" border="0" width="16" height="11" alt="{VAR: r->flag_country}" title="{VAR: r->flag_country}" />{ENDIFI}</td>{ENDIFI}
-<td class="nw GenText"><a href="{TEMPLATE: find_user_entry_lnk}">{VAR: r->alias}</a>{IF: $r->users_opt & 131072}{ELSE}{TEMPLATE: findu_no_conf}{END}</td><td class="ac nw">{VAR: r->posted_msg_count}</td><td class="DateText nw">{TEMPLATE: finduser_join_date}</td><td class="nw GenText">{TEMPLATE: action_field}</td>{IF: $is_a}{TEMPLATE: findu_admin_opts}{ENDIF}</tr>
+<td class="nw GenText"><a href="{TEMPLATE: find_user_entry_lnk}">{FUNC: draw_user_link($r->alias, $r->users_opt, $r->custom_color)}</a>{IF: $r->users_opt & 131072}{ELSE}{TEMPLATE: findu_no_conf}{END}</td><td class="ac nw">{VAR: r->posted_msg_count}</td><td class="DateText nw">{TEMPLATE: finduser_join_date}</td><td class="nw GenText">{TEMPLATE: action_field}</td>{IF: $is_a}{TEMPLATE: findu_admin_opts}{ENDIF}</tr>
 {SECTION: END}
 
 {SECTION: action_field lists things that can be done with a user}
