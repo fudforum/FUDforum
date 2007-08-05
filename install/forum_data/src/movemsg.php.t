@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: movemsg.php.t,v 1.14 2007/01/31 23:32:22 hackie Exp $
+* $Id: movemsg.php.t,v 1.15 2007/08/05 14:57:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -108,7 +108,7 @@
 					$sinfo = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." ORDER BY post_stamp DESC LIMIT 1");
 					q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-".$c_mids.", last_post_date=".$sinfo[1].", last_post_id=".$sinfo[0]." WHERE id=".$th);
 					rebuild_forum_view_ttl($sth_info['forum_id']);
-					$lp = q_singleval("SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}_tv_".$sth_info['forum_id']." v 
+					$lp = q_singleval("SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}tv_".$sth_info['forum_id']." v 
 								INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=v.thread_id
 								WHERE seq=1");
 					$pfx = ', last_post_id='.(int)$lp;
