@@ -1,9 +1,10 @@
 TOPIC_TITLE: <a name="post">Wie schreibe ich Beiträge?</a>
 TOPIC_HELP:
-Um ein neues Thema zu starten, klicken Sie auf die "Neues Thema"-Schaltfläche, den Sie auf der Beiträge-/Themenübersicht 
+Um ein neues Thema zu starten, klicken Sie auf die "Neues Thema"-Schaltfl&auml;che, die Sie auf der Beiträge-/Themen&uuml;bersicht 
 finden. Sie werden dann zu einem Formular weitergeleitet, das Ihnen erlaubt, den Inhalt Ihres Beitrags zu schreiben.
-Um auf einen bereits existierenden Beitrag zu antworten, klicken Sie einfach auf eine "Antwort"- oder "Zitat"-Schaltfläche, die Sie links unter jedem Beitrag finden. <br> Unter Umständen bekommen Sie nach dem Klicken auf diese Schaltflächen eine Fehlermeldung,
-dass Sie nicht genügend Rechte haben. Das heißt, dass Sie sich zum Schreiben eines Beitrages erst anmelden oder registrieren m&uuml;ssen oder dass das Schreiben von Beiträgen in diesem Forum generell nicht erlaubt ist.
+Um auf einen bereits existierenden Beitrag zu antworten, klicken Sie einfach auf eine "Antwort"- oder "Zitat"-Schaltfläche, die
+Sie links unter jedem Beitrag finden. <br> Unter Umständen bekommen Sie nach dem Klicken auf diese Schaltflächen eine Fehlermeldung,
+dass Sie nicht genügend Rechte haben. Das heißt, dass Sie sich zum Schreiben eines Beitrages erst anmelden oder registrieren m&uuml;ssen oder dass das Schreiben von Beitr&auml;gen in diesem Forum generell nicht erlaubt ist.
 
 
 TOPIC_TITLE: <a name="bsearch">Wie kann ich suchen?</a>
@@ -16,39 +17,39 @@ Sie k&ouml;nnen auch andere Forumsmitglieder &uuml;ber ihren Namen oder E-Mail-A
 TOPIC_TITLE: <a name="email">Kann ich anderen Benutzern eine E-Mail schreiben?</a>
 TOPIC_HELP:
 Sofern nicht vom Administrator deaktiviert, k&ouml;nnen Sie per E-Mail zu anderen Forumsmitgliedern Verbindung aufnehmen.<br>
-Um einem Mitglied eine E-Mail zu schicken, k&ouml;nnen Sie sie entweder &uuml;ber die Mitgliederseite ausfindig machen und dann den <b>Kontakt</b> Knopf anklicken
-oder direkt auf den <b>E-Mail</b> Knopf neben jedem Beitrag klicken. Das f&uuml;hrt Sie auf eine neue Seite, auf der Sie Ihre beabsichtigte Mitteilung 
-verfassen k&ouml;nnen. Wenn Sie fertig sind, klicken Sie auf den <b>E-Mail</b> Knopf und verschicken damit deine Nachricht.
+Um einem Mitglied eine E-Mail zu schicken, k&ouml;nnen Sie sie entweder &uuml;ber die Mitgliederseite ausfindig machen und dann den <b>Kontakt</b>-Knopf anklicken
+oder direkt auf den <b>E-Mail</b>-Knopf neben jedem Beitrag klicken. Das f&uuml;hrt Sie auf eine neue Seite, auf der Sie Ihre beabsichtigte Mitteilung 
+verfassen k&ouml;nnen. Wenn Sie fertig sind, klicken Sie auf den <b>E-Mail</b>-Knopf und verschicken damit Ihre Nachricht.
 <br><br>
-Au&szlig;er E-Mails an Forumsmitglieder verschicken, k&ouml;nnen Sie auch mit dem <b>E-Mail an einen Freund</b> Link eine bestimmte Seite einem Bekannten 
+Au&szlig;er E-Mails an Forumsmitglieder verschicken, k&ouml;nnen Sie auch mit dem <b>E-Mail an einen Freund</b>-Link eine bestimmte Seite einem Bekannten 
 weiterempfehlen, in dem Sie ihnen die URL mit einer Beschreibung zukommen l&auml;ssen. Dieser Link kann auf den Seiten mit den Themen und Beitr&auml;gen gefunden werden.
 
 
 TOPIC_TITLE: <a name="pmsg">Was sind private Nachrichten und wie verschicke ich sie?</a> 
 TOPIC_HELP:
 Sofern nicht vom Administrator deaktiviert, k&ouml;nnen Sie private Nachrichten an ein oder mehrere registrierte Mitglieder des Forums versenden. Um auf das 
-PM System zugreifen zu k&ouml;nnen, klicken Sie einfach auf den <a href="{ROOT}?t=pmsg&amp;%_rsid%">Private Nachrichten</a> Link, 
+PN-System zugreifen zu k&ouml;nnen, klicken Sie einfach auf den <a href="{ROOT}?t=pmsg&amp;%_rsid%">Private Nachrichten</a>-Link, 
 der auf der Seite oben rechts gefunden werden kann. Falls Sie noch ungelesene private Nachrichten haben, teilt Ihnen dieser Link deren Anzahl mit.
 <p>
 <b>Eine private Nachricht verschicken</b><br>
-Das Verschicken von privaten Nachrichten &auml;hnelt sehr dem Vorgang bei E-Mails: Sie geben den/die Empf&auml;nger an, denen Sie schreiben m&ouml;chten, schreiben die Nachricht und klicken auf "senden". Es stehen zwei Links zur Verf&uuml;gung, die es Ihnen erleichtern, Mitglieder, denen Sie schreiben m&ouml;chten, zu finden:
+Das Verschicken von privaten Nachrichten &auml;hnelt sehr dem Vorgang bei E-Mails: Sie geben den/die Empf&auml;nger an, denen Sie schreiben m&ouml;chten, schreiben die Nachricht und klicken auf "Senden". Es stehen zwei Links zur Verf&uuml;gung, die es Ihnen erleichtern, Mitglieder, denen Sie schreiben m&ouml;chten, zu finden:
 <b>von der Buddyliste ausw&auml;hlen</b>, erm&ouml;glicht Ihnen, Leute von dieser Liste auszuw&auml;hlen und <b>Benutzer suchen</b> erlaubt Ihnen, die gesamte 
 Mitgliederliste nach Leuten zu durchsuchen, denen Sie Ihre Nachricht schicken m&ouml;chten.
-Eine Kopie von jeder versendeten Nachricht wird im <b>Verschickt</b> Ordner aufbewahrt, um sich sp&auml;ter einmal darauf beziehen zu k&ouml;nnen. Diese lassen sich jederzeit auf Wunsch l&ouml;schen.
+Eine Kopie von jeder versendeten Nachricht wird im <b>Verschickt</b>-Ordner aufbewahrt, um sich sp&auml;ter einmal darauf beziehen zu k&ouml;nnen. Diese lassen sich jederzeit auf Wunsch l&ouml;schen.
 <p>
 
 
 Es gibt drei weitere Ordner, die Sie kennen sollten:
 <p>
-<b>Posteingang</b> Ordner enth&auml;lt alle Nachrichten, die Sie erhalten haben, jede einzelne hat eine gelesen/ungelesen Anzeige, um Ihnen einen &Uuml;berblick dar&uuml;ber 
+<b>Posteingang</b>-Ordner enth&auml;lt alle Nachrichten, die Sie erhalten haben, jede einzelne hat eine Gelesen/Ungelesen-Anzeige, um Ihnen einen &Uuml;berblick dar&uuml;ber 
 zu verschaffen, ob eine Nachricht schon gelesen wurde oder nicht. Es wird auch der Absender angezeigt und ob dieser momentan auf dem Forum unterwegs ist, 
 dabei wird auch der Zeitpunkt des Versendens angezeigt.
 <p>
-<b>Entwurf</b> Ordner enth&auml;lt alle Nachrichten, die Sie zwar geschrieben, aber noch nicht verschickt haben. Das Anklicken der Nachricht aktiviert den Editiermodus, 
-um es Ihnen zu erm&ouml;glichen, die Nachricht weiter zu bearbeiten und bei Bedarf zu verschicken. Sobald diese versendet wurde, wird sie vom Entwurfs- in den Verschickt- 
+<b>Entwurf</b>-Ordner enth&auml;lt alle Nachrichten, die Sie zwar geschrieben, aber noch nicht verschickt haben. Das Anklicken der Nachricht aktiviert den Editiermodus, 
+um es Ihnen zu erm&ouml;glichen, die Nachricht weiter zu bearbeiten und bei Bedarf zu verschicken. Sobald diese versendet wurde, wird sie vom Entwurfs- in den Verschickt-
 Ordner verschoben.
 <p>
-<b>M&uuml;ll</b> Ordner bewahrt alle Nachrichts auf, die zum L&ouml;schen markiert sind, aber noch nicht gel&ouml;scht wurden. Wenn eine Nachricht innerhalb dieses Ordners 
+<b>M&uuml;ll</b>-Ordner bewahrt alle Nachrichts auf, die zum L&ouml;schen markiert sind, aber noch nicht gel&ouml;scht wurden. Wenn eine Nachricht innerhalb dieses Ordners 
 gel&ouml;scht wird, so geschieht das unwiderruflich.
 <p>
 <b>Weiterverfolgen von Nachrichten</b><p>
@@ -84,13 +85,13 @@ Anwerbungen erm&ouml;glichen es, einen &Uuml;berblick &uuml;ber Forumsmitglieder
 sind.
 Die Anwerbungen werden automatisch aufgezeichnet, sobald Sie die die Adresse des Forums weiterreichen und sie sich aufgrund dessen Leute registrieren. Die 
 Anwerbung dieser Personen wird Ihnen dann zugeschrieben. Eine Auflistung aller Leute, die von Ihnen angeworben worden sind, k&ouml;nnen Sie in Ihrem Profil durch Klicken des 
-<b>Anwerbungen</b> Men&uuml;s anzeigen lassen.
+<b>Anwerbungen</b>-Men&uuml;s anzeigen lassen.
 
 TOPIC_TITLE: <a name="syndicate">Das Forum als Newsticker verf&uuml;gbar machen (Syndicate)</a>
 TOPIC_HELP:
-Falls vom Administrator gestattet, ermöglicht das FUDforum mittels XML (rdf) eine Reihe von Daten als Syndicate zug&auml;nglich zu machen. Das RDF Feed funktioniert haupts&auml;chlich
-in 3 Modi: Empfang von Beitr&auml;gen, Themen and Benutzern. Jeder Betriebsmodus unterst&uuml;tzt eine Reihe von ver&auml;nderbaren Parametern, die
-es dir gestatten festzulegen welche Art von Daten abgegriffen werden sollen. Unten ist eine Beschreibung der unterst&uuml;tzten Parameter für jeden
+Falls vom Administrator gestattet, erm&ouml;glicht das FUDforum mittels XML (rdf) eine Reihe von Daten als Syndicate zug&auml;nglich zu machen. Das RDF-Feed funktioniert haupts&auml;chlich
+in drei Modi: Empfang von Beitr&auml;gen, Themen and Benutzern. Jeder Betriebsmodus unterst&uuml;tzt eine Reihe von ver&auml;nderbaren Parametern, die
+es dir gestatten festzulegen, welche Art von Daten abgegriffen werden sollen. Unten ist eine Beschreibung der unterst&uuml;tzten Parameter für jeden
 Betriebsmodus.<br />
 <br /><br />
 <h4><u><b>'m' Modus (Beitr&auml;ge)</b></u></h4>
@@ -100,10 +101,10 @@ Betriebsmodus.<br />
 		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Nur Beitr&auml;ge des Forums mit dieser id.</td></tr>
 		<tr><td class="GenText"><i>th</i></td><td class="GenText">Nur Beitr&auml;ge des Themas mit dieser id.</td></tr>
 		<tr><td class="GenText"><i>id</i></td><td class="GenText">Einen einzelnen Beitrag mit der angegebenen id.</td></tr>
-		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Nur Beitr&auml;ge die nach dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
-		<tr><td class="GenText"><i>de</i></td><td class="GenText">Nur Beitr&auml;ge die vor dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Nur Beitr&auml;ge, die nach dem angegebenen Datum erstellt wurden (Unix-Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>de</i></td><td class="GenText">Nur Beitr&auml;ge, die vor dem angegebenen Datum erstellt wurden (Unix-Zeitstempel).</td></tr>
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> Beiträge abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset) ab dem Beitr&auml;ge abgerufen werden sollen.</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset), ab dem Beitr&auml;ge abgerufen werden sollen.</td></tr>
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">Beitr&auml;ge vom &auml;ltesten zum neusten sortieren.</td></tr>
 		<tr><td class="GenText"><i>basic</i></td><td class="GenText">Gibt die Beiträge in einem Format zurück, das von den meisten RDF/RSS-Programmen verarbeiten werden kann.</td></tr>
 
@@ -115,10 +116,10 @@ Betriebsmodus.<br />
 		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Nur Themen der Kategorie mit dieser id.</td></tr>
 		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Nur Themen des Forums mit dieser id.</td></tr>
 		<tr><td class="GenText"><i>id</i></td><td class="GenText">Ein einzelnes Thema mit der angegebenen id.</td></tr>
-		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Nur Themen die nach dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
-		<tr><td class="GenText"><i>de</i></td><td class="GenText">Nur Themen die vor dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Nur Themen, die nach dem angegebenen Datum erstellt wurden (Unix-Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>de</i></td><td class="GenText">Nur Themen, die vor dem angegebenen Datum erstellt wurden (Unix-Zeitstempel).</td></tr>
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> Themen abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset) ab dem Themen abgerufen werden sollen.</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset), ab dem Themen abgerufen werden sollen.</td></tr>
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">Themen vom &auml;ltesten zum neusten sortieren.</td></tr>
 	</table>
 </blockquote>
@@ -127,25 +128,38 @@ Betriebsmodus.<br />
 	<table border=0 cellspacing=1 cellpadding=3>
 		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Benutzer nach der Beitragsanzahl anordnen, von der gr&ouml;&szlig;ten zur kleinsten.</td></tr>
 		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Benutzer nach der Registrierung anordnen, von der &auml;ltesten zur neusten.</td></tr>
-		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Nur Benutzer anzeigen die momentan online sind.</td></tr>
+		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Nur Benutzer anzeigen, die momentan online sind.</td></tr>
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> Benutzer abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset) ab dem Benutzer abgerufen werden sollen.</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset), ab dem Benutzer abgerufen werden sollen.</td></tr>
 	</table>
 </blockquote>
 <b>Beispiel:</b><br />
 Der folgende Link ruft die aktuellsten 10 Beitr&auml;ge dieses Forums ab:<br />
-<a href="rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">rdf.php?mode=m&amp;l=1&amp;n=10amp;basic=1</a>
+<a href="rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1</a>
 
 TOPIC_TITLE: <a name="accesskeys">Zugriffstasten</a>
 TOPIC_HELP:
-Zugriffstasten sind Tastaturk&uuml;rzel, die den Sinn haben die Navigation mit Hilfe der Tastatur zu vereinfachen. FUDforum macht von dieser Funktionalit&auml;t Gebrauch, um verschiedene Aufgaben, die in erster Linie dem Erstellen von Beiträgen dienen, zu vereinfachen.<br />
+Zugriffstasten sind Tastaturk&uuml;rzel, die den Sinn haben, die Navigation mit Hilfe der Tastatur zu vereinfachen. FUDforum macht von dieser Funktionalit&auml;t Gebrauch, um verschiedene Aufgaben, die in erster Linie dem Erstellen von Beiträgen dienen, zu vereinfachen.<br />
 
 <fieldset style="width: 350px;">
-	<legend><b>Browser Unterst&uuml;tzung</b></legend>
-	<b>Mozilla/Netscape:</b> CTRL + ALT + [Zugriffstaste]<br />
-	<b>Mozilla/IE:</b> ALT + [Zugriffstaste]<br />
+	<legend><b>Browser Support</b></legend>
+	<i>Windows</i><br />
+	<b>Firefox 1/Mozilla/Netscape:</b> ALT + [Zugriffstaste]<br />
+	<b>Firefox 2:</b> ALT + SHIFT + [Zugriffstaste]<br />
+	<b>Internet Explorer:</b> ALT + [Zugriffstaste], ENTER<br />
 	<b>Opera:</b> SHIFT + ESC + [Zugriffstaste]<br />
-</fieldset>
+	<br />
+	<i>Linux</i><br />
+	<b>Firefox/Mozilla/Netscape:</b> ALT + [Zugriffstaste]<br />
+	<b>Opera:</b> SHIFT + ESC + [Zugriffstaste]<br />
+	<b>Konqueror:</b> CTRL, [Zugriffstaste]<br />
+	<br />
+	<i>Mac OS X</i><br />
+	<b>Firefox/Mozilla/Netscape:</b> CTRL + [Zugriffstaste]<br />
+	<b>Internet Explorer:</b> CTRL + [Zugriffstaste]<br />
+	<b>Opera:</b> SHIFT + ESC + [Zugriffstaste]<br />
+	<b>Safari:</b> CTRL + [Zugriffstaste]<br />
+</fieldset><br />
 
 <b>Unterst&uuml;tzte Zugriffstasten:</b>
 <blockquote>
@@ -158,7 +172,7 @@ Zugriffstasten sind Tastaturk&uuml;rzel, die den Sinn haben die Navigation mit H
 	<b>K</b> - Die Rechtschreibung des Beitrags oder der Nachricht &uuml;berpr&uuml;fen.<br />
 	<b>A</b> - Ver&auml;nderungen am Text &uuml;bernehmen.<br />
 	<b>D</b> - Private Nachricht als Entwurf abspeichern.<br />
-	<br /><br /><b>FUDcode Abk&uuml;rzungen:</b>
+	<br /><br /><b>FUDcode-Abk&uuml;rzungen:</b>
 	<blockquote>
 		<b>B</b> - Fett<br />
 		<b>I</b> - Kursiv<br />

@@ -1,30 +1,56 @@
 TOPIC_TITLE: Benutzerverwaltung
 TOPIC_HELP:
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#register">Warum Registrieren?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">Wie verwendet das FUDForum Cookies?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie">Wie l&ouml;scht man FUDForum Cookies?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">Wie verwendet das FUDforum Cookies?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie">Wie l&ouml;scht man FUDforum-Cookies?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#updprofile">Was ist ein Profil?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#sigs">Was ist eine Signatur?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#rstpasswd">Was beim Verlust des Passwortes zu tun ist</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cstat">Individueller R&auml;nge, was sie sind und wie man sie erlangt</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cstat">Individuelle R&auml;nge, was sie sind und wie man sie erlangt</a><br>
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#avatars">Was ist ein Avatar?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#blist">Was ist eine Buddyliste?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#ignlist">F&uuml;r was ist die Ignorierliste da?</a><br>
 
 TOPIC_TITLE: Allgemeine Boardnutzung
 TOPIC_HELP:
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#post">Wie schreibe ich Beitr&auml;ge?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#bsearch">Wie kann ich suchen?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email">Kann ich anderen Mitgliedern eine Email schreiben?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#pmsg">Was sind private Messages und wie verschicke ich sie?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email">Kann ich anderen Mitgliedern eine E-Mail schreiben?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#pmsg">Was sind private Nachrichten und wie verschicke ich sie?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#mlist">Mitgliederliste?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ann">Was sind Ank&uuml;ndigungen und angeheftete Beitr&auml;ge?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#rate">Kann ich Themen bewerten?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ref">Was sind Anwerbungen?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#accesskeys">Access Keys</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#syndicate">Das Forum als Newsticker verfügbar machen (Syndicate)</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#accesskeys">Zugriffstasten</a><br>
 
 TOPIC_TITLE: Beitr&auml;ge lesen und verfassen
 TOPIC_HELP:
 <a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#style">Wie formatiert man Text?</a><br>
+<ul>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#b">Fett [b]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#u">Unterstrichen [u]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#i">Kursiv [i]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sub">Tiefgestellt [sub]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sup">Hochgestellt [sup]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#color">Farben [color]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#font">Schriftart [font]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#align">Textausrichtung [align]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#list">Listen [list]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#img">Bilder [img]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#url">Links [url]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#quote">Zitate [quote]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#pre">Vorformatierter Text [pre]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#php">PHP Code [php]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#code">Code [code]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#notag">Kein FUDcode [notag]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#hr">Horizontale Linie [hr]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#spoiler">Spoiler [spoiler]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#acronym">Abkürzung [acronym]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#email">E-Mail [email]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#size">Schriftgröße [size]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#wikipedia">Wikipedia [wikipedia]</a></li>
+</ul>
 <a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sml">Was sind Smileys/Emoticons?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#polls">Wie erstelle ich Umfragen?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#attach">Kann ich Dateien an Beitr&auml;ge anh&auml;ngen?</a><br>

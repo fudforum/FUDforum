@@ -1,8 +1,8 @@
 TOPIC_TITLE: Benutzerverwaltung
 TOPIC_HELP:
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#register">Warum Registrieren?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">Wie verwendet das FUDForum Cookies?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie">Wie l&ouml;scht man FUDForum Cookies?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">Wie verwendet das FUDforum Cookies?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie">Wie l&ouml;scht man FUDforum-Cookies?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#updprofile">Was ist ein Profil?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#sigs">Was ist eine Signatur?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#rstpasswd">Was beim Verlust des Passwortes zu tun ist</a><br>
@@ -13,7 +13,7 @@ TOPIC_HELP:
 
 TOPIC_TITLE: Allgemeine Boardnutzung
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#post">Wie schreibe ich Beiträge?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#post">Wie schreibe ich Beitr&auml;ge?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#bsearch">Wie kann ich suchen?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email">Kann ich anderen Mitgliedern eine E-Mail schreiben?</a><br>
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#pmsg">Was sind private Nachrichten und wie verschicke ich sie?</a><br>
@@ -29,7 +29,7 @@ TOPIC_HELP:
 <a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#style">Wie formatiert man Text?</a><br>
 <ul>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#b">Fett [b]</a></li>
-	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#u">Unterstreichen [u]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#u">Unterstrichen [u]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#i">Kursiv [i]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sub">Tiefgestellt [sub]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sup">Hochgestellt [sup]</a></li>
