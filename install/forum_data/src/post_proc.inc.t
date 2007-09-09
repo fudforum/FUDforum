@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.96 2007/06/24 17:42:43 hackie Exp $
+* $Id: post_proc.inc.t,v 1.97 2007/09/09 16:40:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -442,7 +442,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 	$pos = 0;
 	$ppos = 0;
 
-	$er = array_flip(array_merge(range(0,9), range('A', 'Z'), range('a','z'), array('.','-',"'")));
+	$er = array_flip(array_merge(range(0,9), range('A', 'Z'), range('a','z'), array('.','-',"'","_")));
 
 	while (($pos = @strpos($ostr, '@', $pos)) !== false) {
 		if ($pos < $ppos) {
