@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.81 2007/01/01 18:23:43 hackie Exp $
+* $Id: db.inc,v 1.82 2007/09/12 18:34:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -187,8 +187,7 @@ function db_sab($q)
 function db_qid($q)
 {
 	$r = q($q);
-	preg_match('!('.$GLOBALS['DBHOST_TBL_PREFIX'].'[A-Za-z0-9_]+)!', $q, $m);
-	return q_singleval('SELECT id FROM '.$m[1].' WHERE oid='.pg_last_oid($r));
+	return q_singleval('SELECT lastval()');
 }
 
 function db_arr_assoc($q)
@@ -201,8 +200,7 @@ function db_li($q, &$ef, $li=0)
 	$r = @pg_query(fud_sql_lnk, $q);
 	if ($r) {
 		if ($li) {
-			preg_match('!('.$GLOBALS['DBHOST_TBL_PREFIX'].'[A-Za-z0-9_]+)!', $q, $m);
-			return q_singleval('SELECT id FROM '.$m[1].' WHERE oid='.pg_last_oid($r));
+			return q_singleval('SELECT lastval()');
 		}
 		return $r;
 	}
