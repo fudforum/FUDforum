@@ -3,7 +3,7 @@ exit("To run the un-installer, comment out the 2nd line of the script!\n");
 /***************************************************************************
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uninstall.php,v 1.19 2007/01/01 18:23:42 hackie Exp $
+* $Id: uninstall.php,v 1.20 2007/10/03 18:46:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -125,7 +125,7 @@ function fud_rmdir($dir)
 					$connect_str .= ' dbname='.$DBHOST_DBNAME;
 				}
 				if (($conn = @pg_connect($connect_str))) {
-					while ($r = mysql_fetch_row($c)) {
+					while ($r = pg_fetch_row($c)) {
 						pg_query($conn, 'DROP TABLE '.$r[0]);
 					}
 				}
