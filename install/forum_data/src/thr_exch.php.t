@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thr_exch.php.t,v 1.34 2007/01/01 18:23:46 hackie Exp $
+* $Id: thr_exch.php.t,v 1.35 2007/12/14 01:20:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,7 +26,7 @@
 	/* verify that we got a valid thread-x-change approval */
 	if (isset($_GET['appr']) && ($thrx = thx_get((int)$_GET['appr']))) {
 		$data = db_sab('SELECT
-					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.last_post_id,
+					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.last_post_id, t.tdescr,
 					f1.id, f1.last_post_id as f1_lpi, f2.last_post_id AS f2_lpi,
 					'.($is_a ? ' 1 ' : ' mm.id ').' AS md
 				FROM {SQL_TABLE_PREFIX}thread t
@@ -41,7 +41,7 @@
 			std_error('access');
 		}
 
-		th_move($thrx->th, $thrx->frm, $data->root_msg_id, $data->forum_id, $data->last_post_date, $data->last_post_id);
+		th_move($thrx->th, $thrx->frm, $data->root_msg_id, $data->forum_id, $data->last_post_date, $data->last_post_id, $data->tdescr);
 
 		if ($data->f1_lpi == $data->last_post_id) {
 			$mid = (int) q_singleval('SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='.$data->forum_id.' AND t.moved_to=0 AND m.apr=1');

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.60 2007/01/02 16:36:56 hackie Exp $
+* $Id: split_th.php.t,v 1.61 2007/12/14 01:20:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -84,7 +84,7 @@ function th_frm_last_post_id($id, $th)
 
 		/* fetch all relevant information */
 		$data = db_sab('SELECT
-				t.id, t.forum_id, t.replies, t.root_msg_id, t.last_post_id, t.last_post_date,
+				t.id, t.forum_id, t.replies, t.root_msg_id, t.last_post_id, t.last_post_date, t.tdescr,
 				m1.post_stamp AS new_th_lps, m1.id AS new_th_lpi,
 				m2.post_stamp AS old_fm_lpd,
 				f1.last_post_id AS src_lpi,
@@ -169,7 +169,7 @@ function th_frm_last_post_id($id, $th)
 		} else { /* moving entire thread */
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET subject="._esc(htmlspecialchars($_POST['new_title']))." WHERE id=".$data->root_msg_id);
 			if ($forum != $data->forum_id) {
-				th_move($data->id, $forum, $data->root_msg_id, $thr->forum_id, $data->last_post_date, $data->last_post_id);
+				th_move($data->id, $forum, $data->root_msg_id, $thr->forum_id, $data->last_post_date, $data->last_post_id, $data->tdescr);
 
 				if ($data->src_lpi == $data->last_post_id) {
 					q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.th_frm_last_post_id($data->forum_id, $data->id).' WHERE id='.$data->forum_id);

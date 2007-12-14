@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.47 2007/01/01 18:23:46 hackie Exp $
+* $Id: th_adm.inc.t,v 1.48 2007/12/14 01:20:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@ function th_add($root, $forum_id, $last_post_date, $thread_opt, $orderexpiry, $r
 			(".$forum_id.", ".$root.", ".$last_post_date.", ".$replies.", 0, 0, ".$lpi.", ".$thread_opt.", ".$orderexpiry.","._esc($descr).")");
 }
 
-function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last_post_id)
+function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last_post_id, $tdescr)
 {
 	if (!db_locked()) {
 		if ($to_forum != $forum_id) {
@@ -46,9 +46,9 @@ function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last
 	q('UPDATE {SQL_TABLE_PREFIX}thread SET moved_to='.$to_forum.' WHERE id!='.$id.' AND root_msg_id='.$root_msg_id);
 
 	q('INSERT INTO {SQL_TABLE_PREFIX}thread
-		(forum_id, root_msg_id, last_post_date, last_post_id, moved_to)
+		(forum_id, root_msg_id, last_post_date, last_post_id, moved_to, tdescr)
 	VALUES
-		('.$forum_id.', '.$root_msg_id.', '.$last_post_date.', '.$last_post_id.', '.$to_forum.')');
+		('.$forum_id.', '.$root_msg_id.', '.$last_post_date.', '.$last_post_id.', '.$to_forum.','._esc($descr).')');
 
 	rebuild_forum_view_ttl($forum_id);
 	rebuild_forum_view_ttl($to_forum);

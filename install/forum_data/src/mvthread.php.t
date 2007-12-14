@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mvthread.php.t,v 1.42 2007/01/01 18:23:46 hackie Exp $
+* $Id: mvthread.php.t,v 1.43 2007/12/14 01:20:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,7 +53,7 @@
 		}
 
 		$thr = db_sab('SELECT
-				t.id, t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.last_post_id,
+				t.id, t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.last_post_id, t.tdescr,
 				f1.last_post_id AS f1_lpi, f2.last_post_id AS f2_lpi,
 				'.($is_a ? ' 1 AS mod1, 1 AS mod2' : ' mm1.id AS mod1, mm2.id AS mod2').',
 				COALESCE(gs2.group_cache_opt, gs1.group_cache_opt) AS sgco,
@@ -82,7 +82,7 @@
 		/* fetch data about dest forum */
 		$dst_frm_lpi = (int) $thr->f2_lpi;
 
-		th_move($thr->id, $to, $thr->root_msg_id, $thr->forum_id, $thr->last_post_date, $thr->last_post_id);
+		th_move($thr->id, $to, $thr->root_msg_id, $thr->forum_id, $thr->last_post_date, $thr->last_post_id, $thr->tdescr);
 
 		if ($src_frm_lpi == $thr->last_post_id) {
 			$mid = (int) q_singleval('SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='.$thr->forum_id.' AND t.moved_to=0 AND m.apr=1');

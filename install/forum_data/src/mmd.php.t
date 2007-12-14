@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmd.php.t,v 1.11 2007/03/18 18:15:58 hackie Exp $
+* $Id: mmd.php.t,v 1.12 2007/12/14 01:20:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,7 +48,7 @@
 	$final_mv = !empty($_POST['mov_sel_all']) && !empty($_POST['forum_id']);
 
 	/* ensure that all threads are from the same forum and that they exist */
-	$c = uq("SELECT m.subject, t.id, t.root_msg_id, t.replies, t.last_post_date, t.last_post_id
+	$c = uq("SELECT m.subject, t.id, t.root_msg_id, t.replies, t.last_post_date, t.last_post_id, t.tdescr
 			FROM {SQL_TABLE_PREFIX}thread t 
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id
 			WHERE t.id IN(".implode(',', $list).") AND t.forum_id=".$perms[0]);
@@ -58,7 +58,7 @@
 		if ($final_del) {
 			$ext[$r[1]] = array($r[2], $r[3]);
 		} else if ($final_mv) {
-			$ext[$r[1]] = array($r[2], $r[4], $r[5]);
+			$ext[$r[1]] = array($r[2], $r[4], $r[5], $r[6]);
 		}
 	}
 	unset($c);
@@ -91,7 +91,7 @@
 
 		foreach ($list as $k => $v) {
 			logaction(_uid, 'THRMOVE', $k);
-			th_move($k, $_POST['forum_id'], $ext[$k][0], $perms[0], $ext[$k][1], $ext[$k][2]);
+			th_move($k, $_POST['forum_id'], $ext[$k][0], $perms[0], $ext[$k][1], $ext[$k][2], $ext[$k][3]);
 		}
 		
 		/* update last post ids in source & destination forums */
