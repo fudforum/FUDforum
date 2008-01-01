@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.159 2007/03/20 23:18:34 hackie Exp $
+* $Id: post.php.t,v 1.160 2008/01/01 18:19:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -188,7 +188,7 @@ function flood_check()
 		$msg_tdescr		= isset($_POST['msg_tdescr']) ? (string)$_POST['msg_tdescr'] : '';
 
 		/* Microsoft Word Hack to eliminate special characters */
-		$in = array('”','“','’','‘','…'); $out = array('"','"',"'","'",'...');
+		$in = array('”','“','’','‘','…','—','–'); $out = array('"','"',"'","'",'...','--');
 		$msg_body = str_replace($in,$out,$msg_body);
 		$msg_subject = str_replace($in,$out,$msg_subject);
 		$msg_tdescr = str_replace($in,$out,$msg_tdescr);

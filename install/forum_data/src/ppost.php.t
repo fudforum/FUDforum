@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.93 2007/01/01 18:23:46 hackie Exp $
+* $Id: ppost.php.t,v 1.94 2008/01/01 18:19:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -177,7 +177,7 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		$msg_show_sig = isset($_POST['msg_show_sig']) ? '1' : '';
 
 		/* Microsoft Word Hack to eliminate special characters */
-		$in = array('”','“','’','‘','…'); $out = array('"','"',"'","'",'...');
+		$in = array('”','“','’','‘','…','—','–'); $out = array('"','"',"'","'",'...','--');
 		$msg_body = str_replace($in,$out,$msg_body);
 		$msg_subject = str_replace($in,$out,$msg_subject);
 
