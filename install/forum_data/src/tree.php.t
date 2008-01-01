@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.96 2007/11/25 16:06:11 hackie Exp $
+* $Id: tree.php.t,v 1.97 2008/01/01 18:23:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -147,13 +147,13 @@
 
 	if (!isset($_GET['prevloaded'])) {
 		th_inc_view_count($th);
-		if (_uid) {
-			if ($frm->last_view < $msg_obj->post_stamp) {
-				user_register_thread_view($th, $msg_obj->post_stamp, $mid);
-			}
-			if ($frm->last_forum_view < $msg_obj->post_stamp) {
-				user_register_forum_view($frm->forum_id);
-			}
+	}
+	if (_uid) {
+		if ($frm->last_view < $msg_obj->post_stamp) {
+			user_register_thread_view($th, $msg_obj->post_stamp, $mid);
+		}
+		if ($frm->last_forum_view < $msg_obj->post_stamp) {
+			user_register_forum_view($frm->forum_id);
 		}
 	}
 	ses_update_status($usr->sid, '{TEMPLATE: tree_update}', $frm->id);

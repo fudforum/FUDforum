@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.107 2007/11/25 16:06:11 hackie Exp $
+* $Id: msg.php.t,v 1.108 2008/01/01 18:23:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -193,16 +193,16 @@
 ?>
 {TEMPLATE: MSG_PAGE}
 <?php
+	while (@ob_end_flush());
 	if (!isset($_GET['prevloaded'])) {
-		while (@ob_end_flush());
 		th_inc_view_count($frm->id);
-		if (_uid && $obj2) {
-			if ($frm->last_forum_view < $obj2->post_stamp) {
-				user_register_forum_view($frm->forum_id);
-			}
-			if ($frm->last_view < $obj2->post_stamp) {
-				user_register_thread_view($frm->id, $obj2->post_stamp, $obj2->id);
-			}
+	}
+	if (_uid && $obj2) {
+		if ($frm->last_forum_view < $obj2->post_stamp) {
+			user_register_forum_view($frm->forum_id);
+		}
+		if ($frm->last_view < $obj2->post_stamp) {
+			user_register_thread_view($frm->id, $obj2->post_stamp, $obj2->id);
 		}
 	}
 ?>
