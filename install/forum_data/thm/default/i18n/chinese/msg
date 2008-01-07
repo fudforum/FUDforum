@@ -583,21 +583,21 @@ postcheck_no_recepient:	因为没有接受方，所以无法发送信息
 postcheck_invalid_email:	           请输入你的朋友的正确电子邮箱地址。
 postcheck_email_subject:	如果不输入主题，你将无法发送邮件。
 postcheck_email_body:		如果没有内容，你将无法发送邮件。
-private_msg_notify_subj:读取通知：{VAR: m->subject}
+private_msg_notify_subj:	读取通知：{VAR: m->subject}
 private_msg_notify_body:	你好，<br>{VAR: usr->login} 用户已经阅读了你的悄悄话， "{VAR: m->subject}"，在 {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br>
 referals_update:	             	浏览被推荐者
 register_err_short_login:	           你输入的账号太短，必须至少包括4个字符。
 register_err_login_notallowed:	不能使用这个账号注册。
-register_err_loginunique:论坛账号必须是唯一的，这个账号已经有人使用。
-register_err_emailexists:这个电子邮件地址已经存在，请不要重复注册。如果你忘记了密码，请通过“找回密码”程序找回你的密码。
+register_err_loginunique:	论坛账号必须是唯一的，这个账号已经有人使用。
+register_err_emailexists:	这个电子邮件地址已经存在，请不要重复注册。如果你忘记了密码，请通过“找回密码”程序找回你的密码。
 register_err_shortpasswd:	密码必须至少有6个字符。
 register_err_passwdnomatch:	你的密码不对。
-register_err_invalidemail:你输入的电子邮件地址不正确。
+register_err_invalidemail:	你输入的电子邮件地址不正确。
 register_err_needname:		你必须输入你的姓名才能完成此次注册。
 register_err_enterpasswd:	你必须输入密码才能进行修改。
 register_err_adminpasswd:	你必须输入系统管理员密码才能完成这些修改。
 register_err_notyouremail:	已经有人用这个电子邮箱地址注册了，但是那个人不是你。
-register_err_avatartobig:你正在上传的文件太大，超过了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节的最大限制。
+register_err_avatartobig:	你正在上传的文件太大，超过了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节的最大限制。
 register_err_avatarnotallowed:	你正在上传的头像不能上传，请查看允许上传的文件类型。
 register_conf_subject:		注册确认
 register_conf_msg:		谢谢注册,\n进入当前账号，请点击下列地址：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
@@ -605,13 +605,13 @@ register_welcome_subject:	论坛注册确认
 register_welcome_msg:		谢谢注册，\n\n这是你注册的详细资料：\n\n论坛URL：{GVAR: WWW_ROOT}\n账号：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要更改你的设置或者个人信息，请点击：\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	错误：无法注册
 regsiter_err_cantreg_msg:	无法注册新的账号，请和系统管理员联系<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-register_profile_update:查看个人信息
+register_profile_update:	查看个人信息
 register_register_update:	注册页
 report_err_nosuchmsg_title:	错误
 report_err_nosuchmsg_msg:	没有这样的信息
 reset_err_invalidkey_title:	错误
 reset_err_invalidkey_msg:	密码提示错误
-reset_err_rstconf_title:信息
+reset_err_rstconf_title:	信息
 reset_err_rstconf_msg:		一会你将通过邮件收到相关说明。
 reset_newpass_title:		重新输入密码
 reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息：\n\n账号：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n注意：你的密码已经被改为上面的值字符组合，如果你想\n修改密码，请在个人信息中修改：\n{FULL_ROOT}{ROOT}?t=register\n\n
@@ -799,7 +799,7 @@ poll_edit:			编辑
 unspecified:			保密
 register_err_not_valid_img:	指定的图片连接不正确
 pmsg_recepient:			收信人
-register_err_taken_alias:这个昵称已经存在，请更换
+register_err_taken_alias	:这个昵称已经存在，请更换
 register_alias:			昵称
 register_alias_desc:		如果你想应用昵称代替你的用户名来显示在论坛上就请你填入你想要的昵称。
 register_allow_pm_msg:		接受悄悄话
