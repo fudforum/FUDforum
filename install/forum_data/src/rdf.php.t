@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.65 2007/01/01 18:23:46 hackie Exp $
+* $Id: rdf.php.t,v 1.66 2008/01/07 21:33:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -377,16 +377,27 @@ $basic_rss_data .= '
 					'.$join.'
 				WHERE
 					' . $lmt  . (isset($_GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
+
+			$data = '';
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					header('Content-Type: text/xml');
-					echo '<?xml version="1.0" encoding="'.$charset.'"?>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/">
-<channel rdf:about="'.__ROOT__.'">
-	<title>'.$FORUM_TITLE.' RDF feed</title>
-	<link>'.__ROOT__.'</link>
-	<description>'.$FORUM_TITLE.' RDF feed</description>
-</channel>';
+					echo '<?xml version="1.0" encoding="'.$charset.'"?>';
+
+					if ($basic) {
+						echo '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:admin="http://webns.net/mvcb/" xmlns="http://purl.org/rss/1.0/">';
+					} else {
+						echo '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/">';
+					}
+
+					echo '<channel rdf:about="'.__ROOT__.'"><title>'.$FORUM_TITLE.' RDF feed</title><link>'.__ROOT__.'</link><description>'.$FORUM_TITLE.' RDF feed</description>';
+
+					if ($basic) {
+						echo '<items><rdf:Seq>';
+					} else {
+						echo '</channel>';
+					}
+	
 					$res = 1;
 				}
 				if ($r->root_msg_id == $r->last_post_id) {
@@ -395,7 +406,20 @@ $basic_rss_data .= '
 					$r->last_post_date = gmdate('r', $r->last_post_date);
 				}
 
-				echo '
+				if ($basic) {
+					echo '<rdf:li rdf:resource="'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->thread_id.'" />';
+					$data .= '
+<item rdf:about="'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->thread_id.'">
+	<title>'.htmlspecialchars($r->subject).'</title>
+	<link>'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->thread_id.'</link>
+	<description>'.sp($body).'</description>
+	<dc:subject>'.sp($r->frm_name).'</dc:subject>
+	<dc:creator>'.sp($r->alias).'</dc:creator>
+	<dc:date>'.gmdate('Y-m-d\TH:i:s', $r->post_stamp).'-00:00</dc:date>
+</item>
+';
+				} else {
+					echo '
 <item>
 	<topic_id>'.$r->id.'</topic_id>
 	<topic_title>'.sp($r->subject).'</topic_title>
@@ -411,8 +435,13 @@ $basic_rss_data .= '
 	<last_post_subj>'.sp($r->lp_subject).'</last_post_subj>
 	<last_post_date>'.$r->last_post_date.'</last_post_date>
 </item>';
+				}
 			}
 			unset($c);
+
+			if ($basic && $data) {
+				echo '</rdf:Seq></items></channel>' . $data;
+			}
 			break;
 
 		case 'u':
