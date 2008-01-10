@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.66 2008/01/07 21:33:06 hackie Exp $
+* $Id: rdf.php.t,v 1.67 2008/01/10 01:08:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -407,12 +407,12 @@ $basic_rss_data .= '
 				}
 
 				if ($basic) {
-					echo '<rdf:li rdf:resource="'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->thread_id.'" />';
+					echo '<rdf:li rdf:resource="'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->id.'" />';
 					$data .= '
-<item rdf:about="'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->thread_id.'">
+<item rdf:about="'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->id.'">
 	<title>'.htmlspecialchars($r->subject).'</title>
 	<link>'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->thread_id.'</link>
-	<description>'.sp($body).'</description>
+	<description>'.sp($r->subject).'</description>
 	<dc:subject>'.sp($r->frm_name).'</dc:subject>
 	<dc:creator>'.sp($r->alias).'</dc:creator>
 	<dc:date>'.gmdate('Y-m-d\TH:i:s', $r->post_stamp).'-00:00</dc:date>
