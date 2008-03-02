@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.73 2007/01/01 18:23:47 hackie Exp $
+* $Id: register.tmpl,v 1.74 2008/03/02 14:48:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,7 +35,7 @@
 <tr class="RowStyleA"><td>{MSG: register_login}{FUNC: draw_err('reg_login')}</td><td><input type="text" size="25" name="reg_login" value="{VAR: reg_login}" maxLength={GVAR: MAX_LOGIN_SHOW}></td></tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
 <tr class="RowStyleA"><td>{MSG: register_password}{FUNC: draw_err('reg_plaintext_passwd')}</td><td><input type="password" name="reg_plaintext_passwd" size="25"></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_conf_pass}</td><td><input type="password" name="reg_plaintext_passwd_conf" size="25" maxlength="16"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_conf_pass}</td><td><input type="password" name="reg_plaintext_passwd_conf" size="25" /></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span></td><td><input type="text" name="reg_email" size="25" value="{VAR: reg_email}"></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td><td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}"></td></tr>
 {IF: !($FUD_OPT_3 & 128)}{TEMPLATE: register_turing_test}{ENDIFI}
