@@ -134,7 +134,7 @@ sender_name:			Sender Name:
 show_posts_by:			Show Messages by: {VAR: u_alias}
 size:				Size:
 status:				Status:
-status_line:			There are <b>{VAR: st_obj->online_users_reg}</b> members(s), <b>{VAR: st_obj->online_users_hidden}</b> invisible members and <b>{VAR: st_obj->online_users_anon}</b> guest(s) visiting this board.
+status_line:			There are <b>{VAR: st_obj->online_users_reg}</b> member(s), <b>{VAR: st_obj->online_users_hidden}</b> invisible member(s) and <b>{VAR: st_obj->online_users_anon}</b> guest(s) visiting this board.
 sticky:				sticky:
 stop_ignoring:			stop ignoring this user
 sub_to_thread:			Subscribe to topic
