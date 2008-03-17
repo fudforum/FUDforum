@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.171 2007/09/04 23:45:14 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.172 2008/03/17 03:43:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -232,7 +232,7 @@ class fud_msg_edit extends fud_msg
 
 			/* Determine if any work needs to be done */
 			if ($thread_opt != $th_data[1] || $orderexpiry != $th_data[0]) {
-				q('UPDATE {SQL_TABLE_PREFIX}thread SET tdescr='._esc($msg_tdescr).', thread_opt='.$thread_opt.', orderexpiry='.$orderexpiry.' WHERE id='.$this->thread_id);
+				q('UPDATE {SQL_TABLE_PREFIX}thread SET '.($th_data[2] == $this->id ? 'tdescr='._esc($msg_tdescr).',' : '') . ' thread_opt='.$thread_opt.', orderexpiry='.$orderexpiry.' WHERE id='.$this->thread_id);
 				/* Avoid rebuilding the forum view whenever possible, since it's a rather slow process
 				 * Only rebuild if expiry time has changed or message gained/lost sticky status
 				 */
@@ -240,10 +240,10 @@ class fud_msg_edit extends fud_msg
 				if (($diff > 1 && $diff & 14) || $orderexpiry != $th_data[0]) {
 					rebuild_forum_view_ttl($frm_id);
 				}
-			} else if ($msg_tdescr != $th_data[3]) {
+			} else if ($msg_tdescr != $th_data[3] && $th_data[2] == $this->id) {
 				q('UPDATE {SQL_TABLE_PREFIX}thread SET tdescr='._esc($msg_tdescr).' WHERE id='.$this->thread_id);
 			}
-		} else if ($msg_tdescr != $th_data[3]) {
+		} else if ($msg_tdescr != $th_data[3] && $th_data[2] == $this->id) {
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET tdescr='._esc($msg_tdescr).' WHERE id='.$this->thread_id);
 		}
 
