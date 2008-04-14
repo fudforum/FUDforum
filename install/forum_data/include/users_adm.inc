@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_adm.inc,v 1.24 2007/08/13 23:19:53 hackie Exp $
+* $Id: users_adm.inc,v 1.25 2008/04/14 20:08:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,6 +44,9 @@ function usr_delete($id)
 	/* Delete the private messages of this user */
 	$c = q('SELECT id FROM '.$tbl.'pmsg WHERE duser_id IN('.implode(',', $id).')');
 	while ($r = db_rowarr($c)) {
+		if (!function_exists('pmsg_del')) {
+			fud_use('private.inc');
+		}
 		pmsg_del($r[0], 5);
 	}
 	q('UPDATE '.$tbl.'pmsg SET ouser_id=0, read_stamp=post_stamp WHERE ouser_id IN('.implode(',', $id).')');
