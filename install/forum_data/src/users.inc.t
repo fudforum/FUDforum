@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.165 2007/07/24 22:27:37 hackie Exp $
+* $Id: users.inc.t,v 1.166 2009/01/12 20:12:41 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -217,13 +217,9 @@ function &init_user()
 						$_GET['sel'] = $p[2];
 					}
 					if (isset($p[3])) {
-						$_GET['start'] = $p[3];
-						if (isset($p[4])) {
-							$_GET['s'] = $p[4];
-							if (isset($p[5])) {
-								$_GET['a'] = $p[5];
-							}
-						}
+						$_GET['s'] = $p[3];
+						$_GET['o'] = $p[4];
+						$_GET['start'] = $p[5];
 					}
 				}
 				break;
