@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.80 2007/08/13 23:21:35 hackie Exp $
+* $Id: index.tmpl,v 1.81 2009/01/13 21:07:31 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -186,17 +186,14 @@ function toggleCategory(cid, level)
 		break;
 	}
 
-
 {IF: _uid}
-
-	var catChange = function(o) { return }
-	var callback = 
-	{
-		success:catChange,
-		failure:catChange
-	}
-	YAHOO.util.Connect.asyncRequest("POST","index.php?t=cat_focus", callback, "SQ={VAR: usr->sq}&S={DEF: s}&c="+cid+"&on="+(on == "none" ? "1" : "0"));
-
+        $.ajax({
+           type: "POST",
+           url: "index.php?t=cat_focus",
+           data: "SQ={VAR: usr->sq}&S={DEF: s}&c="+cid+"&on="+(on == "none" ? "1" : "0"),
+           success: catChange,
+           error: catChange,
+         });
 {ENDIFI}
 }
 </script>

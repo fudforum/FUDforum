@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.81 2007/11/26 21:06:56 hackie Exp $
+* $Id: tree.tmpl,v 1.82 2009/01/13 21:07:31 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -177,34 +177,26 @@ var cur_msg = {VAR: mid};
 document.getElementById('b' + cur_msg).className = 'RowStyleC';
 function changeMsgFocus(mid)
 {
-	document.getElementById('b' + mid).className = 'RowStyleC';
-	document.getElementById('b' + cur_msg).className = (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB');
-	cur_msg = mid;
+        $('#b' + mid).removeClass().addClass("RowStyleC");
+        $('#b' + cur_msg).removeClass().addClass( (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB') );
+        cur_msg = mid;
 
-	var responseFailure = function(o) { alert('XMLHTTPRequest Failure: ' + o.statusText); }
-	var setMsgBody = function(o) { 
-		var r = document.getElementById('msgIm'+mid);
-		if (r) {
-			r.setAttribute('src', '{THEME_IMAGE_ROOT}/read{DEF: img_ext}');
-			r.setAttribute('alt', '{MSG: read_message}');
-			r.setAttribute('title', r.getAttribute('alt'));
-		}
+        $.ajax({
+           url: '{GVAR: WWW_ROOT}index.php?t=tree_msg&id='+mid+'&S={DEF: s}',
+           success: function(data){
+                $('#msgIn'+mid).attr('src', '{THEME_IMAGE_ROOT}/read{DEF: img_ext}');
+                $('#msgIn'+mid).attr('alt', '{MSG: read_message}');
+                $('#msgIn'+mid).attr('title', $('#msgIn'+mid).attr('alt'));
 
-		var p = document.getElementById('msgTbl').parentNode;
-		p.removeChild(document.getElementById('msgTbl'));
-		p.innerHTML += o.responseText;
+                $('#msgTbl').empty();
+                $('#msgTbl').append(data);
 
-		chng_focus('page_top');
-	}
-
-	var callback = 
-	{
-		success:setMsgBody,
-		failure:responseFailure,
-		argument:mid
-	}
-
-	YAHOO.util.Connect.asyncRequest('GET','{GVAR: WWW_ROOT}index.php?t=tree_msg&id='+mid+'&S={DEF: s}',callback);
+                chng_focus('page_top');
+           },
+           error: function(xhr, desc, e) {
+                alert("Failed to submit: " + desc);
+           }
+         });
 }
 </script>
 {IF: ($FUD_OPT_2 & 4096 && $perms & 1024 && !$frm->cant_rate)}{TEMPLATE: rate_thread}{ENDIF}
