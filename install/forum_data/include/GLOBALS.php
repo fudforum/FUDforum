@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: GLOBALS.php,v 1.56 2007/01/01 18:23:42 hackie Exp $
+* $Id: GLOBALS.php,v 1.57 2009/01/15 04:45:21 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -67,6 +67,7 @@
 	$NOTIFY_FROM		= "";		/* email */
 	$ANON_NICK		= "Anonymous Coward";
 	$FLOOD_CHECK_TIME	= 60;		/* seconds */
+	$POSTS_BEFORE_LINKS	= 0;
 	$SERVER_TZ		= "America/Montreal"; /* timezone code from tz.inc */
 	$SEARCH_CACHE_EXPIRY	= 172800;	/* seconds */
 	$MEMBERS_PER_PAGE	= 40;

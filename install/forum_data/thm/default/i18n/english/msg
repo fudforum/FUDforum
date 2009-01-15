@@ -591,6 +591,7 @@ post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->su
 post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:		There was an error
 postcheck_max_images_err:	No more than {GVAR: MAX_IMAGE_COUNT} images are allowed per message. Please reduce the number of images.
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Subject required
 postcheck_no_such_user:		There is no user named "{FUNC: char_fix(htmlspecialchars($v))}" in this forum.
 postcheck_ignored:		You cannot send a private message to "{FUNC: char_fix(htmlspecialchars($v))}", because this person is ignoring you.

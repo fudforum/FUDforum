@@ -581,6 +581,7 @@ post_reply_update:		Raspunde la <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->su
 post_topic_update:		Scrie tema noua in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Aveti o eroare
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} imagini puteti trimite
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Subiectul este obligatoriu
 postcheck_no_such_user:		Nu este nici un utilizator numit "{FUNC: char_fix(htmlspecialchars($v))}" in acest forum
 postcheck_ignored:		Nu puteti trimite mesaje personale la "{FUNC: char_fix(htmlspecialchars($v))}", deoarece aceasta persoana va ignora.

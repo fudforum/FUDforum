@@ -578,6 +578,7 @@ post_reply_update:		Atbilde publikâcijai <a href="{TEMPLATE: msg_post_lnk}">{VAR
 post_topic_update:		Jaunas tçmas izveidoðana <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>forumâ
 post_error_generic:		Kïûda
 postcheck_max_images_err:	Samaziniet bilþu skaitu publikâcijâ lîdz {GVAR: MAX_IMAGE_COUNT}
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Norâde uz tçmu ir obligâta
 postcheck_no_such_user:		Ðajâ forumâ nav lietotâja ar niku "{FUNC: char_fix(htmlspecialchars($v))}"
 postcheck_ignored:		Ðim lietotâjam "{FUNC: char_fix(htmlspecialchars($v))}" nosûtît privâto vçstuli nevarat, jo viòð Jûs ir iekïavis ignorçjamo sarakstâ.

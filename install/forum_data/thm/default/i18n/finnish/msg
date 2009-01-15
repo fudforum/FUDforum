@@ -583,6 +583,7 @@ post_reply_update:		Vastaa viestiin otsikolla <a href="{TEMPLATE: msg_post_lnk}"
 post_topic_update:		Kirjoittaa uutta aihetta <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> foorumille
 post_error_generic:		Sinulla on virhe
 postcheck_max_images_err:	Maksimissaan {GVAR: MAX_IMAGE_COUNT} kuvaa sallittu per viesti. Ole hyv‰ ja v‰henn‰ kuvien m‰‰r‰‰
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Otsikko on pakollinen
 postcheck_no_such_user:		K‰ytt‰j‰‰ nimell‰ "{FUNC: char_fix(htmlspecialchars($v))}" ei lˆydy t‰lt‰ foorumilta
 postcheck_ignored:		Et voi l‰hett‰‰ yksityisviesti‰ k‰ytt‰j‰lle "{FUNC: char_fix(htmlspecialchars($v))}", koska h‰n on torjunut sinut.

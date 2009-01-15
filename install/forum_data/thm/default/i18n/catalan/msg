@@ -576,6 +576,7 @@ post_reply_update:		Responent a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->su
 post_topic_update:		Escrivint un nou fil a  <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Hi ha un error en l`enviament
 postcheck_max_images_err:	Es permet un màxim de {GVAR: MAX_IMAGE_COUNT} imatges per missatge. Si us plau, redueix el nombre d`imatges
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Es necessita assumpte
 postcheck_no_such_user:		No hi ha un usuari anomenat "{FUNC: char_fix(htmlspecialchars($v))}" en aquest fòrum
 postcheck_ignored:		No pot enviar un missatge privat a "{FUNC: char_fix(htmlspecialchars($v))}", perquè aquest usuari l`està  ignorant.

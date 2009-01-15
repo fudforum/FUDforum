@@ -576,6 +576,7 @@ post_reply_update:		Odpowiadanie na w±tek <a href="{TEMPLATE: msg_post_lnk}">{VA
 post_topic_update:		Tworzenie nowego w±tku na forum <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Wiadomo¶æ nie zosta³a wys³ana, gdy¿ wyst±pi³ b³±d:
 postcheck_max_images_err:	Maksimum dozwolonych obrazków w wiadomo¶ci to {GVAR: MAX_IMAGE_COUNT}, dlatego musisz zmniejszyæ ich liczbê.
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Temat jest wymagany
 postcheck_no_such_user:		Nie ma u¿ytkownika o nazwie "{FUNC: char_fix(htmlspecialchars($v))}" w tym forum
 postcheck_ignored:		Nie mo¿esz wys³aæ wiadomo¶ci do "{FUNC: char_fix(htmlspecialchars($v))}", poniewa¿ ta osoba ignoruje Ciê.

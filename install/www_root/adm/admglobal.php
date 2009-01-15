@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.97 2007/01/01 18:23:48 hackie Exp $
+* $Id: admglobal.php,v 1.98 2009/01/15 04:45:21 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -305,6 +305,7 @@ function get_max_upload_size()
 	print_reg_field('Word Wrap', 'WORD_WRAP', 1);
 	print_reg_field('Unconfirmed User Expiry', 'UNCONF_USER_EXPIRY', 1);
 	print_reg_field('Flood Trigger (seconds)', 'FLOOD_CHECK_TIME', 1);
+	print_reg_field('Messages before alowing users to post links', 'POSTS_BEFORE_LINKS', 1);
 	print_reg_field('Moved Topic Pointer Expiry', 'MOVED_THR_PTR_EXPIRY', 1);
 	print_bit_field('Use Aliases', 'USE_ALIASES');
 	print_bit_field('Multiple Host Login', 'MULTI_HOST_LOGIN');

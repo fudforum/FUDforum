@@ -580,6 +580,7 @@ post_reply_update:		Odpovídáte na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->
 post_topic_update:		Pí¹ete nové téma ve fóru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Máte chybu
 postcheck_max_images_err:	Maximální poèet obrázkù na pøíspìvek je {GVAR: MAX_IMAGE_COUNT}, prosím, sni¾te poèet obrázkù
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Nadpis nutný
 postcheck_no_such_user:		U¾ivatel "{FUNC: char_fix(htmlspecialchars($v))}" v tomto fóru neexistuje
 postcheck_ignored:		Nemù¾ete poslat po¹tu pro "{FUNC: char_fix(htmlspecialchars($v))}", proto¾e vás ignoruje.

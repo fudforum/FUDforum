@@ -576,6 +576,7 @@ post_reply_update:		{VAR-HTML: frm->name} forumundaki <a href="{TEMPLATE: msg_po
 post_topic_update:		<a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> forumunda yeni tartýþma açýyor.
 post_error_generic:		Bir hata oluþtu
 postcheck_max_images_err:	Ýleti baþýna en fazla {GVAR: MAX_IMAGE_COUNT} resim gönderilebilir, lütfen resim sayýsýný azaltýn.
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Konu bölümü zorunlu
 postcheck_no_such_user:		Bu forumda "{FUNC: char_fix(htmlspecialchars($v))}" isminde bir kullanýcý yok.
 postcheck_ignored:		"{FUNC: char_fix(htmlspecialchars($v))}" kullanýcýsýna özel ileti gönderemezsiniz, çünkü bu kiþi sizi gözardý ediyor.

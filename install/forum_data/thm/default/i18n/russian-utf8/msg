@@ -577,6 +577,7 @@ post_reply_update:		Ответ на сообщение <a href="{TEMPLATE: msg_p
 post_topic_update:		Создание новой темы в форуме <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Произошла ошибка
 postcheck_max_images_err:	Пожалуйста сократите количество картинок в сообщении до максимально допустимого, которое составляет {GVAR: MAX_IMAGE_COUNT}
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Указание темы является обязательным
 postcheck_no_such_user:		В этом форуме нет пользователей с именем "{FUNC: char_fix(htmlspecialchars($v))}"
 postcheck_ignored:		Вы не можете отправить личное сообщение для "{FUNC: char_fix(htmlspecialchars($v))}", поскольку этот пользователь вас игнорирует.

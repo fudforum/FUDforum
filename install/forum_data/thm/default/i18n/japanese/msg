@@ -585,6 +585,7 @@ post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->su
 post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		エラーがありました。
 postcheck_max_images_err:	メッセージ当りの画像は {GVAR: MAX_IMAGE_COUNT} 子まで許可されています。画像の数を減らしてみてください。
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		件名が必要です。
 postcheck_no_such_user:		このフォーラムに "{FUNC: char_fix(htmlspecialchars($v))}" という名前のユーザーはいません。
 postcheck_ignored:		この人はあなたを無視しているので、プライベートメッセージを "{FUNC: char_fix(htmlspecialchars($v))}" に送信できませんでした。

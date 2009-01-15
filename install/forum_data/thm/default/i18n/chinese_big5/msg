@@ -577,6 +577,7 @@ post_reply_update:		回復 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}<
 post_topic_update:		發表新主題 <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		發生錯誤
 postcheck_max_images_err:	一次提交圖片允許的最大數是{GVAR: MAX_IMAGE_COUNT} ，請盡量減少圖片數量。
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		輸入主題
 postcheck_no_such_user:		本論壇沒有 "{FUNC: char_fix(htmlspecialchars($v))}" 用戶
 postcheck_ignored:		 "{FUNC: char_fix(htmlspecialchars($v))}"用戶拒絕接受你的悄悄話。

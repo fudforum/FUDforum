@@ -168,6 +168,9 @@ This setting defines on how many character to wrap message bodies on, any text s
 {{{FLOOD_CHECK_TIME
 The minimum time delay before a user can post a message.}}}
 
+{{{POSTS_BEFORE_LINKS
+Prevent new users from posting spam. Users are required to post more than this amount of messages before they can embed links into their posts.}}}
+
 {{{SERVER_TZ
 Server time zone, specified in time offset from UTC.}}}
 

@@ -587,6 +587,7 @@ post_reply_update:		Sedang membalas <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr
 post_topic_update:		Sedang menulis topik baru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:		Terjadi kesalahan
 postcheck_max_images_err:	Tidak lebih dari {GVAR: MAX_IMAGE_COUNT} gambar diijinkan per pesan, mohon dkurangi.
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Diperlukan Subyek
 postcheck_no_such_user:		Tidak ada pengguna dengan nama "{FUNC: char_fix(htmlspecialchars($v))}" di forum ini.
 postcheck_ignored:		Anda tidak bisa mengirim pesan pribadi ke "{FUNC: char_fix(htmlspecialchars($v))}", karena oeang tersebut mengacuhkan anda.

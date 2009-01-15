@@ -586,6 +586,7 @@ post_reply_update:		답글 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject
 post_topic_update:		<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>에 새 토픽 쓰기
 post_error_generic:		오류 발생
 postcheck_max_images_err:	{GVAR: MAX_IMAGE_COUNT} 이미지 갯수가 초과되었습니다. 이미지 갯수를 줄이십시오.
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		제목을 입력하십시오
 postcheck_no_such_user:		이 포럼에는 "{FUNC: char_fix(htmlspecialchars($v))}"와 일치하는 사용자가 없습니다.
 postcheck_ignored:		차단 리스트에 등록되었기 때문에 "{FUNC: char_fix(htmlspecialchars($v))}"에게 쪽지를 전송할 수 없습니다.

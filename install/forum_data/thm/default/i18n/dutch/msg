@@ -579,6 +579,7 @@ post_reply_update:		Antwoorden op <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->
 post_topic_update:		nieuw topic schrijven in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		u heeft een fout
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} fotos zijn toegelaten per post, verminder het aantal foto&quot;s
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Onderwerp vereist
 postcheck_no_such_user:		Er is geen lid genaamd "{FUNC: char_fix(htmlspecialchars($v))}" in dit forum
 postcheck_ignored:		U kan geen privé berichten versturen naar "{FUNC: char_fix(htmlspecialchars($v))}", Omdat deze persoon u negeert.

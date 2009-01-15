@@ -582,6 +582,7 @@ post_reply_update:		Odpovedáte na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->
 post_topic_update:		Vytvárate novú tému vo fóre <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Vyskytla sa chyba
 postcheck_max_images_err:	Maximálnu poèet obrázkov na príspevok je {GVAR: MAX_IMAGE_COUNT}, prosím zníte poèet obrázkov
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Predmet je povinnı
 postcheck_no_such_user:		V tomto fóre sa nenachádza uívate¾ s menom "{FUNC: char_fix(htmlspecialchars($v))}"
 postcheck_ignored:		Uívate¾ovi "{FUNC: char_fix(htmlspecialchars($v))}" nemôete posla poštu, pretoe tento uívate¾ Vás ignoruje.

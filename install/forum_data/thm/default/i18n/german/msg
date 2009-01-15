@@ -455,6 +455,7 @@ postcheck_email_subject:	Du kannst keine E-Mail ohne Betreff versenden.
 postcheck_ignored:		Du kannst keine private Nachricht an "{FUNC: char_fix(htmlspecialchars($v))}" verschicken, weil diese Person dich auf die Ignorierliste gesetzt hat.
 postcheck_invalid_email:	Bitte trage eine g&uuml;ltige Adresse f&uuml;r deinen Freund ein.
 postcheck_max_images_err:	Maximal {GVAR: MAX_IMAGE_COUNT} Bilder pro Beitrag sind erlaubt, bitte reduziere die Anzahl der Bilder.
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_no_recepient:		Kann die Nachricht nicht versenden, weil kein Empf&auml;nger angegeben ist
 postcheck_no_such_user:		Es gibt keinen Benutzer mit Namen "{FUNC: char_fix(htmlspecialchars($v))}" in diesem Forum
 postcheck_subj_needed:		Betreff erforderlich

@@ -588,6 +588,7 @@ post_reply_update:		Trả lời đến <a href="{TEMPLATE: msg_post_lnk}">{VAR: 
 post_topic_update:		Tạo chủ đề mới trong <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:		Có một lỗi xảy ra
 postcheck_max_images_err:	Số lượng hình ảnh được cho phép trong mỗi bài viết không được hơn {GVAR: MAX_IMAGE_COUNT} hình. Xin vui lòng giảm số lượng hình.
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Yêu cầu có tựa đề
 postcheck_no_such_user:		Không có thành viên tên "{FUNC: char_fix(htmlspecialchars($v))}" trong diễn đàn này.
 postcheck_ignored:		Bạn không thể gửi tin nhắn cá nhân đên "{FUNC: char_fix(htmlspecialchars($v))}", vì người này đã từ chối bạn.

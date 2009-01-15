@@ -576,6 +576,7 @@ post_reply_update:		Svarer p&aring; <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr
 post_topic_update:		Skriver ny tr&aring;d i <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		En feil har oppst&aring;tt
 postcheck_max_images_err:	Maksimalt {GVAR: MAX_IMAGE_COUNT} bilder er tillatt per innlegg, vennligst reduser antall bilder
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Emne obligatorisk
 postcheck_no_such_user:		Medlemmet "{FUNC: char_fix(htmlspecialchars($v))}" finnes ikke i dette forumet
 postcheck_ignored:		Du kan ikke sende en privat melding til "{FUNC: char_fix(htmlspecialchars($v))}", ettersom han/hun har valgt &aring; ignorere deg.
