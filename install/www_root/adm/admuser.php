@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.83 2007/04/29 14:15:16 hackie Exp $
+* $Id: admuser.php,v 1.84 2009/01/15 20:53:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,7 +33,7 @@
 		$usr_id = $act = '';
 	}
 
-	if ($usr_id && $acc_mod_only && $u->users_opt & (268435456|1048576)) {
+	if ($usr_id && $acc_mod_only && $u->users_opt & (268435456|1048576) && !($usr_id == $u->id)) {
 		echo '<h2>Account moderators are not allowed to modify administrator accounts or accounts of other account moderators.</h2>';
 		$u = $usr_id = null;
 	}
