@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.26 2007/01/01 18:23:47 hackie Exp $
+* $Id: post_common.tmpl,v 1.27 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,14 +19,14 @@
 <tr class="RowStyleA"><td class="nw vt GenText">{MSG: post_smiley}
 	<br /><span class="small">[<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: post_smilies_lnk1}\', \'sml_list\', 220, 200);">{MSG: post_list_smilies}</a>]</span>
 </td>
-<td class="vt"><table border=0 cellspacing=5 cellpadding=0><tr class="vb"><td>{TEMPLATE-DATA: data}</td></tr></table></td></tr>
+<td class="vt"><table border="0" cellspacing="5" cellpadding="0"><tr class="vb"><td>{TEMPLATE-DATA: data}</td></tr></table></td></tr>
 {SECTION: END}
 
 {SECTION: fud_code_icons shortcuts to various FUDcode text formatting tools}
 <tr class="RowStyleA"><td class="GenText nw">{MSG: post_format_tools}</td><td>
-<table border=0 cellspacing=0 cellpadding=0>
+<table border="0" cellspacing="0" cellpadding="0">
 <tr><td>
-<table cellspacing=1 cellpadding=2 class="FormattingToolsBG">
+<table cellspacing="1" cellpadding="2" class="FormattingToolsBG">
 <tr>
 <td class="FormattingToolsCLR"><a title="{MSG: post_common_bold}" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, \'[B]\', \'[/B]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_bold.gif" /></a></td>
 <td class="FormattingToolsCLR"><a title="{MSG: post_common_italics}" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, \'[I]\', \'[/I]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_italic.gif" /></a></td>
@@ -102,7 +102,7 @@
 
 {SECTION: post_icons}
 <tr class="RowStyleA"><td class="vt GenText">{MSG: post_icons}</td><td>
-<table border=0 cellspacing=0 cellpadding=2>
+<table border="0" cellspacing="0" cellpadding="2">
 <tr><td class="GenText" colspan={GVAR: POST_ICONS_PER_ROW}><input type="radio" name="msg_icon" value=""{IF: !$msg_icon} checked{ENDIF}>{MSG: post_no_icon}</td></tr>
 {TEMPLATE-DATA: data}
 </table>

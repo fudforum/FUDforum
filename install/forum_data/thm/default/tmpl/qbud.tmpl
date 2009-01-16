@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.tmpl,v 1.18 2007/01/01 18:23:47 hackie Exp $
+* $Id: qbud.tmpl,v 1.19 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,7 +25,7 @@
 {SECTION: buddy_list}
 <tr><th class="wa">{MSG: qbud_nick_name}</th><th class="nw">{MSG: qbud_selected} [<a class="thLnk" href="{TEMPLATE: buddy_list_lnk}">{IF: $all}{TEMPLATE: pmsg_none}{ELSE}{TEMPLATE: pmsg_all}{ENDI}</a>]</th></tr>
 {TEMPLATE-DATA: buddies}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan=2 class="GenText ar"><input type="submit" class="button" name="submit" value="{MSG: qbud_add_selected}"></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan="2" class="GenText ar"><input type="submit" class="button" name="submit" value="{MSG: qbud_add_selected}"></td></tr>
 {SECTION: END}
 
 {PAGE: QBUD_PAGE buddy selector popup}

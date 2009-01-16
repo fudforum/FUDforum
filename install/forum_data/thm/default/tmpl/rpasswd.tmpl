@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rpasswd.tmpl,v 1.16 2007/01/01 18:23:47 hackie Exp $
+* $Id: rpasswd.tmpl,v 1.17 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,18 +19,18 @@
 <form method="post" action="{TEMPLATE: RPASSWD_PAGE_lnk3}"><div align="center">
 <table cellspacing="1" cellpadding="2" class="MiniTable">
 {TEMPLATE-DATA: rpasswd_error}
-<tr><th colspan=2>{MSG: rpasswd_change_pass}</th></tr>
+<tr><th colspan="2">{MSG: rpasswd_change_pass}</th></tr>
 <tr class="RowStyleB"><td>{MSG: rpasswd_login}</td><td>{VAR-HTML: usr->login}</td></tr>
 <tr class="RowStyleB"><td>{MSG: rpasswd_cur_pass}</td><td><input type="password" name="cpasswd" value=""></td></tr>
 <tr class="RowStyleB"><td>{MSG: rpasswd_new_pass}</td><td><input type="password" name="passwd1" value=""></td></tr>
 <tr class="RowStyleB"><td>{MSG: rpasswd_conf_pass}</td><td><input type="password" name="passwd2" value=""></td></tr>
-<tr class="RowStyleB"><td align=right colspan=2><input type="submit" class="button" value="{MSG: go}" name="btn_submit"></td></tr>
+<tr class="RowStyleB"><td align=right colspan="2"><input type="submit" class="button" value="{MSG: go}" name="btn_submit"></td></tr>
 </table></div>{DEF: _hs}</form>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 
 {SECTION: rpasswd_error failed to change password error message}
-<tr><td class="rpasswdE" colspan=2>{VAR: rpasswd_error_msg}</td></tr>
+<tr><td class="rpasswdE" colspan="2">{VAR: rpasswd_error_msg}</td></tr>
 {SECTION: END}
 
 {SECTION: rpasswd_invalid_passwd}

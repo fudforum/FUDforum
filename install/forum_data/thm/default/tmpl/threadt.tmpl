@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.tmpl,v 1.47 2007/01/01 18:23:47 hackie Exp $
+* $Id: threadt.tmpl,v 1.48 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,7 +74,7 @@
 
 {SECTION: max_depth_reached maximum allowed depth of thread reached}
 <tr>
-<td class="RowStyleB" colspan=2>&nbsp;</td>
+<td class="RowStyleB" colspan="2">&nbsp;</td>
 <td class="tt" style="padding-left: {FUNC: ($width += 20)}px"><a href="{TEMPLATE: max_depth_reached_lnk}" class="big">{MSG: threadt_more}</a></td>
 </tr>
 {SECTION: END}
@@ -91,19 +91,19 @@
 {SECTION: END}
 
 {SECTION: thread_sep_s}
-<tr><td><table border=0 cellspacing=0 cellpadding=0 class="tt">
+<tr><td><table border="0" cellspacing="0" cellpadding="0" class="tt">
 {SECTION: END}
 
 {PAGE: THREAD_PAGE shows the threads in a particular forum}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
-<table class="wa" border=0 cellspacing=0 cellpadding=0><tr>
+<table class="wa" border="0" cellspacing="0" cellpadding="0"><tr>
 <td class="al wa">{FUNC: draw_forum_path($frm->cat_id, $frm->name)}<br />{TEMPLATE: show_links}<br />{IF: _uid}{IF: $frm->subscribed}{TEMPLATE: unsubscribe_link}{ELSE}{TEMPLATE: subscribe_link}{ENDI}{ENDIF}{IF: (_uid && ($MOD || $frm->group_cache_opt & 2048))}{TEMPLATE: thread_merge_t}{ENDIF}</td>
 <td class="GenText nw vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
 </tr></table>
 {TEMPLATE: thread_list}
-<table border=0 cellspacing=0 cellpadding=0 class="wa">
+<table border="0" cellspacing="0" cellpadding="0" class="wa">
 <tr>
 <td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
 <td class="GenText nw vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>

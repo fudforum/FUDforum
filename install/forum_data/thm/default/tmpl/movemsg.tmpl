@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: movemsg.tmpl,v 1.3 2007/01/30 01:07:53 hackie Exp $
+* $Id: movemsg.tmpl,v 1.4 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,7 +27,7 @@
 <tr>
 <td class="RowStyleC vt ac"><input type="checkbox" name="msg_ids[]" value="{VAR: r->id}"></td>
 <td class="RowStyleA">
-<table cellspacing=1 cellpadding=2 class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleB">
 	<td class="SmallText">
 	<b>{MSG: split_th_post_by}</b> {IF: $r->alias}{VAR: r->alias}{ELSE}{VAR: anon_alias}{ENDI}<br />
@@ -47,13 +47,13 @@
 <br />{TEMPLATE-DATA: admin_cp}
 <form name="movemsg" action="{ROOT}?t=movemsg" method="post">{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}">
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th class="wa" colspan=2>{MSG: split_cp}</th></tr>
+<tr><th class="wa" colspan="2">{MSG: split_cp}</th></tr>
 <tr class="RowStyleA">
 	<td class="al fb">{MSG: move_msg_th_expl}</td>
 	<td class="al"><input type="text" value="" name="dest_th" /></td>
 </tr>
 <tr class="RowStyleC">
-	<td colspan=2 class="ac"><input type="submit" class="button" name="btn_selected" value="{MSG: move_msg_btn}"></td>
+	<td colspan="2" class="ac"><input type="submit" class="button" name="btn_selected" value="{MSG: move_msg_btn}"></td>
 </tr>
 </table>
 <br />
@@ -64,7 +64,7 @@
 <br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleC">
-	<td colspan=2 class="ac"><input type="submit" class="button" name="btn_selected" value="{MSG: move_msg_btn}"></td>
+	<td colspan="2" class="ac"><input type="submit" class="button" name="btn_selected" value="{MSG: move_msg_btn}"></td>
 </tr>
 </table>
 </form>

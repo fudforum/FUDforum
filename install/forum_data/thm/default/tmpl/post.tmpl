@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.75 2007/02/27 00:38:50 hackie Exp $
+* $Id: post.tmpl,v 1.76 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,7 +52,7 @@
 {SECTION: preview_message}
 <div id="preview" class="ctb">
 <table cellspacing="1" cellpadding="2" class="PreviewTable">
-<tr><th colspan=2>{MSG: post_preview}</th></tr>
+<tr><th colspan="2">{MSG: post_preview}</th></tr>
 <tr><td class="RowStyleA MsgSubText">{VAR: subj}</td></tr>
 <tr><td class="RowStyleA MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</td></tr>
 <tr><td class="RowStyleB al">{IF: $spell}{TEMPLATE: apply_spell_changes}{ENDIFI}<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
@@ -147,7 +147,7 @@
 {TEMPLATE-DATA: post_error}
 {TEMPLATE-DATA: preview_message}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=2><a name="ptop"> </a>{MSG: post_form}</th></tr>
+<tr><th colspan="2"><a name="ptop"> </a>{MSG: post_form}</th></tr>
 {IF: _uid}{TEMPLATE: loged_in_user}{ELSE}<tr class="RowStyleA"><td colspan="2" class="GenTextRed fb">{MSG: post_not_logged_in}</td></tr>{ENDI}
 {IF: $frm->forum_opt & 4 && !$is_a}{TEMPLATE: post_password}{ENDIF}
 <tr class="RowStyleB"><td class="GenText">{MSG: post_forum}</td><td class="GenText">{VAR: frm->name}</td></tr>
@@ -175,12 +175,12 @@
 <tr class="RowStyleB vt">
 <td class="GenText">{MSG: post_options}</td>
 <td>
-<table border=0 cellspacing=0 cellpadding=1>
+<table border="0" cellspacing="0" cellpadding="1">
 {IF: _uid}{TEMPLATE: reg_user_options}{ENDIF}
 {IF: $perms & 16384}{TEMPLATE: disable_smileys}{ENDIF}
 </table>
 </td></tr>
-<tr class="RowStyleA"><td class="GenText ar" colspan=2>
+<tr class="RowStyleA"><td class="GenText ar" colspan="2">
 <input type="submit" accesskey="r" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input accesskey="s" type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
 </table>
 {TEMPLATE-DATA: minimsg}

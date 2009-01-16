@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thr_exch.tmpl,v 1.19 2007/01/01 18:23:47 hackie Exp $
+* $Id: thr_exch.tmpl,v 1.20 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,14 +23,14 @@
 
 {SECTION: thr_exch_entry thread that has been marked for moving}
 <tr><td>
-<table border=0 cellspacing=0 cellpadding=3 class="wa">
+<table border="0" cellspacing="0" cellpadding="3" class="wa">
 	<tr class="RowStyleB">
 		<td class="al nw vt SmallText"><b>{MSG: move_request_by}</b> <a href="{TEMPLATE: thr_exch_entry_lnk}">{VAR: obj->alias}</a><br /></td>
-		<td class="ac wa vt SmallText"><b>{MSG: move_reason}</b><br /><table border=1 cellspacing=1 cellpadding=0><tr><td class="al">&nbsp;{VAR: obj->reason_msg} &nbsp;</td></tr></table></td>
+		<td class="ac wa vt SmallText"><b>{MSG: move_reason}</b><br /><table border="1" cellspacing="1" cellpadding="0"><tr><td class="al">&nbsp;{VAR: obj->reason_msg} &nbsp;</td></tr></table></td>
 	</tr>
 	<tr class="RowStyleC">
-		<td colspan=2>
-			<table border=0 cellspacing=0 cellpadding=3 class="wa">
+		<td colspan="2">
+			<table border="0" cellspacing="0" cellpadding="3" class="wa">
 			<tr>
 				<td class="al SmallText"><b>{MSG: thr_exch_orig_forum}</b> {VAR: obj->sf_name}<br /><b>{MSG: thr_exch_dest_forum}</b> {VAR: obj->df_name}<br /><b>{MSG: thread}</b> <a href="{TEMPLATE: thr_exch_entry_lnk1}">{VAR: obj->subject}</a></td>
 				<td class="ar">[<a href="{TEMPLATE: thr_exch_entry_lnk2}">{MSG: thr_exch_accept}</a>]&nbsp;&nbsp;[<a href="{TEMPLATE: thr_exch_entry_lnk3}">{MSG: thr_exch_decline}</a>]</td>
@@ -49,7 +49,7 @@
 {SECTION: thr_move_decline}
 <form method="post" action="{TEMPLATE: thr_move_decline_lnk3}" name="thr_exch">
 {DEF: _hs}<input type="hidden" name="decl" value="{VAR: decl}">
-<tr><td class="RowStyleC">{MSG: thr_exch_decl_reason}<br /><textarea name="reason" cols=60 rows=10></textarea><br /><input type="submit" class="button" name="btn_submit" value="{MSG: thr_exch_submit}"></td><tr>
+<tr><td class="RowStyleC">{MSG: thr_exch_decl_reason}<br /><textarea name="reason" cols="60" rows="10"></textarea><br /><input type="submit" class="button" name="btn_submit" value="{MSG: thr_exch_submit}"></td><tr>
 </form>
 {SECTION: END}
 

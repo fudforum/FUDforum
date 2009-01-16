@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: subscribed.tmpl,v 1.25 2007/01/01 18:23:47 hackie Exp $
+* $Id: subscribed.tmpl,v 1.26 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,7 +28,7 @@
 <form method="post" action="{TEMPLATE: subscribed_action}">
 {DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=3>{MSG: subscribed_forums}<a name="fff"></a></th></tr>
+<tr><th colspan="3">{MSG: subscribed_forums}<a name="fff"></a></th></tr>
 {IF: $subscribed_forum_data}
 {VAR: subscribed_forum_data}
 <tr class="RowStyleC"><td class="ac" colspan="2"><input type="submit" name="f_unsub_sel" value="{MSG: unsubscribe}"></td><td class="ar"><input type="submit" name="f_unsub_all" value="{MSG: sub_unsub_all_forums}"></td></tr>

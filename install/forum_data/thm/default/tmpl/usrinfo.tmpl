@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@fudforum.org
-* $Id: usrinfo.tmpl,v 1.58 2007/01/01 18:23:47 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.59 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -84,7 +84,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=2 class="wa">{IF: !($u->users_opt & 32768) && (($u->time_sec + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__)}<img src="{THEME_IMAGE_ROOT}/online{DEF: img_ext}" alt="{MSG: user_online}" title="{MSG: user_online}" />{ELSE}<img src="{THEME_IMAGE_ROOT}/offline{DEF: img_ext}" alt="{MSG: user_offline}" title="{MSG: user_offline}" />{END}&nbsp;{MSG: usrinfo_profile}</th></tr>
+<tr><th colspan="2" class="wa">{IF: !($u->users_opt & 32768) && (($u->time_sec + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__)}<img src="{THEME_IMAGE_ROOT}/online{DEF: img_ext}" alt="{MSG: user_online}" title="{MSG: user_online}" />{ELSE}<img src="{THEME_IMAGE_ROOT}/offline{DEF: img_ext}" alt="{MSG: user_offline}" title="{MSG: user_offline}" />{END}&nbsp;{MSG: usrinfo_profile}</th></tr>
 <tr class="RowStyleA"><td class="nw GenText">{MSG: date_registered}</td><td class="wa DateText">{TEMPLATE: uinfo_join_date}</td></tr>
 <tr class="RowStyleB"><td class="vt nw GenText">{MSG: post_count_l}</td><td class="GenText">{MSG: average_post_count}<br /><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
 {IF: $u->users_opt & 32768}{ELSE}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: userinfo_real_name}</td><td class="GenText">{VAR: u->name}</td></tr>{END}
@@ -115,7 +115,7 @@
 {IF: $u->icq}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw vt GenText"><a name="icq_msg">{MSG: icq_message_form}</a></td><td class="GenText">
 		{VAR: u->icq} <img src="http://web.icq.com/whitepages/online?icq={VAR: u->icq}&amp;img=5" /><br />
 			<table class="icqCP">
-			<tr><td colspan=2>
+			<tr><td colspan="2">
 				<form action="http://wwp.icq.com/scripts/WWPMsg.dll" method="post" target=_blank>
 				<b>{MSG: icq_control_panel}</b>
 			</td></tr>
@@ -130,7 +130,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan=2>
+				<td colspan="2">
 					{MSG: subject}<br />
 					<input type="text" spellcheck="true" name="subject" value="" size="32"><br />
 					{MSG: message}<br />
@@ -138,7 +138,7 @@
 					<input type="hidden" name="to" value="{VAR: u->icq}"><br />
 				</td>
 			</tr>
-			<tr><td colspan=2 align=right><input type="submit" class="button" name="Send" value="{MSG: send}"></td></tr>
+			<tr><td colspan="2" align="right"><input type="submit" class="button" name="Send" value="{MSG: send}"></td></tr>
 			</form>
 			</table>
 			</td>
@@ -162,7 +162,7 @@
 </td></tr>
 {ENDIF}
 
-<tr class="RowStyleC"><td class="nw ar GenText" colspan=2><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
+<tr class="RowStyleC"><td class="nw ar GenText" colspan="2"><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
 </table>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.tmpl,v 1.22 2007/01/01 18:23:47 hackie Exp $
+* $Id: poll.tmpl,v 1.23 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,7 +41,7 @@ function check_submission()
 </script>
 <form action="{TEMPLATE: POLL_PAGE_lnk3}" method="post" name="poll_submit">
 <input type="hidden" name="frm_id" value="{VAR: frm_id}"><input type="hidden" name="pl_id" value="{VAR: pl_id}">{DEF: _hs}
-<table cellspacing=2 width="99%" cellpadding=0 class="dashed">
+<table cellspacing="2" width="99%" cellpadding="0" class="dashed">
 	<tr>
 		<td class="GenText">{MSG: poll_name}</td>
 		<td><input tabindex="1" type="text" spellcheck="true" name="pl_name" value="{VAR-HTML: pl_name}"></td>
@@ -55,7 +55,7 @@ function check_submission()
 		<td><select tabindex="3" name="pl_max_votes">{TEMPLATE-DATA: pl_max_votes_data}</select></td>
 	</tr>
 
-	<tr><td colspan=2 class="ar">{IF: !$pl_id}{TEMPLATE: pl_submit_create}{ELSE}{TEMPLATE: pl_submit_update}{END}</td></tr>
+	<tr><td colspan="2" class="ar">{IF: !$pl_id}{TEMPLATE: pl_submit_create}{ELSE}{TEMPLATE: pl_submit_update}{END}</td></tr>
 </table>
 <p>
 {TEMPLATE-DATA: poll_editor}
@@ -85,7 +85,7 @@ if (document.poll_submit.pl_option) {
 {SECTION: END}
 
 {SECTION: pl_smiley_disabled_chk disable smiliyes in the poll checkbox}
-<tr><td align="right" valign="top" colspan=2 class="GenText"><input type="checkbox" name="pl_smiley_disabled" value="Y"{VAR: checked}>{MSG: poll_disablesmilies}</td></tr>
+<tr><td align="right" valign="top" colspan="2" class="GenText"><input type="checkbox" name="pl_smiley_disabled" value="Y"{VAR: checked}>{MSG: poll_disablesmilies}</td></tr>
 {SECTION: END}
 
 {SECTION: pl_submit_create create poll button}
@@ -97,11 +97,11 @@ if (document.poll_submit.pl_option) {
 {SECTION: END}
 
 {SECTION: poll_editor}
-<table width="99%" cellspacing=2 cellpadding=0 class="dashed">
+<table width="99%" cellspacing="2" cellpadding="0" class="dashed">
 <tr><td class="GenText">{MSG: poll_add_option}</td><td class="ar"><input type="text" spellcheck="true" name="pl_option" value="{VAR-HTML: pl_option}">
 {TEMPLATE-DATA: pl_smiley_disabled_chk}
-<tr><td colspan=2 class="ar">{IF: !isset($_GET['pl_optedit'])}{TEMPLATE: pl_add}{ELSE}{TEMPLATE: pl_upd}{END}</td></tr>
-<tr><td colspan=2><table>
+<tr><td colspan="2" class="ar">{IF: !isset($_GET['pl_optedit'])}{TEMPLATE: pl_add}{ELSE}{TEMPLATE: pl_upd}{END}</td></tr>
+<tr><td colspan="2"><table>
 {TEMPLATE-DATA: poll_option_entry_data}
 </table>
 </td></tr>

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.tmpl,v 1.15 2007/01/01 18:23:47 hackie Exp $
+* $Id: merge_th.tmpl,v 1.16 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,24 +29,24 @@
 <br />{TEMPLATE-DATA: admin_cp}
 <form name="merge_th" action="{TEMPLATE: MERGE_TH_PAGE_lnk3}" method="post">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th class="wa" colspan=2>{MSG: merge_topics_cp}</th></tr>
+<tr><th class="wa" colspan="2">{MSG: merge_topics_cp}</th></tr>
 <tr class="RowStyleA">
 	<td class="al"><b>{MSG: split_th_new_thread_title}</b></td>
-	<td><input type="text" spellcheck="true" name="new_title" value="" size=50></td>
+	<td><input type="text" spellcheck="true" name="new_title" value="" size="50"></td>
 </tr>
 <tr class="RowStyleA">
 	<td class="al fb">{MSG: split_th_forum}</td>
 	<td class="al"><select name="forum">{VAR: forum_sel}</select></td>
 </tr>
 <tr class="RowStyleC">
-	<td colspan=2 class="ac">
+	<td colspan="2" class="ac">
 		<table border="0" cellspacing="1" cellpadding="2">
-			<tr><td colspan=3 class="ac">{MSG: merge_topics_tpl}</td></tr>
-			<tr><td colspan=3 class="ac">{MSG: merge_th_page_list}: 
+			<tr><td colspan="3" class="ac">{MSG: merge_topics_tpl}</td></tr>
+			<tr><td colspan="3" class="ac">{MSG: merge_th_page_list}: 
 			<select name="tmp" onChange="javascript: document.merge_th.page.value=this.value; document.merge_th.submit();">
 			{FUNC: tmpl_draw_select_opt($pages, $pages, $page)}
 			</select></td></tr>
-			<tr><td colspan=3 class="ac"><select name="sel_th[]" size=10 multiple>{VAR: thread_sel}</select></td></tr>
+			<tr><td colspan="3" class="ac"><select name="sel_th[]" size="10" multiple>{VAR: thread_sel}</select></td></tr>
 			<tr>
 				<td class="al" width="100">
 					{IF: $page > 1}<input type="submit" name="prev" value="{MSG: merge_prev}">{ENDIF}

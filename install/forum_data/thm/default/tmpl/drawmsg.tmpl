@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.88 2007/01/01 18:23:46 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.89 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,7 @@
 {REF: alt_var.tmpl}
 
 {SECTION: dmsg_prev_message previous page arrow drawn on the message}
-<a href="javascript://" onClick="chng_focus(\'#msg_num_{VAR: m_num}\');"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" width=16 height=11 /></a>
+<a href="javascript://" onClick="chng_focus(\'#msg_num_{VAR: m_num}\');"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" width="16" height="11" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page_lnk}
@@ -21,15 +21,15 @@
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page previous page arrrow drawn on the message}
-<a href="{TEMPLATE: dmsg_prev_message_prev_page_lnk}"><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width=16 height=11 /></a>
+<a href="{TEMPLATE: dmsg_prev_message_prev_page_lnk}"><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width="16" height="11" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_prev_message_prev_page previous page (tree view) arrrow drawn on the message}
-<a href="javascript://" onClick="changeMsgFocus({VAR: misc[0]})"><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width=16 height=11 /></a>
+<a href="javascript://" onClick="changeMsgFocus({VAR: misc[0]})"><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width="16" height="11" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_message next message arrow drawn on the message}
-<a href="javascript://" onClick="chng_focus(\'#msg_num_{FUNC: ($m_num + 2)}\');"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" width=16 height=11 /></a>
+<a href="javascript://" onClick="chng_focus(\'#msg_num_{FUNC: ($m_num + 2)}\');"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" width="16" height="11" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page_lnk}
@@ -37,11 +37,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
-<a href="{TEMPLATE: dmsg_next_message_next_page_lnk}"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" width=16 height=11 /></a>
+<a href="{TEMPLATE: dmsg_next_message_next_page_lnk}"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" width="16" height="11" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_next_message_next_page next page (tree view) arrow drawn on the message}
-<a href="javascript://" onClick="changeMsgFocus({VAR: misc[1]})"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" width=16 height=11 /></a>
+<a href="javascript://" onClick="changeMsgFocus({VAR: misc[1]})"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" width="16" height="11" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_lnk}
@@ -57,7 +57,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message ignored message row (this gets draw if this message is ignored due to ignored user)}
-<tr><td><table border=0 cellspacing=0 cellpadding=0 class="MsgTable"><tr><td class="MsgIg al">
+<tr><td><table border="0" cellspacing="0" cellpadding="0" class="MsgTable"><tr><td class="MsgIg al">
 <a name="msg_num_{VAR: m_num}"></a>
 <a name="msg_{VAR: obj->id}"></a>
 {IF: $obj->user_id}{MSG: ignored_user_post}{ELSE}{MSG: ignored_anon_post}{ENDI}&nbsp;
@@ -197,7 +197,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_poll_option}
-<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}"><td>{VAR: i}.</td><td colspan=2><input type="radio" name="poll_opt" value="{VAR: k}">&nbsp;&nbsp;{VAR: v[0]}</td></tr>
+<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}"><td>{VAR: i}.</td><td colspan="2"><input type="radio" name="poll_opt" value="{VAR: k}">&nbsp;&nbsp;{VAR: v[0]}</td></tr>
 {SECTION: END}
 
 {SECTION: dmsg_poll_result}
@@ -205,8 +205,8 @@
 {SECTION: END}
 
 {SECTION: mini_dmsg_poll}
-<p><table cellspacing=1 cellpadding=2 class="PollTable">
-<tr><th class="nw" colspan=3>{VAR: obj->poll_name}<span class="vt">[ {MSG: num_votes} ]</span></th></tr>
+<p><table cellspacing="1" cellpadding="2" class="PollTable">
+<tr><th class="nw" colspan="3">{VAR: obj->poll_name}<span class="vt">[ {MSG: num_votes} ]</span></th></tr>
 {TEMPLATE-DATA: poll_data}
 </table><p>
 {SECTION: END}
@@ -218,10 +218,10 @@
 {SECTION: dmsg_poll}
 <p>
 <form action="{TEMPLATE: dmsg_poll_lnk}" method="post">{DEF: _hs}
-<table cellspacing=1 cellpadding=2 class="PollTable">
-<tr><th class="nw" colspan=3>{VAR: obj->poll_name}<span class="ptp">[ {MSG: num_votes} ]</span></th></tr>
+<table cellspacing="1" cellpadding="2" class="PollTable">
+<tr><th class="nw" colspan="3">{VAR: obj->poll_name}<span class="ptp">[ {MSG: num_votes} ]</span></th></tr>
 {TEMPLATE-DATA: poll_data}
-<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA} ar"><td colspan=3><input type="submit" class="button" name="pl_vote" value="{MSG: vote_button}">&nbsp;{IF: $obj->total_votes}<input type="submit" class="button" name="pl_res" value="{MSG: view_results}">{ENDIFI}</td></tr>
+<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA} ar"><td colspan="3"><input type="submit" class="button" name="pl_vote" value="{MSG: vote_button}">&nbsp;{IF: $obj->total_votes}<input type="submit" class="button" name="pl_res" value="{MSG: view_results}">{ENDIFI}</td></tr>
 </table><input type="hidden" name="pl_view" value="{VAR: obj->poll_id}"></form><p>
 {SECTION: END}
 
@@ -312,7 +312,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote type buttons}
-<tr><td colspan="2" class="MsgToolBar"><table border=0 cellspacing=0 cellpadding=0 class="wa"><tr>
+<tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
 <td class="al nw">{IF: $obj->user_id}<a href="{TEMPLATE: dmsg_user_profile_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_about.gif" /></a>&nbsp;{IF: ($o1 & 4194304 && $a & 16)}<a href="{TEMPLATE: dmsg_email_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>&nbsp;{ENDIFI}{IF: $o1 & 1024}<a href="{TEMPLATE: dmsg_private_msg_link_lnk}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>{ENDIFI}{ENDIFI}</td>
 <td class="GenText wa ac">{TEMPLATE-DATA: next_page}</td>
 <td class="nw ar">{IF: $perms & 32}<a href="{TEMPLATE: dmsg_delete_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_delete.gif" /></a>&nbsp;{ENDIFI}{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}</td>
@@ -337,12 +337,12 @@
 {SECTION: END}
 
 {MAIN_SECTION: message_entry Message Entry (a single message)}
-<tr><td class="MsgSpacer"><table cellspacing=0 cellpadding=0 class="MsgTable">
+<tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
 <tr>
 <td class="MsgR1 vt al MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{IF: $obj->icon && !$hide_controls}<img src="images/message_icons/{VAR: obj->icon}" alt="{VAR: obj->icon}" />&nbsp;&nbsp;{ENDIFI}{VAR: obj->subject}{TEMPLATE-DATA: rpl}</td>
 <td class="MsgR1 vt ar"><span class="DateText">{TEMPLATE: dmsg_post_date}</span> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
 </tr>
-<tr class="MsgR2"><td class="MsgR2" colspan=2><table cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
 <tr class="MsgR2">
 {TEMPLATE-DATA: avatar}
 <td class="msgud">{TEMPLATE-DATA: online_indicator}{TEMPLATE-DATA: user_link}{IF: !$hide_controls}{IF: $obj->flag_cc && $GLOBALS['FUD_OPT_3'] & 524288}&nbsp;&nbsp;<img src="images/flags/{VAR: obj->flag_cc}.png" border="0" width="16" height="11" title="{VAR: obj->flag_country}" />{ENDIFI}{IF: $obj->user_id}<br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br /><b>{MSG: registered}</b> {TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}{ENDIFI}</td>

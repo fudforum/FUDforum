@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg_dump.tmpl,v 1.3 2007/02/16 02:01:34 hackie Exp $
+* $Id: pmsg_dump.tmpl,v 1.4 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,12 +14,12 @@
 {REF: allowed_user_lnk.tmpl}
 
 {SECTION: pmsg_dump_msg_entry single private message entry for message dump}
-<tr><td><table cellspacing=0 cellpadding=0 class="MsgTable">
+<tr><td><table cellspacing="0" cellpadding="0" class="MsgTable">
 <tr>
 <td class="MsgR1 al vt"><b>{MSG: subject}:</b> {VAR: obj->subject}</td>
 <td class="MsgR1 vt ar DateText"><b>{MSG: by}</b> {VAR: obj->alias} <b>{MSG: pmsg_on}</b> {TEMPLATE: dmsg_post_date}</td>
 </tr>
-<tr><td class="MsgR3" colspan=2>{FUNC: read_pmsg_body($obj->foff, $obj->length)}</table></td></tr>
+<tr><td class="MsgR3" colspan="2">{FUNC: read_pmsg_body($obj->foff, $obj->length)}</table></td></tr>
 {SECTION: END}
 
 {PAGE: PMSG_DUMP_PAGE private messages control panel}

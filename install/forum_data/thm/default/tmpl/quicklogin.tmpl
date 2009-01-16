@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: quicklogin.tmpl,v 1.20 2007/01/01 18:23:47 hackie Exp $
+* $Id: quicklogin.tmpl,v 1.21 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -9,12 +9,12 @@
 **/
 
 {MAIN_SECTION: quick_login_on}
-<table class="wa" border=0 cellspacing=0 cellpadding=0><tr><td align="right">
+<table class="wa" border="0" cellspacing="0" cellpadding="0"><tr><td align="right">
 <form name="quick_login_form" method="post" action="{TEMPLATE: quick_login_on_lnk3}"{FUNC: ($GLOBALS['FUD_OPT_3'] & 256 ? ' autocomplete="off"' : '')}>{DEF: _hs}
-<table border=0 cellspacing=0 cellpadding=3>
+<table border="0" cellspacing="0" cellpadding="3">
 <tr class="SmallText">
-	<td>{MSG: quicklogin_login}<br /><input class="SmallText" type="text" name="quick_login" size=18></td>
-	<td>{MSG: quicklogin_password}<br /><input class="SmallText" type="password" name="quick_password" size=18></td>
+	<td>{MSG: quicklogin_login}<br /><input class="SmallText" type="text" name="quick_login" size="18"></td>
+	<td>{MSG: quicklogin_password}<br /><input class="SmallText" type="password" name="quick_password" size="18"></td>
 	{IF: $FUD_OPT_1 & 128}{TEMPLATE: quick_login_cookie}{ENDIFI}
 	<td>&nbsp;<br /><input type="submit" class="button" name="quick_login_submit" value="{MSG: quicklogin_login_btn}"></td>
 </tr>

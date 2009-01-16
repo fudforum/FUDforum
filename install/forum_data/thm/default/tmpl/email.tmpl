@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: email.tmpl,v 1.27 2007/01/01 18:23:46 hackie Exp $
+* $Id: email.tmpl,v 1.28 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,11 +30,11 @@
 {TEMPLATE: usercp}
 <form method="post" name="frme" action="{TEMPLATE: EMAIL_PAGE_lnk3}">
 <div class="ctb"><table cellspacing="1" cellpadding="2" class="MiniTable">
-<tr><th colspan=2>{MSG: email_pg_title}</th></tr>
+<tr><th colspan="2">{MSG: email_pg_title}</th></tr>
 <tr class="RowStyleB"><td class="GenText nw">{MSG: email_to} {FUNC: get_err('tx_name')}</td><td class="RowStyleA wa"><input type="text" name="tx_name" value="{VAR-HTML: tx_name}"></td></tr>
 <tr class="RowStyleB"><td class="GenText nw">{MSG: email_subject} {FUNC: get_err('tx_subject')}</td><td class="RowStyleA wa"><input spellcheck="true" type="text" tabindex="1" name="tx_subject" value="{IF: isset($_POST['tx_subject'])}{VAR-HTML: _POST['tx_subject']}{ENDIF}"></td></tr>
-<tr class="RowStyleB"><td class="GenText nw vt">{MSG: email_body} {FUNC: get_err('tx_body')}</td><td class="RowStyleA wa"><textarea tabindex="2" name="tx_body" cols=40 rows=20>{IF: isset($_POST['tx_body'])}{VAR-HTML: _POST['tx_body']}{ENDIF}</textarea></td></tr>
-<tr class="RowStyleC"><td class="ar" colspan=2><input type="submit" class="button" name="btn_submit" tabindex="3" value="{MSG: email_submit}"></td></tr>
+<tr class="RowStyleB"><td class="GenText nw vt">{MSG: email_body} {FUNC: get_err('tx_body')}</td><td class="RowStyleA wa"><textarea tabindex="2" name="tx_body" cols="40" rows="20">{IF: isset($_POST['tx_body'])}{VAR-HTML: _POST['tx_body']}{ENDIF}</textarea></td></tr>
+<tr class="RowStyleC"><td class="ar" colspan="2"><input type="submit" class="button" name="btn_submit" tabindex="3" value="{MSG: email_submit}"></td></tr>
 </table></div>{DEF: _hs}</form>
 <script language="javascript" type="text/javascript">
 <!--

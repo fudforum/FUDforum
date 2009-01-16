@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: report.tmpl,v 1.22 2007/01/01 18:23:47 hackie Exp $
+* $Id: report.tmpl,v 1.23 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,7 +24,7 @@
 <div class="ctb"><table cellspacing="1" cellpadding="2" class="MiniTable">
 <tr><th>{MSG: report_report_post}</th></tr>
 <tr class="RowStyleB"><td><span class="GenText fb">{MSG: report_reporting_about}</span><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td class="repI"><b>{MSG: report_subject}</b> {VAR: msg->subject} <br /><b>{MSG: report_by}</b> {IF: $msg->alias}{VAR: msg->alias}{ELSE}{VAR: ANON_NICK}{END} <br /><b>{MSG: report_posted_on}</b> <span class="DateText">{TEMPLATE: make_report_date}</span></td></tr></table></td></tr>
-<tr class="RowStyleB"><td><span class="GenText">{MSG: report_give_reason}</span><br />{TEMPLATE-DATA: reason_error}<textarea name="reason" cols=80 rows=25></textarea></td></tr>
+<tr class="RowStyleB"><td><span class="GenText">{MSG: report_give_reason}</span><br />{TEMPLATE-DATA: reason_error}<textarea name="reason" cols="80" rows="25"></textarea></td></tr>
 <tr class="RowStyleB"><td class="ar"><input type="submit" class="button" name="btn_report" value="{MSG: report_submit_report}"></td></tr>
 </table></div>
 <input type="hidden" name="msg_id" value="{VAR: msg_id}">{DEF: _hs}</form>

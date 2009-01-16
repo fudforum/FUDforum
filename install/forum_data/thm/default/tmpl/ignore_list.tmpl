@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.tmpl,v 1.34 2007/01/01 18:23:46 hackie Exp $
+* $Id: ignore_list.tmpl,v 1.35 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,7 +39,7 @@
 
 {SECTION: ignore_anon_user info about an ignored user}
 <tr class="{ALT-VAR: ignore_alt RowStyleA RowStyleB}">
-	<td colspan=4 class="wa GenText"><span class="anon">{GVAR: ANON_NICK}</span>&nbsp;<span class="SmallText">(<a href="{TEMPLATE: ignore_anon_user_lnk}">{MSG: buddy_remove}</a>)</span></td>
+	<td colspan="4" class="wa GenText"><span class="anon">{GVAR: ANON_NICK}</span>&nbsp;<span class="SmallText">(<a href="{TEMPLATE: ignore_anon_user_lnk}">{MSG: buddy_remove}</a>)</span></td>
 </tr>
 {SECTION: END}
 
@@ -61,7 +61,7 @@
 <tr><th class="nw">{MSG: add_ignore}</th></tr>
 <tr class="RowStyleA">
 <td class="GenText nw Smalltext">{MSG: buddy_search}{IF: ($FUD_OPT_1 & (8388608|4194304))}{TEMPLATE: ignore_member_search}{ENDIF}<p>
-<input type="text" name="add_login" tabindex="1" value="" maxlength=100 size=25> <input tabindex="2" type="submit" class="button" name="submit" value="{MSG: add}"></td></tr>
+<input type="text" name="add_login" tabindex="1" value="" maxlength="100" size="25"> <input tabindex="2" type="submit" class="button" name="submit" value="{MSG: add}"></td></tr>
 </table></div></form>
 <script language="javascript" type="text/javascript">
 <!--

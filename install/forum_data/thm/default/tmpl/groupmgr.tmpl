@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.tmpl,v 1.45 2007/05/02 20:01:15 hackie Exp $
+* $Id: groupmgr.tmpl,v 1.46 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@
 <br /><br />
 <form method="post" action="{TEMPLATE: group_selection_lnk3}">
 <div class="ctb"><table cellspacing="1" cellpadding="2" class="MiniTable">
-<tr><th colspan=3>{MSG: group_mgr_heading}</th></tr>
+<tr><th colspan="3">{MSG: group_mgr_heading}</th></tr>
 <tr class="RowStyleC">
 	<td class="nw fb">{MSG: group_mgr_group}</td>
 	<td><select name="group_id">{FUNC: tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $group_id)}</select></td>
@@ -44,20 +44,20 @@
 <br />{TEMPLATE-DATA: admin_cp}
 {TEMPLATE-DATA: group_selection}
 <br />
-<div class="ac">{MSG: group_mgr_indicator}<br>{TEMPLATE-DATA: group_resources}</div>
+<div class="ac">{MSG: group_mgr_indicator}<br />{TEMPLATE-DATA: group_resources}</div>
 <br />
 <form method="post" action="{TEMPLATE: group_control_panel_lnk3}" name="groupmgr">
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 {IF: $edit}<tr class="RowStyleA"><td class="nw fb">{MSG: groupmgr_member}</td><td class="wa al">{IF: $mbr->user_id > 0 && $mbr->user_id < 2147483647}<a href="{ROOT}?t=usrinfo&amp;id={VAR: mbr->user_id}&amp;{DEF: _rsid}">{ENDIFI}{TEMPLATE-DATA: gr_member}{IF: $mbr->user_id > 0 && $mbr->user_id < 2147483647}</a>{ENDIFI}</td></tr>{ELSE}<tr class="RowStyleA"><td class="nw db">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: login_error}<input tabindex="1" type="text" name="gr_member" value="{IF: isset($_POST['gr_member'])}{FUNC: char_fix(htmlspecialchars($_POST['gr_member']))}{ENDIFI}">{IF: $FUD_OPT_1 & (8388608|4194304)}&nbsp;&nbsp;&nbsp;[{MSG: group_mgr_search}]{ENDIFI}</td></tr>{END}
 <tr class="RowStyleB">
-	<td colspan=2>
-		<table cellspacing=1 cellpadding=3 width="100%" class="ContentTable">
+	<td colspan="2">
+		<table cellspacing="1" cellpadding="3" width="100%" class="ContentTable">
 			{TEMPLATE-DATA: perm_sel_hdr}
 		</table>
 	</td>
 </tr>
 <tr>
-	<td colspan=2 class="RowStyleC ar">
+	<td colspan="2" class="RowStyleC ar">
 		{IF: $edit}<input type="submit" tabindex="3" class="button" name="btn_cancel" value="{MSG: groupmgr_cancel}"> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: groupmgr_update_member}">{ELSE}<input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: groupmgr_add_member}">{END}
 	</td>
 </tr>
@@ -182,11 +182,11 @@ if (document.groupmgr.gr_member) {
 {SECTION: END}
 
 {SECTION: group_resources}
-<b>{MSG: group_resources}:</b><br>
+<b>{MSG: group_resources}:</b><br />
 {SECTION: END}
 
 {SECTION: group_resource_ent}
-&nbsp;&nbsp;&nbsp;{VAR: r[0]}<br>
+&nbsp;&nbsp;&nbsp;{VAR: r[0]}<br />
 {SECTION: END}
 
 {SECTION: primary_group_resource}

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.tmpl,v 1.61 2007/01/01 18:23:47 hackie Exp $
+* $Id: ppost.tmpl,v 1.62 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,12 +41,12 @@
 {SECTION: END}
 
 {SECTION: signature}
-<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />{VAR: usr->sig}
+<p /><hr class="sig" />{VAR: usr->sig}
 {SECTION: END}
 
 {SECTION: preview_message}
 <div id="preview" class="ctb"><table cellspacing="1" cellpadding="2" class="PreviewTable">
-<tr><th colspan=2>{MSG: post_preview}</th></tr>
+<tr><th colspan="2">{MSG: post_preview}</th></tr>
 <tr><td class="RowStyleA MsgSubText">{VAR: subj}</td></tr>
 <tr><td class="RowStyleA MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</td></tr>
 <tr><td class="al RowStyleB">{TEMPLATE-DATA: apply_spell_changes}<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" tabindex="5" onClick="javascript: document.post_form.btn_action.value=\'send\';">&nbsp;<input type="submit" tabindex="4" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onClick="javascript: document.post_form.btn_action.value=\'draft\';"></td></tr>
@@ -76,7 +76,7 @@
 {SECTION: reference_msg displayes the message the user is replying to}
 <br /><br />
 <div align="center">{MSG: ppost_original_msg}</div>
-<table cellspacing=0 cellpadding=3 class="dashed wa">
+<table cellspacing="0" cellpadding="3" class="dashed wa">
 <tr><td>
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 {FUNC: tmpl_drawpmsg($mm, $usr, true)}
@@ -102,7 +102,7 @@
 {TEMPLATE-DATA: post_error}
 {TEMPLATE-DATA: preview_message}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=2>{MSG: post_form}<a name="ptop"> </a></th></tr>
+<tr><th colspan="2">{MSG: post_form}<a name="ptop"> </a></th></tr>
 <tr class="RowStyleB"><td class="GenText nw">{MSG: post_logedin_user}</td><td class="GenText wa">{VAR: usr->alias} [<a href="{TEMPLATE: PPOST_PAGE_lnk}">{MSG: post_logout}</a>]</td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: ppost_to}</td><td class="GenText"><input type="text" name="msg_to_list" value="{VAR: msg_to_list}" tabindex="1"> {IF: $FUD_OPT_1 & (8388608|4194304)}{TEMPLATE: pm_find_user}{ENDIF} [<a href="javascript://" onClick="javascript: window_open('{TEMPLATE: PPOST_PAGE_lnk2}', 'buddy_list',275,300);">{MSG: ppost_from_buddy_list}</a>]{FUNC: get_err('msg_to_list')}</td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" spellcheck="true" maxLength="100" name="msg_subject" value="{VAR: msg_subject}" size="50" tabindex="2" /> {FUNC: get_err('msg_subject')}</td></tr>
@@ -121,7 +121,7 @@
 <tr class="RowStyleB vt">
 <td class="GenText">{MSG: post_options}</td>
 <td>
-<table border=0 cellspacing=0 cellpadding=1>
+<table border="0" cellspacing="0" cellpadding="1">
 <tr><td><input type="checkbox" name="msg_track" value="Y"{IF: $msg_track} checked{ENDIF}></td><td class="GenText fb">{MSG: ppost_track_msg}</td></tr>
 <tr><td>&nbsp;</td><td class="SmallText">{MSG: ppost_track_msg_desc}</td></tr>
 <tr><td><input type="checkbox" name="msg_show_sig" value="Y"{IF: $msg_show_sig} checked{ENDIF}></td><td class="GenText fb">{MSG: include_sig}</td></tr>
@@ -130,7 +130,7 @@
 </table>
 </td>
 </tr>
-<tr class="RowStyleA"><td class="GenText ar" colspan=2><input accesskey="r" type="submit" tabindex="4" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" accesskey="d" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onClick="javascript: document.post_form.btn_action.value='draft';">&nbsp;<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" tabindex="5" onClick="javascript: document.post_form.btn_action.value='send';" accesskey="s"></td></tr>
+<tr class="RowStyleA"><td class="GenText ar" colspan="2"><input accesskey="r" type="submit" tabindex="4" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" accesskey="d" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onClick="javascript: document.post_form.btn_action.value='draft';">&nbsp;<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" tabindex="5" onClick="javascript: document.post_form.btn_action.value='send';" accesskey="s"></td></tr>
 </table>
 </form>
 <script language="javascript" type="text/javascript">

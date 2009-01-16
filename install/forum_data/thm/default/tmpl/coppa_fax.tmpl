@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: coppa_fax.tmpl,v 1.14 2007/01/01 18:23:46 hackie Exp $
+* $Id: coppa_fax.tmpl,v 1.15 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,13 +21,13 @@
 <pre>
 {FUNC: @file_get_contents($FORUM_SETTINGS_PATH."coppa_maddress.msg")}
 </pre>
-<table border=1 cellspacing=1 cellpadding=3>
-<tr><td colspan=2>{MSG: coppa_fax_reg_form}</td></tr>
+<table border="1" cellspacing="1" cellpadding="3">
+<tr><td colspan="2">{MSG: coppa_fax_reg_form}</td></tr>
 <tr><td>{MSG: coppa_fax_login}</td><td>{VAR: usr->login}</td></tr>
 <tr><td>{MSG: coppa_fax_passwd}</td><td>&lt;HIDDEN&gt;</td></tr>
 <tr><td>{MSG: coppa_fax_remail}</td><td>{VAR: usr->email}</td></tr>
 <tr><td>{MSG: coppa_fax_name}</td><td>{VAR: name}</td></tr>
-<tr><td colspan=2>
+<tr><td colspan="2">
 {MSG: coppa_fax_sign}<br />
 {MSG: coppa_fax_conf}
 </td></tr>
@@ -38,7 +38,7 @@
 <tr><td>{MSG: coppa_fax_telephone}</td><td>&nbsp;</td></tr>
 <tr><td>{MSG: coppa_fax_email}</td><td>&nbsp;</td></tr>
 <tr><td>{MSG: coppa_fax_date}</td><td>&nbsp;</td></tr>
-<tr><td colspan=2>{MSG: coppa_fax_questions}</td></tr>
+<tr><td colspan="2">{MSG: coppa_fax_questions}</td></tr>
 </table>
 </body>
 </html>

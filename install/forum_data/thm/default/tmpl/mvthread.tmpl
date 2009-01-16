@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mvthread.tmpl,v 1.21 2007/01/01 18:23:47 hackie Exp $
+* $Id: mvthread.tmpl,v 1.22 2009/01/16 21:05:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,7 @@
 {PAGE: MVTHREAD_PAGE  move thread to another forum form}
 {TEMPLATE: header_plain}
 <form action="{TEMPLATE: MVTHREAD_PAGE_lnk3}" name="mvthread" method="post">
-<table cellspacing=0 cellpadding=3 class="wa dashed">
+<table cellspacing="0" cellpadding="3" class="wa dashed">
 <tr><td class="small">{MSG: move_thread_to}</td></tr>
 {TEMPLATE-DATA: table_data}
 </table>
@@ -40,7 +40,7 @@
 
 {SECTION: move_thread_request form for giving a reason why the thread should be moved}
 <tr><td class="small fb">{VAR: thr->frm_name}</td></tr>
-<tr><td class="small">{MSG: move_request_reason}<br /><textarea name="reason_msg" rows=7 cols=30></textarea><td></tr>
+<tr><td class="small">{MSG: move_request_reason}<br /><textarea name="reason_msg" rows="7" cols="30"></textarea><td></tr>
 <tr><td class="ar"><input type="submit" class="button" name="submit" value="{MSG: mvthread_submit_req}"></td></tr>
 {SECTION: END}
 
