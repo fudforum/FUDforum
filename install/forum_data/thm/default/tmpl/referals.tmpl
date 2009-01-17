@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: referals.tmpl,v 1.26 2009/01/16 21:05:53 frank Exp $
+* $Id: referals.tmpl,v 1.27 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,15 +19,15 @@
 {REF: tabs.tmpl}
 
 {SECTION: pm_link}
-&nbsp;<a href="{TEMPLATE: pm_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>
+&nbsp;<a href="{TEMPLATE: pm_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="PM" /></a>
 {SECTION: END}
 
 {SECTION: homepage_link}
-&nbsp;<a href="{VAR: r[4]}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" /></a>
+&nbsp;<a href="{VAR: r[4]}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" alt="Home"/></a>
 {SECTION: END}
 
 {SECTION: email_link}
-&nbsp;<a href="{TEMPLATE: email_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>
+&nbsp;<a href="{TEMPLATE: email_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="E-mail" /></a>
 {SECTION: END}
 
 {SECTION: refered_entry info about a single referred user}

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.52 2007/01/01 18:23:48 hackie Exp $
+* $Id: admmassemail.php,v 1.53 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,7 +120,7 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Mass Mail System</h2>
-<form method="post" name="a_frm">
+<form method="post" id="a_frm">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <?php if($FUD_OPT_1 & 1024) { ?>
@@ -152,7 +152,7 @@
 	</tr>
 	<tr class="field">
 		<td colspan="2" valign="top">
-			<b>Body</b><br>
+			<b>Body</b><br />
 			<textarea tabindex="2" name="body" cols="80" rows="25"></textarea>
 		</td>
 	</tr>

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@fudforum.org
-* $Id: usrinfo.tmpl,v 1.59 2009/01/16 21:05:53 frank Exp $
+* $Id: usrinfo.tmpl,v 1.60 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,7 +61,7 @@
 {SECTION: END}
 
 {SECTION: level_image user's level image if available as determined by post count}
-<img src="images/{VAR: u->level_img}" /><br />
+<img src="images/{VAR: u->level_img}" alt="" /><br />
 {SECTION: END}
 
 {SECTION: moderation list of all forums moderated by user}
@@ -100,9 +100,9 @@
 {TEMPLATE-DATA: last_post}
 {IF: $u->last_visit && !($u->users_opt & 32768)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_visit}</td><td class="GenText DateText">{TEMPLATE: uinfo_last_visit_date}</td></tr>{ENDIF}
 {TEMPLATE-DATA: polls}
-{IF: ($FUD_OPT_2 & 65536 && $u->user_image && strpos($u->user_image, '://'))}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: image}</td><td class="GenText"><img src="{VAR: u->user_image}" /></td></tr>{ENDIF}
+{IF: ($FUD_OPT_2 & 65536 && $u->user_image && strpos($u->user_image, '://'))}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: image}</td><td class="GenText"><img src="{VAR: u->user_image}" alt="" /></td></tr>{ENDIF}
 {TEMPLATE-DATA: email_link}
-{IF: ($FUD_OPT_1 & 1024 && _uid)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{TEMPLATE: usrinfo_private_msg_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a></td></tr>{ENDIF}
+{IF: ($FUD_OPT_1 & 1024 && _uid)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{TEMPLATE: usrinfo_private_msg_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a></td></tr>{ENDIF}
 {TEMPLATE-DATA: buddy}
 {TEMPLATE-DATA: referals}
 {IF: $u->home_page}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: homepage}</td><td class="GenText"><a href="{VAR: u->home_page}" target="_blank">{VAR: u->home_page}</a></td></tr>{ENDIF}
@@ -122,23 +122,23 @@
 			<tr>
 				<td>
 					{MSG: sender_name}<br />
-					<input type="text" name="from" value="" size="15" maxlength="40" onfocus="this.select()">
+					<input type="text" name="from" value="" size="15" maxlength="40" onfocus="this.select()" />
 				</td>
 				<td>
 					{MSG: sender_email}<br />
-					<input type="text" name="fromemail" value="" size="15" maxlength="40" onfocus="this.select()">
+					<input type="text" name="fromemail" value="" size="15" maxlength="40" onfocus="this.select()" />
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
 					{MSG: subject}<br />
-					<input type="text" spellcheck="true" name="subject" value="" size="32"><br />
+					<input type="text" spellcheck="true" name="subject" value="" size="32" /><br />
 					{MSG: message}<br />
 					<textarea name="body" rows="3" cols="32" wrap="Virtual"></textarea>
-					<input type="hidden" name="to" value="{VAR: u->icq}"><br />
+					<input type="hidden" name="to" value="{VAR: u->icq}" /><br />
 				</td>
 			</tr>
-			<tr><td colspan="2" align="right"><input type="submit" class="button" name="Send" value="{MSG: send}"></td></tr>
+			<tr><td colspan="2" align="right"><input type="submit" class="button" name="Send" value="{MSG: send}" /></td></tr>
 			</form>
 			</table>
 			</td>

@@ -68,7 +68,7 @@ class fud_forum_rdf_msg_print extends fud_forum_rdf_msg
 		if (@count($this->attachments)) {
 			echo '<b>Attachments:</b><br /><blockquote>';
 			foreach ($this->attachments as $atd) {
-				echo '<a href="'.$this->forum_url.'?t=getfile&amp;id='.$atd['id'].'">'.$atd['title'].'</a> ('.$atd['size'].') bytes, downloaded '.(int)$atd['nd'].' times<br>';
+				echo '<a href="'.$this->forum_url.'?t=getfile&amp;id='.$atd['id'].'">'.$atd['title'].'</a> ('.$atd['size'].') bytes, downloaded '.(int)$atd['nd'].' times<br />';
 			}
 			echo '</blockquote>';
 		}

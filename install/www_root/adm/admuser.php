@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.84 2009/01/15 20:53:53 frank Exp $
+* $Id: admuser.php,v 1.85 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -344,7 +344,7 @@ echo '"></head><body bgcolor="white">';
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>User Adminstration System</h2>
-<form name="frm_usr" method="post" action="admuser.php">
+<form id="frm_usr" method="post" action="admuser.php">
 <?php echo _hs . $search_error; ?>
 <table class="datatable solidtable">
 	<tr class="field">
@@ -445,7 +445,7 @@ if ($acc_mod_only) {
 	}
 	unset($c);
 ?>
-	<form name="extra_tags" action="admuser.php" method="post">
+	<form id="extra_tags" action="admuser.php" method="post">
 	<?php echo _hs; ?>
 	<input type="text" name="c_tag">
 	<input type="submit" value="Add">
@@ -456,7 +456,7 @@ if ($acc_mod_only) {
 
 	<tr class="field"><td valign=top>Profile Link Color:</td>
 		<td valign=top>
-		<form name="extra_tags" method="post" action="admuser.php">
+		<form id="extra_tags" method="post" action="admuser.php">
 		<?php echo _hs; ?>
 		<input type="text" name="custom_color" maxLength="255" value="<?php echo $u->custom_color; ?>">
 		<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
@@ -465,7 +465,7 @@ if ($acc_mod_only) {
 		</td>
 	</tr>
 <tr><td colspan="2">
-<form name="ban" action="admuser.php" method="post">
+<form id="ban" action="admuser.php" method="post">
 <?php echo _hs; ?>
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 <input type="hidden" name="act" value="block">

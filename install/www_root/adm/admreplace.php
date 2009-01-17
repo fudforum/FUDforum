@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admreplace.php,v 1.29 2007/01/01 18:23:48 hackie Exp $
+* $Id: admreplace.php,v 1.30 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -69,7 +69,7 @@ function clean_rgx()
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Replacement Management System</h2>
-<form name="frm_rpl" method="post" action="admreplace.php">
+<form id="frm_rpl" method="post" action="admreplace.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="field">
@@ -95,11 +95,11 @@ function clean_rgx()
 	if (!$rpl_replace_opt) {
 ?>
 	<tr>
-		<td colspan="2"><br></td>
+		<td colspan="2"><br /></td>
 	</tr>
 
 	<tr class="fieldtopic">
-		<td colspan="2"><b><font size="-2">Optional with the Perl Regex</font></b><br><font size="-1">(Reverse replacement logic, e.g upon editing a post)</font></td>
+		<td colspan="2"><b><font size="-2">Optional with the Perl Regex</font></b><br /><font size="-1">(Reverse replacement logic, e.g upon editing a post)</font></td>
 	</tr>
 
 	<tr class="field">
@@ -108,7 +108,7 @@ function clean_rgx()
 	</tr>
 
 	<tr class="field">
-		<td>Replace with:<br></td>
+		<td>Replace with:<br /></td>
 		<td><input type="text" name="rpl_to_msg" value="<?php echo htmlspecialchars($rpl_to_msg); ?>"></td>
 	</tr>
 
@@ -139,7 +139,7 @@ function clean_rgx()
 		}
 ?>
 	<tr>
-		<td colspan="2"><br></td>
+		<td colspan="2"><br /></td>
 	</tr>
 
 	<tr class="fieldtopic">
@@ -168,12 +168,12 @@ function clean_rgx()
 		<td valign=top>Result:</td>
 		<td>
 			<font size="-1">
-			'<?php echo htmlspecialchars($regex_str); ?>' applied to: <br>
+			'<?php echo htmlspecialchars($regex_str); ?>' applied to: <br />
 			<table border="1" cellspacing="0" cellpadding="3">
 			<tr><td><?php echo htmlspecialchars($regex_src); ?></td></tr>
 			</table>
-			<br>
-			produces:<br>
+			<br />
+			produces:<br />
 			<table border="1" cellspacing="0" cellpadding="3">
 			<tr><td><?php echo htmlspecialchars($str); ?></td></tr>
 			</table>

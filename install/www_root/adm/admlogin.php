@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlogin.php,v 1.25 2007/01/01 18:23:48 hackie Exp $
+* $Id: admlogin.php,v 1.26 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,27 +37,27 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Login Blocker</h2>
-<form name="alf" method="post" action="admlogin.php">
+<form id="alf" method="post" action="admlogin.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="field">
 		<td>Regex:</td>
-		<td><input tabindex="1" type="text" name="login" value="<?php echo char_fix(htmlspecialchars($login)); ?>"></td>
+		<td><input tabindex="1" type="text" name="login" value="<?php echo char_fix(htmlspecialchars($login)); ?>" /></td>
 	</tr>
 
 	<tr class="fieldaction">
 		<td colspan="2" align="right">
 		<?php
 			if ($edit) {
-				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update" tabindex="2">';
+				echo '<input type="submit" name="btn_cancel" value="Cancel" /> <input type="submit" name="btn_update" value="Update" tabindex="2" />';
 			} else  {
-				echo '<input type="submit" name="btn_submit" value="Add" tabindex="2">';
+				echo '<input type="submit" name="btn_submit" value="Add" tabindex="2" />';
 			}
 		?>
 		</td>
 	</tr>
 </table>
-<input type="hidden" name="edit" value="<?php echo $edit; ?>">
+<input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 <script type="text/javascript">
 <!--

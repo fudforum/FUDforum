@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.76 2009/01/16 21:05:53 frank Exp $
+* $Id: post.tmpl,v 1.77 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,12 +37,12 @@
 {REF: captcha.tmpl}
 
 {SECTION: post_turing_test}
-<tr class="RowStyleA"><td>{MSG: register_turing}{FUNC: get_err('reg_turing')}</td><td class="vt"><input type="text" name="turing_test" value=""></td></tr>
-<tr class="RowStyleB"><td colspan="2"><div style="white-space: pre; font-family: Courier, monospace; color: black; background-color: #C0C0C0;">{FUNC: generate_turing_val($turing_res)}<input type="hidden" name="turing_res" value="{VAR: turing_res}"></div></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_turing}{FUNC: get_err('reg_turing')}</td><td class="vt"><input type="text" name="turing_test" value="" /></td></tr>
+<tr class="RowStyleB"><td colspan="2"><div style="white-space: pre; font-family: Courier, monospace; color: black; background-color: #C0C0C0;">{FUNC: generate_turing_val($turing_res)}<input type="hidden" name="turing_res" value="{VAR: turing_res}" /></div></td></tr>
 {SECTION: END}
 
 {SECTION: apply_spell_changes}
-<input accesskey="a" type="submit" class="button" name="btn_spell" value="{MSG: apply_spell_changes}">&nbsp;
+<input accesskey="a" type="submit" class="button" name="btn_spell" value="{MSG: apply_spell_changes}" />&nbsp;
 {SECTION: END}
 
 {SECTION: signature}
@@ -55,7 +55,7 @@
 <tr><th colspan="2">{MSG: post_preview}</th></tr>
 <tr><td class="RowStyleA MsgSubText">{VAR: subj}</td></tr>
 <tr><td class="RowStyleA MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</td></tr>
-<tr><td class="RowStyleB al">{IF: $spell}{TEMPLATE: apply_spell_changes}{ENDIFI}<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
+<tr><td class="RowStyleB al">{IF: $spell}{TEMPLATE: apply_spell_changes}{ENDIFI}<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview" />&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onclick="javascript: document.post_form.submitted.value=1;" /></td></tr>
 </table><br /></div>
 {SECTION: END}
 
@@ -64,15 +64,15 @@
 {SECTION: END}
 
 {SECTION: post_password if password posting enable this allows the user to enter a password}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_passwd}</td><td><input type="password" name="frm_passwd" value="" tabindex="1">{FUNC: get_err('password')}</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_passwd}</td><td><input type="password" name="frm_passwd" value="" tabindex="1" />{FUNC: get_err('password')}</td></tr>
 {SECTION: END}
 
 {SECTION: create_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a href="javascript://" accesskey="o" onClick="javascript: window_open(\'{TEMPLATE: create_poll_lnk1}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a href="javascript://" accesskey="o" onclick="javascript: window_open(\'{TEMPLATE: create_poll_lnk1}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
 {SECTION: END}
 
 {SECTION: edit_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll[1]} [<a href="javascript://" accesskey="o" onClick="javascript: window_open(\'{TEMPLATE: edit_poll_lnk1}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="">[<a href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll[1]} [<a href="javascript://" accesskey="o" onclick="javascript: window_open(\'{TEMPLATE: edit_poll_lnk1}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="" />[<a href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: admin_options options for moderators & admins to create announcements and sticky threads}
@@ -85,26 +85,26 @@
 {SECTION: END}
 
 {SECTION: reg_user_options various options for logged in registered users}
-<tr><td><input type="checkbox" name="msg_poster_notif" value="Y"{IF: $msg_poster_notif} checked{ENDIFI}></td><td class="GenText fb">{MSG: post_notification}</td></tr>
+<tr><td><input type="checkbox" name="msg_poster_notif" value="Y"{IF: $msg_poster_notif} checked="checked"{ENDIFI} /></td><td class="GenText fb">{MSG: post_notification}</td></tr>
 <tr><td>&nbsp;</td><td class="SmallText">{MSG: post_notification_desc}</td></tr>
-<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{IF: $msg_show_sig} checked{ENDIFI}></td><td class="GenText fb">{MSG: include_sig}</td></tr>
+<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{IF: $msg_show_sig} checked="checked"{ENDIFI} /></td><td class="GenText fb">{MSG: include_sig}</td></tr>
 <tr><td>&nbsp;</td><td class="SmallText">{MSG: include_sig_desc}</td></tr>
 {TEMPLATE-DATA: mod_post_opts}
 {IF: $perms & 64 && (!$th_id || $msg_id == $thr->root_msg_id)}
-	<tr><td><input type="checkbox" name="thr_always_on_top" value="Y"{IF: $thr_always_on_top} checked{ENDIFI}></td><td class="GenText fb">{MSG: post_always_on_top}</td></tr>
+	<tr><td><input type="checkbox" name="thr_always_on_top" value="Y"{IF: $thr_always_on_top} checked="checked"{ENDIFI} /></td><td class="GenText fb">{MSG: post_always_on_top}</td></tr>
 {ENDIFI}
 {SECTION: END}
 
 {SECTION: mod_post_opts}
-<tr><td><input type="checkbox" name="thr_locked" value="Y"{VAR: thr_locked_checked}></td><td class="GenText fb">{MSG: post_locked}</td></tr>
+<tr><td><input type="checkbox" name="thr_locked" value="Y"{VAR: thr_locked_checked} /></td><td class="GenText fb">{MSG: post_locked}</td></tr>
 {SECTION: END}
 
 {SECTION: disable_smileys}
-<tr><td><input type="checkbox" name="msg_smiley_disabled" value="Y"{IF: $msg_smiley_disabled} checked{ENDIFI}></td><td class="GenText fb">{MSG: disable_smilies}</td></tr>
+<tr><td><input type="checkbox" name="msg_smiley_disabled" value="Y"{IF: $msg_smiley_disabled} checked="checked"{ENDIFI} /></td><td class="GenText fb">{MSG: disable_smilies}</td></tr>
 {SECTION: END}
 
 {SECTION: spell_check_button}
-<input accesskey="k" type="submit" class="button" value="{MSG: spell_check_msg}" name="spell">&nbsp;
+<input accesskey="k" type="submit" class="button" value="{MSG: spell_check_msg}" name="spell" />&nbsp;
 {SECTION: END}
 
 {SECTION: post_error an error message shown at the top of ppage if there was an error with submission}
@@ -120,8 +120,8 @@
 	<td class="GenText ac">
 		{MSG: post_moderated_forum}
 		<br /><br /><form action="{TEMPLATE: moderated_forum_post_lnk3}" method="post">{DEF: _hs}
-		<input type="submit" class="button" name="proceed" value="{MSG: post_proceed}">
-		<input type="hidden" name="moderated_redr" value="1">
+		<input type="submit" class="button" name="proceed" value="{MSG: post_proceed}" />
+		<input type="hidden" name="moderated_redr" value="1" />
 		</form>
 	</td>
 </tr>
@@ -133,17 +133,17 @@
 {PAGE: POST_PAGE message posting form}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<form action="{TEMPLATE: POST_PAGE_lnk3}" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true;">
+<form action="{TEMPLATE: POST_PAGE_lnk3}" method="post" id="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true;">
 {DEF: _hs}
-<input type="hidden" name="submitted" value="">
-<input type="hidden" name="reply_to" value="{VAR: reply_to}">
-<input type="hidden" name="th_id" value="{VAR: th_id}">
-<input type="hidden" name="frm_id" value="{VAR: frm_id}">
-<input type="hidden" name="start" value="{VAR: start}">
-<input type="hidden" name="msg_id" value="{VAR: msg_id}">
-<input type="hidden" name="pl_id" value="{VAR: pl_id}">
-<input type="hidden" name="old_subject" value="{VAR-HTML: old_subject}">
-<input type="hidden" name="prev_loaded" value="1">
+<input type="hidden" name="submitted" value="" />
+<input type="hidden" name="reply_to" value="{VAR: reply_to}" />
+<input type="hidden" name="th_id" value="{VAR: th_id}" />
+<input type="hidden" name="frm_id" value="{VAR: frm_id}" />
+<input type="hidden" name="start" value="{VAR: start}" />
+<input type="hidden" name="msg_id" value="{VAR: msg_id}" />
+<input type="hidden" name="pl_id" value="{VAR: pl_id}" />
+<input type="hidden" name="old_subject" value="{VAR-HTML: old_subject}" />
+<input type="hidden" name="prev_loaded" value="1" />
 {TEMPLATE-DATA: post_error}
 {TEMPLATE-DATA: preview_message}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
@@ -151,7 +151,7 @@
 {IF: _uid}{TEMPLATE: loged_in_user}{ELSE}<tr class="RowStyleA"><td colspan="2" class="GenTextRed fb">{MSG: post_not_logged_in}</td></tr>{ENDI}
 {IF: $frm->forum_opt & 4 && !$is_a}{TEMPLATE: post_password}{ENDIF}
 <tr class="RowStyleB"><td class="GenText">{MSG: post_forum}</td><td class="GenText">{VAR: frm->name}</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text"  spellcheck="true" maxLength="100" name="msg_subject" value="{VAR: msg_subject}" size="50" tabindex="2" /> {FUNC: get_err('msg_subject')}</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" spellcheck="true" maxLength="100" name="msg_subject" value="{VAR: msg_subject}" size="50" tabindex="2" /> {FUNC: get_err('msg_subject')}</td></tr>
 {IF: !$th_id || ($msg_id && $msg_id == $thr->root_msg_id)}
 <tr class="RowStyleB"><td class="GenText">{MSG: post_descr}</td><td><input size="60" type="text" name="msg_tdescr" tabindex="3" value="{VAR: msg_tdescr}" /></td></tr>
 {ENDIF}
@@ -161,12 +161,12 @@
 {IF: $perms & 16384}{FUNC: draw_post_smiley_cntrl()}{ENDIF}
 {IF: $frm->forum_opt & 16}{TEMPLATE: fud_code_icons}{ENDIF}
 
-<tr class="RowStyleA"><td class="vt nw GenText">{MSG: post_body}<br /><br />{FUNC: tmpl_post_options($frm->forum_opt, $perms)}</td><td>{FUNC: get_err('msg_body', 1)}<textarea rows="20" cols="65" tabindex="4" wrap="virtual" id="txtb" style="float: left" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea>
+<tr class="RowStyleA"><td class="vt nw GenText">{MSG: post_body}<br /><br />{FUNC: tmpl_post_options($frm->forum_opt, $perms)}</td><td>{FUNC: get_err('msg_body', 1)}<textarea rows="20" cols="65" tabindex="4" wrap="virtual" id="txtb" style="float: left" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);">{VAR: msg_body}</textarea>
 
-<a href="javascript://" onClick="rs_txt_box('txtb', 5, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hb.gif" style="margin: 2px" /></a><br />
-<a href="javascript://" onClick="rs_txt_box('txtb', 0, 10);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_vb.gif" style="margin: 2px" /></a><br />
-<a href="javascript://" onClick="rs_txt_box('txtb', -5, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hs.gif" style="margin: 2px" /></a><br /> 
-<a href="javascript://" onClick="rs_txt_box('txtb', 0, -10);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_vs.gif" style="margin: 2px" /></a>
+<a href="javascript://" onclick="rs_txt_box('txtb', 5, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hb.gif" style="margin: 2px" /></a><br />
+<a href="javascript://" onclick="rs_txt_box('txtb', 0, 10);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_vb.gif" style="margin: 2px" /></a><br />
+<a href="javascript://" onclick="rs_txt_box('txtb', -5, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hs.gif" style="margin: 2px" /></a><br /> 
+<a href="javascript://" onclick="rs_txt_box('txtb', 0, -10);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_vs.gif" style="margin: 2px" /></a>
 
 </td></tr>
 
@@ -181,12 +181,12 @@
 </table>
 </td></tr>
 <tr class="RowStyleA"><td class="GenText ar" colspan="2">
-<input type="submit" accesskey="r" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input accesskey="s" type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
+<input type="submit" accesskey="r" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview" />&nbsp;{TEMPLATE-DATA: spell_check_button}<input accesskey="s" type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onclick="javascript: document.post_form.submitted.value=1;" /></td></tr>
 </table>
 {TEMPLATE-DATA: minimsg}
 </form>
-<script language="javascript" type="text/javascript">
-<!--
+<script type="text/javascript">
+/* <![CDATA[ */
 if (!document.getElementById('preview')) {
 	if (!document.post_form.msg_subject.value.length) {
 		document.post_form.msg_subject.focus();
@@ -194,7 +194,7 @@ if (!document.getElementById('preview')) {
 		document.post_form.msg_body.focus();
 	}
 }
-//-->
+/* ]]> */
 </script>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

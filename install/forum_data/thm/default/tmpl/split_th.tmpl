@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.tmpl,v 1.26 2009/01/16 21:05:53 frank Exp $
+* $Id: split_th.tmpl,v 1.27 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,7 +26,7 @@
 
 {SECTION: msg_entry individual message entries}
 <tr>
-<td class="RowStyleC vt ac"><input type="checkbox" name="sel_th[]" value="{VAR: r->id}"></td>
+<td class="RowStyleC vt ac"><input type="checkbox" name="sel_th[]" value="{VAR: r->id}" /></td>
 <td class="RowStyleA">
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleB">
@@ -46,12 +46,12 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<form name="split_th" action="{TEMPLATE: SPLIT_TH_PAGE_lnk3}" method="post">{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}">
+<form id="split_th" action="{TEMPLATE: SPLIT_TH_PAGE_lnk3}" method="post">{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}" />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th class="wa" colspan="2">{MSG: split_cp}</th></tr>
 <tr class="RowStyleA">
 	<td class="al fb">{MSG: split_th_new_thread_title}</td>
-	<td ><input type="text" spellcheck="true" name="new_title" value="" size="50"></td>
+	<td ><input type="text" spellcheck="true" name="new_title" value="" size="50" /></td>
 </tr>
 <tr class="RowStyleA">
 	<td class="al fb">{MSG: split_th_forum}</td>
@@ -59,9 +59,9 @@
 </tr>
 <tr class="RowStyleC">
 	<td colspan="2" class="ac">
-		<input type="submit" class="button" name="btn_selected" value="{MSG: split_th_split_sel}">
+		<input type="submit" class="button" name="btn_selected" value="{MSG: split_th_split_sel}" />
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="submit" class="button" name="btn_unselected" value="{MSG: split_th_split_unsel}">
+		<input type="submit" class="button" name="btn_unselected" value="{MSG: split_th_split_unsel}" />
 	</td>
 </tr>
 </table>
@@ -74,9 +74,9 @@
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleC">
 	<td colspan="2" class="ac">
-		<input type="submit" class="button" name="btn_selected" value="{MSG: split_th_split_sel}">
+		<input type="submit" class="button" name="btn_selected" value="{MSG: split_th_split_sel}" />
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="submit" class="button" name="btn_unselected" value="{MSG: split_th_split_unsel}">
+		<input type="submit" class="button" name="btn_unselected" value="{MSG: split_th_split_unsel}" />
 	</td>
 </tr>
 </table>

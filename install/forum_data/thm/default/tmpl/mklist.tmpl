@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.tmpl,v 1.24 2007/01/01 18:23:47 hackie Exp $
+* $Id: mklist.tmpl,v 1.25 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,6 +17,7 @@
 {PAGE: MKLIST_PAGE a popup assistant for creating lists using FUDcode}
 {TEMPLATE: header_plain}
 <script type="text/javascript">
+/* <![CDATA[ */ 
 var opt_count = 0;
 function changeListType(type)
 {
@@ -49,9 +50,9 @@ function addOption()
 	if (!document.all || OPERA) {
 		dl = document.createElement('a');
 		dl.setAttribute('href', 'javascript://');
-		dl.setAttribute('onClick', 'delOption(\'opt_'+opt_count+'\')');
+		dl.setAttribute('onclick', 'delOption(\'opt_'+opt_count+'\')');
 	} else {
-		dl = document.createElement('<a href="javascript://" onClick="delOption(\'opt_'+opt_count+'\')"></a>');
+		dl = document.createElement('<a href="javascript://" onclick="delOption(\'opt_'+opt_count+'\')"></a>');
 	}
 	dl.appendChild(document.createTextNode('{MSG: mklist_delete}'));
 	
@@ -99,13 +100,14 @@ function updatePostForm()
 	t.focus();
 	window.close();
 }
+/* ]]> */
 </script>
-<form name="list">
+<form id="list">
 <table cellspacing="2" cellpadding="0" width="99%" class="dashed">
 <tr>
 	<td>{MSG: mklist_type}</td>
 	<td>
-		<select name="tp" onChange="changeListType(this.options[this.selectedIndex].value);">
+		<select name="tp" onchange="changeListType(this.options[this.selectedIndex].value);">
 			<option value="1">{MSG: mklist_numerical}</option>
 			<option value="a">{MSG: mklist_aplha}</option>
 			<option value="square"{IF: $def_list_type == 'square'} selected="selected"{ENDIF}>{MSG: mklist_square}</option>
@@ -118,20 +120,22 @@ function updatePostForm()
 	<td>{MSG: mklist_option}</td>
 	<td class="nw">
 		<input tabindex="1" type="text" spellcheck="true" name="opt" size="20" />
-		<input tabindex="2" type="button" class="button" name="btn_submit" onClick="addOption();" value="{MSG: mklist_additem}" />
+		<input tabindex="2" type="button" class="button" name="btn_submit" onclick="addOption();" value="{MSG: mklist_additem}" />
 	</td>
 </tr>
 <tr>
 	<td colspan="2" id="example"><ul id="ll"></ul>
 <script type="text/javascript">
+/* <![CDATA[ */ 
 	changeListType('{VAR: def_list_type}');
+/* ]]> */
 </script>	
 	</td>
 </tr>
 <tr>
 <td colspan="2" class="ar">
-<input type="button" class="button" name="go" value="{MSG: mklist_apply}" onClick="updatePostForm();" />
-<input type="button" class="button" name="close" value="{MSG: mklist_close}" onClick="javascript: window.close();" />
+<input type="button" class="button" name="go" value="{MSG: mklist_apply}" onclick="updatePostForm();" />
+<input type="button" class="button" name="close" value="{MSG: mklist_close}" onclick="javascript: window.close();" />
 </td></tr>
 </table>
 </form>

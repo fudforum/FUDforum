@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forumsel.tmpl,v 1.25 2007/01/01 18:23:46 hackie Exp $
+* $Id: forumsel.tmpl,v 1.26 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,11 +12,11 @@
 
 {MAIN_SECTION: forum_select a drop down select of all the categories & forums}
 <span class="SmallText fb">{MSG: forumsel_goto_forum}</span>
-<form action="{TEMPLATE: forum_select_lnk3}" name="frmquicksel" method="get">
-<input type="hidden" name="t" value="{VAR: dest}">{DEF: _hs}
+<form action="{TEMPLATE: forum_select_lnk3}" id="frmquicksel" method="get">
+<input type="hidden" name="t" value="{VAR: dest}" />{DEF: _hs}
 <select class="SmallText" name="frm_id">
 {TEMPLATE-DATA: selection_options}
-</select>&nbsp;&nbsp;<input type="submit" class="button" name="frm_goto" value="{MSG: go}" ></form>
+</select>&nbsp;&nbsp;<input type="submit" class="button" name="frm_goto" value="{MSG: go}" /></form>
 {MAIN_SECTION: END}
 
 {SECTION: category_option}
@@ -24,7 +24,7 @@
 {SECTION: END}
 
 {SECTION: forum_option}
-<option value="{VAR: r[0]}"{FUNC: (isset($f[$r[0]]) ? ' selected' : '')}>{VAR: tabw}&nbsp;&nbsp;{VAR: r[1]}</option>
+<option value="{VAR: r[0]}"{FUNC: (isset($f[$r[0]]) ? ' selected="selected"' : '')}>{VAR: tabw}&nbsp;&nbsp;{VAR: r[1]}</option>
 {SECTION: END}
 
 {SECTION: forum_select_lnk3}

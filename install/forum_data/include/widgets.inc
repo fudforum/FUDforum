@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: widgets.inc,v 1.17 2007/01/01 18:23:42 hackie Exp $
+* $Id: widgets.inc,v 1.18 2009/01/17 09:23:51 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -104,7 +104,7 @@ function create_radio_buttons($name, $options, $values, $def, $vertical=0)
 	for ( $i=0; $i<count($opt); $i++ ) {
 		$rval .= '<input type="radio" name="'.$name.'" value="'.$val[$i].'"'.(($val[$i] == $def)?' checked':'').'>'.htmlspecialchars($opt[$i]);
 		if ( $vertical )
-			$rval .= '<br>';
+			$rval .= '<br />';
 		else
 			$rval .= '&nbsp;&nbsp;';
 	}

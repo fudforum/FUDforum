@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: draw_pager.tmpl,v 1.16 2007/01/01 18:23:46 hackie Exp $
+* $Id: draw_pager.tmpl,v 1.17 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,15 +39,15 @@
 {MAIN_SECTION: END}
 
 {SECTION: prev_n_first_page_js previous page and first page links}
-&nbsp;<a href="javascript://" onClick="{VAR: page_first_url}" class="PagerLink">&laquo;</a>&nbsp;&nbsp;<a href="javascript://" onClick="{VAR: page_prev_url}" class="PagerLink">&lsaquo;</a>&nbsp;&nbsp;
+&nbsp;<a href="javascript://" onclick="{VAR: page_first_url}" class="PagerLink">&laquo;</a>&nbsp;&nbsp;<a href="javascript://" onclick="{VAR: page_prev_url}" class="PagerLink">&lsaquo;</a>&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: last_page_n_next_js last page and next page links}
-&nbsp;&nbsp;<a href="javascript://" onClick="{VAR: page_next_url}" class="PagerLink">&rsaquo;</a>&nbsp;&nbsp;<a href="javascript://" onClick="{VAR: page_last_url}" class="PagerLink">&raquo;</a>
+&nbsp;&nbsp;<a href="javascript://" onclick="{VAR: page_next_url}" class="PagerLink">&rsaquo;</a>&nbsp;&nbsp;<a href="javascript://" onclick="{VAR: page_last_url}" class="PagerLink">&raquo;</a>
 {SECTION: END}
 
 {SECTION: page_entry_js page link}
-<a href="javascript://" onClick="{VAR: page_page_url}" class="PagerLink">{VAR: st}</a>{TEMPLATE: page_separator}
+<a href="javascript://" onclick="{VAR: page_page_url}" class="PagerLink">{VAR: st}</a>{TEMPLATE: page_separator}
 {SECTION: END}
 
 {SECTION: current_page_js selected page}

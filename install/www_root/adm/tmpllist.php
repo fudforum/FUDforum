@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.47 2007/01/01 18:23:48 hackie Exp $
+* $Id: tmpllist.php,v 1.48 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -346,7 +346,7 @@ function goto_tmpl($tmpl)
 	}
 ?>
 </font><br />
-<form method="post" action="tmpllist.php?tname=<?php echo $tname; ?>&amp;tlang=<?php echo $tlang; ?>" name="tmpledit">
+<form method="post" action="tmpllist.php?tname=<?php echo $tname; ?>&amp;tlang=<?php echo $tlang; ?>" id="tmpledit">
 <?php echo _hs; ?>
 <table cellspacing="2" cellpadding="1" border="0">
 <tr>

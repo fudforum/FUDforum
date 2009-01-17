@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.55 2007/02/23 02:01:06 hackie Exp $
+* $Id: pmsg.tmpl,v 1.56 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -68,7 +68,7 @@
 
 {SECTION: private_msg_entry}
 <tr class="RowStyleB">
-<td class="ac GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}"{IF: !$all_v} checked{ENDIF}></td>
+<td class="ac GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}"{IF: !$all_v} checked="checked"{ENDIF} /></td>
 <td>{IF: $obj->read_stamp}{TEMPLATE: pmsg_unread}{ELSE}{TEMPLATE: pmsg_read}{END}</td><td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}">{VAR: obj->subject}</a>{IF: ($obj->pmsg_opt & 4 && $obj->pmsg_opt & 16 && $obj->duser_id == _uid && $obj->ouser_id != _uid)}{TEMPLATE: deny_recipt}{ENDIF}</td>
 <td class="nw GenText">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: normal_msg_lnk}" title="{FUNC: char_fix(htmlspecialchars($obj->to_list))}">{VAR: obj->alias}</a></td>
 <td class="nw DateText">{TEMPLATE: dmsg_post_date}</td>
@@ -95,14 +95,14 @@
 </tr>
 </table>
 <div class="ar"><a href="{TEMPLATE: PMSG_PAGE_lnk}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" alt="" /></a></div>
-<form action="{TEMPLATE: PMSG_PAGE_lnk3}" method="post" name="priv_frm">{DEF: _hs}
+<form action="{TEMPLATE: PMSG_PAGE_lnk3}" method="post" id="priv_frm">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleB">
 <td class="GenText al" colspan="3">{IF: $private_tools}<a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a>{ELSE}&nbsp;{ENDI}</td>
-<td colspan="3" class="GenText ar" nowrap>
-{MSG: folder} <select name="folder_id" onChange="javascript: document.priv_frm.submit();">
+<td colspan="3" class="GenText ar" style="white-space: nowrap">
+{MSG: folder} <select name="folder_id" onchange="javascript: document.priv_frm.submit();">
 {TEMPLATE-DATA: select_options_cur_folder}
-</select> <input type="submit" class="button" name="sel_folder" value="{MSG: go}">
+</select> <input type="submit" class="button" name="sel_folder" value="{MSG: go}" />
 </td></tr>
 <tr>
 	<th class="nw">{MSG: pmsg_selected} [<a href="{TEMPLATE: PMSG_PAGE_lnk1}" class="thLnk">{IF: $all_v}{TEMPLATE: pmsg_all}{ELSE}{TEMPLATE: pmsg_none}{END}</a>]</th>
@@ -178,10 +178,10 @@
 <tr class="RowStyleB">
 <td class="GenText al" colspan="3"><a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a></td>
 <td colspan="3" class="GenText ar">
-<input type="submit" class="button" name="btn_move" value="{VAR: btn_action}">
+<input type="submit" class="button" name="btn_move" value="{VAR: btn_action}" />
 <select name="moveto">{TEMPLATE-DATA: moveto_list}</select>
-<input type="hidden" name="old_folder_id" value="{VAR: folder_id}">
-&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="{VAR: btn_del_name}" value="{VAR: btn_del_title}">{IF: $FUD_OPT_2 & 2097152}&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_pdf" value="{MSG: pmsg_pdf_btn}">{ENDIFI}</td></tr>
+<input type="hidden" name="old_folder_id" value="{VAR: folder_id}" />
+&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="{VAR: btn_del_name}" value="{VAR: btn_del_title}" />{IF: $FUD_OPT_2 & 2097152}&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_pdf" value="{MSG: pmsg_pdf_btn}" />{ENDIFI}</td></tr>
 {SECTION: END}
 
 {SECTION: action_buttons_inbox_lnk}

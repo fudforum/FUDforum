@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.38 2007/01/01 18:23:48 hackie Exp $
+* $Id: admprune.php,v 1.39 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -75,8 +75,8 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 </head>
 <body bgcolor="white">
 <div align="center">You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics containing <font color="red"><?php echo $msg_cnt; ?></font> messages,
-which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $umsg . $msg; ?><br><br>
-			Are you sure you want to do this?<br>
+which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $umsg . $msg; ?><br /><br />
+			Are you sure you want to do this?<br />
 			<form method="post">
 			<input type="hidden" name="btn_prune" value="1">
 			<?php echo _hs; ?>
@@ -119,7 +119,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 		} else if ($back < 1) {
 			$first_msg = q_singleval("SELECT MIN(post_stamp) FROM ".$DBHOST_TBL_PREFIX."msg");
 			echo '<div style="text-align:center; font-size: large; font-weight: bolder; color: darkred">You\'ve selected a date too far in the past,'
-			.($first_msg ? '<br>the earliest forum message was posted on '.date("r", $first_msg) : '')
+			.($first_msg ? '<br />the earliest forum message was posted on '.date("r", $first_msg) : '')
 			.'.</div>';
 		}
 	}
@@ -128,12 +128,12 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 ?>
 <h2>Topic Prunning</h2>
 
-This utility allows you to remove all topics, where the last message<br>
-inside the topic was posted prior to the specified date. For example <br>
-if you enter a value of 10 and select "days" this form will offer to <br>
+This utility allows you to remove all topics, where the last message<br />
+inside the topic was posted prior to the specified date. For example <br />
+if you enter a value of 10 and select "days" this form will offer to <br />
 delete topics with no messages in the last 10 days.<p>
 
-<form name="adp" method="post" action="admprune.php">
+<form id="adp" method="post" action="admprune.php">
 <table class="datatable">
 <?php
 	if ($usr_id) {

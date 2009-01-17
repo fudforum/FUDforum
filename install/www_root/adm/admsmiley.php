@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.31 2007/01/01 18:23:48 hackie Exp $
+* $Id: admsmiley.php,v 1.32 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -97,7 +97,7 @@ function sml_form_check()
 
 <h2>Smiley Management System</h2>
 
-<form name="frm_sml" method="post" enctype="multipart/form-data" action="admsmiley.php" 
+<form id="frm_sml" method="post" enctype="multipart/form-data" action="admsmiley.php" 
 onSubmit="javascript: return sml_form_check();">
 <?php
 	echo _hs;
@@ -107,7 +107,7 @@ onSubmit="javascript: return sml_form_check();">
 			<td colspan="2"><b>Smilies Upload (upload smiley into the system)</b></td>
 		</tr>
 		<tr class="field">
-			<td>Smilies Upload:<br><font size="-1">Only (*.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
+			<td>Smilies Upload:<br /><font size="-1">Only (*.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
 			<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"></td>
 			<td><input type="hidden" name="tmp_f_val" value="1"></td>
 		</tr>
@@ -129,7 +129,7 @@ onSubmit="javascript: return sml_form_check();">
 	</tr>
 
 	<tr class="field">
-		<td>Smiley Text:<br><font size="-1">Will be replaced with smiley,<br>use <b>~</b> to seperate multiple allowed codes</font></td>
+		<td>Smiley Text:<br /><font size="-1">Will be replaced with smiley,<br />use <b>~</b> to seperate multiple allowed codes</font></td>
 		<td><input type="text" name="sml_code" value="<?php echo htmlspecialchars($sml_code); ?>"></td>
 	</tr>
 

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.tmpl,v 1.27 2009/01/16 21:05:53 frank Exp $
+* $Id: mnav.tmpl,v 1.28 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,13 +29,13 @@
 {TEMPLATE: usercp}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
 
-<form name="mnav" method="get" action="{TEMPLATE: MNAV_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="mnav">
+<form id="mnav" method="get" action="{TEMPLATE: MNAV_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="mnav" />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan="4" class="wa">{MSG: mnav_description}</th></tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}">
 	<td class="GenText nw" width="30%">{MSG: mnav_date_limit}</td>
-	<td class="GenText SmallText">{MSG: mnav_newer}<br /><input tabindex="1" type="text" name="rng" value="{VAR: rng}" maxlength="10" size="11"></td>
-	<td class="GenText SmallText">{MSG: mnav_older}<br /><input tabindex="2" type="text" name="rng2" value="{VAR: rng2}" maxlength="10" size="11"></td>
+	<td class="GenText SmallText">{MSG: mnav_newer}<br /><input tabindex="1" type="text" name="rng" value="{VAR: rng}" maxlength="10" size="11" /></td>
+	<td class="GenText SmallText">{MSG: mnav_older}<br /><input tabindex="2" type="text" name="rng2" value="{VAR: rng2}" maxlength="10" size="11" /></td>
 	<td class="al vb" width="60%"><select name="u" tabindex="3">{TEMPLATE-DATA: mnav_time_unit}</select></td></tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}">
 	<td class="GenText nw">{MSG: mnav_forum_limit}</td>
@@ -48,14 +48,14 @@
 {IF: _uid}
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}">
 	<td class="GenText nw">{MSG: mnav_sub_only}</td>
-	<td colspan="3" class="vt"><input type="checkbox" name="sub" value="1" {IF: $subl}checked {ENDIFI}/></td>
+	<td colspan="3" class="vt"><input type="checkbox" name="sub" value="1" {IF: $subl}checked="checked" {ENDIFI} /></td>
 {ENDIF}
-<tr class="RowStyleC"><td class="GenText ar" colspan="4"><input type="submit" tabindex="5" class="button" name="btn_submit" value="{MSG: mnav_submit}"></td></tr>
+<tr class="RowStyleC"><td class="GenText ar" colspan="4"><input type="submit" tabindex="5" class="button" name="btn_submit" value="{MSG: mnav_submit}" /></td></tr>
 </table></form>
-<script language="javascript" type="text/javascript">
-<!--
+<script type="text/javascript">
+/* <![CDATA[ */ 
 document.mnav.rng.focus();
-//-->
+/* ]]> */
 </script>
 <br />
 {TEMPLATE-DATA: mnav_data}

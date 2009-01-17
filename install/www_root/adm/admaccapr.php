@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaccapr.php,v 1.28 2007/01/01 18:23:47 hackie Exp $
+* $Id: admaccapr.php,v 1.29 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,7 +35,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		if ($no_html) {
 			$value = htmlspecialchars($value);
 		}
-		return $descr.': '.$value.'<br>';
+		return $descr.': '.$value.'<br />';
 	}
 }
 

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmime.php,v 1.29 2007/01/03 23:32:43 hackie Exp $
+* $Id: admmime.php,v 1.30 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,7 +42,7 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>MIME Management System</h2>
-<form action="admmime.php" name="frm_mime" method="post" enctype="multipart/form-data">
+<form action="admmime.php" id="frm_mime" method="post" enctype="multipart/form-data">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <?php if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/mime/')) { ?>
@@ -50,7 +50,7 @@
 	<td colspan="2"><b>MIME Icon Upload (upload mime icons into the system)</b></td>
 </tr>
 <tr class="field">
-	<td>MIME Icon Upload:<br><font size="-1">Only (.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
+	<td>MIME Icon Upload:<br /><font size="-1">Only (.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
 	<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"><input type="hidden" name="tmp_f_val" value="1"></td>
 </tr>
 <?php } else { ?>
@@ -75,7 +75,7 @@
 </tr>
 
 <tr class="field">
-	<td>File Extension:<br><font size="-1">Files with this extension (case-insensitive) will be attributed to this MIME.</font></td>
+	<td>File Extension:<br /><font size="-1">Files with this extension (case-insensitive) will be attributed to this MIME.</font></td>
 	<td><input type="text" name="mime_fl_ext" value="<?php echo htmlspecialchars($mime_fl_ext); ?>"></td>
 </tr>
 

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.66 2007/01/01 18:23:48 hackie Exp $
+* $Id: admthemes.php,v 1.67 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@
 		$root_nn = $root . preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
 		$u = umask(0);
 		if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777)) {
-			exit('can\'t create ('.$root_nn.')<br>');
+			exit('can\'t create ('.$root_nn.')<br />');
 		}
 
 		fudcopy($root . 'default/', $root_nn, '*', true);
@@ -95,7 +95,7 @@
 ?>
 <h2>Theme Management [ <a href="admthemes.php?rebuild_all=1&amp;<?php echo __adm_rsid; ?>">Rebuild all Themes</a> ]</h2>
 
-<form name="admthm" action="admthemes.php" method="post">
+<form id="admthm" action="admthemes.php" method="post">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.38 2007/01/05 00:33:19 hackie Exp $
+* $Id: admnntp.php,v 1.39 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,11 +49,11 @@
 	}
 ?>
 <h2>Newsgroup Manager</h2>
-<form method="post" name="frm_forum" action="admnntp.php">
+<form method="post" id="frm_forum" action="admnntp.php">
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
-		<td>Newsgroup Server:<br><font size="-1">The ip or the hostname of your newsgroup server.</font></td>
+		<td>Newsgroup Server:<br /><font size="-1">The ip or the hostname of your newsgroup server.</font></td>
 		<td><input type="text" name="nntp_server" value="<?php echo htmlspecialchars($nntp_server); ?>" maxlength=255></td>
 	</tr>
 
@@ -63,41 +63,41 @@
 	</tr>
 
 	<tr class="field">
-		<td>Newsgroup Server Timeout:<br><font size="-1">Number of seconds to wait for the nntp server to respond.</font></td>
+		<td>Newsgroup Server Timeout:<br /><font size="-1">Number of seconds to wait for the nntp server to respond.</font></td>
 		<td><input type="text" name="nntp_timeout" value="<?php echo $nntp_timeout; ?>" maxlength=10></td>
 	</tr>
 
 	<tr class="field">
-		<td>Newsgroup:<br><font size="-1">The name of the newsgroup to import.</font></td>
+		<td>Newsgroup:<br /><font size="-1">The name of the newsgroup to import.</font></td>
 		<td><input type="text" name="nntp_newsgroup" value="<?php echo $nntp_newsgroup; ?>" maxlength=255></td>
 	</tr>
 
 	<tr>
-		<td colspan=2><br></td>
+		<td colspan=2><br /></td>
 	</tr>
 
 	<tr class="field">
-		<td>Authentication Method:<br><font size="-1">The authentication method to use when connecting to nntp server.</font></td>
+		<td>Authentication Method:<br /><font size="-1">The authentication method to use when connecting to nntp server.</font></td>
 		<td><?php draw_select('nntp_auth', "None\nOriginal\nSimple", "64\n128\n0", ($nntp_nntp_opt & 128 ? 128 : ($nntp_nntp_opt & 64 ? 64 : 0))); ?></td>
 	</tr>
 
 	<tr class="field">
-		<td>Login:<br><font size="-1">Not needed if authentication is not being used.</font></td>
+		<td>Login:<br /><font size="-1">Not needed if authentication is not being used.</font></td>
 		<td><input type="text" name="nntp_login" value="<?php echo htmlspecialchars($nntp_login); ?>" maxlength=255></td>
 	</tr>
 
 	<tr class="field">
-		<td>Password:<br><font size="-1">Not needed if authentication is not being used.</font></td>
+		<td>Password:<br /><font size="-1">Not needed if authentication is not being used.</font></td>
 		<td><input type="text" name="nntp_pass" value="<?php echo htmlspecialchars($nntp_pass); ?>" maxlength=255></td>
 	</tr>
 
 	<tr>
-		<td colspan=2><br></td>
+		<td colspan=2><br /></td>
 	</tr>
 
 	<tr class="field">
 		<td>
-			Forum:<br>
+			Forum:<br />
 			<font size="-1">Messages imported from the newsgroup will be imported into this forum.
 			It is <b>**highly recommeded**</b> that you setup a seperate forum for each newsgroup.</font>
 		</td>
@@ -120,7 +120,7 @@
 
 	<tr class="field">
 		<td>
-			Moderate Newsgroup Posts:<br>
+			Moderate Newsgroup Posts:<br />
 			<font size="-1">Any posts from the newsgroup would first need to be approved by moderator(s) before
 			they are made visible on the forum.</font>
 		</td>
@@ -129,7 +129,7 @@
 
 	<tr class="field">
 		<td>
-			Syncronize Forum Posts to Newsgroup:<br>
+			Syncronize Forum Posts to Newsgroup:<br />
 			<font size="-1">If enabled, posts made by forum members inside the forum will be sent to the
 			newsgroup by the forum. On the newsgroup the posts would appear on behalf of the user who
 			has made the post.</font>
@@ -139,7 +139,7 @@
 
 	<tr class="field">
 		<td>
-			Moderate Forum Posts:<br>
+			Moderate Forum Posts:<br />
 			<font size="-1">If enabled, any posts made by forum members in the forum would need to be first approved
 			by the moderator(s) before they are syncronized to the newsgroup or appear in the forum.</font>
 		</td>
@@ -148,7 +148,7 @@
 
 	<tr class="field">
 		<td>
-			Allow Newsgroup Attachments:<br>
+			Allow Newsgroup Attachments:<br />
 			<font size="-1">If enabled, ANY file attachment attached to a message in the newsgroup will be
 			imported into the forum regardless of any limitations imposed on file attachments within the forum.</font>
 		</td>
@@ -157,7 +157,7 @@
 
 	<tr class="field">
 		<td>
-			Slow Reply Match:<br>
+			Slow Reply Match:<br />
 			<font size="-1">Certain mail client do sent send necessary headers needed to determine if a message is
 			a reply to an existing message. If this option is enabled and normally avaliable reply headers are not there,
 			the forum will try to determine if message is a reply by comparing the message's subject to subjects of existing
@@ -168,7 +168,7 @@
 
 	<tr class="field">
 		<td>
-			Create New Users:<br>
+			Create New Users:<br />
 			<font size="-1">When importing messages from a newsgroup, should a new user be created for every newsgroup
 			author, who cannot be matched against an existing forum user. If this option is set to 'No', then all
 			imported newsgroup messages who's authors cannot be matched against existing forum members will be attributed
@@ -179,7 +179,7 @@
 
 	<tr class="field">
 		<td>
-			Skip Non-Forum Users:<br>
+			Skip Non-Forum Users:<br />
 			<font size="-1">When importing messages, should the messages posted from users who cannot be matched
 			to existing forum members be ignored.</font>
 		</td>
@@ -187,7 +187,7 @@
 	</tr>
 
 	<tr class="field">
-		<td>Max Messages to Import:<br>
+		<td>Max Messages to Import:<br />
 			<font size="-1">Maximum number of messages to import per run.
 			Leaving the value at 0 or empty means unlimited. When doing a 1st
 			import which may need to import a lot of messages, since there is no
@@ -199,7 +199,7 @@
 	</tr>
 
 	<tr class="field">
-		<td>Forum Signature:<br>
+		<td>Forum Signature:<br />
 			<font size="-1">A string of text to append to the end of every message 
 			sent from the forum back to the newsgroup.</font>
 		</td>
@@ -215,7 +215,7 @@
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
-<br><br>
+<br /><br />
 <table class="resulttable fulltable">
 	<tr class="resulttopic">
 		<td nowrap>Newsgroup Rule</td>
@@ -241,10 +241,10 @@
 ?>
 </table>
 <p>
-<b>***Notes***</b><br>
+<b>***Notes***</b><br />
 Exec Line parameter in the table above shows the execution line that you will need to place in your cron.
 It is recommended you run the script on a small interval, we recommend a 2-3 minute interval.
-<br>
+<br />
 Cron example:
 <pre>
 */2 * * * * /home/forum/forum/scripts/nntp.php 1

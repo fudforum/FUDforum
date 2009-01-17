@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.82 2009/01/16 21:05:53 frank Exp $
+* $Id: index.tmpl,v 1.83 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,15 +22,15 @@
 
 {SECTION: index_cat_up_down_arrows up/down arrows for navigating category list}
 <td class="CatDesc">
-	{IF: key($cidxc)}<a href="javascript://" onClick=\'nextCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" border="0"  style="vertical-align: top; float: right;" /></a>{ENDIFI}
-	{IF: $cat}<a href="javascript://" onClick=\'prevCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" border="0"  style="vertical-align: top; float: right;" /></a>{ENDIFI}
+	{IF: key($cidxc)}<a href="javascript://" onclick=\'nextCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" alt="" border="0" style="vertical-align: top; float: right;" /></a>{ENDIFI}
+	{IF: $cat}<a href="javascript://" onclick=\'prevCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" border="0" alt="" style="vertical-align: top; float: right;" /></a>{ENDIFI}
 </td>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
 <tr id="c{VAR: k}" p="{VAR: i[0]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
 <td colspan="5" class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
-<a name="c{VAR: k}" href="javascript://" onClick="toggleCategory({VAR: k}, {VAR: i[0]});" class="CatLink" title="{IF: !empty($collapse[$k])}{MSG: maximize_category}{ELSE}{MSG: minimize_category}{END}">
+<a name="c{VAR: k}" href="javascript://" onclick="toggleCategory({VAR: k}, {VAR: i[0]});" class="CatLink" title="{IF: !empty($collapse[$k])}{MSG: maximize_category}{ELSE}{MSG: minimize_category}{END}">
 <img id="c{VAR: k}img" src="{THEME_IMAGE_ROOT}/{IF: empty($collapse[$k])}min{ELSE}max{ENDI}{DEF: img_ext}" alt="" /></a> 
 <a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}{TEMPLATE: index_cat_up_down_arrows}</tr>
 {SECTION: END}
@@ -96,6 +96,7 @@
 {TEMPLATE-DATA: cat_path}
 
 <script type="text/javascript">
+/* <![CDATA[ */
 function prevCat(id)
 {
 	var p = document.getElementById(id);
@@ -196,19 +197,20 @@ function toggleCategory(cid, level)
          });
 {ENDIFI}
 }
+/* ]]> */
 </script>
 
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 	<th colspan="3" class="wa">{MSG: index_forum}</th>
-	<th nowrap>{MSG: posts}</th>
-	<th nowrap>{MSG: threads}</th>
-	<th nowrap>{MSG: last_post}</th>
+	<th style="white-space: nowrap">{MSG: posts}</th>
+	<th style="white-space: nowrap">{MSG: threads}</th>
+	<th style="white-space: nowrap">{MSG: last_post}</th>
 </tr>
 {TEMPLATE-DATA: forum_list_table_data}
 </table>
 {IF: _uid}<div class="SmallText ar">[ <a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a> ]
-{IF: $FUD_OPT_2 & 1048576}[ <a href="rdf.php?mode=m&amp;l=1&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" /></a> ]{ENDIFI}
+{IF: $FUD_OPT_2 & 1048576}[ <a href="rdf.php?mode=m&amp;l=1&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="{MSG: thread_syndicate}"/></a> ]{ENDIFI}
 </div>{ENDIF}
 {IF: __fud_real_user__}{TEMPLATE: quick_login_loged_in}{ELSE}{TEMPLATE: quick_login_on}{END}
 {IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}

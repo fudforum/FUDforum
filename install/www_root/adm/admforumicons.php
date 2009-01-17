@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforumicons.php,v 1.24 2007/01/01 18:23:48 hackie Exp $
+* $Id: admforumicons.php,v 1.25 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,16 +51,16 @@
 	if (@is_writeable($WWW_ROOT_DISK . $ICONS_DIR)) {
 ?>
 <form method="post" enctype="multipart/form-data" action="admforumicons.php">
-<input type="hidden" name="which_dir" value="<?php echo $which_dir; ?>">
+<input type="hidden" name="which_dir" value="<?php echo $which_dir; ?>" />
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="field">
-		<td>Upload Icon:<br><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
-		<td><input type="file" name="iconfile"></td>
-		<td><input type="hidden" name="tmp_f_val" value="1"></td>
+		<td>Upload Icon:<br /><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
+		<td><input type="file" name="iconfile" /></td>
+		<td><input type="hidden" name="tmp_f_val" value="1" /></td>
 	</tr>
 
-	<tr class="fieldaction"><td align="right" colspan="2"><input type="submit" name="btn_upload" value="Add"></td></tr>
+	<tr class="fieldaction"><td align="right" colspan="2"><input type="submit" name="btn_upload" value="Add" /></td></tr>
 </table>
 </form>
 <?php

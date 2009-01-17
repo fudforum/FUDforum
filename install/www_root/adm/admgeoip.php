@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgeoip.php,v 1.7 2007/01/01 18:23:48 hackie Exp $
+* $Id: admgeoip.php,v 1.8 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -69,15 +69,15 @@ The fields marked in orange are the ones the forum cares about, the rest of the 
 		<td>Data File</td>
 		<td><input type="file" name="file" /></td>
 	</tr>
-	<tr class="fieldaction"><td colspan="2" align="center"><input type="submit" name="btn_submit" value="Upload IP Database"></td></tr>
+	<tr class="fieldaction"><td colspan="2" align="center"><input type="submit" name="btn_submit" value="Upload IP Database" /></td></tr>
 	<tr><td class="tutor" colspan="2">
 When enabling Geo-Location functionality on an existing forum it is recommended that the user and message location caches are rebuilt,
 without them, old messages will not have a flag appearing beside them. Please note that this is a <b>SLOW</b> process, which may take a few
 hours on a large forum.
 	</td></tr>
 	<tr class="fieldaction"><td colspan="2" align="center">
-		<input type="submit" name="rebuild_user_geoip" value="Rebuild User Cache">
-		<input type="submit" name="rebuild_msg_geoip" value="Rebuild Message Cache">
+		<input type="submit" name="rebuild_user_geoip" value="Rebuild User Cache" />
+		<input type="submit" name="rebuild_msg_geoip" value="Rebuild Message Cache" />
 	</td></tr>
 </table>
 </form>

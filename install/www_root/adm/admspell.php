@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admspell.php,v 1.14 2007/01/01 18:23:48 hackie Exp $
+* $Id: admspell.php,v 1.15 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,7 +39,7 @@
 ?>
 <h2>Custom Dictionary Spell Checker</h2>
 <b>Custom Dictionary Location: </b><?php echo $FORUM_SETTINGS_PATH."forum.pws"; ?><br />
-<form method="post" name="spell" action="admspell.php">
+<form method="post" id="spell" action="admspell.php">
 <?php
 	echo _hs;
 	if ($status) {

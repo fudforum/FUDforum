@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: error.tmpl,v 1.14 2007/01/01 18:23:46 hackie Exp $
+* $Id: error.tmpl,v 1.15 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,7 +23,7 @@
 <table cellspacing="1" cellpadding="2" class="DialogTable">
 <tr><th>{VAR: error_title}</th></tr>
 <tr class="RowStyleA"><td class="GenText ac">{VAR: error_message}
-<br /><br /><form action="{TEMPLATE: ERROR_PAGE_lnk3}" name="error_frm" method="post">{DEF: _hs}<input type="submit" class="button" name="ok" value="OK"></form>
+<br /><br /><form action="{TEMPLATE: ERROR_PAGE_lnk3}" id="error_frm" method="post">{DEF: _hs}<input type="submit" class="button" name="ok" value="OK" /></form>
 </td></tr>
 </table></div>
 {TEMPLATE: curtime}

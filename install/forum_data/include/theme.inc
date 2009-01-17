@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: theme.inc,v 1.33 2007/01/01 18:23:42 hackie Exp $
+* $Id: theme.inc,v 1.34 2009/01/17 09:23:51 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -143,7 +143,7 @@ function cleandir($dir)
 	$dir = preg_replace('!/*$!', '', $dir);
 
 	if (!@is_dir($dir)) {
-		echo 'Couldn\'t delete "'.$dir.'", directory does not exist<br>';
+		echo 'Couldn\'t delete "'.$dir.'", directory does not exist<br />';
 		return;
 	}
 
@@ -161,14 +161,14 @@ function cleandir($dir)
 			if (is_dir($file) && !is_link($file)) {
 				$dirs[] = $file;
 			} else if (!unlink($file)) {
-				echo '<b>Could not delete file "'.$file.'"<br>';
+				echo '<b>Could not delete file "'.$file.'"<br />';
 			}
 		}
 	}
 
 	foreach (array_reverse($dirs) as $dir) {
 		if (!rmdir($dir)) {
-			echo '<b>Could not delete directory "'.$dir.'"<br>';
+			echo '<b>Could not delete directory "'.$dir.'"<br />';
 		}
 	}
 }

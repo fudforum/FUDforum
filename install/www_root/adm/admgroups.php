@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.55 2007/01/01 18:23:48 hackie Exp $
+* $Id: admgroups.php,v 1.56 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -201,15 +201,15 @@
 <h2>Admin Group Manager: Add/Edit groups or group leaders</h2>
 <form method="post" action="admgroups.php">
 <?php echo _hs; ?>
-<input type="hidden" name="edit" value="<?php echo $edit; ?>">
+<input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 <table class="datatable field">
 <tr><td>Group Name: </td><td>
 <?php
 	if ($edit && ($edit < 3 || $gl[$edit]['forum_id'])) {
 		echo $gr_name;
-		echo '<input type="hidden" name="gr_resource" value="1">';
+		echo '<input type="hidden" name="gr_resource" value="1" />';
 	} else {
-		echo '<input type="text" name="gr_name" value="'.htmlspecialchars($gr_name).'">';
+		echo '<input type="text" name="gr_name" value="'.htmlspecialchars($gr_name).'" />';
 	}
 ?>
 </td></tr>
@@ -250,7 +250,7 @@
 		echo '</td></tr>';
 	}
 ?>
-<tr><td valign="top" colspan="2" align="center"><font size="+2"><b>Maximum Permissions</b></font><br><font size="-1">(group leaders won't be able to assign permissions higher than these)</font></td></tr>
+<tr><td valign="top" colspan="2" align="center"><font size="+2"><b>Maximum Permissions</b></font><br /><font size="-1">(group leaders won't be able to assign permissions higher than these)</font></td></tr>
 <tr><td><table cellspacing="2" cellpadding="2" border="0">
 <?php
 	if (($edit || $error) && $gr_inherit_id && $permi) {
@@ -285,12 +285,12 @@
 <tr><td colspan="2" align="left">
 <?php
 	if ($edit) {
-		echo '<input type="submit" name="btn_cancel" value="Cancel"> ';
+		echo '<input type="submit" name="btn_cancel" value="Cancel" /> ';
 	}
 ?>
-<input type="submit" name="btn_submit" value="<?php echo (!$edit ? 'Add' : 'Update'); ?>"></td></tr>
+<input type="submit" name="btn_submit" value="<?php echo (!$edit ? 'Add' : 'Update'); ?>" /></td></tr>
 </table>
-<input type="hidden" name="prevloaded" value="1">
+<input type="hidden" name="prevloaded" value="1" />
 </form>
 <br />
 <span class="linkhead">The permissions shown below ONLY control the permissions group leaders will be able to change
@@ -322,13 +322,13 @@ for the group's they manage. To change the user permissions please use the <a hr
 
 	foreach ($gl as $k => $v) {
 		if (isset($gll[$k])) {
-			$grl = '<font size="-1">(total: '.count($gll[$k]).')</font><br><select name="gr_leaders"><option>'.implode('</option><option>', $gll[$k]).'</option></select>';
+			$grl = '<font size="-1">(total: '.count($gll[$k]).')</font><br /><select name="gr_leaders"><option>'.implode('</option><option>', $gll[$k]).'</option></select>';
 		} else {
 			$grl = 'No Leaders';
 		}
 
 		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='.$k.'&amp;'.__adm_rsid.'">Delete</a>]' : '';
-		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'<br>[<a href="admgrouplead.php?group_id='.$k.'&amp;'.__adm_rsid.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&amp;group_id='.$k.'&amp;'.__adm_rsid.'" target=_new>Manage Users</a>]' : '';
+		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'<br />[<a href="admgrouplead.php?group_id='.$k.'&amp;'.__adm_rsid.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&amp;group_id='.$k.'&amp;'.__adm_rsid.'" target=_new>Manage Users</a>]' : '';
 
 		echo '<tr class="tiny field"><td><a name="g'.$k.'">'.$v['gn'].'</a></td>';
 		foreach ($hdr as $v2) {

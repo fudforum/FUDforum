@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.54 2007/07/29 15:18:25 hackie Exp $
+* $Id: finduser.tmpl,v 1.55 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,20 +25,20 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<form method="get" name="fufrm" action="{TEMPLATE: FINDUSER_PAGE_lnk3}">{DEF: _hs}
+<form method="get" id="fufrm" action="{TEMPLATE: FINDUSER_PAGE_lnk3}">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan="3">{MSG: finduser_user_info}</th></tr>
-<tr class="RowStyleA"><td class="GenText">{MSG: finduser_by_login}</td><td class="GenText"><input type="text" name="usr_login" tabindex="1" value="{FUNC: char_fix(htmlspecialchars($usr_login))}"> <input type="submit" class="button" tabindex="2" name="btn_submit" value="{MSG: finduser_submit}"></td><td class="RowStyleC SmallText vt">{MSG: finduser_help}</td></tr>
-</table><input type="hidden" name="t" value="finduser"></form>
-<script language="javascript" type="text/javascript">
-<!--
+<tr class="RowStyleA"><td class="GenText">{MSG: finduser_by_login}</td><td class="GenText"><input type="text" name="usr_login" tabindex="1" value="{FUNC: char_fix(htmlspecialchars($usr_login))}" /> <input type="submit" class="button" tabindex="2" name="btn_submit" value="{MSG: finduser_submit}" /></td><td class="RowStyleC SmallText vt">{MSG: finduser_help}</td></tr>
+</table><input type="hidden" name="t" value="finduser" /></form>
+<script type="text/javascript">
+/* <![CDATA[ */
 document.fufrm.usr_login.focus();
-//-->
+/* ]]> */
 </script>
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 {IF: $GLOBALS['FUD_OPT_3'] & 524288}<th width="1"><a href="{TEMPLATE: FINDUSER_PAGE_lnk4}">{MSG: finduser_flag}</a></th>{ENDIF}
-<th class="wa"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk}">{MSG: finduser_user}</a></th><th nowrap><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{IF: $is_a}{TEMPLATE: findu_admin_opts_header}{ENDIF}
+<th class="wa"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk}">{MSG: finduser_user}</a></th><th style="white-space: nowrap"><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk">{MSG: finduser_postcount}</a></th><th style="white-space: nowrap"><div align="center"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{IF: $is_a}{TEMPLATE: findu_admin_opts_header}{ENDIF}
 </tr>
 {TEMPLATE-DATA: find_user_data}
 </table>
@@ -86,7 +86,7 @@ document.fufrm.usr_login.focus();
 {SECTION: END}
 
 {SECTION: findu_admin_opts_header}
-<th nowrap>{MSG: findu_admin_opts_header}</th>
+<th style="white-space: nowrap">{MSG: findu_admin_opts_header}</th>
 {SECTION: END}
 
 {SECTION: findu_unban}

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.tmpl,v 1.41 2007/01/01 18:23:47 hackie Exp $
+* $Id: search.tmpl,v 1.42 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,7 +60,7 @@
 		{IF: ($is_a || $r->md)}
 <hr /><div class="ModOpt">{MSG: moderator_options}: <a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}&amp;del={VAR: r->id}">{MSG: thread_mod_delete}</a>
 {IF: $r->is_rootm}
- | <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}&amp;{IF: $r->is_lckd}unlock{ELSE}lock{ENDI}=1&amp;SQ={GVAR: sq}">{IF: $r->is_lckd}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a>
+ | <a href="javascript://" onclick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r->thread_id}&amp;{IF: $r->is_lckd}unlock{ELSE}lock{ENDI}=1&amp;SQ={GVAR: sq}">{IF: $r->is_lckd}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a>
 {ENDIFI}
 </div>
 		{ENDIFI}
@@ -80,23 +80,23 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
-<form name="search" method="get" action="{TEMPLATE: SEARCH_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="search">
+<form id="search" method="get" action="{TEMPLATE: SEARCH_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="search" />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th>{MSG: search_forum_search}</th><th class="wa">{MSG: search_options}</th></tr>
 <tr class="RowStyleA">
-	<td class="vt nw"><input spellcheck="true" type="text" name="srch" tabindex="1" value="{VAR-HTML: srch}"> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: search}"><br /><span class="SmallText">{TEMPLATE-DATA: search_options}</span></td>
+	<td class="vt nw"><input spellcheck="true" type="text" name="srch" tabindex="1" value="{VAR-HTML: srch}" /> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: search}" /><br /><span class="SmallText">{TEMPLATE-DATA: search_options}</span></td>
 	<td class="RowStyleB SmallText">
 <div class="sr">{MSG: search_in_forum}<br /><select class="SmallText" name="forum_limiter"><option value="">{MSG: search_all_forums}</option>{TEMPLATE-DATA: forum_limit_data}</select></div>
 <div class="sr">{MSG: search_logic}<br /><select class="SmallText" name="search_logic">{TEMPLATE-DATA: logic_options}</select></div>
 <div class="sr">{MSG: search_sorting}<br /><select class="SmallText" name="sort_order">{TEMPLATE-DATA: sort_options}</select></div>
-<div class="sr">{MSG: search_user_filter}<br /><input class="SmallText" type="text" value="{VAR-HTML: author}" name="author"></div>
+<div class="sr">{MSG: search_user_filter}<br /><input class="SmallText" type="text" value="{VAR-HTML: author}" name="author" /></div>
 </td>
 </tr>
 </table></form>
-<script language="javascript" type="text/javascript">
-<!--
+<script type="text/javascript">
+/* <![CDATA[ */
 document.search.srch.focus();
-//-->
+/* ]]> */
 </script>
 {TEMPLATE-DATA: search_data}
 <div align="left">{TEMPLATE-DATA: page_pager}</div>

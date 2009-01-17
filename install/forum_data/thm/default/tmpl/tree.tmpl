@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.83 2009/01/16 21:05:53 frank Exp $
+* $Id: tree.tmpl,v 1.84 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,7 +33,7 @@
 {SECTION: END}
 
 {SECTION: tree_read_message read message}
-<img src="{THEME_IMAGE_ROOT}/read{DEF: img_ext}" alt="{MSG: read_message}" title="{MSG: read_message}" />
+<img src="{THEME_IMAGE_ROOT}/read{DEF: img_ext}" alt="{MSG: read_message}" title="{MSG: read_message}" />A
 {SECTION: END}
 
 {SECTION: split_thread_lnk}
@@ -110,7 +110,7 @@
 
 {SECTION: rate_thread rate thread select}
 <form id="RateFrm">
-<select onChange="javascript: if (this.value) topicVote(this.value, {VAR: frm->id}, \'{DEF: s}\', \'{VAR: usr->sq}\');">
+<select onchange="javascript: if (this.value) topicVote(this.value, {VAR: frm->id}, \'{DEF: s}\', \'{VAR: usr->sq}\');">
 <option>{MSG: rate_thread}</option>
 <option value="1">1 {MSG: rate_worst}</option>
 <option value="2">2</option>
@@ -141,7 +141,7 @@
 <tr class="{IF: $cur->id % 2}RowStyleA{ELSE}RowStyleB{ENDI}" id="b{VAR: cur->id}">
 <td>{IF: (_uid && $cur->post_stamp > $usr->last_read && $cur->post_stamp > $frm->last_view)}{TEMPLATE: tree_unread_message}{ELSE}{TEMPLATE: tree_read_message}{END}</td>
 <td class="Gentext nw wa vt" style="padding-left: {FUNC: (15 * ($lev - 1))}px">
-<a href="javascript://" onClick="changeMsgFocus({VAR: cur->id});" class="big">{VAR: cur->subject}</a>
+<a href="javascript://" onclick="changeMsgFocus({VAR: cur->id});" class="big">{VAR: cur->subject}</a>
 <div class="TopBy">{MSG: by} {IF: $cur->poster_id}{TEMPLATE: reg_user_link}{ELSE}{TEMPLATE: anon_user}{END} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
 </tr>
 {SECTION: END}
@@ -156,12 +156,12 @@
 <span id="threadRating">{IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}</span>
 <table cellspacing="0" cellpadding="0" border="0" class="wa">
 <tr>
-<td class="GenText al">{TEMPLATE: show_links}{IF: ($frm->replies && $perms & 2048)}{TEMPLATE: split_thread}{ENDIF}{IF: $perms & 8192}{IF: $frm->replies}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIFI}<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: tree_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}{TEMPLATE-DATA: lock_thread}{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_page_to_friend}{ENDIF}{TEMPLATE-DATA: subscribe_status}</td>
+<td class="GenText al">{TEMPLATE: show_links}{IF: ($frm->replies && $perms & 2048)}{TEMPLATE: split_thread}{ENDIF}{IF: $perms & 8192}{IF: $frm->replies}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIFI}<a href="javascript://" onclick="javascript: window_open(\'{TEMPLATE: tree_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}{TEMPLATE-DATA: lock_thread}{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_page_to_friend}{ENDIF}{TEMPLATE-DATA: subscribe_status}</td>
 <td class="vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
 </tr>
 </table>
 <div><table cellspacing="0" cellpadding="0" id="msgTbl" class="ContentTable">{FUNC: tmpl_drawmsg($msg_obj, $usr, $perms, false, $n, array($prev_msg, $next_msg))}</table></div>
-<div class="ac GenText">[<a href="javascript://" onClick="chng_focus('tree_view');" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
+<div class="ac GenText">[<a href="javascript://" onclick="chng_focus('tree_view');" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
 <p>
 <table cellspacing="1" cellpadding="2" class="MsgTable">
 {TEMPLATE-DATA: tree_data}
@@ -172,7 +172,8 @@
 {TEMPLATE-DATA: next_thread_link}
 </table>
 {ENDIF}
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
+/* <![CDATA[ */
 var cur_msg = {VAR: mid};
 document.getElementById('b' + cur_msg).className = 'RowStyleC';
 function changeMsgFocus(mid)
@@ -198,16 +199,17 @@ function changeMsgFocus(mid)
            }
          });
 }
+/* ]]> */
 </script>
 {IF: ($FUD_OPT_2 & 4096 && $perms & 1024 && !$frm->cant_rate)}{TEMPLATE: rate_thread}{ENDIF}
 {FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
-<br /><div class="wa ac">-=] <a href="javascript://" onClick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
+<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
 <div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: tree_pdf_link}{ENDIF} {IF: $FUD_OPT_2 & 1048576}{TEMPLATE: tree_xml_link}{ENDIF}</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {IF: !empty($_GET['srch'])}
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
 highlightSearchTerms("{VAR-HTML: _GET['srch']}");
 </script>
 {ENDIF}
@@ -234,7 +236,7 @@ highlightSearchTerms("{VAR-HTML: _GET['srch']}");
 {SECTION: END}
 
 {SECTION: tree_xml_link}
-[ <a href="{TEMPLATE: tree_xml_link_lnk}">{MSG: thread_syndicate}</a> ] [ <a href="rdf.php?mode=m&amp;th={VAR: th}&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" /></a> ]
+[ <a href="{TEMPLATE: tree_xml_link_lnk}">{MSG: thread_syndicate}</a> ] [ <a href="rdf.php?mode=m&amp;th={VAR: th}&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" /></a> ]
 {SECTION: END}
 
 {SECTION: tree_RSS}

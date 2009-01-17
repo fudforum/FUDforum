@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.40 2007/01/01 18:23:48 hackie Exp $
+* $Id: msglist.php,v 1.41 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,7 +120,7 @@ function makedeps()
 		if (isset($_POST['NO_TREE_LIST'])) {
 			exit('<html><script type="text/javascript">window.close();</script></html>');
 		}
-		exit('<br><a href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsidl.'">Back to control panel</a>');
+		exit('<br /><a href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsidl.'">Back to control panel</a>');
 	}
 
 if (!isset($_GET['NO_TREE_LIST'])) {

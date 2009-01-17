@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.93 2007/02/04 16:43:08 hackie Exp $
+* $Id: compiler.inc,v 1.94 2009/01/17 09:23:51 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -203,7 +203,7 @@ function resolve_sections($str)
 				$ret .= $GLOBALS['TC'][$sec][$name]['data'] = resolve_sections($GLOBALS['TC'][$sec][$name]['data']);
 				break;
 			case 'META-CONTENT-LANGUAGE':
-				$ret .= '<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset='.$GLOBALS['char_set'].'">';
+				$ret .= '<meta http-equiv="Content-Type" content="text/html; charset='.$GLOBALS['char_set'].'" />';
 				break;
 			case 'CHARSET':
 				$ret .= $GLOBALS['char_set'];
@@ -556,7 +556,7 @@ function resolve_compile($file)
 function fud_mkdir($dir, $perms=0700)
 {
 	if (!@is_dir($dir) && !@mkdir($dir, $perms)) {
-		exit('unable to make directory (<b>'.$dir.'</b>)<br>');
+		exit('unable to make directory (<b>'.$dir.'</b>)<br />');
 	}
 }
 
@@ -694,7 +694,7 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 		}
 	
 		if (!is_readable($v)) {
-			echo 'Cannot open directory "'.$v.'"<br>';
+			echo 'Cannot open directory "'.$v.'"<br />';
 			return;
 		}
 
@@ -716,7 +716,7 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 		
 			if (is_dir($file)) {
 				if (!is_dir($d) && !mkdir($d)) {
-					echo "Cannot create directory '".$d."'<br>";
+					echo "Cannot create directory '".$d."'<br />";
 					return;
 				}
 				chmod($d, $dperm);
@@ -725,7 +725,7 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 			}
 	
 			if (!@copy($file, $d) && !@file_exists($d)) {
-				echo 'cannot copy "'.$file.'" to "'.$d.'"<br>';
+				echo 'cannot copy "'.$file.'" to "'.$d.'"<br />';
 			} else {
 				@chmod($d, $perms);
 			}
@@ -739,7 +739,7 @@ function copyimages($thm)
 
 	$u = umask(0);
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
-		exit('Failed Creating: '.$path.'<br>');
+		exit('Failed Creating: '.$path.'<br />');
 	}
 
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
@@ -782,7 +782,7 @@ function copyhelp($thm)
 	}
 
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
-		exit('Failed Creating: '.$path.'<br>');
+		exit('Failed Creating: '.$path.'<br />');
 	}
 
 	$path .= '/';
@@ -794,7 +794,7 @@ function copyhelp($thm)
 	foreach ($files as $file) {
 		$de = basename($file);
 		if (!($fp = fopen($path . $de, 'wb'))) {
-			exit('Failed to write to: '.$path . $de.'<br>');
+			exit('Failed to write to: '.$path . $de.'<br />');
 		}
 		fwrite($fp, str_replace(array('{ROOT}', '{FULL_ROOT}'), 
 					array($rp, "'.\$GLOBALS['WWW_ROOT'].'"), 

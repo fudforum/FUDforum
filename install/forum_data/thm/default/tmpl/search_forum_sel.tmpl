@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search_forum_sel.tmpl,v 1.11 2007/01/01 18:23:47 hackie Exp $
+* $Id: search_forum_sel.tmpl,v 1.12 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,9 +11,9 @@
 {PHP_FILE: input: search_forum_sel.inc.t; output: @search_forum_sel.inc;}
 
 {SECTION: forum_limit_cat_option limit by category option}
-<option value="c{VAR: k}"{FUNC: (isset($g[$k]) ? ' selected' : '')}>- {FUNC: ($tabw = ($i[0] ? str_repeat('&nbsp;&nbsp;&nbsp;', $i[0]) : ''))}{VAR: i[1]}</option>
+<option value="c{VAR: k}"{FUNC: (isset($g[$k]) ? ' selected="selected"' : '')}>- {FUNC: ($tabw = ($i[0] ? str_repeat('&nbsp;&nbsp;&nbsp;', $i[0]) : ''))}{VAR: i[1]}</option>
 {SECTION: END}
 
 {SECTION: forum_limit_frm_option limit by forum select option}
-<option value="{VAR: r[0]}"{FUNC: (isset($f[$r[0]]) ? ' selected' : '')}>{VAR: tabw}&nbsp;&nbsp;&nbsp;{VAR: r[1]}</option>
+<option value="{VAR: r[0]}"{FUNC: (isset($f[$r[0]]) ? ' selected="selected"' : '')}>{VAR: tabw}&nbsp;&nbsp;&nbsp;{VAR: r[1]}</option>
 {SECTION: END}

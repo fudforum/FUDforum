@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.tmpl,v 1.23 2009/01/16 21:05:53 frank Exp $
+* $Id: poll.tmpl,v 1.24 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,7 +21,8 @@
 
 {PAGE: POLL_PAGE poll creator}
 {TEMPLATE: header_plain}
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
+/* <![CDATA[ */ 
 function check_submission()
 {
 	var a;
@@ -38,13 +39,14 @@ function check_submission()
 	}
 	return true;
 }
+/* ]]> */
 </script>
-<form action="{TEMPLATE: POLL_PAGE_lnk3}" method="post" name="poll_submit">
-<input type="hidden" name="frm_id" value="{VAR: frm_id}"><input type="hidden" name="pl_id" value="{VAR: pl_id}">{DEF: _hs}
+<form action="{TEMPLATE: POLL_PAGE_lnk3}" method="post" id="poll_submit">
+<input type="hidden" name="frm_id" value="{VAR: frm_id}" /><input type="hidden" name="pl_id" value="{VAR: pl_id}" />{DEF: _hs}
 <table cellspacing="2" width="99%" cellpadding="0" class="dashed">
 	<tr>
 		<td class="GenText">{MSG: poll_name}</td>
-		<td><input tabindex="1" type="text" spellcheck="true" name="pl_name" value="{VAR-HTML: pl_name}"></td>
+		<td><input tabindex="1" type="text" spellcheck="true" name="pl_name" value="{VAR-HTML: pl_name}" /></td>
 	</tr>
 	<tr>
 		<td class="GenText">{MSG: poll_timelimit}</td>
@@ -64,41 +66,41 @@ function check_submission()
 {IF: !$pl_id}{TEMPLATE: btn_submit}{ELSE}{TEMPLATE: btn_update}{END}
 </div>
 </form>
-<script language="javascript" type="text/javascript">
-<!--
+<script type="text/javascript">
+/* <![CDATA[ */
 if (document.poll_submit.pl_option) {
 	document.poll_submit.pl_option.focus();
 } else {
 	document.poll_submit.pl_name.focus();
 }
-//-->
+/* ]]> */
 </script>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 
 {SECTION: btn_submit}
-<input type="button" tabindex="4" class="button" onClick="javascript: window.opener.document.post_form.pl_id.value=\'0\'; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_create}">
+<input type="button" tabindex="4" class="button" onclick="javascript: window.opener.document.post_form.pl_id.value=\'0\'; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_create}" />
 {SECTION: END}
 
 {SECTION: btn_update}
-<input type="button" tabindex="4" class="button" onClick="javascript: window.opener.document.post_form.pl_id.value={VAR: pl_id}; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_update}">
+<input type="button" tabindex="4" class="button" onclick="javascript: window.opener.document.post_form.pl_id.value={VAR: pl_id}; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_update}" />
 {SECTION: END}
 
 {SECTION: pl_smiley_disabled_chk disable smiliyes in the poll checkbox}
-<tr><td align="right" valign="top" colspan="2" class="GenText"><input type="checkbox" name="pl_smiley_disabled" value="Y"{VAR: checked}>{MSG: poll_disablesmilies}</td></tr>
+<tr><td align="right" valign="top" colspan="2" class="GenText"><input type="checkbox" name="pl_smiley_disabled" value="Y" checked="{VAR: checked}" />{MSG: poll_disablesmilies}</td></tr>
 {SECTION: END}
 
 {SECTION: pl_submit_create create poll button}
-<input tabindex="5" type="submit" class="button" name="pl_submit" value="{MSG: poll_create_poll}">
+<input tabindex="5" type="submit" class="button" name="pl_submit" value="{MSG: poll_create_poll}" />
 {SECTION: END}
 
 {SECTION: pl_submit_update update poll button}
-<input tabindex="5" type="submit" class="button" name="pl_submit" value="{MSG: poll_update_poll}">
+<input tabindex="5" type="submit" class="button" name="pl_submit" value="{MSG: poll_update_poll}" />
 {SECTION: END}
 
 {SECTION: poll_editor}
 <table width="99%" cellspacing="2" cellpadding="0" class="dashed">
-<tr><td class="GenText">{MSG: poll_add_option}</td><td class="ar"><input type="text" spellcheck="true" name="pl_option" value="{VAR-HTML: pl_option}">
+<tr><td class="GenText">{MSG: poll_add_option}</td><td class="ar"><input type="text" spellcheck="true" name="pl_option" value="{VAR-HTML: pl_option}" />
 {TEMPLATE-DATA: pl_smiley_disabled_chk}
 <tr><td colspan="2" class="ar">{IF: !isset($_GET['pl_optedit'])}{TEMPLATE: pl_add}{ELSE}{TEMPLATE: pl_upd}{END}</td></tr>
 <tr><td colspan="2"><table>
@@ -109,16 +111,16 @@ if (document.poll_submit.pl_option) {
 {SECTION: END}
 
 {SECTION: poll_option_entry}
-<tr><td class="GenText">{VAR: v}</td><td nowrap>[<a href="{TEMPLATE: poll_option_entry_lnk}">{MSG: poll_edit}</a>] [<a href="{TEMPLATE: poll_option_entry_lnk1}">{MSG: poll_delete}</a>]</td></tr>
+<tr><td class="GenText">{VAR: v}</td><td style="white-space: nowrap">[<a href="{TEMPLATE: poll_option_entry_lnk}">{MSG: poll_edit}</a>] [<a href="{TEMPLATE: poll_option_entry_lnk1}">{MSG: poll_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: pl_upd hidden field needed for the form to work}
-<input type="hidden" name="pl_option_id" value="{VAR: pl_option_id}">
-<input type="submit" class="button" name="pl_upd" onClick="javascript: return check_submission();" value="{MSG: poll_updateoption}">
+<input type="hidden" name="pl_option_id" value="{VAR: pl_option_id}" />
+<input type="submit" class="button" name="pl_upd" onclick="javascript: return check_submission();" value="{MSG: poll_updateoption}" />
 {SECTION: END}
 
 {SECTION: pl_add hidden field needed for the form to work}
-<input type="submit" class="button" name="pl_add" onClick="javascript: return check_submission();" value="{MSG: poll_addoption}">
+<input type="submit" class="button" name="pl_add" onclick="javascript: return check_submission();" value="{MSG: poll_addoption}" />
 {SECTION: END}
 
 {SECTION: poll_title}

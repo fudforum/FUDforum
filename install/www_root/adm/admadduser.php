@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.30 2007/01/01 18:23:47 hackie Exp $
+* $Id: admadduser.php,v 1.31 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -97,10 +97,10 @@ function validate_input()
 	if ($error) {
 		echo '<h1 style="color: red">Error Has Occured</h1>';
 	} else if (!empty($user_added)) {
-		echo '<font size="+1" color="green">User ('.$_POST['login'].') was successfully added.</font><br>';
+		echo '<font size="+1" color="green">User ('.$_POST['login'].') was successfully added.</font><br />';
 	}
 ?>
-<form name="frm_usr" method="post" action="admadduser.php">
+<form id="frm_usr" method="post" action="admadduser.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="fieldtopic">
@@ -109,22 +109,22 @@ function validate_input()
 
 	<tr class="field">
 		<td>Login:</td>
-		<td><?php if ($error && isset($err_login)) { echo $err_login; } ?><input tabindex="1" type="text" name="login" value="<?php echo $login; ?>" size="30"></td>
+		<td><?php if ($error && isset($err_login)) { echo $err_login; } ?><input tabindex="1" type="text" name="login" value="<?php echo $login; ?>" size="30" /></td>
 	</tr>
 	<tr class="field">
 		<td>Password:</td>
-		<td><?php if ($error && isset($err_passwd)) { echo $err_passwd; } ?><input tabindex="2" type="text" name="passwd" value="<?php echo $passwd; ?>" size="30"></td>
+		<td><?php if ($error && isset($err_passwd)) { echo $err_passwd; } ?><input tabindex="2" type="text" name="passwd" value="<?php echo $passwd; ?>" size="30" /></td>
 	</tr>
 	<tr class="field">
 		<td>E-mail:</td>
-		<td><?php if ($error && isset($err_email)) { echo $err_email; } ?><input tabindex="3" type="text" name="email" value="<?php echo $email; ?>" size="30"></td>
+		<td><?php if ($error && isset($err_email)) { echo $err_email; } ?><input tabindex="3" type="text" name="email" value="<?php echo $email; ?>" size="30" /></td>
 	</tr>
 	<tr class="field">
 		<td>Real Name:</td>
-		<td><input type="text" name="name" value="<?php echo $name; ?>" tabindex="4" size="30"></td>
+		<td><input type="text" name="name" value="<?php echo $name; ?>" tabindex="4" size="30" /></td>
 	</tr>
 	<tr class="fieldaction">
-		<td colspan=2 align=right><input type="submit" value="Add User" tabindex="5" name="usr_add"></td>
+		<td colspan=2 align=right><input type="submit" value="Add User" tabindex="5" name="usr_add" /></td>
 	</tr>
 </table>
 </form>

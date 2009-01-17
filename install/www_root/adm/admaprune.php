@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaprune.php,v 1.17 2007/01/01 18:23:47 hackie Exp $
+* $Id: admaprune.php,v 1.18 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,17 +63,17 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 
 <body bgcolor="white">
 <div align="center">You are about to delete <font color="red"><?php echo $a_cnt; ?></font> public file attachments AND <font color="red"><?php echo $pa_cnt; ?></font> private file attachments.
-<br />That were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $msg; ?><br><br>
-			Are you sure you want to do this?<br>
-			<form method="post">
-			<input type="hidden" name="btn_prune" value="1">
+<br />That were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $msg; ?><br /><br />
+			Are you sure you want to do this?<br />
+			<form id="post">
+			<input type="hidden" name="btn_prune" value="1" />
 			<?php echo _hs; ?>
-			<input type="hidden" name="thread_age" value="<?php echo $_POST['thread_age']; ?>">
-			<input type="hidden" name="units" value="<?php echo $_POST['units']; ?>">
-			<input type="hidden" name="type" value="<?php echo $_POST['type']; ?>">
-			<input type="hidden" name="forumsel" value="<?php echo $_POST['forumsel']; ?>">
-			<input type="submit" name="btn_conf" value="Yes">
-			<input type="submit" name="btn_cancel" value="No">
+			<input type="hidden" name="thread_age" value="<?php echo $_POST['thread_age']; ?>" />
+			<input type="hidden" name="units" value="<?php echo $_POST['units']; ?>" />
+			<input type="hidden" name="type" value="<?php echo $_POST['type']; ?>" />
+			<input type="hidden" name="forumsel" value="<?php echo $_POST['forumsel']; ?>" />
+			<input type="submit" name="btn_conf" value="Yes" />
+			<input type="submit" name="btn_cancel" value="No" />
 			</form>
 </div>
 </body>
@@ -129,15 +129,15 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 ?>
 <h2>Attachment Prunning</h2>
 
-This utility allows you to remove all attachments posted prior to the<br>
-specified date. For example if you enter a value of 10 and select "days"<br> 
+This utility allows you to remove all attachments posted prior to the<br />
+specified date. For example if you enter a value of 10 and select "days"<br /> 
 this form will offer to delete attachments olders then 10 days.<p>
 
-<form name="adpa" method="post" action="admaprune.php">
+<form id="adpa" method="post" action="admaprune.php">
 <table class="datatable">
 <tr class="field">
 	<td nowrap>Attachments Older Then:</td>
-	<td ><input type="text" name="thread_age" tabindex="1"></td>
+	<td ><input type="text" name="thread_age" tabindex="1" /></td>
 	<td nowrap="nowrap"><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 
@@ -166,7 +166,7 @@ this form will offer to delete attachments olders then 10 days.<p>
 </tr>
 
 <tr class="fieldaction">
-	<td align="right" colspan="3"><input tabindex="2" type="submit" name="btn_prune" value="Prune"></td>
+	<td align="right" colspan="3"><input tabindex="2" type="submit" name="btn_prune" value="Prune" /></td>
 </tr>
 </table>
 <?php echo _hs; ?>

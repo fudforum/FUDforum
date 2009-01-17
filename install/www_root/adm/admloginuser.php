@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admloginuser.php,v 1.30 2007/01/01 18:23:48 hackie Exp $
+* $Id: admloginuser.php,v 1.31 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,15 +56,15 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 <table border="0" cellspacing="0" cellpadding="3">
 <tr>
 	<td>Login:</td>
-	<td><input type="text" name="login" value="<?php if (isset($_POST['login'])) { echo htmlspecialchars($_POST['login']); } ?>" size="25"></td>
+	<td><input type="text" name="login" value="<?php if (isset($_POST['login'])) { echo htmlspecialchars($_POST['login']); } ?>" size="25" /></td>
 </tr>
 <tr>
 	<td>Password:</td>
-	<td><input type="password" name="passwd" size="25"></td>
+	<td><input type="password" name="passwd" size="25" /></td>
 </tr>
 
 <tr>
-	<td align="right" colspan="2"><input type="submit" name="btn_login" value="Login"></td>
+	<td align="right" colspan="2"><input type="submit" name="btn_login" value="Login" /></td>
 </tr>
 </table>
 </form>

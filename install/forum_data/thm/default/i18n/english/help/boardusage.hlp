@@ -2,7 +2,7 @@ TOPIC_TITLE: <a name="post">How do I post messages?</a>
 TOPIC_HELP:
 To start a new topic you should click on the 'New Topic' button that can be found on message/topic listing pages.
 You will then be taken to a message composer form allowing you to write the content of your message. To reply
-to existing messages, simply click on the 'reply', or 'quote' buttons found on the lower right side of each message.<br>
+to existing messages, simply click on the 'reply', or 'quote' buttons found on the lower right side of each message.<br />
 In some cases clicking on those buttons will give you a permission error. This means that your may be required to login
 or register on the forum to gain posting privileges or that the posting in this forum is restricted.
 
@@ -12,17 +12,17 @@ TOPIC_HELP:
 Unless disabled by the administrator, you can <a href="{ROOT}?t=search&amp;%_rsid%">search for messages</a> that were posted inside the forum. You can search for a message by 
 specifying one or more keywords you wish to be found and choosing where to find those keywords, you can either search in subject alone 
 or do a full text search on both the message body & subject. You can also limit your search to a forum of your choice if you do not wish to search 
-in all the forums.<br>
+in all the forums.<br />
 You can also search for other forum members, by their login name or email address via the <a href="{ROOT}?t=finduser&amp;%_rsid%">user search form</a>.
 
 
 TOPIC_TITLE: <a name="email">Can I email other forum members?</a>
 TOPIC_HELP:
-Unless disabled by the administrator, you will be able to get in touch with other forum members via email.<br>
+Unless disabled by the administrator, you will be able to get in touch with other forum members via email.<br />
 To send a member and email, you can either find them through the member list page and then click on the <b>Contact</b> button 
 or simply click on the <b>Email</b> button located near their every post. This will take you to a new page where you will have the opportunity to 
 enter you intended email subject & body. When you're done, simple click on the <b>Email</b> button and you're email will be sent.
-<br><br>
+<br /><br />
 In addition to sending emails to forum members, you can also use the <b>Email to friend</b> link to recommend a particular page to your friend 
 by sending them a URL with the description. This link can be found on the topic & message view pages of the forum.
 
@@ -33,7 +33,7 @@ If the administrator has not disabled Private Messaging system, you may send pri
 members of the forum. To access the PM system, simply click on the <a href="{ROOT}?t=pmsg&amp;%_rsid%">Private Messaging</a> link 
 which can be found at the top of the page's right corner. If you have any unread private messages, this link will indicate how many unread messages you have.
 <p>
-<b>Sending a private message</b><br>
+<b>Sending a private message</b><br />
 Private messages are very similar to email, you specify the person(s) who you wish to send the message to, enter the subject & the message 
 and click send. There are 2 links available, that would allow you to easily find members who you wish to send your message to,
 <b>Select from Buddy List</b>, which will allow to select people from your buddy list, by listing all your buddies and <b>Find User</b>, which
@@ -56,7 +56,7 @@ inside TRASH this message will become permanently deleted.
 <p>
 <b>Message Tracking</b><p>
 When you send a message you have the ability to request a read-receipt, when the recipient reads the message you will receive a system message 
-notifying you that your message has been read.<br>
+notifying you that your message has been read.<br />
 However, if you request such a receipt the recipient may choose to decline sending the read-receipt, so if you have requested a receipt and 
 did not receive it this does not necessarily mean your message was not read.
 
@@ -65,7 +65,7 @@ TOPIC_TITLE: <a name="mlist">Member List?</a>
 TOPIC_HELP:
 The member list is a complete list of all the registered users on a forum. 
 You can sort the list in 3 ways: by login name alphabetically, by number of posts & the date of registration.
-<br><br>
+<br /><br />
 The member list also has a search capability, allowing you to find a particular member by either login name or email address.
 
 TOPIC_TITLE:<a name="ann">What are announcements & sticky messages?</a>

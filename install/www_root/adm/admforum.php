@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.47 2007/01/01 18:23:47 hackie Exp $
+* $Id: admforum.php,v 1.48 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -114,14 +114,14 @@ function get_max_upload_size()
 <?php
 if (!isset($_GET['chpos'])) {
 ?>
-<a href="admcat.php?<?php echo __adm_rsid; ?>">Back to categories</a><br>
+<a href="admcat.php?<?php echo __adm_rsid; ?>">Back to categories</a><br />
 
-<form method="post" name="frm_forum" action="admforum.php">
+<form method="post" id="frm_forum" action="admforum.php">
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
 		<td>Forum Name:</td>
-		<td><input type="text" name="frm_name" value="<?php echo $frm_name; ?>" maxlength=100></td>
+		<td><input type="text" name="frm_name" value="<?php echo $frm_name; ?>" maxlength=100 /></td>
 	</tr>
 
 	<tr class="field">
@@ -141,7 +141,7 @@ if (!isset($_GET['chpos'])) {
 
 	<tr class="field">
 		<td>Posting Password</td>
-		<td><input type="passwd" maxLength=32 name="frm_post_passwd" value="<?php echo htmlspecialchars($frm_post_passwd); ?>"></td>
+		<td><input type="passwd" maxLength=32 name="frm_post_passwd" value="<?php echo htmlspecialchars($frm_post_passwd); ?>" /></td>
 	</tr>
 
 	<tr class="field">
@@ -151,12 +151,12 @@ if (!isset($_GET['chpos'])) {
 
 	<tr class="field">
 		<td>Max Attachment Size:<br /><font size="-1">Your php's maximum file upload size is <b><?php echo floor($max_upload_size / 1024); ?></b> KB.<br />You cannot set the forum's attachment size limit higher than that.</font></td>
-		<td><input type="text" name="frm_max_attach_size" value="<?php echo $frm_max_attach_size; ?>" maxlength="100" size="5">kb</td>
+		<td><input type="text" name="frm_max_attach_size" value="<?php echo $frm_max_attach_size; ?>" maxlength="100" size="5" />kb</td>
 	</tr>
 
 	<tr class="field">
 		<td>Max Number of file Attachments:</td>
-		<td><input type="text" name="frm_max_file_attachments" value="<?php echo $frm_max_file_attachments; ?>" maxlength="100" size="5"></td>
+		<td><input type="text" name="frm_max_file_attachments" value="<?php echo $frm_max_file_attachments; ?>" maxlength="100" size="5" /></td>
 	</tr>
 
 	<tr class="field">
@@ -170,13 +170,13 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
-		<td>Message Threshold<br><font size="-1">Maximum size of the message DISPLAYED<br />without the reveal link (0 == unlimited) </font></td>
-		<td><input type="text" name="frm_message_threshold" value="<?php echo $frm_message_threshold; ?>" size="5"> bytes</td>
+		<td>Message Threshold<br /><font size="-1">Maximum size of the message DISPLAYED<br />without the reveal link (0 == unlimited) </font></td>
+		<td><input type="text" name="frm_message_threshold" value="<?php echo $frm_message_threshold; ?>" size="5" /> bytes</td>
 	</tr>
 
 	<tr class="field">
 		<td><a name="frm_icon_pos">Forum Icon</a></td>
-		<td><input type="text" name="frm_forum_icon" value="<?php echo $frm_forum_icon; ?>"> <a href="javascript://" onClick="javascript:window.open('admiconsel.php?type=1&amp;<?php echo __adm_rsid; ?>', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
+		<td><input type="text" name="frm_forum_icon" value="<?php echo $frm_forum_icon; ?>" /> <a href="javascript://" onClick="javascript:window.open('admiconsel.php?type=1&amp;<?php echo __adm_rsid; ?>', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
 	</tr>
 
 <?php if (!$edit) { ?>
@@ -190,18 +190,18 @@ if (!isset($_GET['chpos'])) {
 		<td colspan=2 align=right>
 <?php
 	if ($edit) {
-		echo '<input type="submit" value="Cancel" name="btn_cancel"> ';
+		echo '<input type="submit" value="Cancel" name="btn_cancel" /> ';
 	}
 ?>
-			<input type="submit" value="<?php echo ($edit ? 'Update Forum' : 'Add Forum'); ?>" name="frm_submit">
+			<input type="submit" value="<?php echo ($edit ? 'Update Forum' : 'Add Forum'); ?>" name="frm_submit" />
 		</td>
 	</tr>
 
 </table>
-<input type="hidden" name="cat_id" value="<?php echo $cat_id; ?>">
+<input type="hidden" name="cat_id" value="<?php echo $cat_id; ?>" />
 <?php
 	if ($edit) {
-		echo '<input type="hidden" name="edit" value="'.$edit.'">';
+		echo '<input type="hidden" name="edit" value="'.$edit.'" />';
 	}
 	echo '</form>';
 } else {
@@ -216,7 +216,7 @@ if (!isset($_GET['chpos'])) {
 	<b>Forum Creation Date</b> [ <a href="admforum.php?o=1&amp;ot=date_created&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Ascending</a> - <a href="admforum.php?o=0&amp;ot=date_created&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Descending</a> ]<br />
 </font></td></tr>
 </table>
-<br>
+<br />
 <table class="resulttable fulltable">
 <tr class="resulttopic">
 	<td nowrap="nowrap"><font size="-2">Forum name</font></td>
@@ -245,7 +245,7 @@ if (!isset($_GET['chpos'])) {
 			}
 			$lp = $r->view_order;
 		}
-		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'._hs.'<input type="hidden" name="frm_id" value="'.$r->id.'"><input type="hidden" name="cat_id" value="'.$cat_id.'"><input type="submit" name="btn_chcat" value="Move To: "> '.$move_ct.'</form>';
+		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'._hs.'<input type="hidden" id="frm_id" value="'.$r->id.'" /><input type="hidden" name="cat_id" value="'.$cat_id.'" /><input type="submit" name="btn_chcat" value="Move To: " /> '.$move_ct.'</form>';
 		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-2">'.htmlspecialchars(substr($r->descr, 0, 30)).'</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap>[<a href="admforum.php?cat_id='.$cat_id.'&amp;edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'.__adm_rsid.'">Delete</a>]</td><td nowrap="nowrap">'.$cat_name.'</td><td nowrap="nowrap">[<a href="admforum.php?chpos='.$r->view_order.'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Change</a>]</td></tr>';
 	}
 	unset($c);

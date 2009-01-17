@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.35 2007/01/03 23:31:36 hackie Exp $
+* $Id: admavatar.php,v 1.36 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -136,16 +136,16 @@ function import_avatars($path)
 ?>
 <h2>Avatar Management System</h2>
 
-<form name="frm_avt" method="post" action="admavatar.php" enctype="multipart/form-data">
+<form id="frm_avt" method="post" action="admavatar.php" enctype="multipart/form-data">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<?php if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars')) { ?>
 		<tr class="field">
-			<td colspan="2"><b>Import Gallery</b><br /><font size="-1">Recursively process specified directory, creating avatars from all files with (*.gif, *.jpg, *.png, *.jpeg) extensions.<br>A new gallery will be created for every encountered sub-directory.</font></td>
+			<td colspan="2"><b>Import Gallery</b><br /><font size="-1">Recursively process specified directory, creating avatars from all files with (*.gif, *.jpg, *.png, *.jpeg) extensions.<br />A new gallery will be created for every encountered sub-directory.</font></td>
 		</tr>
 		<tr class="field">
 			<td>Gallery directory:</td>
-			<td><input type="text" size="25" name="gallery_path"> <input type="submit" name="btn_gal_add" value="Import"></td>
+			<td><input type="text" size="25" name="gallery_path" /> <input type="submit" name="btn_gal_add" value="Import" /></td>
 		</tr>
 
 <?php
@@ -155,7 +155,7 @@ function import_avatars($path)
 			$name = htmlspecialchars($gal);
 			echo '<option value="'.$name.'">'.$name.'</option>';
 		}
-		echo '</select> <input type="submit" name="submit" value="Remove"></td></tr>';
+		echo '</select> <input type="submit" name="submit" value="Remove" /></td></tr>';
 	}
 ?>
 
@@ -166,8 +166,8 @@ function import_avatars($path)
 		</tr>
 		<tr class="field">
 			<td>Avatar Upload:<br /><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
-			<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"></td>
-			<td><input type="hidden" name="tmp_f_val" value="1"></td>
+			<td><input type="file" name="icoul" /> <input type="submit" name="btn_upload" value="Upload" /></td>
+			<td><input type="hidden" name="tmp_f_val" value="1" /></td>
 		</tr>
 	<?php } else { ?>
 		<tr class="field">
@@ -183,12 +183,12 @@ function import_avatars($path)
 
 	<tr class="field">
 		<td>Avatar Description:</td>
-		<td><input type="text" name="avt_descr" value="<?php echo htmlspecialchars($avt_descr); ?>"></td>
+		<td><input type="text" name="avt_descr" value="<?php echo htmlspecialchars($avt_descr); ?>" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Gallery Name (optional):</td>
-		<td><input type="text" name="avt_gal_m" value="">
+		<td><input type="text" name="avt_gal_m" value="" />
 <?php
 	if (count($galleries) > 1) {
 		echo ' <select name="avt_gal">';
@@ -205,7 +205,7 @@ function import_avatars($path)
 	<tr class="field">
 		<td valign=top><a name="avt_sel">Avatar Image:</a></td>
 		<td>
-			<input type="text" name="avt_img" value="<?php echo htmlspecialchars($avt_img); ?>"
+			<input type="text" name="avt_img" value="<?php echo htmlspecialchars($avt_img); ? />"
 				onChange="javascript:
 					if (document.frm_avt.avt_img.value.length) {
 						document.prev_icon.src='<?php echo $WWW_ROOT_DISK; ?>images/avatars/' + document.frm_avt.avt_img.value;
@@ -230,14 +230,14 @@ function import_avatars($path)
 	<tr class="fieldaction">
 		<?php
 			if (!$edit) {
-				echo '<td colspan="2" align="right"><input type="submit" name="btn_submit" value="Add Avatar"></td>';
+				echo '<td colspan="2" align="right"><input type="submit" name="btn_submit" value="Add Avatar" /></td>';
 			} else {
-				echo '<td colspan="2" align="right"><input type="submit" name="btn_cancel" value="Cancel"><input type="submit" name="btn_update" value="Update"></td>';
+				echo '<td colspan="2" align="right"><input type="submit" name="btn_cancel" value="Cancel" /><input type="submit" name="btn_update" value="Update" /></td>';
 			}
 		?>
 	</tr>
 </table>
-<input type="hidden" name="edit" value="<?php echo $edit; ?>">
+<input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 <?php
 	if (count($galleries) > 1) {
@@ -245,12 +245,12 @@ function import_avatars($path)
 		if (isset($_GET['avt_gal_sw'])) {
 			$avt_gal = $_GET['avt_gal_sw'];
 		}
-		echo '<form name="frm_avt" method="get" action="admavatar.php">'._hs.'<div align="center">';
+		echo '<form id="frm_avt" method="get" action="admavatar.php">'._hs.'<div align="center">';
 		echo '<select name="avt_gal_sw">';
 		foreach ($galleries as $gal) {
 			echo '<option value="'.htmlspecialchars($gal).'"'.($avt_gal == $gal ? ' selected' : '').'>'.htmlspecialchars($gal).'</option>';
 		}
-		echo '</select> <input type="submit" name="submit" value="View">';
+		echo '</select> <input type="submit" name="submit" value="View" />';
 		echo '</div></form>';
 	}
 ?>

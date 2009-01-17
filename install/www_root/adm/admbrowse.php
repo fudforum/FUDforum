@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.30 2007/01/01 18:23:47 hackie Exp $
+* $Id: admbrowse.php,v 1.31 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -172,11 +172,11 @@ if (!extension_loaded('posix')) {
 			<h2>File/Directory Deletion</h2>
 			Are you sure you want to delete <?php echo $type.' <font color="#ff0000"><b>'.$file.'</b></font>'; ?><p>
 			<form method="GET" action="admbrowse.php">
-			<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>">
-			<input type="hidden" name="dest" value="<?php echo $dest; ?>">
-			<input type="hidden" name="del" value="1">
+			<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" />
+			<input type="hidden" name="dest" value="<?php echo $dest; ?>" />
+			<input type="hidden" name="del" value="1" />
 			<?php echo _hs; ?>
-			<div align="center"><input type="submit" name="btn_mini_cancel" value="No"> <input type="submit" name="del_conf" value="Yes"></div>
+			<div align="center"><input type="submit" name="btn_mini_cancel" value="No" /> <input type="submit" name="del_conf" value="Yes" /></div>
 			</form>
 			</html>
 		<?php
@@ -193,13 +193,13 @@ if (!extension_loaded('posix')) {
 ?>
 	<html>
 		<h2>Change File Permissions</h2>
-		<?php echo $file.' is currenly <b>'.mode_string($st[2], $file).' ('.$mode_o.')</b>'; ?><br>
-		change it to:<br>
+		<?php echo $file.' is currenly <b>'.mode_string($st[2], $file).' ('.$mode_o.')</b>'; ?><br />
+		change it to:<br />
 		<form method="post" action="admbrowse.php">
 		<?php echo _hs; ?>
-		<input type="hidden" name="chmod" value="1">
-		<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>">
-		<input type="hidden" name="dest" value="<?php echo $dest; ?>">
+		<input type="hidden" name="chmod" value="1" />
+		<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" />
+		<input type="hidden" name="dest" value="<?php echo $dest; ?>" />
 		<table border=0>
 		<tr><td>Group:</td><td>Read</td><td>Write</td><td>Execute</td></tr>
 		<tr><td>Owner:</td>
@@ -217,7 +217,7 @@ if (!extension_loaded('posix')) {
 		<tr><td colspan="4"><?php draw_checkbox('setuid', 0004000, bit_test($st[2], 0004000)); ?> setuid</td></tr>
 		<tr><td colspan="4"><?php draw_checkbox('setgid', 0002000, bit_test($st[2], 0002000)); ?> setgid</td></tr>
 		<tr><td colspan="4"><?php draw_checkbox('sticky', 0001000, bit_test($st[2], 0001000)); ?> sticky</td></tr>
-		<tr><td colspan="4" align="right"><input type="submit" name="btn_submit" value="Apply"> <input type="submit" name="btn_mini_cancel" value="Cancel"></td></tr>
+		<tr><td colspan="4" align="right"><input type="submit" name="btn_submit" value="Apply" /> <input type="submit" name="btn_mini_cancel" value="Cancel" /></td></tr>
 		</table>
 		</form>
 	</html>
@@ -236,7 +236,7 @@ if (!extension_loaded('posix')) {
 			}
 		}
 		if (!@chmod($file, $new_mode)) {
-			exit('<html>Unable to chmod <b>'.$file.'</b><br><a href="javscript: return false;" onClick="javascript: window.close();">close</a></html>');
+			exit('<html>Unable to chmod <b>'.$file.'</b><br /><a href="javscript: return false;" onClick="javascript: window.close();">close</a></html>');
 		} else {
 			exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 		}
@@ -250,47 +250,47 @@ if (!extension_loaded('posix')) {
 		$cur_dir = $ROOT_PATH[0];
 	}
 
-	echo 'WWW_SERVER_ROOT: <a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($ROOT_PATH[0]).'">'.$ROOT_PATH[0].'</a><br>
-		DATA_ROOT:  <a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($ROOT_PATH[1]).'">'.$ROOT_PATH[1].'</a><br>';
-	echo 'Currently Browsing: <b>'.htmlspecialchars($cur_dir)."</b><br>\n";
+	echo 'WWW_SERVER_ROOT: <a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($ROOT_PATH[0]).'">'.$ROOT_PATH[0].'</a><br />
+		DATA_ROOT:  <a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($ROOT_PATH[1]).'">'.$ROOT_PATH[1].'</a><br />';
+	echo 'Currently Browsing: <b>'.htmlspecialchars($cur_dir)."</b><br />\n";
 
 	clearstatcache();
 	if (!is_readable($cur_dir)) {
-		echo '<b>PERMISSION DENINED ACCSESING '.$cur_dir.'</b><br>';
+		echo '<b>PERMISSION DENINED ACCSESING '.$cur_dir.'</b><br />';
 		$cur_dir = $ROOT_PATH[0];
 	}
 ?>
-<br>
-<form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>"><?php echo _hs; ?>
+<br />
+<form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
 <table class="datatable">
 	<tr style="font-size: x-small;">
 		<td>Directory Name:</td>
-		<td><input type="text" name="mkdir" value=""></td>
-		<td align="right" colspan="2"><input style="font-size: x-small;" type="submit" name="btn_mkdir" value="Create Directory">
+		<td><input type="text" name="mkdir" value="" /></td>
+		<td align="right" colspan="2"><input style="font-size: x-small;" type="submit" name="btn_mkdir" value="Create Directory" />
 	</tr>
 </table>
 </form>
-<br>
+<br />
 
-<form method="post" action="admbrowse.php" enctype="multipart/form-data"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>"><?php echo _hs; ?>
+<form method="post" action="admbrowse.php" enctype="multipart/form-data"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
 <table cellspacing="2" cellpadding="2" border="0">
 	<tr style="font-size: x-small;">
 		<td colspan="2"><b>File Upload</b></td>
 	</tr>
 	<tr style="font-size: x-small;">
 		<td>File To Upload:</td>
-		<td><input type="file" name="fname"><input type="hidden" name="tmp_f_val" value="1"></td>
+		<td><input type="file" name="fname" /><input type="hidden" name="tmp_f_val" value="1" /></td>
 	</tr>
 	<tr style="font-size: x-small;">
-		<td>File Name:<br>(leave blank if want the uploaded filename to remain unchanged)</td>
-		<td><input type="text" name="d_name" value=""></td>
+		<td>File Name:<br />(leave blank if want the uploaded filename to remain unchanged)</td>
+		<td><input type="text" name="d_name" value="" /></td>
 	</tr>
 	<tr style="font-size: x-small;">
-		<td colspan="2" align="right"><input type="submit" name="file_upload" value="Upload File"></td>
+		<td colspan="2" align="right"><input type="submit" name="file_upload" value="Upload File" /></td>
 	</tr>
 </table>
 </form>
-<br>
+<br />
 <table border="0" cellspacing="1" cellpadding="3">
 <tr class="admin_fixed resulttopic"><td>Mode</td><td>Owner</td><td>Group</td><td>Size</td><td>Date</td><td>Time</td><td>Name</td><td align="center" colspan=3>Action</td></tr>
 <?php

@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.tmpl,v 1.46 2009/01/16 21:05:53 frank Exp $
+* $Id: groupmgr.tmpl,v 1.47 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,7 +33,7 @@
 <tr class="RowStyleC">
 	<td class="nw fb">{MSG: group_mgr_group}</td>
 	<td><select name="group_id">{FUNC: tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $group_id)}</select></td>
-	<td class="ar"><input type="submit" class="button" name="btn_groupswitch" value="{MSG: group_mgr_edit_btn}"></td>
+	<td class="ar"><input type="submit" class="button" name="btn_groupswitch" value="{MSG: group_mgr_edit_btn}" /></td>
 </tr>
 </table></div>{DEF: _hs}</form>
 {SECTION: END}
@@ -46,9 +46,9 @@
 <br />
 <div class="ac">{MSG: group_mgr_indicator}<br />{TEMPLATE-DATA: group_resources}</div>
 <br />
-<form method="post" action="{TEMPLATE: group_control_panel_lnk3}" name="groupmgr">
+<form method="post" action="{TEMPLATE: group_control_panel_lnk3}" id="groupmgr">
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-{IF: $edit}<tr class="RowStyleA"><td class="nw fb">{MSG: groupmgr_member}</td><td class="wa al">{IF: $mbr->user_id > 0 && $mbr->user_id < 2147483647}<a href="{ROOT}?t=usrinfo&amp;id={VAR: mbr->user_id}&amp;{DEF: _rsid}">{ENDIFI}{TEMPLATE-DATA: gr_member}{IF: $mbr->user_id > 0 && $mbr->user_id < 2147483647}</a>{ENDIFI}</td></tr>{ELSE}<tr class="RowStyleA"><td class="nw db">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: login_error}<input tabindex="1" type="text" name="gr_member" value="{IF: isset($_POST['gr_member'])}{FUNC: char_fix(htmlspecialchars($_POST['gr_member']))}{ENDIFI}">{IF: $FUD_OPT_1 & (8388608|4194304)}&nbsp;&nbsp;&nbsp;[{MSG: group_mgr_search}]{ENDIFI}</td></tr>{END}
+{IF: $edit}<tr class="RowStyleA"><td class="nw fb">{MSG: groupmgr_member}</td><td class="wa al">{IF: $mbr->user_id > 0 && $mbr->user_id < 2147483647}<a href="{ROOT}?t=usrinfo&amp;id={VAR: mbr->user_id}&amp;{DEF: _rsid}">{ENDIFI}{TEMPLATE-DATA: gr_member}{IF: $mbr->user_id > 0 && $mbr->user_id < 2147483647}</a>{ENDIFI}</td></tr>{ELSE}<tr class="RowStyleA"><td class="nw db">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: login_error}<input tabindex="1" type="text" name="gr_member" value="{IF: isset($_POST['gr_member'])}{FUNC: char_fix(htmlspecialchars($_POST['gr_member']))}{ENDIFI}" />{IF: $FUD_OPT_1 & (8388608|4194304)}&nbsp;&nbsp;&nbsp;[{MSG: group_mgr_search}]{ENDIFI}</td></tr>{END}
 <tr class="RowStyleB">
 	<td colspan="2">
 		<table cellspacing="1" cellpadding="3" width="100%" class="ContentTable">
@@ -58,16 +58,16 @@
 </tr>
 <tr>
 	<td colspan="2" class="RowStyleC ar">
-		{IF: $edit}<input type="submit" tabindex="3" class="button" name="btn_cancel" value="{MSG: groupmgr_cancel}"> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: groupmgr_update_member}">{ELSE}<input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: groupmgr_add_member}">{END}
+		{IF: $edit}<input type="submit" tabindex="3" class="button" name="btn_cancel" value="{MSG: groupmgr_cancel}" /> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: groupmgr_update_member}" />{ELSE}<input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: groupmgr_add_member}" />{END}
 	</td>
 </tr>
-</table><input type="hidden" name="group_id" value="{VAR: group_id}"><input type="hidden" name="edit" value="{VAR: edit}">{DEF: _hs}</form>
-<script language="javascript" type="text/javascript">
-<!--
+</table><input type="hidden" name="group_id" value="{VAR: group_id}" /><input type="hidden" name="edit" value="{VAR: edit}" />{DEF: _hs}</form>
+<script type="text/javascript">
+/* <![CDATA[ */
 if (document.groupmgr.gr_member) {
 	document.groupmgr.gr_member.focus();
 }
-//-->
+/* ]]> */
 </script>
 <br /><br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">

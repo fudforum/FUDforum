@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admemail.php,v 1.26 2007/01/01 18:23:47 hackie Exp $
+* $Id: admemail.php,v 1.27 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,7 +41,7 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Email Filter</h2>
-<form name="ef" method="post" action="admemail.php">
+<form id="ef" method="post" action="admemail.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="field">
@@ -51,22 +51,22 @@
 
 	<tr class="field">
 		<td>String:</td>
-		<td><input tabindex="1" type="text" name="e_string" value="<?php echo htmlspecialchars($e_string); ?>"></td>
+		<td><input tabindex="1" type="text" name="e_string" value="<?php echo htmlspecialchars($e_string); ?>" /></td>
 	</tr>
 
 	<tr class="fieldaction">
 		<td colspan="2" align="right">
 		<?php
 			if ($edit) {
-				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" tabindex="2" name="btn_update" value="Update">';
+				echo '<input type="submit" name="btn_cancel" value="Cancel" /> <input type="submit" tabindex="2" name="btn_update" value="Update" />';
 			} else {
-				echo '<input tabindex="2" type="submit" name="btn_submit" value="Add">';
+				echo '<input tabindex="2" type="submit" name="btn_submit" value="Add" />';
 			}
 		?>
 		</td>
 	</tr>
 </table>
-<input type="hidden" name="edit" value="<?php echo $edit; ?>">
+<input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 <script type="text/javascript">
 <!--

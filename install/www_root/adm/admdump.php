@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.70 2007/01/01 18:23:47 hackie Exp $
+* $Id: admdump.php,v 1.71 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,10 +21,10 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	
 	while (list(,$v) = each($dirs)) {
 		if (!is_readable($v)) {
-			echo 'Could not open "'.$v.'" for reading<br>';
+			echo 'Could not open "'.$v.'" for reading<br />';
 			return;
 		}
-		echo 'Processing directory: '.$v.'<br>';
+		echo 'Processing directory: '.$v.'<br />';
 
 		if (!($files = glob($v . '/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
@@ -59,7 +59,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				continue;
 			}
 			if (!is_readable($f)) {
-				echo "WARNING: unable to open '".$f."' for reading<br>\n";
+				echo "WARNING: unable to open '".$f."' for reading<br />\n";
 				continue;
 			}
 			$ln = filesize($f);
@@ -124,7 +124,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	if (isset($_POST['submitted']) && !@fopen($_POST['path'], 'w')) {
-		$path_error = '<font color="#ff0000">Couldn\'t open backup destination file, '.$_POST['path'].' for write.</font><br>';
+		$path_error = '<font color="#ff0000">Couldn\'t open backup destination file, '.$_POST['path'].' for write.</font><br />';
 		$_POST['submitted'] = null;
 	}
 
@@ -141,7 +141,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			$write_func = 'fwrite';
 		}
 
-		echo "Compressing forum datafiles<br>\n";
+		echo "Compressing forum datafiles<br />\n";
 		$write_func($fp, "\n----FILES_START----\n");
 		backup_dir($DATA_DIR, $fp, $write_func, 'DATA_DIR');
 		backup_dir($WWW_ROOT_DISK.'images/', $fp, $write_func, 'WWW_ROOT_DISK', 1);
@@ -201,7 +201,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				unset($c);
 			}
 
-			echo "DONE<br>\n";
+			echo "DONE<br />\n";
 		}
 
 		$write_func($fp, "\n----SQL_END----\n");
@@ -229,8 +229,8 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 
 		db_unlock();
 
-		echo "Backup Process is Complete<br>";
-		echo "Backup file can be found at: <b>".$_POST['path']."</b>, it is occupying ".filesize($_POST['path'])." bytes<br>\n";
+		echo "Backup Process is Complete<br />";
+		echo "Backup file can be found at: <b>".$_POST['path']."</b>, it is occupying ".filesize($_POST['path'])." bytes<br />\n";
 	} else {
 		$gz = extension_loaded('zlib');
 		if (!isset($path_error)) {
@@ -252,16 +252,16 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
-	<td>Backup Save Path<br><font size="-1">path on the disk, where you wish the forum data dump to be saved.</font></td>
-	<td><?php echo $path_error; ?><input type="text" value="<?php echo $path; ?>" name="path" size="40"></td>
+	<td>Backup Save Path<br /><font size="-1">path on the disk, where you wish the forum data dump to be saved.</font></td>
+	<td><?php echo $path_error; ?><input type="text" value="<?php echo $path; ?>" name="path" size="40" /></td>
 </tr>
 <?php if($gz) { ?>
 <tr class="field">
-	<td>Use Gzip Compression<br><font size="-1">if you choose this option, the backup files will be compressed using Gzip compression. This may make the backup process a little slower, but will save a lot of harddrive space.</font></td>
-	<td><input type="checkbox" name="compress" value="1" <?php echo $compress; ?>> Yes</td>
+	<td>Use Gzip Compression<br /><font size="-1">if you choose this option, the backup files will be compressed using Gzip compression. This may make the backup process a little slower, but will save a lot of harddrive space.</font></td>
+	<td><input type="checkbox" name="compress" value="1" <?php echo $compress; ?> /> Yes</td>
 </tr>
 <?php } ?>
-<tr class="fieldaction"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Make Backup"><input type="hidden" name="submitted" value="1"></td></tr>
+<tr class="fieldaction"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Make Backup" /><input type="hidden" name="submitted" value="1" /></td></tr>
 </table>
 </form>
 <?php

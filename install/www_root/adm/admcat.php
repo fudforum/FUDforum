@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.45 2007/01/01 18:23:47 hackie Exp $
+* $Id: admcat.php,v 1.46 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,12 +120,12 @@
 <table class="datatable">
 	<tr class="field">
 		<td>Category Name:</td>
-		<td><input type="text" name="cat_name" value="<?php echo htmlspecialchars($cat_name); ?>" maxLength="50"></td>
+		<td><input type="text" name="cat_name" value="<?php echo htmlspecialchars($cat_name); ?>" maxLength="50" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Description:</td>
-		<td><input type="text" name="cat_description" value="<?php echo htmlspecialchars($cat_description); ?>" maxLength="255"></td>
+		<td><input type="text" name="cat_description" value="<?php echo htmlspecialchars($cat_description); ?>" maxLength="255" /></td>
 	</tr>
 
 	<tr class="field">
@@ -170,23 +170,23 @@
 		<td colspan="2" align="right">
 <?php
 	if ($edit) {
-		echo '<input type="submit" name="btn_cancel" value="Cancel">&nbsp;';
+		echo '<input type="submit" name="btn_cancel" value="Cancel" />&nbsp;';
 	}
 ?>
-			<input type="submit" value="<?php echo ($edit ? 'Update Category' : 'Add Category'); ?>" name="cat_submit">
+			<input type="submit" value="<?php echo ($edit ? 'Update Category' : 'Add Category'); ?>" name="cat_submit" />
 		</td>
 	</tr>
 </table>
 <?php
 		if ($edit) {
-			echo '<input type="hidden" value="'.$edit.'" name="edit">';
+			echo '<input type="hidden" value="'.$edit.'" name="edit" />';
 		}
 		echo '</form>';
 	} else {
-		echo '<a href="admcat.php?'.__adm_rsid.'">Cancel</a><br>';
+		echo '<a href="admcat.php?'.__adm_rsid.'">Cancel</a><br />';
 	}
 ?>
-<br>
+<br />
 <table class="resulttable fulltable">
 <tr class="resulttopic">
 	<td>Category Name</td>

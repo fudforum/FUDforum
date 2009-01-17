@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.75 2009/01/16 21:05:53 frank Exp $
+* $Id: register.tmpl,v 1.76 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,17 +32,17 @@
 
 {SECTION: new_user new user section is shown to a new user trying to register}
 {IF: !__fud_real_user__}{FUNC: draw_err('reg_time_limit')}{ENDIFI}
-<tr class="RowStyleA"><td>{MSG: register_login}{FUNC: draw_err('reg_login')}</td><td><input type="text" size="25" name="reg_login" value="{VAR: reg_login}" maxLength="{GVAR: MAX_LOGIN_SHOW}"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_login}{FUNC: draw_err('reg_login')}</td><td><input type="text" size="25" name="reg_login" value="{VAR: reg_login}" maxLength="{GVAR: MAX_LOGIN_SHOW}" /></td></tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
-<tr class="RowStyleA"><td>{MSG: register_password}{FUNC: draw_err('reg_plaintext_passwd')}</td><td><input type="password" name="reg_plaintext_passwd" size="25"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_password}{FUNC: draw_err('reg_plaintext_passwd')}</td><td><input type="password" name="reg_plaintext_passwd" size="25" /></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_conf_pass}</td><td><input type="password" name="reg_plaintext_passwd_conf" size="25" /></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span></td><td><input type="text" name="reg_email" size="25" value="{VAR: reg_email}"></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td><td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span></td><td><input type="text" name="reg_email" size="25" value="{VAR: reg_email}" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td><td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}" /></td></tr>
 {IF: !($FUD_OPT_3 & 128)}{TEMPLATE: register_turing_test}{ENDIFI}
 {SECTION: END}
 
 {SECTION: register_turing_test}
-<tr class="RowStyleA"><td>{MSG: register_turing}{FUNC: draw_err('reg_turing')}<br /><div style="white-space: pre; font-family: Courier, monospace; color: black; background-color: #C0C0C0;">{FUNC: generate_turing_val($turing_res)}<input type="hidden" name="turing_res" value="{VAR: turing_res}"></div></td><td class="vt"><input type="text" name="turing_test" value=""></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_turing}{FUNC: draw_err('reg_turing')}<br /><div style="white-space: pre; font-family: Courier, monospace; color: black; background-color: #C0C0C0;">{FUNC: generate_turing_val($turing_res)}<input type="hidden" name="turing_res" value="{VAR: turing_res}" /></div></td><td class="vt"><input type="text" name="turing_test" value="" /></td></tr>
 {SECTION: END}
 
 {SECTION: theme_select}
@@ -50,54 +50,54 @@
 {SECTION: END}
 
 {SECTION: theme_select_value}
-<option value="{VAR: t[0]}"{IF: $t[0] == $reg_theme} selected{ENDIFI}>{VAR: t[1]}</option>
+<option value="{VAR: t[0]}"{IF: $t[0] == $reg_theme} selected="selected"{ENDIFI}>{VAR: t[1]}</option>
 {SECTION: END}
 
 {SECTION: change_passwd_link}
-&nbsp;<span class="SmallText">[ <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: change_passwd_link_lnk1}\',\'rpass\',380,250);">{MSG: register_change_passwd}</a> ]</span>
+&nbsp;<span class="SmallText">[ <a href="javascript://" onclick="javascript: window_open(\'{TEMPLATE: change_passwd_link_lnk1}\',\'rpass\',380,250);">{MSG: register_change_passwd}</a> ]</span>
 {SECTION: END}
 
 {SECTION: update_user update user section, is used when a registered user is editing their profile}
 <tr class="RowStyleA"><td>{MSG: register_login}</td><td class="fb">{VAR: reg_login}</td></tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
-<tr class="RowStyleA"><td>{MSG: register_your_pass}{FUNC: draw_err('reg_confirm_passwd')}</td><td><input type="password" name="reg_confirm_passwd" size="25">{IF: !$mod_id}{TEMPLATE: change_passwd_link}{ENDIFI}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: email_warning_msg}</td><td><input type="text" name="reg_email" size="25" value="{VAR: reg_email}"></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td><td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}"></td></tr>
-<tr><td colspan="2" class="ac RowStyleC"><input type="submit" class="button" name="fud_submit" value="{MSG: register_update}"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_your_pass}{FUNC: draw_err('reg_confirm_passwd')}</td><td><input type="password" name="reg_confirm_passwd" size="25" />{IF: !$mod_id}{TEMPLATE: change_passwd_link}{ENDIFI}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: email_warning_msg}</td><td><input type="text" name="reg_email" size="25" value="{VAR: reg_email}" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td><td><input type="text" name="reg_name" size="25" value="{VAR: reg_name}" /></td></tr>
+<tr><td colspan="2" class="ac RowStyleC"><input type="submit" class="button" name="fud_submit" value="{MSG: register_update}" /></td></tr>
 {SECTION: END}
 
 {SECTION: avatar_type_sel avatar type select, allows to choose avatar type (upload/url...)}
-<tr class="vt RowStyleA"><td>{MSG: register_avatar_type}</td><td><select name="avatar_type" onChange="javascript: document.fud_register.submit();">{TEMPLATE-DATA: avatar_type_sel_options}</select></td></tr>
+<tr class="vt RowStyleA"><td>{MSG: register_avatar_type}</td><td><select name="avatar_type" onchange="javascript: document.fud_register.submit();">{TEMPLATE-DATA: avatar_type_sel_options}</select></td></tr>
 {SECTION: END}
 
 {SECTION: del_built_in_avatar delete avatar link}
-[<a href="javascript: return false;" onClick="document.reg_avatar_img.src=\'blank.gif\'; document.fud_register.reg_avatar.value=\'0\';">{MSG: register_del_avatar}</a>]
+[<a href="javascript: return false;" onclick="document.reg_avatar_img.src=\'blank.gif\'; document.fud_register.reg_avatar.value=\'0\';">{MSG: register_del_avatar}</a>]
 {SECTION: END}
 
 {SECTION: built_in_avatar}
 <tr class="vt RowStyleA"><td>{MSG: register_avatar}</td><td><img src="{VAR: reg_avatar_img}" name="reg_avatar_img" alt="" />
-<input type="hidden" name="reg_avatar" value="{VAR: reg_avatar}">[<a href="javascript: window_open(\'{TEMPLATE: built_in_avatar_lnk1}\', \'avtsel\', 400, 300);">{MSG: register_sel_avatar}</a>]
+<input type="hidden" name="reg_avatar" value="{VAR: reg_avatar}" />[<a href="javascript: window_open(\'{TEMPLATE: built_in_avatar_lnk1}\', \'avtsel\', 400, 300);">{MSG: register_sel_avatar}</a>]
 {TEMPLATE-DATA: del_built_in_avatar}<br /></td></tr>
 {SECTION: END}
 
 {SECTION: custom_url_avatar}
 <tr class="RowStyleC vt"><td colspan="2">{MSG: register_custom_avatar_rules}</td></tr>
-<tr class="vt RowStyleA"><td>{MSG: register_custom_avatar_url} {FUNC: draw_err('avatar')}</td><td><input type="text" value="{VAR: reg_avatar_loc}" name="reg_avatar_loc"></td></tr>
+<tr class="vt RowStyleA"><td>{MSG: register_custom_avatar_url} {FUNC: draw_err('avatar')}</td><td><input type="text" value="{VAR: reg_avatar_loc}" name="reg_avatar_loc" /></td></tr>
 {SECTION: END}
 
 {SECTION: delete_uploaded_avatar}
-&nbsp;<input type="submit" class="button" name="btn_detach" value="{MSG: register_del_avatar}">
+&nbsp;<input type="submit" class="button" name="btn_detach" value="{MSG: register_del_avatar}" />
 {SECTION: END}
 
 {SECTION: upload_avatar}
-<input type="file" name="avatar_upload"> <input type="submit" class="button" name="btn_upload" value="{MSG: register_preview}">
-<input type="hidden" name="tmp_f_val" value="1">
+<input type="file" name="avatar_upload" /> <input type="submit" class="button" name="btn_upload" value="{MSG: register_preview}" />
+<input type="hidden" name="tmp_f_val" value="1" />
 {SECTION: END}
 
 {SECTION: custom_upload_avatar}
 <tr class="RowStyleC vt"><td colspan="2">{MSG: register_custom_avatar_rules}</td></tr>
 <tr class="vt RowStyleA"><td>{MSG: register_custom_avatar_upload} {FUNC: draw_err('avatar')}</td><td><table border="0" cellspacing="0" cellpadding="0"><tr><td>{VAR: custom_avatar_preview}</td><td>{TEMPLATE-DATA: buttons}</td></tr></table></td></tr>
-<input type="hidden" name="avatar_tmp" value="{VAR: avatar_tmp}">
+<input type="hidden" name="avatar_tmp" value="{VAR: avatar_tmp}" />
 {SECTION: END}
 
 {SECTION: radio_button_separator}
@@ -105,11 +105,11 @@
 {SECTION: END}
 
 {SECTION: update_button}
-<input type="submit" class="button" name="fud_submit" value="{MSG: register_update}">
+<input type="submit" class="button" name="fud_submit" value="{MSG: register_update}" />
 {SECTION: END}
 
 {SECTION: register_button}
-<input type="submit" class="button" name="fud_submit" value="{MSG: register_register}">
+<input type="submit" class="button" name="fud_submit" value="{MSG: register_register}" />
 {SECTION: END}
 
 {SECTION: register_error registration error message}
@@ -117,37 +117,37 @@
 {SECTION: END}
 
 {SECTION: register_affero}
-<tr class="RowStyleA"><td>{MSG: register_affero}</td><td><input type="text" name="reg_affero" value="{VAR: reg_affero}" maxLength="32" size="25"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_affero}</td><td><input type="text" name="reg_affero" value="{VAR: reg_affero}" maxLength="32" size="25" /></td></tr>
 {SECTION: END}
 
 {SECTION: reg_user_image}
-<tr class="RowStyleA"><td>{MSG: register_image}</td><td><input type="text" name="reg_user_image" value="{VAR: reg_user_image}"maxlength="255" size="30"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_image}</td><td><input type="text" name="reg_user_image" value="{VAR: reg_user_image}"maxlength="255" size="30" /></td></tr>
 {SECTION: END}
 
 {PAGE: REGISTER_PAGE registration AND profile page}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: tabs}
-<form method="post" action="{TEMPLATE: REGISTER_PAGE_lnk3}" name="fud_register" enctype="multipart/form-data"{IF: $FUD_OPT_3 & 256} autocomplete="off"{ENDIF}>
+<form method="post" action="{TEMPLATE: REGISTER_PAGE_lnk3}" id="fud_register" enctype="multipart/form-data"{IF: $FUD_OPT_3 & 256} autocomplete="off"{ENDIF}>
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan="2">{MSG: register_required}</th></tr>
 <tr><td colspan="2" class="RowStyleC">{MSG: register_required_desc}</td></tr>
 {IF: !__fud_real_user__}{TEMPLATE: new_user}{ELSE}{TEMPLATE: update_user}{ENDI}
 <tr><th colspan="2">{MSG: register_optional}</th></tr>
 <tr><td colspan="2" class="RowStyleC">{MSG: register_optional_desc}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_location}</td><td><input type="text" spellcheck="true" name="reg_location" value="{VAR: reg_location}" maxlength="255" size="30"></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_occupation}</td><td><input type="text" spellcheck="true" name="reg_occupation" value="{VAR: reg_occupation}" maxlength="255" size="30"></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_interests}</td><td><input type="text" spellcheck="true" name="reg_interests" value="{VAR: reg_interests}" maxlength="255" size="30"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_location}</td><td><input type="text" spellcheck="true" name="reg_location" value="{VAR: reg_location}" maxlength="255" size="30" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_occupation}</td><td><input type="text" spellcheck="true" name="reg_occupation" value="{VAR: reg_occupation}" maxlength="255" size="30" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_interests}</td><td><input type="text" spellcheck="true" name="reg_interests" value="{VAR: reg_interests}" maxlength="255" size="30" /></td></tr>
 {IF: $FUD_OPT_2 & 65536}{TEMPLATE: reg_user_image}{ENDIF}
-<tr class="RowStyleA"><td>{MSG: register_icq}</td><td><input type="text" name="reg_icq" value="{VAR: reg_icq}" maxlength="32" size="25"></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_aim}</td><td><input type="text" name="reg_aim" value="{VAR: reg_aim}" maxlength="32" size="25"></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_yahoo}</td><td><input type="text" name="reg_yahoo" value="{VAR: reg_yahoo}" maxlength="32" size="25"></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_msnm}</td><td><input type="text" name="reg_msnm" value="{VAR: reg_msnm}" maxlength="32" size="25"></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_jabber}</td><td><input type="text" name="reg_jabber" value="{VAR: reg_jabber}" maxlength="32" size="25"></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_google}</td><td><input type="text" name="reg_google" value="{VAR: reg_google}" maxlength="32" size="25"></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_skype}</td><td><input type="text" name="reg_skype" value="{VAR: reg_skype}" maxlength="32" size="25"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_icq}</td><td><input type="text" name="reg_icq" value="{VAR: reg_icq}" maxlength="32" size="25" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_aim}</td><td><input type="text" name="reg_aim" value="{VAR: reg_aim}" maxlength="32" size="25" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_yahoo}</td><td><input type="text" name="reg_yahoo" value="{VAR: reg_yahoo}" maxlength="32" size="25" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_msnm}</td><td><input type="text" name="reg_msnm" value="{VAR: reg_msnm}" maxlength="32" size="25" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_jabber}</td><td><input type="text" name="reg_jabber" value="{VAR: reg_jabber}" maxlength="32" size="25" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_google}</td><td><input type="text" name="reg_google" value="{VAR: reg_google}" maxlength="32" size="25" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_skype}</td><td><input type="text" name="reg_skype" value="{VAR: reg_skype}" maxlength="32" size="25" /></td></tr>
 {TEMPLATE-DATA: register_affero}
-<tr class="RowStyleA"><td>{MSG: register_homepage}</td><td><input type="text" name="reg_home_page" value="{VAR: reg_home_page}" maxlength="255"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_homepage}</td><td><input type="text" name="reg_home_page" value="{VAR: reg_home_page}" maxlength="255" /></td></tr>
 {TEMPLATE-DATA: avatar_type_sel}
 {TEMPLATE-DATA: avatar}
 <tr class="RowStyleA vt"><td>{MSG: register_bday}<br /><span class="SmallText">{MSG: register_bday_desc}</span></td>
@@ -161,7 +161,7 @@
  <tr>
   <td class="ac"><select name="b_month">{TEMPLATE-DATA: month_select}</select></td>
   <td class="ac"><select name="b_day">{TEMPLATE-DATA: day_select}</select></td>
-  <td class="ac"><input type="text" name="b_year" value="{VAR: b_year}" maxLength="4" size="5"></td>
+  <td class="ac"><input type="text" name="b_year" value="{VAR: b_year}" maxLength="4" size="5" /></td>
  </tr>
 </table></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_gender}</td><td><select name="reg_gender">{TEMPLATE-DATA: gender_select}</select></td></tr>
@@ -176,7 +176,7 @@
 <tr class="RowStyleA"><td>{MSG: register_show_email}<br /><span class="SmallText">{MSG: register_show_email_desc}</span></td><td>{TEMPLATE-DATA: show_email_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_notification}<br /><span class="SmallText">{MSG: register_notification_desc}</span></td><td>{TEMPLATE-DATA: notify_default_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_pm_notification}<br /><span class="SmallText">{MSG: register_pm_notification_desc}</span></td><td>{TEMPLATE-DATA: pm_notify_default_radio}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_notify_method}<br /><span class="SmallText">{MSG: register_notify_method_desc}</span></td><td><select name="reg_notify_method" onChange="javascript: re=/[^0-9]/g; a=document.fud_register.reg_icq.value.replace(re, ''); if(this.value=='ICQ' && !a.length ) { alert('{MSG: register_notify_js_error}'); this.value='EMAIL'; }">{TEMPLATE-DATA: notification_select}</select></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_notify_method}<br /><span class="SmallText">{MSG: register_notify_method_desc}</span></td><td><select name="reg_notify_method" onchange="javascript: re=/[^0-9]/g; a=document.fud_register.reg_icq.value.replace(re, ''); if(this.value=='ICQ' && !a.length ) { alert('{MSG: register_notify_js_error}'); this.value='EMAIL'; }">{TEMPLATE-DATA: notification_select}</select></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_allow_email_msg}<br /><span class="SmallText">{MSG: register_allow_email_msg_desc}</span></td><td>{TEMPLATE-DATA: accept_user_email}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_allow_pm_msg}<br /><span class="SmallText">{MSG: register_allow_pm_msg_desc}</span></td><td>{TEMPLATE-DATA: accept_pm}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_use_sig_default}<br /><span class="SmallText">{MSG: register_use_sig_default_desc}</span></td><td>{TEMPLATE-DATA: append_sig_radio}</td></tr>
@@ -188,12 +188,12 @@
 <tr class="RowStyleA"><td>{MSG: register_def_thread_view}</td><td><select name="reg_default_view">{TEMPLATE-DATA: view_select}</select></td></tr>
 {IF: $theme_select}{TEMPLATE: theme_select}{ENDIF}
 
-<tr class="RowStyleC"><td colspan="2" class="ac">{IF: !__fud_real_user__}{TEMPLATE: register_button}{ELSE}{TEMPLATE: update_button}{END}&nbsp;<input type="reset" class="button" name="Reset" value="{MSG: register_reset}"></td></tr>
+<tr class="RowStyleC"><td colspan="2" class="ac">{IF: !__fud_real_user__}{TEMPLATE: register_button}{ELSE}{TEMPLATE: update_button}{END}&nbsp;<input type="reset" class="button" name="Reset" value="{MSG: register_reset}" /></td></tr>
 </table>
 {DEF: _hs}
-<input type="hidden" name="prev_loaded" value="1">
-<input type="hidden" name="mod_id" value="{VAR: mod_id}">
-<input type="hidden" name="reg_coppa" value="{VAR: reg_coppa}">
+<input type="hidden" name="prev_loaded" value="1" />
+<input type="hidden" name="mod_id" value="{VAR: mod_id}" />
+<input type="hidden" name="reg_coppa" value="{VAR: reg_coppa}" />
 </form>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
@@ -409,7 +409,7 @@
 {SECTION: END}
 
 {SECTION: reg_alias}
-<tr class="RowStyleA"><td>{MSG: register_alias}{FUNC: draw_err('reg_alias')}<br /><span class="SmallText">{MSG: register_alias_desc}</span></td><td><input type="text" name="reg_alias" size="25" value="{VAR: reg_alias}" maxLength="{GVAR: MAX_LOGIN_SHOW}"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_alias}{FUNC: draw_err('reg_alias')}<br /><span class="SmallText">{MSG: register_alias_desc}</span></td><td><input type="text" name="reg_alias" size="25" value="{VAR: reg_alias}" maxLength="{GVAR: MAX_LOGIN_SHOW}" /></td></tr>
 {SECTION: END}
 
 {SECTION: email_warning_msg}

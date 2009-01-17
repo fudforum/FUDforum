@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.58 2007/01/01 18:23:48 hackie Exp $
+* $Id: admimport.php,v 1.59 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,12 +49,12 @@ function resolve_dest_path($path)
 	if (isset($_POST['path'])) {
 		if (!@is_readable($_POST['path'])) {
 			if (!@file_exists($path)) {
-				$path_error = '<font color="#ff0000"><b>'.$_POST['path'].'</b> file does not exist.</font><br>';
+				$path_error = '<font color="#ff0000"><b>'.$_POST['path'].'</b> file does not exist.</font><br />';
 			} else {
-				$path_error = '<font color="#ff0000">the webserver has no permission to open <b>'.$_POST['path'].'</b> for reading</font><br>';
+				$path_error = '<font color="#ff0000">the webserver has no permission to open <b>'.$_POST['path'].'</b> for reading</font><br />';
 			}
 		} else if (($gz_file = preg_match('!\.gz$!', $_POST['path'])) && !extension_loaded('zlib')) {
-			$path_error = '<font color="#ff0000">The file <b>'.$_POST['path'].'</b> is compressed using gzip & your PHP does not have gzip extension install. Please decompress the file yourself and try again.</font><br>';
+			$path_error = '<font color="#ff0000">The file <b>'.$_POST['path'].'</b> is compressed using gzip & your PHP does not have gzip extension install. Please decompress the file yourself and try again.</font><br />';
 		} else {
 			if (!$gz_file) {
 				$fp = fopen($_POST['path'], 'rb');
@@ -82,7 +82,7 @@ function resolve_dest_path($path)
 
 				$path = resolve_dest_path($path);
 				if (!($fd = fopen($path, 'wb'))) {
-					echo "WARNING: couldn't create '".$path."'<br>\n";
+					echo "WARNING: couldn't create '".$path."'<br />\n";
 					if ($readf == 'gzread') {
 						gzseek($fp, (gztell($fp) + $size));
 					} else {
@@ -189,7 +189,7 @@ function resolve_dest_path($path)
 					}
 
 					if ($i && !($i % 10000)) {
-						echo 'Processed '.$i.' queries<br>';
+						echo 'Processed '.$i.' queries<br />';
 					}
 					++$i;
 				}
@@ -223,17 +223,17 @@ function resolve_dest_path($path)
 			if (($uid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".$usr->login."' AND users_opt>=1048576 AND (users_opt & 1048576) > 0"))) {
 				q('INSERT INTO '.$DBHOST_TBL_PREFIX.'ses (ses_id, user_id, time_sec) VALUES(\''.$usr->ses_id.'\', '.$uid.', '.__request_timestamp__.')');
 			} else {
-				echo '<font color="#ff0000">Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br>Therefor you\'ll need to re-login once the import process is complete<br></font>';
+				echo '<font color="#ff0000">Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br />Therefor you\'ll need to re-login once the import process is complete<br /></font>';
 			}
 
 			/* we now need to correct cached paths for file attachments and avatars */
-			echo "Correcting Avatar Paths<br>\n";
+			echo "Correcting Avatar Paths<br />\n";
 			if (($old_path = q_singleval('SELECT location FROM '.$DBHOST_TBL_PREFIX.'attach LIMIT 1'))) {
 				preg_match('!(.*)/!', $old_path, $m);
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'attach SET location=REPLACE(location, '._esc($m[1]).', '._esc($GLOBALS['FILE_STORE']).')');
 			}
 
-			echo "Correcting Attachment Paths<br>\n";
+			echo "Correcting Attachment Paths<br />\n";
 			if (($old_path = q_singleval('SELECT avatar_loc FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0 LIMIT 1'))) {
 				preg_match('!http://(.*)/images/!', $old_path, $m);
 				preg_match('!//(.*)/!', $GLOBALS['WWW_ROOT'], $m2);
@@ -241,7 +241,7 @@ function resolve_dest_path($path)
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET avatar_loc=REPLACE(avatar_loc, '._esc($m[1]).', '._esc($m2[1]).') WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0');
 			}
 
-			echo "Recompiling Templates<br>\n";
+			echo "Recompiling Templates<br />\n";
 
 			fud_use('compiler.inc', true);
 			$c = uq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0');
@@ -250,8 +250,8 @@ function resolve_dest_path($path)
 			}
 			unset($c);
 
-			echo '<b>Import process is now complete</b><br>';
-			echo '<font color="red" size="+1">To finalize the import process you should now run the <a href="consist.php">consistency checker</a>.</font><br>';
+			echo '<b>Import process is now complete</b><br />';
+			echo '<font color="red" size="+1">To finalize the import process you should now run the <a href="consist.php">consistency checker</a>.</font><br />';
 			require($WWW_ROOT_DISK . 'adm/admclose.html');
 			exit;
 		}
@@ -263,10 +263,10 @@ function resolve_dest_path($path)
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
-	<td>Import Data Path<br><font size="-1">location on the drive, where the file your wish to import FUDforum data from is located.</font></td>
-	<td><?php if (isset($path_error)) { echo $path_error; $path = $_POST['path']; } else { $path = ''; } ?><input type="text" value="<?php echo $path; ?>" name="path" size=40></td>
+	<td>Import Data Path<br /><font size="-1">location on the drive, where the file your wish to import FUDforum data from is located.</font></td>
+	<td><?php if (isset($path_error)) { echo $path_error; $path = $_POST['path']; } else { $path = ''; } ?><input type="text" value="<?php echo $path; ?>" name="path" size=40 /></td>
 </tr>
-<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Import Data"></td></tr>
+<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Import Data" /></td></tr>
 </table>
 </form>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

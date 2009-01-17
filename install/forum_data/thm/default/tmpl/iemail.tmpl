@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.tmpl,v 1.28 2009/01/16 21:05:53 frank Exp $
+* $Id: iemail.tmpl,v 1.29 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,7 +38,7 @@
 
 {SECTION: iemail_poll_tbl}
 <table cellspacing="1" cellpadding="2" class="PollTable">
-<tr><th nowrap colspan="3">{VAR: obj->poll_name}<img src="blank.gif" alt="" height="1" width="10" /><span class="small">[ {MSG: num_votes} ]</span></th></tr>
+<tr><th colspan="3">{VAR: obj->poll_name}<img src="blank.gif" alt="" height="1" width="10" style="white-space: nowrap" /><span class="small">[ {MSG: num_votes} ]</span></th></tr>
 {TEMPLATE-DATA: iemail_poll}
 </table><p>
 {SECTION: END}

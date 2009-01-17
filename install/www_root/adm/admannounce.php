@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admannounce.php,v 1.26 2007/01/01 18:23:47 hackie Exp $
+* $Id: admannounce.php,v 1.27 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -83,13 +83,13 @@ function mk_date($y, $m, $d)
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Announcement System</h2>
-<form method="post" name="a_frm" action="admannounce.php">
+<form method="post" id="a_frm" action="admannounce.php">
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
 		<td valign="top">Forums</td>
 		<td><table border="0" cellspacing="1" cellpadding="2">
-			<tr><td colspan="5"><input type="submit" name="btn_none" value="None"> <input type="submit" name="btn_all" value="All"></td></tr>
+			<tr><td colspan="5"><input type="submit" name="btn_none" value="None" /> <input type="submit" name="btn_all" value="All" /></td></tr>
 <?php
 	 require $FORUM_SETTINGS_PATH.'cat_cache.inc';
 	$pfx = $oldc = ''; $row = 0;
@@ -133,7 +133,7 @@ function mk_date($y, $m, $d)
 		<td>
 			<table border="0" cellspacing="1" cellpadding="0">
 				<tr><td><font size="-2">Month</font></td><td><font size="-2">Day</font></td><td><font size="-2">Year</font></td></tr>
-				<tr><td><?php draw_month_select('d_month', 0, $d_month); ?></td><td><?php draw_day_select('d_day', 0, $d_day); ?></td><td><input type="text" name="d_year" value="<?php echo $d_year; ?>" size=5></td></tr>
+				<tr><td><?php draw_month_select('d_month', 0, $d_month); ?></td><td><?php draw_day_select('d_day', 0, $d_day); ?></td><td><input type="text" name="d_year" value="<?php echo $d_year; ?>" size=5 /></td></tr>
 			</table>
 		</td>
 	</tr>
@@ -143,14 +143,14 @@ function mk_date($y, $m, $d)
 		<td>
 			<table border="0" cellspacing="1" cellpadding="0">
 				<tr><td><font size="-2">Month</font></td><td><font size="-2">Day</font></td><td><font size="-2">Year</font></td></tr>
-				<tr><td><?php draw_month_select('d2_month', 0, $d2_month); ?></td><td><?php draw_day_select('d2_day', 0, $d2_day); ?></td><td><input type="text" name="d2_year" value="<?php echo $d2_year; ?>" size=5></td></tr>
+				<tr><td><?php draw_month_select('d2_month', 0, $d2_month); ?></td><td><?php draw_day_select('d2_day', 0, $d2_day); ?></td><td><input type="text" name="d2_year" value="<?php echo $d2_year; ?>" size=5 /></td></tr>
 			</table>
 		</td>
 	</tr>
 
 	<tr class="field">
 		<td>Subject:</td>
-		<td><input type="text" name="a_subject" value="<?php echo htmlspecialchars($a_subject); ?>">
+		<td><input type="text" name="a_subject" value="<?php echo htmlspecialchars($a_subject); ?>" />
 	</tr>
 
 	<tr class="field">
@@ -162,16 +162,16 @@ function mk_date($y, $m, $d)
 		<td colspan=2 align=right>
 <?php
 			if ($edit) {
-				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update">';
+				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update" />';
 			} else {
-				echo '<input type="submit" name="btn_submit" value="Add">';
+				echo '<input type="submit" name="btn_submit" value="Add" />';
 			}
 ?>
 		</td>
 	</tr>
 
 </table>
-<input type="hidden" name="edit" value="<?php echo $edit; ?>">
+<input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 
 <table class="resulttable fulltable">

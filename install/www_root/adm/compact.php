@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.67 2007/01/01 18:23:48 hackie Exp $
+* $Id: compact.php,v 1.68 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -78,7 +78,7 @@ function write_body_c($data, &$len, &$offset, $fid)
 	}
 
 	if (fwrite($f[$s][0], $data) != $len) {
-		exit("FATAL ERROR: system has ran out of disk space<br>\n");
+		exit("FATAL ERROR: system has ran out of disk space<br />\n");
 	}
 	$offset = $f[$s][1];
 	$f[$s][1] += $len;
@@ -92,23 +92,23 @@ function eta_calc($start, $pos, $pc)
 	$prg = $pos / $pc;
 	$eta = ($cur - $start) / $prg * (10 - $prg);
 	if ($eta > 60) {
-		echo ($prg * 10) . "% done<br>\nETA: ".sprintf('%.2f', $eta/60)." minutes<br>\n";
+		echo ($prg * 10) . "% done<br />\nETA: ".sprintf('%.2f', $eta/60)." minutes<br />\n";
 	} else {
-		echo ($prg * 10) . "% done<br>\nETA: " . $eta . " seconds<br>\n";
+		echo ($prg * 10) . "% done<br />\nETA: " . $eta . " seconds<br />\n";
 	}
 }
 
 	if ($FUD_OPT_1 & 1) {
-		echo '<br>Disabling the forum for the duration of maintenance run<br>';
+		echo '<br />Disabling the forum for the duration of maintenance run<br />';
 		maintenance_status('Undergoing maintenance, please come back later.', 1);
 	}
 
-	echo "<br>Please wait while forum is being compacted.<br>This may take a while depending on the size of your forum.<br>\n";
+	echo "<br />Please wait while forum is being compacted.<br />This may take a while depending on the size of your forum.<br />\n";
 
 	$mode = ($FUD_OPT_2 & 8388608 ? 0600 : 0666);
 
 	/* Normal Messages */
-	echo "Compacting normal messages...<br>\n";
+	echo "Compacting normal messages...<br />\n";
 
 	$tbl =& $DBHOST_TBL_PREFIX;
 	$pc = ceil(q_singleval('SELECT count(*) FROM '.$tbl.'msg WHERE file_id>0') / 10);
@@ -156,8 +156,8 @@ function eta_calc($start, $pos, $pc)
 		db_unlock();
 	}
 	/* Private Messages */
-	echo "100% Done<br>\n";
-	echo "Compacting private messages...<br>\n";
+	echo "100% Done<br />\n";
+	echo "Compacting private messages...<br />\n";
 
 	q('CREATE INDEX '.$tbl.'pmsg_foff_idx ON '.$tbl.'pmsg (foff)');
 
@@ -176,7 +176,7 @@ function eta_calc($start, $pos, $pc)
 
 		while ($r = db_rowarr($c)) {
 			if (($len = fwrite($fp, read_pmsg_body($r[0], $r[1]))) != $r[1] || !fflush($fp)) {
-				exit("FATAL ERROR: system has ran out of disk space<br>\n");
+				exit("FATAL ERROR: system has ran out of disk space<br />\n");
 			}
 			q('UPDATE '.$tbl.'pmsg SET foff='.$off.', length='.$len.' WHERE foff='.$r[0]);
 			$off += $len;
@@ -192,7 +192,7 @@ function eta_calc($start, $pos, $pc)
 
 	q('DROP INDEX '.$tbl.'pmsg_foff_idx'.(__dbtype__ == 'mysql' ? ' ON '.$tbl.'pmsg' : ''));
 
-	echo "100% Done<br>\n";
+	echo "100% Done<br />\n";
 
 	@unlink($MSG_STORE_DIR . 'private');
 	if (!$i) {
@@ -204,13 +204,13 @@ function eta_calc($start, $pos, $pc)
 
 	db_unlock();
 
-	printf("Done in %.2f minutes<br>\n", (time() - $stm) / 60);
+	printf("Done in %.2f minutes<br />\n", (time() - $stm) / 60);
 
 	if ($FUD_OPT_1 & 1) {
-		echo '<br>Re-enabling the forum.<br>';
+		echo '<br />Re-enabling the forum.<br />';
 		maintenance_status($DISABLED_REASON, 0);
 	} else {
-		echo '<br><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>';
+		echo '<br /><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
 	echo '<script language="Javascript1.2" type="text/javascript">clearInterval(intervalID);</script>';

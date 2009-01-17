@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.41 2007/01/01 18:23:48 hackie Exp $
+* $Id: admgrouplead.php,v 1.42 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,7 +74,7 @@
 				break;
 			default:
 				/* more then 1 user found, draw a selection form */
-				echo '<html><body bgcolor="#ffffff">There are '.$cnt.' users matching your search mask:<br><table border="0" cellspacing="0" cellpadding="3">';
+				echo '<html><body bgcolor="#ffffff">There are '.$cnt.' users matching your search mask:<br /><table border="0" cellspacing="0" cellpadding="3">';
 				while ($r = db_rowarr($c)) {
 					echo '<tr><td><a href="admgrouplead.php?gr_leader='.urlencode($r[1]).'&group_id='.$group_id.'&amp;'.__adm_rsid.'">'.$r[1].'</a></td></tr>';
 				}
@@ -94,10 +94,10 @@
 	}
 ?>
 <form method="post" action="admgrouplead.php"><?php echo _hs; ?>
-<input type="hidden" value="<?php echo $group_id; ?>" name="group_id">
+<input type="hidden" value="<?php echo $group_id; ?>" name="group_id" />
 <table border="0" cellspacing="0" cellpadding="3">
-<tr><td>Group Leader</td><td><input type="text" name="gr_leader" value="<?php echo char_fix(htmlspecialchars($gr_leader)); ?>"></td></tr>
-<tr><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Add"></td></tr>
+<tr><td>Group Leader</td><td><input type="text" name="gr_leader" value="<?php echo char_fix(htmlspecialchars($gr_leader)); ?>" /></td></tr>
+<tr><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Add" /></td></tr>
 </table>
 
 <table border="1" cellspacing="1" cellpadding="3">

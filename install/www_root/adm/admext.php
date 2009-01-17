@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.26 2007/01/01 18:23:47 hackie Exp $
+* $Id: admext.php,v 1.27 2009/01/17 09:23:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,29 +46,29 @@
 	include($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Allowed Extensions</h2>
-<form name="exf" method="post" action="admext.php">
+<form id="exf" method="post" action="admext.php">
 <table class="datatable solidtable">
 	<tr class="tutor">
 		<td colspan="2"><b>note:</b> if no file extension is entered, all files will be allowed</td>
 	</tr>
 	<tr class="field">
 		<td>Extension:</td>
-		<td><input tabindex="1" type="text" name="c_ext" value="<?php echo htmlspecialchars($c_ext); ?>">
+		<td><input tabindex="1" type="text" name="c_ext" value="<?php echo htmlspecialchars($c_ext); ?>" />
 	</tr>
 
 	<tr class="fieldaction">
 		<td colspan="2" align=right>
 		<?php
 			if ($edit) {
-				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update" tabindex="2">';
+				echo '<input type="submit" name="btn_cancel" value="Cancel" /> <input type="submit" name="btn_update" value="Update" tabindex="2" />';
 			} else {
-				echo '<input tabindex="2" type="submit" name="btn_submit" value="Add">';
+				echo '<input tabindex="2" type="submit" name="btn_submit" value="Add" />';
 			}
 		?>
 		</td>
 	</tr>
 </table>
-<input type="hidden" name="edit" value="<?php echo $edit; ?>">
+<input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 <?php echo _hs; ?>
 </form>
 <script type="text/javascript">
