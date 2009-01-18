@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.172 2008/03/17 03:43:55 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.173 2009/01/18 08:22:08 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -571,7 +571,7 @@ function write_body($data, &$len, &$offset, $fid)
 	while ($s < $e) {
 		$fp = fopen($GLOBALS['MSG_STORE_DIR'].'msg_'.$s, 'ab');
 		if (!$fp) {
-			exit("FATAL ERROR: could not open message store for forum id#".$s."<br>\n");
+			exit("FATAL ERROR: could not open message store for forum id#".$s."<br />\n");
 		}
 		fseek($fp, 0, SEEK_END);
 		if (!($off = ftell($fp))) {
@@ -588,7 +588,7 @@ function write_body($data, &$len, &$offset, $fid)
 		if ($fid) {
 			db_unlock();
 		}
-		exit("FATAL ERROR: system has ran out of disk space<br>\n");
+		exit("FATAL ERROR: system has ran out of disk space<br />\n");
 	}
 	fclose($fp);
 

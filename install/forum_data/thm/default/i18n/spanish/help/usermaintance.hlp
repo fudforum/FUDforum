@@ -11,7 +11,7 @@ foro tales como:
 	<li>Podrá elegir una zona horaria para que la hora mostrada por el foro coincida con la oficial de donde vive
 </ul>
 Salvo que se indique lo contrario el registro en el foro es completamente gratuito y sólo necesita un mínimo de información,
-tal como su dirección de correo electrónico y la elección de un identificador o "nick".<br>
+tal como su dirección de correo electrónico y la elección de un identificador o "nick".<br />
 Si está activado COPPA y tiene menos de 13 años de edad, deberá hacer que su tutor legal de su consentimiento antes de que 
 pueda usar su cuenta en el foro para enviar mensajes. Tras completar el proceso de registro en los foros con COPPA activado,
 los miembros menores de 13 años serán dirigidos a un formulario que su tutor legal deberá rellenar y remitir a la dirección
@@ -37,7 +37,7 @@ TOPIC_HELP: Como miembro del foro dispone de un perfil personal en el que puede 
 identificadores en mensajería instantánea, firma que añadir a los mensajes, biografía, etc. Su perfil además almacena diversas opciones
 que tienen que ver con el foro. Puede cambiar las opciones en su perfil en cualquier momento siempre que se haya identificado ante el 
 foro, dese cuenta de que la mayoría de la información presente en su perfil la podrán ver otros miembros del foro. Por lo tanto no 
-debería almacenar información sensible o que los demás usuarios no deban ver.<br>
+debería almacenar información sensible o que los demás usuarios no deban ver.<br />
 
 Su perfil tiene una opción <b>"Mostrar email"</b>, que si está a <b>NO</b> ocultará su dirección de correo a los demás usuarios. Puede
 usar esta opción si no desea que otras personas averigüen su dirección de correo electrónico.
@@ -46,10 +46,10 @@ TOPIC_TITLE: <a name="sigs">¿Qué es una firma?</a>
 TOPIC_HELP:
 Una firma es una cadena de texte que se añade automáticamente al final de todos los mensajes que envíe. En su perfil dispone de una 
 opción, <b>"Usar firma de manera predeterminada"</b> que activará o desactivará esta característica. Sin embargo, puede cambiar
-el valor de esta opción en cada mensaje individual que envíe.<br>
+el valor de esta opción en cada mensaje individual que envíe.<br />
 Si lo permite el administrador además de texto la firma puede contener varios elementos tales como enlaces a sus URL favoritas,
 fotografías personales, etc.
-<br>
+<br />
 Si no desea ver las firmas de otras personas puede desactivarlas poniendo la opción <b>"Mostrar firmas"</b> a <b>NO</b> en su perfil.
 
 
@@ -57,7 +57,7 @@ TOPIC_TITLE: <a name="rstpasswd">>Qué hacer si pierde u olvida su contraseña</a>
 TOPIC_HELP:
 Si no puede recordar la contraseña de FUDforum, deberá ir a la <a href="{ROOT}?t=reset&amp;%_rsid%">página para resetear la contraseña</a>,
 introducir en esa página su dirección de correo electrónico y pulsar el botón IR. De esta forma se enviará a su dirección 
-de correo una URL especial, que cuando acceda a ella reseteará la contraseña y le enviará una nueva por correo electrónico.<br>
+de correo una URL especial, que cuando acceda a ella reseteará la contraseña y le enviará una nueva por correo electrónico.<br />
 <b>Nota:</b> sus contraseñas se almacenan en un formato de cifrado de un sólo sentido llamado HASH MD5. Se trata de cifrado de 
 grado militar de 128 bits de longitud, que por diseño hace imposible recuperar el valor original de la contraseña. Funciona 
 cifrando los datos cada vez que los introduce y comparando el resultado con la versión cifrada almacenada.

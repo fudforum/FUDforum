@@ -251,8 +251,8 @@ finduser_joindate:		Registreringsdato
 finduser_action:		Handling
 yes:				Ja
 no:				Nei
-edit_time_limit:		<br><b>Tidsgrense f&oslash;r editering</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutter
-no_edit_time_limit:		<br><b>Tidsgrense f&oslash;r editering</b>: <b>Ubegrenset</b>
+edit_time_limit:		<br /><b>Tidsgrense f&oslash;r editering</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutter
+no_edit_time_limit:		<br /><b>Tidsgrense f&oslash;r editering</b>: <b>Ubegrenset</b>
 pmuserloc_login:		Brukernavn:
 pmuserloc_submit:		Send
 pmuserloc_user:			Medlem
@@ -271,7 +271,7 @@ register_avatar_type:		Avatartype:
 register_del_avatar:		Slett avatar
 register_avatar:		Avatar:
 register_sel_avatar:		Velg avatar
-register_custom_avatar_rules:	Din egen avatar kommer ikke til &aring; vises f&oslash;r den har blitt godkjent av administratoren.<br><font class="SmallText">Avataren b&oslash;r ikke v&aelig;re st&oslash;rre enn <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixler</b> og m&aring; v&aelig;ra i <b>jpg-</b>, <b>gif-</b> eller <b>png-</b>format.</font>
+register_custom_avatar_rules:	Din egen avatar kommer ikke til &aring; vises f&oslash;r den har blitt godkjent av administratoren.<br /><font class="SmallText">Avataren b&oslash;r ikke v&aelig;re st&oslash;rre enn <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixler</b> og m&aring; v&aelig;ra i <b>jpg-</b>, <b>gif-</b> eller <b>png-</b>format.</font>
 register_custom_avatar_url:	URL til egen avatar:
 register_preview:		Forh&aring;ndsvisning
 register_custom_avatar_upload:	Fil med egen avatar:
@@ -404,7 +404,7 @@ login_cookie_expired:		Din cookie har g&aring;tt ut, og du m&aring; logge inn p&
 login_perm_denied:		Du har ikke rett til &aring; benytte den etterspurte ressursen som anonym bruker og m&aring; derfor logge inn.
 login_want_to_register:		Vil du registrere deg?
 login_forgot_passwd:		Jag har glemt mitt passord
-login_use_cookie:		Bruk cookies<br><font class="SmallText">Dersomm du bruker en offentlig terminal, som f.eks. datamaskiner i bibliotek, skoler eller ikkernettkaféer anbefaler vi at du velger bort dette alternativet for bedre sikkerhet.
+login_use_cookie:		Bruk cookies<br /><font class="SmallText">Dersomm du bruker en offentlig terminal, som f.eks. datamaskiner i bibliotek, skoler eller ikkernettkaféer anbefaler vi at du velger bort dette alternativet for bedre sikkerhet.
 login_login:			Logg inn
 login_login_btn:		Logg inn
 login_name_required:		brukernavn er obligatorisk
@@ -529,7 +529,7 @@ buddy_list_err_nouser_title:	Kan ikke legge til medlemmet
 buddy_list_update:		Viser egen kontaktliste
 core_err_invinp_title:		Ugyldig input(??)
 core_err_invinp_err:		Du har fulgt en feilaktig lenke, vennligst gi beskjed til <a href="mailto:{GVAR: ADMIN_EMAIL}">webansvarlig</a>
-core_adm_login_msg:		<br>Administratorer kan logga inn <a href="adm/admloginuser.php">her</a>
+core_adm_login_msg:		<br />Administratorer kan logga inn <a href="adm/admloginuser.php">her</a>
 email_err_unabletoemail_title:	FEIL: Kan ikke sende e-post
 email_err_unabletoemail_msg:	E-postsystemet er stengt av administratorn.
 email_error_unabletolocaddr:	Systemet kunne dessverre ikke sende e-post til {VAR-HTML: _POST['tx_name']} ettersom det ikke kunne finne hans/hennes e-postadresse
@@ -568,9 +568,9 @@ post_err_edttimelimit_title:	FEIL
 post_err_edttimelimit_msg:	Du kan ikke redigere denne meldingen lenger
 post_err_floodtrig_title:	FEIL: 	Flood-beskyttelse sl&aring;tt p&aring;
 post_err_floodtrig_msg:		Vennligst pr&oslash;v p&aring; nytt om {VAR: tm} sekunder
-post_err_attach_size:		<font class="ErrorText">Vedlegget er for stort (over grensen p&aring; {VAR: MAX_F_SIZE} byte)</font><br>
-post_err_attach_ext:		<font class="ErrorText">Filen du fors&oslash;ker &aring; sende er ikke av tillatt filtype.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Du fors&oslash;ker &aring; sende flere filer enn det som er tillatt.</font><br>
+post_err_attach_size:		<font class="ErrorText">Vedlegget er for stort (over grensen p&aring; {VAR: MAX_F_SIZE} byte)</font><br />
+post_err_attach_ext:		<font class="ErrorText">Filen du fors&oslash;ker &aring; sende er ikke av tillatt filtype.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Du fors&oslash;ker &aring; sende flere filer enn det som er tillatt.</font><br />
 post_err_passwd:		Feil passord
 post_reply_update:		Svarer p&aring; <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR-HTML: frm->name}
 post_topic_update:		Skriver ny tr&aring;d i <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -585,7 +585,7 @@ postcheck_invalid_email:	Gi en korrekt e-postadresse til din kontakt.
 postcheck_email_subject:	Kan ikke sende e-post uten emne.
 postcheck_email_body:		Kan ikke sende e-post utan tekst.
 private_msg_notify_subj:	Kvittering for: {VAR: m->subject}
-private_msg_notify_body:	Hei!<br>Den {TEMPLATE: private_msg_notify_body_date} leste {VAR: usr->login} din private melding med emnet "{VAR: m->subject}"<br>
+private_msg_notify_body:	Hei!<br />Den {TEMPLATE: private_msg_notify_body_date} leste {VAR: usr->login} din private melding med emnet "{VAR: m->subject}"<br />
 referals_update:		Visar refererte medlemmer
 register_err_short_login:	Brukernavnet du har valgt er for kort. Det m&aring; v&aelig;re minst 4 tegn langt
 register_err_login_notallowed:	Dette brukernavnet er ikke tillatt
@@ -616,7 +616,7 @@ reset_err_rstconf_title:	Informasjon
 reset_err_rstconf_msg:		Du vil motta instruksjoner per e-post innen f&aring; minutter
 reset_newpass_title:		Nullstill passord
 reset_newpass_msg:		Hei!\n\nDitt brukernavn og passord har blitt endret p&aring; din foresp&oslash;rsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: ui[1]}\nPassord: {VAR: passwd}\n\nNoter deg at passordet ditt er endret til det overst&aring;ende. Om du vil\nendre passordet ditt kan du gj&oslash;re det i kontrollpanelet:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter. Vennligst sjekk e-posten din for ditt brukernavn og passord.<br>.<br>.<br>
+reset_login_notify:		Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter. Vennligst sjekk e-posten din for ditt brukernavn og passord.<br />.<br />.<br />
 search_update:			S&oslash;ker blandt innleggene
 selmsg_update:			Leser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens innlegg</a>
 showposts_update:		Viser innlegg av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -631,7 +631,7 @@ ERR_access_msg:			Du har ikke de rettigheter som er n&oslash;dvendig for &aring;
 ERR_registration_disabled_ttl:	Registrering stengt
 ERR_registration_disabled_msg:	Administratoren har stengt registreringen, pr&oslash;v p&aring; nytt senere
 ERR_emailconf_ttl:		FEIL: Din brukerkonto er enda ikke bekreftet
-ERR_emailconf_msg:		Du har ikke bekreftet din brukerkonto via e-post <br><table border=0><tr><td><ol><li>Dersom du ikke har f&aring;tt en bekreftelse per e-post <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">trykk her</a><li>Hvis {VAR: usr_d->email} ikke er din riktige e-postadresse <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">trykk her</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du har ikke bekreftet din brukerkonto via e-post <br /><table border=0><tr><td><ol><li>Dersom du ikke har f&aring;tt en bekreftelse per e-post <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">trykk her</a><li>Hvis {VAR: usr_d->email} ikke er din riktige e-postadresse <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">trykk her</a></ol></td></tr></table>
 ERR_user_ttl:			FEIL: Finner ikke et slikt medlem
 ERR_user_msg:			Det finnes ikke et slikt medlem
 ERR_systemerr_ttl:		FEIL: Systemfeil
@@ -728,7 +728,7 @@ post_quote:			Sitat:
 userinfo_referals:		Refererte medlemmer:
 userinfo_referals_count:	{VAR: referals} medlemmer
 pm_no_space_title:		Ikke mer plass!
-pm_no_space_msg:		Dine private meldinger tar for &oslash;yeblikket for mye plass. Maksimalt tillatt plass er <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>, og dine meldinger opptar n&aring; <b>{VAR: fldr_size} byte</b>.<br><br><font class="ErrorText">Ta bort noen gamle meldinger for &aring; frigj&oslash;re lagringsplass</font>.
+pm_no_space_msg:		Dine private meldinger tar for &oslash;yeblikket for mye plass. Maksimalt tillatt plass er <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>, og dine meldinger opptar n&aring; <b>{VAR: fldr_size} byte</b>.<br /><br /><font class="ErrorText">Ta bort noen gamle meldinger for &aring; frigj&oslash;re lagringsplass</font>.
 pm_space_indct_msg:		Dine mapper for private meldinger er fylt til {VAR: percent_full}%.
 th_expr_never:			Aldri
 th_expr_one_hr:			1 time
@@ -854,7 +854,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online

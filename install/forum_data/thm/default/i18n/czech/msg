@@ -253,8 +253,8 @@ finduser_joindate:		Registrace
 finduser_action:		Akce
 yes:				Ano
 no:				Ne
-edit_time_limit:		<br><b>Èasový limit na editaci</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
-no_edit_time_limit:		<br><b>Èasový limit na editaci</b>: <b>Neomezen</b>
+edit_time_limit:		<br /><b>Èasový limit na editaci</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
+no_edit_time_limit:		<br /><b>Èasový limit na editaci</b>: <b>Neomezen</b>
 pmuserloc_login:		U¾ivatelské jméno:
 pmuserloc_submit:		Odeslat
 pmuserloc_user:			U¾ivatel
@@ -273,7 +273,7 @@ register_avatar_type:		Typ ikony u¾ivatele:
 register_del_avatar:		Smazat ikonu u¾ivatele
 register_avatar:		Ikona u¾ivatele:
 register_sel_avatar:		Vybrat ikonu u¾ivatele
-register_custom_avatar_rules:	Nová ikona u¾ivatele nebude zobrazena dokud ji nepovolí administrátor.<br><font class="SmallText">Ikona u¾ivatele by nemìla být vìt¹í ne¾ <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} bodù</b> a musí být ve formátu <b>jpg</b>, <b>gif</b> nebo <b>png</b>.</font>
+register_custom_avatar_rules:	Nová ikona u¾ivatele nebude zobrazena dokud ji nepovolí administrátor.<br /><font class="SmallText">Ikona u¾ivatele by nemìla být vìt¹í ne¾ <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} bodù</b> a musí být ve formátu <b>jpg</b>, <b>gif</b> nebo <b>png</b>.</font>
 register_custom_avatar_url:	URL nové ikony u¾ivatele:
 register_preview:		Nahrát
 register_custom_avatar_upload:	Soubor s novou ikonou u¾ivatele:
@@ -407,7 +407,7 @@ login_cookie_expired:		Platnost va¹í cookie vypr¹ela, musíte se pøihlásit znovu 
 login_perm_denied:		Jako anonymní u¾ivatel nemáte pøístup k po¾adovaným prostøedkùm, musíte se pøihlásit.
 login_want_to_register:		Chcete se zaregistrovat?
 login_forgot_passwd:		Zapomenuté heslo
-login_use_cookie:		S cookies<br><font class="SmallText">Kvùli zvý¹ení bezpeènosti doporuèujeme od¹krtnout tuto volbu, pokud pou¾íváte veøejný terminál jako je poèítaè v knihovnì, ve ¹kole nebo internetové kavárnì.<br>Pokud necháte tuto volbu vybránu, budete automaticky pøíhlá¹en(a) do fóra.
+login_use_cookie:		S cookies<br /><font class="SmallText">Kvùli zvý¹ení bezpeènosti doporuèujeme od¹krtnout tuto volbu, pokud pou¾íváte veøejný terminál jako je poèítaè v knihovnì, ve ¹kole nebo internetové kavárnì.<br />Pokud necháte tuto volbu vybránu, budete automaticky pøíhlá¹en(a) do fóra.
 login_login:			U¾ivatelské jméno
 login_login_btn:		Pøihlásit
 login_name_required:		U¾ivatelské jméno je nutné k pøihlá¹ení
@@ -532,7 +532,7 @@ buddy_list_err_nouser_title:	Není mo¾né pøidat u¾ivatele
 buddy_list_update:		Prohlí¾íte si seznam pøátel
 core_err_invinp_title:		©patný vstup   ...je cosi shnilého ve státì dánském
 core_err_invinp_err:		Následoval(a) jste ¹patný odkaz. Prosím, oznamte to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterovi</a>
-core_adm_login_msg:		<br>Administrátoøi se mù¾ou pøihlásit <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">zde</a>
+core_adm_login_msg:		<br />Administrátoøi se mù¾ou pøihlásit <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">zde</a>
 email_err_unabletoemail_title:	CHYBA: Není mo¾no zaslat email
 email_err_unabletoemail_msg:	Systém emailù by administrátorem vypnut.
 email_error_unabletolocaddr:	Omlouvám se, systém nebyl scopen odeslat mail pro {VAR-HTML: _POST['tx_name']} proto¾e nedokázal najít jeho adresu
@@ -572,9 +572,9 @@ post_err_edttimelimit_title:	CHYBA
 post_err_edttimelimit_msg:	Ji¾ nemù¾ete mìnit tuto zprávu
 post_err_floodtrig_title:	CHYBA: Pøíli¹ mnoho pøíspìvkù na systém.
 post_err_floodtrig_msg:		Prosím, zkuste opìt za {VAR: tm} vteøin
-post_err_attach_size:		<font class="ErrorText">Pøíloha je moc velká (limit je {VAR: MAX_F_SIZE} bytù)</font><br>
-post_err_attach_ext:		<font class="ErrorText">Soubor, kerý se sna¾íte nahrát neodpovídá povoleným typùm.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Sna¾íte se nahrát více souborù ne¾ je povoleno.</font><br>
+post_err_attach_size:		<font class="ErrorText">Pøíloha je moc velká (limit je {VAR: MAX_F_SIZE} bytù)</font><br />
+post_err_attach_ext:		<font class="ErrorText">Soubor, kerý se sna¾íte nahrát neodpovídá povoleným typùm.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Sna¾íte se nahrát více souborù ne¾ je povoleno.</font><br />
 post_err_passwd:		Nesprávné heslo.
 post_reply_update:		Odpovídáte na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ve fóru {VAR-HTML: frm->name}
 post_topic_update:		Pí¹ete nové téma ve fóru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -589,7 +589,7 @@ postcheck_invalid_email:	Prosím, zadejte platnou emailovou adresu pøíjemce.
 postcheck_email_subject:	Nemù¾ete poslat email bez nadpisu.
 postcheck_email_body:		Nemù¾ete poslat email bez obsahu.
 private_msg_notify_subj:	Pøeèíst oznámení pro: {VAR: m->subject}
-private_msg_notify_body:	Dobrý den,<br>{VAR: usr->login} si pøeèetl(a) zprávu, "{VAR: m->subject}", v {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Dobrý den,<br />{VAR: usr->login} si pøeèetl(a) zprávu, "{VAR: m->subject}", v {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Prohlí¾íte si pøivedené lidi
 register_err_short_login:	U¾ivatelské jméno je pøíli¹ krátké. Musí mít alespoò 4 znaky
 register_err_login_notallowed:	Toto u¾ivatelské jméno není povoleno
@@ -620,7 +620,7 @@ reset_err_rstconf_title:	Informace
 reset_err_rstconf_msg:		Bìhem pár minut by jste mìl(a) dostat pokyny emailem
 reset_newpass_title:		Vynulování hesla
 reset_newpass_msg:		Dobrý den,\n\nna základì va¹eho po¾adavku jsou vám zasílány pøihla¹ovací informace.\n\nU¾ivatelské jméno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím, uva¾te, ¾e va¹e heslo by nastaveno na vý¹e uvedený údaj. Pokud chcete\nzmìnit své heslo, mù¾ete tak uèinit pøes nastavení va¹eho úètu na:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Va¹e heslo vám bylo zasláno emailem. Mìl(a) by jste ho dostat bìhem nìkolika minut. Prosím, zkontrolujte si svou emailovou schránku.<br>.<br>.<br>
+reset_login_notify:		Va¹e heslo vám bylo zasláno emailem. Mìl(a) by jste ho dostat bìhem nìkolika minut. Prosím, zkontrolujte si svou emailovou schránku.<br />.<br />.<br />
 search_update:			Hledáte pøíspìvky
 selmsg_update:			Prohlí¾íte si <a href="{TEMPLATE: selmsg_update_lnk}">dne¹ní pøíspìvky</a>
 showposts_update:		Prohlí¾íte si pøíspìvek od: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -635,7 +635,7 @@ ERR_access_msg:			Nemáte dostateèné pravomoci na provedení této akce
 ERR_registration_disabled_ttl:	Registrace vypnuta
 ERR_registration_disabled_msg:	Administrátor vypnul registraci, prosím, zkuste to pozdìji
 ERR_emailconf_ttl:		CHYBA: Vá¹ úèet je¹tì není potvrzen
-ERR_emailconf_msg:		Je¹tì jste nepotvrdil(a) svùj úèet pøes email<br><table border=0><tr><td><ol><li>Pokud jste je¹tì nedostal(a) potvrzující email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliknìte zde</a><li>Pokud {VAR: usr_d->email} není va¹e správná emailová adresa <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliknìte zde</a></ol></td></tr></table>
+ERR_emailconf_msg:		Je¹tì jste nepotvrdil(a) svùj úèet pøes email<br /><table border=0><tr><td><ol><li>Pokud jste je¹tì nedostal(a) potvrzující email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliknìte zde</a><li>Pokud {VAR: usr_d->email} není va¹e správná emailová adresa <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliknìte zde</a></ol></td></tr></table>
 ERR_user_ttl:			CHYBA: ®ádný takový u¾ivatel není
 ERR_user_msg:			®ádný takový u¾ivatel není
 ERR_systemerr_ttl:		CHYBA: Systémová chyba
@@ -732,7 +732,7 @@ post_quote:			Citát:
 userinfo_referals:		Pøivedení u¾ivatelé:
 userinfo_referals_count:	{VAR: referals} pøivedených èlenù
 pm_no_space_title:		U¾ není prostor!
-pm_no_space_msg:		Va¹e po¹ta pøekroèila povolenou velikost <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytù</b>. Va¹e po¹ta má <b>{VAR: fldr_size} bytù</b>.<br><br><font class="ErrorText">Sma¾te nìjaké staré zprávy na uvolnìní místa</font>.
+pm_no_space_msg:		Va¹e po¹ta pøekroèila povolenou velikost <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytù</b>. Va¹e po¹ta má <b>{VAR: fldr_size} bytù</b>.<br /><br /><font class="ErrorText">Sma¾te nìjaké staré zprávy na uvolnìní místa</font>.
 pm_space_indct_msg:		Va¹e po¹toví schránka je z {VAR: percent_full}% plná.
 th_expr_never:			Nikdy
 th_expr_one_hr:			1 hodina
@@ -854,7 +854,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smtp.inc.t,v 1.24 2007/01/01 18:23:46 hackie Exp $
+* $Id: smtp.inc.t,v 1.25 2009/01/18 08:22:08 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,7 +32,7 @@ class fud_smtp
 	function open_smtp_connex()
 	{
 		if( !($this->fs = fsockopen($GLOBALS['FUD_SMTP_SERVER'], $GLOBALS['FUD_SMTP_PORT'], $errno, $errstr, $GLOBALS['FUD_SMTP_TIMEOUT'])) ) {
-			exit("ERROR: stmp server at ".$GLOBALS['FUD_SMTP_SERVER']." is not available<br>\nAdditional Problem Info: $errno -> $errstr <br>\n");
+			exit("ERROR: stmp server at ".$GLOBALS['FUD_SMTP_SERVER']." is not available<br />\nAdditional Problem Info: $errno -> $errstr <br />\n");
 		}
 		if (!$this->get_return_code(220)) {
 			return;
@@ -122,19 +122,19 @@ class fud_smtp
 	function send_smtp_email()
 	{
 		if (!$this->open_smtp_connex()) {
-			exit("OC: Invalid SMTP return code: ".$this->last_ret."<br>\n");
+			exit("OC: Invalid SMTP return code: ".$this->last_ret."<br />\n");
 		}
 		if (!$this->send_from_hdr()) {
 			$this->close_connex();
-			exit("FH: Invalid SMTP return code: ".$this->last_ret."<br>\n");
+			exit("FH: Invalid SMTP return code: ".$this->last_ret."<br />\n");
 		}
 		if (!$this->send_to_hdr()) {
 			$this->close_connex();
-			exit("TH: Invalid SMTP return code: ".$this->last_ret."<br>\n");
+			exit("TH: Invalid SMTP return code: ".$this->last_ret."<br />\n");
 		}
 		if (!$this->send_data()) {
 			$this->close_connex();
-			exit("SD: Invalid SMTP return code: ".$this->last_ret."<br>\n");
+			exit("SD: Invalid SMTP return code: ".$this->last_ret."<br />\n");
 		}
 
 		$this->close_connex();

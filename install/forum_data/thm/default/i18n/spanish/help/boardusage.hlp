@@ -3,7 +3,7 @@ TOPIC_HELP:
 Para iniciar un nuevo hilo deberá pulsar sobre el botón "Nuevo Hilo" que puede encontrar en las páginas con el
 listado de los hilos y mensajes. A continuación se le presentará un editor para su mensaje que le permitirá teclear
 el contenido de su mensaje. Para responder a mensajes previos, simplemente pulse los botones "Resp." o "Citar" en
-el extremo inferior derecho de cada mensaje.<br>
+el extremo inferior derecho de cada mensaje.<br />
 En algunos casos tras pulsar en esos botones le aparecerá un mensaje sobre error de permisos. Esto significa que debe
 identificarse o registrarse en el foro para adquirir privilegios suficientes para enviar mensajes, o que el envío de
 mensajes a ese foro está restringido.
@@ -14,19 +14,19 @@ TOPIC_HELP:
 Salvo que el administrador lo desactive, puede <a href="{ROOT}?t=search&amp;%_rsid%">buscar mensajes</a> previamente escritos en
 los foros. Puede buscar un mensaje especificando una o más palabras clave en los mensajes y elegir dónde deben aparecer dichas 
 palabras, bien sólo en el asunto de los mensajes, bien en el contenido de los mismos (incluyendo el asunto). También puede limitar
-la búsqueda a un foro de su elección si no desea hacer una búsqueda en todos los foros.<br>
+la búsqueda a un foro de su elección si no desea hacer una búsqueda en todos los foros.<br />
 También puede buscar otros miembros del foro, a partir de su apodo ("nick") o de su dirección de correo electrónico mediante el
 <a href="{ROOT}?t=finduser&amp;%_rsid%">formulario de búsqueda de usuarios</a>.
 
 
 TOPIC_TITLE: <a name="email">¿Puedo enviar emails a otros miembros del foro?</a>
 TOPIC_HELP:
-Salvo que el administrador lo desactive, podrá mantenerse en contacto con otros miembros del foro mediante correo electrónico.<br>
+Salvo que el administrador lo desactive, podrá mantenerse en contacto con otros miembros del foro mediante correo electrónico.<br />
 Para enviar un email a un miembro, puede buscarlo en la página de la lista de miembros y entonces pulsar el botón <b>Contactar</b>,
 o simplemente pulsar sobre el botón <b>Email</b> situado junto a cada uno de sus mensajes. Esto le llevará a una nueva págian donde
 tendrá la oportunidad de introducir el asunto de mensaje y el cuerpo del mismo. Cuando haya acabado, pulse en el botón <b>Email</b> y
 el correo electrónico se enviará al destinatarario.
-<br><br>
+<br /><br />
 Además de enviar correos electrónicos a los miembros del foro, también puede usar el enlace <b>Enviar a un amigo</b> para recomendar
 una página en concreto a su amigo, enviándole una URL junto con la descripción. Puede encontrar este enlace en las páginas de hilos
 y en la vista de mensajes del foro.
@@ -39,7 +39,7 @@ Para acceder al sistema de mensajería privada, pulse sobre el enlace <a href="{R
 puede encontrar en la parte superior derecha de cada página. Si tiene algún mensaje privado sin leer este enlace le indicará cuántos
 mensajes sin leer tiene.
 <p>
-<b>Envío de un mensaje privado</b><br>
+<b>Envío de un mensaje privado</b><br />
 Los mensajes privados son muy parecidos a los correos electrónicos, pues debe especificar la persona o personas a los que desea enviar el
 mensaje, introducir el asunto del mismo y el mensaje propiamente dicho, y a continuación pulsar "Enviar". Hay dos enlaces que le permitirán
 encontrar fácilmente los miembros del foro a los que desea enviar el mensaje. <b>Seleccionar de lista de amigos</b>, que le permitirá 
@@ -63,7 +63,7 @@ ubicado en la <b>Basura</b> el mensaje se borrará de forma permanente.
 <p>
 <b>Seguimiento de mensajes</b><p>
 Cuando envía un mensaje tiene la posibilidad de solicitar un comprobante de lectura, para cuando el destinatario lea el mensaje usted
-reciba un mensaje del sistema notificándole de que se ha leído su mensaje.<br>
+reciba un mensaje del sistema notificándole de que se ha leído su mensaje.<br />
 Sin embargo, si solicita tal mensaje de confirmación el destinatario podría optar por no enviarlo, de manera que si ha solicitado una
 confirmación de lectura y no la ha recibido esto no significa necesariamente que aún no hayan leído su mensaje.
 
@@ -73,7 +73,7 @@ TOPIC_HELP:
 La lista de miembros es una lista completa de todos los usuarios registrados en un foro.
 Puede ordenar la lista de tres maneras: alfabéticamente por el alias o "nick", por el número de mensajes enviados y por la fecha
 en que se incorporó al foro.
-<br><br>
+<br /><br />
 La lista de miembros también tiene capacidades de búsqueda, permitiéndole encontrar a un miembro en concreto bien por su alias
 o "nick", bien por su dirección de correo electrónico.
 

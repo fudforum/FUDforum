@@ -255,8 +255,8 @@ finduser_action:		操作
 yes:				はい
 no:				いいえ
 register_email:			電子メール
-edit_time_limit:		<br><b>編集時間制限</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> 分です
-no_edit_time_limit:		<br><b>編集時間制限</b>: <b>無制限</b>
+edit_time_limit:		<br /><b>編集時間制限</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> 分です
+no_edit_time_limit:		<br /><b>編集時間制限</b>: <b>無制限</b>
 pmuserloc_login:		ログイン:
 pmuserloc_submit:		送信
 pmuserloc_user:			ユーザー
@@ -275,7 +275,7 @@ register_avatar_type:		アバタータイプ:
 register_del_avatar:		アバター削除
 register_avatar:		アバター:
 register_sel_avatar:		アバター選択
-register_custom_avatar_rules:	The custom avatar will not appear until it is approved by the administrator.<br><span class="SmallText">The avatar, should be no larger than <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> and must be in <b>jpg</b>, <b>gif</b> or <b>png</b> format.</span>
+register_custom_avatar_rules:	The custom avatar will not appear until it is approved by the administrator.<br /><span class="SmallText">The avatar, should be no larger than <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> and must be in <b>jpg</b>, <b>gif</b> or <b>png</b> format.</span>
 register_custom_avatar_url:	カスタムアバター URL:
 register_preview:		プレビュー
 register_custom_avatar_upload:	カスタムアバターファイル:
@@ -328,7 +328,7 @@ my_buddies:			自分の仲間
 add_buddy:			仲間を追加
 add:				追加
 buddy_search:			Enter the login of the user you wish to add.
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 buddy_remove:			削除
 post_normal:			通常
 post_sticky:			スティッキ
@@ -410,7 +410,7 @@ login_cookie_expired:		cookie がの期限が過ぎました。もう一度ロ�
 login_perm_denied:		匿名のユーザは要求されたリソースにアクセスする許可がありません。許可を得るためにログインしなければなりません。
 login_want_to_register:		登録しませんか?
 login_forgot_passwd:		パスワードを忘れました
-login_use_cookie:		cookie を使う<br><span class="SmallText">If you&#39;re using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br>If you leave this option selected then you will be automatically logged-into the forum the next time you visit.
+login_use_cookie:		cookie を使う<br /><span class="SmallText">If you&#39;re using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br />If you leave this option selected then you will be automatically logged-into the forum the next time you visit.
 login_login:			ログイン
 login_login_btn:		ログイン
 login_name_required:		ログイン名が必要です。
@@ -535,7 +535,7 @@ buddy_list_err_nouser_title:	ユーザを加えることができませんでし
 buddy_list_update:		Browsing own buddy list
 core_err_invinp_title:		無効な入力
 core_err_invinp_err:		無効なリンクを追跡しました。どうやってここに着いたか <a href="mailto:{GVAR: ADMIN_EMAIL}">サイト管理者</a> に通知してください。
-core_adm_login_msg:		<br>管理者は <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ここ</a> でログインできます。
+core_adm_login_msg:		<br />管理者は <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ここ</a> でログインできます。
 email_err_unabletoemail_title:	ERROR: Unable to e-mail
 email_err_unabletoemail_msg:	管理者により電子メールシステムが無効です。
 email_error_unabletolocaddr:	Sorry, the system was unable to e-mail {VAR-HTML: _POST['tx_name']} because it was unable to determine the e-mail address
@@ -577,9 +577,9 @@ post_err_noannontopics_msg2:	<fieldset><legend>ERROR: 特権不十分</legend>�
 post_err_noannonposts_msg2:	<fieldset><legend>ERROR: 特権不十分</legend>名ユーザーは返信を許可されていません。</fieldset><br />
 post_err_floodtrig_title:	エラー: Post flood triggered.
 post_err_floodtrig_msg:		{VAR: tm} 秒後にもう一度試してください。
-post_err_attach_size:		<span class="ErrorText">添付ファイルが大きすぎます (許可された制限 {VAR: MAX_F_SIZE} バイトを超えています。</span><br>
-post_err_attach_ext:		<span class="ErrorText">The file you are trying to upload does not match the allowed file types.</span><br>
-post_err_attach_filelimit:	<span class="ErrorText">許可されたファイル数より多くのファイルをアップロードしようとしています。</span><br>
+post_err_attach_size:		<span class="ErrorText">添付ファイルが大きすぎます (許可された制限 {VAR: MAX_F_SIZE} バイトを超えています。</span><br />
+post_err_attach_ext:		<span class="ErrorText">The file you are trying to upload does not match the allowed file types.</span><br />
+post_err_attach_filelimit:	<span class="ErrorText">許可されたファイル数より多くのファイルをアップロードしようとしています。</span><br />
 post_err_passwd:		パスワードが違います。
 post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -594,7 +594,7 @@ postcheck_invalid_email:	友達の有効な電子メールアドレスを入力�
 postcheck_email_subject:	件名がなければ電子メールを送信できません。
 postcheck_email_body:		メッセージ本文がなければ電子メールを送信できません。
 private_msg_notify_subj:	次の奇特通知: {VAR: m->subject}
-private_msg_notify_body:	こんにちは。<br>{VAR: usr->login} さんは {DATE: m->post_stamp %Y %B %d (%a) %H:%M} に書いたプライベートメッセージ「{VAR: m->subject}」を読みました。
+private_msg_notify_body:	こんにちは。<br />{VAR: usr->login} さんは {DATE: m->post_stamp %Y %B %d (%a) %H:%M} に書いたプライベートメッセージ「{VAR: m->subject}」を読みました。
 referals_update:		Browsing referrals
 register_err_short_login:	選択したログイン名は短すぎます。ログイン名は少なくとも 4 文字なければいけません。
 register_err_login_notallowed:	このログイン名は許可していません。
@@ -625,7 +625,7 @@ reset_err_rstconf_title:	情報
 reset_err_rstconf_msg:		数分で電子メールの説明書を受信しているはずです。
 reset_newpass_title:		パスワードをリセットする
 reset_newpass_msg:		Hello,\n\nAs requested, your login information appears below:\n\nログイン: {VAR: ui[1]}\nパスワード: {VAR: passwd}\n\nパスワードが上の値にリセットされたことに注意してください。\nパスワードを変更したい場合、ユーザー情報コントロールパネルによって行います:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		パスワードは電子メールで送信されました。数分でそれを受信しているはずです。<br>
+reset_login_notify:		パスワードは電子メールで送信されました。数分でそれを受信しているはずです。<br />
 search_update:			メッセージ検索中
 selmsg_update:			<a href="{TEMPLATE: selmsg_update_lnk}">本日の投稿</a> を参照しました。
 showposts_update:		Viewing posts by: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -641,7 +641,7 @@ ERR_access_msg:			この操作を行なう必要な許可がありません。
 ERR_registration_disabled_ttl:	登録は無効です。
 ERR_registration_disabled_msg:	管理者は登録を無効にしています。後で確認してください。
 ERR_emailconf_ttl:		エラー: アカウントはまだ確認されていません。
-ERR_emailconf_msg:		電子メールによってアカウントをまだ確認していません。<br><table border=0><tr><td><ol><li>確認電子メールを受け取っていなければ、<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">ここをクリック</a>してください。<li>{VAR: usr_d->email} が正確な電子メールアドレスでない場合は、<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">ここをクリック</a>してください。</ol></td></tr></table>
+ERR_emailconf_msg:		電子メールによってアカウントをまだ確認していません。<br /><table border=0><tr><td><ol><li>確認電子メールを受け取っていなければ、<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">ここをクリック</a>してください。<li>{VAR: usr_d->email} が正確な電子メールアドレスでない場合は、<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">ここをクリック</a>してください。</ol></td></tr></table>
 ERR_user_ttl:			エラー: ユーザーが居ません
 ERR_user_msg:			そのユーザーは居ません
 ERR_systemerr_ttl:		エラー: システムエラー
@@ -739,7 +739,7 @@ post_quote:			引用:
 userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} メンバー
 pm_no_space_title:		空きがありません!
-pm_no_space_msg:		プライベートメッセージのフォルダーが許可された <b>{GVAR: MAX_PMSG_FLDR_SIZE} バイトのサイズを超えました。現在 <b>{VAR: fldr_size} バイト</b> のメッセージがあります。<br><br><span class="ErrorText">空きを整理するため、いくつかのメッセージを削除します。</span>
+pm_no_space_msg:		プライベートメッセージのフォルダーが許可された <b>{GVAR: MAX_PMSG_FLDR_SIZE} バイトのサイズを超えました。現在 <b>{VAR: fldr_size} バイト</b> のメッセージがあります。<br /><br /><span class="ErrorText">空きを整理するため、いくつかのメッセージを削除します。</span>
 pm_space_indct_msg:		プライベートメッセージのフォルダーは {VAR: percent_full}% 使用しています。
 th_expr_never:			永久
 th_expr_one_hr:			1 時間

@@ -254,8 +254,8 @@ finduser_action:		활동
 yes:				Yes
 no:				No
 register_email:			이메일
-edit_time_limit:		<br><b>Editing Time Limit</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
-no_edit_time_limit:		<br><b>Editing Time Limit</b>: <b>Unlimited</b>
+edit_time_limit:		<br /><b>Editing Time Limit</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
+no_edit_time_limit:		<br /><b>Editing Time Limit</b>: <b>Unlimited</b>
 pmuserloc_login:		로그인:
 pmuserloc_submit:		제출
 pmuserloc_user:			사용자
@@ -274,7 +274,7 @@ register_avatar_type:		아바타 형태:
 register_del_avatar:		아바타 삭제
 register_avatar:		아바타:
 register_sel_avatar:		아바타 선택
-register_custom_avatar_rules:	사용자가 설정한 아바타는 관리자의 승인후에 나타납니다.<br><span class="SmallText">The avatar, should be no larger than <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> and must be in <b>jpg</b>, <b>gif</b> or <b>png</b> format.</span>
+register_custom_avatar_rules:	사용자가 설정한 아바타는 관리자의 승인후에 나타납니다.<br /><span class="SmallText">The avatar, should be no larger than <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> and must be in <b>jpg</b>, <b>gif</b> or <b>png</b> format.</span>
 register_custom_avatar_url:	사용자 지정 아바타 URL:
 register_preview:		미리보기
 register_custom_avatar_upload:	아바타 파일:
@@ -327,7 +327,7 @@ my_buddies:			나의 친구
 add_buddy:			친구 추가
 add:				추가
 buddy_search:			추가를 위해 로그인 하십시오.
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 buddy_remove:			제거
 post_normal:			일반
 post_sticky:			끈끈이
@@ -409,7 +409,7 @@ login_cookie_expired:		쿠키가 만료되었습니다. 쿠키를 갱신하십�
 login_perm_denied:		당신은 현재 익명사용자 상태 입니다. 로그인 하십시오.
 login_want_to_register:		등록을 원하십니까?
 login_forgot_passwd:		패스워드 분실
-login_use_cookie:		쿠키사용<br><span class="SmallText">If you&#39;re using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br>If you leave this option selected then you will be automatically logged-into the forum the next time you visit.
+login_use_cookie:		쿠키사용<br /><span class="SmallText">If you&#39;re using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br />If you leave this option selected then you will be automatically logged-into the forum the next time you visit.
 login_login:			로그인
 login_login_btn:		로그인
 login_name_required:		사용자 ID가 필요합니다
@@ -534,7 +534,7 @@ buddy_list_err_nouser_title:	사용자 추가를 할 수 없습니다
 buddy_list_update:		친구 목록 탐색
 core_err_invinp_title:		입력 오류
 core_err_invinp_err:		잘못된 링크 입니다. <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>에게 통보하여 주십시오.
-core_adm_login_msg:		<br>최고관리자는 <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">여기</a>로 로그인 할 수 있습니다.
+core_adm_login_msg:		<br />최고관리자는 <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">여기</a>로 로그인 할 수 있습니다.
 email_err_unabletoemail_title:	오류: 이메일 발송 불가
 email_err_unabletoemail_msg:	최고관리자가 이메일 발송을 금지시켰습니다.
 email_error_unabletolocaddr:	죄송합니다. 이메일 발송이 금지되었습니다. {VAR-HTML: _POST['tx_name']}
@@ -578,9 +578,9 @@ post_err_noannontopics_msg2:	<fieldset><legend>오류: Insufficient Privileges</
 post_err_noannonposts_msg2:	<fieldset><legend>오류: Insufficient Privileges</legend>Anonymous users are not allowed to reply.</fieldset><br />
 post_err_floodtrig_title:	오류: Post flood triggered.
 post_err_floodtrig_msg:		{VAR: tm}초 안에 다시시도해 주십시오.
-post_err_attach_size:		<span class="ErrorText">파일 크기가 너무 큽니다 (최대 크기인 {VAR: MAX_F_SIZE} bytes를 초과했습니다)</span><br>
-post_err_attach_ext:		<span class="ErrorText">승인된 파일 형식이 아닙니다. 다시한번 확인 바랍니다.</span><br>
-post_err_attach_filelimit:	<span class="ErrorText">파일 갯수가 초과 되었습니다.</span><br>
+post_err_attach_size:		<span class="ErrorText">파일 크기가 너무 큽니다 (최대 크기인 {VAR: MAX_F_SIZE} bytes를 초과했습니다)</span><br />
+post_err_attach_ext:		<span class="ErrorText">승인된 파일 형식이 아닙니다. 다시한번 확인 바랍니다.</span><br />
+post_err_attach_filelimit:	<span class="ErrorText">파일 갯수가 초과 되었습니다.</span><br />
 post_err_passwd:		패스워드가 일치하지 않습니다.
 post_reply_update:		답글 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name}
 post_topic_update:		<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>에 새 토픽 쓰기
@@ -595,7 +595,7 @@ postcheck_invalid_email:	검증된 이메일 주소를 입력하십시오.
 postcheck_email_subject:	전송 불가: 제목이 없습니다.
 postcheck_email_body:		전송 불가: 본문 내용 없음.
 private_msg_notify_subj:	공지사항: {VAR: m->subject}
-private_msg_notify_body:	Hello,<br>{VAR: usr->login} has read your private message, "{VAR: m->subject}", on {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Hello,<br />{VAR: usr->login} has read your private message, "{VAR: m->subject}", on {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		추천 탐색
 register_err_short_login:	로그인 ID는 최소한 4자 이상이어야 합니다.
 register_err_login_notallowed:	허가되지 않은 사용자 이름 입니다.
@@ -626,7 +626,7 @@ reset_err_rstconf_title:	정보
 reset_err_rstconf_msg:		몇분 내로 당신의 이메일로 발송될 예정입니다.
 reset_newpass_title:		패스워드 초기화
 reset_newpass_msg:		Hello,\n\nAs requested, your login information appears below:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease note that your password has been reset to the value above. If you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		패스워드가 이메일로 발송되었습니다. 몇 분내로 도착될 것 입니다.<br>
+reset_login_notify:		패스워드가 이메일로 발송되었습니다. 몇 분내로 도착될 것 입니다.<br />
 search_update:			게시글 검색중
 selmsg_update:			<a href="{TEMPLATE: selmsg_update_lnk}">오늘의&#39; 게시글</a> 탐색
 showposts_update:		Viewing posts by: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -642,7 +642,7 @@ ERR_access_msg:			You do not have the required permissions to perform this actio
 ERR_registration_disabled_ttl:	등록불가
 ERR_registration_disabled_msg:	The administrator has disabled registration. Please try again later.
 ERR_emailconf_ttl:		오류: 계정 확인 절차를 마치지 않았습니다
-ERR_emailconf_msg:		이메일을 이용한 계정 확인 절차를 마치지 않았습니다<br><table border=0><tr><td><ol><li>만일 이메일을 받지 못했다면, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">여기</a>를 클릭하십시오.<li>만일 {VAR: usr_d->email} 이메일 주소가 틀리다면 , <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">여기</a>를 클릭 하십시오.</ol></td></tr></table>
+ERR_emailconf_msg:		이메일을 이용한 계정 확인 절차를 마치지 않았습니다<br /><table border=0><tr><td><ol><li>만일 이메일을 받지 못했다면, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">여기</a>를 클릭하십시오.<li>만일 {VAR: usr_d->email} 이메일 주소가 틀리다면 , <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">여기</a>를 클릭 하십시오.</ol></td></tr></table>
 ERR_user_ttl:			오류: 일치하는 사용자가 없습니다
 ERR_user_msg:			일치하는 사용자가 없습니다
 ERR_systemerr_ttl:		오류: 시스템 오류
@@ -740,7 +740,7 @@ post_quote:			인용:
 userinfo_referals:		추천 사용자:
 userinfo_referals_count:	{VAR: referals} 멤버
 pm_no_space_title:		좌측 공간 없음!
-pm_no_space_msg:		쪽지함의 최대 저장 크기인 <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes를</b> 초관하였습니다. 현재 사용 중인 크기는 <b>{VAR: fldr_size} bytes 입니다.</b> worth of messages. <br><br><span class="ErrorText">불필요한 파일을 정리하기 바랍니다.</span>.
+pm_no_space_msg:		쪽지함의 최대 저장 크기인 <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes를</b> 초관하였습니다. 현재 사용 중인 크기는 <b>{VAR: fldr_size} bytes 입니다.</b> worth of messages. <br /><br /><span class="ErrorText">불필요한 파일을 정리하기 바랍니다.</span>.
 pm_space_indct_msg:		Your private message folders are {VAR: percent_full}% full.
 th_expr_never:			무제한
 th_expr_one_hr:			1 시간

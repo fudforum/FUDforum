@@ -6,30 +6,30 @@ Comme dans la plupart des cas, l'administrateur ne vous permet pas d'utiliser du
 <p>
 <b>Voici une liste des marques FUDcode supportées et quelques exemples courts sur leur utilisation</b>
 
-<b>Hyperliens vers une URL</b><br><br>
+<b>Hyperliens vers une URL</b><br /><br />
 
-Le forum peut automatiquement récupérer plusieurs formes d'URLs, par exemple&nbsp;:<br>
-	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br>
+Le forum peut automatiquement récupérer plusieurs formes d'URLs, par exemple&nbsp;:<br />
+	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br />
 sera automatiquement récupéré comme une URL et converti en une URL valide qui ressemblera à cela&nbsp;:
-	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br>
+	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br />
 	
 	
 Vous pouvez également créer une URL vous-même en utilisant du FUDcode, ceci peut être fait de 2 façons, une façon simple fonctionnerait comme ceci&nbsp;:
-	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br>
+	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br />
 ceci résultera en la génération du lien suivant&nbsp;:
-	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br>
-Vous pouvez ajouter une description à votre URL en utilisant une syntaxe différente dans <font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">My Homepage</font>[/URL]</b></font> ce code résultera en la génération du lien suivant&nbsp;:<br>
-	<div align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></div><br>
+	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br />
+Vous pouvez ajouter une description à votre URL en utilisant une syntaxe différente dans <font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">My Homepage</font>[/URL]</b></font> ce code résultera en la génération du lien suivant&nbsp;:<br />
+	<div align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></div><br />
 <p>
-<b>Hyperliens vers un e-mail</b><br><br>
-         Pour créer un lien vers un e-mail, entrez simplement l'adresse e-mail comme elle apparaîtrait normalement, par exemple&nbsp;:<br>
-<div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br>
-       le forum comprendra automatiquement et créera un lien. De plus, il est également possible de créer un vrai lien vers un e-mail en utilisant ce format <br>
-<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Cliquez ici pour envoyer un e-mail à notre support technique<font color="#ff0000"><b>[/email]</b></font><br></div>
-<br>
-<b>Style de texte</b><br>
-         Il existe un certain nombre de marques que vous pouvez utiliser pour appliquer un style à un texte, ce sont&nbsp;:<br>
-<br>
+<b>Hyperliens vers un e-mail</b><br /><br />
+         Pour créer un lien vers un e-mail, entrez simplement l'adresse e-mail comme elle apparaîtrait normalement, par exemple&nbsp;:<br />
+<div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br />
+       le forum comprendra automatiquement et créera un lien. De plus, il est également possible de créer un vrai lien vers un e-mail en utilisant ce format <br />
+<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Cliquez ici pour envoyer un e-mail à notre support technique<font color="#ff0000"><b>[/email]</b></font><br /></div>
+<br />
+<b>Style de texte</b><br />
+         Il existe un certain nombre de marques que vous pouvez utiliser pour appliquer un style à un texte, ce sont&nbsp;:<br />
+<br />
 <ul>
   <li><font color="#ff0000"><b>[b]</b></font>gras<font color="#ff0000"><b>
          [/b]</b></font> produit du texte <b>gras</b></li>
@@ -42,7 +42,7 @@ Vous pouvez ajouter une description à votre URL en utilisant une syntaxe différe
    <li><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>
           [/sup]</b></font> produces <sup>superscript</sup> text</li>
 </ul>
-         Il est également possible de contrôler la couleur, la taille et même la police.<br>
+         Il est également possible de contrôler la couleur, la taille et même la police.<br />
 <ul>
   <li><font color="#ff0000"><b>[color=red]</b></font>texte rouge<font color="#ff0000"><b>
          [/color]</b></font> produit <font color="#ff0000">texte rouge</font></li>
@@ -51,13 +51,13 @@ Vous pouvez ajouter une description à votre URL en utilisant une syntaxe différe
   <li><font color="#ff0000"><b>[font=courier]</b></font>texte<font color="#ff0000"><b>
         [/font]</b></font> produit un texte utilisant la police nommée <font face="Courier New, Courier, monospace"></font></li>
 </ul>
-        Il est aussi possible de combiner différentes marques de format&nbsp;:<br>
-<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Texte formaté<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
-       cet exemple produit&nbsp;:<br>
+        Il est aussi possible de combiner différentes marques de format&nbsp;:<br />
+<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Texte formaté<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></div>
+       cet exemple produit&nbsp;:<br />
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Texte formaté</b></i></u></font></div>
-<br>
-<br>
-<b>Alignement de texte</b><br>
+<br />
+<br />
+<b>Alignement de texte</b><br />
 FUDcode supporte l'alignement du texte par la marque [align] ce qui vous permet d'aligner votre texte de 3 façons&nbsp;:
 <ul>
 	<li><font color="#ff0000"><b>[align=center]</b></font>texte centré<font color="#ff0000"><b>[/align]</b></font> produit&nbsp;:</li>
@@ -67,83 +67,83 @@ FUDcode supporte l'alignement du texte par la marque [align] ce qui vous permet 
 	<li><font color="#ff0000"><b>[align=right]</b></font>aligné à droite<font color="#ff0000"><b>[/align]</b></font> produit&nbsp;:</li>
 		<div align="right">aligné à droite</div>	
 </ul>
-<br>
-<br>
-<b>Différentes listes</b><br>
-      Vous pouvez créer différents types de listes en utiliser Form Code:<br>
-<br>
-      Liste à puce non-ordrée&nbsp;:<br>
-<font color="#ff0000"><b>[list]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>premier élément<br>
-<font color="#ff0000"><b>[*]</b></font>deuxième élément<br>
-<font color="#ff0000"><b>[/list]<br>
-</b></font><br>
-      produirait<br>
+<br />
+<br />
+<b>Différentes listes</b><br />
+      Vous pouvez créer différents types de listes en utiliser Form Code:<br />
+<br />
+      Liste à puce non-ordrée&nbsp;:<br />
+<font color="#ff0000"><b>[list]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>premier élément<br />
+<font color="#ff0000"><b>[*]</b></font>deuxième élément<br />
+<font color="#ff0000"><b>[/list]<br />
+</b></font><br />
+      produirait<br />
 <ul>
   <li>premier élément</li>
   <li>deuxième élément</li>
 </ul>
-      Il est possible d'utiliser différents types de listes, par exemple, pour créer une liste numérique ordrée&nbsp;:<br>
-<font color="#ff0000"><b>[list type=1]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>premier élément<br>
-<font color="#ff0000"><b>[*]</b></font>deuxième élément<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
-     qui produit&nbsp;:<br>
+      Il est possible d'utiliser différents types de listes, par exemple, pour créer une liste numérique ordrée&nbsp;:<br />
+<font color="#ff0000"><b>[list type=1]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>premier élément<br />
+<font color="#ff0000"><b>[*]</b></font>deuxième élément<br />
+<font color="#ff0000"><b>[/list]</b></font><br />
+     qui produit&nbsp;:<br />
 <ol>
   <li>premier élément</li>
-  <li>deuxième élément<br>
+  <li>deuxième élément<br />
   </li>
 </ol>
-     pour créer une liste de A à Z&nbsp;:<br>
-<font color="#ff0000"><b>[list type=A]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>premier élément<br>
-<font color="#ff0000"><b>[*]</b></font>deuxième élément<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
-<br>
-     qui produit&nbsp;:<br>
+     pour créer une liste de A à Z&nbsp;:<br />
+<font color="#ff0000"><b>[list type=A]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>premier élément<br />
+<font color="#ff0000"><b>[*]</b></font>deuxième élément<br />
+<font color="#ff0000"><b>[/list]</b></font><br />
+<br />
+     qui produit&nbsp;:<br />
 <ol type="a">
   <li>premier élément</li>
   <li>deuxième élément</li>
 </ol>
-<b>Ajouter des images</b><br>
+<b>Ajouter des images</b><br />
     Il est possible d'inclure des images intégrées avec le message en utilisant des marques <font color="#ff0000"><b>
-    [img][/img]</b></font>. <br>
-<br>
-    Ainsi, par exemple,<br>
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
-    va insérer une image dans le message tel que&nbsp;:<br>
-<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br></div>
+    [img][/img]</b></font>. <br />
+<br />
+    Ainsi, par exemple,<br />
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
+    va insérer une image dans le message tel que&nbsp;:<br />
+<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br /></div>
     De plus, vous pouvez créer des liens avec des images en les incluant dans une marque
-<font color="#ff0000"><b>    [url][/url]</b></font> tel que <br>
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
-    qui va créer un lien avec image tel que <br>
-<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br></div><br>
+<font color="#ff0000"><b>    [url][/url]</b></font> tel que <br />
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+    qui va créer un lien avec image tel que <br />
+<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br /></div><br />
 
-<br><b>Citer d'autres messages</b><br>
+<br /><b>Citer d'autres messages</b><br />
   Il est possible de citer quelque chose qui a déjà été envoyé en mettant simplement des marques <font color="#ff0000"><b>[quote][/quote]</b></font> autour. 
-<br>
-<div align="Center"><font color="#ff0000"><b>[quote]</b></font>Hello World<font color="#ff0000"><b>[/quote]</b></font><br></div>
-  apparaîtrait tel que&nbsp;:<br>
+<br />
+<div align="Center"><font color="#ff0000"><b>[quote]</b></font>Hello World<font color="#ff0000"><b>[/quote]</b></font><br /></div>
+  apparaîtrait tel que&nbsp;:<br />
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hello World<br></td></tr></table>
+<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hello World<br /></td></tr></table>
 <p>
-<b>Code d'ordinateur et texte pré-formaté</b><br>
- Les marques <font color="#ff0000"><b>[code][/code]</b></font> permettent d'envoyer un texte exactement comme il est, en conservant le formatage relatif comme les tabulations et les espaces multiples. <br>
-<br>
- C'est utilisé ainsi&nbsp;: <br>
+<b>Code d'ordinateur et texte pré-formaté</b><br />
+ Les marques <font color="#ff0000"><b>[code][/code]</b></font> permettent d'envoyer un texte exactement comme il est, en conservant le formatage relatif comme les tabulations et les espaces multiples. <br />
+<br />
+ C'est utilisé ainsi&nbsp;: <br />
 <font color="#ff0000"><b>[code]</b></font>
-<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre>
-<font color="#ff0000"><b>[/code]</b></font><br>
-<br>
+<pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /></pre>
+<font color="#ff0000"><b>[/code]</b></font><br />
+<br />
  qui produit le texte exactement comme il est tapé en conservant le formatage. 
-<br>
-<br>
-<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
+<br />
+<br />
+<pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /><br /><br /></pre>
 <p>
-<b>PHP Code</b><br>
+<b>PHP Code</b><br />
 The <font color="#ff0000"><b>[php][/php]</b></font> tag allows you to post PHP scripts
-and have the forum automatically syntax highlight the code for easier readability.<br>
-<br>it used like this: <br>
+and have the forum automatically syntax highlight the code for easier readability.<br />
+<br />it used like this: <br />
 <font color="#ff0000"><b>[php]</b></font>
 <pre>
 function hello()
@@ -153,8 +153,8 @@ function hello()
 
 hello();
 </pre>
-<font color="#ff0000"><b>[/php]</b></font><br>
-<br>which produces:<br><br>
+<font color="#ff0000"><b>[/php]</b></font><br />
+<br />which produces:<br /><br />
 <code><font color="#000000">
 <font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
 
@@ -162,24 +162,24 @@ hello();
 </code>
 <p>
 
-<b>No Tag</b><br>
+<b>No Tag</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
 the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
 and not have them converted to equivalent HTML.
 <p>
 
-<b>Spoiler</b><br>
+<b>Spoiler</b><br />
 The <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> tag allows you to hide a portion of message
 from being displayed. To see the hidden portion the users must click a link that will display the 
 hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually 
-reloaded, instead a hidden layer is made visible.<br>
-<br>
-Here is an example of this tag in action: <br>
+reloaded, instead a hidden layer is made visible.<br />
+<br />
+Here is an example of this tag in action: <br />
 
 Visible part of the message
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br>Hidden part of the message</br>
-<font color="#ff0000"><b>[/spoiler]</b></font><br>
+<br />Hidden part of the message</br>
+<font color="#ff0000"><b>[/spoiler]</b></font><br />
 More visible text.
 
 <p>and the result:<p>
@@ -193,14 +193,14 @@ More visible text.
 <p>
 
 <p>
-<b>Acronym</b><br>
+<b>Acronym</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
 acronym and provide a full name when the user moves their mouse over the tag.
 <font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
 <p>
 
 <p>
-<b>Acronym</b><br>
+<b>Acronym</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
 acronym and provide a full name when the user moves their mouse over the tag.
 <font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
@@ -210,13 +210,13 @@ Vous pouvez également trouver que l'administrateur a activé les smileys, ce qui 
 
 TOPIC_TITLE: <a name="sml">Que sont les smileys/émoticônes&nbsp;?</a> 
 TOPIC_HELP:
-Les smileys sont de petites icônes que vous pouvez insérer dans votre message pour afficher différentes émotions et impressions. Si les smileys sont activés, une liste de smileys supportés par le forum sera affichée au dessus du champ du message où vous entrez votre message. Cliquer sur un smiley insérera ce smiley dans votre message.<br>
+Les smileys sont de petites icônes que vous pouvez insérer dans votre message pour afficher différentes émotions et impressions. Si les smileys sont activés, une liste de smileys supportés par le forum sera affichée au dessus du champ du message où vous entrez votre message. Cliquer sur un smiley insérera ce smiley dans votre message.<br />
 Des smileys communs peuvent être automatiquement insérés avec leurs images équivalentes, si vous ne désirez pas que ceci se produise, cliquez sur la case à cocher <b>Désactiver les smileys pour ce message</b>.<p>
 
 TOPIC_TITLE: <a name="polls">Comment utiliser les sondages&nbsp;?</a>
 TOPIC_HELP:
-Dans certains forums, il se peut que vous ayez la possibilité d'inclure des sondages dans vos messages. Les sondages vous permettent de poser une question et de fournir un certain nombre de réponses parmi lesquelles les autres membres du forum peuvent choisir. Pour garantir la précision, seuls les utilisateurs enregistrés peuvent voter.<br>
-Quand vous cliquez sur le lien <b>Créer un sondage</b> situé sur la page de message, un pop-up apparaîtra vous permettant de créer un sondage avec plusieurs réponses de choix possibles. Quand vous avez fini, cliquez simplement sur le bouton <b>Éditer</b> et vous serez ramené à la page de message et le sondage que vous aurez créé sera attaché au message.<br>
+Dans certains forums, il se peut que vous ayez la possibilité d'inclure des sondages dans vos messages. Les sondages vous permettent de poser une question et de fournir un certain nombre de réponses parmi lesquelles les autres membres du forum peuvent choisir. Pour garantir la précision, seuls les utilisateurs enregistrés peuvent voter.<br />
+Quand vous cliquez sur le lien <b>Créer un sondage</b> situé sur la page de message, un pop-up apparaîtra vous permettant de créer un sondage avec plusieurs réponses de choix possibles. Quand vous avez fini, cliquez simplement sur le bouton <b>Éditer</b> et vous serez ramené à la page de message et le sondage que vous aurez créé sera attaché au message.<br />
 Vous pouvez éditer un sondage existant en cliquant sur le lien <b>Éditer</b> ou vous pouvez enlever complètement le sondage en cliquant sur le lien <b>Supprimer</b>.
 <p>
 Vous n'aurez qu'une seule opportunité de voter dans un sondage, donc faites votre choix soigneusement, vous ne pourrez pas le changer ultérieurement.
@@ -224,13 +224,13 @@ Vous n'aurez qu'une seule opportunité de voter dans un sondage, donc faites votr
 TOPIC_TITLE: <a name="attach">Comment attacher des fichiers aux messages&nbsp;?</a>
 TOPIC_HELP:
 Si cela est permis par l'administrateur, vous pouvez attacher un ou plusieurs fichiers aux messages normaux comme aux messages privés. La possibilité de le faire est déterminée par forum, donc, même si vous pouvez attacher des fichiers dans un forum, il se peut que vous ne puissiez pas le faire dans un autre.
-<br>
+<br />
 Le formulaire de message indique 3 règles qui s'appliquent à vos attachements de fichier&nbsp;:<p>
-<b>Type de fichiers autorisés</b> - une liste des types de fichier que vous pouvez attacher à votre message. Par exemple, jpg, gif, png<br>
-<b>Taille maximale de fichier</b> - la taille maximale de chaque fichier que vous pouvez attacher à votre message<br>
+<b>Type de fichiers autorisés</b> - une liste des types de fichier que vous pouvez attacher à votre message. Par exemple, jpg, gif, png<br />
+<b>Taille maximale de fichier</b> - la taille maximale de chaque fichier que vous pouvez attacher à votre message<br />
 <b>Nombre maximum de fichiers par message</b> - le nombre de fichiers que vous pouvez attacher à votre message.
 <p>
-Pour attacher un fichier à votre message, cliquez sur le bouton <b>Browse</b> en bas de la page de message. En réponse, votre navigateur ouvrira une fenêtre de dialogue vous permettant de sélectionner un fichier que vous voulez envoyer depuis votre disque dur. Une fois que vous avez sélectionné un fichier, cliquez sur le bouton <b>Télécharger le fichier</b> pour attacher le fichier à votre message.<br>
+Pour attacher un fichier à votre message, cliquez sur le bouton <b>Browse</b> en bas de la page de message. En réponse, votre navigateur ouvrira une fenêtre de dialogue vous permettant de sélectionner un fichier que vous voulez envoyer depuis votre disque dur. Une fois que vous avez sélectionné un fichier, cliquez sur le bouton <b>Télécharger le fichier</b> pour attacher le fichier à votre message.<br />
 Si vous désirez enlever tout fichier attaché, cliquez simplement sur le bouton <b>Supprimer</b> situé à droite du fichier.
 
 TOPIC_TITLE: <a name="msgico">Qu'est-ce qu'une icône de message&nbsp;?</a>
@@ -239,8 +239,8 @@ Les icônes de message sont de petites images que vous pouvez choisir d'afficher 
 
 TOPIC_TITLE: <a name="edit">Comment éditer mes messages&nbsp;?</a>
 TOPIC_HELP:
-Si vous êtes un membre enregistré, il se peut que vous puissez éditer des messages que vous avez envoyés auparavant. Cette option peut être limitée dans le temps, donc il est possible que vous puissez éditer vos messages récents, mais pas les messages que vous avez effectués il y a un certain temps.<br>
-Si vous éditez votre message, une petite note sera ajoutée au début de votre message indiquant que le message a été édité par vous ainsi que la date et l'heure d'édition.<br>
+Si vous êtes un membre enregistré, il se peut que vous puissez éditer des messages que vous avez envoyés auparavant. Cette option peut être limitée dans le temps, donc il est possible que vous puissez éditer vos messages récents, mais pas les messages que vous avez effectués il y a un certain temps.<br />
+Si vous éditez votre message, une petite note sera ajoutée au début de votre message indiquant que le message a été édité par vous ainsi que la date et l'heure d'édition.<br />
 Si un modérateur ou un administrateur ont édité votre message, selon les paramètres du forum, vous serez ou non à même d'identifier le fait que votre message a été édité.
 
 TOPIC_TITLE: <a name="mod">Qui sont les modérateurs et administrateurs&nbsp;?</a> 

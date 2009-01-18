@@ -7,7 +7,7 @@ A la majoria dels fòrums li resultarà impossible obrir nous fils o respondre als
 	<li>Possibilitat d`enviar missatges privats a un o més membres del fòrum.
 	<li>Podrà escollir una zona horària perquè l`hora mostrada pel fòrum coincideixi amb l`oficial d`on viu
 </ul>
-Tret que s`indiqui el contrari el registre al fòrum és completament gratuït i solament necessita un mínim d`informació, tal com la seva adreça de correu electrònic i l`elecció d`un iedentificador o "nick".<br>
+Tret que s`indiqui el contrari el registre al fòrum és completament gratuït i solament necessita un mínim d`informació, tal com la seva adreça de correu electrònic i l`elecció d`un iedentificador o "nick".<br />
 Si està activat COPPA i té menys de 13 anys d`edat, haurà de fer que el seu tutor legal doni el seu consentiment abans que pugui usar el seu compte en el fòrum per a enviar missatges. Després de completar el procés de registre als fòrums amb COPPA activat, els membres menors de 13 anys seran adreçats a un formulari que el seu tutor legal haurà d`omplir i remetre a l`adreça corresponent que s`indiqui a l`esmentada pàgina.
 
 TOPIC_TITLE: <a name="cookies">Com usa FUDforum les cookies?</a>
@@ -20,22 +20,22 @@ TOPIC_HELP:
 Per a eliminar la cookie establerta per FUDforum, simplement premi l`enllaç "Desconnectar" i automàticament s`esborrarà la cookie.
 
 TOPIC_TITLE: <a name="updprofile">Què és un perfil?</a>
-TOPIC_HELP: Com a membre del fòrum disposa d`un perfil personal en el que pot emmagatzemar diversa informació sobre vostè, tal com els seus identificadors en missatgeria instantània, signatura a afegir als missatges, biografia, etc. El seu perfil a més emmagatzema diverses opcions que tenen a veure amb el fòrum. Pot canviar les opcions al seu perfil a qualsevol moment sempre que s`hagi identificat davant del fòrum, adoni`s que la majoria de la informació present al seu perfil la podran veure altres membres del fòrum. Per tant no hauria d`emmagatzemar informació sensible o que els demés usuaris no hagin de veure.<br>
+TOPIC_HELP: Com a membre del fòrum disposa d`un perfil personal en el que pot emmagatzemar diversa informació sobre vostè, tal com els seus identificadors en missatgeria instantània, signatura a afegir als missatges, biografia, etc. El seu perfil a més emmagatzema diverses opcions que tenen a veure amb el fòrum. Pot canviar les opcions al seu perfil a qualsevol moment sempre que s`hagi identificat davant del fòrum, adoni`s que la majoria de la informació present al seu perfil la podran veure altres membres del fòrum. Per tant no hauria d`emmagatzemar informació sensible o que els demés usuaris no hagin de veure.<br />
 
 El seu perfil té una opció <b>"Mostrar email"</b>, que si està a <b>NO</b> ocultarà la seva adreça de correu als demés usuaris. Pot usar aquesta opció si no desitja que altres persones averigüin la seva adreça de correu electrònic.
 
 TOPIC_TITLE: <a name="sigs">Què és una signatura?</a>
 TOPIC_HELP:
-Una signatura és una cadena de text que s`afageix automàticament al final de tots els missatges que enviï. En el seu perfil disposa d`una opció, <b>"Usar signatura de manera predeterminada"</b> que activarà o desactivarà aquesta característica. Tanmateix, pot canviar el valor d`aquesta opció a cada missatge individual que enviï.<br>
+Una signatura és una cadena de text que s`afageix automàticament al final de tots els missatges que enviï. En el seu perfil disposa d`una opció, <b>"Usar signatura de manera predeterminada"</b> que activarà o desactivarà aquesta característica. Tanmateix, pot canviar el valor d`aquesta opció a cada missatge individual que enviï.<br />
 Si ho permet l`administrador a més de text la signatura pot contenir varis elements tals com enllaços a les seves URL preferides, fotografies personals, etc.
-<br>
+<br />
 Si no desitja veure les signatures d`altres persones pot desactivar-les posant-se a l`opció <b>"Mostrar  signatures"</b> a <b>NO</b> en seu perfil.
 
 
 TOPIC_TITLE: <a name="rstpasswd">>Què fer si perd o oblida la seva contrasenya</a>
 TOPIC_HELP:
 Si no pot recordar la contrasenya de FUDforum, haurà dànar a la <a href="{ROOT}?t=reset&amp;%_rsid%">pàgina per a ressetejar la contrasenya</a>,
-introduir a aquella pàgina la seva adreça de correu electrònic i prémer el botó ANAR. D`aquesta manera s`enviarà a la seva adreça de correu una URL especial que quan accedeixi a ella ressetejarà la contrasenya i li enviarà una nova per correu electrònic.<br>
+introduir a aquella pàgina la seva adreça de correu electrònic i prémer el botó ANAR. D`aquesta manera s`enviarà a la seva adreça de correu una URL especial que quan accedeixi a ella ressetejarà la contrasenya i li enviarà una nova per correu electrònic.<br />
 <b>Nota:</b> les seves contrasenyes emmagatzemen un format de xifratge d`un sol sentit anomenat HASH MD5. Es tracta de xifratge de grau militar 128 bits de longitud, que per disseny fa impossible recuperar el valor original de la seva contrasenya. Funciona xifrant les dades cada cop que les introdueix i comparant el resultat amb la versió xifrada emmagatzemada.
 Per tant, si oblida la seva contrasenya aquesta no pot ser recuperada, de manera que davant la sol.licitud per a recordar la contrasenya el fòrum simplement generarà una nova contrasenya aleatòria i se li enviarà per correu.
 

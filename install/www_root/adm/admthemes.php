@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.67 2009/01/17 09:23:52 frank Exp $
+* $Id: admthemes.php,v 1.68 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -105,7 +105,7 @@
 	if ($edit && $edit == 1) {
 		echo htmlspecialchars($thm_name);
 	} else {
-		echo '<input type="text" name="thm_name" value="'.htmlspecialchars($thm_name).'">';
+		echo '<input type="text" name="thm_name" value="'.htmlspecialchars($thm_name).'" />';
 	}
 ?>
 	</td>
@@ -173,14 +173,14 @@ function update_locale()
 
 <tr class="field">
 	<td>Locale:</td>
-	<td><input type="text" name="thm_locale" value="<?php echo htmlspecialchars($thm_locale); ?>" size=7></td>
+	<td><input type="text" name="thm_locale" value="<?php echo htmlspecialchars($thm_locale); ?>" size=7 /></td>
 </tr>
 
 <tr class="field">
 	<td>pSpell Language:</td>
 	<td>
-		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars($thm_pspell_lang); ?>" size=4>
-		[<a href="javascript://" onClick="javascript: document.admthm.thm_pspell_lang.value=''">disable</a>]
+		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars($thm_pspell_lang); ?>" size=4 />
+		[<a href="javascript://" onclick="javascript: document.admthm.thm_pspell_lang.value=''">disable</a>]
 	</td>
 </tr>
 
@@ -191,17 +191,17 @@ function update_locale()
 </tr>
 <tr class="fieldaction">
 <?php if (!$edit) { ?>
-		<td colspan=2 align=right><input type="submit" name="btn_submit" value="Add"></td>
+		<td colspan=2 align=right><input type="submit" name="btn_submit" value="Add" /></td>
 <?php } else { ?>
 	<td colspan=2 align=right>
-		<input type="submit" name="btn_cancel" value="Cancel">
-		<input type="submit" name="btn_update" value="Update">
+		<input type="submit" name="btn_cancel" value="Cancel" />
+		<input type="submit" name="btn_update" value="Update" />
 	</td>
 <?php } ?>
 </tr>
 </table>
-<input type="hidden" name="prevloaded" value="1">
-<input type="hidden" name="edit" value="<?php echo $edit; ?>">
+<input type="hidden" name="prevloaded" value="1" />
+<input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 
 <form method="post">
@@ -217,10 +217,10 @@ function update_locale()
 </tr>
 <tr class="field">
 	<td>Name</td>
-	<td><input type="text" name="newname"></td>
+	<td><input type="text" name="newname" /></td>
 </tr>
 <tr class="fieldaction">
-	<td colspan=2 align=right><input type="submit" name="btn_submit" value="Create"></td>
+	<td colspan=2 align=right><input type="submit" name="btn_submit" value="Create" /></td>
 </tr>
 </table>
 <?php echo _hs; ?>

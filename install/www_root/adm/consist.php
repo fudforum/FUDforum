@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.131 2009/01/17 09:23:52 frank Exp $
+* $Id: consist.php,v 1.132 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -82,7 +82,7 @@ Consistency check is a complex process which may take several minutes to run, wh
 forum will be disabled.
 </div>
 <h2>Do you wish to proceed?</h2>
-<input type="submit" name="cancel" value="No">&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes">
+<input type="submit" name="cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
 <?php echo _hs; ?>
 </form>
 <?php

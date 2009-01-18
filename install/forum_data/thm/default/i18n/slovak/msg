@@ -254,8 +254,8 @@ finduser_action:		Akcia
 yes:				Áno
 no:				Nie
 register_email:			Email
-edit_time_limit:		<br><b>Èasovı limit na editáciu</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minút
-no_edit_time_limit:		<br><b>Èasovı limit na editáciu</b>: <b>Neobmedzenı</b>
+edit_time_limit:		<br /><b>Èasovı limit na editáciu</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minút
+no_edit_time_limit:		<br /><b>Èasovı limit na editáciu</b>: <b>Neobmedzenı</b>
 pmuserloc_login:		Uivate¾ské meno:
 pmuserloc_submit:		Odosla
 pmuserloc_user:			Uívate¾
@@ -274,7 +274,7 @@ register_avatar_type:		Typ ikony uívate¾a:
 register_del_avatar:		Zmaza ikonu uívate¾a
 register_avatar:		Ikona uívate¾a:
 register_sel_avatar:		Vybra ikonu uívate¾a
-register_custom_avatar_rules:	Vlastná ikona uívate¾a nebude zobrazená pokia¾ ju neodsúhlasí administrátor.<br><font class="SmallText">Ikona uívate¾a nesmie by väèšia ako <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixelov</b> a musí by v <b>jpg</b>, <b>gif</b> alebo <b>png</b> formáte.</font>
+register_custom_avatar_rules:	Vlastná ikona uívate¾a nebude zobrazená pokia¾ ju neodsúhlasí administrátor.<br /><font class="SmallText">Ikona uívate¾a nesmie by väèšia ako <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixelov</b> a musí by v <b>jpg</b>, <b>gif</b> alebo <b>png</b> formáte.</font>
 register_custom_avatar_url:	URL vlastnej ikony uívate¾a:
 register_preview:		Náh¾ad
 register_custom_avatar_upload:	Súbor vlastnej ikony uívate¾a:
@@ -327,7 +327,7 @@ my_buddies:			Moji priatelia
 add_buddy:			Prida priate¾a
 add:				Prida
 buddy_search:			Zadajte uívate¾ské meno uívate¾a, ktorého si eláte prida,
-member_search:			<br>alebo pouite vo¾bu <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">H¾ada uívate¾a</a>.
+member_search:			<br />alebo pouite vo¾bu <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">H¾ada uívate¾a</a>.
 buddy_remove:			odstráni
 post_normal:			Normálna
 post_sticky:			Vıveska
@@ -409,7 +409,7 @@ login_cookie_expired:		Platnos vašej cookie vypršala, a preto sa musíte znovu p
 login_perm_denied:		K danému zdroju nemáte ako anonymnı uívate¾ prístup, a pre to aby ste ho získali sa musíte prihlási.
 login_want_to_register:		Chcete sa registrova?
 login_forgot_passwd:		Zabudli ste heslo?
-login_use_cookie:		Poui cookie<br><font class="SmallText">Ak pouívate verejnı poèítaè ako napríklad v kninici, škole, alebo v Internet café, je kvôli zvıšeniu bezpeènosti odporúèané nepoui túto monos.<br>Ak necháte túto monos zaškrtnutú, nabudúce budete automaticky prihlásenı.
+login_use_cookie:		Poui cookie<br /><font class="SmallText">Ak pouívate verejnı poèítaè ako napríklad v kninici, škole, alebo v Internet café, je kvôli zvıšeniu bezpeènosti odporúèané nepoui túto monos.<br />Ak necháte túto monos zaškrtnutú, nabudúce budete automaticky prihlásenı.
 login_login:			Uívate¾ské meno
 login_login_btn:		Prihlási
 login_name_required:		Na prihlásenie je potrebné uívate¾ské meno
@@ -534,7 +534,7 @@ buddy_list_err_nouser_title:	Nie je moné prida uívate¾a
 buddy_list_update:		Prezerá si vlastnı zoznam priate¾ov
 core_err_invinp_title:		Nesprávny vstup
 core_err_invinp_err:		Nasledovali ste neplatnı odkaz, prosím oznámte to <a href="mailto:{GVAR: ADMIN_EMAIL}">administrátorovi</a>
-core_adm_login_msg:		<br>Administrátori sa môu prihlási <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tu</a>
+core_adm_login_msg:		<br />Administrátori sa môu prihlási <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tu</a>
 email_err_unabletoemail_title:	CHYBA: Nie je moné posla email
 email_err_unabletoemail_msg:	Systém emailov bol administrátorom vypnutı.
 email_error_unabletolocaddr:	Ospravedlòujeme sa, ale systém nemohol odosla email uivate¾ovi {VAR: usr_dst->alias} pretoe nemohol zisti/nájs jeho emailovú adresu.
@@ -574,9 +574,9 @@ post_err_edttimelimit_title:	CHYBA
 post_err_edttimelimit_msg:	Túto správu u nie je moné editova
 post_err_floodtrig_title:	CHYBA: Príliš ve¾a odoslanıch príspevkov do systému
 post_err_floodtrig_msg:		Prosím skúste znova o {VAR: tm} sekúnd
-post_err_attach_size:		<font class="ErrorText">Priloenı súbor je príliš ve¾kı (stanovenı limit je {VAR: MAX_F_SIZE} bajtov)</font><br>
-post_err_attach_ext:		<font class="ErrorText">Súbor, ktorı chcete uploadova nezodpovedá povolenım typom súborom.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Chcete priloi viac súborov ako je povolené.</font><br>
+post_err_attach_size:		<font class="ErrorText">Priloenı súbor je príliš ve¾kı (stanovenı limit je {VAR: MAX_F_SIZE} bajtov)</font><br />
+post_err_attach_ext:		<font class="ErrorText">Súbor, ktorı chcete uploadova nezodpovedá povolenım typom súborom.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Chcete priloi viac súborov ako je povolené.</font><br />
 post_err_passwd:		Nesprávne heslo.
 post_reply_update:		Odpovedáte na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> vo fóre {VAR-HTML: frm->name}
 post_topic_update:		Vytvárate novú tému vo fóre <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -591,7 +591,7 @@ postcheck_invalid_email:	Prosím pridajte platnú emailovú adresu Vášho priate¾a.
 postcheck_email_subject:	Nemôete posla email bez predmetu.
 postcheck_email_body:		Nemôete posla email bez obsahu.
 private_msg_notify_subj:	Preèíta oznámenie pre: {VAR: m->subject}
-private_msg_notify_body:	Dobrı deò,<br>uívate¾ {VAR: usr->login} si preèítal Vašu správu, "{VAR: m->subject}", o {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Dobrı deò,<br />uívate¾ {VAR: usr->login} si preèítal Vašu správu, "{VAR: m->subject}", o {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Prehliada si zoznam ludí registrovanıch na základe referencií
 register_err_short_login:	Uívate¾ské meno, ktoré ste zadali, je príliš krátke. Zadajte aspoò 4 znaky
 register_err_login_notallowed:	Toto uívate¾ské meno nie je povolené
@@ -622,7 +622,7 @@ reset_err_rstconf_title:	Informácia
 reset_err_rstconf_msg:		V priebehu pár minút by ste e-mailom mali obdra ïalšie pokyny
 reset_newpass_title:		Resetnutie hesla
 reset_newpass_msg:		Dobrı deò,\n\nna základe Vašej iadosti Vám posielame prihlasovacie informácie:\n\nUívate¾ské meno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím všimnite si, e Vaše heslo bolo zmenené na horeuvedenú hodnotu.\nAk si chcete ho chcete zmeni, môete tak urobi v uívate¾skom kontrolnom paneli na adrese:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Vaše heslo Vám bolo odoslané emailom. V priebehu nieko¾kıch minút by ste ho mali obdra. Prosím skontrolujte si Vašu poštu.<br>
+reset_login_notify:		Vaše heslo Vám bolo odoslané emailom. V priebehu nieko¾kıch minút by ste ho mali obdra. Prosím skontrolujte si Vašu poštu.<br />
 search_update:			Vyh¾adáva správy
 selmsg_update:			Prehliada <a href="{TEMPLATE: selmsg_update_lnk}">dnešné príspevky</a>
 showposts_update:		Prezerá si príspevky od: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -637,7 +637,7 @@ ERR_access_msg:			Nemáte dostatoèné právomoci na vykonanie tejto akcie
 ERR_registration_disabled_ttl:	Registrácia je vypnutá
 ERR_registration_disabled_msg:	Administrátor vypol registraènı systém, prosím skúste neskor
 ERR_emailconf_ttl:		CHYBA: Vaše konto ešte nebolo potvrdené
-ERR_emailconf_msg:		Zatia¾ ste nepotvrdili Vaše konto prostredníctvom emailu<br><br><table border=0><tr><td><div class="SmallText"><ol><li>Ak ste nedostali verifikaènı email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliknite sem</a><li>Ak {VAR: usr_d->email} nie je Vaša správna emailová adresa <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliknite sem</a></ol></div></td></tr></table>
+ERR_emailconf_msg:		Zatia¾ ste nepotvrdili Vaše konto prostredníctvom emailu<br /><br /><table border=0><tr><td><div class="SmallText"><ol><li>Ak ste nedostali verifikaènı email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliknite sem</a><li>Ak {VAR: usr_d->email} nie je Vaša správna emailová adresa <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliknite sem</a></ol></div></td></tr></table>
 ERR_user_ttl:			CHYBA: Uívate¾ neexistuje
 ERR_user_msg:			Zadanı uívate¾ neexistuje
 ERR_systemerr_ttl:		CHYBA: Systémová Chyba
@@ -735,7 +735,7 @@ post_quote:			Citát:
 userinfo_referals:		Privedenı uívatelia:
 userinfo_referals_count:	{VAR: referals} Èlenovia
 pm_no_space_title:		Priestor vyèerpanı!
-pm_no_space_msg:		Váš poštovı prièinok prekroèil maximálnu ve¾kos <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytov</b>. Vaša pošta momentálne obsahuje <b>{VAR: fldr_size} bytov</b> správ.<br><br><font class="ErrorText">Odstráòte nieko¾ko starıch správ, aby ste uvolnili miesto</font>.
+pm_no_space_msg:		Váš poštovı prièinok prekroèil maximálnu ve¾kos <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytov</b>. Vaša pošta momentálne obsahuje <b>{VAR: fldr_size} bytov</b> správ.<br /><br /><font class="ErrorText">Odstráòte nieko¾ko starıch správ, aby ste uvolnili miesto</font>.
 pm_space_indct_msg:		Vaša poštová schránka je na {VAR: percent_full}% plná.
 th_expr_never:			Nikdy
 th_expr_one_hr:			1 hodina

@@ -37,7 +37,7 @@ home:				Sâkums
 homepage:			Saite uz mâjas lapu:
 icq_control_panel:		ICQ Online-Message Panel
 icq_message_form:		Nosûtît ICQ paziòojumu
-ignore_user:			ignorçt visus paziòojumus<br> no ðî lietotâja
+ignore_user:			ignorçt visus paziòojumus<br /> no ðî lietotâja
 im_aim:				AIM tîkls:
 im_msnm:			MSN tîkls:
 im_yahoo:			Yahoo tîkls:
@@ -251,8 +251,8 @@ finduser_joindate:		Pieslçgðanâs datums
 finduser_action:		Darbîbas
 yes:				Jâ
 no:				Nç
-edit_time_limit:		<br><b>Izmaiòu veikðanas periods</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minûtes
-no_edit_time_limit:		<br><b> Izmaiòu veikðanas periods </b>: <b>Nelimitçts</b>
+edit_time_limit:		<br /><b>Izmaiòu veikðanas periods</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minûtes
+no_edit_time_limit:		<br /><b> Izmaiòu veikðanas periods </b>: <b>Nelimitçts</b>
 pmuserloc_login:		Vârds:
 pmuserloc_submit:		Meklçt
 pmuserloc_user:			Lietotâjs
@@ -271,7 +271,7 @@ register_avatar_type:		Personîgâs nozîmîtes tips:
 register_del_avatar:		Dzçst nozîmîti
 register_avatar:		Privâtâ nozîmîte:
 register_sel_avatar:		Izvçlçties nozîmîti
-register_custom_avatar_rules:	Ârçjâ nozîmîte netiks attçlota kâmçr to neapstiprinâs foruma administrators.<br><font class="SmallText">Nozîmîtes lielums nedrîkst bût lielâks par <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikseïiem</b> un tai jâbût <b>jpg</b>, <b>gif</b> vai <b>png</b> formâtâ.</font>
+register_custom_avatar_rules:	Ârçjâ nozîmîte netiks attçlota kâmçr to neapstiprinâs foruma administrators.<br /><font class="SmallText">Nozîmîtes lielums nedrîkst bût lielâks par <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikseïiem</b> un tai jâbût <b>jpg</b>, <b>gif</b> vai <b>png</b> formâtâ.</font>
 register_custom_avatar_url:	Nozîmîtes URL:
 register_preview:		Priekðapskate
 register_custom_avatar_upload:	Nozîmîtes fails:
@@ -405,7 +405,7 @@ login_cookie_expired:		Jûsu Web pârlûka cookie darbîbas laiks ir beidzies, lai t
 login_perm_denied:		Jums nav tiesîbu piekïût pieprasîtajiem resursiem kâ anonîmajam lietotâjam, tâdçï ienâciet ar reâlu foruma dalîbnieka Niku un Paroli.
 login_want_to_register:		Vçlaties piereìistrçties?
 login_forgot_passwd:		Esmu aizmirsis paroli.
-login_use_cookie:		Izmantot cookies<br><font class="SmallText">Gadîjumos ja strâdâjat no publiskajâm darbstacijâm, skolas, interneta kafejnîcas, vai citiem publiskajiem terminâliem, droðîbas apsvçrumu pçc ieteicams ðo opciju atslçgt.<br>Atstâjot cookies ieslçgtus, nâkoðais savienojums automâtiski atvçrs forumu bez nika un parojes ievadîðanas.
+login_use_cookie:		Izmantot cookies<br /><font class="SmallText">Gadîjumos ja strâdâjat no publiskajâm darbstacijâm, skolas, interneta kafejnîcas, vai citiem publiskajiem terminâliem, droðîbas apsvçrumu pçc ieteicams ðo opciju atslçgt.<br />Atstâjot cookies ieslçgtus, nâkoðais savienojums automâtiski atvçrs forumu bez nika un parojes ievadîðanas.
 login_login:			Niks
 login_login_btn:		Ieiet
 login_name_required:		Nav norâdîts Niks!
@@ -530,7 +530,7 @@ buddy_list_err_nouser_title:	Lietotâju pievienot nav iespçjams
 buddy_list_update:		Kontaktu saraksta pârskats
 core_err_invinp_title:		Ievade nav atïauta
 core_err_invinp_err:		You&#39;ve followed an invalid link, please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
-core_adm_login_msg:		<br>Administratoriem ieiet <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ðeit</a>
+core_adm_login_msg:		<br />Administratoriem ieiet <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ðeit</a>
 email_err_unabletoemail_title:	KÏÛDA!!! Nevar nosûtît E-pastu
 email_err_unabletoemail_msg:	Administrators ir atslçdzis E-pasta nosûtîðanas sistçmu.
 email_error_unabletolocaddr:	Atvainojiet. Nosûtît paziòojumu {VAR-HTML: _POST['tx_name']} nav iespçjams, jo nav zinâma adresâta E-pasta adrese
@@ -570,9 +570,9 @@ post_err_edttimelimit_title:	KÏÛDA
 post_err_edttimelimit_msg:	Jûs vairs nedrîkstat rediìçt ðo publikâciju
 post_err_floodtrig_title:	KÏÛDA: Konstatçts masîvs nosûtîðanas mçìinâjums.
 post_err_floodtrig_msg:		Atkârtojiet mçìinâjumu pçc {VAR: tm} sekundçm
-post_err_attach_size:		<font class="ErrorText">Fails par lielu (pârsniedz atïauto lielumu {VAR: MAX_F_SIZE} byte)</font><br>
-post_err_attach_ext:		<font class="ErrorText">Ielâdçtais fails neatbilst nevienam atïautajam faila tipam.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Mçìinâjums ielâdçt vairâk failu far pieïaujamo skaitu.</font><br>
+post_err_attach_size:		<font class="ErrorText">Fails par lielu (pârsniedz atïauto lielumu {VAR: MAX_F_SIZE} byte)</font><br />
+post_err_attach_ext:		<font class="ErrorText">Ielâdçtais fails neatbilst nevienam atïautajam faila tipam.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Mçìinâjums ielâdçt vairâk failu far pieïaujamo skaitu.</font><br />
 post_err_passwd:		Kïûdaina parole.
 post_reply_update:		Atbilde publikâcijai <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> forumâ {VAR-HTML: frm->name}
 post_topic_update:		Jaunas tçmas izveidoðana <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>forumâ
@@ -587,7 +587,7 @@ postcheck_invalid_email:	Ievadiet pareizu E-pasta adresi.
 postcheck_email_subject:	Nevar nosûtît bez tçmas norâdîðanas.
 postcheck_email_body:		Nevar nosûtît bez publikâcijas teksta.
 private_msg_notify_subj:	Paziòojums par: {VAR: m->subject}izlasîðanu
-private_msg_notify_body:	Sveiki <br>{VAR: usr->login}. Izlasîju Jûsu ziòu "{VAR: m->subject}" {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Sveiki <br />{VAR: usr->login}. Izlasîju Jûsu ziòu "{VAR: m->subject}" {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Uzaicinâto saraksts
 register_err_short_login:	Pârâk maz simbolu. Minimâlais simbolu skaits nikâ – 4 simboli
 register_err_login_notallowed:	Izvçlçtais niks nav pieejams vai atïauts
@@ -618,7 +618,7 @@ reset_err_rstconf_title:	Informâcija
 reset_err_rstconf_msg:		Instrukcijas nosûtîtas uz Jûsu E-pastu un tâs Jûs saòemsiet pçc daþâm minûtçm
 reset_newpass_title:		Paroles nomaiòa
 reset_newpass_msg:		Sveiki,\n\nUz Jûsu pieprasîjumu tiek nosûtîta informâcija par Jûsu <b>Niku</b> un <b>Paroli</b>.\nJûsu reìistrâcijas dati:\n\nNiks: {VAR: ui[1]}\nParole: {VAR: passwd}\n\nAtcerieties, ka Jûsu vecâ parole ir nomainîta ar ðeit uzrâdîto un tâ paðreiz nav derîga. Ja\nJûs vçlaties to nomainît, tad to varat izdarît vadîbas panelî:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Jûsu jaunâ parole ir nosûtîta uz Jûsu E-pastu un to Jûs saòemsiet pçc daþâm minûtçm. Lûdzu pârbaudiet savu E-pasta kastîti..<br>.<br>.<br>
+reset_login_notify:		Jûsu jaunâ parole ir nosûtîta uz Jûsu E-pastu un to Jûs saòemsiet pçc daþâm minûtçm. Lûdzu pârbaudiet savu E-pasta kastîti..<br />.<br />.<br />
 search_update:			Publikâciju meklçðana
 selmsg_update:			Ðodienas <a href="{TEMPLATE: selmsg_update_lnk}">publikâciju pârskats</a>
 showposts_update:		Visu <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>publikâciju pârskats
@@ -633,7 +633,7 @@ ERR_access_msg:			Jums pieðíirtâs tiesîbas neatïauj pieprasîto darbîbu izpildi
 ERR_registration_disabled_ttl:	Reìistrâcija atslçgta
 ERR_registration_disabled_msg:	Dotajâ brîdî reìistrâcija ir liegta. Lûdzu mçìiniet vçlreiz, bet vçlâk.
 ERR_emailconf_ttl:		KÏÛDA: Jûsu reìistrâcija nav apstiprinâta
-ERR_emailconf_msg:		Jûs neesat akceptçjis reìistrâciju no E-pasta<br><table border=0><tr><td><ol><li>Ja neesat saòçmis reìistrâcijas apliecinâjuma E-pastu <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">spiediet ðeit</a><li>Ja {VAR: usr_d->email} nav Jûsu E-pasta adrese <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">spediet ðeit</a></ol></td></tr></table>
+ERR_emailconf_msg:		Jûs neesat akceptçjis reìistrâciju no E-pasta<br /><table border=0><tr><td><ol><li>Ja neesat saòçmis reìistrâcijas apliecinâjuma E-pastu <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">spiediet ðeit</a><li>Ja {VAR: usr_d->email} nav Jûsu E-pasta adrese <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">spediet ðeit</a></ol></td></tr></table>
 ERR_user_ttl:			KÏÛDA: Neesoðs lietotâjs
 ERR_user_msg:			Tâda lietotâja datu bâzç nav
 ERR_systemerr_ttl:		KÏÛDA: Sistçmas kïûda
@@ -712,15 +712,15 @@ p_REPLY:			Atbilde
 p_EDIT:				Labot
 p_DEL:				Dzçst
 p_STICKY:			Stycky
-p_POLL:				Izveidot<br>balsojumu
-p_FILE:				Failu<br>ievietoðana
+p_POLL:				Izveidot<br />balsojumu
+p_FILE:				Failu<br />ievietoðana
 p_VOTE:				Balsot
-p_RATE:				Tçmu<br>novçrtçjums
-p_SPLIT:			Tçmu<br>sadalîðana
-p_LOCK:				Tçmu<br>slçgðana
-p_MOVE:				Tçmu<br>pârvietoðana
+p_RATE:				Tçmu<br />novçrtçjums
+p_SPLIT:			Tçmu<br />sadalîðana
+p_LOCK:				Tçmu<br />slçgðana
+p_MOVE:				Tçmu<br />pârvietoðana
 p_SML:				Smaidiòi
-p_IMG:				Nozîmîðu<br>tegi
+p_IMG:				Nozîmîðu<br />tegi
 group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Lietotâja meklçðana</a>
 group_mgr_indicator:		Grupa laboðanai: <b>{VAR: grp->name}</b>
 rate_worst:			Tâ pat vien
@@ -730,7 +730,7 @@ post_quote:			Citâts:
 userinfo_referals:		Uzaicinâjums:
 userinfo_referals_count:	{VAR: referals} lietotâju
 pm_no_space_title:		Nepietiek brîvas vietas!
-pm_no_space_msg:		Jûsu privâtâs informâcijas mapju apjoms <b>{VAR: fldr_size} bytes pârsniedz pieïaujamo <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes apjomu.<br><br><font class="ErrorText">Izdzçsiet lieko informâciju!!!</font>.
+pm_no_space_msg:		Jûsu privâtâs informâcijas mapju apjoms <b>{VAR: fldr_size} bytes pârsniedz pieïaujamo <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes apjomu.<br /><br /><font class="ErrorText">Izdzçsiet lieko informâciju!!!</font>.
 pm_space_indct_msg:		Jûsu privâtâs informâcijas mapes aizòem {VAR: percent_full}% no atïautâ apjoma.
 th_expr_never:			Nekad
 th_expr_one_hr:			1 stunda
@@ -854,7 +854,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online

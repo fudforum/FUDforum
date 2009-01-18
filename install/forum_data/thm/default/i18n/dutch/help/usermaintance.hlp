@@ -6,7 +6,7 @@ Om deel te kunnen nemen in de discussie is het dus handig om je te registreren. 
 <li>Aangepaste handtekening, pasfoto, persoonlijke tag enz...
 <li>Mogelijkheid om priv&eacute; berichten te sturen naar een of meer leden van het forum
 <li>Je kunt een tijdzone kiezen die overeenkomt met de plaats waar je woont.</ul>
-Tenzij anders vermeld is de registratie voor het forum gratis en is er een minimum aan informatie benodigd zoals je e-mailadres en een nicknaam van je keuze.<br>
+Tenzij anders vermeld is de registratie voor het forum gratis en is er een minimum aan informatie benodigd zoals je e-mailadres en een nicknaam van je keuze.<br />
 Als COPPA aanstaat en je jonger bent dan 13 jaar, zal een ouder of voogd toestemming moeten geven voordat je je account kunt gebruiken om berichten te posten.
 Op forums waar COPPA aanstaat zullen leden die jonger zijn dan 13 jaar naar een formulier gebracht worden, dat hun ouder of voogd moet invullen en dat verzonden moet worden naar het adres dat op die pagina vermeld wordt.
 
@@ -28,7 +28,7 @@ TOPIC_HELP:
 Elk forumlid heeft een persoonlijk profiel waarin hij verschillende informatie over zichzelf kan opslaan, zoals ids voor instant messaging programma's, handtekening,
 biografie, enz... In je profiel staat ook een aantal instellingen, dat te maken heeft met het forum. Elke keer wanneer je ingelogd bent kun je de instellingen in je profiel wijzigen,
 denk er wel aan dat de informatie die in je profiel staat, ook zichtbaar is voor andere forumleden. Het is dus niet verstandig om gevoelige informatie
-in je profiel te zetten waarvan je liever niet wilt dat andere mensen dat kunnen zien.<br>
+in je profiel te zetten waarvan je liever niet wilt dat andere mensen dat kunnen zien.<br />
 Je profiel heeft een optie <b>"E-mailadres tonen"</b>, wanneer je dit op <b>Nee</b> zet zal je e-mailadres verborgen worden. Je kunt van deze optie gebruik
 maken wanneer je niet wilt dat andere mensen je e-mailadres kunnen zien.
 
@@ -36,9 +36,9 @@ TOPIC_TITLE: <a name="sigs">Wat is een handtekening?</a>
 TOPIC_HELP:
 De handtekening is een stuk tekst dat je automatisch aan het eind van elk bericht kunt toevoegen. In je profiel heb je een optie,
 <b>"Handtekening gebruiken"</b> waarmee je deze optie standaard aan of uit kunt zetten. Verder kun je ook nog op elk formulier waarop je een
-bericht opstelt kiezen voor deze optie voor dat specifieke bericht.<br>
+bericht opstelt kiezen voor deze optie voor dat specifieke bericht.<br />
 In navolging van kale tekst, kan dit stuk tekst verschillende stukjes code bevatten (als dat wordt toegestaan door de beheerder) zoals links naar je favoriete URLs,
-persoonlijke foto's, enz...<br>
+persoonlijke foto's, enz...<br />
 Als je de handtekeningen van andere mensen niet wilt zien, dan kun je ze uitzetten door de optie <b>"Toon handtekeningen"</b> op <b>Nee</b> te zetten in je profiel.
 
 TOPIC_TITLE: <a name="rstpasswd">Wat moet ik doen als ik mijn wachtwoord vergeten ben?</a>

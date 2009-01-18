@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: draw_radio_opt.inc.t,v 1.13 2007/01/01 18:23:45 hackie Exp $
+* $Id: draw_radio_opt.inc.t,v 1.14 2009/01/18 08:22:08 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@ function tmpl_draw_radio_opt($name, $values, $names, $selected, $sep)
 	$nms = explode("\n", $names);
 
 	if (count($vls) != count($nms)) {
-		exit("FATAL ERROR: inconsistent number of values<br>\n");
+		exit("FATAL ERROR: inconsistent number of values<br />\n");
 	}
 
 	$checkboxes = '';

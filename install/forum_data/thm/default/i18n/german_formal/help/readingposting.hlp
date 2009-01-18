@@ -7,7 +7,7 @@ Da in den meisten F&auml;llen der Administrator die Verwendung von HTML nicht ge
 von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist sehr leicht zu erlernen und erheblich sicherer als HTML.
 <p>
 
-<a name="url"><b>Links zu Webseiten</b></a><br>
+<a name="url"><b>Links zu Webseiten</b></a><br />
 
 <table>
   <tr>
@@ -20,7 +20,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> FUDforum wandelt Links automatisch in URLs um.
-<br><br>	
+<br /><br />	
 
 <table>
   <tr>
@@ -33,7 +33,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Sie k&ouml;nnen auch FUDcode verwenden, um Links zu Webseiten zu erstellen. 
-<br><br>
+<br /><br />
  
 <table>
   <tr>
@@ -41,15 +41,15 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.meinehomepage.com</font>]<font color="#006600"><br>My Homepage<br></font>[/URL]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.meinehomepage.com</font>]<font color="#006600"><br />My Homepage<br /></font>[/URL]</b></font></td>
     <td valign="middle" align="center"><a href="http://www.meinehomepage.com" target=_blank>Meine Homepage</a></td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Sie k&ouml;nnen mit FUDcode Links mit eigener Beschriftung erstellen.
-<br><br><br>
+<br /><br /><br />
 
 <p>
-<a name="email"><b>E-Mail-Links</b></a><br>
+<a name="email"><b>E-Mail-Links</b></a><br />
 
 <table>
   <tr>
@@ -62,7 +62,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> FUDforum wandelt E-Mail-Links automatisch in funktionierende Links um.
-<br><br>
+<br /><br />
 
 <table>
   <tr>
@@ -70,15 +70,15 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font><br>Support<br><font color="#ff0000"><b>[/email]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font><br />Support<br /><font color="#ff0000"><b>[/email]</b></font></td>
     <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Support</a></td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Mit FUDcode k&ouml;nnen Sie E-Mail-Links mit eigener Beschriftung erstellen.
-<br><br>
+<br /><br />
 
-<br>
-<b>Textformatierung</b><br>
+<br />
+<b>Textformatierung</b><br />
 <a name="b"></a>
 
 <table>
@@ -91,7 +91,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="center"><b>fett</b></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="u"></a>
 
@@ -105,7 +105,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="center"><u>unterstrichen</u></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="i"></a>
 
@@ -119,7 +119,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="center"><i>kursiv</i></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="sub"></a>
 
@@ -133,7 +133,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="center"><sub>tiefgestellt</sub></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="sup"></a>
 
@@ -147,7 +147,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="center"><sup>hochgestellt</sup></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="color"></a>
 
@@ -161,7 +161,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="center"><font color="#ff0000">Roter Text</font></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="size"></a>
 
@@ -175,7 +175,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="center"><font size="4">Gro&szlig;er Text</font></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="font"></a>
 
@@ -189,7 +189,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="center"><font face="Courier New, Courier, monospace">Text</font></td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -197,14 +197,14 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=red][size=4][font=courier]</b></font><br>Formatierter Text<br><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=red][size=4][font=courier]</b></font><br />Formatierter Text<br /><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></td>
     <td valign="middle" align="center"><font color="#ff0000" size="4" face="Courier New, Courier, monospace"><u><i><b>Formatierter Text</b></i></u></font></td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Sie k&ouml;nnen beliebig viele Textformatierung miteinander kombinieren.
-<br><br><br>
+<br /><br /><br />
         
-<a name="align"><b>Textausrichtung</b></a><br>
+<a name="align"><b>Textausrichtung</b></a><br />
 
 <table>
   <tr>
@@ -216,7 +216,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="center">Zentrierter Text</td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -228,7 +228,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="right">Rechtsb&uuml;ndig</td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -240,10 +240,10 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="left">Linksb&uuml;ndig</td>
   </tr>
 </table>
-<br><br>
+<br /><br />
 
 <a name="list"><b>Verschiende Listen</b></a>
-<br>
+<br />
 
 <table>
   <tr>
@@ -251,11 +251,11 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[/list]<br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[/list]<br /></td>
     <td valign="middle" align="center"><ul><li>Listeneintrag</li><li>Listeneintrag</li></ul></td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -263,11 +263,11 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[/list]<br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[/list]<br /></td>
     <td valign="middle" align="center"><ol><li>Listeneintrag</li><li>Listeneintrag</li></ol></td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -275,13 +275,13 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br><font color="#ff0000"><b>[/list]<br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[/list]<br /></td>
     <td valign="middle" align="center"><ol type="a"><li>Listeneintrag</li><li>Listeneintrag</li></ol></td>
   </tr>
 </table>
-<br><br>
+<br /><br />
 
-<a name="img"><b>Bilder einf&uuml;gen</b></a><br>
+<a name="img"><b>Bilder einf&uuml;gen</b></a><br />
 
 <table>
   <tr>
@@ -289,11 +289,11 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br></font><font color="#ff0000"><b>[/img]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br /><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br /></font><font color="#ff0000"><b>[/img]</b></font></td>
     <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31"></td>
   </tr>
 </table>
-<br>    
+<br />    
 
 <table>
   <tr>
@@ -301,14 +301,14 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br>[img]</b></font><br>http://www.prohost.org/img/pro_logo.gif<br><b><font color="#ff0000">[/img]<br>[/url]</font></b></font></td>
+    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br />[img]</b></font><br />http://www.prohost.org/img/pro_logo.gif<br /><b><font color="#ff0000">[/img]<br />[/url]</font></b></font></td>
     <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="Bild" width="204" height="31" border="0"></a></td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Sie k&ouml;nnen auch Bilderlinks erzeugen, indem Sie den [img][/img] Tag in [url][/url] einschlie&szlig;en.
-<br><br><br>
+<br /><br /><br />
 
-<a name="quote"><b>Andere Beitr&auml;ge zitieren</b></a><br>
+<a name="quote"><b>Andere Beitr&auml;ge zitieren</b></a><br />
 
 <table>
   <tr>
@@ -317,12 +317,12 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[quote]</b></font>Hallo Welt<font color="#ff0000"><b>[/quote]</b></font></td>
-    <td valign="middle" align="center"><table border="0" align="center" width="50%" cellpadding="3" cellspacing="1"><tr><td class="SmallText" align="left"><b>Zitat:</b></td></tr><tr><td class="quote" align="left">Hallo Welt<br></td></tr></table></td>
+    <td valign="middle" align="center"><table border="0" align="center" width="50%" cellpadding="3" cellspacing="1"><tr><td class="SmallText" align="left"><b>Zitat:</b></td></tr><tr><td class="quote" align="left">Hallo Welt<br /></td></tr></table></td>
   </tr>
 </table>
-<br><br>
+<br /><br />
 
-<a name="pre"><b>Vorformatierter Text</b></a><br>
+<a name="pre"><b>Vorformatierter Text</b></a><br />
 
 <table>
   <tr>
@@ -330,16 +330,16 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle"><font color="#ff0000"><b>[pre]</b><br></font>
-<pre>$fp = fopen('Datei', 'w');<br>if ( !$fp ) {<br>	exit('Datei nicht gefunden!');       <br>} <br>else { <br>	fwrite($fp, 'Hallo Welt');<br>	fclose($fp);<br>} <br></pre>
+    <td valign="middle"><font color="#ff0000"><b>[pre]</b><br /></font>
+<pre>$fp = fopen('Datei', 'w');<br />if ( !$fp ) {<br />	exit('Datei nicht gefunden!');       <br />} <br />else { <br />	fwrite($fp, 'Hallo Welt');<br />	fclose($fp);<br />} <br /></pre>
 <font color="#ff0000"><b>[/pre]</b></font></td>
-    <td valign="middle"><pre>$fp = fopen('Datei', 'w');<br>if ( !$fp ) {<br>	exit('Datei nicht gefunden!');<br>} <br>else { <br>	fwrite($fp, 'Hallo Welt');<br>	fclose($fp);<br>} <br></pre></td>
+    <td valign="middle"><pre>$fp = fopen('Datei', 'w');<br />if ( !$fp ) {<br />	exit('Datei nicht gefunden!');<br />} <br />else { <br />	fwrite($fp, 'Hallo Welt');<br />	fclose($fp);<br />} <br /></pre></td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Dieser Tag gibt den Text genauso aus wie er eingeben wurde, w&auml;hrend die Formatierungen beibehalten werden.
-<br><br><br>
+<br /><br /><br />
 
-<a name="php"><b>PHP Code</b></a><br>
+<a name="php"><b>PHP Code</b></a><br />
 
 <table>
   <tr>
@@ -364,9 +364,9 @@ hallo();
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Mit Hilfe von [php][/php] k&ouml;nnen Sie PHP Code mit Syntaxhervorhebung durch das Forum schreiben.
-<br><br><br>
+<br /><br /><br />
 
-<a name="code"><b>Code</b></a><br>
+<a name="code"><b>Code</b></a><br />
 
 <table>
   <tr>
@@ -374,22 +374,22 @@ hallo();
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle"><font color="#ff0000"><b>[code]</b></font><pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('Datei nicht gefunden!');<br>}<br>else { <br>	fwrite($fp, 'Hallo Welt');<br>	fclose($fp);<br>}<br></pre><font color="#ff0000"><b>[/code]</b></font>
+    <td valign="middle"><font color="#ff0000"><b>[code]</b></font><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('Datei nicht gefunden!');<br />}<br />else { <br />	fwrite($fp, 'Hallo Welt');<br />	fclose($fp);<br />}<br /></pre><font color="#ff0000"><b>[/code]</b></font>
     </td>
-    <td valign="middle"><div class="pre"><pre>$fp = fopen('Datei', 'w');<br>if ( !$fp ) {<br>	exit('Datei nicht gefunden!');<br>} <br>else { <br>	fwrite($fp, 'Hallo Welt');<br>	fclose($fp);<br>} <br></pre></div>
+    <td valign="middle"><div class="pre"><pre>$fp = fopen('Datei', 'w');<br />if ( !$fp ) {<br />	exit('Datei nicht gefunden!');<br />} <br />else { <br />	fwrite($fp, 'Hallo Welt');<br />	fclose($fp);<br />} <br /></pre></div>
     </td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> [code][/code] funktioniert fast genauso wie [pre][/pre], allerdings setzt das Forum einen deutlich sichtbaren Rahmen um den Text.
-<br><br><br>
+<br /><br /><br />
 
-<a name="notag"><b>Kein FUDcode</b></a><br>
+<a name="notag"><b>Kein FUDcode</b></a><br />
 <i>Erkl&auml;rung:</i> Der <font color="#ff0000"><b>[notag][/notag]</b></font> Tag erm&ouml;glicht es Ihen, den Text innerhalb
 der Tags nicht vom FUDForum eigenem Tag Parser interpretieren zu lassen. Das erm&ouml;glicht Ihnen, Beispiele f&uuml;r
 FUDcode zu nennen, ohne sie in HTML umwandeln zu lassen.
-<br><br><br>
+<br /><br /><br />
 
-<a name="hr"><b>Horizontale Linie </b></a><br>
+<a name="hr"><b>Horizontale Linie </b></a><br />
 
 <table>
   <tr>
@@ -402,9 +402,9 @@ FUDcode zu nennen, ohne sie in HTML umwandeln zu lassen.
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Der [hr] Tag erzeugt eine horizontale Linie, er ist eine Entsprechung des HTML Tags &lt;hr&gt;.
-<br><br><br>
+<br /><br /><br />
 
-<a name="spoiler"><b>Spoiler</b></a><br>
+<a name="spoiler"><b>Spoiler</b></a><br />
 
 <table>
   <tr>
@@ -412,10 +412,10 @@ FUDcode zu nennen, ohne sie in HTML umwandeln zu lassen.
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center">Sichtbarer Teil des Beitrags<br>
+    <td valign="middle" align="center">Sichtbarer Teil des Beitrags<br />
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br>Versteckter Teil des Beitrags<br>
-<font color="#ff0000"><b>[/spoiler]</b></font><br>
+<br />Versteckter Teil des Beitrags<br />
+<font color="#ff0000"><b>[/spoiler]</b></font><br />
 Weiterer sichtbarer Text.</td>
     <td valign="middle" align="center">Sichtbarer Teil des Beitrags<br />
 <div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Spoiler anzeigen</a><div align="left" id="1482055279834293165" style="display: none;"><br />
@@ -427,10 +427,10 @@ Weiterer sichtbarer Text.</td>
 <i>Erkl&auml;rung:</i> Der [spoiler][/spoiler] Tag erm&ouml;glicht es Ihnen, einen Teil des Beitrages
 nicht anzeigen zu lassen. Um den versteckten Anteil sehen zu k&ouml;nnen, m&uuml;ssen die Benutzer einen Link anklicken, 
 der dann den Rest des Textes anzeigt. Intern wird dies mit Hilfe von Javascript bewerkstelligt, womit die Seite nicht
-wirklich neu geladen wird, sondern eine versteckte Layer sichtbar gemacht wird.<br>
-<br><br><br>
+wirklich neu geladen wird, sondern eine versteckte Layer sichtbar gemacht wird.<br />
+<br /><br /><br />
 
-<a name="acronym"><b>Abk&uuml;rzung</b></a><br>
+<a name="acronym"><b>Abk&uuml;rzung</b></a><br />
 
 <table>
   <tr>
@@ -438,16 +438,16 @@ wirklich neu geladen wird, sondern eine versteckte Layer sichtbar gemacht wird.<
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font><br>FUDforum<br><font color="#ff0000"><b>[/acronym]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font><br />FUDforum<br /><font color="#ff0000"><b>[/acronym]</b></font></td>
     <td valign="middle" align="center"><acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym></td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Der [acronym][/acronym] Tag wird benutzt,
 um &bdquo;Abk&uuml;rzungen mit Bedeutung&rdquo; zu kennzeichnen. Wenn der Benutzer seine Maus darüber parkt, wird die Bedeutung sichtbar.
 
-<br><br><br>
+<br /><br /><br />
 
-<a name="wikipedia"><b>Wikipedia</b></a><br>
+<a name="wikipedia"><b>Wikipedia</b></a><br />
 
 <table>
   <tr>
@@ -460,13 +460,13 @@ um &bdquo;Abk&uuml;rzungen mit Bedeutung&rdquo; zu kennzeichnen. Wenn der Benutz
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Der [wikipedia][/wikipedia] Tag erlaubt Ihnen, einen Link zu einem Wikipedia-Artikel mit einem bestimmten Thema zu erstellen. Um den Tag zu verwenden, schlie&szlig;en Sie den Ausdruck in [wikipedia][/wikipedia] ein, wenn Sie du einen bestimmten Mirror verwenden m&ouml;chten, verwenden Sie [wikipedia=ca] als einleitendes Tag, dabei ist ca der zu verwendende Mirror.
-<br>
+<br />
 
 TOPIC_TITLE: <a name="sml">Was sind Smileys/Emoticons?</a> 
 TOPIC_HELP:
 Smileys sind kleine Icons, die in einem Beitrag als Ausdruck verschiedener Gef&uuml;hle und Stimmungen verwendet werden k&ouml;nnen.
 Wenn diese aktiviert sind, wird eine Auflistung der vom Forum unterst&uuml;tzten Smileys &uuml;ber dem Eingabefeld, in welchem man auch den Beitrag
-erstellt, angezeigt. Durch einfaches Anklicken k&ouml;nnen diese dann in den Beitrag eingef&uuml;gt werden.<br>
+erstellt, angezeigt. Durch einfaches Anklicken k&ouml;nnen diese dann in den Beitrag eingef&uuml;gt werden.<br />
 Gebr&auml;uchliche Smileys k&ouml;nnen automatisch durch das entsprechende Symbol ersetzt werden, falls das nicht von Ihnen erw&uuml;nscht ist, k&ouml;nnen 
 Sie das <b>Smileys deaktivieren</b> K&auml;stchen ausw&auml;hlen.<p>
 
@@ -474,10 +474,10 @@ TOPIC_TITLE: <a name="polls">Wie erstelle ich Umfragen?</a>
 TOPIC_HELP:
 In einigen Foren k&ouml;nnen Sie gegebenenfalls auch Umfragen in Ihrem Beitrag erstellen. Diese erm&ouml;glichen es Ihnen, eine Frage mit einigen Antworten als 
 Auswahl zu stellen, von denen andere Forenmitglieder dann ihre Wahl treffen. Um eine gewisse Aussagekraft 
-zu gew&auml;hrleisten, d&uuml;rfen nur registrierte Benutzer ihre Stimme abgeben.<br>
+zu gew&auml;hrleisten, d&uuml;rfen nur registrierte Benutzer ihre Stimme abgeben.<br />
 Wenn SIe den <b>UMFRAGE ERSTELLEN</b> Link auf der Beitragsseite anklicken, erscheint ein Popup Fenster, mit dessen Hilfe sich eine Umfrage mit 
 mehreren Antwortm&ouml;glichkeiten erstellen l&auml;sst. Sobald Sie fertig sind, klicken Sie einfach den <b>Erstellen</b> Knopf an und werden so wieder zur&uuml;ck zum
-Bearbeitungsfenster gebracht. Die eben erstellte Umfrage wird dem Beitrag hinzugef&uuml;gt.<br>
+Bearbeitungsfenster gebracht. Die eben erstellte Umfrage wird dem Beitrag hinzugef&uuml;gt.<br />
 Sie k&ouml;nnen eine bereits vorhandene Umfrage durch Anklicken des <b>BEARBEITEN</b> Links modifizieren oder durch einen Klick auf <b>L&Ouml;SCHEN</b> 
 vollst&auml;ndig entfernen.
 <p>
@@ -487,15 +487,15 @@ TOPIC_TITLE: <a name="attach">Kann ich Dateien an Beitr&auml;ge anh&auml;ngen?</
 TOPIC_HELP:
 Falls vom Administrator erlaubt, k&ouml;nnen Sie eine oder mehrere Dateien an normale Beitr&auml;ge oder auch private Messages anh&auml;ngen. Diese Funktion 
 wird von Forum zu Forum individuell festgelegt, weswegen Sie in einem Forum Dateien anh&auml;ngen k&ouml;nnen, w&auml;hrend es woanders nicht m&ouml;glich ist.
-<br>
+<br />
 Die Seite, auf der Sie Beitr&auml;ge erstellen, listet drei Regeln auf, die f&uuml;r deine Anh&auml;nge gelten:<p>
-<b>Erlaubte Dateitypen</b> - eine Liste von Dateiendungen, die an einem Beitrag angeh&auml;ngt werden k&ouml;nnen z.B.: .jpg, .gif, .png<br>
-<b>Maximale Dateigr&ouml;&szlig;e</b> - die maximale Gr&ouml;&szlig;e einer Datei, die an einem Beitrag angeh&auml;ngt werden kann<br>
+<b>Erlaubte Dateitypen</b> - eine Liste von Dateiendungen, die an einem Beitrag angeh&auml;ngt werden k&ouml;nnen z.B.: .jpg, .gif, .png<br />
+<b>Maximale Dateigr&ouml;&szlig;e</b> - die maximale Gr&ouml;&szlig;e einer Datei, die an einem Beitrag angeh&auml;ngt werden kann<br />
 <b>Maximale Dateien pro Beitrag</b> - Die Anzahl der Dateien, die einem Beitrag hinzugef&uuml;gt werden k&ouml;nnen.
 <p>
 Um eine Datei dem Beitrag hinzuzuf&uuml;gen, klicken Sie auf den <b>Durchsuchen</b> Knopf am unteren Ende der Beitragsseite. Ihr Browser wird daraufhin 
 ein Dialogfenster &ouml;ffnen, mit welchem die gew&uuml;nschte Datei zum Hochladen ausgew&auml;hlt werden kann. Sobald diese Datei ausgew&auml;hlt wurde, 
-klicken Sie den <b>Datei hochladen</b> Knopf an, um die Datei an dem Beitrag anzuh&auml;ngen.<br>
+klicken Sie den <b>Datei hochladen</b> Knopf an, um die Datei an dem Beitrag anzuh&auml;ngen.<br />
 Wenn Sie Dateianh&auml;nge l&ouml;schen m&ouml;chten, klicken Sie einfach auf den <b>L&ouml;schen</b> Link rechts von der Datei.
 
 
@@ -510,8 +510,8 @@ TOPIC_TITLE: <a name="edit">Kann ich meinen Beitrag bearbeiten?</a>
 TOPIC_HELP:
 Wenn Sie ein registrierter Benutzer sind, k&ouml;nnen Sie Beitr&auml;ge, die Sie in letzter Zeit erstellt hatten, bearbeiten. Diese Option kann zeitlich 
 beschr&auml;nkt sein, weswegen es m&ouml;glich ist, dass ein k&uuml;rzlich erstellter Beitrag sich bearbeiten l&auml;sst, w&auml;hrend ein anderer, der schon eine Weile 
-zur&uuml;ckliegt, sich nicht mehr ver&auml;ndern l&auml;sst.<br>
-Beim Ver&auml;ndern des Beitrages wird ein kleiner Zusatz angeh&auml;ngt, der anzeigt von wem und zu welchem Zeitpunkt er bearbeitet wurde.<br>
+zur&uuml;ckliegt, sich nicht mehr ver&auml;ndern l&auml;sst.<br />
+Beim Ver&auml;ndern des Beitrages wird ein kleiner Zusatz angeh&auml;ngt, der anzeigt von wem und zu welchem Zeitpunkt er bearbeitet wurde.<br />
 Wenn ein Moderator oder Administrator deinen Beitrag bearbeitet hat, kannst du es, je nach Einstellung des Forums, am Zusatz erkennen (oder auch nicht).
 
 TOPIC_TITLE: <a name="mod">Wer sind die Moderatoren und Administratoren?</a> 

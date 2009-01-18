@@ -255,8 +255,8 @@ finduser_action:		Veiksmas
 yes:				Taip
 no:				Ne
 register_email:			Email
-edit_time_limit:		<br><b>Redagavimo laiko limitas</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuèiø
-no_edit_time_limit:		<br><b>Redagavimo laiko limitas</b>: <b>Nelimituota</b>
+edit_time_limit:		<br /><b>Redagavimo laiko limitas</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuèiø
+no_edit_time_limit:		<br /><b>Redagavimo laiko limitas</b>: <b>Nelimituota</b>
 pmuserloc_login:		Vardas:
 pmuserloc_submit:		Siøsti
 pmuserloc_user:			Vartotojas
@@ -275,7 +275,7 @@ register_avatar_type:		Logotipo tipas:
 register_del_avatar:		Panaikinti logotipà
 register_avatar:		Logotipas:
 register_sel_avatar:		Pasirinkti logotipà
-register_custom_avatar_rules:	<br><font class="SmallText">Logotipas negali bûti didesnis nei <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> ir turi bûti <b>jpg</b>, <b>gif</b>, <b>png</b> arba <b>swf</b> formato.</font>
+register_custom_avatar_rules:	<br /><font class="SmallText">Logotipas negali bûti didesnis nei <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> ir turi bûti <b>jpg</b>, <b>gif</b>, <b>png</b> arba <b>swf</b> formato.</font>
 register_custom_avatar_url:	Jûsø logotipo URL adresas internete:
 register_preview:		Perþiûrëti
 register_custom_avatar_upload:	Jûsø logotipo failas:
@@ -328,7 +328,7 @@ my_buddies:			Mano draugai
 add_buddy:			Áraðyti naujà draugà
 add:				Iraðyti
 buddy_search:			Enter the login of the user you wish to add.
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 buddy_remove:			remove
 post_normal:			Paprasta
 post_sticky:			Lipni
@@ -410,7 +410,7 @@ login_cookie_expired:		Jûs buvote seniai prisijungæ ir jums reikia ið naujo pris
 login_perm_denied:		Jûs neturite teisiø kaip anonimas prieiti prie srities, kurià bandëte pasiekti. Prisiregistruokite ir prisijunkite norëdami ten patekti.
 login_want_to_register:		Norite uþsiregistruoti?
 login_forgot_passwd:		Pamirðau slaptaþodá
-login_use_cookie:		Use cookies<br><font class="SmallText">If you&#39;re using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br>If you leave this option selected then you will be automatically logedin into the forum.
+login_use_cookie:		Use cookies<br /><font class="SmallText">If you&#39;re using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br />If you leave this option selected then you will be automatically logedin into the forum.
 login_login:			Vardas
 login_login_btn:		Prisijungti
 login_name_required:		Vardas turi bûti ávestas
@@ -535,7 +535,7 @@ buddy_list_err_nouser_title:	Unable to add user
 buddy_list_update:		Browsing own buddy list
 core_err_invinp_title:		Invalid Input
 core_err_invinp_err:		You&#39;ve followed an invalid link, please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
-core_adm_login_msg:		<br>Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>
+core_adm_login_msg:		<br />Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>
 email_err_unabletoemail_title:	ERROR: Unable to email
 email_err_unabletoemail_msg:	The email system has been disabled by the administrator.
 email_error_unabletolocaddr:	Sorry, the system was unable to email {VAR: usr_dst->alias} because it was unable to locate his email address
@@ -575,9 +575,9 @@ post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	You can no longer edit this message
 post_err_floodtrig_title:	ERROR: Post flood triggered.
 post_err_floodtrig_msg:		Please try again in {VAR: tm} seconds
-post_err_attach_size:		<font class="ErrorText">File Attachment is too big (over allowed limit of {VAR: MAX_F_SIZE} bytes)</font><br>
-post_err_attach_ext:		<font class="ErrorText">The file you are trying to upload doesn&#39;t match the allowed file types.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">You are trying to upload more files then it is allowed.</font><br>
+post_err_attach_size:		<font class="ErrorText">File Attachment is too big (over allowed limit of {VAR: MAX_F_SIZE} bytes)</font><br />
+post_err_attach_ext:		<font class="ErrorText">The file you are trying to upload doesn&#39;t match the allowed file types.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">You are trying to upload more files then it is allowed.</font><br />
 post_err_passwd:		Incorrect password.
 post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -592,7 +592,7 @@ postcheck_invalid_email:	Please enter a valid email address of your friend.
 postcheck_email_subject:	You cannot send an email without a subject.
 postcheck_email_body:		You cannot send an email without the message body.
 private_msg_notify_subj:	Read Notification For: {VAR: m->subject}
-private_msg_notify_body:	Hello,<br>{VAR: usr->login} has read your private message, "{VAR: m->subject}", on {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Hello,<br />{VAR: usr->login} has read your private message, "{VAR: m->subject}", on {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Browsing referrals
 register_err_short_login:	Login you have selected is too short. Login must be at least 4 characters long
 register_err_login_notallowed:	This login name is not allowed
@@ -623,7 +623,7 @@ reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		You should receive instructions in your email in the next few minutes
 reset_newpass_title:		Reset Password
 reset_newpass_msg:		Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Your password has been emailed to you. You should receive it within few minutes. Please check your email for your password and login.<br>
+reset_login_notify:		Your password has been emailed to you. You should receive it within few minutes. Please check your email for your password and login.<br />
 search_update:			Searching posts
 selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Today&#39;s Posts</a>
 showposts_update:		Viewing posts by: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -638,7 +638,7 @@ ERR_access_msg:			You do not have the required permissions to perform this actio
 ERR_registration_disabled_ttl:	Registration Disabled
 ERR_registration_disabled_msg:	The administrator has disabled registration, please try again later
 ERR_emailconf_ttl:		KLAIDA: Your account is not yet confirmed
-ERR_emailconf_msg:		You have not confirmed your account via email yet<br><table border=0><tr><td><ol><li>If you have not received a confirmation email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">click here</a><li>If {VAR: usr_d->email} is not your correct email address <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">click here</a></ol></td></tr></table>
+ERR_emailconf_msg:		You have not confirmed your account via email yet<br /><table border=0><tr><td><ol><li>If you have not received a confirmation email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">click here</a><li>If {VAR: usr_d->email} is not your correct email address <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">click here</a></ol></td></tr></table>
 ERR_user_ttl:			KLAIDA: Nëra tokio nario
 ERR_user_msg:			There is no such user
 ERR_systemerr_ttl:		KLAIDA: Sistemos klaida
@@ -735,7 +735,7 @@ post_quote:			Quote:
 userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} Members
 pm_no_space_title:		No space left!
-pm_no_space_msg:		Your private message folders exceed the allowed storage size of <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, as they currently contain <b>{VAR: fldr_size} bytes</b> worth of messages.<br><br><font class="ErrorText">Remove some old messages to clear up space</font>.
+pm_no_space_msg:		Your private message folders exceed the allowed storage size of <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, as they currently contain <b>{VAR: fldr_size} bytes</b> worth of messages.<br /><br /><font class="ErrorText">Remove some old messages to clear up space</font>.
 pm_space_indct_msg:		Jûsø privaèiø þinuèiø katalogai uþpildyti {VAR: percent_full}%.
 th_expr_never:			Be pabaigos
 th_expr_one_hr:			1 valanda

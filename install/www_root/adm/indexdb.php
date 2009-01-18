@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.32 2009/01/17 09:23:52 frank Exp $
+* $Id: indexdb.php,v 1.33 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,7 +32,7 @@ This script will attempt to rebuild the search indices for the entire forum. Thi
 and can take a VERY LONG time, especially on large forums. You should ONLY run this if you absolutely must.
 </div>
 <h2>Do you wish to proceed?</h2>
-<input type="submit" name="btn_cancel" value="No">&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes">
+<input type="submit" name="btn_cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
 <?php echo _hs; ?>
 </form>
 <?php

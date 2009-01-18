@@ -8,23 +8,23 @@ gebruiken en veel veiliger dan HTML.<p>
 <b>Hier is een lijst van ondersteunde FUDcode tags en een paar korte voorbeelden voor het gebruik ervan</b><P>
 <b>URL Hyperlinken</b><P>
 Het forum kan automatisch urls vinden en wel op vele manieren, bijvoorbeeld:<BR>
-<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br>
+<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br />
 wordt automatisch herkend als een URL en omgezet tot een geldige URL, dit ziet er als volgt uit:
-<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br>
+<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br />
 Je kunt ook zelf een URL maken door gebruik te maken van FUDcode, dit kan op twee manieren gedaan worden, de makkelijkste manier
-werkt zo:<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.mijnhomepage.nl</font>[/URL]</font></b></div><br>
-dit resulteert in de volgende link:<div align="center"><a href="http://www.mijnhomepage.nl" target=_blank>http://www.mijnhomepage.nl</a></div><br>
+werkt zo:<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.mijnhomepage.nl</font>[/URL]</font></b></div><br />
+dit resulteert in de volgende link:<div align="center"><a href="http://www.mijnhomepage.nl" target=_blank>http://www.mijnhomepage.nl</a></div><br />
 Je kunt ook een omschrijving toevoegen aan je URL door een andere syntaxis te gebruiken binnen de URL tag:<P>
 <font color="#ff0000"><b>[URL=<font color="#006600">http://www.mijnhomepage.nl</font>]<font color="#006600">Mijn Homepage</font>[/URL]</b></font><P>
-Deze code resulteert in het volgende:<BR><div align="center"><a href="http://www.mijnhomepage.nl" target=_blank>Mijn Homepage</a></div><br>
+Deze code resulteert in het volgende:<BR><div align="center"><a href="http://www.mijnhomepage.nl" target=_blank>Mijn Homepage</a></div><br />
 <p>
 <b>E-mailadressen linken</b><P>
 Om een e-maillink te maken type je gewoon het e-mailadres in zoals je dat normaal gesproken ook gewend bent te doen, bijvoorbeeld:<BR>
-<div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br>Het forum zal dit automatisch als een
+<div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br />Het forum zal dit automatisch als een
 link zien en die ook maken. Verder is het ook nog mogelijk om een echte e-maillink te maken door gebruik te maken van deze code<BR>
-<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Klik hier om technische hulp te krijgen<font color="#ff0000"><b>[/email]</b></font><br></div>
-<br>
-<b>Tekst opmaak</b><br>
+<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Klik hier om technische hulp te krijgen<font color="#ff0000"><b>[/email]</b></font><br /></div>
+<br />
+<b>Tekst opmaak</b><br />
 Er is een aantal tags waarmee je de opmaak van tekst kunt bepalen, dit zijn:<P>
 <ul>
   <li><font color="#ff0000"><b>[b]</b></font>vet<font color="#ff0000"><b>
@@ -38,7 +38,7 @@ Er is een aantal tags waarmee je de opmaak van tekst kunt bepalen, dit zijn:<P>
    <li><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>
           [/sup]</b></font> produces <sup>superscript</sup> text</li>
 </ul>
-Het is ook mogelijk om de kleur/grootte en zelfs het lettertype te bepalen.<br>
+Het is ook mogelijk om de kleur/grootte en zelfs het lettertype te bepalen.<br />
 <ul>
   <li><font color="#ff0000"><b>[color=red]</b></font> rode tekst<font color="#ff0000"><b>
          [/color]</b></font> geeft <font color="#ff0000">rode tekst</font></li>
@@ -47,12 +47,12 @@ Het is ook mogelijk om de kleur/grootte en zelfs het lettertype te bepalen.<br>
   <li><font color="#ff0000"><b>[font=courier]</b></font> tekst<font color="#ff0000"><b>
         [/font]</b></font> geeft de tekst weer in het benoemde <font face="Courier New, Courier, monospace">lettertype</font></li>
 </ul>
-Het is ook mogelijk om verschillende opmaak tags te combineren:<br>
-<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Opgemaakte tekst<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
-dit voorbeeld resulteert in:<br>
+Het is ook mogelijk om verschillende opmaak tags te combineren:<br />
+<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Opgemaakte tekst<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></div>
+dit voorbeeld resulteert in:<br />
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Opgemaakte tekst</b></i></u></font></div>
 <P>
-<b>Tekst uitlijning</b><br>
+<b>Tekst uitlijning</b><br />
 FUDcode ondersteunt uitlijning van de tekst via de [align] tag, waarmee de tekst op drie manieren kan worden uitgelijnd:
 <ul>
 	<li><font color="#ff0000"><b>[align=center]</b></font>gecentreerde tekst<font color="#ff0000"><b>[/align]</b></font> geeft:</li>
@@ -63,58 +63,58 @@ FUDcode ondersteunt uitlijning van de tekst via de [align] tag, waarmee de tekst
 		<div align="right">rechts uitgelijnd</div>
 </ul>
 <P>
-<b>Verschillende lijsten</b><br>
+<b>Verschillende lijsten</b><br />
 Door gebruik te maken van FUDcode kun je ook verschillende lijsten maken:<P>
-Ongeordende lijst met stippen:<br>
-<font color="#ff0000"><b>[list]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>eerste item<br>
-<font color="#ff0000"><b>[*]</b></font>tweede item<br>
-<font color="#ff0000"><b>[/list]<br>
-</b></font><br>dit geeft<br>
+Ongeordende lijst met stippen:<br />
+<font color="#ff0000"><b>[list]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>eerste item<br />
+<font color="#ff0000"><b>[*]</b></font>tweede item<br />
+<font color="#ff0000"><b>[/list]<br />
+</b></font><br />dit geeft<br />
 <ul><li>eerste item</li><li>tweede item</li></ul>
-Het is mogelijk om verschillende soorten lijsten te gebruiken, om een genummerde lijst te maken gebruik je deze code:<br>
-<font color="#ff0000"><b>[list type=1]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>eerste item<br>
-<font color="#ff0000"><b>[*]</b></font>tweede item<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
-dit geeft<br><ol><li>eerste item</li><li>tweede item<br></li></ol>
-Om een lijst te maken van A-Z:<br>
-<font color="#ff0000"><b>[list type=A]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>eerste item<br>
-<font color="#ff0000"><b>[*]</b></font>tweede item<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
-<br>dit geeft:<br><ol type="a"><li>eerste item</li><li>tweede item</li></ol>
-<b>Afbeeldingen toevoegen</b><br>
+Het is mogelijk om verschillende soorten lijsten te gebruiken, om een genummerde lijst te maken gebruik je deze code:<br />
+<font color="#ff0000"><b>[list type=1]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>eerste item<br />
+<font color="#ff0000"><b>[*]</b></font>tweede item<br />
+<font color="#ff0000"><b>[/list]</b></font><br />
+dit geeft<br /><ol><li>eerste item</li><li>tweede item<br /></li></ol>
+Om een lijst te maken van A-Z:<br />
+<font color="#ff0000"><b>[list type=A]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>eerste item<br />
+<font color="#ff0000"><b>[*]</b></font>tweede item<br />
+<font color="#ff0000"><b>[/list]</b></font><br />
+<br />dit geeft:<br /><ol type="a"><li>eerste item</li><li>tweede item</li></ol>
+<b>Afbeeldingen toevoegen</b><br />
 In-line afbeeldingen kunnen worden weergegeven in het bericht door gebruik te maken van de <font color="#ff0000"><b>
-    [img][/img]</b></font> tags.<P>bijvoorbeeld,<br>
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
-voegt op de volgende manier een afbeelding in in het bericht:<br>
-<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br></div>
-zo kun je ook links maken van afbeeldingen door ze op te nemen binnen een paar <font color="#ff0000"><b>[url][/url]</b></font> tags zoals<br>
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
-wat zal resulteren in een afbeelding met een link zoals<br>
-<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br></div><br>
+    [img][/img]</b></font> tags.<P>bijvoorbeeld,<br />
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
+voegt op de volgende manier een afbeelding in in het bericht:<br />
+<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br /></div>
+zo kun je ook links maken van afbeeldingen door ze op te nemen binnen een paar <font color="#ff0000"><b>[url][/url]</b></font> tags zoals<br />
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+wat zal resulteren in een afbeelding met een link zoals<br />
+<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br /></div><br />
 
-<br><b>Andere berichten citeren</b><br>
+<br /><b>Andere berichten citeren</b><br />
 Het is mogelijk om iets te citeren dat al eerder gepost is door er gewoon <font color="#ff0000"><b>[quote][/quote]</b></font> tags omheen te zetten. 
-<br><div align="Center"><font color="#ff0000"><b>[quote]</b></font>Hallo wereld<font color="#ff0000"><b>[/quote]</b></font><br></div>
-ziet er dan als volgt uit:<br>
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hallo wereld<br></td></tr></table>
-<p><b>Computer Code en voorbewerkte tekst</b><br>
+<br /><div align="Center"><font color="#ff0000"><b>[quote]</b></font>Hallo wereld<font color="#ff0000"><b>[/quote]</b></font><br /></div>
+ziet er dan als volgt uit:<br />
+<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hallo wereld<br /></td></tr></table>
+<p><b>Computer Code en voorbewerkte tekst</b><br />
 De <font color="#ff0000"><b>[code][/code]</b></font> tags zorgen ervoor dat tekst precies zo geplaatst kan worden zoals je het
 invoert, waarbij de voorbewerkte opmaak behouden blijft zoals meerdere tabulatorstops en spaties.<p>
-Het wordt als volgt gebruikt: <br>
+Het wordt als volgt gebruikt: <br />
 <font color="#ff0000"><b>[code]</b></font>
-<pre>$fp = fopen('een bestand', 'w');<br>if ( !$fp ) {<br>	exit('bestand niet gevonden!');<br>}<br>else { <br>	fwrite($fp, 'Hallo wereld');<br>	fclose($fp);<br>}<br></pre>
+<pre>$fp = fopen('een bestand', 'w');<br />if ( !$fp ) {<br />	exit('bestand niet gevonden!');<br />}<br />else { <br />	fwrite($fp, 'Hallo wereld');<br />	fclose($fp);<br />}<br /></pre>
 <font color="#ff0000"><b>[/code]</b></font><p>
 Dit geeft de tekst precies zo weer als dat het werd ingetypt waarbij de opmaak behouden blijft.<P>
-<pre>$fp = fopen('eenbestand', 'w');<br>if ( !$fp ) {<br>	exit('bestand niet gevonden!');<br>}<br>else { <br>	fwrite($fp, 'Hallo wereld');<br>	fclose($fp);<br>}<br><br><br></pre>
+<pre>$fp = fopen('eenbestand', 'w');<br />if ( !$fp ) {<br />	exit('bestand niet gevonden!');<br />}<br />else { <br />	fwrite($fp, 'Hallo wereld');<br />	fclose($fp);<br />}<br /><br /><br /></pre>
 
 <p>
-<b>PHP Code</b><br>
+<b>PHP Code</b><br />
 The <font color="#ff0000"><b>[php][/php]</b></font> tag allows you to post PHP scripts
-and have the forum automatically syntax highlight the code for easier readability.<br>
-<br>it used like this: <br>
+and have the forum automatically syntax highlight the code for easier readability.<br />
+<br />it used like this: <br />
 <font color="#ff0000"><b>[php]</b></font>
 <pre>
 function hello()
@@ -124,8 +124,8 @@ function hello()
 
 hello();
 </pre>
-<font color="#ff0000"><b>[/php]</b></font><br>
-<br>which produces:<br><br>
+<font color="#ff0000"><b>[/php]</b></font><br />
+<br />which produces:<br /><br />
 <code><font color="#000000">
 <font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
 
@@ -133,24 +133,24 @@ hello();
 </code>
 <p>
 
-<b>No Tag</b><br>
+<b>No Tag</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
 the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
 and not have them converted to equivalent HTML.
 <p>
 
-<b>Spoiler</b><br>
+<b>Spoiler</b><br />
 The <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> tag allows you to hide a portion of message
 from being displayed. To see the hidden portion the users must click a link that will display the 
 hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually 
-reloaded, instead a hidden layer is made visible.<br>
-  <br>
-Here is an example of this tag in action: <br>
+reloaded, instead a hidden layer is made visible.<br />
+  <br />
+Here is an example of this tag in action: <br />
 
 Visible part of the message
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br>Hidden part of the message</br>
-<font color="#ff0000"><b>[/spoiler]</b></font><br>
+<br />Hidden part of the message</br>
+<font color="#ff0000"><b>[/spoiler]</b></font><br />
 More visible text.
 
 <p>and the result:<p>
@@ -164,7 +164,7 @@ More visible text.
 <p>
 
 <p>
-<b>Acronym</b><br>
+<b>Acronym</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
 acronym and provide a full name when the user moves their mouse over the tag.
 <font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
@@ -178,7 +178,7 @@ TOPIC_TITLE: <a name="sml">Wat zijn smilies/Emoticons?</a>
 TOPIC_HELP:
 Smilies zijn kleine icoontjes die je kunt toevoegen aan je bericht om verschillende emoties en gevoelens te kunnen weergeven.
 Als de smilies aanstaan, wordt er een lijst met door het forum ondersteunde smilies boven het te typen bericht getoond.
-Door op een smiley te klikken, zal die smiley aan je bericht worden toegevoegd.<br>
+Door op een smiley te klikken, zal die smiley aan je bericht worden toegevoegd.<br />
 De bekendste smilies worden automatisch vervangen door de bijpassende afbeelding, wanneer je niet wilt dat dit gebeurt, dan kun je
 <b>Zet de smilies in dit bericht uit</b> aanvinken.<p>
 
@@ -198,10 +198,10 @@ TOPIC_TITLE: <a name="attach">Kan ik bestanden aan berichten toevoegen?</a>
 TOPIC_HELP:
 Indien toegestaan door de beheerder, is het mogelijk om een of meerdere bestanden toe te voegen aan je gewone berichten als
 ook aan priv&eacute; berichten. Deze mogelijkheid wordt per forum bepaald, het is dus mogelijk dat je in het ene forum wel
-bestanden kunt toevoegen terwijl dat in een ander forum niet het geval is.<br>
+bestanden kunt toevoegen terwijl dat in een ander forum niet het geval is.<br />
 Het venster waarin je je bericht kunt opstellen geeft drie regels weer die gelden voor de bestandsbijlagen:<p>
-<b>Toegestane bestandsextensies</b> - een lijst met bestandsformaten die je aan je bericht mag toevoegen zoals bijvoorbeeld jpg, gif, png<br>
-<b>Maximale bestandsgrootte</b> - de maximale grootte van elk bestand dat je wilt toevoegen aan je bericht<br>
+<b>Toegestane bestandsextensies</b> - een lijst met bestandsformaten die je aan je bericht mag toevoegen zoals bijvoorbeeld jpg, gif, png<br />
+<b>Maximale bestandsgrootte</b> - de maximale grootte van elk bestand dat je wilt toevoegen aan je bericht<br />
 <b>Maximaal aantal bestanden per bericht</b> - het aantal bestanden dat je aan je bericht kunt toevoegen.<p>
 Om een bestand aan een bericht toe te voegen klik je op de knop <b>Bladeren...</b> onderaan de pagina waarin je je bericht kunt opstellen. De browser zal
 dan een dialoogvenster openen waarin je het bestand dat je wilt uploaden kunt selecteren op je harde schijf. Wanneer je een bestand geselecteerd hebt, klik je
@@ -219,7 +219,7 @@ TOPIC_HELP:
 Geregistreerde leden kunnen hun berichten die ze eerder geplaatst hebben wijzigen. Deze mogelijkheid kan tijdgelimiteerd zijn,
 het is dus mogelijk dat je wel je recente berichten kunt wijzigen, maar berichten die je al wat langer geleden hebt geplaatst niet meer kunt wijzigen.<BR>
 Wanneer je je bericht wijzigt, zal er een regeltje tekst aan je bericht worden toegevoegd, dat weergeeft dat dit bericht door jou gewijzigd is en ook de datum en de tijd
-van de wijziging weergeeft.<br>
+van de wijziging weergeeft.<br />
 Als een moderotor of een beheerder je bericht gewijzigd heeft, zul je dit wel of niet kunnen zien, afhankelijk van de instellingen van het forum.
 
 TOPIC_TITLE: <a name="mod">Wie zijn de moderatoren en beheerders?</a> 

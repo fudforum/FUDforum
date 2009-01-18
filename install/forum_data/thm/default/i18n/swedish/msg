@@ -251,8 +251,8 @@ finduser_joindate:		Registreringsdatum
 finduser_action:		Handling
 yes:				Ja
 no:				Nej
-edit_time_limit:		<br><b>Tidsgr&auml;ns f&ouml;r editering</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuter
-no_edit_time_limit:		<br><b>Tidsgr&auml;ns f&ouml;r editering</b>: <b>Obegr&auml;nsad</b>
+edit_time_limit:		<br /><b>Tidsgr&auml;ns f&ouml;r editering</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuter
+no_edit_time_limit:		<br /><b>Tidsgr&auml;ns f&ouml;r editering</b>: <b>Obegr&auml;nsad</b>
 pmuserloc_login:		Anv&auml;ndarnamn:
 pmuserloc_submit:		Skicka
 pmuserloc_user:			Medlem
@@ -271,7 +271,7 @@ register_avatar_type:		Avatartyp:
 register_del_avatar:		Radera avatar
 register_avatar:		Visningsbild:
 register_sel_avatar:		V&auml;lj avatar
-register_custom_avatar_rules:	Din egen avatar kommer inte att synas f&ouml;re den har godk&auml;nts av administratorn.<br><font class="SmallText">Avataren b&ouml;r inte vara st&ouml;rre &auml;n <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixlar</b> och m&aring;ste vara i <b>jpg-</b>, <b>gif-</b> eller <b>png-</b>format.</font>
+register_custom_avatar_rules:	Din egen avatar kommer inte att synas f&ouml;re den har godk&auml;nts av administratorn.<br /><font class="SmallText">Avataren b&ouml;r inte vara st&ouml;rre &auml;n <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixlar</b> och m&aring;ste vara i <b>jpg-</b>, <b>gif-</b> eller <b>png-</b>format.</font>
 register_custom_avatar_url:	URL till egen avatar:
 register_preview:		F&ouml;rhandsgranska
 register_custom_avatar_upload:	Fil med egen avatar:
@@ -404,7 +404,7 @@ login_cookie_expired:		Din kaka har g&aring;tt ut, och du m&aring;ste logga in p
 login_perm_denied:		Du har inte r&auml;tt att anv&auml;nda den efterfr&aring;gade resursen som anonym anv&auml;ndare och m&aring;ste d&auml;rf&ouml;r logga in.
 login_want_to_register:		Vill du registrera dig?
 login_forgot_passwd:		Jag har gl&ouml;mt mitt l&ouml;senord
-login_use_cookie:		Anv&auml;nd kakor<br><font class="SmallText">Om du anv&auml;nder en offentlig terminal, som t.ex. datorer i bibliotek, skolor eller internetkaféer rekommenderar vi att du v&auml;ljer bort det h&auml;r alternativet f&ouml;r b&auml;ttre s&auml;kerhet.
+login_use_cookie:		Anv&auml;nd kakor<br /><font class="SmallText">Om du anv&auml;nder en offentlig terminal, som t.ex. datorer i bibliotek, skolor eller internetkaféer rekommenderar vi att du v&auml;ljer bort det h&auml;r alternativet f&ouml;r b&auml;ttre s&auml;kerhet.
 login_login:			Logga in
 login_login_btn:		Logga in
 login_name_required:		Anv&auml;ndarnamnet &auml;r obligatoriskt
@@ -529,7 +529,7 @@ buddy_list_err_nouser_title:	Kan inte l&auml;gga till medlemmen
 buddy_list_update:		Visar egen kompislista
 core_err_invinp_title:		Ogiltig input(??)
 core_err_invinp_err:		Du har f&ouml;ljt en felaktig l&auml;nk, v&auml;nligen meddela <a href="mailto:{GVAR: ADMIN_EMAIL}">webmastern</a>
-core_adm_login_msg:		<br>Administrat&ouml;rer kan logga in <a href="adm/admloginuser.php">h&auml;r</a>
+core_adm_login_msg:		<br />Administrat&ouml;rer kan logga in <a href="adm/admloginuser.php">h&auml;r</a>
 email_err_unabletoemail_title:	FEL: Kan inte skicka e-post
 email_err_unabletoemail_msg:	E-postsystemet har st&auml;ngts av av administratorn.
 email_error_unabletolocaddr:	Systemet kunde tyv&auml;rr inte skicka e-post till {VAR-HTML: _POST['tx_name']} eftersom det inte hittade hans/hennes e-postadress
@@ -568,9 +568,9 @@ post_err_edttimelimit_title:	FEL
 post_err_edttimelimit_msg:	Du kan inte editera det h&auml;r meddelandet l&auml;ngre
 post_err_floodtrig_title:	FEL: Fl&ouml;desstopp p&aring;slaget
 post_err_floodtrig_msg:		Var v&auml;nlig f&ouml;rs&ouml;k p&aring; nytt om {VAR: tm} sekunder
-post_err_attach_size:		<font class="ErrorText">Bilagan &auml;r f&ouml;r stor (&ouml;ver gr&auml;nsen p&aring; {VAR: MAX_F_SIZE} byte)</font><br>
-post_err_attach_ext:		<font class="ErrorText">Filen du f&ouml;rs&ouml;ker skicka &auml;r inte av till&aring;ten typ.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Du f&ouml;rs&ouml;ker skicka fler filer &auml;n vad som &auml;r till&aring;tet.</font><br>
+post_err_attach_size:		<font class="ErrorText">Bilagan &auml;r f&ouml;r stor (&ouml;ver gr&auml;nsen p&aring; {VAR: MAX_F_SIZE} byte)</font><br />
+post_err_attach_ext:		<font class="ErrorText">Filen du f&ouml;rs&ouml;ker skicka &auml;r inte av till&aring;ten typ.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Du f&ouml;rs&ouml;ker skicka fler filer &auml;n vad som &auml;r till&aring;tet.</font><br />
 post_err_passwd:		Fel l&ouml;senord
 post_reply_update:		Svarar p&aring; <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR-HTML: frm->name}
 post_topic_update:		P&aring;b&ouml;rjar ny diskussion i <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -585,7 +585,7 @@ postcheck_invalid_email:	Ge en riktig e-postadress till din v&auml;n.
 postcheck_email_subject:	Kan inte skicka e-post utan rubrik.
 postcheck_email_body:		Kan inte skicka e-post utan text.
 private_msg_notify_subj:	Kvittering f&ouml;r: {VAR: m->subject}
-private_msg_notify_body:	Hej!<br>Den {TEMPLATE: private_msg_notify_body_date} l&auml;ste {VAR: usr->login} ditt privata meddelande med rubriken "{VAR: m->subject}"<br>
+private_msg_notify_body:	Hej!<br />Den {TEMPLATE: private_msg_notify_body_date} l&auml;ste {VAR: usr->login} ditt privata meddelande med rubriken "{VAR: m->subject}"<br />
 referals_update:		Visar refererade medlemmar
 register_err_short_login:	Det anv&auml;ndarnamn du valt &auml;r f&ouml;r kort. Anv&auml;ndarnamnet m&aring;ste vara minst 4 tecken l&aring;ngt
 register_err_login_notallowed:	Det h&auml;r anv&auml;ndarnamnet &auml;r inte till&aring;tet
@@ -616,7 +616,7 @@ reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		Du torde f&aring; instruktioner per e-post inom ett par minuter
 reset_newpass_title:		Nollst&auml;ll l&ouml;senord
 reset_newpass_msg:		Hej!\n\nEnligt &ouml;nskem&aring;l har ditt anv&auml;ndarnamn och ditt l&ouml;senord skickats till dig.\nH&auml;r &auml;r dina inloggningsuppgifter:\n\nAnv&auml;ndarnamn: {VAR: ui[1]}\nL&ouml;senord: {VAR: passwd}\n\nNotera att ditt l&ouml;senord har &auml;ndrats till ovanst&aring;ende. Om du vill\n&auml;ndra ditt l&ouml;senord kan du g&ouml;ra det i medlemmens kontrollpanel:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Ditt l&ouml;senord har skickats &aring;t dig per e-post och borde komma fram inom ett par minuter. V&auml;nligen kontrollera din e-post f&ouml;r ditt anv&auml;ndarnamn och l&ouml;senord.<br>.<br>.<br>
+reset_login_notify:		Ditt l&ouml;senord har skickats &aring;t dig per e-post och borde komma fram inom ett par minuter. V&auml;nligen kontrollera din e-post f&ouml;r ditt anv&auml;ndarnamn och l&ouml;senord.<br />.<br />.<br />
 search_update:			S&ouml;ker bland inl&auml;ggen
 selmsg_update:			L&auml;ser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens inl&auml;gg</a>
 showposts_update:		Visar inl&auml;gg av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -631,7 +631,7 @@ ERR_access_msg:			Du har inte de r&auml;ttigheter som beh&ouml;vs f&ouml;r att g
 ERR_registration_disabled_ttl:	Registrering avst&auml;ngd
 ERR_registration_disabled_msg:	Administratorn har st&auml;ng av registreringen, f&ouml;rs&ouml;k p&aring; nytt senare
 ERR_emailconf_ttl:		FEL: Ditt anv&auml;ndarkonto &auml;r &auml;nnu inte bekr&auml;ftat
-ERR_emailconf_msg:		Du har inte bekr&auml;ftat ditt anv&auml;ndarkonto via e-post <br><table border=0><tr><td><ol><li>Om du inte har f&aring;tt ett bekr&auml;ftelsemeddelande per e-post <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">tryck h&auml;r</a><li>Om {VAR: usr_d->email} inte &auml;r din r&auml;tta e-postadress <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">tryck h&auml;r</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du har inte bekr&auml;ftat ditt anv&auml;ndarkonto via e-post <br /><table border=0><tr><td><ol><li>Om du inte har f&aring;tt ett bekr&auml;ftelsemeddelande per e-post <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">tryck h&auml;r</a><li>Om {VAR: usr_d->email} inte &auml;r din r&auml;tta e-postadress <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">tryck h&auml;r</a></ol></td></tr></table>
 ERR_user_ttl:			FEL: Ingen s&aring;dan medlem
 ERR_user_msg:			Det finns ingen s&aring;dan medlem
 ERR_systemerr_ttl:		FEL: Systemfel
@@ -728,7 +728,7 @@ post_quote:			Citat:
 userinfo_referals:		Refererade medlemmar:
 userinfo_referals_count:	{VAR: referals} medlemmar
 pm_no_space_title:		Inget utrymme kvar!
-pm_no_space_msg:		Dina privata meddelanden tar f&ouml;r tillf&auml;llet f&ouml;r mycket utrymme. Maximalt till&aring;tet utrymme &auml;r <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>, och dina meddelanden tar nu <b>{VAR: fldr_size} byte</b>.<br><br><font class="ErrorText">Ta bort n&aring;gra gamla meddelanden f&ouml;r att fri&ouml;ra lite utrymme</font>.
+pm_no_space_msg:		Dina privata meddelanden tar f&ouml;r tillf&auml;llet f&ouml;r mycket utrymme. Maximalt till&aring;tet utrymme &auml;r <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>, och dina meddelanden tar nu <b>{VAR: fldr_size} byte</b>.<br /><br /><font class="ErrorText">Ta bort n&aring;gra gamla meddelanden f&ouml;r att fri&ouml;ra lite utrymme</font>.
 pm_space_indct_msg:		Dina mappar f&ouml;r privata meddelanden &auml;r fyllda till {VAR: percent_full}%.
 th_expr_never:			Aldrig
 th_expr_one_hr:			1 timme
@@ -854,7 +854,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Användarnamn
 register_err_avatardimtobig:	Visningsbildens dimensiontioner på <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> överskrider den maximala storleken på <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Nedhämtad {VAR: r->dlcount} gång(er)
-member_search:			<br>Eller använd <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Användarsöknings</a> funtionen för att hitta personen.
+member_search:			<br />Eller använd <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Användarsöknings</a> funtionen för att hitta personen.
 post_all_ext_allowed:		(oinskränkt)
 buddy_offline:			{VAR: r[2]} är för tillfället nedkopplad
 buddy_online:			{VAR: r[2]} är för tillfället uppkopplad

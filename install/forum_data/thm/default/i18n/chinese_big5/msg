@@ -251,8 +251,8 @@ finduser_action:		操作
 yes:				是
 no:				否
 register_email:			電子信箱：
-edit_time_limit:		<br><b>編輯時間限制為</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> 分鐘
-no_edit_time_limit:		<br><b>編輯時間限制</b>: <b>不限</b>
+edit_time_limit:		<br /><b>編輯時間限制為</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> 分鐘
+no_edit_time_limit:		<br /><b>編輯時間限制</b>: <b>不限</b>
 pmuserloc_login:		登錄:
 pmuserloc_submit:		提交
 pmuserloc_user:			用戶
@@ -271,7 +271,7 @@ register_avatar_type:		頭像類型:
 register_del_avatar:		刪除頭像
 register_avatar:		頭像:
 register_sel_avatar:		選擇頭像
-register_custom_avatar_rules:	只有經過系統管理員允許后，才能出現定制的頭像。<br><font class="SmallText">頭像不能大于<b>{GVAR: CUSTOM_AVATAR_MAX_DIM} 像素</b> 具體大小是<b>jpg</b>, <b>gif</b> or <b>png</b> </font>
+register_custom_avatar_rules:	只有經過系統管理員允許后，才能出現定制的頭像。<br /><font class="SmallText">頭像不能大于<b>{GVAR: CUSTOM_AVATAR_MAX_DIM} 像素</b> 具體大小是<b>jpg</b>, <b>gif</b> or <b>png</b> </font>
 register_custom_avatar_url:	定制頭像地址:
 register_preview:		預覽
 register_custom_avatar_upload:	定制頭像文件:
@@ -405,7 +405,7 @@ login_cookie_expired:		你的cookie功能被終止了。需要登錄重新開啟cookie功能。
 login_perm_denied:		作為匿名用戶，只有登錄以后才有權限訪問相關資源。
 login_want_to_register:		先注冊?
 login_forgot_passwd:		忘記密碼
-login_use_cookie:		使用cookies功能<br><font class="SmallText">如果你是在學校、圖書館、網吧等公共場合使用計算機，為安全起見，建議你不要使用這個功能。
+login_use_cookie:		使用cookies功能<br /><font class="SmallText">如果你是在學校、圖書館、網吧等公共場合使用計算機，為安全起見，建議你不要使用這個功能。
 login_login:			登錄
 login_login_btn:		登錄
 login_name_required:		登錄時必須輸入賬號
@@ -530,7 +530,7 @@ buddy_list_err_nouser_title:	無法添加
 buddy_list_update:		瀏覽我的好友列表
 core_err_invinp_title:		輸入錯誤
 core_err_invinp_err:		你輸入了一個錯誤的鏈接,請更正<a href="mailto:{VAR: ADMIN_EMAIL}">網管</a>
-core_adm_login_msg:		<br><a href="adm/admloginuser.php">管理員登陸</a>
+core_adm_login_msg:		<br /><a href="adm/admloginuser.php">管理員登陸</a>
 email_err_unabletoemail_title:	錯誤:無法發送郵件
 email_err_unabletoemail_msg:	系統管理員設置郵件系統無法使用。
 email_error_unabletolocaddr:	對不起，因為無法登錄對方的郵件服務器導致系統無法發送郵件{VAR-HTML: _POST['tx_name']}
@@ -569,9 +569,9 @@ post_err_edttimelimit_title:	錯誤
 post_err_edttimelimit_msg:	你不能再編輯這條信息
 post_err_floodtrig_title:	錯誤：發布灌水帖子
 post_err_floodtrig_msg:		請在{VAR: tm}秒以內重試
-post_err_attach_size:		<font class="ErrorText">附件文件太大（超過了允許的最大{VAR: MAX_F_SIZE}字節)</font><br>
-post_err_attach_ext:		<font class="ErrorText">你正在上傳的文件類型不符合論壇對上傳文件類型的設置font><br>
-post_err_attach_filelimit:	<font class="ErrorText">你正在上傳的文件超過了限制的數量。</font><br>
+post_err_attach_size:		<font class="ErrorText">附件文件太大（超過了允許的最大{VAR: MAX_F_SIZE}字節)</font><br />
+post_err_attach_ext:		<font class="ErrorText">你正在上傳的文件類型不符合論壇對上傳文件類型的設置font><br />
+post_err_attach_filelimit:	<font class="ErrorText">你正在上傳的文件超過了限制的數量。</font><br />
 post_err_passwd:		密碼錯誤。
 post_reply_update:		回復 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> 在 {VAR-HTML: frm->name}
 post_topic_update:		發表新主題 <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -586,7 +586,7 @@ postcheck_invalid_email:	請輸入你的朋友的正確電子郵箱地址。
 postcheck_email_subject:	如果不輸入主題，你將無法發送郵件。
 postcheck_email_body:		如果沒有內容，你將無法發送郵件。
 private_msg_notify_subj:	讀取通知: {VAR: m->subject}
-private_msg_notify_body:	你好,<br>{VAR: usr->login} 用戶已經閱讀了你的悄悄話， "{VAR: m->subject}", 在 {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br>
+private_msg_notify_body:	你好,<br />{VAR: usr->login} 用戶已經閱讀了你的悄悄話， "{VAR: m->subject}", 在 {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br />
 referals_update:		瀏覽被推荐者
 register_err_short_login:	你輸入的賬號太短，必須至少包括4個字符。
 register_err_login_notallowed:	不能使用這個賬號注冊。
@@ -617,7 +617,7 @@ reset_err_rstconf_title:	信息
 reset_err_rstconf_msg:		一會您將通過郵件收到相關說明。
 reset_newpass_title:		重新輸入密碼
 reset_newpass_msg:		你好，\n\n你每次登錄的賬號都將發送給你。\nHere 這里是你的登錄信息:\n\n賬號：{VAR: ui[1]}\n密碼: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, 如果你想\n修改密碼，請在個人信息中修改:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		一會兒，你將通過郵件收到密碼。請檢查你的密碼并登錄。.<br>
+reset_login_notify:		一會兒，你將通過郵件收到密碼。請檢查你的密碼并登錄。.<br />
 search_update:			搜索
 selmsg_update:			瀏覽 <a href="{TEMPLATE: selmsg_update_lnk}">今天發布的主題</a>
 showposts_update:		查看用戶 <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>發布的主題
@@ -632,7 +632,7 @@ ERR_access_msg:			您沒有權利進行此項操作
 ERR_registration_disabled_ttl:	注冊失敗
 ERR_registration_disabled_msg:	注冊功能被系統管理員禁止,請重試！
 ERR_emailconf_ttl:		錯誤: 此賬號無效
-ERR_emailconf_msg:		您注冊的賬號尚未進行郵件確認<br><table border=0><tr><td><ol><li>如果你沒有收到確認郵件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">請點擊</a><li>如果 {VAR: usr_d->email} 郵件地址有誤<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">請點擊</a></ol></td></tr></table>
+ERR_emailconf_msg:		您注冊的賬號尚未進行郵件確認<br /><table border=0><tr><td><ol><li>如果你沒有收到確認郵件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">請點擊</a><li>如果 {VAR: usr_d->email} 郵件地址有誤<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">請點擊</a></ol></td></tr></table>
 ERR_user_ttl:			錯誤：沒有這個用戶
 ERR_user_msg:			沒有這個用戶
 ERR_systemerr_ttl:		系統錯誤
@@ -729,7 +729,7 @@ post_quote:			引用:
 userinfo_referals:		被推荐的用戶：
 userinfo_referals_count:	{VAR: referals} 成員：
 pm_no_space_title:		空間不夠
-pm_no_space_msg:		你的悄悄話文件夾已經超出了系統限制的空間范圍 <b>{GVAR: MAX_PMSG_FLDR_SIZE} 字節</b>, 其中包括 <b>{VAR: fldr_size} 字節的</b> 有用信息.<br><br><font class="ErrorText">請刪除一些舊信息已騰出空間</font>.
+pm_no_space_msg:		你的悄悄話文件夾已經超出了系統限制的空間范圍 <b>{GVAR: MAX_PMSG_FLDR_SIZE} 字節</b>, 其中包括 <b>{VAR: fldr_size} 字節的</b> 有用信息.<br /><br /><font class="ErrorText">請刪除一些舊信息已騰出空間</font>.
 pm_space_indct_msg:		你的悄悄話信箱已占用{VAR: percent_full}%空間。
 th_expr_never:			從不
 th_expr_one_hr:			1個小時
@@ -855,7 +855,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online

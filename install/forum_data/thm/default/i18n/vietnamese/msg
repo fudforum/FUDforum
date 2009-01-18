@@ -255,8 +255,8 @@ finduser_action:		Hành động
 yes:				Có
 no:				Không
 register_email:			E-mail
-edit_time_limit:		<br><b>Hạn chế thời gian sửa</b> : <b>{GVAR: EDIT_TIME_LIMIT}</b> phút
-no_edit_time_limit:		<br><b>Hạn chế thời gian sửa</b>:<b>Không<br>hạn chế</b>
+edit_time_limit:		<br /><b>Hạn chế thời gian sửa</b> : <b>{GVAR: EDIT_TIME_LIMIT}</b> phút
+no_edit_time_limit:		<br /><b>Hạn chế thời gian sửa</b>:<b>Không<br />hạn chế</b>
 pmuserloc_login:		Tên đăng nhập:
 pmuserloc_submit:		Tìm
 pmuserloc_user:			Thành viên
@@ -275,7 +275,7 @@ register_avatar_type:		Hình ảnh đại diện:
 register_del_avatar:		Xóa hình đại diện
 register_avatar:		Hình đại diện:
 register_sel_avatar:		Chọn hình đại diện
-register_custom_avatar_rules:	Hình đại diện quen thuộc sẽ không xuất hiện cho đến khi nó được sự chấp nhận của người quản trị tối cao.<br><span class="SmallText">Hình đại diện không nên lớn hơn <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> và phải là dạng <b>jpg</b>, <b>gif</b> or <b>png</b>.</span>
+register_custom_avatar_rules:	Hình đại diện quen thuộc sẽ không xuất hiện cho đến khi nó được sự chấp nhận của người quản trị tối cao.<br /><span class="SmallText">Hình đại diện không nên lớn hơn <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> và phải là dạng <b>jpg</b>, <b>gif</b> or <b>png</b>.</span>
 register_custom_avatar_url:	Đường dẫn hình đại diện quen thuộc:
 register_preview:		Xem lại
 register_custom_avatar_upload:	Tập tin hình đại diện:
@@ -328,7 +328,7 @@ my_buddies:			Bạn bè của tôi
 add_buddy:			Thêm danh sách bạn bè
 add:				Thêm
 buddy_search:			Nhập vào tên đăng nhập của thành viên mà bạn muốn thêm
-member_search:			<br>hoặc sử dụng chức năng <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Tìm thành viên</a> để kiếm một người.
+member_search:			<br />hoặc sử dụng chức năng <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Tìm thành viên</a> để kiếm một người.
 buddy_remove:			Xóa bỏ
 post_normal:			Bình Thường
 post_sticky:			Sticky
@@ -378,7 +378,7 @@ post_preview_btn:		Xem Lại Bài Viết
 ignore_users:			Thành viên bị từ chối
 add_ignore:			Thêm người bị từ chối
 forum_terms:			Những điều khoản của diễn đàn
-forum_rules:			<center><h1>Chào đón những thành viên mới của <b>Trường Long Forum </b></h1><br>Chúc Các Bạn Vui Vẻ ^_^ <br>Nếu bạn đồng ý --->> [Đồng ý]<br>nếu không -->> [không đồng ý]</center>
+forum_rules:			<center><h1>Chào đón những thành viên mới của <b>Trường Long Forum </b></h1><br />Chúc Các Bạn Vui Vẻ ^_^ <br />Nếu bạn đồng ý --->> [Đồng ý]<br />nếu không -->> [không đồng ý]</center>
 forum_rules_13:			Tất cả những thành viên dưới 13 tuổi phải có sự chấp nhận của cha mẹ hoặc người bảo hộ để có thể trở thành thành viên của diễn đàn While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send e-mail to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			COPPA Confirmation
 coppa_before:			Trước {TEMPLATE: coppa_date}
@@ -410,7 +410,7 @@ login_cookie_expired:		Cookies của bạn đã hết hạn, và bạn cần ph�
 login_perm_denied:		Bạn không được phép truy cập khi là thành viên vô danh. Bạn phải đăng nhập để có được sự cho phép.
 login_want_to_register:		Bạn muốn đăng ký chứ?
 login_forgot_passwd:		Quên mật khẩu
-login_use_cookie:		Sử dụng cookie<br><span class="SmallText">Nếu bạn sử dụng máy tính nơi công cộng như thư viên, trường học ,hoặc dịch vụ internet, Chúng tôi khuyên bạn không nên chọn mục này nhằm tăng độ bảo mật hơn.<br>Nếu bạn chọn mục này ,bạn sẽ tự động đăng nhập vào lần ghé thăm kế tiếp .
+login_use_cookie:		Sử dụng cookie<br /><span class="SmallText">Nếu bạn sử dụng máy tính nơi công cộng như thư viên, trường học ,hoặc dịch vụ internet, Chúng tôi khuyên bạn không nên chọn mục này nhằm tăng độ bảo mật hơn.<br />Nếu bạn chọn mục này ,bạn sẽ tự động đăng nhập vào lần ghé thăm kế tiếp .
 login_login:			Tên Đăng Nhập
 login_login_btn:		Đăng Nhập
 login_name_required:		Tên đăng nhập đòi hỏi phải có
@@ -536,7 +536,7 @@ buddy_list_err_ignore:		Không thể thêm thành viên này vì họ đã từ 
 buddy_list_update:		Xem qua danh sách bạn bè của tôi
 core_err_invinp_title:		Invalid Input
 core_err_invinp_err:		You have followed an invalid link. Please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> how you got here.
-core_adm_login_msg:		<br>người quản trị tối cao có thể đăng nhập  <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ở đây</a>
+core_adm_login_msg:		<br />người quản trị tối cao có thể đăng nhập  <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ở đây</a>
 email_err_unabletoemail_title:	Lỗi : Không thể gửi email
 email_err_unabletoemail_msg:	Hệ thống email đã bị vô hiệu hóa bởi người quản trị tối cao.
 email_error_unabletolocaddr:	Lỗi :hệ thống không thể gửi email đến {VAR-HTML: _POST['tx_name']} bởi vì nó không thể xác định rõ địa chỉ email
@@ -580,9 +580,9 @@ post_err_noannontopics_msg2:	<fieldset><legend>Lỗi : Không được phép</le
 post_err_noannonposts_msg2:	<fieldset><legend>Lỗi : Không được phép</legend>Thành viên vô danh không được phép trả loi.</fieldset><br />
 post_err_floodtrig_title:	Lỗi : Gởi bài đã gây quá tải.
 post_err_floodtrig_msg:		Xin vui lòng thử lại sau {VAR: tm} giây nữa
-post_err_attach_size:		<span class="ErrorText">Kích thước tập tin đính kèm quá lớn(lớn hơn giới hạn cho phép {VAR: MAX_F_SIZE} bytes)</span><br>
-post_err_attach_ext:		<span class="ErrorText">Loại tập tin bạn gửi lên không được cho phép.</span><br>
-post_err_attach_filelimit:	<span class="ErrorText">Số tập tin bạn gửi lên nhiều hơn được cho phép.</span><br>
+post_err_attach_size:		<span class="ErrorText">Kích thước tập tin đính kèm quá lớn(lớn hơn giới hạn cho phép {VAR: MAX_F_SIZE} bytes)</span><br />
+post_err_attach_ext:		<span class="ErrorText">Loại tập tin bạn gửi lên không được cho phép.</span><br />
+post_err_attach_filelimit:	<span class="ErrorText">Số tập tin bạn gửi lên nhiều hơn được cho phép.</span><br />
 post_err_passwd:		Mật khẩu không chính xác.
 post_reply_update:		Trả lời đến <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> trong {VAR: frm->name}
 post_topic_update:		Tạo chủ đề mới trong <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
@@ -597,7 +597,7 @@ postcheck_invalid_email:	Xin vui lòng nhập vào địa chỉ email có giá t
 postcheck_email_subject:	bạn không thể gửi email mà không có tựa đề.
 postcheck_email_body:		bạn không thể gửi email mà không có nội dung.
 private_msg_notify_subj:	Đọc thông báo : {VAR: m->subject}
-private_msg_notify_body:	Xin chào,<br>{VAR: usr->login} đã đọc tin nhắn của bạn, "{VAR: m->subject}", vào {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Xin chào,<br />{VAR: usr->login} đã đọc tin nhắn của bạn, "{VAR: m->subject}", vào {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Browsing referrals
 register_err_short_login:	Tên đăng nhập bạn lựa chọn quá ngắn. Tên đăng nhập phải ít nhất 4 kí tự.
 register_err_login_notallowed:	Tên đăng nhập này không được cho phép.
@@ -628,7 +628,7 @@ reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		You should receive instructions in your e-mail in the next few minutes.
 reset_newpass_title:		Tạo lại mật khẩu
 reset_newpass_msg:		Xin chào,\n\n Như yêu cầu, thông tin đăng nhập của bạn hiện bên dưới:\n\n Tên đăng nhập: {VAR: ui[1]}\n Mật khẩu: {VAR: passwd}\n\n Xin vui lòng chú ý mật khẩu mới của bạn đã được tạo bên trên. Nếu bạn muốn thay đổi mật khẩu bạn có thể làm qua khu vực người sử dụng:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Your password has been e-mailed to you. You should receive it within the next few minutes.<br>
+reset_login_notify:		Your password has been e-mailed to you. You should receive it within the next few minutes.<br />
 search_update:			Bài viết tìm kiếm
 selmsg_update:			Xem qua <a href="{TEMPLATE: selmsg_update_lnk}">Bài viết hôm nay</a>
 showposts_update:		Xem Bài Viết Bởi: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -644,7 +644,7 @@ ERR_access_msg:			Bạn không được phép yêu cầu xem hành động này
 ERR_registration_disabled_ttl:	Đăng ký đã bị vô hiệu hóa
 ERR_registration_disabled_msg:	Người quản trị tối cao đã vô hiệu hóa đăng ký .Xin vui lòng đăng ký lại lần sau.
 ERR_emailconf_ttl:		LỖI : Tài khoản của bạn vẫn chưa được xác nhận
-ERR_emailconf_msg:		Tài khoản của bạn vẫn chưa được xác nhận bằng email <br><table border=0><tr><td><ol><li>Nếu bạn không nhận được email xác nhận, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">nhấn chuột vào đây</a><li>Nếu {VAR: usr_d->email} không phải là email của bạn, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">nhấn chuột vào đây</a></ol></td></tr></table>
+ERR_emailconf_msg:		Tài khoản của bạn vẫn chưa được xác nhận bằng email <br /><table border=0><tr><td><ol><li>Nếu bạn không nhận được email xác nhận, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">nhấn chuột vào đây</a><li>Nếu {VAR: usr_d->email} không phải là email của bạn, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">nhấn chuột vào đây</a></ol></td></tr></table>
 ERR_user_ttl:			ERROR: No such user
 ERR_user_msg:			There is no such user
 ERR_systemerr_ttl:		Lỗi :Lỗi hệ thống
@@ -742,7 +742,7 @@ post_quote:			Trích dẫn:
 userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} Members
 pm_no_space_title:		Không đủ khoảng trống
-pm_no_space_msg:		Thư mục tin nhắn cá nhân của bạn có dung lượng không được vượt quá <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Sức chứa hiện giờ là <b>{VAR: fldr_size} bytes</b> số tin nhắn.<br><br><span class="ErrorText">Xóa một vài tin nhắn cũ để làm trống không gian.</span>.
+pm_no_space_msg:		Thư mục tin nhắn cá nhân của bạn có dung lượng không được vượt quá <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Sức chứa hiện giờ là <b>{VAR: fldr_size} bytes</b> số tin nhắn.<br /><br /><span class="ErrorText">Xóa một vài tin nhắn cũ để làm trống không gian.</span>.
 pm_space_indct_msg:		Thư mục tin nhắn cá nhân của bạn có {VAR: percent_full}% đầy.
 th_expr_never:			Không bao giờ
 th_expr_one_hr:			1 giờ

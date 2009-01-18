@@ -3,24 +3,24 @@ TOPIC_HELP:
 Um ein neues Thema zu starten, klicke auf die "Neues Thema"-Schaltfl&auml;che, die du auf der Beiträge-/Themen&uuml;bersicht 
 findest. Du wirst dann zu einem Formular weitergeleitet, das dir erlaubt, den Inhalt deines Beitrags zu schreiben.
 Um auf einen bereits existierenden Beitrag zu antworten, klicke einfach auf eine "Antwort"- oder "Zitat"-Schaltfläche, die
-du links unter jedem Beitrag findest. <br> Unter Umständen bekommst du nach dem Klicken auf diese Schaltflächen eine Fehlermeldung,
+du links unter jedem Beitrag findest. <br /> Unter Umständen bekommst du nach dem Klicken auf diese Schaltflächen eine Fehlermeldung,
 dass du nicht genügend Rechte hast. Das heißt, dass du dich zum Schreiben eines Beitrages erst anmelden oder registrieren musst oder dass das Schreiben von Beitr&auml;gen in diesem Forum generell nicht erlaubt ist.
 
 
 TOPIC_TITLE: <a name="bsearch">Wie kann ich suchen?</a>
 TOPIC_HELP:
 Sofern nicht vom Administrator deaktiviert, kannst du <a href="{ROOT}?t=search&amp;%_rsid%">nach Beitr&auml;gen suchen</a>, die im Forum erstellt wurden. Beitr&auml;ge lassen sich durch
-Angabe von ein oder mehreren Schl&uuml;sselbegriffen suchen, wobei sich ausw&auml;hlen l&auml;sst, wo diese gesucht werden sollen. Du kannst entweder nur die &Uuml;berschrift oder den gesamten Beitrag durchsuchen. Au&szlig;erdem l&auml;sst sich die Suche auf ein bestimmtes Forum einschr&auml;nken, falls nicht alle durchsucht werden sollen.<br>
+Angabe von ein oder mehreren Schl&uuml;sselbegriffen suchen, wobei sich ausw&auml;hlen l&auml;sst, wo diese gesucht werden sollen. Du kannst entweder nur die &Uuml;berschrift oder den gesamten Beitrag durchsuchen. Au&szlig;erdem l&auml;sst sich die Suche auf ein bestimmtes Forum einschr&auml;nken, falls nicht alle durchsucht werden sollen.<br />
 Du kannst auch andere Forumsmitglieder &uuml;ber ihren Namen oder E-Mail-Adresse mit der <a href="{ROOT}?t=finduser&amp;%_rsid%">Benutzersuche</a> ausfindig machen.
 
 
 TOPIC_TITLE: <a name="email">Kann ich anderen Benutzern eine E-Mail schreiben?</a>
 TOPIC_HELP:
-Sofern nicht vom Administrator deaktiviert, kannst per E-Mail zu anderen Forumsmitgliedern Verbindung aufnehmen.<br>
+Sofern nicht vom Administrator deaktiviert, kannst per E-Mail zu anderen Forumsmitgliedern Verbindung aufnehmen.<br />
 Um einem Mitglied eine E-Mail zu schicken, kannst du sie entweder &uuml;ber die Mitgliederseite ausfindig machen und dann den <b>Kontakt</b>-Knopf anklicken
 oder direkt auf den <b>E-Mail</b>-Knopf neben jedem Beitrag klicken. Das f&uuml;hrt dich auf eine neue Seite, auf der du deine beabsichtigte Mitteilung 
 verfassen kannst. Wenn du fertig bist, klickst du auf den <b>E-Mail</b>-Knopf und verschickst damit deine Nachricht.
-<br><br>
+<br /><br />
 Au&szlig;er E-Mails an Forumsmitglieder verschicken, kannst du auch mit dem <b>E-Mail an einen Freund</b>-Link eine bestimmte Seite einem Bekannten 
 weiterempfehlen, in dem du ihnen die URL mit einer Beschreibung zukommen l&auml;sst. Dieser Link kann auf den Seiten mit den Themen und Beitr&auml;gen gefunden werden.
 
@@ -31,7 +31,7 @@ Sofern nicht vom Administrator deaktiviert, kannst du private Nachrichten an ein
 PN-System zugreifen zu k&ouml;nnen, klicke einfach auf den <a href="{ROOT}?t=pmsg&amp;%_rsid%">Private Nachrichten</a>-Link, 
 der auf der Seite oben rechts gefunden werden kann. Falls du noch ungelesene private Nachrichten hast, teilt dir dieser Link deren Anzahl mit.
 <p>
-<b>Eine private Nachricht verschicken</b><br>
+<b>Eine private Nachricht verschicken</b><br />
 Das Verschicken von privaten Nachrichten &auml;hnelt sehr dem Vorgang bei E-Mails: Du gibst den/die Empf&auml;nger an, denen du schreiben willst, schreibst die Nachricht und klickst auf "Senden". Es stehen zwei Links zur Verf&uuml;gung, die es dir erleichtern, Mitglieder, denen du schreiben m&ouml;chtest, zu finden:
 <b>von der Buddyliste ausw&auml;hlen</b>, erm&ouml;glicht dir, Leute von dieser Liste auszuw&auml;hlen und <b>Benutzer suchen</b> erlaubt dir, die gesamte 
 Mitgliederliste nach Leuten zu durchsuchen, denen du deine Nachricht schicken m&ouml;chtest.
@@ -54,7 +54,7 @@ gel&ouml;scht wird, so geschieht das unwiderruflich.
 <p>
 <b>Weiterverfolgen von Nachrichten</b><p>
 Wenn du eine Nachricht mit aktivierter Empfangsbest&auml;tigung verschickst, erh&auml;ltst du eine Systembenachrichtigung, sobald die Nachricht vom Empf&auml;nger 
-gelesen wurde.<br>
+gelesen wurde.<br />
 Allerdings kann der Empf&auml;nger auch das Versenden der Best&auml;tigung verweigern, so dass der Nicht-Erhalt einer Best&auml;tigung nicht zwangsl&auml;ufig bedeutet, 
 dass die Nachricht nicht gelesen wurde.
 
@@ -63,7 +63,7 @@ TOPIC_TITLE: <a name="mlist">Mitgliederliste?</a>
 TOPIC_HELP:
 Die Mitgliederliste ist eine vollst&auml;ndige Liste aller registrierten Mitglieder eines Forums. 
 Du kannst diese nach drei Kriterien anordnen lassen: alphabetisch nach dem Benutzernamen, nach der Anzahl der Beitr&auml;ge und dem Registrierungsdatum.
-<br><br>
+<br /><br />
 Die Mitgliederliste verf&uuml;gt auch &uuml;ber eine Suchfunktion, die es erm&ouml;glicht, ein bestimmtes Mitglied anhand des Benutzernamens oder der E-Mail-Adresse ausfindig zu machen.
 
 TOPIC_TITLE:<a name="ann">Was sind Ank&uuml;ndigungen und angeheftete Beitr&auml;ge?</a>

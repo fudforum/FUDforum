@@ -1,32 +1,32 @@
 TOPIC_TITLE: Mantenimen de l`usuari
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#register">Per què enregistrar-se?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">Com usa FUDforum les cookies?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie">Com eliminar la cookie de FUDforum?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#updprofile">Què és un perfil?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#sigs">Què és una firma?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#rstpasswd">Què fer si perd o oblida la seva contrasenya</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cstat">Custom Tags, què són i com puc obtenir-ne una?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#avatars">Què és un avatar?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#blist">Què és una llista d`amics?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#ignlist">Què fa la llista d`ignorats?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#register">Per què enregistrar-se?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">Com usa FUDforum les cookies?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie">Com eliminar la cookie de FUDforum?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#updprofile">Què és un perfil?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#sigs">Què és una firma?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#rstpasswd">Què fer si perd o oblida la seva contrasenya</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cstat">Custom Tags, què són i com puc obtenir-ne una?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#avatars">Què és un avatar?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#blist">Què és una llista d`amics?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#ignlist">Què fa la llista d`ignorats?</a><br />
 
 TOPIC_TITLE: Ús general del fòrum
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#post">Com envio missatges?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#bsearch">Com puc fer recerques?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email">Puc enviar emails a altres membres del forum?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#pmsg">Què són els missatges privats i com puc enviar-los?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#mlist">Llista de Membres?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ann">Què són els anuncis i els missatges fixes?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#rate">Com valorar els fils?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ref">Què són les referències?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#syndicate">Sindicar aquest fòrum</a><br>
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#accesskeys">Tecles d`Accés</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#post">Com envio missatges?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#bsearch">Com puc fer recerques?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email">Puc enviar emails a altres membres del forum?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#pmsg">Què són els missatges privats i com puc enviar-los?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#mlist">Llista de Membres?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ann">Què són els anuncis i els missatges fixes?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#rate">Com valorar els fils?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ref">Què són les referències?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#syndicate">Sindicar aquest fòrum</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#accesskeys">Tecles d`Accés</a><br />
 
 TOPIC_TITLE: Lectura i enviament de missatges
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#style">Com formatejar el text?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#style">Com formatejar el text?</a><br />
 <ul>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#b">Negreta [b]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#u">Subratllat [u]</a></li>
@@ -51,11 +51,11 @@ TOPIC_HELP:
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#size">Mida del Text [size]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#wikipedia">Wikipedia [wikipedia]</a></li>
 </ul>
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sml">Què són els smileys/emoticones?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#polls">Com uso les enquestes?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#attach">Puc ajuntar arxius als missatges?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#msgico">Què és una icona de missatge?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#edit">Puc editar el meu missatge?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#mod">Qui són els moderadors i els administradors?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#cens">Censura?</a><br>
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#not">Puc rebre notificacions quan algú respongui als meus missatges?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sml">Què són els smileys/emoticones?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#polls">Com uso les enquestes?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#attach">Puc ajuntar arxius als missatges?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#msgico">Què és una icona de missatge?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#edit">Puc editar el meu missatge?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#mod">Qui són els moderadors i els administradors?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#cens">Censura?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#not">Puc rebre notificacions quan algú respongui als meus missatges?</a><br />

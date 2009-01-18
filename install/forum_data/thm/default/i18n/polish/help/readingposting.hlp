@@ -6,31 +6,31 @@ W zwi±zku z tym, ¿e na forum administrator zazwyczaj nie pozwala u¿ywaæ znacznik
 <p>
 <b>Poni¿ej znajduje siê lista obs³ugiwanych znaczników FUDcode z krótkimi przyk³adami ich u¿ycia</b>
 <p>
-<b>Osadzanie odno¶ników</b><br><br>
+<b>Osadzanie odno¶ników</b><br /><br />
 
-Forum mo¿e automatycznie odnajdywaæ ró¿ne formy odno¶ników, odpowiednio je zaznaczaj±c:<br>
-	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br>
+Forum mo¿e automatycznie odnajdywaæ ró¿ne formy odno¶ników, odpowiednio je zaznaczaj±c:<br />
+	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br />
 zostanie automatycznie rozpoznane jako odno¶nik i zostanie przekszta³cone do poprawnej formy, która wygl±da nastêpuj±co:
-	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br>
+	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br />
 	
 
 Mo¿esz tak¿e samodzielnie zaznaczyæ odno¶nik u¿ywaj±c FUDcode. Najprostszy sposó na zrobienie tego, to u¿ycie poni¿szego przyk³adu:
-	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br>
+	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br />
 spowoduje to utworzenie nastêpuj±cego odno¶nika:
-	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br>
-Mo¿esz tak¿e uzupe³niæ go o opis, u¿ywaj±c takiej sk³adni wewn±trz <font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">Moja strona domowa</font>[/URL]</b></font> przez co uzyskasz nastêpuj±cy odno¶nik:<br>
-	<div align="center"><a href="http://www.myhomepage.com" target=_blank>Moja strona domowa</a></div><br>
+	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br />
+Mo¿esz tak¿e uzupe³niæ go o opis, u¿ywaj±c takiej sk³adni wewn±trz <font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">Moja strona domowa</font>[/URL]</b></font> przez co uzyskasz nastêpuj±cy odno¶nik:<br />
+	<div align="center"><a href="http://www.myhomepage.com" target=_blank>Moja strona domowa</a></div><br />
 <p>
-<b>Osadzanie adresów poczty elektronicznej</b><br><br>
+<b>Osadzanie adresów poczty elektronicznej</b><br /><br />
 
-Aby stworzyæ odno¶nik do adresu poczty elektronicznej, po prostu wpisz go w nastêpuj±cej formie:<br>
-<div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br>
-forum automatycznie go rozpozna i utworzy odpowiedni odno¶nik. Oprócz tego mo¿liwe jest dodanie opisu do podanego adresu za pomoc± poni¿szej sk³adni<br>
-<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Kliknij tutaj aby siê skontaktowaæ ze wsparciem technicznym<font color="#ff0000"><b>[/email]</b></font><br></div>
-<br>
-<b>Modyfikacja wygl±du tekstu</b><br>
-Istnieje kilka rodzajów znaczników, których mo¿na u¿yæ:<br>
-<br>
+Aby stworzyæ odno¶nik do adresu poczty elektronicznej, po prostu wpisz go w nastêpuj±cej formie:<br />
+<div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br />
+forum automatycznie go rozpozna i utworzy odpowiedni odno¶nik. Oprócz tego mo¿liwe jest dodanie opisu do podanego adresu za pomoc± poni¿szej sk³adni<br />
+<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Kliknij tutaj aby siê skontaktowaæ ze wsparciem technicznym<font color="#ff0000"><b>[/email]</b></font><br /></div>
+<br />
+<b>Modyfikacja wygl±du tekstu</b><br />
+Istnieje kilka rodzajów znaczników, których mo¿na u¿yæ:<br />
+<br />
 <ul>
   <li><font color="#ff0000"><b>[b]</b></font>pogrubiony<font color="#ff0000"><b>
          [/b]</b></font> tworzy <b>pogrubiony</b> tekst</li>
@@ -39,7 +39,7 @@ Istnieje kilka rodzajów znaczników, których mo¿na u¿yæ:<br>
   <li><font color="#ff0000"><b>[i]</b></font>pochylony<font color="#ff0000"><b>
          [/i]</b></font> tworzy <i>pochylony</i> tekst</li>
 </ul>
-	Oprócz tego mo¿na zmieniaæ rozmiar, kolor oraz czcionkê wybranego tekstu.<br>
+	Oprócz tego mo¿na zmieniaæ rozmiar, kolor oraz czcionkê wybranego tekstu.<br />
 <ul>
   <li><font color="#ff0000"><b>[color=red]</b></font>czerwony tekst<font color="#ff0000"><b>
          [/color]</b></font> tworzy <font color="#ff0000">czerwony tekst</font></li>
@@ -52,13 +52,13 @@ Istnieje kilka rodzajów znaczników, których mo¿na u¿yæ:<br>
    <li><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>
           [/sup]</b></font> produces <sup>superscript</sup> text</li>
 </ul>
-	Mo¿na tak¿e ³±czyæ ró¿ne znaczniki formatuj±ce:<br>
-<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Sformatowany tekst<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
-       ten przyk³ad tworzy:<br>
+	Mo¿na tak¿e ³±czyæ ró¿ne znaczniki formatuj±ce:<br />
+<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Sformatowany tekst<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></div>
+       ten przyk³ad tworzy:<br />
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Sformatowany tekst</b></i></u></font></div>
-<br>
-<br>
-<b>Wyrównanie tekstu</b><br>
+<br />
+<br />
+<b>Wyrównanie tekstu</b><br />
 FUDcode pozwala wyrównywaæ tekst za pomoc± znacznika [align] na trzy sposoby:
 <ul>
 	<li><font color="#ff0000"><b>[align=center]</b></font>tekst wy¶rodkowany<font color="#ff0000"><b>[/align]</b></font> tworzy:</li>
@@ -68,81 +68,81 @@ FUDcode pozwala wyrównywaæ tekst za pomoc± znacznika [align] na trzy sposoby:
 	<li><font color="#ff0000"><b>[align=right]</b></font>wyrównany do prawej<font color="#ff0000"><b>[/align]</b></font> tworzy:</li>
 		<div align="right">wyrównany do prawej</div>	
 </ul>
-<br>
-<br>
-<b>Ró¿ne listy</b><br>
-	Mo¿esz tworzyæ ró¿nego rodzaju listy za pomoc± FUDcode:<br>
-<br>
-	Lista bez numeracji:<br>
-<font color="#ff0000"><b>[list]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>pierwszy element<br>
-<font color="#ff0000"><b>[*]</b></font>drugi element<br>
-<font color="#ff0000"><b>[/list]<br>
-</b></font><br>
-      stworzy<br>
+<br />
+<br />
+<b>Ró¿ne listy</b><br />
+	Mo¿esz tworzyæ ró¿nego rodzaju listy za pomoc± FUDcode:<br />
+<br />
+	Lista bez numeracji:<br />
+<font color="#ff0000"><b>[list]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>pierwszy element<br />
+<font color="#ff0000"><b>[*]</b></font>drugi element<br />
+<font color="#ff0000"><b>[/list]<br />
+</b></font><br />
+      stworzy<br />
 <ul>
   <li>pierwszy element</li>
   <li>drugi element</li>
 </ul>
-	Istnieje mo¿liwo¶æ u¿ywania ró¿nych rodzajów list, na przyk³ad lista numerowana:<br>
-<font color="#ff0000"><b>[list type=1]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>pierwszy element<br>
-<font color="#ff0000"><b>[*]</b></font>drugi element<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
-     stworzy<br>
+	Istnieje mo¿liwo¶æ u¿ywania ró¿nych rodzajów list, na przyk³ad lista numerowana:<br />
+<font color="#ff0000"><b>[list type=1]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>pierwszy element<br />
+<font color="#ff0000"><b>[*]</b></font>drugi element<br />
+<font color="#ff0000"><b>[/list]</b></font><br />
+     stworzy<br />
 <ol>
   <li>pierwszy element</li>
-  <li>drugi element<br>
+  <li>drugi element<br />
   </li>
 </ol>
-	aby stworzyæ listê alfabetyczn±:<br>
-<font color="#ff0000"><b>[list type=A]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>pierwszy element<br>
-<font color="#ff0000"><b>[*]</b></font>drugi element<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
-<br>
-     co daje w efekcie:<br>
+	aby stworzyæ listê alfabetyczn±:<br />
+<font color="#ff0000"><b>[list type=A]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>pierwszy element<br />
+<font color="#ff0000"><b>[*]</b></font>drugi element<br />
+<font color="#ff0000"><b>[/list]</b></font><br />
+<br />
+     co daje w efekcie:<br />
 <ol type="a">
   <li>pierwszy element</li>
   <li>drugi element</li>
 </ol>
-<b>Dodawanie obrazków</b><br>
-	Istnieje mo¿liwo¶æ dodawania wewn±trz tekstów wybranych obrazków za pomoc± znaczników <font color="#ff0000"><b>[img][/img]</b></font>. <br>
-<br>
-	na przyk³ad:<br>
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
-	umie¶ci nastêpuj±cy obrazek w wiadomo¶ci:<br>
-<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br></div>
-	oprócz tego obrazek mo¿e byæ jednocze¶nie odno¶nikiem do wybranego adresu po u¿yciu znaczników <font color="#ff0000"><b>[url][/url]</b></font> w nastêpuj±cy sposób<br>
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
-	który stworzy nastêpuj±cy obrazkowy odno¶nik<br>
-<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="obrazek" width="409" height="62" border="0"></a><br></div><br>
+<b>Dodawanie obrazków</b><br />
+	Istnieje mo¿liwo¶æ dodawania wewn±trz tekstów wybranych obrazków za pomoc± znaczników <font color="#ff0000"><b>[img][/img]</b></font>. <br />
+<br />
+	na przyk³ad:<br />
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
+	umie¶ci nastêpuj±cy obrazek w wiadomo¶ci:<br />
+<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br /></div>
+	oprócz tego obrazek mo¿e byæ jednocze¶nie odno¶nikiem do wybranego adresu po u¿yciu znaczników <font color="#ff0000"><b>[url][/url]</b></font> w nastêpuj±cy sposób<br />
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+	który stworzy nastêpuj±cy obrazkowy odno¶nik<br />
+<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="obrazek" width="409" height="62" border="0"></a><br /></div><br />
 
-<br><b>Cytowanie innych wiadomo¶ci</b><br>
+<br /><b>Cytowanie innych wiadomo¶ci</b><br />
 	Istnieje mo¿liwo¶æ zacytowania czego¶, co zosta³o ju¿ napisane, zaznaczaj±æ cytowany tekst znacznikami <font color="#ff0000"><b>[quote][/quote]</b></font>. 
-<br>
-<div align="Center"><font color="#ff0000"><b>[quote]</b></font>Witaj ¶wiecie<font color="#ff0000"><b>[/quote]</b></font><br></div>
-  pojawi siê jako:<br>
+<br />
+<div align="Center"><font color="#ff0000"><b>[quote]</b></font>Witaj ¶wiecie<font color="#ff0000"><b>[/quote]</b></font><br /></div>
+  pojawi siê jako:<br />
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Witaj ¶wiecie<br></td></tr></table>
+<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Witaj ¶wiecie<br /></td></tr></table>
 <p>
-<b>Programy komptuerowe i uprzednio sformatowany tekst</b><br>
- Znacznik <font color="#ff0000"><b>[code][/code]</b></font> pozwala wysy³aæ wiadomo¶æ z tekstem w niezmienionej postaci, bez usuwania zbêdnych spacji czy tabulatorów.<br> 
-<br>
- mo¿na tego u¿ywaæ nastêpuj±co:<br>
+<b>Programy komptuerowe i uprzednio sformatowany tekst</b><br />
+ Znacznik <font color="#ff0000"><b>[code][/code]</b></font> pozwala wysy³aæ wiadomo¶æ z tekstem w niezmienionej postaci, bez usuwania zbêdnych spacji czy tabulatorów.<br /> 
+<br />
+ mo¿na tego u¿ywaæ nastêpuj±co:<br />
 <font color="#ff0000"><b>[code]</b></font>
-<pre>$fp = fopen('jaki¶plik', 'w');<br>if ( !$fp ) {<br>	exit('nie ma takiego pliku!');<br>}<br>else { <br>	fwrite($fp, 'witaj ¶wiecie');<br>	fclose($fp);<br>}<br></pre>
-<font color="#ff0000"><b>[/code]</b></font><br>
-<br>
+<pre>$fp = fopen('jaki¶plik', 'w');<br />if ( !$fp ) {<br />	exit('nie ma takiego pliku!');<br />}<br />else { <br />	fwrite($fp, 'witaj ¶wiecie');<br />	fclose($fp);<br />}<br /></pre>
+<font color="#ff0000"><b>[/code]</b></font><br />
+<br />
  co spowoduje ukazanie siê nastêpuj±cego tekstu, bez zmian w formatowaniu.
-<br>
-<br>
-<pre>$fp = fopen('jaki¶plik', 'w');<br>if ( !$fp ) {<br>	exit('nie ma takiego pliku!');<br>}<br>else { <br>	fwrite($fp, 'witaj ¶wiecie');<br>	fclose($fp);<br>}<br><br><br></pre>
+<br />
+<br />
+<pre>$fp = fopen('jaki¶plik', 'w');<br />if ( !$fp ) {<br />	exit('nie ma takiego pliku!');<br />}<br />else { <br />	fwrite($fp, 'witaj ¶wiecie');<br />	fclose($fp);<br />}<br /><br /><br /></pre>
 <p>
-<b>PHP Code</b><br>
+<b>PHP Code</b><br />
 The <font color="#ff0000"><b>[php][/php]</b></font> tag allows you to post PHP scripts
-and have the forum automatically syntax highlight the code for easier readability.<br>
-<br>it used like this: <br>
+and have the forum automatically syntax highlight the code for easier readability.<br />
+<br />it used like this: <br />
 <font color="#ff0000"><b>[php]</b></font>
 <pre>
 function hello()
@@ -152,8 +152,8 @@ function hello()
 
 hello();
 </pre>
-<font color="#ff0000"><b>[/php]</b></font><br>
-<br>which produces:<br><br>
+<font color="#ff0000"><b>[/php]</b></font><br />
+<br />which produces:<br /><br />
 <code><font color="#000000">
 <font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
 
@@ -161,24 +161,24 @@ hello();
 </code>
 <p>
 
-<b>No Tag</b><br>
+<b>No Tag</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
 the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
 and not have them converted to equivalent HTML.
 <p>
 
-<b>Spoiler</b><br>
+<b>Spoiler</b><br />
 The <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> tag allows you to hide a portion of message
 from being displayed. To see the hidden portion the users must click a link that will display the 
 hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually 
-reloaded, instead a hidden layer is made visible.<br>
-  <br>
-Here is an example of this tag in action: <br>
+reloaded, instead a hidden layer is made visible.<br />
+  <br />
+Here is an example of this tag in action: <br />
 
 Visible part of the message
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br>Hidden part of the message</br>
-<font color="#ff0000"><b>[/spoiler]</b></font><br>
+<br />Hidden part of the message</br>
+<font color="#ff0000"><b>[/spoiler]</b></font><br />
 More visible text.
 
 <p>and the result:<p>
@@ -192,7 +192,7 @@ More visible text.
 <p>
 
 <p>
-<b>Acronym</b><br>
+<b>Acronym</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
 acronym and provide a full name when the user moves their mouse over the tag.
 <font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
@@ -206,14 +206,14 @@ TOPIC_TITLE: <a name="sml">Co to s± u¶mieszki?</a>
 TOPIC_HELP:
 U¶mieszki s± to ma³e ikony, które mo¿esz wstawiaæ do tekstu, aby zobrazowaæ
 swoje emocje i uczucia. Je¶li forum ma w³±czone u¶mieszki, ich lista pojawi
-siê ponad formularzem, w którym wpisujesz tre¶æ wiadomo¶ci.<br>
-Po klikniêciu w wybrany u¶mieszek zostanie on wstawiony do Twojej wiadomo¶ci.<br>
+siê ponad formularzem, w którym wpisujesz tre¶æ wiadomo¶ci.<br />
+Po klikniêciu w wybrany u¶mieszek zostanie on wstawiony do Twojej wiadomo¶ci.<br />
 Popularne u¶mieszki umieszczane w tek¶cie mog± byæ automatycznie zamieniane na odpowiednie obrazki. Je¶li nie chcesz aby tak by³o zaznacz <b>Wy³±cz u¶mieszki w tej wiadomo¶ci</b>.<p>
 
 TOPIC_TITLE: <a name="polls">Jak u¿ywaæ g³osowañ?</a>
 TOPIC_HELP:
-W niektórych forach istnieje mo¿liwo¶æ tworzenia g³osowañ wewn±trz wysy³anych wiadomo¶ci. G³osowania pozwalaj± zadaæ pytanie i dostarczyæ listê odpowiedzi do wybrania. Aby unikn±æ zafa³szowania wyników, g³osowaæ mog± tylko zarejestrowani u¿ytkownicy.<br>
-Po klikniêciu w odno¶nik <b>UTWÓRZ G£OSOWANIE</b> znajduj±cy siê na stronie, gdzie wpisujesz wiadomo¶æ, pojawi siê osobne okno, gdzie bêdzie mo¿na stworzyæ g³osowanie z kilkoma mo¿liwymi odpowiedziami. Po skoñczeniu tworzenia g³osowania kliknij <b>Utwórz</b>, dziêki czemu wrócisz do edycji wiadomo¶ci, a stworzone g³osowanie zostanie do niej za³±czone.<br>
+W niektórych forach istnieje mo¿liwo¶æ tworzenia g³osowañ wewn±trz wysy³anych wiadomo¶ci. G³osowania pozwalaj± zadaæ pytanie i dostarczyæ listê odpowiedzi do wybrania. Aby unikn±æ zafa³szowania wyników, g³osowaæ mog± tylko zarejestrowani u¿ytkownicy.<br />
+Po klikniêciu w odno¶nik <b>UTWÓRZ G£OSOWANIE</b> znajduj±cy siê na stronie, gdzie wpisujesz wiadomo¶æ, pojawi siê osobne okno, gdzie bêdzie mo¿na stworzyæ g³osowanie z kilkoma mo¿liwymi odpowiedziami. Po skoñczeniu tworzenia g³osowania kliknij <b>Utwórz</b>, dziêki czemu wrócisz do edycji wiadomo¶ci, a stworzone g³osowanie zostanie do niej za³±czone.<br />
 Mo¿esz modyfikowaæ istniej±ce g³osowanie, klikaj±c odno¶nik <b>EDYTUJ</b> lub po prostu je skasowaæ wybieraj±c <b>SKASUJ</b>.
 <p>
 W ka¿dym g³osowaniu masz mo¿liwo¶æ wzi±æ udzia³ tylko jeden raz, dlatego starannie przemy¶l swoj± decyzj± - pó¼niej swojego g³osu nie mo¿esz zmieniæ.
@@ -221,13 +221,13 @@ W ka¿dym g³osowaniu masz mo¿liwo¶æ wzi±æ udzia³ tylko jeden raz, dlatego starann
 TOPIC_TITLE: <a name="attach">Jak do³±czaæ pliki do wiadomo¶ci?</a>
 TOPIC_HELP:
 Je¶li zosta³o to zezwolone przez administratora, mo¿esz do³±czaæ jeden lub wiêcej plików do swoich wiadomo¶ci. Ta funkcja jest aktywowana dla ka¿dego forum osobno, dlatego na jednym mo¿e to dzia³aæ a na innym ju¿ nie.
-<br>
+<br />
 Formularz wiadomo¶ci, do której chcesz do³±czyæ plik przedstawi trzy zasady, których musisz siê trzymaæ dodaj±c plik:<p>
-<b>Dozwolone typy plików</b> - lista rodzajów plików, jakie wolno do³±czaæ do wiadomo¶ci, np. jpg, gif, png<br>
-<b>Maksymalny rozmiar pliku</b> - maksymalny rozmiar pliku, jaki mo¿na do³±czyæ<br>
-<b>Maksymalna liczba plików w wiadomo¶ci</b> - ilo¶æ plików, które mo¿na do³±czyæ do jednej wiadomo¶ci<br>
+<b>Dozwolone typy plików</b> - lista rodzajów plików, jakie wolno do³±czaæ do wiadomo¶ci, np. jpg, gif, png<br />
+<b>Maksymalny rozmiar pliku</b> - maksymalny rozmiar pliku, jaki mo¿na do³±czyæ<br />
+<b>Maksymalna liczba plików w wiadomo¶ci</b> - ilo¶æ plików, które mo¿na do³±czyæ do jednej wiadomo¶ci<br />
 <p>
-Aby dodaæ plik do wiadomo¶ci, kliknij przycisk <b>Browse...</b>. Otworzy siê okno, które pozwoli Ci wybraæ odpowiedni plik. Po jego wybraniu kliknij <b>Dodaj plik</b> aby plik zosta³ do³±czony do wiadomo¶ci.<br>
+Aby dodaæ plik do wiadomo¶ci, kliknij przycisk <b>Browse...</b>. Otworzy siê okno, które pozwoli Ci wybraæ odpowiedni plik. Po jego wybraniu kliknij <b>Dodaj plik</b> aby plik zosta³ do³±czony do wiadomo¶ci.<br />
 Je¶li chcesz usun±æ dodany plik, kliknij przycisk <b>Usuñ</b> znajduj±cy siê obok nazwy pliku.
 
 TOPIC_TITLE: <a name="msgico">Co to ikona wiadomo¶ci?</a>
@@ -239,8 +239,8 @@ oznacza to, ¿e administrator zablokowa³ mo¿liwo¶æ ich ustawiania.
 
 TOPIC_TITLE: <a name="edit">Czy mogê modyfikowaæ uprzednio wys³an± wiadomo¶æ?</a>
 TOPIC_HELP:
-Je¶li jeste¶ zarejestrowanym u¿ytkownikiem, mo¿esz modyfikowaæ poprzednio napisane wiadomo¶ci. Ta funkcja mo¿e byæ ograniczona czasowo, dlatego mo¿e siê okazaæ, ¿e mo¿esz modyfikowaæ swoje ostatnie wiadomo¶ci, a tych starszych ju¿ nie.<br>
-Je¶li zmodyfikujesz jak±¶ wiadomo¶æ, zostanie do jej koñca dodana informacja z dat± i czasem zmian.<br>
+Je¶li jeste¶ zarejestrowanym u¿ytkownikiem, mo¿esz modyfikowaæ poprzednio napisane wiadomo¶ci. Ta funkcja mo¿e byæ ograniczona czasowo, dlatego mo¿e siê okazaæ, ¿e mo¿esz modyfikowaæ swoje ostatnie wiadomo¶ci, a tych starszych ju¿ nie.<br />
+Je¶li zmodyfikujesz jak±¶ wiadomo¶æ, zostanie do jej koñca dodana informacja z dat± i czasem zmian.<br />
 W przypadku, gdy wiadomo¶æ zosta³a zmodyfikowana przez moderatora lub administratora, pojawi siê informacja o zmianach, chyba ¿e forum zosta³o skonfigurowane aby o tym nie informowaæ.
 
 TOPIC_TITLE: <a name="mod">Kim s± moderatorzy i administratorzy?</a> 

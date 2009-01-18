@@ -1,14 +1,14 @@
 TOPIC_TITLE: <a name="bsearch">Comme faire une recherche&nbsp;?</a>
 TOPIC_HELP:
-Sauf si cela a été désactivé par l'administrateur, vous pouvez faire une <a href="{ROOT}?t=search&%_rsid%">recherche des messages</a> qui ont été envoyés dans le forum. Vous pouvez chercher un message en spécifiant un ou plusieurs mots-clé que vous désirez trouver et choisir où trouver ces mots-clé, vous pouvez soit chercher dans le sujet seulement ou effectuer une recherche complète du texte dans le sujet et le corps du message. Vosu pouvez également limiter votre recherche à un forum de votre choix si vous ne désirez pas chercher dans tous les forums.<br>
+Sauf si cela a été désactivé par l'administrateur, vous pouvez faire une <a href="{ROOT}?t=search&%_rsid%">recherche des messages</a> qui ont été envoyés dans le forum. Vous pouvez chercher un message en spécifiant un ou plusieurs mots-clé que vous désirez trouver et choisir où trouver ces mots-clé, vous pouvez soit chercher dans le sujet seulement ou effectuer une recherche complète du texte dans le sujet et le corps du message. Vosu pouvez également limiter votre recherche à un forum de votre choix si vous ne désirez pas chercher dans tous les forums.<br />
 Vous pouvez également chercher d'autres membres du forum par leur nom de connexion ou leur adresse de courrier par le <a href="{ROOT}?t=finduser&%_rsid%">formulaire de recherche d'utilisateur</a>.
 
 
 TOPIC_TITLE: <a name="email">Comment envoyer un courrier à d'autres membres de forum&nbsp;?</a>
 TOPIC_HELP:
-Sauf si cela a été désactivé par l'administrateur, vous pouvez entrer en contact avec d'autres membres du forum par courrier électronique.<br>
+Sauf si cela a été désactivé par l'administrateur, vous pouvez entrer en contact avec d'autres membres du forum par courrier électronique.<br />
 Pour envoyer un courrier à un membre, vous pouvez soit le choisir par la page de la liste des membres et cliquer sur le bouton <b>Contact</b> ou simplement cliquer sur le bouton <b>Courrier</b> situé près de chacun de leurs messages. Ceci vous conduira à une nouvelle page où vous aurez la possibilité d'entrer les sujet et corps du courrier désiré. Quand vous avez fini, cliquez simplement sur le bouton <b>Courrier</b> et votre courrier sera envoyé.
-<br><br>
+<br /><br />
 En plus d'envoyer des courriers aux membres du forum, vous pouvez également utiliser le lien <b>L'envoyer par e-mail à un ami</b> pour recommander une page particulière à un ami en lui envoyant l'adresse (URL) avec la description. Ce lien peut être trouvé dans les pages de vue sujet et message du forum.
 
 
@@ -16,7 +16,7 @@ TOPIC_TITLE: <a name="pmsg">Que sont les messages privés et comment en envoyer u
 TOPIC_HELP:
 Si l'administrateur n'a pas désactivé le système de Messagerie Privée, vous pouvez envoyer des messages privés à un ou plusieurs membres enregistrés du forum. Pour accéder au système de MP, cliquez simplement sur le lien <a href="{ROOT}?t=pmsg&%_rsid%">Messagerie Privée</a> qui peut être trouvé dans le coin supérieur droit de la page. Si vous avec des messages privés non lus, ce lien vous indiquera combien de messages non lus vous avez.
 <p>
-<b>Envoyer un message privé</b><br>
+<b>Envoyer un message privé</b><br />
 Les messages privés sont très semblables au courrier électronique, vous spécifiez la (ou les) personne(s) à qui vous désirez envoyer le message ainsi que le sujet et le message et vous cliquez sur Envoyer. Il existe 2 liens de disponibles qui vous permettent de trouver facilement les membres auxquels vous voulez envoyer votre message,
 <b>Sélectionner dans la liste d'amis</b> qui vous permet de choisir des personnes dans votre liste d'amis en listant tous vos amis et <b>Trouver un utilisateur</b> qui vous permet de rechercher dans la liste complète des membres du forum les personnes à qui vous voulez envoyer votre message. Une copie de chaque message envoyé sera stocké dans votre dossier <b>Envoi</b> pour référence future, vous pouvez toujours supprimer ces messages si vous le désirez.
 <p>
@@ -29,7 +29,7 @@ Le dossier <b>Brouillon</b> contient les messages que vous avez écrit, mais qui 
 Le dossier <b>Corbeille</b> contient tous les messages que vous avez indiqués à supprimer, mais qui n'ont pas encore été supprimés. Si vous supprimez un message situé dans Corbeille, ce message sera définitivement supprimé.
 <p>
 <b>Suivi des messages</b><p>
-Quand vous envoyez un message, vous avez la possibilité de demander un accusé de réception, quand le destinataire lit le message, vous recevrez un message système vous informant que votre message a été lu.<br>
+Quand vous envoyez un message, vous avez la possibilité de demander un accusé de réception, quand le destinataire lit le message, vous recevrez un message système vous informant que votre message a été lu.<br />
 Cependant, si vous choisissez ceci, le destinataire peut choisir de refuser d'envoyer l'accusé de réception, donc, si vous avez demandé un accusé de réception et que vous ne l'avez pas reçu, cela ne peut pas forcément dire que votre message n'a pas été lu.
 
 
@@ -37,7 +37,7 @@ TOPIC_TITLE: <a name="mlist">Liste des membres&nbsp;?</a>
 TOPIC_HELP:
 La liste des membres est une liste complète de tous les utilisateurs enregistrés sur un forum. 
 Vous pouvez trier la liste de 3 façons&nbsp;: alphabétiquement par nom de connexion, par nombre de messages et par date d'enregistrement.
-<br><br>
+<br /><br />
 La liste des membres possède également une possibilité de recherche, ce qui vous permet de trouver un membre particulier, soit par son nom de connexion ou par son adresse électronique.
 
 TOPIC_TITLE:<a name="ann">Que sont les annonces et les messages épinglés&nbsp;?</a>

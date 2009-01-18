@@ -5,7 +5,7 @@ Generalment els missatges en el fòrum són principalment text pla, tanmateix en o
 Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, pot usar FUDcode, que és un conjunt especial  d`etiquetes que li permeten cert formateig per al seu text. El FUDcode és molt fàcil d`usar i és molt més segur que l`HTML.
 <p>
 
-<a name="url"><b>Enllaçat de URL</b></a><br>
+<a name="url"><b>Enllaçat de URL</b></a><br />
 
 <table>
   <tr>
@@ -18,7 +18,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
   </tr>
 </table>
 <i>Explicació:</i> FUDforum automàticament reconeixerà les URL i les convertirà en URL vàlides.
-<br><br>	
+<br /><br />	
 
 <table>
   <tr>
@@ -31,7 +31,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
   </tr>
 </table>
 <i>Explicació:</i> També pot definir URL mitjançant FUDcode, aquest és un exemple simple del seu ús.
-<br><br>
+<br /><br />
  
 <table>
   <tr>
@@ -39,15 +39,15 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600"><br>La meva pàgina personal<br></font>[/URL]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600"><br />La meva pàgina personal<br /></font>[/URL]</b></font></td>
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>La meva pàgina personal</a></td>
   </tr>
 </table>
 <i>Explicació:</i> Pot usar FUDcode per a crear URL amb un text de la seva elecció.
-<br><br><br>
+<br /><br /><br />
 
 <p>
-<a name="email"><b>Enllaçat d`adreces de correu electrònic</b></a><br>
+<a name="email"><b>Enllaçat d`adreces de correu electrònic</b></a><br />
 
 <table>
   <tr>
@@ -60,7 +60,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
   </tr>
 </table>
 <i>Explicació:</i> FUDforum convertirà automàticament els enllaços a adreces de correu electrònic en hiperenllaços correctes.
-<br><br>
+<br /><br />
 
 <table>
   <tr>
@@ -68,15 +68,15 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font><br>Premi aquí per a enviar un missatge al suport tècnic<br><font color="#ff0000"><b>[/email]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font><br />Premi aquí per a enviar un missatge al suport tècnic<br /><font color="#ff0000"><b>[/email]</b></font></td>
     <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Premi aquí per a enviar un missatge al suport tècnic</a></td>
   </tr>
 </table>
 <i>Explanation:</i> Pot usar FUDcode per a crear enllaços a adreces de correu que es mostrin amb un text de la seva elecció.
-<br><br>
+<br /><br />
 
-<br>
-<b>Estils de text</b><br>
+<br />
+<b>Estils de text</b><br />
 <a name="b"></a>
 
 <table>
@@ -89,7 +89,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td valign="middle" align="center"><b>negreta</b></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="u"></a>
 
@@ -103,7 +103,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td valign="middle" align="center"><u>subratllat</u></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="i"></a>
 
@@ -117,7 +117,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td valign="middle" align="center"><i>cursiva</i></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="sub"></a>
 
@@ -131,7 +131,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td valign="middle" align="center"><sub>subíndex</sub></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="sup"></a>
 
@@ -145,7 +145,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td valign="middle" align="center"><sup>superíndex</sup></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="color"></a>
 
@@ -159,7 +159,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td valign="middle" align="center"><font color="#ff0000">text vermell</font></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="size"></a>
 
@@ -173,7 +173,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td valign="middle" align="center"><font size="4">text gran</font></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="font"></a>
 
@@ -187,7 +187,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td valign="middle" align="center"><font face="Courier New, Courier, monospace">text</font></td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -195,14 +195,14 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=red][size=4][font=courier]</b></font><br>Text formatejat<br><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=red][size=4][font=courier]</b></font><br />Text formatejat<br /><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></td>
     <td valign="middle" align="center"><font color="#ff0000" size="4" face="Courier New, Courier, monospace"><u><i><b>Text formatejat</b></i></u></font></td>
   </tr>
 </table>
 <i>Explicació:</i> Pot usar tantes etiquetes de formateig juntes com desitgi.
-<br><br><br>
+<br /><br /><br />
         
-<a name="align"><b>Alineació de text</b></a><br>
+<a name="align"><b>Alineació de text</b></a><br />
 
 <table>
   <tr>
@@ -214,7 +214,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td valign="middle" align="center">text centrat</td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -226,7 +226,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td valign="middle" align="right">alineació dreta</td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -238,10 +238,10 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td valign="middle" align="left">alineació esquerra</td>
   </tr>
 </table>
-<br><br>
+<br /><br />
 
 <a name="list"><b>Llistes vàries</b></a>
-<br>
+<br />
 
 <table>
   <tr>
@@ -249,11 +249,11 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br><font color="#ff0000"><b>[*]</b></font>element de la llista<br><font color="#ff0000"><b>[*]</b></font>element de la llista<br><font color="#ff0000"><b>[/list]</b></font><br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br /><font color="#ff0000"><b>[*]</b></font>element de la llista<br /><font color="#ff0000"><b>[*]</b></font>element de la llista<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ul><li>element de la llista</li><li>element de la llista</li></ul></td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -261,11 +261,11 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br><font color="#ff0000"><b>[*]</b></font>element de la llista<br><font color="#ff0000"><b>[/list]</b></font><br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br /><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br /><font color="#ff0000"><b>[*]</b></font>element de la llista<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ol><li>element de la llista</li><li>element de la llista</li></ol></td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -273,13 +273,13 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br><font color="#ff0000"><b>[*]</b></font>element de la llista<br><font color="#ff0000"><b>[*]</b></font>element de la llista<br><font color="#ff0000"><b>[/list]</b></font><br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br /><font color="#ff0000"><b>[*]</b></font>element de la llista<br /><font color="#ff0000"><b>[*]</b></font>element de la llista<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ol type="a"><li>element de la llista</li><li>element de la llista</li></ol></td>
   </tr>
 </table>
-<br><br>
+<br /><br />
 
-<a name="img"><b>Addició d`imatges</b></a><br>
+<a name="img"><b>Addició d`imatges</b></a><br />
 
 <table>
   <tr>
@@ -287,11 +287,11 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br></font><font color="#ff0000"><b>[/img]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br /><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br /></font><font color="#ff0000"><b>[/img]</b></font></td>
     <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31"></td>
   </tr>
 </table>
-<br>    
+<br />    
 
 <table>
   <tr>
@@ -299,14 +299,14 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br>[img]</b></font><br>http://www.prohost.org/img/pro_logo.gif<br><b><font color="#ff0000">[/img]<br>[/url]</font></b></font></td>
+    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br />[img]</b></font><br />http://www.prohost.org/img/pro_logo.gif<br /><b><font color="#ff0000">[/img]<br />[/url]</font></b></font></td>
     <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0"></a></td>
   </tr>
 </table>
 <i>Explicació:</i> Pot usar FUDcode per a crear imatges enllaçades posant-hi les etiquetes [img][/img] dins de les etiquetes [url][/url].
-<br><br><br>
+<br /><br /><br />
 
-<a name="quote"><b>Cita d`altres missatges</b></a><br>
+<a name="quote"><b>Cita d`altres missatges</b></a><br />
 
 <table>
   <tr>
@@ -315,12 +315,12 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[quote]</b></font>Hola món<font color="#ff0000"><b>[/quote]</b></font></td>
-    <td valign="middle" align="center"><table border="0" align="center" width="50%" cellpadding="3" cellspacing="1"><tr><td class="SmallText" align="left"><b>Quote:</b></td></tr><tr><td class="quote" align="left">Hola món<br></td></tr></table></td>
+    <td valign="middle" align="center"><table border="0" align="center" width="50%" cellpadding="3" cellspacing="1"><tr><td class="SmallText" align="left"><b>Quote:</b></td></tr><tr><td class="quote" align="left">Hola món<br /></td></tr></table></td>
   </tr>
 </table>
-<br><br>
+<br /><br />
 
-<a name="pre"><b>Text preformatejat</b></a><br>
+<a name="pre"><b>Text preformatejat</b></a><br />
 
 <table>
   <tr>
@@ -328,16 +328,16 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, p
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle"><font color="#ff0000"><b>[pre]</b><br></font>
-<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>} <br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>} <br></pre>
+    <td valign="middle"><font color="#ff0000"><b>[pre]</b><br /></font>
+<pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre>
 <font color="#ff0000"><b>[/pre]</b></font></td>
-    <td valign="middle"><pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>} <br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>} <br></pre></td>
+    <td valign="middle"><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre></td>
   </tr>
 </table>
 <i>Explicació:</i> Aquesta etiqueta produeix el text exactament tal i com està teclejat, mantenint el formateig original.
-<br><br><br>
+<br /><br /><br />
 
-<a name="php"><b>Codi PHP</b></a><br>
+<a name="php"><b>Codi PHP</b></a><br />
 
 <table>
   <tr>
@@ -362,9 +362,9 @@ hello();
   </tr>
 </table>
 <i>Explicació:</i> L`etiqueta [php][/php] permet enviar codi PHP en el que la seva sintaxis al fòrum ressaltarà de manera automàtica.
-<br><br><br>
+<br /><br /><br />
 
-<a name="code"><b>Codi en llenguatges deiferents a PHP</b></a><br>
+<a name="code"><b>Codi en llenguatges deiferents a PHP</b></a><br />
 
 <table>
   <tr>
@@ -372,20 +372,20 @@ hello();
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle"><font color="#ff0000"><b>[code]</b></font><pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre><font color="#ff0000"><b>[/code]</b></font>
+    <td valign="middle"><font color="#ff0000"><b>[code]</b></font><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /></pre><font color="#ff0000"><b>[/code]</b></font>
     </td>
-    <td valign="middle"><div class="pre"><pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');       <br>} <br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>} <br></pre></div>
+    <td valign="middle"><div class="pre"><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');       <br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre></div>
     </td>
   </tr>
 </table>
 <i>Explicació:</i> L`etiqueta [code][/code] funciona de manera molt similar a l`etiqueta [pre][/pre], però en aquest cas es posa un vistós marc al voltant del text.
-<br><br><br>
+<br /><br /><br />
 
-<a name="notag"><b>Sense etiquetes</b></a><br>
+<a name="notag"><b>Sense etiquetes</b></a><br />
 <i>Explicación:</i> L`etiqueta  <font color="#ff0000"><b>[notag][/notag]</b></font> li permet que el text a l`interior de les mateixes no sigui interpretat per l`analitzador d`etiquetes de FUDforum. Això li permetrà mostrar fragments de FUDcode sense que el fòrum ho converteixi en el codi HTML equivalent.
-<br><br><br>
+<br /><br /><br />
 
-<a name="hr"><b>Etiqueta de línia horitzontal</b></a><br>
+<a name="hr"><b>Etiqueta de línia horitzontal</b></a><br />
 
 <table>
   <tr>
@@ -398,9 +398,9 @@ hello();
   </tr>
 </table>
 <i>Explicació:</i> L`etiqueta [hr] produeix una línia horitzontal: és equivalent a l`etiqueta HTML &lt;hr&gt;
-<br><br><br>
+<br /><br /><br />
 
-<a name="spoiler"><b>Spoiler</b></a><br>
+<a name="spoiler"><b>Spoiler</b></a><br />
 
 <table>
   <tr>
@@ -408,10 +408,10 @@ hello();
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center">Part visible del missatge<br>
+    <td valign="middle" align="center">Part visible del missatge<br />
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br>Part oculta del missatge<br>
-<font color="#ff0000"><b>[/spoiler]</b></font><br>
+<br />Part oculta del missatge<br />
+<font color="#ff0000"><b>[/spoiler]</b></font><br />
 Més text visible.</td>
     <td valign="middle" align="center">Part visible del missatge<br />
 <div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Desvelar Spoiler</a><div align="left" id="1482055279834293165" style="display: none;"><br />
@@ -421,9 +421,9 @@ Més text visible.</td>
   </tr>
 </table>
 <i>Explicació:</i> L`etiqueta [spoiler][/spoiler] li permet evitar que es mostri una part d`un missatge. Per a veure la part oculta els usuaris han de prémer un enllaç que els mostrarà la part oculta del text. Internament això s`aconsegueix mitjançant l`ús de JavaScript, de manera que la pàgina no es recarrega, sinó que es fa visible una capa que estava oculta.
-<br><br><br>
+<br /><br /><br />
 
-<a name="acronym"><b>Acrònim</b></a><br>
+<a name="acronym"><b>Acrònim</b></a><br />
 
 <table>
   <tr>
@@ -431,14 +431,14 @@ Més text visible.</td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Fòrum de parla ràpida i sense compromisos]</b></font><br>FUDforum<br><font color="#ff0000"><b>[/acronym]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Fòrum de parla ràpida i sense compromisos]</b></font><br />FUDforum<br /><font color="#ff0000"><b>[/acronym]</b></font></td>
     <td valign="middle" align="center"><acronym title="Fòrum de parla ràpida i sense compromisos">FUDforum</acronym></td>
   </tr>
 </table>
 <i>Explicació:</i> L`etiqueta [acronym][/acronym] li permet identificar el text com a acrònim i proporcionar el nom complet corresponent quan l`usuari situï el punter sobre l`etiqueta.
-<br><br><br>
+<br /><br /><br />
 
-<a name="wikipedia"><b>Wikipedia</b></a><br>
+<a name="wikipedia"><b>Wikipedia</b></a><br />
 
 <table>
   <tr>
@@ -451,17 +451,17 @@ Més text visible.</td>
   </tr>
 </table>
 <i>Explicació:</i> L`etiqueta [wikipedia][/wikipedia] li permet crear una referència a una pàgina de la wikipedia basada en l`assumpte. Per a usar l`etiqueta rodegi el terme entre etiguetes [wikipedia], i si desitja usar una de les versions nacionals de la wikipedia pot emplear el format [wikipedia=ca] a l`obertura de l`etiqueta, on ca és el codi de dues lletres de l`identificador nacional (és per a la versió en espanyol).
-<br>
+<br />
 
 TOPIC_TITLE: <a name="sml">Què són els smileys/emoticones?</a> 
 TOPIC_HELP:
-Les emoticones són petites icones que pot inserir als seus missatges i que transmeten certes emoticones i sentiments. Si les emoticones estan activades es mostrarà una llista de les suportades pel fòrum sobre els quadres d`edició de missatges. Si prem sobre una de les emoticones s`inserirà a la posició actual del cursor en el seu missatge.<br>
+Les emoticones són petites icones que pot inserir als seus missatges i que transmeten certes emoticones i sentiments. Si les emoticones estan activades es mostrarà una llista de les suportades pel fòrum sobre els quadres d`edició de missatges. Si prem sobre una de les emoticones s`inserirà a la posició actual del cursor en el seu missatge.<br />
 Les emoticones més habituals podrien ser substituïdes automàticament per les seves imatges equivalents, si vol evitar que passi això premi la casella <b>Desactivar emoticones</b>.<p>
 
 TOPIC_TITLE: <a name="polls">Com uso les enquestes?</a>
 TOPIC_HELP:
-En certs fòrums pot tenir la possibilitat d`incloure enquestes als seus missatges. Les enquestes li permeten fer preguntes i proporcionar un cert nombre de respostes als demés membres del fòrum perquè les escullin. Per a no distorsionar les enquestes solament els usuaris enregistrats poden votar.<br>
-Quan premi sobre l`enllaç <b>Crear enquesta</b>, ubicat a la pàgina de missatge, apareixerà una finestra emergent que li permetrà crear una enquesta amb vàries possibles respostes. Quan hagi acabat simplement premi el botó <b>Editar</b> i se li portarà de nou a la pàgina del seu missatge i l`enquesta que acaba de crear estarà associada al seu missatge.<br>
+En certs fòrums pot tenir la possibilitat d`incloure enquestes als seus missatges. Les enquestes li permeten fer preguntes i proporcionar un cert nombre de respostes als demés membres del fòrum perquè les escullin. Per a no distorsionar les enquestes solament els usuaris enregistrats poden votar.<br />
+Quan premi sobre l`enllaç <b>Crear enquesta</b>, ubicat a la pàgina de missatge, apareixerà una finestra emergent que li permetrà crear una enquesta amb vàries possibles respostes. Quan hagi acabat simplement premi el botó <b>Editar</b> i se li portarà de nou a la pàgina del seu missatge i l`enquesta que acaba de crear estarà associada al seu missatge.<br />
 Pot editar una enquesta existent prement l`enllaç <b>Editar</b>, o pot eliminar-la completament si prem a l`enllaç <b>Esborrar</b>.
 <p>
 Solament podrà votar una vegada a cada enquesta, de manera que pensi-ho bé, no podrà canviar d`opinió més tard.
@@ -469,13 +469,13 @@ Solament podrà votar una vegada a cada enquesta, de manera que pensi-ho bé, no p
 TOPIC_TITLE: <a name="attach">Puc ajuntar arxius als missatges?</a>
 TOPIC_HELP:
 Si està permès per l`administrador podrà ajuntar un o més arxius tant als seus missatges normals com als privats. Aquesta característica es defineix per cada fòrum, de manera que pot tenir permís per a adjuntar arxius en un fòrum i no tenir permís per a fer-ho en un altre fòrum diferent.
-<br>
+<br />
 El formulari d`enviament de missatges li mostrarà tres regles en relació amb els arxius adjunts:<p>
-<b>Extensions d`arxiu permeses</b> - una llista dels tipus d`arxiu que pot ajuntar al seu missatge, per exemple jpg, gif, png<br>
-<b>Mida màxima d`arxiu</b> - la mida màxima de cada arxiu que pot adjuntar al seu missatge<br>
+<b>Extensions d`arxiu permeses</b> - una llista dels tipus d`arxiu que pot ajuntar al seu missatge, per exemple jpg, gif, png<br />
+<b>Mida màxima d`arxiu</b> - la mida màxima de cada arxiu que pot adjuntar al seu missatge<br />
 <b>Màxim nombre d`arxius per missatge</b> - el nombre d`arxiu que pot adjuntar el seu missatge.
 <p>
-Per a adjuntar un arxiu a un missatge premi el botó <b>Examinar...</B> a la part inferior de la pàgina d`enviament. El seu navegador obrirà un diàleg de selecció d`arxius que li permetrà seleccionar l`arxiu que desitja pujar des del seu disc dur. Un cop seleccionat l`arxiu premi el botó <b>Pujar arxiu</b> per a adjuntar l`arxiu al seu missatge.<br>
+Per a adjuntar un arxiu a un missatge premi el botó <b>Examinar...</B> a la part inferior de la pàgina d`enviament. El seu navegador obrirà un diàleg de selecció d`arxius que li permetrà seleccionar l`arxiu que desitja pujar des del seu disc dur. Un cop seleccionat l`arxiu premi el botó <b>Pujar arxiu</b> per a adjuntar l`arxiu al seu missatge.<br />
 Si desitja eliminar algun dels arxius adjunts simplement premi sobre l`enllaç <b>Esborrar</b> corresponent a l`arxiu.
 
 
@@ -485,8 +485,8 @@ Les icones de missatge són petites imatges que pot escollir per a mostrar juntam
 
 TOPIC_TITLE: <a name="edit">Puc editar el meu missatge?</a>
 TOPIC_HELP:
-Si és un membre enregistrat pot ser que sigui capaç d`editar els missatges que hagi enviat prèviament. Aquesta opció podria existir solament durant un temps limitat, de manera que és possible que pugui editar missatges recents però no pugui fer-ho amb els que va enviar fa un temps.<br>
-Si edita el seu missatge s`afegira una petita nota al seu missatge indicat que l`ha editat i inclourà la data i hora de l`edició.<br>
+Si és un membre enregistrat pot ser que sigui capaç d`editar els missatges que hagi enviat prèviament. Aquesta opció podria existir solament durant un temps limitat, de manera que és possible que pugui editar missatges recents però no pugui fer-ho amb els que va enviar fa un temps.<br />
+Si edita el seu missatge s`afegira una petita nota al seu missatge indicat que l`ha editat i inclourà la data i hora de l`edició.<br />
 Si un moderador o un administrador han editat el seu missatge pot ser que aparegui una nota (o no) referent a què el missatge ha estat editat, la qual cosa dependrà de la configuració del fòrum.
 
 TOPIC_TITLE: <a name="mod">Qui són els moderadors i els administradors?</a> 

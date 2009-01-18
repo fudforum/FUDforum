@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admreplace.php,v 1.30 2009/01/17 09:23:52 frank Exp $
+* $Id: admreplace.php,v 1.31 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -80,15 +80,15 @@ function clean_rgx()
 	<tr class="field">
 		<td>Replace mask:</td>
 		<?php if (!$rpl_replace_opt) { ?>
-			<td>/<input tabindex="1" type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars($rpl_replace_str); ?>">/<input type="text" name="rpl_preg_opt" size=3 value="<?php echo htmlspecialchars($rpl_preg_opt); ?>"></td>
+			<td>/<input tabindex="1" type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars($rpl_replace_str); ?>" />/<input type="text" name="rpl_preg_opt" size=3 value="<?php echo htmlspecialchars($rpl_preg_opt); ?>" /></td>
 		<?php } else { ?>
-			<td> <input tabindex="1" type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars($rpl_replace_str); ?>"></td>
+			<td> <input tabindex="1" type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars($rpl_replace_str); ?>" /></td>
 		<?php } ?>
 	</tr>
 
 	<tr class="field">
 		<td>Replace with:</td>
-		<td><input tabindex="2" type="text" name="rpl_with_str" value="<?php echo htmlspecialchars($rpl_with_str); ?>"></td>
+		<td><input tabindex="2" type="text" name="rpl_with_str" value="<?php echo htmlspecialchars($rpl_with_str); ?>" /></td>
 	</tr>
 
 <?php
@@ -104,12 +104,12 @@ function clean_rgx()
 
 	<tr class="field">
 		<td>Replace mask:</td>
-		<td>/<input type="text" name="rpl_from_post" value="<?php echo htmlspecialchars($rpl_from_post); ?>">/<input type="text" name="rpl_from_post_opt" size=3 value="<?php echo htmlspecialchars($rpl_from_post_opt); ?>"></td></td>
+		<td>/<input type="text" name="rpl_from_post" value="<?php echo htmlspecialchars($rpl_from_post); ?>" />/<input type="text" name="rpl_from_post_opt" size=3 value="<?php echo htmlspecialchars($rpl_from_post_opt); ?>" /></td></td>
 	</tr>
 
 	<tr class="field">
 		<td>Replace with:<br /></td>
-		<td><input type="text" name="rpl_to_msg" value="<?php echo htmlspecialchars($rpl_to_msg); ?>"></td>
+		<td><input type="text" name="rpl_to_msg" value="<?php echo htmlspecialchars($rpl_to_msg); ?>" /></td>
 	</tr>
 
 <?php
@@ -119,9 +119,9 @@ function clean_rgx()
 		<td colspan=2>
 <?php
 			if ($edit) {
-				echo '<input type="submit" value="Cancel" name="btn_cancel"> <input tabindex="3" type="submit" value="Update" name="btn_update">';
+				echo '<input type="submit" value="Cancel" name="btn_cancel" /> <input tabindex="3" type="submit" value="Update" name="btn_update" />';
 			} else {
-				echo '<input tabindex="3" type="submit" value="Add" name="btn_submit">';
+				echo '<input tabindex="3" type="submit" value="Add" name="btn_submit" />';
 			}
 ?>
 		</td>
@@ -148,12 +148,12 @@ function clean_rgx()
 
 	<tr class="field">
 		<td>Replace mask:</td>
-		<td>/<input type="text" name="regex_str" value="<?php echo htmlspecialchars($regex_str); ?>">/<input type="text" name="regex_str_opt" size=3 value="<?php echo htmlspecialchars($regex_str_opt); ?>"></td>
+		<td>/<input type="text" name="regex_str" value="<?php echo htmlspecialchars($regex_str); ?>" />/<input type="text" name="regex_str_opt" size=3 value="<?php echo htmlspecialchars($regex_str_opt); ?>" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Replace with:</td>
-		<td><input type="text" name="regex_with" value="<?php echo htmlspecialchars($regex_with); ?>"></td>
+		<td><input type="text" name="regex_with" value="<?php echo htmlspecialchars($regex_with); ?>" /></td>
 	</tr>
 
 	<tr class="field">
@@ -185,12 +185,12 @@ function clean_rgx()
 ?>
 
 	<tr class="fieldaction" align=right>
-		<td colspan="2"><input type="submit" name="btn_regex" value="Run"></td>
+		<td colspan="2"><input type="submit" name="btn_regex" value="Run" /></td>
 	</tr>
 <?php } /* !$rpl_replace_opt */ ?>
 
 </table>
-<input type="hidden" name="edit" value="<?php echo $edit; ?>">
+<input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 <script type="text/javascript">
 <!--

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemesel.php,v 1.32 2007/01/01 18:23:48 hackie Exp $
+* $Id: admthemesel.php,v 1.33 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,7 +25,7 @@
 ?>
 <h3>Template Set Selection</h3>
 <form method="post" action="admthemesel.php">
-<input type="hidden" name="ret" value="<?php echo $ret; ?>"><?php echo _hs; ?>
+<input type="hidden" name="ret" value="<?php echo $ret; ?>" /><?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
 <td>Template Set:</td><td><select name="tname">
@@ -56,6 +56,6 @@
 	}
 ?>
 </select></td></tr>
-<tr class="fieldaction" align="right"><td colspan="2"><input type="submit" name="btn_submit" value="Edit"></td></tr></table></form>
+<tr class="fieldaction" align="right"><td colspan="2"><input type="submit" name="btn_submit" value="Edit" /></td></tr></table></form>
 
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

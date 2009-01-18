@@ -6,30 +6,30 @@ Solitamente l'amministratore non permette l'utilizzo di HTML all'interno dei mes
 <p>
 <b>Ecco una lista dei tag di FUDcode e dei piccoli esempi di come utilizzarli</b>
 <p>
-<b>Inserimento di URL</b><br><br>
+<b>Inserimento di URL</b><br /><br />
 
-Il forum può automaticamente convertire indirizzi in URL cliccabili. Ad esempio:<br>
-	<div align="Center"><font color="#FF0000">http://www.tgmonline.it</font></div><br>
+Il forum può automaticamente convertire indirizzi in URL cliccabili. Ad esempio:<br />
+	<div align="Center"><font color="#FF0000">http://www.tgmonline.it</font></div><br />
 sarà automaticamente interpretato come URL e convertito in link cliccabile, il che vuol dire che diventerà una cosa del genere:
-	<div align="center"><a href="http://www.tgmonline.it" target=_blank>http://www.tgmonline.it</a></div><br>
+	<div align="center"><a href="http://www.tgmonline.it" target=_blank>http://www.tgmonline.it</a></div><br />
 	
 	
 Puoi creare un URL per conto tuo utilizzando il FUDcode, in due modi. Il più semplice è questo:
-	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.lamiahomepage.com</font>[/URL]</font></b></div><br>
+	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.lamiahomepage.com</font>[/URL]</font></b></div><br />
 che diventa:
-	<div align="center"><a href="http://www.lamiahomepage.com" target=_blank>http://www.lamiahomepage.com</a></div><br>
-Puoi anche aggiungere una descrizione all'URL utilizzando una sintassi leggermente diversa: <font color="#ff0000"><b>[URL=<font color="#006600">http://www.lamiahomepage.com</font>]<font color="#006600">La mia home page</font>[/URL]</b></font>. Ed ecco cosa diventa:<br>
-	<div align="center"><a href="http://www.lamiahomepage.com" target=_blank>La mia home page</a></div><br>
+	<div align="center"><a href="http://www.lamiahomepage.com" target=_blank>http://www.lamiahomepage.com</a></div><br />
+Puoi anche aggiungere una descrizione all'URL utilizzando una sintassi leggermente diversa: <font color="#ff0000"><b>[URL=<font color="#006600">http://www.lamiahomepage.com</font>]<font color="#006600">La mia home page</font>[/URL]</b></font>. Ed ecco cosa diventa:<br />
+	<div align="center"><a href="http://www.lamiahomepage.com" target=_blank>La mia home page</a></div><br />
 <p>
-<b>Inserimento indirizzi email</b><br><br>
-         Per creare un link ad un indirizzo email è sufficiente scriverlo così com'è. Ad esempio:<br>
-<div align="Center"><font color="#ff0000"><b>forum@xenia.it</b></font></div><br>
-       viene interpretato automaticamente e trasformato in un link. Si può anche utilizzare la seguente sintassi<br>
-<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">forum@xenia.it</font>]</b></font>Clicca qui per scrivere all'amministratore del forum<font color="#ff0000"><b>[/email]</b></font><br></div>
-<br>
-<b>Formattazione del testo</b><br>
-         Ecco una serie di tag che possono essere utilizzati per inserire dello stile nel testo:<br>
-<br>
+<b>Inserimento indirizzi email</b><br /><br />
+         Per creare un link ad un indirizzo email è sufficiente scriverlo così com'è. Ad esempio:<br />
+<div align="Center"><font color="#ff0000"><b>forum@xenia.it</b></font></div><br />
+       viene interpretato automaticamente e trasformato in un link. Si può anche utilizzare la seguente sintassi<br />
+<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">forum@xenia.it</font>]</b></font>Clicca qui per scrivere all'amministratore del forum<font color="#ff0000"><b>[/email]</b></font><br /></div>
+<br />
+<b>Formattazione del testo</b><br />
+         Ecco una serie di tag che possono essere utilizzati per inserire dello stile nel testo:<br />
+<br />
 <ul>
   <li><font color="#ff0000"><b>[b]</b></font>grassetto<font color="#ff0000"><b>
          [/b]</b></font> genera testo in <b>grassetto</b></li>
@@ -42,7 +42,7 @@ Puoi anche aggiungere una descrizione all'URL utilizzando una sintassi leggermen
    <li><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>
           [/sup]</b></font> produces <sup>superscript</sup> text</li>
 </ul>
-         È anche possibile modificare colore, dimensione e aspetto dei caratteri del testo.<br>
+         È anche possibile modificare colore, dimensione e aspetto dei caratteri del testo.<br />
 <ul>
   <li><font color="#ff0000"><b>[color=red]</b></font>testo rosso<font color="#ff0000"><b>
          [/color]</b></font> diventa <font color="#ff0000">testo rosso</font></li>
@@ -53,13 +53,13 @@ dimensione specificata</font></li>
         [/font]</b></font> genera testo che utilizza il <font face="Courier New, Courier, monospace">
         font scelto</font></li>
 </ul>
-        È anche possibile utilizzare diversi tag in combinazione tra loro:<br>
-<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>testo formattato<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
-       diventa quindi:<br>
+        È anche possibile utilizzare diversi tag in combinazione tra loro:<br />
+<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>testo formattato<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></div>
+       diventa quindi:<br />
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>testo formattato</b></i></u></font></div>
-<br>
-<br>
-<b>Allineamento del testo</b><br>
+<br />
+<br />
+<b>Allineamento del testo</b><br />
 FUDcode permette di allineare il testo con il tag [align], che permette di giustificare il testo in tre modi:
 <ul>
 	<li><font color="#ff0000"><b>[align=center]</b></font>testo centrato<font color="#ff0000"><b>[/align]</b></font> genera:</li>
@@ -69,82 +69,82 @@ FUDcode permette di allineare il testo con il tag [align], che permette di giust
 	<li><font color="#ff0000"><b>[align=right]</b></font>testo allineato a destra<font color="#ff0000"><b>[/align]</b></font> genera:</li>
 		<div align="right">testo allineato a destra</div>	
 </ul>
-<br>
-<br>
-<b>Liste</b><br>
-      Puoi creare diverse tipologie di lista utilizzando FUDCode:<br>
-<br>
-      elenchi puntati non ordinati:<br>
-<font color="#ff0000"><b>[list]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>primo elemento della lista<br>
-<font color="#ff0000"><b>[*]</b></font>secondo elemento della lista<br>
-<font color="#ff0000"><b>[/list]<br>
-</b></font><br>
-      genera<br>
+<br />
+<br />
+<b>Liste</b><br />
+      Puoi creare diverse tipologie di lista utilizzando FUDCode:<br />
+<br />
+      elenchi puntati non ordinati:<br />
+<font color="#ff0000"><b>[list]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>primo elemento della lista<br />
+<font color="#ff0000"><b>[*]</b></font>secondo elemento della lista<br />
+<font color="#ff0000"><b>[/list]<br />
+</b></font><br />
+      genera<br />
 <ul>
   <li>primo elemento della lista</li>
   <li>secondo elemento della lista</li>
 </ul>
-      È possibile utilizzare diverse tipologie di elenchi, ad esempio quelli numerati:<br>
-<font color="#ff0000"><b>[list type=1]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>primo elemento della lista<br>
-<font color="#ff0000"><b>[*]</b></font>secondo elemento della lista<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
-     genera<br>
+      È possibile utilizzare diverse tipologie di elenchi, ad esempio quelli numerati:<br />
+<font color="#ff0000"><b>[list type=1]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>primo elemento della lista<br />
+<font color="#ff0000"><b>[*]</b></font>secondo elemento della lista<br />
+<font color="#ff0000"><b>[/list]</b></font><br />
+     genera<br />
 <ol>
   <li>primo elemento della lista</li>
-  <li>secondo elemento della lista<br>
+  <li>secondo elemento della lista<br />
   </li>
 </ol>
-     Per creare una lista alfabetica:<br>
-<font color="#ff0000"><b>[list type=A]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>primo elemento della lista<br>
-<font color="#ff0000"><b>[*]</b></font>secondo elemento della lista<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
-<br>
-     genera:<br>
+     Per creare una lista alfabetica:<br />
+<font color="#ff0000"><b>[list type=A]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>primo elemento della lista<br />
+<font color="#ff0000"><b>[*]</b></font>secondo elemento della lista<br />
+<font color="#ff0000"><b>[/list]</b></font><br />
+<br />
+     genera:<br />
 <ol type="a">
   <li>primo elemento della lista</li>
   <li>secondo elemento della lista</li>
 </ol>
-<b>Inserimento di immagini</b><br>
+<b>Inserimento di immagini</b><br />
     È possibile inserire immagini all'interno di un messaggio utilizzando il tag <font color="#ff0000"><b>
-    [img][/img]</b></font>. <br>
-<br>
-    Ad esempio,<br>
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
-    inserisce un'immagine nel messaggio, in questo modo:<br>
-<div align="Center"><img src="http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif" alt="http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif" width="488" height="81"><br></div>
-    In aggiunta puoi anche creare link alle immagini racchiudendoli nei tag <font color="#ff0000"><b>    [url][/url]</b></font> in questo modo<br>
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.tgmonline.it</font>][img]</b></font>http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
-    che crea un'immagine con un link, come<br>
-<div align="Center"><a href="http://www.tgmonline.it"><img src="http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif" alt="image" width="488" height="81" border="0"></a><br></div><br>
+    [img][/img]</b></font>. <br />
+<br />
+    Ad esempio,<br />
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
+    inserisce un'immagine nel messaggio, in questo modo:<br />
+<div align="Center"><img src="http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif" alt="http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif" width="488" height="81"><br /></div>
+    In aggiunta puoi anche creare link alle immagini racchiudendoli nei tag <font color="#ff0000"><b>    [url][/url]</b></font> in questo modo<br />
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.tgmonline.it</font>][img]</b></font>http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+    che crea un'immagine con un link, come<br />
+<div align="Center"><a href="http://www.tgmonline.it"><img src="http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif" alt="image" width="488" height="81" border="0"></a><br /></div><br />
 
-<br><b>Quote di altri messaggi</b><br>
+<br /><b>Quote di altri messaggi</b><br />
   È possibile inserire parti di un messaggio già postato (quote), semplicemente inserendo i tag <font color="#ff0000"><b>[quote][/quote]</b></font>. 
-<br>
-<div align="Center"><font color="#ff0000"><b>[quote]</b></font>ciao mondo<font color="#ff0000"><b>[/quote]</b></font><br></div>
-  apparirebbe come:<br>
+<br />
+<div align="Center"><font color="#ff0000"><b>[quote]</b></font>ciao mondo<font color="#ff0000"><b>[/quote]</b></font><br /></div>
+  apparirebbe come:<br />
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">ciao mondo<br></td></tr></table>
+<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">ciao mondo<br /></td></tr></table>
 <p>
-<b>Codice e testo pre-formattato</b><br>
-I tag <font color="#ff0000"><b>[code][/code]</b></font> permettono di inserire del testo esattamente com'è, mantenendo formattazioni già inserite, come spazi e tabulazioni. <br>
-<br>
-Può essere usato in questo modo: <br>
+<b>Codice e testo pre-formattato</b><br />
+I tag <font color="#ff0000"><b>[code][/code]</b></font> permettono di inserire del testo esattamente com'è, mantenendo formattazioni già inserite, come spazi e tabulazioni. <br />
+<br />
+Può essere usato in questo modo: <br />
 <font color="#ff0000"><b>[code]</b></font>
-<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre>
-<font color="#ff0000"><b>[/code]</b></font><br>
-<br>
+<pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /></pre>
+<font color="#ff0000"><b>[/code]</b></font><br />
+<br />
  che genera il testo esattamente come è stato inserito. 
-<br>
-<br>
-<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
+<br />
+<br />
+<pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /><br /><br /></pre>
 <p>
-<b>PHP Code</b><br>
+<b>PHP Code</b><br />
 The <font color="#ff0000"><b>[php][/php]</b></font> tag allows you to post PHP scripts
-and have the forum automatically syntax highlight the code for easier readability.<br>
-<br>it used like this: <br>
+and have the forum automatically syntax highlight the code for easier readability.<br />
+<br />it used like this: <br />
 <font color="#ff0000"><b>[php]</b></font>
 <pre>
 function hello()
@@ -154,8 +154,8 @@ function hello()
 
 hello();
 </pre>
-<font color="#ff0000"><b>[/php]</b></font><br>
-<br>which produces:<br><br>
+<font color="#ff0000"><b>[/php]</b></font><br />
+<br />which produces:<br /><br />
 <code><font color="#000000">
 <font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
 
@@ -163,24 +163,24 @@ hello();
 </code>
 <p>
 
-<b>No Tag</b><br>
+<b>No Tag</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
 the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
 and not have them converted to equivalent HTML.
 <p>
 
-<b>Spoiler</b><br>
+<b>Spoiler</b><br />
 The <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> tag allows you to hide a portion of message
 from being displayed. To see the hidden portion the users must click a link that will display the 
 hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually 
-reloaded, instead a hidden layer is made visible.<br>
-  <br>
-Here is an example of this tag in action: <br>
+reloaded, instead a hidden layer is made visible.<br />
+  <br />
+Here is an example of this tag in action: <br />
 
 Visible part of the message
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br>Hidden part of the message</br>
-<font color="#ff0000"><b>[/spoiler]</b></font><br>
+<br />Hidden part of the message</br>
+<font color="#ff0000"><b>[/spoiler]</b></font><br />
 More visible text.
 
 <p>and the result:<p>
@@ -192,7 +192,7 @@ Hidden part of the message<br />
 More visible text.
 
 <p>
-<b>Acronym</b><br>
+<b>Acronym</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
 acronym and provide a full name when the user moves their mouse over the tag.
 <font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
@@ -212,14 +212,14 @@ TOPIC_TITLE: <a name="sml">Cosa sono gli smiley/faccine/emoticon?</a>
 TOPIC_HELP:
 Gli smiley, detti anche faccine o emoticon, sono piccole icone che puoi inserire all'interno di un messaggio per trasmettere emozioni e sentimenti.
 Se gli smiley sono abilitati, sopra il testo del messaggio da postare troverai un elenco di icone presenti nel forum.
-Cliccando su uno di essi, verrà automaticamente inserito all'interno del messaggio.<br>
+Cliccando su uno di essi, verrà automaticamente inserito all'interno del messaggio.<br />
 Gli smiley vengono automaticamente convertiti in immagini dal forum. Se non vuoi che questo avvenga, clicca sul bottone 
 <b>Disabilita smiley</b>.<p>
 
 TOPIC_TITLE: <a name="polls">Come faccio a creare un sondaggio?</a>
 TOPIC_HELP:
-In alcuni forum ti viene data la possibilità di inserire dei sondaggi nei tuoi messaggi. Il meccanismo di un sondaggio è molto semplice: c'è una domanda, una serie di risposte da scegliere; per questioni di accuratezza solo gli utenti registrati possono votare i sondaggi.<br>
-Quando clicchi sul link <b>CREA SONDAGGIO</b>, si aprirà una piccola schermata di pop-up con la possibilità di creare un sondaggio con risposte multiple. Quando hai terminato, clicca su <b>Modifica</b> e sarai riportato alla pagina del topic, dove il sondaggio sarà stato inserito nel tuo messaggio.<br>
+In alcuni forum ti viene data la possibilità di inserire dei sondaggi nei tuoi messaggi. Il meccanismo di un sondaggio è molto semplice: c'è una domanda, una serie di risposte da scegliere; per questioni di accuratezza solo gli utenti registrati possono votare i sondaggi.<br />
+Quando clicchi sul link <b>CREA SONDAGGIO</b>, si aprirà una piccola schermata di pop-up con la possibilità di creare un sondaggio con risposte multiple. Quando hai terminato, clicca su <b>Modifica</b> e sarai riportato alla pagina del topic, dove il sondaggio sarà stato inserito nel tuo messaggio.<br />
 Potrai modificare il messaggio cliccando sul link <b>MODIFICA</b>, o cancellarlo cliccando su <b>CANCELLA</b>.
 <p>
 Puoi esprimere un solo voto per ogni sondaggio.
@@ -227,13 +227,13 @@ Puoi esprimere un solo voto per ogni sondaggio.
 TOPIC_TITLE: <a name="attach">Posso allegare file ai messaggi?</a>
 TOPIC_HELP:
 Se consentito dall'amministratore del forum, potrai inserire uno o più file ai tuoi messaggi, siano essi normali che privati. Questa opzione è legata ai singoli forum: questo vuol dire che alcuin forum possono permettere l'aggiunta di file ai messaggi, altri no, a seconda delle scelte dell'amministratore.
-<br>
+<br />
 Ecco le tre regole base per l'inserimento di file allegati ai messaggi:<p>
-<b>Estensioni consentite</b> - un elenco di tipi di file che puoi allegare al messaggio, ad esempio jpg, gif, png<br>
-<b>Dimensione massima del file</b> - la dimensione massima di ogni file che puoi inserire nel messaggio<br>
+<b>Estensioni consentite</b> - un elenco di tipi di file che puoi allegare al messaggio, ad esempio jpg, gif, png<br />
+<b>Dimensione massima del file</b> - la dimensione massima di ogni file che puoi inserire nel messaggio<br />
 <b>Numero massimo di file per messaggio</b> - il numero di file che puoi allegare al messaggio.
 <p>
-Per allegare un file, clicca sul tasto <b>Sfoglia</b> che si trova nella parte bassa del post di un messaggio. Il browser aprirà una schermata dalla quale poter selezionare il file presente sul tuo hard disk. Una volta selezionato il file, clicca su <b>Upload file</b>.<br>
+Per allegare un file, clicca sul tasto <b>Sfoglia</b> che si trova nella parte bassa del post di un messaggio. Il browser aprirà una schermata dalla quale poter selezionare il file presente sul tuo hard disk. Una volta selezionato il file, clicca su <b>Upload file</b>.<br />
 Se vuoi cancellare file allegati al messaggio, clicca sul bottone <b>Cancella</b> che trovi alla destra del nome del file.
 
 
@@ -245,9 +245,9 @@ Se non vedi queste icone nella pagina di inserimento di un topic, vuol dire che 
 TOPIC_TITLE: <a name="edit">Posso modificare un mio messaggio?</a>
 TOPIC_HELP:
 If you are a registered member, you may be able to edit messages that you have previously posted. This option may be 
-time-limited, so it is possible that you'll be able to edit your recent posts, while unable to edit posts made a while ago.<br>
+time-limited, so it is possible that you'll be able to edit your recent posts, while unable to edit posts made a while ago.<br />
 If you edit your post, a small note will be prepended to your message, showing that this message was edited by you and indicate the time & date 
-of editing.<br>
+of editing.<br />
 If a moderator or an administrator have edited your message you may or may not, depending on the forum settings see a note identifying the fact 
 that this message was edited.
 

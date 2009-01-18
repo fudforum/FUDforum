@@ -1,8 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 <head>
 <?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel</title>' ?>
-<link rel="StyleSheet" href="adm.css" type="text/css">
+<link rel="StyleSheet" href="adm.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=<?php 
 if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
 	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
@@ -11,7 +11,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 } else {
 	echo 'us-ascii';
 }
-?>">
+?>" />
 </head>
 <body>
 <table class="maintable">

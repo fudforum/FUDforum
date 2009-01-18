@@ -3,19 +3,19 @@ TOPIC_HELP: Yönetici tarafýndan engellenmediði sürece forumdaki <a href="{ROOT}?
 Ýleti aramayý kullanýrken, aranmasýný istediðiniz anahtar sözcükleri belirttikten sonra, bu sözcüklerin nerede aranmasýný belirtmeniz
 de mümkün. Ýsterseniz iletinin sadece konu kýsmýnda, isterseniz iletinin hem konu hem de gövde bölümlerinde arama yapabilirsiniz.
 Aramanýzýn tüm forumlarda yapýlmasýný istemiyorsanýz, arama yapmak istediðiniz forumu da belirtebilirsiniz.
-<br>
+<br />
 Ayrýca forumun diðer üyelerini kullanýcý isimleri veya e-mektup adreslerini ile <a href="{ROOT}?t=finduser&%_rsid%">kullanýcý arama formunu</a>
 kullanarak arayabilirsiniz.
 
 
 TOPIC_TITLE: <a name="email">Diðer forum üyelerine e-mektup gönderebilir miyim?</a>
 TOPIC_HELP: 
-Yönetici tarafýndan engellenmediði sürece, diðer forum üyeleri ile e-mektup yoluyla iletiþim kurabilirsiniz.<br>
+Yönetici tarafýndan engellenmediði sürece, diðer forum üyeleri ile e-mektup yoluyla iletiþim kurabilirsiniz.<br />
 Bir üyeye e-mektup göndermek için, üye listesinden bulup <b>Ýletiþim</b> düðmesine, veya basitçe gönderilen
 iletilerdeki <b>E-mektup</b> düðmesine týklatabilirsiniz. Bu sizi yeni bir sayfaya yönlendirir, ve göndereceðiniz
 e-mektubunu konu ve gövde kýsmýný oluþturabilirsiniz. Bitirdiðinizde, basitce <b>Gönder</b> düðmesine týklatýn, ve e-mektubunuz
 gönderilecektir.
-<br><br>
+<br /><br />
 Forum üyelerine e-mektup göndermeye ek olarak, beðendiðiniz bir sayfayýnýn linkini arkadaþýnýza bir açýklama ile birlikte <b>Arkadaþýna gönder</b>
 linkini kullanarak gönderebilirsiniz. Bu link forumun zincir ve ileti görüntüleme sayfalarýnda bulunabilir.
 
@@ -25,7 +25,7 @@ TOPIC_HELP: Eðer yönetici Özel Ýleti sistemini engellemediyse, forumdaki bir vey
 Özel Ýleti sistemine eriþmek için, basitçe sayfanýn üst köþesinde bulunan <a href="{ROOT}?t=pmsg&%_rsid%">özel Ýletiler</a> linkine
 týklatabilirsiniz. Eðer okunmamýþ özel iletileriniz varsa, bu link size kaç tane okunmamýþ iletiniz olduðunu bildirecektir.
 <p>
-<b>Özel Ýleti Yollama</b><br>
+<b>Özel Ýleti Yollama</b><br />
 Özel ileti yollama, e-mektup yollamaya çok benziyor, iletiyi yollamak istediðniz kiþiyi belirtin, konuyu ve iletiyi yazdýktan sonra Gönder'i
 týklatýn. Ýki link daha var, bunlardan  <b>Arkadaþ Listesinden Seç</b> linki iletiyi göndermek istediðiniz üyeyi arkadaþ listenizden
 seçerek kolayca bulabilmenizi, <b>Kullanýcý Bul</b> linki ise tüm forum üyeleri arasýndan iletinizi göndermek istediðiniz üyeyi
@@ -48,7 +48,7 @@ silinen iletiler, kalýcý olarak silinir.
 <b>Ýleti Takibi</b><p>
 Herhangi bir ileti gönderdiðinizde bir alýndý bilgisi isteðinde bulunma olanýðýnýz var. Alýcý iletiyi okuduðunda bunu size haber veren bir sistem iletisi
 alýrsýnýz.
-<br>
+<br />
 Bununla birlikte, böyle bir istekte bulunduðunuzda alýcýnýn bu isteði reddetme seçeneði var, dolayýsýyla bir alýndý bilgisi isteðinde bulunmanýza
 raðmen bu bilgi gelmemesi iletinizin okunmadýðý anlamýna gelmeyebilir.
 
@@ -56,7 +56,7 @@ raðmen bu bilgi gelmemesi iletinizin okunmadýðý anlamýna gelmeyebilir.
 TOPIC_TITLE: <a name="mlist">Üye Listesi nedir?</a>
 TOPIC_HELP: Üye Listesi forum üzerindeki tüm üyelerin bir listesidir. Üye listesini 3 deðiþik þekilde sýralayabilirsiniz:
 Kullanýcý isimlerine göre alfabetik olarak, gönderilen ileti sayýsýna göre ve kayýt tarihine göre.
-<br><br>
+<br /><br />
 Üye Listesinde ayrýca arama yapabilmeniz de mümkün, belirli bir üyeyi kullanýcý ismine veya e-mektup adresine göre arayabilirsiniz.
 
 TOPIC_TITLE:<a name="ann">Duyurular ve Yapýþkan iletiler nedir?</a>

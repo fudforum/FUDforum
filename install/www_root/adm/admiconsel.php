@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admiconsel.php,v 1.18 2007/01/01 18:23:48 hackie Exp $
+* $Id: admiconsel.php,v 1.19 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,8 +17,8 @@ function print_image_list($dir,$js_field,$type)
 	$web_dir = $GLOBALS['WWW_ROOT'] . $dir . '/';
 	$path = $GLOBALS['WWW_ROOT_DISK'] . $dir;
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 <head>
 <?php echo '<title>'.$GLOBALS['FORUM_TITLE'].': Admin Control Panel - '.$type.' Selection</title>' ?>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php 
@@ -29,7 +29,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 } else {
 	echo 'us-ascii';
 }
-?>">
+?>" />
 </head>
 <body bgcolor="#ffffff">
 <table border="0" cellspacing="1" cellpadding="2">

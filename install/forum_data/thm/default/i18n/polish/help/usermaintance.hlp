@@ -7,7 +7,7 @@ Na wiêkszo¶ci forów nie bêdzie mo¿liwe wysy³anie nowych wiadomo¶ci czy odpowiada
 	<li>Mo¿liwo¶æ wysy³ania prywatnych wiadomo¶ci do innych u¿ytkowników
 	<li>Opcja wybrania strefy czasowej, w której siê znajdujesz
 </ul>
-Je¶li nie zaznaczono inaczej, rejestracja na forum jest bezp³atna i wymaga tylko podstawowych informacji o u¿ytkowniku, takich jak adres poczty elektronicznej czy nazwa zak³adanego konta.<br>
+Je¶li nie zaznaczono inaczej, rejestracja na forum jest bezp³atna i wymaga tylko podstawowych informacji o u¿ytkowniku, takich jak adres poczty elektronicznej czy nazwa zak³adanego konta.<br />
 W przypadku, gdy uaktywniono blokadê COPPA (Children's Online Privacy Protection Act - Akt o Ochronie Dzieciêcej Prywatno¶ci w Internecie) i osoba rejestruj±ca ma mniej ni¿ 13 lat, konieczna bêdzie zgoda prawnego opiekuna zanim konto zostanie uaktywnione i bêdzie mo¿na za jego pomoc± wysy³aæ wiadomo¶ci. Po zakoñczeniu procesu rejestracji, u¿ytkownik zostanie przekierowany do formularza, który musi wype³niæ prawny opiekun i przes³aæ na podany adres.
 
 TOPIC_TITLE: <a name="cookies">W jaki sposób forum u¿ywa ciasteczek?</a>
@@ -21,21 +21,21 @@ Aby usun±æ ciasteczko wys³ane przez forum, wybierz opcjê wylogowania, która skas
 
 TOPIC_TITLE: <a name="updprofile">Co to jest profil?</a>
 TOPIC_HELP:
-Jako u¿ytkownik forum, masz dostêp do swojego prywatnego profilu, w którym mo¿esz zapisaæ informacje o sobie, takie jak numery komunikatorów (ICQ, AIM, itd.), podpis czy biografiê. Twój profil zachowuje tak¿e ró¿ne ustawienia zwi±zane z samym forum. Mo¿esz je modyfikowaæ za ka¿dym razem po zalogowaniu. Pamiêtaj, ¿e wiêkszo¶æ informacji z Twojego profilu jest dostêpna do wgl±du innym u¿ytkownikom forum, wiêc staraj siê tam nie umieszczaæ wa¿nych informacji, których nie chcesz udostêpniaæ.<br>
+Jako u¿ytkownik forum, masz dostêp do swojego prywatnego profilu, w którym mo¿esz zapisaæ informacje o sobie, takie jak numery komunikatorów (ICQ, AIM, itd.), podpis czy biografiê. Twój profil zachowuje tak¿e ró¿ne ustawienia zwi±zane z samym forum. Mo¿esz je modyfikowaæ za ka¿dym razem po zalogowaniu. Pamiêtaj, ¿e wiêkszo¶æ informacji z Twojego profilu jest dostêpna do wgl±du innym u¿ytkownikom forum, wiêc staraj siê tam nie umieszczaæ wa¿nych informacji, których nie chcesz udostêpniaæ.<br />
 Twój profil ma opcjê <b>"Poka¿ adres poczty elektronicznej"</b>. Je¶li ustawisz j± na <b>Nie</b> Twój adres zostanie ukryty podczas wy¶wietlania informacji o Tobie.
 
 TOPIC_TITLE: <a name="sigs">Co to jest podpis?</a>
 TOPIC_HELP:
-Podpis jest tekstem, który mo¿e byæ automatycznie do³±czany do koñca ka¿dej wiadomo¶ci wys³anej przez Ciebie. W profilu masz opcjê <b>"U¿ywaj domy¶lnie podpisu"</b>, która w³±cza lub wy³±cza automatyczne dodawanie podpisu. Oprócz tego mo¿esz zdecydowaæ o dodaniu podpisu, podczas pisania konkretnej wiadomo¶ci.<br>
+Podpis jest tekstem, który mo¿e byæ automatycznie do³±czany do koñca ka¿dej wiadomo¶ci wys³anej przez Ciebie. W profilu masz opcjê <b>"U¿ywaj domy¶lnie podpisu"</b>, która w³±cza lub wy³±cza automatyczne dodawanie podpisu. Oprócz tego mo¿esz zdecydowaæ o dodaniu podpisu, podczas pisania konkretnej wiadomo¶ci.<br />
 Oprócz czystego tekstu, podpis mo¿e zawieraæ (je¶li administrator na to zezwoli³) odno¶niki do ulubionych stron, zdjêcia, itd.
-<br>
+<br />
 Je¶li nie chcesz widzieæ podpisów innych u¿ytkowników, mo¿esz ustawiæ opcjê <b>"Pokazuj podpisy"</b> na <b>Nie</b> w swoim profilu.
 
 TOPIC_TITLE: <a name="rstpasswd">Co zrobiæ je¶li zapomnia³em has³a?</a>
 TOPIC_HELP:
 Je¶li zapomnnia³e¶ has³a, powiniene¶ skorzystaæ ze <a href="{ROOT}?t=reset&%_rsid%">strony zerowania has³a</a>, gdzie musisz wpisaæ swój adres poczty elektronicznej, nastêpnie potwierd¼ klikaj±c przycisk "Go". Spowoduje to wys³anie do Ciebie listu z adresem strony. Po wej¶ciu pod podany adres zostanie wygenerowane nowe has³o i przes³ane na Twój e-mail.
-<br>
-<br>
+<br />
+<br />
 <b>Uwaga:</b> Twoje has³a s± zapisywane za pomoc± jednokierunkowej funkcji mieszaj±cej MD5. Jest to 128-bitowe szyfrowanie na poziomie zabezpieczeñ wojskowych. Nie ma mo¿liwo¶ci odtworzenia Twojego has³a. Za ka¿dym razem gdy wpisujesz, jest ono szyfrowane a nastêpnie porównywane z zapisan±, zaszyfrowan± wersj±. W zwi±zku z tym, je¶li zapomnisz has³a nie jest mo¿liwe jego odtworzenie, a tylko ustawienie ca³kiem nowego.
 
 TOPIC_TITLE: <a name="cstat">W³asne oznaczenia - co to jest i jak mogê je stworzyæ?</a>

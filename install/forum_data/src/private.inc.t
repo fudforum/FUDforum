@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.57 2007/01/01 18:23:46 hackie Exp $
+* $Id: private.inc.t,v 1.58 2009/01/18 08:22:08 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -193,7 +193,7 @@ function write_pmsg_body($text)
 
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private', 'ab');
 	if (!$fp) {
-		exit("FATAL ERROR: cannot open private message store<br>\n");
+		exit("FATAL ERROR: cannot open private message store<br />\n");
 	}
 
 	fseek($fp, 0, SEEK_END);
@@ -202,7 +202,7 @@ function write_pmsg_body($text)
 	}
 
 	if (($len = fwrite($fp, $text)) !== strlen($text)) {
-		exit("FATAL ERROR: system has ran out of disk space<br>\n");
+		exit("FATAL ERROR: system has ran out of disk space<br />\n");
 	}
 	fclose($fp);
 

@@ -173,7 +173,7 @@ user_offline:			{VAR: obj->login}  þu anda baðlý deðil
 user_online:			{VAR: obj->login} þu anda baðlý
 usrinfo_last_post:		Son ileti:
 view_results:			Sonuçlarý görüntüle
-views:				Görüntülenme<br>sayýsý
+views:				Görüntülenme<br />sayýsý
 vote:				{VAR: frm->n_rating} Oy
 vote_button:			Oyla
 vote_for_thread:		Oyla
@@ -250,8 +250,8 @@ finduser_joindate:		Katýlým Tarihi
 finduser_action:		Eylem
 yes:				Evet
 no:				Hayýr
-edit_time_limit:		<br><b>Düzeltme süre sýnýrý</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> dakika
-no_edit_time_limit:		<br><b>Düzeltme süre sýnýrý</b>: <b>Sýnýrsýz</b>
+edit_time_limit:		<br /><b>Düzeltme süre sýnýrý</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> dakika
+no_edit_time_limit:		<br /><b>Düzeltme süre sýnýrý</b>: <b>Sýnýrsýz</b>
 pmuserloc_login:		Kullanýcý ismi:
 pmuserloc_submit:		Bul
 pmuserloc_user:			Kullanýcý
@@ -270,7 +270,7 @@ register_avatar_type:		Avatar Tipi:
 register_del_avatar:		Avatarý Sil
 register_avatar:		Avatar:
 register_sel_avatar:		Avatar Seçimi
-register_custom_avatar_rules:	Özel avatar yönetici tarafýndan onaylanýncaya dek görünmeyecek.<br><font class="SmallText">Avatar, <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} piksel </b> boyutundan daha büyük olmamalý ve <b>jpg</b>, <b>gif</b> veya <b>png</b> biçiminde olmalý.</font>
+register_custom_avatar_rules:	Özel avatar yönetici tarafýndan onaylanýncaya dek görünmeyecek.<br /><font class="SmallText">Avatar, <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} piksel </b> boyutundan daha büyük olmamalý ve <b>jpg</b>, <b>gif</b> veya <b>png</b> biçiminde olmalý.</font>
 register_custom_avatar_url:	Özel Avatar URL&#39;si:
 register_preview:		Önizleme
 register_custom_avatar_upload:	Özel Avatar Dosyasý:
@@ -404,7 +404,7 @@ login_cookie_expired:		Kurabiyeniz (cookie) zaman aþýmýna uðramýþ olabilir, kura
 login_perm_denied:		Ýstenen kaynaða ulaþabilmek için isimsiz kullanýcý olarak izniniz olmayabilir, bu durumda söz konusu kaynaða eriþim izni saðlayabilmek için giriþ yapmak zorundasýnýz.
 login_want_to_register:		Kayýt olmak istiyorum
 login_forgot_passwd:		Parolamý unuttum
-login_use_cookie:		Kurabiye kullan<br><font class="SmallText">Eðer kütüphane, okul, veya internet cafe gibi herkese açýk bir bilgisayar kullanarak baðlanýyorsanýz, güvenlik açýsýndan bu seçeneði kaldýrmanýz önerilir.
+login_use_cookie:		Kurabiye kullan<br /><font class="SmallText">Eðer kütüphane, okul, veya internet cafe gibi herkese açýk bir bilgisayar kullanarak baðlanýyorsanýz, güvenlik açýsýndan bu seçeneði kaldýrmanýz önerilir.
 login_login:			Kullanýcý ismi
 login_login_btn:		Giriþ yap
 login_name_required:		Lütfen kullanýcý isminizi belirtin
@@ -529,7 +529,7 @@ buddy_list_err_nouser_title:	Kullanýcý eklenemedi
 buddy_list_update:		Arkadaþ listesini dolaþýyor
 core_err_invinp_title:		Geçersiz girdi
 core_err_invinp_err:		Geçersiz bir linki izlediniz, lütfen <a href="mailto:{GVAR: ADMIN_EMAIL}">yöneticiyi</a> uyarýn.
-core_adm_login_msg:		<br>Yöneticiler <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">buradan</a> giriþ yapabilir
+core_adm_login_msg:		<br />Yöneticiler <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">buradan</a> giriþ yapabilir
 email_err_unabletoemail_title:	HATA: E-mektup gönderilemedi
 email_err_unabletoemail_msg:	E-mektup sistemi yönetici tarafýndan engellenmiþ durumda.
 email_error_unabletolocaddr:	Üzgünüz,  sistem {VAR-HTML: _POST['tx_name']} kullanýcýsýna e-mektup gönderemedi, çünkü kullanýcýnýn e-mektup adresi bulunamadý.
@@ -568,9 +568,9 @@ post_err_edttimelimit_title:	HATA
 post_err_edttimelimit_msg:	Bu iletiyi artýk düzeltemezsiniz
 post_err_floodtrig_title:	HATA: Üstüste ileti gönderemezsiniz.
 post_err_floodtrig_msg:		Lütfen {VAR: tm} saniye içinde tekrar deneyin.
-post_err_attach_size:		<font class="ErrorText">Dosya eki çok büyük (izin verilen sýnýr: {VAR: MAX_F_SIZE} b)</font><br>
-post_err_attach_ext:		<font class="ErrorText">Yüklemeye çalýþtýðýnýz dosya tipi izin verilen tipler arasýnda yok.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Ýzin verilenden daha fazla dosya yüklemeye çalýþýyorsunuz.</font><br>
+post_err_attach_size:		<font class="ErrorText">Dosya eki çok büyük (izin verilen sýnýr: {VAR: MAX_F_SIZE} b)</font><br />
+post_err_attach_ext:		<font class="ErrorText">Yüklemeye çalýþtýðýnýz dosya tipi izin verilen tipler arasýnda yok.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Ýzin verilenden daha fazla dosya yüklemeye çalýþýyorsunuz.</font><br />
 post_err_passwd:		Yanlýþ parola.
 post_reply_update:		{VAR-HTML: frm->name} forumundaki <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> konulu iletiye yanýt yazýyor. 
 post_topic_update:		<a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> forumunda yeni tartýþma açýyor.
@@ -585,7 +585,7 @@ postcheck_invalid_email:	Lütfen arkadýþýnýzýn geçerli bir e-mektup adresini giri
 postcheck_email_subject:	Konu bölümü boþ olan bir e-mektup gönderemezsiniz.
 postcheck_email_body:		Gövde bölümü boþ olan bir ileti gönderemezsiniz.
 private_msg_notify_subj:	{VAR: m->subject} için okundu haberi
-private_msg_notify_body:	Selam,<br>{VAR: usr->login} kullanýcýsý, {TEMPLATE: private_msg_notify_body_date} tarihinde atmýþ olduðunuz "{VAR: m->subject}" konulu özel iletinizi okumuþ durumda.<br>
+private_msg_notify_body:	Selam,<br />{VAR: usr->login} kullanýcýsý, {TEMPLATE: private_msg_notify_body_date} tarihinde atmýþ olduðunuz "{VAR: m->subject}" konulu özel iletinizi okumuþ durumda.<br />
 referals_update:		Tanýtýmlarý Dolaþýyor
 register_err_short_login:	Seçtiðiniz kullanýcý ismi çok kýsa. Kullanýcý isimleri en az 4 karakter uzunluðunda olmalý.
 register_err_login_notallowed:	Bu kullanýcý ismine izin verilmiyor.
@@ -616,7 +616,7 @@ reset_err_rstconf_title:	Bilgi
 reset_err_rstconf_msg:		Yapmanýz gerekenler bir kaç dakika içinde e-mektup adresinize ulaþacak.
 reset_newpass_title:		Parolayý Yeniden Belirle
 reset_newpass_msg:		Selam,\n\nÝsteðiniz üzerine kayýt bilgileriniz gönderildi.\nGiriþ bilgileriniz:\n\nKullanýcý ismi: {VAR: ui[1]}\nParola: {VAR: passwd}\n\nYukarýda belirtilen yeni parolanýzý deðiþtirmek isterseniz, kullanýcý denetim masasýndan yapabilirsiniz:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Parolanýz e-mektup adresinize gönderildi. Bir kaç dakika içinde elinizde olmalý. Lütfen parolanýzý gözden geçirin ve giriþ yapýn..<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
+reset_login_notify:		Parolanýz e-mektup adresinize gönderildi. Bir kaç dakika içinde elinizde olmalý. Lütfen parolanýzý gözden geçirin ve giriþ yapýn..<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
 search_update:			Ýletileri arýyor
 selmsg_update:			<a href="{TEMPLATE: selmsg_update_lnk}">Bugünkü Ýletilerde</a> dolaþýyor
 showposts_update:		<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> tarafýndan gönderilen iletileri görüntülüyor.
@@ -631,7 +631,7 @@ ERR_access_msg:			Yapmak istediðiniz için yeterli eriþim iznine sahip deðilsiniz
 ERR_registration_disabled_ttl:	Kayýt Engellenmiþ
 ERR_registration_disabled_msg:	Yönetici kayýtý engellemiþ durumda. Lütfen daha sonra tekrar deneyin.
 ERR_emailconf_ttl:		HATA: Hesabýnýz henüz doðrulanmadý
-ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">buraya týklayýn</a><li>Eðer {VAR: usr_d->email} adresi sizin doðru adresiniz deðilse <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">buraya týklayýn</a></ol></td></tr></table>
+ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br /><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">buraya týklayýn</a><li>Eðer {VAR: usr_d->email} adresi sizin doðru adresiniz deðilse <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">buraya týklayýn</a></ol></td></tr></table>
 ERR_user_ttl:			HATA: Kullanýcý yok
 ERR_user_msg:			Böyle bir kullanýcý yok
 ERR_systemerr_ttl:		HATA: Sistem Hatasý
@@ -728,7 +728,7 @@ post_quote:			Aktarým:
 userinfo_referals:		Tanýtým Yapýlan Kullanýcýlar:
 userinfo_referals_count:	{VAR: referals} Üyeler
 pm_no_space_title:		Yer kalmadý!
-pm_no_space_msg:		Özel ileti klasörünüz izin verilen sýnýrý geçmiþ durumda. Ýzin verilen sýnýr: <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Ýletilerinizin toplam boyutu: <b>{VAR: fldr_size} bytes</b>.<br><br><font class="ErrorText">Yer boþaltmak için eski iletilerinizden bir kýsmýný silmelisiniz</font>.
+pm_no_space_msg:		Özel ileti klasörünüz izin verilen sýnýrý geçmiþ durumda. Ýzin verilen sýnýr: <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Ýletilerinizin toplam boyutu: <b>{VAR: fldr_size} bytes</b>.<br /><br /><font class="ErrorText">Yer boþaltmak için eski iletilerinizden bir kýsmýný silmelisiniz</font>.
 pm_space_indct_msg:		Özel ileti klasörleriniz % {VAR: percent_full} dolu.
 th_expr_never:			Hiçbir zaman
 th_expr_one_hr:			1 Saat
@@ -854,7 +854,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Kullanýcý Ýsmi
 register_err_avatardimtobig:	<b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> boyutundaki avatar izin verilen boyutlarýn <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> dýþýnda.
 pmsg_download_counter:		{VAR: r->dlcount} kez indirildi.
-member_search:			<br><a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Kullanýcý bul</a> özelliðini kullanabilirsiniz.
+member_search:			<br /><a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Kullanýcý bul</a> özelliðini kullanabilirsiniz.
 post_all_ext_allowed:		(kýsýtsýz)
 buddy_offline:			{VAR: r[2]} þu anda baðlý deðil.
 buddy_online:			{VAR: r[2]} þu anda baðlý.

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.41 2009/01/17 09:23:52 frank Exp $
+* $Id: msglist.php,v 1.42 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -201,17 +201,17 @@ if (isset($warn)) {
 			if (strlen($txt) > 50) {
 				$inptd = '<textarea name="'.$v.'" rows="20" cols="60">'.$txt.'</textarea>';
 			} else {
-				$inptd = '<input type="text" name="'.$v.'" value="'.$txt.'" size="50">';
+				$inptd = '<input type="text" name="'.$v.'" value="'.$txt.'" size="50" />';
 			}
 			echo '<tr><td valign="top" nowrap="nowrap"><a name="'.$v.'"><b>'.$v.'</b></a>:</td><td valign=top>'.$inptd.'</td></tr>';
 		}
-		echo '<tr><td align="right" colspan="2"><input type="submit" name="btn_submit" value="Edit"></td></tr>';
-		echo '<tr><td><input type="hidden" name="msglist" value="'.$msglist.'"></td></tr></table>';
+		echo '<tr><td align="right" colspan="2"><input type="submit" name="btn_submit" value="Edit" /></td></tr>';
+		echo '<tr><td><input type="hidden" name="msglist" value="'.$msglist.'" /></td></tr></table>';
 		if (isset($_GET['fl'])) {
-			echo '<input type="hidden" name="fl" value="'.$_GET['fl'].'">';
+			echo '<input type="hidden" name="fl" value="'.$_GET['fl'].'" />';
 		}
 		if (isset($_GET['NO_TREE_LIST'])) {
-			echo '<input type="hidden" name="NO_TREE_LIST" value="1">';
+			echo '<input type="hidden" name="NO_TREE_LIST" value="1" />';
 		}
 		echo '</form></td>';
 	}

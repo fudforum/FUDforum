@@ -1,20 +1,20 @@
 TOPIC_TITLE: <a name="bsearch">Jak mo¿na przeszukiwaæ forum?</a>
 TOPIC_HELP:
-Je¶li nie zosta³o to zablokowane przez administratora, mo¿esz <a href="{ROOT}?t=search&%_rsid%">przeszukiwaæ wiadomo¶ci</a>, które zosta³y wys³ane na forum. Jako kryterium poszukiwania mo¿na podaæ s³owa kluczowe, które chcesz odnale¼æ w temacie lub tre¶ci i temacie. Mo¿esz ograniczyæ operacjê do jednego forum, je¶li nie chcesz przeszukiwaæ ca³o¶ci.<br>
+Je¶li nie zosta³o to zablokowane przez administratora, mo¿esz <a href="{ROOT}?t=search&%_rsid%">przeszukiwaæ wiadomo¶ci</a>, które zosta³y wys³ane na forum. Jako kryterium poszukiwania mo¿na podaæ s³owa kluczowe, które chcesz odnale¼æ w temacie lub tre¶ci i temacie. Mo¿esz ograniczyæ operacjê do jednego forum, je¶li nie chcesz przeszukiwaæ ca³o¶ci.<br />
 Mo¿esz tak¿e szukaæ u¿ytkowników forum, u¿ywaj±c ich nazwy lub adresu e-mail za pomoc± <a href="{ROOT}?t=finduser&%_rsid%">formularza</a>.
 
 TOPIC_TITLE: <a name="email">Czy mogê wysy³aæ listy elektroniczne do innych u¿ytkowników?</a>
 TOPIC_HELP:
-Je¶li nie zosta³o to zablokowane przez administratora, mo¿esz byæ w kontakcie z z innymi u¿ytkownikami za pomoc± poczty elektronicznej.<br>
-Aby wys³aæ komu¶ e-mail, mo¿esz go odszukaæ na li¶cie u¿ytkowników, a nastêpnie wybraæ przycisk <b>E-mail</b>. Podobna opcja znajduje siê pod ka¿d± wys³an± wiadomo¶ci± danego u¿ytkownika.<br>
-Po jej wybraniu uka¿e siê formularz, w którym nale¿y wpisaæ temat i tre¶æ wysy³anego listu. Po zakoñczeniu wystarczy klikn±æ przycisk <b>E-mail</b> aby wiadomo¶æ zosta³a wys³ana.<br><br>
+Je¶li nie zosta³o to zablokowane przez administratora, mo¿esz byæ w kontakcie z z innymi u¿ytkownikami za pomoc± poczty elektronicznej.<br />
+Aby wys³aæ komu¶ e-mail, mo¿esz go odszukaæ na li¶cie u¿ytkowników, a nastêpnie wybraæ przycisk <b>E-mail</b>. Podobna opcja znajduje siê pod ka¿d± wys³an± wiadomo¶ci± danego u¿ytkownika.<br />
+Po jej wybraniu uka¿e siê formularz, w którym nale¿y wpisaæ temat i tre¶æ wysy³anego listu. Po zakoñczeniu wystarczy klikn±æ przycisk <b>E-mail</b> aby wiadomo¶æ zosta³a wys³ana.<br /><br />
 Oprócz listów elektronicznych do u¿ytkowników forum, mo¿na u¿yæ funkcji <b>Wy¶lij do znajomego</b>, która wysy³a odno¶nik do aktualnie ogl±danego w±tku wybranej osobie. Dostêp do tej funkcji mo¿na uzyskaæ przegl±daj±c w±tek lub wiadomo¶æ.
 
 TOPIC_TITLE: <a name="pmsg">Co to s± prywatne wiadomo¶ci i jak je wysy³aæ?</a> 
 TOPIC_HELP:
 Je¶li administrator nie zablokowa³ systemu Prywatnych Wiadomo¶ci, mo¿esz wysy³aæ wiadomo¶ci tekstowe do innych u¿ytkowników forum. Aby uzyskaæ dostêp do tych funkcji wybierz opcjê <a href="{ROOT}?t=pmsg&%_rsid%">Prywatne wiadomo¶ci</a>, która znajduje siê u góry ka¿dej strony. Je¶li masz jakie¶ nieprzeczytane wiadomo¶ci, zostanie to uwidocznione w tym odno¶niku.
 <p>
-<b>Wysy³anie prywatnych wiadomo¶ci</b><br>
+<b>Wysy³anie prywatnych wiadomo¶ci</b><br />
 Prywatne wiadomo¶ci s± bardzo podobne do listów elektronicznych. Tutaj tak¿e podajesz do kogo chcesz wys³aæ wiadomo¶æ, jej temat oraz tre¶æ. Po uzupe³nieniu wszystkich pól wystarczy klikn±æ przycisk Wy¶lij. Obok pola z nazw± odbiorcy znajduj± siê dwa odno¶niki, które maj± u³atwiæ wybranie osób, do których trafi wiadomo¶æ. <b>wybierz z listy znajomych</b>, które otwiera listê osób, które oznaczy³e¶ jako swoich znajomych oraz <b>znajd¼ u¿ytkownika</b>, który pozwala wybraæ z listy wszystkich zarejestrowanych u¿ytkowników.
 Kopia ka¿dej wys³anej wiadomo¶ci zostaje zapisana w <b>Skrzynce nadawczej</b>. W razie potrzeby mo¿na j± stamt±d usun±æ.
 <p>
@@ -27,13 +27,13 @@ W systemie prywatnych wiadomo¶ci znajduj± siê trzy katalogi:
 <b>¦mietnik</b> zawiera wszystkie wiadomo¶ci, które zaznaczy³e¶ do usuniêcia. Mo¿esz je jeszcze stamt±d odtworzyæ. Je¶li jednak skasujesz wiadomo¶æ znajduj±c± siê w ¦mietniku, nie bêdziesz móg³ ju¿ jej odzyskaæ.
 <p>
 <b>¦ledzenie wiadomo¶ci</b><p>
-Podczas wysy³ania wiadomo¶ci mo¿esz wybraæ opcjê potwierdzenia odczytania, która powoduje, ¿e po przeczytaniu wiadomo¶ci przez odbiorcê, otrzymasz stosowne potwierdzenie tego faktu.<br>
+Podczas wysy³ania wiadomo¶ci mo¿esz wybraæ opcjê potwierdzenia odczytania, która powoduje, ¿e po przeczytaniu wiadomo¶ci przez odbiorcê, otrzymasz stosowne potwierdzenie tego faktu.<br />
 Funkcja ta nie musi zawsze dzia³aæ, gdy¿ ka¿dy u¿ytkownik mo¿e zablokowaæ odsy³anie potwierdzeñ, wiêc je¶li go nie otrzymasz niekoniecznie to oznacza, ¿e odbiorca nie przeczyta³ Twojej wiadomo¶ci.
 
 TOPIC_TITLE: <a name="mlist">Co to jest lista u¿ytkowników?</a>
 TOPIC_HELP:
 Lista u¿ytkowników, jest kompletnym zestawieniem wszystkich u¿ytkowników, którzy zarejestrowali siê na forum. Mo¿na j± sortowaæ na trzy sposoby - wed³ug nazwy, ilo¶ci wiadomo¶ci lub czasu rejestracji.
-<br><br>
+<br /><br />
 Lista u¿ytkowników zawiera opcjê przeszukiwania, która pozwala odnale¼æ wybran± osobê za pomoc± nazwy u¿ytkownika lub adresu poczty elektronicznej.
 
 TOPIC_TITLE:<a name="ann">Co to og³oszenia i przyczepione wiadomo¶ci?</a>

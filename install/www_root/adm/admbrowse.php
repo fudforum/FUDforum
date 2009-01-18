@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.31 2009/01/17 09:23:52 frank Exp $
+* $Id: admbrowse.php,v 1.32 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -236,7 +236,7 @@ if (!extension_loaded('posix')) {
 			}
 		}
 		if (!@chmod($file, $new_mode)) {
-			exit('<html>Unable to chmod <b>'.$file.'</b><br /><a href="javscript: return false;" onClick="javascript: window.close();">close</a></html>');
+			exit('<html>Unable to chmod <b>'.$file.'</b><br /><a href="javscript: return false;" onclick="javascript: window.close();">close</a></html>');
 		} else {
 			exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 		}
@@ -344,7 +344,7 @@ if (!extension_loaded('posix')) {
 		echo '<tr class="admin_fixed"><td nowrap>'.$mode_str.' ('.$mode_o.')</td><td>'.$owner.'</td><td>'.$group.'</td><td nowrap>'.$size.' KB</td><td nowrap>'.$date_str.'</td><td>'.$time_str.'</td><td>'.$name.'</td>';
 		if (@is_readable($fpath)) {
 			if (@is_writeable($fpath)) {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onClick="javascript: window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onclick="javascript: window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';
 			} else {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}
@@ -352,7 +352,7 @@ if (!extension_loaded('posix')) {
 			echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="admbrowse.php?down=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'">download</a></td>';
 
 			if (@is_writeable($fpath)) {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onClick="javascript: window.open(\'admbrowse.php?del=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onclick="javascript: window.open(\'admbrowse.php?del=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
 			} else {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}

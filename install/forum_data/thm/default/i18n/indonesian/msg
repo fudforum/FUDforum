@@ -255,8 +255,8 @@ finduser_action:		LAkukan
 yes:				Ya
 no:				Tidak
 register_email:			E-mail
-edit_time_limit:		<br><b>diubah pada</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
-no_edit_time_limit:		<br><b>Batas waktu perbaikan</b>: <b>Unlimited</b>
+edit_time_limit:		<br /><b>diubah pada</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
+no_edit_time_limit:		<br /><b>Batas waktu perbaikan</b>: <b>Unlimited</b>
 pmuserloc_login:		Login:
 pmuserloc_submit:		Masukkan
 pmuserloc_user:			Pengguna
@@ -275,7 +275,7 @@ register_avatar_type:		Tipe Avatar:
 register_del_avatar:		Hapus Avatar
 register_avatar:		Avatar:
 register_sel_avatar:		Pilih Avatar
-register_custom_avatar_rules:	Avatar kustom tidak akan muncul sampai disetujui oleh administrator.<br><span class="SmallText">Avatar, tidak boleh lebih besar dari <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> dan harus dalam format <b>jpg</b>, <b>gif</b> atau <b>png</b>.</span>
+register_custom_avatar_rules:	Avatar kustom tidak akan muncul sampai disetujui oleh administrator.<br /><span class="SmallText">Avatar, tidak boleh lebih besar dari <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> dan harus dalam format <b>jpg</b>, <b>gif</b> atau <b>png</b>.</span>
 register_custom_avatar_url:	URL Avatar kustom:
 register_preview:		Perlihatkan
 register_custom_avatar_upload:	Berkas avatar kustom:
@@ -328,7 +328,7 @@ my_buddies:			Temanku
 add_buddy:			Tambah teman
 add:				Tambah
 buddy_search:			Masukkan identifikasi pengguna yang anda hendak tambahkan.
-member_search:			<br>Atau pergunakan fasilitas <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Cari pengguna</a> ini.
+member_search:			<br />Atau pergunakan fasilitas <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Cari pengguna</a> ini.
 buddy_remove:			hilangkan
 post_normal:			Normal
 post_sticky:			Menempel
@@ -410,7 +410,7 @@ login_cookie_expired:		Cookie sudah kedaluwarsa, dan anda harus login ulang untu
 login_perm_denied:		Anda tidak berhak mengakses sumber daya sebagai pengguna tamu. Anda harus login untuk memperoleh hak.
 login_want_to_register:		Hendak mendaftar?
 login_forgot_passwd:		Lupa password
-login_use_cookie:		Pergunakan cookies<br><span class="SmallText">Jika anda mempergunakan komputer umum (warnet,kantor,perpustakaan,dll), dianjurkan anda tidak memakai cookie untuk lebih aman.<br>Jika anda memakai pilihan ini, anda bisa secara otomatis login tanpa password lagi.
+login_use_cookie:		Pergunakan cookies<br /><span class="SmallText">Jika anda mempergunakan komputer umum (warnet,kantor,perpustakaan,dll), dianjurkan anda tidak memakai cookie untuk lebih aman.<br />Jika anda memakai pilihan ini, anda bisa secara otomatis login tanpa password lagi.
 login_login:			Login
 login_login_btn:		Login
 login_name_required:		Diperlukan nama Login
@@ -535,7 +535,7 @@ buddy_list_err_nouser_title:	Tidak bisa menambah teman
 buddy_list_update:		Melihat daftar teman sendiri
 core_err_invinp_title:		Masukan tidak sah
 core_err_invinp_err:		Anda mengikuti alamat yang salah. Beritahu <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> bagaimana anda bisa sampai disini.
-core_adm_login_msg:		<br>Administrator login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">disini</a>
+core_adm_login_msg:		<br />Administrator login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">disini</a>
 email_err_unabletoemail_title:	ERROR: tidak bisa mengirim e-mail
 email_err_unabletoemail_msg:	e-mail sudah dinon-aktifkan oleh administrator.
 email_error_unabletolocaddr:	Maaf, tidak bisa mengirim ke {VAR-HTML: _POST['tx_name']} karena alamat tujuan tidak diketahui
@@ -579,9 +579,9 @@ post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Wewenang tidak mencukupi</
 post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Wewenang tidak mencukupi</legend> Tamu tidak diperkenankan memberikan tanggapan.</fieldset><br />
 post_err_floodtrig_title:	SALAH: Pengiriman tertubi-tubi tidak diperkenankan.
 post_err_floodtrig_msg:		Mohon coba lagi dalam {VAR: tm} detik
-post_err_attach_size:		<span class="ErrorText">Berkas lampiran terlalu besar(melebihi batas yang diijinkan sebesar {VAR: MAX_F_SIZE} bytes)</span><br>
-post_err_attach_ext:		<span class="ErrorText">Berkas yang anda kirimkan tidak diijinkan, jenis file tidak sesuai dengan yang diijinkan.</span><br>
-post_err_attach_filelimit:	<span class="ErrorText">Anda mencoba melebihi batas jumal berkas sisipan.</span><br>
+post_err_attach_size:		<span class="ErrorText">Berkas lampiran terlalu besar(melebihi batas yang diijinkan sebesar {VAR: MAX_F_SIZE} bytes)</span><br />
+post_err_attach_ext:		<span class="ErrorText">Berkas yang anda kirimkan tidak diijinkan, jenis file tidak sesuai dengan yang diijinkan.</span><br />
+post_err_attach_filelimit:	<span class="ErrorText">Anda mencoba melebihi batas jumal berkas sisipan.</span><br />
 post_err_passwd:		Password tidak benar.
 post_reply_update:		Sedang membalas <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> di {VAR: frm->name}
 post_topic_update:		Sedang menulis topik baru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
@@ -596,7 +596,7 @@ postcheck_invalid_email:	Mohon masukkan alamat e-mail teman anda.
 postcheck_email_subject:	Tidak bisa mengirim e-mail tanpa subyek yang jelas.
 postcheck_email_body:		Tidak bisa mengirim e-mail tanpa isi.
 private_msg_notify_subj:	Baca pemberitahuan tentang: {VAR: m->subject}
-private_msg_notify_body:	Halo,<br>{VAR: usr->login} sudah membaca pesan pribadi anda tentang "{VAR: m->subject}", pada {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Halo,<br />{VAR: usr->login} sudah membaca pesan pribadi anda tentang "{VAR: m->subject}", pada {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Memeriksa pe-referensi
 register_err_short_login:	Nama Login yang anda pilih terlalu singkat. Nama Login minimal 4 karakter.
 register_err_login_notallowed:	Nama Login tersebut tidak diijinkan.
@@ -627,7 +627,7 @@ reset_err_rstconf_title:	Informasi
 reset_err_rstconf_msg:		Dalam beberapa menit, anda akan menerima petunjuk di e-mail.
 reset_newpass_title:		Timpa password
 reset_newpass_msg:		Halo,\n\nSesuai permintaan anda, informasi login anda adalah:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nHarap diingat baik-baik. Jika anda ingin merubah password\nbisa andalakukan di panel kontrol pengguna di:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Password anda sudah dikirim melalui e-mail, dalam beberapa saat anda akan menerimanya<br>
+reset_login_notify:		Password anda sudah dikirim melalui e-mail, dalam beberapa saat anda akan menerimanya<br />
 search_update:			Mencari pesan
 selmsg_update:			Melihat <a href="{TEMPLATE: selmsg_update_lnk}">pesan hari ini</a>
 showposts_update:		Melihat pesan dari: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -643,7 +643,7 @@ ERR_access_msg:			Anda tidak berwenang untuk melakukan hal tersebut
 ERR_registration_disabled_ttl:	Registrasi di non-aktifkan
 ERR_registration_disabled_msg:	Administrator sudah menon-aktifkan proses registrasi, coba laha beberapa saat lagi.
 ERR_emailconf_ttl:		SALAH: Akun anda belum dikonfirmasi
-ERR_emailconf_msg:		Anda belum memberikan konfirmasi melalui e-mail.<br><table border=0><tr><td><ol><li>Jika anda tidak menerima konfirmasi, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik disini</a><li>Jika {VAR: usr_d->email} bukan alamat e-mail anda, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klik disini</a></ol></td></tr></table>
+ERR_emailconf_msg:		Anda belum memberikan konfirmasi melalui e-mail.<br /><table border=0><tr><td><ol><li>Jika anda tidak menerima konfirmasi, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik disini</a><li>Jika {VAR: usr_d->email} bukan alamat e-mail anda, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klik disini</a></ol></td></tr></table>
 ERR_user_ttl:			SALAH: Pengguna tidak ada
 ERR_user_msg:			Pengguna tidak ada
 ERR_systemerr_ttl:		SALAH: Kesalahan sistem
@@ -741,7 +741,7 @@ post_quote:			Petikan:
 userinfo_referals:		Pengguna direferensikan:
 userinfo_referals_count:	{VAR: referals} anggota
 pm_no_space_title:		Tidak ada ruang sisa!
-pm_no_space_msg:		Pesan pribadi anda sudah mencapai batas ukuran <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Dengan <b>{VAR: fldr_size} bytes</b> pesan.<br><br><span class="ErrorText">Hapus beberapa pesan yang tidak terpakai untuk membuat ruang sisa.</span>.
+pm_no_space_msg:		Pesan pribadi anda sudah mencapai batas ukuran <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Dengan <b>{VAR: fldr_size} bytes</b> pesan.<br /><br /><span class="ErrorText">Hapus beberapa pesan yang tidak terpakai untuk membuat ruang sisa.</span>.
 pm_space_indct_msg:		Kapasitas pesan pribadi anda sudah mencapai {VAR: percent_full}%.
 th_expr_never:			Tidak pernah
 th_expr_one_hr:			1 jam

@@ -250,8 +250,8 @@ finduser_joindate:		data d`incorporació
 finduser_action:		Acció
 yes:				Sí­
 no:				No
-edit_time_limit:		<br><b>Lí­mit de temps d`edició</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuts
-no_edit_time_limit:		<br><b>Lí­mit de temps d`edició</b>: <b>Il.limitat</b>
+edit_time_limit:		<br /><b>Lí­mit de temps d`edició</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuts
+no_edit_time_limit:		<br /><b>Lí­mit de temps d`edició</b>: <b>Il.limitat</b>
 pmuserloc_login:		Login:
 pmuserloc_submit:		Enviar
 pmuserloc_user:			Usuari
@@ -270,7 +270,7 @@ register_avatar_type:		Tipus d`avatar:
 register_del_avatar:		Esborrar avatar
 register_avatar:		Avatar:
 register_sel_avatar:		Seleccionar avatar
-register_custom_avatar_rules:	L`avatar a la mida no apareixerà  fins després de ser aprovat per l`administrador.<br><font class="SmallText">L`avatar no haurà  de tenir més de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pÃ­xels</b> i ha d`estar en format <b>jpg</b>, <b>gif</b> o <b>png</b>.</font>
+register_custom_avatar_rules:	L`avatar a la mida no apareixerà  fins després de ser aprovat per l`administrador.<br /><font class="SmallText">L`avatar no haurà  de tenir més de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pÃ­xels</b> i ha d`estar en format <b>jpg</b>, <b>gif</b> o <b>png</b>.</font>
 register_custom_avatar_url:	URL del avatar personalitzat:
 register_preview:		Vista prèvia
 register_custom_avatar_upload:	Arxiu de l`avatar personalizat:
@@ -404,7 +404,7 @@ login_cookie_expired:		La seva cookie ha expirat, i ha d`iniciar la sessió per a
 login_perm_denied:		Vostè no té permí­s per a accedir al recurs sol.licitat com a usuari anònim, i ha d`iniciar sessió per a obtenir permí­s per a accedir a l`esmentat recurs.
 login_want_to_register:		Vol enregistrar-se?
 login_forgot_passwd:		Ha oblidat la seva contrasenya?
-login_use_cookie:		Usar cookies<br><font class="SmallText">Si està  usant un terminal públic, com per exemple un ordinador en una biblioteca, escola o cibercafè, es recomana que deshabiliti aquesta opció per a una major seguretat.
+login_use_cookie:		Usar cookies<br /><font class="SmallText">Si està  usant un terminal públic, com per exemple un ordinador en una biblioteca, escola o cibercafè, es recomana que deshabiliti aquesta opció per a una major seguretat.
 login_login:			Iniciar sessió
 login_login_btn:		Iniciar sessió
 login_name_required:		Ha d`introduir un nom d`usuari
@@ -529,7 +529,7 @@ buddy_list_err_nouser_title:	No ha estat possible afegir l`usuari
 buddy_list_update:		Recorreguent la llista d`amics
 core_err_invinp_title:		L`entrada no és vàlida
 core_err_invinp_err:		Ha seguit un enllaç que no és vàlid. Si us plau, informi d`això al  <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
-core_adm_login_msg:		<br>Els administradors poden entrar  <a href="{FULL_ROOT}{ROOT}?t={GVAR: WWW_ROOT}adm/admloginuser">aquí­</a>
+core_adm_login_msg:		<br />Els administradors poden entrar  <a href="{FULL_ROOT}{ROOT}?t={GVAR: WWW_ROOT}adm/admloginuser">aquí­</a>
 email_err_unabletoemail_title:	ERROR: No ha estat possible enviar el correu
 email_err_unabletoemail_msg:	El sistema de correu electrònic ha estat desactivat per l`administrador.
 email_error_unabletolocaddr:	Ho sentim, el sistema no ha pogut enviar un correu a {VAR-HTML: _POST['tx_name']} perquè no ha estat capaç de trobar la seva adreça de correu electrònic
@@ -568,9 +568,9 @@ post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	Ja no pot editar aquest missatge
 post_err_floodtrig_title:	ERROR: el mecanisme contra publicació massiva està  activat.
 post_err_floodtrig_msg:		Si us plau, intenti-ho novament en {VAR: tm} segons
-post_err_attach_size:		<font class="ErrorText">L`arxiu adjunt és massa gran (superior lí­mit permès de {VAR: MAX_F_SIZE} bytes)</font><br>
-post_err_attach_ext:		<font class="ErrorText">L`arxiu que està  tractant de pujar no es correspon amb un dels tipus d`arxius permesos.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">està  tractant de pujar més arxius dels permesos.</font><br>
+post_err_attach_size:		<font class="ErrorText">L`arxiu adjunt és massa gran (superior lí­mit permès de {VAR: MAX_F_SIZE} bytes)</font><br />
+post_err_attach_ext:		<font class="ErrorText">L`arxiu que està  tractant de pujar no es correspon amb un dels tipus d`arxius permesos.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">està  tractant de pujar més arxius dels permesos.</font><br />
 post_err_passwd:		La contrasenya no és correcta.
 post_reply_update:		Responent a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> en {VAR-HTML: frm->name}
 post_topic_update:		Escrivint un nou fil a  <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -585,7 +585,7 @@ postcheck_invalid_email:	Si us plau, introdueixi una adreça de correu electrònic
 postcheck_email_subject:	No pot enviar un correu sense assumpte.
 postcheck_email_body:		No pot enviar un correu sense el cos del missatge.
 private_msg_notify_subj:	Llegí­s l`aví­s per a: {VAR: m->subject}
-private_msg_notify_body:	Hola, <br>{VAR: usr->login} ha llegit el seu missatge privat "{VAR: m->subject}", el {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Hola, <br />{VAR: usr->login} ha llegit el seu missatge privat "{VAR: m->subject}", el {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Recorrent les referències
 register_err_short_login:	El nom d`usuari que ha seleccionat és massa curt. Els noms d`usuari han de tenir almenys 4 caràcters
 register_err_login_notallowed:	Aquest nom d`usuari no està  permès
@@ -616,7 +616,7 @@ reset_err_rstconf_title:	Informació
 reset_err_rstconf_msg:		Hauria de rebre instruccions al seu correu electrònic en els propers minuts
 reset_newpass_title:		Actualitzar contrasenya
 reset_newpass_msg:		Hola.\n\nTal i com ha sol.licitat, li remetem el seu nom d`usuari i contrasenya.\nAquí­ està la seva informació d`inici de sessió:\n\nUsuari: {VAR: ui[1]}\nContrasenya: {VAR: passwd}\n\nRecordi que la seva contrasenya ha estat actualitzada al valor anterior. Si desitja canviar la seva contrasenya pot fer-ho mitjançant el panell de control d`usuari a:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Se li ha enviat la contrasenya per correu electrònic. Hauria de rebre-la en uns minuts.  Recordi revisar el seu correu per a obtenir la seva contrasenya i nom d`usuari.<br>.<br>.<br>
+reset_login_notify:		Se li ha enviat la contrasenya per correu electrònic. Hauria de rebre-la en uns minuts.  Recordi revisar el seu correu per a obtenir la seva contrasenya i nom d`usuari.<br />.<br />.<br />
 search_update:			Buscant missatges
 selmsg_update:			Recorreguent <a href="{TEMPLATE: selmsg_update_lnk}">missatges d`avui</a>
 showposts_update:		Veient missatges de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -631,7 +631,7 @@ ERR_access_msg:			No té els permisos necessaris per a realitzar aquesta acció
 ERR_registration_disabled_ttl:	Registre desactivat
 ERR_registration_disabled_msg:	L`administrador ha desactivat el registre. Si us plau, torni a intentar-ho més tard
 ERR_emailconf_ttl:		ERROR: El seu compte encara no ha estat confirmat
-ERR_emailconf_msg:		Vostè encara no ha confirmat el seu compte per correu electrònic<br><table border=0><tr><td><ol><li>Si no ha rebut un correu de confirmació, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">premi aquí­</a><li>Si {VAR: usr_d->email} no és la seva adreça de correu electrònic correcta <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">premi aquí</a></ol></td></tr></table>
+ERR_emailconf_msg:		Vostè encara no ha confirmat el seu compte per correu electrònic<br /><table border=0><tr><td><ol><li>Si no ha rebut un correu de confirmació, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">premi aquí­</a><li>Si {VAR: usr_d->email} no és la seva adreça de correu electrònic correcta <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">premi aquí</a></ol></td></tr></table>
 ERR_user_ttl:			ERROR: No existeix aquest usuari
 ERR_user_msg:			No existeix aquell usuari
 ERR_systemerr_ttl:		ERROR: Error de Sistema
@@ -728,7 +728,7 @@ post_quote:			Cita:
 userinfo_referals:		Usuaris referits:
 userinfo_referals_count:	{VAR: referals} Membres
 pm_no_space_title:		No queda espai!
-pm_no_space_msg:		Les seves carpetes de missatgeria privada escedeixen el lí­mit permès d`emmagatzematge de <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, ja que actualment contenen <b>{VAR: fldr_size} bytes</b> en missatges.<br><br><font class="ErrorText">Si us plau, esborri missatges antics per a alliberar espai</font>.
+pm_no_space_msg:		Les seves carpetes de missatgeria privada escedeixen el lí­mit permès d`emmagatzematge de <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, ja que actualment contenen <b>{VAR: fldr_size} bytes</b> en missatges.<br /><br /><font class="ErrorText">Si us plau, esborri missatges antics per a alliberar espai</font>.
 pm_space_indct_msg:		Les seves carpetes de missatges privats estan plenes en un {VAR: percent_full}%.
 th_expr_never:			Mai
 th_expr_one_hr:			1 hora
@@ -854,7 +854,7 @@ register_affero:		Usuari Affero:<br /><font class="SmallText">Si té un usuari <a
 im_affero:			Usuari Affero
 register_err_avatardimtobig:	Les dimensions de l`avatar de <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedeixen les dimensions permeses de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Descarregat {VAR: r->dlcount} cop(s)
-member_search:			<br>O usi la utilitat <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Cercar usuari</a> per a buscar a una persona.
+member_search:			<br />O usi la utilitat <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Cercar usuari</a> per a buscar a una persona.
 post_all_ext_allowed:		(sense restricció)
 buddy_offline:			{VAR: r[2]} no està  actualment en línia
 buddy_online:			{VAR: r[2]} està  actualment en línia

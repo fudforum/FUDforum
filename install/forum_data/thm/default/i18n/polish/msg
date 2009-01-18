@@ -251,8 +251,8 @@ finduser_joindate:		Data rejestracji
 finduser_action:		Akcja
 yes:				Tak
 no:				Nie
-edit_time_limit:		<br><b>Ograniczenie czasu edycji</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
-no_edit_time_limit:		<br><b>Ograniczenie czasu edycji</b>: <b>Nieograniczony</b>
+edit_time_limit:		<br /><b>Ograniczenie czasu edycji</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
+no_edit_time_limit:		<br /><b>Ograniczenie czasu edycji</b>: <b>Nieograniczony</b>
 pmuserloc_login:		Nazwa u¿ytkownika:
 pmuserloc_submit:		Wy¶lij
 pmuserloc_user:			U¿ytkownik
@@ -271,7 +271,7 @@ register_avatar_type:		Typ avatara:
 register_del_avatar:		Usuñ Avatar
 register_avatar:		Avatar:
 register_sel_avatar:		wybierz avatar
-register_custom_avatar_rules:	Avatar u¿ytkownika nie pojawi siê dopóki nie zostanie zatwierdzony przez administratora.<br><font class="SmallText">Avatar nie powinien byæ wiêkszy ni¿ <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikseli</b> i musi byæ w formacie <b>jpg</b>, <b>gif</b> lub <b>png</b>.</font>
+register_custom_avatar_rules:	Avatar u¿ytkownika nie pojawi siê dopóki nie zostanie zatwierdzony przez administratora.<br /><font class="SmallText">Avatar nie powinien byæ wiêkszy ni¿ <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikseli</b> i musi byæ w formacie <b>jpg</b>, <b>gif</b> lub <b>png</b>.</font>
 register_custom_avatar_url:	Adres avatara u¿ytkownika:
 register_preview:		Podgl±d
 register_custom_avatar_upload:	Plik avatara u¿ytkownika:
@@ -372,7 +372,7 @@ post_preview_btn:		Podgl±d wiadomo¶ci
 ignore_users:			Ignorowani U¿ytkownicy
 add_ignore:			Dodawanie ignorowanych
 forum_terms:			Zasady Forum
-forum_rules:			Rejestracja na tym forum jest darmowa. Wymagane jest zaakceptowanie nastêpuj±cego warunku:<br>U¿ytkownik forum obwi±zany jest do niezamieszczania wiadomo¶ci uznanych powszechnie za obra¼liwe, wulgarne, pe³nych nienawi¶ci, pogró¿ek oraz w jakikolwiek inny sposób ³ami±ce prawo.<p>Wszystkie wiadomo¶ci wyra¿aj± pogl±dy autora. W³a¶ciciel, ani twórcy forum nie bêd± odpowiedzialni za ich tre¶æ.<p>Ponadto w³a¶ciciele tego forum zastrzegaj± sobie prawo do usuwania, edytowania, przenoszenia lub zamykania w±tków bez podania przyczyny.<br>
+forum_rules:			Rejestracja na tym forum jest darmowa. Wymagane jest zaakceptowanie nastêpuj±cego warunku:<br />U¿ytkownik forum obwi±zany jest do niezamieszczania wiadomo¶ci uznanych powszechnie za obra¼liwe, wulgarne, pe³nych nienawi¶ci, pogró¿ek oraz w jakikolwiek inny sposób ³ami±ce prawo.<p>Wszystkie wiadomo¶ci wyra¿aj± pogl±dy autora. W³a¶ciciel, ani twórcy forum nie bêd± odpowiedzialni za ich tre¶æ.<p>Ponadto w³a¶ciciele tego forum zastrzegaj± sobie prawo do usuwania, edytowania, przenoszenia lub zamykania w±tków bez podania przyczyny.<br />
 forum_rules_13:			Wszyscy u¿ytkownicy poni¿ej 13 roku ¿ycia musz± uzyskaæ zgodê od swoich rodziców lub prawnych opiekunów, je¶li chc± zarejestrowaæ siê na tym forum. Chocia¿ nie mamy nic przeciwko udzielaniu siê na forum osób o wieku poni¿ej 13 lat, wymagamy, aby rodzic lub opiekun przefaksowa³ nam lub przes³a³ listem podpisan± zgodê zanim za³o¿ymy konto.<p>Je¶li chcesz rozpocz±æ proces rejestracji naci¶nij przycisk "Akceptujê" umieszczony poni¿ej. Je¶li chcesz zrezygnowaæ z rejestracji, naci¶nij przycisk "Anuluj", a powrócisz na g³ówn± stronê forum. <p>Kopia formularza pozwolenia mo¿e byæ pobrana z tego miejsca. Wiêcej informacji o procesie rejestracji mo¿na uzyskaæ wysy³aj±c list na adres <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Potwierdzenie systemu COPPA
 coppa_before:			Przed {TEMPLATE: coppa_date}
@@ -404,7 +404,7 @@ login_cookie_expired:		Twoje ciasteczko wygas³o i musisz siê zalogowaæ, aby je o
 login_perm_denied:		Nie masz uprawnieñ na dostêp do ¿±danego zasobu jako anonimowy u¿ytkownik i musisz siê zalogowaæ, aby je otrzymaæ.
 login_want_to_register:		Chcesz siê zarejestrowaæ?
 login_forgot_passwd:		Zapomnia³em has³a!
-login_use_cookie:		U¿ywaj ciasteczek<br><font class="SmallText">Je¶li korzystasz z publicznego dostêpu do Sieci, takiego jak komputery w bibliotece, szkole lub kafejce internetowej, zalecane jest wy³±czenie tej opcji w celu zwiêkszenia bezpieczeñstwa Twojego konta.
+login_use_cookie:		U¿ywaj ciasteczek<br /><font class="SmallText">Je¶li korzystasz z publicznego dostêpu do Sieci, takiego jak komputery w bibliotece, szkole lub kafejce internetowej, zalecane jest wy³±czenie tej opcji w celu zwiêkszenia bezpieczeñstwa Twojego konta.
 login_login:			U¿ytkownik:
 login_login_btn:		Zaloguj siê
 login_name_required:		Nazwa u¿ytkownika jest wymagana
@@ -529,7 +529,7 @@ buddy_list_err_nouser_title:	Nieudane dodanie u¿ytkownika
 buddy_list_update:		Przegl±danie swojej listy znajomych
 core_err_invinp_title:		Nieprawid³owe Dane
 core_err_invinp_err:		Odkry³e¶ nieprawid³owy odno¶nik, wiêc powiadom <a href="mailto:{GVAR: ADMIN_EMAIL}">administratora</a>.
-core_adm_login_msg:		<br>Administratorzy mog± zalogowaæ siê <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tutaj</a>
+core_adm_login_msg:		<br />Administratorzy mog± zalogowaæ siê <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tutaj</a>
 email_err_unabletoemail_title:	B£¡D: Nie uda³o siê wys³aæ listu
 email_err_unabletoemail_msg:	System poczty elektronicznej zosta³ wy³±czony przez administratora.
 email_error_unabletolocaddr:	System nie by³ w stanie wys³aæ listu do {VAR-HTML: _POST['tx_name']}, poniewa¿ nie móg³ zlokalizowaæ tego adresu e-mail.
@@ -568,9 +568,9 @@ post_err_edttimelimit_title:	B£¡D
 post_err_edttimelimit_msg:	Nie mo¿esz ju¿ edytowaæ tej wiadomo¶ci
 post_err_floodtrig_title:	B£¡D: Wykryto zbyt du¿± ilo¶æ zamieszczanych wiadomo¶ci.
 post_err_floodtrig_msg:		Spróbuj ponownie za {VAR: tm} sekund
-post_err_attach_size:		<font class="ErrorText">Za³±cznik jest zbyt du¿y (ponad dozwolone ograniczenie {VAR: MAX_F_SIZE} bajtów)</font><br>
-post_err_attach_ext:		<font class="ErrorText">Plik, który próbujesz do³±czyæ nie pokrywa siê z dozwolonymi typami plików.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Próbujesz do³±czyæ wiêcej plików ni¿ jest to dozwolone.</font><br>
+post_err_attach_size:		<font class="ErrorText">Za³±cznik jest zbyt du¿y (ponad dozwolone ograniczenie {VAR: MAX_F_SIZE} bajtów)</font><br />
+post_err_attach_ext:		<font class="ErrorText">Plik, który próbujesz do³±czyæ nie pokrywa siê z dozwolonymi typami plików.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Próbujesz do³±czyæ wiêcej plików ni¿ jest to dozwolone.</font><br />
 post_err_passwd:		Nieprawid³owe has³o.
 post_reply_update:		Odpowiadanie na w±tek <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> na forum {VAR-HTML: frm->name}
 post_topic_update:		Tworzenie nowego w±tku na forum <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -585,7 +585,7 @@ postcheck_invalid_email:	Wprowad¼ poprawny adres e-mail Twojego znajomego.
 postcheck_email_subject:	Nie mo¿esz wys³aæ listu bez tematu.
 postcheck_email_body:		Nie mo¿esz wys³aæ listu bez tre¶ci.
 private_msg_notify_subj:	Powiadomienie przeczytania wiadomo¶ci o temacie: {VAR: m->subject}
-private_msg_notify_body:	Witaj,<br>{VAR: usr->login} przeczyta³(a) Twoj± prywatn± wiadomo¶æ, "{VAR: m->subject}", dnia {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Witaj,<br />{VAR: usr->login} przeczyta³(a) Twoj± prywatn± wiadomo¶æ, "{VAR: m->subject}", dnia {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Przegl±danie osób poleconych
 register_err_short_login:	Nazwa u¿ytkownika, która zosta³a wybrana, jest za krótka. Nazwa u¿ytkownika musi mieæ co najmniej 4 znaki
 register_err_login_notallowed:	Ta nazwa u¿ytkownika nie jest dozwolona
@@ -616,7 +616,7 @@ reset_err_rstconf_title:	Informacje
 reset_err_rstconf_msg:		W ci±gu paru minut powiniene¶ otrzymaæ e-mailem instrukcjê co dalej robiæ.
 reset_newpass_title:		Odzyskiwanie has³a
 reset_newpass_msg:		Witaj,\n\nW zwi±zku z Twoja pro¶b±, wysy³amy Ci nowe has³o.\nPoni¿ej znajduj± siê Twoje informacje do logowania siê:\n\nNazwa u¿ytkownika: {VAR: ui[1]}\nHas³o: {VAR: passwd}\n\nZauwa¿, ¿e Twoje has³o zosta³o ustawione na to podane powy¿ej. Je¶li ¿yczysz sobie\nzmieniæ swoje has³o, mo¿esz to zrobiæ poprzez panel sterowania u¿ytkownika:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Twoje has³o zosta³o wys³ane do Ciebie poczt± elektroniczn±. Powiniene¶ je otrzymaæ w ci±gu kilku minut. Sprawd¼ pocztê i wykorzystaj zawarte tam informacje aby siê zalogowaæ...<br>&nbsp;<br>&nbsp;<br>
+reset_login_notify:		Twoje has³o zosta³o wys³ane do Ciebie poczt± elektroniczn±. Powiniene¶ je otrzymaæ w ci±gu kilku minut. Sprawd¼ pocztê i wykorzystaj zawarte tam informacje aby siê zalogowaæ...<br />&nbsp;<br />&nbsp;<br />
 search_update:			Szukanie wiadomo¶ci
 selmsg_update:			Przegl±danie <a href="{TEMPLATE: selmsg_update_lnk}">dzisiejszych wiadomo¶c</a>
 showposts_update:		Przegl±danie wiadomo¶ci zamieszczonych przez u¿ytkownika: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -631,7 +631,7 @@ ERR_access_msg:			Nie masz wymaganych uprawnieñ, aby wykonaæ tê operacjê.
 ERR_registration_disabled_ttl:	Rejestracja jest wy³±czona
 ERR_registration_disabled_msg:	Administrator wy³±czy³ rejestracjê, wiêc spróbuj ponownie pó¼niej.
 ERR_emailconf_ttl:		B£¡D: Twoje konto nie jest jeszcze potwierdzone
-ERR_emailconf_msg:		Nie potwierdzi³e¶ jeszcze swojego konta poprzez e-mail<br><table border=0><tr><td><ol><li>Je¶li nie otrzyma³e¶ potwierdzaj±cego listu, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">przejd¼ tutaj</a>.<li>Je¶li {VAR: usr_d->email} nie jest Twoim poprawnym adresem, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">przejd¼ tutaj</a></ol></td></tr></table>
+ERR_emailconf_msg:		Nie potwierdzi³e¶ jeszcze swojego konta poprzez e-mail<br /><table border=0><tr><td><ol><li>Je¶li nie otrzyma³e¶ potwierdzaj±cego listu, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">przejd¼ tutaj</a>.<li>Je¶li {VAR: usr_d->email} nie jest Twoim poprawnym adresem, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">przejd¼ tutaj</a></ol></td></tr></table>
 ERR_user_ttl:			B£¡D: Brak takiego u¿ytkownika
 ERR_user_msg:			Nie ma takiego u¿ytkownika
 ERR_systemerr_ttl:		B£¡D: B³±d systemu
@@ -728,7 +728,7 @@ post_quote:			Cytuj:
 userinfo_referals:		Osoby polecone:
 userinfo_referals_count:	{VAR: referals} u¿ytkowników
 pm_no_space_title:		Brak miejsca!
-pm_no_space_msg:		Twoje katalogi z prywatnymi wiadomo¶ciami przekroczy³y dozwolony limit zajêto¶ci miejsca o wielko¶ci <b>{GVAR: MAX_PMSG_FLDR_SIZE} bajtów</b>, gdy¿ aktualnie zajmuj± <b>{VAR: fldr_size} bajtów</b>.<br><br><font class="ErrorText">Usuñ niektóre stare wiadomo¶ci, aby odzyskaæ miejsce</font>.
+pm_no_space_msg:		Twoje katalogi z prywatnymi wiadomo¶ciami przekroczy³y dozwolony limit zajêto¶ci miejsca o wielko¶ci <b>{GVAR: MAX_PMSG_FLDR_SIZE} bajtów</b>, gdy¿ aktualnie zajmuj± <b>{VAR: fldr_size} bajtów</b>.<br /><br /><font class="ErrorText">Usuñ niektóre stare wiadomo¶ci, aby odzyskaæ miejsce</font>.
 pm_space_indct_msg:		Twoje katalogi z prywatnymi wiadomo¶ciami zajmuj± {VAR: percent_full}% dozwolonego miejsca.
 th_expr_never:			Nigdy
 th_expr_one_hr:			1 godzina
@@ -854,7 +854,7 @@ register_affero:		Nazwa u¿ytkownika systemu Affero: <br /><font class="SmallText
 im_affero:			Nazwa u¿ytkownika systemu Affero
 register_err_avatardimtobig:	Wymiary avatara <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> przekraczaj± dopuszczalny limit <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Ilo¶æ pobrañ: {VAR: r->dlcount}
-member_search:			<br>Mo¿esz równie¿ u¿yæ <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Wyszukiwarki U¿ytkowników</a> aby znale¼æ dan± osobê.
+member_search:			<br />Mo¿esz równie¿ u¿yæ <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Wyszukiwarki U¿ytkowników</a> aby znale¼æ dan± osobê.
 post_all_ext_allowed:		(nieograniczony)
 buddy_offline:			{VAR: r[2]} jest aktualnie roz³±czony(a)
 buddy_online:			{VAR: r[2]} jest aktualnie dostêpny(a)

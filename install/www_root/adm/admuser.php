@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.85 2009/01/17 09:23:52 frank Exp $
+* $Id: admuser.php,v 1.86 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -117,8 +117,8 @@
 
 			if (!isset($_POST['del_confirm'])) {
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 <head>
 <?php echo '<title>'.$FORUM_TITLE.': Admin Control Panel - User Deletion confirmation'.'</title>' ?>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php 
@@ -134,17 +134,17 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 </head>
 <body bgcolor="white">
 <form method="post" action="admuser.php"><?php echo _hs; ?>
-<input type="hidden" name="act" value="del">
-<input type="hidden" name="f" value="<?php echo (int) isset($_GET['f']); ?>">
-<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
-<input type="hidden" name="del_confirm" value="1">
+<input type="hidden" name="act" value="del" />
+<input type="hidden" name="f" value="<?php echo (int) isset($_GET['f']); ?>" />
+<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
+<input type="hidden" name="del_confirm" value="1" />
 <div align="center">You are about to delete <font color="red"><b><?php echo $u->alias; ?></b></font>'s account!<br /><br />
 Are you sure you want to do this, once deleted the account cannot be recovered?<br />
-<input type="submit" value="Yes" name="btn_yes"> <input type="submit" value="No" name="btn_no">
+<input type="submit" value="Yes" name="btn_yes" /> <input type="submit" value="No" name="btn_no" />
 </div>
 <?php
 	if (isset($_GET['f'])) {
-		echo '<input type="hidden" name="f" value="1">';
+		echo '<input type="hidden" name="f" value="1" />';
 	}
 ?>
 </form>
@@ -166,8 +166,8 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 			if ($u->users_opt & 1048576) {
 				if (!isset($_POST['adm_confirm'])) {
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 <head>
 <?php echo '<title>'.$FORUM_TITLE.': Admin Control Panel - Adminstrator confirmation'.'</title>' ?>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php 
@@ -178,16 +178,16 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 } else {
 	echo 'us-ascii';
 }
-?>">
+?>" />
 </head>
 <body bgcolor="white">
 <form method="post" action="admuser.php"><?php echo _hs; ?>
-<input type="hidden" name="act" value="admin">
-<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
-<input type="hidden" name="adm_confirm" value="1">
+<input type="hidden" name="act" value="admin" />
+<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
+<input type="hidden" name="adm_confirm" value="1" />
 <div align="center">You are taking away administration privileges from <font color="red"><b><?php echo $u->alias; ?></b></font>!<br /><br />
 Are you sure you want to do this?<br />
-<input type="submit" value="Yes" name="btn_yes"> <input type="submit" value="No" name="btn_no">
+<input type="submit" value="Yes" name="btn_yes" /> <input type="submit" value="No" name="btn_no" />
 </div>
 </form>
 </body></html>
@@ -205,8 +205,8 @@ Are you sure you want to do this?<br />
 			} else {
 				if (!isset($_POST['adm_confirm'])) {
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 <head>
 <?php echo '<title>'.$FORUM_TITLE.': Admin Control Panel - Adminstrator confirmation'.'</title>' ?>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php 
@@ -217,17 +217,17 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 } else {
 	echo 'us-ascii';
 }
-?>">
+?>" />
 </head>
 <body bgcolor="white">
 <form method="post" action="admuser.php"><?php echo _hs; ?>
-<input type="hidden" name="act" value="admin">
-<input type="hidden" name="adm_confirm" value="1">
-<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
+<input type="hidden" name="act" value="admin" />
+<input type="hidden" name="adm_confirm" value="1" />
+<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 <div align="center">WARNING: Making <font color="red"><b><?php echo $u->alias; ?></b></font> an <font color="red"><b>administrator</b></font> will give this person full
 administration permissions to the forum. This individual will be able to do anything with the forum, including taking away your own administration permissions.
 <br /><br />Are you sure you want to do this?<br />
-<input type="submit" value="Yes" name="btn_yes"> <input type="submit" value="No" name="btn_no">
+<input type="submit" value="Yes" name="btn_yes" /> <input type="submit" value="No" name="btn_no" />
 </div>
 </form>
 </body></html>
@@ -320,7 +320,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				}
 				break;
 			default:
-echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd"><html><head>';
+echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>';
 echo '<title>'.$FORUM_TITLE.': Admin Control Panel - Select user</title>';
 
 echo '<meta http-equiv="Content-Type" content="text/html; charset=';
@@ -331,7 +331,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 } else {
 	echo 'us-ascii';
 }
-echo '"></head><body bgcolor="white">';
+echo '" /></head><body bgcolor="white">';
 				echo 'There are '.$cnt.' users that match this '.$field.' mask:<br />';
 				while ($r = db_rowarr($c)) {
 					echo '<a href="admuser.php?usr_id='.$r[0].'&amp;act=m&amp;'.__adm_rsid.'">Pick user</a> <b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b><br />';
@@ -353,16 +353,16 @@ echo '"></head><body bgcolor="white">';
 
 	<tr class="field">
 		<td>By <?php echo ($FUD_OPT_2 & 128 ? 'Alias' : 'Login'); ?>:</td>
-		<td><input tabindex="1" type="text" name="usr_login"></td>
+		<td><input tabindex="1" type="text" name="usr_login" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>By Email:</td>
-		<td><input tabindex="2" type="text" name="usr_email"></td>
+		<td><input tabindex="2" type="text" name="usr_email" /></td>
 	</tr>
 
 	<tr class="fieldaction">
-		<td colspan="2" align="right"><input tabindex="3" type="submit" value="Search" name="usr_search"></td>
+		<td colspan="2" align="right"><input tabindex="3" type="submit" value="Search" name="usr_search" /></td>
 	</tr>
 </table>
 </form>
@@ -375,11 +375,11 @@ document.frm_usr.usr_login.focus();
 <form action="admuser.php" method="post"><?php echo _hs; ?>
 <table class="datatable solidtable">
 
-	<tr class="field"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo char_fix(htmlspecialchars($u->login)); ?>" maxLength="<?php echo $MAX_LOGIN_SHOW; ?>" name="login_name"> <input type="submit" name="submit" value="Change Login Name"></td></tr>
-	<tr class="field"><td>Password:</td><td><input type="text" value="" name="login_passwd"> <input type="submit" name="submit" value="Change Password"></td></tr>
+	<tr class="field"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo char_fix(htmlspecialchars($u->login)); ?>" maxLength="<?php echo $MAX_LOGIN_SHOW; ?>" name="login_name" /> <input type="submit" name="submit" value="Change Login Name" /></td></tr>
+	<tr class="field"><td>Password:</td><td><input type="text" value="" name="login_passwd" /> <input type="submit" name="submit" value="Change Password" /></td></tr>
 </table>
-	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
-	<input type="hidden" name="act" value="nada">
+	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
+	<input type="hidden" name="act" value="nada" />
 
 </form>
 <table class="datatable solidtable">
@@ -434,7 +434,7 @@ if ($acc_mod_only) {
 	unset($c);
 ?>
 	<a name="mod_here"> </a>
-	<a href="#mod_here" onClick="javascript: window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&amp;' . __adm_rsid; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
+	<a href="#mod_here" onclick="javascript: window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&amp;' . __adm_rsid; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
 
 
 	<tr class="field"><td valign="top">Custom Tags:</td><td valign="top">
@@ -447,10 +447,10 @@ if ($acc_mod_only) {
 ?>
 	<form id="extra_tags" action="admuser.php" method="post">
 	<?php echo _hs; ?>
-	<input type="text" name="c_tag">
-	<input type="submit" value="Add">
-	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
-	<input type="hidden" name="act" value="nada">
+	<input type="text" name="c_tag" />
+	<input type="submit" value="Add" />
+	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
+	<input type="hidden" name="act" value="nada" />
 	</form>
 	</td></tr>
 
@@ -458,31 +458,31 @@ if ($acc_mod_only) {
 		<td valign=top>
 		<form id="extra_tags" method="post" action="admuser.php">
 		<?php echo _hs; ?>
-		<input type="text" name="custom_color" maxLength="255" value="<?php echo $u->custom_color; ?>">
+		<input type="text" name="custom_color" maxLength="255" value="<?php echo $u->custom_color; ?>" />
 		<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
-		<input type="hidden" name="act" value="color"><input type="submit" value="Change">
+		<input type="hidden" name="act" value="color"><input type="submit" value="Change" />
 		</form>
 		</td>
 	</tr>
 <tr><td colspan="2">
 <form id="ban" action="admuser.php" method="post">
 <?php echo _hs; ?>
-<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
-<input type="hidden" name="act" value="block">
+<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
+<input type="hidden" name="act" value="block" />
 	<table cellspacing="0" border="0" cellpadding="0">
 	<tr class="field" align="center"><td colspan="2"><b>Ban User</b><br />
 	<font size="-1">To set a temporary ban specify the duration of the ban in number of days, 
 	for permanent ban leave duration value at 0. The value of the duration field for non-permanent bans will show
 	days remaining till ban expiry.</font></td></tr>
-	<tr class="field"><td>Is Banned:</td><td><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked' : ''); ?>> Yes</td></tr>
+	<tr class="field"><td>Is Banned:</td><td><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked' : ''); ?> /> Yes</td></tr>
 	<tr class="field"><td>Ban Duration (in days)</td><td><input type="text" value="<?php 
 	if ($u->ban_expiry) {
 		printf("%.2f", ($u->ban_expiry - __request_timestamp__) / 86400);
 	} else {
 		echo 0;	
 	}
-	?>" name="ban_duration">
-	<input type="submit" name="ban_user" value="Ban/Unban"></td></tr>
+	?>" name="ban_duration" />
+	<input type="submit" name="ban_user" value="Ban/Unban" /></td></tr>
 	<tr class="field">
 		<td valign="top"><b>Group Membership:</b></td>
 		<td><?php

@@ -15,7 +15,7 @@ TOPIC_HELP:
 
 <p>
 <b>Создание URL ссылок</b>
-<br>
+<br />
 Форум способен автоматически распознавать URL в сообщениях, например:
 <p>
 	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div>
@@ -42,7 +42,7 @@ TOPIC_HELP:
 	<div align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></div>
 <p>
 <b>Создание ссылок на email</b>
-<br>
+<br />
 Для создания email-ссылки просто вставьте в сообщение адрес email в его
 обычном виде, например:
 <p>
@@ -55,7 +55,7 @@ TOPIC_HELP:
 <div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Click here to email our tech support<font color="#ff0000"><b>[/email]</b></font></div>
 <p>
 <b>Стили текста</b>
-<br>
+<br />
 FUDcode предоставляет также набор тегов для задания стиля текста:
 <ul>
   <li><font color="#ff0000"><b>[b]</b></font>полужирный<font color="#ff0000"><b>
@@ -81,14 +81,14 @@ FUDcode предоставляет также набор тегов для задания стиля текста:
 </ul>
         Возможно и одновременное применение различных тегов:
 <p>
-<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Форматированный Текст<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
+<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Форматированный Текст<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></div>
 <p>
 	результатом действия приведенного примера является:
 <p>
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Форматированный Текст</b></i></u></font></div>
 <p>
 <b>Выравнивание текста</b>
-<br>
+<br />
 FUDcode поддерживает различные способы выравнивания теста.
 Для этого используются 3 формы записи тега [align]:
 <ul>
@@ -101,15 +101,15 @@ FUDcode поддерживает различные способы выравнивания теста.
 </ul>
 <p>
 <b>Различные списки</b>
-<br>
+<br />
 Используя FUDcode, вы можете создавать различные типы списков:
 <p>
 Ненумерованные бюллетени:
 <p>
-<font color="#ff0000"><b>[list]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>первый пункт<br>
-<font color="#ff0000"><b>[*]</b></font>второй пункт<br>
-<font color="#ff0000"><b>[/list]<br>
+<font color="#ff0000"><b>[list]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>первый пункт<br />
+<font color="#ff0000"><b>[*]</b></font>второй пункт<br />
+<font color="#ff0000"><b>[/list]<br />
 </b></font>
 <p>
 даст в результате
@@ -120,10 +120,10 @@ FUDcode поддерживает различные способы выравнивания теста.
 Для создания последовательно нумерованного списка,
 используется несколько иной синтаксис:
 <p>
-<font color="#ff0000"><b>[list type=1]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>первый пункт<br>
-<font color="#ff0000"><b>[*]</b></font>второй пункт<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
+<font color="#ff0000"><b>[list type=1]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>первый пункт<br />
+<font color="#ff0000"><b>[*]</b></font>второй пункт<br />
+<font color="#ff0000"><b>[/list]</b></font><br />
 <p>
 результат выглядит как
 <ol>
@@ -132,18 +132,18 @@ FUDcode поддерживает различные способы выравнивания теста.
 </ol>
 Создание буквенного списка (A-Z):
 <p>
-<font color="#ff0000"><b>[list type=A]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>первый пункт<br>
-<font color="#ff0000"><b>[*]</b></font>второй пункт<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
+<font color="#ff0000"><b>[list type=A]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>первый пункт<br />
+<font color="#ff0000"><b>[*]</b></font>второй пункт<br />
+<font color="#ff0000"><b>[/list]</b></font><br />
 <p>
-результат:<br>
+результат:<br />
 <ol type="a">
   <li>первый пункт</li>
   <li>второй пункт</li>
 </ol>
 <b>Добавление изображений</b>
-<br>
+<br />
 Добавление изображений в сообщение возможно с помошью тега
 <p>
 <font color="#ff0000"><b>[img][/img]</b></font>.
@@ -166,17 +166,17 @@ FUDcode поддерживает различные способы выравнивания теста.
 <div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a></div>
 <p>
 <b>Цитирование сообщение</b>
-<br>
+<br />
   При ответе на сообщение возможно приведение цитат из оригинала, для этого
   используется тег <font color="#ff0000"><b>[quote][/quote]</b></font>. 
 <p>
 <div align="Center"><font color="#ff0000"><b>[quote]</b></font>hello world<font color="#ff0000"><b>[/quote]</b></font></div>
 <p>
   будет выглядеть как:
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Цитата:</b></td></tr><tr><td class="quote">Hello World<br></td></tr></table>
+<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Цитата:</b></td></tr><tr><td class="quote">Hello World<br /></td></tr></table>
 <p>
 <b>Исходный (преформатированный) текст</b>
-<br>
+<br />
  Теги <font color="#ff0000"><b>[code][/code]</b></font> позволяют вставлять
 в сообщение фрагменты текста в исходном виде, сохраняя в них элементы
 форматирования, табуляции и пробелы. 
@@ -184,17 +184,17 @@ FUDcode поддерживает различные способы выравнивания теста.
  пример использования:
 <p>
 <font color="#ff0000"><b>[code]</b></font>
-<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}</pre>
+<pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}</pre>
 <font color="#ff0000"><b>[/code]</b></font>
 <p>
  результат действия примера - текст в исходном виде:
 <p>
-<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}</pre>
+<pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}</pre>
 <p>
-<b>PHP Code</b><br>
+<b>PHP Code</b><br />
 The <font color="#ff0000"><b>[php][/php]</b></font> tag allows you to post PHP scripts
-and have the forum automatically syntax highlight the code for easier readability.<br>
-<br>it used like this: <br>
+and have the forum automatically syntax highlight the code for easier readability.<br />
+<br />it used like this: <br />
 <font color="#ff0000"><b>[php]</b></font>
 <pre>
 function hello()
@@ -204,8 +204,8 @@ function hello()
 
 hello();
 </pre>
-<font color="#ff0000"><b>[/php]</b></font><br>
-<br>which produces:<br><br>
+<font color="#ff0000"><b>[/php]</b></font><br />
+<br />which produces:<br /><br />
 <code><font color="#000000">
 <font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
 
@@ -213,24 +213,24 @@ hello();
 </code>
 <p>
 
-<b>No Tag</b><br>
+<b>No Tag</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
 the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
 and not have them converted to equivalent HTML.
 <p>
 
-<b>Spoiler</b><br>
+<b>Spoiler</b><br />
 The <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> tag allows you to hide a portion of message
 from being displayed. To see the hidden portion the users must click a link that will display the 
 hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually 
-reloaded, instead a hidden layer is made visible.<br>
-  <br>
-Here is an example of this tag in action: <br>
+reloaded, instead a hidden layer is made visible.<br />
+  <br />
+Here is an example of this tag in action: <br />
 
 Visible part of the message
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br>Hidden part of the message</br>
-<font color="#ff0000"><b>[/spoiler]</b></font><br>
+<br />Hidden part of the message</br>
+<font color="#ff0000"><b>[/spoiler]</b></font><br />
 More visible text.
 
 <p>and the result:<p>
@@ -244,7 +244,7 @@ More visible text.
 <p>
 
 <p>
-<b>Acronym</b><br>
+<b>Acronym</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
 acronym and provide a full name when the user moves their mouse over the tag.
 <font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
@@ -299,8 +299,8 @@ TOPIC_HELP:
 <p>
 Форма загрузки файлов отображает 3 значения, управляющих созданием
 файловых вложений:<p>
-<b>Допустимые расширения файла</b> - список разрешенных типов (расширений) файлов, например jpg, gif, png.<br>
-<b>Максимальный размер файла</b> - максимально допустимый размер файлов для создания вложений.<br>
+<b>Допустимые расширения файла</b> - список разрешенных типов (расширений) файлов, например jpg, gif, png.<br />
+<b>Максимальный размер файла</b> - максимально допустимый размер файлов для создания вложений.<br />
 <b>Максимальное количество файлов в сообщении</b> - количество файлов, которое вы можете прикрепить к сообщению.
 <p>
 Для того чтобы прикрепить файл и создать вложение, нажмите на кнопке

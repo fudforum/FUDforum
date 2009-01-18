@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.39 2009/01/17 09:23:52 frank Exp $
+* $Id: admprune.php,v 1.40 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,8 +58,8 @@
 				$umsg = ' <font color="red">posted by "'.q_singleval("SELECT alias FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".$usr_id).'"</font>';
 			}
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 <head>
 <?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel - Confirm topic pruning'.'</title>' ?>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php 
@@ -70,7 +70,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 } else {
 	echo 'us-ascii';
 }
-?>">
+?>" />
 
 </head>
 <body bgcolor="white">
@@ -78,14 +78,14 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $umsg . $msg; ?><br /><br />
 			Are you sure you want to do this?<br />
 			<form method="post">
-			<input type="hidden" name="btn_prune" value="1">
+			<input type="hidden" name="btn_prune" value="1" />
 			<?php echo _hs; ?>
-			<input type="hidden" name="thread_age" value="<?php echo $_POST['thread_age']; ?>">
-			<input type="hidden" name="units" value="<?php echo $_POST['units']; ?>">
-			<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
-			<input type="hidden" name="forumsel" value="<?php echo $_POST['forumsel']; ?>">
-			<input type="submit" name="btn_conf" value="Yes">
-			<input type="submit" name="btn_cancel" value="No">
+			<input type="hidden" name="thread_age" value="<?php echo $_POST['thread_age']; ?>" />
+			<input type="hidden" name="units" value="<?php echo $_POST['units']; ?>" />
+			<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
+			<input type="hidden" name="forumsel" value="<?php echo $_POST['forumsel']; ?>" />
+			<input type="submit" name="btn_conf" value="Yes" />
+			<input type="submit" name="btn_cancel" value="No" />
 			</form>
 </div>
 </body>
@@ -145,7 +145,7 @@ delete topics with no messages in the last 10 days.<p>
 ?>
 <tr class="field">
 	<td nowrap>Topics with last post made:</td>
-	<td ><input tabindex="1" type="text" name="thread_age"></td>
+	<td ><input tabindex="1" type="text" name="thread_age" /></td>
 	<td nowrap><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 
@@ -169,11 +169,11 @@ delete topics with no messages in the last 10 days.<p>
 </tr>
 
 <tr class="field">
-	<td align="right" colspan="3"><input tabindex="2" type="submit" name="btn_prune" value="Prune"></td>
+	<td align="right" colspan="3"><input tabindex="2" type="submit" name="btn_prune" value="Prune" /></td>
 </tr>
 </table>
 <?php echo _hs; ?>
-<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
+<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 </form>
 <script type="text/javascript">
 <!--

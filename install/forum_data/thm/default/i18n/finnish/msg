@@ -255,8 +255,8 @@ finduser_action:		Toiminto
 yes:				Kyllä
 no:				Ei
 register_email:			Sähköposti
-edit_time_limit:		<br><br><b>Muokkausaikaraja</b>:<br> <b>{GVAR: EDIT_TIME_LIMIT}</b> minuutti(a)
-no_edit_time_limit:		<br><br><b>Muokkausaikaraja</b>:<br> <b>Ei rajoitettu</b>
+edit_time_limit:		<br /><br /><b>Muokkausaikaraja</b>:<br /> <b>{GVAR: EDIT_TIME_LIMIT}</b> minuutti(a)
+no_edit_time_limit:		<br /><br /><b>Muokkausaikaraja</b>:<br /> <b>Ei rajoitettu</b>
 pmuserloc_login:		Käyttäjätunnus:
 pmuserloc_submit:		Hae
 pmuserloc_user:			Käyttäjä
@@ -275,7 +275,7 @@ register_avatar_type:		Avatar tyyppi:
 register_del_avatar:		Poista avatar
 register_avatar:		Avatar:
 register_sel_avatar:		Valitse avatar
-register_custom_avatar_rules:	Oma Avatar näytetään vasta kun ylläpitäjä on sen hyväksynyt.<br><font class="SmallText">Kuva saa olla korkeintaan <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikselin kokoinen.</b> Hyväksytyt kuvaformaatit ovat <b>jpg</b>, <b>gif</b> ja <b>png</b></font>
+register_custom_avatar_rules:	Oma Avatar näytetään vasta kun ylläpitäjä on sen hyväksynyt.<br /><font class="SmallText">Kuva saa olla korkeintaan <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikselin kokoinen.</b> Hyväksytyt kuvaformaatit ovat <b>jpg</b>, <b>gif</b> ja <b>png</b></font>
 register_custom_avatar_url:	Oman Avatarin URL:
 register_preview:		Esikatselu
 register_custom_avatar_upload:	Oma avatar-tiedosto
@@ -328,7 +328,7 @@ my_buddies:			Kaverit
 add_buddy:			Lisää kaveri
 add:				Lisää
 buddy_search:			Anna käyttäjätunnus jonka haluat lisätä.
-member_search:			<br>Tai käytä <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Hae Käyttäjä</a> toimintoa löytääksesi henkilön.
+member_search:			<br />Tai käytä <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Hae Käyttäjä</a> toimintoa löytääksesi henkilön.
 buddy_remove:			poista
 post_normal:			Normaali
 post_sticky:			Kelluva
@@ -378,7 +378,7 @@ post_preview_btn:		Viestin esikatselu
 ignore_users:			Torjutut käyttäjät
 add_ignore:			Lisää torjuttu
 forum_terms:			Foorumin ehdot
-forum_rules:			Rekisteröityminen on ilmaista! Edellytämme toki, että hyväksyt alla mainitut ehdot ja säännöt. Jos hyväksyt nämä ehdot, klikkaa Hyväksyn-nappia sivun alareunassa.<p>Vaikka tämän sivuston ylläpito ja moderaattorit pyrkivätkin poistamaan arveluttavan sisällön niin nopeasti kuin mahdollista, on kuitenkin mahdotonta tarkistaa jokaista viestiä. Kaikki viestit ilmaisevat kirjoittajiensa mielipiteitä joten ylläpito, moderaattorit tai foorumin kehittäjät eivät ole vastuussa näistä kirjoituksista, lukuunottamatta heidän omia viestejään. <p>Klikkaamalla Hyväksyn-nappia, suostut olemaan esittämättä mitään loukkaavaa, vihamielistä, epämoraalista tai muutakaan materiaalia joka voisi loukata voimassa olevia lakeja. <p>Suostut myös siihen, että ylläpito ja moderaattorit ovat oikeutettuja poistamaan, muokkaamaan, siirtämään tai sulkemaan minkä tahansa aiheen milloin tahansa. <p>Käyttäjänä suostut siihen, että kaikki antamasi tiedot tallennetaan tietokantaan. Mitään tietoja ei anneta millekään kolmannelle osapuolelle ilman suostumustasi. Ylläpito ei myöskään ole vastuullinen jos tietoturva vaarantuu hakkeroinnin, tms. takia.<br>
+forum_rules:			Rekisteröityminen on ilmaista! Edellytämme toki, että hyväksyt alla mainitut ehdot ja säännöt. Jos hyväksyt nämä ehdot, klikkaa Hyväksyn-nappia sivun alareunassa.<p>Vaikka tämän sivuston ylläpito ja moderaattorit pyrkivätkin poistamaan arveluttavan sisällön niin nopeasti kuin mahdollista, on kuitenkin mahdotonta tarkistaa jokaista viestiä. Kaikki viestit ilmaisevat kirjoittajiensa mielipiteitä joten ylläpito, moderaattorit tai foorumin kehittäjät eivät ole vastuussa näistä kirjoituksista, lukuunottamatta heidän omia viestejään. <p>Klikkaamalla Hyväksyn-nappia, suostut olemaan esittämättä mitään loukkaavaa, vihamielistä, epämoraalista tai muutakaan materiaalia joka voisi loukata voimassa olevia lakeja. <p>Suostut myös siihen, että ylläpito ja moderaattorit ovat oikeutettuja poistamaan, muokkaamaan, siirtämään tai sulkemaan minkä tahansa aiheen milloin tahansa. <p>Käyttäjänä suostut siihen, että kaikki antamasi tiedot tallennetaan tietokantaan. Mitään tietoja ei anneta millekään kolmannelle osapuolelle ilman suostumustasi. Ylläpito ei myöskään ole vastuullinen jos tietoturva vaarantuu hakkeroinnin, tms. takia.<br />
 forum_rules_13:			Kaikkien alle 13 vuotiaiden lasten täytyy hankkia lupa vanhemmaltaan tai huoltajaltaan voidakseen liittyä foorumien käyttäjäksi. Edellytämme, että vanhempi tai huoltaja faksaa tai postittaa allekirjoitetun suostumuskaavakkeen ennen käyttöoikeuden myöntämistä.<p>Klikkaa Hyväksyn-nappia, jos haluat aloittaa rekisteröitymisprosessin ennenkuin olemme vastaanottaneet suostumuskaavakkeen. Jos haluat peruuttaa rekisteröitymisen, klikkaa Peruuta palataksesi foorumi listaan.<p>Suostumuskaaveke löytyy täältä. Lisätietoja rekisteröitymisprosessista saat lähettämällä ylläpidolle sähköpostia: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			COPPA-varmistus
 coppa_before:			Ennen {TEMPLATE: coppa_date}
@@ -410,7 +410,7 @@ login_cookie_expired:		Eväste (cookie) on vanhentunut.
 login_perm_denied:		Sinulla ei ole oikeuksia käyttää pyydettyä resurssia anonyyminä käyttäjänä.
 login_want_to_register:		Haluatko rekisteröityä?
 login_forgot_passwd:		Salasana unohtunut
-login_use_cookie:		Käytä Evästeitä (cookie).<br><font class="SmallText">Huom! Jos käytät yhteiskäytössä olevaa tietokonetta, esimerkiksi kirjastossa, koulussa tai internet-kahvilassa, suosittelemme että poistat ruksin tästä paremman tietoturvan takia.<br>Jättämällä tämän valinnan päälle kirjaudut automaattisesti foorumille.</font>
+login_use_cookie:		Käytä Evästeitä (cookie).<br /><font class="SmallText">Huom! Jos käytät yhteiskäytössä olevaa tietokonetta, esimerkiksi kirjastossa, koulussa tai internet-kahvilassa, suosittelemme että poistat ruksin tästä paremman tietoturvan takia.<br />Jättämällä tämän valinnan päälle kirjaudut automaattisesti foorumille.</font>
 login_login:			Käyttäjätunnus
 login_login_btn:		Sisään
 login_name_required:		Käyttäjätunnus on pakollinen
@@ -535,7 +535,7 @@ buddy_list_err_nouser_title:	Käyttäjän lisääminen ei onnistunut
 buddy_list_update:		Selaa listaa kavereistaan
 core_err_invinp_title:		Virheellinen syöte
 core_err_invinp_err:		Yritit ladata virheellista linkkiä, ole hyvä ja ilmoita tästä <href="mailto:{GVAR: ADMIN_EMAIL}">webmasterille</a>
-core_adm_login_msg:		<br>Ylläpitäjät voivat kirjautua sisään <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">täällä</a>
+core_adm_login_msg:		<br />Ylläpitäjät voivat kirjautua sisään <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">täällä</a>
 email_err_unabletoemail_title:	VIRHE: Sähköpostin lähetys ei onnistunut
 email_err_unabletoemail_msg:	Ylläpitäjä on estänyt sähköpostin lähetyksen.
 email_error_unabletolocaddr:	Sori, systeemi ei pystynyt lähettämään sähköpostia {VAR-HTML: _POST['tx_name']} koska ei löytänyt hänen osoitettaan
@@ -575,9 +575,9 @@ post_err_edttimelimit_title:	VIRHE
 post_err_edttimelimit_msg:	Et voi enää muokata tätä viestiä.
 post_err_floodtrig_title:	VIRHE: Viestitulva (message flood)
 post_err_floodtrig_msg:		Yritä uudelleen {VAR: tm} sekunnin päästä
-post_err_attach_size:		<font class="ErrorText">Liitetiedoston koko ylittää suurimman sallitun {VAR: MAX_F_SIZE} tavun rajan</font><br>
-post_err_attach_ext:		<font class="ErrorText">Lähetetyn tiedoston tyyppi ei vastaa sallittuja tiedostotyyppejä.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Yritit lähettää sallittua enemmän tiedostoja.</font><br>
+post_err_attach_size:		<font class="ErrorText">Liitetiedoston koko ylittää suurimman sallitun {VAR: MAX_F_SIZE} tavun rajan</font><br />
+post_err_attach_ext:		<font class="ErrorText">Lähetetyn tiedoston tyyppi ei vastaa sallittuja tiedostotyyppejä.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Yritit lähettää sallittua enemmän tiedostoja.</font><br />
 post_err_passwd:		Virheellinen salasana.
 post_reply_update:		Vastaa viestiin otsikolla <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> {VAR-HTML: frm->name} foorumissa
 post_topic_update:		Kirjoittaa uutta aihetta <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> foorumille
@@ -592,7 +592,7 @@ postcheck_invalid_email:	Virheellinen sähköpostiosoite.
 postcheck_email_subject:	Et voi lähettää sähköpostia ilman otsikkoa.
 postcheck_email_body:		Et voi lähettää sahköpostia ilman viestiä.
 private_msg_notify_subj:	Viesti otsikolla {VAR: m->subject} on luettu
-private_msg_notify_body:	Hei,<br>{VAR: usr->login} on lukenut viestisi otsikolla "{VAR: m->subject}" {DATE: m->post_stamp %a, %d. %Bta %Y %H:%M}<br>
+private_msg_notify_body:	Hei,<br />{VAR: usr->login} on lukenut viestisi otsikolla "{VAR: m->subject}" {DATE: m->post_stamp %a, %d. %Bta %Y %H:%M}<br />
 referals_update:		Selaa suosittelujaan
 register_err_short_login:	Valitsemasi käyttäjätunnus on liian lyhyt. Käyttäjätunnuksen täytyy olla vähintään 4 merkkiä pitkä.
 register_err_login_notallowed:	Tätä tunnusta ei hyväksytty
@@ -638,7 +638,7 @@ ERR_access_msg:			Sinulla ei ole vaadittuja käyttöoikeuksia suorittaaksesi tämän
 ERR_registration_disabled_ttl:	Rekisteröinti ei ole käytössä
 ERR_registration_disabled_msg:	Ylläpitäjä on poistanut rekisteröinnin käytöstä. Yritä myöhemmin uudelleen
 ERR_emailconf_ttl:		VIRHE: Käyttäjätiliäsi ei ole vahvistettu
-ERR_emailconf_msg:		Et ole vahvistanut käyttäjätiliäsi vielä.<br><table border=0><tr><td><ol><li>Jos et ole saanut vahvistussähköpostia <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klikkaa tätä</a><li>Jos {VAR: usr_d->email} ei ole oikea sähköpostiosoitteesi <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klikkaa tätä</a></ol></td></tr></table>
+ERR_emailconf_msg:		Et ole vahvistanut käyttäjätiliäsi vielä.<br /><table border=0><tr><td><ol><li>Jos et ole saanut vahvistussähköpostia <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klikkaa tätä</a><li>Jos {VAR: usr_d->email} ei ole oikea sähköpostiosoitteesi <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klikkaa tätä</a></ol></td></tr></table>
 ERR_user_ttl:			VIRHE: Käyttäjää ei ole
 ERR_user_msg:			Käyttäjää ei ole olemassa
 ERR_systemerr_ttl:		VIRHE: Systeemivirhe
@@ -736,7 +736,7 @@ post_quote:			Lainaus:
 userinfo_referals:		Suositellut käyttäjät:
 userinfo_referals_count:	{VAR: referals} käyttäjää
 pm_no_space_title:		Ei tilaa jäljellä!
-pm_no_space_msg:		Yksityisviestikansiosi sisältävät yhteensä <b>{VAR: fldr_size} tavun verran viestejä joka ylittää suurimman sallitun <b>{GVAR: MAX_PMSG_FLDR_SIZE} tavun rajan.<br><br><font class="ErrorText">Vapauta tilaa poistamalla vanhoja viestejä</font>.
+pm_no_space_msg:		Yksityisviestikansiosi sisältävät yhteensä <b>{VAR: fldr_size} tavun verran viestejä joka ylittää suurimman sallitun <b>{GVAR: MAX_PMSG_FLDR_SIZE} tavun rajan.<br /><br /><font class="ErrorText">Vapauta tilaa poistamalla vanhoja viestejä</font>.
 pm_space_indct_msg:		Kansioiden käyttämä tila: {VAR: percent_full}%
 th_expr_never:			Ei koskaan
 th_expr_one_hr:			1 tunnissa

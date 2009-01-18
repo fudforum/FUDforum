@@ -7,7 +7,7 @@ Puesto que en algunos casos el administrador no permite el uso de HTML en los me
 especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode es muy fácil de usar y es mucho más seguro que el HTML.
 <p>
 
-<a name="url"><b>Enlazado de URL</b></a><br>
+<a name="url"><b>Enlazado de URL</b></a><br />
 
 <table>
   <tr>
@@ -20,7 +20,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
   </tr>
 </table>
 <i>Explicación:</i> FUDforum automáticamente reconocerá las URL y las convertirá en URL válidas.
-<br><br>	
+<br /><br />	
 
 <table>
   <tr>
@@ -33,7 +33,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
   </tr>
 </table>
 <i>Explicación:</i> También puede definir URL mediante FUDcode, este es un ejemplo simple de su uso. 
-<br><br>
+<br /><br />
  
 <table>
   <tr>
@@ -41,15 +41,15 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600"><br>Mi página personal<br></font>[/URL]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600"><br />Mi página personal<br /></font>[/URL]</b></font></td>
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>Mi página personal</a></td>
   </tr>
 </table>
 <i>Explicación:</i> Puede usar FUDcode para crear URL con un texto de su elección.
-<br><br><br>
+<br /><br /><br />
 
 <p>
-<a name="email"><b>Enlazado de direcciones de correo electrónico</b></a><br>
+<a name="email"><b>Enlazado de direcciones de correo electrónico</b></a><br />
 
 <table>
   <tr>
@@ -62,7 +62,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
   </tr>
 </table>
 <i>Explicación:</i> FUDforum convertirá automáticamente los enlaces a direcciones de correo electrónico en hiperenlaces correctos.
-<br><br>
+<br /><br />
 
 <table>
   <tr>
@@ -70,15 +70,15 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font><br>Pulse aquí para enviar un mensaje al soporte técnico<br><font color="#ff0000"><b>[/email]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font><br />Pulse aquí para enviar un mensaje al soporte técnico<br /><font color="#ff0000"><b>[/email]</b></font></td>
     <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Pulse aquí para enviar un mensaje al soporte técnico</a></td>
   </tr>
 </table>
 <i>Explanation:</i> Puede usar FUDcode para crear enlaces a direcciones de correo que se muestren con un texto de su elección.
-<br><br>
+<br /><br />
 
-<br>
-<b>Estilos de texto</b><br>
+<br />
+<b>Estilos de texto</b><br />
 <a name="b"></a>
 
 <table>
@@ -91,7 +91,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><b>negrita</b></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="u"></a>
 
@@ -105,7 +105,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><u>subrayado</u></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="i"></a>
 
@@ -119,7 +119,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><i>cursiva</i></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="sub"></a>
 
@@ -133,7 +133,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><sub>subíndice</sub></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="sup"></a>
 
@@ -147,7 +147,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><sup>superíndice</sup></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="color"></a>
 
@@ -161,7 +161,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><font color="#ff0000">texto rojo</font></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="size"></a>
 
@@ -175,7 +175,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><font size="4">texto grande</font></td>
   </tr>
 </table>
-<br>
+<br />
 
 <a name="font"></a>
 
@@ -189,7 +189,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><font face="Courier New, Courier, monospace">texto</font></td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -197,14 +197,14 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=red][size=4][font=courier]</b></font><br>Texto formateado<br><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=red][size=4][font=courier]</b></font><br />Texto formateado<br /><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></td>
     <td valign="middle" align="center"><font color="#ff0000" size="4" face="Courier New, Courier, monospace"><u><i><b>Texto formateado</b></i></u></font></td>
   </tr>
 </table>
 <i>Explicación:</i> Puede usar tantas etiquetas de formateo juntas como desee.
-<br><br><br>
+<br /><br /><br />
         
-<a name="align"><b>Alineación de texto</b></a><br>
+<a name="align"><b>Alineación de texto</b></a><br />
 
 <table>
   <tr>
@@ -216,7 +216,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center">texto centrado</td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -228,7 +228,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="right">alineación derecha</td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -240,10 +240,10 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="left">alineación izquierda</td>
   </tr>
 </table>
-<br><br>
+<br /><br />
 
 <a name="list"><b>Listas varias</b></a>
-<br>
+<br />
 
 <table>
   <tr>
@@ -251,11 +251,11 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br><font color="#ff0000"><b>[/list]</b></font><br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br /><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br /><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ul><li>elemento de la lista</li><li>elemento de la lista</li></ul></td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -263,11 +263,11 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br><font color="#ff0000"><b>[/list]</b></font><br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br /><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br /><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ol><li>elemento de la lista</li><li>elemento de la lista</li></ol></td>
   </tr>
 </table>
-<br>
+<br />
 
 <table>
   <tr>
@@ -275,13 +275,13 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br><font color="#ff0000"><b>[/list]</b></font><br></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br /><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br /><font color="#ff0000"><b>[*]</b></font>elemento de la lista<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ol type="a"><li>elemento de la lista</li><li>elemento de la lista</li></ol></td>
   </tr>
 </table>
-<br><br>
+<br /><br />
 
-<a name="img"><b>Adición de imágenes</b></a><br>
+<a name="img"><b>Adición de imágenes</b></a><br />
 
 <table>
   <tr>
@@ -289,11 +289,11 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br></font><font color="#ff0000"><b>[/img]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br /><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br /></font><font color="#ff0000"><b>[/img]</b></font></td>
     <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31"></td>
   </tr>
 </table>
-<br>    
+<br />    
 
 <table>
   <tr>
@@ -301,14 +301,14 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br>[img]</b></font><br>http://www.prohost.org/img/pro_logo.gif<br><b><font color="#ff0000">[/img]<br>[/url]</font></b></font></td>
+    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br />[img]</b></font><br />http://www.prohost.org/img/pro_logo.gif<br /><b><font color="#ff0000">[/img]<br />[/url]</font></b></font></td>
     <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0"></a></td>
   </tr>
 </table>
 <i>Explicación:</i> Puede usar FUDcode para crear imágenes enlazadas metiendo las etiquetas [img][/img] dentro de las etiquetas [url][/url].
-<br><br><br>
+<br /><br /><br />
 
-<a name="quote"><b>Cita de otros mensajes</b></a><br>
+<a name="quote"><b>Cita de otros mensajes</b></a><br />
 
 <table>
   <tr>
@@ -317,12 +317,12 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[quote]</b></font>Hola mundo<font color="#ff0000"><b>[/quote]</b></font></td>
-    <td valign="middle" align="center"><table border="0" align="center" width="50%" cellpadding="3" cellspacing="1"><tr><td class="SmallText" align="left"><b>Quote:</b></td></tr><tr><td class="quote" align="left">Hola mundo<br></td></tr></table></td>
+    <td valign="middle" align="center"><table border="0" align="center" width="50%" cellpadding="3" cellspacing="1"><tr><td class="SmallText" align="left"><b>Quote:</b></td></tr><tr><td class="quote" align="left">Hola mundo<br /></td></tr></table></td>
   </tr>
 </table>
-<br><br>
+<br /><br />
 
-<a name="pre"><b>Texto preformateado</b></a><br>
+<a name="pre"><b>Texto preformateado</b></a><br />
 
 <table>
   <tr>
@@ -330,16 +330,16 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle"><font color="#ff0000"><b>[pre]</b><br></font>
-<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>} <br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>} <br></pre>
+    <td valign="middle"><font color="#ff0000"><b>[pre]</b><br /></font>
+<pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre>
 <font color="#ff0000"><b>[/pre]</b></font></td>
-    <td valign="middle"><pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>} <br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>} <br></pre></td>
+    <td valign="middle"><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre></td>
   </tr>
 </table>
 <i>Explicación:</i> Esta etiqueta produce el texto exactamente tal cual está tecleado, manteniendo el formateo original.
-<br><br><br>
+<br /><br /><br />
 
-<a name="php"><b>Código PHP</b></a><br>
+<a name="php"><b>Código PHP</b></a><br />
 
 <table>
   <tr>
@@ -364,9 +364,9 @@ hello();
   </tr>
 </table>
 <i>Explicación:</i> La etiqueta [php][/php] permite enviar código PHP cuya sintaxis el foro resaltará de manera automática.
-<br><br><br>
+<br /><br /><br />
 
-<a name="code"><b>Código en lenguajes distintos a PHP</b></a><br>
+<a name="code"><b>Código en lenguajes distintos a PHP</b></a><br />
 
 <table>
   <tr>
@@ -374,22 +374,22 @@ hello();
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle"><font color="#ff0000"><b>[code]</b></font><pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre><font color="#ff0000"><b>[/code]</b></font>
+    <td valign="middle"><font color="#ff0000"><b>[code]</b></font><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /></pre><font color="#ff0000"><b>[/code]</b></font>
     </td>
-    <td valign="middle"><div class="pre"><pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');       <br>} <br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>} <br></pre></div>
+    <td valign="middle"><div class="pre"><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');       <br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre></div>
     </td>
   </tr>
 </table>
 <i>Explicación:</i> La etiqueta [code][/code] funciona de manera muy similar a la etiqueta [pre][/pre], pero en este caso se pone un vistoso marco alrededor del texto.
-<br><br><br>
+<br /><br /><br />
 
-<a name="notag"><b>Sin etiquetas</b></a><br>
+<a name="notag"><b>Sin etiquetas</b></a><br />
 <i>Explicación:</i> La etiqueta <font color="#ff0000"><b>[notag][/notag]</b></font> le permite que el texto en el interior de las mismas
 no sea interpretado por el analizador de etiquetas de FUDforum. Esto le permitirá mostrar fragmentos de FUDcode sin que el foro lo convierta
 en el código HTML equivalente.
-<br><br><br>
+<br /><br /><br />
 
-<a name="hr"><b>Etiqueta de línea horizontal</b></a><br>
+<a name="hr"><b>Etiqueta de línea horizontal</b></a><br />
 
 <table>
   <tr>
@@ -402,9 +402,9 @@ en el código HTML equivalente.
   </tr>
 </table>
 <i>Explicación:</i> La etiqueta [hr] produce una línea horizontal: es equivalente a la etiqueta HTML &lt;hr&gt;
-<br><br><br>
+<br /><br /><br />
 
-<a name="spoiler"><b>Spoiler</b></a><br>
+<a name="spoiler"><b>Spoiler</b></a><br />
 
 <table>
   <tr>
@@ -412,10 +412,10 @@ en el código HTML equivalente.
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center">Parte visible del mensaje<br>
+    <td valign="middle" align="center">Parte visible del mensaje<br />
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br>Parte oculta del mensaje<br>
-<font color="#ff0000"><b>[/spoiler]</b></font><br>
+<br />Parte oculta del mensaje<br />
+<font color="#ff0000"><b>[/spoiler]</b></font><br />
 Más texto visible.</td>
     <td valign="middle" align="center">Parte visible del mensaje<br />
 <div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Desvelar Spoiler</a><div align="left" id="1482055279834293165" style="display: none;"><br />
@@ -425,9 +425,9 @@ Más texto visible.</td>
   </tr>
 </table>
 <i>Explicación:</i> La etiqueta [spoiler][/spoiler] le permite evitar que se muestre una parte de un mensaje. Para ver la parte oculta los usuarios deben pulsar un enlace que les mostrará la parte oculta del texto. Internamente esto se consigue mediante el uso de JavaScript, de manera que la página no se recarga, sino que se hace visible una capa que estaba oculta.
-<br><br><br>
+<br /><br /><br />
 
-<a name="acronym"><b>Acrónimo</b></a><br>
+<a name="acronym"><b>Acrónimo</b></a><br />
 
 <table>
   <tr>
@@ -435,14 +435,14 @@ Más texto visible.</td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Foro de charla rápida y sin compromisos]</b></font><br>FUDforum<br><font color="#ff0000"><b>[/acronym]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Foro de charla rápida y sin compromisos]</b></font><br />FUDforum<br /><font color="#ff0000"><b>[/acronym]</b></font></td>
     <td valign="middle" align="center"><acronym title="Foro de charla rápida y sin compromisos">FUDforum</acronym></td>
   </tr>
 </table>
 <i>Explicación:</i> La etiqueta [acronym][/acronym] le permite identificar el texto como acrónimo y proporcionar el nombre completo correspondiente cuando el usuario situe el puntero sobre la etiqueta.
-<br><br><br>
+<br /><br /><br />
 
-<a name="wikipedia"><b>Wikipedia</b></a><br>
+<a name="wikipedia"><b>Wikipedia</b></a><br />
 
 <table>
   <tr>
@@ -455,13 +455,13 @@ Más texto visible.</td>
   </tr>
 </table>
 <i>Explicación:</i> La etiqueta [wikipedia][/wikipedia] le permite crear una referencia a una página de la wikipedia basada en el asunto. Para usar la etiqueta rodee el término entre etiquetas [wikipedia], y si desea usar una de las versiones nacionales de la wikipedia puede emplear el formato [wikipedia=ca] en la apertura de la etiqueta, donde ca es el código de dos letras del identificador nacional (es para la versión en español).
-<br>
+<br />
 
 TOPIC_TITLE: <a name="sml">¿Qué son los smileys/emoticonos?</a> 
 TOPIC_HELP:
 Los emoticonos son pequeños icono que puede insertar en sus mensajes y que transmiten ciertas emociones y sentimientos.
 Si los emoticonos están activados se mostrará una lista de los soportados por el foro sobre los cuadros de edición de mensajes.
-Si pulsa sobre uno de los emoticonos se insertará en la posición actual del cursor en su mensaje.<br>
+Si pulsa sobre uno de los emoticonos se insertará en la posición actual del cursor en su mensaje.<br />
 Los emoticonos más habituales podrían ser sustituidos automáticamente por sus imágenes equivalentes, si quiere evitar que pase
 esto pulse la casilla <b>Desactivar emoticonos</b>.<p>
 
@@ -469,10 +469,10 @@ TOPIC_TITLE: <a name="polls">¿Cómo uso las encuestas?</a>
 TOPIC_HELP:
 En ciertos foros puede tener la posibilidad de incluir encuestas en sus mensajes. Las encuestas le permiten hacer preguntas y
 proporcionar un cierto número de respuestas a los demás miembros del foro para que elijan. Para no distorsionar las encuestas
-sólo los usuarios registrados pueden votar.<br>
+sólo los usuarios registrados pueden votar.<br />
 Cuando pulse sobre el enlace <b>Crear encuesta</b>, ubicado en la página de mensaje, aparecerá una ventana emergente que le permitirá
 crear una encuesta con varias posibles respuestas. Cuando haya acabado simplemente pulse en el botón <b>Editar</b> y se le llevará de
-vuelta a la página de su mensaje y la encuesta que acaba de crear estará asociada a su mensaje.<br>
+vuelta a la página de su mensaje y la encuesta que acaba de crear estará asociada a su mensaje.<br />
 Puede editar una encuesta existente pulsando el enlace <b>Editar</b>, o puede eliminarla completamente si pulsa en el enlace <b>Borrar</b>.
 <p>
 Sólo podrá votar una vez en cada encuesta, de manera que piénseslo bien, no podrá cambiar de opinión más tarde.
@@ -482,15 +482,15 @@ TOPIC_HELP:
 Si está permitido por el administrador podrá adjuntar uno o más archivos tanto a sus mensajes normales como a los privados. Esta
 característica se define por cada foro, de manera que puede tener permiso para adjuntar archivos en un foro y no tener permiso 
 para hacerlo en otro foro diferente.
-<br>
+<br />
 El formularío de envío de mensajes le mostrará tres reglas en relación con los archivos adjuntos:<p>
-<b>Extensiones de archivo permitidas</b> - una lista de los tipos de archivo que puede adjuntar a su mensaje, por ejemplo jpg, gif, png<br>
-<b>Tamaño máximo de archivo</b> - el tamaño máximo de cada archivo que puede adjuntar a su mensaje<br>
+<b>Extensiones de archivo permitidas</b> - una lista de los tipos de archivo que puede adjuntar a su mensaje, por ejemplo jpg, gif, png<br />
+<b>Tamaño máximo de archivo</b> - el tamaño máximo de cada archivo que puede adjuntar a su mensaje<br />
 <b>Máximo número de archivos por mensaje</b> - el número de archivos que puede adjuntar a su mensaje.
 <p>
 Para adjuntar un archivo a un mensaje pulse el botón <b>Examinar...</B> en la parte inferior de la página de envío. Su navegador abrirá
 un diálogo de selección de archivos que le permitirá seleccionar el archivo que desea subir desde su disco duro. Una vez seleccionado
-el archivo pulse el botón <b>Subir archivo</b> para adjuntar el archivo a su mensaje.<br>
+el archivo pulse el botón <b>Subir archivo</b> para adjuntar el archivo a su mensaje.<br />
 Si desea eliminar alguno de los archivos adjuntos simplemente pulse sobre el enlace <b>Borrar</b> correspondiente al archivo.
 
 
@@ -504,8 +504,8 @@ TOPIC_TITLE: <a name="edit">¿Puedo editar mi mensaje?</a>
 TOPIC_HELP:
 Si es un miembro registrado puede que sea capaz de editar los mensajes que haya enviado previamente. Esta opción podría existir
 sólo durante un tiempo limitado, de manera que es posible que pueda editar mensajes recientes pero no pueda hacerlo con los que
-envió hace un tiempo.<br>
-Si edita su mensaje se añadirá una pequeña nota a su mensaje indicando que lo ha editado e incluirá la fecha y la hora de la edición.<br>
+envió hace un tiempo.<br />
+Si edita su mensaje se añadirá una pequeña nota a su mensaje indicando que lo ha editado e incluirá la fecha y la hora de la edición.<br />
 Si un moderador o un administrador han editado su mensaje puede que aparezca una nota (o no) acerca de que el mensaje ha sido editado, 
 lo cual dependerá de la configuración del foro.
 

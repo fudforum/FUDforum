@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.39 2009/01/17 09:23:52 frank Exp $
+* $Id: admnntp.php,v 1.40 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,22 +54,22 @@
 <table class="datatable">
 	<tr class="field">
 		<td>Newsgroup Server:<br /><font size="-1">The ip or the hostname of your newsgroup server.</font></td>
-		<td><input type="text" name="nntp_server" value="<?php echo htmlspecialchars($nntp_server); ?>" maxlength=255></td>
+		<td><input type="text" name="nntp_server" value="<?php echo htmlspecialchars($nntp_server); ?>" maxlength=255 /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Newsgroup Server Port:</td>
-		<td><input type="text" name="nntp_port" value="<?php echo $nntp_port; ?>" maxlength=10></td>
+		<td><input type="text" name="nntp_port" value="<?php echo $nntp_port; ?>" maxlength=10 /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Newsgroup Server Timeout:<br /><font size="-1">Number of seconds to wait for the nntp server to respond.</font></td>
-		<td><input type="text" name="nntp_timeout" value="<?php echo $nntp_timeout; ?>" maxlength=10></td>
+		<td><input type="text" name="nntp_timeout" value="<?php echo $nntp_timeout; ?>" maxlength=10 /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Newsgroup:<br /><font size="-1">The name of the newsgroup to import.</font></td>
-		<td><input type="text" name="nntp_newsgroup" value="<?php echo $nntp_newsgroup; ?>" maxlength=255></td>
+		<td><input type="text" name="nntp_newsgroup" value="<?php echo $nntp_newsgroup; ?>" maxlength=255 /></td>
 	</tr>
 
 	<tr>
@@ -83,12 +83,12 @@
 
 	<tr class="field">
 		<td>Login:<br /><font size="-1">Not needed if authentication is not being used.</font></td>
-		<td><input type="text" name="nntp_login" value="<?php echo htmlspecialchars($nntp_login); ?>" maxlength=255></td>
+		<td><input type="text" name="nntp_login" value="<?php echo htmlspecialchars($nntp_login); ?>" maxlength=255 /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Password:<br /><font size="-1">Not needed if authentication is not being used.</font></td>
-		<td><input type="text" name="nntp_pass" value="<?php echo htmlspecialchars($nntp_pass); ?>" maxlength=255></td>
+		<td><input type="text" name="nntp_pass" value="<?php echo htmlspecialchars($nntp_pass); ?>" maxlength=255 /></td>
 	</tr>
 
 	<tr>
@@ -195,7 +195,7 @@
 			import script from timing out.
 			</font>
 		</td>
-		<td><input type="text" name="nntp_imp_limit" value="<?php echo htmlspecialchars($nntp_imp_limit); ?>" maxlength=10></td>
+		<td><input type="text" name="nntp_imp_limit" value="<?php echo htmlspecialchars($nntp_imp_limit); ?>" maxlength=10 /></td>
 	</tr>
 
 	<tr class="field">
@@ -208,12 +208,12 @@
 
 	<tr class="fieldaction">
 		<td colspan=2 align=right>
-			<?php if ($edit) echo '<input type="submit" value="Cancel" name="btn_cancel">&nbsp;'; ?>
-			<input type="submit" value="<?php echo ($edit ? 'Update Newsgroup Rule' : 'Add Newsgroup Rule'); ?>" name="nntp_submit">
+			<?php if ($edit) echo '<input type="submit" value="Cancel" name="btn_cancel" />&nbsp;'; ?>
+			<input type="submit" value="<?php echo ($edit ? 'Update Newsgroup Rule' : 'Add Newsgroup Rule'); ?>" name="nntp_submit" />
 		</td>
 	</tr>
 </table>
-<input type="hidden" name="edit" value="<?php echo $edit; ?>">
+<input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 <br /><br />
 <table class="resulttable fulltable">

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.41 2009/01/17 09:23:52 frank Exp $
+* $Id: admmlist.php,v 1.42 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -68,7 +68,7 @@ function format_regex(&$regex)
 <table class="datatable">
 	<tr class="field">
 		<td>Mailing List Email:<br /><font size="-1">The email address of the mailing list.</font></td>
-		<td><input type="text" name="ml_name" value="<?php echo htmlspecialchars($ml_name); ?>" maxlength=255></td>
+		<td><input type="text" name="ml_name" value="<?php echo htmlspecialchars($ml_name); ?>" maxlength=255 /></td>
 	</tr>
 
 	<tr class="field">
@@ -183,12 +183,12 @@ function format_regex(&$regex)
 
 	<tr class="field">
 		<td>Replace mask:</td>
-		<td nowrap="nowrap">/<input type="text" name="ml_subject_regex_haystack" value="<?php echo htmlspecialchars($ml_subject_regex_haystack); ?>">/<input type="text" name="ml_subject_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_subject_regex_haystack_opt)); ?>"></td>
+		<td nowrap="nowrap">/<input type="text" name="ml_subject_regex_haystack" value="<?php echo htmlspecialchars($ml_subject_regex_haystack); ?>" />/<input type="text" name="ml_subject_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_subject_regex_haystack_opt)); ?>"></td>
 	</tr>
 
 	<tr class="field">
 		<td>Replace with:</td>
-		<td><input type="text" name="ml_subject_regex_needle" value="<?php htmlspecialchars($ml_subject_regex_needle); ?>"></td>
+		<td><input type="text" name="ml_subject_regex_needle" value="<?php htmlspecialchars($ml_subject_regex_needle); ?>" /></td>
 	</tr>
 
 	<tr>
@@ -205,12 +205,12 @@ function format_regex(&$regex)
 
 	<tr class="field">
 		<td>Replace mask:</td>
-		<td nowrap="nowrap">/<input type="text" name="ml_body_regex_haystack" value="<?php echo htmlspecialchars($ml_body_regex_haystack); ?>">/<input type="text" name="ml_body_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_body_regex_haystack_opt)); ?>"></td>
+		<td nowrap="nowrap">/<input type="text" name="ml_body_regex_haystack" value="<?php echo htmlspecialchars($ml_body_regex_haystack); ?>" />/<input type="text" name="ml_body_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_body_regex_haystack_opt)); ?>" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Replace with:</td>
-		<td><input type="text" name="ml_body_regex_needle" value="<?php echo htmlspecialchars($ml_body_regex_needle); ?>"></td>
+		<td><input type="text" name="ml_body_regex_needle" value="<?php echo htmlspecialchars($ml_body_regex_needle); ?>" /></td>
 	</tr>
 
 	<tr>
@@ -242,12 +242,12 @@ function format_regex(&$regex)
 
 	<tr class="fieldaction">
 		<td colspan="2" align="right">
-			<?php if ($edit) { echo '<input type="submit" value="Cancel" name="btn_cancel">&nbsp;'; } ?>
-			<input type="submit" value="<?php echo ($edit ? 'Update Mailing List Rule' : 'Add Mailing List Rule'); ?>" name="ml_submit">
+			<?php if ($edit) { echo '<input type="submit" value="Cancel" name="btn_cancel" />&nbsp;'; } ?>
+			<input type="submit" value="<?php echo ($edit ? 'Update Mailing List Rule' : 'Add Mailing List Rule'); ?>" name="ml_submit" />
 		</td>
 	</tr>
 </table>
-<input type="hidden" name="edit" value="<?php echo $edit; ?>">
+<input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 <br />
 <table class="resulttable fulltable">

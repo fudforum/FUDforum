@@ -6,30 +6,30 @@ TOPIC_HELP:
 <p>
 <b>这里是可以使用的FUD代码功能和一些简单的实例</b>
 
-<b>网址超链接</b><br><br>
+<b>网址超链接</b><br /><br />
 
-这个论坛可以自动识别网址超链接，比如：网址<br>
-	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br>
+这个论坛可以自动识别网址超链接，比如：网址<br />
+	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br />
 将被作为URL识别并指向正确的网址，其功能类似于：
-	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br>
+	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br />
 	
 	
 你自己可以用下面2种方法通过FUD代码创建URL超链接：一种是输入下列代码：
-	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br>
+	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br />
 其效果等同于：
-	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br>
-其次你还可以在<font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">My Homepage</font>[/URL]</b></font> 中使用不同的句法对你的URL进行描述，其效果如下：<br>
-	<div align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></div><br>
+	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br />
+其次你还可以在<font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">My Homepage</font>[/URL]</b></font> 中使用不同的句法对你的URL进行描述，其效果如下：<br />
+	<div align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></div><br />
 <p>
-<b>电子邮件超链接</b><br><br>
-         要创建电子邮件超链只需按照一般的方法输入电子邮件地址，比如：<br>
-<div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br>
-       论坛将自动识别并创建链接。此外还可以用下列方法创建电子邮件超链：<br>
-<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>点击这里给我们的技术支持发送电子邮件。<font color="#ff0000"><b>[/email]</b></font><br></div>
-<br>
-<b>Text Styling</b><br>
-         下面是可以编辑文本的代码标签：<br>
-<br>
+<b>电子邮件超链接</b><br /><br />
+         要创建电子邮件超链只需按照一般的方法输入电子邮件地址，比如：<br />
+<div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br />
+       论坛将自动识别并创建链接。此外还可以用下列方法创建电子邮件超链：<br />
+<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>点击这里给我们的技术支持发送电子邮件。<font color="#ff0000"><b>[/email]</b></font><br /></div>
+<br />
+<b>Text Styling</b><br />
+         下面是可以编辑文本的代码标签：<br />
+<br />
 <ul>
   <li><font color="#ff0000"><b>[b]</b></font>粗体<font color="#ff0000"><b>
          [/b]</b></font> 生成 <b>粗体</b> 文本</li>
@@ -42,7 +42,7 @@ TOPIC_HELP:
    <li><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>
           [/sup]</b></font> produces <sup>superscript</sup> text</li>
 </ul>
-         此外还可以选择颜色、外观、字体、字号等等.<br>
+         此外还可以选择颜色、外观、字体、字号等等.<br />
 <ul>
   <li><font color="#ff0000"><b>[color=red]</b></font>红色文本<font color="#ff0000"><b>
          [/color]</b></font> 生成 <font color="#ff0000">红色文本</font></li>
@@ -53,13 +53,13 @@ TOPIC_HELP:
         [/font]</b></font> 使用指定的<font face="Courier New, Courier, monospace">
         字体样式生成文件</font></li>
 </ul>
-        还可以同时使用不同的格式标签<br>
-<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>格式化文本<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
-       这个例子：<br>
+        还可以同时使用不同的格式标签<br />
+<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>格式化文本<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></div>
+       这个例子：<br />
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Formatted Text</b></i></u></font></div>
-<br>
-<br>
-<b>文本排列</b><br>
+<br />
+<br />
+<b>文本排列</b><br />
 FUD代码支持文本通过使用[align]标签以下列3种方式排列：
 <ul>
 	<li><font color="#ff0000"><b>[align=center]</b></font>文本居中<font color="#ff0000"><b>[/align]</b></font> produces：</li>
@@ -69,83 +69,83 @@ FUD代码支持文本通过使用[align]标签以下列3种方式排列：
 	<li><font color="#ff0000"><b>[align=right]</b></font>文本居右<font color="#ff0000"><b>[/align]</b></font> produces：</li>
 		<div align="right">文本居右</div>	
 </ul>
-<br>
-<br>
-<b>不同的查看方式</b><br>
-      你可以通过使用形式代码按不同的方式查看：<br>
-<br>
-      不规则的公告版方式：<br>
-<font color="#ff0000"><b>[list]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>第一条<br>
-<font color="#ff0000"><b>[*]</b></font>第二条<br>
-<font color="#ff0000"><b>[/list]<br>
-</b></font><br>
-      生成<br>
+<br />
+<br />
+<b>不同的查看方式</b><br />
+      你可以通过使用形式代码按不同的方式查看：<br />
+<br />
+      不规则的公告版方式：<br />
+<font color="#ff0000"><b>[list]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>第一条<br />
+<font color="#ff0000"><b>[*]</b></font>第二条<br />
+<font color="#ff0000"><b>[/list]<br />
+</b></font><br />
+      生成<br />
 <ul>
   <li>第一条</li>
   <li>第二条</li>
 </ul>
-      按照不同的排列方式可以生成按不同查看的帖子列表：<br>
-<font color="#ff0000"><b>[list type=1]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>第一条<br>
-<font color="#ff0000"><b>[*]</b></font>第二条<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
-     生成<br>
+      按照不同的排列方式可以生成按不同查看的帖子列表：<br />
+<font color="#ff0000"><b>[list type=1]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font>第一条<br />
+<font color="#ff0000"><b>[*]</b></font>第二条<br />
+<font color="#ff0000"><b>[/list]</b></font><br />
+     生成<br />
 <ol>
   <li>第一条</li>
-  <li>第二条<br>
+  <li>第二条<br />
   </li>
 </ol>
-     按A-Z的字母顺序排列：<br>
-<font color="#ff0000"><b>[list type=A]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font第一条<br>
-<font color="#ff0000"><b>[*]</b></font>第二条<br>
-<font color="#ff0000"><b>[/list]</b></font><br>
-<br>
-     生成：<br>
+     按A-Z的字母顺序排列：<br />
+<font color="#ff0000"><b>[list type=A]</b></font><br />
+<font color="#ff0000"><b>[*]</b></font第一条<br />
+<font color="#ff0000"><b>[*]</b></font>第二条<br />
+<font color="#ff0000"><b>[/list]</b></font><br />
+<br />
+     生成：<br />
 <ol type="a">
   <li>第一条</li>
   <li>第二条</li>
 </ol>
-<b>Adding Images</b><br>
+<b>Adding Images</b><br />
     使用<font color="#ff0000"><b>
-    [img][/img]</b></font> 标签，可以嵌入带有图片说明的图片。 <br>
-<br>
-    比如<br>
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http：//www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
-    将生成带有如下说明的图片：<br>
-<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br></div>
+    [img][/img]</b></font> 标签，可以嵌入带有图片说明的图片。 <br />
+<br />
+    比如<br />
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http：//www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
+    将生成带有如下说明的图片：<br />
+<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br /></div>
     此外，在下列标签
-<font color="#ff0000"><b>    [url][/url]</b></font>比如<br>
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
-    中加入图片链接，就能生成带链接的图片，如<br>
-<div align="Center"><a href="http：//www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br></div><br>
+<font color="#ff0000"><b>    [url][/url]</b></font>比如<br />
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+    中加入图片链接，就能生成带链接的图片，如<br />
+<div align="Center"><a href="http：//www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br /></div><br />
 
-<br><b>引用别的信息</b><br>
+<br /><b>引用别的信息</b><br />
   引用已经提交的信息，只需要加入下列标签：<font color="#ff0000"><b>[quote][/quote]</b></font> 
-<br>
-<div align="Center"><font color="#ff0000"><b>[quote]</b></font>你好，世界！<font color="#ff0000"><b>[/quote]</b></font><br></div>
-  将显示为：<br>
+<br />
+<div align="Center"><font color="#ff0000"><b>[quote]</b></font>你好，世界！<font color="#ff0000"><b>[/quote]</b></font><br /></div>
+  将显示为：<br />
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote：</b></td></tr><tr><td class="quote">你好，世界！<br></td></tr></table>
+<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote：</b></td></tr><tr><td class="quote">你好，世界！<br /></td></tr></table>
 <p>
-<b>计算机代码和前格式化文本</b><br>
- 该代码 <font color="#ff0000"><b>[code][/code]</b></font> 允许提交的文件保留相关的格式，比如制表符或者更多的空间。<br>
-<br>
- 具体用法是： <br>
+<b>计算机代码和前格式化文本</b><br />
+ 该代码 <font color="#ff0000"><b>[code][/code]</b></font> 允许提交的文件保留相关的格式，比如制表符或者更多的空间。<br />
+<br />
+ 具体用法是： <br />
 <font color="#ff0000"><b>[code]</b></font>
-<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre>
-<font color="#ff0000"><b>[/code]</b></font><br>
-<br>
+<pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /></pre>
+<font color="#ff0000"><b>[/code]</b></font><br />
+<br />
  保留了所有格式的文件，就像被打印的效果一样。
-<br>
-<br>
-<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
+<br />
+<br />
+<pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /><br /><br /></pre>
 <p>
-<b>PHP Code</b><br>
+<b>PHP Code</b><br />
 The <font color="#ff0000"><b>[php][/php]</b></font> tag allows you to post PHP scripts
-and have the forum automatically syntax highlight the code for easier readability.<br>
-<br>it used like this: <br>
+and have the forum automatically syntax highlight the code for easier readability.<br />
+<br />it used like this: <br />
 <font color="#ff0000"><b>[php]</b></font>
 <pre>
 function hello()
@@ -155,8 +155,8 @@ function hello()
 
 hello();
 </pre>
-<font color="#ff0000"><b>[/php]</b></font><br>
-<br>which produces:<br><br>
+<font color="#ff0000"><b>[/php]</b></font><br />
+<br />which produces:<br /><br />
 <code><font color="#000000">
 <font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
 
@@ -164,24 +164,24 @@ hello();
 </code>
 <p>
 
-<b>No Tag</b><br>
+<b>No Tag</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
 the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
 and not have them converted to equivalent HTML.
 <p>
 
-<b>Spoiler</b><br>
+<b>Spoiler</b><br />
 The <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> tag allows you to hide a portion of message
 from being displayed. To see the hidden portion the users must click a link that will display the 
 hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually 
-reloaded, instead a hidden layer is made visible.<br>
-<br>
-Here is an example of this tag in action: <br>
+reloaded, instead a hidden layer is made visible.<br />
+<br />
+Here is an example of this tag in action: <br />
 
 Visible part of the message
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br>Hidden part of the message</br>
-<font color="#ff0000"><b>[/spoiler]</b></font><br>
+<br />Hidden part of the message</br>
+<font color="#ff0000"><b>[/spoiler]</b></font><br />
 More visible text.
 
 <p>and the result:<p>
@@ -195,7 +195,7 @@ More visible text.
 <p>
 
 <p>
-<b>Acronym</b><br>
+<b>Acronym</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
 acronym and provide a full name when the user moves their mouse over the tag.
 <font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
@@ -207,14 +207,14 @@ acronym and provide a full name when the user moves their mouse over the tag.
 TOPIC_TITLE:<a name="sml">什么是表情符号？</a> 
 TOPIC_HELP:
 表情符号是一些小的按钮，你可以在你提交的文本中加入这些按钮表达你的不同的情绪和感受。
-如果开通了表情符号功能，那么在输入发言的文本框上方将出现论坛系统支持的一些表情符号。点击哪个符号就在你的文本输入这个表情符号。<br>
+如果开通了表情符号功能，那么在输入发言的文本框上方将出现论坛系统支持的一些表情符号。点击哪个符号就在你的文本输入这个表情符号。<br />
 一般的表情符号将被同样意义的图片代替。如果你不需要，点击
 <b>关闭表情符号</b> 前的方框即可。<p>
 
 TOPIC_TITLE: <a name="polls">如何使用调查？</a>
 TOPIC_HELP:
-在某些论坛，你在发帖时还能发起调查。在调查中，你可以问一个问题，并且提供一些供论坛成员选择的选项。为了保证选票的精确性，只有注册成员才能参与调查。<br>
-当你点击 <b>发起调查</b> 链接, 在页面出现的弹出框中输入可以生成包含多重选项的调查。当填完调查后，只需点击<b>编辑</b>按钮，你将回到发帖页面，刚刚生成的调查将和帖子一起提交<br>
+在某些论坛，你在发帖时还能发起调查。在调查中，你可以问一个问题，并且提供一些供论坛成员选择的选项。为了保证选票的精确性，只有注册成员才能参与调查。<br />
+当你点击 <b>发起调查</b> 链接, 在页面出现的弹出框中输入可以生成包含多重选项的调查。当填完调查后，只需点击<b>编辑</b>按钮，你将回到发帖页面，刚刚生成的调查将和帖子一起提交<br />
 你可以点击<b>编辑</b>链接编辑调查，或者点击<b>删除</b>链接，删除该调查。
 <p>
 一次调查你只有一次机会参与，因此请认真考虑再做决定，而且一旦填了答案将不能改变。
@@ -222,14 +222,14 @@ TOPIC_HELP:
 TOPIC_TITLE: <a name="attach">我能否在提交的信息中添加附件？</a>
 TOPIC_HELP:
 经过系统管理员允许后，你可以在发布信息或者发送“悄悄话”时添加一个或者多个附件。这个功能是在不同的论坛有不同的规定，所以当你在一个论坛有这个权限时并不意味着你在别的论坛也有此权限。
-<br>
+<br />
 对于添加附件，有下列3个规定：<p>
-<b>允许的文件类型</b> —— 能够作为附件添加的文件类型：ex. jpg, gif. png<br>
-<b>文件最大限制</b> ——允许添加的文件的最大限制<br>
+<b>允许的文件类型</b> —— 能够作为附件添加的文件类型：ex. jpg, gif. png<br />
+<b>文件最大限制</b> ——允许添加的文件的最大限制<br />
 <b>每条信息能够添加的文件数量限制</b>—— 你能够添加到你的发言中的最多的附件数
 <p>
 要添加附件，点击提交信息页面最下面的<b>浏览</b>按钮， 出现一个对话窗口要求从你的硬盘上查找需要上传的文件。选定一个文件，点击
-<b>上传文件</b>按钮，你就能把文件添加到你的信息当中。<br>
+<b>上传文件</b>按钮，你就能把文件添加到你的信息当中。<br />
 如果需要删除添加的附件，点击位于文件右侧的<b>删除</b>按钮即可。
 
 
@@ -239,8 +239,8 @@ TOPIC_HELP:
 
 TOPIC_TITLE: <a name="edit">我能否编辑提交的信息？</a>
 TOPIC_HELP:
-如果你是注册用户，你将可以编辑以前发布的信息，但是这是有时间限制的，即你可以编辑近期发布的信息，但是不能编辑很久以前发布的信息。<br>
-如果你编辑了一条信息，那么这条信息后面就会出现一段说明，表明这条信息被作者编辑过以及编辑的具体时间。<br>
+如果你是注册用户，你将可以编辑以前发布的信息，但是这是有时间限制的，即你可以编辑近期发布的信息，但是不能编辑很久以前发布的信息。<br />
+如果你编辑了一条信息，那么这条信息后面就会出现一段说明，表明这条信息被作者编辑过以及编辑的具体时间。<br />
 如果版主或者系统管理员已经编辑过你的信息，那么根据不同的论坛设置，你有可能能够看见相关关于此条信息被编辑过的说明文字，也有可能不能看见相关说明。
 
 TOPIC_TITLE: <a name="mod">什么是论坛版主和系统管理员？</a> 

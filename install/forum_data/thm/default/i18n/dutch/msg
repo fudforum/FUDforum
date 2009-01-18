@@ -254,8 +254,8 @@ finduser_action:		Actie
 yes:				Ja
 no:				Nee
 register_email:			Email
-edit_time_limit:		<br><b>Tijdslimiet aanpassen</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuten
-no_edit_time_limit:		<br><b>Tijdslimiet aanpassen</b>: <b>Onbeperkt</b>
+edit_time_limit:		<br /><b>Tijdslimiet aanpassen</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuten
+no_edit_time_limit:		<br /><b>Tijdslimiet aanpassen</b>: <b>Onbeperkt</b>
 pmuserloc_login:		login:
 pmuserloc_submit:		Verzend
 pmuserloc_user:			Lid
@@ -273,7 +273,7 @@ register_avatar_type:		Avatar type:
 register_del_avatar:		Verwijder Avatar
 register_avatar:		Avatar:
 register_sel_avatar:		Selecteer Avatar
-register_custom_avatar_rules:	De custam avatar zal niet verschijnen tot hij door de administrator is goedgekeurd.<br><font class="SmallText">de avatar, de avatar mag niet groter zijn dan <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> en moet een <b>jpg</b>, <b>gif</b> of <b>png</b> formaat zijn.</font>
+register_custom_avatar_rules:	De custam avatar zal niet verschijnen tot hij door de administrator is goedgekeurd.<br /><font class="SmallText">de avatar, de avatar mag niet groter zijn dan <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> en moet een <b>jpg</b>, <b>gif</b> of <b>png</b> formaat zijn.</font>
 register_custom_avatar_url:	Custom Avatar URL:
 register_preview:		Preview
 register_custom_avatar_upload:	Custom Avatar bestand:
@@ -406,7 +406,7 @@ login_cookie_expired:		Uw "cookie" is verlopen, en u moet opnieuw inloggen om uw
 login_perm_denied:		U heeft geen toegang tot de gevraagde gegevens als ongeregistreerd gebruiker, U moet inloggen om toegang te krijgen tot de gegevens.
 login_want_to_register:		Wilt u zich registreren?
 login_forgot_passwd:		wachtwoord vergeten
-login_use_cookie:		gebruik "cookies" <br><font class="SmallText">indien u gebruik maakt van een publieke terminal zoals een pc in een bib, school of Internet cafe is het aangeraden om deze optie uit te vinken voor meer veiligheid.<br>indien u deze optie geselecteerd laat staan wordt u automatisch ingelogd in het forum.
+login_use_cookie:		gebruik "cookies" <br /><font class="SmallText">indien u gebruik maakt van een publieke terminal zoals een pc in een bib, school of Internet cafe is het aangeraden om deze optie uit te vinken voor meer veiligheid.<br />indien u deze optie geselecteerd laat staan wordt u automatisch ingelogd in het forum.
 login_login:			Login
 login_login_btn:		Login
 login_name_required:		inlog naam is vereist
@@ -531,7 +531,7 @@ buddy_list_err_nouser_title:	Niet in staat om lid toe te voegen
 buddy_list_update:		Browsing in eigen &quot;buddy&quot; lijst
 core_err_invinp_title:		ongeldige invoer
 core_err_invinp_err:		U heeft een ongeldige link gevolgd, contacteert u AUB de<a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
-core_adm_login_msg:		<br>Administrators kunnen <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hier</a> inloggen
+core_adm_login_msg:		<br />Administrators kunnen <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hier</a> inloggen
 email_err_unabletoemail_title:	FOUT: niet in staat om te mailen
 email_err_unabletoemail_msg:	Het email systeem is uitgeschakeld door de administrator.
 email_error_unabletolocaddr:	Sorry, het systeem was niet in staat om {VAR-HTML: _POST['tx_name']} te mailen omdat het niet in staat was dit mail adres te vinden
@@ -571,9 +571,9 @@ post_err_edttimelimit_title:	FOUT
 post_err_edttimelimit_msg:	U kunt dit bericht niet langer wijzigen
 post_err_floodtrig_title:	FOUT: Post flood ingeschakeld.
 post_err_floodtrig_msg:		probeer opnieuw over {VAR: tm} seconden
-post_err_attach_size:		<font class="ErrorText">Bijlage is te groot (over toegelaten limiet van {VAR: MAX_F_SIZE} bytes)</font><br>
-post_err_attach_ext:		<font class="ErrorText">het bestand dat u tracht bij te voegen is van een bestandsformaat dat niet is toegestaan.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">U probeert meer bestanden toe te voegen dan is toegestaan.</font><br>
+post_err_attach_size:		<font class="ErrorText">Bijlage is te groot (over toegelaten limiet van {VAR: MAX_F_SIZE} bytes)</font><br />
+post_err_attach_ext:		<font class="ErrorText">het bestand dat u tracht bij te voegen is van een bestandsformaat dat niet is toegestaan.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">U probeert meer bestanden toe te voegen dan is toegestaan.</font><br />
 post_err_passwd:		ongeldig wachtwoord.
 post_reply_update:		Antwoorden op <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		nieuw topic schrijven in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -588,7 +588,7 @@ postcheck_invalid_email:	Vul een geldig email adres in van uw vriend.
 postcheck_email_subject:	U kan geen email versturen zonder een onderwerp.
 postcheck_email_body:		U kan geen email versturen zonder bericht.
 private_msg_notify_subj:	Lees Notificatie voor: {VAR: m->subject}
-private_msg_notify_body:	Hallo,<br>{VAR: usr->login} heeft uw privé bericht, "{VAR: m->subject}", gelezen op {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Hallo,<br />{VAR: usr->login} heeft uw privé bericht, "{VAR: m->subject}", gelezen op {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Browsing door verwijzingen
 register_err_short_login:	De login die u heeft geselecteer is te kort. De login moet op zijn minst 4 karakters lang zijn
 register_err_login_notallowed:	Deze login is niet toegelaten
@@ -619,7 +619,7 @@ reset_err_rstconf_title:	Informatie
 reset_err_rstconf_msg:		U zou binnen enkele minuten instructies moeten ontvangen in uw mailbox 
 reset_newpass_title:		Reset wachtwoord
 reset_newpass_msg:		Hallo,\n\n uw inlog naam word naar u verzonden.\nHier is uw inlog informatie:\n\nLogin: {VAR: ui[1]}\nwachtwoord: {VAR: passwd}\n\nOpgelet, uw wachtwoord is gereset naar de bovenstaande waarde, indien u wenst\n uw wachtwoord te veranderen mag u dit doen via het lid info controle paneel op:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Uw wachtwoord is door gemaild naar u. U zou het moeten ontvangen binnen enkele minuten. Controleer uw mailbox voor uw wachtwoord en login.<br>
+reset_login_notify:		Uw wachtwoord is door gemaild naar u. U zou het moeten ontvangen binnen enkele minuten. Controleer uw mailbox voor uw wachtwoord en login.<br />
 search_update:			Zoeken van posts
 selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Posts van vandaag</a>
 showposts_update:		Bekijk posts van: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -634,7 +634,7 @@ ERR_access_msg:			u heeft niet de vereiste toegang om deze handeling uit te voer
 ERR_registration_disabled_ttl:	Registratie uitgeschakeld
 ERR_registration_disabled_msg:	De administrator heeft de registratie uitgeschakeld, probeer later opnieuw
 ERR_emailconf_ttl:		FOUT: U lidmaatschap is nog niet bevestigd
-ERR_emailconf_msg:		U heeft uw account nog niet bevestigd via email<br><table border=0><tr><td><ol><li>Indien u geen bevestigings&shy;email  ontvangen heeft<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik hier</a><li>If {VAR: usr_d->email} is niet jouw correcte email adres <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klik hier</a></ol></td></tr></table>
+ERR_emailconf_msg:		U heeft uw account nog niet bevestigd via email<br /><table border=0><tr><td><ol><li>Indien u geen bevestigings&shy;email  ontvangen heeft<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik hier</a><li>If {VAR: usr_d->email} is niet jouw correcte email adres <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klik hier</a></ol></td></tr></table>
 ERR_user_ttl:			FOUT: onbekend lid
 ERR_user_msg:			dit is een onbekend lid
 ERR_systemerr_ttl:		FOUT: SYSTEEMFOUT
@@ -731,7 +731,7 @@ post_quote:			Quote:
 userinfo_referals:		gerefereerde leden:
 userinfo_referals_count:	{VAR: referals} leden
 pm_no_space_title:		Geen plaats meer!
-pm_no_space_msg:		Uw privé bericht overschreidt de toegelaten opslagcapaciteit van <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, terwijl ze momenteel <b>{VAR: fldr_size} bytes</b> bevatten aan inhoud.<br><br><font class="ErrorText">Verwijder enkele oudere berichten voor wat meer plaats</font>.
+pm_no_space_msg:		Uw privé bericht overschreidt de toegelaten opslagcapaciteit van <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, terwijl ze momenteel <b>{VAR: fldr_size} bytes</b> bevatten aan inhoud.<br /><br /><font class="ErrorText">Verwijder enkele oudere berichten voor wat meer plaats</font>.
 pm_space_indct_msg:		Uw PM folders zijn {VAR: percent_full}% vol.
 th_expr_never:			Nooit
 th_expr_one_hr:			1 uur
@@ -853,7 +853,7 @@ register_affero:		Affero Gebruikersnam:<br /><font class="SmallText">als u een  
 im_affero:			Affero Gebruikersnaam
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
 register_password:		Password:
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 submit_reply:			Vestuur antwoord
 post_all_ext_allowed:		(unrestricted)
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.

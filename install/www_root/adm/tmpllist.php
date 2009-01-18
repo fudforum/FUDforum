@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.48 2009/01/17 09:23:52 frank Exp $
+* $Id: tmpllist.php,v 1.49 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -158,7 +158,7 @@ function goto_tmpl($tmpl)
 			$p = $e;
 		}
 		if (isset($msg_list)) {
-			$msg_list = ' <font size="-1">[ <a href="#" onClick="javascript: window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsid.'&NO_TREE_LIST=1&msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
+			$msg_list = ' <font size="-1">[ <a href="#" onclick="javascript: window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsid.'&NO_TREE_LIST=1&msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
 		}
 	}
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
@@ -356,14 +356,14 @@ function goto_tmpl($tmpl)
 	</td>
 </tr>
 <tr>
-	<td align="right"><input type="reset" name="reset" value="Undo Changes">&nbsp;&nbsp;&nbsp;<input type="Submit" name="Submit" value="Save Changes"></td>
+	<td align="right"><input type="reset" name="reset" value="Undo Changes" />&nbsp;&nbsp;&nbsp;<input type="Submit" name="Submit" value="Save Changes" /></td>
     <td>
-		<input type="hidden" name="msec" value="<?php echo $msec; ?>">
-		<input type="hidden" name="max_list" value="<?php echo $max_list; ?>">
-		<input type="hidden" name="sec" value="<?php echo $sec; ?>">
-		<input type="hidden" name="submitted" value="1">
-		<input type="hidden" name="edit" value="1">
-		<input type="hidden" name="fl" value="<?php echo $fl; ?>">
+		<input type="hidden" name="msec" value="<?php echo $msec; ?>" />
+		<input type="hidden" name="max_list" value="<?php echo $max_list; ?>" />
+		<input type="hidden" name="sec" value="<?php echo $sec; ?>" />
+		<input type="hidden" name="submitted" value="1" />
+		<input type="hidden" name="edit" value="1" />
+		<input type="hidden" name="fl" value="<?php echo $fl; ?>" />
 	</td>
 </tr>
 </table>

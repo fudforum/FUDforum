@@ -37,7 +37,7 @@ home:				Начало
 homepage:			Домашняя страница, сайт:
 icq_control_panel:		Панель присутствия в сети ICQ
 icq_message_form:		Послать сообщение на ICQ
-ignore_user:			игнорировать все сообщения<br>от этого пользователя
+ignore_user:			игнорировать все сообщения<br />от этого пользователя
 im_aim:				Сеть AIM:
 im_msnm:			Сеть MSN:
 im_yahoo:			Сеть Yahoo:
@@ -251,8 +251,8 @@ finduser_joindate:		Дата подключения
 finduser_action:		Действие
 yes:				Да
 no:				Нет
-edit_time_limit:		<br><b>Период возможности редактирования</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> мин.
-no_edit_time_limit:		<br><b>Период возможности редактирования</b>: <b>Неограничено</b>
+edit_time_limit:		<br /><b>Период возможности редактирования</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> мин.
+no_edit_time_limit:		<br /><b>Период возможности редактирования</b>: <b>Неограничено</b>
 pmuserloc_login:		Имя:
 pmuserloc_submit:		Найти
 pmuserloc_user:			Пользователь
@@ -271,7 +271,7 @@ register_avatar_type:		Тип персональной картинки:
 register_del_avatar:		Удалить картинку
 register_avatar:		Персональная картинка:
 register_sel_avatar:		Выбрать картинку
-register_custom_avatar_rules:	Внешняя картинка не появится в ваших данных, пока не будет утверждена администратором форума.<br><font class="SmallText">Размер картинки не должен превышать <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} точек</b> и должна быть в формате <b>jpg</b>, <b>gif</b> или <b>png</b>.</font>
+register_custom_avatar_rules:	Внешняя картинка не появится в ваших данных, пока не будет утверждена администратором форума.<br /><font class="SmallText">Размер картинки не должен превышать <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} точек</b> и должна быть в формате <b>jpg</b>, <b>gif</b> или <b>png</b>.</font>
 register_custom_avatar_url:	URL картинки:
 register_preview:		Предварительный просмотр
 register_custom_avatar_upload:	Файл с картинкой:
@@ -290,7 +290,7 @@ register_yahoo:			Сеть сообщений Yahoo:
 register_msnm:			Сеть сообщений MSN:
 register_homepage:		Домашняя страница или сайт:
 register_bday:			Дата рождения:
-register_bday_desc:		При указании вами даты вашего рождения остальные пользователи<br>смогут ее увидеть при просмотре ваших данных
+register_bday_desc:		При указании вами даты вашего рождения остальные пользователи<br />смогут ее увидеть при просмотре ваших данных
 register_day:			День
 register_month:			Месяц
 register_year:			Год
@@ -405,7 +405,7 @@ login_cookie_expired:		Истекло время действия переменных cookie вашего браузера,
 login_perm_denied:		У вас нет прав доступа к затребованному ресурсу в качестве анонимного пользователя, и вы должны войти с использованием имени пользователя и пароля.
 login_want_to_register:		Хотите зарегистрироваться?
 login_forgot_passwd:		Я забыл пароль
-login_use_cookie:		Использовать переменные cookies<br><font class="SmallText">Если вы используете для работы общедоступный терминал, как например компьютер в школе, библиотеке или интернет-кафе, рекомендуется снять эту отметку и выключить cookies в целях безопасности.<br>Если же вы оставите cookies включенными, при следующем посещении форума произойдет автоматический вход без использования пароля.
+login_use_cookie:		Использовать переменные cookies<br /><font class="SmallText">Если вы используете для работы общедоступный терминал, как например компьютер в школе, библиотеке или интернет-кафе, рекомендуется снять эту отметку и выключить cookies в целях безопасности.<br />Если же вы оставите cookies включенными, при следующем посещении форума произойдет автоматический вход без использования пароля.
 login_login:			Имя пользователя
 login_login_btn:		Вход
 login_name_required:		Не указано имя пользователя
@@ -514,7 +514,7 @@ tabs_ignore_list:		Список игнорируемых
 tabs_private_messaging:		Личная почта
 single_msg_delete:		<font color="#ff0000" size="4">УДАЛЕНИЕ</font> сообщения на тему <b>{VAR: data[3]}</b><p>
 thread_delete:			<font color="#ff0000" size="4">ПОЛНОЕ УДАЛЕНИЕ</font> темы: <b>{VAR: data[3]}</b><p>
-delete_proceed:			<font size="3"><b>Вы действительно хотите продолжить?</b><br></font>
+delete_proceed:			<font size="3"><b>Вы действительно хотите продолжить?</b><br /></font>
 delete_yes:			Да
 delete_no:			Нет
 error_invalidurl:		Недопустимый URL
@@ -530,7 +530,7 @@ buddy_list_err_nouser_title:	Невозможно добавить пользователя
 buddy_list_update:		Просмотр списка контактов
 core_err_invinp_title:		Недопустимый ввод
 core_err_invinp_err:		Вы попали на эту страницу по ошибочной ссылке, известите об этом <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>&#39;а
-core_adm_login_msg:		<br>Администраторы могут войти <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">здесь</a>
+core_adm_login_msg:		<br />Администраторы могут войти <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">здесь</a>
 email_err_unabletoemail_title:	ОШИБКА: Невозможно отправить электронное сообщение
 email_err_unabletoemail_msg:	Система отправки e-mail была выключена администратором.
 email_error_unabletolocaddr:	Извините, отправка e-mail-сообщения {VAR: usr_dst->alias} невозможно, так как неизвестен его адрес email
@@ -569,9 +569,9 @@ post_err_edttimelimit_title:	ОШИБКА
 post_err_edttimelimit_msg:	Вы более не можете редактировать данное сообщение
 post_err_floodtrig_title:	ОШИБКА: Обнаружен флуд - массовая отправка.
 post_err_floodtrig_msg:		Пожалуйста повторите попытку через {VAR: tm} секунд
-post_err_attach_size:		<font class="ErrorText">Файл слишком велик (превышает установленный предел в {VAR: MAX_F_SIZE} байт)</font><br>
-post_err_attach_ext:		<font class="ErrorText">Загружаемый файл не принадлежит к одному из допустимых типов.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Вы пытаетесь загрузить большее допустимого количество файлов.</font><br>
+post_err_attach_size:		<font class="ErrorText">Файл слишком велик (превышает установленный предел в {VAR: MAX_F_SIZE} байт)</font><br />
+post_err_attach_ext:		<font class="ErrorText">Загружаемый файл не принадлежит к одному из допустимых типов.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Вы пытаетесь загрузить большее допустимого количество файлов.</font><br />
 post_err_passwd:		Неверный пароль.
 post_reply_update:		Ответ на сообщение <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> в форуме {VAR-HTML: frm->name}
 post_topic_update:		Создание новой темы в форуме <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -586,7 +586,7 @@ postcheck_invalid_email:	Пожалуйста введите правильный адрес e-mail.
 postcheck_email_subject:	Невозможно послать сообщение если не указана тема.
 postcheck_email_body:		Невозможно послать сообщение если текст сообщения отсутствует.
 private_msg_notify_subj:	Чтение извещения о: {VAR: m->subject}
-private_msg_notify_body:	Привет,<br>{VAR: usr->login} прочел ваше личное сообщение, "{VAR: m->subject}", от {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Привет,<br />{VAR: usr->login} прочел ваше личное сообщение, "{VAR: m->subject}", от {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Просмотр приглашенных
 register_err_short_login:	Выбрано слишком короткое имя пользователя. Минимальная длина имени - 4 символа
 register_err_login_notallowed:	Недопустимое имя пользователя
@@ -617,7 +617,7 @@ reset_err_rstconf_title:	Информация
 reset_err_rstconf_msg:		Вы получите инструкции на ваш адрес e-mail в течение следующий нескольких минут
 reset_newpass_title:		Сброс пароля
 reset_newpass_msg:		Привет,\n\nПо вашему запросу вам были отправлены имя пользователя и пароль.\nНиже приведена информация о вашей регистрации:\n\nИмя пользователя: {VAR: ui[1]}\nПароль: {VAR: passwd}\n\nИмейте ввиду что ваш старый пароль был изменен на приведенный выше, и если\nвы хотите его сменить, то можете сделать это в панели управления по адресу:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Ваш пароль был отправлен вам на e-mail, и вы сможете получить его через несколько минут. Пожалуйста проверьте ваш почтовый ящик..<br>.<br>.<br>
+reset_login_notify:		Ваш пароль был отправлен вам на e-mail, и вы сможете получить его через несколько минут. Пожалуйста проверьте ваш почтовый ящик..<br />.<br />.<br />
 search_update:			Поиск сообщений
 selmsg_update:			Просмотр <a href="{TEMPLATE: selmsg_update_lnk}">сегодняшних сообщений</a>
 showposts_update:		Просмотр всех сообщений от <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -632,7 +632,7 @@ ERR_access_msg:			Ваш уровень доступа недостаточен для выполнения затребованной 
 ERR_registration_disabled_ttl:	Регистрация отключена
 ERR_registration_disabled_msg:	Администратор запретил регистрацию пользователей, попробуйте еще раз через некоторое время
 ERR_emailconf_ttl:		ОШИБКА: Ваша регистрация не была подтверждена
-ERR_emailconf_msg:		Вы пока не подтвердили свою регистрацию по e-mail<br><table border=0><tr><td><ol><li>Если вы не получили e-mail о подтверждении вашей регистрации - <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">нажмите здесь</a><li>Если {VAR: usr_d->email} не является вашим адресом e-mail - <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">нажмите здесь</a></ol></td></tr></table>
+ERR_emailconf_msg:		Вы пока не подтвердили свою регистрацию по e-mail<br /><table border=0><tr><td><ol><li>Если вы не получили e-mail о подтверждении вашей регистрации - <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">нажмите здесь</a><li>Если {VAR: usr_d->email} не является вашим адресом e-mail - <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">нажмите здесь</a></ol></td></tr></table>
 ERR_user_ttl:			ОШИБКА: Несуществующий пользователь
 ERR_user_msg:			Такой пользователь не существует
 ERR_systemerr_ttl:		ОШИБКА: Системная ошибка
@@ -729,7 +729,7 @@ post_quote:			Цитата:
 userinfo_referals:		Приглашенные:
 userinfo_referals_count:	{VAR: referals} пользователей
 pm_no_space_title:		Недостаточно свободного пространства!
-pm_no_space_msg:		Размер папок с вашими личными сообщениями превышает установленный предел в <b>{GVAR: MAX_PMSG_FLDR_SIZE} байт</b> и составляет <b>{VAR: fldr_size} байт</b>.<br><br><font class="ErrorText">Удалите часть старых сообщений для высвобождения свободного пространства</font>.
+pm_no_space_msg:		Размер папок с вашими личными сообщениями превышает установленный предел в <b>{GVAR: MAX_PMSG_FLDR_SIZE} байт</b> и составляет <b>{VAR: fldr_size} байт</b>.<br /><br /><font class="ErrorText">Удалите часть старых сообщений для высвобождения свободного пространства</font>.
 pm_space_indct_msg:		Ваши личные папки заполнены на {VAR: percent_full}%.
 th_expr_never:			Никогда
 th_expr_one_hr:			1 Час
@@ -854,7 +854,7 @@ register_affero:		Имя в системе Affero:<br /><font class="SmallText">Если у вас 
 im_affero:			Имя в системе Affero
 register_err_avatardimtobig:	Размер картинки <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> превышает максимально разрешенный, который составляет <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Загружено {VAR: r->dlcount} раз
-member_search:			<br>Или используйте возможность <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Поиска</a> для нахождения нужного пользователя.
+member_search:			<br />Или используйте возможность <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Поиска</a> для нахождения нужного пользователя.
 post_all_ext_allowed:		(нет ограничений)
 buddy_offline:			{VAR: r[2]} сейчас не в онлайне
 buddy_online:			{VAR: r[2]} сейчас в онлайне

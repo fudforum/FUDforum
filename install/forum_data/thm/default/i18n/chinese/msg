@@ -250,8 +250,8 @@ finduser_joindate:		注册日期
 finduser_action:		           操作
 yes:				是
 no:				否
-edit_time_limit:		<br><b>编辑时间限制为</b>：<b>{GVAR: EDIT_TIME_LIMIT}</b> 分钟
-no_edit_time_limit:		<br><b>编辑时间限制</b>：<b>不限</b>
+edit_time_limit:		<br /><b>编辑时间限制为</b>：<b>{GVAR: EDIT_TIME_LIMIT}</b> 分钟
+no_edit_time_limit:		<br /><b>编辑时间限制</b>：<b>不限</b>
 pmuserloc_login:		           登录：
 pmuserloc_submit:		提交
 pmuserloc_user:			用户
@@ -270,7 +270,7 @@ register_avatar_type:		头像类型：
 register_del_avatar:		删除头像
 register_avatar:		           头像：
 register_sel_avatar:		选择头像
-register_custom_avatar_rules:	只有经过系统管理员允许后，才能出现定制的头像。<br><font class="SmallText">头像不能大于<b>{GVAR: CUSTOM_AVATAR_MAX_DIM} 像素</b> 具体大小是<b>jpg</b>, <b>gif</b> or <b>png</b> </font>
+register_custom_avatar_rules:	只有经过系统管理员允许后，才能出现定制的头像。<br /><font class="SmallText">头像不能大于<b>{GVAR: CUSTOM_AVATAR_MAX_DIM} 像素</b> 具体大小是<b>jpg</b>, <b>gif</b> or <b>png</b> </font>
 register_custom_avatar_url:	定制头像地址：
 register_preview:		预览
 register_custom_avatar_upload:	定制头像文件：
@@ -404,7 +404,7 @@ login_cookie_expired:		你的cookie功能被终止了。需要登录重新开启
 login_perm_denied:		作为匿名用户，只有登录以后才有权限访问相关资源。
 login_want_to_register:		先注册?
 login_forgot_passwd:		密码忘了
-login_use_cookie:		使用cookies功能<br><font class="SmallText">如果你是在学校、图书馆、网吧等公共场合使用计算机，为安全起见，建议你不要使用这个功能。
+login_use_cookie:		使用cookies功能<br /><font class="SmallText">如果你是在学校、图书馆、网吧等公共场合使用计算机，为安全起见，建议你不要使用这个功能。
 login_login:			登录
 login_login_btn:		           登录
 login_name_required:		登录时必须输入账号
@@ -529,7 +529,7 @@ buddy_list_err_nouser_title:	无法添加
 buddy_list_update:		浏览我的好友列表
 core_err_invinp_title:		输入错误
 core_err_invinp_err:		你输入了一个错误的链接，请更正
-core_adm_login_msg:		<br><a href="adm/admloginuser.php">管理员登陆</a>
+core_adm_login_msg:		<br /><a href="adm/admloginuser.php">管理员登陆</a>
 email_err_unabletoemail_title:	错误：无法发送邮件
 email_err_unabletoemail_msg:	系统管理员设置邮件系统无法使用。
 email_error_unabletolocaddr:	对不起，因为无法登录对方的邮件服务器导致系统无法发送邮件{VAR-HTML: _POST['tx_name']}
@@ -568,9 +568,9 @@ post_err_edttimelimit_title:	错误
 post_err_edttimelimit_msg:	你不能再编辑这条信息
 post_err_floodtrig_title:	           错误：发布灌水帖子
 post_err_floodtrig_msg:		请在{VAR: tm}秒以内重试
-post_err_attach_size:		<font class="ErrorText">附件文件太大（超过了允许的最大{VAR: MAX_F_SIZE}字节)</font><br>
-post_err_attach_ext:		<font class="ErrorText">你正在上传的文件类型不符合论坛对上传文件类型的设置。</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">你正在上传的文件超过了限制的数量。</font><br>
+post_err_attach_size:		<font class="ErrorText">附件文件太大（超过了允许的最大{VAR: MAX_F_SIZE}字节)</font><br />
+post_err_attach_ext:		<font class="ErrorText">你正在上传的文件类型不符合论坛对上传文件类型的设置。</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">你正在上传的文件超过了限制的数量。</font><br />
 post_err_passwd:		密码错误。
 post_reply_update:		回复 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> 在 {VAR-HTML: frm->name}
 post_topic_update:		发表新主题 <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -585,7 +585,7 @@ postcheck_invalid_email:	           请输入你的朋友的正确电子邮箱�
 postcheck_email_subject:	如果不输入主题，你将无法发送邮件。
 postcheck_email_body:		如果没有内容，你将无法发送邮件。
 private_msg_notify_subj:	读取通知：{VAR: m->subject}
-private_msg_notify_body:	你好，<br>{VAR: usr->login} 用户已经阅读了你的悄悄话， "{VAR: m->subject}"，在 {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br>
+private_msg_notify_body:	你好，<br />{VAR: usr->login} 用户已经阅读了你的悄悄话， "{VAR: m->subject}"，在 {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br />
 referals_update:	             	浏览被推荐者
 register_err_short_login:	           你输入的账号太短，必须至少包括4个字符。
 register_err_login_notallowed:	不能使用这个账号注册。
@@ -616,7 +616,7 @@ reset_err_rstconf_title:	信息
 reset_err_rstconf_msg:		一会你将通过邮件收到相关说明。
 reset_newpass_title:		重新输入密码
 reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息：\n\n账号：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n注意：你的密码已经被改为上面的值字符组合，如果你想\n修改密码，请在个人信息中修改：\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		一会儿，你将通过邮件收到密码。请检查你的密码并登录。.<br>.<br>.<br>
+reset_login_notify:		一会儿，你将通过邮件收到密码。请检查你的密码并登录。.<br />.<br />.<br />
 search_update:			搜索
 selmsg_update:			浏览 <a href="{TEMPLATE: selmsg_update_lnk}">今天发布的主题</a>
 showposts_update:		查看用户 <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>发布的主题
@@ -631,7 +631,7 @@ ERR_access_msg:		你没有权利进行此项操作
 ERR_registration_disabled_ttl:	注册失败
 ERR_registration_disabled_msg:	注册功能被系统管理员禁止，请重试！
 ERR_emailconf_ttl:		错误：此账号无效
-ERR_emailconf_msg:		你注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">请点击这里</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">请点击这里</a></ol></td></tr></table>
+ERR_emailconf_msg:		你注册的账号尚未进行邮件确认<br /><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">请点击这里</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">请点击这里</a></ol></td></tr></table>
 ERR_user_ttl:			错误：没有这个用户
 ERR_user_msg:			没有这个用户
 ERR_systemerr_ttl:		系统错误
@@ -728,7 +728,7 @@ post_quote:			引用：
 userinfo_referals:		被推荐的用户：
 userinfo_referals_count:	{VAR: referals} 成员：
 pm_no_space_title:		空间不够
-pm_no_space_msg:		你的悄悄话文件夹已经超出了系统限制的空间范围 <b>{GVAR: MAX_PMSG_FLDR_SIZE} 字节</b>，其中包括 <b>{VAR: fldr_size} 字节的</b> 有用信息，<br><br><font class="ErrorText">请删除一些旧信息以腾出空间</font>。
+pm_no_space_msg:		你的悄悄话文件夹已经超出了系统限制的空间范围 <b>{GVAR: MAX_PMSG_FLDR_SIZE} 字节</b>，其中包括 <b>{VAR: fldr_size} 字节的</b> 有用信息，<br /><br /><font class="ErrorText">请删除一些旧信息以腾出空间</font>。
 pm_space_indct_msg:		你的悄悄话信箱已占用{VAR: percent_full}%空间。
 th_expr_never:			从不
 th_expr_one_hr:			1个小时
@@ -854,7 +854,7 @@ register_affero:		Affero用户名：<br /><font class="SmallText">如果你有<a
 im_affero:			Affero用户名
 register_err_avatardimtobig:	头像大小 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> 超出了论坛限制的： <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:	下载了 {VAR: r->dlcount} 次
-member_search:			<br>或者使用 <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">用户查找</a> 功能来找人。
+member_search:			<br />或者使用 <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">用户查找</a> 功能来找人。
 post_all_ext_allowed:		（没有限制）
 buddy_offline:			{VAR: r[2]} 当前不在线
 buddy_online:			{VAR: r[2]} 当前在线

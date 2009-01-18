@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admpdf.php,v 1.20 2009/01/17 09:23:52 frank Exp $
+* $Id: admpdf.php,v 1.21 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -76,7 +76,7 @@
 	print_reg_field('Vertical Margin', 'PDF_HMARGIN', 1);
 	print_reg_field('Maximum CPU Time', 'PDF_MAX_CPU', 1);
 ?>
-<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Change Settings"><input type="hidden" name="form_posted" value="1"></td></tr>
+<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Change Settings" /><input type="hidden" name="form_posted" value="1" /></td></tr>
 </table>
 </form>
 <br />

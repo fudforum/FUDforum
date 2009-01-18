@@ -251,8 +251,8 @@ finduser_joindate:		s&#39;est inscrit le
 finduser_action:		Action
 yes:				Oui
 no:				Non
-edit_time_limit:		<br><b>Temps maximum alloué pour l&#39;édition</b> : <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
-no_edit_time_limit:		<br><b>Temps maximum alloué pour l&#39;édition</b> : <b>Illimité</b>
+edit_time_limit:		<br /><b>Temps maximum alloué pour l&#39;édition</b> : <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
+no_edit_time_limit:		<br /><b>Temps maximum alloué pour l&#39;édition</b> : <b>Illimité</b>
 pmuserloc_login:		Utilisateur :
 pmuserloc_submit:		Soumettre
 pmuserloc_user:			Utilisateur
@@ -271,7 +271,7 @@ register_avatar_type:		Type d&#39;avatar :
 register_del_avatar:		Effacer l&#39;avatar
 register_avatar:		Avatar :
 register_sel_avatar:		Sélectionner un avatar
-register_custom_avatar_rules:	Les avatars personnels n&#39;apparaissent qu&#39;après leur approbation par l&#39;administrateur.<br><font class="SmallText"> L&#39;avatar doit faire moins de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> et doit être dans l&#39;un des formats suivants: <b>jpg</b>, <b>gif</b> ou <b>png</b>.</font>
+register_custom_avatar_rules:	Les avatars personnels n&#39;apparaissent qu&#39;après leur approbation par l&#39;administrateur.<br /><font class="SmallText"> L&#39;avatar doit faire moins de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> et doit être dans l&#39;un des formats suivants: <b>jpg</b>, <b>gif</b> ou <b>png</b>.</font>
 register_custom_avatar_url:	URL de l&#39;avatar personnel :
 register_preview:		Prévisualisation
 register_custom_avatar_upload:	Ficher correspondant à l&#39;avatar personnel:
@@ -323,7 +323,7 @@ buddy_status:			État
 my_buddies:			Mes amis
 add_buddy:			Ajouter un ami
 add:				Ajouter
-buddy_search:			Entrez le nom de l&#39;utilisateur que vous souhaitez ajouter à votre liste,<br>ou utilisez la fonctionnalité <a href="javascript://" onClick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">chercher un utilisateur</a> pour trouver cette personne.
+buddy_search:			Entrez le nom de l&#39;utilisateur que vous souhaitez ajouter à votre liste,<br />ou utilisez la fonctionnalité <a href="javascript://" onClick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">chercher un utilisateur</a> pour trouver cette personne.
 buddy_remove:			Enlever de ma liste d&#39;amis
 post_normal:			Normal
 post_sticky:			Épinglé
@@ -405,7 +405,7 @@ login_cookie_expired:		Votre cookie a expiré et vous devez vous connecter à nouv
 login_perm_denied:		Vous n&#39;avez pas la permission d&#39;accéder à la ressource que vous désirez en tant qu&#39;utilisateur anonyme, et vous devez vous connecter (en plus de vous inscrire si ce n&#39;est pas encore fait) afin d&#39;y accéder.
 login_want_to_register:		Voulez-vous vous inscrire ?
 login_forgot_passwd:		J&#39;ai oublié mon mot de passe
-login_use_cookie:		Utiliser un cookie<br><font class="SmallText">Si vous utilisez un ordinateur dans un lieu public tel qu&#39;une bibliothèque, une école ou un cybercafé, il est recommandé de désactiver cette option pour des raisons de sécurité.<br>Si vous laissez cette option activée, vous serez automatiquement connecté au forum lorsque vous reviendrez.
+login_use_cookie:		Utiliser un cookie<br /><font class="SmallText">Si vous utilisez un ordinateur dans un lieu public tel qu&#39;une bibliothèque, une école ou un cybercafé, il est recommandé de désactiver cette option pour des raisons de sécurité.<br />Si vous laissez cette option activée, vous serez automatiquement connecté au forum lorsque vous reviendrez.
 login_login:			Utilisateur
 login_login_btn:		Connexion
 login_name_required:		Veuillez saisir votre nom d&#39;utilisateur
@@ -530,7 +530,7 @@ buddy_list_err_nouser_title:	Impossible d&#39;ajouter un utilisateur
 buddy_list_update:		Parcourir ma liste d&#39;amis
 core_err_invinp_title:		Entrée invalide
 core_err_invinp_err:		Vous avez suivi un lien invalide, veuillez en avertir l&#39;<a href="mailto:{GVAR: ADMIN_EMAIL}">administrateur</a>
-core_adm_login_msg:		<br>Les administrateurs peuvent se connecter <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ici</a>
+core_adm_login_msg:		<br />Les administrateurs peuvent se connecter <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ici</a>
 email_err_unabletoemail_title:	ERREUR : Impossible d&#39;envoyer des e-mails
 email_err_unabletoemail_msg:	La fonctionnalité e-mail a été désactivée par l&#39;administrateur.
 email_error_unabletolocaddr:	Désolé, le système n&#39;a pas été en mesure d&#39;envoyer l&#39;e-mail à {VAR-HTML: _POST['tx_name']} car il n&#39;a pas trouvé son adresse e-mail dans le système
@@ -569,9 +569,9 @@ post_err_edttimelimit_title:	ERREUR
 post_err_edttimelimit_msg:	Vous n&#39;avez plus la possibilité de modifier ce message
 post_err_floodtrig_title:	ERREUR : Tentative d&#39;inondation détectée
 post_err_floodtrig_msg:		Veuillez essayer à nouveau dans {VAR: tm} secondes
-post_err_attach_size:		<font class="ErrorText">Le fichier que vous voulez attacher est trop gros (la taille limite autorisée est {VAR: MAX_F_SIZE} octets)</font>.<br>
-post_err_attach_ext:		<font class="ErrorText">Le fichier que vous voulez attacher n&#39;est pas d&#39;un type autorisé.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Vous avez atteint la limite du nombre de fichiers accordée pour un message, ce fichier ne peut être attaché.</font><br>
+post_err_attach_size:		<font class="ErrorText">Le fichier que vous voulez attacher est trop gros (la taille limite autorisée est {VAR: MAX_F_SIZE} octets)</font>.<br />
+post_err_attach_ext:		<font class="ErrorText">Le fichier que vous voulez attacher n&#39;est pas d&#39;un type autorisé.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Vous avez atteint la limite du nombre de fichiers accordée pour un message, ce fichier ne peut être attaché.</font><br />
 post_err_passwd:		Mot de passe incorrect.
 post_reply_update:		Répond à <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> dans {VAR: frm->name}
 post_topic_update:		Écrit un nouveau sujet dans <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
@@ -586,7 +586,7 @@ postcheck_invalid_email:	Veuillez saisir une adresse e-mail valide pour votre co
 postcheck_email_subject:	Vous ne pouvez pas envoyer d&#39;e-mail sans sujet.
 postcheck_email_body:		Vous ne pouvez pas envoyer d&#39;e-mail sans contenu.
 private_msg_notify_subj:	Notification de lecture du message : {VAR: m->subject}
-private_msg_notify_body:	<br>{VAR: usr->login} a lu votre message privé intitulé "{VAR: m->subject}" le {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	<br />{VAR: usr->login} a lu votre message privé intitulé "{VAR: m->subject}" le {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Parcourt la liste des utilisateurs parrainés
 register_err_short_login:	Le nom d&#39;utilisateur que vous avez choisi est trop court. Un nom d&#39;utilisateur doit comporter au moins 4 caractères
 register_err_login_notallowed:	Ce nom d&#39;utilisateur n&#39;est pas autorisé
@@ -617,7 +617,7 @@ reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		Vous devriez recevoir des instructions par e-mail dans quelques minutes.
 reset_newpass_title:		Réinitialisation du mot de passe
 reset_newpass_msg:		Bonjour,\n\nveuillez trouver ci-joint les informations dont vous avez besoin pour accéder au forum :\n\n\nNom d\'utilisateur: {VAR: ui[1]}\nMot de passe: {VAR: passwd}\n\nNotez que vous pouvez modifier votre mot de passe à tout moment via le panneau de configuration de votre profil sur le site du forum, également accessible à l\'URL suivante:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Nous venons de vous envoyer un e-mail contenant vos informations d&#39;inscription. Vous devriez le recevoir dans quelques instants. Cet e-mail contient votre nom d&#39;utilisateur ainsi que votre mot de passe actuel.<br>
+reset_login_notify:		Nous venons de vous envoyer un e-mail contenant vos informations d&#39;inscription. Vous devriez le recevoir dans quelques instants. Cet e-mail contient votre nom d&#39;utilisateur ainsi que votre mot de passe actuel.<br />
 search_update:			Recherche des messages
 selmsg_update:			Parcourt les <a href="{TEMPLATE: selmsg_update_lnk}">messages envoyés aujourd&#39;hui</a>
 showposts_update:		Classe les messages par : <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -632,7 +632,7 @@ ERR_access_msg:			Vous n&#39;avez pas les privilèges nécessaires pour effectuer 
 ERR_registration_disabled_ttl:	Inscription désactivée
 ERR_registration_disabled_msg:	L&#39;administrateur a désactivé l&#39;inscription, veuillez réessayer plus tard
 ERR_emailconf_ttl:		ERREUR : Votre compte n&#39;a pas encore été confirmé
-ERR_emailconf_msg:		Vous n&#39;avez pas encore confirmé votre inscription par e-mail<br><table border=0><tr><td><ol><li>Si vous n&#39;avez pas reçu d&#e-mail de confirmation,<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">cliquez ici<li>Si {VAR: usr_d->email} n&#39;est pas votre adresse e-mail correcte, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">cliquez ici</a></ol></td></tr></table>
+ERR_emailconf_msg:		Vous n&#39;avez pas encore confirmé votre inscription par e-mail<br /><table border=0><tr><td><ol><li>Si vous n&#39;avez pas reçu d&#e-mail de confirmation,<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">cliquez ici<li>Si {VAR: usr_d->email} n&#39;est pas votre adresse e-mail correcte, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">cliquez ici</a></ol></td></tr></table>
 ERR_user_ttl:			ERREUR : l&#39;utilisateur n&#39;existe pas
 ERR_user_msg:			Cet utilisateur n&#39;existe pas
 ERR_systemerr_ttl:		ERREUR : Erreur système
@@ -729,7 +729,7 @@ post_quote:			Citation :
 userinfo_referals:		Utilisateurs parrainés:
 userinfo_referals_count:	{VAR: referals} Membres
 pm_no_space_title:		Plus d&#39;espace !
-pm_no_space_msg:		La taille de votre dossier de messages privés a atteint son maximum autorisé de <b>{GVAR: MAX_PMSG_FLDR_SIZE} octets</b>, il contient actuellement <b>{VAR: fldr_size} octets</b> de messages.<br><br><font class="ErrorText">Vous devriez faire le tri dans vos messages et en effacer quelques uns afin de récupérer de l&#39;espace</font>.
+pm_no_space_msg:		La taille de votre dossier de messages privés a atteint son maximum autorisé de <b>{GVAR: MAX_PMSG_FLDR_SIZE} octets</b>, il contient actuellement <b>{VAR: fldr_size} octets</b> de messages.<br /><br /><font class="ErrorText">Vous devriez faire le tri dans vos messages et en effacer quelques uns afin de récupérer de l&#39;espace</font>.
 pm_space_indct_msg:		Votre dossier de MP est plein à {VAR: percent_full}%.
 th_expr_never:			Jamais
 th_expr_one_hr:			1 Heure
@@ -854,7 +854,7 @@ register_affero:		Nom d&#39;utilisateur Affero :<br /><font class="SmallText">Si
 im_affero:			Identifiant Affero :
 register_err_avatardimtobig:	Les dimensions de l&#39;avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excèdent la limite autorisée de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Téléchargé {VAR: r->dlcount} fois
-member_search:			<br>Ou utilisez la fonctionnalité <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Chercher un utilisateur</a> pour trouver une personne.
+member_search:			<br />Ou utilisez la fonctionnalité <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Chercher un utilisateur</a> pour trouver une personne.
 post_all_ext_allowed:		(non restreint)
 buddy_offline:			{VAR: r[2]} est actuellement hors ligne
 buddy_online:			{VAR: r[2]} est actuellement en ligne

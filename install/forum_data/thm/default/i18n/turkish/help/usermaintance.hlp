@@ -11,7 +11,7 @@ Kayýt olduðunuzda, ayrýca diðer bir çok forum özelliðini de kullanabilir duruma 
 </ul>
 sayýlabilir. Aksi belirtilmediði sürece, kayýt iþlemi tamamen ücretsizdir, ve sadece e-mektup adresiniz ve takma isminiz
 gibi en az düzeydeki bilgiyi gerektirir.
-<br>
+<br />
 COPPA engellenmemiþ durumdaysa ve 13 yaþýn altýndaysanýz, ileti gönderebilmek için yasal koruyucunuzun/velinizin izin vermesi
 gerekecek. COPPA'nýn engellenmediði forumlarda kayýt iþlemi tamamlandýðýnda, 13 yaþýndan küçük kullanýcýlar baþka bir forma
 yönlendirilecek, bu formun yasal koruyucu tarafýndan doldurulmasý ve o sayfada verilen uygun adrese gönderilmesi gerekiyor.
@@ -38,7 +38,7 @@ TOPIC_HELP: Forumun bir üyesi olarak, içinde kendiniz ile ilgili bilgileri (ICQ 
 bilgiler bölümüne sahipsiniz. Kullanýcý Denetim Masasý bölümü ayrýca forum ile ilgili bazý ayarlarýn da belirtildiði bölümdür. Giriþ yaptýðýnýz herhangi bir zaman
 kiþisel bilgilerinizde deðiþiklik yapabilirsiniz. Ayrýca unutmamalýsýnýz ki kiþisel bilgilerinizde yer alan bilgiler diðer forum üyeleri tarafýndan
 görünebilir durumdadýr. Dolayýsýyla, diðerlerinin görmesini istemediðiniz, sizin için hassas olan bilgileri bu bölüme koymamalýsýnýz.
-<br>
+<br />
 Denetim masanýzda <b>E-mektup adresini göster</b> seçeneði eðer <b>HAYIR</b> olarak seçilmiþse e-mektup adresiniz gizlenir. E-mektup adresinizin
 diðerleri tarafýndan görüntülenmesini istemiyorsanýz bu seçeneði kullanabilirsiniz.
 
@@ -48,10 +48,10 @@ TOPIC_HELP:
 Ýmza, gönderdiðiniz her iletinin alt kýsmýna otomatik olarak eklenen bir yazýdýr. denetim masanýzda bulunan <b>"Varsayýlan olarak imzayý ekle"</b>
 seçeneðini kullanarak imzanýzýn eklenip/eklenmeyeceðini belirleyebilirsiniz. Buradaki ayar ne olursa olsun, göndermek istediðiniz tüm iletilerin alt kýsmýnda
 da ayný seçenek çýkar, bunu kullanarak belirli bir ileti için de bu seçeneði deðiþtirebilirsiniz.
-.<br>
+.<br />
 Düz metne ek olarak, yönetici tarafýndan izin verildiyse, imzanýz diðer bazý þeyler de içerebilir, örneðin sevdiðiniz URL'lere linkller, kiþisel
 fotoðraflar vb.
-<br>
+<br />
 Eðer diðer üyelerin imzalarýný görmek istemiyorsanýz, denetim masanýzdaki <b>"Ýmzalarý göster"</b> seçeneðini kapatarak bunu saðlayabilirsiniz.
 
 
@@ -59,8 +59,8 @@ TOPIC_TITLE: <a name="rstpasswd">Parolanýzý kaybettiyseniz ne yapmalýsýnýz?</a>
 TOPIC_HELP:
 Eðer FUDforum parolanýzý hatýrlayamýyorsanýz, <a href="{ROOT}?t=reset&%_rsid%">parola belirleme sayfasýna</a> giderek
 e-mektup adresinizi belirtip Gönder düðmesini týklatmallýsýnýz. Bu sayede size özel bir URL e-mektup ile gönderilecek, o URL'ye eriþtiðinizde
-parolanýz yeniden belirlenecek ve yeni parolanýzý söyleyen bir e-mektup alacaksýnýz.<br>
-<br>
+parolanýz yeniden belirlenecek ve yeni parolanýzý söyleyen bir e-mektup alacaksýnýz.<br />
+<br />
 <b>Not:</b>Parolalarýnýz, MD5 saðlama toplamý adý verilen tek yönlü bir þifreleme biçimiyle saklanýr. Bu, askeri düzeyde 128-bitlik bir
 þifreleme olup, parolalarýnýzý geri getirmenin bir yolu yoktur. Bu þifrelemede parolanýzýn doðrulanmasý, her giriþinizde belirttiðiniz
 parolanýn MD5 toplamýnýn veritabanýndaki MD5 toplamý ile karþýlaþtýrýlmasý þeklinde olur. Dolayýsýyla, parolanýzý unuttuðunuzda, ne olduðunun

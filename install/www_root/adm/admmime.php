@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmime.php,v 1.30 2009/01/17 09:23:52 frank Exp $
+* $Id: admmime.php,v 1.31 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,7 +51,7 @@
 </tr>
 <tr class="field">
 	<td>MIME Icon Upload:<br /><font size="-1">Only (.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
-	<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"><input type="hidden" name="tmp_f_val" value="1"></td>
+	<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload" /><input type="hidden" name="tmp_f_val" value="1" /></td>
 </tr>
 <?php } else { ?>
 <tr class="fieldtopic">
@@ -66,17 +66,17 @@
 
 <tr class="field">
 	<td>MIME Description:</td>
-	<td><input type="text" name="mime_descr" value="<?php echo htmlspecialchars($mime_descr); ?>"></td>
+	<td><input type="text" name="mime_descr" value="<?php echo htmlspecialchars($mime_descr); ?>" /></td>
 </tr>
 
 <tr class="field">
 	<td>MIME Header:</td>
-	<td><input type="text" name="mime_mime_hdr" value="<?php echo htmlspecialchars($mime_mime_hdr); ?>"></td>
+	<td><input type="text" name="mime_mime_hdr" value="<?php echo htmlspecialchars($mime_mime_hdr); ?>" /></td>
 </tr>
 
 <tr class="field">
 	<td>File Extension:<br /><font size="-1">Files with this extension (case-insensitive) will be attributed to this MIME.</font></td>
-	<td><input type="text" name="mime_fl_ext" value="<?php echo htmlspecialchars($mime_fl_ext); ?>"></td>
+	<td><input type="text" name="mime_fl_ext" value="<?php echo htmlspecialchars($mime_fl_ext); ?>" /></td>
 </tr>
 
 <tr class="field">
@@ -86,7 +86,7 @@
 					document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/mime/' + document.frm_sml.mime_icon.value;
 				} else {
 					document.prev_icon.src='../blank.gif';
-				}"> [<a href="#mime_sel" onClick="javascript:window.open('admiconsel.php?type=2&amp;<?php echo __adm_rsid; ?>', 'admmimesel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">select MIME icon</a>]</td>
+				}"> [<a href="#mime_sel" onclick="javascript:window.open('admiconsel.php?type=2&amp;<?php echo __adm_rsid; ?>', 'admmimesel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');" />select MIME icon</a>]</td>
 </tr>
 
 <tr class="field">
@@ -99,18 +99,18 @@
 </tr>
 
 <tr class="fieldaction">
-	<td colspan=2 align=right><input type="submit" name="btn_cancel" value="Reset">
+	<td colspan=2 align=right><input type="submit" name="btn_cancel" value="Reset" />
 <?php
 	if (!$edit) {
-		echo '<input type="submit" name="btn_submit" value="Add MIME">';
+		echo '<input type="submit" name="btn_submit" value="Add MIME" />';
 	} else {
-		echo '<input type="submit" name="btn_update" value="Update"></td>';
+		echo '<input type="submit" name="btn_update" value="Update" /></td>';
 	}
 ?>
 	</td>
 </tr>
 </table>
-<input type="hidden" name="edit" value="<?php echo $edit; ?>">
+<input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 <p>
 <table class="resulttable fulltable">

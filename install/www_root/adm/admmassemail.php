@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.53 2009/01/17 09:23:52 frank Exp $
+* $Id: admmassemail.php,v 1.54 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -126,7 +126,7 @@
 <?php if($FUD_OPT_1 & 1024) { ?>
 <tr class="field">
 	<td>Send Messages via PM</td>
-	<td><input type="checkbox" name="pm" value="1"></td>
+	<td><input type="checkbox" name="pm" value="1" /></td>
 </tr>
 <?php
 }
@@ -148,7 +148,7 @@
 ?>
 	<tr class="field">
 		<td valign="top">Subject</td>
-		<td><input tabindex="1" type="text" name="subject" value=""></td>
+		<td><input tabindex="1" type="text" name="subject" value="" /></td>
 	</tr>
 	<tr class="field">
 		<td colspan="2" valign="top">
@@ -158,7 +158,7 @@
 	</tr>
 	<tr class="fieldaction">
 		<td colspan="2" align=right>
-			<input type="checkbox" name="ignore_override" value="1"> Ignore User Override <input tabindex="3" type="submit" value="Send" name="btn_submit">
+			<input type="checkbox" name="ignore_override" value="1" /> Ignore User Override <input tabindex="3" type="submit" value="Send" name="btn_submit" />
 		</td>
 	</tr>
 </table>

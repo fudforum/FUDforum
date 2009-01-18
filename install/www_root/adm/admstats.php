@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.47 2007/01/01 18:23:48 hackie Exp $
+* $Id: admstats.php,v 1.48 2009/01/18 08:22:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -242,8 +242,8 @@ function get_sql_disk_usage()
 	<td valign="top"><b>Limit to Forum/Category: </b></td>
 	<td colspan="3"><select name="lmt"><option>-- Unrestricted --</option><?php echo $forum_limit_data; ?></select></td>
 </tr>
-<tr><td colspan="4" align="right"><input type="submit" name="submit" value="Submit"><?php echo _hs; ?>
-<input type="hidden" name="submitted" value="1"></td></tr>
+<tr><td colspan="4" align="right"><input type="submit" name="submit" value="Submit" /><?php echo _hs; ?>
+<input type="hidden" name="submitted" value="1" /></td></tr>
 </table>
 </form>
 <?php

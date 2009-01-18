@@ -254,8 +254,8 @@ finduser_action:		Actiune
 yes:				Da
 no:				Nu
 register_email:			Email:
-edit_time_limit:		<br><b>Limita timpului de editare</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minute
-no_edit_time_limit:		<br><b>Limita timpului de editare</b>: <b>Nelimitata</b>
+edit_time_limit:		<br /><b>Limita timpului de editare</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minute
+no_edit_time_limit:		<br /><b>Limita timpului de editare</b>: <b>Nelimitata</b>
 pmuserloc_login:		Utilizator:
 pmuserloc_submit:		OK
 pmuserloc_user:			Utilizator
@@ -274,7 +274,7 @@ register_avatar_type:		Tipul imaginii:
 register_del_avatar:		Sterge imaginea
 register_avatar:		Imagine:
 register_sel_avatar:		Alege imaginea
-register_custom_avatar_rules:	Imaginea dumneavoastra nu va aparea fara aprobarea administratorului<br><font class="SmallText">Imaginea nu trebuie sa fie mai mare de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixeli</b> si trebuie sa fie in format <b>jpg</b>, <b>gif</b> sau <b>png</b></font>
+register_custom_avatar_rules:	Imaginea dumneavoastra nu va aparea fara aprobarea administratorului<br /><font class="SmallText">Imaginea nu trebuie sa fie mai mare de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixeli</b> si trebuie sa fie in format <b>jpg</b>, <b>gif</b> sau <b>png</b></font>
 register_custom_avatar_url:	Adresa URL a imaginii:
 register_preview:		Previzualizare
 register_custom_avatar_upload:	Fisier imagine:
@@ -408,7 +408,7 @@ login_cookie_expired:		Variabilele cookie au expirat, va trebui sa va autentific
 login_perm_denied:		Ca vizitator nu aveti permisiunea sa folositi acea resursa.
 login_want_to_register:		Doriti sa va inregistrati?
 login_forgot_passwd:		Ati uitat parola?
-login_use_cookie:		Foloseste cookies <br><font class="SmallText">Daca folositi un calculator public nu ar trebui sa bifati aceasta optiune.
+login_use_cookie:		Foloseste cookies <br /><font class="SmallText">Daca folositi un calculator public nu ar trebui sa bifati aceasta optiune.
 login_login:			Utilizator
 login_login_btn:		Autentifica
 login_name_required:		Numele de utilizator este necesar
@@ -533,7 +533,7 @@ buddy_list_err_nouser_title:	Nu pot adauga utilizator
 buddy_list_update:		Navigare in lista cu prieteni
 core_err_invinp_title:		Introducere gresita
 core_err_invinp_err:		Ati ales o adresa gresita
-core_adm_login_msg:		<br>Administratorii se pot autentifica <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aici</a>
+core_adm_login_msg:		<br />Administratorii se pot autentifica <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aici</a>
 email_err_unabletoemail_title:	EROARE: nu pot trimite email
 email_err_unabletoemail_msg:	Sistemul de trimitere al email-urilor a fost dezactivat de administrator
 email_error_unabletolocaddr:	Ne cerem scuze, sistemul nu poate trimite email la {VAR-HTML: _POST['tx_name']} deoarece nu a putut fi gasit.
@@ -573,9 +573,9 @@ post_err_edttimelimit_title:	EROARE
 post_err_edttimelimit_msg:	Nu mai puteti modifica acest mesaj
 post_err_floodtrig_title:	EROARE: Incercare de flood prin intermediul mesajului trimis.
 post_err_floodtrig_msg:		Va rugam sa incercati din nou in {VAR: tm} secunde
-post_err_attach_size:		<font class="ErrorText">Fisierul atasat este prea mare (peste limita de {VAR: MAX_F_SIZE} bytes)</font><br>
-post_err_attach_ext:		<font class="ErrorText">Extensia fisierului pe care incercati sa-l incarcati nu se potriveste cu tipurile accepatate.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Incercati sa incarcati mai multe fisiere decat este permis</font><br>
+post_err_attach_size:		<font class="ErrorText">Fisierul atasat este prea mare (peste limita de {VAR: MAX_F_SIZE} bytes)</font><br />
+post_err_attach_ext:		<font class="ErrorText">Extensia fisierului pe care incercati sa-l incarcati nu se potriveste cu tipurile accepatate.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Incercati sa incarcati mai multe fisiere decat este permis</font><br />
 post_err_passwd:		Parola incorecta.
 post_reply_update:		Raspunde la <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		Scrie tema noua in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -590,7 +590,7 @@ postcheck_invalid_email:	Va rugam sa introduceti o adresa de email valida.
 postcheck_email_subject:	Nu puteti trimite un email fara subiect.
 postcheck_email_body:		Nu puteti trimite un email fara continut
 private_msg_notify_subj:	Citeste anunt pentru: {VAR: m->subject}
-private_msg_notify_body:	Buna,<br>utilizatorul {VAR: usr->login} a citit mesajul dumneavoastra
+private_msg_notify_body:	Buna,<br />utilizatorul {VAR: usr->login} a citit mesajul dumneavoastra
 referals_update:		Navigare referinte
 register_err_short_login:	Numele de utilizator ales este prea scurt, trebuie sa aiba minimum 4 caractere.
 register_err_login_notallowed:	Acest nume de utilizator nu este permis
@@ -636,7 +636,7 @@ ERR_access_msg:			Nu aveti permisiune pentru a executa aceasta actiune
 ERR_registration_disabled_ttl:	Inregistrarea dezactivata
 ERR_registration_disabled_msg:	Administratorul a dezactivat inregistrarea, va rugam sa reveniti mai tarziu
 ERR_emailconf_ttl:		EROARE: Contul dumneavoastra nu este inca confirmat
-ERR_emailconf_msg:		Nu v-ati confirmat inca contul prin email<br><table border=0><tr><td><ol><li>Daca nu ati primit email-ul de confirmare apasati <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">aici</a><li>If {VAR: usr_d->email} is not your correct e-mail address, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">click here</a></ol></td></tr></table>
+ERR_emailconf_msg:		Nu v-ati confirmat inca contul prin email<br /><table border=0><tr><td><ol><li>Daca nu ati primit email-ul de confirmare apasati <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">aici</a><li>If {VAR: usr_d->email} is not your correct e-mail address, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">click here</a></ol></td></tr></table>
 ERR_user_ttl:			EROARE: Nici un asemenea utilizator
 ERR_user_msg:			Nici un asemenea utilizator
 ERR_systemerr_ttl:		EROARE: Eroare de sistem
@@ -733,7 +733,7 @@ post_quote:			Citare:
 userinfo_referals:		Informatii referinta:
 userinfo_referals_count:	{VAR: referals} Membri
 pm_no_space_title:		Nu mai este spatiu!
-pm_no_space_msg:		Directorul dumneavoastra cu mesaje personale a depasit <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, si contine <b>{VAR: fldr_size} bytes</b> mesaje.<br><br><font class="ErrorText">Stergeti din mesaje</font>.
+pm_no_space_msg:		Directorul dumneavoastra cu mesaje personale a depasit <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, si contine <b>{VAR: fldr_size} bytes</b> mesaje.<br /><br /><font class="ErrorText">Stergeti din mesaje</font>.
 pm_space_indct_msg:		Directorul dumneavoastra este {VAR: percent_full}% plin.
 th_expr_never:			Niciodata
 th_expr_one_hr:			1 Ora
@@ -854,7 +854,7 @@ register_err_time_limit:	Limita de 1 inregistrare la {GVAR: REG_TIME_LIMIT} secu
 register_affero:		Nume de utilizator optional:<br /><font class="SmallText">Daca aveti un nume de utilizator <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">optional</a> introduceti-l aici.</font>
 im_affero:			Nume utilizator optional
 pmsg_download_counter:		Descarcat de {VAR: r->dlcount} ori
-member_search:			<br>Sau foloseste optiunea <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Cauta persoana</a> pentru a gasi o persoana.
+member_search:			<br />Sau foloseste optiunea <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Cauta persoana</a> pentru a gasi o persoana.
 post_all_ext_allowed:		(nerestrictionat)
 register_err_avatardimtobig:	Dimensiunile imaginii <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> depasesc dimensiunile permise de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:			{VAR: r[2]} este offline

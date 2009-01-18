@@ -253,8 +253,8 @@ finduser_joindate:		Data de adesão
 finduser_action:		Ação
 yes:				Sim
 no:				Não
-edit_time_limit:		<br><b>Editar tempo limite</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
-no_edit_time_limit:		<br><b>Editar tempo limite</b>: <b>Ilimitado</b>
+edit_time_limit:		<br /><b>Editar tempo limite</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
+no_edit_time_limit:		<br /><b>Editar tempo limite</b>: <b>Ilimitado</b>
 pmuserloc_login:		Usuário:
 pmuserloc_submit:		Submeter
 pmuserloc_user:			Usuário
@@ -273,7 +273,7 @@ register_avatar_type:		Tipo de Avatar:
 register_del_avatar:		Apagar Avatar
 register_avatar:		Avatar:
 register_sel_avatar:		Selecionar Avatar
-register_custom_avatar_rules:	O Avatar escolhido não aparecerá até que seja aprovado pelo administrador.<br><font class="SmallText">O Avatar não poderá ter mais de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> de largura e terá de estar no formato.<b>jpg</b>, <b>gif</b> ou <b>png</b></font>
+register_custom_avatar_rules:	O Avatar escolhido não aparecerá até que seja aprovado pelo administrador.<br /><font class="SmallText">O Avatar não poderá ter mais de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> de largura e terá de estar no formato.<b>jpg</b>, <b>gif</b> ou <b>png</b></font>
 register_custom_avatar_url:	URL do Avatar escolhido:
 register_preview:		Previsualização
 register_custom_avatar_upload:	Arquivo do Avatar escolhido:
@@ -407,7 +407,7 @@ login_cookie_expired:		O seu cookie expirou, e precisa de fazer novamente o logi
 login_perm_denied:		Não tem permissão para acessar em modo anônimo, terá de fazer o login para acessar.
 login_want_to_register:		Quer registar-se?
 login_forgot_passwd:		Esqueceu a senha
-login_use_cookie:		Usar cookies<br><font class="SmallText">Se está a usar um terminal público tal como um computador numa biblioteca, escola, ou cybercafé, é recomendado desativar esta opção para maior segurança.<br>Se deixar esta opção ativa então estará automaticamente logado no fórum.
+login_use_cookie:		Usar cookies<br /><font class="SmallText">Se está a usar um terminal público tal como um computador numa biblioteca, escola, ou cybercafé, é recomendado desativar esta opção para maior segurança.<br />Se deixar esta opção ativa então estará automaticamente logado no fórum.
 login_login:			Entrar
 login_login_btn:		Submeter
 login_name_required:		Login requer nome
@@ -532,7 +532,7 @@ buddy_list_err_nouser_title:	Não foi possivel adicionar usuário
 buddy_list_update:		Visualizando a sua lista de amigos
 core_err_invinp_title:		Entrada inválida
 core_err_invinp_err:		Seguiu uma ligação inválida, por favor contacte o <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
-core_adm_login_msg:		<br>Administradores podem fazer o login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aqui</a>
+core_adm_login_msg:		<br />Administradores podem fazer o login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aqui</a>
 email_err_unabletoemail_title:	ERRO: Impossível usar o email
 email_err_unabletoemail_msg:	O sistema de E-mail foi desabilitado pelo administrador.
 email_error_unabletolocaddr:	Desculpe, o sistema não conseguiu enviar o E-mail {VAR-HTML: _POST['tx_name']} porque não conseguiu localizar o endereço de E-mail
@@ -572,9 +572,9 @@ post_err_edttimelimit_title:	ERRO
 post_err_edttimelimit_msg:	Já não pode editar esta mensagem
 post_err_floodtrig_title:	ERRO: Segurança contra floods ativada.
 post_err_floodtrig_msg:		Por favor tente novamente em {VAR: tm} segundos
-post_err_attach_size:		<font class="ErrorText">O arquivo em anexo é demasiado grande (está a cima do limite por {VAR: MAX_F_SIZE} bytes)</font><br>
-post_err_attach_ext:		<font class="ErrorText">O arquivo que está tentando fazer upload não condiz com os tipos de arquivos permitidos.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">Está tentando fazer o upload de mais arquivos do que o permitido.</font><br>
+post_err_attach_size:		<font class="ErrorText">O arquivo em anexo é demasiado grande (está a cima do limite por {VAR: MAX_F_SIZE} bytes)</font><br />
+post_err_attach_ext:		<font class="ErrorText">O arquivo que está tentando fazer upload não condiz com os tipos de arquivos permitidos.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Está tentando fazer o upload de mais arquivos do que o permitido.</font><br />
 post_err_passwd:		Senha Incorreta.
 post_reply_update:		Responder a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		Escrevando novo tópico em <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -589,7 +589,7 @@ postcheck_invalid_email:	Por favor introduza um e-mail válido para o seu amigo.
 postcheck_email_subject:	Não pode mandar um e-mail sem conter um assunto.
 postcheck_email_body:		Não pode mandar um e-mail sem conter uma mensagem
 private_msg_notify_subj:	Notificação de leitura para: {VAR: m->subject}
-private_msg_notify_body:	Olá,<br>{VAR: usr->login} Leu a sua mensagem privada, "{VAR: m->subject}", em {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Olá,<br />{VAR: usr->login} Leu a sua mensagem privada, "{VAR: m->subject}", em {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Visualizando referências
 register_err_short_login:	O login que escolheu é demasiado curto. O login tem que ter pelo menos 4 caracteres de tamanho
 register_err_login_notallowed:	Este login não é permitido
@@ -620,7 +620,7 @@ reset_err_rstconf_title:	Informação
 reset_err_rstconf_msg:		Deve receber instruções no seu Email nos próximos minutos
 reset_newpass_title:		Cancelar Senha
 reset_newpass_msg:		Olá,\n\no seu pedido os seus dados de login serão enviados.\nAqui está a sua informação de login:\n\nLogin: {VAR: ui[1]}\nSenha: {VAR: passwd}\n\nA sua Senha foi alterada para o valor abaixo, se quiser alterá-la pode fazê-lo através do painel de controle do usuário em : \n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		A sua senha foi enviada por email. Você deve estar recebendo-a em poucos minutos. Consulte o seu Email.<br>.<br>.<br>
+reset_login_notify:		A sua senha foi enviada por email. Você deve estar recebendo-a em poucos minutos. Consulte o seu Email.<br />.<br />.<br />
 search_update:			A procurar posts
 selmsg_update:			Visualizando <a href="{TEMPLATE: selmsg_update_lnk}">posts de Hoje</a>
 showposts_update:		Vendo posts por: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -635,7 +635,7 @@ ERR_access_msg:			Não tem as permissões necessárias para fazer o que está tentan
 ERR_registration_disabled_ttl:	Registo de usuários desabilitado
 ERR_registration_disabled_msg:	O administrador desabiliotu o registo de usuários novos, por favor tente mais tarde
 ERR_emailconf_ttl:		ERRO: A sua conta ainda não está confirmada
-ERR_emailconf_msg:		Ainda não confirmou a sua conta via Email<br><table border=0><tr><td><ol><li>se não recebeu um email de confirmação <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clique aqui</a><li>se {VAR: usr_d->email} não é o endereço de email correcto <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clique aqui</a></ol></td></tr></table>
+ERR_emailconf_msg:		Ainda não confirmou a sua conta via Email<br /><table border=0><tr><td><ol><li>se não recebeu um email de confirmação <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clique aqui</a><li>se {VAR: usr_d->email} não é o endereço de email correcto <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clique aqui</a></ol></td></tr></table>
 ERR_user_ttl:			ERRO: Usuário inexistente
 ERR_user_msg:			Usuário não existe 
 ERR_systemerr_ttl:		ERRO: Erro de sistema
@@ -732,7 +732,7 @@ post_quote:			- Disse - :
 userinfo_referals:		Usuários Referidos:
 userinfo_referals_count:	{VAR: referals} Membros
 pm_no_space_title:		Não há espaço suficiente!
-pm_no_space_msg:		A pasta de mensagens privadas excedeu o espaço em disco por <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, neste momento contém <b>{VAR: fldr_size} bytes</b> em mensagens.<br><br><font class="ErrorText">Remova mensagens antigas para ganhar espaço</font>.
+pm_no_space_msg:		A pasta de mensagens privadas excedeu o espaço em disco por <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, neste momento contém <b>{VAR: fldr_size} bytes</b> em mensagens.<br /><br /><font class="ErrorText">Remova mensagens antigas para ganhar espaço</font>.
 pm_space_indct_msg:		A pasta Mp está {VAR: percent_full}% cheia.
 th_expr_never:			Nunca
 th_expr_one_hr:			1 Hora
@@ -854,7 +854,7 @@ register_affero:		Login para Affero:<br /><font class="SmallText">Se tem um logi
 im_affero:			Login para Affero
 register_err_avatardimtobig:	As dimensões do Avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedem as dimensões permitidas de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Descarregado {VAR: r->dlcount} vez(es)
-member_search:			<br>Ou use <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Encontrar Usuário</a> para localizar a pessoa.
+member_search:			<br />Ou use <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Encontrar Usuário</a> para localizar a pessoa.
 post_all_ext_allowed:		(sem restrição)
 buddy_offline:			{VAR: r[2]} está desconectado
 buddy_online:			{VAR: r[2]} está conectado
