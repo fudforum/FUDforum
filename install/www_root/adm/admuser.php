@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.86 2009/01/18 08:22:09 frank Exp $
+* $Id: admuser.php,v 1.87 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -367,9 +367,9 @@ echo '" /></head><body bgcolor="white">';
 </table>
 </form>
 <script type="text/javascript">
-<!--
-document.frm_usr.usr_login.focus();
-//-->
+/* <![CDATA[ */
+document.forms['frm_usr'].usr_login.focus();
+/* ]]> */
 </script>
 <?php if ($usr_id) { ?>
 <form action="admuser.php" method="post"><?php echo _hs; ?>

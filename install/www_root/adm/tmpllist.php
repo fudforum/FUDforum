@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.49 2009/01/18 08:22:09 frank Exp $
+* $Id: tmpllist.php,v 1.50 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -163,7 +163,7 @@ function goto_tmpl($tmpl)
 	}
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<script language="JavaScript" src="../lib.js" type="text/javascript"></script>
+<script src="../lib.js" type="text/javascript"></script>
 <style type="text/css">
 .file_name {
 	font-weight: bold;

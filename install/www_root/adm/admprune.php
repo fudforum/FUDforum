@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.40 2009/01/18 08:22:09 frank Exp $
+* $Id: admprune.php,v 1.41 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -176,8 +176,8 @@ delete topics with no messages in the last 10 days.<p>
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 </form>
 <script type="text/javascript">
-<!--
-document.adp.thread_age.focus();
-//-->
+/* <![CDATA[ */
+document.forms['adp'].thread_age.focus();
+/* ]]> */
 </script>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

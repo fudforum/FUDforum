@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admreplace.php,v 1.31 2009/01/18 08:22:09 frank Exp $
+* $Id: admreplace.php,v 1.32 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,7 +74,7 @@ function clean_rgx()
 <table class="datatable solidtable">
 	<tr class="field">
 		<td>Replacement Type:</td>
-		<td><?php echo create_select('rpl_replace_opt', "Simple Replace\nPerl Regex (preg_replace)", "1\n0", ($rpl_replace_opt & 1), 'onChange="document.frm_rpl.submit();"'); ?></td>
+		<td><?php echo create_select('rpl_replace_opt', "Simple Replace\nPerl Regex (preg_replace)", "1\n0", ($rpl_replace_opt & 1), 'onchange="document.frm_rpl.submit();"'); ?></td>
 	</tr>
 
 	<tr class="field">
@@ -193,9 +193,9 @@ function clean_rgx()
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 <script type="text/javascript">
-<!--
-document.frm_rpl.rpl_replace_str.focus();
-//-->
+/* <![CDATA[ */
+document.forms['frm_rpl'].rpl_replace_str.focus();
+/* ]]> */
 </script>
 <table class="resulttable fulltable">
 <tr class="resulttopic">

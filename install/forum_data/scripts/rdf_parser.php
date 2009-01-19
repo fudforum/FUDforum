@@ -161,7 +161,7 @@ class fud_forum_rdf_user_print extends fud_forum_rdf_user
 		if ($this->im_affero) {
 			echo '<b>Affero:</b> '.$this->im_affero.'<br />';
 		}
-		echo '<hr>';
+		echo '<hr />';
 	}
 } /* {{{ fud_forum_rdf_user_print }}} */
 

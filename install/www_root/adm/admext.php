@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.27 2009/01/17 09:23:52 frank Exp $
+* $Id: admext.php,v 1.28 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -72,9 +72,9 @@
 <?php echo _hs; ?>
 </form>
 <script type="text/javascript">
-<!--
-document.exf.c_ext.focus();
-//-->
+/* <![CDATA[ */
+document.forms['exf'].c_ext.focus();
+/* ]]> */
 </script>
 <table class="resulttable fulltable">
 <tr class="resulttopic">

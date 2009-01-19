@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.132 2009/01/18 08:22:09 frank Exp $
+* $Id: consist.php,v 1.133 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,7 +55,7 @@ function draw_info($cnt)
 
 function stop_js()
 {
-	echo '<script language="Javascript1.2" type="text/javascript">clearInterval(intervalID);</script>';
+	echo '<script type="text/javascript">clearInterval(intervalID);</script>';
 }
 
 function delete_zero($tbl, $q)
@@ -111,13 +111,15 @@ forum will be disabled.
 	}
 	register_shutdown_function('stop_js');
 ?>
-<script language="Javascript1.2" type="text/javascript">
+<script type="text/javascript">
+/* <![CDATA[ */
 	var intervalID;
 	function scrolldown()
 	{
 		window.scroll(0, 30000);
 	}
 	intervalID = setInterval('scrolldown()', 100);
+/* ]]> */
 </script>
 <?php
 	$tbl = $DBHOST_TBL_PREFIX;

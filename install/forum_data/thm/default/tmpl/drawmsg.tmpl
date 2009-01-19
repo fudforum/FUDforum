@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.90 2009/01/17 09:23:52 frank Exp $
+* $Id: drawmsg.tmpl,v 1.91 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -205,10 +205,10 @@
 {SECTION: END}
 
 {SECTION: mini_dmsg_poll}
-<p><table cellspacing="1" cellpadding="2" class="PollTable">
+<p /><table cellspacing="1" cellpadding="2" class="PollTable">
 <tr><th class="nw" colspan="3">{VAR: obj->poll_name}<span class="vt">[ {MSG: num_votes} ]</span></th></tr>
 {TEMPLATE-DATA: poll_data}
-</table><p>
+</table><p />
 {SECTION: END}
 
 {SECTION: dmsg_poll_lnk}
@@ -216,13 +216,13 @@
 {SECTION: END}
 
 {SECTION: dmsg_poll}
-<p>
+<p />
 <form action="{TEMPLATE: dmsg_poll_lnk}" method="post">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="PollTable">
 <tr><th class="nw" colspan="3">{VAR: obj->poll_name}<span class="ptp">[ {MSG: num_votes} ]</span></th></tr>
 {TEMPLATE-DATA: poll_data}
 <tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA} ar"><td colspan="3"><input type="submit" class="button" name="pl_vote" value="{MSG: vote_button}">&nbsp;{IF: $obj->total_votes}<input type="submit" class="button" name="pl_res" value="{MSG: view_results}">{ENDIFI}</td></tr>
-</table><input type="hidden" name="pl_view" value="{VAR: obj->poll_id}"></form><p>
+</table><input type="hidden" name="pl_view" value="{VAR: obj->poll_id}"></form><p />
 {SECTION: END}
 
 {SECTION: dmsg_drawmsg_file_attachments the file attachments list}
@@ -244,11 +244,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_modified_message_mod modified message indicator}
-<p>[{MSG: updated_on} {TEMPLATE: dmsg_update_on_date}] {MSG: by_mod}
+<p />[{MSG: updated_on} {TEMPLATE: dmsg_update_on_date}] {MSG: by_mod}
 {SECTION: END}
 
 {SECTION: dmsg_modified_message modified by the moderator message}
-<p>[{MSG: updated_on} {TEMPLATE: dmsg_update_on_date}]
+<p />[{MSG: updated_on} {TEMPLATE: dmsg_update_on_date}]
 {SECTION: END}
 
 {SECTION: dmsg_report_to_mod_link_lnk}

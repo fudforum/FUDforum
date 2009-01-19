@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.tmpl,v 1.36 2009/01/17 09:23:52 frank Exp $
+* $Id: ignore_list.tmpl,v 1.37 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,12 +60,12 @@
 <table cellspacing="1" cellpadding="2" class="MiniTable">
 <tr><th class="nw">{MSG: add_ignore}</th></tr>
 <tr class="RowStyleA">
-<td class="GenText nw Smalltext">{MSG: buddy_search}{IF: ($FUD_OPT_1 & (8388608|4194304))}{TEMPLATE: ignore_member_search}{ENDIF}<p>
+<td class="GenText nw Smalltext">{MSG: buddy_search}{IF: ($FUD_OPT_1 & (8388608|4194304))}{TEMPLATE: ignore_member_search}{ENDIF}<p />
 <input type="text" name="add_login" tabindex="1" value="" maxlength="100" size="25" /> <input tabindex="2" type="submit" class="button" name="submit" value="{MSG: add}" /></td></tr>
 </table></div></form>
 <script type="text/javascript">
 /* <![CDATA[ */
-document.buddy_add.add_login.focus();
+document.forms['buddy_add'].add_login.focus();
 /* ]]> */
 </script>
 {TEMPLATE: curtime}

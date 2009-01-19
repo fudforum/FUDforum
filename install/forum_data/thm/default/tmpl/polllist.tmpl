@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.tmpl,v 1.26 2007/01/01 18:23:47 hackie Exp $
+* $Id: polllist.tmpl,v 1.27 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,7 +48,7 @@
 {PAGE: POLLLIST_PAGE A page that lists all of the available polls in a forum}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<br />{TEMPLATE-DATA: admin_cp}<p>
+<br />{TEMPLATE-DATA: admin_cp}<p />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 	<th>{MSG: polllist_name}</th>
@@ -59,7 +59,7 @@
 </tr>
 {TEMPLATE-DATA: poll_entries}
 </table>
-<p>
+<p />
 {TEMPLATE-DATA: pager}
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.84 2009/01/17 09:23:52 frank Exp $
+* $Id: tree.tmpl,v 1.85 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -162,7 +162,7 @@
 </table>
 <div><table cellspacing="0" cellpadding="0" id="msgTbl" class="ContentTable">{FUNC: tmpl_drawmsg($msg_obj, $usr, $perms, false, $n, array($prev_msg, $next_msg))}</table></div>
 <div class="ac GenText">[<a href="javascript://" onclick="chng_focus('tree_view');" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
-<p>
+<p />
 <table cellspacing="1" cellpadding="2" class="MsgTable">
 {TEMPLATE-DATA: tree_data}
 </table>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admspell.php,v 1.16 2009/01/18 08:22:09 frank Exp $
+* $Id: admspell.php,v 1.17 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,7 +61,7 @@
 </form>
 <script>
 <!--
-document.spell.words.focus();
+document.forms['spell'].words.focus();
 //-->
 </script>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

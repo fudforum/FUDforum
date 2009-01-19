@@ -419,7 +419,7 @@ login_login_btn:		Login
 login_name_required:		Login name is required
 login_passwd_required:		Password is required
 login_invalid_radius:		Invalid login/password combination
-reset_confirmation:		Thank you for registering,\n\nTo activate your account please go to the URL below:\n\n{VAR: url}\n\nOnce your account is activated you will be logged-into the forum and\nredirected to the main page.\n
+reset_confirmation:		Thank you for registering.\n\nTo activate your account please go to the URL below:\n\n{VAR: url}\n\nOnce your account is activated you will be logged-into the forum and\nredirected to the main page.\n
 reset_reset:			Hello,\n\nYou have requested for your password to be reset. To complete the process,\nplease go to this URL:\n\n{VAR: url}\n\nNOTE: This forum stores the passwords in a one-way encryption mechanism, which means that\nonce you have entered your password it is encoded so that there is NO WAY to get it back.\nThis works by comparing the encoded version we have on record with the encoded version of what you type into the Login prompt.\n(If you are interested in how this mechanism works, read up on MD5 HASH algorithm)
 rpasswd_invalid_passwd:		Invalid Password
 rpasswd_passwd_nomatch:		Passwords do not match

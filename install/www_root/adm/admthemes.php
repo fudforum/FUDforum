@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.68 2009/01/18 08:22:09 frank Exp $
+* $Id: admthemes.php,v 1.69 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -157,15 +157,17 @@
 		}
 	?>
 <script type="text/javascript">
+/* <![CDATA[ */
 function update_locale()
 {
 	switch (document.admthm.thm_lang.value) {
 		<?php echo $cases; ?>
 	}
 }
+/* ]]> */
 </script>
 
-	<select name="thm_lang" onChange="javascript: update_locale();">
+	<select name="thm_lang" onchange="javascript: update_locale();">
 	<?php echo $selopt; ?>
 	</select>
 	</td>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.33 2009/01/18 08:22:09 frank Exp $
+* $Id: admsmiley.php,v 1.34 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -80,8 +80,8 @@
 
 	if (!isset($_GET['chpos'])) {
 ?>
-<script language="javascript" type="text/javascript">
-<!--
+<script type="text/javascript">
+/* <![CDATA[ */
 function sml_form_check() 
 {
 	var a = document.frm_sml.sml_code.value;
@@ -91,7 +91,7 @@ function sml_form_check()
 	}
 	return true;
 }
--->
+/* ]]> */
 </script>
 
 

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.69 2009/01/18 08:22:09 frank Exp $
+* $Id: compact.php,v 1.70 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,13 +49,15 @@ and the amount of messages your forum has.
 		exit;
 	}
 ?>
-<script language="Javascript1.2" type="text/javascript">
+<script type="text/javascript">
+/* <![CDATA[ */
 	var intervalID;
 	function scrolldown()
 	{
 		window.scroll(0, 30000);
 	}
 	intervalID = setInterval('scrolldown()', 100);
+/* ]]> */
 </script>
 <?php
 $GLOBALS['__FUD_TMP_F__'] = array();
@@ -213,6 +215,6 @@ function eta_calc($start, $pos, $pc)
 		echo '<br /><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
-	echo '<script language="Javascript1.2" type="text/javascript">clearInterval(intervalID);</script>';
+	echo '<script type="text/javascript">clearInterval(intervalID);</script>';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

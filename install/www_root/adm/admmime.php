@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmime.php,v 1.31 2009/01/18 08:22:09 frank Exp $
+* $Id: admmime.php,v 1.32 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -81,7 +81,7 @@
 
 <tr class="field">
 	<td valign="top"><a name="mime_sel">MIME Icon:</a></td>
-	<td nowrap><input type="text" name="mime_icon" value="<?php echo htmlspecialchars($mime_icon); ?>" onChange="javascript:
+	<td nowrap><input type="text" name="mime_icon" value="<?php echo htmlspecialchars($mime_icon); ?>" onchange="javascript:
 				if (document.frm_sml.mime_icon.value.length) {
 					document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/mime/' + document.frm_sml.mime_icon.value;
 				} else {

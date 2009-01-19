@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmodfrm.php,v 1.33 2009/01/18 08:22:09 frank Exp $
+* $Id: admmodfrm.php,v 1.34 2009/01/19 21:14:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@
 		$usr_id = '';
 	}
 	if (!$usr_id || !($login = q_singleval('SELECT alias FROM '.$tbl.'users WHERE id='.$usr_id))) {
-		exit('<html><script language="JavaScript">window.close();</script></html>');
+		exit('<html><script type="text/javascript">window.close();</script></html>');
 	}
 
 	if (isset($_POST['mod_submit'])) {
@@ -38,9 +38,11 @@
 		rebuildmodlist();
 ?>
 <html>
-<script language="JavaScript" type="text/javascript">
+<script type="text/javascript">
+/* <![CDATA[ */
 	window.opener.location = 'admuser.php?act=1&usr_id=<?php echo $usr_id; ?>&<?php echo __adm_rsidl; ?>';
 	window.close();
+/* ]]> */
 </script>
 </html>
 <?php
