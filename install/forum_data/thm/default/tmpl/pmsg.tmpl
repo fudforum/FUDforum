@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.56 2009/01/17 09:23:52 frank Exp $
+* $Id: pmsg.tmpl,v 1.57 2009/01/20 21:06:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -68,7 +68,7 @@
 
 {SECTION: private_msg_entry}
 <tr class="RowStyleB">
-<td class="ac GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}"{IF: !$all_v} checked="checked"{ENDIF} /></td>
+<td class="ac GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}" /></td>
 <td>{IF: $obj->read_stamp}{TEMPLATE: pmsg_unread}{ELSE}{TEMPLATE: pmsg_read}{END}</td><td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}">{VAR: obj->subject}</a>{IF: ($obj->pmsg_opt & 4 && $obj->pmsg_opt & 16 && $obj->duser_id == _uid && $obj->ouser_id != _uid)}{TEMPLATE: deny_recipt}{ENDIF}</td>
 <td class="nw GenText">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: normal_msg_lnk}" title="{FUNC: char_fix(htmlspecialchars($obj->to_list))}">{VAR: obj->alias}</a></td>
 <td class="nw DateText">{TEMPLATE: dmsg_post_date}</td>
@@ -105,7 +105,7 @@
 </select> <input type="submit" class="button" name="sel_folder" value="{MSG: go}" />
 </td></tr>
 <tr>
-	<th class="nw">{MSG: pmsg_selected} [<a href="{TEMPLATE: PMSG_PAGE_lnk1}" class="thLnk">{IF: $all_v}{TEMPLATE: pmsg_all}{ELSE}{TEMPLATE: pmsg_none}{END}</a>]</th>
+	<th class="nw">{MSG: pmsg_selected} <input type="checkbox" name="" value="" title="{TEMPLATE: pmsg_all}/{TEMPLATE: pmsg_none}" onclick="$(\'input[@type=checkbox]\').attr(\'checked\', (this.checked)?\'checked\':\'\')" /> </th>
 	<th>&nbsp;</th>
 	<th class="wa"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o=subject&amp;s={IF: $o=='subject' && $s=='ASC'}d{ELSE}a{END}">{MSG: pmsg_subject}</a></th>
 	<th class="ac"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o={IF: $folder_id == 3}alias2{ELSE}alias{ENDI}&amp;s={IF: ($o=='alias' || $o=='alias2') && $s=='ASC'}d{ELSE}a{ENDI}">{IF: $folder_id == 3}{TEMPLATE: pmsg_recepient}{ELSE}{TEMPLATE: pmsg_author}{END}</a></th>
@@ -214,10 +214,6 @@
 
 {SECTION: PMSG_PAGE_lnk}
 {ROOT}?t=ppost&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: PMSG_PAGE_lnk1}
-{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;all={VAR: all_v}&amp;start={VAR: start}
 {SECTION: END}
 
 {SECTION: PMSG_PAGE_lnk3}

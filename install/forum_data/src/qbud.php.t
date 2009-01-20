@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.php.t,v 1.25 2007/01/01 18:23:46 hackie Exp $
+* $Id: qbud.php.t,v 1.26 2009/01/20 21:06:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,21 +17,21 @@
 		std_error('login');
 	}
 
-	$all = !empty($_GET['all']);
-
 	if (!$all && isset($_POST['names']) && is_array($_POST['names'])) {
 		$names = addcslashes(implode(';', $_POST['names']), '"\\');
 ?>
-<html><body><script language="Javascript">
-<!--
+<html><body>
+<script type="text/javascript">
+/*  <![CDATA[ */
 if (window.opener.document.post_form.msg_to_list.value.length > 0) {
 	window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+';'+"<?php echo $names; ?>";
 } else {
 	window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+"<?php echo $names; ?>";
 }
 window.close();
-//-->
-</script></body></html>
+/* ]]> */
+</script>
+</body></html>
 <?php
 		exit;
 	}

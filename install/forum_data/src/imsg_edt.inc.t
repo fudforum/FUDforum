@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.173 2009/01/18 08:22:08 frank Exp $
+* $Id: imsg_edt.inc.t,v 1.174 2009/01/20 21:06:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -693,7 +693,7 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 	}
 
 	// we need this for spam filters like SpamAssassin
-	return str_replace('<script language="JavaScript" src="lib.js" type="text/javascript"></script>', '', '{TEMPLATE: iemail_body}');
+	return str_replace('<script src="lib.js" type="text/javascript"></script>', '', '{TEMPLATE: iemail_body}');
 }
 
 function poll_cache_rebuild($poll_id)

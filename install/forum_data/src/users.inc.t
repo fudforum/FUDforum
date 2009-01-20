@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.167 2009/01/17 09:23:51 frank Exp $
+* $Id: users.inc.t,v 1.168 2009/01/20 21:06:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -209,9 +209,6 @@ function &init_user()
 				if (isset($p[1])) {
 					if ($p[1] !== 'btn_delete') {
 						$_GET['folder_id'] = $p[1];
-						if (isset($p[2]) && (int) $p[2]) {
-							$_GET['all'] = 1;
-						}
 					} else {
 						$_GET['btn_delete'] = 1;
 						$_GET['sel'] = $p[2];
@@ -482,9 +479,6 @@ function &init_user()
 
 			case 'qb':
 				$_GET['t'] = 'qbud';
-				if (!empty($p[1])) {
-					$_GET['all'] = 1;
-				}
 				break;
 
 			case 'po':

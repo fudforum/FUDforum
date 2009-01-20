@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.tmpl,v 1.20 2009/01/17 09:23:52 frank Exp $
+* $Id: qbud.tmpl,v 1.21 2009/01/20 21:06:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,7 +23,7 @@
 {SECTION: END}
 
 {SECTION: buddy_list}
-<tr><th class="wa">{MSG: qbud_nick_name}</th><th class="nw">{MSG: qbud_selected} [<a class="thLnk" href="{TEMPLATE: buddy_list_lnk}">{IF: $all}{TEMPLATE: pmsg_none}{ELSE}{TEMPLATE: pmsg_all}{ENDI}</a>]</th></tr>
+<tr><th class="wa">{MSG: qbud_nick_name}</th><th class="nw">{MSG: qbud_selected} <input type="checkbox" name="" value="" title="{TEMPLATE: pmsg_all}/{TEMPLATE: pmsg_none}" onclick="$(\'input[@type=checkbox]\').attr(\'checked\', (this.checked)?\'checked\':\'\')" /> </th></tr>
 {TEMPLATE-DATA: buddies}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan="2" class="GenText ar"><input type="submit" class="button" name="submit" value="{MSG: qbud_add_selected}" /></td></tr>
 {SECTION: END}
@@ -44,10 +44,6 @@
 
 {SECTION: pmsg_all}
 {MSG: pmsg_all}
-{SECTION: END}
-
-{SECTION: buddy_list_lnk}
-{ROOT}?t=qbud&amp;{DEF: _rsid}&amp;all={IF: $all}{ELSE}1{ENDI}
 {SECTION: END}
 
 {SECTION: QBUD_PAGE_lnk3}

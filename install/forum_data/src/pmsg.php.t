@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.65 2007/01/01 18:23:46 hackie Exp $
+* $Id: pmsg.php.t,v 1.66 2009/01/20 21:06:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,8 +34,6 @@
 			$_GET['folder_id'] = $_POST['old_folder_id'];
 		}
 	}
-
-	$all_v = empty($_GET['all']);
 
 	/* moving or deleting a message */
 	if (isset($_POST['sel']) || isset($_GET['sel'])) {
