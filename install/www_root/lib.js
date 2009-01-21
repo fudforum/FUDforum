@@ -241,16 +241,11 @@ function highlightSearchTerms(searchText)
 	}
 }
 
-function rs_txt_box(name, col_inc, row_inc)
+function rs_txt_box(col_inc, row_inc)
 {
-        if (IE4) {  
-                var obj = document.all[name];
-        } else {
-                var obj = document.getElementById(name);
-        }                                   
-
-        obj.rows += row_inc;           
-        obj.cols += col_inc;            
+        var obj = $('textarea');
+        obj.height( obj.height() + row_inc);
+        obj.width(obj.width() + col_inc);
 }
 
 function topicVote(rating, topic_id, ses, sq)

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.29 2009/01/19 21:14:25 frank Exp $
+* $Id: post_common.tmpl,v 1.30 2009/01/21 20:14:36 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -107,6 +107,56 @@
 {TEMPLATE-DATA: data}
 </table>
 </td></tr>
+{SECTION: END}
+
+{SECTION: resize_controls}
+<a href="javascript://" onclick="rs_txt_box(50, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hb.gif" style="margin: 2px" /></a><br />
+<a href="javascript://" onclick="rs_txt_box(0, 100);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_vb.gif" style="margin: 2px" /></a><br />
+<a href="javascript://" onclick="rs_txt_box(-50, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hs.gif" style="margin: 2px" /></a><br />
+<a href="javascript://" onclick="rs_txt_box(0, -100);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_vs.gif"          
+{SECTION: END}
+
+{SECTION: common_javascript}
+<script type="text/javascript">
+/* <![CDATA[ */
+if (!document.getElementById('preview')) {
+        if (!document.post_form.msg_subject.value.length) {
+                document.post_form.msg_subject.focus();
+        } else {
+                document.post_form.msg_body.focus();
+        }
+}
+
+$(function init() {
+$('textarea.resizable:not(.textarea-processed)').each(function() {
+var textarea = $(this).addClass('textarea-processed'), staticOffset = null;
+
+$(this).wrap('<div class="resizable-textarea"><span></span></div>')
+.parent().append($('<div class="grippie"></div>').mousedown(startDrag));
+
+var grippie = $('div.grippie', $(this).parent())[0];
+grippie.style.marginRight = (grippie.offsetWidth - $(this)[0].offsetWidth) +'px';
+
+function startDrag(e) {
+  staticOffset = textarea.height() - e.pageY;
+  textarea.css('opacity', 0.25);
+  $(document).mousemove(performDrag).mouseup(endDrag);
+  return false;
+}
+
+function performDrag(e) {
+  textarea.height(Math.max(32, staticOffset + e.pageY) + 'px');
+  return false;
+}
+
+function endDrag(e) {
+  $(document).unbind("mousemove", performDrag).unbind("mouseup", endDrag);
+  textarea.css('opacity', 1);
+}
+});
+});
+/* ]]> */
+</script> 
 {SECTION: END}
 
 {SECTION: insert_uploaded_image}

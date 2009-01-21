@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.74 2007/01/01 18:23:46 hackie Exp $
+* $Id: forum.css.tmpl,v 1.75 2009/01/21 20:14:36 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -581,6 +581,17 @@ hr.sig {
 	text-align: left;
 	padding: 0px;
 	margin: 0px;
+}
+
+/* Textarea editor */
+.resizable-textarea .grippie {
+	height: 9px;
+	background: #eeeeee url("images/grippie.gif") no-repeat center 2px;
+	border: 1px solid #dddddd;
+	border-top-width: 0;
+	wrap: soft;
+	cursor: s-resize;
+	overflow: hidden;
 }
 
 /* The following are partial elements that are used to save space */

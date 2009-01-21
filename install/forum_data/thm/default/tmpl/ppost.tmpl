@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.tmpl,v 1.64 2009/01/19 21:14:25 frank Exp $
+* $Id: ppost.tmpl,v 1.65 2009/01/21 20:14:36 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -109,14 +109,11 @@
 {FUNC: draw_post_icons($msg_icon)}
 {IF: $FUD_OPT_1 & 8192}{FUNC: draw_post_smiley_cntrl()}{ENDIF}
 {IF: $FUD_OPT_1 & 4096}{TEMPLATE: fud_code_icons}{ENDIF}
-<tr class="RowStyleA"><td class="nw vt GenText">{MSG: post_body}<br /><br />{FUNC: tmpl_post_options('private')}</td><td>{FUNC: get_err('msg_body',1)}<textarea id="txtb" style="float: left" rows="20" cols="65" wrap="virtual" tabindex="3" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);">{VAR: msg_body}</textarea>
 
-<a href="javascript://" onclick="rs_txt_box('txtb', 5, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hb.gif" style="margin: 2px" /></a><br />
-<a href="javascript://" onclick="rs_txt_box('txtb', 0, 10);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_vb.gif" style="margin: 2px" /></a><br />
-<a href="javascript://" onclick="rs_txt_box('txtb', -5, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hs.gif" style="margin: 2px" /></a><br /> 
-<a href="javascript://" onclick="rs_txt_box('txtb', 0, -10);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_vs.gif"
-
+<tr class="RowStyleA"><td class="nw vt GenText">{MSG: post_body}<br /><br />{FUNC: tmpl_post_options('private')}</td><td>{FUNC: get_err('msg_body',1)}<span style="float:left;"><textarea id="txtb" name="msg_body" class="resizable" rows="20" cols="65" wrap="virtual" tabindex="3" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);">{VAR: msg_body}</textarea></span>
+{TEMPLATE: resize_controls}
 </td></tr>
+
 {TEMPLATE-DATA: file_attachments}
 <tr class="RowStyleB vt">
 <td class="GenText">{MSG: post_options}</td>
@@ -133,17 +130,7 @@
 <tr class="RowStyleA"><td class="GenText ar" colspan="2"><input accesskey="r" type="submit" tabindex="4" class="button" value="{MSG: post_preview_btn}" name="preview" />&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" accesskey="d" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onclick="javascript: document.post_form.btn_action.value='draft';" />&nbsp;<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" tabindex="5" onclick="javascript: document.post_form.btn_action.value='send';" accesskey="s" /></td></tr>
 </table>
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */
-if (!document.getElementById('preview')) {
-	if (!document.post_form.msg_subject.value.length) {
-		document.post_form.msg_subject.focus();
-	} else {
-		document.post_form.msg_body.focus();
-	}
-}
-/* ]]> */
-</script>
+{TEMPLATE: common_javascript}
 {TEMPLATE-DATA: reference_msg}
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
