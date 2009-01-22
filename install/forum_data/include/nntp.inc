@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.75 2007/03/04 17:38:43 hackie Exp $
+* $Id: nntp.inc,v 1.76 2009/01/22 21:00:02 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -417,6 +417,9 @@ class fud_nntp
 
 			$msg_post->subject = apply_custom_replace($this->subject);
 			$msg_post->body = decode_string($this->body, $enc, $charset);
+			if ( !strlen($msg_post->subject) ) {
+				$msg_post->subject = "(no subject)";
+			}
 
 			/* for anonymous users prefix 'contact' link */
 			if (!$msg_post->poster_id) {
