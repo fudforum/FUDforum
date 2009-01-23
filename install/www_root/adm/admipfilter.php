@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admipfilter.php,v 1.29 2009/01/19 21:14:25 frank Exp $
+* $Id: admipfilter.php,v 1.30 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -59,7 +59,7 @@
 <table class="datatable solidtable">
 	<tr class="field">
 		<td>IP Address</td>
-		<td><input tabindex="1" type="text" name="ipaddr" value="<?php echo $ipaddr; ?>" size="15" maxLength="15" /></td>
+		<td><input tabindex="1" type="text" name="ipaddr" value="<?php echo $ipaddr; ?>" size="15" maxlength="15" /></td>
 	</tr>
 	<tr class="fieldaction">
 		<td colspan="2" align="right">

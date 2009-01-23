@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.76 2009/01/17 09:23:52 frank Exp $
+* $Id: register.tmpl,v 1.77 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,7 +32,7 @@
 
 {SECTION: new_user new user section is shown to a new user trying to register}
 {IF: !__fud_real_user__}{FUNC: draw_err('reg_time_limit')}{ENDIFI}
-<tr class="RowStyleA"><td>{MSG: register_login}{FUNC: draw_err('reg_login')}</td><td><input type="text" size="25" name="reg_login" value="{VAR: reg_login}" maxLength="{GVAR: MAX_LOGIN_SHOW}" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_login}{FUNC: draw_err('reg_login')}</td><td><input type="text" size="25" name="reg_login" value="{VAR: reg_login}" maxlength="{GVAR: MAX_LOGIN_SHOW}" /></td></tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
 <tr class="RowStyleA"><td>{MSG: register_password}{FUNC: draw_err('reg_plaintext_passwd')}</td><td><input type="password" name="reg_plaintext_passwd" size="25" /></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_conf_pass}</td><td><input type="password" name="reg_plaintext_passwd_conf" size="25" /></td></tr>
@@ -117,7 +117,7 @@
 {SECTION: END}
 
 {SECTION: register_affero}
-<tr class="RowStyleA"><td>{MSG: register_affero}</td><td><input type="text" name="reg_affero" value="{VAR: reg_affero}" maxLength="32" size="25" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_affero}</td><td><input type="text" name="reg_affero" value="{VAR: reg_affero}" maxlength="32" size="25" /></td></tr>
 {SECTION: END}
 
 {SECTION: reg_user_image}
@@ -161,7 +161,7 @@
  <tr>
   <td class="ac"><select name="b_month">{TEMPLATE-DATA: month_select}</select></td>
   <td class="ac"><select name="b_day">{TEMPLATE-DATA: day_select}</select></td>
-  <td class="ac"><input type="text" name="b_year" value="{VAR: b_year}" maxLength="4" size="5" /></td>
+  <td class="ac"><input type="text" name="b_year" value="{VAR: b_year}" maxlength="4" size="5" /></td>
  </tr>
 </table></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_gender}</td><td><select name="reg_gender">{TEMPLATE-DATA: gender_select}</select></td></tr>
@@ -409,7 +409,7 @@
 {SECTION: END}
 
 {SECTION: reg_alias}
-<tr class="RowStyleA"><td>{MSG: register_alias}{FUNC: draw_err('reg_alias')}<br /><span class="SmallText">{MSG: register_alias_desc}</span></td><td><input type="text" name="reg_alias" size="25" value="{VAR: reg_alias}" maxLength="{GVAR: MAX_LOGIN_SHOW}" /></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_alias}{FUNC: draw_err('reg_alias')}<br /><span class="SmallText">{MSG: register_alias_desc}</span></td><td><input type="text" name="reg_alias" size="25" value="{VAR: reg_alias}" maxlength="{GVAR: MAX_LOGIN_SHOW}" /></td></tr>
 {SECTION: END}
 
 {SECTION: email_warning_msg}

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.71 2009/01/17 09:23:52 frank Exp $
+* $Id: admdump.php,v 1.72 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -237,13 +237,13 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			$path = $TMP.'FUDforum_'.strftime('%d_%m_%Y_%I_%M', __request_timestamp__).'.fud';
 			if ($gz) {
 				$path .= '.gz';
-				$compress = ' checked';
+				$compress = ' selected="selected"';
 			} else {
 				$compress = '';
 			}
 			$path_error = '';
 		} else {
-			$compress = isset($_POST['compress']) ? ' checked' : '';
+			$compress = isset($_POST['compress']) ? ' selected="selected"' : '';
 			$path = $_POST['path'];
 		}
 ?>
@@ -261,7 +261,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	<td><input type="checkbox" name="compress" value="1" <?php echo $compress; ?> /> Yes</td>
 </tr>
 <?php } ?>
-<tr class="fieldaction"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Make Backup" /><input type="hidden" name="submitted" value="1" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Make Backup" /><input type="hidden" name="submitted" value="1" /></td></tr>
 </table>
 </form>
 <?php

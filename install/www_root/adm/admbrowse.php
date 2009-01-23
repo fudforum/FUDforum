@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.32 2009/01/18 08:22:09 frank Exp $
+* $Id: admbrowse.php,v 1.33 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -178,6 +178,7 @@ if (!extension_loaded('posix')) {
 			<?php echo _hs; ?>
 			<div align="center"><input type="submit" name="btn_mini_cancel" value="No" /> <input type="submit" name="del_conf" value="Yes" /></div>
 			</form>
+			</body>
 			</html>
 		<?php
 			exit;
@@ -200,7 +201,7 @@ if (!extension_loaded('posix')) {
 		<input type="hidden" name="chmod" value="1" />
 		<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" />
 		<input type="hidden" name="dest" value="<?php echo $dest; ?>" />
-		<table border=0>
+		<table border="0">
 		<tr><td>Group:</td><td>Read</td><td>Write</td><td>Execute</td></tr>
 		<tr><td>Owner:</td>
 			<td><?php draw_checkbox('oread', 0400, bit_test($st[2], 0400)); ?></td>
@@ -266,7 +267,7 @@ if (!extension_loaded('posix')) {
 	<tr style="font-size: x-small;">
 		<td>Directory Name:</td>
 		<td><input type="text" name="mkdir" value="" /></td>
-		<td align="right" colspan="2"><input style="font-size: x-small;" type="submit" name="btn_mkdir" value="Create Directory" />
+		<td align="right" colspan="2"><input style="font-size: x-small;" type="submit" name="btn_mkdir" value="Create Directory" /></td>
 	</tr>
 </table>
 </form>
@@ -292,7 +293,7 @@ if (!extension_loaded('posix')) {
 </form>
 <br />
 <table border="0" cellspacing="1" cellpadding="3">
-<tr class="admin_fixed resulttopic"><td>Mode</td><td>Owner</td><td>Group</td><td>Size</td><td>Date</td><td>Time</td><td>Name</td><td align="center" colspan=3>Action</td></tr>
+<tr class="admin_fixed resulttopic"><td>Mode</td><td>Owner</td><td>Group</td><td>Size</td><td>Date</td><td>Time</td><td>Name</td><td align="center" colspan="3">Action</td></tr>
 <?php
 	$file_list = array();
 	$dir_list = array('.', '..');
@@ -357,7 +358,7 @@ if (!extension_loaded('posix')) {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}
 		} else {
-			echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" colspan=3 align="center">n/a</td>';
+			echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" colspan="3" align="center">n/a</td>';
 		}
 		echo '</tr>';
 	}

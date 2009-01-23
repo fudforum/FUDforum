@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.79 2009/01/21 20:14:36 frank Exp $
+* $Id: post.tmpl,v 1.80 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -151,7 +151,7 @@
 {IF: _uid}{TEMPLATE: loged_in_user}{ELSE}<tr class="RowStyleA"><td colspan="2" class="GenTextRed fb">{MSG: post_not_logged_in}</td></tr>{ENDI}
 {IF: $frm->forum_opt & 4 && !$is_a}{TEMPLATE: post_password}{ENDIF}
 <tr class="RowStyleB"><td class="GenText">{MSG: post_forum}</td><td class="GenText">{VAR: frm->name}</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" spellcheck="true" maxLength="100" name="msg_subject" value="{VAR: msg_subject}" size="50" tabindex="2" /> {FUNC: get_err('msg_subject')}</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" spellcheck="true" maxlength="100" name="msg_subject" value="{VAR: msg_subject}" size="50" tabindex="2" /> {FUNC: get_err('msg_subject')}</td></tr>
 {IF: !$th_id || ($msg_id && $msg_id == $thr->root_msg_id)}
 <tr class="RowStyleB"><td class="GenText">{MSG: post_descr}</td><td><input size="60" type="text" name="msg_tdescr" tabindex="3" value="{VAR: msg_tdescr}" /></td></tr>
 {ENDIF}

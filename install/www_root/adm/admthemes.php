@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.69 2009/01/19 21:14:25 frank Exp $
+* $Id: admthemes.php,v 1.70 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -112,7 +112,7 @@
 </tr>
 
 <tr class="field">
-	<td valign=top>Template Set:</td>
+	<td valign="top">Template Set:</td>
 	<td>
 	<select name="thm_theme">
 	<?php
@@ -125,7 +125,7 @@
 				continue;
 			}
 			$n = basename($file);
-			echo '<option value="'.$n.'"'.($n == $thm_theme ? ' selected' : '').'>'.$n.'</option>';
+			echo '<option value="'.$n.'"'.($n == $thm_theme ? ' selected="selected"' : '').'>'.$n.'</option>';
 		}
 	?></select>
 	</td>
@@ -143,7 +143,7 @@
 				continue;
 			}
 			$n = basename($file);
-			$selopt .= '<option'.($thm_lang == $n ? ' selected' : '').'>'.$n.'</option>';
+			$selopt .= '<option'.($thm_lang == $n ? ' selected="selected"' : '').'>'.$n.'</option>';
 			$locales[$n]['locale'] = trim(file_get_contents($file . '/locale'));
 			$pspell_file = $file . '/pspell_lang';
 			$locales[$n]['pspell_lang'] = file_exists($pspell_file) ? trim(file_get_contents($pspell_file)) : 'en';
@@ -175,27 +175,27 @@ function update_locale()
 
 <tr class="field">
 	<td>Locale:</td>
-	<td><input type="text" name="thm_locale" value="<?php echo htmlspecialchars($thm_locale); ?>" size=7 /></td>
+	<td><input type="text" name="thm_locale" value="<?php echo htmlspecialchars($thm_locale); ?>" size="7" /></td>
 </tr>
 
 <tr class="field">
 	<td>pSpell Language:</td>
 	<td>
-		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars($thm_pspell_lang); ?>" size=4 />
+		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars($thm_pspell_lang); ?>" size="4" />
 		[<a href="javascript://" onclick="javascript: document.admthm.thm_pspell_lang.value=''">disable</a>]
 	</td>
 </tr>
 
 <tr class="field">
-	<td colspan=2>
+	<td colspan="2">
 	<?php draw_checkbox('thm_t_default', '2', $thm_t_default);?> Default <?php draw_checkbox('thm_enabled', '1', $thm_enabled); ?> Enabled
 	</td>
 </tr>
 <tr class="fieldaction">
 <?php if (!$edit) { ?>
-		<td colspan=2 align=right><input type="submit" name="btn_submit" value="Add" /></td>
+		<td colspan="2" align="right"><input type="submit" name="btn_submit" value="Add" /></td>
 <?php } else { ?>
-	<td colspan=2 align=right>
+	<td colspan="2" align="right">
 		<input type="submit" name="btn_cancel" value="Cancel" />
 		<input type="submit" name="btn_update" value="Update" />
 	</td>
@@ -208,7 +208,7 @@ function update_locale()
 
 <form method="post">
 <table class="datatable solidtable">
-<tr class="field"><td colspan=2>Create New Template Set</td></tr>
+<tr class="field"><td colspan="2">Create New Template Set</td></tr>
 <tr class="field">
 	<td>Base Template Set:</td>
 	<td>
@@ -222,7 +222,7 @@ function update_locale()
 	<td><input type="text" name="newname" /></td>
 </tr>
 <tr class="fieldaction">
-	<td colspan=2 align=right><input type="submit" name="btn_submit" value="Create" /></td>
+	<td colspan="2" align="right"><input type="submit" name="btn_submit" value="Create" /></td>
 </tr>
 </table>
 <?php echo _hs; ?>

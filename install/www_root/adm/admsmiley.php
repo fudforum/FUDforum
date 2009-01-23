@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.34 2009/01/19 21:14:25 frank Exp $
+* $Id: admsmiley.php,v 1.35 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -98,7 +98,7 @@ function sml_form_check()
 <h2>Smiley Management System</h2>
 
 <form id="frm_sml" method="post" enctype="multipart/form-data" action="admsmiley.php" 
-onSubmit="javascript: return sml_form_check();">
+onsubmit="javascript: return sml_form_check();">
 <?php
 	echo _hs;
 	echo '<table class="datatable solidtable">';
@@ -152,7 +152,7 @@ onSubmit="javascript: return sml_form_check();">
 		<td>
 			<table border="1" cellspacing="1" cellpadding="2" bgcolor="#ffffff">
 				<tr><td align="center" valign="middle">
-					<img src="<?php echo ($sml_img ? $GLOBALS['WWW_ROOT'] . 'images/smiley_icons/' . $sml_img : '../blank.gif'); ?>" name="prev_icon" border=0 alt="blank">
+					<img src="<?php echo ($sml_img ? $GLOBALS['WWW_ROOT'] . 'images/smiley_icons/' . $sml_img : '../blank.gif'); ?>" name="prev_icon" border="0" alt="blank" />
 				</td></tr>
 			</table>
 		</td>
@@ -194,11 +194,11 @@ onSubmit="javascript: return sml_form_check();">
 			if ($_GET['chpos'] == $r->vieworder) {
 				$bgcolor = ' class="resultrow2"';
 			} else if ($_GET['chpos'] != ($r->vieworder - 1)) {
-				echo '<tr class="field"><td align=center colspan=9><a href="admsmiley.php?chpos='.$_GET['chpos'].'&amp;chdest='.($r->vieworder - ($_GET['chpos'] < $r->vieworder ? 1 : 0)).'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
+				echo '<tr class="field"><td align="center" colspan="9"><a href="admsmiley.php?chpos='.$_GET['chpos'].'&amp;chdest='.($r->vieworder - ($_GET['chpos'] < $r->vieworder ? 1 : 0)).'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
 			}
 			$lp = $r->vieworder;
 		}
-		echo '<tr '.$bgcolor.'><td><img src="'.$GLOBALS['WWW_ROOT'].'images/smiley_icons/'.$r->img.'" border=0 alt="'.$r->descr.'"></td><td>'.htmlspecialchars($r->code).'</td><td>'.$r->descr.'</td>
+		echo '<tr '.$bgcolor.'><td><img src="'.$GLOBALS['WWW_ROOT'].'images/smiley_icons/'.$r->img.'" border="0" alt="'.$r->descr.'" /></td><td>'.htmlspecialchars($r->code).'</td><td>'.$r->descr.'</td>
 			<td nowrap="nowrap">[<a href="admsmiley.php?edit='.$r->id.'&amp;'.__adm_rsid.'#img">Edit</a>] [<a href="admsmiley.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>] [<a href="admsmiley.php?chpos='.$r->vieworder.'&amp;'.__adm_rsid.'">Change Position</a>]</td>
 			</tr>';
 	}

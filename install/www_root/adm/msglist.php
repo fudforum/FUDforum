@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.42 2009/01/18 08:22:09 frank Exp $
+* $Id: msglist.php,v 1.43 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -148,8 +148,8 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 	text-decoration: dashed;
 }
 </style>
-<table border=0 cellspacing=0 cellpadding=0><tr><td valign=top>
-<table border=0 cellspacing=0 cellpadding=3>
+<table border="0" cellspacing="0" cellpadding="0"><tr><td valign="top">
+<table border="0" cellspacing="0" cellpadding="3">
 <?php
 
 if (isset($warn)) {
@@ -179,7 +179,7 @@ if (isset($warn)) {
 	$msglist = isset($_GET['msglist']) ? $_GET['msglist'] : (isset($_POST['msglist']) ? $_POST['msglist'] : '');
 
 	if ($msglist) {
-		echo '<td valign=top><form method="post" action="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'">'._hs.'<table border=0>';
+		echo '<td valign="top"><form method="post" action="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'">'._hs.'<table border="0">';
 		$msglist_arr[] = strtok(trim($msglist), ':');
 		while (($v = strtok(':'))) {
 			$msglist_arr[] = trim($v);
@@ -203,7 +203,7 @@ if (isset($warn)) {
 			} else {
 				$inptd = '<input type="text" name="'.$v.'" value="'.$txt.'" size="50" />';
 			}
-			echo '<tr><td valign="top" nowrap="nowrap"><a name="'.$v.'"><b>'.$v.'</b></a>:</td><td valign=top>'.$inptd.'</td></tr>';
+			echo '<tr><td valign="top" nowrap="nowrap"><a name="'.$v.'"><b>'.$v.'</b></a>:</td><td valign="top">'.$inptd.'</td></tr>';
 		}
 		echo '<tr><td align="right" colspan="2"><input type="submit" name="btn_submit" value="Edit" /></td></tr>';
 		echo '<tr><td><input type="hidden" name="msglist" value="'.$msglist.'" /></td></tr></table>';

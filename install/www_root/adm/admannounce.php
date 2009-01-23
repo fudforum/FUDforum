@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admannounce.php,v 1.27 2009/01/17 09:23:52 frank Exp $
+* $Id: admannounce.php,v 1.28 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -102,7 +102,7 @@ function mk_date($y, $m, $d)
 			while (list($k, $i) = each($GLOBALS['cat_cache'])) {
 				$pfx = str_repeat('&nbsp;&nbsp;&nbsp;', $i[0]);
 
-				echo '<tr class="fieldtopic"><td colspan=6>'.$pfx.'<font size=-2>'.$i[1].'</font></td></tr><tr class="field">';
+				echo '<tr class="fieldtopic"><td colspan="6">'.$pfx.'<font size="-2">'.$i[1].'</font></td></tr><tr class="field">';
 				if ($k == $r[2]) {
 					break;
 				}
@@ -116,7 +116,7 @@ function mk_date($y, $m, $d)
 		} else {
 			++$row;
 		}
-		echo '<td>'.($row == 2 ? $pfx : '').create_checkbox('frm_list['.$r[0].']', $r[0], isset($frm_list[$r[0]])).' <font size=-2> '.$r[1].'</font></td>';
+		echo '<td>'.($row == 2 ? $pfx : '').create_checkbox('frm_list['.$r[0].']', $r[0], isset($frm_list[$r[0]])).' <font size="-2"> '.$r[1].'</font></td>';
 	}
 	unset($c);
 ?>
@@ -133,7 +133,7 @@ function mk_date($y, $m, $d)
 		<td>
 			<table border="0" cellspacing="1" cellpadding="0">
 				<tr><td><font size="-2">Month</font></td><td><font size="-2">Day</font></td><td><font size="-2">Year</font></td></tr>
-				<tr><td><?php draw_month_select('d_month', 0, $d_month); ?></td><td><?php draw_day_select('d_day', 0, $d_day); ?></td><td><input type="text" name="d_year" value="<?php echo $d_year; ?>" size=5 /></td></tr>
+				<tr><td><?php draw_month_select('d_month', 0, $d_month); ?></td><td><?php draw_day_select('d_day', 0, $d_day); ?></td><td><input type="text" name="d_year" value="<?php echo $d_year; ?>" size="5" /></td></tr>
 			</table>
 		</td>
 	</tr>
@@ -143,7 +143,7 @@ function mk_date($y, $m, $d)
 		<td>
 			<table border="0" cellspacing="1" cellpadding="0">
 				<tr><td><font size="-2">Month</font></td><td><font size="-2">Day</font></td><td><font size="-2">Year</font></td></tr>
-				<tr><td><?php draw_month_select('d2_month', 0, $d2_month); ?></td><td><?php draw_day_select('d2_day', 0, $d2_day); ?></td><td><input type="text" name="d2_year" value="<?php echo $d2_year; ?>" size=5 /></td></tr>
+				<tr><td><?php draw_month_select('d2_month', 0, $d2_month); ?></td><td><?php draw_day_select('d2_day', 0, $d2_day); ?></td><td><input type="text" name="d2_year" value="<?php echo $d2_year; ?>" size="5" /></td></tr>
 			</table>
 		</td>
 	</tr>
@@ -154,12 +154,12 @@ function mk_date($y, $m, $d)
 	</tr>
 
 	<tr class="field">
-		<td valign=top>Message:</td>
+		<td valign="top">Message:</td>
 		<td><textarea cols=40 rows=10 name="a_text"><?php echo htmlspecialchars($a_text); ?></textarea></td>
 	</tr>
 
 	<tr class="field">
-		<td colspan=2 align=right>
+		<td colspan="2" align="right">
 <?php
 			if ($edit) {
 				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update" />';

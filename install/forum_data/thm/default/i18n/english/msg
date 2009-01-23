@@ -381,13 +381,13 @@ post_preview_btn:		Preview Message
 ignore_users:			Ignored Users
 add_ignore:			Add Ignoramus
 forum_terms:			Forum Terms
-forum_rules:			Registration to this forum is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please press the Agree button at the end of the page. Note: By pressing the button you declare that you are over the age of 13. If you are 13 or under, please use this registration form.<p>Although the administrators and moderators of this forum will attempt to keep all objectionable messages off this forum, it is impossible for us to review all messages. All messages express the views of the author, and neither the owners of forum or the developers will be held responsible for the content of any message.<p>By clicking the Agree button, you warrant that you will not post any messages that are obscene, vulgar, sexually-oriented, hateful, threatening, or otherwise violate any laws. <p>The owners of this forum  have the right to remove, edit, move or close any topic for any reason.<p>
-forum_rules_13:			All users under the age of 13 must seek permission from their parent or guardian in order to gain membership to the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send e-mail to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules:			Registration to this forum is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please press the Agree button at the end of the page. Note: By pressing the button you declare that you are over the age of 13. If you are 13 or under, please use this registration form.<p />Although the administrators and moderators of this forum will attempt to keep all objectionable messages off this forum, it is impossible for us to review all messages. All messages express the views of the author, and neither the owners of forum or the developers will be held responsible for the content of any message.<p />By clicking the Agree button, you warrant that you will not post any messages that are obscene, vulgar, sexually-oriented, hateful, threatening, or otherwise violate any laws. <p />The owners of this forum  have the right to remove, edit, move or close any topic for any reason.<p />
+forum_rules_13:			All users under the age of 13 must seek permission from their parent or guardian in order to gain membership to the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p />If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index.<p />A copy of the permission form can be downloaded here. For more information about the registration process, please send e-mail to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p />
 coppa_conf:			COPPA Confirmation
 coppa_before:			Before {TEMPLATE: coppa_date}
 coppa_after:			After {TEMPLATE: coppa_date}
 coppa_link:			Click the link that corresponds to your birth date
-coppa:				A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete registration.<p>For further information contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:				A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete registration.<p />For further information contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Information
 prereg_agree:			Agree
 prereg_disagree:		Disagree
@@ -520,8 +520,8 @@ tabs_referrals:			Referrals
 tabs_buddy_list:		Buddy List
 tabs_ignore_list:		Ignore List
 tabs_private_messaging:		Private Messaging
-single_msg_delete:		You are about to <span class="ErrorText">DELETE</span> the message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <span class="ErrorText">DELETE</span> the <span class="ErrorText">ENTIRE TOPIC</span> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		You are about to <span class="ErrorText">DELETE</span> the message titled: <b>{VAR: data[3]}</b><p />
+thread_delete:			You are about to <span class="ErrorText">DELETE</span> the <span class="ErrorText">ENTIRE TOPIC</span> titled: <b>{VAR: data[3]}</b><p />
 delete_proceed:			<span class="fb">Do you wish to proceed?</span>
 delete_yes:			Yes
 delete_no:			No

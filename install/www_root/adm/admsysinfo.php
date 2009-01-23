@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.29 2007/01/01 18:23:48 hackie Exp $
+* $Id: admsysinfo.php,v 1.30 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -70,7 +70,7 @@ echo '<tr>
 <tr>
 	<td valign="top"><b>Relavent PHP Settings:</b></td>
 	<td>
-		<table cellspacing=1 cellpadding=1 border=0>
+		<table cellspacing="1" cellpadding="1" border="0">
 			<tr>
 				<td>Safe Mode:</td>
 				<td><?php echo get_php_setting('safe_mode'); ?></td>

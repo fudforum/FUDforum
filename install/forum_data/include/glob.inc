@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: glob.inc,v 1.29 2009/01/17 09:23:51 frank Exp $
+* $Id: glob.inc,v 1.30 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,7 +71,7 @@ function print_reg_field($descr, $field, $is_int=0, $pass=0)
 		$str = !$is_int ? htmlspecialchars($GLOBALS[$field]) : $GLOBALS[$field];
 	}
 
-	echo '<tr class="field"><td>'.$descr.': <br /><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></td><td valign="top"><input type="'.(!$pass ? 'text' : 'password').'" name="CF_'.$field.'" value="'.$str.'"></td></tr>';
+	echo '<tr class="field"><td>'.$descr.': <br /><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></td><td valign="top"><input type="'.(!$pass ? 'text' : 'password').'" name="CF_'.$field.'" value="'.$str.'" /></td></tr>';
 }
 
 function change_global_settings($list)

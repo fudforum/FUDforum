@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.56 2009/01/17 09:23:52 frank Exp $
+* $Id: admgroups.php,v 1.57 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -219,7 +219,7 @@
 		if ($edit && $gl[$edit]['forum_id']) {
 			echo 'FORUM: '.$gl[$edit]['fname'];
 		} else {
-			echo '<select MULTIPLE name="gr_resource[]" size=10>';
+			echo '<select MULTIPLE name="gr_resource[]" size="10">';
 			if (!isset($_POST['edit']) && $edit) {
 				$c = uq('SELECT resource_id FROM '.$DBHOST_TBL_PREFIX.'group_resources WHERE group_id='.$edit);
 				while ($r = db_rowarr($c)) {
@@ -229,7 +229,7 @@
 			}
 			$c = uq('SELECT f.id, f.name, c.name FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON c.id=f.cat_id ORDER BY c.parent, c.view_order, f.view_order');
 			while ($r = db_rowarr($c)) {
-				echo '<option value="'.$r[0].'"'.(isset($gr_resource[$r[0]]) ? ' selected' : '').'>'.$r[2].' &raquo; '.$r[1].'</option>';
+				echo '<option value="'.$r[0].'"'.(isset($gr_resource[$r[0]]) ? ' selected="selected"' : '').'>'.$r[2].' &raquo; '.$r[1].'</option>';
 			}
 			unset($c);
 			echo '</select>';
@@ -238,7 +238,7 @@
 
 		foreach ($gl as $k => $v) {
 			if ($k == $edit) continue;
-			echo '<option value="'.$k.'" '.($gr_inherit_id == $k ? ' selected' : '').'>'.$v['gn'].'</option>';
+			echo '<option value="'.$k.'" '.($gr_inherit_id == $k ? ' selected="selected"' : '').'>'.$v['gn'].'</option>';
 		}
 
 		echo '</select></td></tr>';
@@ -264,14 +264,14 @@
 	foreach ($hdr as $k => $v) {
 		echo '<tr><td>'.$v[1].'</td><td><select name="'.$k.'">';
 		if ($v1 && $permi & $v[0]) {
-			echo '<option value="-'.$v[0].'" selected>Inherit</option>';
+			echo '<option value="-'.$v[0].'" selected="selected">Inherit</option>';
 			echo '<option value="0">No</option><option value="'.$v[0].'">Yes</option>';
 		} else {
 			echo '<option value="-'.$v[0].'">Inherit</option>';
 			if ($perm & $v[0]) {
-				echo '<option value="0">No</option><option value="'.$v[0].'" selected>Yes</option>';
+				echo '<option value="0">No</option><option value="'.$v[0].'" selected="selected">Yes</option>';
 			} else {
-				echo '<option value="0" selected>No</option><option value="'.$v[0].'">Yes</option>';
+				echo '<option value="0" selected="selected">No</option><option value="'.$v[0].'">Yes</option>';
 			}
 		}
 		echo '</select></td>';
@@ -328,7 +328,7 @@ for the group's they manage. To change the user permissions please use the <a hr
 		}
 
 		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='.$k.'&amp;'.__adm_rsid.'">Delete</a>]' : '';
-		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'<br />[<a href="admgrouplead.php?group_id='.$k.'&amp;'.__adm_rsid.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&amp;group_id='.$k.'&amp;'.__adm_rsid.'" target=_new>Manage Users</a>]' : '';
+		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'<br />[<a href="admgrouplead.php?group_id='.$k.'&amp;'.__adm_rsid.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&amp;group_id='.$k.'&amp;'.__adm_rsid.'" target="_new">Manage Users</a>]' : '';
 
 		echo '<tr class="tiny field"><td><a name="g'.$k.'">'.$v['gn'].'</a></td>';
 		foreach ($hdr as $v2) {

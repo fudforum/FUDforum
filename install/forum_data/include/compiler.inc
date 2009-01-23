@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.94 2009/01/17 09:23:51 frank Exp $
+* $Id: compiler.inc,v 1.95 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -207,6 +207,9 @@ function resolve_sections($str)
 				break;
 			case 'CHARSET':
 				$ret .= $GLOBALS['char_set'];
+				break;
+			case 'LANG':
+				$ret .= $GLOBALS['usr']->pspell_lang;
 				break;
 
 			case 'FUNC':

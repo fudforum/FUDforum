@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforumicons.php,v 1.25 2009/01/17 09:23:52 frank Exp $
+* $Id: admforumicons.php,v 1.26 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -82,7 +82,7 @@
 		foreach ($files as $file) {
 			$de = basename($file);
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-			echo '<tr'.$bgcolor.'><td><img src="'.$WWW_ROOT . $ICONS_DIR . '/' . $de.'" alt="Icon"></td><td><a href="admforumicons.php?del='.urlencode($de).'&amp;'.__adm_rsid.'&amp;which_dir='.$which_dir.'">Delete</a></td></tr>';
+			echo '<tr'.$bgcolor.'><td><img src="'.$WWW_ROOT . $ICONS_DIR . '/' . $de.'" alt="Icon" /></td><td><a href="admforumicons.php?del='.urlencode($de).'&amp;'.__adm_rsid.'&amp;which_dir='.$which_dir.'">Delete</a></td></tr>';
 		}	
 	} else if ($files === FALSE && !is_readable($WWW_ROOT_DISK . $ICONS_DIR)) {
 		echo '<tr colspan="3"><td>Unable to open '.$WWW_ROOT_DISK . $ICONS_DIR.' for reading.</td></tr>';

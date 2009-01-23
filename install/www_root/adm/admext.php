@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.28 2009/01/19 21:14:25 frank Exp $
+* $Id: admext.php,v 1.29 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,11 +53,11 @@
 	</tr>
 	<tr class="field">
 		<td>Extension:</td>
-		<td><input tabindex="1" type="text" name="c_ext" value="<?php echo htmlspecialchars($c_ext); ?>" />
+		<td><input tabindex="1" type="text" name="c_ext" value="<?php echo htmlspecialchars($c_ext); ?>" /></td>
 	</tr>
 
 	<tr class="fieldaction">
-		<td colspan="2" align=right>
+		<td colspan="2" align="right">
 		<?php
 			if ($edit) {
 				echo '<input type="submit" name="btn_cancel" value="Cancel" /> <input type="submit" name="btn_update" value="Update" tabindex="2" />';

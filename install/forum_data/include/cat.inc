@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.41 2007/01/01 18:23:42 hackie Exp $
+* $Id: cat.inc,v 1.42 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,7 +36,7 @@ class fud_cat
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=view_order+1 WHERE parent='.(int)$this->parent);
 		}
 
-		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."cat (name, description, view_order, cat_opt, parent) VALUES ("._esc($this->name).", "._esc($this->description).", ".$this->view_order.", ".$this->cat_opt.", ".(int)$this->parent.")");
+		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."cat (name, description, view_order, cat_opt, parent) VALUES ("._esc(htmlspecialchars($this->name)).", "._esc($this->description).", ".$this->view_order.", ".$this->cat_opt.", ".(int)$this->parent.")");
 
 		if (isset($ll)) {
 			db_unlock();
@@ -47,7 +47,7 @@ class fud_cat
 
 	function sync($id)
 	{
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."cat SET parent=".(int)$this->parent.", name="._esc($this->name).",description="._esc($this->description).", cat_opt=".$this->cat_opt." WHERE id=".$id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."cat SET parent=".(int)$this->parent.", name="._esc(htmlspecialchars($this->name)).",description="._esc($this->description).", cat_opt=".$this->cat_opt." WHERE id=".$id);
 		cat_rebuild_order();
 	}
 }

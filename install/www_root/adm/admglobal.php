@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.99 2009/01/17 09:23:52 frank Exp $
+* $Id: admglobal.php,v 1.100 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,7 +10,6 @@
 **/
 
 	require('./GLOBALS.php');
-	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('draw_select_opt.inc');
@@ -163,17 +162,17 @@ function get_max_upload_size()
 	print_reg_field('Reason for Disabling', 'DISABLED_REASON');
 	print_bit_field('Allow Registration', 'ALLOW_REGISTRATION');
 ?>
-<tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan=2><br /><b>Global</b></td></tr>
+<tr class="fieldtopic"><td colspan="2"><br /><b>Global</b></td></tr>
 <?php
 	print_reg_field('WWW Root', 'WWW_ROOT');
 	print_reg_field('WWW Root (disk path)', 'WWW_ROOT_DISK');
 	print_reg_field('Data Root', 'DATA_DIR');
 ?>
-<tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan=2><br /><b>Database Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><br /><b>Database Settings</b> </td></tr>
 <?php
 	print_reg_field('Database Server', 'DBHOST');
 	print_reg_field('Database Login', 'DBHOST_USER');
@@ -191,9 +190,9 @@ function get_max_upload_size()
 		}
 	}
 ?>
-<tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan=2><br /><b>Private Messaging</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><br /><b>Private Messaging</b> </td></tr>
 <?php
 	print_bit_field('Allow Private Messaging', 'PM_ENABLED');
 	print_reg_field('File Attachments in Private Messages', 'PRIVATE_ATTACHMENTS', 1);
@@ -205,9 +204,9 @@ function get_max_upload_size()
 	print_reg_field('Maximum Private Messages Folder Size (for moderators)', 'MAX_PMSG_FLDR_SIZE_PM', 1);
 	print_reg_field('Maximum Private Messages Folder Size (for administrators)', 'MAX_PMSG_FLDR_SIZE_AD', 1);
 ?>
-<tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan=2><br /><b>Cookie & Session Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><br /><b>Cookie &amp; Session Settings</b> </td></tr>
 <?php
 	print_reg_field('Cookie Path', 'COOKIE_PATH');
 	print_reg_field('Cookie Domain', 'COOKIE_DOMAIN');
@@ -219,9 +218,9 @@ function get_max_upload_size()
 	print_bit_field('Session Referrer Check', 'ENABLE_REFERRER_CHECK');
 	print_bit_field('Session IP Validation', 'SESSION_IP_CHECK');
 ?>
-<tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan=2><br /><b>Custom Avatar Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><br /><b>Custom Avatar Settings</b> </td></tr>
 <?php
 	print_bit_field('Avatar Approval', 'CUSTOM_AVATAR_APPROVAL');
 	print_bit_field('Allow Flash (swf) avatars', 'CUSTOM_AVATAR_ALLOW_SWF');
@@ -229,9 +228,9 @@ function get_max_upload_size()
 	print_reg_field('Custom Avatar Max Size (bytes)', 'CUSTOM_AVATAR_MAX_SIZE', 1);
 	print_reg_field('Custom Avatar Max Dimensions', 'CUSTOM_AVATAR_MAX_DIM');
 ?>
-<tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan=2><br /><b>Signature Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><br /><b>Signature Settings</b> </td></tr>
 <?php
 	print_bit_field('Allow Signatures', 'ALLOW_SIGS');
 	print_bit_field('Tag Style', 'FORUM_CODE_SIG');
@@ -240,9 +239,9 @@ function get_max_upload_size()
 	print_reg_field('Maximum number of images', 'FORUM_IMG_CNT_SIG', 1);
 	print_reg_field('Maximum signature length', 'FORUM_SIG_ML', 1);
 ?>
-<tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan=2><br /><b>Spell Checker</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><br /><b>Spell Checker</b> </td></tr>
 <?php
 	if (extension_loaded('pspell')) {
 		$pspell_support = '<font color="red">is enabled.</font>';
@@ -252,9 +251,9 @@ function get_max_upload_size()
 	}
 	print_bit_field('Enable Spell Checker', 'SPELL_CHECK_ENABLED');
 ?>
-<tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan=2><br /><b>Email Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><br /><b>Email Settings</b> </td></tr>
 <?php
 	print_bit_field('Allow Email', 'ALLOW_EMAIL');
 	print_bit_field('Use SMTP To Send Email', 'USE_SMTP');
@@ -271,9 +270,9 @@ function get_max_upload_size()
 	print_bit_field('Smart Notification', 'SMART_EMAIL_NOTIFICATION');
 	print_bit_field('Disable e-mail notifications', 'DISABLE_NOTIFICATION_EMAIL');
 ?>
-<tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan=2><br /><b>General Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><br /><b>General Settings</b> </td></tr>
 <?php
 	print_bit_field('New Account Moderation', 'MODERATE_USER_REGS');
 	print_bit_field('New Account Notification', 'NEW_ACCOUNT_NOTIFY');
@@ -311,7 +310,7 @@ function get_max_upload_size()
 	print_bit_field('Multiple Host Login', 'MULTI_HOST_LOGIN');
 	print_bit_field('Bust&#39;A&#39;Punk', 'BUST_A_PUNK');
 ?>
-<tr class="field"><td colspan=2>Server Time Zone: <font size="-1"> <?php echo $help_ar['SERVER_TZ'][0]; ?></font><br /><select name="CF_SERVER_TZ" style="font-size: xx-small;"><?php echo tmpl_draw_select_opt($tz_values, $tz_names, $SERVER_TZ, '', ''); ?></select></td></tr>
+<tr class="field"><td colspan="2">Server Time Zone: <font size="-1"> <?php echo $help_ar['SERVER_TZ'][0]; ?></font><br /><select name="CF_SERVER_TZ" style="font-size: xx-small;"><?php echo tmpl_draw_select_opt($tz_values, $tz_names, $SERVER_TZ, '', ''); ?></select></td></tr>
 <?php
 	print_bit_field('Forum Search Engine', 'FORUM_SEARCH');
 	print_reg_field('Search results cache', 'SEARCH_CACHE_EXPIRY', 1);
@@ -330,7 +329,7 @@ function get_max_upload_size()
 	print_bit_field('Forum Info', 'FORUM_INFO');
 	print_reg_field('Forum Info Cache Age', 'STATS_CACHE_AGE', 1);
 	print_reg_field('Registration Time Limit', 'REG_TIME_LIMIT', 1);
-	print_bit_field('Enable Affero<br /><a href="http://www.affero.net/bbsteps.html" target=_blank>Click here for details</a>', 'ENABLE_AFFERO');
+	print_bit_field('Enable Affero<br /><a href="http://www.affero.net/bbsteps.html" target="_blank">Click here for details</a>', 'ENABLE_AFFERO');
 	print_bit_field('Topic Rating', 'ENABLE_THREAD_RATING');
 	print_bit_field('Track referrals', 'TRACK_REFERRALS');
 	print_bit_field('Profile Image', 'ALLOW_PROFILE_IMAGE');
@@ -364,7 +363,7 @@ function get_max_upload_size()
 	print_bit_field('Enable Geo-Location', 'ENABLE_GEO_LOCATION');
 	print_bit_field('Update Geo-Location on login', 'UPDATE_GEOLOC_ON_LOGIN');
 ?>
-<tr class="fieldaction"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 </table>
 <input type="hidden" name="form_posted" value="1" />
 </form>

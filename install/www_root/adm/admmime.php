@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmime.php,v 1.32 2009/01/19 21:14:25 frank Exp $
+* $Id: admmime.php,v 1.33 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,7 +51,7 @@
 </tr>
 <tr class="field">
 	<td>MIME Icon Upload:<br /><font size="-1">Only (.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
-	<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload" /><input type="hidden" name="tmp_f_val" value="1" /></td>
+	<td><input type="file" name="icoul" /> <input type="submit" name="btn_upload" value="Upload" /><input type="hidden" name="tmp_f_val" value="1" /></td>
 </tr>
 <?php } else { ?>
 <tr class="fieldtopic">
@@ -92,14 +92,14 @@
 <tr class="field">
 	<td valign="top">Preview Image:</td>
 	<td>
-		<table border=1 cellspacing=1 cellpadding=2 bgcolor="#ffffff">
-		<tr><td align=center valign=middle><img src="<?php echo ($mime_icon ? $GLOBALS['WWW_ROOT'] . 'images/mime/' . $mime_icon : '../blank.gif'); ?>" name="prev_icon" border=0 alt="Preview"></td></tr>
+		<table border="1" cellspacing="1" cellpadding="2" bgcolor="#ffffff">
+		<tr><td align="center" valign="middle"><img src="<?php echo ($mime_icon ? $GLOBALS['WWW_ROOT'] . 'images/mime/' . $mime_icon : '../blank.gif'); ?>" name="prev_icon" border="0" alt="Preview" /></td></tr>
 		</table>
 	</td>
 </tr>
 
 <tr class="fieldaction">
-	<td colspan=2 align=right><input type="submit" name="btn_cancel" value="Reset" />
+	<td colspan="2" align="right"><input type="submit" name="btn_cancel" value="Reset" />
 <?php
 	if (!$edit) {
 		echo '<input type="submit" name="btn_submit" value="Add MIME" />';
@@ -130,7 +130,7 @@
 		} else {
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
-		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$GLOBALS['WWW_ROOT'].'images/mime/'.$r[1].'" border=0 alt="'.$r[4].'"></td><td>'.$r[2].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td nowrap>[<a href="admmime.php?edit='.$r[0].'&amp;'.__adm_rsid.'#img">Edit</a>] [<a href="admmime.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$GLOBALS['WWW_ROOT'].'images/mime/'.$r[1].'" border="0" alt="'.$r[4].'" /></td><td>'.$r[2].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td nowrap>[<a href="admmime.php?edit='.$r[0].'&amp;'.__adm_rsid.'#img">Edit</a>] [<a href="admmime.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 ?>

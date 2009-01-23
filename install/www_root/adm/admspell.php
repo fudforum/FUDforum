@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admspell.php,v 1.17 2009/01/19 21:14:25 frank Exp $
+* $Id: admspell.php,v 1.18 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,16 +52,16 @@
 	be used in addition to the native pspell/aspell dictionaries. <font size="-1">(1 word per line.)</font></td>
 </tr>
 <tr class="field">
-	<td><textarea tabindex="1" rows=7 cols=30 name="words"></textarea></td>
+	<td><textarea tabindex="1" rows="7" cols="30" name="words"></textarea></td>
 </tr>
 <tr class="fieldaction">
 	<td align="right"><input type="submit" name="submit" value="Add Words" tabindex="2" /></td>
 </tr>
 </table>
 </form>
-<script>
-<!--
+<script type="text/javascript">
+/* <![CDATA[ */
 document.forms['spell'].words.focus();
-//-->
+/* ]]> */
 </script>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

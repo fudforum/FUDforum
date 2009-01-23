@@ -35,7 +35,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 <?php } ?><br />
 	<span class="linkgroup">General Management</span><br />
 	<a href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a><br />
-	<a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement & Censorship System</a><br />
+	<a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement &amp; Censorship System</a><br />
 	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Managment System</a><br />
 	<a href="admrdf.php?<?php echo __adm_rsid; ?>">RDF Feed Managment</a><br />
 	<a href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Managment</a><br />
@@ -58,7 +58,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a><br /><?php } ?><br />
 
 	<span class="linkgroup">Forum Management</span><br />
-	<a href="admcat.php?<?php echo __adm_rsid; ?>">Category & Forum Management</a><br />
+	<a href="admcat.php?<?php echo __adm_rsid; ?>">Category &amp; Forum Management</a><br />
 	<a href="admdelfrm.php?<?php echo __adm_rsid; ?>">Deleted Forums</a><br />
 	<a href="admannounce.php?<?php echo __adm_rsid; ?>">Announcement Manager</a><br />
 	<a href="admprune.php?<?php echo __adm_rsid; ?>">Topic Pruning</a><br />

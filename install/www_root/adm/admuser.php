@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.87 2009/01/19 21:14:25 frank Exp $
+* $Id: admuser.php,v 1.88 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -375,7 +375,7 @@ document.forms['frm_usr'].usr_login.focus();
 <form action="admuser.php" method="post"><?php echo _hs; ?>
 <table class="datatable solidtable">
 
-	<tr class="field"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo char_fix(htmlspecialchars($u->login)); ?>" maxLength="<?php echo $MAX_LOGIN_SHOW; ?>" name="login_name" /> <input type="submit" name="submit" value="Change Login Name" /></td></tr>
+	<tr class="field"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo char_fix(htmlspecialchars($u->login)); ?>" maxlength="<?php echo $MAX_LOGIN_SHOW; ?>" name="login_name" /> <input type="submit" name="submit" value="Change Login Name" /></td></tr>
 	<tr class="field"><td>Password:</td><td><input type="text" value="" name="login_passwd" /> <input type="submit" name="submit" value="Change Password" /></td></tr>
 </table>
 	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
@@ -423,7 +423,7 @@ if ($acc_mod_only) {
 	echo '<tr class="field"><td nowrap="nowrap" valign="top">Moderating Forums:</td><td valign="top">';
 	$c = uq('SELECT f.name FROM '.$DBHOST_TBL_PREFIX.'mod mm INNER JOIN '.$DBHOST_TBL_PREFIX.'forum f ON mm.forum_id=f.id WHERE mm.user_id='.$usr_id);
 	if ($r = db_rowarr($c)) {
-		echo '<table border=0 cellspacing=1 cellpadding=3>';
+		echo '<table border="0" cellspacing="1" cellpadding="3">';
 		do {
 			echo '<tr><td>'.$r[0].'</td></tr>';
 		} while ($r = db_rowarr($c));
@@ -454,11 +454,11 @@ if ($acc_mod_only) {
 	</form>
 	</td></tr>
 
-	<tr class="field"><td valign=top>Profile Link Color:</td>
-		<td valign=top>
+	<tr class="field"><td valign="top">Profile Link Color:</td>
+		<td valign="top">
 		<form id="extra_tags" method="post" action="admuser.php">
 		<?php echo _hs; ?>
-		<input type="text" name="custom_color" maxLength="255" value="<?php echo $u->custom_color; ?>" />
+		<input type="text" name="custom_color" maxlength="255" value="<?php echo $u->custom_color; ?>" />
 		<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 		<input type="hidden" name="act" value="color"><input type="submit" value="Change" />
 		</form>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.55 2009/01/19 21:14:25 frank Exp $
+* $Id: admmassemail.php,v 1.56 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -157,7 +157,7 @@
 		</td>
 	</tr>
 	<tr class="fieldaction">
-		<td colspan="2" align=right>
+		<td colspan="2" align="right">
 			<input type="checkbox" name="ignore_override" value="1" /> Ignore User Override <input tabindex="3" type="submit" value="Send" name="btn_submit" />
 		</td>
 	</tr>

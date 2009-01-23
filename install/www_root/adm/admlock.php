@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.43 2009/01/17 09:23:52 frank Exp $
+* $Id: admlock.php,v 1.44 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -72,7 +72,7 @@
 <table border="0" cellspacing="0" cellpadding="3">
 <tr><td>Login:</td><td><input type="text" name="usr_login" value="<?php echo $usr->alias; ?>" /></td></tr>
 <tr><td>Password:</td><td><input type="password" name="usr_passwd" /></td></tr>
-<tr><td colspan=2 align=center>
+<tr><td colspan="2" align="center">
 	<input type="submit" name="btn_lock" value="Lock Files" />
 	<input type="submit" name="btn_unlock" value="Unlock Files" />
 </td></tr>

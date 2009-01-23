@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.38 2009/01/19 21:14:25 frank Exp $
+* $Id: admavatar.php,v 1.39 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -162,7 +162,7 @@ function import_avatars($path)
 		<tr><td colspan="2">&nbsp;</td></tr>
 
 		<tr class="field">
-			<td colspan=2><b>Avatar Upload</b> (upload avatars into the system)</td>
+			<td colspan="2"><b>Avatar Upload</b> (upload avatars into the system)</td>
 		</tr>
 		<tr class="field">
 			<td>Avatar Upload:<br /><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
@@ -194,7 +194,7 @@ function import_avatars($path)
 		echo ' <select name="avt_gal">';
 		foreach ($galleries as $gal) {
 			$name = htmlspecialchars($gal);
-			echo '<option value="'.$name.'"'.($gal == $avt_gal ? ' selected' : '').'>'.$name.'</option>';
+			echo '<option value="'.$name.'"'.($gal == $avt_gal ? ' selected="selected"' : '').'>'.$name.'</option>';
 		}
 		echo '</select>';
 	}
@@ -203,15 +203,15 @@ function import_avatars($path)
 	</tr>
 
 	<tr class="field">
-		<td valign=top><a name="avt_sel">Avatar Image:</a></td>
+		<td valign="top"><a name="avt_sel">Avatar Image:</a></td>
 		<td>
-			<input type="text" name="avt_img" value="<?php echo htmlspecialchars($avt_img); ? />"
+			<input type="text" name="avt_img" value="<?php echo htmlspecialchars($avt_img); ?>"
 				onchange="javascript:
 					if (document.frm_avt.avt_img.value.length) {
 						document.prev_icon.src='<?php echo $WWW_ROOT_DISK; ?>images/avatars/' + document.frm_avt.avt_img.value;
 					} else {
 						document.prev_icon.src='../blank.gif';
-					}">
+					}" />
 			[<a href="#avt_sel" onclick="javascript:window.open('admiconsel.php?type=4&amp;<?php echo __adm_rsid; ?>', 'admavatarsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT AVATAR</a>]
 		</td>
 	</tr>
@@ -221,7 +221,7 @@ function import_avatars($path)
 		<td>
 			<table border="1" cellspacing="1" cellpadding="2" bgcolor="#ffffff">
 				<tr><td align="center" valign="middle">
-					<img src="<?php echo ($avt_img ? $GLOBALS['WWW_ROOT'] . 'images/avatars/' . $avt_img : '../blank.gif'); ?>" name="prev_icon" border=0 alt="blank">
+					<img src="<?php echo ($avt_img ? $GLOBALS['WWW_ROOT'] . 'images/avatars/' . $avt_img : '../blank.gif'); ?>" name="prev_icon" border="0" alt="blank">
 				</td></tr>
 			</table>
 		</td>
@@ -248,7 +248,7 @@ function import_avatars($path)
 		echo '<form id="frm_avt" method="get" action="admavatar.php">'._hs.'<div align="center">';
 		echo '<select name="avt_gal_sw">';
 		foreach ($galleries as $gal) {
-			echo '<option value="'.htmlspecialchars($gal).'"'.($avt_gal == $gal ? ' selected' : '').'>'.htmlspecialchars($gal).'</option>';
+			echo '<option value="'.htmlspecialchars($gal).'"'.($avt_gal == $gal ? ' selected="selected"' : '').'>'.htmlspecialchars($gal).'</option>';
 		}
 		echo '</select> <input type="submit" name="submit" value="View" />';
 		echo '</div></form>';
@@ -272,7 +272,7 @@ function import_avatars($path)
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 		echo '<tr '.$bgcolor.'>
-				<td><img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$r[1].'" alt="'.$r[2].'" border=0 /></td>
+				<td><img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$r[1].'" alt="'.$r[2].'" border="0" /></td>
 				<td>'.$r[2].'</td>
 				<td>[<a href="admavatar.php?edit='.$r[0].'&amp;'.__adm_rsid.'#img">Edit</a>] [<a href="admavatar.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td>
 			</tr>';

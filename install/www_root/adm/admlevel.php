@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlevel.php,v 1.33 2009/01/17 09:23:52 frank Exp $
+* $Id: admlevel.php,v 1.34 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -64,7 +64,7 @@
 
 	<tr class="field">
 		<td>Post Count</td>
-		<td><input type="text" name="lev_post_count" value="<?php echo $lev_post_count; ?>" size="11" maxLength="10" /></td>
+		<td><input type="text" name="lev_post_count" value="<?php echo $lev_post_count; ?>" size="11" maxlength="10" /></td>
 	</tr>
 
 	<tr>
@@ -96,7 +96,7 @@
 		} else {
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
-		echo '<tr'.$bgcolor.'><td>'.$r->name.'</td><td align=center>'.$r->post_count.'</td><td><a href="admlevel.php?edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a> | <a href="admlevel.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a></td></tr>';
+		echo '<tr'.$bgcolor.'><td>'.$r->name.'</td><td align="center">'.$r->post_count.'</td><td><a href="admlevel.php?edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a> | <a href="admlevel.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a></td></tr>';
 	}
 	unset($c);
 ?>

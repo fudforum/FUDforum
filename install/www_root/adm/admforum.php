@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.49 2009/01/18 08:22:09 frank Exp $
+* $Id: admforum.php,v 1.50 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -121,11 +121,11 @@ if (!isset($_GET['chpos'])) {
 <table class="datatable">
 	<tr class="field">
 		<td>Forum Name:</td>
-		<td><input type="text" name="frm_name" value="<?php echo $frm_name; ?>" maxlength=100 /></td>
+		<td><input type="text" name="frm_name" value="<?php echo $frm_name; ?>" maxlength="100" /></td>
 	</tr>
 
 	<tr class="field">
-		<td valign=top>Description</td>
+		<td valign="top">Description</td>
 		<td><textarea nowrap name="frm_descr" cols="28" rows="5"><?php echo htmlspecialchars($frm_descr); ?></textarea>
 	</tr>
 
@@ -141,7 +141,7 @@ if (!isset($_GET['chpos'])) {
 
 	<tr class="field">
 		<td>Posting Password</td>
-		<td><input type="passwd" maxLength=32 name="frm_post_passwd" value="<?php echo htmlspecialchars($frm_post_passwd); ?>" /></td>
+		<td><input type="passwd" maxlength="32" name="frm_post_passwd" value="<?php echo htmlspecialchars($frm_post_passwd); ?>" /></td>
 	</tr>
 
 	<tr class="field">
@@ -187,7 +187,7 @@ if (!isset($_GET['chpos'])) {
 <?php } ?>
 
 	<tr class="fieldaction">
-		<td colspan=2 align=right>
+		<td colspan="2" align="right">
 <?php
 	if ($edit) {
 		echo '<input type="submit" value="Cancel" name="btn_cancel" /> ';

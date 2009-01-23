@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.32 2009/01/19 21:14:25 frank Exp $
+* $Id: admadduser.php,v 1.33 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -104,7 +104,7 @@ function validate_input()
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="fieldtopic">
-		<td colspan=2>Register a new forum user.</td>
+		<td colspan="2">Register a new forum user.</td>
 	</tr>
 
 	<tr class="field">
@@ -124,7 +124,7 @@ function validate_input()
 		<td><input type="text" name="name" value="<?php echo $name; ?>" tabindex="4" size="30" /></td>
 	</tr>
 	<tr class="fieldaction">
-		<td colspan=2 align=right><input type="submit" value="Add User" tabindex="5" name="usr_add" /></td>
+		<td colspan="2" align="right"><input type="submit" value="Add User" tabindex="5" name="usr_add" /></td>
 	</tr>
 </table>
 </form>

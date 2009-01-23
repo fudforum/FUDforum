@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmodfrm.php,v 1.34 2009/01/19 21:14:25 frank Exp $
+* $Id: admmodfrm.php,v 1.35 2009/01/23 19:42:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,4 +87,5 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 </table>
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 </form>
+</body>
 </html>
