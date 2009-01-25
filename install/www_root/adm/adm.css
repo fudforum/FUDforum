@@ -48,7 +48,7 @@ table.linktable {
 	width: 100%;
 }
 span.linkhead {
-	color: red;
+	color: #d66108;
 	font-weight: bold;
 	font-size: 1.2em;
 }
@@ -95,6 +95,10 @@ span.linkgroup {
 	background: #dddeed;
 }
 
+.field:hover {
+        background: #eeeffe;
+} 
+
 .tiny {
 	font-size: x-small;
 }
@@ -131,10 +135,13 @@ span.linkgroup {
 .alert {
 	margin: 11px;
 	color: red;
-	font-size: x-large;
+	background-color: #ffcccc;
+	font-size: large;
 	font-weight: bold;
 	text-align: center;
-	border: 2px dashed red;
+	border: 1px outset #bb9999;
+	border-left-width: 10px;
+	border-left-color: red;
 }
 
 phpinfo {border-collapse: collapse;}
@@ -147,6 +154,5 @@ phpinfo {border-collapse: collapse;}
 .v {background-color: #cccccc; color: #000000;}
 .vr {background-color: #cccccc; text-align: right; color: #000000;}
 hr {width: 600px; background-color: #cccccc; border: 0px; height: 1px; color: #000000;}
-
 
 img {float: right; border: 0px;}

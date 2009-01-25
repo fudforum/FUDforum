@@ -262,3 +262,30 @@ function topicVote(rating, topic_id, ses, sq)
         });
 }
 
+function prevCat(id)
+{
+	var p = document.getElementById(id);
+	if (!p) {
+		return;
+	}
+	while (p = p.previousSibling) {
+		if (p.id && p.id.substring(0,1) == 'c' && p.style.display != 'none') {
+			chng_focus(p.id);
+			break;
+		}
+	}
+}
+
+function nextCat(id)
+{
+	var p = document.getElementById(id);
+	if (!p) {
+		return;
+	}
+	while (p = p.nextSibling) {
+		if (p.id && p.id.substring(0,1) == 'c' && p.style.display != 'none') {
+			chng_focus(p.id);
+			break;
+		}
+	}
+}

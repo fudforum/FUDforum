@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlevel.php,v 1.34 2009/01/23 19:42:23 frank Exp $
+* $Id: admlevel.php,v 1.35 2009/01/25 12:50:38 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,7 +43,7 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Rank Manager</h2>
-<div align="center"><font size="+1" color="#ff0000">If you've made any modification to the user ranks<br />YOU MUST RUN CACHE REBUILDER by &gt;&gt; <a href="admlevel.php?rebuild_levels=1&amp;<?php echo __adm_rsid; ?>">clicking here</a> &lt;&lt;</font></div>
+<div class="alert">If you've made any modification to the user ranks<br />you MUST run the CACHE REBUILDER by &gt;&gt; <a href="admlevel.php?rebuild_levels=1&amp;<?php echo __adm_rsid; ?>">clicking here</a> &lt;&lt;</div>
 <form method="post" id="lev_form" action="admlevel.php">
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 <?php echo _hs; ?>

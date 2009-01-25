@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.44 2009/01/23 19:42:23 frank Exp $
+* $Id: admlock.php,v 1.45 2009/01/25 12:50:38 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,9 +63,9 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<div align="center" style="font-size: xx-large; color: #ff0000;">
-	The forum's files appear to be: <b><?php echo $status; ?></b>.<br />
-	<font size="-1">If this test claims that the forum is unlocked, but you still cannot modify your files click on the "Unlock Files" button.</font><br />
+<div class="alert">
+	The forum's files appear to be: <i><?php echo $status; ?></i>.<br /><br />
+	<font size="-1">If this test claims that the forum is unlocked, but you still cannot modify your files click on the "Unlock Files" button.</font><br /><br />
 	For security reasons remember to lock your forum's files after you are done editing them.
 </div>
 <form method="post">

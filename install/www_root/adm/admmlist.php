@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.43 2009/01/23 19:42:23 frank Exp $
+* $Id: admmlist.php,v 1.44 2009/01/25 12:50:38 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -59,7 +59,7 @@ function format_regex(&$regex)
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	if ($FUD_OPT_2 & 8388608) {
-		echo '<font color="#ff0000" size="+3">You MUST UNLOCK the forum\'s files before you can run the mailing list importing scripts.</font><p>';
+		echo '<div class="alert">You MUST UNLOCK the forum\'s files before you can run the mailing list importing scripts.</div>';
 	}
 ?>
 <h2>Mailing List Manager</h2>
@@ -273,7 +273,7 @@ function format_regex(&$regex)
 	unset($c);
 ?>
 </table>
-<p>
+<br /><br />
 <b>***Notes***</b><br />
 Exec Line parameter in the table above shows the execution line that you will need to pipe
 the mailing list messages to.<br /> Procmail example:

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.84 2009/01/23 19:42:23 frank Exp $
+* $Id: index.tmpl,v 1.85 2009/01/25 12:50:38 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,15 +28,15 @@
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
-<tr id="c{VAR: k}" p="{VAR: i[0]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
-<td colspan="5" class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
-<a name="c{VAR: k}" href="javascript://" onclick="toggleCategory({VAR: k}, {VAR: i[0]});" class="CatLink" title="{IF: !empty($collapse[$k])}{MSG: maximize_category}{ELSE}{MSG: minimize_category}{END}">
-<img name="c{VAR: k}img" src="{THEME_IMAGE_ROOT}/{IF: empty($collapse[$k])}min{ELSE}max{ENDI}{DEF: img_ext}" alt="" /></a> 
-<a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}{TEMPLATE: index_cat_up_down_arrows}</tr>
+<tr id="c{VAR: k}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
+<td class="CatDesc {IF: empty($collapse[$cid])}expanded{ELSE}collapsed{ENDI}" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
+<a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td>{TEMPLATE: index_cat_up_down_arrows}</tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr id="c{VAR: k}" id="c{VAR: k}" p="{VAR: i[0]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};"><td class="CatDesc CatLockPad" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;"><span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}{TEMPLATE: index_cat_up_down_arrows}</td></tr>
+<tr id="c{VAR: k}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
+<td class="CatDesc CatLockPad" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
+<span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}</td>{TEMPLATE: index_cat_up_down_arrows}</tr>
 {SECTION: END}
 
 {SECTION: moderators moderator list}
@@ -44,7 +44,7 @@
 {SECTION: END}
 
 {SECTION: index_forum_entry forum entry row}
-<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" p="{VAR: i[0]}" c="{VAR: k}">
+<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="child-c{VAR: k}">
 	<td class="RowStyleA wo">{IF: $r[6]}<img src="images/forum_icons/{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
 	<td class="RowStyleB wo">{VAR: forum_read_indicator}</td>
 	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
@@ -55,7 +55,7 @@
 {SECTION: END}
 
 {SECTION: forum_with_no_view_perms}
-<tr p="{VAR: i[0]}" style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" c="{VAR: k}">
+<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="child-{VAR: k}">
 	<td class="RowStyleA" colspan="6">{VAR: r[10]}{FUNC: ($r[11] ? '<br />'.$r[11] : '')}</td>
 </tr>
 {SECTION: END}
@@ -97,106 +97,46 @@
 
 <script type="text/javascript">
 /* <![CDATA[ */
-function prevCat(id)
-{
-	var p = document.getElementById(id);
-	if (!p) {
-		return;
-	}
-	while (p = p.previousSibling) {
-		if (p.id && p.id.substring(0,1) == 'c' && p.style.display != 'none') {
-			chng_focus(p.id);
-			break;
-		}
-	}
-}
+$(document).ready(function() {
+  var toggleMinus = '{THEME_IMAGE_ROOT}/min{DEF: img_ext}';
+  var togglePlus  = '{THEME_IMAGE_ROOT}/max{DEF: img_ext}';
 
-function nextCat(id)
-{
-	var p = document.getElementById(id);
-	if (!p) {
-		return;
-	}
-	while (p = p.nextSibling) {
-		if (p.id && p.id.substring(0,1) == 'c' && p.style.display != 'none') {
-			chng_focus(p.id);
-			break;
-		}
-	}
-}
+  $(".collapsed").prepend('<img src="' + togglePlus + '" alt="+" title="{MSG: maximize_category}" />')
+                 .addClass("collapsable");
+  $(".expanded").prepend('<img src="' + toggleMinus + '" alt="-" title="{MSG: minimize_category}" />')
+	        .addClass("collapsable");
 
-function minCatImage(cid, on)
-{
-	var src = document.getElementById(cid+'img').src;
-	if (on == 'none') {
-		src = src.replace(/min\.([a-z]+)$/, "max.$1") + '';
-	} else {
-		src = src.replace(/max\.([a-z]+)$/, "min.$1") + '';
-	}
-	document.getElementById(cid+'img').src = src;
-	if (document.all && !OPERA) { document.getElementById(cid+'img').style.background = 'url('+src+')'; }
-}
+  $("img", $(".collapsable")).addClass('clickable')
+  .css("cursor", "pointer")
+  .click(function() {
+    var toggleSrc = $(this).attr('src');
+    var cat = $(this).parents("tr").attr('id');
+    var on;
 
-function toggleCategory(cid, level)
-{
-	var c = document.getElementById('c'+cid).nextSibling;
-	var on = c.style.display != 'none' ? 'none' : (document.all && !OPERA ? '' : 'table-row');
-	var p, id, cat = 'c'+cid;
-
-	minCatImage(cat, on);
-
-	while (c) {
-		if (c.nodeType != 1) {
-			c = c.nextSibling;
-			continue;
-		}
-		if (document.all && !OPERA) {
-			p = c.p;
-			id = c.id;
-		} else {
-			p = c.getAttribute('p');
-			id = c.getAttribute('id');
-		}
-
-		if (!p) {
-			break;
-		}
-
-		if (p > level && id) { // category
-			c.style.display = on;
-			c = c.nextSibling;
-			cat = id;
-			continue;
-		} else if (!id && p == level) { // forums that are children of the current category
-			c.style.display = on;
-			c = c.nextSibling;
-			continue;
-		} else if (!id && p > level) { // forums of the child category
-			if (on == 'none') { // if hiding, hide everything
-				c.style.display = on;
-			} else if (document.getElementById(cat+'img')) {
-				if (document.getElementById(cat+'img').src.indexOf('min') != -1 && document.getElementById(cat).style.display != 'none') {
-					c.style.display = (document.all && !OPERA ? '' : 'table-row');
-				} else {
-					c.style.display = 'none';
-				}
-			}
-			c = c.nextSibling;
-			continue;
-		}
-		break;
-	}
+    if ( toggleSrc == toggleMinus ) {	// Hide cat
+      $(this).attr('src', togglePlus)
+             .attr("title", "{MSG: maximize_category}")
+             .attr("alt", "+")
+             .parents('tr').siblings(".child-"+cat).fadeOut('slow');
+      on = 1;
+    } else{				// Show cat
+      $(this).attr('src', toggleMinus)
+             .attr("title", "{MSG: minimize_category}")
+             .attr("alt", "-")
+             .parents('tr').siblings(".child-"+cat).fadeIn('slow');
+      on = 0;
+    };
 
 {IF: _uid}
-        $.ajax({
-           type: "POST",
-           url: "index.php?t=cat_focus",
-           data: "SQ={VAR: usr->sq}&S={DEF: s}&c="+cid+"&on="+(on == "none" ? "1" : "0"),
-           success: catChange,
-           error: catChange,
-         });
+    $.ajax({
+       type: "POST",
+       url: "index.php?t=cat_focus",
+       data: "SQ={VAR: usr->sq}&S={DEF: s}&c="+cat.substr(1)+"&on="+on,
+     });
 {ENDIFI}
-}
+
+  });
+})
 /* ]]> */
 </script>
 
@@ -283,5 +223,5 @@ function toggleCategory(cid, level)
 {SECTION: END}
 
 {SECTION: idx_compact_forum_row}
-<tr class="RowStyleB" p="{VAR: i[0]}"><td colspan="6">{MSG: idx_compact_forum_row}{VAR: cbuf}</td></tr>
+<tr class="RowStyleB"><td colspan="6">{MSG: idx_compact_forum_row}{VAR: cbuf}</td></tr>
 {SECTION: END}

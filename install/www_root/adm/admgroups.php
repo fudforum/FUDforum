@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.57 2009/01/23 19:42:23 frank Exp $
+* $Id: admgroups.php,v 1.58 2009/01/25 12:50:38 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -219,7 +219,7 @@
 		if ($edit && $gl[$edit]['forum_id']) {
 			echo 'FORUM: '.$gl[$edit]['fname'];
 		} else {
-			echo '<select MULTIPLE name="gr_resource[]" size="10">';
+			echo '<select multiple="multiple" name="gr_resource[]" size="10">';
 			if (!isset($_POST['edit']) && $edit) {
 				$c = uq('SELECT resource_id FROM '.$DBHOST_TBL_PREFIX.'group_resources WHERE group_id='.$edit);
 				while ($r = db_rowarr($c)) {
