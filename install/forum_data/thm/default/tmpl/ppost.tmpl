@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.tmpl,v 1.67 2009/01/27 05:40:00 frank Exp $
+* $Id: ppost.tmpl,v 1.68 2009/01/27 18:13:40 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -90,7 +90,7 @@
 {TEMPLATE: usercp}
 {FUNC: tmpl_cur_ppage('', $folders)}
 {TEMPLATE-DATA: tabs}
-<form action="{TEMPLATE: PPOST_PAGE_lnk3}" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.post_form.btn_submit.disabled = true; document.forms[\'post_form\'].btn_draft.disabled = true;">
+<form action="{TEMPLATE: PPOST_PAGE_lnk3}" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.post_form.btn_submit.disabled = true; document.post_form.btn_draft.disabled = true;">
 {DEF: _hs}
 <input type="hidden" name="btn_action" value="" />
 <input type="hidden" name="msg_id" value="{VAR: msg_id}" />
