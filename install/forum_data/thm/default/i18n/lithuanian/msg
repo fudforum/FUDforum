@@ -1,145 +1,145 @@
 action:				Veiksmas
-add_to_buddy_list:		ádëti á bièiuliø sàrağà
+add_to_buddy_list:		Ä¯dÄ—ti Ä¯ biÄiuliÅ³ sÄ…raÅ¡Ä…
 admin:				Administravimas 
 admin_control_panel:		Administratoriaus langas
 administrator:			Administratorius
 attachment:			Priedas:
 avatar:				Logotipas:
-average_post_count:		{VAR: u->posted_msg_count} praneğimø. (Vidutiniğkai {VAR: avg} praneğimø per dienà.)
+average_post_count:		{VAR: u->posted_msg_count} praneÅ¡imÅ³. (VidutiniÅ¡kai {VAR: avg} praneÅ¡imÅ³ per dienÄ….)
 biography:			Biografija:
 birth_date:			Gimimo data:
-by:				Parağë:
+by:				ParaÅ¡Ä—:
 by_mod:				Moderuota
 current_time:			Dabar:
 custom_avatar_queue:		Custom Avatar Queue
-date_posted:			Rağymo data
+date_posted:			RaÅ¡ymo data
 date_registered:		Prisiregistravo:
-download_counter:		Atsisiøsta {VAR: v[3]} kartà(-ø).
-pmsg_download_counter:		Atsisiøsta {VAR: r->dlcount} kartà(-ø).
+download_counter:		AtsisiÅ³sta {VAR: v[3]} kartÄ…(-Å³).
+pmsg_download_counter:		AtsisiÅ³sta {VAR: r->dlcount} kartÄ…(-Å³).
 email:				Email:
-email_to_friend:		Siøsti email draugui
-email_to_friend_desc:		Siøsti ğio puslapio URL nuorodà draugui email pağtu.
-email_user:			Spausk èia norëdamas nusiusti email.
+email_to_friend:		SiÅ³sti email draugui
+email_to_friend_desc:		SiÅ³sti Å¡io puslapio URL nuorodÄ… draugui email paÅ¡tu.
+email_user:			Spausk Äia norÄ—damas nusiusti email.
 faq:				D.U.K.
-first_unread_msg:		Pereiti prie neskaitytø praneğimø
-first_unread_msg_desc:		Pereiti prie pirmos neskaitytos ğios temos şinutës.
-flat_view:			Grişti á áprastà vaizdà.
+first_unread_msg:		Pereiti prie neskaitytÅ³ praneÅ¡imÅ³
+first_unread_msg_desc:		Pereiti prie pirmos neskaitytos Å¡ios temos Å¾inutÄ—s.
+flat_view:			GriÅ¾ti Ä¯ Ä¯prastÄ… vaizdÄ….
 forum:				Forumas:
-forum_icon:			Forumo şenklas
-forum_new_messages:		Naujos şinutës
+forum_icon:			Forumo Å¾enklas
+forum_new_messages:		Naujos Å¾inutÄ—s
 forum_none_messages:		Only registered forum members can track read &amp; unread messages
-forum_old_messages:		Nëra naujø praneğimø
+forum_old_messages:		NÄ—ra naujÅ³ praneÅ¡imÅ³
 from:				Nuo:
 gender:				Lytis:
 go:				Pirmyn
-goto_next_msg:			Sekanti şinutë
-goto_prev_msg:			Praeita şinutë
-home:				Á forumo pradşià
-homepage:			Namø puslapis:
+goto_next_msg:			Sekanti Å¾inutÄ—
+goto_prev_msg:			Praeita Å¾inutÄ—
+home:				Ä® forumo pradÅ¾iÄ…
+homepage:			NamÅ³ puslapis:
 icq_control_panel:		ICQ Online-Message Panel
 icq_message_form:		ICQ Message Message Form:
-ignore_user:			ignoruoti visus ğio nario praneğimus
+ignore_user:			ignoruoti visus Å¡io nario praneÅ¡imus
 im_aim:				AIM Handle:
 im_msnm:			MSN Messenger:
 im_yahoo:			Yahoo Messenger:
 image:				Paveiksliukas:
 index_forum:			Forumas
-index_new_posts:		Naujos şinutës po paskutinio apsilankymo
-index_no_new_posts:		Nëra naujø praneğimø po paskutinio apsilankymo
-interests:			Pomëgiai:
-last_post:			Paskutinë şinutë
-last_thread_msg:		Á paskutinæ şinutæ
+index_new_posts:		Naujos Å¾inutÄ—s po paskutinio apsilankymo
+index_no_new_posts:		NÄ—ra naujÅ³ praneÅ¡imÅ³ po paskutinio apsilankymo
+interests:			PomÄ—giai:
+last_post:			PaskutinÄ— Å¾inutÄ—
+last_thread_msg:		Ä® paskutinÄ™ Å¾inutÄ™
 legend:				Legenda:
 location:			Vieta:
-lock_thread:			Uşdaryti temà
-locked:				Uşdaryta
-locked_with_new_posts:		Uşdaryta (yra naujø praneğimø)
-logged_in_list:			Prisijungusiø nariø sàrağas
+lock_thread:			UÅ¾daryti temÄ…
+locked:				UÅ¾daryta
+locked_with_new_posts:		UÅ¾daryta (yra naujÅ³ praneÅ¡imÅ³)
+logged_in_list:			PrisijungusiÅ³ nariÅ³ sÄ…raÅ¡as
 login:				Prisijungti
 login_header:			Prisijungimas:
 logout:				Atsijungti
-mark_all_read:			paşymëti visas şinutes kaip skaitytas
+mark_all_read:			paÅ¾ymÄ—ti visas Å¾inutes kaip skaitytas
 mark_all_read_desc:		All your unread messages will be marked as read
 members:			Nariai
-message:			Şinutë
-message_counter:		Mûsø nariai parağë viso <b>{VAR: post_count}</b> şinutes, <b>{VAR: thread_count}</b> temose.
+message:			Å½inutÄ—
+message_counter:		MÅ«sÅ³ nariai paraÅ¡Ä— viso <b>{VAR: post_count}</b> Å¾inutes, <b>{VAR: thread_count}</b> temose.
 message_index:			Message index
-message_index_desc:		Şinuèiø sàrağo perşiûra
+message_index_desc:		Å½inuÄiÅ³ sÄ…raÅ¡o perÅ¾iÅ«ra
 minimize_category:		Minimize Category
 moderation_queue:		Moderation Queue
 moderator:			Moderatorius
 moderator_of:			Moderator of:
 moderator_options:		Moderatoriaus veiksmai
 moderators:			Moderatorius(-iai)
-more_unread_messages:		daugiau neskaitytø şinuèiø
-more_unread_messages_desc:	Rodyti daugiau neskaitytø şinuèiø ir paşymëti jas kaip skaitytas
+more_unread_messages:		daugiau neskaitytÅ³ Å¾inuÄiÅ³
+more_unread_messages_desc:	Rodyti daugiau neskaitytÅ³ Å¾inuÄiÅ³ ir paÅ¾ymÄ—ti jas kaip skaitytas
 move_thread:			Perkelti
-moved:				Perkelta á kità forumà
-moved_thread_message:		Ği tema perkelta á kità forumà
+moved:				Perkelta Ä¯ kitÄ… forumÄ…
+moved_thread_message:		Å i tema perkelta Ä¯ kitÄ… forumÄ…
 na:				n/a
-new_posts:			Yra naujø praneğimø
-new_private_messages:		Jûs turite <span class="GenText" style="color: #ff0000">({VAR: c})</span> neskaitytø privaèiø şinuèiø.
-new_thread:			Sukurti naujà temà
+new_posts:			Yra naujÅ³ praneÅ¡imÅ³
+new_private_messages:		JÅ«s turite <span class="GenText" style="color: #ff0000">({VAR: c})</span> neskaitytÅ³ privaÄiÅ³ Å¾inuÄiÅ³.
+new_thread:			Sukurti naujÄ… temÄ…
 newest_user:			Naujausias registruotas narys yra
 next_page:			Sekantis puslapis
 next_thread:			Sekanti tema:
-no_messages:			Nëra naujø praneğimø ğiame forume.
-no_msg_body:			Tuğèia şinutë
-no_new_posts:			Nëra naujø praneğimø
-no_posts:			Nëra praneğimø
-no_subscribed_forums:		Nëra prenumeruotø forumø
-no_subscribed_threads:		Nëra prenumeruotø temø
-no_unread_locked:		Ği tema uşdaryta
-no_unread_msg:			Ğioje temoje nëra neskaitytø praneğimø
-no_unread_msg_unreg:		Skaitytø &amp; neskaitytø praneğimø paslauga pateikiamà tik uşsiregistravusiems nariams.
-num_pages:			Puslapiø ({VAR: ttl_pg}):
-num_votes:			{VAR: obj->total_votes} balsø
+no_messages:			NÄ—ra naujÅ³ praneÅ¡imÅ³ Å¡iame forume.
+no_msg_body:			TuÅ¡Äia Å¾inutÄ—
+no_new_posts:			NÄ—ra naujÅ³ praneÅ¡imÅ³
+no_posts:			NÄ—ra praneÅ¡imÅ³
+no_subscribed_forums:		NÄ—ra prenumeruotÅ³ forumÅ³
+no_subscribed_threads:		NÄ—ra prenumeruotÅ³ temÅ³
+no_unread_locked:		Å i tema uÅ¾daryta
+no_unread_msg:			Å ioje temoje nÄ—ra neskaitytÅ³ praneÅ¡imÅ³
+no_unread_msg_unreg:		SkaitytÅ³ &amp; neskaitytÅ³ praneÅ¡imÅ³ paslauga pateikiamÄ… tik uÅ¾siregistravusiems nariams.
+num_pages:			PuslapiÅ³ ({VAR: ttl_pg}):
+num_votes:			{VAR: obj->total_votes} balsÅ³
 occupation:			Pareigos:
-off:				IĞJUNGTA
-on:				ÁJUNGTA
-page_timings:			Puslapis sugeneruotas per: {VAR: page_gen_time} sekundşiø.
-pm:				Asmeninës şinutës
+off:				IÅ JUNGTA
+on:				Ä®JUNGTA
+page_timings:			Puslapis sugeneruotas per: {VAR: page_gen_time} sekundÅ¾iÅ³.
+pm:				AsmeninÄ—s Å¾inutÄ—s
 poll:				Apklausa:
-post_count:			Viso praneğimø {VAR: u_pcount}
-post_count_l:			Viso praneğimø:
-posts:				Şinutës
-posts_c:			Parağë praneğimø:
+post_count:			Viso praneÅ¡imÅ³ {VAR: u_pcount}
+post_count_l:			Viso praneÅ¡imÅ³:
+posts:				Å½inutÄ—s
+posts_c:			ParaÅ¡Ä— praneÅ¡imÅ³:
 prev_thread:			Preita tema:
-usrinfo_private_message:	Asmeninë şinutë:
+usrinfo_private_message:	AsmeninÄ— Å¾inutÄ—:
 profile:			Profilis
-profile_desc:			Spausk èia, norëdamas patekti á nario nustatymø puslapá
-rate_thread:			Vertinti temà
-refresh_list:			Atnaujinti sàrağà
+profile_desc:			Spausk Äia, norÄ—damas patekti Ä¯ nario nustatymÅ³ puslapÄ¯
+rate_thread:			Vertinti temÄ…
+refresh_list:			Atnaujinti sÄ…raÅ¡Ä…
 register:			Registruotis
-registered:			Uşsiregistravæs:
-registered_on:			Uşsiregistravæs {TEMPLATE: registered_on_date}
+registered:			UÅ¾siregistravÄ™s:
+registered_on:			UÅ¾siregistravÄ™s {TEMPLATE: registered_on_date}
 replies:			Atsakymai
-report_to_mod:			Praneğti apie şinutë moderatoriui
-reported_messages:		Moderatoriui praneğtos şinutës
-reveal_all_posts:		perşiûrëti visas {VAR: user_login} şinutes
-reveal_post:			perşiûrëti şinutes
-search:				Ieğkoti
-sel_todays_posts:		Ğiandienos şinutës
+report_to_mod:			PraneÅ¡ti apie Å¾inutÄ— moderatoriui
+reported_messages:		Moderatoriui praneÅ¡tos Å¾inutÄ—s
+reveal_all_posts:		perÅ¾iÅ«rÄ—ti visas {VAR: user_login} Å¾inutes
+reveal_post:			perÅ¾iÅ«rÄ—ti Å¾inutes
+search:				IeÅ¡koti
+sel_todays_posts:		Å iandienos Å¾inutÄ—s
 sel_todays_posts_desc:		Toggle today&#39;s posts filter (will only show posts made today)
-sel_unanswered_posts:		Neatsakyti praneğimai
+sel_unanswered_posts:		Neatsakyti praneÅ¡imai
 sel_unanswered_posts_desc:	Toggle the un-answered posts filter (will show only posts that have no replies)
-sel_unread_messages:		Neatsakytos şinutës
+sel_unread_messages:		Neatsakytos Å¾inutÄ—s
 sel_unread_messages_desc:	Toggle unread message filter (will only show unread messages)
-send:				Siûsti
-send_pm_desc:			Siûsti privaèià şinutæ ğiam nariui
-sender_email:			Siuntëjo email adresas:
-sender_name:			Siuntëjo vardas:
-show_posts_by:			Rodyti: {VAR: u_alias} praneğimus
+send:				SiÅ«sti
+send_pm_desc:			SiÅ«sti privaÄiÄ… Å¾inutÄ™ Å¡iam nariui
+sender_email:			SiuntÄ—jo email adresas:
+sender_name:			SiuntÄ—jo vardas:
+show_posts_by:			Rodyti: {VAR: u_alias} praneÅ¡imus
 size:				Dydis:
-status:				Bûklë:
-status_line:			Ğiuo metu prisijungæ <b>{VAR: st_obj->online_users_reg}</b> narys(-iai), <b>{VAR: st_obj->online_users_hidden}</b> nematomi nariai ir <b>{VAR: st_obj->online_users_anon}</b> sveèias(-iai).
+status:				BÅ«klÄ—:
+status_line:			Å iuo metu prisijungÄ™ <b>{VAR: st_obj->online_users_reg}</b> narys(-iai), <b>{VAR: st_obj->online_users_hidden}</b> nematomi nariai ir <b>{VAR: st_obj->online_users_anon}</b> sveÄias(-iai).
 sticky:				lipnus:
-stop_ignoring:			nustoti ignoruoti vartotojà
-sub_to_thread:			Uşsiprenumeruoti temà.
-sub_to_thread_desc:		Gauti şinutes apie ğios temos naujus praneğimus.
+stop_ignoring:			nustoti ignoruoti vartotojÄ…
+sub_to_thread:			UÅ¾siprenumeruoti temÄ….
+sub_to_thread_desc:		Gauti Å¾inutes apie Å¡ios temos naujus praneÅ¡imus.
 subject:			Tema
-subscribe:			Uşsiprenumeruoti
-subscribe_desc:			Gauti praneğimus kai kas nors sukrs naujà temà ğiame forume.
+subscribe:			UÅ¾siprenumeruoti
+subscribe_desc:			Gauti praneÅ¡imus kai kas nors sukrs naujÄ… temÄ… Å¡iame forume.
 subscribed_forums:		Prenumeruoti forumai
 subscribed_forums_desc:		Toggle the subscribed forums filter (will only show posts from the forums you are subscribed to)
 subscribed_threads:		Prenumeruotos temos
@@ -151,88 +151,88 @@ thread_first_unread_msg:	Click here to go the first unread message in this topic
 thread_thread:			Tema
 threads:			Temos
 time:				Laikas
-todays_posts:			Ğiandienos şinutes
-todays_posts_desc:		Rodyti visas ğiandien parağytas şinutes
-un_ignore_user:			nebeignoruoti ğio nario
-unanswered_posts:		Neatsakytus praneğimus
+todays_posts:			Å iandienos Å¾inutes
+todays_posts_desc:		Rodyti visas Å¡iandien paraÅ¡ytas Å¾inutes
+un_ignore_user:			nebeignoruoti Å¡io nario
+unanswered_posts:		Neatsakytus praneÅ¡imus
 unanswered_posts_desc:		Show all messages, which have no replies
-unlock_thread:			Atrakinti temà
+unlock_thread:			Atrakinti temÄ…
 unread_msg:			This topic contains messages you have not yet read
 unread_msg_locked:		Locked topic with unread messages
-unread_posts:			Neskaitytas şinutes
-unread_posts_desc:		Rodyti visas neskatytas şinutes
-unsub_from_thread:		Nutraukti ğios temos prenumeratà
+unread_posts:			Neskaitytas Å¾inutes
+unread_posts_desc:		Rodyti visas neskatytas Å¾inutes
+unsub_from_thread:		Nutraukti Å¡ios temos prenumeratÄ…
 unsub_from_thread_desc:		Stop receiving notifications about new posts in this topic
-unsubscribe:			Nutraukti prenumeratà
+unsubscribe:			Nutraukti prenumeratÄ…
 unsubscribe_desc:		Stop receiving notifications about new topics in the forum
 updated_on:			Atnaujinta:
 user:				Vartotojas
-user_counter:			Iğ viso yra <b>{VAR: st_obj->user_count}</b> prisiregistravusiø nariø.
+user_counter:			IÅ¡ viso yra <b>{VAR: st_obj->user_count}</b> prisiregistravusiÅ³ nariÅ³.
 user_info:			Nario informacija
 user_info_l:			Nario inforcija {VAR: u->alias}
 user_offline:			{VAR: obj->login}  is currently offline
 user_online:			{VAR: obj->login} is currently online
-usrinfo_last_post:		Paskutinë şinutë:
+usrinfo_last_post:		PaskutinÄ— Å¾inutÄ—:
 view_results:			View Results
-views:				Perşiûrëta
+views:				PerÅ¾iÅ«rÄ—ta
 vote:				{VAR: frm->n_rating} Vote(s)
 vote_button:			Balsuoti
 vote_for_thread:		Balsuoti
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> perkelta moderatoriaus á <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
-welcome_message:		Labas <b>{VAR: usr->alias}</b>, paskutiná kartà buvai {TEMPLATE: welcome_message_date}
-what_ppl_doing:			rodyti kà veikia prisijungæ şmonës
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> perkelta moderatoriaus Ä¯ <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
+welcome_message:		Labas <b>{VAR: usr->alias}</b>, paskutinÄ¯ kartÄ… buvai {TEMPLATE: welcome_message_date}
+what_ppl_doing:			rodyti kÄ… veikia prisijungÄ™ Å¾monÄ—s
 reported_del_report:		Delete Report
-reported_reason:		Prieşastis
+reported_reason:		PrieÅ¾astis
 reported_on:			On:
 reported_reported_by:		Reported By:
 reported_reported_msg:		Reported Messages
 modque_pending_approval:	Messages pending approval
 modque_approve:			Patvirtinti
-modque_delete:			Iğtrinti
+modque_delete:			IÅ¡trinti
 modque_no_message:		There are no messages pending approval
 pmsg_new_messages:		Unread private message
 pmsg_old_messages:		Read private message
 deny_recipt:			deny receipt
 deny_recipt_desc:		Do not send a confirmation that you&#39;ve read this message
 restore_to:			Atkurti:
-move_to:			Perkelti á:
+move_to:			Perkelti Ä¯:
 list_referes_referrals:		Rekomenduoti
 list_referes_members:		Rekomenduoti nariai
 list_referes_member:		Narys
-referals_none:			Rekomenduotu nariø dar nebuvo.
+referals_none:			Rekomenduotu nariÅ³ dar nebuvo.
 referals_refered_by:		STREETRACE.lt nariai rekomenduoti : <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:		Viso parağë
-referals_registered_on:		Prisiregistravæs
+referals_post_count:		Viso paraÅ¡Ä—
+referals_registered_on:		PrisiregistravÄ™s
 referals_action:		Veiksmas
 pmsg_all:			visi
-pmsg_none:			nëra
+pmsg_none:			nÄ—ra
 folder:				Katalogas:
 pmsg_replied:			atsakyti
-pmsg_forwarded:			perSiøsti
+pmsg_forwarded:			perSiÅ³sti
 pmsg_subject:			Tema
 pmsg_author:			Autorius
 pmsg_time:			Laikas
-pmsg_selected:			Paşymëti
-pmsg_delete:			Iğtrinti
-cur_ppage_pm:			Asmeninës şinutës
-writing_pm:			Asmeninës şinutës rağymas
-browsing_folder:		<b>{VAR: folders[$folder_id]}</b> katalogo perşiûra
+pmsg_selected:			PaÅ¾ymÄ—ti
+pmsg_delete:			IÅ¡trinti
+cur_ppage_pm:			AsmeninÄ—s Å¾inutÄ—s
+writing_pm:			AsmeninÄ—s Å¾inutÄ—s raÅ¡ymas
+browsing_folder:		<b>{VAR: folders[$folder_id]}</b> katalogo perÅ¾iÅ«ra
 inbox:				Gauti
-draft:				Ruoğiniai
-sent:				Siøsti
-trash:				Ğiukğliø dëşë
+draft:				RuoÅ¡iniai
+sent:				SiÅ³sti
+trash:				Å iukÅ¡liÅ³ dÄ—Å¾Ä—
 msg_author:			Autorius
 avatar_sel_form:		Logotipo pasirinkimo forma
-no_avatars:			Logotipø nëra!
+no_avatars:			LogotipÅ³ nÄ—ra!
 month_1:			Sausis
 month_2:			Vasaris
 month_3:			Kovas
 month_4:			Balandis
-month_5:			Geguşë
-month_6:			Birşelis
+month_5:			GeguÅ¾Ä—
+month_6:			BirÅ¾elis
 month_7:			Liepa
-month_8:			Rugpjûtis
-month_9:			Rugsëjis
+month_8:			RugpjÅ«tis
+month_9:			RugsÄ—jis
 month_10:			Spalis
 month_11:			Lapkritis
 month_12:			Gruodis
@@ -245,88 +245,88 @@ register_tree_msg_view:		Tree thread listing/Flat message listing
 register_flat_view:		Flat View message and thread listing 
 use_forum_default:		Use forum default
 finduser_user_info:		Nario informacija
-finduser_by_login:		Pagal prisijungimo vardà:
+finduser_by_login:		Pagal prisijungimo vardÄ…:
 finduser_submit:		Rasti
-finduser_no_such_user:		Tokio nario nëra
+finduser_no_such_user:		Tokio nario nÄ—ra
 finduser_user:			Narys
-finduser_postcount:		Viso parağë praneğimø
-finduser_joindate:		Prisijungë
+finduser_postcount:		Viso paraÅ¡Ä— praneÅ¡imÅ³
+finduser_joindate:		PrisijungÄ—
 finduser_action:		Veiksmas
 yes:				Taip
 no:				Ne
 register_email:			Email
-edit_time_limit:		<br /><b>Redagavimo laiko limitas</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuèiø
+edit_time_limit:		<br /><b>Redagavimo laiko limitas</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuÄiÅ³
 no_edit_time_limit:		<br /><b>Redagavimo laiko limitas</b>: <b>Nelimituota</b>
 pmuserloc_login:		Vardas:
-pmuserloc_submit:		Siøsti
+pmuserloc_submit:		SiÅ³sti
 pmuserloc_user:			Vartotojas
 pmuserloc_no_result:		Nerasta
 register_builtin:		Integruotas
-register_specify_url:		Atsiøsti logotipà iğ interneto
-register_uploaded:		Atsiøsti logotipà iğ savo kompiuterio
+register_specify_url:		AtsiÅ³sti logotipÄ… iÅ¡ interneto
+register_uploaded:		AtsiÅ³sti logotipÄ… iÅ¡ savo kompiuterio
 register_login:			Nario vardas:
-register_password:		Slaptaşodis:
-register_conf_pass:		Patvirtinti slaptaşodá:
-register_email_desc:		Áveskite teisingà email adresà. Nenorëdami publikuoti adreso veğai galite tai nurodyti şemiau esanèiuose nustatymuose.
+register_password:		SlaptaÅ¾odis:
+register_conf_pass:		Patvirtinti slaptaÅ¾odÄ¯:
+register_email_desc:		Ä®veskite teisingÄ… email adresÄ…. NenorÄ—dami publikuoti adreso veÅ¡ai galite tai nurodyti Å¾emiau esanÄiuose nustatymuose.
 register_name:			Vardas:
-register_your_pass:		Jûsø slaptaşodis:
+register_your_pass:		JÅ«sÅ³ slaptaÅ¾odis:
 register_update:		Atnaujinti
 register_avatar_type:		Logotipo tipas:
-register_del_avatar:		Panaikinti logotipà
+register_del_avatar:		Panaikinti logotipÄ…
 register_avatar:		Logotipas:
-register_sel_avatar:		Pasirinkti logotipà
-register_custom_avatar_rules:	<br /><font class="SmallText">Logotipas negali bûti didesnis nei <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> ir turi bûti <b>jpg</b>, <b>gif</b>, <b>png</b> arba <b>swf</b> formato.</font>
-register_custom_avatar_url:	Jûsø logotipo URL adresas internete:
-register_preview:		Perşiûrëti
-register_custom_avatar_upload:	Jûsø logotipo failas:
+register_sel_avatar:		Pasirinkti logotipÄ…
+register_custom_avatar_rules:	<br /><font class="SmallText">Logotipas negali bÅ«ti didesnis nei <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> ir turi bÅ«ti <b>jpg</b>, <b>gif</b>, <b>png</b> arba <b>swf</b> formato.</font>
+register_custom_avatar_url:	JÅ«sÅ³ logotipo URL adresas internete:
+register_preview:		PerÅ¾iÅ«rÄ—ti
+register_custom_avatar_upload:	JÅ«sÅ³ logotipo failas:
 register_register:		Registruotis
-register_required:		Bûtina informacija
-register_required_desc:		Visi ğioje dalyje laukai yra bûtini. Atminkite kad slaptaşodyje maşosios ir didşiosios raidës traktuojamos, kaip skirtingi simboliai.
+register_required:		BÅ«tina informacija
+register_required_desc:		Visi Å¡ioje dalyje laukai yra bÅ«tini. Atminkite kad slaptaÅ¾odyje maÅ¾osios ir didÅ¾iosios raidÄ—s traktuojamos, kaip skirtingi simboliai.
 register_optional:		Papildoma informacija
-register_optional_desc:		Şemiau esanèiuose laukuose áveskite tik tà informacijà, kurià neskaitote konfidenciale. Visa jûsø ávesta informacija bus prieinama visiems registruotiems nariams.
+register_optional_desc:		Å½emiau esanÄiuose laukuose Ä¯veskite tik tÄ… informacijÄ…, kuriÄ… neskaitote konfidenciale. Visa jÅ«sÅ³ Ä¯vesta informacija bus prieinama visiems registruotiems nariams.
 register_location:		Vieta:
-register_occupation:		Uşsiëmimas:
-register_interests:		Pomëgiai:
-register_image:			Paveikslëlis:
+register_occupation:		UÅ¾siÄ—mimas:
+register_interests:		PomÄ—giai:
+register_image:			PaveikslÄ—lis:
 register_icq:			ICQ
 register_aim:			AIM Handle:
 register_yahoo:			Yahoo Messenger:
 register_msnm:			MSN Messenger:
-register_homepage:		Namø puslapio adresas:
+register_homepage:		NamÅ³ puslapio adresas:
 register_bday:			Gimimo data:
-register_bday_desc:		Jei ávesite gimimo datà jà galës matyti kiti nariai.
+register_bday_desc:		Jei Ä¯vesite gimimo datÄ… jÄ… galÄ—s matyti kiti nariai.
 register_day:			Diena
-register_month:			Mënesis
+register_month:			MÄ—nesis
 register_year:			Metai
 register_gender:		Lytis:
 register_bio:			Biografija:
-register_bio_desc:		Smulkiau apie save: uşsiëmimai, pomëgiai ir kt.
+register_bio_desc:		Smulkiau apie save: uÅ¾siÄ—mimai, pomÄ—giai ir kt.
 register_prefs:			Nustatymai
-register_sig:			Parağas:
-register_sig_desc:		Parağas, kuris atsiras po visomis jûsø forumuose rağytomis şinutëmis.
+register_sig:			ParaÅ¡as:
+register_sig_desc:		ParaÅ¡as, kuris atsiras po visomis jÅ«sÅ³ forumuose raÅ¡ytomis Å¾inutÄ—mis.
 register_reset:			Panaikinti pakeitimus
-register_def_thread_view:	Temø perşiûros tipas pagal nutylëjimà:
-register_msg_per_page:		Şinuèiø kiekis puslapyje:
-register_show_sig:		Rodyti parağà:
-register_show_sig_desc:		Galite ájungti arba iğjungti kitø nariø parağo rodymà şinutës teksto pabaigoje.
-register_use_sig_default:	Ar naudoti parağà:
-register_use_sig_default_desc:	Automatiğkai pridëti parağà po jûsø şinuèiø teksto pabaigoje.
+register_def_thread_view:	TemÅ³ perÅ¾iÅ«ros tipas pagal nutylÄ—jimÄ…:
+register_msg_per_page:		Å½inuÄiÅ³ kiekis puslapyje:
+register_show_sig:		Rodyti paraÅ¡Ä…:
+register_show_sig_desc:		Galite Ä¯jungti arba iÅ¡jungti kitÅ³ nariÅ³ paraÅ¡o rodymÄ… Å¾inutÄ—s teksto pabaigoje.
+register_use_sig_default:	Ar naudoti paraÅ¡Ä…:
+register_use_sig_default_desc:	AutomatiÅ¡kai pridÄ—ti paraÅ¡Ä… po jÅ«sÅ³ Å¾inuÄiÅ³ teksto pabaigoje.
 register_timezone:		Laiko zona:
-register_ignore_admin:		Ignoruoti bendras informacines şinutes:
+register_ignore_admin:		Ignoruoti bendras informacines Å¾inutes:
 register_invisible_mode:	Nematomas vartotojas:
-register_invisible_mode_desc:	Panaikina jûsø vardo publikavimà prisijungusiø nariø sàrağe.
-register_show_email:		Rodyti jûsø email adresà:
-register_show_email_desc:	Galite pasirinkti rodyti ar ne vieğai jûsø email adresà.
-register_notification:		Pasirinkti perspëjimus pagal nutylëjimà:
-register_notification_desc:	Jei perspëjimai ájungti pagal nutylëjimà, juos galite iğjungtii ir rağydami şinutæ.
-register_notify_method:		Pasirinkite perspëjimo bûdà:
-register_notify_js_error:	Jûs pasirinkote ICQ perspëjimus, bet nenurodëte ICQ #. Pagal nutylëjimà perspëjimai jums nustatyti per email.
-register_allow_email_msg:	Leisti email laiğkø siuntimà:
-register_allow_email_msg_desc:	Leisti kitiems nariams Siøsti jums email laiğkus STREETRACE.lt forumo pagalba.
-buddy_status:			Bûklë
+register_invisible_mode_desc:	Panaikina jÅ«sÅ³ vardo publikavimÄ… prisijungusiÅ³ nariÅ³ sÄ…raÅ¡e.
+register_show_email:		Rodyti jÅ«sÅ³ email adresÄ…:
+register_show_email_desc:	Galite pasirinkti rodyti ar ne vieÅ¡ai jÅ«sÅ³ email adresÄ….
+register_notification:		Pasirinkti perspÄ—jimus pagal nutylÄ—jimÄ…:
+register_notification_desc:	Jei perspÄ—jimai Ä¯jungti pagal nutylÄ—jimÄ…, juos galite iÅ¡jungtii ir raÅ¡ydami Å¾inutÄ™.
+register_notify_method:		Pasirinkite perspÄ—jimo bÅ«dÄ…:
+register_notify_js_error:	JÅ«s pasirinkote ICQ perspÄ—jimus, bet nenurodÄ—te ICQ #. Pagal nutylÄ—jimÄ… perspÄ—jimai jums nustatyti per email.
+register_allow_email_msg:	Leisti email laiÅ¡kÅ³ siuntimÄ…:
+register_allow_email_msg_desc:	Leisti kitiems nariams SiÅ³sti jums email laiÅ¡kus STREETRACE.lt forumo pagalba.
+buddy_status:			BÅ«klÄ—
 my_buddies:			Mano draugai
-add_buddy:			Árağyti naujà draugà
-add:				Irağyti
+add_buddy:			Ä®raÅ¡yti naujÄ… draugÄ…
+add:				IraÅ¡yti
 buddy_search:			Enter the login of the user you wish to add.
 member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 buddy_remove:			remove
@@ -335,46 +335,46 @@ post_sticky:			Lipni
 post_annoncement:		Skelbimas
 post_size:			Dydis
 post_color:			Spalva
-post_font:			Ğriftas
-create_thread:			Sukurti temà
-submit_reply:			Siøsti atsakymà
-edit_message:			Atlikti şinutës pakeitimus
+post_font:			Å riftas
+create_thread:			Sukurti temÄ…
+submit_reply:			SiÅ³sti atsakymÄ…
+edit_message:			Atlikti Å¾inutÄ—s pakeitimus
 apply_spell_changes:		Apply Spelling Changes
-post_preview:			Şinutës perşiûra
-post_logedin_user:		Prisijungæs narys:
+post_preview:			Å½inutÄ—s perÅ¾iÅ«ra
+post_logedin_user:		PrisijungÄ™s narys:
 post_logout:			atsijungti
 post_passwd:			Posting Password:
 post_poll:			Apklausa:
-post_create_poll:		SUKURTI APKLAUSÀ
-post_poll_delete:		IĞTRINTI
+post_create_poll:		SUKURTI APKLAUSÄ„
+post_poll_delete:		IÅ TRINTI
 post_poll_edit:			REDAGUOTI
 post_mod_opt:			Moderatoriaus veiksmai:
-post_thread_type:		Temos rûğis:
+post_thread_type:		Temos rÅ«Å¡is:
 post_thread_expiry:		Temos galiojimo pabaiga:
-post_locked:			Tema uşdaryta
-post_icons:			Şinutës şenklas:
-post_no_icon:			Be şenklo
-post_smiley:			Ğypsenëlës:
-post_format_tools:		Tvarkymo árankiai:
-post_upload_file:		Siøsti failà
-post_file_del:			Iğtrinti
+post_locked:			Tema uÅ¾daryta
+post_icons:			Å½inutÄ—s Å¾enklas:
+post_no_icon:			Be Å¾enklo
+post_smiley:			Å ypsenÄ—lÄ—s:
+post_format_tools:		Tvarkymo Ä¯rankiai:
+post_upload_file:		SiÅ³sti failÄ…
+post_file_del:			IÅ¡trinti
 post_file_name:			Pavadinimas
 post_file_size:			Dydis
 file_attachments:		Prisegti failai:
-allowed_files:			Leidşiami failø tipai:
+allowed_files:			LeidÅ¾iami failÅ³ tipai:
 max_file_size:			Maksimalus failo dydis:
-max_files_per_msg:		Maksimalus failø kiekis şinutëje:
-post_notification:		Atsakymø patvirtinimas
-include_sig:			Naudoti parağà
-include_sig_desc:		Naudoti profilyje nustatytà parağà.
-disable_smilies:		Deaktyvuoti ğypsenëles ğioje şinutëje
+max_files_per_msg:		Maksimalus failÅ³ kiekis Å¾inutÄ—je:
+post_notification:		AtsakymÅ³ patvirtinimas
+include_sig:			Naudoti paraÅ¡Ä…
+include_sig_desc:		Naudoti profilyje nustatytÄ… paraÅ¡Ä….
+disable_smilies:		Deaktyvuoti Å¡ypsenÄ—les Å¡ioje Å¾inutÄ—je
 spell_check_msg:		Spell-check Message
-post_form:			Rağymo forma
+post_form:			RaÅ¡ymo forma
 post_forum:			Forumas:
 post_title:			Pavadinimas:
-post_body:			Şinutës tekstas:
+post_body:			Å½inutÄ—s tekstas:
 post_options:			Nustatymai:
-post_preview_btn:		Perşiûrëti şinutæ
+post_preview_btn:		PerÅ¾iÅ«rÄ—ti Å¾inutÄ™
 ignore_users:			Ignored Users
 add_ignore:			Add Ignoramus
 forum_terms:			Forum Terms
@@ -405,58 +405,58 @@ coppa_fax_login:		Login
 coppa_fax_passwd:		Password
 coppa_fax_remail:		Email
 coppa_fax_name:			Vardas
-login_not_logedin:		Jûs neprisijungæ. Tai galëjo ávykti dël sekanèiø prieşasèiø:
-login_cookie_expired:		Jûs buvote seniai prisijungæ ir jums reikia iğ naujo prisijungti.
-login_perm_denied:		Jûs neturite teisiø kaip anonimas prieiti prie srities, kurià bandëte pasiekti. Prisiregistruokite ir prisijunkite norëdami ten patekti.
-login_want_to_register:		Norite uşsiregistruoti?
-login_forgot_passwd:		Pamirğau slaptaşodá
+login_not_logedin:		JÅ«s neprisijungÄ™. Tai galÄ—jo Ä¯vykti dÄ—l sekanÄiÅ³ prieÅ¾asÄiÅ³:
+login_cookie_expired:		JÅ«s buvote seniai prisijungÄ™ ir jums reikia iÅ¡ naujo prisijungti.
+login_perm_denied:		JÅ«s neturite teisiÅ³ kaip anonimas prieiti prie srities, kuriÄ… bandÄ—te pasiekti. Prisiregistruokite ir prisijunkite norÄ—dami ten patekti.
+login_want_to_register:		Norite uÅ¾siregistruoti?
+login_forgot_passwd:		PamirÅ¡au slaptaÅ¾odÄ¯
 login_use_cookie:		Use cookies<br /><font class="SmallText">If you&#39;re using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br />If you leave this option selected then you will be automatically logedin into the forum.
 login_login:			Vardas
 login_login_btn:		Prisijungti
-login_name_required:		Vardas turi bûti ávestas
-login_passwd_required:		Slaptaşodis turi bûti ávestas
-login_invalid_radius:		Neteisingas vardas arba slaptaşodis
+login_name_required:		Vardas turi bÅ«ti Ä¯vestas
+login_passwd_required:		SlaptaÅ¾odis turi bÅ«ti Ä¯vestas
+login_invalid_radius:		Neteisingas vardas arba slaptaÅ¾odis
 reset_confirmation:		Thank you for registering,\n\nTo activate your account please go to the URL below:\n\n{VAR: url}\n\nOnce your account is activated you will be logged into the forum and\nredirected to the main page of the forum.\n
 reset_reset:			Hello,\n\nYou have requested for your password to be reset, to actually RESET your password\nplease go to this URL\n\n{VAR: url}\n\nNOTE: This forum stores the passwords in a one-way encryption mechanism which means, that\nonce you have entered your password it is encoded so that there is NO WAY to get it back.\nThis works by simply encoding the password every time you enter it against the encoded version and\nseeing if they match. (If you are interested in how this mechanism works read up on MD5 HASH algorithm)
-rpasswd_invalid_passwd:		Neteisingas slaptaşodis
-rpasswd_passwd_nomatch:		Slaptaşodşiai nesutampa
-rpasswd_passwd_length:		Slaptaşodis turi bûti sudarytas iğ maşiausiai 6 simboliø
-reset_remind_pass:		Slaptaşodşio priminimas
+rpasswd_invalid_passwd:		Neteisingas slaptaÅ¾odis
+rpasswd_passwd_nomatch:		SlaptaÅ¾odÅ¾iai nesutampa
+rpasswd_passwd_length:		SlaptaÅ¾odis turi bÅ«ti sudarytas iÅ¡ maÅ¾iausiai 6 simboliÅ³
+reset_remind_pass:		SlaptaÅ¾odÅ¾io priminimas
 reset_reset_conf:		Your password will be reset and sent to you, or in case you have not confirmed your email the email confirmation request will be resent to you.
-reset_error:			Email adresas nerastas duomenø bazëje
-rpasswd_change_pass:		Keisti slaptaşodá
+reset_error:			Email adresas nerastas duomenÅ³ bazÄ—je
+rpasswd_change_pass:		Keisti slaptaÅ¾odÄ¯
 rpasswd_login:			Vardas
-rpasswd_cur_pass:		Dabartinis slaptaşodis:
-rpasswd_new_pass:		Naujas slaptaşodis:
-rpasswd_conf_pass:		Patvirtinti slaptaşodá:
-login_passwd:			Slaptaşodis:
+rpasswd_cur_pass:		Dabartinis slaptaÅ¾odis:
+rpasswd_new_pass:		Naujas slaptaÅ¾odis:
+rpasswd_conf_pass:		Patvirtinti slaptaÅ¾odÄ¯:
+login_passwd:			SlaptaÅ¾odis:
 reset_email:			Email:
 reset_reset_button:		Reset Password
 rate_this_thread:		Vertinti
 report_reporting_about:		Reporting About:
 report_subject:			Tema:
 report_by:			By:
-report_posted_on:		Parağyta:
+report_posted_on:		ParaÅ¡yta:
 report_give_reason:		Please give a reason why you are reporting this message:
 report_submit_report:		Submit Report
-search_entire_msg:		Visuose praneğimuose
-search_subect_only:		Tik praneğimø temose
+search_entire_msg:		Visuose praneÅ¡imuose
+search_subect_only:		Tik praneÅ¡imÅ³ temose
 search_forum:			Forumas
 search_posted_on:		Sukurta
 search_no_results:		Nerasta
-search_all_forums:		Ieğkoti visuose forumuose
-search_in_forum:		Ieğkoti forume:
-search_forum_search:		Paieğka forumuose
-move_thread_to:			Perkeltá <b>{VAR: thr->subject}</b> temà á:
+search_all_forums:		IeÅ¡koti visuose forumuose
+search_in_forum:		IeÅ¡koti forume:
+search_forum_search:		PaieÅ¡ka forumuose
+move_thread_to:			PerkeltÄ¯ <b>{VAR: thr->subject}</b> temÄ… Ä¯:
 remail_email_topic:		Email This Topic To A Friend
-remail_your_name:		Jûsø vardas:
-remail_your_email:		Jûsø email:
+remail_your_name:		JÅ«sÅ³ vardas:
+remail_your_email:		JÅ«sÅ³ email:
 remail_friends_name:		Draugo vardas:
 remail_friends_email:		Draugo email:
-remail_required:		bûtina uşpildyti
+remail_required:		bÅ«tina uÅ¾pildyti
 remail_subject:			Tema:
-remail_message:			Şinutë:
-remail_send_now:		Siøsti laiğkà dabar
+remail_message:			Å½inutÄ—:
+remail_send_now:		SiÅ³sti laiÅ¡kÄ… dabar
 remail_anon_opt:		Copy this message into a mail client of your choice to send it to your friend(s).
 remail_done:			Atlikta
 remail_sent_conf:		The email to your friend at {VAR-HTML: _POST['femail']} about the {VAR: data->subject} topic was successfully sent.
@@ -465,42 +465,42 @@ mklist_type:			Type:
 mklist_option:			Option:
 mklist_additem:			Add Item
 mklist_apply:			Apply
-mklist_delete:			Iğtrinti
+mklist_delete:			IÅ¡trinti
 qbud_nick_name:			Nario vardas
-qbud_add_selected:		Ádëti paşymëtus
-qbud_selected:			Paşymëti
-qbud_no_buddies:		Nëra pasirinkta draugø
+qbud_add_selected:		Ä®dÄ—ti paÅ¾ymÄ—tus
+qbud_selected:			PaÅ¾ymÄ—ti
+qbud_no_buddies:		NÄ—ra pasirinkta draugÅ³
 mklist_numerical:		Numerical
 mklist_aplha:			Alpha
 mklist_square:			Square
 mklist_disc:			Disc
 mklist_circle:			Circle
-mklist_close:			Uşdaryti
+mklist_close:			UÅ¾daryti
 email_to:			Kam:
 email_pg_title:			Email
 email_subject:			Tema:
 email_body:			Turinys:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} parağyta {TEMPLATE: ppost_quote_msg_date}
+ppost_quote_msg:		{VAR: msg_to_list} paraÅ¡yta {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Cituoti:
 ppost_to:			Kam:
-ppost_from_buddy_list:		Pasirinkti iğ draugø sàrağo
-ppost_find_User:		Rasti nará
-ppost_track_msg:		Stebëti ğià şinutæ
-ppost_track_msg_desc:		Informuoti mane (privaèia şinute) kai ği şinutë bus perskaityta.
-ppost_send:			Siøsti
-ppost_save_draft:		Iğsaugoti ruoğiniuose
+ppost_from_buddy_list:		Pasirinkti iÅ¡ draugÅ³ sÄ…raÅ¡o
+ppost_find_User:		Rasti narÄ¯
+ppost_track_msg:		StebÄ—ti Å¡iÄ… Å¾inutÄ™
+ppost_track_msg_desc:		Informuoti mane (privaÄia Å¾inute) kai Å¡i Å¾inutÄ— bus perskaityta.
+ppost_send:			SiÅ³sti
+ppost_save_draft:		IÅ¡saugoti ruoÅ¡iniuose
 poll_blank_option:		You cannot add a blank option.
 poll_del_conf:			If you want to delete this option, press OK
 poll_name:			Apklausos pavadinimas:
 poll_timelimit:			Laiko limitas
-poll_maxiumvotes:		Maksimalus balsø skaièius
+poll_maxiumvotes:		Maksimalus balsÅ³ skaiÄius
 poll_create:			Sukurti
 poll_update:			Atnaujinti
-poll_disablesmilies:		Deaktyvuoti ğypsenëles
-poll_create_poll:		Sukurti apklausà
-poll_update_poll:		Atnaujinti apklausà
-poll_delete:			Iğtrinti
+poll_disablesmilies:		Deaktyvuoti Å¡ypsenÄ—les
+poll_create_poll:		Sukurti apklausÄ…
+poll_update_poll:		Atnaujinti apklausÄ…
+poll_delete:			IÅ¡trinti
 poll_updateoption:		Update Option
 poll_addoption:			Add Option
 poll_unlimited:			Unlimited
@@ -508,24 +508,24 @@ poll_day:			diena
 poll_days:			dienos
 poll_hour:			valanda
 poll_hours:			valandos
-poll_month:			mënesis
+poll_month:			mÄ—nesis
 poll_year:			metai
-poll_week:			savaitë
+poll_week:			savaitÄ—
 tabs_register:			Nustatymai
 tabs_subscriptions:		Prenumeratos
-tabs_referrals:			Rekomenduotø nariø sàrağas
-tabs_buddy_list:		Draugø sàrağas
-tabs_ignore_list:		Juodasis sàrağas
-tabs_private_messaging:		Asmeninës şinutës
-single_msg_delete:		Ar tikrai jûs norite <font color="#ff0000" size="4">IĞTRINTI</font> şinutæ, kuri vadinasi: <b>{VAR: data[3]}</b><p>
-thread_delete:			Ar tikrai jûs norite <font color="#ff0000" size="4">IĞTRINTI</font> visà <font color="#ff0000" size="4">TEMÀ</font>, kru vadinasi: <b>{VAR: data[3]}</b><p>
+tabs_referrals:			RekomenduotÅ³ nariÅ³ sÄ…raÅ¡as
+tabs_buddy_list:		DraugÅ³ sÄ…raÅ¡as
+tabs_ignore_list:		Juodasis sÄ…raÅ¡as
+tabs_private_messaging:		AsmeninÄ—s Å¾inutÄ—s
+single_msg_delete:		Ar tikrai jÅ«s norite <font color="#ff0000" size="4">IÅ TRINTI</font> Å¾inutÄ™, kuri vadinasi: <b>{VAR: data[3]}</b><p>
+thread_delete:			Ar tikrai jÅ«s norite <font color="#ff0000" size="4">IÅ TRINTI</font> visÄ… <font color="#ff0000" size="4">TEMÄ„</font>, kru vadinasi: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Vykdyti?</b></font>
 delete_yes:			Taip
 delete_no:			Ne
 error_invalidurl:		Neteisingas URL adresas
 error_error:			Klaida
 usrinfo_profile:		{VAR: u->alias} profilis
-usrinfo_show_all_posts:		Rodyti visas {VAR: u->alias} rağytas şinutes
+usrinfo_show_all_posts:		Rodyti visas {VAR: u->alias} raÅ¡ytas Å¾inutes
 actions_update:			Snooping on other people, just like you
 err_info:			Info
 buddy_list_err_cantadd:		Can&#39;t add your self to the buddy list
@@ -567,7 +567,7 @@ msg_update:			Browsing topic <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->sub
 pm_err_nopm_title:		ERROR: Private Messaging Disabled
 pm_err_nopm_msg:		You cannot use the private messaging system, it has been disabled by the administrator.
 pm_update:			Using private messaging
-post_err_lockedthread_title:	KLAIDA: Tema uşdaryta
+post_err_lockedthread_title:	KLAIDA: Tema uÅ¾daryta
 post_err_lockedthread_msg:	This topic is locked, no more posting allowed
 err_coppa_title:		ERROR: Your account is not yet confirmed
 err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your coppa form <a href="{TEMPLATE: err_coppa_msg_lnk}">click here</a> to get it
@@ -633,18 +633,18 @@ tree_update:			Browsing topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">
 userinfo_update:		Looking at <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profile
 ERR_disabled_ttl:		Disabled feature
 ERR_disabled_msg:		This feature has been disabled by the system administrator
-ERR_access_ttl:			KLAIDA: Nepakanka teisiø
+ERR_access_ttl:			KLAIDA: Nepakanka teisiÅ³
 ERR_access_msg:			You do not have the required permissions to perform this action
 ERR_registration_disabled_ttl:	Registration Disabled
 ERR_registration_disabled_msg:	The administrator has disabled registration, please try again later
 ERR_emailconf_ttl:		KLAIDA: Your account is not yet confirmed
 ERR_emailconf_msg:		You have not confirmed your account via email yet<br /><table border=0><tr><td><ol><li>If you have not received a confirmation email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">click here</a><li>If {VAR: usr_d->email} is not your correct email address <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">click here</a></ol></td></tr></table>
-ERR_user_ttl:			KLAIDA: Nëra tokio nario
+ERR_user_ttl:			KLAIDA: NÄ—ra tokio nario
 ERR_user_msg:			There is no such user
 ERR_systemerr_ttl:		KLAIDA: Sistemos klaida
 ERR_systemerr_msg:		System error has occurred, please report it to the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
 email_title:			Email'o forma
-finduser_title:			Rasti nará
+finduser_title:			Rasti narÄ¯
 help_title:			F.A.Q.
 login_title:			Prisijungimo forma:
 msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
@@ -660,16 +660,16 @@ tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Email was sent
 remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Your friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Add Option:
-post_opt_html_on:		<b>HTML</b> kodas <b>ÁJUNGTAS</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> <b>ÁJUNGTAS</b></a>
-post_opt_images_on:		<b>Paveikslëliai</b> <b>ÁJUNGTI</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Ğypsenëlës</b> <b>ÁJUNGTOS</b></a>
-post_opt_html_off:		<b>HTML</b> kodas <b>IĞJUNGTAS</b>
-post_opt_fud_off:		<b>FUDcode</b> <b>IĞJUNGTA</b>
-post_opt_images_off:		<b>Paveikslëliai</b> <b>IĞJUNGTI</b>
-post_opt_smilies_off:		<b>Ğypsenëlës</b> <b>IĞJUNGTOS</b>
+post_opt_html_on:		<b>HTML</b> kodas <b>Ä®JUNGTAS</b>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> <b>Ä®JUNGTAS</b></a>
+post_opt_images_on:		<b>PaveikslÄ—liai</b> <b>Ä®JUNGTI</b>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Å ypsenÄ—lÄ—s</b> <b>Ä®JUNGTOS</b></a>
+post_opt_html_off:		<b>HTML</b> kodas <b>IÅ JUNGTAS</b>
+post_opt_fud_off:		<b>FUDcode</b> <b>IÅ JUNGTA</b>
+post_opt_images_off:		<b>PaveikslÄ—liai</b> <b>IÅ JUNGTI</b>
+post_opt_smilies_off:		<b>Å ypsenÄ—lÄ—s</b> <b>IÅ JUNGTOS</b>
 post_opt:			Forumo nustatymai
-register_change_passwd:		keisti slaptaşodá
+register_change_passwd:		keisti slaptaÅ¾odÄ¯
 install_script_present_error:	For security reasons, you must remove the installation script at <b>{GVAR: WWW_ROOT_DISK}install.php</b> before you can use the forum.
 approved_avatar_title:		Your custom avatar was approved.
 approved_avatar_msg:		Your avatar was approved by the administrator. It should now appear as your avatar on all your messages. If you do not see it, or see your old avatar, it is because your browser has cached the page. Try refreshing it once or twice, this, in most cases will solve the caching problem.
@@ -681,16 +681,16 @@ mvthread_submit_req:		Submit Request
 thread_exchange:		Topic Exchange 
 move_request_by:		Topic move requested by:
 move_reason:			Reason for topic move:
-thr_exch_accept:		patvirtinti temà
-thr_exch_decline:		atmesti temà
+thr_exch_accept:		patvirtinti temÄ…
+thr_exch_decline:		atmesti temÄ…
 thr_exch_orig_forum:		Original Forum:
 thr_exch_dest_forum:		Destination Forum:
 thr_exch_no_threads:		No topics waiting approval.
 thr_exch_decl_reason:		Reason for declining topic <b>{VAR: data->subject}</b> into forum <b>{VAR-HTML: data->f2_name}</b>
-thr_exch_submit:		Siøsti
+thr_exch_submit:		SiÅ³sti
 exch_decline_ttl:		Moving of topic {VAR: data->subject} into forum {VAR-HTML: data->f2_name} was declined.
 ppost_original_msg:		message you are forwarding or replying to
-split_thread:			Padalinti temà
+split_thread:			Padalinti temÄ…
 groupmgr_no_user:		There is no user with a login of "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:	User "{FUNC: char_fix(htmlspecialchars($gr_member))}" already exists in this group.
 groupmgr_yes:			Taip
@@ -701,11 +701,11 @@ groupmgr_cancel:		Cancel
 groupmgr_add_member:		Add Member
 groupmgr_update_member:		Update Member
 groupmgr_edit:			Redaguoti
-groupmgr_delete:		Iğtrinti
+groupmgr_delete:		IÅ¡trinti
 group_mgr_anon:			Anonymous
 group_mgr_reged:		All Registered Users
 show_show:			Rodyti:
-group_mgr:			Grupiø administravimas
+group_mgr:			GrupiÅ³ administravimas
 group_mgr_edit_btn:		Edit Group
 group_mgr_heading:		Group Editor Selection
 group_mgr_group:		Group:
@@ -715,7 +715,7 @@ p_READ:				Read
 p_POST:				Post
 p_REPLY:			Reply
 p_EDIT:				Edit
-p_DEL:				Iğtrinti
+p_DEL:				IÅ¡trinti
 p_STICKY:			Lipnios temos
 p_POLL:				Create polls
 p_FILE:				Attach files
@@ -730,13 +730,13 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{F
 group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
 rate_worst:			Blogiausiai
 rate_best:			Geriausiai
-post_quote_msg:			{VAR: msg->login} parağë {TEMPLATE: make_report_date}
+post_quote_msg:			{VAR: msg->login} paraÅ¡Ä— {TEMPLATE: make_report_date}
 post_quote:			Quote:
 userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} Members
 pm_no_space_title:		No space left!
 pm_no_space_msg:		Your private message folders exceed the allowed storage size of <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, as they currently contain <b>{VAR: fldr_size} bytes</b> worth of messages.<br /><br /><font class="ErrorText">Remove some old messages to clear up space</font>.
-pm_space_indct_msg:		Jûsø privaèiø şinuèiø katalogai uşpildyti {VAR: percent_full}%.
+pm_space_indct_msg:		JÅ«sÅ³ privaÄiÅ³ Å¾inuÄiÅ³ katalogai uÅ¾pildyti {VAR: percent_full}%.
 th_expr_never:			Be pabaigos
 th_expr_one_hr:			1 valanda
 th_expr_three_hr:		3 valandos
@@ -746,24 +746,24 @@ th_expr_sixteen_hr:		16 valandos
 th_expr_one_day:		1 diena
 th_expr_two_day:		2 dienos
 th_expr_four_day:		4 dienos
-th_expr_one_week:		1 savaitë
-th_expr_two_week:		2 savaitës
-th_expr_one_month:		1 mënesis
-th_expr_two_month:		2 mënesiai
-th_expr_four_month:		4 mënesiai
+th_expr_one_week:		1 savaitÄ—
+th_expr_two_week:		2 savaitÄ—s
+th_expr_one_month:		1 mÄ—nesis
+th_expr_two_month:		2 mÄ—nesiai
+th_expr_four_month:		4 mÄ—nesiai
 th_expr_one_year:		1 metai
-thread_mod_delete:		Iğtrinti
-action_latest_post:		Paskutinis praneğimas
-online_today_last_visit:	Paskutiná kartà buvo
+thread_mod_delete:		IÅ¡trinti
+action_latest_post:		Paskutinis praneÅ¡imas
+online_today_last_visit:	PaskutinÄ¯ kartÄ… buvo
 online_today_update:		Viewing the list of people who were on the forum today.
-logedin_todays_visitors:	Ğiandienos lankytojai
-logedin_latest_post:		Paskutinë şinutë forumuose: 
+logedin_todays_visitors:	Å iandienos lankytojai
+logedin_latest_post:		PaskutinÄ— Å¾inutÄ— forumuose: 
 register_show_avatar:		Show Avatars:
 register_show_avatar_desc:	Allows you to hide avatars of other users when viewing their messages
 drawmsg_view_rest_post:		Show the rest of the message
 post_re:			Re: 
-forumsel_goto_forum:		Pereiti á forumà:
-minimsg_thread_view:		Suglausta perşiûra
+forumsel_goto_forum:		Pereiti Ä¯ forumÄ…:
+minimsg_thread_view:		Suglausta perÅ¾iÅ«ra
 split_th_post_by:		Post By:
 split_th_posted_on:		Posted On:
 split_th_subject:		Subject:
@@ -775,11 +775,11 @@ split_th_messages:		Messages
 split_th_select:		Select
 report_report_post:		Report Post
 quicklogin_login:		Vardas
-quicklogin_password:		Slaptaşodis
+quicklogin_password:		SlaptaÅ¾odis
 quicklogin_use_cookies:		Use Cookies?
 quicklogin_login_btn:		Login
 post_notification_desc:		Notify me when someone replies to this message.
-post_all_ext_allowed:		(nëra apribojimø)
+post_all_ext_allowed:		(nÄ—ra apribojimÅ³)
 maximize_category:		Maximize Category
 no_view_perm:			You do not have appropriate permissions needed to see this topic.
 report_empty_report:		You cannot send an empty report, please enter a reason for your report.
@@ -792,12 +792,12 @@ post_proc_reveal_spoiler:	Reveal Spoiler
 register_jabber:		Jabber Handle:
 im_jabber:			Jabber: 
 forum_contact:			Susisiekti su admistratoriumi
-forum_home:			Á forumo pradşià
+forum_home:			Ä® forumo pradÅ¾iÄ…
 post_cur_attached:		currently attached {VAR: i} file(s) 
 ignored_anon_post:		{GVAR: ANON_NICK} is ignored
 ignored_user_post:		Post by <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> is ignored
-smladd_close_window:		uşdaryti langà
-post_list_smilies:		rodyti visas ğypsenëles
+smladd_close_window:		uÅ¾daryti langÄ…
+post_list_smilies:		rodyti visas Å¡ypsenÄ—les
 p_VISIBLE:			Visible
 reported_in_thread:		In topic
 help_back_to_top:		back to top
@@ -814,10 +814,10 @@ register_allow_pm_msg:		Allow Private Messages
 register_allow_pm_msg_desc:	Allow other users to send you private messages via FUDforum.
 postcheck_pm_disabled:		You cannot send a private message to "{VAR-HTML: v}", because this person is not accepting private messages.
 polllist_vote:			Balsuoti
-polllist_view_results:		Perşiûrëti rezultatus
+polllist_view_results:		PerÅ¾iÅ«rÄ—ti rezultatus
 polllist_name:			Apklausos pavadinimas
 polllist_date:			Sukurta
-polllist_owner:			Sukûrë
+polllist_owner:			SukÅ«rÄ—
 polllist_votes:			Total Votes
 polllist_action:		Veiksmas
 polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Reviewing Available Polls</a>
@@ -827,13 +827,13 @@ search_and:			IR
 search_or:			ARBA
 search_desc_order:		Pirma naujesnius 		
 search_asc_order:		Pirma senesnius
-search_logic:			Paieğkos loginë sàlyga:
-search_sorting:			Rodyti pagal datà:
+search_logic:			PaieÅ¡kos loginÄ— sÄ…lyga:
+search_sorting:			Rodyti pagal datÄ…:
 post_proceed:			Vykdyti
 post_moderated_forum:		You have made a post in a moderated forum, which means your post will not be made visible on the forum until it is approved by one of the forum&#39;s moderator(s) and/or administrator(s).
 post_moderated_forum_ttl:	Moderated Forum Notice
 buddy_list_bday:		Today {VAR: r[2]} turns {VAR: age}
-email_warning_msg:		Jei pakeisite esamà email adresà, tapsite neaktyvus, kol nepatvirtinsite jums iğsiøsto laiğko.
+email_warning_msg:		Jei pakeisite esamÄ… email adresÄ…, tapsite neaktyvus, kol nepatvirtinsite jums iÅ¡siÅ³sto laiÅ¡ko.
 register_show_im:		Show IM indicators
 register_show_im_desc:		Whether or not to show IM indicators of the author beside their messages.
 unread_message:			Unread Message
@@ -842,17 +842,17 @@ threadt_more:			&lt;more&gt;
 threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
 threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
 threadt_update:			Browsing forum (tree view) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
-mmod_delete_cofirm_ttl:		Temos/şinutës naikinimo patvirtinimas
+mmod_delete_cofirm_ttl:		Temos/Å¾inutÄ—s naikinimo patvirtinimas
 spell_alts:			no alternatives
-insert_uploaded_image:		Áterpti nuotraukà á şinutës turiná.	
-finduser_help:			Vykdant paieğkà automatiğkai prie jûsø parağyto şodşio bus pridëta * maskë. Pvz. Norëdami rasti visus narius kuriø vardai prasideda an (Andrius, Antanas ir kt.), jums uştenka paieğkos langelyje árağyti "an".
-back_to_top:			Á virğø
+insert_uploaded_image:		Ä®terpti nuotraukÄ… Ä¯ Å¾inutÄ—s turinÄ¯.	
+finduser_help:			Vykdant paieÅ¡kÄ… automatiÅ¡kai prie jÅ«sÅ³ paraÅ¡yto Å¾odÅ¾io bus pridÄ—ta * maskÄ—. Pvz. NorÄ—dami rasti visus narius kuriÅ³ vardai prasideda an (Andrius, Antanas ir kt.), jums uÅ¾tenka paieÅ¡kos langelyje Ä¯raÅ¡yti "an".
+back_to_top:			Ä® virÅ¡Å³
 pm_err_disabled_title:		Private Messaging Disabled
 pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.
 err_mod_acc_ttl:		Unverified Account
 err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account has been validated by the administrator you will not be able to utilize the full capabilities of your account.
 accounts_pending_approval:	Accounts Pending Approval
-saved:				Iğsaugoti
+saved:				IÅ¡saugoti
 register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.
 register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username enter it here.</font>
 im_affero:			Affero Username
@@ -862,7 +862,7 @@ buddy_online:			{VAR: r[2]} is currently online
 sml_no_smilies:			No emoticons available.
 login_unapproved_account_ttl:	Unapproved Account
 login_unapproved_account_msg:	The administrator of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefore you will not be able to access some of the features available to registered members until your account is approved.
-remove_from_buddy_list:		panaikinti iğ draugø sarağo
+remove_from_buddy_list:		panaikinti iÅ¡ draugÅ³ saraÅ¡o
 iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
 iemail_msg_date:		<b>Date:</b> {TEMPLATE: dmsg_post_date}
@@ -873,8 +873,8 @@ threadt_sticky:			lipnus
 threadt_announce:		skelbimas
 reported_no_messages:		There are no reported messages.
 poll_no_polls:			There are no accessible polls.
-no_unread_messages:		Nëra şinuèiø atitinkanèiø jûsø uşklausà.
-thread_mark_all_read:		visus neskaitytus forumo praneğimus paşymëti kaip skaitytus
+no_unread_messages:		NÄ—ra Å¾inuÄiÅ³ atitinkanÄiÅ³ jÅ«sÅ³ uÅ¾klausÄ….
+thread_mark_all_read:		visus neskaitytus forumo praneÅ¡imus paÅ¾ymÄ—ti kaip skaitytus
 thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
 private_no_messages:		There are no messages inside this folder
 register_email_change_subject:	E-mail change confirmation
@@ -888,12 +888,12 @@ register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered 
 post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
 post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
 thread_printable_pdf:		Generuoti PDF spausdinimui
-thread_syndicate:		Syndikuoti ğá forumà (XML)
+thread_syndicate:		Syndikuoti Å¡Ä¯ forumÄ… (XML)
 reg_conf_title:			Registration Confirmation
 reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you&#39;ve specified is correct. Once you confirm your account you will be able to access the forum features available to the confirmed registered users.
 reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s), once that happens you will recieve an e-mail indicating that your account has been confirmed. Until that point you will be able to login to your account, however will not be able to access features limited to approved users.
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
-mnav_description:		Şinuèiø atranka
+mnav_description:		Å½inuÄiÅ³ atranka
 mnav_date_limit:		Date range:
 mnav_forum_limit:		Only search In:
 mnav_all_forums:		Search all forums
@@ -904,18 +904,18 @@ mnav_invalid_date:		The date range you&#39;ve specified is larger then the one a
 mnav_no_results:		There are no messages matching query.
 mnav_posted_by:			Posted By:
 mnav_more:			More &raquo;&raquo;
-mnav_minute:			Minutë(s)
+mnav_minute:			MinutÄ—(s)
 mnav_hour:			Valanda(-os)
 mnav_day:			Diena(-os)
-mnav_week:			Savaitë(-ës)
-mnav_month:			Mënesis(-iai)
-mnav_title:			Şinuèiø atranka
-mnav_update:			Şinuèiø perşiûra naudojant <a href="{TEMPLATE: mnav_update_lnk}"> atrankà</a>
+mnav_week:			SavaitÄ—(-Ä—s)
+mnav_month:			MÄ—nesis(-iai)
+mnav_title:			Å½inuÄiÅ³ atranka
+mnav_update:			Å½inuÄiÅ³ perÅ¾iÅ«ra naudojant <a href="{TEMPLATE: mnav_update_lnk}"> atrankÄ…</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Private Message Notification
 register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.
-findu_admin_opts_header:	Administratoriaus árankiai
+findu_admin_opts_header:	Administratoriaus Ä¯rankiai
 findu_unban:			Atblokuoti
 findu_ban:			Blokuoti
 findu_edit:			Redaguoti
@@ -940,7 +940,7 @@ thread_on:			on
 userinfo_buddy:			Buddy:
 register_email_addr:		E-mail Address:
 reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
-usrinfo_last_visit:		Paskutiná kartà buvo:
+usrinfo_last_visit:		PaskutinÄ¯ kartÄ… buvo:
 mnav_newer:			newer then
 mnav_older:			older then
 ip_search_by_ip:		Search users by IP

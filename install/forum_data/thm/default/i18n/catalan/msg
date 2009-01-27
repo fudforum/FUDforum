@@ -1,4 +1,4 @@
-action:				Acció
+action:				AcciÃ³
 add_to_buddy_list:		afegir a la llista d`amics
 admin:				Admin
 admin_control_panel:		Panell de l`administrador
@@ -12,30 +12,30 @@ by:				Per:
 by_mod:				pel Moderador
 current_time:			Data i hora actual
 custom_avatar_queue:		Cua avatars personalitzats
-date_posted:			Data de publicació
+date_posted:			Data de publicaciÃ³
 date_registered:		Data de registre:
 download_counter:		Descarregat {VAR: v[3]} vegades
-email:				Correu electrònic:
+email:				Correu electrÃ²nic:
 email_to_friend:		Enviar un correu a un amic
-email_to_friend_desc:		Enviar la URL d`aquesta pàgina per correu a un amic
-email_user:			Premi aquí­ per a enviar un correu a l`usuari
+email_to_friend_desc:		Enviar la URL d`aquesta pÃ gina per correu a un amic
+email_user:			Premi aquÃ­Â­ per a enviar un correu a l`usuari
 faq:				Preguntes
 first_unread_msg:		Anar als missatges no llegits
 first_unread_msg_desc:		Anar al primer missatge no llegit d`aquest fil
 flat_view:			Tornar a la vista plana predeterminada
-forum:				Fòrum:
-forum_icon:			Icona del fòrum
+forum:				FÃ²rum:
+forum_icon:			Icona del fÃ²rum
 forum_new_messages:		Missatges nous
-forum_none_messages:		Tan sols membres enregistrats del fòrum poden cercar missatges llegits i no llegits
+forum_none_messages:		Tan sols membres enregistrats del fÃ²rum poden cercar missatges llegits i no llegits
 forum_old_messages:		No hi ha missatges nous
 from:				De:
 gender:				Sexe:
 go:				Anar
-goto_next_msg:			anar al missatge següent
+goto_next_msg:			anar al missatge segÃ¼ent
 goto_prev_msg:			Anar al missatge anterior
 home:				Inici
-homepage:			Pàgina d`inici:
-icq_control_panel:		Panell ICQ en líni-missatge
+homepage:			PÃ gina d`inici:
+icq_control_panel:		Panell ICQ en lÃ­ni-missatge
 icq_message_form:		Formulari de missatge ICQ:
 ignore_user:			ignorar tots els missatges publicats per aquest usuari
 im_aim:				AIM Handle:
@@ -43,71 +43,71 @@ im_msnm:			MSN Messenger:
 im_yahoo:			Yahoo Messenger:
 image:				Imatge:
 index_forum:			Comuniat
-index_new_posts:		Hi ha missatges nous des de l`última lectura
-index_no_new_posts:		No hi ha missatges nous des de l`última lectura
+index_new_posts:		Hi ha missatges nous des de l`Ãºltima lectura
+index_no_new_posts:		No hi ha missatges nous des de l`Ãºltima lectura
 interests:			Interessos:
-last_post:			Últim missatge
-last_thread_msg:		Anar a l`últim missatge d`aquest fil de discussió
+last_post:			Ãšltim missatge
+last_thread_msg:		Anar a l`Ãºltim missatge d`aquest fil de discussiÃ³
 legend:				Llegenda:
-location:			Ubicació:
-lock_thread:			Bloquejar fil de discussió
+location:			UbicaciÃ³:
+lock_thread:			Bloquejar fil de discussiÃ³
 locked:				Bloquejat
 locked_with_new_posts:		Bloquejat (amb missatges no llegits)
 logged_in_list:			Llista d`usuaris connectats
-login:				Iniciar sessió
+login:				Iniciar sessiÃ³
 login_header:			Login:
 logout:				Sortir
 mark_all_read:			Marcar tots els missatges no llegits
 mark_all_read_desc:		Tots els seus missatges no llegits seran marcats com a llegits
 members:			Membres
 message:			Missatge
-message_counter:		Els nostres usuaris han publicat un total de <b>{VAR: post_count}</b> missatges dins de <b>{VAR: thread_count}</b> fils de discussió.
-message_index:			Índex de missatges
+message_counter:		Els nostres usuaris han publicat un total de <b>{VAR: post_count}</b> missatges dins de <b>{VAR: thread_count}</b> fils de discussiÃ³.
+message_index:			Ãndex de missatges
 message_index_desc:		Veure la llista de missatges
 minimize_category:		Minimitzar categoria
-moderation_queue:		Cua de moderació
+moderation_queue:		Cua de moderaciÃ³
 moderator:			Moderador
 moderator_of:			Moderador de:
 moderator_options:		Opcions del moderador
 moderators:			Moderador(s)
-more_unread_messages:		més missatges no llegits
-more_unread_messages_desc:	Mostrar més missatges no llegits i marcar els missatges actualment visibles com a llegits
+more_unread_messages:		mÃ©s missatges no llegits
+more_unread_messages_desc:	Mostrar mÃ©s missatges no llegits i marcar els missatges actualment visibles com a llegits
 move_thread:			Moure
-moved:				Mogut a un altre fòrum
-moved_thread_message:		Aquest fil de discussió ha estat mogut a un altre fòrum
+moved:				Mogut a un altre fÃ²rum
+moved_thread_message:		Aquest fil de discussiÃ³ ha estat mogut a un altre fÃ²rum
 na:				no disponible
 new_posts:			Nous missatges
-new_private_messages:		Vostè té <span class="GenText" style="color: #ff0000">({VAR: c})</span> missatge(s) privats sense llegir
-new_thread:			Crear un nou fil de discussió
-newest_user:			L`últim usuari registrat és
-next_page:			Pàgina següent
-next_thread:			Fil de discussió següent:
-no_messages:			No hi ha missatges en aquest fòrum.
+new_private_messages:		VostÃ¨ tÃ© <span class="GenText" style="color: #ff0000">({VAR: c})</span> missatge(s) privats sense llegir
+new_thread:			Crear un nou fil de discussiÃ³
+newest_user:			L`Ãºltim usuari registrat Ã©s
+next_page:			PÃ gina segÃ¼ent
+next_thread:			Fil de discussiÃ³ segÃ¼ent:
+no_messages:			No hi ha missatges en aquest fÃ²rum.
 no_msg_body:			No hi ha cos del missatge
 no_new_posts:			No hi ha missatges nous
 no_posts:			No hi ha missatges
-no_subscribed_forums:		No hi ha fòrums subscrits
-no_subscribed_threads:		No hi ha fils de discussió subscrits
-no_unread_locked:		Aquest fil de discussió ha estat bloquejat
-no_unread_msg:			Aquest fil de discussió no té missatges no llegits
+no_subscribed_forums:		No hi ha fÃ²rums subscrits
+no_subscribed_threads:		No hi ha fils de discussiÃ³ subscrits
+no_unread_locked:		Aquest fil de discussiÃ³ ha estat bloquejat
+no_unread_msg:			Aquest fil de discussiÃ³ no tÃ© missatges no llegits
 no_unread_msg_unreg:		Tan sols els usuaris enregistrats poden fer seguiment de missatges llegits i no llegits
-num_pages:			Pàgines ({VAR: ttl_pg}):
+num_pages:			PÃ gines ({VAR: ttl_pg}):
 num_votes:			{VAR: obj->total_votes} vot(s)
-occupation:			Ocupació:
+occupation:			OcupaciÃ³:
 off:				DESACTIVAT
 on:				ACTIVAT
-page_timings:			Temps total que ha tardat la generació de la pàgina: {VAR: page_gen_time} segons
+page_timings:			Temps total que ha tardat la generaciÃ³ de la pÃ gina: {VAR: page_gen_time} segons
 pm:				Missatges privats
 poll:				Enquesta:
 post_count:			Total de Missatges {VAR: u_pcount}
 post_count_l:			Total de missatges:
 posts:				Missatges
 posts_c:			Missatges:
-prev_thread:			Fil de discussió anterior:
+prev_thread:			Fil de discussiÃ³ anterior:
 usrinfo_private_message:	Missatge privat:
 profile:			Perfil
-profile_desc:			Prémer aquí­ per a accedir al panell de control d`usuari
-rate_thread:			Avaluar fil de discussió
+profile_desc:			PrÃ©mer aquÃ­Â­ per a accedir al panell de control d`usuari
+rate_thread:			Avaluar fil de discussiÃ³
 refresh_list:			Recarregar llista
 register:			Enregistrar
 registered:			Enregistrat:
@@ -119,90 +119,90 @@ reveal_all_posts:		revelar tots els missatges de {VAR: user_login}
 reveal_post:			revelar missatge
 search:				Cercar
 sel_todays_posts:		Missatges d`avui
-sel_todays_posts_desc:		Activar/desactivar el filtre de missatges d`avui (solament mostrarà  missatges publicats avui)
+sel_todays_posts_desc:		Activar/desactivar el filtre de missatges d`avui (solament mostrarÃ Â  missatges publicats avui)
 sel_unanswered_posts:		Missatges no resposts
-sel_unanswered_posts_desc:	Activar/desactivar el filtre de missatges no resposts (solament mostrarà  missatges que no tenen respostes)
+sel_unanswered_posts_desc:	Activar/desactivar el filtre de missatges no resposts (solament mostrarÃ Â  missatges que no tenen respostes)
 sel_unread_messages:		Missatges no llegits
-sel_unread_messages_desc:	Activar/desactivar el filtre de missatges no llegits (solament mostrarà  missatges no llegits)
+sel_unread_messages_desc:	Activar/desactivar el filtre de missatges no llegits (solament mostrarÃ Â  missatges no llegits)
 send:				Enviar
 send_pm_desc:			Enviar un missatge privat a aquest usuari
-sender_email:			Correu electrònic del remitent:
+sender_email:			Correu electrÃ²nic del remitent:
 sender_name:			Nom del remitent:
 show_posts_by:			Mostrar missatges de: {VAR: u_alias}
 size:				Mida:
 status:				Estat:
-status_line:			Hi ha <b>{VAR: st_obj->online_users_reg}</b> membre(s), <b>{VAR: st_obj->online_users_hidden}</b> membres invisibles i <b>{VAR: st_obj->online_users_anon}</b> convidat(s) visitant aquest fòrum.
+status_line:			Hi ha <b>{VAR: st_obj->online_users_reg}</b> membre(s), <b>{VAR: st_obj->online_users_hidden}</b> membres invisibles i <b>{VAR: st_obj->online_users_anon}</b> convidat(s) visitant aquest fÃ²rum.
 sticky:				Fixe:
 stop_ignoring:			Deixar d`ignorar a aquest usuari
-sub_to_thread:			Subscriure`s al fil de discussió
+sub_to_thread:			Subscriure`s al fil de discussiÃ³
 sub_to_thread_desc:		Rebre una notificacio quan hi hagi nous missatges en aquest fil
 subject:			Assumpte
 subscribe:			Subscriure
-subscribe_desc:			Rebre una notificació quan s`iniciï un nou fil en aquest fòrum
-subscribed_forums:		Fòrums subscrits
-subscribed_forums_desc:		Activar/desactivar el filtre de fòrums subscrits (solament mostrarà  missatges publicats als fòrums als que estigui subscrit)
-subscribed_threads:		Fils de discussió subscrits
-subscribed_threads_desc:	Activar/desactivar el filtre de fils de discussió subscrits (solament mostrarà  missatges publicats en els fils als quals estigui subscrit)
+subscribe_desc:			Rebre una notificaciÃ³ quan s`iniciÃ¯ un nou fil en aquest fÃ²rum
+subscribed_forums:		FÃ²rums subscrits
+subscribed_forums_desc:		Activar/desactivar el filtre de fÃ²rums subscrits (solament mostrarÃ Â  missatges publicats als fÃ²rums als que estigui subscrit)
+subscribed_threads:		Fils de discussiÃ³ subscrits
+subscribed_threads_desc:	Activar/desactivar el filtre de fils de discussiÃ³ subscrits (solament mostrarÃ Â  missatges publicats en els fils als quals estigui subscrit)
 switch_to_thread_view:		Canviar a la vista en arbre per a aquest fil
-thread:				Fil de discussió:
+thread:				Fil de discussiÃ³:
 thread_announcement:		anunci:
-thread_first_unread_msg:	Premi aquí­ per anar al primer missatge no llegit d`aquest fil de discussió
-thread_thread:			Fil de discussió
-threads:			Fils de discussió
+thread_first_unread_msg:	Premi aquÃ­Â­ per anar al primer missatge no llegit d`aquest fil de discussiÃ³
+thread_thread:			Fil de discussiÃ³
+threads:			Fils de discussiÃ³
 time:				Hora
 todays_posts:			Missatges d`avui
 todays_posts_desc:		Mostrar tots els missatges publicats avui
 un_ignore_user:			Deixar d`ignarar els missatges d`aquest usuari
 unanswered_posts:		Missatges no resposts
 unanswered_posts_desc:		Mostrar tots els missatges que no tenen respostes
-unlock_thread:			Desbloquejar el fil de discussió
-unread_msg:			Aquest fil conté missatges que encara no ha llegit
-unread_msg_locked:		Fil de discussió bloquejat amb missatges no llegits
+unlock_thread:			Desbloquejar el fil de discussiÃ³
+unread_msg:			Aquest fil contÃ© missatges que encara no ha llegit
+unread_msg_locked:		Fil de discussiÃ³ bloquejat amb missatges no llegits
 unread_posts:			Missatges no llegits
 unread_posts_desc:		Mostrar tots els missatges no llegits
-unsub_from_thread:		Donar-se de baixa del fil de discussió
-unsub_from_thread_desc:		Deixar de rebre avisos referents a nous missatges d`aquest fil de discussió
+unsub_from_thread:		Donar-se de baixa del fil de discussiÃ³
+unsub_from_thread_desc:		Deixar de rebre avisos referents a nous missatges d`aquest fil de discussiÃ³
 unsubscribe:			Donar-se de baixa
-unsubscribe_desc:		Deixar de rebre avisos referents a nous fils de discussió al fòrum
+unsubscribe_desc:		Deixar de rebre avisos referents a nous fils de discussiÃ³ al fÃ²rum
 updated_on:			Actualitzat el:
 user:				Usuari
 user_counter:			Tenim <b>{VAR: st_obj->user_count}</b> usuaris enregistrats.
-user_info:			Informació de l`usuari
-user_info_l:			Informació de l`usuari {VAR: u->alias}
-user_offline:			{VAR: obj->login} no està  actualment al fòrum
-user_online:			{VAR: obj->login} està  actualment al fòrum
-usrinfo_last_post:		últim missatge:
+user_info:			InformaciÃ³ de l`usuari
+user_info_l:			InformaciÃ³ de l`usuari {VAR: u->alias}
+user_offline:			{VAR: obj->login} no estÃ Â  actualment al fÃ²rum
+user_online:			{VAR: obj->login} estÃ Â  actualment al fÃ²rum
+usrinfo_last_post:		Ãºltim missatge:
 view_results:			Veure resultats
 views:				Vistes
 vote:				{VAR: frm->n_rating} Vot(s)
 vote_button:			Votar
 vote_for_thread:		Votar
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ha estat mogut a <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> pel moderador
-welcome_message:		Benvingut <b>{VAR: usr->alias}</b>, la seva última visita fou el {TEMPLATE: welcome_message_date}
-what_ppl_doing:			Mostrar el que la gent està fent
+welcome_message:		Benvingut <b>{VAR: usr->alias}</b>, la seva Ãºltima visita fou el {TEMPLATE: welcome_message_date}
+what_ppl_doing:			Mostrar el que la gent estÃ  fent
 reported_del_report:		Esborrar informe
-reported_reason:		Raó
+reported_reason:		RaÃ³
 reported_on:			Activat:
 reported_reported_by:		Informat per:
 reported_reported_msg:		Missatges reportats
-modque_pending_approval:	Missatges pendents d`aprovació
+modque_pending_approval:	Missatges pendents d`aprovaciÃ³
 modque_approve:			Aprovar
 modque_delete:			Esborrar
 modque_no_message:		No hi ha missatges pendents d`aprovar
 pmsg_new_messages:		Missatge privat no llegit
 pmsg_old_messages:		Missatge privat llegit
-deny_recipt:			no enviar acús de rebut
+deny_recipt:			no enviar acÃºs de rebut
 deny_recipt_desc:		No enviar un missatge confirmant al remitent que ha llegit el seu missatge
 restore_to:			Restaurar a:
 move_to:			Moure a:
-list_referes_referrals:		Referències
+list_referes_referrals:		ReferÃ¨ncies
 list_referes_members:		Membres referits
 list_referes_member:		Membre
-referals_none:			Encara no hi ha referències.
-referals_refered_by:		Membres del fòrum referits per: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_none:			Encara no hi ha referÃ¨ncies.
+referals_refered_by:		Membres del fÃ²rum referits per: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Total de missatges
 referals_registered_on:		Registrat el
-referals_action:		Acció
+referals_action:		AcciÃ³
 pmsg_all:			tots
 pmsg_none:			cap
 folder:				Carpeta:
@@ -221,11 +221,11 @@ draft:				Esborrany
 sent:				Enviats
 trash:				Paperera
 msg_author:			Autor
-avatar_sel_form:		Formulari de selecció d`avatars
+avatar_sel_form:		Formulari de selecciÃ³ d`avatars
 no_avatars:			No hi ha avatars disponibles
 month_1:			Gener
 month_2:			Febrer
-month_3:			Març
+month_3:			MarÃ§
 month_4:			Abril
 month_5:			Maig
 month_6:			Juny
@@ -235,23 +235,23 @@ month_9:			Setembre
 month_10:			Octubre
 month_11:			Novembre
 month_12:			Desembre
-male:				Masculí­
-female:				Femení­
+male:				MasculÃ­Â­
+female:				FemenÃ­Â­
 register_tree_view:		Vista en arbre
 register_flat_view:		Vista plana
-use_forum_default:		Usar el valor predeterminat del fòrum
-finduser_user_info:		Informació d`usuari
+use_forum_default:		Usar el valor predeterminat del fÃ²rum
+finduser_user_info:		InformaciÃ³ d`usuari
 finduser_by_login:		Per nom d`usuari:
 finduser_submit:		Trobar
 finduser_no_such_user:		No existeix l`usuari
 finduser_user:			Usuari
 finduser_postcount:		Total de missatges
-finduser_joindate:		data d`incorporació
-finduser_action:		Acció
-yes:				Sí­
+finduser_joindate:		data d`incorporaciÃ³
+finduser_action:		AcciÃ³
+yes:				SÃ­Â­
 no:				No
-edit_time_limit:		<br /><b>Lí­mit de temps d`edició</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuts
-no_edit_time_limit:		<br /><b>Lí­mit de temps d`edició</b>: <b>Il.limitat</b>
+edit_time_limit:		<br /><b>LÃ­Â­mit de temps d`ediciÃ³</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuts
+no_edit_time_limit:		<br /><b>LÃ­Â­mit de temps d`ediciÃ³</b>: <b>Il.limitat</b>
 pmuserloc_login:		Login:
 pmuserloc_submit:		Enviar
 pmuserloc_user:			Usuari
@@ -262,7 +262,7 @@ register_uploaded:		Pujar avatar
 register_login:			Nom d`usuari:
 register_password:		Contrasenya:
 register_conf_pass:		Confirmar contrasenya:
-register_email_desc:		Si us plau, introdueixi una adreça de correu electrònic vàlida. Pot escollir  si desitja ocultar-la a la secció de preferències.
+register_email_desc:		Si us plau, introdueixi una adreÃ§a de correu electrÃ²nic vÃ lida. Pot escollir  si desitja ocultar-la a la secciÃ³ de preferÃ¨ncies.
 register_name:			Nom:
 register_your_pass:		La seva contrasenya:
 register_update:		Actualitzar
@@ -270,54 +270,54 @@ register_avatar_type:		Tipus d`avatar:
 register_del_avatar:		Esborrar avatar
 register_avatar:		Avatar:
 register_sel_avatar:		Seleccionar avatar
-register_custom_avatar_rules:	L`avatar a la mida no apareixerà  fins després de ser aprovat per l`administrador.<br /><font class="SmallText">L`avatar no haurà  de tenir més de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pÃ­xels</b> i ha d`estar en format <b>jpg</b>, <b>gif</b> o <b>png</b>.</font>
+register_custom_avatar_rules:	L`avatar a la mida no apareixerÃ Â  fins desprÃ©s de ser aprovat per l`administrador.<br /><font class="SmallText">L`avatar no haurÃ Â  de tenir mÃ©s de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pÃƒÂ­xels</b> i ha d`estar en format <b>jpg</b>, <b>gif</b> o <b>png</b>.</font>
 register_custom_avatar_url:	URL del avatar personalitzat:
-register_preview:		Vista prèvia
+register_preview:		Vista prÃ¨via
 register_custom_avatar_upload:	Arxiu de l`avatar personalizat:
 register_register:		Enregistrar
-register_required:		Informació requerida
-register_required_desc:		Tots els camps són obligatoris. Les contrasenyes distingeixen entre caràcters en minúscules i majúscules.
-register_optional:		Informació opcional
-register_optional_desc:		No es recomana revelar la informació personal del seu perfil. Tota la informació serà  visible per altres membres del fòrum.
-register_location:		Ubicació:
-register_occupation:		Ocupació:
+register_required:		InformaciÃ³ requerida
+register_required_desc:		Tots els camps sÃ³n obligatoris. Les contrasenyes distingeixen entre carÃ cters en minÃºscules i majÃºscules.
+register_optional:		InformaciÃ³ opcional
+register_optional_desc:		No es recomana revelar la informaciÃ³ personal del seu perfil. Tota la informaciÃ³ serÃ Â  visible per altres membres del fÃ²rum.
+register_location:		UbicaciÃ³:
+register_occupation:		OcupaciÃ³:
 register_interests:		Interessos:
 register_image:			Imatge:
 register_icq:			ICQ
 register_aim:			Usuari AIM:
 register_yahoo:			Yahoo Messenger:
 register_msnm:			MSN Messenger:
-register_homepage:		Pàgina personal:
+register_homepage:		PÃ gina personal:
 register_bday:			Data de naixement:
-register_bday_desc:		Si selecciona la seva data de naixement, altres membres del fòrum podran veure-la en el seu perfil
+register_bday_desc:		Si selecciona la seva data de naixement, altres membres del fÃ²rum podran veure-la en el seu perfil
 register_day:			Dia
 register_month:			Mes
 register_year:			Any
 register_gender:		Sexe:
 register_bio:			Biografia:
-register_bio_desc:		Alguns detalls sobre vostè, tals com els seus interessos, treball, etc...
-register_prefs:			Preferències
+register_bio_desc:		Alguns detalls sobre vostÃ¨, tals com els seus interessos, treball, etc...
+register_prefs:			PreferÃ¨ncies
 register_sig:			Signatura:
 register_sig_desc:		Signatura opcional que pot usar per a afegir al final dels seus missatges.
 register_reset:			Restablir
-register_def_thread_view:	Vista de fils de discussió predeterminada:
-register_msg_per_page:		Missatges per pàgina:
+register_def_thread_view:	Vista de fils de discussiÃ³ predeterminada:
+register_msg_per_page:		Missatges per pÃ gina:
 register_show_sig:		Mostrar signatures:
-register_show_sig_desc:		Li permet ocultar o mostrar les signatures d`altres membres del fòrum
+register_show_sig_desc:		Li permet ocultar o mostrar les signatures d`altres membres del fÃ²rum
 register_use_sig_default:	Usar la signatura:
-register_use_sig_default_desc:	Afageix automàticament la seva signatura a cada missatge que publiqui
-register_timezone:		Zona horària:
+register_use_sig_default_desc:	Afageix automÃ ticament la seva signatura a cada missatge que publiqui
+register_timezone:		Zona horÃ ria:
 register_ignore_admin:		Ignorar els missatges administratius:
 register_invisible_mode:	Mode invisible:
-register_invisible_mode_desc:	Amaga el seu estat quan està  en lí­nia.
-register_show_email:		Mostrar adreça de correu electrònic:
-register_show_email_desc:	Esculli aquesta opció si desitja que la seva adreça de correu electrònic es mostri pÃºblicament.
-register_notification:		Seleccionar notificar per omisió:
-register_notification_desc:	Si notificar està  habilitat per omisió, pot ser deshabilitada al publicar.
-register_notify_method:		Esculli el mètode de notificació:
-register_notify_js_error:	Ha escollit les notificacions per ICQ, però no ha especificat un número ICQ. S`usarà el correu electrònic.
-register_allow_email_msg:	Permetre els missatges per correu electrònic:
-register_allow_email_msg_desc:	Permetre a altres usuaris enviar-li correus electrònics per FUDforum.
+register_invisible_mode_desc:	Amaga el seu estat quan estÃ Â  en lÃ­Â­nia.
+register_show_email:		Mostrar adreÃ§a de correu electrÃ²nic:
+register_show_email_desc:	Esculli aquesta opciÃ³ si desitja que la seva adreÃ§a de correu electrÃ²nic es mostri pÃƒÂºblicament.
+register_notification:		Seleccionar notificar per omisiÃ³:
+register_notification_desc:	Si notificar estÃ Â  habilitat per omisiÃ³, pot ser deshabilitada al publicar.
+register_notify_method:		Esculli el mÃ¨tode de notificaciÃ³:
+register_notify_js_error:	Ha escollit les notificacions per ICQ, perÃ² no ha especificat un nÃºmero ICQ. S`usarÃ  el correu electrÃ²nic.
+register_allow_email_msg:	Permetre els missatges per correu electrÃ²nic:
+register_allow_email_msg_desc:	Permetre a altres usuaris enviar-li correus electrÃ²nics per FUDforum.
 buddy_status:			Estat
 my_buddies:			Els meus amics
 add_buddy:			Afegir amic
@@ -330,22 +330,22 @@ post_annoncement:		Anunci
 post_size:			Mida
 post_color:			Color
 post_font:			Tipus de lletra
-create_thread:			Crear fil de discussió
+create_thread:			Crear fil de discussiÃ³
 submit_reply:			Enviar resposta
 edit_message:			Editar missatge
-apply_spell_changes:		Aplicar els canvis del corrector ortogràfic
-post_preview:			Publicar vista prèvia
-post_logedin_user:		Usuari introduït:
+apply_spell_changes:		Aplicar els canvis del corrector ortogrÃ fic
+post_preview:			Publicar vista prÃ¨via
+post_logedin_user:		Usuari introduÃ¯t:
 post_logout:			sortir
-post_passwd:			Contrasenya de publicació:
+post_passwd:			Contrasenya de publicaciÃ³:
 post_poll:			Enquesta:
 post_create_poll:		CREAR ENQUESTA
 post_poll_delete:		ESBORRAR
 post_poll_edit:			EDITAR
 post_mod_opt:			Opcions del moderador:
-post_thread_type:		Tipus de fil de discussió:
-post_thread_expiry:		Expiració de fil de discussió:
-post_locked:			Fil de discussió bloquejat
+post_thread_type:		Tipus de fil de discussiÃ³:
+post_thread_expiry:		ExpiraciÃ³ de fil de discussiÃ³:
+post_locked:			Fil de discussiÃ³ bloquejat
 post_icons:			Iconoa de missatge:
 post_no_icon:			Sense icona
 post_smiley:			Drecera d`emoticones:
@@ -356,107 +356,107 @@ post_file_name:			Nom
 post_file_size:			Mida
 file_attachments:		Arxius adjuns:
 allowed_files:			Extensions d`arxius permeses:
-max_file_size:			Mida màxima d`arxiu:
-max_files_per_msg:		Nombre màxim d`arxius per missatge:
-post_notification:		Publicar notificació
+max_file_size:			Mida mÃ xima d`arxiu:
+max_files_per_msg:		Nombre mÃ xim d`arxius per missatge:
+post_notification:		Publicar notificaciÃ³
 include_sig:			Incloure signatura
 include_sig_desc:		Incloure la signatura del seu perfil.
 disable_smilies:		Desactivar les emoticones en aquest missatge
-spell_check_msg:		Corregir l`ortografi­a del missatge
+spell_check_msg:		Corregir l`ortografiÂ­a del missatge
 post_form:			Publicar formulari
-post_forum:			Fòrum:
-post_title:			Tí­tol:
+post_forum:			FÃ²rum:
+post_title:			TÃ­Â­tol:
 post_body:			Cos del missatge:
 post_options:			Opcions:
-post_preview_btn:		Vista prèvia del missatge
+post_preview_btn:		Vista prÃ¨via del missatge
 ignore_users:			Usuaris ignorats
 add_ignore:			Afegir ignorat
-forum_terms:			Termes del fòrum
-forum_rules:			Enregistrar-se en aquest fòrum és gratis! Si­ insistim que respecti les regles i polí­tiques detallem a continuació. Si està  d`acord amb els termes, si us plau premi el botó D`acord al final de la pàgina. Nota: si prem el botó, vostè declara tenir més de 13 anys d`edat. Si té 13 anys o menys, si us plau usi aquest formulari de registre.<p>Encara que els administradors i moderadors d`aquest fòrum provaran d`impedir la presència de missatges objectables en aquest fòrum, ens resulta impossible revisar tots els missatges. Tots els missatges expressen l`opinió del seu autor, i ni els amos del fòrum ni els desenvolupadors es fan responsables pel contingut de cap missatge.<p>Al prémer el botó D`acord, vostè es compromet a no publicar cap missatge obscè, vulgar, amb continguts sexuals, continguts d`odi, amenaçant, o que constitueixin una violació de les lleis. <p>Els amos d`aquest fòrum es reserven el dret a eliminar, editar, moure, o tancar qualsevol fil de discussió per qualsevol motiu que considerin raonable.<p>
-forum_rules_13:			Tots els usuaris menors de 13 anys han d`obtenir permí­s del seu pare o tutor per a poder ser membres dels fòrums. Per a així requerim que un pare o tutor enviï per fax o correu un formulari d`autorització signat, per a autoritzar la subscripció.<p>Si desitja iniciar el procés de registre abans que rebem un formulari d`autorització premi el botó D`acord que hi ha a continuació. Si desitja cancel.lar el procés de registre, premir Cancel.lar per a tornar a l`índex de fòrums.<p>Pot descarregar una còpia del formulari d`autorització aquí­. Per a obtenir més informació referent al procés de registre, si us plau, enviï un correu electrònic a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
-coppa_conf:			Confirmació COPPA
+forum_terms:			Termes del fÃ²rum
+forum_rules:			Enregistrar-se en aquest fÃ²rum Ã©s gratis! SiÂ­ insistim que respecti les regles i polÃ­Â­tiques detallem a continuaciÃ³. Si estÃ Â  d`acord amb els termes, si us plau premi el botÃ³ D`acord al final de la pÃ gina. Nota: si prem el botÃ³, vostÃ¨ declara tenir mÃ©s de 13 anys d`edat. Si tÃ© 13 anys o menys, si us plau usi aquest formulari de registre.<p>Encara que els administradors i moderadors d`aquest fÃ²rum provaran d`impedir la presÃ¨ncia de missatges objectables en aquest fÃ²rum, ens resulta impossible revisar tots els missatges. Tots els missatges expressen l`opiniÃ³ del seu autor, i ni els amos del fÃ²rum ni els desenvolupadors es fan responsables pel contingut de cap missatge.<p>Al prÃ©mer el botÃ³ D`acord, vostÃ¨ es compromet a no publicar cap missatge obscÃ¨, vulgar, amb continguts sexuals, continguts d`odi, amenaÃ§ant, o que constitueixin una violaciÃ³ de les lleis. <p>Els amos d`aquest fÃ²rum es reserven el dret a eliminar, editar, moure, o tancar qualsevol fil de discussiÃ³ per qualsevol motiu que considerin raonable.<p>
+forum_rules_13:			Tots els usuaris menors de 13 anys han d`obtenir permÃ­Â­s del seu pare o tutor per a poder ser membres dels fÃ²rums. Per a aixÃ­ requerim que un pare o tutor enviÃ¯ per fax o correu un formulari d`autoritzaciÃ³ signat, per a autoritzar la subscripciÃ³.<p>Si desitja iniciar el procÃ©s de registre abans que rebem un formulari d`autoritzaciÃ³ premi el botÃ³ D`acord que hi ha a continuaciÃ³. Si desitja cancel.lar el procÃ©s de registre, premir Cancel.lar per a tornar a l`Ã­ndex de fÃ²rums.<p>Pot descarregar una cÃ²pia del formulari d`autoritzaciÃ³ aquÃ­Â­. Per a obtenir mÃ©s informaciÃ³ referent al procÃ©s de registre, si us plau, enviÃ¯ un correu electrÃ²nic a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+coppa_conf:			ConfirmaciÃ³ COPPA
 coppa_before:			Abans de {TEMPLATE: coppa_date}
 coppa_after:			Abans de {TEMPLATE: coppa_date}
-coppa_link:			Premi a l`enllaç que correspon a la seva data de naixement
-coppa:				Un pare o tutor ha d`enviar per correu o fax un formular d`autorització signat a l`administrador d`aquest fòrum perquè un usuari de menys de 13 anys pugui completar el procés de registre.<p>Per a més informació contacti amb <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
-prereg_info:			Informació
+coppa_link:			Premi a l`enllaÃ§ que correspon a la seva data de naixement
+coppa:				Un pare o tutor ha d`enviar per correu o fax un formular d`autoritzaciÃ³ signat a l`administrador d`aquest fÃ²rum perquÃ¨ un usuari de menys de 13 anys pugui completar el procÃ©s de registre.<p>Per a mÃ©s informaciÃ³ contacti amb <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+prereg_info:			InformaciÃ³
 prereg_agree:			D`acord
 prereg_disagree:		No estic d`acord
 coppa_fax_instructions:		Instruccions per a pares o tutors
-coppa_fax_instructions2:	Si us plau, imprimeixi aquesta pàgina, signi-la i enviï-la per fax a:
+coppa_fax_instructions2:	Si us plau, imprimeixi aquesta pÃ gina, signi-la i enviÃ¯-la per fax a:
 coppa_fax_reg_form:		Formulari de registre
-coppa_fax_sign:			Si us plau, signi el formulari següent i enviï`ns-el
-coppa_fax_conf:			He revisat la informació que el menor ha subministrat i he llegit les Polítiques de Privacitat del lloc web. Entenc que la informació de perfil pot ser canviada usant una clau. Entenc que puc demanar que aquest perfil de registre sigui eliminat completament.
-coppa_fax_permission:		Signi aquí si autoritza
-coppa_fax_no_permission:	Signi aquí si desitja que el compte sigui eliminat
+coppa_fax_sign:			Si us plau, signi el formulari segÃ¼ent i enviÃ¯`ns-el
+coppa_fax_conf:			He revisat la informaciÃ³ que el menor ha subministrat i he llegit les PolÃ­tiques de Privacitat del lloc web. Entenc que la informaciÃ³ de perfil pot ser canviada usant una clau. Entenc que puc demanar que aquest perfil de registre sigui eliminat completament.
+coppa_fax_permission:		Signi aquÃ­ si autoritza
+coppa_fax_no_permission:	Signi aquÃ­ si desitja que el compte sigui eliminat
 coppa_fax_parent_name:		Nom Complet del Pare/Tutor:
-coppa_fax_relation:		Relació amb el menor:
-coppa_fax_telephone:		Telèfon:
-coppa_fax_email:		Adreça de correu electrònic:
+coppa_fax_relation:		RelaciÃ³ amb el menor:
+coppa_fax_telephone:		TelÃ¨fon:
+coppa_fax_email:		AdreÃ§a de correu electrÃ²nic:
 coppa_fax_date:			Data:
 coppa_fax_questions:		Si us plau, posi`s en contacte amb <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> per a qualsevol dubte
 coppa_fax_login:		Nom d`usuari
 coppa_fax_passwd:		Contrasenya
-coppa_fax_remail:		Correu electrònic
+coppa_fax_remail:		Correu electrÃ²nic
 coppa_fax_name:			Nom
-login_not_logedin:		Vostè no ha iniciat la sessió. Això pot deure`s a una de vàries raons:
-login_cookie_expired:		La seva cookie ha expirat, i ha d`iniciar la sessió per a renovar la seva cookie.
-login_perm_denied:		Vostè no té permí­s per a accedir al recurs sol.licitat com a usuari anònim, i ha d`iniciar sessió per a obtenir permí­s per a accedir a l`esmentat recurs.
+login_not_logedin:		VostÃ¨ no ha iniciat la sessiÃ³. AixÃ² pot deure`s a una de vÃ ries raons:
+login_cookie_expired:		La seva cookie ha expirat, i ha d`iniciar la sessiÃ³ per a renovar la seva cookie.
+login_perm_denied:		VostÃ¨ no tÃ© permÃ­Â­s per a accedir al recurs sol.licitat com a usuari anÃ²nim, i ha d`iniciar sessiÃ³ per a obtenir permÃ­Â­s per a accedir a l`esmentat recurs.
 login_want_to_register:		Vol enregistrar-se?
 login_forgot_passwd:		Ha oblidat la seva contrasenya?
-login_use_cookie:		Usar cookies<br /><font class="SmallText">Si està  usant un terminal públic, com per exemple un ordinador en una biblioteca, escola o cibercafè, es recomana que deshabiliti aquesta opció per a una major seguretat.
-login_login:			Iniciar sessió
-login_login_btn:		Iniciar sessió
+login_use_cookie:		Usar cookies<br /><font class="SmallText">Si estÃ Â  usant un terminal pÃºblic, com per exemple un ordinador en una biblioteca, escola o cibercafÃ¨, es recomana que deshabiliti aquesta opciÃ³ per a una major seguretat.
+login_login:			Iniciar sessiÃ³
+login_login_btn:		Iniciar sessiÃ³
 login_name_required:		Ha d`introduir un nom d`usuari
 login_passwd_required:		Ha d`introduir una contrasenya
-login_invalid_radius:		El nom d`usuari o la contrasenya no són vàlids
-reset_confirmation:		Gràcies per enregistrar-se,\n\nPer a activar el seu compte, si us plau, vagi a la següent URL:\n\n{VAR: url}\n\nUn cop el seu compta s`hagi activat, entrarà al fòrum i\nserà redirigit a la pàgina principal.\n
-reset_reset:			Hola,\n\nHa sol.licitat actualitzar la seva clau, per a efectivament ACTUALITZAR la seva contrasenya\n.Si us plau, vagi a aquesta URL\n\n{VAR: url}\n\nNOTA: Aquest fòrum guarda les contrasenyes amb un mecanisme de xifratge d`un sol sentit, la qual cosa significa\n que un cop s`introdueix la seva contrasenya, aquesta és xifrada de tal manera que NO POT RECUPERAR-SE.\nAixò funciona simplement xifrant la contrasenya cada cop que s`introdueix, i comprovant si \naquesta contrasenya xifrada coincideix amb la versió guardada (si li interessa saber com funciona \naquest mecanisme, llegeixi referent a l`algoritme de hash MD5).
-rpasswd_invalid_passwd:		La contrasenya no és vàlida
+login_invalid_radius:		El nom d`usuari o la contrasenya no sÃ³n vÃ lids
+reset_confirmation:		GrÃ cies per enregistrar-se,\n\nPer a activar el seu compte, si us plau, vagi a la segÃ¼ent URL:\n\n{VAR: url}\n\nUn cop el seu compta s`hagi activat, entrarÃ  al fÃ²rum i\nserÃ  redirigit a la pÃ gina principal.\n
+reset_reset:			Hola,\n\nHa sol.licitat actualitzar la seva clau, per a efectivament ACTUALITZAR la seva contrasenya\n.Si us plau, vagi a aquesta URL\n\n{VAR: url}\n\nNOTA: Aquest fÃ²rum guarda les contrasenyes amb un mecanisme de xifratge d`un sol sentit, la qual cosa significa\n que un cop s`introdueix la seva contrasenya, aquesta Ã©s xifrada de tal manera que NO POT RECUPERAR-SE.\nAixÃ² funciona simplement xifrant la contrasenya cada cop que s`introdueix, i comprovant si \naquesta contrasenya xifrada coincideix amb la versiÃ³ guardada (si li interessa saber com funciona \naquest mecanisme, llegeixi referent a l`algoritme de hash MD5).
+rpasswd_invalid_passwd:		La contrasenya no Ã©s vÃ lida
 rpasswd_passwd_nomatch:		Les contrasenyes no coincideixen
-rpasswd_passwd_length:		La contrasenya ha de tenir almenys 6 caràcters
+rpasswd_passwd_length:		La contrasenya ha de tenir almenys 6 carÃ cters
 reset_remind_pass:		Recordatori de contrasenya
-reset_reset_conf:		La seva contrasenya serà actualitzada i se li enviarà, o en cas que ho hagi confirmat el seu correu electrònic, la sol.licitud de confirmació de correu electrònic li serà reenviada.
-reset_error:			No s`ha trobat una adreça de correu electrònic ala base de dades
+reset_reset_conf:		La seva contrasenya serÃ  actualitzada i se li enviarÃ , o en cas que ho hagi confirmat el seu correu electrÃ²nic, la sol.licitud de confirmaciÃ³ de correu electrÃ²nic li serÃ  reenviada.
+reset_error:			No s`ha trobat una adreÃ§a de correu electrÃ²nic ala base de dades
 rpasswd_change_pass:		Canviar contrasenya
 rpasswd_login:			Usuari
 rpasswd_cur_pass:		Contrasenya actual:
 rpasswd_new_pass:		Contrasenya nova:
 rpasswd_conf_pass:		Confirmar contrasenya:
 login_passwd:			Contrasenya
-reset_email:			Correu electrònic:
+reset_email:			Correu electrÃ²nic:
 reset_reset_button:		Actualitzar contrasenya
 rate_this_thread:		Avaluar
 report_reporting_about:		Informant sobre:
 report_subject:			Assumpte:
 report_by:			Per:
 report_posted_on:		Publicat el:
-report_give_reason:		Si us plau, indiqui una raó de perquè està  informant d`aquest missatge:
+report_give_reason:		Si us plau, indiqui una raÃ³ de perquÃ¨ estÃ Â  informant d`aquest missatge:
 report_submit_report:		Enviar informe
 search_entire_msg:		En tot el missatge
 search_subect_only:		Solament assumpte
-search_forum:			Fòrum
+search_forum:			FÃ²rum
 search_posted_on:		Publicat el
 search_no_results:		No hi ha hagut resultats
-search_all_forums:		Buscar a tots els fòrums
-search_in_forum:		Buscar al fòrum:
-search_forum_search:		Recerca al fòrum:
-move_thread_to:			Moure el fil de la discussió <b>{VAR: thr->subject}</b> a:
-remail_email_topic:		Enviar un correu electrònic sobre aquest fil a un amic
+search_all_forums:		Buscar a tots els fÃ²rums
+search_in_forum:		Buscar al fÃ²rum:
+search_forum_search:		Recerca al fÃ²rum:
+move_thread_to:			Moure el fil de la discussiÃ³ <b>{VAR: thr->subject}</b> a:
+remail_email_topic:		Enviar un correu electrÃ²nic sobre aquest fil a un amic
 remail_your_name:		El seu nom:
-remail_your_email:		El seu correu electrònic:
+remail_your_email:		El seu correu electrÃ²nic:
 remail_friends_name:		Nom de l`amic:
-remail_friends_email:		Correu electrònic de l`amic:
+remail_friends_email:		Correu electrÃ²nic de l`amic:
 remail_required:		requerit
 remail_subject:			Assumpte:
 remail_message:			Missatge:
-remail_send_now:		Enviar correu electrònic ara
-remail_anon_opt:		Copiar aquest missatge a un programa de correu de la seva elecció, per a enviar-lo al seu(s) amic(s).
+remail_send_now:		Enviar correu electrÃ²nic ara
+remail_anon_opt:		Copiar aquest missatge a un programa de correu de la seva elecciÃ³, per a enviar-lo al seu(s) amic(s).
 remail_done:			Fet
-remail_sent_conf:		El correu electrònic al seu amic en {VAR-HTML: _POST['femail']} referent a {{VAR: data->subject} s`ha enviat correctament.
-remail_error:			Vostè té un error
+remail_sent_conf:		El correu electrÃ²nic al seu amic en {VAR-HTML: _POST['femail']} referent a {{VAR: data->subject} s`ha enviat correctament.
+remail_error:			VostÃ¨ tÃ© un error
 mklist_type:			Tipus:
-mklist_option:			Opció:
+mklist_option:			OpciÃ³:
 mklist_additem:			Afegir element
 mklist_apply:			Aplicar
 mklist_delete:			Esborrar
@@ -464,39 +464,39 @@ qbud_nick_name:			Sobrenom
 qbud_add_selected:		Afegir seleccionat(a)
 qbud_selected:			Seleccionat(a)
 qbud_no_buddies:		No hi ha amics dels quals escollir
-mklist_numerical:		Numèric
-mklist_aplha:			Alfanumèric
+mklist_numerical:		NumÃ¨ric
+mklist_aplha:			AlfanumÃ¨ric
 mklist_square:			Quadrat
 mklist_disc:			Disc
 mklist_circle:			Cercle
 mklist_close:			Tancar
 email_to:			Per a:
-email_pg_title:			Correu electrònic
+email_pg_title:			Correu electrÃ²nic
 email_subject:			Assumpte:
 email_body:			Cos del missatge:
-email_submit:			Correu electrònic
+email_submit:			Correu electrÃ²nic
 ppost_quote_msg:		{VAR: msg_to_list} va escriure el {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Cita:
 ppost_to:			Per a:
 ppost_from_buddy_list:		Seleccionar des de la llista d`amics
 ppost_find_User:		Trobar usuari
 ppost_track_msg:		Fer seguiment d`aquest missatge
-ppost_track_msg_desc:		Avisar-me (mitjançant un missatge privat) quan el destinatari llegeixi aquest missatge.
+ppost_track_msg_desc:		Avisar-me (mitjanÃ§ant un missatge privat) quan el destinatari llegeixi aquest missatge.
 ppost_send:			Enviar
 ppost_save_draft:		Guardar esborrany
-poll_blank_option:		No es pot afegir una opció buida.
-poll_del_conf:			Si vol esborrar aquesta opció, premi Acceptar
+poll_blank_option:		No es pot afegir una opciÃ³ buida.
+poll_del_conf:			Si vol esborrar aquesta opciÃ³, premi Acceptar
 poll_name:			Nom de l`enquesta:
-poll_timelimit:			Lí­mit de temps
-poll_maxiumvotes:		Vots màxims
+poll_timelimit:			LÃ­Â­mit de temps
+poll_maxiumvotes:		Vots mÃ xims
 poll_create:			Crear
 poll_update:			Actualitzar
 poll_disablesmilies:		Desactivar les emoticones
 poll_create_poll:		Crear enquesta
 poll_update_poll:		Actualitzar enquesta
 poll_delete:			Esborrar
-poll_updateoption:		Actualitzar Opció
-poll_addoption:			Afegir Opció
+poll_updateoption:		Actualitzar OpciÃ³
+poll_addoption:			Afegir OpciÃ³
 poll_unlimited:			Il.limitada
 poll_day:			dia
 poll_days:			dies
@@ -505,205 +505,205 @@ poll_hours:			hores
 poll_month:			mes
 poll_year:			any
 poll_week:			setmana
-tabs_register:			Configuració
+tabs_register:			ConfiguraciÃ³
 tabs_subscriptions:		Subcripcions
-tabs_referrals:			Referències
+tabs_referrals:			ReferÃ¨ncies
 tabs_buddy_list:		Llista d`amics
 tabs_ignore_list:		Llista d`ignorats
 tabs_private_messaging:		Missatges privats
-single_msg_delete:		està  a punt de <font color="#ff0000" size="4">ESBORRAR</font> un missatge titulat: <b>{VAR: data[3]}</b><p>
-thread_delete:			està  a punt de <font color="#ff0000" size="4">ESBORRAR</font> el <font color="#ff0000" size="4">FIL COMPLET</font> titulat: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		estÃ Â  a punt de <font color="#ff0000" size="4">ESBORRAR</font> un missatge titulat: <b>{VAR: data[3]}</b><p>
+thread_delete:			estÃ Â  a punt de <font color="#ff0000" size="4">ESBORRAR</font> el <font color="#ff0000" size="4">FIL COMPLET</font> titulat: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Desitja continuar?</b></font>
-delete_yes:			Sí­
+delete_yes:			SÃ­Â­
 delete_no:			No
-error_invalidurl:		La URL no és vàlida
+error_invalidurl:		La URL no Ã©s vÃ lida
 error_error:			Error
 usrinfo_profile:		Perfil de {VAR: u->alias}
 usrinfo_show_all_posts:		Mostrar tots els missatges publicats per {VAR: u->alias}
-actions_update:			Espiant a altres usuaris com Vostè
+actions_update:			Espiant a altres usuaris com VostÃ¨
 err_info:			Info
 buddy_list_err_cantadd:		No es pot afegir a si mateix a la seva llista d`amics
-buddy_list_err_dup:		Vostè ja té a aquest usuari a la seva llista d`amics
-buddy_list_err_nouser:		L`usuari que ha intentat afegir a la seva llista d`amics no s`ha trobat en el fòrum.
+buddy_list_err_dup:		VostÃ¨ ja tÃ© a aquest usuari a la seva llista d`amics
+buddy_list_err_nouser:		L`usuari que ha intentat afegir a la seva llista d`amics no s`ha trobat en el fÃ²rum.
 buddy_list_err_nouser_title:	No ha estat possible afegir l`usuari
 buddy_list_update:		Recorreguent la llista d`amics
-core_err_invinp_title:		L`entrada no és vàlida
-core_err_invinp_err:		Ha seguit un enllaç que no és vàlid. Si us plau, informi d`això al  <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
-core_adm_login_msg:		<br />Els administradors poden entrar  <a href="{FULL_ROOT}{ROOT}?t={GVAR: WWW_ROOT}adm/admloginuser">aquí­</a>
+core_err_invinp_title:		L`entrada no Ã©s vÃ lida
+core_err_invinp_err:		Ha seguit un enllaÃ§ que no Ã©s vÃ lid. Si us plau, informi d`aixÃ² al  <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
+core_adm_login_msg:		<br />Els administradors poden entrar  <a href="{FULL_ROOT}{ROOT}?t={GVAR: WWW_ROOT}adm/admloginuser">aquÃ­Â­</a>
 email_err_unabletoemail_title:	ERROR: No ha estat possible enviar el correu
-email_err_unabletoemail_msg:	El sistema de correu electrònic ha estat desactivat per l`administrador.
-email_error_unabletolocaddr:	Ho sentim, el sistema no ha pogut enviar un correu a {VAR-HTML: _POST['tx_name']} perquè no ha estat capaç de trobar la seva adreça de correu electrònic
+email_err_unabletoemail_msg:	El sistema de correu electrÃ²nic ha estat desactivat per l`administrador.
+email_error_unabletolocaddr:	Ho sentim, el sistema no ha pogut enviar un correu a {VAR-HTML: _POST['tx_name']} perquÃ¨ no ha estat capaÃ§ de trobar la seva adreÃ§a de correu electrÃ²nic
 email_error_body:		Es necessita un cos del missatge
 email_error_subject:		Es necessita un assumpte
 email_error_namerequired:	Es necessita un nom
-email_error_invaliduser:	L`usuari no és vàlid
+email_error_invaliduser:	L`usuari no Ã©s vÃ lid
 emailconf_err_invkey_title:	Error
-emailconf_err_invkey_msg:	La clau de confirmació no és vàlida. Si us plau, revisi el seu correu per a assegurar-se que ha anat a la URL correcta
-err_inc_criticaltitle:		ERROR CRÍTIC
-err_inc_criticalmsg:		Vostè ha  trobat un error, però desafortunadament hi ha un problema amb el sistema d`informe d`errors
+emailconf_err_invkey_msg:	La clau de confirmaciÃ³ no Ã©s vÃ lida. Si us plau, revisi el seu correu per a assegurar-se que ha anat a la URL correcta
+err_inc_criticaltitle:		ERROR CRÃTIC
+err_inc_criticalmsg:		VostÃ¨ ha  trobat un error, perÃ² desafortunadament hi ha un problema amb el sistema d`informe d`errors
 finduser_update:		Buscant usuaris
 help_index_update:		Llegint les <a href="{TEMPLATE: help_index_update_lnk}">Preguntes frequents</a>
 iemail_thr_subject:		Nova resposta a {VAR: thr_subject} publicat per {VAR: poster_login}
 iemail_thr_bodyemail:		Per a veure les respostes no llegides vagi a {VAR: goto_url['email']}\n\nSi
-iemail_frm_subject:		Nou fil de discussió en el fòrum {VAR: frm_name} trucat {VAR: thr_subject}, creat per {VAR: poster_login}
-iemail_frm_bodyemail:		Per a veure aquest fil de discussió vagi a:\n{VAR: goto_url['email']}\n\nPer a no rebre més notificacions referents a nous fils de discussió en aquest fòrum, si us plau vagi aquí­: {VAR: unsub_url['email']}
+iemail_frm_subject:		Nou fil de discussiÃ³ en el fÃ²rum {VAR: frm_name} trucat {VAR: thr_subject}, creat per {VAR: poster_login}
+iemail_frm_bodyemail:		Per a veure aquest fil de discussiÃ³ vagi a:\n{VAR: goto_url['email']}\n\nPer a no rebre mÃ©s notificacions referents a nous fils de discussiÃ³ en aquest fÃ²rum, si us plau vagi aquÃ­Â­: {VAR: unsub_url['email']}
 ignore_list_err_info_title:	Info
-ignore_list_err_dup_msg:	Ja té a aquest usuari a la seva llista d`ignorats
+ignore_list_err_dup_msg:	Ja tÃ© a aquest usuari a la seva llista d`ignorats
 ignore_list_err_nu_title:	Usuari no trobat
-ignore_list_err_nu_msg:		L`usuari que ha tractat d`afegir a la seva llista d`ignorats no ha estat trobat al fòrum.
+ignore_list_err_nu_msg:		L`usuari que ha tractat d`afegir a la seva llista d`ignorats no ha estat trobat al fÃ²rum.
 ignore_list_cantign_msg:	No pot ignorar a aquest usuari
 ignore_list_update:		Recorrent la llista d`ignorats
 index_update:			Recorrent la <a href="{TEMPLATE: index_update_lnk}">llista de forums</a>
-list_referers_update:		Recorrent les referències
-login_update:			Formulari d`inici de sessió
-msg_update:			Recorrent el fil de discussió <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:		ERROR: la missatgeria privada està  desactivada
-pm_err_nopm_msg:		No pot usar el sistema de missatgeria privada perquè l`administrador l`ha desactivat.
+list_referers_update:		Recorrent les referÃ¨ncies
+login_update:			Formulari d`inici de sessiÃ³
+msg_update:			Recorrent el fil de discussiÃ³ <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:		ERROR: la missatgeria privada estÃ Â  desactivada
+pm_err_nopm_msg:		No pot usar el sistema de missatgeria privada perquÃ¨ l`administrador l`ha desactivat.
 pm_update:			Usant missatgeria privada
-post_err_lockedthread_title:	ERROR: el fil de discussió està  bloquejat
-post_err_lockedthread_msg:	Aquest fil de discussió està  bloquejat, no es permeten més missatges
+post_err_lockedthread_title:	ERROR: el fil de discussiÃ³ estÃ Â  bloquejat
+post_err_lockedthread_msg:	Aquest fil de discussiÃ³ estÃ Â  bloquejat, no es permeten mÃ©s missatges
 err_coppa_title:		ERROR: El seu compte encara no ha estat confirmat
-err_coppa_msg:			No hem rebut una confirmació del seu pare i/o tutor legal, la qual cosa li permetrà publicar missatges. Si vostè ha perdut el seu formulari COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">premi aquí­</a> per a obtenir-lo
+err_coppa_msg:			No hem rebut una confirmaciÃ³ del seu pare i/o tutor legal, la qual cosa li permetrÃ  publicar missatges. Si vostÃ¨ ha perdut el seu formulari COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">premi aquÃ­Â­</a> per a obtenir-lo
 post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	Ja no pot editar aquest missatge
-post_err_floodtrig_title:	ERROR: el mecanisme contra publicació massiva està  activat.
+post_err_floodtrig_title:	ERROR: el mecanisme contra publicaciÃ³ massiva estÃ Â  activat.
 post_err_floodtrig_msg:		Si us plau, intenti-ho novament en {VAR: tm} segons
-post_err_attach_size:		<font class="ErrorText">L`arxiu adjunt és massa gran (superior lí­mit permès de {VAR: MAX_F_SIZE} bytes)</font><br />
-post_err_attach_ext:		<font class="ErrorText">L`arxiu que està  tractant de pujar no es correspon amb un dels tipus d`arxius permesos.</font><br />
-post_err_attach_filelimit:	<font class="ErrorText">està  tractant de pujar més arxius dels permesos.</font><br />
-post_err_passwd:		La contrasenya no és correcta.
+post_err_attach_size:		<font class="ErrorText">L`arxiu adjunt Ã©s massa gran (superior lÃ­Â­mit permÃ¨s de {VAR: MAX_F_SIZE} bytes)</font><br />
+post_err_attach_ext:		<font class="ErrorText">L`arxiu que estÃ Â  tractant de pujar no es correspon amb un dels tipus d`arxius permesos.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">estÃ Â  tractant de pujar mÃ©s arxius dels permesos.</font><br />
+post_err_passwd:		La contrasenya no Ã©s correcta.
 post_reply_update:		Responent a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> en {VAR-HTML: frm->name}
 post_topic_update:		Escrivint un nou fil a  <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Hi ha un error en l`enviament
-postcheck_max_images_err:	Es permet un màxim de {GVAR: MAX_IMAGE_COUNT} imatges per missatge. Si us plau, redueix el nombre d`imatges
+postcheck_max_images_err:	Es permet un mÃ xim de {GVAR: MAX_IMAGE_COUNT} imatges per missatge. Si us plau, redueix el nombre d`imatges
 postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Es necessita assumpte
-postcheck_no_such_user:		No hi ha un usuari anomenat "{FUNC: char_fix(htmlspecialchars($v))}" en aquest fòrum
-postcheck_ignored:		No pot enviar un missatge privat a "{FUNC: char_fix(htmlspecialchars($v))}", perquè aquest usuari l`està  ignorant.
+postcheck_no_such_user:		No hi ha un usuari anomenat "{FUNC: char_fix(htmlspecialchars($v))}" en aquest fÃ²rum
+postcheck_ignored:		No pot enviar un missatge privat a "{FUNC: char_fix(htmlspecialchars($v))}", perquÃ¨ aquest usuari l`estÃ Â  ignorant.
 postcheck_no_recepient:		No es pot enviar missatge, falta el destinatari
-postcheck_invalid_email:	Si us plau, introdueixi una adreça de correu electrònic vàlida per al seu amic.
+postcheck_invalid_email:	Si us plau, introdueixi una adreÃ§a de correu electrÃ²nic vÃ lida per al seu amic.
 postcheck_email_subject:	No pot enviar un correu sense assumpte.
 postcheck_email_body:		No pot enviar un correu sense el cos del missatge.
-private_msg_notify_subj:	Llegí­s l`aví­s per a: {VAR: m->subject}
+private_msg_notify_subj:	LlegÃ­Â­s l`avÃ­Â­s per a: {VAR: m->subject}
 private_msg_notify_body:	Hola, <br />{VAR: usr->login} ha llegit el seu missatge privat "{VAR: m->subject}", el {TEMPLATE: private_msg_notify_body_date}<br />
-referals_update:		Recorrent les referències
-register_err_short_login:	El nom d`usuari que ha seleccionat és massa curt. Els noms d`usuari han de tenir almenys 4 caràcters
-register_err_login_notallowed:	Aquest nom d`usuari no està  permès
-register_err_loginunique:	Els noms d`usuari per als fòrums han de ser únics. Ja existeix un usuari amb aquest nom en el sistema
-register_err_emailexists:	Aquest correu electrònic ja existeix. Si ha oblidat la seva clau, si us plau usi l`opció de recordar contrasenya en comptes de tornar a enregistrar-se
-register_err_shortpasswd:	La contrasenya ha de tenir almenys 6 caràcters
+referals_update:		Recorrent les referÃ¨ncies
+register_err_short_login:	El nom d`usuari que ha seleccionat Ã©s massa curt. Els noms d`usuari han de tenir almenys 4 carÃ cters
+register_err_login_notallowed:	Aquest nom d`usuari no estÃ Â  permÃ¨s
+register_err_loginunique:	Els noms d`usuari per als fÃ²rums han de ser Ãºnics. Ja existeix un usuari amb aquest nom en el sistema
+register_err_emailexists:	Aquest correu electrÃ²nic ja existeix. Si ha oblidat la seva clau, si us plau usi l`opciÃ³ de recordar contrasenya en comptes de tornar a enregistrar-se
+register_err_shortpasswd:	La contrasenya ha de tenir almenys 6 carÃ cters
 register_err_passwdnomatch:	Les seves contrasenyes no coincideixen.
-register_err_invalidemail:	L`adreça de correu electrònic que ha especificat no sembla ser vàlida.
-register_err_needname:		Per a completar aquest procés de registre, ha d`ingressar el seu nom.
+register_err_invalidemail:	L`adreÃ§a de correu electrÃ²nic que ha especificat no sembla ser vÃ lida.
+register_err_needname:		Per a completar aquest procÃ©s de registre, ha d`ingressar el seu nom.
 register_err_enterpasswd:	Ha d`introduir la seva contrasenya actual per a completar els canvis
 register_err_adminpasswd:	Ha d`introduir la seva contrasenya d`ADMINISTRADOR per a completar els canvis
-register_err_notyouremail:	Algú ja s`ha enregistrat amb aquest correu electrònic, i aquest algú NO ÉS VOSTÈ
-register_err_avatartobig:	L`arxiu que està  tractant de pujar és massa gran, major que el lí­mit de {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
-register_err_avatarnotallowed:	L`avatar que està  tractant de pujar no està  permés. Revisi els tipus d`arxius permesos.
-register_conf_subject:		Confirmació de registre
-register_conf_msg:		Gràcies per a enregistrar-se,\nPer a activar el seu compte, si us plau, vagi a la següent URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUn cop activat el seu compte, entrarà al fòrum i\nse li redireccionarà a la pàgina principal.
-register_welcome_subject:	Confirmació de registre en el fòrum
-register_welcome_msg:		Gràcies per a enregistrar-se,\n\nAquí­ estan els seus detalls d`ingrés per al fòrum:\n\nURL del fòrum: {TEMPLATE: index_update_lnk}\nNom d`usuari: {VAR: uent->login}\nContrasenya: {VAR: _POST['reg_plaintext_passwd']}\n\nRecordi que les contrasenyes distingeixen entre majúscules i minúscules!\nPer a modificar la seva configuració i perfil, vagi a aquesta pàgina:\n{FULL_ROOT}{ROOT}?t=register\n
+register_err_notyouremail:	AlgÃº ja s`ha enregistrat amb aquest correu electrÃ²nic, i aquest algÃº NO Ã‰S VOSTÃˆ
+register_err_avatartobig:	L`arxiu que estÃ Â  tractant de pujar Ã©s massa gran, major que el lÃ­Â­mit de {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
+register_err_avatarnotallowed:	L`avatar que estÃ Â  tractant de pujar no estÃ Â  permÃ©s. Revisi els tipus d`arxius permesos.
+register_conf_subject:		ConfirmaciÃ³ de registre
+register_conf_msg:		GrÃ cies per a enregistrar-se,\nPer a activar el seu compte, si us plau, vagi a la segÃ¼ent URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUn cop activat el seu compte, entrarÃ  al fÃ²rum i\nse li redireccionarÃ  a la pÃ gina principal.
+register_welcome_subject:	ConfirmaciÃ³ de registre en el fÃ²rum
+register_welcome_msg:		GrÃ cies per a enregistrar-se,\n\nAquÃ­Â­ estan els seus detalls d`ingrÃ©s per al fÃ²rum:\n\nURL del fÃ²rum: {TEMPLATE: index_update_lnk}\nNom d`usuari: {VAR: uent->login}\nContrasenya: {VAR: _POST['reg_plaintext_passwd']}\n\nRecordi que les contrasenyes distingeixen entre majÃºscules i minÃºscules!\nPer a modificar la seva configuraciÃ³ i perfil, vagi a aquesta pÃ gina:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	ERROR: no es pot enregistrar
 regsiter_err_cantreg_msg:	No es pot crear el compte d`usuari. Si us plau, posi`s en contacte amb l`administrador en <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Veient el perfil propi
-register_register_update:	Pàgina de registre
+register_register_update:	PÃ gina de registre
 report_err_nosuchmsg_title:	ERROR
 report_err_nosuchmsg_msg:	El missatge no existeix
 reset_err_invalidkey_title:	ERROR
-reset_err_invalidkey_msg:	La clau d`actualització de contrasenya no és vàlida
-reset_err_rstconf_title:	Informació
-reset_err_rstconf_msg:		Hauria de rebre instruccions al seu correu electrònic en els propers minuts
+reset_err_invalidkey_msg:	La clau d`actualitzaciÃ³ de contrasenya no Ã©s vÃ lida
+reset_err_rstconf_title:	InformaciÃ³
+reset_err_rstconf_msg:		Hauria de rebre instruccions al seu correu electrÃ²nic en els propers minuts
 reset_newpass_title:		Actualitzar contrasenya
-reset_newpass_msg:		Hola.\n\nTal i com ha sol.licitat, li remetem el seu nom d`usuari i contrasenya.\nAquí­ està la seva informació d`inici de sessió:\n\nUsuari: {VAR: ui[1]}\nContrasenya: {VAR: passwd}\n\nRecordi que la seva contrasenya ha estat actualitzada al valor anterior. Si desitja canviar la seva contrasenya pot fer-ho mitjançant el panell de control d`usuari a:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Se li ha enviat la contrasenya per correu electrònic. Hauria de rebre-la en uns minuts.  Recordi revisar el seu correu per a obtenir la seva contrasenya i nom d`usuari.<br />.<br />.<br />
+reset_newpass_msg:		Hola.\n\nTal i com ha sol.licitat, li remetem el seu nom d`usuari i contrasenya.\nAquÃ­Â­ estÃ  la seva informaciÃ³ d`inici de sessiÃ³:\n\nUsuari: {VAR: ui[1]}\nContrasenya: {VAR: passwd}\n\nRecordi que la seva contrasenya ha estat actualitzada al valor anterior. Si desitja canviar la seva contrasenya pot fer-ho mitjanÃ§ant el panell de control d`usuari a:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_login_notify:		Se li ha enviat la contrasenya per correu electrÃ²nic. Hauria de rebre-la en uns minuts.  Recordi revisar el seu correu per a obtenir la seva contrasenya i nom d`usuari.<br />.<br />.<br />
 search_update:			Buscant missatges
 selmsg_update:			Recorreguent <a href="{TEMPLATE: selmsg_update_lnk}">missatges d`avui</a>
 showposts_update:		Veient missatges de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Recorrent les subscripcions propies
-thread_update:			Recorrent fòrum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			Recorrent fil de discussió (vista en arbre) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+thread_update:			Recorrent fÃ²rum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			Recorrent fil de discussiÃ³ (vista en arbre) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Veient el perfil de  <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
-ERR_disabled_ttl:		Funció desactivada
-ERR_disabled_msg:		Aquesta funció ha estat desactivada per l`administrador del sistema
+ERR_disabled_ttl:		FunciÃ³ desactivada
+ERR_disabled_msg:		Aquesta funciÃ³ ha estat desactivada per l`administrador del sistema
 ERR_access_ttl:			ERROR: Permisos insuficients
-ERR_access_msg:			No té els permisos necessaris per a realitzar aquesta acció
+ERR_access_msg:			No tÃ© els permisos necessaris per a realitzar aquesta acciÃ³
 ERR_registration_disabled_ttl:	Registre desactivat
-ERR_registration_disabled_msg:	L`administrador ha desactivat el registre. Si us plau, torni a intentar-ho més tard
+ERR_registration_disabled_msg:	L`administrador ha desactivat el registre. Si us plau, torni a intentar-ho mÃ©s tard
 ERR_emailconf_ttl:		ERROR: El seu compte encara no ha estat confirmat
-ERR_emailconf_msg:		Vostè encara no ha confirmat el seu compte per correu electrònic<br /><table border=0><tr><td><ol><li>Si no ha rebut un correu de confirmació, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">premi aquí­</a><li>Si {VAR: usr_d->email} no és la seva adreça de correu electrònic correcta <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">premi aquí</a></ol></td></tr></table>
+ERR_emailconf_msg:		VostÃ¨ encara no ha confirmat el seu compte per correu electrÃ²nic<br /><table border=0><tr><td><ol><li>Si no ha rebut un correu de confirmaciÃ³, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">premi aquÃ­Â­</a><li>Si {VAR: usr_d->email} no Ã©s la seva adreÃ§a de correu electrÃ²nic correcta <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">premi aquÃ­</a></ol></td></tr></table>
 ERR_user_ttl:			ERROR: No existeix aquest usuari
 ERR_user_msg:			No existeix aquell usuari
 ERR_systemerr_ttl:		ERROR: Error de Sistema
-ERR_systemerr_msg:		S`ha produït un error de sistema, si us plau, informi d`això al <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-email_title:			Formulari de correu electrònic
+ERR_systemerr_msg:		S`ha produÃ¯t un error de sistema, si us plau, informi d`aixÃ² al <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+email_title:			Formulari de correu electrÃ²nic
 finduser_title:			Trobar usuari
-help_title:			Preguntes freqüents
-login_title:			Formulari d`inici de sessió
+help_title:			Preguntes freqÃ¼ents
+login_title:			Formulari d`inici de sessiÃ³
 msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Editor de l`enquesta
 register_title:			Formulari de registre
 reset_title:			Actualitzar contrasenya
 rpasswd_title:			Formulari de canvi de contrasenya
 error_title:			Formulari d`error
-index_title:			Benvingut al fòrum
+index_title:			Benvingut al fÃ²rum
 search_title:			Cercar {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		S`ha enviat el missatge de correu
-remail_email:			Hi ha una pàgina web a {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) que podria ser del seu interès.\nAquest és el fil de discussió que hem cregut que podria interessar-li, {VAR: data->subject} pot trobar-lo aquí­: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&{DEF: _RSID}\nDe {VAR: usr->alias}\n
-poll_add_option:		Afegir opció:
-post_opt_html_on:		El codi <b>HTML</b> està  <b>ACTIVAT</b>
-post_opt_fud_on:		El <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode</b> està  <b>HABILITAT</a></b>
+remail_email:			Hi ha una pÃ gina web a {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) que podria ser del seu interÃ¨s.\nAquest Ã©s el fil de discussiÃ³ que hem cregut que podria interessar-li, {VAR: data->subject} pot trobar-lo aquÃ­Â­: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&{DEF: _RSID}\nDe {VAR: usr->alias}\n
+poll_add_option:		Afegir opciÃ³:
+post_opt_html_on:		El codi <b>HTML</b> estÃ Â  <b>ACTIVAT</b>
+post_opt_fud_on:		El <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode</b> estÃ Â  <b>HABILITAT</a></b>
 post_opt_images_on:		Les <b>Imatges</b> estan <b>ACTIVADES</b>
 post_opt_smilies_on:		Els <a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>smilies</b> estan <b>HABILITATS</b></a>
-post_opt_html_off:		El codi <b>HTML</b> està  <b>DESACTIVAT</b>
-post_opt_fud_off:		El <b>FUDcode</b> està  <b>DESACTIVAT</b>
+post_opt_html_off:		El codi <b>HTML</b> estÃ Â  <b>DESACTIVAT</b>
+post_opt_fud_off:		El <b>FUDcode</b> estÃ Â  <b>DESACTIVAT</b>
 post_opt_images_off:		Les <b>imatges</b> estan <b>DESACTIVADES</b>
 post_opt_smilies_off:		Les <b>emoticones</b> estan <b>DESACTIVADES</b>
-post_opt:			Opcions del fòrum
+post_opt:			Opcions del fÃ²rum
 register_change_passwd:		canviar contrasenya
-install_script_present_error:	Per seguretat ha d`esborrar l`script d`instal.lació a <b>{GVAR: WWW_ROOT_DISK}install.php</b> abans d`usar el fòrum.
+install_script_present_error:	Per seguretat ha d`esborrar l`script d`instal.laciÃ³ a <b>{GVAR: WWW_ROOT_DISK}install.php</b> abans d`usar el fÃ²rum.
 approved_avatar_title:		El seu avatar personalitzat ha estat aprovat.
-approved_avatar_msg:		El seu avatar ha estat aprovat per l`administrador. A partir d`ara hauria d`aparèixer com el seu avatar en tots els seus missatges. Si no el veu, o veu el seu antic avatar, és perquè el seu navegador ha guardat la pàgina a la catxé. Provi a recarregar la pàgina un o dos cops, en la majoria dels casos això resol el problema.
+approved_avatar_msg:		El seu avatar ha estat aprovat per l`administrador. A partir d`ara hauria d`aparÃ¨ixer com el seu avatar en tots els seus missatges. Si no el veu, o veu el seu antic avatar, Ã©s perquÃ¨ el seu navegador ha guardat la pÃ gina a la catxÃ©. Provi a recarregar la pÃ gina un o dos cops, en la majoria dels casos aixÃ² resol el problema.
 unapproved_avatar_title:	El seu avatar personalitzat ha estat refusat.
-unapproved_avatar_msg:		L`administrador no ha aprovat el seu avatar. La majoria dels casos això significa que el seu avatar és massa gran (mida i/o pes) o que tenia un contingut inapropiat. Si desitja més informació referent al motiu del refús del seu avatar, posi`s en contacte amb l`administrador.
-mvthread_request_move:		Demanar moure el fil de la discussió
-move_request_reason:		Per què desitja que el fil de la discussió sigui mogut?
+unapproved_avatar_msg:		L`administrador no ha aprovat el seu avatar. La majoria dels casos aixÃ² significa que el seu avatar Ã©s massa gran (mida i/o pes) o que tenia un contingut inapropiat. Si desitja mÃ©s informaciÃ³ referent al motiu del refÃºs del seu avatar, posi`s en contacte amb l`administrador.
+mvthread_request_move:		Demanar moure el fil de la discussiÃ³
+move_request_reason:		Per quÃ¨ desitja que el fil de la discussiÃ³ sigui mogut?
 mvthread_submit_req:		Enviar sol.licitud
-thread_exchange:		Intercanvi de fils de discussió
-move_request_by:		Trasllat del fil de discussió sol.licitada per:
-move_reason:			Raó del trasllat del fil de discussió:
-thr_exch_accept:		acceptar fil de discussió
-thr_exch_decline:		refusar fil de discussió
-thr_exch_orig_forum:		Fòrum d`origen:
-thr_exch_dest_forum:		Fòrum de destà­:
-thr_exch_no_threads:		No hi ha fils de discussió esperant aprovació.
-thr_exch_decl_reason:		Raó per a refusar l`ingrés del fil de discussió <b>{VAR-HTML: frm->name}</b> al fòrum<b>{VAR-HTML: frm->name}</b>
+thread_exchange:		Intercanvi de fils de discussiÃ³
+move_request_by:		Trasllat del fil de discussiÃ³ sol.licitada per:
+move_reason:			RaÃ³ del trasllat del fil de discussiÃ³:
+thr_exch_accept:		acceptar fil de discussiÃ³
+thr_exch_decline:		refusar fil de discussiÃ³
+thr_exch_orig_forum:		FÃ²rum d`origen:
+thr_exch_dest_forum:		FÃ²rum de destÃ Â­:
+thr_exch_no_threads:		No hi ha fils de discussiÃ³ esperant aprovaciÃ³.
+thr_exch_decl_reason:		RaÃ³ per a refusar l`ingrÃ©s del fil de discussiÃ³ <b>{VAR-HTML: frm->name}</b> al fÃ²rum<b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:		Enviar
-exch_decline_ttl:		Trasllat del fil de discussió {VAR: data->subject} al fòrum {VAR-HTML: data->f2_name} ha estat refusada.
-ppost_original_msg:		missatge que està  reenviant o responent
-split_thread:			Dividir el fil de discussió
+exch_decline_ttl:		Trasllat del fil de discussiÃ³ {VAR: data->subject} al fÃ²rum {VAR-HTML: data->f2_name} ha estat refusada.
+ppost_original_msg:		missatge que estÃ Â  reenviant o responent
+split_thread:			Dividir el fil de discussiÃ³
 groupmgr_no_user:		No existeix un usuari amb el nom "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:	L`usuari "{FUNC: char_fix(htmlspecialchars($gr_member))}" ja existeix en aquest grup.
-groupmgr_yes:			Sí­
+groupmgr_yes:			SÃ­Â­
 groupmgr_no:			No
-groupmgr_action:		Acció
+groupmgr_action:		AcciÃ³
 groupmgr_member:		Membre
 groupmgr_cancel:		Cancel.lar
 groupmgr_add_member:		Afegir membre
 groupmgr_update_member:		Actualitzar membre
 groupmgr_edit:			Editar
 groupmgr_delete:		Esorrar
-group_mgr_anon:			Anònim
+group_mgr_anon:			AnÃ²nim
 group_mgr_reged:		Tots els usuaris enregistrats
 show_show:			Mostrar:
 group_mgr:			Administrador de grup
 group_mgr_edit_btn:		Editar grup
-group_mgr_heading:		Selecció d`editor de grup
+group_mgr_heading:		SelecciÃ³ d`editor de grup
 group_mgr_group:		Grup:
-permission_denied_title:	No està  autoritzat!
-permission_denied_msg:		Els seus permisos no li permeten realitzar aquesta acció.
+permission_denied_title:	No estÃ Â  autoritzat!
+permission_denied_msg:		Els seus permisos no li permeten realitzar aquesta acciÃ³.
 p_READ:				Llegir
 p_POST:				Publicar
 p_REPLY:			Respondre
@@ -713,10 +713,10 @@ p_STICKY:			Missatges fixos
 p_POLL:				Crear enquestes
 p_FILE:				Adjuntar arxius
 p_VOTE:				Votar
-p_RATE:				Avaluar fils de discussió
-p_SPLIT:			Dividir fils de discussió
-p_LOCK:				Bloquejar fils de discussió
-p_MOVE:				Moure fils de discussió
+p_RATE:				Avaluar fils de discussiÃ³
+p_SPLIT:			Dividir fils de discussiÃ³
+p_LOCK:				Bloquejar fils de discussiÃ³
+p_MOVE:				Moure fils de discussiÃ³
 p_SML:				Usar emoticones
 p_IMG:				Usar etiquetes d`imatges
 group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _RSID}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 325,250);">Buscar Usuari</a>
@@ -728,7 +728,7 @@ post_quote:			Cita:
 userinfo_referals:		Usuaris referits:
 userinfo_referals_count:	{VAR: referals} Membres
 pm_no_space_title:		No queda espai!
-pm_no_space_msg:		Les seves carpetes de missatgeria privada escedeixen el lí­mit permès d`emmagatzematge de <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, ja que actualment contenen <b>{VAR: fldr_size} bytes</b> en missatges.<br /><br /><font class="ErrorText">Si us plau, esborri missatges antics per a alliberar espai</font>.
+pm_no_space_msg:		Les seves carpetes de missatgeria privada escedeixen el lÃ­Â­mit permÃ¨s d`emmagatzematge de <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, ja que actualment contenen <b>{VAR: fldr_size} bytes</b> en missatges.<br /><br /><font class="ErrorText">Si us plau, esborri missatges antics per a alliberar espai</font>.
 pm_space_indct_msg:		Les seves carpetes de missatges privats estan plenes en un {VAR: percent_full}%.
 th_expr_never:			Mai
 th_expr_one_hr:			1 hora
@@ -746,22 +746,22 @@ th_expr_two_month:		2 mesos
 th_expr_four_month:		4 mesos
 th_expr_one_year:		1 any
 thread_mod_delete:		Esorrar
-action_latest_post:		Últim missatge
-online_today_last_visit:	Última visita
-online_today_update:		Veient la llista de gent que ha estat en el fòrum avui.
+action_latest_post:		Ãšltim missatge
+online_today_last_visit:	Ãšltima visita
+online_today_update:		Veient la llista de gent que ha estat en el fÃ²rum avui.
 logedin_todays_visitors:	Visitants d`avui
-logedin_latest_post:		Últim missatge en el fòrum:
+logedin_latest_post:		Ãšltim missatge en el fÃ²rum:
 register_show_avatar:		Mostrar avatars:
 register_show_avatar_desc:	Li permet ocultar els avatars d`altres usuaris mentre veu els seus missatges
 drawmsg_view_rest_post:		Mostrar la resta del missatge
 post_re:			Re:
-forumsel_goto_forum:		Anar al fòrum:
-minimsg_thread_view:		Vista de fils de discussió
+forumsel_goto_forum:		Anar al fÃ²rum:
+minimsg_thread_view:		Vista de fils de discussiÃ³
 split_th_post_by:		Missatge de:
 split_th_posted_on:		Publicat el:
 split_th_subject:		Assumpte:
-split_th_new_thread_title:	Tí­tol del nou fil de discussió:
-split_th_forum:			Fòrum:
+split_th_new_thread_title:	TÃ­Â­tol del nou fil de discussiÃ³:
+split_th_forum:			FÃ²rum:
 split_th_split_sel:		Separar missatges seleccionats
 split_th_split_unsel:		Separar missatges no seleccionats
 split_th_messages:		Missatges
@@ -770,15 +770,15 @@ report_report_post:		Informar de missatge
 quicklogin_login:		Usuari
 quicklogin_password:		Contrasenya
 quicklogin_use_cookies:		Usar cookies?
-quicklogin_login_btn:		Iniciar sessió
-post_notification_desc:		Notificar-me quan algú respongui a aquest missatge.
+quicklogin_login_btn:		Iniciar sessiÃ³
+post_notification_desc:		Notificar-me quan algÃº respongui a aquest missatge.
 maximize_category:		Maximitzar categoria
-no_view_perm:			No té permisos per a veure aquest fil de discussió.
-report_empty_report:		No pot enviar un informe buit. Si us plau, introdueixi una raó per al seu informe.
+no_view_perm:			No tÃ© permisos per a veure aquest fil de discussiÃ³.
+report_empty_report:		No pot enviar un informe buit. Si us plau, introdueixi una raÃ³ per al seu informe.
 report_already_reported_title:	Ja s`ha informat
-report_already_reported_msg:	Ja s`ha informat sobre aquest missatge i l`informe està  actualment a la cua de revisió de l`equip de moderació.
-register_err_toomanyimages:	està  tractant d`usar més de les {GVAR: FORUM_IMG_CNT_SIG} imatges permeses a la seva signatura.
-pmsg_next_msg:			Següent missatge
+report_already_reported_msg:	Ja s`ha informat sobre aquest missatge i l`informe estÃ Â  actualment a la cua de revisiÃ³ de l`equip de moderaciÃ³.
+register_err_toomanyimages:	estÃ Â  tractant d`usar mÃ©s de les {GVAR: FORUM_IMG_CNT_SIG} imatges permeses a la seva signatura.
+pmsg_next_msg:			SegÃ¼ent missatge
 pmsg_prev_msg:			Missatge anterior
 post_proc_reveal_spoiler:	Mostrar Spoiler
 register_jabber:		Usuari Jabber:
@@ -786,33 +786,33 @@ im_jabber:			Jabber:
 forum_contact:			Contacte
 forum_home:			Principal
 post_cur_attached:		{VAR: i} arxiu(s) adjunt(s) actualment
-ignored_anon_post:		{GVAR: ANON_NICK} és ignorat
-ignored_user_post:		El missatge de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> és ignorat
+ignored_anon_post:		{GVAR: ANON_NICK} Ã©s ignorat
+ignored_user_post:		El missatge de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> Ã©s ignorat
 smladd_close_window:		Tancar finestra
 post_list_smilies:		llistar totes les emoticones
 p_VISIBLE:			Visible
-reported_in_thread:		En fil de discussió
+reported_in_thread:		En fil de discussiÃ³
 help_back_to_top:		Tornar a dalt
-help_return_to_index:		Tornar a l`í­ndex d`ajuda
-imsg_err_message_title:		El missatge no és vàlid
-imsg_err_message_msg:		El missatge que està  intentant veure no existeix.
+help_return_to_index:		Tornar a l`Ã­Â­ndex d`ajuda
+imsg_err_message_title:		El missatge no Ã©s vÃ lid
+imsg_err_message_msg:		El missatge que estÃ Â  intentant veure no existeix.
 poll_edit:			Editar
 unspecified:			SENSE ESPECIFICAR
-register_err_not_valid_img:	La URL especificada no conté una imatge vàlida
+register_err_not_valid_img:	La URL especificada no contÃ© una imatge vÃ lida
 pmsg_recepient:			Destinatari
-register_err_taken_alias:	L`àlies que està  intentant usar ja l`està  usant un altre membre del fòrum. si us plau, esculli`n un altre.
-register_alias:			Àlies
-register_alias_desc:		Si vol que un sobrenom diferent del nom d`usuari es mostri en els fòrums, introdueixi aquí­ el sobrenom que desitgi veure.
+register_err_taken_alias:	L`Ã lies que estÃ Â  intentant usar ja l`estÃ Â  usant un altre membre del fÃ²rum. si us plau, esculli`n un altre.
+register_alias:			Ã€lies
+register_alias_desc:		Si vol que un sobrenom diferent del nom d`usuari es mostri en els fÃ²rums, introdueixi aquÃ­Â­ el sobrenom que desitgi veure.
 register_allow_pm_msg:		Permetre missatges privats
 register_allow_pm_msg_desc:	Permetre a altres usuaris enviar-li missatges privats per FUDforum.
-postcheck_pm_disabled:		No pot enviar un missatge privat a "{VAR-HTML: v}", perquè aquesta persona no està  acceptant missatges privats.
+postcheck_pm_disabled:		No pot enviar un missatge privat a "{VAR-HTML: v}", perquÃ¨ aquesta persona no estÃ Â  acceptant missatges privats.
 polllist_vote:			Votar
 polllist_view_results:		Veure resultats
 polllist_name:			Nom de l`enquesta
 polllist_date:			Creada el
 polllist_owner:			Creada per
 polllist_votes:			Total de vots
-polllist_action:		Acció
+polllist_action:		AcciÃ³
 polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Revisant les enquestes disponibles</a>
 userinfo_polls:			Enquestes:
 show_pollist:			Mostrar enquestes
@@ -820,47 +820,47 @@ search_and:			AND
 search_or:			OR
 search_desc_order:		Ordre descendent
 search_asc_order:		Ordre ascendent
-search_logic:			Lògica de recerca:
+search_logic:			LÃ²gica de recerca:
 search_sorting:			Ordenar resultats per data a:
 post_proceed:			Procedir
-post_moderated_forum:		Ha enviat un missatge a un fòrum moderat, la qual cosa vol dir que el seu missatge no serà visible en els fòrums fins que sigui aprovat per un dels moderadors o administradors del fòrum.
-post_moderated_forum_ttl:	Notificació de fòrum moderat
+post_moderated_forum:		Ha enviat un missatge a un fÃ²rum moderat, la qual cosa vol dir que el seu missatge no serÃ  visible en els fÃ²rums fins que sigui aprovat per un dels moderadors o administradors del fÃ²rum.
+post_moderated_forum_ttl:	NotificaciÃ³ de fÃ²rum moderat
 buddy_list_bday:		{VAR: r[2]} cumpleix avui {VAR: age}
-email_warning_msg:		Si canvia la seva adreça de correu electrònic actual, el seu compte quedarà marcat com sense confirmar fins que la confirmi per correu electrònic.
-register_show_im:		Mostrar indicadors de missatgeria instantània
-register_show_im_desc:		Mostrar o no els indicadors de missatgeria instantània de l`autor juntament amb els seus missatges.
+email_warning_msg:		Si canvia la seva adreÃ§a de correu electrÃ²nic actual, el seu compte quedarÃ  marcat com sense confirmar fins que la confirmi per correu electrÃ²nic.
+register_show_im:		Mostrar indicadors de missatgeria instantÃ nia
+register_show_im_desc:		Mostrar o no els indicadors de missatgeria instantÃ nia de l`autor juntament amb els seus missatges.
 unread_message:			Missatge no llegit
 read_message:			Llegir missatge
-threadt_disabled_ttl:		La vista en arbre dels fils de discussió ha estat desactivada.
+threadt_disabled_ttl:		La vista en arbre dels fils de discussiÃ³ ha estat desactivada.
 threadt_disabled_desc:		L`administrador ha desactivat la vista en arbre del llistat de fils. Si us plau, usi la vista plana en el seu lloc.
-threadt_update:			Navegant pel fòrum (vista en arbre) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:			Navegant pel fÃ²rum (vista en arbre) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 threadt_more:			&lt;mes&gt;
 register_msg_tree_view:		Missatges seguits/Llistat en arbre
 register_tree_msg_view:		Llistat en arbre/Missatges seguits
 mmod_delete_cofirm_ttl:		Confirmar l`esborrat del fil o missatge
 spell_alts:			no hi ha alternatives
 insert_uploaded_image:		Inserir imatge en el cos del missatge
-finduser_help:			El motor de recerca afegirà la màscara * a la consulta. Per exemple, per a cercar tots els usuari que comencen per &#39;a&#39;, introdueixi &#39;a&#39; en el quadre de recerca.
+finduser_help:			El motor de recerca afegirÃ  la mÃ scara * a la consulta. Per exemple, per a cercar tots els usuari que comencen per &#39;a&#39;, introdueixi &#39;a&#39; en el quadre de recerca.
 back_to_top:			Tornar al principi
-iemail_participate:		Per a participar a la discussió, vagi aquí­:
+iemail_participate:		Per a participar a la discussiÃ³, vagi aquÃ­Â­:
 pm_err_disabled_title:		Els missatges privats estan desactivats
-pm_err_disabled_msg:		No pot enviar missatges privats fins que activi l`opció de permetre missatges privats en el seu perfil.
-err_mod_acc_ttl:		El compte no està  verificat
-err_mod_acc_msg:		L`administrador ha escollit revisar tots els comptes manualment abans de la seva activació. Fins que l`administrador validi el compte, no podrà usar totes les possibilitats del seu compte.
-accounts_pending_approval:	Comptes pendents d`aprovació
+pm_err_disabled_msg:		No pot enviar missatges privats fins que activi l`opciÃ³ de permetre missatges privats en el seu perfil.
+err_mod_acc_ttl:		El compte no estÃ Â  verificat
+err_mod_acc_msg:		L`administrador ha escollit revisar tots els comptes manualment abans de la seva activaciÃ³. Fins que l`administrador validi el compte, no podrÃ  usar totes les possibilitats del seu compte.
+accounts_pending_approval:	Comptes pendents d`aprovaciÃ³
 saved:				Guardats
-register_err_time_limit:	S`ha arribat al lí­mit d`un registre cada {GVAR: REG_TIME_LIMIT} segons. Si us plau, esperi {VAR: reg_limit_reached} segons i llavors torni a intentar el registre.
-register_affero:		Usuari Affero:<br /><font class="SmallText">Si té un usuari <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>, introdueixi`l aquí­.</font>
+register_err_time_limit:	S`ha arribat al lÃ­Â­mit d`un registre cada {GVAR: REG_TIME_LIMIT} segons. Si us plau, esperi {VAR: reg_limit_reached} segons i llavors torni a intentar el registre.
+register_affero:		Usuari Affero:<br /><font class="SmallText">Si tÃ© un usuari <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>, introdueixi`l aquÃ­Â­.</font>
 im_affero:			Usuari Affero
 register_err_avatardimtobig:	Les dimensions de l`avatar de <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedeixen les dimensions permeses de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Descarregat {VAR: r->dlcount} cop(s)
 member_search:			<br />O usi la utilitat <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Cercar usuari</a> per a buscar a una persona.
-post_all_ext_allowed:		(sense restricció)
-buddy_offline:			{VAR: r[2]} no està  actualment en línia
-buddy_online:			{VAR: r[2]} està  actualment en línia
+post_all_ext_allowed:		(sense restricciÃ³)
+buddy_offline:			{VAR: r[2]} no estÃ Â  actualment en lÃ­nia
+buddy_online:			{VAR: r[2]} estÃ Â  actualment en lÃ­nia
 sml_no_smilies:			No hi ha emoticones disponibles.
-login_unapproved_account_ttl:	El compte no està  aprovat
-login_unapproved_account_msg:	L`administrador dels fòrums ha escollit confirmar manualment cada compte nou abans d`activar-lo. El seu compte encara no ha estat confirmat, i per tant no podrà acceidr a algunes de les característiques disponibles per als membres enregistrats fins que el seu compte sigui aprovat.
+login_unapproved_account_ttl:	El compte no estÃ Â  aprovat
+login_unapproved_account_msg:	L`administrador dels fÃ²rums ha escollit confirmar manualment cada compte nou abans d`activar-lo. El seu compte encara no ha estat confirmat, i per tant no podrÃ  acceidr a algunes de les caracterÃ­stiques disponibles per als membres enregistrats fins que el seu compte sigui aprovat.
 remove_from_buddy_list:		treure de la llista d`amics
 iemail_msg_author:		<b>Autor:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Assumpte:</b> {VAR: obj->subject}
@@ -873,37 +873,37 @@ threadt_announce:		anunci
 reported_no_messages:		No hi ha missatges d`informes.
 poll_no_polls:			No hi ha enquestes accessibles
 no_unread_messages:		No hi ha missatges sense llegir que coincideixin amb la seva consulta.
-thread_mark_all_read:		marcar tots els missatges sense llegir del fòrum com a llegits
-thread_mark_all_read_desc:	Tots els missatges sense llegir dins d`aquest fòrum es marcaran com a llegits
+thread_mark_all_read:		marcar tots els missatges sense llegir del fÃ²rum com a llegits
+thread_mark_all_read_desc:	Tots els missatges sense llegir dins d`aquest fÃ²rum es marcaran com a llegits
 private_no_messages:		No hi ha missatges privats en aquesta carpeta
-register_email_change_subject:	Confirmació del canvi de correu electrònic
-register_email_change_msg:	Si us plau, confirmi el seu nou compte de correu electrònic "{VAR: uent->email}" que substitueix la seva antiga adreça de correu "{VAR: old_email}" anant a la URL següent:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nQuan confirmi la seva nova adreça de correu, el seu compte quedarà reactivat.
+register_email_change_subject:	ConfirmaciÃ³ del canvi de correu electrÃ²nic
+register_email_change_msg:	Si us plau, confirmi el seu nou compte de correu electrÃ²nic "{VAR: uent->email}" que substitueix la seva antiga adreÃ§a de correu "{VAR: old_email}" anant a la URL segÃ¼ent:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nQuan confirmi la seva nova adreÃ§a de correu, el seu compte quedarÃ  reactivat.
 iemail_thread_unsub:		Desubscriure`s d`aquesta conversa
-iemail_forum_unsub:		Desubscriure`s d`aquest fòrum
-primary_group_prefix:		Grup principal per als fòrums:
-group_resources:		Aquest grup controla els permisos dels fòrums següents
-register_email:			Correu electrònic
-register_admin_newuser_title:	S`ha enregistrat un usuari nou i el seu compte està  pendent de confirmació
-register_admin_newuser_msg:	Un usuari nou, ({VAR: uent->login}), acaba d`enregistrar-se en els fòrums, i com està  activada la confirmació del compte, el seu compte no estarà actiu fins que Vostè o un altre administrador dels fòrums el confirmi. Per a revisar el compte, si us plau, vagi a: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nAquest és un procés automatizat, no respongui a aquest missatge.\nSi desitja desactivar futures notificacions de registre de nous usuaris, pot fer-ho usant el Panell de Control d`administració, canviant el valor de l`opció "Notificació de compte nou".
-post_mod_msg_notify_title:	Un nou missatge en els fòrums amb l`assumpte "{VAR: frm->name}" està  pendent d`aprovació
-post_mod_msg_notify_msg:	Un nou missatge titulat "{VAR: msg_post->subject}" acaba de ser enviat a un fòrum que Vostè modera. Per a revisar aquest missatge vagi a: {FULL_ROOT}{ROOT}?t=modque\n\nAquest és un procés automàtic, així que no respongui a aquest missatge.\n
+iemail_forum_unsub:		Desubscriure`s d`aquest fÃ²rum
+primary_group_prefix:		Grup principal per als fÃ²rums:
+group_resources:		Aquest grup controla els permisos dels fÃ²rums segÃ¼ents
+register_email:			Correu electrÃ²nic
+register_admin_newuser_title:	S`ha enregistrat un usuari nou i el seu compte estÃ Â  pendent de confirmaciÃ³
+register_admin_newuser_msg:	Un usuari nou, ({VAR: uent->login}), acaba d`enregistrar-se en els fÃ²rums, i com estÃ Â  activada la confirmaciÃ³ del compte, el seu compte no estarÃ  actiu fins que VostÃ¨ o un altre administrador dels fÃ²rums el confirmi. Per a revisar el compte, si us plau, vagi a: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nAquest Ã©s un procÃ©s automatizat, no respongui a aquest missatge.\nSi desitja desactivar futures notificacions de registre de nous usuaris, pot fer-ho usant el Panell de Control d`administraciÃ³, canviant el valor de l`opciÃ³ "NotificaciÃ³ de compte nou".
+post_mod_msg_notify_title:	Un nou missatge en els fÃ²rums amb l`assumpte "{VAR: frm->name}" estÃ Â  pendent d`aprovaciÃ³
+post_mod_msg_notify_msg:	Un nou missatge titulat "{VAR: msg_post->subject}" acaba de ser enviat a un fÃ²rum que VostÃ¨ modera. Per a revisar aquest missatge vagi a: {FULL_ROOT}{ROOT}?t=modque\n\nAquest Ã©s un procÃ©s automÃ tic, aixÃ­ que no respongui a aquest missatge.\n
 thread_printable_pdf:		Generar PDF imprimible
 thread_syndicate:		Llegir aquest forum amb lector un RSS (XML)
-reg_conf_title:			Confirmació del registre
-reg_conf_email:			<b>Confirmació del correu electrònic</b><br />Se li ha enviat un correu electrònic contenint una URL especial a la que necessitarà accedir abans que els seu compte s`activi. Si no rep aquest correu electrònic en els propers minuts iniciï la sessió amb el seu compte i asseguri`s que l`adreça de correu electrònic que ha especificat és correcta. Quan confirmi el compte, podrà accedir a les característiques disponibles en els fòrums per als usuaris enregistrats i confirmats.
-reg_conf_account:		<b>Confirmació del compte</b><br />Abans que el seu compte quedi activat necessita ser aprovat pels administradors. Quan això passi, rebrà un correu electrònic indicant que el seu compte ha estat confirmat. Mentrestant, podrà usar el seu compte però no tindrà accés a les opcions dels usuaris aprovats.
-forum_banned_user:		Les seves accions anteriors tenen com a conseqüència que ha estat expulsat de forma permanent d`aquests fòrums. Adéu.
+reg_conf_title:			ConfirmaciÃ³ del registre
+reg_conf_email:			<b>ConfirmaciÃ³ del correu electrÃ²nic</b><br />Se li ha enviat un correu electrÃ²nic contenint una URL especial a la que necessitarÃ  accedir abans que els seu compte s`activi. Si no rep aquest correu electrÃ²nic en els propers minuts iniciÃ¯ la sessiÃ³ amb el seu compte i asseguri`s que l`adreÃ§a de correu electrÃ²nic que ha especificat Ã©s correcta. Quan confirmi el compte, podrÃ  accedir a les caracterÃ­stiques disponibles en els fÃ²rums per als usuaris enregistrats i confirmats.
+reg_conf_account:		<b>ConfirmaciÃ³ del compte</b><br />Abans que el seu compte quedi activat necessita ser aprovat pels administradors. Quan aixÃ² passi, rebrÃ  un correu electrÃ²nic indicant que el seu compte ha estat confirmat. Mentrestant, podrÃ  usar el seu compte perÃ² no tindrÃ  accÃ©s a les opcions dels usuaris aprovats.
+forum_banned_user:		Les seves accions anteriors tenen com a conseqÃ¼Ã¨ncia que ha estat expulsat de forma permanent d`aquests fÃ²rums. AdÃ©u.
 mnav_description:		Navegador de missatges
 mnav_date_limit:		Rang per a les dates:
 mnav_forum_limit:		Cercar solament a:
-mnav_all_forums:		Cercar a tots els fòrums
-mnav_submit:			Començar a cercar
-mnav_no_range:			Ha d`introduir un rang de dates vàlid. Aquest valor pot ser flotant (0.12) però ha de ser major de zero.
-mnav_invalid_unit:		Ha d`especificar una unitat de temps vàlida.
-mnav_invalid_date:		El rang de dates és major del permès per l`administrador. Redueixi l`abast de la seva recerca.
+mnav_all_forums:		Cercar a tots els fÃ²rums
+mnav_submit:			ComenÃ§ar a cercar
+mnav_no_range:			Ha d`introduir un rang de dates vÃ lid. Aquest valor pot ser flotant (0.12) perÃ² ha de ser major de zero.
+mnav_invalid_unit:		Ha d`especificar una unitat de temps vÃ lida.
+mnav_invalid_date:		El rang de dates Ã©s major del permÃ¨s per l`administrador. Redueixi l`abast de la seva recerca.
 mnav_no_results:		No hi ha missatges que coincideixin amb el criteri de recerca.
 mnav_posted_by:			Enviat per:
-mnav_more:			Més &raquo;&raquo;
+mnav_more:			MÃ©s &raquo;&raquo;
 mnav_minute:			Minut(s)
 mnav_hour:			Hora(s)
 mnav_day:			Dia(s)
@@ -911,83 +911,83 @@ mnav_week:			Setmana(s)
 mnav_month:			Mes(os)
 mnav_title:			Navegador de missatges
 mnav_update:			Examinar missatges usant el <a href="{TEMPLATE: mnav_update_lnk}">Navegador de missatges</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] Notificació de nou missatge privat
-pm_notify_body_email:		Té un nou missatge privat titulat "{VAR: subject}" de "{VAR: from}" al fòrum "{GVAR: FORUM_TITLE}".\nPer a veure el missatge, premi l`enllaç següent: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPer a evitar notificacions futures desactivi "Notificar missatges privats" en el seu perfil.
-register_pm_notification:	Notificació de missatges privats
-register_pm_notification_desc:	Si està  activat, se li notificarà pel mètode de notificació escollit quan se li enviï un missatge privat.
-findu_admin_opts_header:	Opcions d`administració
+pm_notify_subject:		[{GVAR: FORUM_TITLE}] NotificaciÃ³ de nou missatge privat
+pm_notify_body_email:		TÃ© un nou missatge privat titulat "{VAR: subject}" de "{VAR: from}" al fÃ²rum "{GVAR: FORUM_TITLE}".\nPer a veure el missatge, premi l`enllaÃ§ segÃ¼ent: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPer a evitar notificacions futures desactivi "Notificar missatges privats" en el seu perfil.
+register_pm_notification:	NotificaciÃ³ de missatges privats
+register_pm_notification_desc:	Si estÃ Â  activat, se li notificarÃ  pel mÃ¨tode de notificaciÃ³ escollit quan se li enviÃ¯ un missatge privat.
+findu_admin_opts_header:	Opcions d`administraciÃ³
 findu_unban:			No expulsat
 findu_ban:			Expulsat
 findu_edit:			Editar
 findu_delete:			Esborrar
-dmsg_reply_to:			és una resposta al missatge #{VAR: obj->reply_to}
+dmsg_reply_to:			Ã©s una resposta al missatge #{VAR: obj->reply_to}
 merge_topics:			Ajuntar fil
-merge_topics_cp:		Panell per a unir fils de discussió
-merge_topics_tpl:		Seleccioni els fils que s`uniran <font class="SmallText">(ha de seleccionar més d`un fil)</font>
+merge_topics_cp:		Panell per a unir fils de discussiÃ³
+merge_topics_tpl:		Seleccioni els fils que s`uniran <font class="SmallText">(ha de seleccionar mÃ©s d`un fil)</font>
 merge_merge:			Unir els fils seleccionats
-merge_next:			Fils següents
+merge_next:			Fils segÃ¼ents
 merge_prev:			Fil anterior
 split_cp:			Panell de control per a separar fils
-groups_perms_header:		Permisos <font size="-1">(mogui el ratolÃ­ per sobre del permÃ­s per a veure el tipus de permÃ­s)</font>
-register_err_sig_too_long:	La seva signatura supera el nombre màxim de caràcters permesos ({GVAR: FORUM_SIG_ML}) a la signatura.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'La seva signatura té una longitud de\'+document.fud_register.reg_sig.value.length+\' caràcters. La longitud màxima permesa és {GVAR: FORUM_SIG_ML}\');" class="SmallText">Comprovar la longitud de la signatura</a>
+groups_perms_header:		Permisos <font size="-1">(mogui el ratolÃƒÂ­ per sobre del permÃƒÂ­s per a veure el tipus de permÃƒÂ­s)</font>
+register_err_sig_too_long:	La seva signatura supera el nombre mÃ xim de carÃ cters permesos ({GVAR: FORUM_SIG_ML}) a la signatura.
+register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'La seva signatura tÃ© una longitud de\'+document.fud_register.reg_sig.value.length+\' carÃ cters. La longitud mÃ xima permesa Ã©s {GVAR: FORUM_SIG_ML}\');" class="SmallText">Comprovar la longitud de la signatura</a>
 p_SEARCH:			Pot cercar
-adm_account_accepted:		El seu compte \'{VAR: GLOBALS['r']->login}\' ha estat aprovat per l`administrador i ja està  activat. Ara pot acceidr al fòrum {GVAR: FORUM_TITLE}\' com un usuari amb el registre confirmat.
+adm_account_accepted:		El seu compte \'{VAR: GLOBALS['r']->login}\' ha estat aprovat per l`administrador i ja estÃ Â  activat. Ara pot acceidr al fÃ²rum {GVAR: FORUM_TITLE}\' com un usuari amb el registre confirmat.
 adm_account_accepted_s:		La seva sol.licitud per a un compte a \'{GVAR: FORUM_TITLE}\' ha estat acceptada.
-adm_account_rejected:		El seu compte \'{VAR: GLOBALS['r']->login}\' ha estat refusat per l`administrador. Si desitja saber el motiu de la decisió, pot enviar un missatge a l`administrador a l`adreça \'{GVAR: ADMIN_EMAIL}\'.
+adm_account_rejected:		El seu compte \'{VAR: GLOBALS['r']->login}\' ha estat refusat per l`administrador. Si desitja saber el motiu de la decisiÃ³, pot enviar un missatge a l`administrador a l`adreÃ§a \'{GVAR: ADMIN_EMAIL}\'.
 adm_account_rejected_s:		La seva sol.licitud de compte a \'{GVAR: FORUM_TITLE}\' ha estat refusada.
 thread_on:			on
 userinfo_buddy:			Amic:
-register_email_addr:		Correu electrònic
-reset_suffix:			\n\nSi ha rebut aquest missatge per error, si us plau, ignori`l. Si està  rebent múltiples còpies d`aquest correu i no les ha sol.licitat, si us plau, posi`s en contacte amb l`administrador del fòrum a {GVAR: ADMIN_EMAIL}\n\nAquesta sol.licitud s`ha realitzat des de: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
-usrinfo_last_visit:		Última visita:
-mnav_newer:			més recent que
+register_email_addr:		Correu electrÃ²nic
+reset_suffix:			\n\nSi ha rebut aquest missatge per error, si us plau, ignori`l. Si estÃ Â  rebent mÃºltiples cÃ²pies d`aquest correu i no les ha sol.licitat, si us plau, posi`s en contacte amb l`administrador del fÃ²rum a {GVAR: ADMIN_EMAIL}\n\nAquesta sol.licitud s`ha realitzat des de: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
+usrinfo_last_visit:		Ãšltima visita:
+mnav_newer:			mÃ©s recent que
 mnav_older:			menys recent que
 ip_search_by_ip:		Cercar usuaris per IP
 ip_search_syntax:		Sintaxis suportada: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:			Cercar
-ip_analyze_usage:		Analitzar l`ús de la IP
+ip_analyze_usage:		Analitzar l`Ãºs de la IP
 ip_analyze_usage_descr:		Si us plau, indiqui el nom d`usuari exacte.
-ip_users_using:			Usuaris que usan l`adreça IP &#39;{VAR: ip}&#39;
+ip_users_using:			Usuaris que usan l`adreÃ§a IP &#39;{VAR: ip}&#39;
 ip_all_ips:			Totes les IPs usades per &#39;{VAR: user}&#39;
 ip_title:			Examinador d`IPs
 userinfo_real_name:		Nom real:
-register_err_alias_notallowed:	Aquest àlies no està  permès
-post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Privilegis insuficients</legend>Els usuaris anònims no tenen permís per a crear fils.</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Privilegis insuficients </legend>Els usuaris anònims no poden respondre.</fieldset><br />
-ERR_login_msg2:			<fieldset><legend>ERROR: No ha iniciat sessió</legend>Per a accedir a aquesta pàgina ha de ser un membre d`aquest fòrum.</fieldset><br />
+register_err_alias_notallowed:	Aquest Ã lies no estÃ Â  permÃ¨s
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Privilegis insuficients</legend>Els usuaris anÃ²nims no tenen permÃ­s per a crear fils.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Privilegis insuficients </legend>Els usuaris anÃ²nims no poden respondre.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: No ha iniciat sessiÃ³</legend>Per a accedir a aquesta pÃ gina ha de ser un membre d`aquest fÃ²rum.</fieldset><br />
 post_err_mod_forum_edit_ttl:	ERROR
-post_err_mod_forum_edit_msg:	No pot editar missatges en un fòrum moderat.
-dmsg_num:			missatge nº{VAR: obj->id}
-postcheck_session_invalid:	La seva sessió havia expirat. Si us plau, torni a enviar el formulari. Perdó per les molèsties.
-delete_message_extra_desc:	<b>Opcional</b><br />Especifiqui una raó per a esborrar el missatge, que se li enviarà a l`autor mitjançant un missatge privat.
-delete_message_extra_body:	Incloure el cos del missatge eliminat que s`enviarà a l`autor.
-delete_msg_removed_ttl:		El seu missatge ha estat eliminat per l`equip d`admninistració.
+post_err_mod_forum_edit_msg:	No pot editar missatges en un fÃ²rum moderat.
+dmsg_num:			missatge nÂº{VAR: obj->id}
+postcheck_session_invalid:	La seva sessiÃ³ havia expirat. Si us plau, torni a enviar el formulari. PerdÃ³ per les molÃ¨sties.
+delete_message_extra_desc:	<b>Opcional</b><br />Especifiqui una raÃ³ per a esborrar el missatge, que se li enviarÃ  a l`autor mitjanÃ§ant un missatge privat.
+delete_message_extra_body:	Incloure el cos del missatge eliminat que s`enviarÃ  a l`autor.
+delete_msg_removed_ttl:		El seu missatge ha estat eliminat per l`equip d`admninistraciÃ³.
 delete_msg_pm_body:		Missatge original
 delete_msg_pm_subject:		Assumpte: {VAR: data[15]}
-ip_no_whois:			La informació de whois per a <b>{VAR: ip}</b> no està  disponible.
-ip_whois_title:			<b>Informació de l`ISP</b><br />
+ip_no_whois:			La informaciÃ³ de whois per a <b>{VAR: ip}</b> no estÃ Â  disponible.
+ip_whois_title:			<b>InformaciÃ³ de l`ISP</b><br />
 register_theme:			Tema:
 pmsg_trash:			Buidar paperera
 uc_new_pm:			Missatges privats nous
 uc_new_topic:			Nou fil
-uc_new_cat_forum:		Fòrums subscrits amb missatges nous
-uc_cat_forum:			Categoria &raquo; Fòrum
+uc_new_cat_forum:		FÃ²rums subscrits amb missatges nous
+uc_cat_forum:			Categoria &raquo; FÃ²rum
 uc_sub_topics:			Fils subscrits amb missatges nous
 uc_page_title:			Veient el panell de control personal
 search_options:			Opcions de recerca
 search_user_filter:		Filtrar per usuari:
 register_none:			No notificar
 findu_no_conf:			Usuari sense confirmar
-register_max_sig_len:		Longitud màxima:
+register_max_sig_len:		Longitud mÃ xima:
 register_turing:		Si us plau, introdueixi el codi que es mostra a sota:
-register_err_turing:		El codi de validació no és vàlid
+register_err_turing:		El codi de validaciÃ³ no Ã©s vÃ lid
 modque_cat:			Categoria
-modque_forum:			Fòrums
-idx_compact_forum_row:		Fòrums disponibles:
+modque_forum:			FÃ²rums
+idx_compact_forum_row:		FÃ²rums disponibles:
 mmd_del_title:			Esborrar fils
 mmd_mov_title:			Moure fils
-mmd_move_threads_to:		Fòrum de destà­:
+mmd_move_threads_to:		FÃ²rum de destÃ Â­:
 mmd_abort_move:			Cancel.lar
 mmd_move:			Moure fils
 pmsg_pdf_btn:			Crear arxiu PDF
@@ -996,35 +996,35 @@ thread_del_all:			Esborrar tots els seleccionats
 thread_mov_all:			Moure tots els seleccionats
 dmsg_ip:			IP:
 err_banned_acct_title:		ERROR: Ha estat expulsat.
-err_banned_acct_msg:		El seu compte tenia l`accés restringit {IF: $ban_expiry}temporalment fins {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentement{ENDI} al lloc, degut a una violació de les regles del fòrum.
+err_banned_acct_msg:		El seu compte tenia l`accÃ©s restringit {IF: $ban_expiry}temporalment fins {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentement{ENDI} al lloc, degut a una violaciÃ³ de les regles del fÃ²rum.
 err_blockedaccnt_title:		ERROR: el seu compte ha estat filtrat.
 err_blockedaccnt_msg:		El seu compte ha estat bloquejat per un dels filtres d`usuaris instal.lats.
-merge_th_page_list:		Seleccionar la pàgina del fil
-most_users_online:		La major quantitat d`usuaris en línia fou <b>{VAR: st_obj->most_online}</b>, el <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Desubscriure de tots els fòrums
+merge_th_page_list:		Seleccionar la pÃ gina del fil
+most_users_online:		La major quantitat d`usuaris en lÃ­nia fou <b>{VAR: st_obj->most_online}</b>, el <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:		Desubscriure de tots els fÃ²rums
 sub_unsub_all_topics:		Desubscriure de tots els fils
 tabs_own_posts:			Mostrar missatges propis
 buddy_list_err_ignore:		No pot afegir usuaris que l`ignoren a la seva llista d`amics.
 sml_emoticon:			Emoticona
 sml_code:			Code
-mnav_sub_only:			Cercar solament en els fòrums subscrits
-register_topics_per_page:	Fils per pàgina:
-login_min_time:			Aquest fòrum permet un intent de login cada {VAR: MIN_TIME_BETWEEN_LOGIN} segons, si us plau, esperi {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} segons abans d`intentar-ho novament.
-post_not_logged_in:		No ha iniciat sessió, de manera que s`enviarà el missatge anònimament.
+mnav_sub_only:			Cercar solament en els fÃ²rums subscrits
+register_topics_per_page:	Fils per pÃ gina:
+login_min_time:			Aquest fÃ²rum permet un intent de login cada {VAR: MIN_TIME_BETWEEN_LOGIN} segons, si us plau, esperi {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} segons abans d`intentar-ho novament.
+post_not_logged_in:		No ha iniciat sessiÃ³, de manera que s`enviarÃ  el missatge anÃ²nimament.
 post_common_bold:		Negreta
 post_common_italics:		Cursiva
 post_common_underline:		Subratllat
-post_common_align_left:		Aliniació esquerra
-post_common_align_center:	Aliniació central
-post_common_align_right:	Aliniació dreta
-post_common_link:		Inserir un enllaç
-post_common_email:		Inserir una adreça de correu electrònic
+post_common_align_left:		AliniaciÃ³ esquerra
+post_common_align_center:	AliniaciÃ³ central
+post_common_align_right:	AliniaciÃ³ dreta
+post_common_link:		Inserir un enllaÃ§
+post_common_email:		Inserir una adreÃ§a de correu electrÃ²nic
 post_common_image:		Inserir una imatge
 post_common_nlist:		Afegir una llista enumerada
 post_common_blist:		Afegir llista
 post_common_quote:		Afegir cita
 post_common_code:		Afegir codi
-rating:				Valoració
+rating:				ValoraciÃ³
 rating_track:			Gestionar les valoracions del fil <b>{VAR: thr->subject}</b>:
 rating_delete:			Esborrar
 post_always_on_top:		Fer que el fil sempre aparegui a dalt a la llista de fils
@@ -1034,7 +1034,7 @@ im_google:			Google Talk:
 im_skype:			Skype: 
 topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
 topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
-register_notify_method_desc:	Estableixi el seu mecanisme de notificació preferit o desactivi les notificacions (per exemple quan se`n vagi de vacances)
+register_notify_method_desc:	Estableixi el seu mecanisme de notificaciÃ³ preferit o desactivi les notificacions (per exemple quan se`n vagi de vacances)
 tabs_notifications:		Notificacions
 finduser_flag:			Flag
 post_descr:			Topic Description

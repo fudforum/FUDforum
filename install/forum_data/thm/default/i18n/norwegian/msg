@@ -277,7 +277,7 @@ register_preview:		Forh&aring;ndsvisning
 register_custom_avatar_upload:	Fil med egen avatar:
 register_register:		Registrere
 register_required:		N&oslash;dvendig informasjon
-register_required_desc:		Alle felt m&aring; fylles ut. Husk at det er forskjell på sm&aring; og store bokstaver i passordet.
+register_required_desc:		Alle felt m&aring; fylles ut. Husk at det er forskjell pÃ¥ sm&aring; og store bokstaver i passordet.
 register_optional:		Frivilig informasjon
 register_optional_desc:		Vi anbefaler at du ikke avsl&oslash;rer noen personlige opplysninger i din profil. All informasjon kan ses av andre medlemmer.
 register_location:		Sted:
@@ -404,14 +404,14 @@ login_cookie_expired:		Din cookie har g&aring;tt ut, og du m&aring; logge inn p&
 login_perm_denied:		Du har ikke rett til &aring; benytte den etterspurte ressursen som anonym bruker og m&aring; derfor logge inn.
 login_want_to_register:		Vil du registrere deg?
 login_forgot_passwd:		Jag har glemt mitt passord
-login_use_cookie:		Bruk cookies<br /><font class="SmallText">Dersomm du bruker en offentlig terminal, som f.eks. datamaskiner i bibliotek, skoler eller ikkernettkaféer anbefaler vi at du velger bort dette alternativet for bedre sikkerhet.
+login_use_cookie:		Bruk cookies<br /><font class="SmallText">Dersomm du bruker en offentlig terminal, som f.eks. datamaskiner i bibliotek, skoler eller ikkernettkafÃ©er anbefaler vi at du velger bort dette alternativet for bedre sikkerhet.
 login_login:			Logg inn
 login_login_btn:		Logg inn
 login_name_required:		brukernavn er obligatorisk
 login_passwd_required:		Passordet er obligatorisk
 login_invalid_radius:		Ugyldig kombinasjon av brukernavn og passord
 reset_confirmation:		Takk for din registrering!\n\nFor &aring; aktivere din konto skal du g&aring; til f&oslash;lgende URL:\n\n{VAR: url}\n\nN&aring;r din konto er aktivert blir du innlogget i forumet og\nvideresendt til forumets f&oslash;rste side.\n
-reset_reset:			Hei!\n\nDu har bedt om at ditt passord nullstilles. For &aring; virkelig NULLSTILLE passordet ditt\nvennligst bes&oslash;k denna URLen\n\n{VAR: url}\n\nNOTER: Forumet lagrer passordene med enveis krypteringsmekanismer, hvilket inneb&aelig;rer at\nn&aring;r du har skrevet ditt passord krypteres det på en slik m&aring;te at det ikke kan dekrypteres.\nDette fungerer gjennom &aring; kryptere passordet hver gang du skriver det inn. Deretter sammenlignes resultatet for &aring; se om den nye og den lagrede versionen\nstemmer overens. (Dersom du er intressert i &aring; vite hvordan det fungerer, kan du lese om "MD5 HASH"-algoritmen)
+reset_reset:			Hei!\n\nDu har bedt om at ditt passord nullstilles. For &aring; virkelig NULLSTILLE passordet ditt\nvennligst bes&oslash;k denna URLen\n\n{VAR: url}\n\nNOTER: Forumet lagrer passordene med enveis krypteringsmekanismer, hvilket inneb&aelig;rer at\nn&aring;r du har skrevet ditt passord krypteres det pÃ¥ en slik m&aring;te at det ikke kan dekrypteres.\nDette fungerer gjennom &aring; kryptere passordet hver gang du skriver det inn. Deretter sammenlignes resultatet for &aring; se om den nye og den lagrede versionen\nstemmer overens. (Dersom du er intressert i &aring; vite hvordan det fungerer, kan du lese om "MD5 HASH"-algoritmen)
 rpasswd_invalid_passwd:		Ugyldig passord
 rpasswd_passwd_nomatch:		Passordene stemmer ikke overens
 rpasswd_passwd_length:		Passordet m&aring; v&aelig;re minst 6 tegn langt
@@ -524,7 +524,7 @@ actions_update:			Spionerer p&aring; andra medlemmer, akkurat som deg
 err_info:			Info
 buddy_list_err_cantadd:		Du kan ikke legge deg selv til kontaktlisten
 buddy_list_err_dup:		Dette medlemmet er allerede i kontaktlisten din
-buddy_list_err_nouser:		Kan ikke finne medlemmet du fors&oslash;kte å legge til kontaktlisten blandt dette forumets medlemmer.
+buddy_list_err_nouser:		Kan ikke finne medlemmet du fors&oslash;kte Ã¥ legge til kontaktlisten blandt dette forumets medlemmer.
 buddy_list_err_nouser_title:	Kan ikke legge til medlemmet
 buddy_list_update:		Viser egen kontaktliste
 core_err_invinp_title:		Ugyldig input(??)
@@ -543,10 +543,10 @@ err_inc_criticaltitle:		KRITISK FEIL
 err_inc_criticalmsg:		Du har st&oslash;tt p&aring; en feil, men dessverre har vi et problem med feilrapporteringssystemet
 finduser_update:		S&oslash;ker etter medlemmer
 help_index_update:		Leser <a href="{TEMPLATE: help_index_update_lnk}">hjelpen.</a>
-iemail_thr_subject:		Nytt svar på {VAR: thr_subject} av {VAR: poster_login}
-iemail_thr_bodyemail:		Gå til {VAR: goto_url['email']} for å vise uleste svar\n\nDersom du i fremtiden ikke vil motta meldinger om svar på denne tråden, kan du gå hit: {VAR: unsub_url['email']}
-iemail_frm_subject:		Ny tråd av {VAR: poster_login} med emnet {VAR: thr_subject} i forumet {VAR: frm_name}
-iemail_frm_bodyemail:		For å vise tråden gå til:\n{VAR: goto_url['email']}\n\nDersom du i fremtiden ikke vil motta meldinger om svar på denne tråden, kan du gå hit: {VAR: unsub_url['email']}
+iemail_thr_subject:		Nytt svar pÃ¥ {VAR: thr_subject} av {VAR: poster_login}
+iemail_thr_bodyemail:		GÃ¥ til {VAR: goto_url['email']} for Ã¥ vise uleste svar\n\nDersom du i fremtiden ikke vil motta meldinger om svar pÃ¥ denne trÃ¥den, kan du gÃ¥ hit: {VAR: unsub_url['email']}
+iemail_frm_subject:		Ny trÃ¥d av {VAR: poster_login} med emnet {VAR: thr_subject} i forumet {VAR: frm_name}
+iemail_frm_bodyemail:		For Ã¥ vise trÃ¥den gÃ¥ til:\n{VAR: goto_url['email']}\n\nDersom du i fremtiden ikke vil motta meldinger om svar pÃ¥ denne trÃ¥den, kan du gÃ¥ hit: {VAR: unsub_url['email']}
 ignore_list_err_info_title:	Info
 ignore_list_err_dup_msg:	Du har allerede dette medlemmet i listen din
 ignore_list_err_nu_title:	Kan ikke finne medlemmet
@@ -601,7 +601,7 @@ register_err_notyouremail:	Noen har allerede registrert seg med denne e-postadre
 register_err_avatartobig:	Filen du pr&oslash;ver &aring; sende er for stor, over grensen p&aring; {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte
 register_err_avatarnotallowed:	Avataren du pr&oslash;ver &aring; sende er ikke tillatt. Kontroller at den er av godkjent filtype.
 register_conf_subject:		Bekreftelse av forumregistrering
-register_conf_msg:		Takk for din registrering!\nGå til adressen under for &aring; aktivere din medlemskonto:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEtter at din konto er aktivert blir du innlogget p&aring; forumet og \nvideressendt til hovedsiden.
+register_conf_msg:		Takk for din registrering!\nGÃ¥ til adressen under for &aring; aktivere din medlemskonto:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEtter at din konto er aktivert blir du innlogget p&aring; forumet og \nvideressendt til hovedsiden.
 register_welcome_subject:	Velkommen til forumet
 register_welcome_msg:		Takk for din registrering!\n\nHer er din innloggignsinformasjon for forumet:\n\nForumets URL: {TEMPLATE: index_update_lnk}\nBrukernavn: {VAR: uent->login}\nPassord: {VAR: HTTP_POST_VARS['reg_plaikkext_passwd']}\n\nMerk! Det er forskjell p&aring; sm&aring; og store bokstaver i passordet!\nVil du endre innstillingene og din profil kan du g&aring; til denne siden:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	FEIL: kan ikke registrere
@@ -651,7 +651,7 @@ search_title:			S&oslash;k {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-post sendt
-remail_email:			Det fins en websida her {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) som du kanskje er interressert i &aring; lese.\nTråden som jeg tenkte kunne v&oelig;re av interresse, {VAR: data->subject} finner du her: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
+remail_email:			Det fins en websida her {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) som du kanskje er interressert i &aring; lese.\nTrÃ¥den som jeg tenkte kunne v&oelig;re av interresse, {VAR: data->subject} finner du her: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
 poll_add_option:		Legg til alternativ:
 post_opt_html_on:		<b>HTML</b>-kode er <b>P&Aring;</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD-kode</b> er <b>P&Aring;</b></a>
@@ -825,7 +825,7 @@ search_sorting:			Sorter resultatene etter dato i:
 post_moderated_forum:		Du har skrevet et innlegg i et modererat forum, hvilket inneb&aelig;rer at innlegget synes f&oslash;rst n&aringr forumets moderator og/eller administrator har godkjent det.
 post_moderated_forum_ttl:	Melding om modererat forum
 post_proceed:			Fortsett
-buddy_list_bday:		Idag fyller {VAR: r[2]} {VAR: age} år
+buddy_list_bday:		Idag fyller {VAR: r[2]} {VAR: age} Ã¥r
 email_warning_msg:		Dersom du endrer din n&aring;v&aelig;rande e-postadresse kommer brukerkontoen din til &aring; bli regnet som ubekreftet inntil du bekrefter den nye e-postadressen.
 register_show_im:		Vis IM-indikatorer
 register_show_im_desc:		Avgj&oslash;r om forfatterens IM-indikatorer skal vises utenfor innlegget.

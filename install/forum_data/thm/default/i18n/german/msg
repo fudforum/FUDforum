@@ -171,9 +171,9 @@ home:				Startseite
 homepage:			Homepage:
 icq_control_panel:		ICQ Online-Men&uuml;
 icq_message_form:		ICQ-Nachricht erstellen:
-iemail_frm_bodyemail:		Um das Thema anzusehen, gehe zu:\n{VAR: goto_url['email']}\n\nUm keine weiteren Benachrichtigungen über neue Themen in diesem Forum zu erhalten, gehe bitte hier hin:\n{VAR: unsub_url['email']}
+iemail_frm_bodyemail:		Um das Thema anzusehen, gehe zu:\n{VAR: goto_url['email']}\n\nUm keine weiteren Benachrichtigungen Ã¼ber neue Themen in diesem Forum zu erhalten, gehe bitte hier hin:\n{VAR: unsub_url['email']}
 iemail_frm_subject:		Neues Thema im Forum "{VAR: frm_name}" mit den Namen "{VAR: thr_subject}" von {VAR: poster_login}
-iemail_thr_bodyemail:		Um ungelesene Antworten anzusehen, gehe zu\n{VAR: goto_url['email']}\n\nWenn du keine weiteren Benachrichtigungen zu diesem Themen erhalten möchtest, gehe bitte hier hin:\n{VAR: unsub_url['email']}
+iemail_thr_bodyemail:		Um ungelesene Antworten anzusehen, gehe zu\n{VAR: goto_url['email']}\n\nWenn du keine weiteren Benachrichtigungen zu diesem Themen erhalten mÃ¶chtest, gehe bitte hier hin:\n{VAR: unsub_url['email']}
 iemail_thr_subject:		Neue Antwort zu "{VAR: thr_subject}" von {VAR: poster_login}
 ignore_list_cantign_msg:	Du kannst diesen Benutzer nicht ignorieren
 ignore_list_err_dup_msg:	Dieser Benutzer ist bereits auf deiner Ignorierliste
@@ -249,7 +249,7 @@ mklist_aplha:			Alphabetisch
 mklist_apply:			Anwenden
 mklist_circle:			Kreis
 mklist_close:			Abschlie&szlig;en
-mklist_delete:			Löschen
+mklist_delete:			LÃ¶schen
 mklist_disc:			Scheibe
 mklist_numerical:		Nummeriert
 mklist_option:			Auswahl:
@@ -510,9 +510,9 @@ register_bio:			Werdegang:
 register_bio_desc:		Ein paar Details &uuml;ber dich, wie zum Beispiel deine Interessen, Beruf usw...
 register_builtin:		Eingebaut
 register_change_passwd:		Passwort &auml;ndern
-register_conf_msg:		Vielen Dank für deine Registrierung,\nUm dein Konto zu aktivieren, gehe bitte auf die unten angegebene Adresse:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald dein Konto aktiviert ist, wirst du am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
+register_conf_msg:		Vielen Dank fÃ¼r deine Registrierung,\nUm dein Konto zu aktivieren, gehe bitte auf die unten angegebene Adresse:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald dein Konto aktiviert ist, wirst du am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
 register_conf_pass:		Passwort best&auml;tigen:
-register_conf_subject:		Registrierungsbestätigung
+register_conf_subject:		RegistrierungsbestÃ¤tigung
 register_custom_avatar_rules:	Der Benutzeravatar wird erst nach der Billigung durch den Administrator angezeigt.<br /><span class="SmallText">Der Avatar sollte nicht gr&ouml;&szlig;er als <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} Pixel</b> sein und muss das <b>jpg</b>, <b>gif</b> oder <b>png</b> Format besitzen.</span>
 register_custom_avatar_upload:	Benutzeravatar Datei:
 register_custom_avatar_url:	URL zum Benutzeravatar:
@@ -584,8 +584,8 @@ register_update:		Aktualisieren
 register_uploaded:		Avatar hochladen
 register_use_sig_default:	Standardm&auml;&szlig;ig Signatur verwenden:
 register_use_sig_default_desc:	Die Signatur automatisch jedem Beitrag hinzuf&uuml;gen
-register_welcome_msg:		Vielen Dank für deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehe bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register\n
-register_welcome_subject:	Registrierungsbestätigung für das Forum
+register_welcome_msg:		Vielen Dank fÃ¼r deine Registrierung,\n\nHier sind die Anmeldedetails fÃ¼r das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf GroÃŸ- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verÃ¤ndern, gehe bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_subject:	RegistrierungsbestÃ¤tigung fÃ¼r das Forum
 register_yahoo:			Yahoo Messenger:
 register_year:			Jahr
 register_your_pass:		Dein Passwort:
@@ -594,7 +594,7 @@ registered_on:			Registriert am {TEMPLATE: registered_on_date}
 regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nimm Kontakt zum Administrator auf an <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 remail_anon_opt:		Diesen Beitrag in einen E-Mail-Programm deiner Wahl kopieren, um sie an deine Freunde zu schicken.
 remail_done:			Fertig
-remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) die für dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nVon {VAR: usr->alias}\n
+remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) die fÃ¼r dich interessant zu lesen sein kÃ¶nnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nVon {VAR: usr->alias}\n
 remail_email_topic:		Das Thema an einen Freund versenden
 remail_emailsent:		Die E-Mail wurde verschickt.
 remail_error:			Es ist ein Fehler aufgetreten
@@ -628,7 +628,7 @@ reported_on:			Am:
 reported_reason:		Grund
 reported_reported_by:		Gemeldet von:
 reported_reported_msg:		Gemeldete Beitr&auml;ge
-reset_confirmation:		Danke für deine Registrierung,\n\nUm dein Konto zu aktivieren, gehe bitte auf die unten angezeigte URL:\n\n{VAR: url}\n\nSobald dein Konto aktiviert ist, wirst du am Forum angemeldet\nund zur Startseite des Forums geleitet.\n
+reset_confirmation:		Danke fÃ¼r deine Registrierung,\n\nUm dein Konto zu aktivieren, gehe bitte auf die unten angezeigte URL:\n\n{VAR: url}\n\nSobald dein Konto aktiviert ist, wirst du am Forum angemeldet\nund zur Startseite des Forums geleitet.\n
 reset_email:			E-Mail:
 reset_err_invalidkey_msg:	Ung&uuml;ltiger Schl&uuml;ssel zum Zur&uuml;cksetzen des Passwortes
 reset_err_invalidkey_title:	FEHLER
@@ -636,10 +636,10 @@ reset_err_rstconf_msg:		Du solltest in den n&auml;chsten Minuten eine Anleitung 
 reset_err_rstconf_title:	Information
 reset_error:			E-Mail-Adresse nicht in der Datenbank gefunden
 reset_login_notify:		Das Passwort wurde an dich versendet. Du solltest es in den n&auml;chsten Minuten erhalten. Bitte &uuml;berpr&uuml;fe die E-Mail auf Benutzername und Passwort.<br />.<br />.<br />
-reset_newpass_msg:		Hallo,\n\nWie von dir gewünscht, wird dir der Anmeldename zugesendet.\nHier sind deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, dass dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn du es ändern willst, so kannst du das in\nden persönlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_newpass_title:		Passwort zurücksetzen
+reset_newpass_msg:		Hallo,\n\nWie von dir gewÃ¼nscht, wird dir der Anmeldename zugesendet.\nHier sind deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, dass dein Passwort auf obigen angegebenen Wert zurÃ¼ckgesetzt\nwurde, wenn du es Ã¤ndern willst, so kannst du das in\nden persÃ¶nlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_title:		Passwort zurÃ¼cksetzen
 reset_remind_pass:		Passwort Hinweis
-reset_reset:			Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, dass sobald du dein Passwort eingegeben hast, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode, schlage unter MD5 HASH Algorithmus nach.)
+reset_reset:			Hallo,\n\nDu hast darum gebeten, das Passwort zurÃ¼ckzusetzen, um wirklich das Passwort\nZURÃœCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlÃ¼sselt die PasswÃ¶rter nur in eine Richtung, was\nbedeutet, dass sobald du dein Passwort eingegeben hast, es verschlÃ¼sselt\nwird, und es KEINE MÃ¶glichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlÃ¼sselt und auf\nÃœbereinstimmung Ã¼berprÃ¼ft wird. (Bei Interesse an der\nVerschlÃ¼sselungsmethode, schlage unter MD5 HASH Algorithmus nach.)
 reset_reset_button:		Passwort zur&uuml;cksetzen
 reset_reset_conf:		Dein Passwort wird zur&uuml;ckgesetzt und an dich verschickt, oder falls du deine E-Mail noch nicht best&auml;tigt hast, wird diese Best&auml;tigungsanfrage erneut an dich versendet.
 reset_title:			Passwort zur&uuml;cksetzen
@@ -840,13 +840,13 @@ register_tree_msg_view:		Baumansicht der Themen/Flache Themenanzeige
 mmod_delete_cofirm_ttl:		Best&auml;tigung f&uuml;r Themen/Beitragsl&ouml;schung
 spell_alts:			keine Alternativen
 insert_uploaded_image:		Bild in den Beitrag einf&uuml;gen
-finduser_help:			Die Suchmaschine f&uuml;gt automatisch eine * Maske Ihrer Anfrage hinzu, die Suche <b>ber&uuml;cksichtigt Groß- und Kleinschreibung</b>. Um zum Beispiel alle Benutzer zu suchen, deren Login mit einem &#39;a&#39; beginnt, tr&auml;gt man &#39;a&#39; in die Sucheingabe ein.
+finduser_help:			Die Suchmaschine f&uuml;gt automatisch eine * Maske Ihrer Anfrage hinzu, die Suche <b>ber&uuml;cksichtigt GroÃŸ- und Kleinschreibung</b>. Um zum Beispiel alle Benutzer zu suchen, deren Login mit einem &#39;a&#39; beginnt, tr&auml;gt man &#39;a&#39; in die Sucheingabe ein.
 back_to_top:			Zur&uuml;ck zum Anfang
 iemail_participate:		Zur Teilnahme an der Diskussion geht es hier entlang:
 pm_err_disabled_title:		Private Nachrichten deaktiviert
 pm_err_disabled_msg:		Du kannst keine privaten Nachrichten verschicken, solange du nicht die Option &#39;Private Nachrichten erlauben&#39; in deinem Profil aktivierst.
 err_mod_acc_ttl:		Unbest&auml;tigtes Benutzerkonto
-err_mod_acc_msg:		Der Administrator hat beschlossen, alle Konten vor der Aktivierung pers&ouml;nlich durchzugehen. Daher wirst du nicht im vollen Umfang vom Konto Gebrauch machen können, solange dieses nicht vom Administrator best&auml;tigt worden ist.
+err_mod_acc_msg:		Der Administrator hat beschlossen, alle Konten vor der Aktivierung pers&ouml;nlich durchzugehen. Daher wirst du nicht im vollen Umfang vom Konto Gebrauch machen kÃ¶nnen, solange dieses nicht vom Administrator best&auml;tigt worden ist.
 accounts_pending_approval:	Billigung des sich in der Schwebe befindlichen Kontos
 saved:				Abgespeichert
 register_err_time_limit:	Die Beschr&auml;nkung auf eine Registrierung pro {GVAR: REG_TIME_LIMIT} Sekunden ist erreicht worden. Bitte warte {VAR: reg_limit_reached} Sekunden und versuche danach noch einmal dich zu registrieren.
@@ -876,17 +876,17 @@ no_unread_messages:		Es gibt keine ungelesenen Beitr&auml;ge, die den Suchkriter
 thread_mark_all_read:		Alle ungelesenen Beitr&auml;ge im Forum als gelesen kennzeichnen
 thread_mark_all_read_desc:	Alle ungelesenen Beitr&auml;ge in diesem Forum werden als gelesen gekennzeichnet
 private_no_messages:		Es sind keine Nachrichten in diesen Ordner vorhanden
-register_email_change_subject:	Bestätigung der geänderten E-Mail-Adresse
-register_email_change_msg:	Bitte bestätige deine neue E-Mail-Adresse "{VAR: uent->email}", welche die alte Adresse "{VAR: old_email}" ersetzen wird, in dem du die folgende URL aufrufst:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald du die neue Adresse bestätigt hast, wird dein Konto wieder aktiviert werden.
+register_email_change_subject:	BestÃ¤tigung der geÃ¤nderten E-Mail-Adresse
+register_email_change_msg:	Bitte bestÃ¤tige deine neue E-Mail-Adresse "{VAR: uent->email}", welche die alte Adresse "{VAR: old_email}" ersetzen wird, in dem du die folgende URL aufrufst:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald du die neue Adresse bestÃ¤tigt hast, wird dein Konto wieder aktiviert werden.
 iemail_thread_unsub:		Abonnement f&uuml;r dieses Thema aufheben		
 iemail_forum_unsub:		Das Abonnement f&uuml;r dieses Forum beenden
 primary_group_prefix:		Hauptgruppe f&uuml;r Forum:
 group_resources:		Diese Gruppe kontrolliert die Berechtigungen f&uuml;r folgende Foren
 register_email:			E-Mail
-register_admin_newuser_title:	Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
-register_admin_newuser_msg:	Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor es durch dich oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten, gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen abstellen willst kannst du dies über das Administratormenü und durch Ändern des Wertes der Einstellung "New Account Notification" erledigen.
-post_mod_msg_notify_title:	Neuer Beitrag im Forum "{VAR: frm->name}" wartet auf Bestätigung
-post_mod_msg_notify_msg:	Ein neuer Beitrag mit der Überschrift "{VAR: msg_post->subject}" wurde gerade in einem Forum, welches von dir moderiert wird, erstellt. Um diesen Beitrag zu begutachten, gehe zu: {FULL_ROOT}{ROOT}?t=modque\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Benachrichtigung nicht.\n
+register_admin_newuser_title:	Ein neuer Benutzer hat sich registriert und wartet auf die BestÃ¤tigung des Kontos
+register_admin_newuser_msg:	Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade fÃ¼r dieses Forum registriert und da die BestÃ¤tigung fÃ¼r Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor es durch dich oder einem anderen Forumsadministrator bestÃ¤tigt wurde. Um das Konto zu begutachten, gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail-Benachrichtigungen Ã¼ber neue Benutzerregistrierungen abstellen willst kannst du dies Ã¼ber das AdministratormenÃ¼ und durch Ã„ndern des Wertes der Einstellung "New Account Notification" erledigen.
+post_mod_msg_notify_title:	Neuer Beitrag im Forum "{VAR: frm->name}" wartet auf BestÃ¤tigung
+post_mod_msg_notify_msg:	Ein neuer Beitrag mit der Ãœberschrift "{VAR: msg_post->subject}" wurde gerade in einem Forum, welches von dir moderiert wird, erstellt. Um diesen Beitrag zu begutachten, gehe zu: {FULL_ROOT}{ROOT}?t=modque\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Benachrichtigung nicht.\n
 thread_printable_pdf:		Druckbares PDF erzeugen
 thread_syndicate:		Themen als Syndicate anderen Seiten zur Verf&uuml;gung stellen (XML)
 reg_conf_title:			Registrierungsbest&auml;tigung
@@ -911,10 +911,10 @@ mnav_week:			Woche(n)
 mnav_month:			Monat(e)
 mnav_title:			Beitragsnavigator
 mnav_update:			Durchsucht Beitr&auml;ge mit Hilfe des <a href="{TEMPLATE: mnav_update_lnk}">Beitragsnavigators</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Nachricht
-pm_notify_body_email:		Du hast eine neue private Nachricht mit der Überschrift "{VAR: subject}" von "{VAR: from}" im Forum "{GVAR: FORUM_TITLE}".\nKlicke hier, um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Nachrichten" in deinem Profil.
+pm_notify_subject:		[{GVAR: FORUM_TITLE}] Neue Benachrichtigung Ã¼ber eine private Nachricht
+pm_notify_body_email:		Du hast eine neue private Nachricht mit der Ãœberschrift "{VAR: subject}" von "{VAR: from}" im Forum "{GVAR: FORUM_TITLE}".\nKlicke hier, um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukÃ¼nftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung Ã¼ber private Nachrichten" in deinem Profil.
 register_pm_notification:	Benachrichtigung &uuml;ber private Nachricht
-register_pm_notification_desc:	Falls aktiviert, wirst du über die Benachrichtigungsmethode deiner Wahl eine Mitteilung erhalten, sobald eine private Nachricht an dich gesendet worden ist.
+register_pm_notification_desc:	Falls aktiviert, wirst du Ã¼ber die Benachrichtigungsmethode deiner Wahl eine Mitteilung erhalten, sobald eine private Nachricht an dich gesendet worden ist.
 findu_admin_opts_header:	Admin-Optionen
 findu_unban:			Bann aufheben
 findu_ban:			Verbannen
@@ -930,12 +930,12 @@ merge_prev:			Vorherige Themen
 split_cp:			Men&uuml; zum Teilen von Themen
 groups_perms_header:		Rechte <span class="small">(Bewege den Mauszeiger &uuml;ber die Rechte, um deren Typ zu erkennen)</span>
 register_err_sig_too_long:	Deine Signatur &uuml;berschreitet die maximal erlaubte L&auml;nge von {GVAR: FORUM_SIG_ML} Zeichen.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} Zeichen <a href="javascript: alert(\'Deine Signatur ist \'+document.fud_register.reg_sig.value.length+\' Zeichen lang. Die maximal erlaubte Signaturlänge beträgt {GVAR: FORUM_SIG_ML}\');" class="SmallText">&Uuml;berpr&uuml;fe die Signaturl&auml;nge</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} Zeichen <a href="javascript: alert(\'Deine Signatur ist \'+document.fud_register.reg_sig.value.length+\' Zeichen lang. Die maximal erlaubte SignaturlÃ¤nge betrÃ¤gt {GVAR: FORUM_SIG_ML}\');" class="SmallText">&Uuml;berpr&uuml;fe die Signaturl&auml;nge</a>
 p_SEARCH:			Kann suchen
-adm_account_accepted:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Administrator gebilligt und ist jetzt aktiviert. Du kannst jetzt auf das {GVAR: FORUM_TITLE}\' Forum als bestätigter Benutzer zugreifen.
-adm_account_accepted_s:		Deine Bitte um ein Konto für \'{GVAR: FORUM_TITLE}\' wurde akzeptiert.
-adm_account_rejected:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Administrator abgewiesen und ist daher nicht aktiviert. Falls du den Grund für diese Entscheidung erfahren möchtest, steht es dir frei, den Administrator über \'{GVAR: ADMIN_EMAIL}\' zu kontaktieren.
-adm_account_rejected_s:		Deine Bitte um ein Konto für \'{GVAR: FORUM_TITLE}\' wurde abgewiesen.
+adm_account_accepted:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Administrator gebilligt und ist jetzt aktiviert. Du kannst jetzt auf das {GVAR: FORUM_TITLE}\' Forum als bestÃ¤tigter Benutzer zugreifen.
+adm_account_accepted_s:		Deine Bitte um ein Konto fÃ¼r \'{GVAR: FORUM_TITLE}\' wurde akzeptiert.
+adm_account_rejected:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Administrator abgewiesen und ist daher nicht aktiviert. Falls du den Grund fÃ¼r diese Entscheidung erfahren mÃ¶chtest, steht es dir frei, den Administrator Ã¼ber \'{GVAR: ADMIN_EMAIL}\' zu kontaktieren.
+adm_account_rejected_s:		Deine Bitte um ein Konto fÃ¼r \'{GVAR: FORUM_TITLE}\' wurde abgewiesen.
 thread_on:			am
 userinfo_buddy:			Buddy:
 register_email_addr:		E-Mail-Adresse:
@@ -957,7 +957,7 @@ post_err_noannontopics_msg2:	<fieldset><legend>FEHLER: Nicht ausreichende Rechte
 post_err_noannonposts_msg2:	<fieldset><legend>FEHLER: Nicht ausreichende Rechte</legend>Anonyme Benutzer d&uuml;rfen nicht antworten.</fieldset><br />
 ERR_login_msg2:			<fieldset><legend>FEHLER: Du bist nicht angemeldet</legend>Um Zugriff auf diese Seite zu erhalten, musst du Mitglied dieses Forums sein.</fieldset><br />
 post_err_mod_forum_edit_ttl:	FEHLER
-post_err_mod_forum_edit_msg:	Du kannst in einem moderierten Forum keine Beiträge bearbeiten.
+post_err_mod_forum_edit_msg:	Du kannst in einem moderierten Forum keine BeitrÃ¤ge bearbeiten.
 dmsg_num:			Beitrag #{VAR: obj->id}
 postcheck_session_invalid:	Deine Sitzung ist abgelaufen, sende das Formular bitte erneut ab. Entschuldige die Unanehmlichkeiten.
 delete_message_extra_desc:	<b>Optional</b><br />Gib einen Grund f&uuml;r die L&ouml;schung an, der mit einer privaten Nachricht an den Autor geschickt wird.
@@ -971,15 +971,15 @@ register_theme:			Style:
 pmsg_trash:			Papierkorb leeren
 uc_new_pm:			Neue Private Nachrichten
 uc_new_topic:			Neues Thema
-uc_new_cat_forum:		Abonnierte Foren mit neuen Beiträgen
+uc_new_cat_forum:		Abonnierte Foren mit neuen BeitrÃ¤gen
 uc_cat_forum:			Kategorie &raquo; Forum
-uc_sub_topics:			Abonnierte Themen mit neuen Beiträgen
+uc_sub_topics:			Abonnierte Themen mit neuen BeitrÃ¤gen
 uc_page_title:			Bearbeitet eigenes Profil
 search_options:			Suchoptionen
 search_user_filter:		Nach Benutzer filtern:
 register_none:			Nicht benachrichtigen
-findu_no_conf:			unbestätigter Benutzer
-register_max_sig_len:		Maximale Länge:
+findu_no_conf:			unbestÃ¤tigter Benutzer
+register_max_sig_len:		Maximale LÃ¤nge:
 register_turing:		Bitte den unten angezeigten Code eingeben:
 register_err_turing:		Ung&uuml;ltiger Code
 modque_cat:			Kategorie
@@ -1021,11 +1021,11 @@ post_common_link:		Link einf&uuml;gen
 post_common_email:		E-Mail-Addresse einf&uuml;gen
 post_common_image:		Bild einf&uuml;gen
 post_common_nlist:		Nummerierte Liste einf&uuml;gen
-post_common_blist:		Aufzählung einf&uuml;gen
+post_common_blist:		AufzÃ¤hlung einf&uuml;gen
 post_common_quote:		Zitat einf&uuml;gen
 post_common_code:		Code einf&uuml;gen
 rating:				Bewertung
-rating_track:			Verwaltung der Bewertungen für das Thema <b>{VAR: thr->subject}</b>:
+rating_track:			Verwaltung der Bewertungen fÃ¼r das Thema <b>{VAR: thr->subject}</b>:
 rating_delete:			L&ouml;schen
 post_always_on_top:		Dieses Thema immer am Anfang der Themenliste anzeigen
 register_skype:			Skype:

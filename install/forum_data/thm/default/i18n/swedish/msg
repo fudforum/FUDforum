@@ -2,7 +2,7 @@ action:				Handling
 add_to_buddy_list:		l&auml;gg till kompislistan
 admin:				Admin
 admin_control_panel:		Administratorns kontrollpanel
-administrator:			Administratör
+administrator:			AdministratÃ¶r
 attachment:			Bilaga:
 avatar:				Visningsbild:
 average_post_count:		{VAR: u->posted_msg_count} inl&auml;gg ({VAR: avg} inl&auml;gg per dag i medeltal)
@@ -323,7 +323,7 @@ buddy_status:			Status
 my_buddies:			Mina kompisar
 add_buddy:			L&auml;gg till kompis
 add:				L&auml;gg till
-buddy_search:			Ange användarnamnet på peronen du vill lägga till.
+buddy_search:			Ange anvÃ¤ndarnamnet pÃ¥ peronen du vill lÃ¤gga till.
 buddy_remove:			ta bort
 post_normal:			Normal
 post_sticky:			Klibbig
@@ -404,7 +404,7 @@ login_cookie_expired:		Din kaka har g&aring;tt ut, och du m&aring;ste logga in p
 login_perm_denied:		Du har inte r&auml;tt att anv&auml;nda den efterfr&aring;gade resursen som anonym anv&auml;ndare och m&aring;ste d&auml;rf&ouml;r logga in.
 login_want_to_register:		Vill du registrera dig?
 login_forgot_passwd:		Jag har gl&ouml;mt mitt l&ouml;senord
-login_use_cookie:		Anv&auml;nd kakor<br /><font class="SmallText">Om du anv&auml;nder en offentlig terminal, som t.ex. datorer i bibliotek, skolor eller internetkaféer rekommenderar vi att du v&auml;ljer bort det h&auml;r alternativet f&ouml;r b&auml;ttre s&auml;kerhet.
+login_use_cookie:		Anv&auml;nd kakor<br /><font class="SmallText">Om du anv&auml;nder en offentlig terminal, som t.ex. datorer i bibliotek, skolor eller internetkafÃ©er rekommenderar vi att du v&auml;ljer bort det h&auml;r alternativet f&ouml;r b&auml;ttre s&auml;kerhet.
 login_login:			Logga in
 login_login_btn:		Logga in
 login_name_required:		Anv&auml;ndarnamnet &auml;r obligatoriskt
@@ -458,7 +458,7 @@ remail_error:			Ett fel har uppst&aring;tt
 mklist_type:			Typ:
 mklist_option:			Alternativ:
 mklist_additem:			L&auml;gg till sak[??]
-mklist_apply:			Verkställ
+mklist_apply:			VerkstÃ¤ll
 mklist_delete:			Radera
 qbud_nick_name:			Smeknamn
 qbud_add_selected:		L&auml;gg till valda
@@ -511,8 +511,8 @@ tabs_referrals:			Refererade medlemmar
 tabs_buddy_list:		Kompislista
 tabs_ignore_list:		Ignorerade medlemmar
 tabs_private_messaging:		Privata meddelanden
-single_msg_delete:		Du håller på att <font color="#ff0000" size="4">RADERA</font> ett meddelande kallat: <b>{VAR: data[3]}</b><p>
-thread_delete:			Du håller på att <font color="#ff0000" size="4">RADERA</font> <font color="#ff0000" size="4">HELA ÄMNET</font> kallat: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		Du hÃ¥ller pÃ¥ att <font color="#ff0000" size="4">RADERA</font> ett meddelande kallat: <b>{VAR: data[3]}</b><p>
+thread_delete:			Du hÃ¥ller pÃ¥ att <font color="#ff0000" size="4">RADERA</font> <font color="#ff0000" size="4">HELA Ã„MNET</font> kallat: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Vill du forts&auml;tta?</b></font>
 delete_yes:			Ja
 delete_no:			Nej
@@ -542,7 +542,7 @@ emailconf_err_invkey_msg:	Ogiltig bekr&auml;ftelsekod. V&auml;nligen kontrollera
 err_inc_criticaltitle:		KRITISKT FEL
 err_inc_criticalmsg:		Du har st&ouml;tt p&aring; ett fel, men tyv&auml;rr har vi problem med felrapporteringssystemet
 finduser_update:		S&ouml;ker efter medlemmar
-help_index_update:		L&auml;ser <a href="{TEMPLATE: help_index_update_lnk}">hjälpen.</a>
+help_index_update:		L&auml;ser <a href="{TEMPLATE: help_index_update_lnk}">hjÃ¤lpen.</a>
 iemail_thr_subject:		Nytt svar p&aring; {VAR: thr_subject} av {VAR: poster_login}
 iemail_thr_bodyemail:		G&aring; till {VAR: goto_url['email']} f&ouml;r att visa ol&auml;sta svar\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om svar den h&auml;r diskussionen kan du g&aring; hit: {VAR: unsub_url['email']}
 iemail_frm_subject:		Ny diskussion av {VAR: poster_login} med rubriken {VAR: thr_subject} i forumet {VAR: frm_name}
@@ -600,8 +600,8 @@ register_err_adminpasswd:	Du m&aring;ste ange ditt ADMINISTRATOR-l&ouml;senord f
 register_err_notyouremail:	N&aring;gon har redan registrerat sig med den h&auml;r e-postadressen, och denna n&aring;gon &auml;r INTE du
 register_err_avatartobig:	Filen du f&ouml;rs&ouml;ker skicka &auml;r f&ouml;r stor, &ouml;ver gr&auml;nsen p&aring; {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte
 register_err_avatarnotallowed:	Avataren du f&ouml;rs&ouml;ker skicka &auml;r inte till&aring;ten. Kontrollera att den &auml;r av godk&auml;nd filtyp.
-register_conf_subject:		Bekräftelse av forumregistrering
-register_conf_msg:		Tack för din registrering!\nGå till adressen nedan för att aktivera ditt medlemskonto:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEfter att ditt konto blivit aktiverat blir du inloggad på forumet och \nvidareskickad till huvudsidan.
+register_conf_subject:		BekrÃ¤ftelse av forumregistrering
+register_conf_msg:		Tack fÃ¶r din registrering!\nGÃ¥ till adressen nedan fÃ¶r att aktivera ditt medlemskonto:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEfter att ditt konto blivit aktiverat blir du inloggad pÃ¥ forumet och \nvidareskickad till huvudsidan.
 register_welcome_subject:	V&auml;lkommen till forumet
 register_welcome_msg:		Tack f&ouml;r din registrering!\n\nH&auml;r &auml;r dina inloggnignsuppgifter f&ouml;r forumet:\n\nForumets URL: {TEMPLATE: index_update_lnk}\nAnv&auml;ndarnamn: {VAR: uent->login}\nL&ouml;senord: {VAR: _POST['reg_plaintext_passwd']}\n\nNotera att det &auml;r skillnad p&aring; sm&aring; och stora bokst&auml;ver i l&ouml;senordet!\nVill du &auml;ndra inst&auml;llningarna och din profil skall du g&aring; till den h&auml;r sidan:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	FEL: kan inte registrera
@@ -638,7 +638,7 @@ ERR_systemerr_ttl:		FEL: Systemfel
 ERR_systemerr_msg:		Ett systemfel har uppst&aring;tt, v&auml;nligen rapportera felet till <a href="mailto:{GVAR: ADMIN_EMAIL}">webmastern</a>.
 email_title:			Skicka e-post
 finduser_title:			S&ouml;k efter medlemmar
-help_title:			Hjälp
+help_title:			HjÃ¤lp
 login_title:			Logga in
 msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Gallupeditor
@@ -651,7 +651,7 @@ search_title:			S&ouml;k {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-posten skickad
-remail_email:			Det finns en websida här {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) som du kanske är intresserad av att läsa.\nTråden som jag tänkte att du skulle vara intresserad av, {VAR: data->subject} hittar du här: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
+remail_email:			Det finns en websida hÃ¤r {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) som du kanske Ã¤r intresserad av att lÃ¤sa.\nTrÃ¥den som jag tÃ¤nkte att du skulle vara intresserad av, {VAR: data->subject} hittar du hÃ¤r: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
 poll_add_option:		L&auml;gg till alternativ:
 post_opt_html_on:		<b>HTML</b>-kod &auml;r <b>P&Aring;</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD-kod</b> &auml;r <b>P&Aring;</b></a>
@@ -670,7 +670,7 @@ unapproved_avatar_title:	Din egen avatar blev inte godk&auml;nd.
 unapproved_avatar_msg:		Administratorn godk&auml;nde inte din avatar. De vanligast sk&auml;len &auml;r att avataren &auml;r f&ouml;r stor (filstorlek och/eller bildstorlek) eller tvivelaktigt inneh&aring;ll. Om du vill ha mer information om varf&ouml;r din avatar inte godk&auml;ndes kan du kontakta administratorn.
 mvthread_request_move:		anh&aring;ll om flyttning
 move_request_reason:		Varf&ouml;r vill ha flytta diskussionen?
-mvthread_submit_req:		Sänd anhållan
+mvthread_submit_req:		SÃ¤nd anhÃ¥llan
 thread_exchange:		Diskussionsbyte
 move_request_by:		Diskussionsbytet &ouml;nskat av:
 move_reason:			Orsak till flyttningen:
@@ -680,7 +680,7 @@ thr_exch_orig_forum:		Ursprungligt forum:
 thr_exch_dest_forum:		Nytt forum:
 thr_exch_no_threads:		Inga diskussioner att granska.
 thr_exch_decl_reason:		Orsakt till att inte godk&auml;nna flyttning av diskussionen <b>{VAR-HTML: frm->name}</b> till forumet <b>{VAR-HTML: frm->name}</b>
-thr_exch_submit:		Sänd
+thr_exch_submit:		SÃ¤nd
 exch_decline_ttl:		Flyttningen av diskussionen {VAR: data->subject} till forumet {VAR-HTML: data->f2_name} godk&auml;ndes inte.
 ppost_original_msg:		meddelande som du skickar vidare eller svarar p&aring;
 split_thread:			Splittra diskussion
@@ -704,7 +704,7 @@ group_mgr_heading:		V&auml;lj grupp att editera
 group_mgr_group:		Grupp:
 permission_denied_title:	Inte till&aring;tet!
 permission_denied_msg:		Dina anv&auml;ndarr&auml;ttigheter till&aring;ter inte att du g&ouml;r det du nyss f&ouml;rs&ouml;kte.
-p_READ:				Läst
+p_READ:				LÃ¤st
 p_POST:				Skriva
 p_REPLY:			Svara
 p_EDIT:				Editera
@@ -749,7 +749,7 @@ thread_mod_delete:		Radera
 action_latest_post:		Senaste inl&auml;gg
 post_locked:			L&aring;s diskussionen
 online_today_last_visit:	Senaste bes&ouml;k
-online_today_update:		Tittar på listan över personer som besökt forumet idag.
+online_today_update:		Tittar pÃ¥ listan Ã¶ver personer som besÃ¶kt forumet idag.
 logedin_todays_visitors:	dagens bes&ouml;kare
 logedin_latest_post:		Senaste inl&auml;gg:
 register_show_avatar:		Visa avatarer:
@@ -825,10 +825,10 @@ search_sorting:			Sortera resultaten enligt datum i:
 post_moderated_forum:		Du har skrivit ett inl&auml;gg i ett modererat forum, vilket inneb&auml;r att inl&auml;gget syns f&ouml;rst n&auml;r forumets moderator och/eller administrator har godk&auml;nt det.
 post_moderated_forum_ttl:	Meddelande om modererat forum
 post_proceed:			G&aring; vidare
-buddy_list_bday:		Idag fyller {VAR: r[2]} {VAR: age} år
+buddy_list_bday:		Idag fyller {VAR: r[2]} {VAR: age} Ã¥r
 email_warning_msg:		Om du &auml;ndrar din nuvarande e-postadress kommer ditt anv&auml;ndarkonto att r&auml;knas som obekr&auml;ftat tills du bekr&auml;ftar den nya e-postadressen.
 register_show_im:		Visa IM-indikatorer
-register_show_im_desc:		Avg&ouml;r om författarens IM-indikatorer syns bredvid inl&auml;gget.
+register_show_im_desc:		Avg&ouml;r om fÃ¶rfattarens IM-indikatorer syns bredvid inl&auml;gget.
 unread_message:			Ol&auml;st inl&auml;gg
 read_message:			L&auml;s inl&auml;gg
 threadt_more:			&lt;mer&gt;
@@ -840,7 +840,7 @@ register_tree_msg_view:		Tr&aring;dad diskussionsvy/Platt inl&auml;ggsvy
 mmod_delete_cofirm_ttl:		Bekr&auml;fta radering av diskussion/inl&auml;gg
 spell_alts:			inga alternativ
 insert_uploaded_image:		S&auml;tt in bild i texten
-finduser_help:			Sökmotorn kommer automatiskt att lägga till ett * tecken till din fråga. t ex. för att söka efter alla personer vars användarnamn startar med ett &#39;a&#39;, skriv &#39;a&#39; i sökrutan.
+finduser_help:			SÃ¶kmotorn kommer automatiskt att lÃ¤gga till ett * tecken till din frÃ¥ga. t ex. fÃ¶r att sÃ¶ka efter alla personer vars anvÃ¤ndarnamn startar med ett &#39;a&#39;, skriv &#39;a&#39; i sÃ¶krutan.
 back_to_top:			Tillbaka till b&ouml;rjan
 iemail_participate:		F&ouml;r att delta i diskussionen, g&aring; hit:
 pm_err_disabled_title:		Privata meddelanden &auml;r inte till&aring;tna
@@ -849,94 +849,94 @@ err_mod_acc_ttl:		Obekr&auml;ftad anv&auml;ndare
 err_mod_acc_msg:		Administratorn har valt att sj&auml;lv granska alla anv&auml;ndare innan aktivering. Du kommer inte att ha fulla r&auml;ttigheter i forumet innan administratorn har godk&auml;nt ditt anv&uml;ndarnamn.
 accounts_pending_approval:	Ej granskade anv&auml;ndare
 saved:				Sparade
-register_err_time_limit:	Registreringsbegränsningen av 1 registrering per {GVAR: REG_TIME_LIMIT} sekunder har överskridits. Vänligen vänta {VAR: reg_limit_reached} sekunder och försök sedan registrera er igen.
+register_err_time_limit:	RegistreringsbegrÃ¤nsningen av 1 registrering per {GVAR: REG_TIME_LIMIT} sekunder har Ã¶verskridits. VÃ¤nligen vÃ¤nta {VAR: reg_limit_reached} sekunder och fÃ¶rsÃ¶k sedan registrera er igen.
 register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
-im_affero:			Affero Användarnamn
-register_err_avatardimtobig:	Visningsbildens dimensiontioner på <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> överskrider den maximala storleken på <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-pmsg_download_counter:		Nedhämtad {VAR: r->dlcount} gång(er)
-member_search:			<br />Eller använd <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Användarsöknings</a> funtionen för att hitta personen.
-post_all_ext_allowed:		(oinskränkt)
-buddy_offline:			{VAR: r[2]} är för tillfället nedkopplad
-buddy_online:			{VAR: r[2]} är för tillfället uppkopplad
-sml_no_smilies:			Inga humörgubbar finns tillgängliga.
+im_affero:			Affero AnvÃ¤ndarnamn
+register_err_avatardimtobig:	Visningsbildens dimensiontioner pÃ¥ <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> Ã¶verskrider den maximala storleken pÃ¥ <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+pmsg_download_counter:		NedhÃ¤mtad {VAR: r->dlcount} gÃ¥ng(er)
+member_search:			<br />Eller anvÃ¤nd <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">AnvÃ¤ndarsÃ¶knings</a> funtionen fÃ¶r att hitta personen.
+post_all_ext_allowed:		(oinskrÃ¤nkt)
+buddy_offline:			{VAR: r[2]} Ã¤r fÃ¶r tillfÃ¤llet nedkopplad
+buddy_online:			{VAR: r[2]} Ã¤r fÃ¶r tillfÃ¤llet uppkopplad
+sml_no_smilies:			Inga humÃ¶rgubbar finns tillgÃ¤ngliga.
 login_unapproved_account_ttl:	Inaktiverat Konto
-login_unapproved_account_msg:	Administratören på forumet har valt att verifiera samtliga registreringar manuellt innan de aktiveras. Dit konto har inte aktiverats ännu, därför kommer du inte kunna använda vissa av funktionerna som finns tillgängliga för registrerade medlemmar innan ditt konto aktiveras.
-remove_from_buddy_list:		ta bort från kompislistan
+login_unapproved_account_msg:	AdministratÃ¶ren pÃ¥ forumet har valt att verifiera samtliga registreringar manuellt innan de aktiveras. Dit konto har inte aktiverats Ã¤nnu, dÃ¤rfÃ¶r kommer du inte kunna anvÃ¤nda vissa av funktionerna som finns tillgÃ¤ngliga fÃ¶r registrerade medlemmar innan ditt konto aktiveras.
+remove_from_buddy_list:		ta bort frÃ¥n kompislistan
 iemail_msg_author:		<b>Skribent:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Ämne:</b> {VAR: obj->subject}
+iemail_msg_subject:		<b>Ã„mne:</b> {VAR: obj->subject}
 iemail_msg_date:		<b>Datum:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Svara
 iemail_msg_quote:		Citera
-iemail_msg_view:		Visa Ämne/Meddelande
+iemail_msg_view:		Visa Ã„mne/Meddelande
 threadt_sticky:			klistrig
-threadt_announce:		tillkännagivande
+threadt_announce:		tillkÃ¤nnagivande
 reported_no_messages:		Det finns inga rapporterade meddelanden.
-poll_no_polls:			Det finns inga tillgängliga gallupar.
-no_unread_messages:		Det finns inga olästa meddelanden som matchade din förfrågan.
-thread_mark_all_read:		markera alla olästa forums meddelanden lästa
-thread_mark_all_read_desc:	Alla olästa meddelanden i detta forum kommer att markeras som lästa.
+poll_no_polls:			Det finns inga tillgÃ¤ngliga gallupar.
+no_unread_messages:		Det finns inga olÃ¤sta meddelanden som matchade din fÃ¶rfrÃ¥gan.
+thread_mark_all_read:		markera alla olÃ¤sta forums meddelanden lÃ¤sta
+thread_mark_all_read_desc:	Alla olÃ¤sta meddelanden i detta forum kommer att markeras som lÃ¤sta.
 private_no_messages:		Det finns inga meddelanden i denna mapp
-register_email_change_subject:	Verifiering av ändrad e-postadress
-register_email_change_msg:	Vänligen verifiera ditt nya e-postadres "{VAR: uent->email}" som ersätter din gamla adress "{VAR: old_email}" genom att besöka länken under:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNär du verifierat din nya adress, kommer ditt konto aktiveras igen.
-iemail_thread_unsub:		Avbeställ denna tråd
-iemail_forum_unsub:		Avbeställ detta forum
-primary_group_prefix:		Primär grupp för forum:
-group_resources:		Denna grupp kontrollerar rättigheterna för följande forum
+register_email_change_subject:	Verifiering av Ã¤ndrad e-postadress
+register_email_change_msg:	VÃ¤nligen verifiera ditt nya e-postadres "{VAR: uent->email}" som ersÃ¤tter din gamla adress "{VAR: old_email}" genom att besÃ¶ka lÃ¤nken under:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNÃ¤r du verifierat din nya adress, kommer ditt konto aktiveras igen.
+iemail_thread_unsub:		AvbestÃ¤ll denna trÃ¥d
+iemail_forum_unsub:		AvbestÃ¤ll detta forum
+primary_group_prefix:		PrimÃ¤r grupp fÃ¶r forum:
+group_resources:		Denna grupp kontrollerar rÃ¤ttigheterna fÃ¶r fÃ¶ljande forum
 register_email:			Epost
 register_admin_newuser_title:	En ny medlem har registrerat sig och v&auml;ntar p&aring; att kontot skall bekr&auml;ftas
 register_admin_newuser_msg:	Den nya medlemmen {VAR: uent->login} har just registrerat sig p&aring; forumet. Eftersom kontobekr&auml;ftelsefunktionen &auml;r p&aring; m&aring;ste du eller n&aring;gon annan av forumadministrat&ouml;rerna bekr&auml;fta konto innan det kan aktiveras. G&aring; till {GVAR: WWW_ROOT}adm/admaccapr.php f&ouml;r att kontrollera kontot.\n\nDet h&auml;r &auml;r en automatiserad process. Svara inte p&aring; detta meddelande.\nOm du inte vill ha ytterligare meddelanden om nya medlemmar som registrerar sig kan du koppla bort dem i Administrat&ouml;rens kontrollpanel. Funktionen heter "New Account Notification".
 post_mod_msg_notify_title:	Ett nytt meddelande i forumet "{VAR: frm->name}" v&auml;ntar p&aring; godk&auml;nnande
-post_mod_msg_notify_msg:	Ett nytt meddelande med rubriken "{VAR: msg_post->subject}" har nyligen skrivits i ett forum som du modererar. Gå till {FULL_ROOT}{ROOT}?t=modque f&ouml;r att se meddelandet.\n\nDet h&auml;r &auml;r en automatiserad process. Svara inte p&aring; detta meddelande.\n
+post_mod_msg_notify_msg:	Ett nytt meddelande med rubriken "{VAR: msg_post->subject}" har nyligen skrivits i ett forum som du modererar. GÃ¥ till {FULL_ROOT}{ROOT}?t=modque f&ouml;r att se meddelandet.\n\nDet h&auml;r &auml;r en automatiserad process. Svara inte p&aring; detta meddelande.\n
 thread_printable_pdf:		G&ouml;r utskriftsv&auml;nlig PDF
 thread_syndicate:		Syndikera det h&auml;r forumet (XML)
 reg_conf_title:			Registreringsverifiering
-reg_conf_email:			<b>E-postsverifiering</b><br />Ett e-postmeddelande har skickats till dig med en unik web-adress som du måste besöka för att få ditt konto aktiverat. Om du inte får detta meddelande inom de kommande minuterna, vänligen logga in med ditt konto och verifiera att e-postadressen du angett stämmer. När du verifierat ditt konto kommer du att kunna använda forumets funktioner för registrerade användare.
-reg_conf_account:		<b>Kontoverifiering</b><br />Innan ditt konto aktiveras, måste det godkännas av en administratör, när väl det sker kommer du att få ett e-postmeddelande vilket meddelar dig om att ditt konto aktiverats. Medan kontot är oaktiverat kan du logga in med ditt konto, du kommer dock inte att kunna nyttja alla funktioner.
-forum_banned_user:		Handligar gjorda av dig har resulterat i att du permanent bannlysts från detta forum. Adjö.
+reg_conf_email:			<b>E-postsverifiering</b><br />Ett e-postmeddelande har skickats till dig med en unik web-adress som du mÃ¥ste besÃ¶ka fÃ¶r att fÃ¥ ditt konto aktiverat. Om du inte fÃ¥r detta meddelande inom de kommande minuterna, vÃ¤nligen logga in med ditt konto och verifiera att e-postadressen du angett stÃ¤mmer. NÃ¤r du verifierat ditt konto kommer du att kunna anvÃ¤nda forumets funktioner fÃ¶r registrerade anvÃ¤ndare.
+reg_conf_account:		<b>Kontoverifiering</b><br />Innan ditt konto aktiveras, mÃ¥ste det godkÃ¤nnas av en administratÃ¶r, nÃ¤r vÃ¤l det sker kommer du att fÃ¥ ett e-postmeddelande vilket meddelar dig om att ditt konto aktiverats. Medan kontot Ã¤r oaktiverat kan du logga in med ditt konto, du kommer dock inte att kunna nyttja alla funktioner.
+forum_banned_user:		Handligar gjorda av dig har resulterat i att du permanent bannlysts frÃ¥n detta forum. AdjÃ¶.
 mnav_description:		Meddelandenavigatorn
-mnav_date_limit:		Ålder:
-mnav_forum_limit:		Sök bara i:
-mnav_all_forums:		Sök alla forum
-mnav_submit:			Starta Sökning
-mnav_no_range:			Du måste ange en gilig ålder. Detta värde kan kan vara under 1 (t ex 0.12) men det måste vara mer än noll.
-mnav_invalid_unit:		Du måste ange en gilitg tidsenhet.
-mnav_invalid_date:		Åldern du angett är större än den administratören godkännt, vänligen gör åldern mindre.
-mnav_no_results:		Inga meddelanden hittades matchande din förfrågan.
+mnav_date_limit:		Ã…lder:
+mnav_forum_limit:		SÃ¶k bara i:
+mnav_all_forums:		SÃ¶k alla forum
+mnav_submit:			Starta SÃ¶kning
+mnav_no_range:			Du mÃ¥ste ange en gilig Ã¥lder. Detta vÃ¤rde kan kan vara under 1 (t ex 0.12) men det mÃ¥ste vara mer Ã¤n noll.
+mnav_invalid_unit:		Du mÃ¥ste ange en gilitg tidsenhet.
+mnav_invalid_date:		Ã…ldern du angett Ã¤r stÃ¶rre Ã¤n den administratÃ¶ren godkÃ¤nnt, vÃ¤nligen gÃ¶r Ã¥ldern mindre.
+mnav_no_results:		Inga meddelanden hittades matchande din fÃ¶rfrÃ¥gan.
 mnav_posted_by:			Postat Av:
 mnav_more:			Mer &raquo;&raquo;
 mnav_minute:			Minut(er)
 mnav_hour:			Timme/ar
 mnav_day:			Dag(ar)
 mnav_week:			Vecka/or
-mnav_month:			Månad(er)
+mnav_month:			MÃ¥nad(er)
 mnav_title:			Meddelandenavigatorn
-mnav_update:			Bläddra Meddelanden användandes <a href="{TEMPLATE: mnav_update_lnk}">Meddelandenavigatorn</a>
+mnav_update:			BlÃ¤ddra Meddelanden anvÃ¤ndandes <a href="{TEMPLATE: mnav_update_lnk}">Meddelandenavigatorn</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Du har ett Nytt Privat Meddelande
-pm_notify_body_email:		Du har ett nytt privat meddelande titulerat "{VAR: subject}" från "{VAR: from}" på "{GVAR: FORUM_TITLE}" forumet.\nFör att läsa detta meddelande klicka här: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFör att sluta mottaga meddelanden som detta, stäng av "Meddela mig när jag får Privata Meddelanden" i din profil.
-register_pm_notification:	Meddela mig när jag får Privata Meddelanden
-register_pm_notification_desc:	Välj det här alternativet för att få ett meddelande med vald metod när ett privat meddelande skickas till dig.
+pm_notify_body_email:		Du har ett nytt privat meddelande titulerat "{VAR: subject}" frÃ¥n "{VAR: from}" pÃ¥ "{GVAR: FORUM_TITLE}" forumet.\nFÃ¶r att lÃ¤sa detta meddelande klicka hÃ¤r: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFÃ¶r att sluta mottaga meddelanden som detta, stÃ¤ng av "Meddela mig nÃ¤r jag fÃ¥r Privata Meddelanden" i din profil.
+register_pm_notification:	Meddela mig nÃ¤r jag fÃ¥r Privata Meddelanden
+register_pm_notification_desc:	VÃ¤lj det hÃ¤r alternativet fÃ¶r att fÃ¥ ett meddelande med vald metod nÃ¤r ett privat meddelande skickas till dig.
 findu_admin_opts_header:	Admin Alternativ.
-findu_unban:			Upphäv Bannlysning
+findu_unban:			UpphÃ¤v Bannlysning
 findu_ban:			Bannlys
 findu_edit:			Redigera
 findu_delete:			Radera
-dmsg_reply_to:			är ett svar till meddelandet #{VAR: obj->reply_to}
-merge_topics:			Sammanfoga Ämnen
-merge_topics_cp:		Inställningar för Sammanfogade Ämnen
-merge_topics_tpl:		Välj Ämnen Att Sammanfoga <font class="SmallText">(du måste välja mer än 1 ämne)</font>
-merge_merge:			Sammanfoga Valda Ämnen
-merge_next:			Nästa Ämnen
-merge_prev:			Föregående Ämnen
-split_cp:			Inställningar för Splittade Ämnen
-groups_perms_header:		Rättigheter <font size="-1">(flytta musen över rättigheten för att se rättighetstypen)</font>
-register_err_sig_too_long:	Din signatur överskrider maxlängden på {GVAR: FORUM_SIG_ML} characters tecken.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Din Signatur är \'+document.fud_register.reg_sig.value.length+\' tecken lång. Maxlängden är {GVAR: FORUM_SIG_ML}\');" class="SmallText">Kontrollera Signaturlängd</a>
-p_SEARCH:			Kan Söka
-adm_account_accepted:		Ditt konto \'{VAR: GLOBALS['r']->login}\' godkänndes av administratören och är nu aktivt. Du kan nu komma åt {GVAR: FORUM_TITLE}\' forumet som en verifierad registrerad användare.
-adm_account_accepted_s:		Din kontoförfrågan för \'{GVAR: FORUM_TITLE}\' accepterades.
-adm_account_rejected:		Ditt konto \'{VAR: GLOBALS['r']->login}\' nekades av administratören och är inte aktivt. Om du vill veta varför detta beslut fattades, kontakta administratören på \'{GVAR: ADMIN_EMAIL}\'.
-adm_account_rejected_s:		Din kontoförfrågan på \'{GVAR: FORUM_TITLE}\' nekades.
-thread_on:			på
+dmsg_reply_to:			Ã¤r ett svar till meddelandet #{VAR: obj->reply_to}
+merge_topics:			Sammanfoga Ã„mnen
+merge_topics_cp:		InstÃ¤llningar fÃ¶r Sammanfogade Ã„mnen
+merge_topics_tpl:		VÃ¤lj Ã„mnen Att Sammanfoga <font class="SmallText">(du mÃ¥ste vÃ¤lja mer Ã¤n 1 Ã¤mne)</font>
+merge_merge:			Sammanfoga Valda Ã„mnen
+merge_next:			NÃ¤sta Ã„mnen
+merge_prev:			FÃ¶regÃ¥ende Ã„mnen
+split_cp:			InstÃ¤llningar fÃ¶r Splittade Ã„mnen
+groups_perms_header:		RÃ¤ttigheter <font size="-1">(flytta musen Ã¶ver rÃ¤ttigheten fÃ¶r att se rÃ¤ttighetstypen)</font>
+register_err_sig_too_long:	Din signatur Ã¶verskrider maxlÃ¤ngden pÃ¥ {GVAR: FORUM_SIG_ML} characters tecken.
+register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Din Signatur Ã¤r \'+document.fud_register.reg_sig.value.length+\' tecken lÃ¥ng. MaxlÃ¤ngden Ã¤r {GVAR: FORUM_SIG_ML}\');" class="SmallText">Kontrollera SignaturlÃ¤ngd</a>
+p_SEARCH:			Kan SÃ¶ka
+adm_account_accepted:		Ditt konto \'{VAR: GLOBALS['r']->login}\' godkÃ¤nndes av administratÃ¶ren och Ã¤r nu aktivt. Du kan nu komma Ã¥t {GVAR: FORUM_TITLE}\' forumet som en verifierad registrerad anvÃ¤ndare.
+adm_account_accepted_s:		Din kontofÃ¶rfrÃ¥gan fÃ¶r \'{GVAR: FORUM_TITLE}\' accepterades.
+adm_account_rejected:		Ditt konto \'{VAR: GLOBALS['r']->login}\' nekades av administratÃ¶ren och Ã¤r inte aktivt. Om du vill veta varfÃ¶r detta beslut fattades, kontakta administratÃ¶ren pÃ¥ \'{GVAR: ADMIN_EMAIL}\'.
+adm_account_rejected_s:		Din kontofÃ¶rfrÃ¥gan pÃ¥ \'{GVAR: FORUM_TITLE}\' nekades.
+thread_on:			pÃ¥
 userinfo_buddy:			Buddy:
 register_email_addr:		E-mail Address:
 reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n

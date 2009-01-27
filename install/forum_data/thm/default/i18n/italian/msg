@@ -837,7 +837,7 @@ threadt_update:			Navigazione forum (vista ad albero) <a href="{TEMPLATE: thread
 mmod_delete_cofirm_ttl:		Conferma Cancellazione Argomento/Messaggio
 spell_alts:			nessuna alternativa
 insert_uploaded_image:		Inserisci una immagine nel testo del messaggio
-finduser_help:			Il motore di ricerca aggiungerà automaticamente la maschera * nella tua richiesta. es. per ricercare tutti gli utenti la cui login comincia con una &#39;a&#39;, scrivi &#39;a&#39; nel box di ricerca.
+finduser_help:			Il motore di ricerca aggiungerÃ  automaticamente la maschera * nella tua richiesta. es. per ricercare tutti gli utenti la cui login comincia con una &#39;a&#39;, scrivi &#39;a&#39; nel box di ricerca.
 back_to_top:			Torna sopra
 iemail_participate:		Per partecipare alla discussione, vai qui:
 pm_err_disabled_title:		Messaggi privati Disabilitati

@@ -3,285 +3,285 @@ add_to_buddy_list:		Dodaj do listy znajomych
 admin:				Administrator 
 admin_control_panel:		Panel administracyjny
 administrator:			Administrator
-attachment:			Za³±cznik:
+attachment:			ZaÅ‚Ä…cznik:
 avatar:				Avatar:
-average_post_count:		{VAR: u->posted_msg_count} wiadomo¶ci (¶rednio {VAR: avg} wiadomo¶ci dziennie)
+average_post_count:		{VAR: u->posted_msg_count} wiadomoÅ›ci (Å›rednio {VAR: avg} wiadomoÅ›ci dziennie)
 biography:			Biografia:
 birth_date:			Data urodzenia:
 by:				autor:
 by_mod:				przez Moderatora
 current_time:			Aktualna data
-custom_avatar_queue:		Kolejka Avatarów U¿ytkowników
+custom_avatar_queue:		Kolejka AvatarÃ³w UÅ¼ytkownikÃ³w
 date_posted:			Data zamieszczenia
-date_registered:		Do³±czy³:
+date_registered:		DoÅ‚Ä…czyÅ‚:
 download_counter:		Pobrane {VAR: v[3]} razy
 email:				E-mail:
-email_to_friend:		Wy¶lij do znajomego
-email_to_friend_desc:		Wy¶lij adres tej strony znajomemu poczt± elektroniczn±
-email_user:			Wy¶lij list u¿ytkownikowi
+email_to_friend:		WyÅ›lij do znajomego
+email_to_friend_desc:		WyÅ›lij adres tej strony znajomemu pocztÄ… elektronicznÄ…
+email_user:			WyÅ›lij list uÅ¼ytkownikowi
 faq:				Pomoc
-first_unread_msg:		Przejd¼ do nieprzeczytanych wiadomo¶ci
-first_unread_msg_desc:		Przejd¼ do pierwszej nieprzeczytanej wiadomo¶ci w tym temacie
-flat_view:			Powróæ do standardowego p³askiego widoku
+first_unread_msg:		PrzejdÅº do nieprzeczytanych wiadomoÅ›ci
+first_unread_msg_desc:		PrzejdÅº do pierwszej nieprzeczytanej wiadomoÅ›ci w tym temacie
+flat_view:			PowrÃ³Ä‡ do standardowego pÅ‚askiego widoku
 forum:				Forum:
 forum_icon:			Ikona Forum
-forum_new_messages:		Nowe wiadomo¶ci
-forum_none_messages:		Tylko zarejestrowani u¿ytkownicy forum mog± ¶ledziæ przeczytane i nieprzeczytane wiadomo¶ci
-forum_old_messages:		Brak nowych wiadomo¶ci
+forum_new_messages:		Nowe wiadomoÅ›ci
+forum_none_messages:		Tylko zarejestrowani uÅ¼ytkownicy forum mogÄ… Å›ledziÄ‡ przeczytane i nieprzeczytane wiadomoÅ›ci
+forum_old_messages:		Brak nowych wiadomoÅ›ci
 from:				Od:
-gender:				P³eæ:
+gender:				PÅ‚eÄ‡:
 go:				Dalej
-goto_next_msg:			Przejd¼ do nastêpnej wiadomo¶ci
-goto_prev_msg:			Przejd¼ do poprzedniej wiadomo¶ci
-home:				Strona g³ówna
+goto_next_msg:			PrzejdÅº do nastÄ™pnej wiadomoÅ›ci
+goto_prev_msg:			PrzejdÅº do poprzedniej wiadomoÅ›ci
+home:				Strona gÅ‚Ã³wna
 homepage:			Strona domowa:
-icq_control_panel:		Panel wiadomo¶ci ICQ
-icq_message_form:		Formularz wiadomo¶ci ICQ:
-ignore_user:			Ignoruj tego u¿ytkownika
-ignored_user_post:		Wiadomo¶æ zamieszczona przez u¿ytkownika <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> zostaje zignorowana
+icq_control_panel:		Panel wiadomoÅ›ci ICQ
+icq_message_form:		Formularz wiadomoÅ›ci ICQ:
+ignore_user:			Ignoruj tego uÅ¼ytkownika
+ignored_user_post:		WiadomoÅ›Ä‡ zamieszczona przez uÅ¼ytkownika <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> zostaje zignorowana
 im_aim:				Pseudonim AIM:
 im_msnm:			Komunikator GaduGadu:
 im_yahoo:			Komunikator Yahoo:
 image:				Obrazek:
 index_forum:			Forum
-index_new_posts:		Nowe wiadomo¶ci od ostatniej wizyty
-index_no_new_posts:		Brak nowych wiadomo¶ci od ostatniej wizyty
+index_new_posts:		Nowe wiadomoÅ›ci od ostatniej wizyty
+index_no_new_posts:		Brak nowych wiadomoÅ›ci od ostatniej wizyty
 interests:			Zainteresowania:
-last_post:			Ostatnia wiadomo¶æ
-last_thread_msg:		Id¼ do ostatniej wiadomo¶ci w tym temacie
+last_post:			Ostatnia wiadomoÅ›Ä‡
+last_thread_msg:		IdÅº do ostatniej wiadomoÅ›ci w tym temacie
 legend:				Legenda:
 location:			Miejsce:
-lock_thread:			Zablokuj w±tek 
+lock_thread:			Zablokuj wÄ…tek 
 locked:				Zablokowany
-locked_with_new_posts:		Zablokowany (z nieprzeczytanymi wiadomo¶ciami)
-logged_in_list:			Lista zalogowanych u¿ytkowników
-login:				Zaloguj siê
-login_header:			Nazwa u¿ytkownika:
-logout:				Wyloguj siê
-mark_all_read:			zaznacz wszystkie wiadomo¶ci jako przeczytane
-mark_all_read_desc:		Wszystkie Twoje nieprzeczytane wiadomo¶ci zostan± zaznaczone jako przeczytane
-members:			U¿ytkownicy
-message:			Wiadomo¶æ
-message_counter:		Nasi u¿ytkownicy zamie¶cili ³±cznie <b>{VAR: post_count}</b> wiadomo¶ci w <b>{VAR: thread_count}</b> w±tkach.
-message_index:			Indeks wiadomo¶ci
-message_index_desc:		Zobacz listê wiadomo¶ci
-minimize_category:		Zminimalizuj kategoriê
+locked_with_new_posts:		Zablokowany (z nieprzeczytanymi wiadomoÅ›ciami)
+logged_in_list:			Lista zalogowanych uÅ¼ytkownikÃ³w
+login:				Zaloguj siÄ™
+login_header:			Nazwa uÅ¼ytkownika:
+logout:				Wyloguj siÄ™
+mark_all_read:			zaznacz wszystkie wiadomoÅ›ci jako przeczytane
+mark_all_read_desc:		Wszystkie Twoje nieprzeczytane wiadomoÅ›ci zostanÄ… zaznaczone jako przeczytane
+members:			UÅ¼ytkownicy
+message:			WiadomoÅ›Ä‡
+message_counter:		Nasi uÅ¼ytkownicy zamieÅ›cili Å‚Ä…cznie <b>{VAR: post_count}</b> wiadomoÅ›ci w <b>{VAR: thread_count}</b> wÄ…tkach.
+message_index:			Indeks wiadomoÅ›ci
+message_index_desc:		Zobacz listÄ™ wiadomoÅ›ci
+minimize_category:		Zminimalizuj kategoriÄ™
 moderation_queue:		Kolejka moderowania
 moderator:			Moderator
-moderator_of:			Moderator w±tku:
+moderator_of:			Moderator wÄ…tku:
 moderator_options:		Opcje Moderatora
 moderators:			Moderatorzy
-more_unread_messages:		wiêcej nieprzeczytanych wiadomo¶ci
-more_unread_messages_desc:	Poka¿ wiecej nieprzeczytanych wiadomo¶ci i zaznacz aktualnie przegl±dane jako przeczytane
-move_thread:			Przenie¶
+more_unread_messages:		wiÄ™cej nieprzeczytanych wiadomoÅ›ci
+more_unread_messages_desc:	PokaÅ¼ wiecej nieprzeczytanych wiadomoÅ›ci i zaznacz aktualnie przeglÄ…dane jako przeczytane
+move_thread:			PrzenieÅ›
 moved:				Przeniesiony do innego forum
-moved_thread_message:		Ten w±tek zosta³ przeniesiony do innego forum
+moved_thread_message:		Ten wÄ…tek zostaÅ‚ przeniesiony do innego forum
 na:				brak
-new_posts:			Nowe wiadomo¶ci
-new_private_messages:		Masz nieprzeczytane prywatne wiadomo¶ci <span class="GenText" style="color: #ff0000">({VAR: c})</span>
-new_thread:			Utwórz nowy w±tek 
-newest_user:			Ostatnio zarejestrowany u¿ytkownik to:
-next_page:			Nastêpna strona
-next_thread:			Nastêpny w±tek:
-no_messages:			Nie ma wiadomo¶ci w tym forum.
-no_msg_body:			Brak tre¶ci wiadomo¶ci
-no_new_posts:			Brak nowych wiadomo¶ci
-no_posts:			Brak wiadomo¶ci
-no_subscribed_forums:		Brak subskrybowanych forów.
-no_subscribed_threads:		Brak subskrybowanych w±tków.
-no_unread_locked:		Ten w±tek zosta³ zablokowany
-no_unread_msg:			Ten w±tek nie ma nieprzeczytanych wiadomo¶ci
-no_unread_msg_unreg:		Przeczytane i nieprzeczytane wiadomo¶ci s± ¶ledzone tylko dla zarejestrowanych u¿ytkowników
+new_posts:			Nowe wiadomoÅ›ci
+new_private_messages:		Masz nieprzeczytane prywatne wiadomoÅ›ci <span class="GenText" style="color: #ff0000">({VAR: c})</span>
+new_thread:			UtwÃ³rz nowy wÄ…tek 
+newest_user:			Ostatnio zarejestrowany uÅ¼ytkownik to:
+next_page:			NastÄ™pna strona
+next_thread:			NastÄ™pny wÄ…tek:
+no_messages:			Nie ma wiadomoÅ›ci w tym forum.
+no_msg_body:			Brak treÅ›ci wiadomoÅ›ci
+no_new_posts:			Brak nowych wiadomoÅ›ci
+no_posts:			Brak wiadomoÅ›ci
+no_subscribed_forums:		Brak subskrybowanych forÃ³w.
+no_subscribed_threads:		Brak subskrybowanych wÄ…tkÃ³w.
+no_unread_locked:		Ten wÄ…tek zostaÅ‚ zablokowany
+no_unread_msg:			Ten wÄ…tek nie ma nieprzeczytanych wiadomoÅ›ci
+no_unread_msg_unreg:		Przeczytane i nieprzeczytane wiadomoÅ›ci sÄ… Å›ledzone tylko dla zarejestrowanych uÅ¼ytkownikÃ³w
 num_pages:			Stron ({VAR: ttl_pg}):
-num_votes:			{VAR: obj->total_votes} g³osów
-occupation:			Zawód:
-off:				Wy³±czone
-on:				W³±czone
-page_timings:			£±czny czas generowania strony wyniós³ {VAR: page_gen_time} sekund.
-pm:				Prywatne wiadomo¶ci
+num_votes:			{VAR: obj->total_votes} gÅ‚osÃ³w
+occupation:			ZawÃ³d:
+off:				WyÅ‚Ä…czone
+on:				WÅ‚Ä…czone
+page_timings:			ÅÄ…czny czas generowania strony wyniÃ³sÅ‚ {VAR: page_gen_time} sekund.
+pm:				Prywatne wiadomoÅ›ci
 poll:				Ankieta:
-post_count:			Liczba wiadomo¶ci {VAR: u_pcount}
-post_count_l:			Liczba wiadomo¶ci:
-posts:				Wiadomo¶ci
-posts_c:			Wiadomo¶ci:
-prev_thread:			Poprzedni w±tek:
-usrinfo_private_message:	Prywatna wiadomo¶æ:
+post_count:			Liczba wiadomoÅ›ci {VAR: u_pcount}
+post_count_l:			Liczba wiadomoÅ›ci:
+posts:				WiadomoÅ›ci
+posts_c:			WiadomoÅ›ci:
+prev_thread:			Poprzedni wÄ…tek:
+usrinfo_private_message:	Prywatna wiadomoÅ›Ä‡:
 profile:			Profil
-profile_desc:			Dostêp do panelu sterowania u¿ytkownika
-rate_thread:			Ocena W±tku
-refresh_list:			Od¶wie¿ Listê
-register:			Zarejestruj siê
-registered:			Do³±czy³(a):
+profile_desc:			DostÄ™p do panelu sterowania uÅ¼ytkownika
+rate_thread:			Ocena WÄ…tku
+refresh_list:			OdÅ›wieÅ¼ ListÄ™
+register:			Zarejestruj siÄ™
+registered:			DoÅ‚Ä…czyÅ‚(a):
 registered_on:			Zarejestrowany w dniu {TEMPLATE: registered_on_date}
 replies:			Odpowiedzi
-report_to_mod:			zg³o¶ wiadomo¶æ moderatorowi
-reported_messages:		Zg³oszone wiadomo¶ci
-reveal_all_posts:		ujawnij wszystkie wiadomo¶ci zamieszczone przez u¿ytkownika {VAR: user_login}
-reveal_post:			ujawnij wiadomo¶æ
+report_to_mod:			zgÅ‚oÅ› wiadomoÅ›Ä‡ moderatorowi
+reported_messages:		ZgÅ‚oszone wiadomoÅ›ci
+reveal_all_posts:		ujawnij wszystkie wiadomoÅ›ci zamieszczone przez uÅ¼ytkownika {VAR: user_login}
+reveal_post:			ujawnij wiadomoÅ›Ä‡
 search:				Szukaj
-sel_todays_posts:		Dzisiejsze wiadomo¶ci
-sel_todays_posts_desc:		Prze³±cz filtr dzisiejszych wiadomo¶ci (poka¿e tylko dzisiejsze wiadomo¶ci)
-sel_unanswered_posts:		Wiadomo¶ci bez odpowiedzi
-sel_unanswered_posts_desc:	Prze³±cz filtr wiadomo¶ci bez odpowiedzi (poka¿e tylko wiadomo¶ci bez odpowiedzi)
-sel_unread_messages:		Nieprzeczytane wiadomo¶ci
-sel_unread_messages_desc:	Prze³±cz filtr nieprzeczytanych wiadomo¶ci (poka¿e tylko nieprzeczytane wiadomo¶ci)
-send:				Wy¶lij
-send_pm_desc:			Wy¶lij prywatn± wiadomo¶æ u¿ytkownikowi
+sel_todays_posts:		Dzisiejsze wiadomoÅ›ci
+sel_todays_posts_desc:		PrzeÅ‚Ä…cz filtr dzisiejszych wiadomoÅ›ci (pokaÅ¼e tylko dzisiejsze wiadomoÅ›ci)
+sel_unanswered_posts:		WiadomoÅ›ci bez odpowiedzi
+sel_unanswered_posts_desc:	PrzeÅ‚Ä…cz filtr wiadomoÅ›ci bez odpowiedzi (pokaÅ¼e tylko wiadomoÅ›ci bez odpowiedzi)
+sel_unread_messages:		Nieprzeczytane wiadomoÅ›ci
+sel_unread_messages_desc:	PrzeÅ‚Ä…cz filtr nieprzeczytanych wiadomoÅ›ci (pokaÅ¼e tylko nieprzeczytane wiadomoÅ›ci)
+send:				WyÅ›lij
+send_pm_desc:			WyÅ›lij prywatnÄ… wiadomoÅ›Ä‡ uÅ¼ytkownikowi
 sender_email:			E-mail nadawcy:
 sender_name:			Nazwa nadawcy:
-show_posts_by:			Poka¿ wiadomo¶ci u¿ytkownika: {VAR: u_alias}
+show_posts_by:			PokaÅ¼ wiadomoÅ›ci uÅ¼ytkownika: {VAR: u_alias}
 size:				Rozmiar:
 status:				Status:
-status_line:			Mamy <b>{VAR: st_obj->online_users_reg}</b> u¿ytkowników, <b>{VAR: st_obj->online_users_hidden}</b> ukrytych u¿ytkowników i <b>{VAR: st_obj->online_users_anon}</b> go¶ci odwiedzaj±cych forum.
+status_line:			Mamy <b>{VAR: st_obj->online_users_reg}</b> uÅ¼ytkownikÃ³w, <b>{VAR: st_obj->online_users_hidden}</b> ukrytych uÅ¼ytkownikÃ³w i <b>{VAR: st_obj->online_users_anon}</b> goÅ›ci odwiedzajÄ…cych forum.
 sticky:				przyczepiony:
-stop_ignoring:			przestañ ignorowaæ tego u¿ytkownika
-sub_to_thread:			Subskrybuj w±tek
-sub_to_thread_desc:		Otrzymuj powiadomienie o wiadomo¶ciach w tym temacie
+stop_ignoring:			przestaÅ„ ignorowaÄ‡ tego uÅ¼ytkownika
+sub_to_thread:			Subskrybuj wÄ…tek
+sub_to_thread_desc:		Otrzymuj powiadomienie o wiadomoÅ›ciach w tym temacie
 subject:			Temat
 subscribe:			Subskrybuj
-subscribe_desc:			Otrzymuj powiadomienie, gdy kto¶ utworzy nowy w±tek w tym forum
+subscribe_desc:			Otrzymuj powiadomienie, gdy ktoÅ› utworzy nowy wÄ…tek w tym forum
 subscribed_forums:		Subskrybowane fora
-subscribed_forums_desc:		Prze³±cz filtr subskrybowanych forów (poka¿e tylko wiadomo¶ci z forów, które subskrybujesz)
-subscribed_threads:		Subskrybowane w±tki 
-subscribed_threads_desc:	Prze³±cz filtr subskrybowanych w±tków (poka¿e tylko wiadomo¶ci z w±tków, które subskrybujesz)
-switch_to_thread_view:		Prze³±cz do drzewiastego widoku w tym temacie
-thread:				W±tek:
-thread_announcement:		og³oszenie:
-thread_first_unread_msg:	Id¼ do pierwszej nieprzeczytanej wiadomo¶ci w tym w±tku
-thread_thread:			W±tek
-threads:			W±tki
+subscribed_forums_desc:		PrzeÅ‚Ä…cz filtr subskrybowanych forÃ³w (pokaÅ¼e tylko wiadomoÅ›ci z forÃ³w, ktÃ³re subskrybujesz)
+subscribed_threads:		Subskrybowane wÄ…tki 
+subscribed_threads_desc:	PrzeÅ‚Ä…cz filtr subskrybowanych wÄ…tkÃ³w (pokaÅ¼e tylko wiadomoÅ›ci z wÄ…tkÃ³w, ktÃ³re subskrybujesz)
+switch_to_thread_view:		PrzeÅ‚Ä…cz do drzewiastego widoku w tym temacie
+thread:				WÄ…tek:
+thread_announcement:		ogÅ‚oszenie:
+thread_first_unread_msg:	IdÅº do pierwszej nieprzeczytanej wiadomoÅ›ci w tym wÄ…tku
+thread_thread:			WÄ…tek
+threads:			WÄ…tki
 time:				Czas
-todays_posts:			Dzisiejsze wiadomo¶ci
-todays_posts_desc:		Poka¿ wszystkie wiadomo¶ci, które zosta³y zamieszczone dzisiaj
-un_ignore_user:			przestañ ignorowaæ wiadomo¶ci tego u¿ytkownika
-unanswered_posts:		Wiadomo¶ci bez odpowiedzi
-unanswered_posts_desc:		Poka¿ wszystkie wiadomo¶ci, które nie maj± odpowiedzi
-unlock_thread:			Odblokuj W±tek
-unread_msg:			Ten w±tek zawiera wiadomo¶ci, których jeszcze nie przeczyta³e¶
-unread_msg_locked:		Zablokowany w±tek z nieprzeczytanymi wiadomo¶ciami
-unread_posts:			Nieprzeczytane wiadomo¶ci
-unread_posts_desc:		Poka¿ wszystkie nieprzeczytane wiadomo¶ci
-unsub_from_thread:		Porzuæ subskrybcjê tego w±tku
-unsub_from_thread_desc:		Przestañ otrzymywaæ powiadomienia o nowych wiadomo¶ciach w tym w±tku
-unsubscribe:			Porzuæ subskrybcjê
-unsubscribe_desc:		Przestañ otrzymywaæ powiadomienia o nowych w±tkach na forum
+todays_posts:			Dzisiejsze wiadomoÅ›ci
+todays_posts_desc:		PokaÅ¼ wszystkie wiadomoÅ›ci, ktÃ³re zostaÅ‚y zamieszczone dzisiaj
+un_ignore_user:			przestaÅ„ ignorowaÄ‡ wiadomoÅ›ci tego uÅ¼ytkownika
+unanswered_posts:		WiadomoÅ›ci bez odpowiedzi
+unanswered_posts_desc:		PokaÅ¼ wszystkie wiadomoÅ›ci, ktÃ³re nie majÄ… odpowiedzi
+unlock_thread:			Odblokuj WÄ…tek
+unread_msg:			Ten wÄ…tek zawiera wiadomoÅ›ci, ktÃ³rych jeszcze nie przeczytaÅ‚eÅ›
+unread_msg_locked:		Zablokowany wÄ…tek z nieprzeczytanymi wiadomoÅ›ciami
+unread_posts:			Nieprzeczytane wiadomoÅ›ci
+unread_posts_desc:		PokaÅ¼ wszystkie nieprzeczytane wiadomoÅ›ci
+unsub_from_thread:		PorzuÄ‡ subskrybcjÄ™ tego wÄ…tku
+unsub_from_thread_desc:		PrzestaÅ„ otrzymywaÄ‡ powiadomienia o nowych wiadomoÅ›ciach w tym wÄ…tku
+unsubscribe:			PorzuÄ‡ subskrybcjÄ™
+unsubscribe_desc:		PrzestaÅ„ otrzymywaÄ‡ powiadomienia o nowych wÄ…tkach na forum
 updated_on:			Uaktualnione dnia:
-user:				U¿ytkownik
-user_counter:			Mamy <b>{VAR: st_obj->user_count}</b> zarejestrowanych u¿ytkowników.
-user_info:			Informacje o u¿ytkowniku
-user_info_l:			Informacje o u¿ytkowniku {VAR: u->alias}
-user_offline:			{VAR: obj->login} jest aktualnie niedostêpny
-user_online:			{VAR: obj->login} jest aktualnie dostêpny
-usrinfo_last_post:		Ostatnia wiadomo¶æ:
-view_results:			Wy¶wietl wyniki
-views:				Ods³on
-vote:				{VAR: frm->n_rating} G³osów
-vote_button:			G³osuj
-vote_for_thread:		G³osuj
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> zosta³ przeniesiony do forum <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> przez moderatora.
+user:				UÅ¼ytkownik
+user_counter:			Mamy <b>{VAR: st_obj->user_count}</b> zarejestrowanych uÅ¼ytkownikÃ³w.
+user_info:			Informacje o uÅ¼ytkowniku
+user_info_l:			Informacje o uÅ¼ytkowniku {VAR: u->alias}
+user_offline:			{VAR: obj->login} jest aktualnie niedostÄ™pny
+user_online:			{VAR: obj->login} jest aktualnie dostÄ™pny
+usrinfo_last_post:		Ostatnia wiadomoÅ›Ä‡:
+view_results:			WyÅ›wietl wyniki
+views:				OdsÅ‚on
+vote:				{VAR: frm->n_rating} GÅ‚osÃ³w
+vote_button:			GÅ‚osuj
+vote_for_thread:		GÅ‚osuj
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> zostaÅ‚ przeniesiony do forum <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> przez moderatora.
 welcome_message:		Witaj <b>{VAR: usr->alias}</b>. Twoja ostatnia wizyta: {DATE: usr->last_visit %A, %d %b %Y %H:%M:%S %Z}.
-what_ppl_doing:			poka¿, co robi± inni u¿ytkownicy
-reported_del_report:		Usuñ Zg³oszenie
-reported_reason:		Powód
+what_ppl_doing:			pokaÅ¼, co robiÄ… inni uÅ¼ytkownicy
+reported_del_report:		UsuÅ„ ZgÅ‚oszenie
+reported_reason:		PowÃ³d
 reported_on:			Dnia:
-reported_reported_by:		Zg³oszone przez u¿ytkownika:
-reported_reported_msg:		Zg³oszone Wiadomo¶ci
-modque_pending_approval:	Wiadomo¶ci oczekuj±ce na zatwierdzenie
+reported_reported_by:		ZgÅ‚oszone przez uÅ¼ytkownika:
+reported_reported_msg:		ZgÅ‚oszone WiadomoÅ›ci
+modque_pending_approval:	WiadomoÅ›ci oczekujÄ…ce na zatwierdzenie
 modque_approve:			Akceptuj
-modque_delete:			Usuñ
-modque_no_message:		Nie ma wiadomo¶ci oczekuj±cych na zatwierdzenie
-pmsg_new_messages:		Nieprzeczytana prywatna wiadomo¶æ
-pmsg_old_messages:		Przeczytana prywatna wiadomo¶æ
-deny_recipt:			odmów potwierdzenia
-deny_recipt_desc:		Nie wysy³aj potwierdzenia o przeczytaniu tej prywatnej wiadomo¶ci
+modque_delete:			UsuÅ„
+modque_no_message:		Nie ma wiadomoÅ›ci oczekujÄ…cych na zatwierdzenie
+pmsg_new_messages:		Nieprzeczytana prywatna wiadomoÅ›Ä‡
+pmsg_old_messages:		Przeczytana prywatna wiadomoÅ›Ä‡
+deny_recipt:			odmÃ³w potwierdzenia
+deny_recipt_desc:		Nie wysyÅ‚aj potwierdzenia o przeczytaniu tej prywatnej wiadomoÅ›ci
 restore_to:			Odzyskaj do:
-move_to:			Przenie¶ do:
+move_to:			PrzenieÅ› do:
 list_referes_referrals:		Osoby polecone
 list_referes_members:		Osoby polecone
-list_referes_member:		U¿ytkownik
-referals_none:			Brak poleconych osób.
-referals_refered_by:		U¿ytkownicy forum poleceni przez u¿ytkownika: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:		Liczba wiadomo¶ci
+list_referes_member:		UÅ¼ytkownik
+referals_none:			Brak poleconych osÃ³b.
+referals_refered_by:		UÅ¼ytkownicy forum poleceni przez uÅ¼ytkownika: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:		Liczba wiadomoÅ›ci
 referals_registered_on:		Data rejestracji
 referals_action:		Akcja
 pmsg_all:			wszystkie
-pmsg_none:			¿adne
+pmsg_none:			Å¼adne
 folder:				Katalog:
 pmsg_replied:			odpowiedziana
-pmsg_forwarded:			przes³ana
+pmsg_forwarded:			przesÅ‚ana
 pmsg_subject:			Temat
 pmsg_author:			Autor
 pmsg_time:			Data
 pmsg_selected:			Wybrane
-pmsg_delete:			Usuñ
-cur_ppage_pm:			Wiadomo¶ci prywatne
-writing_pm:			Pisanie prywatnej wiadomo¶ci
-browsing_folder:		Przegl±danie katalogu <b>{VAR: folders[$folder_id]}</b>
+pmsg_delete:			UsuÅ„
+cur_ppage_pm:			WiadomoÅ›ci prywatne
+writing_pm:			Pisanie prywatnej wiadomoÅ›ci
+browsing_folder:		PrzeglÄ…danie katalogu <b>{VAR: folders[$folder_id]}</b>
 inbox:				Skrzynka odbiorcza
-draft:				Skrzynka szkiców
+draft:				Skrzynka szkicÃ³w
 sent:				Skrzynka nadawcza
-trash:				¦mietnik
+trash:				Åšmietnik
 msg_author:			Autor
 avatar_sel_form:		Formularz Wyboru Avatara
-no_avatars:			Brak dostêpnych Avatarów
-month_1:			Styczeñ
+no_avatars:			Brak dostÄ™pnych AvatarÃ³w
+month_1:			StyczeÅ„
 month_2:			Luty
 month_3:			Marzec
-month_4:			Kwiecieñ
+month_4:			KwiecieÅ„
 month_5:			Maj
 month_6:			Czerwiec
 month_7:			Lipiec
-month_8:			Sierpieñ
-month_9:			Wrzesieñ
-month_10:			Pa¼dziernik
+month_8:			SierpieÅ„
+month_9:			WrzesieÅ„
+month_10:			PaÅºdziernik
 month_11:			Listopad
-month_12:			Grudzieñ
-male:				Mê¿czyzna
+month_12:			GrudzieÅ„
+male:				MÄ™Å¼czyzna
 female:				Kobieta
 register_tree_view:		Widok drzewiasty
-register_flat_view:		Widok p³aski
-use_forum_default:		U¿ywaj standardów forum
-finduser_user_info:		Informacje o szukanym u¿ytkowniku
-finduser_by_login:		Nazwa szukanego u¿ytkownika:
-finduser_submit:		Znajd¼
-finduser_no_such_user:		Brak takiego u¿ytkownika.
-finduser_user:			U¿ytkownik
-finduser_postcount:		Liczba wiadomo¶ci
+register_flat_view:		Widok pÅ‚aski
+use_forum_default:		UÅ¼ywaj standardÃ³w forum
+finduser_user_info:		Informacje o szukanym uÅ¼ytkowniku
+finduser_by_login:		Nazwa szukanego uÅ¼ytkownika:
+finduser_submit:		ZnajdÅº
+finduser_no_such_user:		Brak takiego uÅ¼ytkownika.
+finduser_user:			UÅ¼ytkownik
+finduser_postcount:		Liczba wiadomoÅ›ci
 finduser_joindate:		Data rejestracji
 finduser_action:		Akcja
 yes:				Tak
 no:				Nie
 edit_time_limit:		<br /><b>Ograniczenie czasu edycji</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
 no_edit_time_limit:		<br /><b>Ograniczenie czasu edycji</b>: <b>Nieograniczony</b>
-pmuserloc_login:		Nazwa u¿ytkownika:
-pmuserloc_submit:		Wy¶lij
-pmuserloc_user:			U¿ytkownik
-pmuserloc_no_result:		Brak wyników
+pmuserloc_login:		Nazwa uÅ¼ytkownika:
+pmuserloc_submit:		WyÅ›lij
+pmuserloc_user:			UÅ¼ytkownik
+pmuserloc_no_result:		Brak wynikÃ³w
 register_builtin:		Wbudowany
 register_specify_url:		Podaj adres
-register_uploaded:		Za³aduj
-register_login:			Nazwa u¿ytkownika:
-register_password:		Has³o:
-register_conf_pass:		Potwierd¼ has³o:
-register_email_desc:		Prosimy o podawanie poprawnego adresu e-mail. Mo¿esz wybraæ jego ukrywanie poni¿ej, w sekcji preferencji.
-register_name:			Imiê i nazwisko:
-register_your_pass:		Twoje has³o:
+register_uploaded:		ZaÅ‚aduj
+register_login:			Nazwa uÅ¼ytkownika:
+register_password:		HasÅ‚o:
+register_conf_pass:		PotwierdÅº hasÅ‚o:
+register_email_desc:		Prosimy o podawanie poprawnego adresu e-mail. MoÅ¼esz wybraÄ‡ jego ukrywanie poniÅ¼ej, w sekcji preferencji.
+register_name:			ImiÄ™ i nazwisko:
+register_your_pass:		Twoje hasÅ‚o:
 register_update:		Uaktualnij
 register_avatar_type:		Typ avatara:
-register_del_avatar:		Usuñ Avatar
+register_del_avatar:		UsuÅ„ Avatar
 register_avatar:		Avatar:
 register_sel_avatar:		wybierz avatar
-register_custom_avatar_rules:	Avatar u¿ytkownika nie pojawi siê dopóki nie zostanie zatwierdzony przez administratora.<br /><font class="SmallText">Avatar nie powinien byæ wiêkszy ni¿ <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikseli</b> i musi byæ w formacie <b>jpg</b>, <b>gif</b> lub <b>png</b>.</font>
-register_custom_avatar_url:	Adres avatara u¿ytkownika:
-register_preview:		Podgl±d
-register_custom_avatar_upload:	Plik avatara u¿ytkownika:
-register_register:		Zarejestruj siê
+register_custom_avatar_rules:	Avatar uÅ¼ytkownika nie pojawi siÄ™ dopÃ³ki nie zostanie zatwierdzony przez administratora.<br /><font class="SmallText">Avatar nie powinien byÄ‡ wiÄ™kszy niÅ¼ <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikseli</b> i musi byÄ‡ w formacie <b>jpg</b>, <b>gif</b> lub <b>png</b>.</font>
+register_custom_avatar_url:	Adres avatara uÅ¼ytkownika:
+register_preview:		PodglÄ…d
+register_custom_avatar_upload:	Plik avatara uÅ¼ytkownika:
+register_register:		Zarejestruj siÄ™
 register_required:		Informacje Wymagane
-register_required_desc:		Wype³nienie wszystkich poni¿szych pól jest wymagane. Prosimy o zwrócenie uwagi na wielko¶æ liter.
+register_required_desc:		WypeÅ‚nienie wszystkich poniÅ¼szych pÃ³l jest wymagane. Prosimy o zwrÃ³cenie uwagi na wielkoÅ›Ä‡ liter.
 register_optional:		Informacje Opcjonalne
-register_optional_desc:		Zalecane jest, aby nie ujawniaæ prywatnych informacji. Wszystkie poni¿sze informacje bêd± dostêpne dla innych u¿ytkowników forum.
+register_optional_desc:		Zalecane jest, aby nie ujawniaÄ‡ prywatnych informacji. Wszystkie poniÅ¼sze informacje bÄ™dÄ… dostÄ™pne dla innych uÅ¼ytkownikÃ³w forum.
 register_location:		Miejsce zamieszkania:
-register_occupation:		Zawód:
+register_occupation:		ZawÃ³d:
 register_interests:		Zainteresowania:
 register_image:			Adres obrazka:
 register_icq:			ICQ
@@ -290,176 +290,176 @@ register_yahoo:			Komunikator Yahoo:
 register_msnm:			Komunikator GaduGadu:
 register_homepage:		Strona domowa:
 register_bday:			Data urodzenia:
-register_bday_desc:		Je¶li podasz swoj± datê urodzenia, to inni u¿ytkownicy forum bêd± w stanie zobaczyæ j± w twoim profilu.
-register_day:			Dzieñ
-register_month:			Miesi±c
+register_bday_desc:		JeÅ›li podasz swojÄ… datÄ™ urodzenia, to inni uÅ¼ytkownicy forum bÄ™dÄ… w stanie zobaczyÄ‡ jÄ… w twoim profilu.
+register_day:			DzieÅ„
+register_month:			MiesiÄ…c
 register_year:			Rok
-register_gender:		P³eæ:
+register_gender:		PÅ‚eÄ‡:
 register_bio:			Biografia:
-register_bio_desc:		Parê szczegó³ów o Tobie, takich jak zainteresowania, praca itd.
+register_bio_desc:		ParÄ™ szczegÃ³Å‚Ã³w o Tobie, takich jak zainteresowania, praca itd.
 register_prefs:			Preferencje
 register_sig:			Podpis:
-register_sig_desc:		Opcjonalny podpis, który mo¿e pojawiaæ siê na dole Twoich wiadomo¶ci.
+register_sig_desc:		Opcjonalny podpis, ktÃ³ry moÅ¼e pojawiaÄ‡ siÄ™ na dole Twoich wiadomoÅ›ci.
 register_reset:			Zresetuj
-register_def_thread_view:	Domy¶lny widok w±tków:
-register_msg_per_page:		Ilo¶æ wiadomo¶ci na stronie:
-register_show_sig:		Poka¿ podpisy:
-register_show_sig_desc:		Pozwala Ci zarówno ukrywaæ, jak i pokazywaæ podpisy innych u¿ytkowników forum.
-register_use_sig_default:	U¿ywaj domy¶lnie podpisu:
-register_use_sig_default_desc:	Automatycznie dodawaj swój podpis do ka¿dej wiadomo¶ci, któr± zamieszczasz.
+register_def_thread_view:	DomyÅ›lny widok wÄ…tkÃ³w:
+register_msg_per_page:		IloÅ›Ä‡ wiadomoÅ›ci na stronie:
+register_show_sig:		PokaÅ¼ podpisy:
+register_show_sig_desc:		Pozwala Ci zarÃ³wno ukrywaÄ‡, jak i pokazywaÄ‡ podpisy innych uÅ¼ytkownikÃ³w forum.
+register_use_sig_default:	UÅ¼ywaj domyÅ›lnie podpisu:
+register_use_sig_default_desc:	Automatycznie dodawaj swÃ³j podpis do kaÅ¼dej wiadomoÅ›ci, ktÃ³rÄ… zamieszczasz.
 register_timezone:		Strefa czasowa:
-register_ignore_admin:		Ignoruj wiadomo¶ci systemowe:
+register_ignore_admin:		Ignoruj wiadomoÅ›ci systemowe:
 register_invisible_mode:	Tryb ukryty:
-register_invisible_mode_desc:	Ukryj swoj± obecno¶æ na forum.
-register_show_email:		Poka¿ adres e-mail:
-register_show_email_desc:	Wybierz tê opcjê, je¶li chcesz, aby Twój adres e-mail by³ wy¶wietlany publicznie.
-register_notification:		Wybierz domy¶lne powiadamianie:
-register_notification_desc:	Je¶li powiadamianie jest domy¶lnie w³±czone, mo¿e byæ wy³±czone przy zamieszczaniu wiadomo¶ci.
-register_notify_method:		Wybierz metodê powiadamiania:
-register_notify_js_error:	Wybierasz powiadamianie przez ICQ, ale nie masz okre¶lonego numeru ICQ. Zostanie w³±czone powiadamianie przez e-mail
-register_allow_email_msg:	Zezwól na wysy³anie listów e-mail:
-register_allow_email_msg_desc:	Zezwól innym u¿ytkownikom na wysy³anie Ci listów na e-mail poprzez forum.
+register_invisible_mode_desc:	Ukryj swojÄ… obecnoÅ›Ä‡ na forum.
+register_show_email:		PokaÅ¼ adres e-mail:
+register_show_email_desc:	Wybierz tÄ™ opcjÄ™, jeÅ›li chcesz, aby TwÃ³j adres e-mail byÅ‚ wyÅ›wietlany publicznie.
+register_notification:		Wybierz domyÅ›lne powiadamianie:
+register_notification_desc:	JeÅ›li powiadamianie jest domyÅ›lnie wÅ‚Ä…czone, moÅ¼e byÄ‡ wyÅ‚Ä…czone przy zamieszczaniu wiadomoÅ›ci.
+register_notify_method:		Wybierz metodÄ™ powiadamiania:
+register_notify_js_error:	Wybierasz powiadamianie przez ICQ, ale nie masz okreÅ›lonego numeru ICQ. Zostanie wÅ‚Ä…czone powiadamianie przez e-mail
+register_allow_email_msg:	ZezwÃ³l na wysyÅ‚anie listÃ³w e-mail:
+register_allow_email_msg_desc:	ZezwÃ³l innym uÅ¼ytkownikom na wysyÅ‚anie Ci listÃ³w na e-mail poprzez forum.
 buddy_status:			Status
 my_buddies:			Moi Znajomi
 add_buddy:			Dodawanie Znajomych
 add:				Dodaj
-buddy_search:			Podaj nazwê u¿ytkownika którego chcesz dodaæ.
-buddy_remove:			usuñ
+buddy_search:			Podaj nazwÄ™ uÅ¼ytkownika ktÃ³rego chcesz dodaÄ‡.
+buddy_remove:			usuÅ„
 post_normal:			Normalny
 post_sticky:			Przyczepiony
-post_annoncement:		Og³oszenie
+post_annoncement:		OgÅ‚oszenie
 post_size:			Rozmiar
 post_color:			Kolor
 post_font:			Czcionka
-create_thread:			Wy¶lij
+create_thread:			WyÅ›lij
 submit_reply:			Odpowiedz
-edit_message:			Edytuj wiadomo¶æ
+edit_message:			Edytuj wiadomoÅ›Ä‡
 apply_spell_changes:		Zastosuj zmiany pisowni
-post_preview:			Podgl±d wiadomo¶ci
-post_logedin_user:		Jeste¶ zalogowany jako:
-post_logout:			wyloguj siê
-post_passwd:			Has³o do zamieszczenia wiadomo¶ci:
+post_preview:			PodglÄ…d wiadomoÅ›ci
+post_logedin_user:		JesteÅ› zalogowany jako:
+post_logout:			wyloguj siÄ™
+post_passwd:			HasÅ‚o do zamieszczenia wiadomoÅ›ci:
 post_poll:			Ankieta:
-post_create_poll:		UTWÓRZ ANKIETÊ
-post_poll_delete:		USUÑ
+post_create_poll:		UTWÃ“RZ ANKIETÄ˜
+post_poll_delete:		USUÅƒ
 post_poll_edit:			EDYTUJ
 post_mod_opt:			Opcje Moderatora:
-post_thread_type:		Typ w±tku:
-post_thread_expiry:		Wyga¶niêcie w±tku:
-post_icons:			Ikona wiadomo¶ci:
+post_thread_type:		Typ wÄ…tku:
+post_thread_expiry:		WygaÅ›niÄ™cie wÄ…tku:
+post_icons:			Ikona wiadomoÅ›ci:
 post_no_icon:			Brak ikony
-post_smiley:			Wstaw u¶mieszek:
-post_format_tools:		Narzêdzia formatuj±ce:
+post_smiley:			Wstaw uÅ›mieszek:
+post_format_tools:		NarzÄ™dzia formatujÄ…ce:
 post_upload_file:		Dodaj plik
-post_file_del:			Usuñ
+post_file_del:			UsuÅ„
 post_file_name:			Nazwa
 post_file_size:			Rozmar
-file_attachments:		Za³±czniki:
-allowed_files:			Dozwolone typy plików:
+file_attachments:		ZaÅ‚Ä…czniki:
+allowed_files:			Dozwolone typy plikÃ³w:
 max_file_size:			Maksymalny rozmiar pliku:
-max_files_per_msg:		Maksymalna liczba plików w wiadmo¶ci:
-post_notification:		Powiadomienie o wiadomo¶ci
-include_sig:			Do³±cz podpis
-include_sig_desc:		Do³±cz swój podpis z profilu.
-disable_smilies:		Wy³±cz u¶mieszki w tej wiadomo¶ci 
-spell_check_msg:		Sprawd¼ pisowniê w wiadomo¶ci
-post_form:			Formularz wiadomo¶ci
+max_files_per_msg:		Maksymalna liczba plikÃ³w w wiadmoÅ›ci:
+post_notification:		Powiadomienie o wiadomoÅ›ci
+include_sig:			DoÅ‚Ä…cz podpis
+include_sig_desc:		DoÅ‚Ä…cz swÃ³j podpis z profilu.
+disable_smilies:		WyÅ‚Ä…cz uÅ›mieszki w tej wiadomoÅ›ci 
+spell_check_msg:		SprawdÅº pisowniÄ™ w wiadomoÅ›ci
+post_form:			Formularz wiadomoÅ›ci
 post_forum:			Forum:
 post_title:			Temat:
-post_body:			Tre¶æ:
+post_body:			TreÅ›Ä‡:
 post_options:			Opcje:
-post_preview_btn:		Podgl±d wiadomo¶ci
-ignore_users:			Ignorowani U¿ytkownicy
+post_preview_btn:		PodglÄ…d wiadomoÅ›ci
+ignore_users:			Ignorowani UÅ¼ytkownicy
 add_ignore:			Dodawanie ignorowanych
 forum_terms:			Zasady Forum
-forum_rules:			Rejestracja na tym forum jest darmowa. Wymagane jest zaakceptowanie nastêpuj±cego warunku:<br />U¿ytkownik forum obwi±zany jest do niezamieszczania wiadomo¶ci uznanych powszechnie za obra¼liwe, wulgarne, pe³nych nienawi¶ci, pogró¿ek oraz w jakikolwiek inny sposób ³ami±ce prawo.<p>Wszystkie wiadomo¶ci wyra¿aj± pogl±dy autora. W³a¶ciciel, ani twórcy forum nie bêd± odpowiedzialni za ich tre¶æ.<p>Ponadto w³a¶ciciele tego forum zastrzegaj± sobie prawo do usuwania, edytowania, przenoszenia lub zamykania w±tków bez podania przyczyny.<br />
-forum_rules_13:			Wszyscy u¿ytkownicy poni¿ej 13 roku ¿ycia musz± uzyskaæ zgodê od swoich rodziców lub prawnych opiekunów, je¶li chc± zarejestrowaæ siê na tym forum. Chocia¿ nie mamy nic przeciwko udzielaniu siê na forum osób o wieku poni¿ej 13 lat, wymagamy, aby rodzic lub opiekun przefaksowa³ nam lub przes³a³ listem podpisan± zgodê zanim za³o¿ymy konto.<p>Je¶li chcesz rozpocz±æ proces rejestracji naci¶nij przycisk "Akceptujê" umieszczony poni¿ej. Je¶li chcesz zrezygnowaæ z rejestracji, naci¶nij przycisk "Anuluj", a powrócisz na g³ówn± stronê forum. <p>Kopia formularza pozwolenia mo¿e byæ pobrana z tego miejsca. Wiêcej informacji o procesie rejestracji mo¿na uzyskaæ wysy³aj±c list na adres <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules:			Rejestracja na tym forum jest darmowa. Wymagane jest zaakceptowanie nastÄ™pujÄ…cego warunku:<br />UÅ¼ytkownik forum obwiÄ…zany jest do niezamieszczania wiadomoÅ›ci uznanych powszechnie za obraÅºliwe, wulgarne, peÅ‚nych nienawiÅ›ci, pogrÃ³Å¼ek oraz w jakikolwiek inny sposÃ³b Å‚amiÄ…ce prawo.<p>Wszystkie wiadomoÅ›ci wyraÅ¼ajÄ… poglÄ…dy autora. WÅ‚aÅ›ciciel, ani twÃ³rcy forum nie bÄ™dÄ… odpowiedzialni za ich treÅ›Ä‡.<p>Ponadto wÅ‚aÅ›ciciele tego forum zastrzegajÄ… sobie prawo do usuwania, edytowania, przenoszenia lub zamykania wÄ…tkÃ³w bez podania przyczyny.<br />
+forum_rules_13:			Wszyscy uÅ¼ytkownicy poniÅ¼ej 13 roku Å¼ycia muszÄ… uzyskaÄ‡ zgodÄ™ od swoich rodzicÃ³w lub prawnych opiekunÃ³w, jeÅ›li chcÄ… zarejestrowaÄ‡ siÄ™ na tym forum. ChociaÅ¼ nie mamy nic przeciwko udzielaniu siÄ™ na forum osÃ³b o wieku poniÅ¼ej 13 lat, wymagamy, aby rodzic lub opiekun przefaksowaÅ‚ nam lub przesÅ‚aÅ‚ listem podpisanÄ… zgodÄ™ zanim zaÅ‚oÅ¼ymy konto.<p>JeÅ›li chcesz rozpoczÄ…Ä‡ proces rejestracji naciÅ›nij przycisk "AkceptujÄ™" umieszczony poniÅ¼ej. JeÅ›li chcesz zrezygnowaÄ‡ z rejestracji, naciÅ›nij przycisk "Anuluj", a powrÃ³cisz na gÅ‚Ã³wnÄ… stronÄ™ forum. <p>Kopia formularza pozwolenia moÅ¼e byÄ‡ pobrana z tego miejsca. WiÄ™cej informacji o procesie rejestracji moÅ¼na uzyskaÄ‡ wysyÅ‚ajÄ…c list na adres <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Potwierdzenie systemu COPPA
 coppa_before:			Przed {TEMPLATE: coppa_date}
 coppa_after:			Po {TEMPLATE: coppa_date}
-coppa_link:			Wybierz odsy³acz, który odpowiada Twojej dacie urodzenia.
-coppa:				Rodzic lub prawny opiekun musi wys³ac list lub faks z podpisan± zgod± do administratora tego forum, zanim u¿ytkownik w wieku poni¿ej 13 lat mo¿e zakoñczyæ proces rejestracji.<p>Aby uzyskaæ wiêcej informacji na ten temat, skontaktuj siê z <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa_link:			Wybierz odsyÅ‚acz, ktÃ³ry odpowiada Twojej dacie urodzenia.
+coppa:				Rodzic lub prawny opiekun musi wysÅ‚ac list lub faks z podpisanÄ… zgodÄ… do administratora tego forum, zanim uÅ¼ytkownik w wieku poniÅ¼ej 13 lat moÅ¼e zakoÅ„czyÄ‡ proces rejestracji.<p>Aby uzyskaÄ‡ wiÄ™cej informacji na ten temat, skontaktuj siÄ™ z <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informacje
-prereg_agree:			Akceptujê
-prereg_disagree:		Nie akceptujê
+prereg_agree:			AkceptujÄ™
+prereg_disagree:		Nie akceptujÄ™
 coppa_fax_instructions:		Instrukcje dla Rodzica lub Prawnego Opiekuna
-coppa_fax_instructions2:	Wydrukuj tê stronê, podpisz j± i wy¶lij faks do:
+coppa_fax_instructions2:	Wydrukuj tÄ™ stronÄ™, podpisz jÄ… i wyÅ›lij faks do:
 coppa_fax_reg_form:		Formularz rejestracji
-coppa_fax_sign:			Podpisz poni¿szy formularz i wy¶lij go do nas
-coppa_fax_conf:			Zapozna³em(am) siê z informacjami, które dostarczy³o mi moje dziecko i przeczyta³em(am) zasady tego serwisu. Rozumiem, ¿e informacje z profilu mog± byæ zmienione poprzez u¿ycie has³a. Rozumiem, ¿e mogê prosiæ o ca³kowite usuniêcie tego profilu rejestracji.
-coppa_fax_permission:		Podpisz tutaj, je¶li zgadzasz siê
-coppa_fax_no_permission:	Podpisz tutaj, je¶li chcesz usun±æ konto
-coppa_fax_parent_name:		Imiê i nazwisko rodzica/opiekuna:
-coppa_fax_relation:		Stopieñ pokrewieñstwa z dzieckiem:
+coppa_fax_sign:			Podpisz poniÅ¼szy formularz i wyÅ›lij go do nas
+coppa_fax_conf:			ZapoznaÅ‚em(am) siÄ™ z informacjami, ktÃ³re dostarczyÅ‚o mi moje dziecko i przeczytaÅ‚em(am) zasady tego serwisu. Rozumiem, Å¼e informacje z profilu mogÄ… byÄ‡ zmienione poprzez uÅ¼ycie hasÅ‚a. Rozumiem, Å¼e mogÄ™ prosiÄ‡ o caÅ‚kowite usuniÄ™cie tego profilu rejestracji.
+coppa_fax_permission:		Podpisz tutaj, jeÅ›li zgadzasz siÄ™
+coppa_fax_no_permission:	Podpisz tutaj, jeÅ›li chcesz usunÄ…Ä‡ konto
+coppa_fax_parent_name:		ImiÄ™ i nazwisko rodzica/opiekuna:
+coppa_fax_relation:		StopieÅ„ pokrewieÅ„stwa z dzieckiem:
 coppa_fax_telephone:		Telefon:
 coppa_fax_email:		Adres e-mail:
 coppa_fax_date:			Data:
-coppa_fax_questions:		Proszê o kontakt z <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> w przypadku jakichkolwiek pytañ
-coppa_fax_login:		Nazwa u¿ytkownika
-coppa_fax_passwd:		Has³o
+coppa_fax_questions:		ProszÄ™ o kontakt z <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> w przypadku jakichkolwiek pytaÅ„
+coppa_fax_login:		Nazwa uÅ¼ytkownika
+coppa_fax_passwd:		HasÅ‚o
 coppa_fax_remail:		E-mail
 coppa_fax_name:			Nazwa
-login_not_logedin:		Nie jeste¶ zalogowany. Mo¿e to wynikaæ z dwóch powodów:
-login_cookie_expired:		Twoje ciasteczko wygas³o i musisz siê zalogowaæ, aby je odnowiæ.
-login_perm_denied:		Nie masz uprawnieñ na dostêp do ¿±danego zasobu jako anonimowy u¿ytkownik i musisz siê zalogowaæ, aby je otrzymaæ.
-login_want_to_register:		Chcesz siê zarejestrowaæ?
-login_forgot_passwd:		Zapomnia³em has³a!
-login_use_cookie:		U¿ywaj ciasteczek<br /><font class="SmallText">Je¶li korzystasz z publicznego dostêpu do Sieci, takiego jak komputery w bibliotece, szkole lub kafejce internetowej, zalecane jest wy³±czenie tej opcji w celu zwiêkszenia bezpieczeñstwa Twojego konta.
-login_login:			U¿ytkownik:
-login_login_btn:		Zaloguj siê
-login_name_required:		Nazwa u¿ytkownika jest wymagana
-login_passwd_required:		Has³o jest wymagane
-login_invalid_radius:		Nieprawid³owa kombinacja nazwy u¿ytkownika/has³a
-reset_confirmation:		Dziêkujemy za zarejestrowanie siê.\n\nAby aktywowaæ swoje konto, przejd¼ do adresu wskazanego poni¿ej:\n\n{VAR: url}\n\nPo aktywacji Twojego konta zostaniesz zalogowany na forum\ni przeniesiony na g³ówna stronê forum.\n
-reset_reset:			Witaj,\n\nPoprosi³e¶ o wyzerowanie swojego has³a, ale aby faktycznie WYZEROWAÆ Twoje has³o\nprzejd¼ pod ten adres:\n\n{VAR: url}\n\nUWAGA: Nasze forum zapisuje has³a za pomoc± jednokierunkowej funkcji szyfruj±cej,\ndlatego nie mo¿na odtworzyæ raz wczytanego has³a.\nSprawdzanie has³a polega na tym, ¿e podczas logowania Twoje has³o jest szyfrowane\ni porównywane z zapisan± w formie zaszyfrowanej wersj±.\n(Je¶li chcesz wiedzieæ wiêcej poczytaj o algorytmie mieszaj±cym MD5).
-rpasswd_invalid_passwd:		Nieprawid³owe Has³o
-rpasswd_passwd_nomatch:		Has³a nie pokrywaj± siê
-rpasswd_passwd_length:		Has³o musi mieæ d³ugo¶æ co najmniej 6 znaków
-reset_remind_pass:		Odzyskiwanie has³a
-reset_reset_conf:		Twoje obecne has³o zostanie wyzerowane a nowe wy¶lemy Ci poczt± elektroniczn±. Je¶li nie potwierdzi³e¶ naszego listu, ów zostanie wys³any ponownie.
-reset_error:			Adres e-mail nie zosta³ znaleziony w bazie
-rpasswd_change_pass:		Zmieñ has³o
-rpasswd_login:			Nazwa u¿ytkownika
-rpasswd_cur_pass:		Aktualne has³o:
-rpasswd_new_pass:		Nowe has³o:
-rpasswd_conf_pass:		Potwierd¿ has³o:
-login_passwd:			Has³o:
+login_not_logedin:		Nie jesteÅ› zalogowany. MoÅ¼e to wynikaÄ‡ z dwÃ³ch powodÃ³w:
+login_cookie_expired:		Twoje ciasteczko wygasÅ‚o i musisz siÄ™ zalogowaÄ‡, aby je odnowiÄ‡.
+login_perm_denied:		Nie masz uprawnieÅ„ na dostÄ™p do Å¼Ä…danego zasobu jako anonimowy uÅ¼ytkownik i musisz siÄ™ zalogowaÄ‡, aby je otrzymaÄ‡.
+login_want_to_register:		Chcesz siÄ™ zarejestrowaÄ‡?
+login_forgot_passwd:		ZapomniaÅ‚em hasÅ‚a!
+login_use_cookie:		UÅ¼ywaj ciasteczek<br /><font class="SmallText">JeÅ›li korzystasz z publicznego dostÄ™pu do Sieci, takiego jak komputery w bibliotece, szkole lub kafejce internetowej, zalecane jest wyÅ‚Ä…czenie tej opcji w celu zwiÄ™kszenia bezpieczeÅ„stwa Twojego konta.
+login_login:			UÅ¼ytkownik:
+login_login_btn:		Zaloguj siÄ™
+login_name_required:		Nazwa uÅ¼ytkownika jest wymagana
+login_passwd_required:		HasÅ‚o jest wymagane
+login_invalid_radius:		NieprawidÅ‚owa kombinacja nazwy uÅ¼ytkownika/hasÅ‚a
+reset_confirmation:		DziÄ™kujemy za zarejestrowanie siÄ™.\n\nAby aktywowaÄ‡ swoje konto, przejdÅº do adresu wskazanego poniÅ¼ej:\n\n{VAR: url}\n\nPo aktywacji Twojego konta zostaniesz zalogowany na forum\ni przeniesiony na gÅ‚Ã³wna stronÄ™ forum.\n
+reset_reset:			Witaj,\n\nPoprosiÅ‚eÅ› o wyzerowanie swojego hasÅ‚a, ale aby faktycznie WYZEROWAÄ† Twoje hasÅ‚o\nprzejdÅº pod ten adres:\n\n{VAR: url}\n\nUWAGA: Nasze forum zapisuje hasÅ‚a za pomocÄ… jednokierunkowej funkcji szyfrujÄ…cej,\ndlatego nie moÅ¼na odtworzyÄ‡ raz wczytanego hasÅ‚a.\nSprawdzanie hasÅ‚a polega na tym, Å¼e podczas logowania Twoje hasÅ‚o jest szyfrowane\ni porÃ³wnywane z zapisanÄ… w formie zaszyfrowanej wersjÄ….\n(JeÅ›li chcesz wiedzieÄ‡ wiÄ™cej poczytaj o algorytmie mieszajÄ…cym MD5).
+rpasswd_invalid_passwd:		NieprawidÅ‚owe HasÅ‚o
+rpasswd_passwd_nomatch:		HasÅ‚a nie pokrywajÄ… siÄ™
+rpasswd_passwd_length:		HasÅ‚o musi mieÄ‡ dÅ‚ugoÅ›Ä‡ co najmniej 6 znakÃ³w
+reset_remind_pass:		Odzyskiwanie hasÅ‚a
+reset_reset_conf:		Twoje obecne hasÅ‚o zostanie wyzerowane a nowe wyÅ›lemy Ci pocztÄ… elektronicznÄ…. JeÅ›li nie potwierdziÅ‚eÅ› naszego listu, Ã³w zostanie wysÅ‚any ponownie.
+reset_error:			Adres e-mail nie zostaÅ‚ znaleziony w bazie
+rpasswd_change_pass:		ZmieÅ„ hasÅ‚o
+rpasswd_login:			Nazwa uÅ¼ytkownika
+rpasswd_cur_pass:		Aktualne hasÅ‚o:
+rpasswd_new_pass:		Nowe hasÅ‚o:
+rpasswd_conf_pass:		PotwierdÅ¼ hasÅ‚o:
+login_passwd:			HasÅ‚o:
 reset_email:			E-mail:
-reset_reset_button:		Wyzeruj has³o
-rate_this_thread:		Oceñ
-report_reporting_about:		O zg³oszeniu:
+reset_reset_button:		Wyzeruj hasÅ‚o
+rate_this_thread:		OceÅ„
+report_reporting_about:		O zgÅ‚oszeniu:
 report_subject:			Temat:
 report_by:			Przez:
 report_posted_on:		Zamieszczone dnia:
-report_give_reason:		Podaj powód, dla którego zg³aszasz tê wiadomo¶æ:
-report_submit_report:		Wy¶lij zg³oszenie
-search_entire_msg:		Ca³± wiadomo¶æ
+report_give_reason:		Podaj powÃ³d, dla ktÃ³rego zgÅ‚aszasz tÄ™ wiadomoÅ›Ä‡:
+report_submit_report:		WyÅ›lij zgÅ‚oszenie
+search_entire_msg:		CaÅ‚Ä… wiadomoÅ›Ä‡
 search_subect_only:		Tylko temat
 search_forum:			Forum
 search_posted_on:		Zamieszczona dnia
-search_no_results:		Brak wyników.
+search_no_results:		Brak wynikÃ³w.
 search_all_forums:		Przeszukaj wszystkie fora
 search_in_forum:		Szukaj w forum:
 search_forum_search:		Szukanie w forum
-move_thread_to:			Przenie¶ w±tek <b>{VAR: thr->subject}</b> do:
-remail_email_topic:		Prze¶lij ten w±tek do znajomego
+move_thread_to:			PrzenieÅ› wÄ…tek <b>{VAR: thr->subject}</b> do:
+remail_email_topic:		PrzeÅ›lij ten wÄ…tek do znajomego
 remail_your_name:		Nadawca:
 remail_your_email:		Adres e-mail nadawcy:
 remail_friends_name:		Odbiorca:
 remail_friends_email:		Adres e-mail odbiorcy:
 remail_required:		wymagany
 remail_subject:			Temat:
-remail_message:			Wiadomo¶æ:
-remail_send_now:		Wy¶lij teraz
-remail_anon_opt:		Skopiuj tê wiadomo¶æ do wybranego klienta poczty, aby wys³aæ go do swoich znajomych.
+remail_message:			WiadomoÅ›Ä‡:
+remail_send_now:		WyÅ›lij teraz
+remail_anon_opt:		Skopiuj tÄ™ wiadomoÅ›Ä‡ do wybranego klienta poczty, aby wysÅ‚aÄ‡ go do swoich znajomych.
 remail_done:			Zrobione
-remail_sent_conf:		List do Twojego znajomego o adresie {VAR-HTML: _POST['femail']} o temacie {{VAR: data->subject} zosta³ pomy¶lnie wys³any.
-remail_error:			Zosta³ wykryty b³±d
+remail_sent_conf:		List do Twojego znajomego o adresie {VAR-HTML: _POST['femail']} o temacie {{VAR: data->subject} zostaÅ‚ pomyÅ›lnie wysÅ‚any.
+remail_error:			ZostaÅ‚ wykryty bÅ‚Ä…d
 mklist_type:			Typ:
 mklist_option:			Opcje:
 mklist_additem:			Dodaj element
-mklist_apply:			Zatwierd¼
-mklist_delete:			Usuñ
+mklist_apply:			ZatwierdÅº
+mklist_delete:			UsuÅ„
 qbud_nick_name:			Pseudonim
 qbud_add_selected:		Dodaj wybrany
 qbud_selected:			Wybrany
@@ -468,520 +468,520 @@ mklist_numerical:		Numeryczny
 mklist_aplha:			Alfabetyczny
 mklist_square:			Kwadrat
 mklist_disc:			Dysk
-mklist_circle:			Okr±g
+mklist_circle:			OkrÄ…g
 mklist_close:			Zamknij
 email_to:			Do:
 email_pg_title:			E-mail
 email_subject:			Temat:
-email_body:			Tre¶æ:
-email_submit:			Wy¶lij
-ppost_quote_msg:		U¿ytkownik {VAR: msg_to_list} zamie¶ci³ dnia {TEMPLATE: ppost_quote_msg_date}
+email_body:			TreÅ›Ä‡:
+email_submit:			WyÅ›lij
+ppost_quote_msg:		UÅ¼ytkownik {VAR: msg_to_list} zamieÅ›ciÅ‚ dnia {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Cytuj:
 ppost_to:			Do:
 ppost_from_buddy_list:		wybierz z listy znajomych
-ppost_find_User:		znajd¼ u¿ytkownika
-ppost_track_msg:		¦led¼ tê wiadomo¶æ
-ppost_track_msg_desc:		Powiadom mnie, gdy wiadomo¶æ zostanie przeczytana.
-ppost_send:			Wy¶lij
+ppost_find_User:		znajdÅº uÅ¼ytkownika
+ppost_track_msg:		ÅšledÅº tÄ™ wiadomoÅ›Ä‡
+ppost_track_msg_desc:		Powiadom mnie, gdy wiadomoÅ›Ä‡ zostanie przeczytana.
+ppost_send:			WyÅ›lij
 ppost_save_draft:		Zapisz szkic
-poll_blank_option:		Nie mo¿esz dodaæ pustej opcji.
-poll_del_conf:			Je¶li chcesz usun±æ t± opcjê, wci¶nij OK
+poll_blank_option:		Nie moÅ¼esz dodaÄ‡ pustej opcji.
+poll_del_conf:			JeÅ›li chcesz usunÄ…Ä‡ tÄ… opcjÄ™, wciÅ›nij OK
 poll_name:			Nazwa Ankiety:
 poll_timelimit:			Ograniczenie Czasowe
-poll_maxiumvotes:		Maksimum G³osów
-poll_create:			Utwórz
+poll_maxiumvotes:		Maksimum GÅ‚osÃ³w
+poll_create:			UtwÃ³rz
 poll_update:			Uaktualnij
-poll_disablesmilies:		Wy³±cz u¶mieszki
-poll_create_poll:		Utwórz Ankietê
-poll_update_poll:		Uaktualnij Ankietê
-poll_delete:			Usuñ
+poll_disablesmilies:		WyÅ‚Ä…cz uÅ›mieszki
+poll_create_poll:		UtwÃ³rz AnkietÄ™
+poll_update_poll:		Uaktualnij AnkietÄ™
+poll_delete:			UsuÅ„
 poll_updateoption:		Opcje Aktualizacji
-poll_addoption:			Dodaj Opcjê
+poll_addoption:			Dodaj OpcjÄ™
 poll_unlimited:			Nieograniczone
-poll_day:			dzieñ
+poll_day:			dzieÅ„
 poll_days:			dni
 poll_hour:			godzina
 poll_hours:			godziny
-poll_month:			miesi±c
+poll_month:			miesiÄ…c
 poll_year:			rok
-poll_week:			tydzieñ
+poll_week:			tydzieÅ„
 tabs_register:			Preferencje
 tabs_subscriptions:		Subskrybcje
 tabs_referrals:			Osoby polecone
 tabs_buddy_list:		Lista znajomych
 tabs_ignore_list:		Lista ignorowanych
-tabs_private_messaging:		Prywatne wiadomo¶ci
-single_msg_delete:		Wygl±da na to ¿e zamierzasz <font color="#ff0000" size="4">USUN¡Æ</font> wiadomo¶æ zatytu³owan±: <b>{VAR: data[3]}</b><p>
-thread_delete:			Wygl±da na to ¿e zamierzasz <font color="#ff0000" size="4">USUN¡Æ CA£Y W¡TEK</font> zatytu³owany: <b>{VAR: data[3]}</b><p>
-delete_proceed:			<font size="3"><b>Czy napewno chcesz to zrobiæ?</b></font>
+tabs_private_messaging:		Prywatne wiadomoÅ›ci
+single_msg_delete:		WyglÄ…da na to Å¼e zamierzasz <font color="#ff0000" size="4">USUNÄ„Ä†</font> wiadomoÅ›Ä‡ zatytuÅ‚owanÄ…: <b>{VAR: data[3]}</b><p>
+thread_delete:			WyglÄ…da na to Å¼e zamierzasz <font color="#ff0000" size="4">USUNÄ„Ä† CAÅY WÄ„TEK</font> zatytuÅ‚owany: <b>{VAR: data[3]}</b><p>
+delete_proceed:			<font size="3"><b>Czy napewno chcesz to zrobiÄ‡?</b></font>
 delete_yes:			Tak
 delete_no:			Nie
-error_invalidurl:		Nieprawid³owy adres
-error_error:			B³±d
-usrinfo_profile:		Profil u¿ytkownika {VAR: u->alias}
-usrinfo_show_all_posts:		Poka¿ wszystkie wiadomo¶ci u¿ytkownika {VAR: u->alias}
-actions_update:			podgl±danie innych ludzi, takich jak Ty
+error_invalidurl:		NieprawidÅ‚owy adres
+error_error:			BÅ‚Ä…d
+usrinfo_profile:		Profil uÅ¼ytkownika {VAR: u->alias}
+usrinfo_show_all_posts:		PokaÅ¼ wszystkie wiadomoÅ›ci uÅ¼ytkownika {VAR: u->alias}
+actions_update:			podglÄ…danie innych ludzi, takich jak Ty
 err_info:			Informacje
-buddy_list_err_cantadd:		Nie mo¿na dodaæ siebie do listy znajomych
-buddy_list_err_dup:		Masz ju¿ tego u¿ytkownika na li¶cie znajomych
-buddy_list_err_nouser:		U¿ytkownik, którego próbowano dodaæ do listy znajomych, nie zosta³ znaleziony na tym forum.
-buddy_list_err_nouser_title:	Nieudane dodanie u¿ytkownika
-buddy_list_update:		Przegl±danie swojej listy znajomych
-core_err_invinp_title:		Nieprawid³owe Dane
-core_err_invinp_err:		Odkry³e¶ nieprawid³owy odno¶nik, wiêc powiadom <a href="mailto:{GVAR: ADMIN_EMAIL}">administratora</a>.
-core_adm_login_msg:		<br />Administratorzy mog± zalogowaæ siê <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tutaj</a>
-email_err_unabletoemail_title:	B£¡D: Nie uda³o siê wys³aæ listu
-email_err_unabletoemail_msg:	System poczty elektronicznej zosta³ wy³±czony przez administratora.
-email_error_unabletolocaddr:	System nie by³ w stanie wys³aæ listu do {VAR-HTML: _POST['tx_name']}, poniewa¿ nie móg³ zlokalizowaæ tego adresu e-mail.
-email_error_body:		Tre¶æ listu jest wymagana
+buddy_list_err_cantadd:		Nie moÅ¼na dodaÄ‡ siebie do listy znajomych
+buddy_list_err_dup:		Masz juÅ¼ tego uÅ¼ytkownika na liÅ›cie znajomych
+buddy_list_err_nouser:		UÅ¼ytkownik, ktÃ³rego prÃ³bowano dodaÄ‡ do listy znajomych, nie zostaÅ‚ znaleziony na tym forum.
+buddy_list_err_nouser_title:	Nieudane dodanie uÅ¼ytkownika
+buddy_list_update:		PrzeglÄ…danie swojej listy znajomych
+core_err_invinp_title:		NieprawidÅ‚owe Dane
+core_err_invinp_err:		OdkryÅ‚eÅ› nieprawidÅ‚owy odnoÅ›nik, wiÄ™c powiadom <a href="mailto:{GVAR: ADMIN_EMAIL}">administratora</a>.
+core_adm_login_msg:		<br />Administratorzy mogÄ… zalogowaÄ‡ siÄ™ <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tutaj</a>
+email_err_unabletoemail_title:	BÅÄ„D: Nie udaÅ‚o siÄ™ wysÅ‚aÄ‡ listu
+email_err_unabletoemail_msg:	System poczty elektronicznej zostaÅ‚ wyÅ‚Ä…czony przez administratora.
+email_error_unabletolocaddr:	System nie byÅ‚ w stanie wysÅ‚aÄ‡ listu do {VAR-HTML: _POST['tx_name']}, poniewaÅ¼ nie mÃ³gÅ‚ zlokalizowaÄ‡ tego adresu e-mail.
+email_error_body:		TreÅ›Ä‡ listu jest wymagana
 email_error_subject:		Temat listu jest wymagany
 email_error_namerequired:	Nazwa jest wymagana
-email_error_invaliduser:	Nieprawid³owy u¿ytkownik
-emailconf_err_invkey_title:	B³±d
-emailconf_err_invkey_msg:	Nieprawid³owy klucz potwierdzaj±cy. Sprawd¼ swój list, aby upewniæ siê, ¿e przeszed³e¶ poprawnie do podanego adresu.
-err_inc_criticaltitle:		B£¡D KRYTYCZNY
-err_inc_criticalmsg:		Napotka³e¶ b³±d, ale niesstety pojawi³ siê problem z systemem zg³aszania b³êdów.
-finduser_update:		Szukanie u¿ytkowników
-help_index_update:		Przegl±danie <a href="{TEMPLATE: help_index_update_lnk}">pomocy</a>
-iemail_thr_subject:		Nowa wiadomo¶æ w w±tku {VAR: thr_subject} utworzona przez u¿ytkownika {VAR: poster_login}
-iemail_thr_bodyemail:		Aby zobaczyæ nieprzeczytane wiadomo¶ci, przejd¼ do {VAR: goto_url['email']}\n\nJe¶li nie ¿yczysz sobie otrzymywaæ wiêcej powiadomieñ o wiadomo¶ciach w tym w±tku, przejd¼ tutaj: {VAR: unsub_url['email']}
-iemail_frm_subject:		Nowy w±tek na forum {VAR: frm_name} o temacie {VAR: thr_subject} utworzony przez u¿ytkownika {VAR: poster_login}
-iemail_frm_bodyemail:		Aby zobaczyæ ten w±tek, przejd¼ do:\n{VAR: goto_url['email']}\n\nAby przestaæ otrzymywaæ powiadamiania o nowych w±tkach na tym forum, przejd¼ tutaj: {VAR: unsub_url['email']}
+email_error_invaliduser:	NieprawidÅ‚owy uÅ¼ytkownik
+emailconf_err_invkey_title:	BÅ‚Ä…d
+emailconf_err_invkey_msg:	NieprawidÅ‚owy klucz potwierdzajÄ…cy. SprawdÅº swÃ³j list, aby upewniÄ‡ siÄ™, Å¼e przeszedÅ‚eÅ› poprawnie do podanego adresu.
+err_inc_criticaltitle:		BÅÄ„D KRYTYCZNY
+err_inc_criticalmsg:		NapotkaÅ‚eÅ› bÅ‚Ä…d, ale niesstety pojawiÅ‚ siÄ™ problem z systemem zgÅ‚aszania bÅ‚Ä™dÃ³w.
+finduser_update:		Szukanie uÅ¼ytkownikÃ³w
+help_index_update:		PrzeglÄ…danie <a href="{TEMPLATE: help_index_update_lnk}">pomocy</a>
+iemail_thr_subject:		Nowa wiadomoÅ›Ä‡ w wÄ…tku {VAR: thr_subject} utworzona przez uÅ¼ytkownika {VAR: poster_login}
+iemail_thr_bodyemail:		Aby zobaczyÄ‡ nieprzeczytane wiadomoÅ›ci, przejdÅº do {VAR: goto_url['email']}\n\nJeÅ›li nie Å¼yczysz sobie otrzymywaÄ‡ wiÄ™cej powiadomieÅ„ o wiadomoÅ›ciach w tym wÄ…tku, przejdÅº tutaj: {VAR: unsub_url['email']}
+iemail_frm_subject:		Nowy wÄ…tek na forum {VAR: frm_name} o temacie {VAR: thr_subject} utworzony przez uÅ¼ytkownika {VAR: poster_login}
+iemail_frm_bodyemail:		Aby zobaczyÄ‡ ten wÄ…tek, przejdÅº do:\n{VAR: goto_url['email']}\n\nAby przestaÄ‡ otrzymywaÄ‡ powiadamiania o nowych wÄ…tkach na tym forum, przejdÅº tutaj: {VAR: unsub_url['email']}
 ignore_list_err_info_title:	Informacje
-ignore_list_err_dup_msg:	Masz ju¿ tego u¿ytkownika ma swojej li¶cie ignorowanych
-ignore_list_err_nu_title:	U¿ytkownik nie zosta³ znaleziony
-ignore_list_err_nu_msg:		U¿ytkownik, ktorego próbowa³e¶ dodaæ do swojej listy ignorowanych, nie zosta³ znalezniony na forum.
-ignore_list_cantign_msg:	Nie mo¿esz ignorowaæ tego u¿ytkownika
-ignore_list_update:		Przegl±danie w³asnej listy ignorowanych
-index_update:			Przegl±danie <a href="{TEMPLATE: index_update_lnk}">listy forum</a>
-list_referers_update:		Przegl±danie osób poleconych
+ignore_list_err_dup_msg:	Masz juÅ¼ tego uÅ¼ytkownika ma swojej liÅ›cie ignorowanych
+ignore_list_err_nu_title:	UÅ¼ytkownik nie zostaÅ‚ znaleziony
+ignore_list_err_nu_msg:		UÅ¼ytkownik, ktorego prÃ³bowaÅ‚eÅ› dodaÄ‡ do swojej listy ignorowanych, nie zostaÅ‚ znalezniony na forum.
+ignore_list_cantign_msg:	Nie moÅ¼esz ignorowaÄ‡ tego uÅ¼ytkownika
+ignore_list_update:		PrzeglÄ…danie wÅ‚asnej listy ignorowanych
+index_update:			PrzeglÄ…danie <a href="{TEMPLATE: index_update_lnk}">listy forum</a>
+list_referers_update:		PrzeglÄ…danie osÃ³b poleconych
 login_update:			Formularz logowania
-msg_update:			Przegl±danie w±tku <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:		B£¡D: Prywatne wiadomo¶ci zosta³y wy³±czone
-pm_err_nopm_msg:		Nie mo¿esz u¿yæ systemu prywatnych wiadomo¶ci, gdy¿ zosta³ wy³±czony przez administratora.
-pm_update:			Korzystanie z prywatnych wiadomo¶ci
-post_err_lockedthread_title:	B£¡D: Zablokowany w±tek
-post_err_lockedthread_msg:	Ten w±tek jest zablokowany, wiêc nie wolno zamieszczaæ wiêcej wiadomo¶ci
-err_coppa_title:		B£¡D: Twoje konto nie jest jeszcze potwierdzone
-err_coppa_msg:			Nie otrzymali¶my potwierdzenia od Twojego rodzica lub prawnego opiekuna, co pozwoli³oby ci zamieszczaæ wiadomo¶ci. Je¶li zgubi³e¶ swój formularz COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">przejd¼ tutaj</a>, aby go otrzymaæ
-post_err_edttimelimit_title:	B£¡D
-post_err_edttimelimit_msg:	Nie mo¿esz ju¿ edytowaæ tej wiadomo¶ci
-post_err_floodtrig_title:	B£¡D: Wykryto zbyt du¿± ilo¶æ zamieszczanych wiadomo¶ci.
-post_err_floodtrig_msg:		Spróbuj ponownie za {VAR: tm} sekund
-post_err_attach_size:		<font class="ErrorText">Za³±cznik jest zbyt du¿y (ponad dozwolone ograniczenie {VAR: MAX_F_SIZE} bajtów)</font><br />
-post_err_attach_ext:		<font class="ErrorText">Plik, który próbujesz do³±czyæ nie pokrywa siê z dozwolonymi typami plików.</font><br />
-post_err_attach_filelimit:	<font class="ErrorText">Próbujesz do³±czyæ wiêcej plików ni¿ jest to dozwolone.</font><br />
-post_err_passwd:		Nieprawid³owe has³o.
-post_reply_update:		Odpowiadanie na w±tek <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> na forum {VAR-HTML: frm->name}
-post_topic_update:		Tworzenie nowego w±tku na forum <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
-post_error_generic:		Wiadomo¶æ nie zosta³a wys³ana, gdy¿ wyst±pi³ b³±d:
-postcheck_max_images_err:	Maksimum dozwolonych obrazków w wiadomo¶ci to {GVAR: MAX_IMAGE_COUNT}, dlatego musisz zmniejszyæ ich liczbê.
+msg_update:			PrzeglÄ…danie wÄ…tku <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:		BÅÄ„D: Prywatne wiadomoÅ›ci zostaÅ‚y wyÅ‚Ä…czone
+pm_err_nopm_msg:		Nie moÅ¼esz uÅ¼yÄ‡ systemu prywatnych wiadomoÅ›ci, gdyÅ¼ zostaÅ‚ wyÅ‚Ä…czony przez administratora.
+pm_update:			Korzystanie z prywatnych wiadomoÅ›ci
+post_err_lockedthread_title:	BÅÄ„D: Zablokowany wÄ…tek
+post_err_lockedthread_msg:	Ten wÄ…tek jest zablokowany, wiÄ™c nie wolno zamieszczaÄ‡ wiÄ™cej wiadomoÅ›ci
+err_coppa_title:		BÅÄ„D: Twoje konto nie jest jeszcze potwierdzone
+err_coppa_msg:			Nie otrzymaliÅ›my potwierdzenia od Twojego rodzica lub prawnego opiekuna, co pozwoliÅ‚oby ci zamieszczaÄ‡ wiadomoÅ›ci. JeÅ›li zgubiÅ‚eÅ› swÃ³j formularz COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">przejdÅº tutaj</a>, aby go otrzymaÄ‡
+post_err_edttimelimit_title:	BÅÄ„D
+post_err_edttimelimit_msg:	Nie moÅ¼esz juÅ¼ edytowaÄ‡ tej wiadomoÅ›ci
+post_err_floodtrig_title:	BÅÄ„D: Wykryto zbyt duÅ¼Ä… iloÅ›Ä‡ zamieszczanych wiadomoÅ›ci.
+post_err_floodtrig_msg:		SprÃ³buj ponownie za {VAR: tm} sekund
+post_err_attach_size:		<font class="ErrorText">ZaÅ‚Ä…cznik jest zbyt duÅ¼y (ponad dozwolone ograniczenie {VAR: MAX_F_SIZE} bajtÃ³w)</font><br />
+post_err_attach_ext:		<font class="ErrorText">Plik, ktÃ³ry prÃ³bujesz doÅ‚Ä…czyÄ‡ nie pokrywa siÄ™ z dozwolonymi typami plikÃ³w.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">PrÃ³bujesz doÅ‚Ä…czyÄ‡ wiÄ™cej plikÃ³w niÅ¼ jest to dozwolone.</font><br />
+post_err_passwd:		NieprawidÅ‚owe hasÅ‚o.
+post_reply_update:		Odpowiadanie na wÄ…tek <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> na forum {VAR-HTML: frm->name}
+post_topic_update:		Tworzenie nowego wÄ…tku na forum <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_error_generic:		WiadomoÅ›Ä‡ nie zostaÅ‚a wysÅ‚ana, gdyÅ¼ wystÄ…piÅ‚ bÅ‚Ä…d:
+postcheck_max_images_err:	Maksimum dozwolonych obrazkÃ³w w wiadomoÅ›ci to {GVAR: MAX_IMAGE_COUNT}, dlatego musisz zmniejszyÄ‡ ich liczbÄ™.
 postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Temat jest wymagany
-postcheck_no_such_user:		Nie ma u¿ytkownika o nazwie "{FUNC: char_fix(htmlspecialchars($v))}" w tym forum
-postcheck_ignored:		Nie mo¿esz wys³aæ wiadomo¶ci do "{FUNC: char_fix(htmlspecialchars($v))}", poniewa¿ ta osoba ignoruje Ciê.
-postcheck_no_recepient:		Nie mo¿na wys³aæ wiadomo¶ci, gdy¿ brakuje adresata
-postcheck_invalid_email:	Wprowad¼ poprawny adres e-mail Twojego znajomego.
-postcheck_email_subject:	Nie mo¿esz wys³aæ listu bez tematu.
-postcheck_email_body:		Nie mo¿esz wys³aæ listu bez tre¶ci.
-private_msg_notify_subj:	Powiadomienie przeczytania wiadomo¶ci o temacie: {VAR: m->subject}
-private_msg_notify_body:	Witaj,<br />{VAR: usr->login} przeczyta³(a) Twoj± prywatn± wiadomo¶æ, "{VAR: m->subject}", dnia {TEMPLATE: private_msg_notify_body_date}<br />
-referals_update:		Przegl±danie osób poleconych
-register_err_short_login:	Nazwa u¿ytkownika, która zosta³a wybrana, jest za krótka. Nazwa u¿ytkownika musi mieæ co najmniej 4 znaki
-register_err_login_notallowed:	Ta nazwa u¿ytkownika nie jest dozwolona
-register_err_loginunique:	Nazwy u¿ytkowników musz± byæ unikalne, a ju¿ jest u¿ytkownik o takiej nazwie obecny w systemie
-register_err_emailexists:	Ten adres e-mail ju¿ istnieje, wiêc je¶li zapomnia³e¶ has³a, u¿yj opcji odzyskiwania opcji, zamiast rejestrowaæ siê ponownie.
-register_err_shortpasswd:	Has³o musi mieæ co najmniej 6 znaków.
-register_err_passwdnomatch:	Twoje has³a nie pokrywaj± siê.
-register_err_invalidemail:	Adres e-mail, który poda³e¶, nie wydaje siê byæ poprawny.
-register_err_needname:		Aby pomy¶lnie zakoñczyæ proces rejestracji, musisz podaæ swoje nazwisko.
-register_err_enterpasswd:	Musisz podaæ swoje aktualne has³o, aby wprowadziæ zmiany.
-register_err_adminpasswd:	Musisz podaæ swoje has³o administratora, aby wprowadziæ zmiany.
-register_err_notyouremail:	Kto¶ jest ju¿ zarejestrowany z tym adresem e-mail i t± osob± NIE jeste¶ Ty.
-register_err_avatartobig:	Plik, który próbujesz do³±czyæ, jest za du¿y, poniewa¿ przekracza ograniczenie {GVAR: CUSTOM_AVATAR_MAX_SIZE} bajtów
-register_err_avatarnotallowed:	Avatar, który próbujesz do³±czyæ, jest niedozwolony, wiêc sprawd¼ dozwolone typy plików.
+postcheck_no_such_user:		Nie ma uÅ¼ytkownika o nazwie "{FUNC: char_fix(htmlspecialchars($v))}" w tym forum
+postcheck_ignored:		Nie moÅ¼esz wysÅ‚aÄ‡ wiadomoÅ›ci do "{FUNC: char_fix(htmlspecialchars($v))}", poniewaÅ¼ ta osoba ignoruje CiÄ™.
+postcheck_no_recepient:		Nie moÅ¼na wysÅ‚aÄ‡ wiadomoÅ›ci, gdyÅ¼ brakuje adresata
+postcheck_invalid_email:	WprowadÅº poprawny adres e-mail Twojego znajomego.
+postcheck_email_subject:	Nie moÅ¼esz wysÅ‚aÄ‡ listu bez tematu.
+postcheck_email_body:		Nie moÅ¼esz wysÅ‚aÄ‡ listu bez treÅ›ci.
+private_msg_notify_subj:	Powiadomienie przeczytania wiadomoÅ›ci o temacie: {VAR: m->subject}
+private_msg_notify_body:	Witaj,<br />{VAR: usr->login} przeczytaÅ‚(a) TwojÄ… prywatnÄ… wiadomoÅ›Ä‡, "{VAR: m->subject}", dnia {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:		PrzeglÄ…danie osÃ³b poleconych
+register_err_short_login:	Nazwa uÅ¼ytkownika, ktÃ³ra zostaÅ‚a wybrana, jest za krÃ³tka. Nazwa uÅ¼ytkownika musi mieÄ‡ co najmniej 4 znaki
+register_err_login_notallowed:	Ta nazwa uÅ¼ytkownika nie jest dozwolona
+register_err_loginunique:	Nazwy uÅ¼ytkownikÃ³w muszÄ… byÄ‡ unikalne, a juÅ¼ jest uÅ¼ytkownik o takiej nazwie obecny w systemie
+register_err_emailexists:	Ten adres e-mail juÅ¼ istnieje, wiÄ™c jeÅ›li zapomniaÅ‚eÅ› hasÅ‚a, uÅ¼yj opcji odzyskiwania opcji, zamiast rejestrowaÄ‡ siÄ™ ponownie.
+register_err_shortpasswd:	HasÅ‚o musi mieÄ‡ co najmniej 6 znakÃ³w.
+register_err_passwdnomatch:	Twoje hasÅ‚a nie pokrywajÄ… siÄ™.
+register_err_invalidemail:	Adres e-mail, ktÃ³ry podaÅ‚eÅ›, nie wydaje siÄ™ byÄ‡ poprawny.
+register_err_needname:		Aby pomyÅ›lnie zakoÅ„czyÄ‡ proces rejestracji, musisz podaÄ‡ swoje nazwisko.
+register_err_enterpasswd:	Musisz podaÄ‡ swoje aktualne hasÅ‚o, aby wprowadziÄ‡ zmiany.
+register_err_adminpasswd:	Musisz podaÄ‡ swoje hasÅ‚o administratora, aby wprowadziÄ‡ zmiany.
+register_err_notyouremail:	KtoÅ› jest juÅ¼ zarejestrowany z tym adresem e-mail i tÄ… osobÄ… NIE jesteÅ› Ty.
+register_err_avatartobig:	Plik, ktÃ³ry prÃ³bujesz doÅ‚Ä…czyÄ‡, jest za duÅ¼y, poniewaÅ¼ przekracza ograniczenie {GVAR: CUSTOM_AVATAR_MAX_SIZE} bajtÃ³w
+register_err_avatarnotallowed:	Avatar, ktÃ³ry prÃ³bujesz doÅ‚Ä…czyÄ‡, jest niedozwolony, wiÄ™c sprawdÅº dozwolone typy plikÃ³w.
 register_conf_subject:		Potwierdzenie rejestracji
-register_conf_msg:		Dziêkujemy za zarejestrowanie siê na {FULL_ROOT}.\nAby aktywowaæ swoje konto, przejd¼ pod adres:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nJak tylko konto zostanie aktywowane, zostaniesz zalogowany(a) i\nprzekierowany(a) na g³ówn± stronê naszego forum.
+register_conf_msg:		DziÄ™kujemy za zarejestrowanie siÄ™ na {FULL_ROOT}.\nAby aktywowaÄ‡ swoje konto, przejdÅº pod adres:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nJak tylko konto zostanie aktywowane, zostaniesz zalogowany(a) i\nprzekierowany(a) na gÅ‚Ã³wnÄ… stronÄ™ naszego forum.
 register_welcome_subject:	Potwierdzenie rejestracji na forum
-register_welcome_msg:		Dziêkujemy za zarejestrowanie siê.\n\nTutaj znajduj± siê szczegó³y twojego logowania siê na forum:\n\nAdres forum: {TEMPLATE: index_update_lnk}\nNazwa u¿ytkownika: {VAR: uent->login}\nHas³o: {VAR: _POST['reg_plaintext_passwd']}\n\nB±d¼ ¶wiadom(a), ¿e wielko¶æ liter w has³ach ma znaczenie!\nAby zmieniæ swoje ustawienia i profil, przejd¼ do tej strony:\n{FULL_ROOT}{ROOT}?t=register\n
-register_err_cantreg_title:	B£¡D: rejestracja nie jest mo¿liwa
-regsiter_err_cantreg_msg:	Brak mo¿liwo¶ci stworzenia konta u¿ytkownika, dlatego skontaktuj siê z administratorem pod adresem e-mail <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>.
-register_profile_update:	Przegl±d w³asnego profilu
+register_welcome_msg:		DziÄ™kujemy za zarejestrowanie siÄ™.\n\nTutaj znajdujÄ… siÄ™ szczegÃ³Å‚y twojego logowania siÄ™ na forum:\n\nAdres forum: {TEMPLATE: index_update_lnk}\nNazwa uÅ¼ytkownika: {VAR: uent->login}\nHasÅ‚o: {VAR: _POST['reg_plaintext_passwd']}\n\nBÄ…dÅº Å›wiadom(a), Å¼e wielkoÅ›Ä‡ liter w hasÅ‚ach ma znaczenie!\nAby zmieniÄ‡ swoje ustawienia i profil, przejdÅº do tej strony:\n{FULL_ROOT}{ROOT}?t=register\n
+register_err_cantreg_title:	BÅÄ„D: rejestracja nie jest moÅ¼liwa
+regsiter_err_cantreg_msg:	Brak moÅ¼liwoÅ›ci stworzenia konta uÅ¼ytkownika, dlatego skontaktuj siÄ™ z administratorem pod adresem e-mail <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>.
+register_profile_update:	PrzeglÄ…d wÅ‚asnego profilu
 register_register_update:	Strona rejestracji
-report_err_nosuchmsg_title:	B£¡D
-report_err_nosuchmsg_msg:	Nie ma takiej wiadomo¶ci
-reset_err_invalidkey_title:	B£¡D
-reset_err_invalidkey_msg:	Nieprawid³owy klucz przy zerowaniu has³a
+report_err_nosuchmsg_title:	BÅÄ„D
+report_err_nosuchmsg_msg:	Nie ma takiej wiadomoÅ›ci
+reset_err_invalidkey_title:	BÅÄ„D
+reset_err_invalidkey_msg:	NieprawidÅ‚owy klucz przy zerowaniu hasÅ‚a
 reset_err_rstconf_title:	Informacje
-reset_err_rstconf_msg:		W ci±gu paru minut powiniene¶ otrzymaæ e-mailem instrukcjê co dalej robiæ.
-reset_newpass_title:		Odzyskiwanie has³a
-reset_newpass_msg:		Witaj,\n\nW zwi±zku z Twoja pro¶b±, wysy³amy Ci nowe has³o.\nPoni¿ej znajduj± siê Twoje informacje do logowania siê:\n\nNazwa u¿ytkownika: {VAR: ui[1]}\nHas³o: {VAR: passwd}\n\nZauwa¿, ¿e Twoje has³o zosta³o ustawione na to podane powy¿ej. Je¶li ¿yczysz sobie\nzmieniæ swoje has³o, mo¿esz to zrobiæ poprzez panel sterowania u¿ytkownika:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Twoje has³o zosta³o wys³ane do Ciebie poczt± elektroniczn±. Powiniene¶ je otrzymaæ w ci±gu kilku minut. Sprawd¼ pocztê i wykorzystaj zawarte tam informacje aby siê zalogowaæ...<br />&nbsp;<br />&nbsp;<br />
-search_update:			Szukanie wiadomo¶ci
-selmsg_update:			Przegl±danie <a href="{TEMPLATE: selmsg_update_lnk}">dzisiejszych wiadomo¶c</a>
-showposts_update:		Przegl±danie wiadomo¶ci zamieszczonych przez u¿ytkownika: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-subscribed_update:		Przegl±danie w³asnych subskrypcji
-thread_update:			Przegl±danie forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			Przegl±danie w±tku (widok drzewiasty) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:		Przegl±danie profilu u¿ytkownika <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
-ERR_disabled_ttl:		Wy³±czona funkcja
-ERR_disabled_msg:		Ta funkcja zosta³a wy³±czona przez administratora systemu.
-ERR_access_ttl:			B£¡D: Niewystarczaj±ce uprawnienia
-ERR_access_msg:			Nie masz wymaganych uprawnieñ, aby wykonaæ tê operacjê.
-ERR_registration_disabled_ttl:	Rejestracja jest wy³±czona
-ERR_registration_disabled_msg:	Administrator wy³±czy³ rejestracjê, wiêc spróbuj ponownie pó¼niej.
-ERR_emailconf_ttl:		B£¡D: Twoje konto nie jest jeszcze potwierdzone
-ERR_emailconf_msg:		Nie potwierdzi³e¶ jeszcze swojego konta poprzez e-mail<br /><table border=0><tr><td><ol><li>Je¶li nie otrzyma³e¶ potwierdzaj±cego listu, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">przejd¼ tutaj</a>.<li>Je¶li {VAR: usr_d->email} nie jest Twoim poprawnym adresem, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">przejd¼ tutaj</a></ol></td></tr></table>
-ERR_user_ttl:			B£¡D: Brak takiego u¿ytkownika
-ERR_user_msg:			Nie ma takiego u¿ytkownika
-ERR_systemerr_ttl:		B£¡D: B³±d systemu
-ERR_systemerr_msg:		Wyst±pi³ b³±d systemu, dlatego zg³o¶ go do <a href="mailto:{GVAR: ADMIN_EMAIL}">administratora</a>.
-email_title:			Formularz wysy³ania listu
-finduser_title:			Znajd¼ U¿ytkownika
+reset_err_rstconf_msg:		W ciÄ…gu paru minut powinieneÅ› otrzymaÄ‡ e-mailem instrukcjÄ™ co dalej robiÄ‡.
+reset_newpass_title:		Odzyskiwanie hasÅ‚a
+reset_newpass_msg:		Witaj,\n\nW zwiÄ…zku z Twoja proÅ›bÄ…, wysyÅ‚amy Ci nowe hasÅ‚o.\nPoniÅ¼ej znajdujÄ… siÄ™ Twoje informacje do logowania siÄ™:\n\nNazwa uÅ¼ytkownika: {VAR: ui[1]}\nHasÅ‚o: {VAR: passwd}\n\nZauwaÅ¼, Å¼e Twoje hasÅ‚o zostaÅ‚o ustawione na to podane powyÅ¼ej. JeÅ›li Å¼yczysz sobie\nzmieniÄ‡ swoje hasÅ‚o, moÅ¼esz to zrobiÄ‡ poprzez panel sterowania uÅ¼ytkownika:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_login_notify:		Twoje hasÅ‚o zostaÅ‚o wysÅ‚ane do Ciebie pocztÄ… elektronicznÄ…. PowinieneÅ› je otrzymaÄ‡ w ciÄ…gu kilku minut. SprawdÅº pocztÄ™ i wykorzystaj zawarte tam informacje aby siÄ™ zalogowaÄ‡...<br />&nbsp;<br />&nbsp;<br />
+search_update:			Szukanie wiadomoÅ›ci
+selmsg_update:			PrzeglÄ…danie <a href="{TEMPLATE: selmsg_update_lnk}">dzisiejszych wiadomoÅ›c</a>
+showposts_update:		PrzeglÄ…danie wiadomoÅ›ci zamieszczonych przez uÅ¼ytkownika: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:		PrzeglÄ…danie wÅ‚asnych subskrypcji
+thread_update:			PrzeglÄ…danie forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			PrzeglÄ…danie wÄ…tku (widok drzewiasty) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:		PrzeglÄ…danie profilu uÅ¼ytkownika <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+ERR_disabled_ttl:		WyÅ‚Ä…czona funkcja
+ERR_disabled_msg:		Ta funkcja zostaÅ‚a wyÅ‚Ä…czona przez administratora systemu.
+ERR_access_ttl:			BÅÄ„D: NiewystarczajÄ…ce uprawnienia
+ERR_access_msg:			Nie masz wymaganych uprawnieÅ„, aby wykonaÄ‡ tÄ™ operacjÄ™.
+ERR_registration_disabled_ttl:	Rejestracja jest wyÅ‚Ä…czona
+ERR_registration_disabled_msg:	Administrator wyÅ‚Ä…czyÅ‚ rejestracjÄ™, wiÄ™c sprÃ³buj ponownie pÃ³Åºniej.
+ERR_emailconf_ttl:		BÅÄ„D: Twoje konto nie jest jeszcze potwierdzone
+ERR_emailconf_msg:		Nie potwierdziÅ‚eÅ› jeszcze swojego konta poprzez e-mail<br /><table border=0><tr><td><ol><li>JeÅ›li nie otrzymaÅ‚eÅ› potwierdzajÄ…cego listu, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">przejdÅº tutaj</a>.<li>JeÅ›li {VAR: usr_d->email} nie jest Twoim poprawnym adresem, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">przejdÅº tutaj</a></ol></td></tr></table>
+ERR_user_ttl:			BÅÄ„D: Brak takiego uÅ¼ytkownika
+ERR_user_msg:			Nie ma takiego uÅ¼ytkownika
+ERR_systemerr_ttl:		BÅÄ„D: BÅ‚Ä…d systemu
+ERR_systemerr_msg:		WystÄ…piÅ‚ bÅ‚Ä…d systemu, dlatego zgÅ‚oÅ› go do <a href="mailto:{GVAR: ADMIN_EMAIL}">administratora</a>.
+email_title:			Formularz wysyÅ‚ania listu
+finduser_title:			ZnajdÅº UÅ¼ytkownika
 help_title:			Pomoc
 login_title:			Formularz logowania
 msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Edytor Ankiet
 register_title:			Formularz rejestracji
-reset_title:			Wyzeruj has³o
-rpasswd_title:			Formularz zmiany has³a
-error_title:			Formularz b³êdu
+reset_title:			Wyzeruj hasÅ‚o
+rpasswd_title:			Formularz zmiany hasÅ‚a
+error_title:			Formularz bÅ‚Ä™du
 index_title:			Witaj na naszym forum
 search_title:			Szukaj {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-remail_emailsent:		List zosta³ wys³any
-remail_email:			Jest strona WWW o adresie {GVAR: FORUM_TITLE} ({TEMPLATE: index_update_lnk}), która powinna Ciê zainteresowaæ.\nJest tam dyskusja, która my¶lê, ¿e jest ciekawa - {VAR: data->subject} i mo¿e byæ znaleziona tutaj: {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n{VAR: usr->alias}\n
-poll_add_option:		Dodaj Opcjê:
-post_opt_html_on:		<b>HTML</b> jest <b>W³±czony</b>
-post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD Code</b> jest <b>W³±czony</b></a>
-post_opt_images_on:		<b>Obrazki</b> s± <b>W³±czone</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>U¶mieszki</b> s± <b>W³±czone</b></a></a>
-post_opt_html_off:		<b>HTML</b> jest <b>Wy³±czony</b>
-post_opt_fud_off:		<b>FUD Code</b> jest <b>Wy³±czony</b>
-post_opt_images_off:		<b>Obrazki</b> s± <b>Wy³±czone</b>
-post_opt_smilies_off:		<b>U¶mieszki</b> s± <b>Wy³±czone</b>
+remail_emailsent:		List zostaÅ‚ wysÅ‚any
+remail_email:			Jest strona WWW o adresie {GVAR: FORUM_TITLE} ({TEMPLATE: index_update_lnk}), ktÃ³ra powinna CiÄ™ zainteresowaÄ‡.\nJest tam dyskusja, ktÃ³ra myÅ›lÄ™, Å¼e jest ciekawa - {VAR: data->subject} i moÅ¼e byÄ‡ znaleziona tutaj: {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n{VAR: usr->alias}\n
+poll_add_option:		Dodaj OpcjÄ™:
+post_opt_html_on:		<b>HTML</b> jest <b>WÅ‚Ä…czony</b>
+post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD Code</b> jest <b>WÅ‚Ä…czony</b></a>
+post_opt_images_on:		<b>Obrazki</b> sÄ… <b>WÅ‚Ä…czone</b>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>UÅ›mieszki</b> sÄ… <b>WÅ‚Ä…czone</b></a></a>
+post_opt_html_off:		<b>HTML</b> jest <b>WyÅ‚Ä…czony</b>
+post_opt_fud_off:		<b>FUD Code</b> jest <b>WyÅ‚Ä…czony</b>
+post_opt_images_off:		<b>Obrazki</b> sÄ… <b>WyÅ‚Ä…czone</b>
+post_opt_smilies_off:		<b>UÅ›mieszki</b> sÄ… <b>WyÅ‚Ä…czone</b>
 post_opt:			Opcje Forum
-register_change_passwd:		zmieñ has³o
-install_script_present_error:	Ze wzglêdów bezpieczeñstwa musisz usun±æ skrypt instalacyjny z <b>{GVAR: WWW_ROOT_DISK}install.php</b> zanim bêdziesz u¿ywa³ forum.
-approved_avatar_title:		Twój dodatkowy avatar zosta³ zatwierdzony.
-approved_avatar_msg:		Twój avatar zosta³ zatwierdzony przez administratora. Powinien teraz pojawiæ siê jako Twój avatar we wszystkich Twoich wiadomo¶ciach. Je¶li go nie widzisz lub widzisz stary, jest tak poniewa¿ Twoja przegl±darka trzyma stronê w pamiêci podrêcznej. Spróbuj od¶wie¿yæ j± raz lub dwa, a to w wiêkszo¶ci przypadków powinno rozwi±zaæ problem.
-unapproved_avatar_title:	Twój dodatkowy avatar zosta³ odrzucony.
-unapproved_avatar_msg:		Administrator nie zatwierdzi³ Twojego avatara. Wiêkszo¶æ typowych przyczyn to takie, ¿e Twój avatar by³ za du¿y (rozmiar i/lub wymiary) lub zawiera³ niestosown± tematykê. Je¶li chcesz wiedzieæ wiêcej o tym, dlaczego Twój avatar zosta³ odrzucony, skontaktuj siê z administratorem.
-mvthread_request_move:		pro¶ba o przeniesienie
-move_request_reason:		Dlaczego ¿yczysz sobie przenie¶æ ten w±tek?
-mvthread_submit_req:		Wy¶lij Pro¶bê
-thread_exchange:		Wymiana w±tków
-move_request_by:		Przeniesienie w±tku zaproponowane przez:
-move_reason:			Przyczyna na przeniesienia w±tku:
-thr_exch_accept:		akceptuje przeniesienie w±tku
-thr_exch_decline:		odrzuæ przeniesienie w±tku
+register_change_passwd:		zmieÅ„ hasÅ‚o
+install_script_present_error:	Ze wzglÄ™dÃ³w bezpieczeÅ„stwa musisz usunÄ…Ä‡ skrypt instalacyjny z <b>{GVAR: WWW_ROOT_DISK}install.php</b> zanim bÄ™dziesz uÅ¼ywaÅ‚ forum.
+approved_avatar_title:		TwÃ³j dodatkowy avatar zostaÅ‚ zatwierdzony.
+approved_avatar_msg:		TwÃ³j avatar zostaÅ‚ zatwierdzony przez administratora. Powinien teraz pojawiÄ‡ siÄ™ jako TwÃ³j avatar we wszystkich Twoich wiadomoÅ›ciach. JeÅ›li go nie widzisz lub widzisz stary, jest tak poniewaÅ¼ Twoja przeglÄ…darka trzyma stronÄ™ w pamiÄ™ci podrÄ™cznej. SprÃ³buj odÅ›wieÅ¼yÄ‡ jÄ… raz lub dwa, a to w wiÄ™kszoÅ›ci przypadkÃ³w powinno rozwiÄ…zaÄ‡ problem.
+unapproved_avatar_title:	TwÃ³j dodatkowy avatar zostaÅ‚ odrzucony.
+unapproved_avatar_msg:		Administrator nie zatwierdziÅ‚ Twojego avatara. WiÄ™kszoÅ›Ä‡ typowych przyczyn to takie, Å¼e TwÃ³j avatar byÅ‚ za duÅ¼y (rozmiar i/lub wymiary) lub zawieraÅ‚ niestosownÄ… tematykÄ™. JeÅ›li chcesz wiedzieÄ‡ wiÄ™cej o tym, dlaczego TwÃ³j avatar zostaÅ‚ odrzucony, skontaktuj siÄ™ z administratorem.
+mvthread_request_move:		proÅ›ba o przeniesienie
+move_request_reason:		Dlaczego Å¼yczysz sobie przenieÅ›Ä‡ ten wÄ…tek?
+mvthread_submit_req:		WyÅ›lij ProÅ›bÄ™
+thread_exchange:		Wymiana wÄ…tkÃ³w
+move_request_by:		Przeniesienie wÄ…tku zaproponowane przez:
+move_reason:			Przyczyna na przeniesienia wÄ…tku:
+thr_exch_accept:		akceptuje przeniesienie wÄ…tku
+thr_exch_decline:		odrzuÄ‡ przeniesienie wÄ…tku
 thr_exch_orig_forum:		Oryginalne Forum:
 thr_exch_dest_forum:		Docelowe Forum:
-thr_exch_no_threads:		Brak w±tków czekaj±cych na akceptacjê.
-thr_exch_decl_reason:		Przyczyna odrzucenia przeniesienia w±tku <b>{VAR-HTML: frm->name}</b> na forum <b>{VAR-HTML: frm->name}</b>
-thr_exch_submit:		Wy¶lij
-exch_decline_ttl:		Przenoszenie w±tku {VAR: data->subject} na forum {VAR-HTML: data->f2_name} zosta³o odrzucone.
-ppost_original_msg:		wiadomo¶æ, któr± przesy³asz dalej lub na któr± odpowiadasz
-split_thread:			Podziel w±tek
-groupmgr_no_user:		Nie ma u¿ytkownika o nazwie "{FUNC: char_fix(htmlspecialchars($gr_member))}"
-groupmgr_already_exists:	U¿ytkownik "{FUNC: char_fix(htmlspecialchars($gr_member))}" ju¿ istnieje w tej grupie.
+thr_exch_no_threads:		Brak wÄ…tkÃ³w czekajÄ…cych na akceptacjÄ™.
+thr_exch_decl_reason:		Przyczyna odrzucenia przeniesienia wÄ…tku <b>{VAR-HTML: frm->name}</b> na forum <b>{VAR-HTML: frm->name}</b>
+thr_exch_submit:		WyÅ›lij
+exch_decline_ttl:		Przenoszenie wÄ…tku {VAR: data->subject} na forum {VAR-HTML: data->f2_name} zostaÅ‚o odrzucone.
+ppost_original_msg:		wiadomoÅ›Ä‡, ktÃ³rÄ… przesyÅ‚asz dalej lub na ktÃ³rÄ… odpowiadasz
+split_thread:			Podziel wÄ…tek
+groupmgr_no_user:		Nie ma uÅ¼ytkownika o nazwie "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	UÅ¼ytkownik "{FUNC: char_fix(htmlspecialchars($gr_member))}" juÅ¼ istnieje w tej grupie.
 groupmgr_yes:			Tak
 groupmgr_no:			Nie
 groupmgr_action:		Akcja
-groupmgr_member:		U¿ytkownik
+groupmgr_member:		UÅ¼ytkownik
 groupmgr_cancel:		Anuluj
-groupmgr_add_member:		Dodaj u¿ytkownika
-groupmgr_update_member:		Uaktualnij u¿ytkownika
+groupmgr_add_member:		Dodaj uÅ¼ytkownika
+groupmgr_update_member:		Uaktualnij uÅ¼ytkownika
 groupmgr_edit:			Edytuj
-groupmgr_delete:		Usuñ
+groupmgr_delete:		UsuÅ„
 group_mgr_anon:			Anonimowy
-group_mgr_reged:		Wszyscy zarejestrowani u¿ytkownicy
-show_show:			Poka¿:
-group_mgr:			Mened¿er grup
-group_mgr_edit_btn:		Edytuj grupê
+group_mgr_reged:		Wszyscy zarejestrowani uÅ¼ytkownicy
+show_show:			PokaÅ¼:
+group_mgr:			MenedÅ¼er grup
+group_mgr_edit_btn:		Edytuj grupÄ™
 group_mgr_heading:		Edytor grup
 group_mgr_group:		Grupa:
-permission_denied_title:	Brak dostêpu!
-permission_denied_msg:		Twoje uprawnienia u¿ytkownika nie pozwalaj± Ci przeprowadziæ akcji, która zamierzasz.
+permission_denied_title:	Brak dostÄ™pu!
+permission_denied_msg:		Twoje uprawnienia uÅ¼ytkownika nie pozwalajÄ… Ci przeprowadziÄ‡ akcji, ktÃ³ra zamierzasz.
 p_READ:				Odczyt
-p_POST:				Nowa wiadomo¶æ
+p_POST:				Nowa wiadomoÅ›Ä‡
 p_REPLY:			Odpowiedz
 p_EDIT:				Edytuj
-p_DEL:				Usuñ
-p_STICKY:			Przyczepiona wiadomo¶æ
-p_POLL:				Utwórz ankietê
-p_FILE:				Do³±cz pliki
-p_VOTE:				G³osuj
-p_RATE:				Oceñ w±tki
-p_SPLIT:			Podziel w±tki
-p_LOCK:				Zablokuj w±tki
-p_MOVE:				Przenie¶ w±tki
-p_SML:				U¿ywaj u¶mieszków
-p_IMG:				U¿ywaj znaczników obrazków
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Znajd¼ U¿ytkownika</a>
+p_DEL:				UsuÅ„
+p_STICKY:			Przyczepiona wiadomoÅ›Ä‡
+p_POLL:				UtwÃ³rz ankietÄ™
+p_FILE:				DoÅ‚Ä…cz pliki
+p_VOTE:				GÅ‚osuj
+p_RATE:				OceÅ„ wÄ…tki
+p_SPLIT:			Podziel wÄ…tki
+p_LOCK:				Zablokuj wÄ…tki
+p_MOVE:				PrzenieÅ› wÄ…tki
+p_SML:				UÅ¼ywaj uÅ›mieszkÃ³w
+p_IMG:				UÅ¼ywaj znacznikÃ³w obrazkÃ³w
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">ZnajdÅº UÅ¼ytkownika</a>
 group_mgr_indicator:		Aktualnie edytujemy: <b>{VAR: grp->name}</b>
 rate_worst:			Najgorszy
 rate_best:			Najlepszy
-post_quote_msg:			{VAR: msg->login} napisa³(a) dnia {DATE: msg->post_stamp %a, %d %B %Y %I:%M}
+post_quote_msg:			{VAR: msg->login} napisaÅ‚(a) dnia {DATE: msg->post_stamp %a, %d %B %Y %I:%M}
 post_quote:			Cytuj:
 userinfo_referals:		Osoby polecone:
-userinfo_referals_count:	{VAR: referals} u¿ytkowników
+userinfo_referals_count:	{VAR: referals} uÅ¼ytkownikÃ³w
 pm_no_space_title:		Brak miejsca!
-pm_no_space_msg:		Twoje katalogi z prywatnymi wiadomo¶ciami przekroczy³y dozwolony limit zajêto¶ci miejsca o wielko¶ci <b>{GVAR: MAX_PMSG_FLDR_SIZE} bajtów</b>, gdy¿ aktualnie zajmuj± <b>{VAR: fldr_size} bajtów</b>.<br /><br /><font class="ErrorText">Usuñ niektóre stare wiadomo¶ci, aby odzyskaæ miejsce</font>.
-pm_space_indct_msg:		Twoje katalogi z prywatnymi wiadomo¶ciami zajmuj± {VAR: percent_full}% dozwolonego miejsca.
+pm_no_space_msg:		Twoje katalogi z prywatnymi wiadomoÅ›ciami przekroczyÅ‚y dozwolony limit zajÄ™toÅ›ci miejsca o wielkoÅ›ci <b>{GVAR: MAX_PMSG_FLDR_SIZE} bajtÃ³w</b>, gdyÅ¼ aktualnie zajmujÄ… <b>{VAR: fldr_size} bajtÃ³w</b>.<br /><br /><font class="ErrorText">UsuÅ„ niektÃ³re stare wiadomoÅ›ci, aby odzyskaÄ‡ miejsce</font>.
+pm_space_indct_msg:		Twoje katalogi z prywatnymi wiadomoÅ›ciami zajmujÄ… {VAR: percent_full}% dozwolonego miejsca.
 th_expr_never:			Nigdy
 th_expr_one_hr:			1 godzina
 th_expr_three_hr:		3 godziny
 th_expr_four_hr:		4 godziny
 th_expr_eight_hr:		8 godzin
 th_expr_sixteen_hr:		16 godzin
-th_expr_one_day:		1 dzieñ
+th_expr_one_day:		1 dzieÅ„
 th_expr_two_day:		2 dni
 th_expr_four_day:		4 dni
-th_expr_one_week:		1 tydzieñ
+th_expr_one_week:		1 tydzieÅ„
 th_expr_two_week:		2 tygodnie
-th_expr_one_month:		1 miesi±c
-th_expr_two_month:		2 miesi±ce
-th_expr_four_month:		4 miesi±ce
+th_expr_one_month:		1 miesiÄ…c
+th_expr_two_month:		2 miesiÄ…ce
+th_expr_four_month:		4 miesiÄ…ce
 th_expr_one_year:		1 rok
-thread_mod_delete:		Usuñ
-action_latest_post:		Ostatnia wiadomo¶æ
+thread_mod_delete:		UsuÅ„
+action_latest_post:		Ostatnia wiadomoÅ›Ä‡
 online_today_last_visit:	Dzisiejsza ostatnia wizyta
-online_today_update:		Przegl±danie listy ludzi, którzy byli dzisiaj na forum.
-logedin_todays_visitors:	dzisiejsi go¶cie
-logedin_latest_post:		Ostatnia wiadomo¶æ na forum:
-register_show_avatar:		Poka¿ avatary
-register_show_avatar_desc:	Pozwala Ci ukryæ avatary innych u¿ytkowników podczas przegl±dania ich wiadomo¶ci
-drawmsg_view_rest_post:		Poka¿ resztê wiadomo¶ci
+online_today_update:		PrzeglÄ…danie listy ludzi, ktÃ³rzy byli dzisiaj na forum.
+logedin_todays_visitors:	dzisiejsi goÅ›cie
+logedin_latest_post:		Ostatnia wiadomoÅ›Ä‡ na forum:
+register_show_avatar:		PokaÅ¼ avatary
+register_show_avatar_desc:	Pozwala Ci ukryÄ‡ avatary innych uÅ¼ytkownikÃ³w podczas przeglÄ…dania ich wiadomoÅ›ci
+drawmsg_view_rest_post:		PokaÅ¼ resztÄ™ wiadomoÅ›ci
 post_re:			Odp:
-forumsel_goto_forum:		Id¼ do forum:
-minimsg_thread_view:		Widok w±tku
-split_th_post_by:		Wiadomo¶æ zamieszczona przez:
+forumsel_goto_forum:		IdÅº do forum:
+minimsg_thread_view:		Widok wÄ…tku
+split_th_post_by:		WiadomoÅ›Ä‡ zamieszczona przez:
 split_th_posted_on:		Zamieszczona dnia: 
 split_th_subject:		Temat:   
-split_th_new_thread_title:	Nowy temat w±tku:
+split_th_new_thread_title:	Nowy temat wÄ…tku:
 split_th_forum:			Forum:
-split_th_split_sel:		Podziel wybrane wiadomo¶ci
-split_th_split_unsel:		Podziel niewybrane wiadomo¶ci
-split_th_messages:		Wiadomo¶ci
+split_th_split_sel:		Podziel wybrane wiadomoÅ›ci
+split_th_split_unsel:		Podziel niewybrane wiadomoÅ›ci
+split_th_messages:		WiadomoÅ›ci
 split_th_select:		Wybierz
-report_report_post:		Zg³o¶ wiadomo¶æ
-quicklogin_login:		Nazwa u¿ytkownika
-quicklogin_password:		Has³o
-quicklogin_use_cookies:		U¿ywaæ ciasteczek?
-quicklogin_login_btn:		Zaloguj siê
-post_notification_desc:		Powiadom mnie, gdy kto¶ odpowie na t± wiadomo¶æ.
-maximize_category:		Maksymalizuje Kategoriê
-post_locked:			W±tek zablokowany
-no_view_perm:			Nie masz odpowiednich uprawnieñ, aby zobaczyæ ten w±tek.
-report_empty_report:		Nie mo¿esz wys³aæ pustego zg³oszenia, wiêc podaj powód zg³oszenia.
-report_already_reported_title:	Ju¿ zg³oszone
-report_already_reported_msg:	Ten w±tek zosta³ ju¿ zg³oszony i jest aktualnie w kolejce do przejrzenia przez moderatorów.
-register_err_toomanyimages:	Próbujesz u¿yæ wiêcej ni¿ dozwolone {GVAR: FORUM_IMG_CNT_SIG} obrazków w twoim podpisie.
-pmsg_next_msg:			Nastêpna prywatna wiadomo¶æ
-pmsg_prev_msg:			Poprzednia prywatna wiadomo¶æ
+report_report_post:		ZgÅ‚oÅ› wiadomoÅ›Ä‡
+quicklogin_login:		Nazwa uÅ¼ytkownika
+quicklogin_password:		HasÅ‚o
+quicklogin_use_cookies:		UÅ¼ywaÄ‡ ciasteczek?
+quicklogin_login_btn:		Zaloguj siÄ™
+post_notification_desc:		Powiadom mnie, gdy ktoÅ› odpowie na tÄ… wiadomoÅ›Ä‡.
+maximize_category:		Maksymalizuje KategoriÄ™
+post_locked:			WÄ…tek zablokowany
+no_view_perm:			Nie masz odpowiednich uprawnieÅ„, aby zobaczyÄ‡ ten wÄ…tek.
+report_empty_report:		Nie moÅ¼esz wysÅ‚aÄ‡ pustego zgÅ‚oszenia, wiÄ™c podaj powÃ³d zgÅ‚oszenia.
+report_already_reported_title:	JuÅ¼ zgÅ‚oszone
+report_already_reported_msg:	Ten wÄ…tek zostaÅ‚ juÅ¼ zgÅ‚oszony i jest aktualnie w kolejce do przejrzenia przez moderatorÃ³w.
+register_err_toomanyimages:	PrÃ³bujesz uÅ¼yÄ‡ wiÄ™cej niÅ¼ dozwolone {GVAR: FORUM_IMG_CNT_SIG} obrazkÃ³w w twoim podpisie.
+pmsg_next_msg:			NastÄ™pna prywatna wiadomoÅ›Ä‡
+pmsg_prev_msg:			Poprzednia prywatna wiadomoÅ›Ä‡
 post_proc_reveal_spoiler:	Ujawnij Spoiler
 register_jabber:		Identyfikator Jabber:
 im_jabber:			Jabber: 
 forum_contact:			Kontakt
-forum_home:			Strona g³ówna
-post_cur_attached:		ilo¶æ aktualnie za³±czonych plików: {VAR: i}
-post_list_smilies:		wy¶wietl wszystkie u¶mieszki
+forum_home:			Strona gÅ‚Ã³wna
+post_cur_attached:		iloÅ›Ä‡ aktualnie zaÅ‚Ä…czonych plikÃ³w: {VAR: i}
+post_list_smilies:		wyÅ›wietl wszystkie uÅ›mieszki
 ignored_anon_post:		{GVAR: ANON_NICK} jest ignorowany
 smladd_close_window:		zamknij okno
 p_VISIBLE:			Widoczny
-help_back_to_top:		wróæ na górê
-help_return_to_index:		Wróæ do g³ównej strony pomocy
-reported_in_thread:		W w±tku
-imsg_err_message_title:		Niepoprawna wiadomo¶æ
-imsg_err_message_msg:		Wiadomo¶æ, któr± chcesz obejrzeæ, nie istnieje.
+help_back_to_top:		wrÃ³Ä‡ na gÃ³rÄ™
+help_return_to_index:		WrÃ³Ä‡ do gÅ‚Ã³wnej strony pomocy
+reported_in_thread:		W wÄ…tku
+imsg_err_message_title:		Niepoprawna wiadomoÅ›Ä‡
+imsg_err_message_msg:		WiadomoÅ›Ä‡, ktÃ³rÄ… chcesz obejrzeÄ‡, nie istnieje.
 poll_edit:			Edytuj
-unspecified:			NIEOKRE¦LONY(A)
+unspecified:			NIEOKREÅšLONY(A)
 register_err_not_valid_img:	Podany adres URL nie zawiera poprawnego obazu
 pmsg_recepient:			Odbiorca
-register_err_taken_alias:	Alias, którego chcesz u¿yæ, jest ju¿ w u¿yciu przez innego cz³onka forum. Wybierz inny.
+register_err_taken_alias:	Alias, ktÃ³rego chcesz uÅ¼yÄ‡, jest juÅ¼ w uÅ¼yciu przez innego czÅ‚onka forum. Wybierz inny.
 register_alias:			Alias
-register_alias_desc:		Je¶li chcesz byæ widoczny pod inn± nazw± ni¿ twoja nazwa u¿ytkownika, wpisz j± tutaj.
-register_allow_pm_msg:		Zezwól na Prywatne Wiadomo¶ci
-register_allow_pm_msg_desc:	Zezwól innym u¿ytkownikom na wysy³anie do Ciebie prywatnych wiadomo¶ci poprzez FUDforum.
-postcheck_pm_disabled:		Nie mo¿esz wysy³aæ prywatnych wiadomo¶ci do u¿ytkownika "{VAR-HTML: v}", poniewa¿ ta osoba nie chce otrzymywaæ prywatnych wiadomo¶ci.
-polllist_vote:			G³osuj
+register_alias_desc:		JeÅ›li chcesz byÄ‡ widoczny pod innÄ… nazwÄ… niÅ¼ twoja nazwa uÅ¼ytkownika, wpisz jÄ… tutaj.
+register_allow_pm_msg:		ZezwÃ³l na Prywatne WiadomoÅ›ci
+register_allow_pm_msg_desc:	ZezwÃ³l innym uÅ¼ytkownikom na wysyÅ‚anie do Ciebie prywatnych wiadomoÅ›ci poprzez FUDforum.
+postcheck_pm_disabled:		Nie moÅ¼esz wysyÅ‚aÄ‡ prywatnych wiadomoÅ›ci do uÅ¼ytkownika "{VAR-HTML: v}", poniewaÅ¼ ta osoba nie chce otrzymywaÄ‡ prywatnych wiadomoÅ›ci.
+polllist_vote:			GÅ‚osuj
 polllist_view_results:		Obejrzyj wyniki
 polllist_name:			Nazwa ankiety
 polllist_date:			Utworzona w dniu
 polllist_owner:			Utworzona przez
-polllist_votes:			Ilo¶æ g³osów
+polllist_votes:			IloÅ›Ä‡ gÅ‚osÃ³w
 polllist_action:		Akcja
-polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Przegl±danie dostêpnych ankiet</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">PrzeglÄ…danie dostÄ™pnych ankiet</a>
 userinfo_polls:			Ankiety:
-show_pollist:			Poka¿ ankiety
+show_pollist:			PokaÅ¼ ankiety
 search_and:			Logiczne I (koniunkcja)
 search_or:			Logiczne LUB (alternatywa)
-search_desc_order:		malej±cej
-search_asc_order:		rosn±cej
+search_desc_order:		malejÄ…cej
+search_asc_order:		rosnÄ…cej
 search_logic:			Operacja logiczna:
-search_sorting:			Sortuj rezultaty wg daty w kolejno¶ci:
-post_moderated_forum:		Wys³a³e¶ wiadomo¶æ na forum moderowane, co oznacza, ¿e nie bêdzie ona widoczna, dopóki nie zostanie zatwierdzona przez jednego z moderatorów i/lub administratorów forum.
+search_sorting:			Sortuj rezultaty wg daty w kolejnoÅ›ci:
+post_moderated_forum:		WysÅ‚aÅ‚eÅ› wiadomoÅ›Ä‡ na forum moderowane, co oznacza, Å¼e nie bÄ™dzie ona widoczna, dopÃ³ki nie zostanie zatwierdzona przez jednego z moderatorÃ³w i/lub administratorÃ³w forum.
 post_moderated_forum_ttl:	Uwaga o moderowanym forum
 post_proceed:			OK
-buddy_list_bday:		Dzisiaj postarza³ siê {VAR: r[2]} i ma teraz {VAR: age} lat.
-email_warning_msg:		Je¶li zmienisz swój obecny adres email, twoje konto zostanie oznaczone jak niepotwierdzone dopóki go nie potwierdzisz przez emaila.
-register_show_im:		Poka¿ wska¼niki IM
-register_show_im_desc:		Czy pokazywaæ wska¼niki IM autora obok jego wiadomo¶ci.
-unread_message:			Nieprzeczytana wiadomo¶æ
-read_message:			Odczytaj wiadomo¶æ
-threadt_disabled_ttl:		Widok drzewiasty listy w±tków zosta³ wy³±czony.
-threadt_disabled_desc:		Administrator wy³±czy³ widok drzewiasty listy w±tków, dlatego u¿yj widoku p³askiego.
-threadt_update:			Przegl±danie forum (w widoku drzewiastym) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
-threadt_more:			&lt;wiêcej&gt;
-register_msg_tree_view:		P³aska lista w±tków/Drzewiasta lista wiadomo¶ci
-register_tree_msg_view:		Drzewiasta lista w±tków/P³aska lista wiadomo¶ci 
-mmod_delete_cofirm_ttl:		Potwierdzenie usuniêcia wiadomo¶ci/w±tku.
+buddy_list_bday:		Dzisiaj postarzaÅ‚ siÄ™ {VAR: r[2]} i ma teraz {VAR: age} lat.
+email_warning_msg:		JeÅ›li zmienisz swÃ³j obecny adres email, twoje konto zostanie oznaczone jak niepotwierdzone dopÃ³ki go nie potwierdzisz przez emaila.
+register_show_im:		PokaÅ¼ wskaÅºniki IM
+register_show_im_desc:		Czy pokazywaÄ‡ wskaÅºniki IM autora obok jego wiadomoÅ›ci.
+unread_message:			Nieprzeczytana wiadomoÅ›Ä‡
+read_message:			Odczytaj wiadomoÅ›Ä‡
+threadt_disabled_ttl:		Widok drzewiasty listy wÄ…tkÃ³w zostaÅ‚ wyÅ‚Ä…czony.
+threadt_disabled_desc:		Administrator wyÅ‚Ä…czyÅ‚ widok drzewiasty listy wÄ…tkÃ³w, dlatego uÅ¼yj widoku pÅ‚askiego.
+threadt_update:			PrzeglÄ…danie forum (w widoku drzewiastym) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_more:			&lt;wiÄ™cej&gt;
+register_msg_tree_view:		PÅ‚aska lista wÄ…tkÃ³w/Drzewiasta lista wiadomoÅ›ci
+register_tree_msg_view:		Drzewiasta lista wÄ…tkÃ³w/PÅ‚aska lista wiadomoÅ›ci 
+mmod_delete_cofirm_ttl:		Potwierdzenie usuniÄ™cia wiadomoÅ›ci/wÄ…tku.
 spell_alts:			brak alternatyw
-insert_uploaded_image:		Wstaw obraz do tre¶ci wiadomo¶ci
-finduser_help:			Silnik wyszukiwania automagicznie wstawi maskê * do twojego ¿±dania. Np. by wyszukaæ wszystkich u¿ytkowników, których nazwa zaczyna siê na &#39;a&#39;, wpisz &#39;a&#39; w polu wyszukiwania.
-back_to_top:			powrót na górê
-iemail_participate:		Aby wzi±æ udzia³ w dyskusji, przejd¼ tutaj:
-pm_err_disabled_title:		Prywatne wiadomo¶ci s± wy³±czone
-pm_err_disabled_msg:		Nie mo¿esz wysy³aæ prywatnych wiadomo¶ci, dopóki nie uaktywnisz opcji &#39;Zezwól na Prywatne Wiadomo¶ci&#39; w swoim profilu.
+insert_uploaded_image:		Wstaw obraz do treÅ›ci wiadomoÅ›ci
+finduser_help:			Silnik wyszukiwania automagicznie wstawi maskÄ™ * do twojego Å¼Ä…dania. Np. by wyszukaÄ‡ wszystkich uÅ¼ytkownikÃ³w, ktÃ³rych nazwa zaczyna siÄ™ na &#39;a&#39;, wpisz &#39;a&#39; w polu wyszukiwania.
+back_to_top:			powrÃ³t na gÃ³rÄ™
+iemail_participate:		Aby wziÄ…Ä‡ udziaÅ‚ w dyskusji, przejdÅº tutaj:
+pm_err_disabled_title:		Prywatne wiadomoÅ›ci sÄ… wyÅ‚Ä…czone
+pm_err_disabled_msg:		Nie moÅ¼esz wysyÅ‚aÄ‡ prywatnych wiadomoÅ›ci, dopÃ³ki nie uaktywnisz opcji &#39;ZezwÃ³l na Prywatne WiadomoÅ›ci&#39; w swoim profilu.
 err_mod_acc_ttl:		Niezatwierdzone konto
-err_mod_acc_msg:		Administrator zdecydowa³ siê zatwierdzaæ rêcznie wszystkie konta przed ich aktywacj±. Zanim nie zatwierdzi Twojego konta, nie mo¿esz korzystaæ ze wszystkich jego mo¿liwo¶ci.
-accounts_pending_approval:	Konta oczekuj±ce na zatwierdzenie
+err_mod_acc_msg:		Administrator zdecydowaÅ‚ siÄ™ zatwierdzaÄ‡ rÄ™cznie wszystkie konta przed ich aktywacjÄ…. Zanim nie zatwierdzi Twojego konta, nie moÅ¼esz korzystaÄ‡ ze wszystkich jego moÅ¼liwoÅ›ci.
+accounts_pending_approval:	Konta oczekujÄ…ce na zatwierdzenie
 saved:				Zachowane
-register_err_time_limit:	Administracyjny limit <u>jednej</u> rejestracji na {GVAR: REG_TIME_LIMIT} sekund zosta³ przekroczony. Poczekaj {VAR: reg_limit_reached} sekund i spróbuj ponownie siê zarejestrowaæ.
-register_affero:		Nazwa u¿ytkownika systemu Affero: <br /><font class="SmallText">Je¶li posiadasz konto w <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>, podaj je tutaj.</font>
-im_affero:			Nazwa u¿ytkownika systemu Affero
-register_err_avatardimtobig:	Wymiary avatara <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> przekraczaj± dopuszczalny limit <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-pmsg_download_counter:		Ilo¶æ pobrañ: {VAR: r->dlcount}
-member_search:			<br />Mo¿esz równie¿ u¿yæ <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Wyszukiwarki U¿ytkowników</a> aby znale¼æ dan± osobê.
+register_err_time_limit:	Administracyjny limit <u>jednej</u> rejestracji na {GVAR: REG_TIME_LIMIT} sekund zostaÅ‚ przekroczony. Poczekaj {VAR: reg_limit_reached} sekund i sprÃ³buj ponownie siÄ™ zarejestrowaÄ‡.
+register_affero:		Nazwa uÅ¼ytkownika systemu Affero: <br /><font class="SmallText">JeÅ›li posiadasz konto w <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>, podaj je tutaj.</font>
+im_affero:			Nazwa uÅ¼ytkownika systemu Affero
+register_err_avatardimtobig:	Wymiary avatara <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> przekraczajÄ… dopuszczalny limit <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+pmsg_download_counter:		IloÅ›Ä‡ pobraÅ„: {VAR: r->dlcount}
+member_search:			<br />MoÅ¼esz rÃ³wnieÅ¼ uÅ¼yÄ‡ <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Wyszukiwarki UÅ¼ytkownikÃ³w</a> aby znaleÅºÄ‡ danÄ… osobÄ™.
 post_all_ext_allowed:		(nieograniczony)
-buddy_offline:			{VAR: r[2]} jest aktualnie roz³±czony(a)
-buddy_online:			{VAR: r[2]} jest aktualnie dostêpny(a)
-sml_no_smilies:			Brak u¶mieszków.
+buddy_offline:			{VAR: r[2]} jest aktualnie rozÅ‚Ä…czony(a)
+buddy_online:			{VAR: r[2]} jest aktualnie dostÄ™pny(a)
+sml_no_smilies:			Brak uÅ›mieszkÃ³w.
 login_unapproved_account_ttl:	Niezatwierdzone Konto
-login_unapproved_account_msg:	Administrator zdecydowa³ siê zatwierdzaæ rêcznie wszystkie nowe konta przed ich aktywacj±. Zanim nie zatwierdzi Twojego konta, nie bêdziesz móg³ skorzystaæ ze wszystkich jego mo¿liwo¶ci.
-remove_from_buddy_list:		usuñ z listy znajomych
+login_unapproved_account_msg:	Administrator zdecydowaÅ‚ siÄ™ zatwierdzaÄ‡ rÄ™cznie wszystkie nowe konta przed ich aktywacjÄ…. Zanim nie zatwierdzi Twojego konta, nie bÄ™dziesz mÃ³gÅ‚ skorzystaÄ‡ ze wszystkich jego moÅ¼liwoÅ›ci.
+remove_from_buddy_list:		usuÅ„ z listy znajomych
 iemail_msg_author:		<b>Autor:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Temat:</b> {VAR: obj->subject}
 iemail_msg_date:		<b>Data:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Odpowiedz
 iemail_msg_quote:		Cytuj
-iemail_msg_view:		Obejrzyj W±tek/Wiadomo¶æ
+iemail_msg_view:		Obejrzyj WÄ…tek/WiadomoÅ›Ä‡
 threadt_sticky:			przyczepiony
-threadt_announce:		og³oszenie
-reported_no_messages:		Brak zg³oszonych wiadomo¶ci.
-poll_no_polls:			Brak dostêpnych ankiet.
-no_unread_messages:		Brak nieprzeczytanych wiadomo¶ci pasuj±cych do Twojego ¿adania.
-thread_mark_all_read:		zaznacz wszystkie wiadomo¶ci jako przeczytane
-thread_mark_all_read_desc:	Wszystkie nieprzeczytane wiadomo¶ci na tym forum zostan± zaznaczone jako przeczytane
+threadt_announce:		ogÅ‚oszenie
+reported_no_messages:		Brak zgÅ‚oszonych wiadomoÅ›ci.
+poll_no_polls:			Brak dostÄ™pnych ankiet.
+no_unread_messages:		Brak nieprzeczytanych wiadomoÅ›ci pasujÄ…cych do Twojego Å¼adania.
+thread_mark_all_read:		zaznacz wszystkie wiadomoÅ›ci jako przeczytane
+thread_mark_all_read_desc:	Wszystkie nieprzeczytane wiadomoÅ›ci na tym forum zostanÄ… zaznaczone jako przeczytane
 private_no_messages:		Ten folder jest pusty
 register_email_change_subject:	Potwierdzenie zmiany adresu e-mail
-register_email_change_msg:	Prosimy o potwierdzenie Twojego nowego adresu e-mail ({VAR: uent->email}), który zast±pi obecny ({VAR: old_email}).\nW tym celu udaj siê pod poni¿szy adres:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nGdy nowy adres e-mail zostanie potwierdzony, Twoje konto na forum zostanie ponownie aktywowane.
-iemail_thread_unsub:		Porzuæ subskrybcjê tego w±tku
-iemail_forum_unsub:		Porzuæ subskrybcjê tego forum
+register_email_change_msg:	Prosimy o potwierdzenie Twojego nowego adresu e-mail ({VAR: uent->email}), ktÃ³ry zastÄ…pi obecny ({VAR: old_email}).\nW tym celu udaj siÄ™ pod poniÅ¼szy adres:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nGdy nowy adres e-mail zostanie potwierdzony, Twoje konto na forum zostanie ponownie aktywowane.
+iemail_thread_unsub:		PorzuÄ‡ subskrybcjÄ™ tego wÄ…tku
+iemail_forum_unsub:		PorzuÄ‡ subskrybcjÄ™ tego forum
 primary_group_prefix:		Podstawowa grupa dla forum:
-group_resources:		Ta grupa wyznacza przywileje nastêpuj±cych forów
+group_resources:		Ta grupa wyznacza przywileje nastÄ™pujÄ…cych forÃ³w
 register_email:			E-mail
 register_admin_newuser_title:	Nowe konto na forum czeka na zatwierdzenie
-register_admin_newuser_msg:	Nowy u¿ytkownik ({VAR: uent->login}) w³a¶nie zarejestrowa³ siê na Forum Opoka.\nJako, ¿e zosta³o w³±czone zatwierdzanie nowych kont, nie zostanie ono\naktywowane bez potwierdzenia przez Ciebie albo innego administrator tego forum.\nCelem weryfikacji tego konta, udaj siê proszê pod poni¿szy adres:\n{GVAR: WWW_ROOT}adm/admaccapr.php\n\nUWAGA!! Wiadomo¶æ zosta³a wygenerowana automatycznie. Prosimy nie odpowiadaæ\nna ni±. Je¶li chcesz wy³±czyæ powiadamianie o rejestracji nowych u¿ytkowników,\nmo¿esz to zrobiæ przy u¿yciu Panelu administracyjnego, zmieniaj±c warto¶æ\ndla "New Account Notification".\n
-post_mod_msg_notify_title:	Nowa wiadomo¶æ na forum "{VAR: frm->name}" oczekuje zatwierdzenia
-post_mod_msg_notify_msg:	Nowa wiadomo¶æ zatytu³owana "{VAR: msg_post->subject}"\nzosta³a w³a¶nie wys³ana na forum, którego jeste¶ moderatorem.\nAby obejrzeæ wiadomo¶æ, udaj siê pod nastêpuj±cy adres adres:\n{FULL_ROOT}{ROOT}?t=modque\n\nPowiadomienie generowane jest automatycznie. Prosimy nie odpowiadaæ na ten e-mail.\n
+register_admin_newuser_msg:	Nowy uÅ¼ytkownik ({VAR: uent->login}) wÅ‚aÅ›nie zarejestrowaÅ‚ siÄ™ na Forum Opoka.\nJako, Å¼e zostaÅ‚o wÅ‚Ä…czone zatwierdzanie nowych kont, nie zostanie ono\naktywowane bez potwierdzenia przez Ciebie albo innego administrator tego forum.\nCelem weryfikacji tego konta, udaj siÄ™ proszÄ™ pod poniÅ¼szy adres:\n{GVAR: WWW_ROOT}adm/admaccapr.php\n\nUWAGA!! WiadomoÅ›Ä‡ zostaÅ‚a wygenerowana automatycznie. Prosimy nie odpowiadaÄ‡\nna niÄ…. JeÅ›li chcesz wyÅ‚Ä…czyÄ‡ powiadamianie o rejestracji nowych uÅ¼ytkownikÃ³w,\nmoÅ¼esz to zrobiÄ‡ przy uÅ¼yciu Panelu administracyjnego, zmieniajÄ…c wartoÅ›Ä‡\ndla "New Account Notification".\n
+post_mod_msg_notify_title:	Nowa wiadomoÅ›Ä‡ na forum "{VAR: frm->name}" oczekuje zatwierdzenia
+post_mod_msg_notify_msg:	Nowa wiadomoÅ›Ä‡ zatytuÅ‚owana "{VAR: msg_post->subject}"\nzostaÅ‚a wÅ‚aÅ›nie wysÅ‚ana na forum, ktÃ³rego jesteÅ› moderatorem.\nAby obejrzeÄ‡ wiadomoÅ›Ä‡, udaj siÄ™ pod nastÄ™pujÄ…cy adres adres:\n{FULL_ROOT}{ROOT}?t=modque\n\nPowiadomienie generowane jest automatycznie. Prosimy nie odpowiadaÄ‡ na ten e-mail.\n
 thread_printable_pdf:		Wygeneruj PDF do wydruku
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Potwierdzenie Rejestracji
-reg_conf_email:			<b>Potwierdzenie</b><br />Na podany adres e-mail zosta³ wys³any adres strony, na któr± musisz wej¶æ aby Twoje konto na forum zosta³o aktywowane. Je¶li nie otrzymasz tego e-maila w ci±gu kilku minut, zaloguj siê na forum i upewnij siê ¿e podany przez Ciebie adres e-mail jest poprawny. Jak tylko Twoje konto zostanie aktywowane, bêdzie mo¿na korzystaæ z przywilejów dostêpnych wy³±cznie dla zarejestrowanych u¿ytkowników.
-reg_conf_account:		<b>Zatwierdzenie Konta</b><br />Przed aktywacj±, konto na forum musi zostaæ zatwierdzone przez administratora. Gdy to siê stanie, wy¶lemy do Ciebie e-maila z powiadomieniem o zatwierdzeniu konta na forum. Do tego czasu bêdzie mo¿na zalogowaæ siê na to konto, jednak nie bêd± dostêpne przywileje zarezerwowane dla zatwierdzonych u¿ytkowników.
-forum_banned_user:		Dotychczasowe zachowanie na forum spowodowa³o do¿ywotni± blokadê Twojego konta. ¯egnaj.
-mnav_description:		Przegl±darka wiadomo¶ci
-mnav_date_limit:		Przedzia³ czasu:
-mnav_forum_limit:		Przeszukaj wy³±cznie:
+reg_conf_email:			<b>Potwierdzenie</b><br />Na podany adres e-mail zostaÅ‚ wysÅ‚any adres strony, na ktÃ³rÄ… musisz wejÅ›Ä‡ aby Twoje konto na forum zostaÅ‚o aktywowane. JeÅ›li nie otrzymasz tego e-maila w ciÄ…gu kilku minut, zaloguj siÄ™ na forum i upewnij siÄ™ Å¼e podany przez Ciebie adres e-mail jest poprawny. Jak tylko Twoje konto zostanie aktywowane, bÄ™dzie moÅ¼na korzystaÄ‡ z przywilejÃ³w dostÄ™pnych wyÅ‚Ä…cznie dla zarejestrowanych uÅ¼ytkownikÃ³w.
+reg_conf_account:		<b>Zatwierdzenie Konta</b><br />Przed aktywacjÄ…, konto na forum musi zostaÄ‡ zatwierdzone przez administratora. Gdy to siÄ™ stanie, wyÅ›lemy do Ciebie e-maila z powiadomieniem o zatwierdzeniu konta na forum. Do tego czasu bÄ™dzie moÅ¼na zalogowaÄ‡ siÄ™ na to konto, jednak nie bÄ™dÄ… dostÄ™pne przywileje zarezerwowane dla zatwierdzonych uÅ¼ytkownikÃ³w.
+forum_banned_user:		Dotychczasowe zachowanie na forum spowodowaÅ‚o doÅ¼ywotniÄ… blokadÄ™ Twojego konta. Å»egnaj.
+mnav_description:		PrzeglÄ…darka wiadomoÅ›ci
+mnav_date_limit:		PrzedziaÅ‚ czasu:
+mnav_forum_limit:		Przeszukaj wyÅ‚Ä…cznie:
 mnav_all_forums:		Przeszukaj wszystkie fora
 mnav_submit:			Rozpocznij Szukanie
-mnav_no_range:			Musisz podaæ prawid³owy przedzia³ czasu. This value can be a float (0.12) but it must be greater then zero.
-mnav_invalid_unit:		Musisz podaæ prawid³ow± jednostkê czasu.
+mnav_no_range:			Musisz podaÄ‡ prawidÅ‚owy przedziaÅ‚ czasu. This value can be a float (0.12) but it must be greater then zero.
+mnav_invalid_unit:		Musisz podaÄ‡ prawidÅ‚owÄ… jednostkÄ™ czasu.
 mnav_invalid_date:		The date range you&#39;ve specified is larger then the one allowed by the administrator, narrow down date range of your search.
-mnav_no_results:		Brak wiadomo¶ci spe³niaj±cych podane kryteria wyszukiwania.
-mnav_posted_by:			Wys³ane przez:
-mnav_more:			Wiêcej &raquo;&raquo;
+mnav_no_results:		Brak wiadomoÅ›ci speÅ‚niajÄ…cych podane kryteria wyszukiwania.
+mnav_posted_by:			WysÅ‚ane przez:
+mnav_more:			WiÄ™cej &raquo;&raquo;
 mnav_minute:			Minuta/y
 mnav_hour:			Godzina/y
-mnav_day:			Dzieñ (Dni)
-mnav_week:			Tydzieñ (Tygodni)
-mnav_month:			Miesi±c (Miesiêcy)
-mnav_title:			Przegl±darka wiadomo¶ci
-mnav_update:			Przegl±danie Wiadomo¶ci z u¿yciem <a href="{TEMPLATE: mnav_update_lnk}">Przegl±darki wiadomo¶ci</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] Powiadomienie o nowej Prywatnej Wiadomo¶ci
-pm_notify_body_email:		Otrzyma³e¶(a¶) now± prywatn± wiadomo¶æ zatytu³owan± "{VAR: subject}" od "{VAR: from}" na forum "{GVAR: FORUM_TITLE}".\nAby odczytaæ wiadomo¶æ udaj siê pod adres:\n{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAby nie otrzymywaæ powiadomieñ, wy³±cz opcjê "Powiadomienia o Prywatnych Wiadomo¶ciach" w swoim profilu.
-register_pm_notification:	Powiadomienia o Prywatnych Wiadomo¶ciach
-register_pm_notification_desc:	Gdy w³±czone, bêdziesz dostawaæ powiadomienia poprzez wybrany mechanizm powiadamiania jak tylko prywatna wiadomo¶æ zostanie do Ciebie wys³ana.
+mnav_day:			DzieÅ„ (Dni)
+mnav_week:			TydzieÅ„ (Tygodni)
+mnav_month:			MiesiÄ…c (MiesiÄ™cy)
+mnav_title:			PrzeglÄ…darka wiadomoÅ›ci
+mnav_update:			PrzeglÄ…danie WiadomoÅ›ci z uÅ¼yciem <a href="{TEMPLATE: mnav_update_lnk}">PrzeglÄ…darki wiadomoÅ›ci</a>
+pm_notify_subject:		[{GVAR: FORUM_TITLE}] Powiadomienie o nowej Prywatnej WiadomoÅ›ci
+pm_notify_body_email:		OtrzymaÅ‚eÅ›(aÅ›) nowÄ… prywatnÄ… wiadomoÅ›Ä‡ zatytuÅ‚owanÄ… "{VAR: subject}" od "{VAR: from}" na forum "{GVAR: FORUM_TITLE}".\nAby odczytaÄ‡ wiadomoÅ›Ä‡ udaj siÄ™ pod adres:\n{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAby nie otrzymywaÄ‡ powiadomieÅ„, wyÅ‚Ä…cz opcjÄ™ "Powiadomienia o Prywatnych WiadomoÅ›ciach" w swoim profilu.
+register_pm_notification:	Powiadomienia o Prywatnych WiadomoÅ›ciach
+register_pm_notification_desc:	Gdy wÅ‚Ä…czone, bÄ™dziesz dostawaÄ‡ powiadomienia poprzez wybrany mechanizm powiadamiania jak tylko prywatna wiadomoÅ›Ä‡ zostanie do Ciebie wysÅ‚ana.
 findu_admin_opts_header:	Opcje Admina
 findu_unban:			Odblokuj
 findu_ban:			Zablokuj
 findu_edit:			Edycja
-findu_delete:			Usuñ
-dmsg_reply_to:			(odpowied¼ na #{VAR: obj->reply_to})
-merge_topics:			£±cz W±tki
-merge_topics_cp:		Panel Sterowania £±czeniem W±tków
-merge_topics_tpl:		Wybierz W±tki do Po³±czenia <font class="SmallText">(musisz wybraæ wiêcej ni¿ jeden w±tek)</font>
-merge_merge:			£±cz Zaznaczone W±tki
-merge_next:			Nastêpny W±tek
-merge_prev:			Poprzedni W±tek
-split_cp:			Panel Sterowania Dzieleniem W±tków
-groups_perms_header:		Przywileje <font class="SmallText">(najed¼ myszk± na przywilej aby zobaczyæ opis)</font>
-register_err_sig_too_long:	Twoja sygnaturka przekracza dopuszczalny limit d³ugo¶ci {GVAR: FORUM_SIG_ML} znaków.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} znaków <a href="javascript: alert(\'D³ugo¶æ Twojej sygnaturki wynosi \'+document.fud_register.reg_sig.value.length+\' znaków. Maksymalna dopuszczalna d³ugo¶æ sygnaturki to {GVAR: FORUM_SIG_ML} znaków.\');" class="SmallText">Sprawd¼ d³ugo¶æ sygnaturki</a>
-p_SEARCH:			Mo¿e Szukaæ
-adm_account_accepted:		Twoje konto \'{VAR: GLOBALS['r']->login}\' zosta³o zatwierdzone przez administratora.\nJe¶li jeszcze nie aktywowa³e¶ swojego konta, zrób to jak najszybciej.\nWówczas bêdziesz móg³ korzystaæ z {GVAR: FORUM_TITLE} z przywilejami zarejestrowanego u¿ytkownika.
-adm_account_accepted_s:		Twoje konto na \'{GVAR: FORUM_TITLE}\' zosta³o zatwierdzone.
-adm_account_rejected:		Twoje konto \'{VAR: GLOBALS['r']->login}\' zosta³o odrzucone przez administratora\ni jest nieaktywne. Je¶li chcesz poznaæ przyczynê tej decyzji,\nskontaktuj siê z administratorem: {GVAR: ADMIN_EMAIL}.
-adm_account_rejected_s:		Pro¶ba o rejestracjê konta na \'{GVAR: FORUM_TITLE}\' zosta³a odrzucona.
+findu_delete:			UsuÅ„
+dmsg_reply_to:			(odpowiedÅº na #{VAR: obj->reply_to})
+merge_topics:			ÅÄ…cz WÄ…tki
+merge_topics_cp:		Panel Sterowania ÅÄ…czeniem WÄ…tkÃ³w
+merge_topics_tpl:		Wybierz WÄ…tki do PoÅ‚Ä…czenia <font class="SmallText">(musisz wybraÄ‡ wiÄ™cej niÅ¼ jeden wÄ…tek)</font>
+merge_merge:			ÅÄ…cz Zaznaczone WÄ…tki
+merge_next:			NastÄ™pny WÄ…tek
+merge_prev:			Poprzedni WÄ…tek
+split_cp:			Panel Sterowania Dzieleniem WÄ…tkÃ³w
+groups_perms_header:		Przywileje <font class="SmallText">(najedÅº myszkÄ… na przywilej aby zobaczyÄ‡ opis)</font>
+register_err_sig_too_long:	Twoja sygnaturka przekracza dopuszczalny limit dÅ‚ugoÅ›ci {GVAR: FORUM_SIG_ML} znakÃ³w.
+register_sig_limit:		{GVAR: FORUM_SIG_ML} znakÃ³w <a href="javascript: alert(\'DÅ‚ugoÅ›Ä‡ Twojej sygnaturki wynosi \'+document.fud_register.reg_sig.value.length+\' znakÃ³w. Maksymalna dopuszczalna dÅ‚ugoÅ›Ä‡ sygnaturki to {GVAR: FORUM_SIG_ML} znakÃ³w.\');" class="SmallText">SprawdÅº dÅ‚ugoÅ›Ä‡ sygnaturki</a>
+p_SEARCH:			MoÅ¼e SzukaÄ‡
+adm_account_accepted:		Twoje konto \'{VAR: GLOBALS['r']->login}\' zostaÅ‚o zatwierdzone przez administratora.\nJeÅ›li jeszcze nie aktywowaÅ‚eÅ› swojego konta, zrÃ³b to jak najszybciej.\nWÃ³wczas bÄ™dziesz mÃ³gÅ‚ korzystaÄ‡ z {GVAR: FORUM_TITLE} z przywilejami zarejestrowanego uÅ¼ytkownika.
+adm_account_accepted_s:		Twoje konto na \'{GVAR: FORUM_TITLE}\' zostaÅ‚o zatwierdzone.
+adm_account_rejected:		Twoje konto \'{VAR: GLOBALS['r']->login}\' zostaÅ‚o odrzucone przez administratora\ni jest nieaktywne. JeÅ›li chcesz poznaÄ‡ przyczynÄ™ tej decyzji,\nskontaktuj siÄ™ z administratorem: {GVAR: ADMIN_EMAIL}.
+adm_account_rejected_s:		ProÅ›ba o rejestracjÄ™ konta na \'{GVAR: FORUM_TITLE}\' zostaÅ‚a odrzucona.
 thread_on:			data:
 userinfo_buddy:			znajomy:
 register_email_addr:		Adres e-mail:
-reset_suffix:			\n\nJe¶li nie spodziewa³e¶(a¶) siê tej wiadomo¶ci, zapewne to wynik czyjego¶ b³êdu.\n\nProsimy w takim wypadku, zignoruj j±. Je¶li otrzymujesz masowo kopie\ntego niezamawianego e-maila, prosimy o kontakt z administratorem forum:\n{GVAR: ADMIN_EMAIL}\n\nAkcja, której dotyczy ten e-mail zosta³a zainicjowana z adresu: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
+reset_suffix:			\n\nJeÅ›li nie spodziewaÅ‚eÅ›(aÅ›) siÄ™ tej wiadomoÅ›ci, zapewne to wynik czyjegoÅ› bÅ‚Ä™du.\n\nProsimy w takim wypadku, zignoruj jÄ…. JeÅ›li otrzymujesz masowo kopie\ntego niezamawianego e-maila, prosimy o kontakt z administratorem forum:\n{GVAR: ADMIN_EMAIL}\n\nAkcja, ktÃ³rej dotyczy ten e-mail zostaÅ‚a zainicjowana z adresu: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
 usrinfo_last_visit:		Dzisiejsza ostatnia wizyta:
-mnav_newer:			nowsze ni¿
-mnav_older:			starsze ni¿
-ip_search_by_ip:		Szukaj u¿ytkowników wed³ug adresu IP
-ip_search_syntax:		Akceptowana sk³adnia: 1.2.3.4, 1.2.3, 1.2, 1
+mnav_newer:			nowsze niÅ¼
+mnav_older:			starsze niÅ¼
+ip_search_by_ip:		Szukaj uÅ¼ytkownikÃ³w wedÅ‚ug adresu IP
+ip_search_syntax:		Akceptowana skÅ‚adnia: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:			Szukaj
-ip_analyze_usage:		Analiza u¿ycia adresu IP
-ip_analyze_usage_descr:		Podaj dok³adna nazwê konta u¿ytkownika.
-ip_users_using:			U¿ytkownicy pos³uguj±cy siê adresem IP &#39;{VAR: ip}&#39;
-ip_all_ips:			Wszystkie adresy IP u¿ywane przez &#39;{VAR: user}&#39;
-ip_title:			Przegl±darka IP
-userinfo_real_name:		Imiê i Nazwisko:
+ip_analyze_usage:		Analiza uÅ¼ycia adresu IP
+ip_analyze_usage_descr:		Podaj dokÅ‚adna nazwÄ™ konta uÅ¼ytkownika.
+ip_users_using:			UÅ¼ytkownicy posÅ‚ugujÄ…cy siÄ™ adresem IP &#39;{VAR: ip}&#39;
+ip_all_ips:			Wszystkie adresy IP uÅ¼ywane przez &#39;{VAR: user}&#39;
+ip_title:			PrzeglÄ…darka IP
+userinfo_real_name:		ImiÄ™ i Nazwisko:
 register_err_alias_notallowed:	Ten pseudonim jest niedozwolony
-post_err_noannontopics_msg2:	<fieldset><legend>B£¡D: Brak Uprawnieñ</legend>Anonimowym u¿ytkownikom forum nie wolno tworzyæ nowych w±tków. Aby to by³o mo¿liwe, nale¿y siê zarejestrowaæ.</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>B£¡D: Brak Uprawnieñ</legend>Anonimowym u¿ytkownikom forum nie wolno odpowiadaæ na wiadomo¶ci. Aby to by³o mo¿liwe, nale¿y siê zarejestrowaæ.</fieldset><br />
-ERR_login_msg2:			<fieldset><legend>B£¡D: Musisz siê zalogowaæ</legend>Aby korzystaæ z tego serwisu musisz siê wcze¶niej zarejestrowaæ.</fieldset><br />
-post_err_mod_forum_edit_ttl:	B£¡D
-post_err_mod_forum_edit_msg:	Nie mo¿na edytowaæ wiadomo¶ci na moderotwanym forum.
-dmsg_num:			wiadomo¶æ #{VAR: obj->id}
-postcheck_session_invalid:	Twoja sesja wygas³a, musisz ponownie wys³aæ formularz. Przepraszamy za t± drobn± niedogodno¶æ.
-delete_message_extra_desc:	<b>Opcjonalnie</b><br />Podaj powód usuniêcia wiadomo¶ci. Zostanie on przes³any do autora w prywatnej wiadomo¶ci.
-delete_message_extra_body:	Do³±cz tre¶æ usuniêtej wiadomo¶ci, która zostanie odes³ana do autora.
-delete_msg_removed_ttl:		Twoja wiadomo¶æ zosta³a usuniêta przez administratorów.
-delete_msg_pm_body:		Oryginalna wiadomo¶æ
+post_err_noannontopics_msg2:	<fieldset><legend>BÅÄ„D: Brak UprawnieÅ„</legend>Anonimowym uÅ¼ytkownikom forum nie wolno tworzyÄ‡ nowych wÄ…tkÃ³w. Aby to byÅ‚o moÅ¼liwe, naleÅ¼y siÄ™ zarejestrowaÄ‡.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>BÅÄ„D: Brak UprawnieÅ„</legend>Anonimowym uÅ¼ytkownikom forum nie wolno odpowiadaÄ‡ na wiadomoÅ›ci. Aby to byÅ‚o moÅ¼liwe, naleÅ¼y siÄ™ zarejestrowaÄ‡.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>BÅÄ„D: Musisz siÄ™ zalogowaÄ‡</legend>Aby korzystaÄ‡ z tego serwisu musisz siÄ™ wczeÅ›niej zarejestrowaÄ‡.</fieldset><br />
+post_err_mod_forum_edit_ttl:	BÅÄ„D
+post_err_mod_forum_edit_msg:	Nie moÅ¼na edytowaÄ‡ wiadomoÅ›ci na moderotwanym forum.
+dmsg_num:			wiadomoÅ›Ä‡ #{VAR: obj->id}
+postcheck_session_invalid:	Twoja sesja wygasÅ‚a, musisz ponownie wysÅ‚aÄ‡ formularz. Przepraszamy za tÄ… drobnÄ… niedogodnoÅ›Ä‡.
+delete_message_extra_desc:	<b>Opcjonalnie</b><br />Podaj powÃ³d usuniÄ™cia wiadomoÅ›ci. Zostanie on przesÅ‚any do autora w prywatnej wiadomoÅ›ci.
+delete_message_extra_body:	DoÅ‚Ä…cz treÅ›Ä‡ usuniÄ™tej wiadomoÅ›ci, ktÃ³ra zostanie odesÅ‚ana do autora.
+delete_msg_removed_ttl:		Twoja wiadomoÅ›Ä‡ zostaÅ‚a usuniÄ™ta przez administratorÃ³w.
+delete_msg_pm_body:		Oryginalna wiadomoÅ›Ä‡
 delete_msg_pm_subject:		Temat: {VAR: data[15]}
-ip_no_whois:			Informacje z bazy Whois o adresie <b>{VAR: ip}</b> nie s± dostêpne.
+ip_no_whois:			Informacje z bazy Whois o adresie <b>{VAR: ip}</b> nie sÄ… dostÄ™pne.
 ip_whois_title:			<b>Informacje o ISP</b><br />
 register_theme:			Schemat:
-pmsg_trash:			Opró¿nij kosz
-uc_new_pm:			Nowe Prywatne Wiadomo¶ci
-uc_new_topic:			Nowy W±tek
-uc_new_cat_forum:		Subskrybowane Fora z Nowymi Wiadomo¶ciami
+pmsg_trash:			OprÃ³Å¼nij kosz
+uc_new_pm:			Nowe Prywatne WiadomoÅ›ci
+uc_new_topic:			Nowy WÄ…tek
+uc_new_cat_forum:		Subskrybowane Fora z Nowymi WiadomoÅ›ciami
 uc_cat_forum:			Kategoria &raquo; Forum
-uc_sub_topics:			Subskrybowane W±tki z Nowymi Wiadomo¶ciami
+uc_sub_topics:			Subskrybowane WÄ…tki z Nowymi WiadomoÅ›ciami
 uc_page_title:			Osobisty panel sterowania
 search_options:			Opcje wyszukiwania
-search_user_filter:		Wy³±cznie wiadomo¶ci u¿ytkownika:
+search_user_filter:		WyÅ‚Ä…cznie wiadomoÅ›ci uÅ¼ytkownika:
 register_none:			Nie powiadamiaj
-findu_no_conf:			niezatwierdzony u¿ytkownik
-register_max_sig_len:		Maksymalna d³ugo¶æ:
-register_turing:		Wpisz kod widoczny poni¿ej:
-register_err_turing:		Kod sprawdzaj±cy jest nieprawid³owy.
+findu_no_conf:			niezatwierdzony uÅ¼ytkownik
+register_max_sig_len:		Maksymalna dÅ‚ugoÅ›Ä‡:
+register_turing:		Wpisz kod widoczny poniÅ¼ej:
+register_err_turing:		Kod sprawdzajÄ…cy jest nieprawidÅ‚owy.
 modque_cat:			Kategoria
 modque_forum:			Forum
 idx_compact_forum_row:		Available Forums:

@@ -77,8 +77,8 @@ moved:				Verplaats naar een ander forum
 moved_thread_message:		Dit onderwerp is verplaatst naar een ander forum
 na:				leeg
 new_posts:			Nieuwe berichten
-new_private_messages:		U heeft <span class="GenText" style="color: #ff0000">({VAR: c})</span> ongelezen privé-berichten
-new_thread:			Creëer een nieuw onderwerp
+new_private_messages:		U heeft <span class="GenText" style="color: #ff0000">({VAR: c})</span> ongelezen privÃ©-berichten
+new_thread:			CreÃ«er een nieuw onderwerp
 newest_user:			Het nieuwste geregistreerde lid is
 next_page:			Volgende pagina
 next_thread:			Volgend onderwerp:
@@ -97,14 +97,14 @@ occupation:			Beroep:
 off:				Uit
 on:				Aan
 page_timings:			Totale tijd voor oproepen van de pagina: {VAR: page_gen_time} seconden
-pm:				Privébericht
+pm:				PrivÃ©bericht
 poll:				Poll:
 post_count:			Aantal berichten {VAR: u_pcount}
 post_count_l:			Aantal berichten:
 posts:				Berichten
 posts_c:			Berichten:
 prev_thread:			Vorige onderwerp:
-usrinfo_private_message:	Privébericht:
+usrinfo_private_message:	PrivÃ©bericht:
 profile:			Profiel
 profile_desc:			Klik hier om toegang te krijgen tot het leden administratiescherm
 rate_thread:			Beoordeel onderwerp
@@ -125,7 +125,7 @@ sel_unanswered_posts_desc:	Zet het &quot;onbeantwoorde berichten&quot; filter aa
 sel_unread_messages:		Ongelezen berichten
 sel_unread_messages_desc:	Zet de &quot;ongelezen berichten&quot; filter aan (dit laat enkel de ongelezen berichten zien)
 send:				Verstuur
-send_pm_desc:			Verstuur een privébericht naar deze gebruiker
+send_pm_desc:			Verstuur een privÃ©bericht naar deze gebruiker
 sender_email:			Email verzender:
 sender_name:			Naam verzender:
 show_posts_by:			Toon berichten van: {VAR: u_alias}
@@ -189,8 +189,8 @@ modque_pending_approval:	Berichten die nog goedgekeurd moeten worden
 modque_approve:			Goedkeuren
 modque_delete:			Verwijder
 modque_no_message:		Er zijn geen berichten die nog goedgekeurd moeten worden
-pmsg_new_messages:		ongelezen privé-berichten
-pmsg_old_messages:		Lees privé-berichten
+pmsg_new_messages:		ongelezen privÃ©-berichten
+pmsg_old_messages:		Lees privÃ©-berichten
 deny_recipt:			stuur geen ontvangstbevestiging
 deny_recipt_desc:		Stuur geen bevestiging dat u dit bericht gelezen hebt
 restore_to:			Herstel naar:
@@ -213,8 +213,8 @@ pmsg_author:			verzender
 pmsg_time:			Tijd
 pmsg_selected:			Geselecteerd
 pmsg_delete:			Verwijder
-cur_ppage_pm:			Privéberichten
-writing_pm:			Een privébericht schrijven
+cur_ppage_pm:			PrivÃ©berichten
+writing_pm:			Een privÃ©bericht schrijven
 browsing_folder:		folder <b>{VAR: folders[$folder_id]}</b> doorbladeren
 inbox:				Postvak in
 draft:				Klad
@@ -333,7 +333,7 @@ post_annoncement:		Mededeling
 post_size:			Groote
 post_color:			Kleur
 post_font:			Lettersoort
-create_thread:			Creëer Topic
+create_thread:			CreÃ«er Topic
 edit_message:			Pas wijzigingen toe
 apply_spell_changes:		Pas Spelling Wijzigingen toe
 post_preview:			Post Preview
@@ -413,7 +413,7 @@ login_name_required:		inlog naam is vereist
 login_passwd_required:		Paswoord is vereist
 login_invalid_radius:		ongeldige login/wachtwoord combinatie
 reset_confirmation:		Hartelijk dank om u te registreren,\n\nVoor de activering van uw account ga naar deonderstaande URL:\n\n{VAR: url}\n\nEenmaal uw account is geactiveerd zal u ingelogd worden op het forum en\ndoorgezonden naar de hoofdpaginavan het forum.\n
-reset_reset:			Hallo,\n\nU heeft ervoor gekozen dat uw wachtwoord wordt gereset, indien u effectief uw wachtwoord wilt reseten\ngaan dan naar de volgende URL\n\n{VAR: url}\n\nNOTA: Dit forum slaat het wachtwoord op in een one-way encryption mechanisme wat betekend, dat\neenmaal u uw wachtwoord heeft ingegeven het gecodeerd waarna er GEEN manier is om het terug op te vragen.\nDit werkt door simpelweg uw wachtwoord te coderen iedere keer u het ingeeft en\ndaarna te zien of het met het gecodeerde overeenstemt. (Indien u geïntereseerd bent hoe dit mechanisme werkt lees info over het MD5 HASH algoritme)
+reset_reset:			Hallo,\n\nU heeft ervoor gekozen dat uw wachtwoord wordt gereset, indien u effectief uw wachtwoord wilt reseten\ngaan dan naar de volgende URL\n\n{VAR: url}\n\nNOTA: Dit forum slaat het wachtwoord op in een one-way encryption mechanisme wat betekend, dat\neenmaal u uw wachtwoord heeft ingegeven het gecodeerd waarna er GEEN manier is om het terug op te vragen.\nDit werkt door simpelweg uw wachtwoord te coderen iedere keer u het ingeeft en\ndaarna te zien of het met het gecodeerde overeenstemt. (Indien u geÃ¯ntereseerd bent hoe dit mechanisme werkt lees info over het MD5 HASH algoritme)
 rpasswd_invalid_passwd:		ongeldig wachtwoord
 rpasswd_passwd_nomatch:		Wachtwoorden zijn niet gelijk
 rpasswd_passwd_length:		Wachtwoord moet op zijn minst 6 tekens lang zijn
@@ -483,7 +483,7 @@ ppost_to:			Aan:
 ppost_from_buddy_list:		Selecteer van "buddy" lijst
 ppost_find_User:		Vind lid
 ppost_track_msg:		Traceer dit bericht
-ppost_track_msg_desc:		Waarschuw mij (via privé bericht) wanner dit bericht gelezen wordt.
+ppost_track_msg_desc:		Waarschuw mij (via privÃ© bericht) wanner dit bericht gelezen wordt.
 ppost_send:			verzend
 ppost_save_draft:		Sla draft op
 poll_blank_option:		U kan geen lege optie toevoegen.
@@ -491,10 +491,10 @@ poll_del_conf:			Indien u deze optie wenst te verwijderen, klik op OK
 poll_name:			Poll Naam:
 poll_timelimit:			Tijdslimiet
 poll_maxiumvotes:		Maximum stemmen
-poll_create:			Creëer
+poll_create:			CreÃ«er
 poll_update:			Update
 poll_disablesmilies:		Schakel smilies uit
-poll_create_poll:		Creëer Poll
+poll_create_poll:		CreÃ«er Poll
 poll_update_poll:		Update Poll
 poll_delete:			Verwijder
 poll_updateoption:		Update Optie
@@ -512,7 +512,7 @@ tabs_subscriptions:		Inschrijvingen
 tabs_referrals:			Verwijzingen
 tabs_buddy_list:		Vriendelijst
 tabs_ignore_list:		Negeerlijst
-tabs_private_messaging:		Privéconversaties
+tabs_private_messaging:		PrivÃ©conversaties
 single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
 thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Wenst u door te gaan?</b></font>
@@ -560,9 +560,9 @@ index_update:			Bladeren door de <a href="{TEMPLATE: index_update_lnk}">forum li
 list_referers_update:		Bladeren door verwijzingen
 login_update:			inlogformulier
 msg_update:			Bladeren door topic <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:		FOUT: Privéconversaties ingeschakeld
-pm_err_nopm_msg:		U kunt het systeem voor privéconversaties  niet gebruiken, het is uitgeschakeld door de administrator.
-pm_update:			Gebruik van privéconversaties
+pm_err_nopm_title:		FOUT: PrivÃ©conversaties ingeschakeld
+pm_err_nopm_msg:		U kunt het systeem voor privÃ©conversaties  niet gebruiken, het is uitgeschakeld door de administrator.
+pm_update:			Gebruik van privÃ©conversaties
 post_err_lockedthread_title:	FOUT: gesloten onderwerp
 post_err_lockedthread_msg:	Dit onderwerp is gesloten, geen berichten meer toegelaten
 err_coppa_title:		FOUT: Uw account is nog niet bevestigd
@@ -582,13 +582,13 @@ postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} fotos zijn toegelaten 
 postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Onderwerp vereist
 postcheck_no_such_user:		Er is geen lid genaamd "{FUNC: char_fix(htmlspecialchars($v))}" in dit forum
-postcheck_ignored:		U kan geen privé berichten versturen naar "{FUNC: char_fix(htmlspecialchars($v))}", Omdat deze persoon u negeert.
+postcheck_ignored:		U kan geen privÃ© berichten versturen naar "{FUNC: char_fix(htmlspecialchars($v))}", Omdat deze persoon u negeert.
 postcheck_no_recepient:		U kan geen bericht versturen, ontvanger ontbreekt
 postcheck_invalid_email:	Vul een geldig email adres in van uw vriend.
 postcheck_email_subject:	U kan geen email versturen zonder een onderwerp.
 postcheck_email_body:		U kan geen email versturen zonder bericht.
 private_msg_notify_subj:	Lees Notificatie voor: {VAR: m->subject}
-private_msg_notify_body:	Hallo,<br />{VAR: usr->login} heeft uw privé bericht, "{VAR: m->subject}", gelezen op {TEMPLATE: private_msg_notify_body_date}<br />
+private_msg_notify_body:	Hallo,<br />{VAR: usr->login} heeft uw privÃ© bericht, "{VAR: m->subject}", gelezen op {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Browsing door verwijzingen
 register_err_short_login:	De login die u heeft geselecteer is te kort. De login moet op zijn minst 4 karakters lang zijn
 register_err_login_notallowed:	Deze login is niet toegelaten
@@ -713,7 +713,7 @@ p_REPLY:			Antwoord
 p_EDIT:				Editeer
 p_DEL:				Verwijder
 p_STICKY:			Sticky posts
-p_POLL:				Creëer poll
+p_POLL:				CreÃ«er poll
 p_FILE:				veranker bestand
 p_VOTE:				Stem
 p_RATE:				Beoordeel topics
@@ -731,7 +731,7 @@ post_quote:			Quote:
 userinfo_referals:		gerefereerde leden:
 userinfo_referals_count:	{VAR: referals} leden
 pm_no_space_title:		Geen plaats meer!
-pm_no_space_msg:		Uw privé bericht overschreidt de toegelaten opslagcapaciteit van <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, terwijl ze momenteel <b>{VAR: fldr_size} bytes</b> bevatten aan inhoud.<br /><br /><font class="ErrorText">Verwijder enkele oudere berichten voor wat meer plaats</font>.
+pm_no_space_msg:		Uw privÃ© bericht overschreidt de toegelaten opslagcapaciteit van <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, terwijl ze momenteel <b>{VAR: fldr_size} bytes</b> bevatten aan inhoud.<br /><br /><font class="ErrorText">Verwijder enkele oudere berichten voor wat meer plaats</font>.
 pm_space_indct_msg:		Uw PM folders zijn {VAR: percent_full}% vol.
 th_expr_never:			Nooit
 th_expr_one_hr:			1 uur
@@ -805,14 +805,14 @@ pmsg_recepient:			ontvanger
 register_err_taken_alias:	De alias die u heeft gekozen wordt al door een ander forum lid gebruikt, kies aub een ander.
 register_alias:			Alias
 register_alias_desc:		Indien u een andere bijnaam wenst dan uw login, vul dan de gewenste bijnaam hier in.
-register_allow_pm_msg:		Sta privé berichten toe	
-register_allow_pm_msg_desc:	Laat andere gebruikers toe om u privé berichten te sturen via FUDforum.
-postcheck_pm_disabled:		U kan geen privé boodschappen versturen naar "{VAR-HTML: v}", omdat deze persoon uw privé berichten niet accepteerd.
+register_allow_pm_msg:		Sta privÃ© berichten toe	
+register_allow_pm_msg_desc:	Laat andere gebruikers toe om u privÃ© berichten te sturen via FUDforum.
+postcheck_pm_disabled:		U kan geen privÃ© boodschappen versturen naar "{VAR-HTML: v}", omdat deze persoon uw privÃ© berichten niet accepteerd.
 polllist_vote:			Stem
 polllist_view_results:		Bekijk Resultaten
 polllist_name:			Poll Naam
-polllist_date:			gecreëerd op
-polllist_owner:			gecreëerd door
+polllist_date:			gecreÃ«erd op
+polllist_owner:			gecreÃ«erd door
 polllist_votes:			Totaal aantal stemmen
 polllist_action:		Actie
 polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Reviewing beschikbare Polls</a>
@@ -825,7 +825,7 @@ search_asc_order:		stijgende volgorde
 search_logic:			logisch zoeken:
 search_sorting:			Sorteer resultaten op datum in:
 post_proceed:			Vooruit
-post_moderated_forum:		U heeft een bericht geplaatst in een gemodereerd forum, wat betekend dat uw bericht niet op het forum wordt zichtbaar gemaakt totdat het is goedgekeurd door één van de moderator(s) van het forum en of de administrator(s).
+post_moderated_forum:		U heeft een bericht geplaatst in een gemodereerd forum, wat betekend dat uw bericht niet op het forum wordt zichtbaar gemaakt totdat het is goedgekeurd door Ã©Ã©n van de moderator(s) van het forum en of de administrator(s).
 post_moderated_forum_ttl:	Gemodereerd forum bericht
 buddy_list_bday:		vandaag wordt {VAR: r[2]}&nbsp;{VAR: age} jaar
 email_warning_msg:		Indien u uw huidig emailadres wijzigt zal uw account als &quot;niet bevestigd&quot; gemarkeerd worden totdat u het bevestigd via email.
@@ -842,8 +842,8 @@ spell_alts:			geen alternatieven
 insert_uploaded_image:		Voeg tekening in in het bericht
 finduser_help:			de zoekmachine voegt automatisch * mask toe aan uw zoekvraag. Vb. om naar alle leden te zoeken wiens login begint met een &quot;a&quot; , typt u een &quot;a&quot; in in het zoekveld.
 back_to_top:			terug naar Top
-pm_err_disabled_title:		Privé berichten uitgeschakeld
-pm_err_disabled_msg:		U kan geen privé berichten versturen totdat u de functie "privé berichten toelaten" aanklikt in uw profiel.
+pm_err_disabled_title:		PrivÃ© berichten uitgeschakeld
+pm_err_disabled_msg:		U kan geen privÃ© berichten versturen totdat u de functie "privÃ© berichten toelaten" aanklikt in uw profiel.
 err_mod_acc_ttl:		ongeijkte Account
 err_mod_acc_msg:		De administrator heeft ervoor gekozen om manueel alle accounts te reviewen voor activatie. Totdat uw account gevalideerd is door de administrator zal u niet de mogelijk hebben om de volledige capaciteit van uw account te gebruiken.
 accounts_pending_approval:	Accounts afhangend van goedkeuring

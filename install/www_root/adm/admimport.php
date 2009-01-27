@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.61 2009/01/25 12:50:38 frank Exp $
+* $Id: admimport.php,v 1.62 2009/01/27 18:21:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -155,7 +155,7 @@ function resolve_dest_path($path)
 						$line = strtr($line, array('BINARY'=>'', 'INT NOT NULL AUTO_INCREMENT'=>'SERIAL'));
 					} else if ($my412 && !strncmp($line, 'CREATE TABLE', strlen('CREATE TABLE'))) { 
 						/* for MySQL 4.1.2+ we need to specify a default charset */
-						$line .= " DEFAULT CHARACTER SET latin1";
+						$line .= " DEFAULT CHARACTER SET utf8";
 					}
 
 					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));

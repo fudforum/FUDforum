@@ -1,11 +1,11 @@
-action:				AÁ„o
-add_to_buddy_list:		Adicionar ‡ lista de amigos
+action:				A√ß√£o
+add_to_buddy_list:		Adicionar √† lista de amigos
 admin:				Admin
 admin_control_panel:		Admin Painel de Controle
 administrator:			Administrador
 attachment:			Anexo:
 avatar:				Avatar:
-average_post_count:		{VAR: u->posted_msg_count} Post(s) ({VAR: avg} em mÈdia por dia)
+average_post_count:		{VAR: u->posted_msg_count} Post(s) ({VAR: avg} em m√©dia por dia)
 biography:			Biografia:
 birth_date:			Data de Nascimento :
 by:				Por:
@@ -17,97 +17,97 @@ date_registered:		Data do Registo:
 download_counter:		Foi baixada {VAR: v[3]} veze(s)
 email:				Email:
 email_to_friend:		Email a um amigo
-email_to_friend_desc:		Enviar o endereÁo (URL) desta pagina a um(s)amigo(s) via email
+email_to_friend_desc:		Enviar o endere√ßo (URL) desta pagina a um(s)amigo(s) via email
 email_user:			Clique para enviar um email para o Membro
 faq:				F.A.Q.
-first_unread_msg:		Ir para a(s) mensagem(s)n„o lida(s)
-first_unread_msg_desc:		Ir para a 1™ mensagem n„o lida neste tÛpico
-flat_view:			Retornar para a vista padr„o
-forum:				FÛrum:
-forum_icon:			Õcone do FÛrum
+first_unread_msg:		Ir para a(s) mensagem(s)n√£o lida(s)
+first_unread_msg_desc:		Ir para a 1¬™ mensagem n√£o lida neste t√≥pico
+flat_view:			Retornar para a vista padr√£o
+forum:				F√≥rum:
+forum_icon:			√çcone do F√≥rum
 forum_new_messages:		Novas Mensagens
-forum_none_messages:		Apenas membros registados no fÛrum podem ler mensagems n„o lidas
-forum_old_messages:		N„o h· novas mensagens
+forum_none_messages:		Apenas membros registados no f√≥rum podem ler mensagems n√£o lidas
+forum_old_messages:		N√£o h√° novas mensagens
 from:				De:
 gender:				Sexo:
-go:				AvanÁar
+go:				Avan√ßar
 goto_next_msg:			Ir para a proxima mensagem
 goto_prev_msg:			Ir para a mensagem anterior
-home:				InÌcio
-homepage:			p·gina inÌcio:
+home:				In√≠cio
+homepage:			p√°gina in√≠cio:
 icq_control_panel:		Painel de mensagens do ICQ Online
 icq_message_form:		Formulario de mensagem ICQ:
-ignore_user:			Ignorar todos os posts deste usu·rio 
+ignore_user:			Ignorar todos os posts deste usu√°rio 
 im_aim:				Apontar manuseamento:
 im_msnm:			MSN Messenger:
 im_yahoo:			Yahoo Messenger:
 image:				Imagem:
-index_forum:			FÛrum
-index_new_posts:		Existem novos posts desde o ˙ltimo lido
-index_no_new_posts:		N„o existem novos posts desde o ˙ltimo lido
+index_forum:			F√≥rum
+index_new_posts:		Existem novos posts desde o √∫ltimo lido
+index_no_new_posts:		N√£o existem novos posts desde o √∫ltimo lido
 interests:			Interesses:
-last_post:			⁄ltimo post
-last_thread_msg:		Ir para a ultima mensagem neste tÛpico 
+last_post:			√öltimo post
+last_thread_msg:		Ir para a ultima mensagem neste t√≥pico 
 legend:				Legenda:
-location:			LocalizaÁ„o:
-lock_thread:			Fechar TÛpico
+location:			Localiza√ß√£o:
+lock_thread:			Fechar T√≥pico
 locked:				Fechado
-locked_with_new_posts:		Fechado(c/ posts n„o lidos)
-logged_in_list:			Lista de usu·rios visitando o fÛrum
+locked_with_new_posts:		Fechado(c/ posts n√£o lidos)
+logged_in_list:			Lista de usu√°rios visitando o f√≥rum
 login:				Entrar
-login_header:			Usu·rio:
+login_header:			Usu√°rio:
 logout:				Sair
 mark_all_read:			marcar todas as mensagens como lidas
-mark_all_read_desc:		Todas a suas mensagens ser„o marcadas como lidas
+mark_all_read_desc:		Todas a suas mensagens ser√£o marcadas como lidas
 members:			Membros
 message:			Mensagem
-message_counter:		Os nossos membros postaram um total de <b>{VAR: post_count}</b> mensagens, em <b>{VAR: thread_count}</b> tÛpico.
-message_index:			Õndice da mensagem
+message_counter:		Os nossos membros postaram um total de <b>{VAR: post_count}</b> mensagens, em <b>{VAR: thread_count}</b> t√≥pico.
+message_index:			√çndice da mensagem
 message_index_desc:		Ver lista de mensagens
 minimize_category:		Minimizar Categoria
-moderation_queue:		ModeraÁ„o
+moderation_queue:		Modera√ß√£o
 moderator:			Moderador
 moderator_of:			Moderador ausente:
-moderator_options:		OpÁıes do Moderador
+moderator_options:		Op√ß√µes do Moderador
 moderators:			Moderador(es)
-more_unread_messages:		mais mensagens n„o lidas
-more_unread_messages_desc:	Mostrar mais mensagens n„o lidas e marcar as mensagens correntes como lidas 
+more_unread_messages:		mais mensagens n√£o lidas
+more_unread_messages_desc:	Mostrar mais mensagens n√£o lidas e marcar as mensagens correntes como lidas 
 move_thread:			Mover
-moved:				Movida para outro fÛrum
-moved_thread_message:		Este tÛpico foi movido para outro FÛrum
+moved:				Movida para outro f√≥rum
+moved_thread_message:		Este t√≥pico foi movido para outro F√≥rum
 na:				n/d
 new_posts:			Novos Posts
-new_private_messages:		tem <span class="GenText" style="color: #ff0000">({VAR: c})</span> mensagens privadas n„o lidas
-new_thread:			Criar um novo tÛpico
-newest_user:			O mais novo membro registado È
-next_page:			PrÛxima P·gina
-next_thread:			PrÛximo TÛpico:
-no_messages:			N„o h· mensagens neste fÛrum.
+new_private_messages:		tem <span class="GenText" style="color: #ff0000">({VAR: c})</span> mensagens privadas n√£o lidas
+new_thread:			Criar um novo t√≥pico
+newest_user:			O mais novo membro registado √©
+next_page:			Pr√≥xima P√°gina
+next_thread:			Pr√≥ximo T√≥pico:
+no_messages:			N√£o h√° mensagens neste f√≥rum.
 no_msg_body:			mensagem vazia
-no_new_posts:			N„o h· novos posts
+no_new_posts:			N√£o h√° novos posts
 no_posts:			sem Posts
-no_subscribed_forums:		N„o h· fÛrums subscritos
-no_subscribed_threads:		N„o h· topicos subscritos
-no_unread_locked:		Este tÛpico foi fechado
-no_unread_msg:			Neste tÛpico n„o h· mensagens n„o lidas
-no_unread_msg_unreg:		As mensagens lidas e n„o lidas sÛ podem ser localizadas por membros registados 
-num_pages:			P·ginas ({VAR: ttl_pg}):
+no_subscribed_forums:		N√£o h√° f√≥rums subscritos
+no_subscribed_threads:		N√£o h√° topicos subscritos
+no_unread_locked:		Este t√≥pico foi fechado
+no_unread_msg:			Neste t√≥pico n√£o h√° mensagens n√£o lidas
+no_unread_msg_unreg:		As mensagens lidas e n√£o lidas s√≥ podem ser localizadas por membros registados 
+num_pages:			P√°ginas ({VAR: ttl_pg}):
 num_votes:			{VAR: obj->total_votes} voto(s)
-occupation:			OcupaÁ„o:
+occupation:			Ocupa√ß√£o:
 off:				DES
 on:				LIG
-page_timings:			Tempo total para gerar a p·gina: {VAR: page_gen_time} segundos
+page_timings:			Tempo total para gerar a p√°gina: {VAR: page_gen_time} segundos
 pm:				Mensagens Privadas
-poll:				VotaÁ„o:
+poll:				Vota√ß√£o:
 post_count:			Contador de posts {VAR: u_pcount}
 post_count_l:			Contador de posts:
 posts:				Mensagens
 posts_c:			Mensagens:
-prev_thread:			TÛpico anterior:
+prev_thread:			T√≥pico anterior:
 usrinfo_private_message:	Mensagem Privada:
 profile:			Perfil
 profile_desc:			Clique aqui para acessar o painel de controle de membro
-rate_thread:			Votar TÛpico
+rate_thread:			Votar T√≥pico
 refresh_list:			Atualizar a lista
 register:			Registo
 registered:			Registado:
@@ -119,90 +119,90 @@ reveal_all_posts:		Revelar todos os posts por {VAR: user_login}
 reveal_post:			revelar posts
 search:				Procurar
 sel_todays_posts:		Posts de hoje
-sel_todays_posts_desc:		Filtro para posts de hoje (sÛ ser„o mostrados os posts colocados hoje)
-sel_unanswered_posts:		Posts n„o respondidos
-sel_unanswered_posts_desc:	Filtro de posts n„o respondidos (sÛ ser„o mostrados os posts n„o respondidos)
-sel_unread_messages:		Mensagens n„o lidas
-sel_unread_messages_desc:	Filtro de mensagens n„o lidas (sÛ ser„o mostradas as mensagens n„o lidas)
+sel_todays_posts_desc:		Filtro para posts de hoje (s√≥ ser√£o mostrados os posts colocados hoje)
+sel_unanswered_posts:		Posts n√£o respondidos
+sel_unanswered_posts_desc:	Filtro de posts n√£o respondidos (s√≥ ser√£o mostrados os posts n√£o respondidos)
+sel_unread_messages:		Mensagens n√£o lidas
+sel_unread_messages_desc:	Filtro de mensagens n√£o lidas (s√≥ ser√£o mostradas as mensagens n√£o lidas)
 send:				Enviar
-send_pm_desc:			Enviar uma mensagem privada para este usu·rio
+send_pm_desc:			Enviar uma mensagem privada para este usu√°rio
 sender_email:			Email do remetente:
 sender_name:			Nome do remetente:
 show_posts_by:			Mostrar posts por: {VAR: u_alias}
 size:				Tamanho:
 status:				Estado:
-status_line:			H· <b>{VAR: st_obj->online_users_reg}</b> membros(s), <b>{VAR: st_obj->online_users_hidden}</b> membros invisiveis e  <b>{VAR: st_obj->online_users_anon}</b> convidado(s) a visitar esta p·gina.
+status_line:			H√° <b>{VAR: st_obj->online_users_reg}</b> membros(s), <b>{VAR: st_obj->online_users_hidden}</b> membros invisiveis e  <b>{VAR: st_obj->online_users_anon}</b> convidado(s) a visitar esta p√°gina.
 sticky:				fixo:
-stop_ignoring:			parar de ignorar este usu·rio
-sub_to_thread:			Subscrever o tÛpico
-sub_to_thread_desc:		Receber notificaÁ„o sobre novos posts neste tÛpico
+stop_ignoring:			parar de ignorar este usu√°rio
+sub_to_thread:			Subscrever o t√≥pico
+sub_to_thread_desc:		Receber notifica√ß√£o sobre novos posts neste t√≥pico
 subject:			Assunto
 subscribe:			Subscrever
-subscribe_desc:			Receber notificaÁıes quando alguÈm criar novos tÛpicos neste fÛrum 
-subscribed_forums:		FÛruns subscritos
-subscribed_forums_desc:		Filtro de fÛruns subscritos (sÛ ser„o mostrados os posts dos fÛruns que tem subscritos)
-subscribed_threads:		TÛpico subscritos
-subscribed_threads_desc:	Filtro de tÛpicos subscritos (sÛ ser„o mostrados os posts dos tÛpicos que tem subscritos)
-switch_to_thread_view:		Mudar para a visualizaÁ„o do assunto deste tÛpico
-thread:				TÛpico:
+subscribe_desc:			Receber notifica√ß√µes quando algu√©m criar novos t√≥picos neste f√≥rum 
+subscribed_forums:		F√≥runs subscritos
+subscribed_forums_desc:		Filtro de f√≥runs subscritos (s√≥ ser√£o mostrados os posts dos f√≥runs que tem subscritos)
+subscribed_threads:		T√≥pico subscritos
+subscribed_threads_desc:	Filtro de t√≥picos subscritos (s√≥ ser√£o mostrados os posts dos t√≥picos que tem subscritos)
+switch_to_thread_view:		Mudar para a visualiza√ß√£o do assunto deste t√≥pico
+thread:				T√≥pico:
 thread_announcement:		anuncio:
-thread_first_unread_msg:	Clique aqui para ir para a 1™ mensagem neste tÛpico
-thread_thread:			TÛpico
-threads:			TÛpicos
+thread_first_unread_msg:	Clique aqui para ir para a 1¬™ mensagem neste t√≥pico
+thread_thread:			T√≥pico
+threads:			T√≥picos
 time:				Hora
 todays_posts:			Posts de hoje
 todays_posts_desc:		Mostrar todas as mensagens que foram colocadas hoje
-un_ignore_user:			parar de ignorar posts deste usu·rio
-unanswered_posts:		Posts n„o respondidos
+un_ignore_user:			parar de ignorar posts deste usu√°rio
+unanswered_posts:		Posts n√£o respondidos
 unanswered_posts_desc:		Mostrar todas as mensagens sem resposta
-unlock_thread:			TÛpico aberto
-unread_msg:			Este tÛpico contÈm mensagens que n„o foram lidas
-unread_msg_locked:		TÛpico com mensagens n„o lidas fechado
-unread_posts:			Posts n„o lidos
-unread_posts_desc:		Mostrar todas as mensagens n„o lidas
-unsub_from_thread:		Anular subscriÁ„o do tÛpico
-unsub_from_thread_desc:		Parar de receber notificaÁıes sobre novos posts neste tÛpico
-unsubscribe:			Anular subscriÁ„o
-unsubscribe_desc:		Parar de receber notificaÁıes sobre novos posts neste fÛrum
+unlock_thread:			T√≥pico aberto
+unread_msg:			Este t√≥pico cont√©m mensagens que n√£o foram lidas
+unread_msg_locked:		T√≥pico com mensagens n√£o lidas fechado
+unread_posts:			Posts n√£o lidos
+unread_posts_desc:		Mostrar todas as mensagens n√£o lidas
+unsub_from_thread:		Anular subscri√ß√£o do t√≥pico
+unsub_from_thread_desc:		Parar de receber notifica√ß√µes sobre novos posts neste t√≥pico
+unsubscribe:			Anular subscri√ß√£o
+unsubscribe_desc:		Parar de receber notifica√ß√µes sobre novos posts neste f√≥rum
 updated_on:			Atualizado em:
-user:				Usu·rio
+user:				Usu√°rio
 user_counter:			Existem <b>{VAR: st_obj->user_count}</b> membros registados.
-user_info:			InformaÁ„o do usu·rio
-user_info_l:			InformaÁ„o do usu·rio {VAR: u->alias}
-user_offline:			{VAR: obj->login}  est· neste momento offline
-user_online:			{VAR: obj->login} est· neste momento online
-usrinfo_last_post:		⁄ltimo Post:
+user_info:			Informa√ß√£o do usu√°rio
+user_info_l:			Informa√ß√£o do usu√°rio {VAR: u->alias}
+user_offline:			{VAR: obj->login}  est√° neste momento offline
+user_online:			{VAR: obj->login} est√° neste momento online
+usrinfo_last_post:		√öltimo Post:
 view_results:			Ver resultados
 views:				Vistas
 vote:				{VAR: frm->n_rating} Voto(s)
 vote_button:			Voto
 vote_for_thread:		Voto
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> foi movido para <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> pelo moderador
-welcome_message:		Bem vindo <b>{VAR: usr->alias}</b>, a sua ˙ltima visita foi em {TEMPLATE: welcome_message_date}
-what_ppl_doing:			Mostrar o que os membros est„o fazendo
-reported_del_report:		Apagar relatÛrio
-reported_reason:		Raz„o
+welcome_message:		Bem vindo <b>{VAR: usr->alias}</b>, a sua √∫ltima visita foi em {TEMPLATE: welcome_message_date}
+what_ppl_doing:			Mostrar o que os membros est√£o fazendo
+reported_del_report:		Apagar relat√≥rio
+reported_reason:		Raz√£o
 reported_on:			Em:
 reported_reported_by:		Reportado por:
 reported_reported_msg:		Mensagens reportadas
-modque_pending_approval:	Mensagens pendentes de aprovaÁ„o
+modque_pending_approval:	Mensagens pendentes de aprova√ß√£o
 modque_approve:			Aprovar
 modque_delete:			Apagar
-modque_no_message:		N„o h· mensagens pendentes de aprovaÁ„o
-pmsg_new_messages:		Mensagens privadas n„o lidas
+modque_no_message:		N√£o h√° mensagens pendentes de aprova√ß√£o
+pmsg_new_messages:		Mensagens privadas n√£o lidas
 pmsg_old_messages:		Ler mensagens privadas
 deny_recipt:			Negar recibo
-deny_recipt_desc:		N„o enviar confirmaÁ„o de mensagem lida;
-restore_to:			ReposiÁ„o para:
+deny_recipt_desc:		N√£o enviar confirma√ß√£o de mensagem lida;
+restore_to:			Reposi√ß√£o para:
 move_to:			Mover para:
-list_referes_referrals:		IndicaÁ„o
+list_referes_referrals:		Indica√ß√£o
 list_referes_members:		Membros indicados
 list_referes_member:		Membro
-referals_none:			Ainda sem indicaÁıes.
-referals_refered_by:		Membros do fÛrum indicados por: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_none:			Ainda sem indica√ß√µes.
+referals_refered_by:		Membros do f√≥rum indicados por: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Contador de posts
 referals_registered_on:		Registado em
-referals_action:		AÁ„o
+referals_action:		A√ß√£o
 pmsg_all:			todos
 pmsg_none:			nenhum
 folder:				Pasta:
@@ -221,11 +221,11 @@ draft:				Rascunho
 sent:				Enviado
 trash:				Lixo
 msg_author:			Autor
-avatar_sel_form:		Formul·rio de seleÁ„o de Avatar
-no_avatars:			N„o h· Avatars disponÌveis
+avatar_sel_form:		Formul√°rio de sele√ß√£o de Avatar
+no_avatars:			N√£o h√° Avatars dispon√≠veis
 month_1:			Janeiro
 month_2:			Fevereiro
-month_3:			MarÁo
+month_3:			Mar√ßo
 month_4:			Abril
 month_5:			Maio
 month_6:			Junho
@@ -237,35 +237,35 @@ month_11:			Novembro
 month_12:			Dezembro
 male:				Masculino
 female:				Feminino
-unspecified:			N√O ESPECIFICADO
-register_tree_view:		Mensagens e assuntos listados em ·rvore  
-register_msg_tree_view:		Listagem de assuntos/Listagem de mensagens em ·rvore
+unspecified:			N√ÉO ESPECIFICADO
+register_tree_view:		Mensagens e assuntos listados em √°rvore  
+register_msg_tree_view:		Listagem de assuntos/Listagem de mensagens em √°rvore
 register_tree_msg_view:		Listagem de assuntos/Listagem de mensagens 
 register_flat_view:		Listagem normal de assuntos e mensagens 
-use_forum_default:		Usar o fÛrum padr„o
-finduser_user_info:		InformaÁ„o sobre o usu·rio
+use_forum_default:		Usar o f√≥rum padr√£o
+finduser_user_info:		Informa√ß√£o sobre o usu√°rio
 finduser_by_login:		Por Login:
 finduser_submit:		Encontrar
-finduser_no_such_user:		Esse usu·rio n„o existe
-finduser_user:			Usu·rio
+finduser_no_such_user:		Esse usu√°rio n√£o existe
+finduser_user:			Usu√°rio
 finduser_postcount:		Contador de posts
-finduser_joindate:		Data de ades„o
-finduser_action:		AÁ„o
+finduser_joindate:		Data de ades√£o
+finduser_action:		A√ß√£o
 yes:				Sim
-no:				N„o
+no:				N√£o
 edit_time_limit:		<br /><b>Editar tempo limite</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
 no_edit_time_limit:		<br /><b>Editar tempo limite</b>: <b>Ilimitado</b>
-pmuserloc_login:		Usu·rio:
+pmuserloc_login:		Usu√°rio:
 pmuserloc_submit:		Submeter
-pmuserloc_user:			Usu·rio
+pmuserloc_user:			Usu√°rio
 pmuserloc_no_result:		Sem resultado
-register_builtin:		ConstruÌdo em
+register_builtin:		Constru√≠do em
 register_specify_url:		Especificar URL
 register_uploaded:		Adicionar Avatar
-register_login:			Usu·rio:
+register_login:			Usu√°rio:
 register_password:		Senha:
 register_conf_pass:		Confirmar Senha:
-register_email_desc:		Por favor, informe um endereÁo de E-mail v·lido. Voce poder· escolher ocultar o email na seÁ„o preferÍncias.
+register_email_desc:		Por favor, informe um endere√ßo de E-mail v√°lido. Voce poder√° escolher ocultar o email na se√ß√£o prefer√™ncias.
 register_name:			Nome:
 register_your_pass:		A sua Senha:
 register_update:		Atualizar
@@ -273,59 +273,59 @@ register_avatar_type:		Tipo de Avatar:
 register_del_avatar:		Apagar Avatar
 register_avatar:		Avatar:
 register_sel_avatar:		Selecionar Avatar
-register_custom_avatar_rules:	O Avatar escolhido n„o aparecer· atÈ que seja aprovado pelo administrador.<br /><font class="SmallText">O Avatar n„o poder· ter mais de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> de largura e ter· de estar no formato.<b>jpg</b>, <b>gif</b> ou <b>png</b></font>
+register_custom_avatar_rules:	O Avatar escolhido n√£o aparecer√° at√© que seja aprovado pelo administrador.<br /><font class="SmallText">O Avatar n√£o poder√° ter mais de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> de largura e ter√° de estar no formato.<b>jpg</b>, <b>gif</b> ou <b>png</b></font>
 register_custom_avatar_url:	URL do Avatar escolhido:
-register_preview:		PrevisualizaÁ„o
+register_preview:		Previsualiza√ß√£o
 register_custom_avatar_upload:	Arquivo do Avatar escolhido:
 register_register:		Registar
-register_required:		InformaÁ„o requerida
-register_required_desc:		Todos os campos s„o requeridos. Por favor, note que na senha ser„o diferenciados os caracteres mai˙sculos e min˙sculos.
-register_optional:		InformaÁ„o opcional
-register_optional_desc:		… recomendado que n„o revele a identificaÁ„o ou alguma informaÁ„o pessoal no seu perfil.  Toda a informaÁ„o ser· visivel para todos os membros do fÛrum.
+register_required:		Informa√ß√£o requerida
+register_required_desc:		Todos os campos s√£o requeridos. Por favor, note que na senha ser√£o diferenciados os caracteres mai√∫sculos e min√∫sculos.
+register_optional:		Informa√ß√£o opcional
+register_optional_desc:		√â recomendado que n√£o revele a identifica√ß√£o ou alguma informa√ß√£o pessoal no seu perfil.  Toda a informa√ß√£o ser√° visivel para todos os membros do f√≥rum.
 register_location:		Localidade:
-register_occupation:		OcupaÁ„o:
+register_occupation:		Ocupa√ß√£o:
 register_interests:		Interesses:
 register_image:			Imagem:
 register_icq:			ICQ
 register_aim:			AIM:
 register_yahoo:			Yahoo Messenger:
 register_msnm:			MSN Messenger:
-register_homepage:		P·gina Pessoal:
+register_homepage:		P√°gina Pessoal:
 register_bday:			Data de nascimento:
-register_bday_desc:		Se selecionar a data de nascimento todos os membros a poder„o ver no seu perfil
+register_bday_desc:		Se selecionar a data de nascimento todos os membros a poder√£o ver no seu perfil
 register_day:			Dia
-register_month:			MÍs
+register_month:			M√™s
 register_year:			Ano
 register_gender:		Sexo:
 register_bio:			Biografia:
-register_bio_desc:		Alguns detalhes acerca de vocÍ, tais como interesses, trabalho, etc...
-register_prefs:			PreferÍncias
+register_bio_desc:		Alguns detalhes acerca de voc√™, tais como interesses, trabalho, etc...
+register_prefs:			Prefer√™ncias
 register_sig:			Assinatura:
-register_sig_desc:		Texto que poder· usar no final dos seus posts.
+register_sig_desc:		Texto que poder√° usar no final dos seus posts.
 register_reset:			Reiniciar
-register_def_thread_view:	Visualizar tÛpico padr„o:
-register_msg_per_page:		Mensagens por p·gina:
+register_def_thread_view:	Visualizar t√≥pico padr√£o:
+register_msg_per_page:		Mensagens por p√°gina:
 register_show_sig:		Mostrar assinaturas:
 register_show_sig_desc:		Permite mostrar ou ocultar assinaturas de outros membros
-register_use_sig_default:	Usar assinatura como padr„o:
-register_use_sig_default_desc:	Adicionar autom·ticamente a assinatura no final dos posts
+register_use_sig_default:	Usar assinatura como padr√£o:
+register_use_sig_default_desc:	Adicionar autom√°ticamente a assinatura no final dos posts
 register_timezone:		Hora Local:
 register_ignore_admin:		Ignorar mensagens do administrador:
-register_invisible_mode:	Modo InvisÌvel:
+register_invisible_mode:	Modo Invis√≠vel:
 register_invisible_mode_desc:	Ocultar o estado online.
-register_show_email:		Mostrar endereÁo de E-mail:
-register_show_email_desc:	Escolha esta opÁ„o se quiser que o seu endereÁo de e-mail seja publicado.
-register_notification:		Selecionar a notificaÁ„o como padr„o:
-register_notification_desc:	Se a notificaÁ„o estiver ativa como padr„o, poder· ser desativada quando colocar um post.
-register_notify_method:		Escolher modo de notificaÁ„o:
-register_notify_js_error:	Escolheu notificaÁ„o via ICQ, mas n„o especificou o n.∫ de ICQ. Ser· utilizado o Email por defeito;
+register_show_email:		Mostrar endere√ßo de E-mail:
+register_show_email_desc:	Escolha esta op√ß√£o se quiser que o seu endere√ßo de e-mail seja publicado.
+register_notification:		Selecionar a notifica√ß√£o como padr√£o:
+register_notification_desc:	Se a notifica√ß√£o estiver ativa como padr√£o, poder√° ser desativada quando colocar um post.
+register_notify_method:		Escolher modo de notifica√ß√£o:
+register_notify_js_error:	Escolheu notifica√ß√£o via ICQ, mas n√£o especificou o n.¬∫ de ICQ. Ser√° utilizado o Email por defeito;
 register_allow_email_msg:	Autorizar mensagens E-mail:
-register_allow_email_msg_desc:	Autorizar que outros membros enviem e-mails via fÛrum.
+register_allow_email_msg_desc:	Autorizar que outros membros enviem e-mails via f√≥rum.
 buddy_status:			Estado
 my_buddies:			Os meus amigos
 add_buddy:			Adicionar Amigo
 add:				Adicionar
-buddy_search:			Introduza o id do usu·rio que quer adicionar.
+buddy_search:			Introduza o id do usu√°rio que quer adicionar.
 buddy_remove:			remover
 post_normal:			Normal
 post_sticky:			Fixo
@@ -333,22 +333,22 @@ post_annoncement:		Anunciar
 post_size:			Tamanho
 post_color:			Cor
 post_font:			Fonte
-create_thread:			Criar TÛpico
+create_thread:			Criar T√≥pico
 submit_reply:			Submeter resposta
-edit_message:			Aplicar AlteraÁıes nas Mensagens
-apply_spell_changes:		Aplicar AlteraÁıes de ortografia
+edit_message:			Aplicar Altera√ß√µes nas Mensagens
+apply_spell_changes:		Aplicar Altera√ß√µes de ortografia
 post_preview:			Visualizar o Post
 post_logedin_user:		Membro Logado:
 post_logout:			Logout
 post_passwd:			Senha para fazer posts:
-post_poll:			VotaÁ„o:
-post_create_poll:		CRIAR VOTA«√O
+post_poll:			Vota√ß√£o:
+post_create_poll:		CRIAR VOTA√á√ÉO
 post_poll_delete:		APAGAR
 post_poll_edit:			EDITAR
-post_mod_opt:			OpÁıes do Moderador:
-post_thread_type:		Tipo de TÛpico:
-post_thread_expiry:		TÛpico expirado:
-post_locked:			TÛpico fechado
+post_mod_opt:			Op√ß√µes do Moderador:
+post_thread_type:		Tipo de T√≥pico:
+post_thread_expiry:		T√≥pico expirado:
+post_locked:			T√≥pico fechado
 post_icons:			Icone do Post:
 post_no_icon:			Nenhum Icone
 post_smiley:			Atalhos para os smiles:
@@ -357,72 +357,72 @@ post_upload_file:		Upload Arquivo
 post_file_del:			Apagar
 post_file_name:			Nome
 post_file_size:			Tamanho
-file_attachments:		AcessÛrios de arquivos:
-allowed_files:			Permitir extenÁıes de arquivos:
-max_file_size:			Tamanho m·ximo do arquivo:
-max_files_per_msg:		M·ximo de arquivos por mensagem:
-post_notification:		Colocar NotificaÁ„o
+file_attachments:		Acess√≥rios de arquivos:
+allowed_files:			Permitir exten√ß√µes de arquivos:
+max_file_size:			Tamanho m√°ximo do arquivo:
+max_files_per_msg:		M√°ximo de arquivos por mensagem:
+post_notification:		Colocar Notifica√ß√£o
 include_sig:			Incluir assinatura
 include_sig_desc:		Incluir a minha assinatura no perfil.
 disable_smilies:		Cancelar smilies nesta mensagem
 spell_check_msg:		Acionar ortografia na mensagem
-post_form:			Colocar Formul·rio
-post_forum:			FÛrum:
-post_title:			TÌtulo:
+post_form:			Colocar Formul√°rio
+post_forum:			F√≥rum:
+post_title:			T√≠tulo:
 post_body:			Corpo:
-post_options:			OpÁıes:
+post_options:			Op√ß√µes:
 post_preview_btn:		Visualizar mensagem
-ignore_users:			Usu·rios ignorados
+ignore_users:			Usu√°rios ignorados
 add_ignore:			Adicionar ignorados
-forum_terms:			Termos de uso do FÛrum 
-forum_rules:			O registo neste fÛrum È gratuÌto! NÛs insistimos que siga as regras e polÌticas mencionadas. Se concordar com os termos, por favor clique no bot„o Concordo no final da p·gina.<p>Embora os administradores e moderadores deste fÛrum tentem manter de fora todas as mensagens desagrad·veis, È impossivel para nÛs previsualizar todas as mensagens. Todas as mensagens expressam o ponto de vista do autor, e nem os propriet·rios do fÛrum ou os seus programadores poder„o ser responsabilizados pelo conte˙do de qualquer mensagem.<p>Ao pressionar o bot„o Concordo, compromete-se a n„o colocar qualquer mensagem obscena, com orientaÁ„o sexual, ameaÁas, ou outras que violem a Lei. <p>Os propriet·rios deste fÛrum tÍm o direito de remover, editar, mover ou fechar qualquer tÛpico .<p>
-forum_rules_13:			Todos os usu·rio com menos de 13 anos tÍm de ter autorizaÁ„o dos encarregados de educaÁ„o para poderem ser membros do fÛrum. Quando nÛs dermos as boas-vindas ‡ participaÁ„o dos membros com menos de 13 anos, teremos de ter em nosso poder o formul·rio por fax ou e-mail dos encarregados de educaÁ„o com a autorizaÁ„o antes de aceitarmos o novo membro.<p>Para comeÁar o registo antes de enviar a autorizaÁ„o, pressione o bot„o Concordo. Para cancelar o processo de registo, pressione o bot„o Cancelar para voltar ao index do fÛrum. <p>A cÛpia do formulario de autorizaÁ„o pode ser obtida aqui. Para mais informaÁ„o sobre o processo de registo, por favor enviar um e-mail para <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
-coppa_conf:			ConfirmaÁ„o COPPA
+forum_terms:			Termos de uso do F√≥rum 
+forum_rules:			O registo neste f√≥rum √© gratu√≠to! N√≥s insistimos que siga as regras e pol√≠ticas mencionadas. Se concordar com os termos, por favor clique no bot√£o Concordo no final da p√°gina.<p>Embora os administradores e moderadores deste f√≥rum tentem manter de fora todas as mensagens desagrad√°veis, √© impossivel para n√≥s previsualizar todas as mensagens. Todas as mensagens expressam o ponto de vista do autor, e nem os propriet√°rios do f√≥rum ou os seus programadores poder√£o ser responsabilizados pelo conte√∫do de qualquer mensagem.<p>Ao pressionar o bot√£o Concordo, compromete-se a n√£o colocar qualquer mensagem obscena, com orienta√ß√£o sexual, amea√ßas, ou outras que violem a Lei. <p>Os propriet√°rios deste f√≥rum t√™m o direito de remover, editar, mover ou fechar qualquer t√≥pico .<p>
+forum_rules_13:			Todos os usu√°rio com menos de 13 anos t√™m de ter autoriza√ß√£o dos encarregados de educa√ß√£o para poderem ser membros do f√≥rum. Quando n√≥s dermos as boas-vindas √† participa√ß√£o dos membros com menos de 13 anos, teremos de ter em nosso poder o formul√°rio por fax ou e-mail dos encarregados de educa√ß√£o com a autoriza√ß√£o antes de aceitarmos o novo membro.<p>Para come√ßar o registo antes de enviar a autoriza√ß√£o, pressione o bot√£o Concordo. Para cancelar o processo de registo, pressione o bot√£o Cancelar para voltar ao index do f√≥rum. <p>A c√≥pia do formulario de autoriza√ß√£o pode ser obtida aqui. Para mais informa√ß√£o sobre o processo de registo, por favor enviar um e-mail para <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+coppa_conf:			Confirma√ß√£o COPPA
 coppa_before:			Antes de {TEMPLATE: coppa_date}
 coppa_after:			Depois de {TEMPLATE: coppa_date}
-coppa_link:			Clique no link que corresponde ‡ sua data de nascimento
-coppa:				O encarregado de educaÁ„o dever· enviar um e-mail com o formul·rio de autorizaÁ„o devidamente preenchido e assinado ao administrador antes de um usu·rio com menos de 13 anos possa completar o processo de registo.<p>Para mais informaÁıes favor contatar <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
-prereg_info:			InformaÁ„o
+coppa_link:			Clique no link que corresponde √† sua data de nascimento
+coppa:				O encarregado de educa√ß√£o dever√° enviar um e-mail com o formul√°rio de autoriza√ß√£o devidamente preenchido e assinado ao administrador antes de um usu√°rio com menos de 13 anos possa completar o processo de registo.<p>Para mais informa√ß√µes favor contatar <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+prereg_info:			Informa√ß√£o
 prereg_agree:			Concordo
-prereg_disagree:		N„o concordo
-coppa_fax_instructions:		InstruÁıes para o encarregado de educaÁ„o
-coppa_fax_instructions2:	Por favor imprima esta p·gina assine e envie para:
-coppa_fax_reg_form:		Formul·rio de registo
-coppa_fax_sign:			Por favor assine e envie-nos o formul·rio abaixo  
-coppa_fax_conf:			Vi toda a informaÁ„o que o meu filho(a) me forneceu e li a PolÌtica de Privacidade para o site. Compreendo que a informaÁ„o no perfil pode ser alterada por uma pessoa que tenha a senha. Eu compreendo que posso pedir para que a informaÁ„o deste perfil seja removida por completo.
+prereg_disagree:		N√£o concordo
+coppa_fax_instructions:		Instru√ß√µes para o encarregado de educa√ß√£o
+coppa_fax_instructions2:	Por favor imprima esta p√°gina assine e envie para:
+coppa_fax_reg_form:		Formul√°rio de registo
+coppa_fax_sign:			Por favor assine e envie-nos o formul√°rio abaixo  
+coppa_fax_conf:			Vi toda a informa√ß√£o que o meu filho(a) me forneceu e li a Pol√≠tica de Privacidade para o site. Compreendo que a informa√ß√£o no perfil pode ser alterada por uma pessoa que tenha a senha. Eu compreendo que posso pedir para que a informa√ß√£o deste perfil seja removida por completo.
 coppa_fax_permission:		Assine aqui se autorizar
 coppa_fax_no_permission:	Assine aqui se quiser que a conta seja removida
-coppa_fax_parent_name:		Nome completo do encarregado de educaÁ„o:
-coppa_fax_relation:		Parentesco com a crianÁa:
+coppa_fax_parent_name:		Nome completo do encarregado de educa√ß√£o:
+coppa_fax_relation:		Parentesco com a crian√ßa:
 coppa_fax_telephone:		Telefone:
-coppa_fax_email:		EndereÁo de Email:
+coppa_fax_email:		Endere√ßo de Email:
 coppa_fax_date:			Data:
-coppa_fax_questions:		Por favor contacte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> para qualquer quest„o
-coppa_fax_login:		Usu·rio
+coppa_fax_questions:		Por favor contacte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> para qualquer quest√£o
+coppa_fax_login:		Usu√°rio
 coppa_fax_passwd:		Senha
 coppa_fax_remail:		Email
 coppa_fax_name:			Nome
-login_not_logedin:		N„o fez o login. Isto pode ter acontecido por diversas razıes:
+login_not_logedin:		N√£o fez o login. Isto pode ter acontecido por diversas raz√µes:
 login_cookie_expired:		O seu cookie expirou, e precisa de fazer novamente o login para renovar o cookie.
-login_perm_denied:		N„o tem permiss„o para acessar em modo anÙnimo, ter· de fazer o login para acessar.
+login_perm_denied:		N√£o tem permiss√£o para acessar em modo an√¥nimo, ter√° de fazer o login para acessar.
 login_want_to_register:		Quer registar-se?
 login_forgot_passwd:		Esqueceu a senha
-login_use_cookie:		Usar cookies<br /><font class="SmallText">Se est· a usar um terminal p˙blico tal como um computador numa biblioteca, escola, ou cybercafÈ, È recomendado desativar esta opÁ„o para maior seguranÁa.<br />Se deixar esta opÁ„o ativa ent„o estar· automaticamente logado no fÛrum.
+login_use_cookie:		Usar cookies<br /><font class="SmallText">Se est√° a usar um terminal p√∫blico tal como um computador numa biblioteca, escola, ou cybercaf√©, √© recomendado desativar esta op√ß√£o para maior seguran√ßa.<br />Se deixar esta op√ß√£o ativa ent√£o estar√° automaticamente logado no f√≥rum.
 login_login:			Entrar
 login_login_btn:		Submeter
 login_name_required:		Login requer nome
 login_passwd_required:		Senha requerida
-login_invalid_radius:		CombinaÁ„o inv·lida de Usu·rio/Senha
-reset_confirmation:		Obrigado por se ter registado,\n\nPara ativar a sua conta, acesse o endereÁo (URL) abaixo:\n\n{VAR: url}\n\nA partir do momento que sua conta estiver ativa, vocÍ estar· acessando o fÛrum e\nser· redirecionado para a p·gina pricipal do fÛrum.\n
-reset_reset:			Ol·,\n\nVocÍ pediu para que a sua senha fosse restaurada. Para restaurar a sua senha\npor favor acesse o endereÁo (URL) abaixo:\n\n{VAR: url}\n\nNOTE: Este fÛrum guarda as senhas com um sistema de criptografia n„o reversÌvel o que quer dizer que, uma vez informada a senha, esta ser· codificada e n„o haver· possibilidade de a recuperar.\nEste mÈdodo funciona atravÈs da codificaÁ„o da senha informada e comparaÁ„o entre ela e a senha codificada armazenada em nosso servidor.
-rpasswd_invalid_passwd:		Senha Inv·lida
-rpasswd_passwd_nomatch:		As senhas n„o s„o iguais
+login_invalid_radius:		Combina√ß√£o inv√°lida de Usu√°rio/Senha
+reset_confirmation:		Obrigado por se ter registado,\n\nPara ativar a sua conta, acesse o endere√ßo (URL) abaixo:\n\n{VAR: url}\n\nA partir do momento que sua conta estiver ativa, voc√™ estar√° acessando o f√≥rum e\nser√° redirecionado para a p√°gina pricipal do f√≥rum.\n
+reset_reset:			Ol√°,\n\nVoc√™ pediu para que a sua senha fosse restaurada. Para restaurar a sua senha\npor favor acesse o endere√ßo (URL) abaixo:\n\n{VAR: url}\n\nNOTE: Este f√≥rum guarda as senhas com um sistema de criptografia n√£o revers√≠vel o que quer dizer que, uma vez informada a senha, esta ser√° codificada e n√£o haver√° possibilidade de a recuperar.\nEste m√©dodo funciona atrav√©s da codifica√ß√£o da senha informada e compara√ß√£o entre ela e a senha codificada armazenada em nosso servidor.
+rpasswd_invalid_passwd:		Senha Inv√°lida
+rpasswd_passwd_nomatch:		As senhas n√£o s√£o iguais
 rpasswd_passwd_length:		A senha deve ter pelo menos 6 caracteres de tamanho 
 reset_remind_pass:		Recuperador de senha
-reset_reset_conf:		A sua senha ser· restaurada e enviada, no caso de n„o ter confirmado o seu email um formul·rio de pedido de confirmaÁ„o ser-lhe-· enviado.
-reset_error:			O email n„o foi encontrado na base de dados
+reset_reset_conf:		A sua senha ser√° restaurada e enviada, no caso de n√£o ter confirmado o seu email um formul√°rio de pedido de confirma√ß√£o ser-lhe-√° enviado.
+reset_error:			O email n√£o foi encontrado na base de dados
 rpasswd_change_pass:		Alterar senha
-rpasswd_login:			Usu·rio
+rpasswd_login:			Usu√°rio
 rpasswd_cur_pass:		Senha atual:
 rpasswd_new_pass:		Nova Senha:
 rpasswd_conf_pass:		Confirma Senha:
@@ -434,18 +434,18 @@ report_reporting_about:		Reportar acerca de:
 report_subject:			Assunto:
 report_by:			Por:
 report_posted_on:		Afixado Em:
-report_give_reason:		Por favor informe a raz„o pela pela qual est· a reportar esta mensagem:
+report_give_reason:		Por favor informe a raz√£o pela pela qual est√° a reportar esta mensagem:
 report_submit_report:		Submeter 
 search_entire_msg:		Mensagem completa
 search_subect_only:		Apenas o assunto
-search_forum:			FÛrum
+search_forum:			F√≥rum
 search_posted_on:		Afixado em
 search_no_results:		Sem resultados
-search_all_forums:		Procurar em todos os fÛruns
-search_in_forum:		Procurar no FÛrum:
-search_forum_search:		Procura no fÛrum
-move_thread_to:			Mover tÛpico <b>{VAR: thr->subject}</b> para:
-remail_email_topic:		Enviar este tÛpico por Email a um amigo
+search_all_forums:		Procurar em todos os f√≥runs
+search_in_forum:		Procurar no F√≥rum:
+search_forum_search:		Procura no f√≥rum
+move_thread_to:			Mover t√≥pico <b>{VAR: thr->subject}</b> para:
+remail_email_topic:		Enviar este t√≥pico por Email a um amigo
 remail_your_name:		O seu Nome:
 remail_your_email:	 	O seu Email:
 remail_friends_name:		Nome do Amigo:
@@ -454,20 +454,20 @@ remail_required:		requerido
 remail_subject:			Assunto:
 remail_message:			Mensagem:
 remail_send_now:		Enviar Email agora
-remail_anon_opt:		Copiar esta mensagem para um cliente de email · sua escolha e envie-o aos seus amigos
+remail_anon_opt:		Copiar esta mensagem para um cliente de email √° sua escolha e envie-o aos seus amigos
 remail_done:			Concluir
 remail_sent_conf:		O email do seu amigo {VAR-HTML: _POST['femail']} sobre {{VAR: data->subject} foi enviado com sucesso.
 remail_error:			Tem um erro
 mklist_type:			Tipo:
-mklist_option:			OpÁ„o:
+mklist_option:			Op√ß√£o:
 mklist_additem:			Adicionar item
 mklist_apply:			Aplicar
 mklist_delete:			Apagar
 qbud_nick_name:			Nick
-qbud_add_selected:		Adicionar seleÁ„o
+qbud_add_selected:		Adicionar sele√ß√£o
 qbud_selected:			Selecionado
-qbud_no_buddies:		N„o h· amigos para escolha
-mklist_numerical:		NumÈrico
+qbud_no_buddies:		N√£o h√° amigos para escolha
+mklist_numerical:		Num√©rico
 mklist_aplha:			Alpha
 mklist_square:			Quadrado
 mklist_disc:			Disco
@@ -482,232 +482,232 @@ ppost_quote_msg:		{VAR: msg_to_list} escrita em {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Disse:
 ppost_to:			Para:
 ppost_from_buddy_list:		Escolha amigo a partir da lista
-ppost_find_User:		Procurar Usu·rio
+ppost_find_User:		Procurar Usu√°rio
 ppost_track_msg:		Seguir esta mensagem
 ppost_track_msg_desc:		Notificar-me (via mensagem privada) quando esta mensagem for lida.
 ppost_send:			Enviar
 ppost_save_draft:		Guardar rascunho
-poll_blank_option:		N„o pode adicionar uma opÁ„o em branco.
-poll_del_conf:			Se quiser apagar esta opÁ„o, carregue em OK
-poll_name:			Nome da VotaÁ„o:
+poll_blank_option:		N√£o pode adicionar uma op√ß√£o em branco.
+poll_del_conf:			Se quiser apagar esta op√ß√£o, carregue em OK
+poll_name:			Nome da Vota√ß√£o:
 poll_timelimit:			Tempo Limite
-poll_maxiumvotes:		M·ximo de votos
+poll_maxiumvotes:		M√°ximo de votos
 poll_create:			Criar
 poll_update:			Atualizar
 poll_disablesmilies:		desativar smilies
-poll_create_poll:		Criar VotaÁ„o
-poll_update_poll:		Atualizar VotaÁ„o
+poll_create_poll:		Criar Vota√ß√£o
+poll_update_poll:		Atualizar Vota√ß√£o
 poll_delete:			Apagar
-poll_updateoption:		Atualizar OpÁ„o
-poll_addoption:			Adicionar OpÁ„o
+poll_updateoption:		Atualizar Op√ß√£o
+poll_addoption:			Adicionar Op√ß√£o
 poll_unlimited:			Ilimitados
 poll_day:			dia
 poll_days:			dias
 poll_hour:			hora
 poll_hours:			horas
-poll_month:			mÍs
+poll_month:			m√™s
 poll_year:			ano
 poll_week:			semana
-tabs_register:			ConfiguraÁıes
-tabs_subscriptions:		SubscriÁıes
-tabs_referrals:			ReferÍncias
+tabs_register:			Configura√ß√µes
+tabs_subscriptions:		Subscri√ß√µes
+tabs_referrals:			Refer√™ncias
 tabs_buddy_list:		Lista de amigos
 tabs_ignore_list:		Lista de ignorados
 tabs_private_messaging:		Mensagens Privadas
-single_msg_delete:		VocÍ est· prestes a <font color="#ff0000" size="4">APAGAR</font> a menssagem entÌtulada: <b>{VAR: data[3]}</b><p>
-thread_delete:			VocÍ est· prestes a <font color="#ff0000" size="4">APAGAR</font> o <font color="#ff0000" size="4">T”PICO INTEIRO</font> entÌtulado: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		Voc√™ est√° prestes a <font color="#ff0000" size="4">APAGAR</font> a menssagem ent√≠tulada: <b>{VAR: data[3]}</b><p>
+thread_delete:			Voc√™ est√° prestes a <font color="#ff0000" size="4">APAGAR</font> o <font color="#ff0000" size="4">T√ìPICO INTEIRO</font> ent√≠tulado: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>quer continuar?</b></font>
 delete_yes:			Sim
-delete_no:			N„o
-error_invalidurl:		URL Inv·lido
+delete_no:			N√£o
+error_invalidurl:		URL Inv√°lido
 error_error:			Erro
 usrinfo_profile:		Ficha de {VAR: u->alias}
-usrinfo_show_all_posts:		Mostrar todos os coment·rios por {VAR: u->alias}
+usrinfo_show_all_posts:		Mostrar todos os coment√°rios por {VAR: u->alias}
 actions_update:			A bisbilhotar outras pessoas
 err_info:			Info
-buddy_list_err_cantadd:		N„o se pode adicionar ‡ sua prÛpria lista de amigos
-buddy_list_err_dup:		J· tem este usu·rio na lista de amigos
-buddy_list_err_nouser:		O usu·rio que tentou adicionar ‡ sua lista de amigos n„o foi encontrado no fÛrum.
-buddy_list_err_nouser_title:	N„o foi possivel adicionar usu·rio
+buddy_list_err_cantadd:		N√£o se pode adicionar √† sua pr√≥pria lista de amigos
+buddy_list_err_dup:		J√° tem este usu√°rio na lista de amigos
+buddy_list_err_nouser:		O usu√°rio que tentou adicionar √† sua lista de amigos n√£o foi encontrado no f√≥rum.
+buddy_list_err_nouser_title:	N√£o foi possivel adicionar usu√°rio
 buddy_list_update:		Visualizando a sua lista de amigos
-core_err_invinp_title:		Entrada inv·lida
-core_err_invinp_err:		Seguiu uma ligaÁ„o inv·lida, por favor contacte o <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
+core_err_invinp_title:		Entrada inv√°lida
+core_err_invinp_err:		Seguiu uma liga√ß√£o inv√°lida, por favor contacte o <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
 core_adm_login_msg:		<br />Administradores podem fazer o login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aqui</a>
-email_err_unabletoemail_title:	ERRO: ImpossÌvel usar o email
+email_err_unabletoemail_title:	ERRO: Imposs√≠vel usar o email
 email_err_unabletoemail_msg:	O sistema de E-mail foi desabilitado pelo administrador.
-email_error_unabletolocaddr:	Desculpe, o sistema n„o conseguiu enviar o E-mail {VAR-HTML: _POST['tx_name']} porque n„o conseguiu localizar o endereÁo de E-mail
-email_error_body:		O conteudo È obrigatÛrio
-email_error_subject:		O assunto È obrigatÛrio
-email_error_namerequired:	O nome È obrigatÛrio
-email_error_invaliduser:	Usu·rio inv·lido
+email_error_unabletolocaddr:	Desculpe, o sistema n√£o conseguiu enviar o E-mail {VAR-HTML: _POST['tx_name']} porque n√£o conseguiu localizar o endere√ßo de E-mail
+email_error_body:		O conteudo √© obrigat√≥rio
+email_error_subject:		O assunto √© obrigat√≥rio
+email_error_namerequired:	O nome √© obrigat√≥rio
+email_error_invaliduser:	Usu√°rio inv√°lido
 emailconf_err_invkey_title:	Erro
-emailconf_err_invkey_msg:	Chave de confirmaÁ„o inv·lida.  Por favor confirme no seu E-mail se seguiu o url corretamente
-err_inc_criticaltitle:		ERRO CRÕTICO
+emailconf_err_invkey_msg:	Chave de confirma√ß√£o inv√°lida.  Por favor confirme no seu E-mail se seguiu o url corretamente
+err_inc_criticaltitle:		ERRO CR√çTICO
 err_inc_criticalmsg:		Encontrou um erro, mas infelizmente existe um erro com o sistema de reportagem de erros
-finduser_update:		A procurar usu·rio
+finduser_update:		A procurar usu√°rio
 help_index_update:		A ler o  <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
 iemail_thr_subject:		Nova resposta para {VAR: thr_subject} por {VAR: poster_login}
-iemail_thr_bodyemail:		Para ver todas as respostas n„o lidas v· para {VAR: goto_url['email']}\n\nSe n„o quer receber mais notificaÁıes acerca de respostas neste tÛpico, por favor v· aqui: {VAR: unsub_url['email']}
-iemail_frm_subject:		Novo tÛpico no fÛrum {VAR: frm_name} chamado {VAR: thr_subject} por {VAR: poster_login}
-iemail_frm_bodyemail:		Para ver o tÛpico v· para:\n{VAR: goto_url['email']}\n\nPara parar de receber notificaÁıes acerca de novos tÛpicos neste fÛrum, v· aqui: {VAR: unsub_url['email']}
-iemail_participate:		Para participar na discuss„o v· aqui 
+iemail_thr_bodyemail:		Para ver todas as respostas n√£o lidas v√° para {VAR: goto_url['email']}\n\nSe n√£o quer receber mais notifica√ß√µes acerca de respostas neste t√≥pico, por favor v√° aqui: {VAR: unsub_url['email']}
+iemail_frm_subject:		Novo t√≥pico no f√≥rum {VAR: frm_name} chamado {VAR: thr_subject} por {VAR: poster_login}
+iemail_frm_bodyemail:		Para ver o t√≥pico v√° para:\n{VAR: goto_url['email']}\n\nPara parar de receber notifica√ß√µes acerca de novos t√≥picos neste f√≥rum, v√° aqui: {VAR: unsub_url['email']}
+iemail_participate:		Para participar na discuss√£o v√° aqui 
 ignore_list_err_info_title:	Info
-ignore_list_err_dup_msg:	J· tem este usu·rio na lista de ignorados
-ignore_list_err_nu_title:	Usu·rio n„o encontrado
-ignore_list_err_nu_msg:		O usu·rio que tentou adicionar ‡ sua lista de ignorados, n„o existe neste fÛrum
-ignore_list_cantign_msg:	N„o pode ignorar este usu·rio
+ignore_list_err_dup_msg:	J√° tem este usu√°rio na lista de ignorados
+ignore_list_err_nu_title:	Usu√°rio n√£o encontrado
+ignore_list_err_nu_msg:		O usu√°rio que tentou adicionar √† sua lista de ignorados, n√£o existe neste f√≥rum
+ignore_list_cantign_msg:	N√£o pode ignorar este usu√°rio
 ignore_list_update:		Visualizando a sua lista de ignorados
-index_update:			Visualizando a <a href="{TEMPLATE: index_update_lnk}">lista de fÛruns</a>
-list_referers_update:		Visualizando referÍncias
-login_update:			Formul·rio de Login
-msg_update:			Visualizando tÛpico <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+index_update:			Visualizando a <a href="{TEMPLATE: index_update_lnk}">lista de f√≥runs</a>
+list_referers_update:		Visualizando refer√™ncias
+login_update:			Formul√°rio de Login
+msg_update:			Visualizando t√≥pico <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERRO: Mensgens privadas desabilitadas
-pm_err_nopm_msg:		N„o pode utilizar o sistema de mensagens privadas, uma vez que foi desabilitado pelo administrador.
+pm_err_nopm_msg:		N√£o pode utilizar o sistema de mensagens privadas, uma vez que foi desabilitado pelo administrador.
 pm_update:			Utilizando mensagens privadas
-post_err_lockedthread_title:	ERRO: TÛpico Bloqueado
-post_err_lockedthread_msg:	Este tÛpico est· bloqueado, n„o È permitido colocar coment·rios
-err_coppa_title:		ERRO: A sua conta ainda n„o foi confirmada
-err_coppa_msg:			N„o foi recebida uma confirmaÁ„o dos seus pais ou tutores legais, que permitam que coloque mensagens. Se perdeu o seu formul·rio <a href="{TEMPLATE: err_coppa_msg_lnk}">clique aqui</a> para o obter
+post_err_lockedthread_title:	ERRO: T√≥pico Bloqueado
+post_err_lockedthread_msg:	Este t√≥pico est√° bloqueado, n√£o √© permitido colocar coment√°rios
+err_coppa_title:		ERRO: A sua conta ainda n√£o foi confirmada
+err_coppa_msg:			N√£o foi recebida uma confirma√ß√£o dos seus pais ou tutores legais, que permitam que coloque mensagens. Se perdeu o seu formul√°rio <a href="{TEMPLATE: err_coppa_msg_lnk}">clique aqui</a> para o obter
 post_err_edttimelimit_title:	ERRO
-post_err_edttimelimit_msg:	J· n„o pode editar esta mensagem
-post_err_floodtrig_title:	ERRO: SeguranÁa contra floods ativada.
+post_err_edttimelimit_msg:	J√° n√£o pode editar esta mensagem
+post_err_floodtrig_title:	ERRO: Seguran√ßa contra floods ativada.
 post_err_floodtrig_msg:		Por favor tente novamente em {VAR: tm} segundos
-post_err_attach_size:		<font class="ErrorText">O arquivo em anexo È demasiado grande (est· a cima do limite por {VAR: MAX_F_SIZE} bytes)</font><br />
-post_err_attach_ext:		<font class="ErrorText">O arquivo que est· tentando fazer upload n„o condiz com os tipos de arquivos permitidos.</font><br />
-post_err_attach_filelimit:	<font class="ErrorText">Est· tentando fazer o upload de mais arquivos do que o permitido.</font><br />
+post_err_attach_size:		<font class="ErrorText">O arquivo em anexo √© demasiado grande (est√° a cima do limite por {VAR: MAX_F_SIZE} bytes)</font><br />
+post_err_attach_ext:		<font class="ErrorText">O arquivo que est√° tentando fazer upload n√£o condiz com os tipos de arquivos permitidos.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">Est√° tentando fazer o upload de mais arquivos do que o permitido.</font><br />
 post_err_passwd:		Senha Incorreta.
 post_reply_update:		Responder a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
-post_topic_update:		Escrevando novo tÛpico em <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_topic_update:		Escrevando novo t√≥pico em <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		tem um erro
-postcheck_max_images_err:	No m·ximo s„o permitidas {GVAR: MAX_IMAGE_COUNT} imagens por coment·rio, por favor diminua o n.∫ de imagens
+postcheck_max_images_err:	No m√°ximo s√£o permitidas {GVAR: MAX_IMAGE_COUNT} imagens por coment√°rio, por favor diminua o n.¬∫ de imagens
 postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
-postcheck_subj_needed:		Assunto obrigatÛrio
-postcheck_no_such_user:		N„o existe um usu·rio chamado "{FUNC: char_fix(htmlspecialchars($v))}" neste fÛrum
-postcheck_ignored:		N„o pode enviar uma mensagem privada  para "{FUNC: char_fix(htmlspecialchars($v))}", porque a pessoa est· ignorando-o.
-postcheck_no_recepient:		ImpossÌvel enviar mensagem, recipiente inexistente
-postcheck_invalid_email:	Por favor introduza um e-mail v·lido para o seu amigo.
-postcheck_email_subject:	N„o pode mandar um e-mail sem conter um assunto.
-postcheck_email_body:		N„o pode mandar um e-mail sem conter uma mensagem
-private_msg_notify_subj:	NotificaÁ„o de leitura para: {VAR: m->subject}
-private_msg_notify_body:	Ol·,<br />{VAR: usr->login} Leu a sua mensagem privada, "{VAR: m->subject}", em {TEMPLATE: private_msg_notify_body_date}<br />
-referals_update:		Visualizando referÍncias
-register_err_short_login:	O login que escolheu È demasiado curto. O login tem que ter pelo menos 4 caracteres de tamanho
-register_err_login_notallowed:	Este login n„o È permitido
-register_err_loginunique:	O login do fÛrum deve ser ˙nico, j· existe um usu·rio com este nome registado neste fÛrum.
-register_err_emailexists:	Este e-mail j· existe, se esqueceu a senha por favor use a opÁ„o de restauraÁ„o em vez de voltar a se registar
+postcheck_subj_needed:		Assunto obrigat√≥rio
+postcheck_no_such_user:		N√£o existe um usu√°rio chamado "{FUNC: char_fix(htmlspecialchars($v))}" neste f√≥rum
+postcheck_ignored:		N√£o pode enviar uma mensagem privada  para "{FUNC: char_fix(htmlspecialchars($v))}", porque a pessoa est√° ignorando-o.
+postcheck_no_recepient:		Imposs√≠vel enviar mensagem, recipiente inexistente
+postcheck_invalid_email:	Por favor introduza um e-mail v√°lido para o seu amigo.
+postcheck_email_subject:	N√£o pode mandar um e-mail sem conter um assunto.
+postcheck_email_body:		N√£o pode mandar um e-mail sem conter uma mensagem
+private_msg_notify_subj:	Notifica√ß√£o de leitura para: {VAR: m->subject}
+private_msg_notify_body:	Ol√°,<br />{VAR: usr->login} Leu a sua mensagem privada, "{VAR: m->subject}", em {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:		Visualizando refer√™ncias
+register_err_short_login:	O login que escolheu √© demasiado curto. O login tem que ter pelo menos 4 caracteres de tamanho
+register_err_login_notallowed:	Este login n√£o √© permitido
+register_err_loginunique:	O login do f√≥rum deve ser √∫nico, j√° existe um usu√°rio com este nome registado neste f√≥rum.
+register_err_emailexists:	Este e-mail j√° existe, se esqueceu a senha por favor use a op√ß√£o de restaura√ß√£o em vez de voltar a se registar
 register_err_shortpasswd:	A Senha deve ter pelo menos 6 caracteres de tamanho
-register_err_passwdnomatch:	As Senhas n„o coincidem.
-register_err_invalidemail:	O endereÁo de Email que colocou n„o parece ser um Email v·lido.
+register_err_passwdnomatch:	As Senhas n√£o coincidem.
+register_err_invalidemail:	O endere√ßo de Email que colocou n√£o parece ser um Email v√°lido.
 register_err_needname:		Para completar com sucesso o registo, informe o seu nome.
-register_err_enterpasswd:	informe a sua Senha atual para completar as alteraÁıes
-register_err_adminpasswd:	informe a Senha de ADMINISTRADOR para completar as alteraÁıes
-register_err_notyouremail:	AlguÈm j· se registou utilizando este Email, e esse alguem n„o È vocÍ.
-register_err_avatartobig:	O Arquivo que est· a tentar enviar para o servidor È demasiado grande, passa {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes do limite
-register_err_avatarnotallowed:	O avatar que vocÍ est· enviando para o servidor n„o È permitido, verifique os tipos de arquivos permitidos.
-register_conf_subject:		ConfirmaÁ„o de Registo
-register_conf_msg:		Obrigado por se registar,\nPara ativar a sua conta acesse o endereÁo (URL) abaixo:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAssim que a sua conta for ativada, vocÍ estar· acessando o fÛrum sendo enviado para sua pagina principal.
-register_welcome_subject:	ConfirmaÁ„o de registo no fÛrum
-register_welcome_msg:		Obrigado pelo registo,\n\nAqui est„o os seus dados de login para o fÛrum:\n\nFÛrum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nSenha: {VAR: _POST['reg_plaintext_passwd']}\n\nNa Senha os caracteres mai˙sculos ou min˙sculos fazem diferenÁa!\nPara modificar os seus dados, v· atÈ esta pagina:\n{FULL_ROOT}{ROOT}?t=register\n
-register_err_cantreg_title:	ERRO: N„o foi possivel efetuar registo
-regsiter_err_cantreg_msg:	Conta de usu·rio n„o foi criada, por favor contacte o administrador em <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_err_enterpasswd:	informe a sua Senha atual para completar as altera√ß√µes
+register_err_adminpasswd:	informe a Senha de ADMINISTRADOR para completar as altera√ß√µes
+register_err_notyouremail:	Algu√©m j√° se registou utilizando este Email, e esse alguem n√£o √© voc√™.
+register_err_avatartobig:	O Arquivo que est√° a tentar enviar para o servidor √© demasiado grande, passa {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes do limite
+register_err_avatarnotallowed:	O avatar que voc√™ est√° enviando para o servidor n√£o √© permitido, verifique os tipos de arquivos permitidos.
+register_conf_subject:		Confirma√ß√£o de Registo
+register_conf_msg:		Obrigado por se registar,\nPara ativar a sua conta acesse o endere√ßo (URL) abaixo:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAssim que a sua conta for ativada, voc√™ estar√° acessando o f√≥rum sendo enviado para sua pagina principal.
+register_welcome_subject:	Confirma√ß√£o de registo no f√≥rum
+register_welcome_msg:		Obrigado pelo registo,\n\nAqui est√£o os seus dados de login para o f√≥rum:\n\nF√≥rum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nSenha: {VAR: _POST['reg_plaintext_passwd']}\n\nNa Senha os caracteres mai√∫sculos ou min√∫sculos fazem diferen√ßa!\nPara modificar os seus dados, v√° at√© esta pagina:\n{FULL_ROOT}{ROOT}?t=register\n
+register_err_cantreg_title:	ERRO: N√£o foi possivel efetuar registo
+regsiter_err_cantreg_msg:	Conta de usu√°rio n√£o foi criada, por favor contacte o administrador em <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Vendo a sua ficha
-register_register_update:	P·gina de Registo
+register_register_update:	P√°gina de Registo
 report_err_nosuchmsg_title:	ERRO
-report_err_nosuchmsg_msg:	N„o existe essa mensagem
+report_err_nosuchmsg_msg:	N√£o existe essa mensagem
 reset_err_invalidkey_title:	ERRO
-reset_err_invalidkey_msg:	Chave de cancelamento de Senha inv·lida
-reset_err_rstconf_title:	InformaÁ„o
-reset_err_rstconf_msg:		Deve receber instruÁıes no seu Email nos prÛximos minutos
+reset_err_invalidkey_msg:	Chave de cancelamento de Senha inv√°lida
+reset_err_rstconf_title:	Informa√ß√£o
+reset_err_rstconf_msg:		Deve receber instru√ß√µes no seu Email nos pr√≥ximos minutos
 reset_newpass_title:		Cancelar Senha
-reset_newpass_msg:		Ol·,\n\no seu pedido os seus dados de login ser„o enviados.\nAqui est· a sua informaÁ„o de login:\n\nLogin: {VAR: ui[1]}\nSenha: {VAR: passwd}\n\nA sua Senha foi alterada para o valor abaixo, se quiser alter·-la pode fazÍ-lo atravÈs do painel de controle do usu·rio em : \n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		A sua senha foi enviada por email. VocÍ deve estar recebendo-a em poucos minutos. Consulte o seu Email.<br />.<br />.<br />
+reset_newpass_msg:		Ol√°,\n\no seu pedido os seus dados de login ser√£o enviados.\nAqui est√° a sua informa√ß√£o de login:\n\nLogin: {VAR: ui[1]}\nSenha: {VAR: passwd}\n\nA sua Senha foi alterada para o valor abaixo, se quiser alter√°-la pode faz√™-lo atrav√©s do painel de controle do usu√°rio em : \n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_login_notify:		A sua senha foi enviada por email. Voc√™ deve estar recebendo-a em poucos minutos. Consulte o seu Email.<br />.<br />.<br />
 search_update:			A procurar posts
 selmsg_update:			Visualizando <a href="{TEMPLATE: selmsg_update_lnk}">posts de Hoje</a>
 showposts_update:		Vendo posts por: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-subscribed_update:		Visualizando as prÛprias subscriÁıes
-thread_update:			Visualizando fÛrum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			Visualizando tÛpico (vista de ·rvore) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+subscribed_update:		Visualizando as pr√≥prias subscri√ß√µes
+thread_update:			Visualizando f√≥rum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			Visualizando t√≥pico (vista de √°rvore) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Procurar em <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> perfil
 ERR_disabled_ttl:		Possibilidade desabilitada
 ERR_disabled_msg:		Esta possibilidade foi desabilitada pelo administrador de sistema
-ERR_access_ttl:			ERRO: Permissıes insuficientes
-ERR_access_msg:			N„o tem as permissıes necess·rias para fazer o que est· tentando
-ERR_registration_disabled_ttl:	Registo de usu·rios desabilitado
-ERR_registration_disabled_msg:	O administrador desabiliotu o registo de usu·rios novos, por favor tente mais tarde
-ERR_emailconf_ttl:		ERRO: A sua conta ainda n„o est· confirmada
-ERR_emailconf_msg:		Ainda n„o confirmou a sua conta via Email<br /><table border=0><tr><td><ol><li>se n„o recebeu um email de confirmaÁ„o <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clique aqui</a><li>se {VAR: usr_d->email} n„o È o endereÁo de email correcto <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clique aqui</a></ol></td></tr></table>
-ERR_user_ttl:			ERRO: Usu·rio inexistente
-ERR_user_msg:			Usu·rio n„o existe 
+ERR_access_ttl:			ERRO: Permiss√µes insuficientes
+ERR_access_msg:			N√£o tem as permiss√µes necess√°rias para fazer o que est√° tentando
+ERR_registration_disabled_ttl:	Registo de usu√°rios desabilitado
+ERR_registration_disabled_msg:	O administrador desabiliotu o registo de usu√°rios novos, por favor tente mais tarde
+ERR_emailconf_ttl:		ERRO: A sua conta ainda n√£o est√° confirmada
+ERR_emailconf_msg:		Ainda n√£o confirmou a sua conta via Email<br /><table border=0><tr><td><ol><li>se n√£o recebeu um email de confirma√ß√£o <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clique aqui</a><li>se {VAR: usr_d->email} n√£o √© o endere√ßo de email correcto <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clique aqui</a></ol></td></tr></table>
+ERR_user_ttl:			ERRO: Usu√°rio inexistente
+ERR_user_msg:			Usu√°rio n√£o existe 
 ERR_systemerr_ttl:		ERRO: Erro de sistema
 ERR_systemerr_msg:		Ocorreu um erro de sistema, por favor reporte-o ao <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-email_title:			Formul·rio de Email
-finduser_title:			Procurar Usu·rio
+email_title:			Formul√°rio de Email
+finduser_title:			Procurar Usu√°rio
 help_title:			F.A.Q.
-login_title:			Formmul·rio de Login
+login_title:			Formmul√°rio de Login
 msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-poll_title:			Editor de votaÁıes
-register_title:			Formul·rio de Registo
+poll_title:			Editor de vota√ß√µes
+register_title:			Formul√°rio de Registo
 reset_title:			Cancelar Senha
-rpasswd_title:			Formul·rio de alteraÁ„o de Senha
-error_title:			Erro no Formul·rio
-index_title:			Bem vindo ao fÛrum
+rpasswd_title:			Formul√°rio de altera√ß√£o de Senha
+error_title:			Erro no Formul√°rio
+index_title:			Bem vindo ao f√≥rum
 search_title:			Procurar por {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Email enviado
-remail_email:			Ol·,\n\nH· um tÛpico interessante sobre "{VAR: data->subject}" com o nome {GVAR: FORUM_TITLE} que talvez queira ler. Pode ver este tÛpico em:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n O seu amigo,\n\n{VAR: usr->alias}\n
-poll_add_option:		Adicionar OpÁ„o:
+remail_email:			Ol√°,\n\nH√° um t√≥pico interessante sobre "{VAR: data->subject}" com o nome {GVAR: FORUM_TITLE} que talvez queira ler. Pode ver este t√≥pico em:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n O seu amigo,\n\n{VAR: usr->alias}\n
+poll_add_option:		Adicionar Op√ß√£o:
 post_opt_html_on:		<b>HTML LIGADO</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> est· <b>LIGADO</b></a>
-post_opt_images_on:		<b>Imagens</b> est„o <b>Ligadas</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> est„o <b>Ligados</b></a>
-post_opt_html_off:		<b>Codigo</b> HTML est· <b>Desligado</b>
-post_opt_fud_off:		<b>O FUDcode</b> est· <b>Desligado</b>
-post_opt_images_off:		<b>As imagens</b> est„o <b>Desligadas</b>
-post_opt_smilies_off:		<b>Os smilies</b> est„o <b>Desligados</b>
-post_opt:			OpÁıes do FÛrum
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> est√° <b>LIGADO</b></a>
+post_opt_images_on:		<b>Imagens</b> est√£o <b>Ligadas</b>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> est√£o <b>Ligados</b></a>
+post_opt_html_off:		<b>Codigo</b> HTML est√° <b>Desligado</b>
+post_opt_fud_off:		<b>O FUDcode</b> est√° <b>Desligado</b>
+post_opt_images_off:		<b>As imagens</b> est√£o <b>Desligadas</b>
+post_opt_smilies_off:		<b>Os smilies</b> est√£o <b>Desligados</b>
+post_opt:			Op√ß√µes do F√≥rum
 register_change_passwd:		Alterar Senha
-install_script_present_error:	Por razıes de seguranÁa, deve remover o script de instalaÁ„o em <b>{GVAR: WWW_ROOT_DISK}install.php</b> antes de poder utilizar este fÛrum.
+install_script_present_error:	Por raz√µes de seguran√ßa, deve remover o script de instala√ß√£o em <b>{GVAR: WWW_ROOT_DISK}install.php</b> antes de poder utilizar este f√≥rum.
 approved_avatar_title:		O seu avatar foi aprovado.
-approved_avatar_msg:		O seu avatar foi aprovado pelo administrador. Aparecer· agora em todas as suas mensagens. Se n„o o vÍ, ou se vÍ o seu antigo avatar, È porque o seu browser est· lendo esta p·gina a partir da cache. Tente atualizar (F5) uma ou duas vezes, isto, na maioria dos casos resolve o problema com a cache.
+approved_avatar_msg:		O seu avatar foi aprovado pelo administrador. Aparecer√° agora em todas as suas mensagens. Se n√£o o v√™, ou se v√™ o seu antigo avatar, √© porque o seu browser est√° lendo esta p√°gina a partir da cache. Tente atualizar (F5) uma ou duas vezes, isto, na maioria dos casos resolve o problema com a cache.
 unapproved_avatar_title:	O seu avatar foi rejeitado.
-unapproved_avatar_msg:		O administrador n„o aprovou o seu avatar. As razıes mais comuns s„o : o  seu avatar ser muito grande (tamanho e/ou dimensıes) ou conteve um assunto desapropriado. Se quer mais informaÁ„o acerca da rejeiÁ„o do seu avatar, contacte o administrador.
-mvthread_request_move:		Pedir uma mudanÁa
-move_request_reason:		Porque quer que o tÛpico seja movido ?
+unapproved_avatar_msg:		O administrador n√£o aprovou o seu avatar. As raz√µes mais comuns s√£o : o  seu avatar ser muito grande (tamanho e/ou dimens√µes) ou conteve um assunto desapropriado. Se quer mais informa√ß√£o acerca da rejei√ß√£o do seu avatar, contacte o administrador.
+mvthread_request_move:		Pedir uma mudan√ßa
+move_request_reason:		Porque quer que o t√≥pico seja movido ?
 mvthread_submit_req:		Submeter pedido
-thread_exchange:		Troca de tÛpicos 
-move_request_by:		A mudanÁa de tÛpico foi pedida por:
-move_reason:			Raz„o para mover tÛpico:
-thr_exch_accept:		aceitar tÛpico
-thr_exch_decline:		recusar tÛpico
-thr_exch_orig_forum:		FÛrum original:
-thr_exch_dest_forum:		FÛrum de destino:
-thr_exch_no_threads:		N„o h· tÛpicos ‡ espera de aprovaÁ„o.
-thr_exch_decl_reason:		Raz„o para recusa de tÛpico <b>{VAR-HTML: frm->name}</b> no fÛrum <b>{VAR-HTML: frm->name}</b>
+thread_exchange:		Troca de t√≥picos 
+move_request_by:		A mudan√ßa de t√≥pico foi pedida por:
+move_reason:			Raz√£o para mover t√≥pico:
+thr_exch_accept:		aceitar t√≥pico
+thr_exch_decline:		recusar t√≥pico
+thr_exch_orig_forum:		F√≥rum original:
+thr_exch_dest_forum:		F√≥rum de destino:
+thr_exch_no_threads:		N√£o h√° t√≥picos √† espera de aprova√ß√£o.
+thr_exch_decl_reason:		Raz√£o para recusa de t√≥pico <b>{VAR-HTML: frm->name}</b> no f√≥rum <b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:		Submeter
-exch_decline_ttl:		A mudanÁa de tÛpico {VAR: data->subject} no fÛrum {VAR-HTML: data->f2_name} foi recusada.
-ppost_original_msg:		mensagem que est· encaminhando ou repondendo a
-split_thread:			Dividir TÛpico
-groupmgr_no_user:		N„o h· nenhum usu·rio com login de "{FUNC: char_fix(htmlspecialchars($gr_member))}"
-groupmgr_already_exists:	Usu·rio "{FUNC: char_fix(htmlspecialchars($gr_member))}" j· existe neste grupo.
+exch_decline_ttl:		A mudan√ßa de t√≥pico {VAR: data->subject} no f√≥rum {VAR-HTML: data->f2_name} foi recusada.
+ppost_original_msg:		mensagem que est√° encaminhando ou repondendo a
+split_thread:			Dividir T√≥pico
+groupmgr_no_user:		N√£o h√° nenhum usu√°rio com login de "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	Usu√°rio "{FUNC: char_fix(htmlspecialchars($gr_member))}" j√° existe neste grupo.
 groupmgr_yes:			Sim
-groupmgr_no:			N„o
-groupmgr_action:		AÁ„o
+groupmgr_no:			N√£o
+groupmgr_action:		A√ß√£o
 groupmgr_member:		Membro
 groupmgr_cancel:		Cancelar
 groupmgr_add_member:		Adicionar Membro
 groupmgr_update_member:		Atualizar Membro
 groupmgr_edit:			Editar
 groupmgr_delete:		Apagar
-group_mgr_anon:			AnÙnimo
-group_mgr_reged:		Todos os usu·rios registados
+group_mgr_anon:			An√¥nimo
+group_mgr_reged:		Todos os usu√°rios registados
 show_show:			Mostar:
 group_mgr:			Gerenciador de Grupos
 group_mgr_edit_btn:		Editar Grupo
-group_mgr_heading:		SeleÁ„o de Editor de Grupo
+group_mgr_heading:		Sele√ß√£o de Editor de Grupo
 group_mgr_group:		Grupo:
-permission_denied_title:	N„o tem Permissıes!
-permission_denied_msg:		As suas permissıes de usu·rio n„o permitem que faÁa o que est· tentando fazer.
+permission_denied_title:	N√£o tem Permiss√µes!
+permission_denied_msg:		As suas permiss√µes de usu√°rio n√£o permitem que fa√ßa o que est√° tentando fazer.
 p_READ:				Ler
 p_POST:				Colocar
 p_REPLY:			Responder
@@ -717,23 +717,23 @@ p_STICKY:			posts persistentes
 p_POLL:				Criar mensagens
 p_FILE:				adicionar arquivos
 p_VOTE:				Votar
-p_RATE:				Votar tÛpicos
-p_SPLIT:			Dividir tÛpicos
-p_LOCK:				Trancar tÛpicos
-p_MOVE:				Mover tÛpicos
+p_RATE:				Votar t√≥picos
+p_SPLIT:			Dividir t√≥picos
+p_LOCK:				Trancar t√≥picos
+p_MOVE:				Mover t√≥picos
 p_SML:				Usar smilies
 p_IMG:				Usar imagem como tag
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Encontrar Usu·rio</a>
-group_mgr_indicator:		Est· editando: <b>{VAR: grp->name}</b>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Encontrar Usu√°rio</a>
+group_mgr_indicator:		Est√° editando: <b>{VAR: grp->name}</b>
 rate_worst:			Ruim
-rate_best:			”timo
+rate_best:			√ìtimo
 post_quote_msg:			{VAR: msg->login} Escreveu em {TEMPLATE: make_report_date}
 post_quote:			- Disse - :
-userinfo_referals:		Usu·rios Referidos:
+userinfo_referals:		Usu√°rios Referidos:
 userinfo_referals_count:	{VAR: referals} Membros
-pm_no_space_title:		N„o h· espaÁo suficiente!
-pm_no_space_msg:		A pasta de mensagens privadas excedeu o espaÁo em disco por <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, neste momento contÈm <b>{VAR: fldr_size} bytes</b> em mensagens.<br /><br /><font class="ErrorText">Remova mensagens antigas para ganhar espaÁo</font>.
-pm_space_indct_msg:		A pasta Mp est· {VAR: percent_full}% cheia.
+pm_no_space_title:		N√£o h√° espa√ßo suficiente!
+pm_no_space_msg:		A pasta de mensagens privadas excedeu o espa√ßo em disco por <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, neste momento cont√©m <b>{VAR: fldr_size} bytes</b> em mensagens.<br /><br /><font class="ErrorText">Remova mensagens antigas para ganhar espa√ßo</font>.
+pm_space_indct_msg:		A pasta Mp est√° {VAR: percent_full}% cheia.
 th_expr_never:			Nunca
 th_expr_one_hr:			1 Hora
 th_expr_three_hr:		3 Horas
@@ -745,42 +745,42 @@ th_expr_two_day:		2 Dias
 th_expr_four_day:		4 Dias
 th_expr_one_week:		1 Semana
 th_expr_two_week:		2 Semanas
-th_expr_one_month:		1 MÍs
-th_expr_two_month:		2 MÍses
-th_expr_four_month:		4 MÍses
+th_expr_one_month:		1 M√™s
+th_expr_two_month:		2 M√™ses
+th_expr_four_month:		4 M√™ses
 th_expr_one_year:		1 Ano
 thread_mod_delete:		Apagar
-action_latest_post:		⁄ltima mensagem colocada
-online_today_last_visit:	⁄ltimo Visitado
-online_today_update:		Ver a lista de pessoas que estiveram no fÛrum hoje.
+action_latest_post:		√öltima mensagem colocada
+online_today_last_visit:	√öltimo Visitado
+online_today_update:		Ver a lista de pessoas que estiveram no f√≥rum hoje.
 logedin_todays_visitors:	Visitantes de Hoje
-logedin_latest_post:		⁄ltima mensagem colocada no fÛrum: 
+logedin_latest_post:		√öltima mensagem colocada no f√≥rum: 
 register_show_avatar:		Mostrar Avatars:
-register_show_avatar_desc:	Permite-lhe esconder avatars de outros usu·rios enquanto vÍ as mensagens deles
+register_show_avatar_desc:	Permite-lhe esconder avatars de outros usu√°rios enquanto v√™ as mensagens deles
 drawmsg_view_rest_post:		Mostrar o resto da mensagem
 post_re:			Res:
-forumsel_goto_forum:		Ir para FÛrum:
-minimsg_thread_view:		Vista por TÛpico
+forumsel_goto_forum:		Ir para F√≥rum:
+minimsg_thread_view:		Vista por T√≥pico
 split_th_post_by:		Colocado por:
 split_th_posted_on:		Colocado em:
 split_th_subject:		Assunto:
-split_th_new_thread_title:	Novo tÌtulo do TÛpico:
-split_th_forum:			FÛrum:
+split_th_new_thread_title:	Novo t√≠tulo do T√≥pico:
+split_th_forum:			F√≥rum:
 split_th_split_sel:		Dividir mensagens selecionadas
-split_th_split_unsel:		Dividir mensagens n„o selecionadas
+split_th_split_unsel:		Dividir mensagens n√£o selecionadas
 split_th_messages:		Mensagens
 split_th_select:		Selecionar
-report_report_post:		Colocar RelatÛrio
-quicklogin_login:		Usu·rio
+report_report_post:		Colocar Relat√≥rio
+quicklogin_login:		Usu√°rio
 quicklogin_password:		Senha
 quicklogin_use_cookies:		Usar Cookies?
 quicklogin_login_btn:		Entrar
-post_notification_desc:		Notificar quando alguÈm responder a esta mensagem.
+post_notification_desc:		Notificar quando algu√©m responder a esta mensagem.
 maximize_category:		Maximizar Categoria
-no_view_perm:			N„o tem as permissıes necess·rias para ver este tÛpico.
-report_empty_report:		N„o pode enviar um relatÛrio vazio, por favor coloque uma raz„o para o seu relatÛrio.
-report_already_reported_title:	J· foi reportada	
-report_already_reported_msg:	Esta mensagem j· foi reportada e j· est· em lista de espera na equipa de moderaÁ„o.
+no_view_perm:			N√£o tem as permiss√µes necess√°rias para ver este t√≥pico.
+report_empty_report:		N√£o pode enviar um relat√≥rio vazio, por favor coloque uma raz√£o para o seu relat√≥rio.
+report_already_reported_title:	J√° foi reportada	
+report_already_reported_msg:	Esta mensagem j√° foi reportada e j√° est√° em lista de espera na equipa de modera√ß√£o.
 register_err_toomanyimages:	tentando utilizar uma ou mais imagens do que as permitidas {GVAR: FORUM_IMG_CNT_SIG} na sua assinatura.
 pmsg_next_msg:			Mensagem Seguinte
 pmsg_prev_msg:			Mensagem Anterior
@@ -788,120 +788,120 @@ post_proc_reveal_spoiler:	- Mostrar Spoiler -
 register_jabber:		- Jabber Handle - :
 im_jabber:			- Jabber - :
 forum_contact:			Contato
-forum_home:			InÌcio
+forum_home:			In√≠cio
 post_cur_attached:		arquivo anexado {VAR: i} file(s) 
 ignored_anon_post:		{GVAR: ANON_NICK} vai ser ignorado
 ignored_user_post:		Colocado por <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> vai ser ignorado
 smladd_close_window:		fechar janela
 post_list_smilies:		listar todos os smilies
-p_VISIBLE:			VisÌvel
-reported_in_thread:		no tÛpico
+p_VISIBLE:			Vis√≠vel
+reported_in_thread:		no t√≥pico
 help_back_to_top:		voltar ao topo
-help_return_to_index:		voltar ao inÌcio da ajuda
-imsg_err_message_title:		Mensagem inv·lida
-imsg_err_message_msg:		A mensagem que est· tentando visualizar n„o existe.
+help_return_to_index:		voltar ao in√≠cio da ajuda
+imsg_err_message_title:		Mensagem inv√°lida
+imsg_err_message_msg:		A mensagem que est√° tentando visualizar n√£o existe.
 poll_edit:			Editar
-register_err_not_valid_img:	A Url especificado n„o contÈm uma imagem valida
+register_err_not_valid_img:	A Url especificado n√£o cont√©m uma imagem valida
 pmsg_recepient:			Recipiente
-register_err_taken_alias:	O apelido que est· tentando usar j· est· sendo utilizado por outro membro do fÛrum, por favor escolha outro.
+register_err_taken_alias:	O apelido que est√° tentando usar j√° est√° sendo utilizado por outro membro do f√≥rum, por favor escolha outro.
 register_alias:			Apelido
-register_alias_desc:		Se quer utilizar o seu apelido em vez do seu nome de usu·rio seja mostrada no fÛrum, coloque o apelido que quer que seja mostrada aqui.
+register_alias_desc:		Se quer utilizar o seu apelido em vez do seu nome de usu√°rio seja mostrada no f√≥rum, coloque o apelido que quer que seja mostrada aqui.
 register_allow_pm_msg:		Permitir mensagens Privadas
-register_allow_pm_msg_desc:	Permitir que outros usu·rios me enviem mensagens privadas atravÈs do FÛrum.
-postcheck_pm_disabled:		N„o pode mandar uma mensagem privada a "{VAR-HTML: v}", porque esta pessoa n„o aceita mensagens privadas.
+register_allow_pm_msg_desc:	Permitir que outros usu√°rios me enviem mensagens privadas atrav√©s do F√≥rum.
+postcheck_pm_disabled:		N√£o pode mandar uma mensagem privada a "{VAR-HTML: v}", porque esta pessoa n√£o aceita mensagens privadas.
 polllist_vote:			Votar
 polllist_view_results:		Ver Resultados
-polllist_name:			Nome da VotaÁ„o
+polllist_name:			Nome da Vota√ß√£o
 polllist_date:			Criado Em
 polllist_owner:			Criado Por
 polllist_votes:			Total de Votos
-polllist_action:		AÁ„o
-polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Vendo VotaÁıes DisponÌveis</a>
-userinfo_polls:			VotaÁıes:
-show_pollist:			Mostrar VotaÁıes
+polllist_action:		A√ß√£o
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Vendo Vota√ß√µes Dispon√≠veis</a>
+userinfo_polls:			Vota√ß√µes:
+show_pollist:			Mostrar Vota√ß√µes
 search_and:			E
 search_or:			OU
 search_desc_order:		Ordem Descendente		
 search_asc_order:		Ordem Ascendente
-search_logic:			LÛgica de Busca:
+search_logic:			L√≥gica de Busca:
 search_sorting:			Mostrar os Resultados por Data no:
-post_proceed:			AvanÁar
-post_moderated_forum:		VocÍ postou uma mensagem em um FÛrum moderado, o que quer dizer que a sua mensagem n„o vai ser visÌvel no fÛrum atÈ que seja aprovada por um dos moderador(es) e/ou administrador(es) do FÛrum.
-post_moderated_forum_ttl:	NotÌcia moderada do fÛrum.
-buddy_list_bday:		Hoje {VAR: r[2]} È {VAR: age}
-email_warning_msg:		Se mudar o seu E-mail atual, a sua conta ir· ser marcada como n„o confirmada atÈ que a volte a confirmar novamente via E-mail.
+post_proceed:			Avan√ßar
+post_moderated_forum:		Voc√™ postou uma mensagem em um F√≥rum moderado, o que quer dizer que a sua mensagem n√£o vai ser vis√≠vel no f√≥rum at√© que seja aprovada por um dos moderador(es) e/ou administrador(es) do F√≥rum.
+post_moderated_forum_ttl:	Not√≠cia moderada do f√≥rum.
+buddy_list_bday:		Hoje {VAR: r[2]} √© {VAR: age}
+email_warning_msg:		Se mudar o seu E-mail atual, a sua conta ir√° ser marcada como n√£o confirmada at√© que a volte a confirmar novamente via E-mail.
 register_show_im:		Mostrar os indicadores IM
-register_show_im_desc:		Mostrar ou n„o os indicadores IM do autor antes das mensagens.
-unread_message:			Mensagem n„o lida
+register_show_im_desc:		Mostrar ou n√£o os indicadores IM do autor antes das mensagens.
+unread_message:			Mensagem n√£o lida
 read_message:			Ler Mensagem
 threadt_more:			&lt;mais&gt;
-threadt_disabled_ttl:		A vis„o de ‡rvore foi desabilitada.
-threadt_disabled_desc:		O administrador desabilitou a vis„o em forma de ‡rvore, por favor use a vis„o plana.
-threadt_update:			A ver o FÛrum (em forma de ‡rvore) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
-mmod_delete_cofirm_ttl:		ConfirmaÁ„o de remoÁ„o de TÛpico/Mensagem 
-spell_alts:			N„o h· alternativas
+threadt_disabled_ttl:		A vis√£o de √†rvore foi desabilitada.
+threadt_disabled_desc:		O administrador desabilitou a vis√£o em forma de √†rvore, por favor use a vis√£o plana.
+threadt_update:			A ver o F√≥rum (em forma de √†rvore) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+mmod_delete_cofirm_ttl:		Confirma√ß√£o de remo√ß√£o de T√≥pico/Mensagem 
+spell_alts:			N√£o h√° alternativas
 insert_uploaded_image:		Insira uma imagem dentro da mensagem
-finduser_help:			O motor de busca vai adicionar automaticamente uma * mascara a sua pesquisa. ex. Para procurar por todos os usu·rios cujo login comece com um &#39;a&#39;, digite &#39;a&#39; na caixa de pesquisa.
+finduser_help:			O motor de busca vai adicionar automaticamente uma * mascara a sua pesquisa. ex. Para procurar por todos os usu√°rios cujo login comece com um &#39;a&#39;, digite &#39;a&#39; na caixa de pesquisa.
 back_to_top:			Voltar ao Topo
 pm_err_disabled_title:		Mensagens privadas foram desabilitadas
-pm_err_disabled_msg:		N„o pode enviar mensagens privadas atÈ que ative a opÁ„o &#39;Permitir mensagens privadas&#39; no seu perfil.
-err_mod_acc_ttl:		Conta n„o verificada
-err_mod_acc_msg:		O administrador escolheu ver todas as contas manualmente antes de as ativar. AtÈ que a sua conta seja validada pelo administrador n„o vai poder utilizar todas as possibilidades do fÛrum.
-accounts_pending_approval:	Contas ‡ espera de aprovaÁ„o
+pm_err_disabled_msg:		N√£o pode enviar mensagens privadas at√© que ative a op√ß√£o &#39;Permitir mensagens privadas&#39; no seu perfil.
+err_mod_acc_ttl:		Conta n√£o verificada
+err_mod_acc_msg:		O administrador escolheu ver todas as contas manualmente antes de as ativar. At√© que a sua conta seja validada pelo administrador n√£o vai poder utilizar todas as possibilidades do f√≥rum.
+accounts_pending_approval:	Contas √† espera de aprova√ß√£o
 saved:				Guardado
-register_err_time_limit:	O limite de 1 registo por {GVAR: REG_TIME_LIMIT} segundo(s) foi alcanÁado. Por favor aguarde {VAR: reg_limit_reached} segundo(s) e tente registar-se novamente
+register_err_time_limit:	O limite de 1 registo por {GVAR: REG_TIME_LIMIT} segundo(s) foi alcan√ßado. Por favor aguarde {VAR: reg_limit_reached} segundo(s) e tente registar-se novamente
 register_affero:		Login para Affero:<br /><font class="SmallText">Se tem um login para <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> introduza-o.</font>
 im_affero:			Login para Affero
-register_err_avatardimtobig:	As dimensıes do Avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedem as dimensıes permitidas de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+register_err_avatardimtobig:	As dimens√µes do Avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedem as dimens√µes permitidas de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Descarregado {VAR: r->dlcount} vez(es)
-member_search:			<br />Ou use <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Encontrar Usu·rio</a> para localizar a pessoa.
-post_all_ext_allowed:		(sem restriÁ„o)
-buddy_offline:			{VAR: r[2]} est· desconectado
-buddy_online:			{VAR: r[2]} est· conectado
-sml_no_smilies:			N„o existem <i>emoticons</i>.
+member_search:			<br />Ou use <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Encontrar Usu√°rio</a> para localizar a pessoa.
+post_all_ext_allowed:		(sem restri√ß√£o)
+buddy_offline:			{VAR: r[2]} est√° desconectado
+buddy_online:			{VAR: r[2]} est√° conectado
+sml_no_smilies:			N√£o existem <i>emoticons</i>.
 login_unapproved_account_ttl:	Conta Desaprovada
-login_unapproved_account_msg:	O administrador do fÛrum escolheu confirmar cada nova conta manualmente antes da ativaÁ„o. A sua conta ainda n„o foi confirmada, por esse motivo vocÍ n„o poder· acessar algumas fÛruns disponÌveis para os membros registados atÈ que sua conta seja aprovada
+login_unapproved_account_msg:	O administrador do f√≥rum escolheu confirmar cada nova conta manualmente antes da ativa√ß√£o. A sua conta ainda n√£o foi confirmada, por esse motivo voc√™ n√£o poder√° acessar algumas f√≥runs dispon√≠veis para os membros registados at√© que sua conta seja aprovada
 remove_from_buddy_list:		remover da lista de amigos
 iemail_msg_author:		<b>Autor:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Assunto:</b> {VAR: obj->subject}
 iemail_msg_date:		<b>Data:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Responder
 iemail_msg_quote:		Citar
-iemail_msg_view:		VÍr TÛpico/Menssagem
+iemail_msg_view:		V√™r T√≥pico/Menssagem
 threadt_sticky:			fixo
-threadt_announce:		an˙ncio
-reported_no_messages:		N„o existem mensagens reportadas.
-poll_no_polls:			N„o existem votaÁıes acessÌveis.
-no_unread_messages:		N„o existem mensagens n„o lidas correspondentes ‡ sua pesquisa.
-thread_mark_all_read:		marcar todas as mensagens n„o lidas do fÛrum como lidas
-thread_mark_all_read_desc:	todas as mensagens n„o lidas deste fÛrum ser„o marcadas como lidas
-private_no_messages:		N„o existem mensagens nesta pasta
-register_email_change_subject:	ConfirmaÁ„o de alteraÁ„o de E-mail
-register_email_change_msg:	Confirme, por favor, a sua nova conta de e-mail "{VAR: uent->email}" que substitui a sua antiga conta "{VAR: old_email}" visitando a URL abaixo:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAssim que confirmar o seu novo endereÁo de e-mail, a sua conta ser· reativada.
-iemail_thread_unsub:		Remover subscriÁ„o desta conversa
-iemail_forum_unsub:		Remover subscriÁ„o deste fÛrum
-primary_group_prefix:		Grupo prim·rio para o fÛrum:
-group_resources:		Este grupo controla as permissıes dos seguintes sub-fÛrums
+threadt_announce:		an√∫ncio
+reported_no_messages:		N√£o existem mensagens reportadas.
+poll_no_polls:			N√£o existem vota√ß√µes acess√≠veis.
+no_unread_messages:		N√£o existem mensagens n√£o lidas correspondentes √† sua pesquisa.
+thread_mark_all_read:		marcar todas as mensagens n√£o lidas do f√≥rum como lidas
+thread_mark_all_read_desc:	todas as mensagens n√£o lidas deste f√≥rum ser√£o marcadas como lidas
+private_no_messages:		N√£o existem mensagens nesta pasta
+register_email_change_subject:	Confirma√ß√£o de altera√ß√£o de E-mail
+register_email_change_msg:	Confirme, por favor, a sua nova conta de e-mail "{VAR: uent->email}" que substitui a sua antiga conta "{VAR: old_email}" visitando a URL abaixo:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAssim que confirmar o seu novo endere√ßo de e-mail, a sua conta ser√° reativada.
+iemail_thread_unsub:		Remover subscri√ß√£o desta conversa
+iemail_forum_unsub:		Remover subscri√ß√£o deste f√≥rum
+primary_group_prefix:		Grupo prim√°rio para o f√≥rum:
+group_resources:		Este grupo controla as permiss√µes dos seguintes sub-f√≥rums
 register_email:			Email
-register_admin_newuser_title:	Registou-se um novo usu·rio e a sua conta aguarda confirmacao
-register_admin_newuser_msg:	Um novo usu·rio ({VAR: uent->login}) registrou-se no fÛrum e como a Confirmacao de Conta est· ativa, esta conta n„o ser· ativada atÈ que seja confirmada por vocÍ ou outro administrador do fÛrum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nEste È um processo autom·tico, n„o responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de usu·rios atravÈs do Painel de Controle de Administrac„o, alterando o valor de "NotificaÁ„o de Nova Conta".
-post_mod_msg_notify_title:	Nova mensagem no fÛrum "{VAR: frm->name}" aguardando aprovaÁ„o
-post_mod_msg_notify_msg:	Uma nova mensagem entitulada "{VAR: msg_post->subject}" foi colocada agora num fÛrum que vocÍ modera. Para revÍ-la veja em: {FULL_ROOT}{ROOT}?t=modque\n\nEste È um processo autom·tico, n„o responda a esta mensagem.\n
+register_admin_newuser_title:	Registou-se um novo usu√°rio e a sua conta aguarda confirmacao
+register_admin_newuser_msg:	Um novo usu√°rio ({VAR: uent->login}) registrou-se no f√≥rum e como a Confirmacao de Conta est√° ativa, esta conta n√£o ser√° ativada at√© que seja confirmada por voc√™ ou outro administrador do f√≥rum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nEste √© um processo autom√°tico, n√£o responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de usu√°rios atrav√©s do Painel de Controle de Administrac√£o, alterando o valor de "Notifica√ß√£o de Nova Conta".
+post_mod_msg_notify_title:	Nova mensagem no f√≥rum "{VAR: frm->name}" aguardando aprova√ß√£o
+post_mod_msg_notify_msg:	Uma nova mensagem entitulada "{VAR: msg_post->subject}" foi colocada agora num f√≥rum que voc√™ modera. Para rev√™-la veja em: {FULL_ROOT}{ROOT}?t=modque\n\nEste √© um processo autom√°tico, n√£o responda a esta mensagem.\n
 thread_printable_pdf:		Exportar para PDF
-thread_syndicate:		Adicione este fÛrum (XML)
-reg_conf_title:			ConfirmaÁ„o do Registo
-reg_conf_email:			<b>ConfirmaÁ„o via E-mail</b><br />Um email foi enviado para vocÍ contendo uma URL especial que dever· ser acessada para que sua conta seja ativada. Se n„o receber essa notificaÁ„o nos prÛximos minutos, conecte-se no fÛrum com sua conta e confirme se o endereÁo de e-mail informado est· correto. ApÛs confirmar a sua conta vocÍ ter· acesso ‡s opÁıes do fÛrum disponÌveis aos usu·rios confirmados.
-reg_conf_account:		<b>ConfirmaÁ„o de Conta</b><br />Antes da sua conta se tornar ativa È necess·rio que seja aprovada pelo(s) administrador(es), assim que isso ocorrer vocÍ receber· um e-mail indicando que a mesma foi ativada. AtÈ esse momento vocÍ poder· acessar o fÛrum, porÈm est· limitado a apenas fÛruns que n„o necessitam de conta ativada.
-forum_banned_user:		As suas aÁıes anteriores obtiveram como resultado a sua expuls„o permanente deste fÛrum. Adeus.
+thread_syndicate:		Adicione este f√≥rum (XML)
+reg_conf_title:			Confirma√ß√£o do Registo
+reg_conf_email:			<b>Confirma√ß√£o via E-mail</b><br />Um email foi enviado para voc√™ contendo uma URL especial que dever√° ser acessada para que sua conta seja ativada. Se n√£o receber essa notifica√ß√£o nos pr√≥ximos minutos, conecte-se no f√≥rum com sua conta e confirme se o endere√ßo de e-mail informado est√° correto. Ap√≥s confirmar a sua conta voc√™ ter√° acesso √†s op√ß√µes do f√≥rum dispon√≠veis aos usu√°rios confirmados.
+reg_conf_account:		<b>Confirma√ß√£o de Conta</b><br />Antes da sua conta se tornar ativa √© necess√°rio que seja aprovada pelo(s) administrador(es), assim que isso ocorrer voc√™ receber√° um e-mail indicando que a mesma foi ativada. At√© esse momento voc√™ poder√° acessar o f√≥rum, por√©m est√° limitado a apenas f√≥runs que n√£o necessitam de conta ativada.
+forum_banned_user:		As suas a√ß√µes anteriores obtiveram como resultado a sua expuls√£o permanente deste f√≥rum. Adeus.
 mnav_description:		Navegador de mensagens
-mnav_date_limit:		EspaÁo de tempo:
+mnav_date_limit:		Espa√ßo de tempo:
 mnav_forum_limit:		Somente procurar em:
-mnav_all_forums:		Procurar em todos os fÛruns
-mnav_submit:			ComeÁar procura
-mnav_no_range:			VocÍ precisa informar um espaÁo de tempo v·lido. Este valor pode ser um ponto flutuante (0.12) porÈm ele precisar ser maior que zero.
-mnav_invalid_unit:		VocÍ precisa informar uma unidade de tempo v·lida.
-mnav_invalid_date:		O espaÁo de tempo que vocÍ informou È maior que o permitido pelo administrador, diminua o espaÁo de tempo em sua procura.
-mnav_no_results:		N„o existem mensagens que coincidam com sua procura.
+mnav_all_forums:		Procurar em todos os f√≥runs
+mnav_submit:			Come√ßar procura
+mnav_no_range:			Voc√™ precisa informar um espa√ßo de tempo v√°lido. Este valor pode ser um ponto flutuante (0.12) por√©m ele precisar ser maior que zero.
+mnav_invalid_unit:		Voc√™ precisa informar uma unidade de tempo v√°lida.
+mnav_invalid_date:		O espa√ßo de tempo que voc√™ informou √© maior que o permitido pelo administrador, diminua o espa√ßo de tempo em sua procura.
+mnav_no_results:		N√£o existem mensagens que coincidam com sua procura.
 mnav_posted_by:			Postado Por:
 mnav_more:			Mais &raquo;&raquo;
 mnav_minute:			Minutos(s)
@@ -911,85 +911,85 @@ mnav_week:			Semanas(s)
 mnav_month:			Meses(s)
 mnav_title:			Navegador de Mensagens
 mnav_update:			Navegando pelas Mensagens usando <a href="{TEMPLATE: mnav_update_lnk}">Navegador de Mensagens</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] NotificaÁ„o de Mensagem Privada
-pm_notify_body_email:		VocÍ tem uma nova mensagem privada entitulada "{VAR: subject}" de "{VAR: from}" do fÛrum "{GVAR: FORUM_TITLE}".\nPara ver a mensagem clique aqui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de receber notificaÁıes futuras, desative "NotificaÁ„o de Mensagens Privadas" em seu perfil.
-register_pm_notification:	NotificaÁ„o de Mensagens Privadas
-register_pm_notification_desc:	Se ativado, vocÍ receber· notificaÁ„o atravÈs do mÈtodo de notificaÁ„o de sua escolha, sempre que uma mensagem privada for enviada para vocÍ.
-findu_admin_opts_header:	OpÁıes Administrativas.
+pm_notify_subject:		[{GVAR: FORUM_TITLE}] Notifica√ß√£o de Mensagem Privada
+pm_notify_body_email:		Voc√™ tem uma nova mensagem privada entitulada "{VAR: subject}" de "{VAR: from}" do f√≥rum "{GVAR: FORUM_TITLE}".\nPara ver a mensagem clique aqui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara deixar de receber notifica√ß√µes futuras, desative "Notifica√ß√£o de Mensagens Privadas" em seu perfil.
+register_pm_notification:	Notifica√ß√£o de Mensagens Privadas
+register_pm_notification_desc:	Se ativado, voc√™ receber√° notifica√ß√£o atrav√©s do m√©todo de notifica√ß√£o de sua escolha, sempre que uma mensagem privada for enviada para voc√™.
+findu_admin_opts_header:	Op√ß√µes Administrativas.
 findu_unban:			Desbanir
 findu_ban:			Banir
 findu_edit:			Editar
 findu_delete:			Apagar
-dmsg_reply_to:			… uma resposta para mensagem #{VAR: obj->reply_to}
-merge_topics:			Unir TÛpicos
-merge_topics_cp:		Painel de Controle de Uni„o de TÛpicos
-merge_topics_tpl:		Selecione TÛpicos para Unir <font class="SmallText">(vocÍ precisa selecionar mais de 1 tÛpico)</font>
-merge_merge:			Unir TÛpicos Selecionados
-merge_next:			PrÛximos TÛpicos
-merge_prev:			TÛpicos Anteriores
-split_cp:			Painel de Controle para Quebra de TÛpicos
-groups_perms_header:		Permissıes <font size="-1">(passe o mouse sobre a permiss„o para ver seu tipo)</font>
-register_err_sig_too_long:	Sua assinatura excede o comprimento m·ximo permitido de {GVAR: FORUM_SIG_ML} caracteres.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} caracteres <a href="javascript: alert(\'Sua assinatura possui \'+document.fud_register.reg_sig.value.length+\' caracteres. O comprimento m·ximo permitido È de {GVAR: FORUM_SIG_ML}\');" class="SmallText">Veja o Tamanho da Assinatura</a>
+dmsg_reply_to:			√â uma resposta para mensagem #{VAR: obj->reply_to}
+merge_topics:			Unir T√≥picos
+merge_topics_cp:		Painel de Controle de Uni√£o de T√≥picos
+merge_topics_tpl:		Selecione T√≥picos para Unir <font class="SmallText">(voc√™ precisa selecionar mais de 1 t√≥pico)</font>
+merge_merge:			Unir T√≥picos Selecionados
+merge_next:			Pr√≥ximos T√≥picos
+merge_prev:			T√≥picos Anteriores
+split_cp:			Painel de Controle para Quebra de T√≥picos
+groups_perms_header:		Permiss√µes <font size="-1">(passe o mouse sobre a permiss√£o para ver seu tipo)</font>
+register_err_sig_too_long:	Sua assinatura excede o comprimento m√°ximo permitido de {GVAR: FORUM_SIG_ML} caracteres.
+register_sig_limit:		{GVAR: FORUM_SIG_ML} caracteres <a href="javascript: alert(\'Sua assinatura possui \'+document.fud_register.reg_sig.value.length+\' caracteres. O comprimento m√°ximo permitido √© de {GVAR: FORUM_SIG_ML}\');" class="SmallText">Veja o Tamanho da Assinatura</a>
 p_SEARCH:			Pode Procurar
-adm_account_accepted:		Sua conta \'{VAR: GLOBALS['r']->login}\' foi aprovada pelo administrador e est· ativa agora. Agora vocÍ pode acessar o FÛrum {GVAR: FORUM_TITLE}\' como um usu·rio confirmado.
-adm_account_accepted_s:		Sua requisiÁ„o de conta para o fÛrum \'{GVAR: FORUM_TITLE}\' foi aceita.
-adm_account_rejected:		Sua conta \'{VAR: GLOBALS['r']->login}\' foi rejeitada pelo administrador e agora est· ativa. Se vocÍ quiser saber a raz„o de tal decis„o, sinta-se a vontade para contactar o administrador atravÈs do e-mail \'{GVAR: ADMIN_EMAIL}\'.
-adm_account_rejected_s:		Sua requisiÁ„o de conta para o fÛrum \'{GVAR: FORUM_TITLE}\' foi recusada.
+adm_account_accepted:		Sua conta \'{VAR: GLOBALS['r']->login}\' foi aprovada pelo administrador e est√° ativa agora. Agora voc√™ pode acessar o F√≥rum {GVAR: FORUM_TITLE}\' como um usu√°rio confirmado.
+adm_account_accepted_s:		Sua requisi√ß√£o de conta para o f√≥rum \'{GVAR: FORUM_TITLE}\' foi aceita.
+adm_account_rejected:		Sua conta \'{VAR: GLOBALS['r']->login}\' foi rejeitada pelo administrador e agora est√° ativa. Se voc√™ quiser saber a raz√£o de tal decis√£o, sinta-se a vontade para contactar o administrador atrav√©s do e-mail \'{GVAR: ADMIN_EMAIL}\'.
+adm_account_rejected_s:		Sua requisi√ß√£o de conta para o f√≥rum \'{GVAR: FORUM_TITLE}\' foi recusada.
 thread_on:			em
 userinfo_buddy:			Amigo:
-register_email_addr:		EndereÁo de E-mail:
-reset_suffix:			\n\nSe vocÍ recebeu esta mensagem por engano, por favor desconsidere-a. Se vocÍ estiver recebendo v·rias cÛpias desse e-mail, e vocÍ n„o requisitou isso, por favor contacte o administrador do fÛrum atravÈs do e-mail {GVAR: ADMIN_EMAIL}\n\nEste requerimento teve origem em: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
-usrinfo_last_visit:		⁄ltimo Visitado:
+register_email_addr:		Endere√ßo de E-mail:
+reset_suffix:			\n\nSe voc√™ recebeu esta mensagem por engano, por favor desconsidere-a. Se voc√™ estiver recebendo v√°rias c√≥pias desse e-mail, e voc√™ n√£o requisitou isso, por favor contacte o administrador do f√≥rum atrav√©s do e-mail {GVAR: ADMIN_EMAIL}\n\nEste requerimento teve origem em: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
+usrinfo_last_visit:		√öltimo Visitado:
 mnav_newer:			mais novo que
 mnav_older:			mais antigo que
-ip_search_by_ip:		Procurar usu·rios por IP
+ip_search_by_ip:		Procurar usu√°rios por IP
 ip_search_syntax:		Sintaxe suportada: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:			Procura
 ip_analyze_usage:		Analisar uso de IP
-ip_analyze_usage_descr:		Por favor, especifique o login exato do usu·rio.
-ip_users_using:			Usu·rios usando o endereÁo de IP &#39;{VAR: ip}&#39;
-ip_all_ips:			Todos IP¥s usados por &#39;{VAR: user}&#39;
+ip_analyze_usage_descr:		Por favor, especifique o login exato do usu√°rio.
+ip_users_using:			Usu√°rios usando o endere√ßo de IP &#39;{VAR: ip}&#39;
+ip_all_ips:			Todos IP≈Ωs usados por &#39;{VAR: user}&#39;
 ip_title:			Navegador de IP
 userinfo_real_name:		Nome Real:
-register_err_alias_notallowed:	Este apelido n„o È permitido
-post_err_noannontopics_msg2:	<fieldset><legend>ERRO: PrivilÈgios Insuficientes</legend>Usu·rios anÙnimos n„o podem criar tÛpicos.</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>ERRO: PrivilÈgios Insuficientes</legend>Usu·rios anÙnimos n„o podem responder a mensagens.</fieldset><br />
-ERR_login_msg2:			<fieldset><legend>ERRO: VocÍ n„o est· conectado</legend>Para acessar esta p·gina, vocÍ precisa ser um membro deste fÛrum.</fieldset><br />
+register_err_alias_notallowed:	Este apelido n√£o √© permitido
+post_err_noannontopics_msg2:	<fieldset><legend>ERRO: Privil√©gios Insuficientes</legend>Usu√°rios an√¥nimos n√£o podem criar t√≥picos.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERRO: Privil√©gios Insuficientes</legend>Usu√°rios an√¥nimos n√£o podem responder a mensagens.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERRO: Voc√™ n√£o est√° conectado</legend>Para acessar esta p√°gina, voc√™ precisa ser um membro deste f√≥rum.</fieldset><br />
 post_err_mod_forum_edit_ttl:	ERRO
-post_err_mod_forum_edit_msg:	VocÍ n„o pode editar mensagens dentro de um fÛrum moderado.
+post_err_mod_forum_edit_msg:	Voc√™ n√£o pode editar mensagens dentro de um f√≥rum moderado.
 dmsg_num:			mensagem #{VAR: obj->id}
-postcheck_session_invalid:	Sua sess„o experou, por favor autentique-se novamente. Desculpe pelo inconveniente.
-delete_message_extra_desc:	<b>Opcional</b><br />Especifique a raz„o para a deleÁ„o da mensagem que ser· enviada ao autor atravÈs do sistema de mensagens privadas.
-delete_message_extra_body:	Inclua o corpo da mensagem removida que ser· enviada ao autor.
+postcheck_session_invalid:	Sua sess√£o experou, por favor autentique-se novamente. Desculpe pelo inconveniente.
+delete_message_extra_desc:	<b>Opcional</b><br />Especifique a raz√£o para a dele√ß√£o da mensagem que ser√° enviada ao autor atrav√©s do sistema de mensagens privadas.
+delete_message_extra_body:	Inclua o corpo da mensagem removida que ser√° enviada ao autor.
 delete_msg_removed_ttl:		Sua mensagem foi removida por um dos administradores.
 delete_msg_pm_body:		Mensagem original
 delete_msg_pm_subject:		Assunto: {VAR: data[15]}
-ip_no_whois:			InformaÁ„o Whois para <b>{VAR: ip}</b> n„o est· disponÌvel.
-ip_whois_title:			<b>InformaÁ„o do ISP</b><br />
+ip_no_whois:			Informa√ß√£o Whois para <b>{VAR: ip}</b> n√£o est√° dispon√≠vel.
+ip_whois_title:			<b>Informa√ß√£o do ISP</b><br />
 register_theme:			Tema:
 pmsg_trash:			Esvaziar Lixeira
 uc_new_pm:			Novas Mensagens Privadas
-uc_new_topic:			Novo TÛpico
-uc_new_cat_forum:		FÛruns Subscritos com Novas Mensagens
-uc_cat_forum:			Categoria &raquo; FÛrum
-uc_sub_topics:			TÛpicos Subscritos com Novas Mensagens
+uc_new_topic:			Novo T√≥pico
+uc_new_cat_forum:		F√≥runs Subscritos com Novas Mensagens
+uc_cat_forum:			Categoria &raquo; F√≥rum
+uc_sub_topics:			T√≥picos Subscritos com Novas Mensagens
 uc_page_title:			Visualizando painel de controle pessoal.
-search_options:			OpÁıes de procura
-search_user_filter:		Filtrar por usu·rio:
-register_none:			N„o notificar
-findu_no_conf:			usu·rio n„o confirmado
-register_max_sig_len:		Comprimento m·ximo:
-register_turing:		Por favor, entre com o cÛdigo aqui abaixo:
-register_err_turing:		CÛdigo de ValidaÁ„o inv·lido.
+search_options:			Op√ß√µes de procura
+search_user_filter:		Filtrar por usu√°rio:
+register_none:			N√£o notificar
+findu_no_conf:			usu√°rio n√£o confirmado
+register_max_sig_len:		Comprimento m√°ximo:
+register_turing:		Por favor, entre com o c√≥digo aqui abaixo:
+register_err_turing:		C√≥digo de Valida√ß√£o inv√°lido.
 modque_cat:			Categoria
-modque_forum:			FÛrum
-idx_compact_forum_row:		FÛruns DisponÌveis:
-mmd_del_title:			Apagar TÛpicos
-mmd_mov_title:			Mover TÛpicos
-mmd_move_threads_to:		FÛrum de Destino:
+modque_forum:			F√≥rum
+idx_compact_forum_row:		F√≥runs Dispon√≠veis:
+mmd_del_title:			Apagar T√≥picos
+mmd_mov_title:			Mover T√≥picos
+mmd_move_threads_to:		F√≥rum de Destino:
 mmd_abort_move:			Cancelar
-mmd_move:			Mover TÛpicos
+mmd_move:			Mover T√≥picos
 pmsg_pdf_btn:			Criar arquivo PDF
 search_results_hdr:		{VAR: total} Resultados encontrados
 thread_del_all:			Apagar Todos os selecionados

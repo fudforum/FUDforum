@@ -1,739 +1,739 @@
 action:				Akce
-add_to_buddy_list:		pøidat do seznamu pøátel
+add_to_buddy_list:		pÅ™idat do seznamu pÅ™Ã¡tel
 admin:				Administrace 
-admin_control_panel:		Administraèní panel
-administrator:			Administrátor
-attachment:			Pøíloha:
-avatar:				Ikona u¾ivatele:
-average_post_count:		{VAR: u->posted_msg_count} Pøíspìvkù (prùmìrnì {VAR: avg} dennì)
-biography:			®ivotopis:
-birth_date:			Datum narození:
+admin_control_panel:		AdministraÄnÃ­ panel
+administrator:			AdministrÃ¡tor
+attachment:			PÅ™Ã­loha:
+avatar:				Ikona uÅ¾ivatele:
+average_post_count:		{VAR: u->posted_msg_count} PÅ™Ã­spÄ›vkÅ¯ (prÅ¯mÄ›rnÄ› {VAR: avg} dennÄ›)
+biography:			Å½ivotopis:
+birth_date:			Datum narozenÃ­:
 by:				Od:
-by_mod:				od Moderátora
-current_time:			Aktuální èas
-custom_avatar_queue:		Zátup ikon u¾ivatelù
-date_posted:			Pøidáno
-date_registered:		Registrován:
-download_counter:		Sta¾eno {VAR: v[3]} krát
+by_mod:				od ModerÃ¡tora
+current_time:			AktuÃ¡lnÃ­ Äas
+custom_avatar_queue:		ZÃ¡tup ikon uÅ¾ivatelÅ¯
+date_posted:			PÅ™idÃ¡no
+date_registered:		RegistrovÃ¡n:
+download_counter:		StaÅ¾eno {VAR: v[3]} krÃ¡t
 email:				Email:
-email_to_friend:		Poslat email pøíteli
-email_to_friend_desc:		Poslat pøíteli URL na tuto stránku emailem
-email_user:			Napsat email u¾ivateli
-faq:				Nápovìda
-first_unread_msg:		Jít na nepøeètené zprávy
-first_unread_msg_desc:		Jít na první nepøeètenou zprávu v tomto tématu
-flat_view:			Zpìt k standartnímu plochému zobrazení
-forum:				Fórum:
-forum_icon:			Icona fóra
-forum_new_messages:		Nové zprávy
-forum_none_messages:		Jen registrovaní u¾ivatelé fóra mohou èíst a psát zprávy
-forum_old_messages:		®ádné nové zprávy
+email_to_friend:		Poslat email pÅ™Ã­teli
+email_to_friend_desc:		Poslat pÅ™Ã­teli URL na tuto strÃ¡nku emailem
+email_user:			Napsat email uÅ¾ivateli
+faq:				NÃ¡povÄ›da
+first_unread_msg:		JÃ­t na nepÅ™eÄtenÃ© zprÃ¡vy
+first_unread_msg_desc:		JÃ­t na prvnÃ­ nepÅ™eÄtenou zprÃ¡vu v tomto tÃ©matu
+flat_view:			ZpÄ›t k standartnÃ­mu plochÃ©mu zobrazenÃ­
+forum:				FÃ³rum:
+forum_icon:			Icona fÃ³ra
+forum_new_messages:		NovÃ© zprÃ¡vy
+forum_none_messages:		Jen registrovanÃ­ uÅ¾ivatelÃ© fÃ³ra mohou ÄÃ­st a psÃ¡t zprÃ¡vy
+forum_old_messages:		Å½Ã¡dnÃ© novÃ© zprÃ¡vy
 from:				Od:
-gender:				Pohlaví:
+gender:				PohlavÃ­:
 go:				Jdi
-goto_next_msg:			Jdi na dal¹í zprávu
-goto_prev_msg:			Jdi na pøedchozí zprávu
-home:				Domù
+goto_next_msg:			Jdi na dalÅ¡Ã­ zprÃ¡vu
+goto_prev_msg:			Jdi na pÅ™edchozÃ­ zprÃ¡vu
+home:				DomÅ¯
 homepage:			Homepage:
 icq_control_panel:		ICQ Online panel
-icq_message_form:		Formuláø ICQ zprávy:
-ignore_user:			ignorovat u¾ivatele
+icq_message_form:		FormulÃ¡Å™ ICQ zprÃ¡vy:
+ignore_user:			ignorovat uÅ¾ivatele
 im_aim:				AIM:
 im_msnm:			MSN Messenger:
 im_yahoo:			Yahoo Messenger:
-image:				Obrázek:
-index_forum:			Fórum
-index_new_posts:		Nové pøíspìvky od minulé náv¹tìvy
-index_no_new_posts:		®ádné nové pøíspìvky od minulé náv¹tìvy
-interests:			Zájmy:
-last_post:			Poslední pøíspevek
-last_thread_msg:		Jdi na poslední zprávu tohoto tématu
+image:				ObrÃ¡zek:
+index_forum:			FÃ³rum
+index_new_posts:		NovÃ© pÅ™Ã­spÄ›vky od minulÃ© nÃ¡vÅ¡tÄ›vy
+index_no_new_posts:		Å½Ã¡dnÃ© novÃ© pÅ™Ã­spÄ›vky od minulÃ© nÃ¡vÅ¡tÄ›vy
+interests:			ZÃ¡jmy:
+last_post:			PoslednÃ­ pÅ™Ã­spevek
+last_thread_msg:		Jdi na poslednÃ­ zprÃ¡vu tohoto tÃ©matu
 legend:				Legenda:
-location:			Umístìní:
-lock_thread:			Zamknout téma
+location:			UmÃ­stÄ›nÃ­:
+lock_thread:			Zamknout tÃ©ma
 locked:				Zamknuto
-locked_with_new_posts:		Zamknuto (i s novımi pøíspìvky)
-logged_in_list:			Seznam pøihlá¹enıch
-login:				Pøihlásit
-login_header:			U¾ivatelské jméno:
-logout:				Odhlásit
-mark_all_read:			oznaè v¹echny zprávy jako pøeètené
-mark_all_read_desc:		V¹echny zprávy budou oznaèeny jako pøeètené
-members:			Èlenové
-message:			Zpráva
-message_counter:		U¾ivatelé pøidali ji¾ <b>{VAR: post_count}</b> zpráv k <b>{VAR: thread_count}</b> tématùm.
-message_index:			Seznam zpráv
-message_index_desc:		Zobraz seznam zpráv
+locked_with_new_posts:		Zamknuto (i s novÃ½mi pÅ™Ã­spÄ›vky)
+logged_in_list:			Seznam pÅ™ihlÃ¡Å¡enÃ½ch
+login:				PÅ™ihlÃ¡sit
+login_header:			UÅ¾ivatelskÃ© jmÃ©no:
+logout:				OdhlÃ¡sit
+mark_all_read:			oznaÄ vÅ¡echny zprÃ¡vy jako pÅ™eÄtenÃ©
+mark_all_read_desc:		VÅ¡echny zprÃ¡vy budou oznaÄeny jako pÅ™eÄtenÃ©
+members:			ÄŒlenovÃ©
+message:			ZprÃ¡va
+message_counter:		UÅ¾ivatelÃ© pÅ™idali jiÅ¾ <b>{VAR: post_count}</b> zprÃ¡v k <b>{VAR: thread_count}</b> tÃ©matÅ¯m.
+message_index:			Seznam zprÃ¡v
+message_index_desc:		Zobraz seznam zprÃ¡v
 minimize_category:		Minimalizovat kategorii
-moderation_queue:		Moderaèní fronta
-moderator:			Moderátor
-moderator_of:			Moderátor:
-moderator_options:		Volby moderátora
-moderators:			Moderátoøi
-more_unread_messages:		více nepøeètenıch zpráv
-more_unread_messages_desc:	Zobraz více nepøeètenıch zpráv a oznaè nyní zobrazené zprávy jako pøeètené
-move_thread:			Pøesunout
-moved:				Pøesunuto to jiného fóra
-moved_thread_message:		Toto téma bylo pøesunuto do jiného fóra
-na:				není k dispozici
-new_posts:			Nové pøíspìvky
-new_private_messages:		Máte <span class="GenText" style="color: #ff0000">({VAR: c})</span> novıch zpráv v po¹tì
-new_thread:			Vytvoø nové téma
-newest_user:			Nejnovìj¹í u¾ivatel je
-next_page:			Dal¹í strana
-next_thread:			Dal¹í téma:
-no_messages:			®ádné dal¹í zprávy v tomto fóru.
-no_msg_body:			Zpráva nemá obsah
-no_new_posts:			®ádné nové pøíspìvky
-no_posts:			®ádné pøíspìvky
-no_subscribed_forums:		®ádná zapsaná fóra
-no_subscribed_threads:		®ádná zapsaná témata
-no_unread_locked:		Toto téma bylo zamèeno
-no_unread_msg:			®ádné nepøeètené zprávy k tomuto tématu
-no_unread_msg_unreg:		Pøeètené i nepøeètené zprávy jsou k nahlédnutí jen pro registrované u¾ivatele
-num_pages:			Stránek ({VAR: ttl_pg}):
-num_votes:			{VAR: obj->total_votes} hlasù
-occupation:			Obsazení:
+moderation_queue:		ModeraÄnÃ­ fronta
+moderator:			ModerÃ¡tor
+moderator_of:			ModerÃ¡tor:
+moderator_options:		Volby moderÃ¡tora
+moderators:			ModerÃ¡toÅ™i
+more_unread_messages:		vÃ­ce nepÅ™eÄtenÃ½ch zprÃ¡v
+more_unread_messages_desc:	Zobraz vÃ­ce nepÅ™eÄtenÃ½ch zprÃ¡v a oznaÄ nynÃ­ zobrazenÃ© zprÃ¡vy jako pÅ™eÄtenÃ©
+move_thread:			PÅ™esunout
+moved:				PÅ™esunuto to jinÃ©ho fÃ³ra
+moved_thread_message:		Toto tÃ©ma bylo pÅ™esunuto do jinÃ©ho fÃ³ra
+na:				nenÃ­ k dispozici
+new_posts:			NovÃ© pÅ™Ã­spÄ›vky
+new_private_messages:		MÃ¡te <span class="GenText" style="color: #ff0000">({VAR: c})</span> novÃ½ch zprÃ¡v v poÅ¡tÄ›
+new_thread:			VytvoÅ™ novÃ© tÃ©ma
+newest_user:			NejnovÄ›jÅ¡Ã­ uÅ¾ivatel je
+next_page:			DalÅ¡Ã­ strana
+next_thread:			DalÅ¡Ã­ tÃ©ma:
+no_messages:			Å½Ã¡dnÃ© dalÅ¡Ã­ zprÃ¡vy v tomto fÃ³ru.
+no_msg_body:			ZprÃ¡va nemÃ¡ obsah
+no_new_posts:			Å½Ã¡dnÃ© novÃ© pÅ™Ã­spÄ›vky
+no_posts:			Å½Ã¡dnÃ© pÅ™Ã­spÄ›vky
+no_subscribed_forums:		Å½Ã¡dnÃ¡ zapsanÃ¡ fÃ³ra
+no_subscribed_threads:		Å½Ã¡dnÃ¡ zapsanÃ¡ tÃ©mata
+no_unread_locked:		Toto tÃ©ma bylo zamÄeno
+no_unread_msg:			Å½Ã¡dnÃ© nepÅ™eÄtenÃ© zprÃ¡vy k tomuto tÃ©matu
+no_unread_msg_unreg:		PÅ™eÄtenÃ© i nepÅ™eÄtenÃ© zprÃ¡vy jsou k nahlÃ©dnutÃ­ jen pro registrovanÃ© uÅ¾ivatele
+num_pages:			StrÃ¡nek ({VAR: ttl_pg}):
+num_votes:			{VAR: obj->total_votes} hlasÅ¯
+occupation:			ObsazenÃ­:
 off:				Vypnuto
 on:				Zapnuto
-page_timings:			Celkovı èas potøebnı k vygenerování této stránky: {VAR: page_gen_time} vteøin
-pm:				Po¹ta
+page_timings:			CelkovÃ½ Äas potÅ™ebnÃ½ k vygenerovÃ¡nÃ­ tÃ©to strÃ¡nky: {VAR: page_gen_time} vteÅ™in
+pm:				PoÅ¡ta
 poll:				Anketa:
-post_count:			Poèet pøíspìvkù {VAR: u_pcount}
-post_count_l:			Poèet pøíspìvkù:
-posts:				Pøíspìvky
-posts_c:			Pøíspìvky:
-prev_thread:			Pøedchozí téma:
-usrinfo_private_message:	Po¹ta:
+post_count:			PoÄet pÅ™Ã­spÄ›vkÅ¯ {VAR: u_pcount}
+post_count_l:			PoÄet pÅ™Ã­spÄ›vkÅ¯:
+posts:				PÅ™Ã­spÄ›vky
+posts_c:			PÅ™Ã­spÄ›vky:
+prev_thread:			PÅ™edchozÃ­ tÃ©ma:
+usrinfo_private_message:	PoÅ¡ta:
 profile:			Profil
-profile_desc:			Kliknìte sem pro pøístup k panelu u¾ivatelského nastavení
-rate_thread:			Ohodnotit téma
+profile_desc:			KliknÄ›te sem pro pÅ™Ã­stup k panelu uÅ¾ivatelskÃ©ho nastavenÃ­
+rate_thread:			Ohodnotit tÃ©ma
 refresh_list:			Aktualizovat seznam
 register:			Registrovat
 registered:			Registerace:
-registered_on:			Registerován(a) {TEMPLATE: registered_on_date}
+registered_on:			RegisterovÃ¡n(a) {TEMPLATE: registered_on_date}
 replies:			Reakce
-report_to_mod:			Pøednést pøíspìvek moderátorovi
-reported_messages:		Pøednesené pøíspìvky
-reveal_all_posts:		odkrıt v¹echny pøíspìvky od u¾ivatele {VAR: user_login}
-reveal_post:			odkrıt pøíspìvek
+report_to_mod:			PÅ™ednÃ©st pÅ™Ã­spÄ›vek moderÃ¡torovi
+reported_messages:		PÅ™ednesenÃ© pÅ™Ã­spÄ›vky
+reveal_all_posts:		odkrÃ½t vÅ¡echny pÅ™Ã­spÄ›vky od uÅ¾ivatele {VAR: user_login}
+reveal_post:			odkrÃ½t pÅ™Ã­spÄ›vek
 search:				Hledat
-sel_todays_posts:		Pøíspìvkù dnes
-sel_todays_posts_desc:		Zapnout/vypnout filter dne¹ních pøíspìvkù (budou zorazeny jen dne¹ní pøíspìvky)
-sel_unanswered_posts:		Pøíspìvky bez reakce
-sel_unanswered_posts_desc:	Zapnout/vypnout filter dne¹ních pøíspìvkù bez reakce (budou zobrazeny jen pøíspìvky bez reakce)
-sel_unread_messages:		Nepøeètené zprávy
-sel_unread_messages_desc:	Zapnout/vypnout filtr nepøeètenıch zpráv (budou zobrazeny jen nepøeètené zprávy)
+sel_todays_posts:		PÅ™Ã­spÄ›vkÅ¯ dnes
+sel_todays_posts_desc:		Zapnout/vypnout filter dneÅ¡nÃ­ch pÅ™Ã­spÄ›vkÅ¯ (budou zorazeny jen dneÅ¡nÃ­ pÅ™Ã­spÄ›vky)
+sel_unanswered_posts:		PÅ™Ã­spÄ›vky bez reakce
+sel_unanswered_posts_desc:	Zapnout/vypnout filter dneÅ¡nÃ­ch pÅ™Ã­spÄ›vkÅ¯ bez reakce (budou zobrazeny jen pÅ™Ã­spÄ›vky bez reakce)
+sel_unread_messages:		NepÅ™eÄtenÃ© zprÃ¡vy
+sel_unread_messages_desc:	Zapnout/vypnout filtr nepÅ™eÄtenÃ½ch zprÃ¡v (budou zobrazeny jen nepÅ™eÄtenÃ© zprÃ¡vy)
 send:				Odeslat
-send_pm_desc:			Odeslat po¹tu tomuto u¾ivateli
-sender_email:			Email odesílatele:
-sender_name:			Jméno odesílatele:
-show_posts_by:			Zobrazit pøíspìvky od: {VAR: u_alias}
+send_pm_desc:			Odeslat poÅ¡tu tomuto uÅ¾ivateli
+sender_email:			Email odesÃ­latele:
+sender_name:			JmÃ©no odesÃ­latele:
+show_posts_by:			Zobrazit pÅ™Ã­spÄ›vky od: {VAR: u_alias}
 size:				Velikost:
 status:				Stav:
-status_line:			<b>{VAR: st_obj->online_users_reg}</b> èlenù, <b>{VAR: st_obj->online_users_hidden}</b> skrytıch èlenù a <b>{VAR: st_obj->online_users_anon}</b> hostù v tomto klubu.
-sticky:				vıvìska:
-stop_ignoring:			pøestat ignorovat tohoto u¾ivatele
-sub_to_thread:			Odebírat téma
-sub_to_thread_desc:		Dostávat oznámení o novıch pøíspìvcích v tomto tématu
+status_line:			<b>{VAR: st_obj->online_users_reg}</b> ÄlenÅ¯, <b>{VAR: st_obj->online_users_hidden}</b> skrytÃ½ch ÄlenÅ¯ a <b>{VAR: st_obj->online_users_anon}</b> hostÅ¯ v tomto klubu.
+sticky:				vÃ½vÄ›ska:
+stop_ignoring:			pÅ™estat ignorovat tohoto uÅ¾ivatele
+sub_to_thread:			OdebÃ­rat tÃ©ma
+sub_to_thread_desc:		DostÃ¡vat oznÃ¡menÃ­ o novÃ½ch pÅ™Ã­spÄ›vcÃ­ch v tomto tÃ©matu
 subject:			Nadpis
-subscribe:			Odebírat
-subscribe_desc:			Dostávat oznámení pokud nìkdo vytvoøí nové téma v tomto fóru
-subscribed_forums:		Zapsaná fóra
-subscribed_forums_desc:		Zapnout/vypnout filtr zapsanıch fór (budou zobrazeny pozue pøíspìvky ze zapsanıch fór)
-subscribed_threads:		Zapsaná témata
-subscribed_threads_desc:	Zapnout/vypnout filtr zapsanıch témat (budou zobrazeny jen pøíspìvky zapsanıch témat)
-switch_to_thread_view:		Pøepnout toto téma do stromového zobrazení
-thread:				Téma:
-thread_announcement:		Oznámení:
-thread_first_unread_msg:	Jdi na první nepøeètenou zprávu tohoto tématu
-thread_thread:			Téma
-threads:			Témata
-time:				Èas
-todays_posts:			Dne¹ní pøíspìvky
-todays_posts_desc:		Zobrazit v¹echny pøísp¹ìvky odeslané dnes
-un_ignore_user:			zastavit ignorování pøíspìvkù tohoto u¾ivatele
-unanswered_posts:		Pøíspìvky bez reakce
-unanswered_posts_desc:		Zobrazit v¹echny zprávy, které nemají ¾ádnou reakce
-unlock_thread:			Odemknout téma
-unread_msg:			Toto téma obsahuje nepøeètené zprávy
-unread_msg_locked:		Zamèené téma s nepøeètenımi zprávami
-unread_posts:			Nepøeètené pøíspìvky
-unread_posts_desc:		Zobrazit v¹echny nepøeètené zprávy
-unsub_from_thread:		Zru¹it odebírání tématu
-unsub_from_thread_desc:		Zastavit pøísun oznámeni o novıch pøíspìvcích tomhoo tématu
-unsubscribe:			Zru¹it odebírání
-unsubscribe_desc:		Zastavit odebírání oznámení o novıch tématech v tomto fóru
-updated_on:			Aktualizováno:
-user:				U¾ivatel
-user_counter:			<b>{VAR: st_obj->user_count}</b> registrovanıch u¾ivatelù.
-user_info:			Informace o u¾ivateli
-user_info_l:			Inforace o u¾ivateli {VAR: u->alias}
-user_offline:			{VAR: obj->login} je nyní offline
-user_online:			{VAR: obj->login} je nyní online
-usrinfo_last_post:		Poslední pøíspìvek:
-view_results:			Zobraz vısledky
-views:				Zobrazení
-vote:				{VAR: frm->n_rating} hlasù
+subscribe:			OdebÃ­rat
+subscribe_desc:			DostÃ¡vat oznÃ¡menÃ­ pokud nÄ›kdo vytvoÅ™Ã­ novÃ© tÃ©ma v tomto fÃ³ru
+subscribed_forums:		ZapsanÃ¡ fÃ³ra
+subscribed_forums_desc:		Zapnout/vypnout filtr zapsanÃ½ch fÃ³r (budou zobrazeny pozue pÅ™Ã­spÄ›vky ze zapsanÃ½ch fÃ³r)
+subscribed_threads:		ZapsanÃ¡ tÃ©mata
+subscribed_threads_desc:	Zapnout/vypnout filtr zapsanÃ½ch tÃ©mat (budou zobrazeny jen pÅ™Ã­spÄ›vky zapsanÃ½ch tÃ©mat)
+switch_to_thread_view:		PÅ™epnout toto tÃ©ma do stromovÃ©ho zobrazenÃ­
+thread:				TÃ©ma:
+thread_announcement:		OznÃ¡menÃ­:
+thread_first_unread_msg:	Jdi na prvnÃ­ nepÅ™eÄtenou zprÃ¡vu tohoto tÃ©matu
+thread_thread:			TÃ©ma
+threads:			TÃ©mata
+time:				ÄŒas
+todays_posts:			DneÅ¡nÃ­ pÅ™Ã­spÄ›vky
+todays_posts_desc:		Zobrazit vÅ¡echny pÅ™Ã­spÅ¡Ä›vky odeslanÃ© dnes
+un_ignore_user:			zastavit ignorovÃ¡nÃ­ pÅ™Ã­spÄ›vkÅ¯ tohoto uÅ¾ivatele
+unanswered_posts:		PÅ™Ã­spÄ›vky bez reakce
+unanswered_posts_desc:		Zobrazit vÅ¡echny zprÃ¡vy, kterÃ© nemajÃ­ Å¾Ã¡dnou reakce
+unlock_thread:			Odemknout tÃ©ma
+unread_msg:			Toto tÃ©ma obsahuje nepÅ™eÄtenÃ© zprÃ¡vy
+unread_msg_locked:		ZamÄenÃ© tÃ©ma s nepÅ™eÄtenÃ½mi zprÃ¡vami
+unread_posts:			NepÅ™eÄtenÃ© pÅ™Ã­spÄ›vky
+unread_posts_desc:		Zobrazit vÅ¡echny nepÅ™eÄtenÃ© zprÃ¡vy
+unsub_from_thread:		ZruÅ¡it odebÃ­rÃ¡nÃ­ tÃ©matu
+unsub_from_thread_desc:		Zastavit pÅ™Ã­sun oznÃ¡meni o novÃ½ch pÅ™Ã­spÄ›vcÃ­ch tomhoo tÃ©matu
+unsubscribe:			ZruÅ¡it odebÃ­rÃ¡nÃ­
+unsubscribe_desc:		Zastavit odebÃ­rÃ¡nÃ­ oznÃ¡menÃ­ o novÃ½ch tÃ©matech v tomto fÃ³ru
+updated_on:			AktualizovÃ¡no:
+user:				UÅ¾ivatel
+user_counter:			<b>{VAR: st_obj->user_count}</b> registrovanÃ½ch uÅ¾ivatelÅ¯.
+user_info:			Informace o uÅ¾ivateli
+user_info_l:			Inforace o uÅ¾ivateli {VAR: u->alias}
+user_offline:			{VAR: obj->login} je nynÃ­ offline
+user_online:			{VAR: obj->login} je nynÃ­ online
+usrinfo_last_post:		PoslednÃ­ pÅ™Ã­spÄ›vek:
+view_results:			Zobraz vÃ½sledky
+views:				ZobrazenÃ­
+vote:				{VAR: frm->n_rating} hlasÅ¯
 vote_button:			Hlasovat
 vote_for_thread:		Hlasovat
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> byla pøemístìna do <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> moderátorem
-welcome_message:		Vítejte <b>{VAR: usr->alias}</b>, tvoje poslední náv¹tìva byla v {TEMPLATE: welcome_message_date}
-what_ppl_doing:			uka¾, co dìlají ostatní
-reported_del_report:		Zpráva o smazání
-reported_reason:		Dùvod
-reported_on:			Oznámeno v:
-reported_reported_by:		Oznámeno kım:
-reported_reported_msg:		Oznámená zpráva
-modque_pending_approval:	Zprávy ke schválení
-modque_approve:			Schválit
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> byla pÅ™emÃ­stÄ›na do <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> moderÃ¡torem
+welcome_message:		VÃ­tejte <b>{VAR: usr->alias}</b>, tvoje poslednÃ­ nÃ¡vÅ¡tÄ›va byla v {TEMPLATE: welcome_message_date}
+what_ppl_doing:			ukaÅ¾, co dÄ›lajÃ­ ostatnÃ­
+reported_del_report:		ZprÃ¡va o smazÃ¡nÃ­
+reported_reason:		DÅ¯vod
+reported_on:			OznÃ¡meno v:
+reported_reported_by:		OznÃ¡meno kÃ½m:
+reported_reported_msg:		OznÃ¡menÃ¡ zprÃ¡va
+modque_pending_approval:	ZprÃ¡vy ke schvÃ¡lenÃ­
+modque_approve:			SchvÃ¡lit
 modque_delete:			Smazat
-modque_no_message:		®ádné dal¹í zprávy ke schválení
-pmsg_new_messages:		Nepøeètená po¹ta
-pmsg_old_messages:		Pøeètená po¹ta
-deny_recipt:			zamítnout pøíjem
-deny_recipt_desc:		Neposílat oznámení, ¾e jste pøeèetl(a) tuto zprávu.
+modque_no_message:		Å½Ã¡dnÃ© dalÅ¡Ã­ zprÃ¡vy ke schvÃ¡lenÃ­
+pmsg_new_messages:		NepÅ™eÄtenÃ¡ poÅ¡ta
+pmsg_old_messages:		PÅ™eÄtenÃ¡ poÅ¡ta
+deny_recipt:			zamÃ­tnout pÅ™Ã­jem
+deny_recipt_desc:		NeposÃ­lat oznÃ¡menÃ­, Å¾e jste pÅ™eÄetl(a) tuto zprÃ¡vu.
 restore_to:			Obnovit do:
-move_to:			Pøesunout do:
-list_referes_referrals:		Pøivedení
-list_referes_members:		Pøivedení èlenové
-list_referes_member:		Èlen
-referals_none:			Zatím jste do fóra nepøivedl ¾ádné lidi.
-referals_refered_by:		Èlenové fóra pøivedení od <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:		Poèet pøíspìvkù
+move_to:			PÅ™esunout do:
+list_referes_referrals:		PÅ™ivedenÃ­
+list_referes_members:		PÅ™ivedenÃ­ ÄlenovÃ©
+list_referes_member:		ÄŒlen
+referals_none:			ZatÃ­m jste do fÃ³ra nepÅ™ivedl Å¾Ã¡dnÃ© lidi.
+referals_refered_by:		ÄŒlenovÃ© fÃ³ra pÅ™ivedenÃ­ od <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:		PoÄet pÅ™Ã­spÄ›vkÅ¯
 referals_registered_on:		Registrace
 referals_action:		Akce
-pmsg_all:			v¹echno
+pmsg_all:			vÅ¡echno
 pmsg_none:			nic
-folder:				Slo¾ka:
-pmsg_replied:			odpovìzeno
-pmsg_forwarded:			pøedáno
+folder:				SloÅ¾ka:
+pmsg_replied:			odpovÄ›zeno
+pmsg_forwarded:			pÅ™edÃ¡no
 pmsg_subject:			Nadpis
 pmsg_author:			Autor
-pmsg_time:			Èas
-pmsg_selected:			Vybráno
+pmsg_time:			ÄŒas
+pmsg_selected:			VybrÃ¡no
 pmsg_delete:			Smazat
-cur_ppage_pm:			Po¹ta
-writing_pm:			Pí¹ete po¹tu
-browsing_folder:		Prohlí¾íte si slo¾ku <b>{VAR: folders[$folder_id]}</b>
-inbox:				Doruèené
-draft:				Rozepsané
-sent:				Odeslané
-trash:				Ko¹
+cur_ppage_pm:			PoÅ¡ta
+writing_pm:			PÃ­Å¡ete poÅ¡tu
+browsing_folder:		ProhlÃ­Å¾Ã­te si sloÅ¾ku <b>{VAR: folders[$folder_id]}</b>
+inbox:				DoruÄenÃ©
+draft:				RozepsanÃ©
+sent:				OdeslanÃ©
+trash:				KoÅ¡
 msg_author:			Autor
-avatar_sel_form:		Formuláø vıbìru ikony u¾ivatele
-no_avatars:			®ádné ikony u¾ivatele k dispozici
+avatar_sel_form:		FormulÃ¡Å™ vÃ½bÄ›ru ikony uÅ¾ivatele
+no_avatars:			Å½Ã¡dnÃ© ikony uÅ¾ivatele k dispozici
 month_1:			leden
-month_2:			únor
-month_3:			bøezen
+month_2:			Ãºnor
+month_3:			bÅ™ezen
 month_4:			duben
-month_5:			kvìten
-month_6:			èerven
-month_7:			èervenec
+month_5:			kvÄ›ten
+month_6:			Äerven
+month_7:			Äervenec
 month_8:			srpen
-month_9:			záøí
-month_10:			øíjen
+month_9:			zÃ¡Å™Ã­
+month_10:			Å™Ã­jen
 month_11:			listopad
 month_12:			prosinec
-male:				mu¾
-female:				¾ena
-unspecified:			NESPECIFIKOVÁNO
-register_tree_view:		Stromové zobrazení zpráv a vláken
-register_msg_tree_view:		Ploché zobrazení vláken/Stromové zobrazení zpráv
-register_tree_msg_view:		Stromové zobrazení vláken/Ploché zobrazení zpráv
-register_flat_view:		Ploché zobrazení zpráv a vláken
-use_forum_default:		Pou¾ít nastavení fóra
-finduser_user_info:		Informace o u¾ivateli
-finduser_by_login:		Podle u¾ivatelského jména:
-finduser_submit:		Nalézt
-finduser_no_such_user:		®ádnı takovı u¾ivatel neexistuje
-finduser_user:			U¾ivatel
-finduser_postcount:		Poèet pøíspìvkù
+male:				muÅ¾
+female:				Å¾ena
+unspecified:			NESPECIFIKOVÃNO
+register_tree_view:		StromovÃ© zobrazenÃ­ zprÃ¡v a vlÃ¡ken
+register_msg_tree_view:		PlochÃ© zobrazenÃ­ vlÃ¡ken/StromovÃ© zobrazenÃ­ zprÃ¡v
+register_tree_msg_view:		StromovÃ© zobrazenÃ­ vlÃ¡ken/PlochÃ© zobrazenÃ­ zprÃ¡v
+register_flat_view:		PlochÃ© zobrazenÃ­ zprÃ¡v a vlÃ¡ken
+use_forum_default:		PouÅ¾Ã­t nastavenÃ­ fÃ³ra
+finduser_user_info:		Informace o uÅ¾ivateli
+finduser_by_login:		Podle uÅ¾ivatelskÃ©ho jmÃ©na:
+finduser_submit:		NalÃ©zt
+finduser_no_such_user:		Å½Ã¡dnÃ½ takovÃ½ uÅ¾ivatel neexistuje
+finduser_user:			UÅ¾ivatel
+finduser_postcount:		PoÄet pÅ™Ã­spÄ›vkÅ¯
 finduser_joindate:		Registrace
 finduser_action:		Akce
 yes:				Ano
 no:				Ne
-edit_time_limit:		<br /><b>Èasovı limit na editaci</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
-no_edit_time_limit:		<br /><b>Èasovı limit na editaci</b>: <b>Neomezen</b>
-pmuserloc_login:		U¾ivatelské jméno:
+edit_time_limit:		<br /><b>ÄŒasovÃ½ limit na editaci</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
+no_edit_time_limit:		<br /><b>ÄŒasovÃ½ limit na editaci</b>: <b>Neomezen</b>
+pmuserloc_login:		UÅ¾ivatelskÃ© jmÃ©no:
 pmuserloc_submit:		Odeslat
-pmuserloc_user:			U¾ivatel
-pmuserloc_no_result:		®ádnı vısledek
-register_builtin:		Pøednastavené
+pmuserloc_user:			UÅ¾ivatel
+pmuserloc_no_result:		Å½Ã¡dnÃ½ vÃ½sledek
+register_builtin:		PÅ™ednastavenÃ©
 register_specify_url:		Zadat URL
-register_uploaded:		Náhrát ikonu u¾ivatele
-register_login:			U¾ivatelské jméno:
+register_uploaded:		NÃ¡hrÃ¡t ikonu uÅ¾ivatele
+register_login:			UÅ¾ivatelskÃ© jmÃ©no:
 register_password:		Heslo:
-register_conf_pass:		Potvrzení hesla:
-register_email_desc:		Prosím, zadejte platnou emailovou adresu. Mù¾ete ji skrıt pøed ostatními u¾ivateli v sekci nastavení.
-register_name:			Jméno:
+register_conf_pass:		PotvrzenÃ­ hesla:
+register_email_desc:		ProsÃ­m, zadejte platnou emailovou adresu. MÅ¯Å¾ete ji skrÃ½t pÅ™ed ostatnÃ­mi uÅ¾ivateli v sekci nastavenÃ­.
+register_name:			JmÃ©no:
 register_your_pass:		Heslo:
 register_update:		Aktualizovat
-register_avatar_type:		Typ ikony u¾ivatele:
-register_del_avatar:		Smazat ikonu u¾ivatele
-register_avatar:		Ikona u¾ivatele:
-register_sel_avatar:		Vybrat ikonu u¾ivatele
-register_custom_avatar_rules:	Nová ikona u¾ivatele nebude zobrazena dokud ji nepovolí administrátor.<br /><font class="SmallText">Ikona u¾ivatele by nemìla bıt vìt¹í ne¾ <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} bodù</b> a musí bıt ve formátu <b>jpg</b>, <b>gif</b> nebo <b>png</b>.</font>
-register_custom_avatar_url:	URL nové ikony u¾ivatele:
-register_preview:		Nahrát
-register_custom_avatar_upload:	Soubor s novou ikonou u¾ivatele:
+register_avatar_type:		Typ ikony uÅ¾ivatele:
+register_del_avatar:		Smazat ikonu uÅ¾ivatele
+register_avatar:		Ikona uÅ¾ivatele:
+register_sel_avatar:		Vybrat ikonu uÅ¾ivatele
+register_custom_avatar_rules:	NovÃ¡ ikona uÅ¾ivatele nebude zobrazena dokud ji nepovolÃ­ administrÃ¡tor.<br /><font class="SmallText">Ikona uÅ¾ivatele by nemÄ›la bÃ½t vÄ›tÅ¡Ã­ neÅ¾ <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} bodÅ¯</b> a musÃ­ bÃ½t ve formÃ¡tu <b>jpg</b>, <b>gif</b> nebo <b>png</b>.</font>
+register_custom_avatar_url:	URL novÃ© ikony uÅ¾ivatele:
+register_preview:		NahrÃ¡t
+register_custom_avatar_upload:	Soubor s novou ikonou uÅ¾ivatele:
 register_register:		Registrovat
-register_required:		Nutné informace
-register_required_desc:		V¹echna pole je nutno vyplnit.  Prosím uva¾te, ¾e heslo je citlivé na velikost znakù (A,a).
-register_optional:		Volitelné informace
-register_optional_desc:		Doporuèujeme nezveøejòovat ¾ádné dùvìrné informace. Ostatní u¾ivatelé do nich mohou nahlí¾et.
+register_required:		NutnÃ© informace
+register_required_desc:		VÅ¡echna pole je nutno vyplnit.  ProsÃ­m uvaÅ¾te, Å¾e heslo je citlivÃ© na velikost znakÅ¯ (A,a).
+register_optional:		VolitelnÃ© informace
+register_optional_desc:		DoporuÄujeme nezveÅ™ejÅˆovat Å¾Ã¡dnÃ© dÅ¯vÄ›rnÃ© informace. OstatnÃ­ uÅ¾ivatelÃ© do nich mohou nahlÃ­Å¾et.
 register_location:		Adresa:
-register_occupation:		Zamìstnání:
-register_interests:		Zájmy:
+register_occupation:		ZamÄ›stnÃ¡nÃ­:
+register_interests:		ZÃ¡jmy:
 register_image:			Vzhled:
 register_icq:			ICQ
-register_aim:			AIM kód:
+register_aim:			AIM kÃ³d:
 register_yahoo:			Yahoo Messenger:
 register_msnm:			MSN Messenger:
-register_homepage:		Domovská stránka:
-register_bday:			Datum narození:
-register_bday_desc:		Pokud zadáte datum narození, ostatní u¾ivatelé ho mohou vidìt také ve va¹em profilu.
+register_homepage:		DomovskÃ¡ strÃ¡nka:
+register_bday:			Datum narozenÃ­:
+register_bday_desc:		Pokud zadÃ¡te datum narozenÃ­, ostatnÃ­ uÅ¾ivatelÃ© ho mohou vidÄ›t takÃ© ve vaÅ¡em profilu.
 register_day:			Den
-register_month:			Mìsíc
+register_month:			MÄ›sÃ­c
 register_year:			Rok
-register_gender:		Pohlaví:
-register_bio:			®ivotopis:
-register_bio_desc:		Pár dal¹ích detailù o sobì jako zájmy, zamìstnání atd...
+register_gender:		PohlavÃ­:
+register_bio:			Å½ivotopis:
+register_bio_desc:		PÃ¡r dalÅ¡Ã­ch detailÅ¯ o sobÄ› jako zÃ¡jmy, zamÄ›stnÃ¡nÃ­ atd...
 register_prefs:			Volby
 register_sig:			Podpis:
-register_sig_desc:		Volitelnı podpis, kterı bude zobrazen na konci va¹ich pøíspìvkù.
+register_sig_desc:		VolitelnÃ½ podpis, kterÃ½ bude zobrazen na konci vaÅ¡ich pÅ™Ã­spÄ›vkÅ¯.
 register_reset:			Vymazat
-register_def_thread_view:	Vıchozí zobrazení tématu:
-register_msg_per_page:		Poèet zpráv na stránku:
+register_def_thread_view:	VÃ½chozÃ­ zobrazenÃ­ tÃ©matu:
+register_msg_per_page:		PoÄet zprÃ¡v na strÃ¡nku:
 register_show_sig:		Zobrazovat podpisy:
-register_show_sig_desc:		Umo¾òuje vám zobrazovat podpisy ostatních
-register_use_sig_default:	Vıchozí pou¾ívání podpisu:
-register_use_sig_default_desc:	Automaticky pøidá podpis ke ka¾dé va¹í zprávì
-register_timezone:		Èasová zóna:
-register_ignore_admin:		Ignorovat administrativní zprávy:
-register_invisible_mode:	Skrytı mód:
-register_invisible_mode_desc:	Aèkoliv budete online, ostatní to neuvidí.
+register_show_sig_desc:		UmoÅ¾Åˆuje vÃ¡m zobrazovat podpisy ostatnÃ­ch
+register_use_sig_default:	VÃ½chozÃ­ pouÅ¾Ã­vÃ¡nÃ­ podpisu:
+register_use_sig_default_desc:	Automaticky pÅ™idÃ¡ podpis ke kaÅ¾dÃ© vaÅ¡Ã­ zprÃ¡vÄ›
+register_timezone:		ÄŒasovÃ¡ zÃ³na:
+register_ignore_admin:		Ignorovat administrativnÃ­ zprÃ¡vy:
+register_invisible_mode:	SkrytÃ½ mÃ³d:
+register_invisible_mode_desc:	AÄkoliv budete online, ostatnÃ­ to neuvidÃ­.
 register_show_email:		Zobrazit emailovou adresu:
-register_show_email_desc:	Vyberte pokud chcete zveøejnit va¹i emailovou adresu.
-register_notification:		Vıchozí nastavení oznámení:
-register_notification_desc:	Pokud je nastaveno, mù¾e by potlaèeno pøi posílíní pøíspevku.
-register_notify_method:		Vyberte zpùsob oznámení:
-register_notify_js_error:	Nastavil(a) jste oznámení pøes ICQ, ale nezadal(a) jste ICQ èíslo. Nastavení bude zmìnìno na email!
-register_allow_email_msg:	Povolit zprávy pøes email:
-register_allow_email_msg_desc:	Povolení statním u¾ivatelùm odesílat vám emaily pøes FUDforum.
+register_show_email_desc:	Vyberte pokud chcete zveÅ™ejnit vaÅ¡i emailovou adresu.
+register_notification:		VÃ½chozÃ­ nastavenÃ­ oznÃ¡menÃ­:
+register_notification_desc:	Pokud je nastaveno, mÅ¯Å¾e by potlaÄeno pÅ™i posÃ­lÃ­nÃ­ pÅ™Ã­spevku.
+register_notify_method:		Vyberte zpÅ¯sob oznÃ¡menÃ­:
+register_notify_js_error:	Nastavil(a) jste oznÃ¡menÃ­ pÅ™es ICQ, ale nezadal(a) jste ICQ ÄÃ­slo. NastavenÃ­ bude zmÄ›nÄ›no na email!
+register_allow_email_msg:	Povolit zprÃ¡vy pÅ™es email:
+register_allow_email_msg_desc:	PovolenÃ­ statnÃ­m uÅ¾ivatelÅ¯m odesÃ­lat vÃ¡m emaily pÅ™es FUDforum.
 buddy_status:			Stav
-my_buddies:			Moji pøátelé
-add_buddy:			Pøidat pøítele
-add:				Pøidat
+my_buddies:			Moji pÅ™Ã¡telÃ©
+add_buddy:			PÅ™idat pÅ™Ã­tele
+add:				PÅ™idat
 buddy_search:			Enter the login of the user you wish to add.
 buddy_remove:			odstranit
-post_normal:			Normální
-post_sticky:			Vıvìsky
-post_annoncement:		Oznámení
+post_normal:			NormÃ¡lnÃ­
+post_sticky:			VÃ½vÄ›sky
+post_annoncement:		OznÃ¡menÃ­
 post_size:			Velikost
 post_color:			Barva
-post_font:			Písmo
-create_thread:			Vytvoø téma
-submit_reply:			Ode¹li odpovìd
-edit_message:			Aplikuj zmìny zpráv
-apply_spell_changes:		Aplikuj zmìny zpùsobu psaní
-post_preview:			Náhled pøíspìvku
-post_logedin_user:		Pøihlá¹enı u¾ivatel:
-post_logout:			odhlásit
-post_passwd:			Heslo k posílání pøíspìvkù:
+post_font:			PÃ­smo
+create_thread:			VytvoÅ™ tÃ©ma
+submit_reply:			OdeÅ¡li odpovÄ›d
+edit_message:			Aplikuj zmÄ›ny zprÃ¡v
+apply_spell_changes:		Aplikuj zmÄ›ny zpÅ¯sobu psanÃ­
+post_preview:			NÃ¡hled pÅ™Ã­spÄ›vku
+post_logedin_user:		PÅ™ihlÃ¡Å¡enÃ½ uÅ¾ivatel:
+post_logout:			odhlÃ¡sit
+post_passwd:			Heslo k posÃ­lÃ¡nÃ­ pÅ™Ã­spÄ›vkÅ¯:
 post_poll:			Anketa:
-post_create_poll:		VYTVOØIT ANKETU
+post_create_poll:		VYTVOÅ˜IT ANKETU
 post_poll_delete:		SMAZAT
-post_poll_edit:			ZMÌNIT
-post_mod_opt:			Volby moderátora:
-post_thread_type:		Typ tématu:
-post_thread_expiry:		Téma vypr¹í:
-post_locked:			Téma uzamèeno
-post_icons:			Ikona zprávy:
+post_poll_edit:			ZMÄšNIT
+post_mod_opt:			Volby moderÃ¡tora:
+post_thread_type:		Typ tÃ©matu:
+post_thread_expiry:		TÃ©ma vyprÅ¡Ã­:
+post_locked:			TÃ©ma uzamÄeno
+post_icons:			Ikona zprÃ¡vy:
 post_no_icon:			Bez ikony
-post_smiley:			Vıbìr smajlíkù:
-post_format_tools:		Formátování:
-post_upload_file:		Nahrát soubor
+post_smiley:			VÃ½bÄ›r smajlÃ­kÅ¯:
+post_format_tools:		FormÃ¡tovÃ¡nÃ­:
+post_upload_file:		NahrÃ¡t soubor
 post_file_del:			Smazat
-post_file_name:			Jméno
+post_file_name:			JmÃ©no
 post_file_size:			Velikost
-file_attachments:		Pøílohy:
-allowed_files:			Povolené pøípony souboru:
-max_file_size:			Maximální velikost souboru:
-max_files_per_msg:		Maximum souborù na zprávu:
-post_notification:		Oznámení o pøidání pøíspìvku
-include_sig:			Pøidat podpis
-include_sig_desc:		Pøidá vá¹ podpis z profilu.
-disable_smilies:		Vypnout smajlíky v této zprávì
-spell_check_msg:		Zkontrolovat pravopis zprávy
-post_form:			Nová zpráva
-post_forum:			Fórum:
+file_attachments:		PÅ™Ã­lohy:
+allowed_files:			PovolenÃ© pÅ™Ã­pony souboru:
+max_file_size:			MaximÃ¡lnÃ­ velikost souboru:
+max_files_per_msg:		Maximum souborÅ¯ na zprÃ¡vu:
+post_notification:		OznÃ¡menÃ­ o pÅ™idÃ¡nÃ­ pÅ™Ã­spÄ›vku
+include_sig:			PÅ™idat podpis
+include_sig_desc:		PÅ™idÃ¡ vÃ¡Å¡ podpis z profilu.
+disable_smilies:		Vypnout smajlÃ­ky v tÃ©to zprÃ¡vÄ›
+spell_check_msg:		Zkontrolovat pravopis zprÃ¡vy
+post_form:			NovÃ¡ zprÃ¡va
+post_forum:			FÃ³rum:
 post_title:			Titulek:
 post_body:			Obsah:
 post_options:			Volby:
-post_preview_btn:		Náhled zprávy
-ignore_users:			Ignorovaní u¾ivatelé
-add_ignore:			Pøidat ignorovaného
-forum_terms:			Podmínky fóra
-forum_rules:			Registrace k tomuto fóru není omezena! Av¹ak vy¾adujeme plnìní následujících pravidel a podmínek. Pokud souhlasíte, prosím, stisknìte tlaèítko "Souhlasím" na konci stránky. Poznámka: Stisknutím tohoto tlaèítka prohla¹ujete, ¾e je vám více ne¾ 13 let. Pokud je vám 13 a ménì, prosím, pou¾ijte tento registraèní formuláø.<p>Aèkoliv administrátor i moderátoøi tohoto fóra se sna¾í bránit v¹em ne¾ádoucím zprávám, není pro nás mo¾né je zcela vyluèit. V¹echny zprávy vyjadøují postoje autora. Majitel fóra nebo vıvojáø nenese zodpovìdnost za obsah jakékoliv zprávy.<p>Kliknutím na talèítko "Souhlasím" potvrzujete, ¾e nebudete posílat neslu¹né, hrubé, sexuálnì orientované, nenávistivé, vıhru¾né nebo zákon poru¹ující zprávy.<p>Majiteké tohoto fóra mají právo vymazat, zmìnit, pøesunout nebo zavøít jakékoliv téma z jakéhokoliv dùvodu.<p>
-forum_rules_13:			V¹ichni u¾ivatelé, kterım je 13 ménì musí po¾ádat o povolení své rodièe nebo opatrovníky k získání èlenství ve fóru. Jakkoli vítáme úèast èlenù, kterım je 13 a ménì, musíme vy¾adovat fax nebo email od rodièù nebo opatrovníkù back s podepsanım formuláøem povolení ne¾ poskytneme èlenství.<p>Pokud ji¾ jsme pøijali va¹e povolení, mù¾ete zaèít proces registrace stisknutím tlaèítka "Souhlasím". Pokud chcete zru¹it registraci, stisknìte tlaèítko "Zru¹it", vrátíte se do seznmu fór. <p>Kopie formuláøe povolení je ke sta¾ení zde. Pro více informací o procesu registrace, prosím, po¹lete email na <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
-coppa_conf:			Vìkové potvrzení
-coppa_before:			Pøed {TEMPLATE: coppa_date}
+post_preview_btn:		NÃ¡hled zprÃ¡vy
+ignore_users:			IgnorovanÃ­ uÅ¾ivatelÃ©
+add_ignore:			PÅ™idat ignorovanÃ©ho
+forum_terms:			PodmÃ­nky fÃ³ra
+forum_rules:			Registrace k tomuto fÃ³ru nenÃ­ omezena! AvÅ¡ak vyÅ¾adujeme plnÄ›nÃ­ nÃ¡sledujÃ­cÃ­ch pravidel a podmÃ­nek. Pokud souhlasÃ­te, prosÃ­m, stisknÄ›te tlaÄÃ­tko "SouhlasÃ­m" na konci strÃ¡nky. PoznÃ¡mka: StisknutÃ­m tohoto tlaÄÃ­tka prohlaÅ¡ujete, Å¾e je vÃ¡m vÃ­ce neÅ¾ 13 let. Pokud je vÃ¡m 13 a mÃ©nÄ›, prosÃ­m, pouÅ¾ijte tento registraÄnÃ­ formulÃ¡Å™.<p>AÄkoliv administrÃ¡tor i moderÃ¡toÅ™i tohoto fÃ³ra se snaÅ¾Ã­ brÃ¡nit vÅ¡em neÅ¾Ã¡doucÃ­m zprÃ¡vÃ¡m, nenÃ­ pro nÃ¡s moÅ¾nÃ© je zcela vyluÄit. VÅ¡echny zprÃ¡vy vyjadÅ™ujÃ­ postoje autora. Majitel fÃ³ra nebo vÃ½vojÃ¡Å™ nenese zodpovÄ›dnost za obsah jakÃ©koliv zprÃ¡vy.<p>KliknutÃ­m na talÄÃ­tko "SouhlasÃ­m" potvrzujete, Å¾e nebudete posÃ­lat nesluÅ¡nÃ©, hrubÃ©, sexuÃ¡lnÄ› orientovanÃ©, nenÃ¡vistivÃ©, vÃ½hruÅ¾nÃ© nebo zÃ¡kon poruÅ¡ujÃ­cÃ­ zprÃ¡vy.<p>MajitekÃ© tohoto fÃ³ra majÃ­ prÃ¡vo vymazat, zmÄ›nit, pÅ™esunout nebo zavÅ™Ã­t jakÃ©koliv tÃ©ma z jakÃ©hokoliv dÅ¯vodu.<p>
+forum_rules_13:			VÅ¡ichni uÅ¾ivatelÃ©, kterÃ½m je 13 mÃ©nÄ› musÃ­ poÅ¾Ã¡dat o povolenÃ­ svÃ© rodiÄe nebo opatrovnÃ­ky k zÃ­skÃ¡nÃ­ ÄlenstvÃ­ ve fÃ³ru. Jakkoli vÃ­tÃ¡me ÃºÄast ÄlenÅ¯, kterÃ½m je 13 a mÃ©nÄ›, musÃ­me vyÅ¾adovat fax nebo email od rodiÄÅ¯ nebo opatrovnÃ­kÅ¯ back s podepsanÃ½m formulÃ¡Å™em povolenÃ­ neÅ¾ poskytneme ÄlenstvÃ­.<p>Pokud jiÅ¾ jsme pÅ™ijali vaÅ¡e povolenÃ­, mÅ¯Å¾ete zaÄÃ­t proces registrace stisknutÃ­m tlaÄÃ­tka "SouhlasÃ­m". Pokud chcete zruÅ¡it registraci, stisknÄ›te tlaÄÃ­tko "ZruÅ¡it", vrÃ¡tÃ­te se do seznmu fÃ³r. <p>Kopie formulÃ¡Å™e povolenÃ­ je ke staÅ¾enÃ­ zde. Pro vÃ­ce informacÃ­ o procesu registrace, prosÃ­m, poÅ¡lete email na <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+coppa_conf:			VÄ›kovÃ© potvrzenÃ­
+coppa_before:			PÅ™ed {TEMPLATE: coppa_date}
 coppa_after:			Po {TEMPLATE: coppa_date}
-coppa_link:			Kliknìte na odkaz podle va¹eho data narození
-coppa:				Rodiè nebo opatrovník musí nafaxovat nebo zaslat emailem administrátorovi tohoto fóra formuláø povolení o vstupu u¾ivatele, kterému je 13 a ménì, aby tento mohl dokonèit registraci.<p>Pro dal¹í informace kontaktujte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa_link:			KliknÄ›te na odkaz podle vaÅ¡eho data narozenÃ­
+coppa:				RodiÄ nebo opatrovnÃ­k musÃ­ nafaxovat nebo zaslat emailem administrÃ¡torovi tohoto fÃ³ra formulÃ¡Å™ povolenÃ­ o vstupu uÅ¾ivatele, kterÃ©mu je 13 a mÃ©nÄ›, aby tento mohl dokonÄit registraci.<p>Pro dalÅ¡Ã­ informace kontaktujte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informace
-prereg_agree:			Souhlasím
-prereg_disagree:		Nesouhlasím
-coppa_fax_instructions:		Instrukce pro rodièe nebo opatrovníky
-coppa_fax_instructions2:	Prosím, vytisknìte si tuto stránku, podepi¹te ji a nafaxujte na èíslo:
-coppa_fax_reg_form:		Registraèní formuláø
-coppa_fax_sign:			Prosím, podepi¹te následující formuláø a za¹lete ho nám
-coppa_fax_conf:			Dostal jsme informaci, ¾e moje dítì chce vstoupit a pøeèetl jsem si Zásady soukromí pro tento server. Rozumím, ¾e profil u¾ivatele mù¾e bıt zmìnìn pou¾itím hesla. Rozumím, ¾e mohu po¾ádat aby tento registraèní profil byl celı odstranìn.
-coppa_fax_permission:		Podepi¹te zde, pokud dáváte svolení
-coppa_fax_no_permission:	Podepi¹te zde, pokud chcete tento úèet smazat
-coppa_fax_parent_name:		Celé jméno rodièe/opatrovníka:
-coppa_fax_relation:		Pøíbuzenskı vztah k dítìti:
-coppa_fax_telephone:		Telefón:
-coppa_fax_email:		Emailová adresa :
+prereg_agree:			SouhlasÃ­m
+prereg_disagree:		NesouhlasÃ­m
+coppa_fax_instructions:		Instrukce pro rodiÄe nebo opatrovnÃ­ky
+coppa_fax_instructions2:	ProsÃ­m, vytisknÄ›te si tuto strÃ¡nku, podepiÅ¡te ji a nafaxujte na ÄÃ­slo:
+coppa_fax_reg_form:		RegistraÄnÃ­ formulÃ¡Å™
+coppa_fax_sign:			ProsÃ­m, podepiÅ¡te nÃ¡sledujÃ­cÃ­ formulÃ¡Å™ a zaÅ¡lete ho nÃ¡m
+coppa_fax_conf:			Dostal jsme informaci, Å¾e moje dÃ­tÄ› chce vstoupit a pÅ™eÄetl jsem si ZÃ¡sady soukromÃ­ pro tento server. RozumÃ­m, Å¾e profil uÅ¾ivatele mÅ¯Å¾e bÃ½t zmÄ›nÄ›n pouÅ¾itÃ­m hesla. RozumÃ­m, Å¾e mohu poÅ¾Ã¡dat aby tento registraÄnÃ­ profil byl celÃ½ odstranÄ›n.
+coppa_fax_permission:		PodepiÅ¡te zde, pokud dÃ¡vÃ¡te svolenÃ­
+coppa_fax_no_permission:	PodepiÅ¡te zde, pokud chcete tento ÃºÄet smazat
+coppa_fax_parent_name:		CelÃ© jmÃ©no rodiÄe/opatrovnÃ­ka:
+coppa_fax_relation:		PÅ™Ã­buzenskÃ½ vztah k dÃ­tÄ›ti:
+coppa_fax_telephone:		TelefÃ³n:
+coppa_fax_email:		EmailovÃ¡ adresa :
 coppa_fax_date:			Datum:
-coppa_fax_questions:		Prosím, kontaktujte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> s jakımikoliv dotazy
-coppa_fax_login:		U¾ivatelské jméno
+coppa_fax_questions:		ProsÃ­m, kontaktujte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> s jakÃ½mikoliv dotazy
+coppa_fax_login:		UÅ¾ivatelskÃ© jmÃ©no
 coppa_fax_passwd:		Heslo
 coppa_fax_remail:		Email
-coppa_fax_name:			Jméno
-login_not_logedin:		Nejste pøihlá¹en(a). Dùvody mohou bıti tyto:
-login_cookie_expired:		Platnost va¹í cookie vypr¹ela, musíte se pøihlásit znovu k obnovní va¹í cookie.
-login_perm_denied:		Jako anonymní u¾ivatel nemáte pøístup k po¾adovanım prostøedkùm, musíte se pøihlásit.
+coppa_fax_name:			JmÃ©no
+login_not_logedin:		Nejste pÅ™ihlÃ¡Å¡en(a). DÅ¯vody mohou bÃ½ti tyto:
+login_cookie_expired:		Platnost vaÅ¡Ã­ cookie vyprÅ¡ela, musÃ­te se pÅ™ihlÃ¡sit znovu k obnovnÃ­ vaÅ¡Ã­ cookie.
+login_perm_denied:		Jako anonymnÃ­ uÅ¾ivatel nemÃ¡te pÅ™Ã­stup k poÅ¾adovanÃ½m prostÅ™edkÅ¯m, musÃ­te se pÅ™ihlÃ¡sit.
 login_want_to_register:		Chcete se zaregistrovat?
-login_forgot_passwd:		Zapomenuté heslo
-login_use_cookie:		S cookies<br /><font class="SmallText">Kvùli zvı¹ení bezpeènosti doporuèujeme od¹krtnout tuto volbu, pokud pou¾íváte veøejnı terminál jako je poèítaè v knihovnì, ve ¹kole nebo internetové kavárnì.<br />Pokud necháte tuto volbu vybránu, budete automaticky pøíhlá¹en(a) do fóra.
-login_login:			U¾ivatelské jméno
-login_login_btn:		Pøihlásit
-login_name_required:		U¾ivatelské jméno je nutné k pøihlá¹ení
-login_passwd_required:		Heslo je nutné k pøihlá¹ení
-login_invalid_radius:		Nesprávná kombinace u¾ivatelského jména/hesla
-reset_confirmation:		Dìkujeme za va¹i registraci,\n\npro aktivování va¹eho úètu pøejdìte na následující adresu:\n\n{VAR: url}\n\n/Pokud je vá¹ úèet ji¾ aktivován, budete pøihlá¹en(a) do fóra a\npøesmìrován(a) na hlavní stránku fóra.\n
-reset_reset:			Dobrı den,\n\npo¾ádal(a) jste o vynulování va¹eho hesla. Pro okam¾ité vynulování va¹eho hesla,\nprosím, pøejdìte na tuto URL\n\n{VAR: url}\n\nPOZNÁMKA: Toto fórum ukládá hesla jednosmìrnım ¹ifrovacím mechanismem, co¾ znamená,\n¾e heslo je v¾dy zakódované a není ¾ádná mo¾nost vám ho zaslat zpìt.\nHeslo se hned po ka¾dém odeslání zakóduje a porovnává se s zakódovanou verzí na serveru jestli se shodují.\n (Pokud vás zájímá, jak tento mechanismus pracuje, pøeètete si o MD5 HASH algoritmu)
-rpasswd_invalid_passwd:		Nesprávné heslo
-rpasswd_passwd_nomatch:		Hesla se neshodují
-rpasswd_passwd_length:		Heslo musí mít alespoò 6 znakù
-reset_remind_pass:		Pøipomínka hesla
-reset_reset_conf:		Heslo bude vynulováno. Bude vám zasláno nové heslo. V pøípadì, ¾e jste nepotvrdil(a) po¾adavek na potvrzení emailu, bude vám opìt zaslán.
-reset_error:			Email nebyl v databázi nalezen
-rpasswd_change_pass:		Zmìnbit heslo
-rpasswd_login:			U¾ivatelské jméno
-rpasswd_cur_pass:		Souèasné heslo:
-rpasswd_new_pass:		Nové heslo:
-rpasswd_conf_pass:		Potvrzení hesla:
+login_forgot_passwd:		ZapomenutÃ© heslo
+login_use_cookie:		S cookies<br /><font class="SmallText">KvÅ¯li zvÃ½Å¡enÃ­ bezpeÄnosti doporuÄujeme odÅ¡krtnout tuto volbu, pokud pouÅ¾Ã­vÃ¡te veÅ™ejnÃ½ terminÃ¡l jako je poÄÃ­taÄ v knihovnÄ›, ve Å¡kole nebo internetovÃ© kavÃ¡rnÄ›.<br />Pokud nechÃ¡te tuto volbu vybrÃ¡nu, budete automaticky pÅ™Ã­hlÃ¡Å¡en(a) do fÃ³ra.
+login_login:			UÅ¾ivatelskÃ© jmÃ©no
+login_login_btn:		PÅ™ihlÃ¡sit
+login_name_required:		UÅ¾ivatelskÃ© jmÃ©no je nutnÃ© k pÅ™ihlÃ¡Å¡enÃ­
+login_passwd_required:		Heslo je nutnÃ© k pÅ™ihlÃ¡Å¡enÃ­
+login_invalid_radius:		NesprÃ¡vnÃ¡ kombinace uÅ¾ivatelskÃ©ho jmÃ©na/hesla
+reset_confirmation:		DÄ›kujeme za vaÅ¡i registraci,\n\npro aktivovÃ¡nÃ­ vaÅ¡eho ÃºÄtu pÅ™ejdÄ›te na nÃ¡sledujÃ­cÃ­ adresu:\n\n{VAR: url}\n\n/Pokud je vÃ¡Å¡ ÃºÄet jiÅ¾ aktivovÃ¡n, budete pÅ™ihlÃ¡Å¡en(a) do fÃ³ra a\npÅ™esmÄ›rovÃ¡n(a) na hlavnÃ­ strÃ¡nku fÃ³ra.\n
+reset_reset:			DobrÃ½ den,\n\npoÅ¾Ã¡dal(a) jste o vynulovÃ¡nÃ­ vaÅ¡eho hesla. Pro okamÅ¾itÃ© vynulovÃ¡nÃ­ vaÅ¡eho hesla,\nprosÃ­m, pÅ™ejdÄ›te na tuto URL\n\n{VAR: url}\n\nPOZNÃMKA: Toto fÃ³rum uklÃ¡dÃ¡ hesla jednosmÄ›rnÃ½m Å¡ifrovacÃ­m mechanismem, coÅ¾ znamenÃ¡,\nÅ¾e heslo je vÅ¾dy zakÃ³dovanÃ© a nenÃ­ Å¾Ã¡dnÃ¡ moÅ¾nost vÃ¡m ho zaslat zpÄ›t.\nHeslo se hned po kaÅ¾dÃ©m odeslÃ¡nÃ­ zakÃ³duje a porovnÃ¡vÃ¡ se s zakÃ³dovanou verzÃ­ na serveru jestli se shodujÃ­.\n (Pokud vÃ¡s zÃ¡jÃ­mÃ¡, jak tento mechanismus pracuje, pÅ™eÄtete si o MD5 HASH algoritmu)
+rpasswd_invalid_passwd:		NesprÃ¡vnÃ© heslo
+rpasswd_passwd_nomatch:		Hesla se neshodujÃ­
+rpasswd_passwd_length:		Heslo musÃ­ mÃ­t alespoÅˆ 6 znakÅ¯
+reset_remind_pass:		PÅ™ipomÃ­nka hesla
+reset_reset_conf:		Heslo bude vynulovÃ¡no. Bude vÃ¡m zaslÃ¡no novÃ© heslo. V pÅ™Ã­padÄ›, Å¾e jste nepotvrdil(a) poÅ¾adavek na potvrzenÃ­ emailu, bude vÃ¡m opÄ›t zaslÃ¡n.
+reset_error:			Email nebyl v databÃ¡zi nalezen
+rpasswd_change_pass:		ZmÄ›nbit heslo
+rpasswd_login:			UÅ¾ivatelskÃ© jmÃ©no
+rpasswd_cur_pass:		SouÄasnÃ© heslo:
+rpasswd_new_pass:		NovÃ© heslo:
+rpasswd_conf_pass:		PotvrzenÃ­ hesla:
 login_passwd:			Heslo:
 reset_email:			Email:
 reset_reset_button:		Vynulovat heslo
 rate_this_thread:		Ohodnotit
 report_reporting_about:		Oznamuji:
-report_subject:			Název:
+report_subject:			NÃ¡zev:
 report_by:			Od:
-report_posted_on:		Pøidáno dne:
-report_give_reason:		Prosím, udejte dùvod oznámení této zprávy:
-report_submit_report:		Odeslat oznámení
-search_entire_msg:		Celá zpráva
+report_posted_on:		PÅ™idÃ¡no dne:
+report_give_reason:		ProsÃ­m, udejte dÅ¯vod oznÃ¡menÃ­ tÃ©to zprÃ¡vy:
+report_submit_report:		Odeslat oznÃ¡menÃ­
+search_entire_msg:		CelÃ¡ zprÃ¡va
 search_subect_only:		Jen nadpis
-search_forum:			Fórum
-search_posted_on:		Zasláno dne
-search_no_results:		®ádné vısledky
-search_all_forums:		Hledat ve v¹ech fórech
-search_in_forum:		Hledat ve fóru:
-search_forum_search:		Vyhledáváni ve fóru
-move_thread_to:			Pøesunout téma <b>{VAR: thr->subject}</b> do:
-remail_email_topic:		Poslat toto téma emailem
-remail_your_name:		Va¹e jméno:
-remail_your_email:		Vá¹ email:
-remail_friends_name:		Jméno pøíjemce:
-remail_friends_email:		Email pøíjemce:
-remail_required:		nutné
+search_forum:			FÃ³rum
+search_posted_on:		ZaslÃ¡no dne
+search_no_results:		Å½Ã¡dnÃ© vÃ½sledky
+search_all_forums:		Hledat ve vÅ¡ech fÃ³rech
+search_in_forum:		Hledat ve fÃ³ru:
+search_forum_search:		VyhledÃ¡vÃ¡ni ve fÃ³ru
+move_thread_to:			PÅ™esunout tÃ©ma <b>{VAR: thr->subject}</b> do:
+remail_email_topic:		Poslat toto tÃ©ma emailem
+remail_your_name:		VaÅ¡e jmÃ©no:
+remail_your_email:		VÃ¡Å¡ email:
+remail_friends_name:		JmÃ©no pÅ™Ã­jemce:
+remail_friends_email:		Email pÅ™Ã­jemce:
+remail_required:		nutnÃ©
 remail_subject:			Nadpis:
-remail_message:			Zpráva:
+remail_message:			ZprÃ¡va:
 remail_send_now:		Odeslat email
-remail_anon_opt:		Zkopírovat zprávu do va¹eho emaulového klienta k odeslání.
+remail_anon_opt:		ZkopÃ­rovat zprÃ¡vu do vaÅ¡eho emaulovÃ©ho klienta k odeslÃ¡nÃ­.
 remail_done:			Hotovo
-remail_sent_conf:		Email pro {VAR-HTML: _POST['femail']} ohlednì {{VAR: data->subject} byl úspì¹nì odeslán.
-remail_error:			Máte chybu
+remail_sent_conf:		Email pro {VAR-HTML: _POST['femail']} ohlednÄ› {{VAR: data->subject} byl ÃºspÄ›Å¡nÄ› odeslÃ¡n.
+remail_error:			MÃ¡te chybu
 mklist_type:			Typ:
 mklist_option:			Volba:
-mklist_additem:			Pøidat polo¾ku
+mklist_additem:			PÅ™idat poloÅ¾ku
 mklist_apply:			Aplikovat
 mklist_delete:			Smazat
-qbud_nick_name:			Pøezdívka
-qbud_add_selected:		Pøidat vybrané
-qbud_selected:			Vybrané
-qbud_no_buddies:		®ádní pøátelé, ze kterıch se dá vybrat
-mklist_numerical:		Èíselnı
+qbud_nick_name:			PÅ™ezdÃ­vka
+qbud_add_selected:		PÅ™idat vybranÃ©
+qbud_selected:			VybranÃ©
+qbud_no_buddies:		Å½Ã¡dnÃ­ pÅ™Ã¡telÃ©, ze kterÃ½ch se dÃ¡ vybrat
+mklist_numerical:		ÄŒÃ­selnÃ½
 mklist_aplha:			Alfa
-mklist_square:			Ètverec
-mklist_disc:			Ovál
+mklist_square:			ÄŒtverec
+mklist_disc:			OvÃ¡l
 mklist_circle:			Kruh
-mklist_close:			Zavøít
+mklist_close:			ZavÅ™Ã­t
 email_to:			Pro (Komu):
 email_pg_title:			Email
 email_subject:			napis:
 email_body:			Obsah:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} napsáno {TEMPLATE: ppost_quote_msg_date}
+ppost_quote_msg:		{VAR: msg_to_list} napsÃ¡no {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Citace:
 ppost_to:			Pro:
-ppost_from_buddy_list:		Vybrat ze seznamu pøátel
-ppost_find_User:		Vyhledat u¾ivatele
-ppost_track_msg:		Sledovat tuto zprávu
-ppost_track_msg_desc:		Upozorni mì (po¹tou) a¾ bude tato zpráva pøeètena.
+ppost_from_buddy_list:		Vybrat ze seznamu pÅ™Ã¡tel
+ppost_find_User:		Vyhledat uÅ¾ivatele
+ppost_track_msg:		Sledovat tuto zprÃ¡vu
+ppost_track_msg_desc:		Upozorni mÄ› (poÅ¡tou) aÅ¾ bude tato zprÃ¡va pÅ™eÄtena.
 ppost_send:			Odeslat
-ppost_save_draft:		Ulo¾it koncept
-poll_blank_option:		Nemù¾ete pøidat prázdnou volbu.
-poll_del_conf:			Pokud chcete smazat tuto volbu, stisknìte "OK"
-poll_name:			Název ankety:
-poll_timelimit:			Èasovı limit
-poll_maxiumvotes:		Maximum hlasù
-poll_create:			Vytvoøit
+ppost_save_draft:		UloÅ¾it koncept
+poll_blank_option:		NemÅ¯Å¾ete pÅ™idat prÃ¡zdnou volbu.
+poll_del_conf:			Pokud chcete smazat tuto volbu, stisknÄ›te "OK"
+poll_name:			NÃ¡zev ankety:
+poll_timelimit:			ÄŒasovÃ½ limit
+poll_maxiumvotes:		Maximum hlasÅ¯
+poll_create:			VytvoÅ™it
 poll_update:			Aktualizovat
-poll_disablesmilies:		Vypnout smajlíky
-poll_create_poll:		Vytvoøit anketu
+poll_disablesmilies:		Vypnout smajlÃ­ky
+poll_create_poll:		VytvoÅ™it anketu
 poll_update_poll:		Aktualizovat anketu
 poll_delete:			Smazat
 poll_updateoption:		Aktualizovat volbu
-poll_addoption:			Pøidat volbu
+poll_addoption:			PÅ™idat volbu
 poll_unlimited:			Neomezeno
 poll_day:			den
-poll_days:			dní
+poll_days:			dnÃ­
 poll_hour:			hodina
 poll_hours:			hodin
-poll_month:			mìsíc
+poll_month:			mÄ›sÃ­c
 poll_year:			rok
-poll_week:			tıden
-tabs_register:			Nastavení
-tabs_subscriptions:		Odebírání
-tabs_referrals:			Pøivedení
-tabs_buddy_list:		Seznam pøátel
-tabs_ignore_list:		Seznam ignorovanıch
-tabs_private_messaging:		Po¹ta
+poll_week:			tÃ½den
+tabs_register:			NastavenÃ­
+tabs_subscriptions:		OdebÃ­rÃ¡nÃ­
+tabs_referrals:			PÅ™ivedenÃ­
+tabs_buddy_list:		Seznam pÅ™Ã¡tel
+tabs_ignore_list:		Seznam ignorovanÃ½ch
+tabs_private_messaging:		PoÅ¡ta
 single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
 thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
-delete_proceed:			<font size="3"><b>Chcete pokraèovat?</b></font>
+delete_proceed:			<font size="3"><b>Chcete pokraÄovat?</b></font>
 delete_yes:			Ano
 delete_no:			Ne
-error_invalidurl:		Nesprávná URL
+error_invalidurl:		NesprÃ¡vnÃ¡ URL
 error_error:			Chyba
-usrinfo_profile:		U¾ivatelskı profil {VAR: u->alias}
-usrinfo_show_all_posts:		Zobraz v¹echny pøíspìvky od {VAR: u->alias}
-actions_update:			©pehuje ostatní, jaky vy
+usrinfo_profile:		UÅ¾ivatelskÃ½ profil {VAR: u->alias}
+usrinfo_show_all_posts:		Zobraz vÅ¡echny pÅ™Ã­spÄ›vky od {VAR: u->alias}
+actions_update:			Å pehuje ostatnÃ­, jaky vy
 err_info:			Informace
-buddy_list_err_cantadd:		Nemù¾e pøídat sám(a) sebeC do seznamu pøátel
-buddy_list_err_dup:		Tohoto u¾ivatele ji¾ na seznamu pøátel máte
-buddy_list_err_nouser:		U¾ivatel, kterého se sna¾íte pøidat na seznam pøátel nebyl ve fóru nalezen.
-buddy_list_err_nouser_title:	Není mo¾né pøidat u¾ivatele
-buddy_list_update:		Prohlí¾íte si seznam pøátel
-core_err_invinp_title:		©patnı vstup   ...je cosi shnilého ve státì dánském
-core_err_invinp_err:		Následoval(a) jste ¹patnı odkaz. Prosím, oznamte to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterovi</a>
-core_adm_login_msg:		<br />Administrátoøi se mù¾ou pøihlásit <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">zde</a>
-email_err_unabletoemail_title:	CHYBA: Není mo¾no zaslat email
-email_err_unabletoemail_msg:	Systém emailù by administrátorem vypnut.
-email_error_unabletolocaddr:	Omlouvám se, systém nebyl scopen odeslat mail pro {VAR-HTML: _POST['tx_name']} proto¾e nedokázal najít jeho adresu
-email_error_body:		Obsah je nutnı
-email_error_subject:		nadpis je nutnı
-email_error_namerequired:	Jméno je nutné
-email_error_invaliduser:	Nesprávnı u¾ivatel
+buddy_list_err_cantadd:		NemÅ¯Å¾e pÅ™Ã­dat sÃ¡m(a) sebeC do seznamu pÅ™Ã¡tel
+buddy_list_err_dup:		Tohoto uÅ¾ivatele jiÅ¾ na seznamu pÅ™Ã¡tel mÃ¡te
+buddy_list_err_nouser:		UÅ¾ivatel, kterÃ©ho se snaÅ¾Ã­te pÅ™idat na seznam pÅ™Ã¡tel nebyl ve fÃ³ru nalezen.
+buddy_list_err_nouser_title:	NenÃ­ moÅ¾nÃ© pÅ™idat uÅ¾ivatele
+buddy_list_update:		ProhlÃ­Å¾Ã­te si seznam pÅ™Ã¡tel
+core_err_invinp_title:		Å patnÃ½ vstup   ...je cosi shnilÃ©ho ve stÃ¡tÄ› dÃ¡nskÃ©m
+core_err_invinp_err:		NÃ¡sledoval(a) jste Å¡patnÃ½ odkaz. ProsÃ­m, oznamte to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterovi</a>
+core_adm_login_msg:		<br />AdministrÃ¡toÅ™i se mÅ¯Å¾ou pÅ™ihlÃ¡sit <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">zde</a>
+email_err_unabletoemail_title:	CHYBA: NenÃ­ moÅ¾no zaslat email
+email_err_unabletoemail_msg:	SystÃ©m emailÅ¯ by administrÃ¡torem vypnut.
+email_error_unabletolocaddr:	OmlouvÃ¡m se, systÃ©m nebyl scopen odeslat mail pro {VAR-HTML: _POST['tx_name']} protoÅ¾e nedokÃ¡zal najÃ­t jeho adresu
+email_error_body:		Obsah je nutnÃ½
+email_error_subject:		nadpis je nutnÃ½
+email_error_namerequired:	JmÃ©no je nutnÃ©
+email_error_invaliduser:	NesprÃ¡vnÃ½ uÅ¾ivatel
 emailconf_err_invkey_title:	Chyba
-emailconf_err_invkey_msg:	©patnı potvrzující klíè. Prosím, zkontrolujte vá¹ email, aby jste se ujistil(a), ¾e jste se sem dostal(a) správnì
-err_inc_criticaltitle:		KRITICKÁ CHYBA   ...nìco se krutì nepovedlo. Na sobotu svolávám hon na programátora.
-err_inc_criticalmsg:		Narazil(a) jste na chybu, ale nane¹tìstí je to chyba v systému na ohla¹ování chyb   ...tak to u¾ je na mì fakt moc. dneska si ten pøeklad vá¾nì u¾ívám :-))) star trek hadr
-finduser_update:		Vyhledávám u¾ivatele
-help_index_update:		Ètete si <a href="{TEMPLATE: help_index_update_lnk}">nápovìdu.</a>
-iemail_thr_subject:		Nová odpovìd pro {VAR: thr_subject} od {VAR: poster_login}
-iemail_thr_bodyemail:		Pro zobrazení nepøeètenıch odpovìdí jdìte na {VAR: goto_url['email']}\n\nPokud nechcete nadále dostávat oznámení o reakcích ohlednì tomto tématu, prosím, jdìte sem: {VAR: unsub_url['email']}
-iemail_frm_subject:		Nové téma ve fóru {VAR: frm_name} nazvané {VAR: thr_subject} od {VAR: poster_login}
-iemail_frm_bodyemail:		Pro zobrazení tématu jdìte na:\n{VAR: goto_url['email']}\n\nPro zastavení pøíjmu oznámení o novıch tématech v tomto fóru, prosím, jdìte sem: {VAR: unsub_url['email']}
-iemail_participate:		Pro úèsat v diskusi jdìte sem:
+emailconf_err_invkey_msg:	Å patnÃ½ potvrzujÃ­cÃ­ klÃ­Ä. ProsÃ­m, zkontrolujte vÃ¡Å¡ email, aby jste se ujistil(a), Å¾e jste se sem dostal(a) sprÃ¡vnÄ›
+err_inc_criticaltitle:		KRITICKÃ CHYBA   ...nÄ›co se krutÄ› nepovedlo. Na sobotu svolÃ¡vÃ¡m hon na programÃ¡tora.
+err_inc_criticalmsg:		Narazil(a) jste na chybu, ale naneÅ¡tÄ›stÃ­ je to chyba v systÃ©mu na ohlaÅ¡ovÃ¡nÃ­ chyb   ...tak to uÅ¾ je na mÄ› fakt moc. dneska si ten pÅ™eklad vÃ¡Å¾nÄ› uÅ¾Ã­vÃ¡m :-))) star trek hadr
+finduser_update:		VyhledÃ¡vÃ¡m uÅ¾ivatele
+help_index_update:		ÄŒtete si <a href="{TEMPLATE: help_index_update_lnk}">nÃ¡povÄ›du.</a>
+iemail_thr_subject:		NovÃ¡ odpovÄ›d pro {VAR: thr_subject} od {VAR: poster_login}
+iemail_thr_bodyemail:		Pro zobrazenÃ­ nepÅ™eÄtenÃ½ch odpovÄ›dÃ­ jdÄ›te na {VAR: goto_url['email']}\n\nPokud nechcete nadÃ¡le dostÃ¡vat oznÃ¡menÃ­ o reakcÃ­ch ohlednÄ› tomto tÃ©matu, prosÃ­m, jdÄ›te sem: {VAR: unsub_url['email']}
+iemail_frm_subject:		NovÃ© tÃ©ma ve fÃ³ru {VAR: frm_name} nazvanÃ© {VAR: thr_subject} od {VAR: poster_login}
+iemail_frm_bodyemail:		Pro zobrazenÃ­ tÃ©matu jdÄ›te na:\n{VAR: goto_url['email']}\n\nPro zastavenÃ­ pÅ™Ã­jmu oznÃ¡menÃ­ o novÃ½ch tÃ©matech v tomto fÃ³ru, prosÃ­m, jdÄ›te sem: {VAR: unsub_url['email']}
+iemail_participate:		Pro ÃºÄsat v diskusi jdÄ›te sem:
 ignore_list_err_info_title:	Informace
-ignore_list_err_dup_msg:	Tohoto u¾ivatele ji¾ na svém seznamu ignorovanıch máte
-ignore_list_err_nu_title:	U¾ivatel nenalezen
-ignore_list_err_nu_msg:		U¾ivatel, kterého se sna¾íte pøidat na vá¹ seznam ignorovanıch u¾ivatelù nebyl v tomto fóru nalezen.
-ignore_list_cantign_msg:	Nemù¾ete ignorovat tohoto u¾ivatele
-ignore_list_update:		Prohlí¾íte si seznam ignorovanıch u¾ivatelù
-index_update:			Prohlí¾íte si <a href="{TEMPLATE: index_update_lnk}">seznam fór</a>
-list_referers_update:		Prohlí¾íte si pøivedené lidi
-login_update:			Pøihla¹ovací formuláø
-msg_update:			Prohlí¾íte si téma <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:		CHYBA: Po¹ta je vypnutá
-pm_err_nopm_msg:		Nemù¾ete pou¾ít po¹tovní systém, byl vypnut administrátorem.
-pm_update:			Pou¾íváte po¹tu
-post_err_lockedthread_title:	CHYBA: Uzamèené téma
-post_err_lockedthread_msg:	Toto téma je uzamèeno, ¾ádné dal¹í pøíspìvky nejsou povoleny
-err_coppa_title:		CHYBA: Vá¹ úèet je¹tì není potvrzen
-err_coppa_msg:			Nedostali jsme potvrzení od va¹ich rodièù a/nebo zákonnıch opatrovníkù, které by vám umo¾òovalo zasílat zprávy. Pokud jste ztratil(a) svùj potvrzovací formuláø <a href="{TEMPLATE: err_coppa_msg_lnk}">kliknìte zde</a>
+ignore_list_err_dup_msg:	Tohoto uÅ¾ivatele jiÅ¾ na svÃ©m seznamu ignorovanÃ½ch mÃ¡te
+ignore_list_err_nu_title:	UÅ¾ivatel nenalezen
+ignore_list_err_nu_msg:		UÅ¾ivatel, kterÃ©ho se snaÅ¾Ã­te pÅ™idat na vÃ¡Å¡ seznam ignorovanÃ½ch uÅ¾ivatelÅ¯ nebyl v tomto fÃ³ru nalezen.
+ignore_list_cantign_msg:	NemÅ¯Å¾ete ignorovat tohoto uÅ¾ivatele
+ignore_list_update:		ProhlÃ­Å¾Ã­te si seznam ignorovanÃ½ch uÅ¾ivatelÅ¯
+index_update:			ProhlÃ­Å¾Ã­te si <a href="{TEMPLATE: index_update_lnk}">seznam fÃ³r</a>
+list_referers_update:		ProhlÃ­Å¾Ã­te si pÅ™ivedenÃ© lidi
+login_update:			PÅ™ihlaÅ¡ovacÃ­ formulÃ¡Å™
+msg_update:			ProhlÃ­Å¾Ã­te si tÃ©ma <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:		CHYBA: PoÅ¡ta je vypnutÃ¡
+pm_err_nopm_msg:		NemÅ¯Å¾ete pouÅ¾Ã­t poÅ¡tovnÃ­ systÃ©m, byl vypnut administrÃ¡torem.
+pm_update:			PouÅ¾Ã­vÃ¡te poÅ¡tu
+post_err_lockedthread_title:	CHYBA: UzamÄenÃ© tÃ©ma
+post_err_lockedthread_msg:	Toto tÃ©ma je uzamÄeno, Å¾Ã¡dnÃ© dalÅ¡Ã­ pÅ™Ã­spÄ›vky nejsou povoleny
+err_coppa_title:		CHYBA: VÃ¡Å¡ ÃºÄet jeÅ¡tÄ› nenÃ­ potvrzen
+err_coppa_msg:			Nedostali jsme potvrzenÃ­ od vaÅ¡ich rodiÄÅ¯ a/nebo zÃ¡konnÃ½ch opatrovnÃ­kÅ¯, kterÃ© by vÃ¡m umoÅ¾Åˆovalo zasÃ­lat zprÃ¡vy. Pokud jste ztratil(a) svÅ¯j potvrzovacÃ­ formulÃ¡Å™ <a href="{TEMPLATE: err_coppa_msg_lnk}">kliknÄ›te zde</a>
 post_err_edttimelimit_title:	CHYBA
-post_err_edttimelimit_msg:	Ji¾ nemù¾ete mìnit tuto zprávu
-post_err_floodtrig_title:	CHYBA: Pøíli¹ mnoho pøíspìvkù na systém.
-post_err_floodtrig_msg:		Prosím, zkuste opìt za {VAR: tm} vteøin
-post_err_attach_size:		<font class="ErrorText">Pøíloha je moc velká (limit je {VAR: MAX_F_SIZE} bytù)</font><br />
-post_err_attach_ext:		<font class="ErrorText">Soubor, kerı se sna¾íte nahrát neodpovídá povolenım typùm.</font><br />
-post_err_attach_filelimit:	<font class="ErrorText">Sna¾íte se nahrát více souborù ne¾ je povoleno.</font><br />
-post_err_passwd:		Nesprávné heslo.
-post_reply_update:		Odpovídáte na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ve fóru {VAR-HTML: frm->name}
-post_topic_update:		Pí¹ete nové téma ve fóru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
-post_error_generic:		Máte chybu
-postcheck_max_images_err:	Maximální poèet obrázkù na pøíspìvek je {GVAR: MAX_IMAGE_COUNT}, prosím, sni¾te poèet obrázkù
+post_err_edttimelimit_msg:	JiÅ¾ nemÅ¯Å¾ete mÄ›nit tuto zprÃ¡vu
+post_err_floodtrig_title:	CHYBA: PÅ™Ã­liÅ¡ mnoho pÅ™Ã­spÄ›vkÅ¯ na systÃ©m.
+post_err_floodtrig_msg:		ProsÃ­m, zkuste opÄ›t za {VAR: tm} vteÅ™in
+post_err_attach_size:		<font class="ErrorText">PÅ™Ã­loha je moc velkÃ¡ (limit je {VAR: MAX_F_SIZE} bytÅ¯)</font><br />
+post_err_attach_ext:		<font class="ErrorText">Soubor, kerÃ½ se snaÅ¾Ã­te nahrÃ¡t neodpovÃ­dÃ¡ povolenÃ½m typÅ¯m.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">SnaÅ¾Ã­te se nahrÃ¡t vÃ­ce souborÅ¯ neÅ¾ je povoleno.</font><br />
+post_err_passwd:		NesprÃ¡vnÃ© heslo.
+post_reply_update:		OdpovÃ­dÃ¡te na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ve fÃ³ru {VAR-HTML: frm->name}
+post_topic_update:		PÃ­Å¡ete novÃ© tÃ©ma ve fÃ³ru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_error_generic:		MÃ¡te chybu
+postcheck_max_images_err:	MaximÃ¡lnÃ­ poÄet obrÃ¡zkÅ¯ na pÅ™Ã­spÄ›vek je {GVAR: MAX_IMAGE_COUNT}, prosÃ­m, sniÅ¾te poÄet obrÃ¡zkÅ¯
 postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
-postcheck_subj_needed:		Nadpis nutnı
-postcheck_no_such_user:		U¾ivatel "{FUNC: char_fix(htmlspecialchars($v))}" v tomto fóru neexistuje
-postcheck_ignored:		Nemù¾ete poslat po¹tu pro "{FUNC: char_fix(htmlspecialchars($v))}", proto¾e vás ignoruje.
-postcheck_no_recepient:		Nemohu poslat zprávu, chybí pøíjemce
-postcheck_invalid_email:	Prosím, zadejte platnou emailovou adresu pøíjemce.
-postcheck_email_subject:	Nemù¾ete poslat email bez nadpisu.
-postcheck_email_body:		Nemù¾ete poslat email bez obsahu.
-private_msg_notify_subj:	Pøeèíst oznámení pro: {VAR: m->subject}
-private_msg_notify_body:	Dobrı den,<br />{VAR: usr->login} si pøeèetl(a) zprávu, "{VAR: m->subject}", v {TEMPLATE: private_msg_notify_body_date}<br />
-referals_update:		Prohlí¾íte si pøivedené lidi
-register_err_short_login:	U¾ivatelské jméno je pøíli¹ krátké. Musí mít alespoò 4 znaky
-register_err_login_notallowed:	Toto u¾ivatelské jméno není povoleno
-register_err_loginunique:	U¾ivatelské jména musí bıt jedineèná, toto u¾ivatelské jméno ji¾ ve fóru existuje
-register_err_emailexists:	Tento email ji¾ existuje. Pokud jste zapomìl(a) heslo, prosím, pou¾ijte obnovovací proceduru hesla namísto nové registrace
-register_err_shortpasswd:	Heslo musí mít alespoò 6 znakù
-register_err_passwdnomatch:	Hesla si neodpovídají.
-register_err_invalidemail:	Emailová adresa nevypadá, ¾e by byla platná.
-register_err_needname:		Pro úspì¹né dokonèení registrace musíte uvést své jméno
-register_err_enterpasswd:	Musíte zadat heslo, aby se zmìny mohly provést
-register_err_adminpasswd:	Musíte zadat svoje ADMINISTRÁTORSKÉ heslo na potvrzení zmìn
-register_err_notyouremail:	Nìkdo u¾ je zaregistrován s tímto emailem, a vy to NEjste.
-register_err_avatartobig:	Soubor, kterı se sna¾íte nahrát je pøíli¹ velkı, limit je {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytù
-register_err_avatarnotallowed:	Ikona u¾ivatele, kterou se sna¾íte nahrát není povolena. Prohlédnìte si seznam povolenıch typù.
-register_conf_subject:		Potvrzení registrace
-register_conf_msg:		Dìkujeme za va¹i registraci,\npro aktivaci va¹eho úètu, prosím, pøejdìte na následující URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPokud je vá¹ ú¹et ji¾ aktivován, budete pøihlá¹eni do fóra a\npøesmìrováni na hlavní stránku fóra.
-register_welcome_subject:	Potvrzení registrace do fóra
-register_welcome_msg:		Dìkujeme za va¹i registraci,\n\nzde jsou údaje nutné k pøihlá¹ení k fóru:\n\nAdresa fóra: {TEMPLATE: index_update_lnk}\nU¾ivatelské jméno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamatujte, prosím, ¾e jeslo je citlivé na velikost znakù!\nPro zmìnu va¹ich nastavení nebo profilu pøejdìte sem:\n{FULL_ROOT}{ROOT}?t=register\n
-register_err_cantreg_title:	CHYBA: nelze vás zaregistrovat
-regsiter_err_cantreg_msg:	Není mo¾né vytvoøit u¾ivatelskı úèet, prosím, kontaktujte administrátora na <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-register_profile_update:	Prohlí¾íte si vlastní profil
-register_register_update:	Strana s registrací
+postcheck_subj_needed:		Nadpis nutnÃ½
+postcheck_no_such_user:		UÅ¾ivatel "{FUNC: char_fix(htmlspecialchars($v))}" v tomto fÃ³ru neexistuje
+postcheck_ignored:		NemÅ¯Å¾ete poslat poÅ¡tu pro "{FUNC: char_fix(htmlspecialchars($v))}", protoÅ¾e vÃ¡s ignoruje.
+postcheck_no_recepient:		Nemohu poslat zprÃ¡vu, chybÃ­ pÅ™Ã­jemce
+postcheck_invalid_email:	ProsÃ­m, zadejte platnou emailovou adresu pÅ™Ã­jemce.
+postcheck_email_subject:	NemÅ¯Å¾ete poslat email bez nadpisu.
+postcheck_email_body:		NemÅ¯Å¾ete poslat email bez obsahu.
+private_msg_notify_subj:	PÅ™eÄÃ­st oznÃ¡menÃ­ pro: {VAR: m->subject}
+private_msg_notify_body:	DobrÃ½ den,<br />{VAR: usr->login} si pÅ™eÄetl(a) zprÃ¡vu, "{VAR: m->subject}", v {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:		ProhlÃ­Å¾Ã­te si pÅ™ivedenÃ© lidi
+register_err_short_login:	UÅ¾ivatelskÃ© jmÃ©no je pÅ™Ã­liÅ¡ krÃ¡tkÃ©. MusÃ­ mÃ­t alespoÅˆ 4 znaky
+register_err_login_notallowed:	Toto uÅ¾ivatelskÃ© jmÃ©no nenÃ­ povoleno
+register_err_loginunique:	UÅ¾ivatelskÃ© jmÃ©na musÃ­ bÃ½t jedineÄnÃ¡, toto uÅ¾ivatelskÃ© jmÃ©no jiÅ¾ ve fÃ³ru existuje
+register_err_emailexists:	Tento email jiÅ¾ existuje. Pokud jste zapomÄ›l(a) heslo, prosÃ­m, pouÅ¾ijte obnovovacÃ­ proceduru hesla namÃ­sto novÃ© registrace
+register_err_shortpasswd:	Heslo musÃ­ mÃ­t alespoÅˆ 6 znakÅ¯
+register_err_passwdnomatch:	Hesla si neodpovÃ­dajÃ­.
+register_err_invalidemail:	EmailovÃ¡ adresa nevypadÃ¡, Å¾e by byla platnÃ¡.
+register_err_needname:		Pro ÃºspÄ›Å¡nÃ© dokonÄenÃ­ registrace musÃ­te uvÃ©st svÃ© jmÃ©no
+register_err_enterpasswd:	MusÃ­te zadat heslo, aby se zmÄ›ny mohly provÃ©st
+register_err_adminpasswd:	MusÃ­te zadat svoje ADMINISTRÃTORSKÃ‰ heslo na potvrzenÃ­ zmÄ›n
+register_err_notyouremail:	NÄ›kdo uÅ¾ je zaregistrovÃ¡n s tÃ­mto emailem, a vy to NEjste.
+register_err_avatartobig:	Soubor, kterÃ½ se snaÅ¾Ã­te nahrÃ¡t je pÅ™Ã­liÅ¡ velkÃ½, limit je {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytÅ¯
+register_err_avatarnotallowed:	Ikona uÅ¾ivatele, kterou se snaÅ¾Ã­te nahrÃ¡t nenÃ­ povolena. ProhlÃ©dnÄ›te si seznam povolenÃ½ch typÅ¯.
+register_conf_subject:		PotvrzenÃ­ registrace
+register_conf_msg:		DÄ›kujeme za vaÅ¡i registraci,\npro aktivaci vaÅ¡eho ÃºÄtu, prosÃ­m, pÅ™ejdÄ›te na nÃ¡sledujÃ­cÃ­ URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPokud je vÃ¡Å¡ ÃºÅ¡et jiÅ¾ aktivovÃ¡n, budete pÅ™ihlÃ¡Å¡eni do fÃ³ra a\npÅ™esmÄ›rovÃ¡ni na hlavnÃ­ strÃ¡nku fÃ³ra.
+register_welcome_subject:	PotvrzenÃ­ registrace do fÃ³ra
+register_welcome_msg:		DÄ›kujeme za vaÅ¡i registraci,\n\nzde jsou Ãºdaje nutnÃ© k pÅ™ihlÃ¡Å¡enÃ­ k fÃ³ru:\n\nAdresa fÃ³ra: {TEMPLATE: index_update_lnk}\nUÅ¾ivatelskÃ© jmÃ©no: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamatujte, prosÃ­m, Å¾e jeslo je citlivÃ© na velikost znakÅ¯!\nPro zmÄ›nu vaÅ¡ich nastavenÃ­ nebo profilu pÅ™ejdÄ›te sem:\n{FULL_ROOT}{ROOT}?t=register\n
+register_err_cantreg_title:	CHYBA: nelze vÃ¡s zaregistrovat
+regsiter_err_cantreg_msg:	NenÃ­ moÅ¾nÃ© vytvoÅ™it uÅ¾ivatelskÃ½ ÃºÄet, prosÃ­m, kontaktujte administrÃ¡tora na <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:	ProhlÃ­Å¾Ã­te si vlastnÃ­ profil
+register_register_update:	Strana s registracÃ­
 report_err_nosuchmsg_title:	CHYBA
-report_err_nosuchmsg_msg:	®ádná taková zpráva není
+report_err_nosuchmsg_msg:	Å½Ã¡dnÃ¡ takovÃ¡ zprÃ¡va nenÃ­
 reset_err_invalidkey_title:	CHYBA
-reset_err_invalidkey_msg:	Chybnı klíè k vynulování hesla
+reset_err_invalidkey_msg:	ChybnÃ½ klÃ­Ä k vynulovÃ¡nÃ­ hesla
 reset_err_rstconf_title:	Informace
-reset_err_rstconf_msg:		Bìhem pár minut by jste mìl(a) dostat pokyny emailem
-reset_newpass_title:		Vynulování hesla
-reset_newpass_msg:		Dobrı den,\n\nna základì va¹eho po¾adavku jsou vám zasílány pøihla¹ovací informace.\n\nU¾ivatelské jméno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím, uva¾te, ¾e va¹e heslo by nastaveno na vı¹e uvedenı údaj. Pokud chcete\nzmìnit své heslo, mù¾ete tak uèinit pøes nastavení va¹eho úètu na:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Va¹e heslo vám bylo zasláno emailem. Mìl(a) by jste ho dostat bìhem nìkolika minut. Prosím, zkontrolujte si svou emailovou schránku.<br />.<br />.<br />
-search_update:			Hledáte pøíspìvky
-selmsg_update:			Prohlí¾íte si <a href="{TEMPLATE: selmsg_update_lnk}">dne¹ní pøíspìvky</a>
-showposts_update:		Prohlí¾íte si pøíspìvek od: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-subscribed_update:		Prohlí¾íte si odebíraná témata a fóra
-thread_update:			Prohlí¾íte si fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			Prohlí¾íte si téma (ve stromovém zobrazení) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:		Prohlí¾íte si profil u¾ivatele <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
-ERR_disabled_ttl:		Vypnutá vlastnost
-ERR_disabled_msg:		Tato vlastnost byla vypnuta administrátorem
-ERR_access_ttl:			CHYBA: Nedostateèné pravomoci
-ERR_access_msg:			Nemáte dostateèné pravomoci na provedení této akce
+reset_err_rstconf_msg:		BÄ›hem pÃ¡r minut by jste mÄ›l(a) dostat pokyny emailem
+reset_newpass_title:		VynulovÃ¡nÃ­ hesla
+reset_newpass_msg:		DobrÃ½ den,\n\nna zÃ¡kladÄ› vaÅ¡eho poÅ¾adavku jsou vÃ¡m zasÃ­lÃ¡ny pÅ™ihlaÅ¡ovacÃ­ informace.\n\nUÅ¾ivatelskÃ© jmÃ©no: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsÃ­m, uvaÅ¾te, Å¾e vaÅ¡e heslo by nastaveno na vÃ½Å¡e uvedenÃ½ Ãºdaj. Pokud chcete\nzmÄ›nit svÃ© heslo, mÅ¯Å¾ete tak uÄinit pÅ™es nastavenÃ­ vaÅ¡eho ÃºÄtu na:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_login_notify:		VaÅ¡e heslo vÃ¡m bylo zaslÃ¡no emailem. MÄ›l(a) by jste ho dostat bÄ›hem nÄ›kolika minut. ProsÃ­m, zkontrolujte si svou emailovou schrÃ¡nku.<br />.<br />.<br />
+search_update:			HledÃ¡te pÅ™Ã­spÄ›vky
+selmsg_update:			ProhlÃ­Å¾Ã­te si <a href="{TEMPLATE: selmsg_update_lnk}">dneÅ¡nÃ­ pÅ™Ã­spÄ›vky</a>
+showposts_update:		ProhlÃ­Å¾Ã­te si pÅ™Ã­spÄ›vek od: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:		ProhlÃ­Å¾Ã­te si odebÃ­ranÃ¡ tÃ©mata a fÃ³ra
+thread_update:			ProhlÃ­Å¾Ã­te si fÃ³rum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			ProhlÃ­Å¾Ã­te si tÃ©ma (ve stromovÃ©m zobrazenÃ­) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:		ProhlÃ­Å¾Ã­te si profil uÅ¾ivatele <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+ERR_disabled_ttl:		VypnutÃ¡ vlastnost
+ERR_disabled_msg:		Tato vlastnost byla vypnuta administrÃ¡torem
+ERR_access_ttl:			CHYBA: NedostateÄnÃ© pravomoci
+ERR_access_msg:			NemÃ¡te dostateÄnÃ© pravomoci na provedenÃ­ tÃ©to akce
 ERR_registration_disabled_ttl:	Registrace vypnuta
-ERR_registration_disabled_msg:	Administrátor vypnul registraci, prosím, zkuste to pozdìji
-ERR_emailconf_ttl:		CHYBA: Vá¹ úèet je¹tì není potvrzen
-ERR_emailconf_msg:		Je¹tì jste nepotvrdil(a) svùj úèet pøes email<br /><table border=0><tr><td><ol><li>Pokud jste je¹tì nedostal(a) potvrzující email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliknìte zde</a><li>Pokud {VAR: usr_d->email} není va¹e správná emailová adresa <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliknìte zde</a></ol></td></tr></table>
-ERR_user_ttl:			CHYBA: ®ádnı takovı u¾ivatel není
-ERR_user_msg:			®ádnı takovı u¾ivatel není
-ERR_systemerr_ttl:		CHYBA: Systémová chyba
-ERR_systemerr_msg:		Objevila se chyba v systému, prosím, nahla¹te to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterovi</a>.
-email_title:			Emailovı formuláø
-finduser_title:			Hledání u¾ivatele
-help_title:			Nápovìda
-login_title:			Pøihla¹ovací formuláø
+ERR_registration_disabled_msg:	AdministrÃ¡tor vypnul registraci, prosÃ­m, zkuste to pozdÄ›ji
+ERR_emailconf_ttl:		CHYBA: VÃ¡Å¡ ÃºÄet jeÅ¡tÄ› nenÃ­ potvrzen
+ERR_emailconf_msg:		JeÅ¡tÄ› jste nepotvrdil(a) svÅ¯j ÃºÄet pÅ™es email<br /><table border=0><tr><td><ol><li>Pokud jste jeÅ¡tÄ› nedostal(a) potvrzujÃ­cÃ­ email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliknÄ›te zde</a><li>Pokud {VAR: usr_d->email} nenÃ­ vaÅ¡e sprÃ¡vnÃ¡ emailovÃ¡ adresa <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliknÄ›te zde</a></ol></td></tr></table>
+ERR_user_ttl:			CHYBA: Å½Ã¡dnÃ½ takovÃ½ uÅ¾ivatel nenÃ­
+ERR_user_msg:			Å½Ã¡dnÃ½ takovÃ½ uÅ¾ivatel nenÃ­
+ERR_systemerr_ttl:		CHYBA: SystÃ©movÃ¡ chyba
+ERR_systemerr_msg:		Objevila se chyba v systÃ©mu, prosÃ­m, nahlaÅ¡te to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterovi</a>.
+email_title:			EmailovÃ½ formulÃ¡Å™
+finduser_title:			HledÃ¡nÃ­ uÅ¾ivatele
+help_title:			NÃ¡povÄ›da
+login_title:			PÅ™ihlaÅ¡ovacÃ­ formulÃ¡Å™
 msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Editor anket
-register_title:			Registraèní formuláø
+register_title:			RegistraÄnÃ­ formulÃ¡Å™
 reset_title:			Vynulovat heslo
-rpasswd_title:			Formuláø na zmìnu hesla
-error_title:			Formuláø na hlá¹ení chyb
-index_title:			Vítejte ve fóru
+rpasswd_title:			FormulÃ¡Å™ na zmÄ›nu hesla
+error_title:			FormulÃ¡Å™ na hlÃ¡Å¡enÃ­ chyb
+index_title:			VÃ­tejte ve fÃ³ru
 search_title:			Hledat {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-remail_emailsent:		Email byl odeslán
-remail_email:			Ahoj,\n\nzde je zajímavé téma o "{VAR: data->subject}" na fóru {GVAR: FORUM_TITLE}, které by sis mohl(a) chtít pøeèíst. Téma mù¾e¹ vidìt na:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Tvùj pøítel,\n\n{VAR: usr->alias}\n
-poll_add_option:		Pøidat volbu:
-post_opt_html_on:		<b>HTML tagy</b> jsou <b>ZAPNUTÉ</b>
+remail_emailsent:		Email byl odeslÃ¡n
+remail_email:			Ahoj,\n\nzde je zajÃ­mavÃ© tÃ©ma o "{VAR: data->subject}" na fÃ³ru {GVAR: FORUM_TITLE}, kterÃ© by sis mohl(a) chtÃ­t pÅ™eÄÃ­st. TÃ©ma mÅ¯Å¾eÅ¡ vidÄ›t na:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n TvÅ¯j pÅ™Ã­tel,\n\n{VAR: usr->alias}\n
+poll_add_option:		PÅ™idat volbu:
+post_opt_html_on:		<b>HTML tagy</b> jsou <b>ZAPNUTÃ‰</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> je <b>VYPNUT</b></a>
-post_opt_images_on:		<b>Obrázky</b> jsou <b>ZAPNUTÉ</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smajlíci</b> jsou <b>VYPNUTI</b></a>
+post_opt_images_on:		<b>ObrÃ¡zky</b> jsou <b>ZAPNUTÃ‰</b>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>SmajlÃ­ci</b> jsou <b>VYPNUTI</b></a>
 post_opt_html_off:		<b>HTML tagy</b> jsou <b>VYPNUTY</b>
 post_opt_fud_off:		<b>FUDcode</b> je <b>VYPNUT</b>
-post_opt_images_off:		<b>Obrázky</b> jsou <b>VYPNUTY</b>
-post_opt_smilies_off:		<b>Smajlíci</b> jsou <b>VYPNUTI</b>
-post_opt:			Volby fóra
-register_change_passwd:		zmìnit heslo
-install_script_present_error:	Z dùvodu bezpeènosti musíte odstranit instalaèní propgram na <b>{GVAR: WWW_ROOT_DISK}install.php</b> pøed spu¹tìním fóra.
-approved_avatar_title:		Va¹e ikona byla schválena.
-approved_avatar_msg:		Va¹e ikona byla schválena administrátorem. Nyní by se mìla zobrazovat na v¹ech va¹ich zprávách. Pokud ji nevidíte, nebo vidíte va¹i starou ikonu, je to proto, ¾e vá¹ prohlí¾eè ji ma nacacheovanou. Zkuste aktualizovat stránku jednou nebo dvakrát. Toto vìt¹inou problém cacheování vyøe¹í.
-unapproved_avatar_title:	Va¹e ikona byla zamítnuta.
-unapproved_avatar_msg:		Administrátor nepovolil va¹i ikonu. Obvyklı dùvod je ten, ¾e je moc velká (velikost a/nebo rozmìry) a nebo obsahuje nepøípustnı obrázek. Pokud se chcete dozvìdìt pøesnì, pøoè byla va¹e ikona zamítnuta, kontakujte administrátora.
-mvthread_request_move:		po¾adavek o pøesun
-move_request_reason:		Proè chcete pøesunout toto téma?
-mvthread_submit_req:		Odeslat po¾adavek
-thread_exchange:		Vımìna tématu
-move_request_by:		Po¾adavek o pøesun od:
-move_reason:			Dùvod po¾adavku:
-thr_exch_accept:		pøijmout téma
-thr_exch_decline:		odmítnout téma
-thr_exch_orig_forum:		Pùvodní fórum:
-thr_exch_dest_forum:		Cílové fórum:
-thr_exch_no_threads:		®ádná dal¹í témata neèekají na povolení.
-thr_exch_decl_reason:		Dùvod k zamítnutí pøesunu tématu <b>{VAR-HTML: frm->name}</b> do fóra <b>{VAR-HTML: frm->name}</b>
+post_opt_images_off:		<b>ObrÃ¡zky</b> jsou <b>VYPNUTY</b>
+post_opt_smilies_off:		<b>SmajlÃ­ci</b> jsou <b>VYPNUTI</b>
+post_opt:			Volby fÃ³ra
+register_change_passwd:		zmÄ›nit heslo
+install_script_present_error:	Z dÅ¯vodu bezpeÄnosti musÃ­te odstranit instalaÄnÃ­ propgram na <b>{GVAR: WWW_ROOT_DISK}install.php</b> pÅ™ed spuÅ¡tÄ›nÃ­m fÃ³ra.
+approved_avatar_title:		VaÅ¡e ikona byla schvÃ¡lena.
+approved_avatar_msg:		VaÅ¡e ikona byla schvÃ¡lena administrÃ¡torem. NynÃ­ by se mÄ›la zobrazovat na vÅ¡ech vaÅ¡ich zprÃ¡vÃ¡ch. Pokud ji nevidÃ­te, nebo vidÃ­te vaÅ¡i starou ikonu, je to proto, Å¾e vÃ¡Å¡ prohlÃ­Å¾eÄ ji ma nacacheovanou. Zkuste aktualizovat strÃ¡nku jednou nebo dvakrÃ¡t. Toto vÄ›tÅ¡inou problÃ©m cacheovÃ¡nÃ­ vyÅ™eÅ¡Ã­.
+unapproved_avatar_title:	VaÅ¡e ikona byla zamÃ­tnuta.
+unapproved_avatar_msg:		AdministrÃ¡tor nepovolil vaÅ¡i ikonu. ObvyklÃ½ dÅ¯vod je ten, Å¾e je moc velkÃ¡ (velikost a/nebo rozmÄ›ry) a nebo obsahuje nepÅ™Ã­pustnÃ½ obrÃ¡zek. Pokud se chcete dozvÄ›dÄ›t pÅ™esnÄ›, pÅ™oÄ byla vaÅ¡e ikona zamÃ­tnuta, kontakujte administrÃ¡tora.
+mvthread_request_move:		poÅ¾adavek o pÅ™esun
+move_request_reason:		ProÄ chcete pÅ™esunout toto tÃ©ma?
+mvthread_submit_req:		Odeslat poÅ¾adavek
+thread_exchange:		VÃ½mÄ›na tÃ©matu
+move_request_by:		PoÅ¾adavek o pÅ™esun od:
+move_reason:			DÅ¯vod poÅ¾adavku:
+thr_exch_accept:		pÅ™ijmout tÃ©ma
+thr_exch_decline:		odmÃ­tnout tÃ©ma
+thr_exch_orig_forum:		PÅ¯vodnÃ­ fÃ³rum:
+thr_exch_dest_forum:		CÃ­lovÃ© fÃ³rum:
+thr_exch_no_threads:		Å½Ã¡dnÃ¡ dalÅ¡Ã­ tÃ©mata neÄekajÃ­ na povolenÃ­.
+thr_exch_decl_reason:		DÅ¯vod k zamÃ­tnutÃ­ pÅ™esunu tÃ©matu <b>{VAR-HTML: frm->name}</b> do fÃ³ra <b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:		Odeslat
-exch_decline_ttl:		Pøesun tématu {VAR: data->subject} do fóra {VAR-HTML: data->f2_name} byl zamítnut.
-ppost_original_msg:		zpráva, kterou pøedáváte nebo na kerou odpovídáte
-split_thread:			Rozdìlit téma
-groupmgr_no_user:		Neexistuje u¾ivatel s u¾ivatelskım jménem "{FUNC: char_fix(htmlspecialchars($gr_member))}"
-groupmgr_already_exists:	U¾ivatel "{FUNC: char_fix(htmlspecialchars($gr_member))}" ji¾ ve skupinì je.
+exch_decline_ttl:		PÅ™esun tÃ©matu {VAR: data->subject} do fÃ³ra {VAR-HTML: data->f2_name} byl zamÃ­tnut.
+ppost_original_msg:		zprÃ¡va, kterou pÅ™edÃ¡vÃ¡te nebo na kerou odpovÃ­dÃ¡te
+split_thread:			RozdÄ›lit tÃ©ma
+groupmgr_no_user:		Neexistuje uÅ¾ivatel s uÅ¾ivatelskÃ½m jmÃ©nem "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:	UÅ¾ivatel "{FUNC: char_fix(htmlspecialchars($gr_member))}" jiÅ¾ ve skupinÄ› je.
 groupmgr_yes:			Ano
 groupmgr_no:			Ne
 groupmgr_action:		Akce
-groupmgr_member:		Èlen
-groupmgr_cancel:		Zru¹it
-groupmgr_add_member:		Pøidat èlena
-groupmgr_update_member:		Aktualizovat èlena
-groupmgr_edit:			Zmìnit
+groupmgr_member:		ÄŒlen
+groupmgr_cancel:		ZruÅ¡it
+groupmgr_add_member:		PÅ™idat Älena
+groupmgr_update_member:		Aktualizovat Älena
+groupmgr_edit:			ZmÄ›nit
 groupmgr_delete:		Smazat
-group_mgr_anon:			Anonymní
-group_mgr_reged:		V¹ichni registrovaní u¾ivatelé
-show_show:			Ukázat:
-group_mgr:			Správa skupin
-group_mgr_edit_btn:		Zmìnit skupinu
-group_mgr_heading:		Vıbìr skupiny pro zmìnu
+group_mgr_anon:			AnonymnÃ­
+group_mgr_reged:		VÅ¡ichni registrovanÃ­ uÅ¾ivatelÃ©
+show_show:			UkÃ¡zat:
+group_mgr:			SprÃ¡va skupin
+group_mgr_edit_btn:		ZmÄ›nit skupinu
+group_mgr_heading:		VÃ½bÄ›r skupiny pro zmÄ›nu
 group_mgr_group:		Skupina:
-permission_denied_title:	Pøístup zamítnut!
-permission_denied_msg:		Va¹e práva vám nedovolují provést poadovanou akci.
-p_READ:				Èíst
+permission_denied_title:	PÅ™Ã­stup zamÃ­tnut!
+permission_denied_msg:		VaÅ¡e prÃ¡va vÃ¡m nedovolujÃ­ provÃ©st poadovanou akci.
+p_READ:				ÄŒÃ­st
 p_POST:				Poslat
-p_REPLY:			Odpovìdìt
-p_EDIT:				Zmìnit
+p_REPLY:			OdpovÄ›dÄ›t
+p_EDIT:				ZmÄ›nit
 p_DEL:				Smazat
-p_STICKY:			Vıvìsky
-p_POLL:				Vytvoø ankety
-p_FILE:				Pøilo¾ soubory
+p_STICKY:			VÃ½vÄ›sky
+p_POLL:				VytvoÅ™ ankety
+p_FILE:				PÅ™iloÅ¾ soubory
 p_VOTE:				Hlasovat
-p_RATE:				Ohodnotit témata
-p_SPLIT:			Rozdìlit témata
-p_LOCK:				Uzamknout témata
-p_MOVE:				Pøesunout témata
-p_SML:				Pou¾ívat smajlíky
-p_IMG:				Pou¾ívat obrázkové tagy
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Hledat u¾ivatele</a>
-group_mgr_indicator:		Nyní mìníte: <b>{VAR: grp->name}</b>
-rate_worst:			Nejhor¹í
-rate_best:			Nejlep¹í
+p_RATE:				Ohodnotit tÃ©mata
+p_SPLIT:			RozdÄ›lit tÃ©mata
+p_LOCK:				Uzamknout tÃ©mata
+p_MOVE:				PÅ™esunout tÃ©mata
+p_SML:				PouÅ¾Ã­vat smajlÃ­ky
+p_IMG:				PouÅ¾Ã­vat obrÃ¡zkovÃ© tagy
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Hledat uÅ¾ivatele</a>
+group_mgr_indicator:		NynÃ­ mÄ›nÃ­te: <b>{VAR: grp->name}</b>
+rate_worst:			NejhorÅ¡Ã­
+rate_best:			NejlepÅ¡Ã­
 post_quote_msg:			{VAR: msg->login} napsal dne {TEMPLATE: make_report_date}
-post_quote:			Citát:
-userinfo_referals:		Pøivedení u¾ivatelé:
-userinfo_referals_count:	{VAR: referals} pøivedenıch èlenù
-pm_no_space_title:		U¾ není prostor!
-pm_no_space_msg:		Va¹e po¹ta pøekroèila povolenou velikost <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytù</b>. Va¹e po¹ta má <b>{VAR: fldr_size} bytù</b>.<br /><br /><font class="ErrorText">Sma¾te nìjaké staré zprávy na uvolnìní místa</font>.
-pm_space_indct_msg:		Va¹e po¹toví schránka je z {VAR: percent_full}% plná.
+post_quote:			CitÃ¡t:
+userinfo_referals:		PÅ™ivedenÃ­ uÅ¾ivatelÃ©:
+userinfo_referals_count:	{VAR: referals} pÅ™ivedenÃ½ch ÄlenÅ¯
+pm_no_space_title:		UÅ¾ nenÃ­ prostor!
+pm_no_space_msg:		VaÅ¡e poÅ¡ta pÅ™ekroÄila povolenou velikost <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytÅ¯</b>. VaÅ¡e poÅ¡ta mÃ¡ <b>{VAR: fldr_size} bytÅ¯</b>.<br /><br /><font class="ErrorText">SmaÅ¾te nÄ›jakÃ© starÃ© zprÃ¡vy na uvolnÄ›nÃ­ mÃ­sta</font>.
+pm_space_indct_msg:		VaÅ¡e poÅ¡tovÃ­ schrÃ¡nka je z {VAR: percent_full}% plnÃ¡.
 th_expr_never:			Nikdy
 th_expr_one_hr:			1 hodina
 th_expr_three_hr:		3 hodiny
@@ -743,112 +743,112 @@ th_expr_sixteen_hr:		16 hodin
 th_expr_one_day:		1 den
 th_expr_two_day:		2 dny
 th_expr_four_day:		4 dny
-th_expr_one_week:		1 tıden
-th_expr_two_week:		2 tıdny
-th_expr_one_month:		1 mìsíc
-th_expr_two_month:		2 mìsíce
-th_expr_four_month:		4 mìsíce
+th_expr_one_week:		1 tÃ½den
+th_expr_two_week:		2 tÃ½dny
+th_expr_one_month:		1 mÄ›sÃ­c
+th_expr_two_month:		2 mÄ›sÃ­ce
+th_expr_four_month:		4 mÄ›sÃ­ce
 th_expr_one_year:		1 rok
 thread_mod_delete:		Smazat
-action_latest_post:		Poslední pøíspìvek
-online_today_last_visit:	Poslední náv¹tìva
-online_today_update:		Prohlí¾íte si seznam lidí, kteøí dnes fórum nav¹tívili.
-logedin_todays_visitors:	seznam dne¹ních náv¹tìvníkù
-logedin_latest_post:		Poslední pøíspìvek na fóru: 
-register_show_avatar:		Ukázat ikony u¾ivatelù:
-register_show_avatar_desc:	Umo¾òuje vám skrıt ikony u¾ivatelù, kdy¾ si prohlí¾íte jejich zprávy
-drawmsg_view_rest_post:		Ukázat zbytek zprávy
+action_latest_post:		PoslednÃ­ pÅ™Ã­spÄ›vek
+online_today_last_visit:	PoslednÃ­ nÃ¡vÅ¡tÄ›va
+online_today_update:		ProhlÃ­Å¾Ã­te si seznam lidÃ­, kteÅ™Ã­ dnes fÃ³rum navÅ¡tÃ­vili.
+logedin_todays_visitors:	seznam dneÅ¡nÃ­ch nÃ¡vÅ¡tÄ›vnÃ­kÅ¯
+logedin_latest_post:		PoslednÃ­ pÅ™Ã­spÄ›vek na fÃ³ru: 
+register_show_avatar:		UkÃ¡zat ikony uÅ¾ivatelÅ¯:
+register_show_avatar_desc:	UmoÅ¾Åˆuje vÃ¡m skrÃ½t ikony uÅ¾ivatelÅ¯, kdyÅ¾ si prohlÃ­Å¾Ã­te jejich zprÃ¡vy
+drawmsg_view_rest_post:		UkÃ¡zat zbytek zprÃ¡vy
 post_re:			Re: 
-forumsel_goto_forum:		Jít na fórum:
-minimsg_thread_view:		Zobrazní tématu
-split_th_post_by:		Pøíspìvek od:
-split_th_posted_on:		Pøidáno dne:
+forumsel_goto_forum:		JÃ­t na fÃ³rum:
+minimsg_thread_view:		ZobraznÃ­ tÃ©matu
+split_th_post_by:		PÅ™Ã­spÄ›vek od:
+split_th_posted_on:		PÅ™idÃ¡no dne:
 split_th_subject:		Nadpis:
-split_th_new_thread_title:	Titul nového tématu:
-split_th_forum:			Fórum:
-split_th_split_sel:		Rozdìlit vybrané zprávy
-split_th_split_unsel:		Rozdìlit nevybrané zprávy
-split_th_messages:		Zprávy
+split_th_new_thread_title:	Titul novÃ©ho tÃ©matu:
+split_th_forum:			FÃ³rum:
+split_th_split_sel:		RozdÄ›lit vybranÃ© zprÃ¡vy
+split_th_split_unsel:		RozdÄ›lit nevybranÃ© zprÃ¡vy
+split_th_messages:		ZprÃ¡vy
 split_th_select:		Vybrat
-report_report_post:		Ohlásit pøíspìvek
-quicklogin_login:		U¾ivatelské jméno
+report_report_post:		OhlÃ¡sit pÅ™Ã­spÄ›vek
+quicklogin_login:		UÅ¾ivatelskÃ© jmÃ©no
 quicklogin_password:		Heslo
-quicklogin_use_cookies:		Pou¾ívat cookies?
-quicklogin_login_btn:		Pøihlásit
-post_notification_desc:		Upozorni mì, pokud nìkdo bude reagovat na tuto zprávu.
-maximize_category:		Zvìt¹it kategorii
-no_view_perm:			Nemáte dostateèné oprávìní k prohlí¾ení tohoto tématu.
-report_empty_report:		Nemù¾ete zaslat prázdné ohlá¹ení. Prosím, udejte dùvod hlá¹ení.
-report_already_reported_title:	Ji¾ nahlá¹eno
-report_already_reported_msg:	Tato zpráva byla ji¾ nahlá¹ena a hlá¹ení èeká na vyøízení.
-register_err_toomanyimages:	Sna¾íte se pou¾ít více obrázkù ve va¹em podpisu ne¾ povolenıch {GVAR: FORUM_IMG_CNT_SIG}.
-pmsg_next_msg:			Dal¹í zpráva
-pmsg_prev_msg:			Pøedchozí zpráva
-post_proc_reveal_spoiler:	Odkrıt naru¹itele
-register_jabber:		Jabber identifikátor:
+quicklogin_use_cookies:		PouÅ¾Ã­vat cookies?
+quicklogin_login_btn:		PÅ™ihlÃ¡sit
+post_notification_desc:		Upozorni mÄ›, pokud nÄ›kdo bude reagovat na tuto zprÃ¡vu.
+maximize_category:		ZvÄ›tÅ¡it kategorii
+no_view_perm:			NemÃ¡te dostateÄnÃ© oprÃ¡vÄ›nÃ­ k prohlÃ­Å¾enÃ­ tohoto tÃ©matu.
+report_empty_report:		NemÅ¯Å¾ete zaslat prÃ¡zdnÃ© ohlÃ¡Å¡enÃ­. ProsÃ­m, udejte dÅ¯vod hlÃ¡Å¡enÃ­.
+report_already_reported_title:	JiÅ¾ nahlÃ¡Å¡eno
+report_already_reported_msg:	Tato zprÃ¡va byla jiÅ¾ nahlÃ¡Å¡ena a hlÃ¡Å¡enÃ­ ÄekÃ¡ na vyÅ™Ã­zenÃ­.
+register_err_toomanyimages:	SnaÅ¾Ã­te se pouÅ¾Ã­t vÃ­ce obrÃ¡zkÅ¯ ve vaÅ¡em podpisu neÅ¾ povolenÃ½ch {GVAR: FORUM_IMG_CNT_SIG}.
+pmsg_next_msg:			DalÅ¡Ã­ zprÃ¡va
+pmsg_prev_msg:			PÅ™edchozÃ­ zprÃ¡va
+post_proc_reveal_spoiler:	OdkrÃ½t naruÅ¡itele
+register_jabber:		Jabber identifikÃ¡tor:
 im_jabber:			Jabber: 
 forum_contact:			Kontakt
-forum_home:			Domù
-post_cur_attached:		máte {VAR: i} pøilo¾enıch souborù
-ignored_anon_post:		{GVAR: ANON_NICK} je ignorován
-ignored_user_post:		Pøíspìvek od <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> je ignorován
-smladd_close_window:		zavøít okno
-post_list_smilies:		seznam v¹ech smajlíkù
-p_VISIBLE:			Viditelnı
-reported_in_thread:		V tématu
-help_back_to_top:		zpìt na zaèátek
-help_return_to_index:		Zpìt na úvod nápovìdy
-imsg_err_message_title:		Nesprávná zpráva
-imsg_err_message_msg:		Zpráva, kterou se sna¾íte zobrazit, neexistuje.
-poll_edit:			Zmìnit
-register_err_not_valid_img:	Zadaná adresa neobsahuje platnı obrázek
-pmsg_recepient:			Pøíjemce
-register_err_taken_alias:	Prosím, zvolte jinou pøezdívku. Tato pøezdívka je ji¾ pou¾ívána jinım èlenem fóra.
-register_alias:			Pøezdívka
-register_alias_desc:		Pokud si pøejete, aby se na fóru zobrazovalo jiné jméno ne¾ je vá¹ login, zadejte zde svoji pøezdívku.
-register_allow_pm_msg:		Povolit po¹tu
-register_allow_pm_msg_desc:	Povolit pøíjem po¹ty prostøednictvím FUDfóra.
-postcheck_pm_disabled:		Nemù¾ete zaslat zprávu pro "{VAR-HTML: v}", proto¾e tento u¾ivatel nepøijímá po¹tu.
+forum_home:			DomÅ¯
+post_cur_attached:		mÃ¡te {VAR: i} pÅ™iloÅ¾enÃ½ch souborÅ¯
+ignored_anon_post:		{GVAR: ANON_NICK} je ignorovÃ¡n
+ignored_user_post:		PÅ™Ã­spÄ›vek od <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> je ignorovÃ¡n
+smladd_close_window:		zavÅ™Ã­t okno
+post_list_smilies:		seznam vÅ¡ech smajlÃ­kÅ¯
+p_VISIBLE:			ViditelnÃ½
+reported_in_thread:		V tÃ©matu
+help_back_to_top:		zpÄ›t na zaÄÃ¡tek
+help_return_to_index:		ZpÄ›t na Ãºvod nÃ¡povÄ›dy
+imsg_err_message_title:		NesprÃ¡vnÃ¡ zprÃ¡va
+imsg_err_message_msg:		ZprÃ¡va, kterou se snaÅ¾Ã­te zobrazit, neexistuje.
+poll_edit:			ZmÄ›nit
+register_err_not_valid_img:	ZadanÃ¡ adresa neobsahuje platnÃ½ obrÃ¡zek
+pmsg_recepient:			PÅ™Ã­jemce
+register_err_taken_alias:	ProsÃ­m, zvolte jinou pÅ™ezdÃ­vku. Tato pÅ™ezdÃ­vka je jiÅ¾ pouÅ¾Ã­vÃ¡na jinÃ½m Älenem fÃ³ra.
+register_alias:			PÅ™ezdÃ­vka
+register_alias_desc:		Pokud si pÅ™ejete, aby se na fÃ³ru zobrazovalo jinÃ© jmÃ©no neÅ¾ je vÃ¡Å¡ login, zadejte zde svoji pÅ™ezdÃ­vku.
+register_allow_pm_msg:		Povolit poÅ¡tu
+register_allow_pm_msg_desc:	Povolit pÅ™Ã­jem poÅ¡ty prostÅ™ednictvÃ­m FUDfÃ³ra.
+postcheck_pm_disabled:		NemÅ¯Å¾ete zaslat zprÃ¡vu pro "{VAR-HTML: v}", protoÅ¾e tento uÅ¾ivatel nepÅ™ijÃ­mÃ¡ poÅ¡tu.
 polllist_vote:			Hlasovat
-polllist_view_results:		Zobrazit vısledky
-polllist_name:			Jméno ankety
-polllist_date:			Vytvoøeno dne
+polllist_view_results:		Zobrazit vÃ½sledky
+polllist_name:			JmÃ©no ankety
+polllist_date:			VytvoÅ™eno dne
 polllist_owner:			Autor
-polllist_votes:			Celkem hlasù
+polllist_votes:			Celkem hlasÅ¯
 polllist_action:		Akce
-polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Pøehlídka aktivních anket</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">PÅ™ehlÃ­dka aktivnÃ­ch anket</a>
 userinfo_polls:			Ankety:
 show_pollist:			Zobrazit ankety
 search_and:			A
 search_or:			NEBO
-search_desc_order:		Sestupnì
-search_asc_order:		Vzestupnì
-search_logic:			Logika vyhledávání:
-search_sorting:			Seøadit vısledky podle data:
-post_proceed:			Pokraèovat
-post_moderated_forum:		Zaslal(a) jste pøíspìvek do moderovaného fóra, co¾ znamená, ¾e pøíspìvek bude viditelnı teprve po odsouhlasení jedním z moderátorù a/nebo administrítorem.
-post_moderated_forum_ttl:	Poznámka k moderovanému fóru
-buddy_list_bday:		Dnes má {VAR: r[2]} {VAR: age}-té narozeniny
-email_warning_msg:		Pkud zmìníte svou emailovou adresu, vá¹ úèet bude oznaèen jako nepotvrzenı dokud ho nepotvrdíte emailem pøes novou adresu.
-register_show_im:		Zobrazit IM indikárory
-register_show_im_desc:		Zobrazovat indikátory IM slu¾eb (ICQ, Jabber, Yahoo, ...) u¾ivatelù vedle jejich pøíspìvkù.
-unread_message:			Nepøeètená zpráva
-read_message:			Pøeètená zpráva
-threadt_more:			&lt;více&gt;
-threadt_disabled_ttl:		Stromové zobrazení vláken bylo vypnuto.
-threadt_disabled_desc:		Administrátor vypnul stromové zobrazení vláken, pou¾ijte místo toho ploché zobrazení.
-threadt_update:			Prohlí¾íte si fórum (stromové zobrazení) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
-mmod_delete_cofirm_ttl:		Potvrzení smazání tématu/zprávy
-spell_alts:			¾ádné alternativy
-insert_uploaded_image:		Vlo¾it obrázek do tìla zprávy
-finduser_help:			Vyhledávací systém automaticky pøidává * masku k va¹emu dotazu. Napøíklad pro vyhledání v¹ech u¾ivatelù, jejich¾ u¾ivatelské jméno zaèína na &#39;a&#39; napi¹te &#39;a&#39; do vyhldávácího formuláøe.
-back_to_top:			Zpìt na zaèátek
-pm_err_disabled_title:		Po¹ta byla vypnuta
-pm_err_disabled_msg:		Nemù¾ete zasílat po¹tu, dokud nepovolíte její pou¾ívání pomocí volby &#39;Povolit po¹tu&#39; ve svém profilu.
-err_mod_acc_ttl:		Neovìøenı úèet
-err_mod_acc_msg:		Administrátor se rozhodl, ¾e bude prohlí¾et v¹echny úèty manuálnì pøed jejich aktivací. Dokud vá¹ úèet nebude opvìøen administrátorem, nebudete mít mo¾nost vyu¾ít v¹ech vıhod úètu.
-accounts_pending_approval:	Úèty ke schválení
-saved:				Ulo¾ené
+search_desc_order:		SestupnÄ›
+search_asc_order:		VzestupnÄ›
+search_logic:			Logika vyhledÃ¡vÃ¡nÃ­:
+search_sorting:			SeÅ™adit vÃ½sledky podle data:
+post_proceed:			PokraÄovat
+post_moderated_forum:		Zaslal(a) jste pÅ™Ã­spÄ›vek do moderovanÃ©ho fÃ³ra, coÅ¾ znamenÃ¡, Å¾e pÅ™Ã­spÄ›vek bude viditelnÃ½ teprve po odsouhlasenÃ­ jednÃ­m z moderÃ¡torÅ¯ a/nebo administrÃ­torem.
+post_moderated_forum_ttl:	PoznÃ¡mka k moderovanÃ©mu fÃ³ru
+buddy_list_bday:		Dnes mÃ¡ {VAR: r[2]} {VAR: age}-tÃ© narozeniny
+email_warning_msg:		Pkud zmÄ›nÃ­te svou emailovou adresu, vÃ¡Å¡ ÃºÄet bude oznaÄen jako nepotvrzenÃ½ dokud ho nepotvrdÃ­te emailem pÅ™es novou adresu.
+register_show_im:		Zobrazit IM indikÃ¡rory
+register_show_im_desc:		Zobrazovat indikÃ¡tory IM sluÅ¾eb (ICQ, Jabber, Yahoo, ...) uÅ¾ivatelÅ¯ vedle jejich pÅ™Ã­spÄ›vkÅ¯.
+unread_message:			NepÅ™eÄtenÃ¡ zprÃ¡va
+read_message:			PÅ™eÄtenÃ¡ zprÃ¡va
+threadt_more:			&lt;vÃ­ce&gt;
+threadt_disabled_ttl:		StromovÃ© zobrazenÃ­ vlÃ¡ken bylo vypnuto.
+threadt_disabled_desc:		AdministrÃ¡tor vypnul stromovÃ© zobrazenÃ­ vlÃ¡ken, pouÅ¾ijte mÃ­sto toho plochÃ© zobrazenÃ­.
+threadt_update:			ProhlÃ­Å¾Ã­te si fÃ³rum (stromovÃ© zobrazenÃ­) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+mmod_delete_cofirm_ttl:		PotvrzenÃ­ smazÃ¡nÃ­ tÃ©matu/zprÃ¡vy
+spell_alts:			Å¾Ã¡dnÃ© alternativy
+insert_uploaded_image:		VloÅ¾it obrÃ¡zek do tÄ›la zprÃ¡vy
+finduser_help:			VyhledÃ¡vacÃ­ systÃ©m automaticky pÅ™idÃ¡vÃ¡ * masku k vaÅ¡emu dotazu. NapÅ™Ã­klad pro vyhledÃ¡nÃ­ vÅ¡ech uÅ¾ivatelÅ¯, jejichÅ¾ uÅ¾ivatelskÃ© jmÃ©no zaÄÃ­na na &#39;a&#39; napiÅ¡te &#39;a&#39; do vyhldÃ¡vÃ¡cÃ­ho formulÃ¡Å™e.
+back_to_top:			ZpÄ›t na zaÄÃ¡tek
+pm_err_disabled_title:		PoÅ¡ta byla vypnuta
+pm_err_disabled_msg:		NemÅ¯Å¾ete zasÃ­lat poÅ¡tu, dokud nepovolÃ­te jejÃ­ pouÅ¾Ã­vÃ¡nÃ­ pomocÃ­ volby &#39;Povolit poÅ¡tu&#39; ve svÃ©m profilu.
+err_mod_acc_ttl:		NeovÄ›Å™enÃ½ ÃºÄet
+err_mod_acc_msg:		AdministrÃ¡tor se rozhodl, Å¾e bude prohlÃ­Å¾et vÅ¡echny ÃºÄty manuÃ¡lnÄ› pÅ™ed jejich aktivacÃ­. Dokud vÃ¡Å¡ ÃºÄet nebude opvÄ›Å™en administrÃ¡torem, nebudete mÃ­t moÅ¾nost vyuÅ¾Ã­t vÅ¡ech vÃ½hod ÃºÄtu.
+accounts_pending_approval:	ÃšÄty ke schvÃ¡lenÃ­
+saved:				UloÅ¾enÃ©
 register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.
 register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
 im_affero:			Affero Username
@@ -940,7 +940,7 @@ thread_on:			on
 userinfo_buddy:			Buddy:
 register_email_addr:		E-mail Address:
 reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
-usrinfo_last_visit:		Poslední náv¹tìva:
+usrinfo_last_visit:		PoslednÃ­ nÃ¡vÅ¡tÄ›va:
 mnav_newer:			newer then
 mnav_older:			older then
 ip_search_by_ip:		Search users by IP

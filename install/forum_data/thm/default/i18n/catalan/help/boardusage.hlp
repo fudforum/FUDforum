@@ -1,81 +1,81 @@
 TOPIC_TITLE: <a name="post">Com envio missatges?</a>
 TOPIC_HELP:
-Per a iniciar un nou fil haurà de prémer sobre el botó "Nou Fil" que pot trobar a les pàgines amb el llistat dels fils i missatges. A continuació se li presentarà un editor per al seu missatge que li permetrà teclejar el contingut del seu missatge. Per a respondre a missatges previs, simplement premi els botons "Resp." o "Citar" a l`extrem inferior dret de cada missatge.<br />
-En alguns després de prémer en aquests botons li apareixerà un missatge sobre error de permisos. Això signfica que ha d`identificar-se o enregistrar-se en el fòrum per a adquirir privilegis suficients per a enviar missatges, o que l`enviament de missatges d`aquest fòrum estigui restringit.
+Per a iniciar un nou fil haurÃ  de prÃ©mer sobre el botÃ³ "Nou Fil" que pot trobar a les pÃ gines amb el llistat dels fils i missatges. A continuaciÃ³ se li presentarÃ  un editor per al seu missatge que li permetrÃ  teclejar el contingut del seu missatge. Per a respondre a missatges previs, simplement premi els botons "Resp." o "Citar" a l`extrem inferior dret de cada missatge.<br />
+En alguns desprÃ©s de prÃ©mer en aquests botons li apareixerÃ  un missatge sobre error de permisos. AixÃ² signfica que ha d`identificar-se o enregistrar-se en el fÃ²rum per a adquirir privilegis suficients per a enviar missatges, o que l`enviament de missatges d`aquest fÃ²rum estigui restringit.
 
 
 TOPIC_TITLE: <a name="bsearch">Com puc fer recerques?</a>
 TOPIC_HELP:
-Tret que l`administrador ho desactivi, pot <a href="{ROOT}?t=search&amp;%_rsid%">cercar missatges</a> prèviament escrits en fòrums. Pot cercar un missatge especificant una o més paraules clau en els missatges i escollir on han d`aparèixer aquestes paraules, ja sigui només a l`assumpte del missatge, o bé al contingut dels mateixos (incloent l`assumpte). També pot limitar la recerca a un fòrum de la seva elecció si no desitja fer una recerca a tots els fòrums.<br />
-També pot cercar altres membres del fòrum, a partir del seu àlies ("nick") o de la seva adreça de correu electrònic mitjançant
+Tret que l`administrador ho desactivi, pot <a href="{ROOT}?t=search&amp;%_rsid%">cercar missatges</a> prÃ¨viament escrits en fÃ²rums. Pot cercar un missatge especificant una o mÃ©s paraules clau en els missatges i escollir on han d`aparÃ¨ixer aquestes paraules, ja sigui nomÃ©s a l`assumpte del missatge, o bÃ© al contingut dels mateixos (incloent l`assumpte). TambÃ© pot limitar la recerca a un fÃ²rum de la seva elecciÃ³ si no desitja fer una recerca a tots els fÃ²rums.<br />
+TambÃ© pot cercar altres membres del fÃ²rum, a partir del seu Ã lies ("nick") o de la seva adreÃ§a de correu electrÃ²nic mitjanÃ§ant
 <a href="{ROOT}?t=finduser&amp;%_rsid%">formulari de recerca d`usuaris</a>.
 
 
-TOPIC_TITLE: <a name="email">Puc enviar emails a altres membres del fòrum?</a>
+TOPIC_TITLE: <a name="email">Puc enviar emails a altres membres del fÃ²rum?</a>
 TOPIC_HELP:
-Tret que l`administrador ho desactivi, podrà mantenir-se en contacte amb altre membres del fòrum mitjançant correu electrònic.
-Per a enviar un email a un membre, pot cercar-lo a la pàgina de la llista de membres i aleshores prémer el botó <b>Contactar</b>,
-o simplement prémer sobre el botó <b>Email</b> situat al costat de cadascun dels seus missatges. Això el portarà a una pàgina on tindrà l`oportunitat d`introduir l`assumpte de missatge i el cos del mateix. Quan hagi acabat, premi el botó <b>Email</b> i el correu electrònic s`enviarà al destinatari.
+Tret que l`administrador ho desactivi, podrÃ  mantenir-se en contacte amb altre membres del fÃ²rum mitjanÃ§ant correu electrÃ²nic.
+Per a enviar un email a un membre, pot cercar-lo a la pÃ gina de la llista de membres i aleshores prÃ©mer el botÃ³ <b>Contactar</b>,
+o simplement prÃ©mer sobre el botÃ³ <b>Email</b> situat al costat de cadascun dels seus missatges. AixÃ² el portarÃ  a una pÃ gina on tindrÃ  l`oportunitat d`introduir l`assumpte de missatge i el cos del mateix. Quan hagi acabat, premi el botÃ³ <b>Email</b> i el correu electrÃ²nic s`enviarÃ  al destinatari.
 <br /><br />
-A més d`enviar correus electrònics als membres del fòrum, també pot usar l`enllaç <b>Enviar a un amic</b> per a recomanar una pàgina en concret al seu amic, enviant-li una URL juntament amb la descripció. Pot trobar aquest enllaç a les pàgines de fils i a la vista de missatges del fòrum.
+A mÃ©s d`enviar correus electrÃ²nics als membres del fÃ²rum, tambÃ© pot usar l`enllaÃ§ <b>Enviar a un amic</b> per a recomanar una pÃ gina en concret al seu amic, enviant-li una URL juntament amb la descripciÃ³. Pot trobar aquest enllaÃ§ a les pÃ gines de fils i a la vista de missatges del fÃ²rum.
 
 
-TOPIC_TITLE: <a name="pmsg">Què són els missatges privats i com puc enviar-los?</a> 
+TOPIC_TITLE: <a name="pmsg">QuÃ¨ sÃ³n els missatges privats i com puc enviar-los?</a> 
 TOPIC_HELP:
-Si l`administrador no ha desactivat el sistema de missatgeria privada podrà enviar missatges a un o més membres enregistrats del fòrum. Per a accedir al sistema de missatgeria privada, premi sobre l`enllaç <a href="{ROOT}?t=pmsg&amp;%_rsid%">Missatges privats</a>, que pot trobar a la part superior dreta de cada pàgina. Si té algun missatge privat sense llegir aquest enllaç li indicarà quants missatges sense llegir té.
+Si l`administrador no ha desactivat el sistema de missatgeria privada podrÃ  enviar missatges a un o mÃ©s membres enregistrats del fÃ²rum. Per a accedir al sistema de missatgeria privada, premi sobre l`enllaÃ§ <a href="{ROOT}?t=pmsg&amp;%_rsid%">Missatges privats</a>, que pot trobar a la part superior dreta de cada pÃ gina. Si tÃ© algun missatge privat sense llegir aquest enllaÃ§ li indicarÃ  quants missatges sense llegir tÃ©.
 <p>
 <b>Enviament d`un missatge privat</b><br />
-Els missatges privats són molt semblants als correus electrònics, doncs ha d`especificar la persona o persones a les que desitja enviar el missatge, introduir l`assumpte del mateix i el missatge pròpiament dit, i a continuació prémer "Enviar". Hi ha dos enllaços que li permetran trobar fàcilment els membres del fòrum als que desitja enviar el missatge. <b>Seleccionar de llista d`amics</b>, que li permetrà seleccionar persones de la seva llista d`amics mostrant-li tots els seus amics i, <b>Trobar usuari</b>, que li permet cercar a la llista completa de membres del fòrum la persona a la que desitja adreçar el missatge.
-S`emmagatzemarà una còpia de cada missatge privat enviat per vostè a la carpeta <b>Enviats</b>, per a consulta posterior, encara que en qualsevol moment podrà esborrar aquests missatges si així ho desitja.
+Els missatges privats sÃ³n molt semblants als correus electrÃ²nics, doncs ha d`especificar la persona o persones a les que desitja enviar el missatge, introduir l`assumpte del mateix i el missatge prÃ²piament dit, i a continuaciÃ³ prÃ©mer "Enviar". Hi ha dos enllaÃ§os que li permetran trobar fÃ cilment els membres del fÃ²rum als que desitja enviar el missatge. <b>Seleccionar de llista d`amics</b>, que li permetrÃ  seleccionar persones de la seva llista d`amics mostrant-li tots els seus amics i, <b>Trobar usuari</b>, que li permet cercar a la llista completa de membres del fÃ²rum la persona a la que desitja adreÃ§ar el missatge.
+S`emmagatzemarÃ  una cÃ²pia de cada missatge privat enviat per vostÃ¨ a la carpeta <b>Enviats</b>, per a consulta posterior, encara que en qualsevol moment podrÃ  esborrar aquests missatges si aixÃ­ ho desitja.
 <p>
 Hi ha altres tres carpetes de les que ha de tenir coneixement:
 <p>
-La carpeta <b>Safata d`entrada</b> conté els missatges que hagi rebut, cada missatge té indicador de llegit/no llegit perquè pugui veure si ha llegit o no els seus missatges. També podrà veure qui li ha enviat cada missatge i si aquesta persona està en aquests moments connectada o no, i també mostra la data en què es và enviar el missatge.
+La carpeta <b>Safata d`entrada</b> contÃ© els missatges que hagi rebut, cada missatge tÃ© indicador de llegit/no llegit perquÃ¨ pugui veure si ha llegit o no els seus missatges. TambÃ© podrÃ  veure qui li ha enviat cada missatge i si aquesta persona estÃ  en aquests moments connectada o no, i tambÃ© mostra la data en quÃ¨ es vÃ  enviar el missatge.
 <p>
-La carpeta <b>Esborranys </b> conté els missatges que ha escrit però que encara no ha enviat. Quan premi sobre qualsevol missatge entrarà en el mode edició del mateix, que li permetrà seguir modificant el missatge així com enviar-lo si aixó ho desitja. Un cop enviat el missatge es mourà des de la carpeta <b>Esborranys</b> a la seva carpeta <b>Enviats</b>.
+La carpeta <b>Esborranys </b> contÃ© els missatges que ha escrit perÃ² que encara no ha enviat. Quan premi sobre qualsevol missatge entrarÃ  en el mode ediciÃ³ del mateix, que li permetrÃ  seguir modificant el missatge aixÃ­ com enviar-lo si aixÃ³ ho desitja. Un cop enviat el missatge es mourÃ  des de la carpeta <b>Esborranys</b> a la seva carpeta <b>Enviats</b>.
 <p>
-La carpeta <b>Paperera</b> emmagatzema tots els missatges que hagi marcat per a ser esborrats però que encara no ha esborrat. Si esborra un missatge ubicat a la  <b>Paperera</b> el missatge s`esborrarà de forma permanent.
+La carpeta <b>Paperera</b> emmagatzema tots els missatges que hagi marcat per a ser esborrats perÃ² que encara no ha esborrat. Si esborra un missatge ubicat a la  <b>Paperera</b> el missatge s`esborrarÃ  de forma permanent.
 <p>
 <b>Seguiment de missatges</b><p>
-Quan envia un missatge té la possibilitat de sol.licitar un comprovant de lectura, per a quan el destinatari llegeixi el missatge, vostè rebrà un missatge del sistema notificant-li que ha estat llegit el seu missatge.<br />
-Tanmateix, si sol.licita tal missatge de confirmació, el destinatari podria optar per no enviar-lo, de manera que si ha sol.licitat una confirmació de lectura i no l`ha rebut, axiò no significa necessàriament que encara no hagin llegit el seu missatge.
+Quan envia un missatge tÃ© la possibilitat de sol.licitar un comprovant de lectura, per a quan el destinatari llegeixi el missatge, vostÃ¨ rebrÃ  un missatge del sistema notificant-li que ha estat llegit el seu missatge.<br />
+Tanmateix, si sol.licita tal missatge de confirmaciÃ³, el destinatari podria optar per no enviar-lo, de manera que si ha sol.licitat una confirmaciÃ³ de lectura i no l`ha rebut, axiÃ² no significa necessÃ riament que encara no hagin llegit el seu missatge.
 
 
 TOPIC_TITLE: <a name="mlist">Llista de Membres?</a>
 TOPIC_HELP:
-La llista de membres és una llista completa de tots els usuaris enregistrats en un fòrum. Pot ordenar la llista de tres maneres: alfabèticament per l`àlies o "nick", pel nombre de missatges enviats i per la data a la que es va incorporar al fòrum.
+La llista de membres Ã©s una llista completa de tots els usuaris enregistrats en un fÃ²rum. Pot ordenar la llista de tres maneres: alfabÃ¨ticament per l`Ã lies o "nick", pel nombre de missatges enviats i per la data a la que es va incorporar al fÃ²rum.
 <br /><br />
-La llista de membres també té capacitats de recerca, permetent-li trobar a un membre en concret bé pel seu àlies o "nick", bé per la seva adreça de correu electrònic.
+La llista de membres tambÃ© tÃ© capacitats de recerca, permetent-li trobar a un membre en concret bÃ© pel seu Ã lies o "nick", bÃ© per la seva adreÃ§a de correu electrÃ²nic.
 
-TOPIC_TITLE:<a name="ann">Què són els anuncis i els missatges fixes?</a>
+TOPIC_TITLE:<a name="ann">QuÃ¨ sÃ³n els anuncis i els missatges fixes?</a>
 TOPIC_HELP:
-Aquests són missatges especials creats pels administradors i els moderadors que romandren a la part superior dels fòrums durant un temps determinat. En general s`usen per a informar als usuaris del fòrum d`un cert event, per a exposar certes regles d`ús i participació, etc.
+Aquests sÃ³n missatges especials creats pels administradors i els moderadors que romandren a la part superior dels fÃ²rums durant un temps determinat. En general s`usen per a informar als usuaris del fÃ²rum d`un cert event, per a exposar certes regles d`Ãºs i participaciÃ³, etc.
 
 
 TOPIC_TITLE: <a name="rate">Com valorar els fils?</a>
 TOPIC_HELP:
-Pot ser que s`hagi adonat que certs fils tenen una valoració. Si l`administrador ho permet, vostè pot contribuir amb la seva pròpia valoració del fil. Per a fer-ho vagi a la part inferior de la vista de missatges i esculli un nombre entre u i cinc (el cinc és la valoració més alta) a la caixa de selecció <b>Valori el fil</b>.
+Pot ser que s`hagi adonat que certs fils tenen una valoraciÃ³. Si l`administrador ho permet, vostÃ¨ pot contribuir amb la seva prÃ²pia valoraciÃ³ del fil. Per a fer-ho vagi a la part inferior de la vista de missatges i esculli un nombre entre u i cinc (el cinc Ã©s la valoraciÃ³ mÃ©s alta) a la caixa de selecciÃ³ <b>Valori el fil</b>.
 
-TOPIC_TITLE: <a name="ref">Què són les referències?</a>
+TOPIC_TITLE: <a name="ref">QuÃ¨ sÃ³n les referÃ¨ncies?</a>
 TOPIC_HELP:
-Les referències li permeten veure a quins membres del fòrum vostè o altres membres del fòrum s`ha relacionat. Les referències es mantenen de manera automàtica, quan vostè li dóna a algú una URL del fòrum i aquesta persona s`enregistra, vostè serà reconegut com a relacionat amb l`esmentada persona. Pot veure la llista de persones a les que ha referit en el seu perfil personal, prement a la pestanya <b>Referències</b>.
+Les referÃ¨ncies li permeten veure a quins membres del fÃ²rum vostÃ¨ o altres membres del fÃ²rum s`ha relacionat. Les referÃ¨ncies es mantenen de manera automÃ tica, quan vostÃ¨ li dÃ³na a algÃº una URL del fÃ²rum i aquesta persona s`enregistra, vostÃ¨ serÃ  reconegut com a relacionat amb l`esmentada persona. Pot veure la llista de persones a les que ha referit en el seu perfil personal, prement a la pestanya <b>ReferÃ¨ncies</b>.
 
-TOPIC_TITLE: <a name="syndicate">Sindicar aquest fòrum</a>
+TOPIC_TITLE: <a name="syndicate">Sindicar aquest fÃ²rum</a>
 TOPIC_HELP:
-Si l`administrador ho permet, FUDforum li permet sindicar una selecció de les dades del fòrum mitjançant XML (rdf). La font  RDF funciona principalment en tres modes, descàrrega de missatges, descàrrega de fils i descàrrega d`usuaris. Cada mode de funcionament suporta un cert nombre de paràmetres modificadors que li permetran especificar el tipus de dades que desitja obtenir. A continuació s`expliquen els paràmetres suportats per a cada mode d`operació:<br />
+Si l`administrador ho permet, FUDforum li permet sindicar una selecciÃ³ de les dades del fÃ²rum mitjanÃ§ant XML (rdf). La font  RDF funciona principalment en tres modes, descÃ rrega de missatges, descÃ rrega de fils i descÃ rrega d`usuaris. Cada mode de funcionament suporta un cert nombre de parÃ metres modificadors que li permetran especificar el tipus de dades que desitja obtenir. A continuaciÃ³ s`expliquen els parÃ metres suportats per a cada mode d`operaciÃ³:<br />
 <br /><br />
 <h4><u><b>Modo 'm' (missatges)</b></u></h4>
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
 		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Solament descarregar-se els missatges de la categoria amb aquest identificador.</td></tr>
-		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Solament descarregar-se els missatges del fòrum amb aquest identificador.</td></tr>
+		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Solament descarregar-se els missatges del fÃ²rum amb aquest identificador.</td></tr>
 		<tr><td class="GenText"><i>th</i></td><td class="GenText">Solament descarregar-se els missatges del fil amb aquest identificador.</td></tr>
 		<tr><td class="GenText"><i>id</i></td><td class="GenText">Descarregar-se solament el missatge amb l`identificador especificat.</td></tr>
-		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Solament descarregar-se els missatges enviats després de la data (unix timestamp) especificada.</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Solament descarregar-se els missatges enviats desprÃ©s de la data (unix timestamp) especificada.</td></tr>
 		<tr><td class="GenText"><i>de</i></td><td class="GenText">Solament descarregar-se els missatges enviats abans de la data (unix timestamp) especificada.</td></tr>
-		<tr><td class="GenText"><i>n</i></td><td class="GenText">No descarregar-se més de <i>n</i> missatges (no pot ser superior al màxim global).</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Desplaçament inicial a partir del que començar a baixar-se missatges.</td></tr>
-		<tr><td class="GenText"><i>l</i></td><td class="GenText">Ordenar els missatges des del més modern al més antic.</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">No descarregar-se mÃ©s de <i>n</i> missatges (no pot ser superior al mÃ xim global).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">DesplaÃ§ament inicial a partir del que comenÃ§ar a baixar-se missatges.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Ordenar els missatges des del mÃ©s modern al mÃ©s antic.</td></tr>
 		<tr><td class="GenText"><i>basic</i></td><td class="GenText">Generar els missatges en un format interpretable per a la majoria dels lectors RDF/RSS.</td></tr>
 	</table>
 </blockquote>
@@ -83,49 +83,49 @@ Si l`administrador ho permet, FUDforum li permet sindicar una selecció de les da
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
 		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Solament descarregar-se fils de la categoria amb aquest identificador.</td></tr>
-		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Solament descarregar-se fils del fòrum amb aquest identificador.</td></tr>
+		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Solament descarregar-se fils del fÃ²rum amb aquest identificador.</td></tr>
 		<tr><td class="GenText"><i>id</i></td><td class="GenText">Descarregar-se solament el fil amb l`identificador especificat.</td></tr>
-		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Solament descarregar els fils dels quals l`últim missatge hagi estat enviat després de la data (unix timestamp) especificada.</td></tr>
-		<tr><td class="GenText"><i>de</i></td><td class="GenText">Solament descarregar els fils dels quals l`últim missatge hagi estat enviat abans de la data (unix timestamp) especificada.</td></tr>
-		<tr><td class="GenText"><i>n</i></td><td class="GenText">No descarregar-se més de <i>n</i> fils (no pot ser superior al màxim global).</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Desplaçament inicial a partir del que començar a descarregar-se fils.</td></tr>
-		<tr><td class="GenText"><i>l</i></td><td class="GenText">Ordenar els fils des del més modern al més antic.</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Solament descarregar els fils dels quals l`Ãºltim missatge hagi estat enviat desprÃ©s de la data (unix timestamp) especificada.</td></tr>
+		<tr><td class="GenText"><i>de</i></td><td class="GenText">Solament descarregar els fils dels quals l`Ãºltim missatge hagi estat enviat abans de la data (unix timestamp) especificada.</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">No descarregar-se mÃ©s de <i>n</i> fils (no pot ser superior al mÃ xim global).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">DesplaÃ§ament inicial a partir del que comenÃ§ar a descarregar-se fils.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Ordenar els fils des del mÃ©s modern al mÃ©s antic.</td></tr>
 	</table>
 </blockquote>
 <h4><u><b>Mode 'u' (usuaris) <i>**could be disabled**</i></b></u></h4>
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
 		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Ordenar els usuaris pel nombre de missatges enviats, de major a menor.</td></tr>
-		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Ordenar els usuaris per la data de registre, de més recents a més antics.</td></tr>
+		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Ordenar els usuaris per la data de registre, de mÃ©s recents a mÃ©s antics.</td></tr>
 		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Solament mostrar els usuaris que estiguin connectats ara mateix.</td></tr>
-		<tr><td class="GenText"><i>n</i></td><td class="GenText">No descarregar-se més de <i>n</i> usuaris (no pot ser superior al màxim global).</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Desplaçament inicial a partir del que començar a baixar-se usuaris.</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">No descarregar-se mÃ©s de <i>n</i> usuaris (no pot ser superior al mÃ xim global).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">DesplaÃ§ament inicial a partir del que comenÃ§ar a baixar-se usuaris.</td></tr>
 	</table>
 </blockquote>
 <b>Exemple:</b><br />
-L`enllaç següent descarregarà els 10 missatges més recents d`aquest fòrum:<br />
+L`enllaÃ§ segÃ¼ent descarregarÃ  els 10 missatges mÃ©s recents d`aquest fÃ²rum:<br />
 <a href="rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1</a>
 
-TOPIC_TITLE: <a name="accesskeys">Tecles d`Accés</a>
+TOPIC_TITLE: <a name="accesskeys">Tecles d`AccÃ©s</a>
 TOPIC_HELP:
-Les tecles d`accés són dreceres de teclat pensades per a simplificar la navegació mitjançant el teclat. FUDforum utilitza aquesta funcionalitat per a simplificar vàries tasques relacionades amb els forumlaris d`enviament de missatges.<br />
+Les tecles d`accÃ©s sÃ³n dreceres de teclat pensades per a simplificar la navegaciÃ³ mitjanÃ§ant el teclat. FUDforum utilitza aquesta funcionalitat per a simplificar vÃ ries tasques relacionades amb els forumlaris d`enviament de missatges.<br />
 
 <fieldset style="width: 350px;">
 	<legend><b>Suport de navegadors</b></legend>
-	<b>Mozilla/Netscape:</b> CTRL + ALT + [tecla d`accés]<br />
-	<b>Mozilla/IE:</b> ALT + [tecla d`accés]<br />
-	<b>Opera:</b> SHIFT + ESC + [tecla d`accés]<br />
+	<b>Mozilla/Netscape:</b> CTRL + ALT + [tecla d`accÃ©s]<br />
+	<b>Mozilla/IE:</b> ALT + [tecla d`accÃ©s]<br />
+	<b>Opera:</b> SHIFT + ESC + [tecla d`accÃ©s]<br />
 </fieldset>
 
-<b>Tecles d`accés suportades:</b>
+<b>Tecles d`accÃ©s suportades:</b>
 <blockquote>
-	<b>H</b> - Redirigir a l`ajuda del fòrum.<br />
-	<b>N</b> - En pàgines amb paginador, redirigir a la pàgina següent (si n`hi ha alguna disponible).<br />
-	<b>P</b> - En pàgines amb paginador, redirigir a la pàgina anterior (si n`hi ha alguna disponible).<br />
-	<b>S</b> - Enviar el missatge en el formulari d`enviament públic o privat.<br />
-	<b>R</b> - Previsualitzar el missatge en el formulari d`enviament públic o privat.<br />
+	<b>H</b> - Redirigir a l`ajuda del fÃ²rum.<br />
+	<b>N</b> - En pÃ gines amb paginador, redirigir a la pÃ gina segÃ¼ent (si n`hi ha alguna disponible).<br />
+	<b>P</b> - En pÃ gines amb paginador, redirigir a la pÃ gina anterior (si n`hi ha alguna disponible).<br />
+	<b>S</b> - Enviar el missatge en el formulari d`enviament pÃºblic o privat.<br />
+	<b>R</b> - Previsualitzar el missatge en el formulari d`enviament pÃºblic o privat.<br />
 	<b>K</b> - Revisar l`ortografia d`aquest missatge.<br />
-	<b>A</b> - Aplicar les correccions ortogràfiques.<br />
+	<b>A</b> - Aplicar les correccions ortogrÃ fiques.<br />
 	<b>D</b> - Guardar el missatge privat com a esborrany.<br />
 	<br /><br /><b>Dreceres per a FUDcode:</b>
 	<blockquote>

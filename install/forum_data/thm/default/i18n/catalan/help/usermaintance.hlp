@@ -1,63 +1,63 @@
-TOPIC_TITLE: <a name="register">Per què enregistrar-se?</a>
+TOPIC_TITLE: <a name="register">Per quÃ¨ enregistrar-se?</a>
 TOPIC_HELP:
-A la majoria dels fòrums li resultarà impossible obrir nous fils o respondre als existents tret que l`Administrador ho permeti de  manera explícita. Per tant, per a poder participar a les converses probablement necessitarà enregistrar-se. A l`enregistrar-se també obtindrà accés a altres moltes característiques del fòrum tals com:
+A la majoria dels fÃ²rums li resultarÃ  impossible obrir nous fils o respondre als existents tret que l`Administrador ho permeti de  manera explÃ­cita. Per tant, per a poder participar a les converses probablement necessitarÃ  enregistrar-se. A l`enregistrar-se tambÃ© obtindrÃ  accÃ©s a altres moltes caracterÃ­stiques del fÃ²rum tals com:
 <ul>
-	<li>Notificacions per correu electrònic quan algú respongui als seus missatges
+	<li>Notificacions per correu electrÃ²nic quan algÃº respongui als seus missatges
 	<li>Firma personalitzada, avatar, etiqueta personal, etc.
-	<li>Possibilitat d`enviar missatges privats a un o més membres del fòrum.
-	<li>Podrà escollir una zona horària perquè l`hora mostrada pel fòrum coincideixi amb l`oficial d`on viu
+	<li>Possibilitat d`enviar missatges privats a un o mÃ©s membres del fÃ²rum.
+	<li>PodrÃ  escollir una zona horÃ ria perquÃ¨ l`hora mostrada pel fÃ²rum coincideixi amb l`oficial d`on viu
 </ul>
-Tret que s`indiqui el contrari el registre al fòrum és completament gratuït i solament necessita un mínim d`informació, tal com la seva adreça de correu electrònic i l`elecció d`un iedentificador o "nick".<br />
-Si està activat COPPA i té menys de 13 anys d`edat, haurà de fer que el seu tutor legal doni el seu consentiment abans que pugui usar el seu compte en el fòrum per a enviar missatges. Després de completar el procés de registre als fòrums amb COPPA activat, els membres menors de 13 anys seran adreçats a un formulari que el seu tutor legal haurà d`omplir i remetre a l`adreça corresponent que s`indiqui a l`esmentada pàgina.
+Tret que s`indiqui el contrari el registre al fÃ²rum Ã©s completament gratuÃ¯t i solament necessita un mÃ­nim d`informaciÃ³, tal com la seva adreÃ§a de correu electrÃ²nic i l`elecciÃ³ d`un iedentificador o "nick".<br />
+Si estÃ  activat COPPA i tÃ© menys de 13 anys d`edat, haurÃ  de fer que el seu tutor legal doni el seu consentiment abans que pugui usar el seu compte en el fÃ²rum per a enviar missatges. DesprÃ©s de completar el procÃ©s de registre als fÃ²rums amb COPPA activat, els membres menors de 13 anys seran adreÃ§ats a un formulari que el seu tutor legal haurÃ  d`omplir i remetre a l`adreÃ§a corresponent que s`indiqui a l`esmentada pÃ gina.
 
 TOPIC_TITLE: <a name="cookies">Com usa FUDforum les cookies?</a>
 TOPIC_HELP:
-Generalment FUDforum usa cookies per a emmagatzemar petits fragments d`informació, que permeten al fòrum comprovar si vostè s`ha identificat o no. Si per algun motiu el seu navegador no suporta cookie, FUDforum usarà sessions en el seu lloc, que no emmagatzemen cap informació al seu ordinador. Durant el procés d`identificació pot escollir no usar el sistema de cookies i decantar-se pel sistema de sessions, que és el recomanat si està usant un terminal públic. Seguir aquest consell evitarà el possible robament de la  seva identitat al fòrum, la qual cosa podria succeir si no tanca la sessió després d`haver navegat al fòrum. Tanmanteix, en la majoria dels casos probablement hauria de deixar les cookies actives perquè a la llarga és menys engorrós. Per exemple, no necessitarà identificar-se cada cop que desitgi visitar el fòrum.
+Generalment FUDforum usa cookies per a emmagatzemar petits fragments d`informaciÃ³, que permeten al fÃ²rum comprovar si vostÃ¨ s`ha identificat o no. Si per algun motiu el seu navegador no suporta cookie, FUDforum usarÃ  sessions en el seu lloc, que no emmagatzemen cap informaciÃ³ al seu ordinador. Durant el procÃ©s d`identificaciÃ³ pot escollir no usar el sistema de cookies i decantar-se pel sistema de sessions, que Ã©s el recomanat si estÃ  usant un terminal pÃºblic. Seguir aquest consell evitarÃ  el possible robament de la  seva identitat al fÃ²rum, la qual cosa podria succeir si no tanca la sessiÃ³ desprÃ©s d`haver navegat al fÃ²rum. Tanmanteix, en la majoria dels casos probablement hauria de deixar les cookies actives perquÃ¨ a la llarga Ã©s menys engorrÃ³s. Per exemple, no necessitarÃ  identificar-se cada cop que desitgi visitar el fÃ²rum.
 
 
 TOPIC_TITLE: <a name="clrcookie">Com eliminar la cookie de FUDforum?</a>
 TOPIC_HELP:
-Per a eliminar la cookie establerta per FUDforum, simplement premi l`enllaç "Desconnectar" i automàticament s`esborrarà la cookie.
+Per a eliminar la cookie establerta per FUDforum, simplement premi l`enllaÃ§ "Desconnectar" i automÃ ticament s`esborrarÃ  la cookie.
 
-TOPIC_TITLE: <a name="updprofile">Què és un perfil?</a>
-TOPIC_HELP: Com a membre del fòrum disposa d`un perfil personal en el que pot emmagatzemar diversa informació sobre vostè, tal com els seus identificadors en missatgeria instantània, signatura a afegir als missatges, biografia, etc. El seu perfil a més emmagatzema diverses opcions que tenen a veure amb el fòrum. Pot canviar les opcions al seu perfil a qualsevol moment sempre que s`hagi identificat davant del fòrum, adoni`s que la majoria de la informació present al seu perfil la podran veure altres membres del fòrum. Per tant no hauria d`emmagatzemar informació sensible o que els demés usuaris no hagin de veure.<br />
+TOPIC_TITLE: <a name="updprofile">QuÃ¨ Ã©s un perfil?</a>
+TOPIC_HELP: Com a membre del fÃ²rum disposa d`un perfil personal en el que pot emmagatzemar diversa informaciÃ³ sobre vostÃ¨, tal com els seus identificadors en missatgeria instantÃ nia, signatura a afegir als missatges, biografia, etc. El seu perfil a mÃ©s emmagatzema diverses opcions que tenen a veure amb el fÃ²rum. Pot canviar les opcions al seu perfil a qualsevol moment sempre que s`hagi identificat davant del fÃ²rum, adoni`s que la majoria de la informaciÃ³ present al seu perfil la podran veure altres membres del fÃ²rum. Per tant no hauria d`emmagatzemar informaciÃ³ sensible o que els demÃ©s usuaris no hagin de veure.<br />
 
-El seu perfil té una opció <b>"Mostrar email"</b>, que si està a <b>NO</b> ocultarà la seva adreça de correu als demés usuaris. Pot usar aquesta opció si no desitja que altres persones averigüin la seva adreça de correu electrònic.
+El seu perfil tÃ© una opciÃ³ <b>"Mostrar email"</b>, que si estÃ  a <b>NO</b> ocultarÃ  la seva adreÃ§a de correu als demÃ©s usuaris. Pot usar aquesta opciÃ³ si no desitja que altres persones averigÃ¼in la seva adreÃ§a de correu electrÃ²nic.
 
-TOPIC_TITLE: <a name="sigs">Què és una signatura?</a>
+TOPIC_TITLE: <a name="sigs">QuÃ¨ Ã©s una signatura?</a>
 TOPIC_HELP:
-Una signatura és una cadena de text que s`afageix automàticament al final de tots els missatges que enviï. En el seu perfil disposa d`una opció, <b>"Usar signatura de manera predeterminada"</b> que activarà o desactivarà aquesta característica. Tanmateix, pot canviar el valor d`aquesta opció a cada missatge individual que enviï.<br />
-Si ho permet l`administrador a més de text la signatura pot contenir varis elements tals com enllaços a les seves URL preferides, fotografies personals, etc.
+Una signatura Ã©s una cadena de text que s`afageix automÃ ticament al final de tots els missatges que enviÃ¯. En el seu perfil disposa d`una opciÃ³, <b>"Usar signatura de manera predeterminada"</b> que activarÃ  o desactivarÃ  aquesta caracterÃ­stica. Tanmateix, pot canviar el valor d`aquesta opciÃ³ a cada missatge individual que enviÃ¯.<br />
+Si ho permet l`administrador a mÃ©s de text la signatura pot contenir varis elements tals com enllaÃ§os a les seves URL preferides, fotografies personals, etc.
 <br />
-Si no desitja veure les signatures d`altres persones pot desactivar-les posant-se a l`opció <b>"Mostrar  signatures"</b> a <b>NO</b> en seu perfil.
+Si no desitja veure les signatures d`altres persones pot desactivar-les posant-se a l`opciÃ³ <b>"Mostrar  signatures"</b> a <b>NO</b> en seu perfil.
 
 
-TOPIC_TITLE: <a name="rstpasswd">>Què fer si perd o oblida la seva contrasenya</a>
+TOPIC_TITLE: <a name="rstpasswd">>QuÃ¨ fer si perd o oblida la seva contrasenya</a>
 TOPIC_HELP:
-Si no pot recordar la contrasenya de FUDforum, haurà dànar a la <a href="{ROOT}?t=reset&amp;%_rsid%">pàgina per a ressetejar la contrasenya</a>,
-introduir a aquella pàgina la seva adreça de correu electrònic i prémer el botó ANAR. D`aquesta manera s`enviarà a la seva adreça de correu una URL especial que quan accedeixi a ella ressetejarà la contrasenya i li enviarà una nova per correu electrònic.<br />
-<b>Nota:</b> les seves contrasenyes emmagatzemen un format de xifratge d`un sol sentit anomenat HASH MD5. Es tracta de xifratge de grau militar 128 bits de longitud, que per disseny fa impossible recuperar el valor original de la seva contrasenya. Funciona xifrant les dades cada cop que les introdueix i comparant el resultat amb la versió xifrada emmagatzemada.
-Per tant, si oblida la seva contrasenya aquesta no pot ser recuperada, de manera que davant la sol.licitud per a recordar la contrasenya el fòrum simplement generarà una nova contrasenya aleatòria i se li enviarà per correu.
+Si no pot recordar la contrasenya de FUDforum, haurÃ  dÃ nar a la <a href="{ROOT}?t=reset&amp;%_rsid%">pÃ gina per a ressetejar la contrasenya</a>,
+introduir a aquella pÃ gina la seva adreÃ§a de correu electrÃ²nic i prÃ©mer el botÃ³ ANAR. D`aquesta manera s`enviarÃ  a la seva adreÃ§a de correu una URL especial que quan accedeixi a ella ressetejarÃ  la contrasenya i li enviarÃ  una nova per correu electrÃ²nic.<br />
+<b>Nota:</b> les seves contrasenyes emmagatzemen un format de xifratge d`un sol sentit anomenat HASH MD5. Es tracta de xifratge de grau militar 128 bits de longitud, que per disseny fa impossible recuperar el valor original de la seva contrasenya. Funciona xifrant les dades cada cop que les introdueix i comparant el resultat amb la versiÃ³ xifrada emmagatzemada.
+Per tant, si oblida la seva contrasenya aquesta no pot ser recuperada, de manera que davant la sol.licitud per a recordar la contrasenya el fÃ²rum simplement generarÃ  una nova contrasenya aleatÃ²ria i se li enviarÃ  per correu.
 
-TOPIC_TITLE: <a name="cstat">Custom Tags, què són i com puc obtenir-ne una?</a>
+TOPIC_TITLE: <a name="cstat">Custom Tags, quÃ¨ sÃ³n i com puc obtenir-ne una?</a>
 TOPIC_HELP:
-Les Custom Tags solament les pot assignar l`administrador del fòrum, de manera que si desitja una Custom Tag, pregunti-li a  qualsevol dels administradors del fòrum.
+Les Custom Tags solament les pot assignar l`administrador del fÃ²rum, de manera que si desitja una Custom Tag, pregunti-li a  qualsevol dels administradors del fÃ²rum.
 
-TOPIC_TITLE: <a name="avatars">Què és un avatar?</a>
+TOPIC_TITLE: <a name="avatars">QuÃ¨ Ã©s un avatar?</a>
 TOPIC_HELP:
-Els avatars són imatges que apareixen a sota del seu nom d`usuari als missatges que ha enviat, així com a la seva pàgina d`informació d`usuari. FUDforum suporta tres tipus d`avatars, alguns dels quals podrien estar desactivats per l`administrador del fòrum. Pot escollir el seu propi avatar des de la pàgina del seu perfil personal.
+Els avatars sÃ³n imatges que apareixen a sota del seu nom d`usuari als missatges que ha enviat, aixÃ­ com a la seva pÃ gina d`informaciÃ³ d`usuari. FUDforum suporta tres tipus d`avatars, alguns dels quals podrien estar desactivats per l`administrador del fÃ²rum. Pot escollir el seu propi avatar des de la pÃ gina del seu perfil personal.
 <ul>
-	<li><b>Incorporats</b> - Aquests són els avatars que l`administrador ha fet accessibles a tal fi, pot escollir-ne un qualsevol d`ells i es convertirà en el seu tan aviat com enviï els canvis realitzats al seu perfil.
-	<li><b>Pujar Avatar</b> - D`estar activat podrà pujar una imatge al servidor que es convertirà en el seu avatar. Un cop pujada 
-	    necessitarà ser aprovada per l`administrador abans de convertir-se en el seu avatar.
-	<li><b>Especificar URL</b> - D`estar activat podrà especificar la URL d`una imatge que desitgi utilitzar com el seu avatar. Si l`administrador ho aprova, aquesta imatge es convertirà en el seu avatar.
+	<li><b>Incorporats</b> - Aquests sÃ³n els avatars que l`administrador ha fet accessibles a tal fi, pot escollir-ne un qualsevol d`ells i es convertirÃ  en el seu tan aviat com enviÃ¯ els canvis realitzats al seu perfil.
+	<li><b>Pujar Avatar</b> - D`estar activat podrÃ  pujar una imatge al servidor que es convertirÃ  en el seu avatar. Un cop pujada 
+	    necessitarÃ  ser aprovada per l`administrador abans de convertir-se en el seu avatar.
+	<li><b>Especificar URL</b> - D`estar activat podrÃ  especificar la URL d`una imatge que desitgi utilitzar com el seu avatar. Si l`administrador ho aprova, aquesta imatge es convertirÃ  en el seu avatar.
 </ul>
-<b>Nota:</b> Pot canviar el seu avatar en qualsevol moment, encara que si usa les opcions "Pujar Avatar" i "Especificar URL" sempre necessitarà l`aprovació prèvia de l`administrador abans que el canvi tingui efecte.
+<b>Nota:</b> Pot canviar el seu avatar en qualsevol moment, encara que si usa les opcions "Pujar Avatar" i "Especificar URL" sempre necessitarÃ  l`aprovaciÃ³ prÃ¨via de l`administrador abans que el canvi tingui efecte.
 
-TOPIC_TITLE: <a name="blist">Què és una llista d`amics?</a>
+TOPIC_TITLE: <a name="blist">QuÃ¨ Ã©s una llista d`amics?</a>
 TOPIC_HELP:
-Una llista d`amics és la seva pròpia llista de membres del fòrum amb els que desitjaria conversar més sovint. Al posar una persona a la seva llista d`amics podrà veure la seva data d`aniversari (si l`ha introduït) així com escollir-lo fàcilment com a destinatari dels seus missatges privats.
+Una llista d`amics Ã©s la seva prÃ²pia llista de membres del fÃ²rum amb els que desitjaria conversar mÃ©s sovint. Al posar una persona a la seva llista d`amics podrÃ  veure la seva data d`aniversari (si l`ha introduÃ¯t) aixÃ­ com escollir-lo fÃ cilment com a destinatari dels seus missatges privats.
 
-TOPIC_TITLE: <a name="ignlist">Què fa la llista d`ignorats?</a>
+TOPIC_TITLE: <a name="ignlist">QuÃ¨ fa la llista d`ignorats?</a>
 TOPIC_HELP:
-La llista d`ignorats és una base de dades amb els membres del fòrum els quals no desitja veure ni dels que desitja rebre missatges privats. A cada missatge hi ha un enllaç ràpid que li permetrà afegir a l`autor del missatge a la llista d`ignorats.
+La llista d`ignorats Ã©s una base de dades amb els membres del fÃ²rum els quals no desitja veure ni dels que desitja rebre missatges privats. A cada missatge hi ha un enllaÃ§ rÃ pid que li permetrÃ  afegir a l`autor del missatge a la llista d`ignorats.

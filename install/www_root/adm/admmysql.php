@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmysql.php,v 1.10 2009/01/23 19:42:23 frank Exp $
+* $Id: admmysql.php,v 1.11 2009/01/27 18:21:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -40,6 +40,12 @@
 </tr>
 </table>
 </form>
+
+<br />
+<div class="tutor">
+All forums should seriously consider converting their databases to the UTF-8 character set.</td>
+</div>
+
 <script type="text/javascript">
 /* <![CDATA[ */
 document.forms['a_frm'].subject.focus();
