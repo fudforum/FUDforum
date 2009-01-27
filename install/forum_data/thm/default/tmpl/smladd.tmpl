@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smladd.tmpl,v 1.21 2009/01/17 09:23:52 frank Exp $
+* $Id: smladd.tmpl,v 1.22 2009/01/27 05:40:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,7 +42,7 @@ function insertSmiley(txt)
 	<th>Code</th>
 </tr>
 {IF: $smileys}{TEMPLATE-DATA: smileys}{ELSE}{MSG: sml_no_smilies}{END}
-<tr><td colspan="2" class="ac RowStyleC">[<a href="javascript://" onclick="javascript: window.close();">{MSG: smladd_close_window}</a>]</td></tr>
+<tr><td colspan="2" class="ac RowStyleC">[<a href="javascript://" onclick="window.close();">{MSG: smladd_close_window}</a>]</td></tr>
 </table>
 {TEMPLATE: footer_plain}
 {PAGE: END}

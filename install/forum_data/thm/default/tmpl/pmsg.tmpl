@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.57 2009/01/20 21:06:53 frank Exp $
+* $Id: pmsg.tmpl,v 1.58 2009/01/27 05:40:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -100,12 +100,12 @@
 <tr class="RowStyleB">
 <td class="GenText al" colspan="3">{IF: $private_tools}<a href="{ROOT}?t=pmsg_dump&amp;{DEF: _rsid}">{MSG: pmsg_download_dump}</a>{ELSE}&nbsp;{ENDI}</td>
 <td colspan="3" class="GenText ar" style="white-space: nowrap">
-{MSG: folder} <select name="folder_id" onchange="javascript: document.priv_frm.submit();">
+{MSG: folder} <select name="folder_id" onchange="document.priv_frm.submit();">
 {TEMPLATE-DATA: select_options_cur_folder}
 </select> <input type="submit" class="button" name="sel_folder" value="{MSG: go}" />
 </td></tr>
 <tr>
-	<th class="nw">{MSG: pmsg_selected} <input type="checkbox" name="" value="" title="{TEMPLATE: pmsg_all}/{TEMPLATE: pmsg_none}" onclick="$(\'input[@type=checkbox]\').attr(\'checked\', (this.checked)?\'checked\':\'\')" /> </th>
+	<th class="nw">{MSG: pmsg_selected} <input type="checkbox" name="toggle" title="{TEMPLATE: pmsg_all}/{TEMPLATE: pmsg_none}" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\');" /> </th>
 	<th>&nbsp;</th>
 	<th class="wa"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o=subject&amp;s={IF: $o=='subject' && $s=='ASC'}d{ELSE}a{END}">{MSG: pmsg_subject}</a></th>
 	<th class="ac"><a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;o={IF: $folder_id == 3}alias2{ELSE}alias{ENDI}&amp;s={IF: ($o=='alias' || $o=='alias2') && $s=='ASC'}d{ELSE}a{ENDI}">{IF: $folder_id == 3}{TEMPLATE: pmsg_recepient}{ELSE}{TEMPLATE: pmsg_author}{END}</a></th>

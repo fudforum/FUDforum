@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.170 2007/12/31 21:16:18 hackie Exp $
+* $Id: register.php.t,v 1.171 2009/01/27 05:40:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -209,7 +209,7 @@ function make_avatar_loc($path, $disk, $web)
 	$img_info = @getimagesize($disk . $path);
 
 	if ($img_info[2] < 4 && $img_info[2] > 0) {
-		return '<img src="'.$web . $path.'" '.$img_info[3].' />';
+		return '<img src="'.$web . $path.'" alt="" '.$img_info[3].' />';
 	} else if ($img_info[2] == 4) {
 		return '<embed src="'.$web . $path.'" '.$img_info[3].' />';
 	} else {
@@ -752,7 +752,7 @@ function email_encode($val)
 				}
 
 				if (!$custom_avatar_preview) {
-					$custom_avatar_preview = '<img src="blank.gif" />';
+					$custom_avatar_preview = '<img src="blank.gif" alt="" />';
 				}
 
 				/* determine the avatar specification field to show */

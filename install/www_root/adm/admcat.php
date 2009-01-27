@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.47 2009/01/23 19:42:23 frank Exp $
+* $Id: admcat.php,v 1.48 2009/01/27 05:40:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,7 +120,7 @@
 <table class="datatable">
 	<tr class="field">
 		<td>Category Name:</td>
-		<td><input type="text" name="cat_name" value="<?php echo htmlspecialchars($cat_name); ?>" maxlength="50" /></td>
+		<td><input type="text" name="cat_name" value="<?php echo $cat_name; ?>" maxlength="50" /></td>
 	</tr>
 
 	<tr class="field">

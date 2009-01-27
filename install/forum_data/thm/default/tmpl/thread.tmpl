@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.70 2009/01/20 21:06:53 frank Exp $
+* $Id: thread.tmpl,v 1.71 2009/01/27 05:40:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,11 +55,11 @@
 {SECTION: END}
 
 {SECTION: admin_control_row_all moderator link for moving & deleting a thread}
-<div class="ModOpt">{MSG: moderator_options}: <a href="javascript://" onclick="javascript: window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a> | <a href="{TEMPLATE: admin_control_row_lock_lnk}">{IF: $r[18] & 1}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a> <input type="checkbox" name="_sel[]" value="{VAR: r[13]}" /></div>
+<div class="ModOpt">{MSG: moderator_options}: <a href="javascript://" onclick="window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a> | <a href="{TEMPLATE: admin_control_row_lock_lnk}">{IF: $r[18] & 1}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a> <input type="checkbox" name="_sel[]" value="{VAR: r[13]}" /></div>
 {SECTION: END}
 
 {SECTION: admin_control_row_move moderator link for moving a thread}
-<div class="ModOpt">{MSG: moderator_options}: <a href="javascript://" onclick="javascript: window_open(\'{TEMPLATE: admin_control_row_move_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a></div>
+<div class="ModOpt">{MSG: moderator_options}: <a href="javascript://" onclick="window_open(\'{TEMPLATE: admin_control_row_move_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a></div>
 {SECTION: END}
 
 {SECTION: admin_control_row_del moderator link for deleting a thread}
@@ -78,7 +78,7 @@
 {SECTION: END}
 
 {SECTION: thread_rating}
-{IF: $MOD || $mo == 8224}<a href="javascript://" onclick="javascript: window_open(\'{TEMPLATE: admin_control_ratingtrack_lnk1}\', \'th_rating_track\', 300, 400);">{ENDIF}<img src="{THEME_IMAGE_ROOT}/{VAR: r[17]}stars.gif" title="{MSG: topic_list_rating}" alt="" />{IF: $MOD || $mo == 8224}</a>{ENDIF}
+{IF: $MOD || $mo == 8224}<a href="javascript://" onclick="window_open(\'{TEMPLATE: admin_control_ratingtrack_lnk1}\', \'th_rating_track\', 300, 400);">{ENDIF}<img src="{THEME_IMAGE_ROOT}/{VAR: r[17]}stars.gif" title="{MSG: topic_list_rating}" alt="" />{IF: $MOD || $mo == 8224}</a>{ENDIF}
 {SECTION: END}
 
 {SECTION: thread_row_moved a row indicating that the thread has been moved}
@@ -106,14 +106,14 @@
 {TEMPLATE-DATA: announcements}
 {IF: $MOD || $mo == 8224}
 <tr>
-	<td colspan="3" class="RowStyleC ar"><input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="checkbox" name="" value="" title="Select all/none" onclick="$(\'input[@type=checkbox]\').attr(\'checked\', (this.checked)?\'checked\':\'\')" /> </td>
+	<td colspan="3" class="RowStyleC ar"><input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\');" /> </td>
 	<td colspan="3" class="RowStyleC"> </td>
 </tr>
 {ENDIF}
 {TEMPLATE-DATA: thread_list_table_data}
 {IF: $MOD || $mo == 8224}
 <tr>
-	<td colspan="3" class="RowStyleC ar"><input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="checkbox" name="" value="" title="Select all/none" onclick="$(\'input[@type=checkbox]\').attr(\'checked\', (this.checked)?\'checked\':\'\')" /></td>
+	<td colspan="3" class="RowStyleC ar"><input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="checkbox" name="" value="" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\')" /></td>
 	<td colspan="3" class="RowStyleC"> </td>
 </tr>
 {ENDIF}

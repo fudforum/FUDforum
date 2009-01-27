@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.77 2009/01/23 19:42:23 frank Exp $
+* $Id: register.tmpl,v 1.78 2009/01/27 05:40:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,7 +54,7 @@
 {SECTION: END}
 
 {SECTION: change_passwd_link}
-&nbsp;<span class="SmallText">[ <a href="javascript://" onclick="javascript: window_open(\'{TEMPLATE: change_passwd_link_lnk1}\',\'rpass\',380,250);">{MSG: register_change_passwd}</a> ]</span>
+&nbsp;<span class="SmallText">[ <a href="javascript://" onclick="window_open(\'{TEMPLATE: change_passwd_link_lnk1}\',\'rpass\',380,250);">{MSG: register_change_passwd}</a> ]</span>
 {SECTION: END}
 
 {SECTION: update_user update user section, is used when a registered user is editing their profile}
@@ -67,11 +67,11 @@
 {SECTION: END}
 
 {SECTION: avatar_type_sel avatar type select, allows to choose avatar type (upload/url...)}
-<tr class="vt RowStyleA"><td>{MSG: register_avatar_type}</td><td><select name="avatar_type" onchange="javascript: document.fud_register.submit();">{TEMPLATE-DATA: avatar_type_sel_options}</select></td></tr>
+<tr class="vt RowStyleA"><td>{MSG: register_avatar_type}</td><td><select name="avatar_type" onchange="document.fud_register.submit();">{TEMPLATE-DATA: avatar_type_sel_options}</select></td></tr>
 {SECTION: END}
 
 {SECTION: del_built_in_avatar delete avatar link}
-[<a href="javascript: return false;" onclick="document.reg_avatar_img.src=\'blank.gif\'; document.fud_register.reg_avatar.value=\'0\';">{MSG: register_del_avatar}</a>]
+[<a href="return false;" onclick="document.reg_avatar_img.src=\'blank.gif\'; document.fud_register.reg_avatar.value=\'0\';">{MSG: register_del_avatar}</a>]
 {SECTION: END}
 
 {SECTION: built_in_avatar}
@@ -176,7 +176,7 @@
 <tr class="RowStyleA"><td>{MSG: register_show_email}<br /><span class="SmallText">{MSG: register_show_email_desc}</span></td><td>{TEMPLATE-DATA: show_email_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_notification}<br /><span class="SmallText">{MSG: register_notification_desc}</span></td><td>{TEMPLATE-DATA: notify_default_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_pm_notification}<br /><span class="SmallText">{MSG: register_pm_notification_desc}</span></td><td>{TEMPLATE-DATA: pm_notify_default_radio}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_notify_method}<br /><span class="SmallText">{MSG: register_notify_method_desc}</span></td><td><select name="reg_notify_method" onchange="javascript: re=/[^0-9]/g; a=document.fud_register.reg_icq.value.replace(re, ''); if(this.value=='ICQ' && !a.length ) { alert('{MSG: register_notify_js_error}'); this.value='EMAIL'; }">{TEMPLATE-DATA: notification_select}</select></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_notify_method}<br /><span class="SmallText">{MSG: register_notify_method_desc}</span></td><td><select name="reg_notify_method" onchange="re=/[^0-9]/g; a=document.fud_register.reg_icq.value.replace(re, ''); if(this.value=='ICQ' && !a.length ) { alert('{MSG: register_notify_js_error}'); this.value='EMAIL'; }">{TEMPLATE-DATA: notification_select}</select></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_allow_email_msg}<br /><span class="SmallText">{MSG: register_allow_email_msg_desc}</span></td><td>{TEMPLATE-DATA: accept_user_email}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_allow_pm_msg}<br /><span class="SmallText">{MSG: register_allow_pm_msg_desc}</span></td><td>{TEMPLATE-DATA: accept_pm}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_use_sig_default}<br /><span class="SmallText">{MSG: register_use_sig_default_desc}</span></td><td>{TEMPLATE-DATA: append_sig_radio}</td></tr>

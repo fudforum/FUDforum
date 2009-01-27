@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.tmpl,v 1.25 2009/01/19 21:14:25 frank Exp $
+* $Id: poll.tmpl,v 1.26 2009/01/27 05:40:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -79,11 +79,11 @@ if (document.poll_submit.pl_option) {
 {PAGE: END}
 
 {SECTION: btn_submit}
-<input type="button" tabindex="4" class="button" onclick="javascript: window.opener.document.post_form.pl_id.value=\'0\'; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_create}" />
+<input type="button" tabindex="4" class="button" onclick="window.opener.document.post_form.pl_id.value=\'0\'; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_create}" />
 {SECTION: END}
 
 {SECTION: btn_update}
-<input type="button" tabindex="4" class="button" onclick="javascript: window.opener.document.post_form.pl_id.value={VAR: pl_id}; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_update}" />
+<input type="button" tabindex="4" class="button" onclick="window.opener.document.post_form.pl_id.value={VAR: pl_id}; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_update}" />
 {SECTION: END}
 
 {SECTION: pl_smiley_disabled_chk disable smiliyes in the poll checkbox}
@@ -116,11 +116,11 @@ if (document.poll_submit.pl_option) {
 
 {SECTION: pl_upd hidden field needed for the form to work}
 <input type="hidden" name="pl_option_id" value="{VAR: pl_option_id}" />
-<input type="submit" class="button" name="pl_upd" onclick="javascript: return check_submission();" value="{MSG: poll_updateoption}" />
+<input type="submit" class="button" name="pl_upd" onclick="return check_submission();" value="{MSG: poll_updateoption}" />
 {SECTION: END}
 
 {SECTION: pl_add hidden field needed for the form to work}
-<input type="submit" class="button" name="pl_add" onclick="javascript: return check_submission();" value="{MSG: poll_addoption}" />
+<input type="submit" class="button" name="pl_add" onclick="return check_submission();" value="{MSG: poll_addoption}" />
 {SECTION: END}
 
 {SECTION: poll_title}

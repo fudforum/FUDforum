@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.80 2009/01/23 19:42:23 frank Exp $
+* $Id: post.tmpl,v 1.81 2009/01/27 05:40:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,7 +55,7 @@
 <tr><th colspan="2">{MSG: post_preview}</th></tr>
 <tr><td class="RowStyleA MsgSubText">{VAR: subj}</td></tr>
 <tr><td class="RowStyleA MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</td></tr>
-<tr><td class="RowStyleB al">{IF: $spell}{TEMPLATE: apply_spell_changes}{ENDIFI}<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview" />&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onclick="javascript: document.post_form.submitted.value=1;" /></td></tr>
+<tr><td class="RowStyleB al">{IF: $spell}{TEMPLATE: apply_spell_changes}{ENDIFI}<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview" />&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onclick="document.post_form.submitted.value=1;" /></td></tr>
 </table><br /></div>
 {SECTION: END}
 
@@ -68,11 +68,11 @@
 {SECTION: END}
 
 {SECTION: create_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a href="javascript://" accesskey="o" onclick="javascript: window_open(\'{TEMPLATE: create_poll_lnk1}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a href="javascript://" accesskey="o" onclick="window_open(\'{TEMPLATE: create_poll_lnk1}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
 {SECTION: END}
 
 {SECTION: edit_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll[1]} [<a href="javascript://" accesskey="o" onclick="javascript: window_open(\'{TEMPLATE: edit_poll_lnk1}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="" />[<a href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll[1]} [<a href="javascript://" accesskey="o" onclick="window_open(\'{TEMPLATE: edit_poll_lnk1}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="" />[<a href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: admin_options options for moderators & admins to create announcements and sticky threads}
@@ -133,7 +133,7 @@
 {PAGE: POST_PAGE message posting form}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<form action="{TEMPLATE: POST_PAGE_lnk3}" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true;">
+<form action="{TEMPLATE: POST_PAGE_lnk3}" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.post_form.btn_submit.disabled = true;">
 {DEF: _hs}
 <input type="hidden" name="submitted" value="" />
 <input type="hidden" name="reply_to" value="{VAR: reply_to}" />
@@ -176,7 +176,7 @@
 </table>
 </td></tr>
 <tr class="RowStyleA"><td class="GenText ar" colspan="2">
-<input type="submit" accesskey="r" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview" />&nbsp;{TEMPLATE-DATA: spell_check_button}<input accesskey="s" type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onclick="javascript: document.post_form.submitted.value=1;" /></td></tr>
+<input type="submit" accesskey="r" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview" />&nbsp;{TEMPLATE-DATA: spell_check_button}<input accesskey="s" type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onclick="document.post_form.submitted.value=1;" /></td></tr>
 </table>
 {TEMPLATE-DATA: minimsg}
 </form>
