@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.74 2009/01/18 20:49:49 frank Exp $
+* $Id: maillist.php,v 1.75 2009/01/28 05:40:56 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -85,7 +85,7 @@ class fud_emsg
 			$this->parse_multival_headers($this->headers['content-type'], 'content-type');
 		} else {
 			$this->headers['content-type'] = 'text/plain';
-			$this->headers['__other_hdr__']['content-type']['charset'] = 'us-ascii';
+			$this->headers['__other_hdr__']['content-type']['charset'] = 'utf-8';
 		}
 
 		if (isset($this->headers['content-disposition'])) {

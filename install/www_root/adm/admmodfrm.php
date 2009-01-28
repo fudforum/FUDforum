@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmodfrm.php,v 1.35 2009/01/23 19:42:23 frank Exp $
+* $Id: admmodfrm.php,v 1.36 2009/01/28 05:40:56 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -59,7 +59,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 } else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
 	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
 } else {
-	echo 'us-ascii';
+	echo 'utf-8';
 }
 ?>" />
 <link rel="StyleSheet" href="adm.css" type="text/css" />
