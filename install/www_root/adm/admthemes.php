@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.70 2009/01/23 19:42:23 frank Exp $
+* $Id: admthemes.php,v 1.71 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -167,7 +167,7 @@ function update_locale()
 /* ]]> */
 </script>
 
-	<select name="thm_lang" onchange="javascript: update_locale();">
+	<select name="thm_lang" onchange="update_locale();">
 	<?php echo $selopt; ?>
 	</select>
 	</td>
@@ -182,7 +182,7 @@ function update_locale()
 	<td>pSpell Language:</td>
 	<td>
 		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars($thm_pspell_lang); ?>" size="4" />
-		[<a href="javascript://" onclick="javascript: document.admthm.thm_pspell_lang.value=''">disable</a>]
+		[<a href="javascript://" onclick="document.admthm.thm_pspell_lang.value=''">disable</a>]
 	</td>
 </tr>
 
@@ -206,7 +206,7 @@ function update_locale()
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 
-<form method="post">
+<form method="post" action="">
 <table class="datatable solidtable">
 <tr class="field"><td colspan="2">Create New Template Set</td></tr>
 <tr class="field">
@@ -257,7 +257,7 @@ function update_locale()
 			<td>'.(!$r->pspell_lang ? '<font color="green">disabled</font> ' : htmlspecialchars($r->pspell_lang)).'</td>
 			<td>'.($r->theme_opt & 1 ? 'Yes' : '<font color="green">No</font>').'</td>
 			<td>'.($r->theme_opt & 2 ? 'Yes' : '<font color="green">No</font>').'</td>
-			<td nowrap>[<a href="admthemes.php?'.__adm_rsid.'&amp;edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'.__adm_rsid.'&amp;rebuild='.$r->id.'">Rebuild Theme</a>]
+			<td nowrap="nowrap">[<a href="admthemes.php?'.__adm_rsid.'&amp;edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'.__adm_rsid.'&amp;rebuild='.$r->id.'">Rebuild Theme</a>]
 			'.($r->id != 1 ? '[<a href="admthemes.php?'.__adm_rsid.'&amp;del='.$r->id.'">Delete</a>]' : '').'
 			</td>
 		</tr>';

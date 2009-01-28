@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.45 2009/01/25 12:50:38 frank Exp $
+* $Id: admlock.php,v 1.46 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -68,7 +68,7 @@
 	<font size="-1">If this test claims that the forum is unlocked, but you still cannot modify your files click on the "Unlock Files" button.</font><br /><br />
 	For security reasons remember to lock your forum's files after you are done editing them.
 </div>
-<form method="post">
+<form method="post" action="">
 <table border="0" cellspacing="0" cellpadding="3">
 <tr><td>Login:</td><td><input type="text" name="usr_login" value="<?php echo $usr->alias; ?>" /></td></tr>
 <tr><td>Password:</td><td><input type="password" name="usr_passwd" /></td></tr>

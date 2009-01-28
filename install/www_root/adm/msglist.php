@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.43 2009/01/23 19:42:23 frank Exp $
+* $Id: msglist.php,v 1.44 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -189,7 +189,7 @@ if (isset($warn)) {
 
 		foreach ($msglist_arr as $v) {
 			if (($s = strpos($data, "\n" . $v . ':')) === false) {
-				echo '<tr><td nowrap><font color="red">Unable to find "'.$v.'" inside "'.$msgfile.'"</font></td></tr>';
+				echo '<tr><td nowrap="nowrap"><font color="red">Unable to find "'.$v.'" inside "'.$msgfile.'"</font></td></tr>';
 				continue;
 			}
 			$s += 3 + strlen($v);

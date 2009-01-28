@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admannounce.php,v 1.28 2009/01/23 19:42:23 frank Exp $
+* $Id: admannounce.php,v 1.29 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -91,7 +91,7 @@ function mk_date($y, $m, $d)
 		<td><table border="0" cellspacing="1" cellpadding="2">
 			<tr><td colspan="5"><input type="submit" name="btn_none" value="None" /> <input type="submit" name="btn_all" value="All" /></td></tr>
 <?php
-	 require $FORUM_SETTINGS_PATH.'cat_cache.inc';
+	require $FORUM_SETTINGS_PATH.'cat_cache.inc';
 	$pfx = $oldc = ''; $row = 0;
 	$c = uq('SELECT f.id, f.name, c.id FROM '.$tbl.'fc_view v INNER JOIN '.$tbl.'forum f ON f.id=v.f INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id ORDER BY v.id');
 	while ($r = db_rowarr($c)) {
@@ -155,7 +155,7 @@ function mk_date($y, $m, $d)
 
 	<tr class="field">
 		<td valign="top">Message:</td>
-		<td><textarea cols=40 rows=10 name="a_text"><?php echo htmlspecialchars($a_text); ?></textarea></td>
+		<td><textarea cols="40" rows="10" name="a_text"><?php echo htmlspecialchars($a_text); ?></textarea></td>
 	</tr>
 
 	<tr class="field">

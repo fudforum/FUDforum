@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.35 2009/01/23 19:42:23 frank Exp $
+* $Id: admsmiley.php,v 1.36 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -98,7 +98,7 @@ function sml_form_check()
 <h2>Smiley Management System</h2>
 
 <form id="frm_sml" method="post" enctype="multipart/form-data" action="admsmiley.php" 
-onsubmit="javascript: return sml_form_check();">
+onsubmit="return sml_form_check();">
 <?php
 	echo _hs;
 	echo '<table class="datatable solidtable">';
@@ -108,7 +108,7 @@ onsubmit="javascript: return sml_form_check();">
 		</tr>
 		<tr class="field">
 			<td>Smilies Upload:<br /><font size="-1">Only (*.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
-			<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload" /></td>
+			<td><input type="file" name="icoul" /> <input type="submit" name="btn_upload" value="Upload" /></td>
 			<td><input type="hidden" name="tmp_f_val" value="1" /></td>
 		</tr>
 	<?php } else { ?>
@@ -137,13 +137,13 @@ onsubmit="javascript: return sml_form_check();">
 		<td valign="top"><a name="sml_sel">Smiley Image:</a></td>
 		<td>
 			<input type="text" name="sml_img" value="<?php echo htmlspecialchars($sml_img); ?>"
-				onchange="javascript:
+				onchange="
 						if (document.frm_sml.sml_img.value.length) {
 							document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/smiley_icons/' + document.frm_sml.sml_img.value;
 						} else {
 							document.prev_icon.src='../blank.gif';
 						}" />
-			[<a href="javascript://" onclick="javascript:window.open('admiconsel.php?type=3&amp;<?php echo __adm_rsid; ?>', 'admsmileysel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT ICON</a>]
+			[<a href="javascript://" onclick="window.open('admiconsel.php?type=3&amp;<?php echo __adm_rsid; ?>', 'admsmileysel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT ICON</a>]
 		</td>
 	</tr>
 

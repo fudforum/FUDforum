@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmysql.php,v 1.11 2009/01/27 18:21:03 frank Exp $
+* $Id: admmysql.php,v 1.12 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,19 +21,27 @@
 
 	if (!empty($_POST['charset']) && in_array($_POST['charset'], $chars)) {
 		foreach (get_fud_table_list() as $v) {
-			q('ALTER TABLE '.$v.' CONVERT TO CHARACTER SET '.$_POST['charset']);
+			q('ALTER IGNORE TABLE '.$v.' CONVERT TO CHARACTER SET '.$_POST['charset']);
+			// echo "Table $v was successfully converted.<br />\n";
 		}
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>MySQL Table Character Set Adjuster</h2>
-<form method="post" id="a_frm">
+<form method="post" id="a_frm" action="">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
         <td>Available Character Sets</td>
-	<td><select name="charset"><?php foreach ($chars as $v) { echo '<option value="'.$v.'">'.$v.'</option>'; } ?></select></td>
+	<td><select name="charset">
+<?php foreach ($chars as $v) 
+	if ( $v == 'utf8' ) {
+		echo '<option value="'.$v.'" selected="selected">'.$v.'</option>'; 
+	} else {
+		echo '<option value="'.$v.'">'.$v.'</option>';  
+	}
+?></select></td>
 </tr>
 <tr class="field">
 	<td colspan="2" align="right"><input tabindex="3" type="submit" value="Change Charset" name="btn_submit" /></td>
@@ -42,13 +50,8 @@
 </form>
 
 <br />
-<div class="tutor">
-All forums should seriously consider converting their databases to the UTF-8 character set.</td>
-</div>
+<table class="tutor" width="99%"><tr><td>
+All forums should seriously consider converting their databases to the UTF-8 character set. Note that the conversion will take a long time to run, escpecially on large databases.
+</td></tr></table>
 
-<script type="text/javascript">
-/* <![CDATA[ */
-document.forms['a_frm'].subject.focus();
-/* ]]> */
-</script>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

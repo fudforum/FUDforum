@@ -14,17 +14,17 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 ?>" />
 </head>
 <body>
+<table class="headtable"><tr>
+  <td><a href="../<?php echo __fud_index_name__.'?'.__adm_rsid; ?>" title="Return to forum"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a></td>
+  <td><span class="linkhead">Admin Control Panel</span></td>
+  <td>[ <a href="../<?php echo __fud_index_name__.'?'.__adm_rsid; ?>">Return to forum</a> ]</td>
+</tr></table>
+
 <table class="maintable">
 <tr>
 <?php if ($is_a) { ?>
 <td class="linkdata">
 <table class="linktable">
-<tr>
-<td>
-<a href="../<?php echo __fud_index_name__.'?'.__adm_rsid; ?>">Return To Forum</a>
-    </td></tr>
-<tr><td>
-<span class="linkhead">Admin Control Panel</span></td></tr>
 <tr>
 	<td nowrap="nowrap">
 	<span class="linkgroup">Checks/Consistency</span><br />

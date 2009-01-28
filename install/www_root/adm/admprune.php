@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.42 2009/01/28 05:40:56 frank Exp $
+* $Id: admprune.php,v 1.43 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -77,7 +77,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 <div align="center">You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics containing <font color="red"><?php echo $msg_cnt; ?></font> messages,
 which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $umsg . $msg; ?><br /><br />
 			Are you sure you want to do this?<br />
-			<form method="post">
+			<form method="post" action="">
 			<input type="hidden" name="btn_prune" value="1" />
 			<?php echo _hs; ?>
 			<input type="hidden" name="thread_age" value="<?php echo $_POST['thread_age']; ?>" />
@@ -128,25 +128,25 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 ?>
 <h2>Topic Prunning</h2>
 
-This utility allows you to remove all topics, where the last message<br />
+<p>This utility allows you to remove all topics, where the last message<br />
 inside the topic was posted prior to the specified date. For example <br />
 if you enter a value of 10 and select "days" this form will offer to <br />
-delete topics with no messages in the last 10 days.<p>
+delete topics with no messages in the last 10 days.</p>
 
 <form id="adp" method="post" action="admprune.php">
 <table class="datatable">
 <?php
 	if ($usr_id) {
 		echo '<tr class="field">';
-		echo '<td nowrap>By Author:</td>';
+		echo '<td nowrap="nowrap">By Author:</td>';
 		echo '<td colspan="2">'.q_singleval("SELECT alias FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".$usr_id).'</td>';
 		echo '</tr>';
 	}
 ?>
 <tr class="field">
-	<td nowrap>Topics with last post made:</td>
+	<td nowrap="nowrap">Topics with last post made:</td>
 	<td ><input tabindex="1" type="text" name="thread_age" /></td>
-	<td nowrap><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
+	<td nowrap="nowrap"><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 
 <tr class="field">
@@ -166,7 +166,7 @@ delete topics with no messages in the last 10 days.<p>
 		unset($c);
 		echo '</select>';
 	?>
-</tr>
+</td></tr>
 
 <tr class="field">
 	<td align="right" colspan="3"><input tabindex="2" type="submit" name="btn_prune" value="Prune" /></td>

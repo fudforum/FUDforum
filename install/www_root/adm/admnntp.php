@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.42 2009/01/25 12:50:38 frank Exp $
+* $Id: admnntp.php,v 1.43 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -218,7 +218,7 @@
 <br /><br />
 <table class="resulttable fulltable">
 	<tr class="resulttopic">
-		<td nowrap>Newsgroup Rule</td>
+		<td nowrap="nowrap">Newsgroup Rule</td>
 		<td>Forum</td>
 		<td>Exec Line</td>
 		<td align="center">Action</td>
@@ -233,7 +233,7 @@
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
-			<td nowrap><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/nntp.php '.$r[0].' </font></td>
+			<td nowrap="nowrap"><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/nntp.php '.$r[0].' </font></td>
 			<td>[<a href="admnntp.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admnntp.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
 			[<a href="admnntp.php?trk='.$r[0].'&amp;'.__adm_rsid.'">Clear Tracker</a>]</td></tr>';
 	}

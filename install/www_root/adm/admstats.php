@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.48 2009/01/18 08:22:09 frank Exp $
+* $Id: admstats.php,v 1.49 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -267,8 +267,10 @@ function get_sql_disk_usage()
 <?php
 	} else { /* $same_dir */
 ?>
+<tr class="field">
 	<td><b>Forum Directories:</b></td>
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $total_disk_usage/1024)); ?> Kb</td>
+</tr>
 <?php
 	}
 ?>

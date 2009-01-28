@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlevel.php,v 1.35 2009/01/25 12:50:38 frank Exp $
+* $Id: admlevel.php,v 1.36 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,7 +54,7 @@
 	</tr>
 	<tr class="field">
 		<td>Rank Image<br /><font size="-1">URL to the image</font></td>
-		<td><input type="text" name="lev_img" value="<?php echo htmlspecialchars($lev_img); ?>" /><br />
+		<td><input type="text" name="lev_img" value="<?php echo htmlspecialchars($lev_img); ?>" /></td>
 	</tr>
 
 	<tr class="field">

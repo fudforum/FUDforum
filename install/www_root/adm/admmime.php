@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmime.php,v 1.33 2009/01/23 19:42:23 frank Exp $
+* $Id: admmime.php,v 1.34 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -81,12 +81,12 @@
 
 <tr class="field">
 	<td valign="top"><a name="mime_sel">MIME Icon:</a></td>
-	<td nowrap><input type="text" name="mime_icon" value="<?php echo htmlspecialchars($mime_icon); ?>" onchange="javascript:
+	<td nowrap="nowrap"><input type="text" name="mime_icon" value="<?php echo htmlspecialchars($mime_icon); ?>" onchange="
 				if (document.frm_sml.mime_icon.value.length) {
 					document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/mime/' + document.frm_sml.mime_icon.value;
 				} else {
 					document.prev_icon.src='../blank.gif';
-				}"> [<a href="#mime_sel" onclick="javascript:window.open('admiconsel.php?type=2&amp;<?php echo __adm_rsid; ?>', 'admmimesel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');" />select MIME icon</a>]</td>
+				}" /> [<a href="#mime_sel" onclick="window.open('admiconsel.php?type=2&amp;<?php echo __adm_rsid; ?>', 'admmimesel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">select MIME icon</a>]</td>
 </tr>
 
 <tr class="field">
@@ -112,7 +112,7 @@
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
-<p>
+<p />
 <table class="resulttable fulltable">
 <tr class="resulttopic">
 	<td>Icon</td>
@@ -130,7 +130,7 @@
 		} else {
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
-		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$GLOBALS['WWW_ROOT'].'images/mime/'.$r[1].'" border="0" alt="'.$r[4].'" /></td><td>'.$r[2].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td nowrap>[<a href="admmime.php?edit='.$r[0].'&amp;'.__adm_rsid.'#img">Edit</a>] [<a href="admmime.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$GLOBALS['WWW_ROOT'].'images/mime/'.$r[1].'" border="0" alt="'.$r[4].'" /></td><td>'.$r[2].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td nowrap="nowrap">[<a href="admmime.php?edit='.$r[0].'&amp;'.__adm_rsid.'#img">Edit</a>] [<a href="admmime.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 ?>

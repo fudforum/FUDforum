@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.89 2009/01/28 05:40:56 frank Exp $
+* $Id: admuser.php,v 1.90 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -434,7 +434,7 @@ if ($acc_mod_only) {
 	unset($c);
 ?>
 	<a name="mod_here"> </a>
-	<a href="#mod_here" onclick="javascript: window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&amp;' . __adm_rsid; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
+	<a href="#mod_here" onclick="window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&amp;' . __adm_rsid; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
 
 
 	<tr class="field"><td valign="top">Custom Tags:</td><td valign="top">
@@ -520,5 +520,5 @@ if ($acc_mod_only) {
 ?>
 	</table>
 </form>
-</table>
+</td></tr></table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

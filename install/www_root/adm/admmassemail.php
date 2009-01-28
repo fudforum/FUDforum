@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.56 2009/01/23 19:42:23 frank Exp $
+* $Id: admmassemail.php,v 1.57 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,7 +120,7 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Mass Mail System</h2>
-<form method="post" id="a_frm">
+<form method="post" action="" id="a_frm">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <?php if($FUD_OPT_1 & 1024) { ?>

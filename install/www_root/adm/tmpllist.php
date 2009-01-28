@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.50 2009/01/19 21:14:25 frank Exp $
+* $Id: tmpllist.php,v 1.51 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -158,7 +158,7 @@ function goto_tmpl($tmpl)
 			$p = $e;
 		}
 		if (isset($msg_list)) {
-			$msg_list = ' <font size="-1">[ <a href="#" onclick="javascript: window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsid.'&NO_TREE_LIST=1&msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
+			$msg_list = ' <font size="-1">[ <a href="#" onclick="window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsid.'&NO_TREE_LIST=1&msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
 		}
 	}
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');

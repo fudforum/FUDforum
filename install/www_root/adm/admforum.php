@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.50 2009/01/23 19:42:23 frank Exp $
+* $Id: admforum.php,v 1.51 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -126,7 +126,7 @@ if (!isset($_GET['chpos'])) {
 
 	<tr class="field">
 		<td valign="top">Description</td>
-		<td><textarea nowrap name="frm_descr" cols="28" rows="5"><?php echo htmlspecialchars($frm_descr); ?></textarea>
+		<td><textarea nowrap="nowrap" name="frm_descr" cols="28" rows="5"><?php echo htmlspecialchars($frm_descr); ?></textarea>
 	</tr>
 
 	<tr class="field">
@@ -176,7 +176,7 @@ if (!isset($_GET['chpos'])) {
 
 	<tr class="field">
 		<td><a name="frm_icon_pos">Forum Icon</a></td>
-		<td><input type="text" name="frm_forum_icon" value="<?php echo $frm_forum_icon; ?>" /> <a href="javascript://" onclick="javascript:window.open('admiconsel.php?type=1&amp;<?php echo __adm_rsid; ?>', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
+		<td><input type="text" name="frm_forum_icon" value="<?php echo $frm_forum_icon; ?>" /> <a href="javascript://" onclick="window.open('admiconsel.php?type=1&amp;<?php echo __adm_rsid; ?>', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
 	</tr>
 
 <?php if (!$edit) { ?>
@@ -209,7 +209,7 @@ if (!isset($_GET['chpos'])) {
 }
 ?>
 <table class="datatable">
-<tr class="fieldtopic"><td valign="top" nowrap>Reorder All Forums by:</td></tr>
+<tr class="fieldtopic"><td valign="top" nowrap="nowrap">Reorder All Forums by:</td></tr>
 <tr><td class="field"><font size="-2">
 	<b>Forum Name</b> [ <a href="admforum.php?o=1&amp;ot=name&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Ascending</a> - <a href="admforum.php?o=0&amp;ot=name&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Descending</a> ]<br />
 	<b>Forum Description</b> [ <a href="admforum.php?o=1&amp;ot=descr&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Ascending</a> - <a href="admforum.php?o=0&amp;ot=descr&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Descending</a> ]<br />
@@ -246,7 +246,7 @@ if (!isset($_GET['chpos'])) {
 			$lp = $r->view_order;
 		}
 		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'._hs.'<input type="hidden" id="frm_id" value="'.$r->id.'" /><input type="hidden" name="cat_id" value="'.$cat_id.'" /><input type="submit" name="btn_chcat" value="Move To: " /> '.$move_ct.'</form>';
-		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-2">'.htmlspecialchars(substr($r->descr, 0, 30)).'</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap>[<a href="admforum.php?cat_id='.$cat_id.'&amp;edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'.__adm_rsid.'">Delete</a>]</td><td nowrap="nowrap">'.$cat_name.'</td><td nowrap="nowrap">[<a href="admforum.php?chpos='.$r->view_order.'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Change</a>]</td></tr>';
+		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-2">'.htmlspecialchars(substr($r->descr, 0, 30)).'</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap="nowrap">[<a href="admforum.php?cat_id='.$cat_id.'&amp;edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'.__adm_rsid.'">Delete</a>]</td><td nowrap="nowrap">'.$cat_name.'</td><td nowrap="nowrap">[<a href="admforum.php?chpos='.$r->view_order.'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Change</a>]</td></tr>';
 	}
 	unset($c);
 	if (isset($lp)) {

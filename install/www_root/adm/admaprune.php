@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaprune.php,v 1.21 2009/01/28 05:40:56 frank Exp $
+* $Id: admaprune.php,v 1.22 2009/01/28 19:17:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -65,7 +65,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 <div align="center">You are about to delete <font color="red"><?php echo $a_cnt; ?></font> public file attachments AND <font color="red"><?php echo $pa_cnt; ?></font> private file attachments.
 <br />That were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $msg; ?><br /><br />
 			Are you sure you want to do this?<br />
-			<form id="post">
+			<form id="post" method="post" action="">
 			<input type="hidden" name="btn_prune" value="1" />
 			<?php echo _hs; ?>
 			<input type="hidden" name="thread_age" value="<?php echo $_POST['thread_age']; ?>" />
@@ -129,14 +129,14 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 ?>
 <h2>Attachment Prunning</h2>
 
-This utility allows you to remove all attachments posted prior to the<br />
+<p>This utility allows you to remove all attachments posted prior to the<br />
 specified date. For example if you enter a value of 10 and select "days"<br /> 
-this form will offer to delete attachments olders then 10 days.<p>
+this form will offer to delete attachments olders then 10 days.</p>
 
 <form id="adpa" method="post" action="admaprune.php">
 <table class="datatable">
 <tr class="field">
-	<td nowrap>Attachments Older Then:</td>
+	<td nowrap="nowrap">Attachments Older Then:</td>
 	<td ><input type="text" name="thread_age" tabindex="1" /></td>
 	<td nowrap="nowrap"><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
@@ -163,7 +163,7 @@ this form will offer to delete attachments olders then 10 days.<p>
 		unset($c);
 		echo '</select>';
 	?>
-</tr>
+</td></tr>
 
 <tr class="fieldaction">
 	<td align="right" colspan="3"><input tabindex="2" type="submit" name="btn_prune" value="Prune" /></td>
