@@ -1,8 +1,8 @@
 <?php
 /**
-* copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.90 2009/01/28 19:17:10 frank Exp $
+* $Id: admuser.php,v 1.91 2009/01/29 18:37:40 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -118,7 +118,7 @@
 			if (!isset($_POST['del_confirm'])) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <?php echo '<title>'.$FORUM_TITLE.': Admin Control Panel - User Deletion confirmation'.'</title>' ?>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php 
@@ -167,7 +167,7 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 				if (!isset($_POST['adm_confirm'])) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <?php echo '<title>'.$FORUM_TITLE.': Admin Control Panel - Adminstrator confirmation'.'</title>' ?>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php 
@@ -206,7 +206,7 @@ Are you sure you want to do this?<br />
 				if (!isset($_POST['adm_confirm'])) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <?php echo '<title>'.$FORUM_TITLE.': Admin Control Panel - Adminstrator confirmation'.'</title>' ?>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php 
@@ -320,7 +320,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				}
 				break;
 			default:
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>';
+echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>';
 echo '<title>'.$FORUM_TITLE.': Admin Control Panel - Select user</title>';
 
 echo '<meta http-equiv="Content-Type" content="text/html; charset=';

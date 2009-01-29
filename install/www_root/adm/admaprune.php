@@ -1,8 +1,8 @@
 <?php
 /**
-* copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaprune.php,v 1.22 2009/01/28 19:17:10 frank Exp $
+* $Id: admaprune.php,v 1.23 2009/01/29 18:37:40 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,7 +46,7 @@
 			}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel - Confirm attachment pruning</title>' ?>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php 

@@ -1,8 +1,8 @@
 <?php
 /**
-* copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.33 2009/01/23 19:42:23 frank Exp $
+* $Id: admadduser.php,v 1.34 2009/01/29 18:37:40 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the

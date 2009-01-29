@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *

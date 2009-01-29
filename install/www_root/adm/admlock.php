@@ -1,8 +1,8 @@
 <?php
 /**
-* copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.46 2009/01/28 19:17:10 frank Exp $
+* $Id: admlock.php,v 1.47 2009/01/29 18:37:40 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the

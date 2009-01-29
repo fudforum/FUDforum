@@ -1,15 +1,15 @@
 <?php
 /**
-* copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.192 2009/01/17 09:23:51 frank Exp $
+* $Id: core.inc,v 1.193 2009/01/29 18:37:17 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-$FORUM_VERSION = "2.7.7";
+$FORUM_VERSION = "2.8.0";
 
 ignore_user_abort('1');
 set_magic_quotes_runtime(0);
