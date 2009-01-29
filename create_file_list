@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: create_file_list,v 1.20 2007/01/01 18:23:42 hackie Exp $
+* $Id: create_file_list,v 1.21 2009/01/29 15:11:31 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -63,7 +63,7 @@ function w_err($msg, $exit=true)
 	}
 
 	if (isset($_SERVER['argv'][2]) && !extension_loaded('zlib')) {
-		w_err('zlib extension required to compress the archive is not loaded.');
+		w_err('The zlib extension that is required to compress the archive is not installed.');
 	}	
 
 	$_SERVER['argv'][1] = preg_replace('!/+$!', '', $_SERVER['argv'][1]);

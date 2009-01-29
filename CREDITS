@@ -1,10 +1,10 @@
-$Id: CREDITS,v 1.8 2005/03/05 18:46:59 hackie Exp $
+$Id: CREDITS,v 1.9 2009/01/29 15:11:31 frank Exp $
 
 Developers
 ==============================================================================
 Ilia Alshanetsky (prottoss)		ilia@prohost.org
 Slava Poliakov (hackie)			hackie@prohost.org
-
+Frank (naudefj)				undisclosed
 
 Contributors
 ==============================================================================
@@ -12,13 +12,13 @@ Contributors
 Olliver Wichmann (Ken Kizaki) 		(German Translation)
 olliver.wichmann@gmx.net
 
-==============================================================================
+------------------------------------------------------------------------------
 
 Sebastian Djupsjobacka (basse)	 	(Swedish Translation)
 basse@iki.fi
 http://www.djupsjobacka.com/basse/
 
-==============================================================================
+------------------------------------------------------------------------------
 
 Krzysztof Krawczyk (Kerhold) 		(Polish Translation)
 krzysiek@linux.com.pl
@@ -31,56 +31,56 @@ http://alchemyx.uznam.net.pl/
 Bartlomiej Kostecki
 barkoz@uznam.net.pl
 
-==============================================================================
+------------------------------------------------------------------------------
 
 DevoX 					(Default Layout Concept & Images)
 http://www.spudland.com/ 		
 
-==============================================================================
+------------------------------------------------------------------------------
 
 Brandon Browning (mauftarkie) 		(English grammar & spelling fixes, 
 http://www.powertie.org/		 consistency fixes and numerous bug
 					 fixes)
 
-==============================================================================
+------------------------------------------------------------------------------
 
 Stan Bloch (Ecxeleron)			(all FUDforum smilies & some icons)
 sbloch@yahomail.ne.gs
 http://ecxeleron.orphus.com
 
-==============================================================================
+------------------------------------------------------------------------------
 
 Tufan Karadere				(Turkish Translation)
 tufan@metu.edu
 
-==============================================================================
+------------------------------------------------------------------------------
 
 George Nechaev				(Russian Translation)
 venus@trg.ru
 
-==============================================================================
+------------------------------------------------------------------------------
 
 Xavier Noguer				(Spanish Translation) 
 xnoguer@rezebra.com
 
-==============================================================================
+------------------------------------------------------------------------------
 
 TGMOnline Staff				(Italian Translation) 
 http://www.tgmonline.it
 
 Vittorio Moccia
 
-==============================================================================
+------------------------------------------------------------------------------
 
 Lopo - HumanEasy.COM			(Portuguese Translation) 
 http://www.humaneasy.com
 
-==============================================================================
+------------------------------------------------------------------------------
 
 Jani Taskinen				(Finnish Translation) 
 sniper@iki.fi
 
-==============================================================================
+------------------------------------------------------------------------------
 
 The KDE Project				(a rather large amount of icons used
 http://www.kde.org			 in FUDforum are from the KDE project)
