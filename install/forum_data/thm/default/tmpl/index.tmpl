@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.88 2009/01/29 18:37:29 frank Exp $
+* $Id: index.tmpl,v 1.89 2009/02/01 21:13:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,13 +28,13 @@
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
-<tr id="c{VAR: k}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
+<tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
 <td class="CatDesc {IF: empty($collapse[$cid])}expanded{ELSE}collapsed{ENDI}" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
 <a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td>{TEMPLATE: index_cat_up_down_arrows}</tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr id="c{VAR: k}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
+<tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
 <td class="CatDesc CatLockPad" colspan="5" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
 <span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}</td>{TEMPLATE: index_cat_up_down_arrows}</tr>
 {SECTION: END}
@@ -44,7 +44,7 @@
 {SECTION: END}
 
 {SECTION: index_forum_entry forum entry row}
-<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="child-c{VAR: k}">
+<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="child-c{VAR: r[5]}">
 	<td class="RowStyleA wo">{IF: $r[6]}<img src="images/forum_icons/{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
 	<td class="RowStyleB wo">{VAR: forum_read_indicator}</td>
 	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
@@ -55,7 +55,7 @@
 {SECTION: END}
 
 {SECTION: forum_with_no_view_perms}
-<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="child-{VAR: k}">
+<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="child-c{VAR: r[5]}">
 	<td class="RowStyleA" colspan="6">{VAR: r[10]}{FUNC: ($r[11] ? '<br />'.$r[11] : '')}</td>
 </tr>
 {SECTION: END}
