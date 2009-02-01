@@ -1043,3 +1043,5 @@ pmsg_on				on
 move_messages:			Move messages
 move_msg_btn:			Move Selected Messages
 move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
+minimize_message:		Minimize Message
+maximize_message:		Maximize Message

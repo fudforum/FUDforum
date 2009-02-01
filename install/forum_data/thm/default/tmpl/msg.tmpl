@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.71 2009/01/29 18:37:29 frank Exp $
+* $Id: msg.tmpl,v 1.72 2009/02/01 13:25:55 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -73,6 +73,36 @@
 {FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)}
  {IF: $frm->tdescr}<span class="small">({VAR: frm->tdescr})</span>{ENDIF} 
 <span id="threadRating">{IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}</span>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+$(document).ready(function() {
+  var toggleMinus = 'theme/orafaq/images/min.png';
+  var togglePlus  = 'theme/orafaq/images/max.png';
+
+  $(".MsgSubText").prepend('<img src="' + toggleMinus + '" alt="-" title="{MSG: minimize_message}" /> ')
+                .addClass("collapsable");
+
+  $("img", $(".collapsable")).addClass('clickable').css("cursor", "pointer")
+  .click(function() {
+    var toggleSrc = $(this).attr('src');
+
+    if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        // Hide message
+      $(this).attr('src', togglePlus)
+             .attr("title", "{MSG: maximize_message}")
+             .attr("alt", "+")
+             .parents(".MsgTable").find("td").not(".MsgR1").fadeOut('fast');
+    } else{                                             // Show message
+      $(this).attr('src', toggleMinus)
+             .attr("title", "{MSG: minimize_message}")
+             .attr("alt", "-")
+             .parents(".MsgTable").find("td").fadeIn('fast');
+    };
+  });
+})
+/* ]]> */
+</script>
+
 <table cellspacing="0" cellpadding="0" border="0" class="wa">
 <tr>
 <td class="GenText al">{TEMPLATE: show_links}
