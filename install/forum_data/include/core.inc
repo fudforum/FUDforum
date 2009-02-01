@@ -2,14 +2,14 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.193 2009/01/29 18:37:17 frank Exp $
+* $Id: core.inc,v 1.194 2009/02/01 20:40:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-$FORUM_VERSION = "2.8.0";
+$FORUM_VERSION = "2.8.0RC1";
 
 ignore_user_abort('1');
 set_magic_quotes_runtime(0);
