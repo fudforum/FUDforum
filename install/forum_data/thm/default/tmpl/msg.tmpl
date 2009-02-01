@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.72 2009/02/01 13:25:55 frank Exp $
+* $Id: msg.tmpl,v 1.73 2009/02/01 19:55:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -77,8 +77,8 @@
 <script type="text/javascript">
 /* <![CDATA[ */
 $(document).ready(function() {
-  var toggleMinus = 'theme/orafaq/images/min.png';
-  var togglePlus  = 'theme/orafaq/images/max.png';
+  var toggleMinus = '{THEME_IMAGE_ROOT}/min{DEF: img_ext}';
+  var togglePlus  = '{THEME_IMAGE_ROOT}/max{DEF: img_ext}';
 
   $(".MsgSubText").prepend('<img src="' + toggleMinus + '" alt="-" title="{MSG: minimize_message}" /> ')
                 .addClass("collapsable");
