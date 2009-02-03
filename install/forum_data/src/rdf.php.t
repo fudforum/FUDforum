@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.69 2009/01/29 18:37:17 frank Exp $
+* $Id: rdf.php.t,v 1.70 2009/02/03 20:40:46 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -244,6 +244,7 @@ function smiley_full(&$data)
 
 				$body = read_msg_body($r->foff, $r->length, $r->file_id);
 				smiley_full($body);
+
 				if ($basic) {
 $basic_rss_header .= "\t\t\t<rdf:li rdf:resource=\"".$WWW_ROOT."index.php?t=rview&amp;goto=".$r->id."&amp;th=".$r->thread_id."#msg_".$r->id."\" />\n";
 
@@ -364,7 +365,7 @@ $basic_rss_data .= '
 					t.*,
 					f.name AS frm_name,
 					c.name AS cat_name,
-					m.subject, m.post_stamp, m.poster_id,
+					m.subject, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id,
 					m2.subject AS lp_subject,
 					u.alias
 				FROM
@@ -406,13 +407,16 @@ $basic_rss_data .= '
 					$r->last_post_date = gmdate('r', $r->last_post_date);
 				}
 
+				$body = read_msg_body($r->foff, $r->length, $r->file_id);
+				smiley_full($body);
+
 				if ($basic) {
 					echo '<rdf:li rdf:resource="'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->id.'" />';
 					$data .= '
 <item rdf:about="'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->id.'">
 	<title>'.htmlspecialchars($r->subject).'</title>
 	<link>'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->thread_id.'</link>
-	<description>'.sp($r->tdescr).'</description>
+	<description>'.sp($body).'</description>
 	<dc:subject>'.sp($r->frm_name).'</dc:subject>
 	<dc:creator>'.sp($r->alias).'</dc:creator>
 	<dc:date>'.gmdate('Y-m-d\TH:i:s', $r->post_stamp).'-00:00</dc:date>
@@ -434,6 +438,7 @@ $basic_rss_data .= '
 	<last_post_id>'.$r->last_post_id.'</last_post_id>
 	<last_post_subj>'.sp($r->lp_subject).'</last_post_subj>
 	<last_post_date>'.$r->last_post_date.'</last_post_date>
+	<body>'.str_replace("\n", '', sp($body)).'</body>
 </item>';
 				}
 			}
