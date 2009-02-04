@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.70 2009/02/03 20:40:46 frank Exp $
+* $Id: rdf.php.t,v 1.71 2009/02/04 15:12:27 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -415,7 +415,7 @@ $basic_rss_data .= '
 					$data .= '
 <item rdf:about="'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->id.'">
 	<title>'.htmlspecialchars($r->subject).'</title>
-	<link>'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->thread_id.'</link>
+	<link>'.$WWW_ROOT.'index.php?t=rview&amp;th='.$r->id.'</link>
 	<description>'.sp($body).'</description>
 	<dc:subject>'.sp($r->frm_name).'</dc:subject>
 	<dc:creator>'.sp($r->alias).'</dc:creator>
