@@ -3,7 +3,7 @@ exit("To run the un-installer, comment out the 2nd line of the script!\n");
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uninstall.php,v 1.22 2009/01/29 18:37:17 frank Exp $
+* $Id: uninstall.php,v 1.23 2009/02/04 10:44:49 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -32,16 +32,23 @@ function fud_ini_get($opt)
 		$SERVER_ROOT = rtrim($_GET['SERVER_ROOT'], '\\/ ');
 	}
 ?>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 	<title>FUDforum Un-installer</title>
 </head>
-<body bgcolor="white">
+<body>
+<table style="background: #527bbd; color: white; width: 100%; height: 50px;"><tr>
+  <td> &nbsp; </td>
+  <td><span style="color: #fff; font-weight: bold; font-size: x-large;">FUDforum Uninstall Wizard</span></td>
+  <td> &nbsp; </td>
+</tr></table>
+
 <?php
 
 function print_error($msg)
 {
-	exit('<font color="red">'.$msg.'</font></body></html>');
+	exit('<br /><font color="red">'.$msg.'</font></body></html>');
 }
 
 function fud_rmdir($dir)
@@ -49,14 +56,14 @@ function fud_rmdir($dir)
 	$dirs = array(realpath($dir));
 
 	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
+		if (!($files = glob($v.'/{.b*,.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
 		}
 		foreach ($files as $file) {
 			if (is_dir($file) && !is_link($file)) {
 				$dirs[] = $file;
 			} else if (!unlink($file)) {
-				echo '<b>Could not delete file "'.$file.'"<br>';
+				echo '<b>Could not delete file "'.$file.'"<br />';
 			}
 		}
 	}
@@ -65,14 +72,14 @@ function fud_rmdir($dir)
 	
 	foreach ($dirs as $dir) {
 		if (!rmdir($dir)) {
-			echo '<b>Could not delete directory "'.$dir.'"<br>';
+			echo '<b>Could not delete directory "'.$dir.'"<br />';
 		}
 	}
 }
 
 	if (isset($SERVER_DATA_ROOT)) {
 		if (!is_dir($SERVER_DATA_ROOT)) {
-			print_error('Directory "'.$SERVER_DATA_ROOT.'" does not exist');
+			print_error('Directory "'.$SERVER_DATA_ROOT.'" does not exist!');
 		}
 
 		/* try to read GLOBALS.php to determine database settings so that databases can be cleaned up */
@@ -131,18 +138,18 @@ function fud_rmdir($dir)
 				}
 			}
 		}
-		print_error('FUDforum installed in "'.$SERVER_DATA_ROOT.'" has been successfully uninstalled');
+		print_error('FUDforum installed in "'.$SERVER_DATA_ROOT.'" has been successfully uninstalled!<br /><br />Sorry to see you go. If there is anything we can do to help, please let us know at <a href="http://fudforum.org/">fudforum.org</a>.');
 	}
 ?>
 <div align="center">
-<form name="uninstall" action="uninstall.php", method="post">
+<form name="uninstall" action="uninstall.php" method="post">
 <table bgcolor="#000000" align="center" border="0" cellspacing="0" cellpadding="1">
 <tr><td><table bgcolor="#FFFFFF" border="0" cellspacing="1" cellpadding="4" align="center">
-	<tr><td colspan="2" bgcolor="#e5ffe7"><font color="red"><b>This utility will uninstall FUDforum from specified directories. Make sure that this is what you want to do, because once it runs there is no going back.</b></font></td></tr>
-	<tr bgcolor="#bff8ff"><td valign="top"><b>Forum Data Root</b><br /><font size="-1">This is the directory where you've installed the non-browseable forum files</font></td><td><input type="text" name="SERVER_DATA_ROOT" value="" size=40></td></tr>
-	<tr bgcolor="#bff8ff"><td valign="top"><b>Server Root</b><br /><font size="-1">This is the directory where you've installed the browseable forum files. If it is the same as "Forum Data Root", you can leave this field blank.</font></td><td><input type="text" name="SERVER_ROOT" value="" size="40"></td></tr>
-	<tr><td colspan="2" align="center" bgcolor="white"><input type="submit" name="submit" value="uninstall"></td><tr>
-</table>	
+	<tr><td colspan="2" bgcolor="#e5ffe7"><font color="red"><b>This utility will uninstall FUDforum from specified directories. Make sure that this is what you want to do, because once it runs there is no going back. We recommend running a backup first.</b></font></td></tr>
+	<tr bgcolor="#bff8ff"><td valign="top"><b>Forum Data Root</b><br /><font size="-1">This is the directory where you've installed the non-browseable forum files</font></td><td><input type="text" name="SERVER_DATA_ROOT" value="" size=40 /></td></tr>
+	<tr bgcolor="#bff8ff"><td valign="top"><b>Server Root</b><br /><font size="-1">This is the directory where you've installed the browseable forum files. If it is the same as "Forum Data Root", you can leave this field blank.</font></td><td><input type="text" name="SERVER_ROOT" value="" size="40" /></td></tr>
+	<tr><td colspan="2" align="center" bgcolor="white"><input type="submit" name="submit" value="uninstall" style="background:red; color:white; font-size: large;" /></td></tr>
+</table></td></tr></table>
 </form>
 </div>
 </body>
