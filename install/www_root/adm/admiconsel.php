@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admiconsel.php,v 1.22 2009/01/29 18:37:40 frank Exp $
+* $Id: admiconsel.php,v 1.23 2009/02/05 10:23:40 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,7 +49,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 					if (window.opener.document.prev_icon) 
 						window.opener.document.prev_icon.src=\''.$web_dir.$f.'\';
 					window.close();">
-				<img src="'.$web_dir.$f.'" border="0" alt="avatar"><br /><font size="-2">'.$f.'</font></a></td>';
+				<img src="'.$web_dir.$f.'" border="0" alt="avatar"><br /><font size="-2" />'.$f.'</font></a></td>';
 		}
 	} else if (!is_readable($path)) {
 		echo '<td>Unable to open '.$path.' for reading.</td>';
@@ -64,19 +64,19 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 
 	switch ($_GET['type']) {
 		case 1: /* forum icon selection */
-			print_image_list('images/forum_icons', 'frm_forum.frm_forum_icon', 'Forum Icon');
+			print_image_list('images/forum_icons', "forms['frm_forum'].frm_forum_icon", 'Forum Icon');
 			break;
 		case 2: /* mime icon selection */
-			print_image_list('images/mime', 'frm_mime.mime_icon', 'Mime Icon');
+			print_image_list('images/mime', "forms['frm_mime'].mime_icon", 'Mime Icon');
 			break;
 		case 3: /* emoticon/smiley selection */
-			print_image_list('images/smiley_icons', 'frm_sml.sml_img', 'Smiley/Emoticon');
+			print_image_list('images/smiley_icons', "forms['frm_sml'].sml_img", 'Smiley/Emoticon');
 			break;
 		case 4: /* avatar selection */
 			print_image_list('images/avatars/', "forms['frm_avt'].avt_img", 'Built-In Avatars');
 			break;
 		case 5: /* message icon selection */
-			print_image_list('images/message_icons', 'frm_forum.frm_forum_icon', 'Message Icon');
+			print_image_list('images/message_icons', "forms['frm_forum'].frm_forum_icon", 'Message Icon');
 			break;
 	}
 ?>
