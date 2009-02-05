@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: unprotect.php,v 1.15 2009/01/29 18:37:17 frank Exp $
+* $Id: unprotect.php,v 1.16 2009/02/05 10:13:19 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,11 +21,12 @@ function fud_ini_get($opt)
 		exit;
 	}
 ?>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 	<title>FUDforum Unlock Files Script</title>
 </head>
-<body bgcolor="white">
+<body>
 <?php
 
 function fud_unlock($dir)
@@ -33,7 +34,7 @@ function fud_unlock($dir)
 	$dirs = array(realpath($dir));
 
 	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
+		if (!($files = glob($v.'/{.b*,.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
 		}
 		foreach ($files as $file) {
@@ -44,7 +45,7 @@ function fud_unlock($dir)
 				$perm = 0666;
 			}
 			if (!chmod($file, $perm)) {
-				echo '<b>Could not unlock path "'.$file.'"<br>';
+				echo '<b>Could not unlock path "'.$file.'"<br />';
 			}
 		}
 	}
