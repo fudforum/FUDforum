@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: GLOBALS.php,v 1.58 2009/01/29 18:37:17 frank Exp $
+* $Id: GLOBALS.php,v 1.59 2009/02/07 21:25:40 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -78,7 +78,7 @@
 	$LOGEDIN_TIMEOUT	= 5;		/* minutes */
 	$MAX_IMAGE_COUNT	= 10;
 	$STATS_CACHE_AGE	= 600;		/* seconds */
-	$FORUM_TITLE		= "";
+	$FORUM_TITLE		= "My forum, my way!";
 	$MAX_LOGIN_SHOW		= 25;
 	$MAX_LOCATION_SHOW	= 25;
 	$SHOW_N_MODS		= 2;
