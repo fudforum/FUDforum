@@ -1,0 +1,592 @@
+TOPIC_TITLE: <a name="style">Как отформатировать текст сообщения?</a>
+TOPIC_HELP:
+В большинстве случаев все сообщения отправляются в форуме в виде обычного
+текста, но возможно и использование некоторых элементов форматирования,
+таких как выделение слов или фраз жирным или наклонным шрифтом и т.п.
+<p>
+Поскольку использование языка HTML при композиции сообщений может быть
+запрещено администратором по какой либо причине, для этой цели вы можете
+использовать специальный язык FUDcode, предоставляющий в ваше распоряжение
+набор тегов для форматирования. FUDcode гораздо проще в освоении и безопаснее,
+чем язык HTML.
+<p>
+Ниже приведен список поддерживаемых FUDcode тегов
+и короткие примеры их использования
+<p>
+<a name="url"><b>Создание гиперссылок</b></a><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#FF0000">http://fud.prohost.org</font></td>
+    <td valign="middle" align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></td>
+  </tr>
+</table>
+<i>Объяснение:</i> Форум распознает URL в сообщениях автоматически и преобразует их в гиперссылки.
+<br /><br />	
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></td>
+    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></td>
+  </tr>
+</table>
+<i>Объяснение:</i> Используя FUDcode, вы можете сами создавать гиперссылки в сообщениях.
+<br /><br />
+ 
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600"><br />My Homepage<br /></font>[/URL]</b></font></td>
+    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></td>
+  </tr>
+</table>
+<i>Объяснение:</i> FUDcode допускает создание гиперссылок с произвольным названием.
+<br /><br /><br />
+
+<p>
+<a name="email"><b>Создание гиперссылок на email</b></a><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>support@prohost.org</b></font></td>
+    <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">support@prohost.org</a></td>
+  </tr>
+</table>
+<i>Объяснение:</i> FUDforum автоматически преобразует email-адреса в гиперссылки.
+<br /><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font><br />Click here to email our tech support<br /><font color="#ff0000"><b>[/email]</b></font></td>
+    <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Click here to email our tech support</a></td>
+  </tr>
+</table>
+<i>Объяснение:</i> FUDcode допускает создание email-ссылок с произвольным названием.
+<br /><br />
+
+<br />
+<b>Стили текста</b><br />
+<a name="b"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[b]</b></font>жирный<font color="#ff0000"><b>[/b]</b></font></td>
+    <td valign="middle" align="center"><b>жирный</b></td>
+  </tr>
+</table>
+<br />
+
+<a name="u"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[u]</b></font>подчеркнутый<font color="#ff0000"><b>[/u]</b></font></td>
+    <td valign="middle" align="center"><u>подчеркнутый</u></td>
+  </tr>
+</table>
+<br />
+
+<a name="i"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[i]</b></font>наклонный<font color="#ff0000"><b>[/i]</b></font></td>
+    <td valign="middle" align="center"><i>наклонный</i></td>
+  </tr>
+</table>
+<br />
+
+<a name="sub"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[sub]</b></font>нижний индекс<font color="#ff0000"><b>[/sub]</b></font></td>
+    <td valign="middle" align="center"><sub>нижний индекс</sub></td>
+  </tr>
+</table>
+<br />
+
+<a name="sup"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[sup]</b></font>верхний индекс<font color="#ff0000"><b>[/sup]</b></font></td>
+    <td valign="middle" align="center"><sup>верхний индекс</sup></td>
+  </tr>
+</table>
+<br />
+
+<a name="color"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[color=red]</b></font>красный текст<font color="#ff0000"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000">красный текст</font></td>
+  </tr>
+</table>
+<br />
+
+<a name="size"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[size=4]</b></font>большие буквы<font color="#ff0000"><b>[/size]</b></font></td>
+    <td valign="middle" align="center"><font size="4">большие буквы</font></td>
+  </tr>
+</table>
+<br />
+
+<a name="font"></a>
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[font=courier]</b></font>текст<font color="#ff0000"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font face="Courier New, Courier, monospace">текст</font></td>
+  </tr>
+</table>
+<br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=red][size=4][font=courier]</b></font><br />Форматированный<br /><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000" size="4" face="Courier New, Courier, monospace"><u><i><b>Форматированный</b></i></u></font></td>
+  </tr>
+</table>
+<i>Объяснение:</i> Вы можете одновременно применять различные стили.
+<br /><br /><br />
+        
+<a name="align"><b>Выравнивание текста</b></a><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=center]</b></font>выравнивание по центру<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="center">выравнивание по центру</td>
+  </tr>
+</table>
+<br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=right]</b></font>выравнивание справа<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="right">выравнивание справа</td>
+  </tr>
+</table>
+<br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=left]</b></font>выравнивание слева<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="left">выравнивание слева</td>
+  </tr>
+</table>
+<br /><br />
+
+<a name="list"><b>Различные списки</b></a>
+<br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br /><font color="#ff0000"><b>[*]</b></font>элемент списка<br /><font color="#ff0000"><b>[*]</b></font>элемент списка<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
+    <td valign="middle" align="center"><ul><li>элемент списка</li><li>элемент списка</li></ul></td>
+  </tr>
+</table>
+<br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br /><font color="#ff0000"><b>[*]</b></font>элемент списка<br /><font color="#ff0000"><b>[*]</b></font>элемент списка<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
+    <td valign="middle" align="center"><ol><li>элемент списка</li><li>элемент списка</li></ol></td>
+  </tr>
+</table>
+<br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br /><font color="#ff0000"><b>[*]</b></font>элемент списка<br /><font color="#ff0000"><b>[*]</b></font>элемент списка<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
+    <td valign="middle" align="center"><ol type="a"><li>элемент списка</li><li>элемент списка</li></ol></td>
+  </tr>
+</table>
+<br /><br />
+
+<a name="img"><b>Добавление изображений</b></a><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br /><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br /></font><font color="#ff0000"><b>[/img]</b></font></td>
+    <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31"></td>
+  </tr>
+</table>
+<br />    
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br />[img]</b></font><br />http://www.prohost.org/img/pro_logo.gif<br /><b><font color="#ff0000">[/img]<br />[/url]</font></b></font></td>
+    <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0"></a></td>
+  </tr>
+</table>
+<i>Объяснение:</i> Используя FUDcode вы можете создавать изображения-гиперссылки, помещая [img][/img] внутри тэга [url][/url].
+<br /><br /><br />
+
+<a name="quote"><b>Цитирование сообщений</b></a><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[quote]</b></font>Hello World<font color="#ff0000"><b>[/quote]</b></font></td>
+    <td valign="middle" align="center"><table border="0" align="center" width="50%" cellpadding="3" cellspacing="1"><tr><td class="SmallText" align="left"><b>Quote:</b></td></tr><tr><td class="quote" align="left">Hello World<br /></td></tr></table></td>
+  </tr>
+</table>
+<br /><br />
+
+<a name="pre"><b>Предварительно форматированный текст</b></a><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle"><font color="#ff0000"><b>[pre]</b><br /></font>
+<pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre>
+<font color="#ff0000"><b>[/pre]</b></font></td>
+    <td valign="middle"><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre></td>
+  </tr>
+</table>
+<i>Объяснение:</i> Этот тег позволяет помещать в сообщение текст с сохранением его форматирования.
+<br /><br /><br />
+
+<a name="php"><b>PHP-скрипт</b></a><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle"><font color="#ff0000"><b>[php]</b></font>
+<pre>
+function hello()
+{
+	echo "Hello World!";
+}
+
+hello();
+</pre>
+<font color="#ff0000"><b>[/php]</b></font></td>
+    <td valign="middle"><code><font color="#000000">
+<font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
+</font>
+</code></td>
+  </tr>
+</table>
+<i>Объяснение:</i> Тег [php][/php] позволяет добавлять в сообщения тексты программ на языке PHP с подсветкой синтаксиса.
+<br /><br /><br />
+
+<a name="code"><b>Тексты программ на других языкахe</b></a><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle"><font color="#ff0000"><b>[code]</b></font><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /></pre><font color="#ff0000"><b>[/code]</b></font>
+    </td>
+    <td valign="middle"><div class="pre"><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');       <br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre></div>
+    </td>
+  </tr>
+</table>
+<i>Объяснение:</i> Тег [code][/code] аналогичен тегу [pre][/pre], но вокруг текста добавляется рамка.
+<br /><br /><br />
+
+<a name="notag"><b>Без FUDcode</b></a><br />
+<i>Объяснение:</i> Тег <font color="#ff0000"><b>[notag][/notag]</b></font> позволяет вам вставлять сообщения
+фрагменты текста, которые не будут отформатированы FUDforum'ом.
+Это могут быть примеры FUDcode, которые не должны быть преобразованы форумом в соответствующий код HTML.
+<br /><br /><br />
+
+<a name="hr"><b>Горизонтальная линия</b></a><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[hr]</b></font></td>
+    <td valign="middle" align="center"><hr></td>
+  </tr>
+</table>
+<i>Объяснение:</i> Тег [hr] добавляет в сообщение горизонтальную линию, аналогично &lt;hr&gt; в языке HTML.
+<br /><br /><br />
+
+<a name="spoiler"><b>Скрытый текст, спойлер</b></a><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center">Видимая часть сообщения<br />
+<font color="#ff0000"><b>[spoiler]</b></font>
+<br />Невидимая часть сообщения<br />
+<font color="#ff0000"><b>[/spoiler]</b></font><br />
+Продолжение видимого текста.</td>
+    <td valign="middle" align="center">Видимая часть сообщения<br />
+<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Reveal Spoiler</a><div align="left" id="1482055279834293165" style="display: none;"><br />
+Скрытая часть сообщения<br /></div></div>
+<br />
+Продолжение видимого текста.</td>
+  </tr>
+</table>
+<i>Объяснение:</i> Тег [spoiler][/spoiler] позволяет вам скрыть часть текста сообщения.
+Для отображения скрытого текста пользователи должны нажать на ссылку.
+Операция выполняется с помощью JavaScript без повторной загрузки страницы, отображением скрытого слоя.
+<br /><br /><br />
+
+<a name="acronym"><b>Acronym</b></a><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font><br />FUDforum<br /><font color="#ff0000"><b>[/acronym]</b></font></td>
+    <td valign="middle" align="center"><acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym></td>
+  </tr>
+</table>
+<i>Объяснение:</i> Тег [acronym][/acronym] позволяет вам обозначить слово как акроним (аббревиатуру)
+и предоставить пользователю полное название или расшифровку при указании на него курсором.
+<br /><br /><br />
+
+<a name="wikipedia"><b>Wikipedia</b></a><br />
+
+<table>
+  <tr>
+    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=ca]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
+    <td valign="middle" align="center"><a href="http://ca.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
+  </tr>
+</table>
+<i>Объяснение:</i> Тег [wikipedia][/wikipedia] позволяет вам создать ссылку на страницу википедии о данном субъекте.
+Для создания ссылки вам достаточно заключить термин в теги [wikipedia], если же вы хотите указать
+на сайт - зеркало википедии вам необходимо использовать формат [wikipedia=ca], где "ca"- префикс зеркала.
+<br />
+
+TOPIC_TITLE: <a name="sml">Что такое смайлики?</a> 
+TOPIC_HELP:
+Смайлики - это небольшие иконки, или картинки, позволяющие вам выражать
+в сообщениях различные эмоции или чувства. Если смайлики были включены,
+то вы увидите их список при отправке сообщения над его текстом
+и сможете вставить нужный смайлик в сообщение, просто нажав на нем.
+<p>
+Кроме того, общепринятые в интернете смайлики, такие как :) или :(
+заменяются на соответствующую картинку автоматически.
+Если вы не хотите чтобы это произошло и желаете видеть сообщение 
+в его оригинальном виде - установите галочку у параметра
+<b>Отключить смайлики</b>.
+
+
+TOPIC_TITLE: <a name="polls">Как я могу использовать голосования?</a>
+TOPIC_HELP:
+В форуме существует возможность добавлять голосования в сообщения. 
+Голосования предназначены для того, чтобы задать вопрос с несколькими
+вариантами ответа, из которых другие пользователи форума смогут выбрать
+наиболее отвечающий их мнению и "проголосовать". В целях
+безопасности право голосования имеют только зарегистрированные пользователи.
+<p>
+При нажатии на расположенную в верхней части редактора сообщений ссылку
+<b>СОЗДАТЬ ГОЛОСОВАНИЕ</b> появится новое окно редактора, позволяющее вам
+создать голосование с несколькими вариантами. После создания голосования и
+всех вариантов ответа, нажмите на кнопку <b>Изменить</b>,
+и оно будет вставлено в сообщение.
+<p>
+В дальнейшем вы сможете изменить или удалить голосование, нажав на ссылки
+<b>ПРАВКА</b> или <b>УДАЛИТЬ</b> соответственно.
+<p>
+У вас каждого пользователя есть право только одного голоса, поэтому
+внимательно прочитайте варианты и выберите наиболее соответствующий вашему
+мнению прежде чем проголосовать. В дальнейшем у вас не будет возможности
+изменить свое мнение и проголосовать повторно.
+
+
+TOPIC_TITLE: <a name="attach">Могу ли я прикрепить файлы к сообщению?</a>
+TOPIC_HELP:
+Вы сможете прикрепить один или несколько файлов к вашему сообщению в форуме
+или к личному письму, но только в том случае если это было разрешено
+администратором форума. Возможность создания файловых вложений определяется
+для каждого из форумов в отдельности, и возможно вы сможете это делать в
+одном форуме, но не сможете в другом.
+<p>
+Форма загрузки файлов отображает 3 значения, управляющих созданием
+файловых вложений:<p>
+<b>Допустимые расширения файла</b> - список разрешенных типов (расширений) файлов, например jpg, gif, png.<br />
+<b>Максимальный размер файла</b> - максимально допустимый размер файлов для создания вложений.<br />
+<b>Максимальное количество файлов в сообщении</b> - количество файлов, которое вы можете прикрепить к сообщению.
+<p>
+Для того чтобы прикрепить файл и создать вложение, нажмите на кнопке
+<b>Browse</b> и затем в открывшемся диалоговом окне браузера
+выберите файл, который вы собираетесь прикрепить к сообщению.
+После того, как файл был выбран, нажмите на кнопку <b>Загрузить файл</b>
+для подтверждения загрузки.
+<p>
+Если вы желаете удалить файл из сообщения, просто нажмите на
+расположенную справа от него кнопку <b>Удалить</b>.
+
+TOPIC_TITLE: <a name="msgico">Для чего предназначены иконки сообщений?</a>
+TOPIC_HELP:
+Иконки сообщений - это небольшие картинки, которые могут быть выбраны при
+создании сообщения и в дальнейшем отображаются в списках рядом с ним.
+Иконки как правило используются для демонстрации вашего настроения
+или общей направленности сообщения. Если иконки не показаны в редакторе
+сообщений, это как правило означает, что возможность их использования
+была выключена администратором.
+
+TOPIC_TITLE: <a name="edit">Могу ли я изменять свои сообщения?</a>
+TOPIC_HELP:
+Для зарегистрированных пользователей существует возможность изменения
+ранее отправленных в форум сообщений. Эта возможность может быть ограниченной
+по времени, то есть вы можете изменить свои последний сообщения, но не можете
+сделать это с более ранними.
+<p>
+При изменении вами сообщения к нему будет добавлено короткое примечание,
+гласящее что сообщение было изменено вами с указанием даты и времени
+внесения изменений.
+<p>
+В зависимости от настроек форума, такое сообщение может быть не добавлено
+в случае изменения сообщения администратором или модератором.
+
+TOPIC_TITLE: <a name="mod">Кто такие модераторы и администраторы?</a> 
+TOPIC_HELP:
+Модераторы - это своеобразные "супер пользователи", следящие за одним или
+несколькими форумами. Модератор имеет право изменять, удалять, утверждать
+сообщения и делать анонсы в модерируемом им форуме. Это человек, с которым
+вы можете связаться по поводу чьих либо некорректных действий и сообщений
+в форуме. Кроме того, модератору могут быть адресованы возникшие у вас
+вопросы по поводу возможностей и использования форума.
+<p>
+Администраторы - это люди, полностью контролирующие форум. Администраторам
+разрешено ВСЕ, так что будьте осторожны в разговоре с ними. :)
+Администратор имеет право делать все то, что доступно модератору,
+а также утверждать картинки, новые теги, разрешать и запрещать работу
+пользователей и т.д. Ну и конечно же, администратор - это лицо для контакта
+в случае возникновения у вас вопросов или обнаружения вами ошибок
+в работе форума.
+
+TOPIC_TITLE: <a name="cens">Цензура?</a>
+TOPIC_HELP:
+Администратор может указать список слов, которые при отправке сообщений
+в форум будут заменяться на указанные им другие слова. Цензура в форуме
+действует на всех, и слова, которые не можете увидеть вы, недоступны также
+и другим пользователям.
+
+TOPIC_TITLE: <a name="not">Как я могу узнать о появлении ответов на мои сообщения?</a> 
+TOPIC_HELP:
+При создании вами новой темы или при ответе ни существующее сообщение,
+вы можете включить отправку вам извещений об ответах на email или ICQ
+(в зависимости от ваших персональных настроек). Кроме того, вы можете также
+подписаться на получение извещений о новых сообщениях по определенным темам
+или о новых темах в форуме, нажав на ссылку <b>Подписка на форум/тему</b>,
+расположенную наверху страницы при просмотре форума/темы.
+<p>
+Для прекращения получения извещений воспользуйтесь ссылкой
+<b>Отписаться от форума/темы</b> или войдите в раздел <b>Подписка</b>
+в ваших персональных настройках и удалите тему или форум из списка.
+<p>
+Возможность подписки и отправки извещений предоставляется только
+зарегистрированным пользователям.
