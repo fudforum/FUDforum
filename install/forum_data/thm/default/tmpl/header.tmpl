@@ -1,7 +1,7 @@
 /**************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: header.tmpl,v 1.28 2009/01/29 18:37:29 frank Exp $
+* $Id: header.tmpl,v 1.29 2009/02/07 13:21:19 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,6 +23,19 @@
 </head>
 <body>
 <table class="wa" border="0" cellspacing="3" cellpadding="5"><tr><td class="ForumBackground">
+<div class="header">
+<b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
+  <table width=100%><tr><td>{GVAR: FORUM_TITLE}</td><td>
+  <form id="search" method="get" action="{ROOT}">{DEF: _hs}
+    <span style="float:right; font-size: small;">{MSG: search_forum_search}:<br />
+    <input type="hidden" name="t" value="search" />
+    <input type="text" name="srch" tabindex="1" value="{VAR-HTML: srch}" />
+        <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: search}" />
+  </span></form>
+  </td></tr></table>
+<b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
+</div>
+<br />
 {MAIN_SECTION: END}
 
 {MAIN_SECTION: header_plain header for small popup forms}
