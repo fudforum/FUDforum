@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.134 2009/01/29 18:37:40 frank Exp $
+* $Id: consist.php,v 1.135 2009/02/10 05:26:15 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,6 +51,7 @@ function draw_stat($text)
 function draw_info($cnt)
 {
 	draw_stat(($cnt < 1 ? 'OK' : $cnt . ' entries unmatched, deleted'));
+	flush();
 }
 
 function stop_js()
@@ -78,8 +79,8 @@ function delete_zero($tbl, $q)
 ?>
 <form method="post" action="consist.php">
 <div class="alert">
-Consistency check is a complex process which may take several minutes to run, while it is running your
-forum will be disabled.
+Consistency check is a complex process which may take several minutes to run.
+While it is running, your forum will be disabled.
 </div>
 <h2>Do you wish to proceed?</h2>
 <input type="submit" name="cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />

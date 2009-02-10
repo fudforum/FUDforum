@@ -183,7 +183,7 @@ vote_button:			Vote
 vote_for_thread:		Vote
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> by the moderator
 welcome_message:		Welcome <b>{VAR: usr->alias}</b>, your last visit was on {TEMPLATE: welcome_message_date}
-what_ppl_doing:			show what people are doing
+what_ppl_doing:			Show what people are doing
 reported_del_report:		Delete Report
 reported_reason:		Reason
 reported_on:			On:
@@ -415,7 +415,7 @@ login_perm_denied:		You do not have permission to access the requested resource 
 login_want_to_register:		Want to register?
 login_forgot_passwd:		Forgot password
 login_use_cookie:		Use cookies<br /><span class="SmallText">If you&#39;re using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br />If you leave this option selected then you will be automatically logged-into the forum the next time you visit.
-login_login:			Login
+login_login:			Login:
 login_login_btn:		Login
 login_name_required:		Login name is required
 login_passwd_required:		Password is required
@@ -540,7 +540,7 @@ buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
 buddy_list_update:		Browsing own buddy list
 core_err_invinp_title:		Invalid Input
 core_err_invinp_err:		You have followed an invalid link. Please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> how you got here.
-core_adm_login_msg:		<br />Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>
+core_adm_login_msg:		<br /><br />Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>.
 email_err_unabletoemail_title:	ERROR: Unable to e-mail
 email_err_unabletoemail_msg:	The e-mail system has been disabled by the administrator.
 email_error_unabletolocaddr:	Sorry, the system was unable to e-mail {VAR-HTML: _POST['tx_name']} because it was unable to determine the e-mail address
