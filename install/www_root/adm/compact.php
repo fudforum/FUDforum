@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.71 2009/01/29 18:37:40 frank Exp $
+* $Id: compact.php,v 1.72 2009/02/11 10:41:44 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,10 +36,42 @@
 ?>
 <form method="post" action="compact.php">
 <div class="alert">
-The compactor will rebuild the storage files were the message bodies are kept. While the compactor is running
-your forum will be temporarily inaccessible. This process may take a while to run, depending on your harddrive speed
-and the amount of messages your forum has.
+The compactor will rebuild the storage files were the message bodies are kept. 
+While the compactor is running your forum will be temporarily inaccessible. 
+This process may take a while to run, depending on your harddrive speed and the amount of messages your forum has. 
+Please backup all files before proceding!
 </div>
+
+<?php if (@extension_loaded('iconv')) { 
+$charsets = ARRAY(
+	'big5','euc-jp','gb2312',
+	'iso-8859-1','iso-8859-2','iso-8859-3','iso-8859-4','iso-8859-5','iso-8859-6','iso-8859-7',
+	'iso-8859-8','iso-8859-9','iso-8859-10','iso-8859-11','iso-8859-13','iso-8859-14',
+	'iso-8859-15','iso-8859-16','koi8-r','windows-874','windows-936','windows-1250',
+	'windows-1251','windows-1252','windows-1253','windows-1254','windows-1255','windows-1256',
+	'windows-1257','windows-1258');
+?>
+<fieldset>
+	<legend><b>Optional character set conversion:</b></legend>
+	<p>Non-English forums that are not using UTF-8 might want to convert their messages to UTF-8. Please leave empty if you don't require a character set conversion or if you are unsure:</p>
+	<table class="datatable">
+    <tr class="field"><td>From character set:</td>
+	    <td><select name="fromcharset" id="fromcharset" class="input">
+			<option value=''>&nbsp;</option>
+			<?php foreach($charsets as $charset) { ?>
+				<option><?php echo $charset; ?></option>
+			<?php } ?>
+			</select></td>
+    </tr>
+	<tr class="field"><td>To character set:</td>
+	    <td><select name="tocharset" id="tocharset" class="input">
+			<option value=''>&nbsp;</option>
+			<option value='utf-8'>utf-8</option>
+			</select></td>
+	</tr></table>
+</fieldset>
+<?php } ?>
+
 <h2>Do you wish to proceed?</h2>
 <input type="submit" name="cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
 <?php echo _hs; ?>
@@ -65,6 +97,12 @@ $GLOBALS['__FUD_TMP_F__'] = array();
 function write_body_c($data, &$len, &$offset, $fid)
 {
 	$MAX_FILE_SIZE = 2140000000;
+
+	if (!empty($_POST['fromcharset']) || !empty($_POST['tocharset'])) {
+		$newdata = iconv($_POST['fromcharset'], $_POST['tocharset'], $data);
+		$data = $newdata;
+	}
+
 	$len = strlen($data);
 
 	$s = $fid * 10000;
@@ -145,13 +183,17 @@ function eta_calc($start, $pos, $pc)
 
 		/* remove old message files */
 		foreach (glob($MSG_STORE_DIR.'msg_*') as $f) {
-			unlink($f);
+			if (!unlink($f)) {
+				exit("FATAL ERROR: unable to remove file ".$f."<br />\n");
+			}
 		}
 
 		/* move new message files to the new location */
 		foreach ($GLOBALS['__FUD_TMP_F__'] as $k => $f) {
 			fclose($GLOBALS['__FUD_TMP_F__'][$k][0]);
-			rename($MSG_STORE_DIR . 'tmp_msg_'.$k, $MSG_STORE_DIR . 'msg_'.$k);
+			if(!rename($MSG_STORE_DIR . 'tmp_msg_'.$k, $MSG_STORE_DIR . 'msg_'.$k)) {
+				exit("FATAL ERROR: unable to rename tmp_msg_".$k." to msg_".$k."<br />\n");
+			}
 			chmod($MSG_STORE_DIR . 'msg_'.$k, $mode);
 		}
 
