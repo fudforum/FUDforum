@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: attach.inc.t,v 1.54 2009/01/29 18:37:17 frank Exp $
+* $Id: attach.inc.t,v 1.55 2009/02/12 19:51:26 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,7 +51,11 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 
 	if ($id_list) {
 		$id_list = substr($id_list, 0, -1);
-		$cc = __FUD_SQL_CONCAT__.'('.__FUD_SQL_CONCAT__."("._esc($GLOBALS['FILE_STORE']).", id), '.atch')";
+		if (__dbtype__ == 'pgsql') {	// postgreSQL textcat hack
+			$cc = __FUD_SQL_CONCAT__.'('.__FUD_SQL_CONCAT__."("._esc($GLOBALS['FILE_STORE']).", id::text), '.atch')";
+                } else {
+			$cc = __FUD_SQL_CONCAT__.'('.__FUD_SQL_CONCAT__."("._esc($GLOBALS['FILE_STORE']).", id), '.atch')";
+		}
 		q('UPDATE {SQL_TABLE_PREFIX}attach SET location='.$cc.', message_id='.$mid.' WHERE id IN('.$id_list.') AND attach_opt='.$attach_opt);
 		$id_list = ' AND id NOT IN('.$id_list.')';
 	} else {
