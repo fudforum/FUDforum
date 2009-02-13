@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.77 2009/01/29 18:37:17 frank Exp $
+* $Id: nntp.inc,v 1.78 2009/02/13 21:17:44 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -368,7 +368,7 @@ class fud_nntp
 			$this->group_first = $start_id;
 		}
 
-		$counter = 0;
+		$counter = 1;
 
 		for ($i = $this->group_first; $i < $this->group_last; $i++) {
 			if (!$this->get_message($i)) {

@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.php,v 1.34 2009/01/29 18:37:17 frank Exp $
+* $Id: nntp.php,v 1.35 2009/02/13 21:17:44 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -11,6 +11,7 @@
 **/
 
 	set_time_limit(600);
+	ini_set("memory_limit","64M");
 	define('forum_debug', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
