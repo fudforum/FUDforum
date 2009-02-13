@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.172 2009/01/29 18:37:17 frank Exp $
+* $Id: register.php.t,v 1.173 2009/02/13 22:07:51 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -167,6 +167,14 @@ function register_form_check($user_id)
 
 	if ($GLOBALS['FORUM_SIG_ML'] && strlen($_POST['reg_sig']) > $GLOBALS['FORUM_SIG_ML']) {
 		set_err('reg_sig', '{TEMPLATE: register_err_sig_too_long}');
+	}
+
+	/* check if user is allowed to post links */
+	if (eregi('(\[url)|(http://)|(https://)', $_POST['reg_sig'])) {
+		$c = q_singleval("SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id="._uid);
+		if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
+			set_err('reg_sig', '{TEMPLATE: postcheck_no_links_allowed}');
+		}
 	}
 
 	return $GLOBALS['error'];
