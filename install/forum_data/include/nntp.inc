@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.78 2009/02/13 21:17:44 frank Exp $
+* $Id: nntp.inc,v 1.79 2009/02/14 15:07:06 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -124,6 +124,10 @@ class fud_nntp
 
 	function get_message($id)
 	{
+		if (php_sapi_name() == 'cli') {         // Running from command line
+			echo "Importing ". $this->newsgroup ." message ". $id ."\n";
+		}
+
 		// Zero the vars
 		$this->attachments=$this->user_id=$this->headers=$this->body=$this->raw_msg=$this->msg_id=$this->reply_to_msg_id=$this->from_email=$this->from_name=$this->ip=null;
 
@@ -511,6 +515,10 @@ class fud_nntp
 
 	function set_end($val)
 	{
+		if (++$val > $this->group_last) {
+			$val = $this->group_last;
+		}
+
 		$u = umask(0111);
 		$fp = fopen($GLOBALS['ERROR_PATH'].'.nntp/'.$this->server.'-'.$this->newsgroup , "wb");
 		flock($fp, LOCK_EX);
