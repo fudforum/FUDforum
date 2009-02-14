@@ -931,7 +931,7 @@ split_cp:			Thread Split Control Panel
 p_SEARCH:			Ieskoti
 groups_perms_header:		Permissions <font size="-1">(move mouse over the permission to see permission type)</font>
 register_err_sig_too_long:	Your signature exceeds the maximum allowed length of {GVAR: FORUM_SIG_ML} characters characters.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Your Signature is \'+document.fud_register.reg_sig.value.length+\' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML} characters.\');" class="SmallText">Check Signature Length</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Your Signature is \'+document.forms[\'fud_register\'].reg_sig.value.length+\' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML} characters.\');" class="SmallText">Check Signature Length</a>
 adm_account_accepted:		Your account \'{VAR: GLOBALS['r']->login}\' was approved by the administrator and is now active. You may now access the {GVAR: FORUM_TITLE}\' forum as a confirmed registered user.
 adm_account_accepted_s:		Your account request for \'{GVAR: FORUM_TITLE}\' was accepted.
 adm_account_rejected:		Your account \'{VAR: GLOBALS['r']->login}\' was declined by the administrator. If you would like to know the reason behind this decision feel free to contact the administrator at \'{GVAR: ADMIN_EMAIL}\'.

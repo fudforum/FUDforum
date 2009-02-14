@@ -937,7 +937,7 @@ merge_prev:			Previous Topics
 split_cp:			Thread Split Control Panel
 groups_perms_header:		Permissions <span class="small">(move mouse over the permission to see its type)</span>
 register_err_sig_too_long:	Chữ ký của bạn vượt quá độ dài cho phép {GVAR: FORUM_SIG_ML} ký tự.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} kí tự <a href="javascript: alert(\'Chữ ký của bạn dài \'+document.fud_register.reg_sig.value.length+\' kí tự. Độ dài chữ ký tối đa là {GVAR: FORUM_SIG_ML} kí tự.\');" class="SmallText">Kiểm tra độ dài chữ ký</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} kí tự <a href="javascript: alert(\'Chữ ký của bạn dài \'+document.forms[\'fud_register\'].reg_sig.value.length+\' kí tự. Độ dài chữ ký tối đa là {GVAR: FORUM_SIG_ML} kí tự.\');" class="SmallText">Kiểm tra độ dài chữ ký</a>
 adm_account_accepted:		Tài khoản \'{VAR: GLOBALS['r']->login}\' của bạn  đã được chấp nhận bởi người quản trị tối cao và bây giờ đã được kích hoạt. Bạn có thể truy cập vào diễn đàn {GVAR: FORUM_TITLE}\' ngay khi được xác nhận, thành viên đã được đăng ký.
 adm_account_accepted_s:		Tài khoản của bạn yêu cầu cho \'{GVAR: FORUM_TITLE}\' đã được chấp nhận.
 adm_account_rejected:		Tài khoản \'{VAR: GLOBALS['r']->login}\' của bạn đã bị từ chối bởi người quản trị tối cao. Nếu bạn muốn biết lý do về quyết định này, Xin vui lòng liên hệ với người quản trị tối cao \'{GVAR: ADMIN_EMAIL}\'.

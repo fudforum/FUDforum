@@ -307,7 +307,7 @@ register_def_thread_view:	Standaard Topic View:
 register_msg_per_page:		Boodskappe per bladsy:
 register_show_sig:		Wys Handtekening:
 register_show_sig_desc:		Laat u toe om die handtekeninge van andere forumlede te wys of te verberg
-register_use_sig_default:	gebruik Signature standaard:
+register_use_sig_default:	gebruik standaard handtekening:
 register_use_sig_default_desc:	Plak u handtekening outomaties by elke booedskap wat u pos
 register_timezone:		Tydsone:
 register_ignore_admin:		Ignoreer boodskappe vanaf die administrateur:
@@ -928,9 +928,9 @@ merge_merge:			Versmelt Gekiesde Onderwerpe
 merge_next:			Volgende Onderwerpe
 merge_prev:			Vorige Onderwerpe
 split_cp:			Thread Split Control Panel
-groups_perms_header:		Permissions <font size="-1">(move mouse oor the permission to see permission type)</font>
-register_err_sig_too_long:	Your signature exceeds the maximum allowed length of {GVAR: FORUM_SIG_ML} characters characters.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Your Signature is \'+document.fud_register.reg_sig.value.length+\' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML}\');" class="SmallText">Check Signature Length</a>
+groups_perms_header:		Regte <font size="-1">(move mouse oor the permission to see permission type)</font>
+register_err_sig_too_long:	Jou handtekening oorskry die maksimum toelaatbare lengte van {GVAR: FORUM_SIG_ML} karakters.
+register_sig_limit:		{GVAR: FORUM_SIG_ML} karakters <a href="javascript: alert(\'Jou Handtekening is \'+document.forms[\'fud_register\'].reg_sig.value.length+\' karakters lank. Die maksimum toelaatbare lengte is {GVAR: FORUM_SIG_ML}\');" class="SmallText">Wys Handtekening Lengte</a>
 p_SEARCH:			Can Search
 adm_account_accepted:		Your account \'{VAR: GLOBALS['r']->login}\' was approved by the administrator and is now active. You may now access the {GVAR: FORUM_TITLE}\' forum as a confirmed registered user.
 adm_account_accepted_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was accepted.

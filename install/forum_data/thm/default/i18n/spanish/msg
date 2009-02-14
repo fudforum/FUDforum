@@ -930,7 +930,7 @@ merge_prev:			Hilo anterior
 split_cp:			Panel de control para separar hilos
 groups_perms_header:		Permisos <font size="-1">(mueva el ratón por encima del permiso para ver el tipo de permiso)</font>
 register_err_sig_too_long:	Su firma supera el número máximo de caracteres permitidos ({GVAR: FORUM_SIG_ML}) en la firma.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Su firma tiene una longitud de\'+document.fud_register.reg_sig.value.length+\' caracteres. La longitud máxima permitida es {GVAR: FORUM_SIG_ML}\');" class="SmallText">Comprobar la longitud de la firma</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Su firma tiene una longitud de\'+document.forms[\'fud_register\'].reg_sig.value.length+\' caracteres. La longitud máxima permitida es {GVAR: FORUM_SIG_ML}\');" class="SmallText">Comprobar la longitud de la firma</a>
 p_SEARCH:			Puede buscar
 adm_account_accepted:		Su cuenta \'{VAR: GLOBALS['r']->login}\' ha sido aprobada por el administracor, y ya está activa. Ahora puede acceder al foro {GVAR: FORUM_TITLE}\' como un usuario con el registro confirmado.
 adm_account_accepted_s:		Su solicitud para una cuenta en \'{GVAR: FORUM_TITLE}\' ha sido aceptada.

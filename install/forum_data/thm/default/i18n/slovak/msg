@@ -930,7 +930,7 @@ merge_prev:			Predchádzajúce témy
 split_cp:			Ovládací panel pre rozdelenie vlákien
 groups_perms_header:		Právomoci <font size="-1">(presuňte kurzor myši nad právomoc aby ste uvideli jej typ)</font>
 register_err_sig_too_long:	Váš podpis prekračuje maximálnu povolenú dĺžku, ktorá je {GVAR: FORUM_SIG_ML} znakov.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} znakov <a href="javascript: alert(\'Váš podpis má dĺžku \'+document.fud_register.reg_sig.value.length+\' znakov. Maximálna povolená dĺžka je {GVAR: FORUM_SIG_ML} znakov.\');" class="SmallText">Skontrolovať dĺžku podpisu</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} znakov <a href="javascript: alert(\'Váš podpis má dĺžku \'+document.forms[\'fud_register\'].reg_sig.value.length+\' znakov. Maximálna povolená dĺžka je {GVAR: FORUM_SIG_ML} znakov.\');" class="SmallText">Skontrolovať dĺžku podpisu</a>
 adm_account_accepted:		Vaše konto \'{VAR: GLOBALS['r']->login}\' bolo odsúhlasené administrátorom a je aktívne. Od teraz máte prístup na fórum {GVAR: FORUM_TITLE}\' ako registrovaný odsúhlasený užívateľ.
 adm_account_accepted_s:		Vaša požiadavka na/pre \'{GVAR: FORUM_TITLE}\' bola prijatá.
 adm_account_rejected:		Vaše konto \'{VAR: GLOBALS['r']->login}\' bolo administrátorom zamietnuté. Ak chcete poznať dôvod tohoto rozhodnutia, kontaktujte administrátora na adrese \'{GVAR: ADMIN_EMAIL}\'.

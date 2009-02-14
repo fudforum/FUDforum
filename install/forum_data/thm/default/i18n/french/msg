@@ -930,7 +930,7 @@ merge_prev:			Fils précédents
 split_cp:			Panneau de contrôle de division de fils
 groups_perms_header:		Permissions <font size="-1">(déplacer la souris au-dessus de la permission pour en voir le type)</font>
 register_err_sig_too_long:	Votre signature excède la longueur maximale autorisée de {GVAR: FORUM_SIG_ML} caractères.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} caractères <a href="javascript: alert(\'Votre signature comporte \'+document.fud_register.reg_sig.value.length+\' caractères en trop. La longueur maximale autorisée pour une signature est de {GVAR: FORUM_SIG_ML}\');" class="SmallText">Vérifier la longueur de la signature</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} caractères <a href="javascript: alert(\'Votre signature comporte \'+document.forms[\'fud_register\'].reg_sig.value.length+\' caractères en trop. La longueur maximale autorisée pour une signature est de {GVAR: FORUM_SIG_ML}\');" class="SmallText">Vérifier la longueur de la signature</a>
 p_SEARCH:			Peut effectuer une recherche
 adm_account_accepted:		Votre compte \'{VAR: GLOBALS['r']->login}\' a été approuvé par l&#39;administrateur, et est maintenant actif. Vous pouvez désormais accéder au forum {GVAR: FORUM_TITLE}\' en tant qu&#39;utilisateur inscrit et confirmé.
 adm_account_accepted_s:		Votre demande de compte pour \'{GVAR: FORUM_TITLE}\' a été acceptée.

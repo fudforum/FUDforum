@@ -930,7 +930,7 @@ merge_prev:			Föregående Ämnen
 split_cp:			Inställningar för Splittade Ämnen
 groups_perms_header:		Rättigheter <font size="-1">(flytta musen över rättigheten för att se rättighetstypen)</font>
 register_err_sig_too_long:	Din signatur överskrider maxlängden på {GVAR: FORUM_SIG_ML} characters tecken.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Din Signatur är \'+document.fud_register.reg_sig.value.length+\' tecken lång. Maxlängden är {GVAR: FORUM_SIG_ML}\');" class="SmallText">Kontrollera Signaturlängd</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Din Signatur är \'+document.forms[\'fud_register\'].reg_sig.value.length+\' tecken lång. Maxlängden är {GVAR: FORUM_SIG_ML}\');" class="SmallText">Kontrollera Signaturlängd</a>
 p_SEARCH:			Kan Söka
 adm_account_accepted:		Ditt konto \'{VAR: GLOBALS['r']->login}\' godkänndes av administratören och är nu aktivt. Du kan nu komma åt {GVAR: FORUM_TITLE}\' forumet som en verifierad registrerad användare.
 adm_account_accepted_s:		Din kontoförfrågan för \'{GVAR: FORUM_TITLE}\' accepterades.

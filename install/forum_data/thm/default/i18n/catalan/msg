@@ -930,7 +930,7 @@ merge_prev:			Fil anterior
 split_cp:			Panell de control per a separar fils
 groups_perms_header:		Permisos <font size="-1">(mogui el ratolÃ­ per sobre del permÃ­s per a veure el tipus de permÃ­s)</font>
 register_err_sig_too_long:	La seva signatura supera el nombre màxim de caràcters permesos ({GVAR: FORUM_SIG_ML}) a la signatura.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'La seva signatura té una longitud de\'+document.fud_register.reg_sig.value.length+\' caràcters. La longitud màxima permesa és {GVAR: FORUM_SIG_ML}\');" class="SmallText">Comprovar la longitud de la signatura</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'La seva signatura té una longitud de\'+document.forms[\'fud_register\'].reg_sig.value.length+\' caràcters. La longitud màxima permesa és {GVAR: FORUM_SIG_ML}\');" class="SmallText">Comprovar la longitud de la signatura</a>
 p_SEARCH:			Pot cercar
 adm_account_accepted:		El seu compte \'{VAR: GLOBALS['r']->login}\' ha estat aprovat per l`administrador i ja està  activat. Ara pot acceidr al fòrum {GVAR: FORUM_TITLE}\' com un usuari amb el registre confirmat.
 adm_account_accepted_s:		La seva sol.licitud per a un compte a \'{GVAR: FORUM_TITLE}\' ha estat acceptada.

@@ -930,7 +930,7 @@ merge_prev:			Temele Precedente
 split_cp:			Panou Control pentru Thread Split
 groups_perms_header:		Permisiuni <font size="-1">(mutati cursorul peste permisiuni pentru detalii)</font>
 register_err_sig_too_long:	Semnatura dumneavoastra depaseste lungimea maxima admisa de {GVAR: FORUM_SIG_ML} caractere.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} caractere <a href="javascript: alert(\'Your Signature is \'+document.fud_register.reg_sig.value.length+\' caractere lungime. Lungimea maxima a semnaturii este de {GVAR: FORUM_SIG_ML}\');" class="SmallText">Verifica Lungimea Semnaturii</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} caractere <a href="javascript: alert(\'Your Signature is \'+document.forms[\'fud_register\'].reg_sig.value.length+\' caractere lungime. Lungimea maxima a semnaturii este de {GVAR: FORUM_SIG_ML}\');" class="SmallText">Verifica Lungimea Semnaturii</a>
 p_SEARCH:			Cautare posibila
 adm_account_accepted:		Contul dumneavoastra \'{VAR: GLOBALS['r']->login}\' a fost aprobat de catre administrator si este acum activ. Puteti accesa forumul {GVAR: FORUM_TITLE}\' ca utilizator inregistrat.
 adm_account_accepted_s:		Cererea dumneavoastra pentru contul \'{GVAR: FORUM_TITLE}\' a fost acceptata.

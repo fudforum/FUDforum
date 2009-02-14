@@ -931,7 +931,7 @@ merge_prev:			Edelliset aiheet
 split_cp:			Aiheiden pilkkominen
 groups_perms_header:		Käyttöoikeudet <font size="-1">(näet käyttöoikeuden tyypin laittamalla hiiren kursorin sen päälle)</font>
 register_err_sig_too_long:	Allekirjoituksesi ylittää suurimman sallitun pituuden {GVAR: FORUM_SIG_ML} merkkiä.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} merkkiä <a href="javascript: alert(\'Allekirjoituksesi on \'+document.fud_register.reg_sig.value.length+\' merkkiä pitkä. Allekirjoituksen suurin sallittu pituus on {GVAR: FORUM_SIG_ML} merkkiä.\');" class="SmallText">Tarkista allekirjoituksen pituus</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} merkkiä <a href="javascript: alert(\'Allekirjoituksesi on \'+document.forms[\'fud_register\'].reg_sig.value.length+\' merkkiä pitkä. Allekirjoituksen suurin sallittu pituus on {GVAR: FORUM_SIG_ML} merkkiä.\');" class="SmallText">Tarkista allekirjoituksen pituus</a>
 adm_account_accepted:		Ylläpitäjä on hyväksynyt ja aktivoinut tunnuksen \'{VAR: GLOBALS['r']->login}\'.\nVoit nyt käyttää \'{GVAR: FORUM_TITLE}\' foorumia rekisteröityneenä käyttäjänä.
 adm_account_accepted_s:		Tunnusanomuksesi \'{GVAR: FORUM_TITLE}\' foorumille on hyväksytty.
 adm_account_rejected:		Ylläpitäjä on hylännyt tunnuksen \'{VAR: GLOBALS['r']->login}\'.\nJos haluat tietää syyn tähän päätökseen, ota yhteyttä ylläpitäjään: \'{GVAR: ADMIN_EMAIL}\'.

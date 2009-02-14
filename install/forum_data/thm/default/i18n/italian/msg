@@ -927,7 +927,7 @@ merge_prev:			Precedente Argomento
 split_cp:			Pannello di controllo per la suddivisione di argomenti
 groups_perms_header:		Permessi <font size="-1">(muovi il mouse sui permessi per vedere il tipo di permisso)</font>
 register_err_sig_too_long:	La tua firma eccede la lunghezza massima permessa pari a {GVAR: FORUM_SIG_ML} caratteri.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} caratteri <a href="javascript: alert(\'La tua firma &egrave; lunga \'+document.fud_register.reg_sig.value.length+\' caratteri. La lunghezza massima consentita per la firma &egrave; pari a {GVAR: FORUM_SIG_ML}\');" class="SmallText">Calcola la lunghezza della firma</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} caratteri <a href="javascript: alert(\'La tua firma &egrave; lunga \'+document.forms[\'fud_register\'].reg_sig.value.length+\' caratteri. La lunghezza massima consentita per la firma &egrave; pari a {GVAR: FORUM_SIG_ML}\');" class="SmallText">Calcola la lunghezza della firma</a>
 p_SEARCH:			Puoi cercare
 adm_account_accepted:		Il tuo account \'{VAR: GLOBALS['r']->login}\' &egrave; stato accettato dall&#39;amministratore ed ora &egrave; attivo. Ora puoi accedere al forum {GVAR: FORUM_TITLE}\' come un utente verificato.
 adm_account_accepted_s:		La tua richiesta per \'{GVAR: FORUM_TITLE}\' &egrave; stata accettata.

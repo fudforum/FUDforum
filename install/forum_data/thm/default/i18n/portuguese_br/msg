@@ -930,7 +930,7 @@ merge_prev:			Tópicos Anteriores
 split_cp:			Painel de Controle para Quebra de Tópicos
 groups_perms_header:		Permissões <font size="-1">(passe o mouse sobre a permissão para ver seu tipo)</font>
 register_err_sig_too_long:	Sua assinatura excede o comprimento máximo permitido de {GVAR: FORUM_SIG_ML} caracteres.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} caracteres <a href="javascript: alert(\'Sua assinatura possui \'+document.fud_register.reg_sig.value.length+\' caracteres. O comprimento máximo permitido é de {GVAR: FORUM_SIG_ML}\');" class="SmallText">Veja o Tamanho da Assinatura</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} caracteres <a href="javascript: alert(\'Sua assinatura possui \'+document.forms[\'fud_register\'].reg_sig.value.length+\' caracteres. O comprimento máximo permitido é de {GVAR: FORUM_SIG_ML}\');" class="SmallText">Veja o Tamanho da Assinatura</a>
 p_SEARCH:			Pode Procurar
 adm_account_accepted:		Sua conta \'{VAR: GLOBALS['r']->login}\' foi aprovada pelo administrador e está ativa agora. Agora você pode acessar o Fórum {GVAR: FORUM_TITLE}\' como um usuário confirmado.
 adm_account_accepted_s:		Sua requisição de conta para o fórum \'{GVAR: FORUM_TITLE}\' foi aceita.

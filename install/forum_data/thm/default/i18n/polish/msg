@@ -930,7 +930,7 @@ merge_prev:			Poprzedni Wątek
 split_cp:			Panel Sterowania Dzieleniem Wątków
 groups_perms_header:		Przywileje <font class="SmallText">(najedź myszką na przywilej aby zobaczyć opis)</font>
 register_err_sig_too_long:	Twoja sygnaturka przekracza dopuszczalny limit długości {GVAR: FORUM_SIG_ML} znaków.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} znaków <a href="javascript: alert(\'Długość Twojej sygnaturki wynosi \'+document.fud_register.reg_sig.value.length+\' znaków. Maksymalna dopuszczalna długość sygnaturki to {GVAR: FORUM_SIG_ML} znaków.\');" class="SmallText">Sprawdź długość sygnaturki</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} znaków <a href="javascript: alert(\'Długość Twojej sygnaturki wynosi \'+document.forms[\'fud_register\'].reg_sig.value.length+\' znaków. Maksymalna dopuszczalna długość sygnaturki to {GVAR: FORUM_SIG_ML} znaków.\');" class="SmallText">Sprawdź długość sygnaturki</a>
 p_SEARCH:			Może Szukać
 adm_account_accepted:		Twoje konto \'{VAR: GLOBALS['r']->login}\' zostało zatwierdzone przez administratora.\nJeśli jeszcze nie aktywowałeś swojego konta, zrób to jak najszybciej.\nWówczas będziesz mógł korzystać z {GVAR: FORUM_TITLE} z przywilejami zarejestrowanego użytkownika.
 adm_account_accepted_s:		Twoje konto na \'{GVAR: FORUM_TITLE}\' zostało zatwierdzone.

@@ -936,7 +936,7 @@ merge_prev:			Topik Sebelumnya
 split_cp:			Panel kontrol pemisah topik
 groups_perms_header:		Wewenang <span class="small">(gerakkan mouse anda untuk melihat tipe wewenang)</span>
 register_err_sig_too_long:	Tanda-tangan anda melebihi batas yang diijinkan sebesar {GVAR: FORUM_SIG_ML} karakter.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} karakter <a href="javascript: alert(\'Tanda-tangan anda \'+document.fud_register.reg_sig.value.length+\' karakter. Maksimum diijinkan adalah sebesar {GVAR: FORUM_SIG_ML} karakter.\');" class="SmallText">Perksa panjang tanda-tangan</a> 
+register_sig_limit:		{GVAR: FORUM_SIG_ML} karakter <a href="javascript: alert(\'Tanda-tangan anda \'+document.forms[\'fud_register\'].reg_sig.value.length+\' karakter. Maksimum diijinkan adalah sebesar {GVAR: FORUM_SIG_ML} karakter.\');" class="SmallText">Perksa panjang tanda-tangan</a> 
 adm_account_accepted:		Akun anda \'{VAR: GLOBALS['r']->login}\' disetujui oleh administrator dan sekarang sudah aktif. Anda bisa mengakses forum \'{GVAR: FORUM_TITLE}\' sebagai anggota terdaftar penuh.
 adm_account_accepted_s:		Permintaan anda untuk forum  \'{GVAR: FORUM_TITLE}\' diterima.
 adm_account_rejected:		Akun anda \'{VAR: GLOBALS['r']->login}\' ditolak oleh administrator. Jika anda ingin tahu alasan penolakan silakan hubungi administrator di alamat \'{GVAR: ADMIN_EMAIL}\'.

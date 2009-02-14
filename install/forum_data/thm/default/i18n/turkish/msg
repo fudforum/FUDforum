@@ -929,7 +929,7 @@ merge_prev:			Önceki Zincirler
 split_cp:			Zinciri Böl Denetim Masası
 groups_perms_header:		İzinler <font size="-1">(izin hakkında açıklama almak için fareyi üzerine getirin)</font>
 register_err_sig_too_long:	İmzanız en fazla {GVAR: FORUM_SIG_ML} karakter olabilir.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'İmzanız \'+document.fud_register.reg_sig.value.length+\' karakter uzunluğunda. İzin verilen en fazla karakter sayısı {GVAR: FORUM_SIG_ML}\');" class="SmallText">İmzanızın uzunluğunu gözden geçirin</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'İmzanız \'+document.forms[\'fud_register\'].reg_sig.value.length+\' karakter uzunluğunda. İzin verilen en fazla karakter sayısı {GVAR: FORUM_SIG_ML}\');" class="SmallText">İmzanızın uzunluğunu gözden geçirin</a>
 p_SEARCH:			Can Search
 adm_account_accepted:		Hesabınız (\'{VAR: GLOBALS['r']->login}\') yönetici tarafından onaylandı ve şu an etkin durumda. Artık \'{GVAR: FORUM_TITLE}\' forumuna onaylı kayıtlı kullanıcı olarak erişebilirsiniz.
 adm_account_accepted_s:		\'{GVAR: FORUM_TITLE}\' için hesap isteğiniz kabul edildi.

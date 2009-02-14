@@ -930,7 +930,7 @@ merge_prev:			Vorherige Themen
 split_cp:			Men&uuml; zum Teilen von Themen
 groups_perms_header:		Rechte <span class="small">(Bewege den Mauszeiger &uuml;ber die Rechte, um deren Typ zu erkennen)</span>
 register_err_sig_too_long:	Deine Signatur &uuml;berschreitet die maximal erlaubte L&auml;nge von {GVAR: FORUM_SIG_ML} Zeichen.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} Zeichen <a href="javascript: alert(\'Deine Signatur ist \'+document.fud_register.reg_sig.value.length+\' Zeichen lang. Die maximal erlaubte Signaturlänge beträgt {GVAR: FORUM_SIG_ML}\');" class="SmallText">&Uuml;berpr&uuml;fe die Signaturl&auml;nge</a>
+register_sig_limit:		{GVAR: FORUM_SIG_ML} Zeichen <a href="javascript: alert(\'Deine Signatur ist \'+document.forms[\'fud_register\'].reg_sig.value.length+\' Zeichen lang. Die maximal erlaubte Signaturlänge beträgt {GVAR: FORUM_SIG_ML}\');" class="SmallText">&Uuml;berpr&uuml;fe die Signaturl&auml;nge</a>
 p_SEARCH:			Kann suchen
 adm_account_accepted:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Administrator gebilligt und ist jetzt aktiviert. Du kannst jetzt auf das {GVAR: FORUM_TITLE}\' Forum als bestätigter Benutzer zugreifen.
 adm_account_accepted_s:		Deine Bitte um ein Konto für \'{GVAR: FORUM_TITLE}\' wurde akzeptiert.
