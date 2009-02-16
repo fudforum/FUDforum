@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.63 2009/01/29 18:37:40 frank Exp $
+* $Id: admimport.php,v 1.64 2009/02/16 05:37:11 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -73,6 +73,8 @@ function resolve_dest_path($path)
 			while ($getf($fp, 1024) != "----FILES_START----\n" && !$feoff($fp));
 
 			/* handle data files */
+			echo "Restoring data files...<br />\n";
+			ob_flush(); flush();
 			while (($line = $getf($fp, 1000000)) && $line != "----FILES_END----\n") {
 				/* each file is preceeded by a header ||path||size|| */
 				if (strncmp($line, '||', 2)) {
@@ -111,6 +113,8 @@ function resolve_dest_path($path)
 			/* skip to the start of the SQL code */
 			while ($getf($fp, 1024) != "----SQL_START----\n" && !$feoff($fp));
 
+			echo "Drop database tables...<br />\n";
+			ob_flush(); flush();
 			/* clear SQL data */
 			foreach(get_fud_table_list() as $v) {
 				q('DROP TABLE '.$v);
@@ -135,6 +139,8 @@ function resolve_dest_path($path)
 			$idx = array();
 
 			/* create table structure */
+			echo "Create database tables...<br />\n";
+			ob_flush(); flush();
 			while (($line = $getf($fp, 1000000)) && !$feoff($fp)) {
 				if (($line = trim($line))) {
 					if (!strncmp($line, 'DROP', 4) || !strncmp($line, 'ALTER', 5)) {
@@ -161,6 +167,8 @@ function resolve_dest_path($path)
 					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));
 				}
 			}
+			echo "Loading database tables...<br />\n";
+			ob_flush(); flush();
 			$r = $i = 0; $tmp = $pfx = ''; $m = __dbtype__ == 'mysql'; $p = __dbtype__ == 'pgsql';
 			do {
 				if (($line = trim($line))) {
@@ -190,6 +198,7 @@ function resolve_dest_path($path)
 
 					if ($i && !($i % 10000)) {
 						echo 'Processed '.$i.' queries<br />';
+						ob_flush(); flush();
 					}
 					++$i;
 				}
@@ -242,6 +251,7 @@ function resolve_dest_path($path)
 			}
 
 			echo "Recompiling Templates<br />\n";
+			ob_flush(); flush();
 
 			fud_use('compiler.inc', true);
 			$c = uq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0');

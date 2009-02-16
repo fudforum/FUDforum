@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.75 2009/02/10 05:26:15 frank Exp $
+* $Id: admdump.php,v 1.76 2009/02/16 05:37:11 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,6 +25,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			return;
 		}
 		echo 'Processing directory: '.$v.'<br />';
+		ob_flush(); flush();
 
 		if (!($files = glob($v . '/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
@@ -142,7 +143,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		}
 
 		echo "Compressing forum datafiles<br />\n";
-		flush();
+		ob_flush(); flush();
 		$write_func($fp, "\n----FILES_START----\n");
 		backup_dir($DATA_DIR, $fp, $write_func, 'DATA_DIR');
 		backup_dir($WWW_ROOT_DISK.'images/', $fp, $write_func, 'WWW_ROOT_DISK', 1);
@@ -179,7 +180,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);
 
 			echo 'Processing table: '.$tbl_name.' ('.$num_entries.') .... ';
-			flush();
+			ob_flush(); flush();
 			if ($num_entries) {
 				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '', $tbl_name);
 				$write_func($fp, "\0\0\0\0".$db_name."\n");

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.135 2009/02/10 05:26:15 frank Exp $
+* $Id: consist.php,v 1.136 2009/02/16 05:37:11 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,7 +51,7 @@ function draw_stat($text)
 function draw_info($cnt)
 {
 	draw_stat(($cnt < 1 ? 'OK' : $cnt . ' entries unmatched, deleted'));
-	flush();
+	ob_flush(); flush();
 }
 
 function stop_js()
