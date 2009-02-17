@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.61 2009/01/29 18:37:17 frank Exp $
+* $Id: finduser.php.t,v 1.62 2009/02/17 15:18:43 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,7 +35,7 @@
 	} else if (isset($_GET['us'])) {
 		$ord = 'alias ' . ($_GET['us'] % 2 ? 'DESC' : 'ASC');
 	} else if (isset($_GET['rd'])) {
-		$ord = 'id ' . ($_GET['rd'] % 2 ? 'DESC' : 'ASC');
+		$ord = 'join_date ' . ($_GET['rd'] % 2 ? 'DESC' : 'ASC');
 	} else if (isset($_GET['fl'])) {
 		$ord = 'flag_cc ' . ($_GET['fl'] % 2 ? 'DESC' : 'ASC');
 	} else {
