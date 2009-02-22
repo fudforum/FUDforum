@@ -634,7 +634,7 @@ ERR_access_msg:			u heeft niet de vereiste toegang om deze handeling uit te voer
 ERR_registration_disabled_ttl:	Registratie uitgeschakeld
 ERR_registration_disabled_msg:	De administrator heeft de registratie uitgeschakeld, probeer later opnieuw
 ERR_emailconf_ttl:		FOUT: U lidmaatschap is nog niet bevestigd
-ERR_emailconf_msg:		U heeft uw account nog niet bevestigd via email<br /><table border=0><tr><td><ol><li>Indien u geen bevestigings&shy;email  ontvangen heeft<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik hier</a><li>If {VAR: usr_d->email} is niet jouw correcte email adres <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klik hier</a></ol></td></tr></table>
+ERR_emailconf_msg:		U heeft uw account nog niet bevestigd via email<br /><table border="0"><tr><td><ol><li>Indien u geen bevestigings&shy;email  ontvangen heeft<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik hier</a><li>If {VAR: usr_d->email} is niet jouw correcte email adres <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klik hier</a></ol></td></tr></table>
 ERR_user_ttl:			FOUT: onbekend lid
 ERR_user_msg:			dit is een onbekend lid
 ERR_systemerr_ttl:		FOUT: SYSTEEMFOUT

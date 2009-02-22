@@ -644,7 +644,7 @@ ERR_access_msg:			Bạn không được phép yêu cầu xem hành động này
 ERR_registration_disabled_ttl:	Đăng ký đã bị vô hiệu hóa
 ERR_registration_disabled_msg:	Người quản trị tối cao đã vô hiệu hóa đăng ký .Xin vui lòng đăng ký lại lần sau.
 ERR_emailconf_ttl:		LỖI : Tài khoản của bạn vẫn chưa được xác nhận
-ERR_emailconf_msg:		Tài khoản của bạn vẫn chưa được xác nhận bằng email <br /><table border=0><tr><td><ol><li>Nếu bạn không nhận được email xác nhận, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">nhấn chuột vào đây</a><li>Nếu {VAR: usr_d->email} không phải là email của bạn, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">nhấn chuột vào đây</a></ol></td></tr></table>
+ERR_emailconf_msg:		Tài khoản của bạn vẫn chưa được xác nhận bằng email <br /><table border="0"><tr><td><ol><li>Nếu bạn không nhận được email xác nhận, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">nhấn chuột vào đây</a><li>Nếu {VAR: usr_d->email} không phải là email của bạn, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">nhấn chuột vào đây</a></ol></td></tr></table>
 ERR_user_ttl:			ERROR: No such user
 ERR_user_msg:			There is no such user
 ERR_systemerr_ttl:		Lỗi :Lỗi hệ thống

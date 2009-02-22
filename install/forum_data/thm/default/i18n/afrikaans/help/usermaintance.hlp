@@ -61,7 +61,7 @@ encrypted version.
 Therefor if you forget your password it can not be restored back, so, upon a restore
 password request the forum will randomly generate you a new password.
 
-TOPIC_TITLE: <a name="cstat">Custom Tags, what are they & how can I get one?</a>
+TOPIC_TITLE: <a name="cstat">Custom Tags, what are they &amp; how can I get one?</a>
 TOPIC_HELP:
 Custom Tags can only be assigned by the forum administrator(s), so if you want a custom tag, ask the forum's Admin for it.
 
@@ -76,7 +76,7 @@ from your profile page.
 	<li><b>Upload Avatar</b> - If enabled, you can upload an image that would be your avatar to the server. Once uploaded, it would need to be approved by the administrator before it becomes your avatar.
 	<li><b>Specify URL</b> - If enabled, you can specify a URL to an image, that you wish to be your avatar. If approved by the administrator, this image will become your avatar.
 </ul>
-<b>note:</b> You may change your avatar at any time, however the Uploaded & URL avatars will always need to be approved prior to going live on the forum.
+<b>note:</b> You may change your avatar at any time, however the Uploaded &amp; URL avatars will always need to be approved prior to going live on the forum.
 
 TOPIC_TITLE: <a name="blist">What's a buddy list?</a>
 TOPIC_HELP:

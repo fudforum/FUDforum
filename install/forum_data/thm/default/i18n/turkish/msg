@@ -631,7 +631,7 @@ ERR_access_msg:			Yapmak istediğiniz için yeterli erişim iznine sahip değils
 ERR_registration_disabled_ttl:	Kayıt Engellenmiş
 ERR_registration_disabled_msg:	Yönetici kayıtı engellemiş durumda. Lütfen daha sonra tekrar deneyin.
 ERR_emailconf_ttl:		HATA: Hesabınız henüz doğrulanmadı
-ERR_emailconf_msg:		Hesabınızı henüz e-mektup yoluyla doğrulamadınız.<br /><table border=0><tr><td><ol><li>Eğer doğrulama mektubu almadıysanız <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">buraya tıklayın</a><li>Eğer {VAR: usr_d->email} adresi sizin doğru adresiniz değilse <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">buraya tıklayın</a></ol></td></tr></table>
+ERR_emailconf_msg:		Hesabınızı henüz e-mektup yoluyla doğrulamadınız.<br /><table border="0"><tr><td><ol><li>Eğer doğrulama mektubu almadıysanız <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">buraya tıklayın</a><li>Eğer {VAR: usr_d->email} adresi sizin doğru adresiniz değilse <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">buraya tıklayın</a></ol></td></tr></table>
 ERR_user_ttl:			HATA: Kullanıcı yok
 ERR_user_msg:			Böyle bir kullanıcı yok
 ERR_systemerr_ttl:		HATA: Sistem Hatası

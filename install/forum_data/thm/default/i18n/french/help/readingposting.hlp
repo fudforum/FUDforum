@@ -9,9 +9,9 @@ Comme dans la plupart des cas, l'administrateur ne vous permet pas d'utiliser du
 <b>Hyperliens vers une URL</b><br /><br />
 
 Le forum peut automatiquement récupérer plusieurs formes d'URLs, par exemple&nbsp;:<br />
-	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br />
+	<div align="Center"><font color="#FF0000">http://cvs.prohost.org</font></div><br />
 sera automatiquement récupéré comme une URL et converti en une URL valide qui ressemblera à cela&nbsp;:
-	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br />
+	<div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div><br />
 	
 	
 Vous pouvez également créer une URL vous-même en utilisant du FUDcode, ceci peut être fait de 2 façons, une façon simple fonctionnerait comme ceci&nbsp;:

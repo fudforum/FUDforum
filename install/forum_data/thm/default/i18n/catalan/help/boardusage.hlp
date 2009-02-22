@@ -66,7 +66,7 @@ Si l`administrador ho permet, FUDforum li permet sindicar una selecció de les d
 <br /><br />
 <h4><u><b>Modo 'm' (missatges)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Solament descarregar-se els missatges de la categoria amb aquest identificador.</td></tr>
 		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Solament descarregar-se els missatges del fòrum amb aquest identificador.</td></tr>
 		<tr><td class="GenText"><i>th</i></td><td class="GenText">Solament descarregar-se els missatges del fil amb aquest identificador.</td></tr>
@@ -81,7 +81,7 @@ Si l`administrador ho permet, FUDforum li permet sindicar una selecció de les d
 </blockquote>
 <h4><u><b>Mode 't' (fils)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Solament descarregar-se fils de la categoria amb aquest identificador.</td></tr>
 		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Solament descarregar-se fils del fòrum amb aquest identificador.</td></tr>
 		<tr><td class="GenText"><i>id</i></td><td class="GenText">Descarregar-se solament el fil amb l`identificador especificat.</td></tr>
@@ -94,7 +94,7 @@ Si l`administrador ho permet, FUDforum li permet sindicar una selecció de les d
 </blockquote>
 <h4><u><b>Mode 'u' (usuaris) <i>**could be disabled**</i></b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Ordenar els usuaris pel nombre de missatges enviats, de major a menor.</td></tr>
 		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Ordenar els usuaris per la data de registre, de més recents a més antics.</td></tr>
 		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Solament mostrar els usuaris que estiguin connectats ara mateix.</td></tr>

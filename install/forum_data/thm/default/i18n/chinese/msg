@@ -631,7 +631,7 @@ ERR_access_msg:		你没有权利进行此项操作
 ERR_registration_disabled_ttl:	注册失败
 ERR_registration_disabled_msg:	注册功能被系统管理员禁止，请重试！
 ERR_emailconf_ttl:		错误：此账号无效
-ERR_emailconf_msg:		你注册的账号尚未进行邮件确认<br /><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">请点击这里</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">请点击这里</a></ol></td></tr></table>
+ERR_emailconf_msg:		你注册的账号尚未进行邮件确认<br /><table border="0"><tr><td><ol><li>如果你没有收到确认邮件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">请点击这里</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">请点击这里</a></ol></td></tr></table>
 ERR_user_ttl:			错误：没有这个用户
 ERR_user_msg:			没有这个用户
 ERR_systemerr_ttl:		系统错误

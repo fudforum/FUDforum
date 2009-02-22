@@ -630,7 +630,7 @@ ERR_access_msg:			Non disponi dei permessi necessari per eseguire questa azione
 ERR_registration_disabled_ttl:	Registrazione non attiva
 ERR_registration_disabled_msg:	L&#39;amministratore ha disabilitato la registrazione, riprova pi&ugrave; tardi
 ERR_emailconf_ttl:		ERRORE: Il tuo account non &egrave; stato confermato
-ERR_emailconf_msg:		Non hai ancora confermato il tuo account via email<br /><table border=0><tr><td><ol><li>Se non hai ricevuto una email di conferma <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clicca qui<li>Se {VAR: usr_d->email} non &egrave; il tuo indirizzo di posta elettronica <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clicca qui</a></ol></td></tr></table>
+ERR_emailconf_msg:		Non hai ancora confermato il tuo account via email<br /><table border="0"><tr><td><ol><li>Se non hai ricevuto una email di conferma <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clicca qui<li>Se {VAR: usr_d->email} non &egrave; il tuo indirizzo di posta elettronica <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clicca qui</a></ol></td></tr></table>
 ERR_user_ttl:			ERRORE: Nessun utente
 ERR_user_msg:			Non esiste questo utente
 ERR_systemerr_ttl:		ERRORE: Errore di sistema

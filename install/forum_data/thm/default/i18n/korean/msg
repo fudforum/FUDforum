@@ -642,7 +642,7 @@ ERR_access_msg:			You do not have the required permissions to perform this actio
 ERR_registration_disabled_ttl:	등록불가
 ERR_registration_disabled_msg:	The administrator has disabled registration. Please try again later.
 ERR_emailconf_ttl:		오류: 계정 확인 절차를 마치지 않았습니다
-ERR_emailconf_msg:		이메일을 이용한 계정 확인 절차를 마치지 않았습니다<br /><table border=0><tr><td><ol><li>만일 이메일을 받지 못했다면, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">여기</a>를 클릭하십시오.<li>만일 {VAR: usr_d->email} 이메일 주소가 틀리다면 , <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">여기</a>를 클릭 하십시오.</ol></td></tr></table>
+ERR_emailconf_msg:		이메일을 이용한 계정 확인 절차를 마치지 않았습니다<br /><table border="0"><tr><td><ol><li>만일 이메일을 받지 못했다면, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">여기</a>를 클릭하십시오.<li>만일 {VAR: usr_d->email} 이메일 주소가 틀리다면 , <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">여기</a>를 클릭 하십시오.</ol></td></tr></table>
 ERR_user_ttl:			오류: 일치하는 사용자가 없습니다
 ERR_user_msg:			일치하는 사용자가 없습니다
 ERR_systemerr_ttl:		오류: 시스템 오류

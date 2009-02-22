@@ -641,7 +641,7 @@ ERR_access_msg:			この操作を行なう必要な許可がありません。
 ERR_registration_disabled_ttl:	登録は無効です。
 ERR_registration_disabled_msg:	管理者は登録を無効にしています。後で確認してください。
 ERR_emailconf_ttl:		エラー: アカウントはまだ確認されていません。
-ERR_emailconf_msg:		電子メールによってアカウントをまだ確認していません。<br /><table border=0><tr><td><ol><li>確認電子メールを受け取っていなければ、<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">ここをクリック</a>してください。<li>{VAR: usr_d->email} が正確な電子メールアドレスでない場合は、<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">ここをクリック</a>してください。</ol></td></tr></table>
+ERR_emailconf_msg:		電子メールによってアカウントをまだ確認していません。<br /><table border="0"><tr><td><ol><li>確認電子メールを受け取っていなければ、<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">ここをクリック</a>してください。<li>{VAR: usr_d->email} が正確な電子メールアドレスでない場合は、<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">ここをクリック</a>してください。</ol></td></tr></table>
 ERR_user_ttl:			エラー: ユーザーが居ません
 ERR_user_msg:			そのユーザーは居ません
 ERR_systemerr_ttl:		エラー: システムエラー

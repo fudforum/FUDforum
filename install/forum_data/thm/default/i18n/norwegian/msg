@@ -631,7 +631,7 @@ ERR_access_msg:			Du har ikke de rettigheter som er n&oslash;dvendig for &aring;
 ERR_registration_disabled_ttl:	Registrering stengt
 ERR_registration_disabled_msg:	Administratoren har stengt registreringen, pr&oslash;v p&aring; nytt senere
 ERR_emailconf_ttl:		FEIL: Din brukerkonto er enda ikke bekreftet
-ERR_emailconf_msg:		Du har ikke bekreftet din brukerkonto via e-post <br /><table border=0><tr><td><ol><li>Dersom du ikke har f&aring;tt en bekreftelse per e-post <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">trykk her</a><li>Hvis {VAR: usr_d->email} ikke er din riktige e-postadresse <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">trykk her</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du har ikke bekreftet din brukerkonto via e-post <br /><table border="0"><tr><td><ol><li>Dersom du ikke har f&aring;tt en bekreftelse per e-post <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">trykk her</a><li>Hvis {VAR: usr_d->email} ikke er din riktige e-postadresse <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">trykk her</a></ol></td></tr></table>
 ERR_user_ttl:			FEIL: Finner ikke et slikt medlem
 ERR_user_msg:			Det finnes ikke et slikt medlem
 ERR_systemerr_ttl:		FEIL: Systemfeil

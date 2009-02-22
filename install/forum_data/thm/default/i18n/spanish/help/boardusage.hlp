@@ -105,7 +105,7 @@ continuacio se explican los parámetros soportados para cada modo de operación:<b
 <br /><br />
 <h4><u><b>Modo 'm' (mensajes)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Sólo descargarse los mensajes de la categoría con este identificador.</td></tr>
 		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Sólo descargarse los mensajes del foro con este identificador.</td></tr>
 		<tr><td class="GenText"><i>th</i></td><td class="GenText">Sólo descargarse los mensajes del hilo con este identificador.</td></tr>
@@ -120,7 +120,7 @@ continuacio se explican los parámetros soportados para cada modo de operación:<b
 </blockquote>
 <h4><u><b>Modo 't' (hilos)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Sólo descargarse hilos de la categoría con este identificador.</td></tr>
 		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Sólo descargarse hilos del foro con este identificador.</td></tr>
 		<tr><td class="GenText"><i>id</i></td><td class="GenText">Descargarse sólo el hilo con el identificador especificado.</td></tr>
@@ -133,7 +133,7 @@ continuacio se explican los parámetros soportados para cada modo de operación:<b
 </blockquote>
 <h4><u><b>Modo 'u' (usuarios) <i>**could be disabled**</i></b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Ordenar los usuarios por el número de mensajes enviado, de mayor a menor.</td></tr>
 		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Ordenar los usuarios por la fecha de registro, de más recientes a más antiguos.</td></tr>
 		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Sólo mostrar los usuarios que están conectados ahora mismo.</td></tr>

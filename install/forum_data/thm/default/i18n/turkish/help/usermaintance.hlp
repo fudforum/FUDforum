@@ -67,7 +67,7 @@ parolanýn MD5 toplamýnýn veritabanýndaki MD5 toplamý ile karþýlaþtýrýlmasý þekli
 bulunmasýnýn herhangi bir yolu yoktur. Bu yüzden, parolanýzý yeniden belirlediðinizde, forum sizin için rastgele yeni bir parola üretecektir.
 
 
-TOPIC_TITLE: <a name="cstat">Özel takýlar nedir & nasýl kullanabilirim?</a>
+TOPIC_TITLE: <a name="cstat">Özel takýlar nedir &amp; nasýl kullanabilirim?</a>
 TOPIC_HELP:
 Özel takýlar sadece yönetici tarafýndan eklenebilir, dolayýsýyla özel bir taký istiyorsanýz, forumun yöneticinden istemelisiniz.
 
@@ -85,7 +85,7 @@ tarafýndan onaylanmayý gerektirir.
 	<li><b>URL belirt</b> - Eðer izin verildiyse, avatarýnýz olacak resmin URL'sini belirtebilirsiniz. Yönetici tarafýndan onaylandýðý takdirde
 avatarýnýz olarak kullanabilirsiniz.
 </ul>
-<b>note:</b> You may change your avatar at any time, however the Uploaded & URL avatars will always need to be approved prior to going live on the forum.
+<b>note:</b> You may change your avatar at any time, however the Uploaded &amp; URL avatars will always need to be approved prior to going live on the forum.
 
 TOPIC_TITLE: <a name="blist">Arkadaþ listesi nedir?</a>
 TOPIC_HELP:

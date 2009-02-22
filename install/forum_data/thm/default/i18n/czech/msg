@@ -635,7 +635,7 @@ ERR_access_msg:			Nemáte dostatečné pravomoci na provedení této akce
 ERR_registration_disabled_ttl:	Registrace vypnuta
 ERR_registration_disabled_msg:	Administrátor vypnul registraci, prosím, zkuste to později
 ERR_emailconf_ttl:		CHYBA: Váš účet ještě není potvrzen
-ERR_emailconf_msg:		Ještě jste nepotvrdil(a) svůj účet přes email<br /><table border=0><tr><td><ol><li>Pokud jste ještě nedostal(a) potvrzující email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klikněte zde</a><li>Pokud {VAR: usr_d->email} není vaše správná emailová adresa <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klikněte zde</a></ol></td></tr></table>
+ERR_emailconf_msg:		Ještě jste nepotvrdil(a) svůj účet přes email<br /><table border="0"><tr><td><ol><li>Pokud jste ještě nedostal(a) potvrzující email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klikněte zde</a><li>Pokud {VAR: usr_d->email} není vaše správná emailová adresa <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klikněte zde</a></ol></td></tr></table>
 ERR_user_ttl:			CHYBA: Žádný takový uživatel není
 ERR_user_msg:			Žádný takový uživatel není
 ERR_systemerr_ttl:		CHYBA: Systémová chyba

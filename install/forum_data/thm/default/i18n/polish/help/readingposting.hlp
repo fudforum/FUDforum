@@ -9,9 +9,9 @@ W zwi±zku z tym, ¿e na forum administrator zazwyczaj nie pozwala u¿ywaæ znacznik
 <b>Osadzanie odno¶ników</b><br /><br />
 
 Forum mo¿e automatycznie odnajdywaæ ró¿ne formy odno¶ników, odpowiednio je zaznaczaj±c:<br />
-	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br />
+	<div align="Center"><font color="#FF0000">http://cvs.prohost.org</font></div><br />
 zostanie automatycznie rozpoznane jako odno¶nik i zostanie przekszta³cone do poprawnej formy, która wygl±da nastêpuj±co:
-	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br />
+	<div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div><br />
 	
 
 Mo¿esz tak¿e samodzielnie zaznaczyæ odno¶nik u¿ywaj±c FUDcode. Najprostszy sposó na zrobienie tego, to u¿ycie poni¿szego przyk³adu:

@@ -15,8 +15,8 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#FF0000">http://fud.prohost.org</font></td>
-    <td valign="middle" align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></td>
+    <td valign="middle" align="center"><font color="#FF0000">http://cvs.prohost.org</font></td>
+    <td valign="middle" align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></td>
   </tr>
 </table>
 <i>Explanation:</i> FUDforum will automatically pick up URLs and convert them to valid URLs.
@@ -460,7 +460,7 @@ More visible text.</td>
 
 TOPIC_TITLE: <a name="sml">What are Smilies/Emoticons?</a> 
 TOPIC_HELP:
-Smilies are small icons that you can insert into your message to convey various emotions & feelings.
+Smilies are small icons that you can insert into your message to convey various emotions &amp; feelings.
 If smilies are enabled, a list of smilies supported by the forum will be listed above the message box where you type your message.
 Clicking on a smiley, will insert that smiley into your message.<br />
 Common smilies may automatically be replaced with their equivalent images, if you do not wish for that to happen, click on the 
@@ -504,18 +504,18 @@ TOPIC_TITLE: <a name="edit">Can I edit my message?</a>
 TOPIC_HELP:
 If you are a registered member, you may be able to edit messages that you have previously posted. This option may be 
 time-limited, so it is possible that you'll be able to edit your recent posts, while unable to edit posts made a while ago.<br />
-If you edit your post, a small note will be prepended to your message, showing that this message was edited by you and indicate the time & date 
+If you edit your post, a small note will be prepended to your message, showing that this message was edited by you and indicate the time &amp; date 
 of editing.<br />
 If a moderator or an administrator have edited your message you may or may not, depending on the forum settings see a note identifying the fact 
 that this message was edited.
 
-TOPIC_TITLE: <a name="mod">Who are the moderators & administrators?</a> 
+TOPIC_TITLE: <a name="mod">Who are the moderators &amp; administrators?</a> 
 TOPIC_HELP:
 Moderators are "super users" who generally oversee one or more forums. They have the ability to edit, delete, approve messages as well 
 as make forum announcements. These are the people to contact if you see something inappropriate being done in a forum they are moderating. 
 You may also address moderators if you have any questions in regard on how to use the forum.<p>
 Administrators are the controllers of the forum, they can do ANYTHING, so be polite when talking to them ;-). Administrator in addition to being 
-able to do everything a moderator can do, also can approve Avatars, assign & remove custom tags, block users and respond to various forum questions.
+able to do everything a moderator can do, also can approve Avatars, assign &amp; remove custom tags, block users and respond to various forum questions.
 If you encounter any bugs with the forum, Administrator is the person to contact.
 
 TOPIC_TITLE: <a name="cens">Censorship?</a>

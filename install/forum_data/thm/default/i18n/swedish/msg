@@ -631,7 +631,7 @@ ERR_access_msg:			Du har inte de r&auml;ttigheter som beh&ouml;vs f&ouml;r att g
 ERR_registration_disabled_ttl:	Registrering avst&auml;ngd
 ERR_registration_disabled_msg:	Administratorn har st&auml;ng av registreringen, f&ouml;rs&ouml;k p&aring; nytt senare
 ERR_emailconf_ttl:		FEL: Ditt anv&auml;ndarkonto &auml;r &auml;nnu inte bekr&auml;ftat
-ERR_emailconf_msg:		Du har inte bekr&auml;ftat ditt anv&auml;ndarkonto via e-post <br /><table border=0><tr><td><ol><li>Om du inte har f&aring;tt ett bekr&auml;ftelsemeddelande per e-post <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">tryck h&auml;r</a><li>Om {VAR: usr_d->email} inte &auml;r din r&auml;tta e-postadress <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">tryck h&auml;r</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du har inte bekr&auml;ftat ditt anv&auml;ndarkonto via e-post <br /><table border="0"><tr><td><ol><li>Om du inte har f&aring;tt ett bekr&auml;ftelsemeddelande per e-post <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">tryck h&auml;r</a><li>Om {VAR: usr_d->email} inte &auml;r din r&auml;tta e-postadress <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">tryck h&auml;r</a></ol></td></tr></table>
 ERR_user_ttl:			FEL: Ingen s&aring;dan medlem
 ERR_user_msg:			Det finns ingen s&aring;dan medlem
 ERR_systemerr_ttl:		FEL: Systemfel

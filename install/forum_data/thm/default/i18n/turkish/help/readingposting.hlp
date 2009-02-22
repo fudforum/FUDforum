@@ -12,9 +12,9 @@ FUDcode, metninizi biçimlendirmenizi saðlayan ve HTML yerine kullanabileceðiniz 
 <b>URL linkleri</b><br /><br />
 
 Forum otomatik olarak deðiþik þekillerdeki URLleri tanýyabilir, örneðin:<br />
-	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br />
+	<div align="Center"><font color="#FF0000">http://cvs.prohost.org</font></div><br />
 adresinin otomatik olarak URL olduðu tanýnýr ve þu þekilde görüntülenir:
-	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br />
+	<div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div><br />
 	
 FUDcode kullanarak kendiniz de iki deðiþik yol ile bir URL oluþturabilirsiniz, bunlardan daha basit olaný:
 	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.anasayfam.com</font>[/URL]</font></b></div><br />

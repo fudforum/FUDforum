@@ -5,27 +5,27 @@ aan je berichten toevoegen, je kunt bijvoorbeeld sommige woorden vet weergeven o
 Aangezien de beheerder meestal niet toestaat dat je HTML gebruikt in je berichten, kun je in plaats hiervan FUDcode gebruiken,
 dit is een verzameling speciale opmaaktags die je kunt gebruiken voor het opmaken van je teksten. FUDcode is makkelijk te
 gebruiken en veel veiliger dan HTML.<p>
-<b>Hier is een lijst van ondersteunde FUDcode tags en een paar korte voorbeelden voor het gebruik ervan</b><P>
-<b>URL Hyperlinken</b><P>
-Het forum kan automatisch urls vinden en wel op vele manieren, bijvoorbeeld:<BR>
-<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br />
+<b>Hier is een lijst van ondersteunde FUDcode tags en een paar korte voorbeelden voor het gebruik ervan</b><p>
+<b>URL Hyperlinken</b><p>
+Het forum kan automatisch urls vinden en wel op vele manieren, bijvoorbeeld:<br />
+<div align="Center"><font color="#FF0000">http://cvs.prohost.org</font></div><br />
 wordt automatisch herkend als een URL en omgezet tot een geldige URL, dit ziet er als volgt uit:
-<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br />
+<div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div><br />
 Je kunt ook zelf een URL maken door gebruik te maken van FUDcode, dit kan op twee manieren gedaan worden, de makkelijkste manier
 werkt zo:<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.mijnhomepage.nl</font>[/URL]</font></b></div><br />
 dit resulteert in de volgende link:<div align="center"><a href="http://www.mijnhomepage.nl" target=_blank>http://www.mijnhomepage.nl</a></div><br />
-Je kunt ook een omschrijving toevoegen aan je URL door een andere syntaxis te gebruiken binnen de URL tag:<P>
-<font color="#ff0000"><b>[URL=<font color="#006600">http://www.mijnhomepage.nl</font>]<font color="#006600">Mijn Homepage</font>[/URL]</b></font><P>
-Deze code resulteert in het volgende:<BR><div align="center"><a href="http://www.mijnhomepage.nl" target=_blank>Mijn Homepage</a></div><br />
+Je kunt ook een omschrijving toevoegen aan je URL door een andere syntaxis te gebruiken binnen de URL tag:<p>
+<font color="#ff0000"><b>[URL=<font color="#006600">http://www.mijnhomepage.nl</font>]<font color="#006600">Mijn Homepage</font>[/URL]</b></font><p>
+Deze code resulteert in het volgende:<br /><div align="center"><a href="http://www.mijnhomepage.nl" target=_blank>Mijn Homepage</a></div><br />
 <p>
-<b>E-mailadressen linken</b><P>
-Om een e-maillink te maken type je gewoon het e-mailadres in zoals je dat normaal gesproken ook gewend bent te doen, bijvoorbeeld:<BR>
+<b>E-mailadressen linken</b><p>
+Om een e-maillink te maken type je gewoon het e-mailadres in zoals je dat normaal gesproken ook gewend bent te doen, bijvoorbeeld:<br />
 <div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br />Het forum zal dit automatisch als een
-link zien en die ook maken. Verder is het ook nog mogelijk om een echte e-maillink te maken door gebruik te maken van deze code<BR>
+link zien en die ook maken. Verder is het ook nog mogelijk om een echte e-maillink te maken door gebruik te maken van deze code<br />
 <div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Klik hier om technische hulp te krijgen<font color="#ff0000"><b>[/email]</b></font><br /></div>
 <br />
 <b>Tekst opmaak</b><br />
-Er is een aantal tags waarmee je de opmaak van tekst kunt bepalen, dit zijn:<P>
+Er is een aantal tags waarmee je de opmaak van tekst kunt bepalen, dit zijn:<p>
 <ul>
   <li><font color="#ff0000"><b>[b]</b></font>vet<font color="#ff0000"><b>
          [/b]</b></font> geeft <b>vette</b> tekst</li>
@@ -51,7 +51,7 @@ Het is ook mogelijk om verschillende opmaak tags te combineren:<br />
 <div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Opgemaakte tekst<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></div>
 dit voorbeeld resulteert in:<br />
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Opgemaakte tekst</b></i></u></font></div>
-<P>
+<p>
 <b>Tekst uitlijning</b><br />
 FUDcode ondersteunt uitlijning van de tekst via de [align] tag, waarmee de tekst op drie manieren kan worden uitgelijnd:
 <ul>
@@ -62,9 +62,9 @@ FUDcode ondersteunt uitlijning van de tekst via de [align] tag, waarmee de tekst
 	<li><font color="#ff0000"><b>[align=right]</b></font>rechts uitgelijnd<font color="#ff0000"><b>[/align]</b></font> geeft:</li>
 		<div align="right">rechts uitgelijnd</div>
 </ul>
-<P>
+<p>
 <b>Verschillende lijsten</b><br />
-Door gebruik te maken van FUDcode kun je ook verschillende lijsten maken:<P>
+Door gebruik te maken van FUDcode kun je ook verschillende lijsten maken:<p>
 Ongeordende lijst met stippen:<br />
 <font color="#ff0000"><b>[list]</b></font><br />
 <font color="#ff0000"><b>[*]</b></font>eerste item<br />
@@ -86,7 +86,7 @@ Om een lijst te maken van A-Z:<br />
 <br />dit geeft:<br /><ol type="a"><li>eerste item</li><li>tweede item</li></ol>
 <b>Afbeeldingen toevoegen</b><br />
 In-line afbeeldingen kunnen worden weergegeven in het bericht door gebruik te maken van de <font color="#ff0000"><b>
-    [img][/img]</b></font> tags.<P>bijvoorbeeld,<br />
+    [img][/img]</b></font> tags.<p>bijvoorbeeld,<br />
 <div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
 voegt op de volgende manier een afbeelding in in het bericht:<br />
 <div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br /></div>
@@ -107,7 +107,7 @@ Het wordt als volgt gebruikt: <br />
 <font color="#ff0000"><b>[code]</b></font>
 <pre>$fp = fopen('een bestand', 'w');<br />if ( !$fp ) {<br />	exit('bestand niet gevonden!');<br />}<br />else { <br />	fwrite($fp, 'Hallo wereld');<br />	fclose($fp);<br />}<br /></pre>
 <font color="#ff0000"><b>[/code]</b></font><p>
-Dit geeft de tekst precies zo weer als dat het werd ingetypt waarbij de opmaak behouden blijft.<P>
+Dit geeft de tekst precies zo weer als dat het werd ingetypt waarbij de opmaak behouden blijft.<p>
 <pre>$fp = fopen('eenbestand', 'w');<br />if ( !$fp ) {<br />	exit('bestand niet gevonden!');<br />}<br />else { <br />	fwrite($fp, 'Hallo wereld');<br />	fclose($fp);<br />}<br /><br /><br /></pre>
 
 <p>
@@ -186,11 +186,11 @@ TOPIC_TITLE: <a name="polls">Hoe gebruik ik polls?</a>
 TOPIC_HELP:
 Op sommige forums heb je de mogelijkheid om een poll toe te voegen aan je bericht. Door middel van een poll kun je een vraag
 stellen met een aantal antwoorden waar de andere forumleden uit kunnen kiezen. Uit oogpunt van nauwkeurigheid kunnen alleen
-geregistreerde gebruikers een stem uitbrengen in een poll.<BR>
+geregistreerde gebruikers een stem uitbrengen in een poll.<br />
 Wanneer je op de link <b>POLL MAKEN</b> klikt, die je kunt vinden op de pagina waar je een bericht kunt opstellen, zal er een
 pop-up venster verschijnen waarin je je poll kunt maken en een aantal potenti&eacute;le antwoordkeuzen kunt opgeven. Als je klaar bent, klik je
 gewoon op de button <b>Bijwerken</b>, waarna je terug zult gaan naar het venster waarin je je bericht aan het opstellen was en de
-poll die je gemaakt hebt zal worden toegevoegd aan je bericht.<BR>
+poll die je gemaakt hebt zal worden toegevoegd aan je bericht.<br />
 Een bestaande poll kun je wijzigen door te klikken op de link <b>WIJZIGEN</b>, je kunt de poll ook in zijn geheel verwijderen door te klikken op <b>VERWIJDEREN</B>.
 <p>Je kunt slechts een keer stemmen in een poll, dus kies je keuze zorgvuldig, aangezien het niet mogelijk is om je keuze later nog te veranderen.
 
@@ -205,7 +205,7 @@ Het venster waarin je je bericht kunt opstellen geeft drie regels weer die gelde
 <b>Maximaal aantal bestanden per bericht</b> - het aantal bestanden dat je aan je bericht kunt toevoegen.<p>
 Om een bestand aan een bericht toe te voegen klik je op de knop <b>Bladeren...</b> onderaan de pagina waarin je je bericht kunt opstellen. De browser zal
 dan een dialoogvenster openen waarin je het bestand dat je wilt uploaden kunt selecteren op je harde schijf. Wanneer je een bestand geselecteerd hebt, klik je
-op de knop <b>Bestand uploaden</b> om het bestand toe te voegen aan je bericht.<BR>
+op de knop <b>Bestand uploaden</b> om het bestand toe te voegen aan je bericht.<br />
 Als je toegevoegde bestanden weer wilt verwijderen, klik je op de knop <b>Verwijderen</B> rechts van het bestand.
 
 TOPIC_TITLE: <a name="msgico">Wat is een post icoon?</a>
@@ -217,7 +217,7 @@ bericht deze iconen niet ziet, betekent dat dat de beheerder deze iconen heeft u
 TOPIC_TITLE: <a name="edit">Kan ik mijn bericht wijzigen?</a>
 TOPIC_HELP:
 Geregistreerde leden kunnen hun berichten die ze eerder geplaatst hebben wijzigen. Deze mogelijkheid kan tijdgelimiteerd zijn,
-het is dus mogelijk dat je wel je recente berichten kunt wijzigen, maar berichten die je al wat langer geleden hebt geplaatst niet meer kunt wijzigen.<BR>
+het is dus mogelijk dat je wel je recente berichten kunt wijzigen, maar berichten die je al wat langer geleden hebt geplaatst niet meer kunt wijzigen.<br />
 Wanneer je je bericht wijzigt, zal er een regeltje tekst aan je bericht worden toegevoegd, dat weergeeft dat dit bericht door jou gewijzigd is en ook de datum en de tijd
 van de wijziging weergeeft.<br />
 Als een moderotor of een beheerder je bericht gewijzigd heeft, zul je dit wel of niet kunnen zien, afhankelijk van de instellingen van het forum.
@@ -226,7 +226,7 @@ TOPIC_TITLE: <a name="mod">Wie zijn de moderatoren en beheerders?</a>
 TOPIC_HELP:
 Moderators zijn "super gebruikers" die over het algemeen een of meer forums overzien. Ze kunnen berichten wijzigen, verwijderen, goedkeuren en ook aankondigingen in een forum
 plaatsen. Dit zijn degenen die je moet benaderen wanneer er iets onoorbaars gedaan wordt in een forum dat zij modereren.
-Bij de moderators kun je ook terecht wanneer je vragen hebt over hoe je het forum moet gebruiken.<P>
+Bij de moderators kun je ook terecht wanneer je vragen hebt over hoe je het forum moet gebruiken.<p>
 Beheerders zijn de heersers over het forum, zij kunnen ALLES doen, wees dus beleefd tegen hen ;-). Beheerders kunnen naast alles wat een moderator
 kan, ook pasfoto's goedkeuren, aangepaste tags aanmaken en verwijderen, gebruikers verbannen en antwoorden geven op verschillende vragen over het forum.
 Wanneer je een bug tegenkomt in het forum is de beheerder de aangewezen persoon om dit te melden.

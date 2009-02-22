@@ -15,8 +15,8 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#FF0000">http://fud.prohost.org</font></td>
-    <td valign="middle" align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></td>
+    <td valign="middle" align="center"><font color="#FF0000">http://cvs.prohost.org</font></td>
+    <td valign="middle" align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></td>
   </tr>
 </table>
 <i>Explicación:</i> FUDforum automáticamente reconocerá las URL y las convertirá en URL válidas.

@@ -10,7 +10,7 @@ teilnehmen zu k&ouml;nnen. Durch die Registrierung erh&auml;lten Sie auch Zugrif
 	<li>Sie k&ouml;nnen eine Zeitzone ausw&auml;hlen, sodass die Zeitangabe des Forums der Region entspricht, in der Sie leben.
 </ul>
 Sofern nicht anders angegeben, ist die Registrierung f&uuml;r das Forum vollst&auml;ndig kostenlos und erfordert nur minimale Informationen wie Ihre 
-E-Mail-Adresse und einen Benutzernamen Ihrer Wahl.<br> 
+E-Mail-Adresse und einen Benutzernamen Ihrer Wahl.<br /> 
 Wenn COPPA aktiviert ist, benötigen Mitglieder unter 13 Jahren die Zustimmung des gesetzlichen Vormunds, bevor der Account zum Erstellen von Beitr&aumL,gen verwendet werden kann. W&auml;hrend des Registrierungsvorgangs auf Foren mit aktivierten COPPA werden Mitglieder, die j&uuml;nger 
 als 13 Jahre alt sind, zu einem Formular gef&uuml;hrt, welches vom gesetzlichen Vormund ausgef&uuml;llt und an die angegebene Adresse auf der Seite geschickt 
 werden muss.
@@ -32,7 +32,7 @@ TOPIC_TITLE: <a name="updprofile">Was ist ein Profil?</a>
 TOPIC_HELP: Als Forumsmitglied haben Sie ein pers&ouml;nliches Profil, worin Sie verschiedene Informationen &uuml;ber sich, wie die Benutzernamen f&uuml;r Instant Messenger, 
 Signaturen, Werdegang usw. eintragen k&ouml;nnen. Ihr Profil speichert auch verschiedene Forumseinstellungen. Jedesmal wenn Sie sich einloggen, k&ouml;nnen Sie Ihre Einstellungen 
 im Profil ver&auml;ndern. Ihnen sollte klar sein, dass die meisten Angaben im Profil von anderen Forenmitgliedern angesehen werden k&ouml;nnen. Daher sollten Sie nach 
-M&ouml;glichkeit keine sensiblen Daten abspeichern, die nicht von anderen gesehen werden sollen.<br>
+M&ouml;glichkeit keine sensiblen Daten abspeichern, die nicht von anderen gesehen werden sollen.<br />
 Ihr Profil verf&uuml;gt &uuml;ber die Option <b>"E-Mail-Adresse anzeigen"</b>, die, falls sie auf <b>NEIN</b> gesetzt wurde, deren Anzeige unterdr&uuml;ckt. 
 Wenn Sie nicht m&ouml;chten, dass irgendwelche Leute Ihre E-Mail-Adresse sehen k&ouml;nnen,
 sollten Sie unbedingt von dieser Option Gebrauch machen.
@@ -41,10 +41,10 @@ TOPIC_TITLE: <a name="sigs">Was ist eine Signatur?</a>
 TOPIC_HELP:
 Eine Signatur ist eine Textpassage, die automatisch an das Ende eines jeden von Ihnen erstellten Beitrag angeh&auml;ngt werden kann. In Ihrem Profil haben Sie daf&uuml;r 
 die Option <b>"Standardm&auml;&szlig;ig Signatur verwenden"</b>, die das Feature standardm&auml;&szlig;ig aktiviert oder deaktiviert. Allerdings kann diese Einstellung f&uuml;r einen 
-bestimmten Beitrag ge&auml;ndert werden.<br>
+bestimmten Beitrag ge&auml;ndert werden.<br />
 Au&szlig;er blo&szlig;em Text, kann diese Passage (sofern vom Administrator erlaubt) auch bestimmte Leckerbissen wie Links zu Lieblingsseiten, 
 pers&ouml;nlichen Bildern usw. enthalten.
-<br>
+<br />
 Falls Sie die Signaturen von anderen Leuten nicht sehen m&ouml;chten, k&ouml;nnen Sie sie durch das Setzen von <b>"Signatur anzeigen"</b> auf <b>NEIN</b> in Ihrem Profil abstellen.
 
 
@@ -52,8 +52,8 @@ TOPIC_TITLE: <a name="rstpasswd">Was beim Verlust des Passwortes zu tun ist</a>
 TOPIC_HELP:
 Falls Sie sich an das Passwort f&uuml;r das FUDforum nicht mehr erinnern k&ouml;nnen, sollten Sie das <a href="{ROOT}?t=reset&amp;%_rsid%">Passwort zur&uuml;cksetzen</a> lassen. 
 Dort tragen Sie Ihre E-Mail-Adresse ein und dr&uuml;cken den LOS Knopf. Ihnen wird dann eine E-Mail mit einer besonderen URL zugeschickt, mit der Ihr Passwort zur&uuml;ckgesetzt wird und Sie
-anschlie&szlig;end eine weitere Mail mit Ihrem neuen Passwort erh&auml;lten.<br>
-<br>
+anschlie&szlig;end eine weitere Mail mit Ihrem neuen Passwort erh&auml;lten.<br />
+<br />
 <b>Achtung:</b> Ihre Passw&ouml;rter werden in einem Einweg-Verschl&uuml;sselungsformat namens MD5 HASH abgespeichert.
 Das ist eine vom Milit&auml;r verwendete 128-bit Verschl&uuml;sselung, bei der es keine M&ouml;glichkeit gibt, Passw&ouml;rter wiederherzustellen.
 Das wird dadurch erreicht, dass Ihre Dateneingabe zun&auml;chst verschl&uuml;sselt und dann mit der abgespeicherten verschl&uuml;sselten Version 

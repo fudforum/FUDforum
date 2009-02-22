@@ -638,7 +638,7 @@ ERR_access_msg:			Sinulla ei ole vaadittuja käyttöoikeuksia suorittaaksesi tä
 ERR_registration_disabled_ttl:	Rekisteröinti ei ole käytössä
 ERR_registration_disabled_msg:	Ylläpitäjä on poistanut rekisteröinnin käytöstä. Yritä myöhemmin uudelleen
 ERR_emailconf_ttl:		VIRHE: Käyttäjätiliäsi ei ole vahvistettu
-ERR_emailconf_msg:		Et ole vahvistanut käyttäjätiliäsi vielä.<br /><table border=0><tr><td><ol><li>Jos et ole saanut vahvistussähköpostia <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klikkaa tätä</a><li>Jos {VAR: usr_d->email} ei ole oikea sähköpostiosoitteesi <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klikkaa tätä</a></ol></td></tr></table>
+ERR_emailconf_msg:		Et ole vahvistanut käyttäjätiliäsi vielä.<br /><table border="0"><tr><td><ol><li>Jos et ole saanut vahvistussähköpostia <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klikkaa tätä</a><li>Jos {VAR: usr_d->email} ei ole oikea sähköpostiosoitteesi <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klikkaa tätä</a></ol></td></tr></table>
 ERR_user_ttl:			VIRHE: Käyttäjää ei ole
 ERR_user_msg:			Käyttäjää ei ole olemassa
 ERR_systemerr_ttl:		VIRHE: Systeemivirhe

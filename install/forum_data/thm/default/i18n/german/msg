@@ -2,7 +2,7 @@ ERR_access_msg:			Du verf&uuml;gst nicht &uuml;ber die ben&ouml;tigten Rechte, u
 ERR_access_ttl:			FEHLER: Nicht ausreichende Rechte
 ERR_disabled_msg:		Diese Funktion wurde vom Systemadministrator deaktiviert
 ERR_disabled_ttl:		Deaktivierte Funktion
-ERR_emailconf_msg:		Du hast dein Konto noch nicht per E-Mail best&auml;tigt<br /><table border=0><tr><td><ol><li>Falls du keine Best&auml;tigungs-E-Mail erhalten haben solltest, klicke <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">hier</a><li>Falls {VAR: usr_d->email} nicht deine richtige E-Mail-Adresse ist, klicke <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">hier</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du hast dein Konto noch nicht per E-Mail best&auml;tigt<br /><table border="0"><tr><td><ol><li>Falls du keine Best&auml;tigungs-E-Mail erhalten haben solltest, klicke <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">hier</a><li>Falls {VAR: usr_d->email} nicht deine richtige E-Mail-Adresse ist, klicke <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">hier</a></ol></td></tr></table>
 ERR_emailconf_ttl:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
 ERR_registration_disabled_msg:	Der Administrator hat die Registrierung deaktiviert, versuche es bitte sp&auml;ter noch einmal
 ERR_registration_disabled_ttl:	Registrierung ist deaktiviert

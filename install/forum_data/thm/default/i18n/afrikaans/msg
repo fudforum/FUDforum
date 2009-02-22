@@ -254,8 +254,8 @@ finduser_action:		Aksie
 yes:				Ja
 no:				Nee
 register_email:			Epos
-edit_time_limit:		<br><b>Tydslimiet aangepas</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuute
-no_edit_time_limit:		<br><b>Tydslimiet aangepas</b>: <b>Onbeperk</b>
+edit_time_limit:		<br /><b>Tydslimiet aangepas</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuute
+no_edit_time_limit:		<br /><b>Tydslimiet aangepas</b>: <b>Onbeperk</b>
 pmuserloc_login:		Gebruiker:
 pmuserloc_submit:		Stuur
 pmuserloc_user:			Lid
@@ -273,7 +273,7 @@ register_avatar_type:		Avatar tipe:
 register_del_avatar:		Verwyder Avatar
 register_avatar:		Avatar:
 register_sel_avatar:		Kies avatar
-register_custom_avatar_rules:	Die custam avatar sal nie verskyn tot hy deur die administrator goedgekeur is nie.<br><font class="SmallText">de avatar, die avatar mag nie groter wees as <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> en moet in <b>jpg</b>, <b>gif</b> of <b>png</b> formaat wees.</font>
+register_custom_avatar_rules:	Die custam avatar sal nie verskyn tot hy deur die administrator goedgekeur is nie.<br /><font class="SmallText">de avatar, die avatar mag nie groter wees as <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> en moet in <b>jpg</b>, <b>gif</b> of <b>png</b> formaat wees.</font>
 register_custom_avatar_url:	Custom Avatar URL:
 register_preview:		Voorskou
 register_custom_avatar_upload:	Custom Avatar lêer:
@@ -406,7 +406,7 @@ login_cookie_expired:		U "kookie" het verval en u sal weer moet aanteken om die 
 login_perm_denied:		U sal moet aanteken om toegang tot die inligting te verkry.
 login_want_to_register:		Wil u registreer?
 login_forgot_passwd:		Wagwoord vergeet?
-login_use_cookie:		gebruik "kookies" <br><font class="SmallText">indien u gebruik maakt van een publieke terminal soos een pc in een bib, skool of Internet cafe is het aangeraden om deze opsie uit te vinken voor meer veiligheid.<br>indien u deze opsie geselecteerd laat staan word u outomaties ingelogd in die forum.
+login_use_cookie:		gebruik "kookies" <br /><font class="SmallText">indien u gebruik maakt van een publieke terminal soos een pc in een bib, skool of Internet cafe is het aangeraden om deze opsie uit te vinken voor meer veiligheid.<br />indien u deze opsie geselecteerd laat staan word u outomaties ingelogd in die forum.
 login_login:			Gebruiker:
 login_login_btn:		Teken aan
 login_name_required:		Gebruikersnaam moet verskaf word
@@ -531,7 +531,7 @@ buddy_list_err_nouser_title:	Nie in staat om lid by te voeg nie
 buddy_list_update:		Besigtig jou vriendelys
 core_err_invinp_title:		ongeldige invoer
 core_err_invinp_err:		U het \'n ongeldige skakel gevolg. Kontak asseblief die <a href="mailto:{GVAR: ADMIN_EMAIL}">webmeester</a>
-core_adm_login_msg:		<br>Administrateurs kan <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hier</a> aanteken
+core_adm_login_msg:		<br />Administrateurs kan <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hier</a> aanteken
 email_err_unabletoemail_title:	FOUT: nie in staat om epos te stuur nie
 email_err_unabletoemail_msg:	Het email systeem is uitgeschakeld deur die administrator.
 email_error_unabletolocaddr:	Jammer, die systeem was nie in staat om {VAR-HTML: _POST['tx_name']} te epos omdat het nie in staat was dit eposadres te vind nie
@@ -571,9 +571,9 @@ post_err_edttimelimit_title:	FOUT
 post_err_edttimelimit_msg:	U kan nie die boodskap meer wysig nie
 post_err_floodtrig_title:	FOUT: Post flood ingeschakeld.
 post_err_floodtrig_msg:		probeer weer oor {VAR: tm} seconden
-post_err_attach_size:		<font class="ErrorText">Aanhangsel is te groot (oor die toegelate limiet van {VAR: MAX_F_SIZE} grepe)</font><br>
-post_err_attach_ext:		<font class="ErrorText">die lêer wat u wil byvoeg is van \'n lêerformaat wat nie  toegelaat word nie.</font><br>
-post_err_attach_filelimit:	<font class="ErrorText">U probeer om meer lêers by te voeg as wat toegelaat word.</font><br>
+post_err_attach_size:		<font class="ErrorText">Aanhangsel is te groot (oor die toegelate limiet van {VAR: MAX_F_SIZE} grepe)</font><br />
+post_err_attach_ext:		<font class="ErrorText">die lêer wat u wil byvoeg is van \'n lêerformaat wat nie  toegelaat word nie.</font><br />
+post_err_attach_filelimit:	<font class="ErrorText">U probeer om meer lêers by te voeg as wat toegelaat word.</font><br />
 post_err_passwd:		ongeldige wagwoord.
 post_reply_update:		Antwoorde op <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		nuwe onderwerp begin in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -588,7 +588,7 @@ postcheck_invalid_email:	Vul \'n geldig epos adres in van u vriend.
 postcheck_email_subject:	U kan nie epos stuur sonder \'n onderwerp nie.
 postcheck_email_body:		U kan nie epos stuur sonder \'n boodskap nie.
 private_msg_notify_subj:	Lees Notificatie vir: {VAR: m->subject}
-private_msg_notify_body:	Hallo,<br>{VAR: usr->login} het u priv� bericht, "{VAR: m->subject}", gelezen op {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Hallo,<br />{VAR: usr->login} het u priv� bericht, "{VAR: m->subject}", gelezen op {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:		Blaai deur verwysings
 register_err_short_login:	Die gebruikersnaam wat u gekies het is te kort. Die naam moet ten minste 4 karakters lang wees
 register_err_login_notallowed:	Hierdie naam word nie toegelaat nie
@@ -619,7 +619,7 @@ reset_err_rstconf_title:	Informasie
 reset_err_rstconf_msg:		U sal binne enkele minuute verdere instruksies per epos ontvang
 reset_newpass_title:		Herstel wagwoord
 reset_newpass_msg:		Hallo,\n\n u inlog naam word na u gestuur.\nHier is u inlog informatie:\n\nLogin: {VAR: ui[1]}\nwagwoord: {VAR: passwd}\n\nOpgelet, u wagwoord is gereset naar die bovenstaande waarde, indien u wenst\n u wagwoord te veranderen mag u dit doen via het lid info controle paneel op:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		U wagwoord is deur gemaild naar u. U zou het moet ontvangen binnen enkele minuten. Controleer u mailbox voor u wagwoord en login.<br>
+reset_login_notify:		U wagwoord is deur gemaild naar u. U zou het moet ontvangen binnen enkele minuten. Controleer u mailbox voor u wagwoord en login.<br />
 search_update:			Soek deur pos
 selmsg_update:			Blaai deur <a href="{TEMPLATE: selmsg_update_lnk}">vandaag se pos</a>
 showposts_update:		Bekyk pos van: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -634,7 +634,7 @@ ERR_access_msg:			u het nie die vereiste toegang om deze handeling uit te voeren
 ERR_registration_disabled_ttl:	Registrasie uitgeschakeld
 ERR_registration_disabled_msg:	De administrator het die registrasie uitgeschakeld, probeer later weer
 ERR_emailconf_ttl:		FOUT: U lidmaatskap is nog nie bevestig nie
-ERR_emailconf_msg:		U het u account nog nie bevestigd via email<br><table border=0><tr><td><ol><li>Indien u geen bevestigings&shy;email  ontvangen heeft<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik hier</a><li>If {VAR: usr_d->email} is nie jou correcte email adres <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klik hier</a></ol></td></tr></table>
+ERR_emailconf_msg:		U het u account nog nie bevestigd via email<br /><table border="0"><tr><td><ol><li>Indien u geen bevestigings&shy;email  ontvangen heeft<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik hier</a><li>If {VAR: usr_d->email} is nie jou correcte email adres <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klik hier</a></ol></td></tr></table>
 ERR_user_ttl:			FOUT: onbekend lid
 ERR_user_msg:			dit is \'n onbekende lid
 ERR_systemerr_ttl:		FOUT: STESLELFOUT
@@ -731,7 +731,7 @@ post_quote:			Quote:
 userinfo_referals:		gerefereerde lede:
 userinfo_referals_count:	{VAR: referals} lede
 pm_no_space_title:		Geen spasie oor!
-pm_no_space_msg:		U privaat boodskap oorskry die <b>{GVAR: MAX_PMSG_FLDR_SIZE} grepe</b> wat aan u toegeken is. U boodskappe neem op die oomblik <b>{VAR: fldr_size} grepe</b> op.<br><br><font class="ErrorText">Verwyder assblief van ouer boodskappe voor u nuwes plaas.</font>.
+pm_no_space_msg:		U privaat boodskap oorskry die <b>{GVAR: MAX_PMSG_FLDR_SIZE} grepe</b> wat aan u toegeken is. U boodskappe neem op die oomblik <b>{VAR: fldr_size} grepe</b> op.<br /><br /><font class="ErrorText">Verwyder assblief van ouer boodskappe voor u nuwes plaas.</font>.
 pm_space_indct_msg:		U gebruik {VAR: percent_full}% van u spasie vir privaat boodskappe.
 th_expr_never:			Nooit
 th_expr_one_hr:			1 uur
@@ -853,7 +853,7 @@ register_affero:		Affero Gebruikersnam:<br /><font class="SmallText">as u een  <
 im_affero:			Affero Gebruikersnaam
 pmsg_download_counter:		{VAR: r->dlcount} keer afgelaai
 register_password:		Wagwoord:
-member_search:			<br>of gebruik die <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br />of gebruik die <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 submit_reply:			Stuur antwoord
 post_all_ext_allowed:		(unrestricted)
 register_err_avatardimtobig:	Avatar dimensies van <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> oorskry die toelaatbare dimensies van <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.

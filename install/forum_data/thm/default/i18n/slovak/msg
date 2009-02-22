@@ -637,7 +637,7 @@ ERR_access_msg:			Nemáte dostatočné právomoci na vykonanie tejto akcie
 ERR_registration_disabled_ttl:	Registrácia je vypnutá
 ERR_registration_disabled_msg:	Administrátor vypol registračný systém, prosím skúste neskor
 ERR_emailconf_ttl:		CHYBA: Vaše konto ešte nebolo potvrdené
-ERR_emailconf_msg:		Zatiaľ ste nepotvrdili Vaše konto prostredníctvom emailu<br /><br /><table border=0><tr><td><div class="SmallText"><ol><li>Ak ste nedostali verifikačný email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliknite sem</a><li>Ak {VAR: usr_d->email} nie je Vaša správna emailová adresa <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliknite sem</a></ol></div></td></tr></table>
+ERR_emailconf_msg:		Zatiaľ ste nepotvrdili Vaše konto prostredníctvom emailu<br /><br /><table border="0"><tr><td><div class="SmallText"><ol><li>Ak ste nedostali verifikačný email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliknite sem</a><li>Ak {VAR: usr_d->email} nie je Vaša správna emailová adresa <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliknite sem</a></ol></div></td></tr></table>
 ERR_user_ttl:			CHYBA: Užívateľ neexistuje
 ERR_user_msg:			Zadaný užívateľ neexistuje
 ERR_systemerr_ttl:		CHYBA: Systémová Chyba

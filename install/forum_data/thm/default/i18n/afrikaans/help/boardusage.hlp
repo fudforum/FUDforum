@@ -11,7 +11,7 @@ TOPIC_TITLE: <a name="bsearch">How can I search?</a>
 TOPIC_HELP:
 Unless disabled by the administrator, you can <a href="{ROOT}?t=search&amp;%_rsid%">search for messages</a> that were posted inside the forum. You can search for a message by 
 specifying one or more keywords you wish to be found and choosing where to find those keywords, you can either search in subject alone 
-or do a full text search on both the message body & subject. You can also limit your search to a forum of your choice if you do not wish to search 
+or do a full text search on both the message body &amp; subject. You can also limit your search to a forum of your choice if you do not wish to search 
 in all the forums.<br />
 You can also search for other forum members, by their login name or email address via the <a href="{ROOT}?t=finduser&amp;%_rsid%">user search form</a>.
 
@@ -21,10 +21,10 @@ TOPIC_HELP:
 Unless disabled by the administrator, you will be able to get in touch with other forum members via email.<br />
 To send a member and email, you can either find them through the member list page and then click on the <b>Contact</b> button 
 or simply click on the <b>Email</b> button located near their every post. This will take you to a new page where you will have the opportunity to 
-enter you intended email subject & body. When you're done, simple click on the <b>Email</b> button and you're email will be sent.
+enter you intended email subject &amp; body. When you're done, simple click on the <b>Email</b> button and you're email will be sent.
 <br /><br />
 In addition to sending emails to forum members, you can also use the <b>Email to friend</b> link to recommend a particular page to your friend 
-by sending them a URL with the description. This link can be found on the topic & message view pages of the forum.
+by sending them a URL with the description. This link can be found on the topic &amp; message view pages of the forum.
 
 
 TOPIC_TITLE: <a name="pmsg">What are private messages and how do I send them?</a> 
@@ -34,7 +34,7 @@ members of the forum. To access the PM system, simply click on the <a href="{ROO
 which can be found at the top of the page's right corner. If you have any unread private messages, this link will indicate how many unread messages you have.
 <p>
 <b>Sending a private message</b><br />
-Private messages are very similar to email, you specify the person(s) who you wish to send the message to, enter the subject & the message 
+Private messages are very similar to email, you specify the person(s) who you wish to send the message to, enter the subject &amp; the message 
 and click send. There are 2 links available, that would allow you to easily find members who you wish to send your message to,
 <b>Select from Buddy List</b>, which will allow to select people from your buddy list, by listing all your buddies and <b>Find User</b>, which
 will allow to search the forum's entire member list for people to whom you wish to address your message.
@@ -64,13 +64,13 @@ did not receive it this does not necessarily mean your message was not read.
 TOPIC_TITLE: <a name="mlist">Member List?</a>
 TOPIC_HELP:
 The member list is a complete list of all the registered users on a forum. 
-You can sort the list in 3 ways: by login name alphabetically, by number of posts & the date of registration.
+You can sort the list in 3 ways: by login name alphabetically, by number of posts &amp; the date of registration.
 <br /><br />
 The member list also has a search capability, allowing you to find a particular member by either login name or email address.
 
-TOPIC_TITLE:<a name="ann">What are announcements & sticky messages?</a>
+TOPIC_TITLE:<a name="ann">What are announcements &amp; sticky messages?</a>
 TOPIC_HELP:
-These are special messages that can be created by administrators & moderators and stay at the top of a forum(s) for a period of time.
+These are special messages that can be created by administrators &amp; moderators and stay at the top of a forum(s) for a period of time.
 Generally they are used to inform the users of the forum of a certain event or outline rules etc...
 
 
@@ -95,7 +95,7 @@ of operation.<br />
 <br /><br />
 <h4><u><b>'m' mode (messages)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Only retrieve messages from category with this id.</td></tr>
 		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Only retrieve messages from forum with this id.</td></tr>
 		<tr><td class="GenText"><i>th</i></td><td class="GenText">Only retrieve messages from topic with this id.</td></tr>
@@ -110,7 +110,7 @@ of operation.<br />
 </blockquote>
 <h4><u><b>'t' mode (topics)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Only retrieve topics from category with this id.</td></tr>
 		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Only retrieve topics from forum with this id.</td></tr>
 		<tr><td class="GenText"><i>id</i></td><td class="GenText">Retrieve a single topic with the specified id.</td></tr>
@@ -123,7 +123,7 @@ of operation.<br />
 </blockquote>
 <h4><u><b>'u' mode (users) <i>**could be disabled**</i></b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Order users by number of messages posted, from largest to smallest.</td></tr>
 		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Order users by registration, from most recent to oldest.</td></tr>
 		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Only show users who are currently online.</td></tr>

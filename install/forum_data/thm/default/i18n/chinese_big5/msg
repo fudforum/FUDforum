@@ -632,7 +632,7 @@ ERR_access_msg:			您沒有權利進行此項操作
 ERR_registration_disabled_ttl:	注冊失敗
 ERR_registration_disabled_msg:	注冊功能被系統管理員禁止,請重試！
 ERR_emailconf_ttl:		錯誤: 此賬號無效
-ERR_emailconf_msg:		您注冊的賬號尚未進行郵件確認<br /><table border=0><tr><td><ol><li>如果你沒有收到確認郵件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">請點擊</a><li>如果 {VAR: usr_d->email} 郵件地址有誤<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">請點擊</a></ol></td></tr></table>
+ERR_emailconf_msg:		您注冊的賬號尚未進行郵件確認<br /><table border="0"><tr><td><ol><li>如果你沒有收到確認郵件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">請點擊</a><li>如果 {VAR: usr_d->email} 郵件地址有誤<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">請點擊</a></ol></td></tr></table>
 ERR_user_ttl:			錯誤：沒有這個用戶
 ERR_user_msg:			沒有這個用戶
 ERR_systemerr_ttl:		系統錯誤

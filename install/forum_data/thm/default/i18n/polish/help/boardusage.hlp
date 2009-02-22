@@ -57,7 +57,7 @@ of operation.<br />
 <br /><br />
 <h4><u><b>'m' mode (messages)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Only retrieve messages from category with this id.</td></tr>
 		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Only retrieve messages from forum with this id.</td></tr>
 		<tr><td class="GenText"><i>th<i></td><td class="GenText">Only retrieve messages from topic with this id.</td></tr>
@@ -71,7 +71,7 @@ of operation.<br />
 </blockquote>
 <h4><u><b>'t' mode (topics)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Only retrieve topics from category with this id.</td></tr>
 		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Only retrieve topics from forum with this id.</td></tr>
 		<tr><td class="GenText"><i>id<i></td><td class="GenText">Retrieve a single topic with the specified id.</td></tr>
@@ -84,7 +84,7 @@ of operation.<br />
 </blockquote>
 <h4><u><b>'u' mode (users) <i>**could be disabled**</i></b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Order users by number of messages posted, from largest to smallest.</td></tr>
 		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Order users by registration, from most recent to oldest.</td></tr>
 		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Only show users who are currently online.</td></tr>

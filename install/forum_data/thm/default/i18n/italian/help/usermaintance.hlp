@@ -22,8 +22,8 @@ TOPIC_HELP: Come ogni membro del forum, avrai un profilo nel quale puoi inserire
 
 TOPIC_TITLE: <a name="sigs">Che cos'è la signature?</a>
 TOPIC_HELP:
-La signature (=firma) è una stringa di testo che puoi inserire automaticamente al termine di ogni messaggio. Nel tuo profilo esiste l'opzione <B>Usa signature di default</B> che attiverà e disattiverà l'uso automatico della signature.<BR>
-È comunque possibile scegliere di far comparire o meno la signature ogni volta che si posta, modificando l'opzione signature di quello specifico post. Oltre a semplici stringhe di testo, la signature può contenere varia fuffa (se consentito dall'amministratore), ad esempio link alle URL preferite, fotografie o altre immagini ecc.<BR>
+La signature (=firma) è una stringa di testo che puoi inserire automaticamente al termine di ogni messaggio. Nel tuo profilo esiste l'opzione <B>Usa signature di default</B> che attiverà e disattiverà l'uso automatico della signature.<br />
+È comunque possibile scegliere di far comparire o meno la signature ogni volta che si posta, modificando l'opzione signature di quello specifico post. Oltre a semplici stringhe di testo, la signature può contenere varia fuffa (se consentito dall'amministratore), ad esempio link alle URL preferite, fotografie o altre immagini ecc.<br />
 Se preferisci non visualizzare le signature degli altri utenti, puoi utilizzare l'opzione <B>Mostra signature</B> del tuo profilo scegliendo NO.
 
 TOPIC_TITLE: <a name="rstpasswd">Che cosa devo fare se mi dimentico la password?</a>

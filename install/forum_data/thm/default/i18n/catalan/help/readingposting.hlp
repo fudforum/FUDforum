@@ -13,8 +13,8 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#FF0000">http://fud.prohost.org</font></td>
-    <td valign="middle" align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></td>
+    <td valign="middle" align="center"><font color="#FF0000">http://cvs.prohost.org</font></td>
+    <td valign="middle" align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></td>
   </tr>
 </table>
 <i>Explicació:</i> FUDforum automàticament reconeixerà les URL i les convertirà en URL vàlides.

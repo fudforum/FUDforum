@@ -635,7 +635,7 @@ ERR_access_msg:			Não tem as permissões necessárias para fazer o que está te
 ERR_registration_disabled_ttl:	Registo de usuários desabilitado
 ERR_registration_disabled_msg:	O administrador desabiliotu o registo de usuários novos, por favor tente mais tarde
 ERR_emailconf_ttl:		ERRO: A sua conta ainda não está confirmada
-ERR_emailconf_msg:		Ainda não confirmou a sua conta via Email<br /><table border=0><tr><td><ol><li>se não recebeu um email de confirmação <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clique aqui</a><li>se {VAR: usr_d->email} não é o endereço de email correcto <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clique aqui</a></ol></td></tr></table>
+ERR_emailconf_msg:		Ainda não confirmou a sua conta via Email<br /><table border="0"><tr><td><ol><li>se não recebeu um email de confirmação <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clique aqui</a><li>se {VAR: usr_d->email} não é o endereço de email correcto <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clique aqui</a></ol></td></tr></table>
 ERR_user_ttl:			ERRO: Usuário inexistente
 ERR_user_msg:			Usuário não existe 
 ERR_systemerr_ttl:		ERRO: Erro de sistema

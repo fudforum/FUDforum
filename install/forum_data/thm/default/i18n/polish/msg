@@ -631,7 +631,7 @@ ERR_access_msg:			Nie masz wymaganych uprawnień, aby wykonać tę operację.
 ERR_registration_disabled_ttl:	Rejestracja jest wyłączona
 ERR_registration_disabled_msg:	Administrator wyłączył rejestrację, więc spróbuj ponownie później.
 ERR_emailconf_ttl:		BŁĄD: Twoje konto nie jest jeszcze potwierdzone
-ERR_emailconf_msg:		Nie potwierdziłeś jeszcze swojego konta poprzez e-mail<br /><table border=0><tr><td><ol><li>Jeśli nie otrzymałeś potwierdzającego listu, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">przejdź tutaj</a>.<li>Jeśli {VAR: usr_d->email} nie jest Twoim poprawnym adresem, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">przejdź tutaj</a></ol></td></tr></table>
+ERR_emailconf_msg:		Nie potwierdziłeś jeszcze swojego konta poprzez e-mail<br /><table border="0"><tr><td><ol><li>Jeśli nie otrzymałeś potwierdzającego listu, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">przejdź tutaj</a>.<li>Jeśli {VAR: usr_d->email} nie jest Twoim poprawnym adresem, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">przejdź tutaj</a></ol></td></tr></table>
 ERR_user_ttl:			BŁĄD: Brak takiego użytkownika
 ERR_user_msg:			Nie ma takiego użytkownika
 ERR_systemerr_ttl:		BŁĄD: Błąd systemu

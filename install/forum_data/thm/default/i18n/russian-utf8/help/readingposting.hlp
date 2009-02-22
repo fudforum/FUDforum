@@ -18,11 +18,11 @@ TOPIC_HELP:
 <br />
 Форум способен автоматически распознавать URL в сообщениях, например:
 <p>
-	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div>
+	<div align="Center"><font color="#FF0000">http://cvs.prohost.org</font></div>
 <p>
 такой URL будет распознан и преобразован в ссылку, выглядящую следующим образом:
 <p>
-	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div>
+	<div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div>
 <p>
 Кроме того, вы можете сами создавать ссылки в сообщениях, используя FUDcode.
 Это может быть сделано двумя способами, первый из которых выглядит так:

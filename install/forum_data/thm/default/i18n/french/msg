@@ -632,7 +632,7 @@ ERR_access_msg:			Vous n&#39;avez pas les privilèges nécessaires pour effectue
 ERR_registration_disabled_ttl:	Inscription désactivée
 ERR_registration_disabled_msg:	L&#39;administrateur a désactivé l&#39;inscription, veuillez réessayer plus tard
 ERR_emailconf_ttl:		ERREUR : Votre compte n&#39;a pas encore été confirmé
-ERR_emailconf_msg:		Vous n&#39;avez pas encore confirmé votre inscription par e-mail<br /><table border=0><tr><td><ol><li>Si vous n&#39;avez pas reçu d&#e-mail de confirmation,<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">cliquez ici<li>Si {VAR: usr_d->email} n&#39;est pas votre adresse e-mail correcte, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">cliquez ici</a></ol></td></tr></table>
+ERR_emailconf_msg:		Vous n&#39;avez pas encore confirmé votre inscription par e-mail<br /><table border="0"><tr><td><ol><li>Si vous n&#39;avez pas reçu d&#e-mail de confirmation,<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">cliquez ici<li>Si {VAR: usr_d->email} n&#39;est pas votre adresse e-mail correcte, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">cliquez ici</a></ol></td></tr></table>
 ERR_user_ttl:			ERREUR : l&#39;utilisateur n&#39;existe pas
 ERR_user_msg:			Cet utilisateur n&#39;existe pas
 ERR_systemerr_ttl:		ERREUR : Erreur système

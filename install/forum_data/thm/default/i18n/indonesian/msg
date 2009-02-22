@@ -378,7 +378,7 @@ post_preview_btn:		Tampilan sementara pesan
 ignore_users:			Pengguna diacuhkan
 add_ignore:			Tambah diacuhkan
 forum_terms:			Pernyataan Forum
-forum_rules:			Pendaftaran diforum ini gratis! Tetapi kami ingin anda memahami & mentaati peraturan yang ada. Catatan: Dengan menekan tombol dibawah, anda menyatakan bahwa anda sudah berusia 13 tahun atau lebih. Jika anda berusia kurang dari 13 tahun,Silakan pergunakan formulir ini. Walaupun administrator anda moderator berusaha mengawasi pesan-pesan yang masuk, tidak mungkin bagi kami untuk memeriksa smua pesan yang masuk. Setiap pesan ada ungkapan dari penulis, pemilik dan pengembang forum tidak bertanggung-jawab atas isi pesan.<p>Dengan memilih tombol persetujuan, anda menjamin bahwa anda tidak akan menulis pesan yang berisi SARA, pornografi, hasutan, ancaman atau hal-hal lain yang bertentangan dengan hukum. <p>Pemilik dan moderator forum berhak untuk mengubah dan/atau memindahkan atau menghapus setiap pesan dengan alasan apapun.<p>
+forum_rules:			Pendaftaran diforum ini gratis! Tetapi kami ingin anda memahami &amp; mentaati peraturan yang ada. Catatan: Dengan menekan tombol dibawah, anda menyatakan bahwa anda sudah berusia 13 tahun atau lebih. Jika anda berusia kurang dari 13 tahun,Silakan pergunakan formulir ini. Walaupun administrator anda moderator berusaha mengawasi pesan-pesan yang masuk, tidak mungkin bagi kami untuk memeriksa smua pesan yang masuk. Setiap pesan ada ungkapan dari penulis, pemilik dan pengembang forum tidak bertanggung-jawab atas isi pesan.<p>Dengan memilih tombol persetujuan, anda menjamin bahwa anda tidak akan menulis pesan yang berisi SARA, pornografi, hasutan, ancaman atau hal-hal lain yang bertentangan dengan hukum. <p>Pemilik dan moderator forum berhak untuk mengubah dan/atau memindahkan atau menghapus setiap pesan dengan alasan apapun.<p>
 forum_rules_13:			Setiap pengguna dibawah 13 tahun memperoleh ijin dari orang-tua atau wali untuk mejadi anggota forum ini. Walaupun kami mengharapakan partisipasi anggota dibawah 13 tahun, kami membutuhkan ijin tertulis melalui faksmili atau email sebelum menjadi anggota penuh. Salinan dapat diambil dari sini. Untuk keterangan lebih lanjut tentang proses pendaftaran, kirimkan e-mail ke <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Konfirmasi COPPA
 coppa_before:			Sebelum {TEMPLATE: coppa_date}
@@ -643,7 +643,7 @@ ERR_access_msg:			Anda tidak berwenang untuk melakukan hal tersebut
 ERR_registration_disabled_ttl:	Registrasi di non-aktifkan
 ERR_registration_disabled_msg:	Administrator sudah menon-aktifkan proses registrasi, coba laha beberapa saat lagi.
 ERR_emailconf_ttl:		SALAH: Akun anda belum dikonfirmasi
-ERR_emailconf_msg:		Anda belum memberikan konfirmasi melalui e-mail.<br /><table border=0><tr><td><ol><li>Jika anda tidak menerima konfirmasi, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik disini</a><li>Jika {VAR: usr_d->email} bukan alamat e-mail anda, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klik disini</a></ol></td></tr></table>
+ERR_emailconf_msg:		Anda belum memberikan konfirmasi melalui e-mail.<br /><table border="0"><tr><td><ol><li>Jika anda tidak menerima konfirmasi, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik disini</a><li>Jika {VAR: usr_d->email} bukan alamat e-mail anda, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klik disini</a></ol></td></tr></table>
 ERR_user_ttl:			SALAH: Pengguna tidak ada
 ERR_user_msg:			Pengguna tidak ada
 ERR_systemerr_ttl:		SALAH: Kesalahan sistem

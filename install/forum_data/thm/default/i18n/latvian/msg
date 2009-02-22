@@ -633,7 +633,7 @@ ERR_access_msg:			Jums piešķirtās tiesības neatļauj pieprasīto darbību iz
 ERR_registration_disabled_ttl:	Reģistrācija atslēgta
 ERR_registration_disabled_msg:	Dotajā brīdī reģistrācija ir liegta. Lūdzu mēģiniet vēlreiz, bet vēlāk.
 ERR_emailconf_ttl:		KĻŪDA: Jūsu reģistrācija nav apstiprināta
-ERR_emailconf_msg:		Jūs neesat akceptējis reģistrāciju no E-pasta<br /><table border=0><tr><td><ol><li>Ja neesat saņēmis reģistrācijas apliecinājuma E-pastu <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">spiediet šeit</a><li>Ja {VAR: usr_d->email} nav Jūsu E-pasta adrese <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">spediet šeit</a></ol></td></tr></table>
+ERR_emailconf_msg:		Jūs neesat akceptējis reģistrāciju no E-pasta<br /><table border="0"><tr><td><ol><li>Ja neesat saņēmis reģistrācijas apliecinājuma E-pastu <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">spiediet šeit</a><li>Ja {VAR: usr_d->email} nav Jūsu E-pasta adrese <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">spediet šeit</a></ol></td></tr></table>
 ERR_user_ttl:			KĻŪDA: Neesošs lietotājs
 ERR_user_msg:			Tāda lietotāja datu bāzē nav
 ERR_systemerr_ttl:		KĻŪDA: Sistēmas kļūda

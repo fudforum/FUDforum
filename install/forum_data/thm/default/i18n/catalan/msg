@@ -631,7 +631,7 @@ ERR_access_msg:			No té els permisos necessaris per a realitzar aquesta acció
 ERR_registration_disabled_ttl:	Registre desactivat
 ERR_registration_disabled_msg:	L`administrador ha desactivat el registre. Si us plau, torni a intentar-ho més tard
 ERR_emailconf_ttl:		ERROR: El seu compte encara no ha estat confirmat
-ERR_emailconf_msg:		Vostè encara no ha confirmat el seu compte per correu electrònic<br /><table border=0><tr><td><ol><li>Si no ha rebut un correu de confirmació, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">premi aquí­</a><li>Si {VAR: usr_d->email} no és la seva adreça de correu electrònic correcta <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">premi aquí</a></ol></td></tr></table>
+ERR_emailconf_msg:		Vostè encara no ha confirmat el seu compte per correu electrònic<br /><table border="0"><tr><td><ol><li>Si no ha rebut un correu de confirmació, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">premi aquí­</a><li>Si {VAR: usr_d->email} no és la seva adreça de correu electrònic correcta <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">premi aquí</a></ol></td></tr></table>
 ERR_user_ttl:			ERROR: No existeix aquest usuari
 ERR_user_msg:			No existeix aquell usuari
 ERR_systemerr_ttl:		ERROR: Error de Sistema

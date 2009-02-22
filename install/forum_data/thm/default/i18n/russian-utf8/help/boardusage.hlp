@@ -114,7 +114,7 @@ TOPIC_HELP:
 <br /><br />
 <h4><u><b>режи 'm' (messages - сообщения)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Извлечение сообщений только из категории с указанным номером.</td></tr>
 		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Извлечение сообщений только из форума с указанным номером.</td></tr>
 		<tr><td class="GenText"><i>th<i></td><td class="GenText">Извлечение сообщений только из темы с указанным номером.</td></tr>
@@ -128,7 +128,7 @@ TOPIC_HELP:
 </blockquote>
 <h4><u><b>режим 't' (topics - темы)</b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Извлечение тем только из категории с указанным номером.</td></tr>
 		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Извлечение тем только из форума с указанным номером.</td></tr>
 		<tr><td class="GenText"><i>id<i></td><td class="GenText">Извлечение одиночной темы с указанным номером.</td></tr>
@@ -141,7 +141,7 @@ TOPIC_HELP:
 </blockquote>
 <h4><u><b>режим 'u' (users - пользователи) <i>**может быть отключено**</i></b></u></h4>
 <blockquote>
-	<table border=0 cellspacing=1 cellpadding=3>
+	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Сортировка по количеству отправленных сообщений, начиная с наибольшего.</td></tr>
 		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Сортировка по дате регистрации, начиная с последних зарегистрированных.</td></tr>
 		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Показывать только пользователей, находящихся в настоящее время в онлайне.</td></tr>
