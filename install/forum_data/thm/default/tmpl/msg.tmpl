@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.73 2009/02/01 19:55:29 frank Exp $
+* $Id: msg.tmpl,v 1.74 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -73,36 +73,6 @@
 {FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)}
  {IF: $frm->tdescr}<span class="small">({VAR: frm->tdescr})</span>{ENDIF} 
 <span id="threadRating">{IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}</span>
-
-<script type="text/javascript">
-/* <![CDATA[ */
-$(document).ready(function() {
-  var toggleMinus = '{THEME_IMAGE_ROOT}/min{DEF: img_ext}';
-  var togglePlus  = '{THEME_IMAGE_ROOT}/max{DEF: img_ext}';
-
-  $(".MsgSubText").prepend('<img src="' + toggleMinus + '" alt="-" title="{MSG: minimize_message}" /> ')
-                .addClass("collapsable");
-
-  $("img", $(".collapsable")).addClass('clickable').css("cursor", "pointer")
-  .click(function() {
-    var toggleSrc = $(this).attr('src');
-
-    if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        // Hide message
-      $(this).attr('src', togglePlus)
-             .attr("title", "{MSG: maximize_message}")
-             .attr("alt", "+")
-             .parents(".MsgTable").find("td").not(".MsgR1").fadeOut('fast');
-    } else{                                             // Show message
-      $(this).attr('src', toggleMinus)
-             .attr("title", "{MSG: minimize_message}")
-             .attr("alt", "-")
-             .parents(".MsgTable").find("td").fadeIn('fast');
-    };
-  });
-})
-/* ]]> */
-</script>
-
 <table cellspacing="0" cellpadding="0" border="0" class="wa">
 <tr>
 <td class="GenText al">{TEMPLATE: show_links}
@@ -134,15 +104,42 @@ $(document).ready(function() {
 <div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: msg_pdf_link}{ENDIF} {IF: $FUD_OPT_2 & 1048576}{TEMPLATE: msg_xml_link}{ENDIF}</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{IF: $msg_page_focus}<script type="text/javascript"> fud_msg_focus("{VAR: mid}"); </script>{ENDIF}
-{IF: !empty($_GET['srch'])}
 <script type="text/javascript">
 /* <![CDATA[ */
-highlightSearchTerms("{VAR-HTML: _GET['srch']}");
+$(document).ready(function() {
+  var toggleMinus = '{THEME_IMAGE_ROOT}/min{DEF: img_ext}';
+  var togglePlus  = '{THEME_IMAGE_ROOT}/max{DEF: img_ext}';
+
+  $(".MsgSubText").prepend('<img src="' + toggleMinus + '" alt="-" title="{MSG: minimize_message}" /> ')
+                .addClass("collapsable");
+
+  $("img", $(".collapsable")).addClass('clickable').css("cursor", "pointer")
+  .click(function() {
+    var toggleSrc = $(this).attr('src');
+
+    if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        // Hide message
+      $(this).attr('src', togglePlus)
+             .attr("title", "{MSG: maximize_message}")
+             .attr("alt", "+")
+             .parents(".MsgTable").find("td").not(".MsgR1").fadeOut('fast');
+    } else{                                             // Show message
+      $(this).attr('src', toggleMinus)
+             .attr("title", "{MSG: minimize_message}")
+             .attr("alt", "-")
+             .parents(".MsgTable").find("td").fadeIn('fast');
+    };
+  });
+})
+
+{IF: $msg_page_focus}
+	fud_msg_focus("{VAR: mid}");
+{ENDIF}
+{IF: !empty($_GET['srch'])}
+	highlightSearchTerms("{VAR-HTML: _GET['srch']}");
+{ENDIF}
 /* ]]> */
 </script>
-{ENDIF}
+{TEMPLATE: footer}
 {PAGE: END}
 
 {SECTION: msg_pdf_link}

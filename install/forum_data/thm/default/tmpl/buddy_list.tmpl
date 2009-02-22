@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.tmpl,v 1.41 2009/01/29 18:37:29 frank Exp $
+* $Id: buddy_list.tmpl,v 1.42 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,13 +74,13 @@
 <td class="GenText nw Smalltext">{MSG: buddy_search}{IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304))}{TEMPLATE: buddy_member_search}{ENDIF}<p />
 <input type="text" tabindex="1" name="add_login" value="" maxlength="100" size="25" /> <input tabindex="2" type="submit" class="button" name="submit" value="{MSG: add}" /></td></tr>
 </table></div></form>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
 <script type="text/javascript">
 /* <![CDATA[ */
 document.forms['buddy_add'].add_login.focus();
 /* ]]> */
 </script>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {PAGE: END}
 

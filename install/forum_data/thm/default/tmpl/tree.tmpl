@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.87 2009/01/29 18:37:29 frank Exp $
+* $Id: tree.tmpl,v 1.88 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -172,6 +172,12 @@
 {TEMPLATE-DATA: next_thread_link}
 </table>
 {ENDIF}
+{IF: ($FUD_OPT_2 & 4096 && $perms & 1024 && !$frm->cant_rate)}{TEMPLATE: rate_thread}{ENDIF}
+{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
+<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
+<div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: tree_pdf_link}{ENDIF} {IF: $FUD_OPT_2 & 1048576}{TEMPLATE: tree_xml_link}{ENDIF}</div>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
 <script type="text/javascript">
 /* <![CDATA[ */
 var cur_msg = {VAR: mid};
@@ -201,18 +207,12 @@ function changeMsgFocus(mid)
 }
 /* ]]> */
 </script>
-{IF: ($FUD_OPT_2 & 4096 && $perms & 1024 && !$frm->cant_rate)}{TEMPLATE: rate_thread}{ENDIF}
-{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
-<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
-<div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: tree_pdf_link}{ENDIF} {IF: $FUD_OPT_2 & 1048576}{TEMPLATE: tree_xml_link}{ENDIF}</div>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
 {IF: !empty($_GET['srch'])}
 <script type="text/javascript">
 highlightSearchTerms("{VAR-HTML: _GET['srch']}");
 </script>
 {ENDIF}
+{TEMPLATE: footer}
 {PAGE: END}
 
 {SECTION: tree_title}

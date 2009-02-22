@@ -1,5 +1,5 @@
 {{{FORUM_TITLE
-The title of the forum. This title will appear inside the HTML <title> tag.}}}
+The title of the forum. This title will appear inside the forum header and HTML <title> tag.}}}
 
 {{{FORUM_ENABLED	FUD_OPT_1	1
 Enable/disable the forum. Use this while you are upgrading or performing maintenance on the forum.}}}

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.tmpl,v 1.27 2009/01/29 18:37:29 frank Exp $
+* $Id: poll.tmpl,v 1.28 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,25 +21,6 @@
 
 {PAGE: POLL_PAGE poll creator}
 {TEMPLATE: header_plain}
-<script type="text/javascript">
-/* <![CDATA[ */ 
-function check_submission()
-{
-	var a;
-
-	a = document.poll_submit.pl_option.value.replace('/[ \n\r]/g', '');
-
-	if (!a.length) {
-		if (document.poll_submit.pl_add && document.poll_submit.pl_add.value.length) {
-			alert("{MSG: poll_blank_option}");
-			return false;
-		} else if (document.poll_submit.pl_upd && document.poll_submit.pl_upd.value.length) {
-			return confirm("{MSG: poll_del_conf}");
-		}
-	}
-	return true;
-}
-/* ]]> */
 </script>
 <form action="{TEMPLATE: POLL_PAGE_lnk3}" method="post" id="poll_submit">
 <input type="hidden" name="frm_id" value="{VAR: frm_id}" /><input type="hidden" name="pl_id" value="{VAR: pl_id}" />{DEF: _hs}
@@ -67,8 +48,25 @@ function check_submission()
 </div>
 </form>
 <script type="text/javascript">
-/* <![CDATA[ */
-if (document.poll_submit.pl_option) {
+/* <![CDATA[ */ 
+function check_submission()
+{
+	var a;
+
+	a = document.forms['poll_submit'].pl_option.value.replace('/[ \n\r]/g', '');
+
+	if (!a.length) {
+		if (document.forms['poll_submit'].pl_add && document.forms['poll_submit'].pl_add.value.length) {
+			alert("{MSG: poll_blank_option}");
+			return false;
+		} else if (document.forms['poll_submit'].pl_upd && document.forms['poll_submit'].pl_upd.value.length) {
+			return confirm("{MSG: poll_del_conf}");
+		}
+	}
+	return true;
+}
+
+if (document.forms['poll_submit'].pl_option) {
 	document.forms['poll_submit'].pl_option.focus();
 } else {
 	document.forms['poll_submit'].pl_name.focus();
@@ -79,11 +77,11 @@ if (document.poll_submit.pl_option) {
 {PAGE: END}
 
 {SECTION: btn_submit}
-<input type="button" tabindex="4" class="button" onclick="window.opener.document.post_form.pl_id.value=\'0\'; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_create}" />
+<input type="button" tabindex="4" class="button" onclick="window.opener.document.forms[\'post_form\'].pl_id.value=\'0\'; window.opener.document.forms[\'post_form\'].submit(); window.close();" value="{MSG: poll_create}" />
 {SECTION: END}
 
 {SECTION: btn_update}
-<input type="button" tabindex="4" class="button" onclick="window.opener.document.post_form.pl_id.value={VAR: pl_id}; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_update}" />
+<input type="button" tabindex="4" class="button" onclick="window.opener.document.forms[\'post_form\'].pl_id.value={VAR: pl_id}; window.opener.document.forms[\'post_form\'].submit(); window.close();" value="{MSG: poll_update}" />
 {SECTION: END}
 
 {SECTION: pl_smiley_disabled_chk disable smiliyes in the poll checkbox}

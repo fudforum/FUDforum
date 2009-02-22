@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.80 2009/02/07 21:25:40 frank Exp $
+* $Id: forum.css.tmpl,v 1.81 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -163,7 +163,7 @@ font.ptp { /* space between poll title & number of votes */
 }
 
 .DialogTable {
-	width : 50%;
+	width : 66%;
 }
 
 .PreviewTable {
@@ -586,15 +586,17 @@ hr.sig {
 }
 
 /* Header with rounded corners */
-.header {background:#527bbd; color:#fff; font-weight:bold; font-size:xx-large; margin:0 0px; }
-.header a {text-decoration:none; color:#fff; font-size:xx-large;}
-.rtop, .rbottom {display:block; background:#fff; }
-.rtop *, .rbottom * {display: block; height: 1px; overflow: hidden; background:#527bbd; }
-.r1 {margin: 0 5px}
-.r2 {margin: 0 3px}
-.r3 {margin: 0 2px}
-.r4 {margin: 0 1px; height: 2px }
-a.header { text-decoration: none; }
+.header {background:#527bbd; margin:0 0px;}
+.header a {text-decoration:none;}
+.rtop, .rbottom {display:block; background:white;}
+.rtop *, .rbottom * {display: block; height: 1px; overflow: hidden; background:#527bbd;}
+.r1 {margin: 0 5px; font-size: 1px;}
+.r2 {margin: 0 3px; font-size: 1px;}
+.r3 {margin: 0 2px; font-size: 1px;}
+.r4 {margin: 0 1px; height: 2px; font-size: 1px;}
+.headtitle {color:white; font-size:xx-large; font-weight:bold; text-decoration:none;}
+.headsearch {color:white; font-size: small; font-weight:bold; float:right;}
+.headbutton {color:white; background-color: red;} 
 
 /* Textarea editor */
 .resizable-textarea .grippie {

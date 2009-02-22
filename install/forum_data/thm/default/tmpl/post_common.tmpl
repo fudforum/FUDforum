@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.32 2009/01/29 18:37:29 frank Exp $
+* $Id: post_common.tmpl,v 1.33 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -103,7 +103,7 @@
 {SECTION: post_icons}
 <tr class="RowStyleA"><td class="vt GenText">{MSG: post_icons}</td><td>
 <table border="0" cellspacing="0" cellpadding="2">
-<tr><td class="GenText" colspan={GVAR: POST_ICONS_PER_ROW}><input type="radio" name="msg_icon" value=""{IF: !$msg_icon} checked="checked"{ENDIF} />{MSG: post_no_icon}</td></tr>
+<tr><td class="GenText" colspan="{GVAR: POST_ICONS_PER_ROW}"><input type="radio" name="msg_icon" value=""{IF: !$msg_icon} checked="checked"{ENDIF} />{MSG: post_no_icon}</td></tr>
 {TEMPLATE-DATA: data}
 </table>
 </td></tr>
@@ -167,7 +167,7 @@ function endDrag(e) {
 <tr>
 	<td class="RowStyleB">{VAR: r[2]}</td>
 	<td class="RowStyleB">{VAR: sz}</td>
-	<td class="RowStyleB"><a href="javascript: document.post_form.file_del_opt.value=\'{VAR: r[0]}\'; document.post_form.submit();">{MSG: post_file_del}</a>{TEMPLATE-DATA: insert_uploaded_image}</td>
+	<td class="RowStyleB"><a href="javascript: document.forms[\'post_form\'].file_del_opt.value=\'{VAR: r[0]}\'; document.forms[\'post_form\'].submit();">{MSG: post_file_del}</a>{TEMPLATE-DATA: insert_uploaded_image}</td>
 </tr>
 {SECTION: END}
 

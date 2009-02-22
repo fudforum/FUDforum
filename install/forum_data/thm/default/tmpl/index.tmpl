@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.89 2009/02/01 21:13:33 frank Exp $
+* $Id: index.tmpl,v 1.90 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -94,7 +94,27 @@
 {IF: _uid}<span class="GenText">{MSG: welcome_message}</span><br />{ENDIF}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
 {TEMPLATE-DATA: cat_path}
-
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+<tr>
+	<th colspan="3" class="wa">{MSG: index_forum}</th>
+	<th style="white-space: nowrap">{MSG: posts}</th>
+	<th style="white-space: nowrap">{MSG: threads}</th>
+	<th style="white-space: nowrap">{MSG: last_post}</th>
+</tr>
+{TEMPLATE-DATA: forum_list_table_data}
+</table>
+{IF: _uid}<div class="SmallText ar">[ <a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a> ]
+{IF: $FUD_OPT_2 & 1048576}[ <a href="rdf.php?mode=m&amp;l=1&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="{MSG: thread_syndicate}"/></a> ]{ENDIFI}
+</div>{ENDIF}
+{IF: __fud_real_user__}{TEMPLATE: quick_login_loged_in}{ELSE}{TEMPLATE: quick_login_on}{END}
+{IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
+<br /><fieldset>
+<legend>{MSG: legend}</legend>
+<img src="{THEME_IMAGE_ROOT}/new_content{DEF: img_ext}" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}
+</fieldset>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
 <script type="text/javascript">
 /* <![CDATA[ */
 $(document).ready(function() {
@@ -133,34 +153,12 @@ $(document).ready(function() {
        url: "index.php?t=cat_focus",
        data: "SQ={VAR: usr->sq}&S={DEF: s}&c="+cat.substr(1)+"&on="+on
      });
-{ENDIFI}
+{ENDIF}
 
   });
 })
 /* ]]> */
 </script>
-
-<table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr>
-	<th colspan="3" class="wa">{MSG: index_forum}</th>
-	<th style="white-space: nowrap">{MSG: posts}</th>
-	<th style="white-space: nowrap">{MSG: threads}</th>
-	<th style="white-space: nowrap">{MSG: last_post}</th>
-</tr>
-{TEMPLATE-DATA: forum_list_table_data}
-</table>
-{IF: _uid}<div class="SmallText ar">[ <a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a> ]
-{IF: $FUD_OPT_2 & 1048576}[ <a href="rdf.php?mode=m&amp;l=1&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="{MSG: thread_syndicate}"/></a> ]{ENDIFI}
-</div>{ENDIF}
-{IF: __fud_real_user__}{TEMPLATE: quick_login_loged_in}{ELSE}{TEMPLATE: quick_login_on}{END}
-{IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
-<br /><fieldset>
-<legend>{MSG: legend}</legend>
-<img src="{THEME_IMAGE_ROOT}/new_content{DEF: img_ext}" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}
-</fieldset>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {PAGE: END}
 

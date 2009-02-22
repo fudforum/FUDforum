@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.tmpl,v 1.27 2009/01/29 18:37:29 frank Exp $
+* $Id: pmuserloc.tmpl,v 1.28 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,17 +28,16 @@
 <input type="hidden" name="overwrite" value="{VAR: overwrite}" />
 <input type="hidden" name="t" value="pmuserloc" />
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */ 
-document.forms['pmuserloc'].usr_login.focus();
-/* ]]> */
-</script>
 <br />
 <table cellspacing="0" cellpadding="3" class="dashed wa">
 <tr><th>{MSG: pmuserloc_user}</td></tr>
 {TEMPLATE-DATA: find_user_data}
 </table>
-
+<script type="text/javascript">
+/* <![CDATA[ */ 
+document.forms['pmuserloc'].usr_login.focus();
+/* ]]> */
+</script>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: sml_rcache.inc,v 1.11 2009/01/29 18:37:17 frank Exp $
+* $Id: sml_rcache.inc,v 1.12 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,7 +16,7 @@ function smiley_rebuild_cache()
 	/* Rebuild POST -> Smiley Cache */
 	$c = uq('SELECT code, '.__FUD_SQL_CONCAT__.'(\'images/smiley_icons/\', img), descr FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley ORDER BY vieworder');
 	while ($r = db_rowarr($c)) {
-		$src[] = $co = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
+		$src[] = $co = '<img src="'.$r[1].'" border="0" alt="'.$r[2].'" />';
 		$codes = explode('~', strtolower($r[0]));
 		$dst[] = $codes[0];
 		foreach ($codes as $v) {

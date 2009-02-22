@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: avatarsel.tmpl,v 1.24 2009/01/29 18:37:29 frank Exp $
+* $Id: avatarsel.tmpl,v 1.25 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,6 +47,6 @@
 
 {SECTION: avatarsel_gal_sel avatar gallery selection}
 <form id="avsel" method="post" action="{TEMPLATE: avatar_sel_lnk}">{DEF: _hs}
-<select name="gal" onchange="document.avsel.submit();">{TEMPLATE-DATA: select}</select> <input type="submit" name="sbm" value="View" />
+<select name="gal" onchange="document.forms[\'avsel\'].submit();">{TEMPLATE-DATA: select}</select> <input type="submit" name="sbm" value="View" />
 </form><hr />
 {SECTION: END}

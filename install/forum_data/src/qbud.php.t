@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.php.t,v 1.27 2009/01/29 18:37:17 frank Exp $
+* $Id: qbud.php.t,v 1.28 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,10 +23,10 @@
 <html><body>
 <script type="text/javascript">
 /*  <![CDATA[ */
-if (window.opener.document.post_form.msg_to_list.value.length > 0) {
-	window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+';'+"<?php echo $names; ?>";
+if (window.opener.document.forms['post_form'].msg_to_list.value.length > 0) {
+	window.opener.document.forms['post_form'].msg_to_list.value = window.opener.document.forms['post_form'].msg_to_list.value+';'+"<?php echo $names; ?>";
 } else {
-	window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+"<?php echo $names; ?>";
+	window.opener.document.forms['post_form'].msg_to_list.value = window.opener.document.forms['post_form'].msg_to_list.value+"<?php echo $names; ?>";
 }
 window.close();
 /* ]]> */

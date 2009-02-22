@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.79 2009/01/29 18:37:29 frank Exp $
+* $Id: register.tmpl,v 1.80 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -67,7 +67,7 @@
 {SECTION: END}
 
 {SECTION: avatar_type_sel avatar type select, allows to choose avatar type (upload/url...)}
-<tr class="vt RowStyleA"><td>{MSG: register_avatar_type}</td><td><select name="avatar_type" onchange="document.fud_register.submit();">{TEMPLATE-DATA: avatar_type_sel_options}</select></td></tr>
+<tr class="vt RowStyleA"><td>{MSG: register_avatar_type}</td><td><select name="avatar_type" onchange="document.forms[\'fud_register\'].submit();">{TEMPLATE-DATA: avatar_type_sel_options}</select></td></tr>
 {SECTION: END}
 
 {SECTION: del_built_in_avatar delete avatar link}

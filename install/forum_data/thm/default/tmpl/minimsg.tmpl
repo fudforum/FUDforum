@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: minimsg.tmpl,v 1.20 2009/01/29 18:37:29 frank Exp $
+* $Id: minimsg.tmpl,v 1.21 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@
 {MAIN_SECTION: minimsg_hidden display list of message in the thread you're replying to link}
 <br /><br />
 <table cellspacing="0" cellpadding="3" class="dashed wa">
-<tr><td class="ac">[<a href="javascript: document.post_form.submit();">Reveal Thread</a>]</td></tr>
+<tr><td class="ac">[<a href="javascript: document.forms[\'post_form\'].submit();">Reveal Thread</a>]</td></tr>
 </table>
 <input type="hidden" name="minimsg_pager_switch" value="{VAR: start}" />
 {MAIN_SECTION: END}
