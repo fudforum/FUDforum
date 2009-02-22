@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmysql.php,v 1.13 2009/01/29 18:37:40 frank Exp $
+* $Id: admmysql.php,v 1.14 2009/02/22 17:31:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,8 +21,15 @@
 
 	if (!empty($_POST['charset']) && in_array($_POST['charset'], $chars)) {
 		foreach (get_fud_table_list() as $v) {
+			$res = db_saq("SHOW CREATE TABLE " . $v);
+			if (preg_match('!CHARSET\s*=\s*([A-Za-z0-9-]+)!', $res[1], $m)) {
+				if (!strcasecmp($m[1], $_POST['charset'])) {
+					echo "Table " . $v . " was already converted.<br />\n";
+					continue;
+				}
+			}
 			q('ALTER IGNORE TABLE '.$v.' CONVERT TO CHARACTER SET '.$_POST['charset']);
-			// echo "Table $v was successfully converted.<br />\n";
+			echo "Table " . $v . " was successfully converted.<br />\n";
 		}
 	}
 
