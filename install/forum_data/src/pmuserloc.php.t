@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.php.t,v 1.33 2009/02/22 00:00:37 frank Exp $
+* $Id: pmuserloc.php.t,v 1.34 2009/02/22 11:54:01 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,10 +48,10 @@
 				$retlink = 'javascript: window.opener.document.forms[\''.$frm.'\'].'.$fld.'.value=\''.addcslashes($r[0], "'\\").'\'; window.close();';
 			} else {
 				$retlink = 'javascript:
-						if (!window.opener.document.forms[\''.$frm.'\']'.$fld.'..value) {
-							window.opener.document.forms[\''.$frm.'\']'.$fld.'..value = \''.addcslashes($r[0], "'\\").'\';
+						if (!window.opener.document.forms[\''.$frm.'\'].'.$fld.'.value) {
+							window.opener.document.forms[\''.$frm.'\'].'.$fld.'.value = \''.addcslashes($r[0], "'\\").'\';
 						} else {
-							window.opener.document.forms[\''.$frm.'\']'.$fld.'..value = window.opener.document.forms[\''.$frm.'\']'.$fld.'..value + \'; \' + \''.addcslashes($r[0], "'\\").'; \';
+							window.opener.document.forms[\''.$frm.'\'].'.$fld.'.value = window.opener.document.forms[\''.$frm.'\'].'.$fld.'.value + \'; \' + \''.addcslashes($r[0], "'\\").'; \';
 						}
 					window.close();';
 			}
