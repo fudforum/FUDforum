@@ -1,10 +1,10 @@
-TOPIC_TITLE: <a name="post">Wie schreibe ich Beiträge?</a>
+TOPIC_TITLE: <a name="post">Wie schreibe ich BeitrÃ¤ge?</a>
 TOPIC_HELP:
-Um ein neues Thema zu starten, klicke auf die "Neues Thema"-Schaltfl&auml;che, die du auf der Beiträge-/Themen&uuml;bersicht 
+Um ein neues Thema zu starten, klicke auf die "Neues Thema"-Schaltfl&auml;che, die du auf der BeitrÃ¤ge-/Themen&uuml;bersicht 
 findest. Du wirst dann zu einem Formular weitergeleitet, das dir erlaubt, den Inhalt deines Beitrags zu schreiben.
-Um auf einen bereits existierenden Beitrag zu antworten, klicke einfach auf eine "Antwort"- oder "Zitat"-Schaltfläche, die
-du links unter jedem Beitrag findest. <br /> Unter Umständen bekommst du nach dem Klicken auf diese Schaltflächen eine Fehlermeldung,
-dass du nicht genügend Rechte hast. Das heißt, dass du dich zum Schreiben eines Beitrages erst anmelden oder registrieren musst oder dass das Schreiben von Beitr&auml;gen in diesem Forum generell nicht erlaubt ist.
+Um auf einen bereits existierenden Beitrag zu antworten, klicke einfach auf eine "Antwort"- oder "Zitat"-SchaltflÃ¤che, die
+du links unter jedem Beitrag findest. <br /> Unter UmstÃ¤nden bekommst du nach dem Klicken auf diese SchaltflÃ¤chen eine Fehlermeldung,
+dass du nicht genÃ¼gend Rechte hast. Das heiÃŸt, dass du dich zum Schreiben eines Beitrages erst anmelden oder registrieren musst oder dass das Schreiben von Beitr&auml;gen in diesem Forum generell nicht erlaubt ist.
 
 
 TOPIC_TITLE: <a name="bsearch">Wie kann ich suchen?</a>
@@ -91,7 +91,7 @@ TOPIC_TITLE: <a name="syndicate">Das Forum als Newsticker verf&uuml;gbar machen 
 TOPIC_HELP:
 Falls vom Administrator gestattet, erm&ouml;glicht das FUDforum mittels XML (rdf) eine Reihe von Daten als Syndicate zug&auml;nglich zu machen. Das RDF-Feed funktioniert haupts&auml;chlich
 in drei Modi: Empfang von Beitr&auml;gen, Themen and Benutzern. Jeder Betriebsmodus unterst&uuml;tzt eine Reihe von ver&auml;nderbaren Parametern, die
-es dir gestatten festzulegen, welche Art von Daten abgegriffen werden sollen. Unten ist eine Beschreibung der unterst&uuml;tzten Parameter für jeden
+es dir gestatten festzulegen, welche Art von Daten abgegriffen werden sollen. Unten ist eine Beschreibung der unterst&uuml;tzten Parameter fÃ¼r jeden
 Betriebsmodus.<br />
 <br /><br />
 <h4><u><b>'m' Modus (Beitr&auml;ge)</b></u></h4>
@@ -103,10 +103,10 @@ Betriebsmodus.<br />
 		<tr><td class="GenText"><i>id</i></td><td class="GenText">Einen einzelnen Beitrag mit der angegebenen id.</td></tr>
 		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Nur Beitr&auml;ge, die nach dem angegebenen Datum erstellt wurden (Unix-Zeitstempel).</td></tr>
 		<tr><td class="GenText"><i>de</i></td><td class="GenText">Nur Beitr&auml;ge, die vor dem angegebenen Datum erstellt wurden (Unix-Zeitstempel).</td></tr>
-		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> Beiträge abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> BeitrÃ¤ge abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
 		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset), ab dem Beitr&auml;ge abgerufen werden sollen.</td></tr>
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">Beitr&auml;ge vom &auml;ltesten zum neusten sortieren.</td></tr>
-		<tr><td class="GenText"><i>basic</i></td><td class="GenText">Gibt die Beiträge in einem Format zurück, das von den meisten RDF/RSS-Programmen verarbeiten werden kann.</td></tr>
+		<tr><td class="GenText"><i>basic</i></td><td class="GenText">Gibt die BeitrÃ¤ge in einem Format zurÃ¼ck, das von den meisten RDF/RSS-Programmen verarbeiten werden kann.</td></tr>
 
 	</table>
 </blockquote>
@@ -139,7 +139,7 @@ Der folgende Link ruft die aktuellsten 10 Beitr&auml;ge dieses Forums ab:<br />
 
 TOPIC_TITLE: <a name="accesskeys">Zugriffstasten</a>
 TOPIC_HELP:
-Zugriffstasten sind Tastaturk&uuml;rzel, die den Sinn haben, die Navigation mit Hilfe der Tastatur zu vereinfachen. FUDforum macht von dieser Funktionalit&auml;t Gebrauch, um verschiedene Aufgaben, die in erster Linie dem Erstellen von Beiträgen dienen, zu vereinfachen.<br />
+Zugriffstasten sind Tastaturk&uuml;rzel, die den Sinn haben, die Navigation mit Hilfe der Tastatur zu vereinfachen. FUDforum macht von dieser Funktionalit&auml;t Gebrauch, um verschiedene Aufgaben, die in erster Linie dem Erstellen von BeitrÃ¤gen dienen, zu vereinfachen.<br />
 
 <fieldset style="width: 350px;">
 	<legend><b>Browser Support</b></legend>

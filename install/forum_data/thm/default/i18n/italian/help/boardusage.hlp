@@ -1,6 +1,6 @@
 TOPIC_TITLE: <a name="bsearch">Come posso effettuare delle ricerche?</a>
 TOPIC_HELP:
-A meno che questa funzione non venga disabilitata dall'amministratore del forum, puoi effettuare <a href="{ROOT}?t=search&%_rsid%">ricerche di messaggi</a> che sono stati inseriti all'interno del forum. Puoi effettuare una ricerca specificando una o pi˘ 
+A meno che questa funzione non venga disabilitata dall'amministratore del forum, puoi effettuare <a href="{ROOT}?t=search&%_rsid%">ricerche di messaggi</a> che sono stati inseriti all'interno del forum. Puoi effettuare una ricerca specificando una o pi√π 
 parole chiave che vuoi che siano trovate, e selezionare dove effettuare la ricerca, solo nel titolo del topic 
 o effettuando una ricerca completa all'interno del testo del messaggio. Puoi anche limitarti ad effettuare una ricerca all'interno di un singolo forum a tua scelta, se non vuoi passarli al setaccio
 tutti quanti.<br />
@@ -10,8 +10,8 @@ Puoi anche ricercare altri utenti del forum, sia inserendo il loro nickname che 
 TOPIC_TITLE: <a name="email">Posso inviare email agli altro utenti del forum?</a>
 TOPIC_HELP:
 A meno che questa funzione non venga disabilitata dall'amministratore del forum, puoi tenerti in contatto con gli altri membri del forum inviando loro delle email.<br />
-Per inviare un'email ad un utente, puoi ricercarlo nella pagina degli utenti registrati del forum e selezionare il bottone <b>E-mail</b>, che trovi anche in ogni singolo messaggio scritto dall'utente nel forum. CosÏ facendo accederai ad una pagina dove scrivere la tua email, specificando l'oggetto e il testo della lettera
-Quando hai scritto il tuo messaggio, sar‡ sufficiente cliccare sul tasto <b>Email</b> e la lettera verr‡ spedita al suo indirizzo di posta elettronica.
+Per inviare un'email ad un utente, puoi ricercarlo nella pagina degli utenti registrati del forum e selezionare il bottone <b>E-mail</b>, che trovi anche in ogni singolo messaggio scritto dall'utente nel forum. Cos√¨ facendo accederai ad una pagina dove scrivere la tua email, specificando l'oggetto e il testo della lettera
+Quando hai scritto il tuo messaggio, sar√† sufficiente cliccare sul tasto <b>Email</b> e la lettera verr√† spedita al suo indirizzo di posta elettronica.
 <br /><br />
 Oltre a spedire email agli utenti del forum, puoi anche utilizzare il link <b>Email ad un amico</b> per segnalare una particolare pagina ad un tuo amico, 
 spedendogli l'indirizzo della pagina con una breve descrizione. Questo link si trova nella pagina iniziale di un topic.
@@ -19,36 +19,36 @@ spedendogli l'indirizzo della pagina con una breve descrizione. Questo link si t
 
 TOPIC_TITLE: <a name="pmsg">Cosa sono i messaggi privati, e come posso spedirli?</a> 
 TOPIC_HELP:
-Se l'amministratore non ha disabilitato la messaggistica privata, puoi spedire messaggi personali a uno o pi˘ utenti registrati
-del forum. Per accedere alla MP, tutto quello che devi fare Ë cliccare sul link <a href="{ROOT}?t=pmsg&%_rsid%">Messaggistica Privata</a> 
-che si trova nell'angolo in alto a destra di ogni pagina. Se hai dei messaggi privati non letti, il link ti indicher‡ quanti sono con un numero tra parentesi.
+Se l'amministratore non ha disabilitato la messaggistica privata, puoi spedire messaggi personali a uno o pi√π utenti registrati
+del forum. Per accedere alla MP, tutto quello che devi fare √® cliccare sul link <a href="{ROOT}?t=pmsg&%_rsid%">Messaggistica Privata</a> 
+che si trova nell'angolo in alto a destra di ogni pagina. Se hai dei messaggi privati non letti, il link ti indicher√† quanti sono con un numero tra parentesi.
 <p>
 <b>Invio di un messaggio privato</b><br />
 I messaggi privati sono molto simili alle email: dovete specificare il/i destinatario/i cui vuoi invare il messaggio, specifixare l'oggetto e il testo 
 e cliccare sul tasto <B>Invia</B>. Trovate due link disponibili, che dovrebbero permettervi di trovare rapidamente gli utenti cui inviare i vostri messaggi, ossia <B>Trova utente</B>, che effettua una ricerca per login o per indirizzo emai, e
 <b>Seleziona dalla Buddy List</b>, che vi consente di selezionare dalle persone presenti nella vostra buddy list.
-Una copia di ogni messaggio inviato verr‡ salvata nella cartella <b>Posta Inviata</b>.
+Una copia di ogni messaggio inviato verr√† salvata nella cartella <b>Posta Inviata</b>.
 <p>
 Ci sono altre tre cartelle:
 <p>
 <b>Posta ricevuta</b> contiene tutti i messaggi che avete ricevuto, ognuno dei quali contiene un indicatore che permette di capire se avete letto o no il messaggio
-Potete anche vedere chi vi ha spedito il messaggio, se la persona Ë attualmente online, e la data 
-nella quale il messaggio Ë stato spedito.
+Potete anche vedere chi vi ha spedito il messaggio, se la persona √® attualmente online, e la data 
+nella quale il messaggio √® stato spedito.
 <p>
 <b>Bozze</b> contiene i messaggi che avete scritto ma non avete ancora inviato. Cliccando sul messaggio entrerete nella finestra di modifica, 
-che vi permette di modificare il messaggio e, se lo desiderate, di spedirlo. Una volta che il messaggio viene spedito, esso verr‡ spostato dalla cartella Bozze
+che vi permette di modificare il messaggio e, se lo desiderate, di spedirlo. Una volta che il messaggio viene spedito, esso verr√† spostato dalla cartella Bozze
 alla cartella Posta Inviata.
 <p>
-<b>Cestino</b> contiene tutti i messaggi che avete deciso di cancellare dalle altre cartelle. Se cancellate un messaggio ANCHE dal cestino, allora sar‡ perso per sempre.
+<b>Cestino</b> contiene tutti i messaggi che avete deciso di cancellare dalle altre cartelle. Se cancellate un messaggio ANCHE dal cestino, allora sar√† perso per sempre.
 <p>
 <b>Traccia dei messaggi</b><p>
-Quando scrivi un messaggio, hai la possibilit‡ di richiedere una "ricevuta di ritorno", cosÏ che quando il destinatario legge il messaggio, riceverai una comunicazione automatica che segnala l'avvenuta lettura.<br />
-Tuttavia, se richiedi una ricevuta di ritorno e il destinatario decide di non inviarla, non riceverai alcuna conferma dell'avvenuta lettura del messaggio anche se questo Ë stato effettivamente letto.
+Quando scrivi un messaggio, hai la possibilit√† di richiedere una "ricevuta di ritorno", cos√¨ che quando il destinatario legge il messaggio, riceverai una comunicazione automatica che segnala l'avvenuta lettura.<br />
+Tuttavia, se richiedi una ricevuta di ritorno e il destinatario decide di non inviarla, non riceverai alcuna conferma dell'avvenuta lettura del messaggio anche se questo √® stato effettivamente letto.
 
 
 TOPIC_TITLE: <a name="mlist">Elenco utenti?</a>
 TOPIC_HELP:
-L'elenco utenti Ë la lista completa degli utenti registrati al forum. Puoi ordinare la lista in tre modi possibili: per nickname, per numero di messaggi e per data di registrazione.
+L'elenco utenti √® la lista completa degli utenti registrati al forum. Puoi ordinare la lista in tre modi possibili: per nickname, per numero di messaggi e per data di registrazione.
 <br /><br />
 La lista degli utenti dispone anche di un motore di ricerca interno che vi permette di trovare un utente specificando, al solito, nickname o indirizzo di posta elettronica.
 
@@ -58,7 +58,7 @@ Sono messaggi speciali che possono essere creati dall'amministratore e dai moder
 
 TOPIC_TITLE: <a name="rate">Posso votare i topic?</a>
 TOPIC_HELP:
-Avrai notato che alcuni topic hanno un giudizio espresso in stelline. Se l'amministratore lo consente, puoi anche tu contribuire con il tuo voto. Per farlo devi andare in fondo al messaggio e selezionare un numero da 1 a 5 (cinque per il voto pi˘ alto) dal menu a tendina <b>Esprimi un giudizio sul topic</b>.
+Avrai notato che alcuni topic hanno un giudizio espresso in stelline. Se l'amministratore lo consente, puoi anche tu contribuire con il tuo voto. Per farlo devi andare in fondo al messaggio e selezionare un numero da 1 a 5 (cinque per il voto pi√π alto) dal menu a tendina <b>Esprimi un giudizio sul topic</b>.
 
 TOPIC_TITLE: <a name="syndicate">Syndicating this forum</a>
 TOPIC_HELP:

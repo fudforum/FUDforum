@@ -1,35 +1,35 @@
 TOPIC_TITLE: Gestion des utilisateurs
 TOPIC_HELP:
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#register">Pourquoi s'enregistrer&nbsp;?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">Comment sont utilisés les cookies sur FUDforum&nbsp;?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">Comment sont utilisÃ©s les cookies sur FUDforum&nbsp;?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie">Comment supprimer les cookies de FUDforum&nbsp;?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#updprofile">Qu'est-ce qu'un profil&nbsp;?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#sigs">Qu'est-ce qu'une signature&nbsp;?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#rstpasswd">Que faire si vous avez perdu votre mot de passe&nbsp;?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cstat">Les marques personnalisées, qu'est-ce que c'est et comment puis-je en avoir une&nbsp;?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cstat">Les marques personnalisÃ©es, qu'est-ce que c'est et comment puis-je en avoir une&nbsp;?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#avatars">Qu'est-ce qu'un avatar&nbsp;?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#blist">Qu'est-ce qu'une liste d'amis&nbsp;?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#ignlist">Qu'est-ce que fait la liste à ignorer&nbsp;?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#ignlist">Qu'est-ce que fait la liste Ã  ignorer&nbsp;?</a><br />
 
-TOPIC_TITLE: Utilisation générale de l'interface
+TOPIC_TITLE: Utilisation gÃ©nÃ©rale de l'interface
 TOPIC_HELP:
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#bsearch">Comment faire une recherche&nbsp;?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email">Comment envoyer un courrier à d'autres membres du forum&nbsp;?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#pmsg">Que sont les messages privés et comment en envoyer un&nbsp;?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email">Comment envoyer un courrier Ã  d'autres membres du forum&nbsp;?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#pmsg">Que sont les messages privÃ©s et comment en envoyer un&nbsp;?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#mlist">Liste des membres&nbsp;?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ann">Que sont les annonces et les messages épinglés&nbsp;</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ann">Que sont les annonces et les messages Ã©pinglÃ©s&nbsp;</a><br />
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#rate">Comment noter un sujet&nbsp;?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ref">Que sont les parrainages&nbsp;?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#accesskeys">Access Keys</a><br />
 
 TOPIC_TITLE: Lire et envoyer des messages
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#style">Comment appliquer des formats à un texte&nbsp;?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sml">Que sont les smileys/émoticônes&nbsp;?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#style">Comment appliquer des formats Ã  un texte&nbsp;?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sml">Que sont les smileys/Ã©moticÃ´nes&nbsp;?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#polls">Comment utiliser les sondages&nbsp;?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#attach">Comment attacher des fichiers aux messages&nbsp;?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#msgico">Qu'est-ce qu'une icône de message&nbsp;?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#edit">Comment éditer mes messages&nbsp;?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#mod">Qui sont les modérateurs et administrateurs&nbsp;?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#msgico">Qu'est-ce qu'une icÃ´ne de message&nbsp;?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#edit">Comment Ã©diter mes messages&nbsp;?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#mod">Qui sont les modÃ©rateurs et administrateurs&nbsp;?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#cens">Censure&nbsp;?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#not">Puis-je être averti des réponses à mes messages&nbsp;?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#not">Puis-je Ãªtre averti des rÃ©ponses Ã  mes messages&nbsp;?</a><br />

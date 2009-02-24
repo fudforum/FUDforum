@@ -1,52 +1,52 @@
-TOPIC_TITLE: <a name="bsearch">Jak mo¿na przeszukiwaæ forum?</a>
+TOPIC_TITLE: <a name="bsearch">Jak moÅ¼na przeszukiwaÄ‡ forum?</a>
 TOPIC_HELP:
-Je¶li nie zosta³o to zablokowane przez administratora, mo¿esz <a href="{ROOT}?t=search&%_rsid%">przeszukiwaæ wiadomo¶ci</a>, które zosta³y wys³ane na forum. Jako kryterium poszukiwania mo¿na podaæ s³owa kluczowe, które chcesz odnale¼æ w temacie lub tre¶ci i temacie. Mo¿esz ograniczyæ operacjê do jednego forum, je¶li nie chcesz przeszukiwaæ ca³o¶ci.<br />
-Mo¿esz tak¿e szukaæ u¿ytkowników forum, u¿ywaj±c ich nazwy lub adresu e-mail za pomoc± <a href="{ROOT}?t=finduser&%_rsid%">formularza</a>.
+JeÅ›li nie zostaÅ‚o to zablokowane przez administratora, moÅ¼esz <a href="{ROOT}?t=search&%_rsid%">przeszukiwaÄ‡ wiadomoÅ›ci</a>, ktÃ³re zostaÅ‚y wysÅ‚ane na forum. Jako kryterium poszukiwania moÅ¼na podaÄ‡ sÅ‚owa kluczowe, ktÃ³re chcesz odnaleÅºÄ‡ w temacie lub treÅ›ci i temacie. MoÅ¼esz ograniczyÄ‡ operacjÄ™ do jednego forum, jeÅ›li nie chcesz przeszukiwaÄ‡ caÅ‚oÅ›ci.<br />
+MoÅ¼esz takÅ¼e szukaÄ‡ uÅ¼ytkownikÃ³w forum, uÅ¼ywajÄ…c ich nazwy lub adresu e-mail za pomocÄ… <a href="{ROOT}?t=finduser&%_rsid%">formularza</a>.
 
-TOPIC_TITLE: <a name="email">Czy mogê wysy³aæ listy elektroniczne do innych u¿ytkowników?</a>
+TOPIC_TITLE: <a name="email">Czy mogÄ™ wysyÅ‚aÄ‡ listy elektroniczne do innych uÅ¼ytkownikÃ³w?</a>
 TOPIC_HELP:
-Je¶li nie zosta³o to zablokowane przez administratora, mo¿esz byæ w kontakcie z z innymi u¿ytkownikami za pomoc± poczty elektronicznej.<br />
-Aby wys³aæ komu¶ e-mail, mo¿esz go odszukaæ na li¶cie u¿ytkowników, a nastêpnie wybraæ przycisk <b>E-mail</b>. Podobna opcja znajduje siê pod ka¿d± wys³an± wiadomo¶ci± danego u¿ytkownika.<br />
-Po jej wybraniu uka¿e siê formularz, w którym nale¿y wpisaæ temat i tre¶æ wysy³anego listu. Po zakoñczeniu wystarczy klikn±æ przycisk <b>E-mail</b> aby wiadomo¶æ zosta³a wys³ana.<br /><br />
-Oprócz listów elektronicznych do u¿ytkowników forum, mo¿na u¿yæ funkcji <b>Wy¶lij do znajomego</b>, która wysy³a odno¶nik do aktualnie ogl±danego w±tku wybranej osobie. Dostêp do tej funkcji mo¿na uzyskaæ przegl±daj±c w±tek lub wiadomo¶æ.
+JeÅ›li nie zostaÅ‚o to zablokowane przez administratora, moÅ¼esz byÄ‡ w kontakcie z z innymi uÅ¼ytkownikami za pomocÄ… poczty elektronicznej.<br />
+Aby wysÅ‚aÄ‡ komuÅ› e-mail, moÅ¼esz go odszukaÄ‡ na liÅ›cie uÅ¼ytkownikÃ³w, a nastÄ™pnie wybraÄ‡ przycisk <b>E-mail</b>. Podobna opcja znajduje siÄ™ pod kaÅ¼dÄ… wysÅ‚anÄ… wiadomoÅ›ciÄ… danego uÅ¼ytkownika.<br />
+Po jej wybraniu ukaÅ¼e siÄ™ formularz, w ktÃ³rym naleÅ¼y wpisaÄ‡ temat i treÅ›Ä‡ wysyÅ‚anego listu. Po zakoÅ„czeniu wystarczy kliknÄ…Ä‡ przycisk <b>E-mail</b> aby wiadomoÅ›Ä‡ zostaÅ‚a wysÅ‚ana.<br /><br />
+OprÃ³cz listÃ³w elektronicznych do uÅ¼ytkownikÃ³w forum, moÅ¼na uÅ¼yÄ‡ funkcji <b>WyÅ›lij do znajomego</b>, ktÃ³ra wysyÅ‚a odnoÅ›nik do aktualnie oglÄ…danego wÄ…tku wybranej osobie. DostÄ™p do tej funkcji moÅ¼na uzyskaÄ‡ przeglÄ…dajÄ…c wÄ…tek lub wiadomoÅ›Ä‡.
 
-TOPIC_TITLE: <a name="pmsg">Co to s± prywatne wiadomo¶ci i jak je wysy³aæ?</a> 
+TOPIC_TITLE: <a name="pmsg">Co to sÄ… prywatne wiadomoÅ›ci i jak je wysyÅ‚aÄ‡?</a> 
 TOPIC_HELP:
-Je¶li administrator nie zablokowa³ systemu Prywatnych Wiadomo¶ci, mo¿esz wysy³aæ wiadomo¶ci tekstowe do innych u¿ytkowników forum. Aby uzyskaæ dostêp do tych funkcji wybierz opcjê <a href="{ROOT}?t=pmsg&%_rsid%">Prywatne wiadomo¶ci</a>, która znajduje siê u góry ka¿dej strony. Je¶li masz jakie¶ nieprzeczytane wiadomo¶ci, zostanie to uwidocznione w tym odno¶niku.
+JeÅ›li administrator nie zablokowaÅ‚ systemu Prywatnych WiadomoÅ›ci, moÅ¼esz wysyÅ‚aÄ‡ wiadomoÅ›ci tekstowe do innych uÅ¼ytkownikÃ³w forum. Aby uzyskaÄ‡ dostÄ™p do tych funkcji wybierz opcjÄ™ <a href="{ROOT}?t=pmsg&%_rsid%">Prywatne wiadomoÅ›ci</a>, ktÃ³ra znajduje siÄ™ u gÃ³ry kaÅ¼dej strony. JeÅ›li masz jakieÅ› nieprzeczytane wiadomoÅ›ci, zostanie to uwidocznione w tym odnoÅ›niku.
 <p>
-<b>Wysy³anie prywatnych wiadomo¶ci</b><br />
-Prywatne wiadomo¶ci s± bardzo podobne do listów elektronicznych. Tutaj tak¿e podajesz do kogo chcesz wys³aæ wiadomo¶æ, jej temat oraz tre¶æ. Po uzupe³nieniu wszystkich pól wystarczy klikn±æ przycisk Wy¶lij. Obok pola z nazw± odbiorcy znajduj± siê dwa odno¶niki, które maj± u³atwiæ wybranie osób, do których trafi wiadomo¶æ. <b>wybierz z listy znajomych</b>, które otwiera listê osób, które oznaczy³e¶ jako swoich znajomych oraz <b>znajd¼ u¿ytkownika</b>, który pozwala wybraæ z listy wszystkich zarejestrowanych u¿ytkowników.
-Kopia ka¿dej wys³anej wiadomo¶ci zostaje zapisana w <b>Skrzynce nadawczej</b>. W razie potrzeby mo¿na j± stamt±d usun±æ.
+<b>WysyÅ‚anie prywatnych wiadomoÅ›ci</b><br />
+Prywatne wiadomoÅ›ci sÄ… bardzo podobne do listÃ³w elektronicznych. Tutaj takÅ¼e podajesz do kogo chcesz wysÅ‚aÄ‡ wiadomoÅ›Ä‡, jej temat oraz treÅ›Ä‡. Po uzupeÅ‚nieniu wszystkich pÃ³l wystarczy kliknÄ…Ä‡ przycisk WyÅ›lij. Obok pola z nazwÄ… odbiorcy znajdujÄ… siÄ™ dwa odnoÅ›niki, ktÃ³re majÄ… uÅ‚atwiÄ‡ wybranie osÃ³b, do ktÃ³rych trafi wiadomoÅ›Ä‡. <b>wybierz z listy znajomych</b>, ktÃ³re otwiera listÄ™ osÃ³b, ktÃ³re oznaczyÅ‚eÅ› jako swoich znajomych oraz <b>znajdÅº uÅ¼ytkownika</b>, ktÃ³ry pozwala wybraÄ‡ z listy wszystkich zarejestrowanych uÅ¼ytkownikÃ³w.
+Kopia kaÅ¼dej wysÅ‚anej wiadomoÅ›ci zostaje zapisana w <b>Skrzynce nadawczej</b>. W razie potrzeby moÅ¼na jÄ… stamtÄ…d usunÄ…Ä‡.
 <p>
-W systemie prywatnych wiadomo¶ci znajduj± siê trzy katalogi:
+W systemie prywatnych wiadomoÅ›ci znajdujÄ… siÄ™ trzy katalogi:
 <p>
-<b>Skrzynka odbiorcza</b>, która zawiera wszystkie odebrane wiadomo¶ci. Ka¿da z nich jest oznaczona, czy zosta³a ju¿ przeczytana, zawiera informacje o nadawcy oraz datê wys³ania.
+<b>Skrzynka odbiorcza</b>, ktÃ³ra zawiera wszystkie odebrane wiadomoÅ›ci. KaÅ¼da z nich jest oznaczona, czy zostaÅ‚a juÅ¼ przeczytana, zawiera informacje o nadawcy oraz datÄ™ wysÅ‚ania.
 <p>
-<b>Szkice</b> zawieraj± wiadomo¶ci napisane przez Ciebie, których jeszcze nie wys³a³e¶. Wybieraj±c jedn± z wiadomo¶ci przejdziesz do trybu edycji, gdzie mo¿na j± zmodyfikowaæ oraz ewentualnie wys³aæ. Je¶li wy¶lesz wiadomo¶æ, zostanie ona przeniesiona z katalogu Szkice do Skrzynki nadawczej.
+<b>Szkice</b> zawierajÄ… wiadomoÅ›ci napisane przez Ciebie, ktÃ³rych jeszcze nie wysÅ‚aÅ‚eÅ›. WybierajÄ…c jednÄ… z wiadomoÅ›ci przejdziesz do trybu edycji, gdzie moÅ¼na jÄ… zmodyfikowaÄ‡ oraz ewentualnie wysÅ‚aÄ‡. JeÅ›li wyÅ›lesz wiadomoÅ›Ä‡, zostanie ona przeniesiona z katalogu Szkice do Skrzynki nadawczej.
 <p>
-<b>¦mietnik</b> zawiera wszystkie wiadomo¶ci, które zaznaczy³e¶ do usuniêcia. Mo¿esz je jeszcze stamt±d odtworzyæ. Je¶li jednak skasujesz wiadomo¶æ znajduj±c± siê w ¦mietniku, nie bêdziesz móg³ ju¿ jej odzyskaæ.
+<b>Åšmietnik</b> zawiera wszystkie wiadomoÅ›ci, ktÃ³re zaznaczyÅ‚eÅ› do usuniÄ™cia. MoÅ¼esz je jeszcze stamtÄ…d odtworzyÄ‡. JeÅ›li jednak skasujesz wiadomoÅ›Ä‡ znajdujÄ…cÄ… siÄ™ w Åšmietniku, nie bÄ™dziesz mÃ³gÅ‚ juÅ¼ jej odzyskaÄ‡.
 <p>
-<b>¦ledzenie wiadomo¶ci</b><p>
-Podczas wysy³ania wiadomo¶ci mo¿esz wybraæ opcjê potwierdzenia odczytania, która powoduje, ¿e po przeczytaniu wiadomo¶ci przez odbiorcê, otrzymasz stosowne potwierdzenie tego faktu.<br />
-Funkcja ta nie musi zawsze dzia³aæ, gdy¿ ka¿dy u¿ytkownik mo¿e zablokowaæ odsy³anie potwierdzeñ, wiêc je¶li go nie otrzymasz niekoniecznie to oznacza, ¿e odbiorca nie przeczyta³ Twojej wiadomo¶ci.
+<b>Åšledzenie wiadomoÅ›ci</b><p>
+Podczas wysyÅ‚ania wiadomoÅ›ci moÅ¼esz wybraÄ‡ opcjÄ™ potwierdzenia odczytania, ktÃ³ra powoduje, Å¼e po przeczytaniu wiadomoÅ›ci przez odbiorcÄ™, otrzymasz stosowne potwierdzenie tego faktu.<br />
+Funkcja ta nie musi zawsze dziaÅ‚aÄ‡, gdyÅ¼ kaÅ¼dy uÅ¼ytkownik moÅ¼e zablokowaÄ‡ odsyÅ‚anie potwierdzeÅ„, wiÄ™c jeÅ›li go nie otrzymasz niekoniecznie to oznacza, Å¼e odbiorca nie przeczytaÅ‚ Twojej wiadomoÅ›ci.
 
-TOPIC_TITLE: <a name="mlist">Co to jest lista u¿ytkowników?</a>
+TOPIC_TITLE: <a name="mlist">Co to jest lista uÅ¼ytkownikÃ³w?</a>
 TOPIC_HELP:
-Lista u¿ytkowników, jest kompletnym zestawieniem wszystkich u¿ytkowników, którzy zarejestrowali siê na forum. Mo¿na j± sortowaæ na trzy sposoby - wed³ug nazwy, ilo¶ci wiadomo¶ci lub czasu rejestracji.
+Lista uÅ¼ytkownikÃ³w, jest kompletnym zestawieniem wszystkich uÅ¼ytkownikÃ³w, ktÃ³rzy zarejestrowali siÄ™ na forum. MoÅ¼na jÄ… sortowaÄ‡ na trzy sposoby - wedÅ‚ug nazwy, iloÅ›ci wiadomoÅ›ci lub czasu rejestracji.
 <br /><br />
-Lista u¿ytkowników zawiera opcjê przeszukiwania, która pozwala odnale¼æ wybran± osobê za pomoc± nazwy u¿ytkownika lub adresu poczty elektronicznej.
+Lista uÅ¼ytkownikÃ³w zawiera opcjÄ™ przeszukiwania, ktÃ³ra pozwala odnaleÅºÄ‡ wybranÄ… osobÄ™ za pomocÄ… nazwy uÅ¼ytkownika lub adresu poczty elektronicznej.
 
-TOPIC_TITLE:<a name="ann">Co to og³oszenia i przyczepione wiadomo¶ci?</a>
+TOPIC_TITLE:<a name="ann">Co to ogÅ‚oszenia i przyczepione wiadomoÅ›ci?</a>
 TOPIC_HELP:
-Jest to specjalny rodzaj wiadomo¶ci, które mog± byæ tworzone tylko przez administratorów lub moderatorów. Ukazuj± siê one na samej górze strony z danym forum przez wybrany okres czasu. Stosowane s± one zazwyczaj w celu powiadamiania u¿ytkowników o ró¿nych wydarzeniach czy zmianach w zasadach funkcjonowania forum.
+Jest to specjalny rodzaj wiadomoÅ›ci, ktÃ³re mogÄ… byÄ‡ tworzone tylko przez administratorÃ³w lub moderatorÃ³w. UkazujÄ… siÄ™ one na samej gÃ³rze strony z danym forum przez wybrany okres czasu. Stosowane sÄ… one zazwyczaj w celu powiadamiania uÅ¼ytkownikÃ³w o rÃ³Å¼nych wydarzeniach czy zmianach w zasadach funkcjonowania forum.
 
-TOPIC_TITLE: <a name="rate">Czy mogê oceniaæ w±tki?</a>
+TOPIC_TITLE: <a name="rate">Czy mogÄ™ oceniaÄ‡ wÄ…tki?</a>
 TOPIC_HELP:
-Jak pewnie zauwa¿y³e¶, niektóre w±tki maj± ocenê. Je¶li zosta³o zezwolone przez administratora, mo¿esz wzi±æ udzia³ w ocenianiu danego w±tku. Mo¿na to zrobiæ przewijaj±c na koniec strony wybranego forum i wybieraj±c liczbê od 1 do 5 (5 to najwy¿sza ocena) z rozwijanej listy <b>Oceñ w±tek</b>.
+Jak pewnie zauwaÅ¼yÅ‚eÅ›, niektÃ³re wÄ…tki majÄ… ocenÄ™. JeÅ›li zostaÅ‚o zezwolone przez administratora, moÅ¼esz wziÄ…Ä‡ udziaÅ‚ w ocenianiu danego wÄ…tku. MoÅ¼na to zrobiÄ‡ przewijajÄ…c na koniec strony wybranego forum i wybierajÄ…c liczbÄ™ od 1 do 5 (5 to najwyÅ¼sza ocena) z rozwijanej listy <b>OceÅ„ wÄ…tek</b>.
 
-TOPIC_TITLE: <a name="ref">Kim s± osoby polecone?</a>
+TOPIC_TITLE: <a name="ref">Kim sÄ… osoby polecone?</a>
 TOPIC_HELP:
-Opcja osoby polecone pozwala zobaczyæ, którzy z u¿ytkowników na forum zostali zaproszeni przez Ciebie. S± one ¶ledzone automatycznie - kiedy przeka¿esz komu¶ adres do forum i ta osoba siê zarejestruje, zostanie to zanotowane w Twoim profilu. Lista zaproszonych osób znajdujê siê w zak³adce <b>Osoby polecone</b>.
+Opcja osoby polecone pozwala zobaczyÄ‡, ktÃ³rzy z uÅ¼ytkownikÃ³w na forum zostali zaproszeni przez Ciebie. SÄ… one Å›ledzone automatycznie - kiedy przekaÅ¼esz komuÅ› adres do forum i ta osoba siÄ™ zarejestruje, zostanie to zanotowane w Twoim profilu. Lista zaproszonych osÃ³b znajdujÄ™ siÄ™ w zakÅ‚adce <b>Osoby polecone</b>.
 
 TOPIC_TITLE: <a name="syndicate">Syndicating this forum</a>
 TOPIC_HELP:

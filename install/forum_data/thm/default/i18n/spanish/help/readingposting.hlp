@@ -1,10 +1,10 @@
-TOPIC_TITLE: <a name="style">øCÛmo formatear el texto?</a>
+TOPIC_TITLE: <a name="style">¬øC√≥mo formatear el texto?</a>
 TOPIC_HELP:
 Por lo general los mensajes en el foro son principalmente texto plano, sin embargo en ocasiones puede desear
-aÒadir algo de formato a su texto, tal como palabras en negrita, en cursiva, etc.
+a√±adir algo de formato a su texto, tal como palabras en negrita, en cursiva, etc.
 <p>
 Puesto que en algunos casos el administrador no permite el uso de HTML en los mensajes, puede usar FUDcode, que es un conjunto
-especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode es muy f·cil de usar y es mucho m·s seguro que el HTML.
+especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode es muy f√°cil de usar y es mucho m√°s seguro que el HTML.
 <p>
 
 <a name="url"><b>Enlazado de URL</b></a><br />
@@ -19,7 +19,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> FUDforum autom·ticamente reconocer· las URL y las convertir· en URL v·lidas.
+<i>Explicaci√≥n:</i> FUDforum autom√°ticamente reconocer√° las URL y las convertir√° en URL v√°lidas.
 <br /><br />	
 
 <table>
@@ -32,7 +32,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> TambiÈn puede definir URL mediante FUDcode, este es un ejemplo simple de su uso. 
+<i>Explicaci√≥n:</i> Tambi√©n puede definir URL mediante FUDcode, este es un ejemplo simple de su uso. 
 <br /><br />
  
 <table>
@@ -41,15 +41,15 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600"><br />Mi p·gina personal<br /></font>[/URL]</b></font></td>
-    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>Mi p·gina personal</a></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600"><br />Mi p√°gina personal<br /></font>[/URL]</b></font></td>
+    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>Mi p√°gina personal</a></td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> Puede usar FUDcode para crear URL con un texto de su elecciÛn.
+<i>Explicaci√≥n:</i> Puede usar FUDcode para crear URL con un texto de su elecci√≥n.
 <br /><br /><br />
 
 <p>
-<a name="email"><b>Enlazado de direcciones de correo electrÛnico</b></a><br />
+<a name="email"><b>Enlazado de direcciones de correo electr√≥nico</b></a><br />
 
 <table>
   <tr>
@@ -61,7 +61,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">support@prohost.org</a></td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> FUDforum convertir· autom·ticamente los enlaces a direcciones de correo electrÛnico en hiperenlaces correctos.
+<i>Explicaci√≥n:</i> FUDforum convertir√° autom√°ticamente los enlaces a direcciones de correo electr√≥nico en hiperenlaces correctos.
 <br /><br />
 
 <table>
@@ -70,11 +70,11 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font><br />Pulse aquÌ para enviar un mensaje al soporte tÈcnico<br /><font color="#ff0000"><b>[/email]</b></font></td>
-    <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Pulse aquÌ para enviar un mensaje al soporte tÈcnico</a></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font><br />Pulse aqu√≠ para enviar un mensaje al soporte t√©cnico<br /><font color="#ff0000"><b>[/email]</b></font></td>
+    <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Pulse aqu√≠ para enviar un mensaje al soporte t√©cnico</a></td>
   </tr>
 </table>
-<i>Explanation:</i> Puede usar FUDcode para crear enlaces a direcciones de correo que se muestren con un texto de su elecciÛn.
+<i>Explanation:</i> Puede usar FUDcode para crear enlaces a direcciones de correo que se muestren con un texto de su elecci√≥n.
 <br /><br />
 
 <br />
@@ -129,8 +129,8 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[sub]</b></font>subrÌndice<font color="#ff0000"><b>[/sub]</b></font></td>
-    <td valign="middle" align="center"><sub>subÌndice</sub></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[sub]</b></font>subr√≠ndice<font color="#ff0000"><b>[/sub]</b></font></td>
+    <td valign="middle" align="center"><sub>sub√≠ndice</sub></td>
   </tr>
 </table>
 <br />
@@ -143,8 +143,8 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[sup]</b></font>superÌndice<font color="#ff0000"><b>[/sup]</b></font></td>
-    <td valign="middle" align="center"><sup>superÌndice</sup></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[sup]</b></font>super√≠ndice<font color="#ff0000"><b>[/sup]</b></font></td>
+    <td valign="middle" align="center"><sup>super√≠ndice</sup></td>
   </tr>
 </table>
 <br />
@@ -201,10 +201,10 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><font color="#ff0000" size="4" face="Courier New, Courier, monospace"><u><i><b>Texto formateado</b></i></u></font></td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> Puede usar tantas etiquetas de formateo juntas como desee.
+<i>Explicaci√≥n:</i> Puede usar tantas etiquetas de formateo juntas como desee.
 <br /><br /><br />
         
-<a name="align"><b>AlineaciÛn de texto</b></a><br />
+<a name="align"><b>Alineaci√≥n de texto</b></a><br />
 
 <table>
   <tr>
@@ -224,8 +224,8 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=right]</b></font>alineaciÛn derecha<font color="#ff0000"><b>[/align]</b></font></td>
-    <td valign="middle" align="right">alineaciÛn derecha</td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=right]</b></font>alineaci√≥n derecha<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="right">alineaci√≥n derecha</td>
   </tr>
 </table>
 <br />
@@ -236,8 +236,8 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=left]</b></font>alineaciÛn izquierda<font color="#ff0000"><b>[/align]</b></font></td>
-    <td valign="middle" align="left">alineaciÛn izquierda</td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=left]</b></font>alineaci√≥n izquierda<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="left">alineaci√≥n izquierda</td>
   </tr>
 </table>
 <br /><br />
@@ -281,7 +281,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 </table>
 <br /><br />
 
-<a name="img"><b>AdiciÛn de im·genes</b></a><br />
+<a name="img"><b>Adici√≥n de im√°genes</b></a><br />
 
 <table>
   <tr>
@@ -305,7 +305,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0"></a></td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> Puede usar FUDcode para crear im·genes enlazadas metiendo las etiquetas [img][/img] dentro de las etiquetas [url][/url].
+<i>Explicaci√≥n:</i> Puede usar FUDcode para crear im√°genes enlazadas metiendo las etiquetas [img][/img] dentro de las etiquetas [url][/url].
 <br /><br /><br />
 
 <a name="quote"><b>Cita de otros mensajes</b></a><br />
@@ -336,10 +336,10 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle"><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre></td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> Esta etiqueta produce el texto exactamente tal cual est· tecleado, manteniendo el formateo original.
+<i>Explicaci√≥n:</i> Esta etiqueta produce el texto exactamente tal cual est√° tecleado, manteniendo el formateo original.
 <br /><br /><br />
 
-<a name="php"><b>CÛdigo PHP</b></a><br />
+<a name="php"><b>C√≥digo PHP</b></a><br />
 
 <table>
   <tr>
@@ -363,10 +363,10 @@ hello();
 </code></td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> La etiqueta [php][/php] permite enviar cÛdigo PHP cuya sintaxis el foro resaltar· de manera autom·tica.
+<i>Explicaci√≥n:</i> La etiqueta [php][/php] permite enviar c√≥digo PHP cuya sintaxis el foro resaltar√° de manera autom√°tica.
 <br /><br /><br />
 
-<a name="code"><b>CÛdigo en lenguajes distintos a PHP</b></a><br />
+<a name="code"><b>C√≥digo en lenguajes distintos a PHP</b></a><br />
 
 <table>
   <tr>
@@ -380,16 +380,16 @@ hello();
     </td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> La etiqueta [code][/code] funciona de manera muy similar a la etiqueta [pre][/pre], pero en este caso se pone un vistoso marco alrededor del texto.
+<i>Explicaci√≥n:</i> La etiqueta [code][/code] funciona de manera muy similar a la etiqueta [pre][/pre], pero en este caso se pone un vistoso marco alrededor del texto.
 <br /><br /><br />
 
 <a name="notag"><b>Sin etiquetas</b></a><br />
-<i>ExplicaciÛn:</i> La etiqueta <font color="#ff0000"><b>[notag][/notag]</b></font> le permite que el texto en el interior de las mismas
-no sea interpretado por el analizador de etiquetas de FUDforum. Esto le permitir· mostrar fragmentos de FUDcode sin que el foro lo convierta
-en el cÛdigo HTML equivalente.
+<i>Explicaci√≥n:</i> La etiqueta <font color="#ff0000"><b>[notag][/notag]</b></font> le permite que el texto en el interior de las mismas
+no sea interpretado por el analizador de etiquetas de FUDforum. Esto le permitir√° mostrar fragmentos de FUDcode sin que el foro lo convierta
+en el c√≥digo HTML equivalente.
 <br /><br /><br />
 
-<a name="hr"><b>Etiqueta de lÌnea horizontal</b></a><br />
+<a name="hr"><b>Etiqueta de l√≠nea horizontal</b></a><br />
 
 <table>
   <tr>
@@ -401,7 +401,7 @@ en el cÛdigo HTML equivalente.
     <td valign="middle" align="center"><hr></td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> La etiqueta [hr] produce una lÌnea horizontal: es equivalente a la etiqueta HTML &lt;hr&gt;
+<i>Explicaci√≥n:</i> La etiqueta [hr] produce una l√≠nea horizontal: es equivalente a la etiqueta HTML &lt;hr&gt;
 <br /><br /><br />
 
 <a name="spoiler"><b>Spoiler</b></a><br />
@@ -416,18 +416,18 @@ en el cÛdigo HTML equivalente.
 <font color="#ff0000"><b>[spoiler]</b></font>
 <br />Parte oculta del mensaje<br />
 <font color="#ff0000"><b>[/spoiler]</b></font><br />
-M·s texto visible.</td>
+M√°s texto visible.</td>
     <td valign="middle" align="center">Parte visible del mensaje<br />
 <div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Desvelar Spoiler</a><div align="left" id="1482055279834293165" style="display: none;"><br />
 Parte oculta del mensaje<br /></div></div>
 <br />
-M·s texto visible.</td>
+M√°s texto visible.</td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> La etiqueta [spoiler][/spoiler] le permite evitar que se muestre una parte de un mensaje. Para ver la parte oculta los usuarios deben pulsar un enlace que les mostrar· la parte oculta del texto. Internamente esto se consigue mediante el uso de JavaScript, de manera que la p·gina no se recarga, sino que se hace visible una capa que estaba oculta.
+<i>Explicaci√≥n:</i> La etiqueta [spoiler][/spoiler] le permite evitar que se muestre una parte de un mensaje. Para ver la parte oculta los usuarios deben pulsar un enlace que les mostrar√° la parte oculta del texto. Internamente esto se consigue mediante el uso de JavaScript, de manera que la p√°gina no se recarga, sino que se hace visible una capa que estaba oculta.
 <br /><br /><br />
 
-<a name="acronym"><b>AcrÛnimo</b></a><br />
+<a name="acronym"><b>Acr√≥nimo</b></a><br />
 
 <table>
   <tr>
@@ -435,11 +435,11 @@ M·s texto visible.</td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Foro de charla r·pida y sin compromisos]</b></font><br />FUDforum<br /><font color="#ff0000"><b>[/acronym]</b></font></td>
-    <td valign="middle" align="center"><acronym title="Foro de charla r·pida y sin compromisos">FUDforum</acronym></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Foro de charla r√°pida y sin compromisos]</b></font><br />FUDforum<br /><font color="#ff0000"><b>[/acronym]</b></font></td>
+    <td valign="middle" align="center"><acronym title="Foro de charla r√°pida y sin compromisos">FUDforum</acronym></td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> La etiqueta [acronym][/acronym] le permite identificar el texto como acrÛnimo y proporcionar el nombre completo correspondiente cuando el usuario situe el puntero sobre la etiqueta.
+<i>Explicaci√≥n:</i> La etiqueta [acronym][/acronym] le permite identificar el texto como acr√≥nimo y proporcionar el nombre completo correspondiente cuando el usuario situe el puntero sobre la etiqueta.
 <br /><br /><br />
 
 <a name="wikipedia"><b>Wikipedia</b></a><br />
@@ -454,84 +454,84 @@ M·s texto visible.</td>
     <td valign="middle" align="center"><a href="http://ca.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
   </tr>
 </table>
-<i>ExplicaciÛn:</i> La etiqueta [wikipedia][/wikipedia] le permite crear una referencia a una p·gina de la wikipedia basada en el asunto. Para usar la etiqueta rodee el tÈrmino entre etiquetas [wikipedia], y si desea usar una de las versiones nacionales de la wikipedia puede emplear el formato [wikipedia=ca] en la apertura de la etiqueta, donde ca es el cÛdigo de dos letras del identificador nacional (es para la versiÛn en espaÒol).
+<i>Explicaci√≥n:</i> La etiqueta [wikipedia][/wikipedia] le permite crear una referencia a una p√°gina de la wikipedia basada en el asunto. Para usar la etiqueta rodee el t√©rmino entre etiquetas [wikipedia], y si desea usar una de las versiones nacionales de la wikipedia puede emplear el formato [wikipedia=ca] en la apertura de la etiqueta, donde ca es el c√≥digo de dos letras del identificador nacional (es para la versi√≥n en espa√±ol).
 <br />
 
-TOPIC_TITLE: <a name="sml">øQuÈ son los smileys/emoticonos?</a> 
+TOPIC_TITLE: <a name="sml">¬øQu√© son los smileys/emoticonos?</a> 
 TOPIC_HELP:
-Los emoticonos son pequeÒos icono que puede insertar en sus mensajes y que transmiten ciertas emociones y sentimientos.
-Si los emoticonos est·n activados se mostrar· una lista de los soportados por el foro sobre los cuadros de ediciÛn de mensajes.
-Si pulsa sobre uno de los emoticonos se insertar· en la posiciÛn actual del cursor en su mensaje.<br />
-Los emoticonos m·s habituales podrÌan ser sustituidos autom·ticamente por sus im·genes equivalentes, si quiere evitar que pase
+Los emoticonos son peque√±os icono que puede insertar en sus mensajes y que transmiten ciertas emociones y sentimientos.
+Si los emoticonos est√°n activados se mostrar√° una lista de los soportados por el foro sobre los cuadros de edici√≥n de mensajes.
+Si pulsa sobre uno de los emoticonos se insertar√° en la posici√≥n actual del cursor en su mensaje.<br />
+Los emoticonos m√°s habituales podr√≠an ser sustituidos autom√°ticamente por sus im√°genes equivalentes, si quiere evitar que pase
 esto pulse la casilla <b>Desactivar emoticonos</b>.<p>
 
-TOPIC_TITLE: <a name="polls">øCÛmo uso las encuestas?</a>
+TOPIC_TITLE: <a name="polls">¬øC√≥mo uso las encuestas?</a>
 TOPIC_HELP:
 En ciertos foros puede tener la posibilidad de incluir encuestas en sus mensajes. Las encuestas le permiten hacer preguntas y
-proporcionar un cierto n˙mero de respuestas a los dem·s miembros del foro para que elijan. Para no distorsionar las encuestas
-sÛlo los usuarios registrados pueden votar.<br />
-Cuando pulse sobre el enlace <b>Crear encuesta</b>, ubicado en la p·gina de mensaje, aparecer· una ventana emergente que le permitir·
-crear una encuesta con varias posibles respuestas. Cuando haya acabado simplemente pulse en el botÛn <b>Editar</b> y se le llevar· de
-vuelta a la p·gina de su mensaje y la encuesta que acaba de crear estar· asociada a su mensaje.<br />
+proporcionar un cierto n√∫mero de respuestas a los dem√°s miembros del foro para que elijan. Para no distorsionar las encuestas
+s√≥lo los usuarios registrados pueden votar.<br />
+Cuando pulse sobre el enlace <b>Crear encuesta</b>, ubicado en la p√°gina de mensaje, aparecer√° una ventana emergente que le permitir√°
+crear una encuesta con varias posibles respuestas. Cuando haya acabado simplemente pulse en el bot√≥n <b>Editar</b> y se le llevar√° de
+vuelta a la p√°gina de su mensaje y la encuesta que acaba de crear estar√° asociada a su mensaje.<br />
 Puede editar una encuesta existente pulsando el enlace <b>Editar</b>, o puede eliminarla completamente si pulsa en el enlace <b>Borrar</b>.
 <p>
-SÛlo podr· votar una vez en cada encuesta, de manera que piÈnseslo bien, no podr· cambiar de opiniÛn m·s tarde.
+S√≥lo podr√° votar una vez en cada encuesta, de manera que pi√©nseslo bien, no podr√° cambiar de opini√≥n m√°s tarde.
 
-TOPIC_TITLE: <a name="attach">øPuedo adjuntar archivos a los mensajes?</a>
+TOPIC_TITLE: <a name="attach">¬øPuedo adjuntar archivos a los mensajes?</a>
 TOPIC_HELP:
-Si est· permitido por el administrador podr· adjuntar uno o m·s archivos tanto a sus mensajes normales como a los privados. Esta
-caracterÌstica se define por cada foro, de manera que puede tener permiso para adjuntar archivos en un foro y no tener permiso 
+Si est√° permitido por el administrador podr√° adjuntar uno o m√°s archivos tanto a sus mensajes normales como a los privados. Esta
+caracter√≠stica se define por cada foro, de manera que puede tener permiso para adjuntar archivos en un foro y no tener permiso 
 para hacerlo en otro foro diferente.
 <br />
-El formularÌo de envÌo de mensajes le mostrar· tres reglas en relaciÛn con los archivos adjuntos:<p>
+El formular√≠o de env√≠o de mensajes le mostrar√° tres reglas en relaci√≥n con los archivos adjuntos:<p>
 <b>Extensiones de archivo permitidas</b> - una lista de los tipos de archivo que puede adjuntar a su mensaje, por ejemplo jpg, gif, png<br />
-<b>TamaÒo m·ximo de archivo</b> - el tamaÒo m·ximo de cada archivo que puede adjuntar a su mensaje<br />
-<b>M·ximo n˙mero de archivos por mensaje</b> - el n˙mero de archivos que puede adjuntar a su mensaje.
+<b>Tama√±o m√°ximo de archivo</b> - el tama√±o m√°ximo de cada archivo que puede adjuntar a su mensaje<br />
+<b>M√°ximo n√∫mero de archivos por mensaje</b> - el n√∫mero de archivos que puede adjuntar a su mensaje.
 <p>
-Para adjuntar un archivo a un mensaje pulse el botÛn <b>Examinar...</B> en la parte inferior de la p·gina de envÌo. Su navegador abrir·
-un di·logo de selecciÛn de archivos que le permitir· seleccionar el archivo que desea subir desde su disco duro. Una vez seleccionado
-el archivo pulse el botÛn <b>Subir archivo</b> para adjuntar el archivo a su mensaje.<br />
+Para adjuntar un archivo a un mensaje pulse el bot√≥n <b>Examinar...</B> en la parte inferior de la p√°gina de env√≠o. Su navegador abrir√°
+un di√°logo de selecci√≥n de archivos que le permitir√° seleccionar el archivo que desea subir desde su disco duro. Una vez seleccionado
+el archivo pulse el bot√≥n <b>Subir archivo</b> para adjuntar el archivo a su mensaje.<br />
 Si desea eliminar alguno de los archivos adjuntos simplemente pulse sobre el enlace <b>Borrar</b> correspondiente al archivo.
 
 
-TOPIC_TITLE: <a name="msgico">øQuÈ es un icono de mensaje?</a>
+TOPIC_TITLE: <a name="msgico">¬øQu√© es un icono de mensaje?</a>
 TOPIC_HELP:
-Los iconos de mensaje son pequeÒas im·genes que puede elegiar para mostrar junto a sus mensajes. Lo m·s habitual es que
-se usen para indicar la naturaleza del mensaje o del sentimiento que est· tratando de transmitir. Si no ve estos iconos en el 
-formulario de envÌo de mensajes es que el administrador ha desactivado esta caracterÌstica.
+Los iconos de mensaje son peque√±as im√°genes que puede elegiar para mostrar junto a sus mensajes. Lo m√°s habitual es que
+se usen para indicar la naturaleza del mensaje o del sentimiento que est√° tratando de transmitir. Si no ve estos iconos en el 
+formulario de env√≠o de mensajes es que el administrador ha desactivado esta caracter√≠stica.
 
-TOPIC_TITLE: <a name="edit">øPuedo editar mi mensaje?</a>
+TOPIC_TITLE: <a name="edit">¬øPuedo editar mi mensaje?</a>
 TOPIC_HELP:
-Si es un miembro registrado puede que sea capaz de editar los mensajes que haya enviado previamente. Esta opciÛn podrÌa existir
-sÛlo durante un tiempo limitado, de manera que es posible que pueda editar mensajes recientes pero no pueda hacerlo con los que
-enviÛ hace un tiempo.<br />
-Si edita su mensaje se aÒadir· una pequeÒa nota a su mensaje indicando que lo ha editado e incluir· la fecha y la hora de la ediciÛn.<br />
+Si es un miembro registrado puede que sea capaz de editar los mensajes que haya enviado previamente. Esta opci√≥n podr√≠a existir
+s√≥lo durante un tiempo limitado, de manera que es posible que pueda editar mensajes recientes pero no pueda hacerlo con los que
+envi√≥ hace un tiempo.<br />
+Si edita su mensaje se a√±adir√° una peque√±a nota a su mensaje indicando que lo ha editado e incluir√° la fecha y la hora de la edici√≥n.<br />
 Si un moderador o un administrador han editado su mensaje puede que aparezca una nota (o no) acerca de que el mensaje ha sido editado, 
-lo cual depender· de la configuraciÛn del foro.
+lo cual depender√° de la configuraci√≥n del foro.
 
-TOPIC_TITLE: <a name="mod">øQuiÈnes son los moderadores y los administradores?</a> 
+TOPIC_TITLE: <a name="mod">¬øQui√©nes son los moderadores y los administradores?</a> 
 TOPIC_HELP:
-Los moderadores son "s˙per usuarios" que por lo general supervisan uno o m·s foros. Tienen la capacidad para editar, borrar o aprobar
-mensajes, asÌ como publicar anuncios en el foro. Estas son las personas con las que contactar si ve que sucede algo inapropiado en 
-alguno de los foros donde son moderadores. TambiÈn puede dirigirse a los moderadores si tiene alguna pregunta con respecto al uso del foro.<p>
+Los moderadores son "s√∫per usuarios" que por lo general supervisan uno o m√°s foros. Tienen la capacidad para editar, borrar o aprobar
+mensajes, as√≠ como publicar anuncios en el foro. Estas son las personas con las que contactar si ve que sucede algo inapropiado en 
+alguno de los foros donde son moderadores. Tambi√©n puede dirigirse a los moderadores si tiene alguna pregunta con respecto al uso del foro.<p>
 Los administradores son los controladores del foro, y pueden hacer lo que quiera, de manera que sea educado cuando hable con ellos :-) Un 
-administrador, aparte de poder hacer todo lo que puede hacer un moderador, tambiÈn puede aprovar avatares, asignar y eliminar etiquetas
-personalizadas, bloquear usuarios y responder a diversas preguntas del foro. Si localiza alg˙n fallo en el foro, el administrador del mismo
+administrador, aparte de poder hacer todo lo que puede hacer un moderador, tambi√©n puede aprovar avatares, asignar y eliminar etiquetas
+personalizadas, bloquear usuarios y responder a diversas preguntas del foro. Si localiza alg√∫n fallo en el foro, el administrador del mismo
 es la persona con la que ponerse en contacto.
 
-TOPIC_TITLE: <a name="cens">øCensura?</a>
+TOPIC_TITLE: <a name="cens">¬øCensura?</a>
 TOPIC_HELP:
-El administrador podrÌa tomar la decisiÛn de censurar ciertas palabras, que serÌan autom·ticamente reemplazadas por lo que decidiera el 
-administrador. La censura es global a todos los foros del sitio, y lo que usted no vea tampooco lo podr·n ver los dem·s.
+El administrador podr√≠a tomar la decisi√≥n de censurar ciertas palabras, que ser√≠an autom√°ticamente reemplazadas por lo que decidiera el 
+administrador. La censura es global a todos los foros del sitio, y lo que usted no vea tampooco lo podr√°n ver los dem√°s.
 
-TOPIC_TITLE: <a name="not">øPuedo recibir notificaciones cuando alguien responda a mis mensajes?</a> 
+TOPIC_TITLE: <a name="not">¬øPuedo recibir notificaciones cuando alguien responda a mis mensajes?</a> 
 TOPIC_HELP:
-Cuando abre un nuevo hilo o responde en un hilo previamente existente puede elegir que se le notifique por correo electrÛnico cuando haya
-respuestas. TambiÈn se puede suscribir a un hilo sin necesidad de enviar un mensaje en Èl, pulsando el enlace <b>Suscribir a hilo de discusiÛn</b>
-en la parte superior de la p·gina, o si lo que desea es suscribirse a un foro para que se le notifique de cualquier nuevo hilo que se
+Cuando abre un nuevo hilo o responde en un hilo previamente existente puede elegir que se le notifique por correo electr√≥nico cuando haya
+respuestas. Tambi√©n se puede suscribir a un hilo sin necesidad de enviar un mensaje en √©l, pulsando el enlace <b>Suscribir a hilo de discusi√≥n</b>
+en la parte superior de la p√°gina, o si lo que desea es suscribirse a un foro para que se le notifique de cualquier nuevo hilo que se
 inicie en dicho foro.
 <p>
-Si decide dejar de recibir notificaciones de un hilo o foro, puede pulsar en el enlace <b>Desuscribirse</b> mientras est· en la p·gina del 
-hilo o del foro. O acuda a la pestaÒa <b>Suscripciones</b> de su perfil de usuario y elimine el hilo o foro de la lista.
+Si decide dejar de recibir notificaciones de un hilo o foro, puede pulsar en el enlace <b>Desuscribirse</b> mientras est√° en la p√°gina del 
+hilo o del foro. O acuda a la pesta√±a <b>Suscripciones</b> de su perfil de usuario y elimine el hilo o foro de la lista.
 <p>
-La posibilidad de recibir notificaciones sÛlo existe para los usuarios registrados.
+La posibilidad de recibir notificaciones s√≥lo existe para los usuarios registrados.

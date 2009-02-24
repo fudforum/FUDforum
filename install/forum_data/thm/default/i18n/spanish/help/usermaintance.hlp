@@ -1,96 +1,96 @@
-TOPIC_TITLE: <a name="register">øPor quÈ registrarse?</a>
+TOPIC_TITLE: <a name="register">¬øPor qu√© registrarse?</a>
 TOPIC_HELP:
-En la mayorÌa de los foros le resultar· imposible abrir nuevos hilos o responder en los existentes salvo 
-que el Administrador lo permita de manera explÌcita. Por lo tanto, para poder participar en las conversaciones
-probablemente necesitar· registrarse. Al registrarse tambiÈn obtendr· acceso a otras muchas caracterÌsticas del 
+En la mayor√≠a de los foros le resultar√° imposible abrir nuevos hilos o responder en los existentes salvo 
+que el Administrador lo permita de manera expl√≠cita. Por lo tanto, para poder participar en las conversaciones
+probablemente necesitar√° registrarse. Al registrarse tambi√©n obtendr√° acceso a otras muchas caracter√≠sticas del 
 foro tales como:
 <ul>
-	<li>Notificaciones por correo electrÛnico cuando alguien responda a sus mensajes
+	<li>Notificaciones por correo electr√≥nico cuando alguien responda a sus mensajes
 	<li>Firma personalizada, avatar, etiqueta personal, etc.
-	<li>Posibilidad de enviar mensajes privados a uno o m·s miembros del foro
-	<li>Podr· elegir una zona horaria para que la hora mostrada por el foro coincida con la oficial de donde vive
+	<li>Posibilidad de enviar mensajes privados a uno o m√°s miembros del foro
+	<li>Podr√° elegir una zona horaria para que la hora mostrada por el foro coincida con la oficial de donde vive
 </ul>
-Salvo que se indique lo contrario el registro en el foro es completamente gratuito y sÛlo necesita un mÌnimo de informaciÛn,
-tal como su direcciÛn de correo electrÛnico y la elecciÛn de un identificador o "nick".<br />
-Si est· activado COPPA y tiene menos de 13 aÒos de edad, deber· hacer que su tutor legal de su consentimiento antes de que 
+Salvo que se indique lo contrario el registro en el foro es completamente gratuito y s√≥lo necesita un m√≠nimo de informaci√≥n,
+tal como su direcci√≥n de correo electr√≥nico y la elecci√≥n de un identificador o "nick".<br />
+Si est√° activado COPPA y tiene menos de 13 a√±os de edad, deber√° hacer que su tutor legal de su consentimiento antes de que 
 pueda usar su cuenta en el foro para enviar mensajes. Tras completar el proceso de registro en los foros con COPPA activado,
-los miembros menores de 13 aÒos ser·n dirigidos a un formulario que su tutor legal deber· rellenar y remitir a la direcciÛn
-correspondiente que se indique en dicha p·gina.
+los miembros menores de 13 a√±os ser√°n dirigidos a un formulario que su tutor legal deber√° rellenar y remitir a la direcci√≥n
+correspondiente que se indique en dicha p√°gina.
 
-TOPIC_TITLE: <a name="cookies">øCÛmo usa FUDforum las cookies?</a>
+TOPIC_TITLE: <a name="cookies">¬øC√≥mo usa FUDforum las cookies?</a>
 TOPIC_HELP:
-Por lo general FUDforum usa cookies para almacenar pequeÒos fragmentos de informaciÛn, que permiten al foro comprobar si usted
-se ha identificado o no. Si por alg˙n motivo su navegador no soporta cookie, FUDforum usar· sesiones en su lugar, que no almacenan
-ninguna informaciÛn en su ordenador. Durante el proceso de identificaciÛn puede elegir no usar el sistema de cookies y decantarse
-por el sistema de sesiones, que es lo recomendado si est· usando un terminal p˙blico. Seguir este consejo evitar· el posible robo 
-de su identidad en el foro, lo cual podrÌa suceder si no cierra la sesiÛn tras haber navegado el foro. Sin embargo, en la
-mayorÌa de los casos probablemente deberÌa dejar las cookies activas puesto que a la larga es menos engorroso. Por ejemplo, no
-necesitar· identificarse cada vez que desee visitar el foro.
+Por lo general FUDforum usa cookies para almacenar peque√±os fragmentos de informaci√≥n, que permiten al foro comprobar si usted
+se ha identificado o no. Si por alg√∫n motivo su navegador no soporta cookie, FUDforum usar√° sesiones en su lugar, que no almacenan
+ninguna informaci√≥n en su ordenador. Durante el proceso de identificaci√≥n puede elegir no usar el sistema de cookies y decantarse
+por el sistema de sesiones, que es lo recomendado si est√° usando un terminal p√∫blico. Seguir este consejo evitar√° el posible robo 
+de su identidad en el foro, lo cual podr√≠a suceder si no cierra la sesi√≥n tras haber navegado el foro. Sin embargo, en la
+mayor√≠a de los casos probablemente deber√≠a dejar las cookies activas puesto que a la larga es menos engorroso. Por ejemplo, no
+necesitar√° identificarse cada vez que desee visitar el foro.
 
 
-TOPIC_TITLE: <a name="clrcookie">øCÛmo eliminar la cookie de FUDforum?</a>
+TOPIC_TITLE: <a name="clrcookie">¬øC√≥mo eliminar la cookie de FUDforum?</a>
 TOPIC_HELP:
-Para eliminar la cookie establecida por FUDforum, simplemente pulse el enlace "Desconectar" y autom·ticamente se borrar· la cookie.
+Para eliminar la cookie establecida por FUDforum, simplemente pulse el enlace "Desconectar" y autom√°ticamente se borrar√° la cookie.
 
-TOPIC_TITLE: <a name="updprofile">øQuÈ es un perfil?</a>
-TOPIC_HELP: Como miembro del foro dispone de un perfil personal en el que puede almacenar diversa informaciÛn sobre usted, tal como sus
-identificadores en mensajerÌa instant·nea, firma que aÒadir a los mensajes, biografÌa, etc. Su perfil adem·s almacena diversas opciones
+TOPIC_TITLE: <a name="updprofile">¬øQu√© es un perfil?</a>
+TOPIC_HELP: Como miembro del foro dispone de un perfil personal en el que puede almacenar diversa informaci√≥n sobre usted, tal como sus
+identificadores en mensajer√≠a instant√°nea, firma que a√±adir a los mensajes, biograf√≠a, etc. Su perfil adem√°s almacena diversas opciones
 que tienen que ver con el foro. Puede cambiar las opciones en su perfil en cualquier momento siempre que se haya identificado ante el 
-foro, dese cuenta de que la mayorÌa de la informaciÛn presente en su perfil la podr·n ver otros miembros del foro. Por lo tanto no 
-deberÌa almacenar informaciÛn sensible o que los dem·s usuarios no deban ver.<br />
+foro, dese cuenta de que la mayor√≠a de la informaci√≥n presente en su perfil la podr√°n ver otros miembros del foro. Por lo tanto no 
+deber√≠a almacenar informaci√≥n sensible o que los dem√°s usuarios no deban ver.<br />
 
-Su perfil tiene una opciÛn <b>"Mostrar email"</b>, que si est· a <b>NO</b> ocultar· su direcciÛn de correo a los dem·s usuarios. Puede
-usar esta opciÛn si no desea que otras personas averig¸en su direcciÛn de correo electrÛnico.
+Su perfil tiene una opci√≥n <b>"Mostrar email"</b>, que si est√° a <b>NO</b> ocultar√° su direcci√≥n de correo a los dem√°s usuarios. Puede
+usar esta opci√≥n si no desea que otras personas averig√ºen su direcci√≥n de correo electr√≥nico.
 
-TOPIC_TITLE: <a name="sigs">øQuÈ es una firma?</a>
+TOPIC_TITLE: <a name="sigs">¬øQu√© es una firma?</a>
 TOPIC_HELP:
-Una firma es una cadena de texte que se aÒade autom·ticamente al final de todos los mensajes que envÌe. En su perfil dispone de una 
-opciÛn, <b>"Usar firma de manera predeterminada"</b> que activar· o desactivar· esta caracterÌstica. Sin embargo, puede cambiar
-el valor de esta opciÛn en cada mensaje individual que envÌe.<br />
-Si lo permite el administrador adem·s de texto la firma puede contener varios elementos tales como enlaces a sus URL favoritas,
-fotografÌas personales, etc.
+Una firma es una cadena de texte que se a√±ade autom√°ticamente al final de todos los mensajes que env√≠e. En su perfil dispone de una 
+opci√≥n, <b>"Usar firma de manera predeterminada"</b> que activar√° o desactivar√° esta caracter√≠stica. Sin embargo, puede cambiar
+el valor de esta opci√≥n en cada mensaje individual que env√≠e.<br />
+Si lo permite el administrador adem√°s de texto la firma puede contener varios elementos tales como enlaces a sus URL favoritas,
+fotograf√≠as personales, etc.
 <br />
-Si no desea ver las firmas de otras personas puede desactivarlas poniendo la opciÛn <b>"Mostrar firmas"</b> a <b>NO</b> en su perfil.
+Si no desea ver las firmas de otras personas puede desactivarlas poniendo la opci√≥n <b>"Mostrar firmas"</b> a <b>NO</b> en su perfil.
 
 
-TOPIC_TITLE: <a name="rstpasswd">>QuÈ hacer si pierde u olvida su contraseÒa</a>
+TOPIC_TITLE: <a name="rstpasswd">>Qu√© hacer si pierde u olvida su contrase√±a</a>
 TOPIC_HELP:
-Si no puede recordar la contraseÒa de FUDforum, deber· ir a la <a href="{ROOT}?t=reset&amp;%_rsid%">p·gina para resetear la contraseÒa</a>,
-introducir en esa p·gina su direcciÛn de correo electrÛnico y pulsar el botÛn IR. De esta forma se enviar· a su direcciÛn 
-de correo una URL especial, que cuando acceda a ella resetear· la contraseÒa y le enviar· una nueva por correo electrÛnico.<br />
-<b>Nota:</b> sus contraseÒas se almacenan en un formato de cifrado de un sÛlo sentido llamado HASH MD5. Se trata de cifrado de 
-grado militar de 128 bits de longitud, que por diseÒo hace imposible recuperar el valor original de la contraseÒa. Funciona 
-cifrando los datos cada vez que los introduce y comparando el resultado con la versiÛn cifrada almacenada.
-Por lo tanto, si olvida su contraseÒa Èsta no puede ser recuperada, de manera que ante la solictud para recordar una contraseÒa
-el foro simplemente generar· una nueva contraseÒa aleatoria y se la enviar· por correo.
+Si no puede recordar la contrase√±a de FUDforum, deber√° ir a la <a href="{ROOT}?t=reset&amp;%_rsid%">p√°gina para resetear la contrase√±a</a>,
+introducir en esa p√°gina su direcci√≥n de correo electr√≥nico y pulsar el bot√≥n IR. De esta forma se enviar√° a su direcci√≥n 
+de correo una URL especial, que cuando acceda a ella resetear√° la contrase√±a y le enviar√° una nueva por correo electr√≥nico.<br />
+<b>Nota:</b> sus contrase√±as se almacenan en un formato de cifrado de un s√≥lo sentido llamado HASH MD5. Se trata de cifrado de 
+grado militar de 128 bits de longitud, que por dise√±o hace imposible recuperar el valor original de la contrase√±a. Funciona 
+cifrando los datos cada vez que los introduce y comparando el resultado con la versi√≥n cifrada almacenada.
+Por lo tanto, si olvida su contrase√±a √©sta no puede ser recuperada, de manera que ante la solictud para recordar una contrase√±a
+el foro simplemente generar√° una nueva contrase√±a aleatoria y se la enviar√° por correo.
 
-TOPIC_TITLE: <a name="cstat">Custom Tags, øquÈ son y cÛmo puedo obtener una?</a>
+TOPIC_TITLE: <a name="cstat">Custom Tags, ¬øqu√© son y c√≥mo puedo obtener una?</a>
 TOPIC_HELP:
-Las Custom Tags sÛlo las puede asignar el administrador del foro, de manera que si desea una Custom Tag, preg˙ntele a uno
+Las Custom Tags s√≥lo las puede asignar el administrador del foro, de manera que si desea una Custom Tag, preg√∫ntele a uno
 cualquiera de los administradores del foro.
 
-TOPIC_TITLE: <a name="avatars">øQuÈ es un avatar?</a>
+TOPIC_TITLE: <a name="avatars">¬øQu√© es un avatar?</a>
 TOPIC_HELP:
-Los avatares son im·gene que aparecen bajo su nombre de usuario en los mensajes que ha enviado, asÌ como en su p·gina de 
-informaciÛn de usuario. FUDforum soporta tres tipos de avatares, algunos de los cuales podrÌan estar desactivados por el 
-administrador del foro. Puede elegir su propio avatar desde la p·gina de su perfil personal.
+Los avatares son im√°gene que aparecen bajo su nombre de usuario en los mensajes que ha enviado, as√≠ como en su p√°gina de 
+informaci√≥n de usuario. FUDforum soporta tres tipos de avatares, algunos de los cuales podr√≠an estar desactivados por el 
+administrador del foro. Puede elegir su propio avatar desde la p√°gina de su perfil personal.
 <ul>
 	<li><b>Incorporados</b> - Estos son los avatares que el administrador ha hecho accesibles a tal fin, puede elegir uno cualquiera 
-	    de ellos y se convertir· en el suyo tan pronto envÌe los cambios realizados a su perfil.
-	<li><b>Subir Avatar</b> - De estar activado podr· subir una imagen al servidor que se convertir· en su avatar. Una vez subida
-	    necesitar· ser aprobada por el administrador antes de convertirse en su avatar.
-	<li><b>Especificar URL</b> - De estar activado podr· especificar la URL de una imagen que desee utilizar como su avatar. Si el 
-	    administrador lo aprueba esta imagen se convertir· en su avatar.
+	    de ellos y se convertir√° en el suyo tan pronto env√≠e los cambios realizados a su perfil.
+	<li><b>Subir Avatar</b> - De estar activado podr√° subir una imagen al servidor que se convertir√° en su avatar. Una vez subida
+	    necesitar√° ser aprobada por el administrador antes de convertirse en su avatar.
+	<li><b>Especificar URL</b> - De estar activado podr√° especificar la URL de una imagen que desee utilizar como su avatar. Si el 
+	    administrador lo aprueba esta imagen se convertir√° en su avatar.
 </ul>
-<b>Nota:</b> Puede cambiar su avatar en cualquier momento, aunque si usa las opciones "Subir Avatar" y "Especificar URL" siempre necesitar· 
-la aprobaciÛn previa del administrador antes de que el cambio surta efectos.
+<b>Nota:</b> Puede cambiar su avatar en cualquier momento, aunque si usa las opciones "Subir Avatar" y "Especificar URL" siempre necesitar√° 
+la aprobaci√≥n previa del administrador antes de que el cambio surta efectos.
 
-TOPIC_TITLE: <a name="blist">øQuÈ es una lista de amigos?</a>
+TOPIC_TITLE: <a name="blist">¬øQu√© es una lista de amigos?</a>
 TOPIC_HELP:
-Una lista de amigos es su propia lista de miembros del foro con los que desearÌa conversar m·s a menudo. Al poner a una persona en su lista
-de amigos podr· ver su fecha de cumpleaÒos (si la introdujo) asÌ como elegirlo f·cilmente como destinatario de sus mensajes privados.
+Una lista de amigos es su propia lista de miembros del foro con los que desear√≠a conversar m√°s a menudo. Al poner a una persona en su lista
+de amigos podr√° ver su fecha de cumplea√±os (si la introdujo) as√≠ como elegirlo f√°cilmente como destinatario de sus mensajes privados.
 
-TOPIC_TITLE: <a name="ignlist">øQuÈ hace la lista de ignorados?</a>
+TOPIC_TITLE: <a name="ignlist">¬øQu√© hace la lista de ignorados?</a>
 TOPIC_HELP:
 La lista de ignorados es una base de datos con los miembros del foro cuyos mensajes no desea ver ni de los que desea recibir
-mensaajes privados. En cada mensaje hay un enlace r·pido que le permitir· aÒadir al autor del mensaje a su lista de ignorados.
+mensaajes privados. En cada mensaje hay un enlace r√°pido que le permitir√° a√±adir al autor del mensaje a su lista de ignorados.

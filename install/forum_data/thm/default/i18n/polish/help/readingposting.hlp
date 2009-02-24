@@ -1,77 +1,77 @@
-TOPIC_TITLE: <a name="style">Jak formatowaæ tekst?</a>
+TOPIC_TITLE: <a name="style">Jak formatowaÄ‡ tekst?</a>
 TOPIC_HELP:
-W wiêkszo¶ci wypadków wiadomo¶ci umieszczane na forum s± zwyczajnym tekstem, aczkolwiek je¿eli zajdzie taka potrzeba mo¿esz je odpowiednio sformatowaæ pogrubiaj±c wybrane s³owa, dodaj±c kursywê, itd...
+W wiÄ™kszoÅ›ci wypadkÃ³w wiadomoÅ›ci umieszczane na forum sÄ… zwyczajnym tekstem, aczkolwiek jeÅ¼eli zajdzie taka potrzeba moÅ¼esz je odpowiednio sformatowaÄ‡ pogrubiajÄ…c wybrane sÅ‚owa, dodajÄ…c kursywÄ™, itd...
 <p>
-W zwi±zku z tym, ¿e na forum administrator zazwyczaj nie pozwala u¿ywaæ znaczników HTML w wiadomo¶ciach, mo¿esz u¿ywaæ FUDcode czyli ograniczonego zestawu znaczników, który pozwala formatowaæ tekst. FUDcode jest bardzo prosty i znacznie bezpieczniejszy ni¿ HTML.
+W zwiÄ…zku z tym, Å¼e na forum administrator zazwyczaj nie pozwala uÅ¼ywaÄ‡ znacznikÃ³w HTML w wiadomoÅ›ciach, moÅ¼esz uÅ¼ywaÄ‡ FUDcode czyli ograniczonego zestawu znacznikÃ³w, ktÃ³ry pozwala formatowaÄ‡ tekst. FUDcode jest bardzo prosty i znacznie bezpieczniejszy niÅ¼ HTML.
 <p>
-<b>Poni¿ej znajduje siê lista obs³ugiwanych znaczników FUDcode z krótkimi przyk³adami ich u¿ycia</b>
+<b>PoniÅ¼ej znajduje siÄ™ lista obsÅ‚ugiwanych znacznikÃ³w FUDcode z krÃ³tkimi przykÅ‚adami ich uÅ¼ycia</b>
 <p>
-<b>Osadzanie odno¶ników</b><br /><br />
+<b>Osadzanie odnoÅ›nikÃ³w</b><br /><br />
 
-Forum mo¿e automatycznie odnajdywaæ ró¿ne formy odno¶ników, odpowiednio je zaznaczaj±c:<br />
+Forum moÅ¼e automatycznie odnajdywaÄ‡ rÃ³Å¼ne formy odnoÅ›nikÃ³w, odpowiednio je zaznaczajÄ…c:<br />
 	<div align="Center"><font color="#FF0000">http://cvs.prohost.org</font></div><br />
-zostanie automatycznie rozpoznane jako odno¶nik i zostanie przekszta³cone do poprawnej formy, która wygl±da nastêpuj±co:
+zostanie automatycznie rozpoznane jako odnoÅ›nik i zostanie przeksztaÅ‚cone do poprawnej formy, ktÃ³ra wyglÄ…da nastÄ™pujÄ…co:
 	<div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div><br />
 	
 
-Mo¿esz tak¿e samodzielnie zaznaczyæ odno¶nik u¿ywaj±c FUDcode. Najprostszy sposó na zrobienie tego, to u¿ycie poni¿szego przyk³adu:
+MoÅ¼esz takÅ¼e samodzielnie zaznaczyÄ‡ odnoÅ›nik uÅ¼ywajÄ…c FUDcode. Najprostszy sposÃ³ na zrobienie tego, to uÅ¼ycie poniÅ¼szego przykÅ‚adu:
 	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br />
-spowoduje to utworzenie nastêpuj±cego odno¶nika:
+spowoduje to utworzenie nastÄ™pujÄ…cego odnoÅ›nika:
 	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br />
-Mo¿esz tak¿e uzupe³niæ go o opis, u¿ywaj±c takiej sk³adni wewn±trz <font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">Moja strona domowa</font>[/URL]</b></font> przez co uzyskasz nastêpuj±cy odno¶nik:<br />
+MoÅ¼esz takÅ¼e uzupeÅ‚niÄ‡ go o opis, uÅ¼ywajÄ…c takiej skÅ‚adni wewnÄ…trz <font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">Moja strona domowa</font>[/URL]</b></font> przez co uzyskasz nastÄ™pujÄ…cy odnoÅ›nik:<br />
 	<div align="center"><a href="http://www.myhomepage.com" target=_blank>Moja strona domowa</a></div><br />
 <p>
-<b>Osadzanie adresów poczty elektronicznej</b><br /><br />
+<b>Osadzanie adresÃ³w poczty elektronicznej</b><br /><br />
 
-Aby stworzyæ odno¶nik do adresu poczty elektronicznej, po prostu wpisz go w nastêpuj±cej formie:<br />
+Aby stworzyÄ‡ odnoÅ›nik do adresu poczty elektronicznej, po prostu wpisz go w nastÄ™pujÄ…cej formie:<br />
 <div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br />
-forum automatycznie go rozpozna i utworzy odpowiedni odno¶nik. Oprócz tego mo¿liwe jest dodanie opisu do podanego adresu za pomoc± poni¿szej sk³adni<br />
-<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Kliknij tutaj aby siê skontaktowaæ ze wsparciem technicznym<font color="#ff0000"><b>[/email]</b></font><br /></div>
+forum automatycznie go rozpozna i utworzy odpowiedni odnoÅ›nik. OprÃ³cz tego moÅ¼liwe jest dodanie opisu do podanego adresu za pomocÄ… poniÅ¼szej skÅ‚adni<br />
+<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Kliknij tutaj aby siÄ™ skontaktowaÄ‡ ze wsparciem technicznym<font color="#ff0000"><b>[/email]</b></font><br /></div>
 <br />
-<b>Modyfikacja wygl±du tekstu</b><br />
-Istnieje kilka rodzajów znaczników, których mo¿na u¿yæ:<br />
+<b>Modyfikacja wyglÄ…du tekstu</b><br />
+Istnieje kilka rodzajÃ³w znacznikÃ³w, ktÃ³rych moÅ¼na uÅ¼yÄ‡:<br />
 <br />
 <ul>
   <li><font color="#ff0000"><b>[b]</b></font>pogrubiony<font color="#ff0000"><b>
          [/b]</b></font> tworzy <b>pogrubiony</b> tekst</li>
-  <li><font color="#ff0000"><b>[u]</b></font>podkre¶lony<font color="#ff0000"><b>
-         [/u]</b></font> tworzy <u>podkre¶lony</u> tekst</li>
+  <li><font color="#ff0000"><b>[u]</b></font>podkreÅ›lony<font color="#ff0000"><b>
+         [/u]</b></font> tworzy <u>podkreÅ›lony</u> tekst</li>
   <li><font color="#ff0000"><b>[i]</b></font>pochylony<font color="#ff0000"><b>
          [/i]</b></font> tworzy <i>pochylony</i> tekst</li>
 </ul>
-	Oprócz tego mo¿na zmieniaæ rozmiar, kolor oraz czcionkê wybranego tekstu.<br />
+	OprÃ³cz tego moÅ¼na zmieniaÄ‡ rozmiar, kolor oraz czcionkÄ™ wybranego tekstu.<br />
 <ul>
   <li><font color="#ff0000"><b>[color=red]</b></font>czerwony tekst<font color="#ff0000"><b>
          [/color]</b></font> tworzy <font color="#ff0000">czerwony tekst</font></li>
-  <li><font color="#ff0000"><b>[size=4]</b></font>du¿y tekst<font color="#ff0000"><b>
-        [/size]</b></font> tworzy <font size="4">du¿y tekst</font></li>
+  <li><font color="#ff0000"><b>[size=4]</b></font>duÅ¼y tekst<font color="#ff0000"><b>
+        [/size]</b></font> tworzy <font size="4">duÅ¼y tekst</font></li>
   <li><font color="#ff0000"><b>[font=courier]</b></font>tekst<font color="#ff0000"><b>
-        [/font]</b></font> tworzy <font face="Courier New, Courier, monospace">tekst</font> podan± czcionk±</li>
+        [/font]</b></font> tworzy <font face="Courier New, Courier, monospace">tekst</font> podanÄ… czcionkÄ…</li>
    <li><font color="#ff0000"><b>[sub]</b></font>subscript<font color="#ff0000"><b>
           [/sub]</b></font> produces <sub>subscript</sub> text</li>
    <li><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>
           [/sup]</b></font> produces <sup>superscript</sup> text</li>
 </ul>
-	Mo¿na tak¿e ³±czyæ ró¿ne znaczniki formatuj±ce:<br />
+	MoÅ¼na takÅ¼e Å‚Ä…czyÄ‡ rÃ³Å¼ne znaczniki formatujÄ…ce:<br />
 <div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Sformatowany tekst<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></div>
-       ten przyk³ad tworzy:<br />
+       ten przykÅ‚ad tworzy:<br />
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Sformatowany tekst</b></i></u></font></div>
 <br />
 <br />
-<b>Wyrównanie tekstu</b><br />
-FUDcode pozwala wyrównywaæ tekst za pomoc± znacznika [align] na trzy sposoby:
+<b>WyrÃ³wnanie tekstu</b><br />
+FUDcode pozwala wyrÃ³wnywaÄ‡ tekst za pomocÄ… znacznika [align] na trzy sposoby:
 <ul>
-	<li><font color="#ff0000"><b>[align=center]</b></font>tekst wy¶rodkowany<font color="#ff0000"><b>[/align]</b></font> tworzy:</li>
-		<div align="center">tekst wy¶rodkowany</div>
-	<li><font color="#ff0000"><b>[align=left]</b></font>wyrównany do lewej<font color="#ff0000"><b>[/align]</b></font> tworzy:</li>
-		<div align="left">wyrównany do lewej</div>
-	<li><font color="#ff0000"><b>[align=right]</b></font>wyrównany do prawej<font color="#ff0000"><b>[/align]</b></font> tworzy:</li>
-		<div align="right">wyrównany do prawej</div>	
+	<li><font color="#ff0000"><b>[align=center]</b></font>tekst wyÅ›rodkowany<font color="#ff0000"><b>[/align]</b></font> tworzy:</li>
+		<div align="center">tekst wyÅ›rodkowany</div>
+	<li><font color="#ff0000"><b>[align=left]</b></font>wyrÃ³wnany do lewej<font color="#ff0000"><b>[/align]</b></font> tworzy:</li>
+		<div align="left">wyrÃ³wnany do lewej</div>
+	<li><font color="#ff0000"><b>[align=right]</b></font>wyrÃ³wnany do prawej<font color="#ff0000"><b>[/align]</b></font> tworzy:</li>
+		<div align="right">wyrÃ³wnany do prawej</div>	
 </ul>
 <br />
 <br />
-<b>Ró¿ne listy</b><br />
-	Mo¿esz tworzyæ ró¿nego rodzaju listy za pomoc± FUDcode:<br />
+<b>RÃ³Å¼ne listy</b><br />
+	MoÅ¼esz tworzyÄ‡ rÃ³Å¼nego rodzaju listy za pomocÄ… FUDcode:<br />
 <br />
 	Lista bez numeracji:<br />
 <font color="#ff0000"><b>[list]</b></font><br />
@@ -84,7 +84,7 @@ FUDcode pozwala wyrównywaæ tekst za pomoc± znacznika [align] na trzy sposoby:
   <li>pierwszy element</li>
   <li>drugi element</li>
 </ul>
-	Istnieje mo¿liwo¶æ u¿ywania ró¿nych rodzajów list, na przyk³ad lista numerowana:<br />
+	Istnieje moÅ¼liwoÅ›Ä‡ uÅ¼ywania rÃ³Å¼nych rodzajÃ³w list, na przykÅ‚ad lista numerowana:<br />
 <font color="#ff0000"><b>[list type=1]</b></font><br />
 <font color="#ff0000"><b>[*]</b></font>pierwszy element<br />
 <font color="#ff0000"><b>[*]</b></font>drugi element<br />
@@ -95,7 +95,7 @@ FUDcode pozwala wyrównywaæ tekst za pomoc± znacznika [align] na trzy sposoby:
   <li>drugi element<br />
   </li>
 </ol>
-	aby stworzyæ listê alfabetyczn±:<br />
+	aby stworzyÄ‡ listÄ™ alfabetycznÄ…:<br />
 <font color="#ff0000"><b>[list type=A]</b></font><br />
 <font color="#ff0000"><b>[*]</b></font>pierwszy element<br />
 <font color="#ff0000"><b>[*]</b></font>drugi element<br />
@@ -106,38 +106,38 @@ FUDcode pozwala wyrównywaæ tekst za pomoc± znacznika [align] na trzy sposoby:
   <li>pierwszy element</li>
   <li>drugi element</li>
 </ol>
-<b>Dodawanie obrazków</b><br />
-	Istnieje mo¿liwo¶æ dodawania wewn±trz tekstów wybranych obrazków za pomoc± znaczników <font color="#ff0000"><b>[img][/img]</b></font>. <br />
+<b>Dodawanie obrazkÃ³w</b><br />
+	Istnieje moÅ¼liwoÅ›Ä‡ dodawania wewnÄ…trz tekstÃ³w wybranych obrazkÃ³w za pomocÄ… znacznikÃ³w <font color="#ff0000"><b>[img][/img]</b></font>. <br />
 <br />
-	na przyk³ad:<br />
+	na przykÅ‚ad:<br />
 <div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br /></div>
-	umie¶ci nastêpuj±cy obrazek w wiadomo¶ci:<br />
+	umieÅ›ci nastÄ™pujÄ…cy obrazek w wiadomoÅ›ci:<br />
 <div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br /></div>
-	oprócz tego obrazek mo¿e byæ jednocze¶nie odno¶nikiem do wybranego adresu po u¿yciu znaczników <font color="#ff0000"><b>[url][/url]</b></font> w nastêpuj±cy sposób<br />
+	oprÃ³cz tego obrazek moÅ¼e byÄ‡ jednoczeÅ›nie odnoÅ›nikiem do wybranego adresu po uÅ¼yciu znacznikÃ³w <font color="#ff0000"><b>[url][/url]</b></font> w nastÄ™pujÄ…cy sposÃ³b<br />
 <div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
-	który stworzy nastêpuj±cy obrazkowy odno¶nik<br />
+	ktÃ³ry stworzy nastÄ™pujÄ…cy obrazkowy odnoÅ›nik<br />
 <div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="obrazek" width="409" height="62" border="0"></a><br /></div><br />
 
-<br /><b>Cytowanie innych wiadomo¶ci</b><br />
-	Istnieje mo¿liwo¶æ zacytowania czego¶, co zosta³o ju¿ napisane, zaznaczaj±æ cytowany tekst znacznikami <font color="#ff0000"><b>[quote][/quote]</b></font>. 
+<br /><b>Cytowanie innych wiadomoÅ›ci</b><br />
+	Istnieje moÅ¼liwoÅ›Ä‡ zacytowania czegoÅ›, co zostaÅ‚o juÅ¼ napisane, zaznaczajÄ…Ä‡ cytowany tekst znacznikami <font color="#ff0000"><b>[quote][/quote]</b></font>. 
 <br />
-<div align="Center"><font color="#ff0000"><b>[quote]</b></font>Witaj ¶wiecie<font color="#ff0000"><b>[/quote]</b></font><br /></div>
-  pojawi siê jako:<br />
+<div align="Center"><font color="#ff0000"><b>[quote]</b></font>Witaj Å›wiecie<font color="#ff0000"><b>[/quote]</b></font><br /></div>
+  pojawi siÄ™ jako:<br />
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Witaj ¶wiecie<br /></td></tr></table>
+<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Witaj Å›wiecie<br /></td></tr></table>
 <p>
 <b>Programy komptuerowe i uprzednio sformatowany tekst</b><br />
- Znacznik <font color="#ff0000"><b>[code][/code]</b></font> pozwala wysy³aæ wiadomo¶æ z tekstem w niezmienionej postaci, bez usuwania zbêdnych spacji czy tabulatorów.<br /> 
+ Znacznik <font color="#ff0000"><b>[code][/code]</b></font> pozwala wysyÅ‚aÄ‡ wiadomoÅ›Ä‡ z tekstem w niezmienionej postaci, bez usuwania zbÄ™dnych spacji czy tabulatorÃ³w.<br /> 
 <br />
- mo¿na tego u¿ywaæ nastêpuj±co:<br />
+ moÅ¼na tego uÅ¼ywaÄ‡ nastÄ™pujÄ…co:<br />
 <font color="#ff0000"><b>[code]</b></font>
-<pre>$fp = fopen('jaki¶plik', 'w');<br />if ( !$fp ) {<br />	exit('nie ma takiego pliku!');<br />}<br />else { <br />	fwrite($fp, 'witaj ¶wiecie');<br />	fclose($fp);<br />}<br /></pre>
+<pre>$fp = fopen('jakiÅ›plik', 'w');<br />if ( !$fp ) {<br />	exit('nie ma takiego pliku!');<br />}<br />else { <br />	fwrite($fp, 'witaj Å›wiecie');<br />	fclose($fp);<br />}<br /></pre>
 <font color="#ff0000"><b>[/code]</b></font><br />
 <br />
- co spowoduje ukazanie siê nastêpuj±cego tekstu, bez zmian w formatowaniu.
+ co spowoduje ukazanie siÄ™ nastÄ™pujÄ…cego tekstu, bez zmian w formatowaniu.
 <br />
 <br />
-<pre>$fp = fopen('jaki¶plik', 'w');<br />if ( !$fp ) {<br />	exit('nie ma takiego pliku!');<br />}<br />else { <br />	fwrite($fp, 'witaj ¶wiecie');<br />	fclose($fp);<br />}<br /><br /><br /></pre>
+<pre>$fp = fopen('jakiÅ›plik', 'w');<br />if ( !$fp ) {<br />	exit('nie ma takiego pliku!');<br />}<br />else { <br />	fwrite($fp, 'witaj Å›wiecie');<br />	fclose($fp);<br />}<br /><br /><br /></pre>
 <p>
 <b>PHP Code</b><br />
 The <font color="#ff0000"><b>[php][/php]</b></font> tag allows you to post PHP scripts
@@ -198,64 +198,64 @@ acronym and provide a full name when the user moves their mouse over the tag.
 <font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
 <p>
 
-Mo¿esz tak¿e sprawdziæ czy administrator zezwoli³ na u¶mieszki, które s±
-niewielkimi obrazkami symbolizuj±cymi Twój nastrój oraz znacznik [img]
-pozwalaj±cy osadzaæ w tek¶cie w³asne obrazki.
+MoÅ¼esz takÅ¼e sprawdziÄ‡ czy administrator zezwoliÅ‚ na uÅ›mieszki, ktÃ³re sÄ…
+niewielkimi obrazkami symbolizujÄ…cymi TwÃ³j nastrÃ³j oraz znacznik [img]
+pozwalajÄ…cy osadzaÄ‡ w tekÅ›cie wÅ‚asne obrazki.
 
-TOPIC_TITLE: <a name="sml">Co to s± u¶mieszki?</a> 
+TOPIC_TITLE: <a name="sml">Co to sÄ… uÅ›mieszki?</a> 
 TOPIC_HELP:
-U¶mieszki s± to ma³e ikony, które mo¿esz wstawiaæ do tekstu, aby zobrazowaæ
-swoje emocje i uczucia. Je¶li forum ma w³±czone u¶mieszki, ich lista pojawi
-siê ponad formularzem, w którym wpisujesz tre¶æ wiadomo¶ci.<br />
-Po klikniêciu w wybrany u¶mieszek zostanie on wstawiony do Twojej wiadomo¶ci.<br />
-Popularne u¶mieszki umieszczane w tek¶cie mog± byæ automatycznie zamieniane na odpowiednie obrazki. Je¶li nie chcesz aby tak by³o zaznacz <b>Wy³±cz u¶mieszki w tej wiadomo¶ci</b>.<p>
+UÅ›mieszki sÄ… to maÅ‚e ikony, ktÃ³re moÅ¼esz wstawiaÄ‡ do tekstu, aby zobrazowaÄ‡
+swoje emocje i uczucia. JeÅ›li forum ma wÅ‚Ä…czone uÅ›mieszki, ich lista pojawi
+siÄ™ ponad formularzem, w ktÃ³rym wpisujesz treÅ›Ä‡ wiadomoÅ›ci.<br />
+Po klikniÄ™ciu w wybrany uÅ›mieszek zostanie on wstawiony do Twojej wiadomoÅ›ci.<br />
+Popularne uÅ›mieszki umieszczane w tekÅ›cie mogÄ… byÄ‡ automatycznie zamieniane na odpowiednie obrazki. JeÅ›li nie chcesz aby tak byÅ‚o zaznacz <b>WyÅ‚Ä…cz uÅ›mieszki w tej wiadomoÅ›ci</b>.<p>
 
-TOPIC_TITLE: <a name="polls">Jak u¿ywaæ g³osowañ?</a>
+TOPIC_TITLE: <a name="polls">Jak uÅ¼ywaÄ‡ gÅ‚osowaÅ„?</a>
 TOPIC_HELP:
-W niektórych forach istnieje mo¿liwo¶æ tworzenia g³osowañ wewn±trz wysy³anych wiadomo¶ci. G³osowania pozwalaj± zadaæ pytanie i dostarczyæ listê odpowiedzi do wybrania. Aby unikn±æ zafa³szowania wyników, g³osowaæ mog± tylko zarejestrowani u¿ytkownicy.<br />
-Po klikniêciu w odno¶nik <b>UTWÓRZ G£OSOWANIE</b> znajduj±cy siê na stronie, gdzie wpisujesz wiadomo¶æ, pojawi siê osobne okno, gdzie bêdzie mo¿na stworzyæ g³osowanie z kilkoma mo¿liwymi odpowiedziami. Po skoñczeniu tworzenia g³osowania kliknij <b>Utwórz</b>, dziêki czemu wrócisz do edycji wiadomo¶ci, a stworzone g³osowanie zostanie do niej za³±czone.<br />
-Mo¿esz modyfikowaæ istniej±ce g³osowanie, klikaj±c odno¶nik <b>EDYTUJ</b> lub po prostu je skasowaæ wybieraj±c <b>SKASUJ</b>.
+W niektÃ³rych forach istnieje moÅ¼liwoÅ›Ä‡ tworzenia gÅ‚osowaÅ„ wewnÄ…trz wysyÅ‚anych wiadomoÅ›ci. GÅ‚osowania pozwalajÄ… zadaÄ‡ pytanie i dostarczyÄ‡ listÄ™ odpowiedzi do wybrania. Aby uniknÄ…Ä‡ zafaÅ‚szowania wynikÃ³w, gÅ‚osowaÄ‡ mogÄ… tylko zarejestrowani uÅ¼ytkownicy.<br />
+Po klikniÄ™ciu w odnoÅ›nik <b>UTWÃ“RZ GÅOSOWANIE</b> znajdujÄ…cy siÄ™ na stronie, gdzie wpisujesz wiadomoÅ›Ä‡, pojawi siÄ™ osobne okno, gdzie bÄ™dzie moÅ¼na stworzyÄ‡ gÅ‚osowanie z kilkoma moÅ¼liwymi odpowiedziami. Po skoÅ„czeniu tworzenia gÅ‚osowania kliknij <b>UtwÃ³rz</b>, dziÄ™ki czemu wrÃ³cisz do edycji wiadomoÅ›ci, a stworzone gÅ‚osowanie zostanie do niej zaÅ‚Ä…czone.<br />
+MoÅ¼esz modyfikowaÄ‡ istniejÄ…ce gÅ‚osowanie, klikajÄ…c odnoÅ›nik <b>EDYTUJ</b> lub po prostu je skasowaÄ‡ wybierajÄ…c <b>SKASUJ</b>.
 <p>
-W ka¿dym g³osowaniu masz mo¿liwo¶æ wzi±æ udzia³ tylko jeden raz, dlatego starannie przemy¶l swoj± decyzj± - pó¼niej swojego g³osu nie mo¿esz zmieniæ.
+W kaÅ¼dym gÅ‚osowaniu masz moÅ¼liwoÅ›Ä‡ wziÄ…Ä‡ udziaÅ‚ tylko jeden raz, dlatego starannie przemyÅ›l swojÄ… decyzjÄ… - pÃ³Åºniej swojego gÅ‚osu nie moÅ¼esz zmieniÄ‡.
 
-TOPIC_TITLE: <a name="attach">Jak do³±czaæ pliki do wiadomo¶ci?</a>
+TOPIC_TITLE: <a name="attach">Jak doÅ‚Ä…czaÄ‡ pliki do wiadomoÅ›ci?</a>
 TOPIC_HELP:
-Je¶li zosta³o to zezwolone przez administratora, mo¿esz do³±czaæ jeden lub wiêcej plików do swoich wiadomo¶ci. Ta funkcja jest aktywowana dla ka¿dego forum osobno, dlatego na jednym mo¿e to dzia³aæ a na innym ju¿ nie.
+JeÅ›li zostaÅ‚o to zezwolone przez administratora, moÅ¼esz doÅ‚Ä…czaÄ‡ jeden lub wiÄ™cej plikÃ³w do swoich wiadomoÅ›ci. Ta funkcja jest aktywowana dla kaÅ¼dego forum osobno, dlatego na jednym moÅ¼e to dziaÅ‚aÄ‡ a na innym juÅ¼ nie.
 <br />
-Formularz wiadomo¶ci, do której chcesz do³±czyæ plik przedstawi trzy zasady, których musisz siê trzymaæ dodaj±c plik:<p>
-<b>Dozwolone typy plików</b> - lista rodzajów plików, jakie wolno do³±czaæ do wiadomo¶ci, np. jpg, gif, png<br />
-<b>Maksymalny rozmiar pliku</b> - maksymalny rozmiar pliku, jaki mo¿na do³±czyæ<br />
-<b>Maksymalna liczba plików w wiadomo¶ci</b> - ilo¶æ plików, które mo¿na do³±czyæ do jednej wiadomo¶ci<br />
+Formularz wiadomoÅ›ci, do ktÃ³rej chcesz doÅ‚Ä…czyÄ‡ plik przedstawi trzy zasady, ktÃ³rych musisz siÄ™ trzymaÄ‡ dodajÄ…c plik:<p>
+<b>Dozwolone typy plikÃ³w</b> - lista rodzajÃ³w plikÃ³w, jakie wolno doÅ‚Ä…czaÄ‡ do wiadomoÅ›ci, np. jpg, gif, png<br />
+<b>Maksymalny rozmiar pliku</b> - maksymalny rozmiar pliku, jaki moÅ¼na doÅ‚Ä…czyÄ‡<br />
+<b>Maksymalna liczba plikÃ³w w wiadomoÅ›ci</b> - iloÅ›Ä‡ plikÃ³w, ktÃ³re moÅ¼na doÅ‚Ä…czyÄ‡ do jednej wiadomoÅ›ci<br />
 <p>
-Aby dodaæ plik do wiadomo¶ci, kliknij przycisk <b>Browse...</b>. Otworzy siê okno, które pozwoli Ci wybraæ odpowiedni plik. Po jego wybraniu kliknij <b>Dodaj plik</b> aby plik zosta³ do³±czony do wiadomo¶ci.<br />
-Je¶li chcesz usun±æ dodany plik, kliknij przycisk <b>Usuñ</b> znajduj±cy siê obok nazwy pliku.
+Aby dodaÄ‡ plik do wiadomoÅ›ci, kliknij przycisk <b>Browse...</b>. Otworzy siÄ™ okno, ktÃ³re pozwoli Ci wybraÄ‡ odpowiedni plik. Po jego wybraniu kliknij <b>Dodaj plik</b> aby plik zostaÅ‚ doÅ‚Ä…czony do wiadomoÅ›ci.<br />
+JeÅ›li chcesz usunÄ…Ä‡ dodany plik, kliknij przycisk <b>UsuÅ„</b> znajdujÄ…cy siÄ™ obok nazwy pliku.
 
-TOPIC_TITLE: <a name="msgico">Co to ikona wiadomo¶ci?</a>
+TOPIC_TITLE: <a name="msgico">Co to ikona wiadomoÅ›ci?</a>
 TOPIC_HELP:
-Ikony wiadomo¶ci to ma³e obrazki, które mo¿esz wybraæ aby zosta³y umieszczone
-obok wysy³anej przez Ciebie wiadomo¶ci. S± one u¿ywane aby okre¶liæ nastrój
-umieszczonego tekstu. Je¶li nie widaæ tych obrazków w formularzu wiadomo¶ci,
-oznacza to, ¿e administrator zablokowa³ mo¿liwo¶æ ich ustawiania.
+Ikony wiadomoÅ›ci to maÅ‚e obrazki, ktÃ³re moÅ¼esz wybraÄ‡ aby zostaÅ‚y umieszczone
+obok wysyÅ‚anej przez Ciebie wiadomoÅ›ci. SÄ… one uÅ¼ywane aby okreÅ›liÄ‡ nastrÃ³j
+umieszczonego tekstu. JeÅ›li nie widaÄ‡ tych obrazkÃ³w w formularzu wiadomoÅ›ci,
+oznacza to, Å¼e administrator zablokowaÅ‚ moÅ¼liwoÅ›Ä‡ ich ustawiania.
 
-TOPIC_TITLE: <a name="edit">Czy mogê modyfikowaæ uprzednio wys³an± wiadomo¶æ?</a>
+TOPIC_TITLE: <a name="edit">Czy mogÄ™ modyfikowaÄ‡ uprzednio wysÅ‚anÄ… wiadomoÅ›Ä‡?</a>
 TOPIC_HELP:
-Je¶li jeste¶ zarejestrowanym u¿ytkownikiem, mo¿esz modyfikowaæ poprzednio napisane wiadomo¶ci. Ta funkcja mo¿e byæ ograniczona czasowo, dlatego mo¿e siê okazaæ, ¿e mo¿esz modyfikowaæ swoje ostatnie wiadomo¶ci, a tych starszych ju¿ nie.<br />
-Je¶li zmodyfikujesz jak±¶ wiadomo¶æ, zostanie do jej koñca dodana informacja z dat± i czasem zmian.<br />
-W przypadku, gdy wiadomo¶æ zosta³a zmodyfikowana przez moderatora lub administratora, pojawi siê informacja o zmianach, chyba ¿e forum zosta³o skonfigurowane aby o tym nie informowaæ.
+JeÅ›li jesteÅ› zarejestrowanym uÅ¼ytkownikiem, moÅ¼esz modyfikowaÄ‡ poprzednio napisane wiadomoÅ›ci. Ta funkcja moÅ¼e byÄ‡ ograniczona czasowo, dlatego moÅ¼e siÄ™ okazaÄ‡, Å¼e moÅ¼esz modyfikowaÄ‡ swoje ostatnie wiadomoÅ›ci, a tych starszych juÅ¼ nie.<br />
+JeÅ›li zmodyfikujesz jakÄ…Å› wiadomoÅ›Ä‡, zostanie do jej koÅ„ca dodana informacja z datÄ… i czasem zmian.<br />
+W przypadku, gdy wiadomoÅ›Ä‡ zostaÅ‚a zmodyfikowana przez moderatora lub administratora, pojawi siÄ™ informacja o zmianach, chyba Å¼e forum zostaÅ‚o skonfigurowane aby o tym nie informowaÄ‡.
 
-TOPIC_TITLE: <a name="mod">Kim s± moderatorzy i administratorzy?</a> 
+TOPIC_TITLE: <a name="mod">Kim sÄ… moderatorzy i administratorzy?</a> 
 TOPIC_HELP:
-Moderatorzy to u¿ytkownicy, którzy maj± specjalne uprawnienia pozwalaj±ce zarz±daæ wybranymi forami. Maj± mo¿liwo¶æ modyfikacji, usuwania oraz zatwierdzania wiadomo¶ci a tak¿e nadawania og³oszeñ. Z tymi osobami powiniene¶ siê kontaktowaæ, je¶li dzieje siê co¶ niepoprawnego na forum, którym zarz±dza dany moderator. Mo¿esz siê tak¿e z nimi kontaktowaæ je¶li masz pytania dotycz±ce ich forum.<p>
-Administratorzy to osoby, które kontroluj± forum, mog± one robiæ WSZYSTKO, dlatego rozmawiaj z nimi uprzejmie ;-). Oprócz tego administratorzy mog± zatwierdzaæ avatary, tworzyæ i przydzielaæ prywatne znaczniki, blokowaæ dostêp niechcianym u¿ytkownikom i odpowiadaæ na ró¿ne pytania dotycz±ce forum. Je¶li znajdziesz jakie¶ b³êdy w jego funkcjonowaniu, powiniene¶ siê skontaktowaæ w³a¶nie z administratorem.
+Moderatorzy to uÅ¼ytkownicy, ktÃ³rzy majÄ… specjalne uprawnienia pozwalajÄ…ce zarzÄ…daÄ‡ wybranymi forami. MajÄ… moÅ¼liwoÅ›Ä‡ modyfikacji, usuwania oraz zatwierdzania wiadomoÅ›ci a takÅ¼e nadawania ogÅ‚oszeÅ„. Z tymi osobami powinieneÅ› siÄ™ kontaktowaÄ‡, jeÅ›li dzieje siÄ™ coÅ› niepoprawnego na forum, ktÃ³rym zarzÄ…dza dany moderator. MoÅ¼esz siÄ™ takÅ¼e z nimi kontaktowaÄ‡ jeÅ›li masz pytania dotyczÄ…ce ich forum.<p>
+Administratorzy to osoby, ktÃ³re kontrolujÄ… forum, mogÄ… one robiÄ‡ WSZYSTKO, dlatego rozmawiaj z nimi uprzejmie ;-). OprÃ³cz tego administratorzy mogÄ… zatwierdzaÄ‡ avatary, tworzyÄ‡ i przydzielaÄ‡ prywatne znaczniki, blokowaÄ‡ dostÄ™p niechcianym uÅ¼ytkownikom i odpowiadaÄ‡ na rÃ³Å¼ne pytania dotyczÄ…ce forum. JeÅ›li znajdziesz jakieÅ› bÅ‚Ä™dy w jego funkcjonowaniu, powinieneÅ› siÄ™ skontaktowaÄ‡ wÅ‚aÅ›nie z administratorem.
 
 TOPIC_TITLE: <a name="cens">Cenzura?</a>
 TOPIC_HELP:
-Administrator mo¿e wprowadziæ cenzurê wybranych s³ów, które zostan± zast±pione innym tekstem. Cenzura dotyczy ca³ego forum, dlatego je¶li widzisz co¶ ocenzurowane, tak samo zobacz± to inni.
+Administrator moÅ¼e wprowadziÄ‡ cenzurÄ™ wybranych sÅ‚Ã³w, ktÃ³re zostanÄ… zastÄ…pione innym tekstem. Cenzura dotyczy caÅ‚ego forum, dlatego jeÅ›li widzisz coÅ› ocenzurowane, tak samo zobaczÄ… to inni.
 
-TOPIC_TITLE: <a name="not">Czy mogê otrzymywaæ powiadomienia o odpowiedziach na moje wiadomo¶ci?</a> 
+TOPIC_TITLE: <a name="not">Czy mogÄ™ otrzymywaÄ‡ powiadomienia o odpowiedziach na moje wiadomoÅ›ci?</a> 
 TOPIC_HELP:
-Podczas pisania nowego w±tku lub odpowiedzi, mo¿esz wybraæ aby zostaæ powiadomionym poprzez pocztê elektroniczn± lub ICQ (wybór dokonywany w profilu), kiedy kto¶ odpisze na Twoj± wiadomo¶æ. Mo¿esz tak¿e zapisaæ siê na forum lub wybrany w±tek, aby dostawaæ z nich nowe wiadomo¶æi. Dokonuje siê tego za pomoc± odno¶nika <b>Subskrybuj</b>.
+Podczas pisania nowego wÄ…tku lub odpowiedzi, moÅ¼esz wybraÄ‡ aby zostaÄ‡ powiadomionym poprzez pocztÄ™ elektronicznÄ… lub ICQ (wybÃ³r dokonywany w profilu), kiedy ktoÅ› odpisze na TwojÄ… wiadomoÅ›Ä‡. MoÅ¼esz takÅ¼e zapisaÄ‡ siÄ™ na forum lub wybrany wÄ…tek, aby dostawaÄ‡ z nich nowe wiadomoÅ›Ä‡i. Dokonuje siÄ™ tego za pomocÄ… odnoÅ›nika <b>Subskrybuj</b>.
 <p>
-Je¶li nie chcesz dostawaæ dalszych powiadomieñ o nowych wiadomo¶ciach na forum, mo¿esz klikn±æ odno¶nik <b>Odsubskrybuj</b> znajduj±cy siê w wybranym forum lub w±tku. Inna mo¿liwo¶æ to wybranie zak³adki <b>Subskrybcje</b> w Twoim profilu, a nastêpnie usuniêcie wybranej opcji z tamtego miejsca.
+JeÅ›li nie chcesz dostawaÄ‡ dalszych powiadomieÅ„ o nowych wiadomoÅ›ciach na forum, moÅ¼esz kliknÄ…Ä‡ odnoÅ›nik <b>Odsubskrybuj</b> znajdujÄ…cy siÄ™ w wybranym forum lub wÄ…tku. Inna moÅ¼liwoÅ›Ä‡ to wybranie zakÅ‚adki <b>Subskrybcje</b> w Twoim profilu, a nastÄ™pnie usuniÄ™cie wybranej opcji z tamtego miejsca.
 <p>
-Mo¿liwo¶æ otrzymywania powiadomieñ dostêpna jest tylko dla zarejestrowanych u¿ytkowników.
+MoÅ¼liwoÅ›Ä‡ otrzymywania powiadomieÅ„ dostÄ™pna jest tylko dla zarejestrowanych uÅ¼ytkownikÃ³w.

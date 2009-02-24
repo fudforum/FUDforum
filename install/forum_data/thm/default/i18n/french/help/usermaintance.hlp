@@ -1,56 +1,56 @@
 TOPIC_TITLE: <a name="register">Pourquoi s'enregistrer&nbsp;?</a>
 TOPIC_HELP:
-Dans la plupart des forums, vous trouverez qu'il n'est pas possible de proposer de nouveaux sujets ou de répondre à des sujets existants sauf si l'administrateur le permet explicitement. En vous enregistrant, vous obtiendrez l'accès à de nombreuses autres fonctionnalités du forum comme&nbsp;
+Dans la plupart des forums, vous trouverez qu'il n'est pas possible de proposer de nouveaux sujets ou de rÃ©pondre Ã  des sujets existants sauf si l'administrateur le permet explicitement. En vous enregistrant, vous obtiendrez l'accÃ¨s Ã  de nombreuses autres fonctionnalitÃ©s du forum comme&nbsp;
 <ul>
-	<li>Avertissement par courrier électronique/ICQ quand quelqu'un répond à vos messages
-	<li>Signature personnalisée, avatar, marques personnelles, etc.
-	<li>Possibilité d'envoyer des messages privés à un ou plusieurs membres du forum
-	<li>Vous pourrez choisir un fuseau horaire pour que l'heure du forum soit équivalente à celle de votre région
+	<li>Avertissement par courrier Ã©lectronique/ICQ quand quelqu'un rÃ©pond Ã  vos messages
+	<li>Signature personnalisÃ©e, avatar, marques personnelles, etc.
+	<li>PossibilitÃ© d'envoyer des messages privÃ©s Ã  un ou plusieurs membres du forum
+	<li>Vous pourrez choisir un fuseau horaire pour que l'heure du forum soit Ã©quivalente Ã  celle de votre rÃ©gion
 </ul>
-Sauf si spécifié autrement, l'enregistrement sur le forum est complètement gratuite et nécessite seulement un minimum d'informations comme votre adresse électronique et un surnom de votre choix.<br />
-Si COPPA est activé et que vous avez moins de 13 ans, il faudra que votre responsable légal donne son accord avant que votre votre compte ne puisse être utilisé pour envoyer des messages. Pour compléter le processus d'inscription pour les forums avec COPPA activé, les membres ayant moins de 13 ans sont amenés à un formulaire qui doit être rempli par leur responsable légal et envoyé à l'adresse appropriée affichée sur cette page.
+Sauf si spÃ©cifiÃ© autrement, l'enregistrement sur le forum est complÃ¨tement gratuite et nÃ©cessite seulement un minimum d'informations comme votre adresse Ã©lectronique et un surnom de votre choix.<br />
+Si COPPA est activÃ© et que vous avez moins de 13 ans, il faudra que votre responsable lÃ©gal donne son accord avant que votre votre compte ne puisse Ãªtre utilisÃ© pour envoyer des messages. Pour complÃ©ter le processus d'inscription pour les forums avec COPPA activÃ©, les membres ayant moins de 13 ans sont amenÃ©s Ã  un formulaire qui doit Ãªtre rempli par leur responsable lÃ©gal et envoyÃ© Ã  l'adresse appropriÃ©e affichÃ©e sur cette page.
 
-TOPIC_TITLE: <a name="cookies">Comment sont utilisés les cookies sur FUDforum&nbsp;?</a>
+TOPIC_TITLE: <a name="cookies">Comment sont utilisÃ©s les cookies sur FUDforum&nbsp;?</a>
 TOPIC_HELP:
-Normalement, FUDforum utilise des cookies pour stocker des petites parties d'informations qui permettent au forum de voir si vous êtes connecté ou non. Si pour une raison, votre navigateur ne supporte pas les cookies, FUDforum utilisera à la place des sessions, ce qui ne stocke aucune information sur votre ordinateur. Pendant la phase de connexion, vous pouvez choisir de passer outre le système de cookies et d'opter pour le système de sessions, ceci est recommandé si vous utilisez un terminal public. Procéder ainsi empêchera un vol possible de votre identité, ce qui peut arriver si vous ne vous déconnectez pas après avoir utilisé le forum. Cependant, dans la plupart des cas, vous devriez probablement laisser les cookies activés car c'est beaucoup plus pratique à long terme. Par exemple, vous n'avez pas besoin de vous connecter à chaque fois que vous visitez le forum.
+Normalement, FUDforum utilise des cookies pour stocker des petites parties d'informations qui permettent au forum de voir si vous Ãªtes connectÃ© ou non. Si pour une raison, votre navigateur ne supporte pas les cookies, FUDforum utilisera Ã  la place des sessions, ce qui ne stocke aucune information sur votre ordinateur. Pendant la phase de connexion, vous pouvez choisir de passer outre le systÃ¨me de cookies et d'opter pour le systÃ¨me de sessions, ceci est recommandÃ© si vous utilisez un terminal public. ProcÃ©der ainsi empÃªchera un vol possible de votre identitÃ©, ce qui peut arriver si vous ne vous dÃ©connectez pas aprÃ¨s avoir utilisÃ© le forum. Cependant, dans la plupart des cas, vous devriez probablement laisser les cookies activÃ©s car c'est beaucoup plus pratique Ã  long terme. Par exemple, vous n'avez pas besoin de vous connecter Ã  chaque fois que vous visitez le forum.
 
 
 TOPIC_TITLE: <a name="clrcookie">Comment enlever les cookies de FUDforum&nbsp;?</a>
 TOPIC_HELP:
-Pour enlever le cookie positionné par FUDforum, cliquez simplement sur le bouton de déconnexion et ceci va automatiquement supprimer le cookie.
+Pour enlever le cookie positionnÃ© par FUDforum, cliquez simplement sur le bouton de dÃ©connexion et ceci va automatiquement supprimer le cookie.
 
 TOPIC_TITLE: <a name="updprofile">Qu'est-ce qu'un profil&nbsp;?</a>
-TOPIC_HELP: En tant que membre du forum, vous avez un profil personnel dans lequel vous pouvez stocker diverses informations sur vous, comme vos identifiants de messagerie instantanée, votre signature, votre biographie, etc. Votre profil stocke également différents paramètres de configuration relatifs au forum. À chaque fois que vous êtes connecté, vous pouvez changer vos paramètres de profil, vous devez noter que la plupart des informations de votre profil peuvent être vues par d'autres membres du forum. Vous ne devriez donc pas essayer de stocker des informations sensibles que vous ne désirez pas que les autres personnes puissent voir.<br /> Votre profil dispose d'une option <b>"Rendre mon adresse e-mail visible"</b> qui, si elle est positionnée à <b>Non</b>, cachera votre adresse e-mail. Vous pouvez utiliser cette option si vous ne désirez pas que d'autres personnes puissent voir votre adresse e-mail.
+TOPIC_HELP: En tant que membre du forum, vous avez un profil personnel dans lequel vous pouvez stocker diverses informations sur vous, comme vos identifiants de messagerie instantanÃ©e, votre signature, votre biographie, etc. Votre profil stocke Ã©galement diffÃ©rents paramÃ¨tres de configuration relatifs au forum. Ã€ chaque fois que vous Ãªtes connectÃ©, vous pouvez changer vos paramÃ¨tres de profil, vous devez noter que la plupart des informations de votre profil peuvent Ãªtre vues par d'autres membres du forum. Vous ne devriez donc pas essayer de stocker des informations sensibles que vous ne dÃ©sirez pas que les autres personnes puissent voir.<br /> Votre profil dispose d'une option <b>"Rendre mon adresse e-mail visible"</b> qui, si elle est positionnÃ©e Ã  <b>Non</b>, cachera votre adresse e-mail. Vous pouvez utiliser cette option si vous ne dÃ©sirez pas que d'autres personnes puissent voir votre adresse e-mail.
 
 TOPIC_TITLE: <a name="sigs">Qu'est-ce qu'une signature&nbsp;?</a>
 TOPIC_HELP:
-Une signature est une chaîne de texte que vous pouvez automatiquement ajouter à la fin de chaque message que vous envoyez. Dans votre profil, vous avez une option, <b>"Par défaut, appliquer ma signature aux messages que je vais poster"</b> qui active ou désactive cett fonctionnalité par défaut. Cependant sur chaque formulaire de message, vous pouvez changer cette option pour ce message particulier.<br /> En plus du texte simple, cette chaîne peut contenir (si l'administrateur le permet) plusieurs éléments comme des liens vers vos URLs favorites, des photos personnelles, etc.<br /> Si vous ne désirez pas voir les signatures des autres personnes, vous pouvez les désactiver en positionnant l'option <b>"Montrer les signatures"</b> à <b>Non</b> dans votre profil.
+Une signature est une chaÃ®ne de texte que vous pouvez automatiquement ajouter Ã  la fin de chaque message que vous envoyez. Dans votre profil, vous avez une option, <b>"Par dÃ©faut, appliquer ma signature aux messages que je vais poster"</b> qui active ou dÃ©sactive cett fonctionnalitÃ© par dÃ©faut. Cependant sur chaque formulaire de message, vous pouvez changer cette option pour ce message particulier.<br /> En plus du texte simple, cette chaÃ®ne peut contenir (si l'administrateur le permet) plusieurs Ã©lÃ©ments comme des liens vers vos URLs favorites, des photos personnelles, etc.<br /> Si vous ne dÃ©sirez pas voir les signatures des autres personnes, vous pouvez les dÃ©sactiver en positionnant l'option <b>"Montrer les signatures"</b> Ã  <b>Non</b> dans votre profil.
 
 
 TOPIC_TITLE: <a name="rstpasswd">Que faire si vous avez perdu votre mot de passe&nbsp?</a>
 TOPIC_HELP:
-Si vous ne vous rappelez pas votre mot de passe pour FUDforum, vous devriez aller à la <a href="{ROOT}?t=reset&%_rsid%">page de réinitialisation des mots de passe</a>, sur cette page, entrez votre adresse e-mail dans le champ text et appuyez sur le bouton GO. Ceci vous enverra un message avec une URL spéciale, quand vous irez à cette URL, votre mot de passe sera réinitalisé et vous recevrez un nouveau courrier avec votre mot de passe.<br />
+Si vous ne vous rappelez pas votre mot de passe pour FUDforum, vous devriez aller Ã  la <a href="{ROOT}?t=reset&%_rsid%">page de rÃ©initialisation des mots de passe</a>, sur cette page, entrez votre adresse e-mail dans le champ text et appuyez sur le bouton GO. Ceci vous enverra un message avec une URL spÃ©ciale, quand vous irez Ã  cette URL, votre mot de passe sera rÃ©initalisÃ© et vous recevrez un nouveau courrier avec votre mot de passe.<br />
 <br />
-<b>Note&nbsp;:</b> Vos mots de passe sont stockés dans un format de chiffrage unidirectionnel appelé HASH MD5. C'est un chiffrage 128 octets de niveau militaire, il n'existe aucun moyen de restaurer votre mot de passe. Cela fonctionne par chiffrage de la donnée à chaque fois que vous l'entrez et par comparaison avec la version chiffrée. Donc, si vous oubliez votre mot de passe, il ne peut pas être régénéré, c'est pourquoi, après une demande de régénération, le forum va générer aléatoirement votre nouveau mot de passe.
+<b>Note&nbsp;:</b> Vos mots de passe sont stockÃ©s dans un format de chiffrage unidirectionnel appelÃ© HASH MD5. C'est un chiffrage 128 octets de niveau militaire, il n'existe aucun moyen de restaurer votre mot de passe. Cela fonctionne par chiffrage de la donnÃ©e Ã  chaque fois que vous l'entrez et par comparaison avec la version chiffrÃ©e. Donc, si vous oubliez votre mot de passe, il ne peut pas Ãªtre rÃ©gÃ©nÃ©rÃ©, c'est pourquoi, aprÃ¨s une demande de rÃ©gÃ©nÃ©ration, le forum va gÃ©nÃ©rer alÃ©atoirement votre nouveau mot de passe.
 
-TOPIC_TITLE: <a name="cstat">Les marques personnalisées, qu'est-ce que c'est et comment puis-je en avoir une&nbsp;?</a>
+TOPIC_TITLE: <a name="cstat">Les marques personnalisÃ©es, qu'est-ce que c'est et comment puis-je en avoir une&nbsp;?</a>
 TOPIC_HELP:
-Les marques personnalisées ne peuvent être attribuées que par l'administrateur du forum, donc, si vous voulez une marque personnalisée, demandez-la à l'administrateur du forum.
+Les marques personnalisÃ©es ne peuvent Ãªtre attribuÃ©es que par l'administrateur du forum, donc, si vous voulez une marque personnalisÃ©e, demandez-la Ã  l'administrateur du forum.
 
 TOPIC_TITLE: <a name="avatars">Qu'est-ce qu'un avatar&nbsp;?</a>
 TOPIC_HELP:
-Les avatars sont des images qui apparaissent en dessous de votre nom d'utilisateur dans les messages que vous avez envoyés ainsi que sur votre page d'informations utilisateur. FUDforum supporte 3 types d'avatars dont certains peuvent être ou ne pas être activés par l'administraeur du forum. Vous pouvez vous choisir un avatar sur votre page de profil.
+Les avatars sont des images qui apparaissent en dessous de votre nom d'utilisateur dans les messages que vous avez envoyÃ©s ainsi que sur votre page d'informations utilisateur. FUDforum supporte 3 types d'avatars dont certains peuvent Ãªtre ou ne pas Ãªtre activÃ©s par l'administraeur du forum. Vous pouvez vous choisir un avatar sur votre page de profil.
 <ul>
-	<li><b>Intégré</b> - Ce sont les avatars que l'administrateur a rendu disponibles, vous pouvez choisir l'un de ces avatars et il deviendra votre avatar dès que vous aurez validé le changement dans votre page de profil.
-	<li><b>Avatars envoyés</b> - Si ceci est activé, vous pouvez envoyer une image qui sera votre avatar, vers le serveur. Une fois envoyée, elle devra être approuvée par l'administrateur avant de devenir votre avatar.
-	<li><b>Spécifier une URL</b> - Si ceci est activé, vous pouvez spécifier une URL vers une image que vous désirez être votre avatar. Si elle est approuvée par l'administrateur, cette image deviendra votre avatar.
+	<li><b>IntÃ©grÃ©</b> - Ce sont les avatars que l'administrateur a rendu disponibles, vous pouvez choisir l'un de ces avatars et il deviendra votre avatar dÃ¨s que vous aurez validÃ© le changement dans votre page de profil.
+	<li><b>Avatars envoyÃ©s</b> - Si ceci est activÃ©, vous pouvez envoyer une image qui sera votre avatar, vers le serveur. Une fois envoyÃ©e, elle devra Ãªtre approuvÃ©e par l'administrateur avant de devenir votre avatar.
+	<li><b>SpÃ©cifier une URL</b> - Si ceci est activÃ©, vous pouvez spÃ©cifier une URL vers une image que vous dÃ©sirez Ãªtre votre avatar. Si elle est approuvÃ©e par l'administrateur, cette image deviendra votre avatar.
 </ul>
-<b>Note&nbsp;:</b> Vous pouvez changer votre avatar à n'importe quel moment, cependant, les avatars envoyés et les URLs doivent toujours être approuvés avant de pouvoir être utilisés sur le forum.
+<b>Note&nbsp;:</b> Vous pouvez changer votre avatar Ã  n'importe quel moment, cependant, les avatars envoyÃ©s et les URLs doivent toujours Ãªtre approuvÃ©s avant de pouvoir Ãªtre utilisÃ©s sur le forum.
 
 TOPIC_TITLE: <a name="blist">Qu'est-ce qu'une liste d'amis&nbsp;?</a>
 TOPIC_HELP:
-Une liste d'amis est votre propre liste de membres du forum avec qui vous désirez discuter plus fréquemment. En plaçant quelqu'un dans votre liste d'amis, vous pourrez voir leur anniversaire (s'ils l'ont entré) ainsi que pouvoir facilement les choisir comme destinataire de vos messages privés.
+Une liste d'amis est votre propre liste de membres du forum avec qui vous dÃ©sirez discuter plus frÃ©quemment. En plaÃ§ant quelqu'un dans votre liste d'amis, vous pourrez voir leur anniversaire (s'ils l'ont entrÃ©) ainsi que pouvoir facilement les choisir comme destinataire de vos messages privÃ©s.
 
-TOPIC_TITLE: <a name="ignlist">Qu'est-ce que fait la liste à ignorer&nbsp;?</a>
+TOPIC_TITLE: <a name="ignlist">Qu'est-ce que fait la liste Ã  ignorer&nbsp;?</a>
 TOPIC_HELP:
-La liste à ignorer est une base de données des membres du forum dont vous ne voulez pas voir les messages ainsi que ne pas recevoir les messages privés qu'ils vous envoient. Sur chaque message, il y a un lien rapide qui vous permet d'ajouter l'auteur de ce message dans votre liste à ignorer.
+La liste Ã  ignorer est une base de donnÃ©es des membres du forum dont vous ne voulez pas voir les messages ainsi que ne pas recevoir les messages privÃ©s qu'ils vous envoient. Sur chaque message, il y a un lien rapide qui vous permet d'ajouter l'auteur de ce message dans votre liste Ã  ignorer.

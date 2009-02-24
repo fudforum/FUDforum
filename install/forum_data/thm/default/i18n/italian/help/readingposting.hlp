@@ -1,6 +1,6 @@
 TOPIC_TITLE: <a name="style">Come si formatta il testo?</a>
 TOPIC_HELP:
-Nella maggior parte dei casi i messaggi di un forum sono composti da semplice testo; tuttavia, in alcune occasioni si puÚ voler aggiungere della formattazione al testo, scrivendo in grassetto, in corsivo, ecc.
+Nella maggior parte dei casi i messaggi di un forum sono composti da semplice testo; tuttavia, in alcune occasioni si pu√≤ voler aggiungere della formattazione al testo, scrivendo in grassetto, in corsivo, ecc.
 <p>
 Solitamente l'amministratore non permette l'utilizzo di HTML all'interno dei messaggi; in questo caso potete utilizzare FUDcode, che consiste di una serie di tag che permettono di applicare alcuni stili di formattazione al testo.
 <p>
@@ -8,13 +8,13 @@ Solitamente l'amministratore non permette l'utilizzo di HTML all'interno dei mes
 <p>
 <b>Inserimento di URL</b><br /><br />
 
-Il forum puÚ automaticamente convertire indirizzi in URL cliccabili. Ad esempio:<br />
+Il forum pu√≤ automaticamente convertire indirizzi in URL cliccabili. Ad esempio:<br />
 	<div align="Center"><font color="#FF0000">http://www.tgmonline.it</font></div><br />
-sar‡ automaticamente interpretato come URL e convertito in link cliccabile, il che vuol dire che diventer‡ una cosa del genere:
+sar√† automaticamente interpretato come URL e convertito in link cliccabile, il che vuol dire che diventer√† una cosa del genere:
 	<div align="center"><a href="http://www.tgmonline.it" target=_blank>http://www.tgmonline.it</a></div><br />
 	
 	
-Puoi creare un URL per conto tuo utilizzando il FUDcode, in due modi. Il pi˘ semplice Ë questo:
+Puoi creare un URL per conto tuo utilizzando il FUDcode, in due modi. Il pi√π semplice √® questo:
 	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.lamiahomepage.com</font>[/URL]</font></b></div><br />
 che diventa:
 	<div align="center"><a href="http://www.lamiahomepage.com" target=_blank>http://www.lamiahomepage.com</a></div><br />
@@ -22,9 +22,9 @@ Puoi anche aggiungere una descrizione all'URL utilizzando una sintassi leggermen
 	<div align="center"><a href="http://www.lamiahomepage.com" target=_blank>La mia home page</a></div><br />
 <p>
 <b>Inserimento indirizzi email</b><br /><br />
-         Per creare un link ad un indirizzo email Ë sufficiente scriverlo cosÏ com'Ë. Ad esempio:<br />
+         Per creare un link ad un indirizzo email √® sufficiente scriverlo cos√¨ com'√®. Ad esempio:<br />
 <div align="Center"><font color="#ff0000"><b>forum@xenia.it</b></font></div><br />
-       viene interpretato automaticamente e trasformato in un link. Si puÚ anche utilizzare la seguente sintassi<br />
+       viene interpretato automaticamente e trasformato in un link. Si pu√≤ anche utilizzare la seguente sintassi<br />
 <div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">forum@xenia.it</font>]</b></font>Clicca qui per scrivere all'amministratore del forum<font color="#ff0000"><b>[/email]</b></font><br /></div>
 <br />
 <b>Formattazione del testo</b><br />
@@ -42,7 +42,7 @@ Puoi anche aggiungere una descrizione all'URL utilizzando una sintassi leggermen
    <li><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>
           [/sup]</b></font> produces <sup>superscript</sup> text</li>
 </ul>
-         » anche possibile modificare colore, dimensione e aspetto dei caratteri del testo.<br />
+         √à anche possibile modificare colore, dimensione e aspetto dei caratteri del testo.<br />
 <ul>
   <li><font color="#ff0000"><b>[color=red]</b></font>testo rosso<font color="#ff0000"><b>
          [/color]</b></font> diventa <font color="#ff0000">testo rosso</font></li>
@@ -53,7 +53,7 @@ dimensione specificata</font></li>
         [/font]</b></font> genera testo che utilizza il <font face="Courier New, Courier, monospace">
         font scelto</font></li>
 </ul>
-        » anche possibile utilizzare diversi tag in combinazione tra loro:<br />
+        √à anche possibile utilizzare diversi tag in combinazione tra loro:<br />
 <div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>testo formattato<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></div>
        diventa quindi:<br />
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>testo formattato</b></i></u></font></div>
@@ -85,7 +85,7 @@ FUDcode permette di allineare il testo con il tag [align], che permette di giust
   <li>primo elemento della lista</li>
   <li>secondo elemento della lista</li>
 </ul>
-      » possibile utilizzare diverse tipologie di elenchi, ad esempio quelli numerati:<br />
+      √à possibile utilizzare diverse tipologie di elenchi, ad esempio quelli numerati:<br />
 <font color="#ff0000"><b>[list type=1]</b></font><br />
 <font color="#ff0000"><b>[*]</b></font>primo elemento della lista<br />
 <font color="#ff0000"><b>[*]</b></font>secondo elemento della lista<br />
@@ -108,7 +108,7 @@ FUDcode permette di allineare il testo con il tag [align], che permette di giust
   <li>secondo elemento della lista</li>
 </ol>
 <b>Inserimento di immagini</b><br />
-    » possibile inserire immagini all'interno di un messaggio utilizzando il tag <font color="#ff0000"><b>
+    √à possibile inserire immagini all'interno di un messaggio utilizzando il tag <font color="#ff0000"><b>
     [img][/img]</b></font>. <br />
 <br />
     Ad esempio,<br />
@@ -121,7 +121,7 @@ FUDcode permette di allineare il testo con il tag [align], che permette di giust
 <div align="Center"><a href="http://www.tgmonline.it"><img src="http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif" alt="image" width="488" height="81" border="0"></a><br /></div><br />
 
 <br /><b>Quote di altri messaggi</b><br />
-  » possibile inserire parti di un messaggio gi‡ postato (quote), semplicemente inserendo i tag <font color="#ff0000"><b>[quote][/quote]</b></font>. 
+  √à possibile inserire parti di un messaggio gi√† postato (quote), semplicemente inserendo i tag <font color="#ff0000"><b>[quote][/quote]</b></font>. 
 <br />
 <div align="Center"><font color="#ff0000"><b>[quote]</b></font>ciao mondo<font color="#ff0000"><b>[/quote]</b></font><br /></div>
   apparirebbe come:<br />
@@ -129,14 +129,14 @@ FUDcode permette di allineare il testo con il tag [align], che permette di giust
 <table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">ciao mondo<br /></td></tr></table>
 <p>
 <b>Codice e testo pre-formattato</b><br />
-I tag <font color="#ff0000"><b>[code][/code]</b></font> permettono di inserire del testo esattamente com'Ë, mantenendo formattazioni gi‡ inserite, come spazi e tabulazioni. <br />
+I tag <font color="#ff0000"><b>[code][/code]</b></font> permettono di inserire del testo esattamente com'√®, mantenendo formattazioni gi√† inserite, come spazi e tabulazioni. <br />
 <br />
-PuÚ essere usato in questo modo: <br />
+Pu√≤ essere usato in questo modo: <br />
 <font color="#ff0000"><b>[code]</b></font>
 <pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /></pre>
 <font color="#ff0000"><b>[/code]</b></font><br />
 <br />
- che genera il testo esattamente come Ë stato inserito. 
+ che genera il testo esattamente come √® stato inserito. 
 <br />
 <br />
 <pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /><br /><br /></pre>
@@ -212,32 +212,32 @@ TOPIC_TITLE: <a name="sml">Cosa sono gli smiley/faccine/emoticon?</a>
 TOPIC_HELP:
 Gli smiley, detti anche faccine o emoticon, sono piccole icone che puoi inserire all'interno di un messaggio per trasmettere emozioni e sentimenti.
 Se gli smiley sono abilitati, sopra il testo del messaggio da postare troverai un elenco di icone presenti nel forum.
-Cliccando su uno di essi, verr‡ automaticamente inserito all'interno del messaggio.<br />
+Cliccando su uno di essi, verr√† automaticamente inserito all'interno del messaggio.<br />
 Gli smiley vengono automaticamente convertiti in immagini dal forum. Se non vuoi che questo avvenga, clicca sul bottone 
 <b>Disabilita smiley</b>.<p>
 
 TOPIC_TITLE: <a name="polls">Come faccio a creare un sondaggio?</a>
 TOPIC_HELP:
-In alcuni forum ti viene data la possibilit‡ di inserire dei sondaggi nei tuoi messaggi. Il meccanismo di un sondaggio Ë molto semplice: c'Ë una domanda, una serie di risposte da scegliere; per questioni di accuratezza solo gli utenti registrati possono votare i sondaggi.<br />
-Quando clicchi sul link <b>CREA SONDAGGIO</b>, si aprir‡ una piccola schermata di pop-up con la possibilit‡ di creare un sondaggio con risposte multiple. Quando hai terminato, clicca su <b>Modifica</b> e sarai riportato alla pagina del topic, dove il sondaggio sar‡ stato inserito nel tuo messaggio.<br />
+In alcuni forum ti viene data la possibilit√† di inserire dei sondaggi nei tuoi messaggi. Il meccanismo di un sondaggio √® molto semplice: c'√® una domanda, una serie di risposte da scegliere; per questioni di accuratezza solo gli utenti registrati possono votare i sondaggi.<br />
+Quando clicchi sul link <b>CREA SONDAGGIO</b>, si aprir√† una piccola schermata di pop-up con la possibilit√† di creare un sondaggio con risposte multiple. Quando hai terminato, clicca su <b>Modifica</b> e sarai riportato alla pagina del topic, dove il sondaggio sar√† stato inserito nel tuo messaggio.<br />
 Potrai modificare il messaggio cliccando sul link <b>MODIFICA</b>, o cancellarlo cliccando su <b>CANCELLA</b>.
 <p>
 Puoi esprimere un solo voto per ogni sondaggio.
 
 TOPIC_TITLE: <a name="attach">Posso allegare file ai messaggi?</a>
 TOPIC_HELP:
-Se consentito dall'amministratore del forum, potrai inserire uno o pi˘ file ai tuoi messaggi, siano essi normali che privati. Questa opzione Ë legata ai singoli forum: questo vuol dire che alcuin forum possono permettere l'aggiunta di file ai messaggi, altri no, a seconda delle scelte dell'amministratore.
+Se consentito dall'amministratore del forum, potrai inserire uno o pi√π file ai tuoi messaggi, siano essi normali che privati. Questa opzione √® legata ai singoli forum: questo vuol dire che alcuin forum possono permettere l'aggiunta di file ai messaggi, altri no, a seconda delle scelte dell'amministratore.
 <br />
 Ecco le tre regole base per l'inserimento di file allegati ai messaggi:<p>
 <b>Estensioni consentite</b> - un elenco di tipi di file che puoi allegare al messaggio, ad esempio jpg, gif, png<br />
 <b>Dimensione massima del file</b> - la dimensione massima di ogni file che puoi inserire nel messaggio<br />
 <b>Numero massimo di file per messaggio</b> - il numero di file che puoi allegare al messaggio.
 <p>
-Per allegare un file, clicca sul tasto <b>Sfoglia</b> che si trova nella parte bassa del post di un messaggio. Il browser aprir‡ una schermata dalla quale poter selezionare il file presente sul tuo hard disk. Una volta selezionato il file, clicca su <b>Upload file</b>.<br />
+Per allegare un file, clicca sul tasto <b>Sfoglia</b> che si trova nella parte bassa del post di un messaggio. Il browser aprir√† una schermata dalla quale poter selezionare il file presente sul tuo hard disk. Una volta selezionato il file, clicca su <b>Upload file</b>.<br />
 Se vuoi cancellare file allegati al messaggio, clicca sul bottone <b>Cancella</b> che trovi alla destra del nome del file.
 
 
-TOPIC_TITLE: <a name="msgico">Che cos'Ë l'icona di un messaggio?</a>
+TOPIC_TITLE: <a name="msgico">Che cos'√® l'icona di un messaggio?</a>
 TOPIC_HELP:
 Le icone dei messaggi sono piccole immagini che puoi scegliere di mostrare accanto ai tuoi messaggi. Sono per la maggior parte utilizzate per evidenziare la natura del messaggio e quello che stai cercando di comunicare.<br />
 Se non vedi queste icone nella pagina di inserimento di un topic, vuol dire che l'amministratore ha disabilitato questa opzione.
@@ -253,19 +253,19 @@ that this message was edited.
 
 TOPIC_TITLE: <a name="mod">Chi sono i moderatori e gli amministratori?</a> 
 TOPIC_HELP:
-I moderatori sono utenti con qualche privilegio in pi˘, che tengono sotto controllo uno o pi˘ forum. Solitamente hanno la possibilit‡ di modificare, cancellare, approvare messaggi e fare annunci sul forum.<br />
+I moderatori sono utenti con qualche privilegio in pi√π, che tengono sotto controllo uno o pi√π forum. Solitamente hanno la possibilit√† di modificare, cancellare, approvare messaggi e fare annunci sul forum.<br />
 Sono persone da contattare se vedi qualcosa di poco consono alla netiquette e alle regole del forum che stanno moderando. <br />
 <p>
-Gli amministratori sono coloro che controllano il forum; possono fare QUALUNQUE COSA, quindi vedete di rivolgervi a loro con il dovuto rispetto :) Oltre ai privilegi di moderatore, l'amministratore puÚ approvare avatar, assegnare o rimuovere le custom tag, bannare gli utenti, ecc.
+Gli amministratori sono coloro che controllano il forum; possono fare QUALUNQUE COSA, quindi vedete di rivolgervi a loro con il dovuto rispetto :) Oltre ai privilegi di moderatore, l'amministratore pu√≤ approvare avatar, assegnare o rimuovere le custom tag, bannare gli utenti, ecc.
 
 TOPIC_TITLE: <a name="cens">Censura?</a>
 TOPIC_HELP:
-L'amministratore puÚ decidere di censurare talune parole, che saranno rimpiazzate dall'alternativa scelta da lui. La censura si applica a tutto il forum indistintamente.
+L'amministratore pu√≤ decidere di censurare talune parole, che saranno rimpiazzate dall'alternativa scelta da lui. La censura si applica a tutto il forum indistintamente.
 
 TOPIC_TITLE: <a name="not">Come posso essere avvisato di eventuali risposte ad un mio messaggio?</a> 
 TOPIC_HELP:
-Quando crei un nuovo topic o rispondi a uno gi‡ esistente, puoi scegliere se ricevere una notifica via email o ICQ (da selezionare nel proprio profilo)  di eventuali risposte al tuo messaggio. Puoi anche iscriverti ad un topic senza inserire alcuna reply, cliccando sul link <b>Iscriviti al topic</b> che trovi in cima alla pagina; puoi anche iscriverti ad un intero forum, in modo da essere avvisato ogni volta che viene creato un nuovo topic al suo interno.
+Quando crei un nuovo topic o rispondi a uno gi√† esistente, puoi scegliere se ricevere una notifica via email o ICQ (da selezionare nel proprio profilo)  di eventuali risposte al tuo messaggio. Puoi anche iscriverti ad un topic senza inserire alcuna reply, cliccando sul link <b>Iscriviti al topic</b> che trovi in cima alla pagina; puoi anche iscriverti ad un intero forum, in modo da essere avvisato ogni volta che viene creato un nuovo topic al suo interno.
 <p>
-Se scegli di non ricevere pi˘ notifiche da un topic o da un forum, puoi cliccare sul link <b>Cancella la tua iscrizione</b>, che trovi nel forum o nel topic cui sei iscritto. In alternativa, puoi anche andare nella sezione <b>Iscrizioni</b> del tuo profilo utente e rimuovere i topic o i forum cui sei iscritto.
+Se scegli di non ricevere pi√π notifiche da un topic o da un forum, puoi cliccare sul link <b>Cancella la tua iscrizione</b>, che trovi nel forum o nel topic cui sei iscritto. In alternativa, puoi anche andare nella sezione <b>Iscrizioni</b> del tuo profilo utente e rimuovere i topic o i forum cui sei iscritto.
 <p>
-La possibilit‡ di ricevere notifiche Ë limitata agli utenti registrati.
+La possibilit√† di ricevere notifiche √® limitata agli utenti registrati.
