@@ -1,13 +1,14 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2007 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.21 2007/01/01 18:23:42 hackie Exp $
+* $Id: install-cli.php,v 1.22 2009/02/25 19:10:55 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 ***************************************************************************/
+// TODO:  PDO database support must be added
 
 	set_time_limit(-1);
 	ini_set("magic_quotes_runtime", 0);
@@ -44,11 +45,11 @@ function mkdir_r($path)
 	while (!is_dir($path)) {
 		$dirs[] = $path;
 		$path = dirname($path);
-		if (!$path || $path == "/") {
+		if (!$path || $path == '/') {
 			break;
 		}
 	}
-	foreach ($dirs as $dir) {
+	foreach (array_reverse($dirs) as $dir) {
 		if (!mkdir($dir, 0755)) {
 			fe("Failed to create '{$dir}' directory\n");	
 		}
@@ -132,6 +133,7 @@ function decompress_archive($data_root, $web_root)
 		}
 		$path .= '/' . $meta_data[1];
 
+		$path = str_replace('\/', '/', $path);
 		$path = str_replace('//', '/', $path);
 
 		if (isset($meta_data[5])) {
@@ -149,7 +151,7 @@ function decompress_archive($data_root, $web_root)
 			if (!$fp) {
 				fe("Couldn't open '{$path}' for write\n");
 			}
-				fwrite($fp, $file);
+			fwrite($fp, $file);
 			fclose($fp);
 
 			chmod($path, 0644);
@@ -212,6 +214,8 @@ function dberror()
 
 function dbperms_check()
 {
+	global $version;
+
 	/* version check */
 	if (($r = dbquery('SELECT VERSION()'))) {
 		$fetch = __dbtype__ == 'pgsql' ? 'pg_fetch_row' : 'mysql_fetch_row';
@@ -299,7 +303,7 @@ function change_global_settings($list)
 
 function db_connect($settings)
 {
-	if ($settings['DBHOST_TYPE'] == 'mysql') {
+	if ($settings['DBHOST_DBTYPE'] == 'mysql') {
 		if (($conn = @mysql_connect($settings['DBHOST'], $settings['DBHOST_USER'], $settings['DBHOST_PASSWORD']))) {
 			if (@mysql_select_db($settings['DBHOST_DBNAME'], $conn)) {
 				return $conn;
@@ -315,6 +319,7 @@ function db_connect($settings)
 	}
 }
 
+/* main program */
 	$settings = array(
 			'WWW_ROOT' => '',
 			'SERVER_ROOT' => '',
@@ -323,13 +328,13 @@ function db_connect($settings)
 			'DBHOST_USER' => '',
 			'DBHOST_PASSWORD' => '',
 			'DBHOST_DBNAME' => '',
-			'DBHOST_TBL_PREFIX' => 'fud26_',
-			'DBHOST_TYPE' => 'mysql',
+			'DBHOST_TBL_PREFIX' => 'fud28_',
+			'DBHOST_DBTYPE' => 'mysql',
 			'COOKIE_DOMAIN' => '',
-	                'LANGUAGE' => '',
-	                'ROOT_LOGIN' => get_current_user(),
-	                'ROOT_PASS' => '',
-	                'ADMIN_EMAIL' => ''
+			'LANGUAGE' => '',
+			'ROOT_LOGIN' => get_current_user(),
+			'ROOT_PASS' => '',
+			'ADMIN_EMAIL' => ''
 	);
 
 	$module_status = module_check();
@@ -339,7 +344,7 @@ function db_connect($settings)
 	} else if (($fs = filesize(__FILE__)) < 200000) {
 		fe("The installer is missing the data archive, append the archive to the installer and try again.\n\n");
 	} else if ($fs < 3500000 && !$module_status['zlib']) {
-		fe("zlib extension required to decompress the archive is not loaded.\nPlease recompile your PHP with zlib support or load the zlib extension, in the event this is not possible download\nthe non-zlib version of the install or upgrade script from FUDforum's website at:\nhttp://fud.prohost.org/forum/\n\n");
+		fe("zlib extension required to decompress the archive is not loaded.\nPlease recompile your PHP with zlib support or load the zlib extension, in the event this is not possible download\nthe non-zlib version of the install or upgrade script from FUDforum's website at:\nhttp://fudforum.org/forum/\n\n");
 	} else if (!$module_status['mysql'] && !$module_status['pgsql']) {
 		fe("FUDforum can utilize either MySQL or PosgreSQL database to store it's data, unfortunately, your PHP does not have\nsupport for either one. Please install or load the appropriate database extension and then re-run the install script.\n\n");
 	} else if (!$module_status['pcre']) {
@@ -377,6 +382,7 @@ function db_connect($settings)
 		}
 		pf("'{$path}' iether does not exist or the installer has no permission to create it\n");
 	}
+	$settings['SERVER_ROOT'] = str_replace('\\', '/', $settings['SERVER_ROOT']);
 
 	/* Fetch file path of the forum's web files */
 	while (!$settings['SERVER_DATA_ROOT'] || !is_wr($settings['SERVER_DATA_ROOT'])) {
@@ -393,6 +399,7 @@ function db_connect($settings)
 		}
 		pf("'{$path}' iether does not exist or the installer has no permission to create it\n");
 	}
+	$settings['SERVER_DATA_ROOT'] = str_replace('\\', '/', $settings['SERVER_DATA_ROOT']);
 
 	/* decompress the archive */
 	decompress_archive($settings['SERVER_DATA_ROOT'], $settings['SERVER_ROOT']);
@@ -459,19 +466,19 @@ function db_connect($settings)
 		$dbs[] = 'pgsql';
 	}
 	if (count($dbs) == 1) {
-		$settings['DBHOST_TYPE'] = $dbs[0];
+		$settings['DBHOST_DBTYPE'] = $dbs[0];
 	} else {
-		while (!$settings['DBHOST_TYPE']) {
+		while (!$settings['DBHOST_DBTYPE']) {
 			pf("Please choose a database type [mysql pgsql]: ");
 			$db = trim(fgets(STDIN, 1024));
 			if (in_array($db, $dbs)) {
-				$settings['DBHOST_TYPE'] = $db;
+				$settings['DBHOST_DBTYPE'] = $db;
 				break;
 			}
 			pf("'{$db}' is not a valid database type or is not supported.\n");
 		}
 	}
-	define('__dbtype__', $settings['DBHOST_TYPE']);
+	define('__dbtype__', $settings['DBHOST_DBTYPE']);
 
 	if ($got_config) {
 		$conn = db_connect($settings);
@@ -492,7 +499,7 @@ function db_connect($settings)
 		pf("Please specify password for '{$settings['DBHOST_USER']}': ");
 		$settings['DBHOST_PASSWORD'] = trim(fgets(STDIN, 1024));
 		
-		pf("Please specify SQL table prefix '{$settings['DBHOST_TBL_PREFIX']}' [fud26_]: ");
+		pf("Please specify SQL table prefix '{$settings['DBHOST_TBL_PREFIX']}' [fud28_]: ");
 		$settings['DBHOST_TBL_PREFIX'] = preg_replace('![^[:alnum:]_]!', '', trim(fgets(STDIN, 1024)));
 		if (!$settings['DBHOST_TBL_PREFIX']) {
 			$settings['DBHOST_TBL_PREFIX'] = 'fud26_';
@@ -520,7 +527,7 @@ function db_connect($settings)
 			}
 		}
 		unset($c);
-	
+
 		/* remove possibly conflicting sequences */
 		$c = dbquery("select relname from pg_class WHERE relkind='S' AND relname LIKE '".str_replace('_', '\\\\_', $prefix)."%'");
 		while ($r = pg_fetch_row($c)) {
@@ -553,7 +560,7 @@ function db_connect($settings)
 				$q = str_replace(array('BINARY', 'INT NOT NULL AUTO_INCREMENT'), array('', 'SERIAL'), $q);
 			} else if (version_compare($version, '4.1.2', '>=') && !strncmp($q, 'CREATE TABLE', strlen('CREATE TABLE'))) {
 				/* for MySQL 4.1.2 we need to specify a default charset */
-				$q .= " DEFAULT CHARACTER SET latin1";
+				$q .= " DEFAULT CHARACTER SET utf8";
 			}
 			if (($q = make_into_query(trim($q)))) {
 				if (!dbquery($q)) {
@@ -566,8 +573,8 @@ function db_connect($settings)
 
 	/* import table data */
 	foreach ($sql as $t) {
-		$data = explode(";\n", file_get_contents($t));
-		foreach ($data as $q) {
+		$data = preg_replace('/\r\n|\r/', "\n", file_get_contents($t));
+		foreach (explode(";\n", $data) as $q) {
 			if (strpos($q, 'UNIX_TIMESTAMP') !== false) {
 				$q = str_replace('UNIX_TIMESTAMP', time(), $q);
 			}
@@ -598,27 +605,32 @@ function db_connect($settings)
 	}
 	foreach ($ln_dir as $f) {
 		if (file_exists($f . '/locale')) {
-			$langs[strtolower($f)] = array(trim(file_get_contents($path . $f . '/locale')), @trim(file_get_contents($path . $f . '/pspell_lang')));
+			$lang = strtolower(basename($f));
+			$langs[$lang] = array(trim(file_get_contents($f . '/locale')), @trim(file_get_contents($f . '/pspell_lang')));
 		} 
 	}
 
-	pf("Supported Languages: \n\t".wordwrap(ucwords(implode(' ', array_keys($langs))), 75, "\n\t")."\n");
-
 	while (!$settings['LANGUAGE']) {
+	
+		pf("Supported languages: \n\t".wordwrap(ucwords(implode(' ', array_keys($langs))), 75, "\n\t")."\n");
+	
 		pf("Please choose a language [english]: ");
 		$lang = strtolower(trim(fgets(STDIN, 1024)));
 		if (!$lang) {
 			$lang = 'english';	
 		}
 		if (isset($langs[$lang])) {
-			dbquery("DELETE FROM ".$settings['DBHOST_TBL_PREFIX']."themes");
-			if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."themes(id, name, theme, lang, locale, theme_opt, pspell_lang) VALUES(1, 'default', 'default', '{$lang}', '{$langs[$lang][0]}', 3, '{$langs[$lang][1]}')")) {
-				fe(dberror());
-			}
 			$settings['LANGUAGE'] = $lang;
 			break;		
 		}
-		fs("Unsupported language '{$lang}', please choose a language\n");
+		pf("Unsupported language '{$lang}', please choose a language\n");
+	}
+	
+	/* load default theme into db */
+	$lang = $settings['LANGUAGE'];
+	dbquery("DELETE FROM ".$settings['DBHOST_TBL_PREFIX']."themes");
+	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."themes(id, name, theme, lang, locale, theme_opt, pspell_lang) VALUES(1, 'default', 'default', '{$lang}', '{$langs[$lang][0]}', 3, '{$langs[$lang][1]}')")) {
+		fe(dberror());
 	}
 
 	/* get admin account information */
@@ -652,16 +664,23 @@ function db_connect($settings)
 	change_global_settings(array('ADMIN_EMAIL' => $settings['ADMIN_EMAIL'], 'NOTIFY_FROM' => $settings['ADMIN_EMAIL']));
 
 	/* build theme */
-	$GLOBALS['WWW_ROOT'] = $settings['WWW_ROOT'];
-	$GLOBALS['WWW_ROOT_DISK'] = $settings['SERVER_ROOT'];
-	$GLOBALS['DATA_DIR'] = $settings['SERVER_DATA_ROOT'];
-	$GLOBALS['DBHOST_TBL_PREFIX'] = $settings['DBHOST_TBL_PREFIX'];
+	$GLOBALS['WWW_ROOT_DISK']		= $settings['SERVER_ROOT'];
+	$GLOBALS['DATA_DIR']			= $settings['SERVER_DATA_ROOT'];
+	$GLOBALS['INCLUDE'] 			= $settings['SERVER_DATA_ROOT'] . '/include/';
+	$GLOBALS['WWW_ROOT']			= $settings['WWW_ROOT'];
+	$GLOBALS['DBHOST_TBL_PREFIX']	= $settings['DBHOST_TBL_PREFIX'];
+	$GLOBALS['FUD_OPT_2']			= 8388608;
+	if (!strncmp($settings['DBHOST_DBTYPE'], 'pdo_', 4)) {
+		$GLOBALS['DBHOST_DBTYPE'] = $settings['DBHOST_DBTYPE'];
+	} else {
+		$GLOBALS['DBHOST_DBTYPE'] = '';
+	}
 
 	require($settings['SERVER_DATA_ROOT'] . 'include/compiler.inc');
-	compile_all('default', $lang);
+	compile_all('default', $settings['LANGUAGE']);
 
-	pf("FUDforum installation is now complete.");
-	pf("You can access your new FUDforum install at: {$settings['WWW_ROOT']}/index.php");
+	pf("Congratulations. Your FUDforum installation is now complete.\n");
+	pf("You may access your new forum at: {$settings['WWW_ROOT']}/index.php\n\n");
 	exit;
 ?>
 2105111608_\ARCH_START_HERE
