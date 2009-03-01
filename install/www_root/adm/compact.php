@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.74 2009/02/20 14:56:15 frank Exp $
+* $Id: compact.php,v 1.75 2009/03/01 18:03:43 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -96,12 +96,16 @@ $GLOBALS['__FUD_TMP_F__'] = array();
 set_error_handler ('error_handler');
 
 function error_handler ($level, $message, $file, $line, $context) {
-	echo <<<_END_
+	if (error_reporting() != 0) {
+		echo <<<_END_
 <script type="text/javascript">clearInterval(intervalID);</script>
 <p>An error was generated in file $file on line $line.</p>
 <p><font color="red">The error message was: $message</font></p>
 _END_;
-	exit;
+		exit;
+	} else {
+		return;
+	}
 } 
 
 function write_body_c($data, &$len, &$offset, $fid)
@@ -146,7 +150,7 @@ function eta_calc($start, $pos, $pc)
 	} else {
 		echo ($prg * 10) . "% done<br />\nETA: " . $eta . " seconds<br />\n";
 	}
-	ob_flush(); flush();
+	@ob_flush(); flush();
 }
 
 	if ($FUD_OPT_1 & 1) {
@@ -220,7 +224,7 @@ function eta_calc($start, $pos, $pc)
 	/* Private Messages */
 	echo "100% Done<br />\n";
 	echo "Compacting private messages...<br />\n";
-	ob_flush(); flush();
+	@ob_flush(); flush();
 
 	q('CREATE INDEX '.$tbl.'pmsg_foff_idx ON '.$tbl.'pmsg (foff)');
 
