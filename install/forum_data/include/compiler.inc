@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.97 2009/01/29 18:37:17 frank Exp $
+* $Id: compiler.inc,v 1.98 2009/03/04 05:43:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -183,11 +183,19 @@ function resolve_sections($str)
 				$t = strtok(substr($str, ++$ds, ($e - $ds)), ' ');
 				$ret .= '\'.alt_var(\''.$name.'\',\''.$t.'\',\''.strtok(' ').'\').\'';
 				break;
-			case 'DATE':
-				if ($name[0] != '!') {
-					$ret .= '\'.strftime("'.ltrim(substr($str, ++$ds, ($e - $ds))).'", $'.$name.').\'';
+                        case 'DATE':
+				if (stristr($GLOBALS['char_set'], 'utf-8') !== false && substr(PHP_OS, 0, 3) == "WIN") {
+					// Windows doesn't have UTF-8 locales
+					$func = '\'.utf8_encode(strftime("';
+					$close = ')).\'';
 				} else {
-					$ret .= '\'.strftime("'.ltrim(substr($str, ++$ds, ($e - $ds))).'", '.substr($name,1).').\'';
+					$func = '\'.strftime("';
+					$close = ').\'';
+				}
+				if ($name[0] != '!') {
+					$ret .= $func.ltrim(substr($str, ++$ds, ($e - $ds))).'", $'.$name.$close;
+				} else {
+					$ret .= $func.  ltrim(substr($str, ++$ds, ($e - $ds))).'", '.substr($name,1).$close;
 				}
 				break;
 			case 'TEMPLATE':
