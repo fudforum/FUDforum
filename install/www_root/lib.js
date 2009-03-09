@@ -289,3 +289,77 @@ function nextCat(id)
 		}
 	}
 }
+
+function min_max_cats(theme_image_root, img_ext, minimize_category, maximize_category, sq, s)
+{
+$(document).ready(function() {
+  var toggleMinus = theme_image_root +'/min'+ img_ext;
+  var togglePlus  = theme_image_root +'/max'+ img_ext;
+
+  $(".collapsed").prepend('<img src="'+ togglePlus +'" alt="+" title="'+ maximize_category +'" /> ')
+                 .addClass("collapsable");
+  $(".expanded").prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_category +'" /> ')
+                .addClass("collapsable");
+
+  $("img", $(".collapsable")).addClass('clickable')
+  .css("cursor", "pointer")
+  .click(function() {
+    var toggleSrc = $(this).attr('src');
+    var cat = $(this).parents("tr").attr('id');
+    var on;
+
+    if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        // Hide cat
+      $(this).attr('src', togglePlus)
+             .attr("title", maximize_category)
+             .attr("alt", "+")
+             .parents('tr').siblings(".child-"+cat).fadeOut('fast');
+      on = 1;
+    } else{                             // Show cat
+      $(this).attr('src', toggleMinus)
+             .attr("title", minimize_category)
+             .attr("alt", "-")
+             .parents('tr').siblings(".child-"+cat).fadeIn('fast');
+      on = 0;
+    };
+
+    if (sq != '') {
+       $.ajax({
+          type: "POST",
+          url: "index.php?t=cat_focus",
+          data: "SQ="+ sq +"&S="+ s +"&c="+ cat.substr(1) +"&on="+ on
+        });
+    } 
+
+  });
+})
+
+}
+
+function min_max_posts(theme_image_root, img_ext, minimize_message, maximize_message)
+{
+$(document).ready(function() {
+  var toggleMinus = theme_image_root +'/min'+ img_ext;
+  var togglePlus  = theme_image_root +'/max'+ img_ext;
+
+  $(".MsgSubText").prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_message +'" class="collapsable" /> '
+)
+
+  $(".collapsable").addClass('clickable').css("cursor", "pointer")
+  .click(function() {
+    var toggleSrc = $(this).attr('src');
+
+    if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        // Hide message
+      $(this).attr('src', togglePlus)
+             .attr("title", maximize_message)
+             .attr("alt", "+")
+             .parents(".MsgTable").find("td").not(".MsgR1").fadeOut('fast');
+    } else{                                             // Show message
+      $(this).attr('src', toggleMinus)
+             .attr("title", minimize_message)
+             .attr("alt", "-")
+             .parents(".MsgTable").find("td").fadeIn('fast');
+    };
+  });
+})
+}
+
