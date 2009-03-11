@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.100 2009/03/09 16:55:43 frank Exp $
+* $Id: post_proc.inc.t,v 1.101 2009/03/11 19:39:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -166,7 +166,11 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 						$url = str_replace('://', '&#58;&#47;&#47;', $url);
 					}
 
-					$end_tag[$cpos] = '</a>';
+					if ( strtolower(substr($str, $epos+1, 6)) == '[/url]' ) {
+						$end_tag[$cpos] = $url.'</a>';  // fill empty link
+					} else {
+						$end_tag[$cpos] = '</a>';
+					}
 					$ostr .= '<a href="'.$url.'" target="_blank">';
 					break;
 				case 'i':
