@@ -21,6 +21,8 @@ INSERT INTO {SQL_TABLE_PREFIX}avatar (img, descr, gallery) VALUES ('smiley20.jpg
 INSERT INTO {SQL_TABLE_PREFIX}avatar (img, descr, gallery) VALUES ('smiley21.jpg','Smiley21','default');
 INSERT INTO {SQL_TABLE_PREFIX}avatar (img, descr, gallery) VALUES ('smiley22.jpg','Smiley22','default');
 INSERT INTO {SQL_TABLE_PREFIX}avatar (img, descr, gallery) VALUES ('smiley23.jpg','Smiley23','default');
+INSERT INTO {SQL_TABLE_PREFIX}avatar (img, descr, gallery) VALUES ('smiley23.jpg','Smiley24','default');
+INSERT INTO {SQL_TABLE_PREFIX}avatar (img, descr, gallery) VALUES ('smiley23.jpg','Smiley25','default');
 
 INSERT INTO {SQL_TABLE_PREFIX}avatar (img, descr, gallery) VALUES ('tux01.jpg','Tux01','Tux');
 INSERT INTO {SQL_TABLE_PREFIX}avatar (img, descr, gallery) VALUES ('tux02.jpg','Tux02','Tux');
