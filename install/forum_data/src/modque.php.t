@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.php.t,v 1.54 2009/01/29 18:37:17 frank Exp $
+* $Id: modque.php.t,v 1.55 2009/03/14 20:20:51 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,6 +33,7 @@
 
 		if (sq_check(0, $usr->sq)) {
 			if ($appr) {
+				logaction($usr->id, 'APPROVEMSG', $appr);
 				fud_msg_edit::approve($appr);
 			} else if ($del) {
 				fud_msg_edit::delete(false, $del);
