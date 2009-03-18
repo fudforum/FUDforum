@@ -1039,9 +1039,18 @@ tabs_notifications:		Извещения
 finduser_flag:			Отметка
 post_descr:			Описание темы
 pmsg_download_dump:		Загрузка всех сообщений
-pmsg_on				вкл
 move_messages:			Перенос сообщений
 move_msg_btn:			Перенести выбранные сообщения
 move_msg_th_expl:		Укажите ID темы для переноса в нее сообщений (может быть в других форумах)
 minimize_message:		Минимизировать сообщение
 maximize_message:		Максимизировать сообщение
+no_bookmarked_threads:		No bookmarked topics
+bookmark_thread:		Bookmark topic
+bookmark_thread_desc:		Add this topic to your list of bookmarks
+bookmarked_threads:		Bookmarked Topics
+unbookmark_thread:		Remove from bookmarks
+unbookmark_thread_desc:		Remove this topic from your list of bookmarks
+tabs_bookmarkes:		Bookmarks
+bookmarked_update:		Browsing own bookmark list
+unbookmark_all_topics:		Remove all bookmarks
+pmsg_on				on

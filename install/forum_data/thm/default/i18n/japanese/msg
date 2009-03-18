@@ -1045,3 +1045,12 @@ move_msg_th_expl:		Specify the ID of the destination topic (can be in other foru
 move_messages:			Move messages
 minimize_message:		Minimize Message
 maximize_message:		Maximize Message
+no_bookmarked_threads:		No bookmarked topics
+bookmark_thread:		Bookmark topic
+bookmark_thread_desc:		Add this topic to your list of bookmarks
+bookmarked_threads:		Bookmarked Topics
+unbookmark_thread:		Remove from bookmarks
+unbookmark_thread_desc:		Remove this topic from your list of bookmarks
+tabs_bookmarkes:		Bookmarks
+bookmarked_update:		Browsing own bookmark list
+unbookmark_all_topics:		Remove all bookmarks
