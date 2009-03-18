@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.43 2009/01/29 18:37:17 frank Exp $
+* $Id: merge_th.php.t,v 1.44 2009/03/18 14:26:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -105,16 +105,22 @@
 			/* handle thread subscriptions and message read indicators */
 			if (__dbtype__ == 'mysql') {
 				q("UPDATE IGNORE {SQL_TABLE_PREFIX}thread_notify SET thread_id={$new_th} WHERE thread_id IN({$tl})");
+				q("UPDATE IGNORE {SQL_TABLE_PREFIX}bookmarks SET thread_id={$new_th} WHERE thread_id IN({$tl})");
 				q("UPDATE IGNORE {SQL_TABLE_PREFIX}read SET thread_id={$new_th} WHERE thread_id IN({$tl})");
 			} else if (__dbtype__ == 'sqlite') {
 				q("UPDATE OR IGNORE {SQL_TABLE_PREFIX}thread_notify SET thread_id={$new_th} WHERE thread_id IN({$tl})");
+				q("UPDATE OR IGNORE {SQL_TABLE_PREFIX}bookmarks SET thread_id={$new_th} WHERE thread_id IN({$tl})");
 				q("UPDATE OR IGNORE {SQL_TABLE_PREFIX}read SET thread_id={$new_th} WHERE thread_id IN({$tl})");
 			} else {
 				foreach (db_all("SELECT user_id FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id IN({$tl}) AND thread_id!=".$new_th) as $v) {
 					db_li("INSERT INTO {SQL_TABLE_PREFIX}thread_notify (user_id, thread_id) VALUES(".$v.",".$new_th.")", $tmp);
 				}
+				foreach (db_all("SELECT user_id FROM {SQL_TABLE_PREFIX}bookmarks WHERE thread_id IN({$tl}) AND thread_id!=".$new_th) as $v) {
+					db_li("INSERT INTO {SQL_TABLE_PREFIX}bookmarks (user_id, thread_id) VALUES(".$v.",".$new_th.")", $tmp);
+				}
 			}
 			q("DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id IN({$tl})");
+			q("DELETE FROM {SQL_TABLE_PREFIX}bookmarks WHERE thread_id IN({$tl})");
 			q("DELETE FROM {SQL_TABLE_PREFIX}read WHERE thread_id IN({$tl})");
 	
 			logaction(_uid, 'THRMERGE', $new_th, count($_POST['sel_th']));

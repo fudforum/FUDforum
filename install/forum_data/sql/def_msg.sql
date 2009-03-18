@@ -1,3 +1,4 @@
+/* Add initial welcome message */
 INSERT INTO {SQL_TABLE_PREFIX}msg (id, thread_id, poster_id, reply_to, ip_addr, host_name, post_stamp, update_stamp, updated_by, icon, subject, attach_cnt, poll_id, foff, length, file_id, offset_preview, length_preview, file_id_preview, attach_cache, poll_cache, mlist_msg_id, msg_opt, apr, flag_cc, flag_country) VALUES
 (1, 1, 2, 0, '127.0.0.1', NULL, 1237282100, 0, 0, NULL, 'Welcome to FUDforum', 0, 0, -1, 400, 4, -1, 0, 0, NULL, NULL, NULL, 1, 1, NULL, NULL);
 
@@ -10,3 +11,7 @@ INSERT INTO {SQL_TABLE_PREFIX}tv_1 (id, seq, thread_id, iss) VALUES (1, 1, 1, 0)
 INSERT INTO {SQL_TABLE_PREFIX}forum_read (id, forum_id, user_id, last_view) VALUES (1, 1, 2, 0);
 
 UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=1, post_count=1, last_post_id=1 WHERE id=1;
+
+/* Subscribe to and bookmark the topic */
+INSERT INTO {SQL_TABLE_PREFIX}thread_notify (id, user_id, thread_id) VALUES (1, 2, 1);
+INSERT INTO {SQL_TABLE_PREFIX}bookmarks (id, user_id, thread_id) VALUES (1, 2, 1);

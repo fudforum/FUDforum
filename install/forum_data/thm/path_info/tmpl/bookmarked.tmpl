@@ -1,0 +1,34 @@
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: bookmarked.tmpl,v 1.1 2009/03/18 14:26:53 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; version 2 of the License. 
+**/
+
+{PHP_FILE: input: bookmarked.php.t; output: bookmarked.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: forum_notify.tmpl}
+{REF: thread_notify.tmpl}
+{REF: stats.tmpl}
+{REF: draw_pager.tmpl}
+{REF: tabs.tmpl}
+{REF: alt_var.tmpl}
+
+{SECTION: bookmarked_thread_entry_lnk}
+{ROOT}/t/{VAR: r[0]}/0/unread/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: bookmarked_thread_entry_lnk1}
+{ROOT}/bml/0/{VAR: r[0]}/{DEF: _rsid}?SQ={GVAR: sq}
+{SECTION: END}
+
+{SECTION: bookmarked_action}
+{ROOT}/bml/
+{SECTION: END}

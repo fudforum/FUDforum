@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.169 2009/01/29 18:37:17 frank Exp $
+* $Id: users.inc.t,v 1.170 2009/03/18 14:26:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -173,7 +173,7 @@ function &init_user()
 				$_GET['start'] = $p[4];
 				break;
 
-			case 'sl':
+			case 'sl': /* subscribed topic list */
 				$_GET['t'] = 'subscribed';
 				if ($p[1] == 'start') {
 					$_GET['start'] = $p[2];
@@ -182,6 +182,17 @@ function &init_user()
 						$_GET['th'] = $p[2];
 					} else if (isset($p[1])) {
 						$_GET['frm_id'] = $p[1];
+					}
+				}
+				break;
+
+			case 'bml': /* bookmark list */
+				$_GET['t'] = 'bookmarked';
+				if ($p[1] == 'start') {
+					$_GET['start'] = $p[2];
+				} else {
+					if (isset($p[2])) {
+						$_GET['th'] = $p[2];
 					}
 				}
 				break;
@@ -436,6 +447,20 @@ function &init_user()
 				$_GET['t'] = $p[1];
 				$_GET['th'] = $p[2];
 				$_GET['notify'] = $p[3];
+				$_GET['opt'] = $p[4];
+				if (isset($p[5])) {
+					if ($p[1] == 'msg') {
+						$_GET['start'] = $p[5];
+					} else {
+						$_GET['mid'] = $p[5];
+					}
+				}
+				break;
+
+			case 'bm': /* bookmark/unbookmark a topic */
+				$_GET['t'] = $p[1];
+				$_GET['th'] = $p[2];
+				$_GET['bookmark'] = $p[3];
 				$_GET['opt'] = $p[4];
 				if (isset($p[5])) {
 					if ($p[1] == 'msg') {

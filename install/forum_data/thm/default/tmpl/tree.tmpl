@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.88 2009/02/22 00:00:37 frank Exp $
+* $Id: tree.tmpl,v 1.89 2009/03/18 14:26:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -84,6 +84,22 @@
 | <a href="{TEMPLATE: unsub_to_thread_lnk}" title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</a>&nbsp;
 {SECTION: END}
 
+{SECTION: bookmark_thread_lnk}
+{ROOT}?t=tree&amp;th={VAR: th}&amp;bookmark={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=on&amp;mid={VAR: mid}&amp;SQ={GVAR: sq}
+{SECTION: END}
+
+{SECTION: unbookmark_thread_lnk}
+{ROOT}?t=tree&amp;th={VAR: th}&amp;bookmark={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=off&amp;mid={VAR: mid}&amp;SQ={GVAR: sq}
+{SECTION: END}
+
+{SECTION: bookmark_thread bookmark thread link}
+| <a href="{TEMPLATE: bookmark_thread_lnk}" title="{MSG: bookmark_thread_desc}">{MSG: bookmark_thread}</a>&nbsp;
+{SECTION: END}
+
+{SECTION: unbookmark_thread remove bookmark thread link}
+| <a href="{TEMPLATE: unbookmark_thread_lnk}" title="{MSG: unbookmark_thread_desc}">{MSG: unbookmark_thread}</a>&nbsp;
+{SECTION: END}
+
 {SECTION: flat_view_lnk}
 {ROOT}?t=msg&amp;th={VAR: th}&amp;{DEF: _rsid}#msg_{VAR: mid}
 {SECTION: END}
@@ -156,7 +172,7 @@
 <span id="threadRating">{IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}</span>
 <table cellspacing="0" cellpadding="0" border="0" class="wa">
 <tr>
-<td class="GenText al">{TEMPLATE: show_links}{IF: ($frm->replies && $perms & 2048)}{TEMPLATE: split_thread}{ENDIF}{IF: $perms & 8192}{IF: $frm->replies}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIFI}<a href="javascript://" onclick="window_open(\'{TEMPLATE: tree_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}{TEMPLATE-DATA: lock_thread}{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_page_to_friend}{ENDIF}{TEMPLATE-DATA: subscribe_status}</td>
+<td class="GenText al">{TEMPLATE: show_links}{IF: ($frm->replies && $perms & 2048)}{TEMPLATE: split_thread}{ENDIF}{IF: $perms & 8192}{IF: $frm->replies}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIFI}<a href="javascript://" onclick="window_open(\'{TEMPLATE: tree_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}{TEMPLATE-DATA: lock_thread}{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_page_to_friend}{ENDIF}{TEMPLATE-DATA: subscribe_status}{TEMPLATE-DATA: bookmark_status}</td>
 <td class="vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
 </tr>
 </table>

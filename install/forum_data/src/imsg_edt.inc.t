@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.175 2009/01/29 18:37:17 frank Exp $
+* $Id: imsg_edt.inc.t,v 1.176 2009/03/18 14:26:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -268,7 +268,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}msg_store WRITE, {SQL_TABLE_PREFIX}forum f WRITE, {SQL_TABLE_PREFIX}thr_exchange WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' tv WRITE, {SQL_TABLE_PREFIX}msg m WRITE, {SQL_TABLE_PREFIX}thread t WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}forum_read WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}attach WRITE, {SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}poll_opt_track WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}thread_notify WRITE, {SQL_TABLE_PREFIX}msg_report WRITE, {SQL_TABLE_PREFIX}thread_rate_track WRITE');
+			db_lock('{SQL_TABLE_PREFIX}msg_store WRITE, {SQL_TABLE_PREFIX}forum f WRITE, {SQL_TABLE_PREFIX}thr_exchange WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' WRITE, {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' tv WRITE, {SQL_TABLE_PREFIX}msg m WRITE, {SQL_TABLE_PREFIX}thread t WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}forum_read WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}attach WRITE, {SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}poll_opt_track WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}thread_notify WRITE, {SQL_TABLE_PREFIX}bookmarks WRITE, {SQL_TABLE_PREFIX}msg_report WRITE, {SQL_TABLE_PREFIX}thread_rate_track WRITE');
 			$ll = 1;
 		}
 
@@ -293,7 +293,7 @@ class fud_msg_edit extends fud_msg
 		/* check if thread */
 		if ($del->root_msg_id == $del->id) {
 			$th_rm = 1;
-			/* delete all messages in the thread if there is more then 1 message */
+			/* delete all messages in the thread if there is more than 1 message */
 			if ($del->replies) {
 				$rmsg = q('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND id != '.$del->id);
 				while ($dim = db_rowarr($rmsg)) {
@@ -303,6 +303,7 @@ class fud_msg_edit extends fud_msg
 			}
 
 			q('DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id='.$del->thread_id);
+			q('DELETE FROM {SQL_TABLE_PREFIX}bookmarks WHERE thread_id='.$del->thread_id);
 			q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id='.$del->thread_id);
 			q('DELETE FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$del->thread_id);
 			q('DELETE FROM {SQL_TABLE_PREFIX}thr_exchange WHERE th='.$del->thread_id);

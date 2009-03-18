@@ -90,6 +90,7 @@ no_new_posts:			No New messages
 no_posts:			No Messages
 no_subscribed_forums:		No subscribed forums
 no_subscribed_threads:		No subscribed topics
+no_bookmarked_threads:		No bookmarked topics
 no_unread_locked:		This topic has been locked
 no_unread_msg:			This topic has no unread messages
 no_unread_msg_unreg:		The read &amp; unread messages are only tracked for registered users
@@ -140,6 +141,8 @@ sticky:				sticky:
 stop_ignoring:			stop ignoring this user
 sub_to_thread:			Subscribe to topic
 sub_to_thread_desc:		Receive notification about new messages inside this topic
+bookmark_thread:		Bookmark topic
+bookmark_thread_desc:		Add this topic to your list of bookmarks
 subject:			Subject
 subscribe:			Subscribe
 subscribe_desc:			Receive notifications when someone creates a new topic in this forum
@@ -147,6 +150,7 @@ subscribed_forums:		Subscribed Forums
 subscribed_forums_desc:		Toggle the subscribed forums filter (will only show messages from the forums you are subscribed to)
 subscribed_threads:		Subscribed Topics
 subscribed_threads_desc:	Toggle the subscribed topics filter (will only show messages from the topics you are subscribed to)
+bookmarked_threads:		Bookmarked Topics
 switch_to_thread_view:		Switch to threaded view of this topic
 thread:				Topic:
 thread_announcement:		Announcement:
@@ -166,6 +170,8 @@ unread_posts:			Unread Messages
 unread_posts_desc:		Show all unread messages
 unsub_from_thread:		Unsubscribe from topic
 unsub_from_thread_desc:		Stop receiving notifications about new messages in this topic
+unbookmark_thread:		Remove from bookmarks
+unbookmark_thread_desc:		Remove this topic from your list of bookmarks
 unsubscribe:			Unsubscribe
 unsubscribe_desc:		Stop receiving notifications about new topics in the forum
 updated_on:			Updated on:
@@ -517,6 +523,7 @@ poll_year:			year
 poll_week:			week
 tabs_register:			Account Settings
 tabs_subscriptions:		Subscriptions
+tabs_bookmarkes:		Bookmarks
 tabs_referrals:			Referrals
 tabs_buddy_list:		Buddy List
 tabs_ignore_list:		Ignore List
@@ -637,6 +644,7 @@ search_update:			Searching messages
 selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Today&#39;s Posts</a>
 showposts_update:		Viewing posts by: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Browsing own subscriptions
+bookmarked_update:		Browsing own bookmark list
 thread_update:			Browsing forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:			Browsing topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Looking at <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profile
@@ -1013,6 +1021,7 @@ merge_th_page_list:		Topic Page Selection
 most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:		Unsubscribe From All Forums
 sub_unsub_all_topics:		Unsubscribe From All Topics
+unbookmark_all_topics:		Remove all bookmarks
 tabs_own_posts:			Show Own Posts
 sml_emoticon:			Emoticon
 sml_code:			Code

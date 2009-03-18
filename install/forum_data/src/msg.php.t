@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.109 2009/01/29 18:37:17 frank Exp $
+* $Id: msg.php.t,v 1.110 2009/03/18 14:26:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -70,7 +70,7 @@
 			f.name,
 			m.subject,
 			t.tdescr, t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt, t.last_post_date, '.
-			(_uid ? ' tn.thread_id AS subscribed, mo.forum_id AS md, tr.thread_id AS cant_rate, r.last_view, r2.last_view AS last_forum_view, ' : ' 0 AS md, 1 AS cant_rate, ').'
+			(_uid ? ' tn.thread_id AS subscribed, tb.thread_id AS bookmarked, mo.forum_id AS md, tr.thread_id AS cant_rate, r.last_view, r2.last_view AS last_forum_view, ' : ' 0 AS md, 1 AS cant_rate, ').'
 			m2.thread_id AS last_thread,
 			'.$fields.'
 		FROM {SQL_TABLE_PREFIX}thread t
@@ -79,6 +79,7 @@
 			INNER JOIN {SQL_TABLE_PREFIX}cat		c ON f.cat_id=c.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg 		m2 ON f.last_post_id=m2.id
 			'.(_uid ? 'LEFT  JOIN {SQL_TABLE_PREFIX}thread_notify 	tn ON tn.user_id='._uid.' AND tn.thread_id='.$th.'
+			LEFT  JOIN {SQL_TABLE_PREFIX}bookmarks		tb ON tb.user_id='._uid.' AND tb.thread_id='.$th.' 
 			LEFT  JOIN {SQL_TABLE_PREFIX}mod 		mo ON mo.user_id='._uid.' AND mo.forum_id=t.forum_id
 			LEFT  JOIN {SQL_TABLE_PREFIX}thread_rate_track 	tr ON tr.thread_id='.$th.' AND tr.user_id='._uid.'
 			LEFT  JOIN {SQL_TABLE_PREFIX}read 		r ON r.thread_id=t.id AND r.user_id='._uid.'
@@ -126,13 +127,23 @@
 			}
 		}
 
+		/* Deal with bookmarks */
+		if (isset($_GET['bookmark'], $_GET['opt']) && sq_check(0, $usr->sq)) {
+			if (($frm->bookmarked = ($_GET['opt'] == 'on'))) {
+				thread_bookmark_add(_uid, $th);
+			} else {
+				thread_bookmark_del(_uid, $th);
+			}
+		}
+
 		$first_unread_message_link = (($total - $th) > $count) ? '{TEMPLATE: first_unread_message_link}' : '';
 		$subscribe_status = $frm->subscribed ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
+		$bookmark_status  = $frm->bookmarked ? '{TEMPLATE: unbookmark_thread}' : '{TEMPLATE: bookmark_thread}';
 	} else {
 		if (__fud_cache($frm->last_post_date)) {
 			return;
 		}
-		$first_unread_message_link = $subscribe_status = '';
+		$first_unread_message_link = $subscribe_status = $bookmark_status = '';
 	}
 
 	ses_update_status($usr->sid, '{TEMPLATE: msg_update}', $frm->forum_id);

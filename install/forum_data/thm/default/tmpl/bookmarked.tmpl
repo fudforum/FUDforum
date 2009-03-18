@@ -1,0 +1,64 @@
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: bookmarked.tmpl,v 1.1 2009/03/18 14:26:53 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: bookmarked.php.t; output: bookmarked.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: thread_notify.tmpl}
+{REF: stats.tmpl}
+{REF: draw_pager.tmpl}
+{REF: tabs.tmpl}
+{REF: alt_var.tmpl}
+
+{PAGE: BOOKMARKED_PAGE bookmarked thread list}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+{TEMPLATE-DATA: tabs}
+<form method="post" id="bookmark" action="{TEMPLATE: bookmarked_action}">
+{DEF: _hs}
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan="3">{MSG: bookmarked_threads}</th></tr>
+{IF: $bookmarked_thread_data}
+{VAR: bookmarked_thread_data}
+<tr class="RowStyleC"><td class="ac" colspan="2"><input type="submit" class="button" name="t_unbookmark_sel" value="{MSG: unbookmark_thread}" /></td><td class="ar"><input type="submit" class="button" name="t_unbookmark_all" value="{MSG: unbookmark_all_topics}" />
+</td></tr>
+{ELSE}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan="3">{MSG: no_bookmarked_threads}</td></tr>
+{END}
+</table>
+</form>
+{TEMPLATE-DATA: pager}
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: bookmarked_thread_entry}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td><input type="checkbox" name="te[]" value="{VAR: r[0]}" /></td><td class="nw"><a href="{TEMPLATE: bookmarked_thread_entry_lnk1}">{MSG: unbookmark_thread}</a></td><td class="wa">{VAR: r[2]} &raquo; <a href="{TEMPLATE: bookmarked_thread_entry_lnk}">{VAR: r[1]}</a></td></tr>
+{SECTION: END}
+
+{SECTION: bookmarked_update}
+{MSG: bookmarked_update}
+{SECTION: END}
+
+{SECTION: bookmarked_thread_entry_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[0]}&amp;unread=1&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: bookmarked_thread_entry_lnk1}
+{ROOT}?t=bookmarked&amp;th={VAR: r[0]}&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
+{SECTION: END}
+
+{SECTION: bookmarked_action}
+{ROOT}?t=bookmarked
+{SECTION: END}

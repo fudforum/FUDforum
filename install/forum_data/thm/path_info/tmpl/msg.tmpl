@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.25 2009/01/29 18:37:40 frank Exp $
+* $Id: msg.tmpl,v 1.26 2009/03/18 14:26:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -54,6 +54,14 @@
 
 {SECTION: unsub_to_thread_lnk}
 {ROOT}/mn/msg/{VAR: th}/1/off/{VAR: _GET['start']}/{DEF: _rsid}?SQ={GVAR: sq}
+{SECTION: END}
+
+{SECTION: bookmark_thread_lnk}
+{ROOT}/bm/msg/{VAR: th}/1/on/{VAR: _GET['start']}/{DEF: _rsid}?SQ={GVAR: sq}
+{SECTION: END}
+
+{SECTION: unbookmark_thread_lnk}
+{ROOT}/bm/msg/{VAR: th}/1/off/{VAR: _GET['start']}/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: threaded_view_lnk}
