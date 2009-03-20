@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.36 2009/02/16 05:37:11 frank Exp $
+* $Id: indexdb.php,v 1.37 2009/03/20 14:10:22 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,7 +47,7 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 	}
 
 	echo '<br />Please wait while index is being rebuilt.<br />This may take a while depending on the size of your forum.';
-	ob_flush(); flush();
+	@ob_flush(); flush();
 
 	$tbl =& $DBHOST_TBL_PREFIX;
 

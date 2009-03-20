@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.102 2009/01/29 18:37:40 frank Exp $
+* $Id: admglobal.php,v 1.103 2009/03/20 14:10:22 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -165,7 +165,7 @@ function get_max_upload_size()
 ?>
 <tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><br /><b>Global</b></td></tr>
+<tr class="fieldtopic"><td colspan="2"><br /><b>URL &amp; directories</b></td></tr>
 <?php
 	print_reg_field('WWW Root', 'WWW_ROOT');
 	print_reg_field('WWW Root (disk path)', 'WWW_ROOT_DISK');

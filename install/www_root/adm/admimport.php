@@ -2,18 +2,22 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.64 2009/02/16 05:37:11 frank Exp $
+* $Id: admimport.php,v 1.65 2009/03/20 14:10:22 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-	@set_time_limit(6000);
+	error_reporting(E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR);
+	@ini_set('display_errors', '1');
+	@ini_set("memory_limit", "100M");
+	@set_time_limit(18000);
 
-	/* Uncomment the line below if you wish to import data without authentication */
-	/* This is useful if the previous import had failed resulting in the loss of old SQL data */
-	//define('recovery_mode', 1);
+	/* Uncomment the line below if you wish to import data without authentication
+	 * This is useful if the previous import had failed resulting in the loss of old SQL data
+	**/
+	// define('recovery_mode', 1);
 
 	require('./GLOBALS.php');
 
@@ -74,13 +78,18 @@ function resolve_dest_path($path)
 
 			/* handle data files */
 			echo "Restoring data files...<br />\n";
-			ob_flush(); flush();
+			@ob_flush(); flush();
 			while (($line = $getf($fp, 1000000)) && $line != "----FILES_END----\n") {
 				/* each file is preceeded by a header ||path||size|| */
 				if (strncmp($line, '||', 2)) {
 					continue;
 				}
 				list(,$path,$size,) = explode("||", $line);
+
+				if ($path == 'WWW_ROOT_DISK/adm/admimport.php' ) {
+					// Skip admimport.php, don't overwrite the running script
+					continue;
+				}
 
 				$path = resolve_dest_path($path);
 				if (!($fd = fopen($path, 'wb'))) {
@@ -114,13 +123,13 @@ function resolve_dest_path($path)
 			while ($getf($fp, 1024) != "----SQL_START----\n" && !$feoff($fp));
 
 			echo "Drop database tables...<br />\n";
-			ob_flush(); flush();
+			@ob_flush(); flush();
 			/* clear SQL data */
 			foreach(get_fud_table_list() as $v) {
 				q('DROP TABLE '.$v);
 			}
 
-			/* If we are dealing with pgSQL drop all sequences too */
+			/* if we are dealing with pgSQL drop all sequences too */
 			if (__dbtype__ == 'pgsql') {
 				$c = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".str_replace("_", '\\\\_', $DBHOST_TBL_PREFIX)."'");
 				while($r = db_rowarr($c)) {
@@ -140,7 +149,7 @@ function resolve_dest_path($path)
 
 			/* create table structure */
 			echo "Create database tables...<br />\n";
-			ob_flush(); flush();
+			@ob_flush(); flush();
 			while (($line = $getf($fp, 1000000)) && !$feoff($fp)) {
 				if (($line = trim($line))) {
 					if (!strncmp($line, 'DROP', 4) || !strncmp($line, 'ALTER', 5)) {
@@ -161,14 +170,14 @@ function resolve_dest_path($path)
 						$line = strtr($line, array('BINARY'=>'', 'INT NOT NULL AUTO_INCREMENT'=>'SERIAL'));
 					} else if ($my412 && !strncmp($line, 'CREATE TABLE', strlen('CREATE TABLE'))) { 
 						/* for MySQL 4.1.2+ we need to specify a default charset */
-						$line .= " DEFAULT CHARACTER SET utf8";
+						$line .= " DEFAULT CHARACTER SET utf8 COLLATE utf8_bin";
 					}
 
 					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));
 				}
 			}
 			echo "Loading database tables...<br />\n";
-			ob_flush(); flush();
+			@ob_flush(); flush();
 			$r = $i = 0; $tmp = $pfx = ''; $m = __dbtype__ == 'mysql'; $p = __dbtype__ == 'pgsql';
 			do {
 				if (($line = trim($line))) {
@@ -198,7 +207,7 @@ function resolve_dest_path($path)
 
 					if ($i && !($i % 10000)) {
 						echo 'Processed '.$i.' queries<br />';
-						ob_flush(); flush();
+						@ob_flush(); flush();
 					}
 					++$i;
 				}
@@ -209,6 +218,8 @@ function resolve_dest_path($path)
 				unset($tmp);
 			}
 
+			echo "Creating indexes...<br />\n";
+			@ob_flush(); flush();
 			foreach ($idx as $v) {
 				q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $v));
 			}
@@ -224,6 +235,8 @@ function resolve_dest_path($path)
 			}
 
 			/* handle importing of GLOBAL options */
+			echo "Import GLOBAL settings...<br />\n";
+			@ob_flush(); flush();			
 			eval(trim($readf($fp, 100000))); // should be enough to read all options in one shot
 			fud_use('glob.inc', true);
 			change_global_settings($global_vals);
@@ -236,13 +249,15 @@ function resolve_dest_path($path)
 			}
 
 			/* we now need to correct cached paths for file attachments and avatars */
-			echo "Correcting Avatar Paths<br />\n";
+			echo "Correcting Avatar Paths...<br />\n";
+			@ob_flush(); flush();			
 			if (($old_path = q_singleval('SELECT location FROM '.$DBHOST_TBL_PREFIX.'attach LIMIT 1'))) {
 				preg_match('!(.*)/!', $old_path, $m);
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'attach SET location=REPLACE(location, '._esc($m[1]).', '._esc($GLOBALS['FILE_STORE']).')');
 			}
 
-			echo "Correcting Attachment Paths<br />\n";
+			echo "Correcting Attachment Paths...<br />\n";
+			@ob_flush(); flush();			
 			if (($old_path = q_singleval('SELECT avatar_loc FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0 LIMIT 1'))) {
 				preg_match('!http://(.*)/images/!', $old_path, $m);
 				preg_match('!//(.*)/!', $GLOBALS['WWW_ROOT'], $m2);
@@ -250,8 +265,8 @@ function resolve_dest_path($path)
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET avatar_loc=REPLACE(avatar_loc, '._esc($m[1]).', '._esc($m2[1]).') WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0');
 			}
 
-			echo "Recompiling Templates<br />\n";
-			ob_flush(); flush();
+			echo "Recompiling Templates...<br />\n";
+			@ob_flush(); flush();
 
 			fud_use('compiler.inc', true);
 			$c = uq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0');
