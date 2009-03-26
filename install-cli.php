@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.22 2009/02/25 19:10:55 frank Exp $
+* $Id: install-cli.php,v 1.23 2009/03/26 17:34:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -420,6 +420,7 @@ function db_connect($settings)
 	$FILE_STORE = $settings['SERVER_DATA_ROOT'].'files/';
 	$TMP = $settings['SERVER_DATA_ROOT'].'tmp/';
 	$FORUM_SETTINGS_PATH = $settings['SERVER_DATA_ROOT'].'cache/';
+	$PLUGIN_PATH = $settings['SERVER_DATA_ROOT'].'plugins/';
 
 	chmod($INCLUDE . 'GLOBALS.php', 0666);
 	touch($ERROR_PATH . 'FILE_LOCK');
@@ -450,6 +451,7 @@ function db_connect($settings)
 		'WWW_ROOT' => $settings['WWW_ROOT'],
 		'WWW_ROOT_DISK' => $settings['SERVER_ROOT'],
 		'FORUM_SETTINGS_PATH' => $FORUM_SETTINGS_PATH,
+		'PLUGIN_PATH' => $PLUGIN_PATH,
 		'COOKIE_NAME' => 'fud_session_'.time(),
 		'FUD_OPT_2' => $FUD_OPT_2,
 		'FUD_OPT_1' => $FUD_OPT_1,
@@ -560,7 +562,7 @@ function db_connect($settings)
 				$q = str_replace(array('BINARY', 'INT NOT NULL AUTO_INCREMENT'), array('', 'SERIAL'), $q);
 			} else if (version_compare($version, '4.1.2', '>=') && !strncmp($q, 'CREATE TABLE', strlen('CREATE TABLE'))) {
 				/* for MySQL 4.1.2 we need to specify a default charset */
-				$q .= " DEFAULT CHARACTER SET utf8";
+				$q .= " DEFAULT CHARACTER SET utf8 COLLATE utf8_bin";
 			}
 			if (($q = make_into_query(trim($q)))) {
 				if (!dbquery($q)) {
