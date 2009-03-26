@@ -1041,7 +1041,7 @@ pmsg_download_dump:		查看所有悄悄话
 move_messages:			移动帖子
 move_msg_btn:			移动所有选中的
 move_msg_th_expl:		移至指定主题的ID（可以跨版块）
-pmsg_on				on
+pmsg_on:			on
 minimize_message:		Minimize Message
 maximize_message:		Maximize Message
 register_err_taken_alias:	The alias you are trying to use is already in use by another forum member. Please choose another.

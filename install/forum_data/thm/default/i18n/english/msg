@@ -1049,7 +1049,7 @@ topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
 tabs_notifications:		Notifications
 finduser_flag:			Flag
 post_descr:			Topic Description:
-pmsg_on				on
+pmsg_on:			on
 pmsg_download_dump:		Download Message Dump
 move_messages:			Move messages
 move_msg_btn:			Move Selected Messages

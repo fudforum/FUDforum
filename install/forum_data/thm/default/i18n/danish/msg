@@ -1053,4 +1053,4 @@ tabs_bookmarkes:		Bookmarks
 bookmarked_update:		Browsing own bookmark list
 group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
 unbookmark_all_topics:		Remove all bookmarks
-pmsg_on				on
+pmsg_on:			on

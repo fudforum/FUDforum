@@ -1038,7 +1038,7 @@ register_notify_method_desc:	Estableixi el seu mecanisme de notificació preferi
 tabs_notifications:		Notificacions
 finduser_flag:			Flag
 post_descr:			Topic Description
-pmsg_on				on
+pmsg_on:			on
 pmsg_download_dump:		Download Message Dump
 move_messages:			Move messages
 move_msg_btn:			Move Selected Messages

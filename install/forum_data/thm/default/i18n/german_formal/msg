@@ -1042,7 +1042,7 @@ pmsg_download_dump:		Nachrichtenarchiv herunterladen
 move_messages:			Beitr&auml;ge verschieben
 move_msg_btn:			Verschiebe ausgew&auml;hlte Beitr&auml;ge
 move_msg_th_expl:		Geben Sie die ID des Zielthemas an (kann in einem anderem Forum sein)
-pmsg_on				on
+pmsg_on:			on
 minimize_message:		Minimize Message
 maximize_message:		Maximize Message
 no_bookmarked_threads:		No bookmarked topics

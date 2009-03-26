@@ -1053,4 +1053,4 @@ unbookmark_thread_desc:		Remove this topic from your list of bookmarks
 tabs_bookmarkes:		Bookmarks
 bookmarked_update:		Browsing own bookmark list
 unbookmark_all_topics:		Remove all bookmarks
-pmsg_on				on
+pmsg_on:			on
