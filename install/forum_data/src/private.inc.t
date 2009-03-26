@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.59 2009/01/29 18:37:17 frank Exp $
+* $Id: private.inc.t,v 1.60 2009/03/26 17:24:27 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,7 +51,7 @@ class fud_pmsg
 			pmsg_opt
 			) VALUES(
 				".$this->ouser_id.",
-				".$this->ouser_id.",
+				".($this->duser_id ? $this->duser_id : $this->ouser_id).",
 				".(isset($GLOBALS['recv_user_id'][0]) ? (int)$GLOBALS['recv_user_id'][0] : '0').",
 				".ssn($this->to_list).",
 				'".$this->ip_addr."',

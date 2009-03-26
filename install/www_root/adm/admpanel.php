@@ -35,6 +35,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 <?php } ?><br />
 	<span class="linkgroup">General Management</span><br />
 	<a href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a><br />
+	<a href="admplugins.php?<?php echo __adm_rsid; ?>">Plugin Manager</a><br />
 	<a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement &amp; Censorship System</a><br />
 	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Managment System</a><br />
 	<a href="admrdf.php?<?php echo __adm_rsid; ?>">RDF Feed Managment</a><br />

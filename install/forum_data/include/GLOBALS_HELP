@@ -462,3 +462,6 @@ Disable the system for sending e-mail notification pertaining to new messages an
 
 {{{UPDATE_GEOLOC_ON_LOGIN	FUD_OPT_3	2097152
 If enabled then user's country (name and flag) will be updated each time they login. This option depends on Geo Location being enabled.}}}
+
+{{{PLUGINS_ENABLED	FUD_OPT_3	4194304
+Enable/disable forum plugins. Plugins are typically created by third-party developers to extended the default capabilities of FUDforum.}}}

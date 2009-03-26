@@ -2,14 +2,14 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.196 2009/02/22 10:21:50 frank Exp $
+* $Id: core.inc,v 1.197 2009/03/26 17:24:27 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-$FORUM_VERSION = "2.8.0";
+$FORUM_VERSION = "2.8.1 RC1";
 
 ignore_user_abort('1');
 set_magic_quotes_runtime(0);
@@ -55,6 +55,12 @@ if (get_magic_quotes_gpc()) {
 $GLOBALS['PAGE_TIME'] = gettimeofday();
 define('__request_timestamp__', $GLOBALS['PAGE_TIME']['sec']);
 mt_srand($GLOBALS['PAGE_TIME']['usec']);
+
+// Load and initialize the plugin handler
+if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled
+	include_once $GLOBALS['INCLUDE'] . 'plugins.inc';
+	plugin_activate_enbled();
+}
 
 function fud_use($file, $static=0)
 {

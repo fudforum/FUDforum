@@ -1,0 +1,32 @@
+<?php
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: youtube_tag.plugin,v 1.1 2009/03/26 17:24:27 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin
+plugin_add_hook("BBCODE2HTML", "plugin_youtube_tag_to_html");
+plugin_add_hook("HTML2BBCODE", "plugin_youtube_html_to_tag");
+
+// Convert [YOUTUBE] to html code (post message)
+function plugin_youtube_tag_to_html($array) {
+	list($bbcode) = $array;
+
+	$bbcode = preg_replace('#\[YOUTUBE\]([0-9a-zA-Z_\-]+)\[/YOUTUBE\]#si', '<object width="425" height="366"><param name="movie" value="http://www.youtube.com/v/\\1"></param><embed src="http://www.youtube.com/v/\\1" type="application/x-shockwave-flash" width="425" height="366"></embed></object>', $bbcode);
+
+	return array($bbcode);
+}
+
+// Convert html to [YOUTUBE] tag (edit message)
+function plugin_youtube_html_to_tag($array) {
+	list($bbcode) = $array;
+
+	$bbcode = preg_replace('#<object width="425" height="366"><param name="movie" value="http://www.youtube.com/v/([0-9a-zA-Z_\-]+)"></param><embed src="http://www.youtube.com/v/([0-9a-zA-Z_\-]+)" type="application/x-shockwave-flash" width="425" height="366"></embed></object>#si', '[YOUTUBE]\\1[/YOUTUBE]', $bbcode);
+
+	return array($bbcode);
+}

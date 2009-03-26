@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: emailconf.php.t,v 1.29 2009/01/29 18:37:17 frank Exp $
+* $Id: emailconf.php.t,v 1.30 2009/03/26 17:24:27 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,6 +28,11 @@
 		error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 	}
 	q("UPDATE {SQL_TABLE_PREFIX}users SET users_opt=users_opt|131072, conf_key='0' WHERE id=".$uid);
+
+	if (defined('plugins')) {
+		plugin_call_hook('EMAILCONFIRMED', $usr);
+	}
+
 	if (!__fud_real_user__) {
 		$usr->ses_id = user_login($uid, $usr->ses_id, true);
 		$usr->users_opt = (int) q_singleval('SELECT users_opt FROM {SQL_TABLE_PREFIX}users WHERE id='.$uid);

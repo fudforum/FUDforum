@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.101 2009/03/11 19:39:53 frank Exp $
+* $Id: post_proc.inc.t,v 1.102 2009/03/26 17:24:27 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,6 +36,11 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 	$ostr = '';
 	$pos = $old_pos = 0;
+
+	// Call all BBCcode to HTML conversion plugins
+	if (defined('plugins')) {
+		list($str) = plugin_call_hook('BBCODE2HTML', array($str));
+	}
 
 	while (($pos = strpos($str, '[', $pos)) !== false) {
 		if (isset($str[$pos + 1], $GLOBALS['seps'][$str[$pos + 1]])) {
@@ -525,6 +530,11 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 function html_to_tags($fudml)
 {
+	// Call all HTML to BBCcode conversion plugins
+	if (defined('plugins')) {
+		list($fudml) = plugin_call_hook('HTML2BBCODE', array($fudml));
+	}
+	
 	while (preg_match('!<SPAN name="php">(.*?)</SPAN>!s', $fudml, $res)) {
 		$tmp = trim(html_entity_decode(strip_tags(str_replace('<br />', "\n", $res[1]))));
 		$m = md5($tmp);

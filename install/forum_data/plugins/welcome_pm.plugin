@@ -1,0 +1,42 @@
+<?php
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: welcome_pm.plugin,v 1.1 2009/03/26 17:24:27 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin
+plugin_add_hook('EMAILCONFIRMED', 'plugin_welcome_pm');
+
+// Send user a welcome private message
+function plugin_welcome_pm($usr) {
+	fud_use('private.inc');
+	fud_use('wordwrap.inc');
+
+	$msg_p = new fud_pmsg;
+	$msg_p->fldr = 1;
+	$msg_p->subject = "Welcome to the forum";
+	$msg_p->body = <<<EOT
+Hi,
+
+Thanks for registering and welcome to the forum.
+
+We look forward to your continued participation here.
+
+Best regards.
+Admin
+EOT;
+	$msg_p->body = char_fix(nl2br(htmlspecialchars($msg_p->body)));
+	fud_wordwrap($msg_p->body);
+	$msg_p->read_stamp = 0;
+	$msg_p->ouser_id = 2;	// admin
+	$msg_p->duser_id = $usr->id;
+	$msg_p->pmsg_opt = 49;
+	$msg_p->add(1);
+
+	return;
+}
