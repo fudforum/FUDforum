@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: coppa.tmpl,v 1.18 2009/01/29 18:37:29 frank Exp $
+* $Id: coppa.tmpl,v 1.19 2009/03/26 18:08:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,8 @@
 {PAGE: COPPA_PAGE determines if a new user is <13 years of age, needed for COPPA compliance}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<table cellspacing="1" cellpadding="2" class="ContentTable">
+<div class="ctb">
+<table cellspacing="1" cellpadding="2" class="DialogTable">
 <tr class="RowStyleA GenText ac"><td>
 {MSG: coppa_link}<br /><br />
 [<a href="{TEMPLATE: COPPA_PAGE_lnk}">{MSG: coppa_before}</a>]&nbsp;
@@ -26,7 +27,7 @@
 <hr/>
 {MSG: coppa}
 </td></tr>
-</table>
+</table></div>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}

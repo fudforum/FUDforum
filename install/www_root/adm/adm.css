@@ -1,7 +1,7 @@
 body, body.popup {
 	background: #aabbaa;
 	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
-	font-size: 11px;
+	font-size: normal;
 }
 
 body.popup {

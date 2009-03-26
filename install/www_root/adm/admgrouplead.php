@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.43 2009/01/29 18:37:40 frank Exp $
+* $Id: admgrouplead.php,v 1.44 2009/03/26 18:08:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,7 +87,7 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<a href="admgroups.php?<?php echo __adm_rsid; ?>">Back to Groups</a>
+<a href="admgroups.php?<?php echo __adm_rsid; ?>">&laquo; Back to Groups</a>
 <?php
 	if ($error) {
 		echo '<br /><span class="alert">' . htmlspecialchars($error).'</span>';

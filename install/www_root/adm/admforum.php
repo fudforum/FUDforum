@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.53 2009/03/20 14:10:22 frank Exp $
+* $Id: admforum.php,v 1.54 2009/03/26 18:08:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -114,7 +114,7 @@ function get_max_upload_size()
 <?php
 if (!isset($_GET['chpos'])) {
 ?>
-<a href="admcat.php?<?php echo __adm_rsid; ?>">Back to categories</a><br />
+<a href="admcat.php?<?php echo __adm_rsid; ?>">&laquo; Back to categories</a><br />
 
 <form method="post" id="frm_forum" action="admforum.php">
 <?php echo _hs; ?>

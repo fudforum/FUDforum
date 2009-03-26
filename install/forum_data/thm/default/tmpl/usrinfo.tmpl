@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@fudforum.org
-* $Id: usrinfo.tmpl,v 1.61 2009/01/29 18:37:29 frank Exp $
+* $Id: usrinfo.tmpl,v 1.62 2009/03/26 18:08:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -105,7 +105,7 @@
 {IF: ($FUD_OPT_1 & 1024 && _uid)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{TEMPLATE: usrinfo_private_msg_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a></td></tr>{ENDIF}
 {TEMPLATE-DATA: buddy}
 {TEMPLATE-DATA: referals}
-{IF: $u->home_page}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: homepage}</td><td class="GenText"><a href="{VAR: u->home_page}" target="_blank">{VAR: u->home_page}</a></td></tr>{ENDIF}
+{IF: $u->home_page}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: homepage}</td><td class="GenText"><a href="{VAR: u->home_page}" rel="nofollow" target="_blank">{VAR: u->home_page}</a></td></tr>{ENDIF}
 {TEMPLATE-DATA: gender}
 {IF: $u->location}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: location}</td><td class="GenText">{VAR: u->location}</td></tr>{ENDIF}
 {IF: $u->occupation}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: occupation}</td><td class="GenText">{VAR: u->occupation}</td></tr>{ENDIF}
