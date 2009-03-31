@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.54 2009/03/26 18:08:58 frank Exp $
+* $Id: admforum.php,v 1.55 2009/03/31 10:26:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,6 +21,7 @@ function get_max_upload_size()
 	return $size;
 }
 
+/* main program */
 	require('./GLOBALS.php');
 
 	/* this is here so we get the cat_id when cancel button is clicked */
@@ -130,6 +131,11 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
+		<td>External redirect:<br /><font size="-2">Enter URL if this is a virtual forum that redirects to an external location.</font></td>
+		<td><input type="text" name="frm_url_redirect" value="<?php echo $frm_url_redirect; ?>" maxlength="255" /></td>
+	</tr>
+
+	<tr class="field">
 		<td>Tag Style</td>
 		<td><?php draw_select('frm_tag_style', "FUD ML\nHTML\nNone", "16\n0\n8", ($frm_forum_opt & 8 ? 8 : ($frm_forum_opt & 16 ? 16 : 0))); ?></td>
 	</tr>
@@ -150,7 +156,7 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
-		<td>Max Attachment Size:<br /><font size="-1">Your php's maximum file upload size is <b><?php echo floor($max_upload_size / 1024); ?></b> KB.<br />You cannot set the forum's attachment size limit higher than that.</font></td>
+		<td>Max Attachment Size:<br /><font size="-2">Your php's maximum file upload size is <b><?php echo floor($max_upload_size / 1024); ?></b> KB.<br />You cannot set the forum's attachment size limit higher than that.</font></td>
 		<td><input type="text" name="frm_max_attach_size" value="<?php echo $frm_max_attach_size; ?>" maxlength="100" size="5" />kb</td>
 	</tr>
 
@@ -170,7 +176,7 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
-		<td>Message Threshold<br /><font size="-1">Maximum size of the message DISPLAYED<br />without the reveal link (0 == unlimited) </font></td>
+		<td>Message Threshold<br /><font size="-2">Maximum size of the message DISPLAYED<br />without the reveal link (0 == unlimited) </font></td>
 		<td><input type="text" name="frm_message_threshold" value="<?php echo $frm_message_threshold; ?>" size="5" /> bytes</td>
 	</tr>
 

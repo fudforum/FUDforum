@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.111 2009/01/29 18:37:17 frank Exp $
+* $Id: index.php.t,v 1.112 2009/03/31 10:26:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,17 +52,18 @@
 	  9	forum.moderators
 	  10	forum.name
 	  11	forum.descr
-	  12	forum.post_count
-	  13	forum.thread_count
-	  14	forum_read.last_view
-	  15	is_moderator
-	  16	read perm
-	  17	is the category using compact view
+	  12	forum.url_redirect
+	  13	forum.post_count
+	  14	forum.thread_count
+	  15	forum_read.last_view
+	  16	is_moderator
+	  17	read perm
+	  18	is the category using compact view
 	*/
 	$c = uq('SELECT
 				m.subject, m.id, m.post_stamp,
 				u.id, u.alias,
-				f.cat_id, f.forum_icon, f.id, f.last_post_id, f.moderators, f.name, f.descr, f.post_count, f.thread_count,
+				f.cat_id, f.forum_icon, f.id, f.last_post_id, f.moderators, f.name, f.descr, f.url_redirect, f.post_count, f.thread_count,
 				'.(_uid ? 'fr.last_view, mo.id, COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS group_cache_opt' : '0,0,g1.group_cache_opt').',
 				(c.cat_opt & 4)=4
 			FROM {SQL_TABLE_PREFIX}fc_view v
@@ -79,8 +80,8 @@
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
 	while ($r = db_rowarr($c)) {
 		/* increase thread & post count */
-		$post_count += $r[12];
-		$thread_count += $r[13];
+		$post_count += $r[13];
+		$thread_count += $r[14];
 
 		$cid = (int) $r[5];
 
@@ -123,12 +124,12 @@
 		}
 
 		/* compact view check */
-		if ($r[17]) {
+		if ($r[18]) {
 			$cbuf .= '{TEMPLATE: idx_compact_forum_entry}';
 			continue;
 		}
 
-		if (!($r[16] & 2) && !$is_a && !$r[15]) { /* visible forum with no 'read' permission */
+		if (!($r[17] & 2) && !$is_a && !$r[16]) { /* visible forum with no 'read' permission */
 			$forum_list_table_data .= '{TEMPLATE: forum_with_no_view_perms}';
 			continue;
 		}
@@ -140,7 +141,7 @@
 
 		if (!_uid) { /* anon user */
 			$forum_read_indicator = '{TEMPLATE: forum_no_indicator}';
-		} else if ($r[14] < $r[2] && $usr->last_read < $r[2]) {
+		} else if ($r[15] < $r[2] && $usr->last_read < $r[2]) {
 			$forum_read_indicator = '{TEMPLATE: forum_unread}';
 		} else {
 			$forum_read_indicator = '{TEMPLATE: forum_read}';

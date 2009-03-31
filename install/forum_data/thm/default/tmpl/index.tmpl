@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.91 2009/03/09 18:38:12 frank Exp $
+* $Id: index.tmpl,v 1.92 2009/03/31 10:26:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,8 +48,8 @@
 	<td class="RowStyleA wo">{IF: $r[6]}<img src="images/forum_icons/{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
 	<td class="RowStyleB wo">{VAR: forum_read_indicator}</td>
 	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
-	<td class="RowStyleB ac">{VAR: r[12]}</td>
 	<td class="RowStyleB ac">{VAR: r[13]}</td>
+	<td class="RowStyleB ac">{VAR: r[14]}</td>
 	<td class="RowStyleA ac nw">{IF: $r[8]}<span class="DateText">{TEMPLATE: index_last_post_date}</span><br />{MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END} <a href="{TEMPLATE: last_post_lnk}"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>{ELSE}{MSG: na}{END}</td>
 </tr>
 {SECTION: END}
@@ -158,7 +158,7 @@ min_max_cats("{THEME_IMAGE_ROOT}", "{DEF: img_ext}", "{MSG: minimize_category}",
 {SECTION: END}
 
 {SECTION: index_forum_entry_lnk}
-{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[7]}&amp;{DEF: _rsid}
+{IF: empty($r[12])}{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[7]}&amp;{DEF: _rsid}{ELSE}{VAR: r[12]}{ENDI}
 {SECTION: END}
 
 {SECTION: idx_forum_path}
@@ -178,7 +178,7 @@ min_max_cats("{THEME_IMAGE_ROOT}", "{DEF: img_ext}", "{MSG: minimize_category}",
 {SECTION: END}
 
 {SECTION: idx_compact_forum_entry}
-&nbsp; {IF: _uid && $r[14] < $r[2] && $usr->last_read < $r[2]}**{ENDIFI}<a href="{TEMPLATE: index_forum_entry_lnk}">{VAR: r[10]}</a>
+&nbsp; {IF: _uid && $r[15] < $r[2] && $usr->last_read < $r[2]}**{ENDIFI}<a href="{TEMPLATE: index_forum_entry_lnk}">{VAR: r[10]}</a>
 {SECTION: END}
 
 {SECTION: idx_compact_forum_row}

@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_forum.tbl,v 1.19 2009/01/29 18:37:17 frank Exp $
+#   $Id: fud_forum.tbl,v 1.20 2009/03/31 10:26:45 frank Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -11,27 +11,23 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}forum;
 
 CREATE TABLE {SQL_TABLE_PREFIX}forum
 (
-	id			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	cat_id			INT NOT NULL DEFAULT 0,
-	name			VARCHAR(255) NOT NULL DEFAULT '',
-	descr			TEXT,
-
-	post_passwd		VARCHAR(32),
-
-	forum_icon		VARCHAR(255),
-
-	date_created		BIGINT NOT NULL DEFAULT 0,
-
-	thread_count		INT NOT NULL DEFAULT 0,
-	post_count		INT NOT NULL DEFAULT 0,
-	last_post_id		INT NOT NULL DEFAULT 0,
-
-	view_order		INT NOT NULL DEFAULT 0,
-	max_attach_size		INT NOT NULL DEFAULT 0,
-	max_file_attachments 	INT NOT NULL DEFAULT 1,
-	moderators 		TEXT,
-	message_threshold 	INT NOT NULL DEFAULT 0,
-	forum_opt		INT NOT NULL DEFAULT 16
+	id				INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	cat_id				INT NOT NULL DEFAULT 0,
+	name				VARCHAR(255) NOT NULL DEFAULT '',
+	descr				TEXT,
+	url_redirect			VARCHAR(255),
+	post_passwd			VARCHAR(32),
+	forum_icon			VARCHAR(255),
+	date_created			BIGINT NOT NULL DEFAULT 0,
+	thread_count			INT NOT NULL DEFAULT 0,
+	post_count			INT NOT NULL DEFAULT 0,
+	last_post_id			INT NOT NULL DEFAULT 0,
+	view_order			INT NOT NULL DEFAULT 0,
+	max_attach_size			INT NOT NULL DEFAULT 0,
+	max_file_attachments 		INT NOT NULL DEFAULT 1,
+	moderators 			TEXT,
+	message_threshold 		INT NOT NULL DEFAULT 0,
+	forum_opt			INT NOT NULL DEFAULT 16
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}forum_i_c ON {SQL_TABLE_PREFIX}forum (cat_id);

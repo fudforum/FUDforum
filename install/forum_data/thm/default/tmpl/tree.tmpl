@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.89 2009/03/18 14:26:53 frank Exp $
+* $Id: tree.tmpl,v 1.90 2009/03/31 10:26:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -200,6 +200,9 @@ var cur_msg = {VAR: mid};
 document.getElementById('b' + cur_msg).className = 'RowStyleC';
 function changeMsgFocus(mid)
 {
+	$('body').css('cursor', 'progress');
+	$('#msgTbl').fadeTo('fast', 0.33);
+
         $('#b' + mid).removeClass().addClass("RowStyleC");
         $('#b' + cur_msg).removeClass().addClass( (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB') );
         cur_msg = mid;
@@ -220,6 +223,9 @@ function changeMsgFocus(mid)
                 alert("Failed to submit: " + desc);
            }
          });
+
+	$('#msgTbl').fadeTo('fast', 1);
+	$('body').css('cursor', 'auto');
 }
 /* ]]> */
 </script>
