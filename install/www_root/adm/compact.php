@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.75 2009/03/01 18:03:43 frank Exp $
+* $Id: compact.php,v 1.76 2009/04/01 17:50:20 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -80,7 +80,14 @@ $charsets = ARRAY(
 		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 		exit;
 	}
-?>
+	
+	function stop_js()
+	{
+		echo '<script type="text/javascript">clearInterval(intervalID);</script>';
+	}
+	register_shutdown_function('stop_js');
+?>	
+
 <script type="text/javascript">
 /* <![CDATA[ */
 	var intervalID;
@@ -170,7 +177,7 @@ function eta_calc($start, $pos, $pc)
 	$i = 0;
 	$stm = time();
 	if ($pc) {
-		db_lock($tbl.'msg m WRITE, '.$tbl.'thread t WRITE, '.$tbl.'forum f WRITE, '.$tbl.'msg WRITE');
+		db_lock($tbl.'msg m WRITE, '.$tbl.'thread t WRITE, '.$tbl.'forum f WRITE, '.$tbl.'msg WRITE, '.$tbl.'msg_store WRITE');
 
 		while (1) {
 			$j = $i;

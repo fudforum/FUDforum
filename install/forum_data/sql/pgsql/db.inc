@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.83 2009/01/29 18:37:17 frank Exp $
+* $Id: db.inc,v 1.84 2009/04/01 17:50:20 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -193,6 +193,11 @@ function db_qid($q)
 function db_arr_assoc($q)
 {
 	return pg_fetch_array(q($q), 0, PGSQL_ASSOC);
+}
+
+function db_fetch_array($q)
+{
+	return pg_fetch_array($q);
 }
 
 function db_li($q, &$ef, $li=0)

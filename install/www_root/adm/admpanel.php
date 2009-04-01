@@ -41,22 +41,24 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="admrdf.php?<?php echo __adm_rsid; ?>">RDF Feed Managment</a><br />
 	<a href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Managment</a><br />
 	<a href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Management</a><br />
+	<a href="admsql.php?<?php echo __adm_rsid; ?>">SQL Manager</a><br />
 <?php
-	if (extension_loaded('pspell')) {
-		echo '<a href="admspell.php?'.__adm_rsid.'">Custom Dictionary Spell Checker</a><br />';
-	}
-
 	if (strncasecmp('win', PHP_OS, 3)) {
 		echo '<a href="admbrowse.php?'.__adm_rsid.'">File Manager</a><br />';
 		echo '<a href="admlock.php?'.__adm_rsid.'">Lock/Unlock Forum\'s Files</a><br />';
+	}
+	if (extension_loaded('pspell')) {
+		echo '<a href="admspell.php?'.__adm_rsid.'">Custom Dictionary Spell Checker</a><br />';
 	}
 ?>
 	<a href="admstats.php?<?php echo __adm_rsid; ?>">Forum Statistics</a><br />
 	<a href="admlog.php?<?php echo __adm_rsid; ?>">Action Log Viewer</a><br />
 	<a href="admerr.php?<?php echo __adm_rsid; ?>">Error Log Viewer</a><br />
 	<a href="admsysinfo.php?<?php echo __adm_rsid; ?>">System Info</a><br />
-	<a href="admphpinfo.php?<?php echo __adm_rsid; ?>">PHP Info</a><br /><?php if (__dbtype__ == 'mysql') { ?>
-	<a href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a><br /><?php } ?><br />
+	<a href="admphpinfo.php?<?php echo __adm_rsid; ?>">PHP Info</a><br />
+<?php if (__dbtype__ == 'mysql') { ?>
+	<a href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a><br />
+<?php } ?><br />
 
 	<span class="linkgroup">Forum Management</span><br />
 	<a href="admcat.php?<?php echo __adm_rsid; ?>">Category &amp; Forum Management</a><br />
