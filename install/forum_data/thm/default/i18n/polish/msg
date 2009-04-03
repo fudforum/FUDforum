@@ -316,7 +316,6 @@ register_show_email_desc:	Wybierz tę opcję, jeśli chcesz, aby Twój adres e-m
 register_notification:		Wybierz domyślne powiadamianie:
 register_notification_desc:	Jeśli powiadamianie jest domyślnie włączone, może być wyłączone przy zamieszczaniu wiadomości.
 register_notify_method:		Wybierz metodę powiadamiania:
-register_notify_js_error:	Wybierasz powiadamianie przez ICQ, ale nie masz określonego numeru ICQ. Zostanie włączone powiadamianie przez e-mail
 register_allow_email_msg:	Zezwól na wysyłanie listów e-mail:
 register_allow_email_msg_desc:	Zezwól innym użytkownikom na wysyłanie Ci listów na e-mail poprzez forum.
 buddy_status:			Status
@@ -663,7 +662,6 @@ post_opt_images_off:		<b>Obrazki</b> są <b>Wyłączone</b>
 post_opt_smilies_off:		<b>Uśmieszki</b> są <b>Wyłączone</b>
 post_opt:			Opcje Forum
 register_change_passwd:		zmień hasło
-install_script_present_error:	Ze względów bezpieczeństwa musisz usunąć skrypt instalacyjny z <b>{GVAR: WWW_ROOT_DISK}install.php</b> zanim będziesz używał forum.
 approved_avatar_title:		Twój dodatkowy avatar został zatwierdzony.
 approved_avatar_msg:		Twój avatar został zatwierdzony przez administratora. Powinien teraz pojawić się jako Twój avatar we wszystkich Twoich wiadomościach. Jeśli go nie widzisz lub widzisz stary, jest tak ponieważ Twoja przeglądarka trzyma stronę w pamięci podręcznej. Spróbuj odświeżyć ją raz lub dwa, a to w większości przypadków powinno rozwiązać problem.
 unapproved_avatar_title:	Twój dodatkowy avatar został odrzucony.

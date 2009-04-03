@@ -318,7 +318,6 @@ register_show_email_desc:	Kies deze optie indien u uw email adres publiek wil la
 register_notification:		Selecteer Notificatie als standaard
 register_notification_desc:	of de notificatie standaard is ingesteld, u kan het nog aanpassen bij het posten
 register_notify_method:		Kies notificatie methode:
-register_notify_js_error:	U koos ICQ notificatie maar heeft geen ICQ # opgegeven.  Defaulting naar Email&#46;
 register_allow_email_msg:	Toelaten Email Berichten:
 register_allow_email_msg_desc:	Toelaten dat andere leden je emails sturen via het forum.
 buddy_status:			Status
@@ -666,7 +665,6 @@ post_opt_images_off:		<b>Fotos</b> staan <b>UIT</b>
 post_opt_smilies_off:		<b>Smilies</b> staan <b>UIT</b>
 post_opt:			Forum Opties
 register_change_passwd:		verander wachtwoord
-install_script_present_error:	vanwege veiligheidsmaatregelen moet u het installatie script op <b>{GVAR: WWW_ROOT_DISK}install.php</b> verwijderen voor u gebruik kan maken van het forum.
 approved_avatar_title:		Uw custom avatar is goedgekeurd.
 approved_avatar_msg:		Uw avatar is goedgekeurd door de administrator. Het zou nu moeten verschijnen als uw avatar in al jouw berichten. Indien u het niet ziet, of uw oude avatar ziet komt dat omdat uw browser de pagina gecached heeft. probeer 1 of 2x op verversen te klikken (in sommige browsers werkt de functietoets "F5" ook) hiermee lost u in de meeste gevallen het caching probleem op.
 unapproved_avatar_title:	Uw custom avatar is afgekeurd.

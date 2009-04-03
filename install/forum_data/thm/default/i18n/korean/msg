@@ -319,7 +319,6 @@ register_show_email_desc:	이 옵션을 선택하면 당신의 이메일 주소�
 register_notification:		알림 기능 선택:
 register_notification_desc:	알림 기능을 선택하면 게시글 제출시에 사용하지 못할 수 있습니다.
 register_notify_method:		알림 수신 방법:
-register_notify_js_error:	You chose ICQ notification, but did not specify an ICQ #. Defaulting to E-mail&#46;
 register_allow_email_msg:	이메일 수신 허가:
 register_allow_email_msg_desc:	이 포럼에서 다른 사용자가 당신에게 이메일을 발송하는 것을 허락 합니다.
 buddy_status:			상태
@@ -674,7 +673,6 @@ post_opt_images_off:		<b>Images</b> are <b>OFF</b>
 post_opt_smilies_off:		<b>Smilies</b> are <b>OFF</b>
 post_opt:			포럼 옵션
 register_change_passwd:		패스워드 변경
-install_script_present_error:	사이트 보안을 위해 <b>{GVAR: WWW_ROOT_DISK}install.php</b> 파일을 삭제 하십시오.
 approved_avatar_title:		사용자 아바타 승인.
 approved_avatar_msg:		사용자 아바타가 관리자로부터 승인되었습니다. 본인이 작성한 모든 게시글에 아바타가 보일 것 입니다. 만일 보이지 않거나 이전에 사용하던 아바타가 보인다면 쿠키를 삭제한 후, 다시 확인하시기 바랍니다. 대분분의 경우 이와 같은 방법으로 해결이 가능합니다.
 unapproved_avatar_title:	사용자 아바타 승인 거부.

@@ -319,7 +319,6 @@ register_show_email_desc:	Vyberte túto možnosť, pokiaľ chcete, aby Vaša ema
 register_notification:		Východzie nastavenie doručovania oznamov:
 register_notification_desc:	Ak je zapnuté, možete ho vypnúť pri posielaní príspevku.
 register_notify_method:		Vyberte si spôsob doručovania oznamov
-register_notify_js_error:	Nastavili ste doručovanie oznamov cez ICQ, ale nezadali ste ICQ číslo. Nastavenie bude zmenené na email!
 register_allow_email_msg:	Povoliť správy cez email:
 register_allow_email_msg_desc:	Povoliť ostatným užívateľom, aby Vám mohli posielať emaily cez fórum.
 buddy_status:			Stav
@@ -669,7 +668,6 @@ post_opt_images_off:		<b>Obrázky</b> sú <b>VYPNUTÉ</b>
 post_opt_smilies_off:		<b>Smajlíci</b> sú <b>VYPNUTÍ</b>
 post_opt:			Nastavenia fóra
 register_change_passwd:		zmeniť heslo
-install_script_present_error:	Z bezpečnostných dôvodov pred tým ako budete môcť používať fórum, musíte odstrániť inštalačný skript z adresy <b>{GVAR: WWW_ROOT_DISK}install.php</b>.
 approved_avatar_title:		Vaša ikona bola schválená.
 approved_avatar_msg:		Vaša ikona bola schválená administrátorom. Mala by sa teraz zobraziť vedľa všetkých Vašich správ. Ak ju nevidíte, alebo vidíte Vašu starú ikonu, je to preto, že Vás prehliadač má stránku v pamäti. Skúste ju raz alebo dva krát obnoviť, vo väčšine prípadov to problém vyrieši.
 unapproved_avatar_title:	Vaša ikona bola zamietnutá.

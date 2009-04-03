@@ -316,7 +316,6 @@ register_show_email_desc:	Velg dette alternativet om du vil at din e-postadresse
 register_notification:		Melding om nye innlegg:
 register_notification_desc:	Om melding om nye innlegg er forvalgt (kan velges bort n&aring;r man skriver innlegg) f&aring;r du automatisk melding om nye innlegg i de tr&aring;dene du deltar i.
 register_notify_method:		Velg metode for melding om nye innlegg:
-register_notify_js_error:	Du valgte &aring; f&aring; melding om nye innlegg via ICQ, men har ikke angitt ICQ-nummer. Melding per e-post forvalgt&#46;
 register_allow_email_msg:	Tillat meldinger via e-post:
 register_allow_email_msg_desc:	Tillat andre medlemmer &aring; sende deg e-post via forumet.
 buddy_status:			Status
@@ -663,7 +662,6 @@ post_opt_images_off:		<b>Bilder</b> er <b>AV</b>
 post_opt_smilies_off:		<b>Smilies</b> er <b>AV</b>
 post_opt:			Forumalternativ
 register_change_passwd:		bytt passord
-install_script_present_error:	Av sikkerhetsgrunner m&aring; du ta bort installationsskriptet <b>{GVAR: WWW_ROOT_DISK}install.php</b> f&oslash;r du kan anvende forumet.
 approved_avatar_title:		Din avatar godkjennes.
 approved_avatar_msg:		Din avatar godkjennes av administratoren. Den burde n&aring; vises som din avatar i alle dine innlegg. Om du ikke ser den, eller ser din gamle avatar, beror det p&aring; at din webleser har siden i sitt minne. Du kan oppdatere siden en eller et par ganger, det burde l&oslash;se problemet.
 unapproved_avatar_title:	Din avatar ble ikke godkjent.

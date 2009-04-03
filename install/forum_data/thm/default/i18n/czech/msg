@@ -318,7 +318,6 @@ register_show_email_desc:	Vyberte pokud chcete zveřejnit vaši emailovou adresu
 register_notification:		Výchozí nastavení oznámení:
 register_notification_desc:	Pokud je nastaveno, může by potlačeno při posílíní příspevku.
 register_notify_method:		Vyberte způsob oznámení:
-register_notify_js_error:	Nastavil(a) jste oznámení přes ICQ, ale nezadal(a) jste ICQ číslo. Nastavení bude změněno na email!
 register_allow_email_msg:	Povolit zprávy přes email:
 register_allow_email_msg_desc:	Povolení statním uživatelům odesílat vám emaily přes FUDforum.
 buddy_status:			Stav
@@ -667,7 +666,6 @@ post_opt_images_off:		<b>Obrázky</b> jsou <b>VYPNUTY</b>
 post_opt_smilies_off:		<b>Smajlíci</b> jsou <b>VYPNUTI</b>
 post_opt:			Volby fóra
 register_change_passwd:		změnit heslo
-install_script_present_error:	Z důvodu bezpečnosti musíte odstranit instalační propgram na <b>{GVAR: WWW_ROOT_DISK}install.php</b> před spuštěním fóra.
 approved_avatar_title:		Vaše ikona byla schválena.
 approved_avatar_msg:		Vaše ikona byla schválena administrátorem. Nyní by se měla zobrazovat na všech vašich zprávách. Pokud ji nevidíte, nebo vidíte vaši starou ikonu, je to proto, že váš prohlížeč ji ma nacacheovanou. Zkuste aktualizovat stránku jednou nebo dvakrát. Toto většinou problém cacheování vyřeší.
 unapproved_avatar_title:	Vaše ikona byla zamítnuta.

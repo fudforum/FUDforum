@@ -320,7 +320,6 @@ register_show_email_desc:	Chọn mục này nếu bạn muốn địa chỉ emai
 register_notification:		Chọn thông báo theo tiêu chuẩn:
 register_notification_desc:	Nếu thông báo theo tiêu chuẩn được kích hoạt ,nó có thể bị vô hiệu khi gửi bài.
 register_notify_method:		Chọn phương pháp thông báo:
-register_notify_js_error:	bạn chọn thông báo ICQ,nhưng không có địa chỉ ICQ cụ thể. Dạng chuẩn bằng Email
 register_allow_email_msg:	Cho phép nhắn tin Email:
 register_allow_email_msg_desc:	Cho phép thành viên khác gủi email đến bạn qua diễn đàn này.
 buddy_status:			Trạng thái
@@ -676,7 +675,6 @@ post_opt_images_off:		<b>Hình ảnh</b> đã <b>Tắt</b>
 post_opt_smilies_off:		<b>Biểu tượng cười</b> đã <b>Tắt</b>
 post_opt:			Mục chọn diễn đàn
 register_change_passwd:		Đổi mật khẩu
-install_script_present_error:	Vì lý do bảo mật, Bạn phải xóa bỏ script cài đặt <b>{GVAR: WWW_ROOT_DISK}install.php</b> trước khi sử dụng diễn đàn.
 approved_avatar_title:		Hình đại diện quen thuộc của bạn đã được chấp nhận.
 approved_avatar_msg:		Hình đại diện của bạn đã được chấp nhận bởi người quản trị tối cao. Ngay bây giờ nó sẽ xuất hiện trong mọi bài viết của bạn. Nếu bạn không nhìn thấy nó, hoặc nhìn thấy hình đại diện cũ , bởi vì trình duyệt của bạn đã chụp lại. Thử làm tươi trình duyệt một , hai lần xem sao bằng cách nhấn phím F5. Trong hầu hết trường hợp đều do cất trữ của trình duyệt mà ra .
 unapproved_avatar_title:	Hình đại diện của bạn đã bị từ chối.

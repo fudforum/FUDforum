@@ -15,9 +15,9 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 </head>
 <body>
 <table class="headtable"><tr>
-  <td><a href="../<?php echo __fud_index_name__.'?'.__adm_rsid; ?>" title="Return to forum"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a></td>
+  <td><a href="index.php?<?php echo __adm_rsid; ?>" title="Return to the Admin Control Panel Dashboard"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a></td>
   <td><span class="linkhead">Admin Control Panel</span></td>
-  <td>[ <a href="../<?php echo __fud_index_name__.'?'.__adm_rsid; ?>">Return to forum</a> ]</td>
+  <td>[ <a href="../<?php echo __fud_index_name__.'?'.__adm_rsid; ?>">Return to forum &raquo;</a> ]</td>
 </tr></table>
 
 <table class="maintable">

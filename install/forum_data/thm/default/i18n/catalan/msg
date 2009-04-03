@@ -315,7 +315,6 @@ register_show_email_desc:	Esculli aquesta opció si desitja que la seva adreça 
 register_notification:		Seleccionar notificar per omisió:
 register_notification_desc:	Si notificar està  habilitat per omisió, pot ser deshabilitada al publicar.
 register_notify_method:		Esculli el mètode de notificació:
-register_notify_js_error:	Ha escollit les notificacions per ICQ, però no ha especificat un número ICQ. S`usarà el correu electrònic.
 register_allow_email_msg:	Permetre els missatges per correu electrònic:
 register_allow_email_msg_desc:	Permetre a altres usuaris enviar-li correus electrònics per FUDforum.
 buddy_status:			Estat
@@ -663,7 +662,6 @@ post_opt_images_off:		Les <b>imatges</b> estan <b>DESACTIVADES</b>
 post_opt_smilies_off:		Les <b>emoticones</b> estan <b>DESACTIVADES</b>
 post_opt:			Opcions del fòrum
 register_change_passwd:		canviar contrasenya
-install_script_present_error:	Per seguretat ha d`esborrar l`script d`instal.lació a <b>{GVAR: WWW_ROOT_DISK}install.php</b> abans d`usar el fòrum.
 approved_avatar_title:		El seu avatar personalitzat ha estat aprovat.
 approved_avatar_msg:		El seu avatar ha estat aprovat per l`administrador. A partir d`ara hauria d`aparèixer com el seu avatar en tots els seus missatges. Si no el veu, o veu el seu antic avatar, és perquè el seu navegador ha guardat la pàgina a la catxé. Provi a recarregar la pàgina un o dos cops, en la majoria dels casos això resol el problema.
 unapproved_avatar_title:	El seu avatar personalitzat ha estat refusat.

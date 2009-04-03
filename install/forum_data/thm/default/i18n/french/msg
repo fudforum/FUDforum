@@ -316,7 +316,6 @@ register_show_email_desc:	Choisissez cette option si vous souhaitez que les autr
 register_notification:		Activer la notification par défaut :
 register_notification_desc:	Ceci est une option par défaut qui peut être modifiée pour chaque message que vous postez.
 register_notify_method:		Méthode de notification :
-register_notify_js_error:	Vous avez choisi de recevoir les notifications via ICQ, mais vous avez oublié de spécifier votre identifiant ICQ. Nous avons activé la notification par e-mail à la place#46;
 register_allow_email_msg:	Autoriser les messages e-mail :
 register_allow_email_msg_desc:	Permet aux autres utilisateurs de vous envoyer des e-mails directement via le forum.
 buddy_status:			État
@@ -664,7 +663,6 @@ post_opt_images_off:		Les <b>images</b> sont <b>DÉSACTIVÉES</b>
 post_opt_smilies_off:		Les <b>smileys</b> sont <b>DÉSACTIVÉS</b>
 post_opt:			Options activées sur le forum :
 register_change_passwd:		Changer de mot de passe
-install_script_present_error:	Pour des raisons de sécurité, vous DEVEZ enlever le script d&#39;installation <b>{GVAR: WWW_ROOT_DISK}install.php</b> avant d&#39;utiliser le forum.
 approved_avatar_title:		Votre avatar personnel a été approuvé.
 approved_avatar_msg:		Votre avatar a été approuvé par l&#39;administrateur. Il devrait maintenant apparaître dans tous vos messages. Si ce n&#39;est pas le cas, c&#39;est que votre navigateur le contient dans les pages de sa mémoire cache. Essayez de le rafraîchir quelques fois, cela devrait résoudre le problème.
 unapproved_avatar_title:	Votre avatar personnel a été refusé par l&#39;administrateur

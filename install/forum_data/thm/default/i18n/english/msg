@@ -330,7 +330,6 @@ register_notification:		Select Notification by Default:
 register_notification_desc:	If notification is enabled by default, it can be disabled when posting.
 register_notify_method:		Choose Notification Method:
 register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
-register_notify_js_error:	You chose ICQ notification, but did not specify an ICQ #. Defaulting to E-mail&#46;
 register_allow_email_msg:	Allow E-mail Messages:
 register_allow_email_msg_desc:	Allow other users to send you e-mails via this forum.
 buddy_status:			Status
@@ -688,7 +687,6 @@ post_opt_images_off:		<b>Images</b> are <b>OFF</b>
 post_opt_smilies_off:		<b>Smilies</b> are <b>OFF</b>
 post_opt:			Forum Options
 register_change_passwd:		change password
-install_script_present_error:	For security reasons, you must remove the installation script at <b>{GVAR: WWW_ROOT_DISK}install.php</b> before you can use the forum.
 approved_avatar_title:		Your custom avatar was approved.
 approved_avatar_msg:		Your avatar was approved by the administrator. It should now appear as your avatar on all your messages. If you do not see it, or see your old avatar, it is because your browser has cached the page. Try refreshing it once or twice. In most cases this will solve the caching problem.
 unapproved_avatar_title:	Your custom avatar was declined.

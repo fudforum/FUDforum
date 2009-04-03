@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.76 2009/04/01 17:50:20 frank Exp $
+* $Id: compact.php,v 1.77 2009/04/03 14:55:59 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -40,7 +40,7 @@ The compactor will rebuild the storage files were the message bodies are kept.
 While the compactor is running your forum will be temporarily inaccessible. 
 This process may take a while to run, depending on your harddrive speed and the amount of messages your forum has. 
 Please backup all files before proceding!
-</div>
+</div><br />
 
 <?php if (@extension_loaded('iconv')) { 
 $charsets = ARRAY(
@@ -83,7 +83,7 @@ $charsets = ARRAY(
 	
 	function stop_js()
 	{
-		echo '<script type="text/javascript">clearInterval(intervalID);</script>';
+		echo '<script type="text/javascript">clearInterval(intervalID); scrollBy(0,document.body.scrollHeight);</script>';
 	}
 	register_shutdown_function('stop_js');
 ?>	
@@ -93,7 +93,7 @@ $charsets = ARRAY(
 	var intervalID;
 	function scrolldown()
 	{
-		window.scroll(0, 30000);
+		window.scrollBy(0, 50);
 	}
 	intervalID = setInterval('scrolldown()', 100);
 /* ]]> */
@@ -104,8 +104,8 @@ set_error_handler ('error_handler');
 
 function error_handler ($level, $message, $file, $line, $context) {
 	if (error_reporting() != 0) {
+		stop_js();
 		echo <<<_END_
-<script type="text/javascript">clearInterval(intervalID);</script>
 <p>An error was generated in file $file on line $line.</p>
 <p><font color="red">The error message was: $message</font></p>
 _END_;
@@ -287,6 +287,6 @@ function eta_calc($start, $pos, $pc)
 		echo '<br /><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
-	echo '<script type="text/javascript">clearInterval(intervalID);</script>';
+	stop_js(); 
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

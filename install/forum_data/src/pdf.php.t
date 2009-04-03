@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.58 2009/01/29 18:37:17 frank Exp $
+* $Id: pdf.php.t,v 1.59 2009/04/03 14:55:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -142,10 +142,6 @@ class fud_pdf extends FPDF
 	if (!($FUD_OPT_1 & 1)) {
 		fud_use('errmsg.inc');
 		exit($DISABLED_REASON . __fud_ecore_adm_login_msg);
-	}
-	if (!$FORUM_TITLE && @file_exists($WWW_ROOT_DISK.'install.php')) {
-		fud_use('errmsg.inc');
-	        exit(__fud_e_install_script_present_error);
 	}
 
 /*{PRE_HTML_PHP}*/

@@ -316,7 +316,6 @@ register_show_email_desc:	Seleziona questa opzione se vuoi che il tuo indirizzo 
 register_notification:		Seleziona la notifica di default:
 register_notification_desc:	Se la notifica &egrave; abilitata di default, pu&ograve; essere disabilitata durante la scrittura di un messaggio.
 register_notify_method:		Seleziona il metodo di notifica:
-register_notify_js_error:	Hai selezionato la notifica via ICQ, ma non hai specificato un numero di ICQ. Imposto come default Email&#46;
 register_allow_email_msg:	Consenti messaggi email:
 register_allow_email_msg_desc:	Consenti ad altri utenti di inviarti messaggi email tramite il forum (questo non render&agrave; pubblico il tuo indirizzo).
 buddy_status:			Status
@@ -661,7 +660,6 @@ post_opt_images_off:		Le <b>immagini</b> sono <b>Disattivo</b>
 post_opt_smilies_off:		Gli <b>smiley</b> sono <b>Disattivo</b>
 post_opt:			Opzioni del forum
 register_change_passwd:		cambia password
-install_script_present_error:	Per ragioni di sicurezza, devi rimuovere lo script di installazione <b>{GVAR: WWW_ROOT_DISK}install.php</b> prima di poter utilizzare il forum.
 approved_avatar_title:		Il tuo avatar personalizzato &egrave; stato approvato.
 approved_avatar_msg:		Il tuo avatat &egrave; stato approvato dall&#39;amministratore. Dovrebbe apparirti come immagine in tutti i tuoi messaggi. Se non lo vedi, o rimane visualizzato il vecchio avatar, &egrave; perch&egrave; il tuo browser ha salvato la pagina in cache. Prova ad aggiornare la pagina una o due volte, questa soluzione risolve il problema nella maggior parte dei casi.
 unapproved_avatar_title:	Il tuo avatar personalizzato non &egrave; stato accettato.

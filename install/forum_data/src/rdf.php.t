@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.71 2009/02/04 15:12:27 frank Exp $
+* $Id: rdf.php.t,v 1.72 2009/04/03 14:55:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,10 +16,6 @@
 	if (!($FUD_OPT_1 & 1)) {
 		fud_use('errmsg.inc');
 		exit($DISABLED_REASON . __fud_ecore_adm_login_msg);
-	}
-	if (!$FORUM_TITLE && @file_exists($WWW_ROOT_DISK.'install.php')) {
-		fud_use('errmsg.inc');
-	        exit(__fud_e_install_script_present_error);
 	}
 
 	$mode = (isset($_GET['mode']) && in_array($_GET['mode'], array('m', 't', 'u'))) ? $_GET['mode'] : 'm';

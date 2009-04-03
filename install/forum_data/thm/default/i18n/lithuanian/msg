@@ -320,7 +320,6 @@ register_show_email_desc:	Galite pasirinkti rodyti ar ne viešai jūsų email ad
 register_notification:		Pasirinkti perspėjimus pagal nutylėjimą:
 register_notification_desc:	Jei perspėjimai įjungti pagal nutylėjimą, juos galite išjungtii ir rašydami žinutę.
 register_notify_method:		Pasirinkite perspėjimo būdą:
-register_notify_js_error:	Jūs pasirinkote ICQ perspėjimus, bet nenurodėte ICQ #. Pagal nutylėjimą perspėjimai jums nustatyti per email.
 register_allow_email_msg:	Leisti email laiškų siuntimą:
 register_allow_email_msg_desc:	Leisti kitiems nariams Siųsti jums email laiškus STREETRACE.lt forumo pagalba.
 buddy_status:			Būklė
@@ -670,7 +669,6 @@ post_opt_images_off:		<b>Paveikslėliai</b> <b>IŠJUNGTI</b>
 post_opt_smilies_off:		<b>Šypsenėlės</b> <b>IŠJUNGTOS</b>
 post_opt:			Forumo nustatymai
 register_change_passwd:		keisti slaptažodį
-install_script_present_error:	For security reasons, you must remove the installation script at <b>{GVAR: WWW_ROOT_DISK}install.php</b> before you can use the forum.
 approved_avatar_title:		Your custom avatar was approved.
 approved_avatar_msg:		Your avatar was approved by the administrator. It should now appear as your avatar on all your messages. If you do not see it, or see your old avatar, it is because your browser has cached the page. Try refreshing it once or twice, this, in most cases will solve the caching problem.
 unapproved_avatar_title:	Your custom avatar was declined.

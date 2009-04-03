@@ -316,7 +316,6 @@ register_show_email_desc:	Ieslēgt, lai citi lietotāji redzētu Jūsu E-pasta a
 register_notification:		Ieslēgt paziņojumus pēc noklusējuma:
 register_notification_desc:	Šo režīmu var atslēgt pirms ziņojuma nosūtīšanas.
 register_notify_method:		Ziņojuma nosūtīšanas metode:
-register_notify_js_error:	Jūs izvēlējāties ziņojumu nosūtīšanu uz ICQ, bet neesat norādījis ICQ nummuru. Ziņojums tiks nosūtīts uz Email&#46;
 register_allow_email_msg:	Atļaut ziņojumu nosūtīšanu uz E-pasta adresi:
 register_allow_email_msg_desc:	Atļauj citiem lietotājiem nosūtīt ziņojumus no foruma uz Jūsu E-pasta adresi.
 buddy_status:			Statuss
@@ -665,7 +664,6 @@ post_opt_images_off:		<b>Nozīmītes</b> - <b>izslēgtas</b>
 post_opt_smilies_off:		<b>Smaidiņi</b> - <b>izslēgti</b>
 post_opt:			Foruma parametri
 register_change_passwd:		nomainīt paroli
-install_script_present_error:	Drošības apsvērumu dēļ, pirms sākt lietot forumu, Jums nepieciešams dzēst instalācijas skriptu. <b>{GVAR: WWW_ROOT_DISK}install.php</b>Vēlam veiksmi!!!.
 approved_avatar_title:		Jūsu nozīmīte apstiprināta.
 approved_avatar_msg:		Jūsu nozīmīte ir apstiprināta un tai jābūt redzamai. Iespējams Jūsu Web pārlūks attēlo novecojušu lapas saturu no kešatmiņas, tādēļ atjaunojiet to.
 unapproved_avatar_title:	Jūsu nozīmīte nav apstiprināta.

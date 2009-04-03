@@ -316,7 +316,6 @@ register_show_email_desc:	如果你想公開自己的電子郵件地址，請選
 register_notification:		選擇默認的通告方式:
 register_notification_desc:	您可以屏蔽管理員的通告！
 register_notify_method:		選擇通告發布方式:
-register_notify_js_error:	你選擇了通過ICQ接收通告, 但是沒有填入ICQ #. 默認的電子郵件地址是Email&#46;
 register_allow_email_msg:	允許向你的電子郵箱發送信息:
 register_allow_email_msg_desc:	允許別的用戶通過本論壇向你發送郵件。
 buddy_status:			級別
@@ -664,7 +663,6 @@ post_opt_images_off:		<b>貼圖功能：</b><b>關閉</b>
 post_opt_smilies_off:		<b>表情符號：</b><b>關閉</b>
 post_opt:			論壇選項
 register_change_passwd:		改變密碼
-install_script_present_error:	為了安全起見，請在使用論壇前刪除安裝文件install.php。<b>{GVAR: WWW_ROOT_DISK}install.php</b>
 approved_avatar_title:		你定制的頭像已被管理員批准。
 approved_avatar_msg:		你定制的頭像已被系統管理員批准，以后你發布的所有信息都將顯示該頭像。如果你尚未看到或者看到的是舊的頭像，那可能是您的瀏覽器保存了cach頁面，嘗試多刷新几次或許能解決這個問題。
 unapproved_avatar_title:	你定制的頭像未被批准。

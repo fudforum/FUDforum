@@ -320,7 +320,6 @@ register_show_email_desc:	電子メールアドレスを公開表示するなら
 register_notification:		デフォルトの通知選択:
 register_notification_desc:	If notification is enabled by default, it can be disabled when posting.
 register_notify_method:		通知方法を選択:
-register_notify_js_error:	You chose ICQ notification, but did not specify an ICQ #. Defaulting to E-mail&#46;
 register_allow_email_msg:	電子メールメッセージを許可:
 register_allow_email_msg_desc:	Allow other users to send you e-mails via this forum.
 buddy_status:			状況
@@ -673,7 +672,6 @@ post_opt_images_off:		<b>画像</b> は <b>OFF</b> です
 post_opt_smilies_off:		<b>絵文字</b> は <b>OFF</b> です
 post_opt:			フォーラムオプション
 register_change_passwd:		パスワード変更
-install_script_present_error:	セキュリティの理由で、フォーラムを使用する前に、インストールスクリプトの <b>{GVAR: WWW_ROOT_DISK}install.php</b> を削除しなければなりません。
 approved_avatar_title:		カスタムアバターは承認されました。
 approved_avatar_msg:		アバターは管理者に承認されました。それはあなたのすべてのメッセージにアバターとして出現するはずです。それが見えないか、古いアバターが見えるのは、ブラウザーがページをキャッシュしているからです。1・2回再読み込みしてみてください。ほとんどの場合、これでキャッシング問題を解決するでしょう。
 unapproved_avatar_title:	カスタムアバターは拒否されました。

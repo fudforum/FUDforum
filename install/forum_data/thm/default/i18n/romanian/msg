@@ -319,7 +319,6 @@ register_show_email_desc:	Selectati aceasta optiune daca doriti sa fie afisata a
 register_notification:		Alege notificari ca predefinite:
 register_notification_desc:	Daca notificarea este activata ca predefinita, aceasta poate fi dezactivata cand trimiteti mesaje.
 register_notify_method:		Alegeti metoda de notificare:
-register_notify_js_error:	Ati specificat notificari prin ICQ dar nu ati introdus numarul ICQ. Predefinit veti primi notificarile prin email.
 register_allow_email_msg:	Accepta mesaje pe adresa de email:
 register_allow_email_msg_desc:	Permite celorlalti utilizatori sa trimita adresa de email prin intermediul forumului.
 buddy_status:			Statut
@@ -668,7 +667,6 @@ post_opt_images_off:		<b>Imaginile</b> sunt <b>DEZACTIVATE</b>
 post_opt_smilies_off:		<b>Smilies</b> sunt <b>OPRITE</b>
 post_opt:			Optiunile Forumului
 register_change_passwd:		schimba parola
-install_script_present_error:	For security reasons, you must remove the installation script at <b>{GVAR: WWW_ROOT_DISK}install.php</b> before you can use the forum.
 approved_avatar_title:		Imaginea dumneavoastra a fost acceptata.
 approved_avatar_msg:		Imaginea dumneavoastra a fost acceptata de administrator.
 unapproved_avatar_title:	Imaginea dumneavoastra a fost respinsa.

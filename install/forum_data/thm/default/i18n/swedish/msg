@@ -316,7 +316,6 @@ register_show_email_desc:	V&auml;lj det h&auml;r alternativet om du vill att din
 register_notification:		F&ouml;rv&auml;lj meddelande om nya inl&auml;gg:
 register_notification_desc:	Om meddelande om nya inl&auml;gg &auml;r f&ouml;rvalt (kan v&auml;ljas bort n&auml;r man skriver inl&auml;gg) f&aring;r du automatiskt meddelande om nya inl&auml;gg i de diskussioner du deltar i.
 register_notify_method:		V&auml;lj metod f&ouml;r meddelande om nya inl&auml;gg:
-register_notify_js_error:	Du valde att f&aring; meddelande om nya inl&auml;gg via ICQ, men har inte angett n&aring;gon ICQ-nummer. Meddelande per e-post f&ouml;rvalt&#46;
 register_allow_email_msg:	Till&aring;t privata meddelanden:
 register_allow_email_msg_desc:	Till&aring;t andra medlemmar att skicka dig privata meddelanden via forumet.
 buddy_status:			Status
@@ -663,7 +662,6 @@ post_opt_images_off:		<b>Bilder</b> &auml;r <b>AV</b>
 post_opt_smilies_off:		<b>Smilisar</b> &auml;r <b>AV</b>
 post_opt:			Forumalternativ
 register_change_passwd:		byt l&ouml;senord
-install_script_present_error:	Av s&auml;kerhetssk&auml;l m&aring;ste du ta bort installationsskripten <b>{GVAR: WWW_ROOT_DISK}install.php</b> f&ouml;re du kan anv&auml;nda forumet.
 approved_avatar_title:		Din egen avatar godk&auml;ndes.
 approved_avatar_msg:		Din avatar godk&auml;ndes av administratorn. Den borde nu synnas som din avatar i alla dina inl&auml;gg. Om du inte ser den, eller ser din gamla avatar, beror det p&aring; att din webbl&auml;sare har sidan i sitt minne. Du kan ladda om sidan en eller ett par g&aring;nger, det borde &aring;tg&auml;rda saken.
 unapproved_avatar_title:	Din egen avatar blev inte godk&auml;nd.

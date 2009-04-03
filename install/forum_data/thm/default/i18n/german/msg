@@ -198,7 +198,6 @@ index_new_posts:		Neue Beitr&auml;ge seit dem letzten Besuch
 index_no_new_posts:		Keine neuen Beitr&auml;ge seit dem letzten Besuch
 index_title:			Willkommen im Forum
 index_update:			Durchsucht die <a href="{TEMPLATE: index_update_lnk}">Forumsliste</a>
-install_script_present_error:	Aus Sicherheitsgr&uuml;nden musst du das Installationsskript in <b>{GVAR: WWW_ROOT_DISK}install.php</b> entfernen, bevor du das Forum verwenden kannst.
 interests:			Interessen:
 last_post:			Letzter Beitrag
 last_thread_msg:		Zum letzten Beitrag in diesem Thema gehen
@@ -553,7 +552,6 @@ register_msnm:			MSN Messenger:
 register_name:			Name:
 register_notification:		Standardm&auml;&szlig;ige Benachrichtigung ausw&auml;hlen:
 register_notification_desc:	Soll die Benachrichtigung aktiviert sein? (kann beim Erstellen eines Beitrags deaktiviert werden)
-register_notify_js_error:	Du hast Benachrichtigung &uuml;ber ICQ ausgew&auml;hlt, aber keine ICQ-Nr. angegeben. Es wird daher E-Mail als Standard gew&auml;hlt&#46;
 register_notify_method:		Benachrichtigungsmethode ausw&auml;hlen:
 register_occupation:		Beruf:
 register_optional:		Freiwillige Angaben

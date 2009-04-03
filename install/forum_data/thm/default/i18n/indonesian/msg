@@ -320,7 +320,6 @@ register_show_email_desc:	Pilih ini jika anda ingin e-mail anda ditampilkan ke u
 register_notification:		Pemberitahuan secara otomatis:
 register_notification_desc:	Jika pemberitahuan dipilih otomatis, bisa dihentikan saat menulis pesan.
 register_notify_method:		Metode pemberitahuan:
-register_notify_js_error:	Anda memilih pemberitahuan melalui ICQ, tetapi nomor ICQ tidak ada. Dipindahkan ke e-mail.
 register_allow_email_msg:	Ijinkan pesan e-mail:
 register_allow_email_msg_desc:	Ijinkan pengguna lain untuk mengirim e-mail ke anda melalui forum ini.
 buddy_status:			Status
@@ -675,7 +674,6 @@ post_opt_images_off:		<b>Images</b> di<b>NON-AKTIFKAN</b>
 post_opt_smilies_off:		<b>Smilies</b> di<b>NON-AKTIFKAN</b>
 post_opt:			Pilihan Forum
 register_change_passwd:		ubah password
-install_script_present_error:	Untuk alasan keamanan,anda harus menghapus skrip instlasi di<b>{GVAR: WWW_ROOT_DISK}install.php</b> Sebelum anda mempergunakan forum.
 approved_avatar_title:		Avatar kustom anda disetujui.
 approved_avatar_msg:		Avatar kustom anda disetujui oleh administrator. Avatar ini seharusnya muncul disetiap pesan anda. Jika tidak, refresh browser sekali atau dua kali.
 unapproved_avatar_title:	Avatar kustom anda tidak disetujui.

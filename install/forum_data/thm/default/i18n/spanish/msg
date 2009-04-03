@@ -315,7 +315,6 @@ register_show_email_desc:	Escoja esta opción si desea que su dirección de corr
 register_notification:		Seleccionar notificar por omisión:
 register_notification_desc:	Si notificar está habilitado por omisión, puede ser deshabilitada al publicar.
 register_notify_method:		Escoja el método de notificación:
-register_notify_js_error:	Escogió las notificaciones por ICQ, pero no especificó un número ICQ. Se usará el correo electrónico.
 register_allow_email_msg:	Permitir los mensajes por correo electrónico:
 register_allow_email_msg_desc:	Permitir a otros usuarios enviarle correos electrónicos por FUDforum.
 buddy_status:			Estado
@@ -663,7 +662,6 @@ post_opt_images_off:		Las <b>imágenes</b> están <b>DESACTIVADAS</b>
 post_opt_smilies_off:		Los <b>emoticonoss</b> están <b>DESACTIVADOS</b>
 post_opt:			Opciones del foro
 register_change_passwd:		cambiar contraseña
-install_script_present_error:	Por seguridad debe borrar el script de instalación en <b>{GVAR: WWW_ROOT_DISK}install.php</b> antes de usar el foro.
 approved_avatar_title:		Su avatar personalizado fue aprobado.
 approved_avatar_msg:		Su avatar fue aprobado por el administrador. A partir de ahora debería aparecer como su avatar en todos sus mensajes. Si no lo ve, o ve su antiguo avatar, es porque su navegador ha guardado la página en la caché. Pruebe a recargar la página una o dos veces, en la mayoría de los casos esto resuelve el problema.
 unapproved_avatar_title:	Su avatar personalizado ha sido rechazado.

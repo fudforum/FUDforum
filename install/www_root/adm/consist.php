@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.137 2009/03/20 14:10:22 frank Exp $
+* $Id: consist.php,v 1.138 2009/04/03 14:55:59 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,18 +45,18 @@
 
 function draw_stat($text)
 {
-	echo '<b>'.htmlspecialchars($text).'</b><br />' . "\n";
+	echo htmlspecialchars($text).'<br />' . "\n";
+	@ob_flush(); flush();	
 }
 
 function draw_info($cnt)
 {
 	draw_stat(($cnt < 1 ? 'OK' : $cnt . ' entries unmatched, deleted'));
-	@ob_flush(); flush();
 }
 
 function stop_js()
 {
-	echo '<script type="text/javascript">clearInterval(intervalID);</script>';
+	echo '<script type="text/javascript">clearInterval(intervalID); scrollBy(0,document.body.scrollHeight);</script>';
 }
 
 function delete_zero($tbl, $q)
@@ -117,7 +117,7 @@ While it is running, your forum will be disabled.
 	var intervalID;
 	function scrolldown()
 	{
-		window.scroll(0, 30000);
+		window.scrollBy(0, 50);
 	}
 	intervalID = setInterval('scrolldown()', 100);
 /* ]]> */
@@ -743,6 +743,6 @@ While it is running, your forum will be disabled.
 
 	draw_stat('DONE');
 
-	echo 'It is recommended that you run SQL table optimizer after completing the consistency check. To do so <a href="consist.php?opt=1&amp;'.__adm_rsid.'">click here</a>, keep in mind that this process make take several minutes to perform.';
+	echo '<hr /><div class="tutor">It is recommended that you run SQL table optimizer after completing the consistency check. To do so <b><a href="consist.php?opt=1&amp;'.__adm_rsid.'">click here</a></b>, keep in mind that this process may take several minutes to perform.</div><br />';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

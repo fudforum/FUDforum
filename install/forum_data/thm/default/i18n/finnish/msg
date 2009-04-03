@@ -320,7 +320,6 @@ register_show_email_desc:	Määrittää näytetäänkö sähköpostiosoitteesi j
 register_notification:		Ilmoitukset uusista viesteistä oletuksena:
 register_notification_desc:	Jos ilmoitukset uusista viesteistä vastaanotetaan oletuksena, voit silti estää ne lähettäessäsi uutta viestiä.
 register_notify_method:		Valitse ilmoitusten välitystapa:
-register_notify_js_error:	Valitsit ICQ-ilmoitukset uusista viesteistä, mutta et ole määritelly ICQ-numeroa. Ilmoitukset sähköpostitse valittu&#46;
 register_allow_email_msg:	Sähköpostin vastaanotto muilta käyttäjiltä:
 register_allow_email_msg_desc:	Salli muiden käyttäjien lähettää sinulle sähköpostia FUDforumista.
 buddy_status:			Status
@@ -670,7 +669,6 @@ post_opt_images_off:		<b>Kuvat</b>: <b>Ei käytössä</b>
 post_opt_smilies_off:		<b>Hymiöt</b>: <b>Ei käytössä</b>
 post_opt:			Foorumin asetukset
 register_change_passwd:		vaihda salasana
-install_script_present_error:	For security reasons, you must remove the installation script at <b>{GVAR: WWW_ROOT_DISK}install.php</b> before you can use the forum.
 approved_avatar_title:		Oma avatarisi on hyväksytty.
 approved_avatar_msg:		Ylläpitäjän on hyväksynyt oman avatarisi. Sen pitäisi nyt näkyä kaikissa viesteissäsi. Jos et näe sitä tai näet vanhan avatarisi, se johtuu siitä että selaimesi on tallentanut sivun välimuistiin. Päivitä sivu kerran tai pari ja oikean kuvan pitäisi näkyä.
 unapproved_avatar_title:	Oma avatarisi on hylätty.

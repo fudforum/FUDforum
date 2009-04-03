@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.55 2009/03/31 10:26:45 frank Exp $
+* $Id: admforum.php,v 1.56 2009/04/03 14:55:59 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -136,7 +136,7 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
-		<td>Tag Style</td>
+		<td>Tag Style<br /><font size="-2">What markup language may users use</font></td>
 		<td><?php draw_select('frm_tag_style', "FUD ML\nHTML\nNone", "16\n0\n8", ($frm_forum_opt & 8 ? 8 : ($frm_forum_opt & 16 ? 16 : 0))); ?></td>
 	</tr>
 

@@ -318,7 +318,6 @@ register_show_email_desc:	Kies hierdie opsie indien u u epos adres publiek sigba
 register_notification:		Selekteer Notifikasie as standaard
 register_notification_desc:	of die notifikasie standaard is ingesteld, u kan het nog aanpas by het posten
 register_notify_method:		Kies notifikasie metode:
-register_notify_js_error:	U kies ICQ kennisgewings maar het geen ICQ # opgegee nie. Sal terugval na E-pos
 register_allow_email_msg:	Laat Epos Boodskappe toe:
 register_allow_email_msg_desc:	Laat andere lede toe om vir u epos deur die forum te stuur.
 buddy_status:			Status
@@ -666,7 +665,6 @@ post_opt_images_off:		<b>Fotos</b> is <b>AF</b>
 post_opt_smilies_off:		<b>Smilies</b> is <b>AF</b>
 post_opt:			Forum Opsies
 register_change_passwd:		verander wagwoord
-install_script_present_error:	Omdere veiligheidsmaatreels moet u die installasie skrip <b>{GVAR: WWW_ROOT_DISK}install.php</b> verwyder voor u die forum mag gebruik.
 approved_avatar_title:		U avatar is goedgekeur.
 approved_avatar_msg:		U avatar is goedgekeur deur die administrator. Di sal nou verskyn as u avatar in al jou boodskappe. Indien u dit nie sie nie, of u ou avatar sien komt dat omdat u browser die bladsy gekas het. probeer 1 of 2x op verversen te kliek (in sommige browsers werk die "F5" sleutel ook) hiermee los u in die meeste gevalle die kas probleem op.
 unapproved_avatar_title:	U custom avatar is afgekeur.

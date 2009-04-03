@@ -315,7 +315,6 @@ register_show_email_desc:	E-mektup adresinizin herkese açık şekilde görünt�
 register_notification:		Varsayılan olarak uyarı gönderilsin:
 register_notification_desc:	Uyarı almayı varsayılan olarak seçseniz bile, ileti gönderirken kapatabilirsiniz.
 register_notify_method:		Uyarı yöntemini seç:
-register_notify_js_error:	ICQ yoluyla uyarı yöntemini seçtiniz, fakat bir ICQ numarası belirtmediniz. Şu durumda e-mektup yöntemini seçtiğiniz varsayılıyor&#46;
 register_allow_email_msg:	E-mektup iletilerine izin ver:
 register_allow_email_msg_desc:	Diğer kullanıcıların forum yoluyla size e-mektup atabilmelerinize izin verin.
 buddy_status:			Durum
@@ -663,7 +662,6 @@ post_opt_images_off:		<b>Resimler KAPALI</b>
 post_opt_smilies_off:		<b>Gülücükler KAPALI</b>
 post_opt:			Forum Seçenekleri
 register_change_passwd:		parola değiştir
-install_script_present_error:	Güvenlik nedenleriyle, <b>{GVAR: WWW_ROOT_DISK}install.php</b> adresinde bulunan kurulum betiğini kaldırmalısınız. Aksi takdirde forumu kullanmaya başlayamazsınız.
 approved_avatar_title:		Özel avatarınız onaylandı.
 approved_avatar_msg:		Özel avatarınız yönetici tarafından onaylandı. Bundan sonra tüm iletilerinizde avatarınız olarak görünmesi gerekiyor. Göremiyorsanız, ya da eski avatarınız görüyorsanız, tarayıcınız sayfayı cache&#39;e attığı için olabilir. Sayfayı bir iki kez yenilemeyi deneyin, çoğunlukla bu sorunu giderecektir.
 unapproved_avatar_title:	Özel avatarınız reddedildi.

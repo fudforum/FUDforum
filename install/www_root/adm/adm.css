@@ -1,7 +1,8 @@
 body, body.popup {
 	background: #aabbaa;
 	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
-	font-size: normal;
+	font-size: medium;
+	font-size-adjust: 0.50;
 }
 
 body.popup {
@@ -20,7 +21,7 @@ a:active, a:hover {
 .admin_fixed {
 	font-family: courier;
 	text-decoration: none;
-	font-size: 12px;
+	font-size: small;
 }
 
 table.headtable {
@@ -57,7 +58,7 @@ table.linktable {
 	padding-left: 5px;
 }
 span.linkhead {
-	color: #fff; 
+	color: #fff;
 	font-weight: bold;
 	font-size: x-large;
 }
@@ -65,7 +66,7 @@ span.linkhead {
 span.linkgroup {
 	color: #339966;
 	font-weight: bold;
-	font-size: 11px;
+	font-size: medium;
 }
 .linktable a {
 	font-size: small;

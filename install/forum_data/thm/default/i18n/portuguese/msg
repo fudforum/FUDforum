@@ -318,7 +318,6 @@ register_show_email_desc:	Escolha esta opção se quiser que o seu endereço de 
 register_notification:		Selecionar a notificação como padrão:
 register_notification_desc:	Se a notificação estiver activa como padrão, poderá ser desactivada quando colocar um post.
 register_notify_method:		Escolher modo de notificação:
-register_notify_js_error:	Escolheu notificação via ICQ, mas não especificou o n.º de ICQ. Será utilizado o Email por defeito;
 register_allow_email_msg:	Autorizar mensagens E-mail:
 register_allow_email_msg_desc:	Autorizar que outros membros enviem e-mails via forum.
 buddy_status:			Estado
@@ -667,7 +666,6 @@ post_opt_images_off:		<b>As imagens</b> estão <b>Desligadas</b>
 post_opt_smilies_off:		<b>Os smilies</b> estão <b>Desligados</b>
 post_opt:			Opções do Forum
 register_change_passwd:		Alterar Password
-install_script_present_error:	Por razões de segurança, deve remover o script de instalação em <b>{GVAR: WWW_ROOT_DISK}install.php</b> antes de poder utilizar este forum.
 approved_avatar_title:		O seu avatar foi aprovado.
 approved_avatar_msg:		O seu avatar foi aprovado pelo administrador. Aparecerá agora em todas as suas mensagens. Se não o vê, ou se vê o seu antigo avatar, é porque o seu browser está a ler esta página a partir da cache. Tente refrescar uma ou duas vezes, isto, na maioria dos casos resolve o problema com a cache.
 unapproved_avatar_title:	O seu avatar foi rejeitado.

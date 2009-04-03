@@ -318,7 +318,6 @@ register_show_email_desc:	Включи, ако желаеш&nbsp; email адре
 register_notification:		Избери известяване по подразбиране:
 register_notification_desc:	Ако известяването е било избрано по подразбиране, можеш да го изключиш след като изпратиш съобщение.
 register_notify_method:		Избери метод на известяване:
-register_notify_js_error:	Избра известяване по ICQ, обаче не е указан твоя ICQ номер. По подразбиране се прехвърля на Email&amp;&#46;
 register_allow_email_msg:	Разрешени са Email съобщенията:
 register_allow_email_msg_desc:	Разрешава на останалите потребители да ти пращат e-mail съобщения през FUDforum.
 buddy_status:			Статут
@@ -666,7 +665,6 @@ post_opt_images_off:		<b>Изображения</b> са <b>забранени</
 post_opt_smilies_off:		<b>Усмивките</b> са <b>забранени</b>
 post_opt:			Опции на форума
 register_change_passwd:		Промени паролата
-install_script_present_error:	За повишаване на сигурността, трябва да премахнеш скрипта за инсталация <b>{GVAR: WWW_ROOT_DISK}install.php</b> преди да започнеш да изполваш форума.
 approved_avatar_title:		Аватара ти е одобрен.
 approved_avatar_msg:		Модераторът е одобрил желания ти аватар. Вече би трябвало да се вижда във всяко твое съобщение. Ако той не се вижда или се вижда стария, натисни refresh.
 unapproved_avatar_title:	Аватарът ти е отхвърлен.
