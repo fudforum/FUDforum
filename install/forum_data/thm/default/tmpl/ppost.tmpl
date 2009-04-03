@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.tmpl,v 1.70 2009/02/22 00:00:37 frank Exp $
+* $Id: ppost.tmpl,v 1.71 2009/04/03 05:40:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -88,8 +88,8 @@
 {PAGE: PPOST_PAGE  form for writing private messages}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-{FUNC: tmpl_cur_ppage('', $folders)}
 {TEMPLATE-DATA: tabs}
+<br />{FUNC: tmpl_cur_ppage('', $folders)}
 <form action="{TEMPLATE: PPOST_PAGE_lnk3}" method="post" id="post_form" name="post_form" enctype="multipart/form-data" onsubmit="document.post_form.btn_submit.disabled = true; document.post_form.btn_draft.disabled = true;">
 {DEF: _hs}
 <input type="hidden" name="btn_action" value="" />

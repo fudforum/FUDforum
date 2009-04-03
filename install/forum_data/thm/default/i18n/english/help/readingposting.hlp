@@ -1,11 +1,11 @@
 TOPIC_TITLE: <a name="style">How to format text?</a>
 TOPIC_HELP:
 Generally, messages on the forum are mostly plain text, however on occasion you may want to add 
-some formatting to your text, such as making certain words bold,italics,etc...
-<p>
+some formatting to your text, such as making certain words bold, italics, etc...
+<p />
 Since in most cases the admin does not permit you to use HTML inside your posts, you can use FUDcode, which is a special 
-set of tags that allows you to apply certain formatting to your text. FUDcode is very easy to use and is a lot more secure then HTML.
-<p>
+set of tags that allows you to apply certain formatting to your text. FUDcode is very easy to use and is a lot more secure than HTML.
+<p />
 
 <a name="url"><b>URL Hyperlinking</b></a><br />
 
@@ -15,8 +15,8 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#FF0000">http://cvs.prohost.org</font></td>
-    <td valign="middle" align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></td>
+    <td valign="middle" align="center"><b><font color="#FF0000">http://cvs.prohost.org</font></b></td>
+    <td valign="middle" align="center"><a href="http://cvs.prohost.org" target="_blank">http://cvs.prohost.org</a></td>
   </tr>
 </table>
 <i>Explanation:</i> FUDforum will automatically pick up URLs and convert them to valid URLs.
@@ -28,8 +28,8 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></td>
-    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></td>
+    <td valign="middle" align="center"><b><font color="#ff0000">[url]<font color="#006600">http://www.myhomepage.com</font>[/url]</font></b></td>
+    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target="_blank">http://www.myhomepage.com</a></td>
   </tr>
 </table>
 <i>Explanation:</i> You also can define URLs with FUDcode, this is an simple example of its use. 
@@ -41,14 +41,14 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600"><br />My Homepage<br /></font>[/URL]</b></font></td>
-    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[url=<font color="#006600">http://www.myhomepage.com</font>]<br />My Homepage<br />[/url]</b></font></td>
+    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target="_blank">My Homepage</a></td>
   </tr>
 </table>
 <i>Explanation:</i> You can use FUDcode to make URLs with a self-chosen caption.
 <br /><br /><br />
 
-<p>
+<p />
 <a name="email"><b>Email Hyperlinking</b></a><br />
 
 <table>
@@ -157,7 +157,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[color=red]</b></font>red text<font color="#ff0000"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[color=<font color="#006600">red</font>]</b></font>red text<font color="#ff0000"><b>[/color]</b></font></td>
     <td valign="middle" align="center"><font color="#ff0000">red text</font></td>
   </tr>
 </table>
@@ -171,7 +171,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[size=4]</b></font>big text<font color="#ff0000"><b>[/size]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[size=<font color="#006600">4</font>]</b></font>big text<font color="#ff0000"><b>[/size]</b></font></td>
     <td valign="middle" align="center"><font size="4">big text</font></td>
   </tr>
 </table>
@@ -185,7 +185,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[font=courier]</b></font>text<font color="#ff0000"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[font=<font color="#006600">courier</font>]</b></font>text<font color="#ff0000"><b>[/color]</b></font></td>
     <td valign="middle" align="center"><font face="Courier New, Courier, monospace">text</font></td>
   </tr>
 </table>
@@ -197,7 +197,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=red][size=4][font=courier]</b></font><br />Formatted Text<br /><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=<font color="#006600">red</font>][size=<font color="#006600">4</font>][font=<font color="#006600">courier</font>]</b></font><br />Formatted Text<br /><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></td>
     <td valign="middle" align="center"><font color="#ff0000" size="4" face="Courier New, Courier, monospace"><u><i><b>Formatted Text</b></i></u></font></td>
   </tr>
 </table>
@@ -212,7 +212,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=center]</b></font>centered text<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=<font color="#006600">center</font>]</b></font>centered text<font color="#ff0000"><b>[/align]</b></font></td>
     <td valign="middle" align="center">centered text</td>
   </tr>
 </table>
@@ -224,7 +224,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=right]</b></font>right aligned<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=<font color="#006600">right</font>]</b></font>right aligned<font color="#ff0000"><b>[/align]</b></font></td>
     <td valign="middle" align="right">right aligned</td>
   </tr>
 </table>
@@ -236,7 +236,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=left]</b></font>left aligned<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=<font color="#006600">left</font>]</b></font>left aligned<font color="#ff0000"><b>[/align]</b></font></td>
     <td valign="middle" align="left">left aligned</td>
   </tr>
 </table>
@@ -263,7 +263,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=<font color="#006600">1</font>]</b></font><br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ol><li>list item</li><li>list item</li></ol></td>
   </tr>
 </table>
@@ -275,7 +275,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=<font color="#006600">a</font>]</b></font><br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ol type="a"><li>list item</li><li>list item</li></ol></td>
   </tr>
 </table>
@@ -290,7 +290,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br /><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br /></font><font color="#ff0000"><b>[/img]</b></font></td>
-    <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31"></td>
+    <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31" /></td>
   </tr>
 </table>
 <br />    
@@ -302,7 +302,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br />[img]</b></font><br />http://www.prohost.org/img/pro_logo.gif<br /><b><font color="#ff0000">[/img]<br />[/url]</font></b></font></td>
-    <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0"></a></td>
+    <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0" /></a></td>
   </tr>
 </table>
 <i>Explanation:</i> You can use FUDcode to create linked images by enclosing the [img][/img] tag with the [url][/url] tag.
@@ -398,10 +398,10 @@ and not have them converted to equivalent HTML.
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[hr]</b></font></td>
-    <td valign="middle" align="center"><hr></td>
+    <td valign="middle" align="center"><hr /></td>
   </tr>
 </table>
-<i>Explanation:</i> The [hr] tag produces a horizonatal line, it is an equivalent to the &lt;hr&gt;
+<i>Explanation:</i> The [hr] tag produces a horizontal line, it is an equivalent to the &lt;hr&gt;
  HTML tag.
 <br /><br /><br />
 
@@ -419,8 +419,9 @@ and not have them converted to equivalent HTML.
 <font color="#ff0000"><b>[/spoiler]</b></font><br />
 More visible text.</td>
     <td valign="middle" align="center">Visible part of the message<br />
-<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Reveal Spoiler</a><div align="left" id="1482055279834293165" style="display: none;"><br />
-Hidden part of the message<br /></div></div>
+<div class="dashed" style="padding: 3px;" align="center"><a href="javascript://" onclick="javascript: layerVis('s28415', 1);">Toggle Spoiler</a><div align="left" id="s28415" style="display: none;"> <br />
+Hidden part of the message<br />
+</div></div>
 <br />
 More visible text.</td>
   </tr>
@@ -436,7 +437,7 @@ More visible text.</td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font><br />FUDforum<br /><font color="#ff0000"><b>[/acronym]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=<font color="#006600">Fast Uncompromising Discussion Forum</font>]</b></font><br />FUDforum<br /><font color="#ff0000"><b>[/acronym]</b></font></td>
     <td valign="middle" align="center"><acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym></td>
   </tr>
 </table>
@@ -451,7 +452,7 @@ More visible text.</td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=ca]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=<font color="#006600">ca</font>]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
     <td valign="middle" align="center"><a href="http://ca.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
   </tr>
 </table>
@@ -464,7 +465,7 @@ Smilies are small icons that you can insert into your message to convey various 
 If smilies are enabled, a list of smilies supported by the forum will be listed above the message box where you type your message.
 Clicking on a smiley, will insert that smiley into your message.<br />
 Common smilies may automatically be replaced with their equivalent images, if you do not wish for that to happen, click on the 
-<b>Disable Smilies</b> checkbox.<p>
+<b>Disable smilies in this message</b> checkbox.<p />
 
 TOPIC_TITLE: <a name="polls">How do I use Polls?</a>
 TOPIC_HELP:
@@ -472,22 +473,22 @@ In certain forums you may have the ability to include polls inside your messages
 provide a number of answers other forum members may choose from. For the sake of accuracy only registered users may cast in 
 their votes.<br />
 When you click on the <b>CREATE POLL</b> link, located on the post page a pop-up will appear allowing to create a poll with several 
-potential multiple choice answers. When you are done, simply click on the <b>Edit</b> button and you will be taken back to the post page 
+potential multiple choice answers. When you are done, simply click on the <b>Update</b> button and you will be taken back to the post page 
 and then poll you've created will be attached to the message.<br />
 You can edit an existing poll, by clicking on the <b>EDIT</b> link, or you can remove the poll entirely by click on the <b>DELETE</b>.
-<p>
-You will only have 1 opportunity to vote in a poll, so make your decision careful, you will not be able to change it at a later point.
+<p />
+You will only have one opportunity to vote in a poll, so make your decision carefully, you will not be able to change it at a later point.
 
 TOPIC_TITLE: <a name="attach">Can I attach files to messages?</a>
 TOPIC_HELP:
 If allowed by administrator, you may attach one or more files to your normal as well as private messages. This ability is 
 determined on a forum by forum basis, so while you may be able to attach files in one forum you may not be able to do so in another.
 <br />
-The post form will list 3 rules which apply to your file attachments:<p>
-<b>Allowed File Types</b> - a list of file types that you may attach to your message. ex. jpg, gif. png<br />
+The post form will list three rules which apply to your file attachments:<p />
+<b>Allowed File Types</b> - a list of file types that you may attach to your message. ex. jpg, gif, png<br />
 <b>Maximum File Size</b> - the maximum size of each file that you may attach to your message<br />
 <b>Maximum Files per Message</b> - the number of files you can attach to your message.
-<p>
+<p />
 To attach a file to a message, click the <b>Browse</b> button at the bottom of the post page. In response your browser will 
 open a dialog window allowing your to select a file you wish to upload from your hard drive. Once you've selected a file, click on the
 <b>Upload File</b> button to attach the file to your message.<br />
@@ -513,7 +514,7 @@ TOPIC_TITLE: <a name="mod">Who are the moderators &amp; administrators?</a>
 TOPIC_HELP:
 Moderators are "super users" who generally oversee one or more forums. They have the ability to edit, delete, approve messages as well 
 as make forum announcements. These are the people to contact if you see something inappropriate being done in a forum they are moderating. 
-You may also address moderators if you have any questions in regard on how to use the forum.<p>
+You may also address moderators if you have any questions in regard on how to use the forum.<p />
 Administrators are the controllers of the forum, they can do ANYTHING, so be polite when talking to them ;-). Administrator in addition to being 
 able to do everything a moderator can do, also can approve Avatars, assign &amp; remove custom tags, block users and respond to various forum questions.
 If you encounter any bugs with the forum, Administrator is the person to contact.
@@ -525,10 +526,10 @@ so the same things you cannot see, other people will also not be able to see.
 
 TOPIC_TITLE: <a name="not">Can I be notified of replies to my messages?</a> 
 TOPIC_HELP:
-When you post a new topic or make a reply to an existing topic, you may choose to be notified via Email of the replies. You can also subscribe to a topic without posting a reply, by clicking on the <b>Subscribe</b> link at the top of the page or if you 
+When you post a new topic or make a reply to an existing topic, you may choose to be notified via email of the replies. You can also subscribe to a topic without posting a reply, by clicking on the <b>Subscribe</b> link at the top of the page or if you 
 want you can subscribe to a forum, so that whenever a new topic is made in that forum you will receive a notification about it.
-<p>
-If you choose to stop receiving notifications from a topic or forum, you can click on the <b>Un-subscribe</b> link, while viewing that topic or forum.
+<p />
+If you choose to stop receiving notifications from a topic or forum, you can click on the <b>Unsubscribe</b> link, while viewing that topic or forum.
 Or go to the <b>Subscriptions</b> tab in your profile and remove the topic or forum from that list.
-<p>
+<p />
 The ability to receive notifications is limited to registered users.

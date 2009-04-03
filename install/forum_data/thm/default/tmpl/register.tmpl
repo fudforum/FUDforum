@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.81 2009/03/26 18:08:58 frank Exp $
+* $Id: register.tmpl,v 1.82 2009/04/03 05:40:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -176,7 +176,7 @@
 <tr class="RowStyleA"><td>{MSG: register_show_email}<br /><span class="SmallText">{MSG: register_show_email_desc}</span></td><td>{TEMPLATE-DATA: show_email_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_notification}<br /><span class="SmallText">{MSG: register_notification_desc}</span></td><td>{TEMPLATE-DATA: notify_default_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_pm_notification}<br /><span class="SmallText">{MSG: register_pm_notification_desc}</span></td><td>{TEMPLATE-DATA: pm_notify_default_radio}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_notify_method}<br /><span class="SmallText">{MSG: register_notify_method_desc}</span></td><td><select name="reg_notify_method" onchange="re=/[^0-9]/g; a=document.fud_register.reg_icq.value.replace(re, ''); if(this.value=='ICQ' && !a.length ) { alert('{MSG: register_notify_js_error}'); this.value='EMAIL'; }">{TEMPLATE-DATA: notification_select}</select></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_notify_method}<br /><span class="SmallText">{MSG: register_notify_method_desc}</span></td><td><select name="reg_notify_method">{TEMPLATE-DATA: notification_select}</select></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_allow_email_msg}<br /><span class="SmallText">{MSG: register_allow_email_msg_desc}</span></td><td>{TEMPLATE-DATA: accept_user_email}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_allow_pm_msg}<br /><span class="SmallText">{MSG: register_allow_pm_msg_desc}</span></td><td>{TEMPLATE-DATA: accept_pm}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_use_sig_default}<br /><span class="SmallText">{MSG: register_use_sig_default_desc}</span></td><td>{TEMPLATE-DATA: append_sig_radio}</td></tr>

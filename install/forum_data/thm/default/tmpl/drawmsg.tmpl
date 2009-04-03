@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.92 2009/01/29 18:37:29 frank Exp $
+* $Id: drawmsg.tmpl,v 1.93 2009/04/03 05:40:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -212,7 +212,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_poll_lnk}
-{ROOT}?{VAR: _SERVER['QUERY_STRING']}#msg_{VAR: obj->id}
+{ROOT}?{FUNC: htmlspecialchars($_SERVER['QUERY_STRING'])}#msg_{VAR: obj->id}
 {SECTION: END}
 
 {SECTION: dmsg_poll}
@@ -221,8 +221,8 @@
 <table cellspacing="1" cellpadding="2" class="PollTable">
 <tr><th class="nw" colspan="3">{VAR: obj->poll_name}<span class="ptp">[ {MSG: num_votes} ]</span></th></tr>
 {TEMPLATE-DATA: poll_data}
-<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA} ar"><td colspan="3"><input type="submit" class="button" name="pl_vote" value="{MSG: vote_button}">&nbsp;{IF: $obj->total_votes}<input type="submit" class="button" name="pl_res" value="{MSG: view_results}">{ENDIFI}</td></tr>
-</table><input type="hidden" name="pl_view" value="{VAR: obj->poll_id}"></form><p />
+<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA} ar"><td colspan="3"><input type="submit" class="button" name="pl_vote" value="{MSG: vote_button}" />&nbsp;{IF: $obj->total_votes}<input type="submit" class="button" name="pl_res" value="{MSG: view_results}" />{ENDIFI}</td></tr>
+</table><input type="hidden" name="pl_view" value="{VAR: obj->poll_id}" /></form><p />
 {SECTION: END}
 
 {SECTION: dmsg_drawmsg_file_attachments the file attachments list}
@@ -237,10 +237,9 @@
 {SECTION: END}
 
 {SECTION: dmsg_drawmsg_file_attachment file attachment entry row}
-<li />
-<a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}"><img alt="" src="images/mime/{VAR: v[4]}" class="at" /></a>
+<li><a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}"><img alt="" src="images/mime/{VAR: v[4]}" class="at" /></a>
 <span class="GenText fb">{MSG: attachment}</span> <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}">{VAR: v[1]}</a><br />
-<span class="SmallText">({MSG: size} {FUNC: ($sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB')}, {MSG: download_counter})<p /></span>
+<span class="SmallText">({MSG: size} {FUNC: ($sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB')}, {MSG: download_counter})</span></li>
 {SECTION: END}
 
 {SECTION: dmsg_modified_message_mod modified message indicator}

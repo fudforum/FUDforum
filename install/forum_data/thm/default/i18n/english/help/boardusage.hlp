@@ -1,11 +1,10 @@
 TOPIC_TITLE: <a name="post">How do I post messages?</a>
 TOPIC_HELP:
-To start a new topic you should click on the 'New Topic' button that can be found on message/topic listing pages.
+To start a new topic you should click on the <b>New Topic</b> button that can be found on message/topic listing pages.
 You will then be taken to a message composer form allowing you to write the content of your message. To reply
-to existing messages, simply click on the 'reply', or 'quote' buttons found on the lower right side of each message.<br />
+to existing messages, simply click on the <b>Reply</b>, or <b>Quote</b> buttons found on the lower right side of each message.<br />
 In some cases clicking on those buttons will give you a permission error. This means that your may be required to login
 or register on the forum to gain posting privileges or that the posting in this forum is restricted.
-
 
 TOPIC_TITLE: <a name="bsearch">How can I search?</a>
 TOPIC_HELP:
@@ -14,7 +13,6 @@ specifying one or more keywords you wish to be found and choosing where to find 
 or do a full text search on both the message body &amp; subject. You can also limit your search to a forum of your choice if you do not wish to search 
 in all the forums.<br />
 You can also search for other forum members, by their login name or email address via the <a href="{ROOT}?t=finduser&amp;%_rsid%">user search form</a>.
-
 
 TOPIC_TITLE: <a name="email">Can I email other forum members?</a>
 TOPIC_HELP:
@@ -26,40 +24,37 @@ enter you intended email subject &amp; body. When you're done, simple click on t
 In addition to sending emails to forum members, you can also use the <b>Email to friend</b> link to recommend a particular page to your friend 
 by sending them a URL with the description. This link can be found on the topic &amp; message view pages of the forum.
 
-
 TOPIC_TITLE: <a name="pmsg">What are private messages and how do I send them?</a> 
 TOPIC_HELP:
 If the administrator has not disabled Private Messaging system, you may send private messages to one or more registered 
 members of the forum. To access the PM system, simply click on the <a href="{ROOT}?t=pmsg&amp;%_rsid%">Private Messaging</a> link 
 which can be found at the top of the page's right corner. If you have any unread private messages, this link will indicate how many unread messages you have.
-<p>
+<p />
 <b>Sending a private message</b><br />
 Private messages are very similar to email, you specify the person(s) who you wish to send the message to, enter the subject &amp; the message 
-and click send. There are 2 links available, that would allow you to easily find members who you wish to send your message to,
+and click send. There are two links available, that would allow you to easily find members who you wish to send your message to,
 <b>Select from Buddy List</b>, which will allow to select people from your buddy list, by listing all your buddies and <b>Find User</b>, which
 will allow to search the forum's entire member list for people to whom you wish to address your message.
-A copy of every sent message will be stored inside your <b>SENT</b> folder, for future reference, you can always delete those message should 
+A copy of every sent message will be stored inside your <b>Sent</b> folder, for future reference, you can always delete those message should 
 your choose to do so.
-<p>
-There are 3 other folders that you should be aware of:
-<p>
+<p />
+There are three other folders that you should be aware of:
+<p />
 <b>Inbox</b> folder contains any messages that you have received, each message has an read/unread indicator to allow you to see if you 
 have read this message or not. You will also be able to see who sent this message and if that person is currently online or not, the date when 
 the message was sent is also shown.
-<p>
-<b>Drafts</b> Folder contains the messages you have written but did not yet send yet. By clicking on the message you will go to edit mode, 
-which will allow you to further modify the message as well as send it if you choose to. Once the message is sent it will be moved from the DRAFTS 
-folder to your SENT folder.
-<p>
+<p />
+<b>Drafts</b> folder contains the messages you have written but did not yet send yet. By clicking on the message you will go to edit mode, 
+which will allow you to further modify the message as well as send it if you choose to. Once the message is sent it will be moved from the <b>Drafts</b> folder to your <b>Sent</b> folder.
+<p />
 <b>Trash</b> folder stores all the message you have marked for deletion, but did not delete as of yet. If you delete a message which is located 
-inside TRASH this message will become permanently deleted.
-<p>
-<b>Message Tracking</b><p>
+inside <b>Trash</b> this message will become permanently deleted.
+<p />
+<b>Message Tracking</b><p />
 When you send a message you have the ability to request a read-receipt, when the recipient reads the message you will receive a system message 
 notifying you that your message has been read.<br />
 However, if you request such a receipt the recipient may choose to decline sending the read-receipt, so if you have requested a receipt and 
 did not receive it this does not necessarily mean your message was not read.
-
 
 TOPIC_TITLE: <a name="mlist">Member List?</a>
 TOPIC_HELP:
@@ -72,7 +67,6 @@ TOPIC_TITLE:<a name="ann">What are announcements &amp; sticky messages?</a>
 TOPIC_HELP:
 These are special messages that can be created by administrators &amp; moderators and stay at the top of a forum(s) for a period of time.
 Generally they are used to inform the users of the forum of a certain event or outline rules etc...
-
 
 TOPIC_TITLE: <a name="rate">Can I rate topics?</a>
 TOPIC_HELP:
@@ -92,7 +86,7 @@ If permitted by the administrator, FUDforum allows you to syndicate a variety of
 in 3 modes, message retrieval, topic retrieval and user retrieval. Each mode of operation supports a number of modifier parameters that
 will allow you to specify what sort of data do you wish to fetch. Below is the explanation of the supported parameters for each mode
 of operation.<br />
-<br /><br />
+
 <h4><u><b>'m' mode (messages)</b></u></h4>
 <blockquote>
 	<table border="0" cellspacing="1" cellpadding="3">

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.102 2009/03/26 17:24:27 frank Exp $
+* $Id: post_proc.inc.t,v 1.103 2009/04/03 05:40:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -320,8 +320,8 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 'spoiler':
 					$rnd = rand();
 					$end_tag[$cpos] = '</div></div>';
-					$ostr .= '<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis(\''.$rnd.'\', 1);">'
-						.($parms ? $parms : '{TEMPLATE: post_proc_reveal_spoiler}').'</a><div align="left" id="'.$rnd.'" style="display: none;">';
+					$ostr .= '<div class="dashed" style="padding: 3px;" align="center"><a href="javascript://" onclick="javascript: layerVis(\'s'.$rnd.'\', 1);">'
+						.($parms ? $parms : '{TEMPLATE: post_proc_reveal_spoiler}').'</a><div align="left" id="s'.$rnd.'" style="display: none;">';
 					break;
 				case 'acronym':
 					$end_tag[$cpos] = '</acronym>';
@@ -570,8 +570,8 @@ function html_to_tags($fudml)
 	}
 
 	/* new format */	
-	if (preg_match('!<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">.*?</a><div align="left" id="(.*?)" style="display: none;">!is', $fudml)) {
-		$fudml = preg_replace('!\<div class\="dashed" style\="padding: 3px;" align\="center" width\="100%"\>\<a href\="javascript://" OnClick\="javascript: layerVis\(\'.*?\', 1\);">(.*?)\</a\>\<div align\="left" id\=".*?" style\="display: none;"\>!is', '[spoiler=\1]', $fudml);
+	if (preg_match('!<div class="dashed" style="padding: 3px;" align="center"( width="100%")?><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">.*?</a><div align="left" id="(.*?)" style="display: none;">!is', $fudml)) {
+		$fudml = preg_replace('!\<div class\="dashed" style\="padding: 3px;" align\="center"( width\="100%")?\>\<a href\="javascript://" OnClick\="javascript: layerVis\(\'.*?\', 1\);">(.*?)\</a\>\<div align\="left" id\=".*?" style\="display: none;"\>!is', '[spoiler=\2]', $fudml);
 		$fudml = str_replace('</div></div>', '[/spoiler]', $fudml);
 	}
 

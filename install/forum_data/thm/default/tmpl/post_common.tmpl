@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.34 2009/02/26 14:16:06 frank Exp $
+* $Id: post_common.tmpl,v 1.35 2009/04/03 05:40:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -172,7 +172,7 @@ function endDrag(e) {
 {SECTION: END}
 
 {SECTION: upload_file}
-<input type="file" name="attach_control"> <input type="submit" class="button" name="attach_control_add" value="{MSG: post_upload_file}" />
+<input type="file" name="attach_control" /> <input type="submit" class="button" name="attach_control_add" value="{MSG: post_upload_file}" />
 <input type="hidden" name="tmp_f_val" value="1" />
 {SECTION: END}
 
@@ -199,9 +199,8 @@ function endDrag(e) {
 <tr class="RowStyleB"><td class="GenText vt nw">{MSG: file_attachments}</td><td>
 {TEMPLATE: attachment_list}
 {VAR: attach_control_error}
-<span class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br /><b>{MSG: max_file_size}</b> {VAR: max_as}Kb<br /><b>{MSG: max_files_per_msg}</b> {VAR: max_a}
-{IF: $i}{TEMPLATE: attached_status}{ENDIFI}
-</span><p />
+<span class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br /><b>{MSG: max_file_size}</b> {VAR: max_as}KB<br /><b>{MSG: max_files_per_msg}</b> {VAR: max_a}{IF: $i}; {TEMPLATE: attached_status}</span>{ENDIFI}
+</span>
 {IF: (($i + 1) <= $max_a)}{TEMPLATE: upload_file}{ENDIF}
 </td></tr>
 {SECTION: END}

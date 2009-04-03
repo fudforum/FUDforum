@@ -338,7 +338,7 @@ my_buddies:			My Buddies
 add_buddy:			Add Buddy
 add:				Add
 buddy_search:			Enter the login of the user you wish to add.
-member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br />Or use the <a href="javascript://" onclick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 buddy_remove:			remove
 post_normal:			Normal
 post_sticky:			Sticky
@@ -377,7 +377,7 @@ max_files_per_msg:		Maximum Files Per Message:
 post_notification:		Post Notification
 include_sig:			Include Signature
 include_sig_desc:		Include your profile signature.
-disable_smilies:		Disable smilies in this message.
+disable_smilies:		Disable smilies in this message
 spell_check_msg:		Spell-check Message
 post_form:			Post Form
 post_forum:			Forum:
@@ -745,7 +745,7 @@ p_MOVE:				Move topics
 p_SML:				Use smilies
 p_IMG:				Use image tags
 p_SEARCH:			Can Search
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Find User</a>
+group_mgr_search:		<a href="javascript://" onclick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Find User</a>
 group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
 rate_worst:			Worst
 rate_best:			Best
@@ -817,7 +817,7 @@ im_google:			Google Talk:
 im_skype:			Skype: 
 forum_contact:			Contact
 forum_home:			Home
-post_cur_attached:		currently attached {VAR: i} file(s) 
+post_cur_attached:		currently attached: {VAR: i} file(s) 
 ignored_anon_post:		{GVAR: ANON_NICK} is ignored
 ignored_user_post:		Message by <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> is ignored
 smladd_close_window:		close window
