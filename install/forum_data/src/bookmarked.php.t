@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: bookmarked.php.t,v 1.1 2009/03/18 14:26:52 frank Exp $
+* $Id: bookmarked.php.t,v 1.2 2009/04/04 08:18:46 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -40,7 +40,7 @@
 		$start = 0;
 	}
 
-	$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ t.id, m.subject, f.name FROM {SQL_TABLE_PREFIX}bookmarks b INNER JOIN {SQL_TABLE_PREFIX}thread t ON b.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE b.user_id='._uid.' '.$lmt.' ORDER BY t.last_post_id DESC LIMIT '.qry_limit($THREADS_PER_PAGE, $start));
+	$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ t.id, m.subject, f.name FROM {SQL_TABLE_PREFIX}bookmarks b INNER JOIN {SQL_TABLE_PREFIX}thread t ON b.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE b.user_id='._uid.' ORDER BY t.last_post_id DESC LIMIT '.qry_limit($THREADS_PER_PAGE, $start));
 
 	while (($r = db_rowarr($c))) {
 		$bookmarked_thread_data .= '{TEMPLATE: bookmarked_thread_entry}';

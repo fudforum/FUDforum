@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php,v 1.11 2009/04/03 14:55:59 frank Exp $
+* $Id: index.php,v 1.12 2009/04/04 08:18:46 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,10 +16,13 @@
 <h2>Forum Dashboard</h2>
 
 <?php	
-	if (@file_exists($WWW_ROOT_DISK.'install.php') || @file_exists($WWW_ROOT_DISK.'upgrade.php')) {
+	if (@file_exists($WWW_ROOT_DISK.'install.php')) {
 		echo '<div class="alert">You still haven\'t removed the installation script at '.$WWW_ROOT_DISK.'install.php. Please do so now before a hacker destroys your forum!</div>';
 	}
-	if (@file_exists($WWW_ROOT_DISK.'upgrade.php') || @file_exists($WWW_ROOT_DISK.'upgrade.php')) {
+	if (@file_exists($WWW_ROOT_DISK.'uninstall.php')) {
+		echo '<div class="alert">You still haven\'t removed the uninstall script at '.$WWW_ROOT_DISK.'uninstall.php. Please do so now before a hacker destroys your forum!</div>';
+	}
+	if (@file_exists($WWW_ROOT_DISK.'upgrade.php')) {
 		echo '<div class="alert">You still haven\'t removed the upgrade script at '.$WWW_ROOT_DISK.'upgrade.php. Please do so now before a hacker destroys your forum!</div>';
 	}
 ?>
@@ -29,12 +32,12 @@ Welcome to your forum's Admin Control Panel. From here you can control how your 
 </div>
 <br />
 
-<table border=0><tr><td width="50%" valign="top">
+<table border="0"><tr><td width="50%" valign="top">
 
 <h4>Getting help:</h4>
-<p>FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/">development and documentation wiki</a></b>. Please report any problems on the support forum at <b><a href="http://fudforum.org">fudforum.org</a></b>. 
+<p>FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/">development and documentation wiki</a></b>. Please report any problems on the support forum at <b><a href="http://fudforum.org">fudforum.org</a></b>.</p>
 
-<td><td width="50%" valign="top">
+</td><td width="50%" valign="top">
 
 <h4>Versions:</h4>
 <b>FUDforum</b>: <?php echo $FORUM_VERSION; ?><br />
@@ -140,3 +143,4 @@ Welcome to your forum's Admin Control Panel. From here you can control how your 
 <span style="float:right;"><a href="admstats.php?<?php echo __adm_rsid; ?>">More... &raquo;</a></span>
 
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+

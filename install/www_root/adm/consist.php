@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.138 2009/04/03 14:55:59 frank Exp $
+* $Id: consist.php,v 1.139 2009/04/04 08:18:46 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -103,8 +103,9 @@ While it is running, your forum will be disabled.
 		if ($FUD_OPT_1 & 1 || isset($_GET['enable_forum'])) {
 			draw_stat('Re-enabling the forum.');
 			maintenance_status($DISABLED_REASON, 0);
+			echo '<br /><div class="tutor">Database tables were successfully optimized.</div><br />';
 		} else {
-			echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font><br />';
+			echo '<br/><div class="tutor">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</div><br />';
 		}
 
 		readfile($WWW_ROOT_DISK . 'adm/admclose.html');

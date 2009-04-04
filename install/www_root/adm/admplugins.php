@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admplugins.php,v 1.1 2009/03/26 17:24:27 frank Exp $
+* $Id: admplugins.php,v 1.2 2009/04/04 08:18:46 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -86,6 +86,7 @@ foreach (glob("$PLUGIN_PATH/*.plugin") as $plugin_path) {
 <tr class="fieldtopic center">
   <td>&nbsp;</td>
   <td><input type="submit" name="plugin_state" value="Change state" <?php echo $disabled; ?> /></td>
+</tr>
 </table>
 </form>
 

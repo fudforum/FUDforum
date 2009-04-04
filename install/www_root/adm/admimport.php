@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.65 2009/03/20 14:10:22 frank Exp $
+* $Id: admimport.php,v 1.66 2009/04/04 08:18:46 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,6 +20,7 @@
 	// define('recovery_mode', 1);
 
 	require('./GLOBALS.php');
+	fud_use('glob.inc', true);
 
 	if (defined('recovery_mode')) {
 		fud_use('db.inc');
@@ -238,7 +239,6 @@ function resolve_dest_path($path)
 			echo "Import GLOBAL settings...<br />\n";
 			@ob_flush(); flush();			
 			eval(trim($readf($fp, 100000))); // should be enough to read all options in one shot
-			fud_use('glob.inc', true);
 			change_global_settings($global_vals);
 
 			/* Try to restore the current admin's account by seeing if he exists in the imported database */
@@ -275,8 +275,8 @@ function resolve_dest_path($path)
 			}
 			unset($c);
 
-			echo '<b>Import process is now complete</b><br />';
-			echo '<font color="red" size="+1">To finalize the import process you should now run the <a href="consist.php">consistency checker</a>.</font><br />';
+			echo '<b>Import process is now complete</b><br /><br />';
+			echo '<div class="tutor">To finalize the import process you should now run the <a href="consist.php">consistency checker</a>.</div>';
 			require($WWW_ROOT_DISK . 'adm/admclose.html');
 			exit;
 		}
@@ -284,14 +284,29 @@ function resolve_dest_path($path)
 ?>
 <h2>Import forum data</h2>
 <div class="alert">Note that the import process will REMOVE ALL current forum data (all tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the one from the file you enter.<br /><br />Please BACKUP your data before imporing!</div>
+
+<?php
+$datadumps = (glob("$TMP*fud*"));
+if ($datadumps) { 
+?>
+	<table class="datatable solidtable">
+	<tr><td class="fieldtopic">Available datadumps:</td></tr>
+	<?php foreach ($datadumps as $datadump) { ?>
+		<tr class="field tiny"><td><?php echo $datadump; ?></td></tr>
+	<?php } ?>
+	</table><br />
+<?php } ?>
+
 <form method="post" action="admimport.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
-	<td>Import Data Path<br /><font size="-1">location on the drive, where the file your wish to import FUDforum data from is located.</font></td>
+	<td>Import Data Path:<br /><font size="-1">Location on the drive, where the file your wish to import FUDforum data from is located.</font></td>
 	<td><?php if (isset($path_error)) { echo $path_error; $path = $_POST['path']; } else { $path = ''; } ?><input type="text" value="<?php echo $path; ?>" name="path" size="40" /></td>
 </tr>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Import Data" /></td></tr>
 </table>
 </form>
+
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+

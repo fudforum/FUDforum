@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.77 2009/04/03 14:55:59 frank Exp $
+* $Id: compact.php,v 1.78 2009/04/04 08:18:46 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -288,5 +288,6 @@ function eta_calc($start, $pos, $pc)
 	}
 
 	stop_js(); 
+	echo '<br /><div class="tutor">Messages successfully compacted.</div>';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

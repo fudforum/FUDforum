@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.30 2009/01/29 18:37:40 frank Exp $
+* $Id: admext.php,v 1.31 2009/04/04 08:18:46 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,7 +49,7 @@
 <form id="exf" method="post" action="admext.php">
 <table class="datatable solidtable">
 	<tr class="tutor">
-		<td colspan="2"><b>note:</b> if no file extension is entered, all files will be allowed</td>
+		<td colspan="2"><b>Note:</b> If no file extension is entered, all files will be allowed.</td>
 	</tr>
 	<tr class="field">
 		<td>Extension:</td>

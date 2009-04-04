@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.31 2009/01/29 18:37:40 frank Exp $
+* $Id: admsysinfo.php,v 1.32 2009/04/04 08:18:46 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,7 +51,7 @@ function get_server_software()
 	<td><?php echo get_server_software(); ?></td>
 </tr>
 <tr>
-	<td><b>WebServer to PHP interface:</b></td>
+	<td><b>Web Server to PHP interface:</b></td>
 	<td><?php echo php_sapi_name(); ?></td>
 </tr>
 <?php
@@ -68,7 +68,7 @@ echo '<tr>
 	<td><?php echo $FORUM_VERSION; ?></td>
 </tr>
 <tr>
-	<td valign="top"><b>Relavent PHP Settings:</b></td>
+	<td valign="top"><b>Relevant PHP Settings:</b></td>
 	<td>
 		<table cellspacing="1" cellpadding="1" border="0">
 			<tr>

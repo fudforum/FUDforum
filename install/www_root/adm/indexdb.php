@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.37 2009/03/20 14:10:22 frank Exp $
+* $Id: indexdb.php,v 1.38 2009/04/04 08:18:46 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -88,5 +88,6 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 		echo '<br /><font size=+1 color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
+	echo '<br /><div class="tutor">Messages successfully reindexed.</div>';
 	require($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>
