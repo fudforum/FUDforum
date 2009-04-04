@@ -2,10 +2,10 @@ TOPIC_TITLE: <a name="style">Wie formatiert man Text?</a>
 TOPIC_HELP:
 Im Allgemeinen bestehen Forumsbeitr&auml;ge meistens aus unformatierten Text, es ist jedoch bei Bedarf m&ouml;glich,
 eine gewisse Formatierung anzuwenden, wie zum Beispiel W&ouml;rter fett oder kursiv schreiben &hellip;
-<p>
+<p />
 Da in den meisten F&auml;llen der Administrator die Verwendung von HTML nicht gestatten wird, kann daf&uuml;r FUDcode verwendet werden. Dieser besteht aus einer Reihe
 von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist sehr leicht zu erlernen und erheblich sicherer als HTML.
-<p>
+<p />
 
 <a name="url"><b>Links zu Webseiten</b></a><br />
 
@@ -15,8 +15,8 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#FF0000">http://cvs.prohost.org</font></td>
-    <td valign="middle" align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></td>
+    <td valign="middle" align="center"><b><font color="#FF0000">http://cvs.prohost.org</font></b></td>
+    <td valign="middle" align="center"><a href="http://cvs.prohost.org" target="_blank">http://cvs.prohost.org</a></td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> FUDforum wandelt Links automatisch in URLs um.
@@ -28,8 +28,8 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.meinehomepage.com</font>[/URL]</font></b></td>
-    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.meinehomepage.com</a></td>
+    <td valign="middle" align="center"><b><font color="#ff0000">[url]<font color="#006600">http://www.meinehomepage.com</font>[/url]</font></b></td>
+    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target="_blank">http://www.meinehomepage.com</a></td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Sie k&ouml;nnen auch FUDcode verwenden, um Links zu Webseiten zu erstellen. 
@@ -41,14 +41,14 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.meinehomepage.com</font>]<font color="#006600"><br />My Homepage<br /></font>[/URL]</b></font></td>
-    <td valign="middle" align="center"><a href="http://www.meinehomepage.com" target=_blank>Meine Homepage</a></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[url=<font color="#006600">http://www.meinehomepage.com</font>]<font color="#006600"><br />My Homepage<br /></font>[/url]</b></font></td>
+    <td valign="middle" align="center"><a href="http://www.meinehomepage.com" target="_blank">Meine Homepage</a></td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Sie k&ouml;nnen mit FUDcode Links mit eigener Beschriftung erstellen.
 <br /><br /><br />
 
-<p>
+<p />
 <a name="email"><b>E-Mail-Links</b></a><br />
 
 <table>
@@ -157,7 +157,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[color=red]</b></font>Roter Text<font color="#ff0000"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[color=<font color="#006600">red</font>]</b></font>Roter Text<font color="#ff0000"><b>[/color]</b></font></td>
     <td valign="middle" align="center"><font color="#ff0000">Roter Text</font></td>
   </tr>
 </table>
@@ -171,7 +171,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[size=4]</b></font>Gro&szlig;er Text<font color="#ff0000"><b>[/size]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[size=<font color="#006600">4</font>]</b></font>Gro&szlig;er Text<font color="#ff0000"><b>[/size]</b></font></td>
     <td valign="middle" align="center"><font size="4">Gro&szlig;er Text</font></td>
   </tr>
 </table>
@@ -185,7 +185,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[font=courier]</b></font>Text<font color="#ff0000"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[font=<font color="#006600">courier</font>]</b></font>Text<font color="#ff0000"><b>[/color]</b></font></td>
     <td valign="middle" align="center"><font face="Courier New, Courier, monospace">Text</font></td>
   </tr>
 </table>
@@ -197,7 +197,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=red][size=4][font=courier]</b></font><br />Formatierter Text<br /><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=<font color="#006600">red</font>][size=<font color="#006600">4</font>][font=<font color="#006600">courier</font>]</b></font><br />Formatierter Text<br /><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></td>
     <td valign="middle" align="center"><font color="#ff0000" size="4" face="Courier New, Courier, monospace"><u><i><b>Formatierter Text</b></i></u></font></td>
   </tr>
 </table>
@@ -212,7 +212,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=center]</b></font>Zentrierter Text<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=<font color="#006600">center</font>]</b></font>Zentrierter Text<font color="#ff0000"><b>[/align]</b></font></td>
     <td valign="middle" align="center">Zentrierter Text</td>
   </tr>
 </table>
@@ -224,7 +224,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=right]</b></font>Rechtsb&uuml;ndig<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=<font color="#006600">right</font>]</b></font>Rechtsb&uuml;ndig<font color="#ff0000"><b>[/align]</b></font></td>
     <td valign="middle" align="right">Rechtsb&uuml;ndig</td>
   </tr>
 </table>
@@ -236,13 +236,13 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=left]</b></font>Linksb&uuml;ndig<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=<font color="#006600">left</font>]</b></font>Linksb&uuml;ndig<font color="#ff0000"><b>[/align]</b></font></td>
     <td valign="middle" align="left">Linksb&uuml;ndig</td>
   </tr>
 </table>
 <br /><br />
 
-<a name="list"><b>Verschiende Listen</b></a>
+<a name="list"><b>Verschiedene Listen</b></a>
 <br />
 
 <table>
@@ -251,7 +251,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[/list]<br /></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ul><li>Listeneintrag</li><li>Listeneintrag</li></ul></td>
   </tr>
 </table>
@@ -263,7 +263,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[/list]<br /></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=<font color="#006600">1</font>]</b></font><br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ol><li>Listeneintrag</li><li>Listeneintrag</li></ol></td>
   </tr>
 </table>
@@ -275,7 +275,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[/list]<br /></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=<font color="#006600">a</font>]</b></font><br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[*]</b></font>Listeneintrag<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ol type="a"><li>Listeneintrag</li><li>Listeneintrag</li></ol></td>
   </tr>
 </table>
@@ -290,7 +290,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br /><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br /></font><font color="#ff0000"><b>[/img]</b></font></td>
-    <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31"></td>
+    <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31" /></td>
   </tr>
 </table>
 <br />    
@@ -302,7 +302,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br />[img]</b></font><br />http://www.prohost.org/img/pro_logo.gif<br /><b><font color="#ff0000">[/img]<br />[/url]</font></b></font></td>
-    <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="Bild" width="204" height="31" border="0"></a></td>
+    <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="Bild" width="204" height="31" border="0" /></a></td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Sie k&ouml;nnen auch Bilderlinks erzeugen, indem Sie den [img][/img] Tag in [url][/url] einschlie&szlig;en.
@@ -384,7 +384,7 @@ hallo();
 <br /><br /><br />
 
 <a name="notag"><b>Kein FUDcode</b></a><br />
-<i>Erkl&auml;rung:</i> Der <font color="#ff0000"><b>[notag][/notag]</b></font> Tag erm&ouml;glicht es Ihen, den Text innerhalb
+<i>Erkl&auml;rung:</i> Der <font color="#ff0000"><b>[notag][/notag]</b></font> Tag erm&ouml;glicht es Ihnen, den Text innerhalb
 der Tags nicht vom FUDForum eigenem Tag Parser interpretieren zu lassen. Das erm&ouml;glicht Ihnen, Beispiele f&uuml;r
 FUDcode zu nennen, ohne sie in HTML umwandeln zu lassen.
 <br /><br /><br />
@@ -398,7 +398,7 @@ FUDcode zu nennen, ohne sie in HTML umwandeln zu lassen.
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[hr]</b></font></td>
-    <td valign="middle" align="center"><hr></td>
+    <td valign="middle" align="center"><hr /></td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Der [hr] Tag erzeugt eine horizontale Linie, er ist eine Entsprechung des HTML Tags &lt;hr&gt;.
@@ -418,16 +418,14 @@ FUDcode zu nennen, ohne sie in HTML umwandeln zu lassen.
 <font color="#ff0000"><b>[/spoiler]</b></font><br />
 Weiterer sichtbarer Text.</td>
     <td valign="middle" align="center">Sichtbarer Teil des Beitrags<br />
-<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Spoiler anzeigen</a><div align="left" id="1482055279834293165" style="display: none;"><br />
-Versteckter Teil des Beitrags<br /></div></div>
+<div class="dashed" style="padding: 3px;" align="center"><a href="javascript://" onclick="javascript: layerVis('s28415', 1);">Spoiler anzeigen</a><div align="left" id="s28415" style="display: none;"> <br />
+Versteckter Teil des Beitrags<br />
+</div></div>
 <br />
 Weiterer sichtbarer Text.</td>
   </tr>
 </table>
-<i>Erkl&auml;rung:</i> Der [spoiler][/spoiler] Tag erm&ouml;glicht es Ihnen, einen Teil des Beitrages
-nicht anzeigen zu lassen. Um den versteckten Anteil sehen zu k&ouml;nnen, m&uuml;ssen die Benutzer einen Link anklicken, 
-der dann den Rest des Textes anzeigt. Intern wird dies mit Hilfe von Javascript bewerkstelligt, womit die Seite nicht
-wirklich neu geladen wird, sondern eine versteckte Layer sichtbar gemacht wird.<br />
+<i>Erkl&auml;rung:</i> Der [spoiler][/spoiler] Tag erm&ouml;glicht es Ihnen, einen Teil des Beitrages nicht anzeigen zu lassen. Um den versteckten Anteil sehen zu k&ouml;nnen, m&uuml;ssen die Benutzer einen Link anklicken, der dann den Rest des Textes anzeigt. Intern wird dies mit Hilfe von Javascript bewerkstelligt, womit die Seite nicht wirklich neu geladen wird, sondern eine versteckte Layer sichtbar gemacht wird.
 <br /><br /><br />
 
 <a name="acronym"><b>Abk&uuml;rzung</b></a><br />
@@ -438,13 +436,11 @@ wirklich neu geladen wird, sondern eine versteckte Layer sichtbar gemacht wird.<
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font><br />FUDforum<br /><font color="#ff0000"><b>[/acronym]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=<font color="#006600">Fast Uncompromising Discussion Forum</font>]</b></font><br />FUDforum<br /><font color="#ff0000"><b>[/acronym]</b></font></td>
     <td valign="middle" align="center"><acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym></td>
   </tr>
 </table>
-<i>Erkl&auml;rung:</i> Der [acronym][/acronym] Tag wird benutzt,
-um &bdquo;Abk&uuml;rzungen mit Bedeutung&rdquo; zu kennzeichnen. Wenn der Benutzer seine Maus darüber parkt, wird die Bedeutung sichtbar.
-
+<i>Erkl&auml;rung:</i> Der [acronym][/acronym] Tag wird benutzt, um &bdquo;Abk&uuml;rzungen mit Bedeutung&rdquo; zu kennzeichnen. Wenn der Benutzer seine Maus darüber parkt, wird die Bedeutung sichtbar.
 <br /><br /><br />
 
 <a name="wikipedia"><b>Wikipedia</b></a><br />
@@ -455,7 +451,7 @@ um &bdquo;Abk&uuml;rzungen mit Bedeutung&rdquo; zu kennzeichnen. Wenn der Benutz
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=ca]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=<font color="#006600">ca</font>]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
     <td valign="middle" align="center"><a href="http://ca.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
   </tr>
 </table>
@@ -468,40 +464,39 @@ Smileys sind kleine Icons, die in einem Beitrag als Ausdruck verschiedener Gef&u
 Wenn diese aktiviert sind, wird eine Auflistung der vom Forum unterst&uuml;tzten Smileys &uuml;ber dem Eingabefeld, in welchem man auch den Beitrag
 erstellt, angezeigt. Durch einfaches Anklicken k&ouml;nnen diese dann in den Beitrag eingef&uuml;gt werden.<br />
 Gebr&auml;uchliche Smileys k&ouml;nnen automatisch durch das entsprechende Symbol ersetzt werden, falls das nicht von Ihnen erw&uuml;nscht ist, k&ouml;nnen 
-Sie das <b>Smileys deaktivieren</b> K&auml;stchen ausw&auml;hlen.<p>
+Sie das <b>Smileys deaktivieren</b> K&auml;stchen ausw&auml;hlen.<p />
 
 TOPIC_TITLE: <a name="polls">Wie erstelle ich Umfragen?</a>
 TOPIC_HELP:
 In einigen Foren k&ouml;nnen Sie gegebenenfalls auch Umfragen in Ihrem Beitrag erstellen. Diese erm&ouml;glichen es Ihnen, eine Frage mit einigen Antworten als 
 Auswahl zu stellen, von denen andere Forenmitglieder dann ihre Wahl treffen. Um eine gewisse Aussagekraft 
 zu gew&auml;hrleisten, d&uuml;rfen nur registrierte Benutzer ihre Stimme abgeben.<br />
-Wenn SIe den <b>UMFRAGE ERSTELLEN</b> Link auf der Beitragsseite anklicken, erscheint ein Popup Fenster, mit dessen Hilfe sich eine Umfrage mit 
-mehreren Antwortm&ouml;glichkeiten erstellen l&auml;sst. Sobald Sie fertig sind, klicken Sie einfach den <b>Erstellen</b> Knopf an und werden so wieder zur&uuml;ck zum
+Wenn Sie den Link <b>Abstimmung erstellen</b> auf der Beitragsseite anklicken, erscheint ein Popup-Fenster, mit dessen Hilfe sich eine Umfrage mit 
+mehreren Antwortm&ouml;glichkeiten erstellen l&auml;sst. Sobald Sie fertig sind, klicken Sie einfach die Schaltfl&auml;che <b>Erstellen</b> an und werden so wieder zur&uuml;ck zum
 Bearbeitungsfenster gebracht. Die eben erstellte Umfrage wird dem Beitrag hinzugef&uuml;gt.<br />
-Sie k&ouml;nnen eine bereits vorhandene Umfrage durch Anklicken des <b>BEARBEITEN</b> Links modifizieren oder durch einen Klick auf <b>L&Ouml;SCHEN</b> 
+Sie k&ouml;nnen eine bereits vorhandene Umfrage durch Anklicken des Links <b>Bearbeiten</b> modifizieren oder durch einen Klick auf <b>L&ouml;schen</b> 
 vollst&auml;ndig entfernen.
-<p>
-Pro Umfrage haben Sie nur eine Stimme, daher sollten Sie Ihre Entscheidung reiflich &uuml;berlegen, denn im nachhinein l&auml;sst sie sich nicht mehr ver&auml;ndern.
+<p />
+Pro Umfrage haben Sie nur eine Stimme, daher sollten Sie Ihre Entscheidung gr&uuml;ndlich &uuml;berlegen, denn im Nachhinein l&auml;sst sie sich nicht mehr ver&auml;ndern.
 
 TOPIC_TITLE: <a name="attach">Kann ich Dateien an Beitr&auml;ge anh&auml;ngen?</a>
 TOPIC_HELP:
-Falls vom Administrator erlaubt, k&ouml;nnen Sie eine oder mehrere Dateien an normale Beitr&auml;ge oder auch private Messages anh&auml;ngen. Diese Funktion 
+Falls vom Administrator erlaubt, k&ouml;nnen Sie eine oder mehrere Dateien an normale Beitr&auml;ge oder auch private Nachrichten anh&auml;ngen. Diese Funktion 
 wird von Forum zu Forum individuell festgelegt, weswegen Sie in einem Forum Dateien anh&auml;ngen k&ouml;nnen, w&auml;hrend es woanders nicht m&ouml;glich ist.
 <br />
-Die Seite, auf der Sie Beitr&auml;ge erstellen, listet drei Regeln auf, die f&uuml;r deine Anh&auml;nge gelten:<p>
+Die Seite, auf der Sie Beitr&auml;ge erstellen, listet drei Regeln auf, die f&uuml;r deine Anh&auml;nge gelten:<p />
 <b>Erlaubte Dateitypen</b> - eine Liste von Dateiendungen, die an einem Beitrag angeh&auml;ngt werden k&ouml;nnen z.B.: .jpg, .gif, .png<br />
 <b>Maximale Dateigr&ouml;&szlig;e</b> - die maximale Gr&ouml;&szlig;e einer Datei, die an einem Beitrag angeh&auml;ngt werden kann<br />
 <b>Maximale Dateien pro Beitrag</b> - Die Anzahl der Dateien, die einem Beitrag hinzugef&uuml;gt werden k&ouml;nnen.
-<p>
-Um eine Datei dem Beitrag hinzuzuf&uuml;gen, klicken Sie auf den <b>Durchsuchen</b> Knopf am unteren Ende der Beitragsseite. Ihr Browser wird daraufhin 
+<p />
+Um eine Datei dem Beitrag hinzuzuf&uuml;gen, klicken Sie auf die Schaltfl&auml;che <b>Durchsuchen</b> am unteren Ende der Beitragsseite. Ihr Browser wird daraufhin 
 ein Dialogfenster &ouml;ffnen, mit welchem die gew&uuml;nschte Datei zum Hochladen ausgew&auml;hlt werden kann. Sobald diese Datei ausgew&auml;hlt wurde, 
-klicken Sie den <b>Datei hochladen</b> Knopf an, um die Datei an dem Beitrag anzuh&auml;ngen.<br />
-Wenn Sie Dateianh&auml;nge l&ouml;schen m&ouml;chten, klicken Sie einfach auf den <b>L&ouml;schen</b> Link rechts von der Datei.
-
+klicken Sie die  <b>Datei hochladen</b>-Schaltfl&auml;che an, um die Datei an dem Beitrag anzuh&auml;ngen.<br />
+Wenn Sie Dateianh&auml;nge l&ouml;schen m&ouml;chten, klicken Sie einfach auf den <b>L&ouml;schen</b>-Link rechts von der Datei.
 
 TOPIC_TITLE: <a name="msgico">Was ist ein Beitrags-Icon?</a>
 TOPIC_HELP:
-Beitrags-Icon sind kleine Bilder, die Sie neben deinem Beitrag anzeigen lassen k&ouml;nnen. Sie werden f&uuml;r gew&ouml;hnlich 
+Beitrags-Icons sind kleine Bilder, die Sie neben deinem Beitrag anzeigen lassen k&ouml;nnen. Sie werden f&uuml;r gew&ouml;hnlich 
 verwendet, um den Charakter eines Beitrages, oder eine Stimmung, welche Sie &uuml;bermitteln m&ouml;chten, anzuzeigen.
 Wenn Sie keine Icons auf der Seite, auf der Sie deinen Beitrag schreiben, erkennen k&ouml;nnen, bedeutet dies, dass der Administrator 
 diese Funktion deaktiviert hat.
@@ -516,9 +511,9 @@ Wenn ein Moderator oder Administrator deinen Beitrag bearbeitet hat, kannst du e
 
 TOPIC_TITLE: <a name="mod">Wer sind die Moderatoren und Administratoren?</a> 
 TOPIC_HELP:
-Moderatoren sind "Superuser", die im allgemeinen ein oder mehrere Foren beaufsichtigen. Sie haben das Recht, beliebige Beitr&auml;ge zu editieren, l&ouml;schen und 
+Moderatoren sind "Superuser", die im Allgemeinen ein oder mehrere Foren beaufsichtigen. Sie haben das Recht, beliebige Beitr&auml;ge zu editieren, l&ouml;schen und 
 zu bewilligen. Sie sind auch die Ansprechpartner, falls Ihnen etwas Anst&ouml;&szlig;iges in einem Forum, das von ihnen moderiert wird, lesen sollten. 
-Du kannst dich auch mit Fragen zur Benutzung des Forums an sie wenden.<p>
+Du kannst dich auch mit Fragen zur Benutzung des Forums an sie wenden.<p />
 Administratoren sind die Forenverwalter, sie k&ouml;nnen ALLES tun, daher seien Sie immer nett zu ihnen, wenn Sie mit ihnen reden ;-). Administratoren k&ouml;nnen zus&auml;tzlich auch 
 alle Moderatorenfunktionen ausf&uuml;hren, also Avatare billigen, individuelle R&auml;nge zuweisen und entfernen, Benutzer sperren und auf verschiedene Fragen antworten.
 Wenn bei der Nutzung des Forums irgendwelche Fehler auftreten sollten, ist der Administrator der Ansprechpartner.
@@ -530,10 +525,10 @@ daher kann alles, was Sie nicht sehen k&ouml;nnen, auch von anderen nicht gesehe
 
 TOPIC_TITLE: <a name="not">Kann ich &uuml;ber Antworten auf meine Beitr&auml;ge informiert werden?</a> 
 TOPIC_HELP:
-Wenn Sie ein neues Thema erstellen oder zu einem bestehenden Thema eine Antwort schreiben, k&ouml;nnen Sie ausw&auml;hlen per E-Mail &uuml;ber Antworten informiert zu werden. Sie k&ouml;nnen auch ein Thema oder ganzes Forum abonnieren, ohne darin eine Antwort zu verfassen, indem Sie den <b>Abonnieren</b> Link am oberen 
+Wenn Sie ein neues Thema erstellen oder zu einem bestehenden Thema eine Antwort schreiben, k&ouml;nnen Sie ausw&auml;hlen per E-Mail &uuml;ber Antworten informiert zu werden. Sie k&ouml;nnen auch ein Thema oder ganzes Forum abonnieren, ohne darin eine Antwort zu verfassen, indem Sie den <b>Abonnieren</b>-Link am oberen 
 Ende der Seite anklicken. Immer wenn ein neues Thema in diesem Forum erstellt worden ist, erh&auml;lten Sie dar&uuml;ber eine Benachrichtigung.
-<p>
-Wenn Sie keine weiteren Benachrichtigungen mehr w&uuml;nschen, k&ouml;nnen Sie beim Lesen des Themas oder Forums den <b>Das Abonnement f&uuml;r das Forum beenden</b> Link anklicken.
-Oder Sie rufen den <b>Abonnements</b> Reiter in Ihrem Profil auf und l&ouml;schen so das Thema oder Forum von der Liste.
-<p>
+<p />
+Wenn Sie keine weiteren Benachrichtigungen mehr w&uuml;nschen, k&ouml;nnen Sie beim Lesen des Themas oder Forums den <b>Abonnement beenden</b>-Link anklicken.
+Oder Sie rufen den Reiter <b>Abonnements</b> in Ihrem Profil auf und l&ouml;schen so das Thema oder Forum von der Liste.
+<p />
 Nur registrierte Benutzer k&ouml;nnen Benachrichtigungen erhalten.

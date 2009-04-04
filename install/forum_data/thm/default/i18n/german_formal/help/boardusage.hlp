@@ -1,11 +1,10 @@
 TOPIC_TITLE: <a name="post">Wie schreibe ich Beiträge?</a>
 TOPIC_HELP:
-Um ein neues Thema zu starten, klicken Sie auf die "Neues Thema"-Schaltfl&auml;che, die Sie auf der Beiträge-/Themen&uuml;bersicht 
+Um ein neues Thema zu starten, klicken Sie auf die Schaltfl&auml;che <b>Neues Thema</b>, die Sie auf der Beiträge-/Themen&uuml;bersicht 
 finden. Sie werden dann zu einem Formular weitergeleitet, das Ihnen erlaubt, den Inhalt Ihres Beitrags zu schreiben.
-Um auf einen bereits existierenden Beitrag zu antworten, klicken Sie einfach auf eine "Antwort"- oder "Zitat"-Schaltfläche, die
-Sie links unter jedem Beitrag finden. <br /> Unter Umständen bekommen Sie nach dem Klicken auf diese Schaltflächen eine Fehlermeldung,
+Um auf einen bereits existierenden Beitrag zu antworten, klicken Sie einfach auf Schaltfl&auml;che <b>Antwort</b> oder <b>Zitat</b>, die
+Sie rechts unter jedem Beitrag finden. <br /> Unter Umständen bekommen Sie nach dem Klicken auf diese Schaltflächen eine Fehlermeldung,
 dass Sie nicht genügend Rechte haben. Das heißt, dass Sie sich zum Schreiben eines Beitrages erst anmelden oder registrieren m&uuml;ssen oder dass das Schreiben von Beitr&auml;gen in diesem Forum generell nicht erlaubt ist.
-
 
 TOPIC_TITLE: <a name="bsearch">Wie kann ich suchen?</a>
 TOPIC_HELP:
@@ -13,51 +12,45 @@ Sofern nicht vom Administrator deaktiviert, k&ouml;nnen Sie <a href="{ROOT}?t=se
 Angabe von ein oder mehreren Schl&uuml;sselbegriffen suchen, wobei sich ausw&auml;hlen l&auml;sst, wo diese gesucht werden sollen. Sie k&ouml;nnen entweder nur die &Uuml;berschrift oder den gesamten Beitrag durchsuchen. Au&szlig;erdem l&auml;sst sich die Suche auf ein bestimmtes Forum einschr&auml;nken, falls nicht alle durchsucht werden sollen.<br />
 Sie k&ouml;nnen auch andere Forumsmitglieder &uuml;ber ihren Namen oder E-Mail-Adresse mit der <a href="{ROOT}?t=finduser&amp;%_rsid%">Benutzersuche</a> ausfindig machen.
 
-
 TOPIC_TITLE: <a name="email">Kann ich anderen Benutzern eine E-Mail schreiben?</a>
 TOPIC_HELP:
-Sofern nicht vom Administrator deaktiviert, k&ouml;nnen Sie per E-Mail zu anderen Forumsmitgliedern Verbindung aufnehmen.<br />
-Um einem Mitglied eine E-Mail zu schicken, k&ouml;nnen Sie sie entweder &uuml;ber die Mitgliederseite ausfindig machen und dann den <b>Kontakt</b>-Knopf anklicken
-oder direkt auf den <b>E-Mail</b>-Knopf neben jedem Beitrag klicken. Das f&uuml;hrt Sie auf eine neue Seite, auf der Sie Ihre beabsichtigte Mitteilung 
-verfassen k&ouml;nnen. Wenn Sie fertig sind, klicken Sie auf den <b>E-Mail</b>-Knopf und verschicken damit Ihre Nachricht.
+Sofern nicht vom Administrator deaktiviert, k&ouml;nnen Sie per E-Mail zu anderen Forumsmitgliedern Kontakt aufnehmen.<br />
+Um einem Mitglied eine E-Mail zu schicken, k&ouml;nnen Sie sie entweder &uuml;ber die Mitgliederseite ausfindig machen und dann die Schaltfl&auml;che <b>Kontakt</b> anklicken
+oder direkt die <b>E-Mail</b>-Schaltfl&auml;che neben jedem Beitrag anklicken. Das f&uuml;hrt Sie auf eine neue Seite, auf der Sie Ihre beabsichtigte Mitteilung 
+verfassen k&ouml;nnen. Wenn Sie fertig sind, klicken Sie auf die Schaltfl&auml;che <b>E-Mail</b> und verschicken damit Ihre Nachricht.
 <br /><br />
 Au&szlig;er E-Mails an Forumsmitglieder verschicken, k&ouml;nnen Sie auch mit dem <b>E-Mail an einen Freund</b>-Link eine bestimmte Seite einem Bekannten 
-weiterempfehlen, in dem Sie ihnen die URL mit einer Beschreibung zukommen l&auml;ssen. Dieser Link kann auf den Seiten mit den Themen und Beitr&auml;gen gefunden werden.
-
+weiterempfehlen, in dem Sie ihnen die URL mit einer Beschreibung zukommen lassen. Dieser Link kann auf den Seiten mit den Themen und Beitr&auml;gen gefunden werden.
 
 TOPIC_TITLE: <a name="pmsg">Was sind private Nachrichten und wie verschicke ich sie?</a> 
 TOPIC_HELP:
 Sofern nicht vom Administrator deaktiviert, k&ouml;nnen Sie private Nachrichten an ein oder mehrere registrierte Mitglieder des Forums versenden. Um auf das 
 PN-System zugreifen zu k&ouml;nnen, klicken Sie einfach auf den <a href="{ROOT}?t=pmsg&amp;%_rsid%">Private Nachrichten</a>-Link, 
 der auf der Seite oben rechts gefunden werden kann. Falls Sie noch ungelesene private Nachrichten haben, teilt Ihnen dieser Link deren Anzahl mit.
-<p>
+<p />
 <b>Eine private Nachricht verschicken</b><br />
-Das Verschicken von privaten Nachrichten &auml;hnelt sehr dem Vorgang bei E-Mails: Sie geben den/die Empf&auml;nger an, denen Sie schreiben m&ouml;chten, schreiben die Nachricht und klicken auf "Senden". Es stehen zwei Links zur Verf&uuml;gung, die es Ihnen erleichtern, Mitglieder, denen Sie schreiben m&ouml;chten, zu finden:
+Das Verschicken von privaten Nachrichten &auml;hnelt sehr dem Vorgang bei E-Mails: Sie geben den/die Empf&auml;nger an, denen Sie schreiben m&ouml;chten, schreiben die Nachricht und klicken auf <b>Senden</b>. Es stehen zwei Links zur Verf&uuml;gung, die es Ihnen erleichtern, Mitglieder, denen Sie schreiben m&ouml;chten, zu finden:
 <b>von der Buddyliste ausw&auml;hlen</b>, erm&ouml;glicht Ihnen, Leute von dieser Liste auszuw&auml;hlen und <b>Benutzer suchen</b> erlaubt Ihnen, die gesamte 
 Mitgliederliste nach Leuten zu durchsuchen, denen Sie Ihre Nachricht schicken m&ouml;chten.
 Eine Kopie von jeder versendeten Nachricht wird im <b>Verschickt</b>-Ordner aufbewahrt, um sich sp&auml;ter einmal darauf beziehen zu k&ouml;nnen. Diese lassen sich jederzeit auf Wunsch l&ouml;schen.
-<p>
-
-
+<p />
 Es gibt drei weitere Ordner, die Sie kennen sollten:
-<p>
+<p />
 <b>Posteingang</b>-Ordner enth&auml;lt alle Nachrichten, die Sie erhalten haben, jede einzelne hat eine Gelesen/Ungelesen-Anzeige, um Ihnen einen &Uuml;berblick dar&uuml;ber 
 zu verschaffen, ob eine Nachricht schon gelesen wurde oder nicht. Es wird auch der Absender angezeigt und ob dieser momentan auf dem Forum unterwegs ist, 
 dabei wird auch der Zeitpunkt des Versendens angezeigt.
-<p>
+<p />
 <b>Entwurf</b>-Ordner enth&auml;lt alle Nachrichten, die Sie zwar geschrieben, aber noch nicht verschickt haben. Das Anklicken der Nachricht aktiviert den Editiermodus, 
-um es Ihnen zu erm&ouml;glichen, die Nachricht weiter zu bearbeiten und bei Bedarf zu verschicken. Sobald diese versendet wurde, wird sie vom Entwurfs- in den Verschickt-
-Ordner verschoben.
-<p>
-<b>M&uuml;ll</b>-Ordner bewahrt alle Nachrichts auf, die zum L&ouml;schen markiert sind, aber noch nicht gel&ouml;scht wurden. Wenn eine Nachricht innerhalb dieses Ordners 
+um es Ihnen zu erm&ouml;glichen, die Nachricht weiter zu bearbeiten und bei Bedarf zu verschicken. Sobald diese versendet wurde, wird sie vom <b>Entwurf</b>- in den <b>Verschickt</b>-Ordner verschoben.
+<p />
+<b>M&uuml;ll</b>-Ordner bewahrt alle Nachrichten auf, die zum L&ouml;schen markiert sind, aber noch nicht gel&ouml;scht wurden. Wenn eine Nachricht innerhalb dieses Ordners 
 gel&ouml;scht wird, so geschieht das unwiderruflich.
-<p>
-<b>Weiterverfolgen von Nachrichten</b><p>
+<p />
+<b>Weiterverfolgen von Nachrichten</b><p />
 Wenn Sie eine Nachricht mit aktivierter Empfangsbest&auml;tigung verschicken, erh&auml;lten Sie eine Systembenachrichtigung, sobald die Nachricht vom Empf&auml;nger 
 gelesen wurde.<br />
 Allerdings kann der Empf&auml;nger auch das Versenden der Best&auml;tigung verweigern, so dass der Nicht-Erhalt einer Best&auml;tigung nicht zwangsl&auml;ufig bedeutet, 
 dass die Nachricht nicht gelesen wurde.
-
 
 TOPIC_TITLE: <a name="mlist">Mitgliederliste?</a>
 TOPIC_HELP:
@@ -68,10 +61,9 @@ Die Mitgliederliste verf&uuml;gt auch &uuml;ber eine Suchfunktion, die es erm&ou
 
 TOPIC_TITLE:<a name="ann">Was sind Ank&uuml;ndigungen und angeheftete Beitr&auml;ge?</a>
 TOPIC_HELP:
-Das sind spezielle Beitragsformen, die von Administratoren und Moderatoren eines Forums erstellt werden k&ouml;nnen und f&uuml;r einen festgelegten Zeitraum an 
+Das sind spezielle Beitr&auml;ge, die von Administratoren und Moderatoren eines Forums erstellt werden k&ouml;nnen und f&uuml;r einen festgelegten Zeitraum an 
 oberster Position stehen bleiben.
 Im Allgemeinen werden diese verwendet, um Benutzer &uuml;ber besondere Ereignisse oder Ver&auml;nderungen zu informieren...
-
 
 TOPIC_TITLE: <a name="rate">Kann ich Beitr&auml;ge bewerten?</a>
 TOPIC_HELP:
@@ -83,8 +75,8 @@ TOPIC_TITLE: <a name="ref">Was sind Anwerbungen?</a>
 TOPIC_HELP:
 Anwerbungen erm&ouml;glichen es, einen &Uuml;berblick &uuml;ber Forumsmitglieder zu verschaffen, die entweder durch Sie oder andere Mitglieder zum Forum hinzugesto&szlig;en 
 sind.
-Die Anwerbungen werden automatisch aufgezeichnet, sobald Sie die die Adresse des Forums weiterreichen und sie sich aufgrund dessen Leute registrieren. Die 
-Anwerbung dieser Personen wird Ihnen dann zugeschrieben. Eine Auflistung aller Leute, die von Ihnen angeworben worden sind, k&ouml;nnen Sie in Ihrem Profil durch Klicken des 
+Die Anwerbungen werden automatisch aufgezeichnet, sobald Sie die Adresse des Forums weitergeben und sie sich aufgrund dessen Leute registrieren. Die 
+Anwerbung dieser Personen wird Ihnen dann zugeschrieben. Eine Auflistung aller Leute, die von Ihnen angeworben worden sind, k&ouml;nnen Sie in Ihrem Profil durch Ausw&auml;hlen des 
 <b>Anwerbungen</b>-Men&uuml;s anzeigen lassen.
 
 TOPIC_TITLE: <a name="syndicate">Das Forum als Newsticker verf&uuml;gbar machen (Syndicate)</a>
@@ -93,7 +85,7 @@ Falls vom Administrator gestattet, erm&ouml;glicht das FUDforum mittels XML (rdf
 in drei Modi: Empfang von Beitr&auml;gen, Themen and Benutzern. Jeder Betriebsmodus unterst&uuml;tzt eine Reihe von ver&auml;nderbaren Parametern, die
 es dir gestatten festzulegen, welche Art von Daten abgegriffen werden sollen. Unten ist eine Beschreibung der unterst&uuml;tzten Parameter für jeden
 Betriebsmodus.<br />
-<br /><br />
+
 <h4><u><b>'m' Modus (Beitr&auml;ge)</b></u></h4>
 <blockquote>
 	<table border="0" cellspacing="1" cellpadding="3">
@@ -139,7 +131,7 @@ Der folgende Link ruft die aktuellsten 10 Beitr&auml;ge dieses Forums ab:<br />
 
 TOPIC_TITLE: <a name="accesskeys">Zugriffstasten</a>
 TOPIC_HELP:
-Zugriffstasten sind Tastaturk&uuml;rzel, die den Sinn haben, die Navigation mit Hilfe der Tastatur zu vereinfachen. FUDforum macht von dieser Funktionalit&auml;t Gebrauch, um verschiedene Aufgaben, die in erster Linie dem Erstellen von Beiträgen dienen, zu vereinfachen.<br />
+Zugriffstasten sind Tastaturk&uuml;rzel, um die Navigation mit Hilfe der Tastatur zu vereinfachen. FUDforum macht von dieser Funktionalit&auml;t Gebrauch, um verschiedene Aufgaben, die in erster Linie dem Erstellen von Beiträgen dienen, zu vereinfachen.<br /><br />
 
 <fieldset style="width: 350px;">
 	<legend><b>Browser Support</b></legend>
@@ -185,4 +177,3 @@ Zugriffstasten sind Tastaturk&uuml;rzel, die den Sinn haben, die Navigation mit 
 		<b>E</b> - E-Mail
 	</blockquote>
 </blockquote>
-

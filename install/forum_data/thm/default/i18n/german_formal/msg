@@ -91,7 +91,7 @@ email_error_body:		Inhalt ist erforderlich
 email_error_invaliduser:	Ung&uuml;ltiger Benutzer
 email_error_namerequired:	Name ist erforderlich
 email_error_subject:		Betreff ist erforderlich
-email_error_unabletolocaddr:	Entschuldigung, das System konnte die E-Mail an {VAR-HTML: _POST['tx_name']} nicht verschicken, weil es die E-Mail-Adresse nicht finden kann
+email_error_unabletolocaddr:	Entschuldigung, das System konnte die E-Mail an {VAR-HTML: _POST['tx_name']} nicht verschicken, weil es die E-Mail-Adresse nicht finden kann.
 email_pg_title:			E-Mail
 email_subject:			Betreff:
 email_submit:			E-Mail
@@ -135,7 +135,7 @@ forum_icon:			Forumsicon
 forum_new_messages:		Neue Beitr&auml;ge
 forum_none_messages:		Nur registrierte Forumsmitglieder k&ouml;nnen gelesene &amp; ungelesene Beitr&auml;ge verfolgen
 forum_old_messages:		Keine neuen Beitr&auml;ge
-forum_rules:			Die Registrierung f&uuml;r dieses Forum ist kostenlos. Jedoch bestehen wir darauf, dass Sie sich an nachfolgende Vereinbarung halten. Wenn Sie mit diesen Regeln einverstanden sind, klicken Sie bitte auf die "Zustimmen" Schaltfl&auml;che. Achtung: Durch das Klicken der Schaltfl&auml;che erkl&auml;ren Sie, dass Sie &uuml;ber 13 Jahre bist. Falls Sie 13 oder darunter bist, verwende bitte <a href="{FULL_ROOT}{ROOT}?t=pre_reg&amp;coppa=y&amp;{DEF: _rsid}">diese</a> Registrierungsseite.<p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anst&ouml;&szlig;igen Mitteilungen freizuhalten, so ist es dennoch f&uuml;r uns unm&ouml;glich, alle &uuml;bermittelten Beitr&auml;ge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter f&uuml;r jene Inhalte verantwortlich gemacht werden kann.<p>Mit Anklicken der "Zustimmen"-Schaltfl&auml;che sichern Sie uns verbindlich zu, dass Ihre Beitr&auml;ge keinerlei obz&ouml;ne, vulg&auml;re, sexistische, hasserf&uuml;llte, n&ouml;tigende oder sonstwie gesetzeswidrige Inhalte haben werden. <p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, editieren, verschieben oder zu schlie&szlig;en.<p>
+forum_rules:			Die Registrierung f&uuml;r dieses Forum ist kostenlos. Jedoch bestehen wir darauf, dass Sie sich an nachfolgende Vereinbarung halten. Wenn Sie mit diesen Regeln einverstanden sind, klicken Sie bitte auf die "Zustimmen" Schaltfl&auml;che. Achtung: Durch das Klicken der Schaltfl&auml;che erkl&auml;ren Sie, dass Sie &uuml;ber 13 Jahre bist. Falls Sie 13 oder darunter sind, verwenden Sie bitte <a href="{FULL_ROOT}{ROOT}?t=pre_reg&amp;coppa=y&amp;{DEF: _rsid}">diese</a> Registrierungsseite.<p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anst&ouml;&szlig;igen Mitteilungen freizuhalten, so ist es dennoch f&uuml;r uns unm&ouml;glich, alle &uuml;bermittelten Beitr&auml;ge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter f&uuml;r jene Inhalte verantwortlich gemacht werden kann.<p>Mit Anklicken der "Zustimmen"-Schaltfl&auml;che sichern Sie uns verbindlich zu, dass Ihre Beitr&auml;ge keinerlei obz&ouml;ne, vulg&auml;re, sexistische, hasserf&uuml;llte, n&ouml;tigende oder sonstwie gesetzeswidrige Inhalte haben werden. <p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, editieren, verschieben oder zu schlie&szlig;en.<p>
 forum_rules_13:			Alle Benutzer unter 13 Jahre m&uuml;ssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 bef&uuml;rworten, so verlangen wir dennoch, dass die Eltern oder der Vormund eine unterschriebene Einwilligungserkl&auml;rung zur&uuml;ckschicken oder faxen, bevor wir die Mitgliedschaft gew&auml;hren k&ouml;nnen.<p>Wenn du die Registrierung einleiten m&ouml;chtest bevor wir die Einwilligungserkl&auml;rung erhalten haben, klicke auf die Zustimmen Schaltfl&auml;che unten. Falls du die Registrierung abbrechen m&ouml;chtest, klicke auf Abbrechen um zum Forumsindex zur&uuml;ckzukehren. <p>Eine Kopie der zu unterschreibenden Einwilligungserkl&auml;rung kann hier heruntergeladen werden. F&uuml;r weitere Informationen bez&uuml;glich der Registrierung schicke bitte eine E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 forum_terms:			Forumsregeln
 forumsel_goto_forum:		Gehe zum Forum:
@@ -178,7 +178,7 @@ iemail_thr_subject:		Neue Antwort zu "{VAR: thr_subject}" von {VAR: poster_login
 ignore_list_cantign_msg:	Sie können diesen Benutzer nicht ignorieren
 ignore_list_err_dup_msg:	Dieser Benutzer ist bereits auf Ihrer Ignorierliste
 ignore_list_err_info_title:	Info
-ignore_list_err_nu_msg:		Der Benutzer, den Sie zu Ihrer Liste hinzuzuf&uuml;gen möchten, kann vom System nicht gefunden werden.
+ignore_list_err_nu_msg:		Der Benutzer, den Sie zu Ihrer Liste hinzuzuf&uuml;gen m&ouml;chten, kann vom System nicht gefunden werden.
 ignore_list_err_nu_title:	Benutzer nicht gefunden
 ignore_list_update:		Durchsucht die eigene Ignorierliste
 ignore_user:			Alle Beitr&auml;ge dieses Benutzers ignorieren
@@ -338,7 +338,7 @@ page_timings:			Insgesamt ben&ouml;tigte Zeit, um die Seite zu erzeugen: {VAR: p
 permission_denied_msg:		Ihre Benutzerrechte gestatten es Ihnen nicht, den von Ihnen geplanten Vorgang durchzuf&uuml;hren.
 permission_denied_title:	Zugriff verweigert!
 pm:				Private Nachrichten
-pm_err_nopm_msg:		Sie können das System f&uuml;r private Nachrichten nicht verwenden, da es vom Administrator deaktiviert worden ist.
+pm_err_nopm_msg:		Sie k&ouml;nnen das System f&uuml;r private Nachrichten nicht verwenden, da es vom Administrator deaktiviert worden ist.
 pm_err_nopm_title:		FEHLER: Private Nachrichten deaktiviert
 pm_no_space_msg:		Ihre Ordner f&uuml;r private Nachrichten &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>{GVAR: MAX_PMSG_FLDR_SIZE} Bytes</b>, weil sie momentan <b>{VAR: fldr_size} Bytes</b> mit Nachrichten belegen.<br /><br /><span class="ErrorText">Entfernen Sie einige alte Nachrichten, um wieder Platz zu schaffen</span>.
 pm_no_space_title:		Kein freier Platz mehr &uuml;brig!
@@ -454,7 +454,7 @@ postcheck_email_subject:	Sie können keine E-Mail ohne Betreff versenden.
 postcheck_ignored:		Sie können keine private Nachricht an "{FUNC: char_fix(htmlspecialchars($v))}" verschicken, weil diese Person Sie auf die Ignorierliste gesetzt hat.
 postcheck_invalid_email:	Bitte trage eine g&uuml;ltige Adresse f&uuml;r Ihren Freund ein.
 postcheck_max_images_err:	Maximal {GVAR: MAX_IMAGE_COUNT} Bilder pro Beitrag sind erlaubt, bitte reduzieren Sie die Anzahl der Bilder.
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
+postcheck_no_links_allowed:	Sie k&ouml;nnen keine Links verwenden, bis sie mehr als {GVAR: POSTS_BEFORE_LINKS} Beitr&auml;ge geschrieben haben.
 postcheck_no_recepient:		Kann die Nachricht nicht versenden, weil kein Empf&auml;nger angegeben ist
 postcheck_no_such_user:		Es gibt keinen Benutzer mit Namen "{FUNC: char_fix(htmlspecialchars($v))}" in diesem Forum
 postcheck_subj_needed:		Betreff erforderlich
@@ -533,7 +533,7 @@ register_err_notyouremail:	Jemand ist bereits mit dieser E-Mail registriert, und
 register_err_passwdnomatch:	Ihre Passw&ouml;rter stimmen nicht &uuml;berein.
 register_err_short_login:	Der Anmeldename, den Sie gew&auml;hlt haben, ist zu kurz. Er muss mindestens 4 Zeichen enthalten.
 register_err_shortpasswd:	Das Passwort muss mindestens 6 Zeichen lang sein.
-register_err_toomanyimages:	Sie versuchen mehr als die erlaubten {GVAR: FORUM_IMG_CNT_SIG} Bilder in Ihrer Signatur zu verwenden.
+register_err_toomanyimages:	Sie versuchen, mehr als die erlaubten {GVAR: FORUM_IMG_CNT_SIG} Bilder in Ihrer Signatur zu verwenden.
 register_flat_view:		Flachansicht
 register_gender:		Geschlecht:
 register_homepage:		Homepage:
@@ -589,7 +589,7 @@ register_year:			Jahr
 register_your_pass:		Dein Passwort:
 registered:			Registriert:
 registered_on:			Registriert am {TEMPLATE: registered_on_date}
-regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nehmen Sie Kontakt zum Administrator auf:<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nehmen Sie Kontakt zum Administrator auf: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 remail_anon_opt:		Diesen Beitrag in ein E-Mail-Programm Ihrer Wahl kopieren, um ihn an Ihre Freunde zu schicken.
 remail_done:			Fertig
 remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) die für dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nVon {VAR: usr->alias}\n
@@ -609,7 +609,7 @@ replies:			Antworten
 report_already_reported_msg:	Der Beitrag ist bereits gemeldet und wird demn&auml;chst vom Moderatorenteam begutachtet.
 report_already_reported_title:	Bereits gemeldet	
 report_by:			von:
-report_empty_report:		Sie können keine leere Meldung abschicken, geben Sie bitte einen Grund an.
+report_empty_report:		Sie k&ouml;nnen keine leere Meldung abschicken, geben Sie bitte einen Grund an.
 report_err_nosuchmsg_msg:	Kein solcher Beitrag vorhanden
 report_err_nosuchmsg_title:	FEHLER
 report_give_reason:		Bitte geben Sie einen Grund an, warum Sie diesen Beitrag melden:
@@ -634,10 +634,10 @@ reset_err_rstconf_msg:		Sie sollten in den n&auml;chsten Minuten eine Anleitung 
 reset_err_rstconf_title:	Information
 reset_error:			E-Mail-Adresse nicht in der Datenbank gefunden
 reset_login_notify:		Das Passwort wurde an Sie versendet. Sie sollten es in den n&auml;chsten Minuten erhalten. Bitte &uuml;berpr&uuml;fen Sie die E-Mail auf Benutzername und Passwort.<br />.<br />.<br />
-reset_newpass_msg:		Guten Tag,\n\nWie von Ihnen gewünscht, wird Ihnen der Anmeldename zugesendet.\nHier sind Ihre Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachten Sie, dass Ihr Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn Sie es ändern möchten, so können Sie das in den\npersönlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		Guten Tag,\n\nWie von Ihnen gewünscht, wird Ihnen der Anmeldename zugesendet.\nHier sind Ihre Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachten Sie, dass Ihr Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn Sie es ändern möchten, so können Sie das in\nden persönlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_newpass_title:		Passwort zurücksetzen
 reset_remind_pass:		Passwort Hinweis
-reset_reset:			Hallo,\n\nSie haben darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehen Sie bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, dass sobald Sie Ihr Passwort eingegeben haben, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode, schlagen Sie unter MD5 HASH Algorithmus nach.)
+reset_reset:			Hallo,\n\nSie haben darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehen Sie bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, dass sobald Sie Ihr Passwort eingegeben haben, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode, schlagen Sie unter MD5-Hash-Algorithmus nach.)
 reset_reset_button:		Passwort zur&uuml;cksetzen
 reset_reset_conf:		Dein Passwort wird zur&uuml;ckgesetzt und an Sie verschickt, oder falls Sie Ihre E-Mail noch nicht best&auml;tigt haben, wird diese Best&auml;tigungsanfrage erneut an Sie versendet.
 reset_title:			Passwort zur&uuml;cksetzen
@@ -798,7 +798,7 @@ poll_edit:			Bearbeiten
 unspecified:			Nicht angegeben
 register_err_not_valid_img:	Die angegebene URL enth&auml;t kein g&uuml;ltiges Bild.
 pmsg_recepient:			Empf&auml;nger
-register_err_taken_alias:	Der Alias, welchen Sie verwenden m&ouml;chten, wird bereits von einem Forumsmitglied genutzt. Bitte nehme Sie einen anderen Alias.
+register_err_taken_alias:	Der Alias, welchen Sie verwenden m&ouml;chten, wird bereits von einem Forumsmitglied genutzt. Bitte nehmen Sie einen anderen Alias.
 register_alias:			Alias
 register_alias_desc:		Wenn Sie m&ouml;chten, dass Ihr Nickname, der im Forum angezeigt wird, sich vom Loginnamen unterscheidet, dann tragen Sie hier jenen ein, der angezeigt werden soll.
 register_allow_pm_msg:		Private Nachrichten erlauben	
@@ -1019,7 +1019,7 @@ post_common_link:		Link einf&uuml;gen
 post_common_email:		E-Mail-Addresse einf&uuml;gen
 post_common_image:		Bild einf&uuml;gen
 post_common_nlist:		Nummerierte Liste einf&uuml;gen
-post_common_blist:		Aufzählung einf&uuml;gen
+post_common_blist:		Aufz&auml;hlung einf&uuml;gen
 post_common_quote:		Zitat einf&uuml;gen
 post_common_code:		Code einf&uuml;gen
 rating:				Bewertung
@@ -1040,15 +1040,15 @@ pmsg_download_dump:		Nachrichtenarchiv herunterladen
 move_messages:			Beitr&auml;ge verschieben
 move_msg_btn:			Verschiebe ausgew&auml;hlte Beitr&auml;ge
 move_msg_th_expl:		Geben Sie die ID des Zielthemas an (kann in einem anderem Forum sein)
-pmsg_on:			on
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
+pmsg_on:			am
+minimize_message:		Beitrag minimieren
+maximize_message:		Beitrag maximieren
+no_bookmarked_threads:		Keine Lesezeichen
+bookmark_thread:		Als Lesezeichen speichern
+bookmark_thread_desc:		Dieses Thema zu den Lesezeichen hinzuf&uuml;gen
+bookmarked_threads:		Als Lesezeichen gespeicherte Themen
+unbookmark_thread:		Von den Lesenzeichen entfernen
+unbookmark_thread_desc:		Dieses Thema von den Lesezeichen entfernen
+tabs_bookmarkes:		Lesezeichen
+bookmarked_update:		Sieht sich eigene Lesezeichen-Liste an
+unbookmark_all_topics:		Alle Lesezeichen entfernen

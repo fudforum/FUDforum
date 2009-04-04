@@ -6,7 +6,7 @@ ERR_emailconf_msg:		Du hast dein Konto noch nicht per E-Mail best&auml;tigt<br /
 ERR_emailconf_ttl:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
 ERR_registration_disabled_msg:	Der Administrator hat die Registrierung deaktiviert, versuche es bitte sp&auml;ter noch einmal
 ERR_registration_disabled_ttl:	Registrierung ist deaktiviert
-ERR_systemerr_msg:		Ein Systemfehler ist aufgetreten, bitte benachrichtige <a href="mailto:{GVAR: ADMIN_EMAIL}">Webmaster</a>.
+ERR_systemerr_msg:		Ein Systemfehler ist aufgetreten, bitte benachrichtige den <a href="mailto:{GVAR: ADMIN_EMAIL}">Webmaster</a>.
 ERR_systemerr_ttl:		FEHLER: Systemfehler
 ERR_user_msg:			Diesen Benutzer gibt es nicht
 ERR_user_ttl:			FEHLER: Benutzer existiert nicht
@@ -221,7 +221,7 @@ login_invalid_radius:		Ung&uuml;ltige Login/Passwort Kombination
 login_login:			Login
 login_login_btn:		Login
 login_name_required:		Anmeldename erforderlich
-login_not_logedin:		Du bist nicht angemeldet. Das k&ouml;nnte einen der folgenden Gr&uuml;nde haben:
+login_not_logedin:		Du bist nicht angemeldet. Dies k&ouml;nnte einen der folgenden Gr&uuml;nde haben:
 login_passwd:			Passwort
 login_passwd_required:		Passwort erforderlich
 login_perm_denied:		Es ist dir als anonymem Benutzer nicht gestattet, auf die angeforderte Quelle zuzugreifen und musst dich daher erst einmal anmelden.
@@ -369,7 +369,7 @@ poll_create:			Erstellen
 poll_create_poll:		Abstimmung erstellen
 poll_day:			Tag
 poll_days:			Tage
-poll_del_conf:			Wenn du diesen Men&uuml;punkt l&ouml;schen m&ouml;chtest, dr&uuml;cke auf OK
+poll_del_conf:			Wenn du diesen Men&uuml;punkt l&ouml;schen m&ouml;chtest, klicke auf OK
 poll_delete:			L&ouml;schen
 poll_disablesmilies:		Smileys deaktivieren
 poll_hour:			Stunde
@@ -454,7 +454,7 @@ postcheck_email_subject:	Du kannst keine E-Mail ohne Betreff versenden.
 postcheck_ignored:		Du kannst keine private Nachricht an "{FUNC: char_fix(htmlspecialchars($v))}" verschicken, weil diese Person dich auf die Ignorierliste gesetzt hat.
 postcheck_invalid_email:	Bitte trage eine g&uuml;ltige Adresse f&uuml;r deinen Freund ein.
 postcheck_max_images_err:	Maximal {GVAR: MAX_IMAGE_COUNT} Bilder pro Beitrag sind erlaubt, bitte reduziere die Anzahl der Bilder.
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
+postcheck_no_links_allowed:	Du kannst keine Links verwenden, bis du mehr als {GVAR: POSTS_BEFORE_LINKS} Beitr&auml;ge geschrieben hast.
 postcheck_no_recepient:		Kann die Nachricht nicht versenden, weil kein Empf&auml;nger angegeben ist
 postcheck_no_such_user:		Es gibt keinen Benutzer mit Namen "{FUNC: char_fix(htmlspecialchars($v))}" in diesem Forum
 postcheck_subj_needed:		Betreff erforderlich
@@ -520,10 +520,10 @@ register_def_thread_view:	Standard Themenansicht:
 register_del_avatar:		Avatar l&ouml;schen
 register_email_desc:		Bitte eine g&uuml;ltige E-Mail-Adresse angeben. Du kannst diese dann weiter unten im Men&uuml; verstecken.
 register_err_adminpasswd:	Du musst dein ADMINISTRATOR-Passwort eingeben, um die Ver&auml;nderungen wirkam werden zu lassen.
-register_err_avatarnotallowed:	Der Avatar, den du versuchst hochzuladen, ist nicht erlaubt, &uuml;berpr&uuml;fe die erlaubten Dateitypen.
-register_err_avatartobig:	Die Datei, die du versuchst hochzuladen, ist zu gro&szlig; und liegt &uuml;ber der Grenze von {GVAR: CUSTOM_AVATAR_MAX_SIZE} Byte.
+register_err_avatarnotallowed:	Der Avatar, den du hochladen m&ouml;chtest, ist nicht erlaubt, &uuml;berpr&uuml;fe die erlaubten Dateitypen.
+register_err_avatartobig:	Die Datei, die du  hochladen m&ouml;chtest, ist zu gro&szlig; und liegt &uuml;ber der Grenze von {GVAR: CUSTOM_AVATAR_MAX_SIZE} Byte.
 register_err_cantreg_title:	FEHLER: Registrierung nicht m&ouml;glich
-register_err_emailexists:	Diese E-Mail-Adresse wurde schon verwendet, falls du dein Passwort vergessen hast, la&szlig; es bitte zur&uuml;cksetzen, anstatt dich neu zu registrieren
+register_err_emailexists:	Diese E-Mail-Adresse wurde schon verwendet, falls du dein Passwort vergessen hast, lasse es bitte zur&uuml;cksetzen, anstatt dich neu zu registrieren
 register_err_enterpasswd:	Du musst dein aktuelles Passwort eingeben, um die Ver&auml;nderungen wirksam werden zu lassen.
 register_err_invalidemail:	Die E-Mail-Adresse, die du angegeben hast, ist anscheinend nicht g&uuml;ltig.
 register_err_login_notallowed:	Dieser Anmeldename ist nicht erlaubt
@@ -533,7 +533,7 @@ register_err_notyouremail:	Jemand ist bereits mit dieser E-Mail registriert, und
 register_err_passwdnomatch:	Deine Passw&ouml;rter stimmen nicht &uuml;berein.
 register_err_short_login:	Der Anmeldename, den du gew&auml;hlt hast, ist zu kurz. Er muss mindestens 4 Zeichen enthalten.
 register_err_shortpasswd:	Das Passwort muss mindestens 6 Zeichen lang sein.
-register_err_toomanyimages:	Du versuchst mehr als die erlaubten {GVAR: FORUM_IMG_CNT_SIG} Bilder in deiner Signatur zu verwenden.
+register_err_toomanyimages:	Du versuchst, mehr als die erlaubten {GVAR: FORUM_IMG_CNT_SIG} Bilder in deiner Signatur zu verwenden.
 register_flat_view:		Flachansicht
 register_gender:		Geschlecht:
 register_homepage:		Homepage:
@@ -589,8 +589,8 @@ register_year:			Jahr
 register_your_pass:		Dein Passwort:
 registered:			Registriert:
 registered_on:			Registriert am {TEMPLATE: registered_on_date}
-regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nimm Kontakt zum Administrator auf an <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-remail_anon_opt:		Diesen Beitrag in einen E-Mail-Programm deiner Wahl kopieren, um sie an deine Freunde zu schicken.
+regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nimm Kontakt zum Administrator auf: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+remail_anon_opt:		Diesen Beitrag in ein E-Mail-Programm deiner Wahl kopieren, um ihn an deine Freunde zu schicken.
 remail_done:			Fertig
 remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) die für dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nVon {VAR: usr->alias}\n
 remail_email_topic:		Das Thema an einen Freund versenden
@@ -637,7 +637,7 @@ reset_login_notify:		Das Passwort wurde an dich versendet. Du solltest es in den
 reset_newpass_msg:		Hallo,\n\nWie von dir gewünscht, wird dir der Anmeldename zugesendet.\nHier sind deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, dass dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn du es ändern willst, so kannst du das in\nden persönlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_newpass_title:		Passwort zurücksetzen
 reset_remind_pass:		Passwort Hinweis
-reset_reset:			Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, dass sobald du dein Passwort eingegeben hast, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode, schlage unter MD5 HASH Algorithmus nach.)
+reset_reset:			Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, dass sobald du dein Passwort eingegeben hast, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode, schlage unter MD5-Hash-Algorithmus nach.)
 reset_reset_button:		Passwort zur&uuml;cksetzen
 reset_reset_conf:		Dein Passwort wird zur&uuml;ckgesetzt und an dich verschickt, oder falls du deine E-Mail noch nicht best&auml;tigt hast, wird diese Best&auml;tigungsanfrage erneut an dich versendet.
 reset_title:			Passwort zur&uuml;cksetzen
@@ -679,7 +679,7 @@ sent:				Verschickt
 show_posts_by:			Beitr&auml;ge von {VAR: u_alias} anzeigen
 show_show:			Anzeigen:
 showposts_update:		Betrachtet die Beitr&auml;ge von <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-single_msg_delete:		Du bist gerade dabei, den Beitrag: <b>{VAR: data[3]}</b> zu <span class="ErrorText">L&Ouml;SCHEN</span> <p>
+single_msg_delete:		Du bist gerade dabei, den Beitrag: <b>{VAR: data[3]}</b> zu <span class="ErrorText">L&Ouml;SCHEN</span><p>
 size:				Gr&ouml;&szlig;e:
 smladd_close_window:		Fenster schlie&szlig;en
 spell_check_msg:		Rechtschreibung des Beitrages &uuml;berpr&uuml;fen
@@ -739,7 +739,7 @@ thr_exch_orig_forum:		Urspr&uuml;ngliches Forum:
 thr_exch_submit:		Abschicken
 thread:				Thema:
 thread_announcement:		Ank&uuml;ndigung:
-thread_delete:			Du bist gerade dabei, das <span class="ErrorText">KOMPLETTE THEMA</span> : <b>{VAR: data[3]}</b> zu <span class="ErrorText">L&Ouml;SCHEN</span> <p>
+thread_delete:			Du bist gerade dabei, das <span class="ErrorText">KOMPLETTE THEMA</span>: <b>{VAR: data[3]}</b> zu <span class="ErrorText">L&Ouml;SCHEN</span><p>
 thread_exchange:		Themenwechsel 
 thread_first_unread_msg:	Hier klicken, um zum ersten ungelesenen Beitrag dieses Themas zu gelangen
 thread_mod_delete:		L&ouml;schen
@@ -838,7 +838,7 @@ register_tree_msg_view:		Baumansicht der Themen/Flache Themenanzeige
 mmod_delete_cofirm_ttl:		Best&auml;tigung f&uuml;r Themen/Beitragsl&ouml;schung
 spell_alts:			keine Alternativen
 insert_uploaded_image:		Bild in den Beitrag einf&uuml;gen
-finduser_help:			Die Suchmaschine f&uuml;gt automatisch eine * Maske Ihrer Anfrage hinzu, die Suche <b>ber&uuml;cksichtigt Groß- und Kleinschreibung</b>. Um zum Beispiel alle Benutzer zu suchen, deren Login mit einem &#39;a&#39; beginnt, tr&auml;gt man &#39;a&#39; in die Sucheingabe ein.
+finduser_help:			Die Suchmaschine f&uuml;gt automatisch eine * Maske Ihrer Anfrage hinzu, die Suche <b>ber&uuml;cksichtigt GroÃŸ- und Kleinschreibung</b>. Um zum Beispiel alle Benutzer zu suchen, deren Login mit einem &#39;a&#39; beginnt, tr&auml;gt man &#39;a&#39; in die Sucheingabe ein.
 back_to_top:			Zur&uuml;ck zum Anfang
 iemail_participate:		Zur Teilnahme an der Diskussion geht es hier entlang:
 pm_err_disabled_title:		Private Nachrichten deaktiviert
@@ -882,7 +882,7 @@ primary_group_prefix:		Hauptgruppe f&uuml;r Forum:
 group_resources:		Diese Gruppe kontrolliert die Berechtigungen f&uuml;r folgende Foren
 register_email:			E-Mail
 register_admin_newuser_title:	Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
-register_admin_newuser_msg:	Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor es durch dich oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten, gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen abstellen willst kannst du dies über das Administratormenü und durch Ändern des Wertes der Einstellung "New Account Notification" erledigen.
+register_admin_newuser_msg:	Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor es durch dich oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten, gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen abstellen willst, kannst du dies über das Administratormenü und durch Ändern des Wertes der Einstellung "New Account Notification" erledigen.
 post_mod_msg_notify_title:	Neuer Beitrag im Forum "{VAR: frm->name}" wartet auf Bestätigung
 post_mod_msg_notify_msg:	Ein neuer Beitrag mit der Überschrift "{VAR: msg_post->subject}" wurde gerade in einem Forum, welches von dir moderiert wird, erstellt. Um diesen Beitrag zu begutachten, gehe zu: {FULL_ROOT}{ROOT}?t=modque\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Benachrichtigung nicht.\n
 thread_printable_pdf:		Druckbares PDF erzeugen
@@ -912,7 +912,7 @@ mnav_update:			Durchsucht Beitr&auml;ge mit Hilfe des <a href="{TEMPLATE: mnav_u
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Nachricht
 pm_notify_body_email:		Du hast eine neue private Nachricht mit der Überschrift "{VAR: subject}" von "{VAR: from}" im Forum "{GVAR: FORUM_TITLE}".\nKlicke hier, um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Nachrichten" in deinem Profil.
 register_pm_notification:	Benachrichtigung &uuml;ber private Nachricht
-register_pm_notification_desc:	Falls aktiviert, wirst du über die Benachrichtigungsmethode deiner Wahl eine Mitteilung erhalten, sobald eine private Nachricht an dich gesendet worden ist.
+register_pm_notification_desc:	Falls aktiviert, wirst du &uuml;ber die Benachrichtigungsmethode deiner Wahl eine Mitteilung erhalten, sobald eine private Nachricht an dich gesendet worden ist.
 findu_admin_opts_header:	Admin-Optionen
 findu_unban:			Bann aufheben
 findu_ban:			Verbannen
@@ -1019,11 +1019,11 @@ post_common_link:		Link einf&uuml;gen
 post_common_email:		E-Mail-Addresse einf&uuml;gen
 post_common_image:		Bild einf&uuml;gen
 post_common_nlist:		Nummerierte Liste einf&uuml;gen
-post_common_blist:		Aufzählung einf&uuml;gen
+post_common_blist:		Aufz&auml;hlung einf&uuml;gen
 post_common_quote:		Zitat einf&uuml;gen
 post_common_code:		Code einf&uuml;gen
 rating:				Bewertung
-rating_track:			Verwaltung der Bewertungen für das Thema <b>{VAR: thr->subject}</b>:
+rating_track:			Verwaltung der Bewertungen fÃ¼r das Thema <b>{VAR: thr->subject}</b>:
 rating_delete:			L&ouml;schen
 post_always_on_top:		Dieses Thema immer am Anfang der Themenliste anzeigen
 register_skype:			Skype:
@@ -1040,15 +1040,15 @@ pmsg_download_dump:		Nachrichtenarchiv herunterladen
 move_messages:			Beitr&auml;ge verschieben
 move_msg_btn:			Verschiebe ausgew&auml;hlte Beitr&auml;ge
 move_msg_th_expl:		Gib die ID des Zielthemas an (kann in einem anderem Forum sein)
-pmsg_on:			on
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
+pmsg_on:			am
+minimize_message:		Beitrag minimieren
+maximize_message:		Beitrag maximieren
+no_bookmarked_threads:		Keine Lesezeichen
+bookmark_thread:		Als Lesezeichen speichern
+bookmark_thread_desc:		Dieses Thema zu den Lesezeichen hinzuf&uuml;gen
+bookmarked_threads:		Als Lesezeichen gespeicherte Themen
+unbookmark_thread:		Von den Lesenzeichen entfernen
+unbookmark_thread_desc:		Dieses Thema von den Lesezeichen entfernen
+tabs_bookmarkes:		Lesezeichen
+bookmarked_update:		Sieht sich eigene Lesezeichen-Liste an
+unbookmark_all_topics:		Alle Lesezeichen entfernen

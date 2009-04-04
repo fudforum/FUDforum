@@ -1,24 +1,25 @@
 TOPIC_TITLE: <a name="register">Warum registrieren?</a>
 TOPIC_HELP:
-In den meisten Foren wird es Ihnen nicht m&ouml;glich sein, neue Themen zu erstellen oder auf bestehende zu antworten, au&szlig;er der Admin 
+In den meisten Foren wird es Ihnen nicht m&ouml;glich sein, neue Themen zu erstellen oder auf bestehende zu antworten, au&szlig;er der Administrator 
 hat dies ausdr&uuml;cklich erlaubt. Daher wird es wahrscheinlich f&uuml;r Sie erforderlich werden, sich zu registrieren, um an der Diskussion
 teilnehmen zu k&ouml;nnen. Durch die Registrierung erh&auml;lten Sie auch Zugriff auf viele Zusatzfunktionen des Forums wie zum Beispiel:
 <ul>
-	<li>E-Mail-Benachrichtigung, wenn jemand auf Ihre Beitr&auml;ge geantwortet hat
-	<li>Eigene Signatur, Avatar, pers&ouml;nlicher Rang usw...
-	<li>M&ouml;glichkeit, private Messages an ein oder mehrere Forumsmitglieder zu verschicken
-	<li>Sie k&ouml;nnen eine Zeitzone ausw&auml;hlen, sodass die Zeitangabe des Forums der Region entspricht, in der Sie leben.
+	<li>E-Mail-Benachrichtigung, wenn jemand auf Ihre Beitr&auml;ge geantwortet hat</li>
+	<li>Eigene Signatur, Avatar, pers&ouml;nlicher Rang usw...</li>
+	<li>M&ouml;glichkeit, private Nachrichten an ein oder mehrere Forumsmitglieder zu verschicken</li>
+	<li>Sie k&ouml;nnen eine Zeitzone ausw&auml;hlen, so dass die Zeitangabe des Forums der Region entspricht, in der Sie leben.</li>
 </ul>
 Sofern nicht anders angegeben, ist die Registrierung f&uuml;r das Forum vollst&auml;ndig kostenlos und erfordert nur minimale Informationen wie Ihre 
 E-Mail-Adresse und einen Benutzernamen Ihrer Wahl.<br /> 
-Wenn COPPA aktiviert ist, benötigen Mitglieder unter 13 Jahren die Zustimmung des gesetzlichen Vormunds, bevor der Account zum Erstellen von Beitr&aumL,gen verwendet werden kann. W&auml;hrend des Registrierungsvorgangs auf Foren mit aktivierten COPPA werden Mitglieder, die j&uuml;nger 
+Wenn COPPA aktiviert ist, benötigen Mitglieder unter 13 Jahren die Zustimmung des gesetzlichen Vormunds, bevor der Account zum 
+Erstellen von Beitr&auml;gen verwendet werden kann. W&auml;hrend des Registrierungsvorgangs auf Foren mit aktivierten COPPA werden Mitglieder, die j&uuml;nger 
 als 13 Jahre alt sind, zu einem Formular gef&uuml;hrt, welches vom gesetzlichen Vormund ausgef&uuml;llt und an die angegebene Adresse auf der Seite geschickt 
 werden muss.
 
 TOPIC_TITLE: <a name="cookies">Wie verwendet das FUDforum Cookies?</a>
 TOPIC_HELP:
 Normalerweise verwendet das FUDforum Cookies, um eine Information dar&uuml;ber abzuspeichern, ob Sie gerade angemeldet sind oder nicht. 
-Wenn aus irgendwelchen Gr&uuml;nden Ihr Browser keine Cookies unterst&uuml;tzen sollte, verwendet das FUDForum Sessions, die keinelei Informationen auf Ihrem 
+Wenn aus irgendwelchen Gr&uuml;nden Ihr Browser keine Cookies unterst&uuml;tzen sollte, verwendet das FUDforum Sessions, die keinerlei Informationen auf Ihrem 
 Rechner abspeichern. W&auml;hrend des Anmeldevorgangs k&ouml;nnen Sie ausw&auml;hlen, das Cookiesystem zu umgehen und stattdessen das Sessionsystem zu verwenden, 
 was auf &ouml;ffentlich zug&auml;ngigen Rechner zu empfehlen ist. Dadurch kann eine m&ouml;gliche &Uuml;bername des Profils verhindert werden, falls jemand sich nach 
 Verwendung des Forums nicht abgemeldet hat. Ansonsten sollten Sie wahrscheinlich die Cookies aktiviert lassen, da es langfristig wesentlich komfortabler ist.
@@ -26,35 +27,35 @@ Zum Beispiel m&uuml;ssen Sie sich nicht bei jedem Besuch erneut ins Forum einlog
 
 TOPIC_TITLE: <a name="clrcookie">Wie entfernt man FUDforum Cookies?</a>
 TOPIC_HELP:
-Um das Cookie vom FUDforum zu entfernen, klicken Sie einfach auf den Abmelden Link und es wird dann automatisch gel&ouml;scht.
+Um das Cookie vom FUDforum zu entfernen, klicken Sie einfach auf den Link <b>Abmelden</b> und es wird dann automatisch gel&ouml;scht.
 
 TOPIC_TITLE: <a name="updprofile">Was ist ein Profil?</a>
 TOPIC_HELP: Als Forumsmitglied haben Sie ein pers&ouml;nliches Profil, worin Sie verschiedene Informationen &uuml;ber sich, wie die Benutzernamen f&uuml;r Instant Messenger, 
 Signaturen, Werdegang usw. eintragen k&ouml;nnen. Ihr Profil speichert auch verschiedene Forumseinstellungen. Jedesmal wenn Sie sich einloggen, k&ouml;nnen Sie Ihre Einstellungen 
 im Profil ver&auml;ndern. Ihnen sollte klar sein, dass die meisten Angaben im Profil von anderen Forenmitgliedern angesehen werden k&ouml;nnen. Daher sollten Sie nach 
 M&ouml;glichkeit keine sensiblen Daten abspeichern, die nicht von anderen gesehen werden sollen.<br />
-Ihr Profil verf&uuml;gt &uuml;ber die Option <b>"E-Mail-Adresse anzeigen"</b>, die, falls sie auf <b>NEIN</b> gesetzt wurde, deren Anzeige unterdr&uuml;ckt. 
+Ihr Profil verf&uuml;gt &uuml;ber die Option <b>E-Mail-Adresse anzeigen</b>, die, falls sie auf <b>Nein</b> gesetzt wurde, deren Anzeige unterdr&uuml;ckt. 
 Wenn Sie nicht m&ouml;chten, dass irgendwelche Leute Ihre E-Mail-Adresse sehen k&ouml;nnen,
 sollten Sie unbedingt von dieser Option Gebrauch machen.
 
 TOPIC_TITLE: <a name="sigs">Was ist eine Signatur?</a>
 TOPIC_HELP:
-Eine Signatur ist eine Textpassage, die automatisch an das Ende eines jeden von Ihnen erstellten Beitrag angeh&auml;ngt werden kann. In Ihrem Profil haben Sie daf&uuml;r 
-die Option <b>"Standardm&auml;&szlig;ig Signatur verwenden"</b>, die das Feature standardm&auml;&szlig;ig aktiviert oder deaktiviert. Allerdings kann diese Einstellung f&uuml;r einen 
+Eine Signatur ist ein Text, der automatisch an das Ende eines jeden von Ihnen erstellten Beitrag angeh&auml;ngt werden kann. In Ihrem Profil haben Sie daf&uuml;r 
+die Option <b>Standardm&auml;&szlig;ig Signatur verwenden</b>, die die Funktion standardm&auml;&szlig;ig aktiviert oder deaktiviert. Allerdings kann diese Einstellung f&uuml;r einen 
 bestimmten Beitrag ge&auml;ndert werden.<br />
-Au&szlig;er blo&szlig;em Text, kann diese Passage (sofern vom Administrator erlaubt) auch bestimmte Leckerbissen wie Links zu Lieblingsseiten, 
+Au&szlig;er blo&szlig;em Text, kann dieser Text (sofern vom Administrator erlaubt) auch bestimmte Leckerbissen wie Links zu Lieblingsseiten, 
 pers&ouml;nlichen Bildern usw. enthalten.
 <br />
-Falls Sie die Signaturen von anderen Leuten nicht sehen m&ouml;chten, k&ouml;nnen Sie sie durch das Setzen von <b>"Signatur anzeigen"</b> auf <b>NEIN</b> in Ihrem Profil abstellen.
+Falls Sie die Signaturen von anderen Leuten nicht sehen m&ouml;chten, k&ouml;nnen Sie sie durch das Setzen von <b>Signatur anzeigen</b> auf <b>Nein</b> in Ihrem Profil abstellen.
 
 
 TOPIC_TITLE: <a name="rstpasswd">Was beim Verlust des Passwortes zu tun ist</a>
 TOPIC_HELP:
 Falls Sie sich an das Passwort f&uuml;r das FUDforum nicht mehr erinnern k&ouml;nnen, sollten Sie das <a href="{ROOT}?t=reset&amp;%_rsid%">Passwort zur&uuml;cksetzen</a> lassen. 
-Dort tragen Sie Ihre E-Mail-Adresse ein und dr&uuml;cken den LOS Knopf. Ihnen wird dann eine E-Mail mit einer besonderen URL zugeschickt, mit der Ihr Passwort zur&uuml;ckgesetzt wird und Sie
+Dort tragen Sie Ihre E-Mail-Adresse ein und dr&uuml;cken die Schaltfl&auml;che <b>Passwort zur&uuml;cksetzen</b>. Ihnen wird dann eine E-Mail mit einer besonderen URL zugeschickt, mit der Ihr Passwort zur&uuml;ckgesetzt wird und Sie
 anschlie&szlig;end eine weitere Mail mit Ihrem neuen Passwort erh&auml;lten.<br />
 <br />
-<b>Achtung:</b> Ihre Passw&ouml;rter werden in einem Einweg-Verschl&uuml;sselungsformat namens MD5 HASH abgespeichert.
+<b>Achtung:</b> Ihre Passw&ouml;rter werden in einem Einweg-Verschl&uuml;sselungsformat namens MD5-Hash abgespeichert.
 Das ist eine vom Milit&auml;r verwendete 128-bit Verschl&uuml;sselung, bei der es keine M&ouml;glichkeit gibt, Passw&ouml;rter wiederherzustellen.
 Das wird dadurch erreicht, dass Ihre Dateneingabe zun&auml;chst verschl&uuml;sselt und dann mit der abgespeicherten verschl&uuml;sselten Version 
 verglichen wird.
@@ -67,13 +68,12 @@ Individuelle R&auml;nge k&ouml;nnen nur durch die Forenadministration zugewiesen
 TOPIC_TITLE: <a name="avatars">Was ist ein Avatar?</a>
 TOPIC_HELP:
 Avatare sind Bilder, die unter Ihrem Benutzernamen bei von Ihnen erstellten Beitr&auml;gen und Ihren Benutzerinformationen angezeigt werden. 
-Das FUDForum unterst&uuml;tzt drei Typen von Avataren, die von Fall zu Fall vom Administrator aktiviert worden sind. Gegebenenfalls k&ouml;nnen Sie auch Avatare im Benutzerprofil 
+Das FUDforum unterst&uuml;tzt drei Typen von Avataren, die von Fall zu Fall vom Administrator aktiviert worden sind. Gegebenenfalls k&ouml;nnen Sie auch Avatare im Benutzerprofil 
 ausw&auml;hlen.
 <ul>
-	<li><b>Eingebaut</b> - Das sind Avatare, die vom Admin zur Auswahl gestellt worden sind, Sie k&ouml;nnen einen davon ausw&auml;hlen und er wird zu Ihrem pers&ouml;nlichen Avatar, 
-	sobald Sie die &Auml;nderungen im Profil abspeichern.
-	<li><b>Avatar hochladen</b> - Falls aktiviert, k&ouml;nnen Sie ein eigenes Bild als Avatar hochladen. Es muss dann lediglich vom Administrator genehmigt werden, bevor es zu Ihrem Avatar wird.
-	<li><b>URL angeben</b> - Falls aktiviert, k&ouml;nnen Sie eine URL zu einem Bild angeben, welches Ihr Avatar werden soll. Was er dann auch wird, sofern der Administrator ihn als solchen akzeptiert.
+	<li><b>Eingebaut</b> - Das sind Avatare, die vom Admin zur Auswahl gestellt worden sind, Sie k&ouml;nnen einen davon ausw&auml;hlen und er wird zu Ihrem pers&ouml;nlichen Avatar, sobald Sie die &Auml;nderungen im Profil abspeichern.</li>
+	<li><b>Avatar hochladen</b> - Falls aktiviert, k&ouml;nnen Sie ein eigenes Bild als Avatar hochladen. Es muss dann lediglich vom Administrator genehmigt werden, bevor es zu Ihrem Avatar wird.</li>
+	<li><b>URL angeben</b> - Falls aktiviert, k&ouml;nnen Sie eine URL zu einem Bild angeben, welches Ihr Avatar werden soll. Was er dann auch wird, sofern der Administrator ihn als solchen akzeptiert.</li>
 </ul>
 <b>Beachten Sie:</b> Sie k&ouml;nnen Ihren Avatar jederzeit &auml;ndern, allerdings muss dieser dann erst wieder vom Administrator genehmigt werden, 
 bevor er im Forum erscheint.
@@ -81,10 +81,9 @@ bevor er im Forum erscheint.
 TOPIC_TITLE: <a name="blist">Was ist eine Buddyliste?</a>
 TOPIC_HELP:
 Eine Buddyliste ist eine kleine Liste mit Forumsmitgliedern, mit denen Sie sich h&auml;ufiger unterhalten m&ouml;chten. Indem Sie eine Person auf diese Liste setzen, 
-k&ouml;nnen Sie ihren Geburtstag sehen (falls angegeben) und sie auch einfach als Empf&auml;nger Ihren privaten Messages ausw&auml;hlen.
+k&ouml;nnen Sie ihren Geburtstag sehen (falls angegeben) und sie auch einfach als Empf&auml;nger Ihren privaten Nachrichten ausw&auml;hlen.
 
 TOPIC_TITLE: <a name="ignlist">F&uuml;r was ist die Ignorierliste da?</a>
 TOPIC_HELP:
-Die Ignorierliste ist eine Datenbank mit jenen Forumsmitgliedern, die Sie nicht sehen und von denen Sie auch keine privaten Messages erhalten m&ouml;chten. 
+Die Ignorierliste ist eine Datenbank mit jenen Forumsmitgliedern, die Sie nicht sehen und von denen Sie auch keine privaten Nachrichten erhalten m&ouml;chten. 
 Jeder Forumsbeitrag hat einen Link, mit welchem der Autor jederzeit der pers&ouml;nlichen Ignorierliste hinzugef&uuml;gt werden kann.
-
