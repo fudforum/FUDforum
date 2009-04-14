@@ -1,4 +1,4 @@
-action:				Aktion
+action:				Handling
 add_to_buddy_list:		Føj til venneliste
 admin:				Admin
 admin_control_panel:		Admin kontrolpanelel
@@ -171,8 +171,8 @@ unsubscribe_desc:		Stop for notifikationer om nye emner i dette forum
 updated_on:			Opdateret den:
 user:				Bruger
 user_counter:			Vi har <b>{VAR: st_obj->user_count}</b> registerede bruger(e).
-user_info:		Brugeroplysninger
-user_info_l:		Brugerinformation for {VAR: u->alias}
+user_info:			Brugeroplysninger
+user_info_l:			Brugerinformation for {VAR: u->alias}
 user_offline:			{VAR: obj->login} er i øjeblikket offline
 user_online:			{VAR: obj->login} er i øjeblikket online
 usrinfo_last_post:		Seneste Indlæg:
@@ -391,7 +391,7 @@ prereg_agree:			Enig
 prereg_disagree:		Uenig
 coppa_fax_instructions:		Instruktioner til en forælder eller værge
 coppa_fax_instructions2:	Udskriv venligst denne side, underskriv den, og fax den til:
-coppa_fax_reg_form:		Registrerings-formular
+coppa_fax_reg_form:		Registrerings formular
 coppa_fax_sign:			Du bedes underskrive formularen nedenfor og sende den til os
 coppa_fax_conf:			Jeg har gennemgået de oplysninger, mit barn har fremvist, og jeg har læst "Privacy Policy" for webstedet. Jeg har forstået, at profil oplysningerne kan ændres ved hjælp af en adgangskode. Jeg har forstået, at jeg eventuelt selv må bede om, at denne registrerings-profil bliver fjernet helt fra forum.
 coppa_fax_permission:		Skriv under her, hvis du giver tilladelse
@@ -432,6 +432,7 @@ rpasswd_new_pass:		Ny adgangskode:
 rpasswd_conf_pass:		Bekræft adgangskode:
 login_passwd:			Adgangskode:
 reset_email:			E-mail:
+reset_reset_button:		Nulstil adgangskoden:
 rate_this_thread:		Bedøm
 report_reporting_about:		Rapportering om:
 report_subject:			Emne:
@@ -569,7 +570,7 @@ pm_update:			Brug af private beskeder
 post_err_lockedthread_title:	FEJL: Låst emne
 post_err_lockedthread_msg:	Dette emne er låst. Nye indlæg er ikke længere tilladt.
 err_coppa_title:		FEJL: Din konto er endnu ikke bekræftet
-err_coppa_msg:			Vi har ikke modtaget en bekræftelse fra din moder og/eller værge, som vil give dig mulighed for at sende indlæg. Hvis du mistet din COPPA formular, <a href="{TEMPLATE: err_coppa_msg_lnk}">så klik her</a> for at se den igen.
+err_coppa_msg:			Vi har ikke modtaget en bekræftelse fra din moder og/eller værge, som vil give dig mulighed for at sende indlæg. Hvis du har mistet din COPPA formular, <a href="{TEMPLATE: err_coppa_msg_lnk}">så klik her</a> for at se den igen.
 err_banned_acct_title:		FEJL: Du er blevet udelukket.
 err_banned_acct_msg:		Din konto blev {IF: $ban_expiry}midlertidigt lukket indtil {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent lukket{ENDI} for adgang til webstedet, som følge af en overtrædelse af forumets regler.
 post_err_edttimelimit_title:	FEJL
@@ -625,7 +626,7 @@ reset_err_invalidkey_msg:	Ugyldig nulstil adgangskode nøgle. Det er muligt, at 
 reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		Du burde modtage instruktioner per e-mail i løbet af de næste par minutter.
 reset_newpass_title:		Nulstil adgangskode
-reset_newpass_msg:		Hallo,\n\nSom ønsket fremgår dine nye dine login-oplysninger herefter:\n\nLogin: {VAR: ui[1]}\nKodeord: {VAR: passwd}\n\nBemærk venligst at din adgangskode er blevet nulstillet til den ovennævnte værdi. Hvis du ønsker\n at ændre din adgangskode igen, kan du gøre det via brugerinfo kontrolpanelet på:\n{FULL_ROOT}{ROOT}?t=register\n\n.
+reset_newpass_msg:		Hallo,\n\nSom ønsket fremgår dine nye dine login-oplysninger herefter:\n\nLogin: {VAR: ui[1]}\nKodeord: {VAR: passwd}\n\nBemærk venligst at din adgangskode er blevet ændret til den ovennævnte værdi. Hvis du ønsker\n at ændre din adgangskode igen, kan du gøre det via brugerinfo kontrolpanelet på:\n{FULL_ROOT}{ROOT}?t=register\n\n.
 reset_login_notify:		Din adgangskode er blevet sendt til dig pr e-mail. Du vil modtage den inden for de næste par minutter.<br />
 search_update:			Søgning i beskeder
 selmsg_update:			Gennemse <a href="{TEMPLATE: selmsg_update_lnk}">dagens indlæg</a>
@@ -662,7 +663,7 @@ search_title:			Søg efter {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
 tree_title:			{VAR: frm->name} => {VAR: frm->subject}
 remail_emailsent:		Mail blev afsendt
-remail_email:			Hej,\n\nder er et interessant emne om "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum, som du muligvis vil læse. Du kan se emnet på:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDin ven,\n\n{VAR: usr->alias}\n
+remail_email:			Hej,\n\nder er et interessant emne om "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum, som du muligvis vil læse. Du kan se emnet på:\n {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nDin ven,\n\n{VAR: usr->alias}\n
 poll_add_option:		Tilføj valgmulighed:
 post_opt_html_on:		<b>HTML</b> er <b>TIL</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> er <b>TIL</b></a>
@@ -731,6 +732,7 @@ p_SML:				Brug smilies
 p_IMG:				Brug billed-mærke
 p_SEARCH:			Kan søge
 group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Find bruger</a>
+group_mgr_indicator:		Redigerer nu: <b>{VAR: grp->name}</b>
 rate_worst:			Dårligste
 rate_best:			Bedste
 post_quote_msg:			{VAR: msg->login} skrev den {TEMPLATE: make_report_date}
@@ -853,7 +855,7 @@ threadt_update:			Gennemse forum (trævisning) <a href="{TEMPLATE: threadt_updat
 mmod_delete_cofirm_ttl:		Bekræft sletning af emne/besked
 spell_alts:			ingen alternativer
 insert_uploaded_image:		Indsæt billede i besked teksten
-finduser_help:			Søgemaskinen vil automatisk tilføje * masken til din forespørgsel, <b>søgningen er afhængig af store og små bogstaver</b>.<br />Ex. for at søge efter alle brugere, hvis login begynder med et 'A', indtast 'a' i søgefeltet.
+finduser_help:			Søgemaskinen vil automatisk tilføje * masken til din forespørgsel, <b>søgningen er afhængig af store og små bogstaver</b>.<br />Ex. for at søge efter alle brugere, hvis login begynder med et 'a', indtast 'a' i søgefeltet.
 back_to_top:			Tilbage til toppen
 pm_err_disabled_title:		Privat beskedgivning ikke indstillet
 pm_err_disabled_msg:		Du kan ikke sende private beskeder, før du aktiverer 'Tillad private beskeder' i din profil.
@@ -862,7 +864,7 @@ err_mod_acc_msg:		Administratoren har valgt at gennemgå alle konti manuelt før
 accounts_pending_approval:	Konti der venter på godkendelse
 saved:				Gemte
 register_err_time_limit:	Grænsen for én registrering per {GVAR: REG_TIME_LIMIT} sekunder er nået. Vent venligst {VAR: reg_limit_reached} sekund(er), og forsøg derefter at registrere igen.
-register_affero:	Affero brugernavn:<br /><span class="SmallText">Hvis du har et <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> brugernavn, skal du indtaste det her.</span>
+register_affero:		Affero brugernavn:<br /><span class="SmallText">Hvis du har et <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> brugernavn, skal du indtaste det her.</span>
 im_affero:			Affero brugernavn
 register_err_avatardimtobig:	Avatar dimensionerne på <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> overstiger den tilladte størrelse på <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:			{VAR: r[2]} er i øjeblikket offline
@@ -1010,7 +1012,7 @@ sml_emoticon:			Humørikon
 sml_code:			Kode
 mnav_sub_only:			Søg kun i tilmeldte fora
 register_topics_per_page:	Emner per side:
-login_min_time:			Dette forum giver mulighed for et login forsøg hver {VAR: MIN_TIME_BETWEEN_LOGIN} -ende sekund, vent venligst {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekunder før dit næste forsøg.
+login_min_time:			Dette forum giver mulighed for et login forsøg hver {VAR: MIN_TIME_BETWEEN_LOGIN}-ende sekund, vent venligst {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekunder før dit næste forsøg.
 post_not_logged_in:		Du er i øjeblikket ikke logget på, meddelelsen vil blive indsendt anonymt.
 post_common_bold:		Fed
 post_common_italics:		Kursiv
@@ -1044,11 +1046,9 @@ unbookmark_thread:		Remove from bookmarks
 unbookmark_thread_desc:		Remove this topic from your list of bookmarks
 register_uploaded:		Upload Avatar
 post_notification:		Post Notification
-reset_reset_button:		Reset Password
 search_entire_msg:		Entire Message
 qbud_add_selected:		Add Selected
 tabs_bookmarkes:		Bookmarks
 bookmarked_update:		Browsing own bookmark list
-group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
 unbookmark_all_topics:		Remove all bookmarks
 pmsg_on:			on
