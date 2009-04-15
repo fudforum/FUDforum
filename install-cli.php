@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.23 2009/03/26 17:34:53 frank Exp $
+* $Id: install-cli.php,v 1.24 2009/04/15 19:57:11 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -562,7 +562,7 @@ function db_connect($settings)
 				$q = str_replace(array('BINARY', 'INT NOT NULL AUTO_INCREMENT'), array('', 'SERIAL'), $q);
 			} else if (version_compare($version, '4.1.2', '>=') && !strncmp($q, 'CREATE TABLE', strlen('CREATE TABLE'))) {
 				/* for MySQL 4.1.2 we need to specify a default charset */
-				$q .= " DEFAULT CHARACTER SET utf8 COLLATE utf8_bin";
+				$q .= " DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci";
 			}
 			if (($q = make_into_query(trim($q)))) {
 				if (!dbquery($q)) {
