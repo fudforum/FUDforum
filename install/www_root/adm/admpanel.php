@@ -42,9 +42,9 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Managment</a><br />
 	<a href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Management</a><br />
 	<a href="admsql.php?<?php echo __adm_rsid; ?>">SQL Manager</a><br />
+	<a href="admbrowse.php?<?php echo __adm_rsid; ?>">File Manager</a><br />
 <?php
 	if (strncasecmp('win', PHP_OS, 3)) {
-		echo '<a href="admbrowse.php?'.__adm_rsid.'">File Manager</a><br />';
 		echo '<a href="admlock.php?'.__adm_rsid.'">Lock/Unlock Forum\'s Files</a><br />';
 	}
 	if (extension_loaded('pspell')) {
@@ -102,6 +102,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<span class="linkgroup">Forum Data Management</span><br />
 	<a href="admdump.php?<?php echo __adm_rsid; ?>">Make forum datadump</a><br />
 	<a href="admimport.php?<?php echo __adm_rsid; ?>">Import forum data</a><br />
+	<br />
 </td></tr>
 </table>
 </td>

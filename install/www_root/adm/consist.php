@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.139 2009/04/04 08:18:46 frank Exp $
+* $Id: consist.php,v 1.140 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -148,7 +148,7 @@ While it is running, your forum will be disabled.
 	// add the various table aliases
 	array_push($tbls, 	$tbl.'users u', $tbl.'forum f', $tbl.'thread t', $tbl.'poll p', $tbl.'poll_opt po', $tbl.'poll_opt_track pot',
 				$tbl.'msg m', $tbl.'pmsg pm', $tbl.'mod mm', $tbl.'thread_rate_track trt', $tbl.'msg_report mr', $tbl.'cat c',
-				$tbl.'forum_notify fn', $tbl.'thread_notify tn', $tbl.'buddy b', $tbl.'user_ignore i', $tbl.'msg m1', $tbl.'msg m2',
+				$tbl.'forum_notify fn', $tbl.'thread_notify tn', $tbl.'bookmarks bm', $tbl.'buddy b', $tbl.'user_ignore i', $tbl.'msg m1', $tbl.'msg m2',
 				$tbl.'users u1', $tbl.'users u2', $tbl.'attach a', $tbl.'thr_exchange te', $tbl.'read r', $tbl.'mime mi',
 				$tbl.'group_members gm', $tbl.'group_resources gr', $tbl.'groups g', $tbl.'group_members gm1', $tbl.'group_members gm2', $tbl.'themes thm');
 
@@ -468,6 +468,9 @@ While it is running, your forum will be disabled.
 	draw_stat('Checking topic notification');
 	delete_zero($tbl.'thread_notify', 'SELECT tn.id FROM '.$tbl.'thread_notify tn LEFT JOIN '.$tbl.'thread t ON t.id=tn.thread_id LEFT JOIN '.$tbl.'users u ON u.id=tn.user_id WHERE u.id IS NULL OR t.id IS NULL');
 
+	draw_stat('Checking topic bookmarks');
+	delete_zero($tbl.'bookmarks', 'SELECT bm.id FROM '.$tbl.'bookmarks bm LEFT JOIN '.$tbl.'thread t ON t.id=bm.thread_id LEFT JOIN '.$tbl.'users u ON u.id=bm.user_id WHERE u.id IS NULL OR t.id IS NULL');
+
 	draw_stat('Checking forum notification');
 	delete_zero($tbl.'forum_notify', 'SELECT fn.id FROM '.$tbl.'forum_notify fn LEFT JOIN '.$tbl.'forum f ON f.id=fn.forum_id LEFT JOIN '.$tbl.'users u ON u.id=fn.user_id WHERE u.id IS NULL OR f.id IS NULL');
 
@@ -699,7 +702,8 @@ While it is running, your forum will be disabled.
 	if (($files = glob($TMP.'*', GLOB_NOSORT))) {
 		foreach ($files as $file) {
 			// remove if file and not-standard forum backup file.
-			if (is_file($file) && strncmp($file, 'FUDforum_', 9)) {
+			if (is_file($file) && !preg_match("/FUDforum_.*\.fud.*/", $file)) {
+				echo "- remove file: $file<br />\n";
 				@unlink($file);
 			}
 		}

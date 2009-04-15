@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.34 2009/04/01 17:50:20 frank Exp $
+* $Id: db.inc,v 1.35 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -49,6 +49,10 @@ if (!defined('fud_sql_lnk')) {
 		db::$db = new PDO($dsn, $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']);
 	} catch (PDOException $e) {
 		fud_sql_error_handler("Failed to establish database connection, PDO says: ".$e->getMessage(), '', '', '');
+	}
+
+	if ($GLOBALS['DBHOST_DBTYPE'] == 'pdo_mysql') {
+		db::$db->exec("SET NAMES 'utf8' COLLATE 'utf8_general_ci");
 	}
 
 	define('__dbtype__', substr($GLOBALS['DBHOST_DBTYPE'], 4));

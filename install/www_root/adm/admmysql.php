@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmysql.php,v 1.14 2009/02/22 17:31:36 hackie Exp $
+* $Id: admmysql.php,v 1.15 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,29 +11,40 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	
 	if (__dbtype__ != 'mysql') {
 		exit("This control panel is intended for MySQL users only!");
 	}
 
 	// get a list of supported charsets
-	$chars = db_all('SHOW CHARACTER SET');
-	sort($chars);
+	$charsets = db_all('SHOW CHARACTER SET');
+	sort($charsets);
 
-	if (!empty($_POST['charset']) && in_array($_POST['charset'], $chars)) {
+	if (!empty($_POST['charset']) && in_array($_POST['charset'], $charsets)) {
 		foreach (get_fud_table_list() as $v) {
 			$res = db_saq("SHOW CREATE TABLE " . $v);
+			$charset = $collate = '';
 			if (preg_match('!CHARSET\s*=\s*([A-Za-z0-9-]+)!', $res[1], $m)) {
-				if (!strcasecmp($m[1], $_POST['charset'])) {
-					echo "Table " . $v . " was already converted.<br />\n";
-					continue;
-				}
+				$charset = $m[1];
 			}
-			q('ALTER IGNORE TABLE '.$v.' CONVERT TO CHARACTER SET '.$_POST['charset']);
+			if (preg_match('!COLLATE\s*=\s*([A-Za-z0-9-_]+)!', $res[1], $m)) {
+				$collate = $m[1];
+			}
+			
+			if ($_POST['charset'] == 'utf8' && $charset != 'utf8') {
+				q('ALTER IGNORE TABLE '.$v.' CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci');
+			} else if ($_POST['charset'] == 'utf8' && $charset == 'utf8' && $collate != 'utf8_unicode_ci' ) {
+				q('ALTER IGNORE TABLE '.$v.' DEFAULT COLLATE utf8_unicode_ci');
+			} else if (!strcasecmp($charset, $_POST['charset'])) {
+				echo "Table " . $v . " was already converted<br />\n";
+				continue;
+			} else {
+				q('ALTER IGNORE TABLE '.$v.' CONVERT TO CHARACTER SET '.$_POST['charset']);
+			}
 			echo "Table " . $v . " was successfully converted.<br />\n";
 		}
 	}
-
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>MySQL Table Character Set Adjuster</h2>
 <form method="post" id="a_frm" action="">
@@ -42,11 +53,11 @@
 <tr class="field">
         <td>Available Character Sets</td>
 	<td><select name="charset">
-<?php foreach ($chars as $v) 
-	if ( $v == 'utf8' ) {
-		echo '<option value="'.$v.'" selected="selected">'.$v.'</option>'; 
+<?php foreach ($charsets as $charset) 
+	if ( $charset == 'utf8' ) {
+		echo '<option value="'.$charset.'" selected="selected">'.$charset.'</option>'; 
 	} else {
-		echo '<option value="'.$v.'">'.$v.'</option>';  
+		echo '<option value="'.$charset.'">'.$charset.'</option>';  
 	}
 ?></select></td>
 </tr>
@@ -58,7 +69,7 @@
 
 <br />
 <table class="tutor" width="99%"><tr><td>
-All forums should seriously consider converting their databases to the UTF-8 character set. Note that the conversion will take a long time to run, escpecially on large databases.
-</td></tr></table>
+All forums should convert their databases to the <b>UTF-8</b> character set. Note that the conversion will take a long time to run, escpecially on large databases. Alter converting your database, remember to also convert your forum's messages by running the <b><a href="compact.php?<?php echo __adm_rsid; ?>">compactor</a></b>.
+</td></tr></table><br />
 
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

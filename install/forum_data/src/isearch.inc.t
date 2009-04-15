@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.69 2009/01/29 18:37:17 frank Exp $
+* $Id: isearch.inc.t,v 1.70 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,47 +43,13 @@ function mb_word_split($str, $lang)
 function text_to_worda($text)
 {
 	$a = array();
-
-	/* if no good locale, default to splitting by spaces */
-	if (!$GLOBALS['good_locale']) {
-		$GLOBALS['usr']->lang = 'latvian';
-	}
-
 	$text = strip_tags(reverse_fmt($text));
-	while (1) {
-		switch ($GLOBALS['usr']->lang) {
-			case 'chinese_big5':
-			case 'chinese':
-			case 'japanese':
-			case 'korean':
-				return mb_word_split($text, $GLOBALS['usr']->lang);
-				break;
 
-			case 'latvian':
-			case 'russian-1251':
-				$t1 = array_unique(preg_split('![\x00-\x40]+!', $text, -1, PREG_SPLIT_NO_EMPTY));
-				break;
-
-			default:
-				$t1 = array_unique(str_word_count(strtolower($text), 1));
-				if ($text && !$t1) { /* fall through to split by special chars */
-					$GLOBALS['usr']->lang = 'latvian';
-					continue;		
-				} 
-				break;
-		}
-
-		/* this is mostly a hack for php version < 4.3 because isset(string[bad offset]) returns a warning */
-		error_reporting(0);
-	
-		foreach ($t1 as $v) {
-			if (isset($v[51]) || !isset($v[2])) continue;
-			$a[] = _esc($v);
-		}
-
-		error_reporting(2047); /* restore error reporting */
-
-		break;
+	// Match utf-8 words (remove the \p{N} if you don't want to index words with numbers)
+	preg_match_all("/\p{L}[\p{L}\p{N}\p{Mn}\p{Pd}'\x{2019}]*/u", $text, $t1);
+	foreach ($t1[0] as $v) {
+		if (isset($v[51]) || !isset($v[2])) continue;   // word too long or too short
+		$a[] = _esc($v);
 	}
 
 	return $a;

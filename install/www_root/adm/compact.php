@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.78 2009/04/04 08:18:46 frank Exp $
+* $Id: compact.php,v 1.79 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,7 +39,7 @@
 The compactor will rebuild the storage files were the message bodies are kept. 
 While the compactor is running your forum will be temporarily inaccessible. 
 This process may take a while to run, depending on your harddrive speed and the amount of messages your forum has. 
-Please backup all files before proceding!
+Please <b><a href="admdump.php?<?php echo __adm_rsid; ?>">backup</a></b> all files before proceding!
 </div><br />
 
 <?php if (@extension_loaded('iconv')) { 

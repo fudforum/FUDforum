@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admplugins.php,v 1.2 2009/04/04 08:18:46 frank Exp $
+* $Id: admplugins.php,v 1.3 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,6 +15,8 @@
 	fud_use('widgets.inc', true);
 	fud_use('plugins.inc', true);
 	fud_use('draw_select_opt.inc');
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	$help_ar = read_help();
 
@@ -52,8 +54,6 @@
 			echo "Deinstall/disable plugin: ". $val ."<br />\n";
 		}
 	}
-
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Plugin Manager</h2>
 <form method="post" action="admplugins.php" autocomplete="off">
@@ -73,14 +73,25 @@
 <table class="datatable solidtable">
 <tr class="fieldtopic"><td><b>Plugin name</b></td><td><b>Plugin enabled?</b></td></tr>
 <?php
+foreach (glob("$PLUGIN_PATH/*") as $file) {
+	if (is_dir($file)) {	// Check for plugins in subdirectories
+		$dir = basename($file);
+		foreach (glob("$PLUGIN_PATH/$dir/*") as $dirfile) {
+			if (!preg_match("/\.plugin$/", $dirfile)) continue;	// Not a plugin file
+			$plugin_files[] = $dir.'/'.basename($dirfile);
+		}
+	}
+	if (!preg_match("/\.plugin$/", $file)) continue;	// Not a plugin file
+	$plugin_files[] = basename($file);
+}
+
 $disabled = ($GLOBALS['FUD_OPT_3'] & 4194304) ? '' : 'disabled="disabled"';
-foreach (glob("$PLUGIN_PATH/*.plugin") as $plugin_path) {
-	$plugin = basename($plugin_path);
-	$checked = in_array($plugin, $plugins) ? 'checked="checked" ' : '';
+foreach ($plugin_files as $plugin) {	
+	$checked = in_array($plugin, $plugins) ? 'checked="checked"' : '';
 ?>
-<tr class="field center">
+<tr class="field">
   <td><?php echo $plugin; ?></td>
-  <td><input type="checkbox" name="plugins[]" value="<?php echo $plugin; ?>" <?php echo $checked; $disabled; ?> /></td>
+  <td class="center"><input type="checkbox" name="plugins[]" value="<?php echo $plugin; ?>" <?php echo $checked.' '.$disabled; ?> /></td>
 </tr>
 <?php } ?>
 <tr class="fieldtopic center">
@@ -93,7 +104,7 @@ foreach (glob("$PLUGIN_PATH/*.plugin") as $plugin_path) {
 <br />
 <table class="tutor" width="99%"><tr><td>
 Plugins are stored in: <?php echo $PLUGIN_PATH; ?><br />
-To add new plugins, upload them to this directory and enable them on this page.
+To add new plugins, <a href="admbrowse.php?down=1&cur=<?php echo urlencode($PLUGIN_PATH); ?>&<?php echo __adm_rsid; ?>">upload</a> them to this directory and enable them on this page. Plugins may also be placed into subdirectories.
 </td></tr></table>
 
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

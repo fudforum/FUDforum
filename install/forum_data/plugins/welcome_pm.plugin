@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: welcome_pm.plugin,v 1.1 2009/03/26 17:24:27 frank Exp $
+* $Id: welcome_pm.plugin,v 1.2 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,9 +33,9 @@ EOT;
 	$msg_p->body = char_fix(nl2br(htmlspecialchars($msg_p->body)));
 	fud_wordwrap($msg_p->body);
 	$msg_p->read_stamp = 0;
-	$msg_p->ouser_id = 2;	// admin
-	$msg_p->duser_id = $usr->id;
-	$msg_p->pmsg_opt = 49;
+	$msg_p->ouser_id   = 2;	// admin
+	$msg_p->duser_id   = $usr->id;
+	$msg_p->pmsg_opt   = 49;
 	$msg_p->add(1);
 
 	return;

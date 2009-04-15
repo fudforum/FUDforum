@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsql.php,v 1.2 2009/04/04 08:18:46 frank Exp $
+* $Id: admsql.php,v 1.3 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,6 +48,11 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 
 	foreach ($sqlfile as $sql) {
 		if (preg_match("/[a-zA-Z]/", $sql) and !preg_match("/^(#|--)/", $sql)) {
+			if (preg_match('/^\s*use\s+\w+\s*;?$/i', $sql)) {
+				echo '<div class="tutor">For security reasons you may not switch to another database</div>';
+				break;
+			}
+
 			$q = q($sql);
 
 			echo '<h2>SQL Results</h2>';

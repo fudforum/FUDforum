@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admloginuser.php,v 1.36 2009/04/03 14:55:59 frank Exp $
+* $Id: admloginuser.php,v 1.37 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,7 +52,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 		echo '<font color="#ff0000">'.$err.'</font>';
 	}
 ?>
-<form method="post" action="admloginuser.php"><?php echo _hs; ?>
+<form method="post" action="admloginuser.php" name="admloginuser" id="admloginuser"><?php echo _hs; ?>
 <table border="0" cellspacing="0" cellpadding="3">
 <tr>
 	<td>Login:</td>
@@ -68,5 +68,10 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 </tr>
 </table>
 </form>
+<script type="text/javascript">
+/* <![CDATA[ */
+document.forms['admloginuser'].login.focus();
+/* ]]> */
+</script>
 </body>
 </html>

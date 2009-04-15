@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.91 2009/04/04 08:18:46 frank Exp $
+* $Id: login.php.t,v 1.92 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -146,6 +146,13 @@ function error_check()
 			ses_putvar((int)$usr->sid, null);
 		}
 
+		// Call authentication plugins
+		if (defined('plugins')) {
+			if (!plugin_call_hook('AUTHENTICATE', array($_POST['login'], $_POST['password'])) ) {
+				login_php_set_err('login', 'plugin: {TEMPLATE: login_invalid_radius}');
+			}
+		}
+
 		if (!($usr_d = db_sab('SELECT last_login, id, passwd, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($_POST['login'])))) {
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else if (($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN) > __request_timestamp__) { 
@@ -155,7 +162,7 @@ function error_check()
 			logaction($usr_d->id, 'WRONGPASSWD', 0, ($usr_d->users_opt & 1048576 ? 'ADMIN: ' : '').'Invalid Password '.htmlspecialchars(_esc($_POST['password'])).' for login '.htmlspecialchars(_esc($_POST['login'])).'. IP: '.get_ip());
 			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
-		} else { /* Perform check to ensure that the user is allowed to login */
+		} else if ($GLOBALS['_ERROR_'] != 1) { /* Perform check to ensure that the user is allowed to login */
 			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
 			$usr_d->users_opt = (int) $usr_d->users_opt;
 			$usr_d->sid = $usr_d->id;

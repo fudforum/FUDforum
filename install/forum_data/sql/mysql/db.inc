@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.68 2009/04/01 17:50:20 frank Exp $
+* $Id: db.inc,v 1.69 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,6 +16,7 @@ if (!defined('fud_sql_lnk')) {
 	$conn = $connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or die (fud_sql_error_handler("Initiating $connect_func", mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), "Unknown"));
 	define('fud_sql_lnk', $conn);
 	mysql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or die (fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version()));
+	mysql_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
 
 	define('__dbtype__', 'mysql');
 	define('__FUD_SQL_CONCAT__', 'CONCAT');

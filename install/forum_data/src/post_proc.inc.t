@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.103 2009/04/03 05:40:32 frank Exp $
+* $Id: post_proc.inc.t,v 1.104 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 	$ostr = '';
 	$pos = $old_pos = 0;
 
-	// Call all BBCcode to HTML conversion plugins
+	// Call all BBcode to HTML conversion plugins
 	if (defined('plugins')) {
 		list($str) = plugin_call_hook('BBCODE2HTML', array($str));
 	}
@@ -530,7 +530,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 
 function html_to_tags($fudml)
 {
-	// Call all HTML to BBCcode conversion plugins
+	// Call all HTML to BBcode conversion plugins
 	if (defined('plugins')) {
 		list($fudml) = plugin_call_hook('HTML2BBCODE', array($fudml));
 	}

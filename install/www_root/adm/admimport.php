@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.66 2009/04/04 08:18:46 frank Exp $
+* $Id: admimport.php,v 1.67 2009/04/15 16:45:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -169,9 +169,9 @@ function resolve_dest_path($path)
 
 					if (__dbtype__ != 'mysql') {
 						$line = strtr($line, array('BINARY'=>'', 'INT NOT NULL AUTO_INCREMENT'=>'SERIAL'));
-					} else if ($my412 && !strncmp($line, 'CREATE TABLE', strlen('CREATE TABLE'))) { 
+					} else if ($my412 && !strncmp($line, 'CREATE TABLE', strlen('CREATE TABLE'))) {
 						/* for MySQL 4.1.2+ we need to specify a default charset */
-						$line .= " DEFAULT CHARACTER SET utf8 COLLATE utf8_bin";
+						$line .= " DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci";
 					}
 
 					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));
@@ -276,28 +276,29 @@ function resolve_dest_path($path)
 			unset($c);
 
 			echo '<b>Import process is now complete</b><br /><br />';
-			echo '<div class="tutor">To finalize the import process you should now run the <a href="consist.php">consistency checker</a>.</div>';
+			echo '<div class="tutor">To finalize the import process you should now run the <a href="consist.php?'.__adm_rsid.'">consistency checker</a>.</div>';
 			require($WWW_ROOT_DISK . 'adm/admclose.html');
 			exit;
 		}
 	}
 ?>
 <h2>Import forum data</h2>
-<div class="alert">Note that the import process will REMOVE ALL current forum data (all tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the one from the file you enter.<br /><br />Please BACKUP your data before imporing!</div>
+<div class="alert">Note that the import process will REMOVE ALL current forum data (all tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the one from the file you enter.<br /><br />Please <b><a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a></b> your data before imporing!</div>
 
 <?php
-$datadumps = (glob("$TMP*fud*"));
+$datadumps = (glob("$TMP*.fud*"));
 if ($datadumps) { 
 ?>
 	<table class="datatable solidtable">
 	<tr><td class="fieldtopic">Available datadumps:</td></tr>
 	<?php foreach ($datadumps as $datadump) { ?>
-		<tr class="field tiny"><td><?php echo $datadump; ?></td></tr>
+		<tr class="field admin_fixed"><td><?php echo $datadump; ?> [ <a href="javascript://" onclick="document.admimport.path.value='<?php echo $datadump; ?>';">select</a> ]</td></tr>
 	<?php } ?>
+	<tr class="resultrow2"><td>[ <a href="admbrowse.php?down=1&cur=<?php echo urlencode(dirname($datadump)); ?>&<?php echo __adm_rsid; ?>">Manage files</a> ]</td></tr>
 	</table><br />
 <?php } ?>
 
-<form method="post" action="admimport.php">
+<form method="post" action="admimport.php" id="admimport" name="admimport">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
@@ -309,4 +310,3 @@ if ($datadumps) {
 </form>
 
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
-
