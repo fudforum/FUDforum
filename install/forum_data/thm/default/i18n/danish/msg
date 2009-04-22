@@ -257,7 +257,7 @@ finduser_joindate:		Registreret
 finduser_action:		Aktion
 yes:				Ja
 no:				Nej
-register_email			E-mail
+register_email:			E-mail
 edit_time_limit:		<br /><b>Redigerings tidsbegrænsning</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutter
 no_edit_time_limit:		<br /><b>Redigerings tidsbegrænsning</b>: <b>Ingen</b>
 pmuserloc_login:		Logind:
@@ -324,14 +324,15 @@ register_notification:		Vælg notifikation som standard:
 register_notification_desc:	Hvis notifikation (underret om svar) er aktiveret som standard, kan det fravælges under brevskrivning.
 register_notify_method:		Vælg notifikations metode:
 register_notify_method_desc:	Vælg din foretrukne notifikations metode eller deaktiver helt (for eksempel når du går på ferie)
+register_notify_js_error:	Du har valgt ICQ notifikation, men ikke angivet et ICQ #. Falder tilbage til E-mail.
 register_allow_email_msg:	Tillad E-mail-meddelelser:
 register_allow_email_msg_desc:	Tillad andre brugere at sende dig e-mails via dette forum.
 buddy_status:			Status
 my_buddies:			Mine venner
 add_buddy:			Tilføj kammerat
 add:				Tilføj
-buddy_search:			Enter the login of the user you wish to add.
-member_search:			<br />Eller brug <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find Bruger</a> funktionen for at søge efter brugere.
+buddy_search:			Indtast logind-navn på den bruger du ønsker at tilføje.
+member_search:			<br />Eller brug <a href="javascript://" onclIck="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find Bruger</a> funktionen for at søge efter brugere.
 buddy_remove:			fjerne
 post_normal:			Normal
 post_sticky:			Klæbende
@@ -520,8 +521,8 @@ tabs_referrals:			Henvisninger
 tabs_buddy_list:		Venneliste
 tabs_ignore_list:		Ignorer liste
 tabs_private_messaging:		Private beskeder
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		Du er ved at <span class="ErrorText">SLETTE</span> meddelelsen med titlen: <b>{VAR: data[3]}</b><p />
+thread_delete:			Du er ved at <span class="ErrorText">SLETTE</span> <span class="ErrorText">HELE EMNET</span> med titlen: <b>{VAR: data[3]}</b><p />
 delete_proceed:			<span class="fb">Vil du fortsætte?</span>
 delete_yes:			Ja
 delete_no:			Nej
@@ -631,7 +632,7 @@ reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		Du burde modtage instruktioner per e-mail i løbet af de næste par minutter.
 reset_newpass_title:		Få ny adgangskode
 reset_newpass_msg:		Hallo,\n\nSom ønsket fremsendes hermed dine nye dine logind-oplysninger:\n\nLogind-navn: {VAR: ui[1]}\nKodeord: {VAR: passwd}\n\nBemærk venligst at din adgangskode er blevet ændret til den ovennævnte værdi. Hvis du ønsker\n at ændre din adgangskode igen, kan du gøre det via kontrolpanelet på:\n{FULL_ROOT}{ROOT}?t=register\n\n.
-reset_login_notify:		Din nye adgangskode er blevet sendt til dig pr e-mail. Du vil modtage den inden for de næste par minutter.<br />.<br />
+reset_login_notify:		Din nye adgangskode er blevet sendt til dig pr e-mail. Du vil modtage den inden for de næste par minutter.<br />
 search_update:			Søg i beskeder
 selmsg_update:			Gennemse <a href="{TEMPLATE: selmsg_update_lnk}">dagens indlæg</a>
 showposts_update:		Vis indlæg af: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -679,6 +680,7 @@ post_opt_images_off:		<b>Billeder</b> er <b>FRA</b>
 post_opt_smilies_off:		<b>Smilies</b> er <b>FRA</b>
 post_opt:			Forum indstillinger
 register_change_passwd:		Skift adgangskode
+install_script_present_error:	Af sikkerhedsmæssige årsager skal du fjerne installations scriptet <b>{GVAR: WWW_ROOT_DISK}install.php</b> før du kan bruge dette forum.
 approved_avatar_title:		Din brugerdefinerede avatar blev godkendt.
 approved_avatar_msg:		Din avatar blev godkendt af administrator. Den vil nu ses som din avatar på alle dine indlæg. Hvis du ikke kan se den, eller set din gamle avatar, er det fordi din browser har cachet siden. Prøv slette (genopfrisk) det en eller to gange. I de fleste tilfælde vil det løse cachelagrings problemet.
 unapproved_avatar_title:	Din brugerdefinerede avatar blev afvist.
@@ -694,7 +696,7 @@ thr_exch_decline:		Tilbagefør emne
 thr_exch_orig_forum:		Oprindelses forum:
 thr_exch_dest_forum:		Destinations forum:
 thr_exch_no_threads:		Ingen emner venter på godkendelse.
-thr_exch_decl_reason:		Grunden til at afvise emne <b>{VAR-HTML: data->f2_name}</b> i forum <b>{VAR: data->f2_name}</b>
+thr_exch_decl_reason:		Grunden til at afvise emne <b>{VAR: data->subject}</b> i forum <b>{VAR: data->f2_name}</b>
 thr_exch_submit:		Indsend
 exch_decline_ttl:		Flytning af emne {VAR: data->subject} til forum {VAR: data->f2_name} blev afvist.
 ppost_original_msg:		Besked, du videresender eller besvarer
@@ -735,7 +737,7 @@ p_MOVE:				Flyt emner
 p_SML:				Brug smilies
 p_IMG:				Brug billed-mærke
 p_SEARCH:			Kan søge
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Find bruger</a>
+group_mgr_search:		<a href="javascript://" onclick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Find bruger</a>
 group_mgr_indicator:		Redigerer nu: <b>{VAR: grp->name}</b>
 rate_worst:			Dårligste
 rate_best:			Bedste
