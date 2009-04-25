@@ -1,0 +1,25 @@
+QUICK START INSTRUCTIONS:
+
+1. Install OpenLDAP and slapd
+
+2. Generate password and put into /etc/openldap/slapd.conf (rootpw entry)
+	$ slappasswd
+	$ vi /etc/openldap/slapd.conf
+
+3. Restart slapd
+	$ /etc/init.d/ldap restart
+
+4. Load example entry:
+	$ ldapadd -D "cn=Manager,dc=example,dc=com" -W -f ldap.ldif
+	Enter LDAP Password: (password generated in step 2)
+	adding new entry "uid=scott,dc=example,dc=com"
+
+5. When done, you can query it:
+	$ ldapsearch -x -b 'dc=example,dc=com' '(uid=scott)'
+
+6. Edit the plugin's ldap.ini file
+
+7. Enable the plugin in Admin Control Panel -> Plugin Manager
+
+8. Login to the forum with username "scott" and pasword "mypassword"
+

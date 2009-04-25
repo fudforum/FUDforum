@@ -1,0 +1,98 @@
+<?php
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: ldap.plugin,v 1.1 2009/04/25 15:26:38 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize me as an authentication plugin
+plugin_add_hook('AUTHENTICATE', 'plugin_ldap_auth');
+
+// Authenticate users from LDAP directory
+function plugin_ldap_auth($data) {
+	list($login, $password) = $data;
+	if ($login == 'admin') {        // Always allow admin through
+		return 1;
+	}
+
+	if (@file_exists($GLOBALS['PLUGIN_PATH']."/ldap/ldap.ini")) {
+		$ini = parse_ini_file($GLOBALS['PLUGIN_PATH']."/ldap/ldap.ini");
+	} else {
+		echo "ERROR: No ldap.ini file found!";
+		return 0;
+	}
+
+	$connection = ldap_connect($ini['LDAP_HOST'], $ini['LDAP_PORT']);
+
+	if (!connection) {
+		echo "Unable to connect to an LDAP server. Contact the forum administrator! (Debug 1)";
+		return 0;
+	}
+
+	@ldap_set_option($connection, LDAP_OPT_PROTOCOL_VERSION, 3);
+	if ($ini['LDAP_START_TLS']) {
+		ldap_start_tls($connection);
+	}
+
+	// Connection made -- bind anonymously and get dn for username.
+	if (!empty($ini['LDAP_PROXY_DN'])) {
+		$bind = @ldap_bind($connection, $ini['LDAP_PROXY_DN'], $ini['LDAP_PROXY_DN_PASS']);
+	} else {
+		$bind = @ldap_bind($connection);
+	}
+
+	if (!bind) {
+		echo "Anonymous bind to LDAP FAILED. Contact the forum administrator! (Debug 2)";
+		return 0;
+	}
+    
+	$search = ldap_search($connection, $ini['LDAP_DN'], $ini['LDAP_UID'] .'='. $login);
+
+	// Ensure only 1 result was returned - if not, there may be a * in the username.
+	if (ldap_count_entries($connection, $search) != 1) {
+		// echo "Unknown username. Please try to login again. (Debug 3)";
+		return 0;
+	}
+
+	$info = ldap_get_entries($connection, $search);
+
+	// Now, try to rebind with their full dn and password.
+	$bind = @ldap_bind($connection, $info[0][dn], $password);
+	if (!$bind || !isset($bind)) {
+		// echo "Wrong password! Please try again. (Debug 4)";
+		return 0;
+	}
+
+	// Now verify the previous search using their credentials.
+	$search = ldap_search($connection, $ini['LDAP_DN'], $ini['LDAP_UID'] .'='. $login);
+
+	$info = ldap_get_entries($connection, $search);
+	if ($login == $info[0][uid][0]) {
+		// Let user through, but first regsister in FUDforum's DB
+
+		if (!($usr_d = db_sab('SELECT id, passwd FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login='._esc($login)))) {
+			$uent = new fud_user_reg;       // Register FUDforum user
+			$uent->users_opt = -1;
+			$uent->login = $login;
+			$uent->plaintext_passwd = $password;
+			$uent->add_user();
+		} else if (md5($password) != $usr_d->passwd) {
+			$uent = new fud_user_reg;       // Sync password
+			$uent->id = $usr_d->id;
+			$uent->plaintext_passwd = $password;
+			$uent->sync_user;
+		}
+
+                return 1;       // Allow access
+	} else {
+		return 0;	// Deny access
+	}
+
+	ldap_close($connection);
+}
+?>
+

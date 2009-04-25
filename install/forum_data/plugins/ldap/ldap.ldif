@@ -1,0 +1,10 @@
+dn:uid=scott,dc=example,dc=com
+cn: Bruce
+sn: Scott
+mail: scottb@example.com
+departmentNumber: IT
+telephoneNumber: (411) 555-1212
+mobile: (411) 555-0411
+userPassword: mypassword
+objectClass: inetOrgPerson
+
