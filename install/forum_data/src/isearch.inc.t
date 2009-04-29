@@ -2,43 +2,12 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.70 2009/04/15 16:45:48 frank Exp $
+* $Id: isearch.inc.t,v 1.71 2009/04/29 20:34:12 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
-
-function mb_word_split($str, $lang)
-{
-	$m = array();
-
-	switch ($lang) {
-		case 'chinese_big5':
-			preg_match_all('!((?:[A-Za-z]+) | (?:[\xa1-\xfe] [\x40-\x7e] | [\xa1-\xfe] ) )!xs', $str, $m);
-			break;
-		case 'chinese': /* bg2312 */
-			preg_match_all('!((?:[A-Za-z]+) | (?:[\xa1-\xf7] [\xa1-\xfe] ) )!xs', $str, $m);
-			break;
-		case 'japanese': /* utf-8 */
-		case 'korean':
-			preg_match_all('!((?:[\x0-\x7f]+) | (?:[\xc0-\xfd]{1}[\x80-\xbf]+) )!xs', $str, $m);
-			break;
-	}
-
-	if (!$m) {
-		return array();
-	}
-
-	$m2 = array();
-	foreach (array_unique($m[0]) as $v) {
-		if (isset($v[1])) {
-			$m2[] = _esc($v);
-		}
-	}
-
-	return $m2;
-}
 
 function text_to_worda($text)
 {

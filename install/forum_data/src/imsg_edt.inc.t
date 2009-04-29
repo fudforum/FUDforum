@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.176 2009/03/18 14:26:52 frank Exp $
+* $Id: imsg_edt.inc.t,v 1.177 2009/04/29 20:34:12 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -781,6 +781,6 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		}
 	}
 
-	send_email($GLOBALS['NOTIFY_FROM'], $to, $subj, $body_email, $headers);
+	send_email($GLOBALS['NOTIFY_FROM'], $to, $subj, $body_email, $headers, 0);
 }
 ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.45 2009/01/29 18:37:17 frank Exp $
+* $Id: iemail.inc.t,v 1.46 2009/04/29 20:34:12 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,7 +45,7 @@ function encode_subject($text)
 	return $text;
 }
 
-function send_email($from, $to, $subj, $body, $header='')
+function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 {
 	if (empty($to)) {
 		return;
@@ -75,22 +75,26 @@ function send_email($from, $to, $subj, $body, $header='')
 	}
 	$header = "From: ".$from."\nErrors-To: ".$from."\nReturn-Path: ".$from."\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION'].$header;
 
-	$body = str_replace(array('\n',"\r"), array("\n",""), $body);
+	$body = str_replace("\r", "", $body);
+	if ($munge_newlines) {
+		$body = str_replace('\n', "\n", $body);
+	}
 	$subj = encode_subject($subj);
 	if (version_compare("4.3.3RC2", phpversion(), ">")) {
 		$body = str_replace("\n.", "\n..", $body);
 	}
 
-	/* special handling for multibyte languages */
-	if (!empty($GLOBALS['usr']->lang) && ($GLOBALS['usr']->lang == 'chinese' || $GLOBALS['usr']->lang == 'japanese') && extension_loaded('mbstring')) {
+	/* ensure mails are sent with correct charset */
+	if (!empty($GLOBALS['usr']->lang) && extension_loaded('mbstring')) {
 		if ($GLOBALS['usr']->lang == 'japanese') {
 			mb_language('ja');
 		} else {
 			mb_language('uni');
 		}
-		mb_internal_encoding('UTF-8');
+		mb_internal_encoding('{TEMPLATE: iemail_CHARSET}');
 		$mail_func = 'mb_send_mail';
 	} else {
+		$header .= "\nMIME-Version: 1.0\nContent-Type: text/plain; charset={TEMPLATE: iemail_CHARSET}\nContent-Transfer-Encoding: 8bit";
 		$mail_func = 'mail';
 	}
 
