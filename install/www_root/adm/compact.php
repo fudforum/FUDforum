@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.79 2009/04/15 16:45:48 frank Exp $
+* $Id: compact.php,v 1.80 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,13 +34,14 @@
 
 	if (!isset($_POST['conf'])) {
 ?>
-<form method="post" action="compact.php">
+<h2>Compact Messages</h2>
 <div class="alert">
 The compactor will rebuild the storage files were the message bodies are kept. 
 While the compactor is running your forum will be temporarily inaccessible. 
 This process may take a while to run, depending on your harddrive speed and the amount of messages your forum has. 
-Please <b><a href="admdump.php?<?php echo __adm_rsid; ?>">backup</a></b> all files before proceding!
+Please <a href="admdump.php?<?php echo __adm_rsid; ?>">backup</a> all files before proceding!
 </div><br />
+<form method="post" action="compact.php">
 
 <?php if (@extension_loaded('iconv')) { 
 $charsets = ARRAY(
@@ -72,7 +73,7 @@ $charsets = ARRAY(
 </fieldset>
 <?php } ?>
 
-<h2>Do you wish to proceed?</h2>
+<p>Do you wish to proceed?</p>
 <input type="submit" name="cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
 <?php echo _hs; ?>
 </form>
@@ -80,31 +81,14 @@ $charsets = ARRAY(
 		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 		exit;
 	}
-	
-	function stop_js()
-	{
-		echo '<script type="text/javascript">clearInterval(intervalID); scrollBy(0,document.body.scrollHeight);</script>';
-	}
-	register_shutdown_function('stop_js');
-?>	
+?>
 
-<script type="text/javascript">
-/* <![CDATA[ */
-	var intervalID;
-	function scrolldown()
-	{
-		window.scrollBy(0, 50);
-	}
-	intervalID = setInterval('scrolldown()', 100);
-/* ]]> */
-</script>
 <?php
 $GLOBALS['__FUD_TMP_F__'] = array();
 set_error_handler ('error_handler');
 
 function error_handler ($level, $message, $file, $line, $context) {
 	if (error_reporting() != 0) {
-		stop_js();
 		echo <<<_END_
 <p>An error was generated in file $file on line $line.</p>
 <p><font color="red">The error message was: $message</font></p>
@@ -287,7 +271,6 @@ function eta_calc($start, $pos, $pc)
 		echo '<br /><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
-	stop_js(); 
 	echo '<br /><div class="tutor">Messages successfully compacted.</div>';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

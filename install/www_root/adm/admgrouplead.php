@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.44 2009/03/26 18:08:58 frank Exp $
+* $Id: admgrouplead.php,v 1.45 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,7 +87,8 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<a href="admgroups.php?<?php echo __adm_rsid; ?>">&laquo; Back to Groups</a>
+<a href="admgroups.php?<?php echo __adm_rsid; ?>">&laquo; Back to Admin Groups</a>
+<br /><br />
 <?php
 	if ($error) {
 		echo '<br /><span class="alert">' . htmlspecialchars($error).'</span>';
@@ -96,16 +97,17 @@
 <form method="post" action="admgrouplead.php"><?php echo _hs; ?>
 <input type="hidden" value="<?php echo $group_id; ?>" name="group_id" />
 <table border="0" cellspacing="0" cellpadding="3">
+<tr><th colspan=2>Add/Edit Group Leaders:</th></tr>
 <tr><td>Group Leader</td><td><input type="text" name="gr_leader" value="<?php echo char_fix(htmlspecialchars($gr_leader)); ?>" /></td></tr>
 <tr><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Add" /></td></tr>
 </table>
 
-<table border="1" cellspacing="1" cellpadding="3">
-<tr><td>Leader Login</td><td>Action</td></tr>
+<table class="resulttable fulltable">
+<tr class="resulttopic"><td>Leader Login</td><td>Action</td></tr>
 <?php
 	$c = uq('SELECT u.id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id.' AND gm.group_members_opt>=131072 AND (gm.group_members_opt & 131072) > 0');
 	while ($r = db_rowarr($c)) {
-		echo '<tr><td>'.$r[1].'</td><td>
+		echo '<tr class="resultrow2"><td>'.$r[1].'</td><td>
 		[<a href="admgrouplead.php?group_id='.$group_id.'&amp;del='.$r[0].'&amp;'.__adm_rsid.'&amp;ug=1">Remove Group Leader Permission</a>]
 		[<a href="admgrouplead.php?group_id='.$group_id.'&amp;del='.$r[0].'&amp;'.__adm_rsid.'">Remove From Group</a>]
 		</td></tr>';

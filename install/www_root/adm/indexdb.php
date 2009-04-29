@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.38 2009/04/04 08:18:46 frank Exp $
+* $Id: indexdb.php,v 1.39 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,12 +27,13 @@
 
 	if (!isset($_POST['conf'])) {
 ?>
-<form method="post" action="indexdb.php">
+<h2>Rebuild Search Index</h2>
 <div class="alert">
 This script will attempt to rebuild the search indices for the entire forum. This is a VERY CPU-intensive process
 and can take a VERY LONG time, especially on large forums. You should ONLY run this if you absolutely must.
 </div>
-<h2>Do you wish to proceed?</h2>
+<form method="post" action="indexdb.php">
+<p>Do you wish to proceed?</p>
 <input type="submit" name="btn_cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
 <?php echo _hs; ?>
 </form>

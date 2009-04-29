@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.91 2009/01/29 18:37:40 frank Exp $
+* $Id: admuser.php,v 1.92 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -108,7 +108,7 @@
 				send_email($NOTIFY_FROM, $u->email, $reset_newpass_title, $reset_reset, "");
 				logaction(_uid, 'ADM_RESET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
 			}
-			echo '<h2>Password was successfully reset and e-mailed to the user.</h2>';
+			echo '<h3>Password was successfully reset and e-mailed to the user.</h3>';
 			break;
 		case 'del':
 			if ($usr_id == 1) {
@@ -516,9 +516,8 @@ if ($acc_mod_only) {
 	if ($is_a) {	
 		echo ' | <a href="admprune.php?usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Delete All messages by this user.</a></td></tr>';
 	}
-}
 ?>
-	</table>
-</form>
 </td></tr></table>
+<?php } ?> 
+</form>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

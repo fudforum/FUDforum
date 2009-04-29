@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsql.php,v 1.3 2009/04/15 16:45:48 frank Exp $
+* $Id: admsql.php,v 1.4 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,12 +15,10 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
+<h2>SQL Manager</h2>
 <div class="alert">
 NOTE: this feature IS DANGEROUS and you could destroy all your data. Please only use it to run SELECT and DESCRIBE statements. Anything else may result in data loss.
 </div>
-
-<h2>SQL Manager</h2>
-
 <form name="admsql" method="post" action="admsql.php">
 <?php echo _hs; ?>
 <table class="datatable">

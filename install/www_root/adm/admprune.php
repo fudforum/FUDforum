@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.44 2009/01/29 18:37:40 frank Exp $
+* $Id: admprune.php,v 1.45 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -57,23 +57,8 @@
 				$msg_cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."msg m INNER JOIN ".$DBHOST_TBL_PREFIX."thread t ON m.thread_id=t.id WHERE m.poster_id=".$usr_id." AND t.last_post_date<".$back.$lmt);
 				$umsg = ' <font color="red">posted by "'.q_singleval("SELECT alias FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".$usr_id).'"</font>';
 			}
+			require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel - Confirm topic pruning'.'</title>' ?>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php 
-if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
-} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
-} else {
-	echo 'utf-8';
-}
-?>" />
-
-</head>
-<body bgcolor="white">
 <div align="center">You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics containing <font color="red"><?php echo $msg_cnt; ?></font> messages,
 which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $umsg . $msg; ?><br /><br />
 			Are you sure you want to do this?<br />
@@ -88,9 +73,8 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 			<input type="submit" name="btn_cancel" value="No" />
 			</form>
 </div>
-</body>
-</html>
 <?php
+			require($WWW_ROOT_DISK . 'adm/admclose.html');
 			exit;
 		} else if ($back > 0) {
 			$frm_list = array();
@@ -115,7 +99,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 			foreach ($frm_list as $v) {
 				rebuild_forum_view_ttl($v);
 			}
-			echo '<h2 color="red">It is highly recommended that you run a consitency checker after prunning.</h2>';
+			echo '<h2 color="red">It is highly recommended that you run a consitency checker after pruning.</h2>';
 		} else if ($back < 1) {
 			$first_msg = q_singleval("SELECT MIN(post_stamp) FROM ".$DBHOST_TBL_PREFIX."msg");
 			echo '<div style="text-align:center; font-size: large; font-weight: bolder; color: darkred">You\'ve selected a date too far in the past,'
@@ -126,7 +110,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<h2>Topic Prunning</h2>
+<h2>Topic Pruning</h2>
 
 <p>This utility allows you to remove all topics, where the last message<br />
 inside the topic was posted prior to the specified date. For example <br />

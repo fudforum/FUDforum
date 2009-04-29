@@ -1,4 +1,5 @@
 body, body.popup {
+	color: #333;
 	background: #aabbaa;
 	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
 	font-size: medium;
@@ -29,6 +30,10 @@ table.headtable {
 	color: white;
 	width: 100%;
 	height: 50px;
+}
+
+table.headtable a {
+	color: yellow;
 }
 
 table.maintable {
@@ -147,11 +152,7 @@ span.linkgroup {
 	color: red;
 	background-color: #ffcccc;
 	font-size: large;
-	font-weight: bold;
 	text-align: center;
-	border: 1px outset #bb9999;
-	border-right-width: 10px;
-	border-right-color: red;
 }
 
 phpinfo {border-collapse: collapse;}

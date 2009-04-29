@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.48 2009/02/10 05:26:15 frank Exp $
+* $Id: admlock.php,v 1.49 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,12 +63,12 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<div class="alert">
-	The forum's files appear to be: <i><?php echo $status; ?></i>.<br /><br />
-	<font size="-1">If this test claims that the forum is unlocked, but you still cannot modify your files click on the "Unlock Files" button.</font><br /><br />
-	For security reasons remember to lock your forum's files after you are done editing them.
-</div>
+<h2>Lock/Unlock Forum Files</h2>
+<?php if ($status == 'UNLOCKED' ) echo '<div class="alert">For security reasons, remember to lock your forum\'s files after you are done editing them.</div>'; ?>
 <form method="post" action="">
+<p>The forum's files appear to be: 
+<?php echo '<font color="'. ($status=='LOCKED' ? 'green' : 'red') .'">'. $status .'</font>'; ?>
+</p>
 <table border="0" cellspacing="0" cellpadding="3">
 <tr><td>Login:</td><td><input type="text" name="usr_login" value="<?php echo $usr->alias; ?>" /></td></tr>
 <tr><td>Password:</td><td><input type="password" name="usr_passwd" /></td></tr>
@@ -77,6 +77,8 @@
 	<input type="submit" name="btn_unlock" value="Unlock Files" />
 </td></tr>
 </table>
+<br />
+<div class="tutor">If this test claims that the forum is unlocked, but you still cannot modify your files click on the "Unlock Files" button.</div>
 <?php echo _hs; ?>
 </form>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

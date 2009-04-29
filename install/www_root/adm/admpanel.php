@@ -17,7 +17,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 <table class="headtable"><tr>
   <td><a href="index.php?<?php echo __adm_rsid; ?>" title="Return to the Admin Control Panel Dashboard"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a></td>
   <td><span class="linkhead">Admin Control Panel</span></td>
-  <td>[ <a href="../<?php echo __fud_index_name__.'?'.__adm_rsid; ?>">Return to forum &raquo;</a> ]</td>
+  <td>[ <a title="Go back to your forum" href="../<?php echo __fud_index_name__.'?'.__adm_rsid; ?>">Return to forum &raquo;</a> ]</td>
 </tr></table>
 
 <table class="maintable">
@@ -37,15 +37,15 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a><br />
 	<a href="admplugins.php?<?php echo __adm_rsid; ?>">Plugin Manager</a><br />
 	<a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement &amp; Censorship System</a><br />
-	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Managment System</a><br />
-	<a href="admrdf.php?<?php echo __adm_rsid; ?>">RDF Feed Managment</a><br />
-	<a href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Managment</a><br />
+	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Management System</a><br />
+	<a href="admrdf.php?<?php echo __adm_rsid; ?>">RDF Feed Management</a><br />
+	<a href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Management</a><br />
 	<a href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Management</a><br />
 	<a href="admsql.php?<?php echo __adm_rsid; ?>">SQL Manager</a><br />
 	<a href="admbrowse.php?<?php echo __adm_rsid; ?>">File Manager</a><br />
 <?php
 	if (strncasecmp('win', PHP_OS, 3)) {
-		echo '<a href="admlock.php?'.__adm_rsid.'">Lock/Unlock Forum\'s Files</a><br />';
+		echo '<a href="admlock.php?'.__adm_rsid.'">Lock/Unlock Forum Files</a><br />';
 	}
 	if (extension_loaded('pspell')) {
 		echo '<a href="admspell.php?'.__adm_rsid.'">Custom Dictionary Spell Checker</a><br />';
@@ -55,7 +55,6 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="admlog.php?<?php echo __adm_rsid; ?>">Action Log Viewer</a><br />
 	<a href="admerr.php?<?php echo __adm_rsid; ?>">Error Log Viewer</a><br />
 	<a href="admsysinfo.php?<?php echo __adm_rsid; ?>">System Info</a><br />
-	<a href="admphpinfo.php?<?php echo __adm_rsid; ?>">PHP Info</a><br />
 <?php if (__dbtype__ == 'mysql') { ?>
 	<a href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a><br />
 <?php } ?><br />

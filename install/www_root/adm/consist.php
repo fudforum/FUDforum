@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.140 2009/04/15 16:45:48 frank Exp $
+* $Id: consist.php,v 1.141 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,11 +54,6 @@ function draw_info($cnt)
 	draw_stat(($cnt < 1 ? 'OK' : $cnt . ' entries unmatched, deleted'));
 }
 
-function stop_js()
-{
-	echo '<script type="text/javascript">clearInterval(intervalID); scrollBy(0,document.body.scrollHeight);</script>';
-}
-
 function delete_zero($tbl, $q)
 {
 	if (__dbtype__ == 'pgsql' || __dbtype__ == 'sqlite') {
@@ -77,12 +72,13 @@ function delete_zero($tbl, $q)
 
 	if (!isset($_POST['conf']) && !isset($_GET['enable_forum']) && !isset($_GET['opt'])) {
 ?>
-<form method="post" action="consist.php">
+<h2>Forum Consistency</h2>
 <div class="alert">
 Consistency check is a complex process which may take several minutes to run.
 While it is running, your forum will be disabled.
 </div>
-<h2>Do you wish to proceed?</h2>
+<form method="post" action="consist.php">
+<p>Do you wish to proceed?</p>
 <input type="submit" name="cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
 <?php echo _hs; ?>
 </form>
@@ -111,19 +107,7 @@ While it is running, your forum will be disabled.
 		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 		exit;
 	}
-	register_shutdown_function('stop_js');
-?>
-<script type="text/javascript">
-/* <![CDATA[ */
-	var intervalID;
-	function scrolldown()
-	{
-		window.scrollBy(0, 50);
-	}
-	intervalID = setInterval('scrolldown()', 100);
-/* ]]> */
-</script>
-<?php
+
 	$tbl = $DBHOST_TBL_PREFIX;
 
 	draw_stat('Locking the database for checking');
@@ -744,7 +728,7 @@ While it is running, your forum will be disabled.
 		maintenance_status($DISABLED_REASON, 0);
 	} else {
 		echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font><br />';
-	}
+}
 
 	draw_stat('DONE');
 

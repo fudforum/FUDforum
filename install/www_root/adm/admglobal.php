@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.103 2009/03/20 14:10:22 frank Exp $
+* $Id: admglobal.php,v 1.104 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -153,10 +153,11 @@ function get_max_upload_size()
 	}
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<h2>Global Configuration</h2>
+<h2>Global Settings Manager</h2>
 <form method="post" action="admglobal.php" autocomplete="off">
 <?php echo _hs ?>
 <table class="datatable solidtable">
+<tr class="fieldtopic"><td colspan="2"><br /><b>Primary Forum Options</b></td></tr>
 <?php
 	print_reg_field('Forum Title', 'FORUM_TITLE');
 	print_bit_field('Forum Enabled', 'FORUM_ENABLED');

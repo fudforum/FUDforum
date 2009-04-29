@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.56 2009/04/03 14:55:59 frank Exp $
+* $Id: admforum.php,v 1.57 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -111,11 +111,11 @@ function get_max_upload_size()
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<h2>Editing forums for <?php echo $cat_name; ?></h2>
+<h2>Forum Management System</h2>
+<p>Editing forums for category: <b><?php echo $cat_name; ?></b>.</p>
 <?php
 if (!isset($_GET['chpos'])) {
 ?>
-<a href="admcat.php?<?php echo __adm_rsid; ?>">&laquo; Back to categories</a><br />
 
 <form method="post" id="frm_forum" action="admforum.php">
 <?php echo _hs; ?>
@@ -260,4 +260,5 @@ if (!isset($_GET['chpos'])) {
 	}
 ?>
 </table>
+<a href="admcat.php?<?php echo __adm_rsid; ?>">&laquo; Back to categories</a>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

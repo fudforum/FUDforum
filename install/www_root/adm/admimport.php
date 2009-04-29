@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.67 2009/04/15 16:45:48 frank Exp $
+* $Id: admimport.php,v 1.68 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -283,7 +283,7 @@ function resolve_dest_path($path)
 	}
 ?>
 <h2>Import forum data</h2>
-<div class="alert">Note that the import process will REMOVE ALL current forum data (all tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the one from the file you enter.<br /><br />Please <b><a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a></b> your data before imporing!</div>
+<div class="alert">Note that the import process will REMOVE ALL current forum data (all tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the one from the file you enter.<br /><br />Please <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before imporing!</div>
 
 <?php
 $datadumps = (glob("$TMP*.fud*"));
@@ -292,9 +292,9 @@ if ($datadumps) {
 	<table class="datatable solidtable">
 	<tr><td class="fieldtopic">Available datadumps:</td></tr>
 	<?php foreach ($datadumps as $datadump) { ?>
-		<tr class="field admin_fixed"><td><?php echo $datadump; ?> [ <a href="javascript://" onclick="document.admimport.path.value='<?php echo $datadump; ?>';">select</a> ]</td></tr>
+		<tr class="field admin_fixed"><td><?php echo $datadump; ?> [ <a href="javascript://" onclick="document.admimport.path.value='<?php echo $datadump; ?>';">use</a> ]</td></tr>
 	<?php } ?>
-	<tr class="resultrow2"><td>[ <a href="admbrowse.php?down=1&cur=<?php echo urlencode(dirname($datadump)); ?>&<?php echo __adm_rsid; ?>">Manage files</a> ]</td></tr>
+	<tr class="resultrow2 tiny"><td>[ <a href="admbrowse.php?down=1&cur=<?php echo urlencode(dirname($datadump)); ?>&<?php echo __adm_rsid; ?>">Manage files</a> ]</td></tr>
 	</table><br />
 <?php } ?>
 

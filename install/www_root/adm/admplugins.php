@@ -2,12 +2,16 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admplugins.php,v 1.3 2009/04/15 16:45:48 frank Exp $
+* $Id: admplugins.php,v 1.4 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
+
+	// Enable error reporting before GLOBALS.php to show plugin errors
+	ini_set('display_errors', 1);
+	error_reporting(E_ALL); 
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
@@ -47,11 +51,19 @@
 	while (list($key, $val) = @each($plugins)) {
 		if (! in_array($val, $prev_plugins)) {
 			echo "Install/enable plugin: ". $val ."<br />\n";
+			$func = substr($val, 0, strrpos($val, '.')) .'_enable';
+			if ((include_once($PLUGIN_PATH.'/'.$val)) && function_exists($func)) {
+				$func(); 
+			}
 		}
 	}
 	while (list($key, $val) = @each($prev_plugins)) {
 		if (! in_array($val, $plugins)) {
 			echo "Deinstall/disable plugin: ". $val ."<br />\n";
+			$func = substr($val, 0, strrpos($val, '.')) .'_disable';
+			if ((include_once($PLUGIN_PATH.'/'.$val)) && function_exists($func)) {
+				$func(); 
+			}
 		}
 	}
 ?>
@@ -104,7 +116,7 @@ foreach ($plugin_files as $plugin) {
 <br />
 <table class="tutor" width="99%"><tr><td>
 Plugins are stored in: <?php echo $PLUGIN_PATH; ?><br />
-To add new plugins, <a href="admbrowse.php?down=1&cur=<?php echo urlencode($PLUGIN_PATH); ?>&<?php echo __adm_rsid; ?>">upload</a> them to this directory and enable them on this page. Plugins may also be placed into subdirectories.
+To add new plugins, <b><a href="admbrowse.php?down=1&cur=<?php echo urlencode($PLUGIN_PATH); ?>&<?php echo __adm_rsid; ?>">upload</a></b> them to this directory and enable them on this page. Plugins may also be placed into subdirectories.
 </td></tr></table>
 
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

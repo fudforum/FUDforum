@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admreplace.php,v 1.34 2009/01/29 18:37:40 frank Exp $
+* $Id: admreplace.php,v 1.35 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -68,7 +68,7 @@ function clean_rgx()
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<h2>Replacement Management System</h2>
+<h2>Replacement and Censorship System</h2>
 <form id="frm_rpl" method="post" action="admreplace.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">

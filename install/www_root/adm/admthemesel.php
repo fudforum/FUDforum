@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemesel.php,v 1.35 2009/01/29 18:37:40 frank Exp $
+* $Id: admthemesel.php,v 1.36 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,13 +17,18 @@
 		exit;
 	}
 
-	$ret = isset($_GET['ret']) ? $_GET['ret'] : 'tmpllist';
-
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+
+	$ret = isset($_GET['ret']) ? $_GET['ret'] : 'tmpllist';
+	if ( $ret == 'tmpllist' ) {
+		echo '<h2>Template Editor</h2>';
+	} else if ( $ret == 'msglist' ) {
+                echo '<h2>Message Editor</h2>';
+	}
 
 	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt=3');
 ?>
-<h3>Template Set Selection</h3>
+<p>Select a template set and language to edit:</p>
 <form method="post" action="admthemesel.php">
 <input type="hidden" name="ret" value="<?php echo $ret; ?>" /><?php echo _hs; ?>
 <table class="datatable solidtable">

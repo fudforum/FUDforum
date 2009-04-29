@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.32 2009/04/04 08:18:46 frank Exp $
+* $Id: admsysinfo.php,v 1.33 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,6 @@
 function get_php_setting($val)
 {
 	$r =  (ini_get($val) == '1' ? 1 : 0);
-
 	return $r ? 'ON' : 'OFF';
 }
 
@@ -33,18 +32,27 @@ function get_server_software()
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>System Configuration</h2>
+<p>Overview of your system's configuration:</p>
 <table class="datatable">
+<tr>
+	<td><b>Forum Version:</b></td>
+	<td><?php echo $FORUM_VERSION; ?></td>
+</tr>
+<tr>
+	<td><b>PHP Version:</b></td>
+	<td><?php echo PHP_VERSION; ?></td>
+</tr>
 <tr>
 	<td><b>PHP built On:</b></td>
 	<td><?php echo php_uname(); ?></td>
 </tr>
 <tr>
-	<td><b>Database Version:</b></td>
-	<td><?php echo get_version(); ?></td>
+	<td><b>Database Type:</b></td>
+	<td><?php echo $DBHOST_DBTYPE ? '' : 'MySQL'; ?></td>
 </tr>
 <tr>
-	<td><b>PHP Version:</b></td>
-	<td><?php echo PHP_VERSION; ?></td>
+	<td><b>Database Version:</b></td>
+	<td><?php echo get_version(); ?></td>
 </tr>
 <tr>
 	<td><b>Web Server:</b></td>
@@ -63,10 +71,6 @@ echo '<tr>
 	}
 ?>
 
-<tr>
-	<td><b>Forum Version:</b></td>
-	<td><?php echo $FORUM_VERSION; ?></td>
-</tr>
 <tr>
 	<td valign="top"><b>Relevant PHP Settings:</b></td>
 	<td>
@@ -119,4 +123,7 @@ echo '<tr>
 	</td>
 </tr>
 </table>
+
+[ <a href="admphpinfo.php?<?php echo __adm_rsid; ?>">Detailed PHP info &raquo;</a> ]
+
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

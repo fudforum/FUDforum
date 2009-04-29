@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.72 2009/01/29 18:37:40 frank Exp $
+* $Id: admthemes.php,v 1.73 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -93,13 +93,20 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<h2>Theme Management [ <a href="admthemes.php?rebuild_all=1&amp;<?php echo __adm_rsid; ?>">Rebuild all Themes</a> ]</h2>
+<h2>Theme Manager</h2>
 
 <form id="admthm" action="admthemes.php" method="post">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
+<?php
+        if ($edit && $edit == 1) {
+		echo '<tr class="field"><th colspan="2">Edit Theme:</td></tr>';
+	} else {
+		echo '<tr class="field"><th colspan="2">Create New Theme:</td></tr>';
+	}
+?>
 <tr class="field">
-	<td>Name:</td>
+	<td>Theme Name:</td>
 	<td>
 <?php
 	if ($edit && $edit == 1) {
@@ -120,7 +127,7 @@
 			define('GLOB_ONLYDIR', 0);
 		}
 
-		foreach (glob($DATA_DIR.'/thm/*', GLOB_ONLYDIR|GLOB_NOSORT) as $file) {
+		foreach (glob($DATA_DIR.'/thm/*', GLOB_ONLYDIR) as $file) {
 			if (!file_exists($file . '/tmpl')) {
 				continue;
 			}
@@ -138,7 +145,7 @@
 			$thm_lang = 'english';
 		}
 		$selopt = '';
-		foreach (glob($DATA_DIR.'/thm/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT) as $file) {
+		foreach (glob($DATA_DIR.'/thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
 			if (!file_exists($file . '/msg')) {
 				continue;
 			}
@@ -182,7 +189,7 @@ function update_locale()
 	<td>pSpell Language:</td>
 	<td>
 		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars($thm_pspell_lang); ?>" size="4" />
-		[<a href="javascript://" onclick="document.admthm.thm_pspell_lang.value=''">disable</a>]
+		[<a href="javascript://" onclick="document.forms['admthm'].thm_pspell_lang.value=''">disable</a>]
 	</td>
 </tr>
 
@@ -205,10 +212,11 @@ function update_locale()
 <input type="hidden" name="prevloaded" value="1" />
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
+<br />
 
 <form method="post" action="">
 <table class="datatable solidtable">
-<tr class="field"><td colspan="2">Create New Template Set</td></tr>
+<tr class="field"><th colspan="2">Create New Template Set:</td></tr>
 <tr class="field">
 	<td>Base Template Set:</td>
 	<td>
@@ -227,8 +235,10 @@ function update_locale()
 </table>
 <?php echo _hs; ?>
 </form>
+<br />
 
 <table class="resulttable fulltable">
+<tr class="field"><th colspan="8">Available Themes:</td></tr>
 <tr class="resulttopic">
 	<td>Name</td>
 	<td>Template Set</td>
@@ -265,4 +275,5 @@ function update_locale()
 	unset($c);
 ?>
 </table>
+<b>[ <a href="admthemes.php?rebuild_all=1&amp;<?php echo __adm_rsid; ?>">Rebuild all Themes</a> ]</b>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

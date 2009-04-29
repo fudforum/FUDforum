@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php,v 1.12 2009/04/04 08:18:46 frank Exp $
+* $Id: index.php,v 1.13 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -141,6 +141,7 @@ Welcome to your forum's Admin Control Panel. From here you can control how your 
 </tr>
 </table>
 <span style="float:right;"><a href="admstats.php?<?php echo __adm_rsid; ?>">More... &raquo;</a></span>
+<br />
 
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
 

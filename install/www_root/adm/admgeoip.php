@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgeoip.php,v 1.10 2009/01/29 18:37:40 frank Exp $
+* $Id: admgeoip.php,v 1.11 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,7 +44,7 @@ function changeCaption(txt)
 /* ]]> */
 </script>
 <span id="progress"> </span>
-<h2>Geo-Location Configuration</h2>
+<h2>Geolocation Configuration</h2>
 <form method="post" action="admgeoip.php" enctype="multipart/form-data"><?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr><td class="tutor" colspan="2">
@@ -59,7 +59,7 @@ The expected internal formats are as follows:<br />
 GeoIP - "2.6.190.56","2.6.190.63",<span class="o">"33996344"</span>,<span class="o">"33996351"</span>,<span class="o">"GB"</span>,<span class="o">"United Kingdom"</span><br />
 IP-2-Country - <span class="o">"33996344"</span>,<span class="o">"33996351"</span>,<span class="o">"GB"</span>,"GBR",<span class="o">"UNITED KINGDOM"</span><br />
 <p />	
-The fields marked in orange are the ones the forum cares about, the rest of the fields are not relavent.	
+The fields marked in orange are the ones the forum cares about, the rest of the fields are not relevant.
 <p />
 <b>The import process usually takes a few minutes.</b>
 	</td></tr>

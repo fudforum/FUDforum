@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admerr.php,v 1.26 2009/01/29 18:37:40 frank Exp $
+* $Id: admerr.php,v 1.27 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,7 +20,7 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<h2>Error Log Browser</h2>
+<h2>Error Log Viewer</h2>
 
 <?php
 	$err = 0;
@@ -45,13 +45,13 @@ function print_log($path)
 }
 
 	if (@file_exists($ERROR_PATH.'fud_errors') && filesize($ERROR_PATH.'fud_errors')) {
-		echo '<h4>FUDforum Error Log [<a href="admerr.php?clear_fud_log=1&amp;'.__adm_rsid.'">clear log</a>]</h4>';
+		echo '<h4>FUDforum Error Log [ <a href="admerr.php?clear_fud_log=1&amp;'.__adm_rsid.'">clear log</a> ]</h4>';
 		print_log($ERROR_PATH.'fud_errors');
 		$err = 1;
 	}
 
 	if (@file_exists($ERROR_PATH.'sql_errors') && filesize($ERROR_PATH.'sql_errors')) {
-		echo '<h4>SQL Error Log [<a href="admerr.php?clear_sql_log=1&amp;'.__adm_rsid.'">clear log</a>]</h4>';
+		echo '<h4>SQL Error Log [ <a href="admerr.php?clear_sql_log=1&amp;'.__adm_rsid.'">clear log</a> ]</h4>';
 		print_log($ERROR_PATH.'sql_errors');
 		$err = 1;
 	}

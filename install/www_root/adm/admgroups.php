@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.59 2009/01/29 18:37:40 frank Exp $
+* $Id: admgroups.php,v 1.60 2009/04/29 20:06:35 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -198,7 +198,8 @@
 		echo errorify($error_reason);
 	}
 ?>
-<h2>Admin Group Manager: Add/Edit groups or group leaders</h2>
+<h2>Admin Group Manager</h2>
+<p>Add/Edit Groups:</p>
 <form method="post" action="admgroups.php">
 <?php echo _hs; ?>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
@@ -293,7 +294,7 @@
 <input type="hidden" name="prevloaded" value="1" />
 </form>
 <br />
-<span class="linkhead">The permissions shown below ONLY control the permissions group leaders will be able to change
+<span class="linkgroup">The permissions shown below ONLY control the permissions group leaders will be able to change
 for the group's they manage. To change the user permissions please use the <a href="../index.php?t=groupmgr&amp;<?php echo __adm_rsid; ?>">user-land group manager</a>.</span>
 <br />
 
