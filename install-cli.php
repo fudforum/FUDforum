@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.24 2009/04/15 19:57:11 frank Exp $
+* $Id: install-cli.php,v 1.25 2009/05/02 16:24:20 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -377,12 +377,12 @@ function db_connect($settings)
 		if ($path && is_wr($path)) {
 			$path = preg_replace('!/+$!', '', $path);
 			$settings['SERVER_ROOT'] = $path . "/";
-			mkdir_r($path);
 			break;
 		}
-		pf("'{$path}' iether does not exist or the installer has no permission to create it\n");
+		pf("'{$path}' either does not exist or the installer has no permission to create it\n");
 	}
 	$settings['SERVER_ROOT'] = str_replace('\\', '/', $settings['SERVER_ROOT']);
+	mkdir_r($settings['SERVER_ROOT']);
 
 	/* Fetch file path of the forum's web files */
 	while (!$settings['SERVER_DATA_ROOT'] || !is_wr($settings['SERVER_DATA_ROOT'])) {
@@ -394,12 +394,12 @@ function db_connect($settings)
 		} else if (is_wr($path)) {
 			$path = preg_replace('!/+$!', '', $path);
 			$settings['SERVER_DATA_ROOT'] = $path . "/";
-			mkdir_r($path);
 			break;
 		}
-		pf("'{$path}' iether does not exist or the installer has no permission to create it\n");
+		pf("'{$path}' either does not exist or the installer has no permission to create it\n");
 	}
 	$settings['SERVER_DATA_ROOT'] = str_replace('\\', '/', $settings['SERVER_DATA_ROOT']);
+	mkdir_r($settings['SERVER_DATA_ROOT']);
 
 	/* decompress the archive */
 	decompress_archive($settings['SERVER_DATA_ROOT'], $settings['SERVER_ROOT']);
@@ -660,7 +660,7 @@ function db_connect($settings)
 	}
 
 	dbquery("DELETE FROM ".$settings['DBHOST_TBL_PREFIX']."users WHERE id > 1");
-	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."users (login, alias, passwd, name, email, users_opt, join_date, theme) VALUES('".addslashes($settings['ROOT_LOGIN'])."', '".addslashes(htmlspecialchars($settings['ROOT_LOGIN']))."', '".md5($settings['ROOT_PASS'])."', 'Administrator', '".addslashes($settings['ADMIN_EMAIL'])."', 5405687, ".time().", 1)")) {
+	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."users (login, alias, passwd, name, email, users_opt, join_date, theme, posted_msg_count) VALUES('".addslashes($settings['ROOT_LOGIN'])."', '".addslashes(htmlspecialchars($settings['ROOT_LOGIN']))."', '".md5($settings['ROOT_PASS'])."', 'Administrator', '".addslashes($settings['ADMIN_EMAIL'])."', 5405687, ".time().", 1, 1)")) {
 		fe(dberror());
 	}
 	change_global_settings(array('ADMIN_EMAIL' => $settings['ADMIN_EMAIL'], 'NOTIFY_FROM' => $settings['ADMIN_EMAIL']));
