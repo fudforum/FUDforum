@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: scripts_common.inc,v 1.36 2009/02/15 20:01:03 frank Exp $
+* $Id: scripts_common.inc,v 1.37 2009/05/03 18:43:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -138,8 +138,12 @@ function decode_header_value($val)
 		return trim($val);
 	}
 
+	if (function_exists(iconv_mime_decode)) {
+		return iconv_mime_decode($val, 2, 'UTF-8');
+	}
+
 	// Decode String
-	if (preg_match_all('!(.*?)(=\?([^?]+)\?(Q|B)\?([^?]*)\?=)[[:space:]]*([^=]*)!i', $val, $m)) {
+	if (preg_match_all('!(.*?)(=\?([^?]+)\?(Q|B)\?([^?]*)\?=)([^=]*)!i', $val, $m)) {
 		$newval = '';
 
 		$c = count($m[4]);
@@ -147,9 +151,9 @@ function decode_header_value($val)
 			$ec_type = strtolower($m[4][$i]);
 
 			if ($ec_type == 'q') {
-				$newval .= decode_string(str_replace('_', ' ', $m[5][$i]), 'quoted-printable');
+				$newval .= decode_string(str_replace('_', ' ', $m[5][$i]), 'quoted-printable', $m[3][$i]);
 			} else if ($ec_type == 'b') {
-				$newval .= decode_string($m[5][$i], 'base64');
+				$newval .= decode_string($m[5][$i], 'base64', $m[3][$i]);
 			}
 
 			if (!empty($m[5][$i])) {

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.79 2009/02/14 15:07:06 frank Exp $
+* $Id: nntp.inc,v 1.80 2009/05/03 18:43:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -162,7 +162,8 @@ class fud_nntp
 	function format_headers()
 	{
 		/* convert to unix line endings and handle multi-line headers */
-		$this->headers = str_replace(array("\r\n", "\n "), array("\n",""), $this->headers);
+		$this->headers = str_replace("\r\n","\n", $this->headers);
+		$this->headers = preg_replace("/\n(\t| )+/", ' ', $this->headers); 
 		
 		$hdr = explode("\n", trim($this->headers));
 		$this->headers = array();
@@ -402,12 +403,15 @@ class fud_nntp
 				}
 			}
 
-			if (isset($this->headers['content-type']) && preg_match('!charset="([^"]+)"!', $this->headers['content-type'], $m)) {
+			if (isset($this->headers['content-type']) && preg_match('!charset="?([^"]+?)"?(;|\s|$)!', $this->headers['content-type'], $m)) {
 				$charset = $m[1];
 			} else {
 				$charset = $GLOBALS['CHARSET'];
 			}
-			if (isset($this->headers['content-transfer-encoding']) && $this->headers['content-transfer-encoding'] == 'quoted-printable') {
+			if (isset($this->headers['content-transfer-encoding']) &&
+			   ($this->headers['content-transfer-encoding'] == 'quoted-printable' ||
+			    $this->headers['content-transfer-encoding'] == 'base64'))
+			{ 
 				$enc = $this->headers['content-transfer-encoding'];
 			} else {
 				$enc = '';
@@ -420,6 +424,9 @@ class fud_nntp
 			}
 
 			$msg_post->subject = apply_custom_replace($this->subject);
+			if ( !preg_match('!(.*?)(=\?([^?]+)\?(Q|B)\?([^?]*)\?=)([^=]*)!i', $msg_post->subject)) {
+				$msg_post->subject = decode_string($msg_post->subject, '', $charset);
+			} 
 			$msg_post->body = decode_string($this->body, $enc, $charset);
 			if ( !strlen($msg_post->subject) ) {
 				$msg_post->subject = "(no subject)";
@@ -546,7 +553,13 @@ class fud_nntp
 
 		fputs($this->fs, "From: $from\r\n");
 	        fputs($this->fs, "Newsgroups: $this->newsgroup\r\n");
-	        fputs($this->fs, "Subject: $subject\r\n");
+		if (function_exists(iconv_mime_encode)) {
+			fputs($this->fs, iconv_mime_encode("Subject:", $subject,
+				array('scheme'=>'Q', 'input-charset'=>$GLOBALS['CHARSET'], 'output-charset'=>$GLOBALS['CHARSET']))
+				."\r\n"); 
+		} else {
+		        fputs($this->fs, "Subject: $subject\r\n");
+		}
 
 	        if ($GLOBALS['FORUM_TITLE']) {
 	        	fputs($this->fs, "Organization: ".$GLOBALS['FORUM_TITLE']."\r\n");
