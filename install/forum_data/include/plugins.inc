@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: plugins.inc,v 1.1 2009/03/26 17:24:27 frank Exp $
+* $Id: plugins.inc,v 1.2 2009/05/03 18:57:06 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,7 +23,7 @@ function plugin_add_hook($type, $func) {
 function plugin_call_hook($type, $data=array()) {
 	global $plugin_hooks;
 
-	if (is_array($plugin_hooks[$type])) {
+	if (isset($plugin_hooks[$type])) {
 		foreach ($plugin_hooks[$type] as $func) {
 			$data = call_user_func($func,$data);
 		}

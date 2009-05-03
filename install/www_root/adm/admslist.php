@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admslist.php,v 1.12 2009/04/29 20:06:35 frank Exp $
+* $Id: admslist.php,v 1.13 2009/05/03 18:57:06 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,6 +21,9 @@ function print_ul($qry)
 		<a href="admuser.php?act=1&amp;usr_id='.$r[0].'&amp;'.__adm_rsid.'">Edit</a><br />';
 	}
 	unset($c);
+	if ( $i == 0 ) {
+		echo "<center>None</center>";
+	}
 }
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
@@ -28,9 +31,9 @@ function print_ul($qry)
 <p>The following users have elevated forum permissions:</p>
 <table class="datatable">
 <tr>
-	<th class="fieldtopic">Administrators</th>
-	<th>Moderators</th>
-	<th>Group Leaders</th>
+	<th class="fieldtopic" width="33%">Administrators</th>
+	<th width="33%">Moderators</th>
+	<th width="33%">Group Leaders</th>
 </tr>
 <tr>
 <td valign="top" class="resultrow1">

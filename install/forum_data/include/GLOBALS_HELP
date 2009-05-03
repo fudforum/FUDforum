@@ -31,7 +31,7 @@ This is the maximum size (in bytes) of the custom avatar image (uploaded to serv
 This is the maximum dimension that a custom avatar can be. Format of this setting is WIDTHxHEIGHT, ex. 100x200}}}
 
 {{{CUSTOM_AVATAR_APPROVAL	FUD_OPT_1	32
-If set to yes the administrator will have to approve every custom avatar the user uploads or provides a url to.}}}
+If set to yes the administrator will have to approve every custom avatar the user uploads or provides a URL to.}}}
 
 {{{CUSTOM_AVATAR_ALLOW_SWF	FUD_OPT_1	64
 Allow users to upload Macromedia Flash avatars, not recommended unless you trust your users implicitly, since Flash animation can potentially trigger various browser events.}}}
@@ -356,7 +356,7 @@ Whether to allow RDF/XML feeds of the forum's data.}}}
 Whether or not to perform permission checks to determine if the user has access the requested data.}}}
 
 {{{RDF_AUTH_ID
-By default when perform authentication, the forum will treat validate the user as anonymous, however of increased or lowered permission you can specify exactly which user will the RDF feed be authenticated as. This field allows you to enter the id of that user.}}}
+When performing authentication, the forum will treat the user as anonymous. However, to increase or lower security you can specify exactly which user the RDF feed will be authenticated as. This field allows you to enter the id of that user.}}}
 
 {{{RDF_MAX_N_RESULTS
 The maximum number of results that can be fetched within a single request through the RDF feed.}}}
@@ -383,7 +383,7 @@ Number of pixels to reserve for white space at the right & left side of the page
 Number of pixels to reserve for white space at the top &amp; bottom of the page.}}}
 
 {{{PDF_MAX_CPU
-PDF generation process can be fairly cpu intensive process. This setting allows you to limit the number of seconds PHP script may spend trying to generate the pdf.}}}
+PDF generation process can be fairly CPU intensive process. This setting allows you to limit the number of seconds the PHP script may spend trying to generate the PDF document.}}}
 
 {{{SHOW_REPL_LNK	FUD_OPT_2	536870912
 Whether or not to show a link (beside the message subject) to the message that the current message is a reply to.}}}

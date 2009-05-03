@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.71 2009/04/29 20:34:12 frank Exp $
+* $Id: isearch.inc.t,v 1.72 2009/05/03 18:57:06 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,11 +13,14 @@ function text_to_worda($text)
 {
 	$a = array();
 	$text = strip_tags(reverse_fmt($text));
+	$lang = $GLOBALS['usr']->lang;
 
 	// Match utf-8 words (remove the \p{N} if you don't want to index words with numbers)
 	preg_match_all("/\p{L}[\p{L}\p{N}\p{Mn}\p{Pd}'\x{2019}]*/u", $text, $t1);
 	foreach ($t1[0] as $v) {
-		if (isset($v[51]) || !isset($v[2])) continue;   // word too long or too short
+		if ($lang != 'chinese' && $lang != 'japanese' && $lang != 'korean') {
+			if (isset($v[51]) || !isset($v[2])) continue;   // word too long or too short
+		}
 		$a[] = _esc($v);
 	}
 

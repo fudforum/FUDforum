@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.35 2009/01/29 18:37:40 frank Exp $
+* $Id: admbrowse.php,v 1.36 2009/05/03 18:57:06 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -127,7 +127,7 @@ if (!extension_loaded('posix')) {
 	if (isset($_GET['btn_mkdir']) && !empty($_GET['mkdir'])) {
 		$u = umask(0);
 		if (!mkdir($cur_dir . '/' . basename($_GET['mkdir']), ($FUD_OPT_2 & 8388608 ? 0700 : 0777))) {
-			echo '<h2 color="red">ERROR: failed to create '.$cur_dir . '/' . basename($_GET['mkdir']).'</h2>';
+			echo '<h2 style="color:red">ERROR: failed to create '.$cur_dir . '/' . basename($_GET['mkdir']).'</h2>';
 		}
 		umask($u);
 	}
@@ -156,11 +156,14 @@ if (!extension_loaded('posix')) {
 
 	/* Delete file/directory code */
 	if (isset($_GET['del']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
+		if ($dest == '.' || $dest == '..') {
+			exit('<h2 style="color:red">ERROR: You cannot delete . or ..</h2>');
+		}
 		if (isset($_GET['del_conf'])) {
 			if (@is_dir($cur_dir . '/' . $dest) && !fud_rmdir($cur_dir . '/' . $dest)) {
-				exit('<h2 color="red">ERROR: failed to remove directory '.$cur_dir . '/' . $dest.'</h2>');
+				exit('<h2 style="color:red">ERROR: failed to remove directory '.$cur_dir . '/' . $dest.'</h2>');
 			} else if (@is_file($cur_dir.'/'.$dest) && !unlink($cur_dir.'/'.$dest)) {
-				exit('<h2 color="red">ERROR: failed to remove file '.$cur_dir . '/' . $dest.'</h2>');
+				exit('<h2 style="color:red">ERROR: failed to remove file '.$cur_dir . '/' . $dest.'</h2>');
 			} else {
 				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 			}
@@ -168,9 +171,9 @@ if (!extension_loaded('posix')) {
 			$file = $cur_dir.'/'.$dest;
 			$type = @is_dir($file) ? 'directory' : 'file';
 		?>
-			<html>
+			<html><body bgcolor="red">
 			<h2>File/Directory Deletion</h2>
-			Are you sure you want to delete <?php echo $type.' <font color="#ff0000"><b>'.$file.'</b></font>'; ?><p>
+			Are you sure you want to delete <?php echo $type.' <font color="#ffffff"><b>'.$file.'</b></font>'; ?><p>
 			<form method="GET" action="admbrowse.php">
 			<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" />
 			<input type="hidden" name="dest" value="<?php echo $dest; ?>" />
@@ -237,7 +240,7 @@ if (!extension_loaded('posix')) {
 			}
 		}
 		if (!@chmod($file, $new_mode)) {
-			exit('<html>Unable to chmod <b>'.$file.'</b><br /><a href="javscript: return false;" onclick="window.close();">close</a></html>');
+			exit('<html>Unable to chmod <b>'.$file.'</b><br /><a href="#" onclick="window.close();">close</a></html>');
 		} else {
 			exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 		}
@@ -263,33 +266,36 @@ if (!extension_loaded('posix')) {
 ?>
 <br />
 <form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
+<fieldset>
+        <legend>Create Directory</legend>
 <table class="datatable">
 	<tr style="font-size: x-small;">
-		<td>Directory Name:</td>
+		<td>Directory To Create:</td>
 		<td><input type="text" name="mkdir" value="" /></td>
-		<td align="right" colspan="2"><input style="font-size: x-small;" type="submit" name="btn_mkdir" value="Create Directory" /></td>
+		<td align="right" colspan="2"><input type="submit" name="btn_mkdir" value="Create Directory" /></td>
 	</tr>
 </table>
+</fieldset>
 </form>
 <br />
 
 <form method="post" action="admbrowse.php" enctype="multipart/form-data"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
+<fieldset>
+        <legend>Upload File</legend>
 <table cellspacing="2" cellpadding="2" border="0">
-	<tr style="font-size: x-small;">
-		<td colspan="2"><b>File Upload</b></td>
-	</tr>
 	<tr style="font-size: x-small;">
 		<td>File To Upload:</td>
 		<td><input type="file" name="fname" /><input type="hidden" name="tmp_f_val" value="1" /></td>
 	</tr>
 	<tr style="font-size: x-small;">
-		<td>File Name:<br />(leave blank if want the uploaded filename to remain unchanged)</td>
+		<td>New File Name:<br />(leave blank if want the uploaded filename to remain unchanged)</td>
 		<td><input type="text" name="d_name" value="" /></td>
 	</tr>
 	<tr style="font-size: x-small;">
 		<td colspan="2" align="right"><input type="submit" name="file_upload" value="Upload File" /></td>
 	</tr>
 </table>
+</fieldset>
 </form>
 <br />
 <table border="0" cellspacing="1" cellpadding="3">
@@ -345,7 +351,7 @@ if (!extension_loaded('posix')) {
 		echo '<tr class="admin_fixed"><td nowrap="nowrap">'.$mode_str.' ('.$mode_o.')</td><td>'.$owner.'</td><td>'.$group.'</td><td nowrap="nowrap">'.$size.' KB</td><td nowrap="nowrap">'.$date_str.'</td><td>'.$time_str.'</td><td>'.$name.'</td>';
 		if (@is_readable($fpath)) {
 			if (@is_writeable($fpath)) {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';
 			} else {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}
@@ -353,7 +359,7 @@ if (!extension_loaded('posix')) {
 			echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="admbrowse.php?down=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'">download</a></td>';
 
 			if (@is_writeable($fpath)) {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onclick="window.open(\'admbrowse.php?del=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
 			} else {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}

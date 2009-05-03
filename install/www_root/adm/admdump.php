@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.80 2009/04/29 20:06:35 frank Exp $
+* $Id: admdump.php,v 1.81 2009/05/03 18:57:06 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -233,8 +233,8 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		db_unlock();
 
 		$datadump = $_POST['path'];
-		echo 'Backup process is complete!<br /><br />';
-		echo '<div class="tutor">The backup file can be found at: <b>'.$datadump.'</b> (<a href="admbrowse.php?down=1&cur='. dirname($datadump) .'&dest='. basename($datadump) .'&'. __adm_rsid .'">click to download</a>). It is occupying '.filesize($_POST['path']).' bytes.</div><br />';
+		echo '<div align="right">[ <a href="admbrowse.php?down=1&cur='. urlencode(dirname($datadump)) .'&dest='. urlencode(basename($datadump)) .'&'. __adm_rsid .'">Download</a> ] [ <a href="admbrowse.php?cur='. urlencode(dirname($datadump)) .'&'. __adm_rsid .'">Open Directory</a> ]</div>';
+		echo '<div class="tutor">The backup process is complete! The dump file can be found at: <b>'.$datadump.'</b>. It is occupying '.filesize($_POST['path']).' bytes.</div><br />';
 	} else {
 		$gz = extension_loaded('zlib');
 		if (!isset($path_error)) {

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admplugins.php,v 1.4 2009/04/29 20:06:35 frank Exp $
+* $Id: admplugins.php,v 1.5 2009/05/03 18:57:06 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,7 +44,11 @@
 
 	$prev_plugins = plugin_load_from_cache();
 	if (isset($_POST['plugin_state'])) {
-		plugin_rebuild_cache($_POST['plugins']);
+		if (isset($_POST['plugins'])) {
+			plugin_rebuild_cache($_POST['plugins']);
+		} else {
+			plugin_rebuild_cache(NULL);
+		}
 	}
 	$plugins = plugin_load_from_cache();
 

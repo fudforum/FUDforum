@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.170 2009/03/18 14:26:53 frank Exp $
+* $Id: users.inc.t,v 1.171 2009/05/03 18:57:06 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -679,6 +679,11 @@ function &init_user()
 	}
 	/* set locale */
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $u->locale);
+
+	/* call inituser plugins */
+	if (defined('plugins')) {
+		plugin_call_hook('INITUSER', $u);
+	}
 
 	/* view format for threads & messages */
 	define('d_thread_view', $uo & 256 ? 'msg' : 'tree');

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaprune.php,v 1.24 2009/04/29 20:06:35 frank Exp $
+* $Id: admaprune.php,v 1.25 2009/05/03 18:57:06 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,7 +45,7 @@
 				$a_cnt = 0;
 			}
 
-			require($WWW_ROOT_DISK . 'adm/admpanel.php'); ?>
+			require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <div align="center">You are about to delete <font color="red"><?php echo $a_cnt; ?></font> public file attachments AND <font color="red"><?php echo $pa_cnt; ?></font> private file attachments.
 <br />That were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $msg; ?><br /><br />
