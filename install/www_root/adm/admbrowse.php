@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.36 2009/05/03 18:57:06 frank Exp $
+* $Id: admbrowse.php,v 1.37 2009/05/06 18:44:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -266,10 +266,10 @@ if (!extension_loaded('posix')) {
 ?>
 <br />
 <form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
-<fieldset>
-        <legend>Create Directory</legend>
+<fieldset class="field">
+        <legend><b>Create Directory</b></legend>
 <table class="datatable">
-	<tr style="font-size: x-small;">
+	<tr class="tiny">
 		<td>Directory To Create:</td>
 		<td><input type="text" name="mkdir" value="" /></td>
 		<td align="right" colspan="2"><input type="submit" name="btn_mkdir" value="Create Directory" /></td>
@@ -280,18 +280,18 @@ if (!extension_loaded('posix')) {
 <br />
 
 <form method="post" action="admbrowse.php" enctype="multipart/form-data"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
-<fieldset>
-        <legend>Upload File</legend>
+<fieldset class="field">
+        <legend><b>Upload File</b></legend>
 <table cellspacing="2" cellpadding="2" border="0">
-	<tr style="font-size: x-small;">
+	<tr class="tiny">
 		<td>File To Upload:</td>
 		<td><input type="file" name="fname" /><input type="hidden" name="tmp_f_val" value="1" /></td>
 	</tr>
-	<tr style="font-size: x-small;">
+	<tr class="tiny">
 		<td>New File Name:<br />(leave blank if want the uploaded filename to remain unchanged)</td>
 		<td><input type="text" name="d_name" value="" /></td>
 	</tr>
-	<tr style="font-size: x-small;">
+	<tr class="tiny">
 		<td colspan="2" align="right"><input type="submit" name="file_upload" value="Upload File" /></td>
 	</tr>
 </table>
@@ -348,7 +348,7 @@ if (!extension_loaded('posix')) {
 
 		$size = round((isset($st[7])?$st[7]:$st['size'])/1024);
 
-		echo '<tr class="admin_fixed"><td nowrap="nowrap">'.$mode_str.' ('.$mode_o.')</td><td>'.$owner.'</td><td>'.$group.'</td><td nowrap="nowrap">'.$size.' KB</td><td nowrap="nowrap">'.$date_str.'</td><td>'.$time_str.'</td><td>'.$name.'</td>';
+		echo '<tr class="field admin_fixed"><td nowrap="nowrap">'.$mode_str.' ('.$mode_o.')</td><td>'.$owner.'</td><td>'.$group.'</td><td nowrap="nowrap">'.$size.' KB</td><td nowrap="nowrap">'.$date_str.'</td><td>'.$time_str.'</td><td>'.$name.'</td>';
 		if (@is_readable($fpath)) {
 			if (@is_writeable($fpath)) {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';

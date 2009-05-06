@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.39 2009/04/29 20:06:35 frank Exp $
+* $Id: indexdb.php,v 1.40 2009/05/06 18:44:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,11 +43,11 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 	}
 
 	if ($FUD_OPT_1 & 1) {
-		echo '<br />Disabling the forum for the duration of maintenance run<br />';
+		echo 'Disabling the forum for the duration of maintenance run<br />';
 		maintenance_status('Undergoing maintenance, please come back later.', 1);
 	}
 
-	echo '<br />Please wait while index is being rebuilt.<br />This may take a while depending on the size of your forum.';
+	echo 'Please wait while index is being rebuilt.<br />This may take a while depending on the size of your forum.<br />';
 	@ob_flush(); flush();
 
 	$tbl =& $DBHOST_TBL_PREFIX;
@@ -80,10 +80,10 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 	q('DELETE FROM '.$tbl.'search_cache');
 	db_unlock();
 
-	echo 'Done<br />';
+	echo 'Done.<br />';
 
 	if ($FUD_OPT_1 & 1) {
-		echo '<br />Re-enabling the forum.<br />';
+		echo 'Re-enabling the forum.<br />';
 		maintenance_status($GLOBALS['DISABLED_REASON'], 0);
 	} else {
 		echo '<br /><font size=+1 color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>';

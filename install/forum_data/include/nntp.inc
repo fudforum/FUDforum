@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.80 2009/05/03 18:43:45 frank Exp $
+* $Id: nntp.inc,v 1.81 2009/05/06 18:44:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -424,9 +424,6 @@ class fud_nntp
 			}
 
 			$msg_post->subject = apply_custom_replace($this->subject);
-			if ( !preg_match('!(.*?)(=\?([^?]+)\?(Q|B)\?([^?]*)\?=)([^=]*)!i', $msg_post->subject)) {
-				$msg_post->subject = decode_string($msg_post->subject, '', $charset);
-			} 
 			$msg_post->body = decode_string($this->body, $enc, $charset);
 			if ( !strlen($msg_post->subject) ) {
 				$msg_post->subject = "(no subject)";

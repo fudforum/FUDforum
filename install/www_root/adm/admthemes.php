@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.73 2009/04/29 20:06:35 frank Exp $
+* $Id: admthemes.php,v 1.74 2009/05/06 18:44:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,6 +16,8 @@
 	fud_use('adm.inc', true);
 	fud_use('compiler.inc', true);
 	fud_use('theme.inc', true);
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
@@ -44,6 +46,7 @@
 	if (isset($_GET['rebuild_all'])) {
 		$r = q('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes');
 		while (($data = db_rowarr($r))) {
+			echo 'Rebuilding theme '. $data[2] . ' ('. $data[1] .').';
 			compile_all($data[0], $data[1], $data[2]);
 		}
 		unset($r);
@@ -51,7 +54,7 @@
 
 	if (isset($_POST['thm_theme']) && $_POST['thm_theme'] == 'path_info' && !($FUD_OPT_2 & 32768)) {
 		unset($_POST['edit'], $_POST['thm_theme']);
-		echo '<h1 class="alert">You need to enable PATH_INFO support in forum settings before using path_info theme.</h2>';
+		echo '<h3 class="alert">You need to enable PATH_INFO support in forum settings before using path_info theme.</h3>';
 	}
 
 	if (isset($_POST['thm_theme']) && !$edit) {
@@ -71,6 +74,7 @@
 		}
 		$edit = '';
 	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.(int)$_GET['rebuild']))) {
+		echo 'Rebuilding theme '. $data[2] . ' ('. $data[1] .').';
 		compile_all($data[0], $data[1], $data[2]);
 	} else if (isset($_GET['edit']) && ($c = db_arr_assoc('SELECT * FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.$edit))) {
 		foreach ($c as $k => $v) {
@@ -90,8 +94,6 @@
 		$thm_pspell_lang = 'en';
 		$thm_t_default = $thm_enabled = 0;
 	}
-
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Theme Manager</h2>
 
@@ -235,8 +237,10 @@ function update_locale()
 </table>
 <?php echo _hs; ?>
 </form>
-<br />
 
+<div align="right" style="font-size:x-large;">
+[ <b><a href="admthemes.php?rebuild_all=1&amp;<?php echo __adm_rsid; ?>">Rebuild all Themes</a></b> ]
+</div>
 <table class="resulttable fulltable">
 <tr class="field"><th colspan="8">Available Themes:</td></tr>
 <tr class="resulttopic">
@@ -275,5 +279,4 @@ function update_locale()
 	unset($c);
 ?>
 </table>
-<b>[ <a href="admthemes.php?rebuild_all=1&amp;<?php echo __adm_rsid; ?>">Rebuild all Themes</a> ]</b>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

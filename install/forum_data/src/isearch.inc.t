@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.72 2009/05/03 18:57:06 frank Exp $
+* $Id: isearch.inc.t,v 1.73 2009/05/06 18:44:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,15 +15,24 @@ function text_to_worda($text)
 	$text = strip_tags(reverse_fmt($text));
 	$lang = $GLOBALS['usr']->lang;
 
-	// Match utf-8 words (remove the \p{N} if you don't want to index words with numbers)
-	preg_match_all("/\p{L}[\p{L}\p{N}\p{Mn}\p{Pd}'\x{2019}]*/u", $text, $t1);
-	foreach ($t1[0] as $v) {
-		if ($lang != 'chinese' && $lang != 'japanese' && $lang != 'korean') {
-			if (isset($v[51]) || !isset($v[2])) continue;   // word too long or too short
+	if (@preg_match('/\p{L}/u', 'a') == 1) {	// PCRE unicode support is turned on
+		// Match utf-8 words (remove the \p{N} if you don't want to index words with numbers)
+		preg_match_all("/\p{L}[\p{L}\p{N}\p{Mn}\p{Pd}'\x{2019}]*/u", $text, $t1);
+		foreach ($t1[0] as $v) {
+			if ($lang != 'chinese' && $lang != 'japanese' && $lang != 'korean') {
+				if (isset($v[51]) || !isset($v[2])) continue;   // word too short or long
+			}
+			$a[] = _esc($v);
 		}
-		$a[] = _esc($v);
+		return $a;
 	}
 
+	/* PCRE unicode support is turned off, fallback to old non-utf8 algorithm */
+	$t1 = array_unique(str_word_count(strtolower($text), 1));
+	foreach ($t1 as $v) {
+		if (isset($v[51]) || !isset($v[2])) continue;	// word too short or long
+		$a[] = _esc($v);
+	}
 	return $a;
 }
 

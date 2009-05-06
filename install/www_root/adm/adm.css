@@ -41,6 +41,9 @@ table.maintable {
 	border-spacing: 0px;
 	border: 0px;
 	padding: 0px;
+	-moz-border-radius: 0.75em;
+	-webkit-border-radius: 0.75em;
+	border-radius: 0.75em;
 }
 
 table.linktable {
@@ -144,15 +147,24 @@ span.linkgroup {
 }
 
 .tutor {
+	padding: 5px;
+	margin: 3px;
 	background: #fffeee;
+	-moz-border-radius: 0.75em;
+	-webkit-border-radius: 0.75em;
+	border-radius: 0.75em;
 }
 
 .alert {
-	margin: 11px;
+	padding: 5px;
+	margin: 3px;
 	color: red;
 	background-color: #ffcccc;
 	font-size: large;
 	text-align: center;
+	-moz-border-radius: 0.75em;
+	-webkit-border-radius: 0.75em;
+	border-radius: 0.75em;
 }
 
 phpinfo {border-collapse: collapse;}

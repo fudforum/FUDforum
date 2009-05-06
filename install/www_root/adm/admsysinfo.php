@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.33 2009/04/29 20:06:35 frank Exp $
+* $Id: admsysinfo.php,v 1.34 2009/05/06 18:44:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,44 +34,44 @@ function get_server_software()
 <h2>System Configuration</h2>
 <p>Overview of your system's configuration:</p>
 <table class="datatable">
-<tr>
+<tr class="field">
 	<td><b>Forum Version:</b></td>
 	<td><?php echo $FORUM_VERSION; ?></td>
 </tr>
-<tr>
+<tr class="field">
 	<td><b>PHP Version:</b></td>
 	<td><?php echo PHP_VERSION; ?></td>
 </tr>
-<tr>
+<tr class="field">
 	<td><b>PHP built On:</b></td>
 	<td><?php echo php_uname(); ?></td>
 </tr>
-<tr>
+<tr class="field">
 	<td><b>Database Type:</b></td>
 	<td><?php echo $DBHOST_DBTYPE ? '' : 'MySQL'; ?></td>
 </tr>
-<tr>
+<tr class="field">
 	<td><b>Database Version:</b></td>
 	<td><?php echo get_version(); ?></td>
 </tr>
-<tr>
+<tr class="field">
 	<td><b>Web Server:</b></td>
 	<td><?php echo get_server_software(); ?></td>
 </tr>
-<tr>
+<tr class="field">
 	<td><b>Web Server to PHP interface:</b></td>
 	<td><?php echo php_sapi_name(); ?></td>
 </tr>
 <?php
 	if (extension_loaded('posix')) {
-echo '<tr>
+echo '<tr class="field">
 	<td><b>WebServer User/Group:</b></td>
 	<td>'. posix_getgid().' / '.posix_getuid().'</td>
 </tr>';
 	}
 ?>
 
-<tr>
+<tr class="field">
 	<td valign="top"><b>Relevant PHP Settings:</b></td>
 	<td>
 		<table cellspacing="1" cellpadding="1" border="0">

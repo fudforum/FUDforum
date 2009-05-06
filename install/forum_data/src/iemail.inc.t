@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.46 2009/04/29 20:34:12 frank Exp $
+* $Id: iemail.inc.t,v 1.47 2009/05/06 18:44:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -92,7 +92,8 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 			mb_language('uni');
 		}
 		mb_internal_encoding('{TEMPLATE: iemail_CHARSET}');
-		$mail_func = 'mb_send_mail';
+		// $mail_func = 'mb_send_mail'; // mb_send_mail messes up multipart messages
+		$mail_func = 'mail';
 	} else {
 		$header .= "\nMIME-Version: 1.0\nContent-Type: text/plain; charset={TEMPLATE: iemail_CHARSET}\nContent-Transfer-Encoding: 8bit";
 		$mail_func = 'mail';

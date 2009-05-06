@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.81 2009/05/03 18:57:06 frank Exp $
+* $Id: admdump.php,v 1.82 2009/05/06 18:44:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -179,7 +179,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			}
 			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);
 
-			echo 'Processing table: '.$tbl_name.' ('.$num_entries.') .... ';
+			echo 'Processing table: '.$tbl_name.' ('.$num_entries.' rows) .... ';
 			@ob_flush(); flush();
 			if ($num_entries) {
 				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '', $tbl_name);

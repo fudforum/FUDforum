@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.82 2009/04/03 05:40:32 frank Exp $
+* $Id: register.tmpl,v 1.83 2009/05/06 18:44:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,7 +71,7 @@
 {SECTION: END}
 
 {SECTION: del_built_in_avatar delete avatar link}
-[<a href="return false;" onclick="document.reg_avatar_img.src=\'blank.gif\'; document.fud_register.reg_avatar.value=\'0\';">{MSG: register_del_avatar}</a>]
+[<a href="javascript://" onclick="document.reg_avatar_img.src=\'blank.gif\'; document.forms[\'fud_register\'].reg_avatar.value=\'0\';">{MSG: register_del_avatar}</a>]
 {SECTION: END}
 
 {SECTION: built_in_avatar}
