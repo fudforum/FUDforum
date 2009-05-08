@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.57 2009/04/29 20:06:35 frank Exp $
+* $Id: admforum.php,v 1.58 2009/05/08 20:10:15 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,7 +23,7 @@ function get_max_upload_size()
 
 /* main program */
 	require('./GLOBALS.php');
-
+	
 	/* this is here so we get the cat_id when cancel button is clicked */
 	$cat_id = isset($_GET['cat_id']) ? (int)$_GET['cat_id'] : (isset($_POST['cat_id']) ? (int)$_POST['cat_id'] : '');
 
@@ -33,6 +33,8 @@ function get_max_upload_size()
 	fud_use('widgets.inc', true);
 	fud_use('logaction.inc');
 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+		
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$max_upload_size = get_max_upload_size();
 
@@ -89,7 +91,9 @@ function get_max_upload_size()
 	} else if (isset($_GET['del'])) {
 		if (frm_move_forum((int)$_GET['del'], 0, $cat_id)) {
 			rebuild_forum_cat_order();
-			logaction(_uid, 'FRMMARKDEL', q_singleval('SELECT name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']));
+			$frm_name = q_singleval('SELECT name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']);
+			logaction(_uid, 'FRMMARKDEL', frm_name);
+			echo 'The <b>'.$frm_name.'</b> forum was moved to the <b><a href="admdelfrm.php?'.__adm_rsid.'">recycle bin</a></b>.<br />';
 		}
 	} else if (isset($_POST['btn_chcat'], $_POST['frm_id'], $_POST['cat_id'], $_POST['dest_cat'])) {
 		if (frm_move_forum((int)$_POST['frm_id'], (int)$_POST['dest_cat'], $cat_id)) {
@@ -108,8 +112,6 @@ function get_max_upload_size()
 			rebuild_forum_cat_order();
 		}
 	}
-
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Forum Management System</h2>
 <p>Editing forums for category: <b><?php echo $cat_name; ?></b>.</p>

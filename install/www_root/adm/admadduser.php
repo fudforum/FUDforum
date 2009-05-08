@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.35 2009/05/08 06:11:16 frank Exp $
+* $Id: admadduser.php,v 1.36 2009/05/08 20:10:15 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,7 +36,7 @@ function validate_input()
 }
 
 	if (isset($_POST['usr_add']) && !($error = validate_input())) {
-		$default_theme = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1");
+		$default_theme = q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1');
 		if (strlen($_POST['login']) > $MAX_LOGIN_SHOW) {
 			$alias = substr($_POST['login'], 0, $MAX_LOGIN_SHOW);
 		} else {
@@ -56,18 +56,18 @@ function validate_input()
 
 		$i = 0;
 		$al = $alias;
-		while (($user_added = db_li("INSERT INTO ".$DBHOST_TBL_PREFIX."users
+		while (($user_added = db_li('INSERT INTO '.$DBHOST_TBL_PREFIX.'users
 			(login, alias, passwd, name, email, time_zone, join_date, theme, users_opt, last_read) VALUES (
-			"._esc($_POST['login']).", '".$al."', '".md5($_POST['passwd'])."',
-			"._esc($_POST['name']).", "._esc($_POST['email']).", '".$SERVER_TZ."',
-			".__request_timestamp__.", ".$default_theme.", ".$users_opt.", ".__request_timestamp__.")",
+			'._esc($_POST['login']).', \''.$al.'\', \''.md5($_POST['passwd']).'\',
+			'._esc($_POST['name']).', '._esc($_POST['email']).', \''.$SERVER_TZ.'\',
+			'.__request_timestamp__.', '.$default_theme.', '.$users_opt.', '.__request_timestamp__.')',
 			$ef, 1)) === null) {
 
-			if (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._esc($_POST['login']))) {
+			if (q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE login='._esc($_POST['login']))) {
 				$error = 1;
 				$err_login = errorify('Login ('.htmlspecialchars($_POST['login']).') is already in use.');
 				break;
-			} else if (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE email="._esc($_POST['email']))) {
+			} else if (q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE email='._esc($_POST['email']))) {
 				$error = 1;
 				$err_email = errorify('Email ('.htmlspecialchars($_POST['email']).') is already in use.');
 				break;
@@ -97,7 +97,7 @@ function validate_input()
 	if ($error) {
 		echo '<h3 style="color: red">Error Has Occured</h3>';
 	} else if (!empty($user_added)) {
-		echo '<font size="+1" color="green">User ('.$_POST['login'].') was successfully added.</font><br />';
+		echo '<font size="+1" color="green">User was successfully added. [ <a href="admuser.php?act=1&amp;usr_id='.$user_added.'&amp;'.__adm_rsid.'">Edit user '.$_POST['login'].'</a> ]</font><br />';
 	}
 ?>
 <form id="frm_usr" method="post" action="admadduser.php">

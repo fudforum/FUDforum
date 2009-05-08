@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdelfrm.php,v 1.31 2009/01/29 18:37:40 frank Exp $
+* $Id: admdelfrm.php,v 1.32 2009/05/08 20:10:15 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,10 +10,12 @@
 **/
 
 	require('./GLOBALS.php');
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
 	fud_use('adm.inc', true);
 	fud_use('forum_adm.inc', true);
 
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	/* restore forum */
 	if (isset($_POST['frm_id'], $_POST['dst_cat'])) {
@@ -21,26 +23,12 @@
 		q('UPDATE '.$tbl.'forum SET cat_id='.(int)$_POST['dst_cat'].', view_order='.$pos.' WHERE id='.(int)$_POST['frm_id']);
 		fud_use('cat.inc', true);
 		rebuild_forum_cat_order();
+		echo 'Forum was successfully restored.<br />';
 	} else if (isset($_GET['del']) && ($f = db_saq('SELECT id, thread_count, post_count, name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']))) {
 		/* user considers deleting a forum, give them final confirmation check */
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel - Confirm forum deletion</title>' ?>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php 
-if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
-} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
-} else {
-	echo 'utf-8';
-}
-?>">
-</head>
-<body bgcolor="#ffffff">
 <div align="center">
-<h3>You have selected to delete this forum</h3><br />
+<h3>You have selected to permanently delete this forum</h3><br />
 "<?php echo $f[3]; ?>" which contains <?php echo $f[1]; ?> topics with <?php echo $f[2]; ?> posts<br /><br />
 <h3>Are you sure this is what you want to do?</h3>
 <form method="post" action="admdelfrm.php">
@@ -51,23 +39,20 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 </table>
 </form>
 </div>
-</body>
-</html>
 <?php
 		exit;
 	} else if (isset($_POST['del'], $_POST['conf']) && $_POST['conf'] == 'Yes') {
 		/* let's delete this forum */
 		frm_delete((int)$_POST['del']);
+		echo "Forum was successfully deleted.<br />";
 	}
-
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Orphaned Forums</h2>
 <table class="resulttable fulltable">
 <tr class="resulttopic">
-	<td>Name</td>
-	<td>Action</td>
-	<td>Reassign To Category</td>
+	<td width="50%">Name</td>
+	<td width="10%">Action</td>
+	<td width="40%">Reassign To Category</td>
 </tr>
 <?php
 	$i = 1;

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum_adm.inc,v 1.32 2009/01/29 18:37:17 frank Exp $
+* $Id: forum_adm.inc,v 1.33 2009/05/08 20:10:15 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,7 +11,7 @@
 
 class fud_forum
 {
-	var	$id, $cat_id, $name, $descr, $post_passwd, $forum_icon, $forum_opt, $date_created,
+	var	$id, $cat_id, $name, $descr, $url_redirect, $post_passwd, $forum_icon, $forum_opt, $date_created,
 		$view_order, $message_threshold, $max_attach_size, $max_file_attachments;
 
 	function fud_forum()
@@ -38,6 +38,7 @@ class fud_forum
 			cat_id,
 			name,
 			descr,
+			url_redirect,
 			post_passwd,
 			date_created,
 			view_order,
@@ -50,6 +51,7 @@ class fud_forum
 			".$this->cat_id.",
 			"._esc(htmlspecialchars($this->name)).",
 			".ssn($this->descr).",
+			".ssn($this->url_redirect).",
 			".ssn($this->post_passwd).",
 			".__request_timestamp__.",
 			".$this->view_order.",
@@ -89,6 +91,7 @@ class fud_forum
 			cat_id=".$cat_id.",
 			name="._esc(htmlspecialchars($this->name)).",
 			descr=".ssn($this->descr).",
+			url_redirect=".ssn($this->url_redirect).",
 			post_passwd=".ssn($this->post_passwd).",
 			forum_icon=".ssn($this->forum_icon).",
 			max_attach_size=".(int)$this->max_attach_size.",
