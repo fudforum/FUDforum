@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.68 2009/04/29 20:06:35 frank Exp $
+* $Id: admimport.php,v 1.69 2009/05/08 06:11:16 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -276,7 +276,7 @@ function resolve_dest_path($path)
 			unset($c);
 
 			echo '<b>Import process is now complete</b><br /><br />';
-			echo '<div class="tutor">To finalize the import process you should now run the <a href="consist.php?'.__adm_rsid.'">consistency checker</a>.</div>';
+			echo '<div class="tutor">To finalize the import process you should now run the <nbsp>>> <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> <<</nbsp>.</div>';
 			require($WWW_ROOT_DISK . 'adm/admclose.html');
 			exit;
 		}

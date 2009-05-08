@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemesel.php,v 1.36 2009/04/29 20:06:35 frank Exp $
+* $Id: admthemesel.php,v 1.37 2009/05/08 06:11:16 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,7 +39,7 @@
 		define('GLOB_ONLYDIR', 0);
 	}
 
-	foreach (glob($GLOBALS['DATA_DIR'].'/thm/*', GLOB_ONLYDIR|GLOB_NOSORT) as $file) {
+	foreach (glob($GLOBALS['DATA_DIR'].'/thm/*', GLOB_ONLYDIR) as $file) {
 		if (!file_exists($file . '/tmpl')) {
 			continue;
 		}
@@ -52,7 +52,7 @@
 <tr class="field">
 <td>Language:</td><td><select name="tlang">
 <?php
-	foreach (glob($GLOBALS['DATA_DIR'] . 'thm/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT) as $file) {
+	foreach (glob($GLOBALS['DATA_DIR'] . 'thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
 		if (!file_exists($file . '/msg')) {
 			continue;
 		}

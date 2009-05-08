@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: glob.inc,v 1.32 2009/05/03 18:57:06 frank Exp $
+* $Id: glob.inc,v 1.33 2009/05/08 06:11:16 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,7 +74,7 @@ function print_reg_field($descr, $field, $is_int=0, $pass=0)
 	echo '<tr class="field"><td>'.$descr.': <br /><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></td><td valign="top"><input type="'.(!$pass ? 'text' : 'password').'" name="CF_'.$field.'" value="'.$str.'" /></td></tr>';
 }
 
-function print_txt_field($descr, $field, $rows=2, $cols=30)
+function print_txt_field($descr, $field, $rows=2, $cols=25)
 {
 	if (!isset($GLOBALS[$field])) {
 		$str = '';
@@ -82,7 +82,7 @@ function print_txt_field($descr, $field, $rows=2, $cols=30)
 		$str = htmlspecialchars($GLOBALS[$field]);
 	}
 
-	echo '<tr class="field"><td>'.$descr.': <br /><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></td><td valign="top"><textarea rows="'.$rows.'" cols="'.$cols.'" name="CF_'.$field.'">'.$str.'"</textarea></td></tr>';
+	echo '<tr class="field"><td>'.$descr.': <br /><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></td><td valign="top"><textarea rows="'.$rows.'" cols="'.$cols.'" name="CF_'.$field.'">'.$str.'</textarea></td></tr>';
 }
 
 function change_global_settings($list)

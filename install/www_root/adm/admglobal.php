@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.105 2009/05/03 18:57:06 frank Exp $
+* $Id: admglobal.php,v 1.106 2009/05/08 06:11:16 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,6 +29,8 @@ function get_max_upload_size()
 	return $size;
 }
 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	
 	$max_attach_size = get_max_upload_size();
 	if (isset($_POST['CF_PRIVATE_ATTACH_SIZE'])) {
 		if ($_POST['CF_PRIVATE_ATTACH_SIZE'] > $max_attach_size) {
@@ -149,9 +151,9 @@ function get_max_upload_size()
 			foreach ($ch_list as $k => $v) {
 				$GLOBALS[$k] = $v;
 			}
+			echo '<font color="green">Forum settings successfully updated.</font><br />';
 		}
 	}
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Global Settings Manager</h2>
 <form method="post" action="admglobal.php" autocomplete="off">

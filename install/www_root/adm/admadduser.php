@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.34 2009/01/29 18:37:40 frank Exp $
+* $Id: admadduser.php,v 1.35 2009/05/08 06:11:16 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -95,7 +95,7 @@ function validate_input()
 <h2>Add User</h2>
 <?php
 	if ($error) {
-		echo '<h1 style="color: red">Error Has Occured</h1>';
+		echo '<h3 style="color: red">Error Has Occured</h3>';
 	} else if (!empty($user_added)) {
 		echo '<font size="+1" color="green">User ('.$_POST['login'].') was successfully added.</font><br />';
 	}
@@ -104,7 +104,7 @@ function validate_input()
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="fieldtopic">
-		<td colspan="2">Register a new forum user.</td>
+		<td colspan="2">Register a new forum user:</td>
 	</tr>
 
 	<tr class="field">

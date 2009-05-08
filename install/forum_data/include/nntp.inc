@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.81 2009/05/06 18:44:28 frank Exp $
+* $Id: nntp.inc,v 1.82 2009/05/08 06:11:16 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -550,7 +550,7 @@ class fud_nntp
 
 		fputs($this->fs, "From: $from\r\n");
 	        fputs($this->fs, "Newsgroups: $this->newsgroup\r\n");
-		if (function_exists(iconv_mime_encode)) {
+		if (function_exists('iconv_mime_encode')) {
 			fputs($this->fs, iconv_mime_encode("Subject:", $subject,
 				array('scheme'=>'Q', 'input-charset'=>$GLOBALS['CHARSET'], 'output-charset'=>$GLOBALS['CHARSET']))
 				."\r\n"); 

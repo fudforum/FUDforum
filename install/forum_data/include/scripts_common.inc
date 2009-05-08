@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: scripts_common.inc,v 1.37 2009/05/03 18:43:45 frank Exp $
+* $Id: scripts_common.inc,v 1.38 2009/05/08 06:11:16 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -138,7 +138,7 @@ function decode_header_value($val)
 		return trim($val);
 	}
 
-	if (function_exists(iconv_mime_decode)) {
+	if (function_exists('iconv_mime_decode')) {
 		return iconv_mime_decode($val, 2, 'UTF-8');
 	}
 
