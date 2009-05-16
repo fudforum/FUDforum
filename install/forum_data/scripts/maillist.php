@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.78 2009/05/03 18:43:45 frank Exp $
+* $Id: maillist.php,v 1.79 2009/05/16 06:52:17 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -121,7 +121,11 @@ class fud_emsg
 
 			case 'text/html':
 				$this->decode_message_body();
-				$this->body = (!$html ? strip_tags($this->body) : $this->body);
+				if (!$html) {
+					$this->body = str_ireplace(array('<br />', '<br>'), "\n", $this->body);
+					$this->body = str_ireplace(array('<p>', '</p>'),  "\n\n", $this->body);
+					$this->body = strip_tags($this->body);
+				}
 				break;
 
 			case 'multipart/parallel': // Apparently same as multipart/mixed but order of body parts does not matter
