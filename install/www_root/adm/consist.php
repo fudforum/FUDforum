@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.142 2009/05/06 18:44:29 frank Exp $
+* $Id: consist.php,v 1.143 2009/05/16 17:43:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -732,6 +732,6 @@ While it is running, your forum will be disabled.
 
 	draw_stat('DONE');
 
-	echo '<hr /><div class="tutor">It is recommended that you run SQL table optimizer after completing the consistency check. To do so <nobr>>> <b><a href="consist.php?opt=1&amp;'.__adm_rsid.'">click here</a></b> <<</nobr>, keep in mind that this process may take several minutes to perform.</div><br />';
+	echo '<hr /><div class="tutor">It is recommended that you run SQL table optimizer after completing the consistency check. To do so <span style="white-spaces:nobreak">&gt;&gt; <b><a href="consist.php?opt=1&amp;'.__adm_rsid.'">click here</a></b> &lt;&lt;</span>, keep in mind that this process may take several minutes to perform.</div><br />';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

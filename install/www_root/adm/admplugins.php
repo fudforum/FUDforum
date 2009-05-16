@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admplugins.php,v 1.5 2009/05/03 18:57:06 frank Exp $
+* $Id: admplugins.php,v 1.6 2009/05/16 17:43:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,7 +120,7 @@ foreach ($plugin_files as $plugin) {
 <br />
 <table class="tutor" width="99%"><tr><td>
 Plugins are stored in: <?php echo $PLUGIN_PATH; ?><br />
-To add new plugins, <b><a href="admbrowse.php?down=1&cur=<?php echo urlencode($PLUGIN_PATH); ?>&<?php echo __adm_rsid; ?>">upload</a></b> them to this directory and enable them on this page. Plugins may also be placed into subdirectories.
+To add new plugins, <b><a href="admbrowse.php?down=1&amp;cur=<?php echo urlencode($PLUGIN_PATH); ?>&amp;<?php echo __adm_rsid; ?>">upload</a></b> them to this directory and enable them on this page. Plugins may also be placed into subdirectories.
 </td></tr></table>
 
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

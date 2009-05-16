@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admannounce.php,v 1.30 2009/01/29 18:37:40 frank Exp $
+* $Id: admannounce.php,v 1.31 2009/05/16 17:43:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -196,7 +196,7 @@ function mk_date($y, $m, $d)
 		$st_dt = gmdate('F j, Y', gmmktime(1, 1, 1, $st_dt[1], $st_dt[2], $st_dt[0]));
 		$en_dt = raw_date($r->date_ended);
 		$en_dt = gmdate('F j, Y', gmmktime(1, 1, 1, $en_dt[1], $en_dt[2], $en_dt[0]));
-		echo '<tr'.$bgcolor.'><td>'.$r->subject.'</td><td>'.$b.'</td><td>'.$st_dt.'</td><td>'.$en_dt.'</td><td>[<a href="admannounce.php?edit='.$r->id.'&'.__adm_rsid.'">Edit</a>] [<a href="admannounce.php?del='.$r->id.'&'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr'.$bgcolor.'><td>'.$r->subject.'</td><td>'.$b.'</td><td>'.$st_dt.'</td><td>'.$en_dt.'</td><td>[<a href="admannounce.php?edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admannounce.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 ?>

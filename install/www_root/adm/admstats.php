@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.51 2009/04/29 20:06:35 frank Exp $
+* $Id: admstats.php,v 1.52 2009/05/16 17:43:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,8 +41,7 @@ function dir_space_usage($dirp)
 
 function get_sql_disk_usage()
 {
-	$ver = q_singleval('SELECT VERSION()');
-	if ($ver[0] != 4 && strncmp($ver, '3.23', 4)) {
+	if (!(__dbtype__ == 'mysql' || __dbtype__ == 'pdo_mysql')) {
 		return;
 	}
 

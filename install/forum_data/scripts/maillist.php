@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.79 2009/05/16 06:52:17 frank Exp $
+* $Id: maillist.php,v 1.80 2009/05/16 17:43:02 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -122,8 +122,8 @@ class fud_emsg
 			case 'text/html':
 				$this->decode_message_body();
 				if (!$html) {
-					$this->body = str_ireplace(array('<br />', '<br>'), "\n", $this->body);
-					$this->body = str_ireplace(array('<p>', '</p>'),  "\n\n", $this->body);
+					$this->body = str_ireplace('<p>', "\n\n", $this->body);
+					$this->body = str_ireplace(array('<br />', '<br>', '</p>'), "\n", $this->body);
 					$this->body = strip_tags($this->body);
 				}
 				break;

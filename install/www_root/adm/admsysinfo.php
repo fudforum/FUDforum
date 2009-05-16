@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.34 2009/05/06 18:44:28 frank Exp $
+* $Id: admsysinfo.php,v 1.35 2009/05/16 17:43:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,7 +48,7 @@ function get_server_software()
 </tr>
 <tr class="field">
 	<td><b>Database Type:</b></td>
-	<td><?php echo $DBHOST_DBTYPE ? '' : 'MySQL'; ?></td>
+	<td><?php echo __dbtype__; ?></td>
 </tr>
 <tr class="field">
 	<td><b>Database Version:</b></td>

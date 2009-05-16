@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: widgets.inc,v 1.20 2009/01/29 18:37:17 frank Exp $
+* $Id: widgets.inc,v 1.21 2009/05/16 17:43:02 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,7 +46,7 @@ function draw_select($name, $options, $opt_val, $def_val, $js='')
 
 function create_checkbox($name, $value, $state)
 {
-	$checked = ( $value == $state ) ? " checked" : '';
+	$checked = ( $value == $state ) ? ' checked="checked"' : '';
 	return '<input type="checkbox" name="'.$name.'" value="'.$value.'"'.$checked.' />';
 }
 
@@ -81,7 +81,7 @@ function create_day_select($name, $allow_null, $def)
 	if ( $allow_null ) $rval .= '<option value="0">';
 
 	for ( $i=1; $i<32; $i++ ) {
-		$rval .= '<option value="'.$i.'"'.(($i==$def)?' selected="selected"':'').'>'.$i."\n";
+		$rval .= '<option value="'.$i.'"'.(($i==$def)?' selected="selected"':'').'>'.$i."</option>\n";
 	}
 	$rval .= '</select>';
 

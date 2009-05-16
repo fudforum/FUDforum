@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.93 2009/05/16 07:10:04 frank Exp $
+* $Id: admuser.php,v 1.94 2009/05/16 17:43:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -85,7 +85,7 @@
 				$u->users_opt |= $keys[$act];
 			}
 
-			echo '<font color="green">User options succesflly updated.</font><br /';
+			echo '<font color="green">User options succesflly updated.</font><br />';
 			if (isset($_GET['f'])) {
 				header('Location: '.$WWW_ROOT.__fud_index_name__.$usr->returnto);
 				exit;
