@@ -2,15 +2,15 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.40 2009/05/06 18:44:29 frank Exp $
+* $Id: indexdb.php,v 1.41 2009/05/16 07:10:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-	@set_time_limit(2400);
-	@ini_set("memory_limit", "100M");
+	@set_time_limit(0);
+	@ini_set('memory_limit', '128M');
 
 	require('./GLOBALS.php');
 	// uncomment the lines below if you wish to run this script via command line

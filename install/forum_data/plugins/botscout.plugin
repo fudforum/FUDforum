@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: botscout.plugin,v 1.1 2009/03/26 17:24:27 frank Exp $
+* $Id: botscout.plugin,v 1.2 2009/05/16 07:10:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,10 +27,8 @@ function plugin_botscout($email) {
 
 	$botdata = explode('|', $botscout_data); 
 	if ($botdata[3] > 0 || $botdata[5] > 0) { 	// tests email address or IP
-		print "Sorry, bots are not allowed to register.<br />\n";
-		print "The {$botdata[2]} was found {$botdata[3]} times, the {$botdata[4]} was found {$botdata[5]} times.";
-		exit;
+		print "The {$botdata[2]} was found {$botdata[3]} times, the {$botdata[4]} was found {$botdata[5]} times.<br />";
+		die('Sorry, bots are not allowed to register.');
 	}
 }
 ?>
-

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.82 2009/05/06 18:44:28 frank Exp $
+* $Id: admdump.php,v 1.83 2009/05/16 07:10:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -177,6 +177,16 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			) {
 				continue;
 			}
+			if (isset($_POST['skipsearch']) && $_POST['skipsearch'] == 'y' && (
+				$tbl_name == $DBHOST_TBL_PREFIX.'index' || 
+				$tbl_name == $DBHOST_TBL_PREFIX.'title_index' || 
+				$tbl_name == $DBHOST_TBL_PREFIX.'search' || 
+				$tbl_name == $DBHOST_TBL_PREFIX.'search_cache')
+			) {
+				echo 'Skipping table: '.$tbl_name.'<br />';
+				continue;
+			}
+
 			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);
 
 			echo 'Processing table: '.$tbl_name.' ('.$num_entries.' rows) .... ';
@@ -256,16 +266,20 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
-	<td>Backup Save Path<br /><font size="-1">path on the disk, where you wish the forum data dump to be saved.</font></td>
+	<td>Backup Save Path<br /><font size="-1">Path on the disk, where you wish the forum data dump to be saved.</font></td>
 	<td><?php echo $path_error; ?><input type="text" value="<?php echo $path; ?>" name="path" size="40" /></td>
 </tr>
 <?php if($gz) { ?>
 <tr class="field">
-	<td>Use Gzip Compression<br /><font size="-1">if you choose this option, the backup files will be compressed using Gzip compression. This may make the backup process a little slower, but will save a lot of harddrive space.</font></td>
+	<td>Use Gzip Compression<br /><font size="-1">Compress the backup file using Gzip compression. This will make the backup process a little slower, but will save a lot of harddrive space.</font></td>
 	<td><input type="checkbox" name="compress" value="1" <?php echo $compress; ?> /> Yes</td>
 </tr>
 <?php } ?>
-<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Make Backup" /><input type="hidden" name="submitted" value="1" /></td></tr>
+<tr class="field">
+        <td>Skip Seach Index:<br /><font size="-1">Do not backup search data. You will need to reindex your forum after doing an import.
+        <td><input type="checkbox" value="y" name="skipsearch" /> Yes</td>
+</tr>
+<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Take Backup" /><input type="hidden" name="submitted" value="1" /></td></tr>
 </table>
 </form>
 <?php

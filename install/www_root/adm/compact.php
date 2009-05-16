@@ -2,14 +2,14 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.80 2009/04/29 20:06:35 frank Exp $
+* $Id: compact.php,v 1.81 2009/05/16 07:10:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-	@set_time_limit(6000);
+	@set_time_limit(0);
 
 	define('back_to_main', 1);
 

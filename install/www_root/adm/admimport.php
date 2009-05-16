@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.69 2009/05/08 06:11:16 frank Exp $
+* $Id: admimport.php,v 1.70 2009/05/16 07:10:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,13 +11,18 @@
 
 	error_reporting(E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR);
 	@ini_set('display_errors', '1');
-	@ini_set("memory_limit", "100M");
-	@set_time_limit(18000);
+	@ini_set('memory_limit', '256M');
+	@set_time_limit(0);
 
 	/* Uncomment the line below if you wish to import data without authentication
 	 * This is useful if the previous import had failed resulting in the loss of old SQL data
 	**/
 	// define('recovery_mode', 1);
+	
+	/* Uncomment if you wish to import data from the command line
+	**/
+	// define('recovery_mode', 1);
+	// $_POST['path'] = '/path/to/your/forum/dump';
 
 	require('./GLOBALS.php');
 	fud_use('glob.inc', true);
@@ -78,7 +83,7 @@ function resolve_dest_path($path)
 			while ($getf($fp, 1024) != "----FILES_START----\n" && !$feoff($fp));
 
 			/* handle data files */
-			echo "Restoring data files...<br />\n";
+			echo "Restoring forum files...<br />\n";
 			@ob_flush(); flush();
 			while (($line = $getf($fp, 1000000)) && $line != "----FILES_END----\n") {
 				/* each file is preceeded by a header ||path||size|| */
@@ -177,20 +182,33 @@ function resolve_dest_path($path)
 					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));
 				}
 			}
-			echo "Loading database tables...<br />\n";
-			@ob_flush(); flush();
-			$r = $i = 0; $tmp = $pfx = ''; $m = __dbtype__ == 'mysql'; $p = __dbtype__ == 'pgsql';
+			$r = $i = $skip = 0; 
+			$tmp = $pfx = ''; 
+			$m = __dbtype__ == 'mysql'; $p = __dbtype__ == 'pgsql';
 			do {
 				if (($line = trim($line))) {
 					if ($line{0} != '(') {
-						if ($tmp) {
+						if ($tmp && !$skip) {
 							q($pfx.substr($tmp, 0, -1));
 							$tmp = '';
 						}
+						if ($i > 0) {
+							echo $i.' rows loaded.<br />';
+							$i = 0;
+						}
 						$pfx = 'INSERT INTO '.$DBHOST_TBL_PREFIX.$line.' VALUES ';
 						$r = $line != 'mime';
+						if (isset($_POST['skipsearch']) && $_POST['skipsearch'] == 'y' && ($line == 'index' || $line == 'title_index' || $line == 'search' || $line == 'search_cache')) {
+							$skip = 1;
+							echo 'Skipping over table '.$DBHOST_TBL_PREFIX.$line.'...<br />';
+						} else {
+							$skip = 0;
+							echo 'Processing table '.$DBHOST_TBL_PREFIX.$line.'...<br />';
+						}
+						@ob_flush(); flush();
 						continue;
 					}
+					if ($skip) continue;
 					if (!$m) {
 						if ($r && $p) {
 							$line = str_replace("''", 'NULL', $line);
@@ -207,22 +225,30 @@ function resolve_dest_path($path)
 					}
 
 					if ($i && !($i % 10000)) {
-						echo 'Processed '.$i.' queries<br />';
+						echo '&nbsp;...'.$i.' rows<br />';
 						@ob_flush(); flush();
 					}
 					++$i;
 				}
 			} while (($line = $getf($fp, 1000000)) && $line != "----SQL_END----\n");
 
-			if ($tmp) {
+			if ($tmp && !$skip) {
 				q($pfx.substr($tmp, 0, -1));
+				echo $i.' rows loaded.<br />';
 				unset($tmp);
 			}
 
 			echo "Creating indexes...<br />\n";
 			@ob_flush(); flush();
 			foreach ($idx as $v) {
-				q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $v));
+				if ($m) {	// Prevent the famous 'duplicate entry' error on MySQL
+					$q = str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $v);
+					preg_match('/^CREATE (.*) ON (.*) \((.*)\)/is', $q, $m);
+					q('ALTER IGNORE TABLE '.$m[2].' ADD '.$m[1].' ('.$m[3].')');
+
+				} else {
+					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $v));
+				}
 			}
 
 			if (__dbtype__ == 'pgsql') {
@@ -250,7 +276,7 @@ function resolve_dest_path($path)
 
 			/* we now need to correct cached paths for file attachments and avatars */
 			echo "Correcting Avatar Paths...<br />\n";
-			@ob_flush(); flush();			
+			@ob_flush(); flush();
 			if (($old_path = q_singleval('SELECT location FROM '.$DBHOST_TBL_PREFIX.'attach LIMIT 1'))) {
 				preg_match('!(.*)/!', $old_path, $m);
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'attach SET location=REPLACE(location, '._esc($m[1]).', '._esc($GLOBALS['FILE_STORE']).')');
@@ -275,8 +301,8 @@ function resolve_dest_path($path)
 			}
 			unset($c);
 
-			echo '<b>Import process is now complete</b><br /><br />';
-			echo '<div class="tutor">To finalize the import process you should now run the <nbsp>>> <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> <<</nbsp>.</div>';
+			echo '<b>Import successfully completed.</b><br /><br />';
+			echo '<div class="tutor">To finalize the process you should now run the <nbsp>>> <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> <<</nbsp>.</div>';
 			require($WWW_ROOT_DISK . 'adm/admclose.html');
 			exit;
 		}
@@ -284,6 +310,7 @@ function resolve_dest_path($path)
 ?>
 <h2>Import forum data</h2>
 <div class="alert">Note that the import process will REMOVE ALL current forum data (all tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the one from the file you enter.<br /><br />Please <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before imporing!</div>
+<br />
 
 <?php
 $datadumps = (glob("$TMP*.fud*"));
@@ -292,7 +319,7 @@ if ($datadumps) {
 	<table class="datatable solidtable">
 	<tr><td class="fieldtopic">Available datadumps:</td></tr>
 	<?php foreach ($datadumps as $datadump) { ?>
-		<tr class="field admin_fixed"><td><?php echo $datadump; ?> [ <a href="javascript://" onclick="document.admimport.path.value='<?php echo $datadump; ?>';">use</a> ]</td></tr>
+		<tr class="field admin_fixed"><td><?php echo basename($datadump); ?> [ <a href="javascript://" onclick="document.admimport.path.value='<?php echo $datadump; ?>';">use</a> ]</td></tr>
 	<?php } ?>
 	<tr class="resultrow2 tiny"><td>[ <a href="admbrowse.php?down=1&cur=<?php echo urlencode(dirname($datadump)); ?>&<?php echo __adm_rsid; ?>">Manage files</a> ]</td></tr>
 	</table><br />
@@ -302,8 +329,12 @@ if ($datadumps) {
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
-	<td>Import Data Path:<br /><font size="-1">Location on the drive, where the file your wish to import FUDforum data from is located.</font></td>
+	<td>Import Data Path:<br /><font size="-1">Full path to the backup file (*.fud or *.fud.gz) on disk that you want to import from.</font></td>
 	<td><?php if (isset($path_error)) { echo $path_error; $path = $_POST['path']; } else { $path = ''; } ?><input type="text" value="<?php echo $path; ?>" name="path" size="40" /></td>
+</tr>
+<tr class="field">
+	<td>Skip Seach Index:<br /><font size="-1">Do not load search data. You will need to reindex your forum after the import.
+	<td><input type="checkbox" value="y" name="skipsearch" /> Yes</td>
 </tr>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Import Data" /></td></tr>
 </table>

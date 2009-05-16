@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.46 2009/01/29 18:37:40 frank Exp $
+* $Id: admmlist.php,v 1.47 2009/05/16 07:10:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,11 +23,14 @@ function format_regex(&$regex)
 
 	return $ret;
 }
+
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('mlist.inc', true);
 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+		
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
@@ -35,12 +38,15 @@ function format_regex(&$regex)
 		$mlist = new fud_mlist;
 		if ($edit) {
 			$mlist->sync($edit);
+			echo '<font color="green">Mailing list rule successfully updated.</font>';
 			$edit = '';
 		} else {
 			$mlist->add();
+			echo '<font color="green">Mailing list rule successfully added (see list at bottom of page).</font>';
 		}
 	} else if (isset($_GET['del'])) {
 		fud_mlist::del((int)$_GET['del']);
+		echo '<font color="green">Mailing list rule successfully deleted.</font>';
 	}
 
 	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'mlist WHERE id='.$edit))) {
@@ -56,10 +62,8 @@ function format_regex(&$regex)
 		$ml_subject_regex_haystack_opt = $ml_body_regex_haystack_opt = '';
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
-
-	if ($FUD_OPT_2 & 8388608) {
-		echo '<div class="alert">You MUST UNLOCK the forum\'s files before you can run the mailing list importing scripts.</div>';
+	if ($FUD_OPT_2 & 8388608 && strncasecmp('win', PHP_OS, 3)) {	// Forum is locked and not windows
+		echo '<div class="alert">You may need to <a href="admlock.php?'.__adm_rsid.'">unlock</a> the forum\'s files before you can run the newsgroup importing script(s).</div>';
 	}
 ?>
 <h2>Mailing List Manager</h2>

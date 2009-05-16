@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.92 2009/04/29 20:06:35 frank Exp $
+* $Id: admuser.php,v 1.93 2009/05/16 07:10:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,6 +17,8 @@
 	fud_use('logaction.inc');
 	fud_use('iemail.inc');
 	fud_use('private.inc');
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	$acc_mod_only = !($GLOBALS['usr']->users_opt & 1048576) && $GLOBALS['usr']->users_opt & 268435456;
 
@@ -34,7 +36,7 @@
 	}
 
 	if ($usr_id && $acc_mod_only && $u->users_opt & (268435456|1048576) && !($usr_id == $u->id)) {
-		echo '<h2>Account moderators are not allowed to modify administrator accounts or accounts of other account moderators.</h2>';
+		echo '<h3>Account moderators are not allowed to modify administrator accounts or accounts of other account moderators.</h3>';
 		$u = $usr_id = null;
 	}
 
@@ -83,6 +85,7 @@
 				$u->users_opt |= $keys[$act];
 			}
 
+			echo '<font color="green">User options succesflly updated.</font><br /';
 			if (isset($_GET['f'])) {
 				header('Location: '.$WWW_ROOT.__fud_index_name__.$usr->returnto);
 				exit;
@@ -91,6 +94,7 @@
 		case 'color':
 			$u->custom_color = trim($_POST['custom_color']);
 			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET custom_color='.ssn($u->custom_color).' WHERE id='.$usr_id);
+			echo '<font color="green">Custom color was succesflly updated.</font><br /';
 			break;
 		case 'reset':
 			$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? "theme_opt>=2 AND (theme_opt & 2) > 0" : 'id='.$u->theme));
@@ -108,7 +112,7 @@
 				send_email($NOTIFY_FROM, $u->email, $reset_newpass_title, $reset_reset, "");
 				logaction(_uid, 'ADM_RESET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
 			}
-			echo '<h3>Password was successfully reset and e-mailed to the user.</h3>';
+			echo '<font color="green">Password was successfully reset and e-mailed to the user.</font>';
 			break;
 		case 'del':
 			if ($usr_id == 1) {
@@ -117,22 +121,6 @@
 
 			if (!isset($_POST['del_confirm'])) {
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<?php echo '<title>'.$FORUM_TITLE.': Admin Control Panel - User Deletion confirmation'.'</title>' ?>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php 
-if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
-} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
-} else {
-	echo 'utf-8';
-}
-?>">
-
-</head>
-<body bgcolor="white">
 <form method="post" action="admuser.php"><?php echo _hs; ?>
 <input type="hidden" name="act" value="del" />
 <input type="hidden" name="f" value="<?php echo (int) isset($_GET['f']); ?>" />
@@ -148,15 +136,16 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 	}
 ?>
 </form>
-</body></html>
 <?php
 					exit;
 			} else if (isset($_POST['btn_yes'])) {
 				logaction(_uid, 'DELETE_USER', 0, $u->alias);
 				usr_delete($usr_id);
+				echo '<font color="green">User <b>'.$u->alias.'</b> was successfully removed.</font>';
 				unset($act, $u);
 				$usr_id = '';
 			}
+			echo '<p>[ <a href="'. $WWW_ROOT.__fud_index_name__.'?'.$usr->returnto.'">return</a> ]</p>';
 			if (isset($_POST['f']) || isset($_GET['f'])) {
 				header('Location: '.$WWW_ROOT.__fud_index_name__.'?'.$usr->returnto);
 				exit;
@@ -166,21 +155,6 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 			if ($u->users_opt & 1048576) {
 				if (!isset($_POST['adm_confirm'])) {
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<?php echo '<title>'.$FORUM_TITLE.': Admin Control Panel - Adminstrator confirmation'.'</title>' ?>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php 
-if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
-} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
-} else {
-	echo 'utf-8';
-}
-?>" />
-</head>
-<body bgcolor="white">
 <form method="post" action="admuser.php"><?php echo _hs; ?>
 <input type="hidden" name="act" value="admin" />
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
@@ -190,7 +164,6 @@ Are you sure you want to do this?<br />
 <input type="submit" value="Yes" name="btn_yes" /> <input type="submit" value="No" name="btn_no" />
 </div>
 </form>
-</body></html>
 <?php
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
@@ -201,25 +174,11 @@ Are you sure you want to do this?<br />
 						q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt & ~ (524288|1048576) WHERE id='.$usr_id);
 						$u->users_opt = $u->users_opt &~ (1048576|524288);
 					}
+					echo '<font color="green">User <b>'.$u->alias.'</b> was demoted from admin.</font>';
 				}
 			} else {
 				if (!isset($_POST['adm_confirm'])) {
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<?php echo '<title>'.$FORUM_TITLE.': Admin Control Panel - Adminstrator confirmation'.'</title>' ?>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php 
-if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
-} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
-} else {
-	echo 'utf-8';
-}
-?>" />
-</head>
-<body bgcolor="white">
 <form method="post" action="admuser.php"><?php echo _hs; ?>
 <input type="hidden" name="act" value="admin" />
 <input type="hidden" name="adm_confirm" value="1" />
@@ -230,12 +189,12 @@ administration permissions to the forum. This individual will be able to do anyt
 <input type="submit" value="Yes" name="btn_yes" /> <input type="submit" value="No" name="btn_no" />
 </div>
 </form>
-</body></html>
 <?php
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
 					q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt & ~ 524288) | 1048576 WHERE id='.$usr_id);
 					$u->users_opt |= 1048576;
+					echo '<font color="green">User <b>'.$u->alias.'</b> was promoted to admin.</font>';
 				}
 			}
 			break;
@@ -246,8 +205,10 @@ administration permissions to the forum. This individual will be able to do anyt
 		/* deal with custom tags */
 		if (!empty($_POST['c_tag'])) {
 			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'custom_tags (name, user_id) VALUES('.ssn($_POST['c_tag']).', '.$usr_id.')');
+			echo '<font color="green">Custom tag was added.</font>';
 		} else if (!empty($_GET['deltag'])) {
 			q('DELETE FROM '.$DBHOST_TBL_PREFIX.'custom_tags WHERE id='.(int)$_GET['deltag']);
+			echo '<font color="green">Custom tag was removed.</font>';
 		} else {
 			$nada = 1;
 		}
@@ -259,6 +220,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		if (!empty($_POST['login_passwd'])) {
 			q("UPDATE ".$DBHOST_TBL_PREFIX."users SET passwd='".md5($_POST['login_passwd'])."' WHERE id=".$usr_id);
 			logaction(_uid, 'ADM_SET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
+			echo '<font color="green">User <b>'.$u->alias.'</b>\'s password was successfully changed.</font>';
 		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* chanding login name */
 			$alias = _esc(make_alias($_POST['login_name']));
 			$login = _esc($_POST['login_name']);
@@ -283,6 +245,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				if (!($FUD_OPT_2 & 128)) {
 					$u->alias = make_alias($u->alias);
 				}
+				echo '<font color="green">User <b>'.$u->alias.'</b>\'s login was successfully changed.</font>';
 			}
 		}
 	} else if (!empty($_POST['usr_email']) || !empty($_POST['usr_login'])) {
@@ -320,35 +283,24 @@ administration permissions to the forum. This individual will be able to do anyt
 				}
 				break;
 			default:
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>';
-echo '<title>'.$FORUM_TITLE.': Admin Control Panel - Select user</title>';
-
-echo '<meta http-equiv="Content-Type" content="text/html; charset=';
-if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
-} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
-} else {
-	echo 'utf-8';
-}
-echo '" /></head><body bgcolor="white">';
-				echo 'There are '.$cnt.' users that match this '.$field.' mask:<br />';
+				echo '<h2>User Adminstration System</h2>';
+				echo '<p>There are '.$cnt.' users that match this '.$field.' mask:</p><ul>';
 				while ($r = db_rowarr($c)) {
-					echo '<a href="admuser.php?usr_id='.$r[0].'&amp;act=m&amp;'.__adm_rsid.'">Pick user</a> <b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b><br />';
+					echo '<li><b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b> [ <a href="admuser.php?usr_id='.$r[0].'&amp;act=m&amp;'.__adm_rsid.'">Pick user</a> ]</li>';
 				}
+				echo '</ul>';
 				unset($c);
 				exit;
 		}
 	}
-
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>User Adminstration System</h2>
+<?php if (!$usr_id) echo '<p>Use an asterisk (*) to match multiple user accounts.</p>'; ?>
 <form id="frm_usr" method="post" action="admuser.php">
 <?php echo _hs . $search_error; ?>
 <table class="datatable solidtable">
 	<tr class="field">
-		<td colspan="2">Search for User</td>
+		<td colspan="2">Search for user:</td>
 	</tr>
 
 	<tr class="field">
@@ -474,7 +426,7 @@ if ($acc_mod_only) {
 	<font size="-1">To set a temporary ban specify the duration of the ban in number of days, 
 	for permanent ban leave duration value at 0. The value of the duration field for non-permanent bans will show
 	days remaining till ban expiry.</font></td></tr>
-	<tr class="field"><td>Is Banned:</td><td><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked' : ''); ?> /> Yes</td></tr>
+	<tr class="field"><td>Is Banned:</td><td><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked /> <font color="red">Yes</font>' : ' /> No'); ?> </td></tr>
 	<tr class="field"><td>Ban Duration (in days)</td><td><input type="text" value="<?php 
 	if ($u->ban_expiry) {
 		printf("%.2f", ($u->ban_expiry - __request_timestamp__) / 86400);

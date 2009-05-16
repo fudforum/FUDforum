@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.44 2009/01/29 18:37:40 frank Exp $
+* $Id: admnntp.php,v 1.45 2009/05/16 07:10:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,6 +14,8 @@
 	fud_use('widgets.inc', true);
 	fud_use('nntp_adm.inc', true);
 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
@@ -21,12 +23,15 @@
 		$nntp_adm = new fud_nntp_adm;
 		if ($edit) {
 			$nntp_adm->sync($edit);
+			echo '<font color="green">Newsgroup rule successfully updated.</font>';
 			$edit = '';
 		} else {
 			$nntp_adm->add();
+			echo '<font color="green">Newsgroup rule successfully added (see list at bottom of page).</font>';
 		}
 	} else if (isset($_GET['del'])) {
 		nntp_del((int)$_GET['del']);
+		echo '<font color="green">Newsgroup rule successfully deleted.</font>';
 	} else if (isset($_GET['trk']) && ($nn = db_sab('SELECT * FROM '.$tbl.'nntp WHERE id='.(int)$_GET['trk']))) {
 		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup.'.lock');
 		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup);
@@ -42,10 +47,8 @@
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
-
-	if ($FUD_OPT_2 & 8388608) {
-		echo '<div class="alert">You MUST UNLOCK the forum\'s files before you can run the newsgroup importing script(s).</div>';
+	if ($FUD_OPT_2 & 8388608 && strncasecmp('win', PHP_OS, 3)) {	// Forum is locked and not windows
+		echo '<div class="alert">You may need to <a href="admlock.php?'.__adm_rsid.'">unlock</a> the forum\'s files before you can run the newsgroup importing script(s).</div>';
 	}
 ?>
 <h2>Newsgroup Manager</h2>

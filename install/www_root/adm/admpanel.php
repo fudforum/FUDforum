@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel</title>' ?>
-<link rel="StyleSheet" href="adm.css" type="text/css" />
+<link rel="styleSheet" href="adm.css" type="text/css" />
+<script type="text/javascript" src="../jquery.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php 
 if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
 	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
@@ -15,9 +16,13 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 </head>
 <body>
 <table class="headtable"><tr>
-  <td><a href="index.php?<?php echo __adm_rsid; ?>" title="Return to the Admin Control Panel Dashboard"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a></td>
+  <td><a href="index.php<?php if (defined('__adm_rsid')) echo '?'.__adm_rsid; ?>" title="Return to the Admin Control Panel Dashboard"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a>
+  </td>
   <td><span class="linkhead">Admin Control Panel</span></td>
-  <td>[ <a title="Go back to your forum" href="../<?php echo __fud_index_name__.'?'.__adm_rsid; ?>">Return to forum &raquo;</a> ]</td>
+  <td><?php if (defined('__fud_index_name__')) { ?>
+      [ <a title="Go back to your forum" href="../<?php echo __fud_index_name__.'?'.__adm_rsid; ?>">Return to forum &raquo;</a> ]
+      <?php } ?>
+  </td>
 </tr></table>
 
 <table class="maintable">
