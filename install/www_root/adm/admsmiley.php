@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.37 2009/01/29 18:37:40 frank Exp $
+* $Id: admsmiley.php,v 1.38 2009/05/18 20:22:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,7 +120,7 @@ onsubmit="return sml_form_check();">
 	<tr><td colspan="2">&nbsp;</td></tr>
 
 	<tr class="fieldtopic">
-		<td colspan="2"><a name="img"><b>Smilies Mangement</b></a></td>
+		<td colspan="2"><a name="img"><b>Smilies Management</b></a></td>
 	</tr>
 
 	<tr class="field">
@@ -129,7 +129,7 @@ onsubmit="return sml_form_check();">
 	</tr>
 
 	<tr class="field">
-		<td>Smiley Text:<br /><font size="-1">Will be replaced with smiley,<br />use <b>~</b> to seperate multiple allowed codes</font></td>
+		<td>Smiley Text:<br /><font size="-1">Will be replaced with smiley,<br />use <b>~</b> to separate multiple allowed codes</font></td>
 		<td><input type="text" name="sml_code" value="<?php echo htmlspecialchars($sml_code); ?>" /></td>
 	</tr>
 

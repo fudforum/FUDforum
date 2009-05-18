@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.106 2009/05/08 06:11:16 frank Exp $
+* $Id: admglobal.php,v 1.107 2009/05/18 20:22:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -257,18 +257,18 @@ function get_max_upload_size()
 ?>
 <tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><br /><b>Email Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><br /><b>E-mail Settings</b> </td></tr>
 <?php
-	print_bit_field('Allow Email', 'ALLOW_EMAIL');
-	print_bit_field('Use SMTP To Send Email', 'USE_SMTP');
+	print_bit_field('Allow E-mail', 'ALLOW_EMAIL');
+	print_bit_field('Use SMTP To Send E-mail', 'USE_SMTP');
 	print_reg_field('SMTP Server', 'FUD_SMTP_SERVER');
 	print_reg_field('SMTP Server Port', 'FUD_SMTP_PORT', 1);
 	print_reg_field('SMTP Server Timeout', 'FUD_SMTP_TIMEOUT', 1);
 	print_reg_field('SMTP Server Login', 'FUD_SMTP_LOGIN');
 	print_reg_field('SMTP Server Password', 'FUD_SMTP_PASS');
-	print_bit_field('Email Confirmation', 'EMAIL_CONFIRMATION');
+	print_bit_field('E-mail Confirmation', 'EMAIL_CONFIRMATION');
 	print_bit_field('Disable Welcome E-mail', 'DISABLE_WELCOME_EMAIL');
-	print_reg_field('Administrator Email', 'ADMIN_EMAIL');
+	print_reg_field('Administrator E-mail', 'ADMIN_EMAIL');
 	print_reg_field('Notify From', 'NOTIFY_FROM');
 	print_bit_field('Notify W/Body', 'NOTIFY_WITH_BODY');
 	print_bit_field('Smart Notification', 'SMART_EMAIL_NOTIFICATION');

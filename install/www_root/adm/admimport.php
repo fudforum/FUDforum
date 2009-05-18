@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.70 2009/05/16 07:10:04 frank Exp $
+* $Id: admimport.php,v 1.71 2009/05/18 20:22:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -309,7 +309,7 @@ function resolve_dest_path($path)
 	}
 ?>
 <h2>Import forum data</h2>
-<div class="alert">Note that the import process will REMOVE ALL current forum data (all tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the one from the file you enter.<br /><br />Please <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before imporing!</div>
+<div class="alert">Note that the import process will REMOVE ALL current forum data (all tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the one from the file you enter.<br /><br />Please <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing!</div>
 <br />
 
 <?php
@@ -333,7 +333,7 @@ if ($datadumps) {
 	<td><?php if (isset($path_error)) { echo $path_error; $path = $_POST['path']; } else { $path = ''; } ?><input type="text" value="<?php echo $path; ?>" name="path" size="40" /></td>
 </tr>
 <tr class="field">
-	<td>Skip Seach Index:<br /><font size="-1">Do not load search data. You will need to reindex your forum after the import.
+	<td>Skip Search Index:<br /><font size="-1">Do not load search data. You will need to reindex your forum after the import.
 	<td><input type="checkbox" value="y" name="skipsearch" /> Yes</td>
 </tr>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Import Data" /></td></tr>

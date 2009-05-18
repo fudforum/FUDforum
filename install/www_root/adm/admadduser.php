@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.36 2009/05/08 20:10:15 frank Exp $
+* $Id: admadduser.php,v 1.37 2009/05/18 20:22:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -69,7 +69,7 @@ function validate_input()
 				break;
 			} else if (q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE email='._esc($_POST['email']))) {
 				$error = 1;
-				$err_email = errorify('Email ('.htmlspecialchars($_POST['email']).') is already in use.');
+				$err_email = errorify('E-mail ('.htmlspecialchars($_POST['email']).') is already in use.');
 				break;
 			} else if ($ef == 4) {
 				$al = $alias . '_' . ++$i;

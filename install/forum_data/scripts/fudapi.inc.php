@@ -74,7 +74,7 @@ stdClass Object
     [level_name] => // author's level (based on post count)
     [level_img] => // author's level image !!could be empty!!
 
---- Poll data, will only be avaliable if a message has a poll ---
+--- Poll data, will only be available if a message has a poll ---
     [poll_data] => stdClass Object
         (
             [name] => // poll name
@@ -92,7 +92,7 @@ stdClass Object
         )
 --- End of Poll data ---
 
---- Attachment data, will only be avaliable if a message has file attachments ---
+--- Attachment data, will only be available if a message has file attachments ---
     [attachments] => // array of attachments
         (
             [id] => // attachment id

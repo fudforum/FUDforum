@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlog.php,v 1.40 2009/04/29 20:06:35 frank Exp $
+* $Id: admlog.php,v 1.41 2009/05/18 20:22:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -67,7 +67,7 @@ function return_forum_name($id)
 		} else {
 			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&amp;id='.$obj->user_id.'&amp;'.__adm_rsid.'">'.$obj->alias.'</a> <font size="-2">[Priveleged User]</font>';
 		}
-		echo '<tr><td>'.$user_info.'</td>';
+		echo '<tr class="field"><td>'.$user_info.'</td>';
 
 		switch ($obj->a_res) {
 			case "THRMOVE":

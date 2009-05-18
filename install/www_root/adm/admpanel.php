@@ -78,7 +78,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="admadduser.php?<?php echo __adm_rsid; ?>">Add User</a><br />
 	<a href="admaccapr.php?<?php echo __adm_rsid; ?>">Account Approval</a><br />
 	<a href="admgroups.php?<?php echo __adm_rsid; ?>">Groups Manager</a><br />
-	<a href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass Email</a><br />
+	<a href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a><br />
 	<a href="admlevel.php?<?php echo __adm_rsid; ?>">Rank Manager</a><br />
 	<a href="admslist.php?<?php echo __adm_rsid; ?>">Privileged User List</a><br />
 	<a href="admbanlist.php?<?php echo __adm_rsid; ?>">Banned User List</a><br /><br />
@@ -98,7 +98,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="admavatar.php?<?php echo __adm_rsid; ?>">Avatar Manager</a><br /><br />
 
 	<span class="linkgroup">Filters</span><br />
-	<a href="admemail.php?<?php echo __adm_rsid; ?>">Email filter</a><br />
+	<a href="admemail.php?<?php echo __adm_rsid; ?>">E-mail filter</a><br />
 	<a href="admipfilter.php?<?php echo __adm_rsid; ?>">IP filter</a><br />
 	<a href="admlogin.php?<?php echo __adm_rsid; ?>">Login filter</a><br />
 	<a href="admext.php?<?php echo __adm_rsid; ?>">File filter</a><br /><br />

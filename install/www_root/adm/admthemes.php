@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.74 2009/05/06 18:44:29 frank Exp $
+* $Id: admthemes.php,v 1.75 2009/05/18 20:22:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,7 +46,7 @@
 	if (isset($_GET['rebuild_all'])) {
 		$r = q('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes');
 		while (($data = db_rowarr($r))) {
-			echo 'Rebuilding theme '. $data[2] . ' ('. $data[1] .').';
+			echo 'Rebuilding theme '. $data[2] . ' ('. $data[1] .')...<br />';
 			compile_all($data[0], $data[1], $data[2]);
 		}
 		unset($r);
@@ -74,7 +74,7 @@
 		}
 		$edit = '';
 	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.(int)$_GET['rebuild']))) {
-		echo 'Rebuilding theme '. $data[2] . ' ('. $data[1] .').';
+		echo 'Rebuilding theme '. $data[2] . ' ('. $data[1] .')...';
 		compile_all($data[0], $data[1], $data[2]);
 	} else if (isset($_GET['edit']) && ($c = db_arr_assoc('SELECT * FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.$edit))) {
 		foreach ($c as $k => $v) {

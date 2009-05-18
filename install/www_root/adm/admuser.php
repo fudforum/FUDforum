@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.94 2009/05/16 17:43:03 frank Exp $
+* $Id: admuser.php,v 1.95 2009/05/18 20:22:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -283,7 +283,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				}
 				break;
 			default:
-				echo '<h2>User Adminstration System</h2>';
+				echo '<h2>User Administration System</h2>';
 				echo '<p>There are '.$cnt.' users that match this '.$field.' mask:</p><ul>';
 				while ($r = db_rowarr($c)) {
 					echo '<li><b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b> [ <a href="admuser.php?usr_id='.$r[0].'&amp;act=m&amp;'.__adm_rsid.'">Pick user</a> ]</li>';
@@ -294,7 +294,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		}
 	}
 ?>
-<h2>User Adminstration System</h2>
+<h2>User Administration System</h2>
 <?php if (!$usr_id) echo '<p>Use an asterisk (*) to match multiple user accounts.</p>'; ?>
 <form id="frm_usr" method="post" action="admuser.php">
 <?php echo _hs . $search_error; ?>
@@ -309,7 +309,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	</tr>
 
 	<tr class="field">
-		<td>By Email:</td>
+		<td>By E-mail:</td>
 		<td><input tabindex="2" type="text" name="usr_email" /></td>
 	</tr>
 
@@ -340,7 +340,7 @@ document.forms['frm_usr'].usr_login.focus();
 		echo '<tr class="field"><td>Alias:</td><td>'.$u->alias.'</td></tr>';
 	}
 ?>
-	<tr class="field"><td>Email:</td><td><?php echo $u->email; ?></td></tr>
+	<tr class="field"><td>E-mail:</td><td><?php echo $u->email; ?></td></tr>
 	<tr class="field"><td>Name:</td><td><?php echo $u->name; ?></td></tr>
 <?php
 	if ($u->bday) {
@@ -359,7 +359,7 @@ if (!$acc_mod_only) {
 } else {
 	echo '<tr class="field"><td nowrap="nowrap"><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').'</td></tr>';
 }
-	echo '<tr class="field"><td>Email Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>E-mail Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Confirmed Account:</td><td>'.($u->users_opt & 2097152 ? 'No' : 'Yes').' [<a href="admuser.php?act=conf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? 'No' : 'Yes').' [<a href="admuser.php?act=sig&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Can use private messaging:</td><td>'.($u->users_opt & 33554432 ? 'No' : 'Yes').' [<a href="admuser.php?act=pm&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
@@ -459,9 +459,9 @@ if ($acc_mod_only) {
 		echo '<a href="../'.__fud_index_name__.'?t=ppost&amp;'.__adm_rsid.'&amp;toi='.$usr_id.'">Send Private Message</a> | ';
 	}
 	if ($FUD_OPT_1 & 4194304) {
-		echo '<a href="../'.__fud_index_name__.'?t=email&amp;toi='.$usr_id.'&amp;'.__adm_rsid.'">Send Email</a> | ';
+		echo '<a href="../'.__fud_index_name__.'?t=email&amp;toi='.$usr_id.'&amp;'.__adm_rsid.'">Send E-mail</a> | ';
 	} else {
-		echo '<a href="mailto:'.$u->email.'">Send Email</a> | ';
+		echo '<a href="mailto:'.$u->email.'">Send E-mail</a> | ';
 	}
 
 	echo '	<a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'">See Posts</a> | <a href="admuser.php?act=reset&amp;usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Reset Password</a> | <a href="admuser.php?act=del&amp;usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Delete User</a>';

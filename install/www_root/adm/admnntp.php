@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.45 2009/05/16 07:10:04 frank Exp $
+* $Id: admnntp.php,v 1.46 2009/05/18 20:22:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -102,7 +102,7 @@
 		<td>
 			Forum:<br />
 			<font size="-1">Messages imported from the newsgroup will be imported into this forum.
-			It is <b>**highly recommeded**</b> that you setup a seperate forum for each newsgroup.</font>
+			It is <b>**highly recommended**</b> that you setup a separate forum for each newsgroup.</font>
 		</td>
 		<td><select name="nntp_forum_id"><option></option>
 		<?php
@@ -132,7 +132,7 @@
 
 	<tr class="field">
 		<td>
-			Syncronize Forum Posts to Newsgroup:<br />
+			Synchronize Forum Posts to Newsgroup:<br />
 			<font size="-1">If enabled, posts made by forum members inside the forum will be sent to the
 			newsgroup by the forum. On the newsgroup the posts would appear on behalf of the user who
 			has made the post.</font>
@@ -144,7 +144,7 @@
 		<td>
 			Moderate Forum Posts:<br />
 			<font size="-1">If enabled, any posts made by forum members in the forum would need to be first approved
-			by the moderator(s) before they are syncronized to the newsgroup or appear in the forum.</font>
+			by the moderator(s) before they are synchronized to the newsgroup or appear in the forum.</font>
 		</td>
 		<td><?php draw_select('nntp_frm_post_apr', "No\nYes", "0\n4", ($nntp_nntp_opt & 4 ? 4 : 0)); ?></td>
 	</tr>
@@ -162,7 +162,7 @@
 		<td>
 			Slow Reply Match:<br />
 			<font size="-1">Certain mail client do sent send necessary headers needed to determine if a message is
-			a reply to an existing message. If this option is enabled and normally avaliable reply headers are not there,
+			a reply to an existing message. If this option is enabled and normally available reply headers are not there,
 			the forum will try to determine if message is a reply by comparing the message's subject to subjects of existing
 			messages in the forum.</font>
 		</td>

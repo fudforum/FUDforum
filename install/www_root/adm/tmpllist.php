@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.52 2009/01/29 18:37:40 frank Exp $
+* $Id: tmpllist.php,v 1.53 2009/05/18 20:22:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -125,7 +125,7 @@ function goto_tmpl($tmpl)
 		$tmpl = $sec ? $sec : $msec;
 		$tmpl_type = $sec ? 'SECTION' : 'MAIN';
 		if (!$tmpl) {
-			exit('Section parameter not avaliable<br />');
+			exit('Section parameter not available<br />');
 		}
 		if (($sdata = fetch_section($data, $f_path, $tmpl, $tmpl_type)) === false) {
 			exit('Couldn\'t locate template "'.$tmpl.'" inside "'.$f_path.'"<br />');
@@ -275,7 +275,7 @@ function goto_tmpl($tmpl)
 						break;
 				}
 			}
-		} else { /* just parse the title & help if avaliable */
+		} else { /* just parse the title & help if available */
 			$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;max_list='.maximize($file, $max_list).'" title="maximize">[ + ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a>';
 		}
 	}

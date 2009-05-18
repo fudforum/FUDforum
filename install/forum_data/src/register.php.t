@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.174 2009/03/26 17:24:27 frank Exp $
+* $Id: register.php.t,v 1.175 2009/05/18 20:22:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -393,7 +393,7 @@ function email_encode($val)
 			}
 		}
 
-		/* only one theme avaliable, so no select */
+		/* only one theme available, so no select */
 		if (!$uent->theme) {
 			$uent->theme = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1');
 		}

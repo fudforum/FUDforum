@@ -1,4 +1,4 @@
-INSERT INTO {SQL_TABLE_PREFIX}smiley (img, descr, code, vieworder) VALUES ('icon_redface.gif','Embarassed',':blush:',1);
+INSERT INTO {SQL_TABLE_PREFIX}smiley (img, descr, code, vieworder) VALUES ('icon_redface.gif','Embarrassed',':blush:',1);
 INSERT INTO {SQL_TABLE_PREFIX}smiley (img, descr, code, vieworder) VALUES ('icon_razz.gif','Razz',':P~:-P~:razz:',2);
 INSERT INTO {SQL_TABLE_PREFIX}smiley (img, descr, code, vieworder) VALUES ('icon_mad.gif','Mad',':x~:-x~:mad:',3);
 INSERT INTO {SQL_TABLE_PREFIX}smiley (img, descr, code, vieworder) VALUES ('icon_lol.gif','Laughing',':lol:',4);

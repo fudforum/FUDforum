@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.47 2009/05/16 07:10:04 frank Exp $
+* $Id: admmlist.php,v 1.48 2009/05/18 20:22:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,7 +71,7 @@ function format_regex(&$regex)
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
-		<td>Mailing List Email:<br /><font size="-1">The email address of the mailing list.</font></td>
+		<td>Mailing List E-mail:<br /><font size="-1">The email address of the mailing list.</font></td>
 		<td><input type="text" name="ml_name" value="<?php echo htmlspecialchars($ml_name); ?>" maxlength="255" /></td>
 	</tr>
 
@@ -79,7 +79,7 @@ function format_regex(&$regex)
 		<td>
 			Forum:<br />
 			<font size="-1">Messages imported from the mailing list will be imported into this forum.
-			It is <b>**highly recommeded**</b> that you setup a seperate forum for each mailing list.</font>
+			It is <b>**highly recommended**</b> that you setup a separate forum for each mailing list.</font>
 		</td>
 		<td><select name="ml_forum_id"><option></option>
 		<?php
@@ -109,7 +109,7 @@ function format_regex(&$regex)
 
 	<tr class="field">
 		<td>
-			Syncronize Forum Posts to Mailing List:<br />
+			Synchronize Forum Posts to Mailing List:<br />
 			<font size="-1">If enabled, posts made by forum members inside the forum will be sent to the
 			mailing list by the forum. On the mailing list the posts would appear on behalf of the user who
 			has made the post.</font>
@@ -121,7 +121,7 @@ function format_regex(&$regex)
 		<td>
 			Moderate Forum Posts:<br />
 			<font size="-1">If enabled, any posts made by forum members in the forum would need to be 1st approved
-			by the moderator(s) before they are syncronized to the mailing list or appear in the forum.</font>
+			by the moderator(s) before they are synchronized to the mailing list or appear in the forum.</font>
 		</td>
 		<td><?php draw_select('ml_frm_post_apr', "No\nYes", "0\n4", ($ml_mlist_opt & 4 ? 4 : 0)); ?></td>
 	</tr>
@@ -148,7 +148,7 @@ function format_regex(&$regex)
 		<td>
 			Slow Reply Match:<br />
 			<font size="-1">Certain mail client do sent send necessary headers needed to determine if a message is
-			a reply to an existing message. If this option is enabled and normally avaliable reply headers are not there,
+			a reply to an existing message. If this option is enabled and normally available reply headers are not there,
 			the forum will try to determine if message is a reply by comparing the message's subject to subjects of existing
 			messages in the forum.</font>
 		</td>
@@ -203,7 +203,7 @@ function format_regex(&$regex)
 		<td colspan="2"><font size="-1"><b>Optional</b> Body Mangling<br />This field allows you to specify a regular expression, that
 		will be applied to the bodies of messages imported from the mailing list. It is recommended you use this option
 		to remove the automatically prepended text added by the mailing list to the bottom of each message. This text often
-		informs the user on how to unsubscribe from the list and is merely a waste of space in a forum enviroment.</font>
+		informs the user on how to unsubscribe from the list and is merely a waste of space in a forum environment.</font>
 		</td>
 	</tr>
 
@@ -224,7 +224,7 @@ function format_regex(&$regex)
 	<tr class="field">
 		<td colspan="2"><font size="-1"><b>Optional</b> Custom Headers<br />This field allows you to specify custom headers, that
 		will be appended to any existing headers sent by the forum when posting a message to the mailing list. To avoid problem
-		enter each header on a seperate line and do not place blank lines.</font></td>
+		enter each header on a separate line and do not place blank lines.</font></td>
 	</tr>
 
 	<tr class="field">

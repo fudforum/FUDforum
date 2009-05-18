@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.41 2009/01/29 18:37:40 frank Exp $
+* $Id: admavatar.php,v 1.42 2009/05/18 20:22:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -129,7 +129,7 @@ function import_avatars($path)
 		q('INSERT INTO '.$tbl.'avatar (img, descr, gallery) VALUES ('.ssn($_POST['avt_img']).', '._esc($_POST['avt_descr']).', '.ssn($avt_gal).')');
 	}
 
-	// fetch a list of avaliable galleries
+	// fetch a list of available galleries
 	$galleries = db_all("SELECT DISTINCT(gallery) FROM ".$tbl."avatar");
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
