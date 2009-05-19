@@ -1,0 +1,31 @@
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: drawpmsg.tmpl,v 1.1 2009/05/19 19:09:08 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: drawpmsg.inc.t; output: drawpmsg.inc;}
+
+{MAIN_SECTION: private_message_entry draws a single private message}
+<tr><td><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td colspan="2">
+  <table cellspacing="0" cellpadding="0" class="ContentTable"><tr>
+  <td class="MsgR1 vt al MsgSubText">{IF: !$mini && $obj->icon}{TEMPLATE: dpmsg_msg_icon}{ENDIFI}{VAR: obj->subject}</td>
+  <td class="MsgR1 vt ar DateText">{TEMPLATE: dmsg_post_date}</td>
+  </tr></table>
+</tr>
+
+<tr class="MsgR2">
+<td class="MsgR2" width="15%" valign="top">
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr class="MsgR2">{TEMPLATE-DATA: online_indicator}{TEMPLATE: dpmsg_profile_link}{IF: !$mini}{IF: $obj->user_id}<br />{TEMPLATE-DATA: avatar}<tr class="MsgR2"><td class="msgud">{TEMPLATE-DATA: dmsg_tags}</td></tr><tr class="MsgR2"> <td class="msgud">{MSG: posts_c}{VAR: obj->posted_msg_count}<br />
+{MSG: registered}{TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}{ENDIFI}<br />{TEMPLATE-DATA: buddy_link}<br /></td></tr><tr class="MsgR2"><td class="msgud">{TEMPLATE-DATA: dmsg_im_row}</td></tr></table></td>
+
+<td class="MsgR3" width="85%" valign="top">{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: file_attachments}{IF: ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096)}<p /><hr class="sig" />{VAR: obj->sig}{ENDIFI}</td></tr>{TEMPLATE-DATA: msg_toolbar}
+<tr><td class="MsgR2 ac" colspan=2>{GVAR: dpmsg_prev_message} {GVAR: dpmsg_next_message}</td></tr>
+</table></td></tr>
+{MAIN_SECTION: END}

@@ -1,0 +1,32 @@
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: drawmsg.tmpl,v 1.1 2009/05/19 19:09:08 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: drawmsg.inc.t; output: drawmsg.inc;}
+{REF: fileio.tmpl}
+{REF: alt_var.tmpl}
+
+{MAIN_SECTION: message_entry Message Entry (a single message)}
+<tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td colspan="2" class="MsgR1"><table cellspacing="0" cellpadding="0" class="ContentTable"><tr><td class="MsgR1 vt al MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{IF: $obj->icon && !$hide_controls}<img src="images/message_icons/{VAR: obj->icon}" alt="{VAR: obj->icon}" />&nbsp;&nbsp;{ENDIFI}{VAR: obj->subject}{TEMPLATE-DATA: rpl}</td>
+<td class="MsgR1 vt ar"><span class="DateText">{TEMPLATE: dmsg_post_date}</span> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td></tr></table></td></tr>
+
+<tr class="MsgR2">
+<td class="MsgR2" width="15%" valign="top">
+<table cellspacing="0" cellpadding="0" class="ContentTable"><tr class="MsgR2">{TEMPLATE-DATA: online_indicator}{TEMPLATE-DATA: user_link}{IF: !$hide_controls}{IF: $obj->user_id}<br />{TEMPLATE-DATA: avatar}<tr class="MsgR2"><td class="msgud">{TEMPLATE-DATA: dmsg_tags}</td></tr><tr class="MsgR2"> <td class="msgud">{MSG: posts_c}{VAR: obj->posted_msg_count}<br />
+{MSG: registered}{TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}{ENDIFI}</td></tr><tr class="MsgR2"><td class="msgud">{TEMPLATE-DATA: dmsg_bd_il}{TEMPLATE-DATA: dmsg_im_row}{IF: !$hide_controls}{IF: ($obj->host_name && $o1 & 268435456)}{MSG: from}{VAR: obj->host_name}<br />{ENDIFI}{IF: ($b & 1048576 || $usr->md || $o1 & 134217728)}{MSG: dmsg_ip} <a href="{TEMPLATE: dmsg_ip_address_url}" target="_blank">{VAR: obj->ip_addr}</a>{ENDIFI}{ENDIFI}</td></tr></table></td>
+
+<td class="MsgR3" width="85%" valign="top">{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: drawmsg_file_attachments}
+{TEMPLATE-DATA: modified_message}{IF: !$hide_controls}{IF: ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096 && !($a & 67108864))}<p /><hr class="sig" />{VAR: obj->sig}{ENDIFI}{TEMPLATE: dmsg_report_to_mod_link}{ENDIFI}
+</td></tr>
+{IF: !$hide_controls}{TEMPLATE: dmsg_message_toolbar}{ENDIFI}
+</table></td></tr>
+{MAIN_SECTION: END}
+
