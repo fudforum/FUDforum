@@ -660,11 +660,11 @@ remail_emailsent:		Email was sent
 remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Your friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Add Option:
 post_opt_html_on:		<b>HTML</b> kodas <b>ĮJUNGTAS</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> <b>ĮJUNGTAS</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> <b>ĮJUNGTAS</b></a>
 post_opt_images_on:		<b>Paveikslėliai</b> <b>ĮJUNGTI</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Šypsenėlės</b> <b>ĮJUNGTOS</b></a>
 post_opt_html_off:		<b>HTML</b> kodas <b>IŠJUNGTAS</b>
-post_opt_fud_off:		<b>FUDcode</b> <b>IŠJUNGTA</b>
+post_opt_fud_off:		<b>BBcode</b> <b>IŠJUNGTA</b>
 post_opt_images_off:		<b>Paveikslėliai</b> <b>IŠJUNGTI</b>
 post_opt_smilies_off:		<b>Šypsenėlės</b> <b>IŠJUNGTOS</b>
 post_opt:			Forumo nustatymai

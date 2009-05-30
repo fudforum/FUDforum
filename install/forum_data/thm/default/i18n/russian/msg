@@ -654,11 +654,11 @@ remail_emailsent:		Электронное письмо отправлено
 remail_email:			Привет,\n\nВ форуме "{GVAR: FORUM_TITLE}" имеются сообщения на тему "{VAR: data->subject}", которые вас возможно заинтересуют. Вы можете просмотреть тему по указанному адресу:\n\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ваш друг,\n\n{VAR: usr->alias}\n
 poll_add_option:		Добавить вариант:
 post_opt_html_on:		<b>HTML</b> - <b>включен</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> - <b>включен</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> - <b>включен</b></a>
 post_opt_images_on:		<b>Картинки</b> - <b>включены</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Смайлики</b> - <b>включен</b></a>
 post_opt_html_off:		<b>HTML</b>  - <b>выключен</b>
-post_opt_fud_off:		<b>FUDcode</b> - <b>выключен</b>
+post_opt_fud_off:		<b>BBcode</b> - <b>выключен</b>
 post_opt_images_off:		<b>Картинки</b> - <b>выключены</b>
 post_opt_smilies_off:		<b>Смайлики</b> - <b>выключены</b>
 post_opt:			Параметры форума

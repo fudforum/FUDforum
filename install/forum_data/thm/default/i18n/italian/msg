@@ -651,11 +651,11 @@ remail_emailsent:		L&#39;email &egrave; stata spedita
 remail_email:			C&#39;&egrave; una pagina nel forum {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) che ti potrebbe interessare.\nEcco l&#39;argomento che credo ti interessi, {VAR: data->subject}: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nDa {VAR: usr->alias}\n
 poll_add_option:		Aggiungi risposta:
 post_opt_html_on:		L&#39;<b>HTML</b> &egrave; <b>Attivo</b>
-post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target=_new>FUDcode</b> &egrave; <b>ON</a></b>
+post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target=_new>BBcode</b> &egrave; <b>ON</a></b>
 post_opt_images_on:		Le <b>immagini</b> sono <b>Attive</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target=_new>Gli <b>smiley</b> sono <b>ON</b></a>
 post_opt_html_off:		L&#39;<b>HTML</b> &egrave; <b>Disattivo</b>
-post_opt_fud_off:		<b>FUDcode</b> &egrave; <b>Disattivo</b>
+post_opt_fud_off:		<b>BBcode</b> &egrave; <b>Disattivo</b>
 post_opt_images_off:		Le <b>immagini</b> sono <b>Disattivo</b>
 post_opt_smilies_off:		Gli <b>smiley</b> sono <b>Disattivo</b>
 post_opt:			Opzioni del forum

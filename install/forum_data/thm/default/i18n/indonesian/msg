@@ -665,11 +665,11 @@ remail_emailsent:		E-mail terkirim
 remail_email:			Halo,\n\nAda topik menarik tentang "{VAR: data->subject}" di forum {GVAR: FORUM_TITLE} yang mungkin ingin anda baca. Anda dapat melihatnya dari sini:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Tambah pilihan:
 post_opt_html_on:		kode <b>HTML</b> di<b>AKTIFKAN</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> di<b>AKTIFKAN</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> di<b>AKTIFKAN</b></a>
 post_opt_images_on:		<b>Gambar</b> di<b>AKTIFKAN</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> di<b>AKTIFKAN</b></a>
 post_opt_html_off:		kode <b>HTML</b> di<b>NON-AKTIFKAN</b>
-post_opt_fud_off:		<b>FUDcode</b> di<b>NON-AKTIFKAN</b>
+post_opt_fud_off:		<b>BBcode</b> di<b>NON-AKTIFKAN</b>
 post_opt_images_off:		<b>Images</b> di<b>NON-AKTIFKAN</b>
 post_opt_smilies_off:		<b>Smilies</b> di<b>NON-AKTIFKAN</b>
 post_opt:			Pilihan Forum

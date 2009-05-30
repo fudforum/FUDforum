@@ -3,15 +3,15 @@ TOPIC_HELP:
 Im Allgemeinen bestehen Forumsbeitr&auml;ge meistens aus unformatierten Text, es ist jedoch bei Bedarf m&ouml;glich,
 eine gewisse Formatierung anzuwenden, wie zum Beispiel W&ouml;rter fett oder kursiv schreiben &hellip;
 <p />
-Da in den meisten F&auml;llen der Administrator die Verwendung von HTML nicht gestatten wird, kann daf&uuml;r FUDcode verwendet werden. Dieser besteht aus einer Reihe
-von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist sehr leicht zu erlernen und erheblich sicherer als HTML.
+Da in den meisten F&auml;llen der Administrator die Verwendung von HTML nicht gestatten wird, kann daf&uuml;r BBcode verwendet werden. Dieser besteht aus einer Reihe
+von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. BBcode ist sehr leicht zu erlernen und erheblich sicherer als HTML.
 <p />
 
 <a name="url"><b>Links zu Webseiten</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -24,7 +24,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -32,12 +32,12 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target="_blank">http://www.meinehomepage.com</a></td>
   </tr>
 </table>
-<i>Erkl&auml;rung:</i> Du kannst auch FUDcode verwenden, um Links zu Webseiten zu erstellen. 
+<i>Erkl&auml;rung:</i> Du kannst auch BBcode verwenden, um Links zu Webseiten zu erstellen. 
 <br /><br />
  
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -45,7 +45,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="center"><a href="http://www.meinehomepage.com" target="_blank">Meine Homepage</a></td>
   </tr>
 </table>
-<i>Erkl&auml;rung:</i> Du kannst mit FUDcode Links mit eigener Beschriftung erstellen.
+<i>Erkl&auml;rung:</i> Du kannst mit BBcode Links mit eigener Beschriftung erstellen.
 <br /><br /><br />
 
 <p />
@@ -53,7 +53,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -66,7 +66,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -74,7 +74,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
     <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Support</a></td>
   </tr>
 </table>
-<i>Erkl&auml;rung:</i> Mit FUDcode kannst du E-Mail-Links mit eigener Beschriftung erstellen.
+<i>Erkl&auml;rung:</i> Mit BBcode kannst du E-Mail-Links mit eigener Beschriftung erstellen.
 <br /><br />
 
 <br />
@@ -83,7 +83,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -97,7 +97,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -111,7 +111,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -125,7 +125,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -139,7 +139,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -153,7 +153,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -167,7 +167,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -181,7 +181,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -193,7 +193,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -208,7 +208,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -220,7 +220,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -232,7 +232,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -247,7 +247,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -259,7 +259,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -271,7 +271,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -285,7 +285,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -297,7 +297,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -312,7 +312,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -326,7 +326,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -343,7 +343,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -370,7 +370,7 @@ hallo();
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -383,17 +383,17 @@ hallo();
 <i>Erkl&auml;rung:</i> [code][/code] funktioniert fast genauso wie [pre][/pre], allerdings setzt das Forum einen deutlich sichtbaren Rahmen um den Text.
 <br /><br /><br />
 
-<a name="notag"><b>Kein FUDcode</b></a><br />
+<a name="notag"><b>Kein BBcode</b></a><br />
 <i>Erkl&auml;rung:</i> Der <font color="#ff0000"><b>[notag][/notag]</b></font> Tag erm&ouml;glicht es dir, den Text innerhalb
 der Tags nicht vom FUDForum eigenem Tag Parser interpretieren zu lassen. Das erm&ouml;glicht dir, Beispiele f&uuml;r
-FUDcode zu nennen, ohne sie in HTML umwandeln zu lassen.
+BBcode zu nennen, ohne sie in HTML umwandeln zu lassen.
 <br /><br /><br />
 
 <a name="hr"><b>Horizontale Linie </b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -408,7 +408,7 @@ FUDcode zu nennen, ohne sie in HTML umwandeln zu lassen.
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -432,7 +432,7 @@ Weiterer sichtbarer Text.</td>
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
@@ -447,7 +447,7 @@ Weiterer sichtbarer Text.</td>
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>

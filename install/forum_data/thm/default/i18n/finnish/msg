@@ -660,11 +660,11 @@ remail_emailsent:		Sähköposti on lähetetty
 remail_email:			Hei,\n\nLöysin {GVAR: FORUM_TITLE} foorumilta mielenkiintoisen aiheen\notsikolla "{VAR: data->subject}" joka ehkä kiinnostaa sinua.\nLöydät sen täältä:\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTerveisin,\n\n{VAR: usr->alias}\n
 poll_add_option:		Lisää valinta:
 post_opt_html_on:		<b>HTML</b>-koodit: <b>Käytössä</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b>: <b>Käytössä</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b>: <b>Käytössä</b></a>
 post_opt_images_on:		<b>Kuvat</b>: <b>Käytössä</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Hymiöt</b>: <b>Käytössä</b></a>
 post_opt_html_off:		<b>HTML</b>-koodit: <b>Ei käytössä</b>
-post_opt_fud_off:		<b>FUDcode</b>: <b>Ei käytössä</b>
+post_opt_fud_off:		<b>BBcode</b>: <b>Ei käytössä</b>
 post_opt_images_off:		<b>Kuvat</b>: <b>Ei käytössä</b>
 post_opt_smilies_off:		<b>Hymiöt</b>: <b>Ei käytössä</b>
 post_opt:			Foorumin asetukset

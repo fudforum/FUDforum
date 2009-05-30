@@ -166,7 +166,7 @@ hello();
 
 <b>No Tag</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
-the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
+the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of BBcode 
 and not have them converted to equivalent HTML.
 <p>
 

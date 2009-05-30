@@ -659,11 +659,11 @@ remail_emailsent:		Email bol odoslaný
 remail_email:			Dobrý deň,\n\nvo fóre {GVAR: FORUM_TITLE} sa nachádza zaujímavá téma "{VAR: data->subject}", ktorú by ste si mohli chcieť prečítať. Tému si môžete prezrieť na adrese:\n {ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Váš priateľ,\n\n{VAR: usr->alias}\n
 poll_add_option:		Pridať možnosť:
 post_opt_html_on:		<b>HTML</b> je <b>ZAPNUTÉ</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> je <b>ZAPNUTÝ</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> je <b>ZAPNUTÝ</b></a>
 post_opt_images_on:		<b>Obrázky</b> sú <b>ZAPNUTÉ</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smajlíci</b> sú <b>ZAPNUTÍ</b></a>
 post_opt_html_off:		<b>HTML</b> kód je <b>VYPNUTÝ</b>
-post_opt_fud_off:		<b>FUDcode</b> je <b>VYPNUTÝ</b>
+post_opt_fud_off:		<b>BBcode</b> je <b>VYPNUTÝ</b>
 post_opt_images_off:		<b>Obrázky</b> sú <b>VYPNUTÉ</b>
 post_opt_smilies_off:		<b>Smajlíci</b> sú <b>VYPNUTÍ</b>
 post_opt:			Nastavenia fóra

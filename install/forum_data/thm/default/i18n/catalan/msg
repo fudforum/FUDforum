@@ -653,11 +653,11 @@ remail_emailsent:		S`ha enviat el missatge de correu
 remail_email:			Hi ha una pàgina web a {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) que podria ser del seu interès.\nAquest és el fil de discussió que hem cregut que podria interessar-li, {VAR: data->subject} pot trobar-lo aquí­: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&{DEF: _RSID}\nDe {VAR: usr->alias}\n
 poll_add_option:		Afegir opció:
 post_opt_html_on:		El codi <b>HTML</b> està  <b>ACTIVAT</b>
-post_opt_fud_on:		El <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode</b> està  <b>HABILITAT</a></b>
+post_opt_fud_on:		El <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">BBcode</b> està  <b>HABILITAT</a></b>
 post_opt_images_on:		Les <b>Imatges</b> estan <b>ACTIVADES</b>
 post_opt_smilies_on:		Els <a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>smilies</b> estan <b>HABILITATS</b></a>
 post_opt_html_off:		El codi <b>HTML</b> està  <b>DESACTIVAT</b>
-post_opt_fud_off:		El <b>FUDcode</b> està  <b>DESACTIVAT</b>
+post_opt_fud_off:		El <b>BBcode</b> està  <b>DESACTIVAT</b>
 post_opt_images_off:		Les <b>imatges</b> estan <b>DESACTIVADES</b>
 post_opt_smilies_off:		Les <b>emoticones</b> estan <b>DESACTIVADES</b>
 post_opt:			Opcions del fòrum

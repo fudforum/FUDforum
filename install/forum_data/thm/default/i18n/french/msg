@@ -654,11 +654,11 @@ remail_emailsent:		L&#39;e-mail a été envoyé
 remail_email:			Voici, sur la page {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) un sujet, intitulé {VAR: data->subject}, que je trouve intéressant. Il est accessible ici : {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nDe {VAR: usr->alias}\n
 poll_add_option:		Ajouter une Option :
 post_opt_html_on:		Le code <b>HTML</b> est <b>ACTIVÉ</b>
-post_opt_fud_on:		Le <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode</b> est <b>ACTIVÉ</a></b>
+post_opt_fud_on:		Le <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">BBcode</b> est <b>ACTIVÉ</a></b>
 post_opt_images_on:		Les <b>images</b> sont <b>ACTIVÉES</b>
 post_opt_smilies_on:		Les <a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>smileys</b> sont <b>ACTIVÉS</b></a>
 post_opt_html_off:		Le code <b>HTML</b> est <b>DÉSACTIVÉ</b>
-post_opt_fud_off:		Le <b>FUDcode</b> est <b>DÉSACTIVÉ</b>
+post_opt_fud_off:		Le <b>BBcode</b> est <b>DÉSACTIVÉ</b>
 post_opt_images_off:		Les <b>images</b> sont <b>DÉSACTIVÉES</b>
 post_opt_smilies_off:		Les <b>smileys</b> sont <b>DÉSACTIVÉS</b>
 post_opt:			Options activées sur le forum :

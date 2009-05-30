@@ -656,11 +656,11 @@ remail_emailsent:		Email is verzonden
 remail_email:			Hallo,\n\ner is een interessant topic over "{VAR: data->subject}" op {GVAR: FORUM_TITLE} forum dat u misschien wel wilt lezen. U kan dit topic bekijken op:\n {FULL_ROOT}{ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n uw vriend,\n\n{VAR: usr->alias}\n
 poll_add_option:		voeg Optie toe:
 post_opt_html_on:		<b>HTML</b> staat <b>AAN</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> staat <b>AAN</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> staat <b>AAN</b></a>
 post_opt_images_on:		<b>fotos</b> staan <b>AAN</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> staan <b>AAN</b></a>
 post_opt_html_off:		<b>HTML</b> code staat <b>UIT</b>
-post_opt_fud_off:		<b>FUDcode</b> staat <b>UIT</b>
+post_opt_fud_off:		<b>BBcode</b> staat <b>UIT</b>
 post_opt_images_off:		<b>Fotos</b> staan <b>UIT</b>
 post_opt_smilies_off:		<b>Smilies</b> staan <b>UIT</b>
 post_opt:			Forum Opties

@@ -43,7 +43,7 @@ TOPIC_HELP:
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#pre">Preformateado [pre]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#php">Código PHP [php]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#code">Código [code]</a></li>
-	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#notag">Sin FUDcode [notag]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#notag">Sin BBcode [notag]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#hr">Línea Horizontal [hr]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#spoiler">Spoiler [spoiler]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#acronym">Acrónimo [acronym]</a></li>

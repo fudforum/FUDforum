@@ -3,15 +3,15 @@ TOPIC_HELP:
 Por lo general los mensajes en el foro son principalmente texto plano, sin embargo en ocasiones puede desear
 añadir algo de formato a su texto, tal como palabras en negrita, en cursiva, etc.
 <p>
-Puesto que en algunos casos el administrador no permite el uso de HTML en los mensajes, puede usar FUDcode, que es un conjunto
-especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode es muy fácil de usar y es mucho más seguro que el HTML.
+Puesto que en algunos casos el administrador no permite el uso de HTML en los mensajes, puede usar BBcode, que es un conjunto
+especial de etiquetas que le permiten cierto formateo para su texto. El BBcode es muy fácil de usar y es mucho más seguro que el HTML.
 <p>
 
 <a name="url"><b>Enlazado de URL</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -24,7 +24,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -32,12 +32,12 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></td>
   </tr>
 </table>
-<i>Explicación:</i> También puede definir URL mediante FUDcode, este es un ejemplo simple de su uso. 
+<i>Explicación:</i> También puede definir URL mediante BBcode, este es un ejemplo simple de su uso. 
 <br /><br />
  
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -45,7 +45,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>Mi página personal</a></td>
   </tr>
 </table>
-<i>Explicación:</i> Puede usar FUDcode para crear URL con un texto de su elección.
+<i>Explicación:</i> Puede usar BBcode para crear URL con un texto de su elección.
 <br /><br /><br />
 
 <p>
@@ -53,7 +53,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -66,7 +66,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -74,7 +74,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Pulse aquí para enviar un mensaje al soporte técnico</a></td>
   </tr>
 </table>
-<i>Explanation:</i> Puede usar FUDcode para crear enlaces a direcciones de correo que se muestren con un texto de su elección.
+<i>Explanation:</i> Puede usar BBcode para crear enlaces a direcciones de correo que se muestren con un texto de su elección.
 <br /><br />
 
 <br />
@@ -83,7 +83,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -97,7 +97,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -111,7 +111,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -125,7 +125,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -139,7 +139,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -153,7 +153,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -167,7 +167,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -181,7 +181,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -193,7 +193,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -208,7 +208,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -220,7 +220,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -232,7 +232,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -247,7 +247,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -259,7 +259,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -271,7 +271,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -285,7 +285,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -297,7 +297,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -305,14 +305,14 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
     <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0"></a></td>
   </tr>
 </table>
-<i>Explicación:</i> Puede usar FUDcode para crear imágenes enlazadas metiendo las etiquetas [img][/img] dentro de las etiquetas [url][/url].
+<i>Explicación:</i> Puede usar BBcode para crear imágenes enlazadas metiendo las etiquetas [img][/img] dentro de las etiquetas [url][/url].
 <br /><br /><br />
 
 <a name="quote"><b>Cita de otros mensajes</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -326,7 +326,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -343,7 +343,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El FUDcode 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -370,7 +370,7 @@ hello();
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -385,7 +385,7 @@ hello();
 
 <a name="notag"><b>Sin etiquetas</b></a><br />
 <i>Explicación:</i> La etiqueta <font color="#ff0000"><b>[notag][/notag]</b></font> le permite que el texto en el interior de las mismas
-no sea interpretado por el analizador de etiquetas de FUDforum. Esto le permitirá mostrar fragmentos de FUDcode sin que el foro lo convierta
+no sea interpretado por el analizador de etiquetas de FUDforum. Esto le permitirá mostrar fragmentos de BBcode sin que el foro lo convierta
 en el código HTML equivalente.
 <br /><br /><br />
 
@@ -393,7 +393,7 @@ en el código HTML equivalente.
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -408,7 +408,7 @@ en el código HTML equivalente.
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -431,7 +431,7 @@ Más texto visible.</td>
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
@@ -446,7 +446,7 @@ Más texto visible.</td>
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>

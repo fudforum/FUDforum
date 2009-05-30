@@ -3,11 +3,11 @@ TOPIC_HELP:
 Genel olarak forumdaki iletiler düz metinden oluşur, bununla birlikte zaman zaman metni
 biçimlendirmek isteyebilirsiniz, örnegin bazı bölümleri veya sözcükleri kalın, yatık yapmak vb.
 <p>
-Çoğu durumda yönetici iletilerinizde HTML kullanmanıza izin vermeyeceği için, FUDcode kullanmanız gerekebilir.
-FUDcode, metninizi biçimlendirmenizi sağlayan ve HTML yerine kullanabileceğiniz takıları içerir. FUDcode kullanımı
+Çoğu durumda yönetici iletilerinizde HTML kullanmanıza izin vermeyeceği için, BBcode kullanmanız gerekebilir.
+BBcode, metninizi biçimlendirmenizi sağlayan ve HTML yerine kullanabileceğiniz takıları içerir. BBcode kullanımı
 çok kolaydır, ve HTML'ye göre çok daha güvenlidir.
 <p>
-<b>İşte desteklenen FUDcode takıları ve kullanım hakkında kısa örnekler:</b>
+<b>İşte desteklenen BBcode takıları ve kullanım hakkında kısa örnekler:</b>
 
 <b>URL linkleri</b><br /><br />
 
@@ -16,7 +16,7 @@ Forum otomatik olarak değişik şekillerdeki URLleri tanıyabilir, örneğin:<b
 adresinin otomatik olarak URL olduğu tanınır ve şu şekilde görüntülenir:
 	<div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div><br />
 	
-FUDcode kullanarak kendiniz de iki değişik yol ile bir URL oluşturabilirsiniz, bunlardan daha basit olanı:
+BBcode kullanarak kendiniz de iki değişik yol ile bir URL oluşturabilirsiniz, bunlardan daha basit olanı:
 	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.anasayfam.com</font>[/URL]</font></b></div><br />
 şeklinde bir yapı oluşturduğunuzda aşağıdaki link oluşacaktır:
 	<div align="center"><a href="http://www.anasayfam.com" target=_blank>http://www.anasayfam.com</a></div><br />
@@ -63,7 +63,7 @@ olmasını sağlar. Ayrıca çeşitli takıları birlikte kullanmak da mümkünd
 <br />
 <br />
 <b>Metin Hizalama</b><br />
-FUDcode metinlerin hangi hizada olacağını ayarlamak için [align] takısını içerir. Bunu kullanarak metni 3 değişik hizaya getirebilirsiniz:
+BBcode metinlerin hangi hizada olacağını ayarlamak için [align] takısını içerir. Bunu kullanarak metni 3 değişik hizaya getirebilirsiniz:
 <ul>
 	<li><font color="#ff0000"><b>[align=center]</b></font>ortala<font color="#ff0000"><b>[/align]</b></font>metnin</li>
 		<div align="center">ortalanmasını</div> yani sayfanın her iki kenarından eşit uzaklıkta olmasını sağlar.
@@ -179,7 +179,7 @@ hello();
 
 <b>No Tag</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
-the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
+the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of BBcode 
 and not have them converted to equivalent HTML.
 <p>
 

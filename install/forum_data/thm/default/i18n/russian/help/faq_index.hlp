@@ -43,7 +43,7 @@ TOPIC_HELP:
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#pre">Форматированный [pre]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#php">PHP-скрипт [php]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#code">Исходный текст [code]</a></li>
-	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#notag">Без FUDcode [notag]</a></li>
+	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#notag">Без BBcode [notag]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#hr">Горизонтальная линия [hr]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#spoiler">Скрытый текст [spoiler]</a></li>
 	<li><a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#acronym">Акроним/аббревиатура [acronym]</a></li>

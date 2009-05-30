@@ -664,11 +664,11 @@ remail_emailsent:		이메일 발송 완료
 remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		옵션 추가:
 post_opt_html_on:		<b>HTML</b> is <b>ON</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> is <b>ON</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> is <b>ON</b></a>
 post_opt_images_on:		<b>Images</b> are <b>ON</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> are <b>ON</b></a>
 post_opt_html_off:		<b>HTML</b> code is <b>OFF</b>
-post_opt_fud_off:		<b>FUDcode</b> is <b>OFF</b>
+post_opt_fud_off:		<b>BBcode</b> is <b>OFF</b>
 post_opt_images_off:		<b>Images</b> are <b>OFF</b>
 post_opt_smilies_off:		<b>Smilies</b> are <b>OFF</b>
 post_opt:			포럼 옵션

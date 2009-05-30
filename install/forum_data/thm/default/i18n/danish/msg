@@ -671,11 +671,11 @@ remail_emailsent:		Mail blev afsendt
 remail_email:			Hej,\n\nder er et interessant emne om "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum, som du muligvis vil læse. Du kan se emnet på:\n {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nDin ven,\n\n{VAR: usr->alias}\n
 poll_add_option:		Tilføj valgmulighed:
 post_opt_html_on:		<b>HTML</b> er <b>TIL</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> er <b>TIL</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> er <b>TIL</b></a>
 post_opt_images_on:		<b>Billeder</b> er <b>TIL</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Humørikoner</b> er <b>TIL</b></a>
 post_opt_html_off:		<b>HTML</b> kode er <b>FRA</b>
-post_opt_fud_off:		<b>FUDcode</b> er <b>FRA</b>
+post_opt_fud_off:		<b>BBcode</b> er <b>FRA</b>
 post_opt_images_off:		<b>Billeder</b> er <b>FRA</b>
 post_opt_smilies_off:		<b>Smilies</b> er <b>FRA</b>
 post_opt:			Forum indstillinger

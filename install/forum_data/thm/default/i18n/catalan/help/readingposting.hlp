@@ -2,14 +2,14 @@ TOPIC_TITLE: <a name="style">Com formatejar el text?</a>
 TOPIC_HELP:
 Generalment els missatges en el fòrum són principalment text pla, tanmateix en ocasions pot desitjar afegir alguna cosa de formateig al seu text, com paraules en negreta, cursiva, etc.
 <p>
-Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, pot usar FUDcode, que és un conjunt especial  d`etiquetes que li permeten cert formateig per al seu text. El FUDcode és molt fàcil d`usar i és molt més segur que l`HTML.
+Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, pot usar BBcode, que és un conjunt especial  d`etiquetes que li permeten cert formateig per al seu text. El BBcode és molt fàcil d`usar i és molt més segur que l`HTML.
 <p>
 
 <a name="url"><b>Enllaçat de URL</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -22,7 +22,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -30,12 +30,12 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></td>
   </tr>
 </table>
-<i>Explicació:</i> També pot definir URL mitjançant FUDcode, aquest és un exemple simple del seu ús.
+<i>Explicació:</i> També pot definir URL mitjançant BBcode, aquest és un exemple simple del seu ús.
 <br /><br />
  
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -43,7 +43,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>La meva pàgina personal</a></td>
   </tr>
 </table>
-<i>Explicació:</i> Pot usar FUDcode per a crear URL amb un text de la seva elecció.
+<i>Explicació:</i> Pot usar BBcode per a crear URL amb un text de la seva elecció.
 <br /><br /><br />
 
 <p>
@@ -51,7 +51,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -64,7 +64,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -72,7 +72,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
     <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Premi aquí per a enviar un missatge al suport tècnic</a></td>
   </tr>
 </table>
-<i>Explanation:</i> Pot usar FUDcode per a crear enllaços a adreces de correu que es mostrin amb un text de la seva elecció.
+<i>Explanation:</i> Pot usar BBcode per a crear enllaços a adreces de correu que es mostrin amb un text de la seva elecció.
 <br /><br />
 
 <br />
@@ -81,7 +81,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -95,7 +95,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -109,7 +109,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -123,7 +123,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -137,7 +137,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -151,7 +151,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -165,7 +165,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -179,7 +179,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -191,7 +191,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -206,7 +206,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -218,7 +218,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -230,7 +230,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -245,7 +245,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -257,7 +257,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -269,7 +269,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -283,7 +283,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -295,7 +295,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -303,14 +303,14 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
     <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0"></a></td>
   </tr>
 </table>
-<i>Explicació:</i> Pot usar FUDcode per a crear imatges enllaçades posant-hi les etiquetes [img][/img] dins de les etiquetes [url][/url].
+<i>Explicació:</i> Pot usar BBcode per a crear imatges enllaçades posant-hi les etiquetes [img][/img] dins de les etiquetes [url][/url].
 <br /><br /><br />
 
 <a name="quote"><b>Cita d`altres missatges</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -324,7 +324,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -341,7 +341,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -368,7 +368,7 @@ hello();
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -382,14 +382,14 @@ hello();
 <br /><br /><br />
 
 <a name="notag"><b>Sense etiquetes</b></a><br />
-<i>Explicación:</i> L`etiqueta  <font color="#ff0000"><b>[notag][/notag]</b></font> li permet que el text a l`interior de les mateixes no sigui interpretat per l`analitzador d`etiquetes de FUDforum. Això li permetrà mostrar fragments de FUDcode sense que el fòrum ho converteixi en el codi HTML equivalent.
+<i>Explicación:</i> L`etiqueta  <font color="#ff0000"><b>[notag][/notag]</b></font> li permet que el text a l`interior de les mateixes no sigui interpretat per l`analitzador d`etiquetes de FUDforum. Això li permetrà mostrar fragments de BBcode sense que el fòrum ho converteixi en el codi HTML equivalent.
 <br /><br /><br />
 
 <a name="hr"><b>Etiqueta de línia horitzontal</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -404,7 +404,7 @@ hello();
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -427,7 +427,7 @@ Més text visible.</td>
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>
@@ -442,7 +442,7 @@ Més text visible.</td>
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Resultat</b></td>
   </tr>
   <tr>

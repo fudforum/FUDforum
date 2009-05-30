@@ -2,9 +2,9 @@ TOPIC_TITLE: <a name="style">Jak formatować tekst?</a>
 TOPIC_HELP:
 W większości wypadków wiadomości umieszczane na forum są zwyczajnym tekstem, aczkolwiek jeżeli zajdzie taka potrzeba możesz je odpowiednio sformatować pogrubiając wybrane słowa, dodając kursywę, itd...
 <p>
-W związku z tym, że na forum administrator zazwyczaj nie pozwala używać znaczników HTML w wiadomościach, możesz używać FUDcode czyli ograniczonego zestawu znaczników, który pozwala formatować tekst. FUDcode jest bardzo prosty i znacznie bezpieczniejszy niż HTML.
+W związku z tym, że na forum administrator zazwyczaj nie pozwala używać znaczników HTML w wiadomościach, możesz używać BBcode czyli ograniczonego zestawu znaczników, który pozwala formatować tekst. BBcode jest bardzo prosty i znacznie bezpieczniejszy niż HTML.
 <p>
-<b>Poniżej znajduje się lista obsługiwanych znaczników FUDcode z krótkimi przykładami ich użycia</b>
+<b>Poniżej znajduje się lista obsługiwanych znaczników BBcode z krótkimi przykładami ich użycia</b>
 <p>
 <b>Osadzanie odnośników</b><br /><br />
 
@@ -14,7 +14,7 @@ zostanie automatycznie rozpoznane jako odnośnik i zostanie przekształcone do p
 	<div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div><br />
 	
 
-Możesz także samodzielnie zaznaczyć odnośnik używając FUDcode. Najprostszy sposó na zrobienie tego, to użycie poniższego przykładu:
+Możesz także samodzielnie zaznaczyć odnośnik używając BBcode. Najprostszy sposó na zrobienie tego, to użycie poniższego przykładu:
 	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br />
 spowoduje to utworzenie następującego odnośnika:
 	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br />
@@ -59,7 +59,7 @@ Istnieje kilka rodzajów znaczników, których można użyć:<br />
 <br />
 <br />
 <b>Wyrównanie tekstu</b><br />
-FUDcode pozwala wyrównywać tekst za pomocą znacznika [align] na trzy sposoby:
+BBcode pozwala wyrównywać tekst za pomocą znacznika [align] na trzy sposoby:
 <ul>
 	<li><font color="#ff0000"><b>[align=center]</b></font>tekst wyśrodkowany<font color="#ff0000"><b>[/align]</b></font> tworzy:</li>
 		<div align="center">tekst wyśrodkowany</div>
@@ -71,7 +71,7 @@ FUDcode pozwala wyrównywać tekst za pomocą znacznika [align] na trzy sposoby:
 <br />
 <br />
 <b>Różne listy</b><br />
-	Możesz tworzyć różnego rodzaju listy za pomocą FUDcode:<br />
+	Możesz tworzyć różnego rodzaju listy za pomocą BBcode:<br />
 <br />
 	Lista bez numeracji:<br />
 <font color="#ff0000"><b>[list]</b></font><br />
@@ -163,7 +163,7 @@ hello();
 
 <b>No Tag</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
-the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
+the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of BBcode 
 and not have them converted to equivalent HTML.
 <p>
 

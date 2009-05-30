@@ -421,8 +421,8 @@ post_normal:			Normal
 post_notification:		Benachrichtigung &uuml;ber Beitrag
 post_notification_desc:		Benachrichtige mich, wenn jemand auf meinen Beitrag antwortet.
 post_opt:			Forumseinstellungen
-post_opt_fud_off:		<b>FUDcode</b> ist <b>AUS</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> ist <b>AN</b></a>
+post_opt_fud_off:		<b>BBcode</b> ist <b>AUS</b>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> ist <b>AN</b></a>
 post_opt_html_off:		<b>HTML</b> Code ist <b>AUS</b>
 post_opt_html_on:		<b>HTML</b> Code ist <b>AN</b>
 post_opt_images_off:		<b>Bilder</b> sind <b>AUS</b>

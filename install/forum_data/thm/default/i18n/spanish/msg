@@ -653,11 +653,11 @@ remail_emailsent:		Se ha enviado el mensaje de correo
 remail_email:			Hay una página web en {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) que podría ser de su interés.\nEste es el hilo de discusión que creí que podría interesarle, {VAR: data->subject} puede encontrarlo aquí: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&{DEF: _RSID}\nDe {VAR: usr->alias}\n
 poll_add_option:		Agregar opción:
 post_opt_html_on:		El código <b>HTML</b> está <b>ACTIVADO</b>
-post_opt_fud_on:		El <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode</b> está <b>HABILITADO</a></b>
+post_opt_fud_on:		El <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">BBcode</b> está <b>HABILITADO</a></b>
 post_opt_images_on:		Las <b>Imágenes</b> están <b>ACTIVADAS</b>
 post_opt_smilies_on:		Los <a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>smilies</b> están <b>HABILITADOS</b></a>
 post_opt_html_off:		El código <b>HTML</b> está <b>DESACTIVADO</b>
-post_opt_fud_off:		El <b>FUDcode</b> está <b>DESACTIVADO</b>
+post_opt_fud_off:		El <b>BBcode</b> está <b>DESACTIVADO</b>
 post_opt_images_off:		Las <b>imágenes</b> están <b>DESACTIVADAS</b>
 post_opt_smilies_off:		Los <b>emoticonoss</b> están <b>DESACTIVADOS</b>
 post_opt:			Opciones del foro

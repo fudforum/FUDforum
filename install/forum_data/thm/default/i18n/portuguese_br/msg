@@ -657,11 +657,11 @@ remail_emailsent:		Email enviado
 remail_email:			Olá,\n\nHá um tópico interessante sobre "{VAR: data->subject}" com o nome {GVAR: FORUM_TITLE} que talvez queira ler. Pode ver este tópico em:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n O seu amigo,\n\n{VAR: usr->alias}\n
 poll_add_option:		Adicionar Opção:
 post_opt_html_on:		<b>HTML LIGADO</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> está <b>LIGADO</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> está <b>LIGADO</b></a>
 post_opt_images_on:		<b>Imagens</b> estão <b>Ligadas</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> estão <b>Ligados</b></a>
 post_opt_html_off:		<b>Codigo</b> HTML está <b>Desligado</b>
-post_opt_fud_off:		<b>O FUDcode</b> está <b>Desligado</b>
+post_opt_fud_off:		<b>O BBcode</b> está <b>Desligado</b>
 post_opt_images_off:		<b>As imagens</b> estão <b>Desligadas</b>
 post_opt_smilies_off:		<b>Os smilies</b> estão <b>Desligados</b>
 post_opt:			Opções do Fórum

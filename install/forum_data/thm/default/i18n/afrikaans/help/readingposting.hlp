@@ -3,15 +3,15 @@ TOPIC_HELP:
 Generally, messages on the forum are mostly plain text, however on occasion you may want to add 
 some formatting to your text, such as making certain words bold,italics,etc...
 <p>
-Since in most cases the admin does not permit you to use HTML inside your posts, you can use FUDcode, which is a special 
-set of tags that allows you to apply certain formatting to your text. FUDcode is very easy to use and is a lot more secure then HTML.
+Since in most cases the admin does not permit you to use HTML inside your posts, you can use BBcode, which is a special 
+set of tags that allows you to apply certain formatting to your text. BBcode is very easy to use and is a lot more secure then HTML.
 <p>
 
 <a name="url"><b>URL Hyperlinking</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -24,7 +24,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -32,12 +32,12 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></td>
   </tr>
 </table>
-<i>Explanation:</i> You also can define URLs with FUDcode, this is an simple example of its use. 
+<i>Explanation:</i> You also can define URLs with BBcode, this is an simple example of its use. 
 <br /><br />
  
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -45,7 +45,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></td>
   </tr>
 </table>
-<i>Explanation:</i> You can use FUDcode to make URLs with a self-chosen caption.
+<i>Explanation:</i> You can use BBcode to make URLs with a self-chosen caption.
 <br /><br /><br />
 
 <p>
@@ -53,7 +53,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -66,7 +66,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -74,7 +74,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Click here to email our tech support</a></td>
   </tr>
 </table>
-<i>Explanation:</i> You can use FUDcode to make email links with a self-chosen caption.
+<i>Explanation:</i> You can use BBcode to make email links with a self-chosen caption.
 <br /><br />
 
 <br />
@@ -83,7 +83,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -97,7 +97,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -111,7 +111,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -125,7 +125,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -139,7 +139,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -153,7 +153,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -167,7 +167,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -181,7 +181,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -193,7 +193,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -208,7 +208,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -220,7 +220,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -232,7 +232,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -247,7 +247,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -259,7 +259,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -271,7 +271,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -285,7 +285,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -297,7 +297,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -305,14 +305,14 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
     <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0"></a></td>
   </tr>
 </table>
-<i>Explanation:</i> You can use FUDcode to create linked images by enclosing the [img][/img] tag with the [url][/url] tag.
+<i>Explanation:</i> You can use BBcode to create linked images by enclosing the [img][/img] tag with the [url][/url] tag.
 <br /><br /><br />
 
 <a name="quote"><b>Quoting other messages</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -326,7 +326,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -343,7 +343,7 @@ set of tags that allows you to apply certain formatting to your text. FUDcode is
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -370,7 +370,7 @@ hello();
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -385,7 +385,7 @@ hello();
 
 <a name="notag"><b>No Tag</b></a><br />
 <i>Explanation:</i> The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
-the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
+the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of BBcode 
 and not have them converted to equivalent HTML.
 <br /><br /><br />
 
@@ -393,7 +393,7 @@ and not have them converted to equivalent HTML.
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -409,7 +409,7 @@ and not have them converted to equivalent HTML.
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -432,7 +432,7 @@ More visible text.</td>
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
@@ -447,7 +447,7 @@ More visible text.</td>
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>

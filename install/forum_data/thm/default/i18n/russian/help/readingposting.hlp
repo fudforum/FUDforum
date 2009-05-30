@@ -6,18 +6,18 @@ TOPIC_HELP:
 <p>
 Поскольку использование языка HTML при композиции сообщений может быть
 запрещено администратором по какой либо причине, для этой цели вы можете
-использовать специальный язык FUDcode, предоставляющий в ваше распоряжение
-набор тегов для форматирования. FUDcode гораздо проще в освоении и безопаснее,
+использовать специальный язык BBcode, предоставляющий в ваше распоряжение
+набор тегов для форматирования. BBcode гораздо проще в освоении и безопаснее,
 чем язык HTML.
 <p>
-Ниже приведен список поддерживаемых FUDcode тегов
+Ниже приведен список поддерживаемых BBcode тегов
 и короткие примеры их использования
 <p>
 <a name="url"><b>Создание гиперссылок</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -30,7 +30,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -38,12 +38,12 @@ TOPIC_HELP:
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></td>
   </tr>
 </table>
-<i>Объяснение:</i> Используя FUDcode, вы можете сами создавать гиперссылки в сообщениях.
+<i>Объяснение:</i> Используя BBcode, вы можете сами создавать гиперссылки в сообщениях.
 <br /><br />
  
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -51,7 +51,7 @@ TOPIC_HELP:
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></td>
   </tr>
 </table>
-<i>Объяснение:</i> FUDcode допускает создание гиперссылок с произвольным названием.
+<i>Объяснение:</i> BBcode допускает создание гиперссылок с произвольным названием.
 <br /><br /><br />
 
 <p>
@@ -59,7 +59,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -72,7 +72,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -80,7 +80,7 @@ TOPIC_HELP:
     <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Click here to email our tech support</a></td>
   </tr>
 </table>
-<i>Объяснение:</i> FUDcode допускает создание email-ссылок с произвольным названием.
+<i>Объяснение:</i> BBcode допускает создание email-ссылок с произвольным названием.
 <br /><br />
 
 <br />
@@ -89,7 +89,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -103,7 +103,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -117,7 +117,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -131,7 +131,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -145,7 +145,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -159,7 +159,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -173,7 +173,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -187,7 +187,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -199,7 +199,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -214,7 +214,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -226,7 +226,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -238,7 +238,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -253,7 +253,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -265,7 +265,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -277,7 +277,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -291,7 +291,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -303,7 +303,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -311,14 +311,14 @@ TOPIC_HELP:
     <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0"></a></td>
   </tr>
 </table>
-<i>Объяснение:</i> Используя FUDcode вы можете создавать изображения-гиперссылки, помещая [img][/img] внутри тэга [url][/url].
+<i>Объяснение:</i> Используя BBcode вы можете создавать изображения-гиперссылки, помещая [img][/img] внутри тэга [url][/url].
 <br /><br /><br />
 
 <a name="quote"><b>Цитирование сообщений</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -332,7 +332,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -349,7 +349,7 @@ TOPIC_HELP:
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -376,7 +376,7 @@ hello();
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -389,17 +389,17 @@ hello();
 <i>Объяснение:</i> Тег [code][/code] аналогичен тегу [pre][/pre], но вокруг текста добавляется рамка.
 <br /><br /><br />
 
-<a name="notag"><b>Без FUDcode</b></a><br />
+<a name="notag"><b>Без BBcode</b></a><br />
 <i>Объяснение:</i> Тег <font color="#ff0000"><b>[notag][/notag]</b></font> позволяет вам вставлять сообщения
 фрагменты текста, которые не будут отформатированы FUDforum'ом.
-Это могут быть примеры FUDcode, которые не должны быть преобразованы форумом в соответствующий код HTML.
+Это могут быть примеры BBcode, которые не должны быть преобразованы форумом в соответствующий код HTML.
 <br /><br /><br />
 
 <a name="hr"><b>Горизонтальная линия</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -414,7 +414,7 @@ hello();
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -439,7 +439,7 @@ hello();
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>
@@ -455,7 +455,7 @@ hello();
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>FUDcode</b></td>
+    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Результат</b></td>
   </tr>
   <tr>

@@ -2,9 +2,9 @@ TOPIC_TITLE: <a name="style">Comment appliquer des formats à un texte&nbsp;?</a
 TOPIC_HELP:
 Généralement, les messages du forum sont principalement constitués de texte simple, cependant, vous pouvez parfois vouloir ajouter des formats à votre texte, comme mettre certains mots en gras, en italiques, etc.
 <p>
-Comme dans la plupart des cas, l'administrateur ne vous permet pas d'utiliser du code HTML dans vos messages, vous pouvez utiliser du FUDcode qui est un ensemble spécial de marques qui vous permettent d'appliquer certains formats à votre texte. Le FUDcode est très facile à utiliser et est beaucoup plus sûr que le code HTML.
+Comme dans la plupart des cas, l'administrateur ne vous permet pas d'utiliser du code HTML dans vos messages, vous pouvez utiliser du BBcode qui est un ensemble spécial de marques qui vous permettent d'appliquer certains formats à votre texte. Le BBcode est très facile à utiliser et est beaucoup plus sûr que le code HTML.
 <p>
-<b>Voici une liste des marques FUDcode supportées et quelques exemples courts sur leur utilisation</b>
+<b>Voici une liste des marques BBcode supportées et quelques exemples courts sur leur utilisation</b>
 
 <b>Hyperliens vers une URL</b><br /><br />
 
@@ -14,7 +14,7 @@ sera automatiquement récupéré comme une URL et converti en une URL valide qui
 	<div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div><br />
 	
 	
-Vous pouvez également créer une URL vous-même en utilisant du FUDcode, ceci peut être fait de 2 façons, une façon simple fonctionnerait comme ceci&nbsp;:
+Vous pouvez également créer une URL vous-même en utilisant du BBcode, ceci peut être fait de 2 façons, une façon simple fonctionnerait comme ceci&nbsp;:
 	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br />
 ceci résultera en la génération du lien suivant&nbsp;:
 	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br />
@@ -58,7 +58,7 @@ Vous pouvez ajouter une description à votre URL en utilisant une syntaxe diffé
 <br />
 <br />
 <b>Alignement de texte</b><br />
-FUDcode supporte l'alignement du texte par la marque [align] ce qui vous permet d'aligner votre texte de 3 façons&nbsp;:
+BBcode supporte l'alignement du texte par la marque [align] ce qui vous permet d'aligner votre texte de 3 façons&nbsp;:
 <ul>
 	<li><font color="#ff0000"><b>[align=center]</b></font>texte centré<font color="#ff0000"><b>[/align]</b></font> produit&nbsp;:</li>
 		<div align="center">texte centré</div>
@@ -164,7 +164,7 @@ hello();
 
 <b>No Tag</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
-the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
+the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of BBcode 
 and not have them converted to equivalent HTML.
 <p>
 

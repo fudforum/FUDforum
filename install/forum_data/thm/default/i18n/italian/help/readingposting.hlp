@@ -2,9 +2,9 @@ TOPIC_TITLE: <a name="style">Come si formatta il testo?</a>
 TOPIC_HELP:
 Nella maggior parte dei casi i messaggi di un forum sono composti da semplice testo; tuttavia, in alcune occasioni si può voler aggiungere della formattazione al testo, scrivendo in grassetto, in corsivo, ecc.
 <p>
-Solitamente l'amministratore non permette l'utilizzo di HTML all'interno dei messaggi; in questo caso potete utilizzare FUDcode, che consiste di una serie di tag che permettono di applicare alcuni stili di formattazione al testo.
+Solitamente l'amministratore non permette l'utilizzo di HTML all'interno dei messaggi; in questo caso potete utilizzare BBcode, che consiste di una serie di tag che permettono di applicare alcuni stili di formattazione al testo.
 <p>
-<b>Ecco una lista dei tag di FUDcode e dei piccoli esempi di come utilizzarli</b>
+<b>Ecco una lista dei tag di BBcode e dei piccoli esempi di come utilizzarli</b>
 <p>
 <b>Inserimento di URL</b><br /><br />
 
@@ -14,7 +14,7 @@ sarà automaticamente interpretato come URL e convertito in link cliccabile, il 
 	<div align="center"><a href="http://www.tgmonline.it" target=_blank>http://www.tgmonline.it</a></div><br />
 	
 	
-Puoi creare un URL per conto tuo utilizzando il FUDcode, in due modi. Il più semplice è questo:
+Puoi creare un URL per conto tuo utilizzando il BBcode, in due modi. Il più semplice è questo:
 	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.lamiahomepage.com</font>[/URL]</font></b></div><br />
 che diventa:
 	<div align="center"><a href="http://www.lamiahomepage.com" target=_blank>http://www.lamiahomepage.com</a></div><br />
@@ -60,7 +60,7 @@ dimensione specificata</font></li>
 <br />
 <br />
 <b>Allineamento del testo</b><br />
-FUDcode permette di allineare il testo con il tag [align], che permette di giustificare il testo in tre modi:
+BBcode permette di allineare il testo con il tag [align], che permette di giustificare il testo in tre modi:
 <ul>
 	<li><font color="#ff0000"><b>[align=center]</b></font>testo centrato<font color="#ff0000"><b>[/align]</b></font> genera:</li>
 		<div align="center">testo centrato</div>
@@ -165,7 +165,7 @@ hello();
 
 <b>No Tag</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
-the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
+the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of BBcode 
 and not have them converted to equivalent HTML.
 <p>
 

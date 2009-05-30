@@ -2,16 +2,16 @@ TOPIC_TITLE: <a name="style">Hoe kan ik tekst opmaken?</a>
 TOPIC_HELP:
 Over het algemeen bestaan de meeste berichten op het forum uit kale tekst, toch kun je wanneer je dat wilt wel enige opmaak
 aan je berichten toevoegen, je kunt bijvoorbeeld sommige woorden vet weergeven of cursief enzovoort.<p>
-Aangezien de beheerder meestal niet toestaat dat je HTML gebruikt in je berichten, kun je in plaats hiervan FUDcode gebruiken,
-dit is een verzameling speciale opmaaktags die je kunt gebruiken voor het opmaken van je teksten. FUDcode is makkelijk te
+Aangezien de beheerder meestal niet toestaat dat je HTML gebruikt in je berichten, kun je in plaats hiervan BBcode gebruiken,
+dit is een verzameling speciale opmaaktags die je kunt gebruiken voor het opmaken van je teksten. BBcode is makkelijk te
 gebruiken en veel veiliger dan HTML.<p>
-<b>Hier is een lijst van ondersteunde FUDcode tags en een paar korte voorbeelden voor het gebruik ervan</b><p>
+<b>Hier is een lijst van ondersteunde BBcode tags en een paar korte voorbeelden voor het gebruik ervan</b><p>
 <b>URL Hyperlinken</b><p>
 Het forum kan automatisch urls vinden en wel op vele manieren, bijvoorbeeld:<br />
 <div align="Center"><font color="#FF0000">http://cvs.prohost.org</font></div><br />
 wordt automatisch herkend als een URL en omgezet tot een geldige URL, dit ziet er als volgt uit:
 <div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div><br />
-Je kunt ook zelf een URL maken door gebruik te maken van FUDcode, dit kan op twee manieren gedaan worden, de makkelijkste manier
+Je kunt ook zelf een URL maken door gebruik te maken van BBcode, dit kan op twee manieren gedaan worden, de makkelijkste manier
 werkt zo:<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.mijnhomepage.nl</font>[/URL]</font></b></div><br />
 dit resulteert in de volgende link:<div align="center"><a href="http://www.mijnhomepage.nl" target=_blank>http://www.mijnhomepage.nl</a></div><br />
 Je kunt ook een omschrijving toevoegen aan je URL door een andere syntaxis te gebruiken binnen de URL tag:<p>
@@ -53,7 +53,7 @@ dit voorbeeld resulteert in:<br />
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Opgemaakte tekst</b></i></u></font></div>
 <p>
 <b>Tekst uitlijning</b><br />
-FUDcode ondersteunt uitlijning van de tekst via de [align] tag, waarmee de tekst op drie manieren kan worden uitgelijnd:
+BBcode ondersteunt uitlijning van de tekst via de [align] tag, waarmee de tekst op drie manieren kan worden uitgelijnd:
 <ul>
 	<li><font color="#ff0000"><b>[align=center]</b></font>gecentreerde tekst<font color="#ff0000"><b>[/align]</b></font> geeft:</li>
 		<div align="center">gecentreerde tekst</div>
@@ -64,7 +64,7 @@ FUDcode ondersteunt uitlijning van de tekst via de [align] tag, waarmee de tekst
 </ul>
 <p>
 <b>Verschillende lijsten</b><br />
-Door gebruik te maken van FUDcode kun je ook verschillende lijsten maken:<p>
+Door gebruik te maken van BBcode kun je ook verschillende lijsten maken:<p>
 Ongeordende lijst met stippen:<br />
 <font color="#ff0000"><b>[list]</b></font><br />
 <font color="#ff0000"><b>[*]</b></font>eerste item<br />
@@ -135,7 +135,7 @@ hello();
 
 <b>No Tag</b><br />
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
-the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
+the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of BBcode 
 and not have them converted to equivalent HTML.
 <p>
 

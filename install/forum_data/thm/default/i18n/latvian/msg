@@ -655,11 +655,11 @@ remail_emailsent:		E-pasts nosūtīts
 remail_email:			Sveiki,\n\nForumā "{GVAR: FORUM_TITLE}" publicētas ziņas par tēmu "{VAR: data->subject}", kas pēc manām domām varētu Jūs interesēt. Šīs ziņas Jūs varat izlasīt šeit:\n\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ar cieņu,\n\n{VAR: usr->alias}\n
 poll_add_option:		Pievienot variantu:
 post_opt_html_on:		<b>HTML</b> - <b>ieslēgts</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> - <b>ieslēgts</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> - <b>ieslēgts</b></a>
 post_opt_images_on:		<b>Nozīmītes</b> - <b>ieslēgtas</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smaidiņi</b> - <b>ieslēgti</b></a>
 post_opt_html_off:		<b>HTML</b>  - <b>izslēgts</b>
-post_opt_fud_off:		<b>FUDcode</b> - <b>izslēgts</b>
+post_opt_fud_off:		<b>BBcode</b> - <b>izslēgts</b>
 post_opt_images_off:		<b>Nozīmītes</b> - <b>izslēgtas</b>
 post_opt_smilies_off:		<b>Smaidiņi</b> - <b>izslēgti</b>
 post_opt:			Foruma parametri

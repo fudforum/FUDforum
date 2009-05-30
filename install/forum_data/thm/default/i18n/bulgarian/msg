@@ -656,11 +656,11 @@ remail_emailsent:		Е-мейл съобщението е изпратено
 remail_email:			Здравей,\n\nИма интересна тема за "{VAR: data->subject}" във форум "{GVAR: FORUM_TITLE}", която може би искаш да прочетеш. Можеш да я видиш на:\n\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Твой \n\n{VAR: usr->alias}\n
 poll_add_option:		Добави Опцията:
 post_opt_html_on:		<b>HTML</b> е <b>разрешен</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> е <b>разрешен</b></a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> е <b>разрешен</b></a>
 post_opt_images_on:		<b>Изображения</b> са <b>разрешени</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Усмивките</b> са <b>разрешени</b></a>
 post_opt_html_off:		<b>HTML</b> е <b>забранен</b>
-post_opt_fud_off:		<b>FUDcode</b> е <b>забранен</b>
+post_opt_fud_off:		<b>BBcode</b> е <b>забранен</b>
 post_opt_images_off:		<b>Изображения</b> са <b>забранени</b>
 post_opt_smilies_off:		<b>Усмивките</b> са <b>забранени</b>
 post_opt:			Опции на форума

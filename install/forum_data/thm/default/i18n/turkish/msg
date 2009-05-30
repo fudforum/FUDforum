@@ -653,11 +653,11 @@ remail_emailsent:		E-mektup gönderildi
 remail_email:			{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) adresinde okumak isteyebileceğin bir WWW sayfası var.\nİlgileceğini düşündüğüm "{VAR: data->subject}" konulu zincire buradan ulaşabilirsin:\n{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nGönderen: {VAR: usr->alias}\n
 poll_add_option:		Seçenek Ekle:
 post_opt_html_on:		<b>HTML AÇIK</b>
-post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode AÇIK</a></b>
+post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">BBcode AÇIK</a></b>
 post_opt_images_on:		<b>Resimler AÇIK</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Gülücükler AÇIK</b></a>
 post_opt_html_off:		<b>HTML KAPALI</b>
-post_opt_fud_off:		<b>FUDcode KAPALI</b>
+post_opt_fud_off:		<b>BBcode KAPALI</b>
 post_opt_images_off:		<b>Resimler KAPALI</b>
 post_opt_smilies_off:		<b>Gülücükler KAPALI</b>
 post_opt:			Forum Seçenekleri
