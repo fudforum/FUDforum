@@ -1042,13 +1042,13 @@ move_msg_btn:			Перенести выбранные сообщения
 move_msg_th_expl:		Укажите ID темы для переноса в нее сообщений (может быть в других форумах)
 minimize_message:		Минимизировать сообщение
 maximize_message:		Максимизировать сообщение
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
-pmsg_on:			on
+no_bookmarked_threads:		В закладках нет тем
+bookmark_thread:		Добавить в закладки
+bookmark_thread_desc:		Добавить эту тему в ваш список закладок
+bookmarked_threads:		Закладки на темы
+unbookmark_thread:		Удалить из закладок
+unbookmark_thread_desc:		Удалить эту тему из вашего списка закладок
+tabs_bookmarkes:		Закладки
+bookmarked_update:		Просмотр вашего списка закладок
+unbookmark_all_topics:		Удалить все закладки
+pmsg_on:			вкл
