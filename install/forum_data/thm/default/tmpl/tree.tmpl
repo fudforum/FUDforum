@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.90 2009/03/31 10:26:45 frank Exp $
+* $Id: tree.tmpl,v 1.91 2009/06/03 10:02:02 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -203,29 +203,31 @@ function changeMsgFocus(mid)
 	$('body').css('cursor', 'progress');
 	$('#msgTbl').fadeTo('fast', 0.33);
 
-        $('#b' + mid).removeClass().addClass("RowStyleC");
-        $('#b' + cur_msg).removeClass().addClass( (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB') );
-        cur_msg = mid;
+	$('#b' + mid).removeClass().addClass("RowStyleC");
+	$('#b' + cur_msg).removeClass().addClass( (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB') );
+	cur_msg = mid;
 
-        $.ajax({
-           url: '{GVAR: WWW_ROOT}index.php?t=tree_msg&id='+mid+'&S={DEF: s}',
-           success: function(data){
-                $('#msgIn'+mid).attr('src', '{THEME_IMAGE_ROOT}/read{DEF: img_ext}');
-                $('#msgIn'+mid).attr('alt', '{MSG: read_message}');
-                $('#msgIn'+mid).attr('title', $('#msgIn'+mid).attr('alt'));
-
-                $('#msgTbl').empty();
-                $('#msgTbl').append(data);
-
-                chng_focus('page_top');
-           },
-           error: function(xhr, desc, e) {
-                alert("Failed to submit: " + desc);
-           }
-         });
-
-	$('#msgTbl').fadeTo('fast', 1);
-	$('body').css('cursor', 'auto');
+	$.ajax({
+		url: '{GVAR: WWW_ROOT}index.php?t=tree_msg&id='+mid+'&S={DEF: s}',
+		beforeSend: function(xhr) {
+			xhr.overrideMimeType('text/html; charset={CHARSET}');
+		},
+		success: function(data){
+			$('#msgIn'+mid).attr('src', '{THEME_IMAGE_ROOT}/read{DEF: img_ext}');
+			$('#msgIn'+mid).attr('alt', '{MSG: read_message}');
+			$('#msgIn'+mid).attr('title', $('#msgIn'+mid).attr('alt'));
+			$('#msgTbl').empty();
+			$('#msgTbl').append(data);
+			chng_focus('page_top');
+			$('#msgTbl').fadeTo('fast', 1);
+		},
+		error: function(xhr, desc, e) {
+			alert("Failed to submit: " + desc);
+		},
+		complete: function() {
+			$('body').css('cursor', 'auto');
+		},
+	});
 }
 /* ]]> */
 </script>
