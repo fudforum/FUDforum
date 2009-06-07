@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.92 2009/03/31 10:26:45 frank Exp $
+* $Id: index.tmpl,v 1.93 2009/06/07 08:40:38 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,11 +46,11 @@
 {SECTION: index_forum_entry forum entry row}
 <tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="child-c{VAR: r[5]}">
 	<td class="RowStyleA wo">{IF: $r[6]}<img src="images/forum_icons/{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
-	<td class="RowStyleB wo">{VAR: forum_read_indicator}</td>
+	<td class="RowStyleB ac wo">{IF: empty($r[12])}{VAR: forum_read_indicator}{ELSE}<img title="{MSG: index_url_redirection}" src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" alt="" />{ENDI}</td>
 	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
-	<td class="RowStyleB ac">{VAR: r[13]}</td>
-	<td class="RowStyleB ac">{VAR: r[14]}</td>
-	<td class="RowStyleA ac nw">{IF: $r[8]}<span class="DateText">{TEMPLATE: index_last_post_date}</span><br />{MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END} <a href="{TEMPLATE: last_post_lnk}"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>{ELSE}{MSG: na}{END}</td>
+	<td class="RowStyleB ac">{IF: empty($r[12])}{VAR: r[13]}{ELSE}--{ENDI}</td>
+	<td class="RowStyleB ac">{IF: empty($r[12])}{VAR: r[14]}{ELSE}--{ENDI}</td>
+	<td class="RowStyleA ac nw">{IF: empty($r[12])}{IF: $r[8]}<span class="DateText">{TEMPLATE: index_last_post_date}</span><br />{MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END} <a href="{TEMPLATE: last_post_lnk}"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>{ELSE}{MSG: na}{END}{ELSE}--{ENDI}</td>
 </tr>
 {SECTION: END}
 
@@ -111,7 +111,8 @@
 <br /><fieldset>
 <legend>{MSG: legend}</legend>
 <img src="{THEME_IMAGE_ROOT}/new_content{DEF: img_ext}" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}
+<img src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" alt="{MSG: index_url_redirection}" /> {MSG: index_url_redirection}
 </fieldset>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
