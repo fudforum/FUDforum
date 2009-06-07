@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search_forum_sel.inc.t,v 1.24 2009/01/29 18:37:17 frank Exp $
+* $Id: search_forum_sel.inc.t,v 1.25 2009/06/07 16:09:49 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -69,7 +69,7 @@ function trim_body($body)
 
 	$body = strip_tags($body);
 	if (strlen($body) > $GLOBALS['MNAV_MAX_LEN']) {
-		$body = substr($body, 0, $GLOBALS['MNAV_MAX_LEN']) . '...';
+		$body = mb_substr($body, 0, $GLOBALS['MNAV_MAX_LEN']) . '...';
 	}
 	return $body;
 }

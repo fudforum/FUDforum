@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: root_index.php.t,v 1.48 2009/04/03 14:55:58 frank Exp $
+* $Id: root_index.php.t,v 1.49 2009/06/07 16:09:49 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,6 +10,7 @@
 **/
 
 	require('./GLOBALS.php');
+	mb_internal_encoding('{TEMPLATE: forum_CHARSET}');
 
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
