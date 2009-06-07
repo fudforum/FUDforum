@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.82 2009/05/18 20:22:33 frank Exp $
+* $Id: compact.php,v 1.83 2009/06/07 10:57:02 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -212,8 +212,9 @@ function eta_calc($start, $pos, $pc)
 
 		db_unlock();
 	}
-	/* Private Messages */
 	echo "100% Done<br />\n";
+
+	/* Private Messages */
 	echo "Compacting private messages...<br />\n";
 	@ob_flush(); flush();
 
@@ -233,7 +234,13 @@ function eta_calc($start, $pos, $pc)
 		$c = q('SELECT distinct(foff), length FROM '.$tbl.'pmsg');
 
 		while ($r = db_rowarr($c)) {
-			if (($len = fwrite($fp, read_pmsg_body($r[0], $r[1]))) != $r[1] || !fflush($fp)) {
+			$data = read_pmsg_body($r[0], $r[1]);
+			if (!empty($_POST['fromcharset']) || !empty($_POST['tocharset'])) {
+				$newdata = iconv($_POST['fromcharset'], $_POST['tocharset'], $data);
+				$data = $newdata;
+			}
+
+			if (($len = fwrite($fp, $data)) === FALSE || !fflush($fp)) {
 				exit("FATAL ERROR: system has ran out of disk space<br />\n");
 			}
 			q('UPDATE '.$tbl.'pmsg SET foff='.$off.', length='.$len.' WHERE foff='.$r[0]);
