@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.177 2009/04/29 20:34:12 frank Exp $
+* $Id: imsg_edt.inc.t,v 1.178 2009/06/14 09:10:14 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -544,7 +544,7 @@ class fud_msg_edit extends fud_msg
 				define('sql_p', '{SQL_TABLE_PREFIX}');
 
 				$lock = $nntp->get_lock();
-				$nntp->post_message($mtf->subject, $body.$nntp_adm->custom_sig, $from, $mtf->id, $replyto_id, $attach);
+				$nntp->post_message($mtf->subject, $body."\n".$nntp_adm->custom_sig, $from, $mtf->id, $replyto_id, $attach);
 				$nntp->close_connection();
 				$nntp->release_lock($lock);
 			} else {
