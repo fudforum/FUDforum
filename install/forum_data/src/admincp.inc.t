@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.inc.t,v 1.31 2009/01/29 18:37:17 frank Exp $
+* $Id: admincp.inc.t,v 1.32 2009/06/14 09:03:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,6 +27,8 @@ if (_uid) {
 
 			if ($FUD_OPT_2 & 1024 && ($accounts_pending_approval = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0 AND id > 0'))) {
 				$accounts_pending_approval = '{TEMPLATE: accounts_pending_approval}';
+			} else {
+				$accounts_pending_approval = '';
 			}
 
 			$q_limit = '';
@@ -47,6 +49,8 @@ if (_uid) {
 		}
 	} else if ($usr->users_opt & 268435456 && $FUD_OPT_2 & 1024 && ($accounts_pending_approval = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0 AND id > 0'))) {
 		$accounts_pending_approval = '{TEMPLATE: accounts_pending_approval}';
+	} else {
+		$accounts_pending_approval = '';
 	}
 	if ($is_a || $usr->group_leader_list) {
 		$group_mgr = '{TEMPLATE: group_mgr}';
