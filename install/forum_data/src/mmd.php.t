@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmd.php.t,v 1.13 2009/01/29 18:37:17 frank Exp $
+* $Id: mmd.php.t,v 1.14 2009/06/17 07:07:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
-	if (!empty($_POST['NO']) || empty($_POST['_sel']) || (empty($_POST['mov_sel_all']) && empty($_POST['del_sel_all']))) {
+	if (!empty($_POST['NO']) || empty($_POST['_sel']) || (empty($_POST['mov_sel_all']) && empty($_POST['del_sel_all']) && empty($_POST['loc_sel_all']))) {
 		check_return($usr->returnto);
 	}
 
@@ -39,16 +39,19 @@
 	if (!$is_a && !$perms[2]) {
 		if (!empty($_POST['mov_sel_all']) && !($perms[1] & 8192)) {
 			std_error('access');
+		} else if (!empty($_POST['loc_sel_all']) && !($perms[1] & 32)) {
+			std_error('access');			
 		} else if (!empty($_POST['del_sel_all']) && !($perms[1] & 32)) {
 			std_error('access');
 		}
 	}
 
 	$final_del = !empty($_POST['del_sel_all']) && !empty($_POST['del_conf']);
-	$final_mv = !empty($_POST['mov_sel_all']) && !empty($_POST['forum_id']);
+	$final_loc = !empty($_POST['loc_sel_all']);
+	$final_mv  = !empty($_POST['mov_sel_all']) && !empty($_POST['forum_id']);
 
 	/* ensure that all threads are from the same forum and that they exist */
-	$c = uq("SELECT m.subject, t.id, t.root_msg_id, t.replies, t.last_post_date, t.last_post_id, t.tdescr
+	$c = uq("SELECT m.subject, t.id, t.root_msg_id, t.replies, t.last_post_date, t.last_post_id, t.tdescr, t.thread_opt
 			FROM {SQL_TABLE_PREFIX}thread t 
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id
 			WHERE t.id IN(".implode(',', $list).") AND t.forum_id=".$perms[0]);
@@ -57,6 +60,8 @@
 		$list[$r[1]] = $r[0];
 		if ($final_del) {
 			$ext[$r[1]] = array($r[2], $r[3]);
+		} else if ($final_loc) {
+			$ext[$r[1]] = array($r[7]);			
 		} else if ($final_mv) {
 			$ext[$r[1]] = array($r[2], $r[4], $r[5], $r[6]);
 		}
@@ -72,6 +77,17 @@
 			fud_msg_edit::delete(1, $v[0], 1);
 		}
 		check_return($usr->returnto);
+	} else if ($final_loc) { /* lock threads, one by one */
+		foreach ($ext as $k => $v) {
+			if ($v[0] & 1) {
+				logaction(_uid, 'THRUNLOCK', $k);
+				th_lock($k, 0);
+			} else {
+				logaction(_uid, 'THRLOCK', $k);
+				th_lock($k, 1);
+			}
+		}
+		check_return($usr->returnto);	
 	} else if ($final_mv) { /* move threads one by one */
 		/* validate permissions for destination forum */
 		if (!($_POST['forum_id'] = (int) $_POST['forum_id'])) {

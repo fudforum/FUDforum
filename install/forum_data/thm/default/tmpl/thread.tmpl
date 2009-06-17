@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.73 2009/01/29 18:37:29 frank Exp $
+* $Id: thread.tmpl,v 1.74 2009/06/17 07:07:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -106,14 +106,14 @@
 {TEMPLATE-DATA: announcements}
 {IF: $MOD || $mo == 8224}
 <tr>
-	<td colspan="3" class="RowStyleC ar"><input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\');" /> </td>
+	<td colspan="3" class="RowStyleC ar"><input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="submit" class="button" name="loc_sel_all" value="{MSG: thread_loc_all}" /> <input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\');" /> </td>
 	<td colspan="3" class="RowStyleC"> </td>
 </tr>
 {ENDIF}
 {TEMPLATE-DATA: thread_list_table_data}
 {IF: $MOD || $mo == 8224}
 <tr>
-	<td colspan="3" class="RowStyleC ar"><input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\')" /></td>
+	<td colspan="3" class="RowStyleC ar"><input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="submit" class="button" name="loc_sel_all" value="{MSG: thread_loc_all}" /> <input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\')" /></td>
 	<td colspan="3" class="RowStyleC"> </td>
 </tr>
 {ENDIF}
