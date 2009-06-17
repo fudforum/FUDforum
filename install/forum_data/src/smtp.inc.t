@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smtp.inc.t,v 1.27 2009/03/26 18:21:23 frank Exp $
+* $Id: smtp.inc.t,v 1.28 2009/06/17 11:19:49 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@ class fud_smtp
 
 	function get_return_code($cmp_code='250')
 	{
-		if (!($this->last_ret = fgets($this->fs))) {
+		if (!($this->last_ret = @fgets($this->fs, 515))) {
 			return;
 		}
 		if ((int)$this->last_ret == $cmp_code) {
@@ -26,6 +26,7 @@ class fud_smtp
 
 	function wts($string)
 	{
+		/* write to stream */
 		fwrite($this->fs, $string . "\r\n");
 	}
 
@@ -49,14 +50,39 @@ class fud_smtp
 			return;
 		}
 
-		/* we need to scan all other lines */
+		/* scan all lines and look for TLS support */
+		$tls = false;
 		if ($es) {
-			stream_set_timeout($this->fs, 2, 500000);
-			while (fgets($this->fs));
+			while($str = @fgets($this->fs, 515)) {
+				if (substr($str, 0, 12) == '250-STARTTLS') $tls = true;
+				if (substr($str, 3,  1) == ' ') break;	// done reading if 4th char is a space
+
+			}
 		}
 
 		/* Do SMTP Auth if needed */
 		if ($GLOBALS['FUD_SMTP_LOGIN']) {
+			if ($tls) {
+				/*  initiate TSL communication with server */
+				$this->wts('STARTTLS');
+				if (!$this->get_return_code(220)) {
+					return;
+				}
+				/* encrypt the connection */
+				if (!stream_socket_enable_crypto($this->fs, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+					return false;
+				} 
+				/* say hi again */
+				$this->wts(($es ? 'EHLO ' : 'HELO ').$smtp_srv);
+				if (!$this->get_return_code()) {
+					return;
+				}
+				/* we need to scan all other lines */
+				while($str = @fgets($this->fs, 515)) {
+					if (substr($str, 3, 1) == ' ') break;
+				}
+			}
+
 			$this->wts('AUTH LOGIN');
 			if (!$this->get_return_code(334)) {
 				return;
