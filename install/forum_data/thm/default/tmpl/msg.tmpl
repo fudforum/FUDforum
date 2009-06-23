@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.76 2009/03/18 14:26:53 frank Exp $
+* $Id: msg.tmpl,v 1.77 2009/06/23 20:50:51 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,6 +27,7 @@
 {REF: th_nav.tmpl}
 {REF: draw_forum_path.tmpl}
 {REF: topic_rating.tmpl}
+{REF: quick_reply.tmpl}
 
 {SECTION: first_unread_message_link}
 | <a href="{TEMPLATE: first_unread_message_link_lnk}" title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</a>&nbsp;
@@ -94,6 +95,7 @@
 </tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
+{IF: $quick_reply_enabled}{TEMPLATE: quick_reply}{ENDIFI}
 <table border="0" cellspacing="0" cellpadding="0" class="wa">
 <tr>
 <td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
@@ -131,12 +133,12 @@ min_max_posts("{THEME_IMAGE_ROOT}", "{DEF: img_ext}", "{MSG: minimize_message}",
 {SECTION: END}
 
 {SECTION: msg_xml_link}
-[ <a href="{TEMPLATE: msg_xml_link_lnk}">{MSG: thread_syndicate}</a> ] [ <a href="rdf.php?mode=m&amp;th={VAR: th}&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" /></a> ]
+[ <a href="{TEMPLATE: msg_xml_link_lnk}">{MSG: thread_syndicate}</a> ] [ <a href="feed.php?mode=m&amp;th={VAR: th}&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" /></a> ]
 {SECTION: END}
 
 {SECTION: msg_RSS}
 {IF: $FUD_OPT_2 & 1048576}
-<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}rdf.php?mode=m&amp;th={VAR: th}&amp;basic=1" />
+<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;th={VAR: th}&amp;basic=1" />
 {ENDIFI}
 {SECTION: END}
 

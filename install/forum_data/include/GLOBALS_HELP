@@ -1,6 +1,9 @@
 {{{FORUM_TITLE
 The title of the forum. This title will appear inside the forum header and HTML <title> tag.}}}
 
+{{{FORUM_DESCR
+Description of the forum. This description will appear inside the forum and HTML header (description meta tag).}}}
+
 {{{FORUM_ENABLED	FUD_OPT_1	1
 Enable/disable the forum. Use this while you are upgrading or performing maintenance on the forum.}}}
 
@@ -338,7 +341,7 @@ The maximum amount of days the users may go back in history when using the messa
 The maximum length of the message body to show on the search page & message navigator.}}}
 
 {{{SHOW_XML_LINK	FUD_OPT_2	1048576
-Whether or not to show a syndication link, linking to help on how get XML/RDF feeds of forum's data.}}}
+Whether or not to show a syndication link, linking to help on how get XML (RDF, Atom and RSS) feeds of the forum's data.}}}
 
 {{{SHOW_PDF_LINK	FUD_OPT_2	2097152
 Whether or not to show a link allowing users to generate a printable PDF of the page they are viewing.}}}
@@ -349,23 +352,23 @@ Check HTTP_REFERER of users before allowing users to download file attachments. 
 {{{FILE_LOCK	FUD_OPT_2	8388608
 Whether or not to use secure file permissions (0600/0700).}}}
 
-{{{RDF_ENABLED	FUD_OPT_2	16777216
-Whether to allow RDF/XML feeds of the forum's data.}}}
+{{{FEED_ENABLED	FUD_OPT_2	16777216
+Whether to allow XML (RDF, Atom and RSS) feeds of the forum's data.}}}
 
-{{{RDF_AUTH	FUD_OPT_2	33554432
+{{{FEED_AUTH	FUD_OPT_2	33554432
 Whether or not to perform permission checks to determine if the user has access the requested data.}}}
 
-{{{RDF_AUTH_ID
-When performing authentication, the forum will treat the user as anonymous. However, to increase or lower security you can specify exactly which user the RDF feed will be authenticated as. This field allows you to enter the id of that user.}}}
+{{{FEED_AUTH_ID
+When performing authentication, the forum will treat the user as anonymous. However, to increase or lower security you can specify exactly which user the feed will be authenticated as. This field allows you to enter the id of that user (0=Anonymous).}}}
 
-{{{RDF_MAX_N_RESULTS
-The maximum number of results that can be fetched within a single request through the RDF feed.}}}
+{{{FEED_MAX_N_RESULTS
+The maximum number of results that can be fetched within a single request through the feed.}}}
 
-{{{RDF_ALLOW_USER_DATA	FUD_OPT_2	67108864
-Whether or not to allow user profile data to be fetched via RDF.}}}
+{{{FEED_ALLOW_USER_DATA	FUD_OPT_2	67108864
+Whether or not to allow user profile data to be fetched and presented as a feed.}}}
 
-{{{RDF_CACHE_AGE
-Duration of time for which to cache the RSS/XML forum feeds (in seconds), set to 0 to disable caching.}}}
+{{{FEED_CACHE_AGE
+Duration of time for which to cache XML feeds (in seconds). Set to 0 to disable caching.}}}
 
 {{{PDF_ENABLED	FUD_OPT_2	134217728
 Whether or not to enable PDF output.}}}
@@ -437,7 +440,7 @@ When anonymous users post messages perform captcha test.}}}
 If enabled, subscribers to a forum will receive notifications about every new message in the forum, rather then just new topics in the forum.}}}
 
 {{{DB_MESSAGE_STORAGE	FUD_OPT_3	32768
-If enabled, regular and private messages will be stored inside a database. This is not recommended for performance reasons!}}}
+If enabled, regular and private messages will be stored inside the database. This is not recommended for performance reasons!}}}
 
 {{{DISABLE_ANON_CACHE	FUD_OPT_3	65536
 Disable sending of page-cache headers to anonymous users, this may solve extended caching by browsers non-complaint with web specs.}}}
@@ -465,3 +468,4 @@ If enabled then user's country (name and flag) will be updated each time they lo
 
 {{{PLUGINS_ENABLED	FUD_OPT_3	4194304
 Enable/disable forum plugins. Plugins are typically created by third-party developers to extended the default capabilities of FUDforum.}}}
+

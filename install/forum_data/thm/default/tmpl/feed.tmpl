@@ -1,0 +1,279 @@
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: feed.tmpl,v 1.1 2009/06/23 20:50:51 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: feed.php.t; output: #feed.php;}
+{REF: db.tmpl}
+{REF: fileio.tmpl}
+{REF: rev_fmt.tmpl}
+
+{SECTION: xml_header header to open XML document}
+Content-Type: application/{VAR: format}+xml
+{SECTION: END}
+
+{SECTION: xml_no_data empty XML document}
+<xml><error>no data matching data</error></xml>
+{SECTION: END}
+
+/* ------------- */
+/* RDF templates */
+/* ------------- */
+
+{SECTION: rdf_doc format an RDF document}
+<?xml version="1.0" encoding="{CHARSET}"?>
+{IF: $basic}
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:admin="http://webns.net/mvcb/" xmlns="http://purl.org/rss/1.0/">
+{ELSE}
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/">
+{END}
+<channel rdf:about="{FULL_ROOT}">
+	<title>{VAR: FORUM_TITLE} - RDF feed</title>
+	<link>{FULL_ROOT}</link>
+	<description>{VAR: FORUM_TITLE} RDF feed</description>
+{IF: $basic && $feed_header}
+	<items>
+		<rdf:Seq>
+		{TEMPLATE-DATA: feed_header}
+		</rdf:Seq>
+	</items>
+{ENDIF}
+</channel>
+{TEMPLATE-DATA: feed_data}
+</rdf:RDF>
+{SECTION: END}
+
+{SECTION: rdf_message_header}
+<rdf:li rdf:resource="{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}" />
+{SECTION: END}
+
+{SECTION: rdf_message_entry}
+{IF: $basic}
+<item rdf:about="{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}">
+	<title>{FUNC: htmlspecialchars($r->subject)}</title>
+	<link>{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}</link>
+	<description>{FUNC: sp($body)}</description>
+	<dc:subject></dc:subject>
+	<dc:creator>{VAR: r->alias}</dc:creator>
+	<dc:date>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</dc:date>
+</item>
+{ELSE}
+<item>
+	<title>{FUNC: sp($r->subject)}</title>
+	<topic_id>{VAR: r->thread_id}</topic_id>
+	<topic_title>{FUNC: sp($r->th_subject)}</topic_title>
+	<message_id>{VAR: r->id}</message_id>
+	<reply_to_id>{VAR: r->reply_to}</reply_to_id>
+	<reply_to_title>{VAR: r->reply_subject}</reply_to_title>
+	<forum_id>{VAR: r->forum_id}</forum_id>
+	<forum_title>{FUNC: sp($r->frm_name)}</forum_title>
+	<category_title>{FUNC: sp($r->cat_name)}</category_title>
+	<author>{FUNC: sp($r->alias)}</author>
+	<author_id>{VAR: r->poster_id}</author_id>
+	<body>{FUNC: str_replace("\n", "", sp($body))}</body>
+	{IF: $rdf_message_attachements}
+	<content:items><rdf:Bag>
+	{TEMPLATE-DATA: rdf_message_attachements}
+	</rdf:Bag></content:items>
+	{ENDIF}
+	{IF: $rdf_message_polls}
+	<content:items><rdf:Bag><poll_name>{FUNC: sp($r->poll_name)}</poll_name><total_votes>{VAR: r->total_votes}</total_votes>
+	{TEMPLATE-DATA: rdf_message_polls}
+	</rdf:Bag></content:items>
+	{ENDIF}
+</item>
+{END}
+{SECTION: END}
+
+{SECTION: rdf_message_attachements}
+<rdf:li>
+	<content:item rdf:about="attachments">
+		<a_title>{FUNC: sp($a[1])}</a_title>
+		<a_id>{VAR: a[0]}</a_id>
+		<a_size>{VAR: a[2]}</a_size>
+		<a_nd>{VAR: a[3]}/a_nd>
+	</content:item>
+</rdf:li>
+{SECTION: END}
+
+{SECTION: rdf_message_polls}
+<rdf:li>
+	<content:item rdf:about="poll_opt">
+		<opt_title>{FUNC: sp($o[0])}</opt_title>
+		<opt_votes>{VAR: o[1]}</opt_votes>
+	</content:item>
+</rdf:li>
+{SECTION: END}
+
+{SECTION: rdf_thread_header}
+<rdf:li rdf:resource="{FULL_ROOT}index.php?t=rview&amp;th={VAR: r->id}" />
+{SECTION: END}
+
+{SECTION: rdf_thread_entry}
+{IF: $basic}
+<item rdf:about="{FULL_ROOT}index.php?t=rview&amp;th={VAR: r->id}">
+	<title>{FUNC: htmlspecialchars($r->subject)}</title>
+	<link>{FULL_ROOT}index.php?t=rview&amp;th={VAR: r->id}</link>
+	<description>{FUNC: sp($body)}</description>
+	<dc:subject>{FUNC: sp($r->frm_name)}</dc:subject>
+	<dc:creator>{FUNC: sp($r->alias)}</dc:creator>
+	<dc:date>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</dc:date>
+</item>
+{ELSE}
+<item>
+	<topic_id>{VAR: r->id}</topic_id>
+	<topic_title>{FUNC: sp($r->subject)}</topic_title>
+	<topic_creation_date>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</topic_creation_date>
+	<forum_id>{VAR: r->forum_id}</forum_id>
+	<forum_title>{FUNC: sp($r->frm_name)}</forum_title>
+	<category_title>{FUNC: sp($r->cat_name)}</category_title>
+	<author>{FUNC: sp($r->alias)}</author>
+	<author_id>{VAR: r->poster_id}</author_id>
+	<replies>{VAR: r->replies}</replies>
+	<views>{VAR: r->views}</views>
+	{IF: $r->last_post_id}<last_post_id>{VAR: r->last_post_id}</last_post_id>{ENDIF}
+	{IF: $r->lp_subject}<last_post_subj>{FUNC: sp($r->lp_subject)}</last_post_subj>{ENDIF}
+	{IF: $r->last_post_date}<last_post_date>{FUNC: gmdate("Y-m-d\TH:i:s", $r->last_post_date)}-00:00</last_post_date>{ENDIF}
+	<body>{FUNC: str_replace("\n", "", sp($body))}</body>
+</item>
+{END}
+{SECTION: END}
+
+{SECTION: rdf_user_entry}
+<item>
+	<user_id>{VAR: r->id}</user_id>
+	<user_login>{FUNC: sp($r->alias)}</user_login>
+	<user_name>{FUNC: sp($r->name)}</user_name>
+	<user_email>{FUNC: sp(email_format($r->email))}</user_email>
+	<post_count>{VAR: r->posted_msg_count}</post_count>
+	<avatar_img>{FUNC: sp($r->avatar_loc)}</avatar_img>
+	<homepage>{FUNC: sp(htmlspecialchars($r->homepage))}</homepage>
+	<bday>{VAR: r->bday}</bday>
+	{IF: $r->last_visit}<last_visit>{FUNC: gmdate("Y-m-d\TH:i:s", $r->last_visit)}</last_visit>{ENDIF}
+	{IF: $r->join_date}<reg_date>{FUNC: gmdate("Y-m-d\TH:i:s", $r->join_date)}</reg_date>{ENDIF}
+	<im_icq>{VAR: r->icq}</im_icq>
+	<im_aim>{FUNC: sp($r->aim)}</im_aim>
+	<im_yahoo>{FUNC: sp($r->yahoo)}</im_yahoo>
+	<im_msnm>{FUNC: sp($r->msnm)}</im_msnm>
+	<im_jabber>{FUNC: sp($r->msnm)}</im_jabber>
+	<im_affero>{FUNC: sp($r->affero)}</im_affero>
+{IF: $r->subject && $r->can_show_msg}
+	<m_subject>{FUNC: sp($r->subject)}</m_subject>
+	<m_id>{VAR: r->msg_id}</m_id>
+	<m_thread_id>{VAR: r->thread_id}</m_thread_id>
+	<m_forum_id>{VAR: r->forum_id}</m_forum_id>
+	<m_forum_title>{FUNC: sp($r->frm_name)}</m_forum_title>
+	<m_cat_title>{FUNC: sp($r->cat_name)}</m_cat_title>
+{ENDIF}
+</item>
+{SECTION: END}
+
+/* -------------- */
+/* ATOM templates */
+/* -------------- */
+
+{SECTION: atom_doc format an ATOM document}
+<?xml version="1.0" encoding="{CHARSET}"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>{VAR: FORUM_TITLE} - Atom feed</title>
+	<subtitle>{GVAR: FORUM_DESCR}</subtitle>
+	<link href="{FULL_ROOT}"/>
+	<updated>{FUNC: gmdate("Y-m-d\TH:i:s", __request_timestamp__)}-00:00</updated>
+	<id>{FULL_ROOT}</id>
+	<generator uri="http://fudforum.org/" version="{VAR: FORUM_VERSION}">FUDforum</generator>
+	{TEMPLATE-DATA: feed_data}
+</feed>
+{SECTION: END}
+
+{SECTION: atom_message_entry}
+<entry>
+	<title>{FUNC: htmlspecialchars($r->subject)}</title>
+	<link href="{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}"/>
+	<id>{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}</id>
+	<author><name>{VAR: r->alias}</name></author>
+	<published>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</published>
+	{IF: $r->update_stamp}<updated>{FUNC: gmdate("Y-m-d\TH:i:s", $r->update_stamp)}-00:00</updated>{ENDIF}
+	<content type="html">{FUNC: sp($body)}</content>
+</entry>
+{SECTION: END}
+
+{SECTION: atom_thread_entry}
+<entry>
+	<title>{FUNC: htmlspecialchars($r->subject)}</title>
+	{IF: $r->tdescr}<subtitle>{FUNC: sp($r->tdescr)}</subtitle>{ENDIF}
+	<link href="{FULL_ROOT}index.php?t=rview&amp;th={VAR: r->id}"/>
+	<id>{FULL_ROOT}index.php?t=rview&amp;th={VAR: r->id}</id>
+	<author><name>{FUNC: sp($r->alias)}</name></author>
+	<published>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</published>
+	{IF: $r->last_post_date}<updated>{FUNC: gmdate("Y-m-d\TH:i:s", $r->last_post_date)}-00:00</updated>{ENDIF}
+	<content type="html">{FUNC: sp($body)}</content>
+</entry>
+{SECTION: END}
+
+{SECTION: atom_user_entry}
+<entry>
+	<title>{FUNC: sp($r->alias)}</title>
+	<link href="{FULL_ROOT}index.php?t=usrinfo&amp;id={VAR: r->id}"/>
+	<id>{FULL_ROOT}index.php?t=usrinfo&amp;id={VAR: r->id}</id>
+	<author>
+		<name>{FUNC: sp($r->name)}</name>
+		<email>{FUNC: sp(email_format($r->email))}</email>
+		{IF: $r->homepage}<uri>{FUNC: sp(htmlspecialchars($r->homepage))}</uri>{ENDIF}
+	</author>
+	{IF: $r->last_visit}<published>{FUNC: gmdate("Y-m-d\TH:i:s", $r->last_visit)}</published>{ENDIF}
+	{IF: $r->join_date}<updated>{FUNC: gmdate("Y-m-d\TH:i:s", $r->join_date)}</updated>{ENDIF}
+</entry>
+{SECTION: END}
+
+/* -------------- */
+/* RSS2 templates */
+/* -------------- */
+
+{SECTION: rss_doc format an RSS2 document}
+<?xml version="1.0" encoding="{CHARSET}"?>
+<rss version="2.0">
+<channel>
+	<title>{VAR: FORUM_TITLE} - RSS2 feed</title>
+	<link>{FULL_ROOT}</link>
+	<description>{GVAR: FORUM_DESCR}</description>
+	<language>{LANG}</language>
+	<pubDate>{FUNC: gmdate("Y-m-d\TH:i:s", __request_timestamp__)}-00:00</pubDate>
+	<generator>FUDforum {VAR: FORUM_VERSION}</generator>
+	{TEMPLATE-DATA: feed_data}
+</channel>
+</rss>
+{SECTION: END}
+
+{SECTION: rss_message_entry}
+<item>
+	<title>{FUNC: htmlspecialchars($r->subject)}</title>
+	<link>{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}</link>
+	<author>{VAR: r->alias}</author>
+	<pubDate>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</pubDate>
+	<description>{FUNC: sp($body)}</description>
+</item>
+{SECTION: END}
+
+{SECTION: rss_thread_entry}
+<item>
+	<title>{FUNC: htmlspecialchars($r->subject)}</title>
+	<link>{FULL_ROOT}index.php?t=rview&amp;th={VAR: r->id}</link>
+	<author>{FUNC: sp($r->alias)}</author>
+	<pubDate>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</pubDate>
+	<description>{FUNC: sp($body)}</description>
+</item>
+{SECTION: END}
+
+{SECTION: rss_user_entry}
+<item>
+	<title>{FUNC: sp($r->alias)}</title>
+	<link>{FULL_ROOT}index.php?t=usrinfo&amp;id={VAR: r->id}</link>
+	<author>{FUNC: sp($r->name)}</author>
+	{IF: $r->last_visit}<pubDate>{FUNC: gmdate("Y-m-d\TH:i:s", $r->last_visit)}</pubDate>{ENDIF}
+</item>
+{SECTION: END}

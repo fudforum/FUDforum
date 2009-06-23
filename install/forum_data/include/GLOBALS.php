@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: GLOBALS.php,v 1.61 2009/04/15 16:45:48 frank Exp $
+* $Id: GLOBALS.php,v 1.62 2009/06/23 20:50:51 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -80,6 +80,7 @@
 	$MAX_IMAGE_COUNT	= 10;
 	$STATS_CACHE_AGE	= 600;		/* seconds */
 	$FORUM_TITLE		= "My forum, my way!";
+	$FORUM_DESCR		= "FUDforum is a great community building tool. Because working together is more fun for everyone!";
 	$MAX_LOGIN_SHOW		= 25;
 	$MAX_LOCATION_SHOW	= 25;
 	$SHOW_N_MODS		= 2;
@@ -94,15 +95,16 @@
 	$MNAV_MAX_DATE		= 31;		/* days */
 	$MNAV_MAX_LEN		= 256;		/* characters */
 
-	$RDF_MAX_N_RESULTS	= 100;		/* int */
-	$RDF_AUTH_ID		= 0;		/* 0 - treat as anon user, >0 treat like specific forum user */
+	$FEED_MAX_N_RESULTS	= 20;		/* int */
+	$FEED_AUTH_ID		= 0;		/* 0 - treat as anon user, >0 treat like specific forum user */
+	$FEED_CACHE_AGE		= 900;
 
 	$PDF_PAGE		= "letter";	/* string */
 	$PDF_WMARGIN		= 15;		/* int */
 	$PDF_HMARGIN		= 15;		/* int */
 	$PDF_MAX_CPU		= 60;		/* seconds */
+
 	$FUD_WHOIS_SERVER	= "ws.arin.net";
-	$RDF_CACHE_AGE		= 600;
 	$MIN_TIME_BETWEEN_LOGIN = 10;		/* seconds */
 
 /* DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING */

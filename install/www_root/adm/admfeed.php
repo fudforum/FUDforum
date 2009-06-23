@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admrdf.php,v 1.25 2009/05/18 20:22:33 frank Exp $
+* $Id: admfeed.php,v 1.1 2009/06/23 20:50:51 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,18 +61,18 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
-	$rdf_url = $WWW_ROOT . 'rdf.php';
+	$feed_url = $WWW_ROOT . 'feed.php';
 ?>
-<h2>RDF Feed Configuration</h2>
-<form method="post" action="admrdf.php"><?php echo _hs; ?>
+<h2>XML Syndication Management</h2>
+<form method="post" action="admfeed.php"><?php echo _hs; ?>
 <table class="datatable solidtable">
 <?php
-	print_bit_field('RDF Feed Enabled', 'RDF_ENABLED');
-	print_bit_field('RDF Authentication', 'RDF_AUTH');
-	print_reg_field('User id', 'RDF_AUTH_ID');
-	print_reg_field('Maximum number of result', 'RDF_MAX_N_RESULTS');
-	print_bit_field('Allow user data retrieval', 'RDF_ALLOW_USER_DATA');
-	print_reg_field('Cache Controls', 'RDF_CACHE_AGE');
+	print_bit_field('XML Feed Enabled', 'FEED_ENABLED');
+	print_bit_field('Feed Authentication', 'FEED_AUTH');
+	print_reg_field('User id', 'FEED_AUTH_ID');
+	print_reg_field('Maximum number of result', 'FEED_MAX_N_RESULTS');
+	print_bit_field('Allow user data retrieval', 'FEED_ALLOW_USER_DATA');
+	print_reg_field('Cache Control', 'FEED_CACHE_AGE');
 ?>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Change Settings" /></td></tr>
 </table>
@@ -80,17 +80,16 @@
 </form>
 <br />
 <table class="datatable">
-<tr><th><b>Quick RDF Tutorial</b></th></tr>
+<tr><th><b>Quick XML Tutorial</b></th></tr>
 <tr><td class="tutor">
-If enabled, the RDF stream for your forum can be found at: <a href="<?php echo $rdf_url; ?>" target="_blank"><?php echo $rdf_url; ?></a><br />
-The streams has three modes of operation, which are tailored for a specific data that you wish to fetch. You
-can specify the mode by passing the 'mode' parameter via GET to the rdf script. The support modes are 'u', for
-user information retrieval, 't' for topic retrieval and 'm' for message retrieval. Each mode has a number of
-options that allow you to specify the exact nature of the data you wish to fetch. Below is the explanation of
-those flags, it should be noted that flags are not exclusive and you can use as many as you like in a single
-request.<br />
+<p>If enabled, the XML feed for your forum can be found at: <a href="<?php echo $feed_url; ?>" target="_blank"><?php echo $feed_url; ?></a></p>
+<p>The feed has three modes of operation. You can specify the mode by passing the 'mode' parameter via GET to the feed script.
+The support modes are 'u', for user information retrieval, 't' for topic retrieval and 'm' for message retrieval.
+Each mode has a number of options that allow you to specify the exact nature of the data you wish to fetch. 
+Below is the explanation of those flags, it should be noted that flags are not exclusive and you can use as many 
+as you like in a single request.<br />
 A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GLOBALS['DATA_DIR']; ?>scripts/rdf_parser.php</b>
-<br /><br />
+<br />
 <h4><u><b>'m' mode (messages)</b></u></h4>
 <blockquote>
 	<table border="0" cellspacing="1" cellpadding="3">
@@ -105,7 +104,8 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 		<tr><td><i>l</i></td><td>Order messages from newest to oldest.</td></tr>
 		<tr><td><i>sf</i></td><td>Subscribed forums based on user id.</td></tr>
 		<tr><td><i>st</i></td><td>Subscribed topics based on user id.</td></tr>
-		<tr><td><i>basic</i></td><td>Output basic data parse-able by most RDF parsers.</td></tr>
+		<tr><td><i>basic</i></td><td>Output basic data parse-able by most RDF parsers (only when format=rdf).</td></tr>
+		<tr><td><i>format</i></td><td>Output format: RDF (default), ATOM or RSS.</td></tr>
 	</table>
 </blockquote>
 <h4><u><b>'t' mode (topics)</b></u></h4>
@@ -119,6 +119,7 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 		<tr><td><i>n</i></td><td>Fetch no more then <i>n</i> topics (cannot be higher then overall maximum).</td></tr>
 		<tr><td><i>o</i></td><td>Starting offset from which to begin fetching topics.</td></tr>
 		<tr><td><i>l</i></td><td>Order topics from newest to oldest.</td></tr>
+		<tr><td><i>format</i></td><td>Output format: RDF (default), ATOM or RSS.</td></tr>
 	</table>
 </blockquote>
 <h4><u><b>'u' mode (users)</b></u></h4>
@@ -129,11 +130,14 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 		<tr><td><i>cl</i></td><td>Only show users who are currently online.</td></tr>
 		<tr><td><i>n</i></td><td>Fetch no more then <i>n</i> users (cannot be higher then overall maximum).</td></tr>
 		<tr><td><i>o</i></td><td>Starting offset from which to begin fetching users.</td></tr>
+		<tr><td><i>format</i></td><td>Output format: RDF (default), ATOM or RSS.</td></tr>
 	</table>
-</blockquote>
-<b>Example:</b><br />
-The following link will fetch 10 most recent messages from your forum:<br />
-<a href="<?php echo $rdf_url; ?>?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank"><?php echo $rdf_url; ?>?mode=m&amp;l=1&amp;n=10</a>
+</blockquote></p>
+<b>Examples:</b><br />
+<p>Fetch the 10 most recent <i>messages</i> from your forum and format it as an <i>RDF</i> feed:<br />
+<a href="<?php echo $feed_url; ?>?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank"><?php echo $feed_url; ?>?mode=m&amp;l=1&amp;n=10</a></p>
+<p>Fetch the 15 most recent <i>topics</i> from your forum and format it as an <i>ATOM</i> feed:<br />
+<a href="<?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=15&amp;format=atom" target="_blank"><?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=15&amp;format=atom</a></p>
 </td></tr>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

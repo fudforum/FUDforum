@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.tmpl,v 1.50 2009/01/29 18:37:29 frank Exp $
+* $Id: threadt.tmpl,v 1.51 2009/06/23 20:50:51 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -110,7 +110,7 @@
 </tr>
 </table>
 {FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
-{IF: _uid}{TEMPLATE: thread_mark_all_read}{ELSE}{TEMPLATE: thread_pdf_rdf}{END}
+{IF: _uid}{TEMPLATE: thread_mark_all_read}{ELSE}{TEMPLATE: thread_pdf_xml}{END}
 {TEMPLATE: thread_legend}
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

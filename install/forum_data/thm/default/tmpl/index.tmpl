@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.93 2009/06/07 08:40:38 frank Exp $
+* $Id: index.tmpl,v 1.94 2009/06/23 20:50:51 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -104,7 +104,7 @@
 {TEMPLATE-DATA: forum_list_table_data}
 </table>
 {IF: _uid}<div class="SmallText ar">[ <a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a> ]
-{IF: $FUD_OPT_2 & 1048576}[ <a href="rdf.php?mode=m&amp;l=1&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="{MSG: thread_syndicate}"/></a> ]{ENDIFI}
+{IF: $FUD_OPT_2 & 1048576}[ <a href="feed.php?mode=m&amp;l=1&amp;basic=1"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="{MSG: thread_syndicate}"/></a> ]{ENDIFI}
 </div>{ENDIF}
 {IF: __fud_real_user__}{TEMPLATE: quick_login_loged_in}{ELSE}{TEMPLATE: quick_login_on}{END}
 {IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
@@ -126,7 +126,7 @@ min_max_cats("{THEME_IMAGE_ROOT}", "{DEF: img_ext}", "{MSG: minimize_category}",
 
 {SECTION: index_RSS}
 {IF: $FUD_OPT_2 & 1048576}
-<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}rdf.php?mode=m&amp;l=1&amp;basic=1" />
+<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;l=1&amp;basic=1" />
 {ENDIFI}
 {SECTION: END}
 

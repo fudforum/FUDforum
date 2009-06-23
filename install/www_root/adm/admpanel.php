@@ -43,7 +43,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="admplugins.php?<?php echo __adm_rsid; ?>">Plugin Manager</a><br />
 	<a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement &amp; Censorship System</a><br />
 	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Management System</a><br />
-	<a href="admrdf.php?<?php echo __adm_rsid; ?>">RDF Feed Management</a><br />
+	<a href="admfeed.php?<?php echo __adm_rsid; ?>">Syndication Management</a><br />
 	<a href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Management</a><br />
 	<a href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Management</a><br />
 	<a href="admsql.php?<?php echo __adm_rsid; ?>">SQL Manager</a><br />

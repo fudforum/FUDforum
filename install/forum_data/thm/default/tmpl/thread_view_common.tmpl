@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.tmpl,v 1.43 2009/02/03 20:40:46 frank Exp $
+* $Id: thread_view_common.tmpl,v 1.44 2009/06/23 20:50:51 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -98,16 +98,16 @@
 
 {SECTION: thread_syndicate}
 &nbsp;[ <a href="{TEMPLATE: thread_syndicate_lnk}">{MSG: thread_syndicate}</a> ]
-[ <a href="rdf.php?mode=m&amp;l=1&amp;basic=1&amp;frm={VAR: frm->id}&amp;n=10"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" /></a> ]
+[ <a href="feed.php?mode=m&amp;l=1&amp;basic=1&amp;frm={VAR: frm->id}&amp;n=10"><img src="{THEME_IMAGE_ROOT}/rss.gif" title="{MSG: thread_syndicate}" alt="RSS" /></a> ]
 {SECTION: END}
 
 {SECTION: thread_RSS}
 {IF: $FUD_OPT_2 & 1048576}
-<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}rdf.php?mode=m&amp;l=1&amp;basic=1&amp;frm={VAR: frm->id}&amp;n=10" />
+<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}feed.php?mode=m&amp;l=1&amp;basic=1&amp;frm={VAR: frm->id}&amp;n=10" />
 {ENDIFI}
 {SECTION: END}
 
-{SECTION: thread_pdf_rdf}
+{SECTION: thread_pdf_xml}
 <div class="ar SmallText">{IF: ($FUD_OPT_2 & 270532608) == 270532608}{TEMPLATE: thread_printable_pdf}{ENDIF}{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: thread_syndicate}{ENDIFI}</div>
 {SECTION: END}
 
