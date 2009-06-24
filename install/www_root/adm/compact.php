@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.83 2009/06/07 10:57:02 frank Exp $
+* $Id: compact.php,v 1.84 2009/06/24 14:37:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -152,14 +152,14 @@ function eta_calc($start, $pos, $pc)
 	echo "<br />Please wait while forum is being compacted.<br />This may take a while depending on the size of your forum.<br />\n";
 
 	$mode = ($FUD_OPT_2 & 8388608 ? 0600 : 0666);
+	$tbl =& $DBHOST_TBL_PREFIX;
+	$stm = time();
 
 	/* Normal Messages */
 	echo "Compacting normal messages...<br />\n";
 
-	$tbl =& $DBHOST_TBL_PREFIX;
 	$pc = ceil(q_singleval('SELECT count(*) FROM '.$tbl.'msg WHERE file_id>0') / 10);
 	$i = 0;
-	$stm = time();
 	if ($pc) {
 		db_lock($tbl.'msg m WRITE, '.$tbl.'thread t WRITE, '.$tbl.'forum f WRITE, '.$tbl.'msg WRITE, '.$tbl.'msg_store WRITE');
 

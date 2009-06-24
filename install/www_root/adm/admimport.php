@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.71 2009/05/18 20:22:33 frank Exp $
+* $Id: admimport.php,v 1.72 2009/06/24 14:37:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -334,7 +334,7 @@ if ($datadumps) {
 </tr>
 <tr class="field">
 	<td>Skip Search Index:<br /><font size="-1">Do not load search data. You will need to reindex your forum after the import.
-	<td><input type="checkbox" value="y" name="skipsearch" /> Yes</td>
+	<td><label><input type="checkbox" value="y" name="skipsearch" /> Yes</label></td>
 </tr>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Import Data" /></td></tr>
 </table>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php,v 1.15 2009/05/16 17:43:03 frank Exp $
+* $Id: index.php,v 1.16 2009/06/24 14:37:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,13 +17,13 @@
 
 <?php	
 	if (@file_exists($WWW_ROOT_DISK.'install.php')) {
-		echo '<div class="alert">You still haven\'t removed the installation script at '.$WWW_ROOT_DISK.'install.php. Please do so now before a hacker destroys your forum!</div>';
+		echo '<div class="alert">You still haven\'t removed the installation script at '.$WWW_ROOT_DISK.'install.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!</div><br />';
 	}
 	if (@file_exists($WWW_ROOT_DISK.'uninstall.php')) {
-		echo '<div class="alert">You still haven\'t removed the uninstall script at '.$WWW_ROOT_DISK.'uninstall.php. Please do so now before a hacker destroys your forum!</div>';
+		echo '<div class="alert">You still haven\'t removed the uninstall script at '.$WWW_ROOT_DISK.'uninstall.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!</div><br />';
 	}
 	if (@file_exists($WWW_ROOT_DISK.'upgrade.php')) {
-		echo '<div class="alert">You still haven\'t removed the upgrade script at '.$WWW_ROOT_DISK.'upgrade.php. Please do so now before a hacker destroys your forum!</div>';
+		echo '<div class="alert">You still haven\'t removed the upgrade script at '.$WWW_ROOT_DISK.'upgrade.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!</div><br />';
 	}
 ?>
 

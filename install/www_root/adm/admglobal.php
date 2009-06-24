@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.107 2009/05/18 20:22:33 frank Exp $
+* $Id: admglobal.php,v 1.108 2009/06/24 14:37:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -64,7 +64,7 @@ function get_max_upload_size()
 			}
 		}
 
-		/* restore PDF & RDF settings */
+		/* restore PDF & XML Feed settings */
 		$GLOBALS['NEW_FUD_OPT_2'] |= $FUD_OPT_2 & (16777216|33554432|67108864|134217728|268435456|8388608);
 
 		/* disable apache_setenv() is no such function */
@@ -156,19 +156,35 @@ function get_max_upload_size()
 	}
 ?>
 <h2>Global Settings Manager</h2>
+
+<div class="tutor" style="font-size: small;">[
+<a href="#1">Primary Forum Options</a> |
+<a href="#2">URL &amp; directories</a> |
+<a href="#3">Database Settings</a> |
+<a href="#4">Interface Look &amp; Feel</a> |
+<a href="#5">Private Messaging</a> |
+<a href="#6">Cookie &amp; Session Settings</a> |
+<a href="#7">Avatar Settings</a> |
+<a href="#8">Signature Settings</a> |
+<a href="#9">Spell Checker</a> |
+<a href="#10">E-mail Settings</a> |
+<a href="#11">General Settings</a>
+]</div>
+
 <form method="post" action="admglobal.php" autocomplete="off">
 <?php echo _hs ?>
 <table class="datatable solidtable">
-<tr class="fieldtopic"><td colspan="2"><br /><b>Primary Forum Options</b></td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="1" /><br /><b>Primary Forum Options</b></td></tr>
 <?php
 	print_reg_field('Forum Title', 'FORUM_TITLE');
+	print_txt_field('Forum Description', 'FORUM_DESCR');
+	print_bit_field('Allow Registration', 'ALLOW_REGISTRATION');	
 	print_bit_field('Forum Enabled', 'FORUM_ENABLED');
 	print_txt_field('Reason for Disabling', 'DISABLED_REASON');
-	print_bit_field('Allow Registration', 'ALLOW_REGISTRATION');
 ?>
 <tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><br /><b>URL &amp; directories</b></td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="2" /><br /><b>URL &amp; directories</b></td></tr>
 <?php
 	print_reg_field('WWW Root', 'WWW_ROOT');
 	print_reg_field('WWW Root (disk path)', 'WWW_ROOT_DISK');
@@ -176,7 +192,7 @@ function get_max_upload_size()
 ?>
 <tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><br /><b>Database Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="3" /><br /><b>Database Settings</b> </td></tr>
 <?php
 	print_reg_field('Database Server', 'DBHOST');
 	print_reg_field('Database Login', 'DBHOST_USER');
@@ -193,10 +209,17 @@ function get_max_upload_size()
 			print_bit_field('Use MySQL 4.1 Performance Options', 'MYSQL_4_1_OPT');
 		}
 	}
+	?>
+<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+
+<tr class="fieldtopic"><td colspan="2"><a name="4" /><br /><b>Interface Look &amp; Feel</b> </td></tr>
+<?php
+	print_bit_field('Enable Quick Reply', 'QUICK_REPLY_ENABLED');
+	print_bit_field('Quick Reply Display Modes', 'QUICK_REPLY_DISPLAY');
 ?>
 <tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><br /><b>Private Messaging</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="5" /><br /><b>Private Messaging</b> </td></tr>
 <?php
 	print_bit_field('Allow Private Messaging', 'PM_ENABLED');
 	print_reg_field('File Attachments in Private Messages', 'PRIVATE_ATTACHMENTS', 1);
@@ -210,7 +233,7 @@ function get_max_upload_size()
 ?>
 <tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><br /><b>Cookie &amp; Session Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="6" /><br /><b>Cookie &amp; Session Settings</b> </td></tr>
 <?php
 	print_reg_field('Cookie Path', 'COOKIE_PATH');
 	print_reg_field('Cookie Domain', 'COOKIE_DOMAIN');
@@ -224,7 +247,7 @@ function get_max_upload_size()
 ?>
 <tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><br /><b>Custom Avatar Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="7" /><br /><b>Avatar Settings</b> </td></tr>
 <?php
 	print_bit_field('Avatar Approval', 'CUSTOM_AVATAR_APPROVAL');
 	print_bit_field('Allow Flash (swf) avatars', 'CUSTOM_AVATAR_ALLOW_SWF');
@@ -234,7 +257,7 @@ function get_max_upload_size()
 ?>
 <tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><br /><b>Signature Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="8" /><br /><b>Signature Settings</b> </td></tr>
 <?php
 	print_bit_field('Allow Signatures', 'ALLOW_SIGS');
 	print_bit_field('Tag Style', 'FORUM_CODE_SIG');
@@ -245,7 +268,7 @@ function get_max_upload_size()
 ?>
 <tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><br /><b>Spell Checker</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="9" /><br /><b>Spell Checker</b> </td></tr>
 <?php
 	if (extension_loaded('pspell')) {
 		$pspell_support = '<font color="red">is enabled.</font>';
@@ -257,7 +280,7 @@ function get_max_upload_size()
 ?>
 <tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><br /><b>E-mail Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="10" /><br /><b>E-mail Settings</b> </td></tr>
 <?php
 	print_bit_field('Allow E-mail', 'ALLOW_EMAIL');
 	print_bit_field('Use SMTP To Send E-mail', 'USE_SMTP');
@@ -276,7 +299,7 @@ function get_max_upload_size()
 ?>
 <tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><br /><b>General Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="11" /><br /><b>General Settings</b> </td></tr>
 <?php
 	print_bit_field('New Account Moderation', 'MODERATE_USER_REGS');
 	print_bit_field('New Account Notification', 'NEW_ACCOUNT_NOTIFY');

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.95 2009/05/18 20:22:33 frank Exp $
+* $Id: admuser.php,v 1.96 2009/06/24 14:37:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,7 +87,7 @@
 
 			echo '<font color="green">User options succesflly updated.</font><br />';
 			if (isset($_GET['f'])) {
-				header('Location: '.$WWW_ROOT.__fud_index_name__.$usr->returnto);
+				echo '<p>[ <a href="'. $WWW_ROOT.__fud_index_name__.$usr->returnto.'">return</a> ]</p>';
 				exit;
 			}
 			break;
@@ -115,7 +115,7 @@
 			echo '<font color="green">Password was successfully reset and e-mailed to the user.</font>';
 			break;
 		case 'del':
-			if ($usr_id == 1) {
+			if ($usr_id == 1) {	// Prevent deletion of "Anonymous"
 				break;
 			}
 
@@ -123,7 +123,6 @@
 ?>
 <form method="post" action="admuser.php"><?php echo _hs; ?>
 <input type="hidden" name="act" value="del" />
-<input type="hidden" name="f" value="<?php echo (int) isset($_GET['f']); ?>" />
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 <input type="hidden" name="del_confirm" value="1" />
 <div align="center">You are about to delete <font color="red"><b><?php echo $u->alias; ?></b></font>'s account!<br /><br />
@@ -144,11 +143,15 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 				echo '<font color="green">User <b>'.$u->alias.'</b> was successfully removed.</font>';
 				unset($act, $u);
 				$usr_id = '';
-			}
-			echo '<p>[ <a href="'. $WWW_ROOT.__fud_index_name__.'?'.$usr->returnto.'">return</a> ]</p>';
-			if (isset($_POST['f']) || isset($_GET['f'])) {
-				header('Location: '.$WWW_ROOT.__fud_index_name__.'?'.$usr->returnto);
-				exit;
+				if (isset($_POST['f']) || isset($_GET['f'])) {
+					echo '<p>[ <a href="'. $WWW_ROOT.__fud_index_name__.'?t=finduser">return</a> ]</p>';
+					exit;
+				}
+			} else if (isset($_POST['btn_no'])) {
+				if (isset($_POST['f']) || isset($_GET['f'])) {
+					echo '<p>[ <a href="'. $WWW_ROOT.__fud_index_name__.$usr->returnto.'">return</a> ]</p>';
+					exit;
+				}
 			}
 			break;
 		case 'admin':
@@ -297,12 +300,10 @@ administration permissions to the forum. This individual will be able to do anyt
 <h2>User Administration System</h2>
 <?php if (!$usr_id) echo '<p>Use an asterisk (*) to match multiple user accounts.</p>'; ?>
 <form id="frm_usr" method="post" action="admuser.php">
+<fieldset>
+<legend><b>Search for user:</b></legend>
 <?php echo _hs . $search_error; ?>
 <table class="datatable solidtable">
-	<tr class="field">
-		<td colspan="2">Search for user:</td>
-	</tr>
-
 	<tr class="field">
 		<td>By <?php echo ($FUD_OPT_2 & 128 ? 'Alias' : 'Login'); ?>:</td>
 		<td><input tabindex="1" type="text" name="usr_login" /></td>
@@ -317,6 +318,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		<td colspan="2" align="right"><input tabindex="3" type="submit" value="Search" name="usr_search" /></td>
 	</tr>
 </table>
+</fieldset>
 </form>
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -325,6 +327,7 @@ document.forms['frm_usr'].usr_login.focus();
 </script>
 <?php if ($usr_id) { ?>
 <form action="admuser.php" method="post"><?php echo _hs; ?>
+<h3>Admin controls for user: <?php echo char_fix(htmlspecialchars($u->login)); ?></h3>
 <table class="datatable solidtable">
 
 	<tr class="field"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo char_fix(htmlspecialchars($u->login)); ?>" maxlength="<?php echo $MAX_LOGIN_SHOW; ?>" name="login_name" /> <input type="submit" name="submit" value="Change Login Name" /></td></tr>
@@ -426,7 +429,7 @@ if ($acc_mod_only) {
 	<font size="-1">To set a temporary ban specify the duration of the ban in number of days, 
 	for permanent ban leave duration value at 0. The value of the duration field for non-permanent bans will show
 	days remaining till ban expiry.</font></td></tr>
-	<tr class="field"><td>Is Banned:</td><td><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked /> <font color="red">Yes</font>' : ' /> No'); ?> </td></tr>
+	<tr class="field"><td>Is Banned:</td><td><label><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked /> <font color="red">Yes</font>' : ' /> No'); ?> </label></td></tr>
 	<tr class="field"><td>Ban Duration (in days)</td><td><input type="text" value="<?php 
 	if ($u->ban_expiry) {
 		printf("%.2f", ($u->ban_expiry - __request_timestamp__) / 86400);

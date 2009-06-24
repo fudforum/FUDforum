@@ -2,14 +2,12 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.75 2009/05/18 20:22:33 frank Exp $
+* $Id: admthemes.php,v 1.76 2009/06/24 14:37:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
-
-	$meml = (($meml = ini_get("memory_limit")) && (int)$meml < 10);
 
 	require('./GLOBALS.php');
 	fud_use('widgets.inc', true);
@@ -41,6 +39,7 @@
 			fudcopy($root . 'path_info/', $root_nn, '*', true);
 		}
 		umask($u);
+		echo 'Template set '.$_POST['newname'].' was successfully created.<br />';
 	}
 
 	if (isset($_GET['rebuild_all'])) {
@@ -54,7 +53,7 @@
 
 	if (isset($_POST['thm_theme']) && $_POST['thm_theme'] == 'path_info' && !($FUD_OPT_2 & 32768)) {
 		unset($_POST['edit'], $_POST['thm_theme']);
-		echo '<h3 class="alert">You need to enable PATH_INFO support in forum settings before using path_info theme.</h3>';
+		echo '<h3 class="alert">You need to enable PATH_INFO support in the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> before using path_info theme.</h3>';
 	}
 
 	if (isset($_POST['thm_theme']) && !$edit) {
@@ -62,6 +61,7 @@
 		if ($thm->name) {
 			$thm->add();
 			compile_all($thm->theme, $thm->lang, $thm->name);
+			echo 'Theme '.$thm->name.' was successfully created.<br />';
 		}
 	} else if (isset($_POST['edit'])) {
 		$thm = new fud_theme;
@@ -73,6 +73,7 @@
 			compile_all($thm->theme, $thm->lang, $thm->name);
 		}
 		$edit = '';
+		echo 'Theme saved and successfully rebuilt.<br />';
 	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.(int)$_GET['rebuild']))) {
 		echo 'Rebuilding theme '. $data[2] . ' ('. $data[1] .')...';
 		compile_all($data[0], $data[1], $data[2]);
@@ -84,13 +85,18 @@
 		$thm_enabled = $c['theme_opt'] & 1;
 	} else if (isset($_GET['del']) && (int)$_GET['del'] > 1) {
 		fud_theme::delete((int)$_GET['del']);
+		echo 'Theme successfully deleted<br />';
 	}
 
 	if (!$edit) {
 		foreach (get_class_vars('fud_theme') as $k => $v) {
 			${'thm_'.$k} = '';
 		}
-		$thm_locale = 'english';
+		if (strncasecmp('win', PHP_OS, 3)) {	// Not Windows
+			$thm_locale = 'en_US.UTF-8';
+		} else {
+			$thm_locale = 'english';			// No UTF-8 locales on Windows
+		}
 		$thm_pspell_lang = 'en';
 		$thm_t_default = $thm_enabled = 0;
 	}
@@ -125,10 +131,9 @@
 	<td>
 	<select name="thm_theme">
 	<?php
-		if (!defined('GLOB_ONLYDIR')) { /* pre PHP 4.3.3 hack for FreeBSD and Windows */
-			define('GLOB_ONLYDIR', 0);
+		if (!$thm_theme) {
+			$thm_theme = 'default';
 		}
-
 		foreach (glob($DATA_DIR.'/thm/*', GLOB_ONLYDIR) as $file) {
 			if (!file_exists($file . '/tmpl')) {
 				continue;
@@ -184,13 +189,13 @@ function update_locale()
 
 <tr class="field">
 	<td>Locale:</td>
-	<td><input type="text" name="thm_locale" value="<?php echo htmlspecialchars($thm_locale); ?>" size="7" /></td>
+	<td><input type="text" name="thm_locale" value="<?php echo htmlspecialchars($thm_locale); ?>" size="12" /></td>
 </tr>
 
 <tr class="field">
 	<td>pSpell Language:</td>
 	<td>
-		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars($thm_pspell_lang); ?>" size="4" />
+		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars($thm_pspell_lang); ?>" size="2" />
 		[<a href="javascript://" onclick="document.forms['admthm'].thm_pspell_lang.value=''">disable</a>]
 	</td>
 </tr>

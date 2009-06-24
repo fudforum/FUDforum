@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemesel.php,v 1.37 2009/05/08 06:11:16 frank Exp $
+* $Id: admthemesel.php,v 1.38 2009/06/24 14:37:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,10 +35,6 @@
 <tr class="field">
 <td>Template Set:</td><td><select name="tname">
 <?php
-	if (!defined('GLOB_ONLYDIR')) { /* pre PHP 4.3.3 hack for FreeBSD and Windows */
-		define('GLOB_ONLYDIR', 0);
-	}
-
 	foreach (glob($GLOBALS['DATA_DIR'].'/thm/*', GLOB_ONLYDIR) as $file) {
 		if (!file_exists($file . '/tmpl')) {
 			continue;

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmodfrm.php,v 1.37 2009/01/29 18:37:40 frank Exp $
+* $Id: admmodfrm.php,v 1.38 2009/06/24 14:37:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -77,7 +77,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 			echo '<tr class="fieldtopic"><td colspan="2">'.$r[0].'</td></tr>';
 			$pc = $r[0];
 		}
-		echo '<tr class="field"><td><input type="checkbox" name="mod_allow[]" value="'.$r[2].'"'.($r[3] ? ' checked': '').' />'.$r[1].'</td></tr>';
+		echo '<tr class="field"><td><label><input type="checkbox" name="mod_allow[]" value="'.$r[2].'"'.($r[3] ? ' checked': '').' />'.$r[1].'</label></td></tr>';
 	}
 	unset($c);
 ?>

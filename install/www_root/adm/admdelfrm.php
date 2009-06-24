@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdelfrm.php,v 1.32 2009/05/08 20:10:15 frank Exp $
+* $Id: admdelfrm.php,v 1.33 2009/06/24 14:37:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,6 +48,7 @@
 	}
 ?>
 <h2>Orphaned Forums</h2>
+<p>The follwoing forums are in the recycle bin:</p>
 <table class="resulttable fulltable">
 <tr class="resulttopic">
 	<td width="50%">Name</td>

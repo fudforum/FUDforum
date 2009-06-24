@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.46 2009/05/18 20:22:33 frank Exp $
+* $Id: admnntp.php,v 1.47 2009/06/24 14:37:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,6 +35,7 @@
 	} else if (isset($_GET['trk']) && ($nn = db_sab('SELECT * FROM '.$tbl.'nntp WHERE id='.(int)$_GET['trk']))) {
 		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup.'.lock');
 		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup);
+		echo '<font color="green">Newsgroup tracker was successfully cleard.</font>';
 	}
 
 	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'nntp WHERE id='.$edit))) {

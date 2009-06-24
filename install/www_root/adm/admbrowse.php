@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.37 2009/05/06 18:44:28 frank Exp $
+* $Id: admbrowse.php,v 1.38 2009/06/24 14:37:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -348,9 +348,17 @@ if (!extension_loaded('posix')) {
 
 		$size = round((isset($st[7])?$st[7]:$st['size'])/1024);
 
-		echo '<tr class="field admin_fixed"><td nowrap="nowrap">'.$mode_str.' ('.$mode_o.')</td><td>'.$owner.'</td><td>'.$group.'</td><td nowrap="nowrap">'.$size.' KB</td><td nowrap="nowrap">'.$date_str.'</td><td>'.$time_str.'</td><td>'.$name.'</td>';
+		if (preg_match('/install.php|upgrade.php/i', $fpath)) {
+			echo '<tr class="field admin_fixed" style="color:red;">';
+			echo '<td nowrap="nowrap">';
+			echo '<a name="flagged"></a>';
+		} else {
+			echo '<tr class="field admin_fixed">';
+			echo '<td nowrap="nowrap">';
+		}
+		echo $mode_str.' ('.$mode_o.')</td><td>'.$owner.'</td><td>'.$group.'</td><td nowrap="nowrap">'.$size.' KB</td><td nowrap="nowrap">'.$date_str.'</td><td>'.$time_str.'</td><td>'.$name.'</td>';
 		if (@is_readable($fpath)) {
-			if (@is_writeable($fpath)) {
+			if (@is_writeable($fpath) && !preg_match('/WIN/', PHP_OS)) {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';
 			} else {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';

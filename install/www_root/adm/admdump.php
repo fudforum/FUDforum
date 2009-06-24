@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.84 2009/05/18 20:22:33 frank Exp $
+* $Id: admdump.php,v 1.85 2009/06/24 14:37:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -90,7 +90,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	// compress is optional and should only be specified if you want to datadump to be compressed
 
 	/* check for cli arguments */
-	if (defined('forum_debug')) {
+	if (php_sapi_name() == 'cli' && defined('forum_debug')) {
 		if (empty($_SERVER['argv'][1])) {
 			exit("Usage: php admdump.php /path/to/dump_file [compress]\n");
 		}
@@ -272,12 +272,12 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 <?php if($gz) { ?>
 <tr class="field">
 	<td>Use Gzip Compression:<br /><font size="-1">Compress the backup file using Gzip compression. This will make the backup process a little slower, but will save a lot of harddrive space.</font></td>
-	<td><input type="checkbox" name="compress" value="1" <?php echo $compress; ?> /> Yes</td>
+	<td><label><input type="checkbox" name="compress" value="1" <?php echo $compress; ?> /> Yes</label></td>
 </tr>
 <?php } ?>
 <tr class="field">
         <td>Skip Search Index:<br /><font size="-1">Do not backup search data. You will need to reindex your forum after doing an import.
-        <td><input type="checkbox" value="y" name="skipsearch" /> Yes</td>
+        <td><label><input type="checkbox" value="y" name="skipsearch" /> Yes</label></td>
 </tr>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Take Backup" /><input type="hidden" name="submitted" value="1" /></td></tr>
 </table>
