@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.175 2009/05/18 20:22:33 frank Exp $
+* $Id: register.php.t,v 1.176 2009/06/24 09:45:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -149,7 +149,7 @@ function register_form_check($user_id)
 	if (!empty($_POST['reg_avatar_loc']) && !($GLOBALS['reg_avatar_loc_file'] = fetch_img($_POST['reg_avatar_loc'], $user_id))) {
 		set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
 	}
-	if (!empty($GLOBALS['reg_avatar_loc_file']) && filesize($GLOBALS['reg_avatar_loc_file']) >= $CUSTOM_AVATAR_MAX_SIZE) {
+	if (!empty($GLOBALS['reg_avatar_loc_file']) && filesize($GLOBALS['reg_avatar_loc_file']) >= $GLOBALS['CUSTOM_AVATAR_MAX_SIZE']) {
 		set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
 	}
 
@@ -436,7 +436,7 @@ function email_encode($val)
 
 			// Pre-registration plugins
 			if (defined('plugins')) {
-				plugin_call_hook('PREREGISTRATION', $uent->email);
+				$uent = plugin_call_hook('PREREGISTRATION', $uent);
 			}
 
 			$uent->add_user();
