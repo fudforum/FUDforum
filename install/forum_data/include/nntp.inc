@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.82 2009/05/08 06:11:16 frank Exp $
+* $Id: nntp.inc,v 1.83 2009/06/24 13:07:26 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,12 +15,13 @@ class fud_nntp
 	var $error, $lrc;
 	var $fs;
 	var $group_na, $group_first, $group_last, $nntp_opt, $custom_sig;
-	// Per Message Varaibles
+	// Per Message Variables
 	var $headers, $body;
 	var $raw_msg;
 	var $msg_id, $reply_to, $reply_to_msg_id, $from_email, $from_name, $ip, $thread_id;
 	var $user_id;
 	var $attachments;
+	var $boundary;
 
 	function get_return_code()
 	{
@@ -129,7 +130,7 @@ class fud_nntp
 		}
 
 		// Zero the vars
-		$this->attachments=$this->user_id=$this->headers=$this->body=$this->raw_msg=$this->msg_id=$this->reply_to_msg_id=$this->from_email=$this->from_name=$this->ip=null;
+		$this->attachments=$this->user_id=$this->headers=$this->body=$this->raw_msg=$this->msg_id=$this->reply_to_msg_id=$this->from_email=$this->from_name=$this->ip=$this->boundary=null;
 
 		if ($this->cmd("ARTICLE $id") != 220) {
 			$this->error = "Unable to Fetch Article #".$id.", NTTP Msg: ".$this->lrc."\n";
@@ -159,6 +160,13 @@ class fud_nntp
 		}
 	}
 
+	function check_boundary($v)
+	{
+	  if (preg_match('/boundary="([^"]+)"/', $v, $matches)) {
+		$this->boundary=$matches[1];
+	  }
+	}
+
 	function format_headers()
 	{
 		/* convert to unix line endings and handle multi-line headers */
@@ -168,6 +176,7 @@ class fud_nntp
 		$hdr = explode("\n", trim($this->headers));
 		$this->headers = array();
 		foreach($hdr as $v) {
+			$this->check_boundary($v);
 			$hk = substr($v, 0, ($p = strpos($v, ':')));
 			// Skip non-valid header lines
 			if (empty($hk) || (isset($v[++$p]) && $v[$p] != ' ' && $v[$p] != "\t")) {
@@ -296,8 +305,117 @@ class fud_nntp
 		$this->attachments[$filename] = base64_decode($data);
 	}
 
+	function skip_to_next_line(&$s) {
+	  if($next_line = strpos($this->body, "\n", $s) ) {
+		$s = $next_line+1;
+	  }
+	}
+
+	function get_next_line(&$s) {
+	  $line='';
+	  if($next_line = strpos($this->body, "\n", $s) ) {
+		$line=substr($this->body, $s, $next_line - $s);
+		$line = str_replace("\r", "", $line);
+		$s = $next_line+1;
+	  } else {
+		  # eof
+		  $line=substr($this->body, $s);
+		  $s += strlen($line);
+	  }
+	  return ($line);
+	}
+
+	function process_content_header($line, &$content_type, &$content_transfer, &$filename) {
+
+			$hk = substr($line, 0, ($p = strpos($line, ':')));
+			// Skip non-valid header lines
+			if (empty($hk) || (isset($line[++$p]) && $line[$p] != ' ' && $line[$p] != "\t")) {
+					return;
+			}
+
+			$hk = strtolower(trim($hk));
+			if ($hk == 'content-transfer-encoding') {
+					$content_transfer = trim(substr($line, $p));
+			} elseif ($hk == 'content-type') {
+					$content_type = trim(substr($line, $p));
+			}
+			# Match for content-disposition and content-type case
+			if (preg_match('/name="([^"]+)"/', $line, $matches)) {
+			   $filename=$matches[1];
+			}
+
+	}
+
+	function parse_mime_attachments() {
+
+		$s = 0;
+		$text_body='';
+
+		while (($s = strpos($this->body, $this->boundary, $s)) !== false) {
+
+			   $content_type = $content_transfer = $filename = null;
+			   $this->skip_to_next_line($s);
+
+			   $line=$this->get_next_line($s);
+			   # Retrieve all lines until no more continuation lines or blank
+			   do {
+				 $next_line=$this->get_next_line($s);
+				 if (($next_line != '') && ($next_line[0] == "\t")) {
+				   # Continuation line
+				   $line .= $next_line;
+				 } else {
+				   # new header line, process previous completed line
+				   $this->process_content_header($line, $content_type, $content_transfer, $filename);
+				   $line = $next_line;
+				 }
+
+			   } while ($next_line != '');
+
+
+			   $have_text_body=false;
+			   # Have processed headers at this point
+			   # if it's text/plain or text/html put into main message headers
+			   if (isset($content_type)) {
+				   if (strpos($content_type, 'text/plain') !== false) {
+					   $this->headers['content-type'] = $content_type;
+					   $this->headers['content-transfer-encoding'] = $content_transfer;
+					   $have_text_body=true;
+				   } elseif (strpos($content_type, 'text/html') !== false) {
+					   if (!isset($this->headers['content-type'])) {
+						   # Give priority to text/plain
+						   $this->headers['content-type'] = $content_type;
+						   $this->headers['content-transfer-encoding'] = $content_transfer;
+						   $have_text_body=true;
+					   }
+				   }
+			   }
+
+			   $eom = strpos($this->body, $this->boundary, $s);
+			   if ($have_text_body) {
+				   $text_body = substr($this->body, $s, $eom-$s);
+				   $s=$eom;
+			   }
+			   if (isset($filename)) {
+				   $data = substr($this->body, $s, $eom-$s);
+				   $data = str_replace("\r", "", $data);
+				   $this->attachments[$filename] = base64_decode($data);
+				   $s=$eom;
+			   }
+
+
+
+		}
+		$this->body = $text_body;  // Replace multipart mime by the text body
+	}
+
+
 	function parse_attachments()
 	{
+		if (isset($this->boundary)) {
+		   $this->parse_mime_attachments();
+		   return;
+		}
+
 		// uu encoded
 		$s = 0;
 		while (($s = strpos($this->body, "begin ", $s)) !== false) {
@@ -425,7 +543,7 @@ class fud_nntp
 
 			$msg_post->subject = apply_custom_replace($this->subject);
 			$msg_post->body = decode_string($this->body, $enc, $charset);
-			if ( !strlen($msg_post->subject) ) {
+			if ( ($msg_post->subject == null) || !strlen($msg_post->subject) ) {
 				$msg_post->subject = "(no subject)";
 			}
 
@@ -533,6 +651,7 @@ class fud_nntp
 
 	function post_message($subject, $body, $from, $forum_msg_id, $reply_to='', $attch='')
 	{
+
 		if (!$this->connect()) {
 			$this->exit_handler(0);
 			return;
@@ -551,7 +670,7 @@ class fud_nntp
 		fputs($this->fs, "From: $from\r\n");
 	        fputs($this->fs, "Newsgroups: $this->newsgroup\r\n");
 		if (function_exists('iconv_mime_encode')) {
-			fputs($this->fs, iconv_mime_encode("Subject:", $subject,
+			fputs($this->fs, iconv_mime_encode("Subject", $subject,
 				array('scheme'=>'Q', 'input-charset'=>$GLOBALS['CHARSET'], 'output-charset'=>$GLOBALS['CHARSET']))
 				."\r\n"); 
 		} else {
