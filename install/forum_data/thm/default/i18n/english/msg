@@ -796,6 +796,7 @@ quicklogin_login:		Login
 quicklogin_password:		Password
 quicklogin_use_cookies:		Use Cookies?
 quicklogin_login_btn:		Login
+quick_reply:			Quick Reply
 post_notification_desc:		Notify me when someone replies to this message.
 post_all_ext_allowed:		(unrestricted)
 maximize_category:		Maximize Category
@@ -1013,6 +1014,7 @@ pmsg_pdf_btn:			Make PDF Archive
 search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
 thread_mov_all:			Move All Selected
+thread_loc_all:			Lock/Unlock All Selected
 dmsg_ip:			IP:
 err_blockedaccnt_title:		ERROR: Your account has been filtered out.
 err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.

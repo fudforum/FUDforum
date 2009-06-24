@@ -11,15 +11,16 @@ function make_lang_arr($path)
 
 	return $lang;
 }
+
+/* main */
 	$lang = make_lang_arr('english/msg');
 	$keys = array_keys($lang);
 	
 	echo count($lang)." messages in the english file\n";
 
 	$dp = opendir('.');
-	readdir($dp); readdir($dp); 
 	while ($de = readdir($dp)) {
-		if (!is_dir($de) || $de == 'english' || !@file_exists($de . '/msg')) {
+		if (!is_dir($de) || $de == '.' || $de == '..' || $de == 'english' || !@file_exists($de . '/msg')) {
 			continue;
 		}
 

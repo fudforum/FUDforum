@@ -62,7 +62,7 @@ Les referències li permeten veure a quins membres del fòrum vostè o altres me
 
 TOPIC_TITLE: <a name="syndicate">Sindicar aquest fòrum</a>
 TOPIC_HELP:
-Si l`administrador ho permet, FUDforum li permet sindicar una selecció de les dades del fòrum mitjançant XML (rdf). La font  RDF funciona principalment en tres modes, descàrrega de missatges, descàrrega de fils i descàrrega d`usuaris. Cada mode de funcionament suporta un cert nombre de paràmetres modificadors que li permetran especificar el tipus de dades que desitja obtenir. A continuació s`expliquen els paràmetres suportats per a cada mode d`operació:<br />
+Si l`administrador ho permet, FUDforum li permet sindicar una selecció de les dades del fòrum mitjançant XML (rdf/ atom/ rss). La font XML funciona principalment en tres modes, descàrrega de missatges, descàrrega de fils i descàrrega d`usuaris. Cada mode de funcionament suporta un cert nombre de paràmetres modificadors que li permetran especificar el tipus de dades que desitja obtenir. A continuació s`expliquen els paràmetres suportats per a cada mode d`operació:<br />
 <br /><br />
 <h4><u><b>Modo 'm' (missatges)</b></u></h4>
 <blockquote>
@@ -104,7 +104,7 @@ Si l`administrador ho permet, FUDforum li permet sindicar una selecció de les d
 </blockquote>
 <b>Exemple:</b><br />
 L`enllaç següent descarregarà els 10 missatges més recents d`aquest fòrum:<br />
-<a href="rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1</a>
+<a href="feed.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">feed.php?mode=m&amp;l=1&amp;n=10&amp;basic=1</a>
 
 TOPIC_TITLE: <a name="accesskeys">Tecles d`Accés</a>
 TOPIC_HELP:

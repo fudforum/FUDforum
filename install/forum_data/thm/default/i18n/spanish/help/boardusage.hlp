@@ -98,7 +98,7 @@ con dicha persona. Puede ver la lista de personas a las que ha referido en su pe
 
 TOPIC_TITLE: <a name="syndicate">Sindicar este foro</a>
 TOPIC_HELP:
-Si el administrador lo permite, FUDforum le permite sindicar una selección de los datos del foro mediante XML (rdf). La fuente RDF 
+Si el administrador lo permite, FUDforum le permite sindicar una selección de los datos del foro mediante XML (rdf/ atom/ rss). La fuente XML 
 funciona principalmente en tres modos, descarga de mensajes, descarga de hilos y descarga de usuarios. Cada modo de funcionamiento
 soporta una cierto número de parámetros modificadores que le permitirán especificar el tipo de los datos que desea obtener. A 
 continuacio se explican los parámetros soportados para cada modo de operación:<br />
@@ -143,7 +143,7 @@ continuacio se explican los parámetros soportados para cada modo de operación:
 </blockquote>
 <b>Ejemplo:</b><br />
 El enlace siguiente descargará los 10 mensajes más recientes de este foro:<br />
-<a href="rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1</a>
+<a href="feed.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">feed.php?mode=m&amp;l=1&amp;n=10&amp;basic=1</a>
 
 TOPIC_TITLE: <a name="accesskeys">Teclas de Acceso</a>
 TOPIC_HELP:

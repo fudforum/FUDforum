@@ -81,7 +81,7 @@ Anwerbung dieser Personen wird Ihnen dann zugeschrieben. Eine Auflistung aller L
 
 TOPIC_TITLE: <a name="syndicate">Das Forum als Newsticker verf&uuml;gbar machen (Syndicate)</a>
 TOPIC_HELP:
-Falls vom Administrator gestattet, erm&ouml;glicht das FUDforum mittels XML (rdf) eine Reihe von Daten als Syndicate zug&auml;nglich zu machen. Das RDF-Feed funktioniert haupts&auml;chlich
+Falls vom Administrator gestattet, erm&ouml;glicht das FUDforum mittels XML (rdf/ atom/ rss) eine Reihe von Daten als Syndicate zug&auml;nglich zu machen. Das XML-Feed funktioniert haupts&auml;chlich
 in drei Modi: Empfang von Beitr&auml;gen, Themen and Benutzern. Jeder Betriebsmodus unterst&uuml;tzt eine Reihe von ver&auml;nderbaren Parametern, die
 es dir gestatten festzulegen, welche Art von Daten abgegriffen werden sollen. Unten ist eine Beschreibung der unterst&uuml;tzten Parameter für jeden
 Betriebsmodus.<br />
@@ -127,7 +127,7 @@ Betriebsmodus.<br />
 </blockquote>
 <b>Beispiel:</b><br />
 Der folgende Link ruft die aktuellsten 10 Beitr&auml;ge dieses Forums ab:<br />
-<a href="rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1</a>
+<a href="feed.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">feed.php?mode=m&amp;l=1&amp;n=10&amp;basic=1</a>
 
 TOPIC_TITLE: <a name="accesskeys">Zugriffstasten</a>
 TOPIC_HELP:

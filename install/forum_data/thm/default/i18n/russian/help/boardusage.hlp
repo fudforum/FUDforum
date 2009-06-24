@@ -121,19 +121,19 @@ TOPIC_HELP:
 TOPIC_TITLE: <a name="syndicate">Формирование XML</a>
 TOPIC_HELP:
 Если данная возможность была включена администратором, FUDforum позволяет вам извлекать различные данные из форумов и формировать
-документ в формате XML (rdf). Извлечение данных и передача в RDF имеет 3 основных режима: извлечение информации о сообщениях,
+документ в формате XML (rdf/ atom/ rss). Извлечение данных и передача в XML имеет 3 основных режима: извлечение информации о сообщениях,
 о темах и о пользователях. В каждом из режимов имеется ряд параметров, позволяющих определить, какого рода данные вы хотите получить.
 Ниже приведен список параметров и объяснено их назначение.<br />
 <br /><br />
 <h4><u><b>режим 'm' (messages - сообщения)</b></u></h4>
 <blockquote>
 	<table border="0" cellspacing="1" cellpadding="3">
-		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Извлечение сообщений только из категории с указанным номером.</td></tr>
-		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Извлечение сообщений только из форума с указанным номером.</td></tr>
-		<tr><td class="GenText"><i>th<i></td><td class="GenText">Извлечение сообщений только из темы с указанным номером.</td></tr>
-		<tr><td class="GenText"><i>id<i></td><td class="GenText">Извлечение одиночного сообщения с указанным номером.</td></tr>
-		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Извлечение сообщений, отправленных после указанной даты (в формате unix timestamp).</td></tr>
-		<tr><td class="GenText"><i>de<i></td><td class="GenText">Извлечение сообщений, отправленных до указанной даты (в формате unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Извлечение сообщений только из категории с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Извлечение сообщений только из форума с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>th</i></td><td class="GenText">Извлечение сообщений только из темы с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>id</i></td><td class="GenText">Извлечение одиночного сообщения с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Извлечение сообщений, отправленных после указанной даты (в формате unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>de</i></td><td class="GenText">Извлечение сообщений, отправленных до указанной даты (в формате unix timestamp).</td></tr>
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">Извлечь не более <i>n</i> сообщений (не больше максимума).</td></tr>
 		<tr><td class="GenText"><i>o</i></td><td class="GenText">Начальное смещение (количество пропущенных сообщений).</td></tr>
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">Сортировка сообщений от новых к старым.</td></tr>
@@ -142,11 +142,11 @@ TOPIC_HELP:
 <h4><u><b>режим 't' (topics - темы)</b></u></h4>
 <blockquote>
 	<table border="0" cellspacing="1" cellpadding="3">
-		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Извлечение тем только из категории с указанным номером.</td></tr>
-		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Извлечение тем только из форума с указанным номером.</td></tr>
-		<tr><td class="GenText"><i>id<i></td><td class="GenText">Извлечение одиночной темы с указанным номером.</td></tr>
-		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Извлечение тем, содержащих сообщения, отправленные после указанной даты (в формате unix timestamp).</td></tr>
-		<tr><td class="GenText"><i>de<i></td><td class="GenText">Извлечение тем, содержащих сообщения, отправленные до указанной даты (в формате unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Извлечение тем только из категории с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Извлечение тем только из форума с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>id</i></td><td class="GenText">Извлечение одиночной темы с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Извлечение тем, содержащих сообщения, отправленные после указанной даты (в формате unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>de</i></td><td class="GenText">Извлечение тем, содержащих сообщения, отправленные до указанной даты (в формате unix timestamp).</td></tr>
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">Извлечь не более <i>n</i> тем (не больше максимума).</td></tr>
 		<tr><td class="GenText"><i>o</i></td><td class="GenText">Начальное смещение (количество пропущенных тем).</td></tr>
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">Сортировка тем от новых к старым.</td></tr>
@@ -164,7 +164,7 @@ TOPIC_HELP:
 </blockquote>
 <b>Пример:</b><br />
 По следующей ссылке извлекаются последние 10 сообщение в этом форуме:<br />
-<a href="rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1</a>
+<a href="feed.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">feed.php?mode=m&amp;l=1&amp;n=10&amp;basic=1</a>
 
 TOPIC_TITLE: <a name="accesskeys">Быстрые клавиши</a>
 TOPIC_HELP:

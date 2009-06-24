@@ -77,7 +77,7 @@ görüntülenebilir.
 
 TOPIC_TITLE: <a name="syndicate">Bu forumdan haber başlıkları yayınlamak</a>
 TOPIC_HELP:
-Yönetici tarafından izin verilmişse, FUDforum XML (rdf) yoluyla bu forumdaki veriyi haber başlıkları şeklinde yayınlamanızı sağlar. RDF temel olarak
+Yönetici tarafından izin verilmişse, FUDforum XML (rdf/ atom/ rss) yoluyla bu forumdaki veriyi haber başlıkları şeklinde yayınlamanızı sağlar. XML temel olarak
 3 kipte çalışır, ileti yayınlama, zincir yayınlama ve kullanıcı bilgisi yayınlama. Her işlem kipinde, çekmek istediğiniz verinin
 tipi ile ilgili belirtebileceğiniz bir kaç parametre vardır. Aşağıda her bir kip için kullanılabilecek parametrelerin açıklamasını
 bulabilirsiniz.<br />
@@ -85,12 +85,12 @@ bulabilirsiniz.<br />
 <h4><u><b>'m' kipi (iletiler)</b></u></h4>
 <blockquote>
 	<table border="0" cellspacing="1" cellpadding="3">
-		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Sadece bu numaralı kategorideki iletileri al.</td></tr>
-		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Sadece bu numaralı forumdaki iletileri al.</td></tr>
-		<tr><td class="GenText"><i>th<i></td><td class="GenText">Sadece bu numaralı zincirdeki iletileri al.</td></tr>
-		<tr><td class="GenText"><i>id<i></td><td class="GenText">Bu numaralı iletiyi al (Tek bir ileti)</td></tr>
-		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Sadece bu tarihten sonra gönderilmiş iletileri al (unix timestamp biçimi).</td></tr>
-		<tr><td class="GenText"><i>de<i></td><td class="GenText">Sadece bu tarihten önce gönderilmiş iletileri al (unix timestamp biçimi).</td></tr>
+		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Sadece bu numaralı kategorideki iletileri al.</td></tr>
+		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Sadece bu numaralı forumdaki iletileri al.</td></tr>
+		<tr><td class="GenText"><i>th</i></td><td class="GenText">Sadece bu numaralı zincirdeki iletileri al.</td></tr>
+		<tr><td class="GenText"><i>id</i></td><td class="GenText">Bu numaralı iletiyi al (Tek bir ileti)</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Sadece bu tarihten sonra gönderilmiş iletileri al (unix timestamp biçimi).</td></tr>
+		<tr><td class="GenText"><i>de</i></td><td class="GenText">Sadece bu tarihten önce gönderilmiş iletileri al (unix timestamp biçimi).</td></tr>
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">En fazla <i>n</i> tane ileti al.</td></tr>
 		<tr><td class="GenText"><i>o</i></td><td class="GenText">İletilerin alınmaya başlanacağı ofset.</td></tr>
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">İletileri en yeniden en eskiye sırala.</td></tr>
@@ -99,11 +99,11 @@ bulabilirsiniz.<br />
 <h4><u><b>'t' kipi (zincirler)</b></u></h4>
 <blockquote>
 	<table border="0" cellspacing="1" cellpadding="3">
-		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Sadece bu numaralı kategorideki zincirleri al.</td></tr>
-		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Sadece bu numaralı forumdaki zincirleri al.</td></tr>
-		<tr><td class="GenText"><i>id<i></td><td class="GenText">Bu numaralı zinciri al (Tek bir zincir)</td></tr>
-		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Sadece son ileti gönderilme tarihi bu tarihten sonra olan zincirleri al (unix timestamp biçimi).</td></tr>
-		<tr><td class="GenText"><i>de<i></td><td class="GenText">Sadece son ileti gönderilme tarihi bu tarihten önce olan zincirleri al (unix timestamp biçimi)</td></tr>
+		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Sadece bu numaralı kategorideki zincirleri al.</td></tr>
+		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Sadece bu numaralı forumdaki zincirleri al.</td></tr>
+		<tr><td class="GenText"><i>id</i></td><td class="GenText">Bu numaralı zinciri al (Tek bir zincir)</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Sadece son ileti gönderilme tarihi bu tarihten sonra olan zincirleri al (unix timestamp biçimi).</td></tr>
+		<tr><td class="GenText"><i>de</i></td><td class="GenText">Sadece son ileti gönderilme tarihi bu tarihten önce olan zincirleri al (unix timestamp biçimi)</td></tr>
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">En fazla <i>n</i> tane zincir al.</td></tr>
 		<tr><td class="GenText"><i>o</i></td><td class="GenText">Zincirlerin alınmaya başlanacağı ofset.</td></tr>
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">Zincirleri en yeniden en eskiye sırala.</td></tr>

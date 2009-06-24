@@ -1052,4 +1052,6 @@ unbookmark_thread_desc:		Remove this topic from your list of bookmarks
 tabs_bookmarkes:		Bookmarks
 bookmarked_update:		Browsing own bookmark list
 unbookmark_all_topics:		Remove all bookmarks
-index_url_redirection:		Redirection 
+index_url_redirection:		Redirection
+quick_reply:			Resposta rápid
+thread_loc_all:			Lock/Unlock All Selected

@@ -82,7 +82,7 @@ with the referral of that person. The list of people you have referred can be vi
 
 TOPIC_TITLE: <a name="syndicate">Syndicating this forum</a>
 TOPIC_HELP:
-If permitted by the administrator, FUDforum allows you to syndicate a variety of forum data via XML (rdf). The RDF feed works primarily
+If permitted by the administrator, FUDforum allows you to syndicate a variety of forum data via XML (RDF, ATOM or RSS). The XML feed works primarily
 in 3 modes, message retrieval, topic retrieval and user retrieval. Each mode of operation supports a number of modifier parameters that
 will allow you to specify what sort of data do you wish to fetch. Below is the explanation of the supported parameters for each mode
 of operation.<br />
@@ -99,7 +99,8 @@ of operation.<br />
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> messages (cannot be higher then overall maximum).</td></tr>
 		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching messages.</td></tr>
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">Order messages from newest to oldest.</td></tr>
-		<tr><td class="GenText"><i>basic</i></td><td class="GenText">Output messages in a format parse-able by most RDF/RSS parsers.</td></tr>
+		<tr><td class="GenText"><i>basic</i></td><td class="GenText">Output messages in a format parse-able by most RDF/RSS parsers (only when format=rdf).</td></tr>
+		<tr><td class="GenText"><i>format</i></td><td class="GenText">Output format: RDF (default), ATOM or RSS.</td></tr>
 	</table>
 </blockquote>
 <h4><u><b>'t' mode (topics)</b></u></h4>
@@ -113,6 +114,7 @@ of operation.<br />
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> topics (cannot be higher then overall maximum).</td></tr>
 		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching topics.</td></tr>
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">Order topics from newest to oldest.</td></tr>
+		<tr><td class="GenText"><i>format</i></td><td class="GenText">Output format: RDF (default), ATOM or RSS.</td></tr>
 	</table>
 </blockquote>
 <h4><u><b>'u' mode (users) <i>**could be disabled**</i></b></u></h4>
@@ -123,11 +125,14 @@ of operation.<br />
 		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Only show users who are currently online.</td></tr>
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> users (cannot be higher then overall maximum).</td></tr>
 		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching users.</td></tr>
+		<tr><td class="GenText"><i>format</i></td><td class="GenText">Output format: RDF (default), ATOM or RSS.</td></tr>
 	</table>
 </blockquote>
-<b>Example:</b><br />
-The following link will fetch 10 most recent messages from this forum:<br />
-<a href="rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">rdf.php?mode=m&amp;l=1&amp;n=10&amp;basic=1</a>
+<b>Examples:</b><br />
+<p>Fetch the 10 most recent <i>messages</i> from your forum and format it as an <i>RDF</i> feed:<br />
+<a href="feed.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">feed.php?mode=m&amp;l=1&amp;n=10</a></p>
+<p>Fetch the 15 most recent <i>topics</i> from your forum and format it as an <i>ATOM</i> feed:<br />
+<a href="feed.php?mode=t&amp;l=1&amp;n=15&amp;format=atom" target="_blank">feed.php?mode=t&amp;l=1&amp;n=15&amp;format=atom</a></p>
 
 TOPIC_TITLE: <a name="accesskeys">Access Keys</a>
 TOPIC_HELP:

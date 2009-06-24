@@ -1053,3 +1053,5 @@ tabs_bookmarkes:		Bookmarks
 bookmarked_update:		Browsing own bookmark list
 unbookmark_all_topics:		Remove all bookmarks
 index_url_redirection:		Redirection 
+quick_reply:			Respuesta rápida
+thread_loc_all:			Lock/Unlock All Selected

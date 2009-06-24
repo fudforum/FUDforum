@@ -324,7 +324,6 @@ register_notification:		Vælg notifikation som standard:
 register_notification_desc:	Hvis notifikation (underret om svar) er aktiveret som standard, kan det fravælges under brevskrivning.
 register_notify_method:		Vælg notifikations metode:
 register_notify_method_desc:	Vælg din foretrukne notifikations metode eller deaktiver helt (for eksempel når du går på ferie)
-register_notify_js_error:	Du har valgt ICQ notifikation, men ikke angivet et ICQ #. Falder tilbage til E-mail.
 register_allow_email_msg:	Tillad E-mail-meddelelser:
 register_allow_email_msg_desc:	Tillad andre brugere at sende dig e-mails via dette forum.
 buddy_status:			Status
@@ -680,7 +679,6 @@ post_opt_images_off:		<b>Billeder</b> er <b>FRA</b>
 post_opt_smilies_off:		<b>Smilies</b> er <b>FRA</b>
 post_opt:			Forum indstillinger
 register_change_passwd:		Skift adgangskode
-install_script_present_error:	Af sikkerhedsmæssige årsager skal du fjerne installations scriptet <b>{GVAR: WWW_ROOT_DISK}install.php</b> før du kan bruge dette forum.
 approved_avatar_title:		Din brugerdefinerede avatar blev godkendt.
 approved_avatar_msg:		Din avatar blev godkendt af administrator. Den vil nu ses som din avatar på alle dine indlæg. Hvis du ikke kan se den, eller set din gamle avatar, er det fordi din browser har cachet siden. Prøv slette (genopfrisk) det en eller to gange. I de fleste tilfælde vil det løse cachelagrings problemet.
 unapproved_avatar_title:	Din brugerdefinerede avatar blev afvist.
@@ -1054,3 +1052,6 @@ unbookmark_thread_desc:		Fjern dette emne fra din liste med bogmærker
 tabs_bookmarkes:		Bogmærker
 bookmarked_update:		Gennemse egen liste
 unbookmark_all_topics:		fjern alle bogmærker
+index_url_redirection:		Redirection 
+quick_reply:			Kvik-svar
+thread_loc_all:			Lock/Unlock All Selected
