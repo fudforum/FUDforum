@@ -469,3 +469,8 @@ If enabled then user's country (name and flag) will be updated each time they lo
 {{{PLUGINS_ENABLED	FUD_OPT_3	4194304
 Enable/disable forum plugins. Plugins are typically created by third-party developers to extended the default capabilities of FUDforum.}}}
 
+{{{QUICK_REPLY_ENABLED	FUD_OPT_3	8388608
+Enable/disable the forum's quick reply editor.}}}
+
+{{{QUICK_REPLY_DISPLAY	FUD_OPT_3	"Expanded\nCollapsed"	"0\n16777216"
+Quick reply display mode: collapsed or expanded.}}}
