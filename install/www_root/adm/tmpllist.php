@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.53 2009/05/18 20:22:33 frank Exp $
+* $Id: tmpllist.php,v 1.54 2009/07/03 13:34:54 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -231,6 +231,7 @@ function goto_tmpl($tmpl)
 
 		/* build dependency list */
 		$p = 0;
+		$deps = array();
 		while (($p = strpos($data, '{REF: ', $p)) !== false) {
 			$p += 5;
 			$deps[$file][substr($data, $p, (strpos($data, '}', $p) - $p))] = 1;
