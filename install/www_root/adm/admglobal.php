@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.108 2009/06/24 14:37:04 frank Exp $
+* $Id: admglobal.php,v 1.109 2009/07/04 20:29:36 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -66,6 +66,8 @@ function get_max_upload_size()
 
 		/* restore PDF & XML Feed settings */
 		$GLOBALS['NEW_FUD_OPT_2'] |= $FUD_OPT_2 & (16777216|33554432|67108864|134217728|268435456|8388608);
+		/* restore plugin settings */
+		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (4194304);
 
 		/* disable apache_setenv() is no such function */
 		if ($GLOBALS['NEW_FUD_OPT_3'] & 512 && !function_exists('apache_setenv')) {
