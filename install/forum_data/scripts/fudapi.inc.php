@@ -500,7 +500,7 @@ function fud_fetch_user($arg)
  */
 function fud_fetch_newest_user()
 {
-	fud_fetch_user(q_singleval("SELECT MAX(id) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users"));
+	return fud_fetch_user(q_singleval("SELECT MAX(id) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users"));
 }
 
 /* {{{ proto: object fud_fetch_random_user() }}}
