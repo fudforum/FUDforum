@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.44 2009/03/18 14:26:53 frank Exp $
+* $Id: merge_th.php.t,v 1.45 2009/07/07 20:28:57 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,11 +71,11 @@
 
 			$tl = implode(',', $_POST['sel_th']);
 
-			list($start, $repl) = db_saq("SELECT MIN(root_msg_id), SUM(replies) FROM {SQL_TABLE_PREFIX}thread WHERE id IN({$tl})");
-			$repl += count($_POST['sel_th']) - 1;
-			list($lpi, $lpd) = db_saq("SELECT last_post_id, last_post_date FROM {SQL_TABLE_PREFIX}thread WHERE id IN({$tl}) ORDER BY last_post_date DESC LIMIT 1");
+			list($start, $replies, $views) = db_saq("SELECT MIN(root_msg_id), SUM(replies), SUM(views) FROM {SQL_TABLE_PREFIX}thread WHERE id IN({$tl})");
+			$replies += count($_POST['sel_th']) - 1;
+			list($lpi, $lpd, $tdescr) = db_saq("SELECT last_post_id, last_post_date, tdescr FROM {SQL_TABLE_PREFIX}thread WHERE id IN({$tl}) ORDER BY last_post_date DESC LIMIT 1");
 
-			$new_th = th_add($start, $forum, $lpd, 0, 0, $repl, $lpi);
+			$new_th = th_add($start, $forum, $lpd, 0, 0, $replies, $views, $lpi, $tdescr);
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject="._esc(htmlspecialchars($_POST['new_title']))." WHERE id=".$start);
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to={$start} WHERE thread_id IN({$tl}) AND (reply_to=0 OR reply_to=id) AND id!={$start}");
 			if ($forum != $frm) {
