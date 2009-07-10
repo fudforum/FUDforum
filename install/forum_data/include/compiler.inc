@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.98 2009/03/04 05:43:10 frank Exp $
+* $Id: compiler.inc,v 1.99 2009/07/10 05:57:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -480,6 +480,9 @@ function generate_file($php_file)
 function parse_msgs($file)
 {
 	foreach (file($file) as $k => $v) {
+		if (substr($v,0,1) == '#') {
+			continue;
+		}
 		$m = trim(strtok($v, "\t"), ':');
 		if (isset($GLOBALS['MSG'][$m])) {
 			if ($GLOBALS['MSG'][$m]['file'] != $file) {
