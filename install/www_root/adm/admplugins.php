@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admplugins.php,v 1.7 2009/05/18 20:22:33 frank Exp $
+* $Id: admplugins.php,v 1.8 2009/07/11 11:03:14 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,24 +52,80 @@
 	}
 	$plugins = plugin_load_from_cache();
 
+	// install new plugins
 	while (list($key, $val) = @each($plugins)) {
 		if (! in_array($val, $prev_plugins)) {
 			echo "Install/activate plugin: ". $val ."...<br />\n";
-			$func = substr($val, 0, strrpos($val, '.')) .'_enable';
-			if ((include_once($PLUGIN_PATH.'/'.$val)) && function_exists($func)) {
-				$func(); 
+			$enable_func = substr($val, 0, strrpos($val, '.')) .'_enable';
+			if ((include_once($PLUGIN_PATH.'/'.$val)) && function_exists($enable_func)) {
+				$enable_func(); 
 			}
 		}
 	}
+	// deinstall plugins
 	while (list($key, $val) = @each($prev_plugins)) {
 		if (! in_array($val, $plugins)) {
 			echo "Deinstall/deactivate plugin: ". $val ."...<br />\n";
-			$func = substr($val, 0, strrpos($val, '.')) .'_disable';
-			if ((include_once($PLUGIN_PATH.'/'.$val)) && function_exists($func)) {
-				$func(); 
+			$disable_func = substr($val, 0, strrpos($val, '.')) .'_disable';
+			if ((include_once($PLUGIN_PATH.'/'.$val)) && function_exists($disable_func)) {
+				$disable_func();
 			}
 		}
 	}
+
+	// configure a plugin
+	if (isset($_GET['config']) || isset($_POST['config'])) {
+		$plugin = isset($_GET['config']) ? $_GET['config'] : $_POST['config'];
+		$func_base = substr($plugin, 0, strrpos($plugin, '.'));
+		if ( strpos($func_base, '/') ) {
+			$func_base = substr($func_base, strpos($func_base, '/')+1);
+		}
+		include_once($PLUGIN_PATH.'/'.$plugin);
+
+		$info_func = $func_base . '_info';
+		if (function_exists($info_func)) {
+			$info = $info_func();
+		}
+		if (isset($info['name'])) {
+			echo '<h2>Plugin: '.$info['name'].'</h2>';
+		} else {
+			echo '<h2>Plugin: '.$plugin.'</h2>';
+		}
+		if (isset($info['desc'])) {
+			echo '<div class="tutor">'.$info['desc'].'</div><br />';
+		}
+
+		echo '<fieldset><legend>Meta-information:</legend>';
+		echo '<p><b>Plugin file:</b> '.$plugin.'</p>';
+		echo '<p><b>Last modified:</b> '.date("d F Y H:i:s", filemtime($PLUGIN_PATH.'/'.$plugin)).'</p>';
+		if (isset($info['author'])) {
+			echo '<p><b>Author:</b> '.$info['author'].'</p>';
+		}
+		if (isset($info['version'])) {
+			echo '<p><b>Plugin version:</b> '.$info['version'].'</p>';
+		}
+		echo '</fieldset>';
+
+		$config_func = $func_base . '_config';
+		if (function_exists($config_func)) {
+			echo '<form method="post" action="admplugins.php" autocomplete="off">';
+			echo '<fieldset><legend>Configuration:</legend>';
+			echo _hs;
+			echo '<input type="hidden" name="config" value="'.$plugin.'" />';
+			$config_func();
+			echo '<input type="submit" name="Set" value="Change settings" />';
+			echo '</fieldset></form>';
+		}
+		
+		if (isset($info['help'])) {
+			echo '<div style="float:left;">[ <a href="'.$info['help'].'">Plugin documentation</a> ]</div>';
+		} else {
+			echo '<div style="float:left;">[ <a href="http://cvs.prohost.org/index.php/'.$func_base.'.plugin">Documentation on Wiki</a> ]</div>';
+		}
+		echo '<div style="float:right;">[ <a href="admplugins.php?'.__adm_rsid.'">Return to Plugin Manager &raquo;</a> ]</div>';
+		exit;
+	}
+
 ?>
 <h2>Plugin Manager</h2>
 <form method="post" action="admplugins.php" autocomplete="off">
@@ -84,6 +140,7 @@
 </form>
 
 <h3>Available plugins:</h3>
+<p>Click on any of the below plugin names for more info and configuration options:</p>
 <form method="post" action="admplugins.php" autocomplete="off">
 <?php echo _hs ?>
 <table class="datatable solidtable">
@@ -106,10 +163,10 @@ foreach ($plugin_files as $plugin) {
 	$checked = in_array($plugin, $plugins) ? 'checked="checked"' : '';
 ?>
 <tr class="field">
-  <td><?php echo $plugin; ?></td>
+  <td><a href="admplugins.php?config=<?php echo urlencode($plugin).'&'.__adm_rsid.'">'.$plugin; ?></a></td>
   <td class="center"><input type="checkbox" name="plugins[]" value="<?php echo $plugin; ?>" <?php echo $checked.' '.$disabled; ?> /></td>
+<?php } ?> 
 </tr>
-<?php } ?>
 <tr class="fieldtopic center">
   <td>&nbsp;</td>
   <td><input type="submit" name="plugin_state" value="Change state" <?php echo $disabled; ?> /></td>

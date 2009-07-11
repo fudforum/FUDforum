@@ -17,8 +17,8 @@ QUICK START INSTRUCTIONS:
 5. When done, you can query it:
 	$ ldapsearch -x -b 'dc=example,dc=com' '(uid=scott)'
 
-6. Edit the plugin's ldap.ini file
+6. Enable the plugin in Admin Control Panel -> Plugin Manager
 
-7. Enable the plugin in Admin Control Panel -> Plugin Manager
+7. Change the plugin's settings from the Plugin Manager (to configure the ldap.ini file)
 
 8. Login to the forum with username "scott" and pasword "mypassword"
