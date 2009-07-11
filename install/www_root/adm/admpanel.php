@@ -71,7 +71,8 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="admprune.php?<?php echo __adm_rsid; ?>">Topic Pruning</a><br />
 	<a href="admaprune.php?<?php echo __adm_rsid; ?>">Attachment Pruning</a><br />
 	<a href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing List Manager</a><br />
-	<a href="admnntp.php?<?php echo __adm_rsid; ?>">Newsgroup Manager</a><br /><br />
+	<a href="admnntp.php?<?php echo __adm_rsid; ?>">Newsgroup Manager</a><br />
+	<a href="admxmlagg.php?<?php echo __adm_rsid; ?>">XML Aggregation</a><br /><br />
 
 	<span class="linkgroup">User Management</span><br />
 	<a href="admuser.php?<?php echo __adm_rsid; ?>">Moderator/User Manager</a><br />
