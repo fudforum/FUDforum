@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admreplace.php,v 1.36 2009/06/24 14:37:04 frank Exp $
+* $Id: admreplace.php,v 1.37 2009/07/11 10:54:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -100,7 +100,7 @@ function clean_rgx()
 	</tr>
 
 	<tr class="fieldtopic">
-		<td colspan="2"><b><font size="-2">Optional with the Perl Regex</font></b><br /><font size="-1">(Reverse replacement logic, e.g upon editing a post)</font></td>
+		<td colspan="2"><b><font size="-2">Reverse replacement logic, e.g upon editing a post:</b><br />(Optional with the Perl Regex)</font></td>
 	</tr>
 
 	<tr class="field">
@@ -144,7 +144,7 @@ function clean_rgx()
 	</tr>
 
 	<tr class="fieldtopic">
-		<td colspan="2"><b><font size="-2">Test Area, tryout your regex here</font></b></td>
+		<td colspan="2"><b><font size="-2">Test area, tryout your regex here:</font></b></td>
 	</tr>
 
 	<tr class="field">

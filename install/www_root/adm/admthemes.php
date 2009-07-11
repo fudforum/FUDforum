@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.76 2009/06/24 14:37:04 frank Exp $
+* $Id: admthemes.php,v 1.77 2009/07/11 10:54:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -202,7 +202,8 @@ function update_locale()
 
 <tr class="field">
 	<td colspan="2">
-	<?php draw_checkbox('thm_t_default', '2', $thm_t_default);?> Default <?php draw_checkbox('thm_enabled', '1', $thm_enabled); ?> Enabled
+	<label><?php draw_checkbox('thm_t_default', '2', $thm_t_default);?> Default</label>
+	<label><?php draw_checkbox('thm_enabled', '1', $thm_enabled); ?> Enabled</label>
 	</td>
 </tr>
 <tr class="fieldaction">

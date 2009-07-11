@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsql.php,v 1.5 2009/05/08 06:11:16 frank Exp $
+* $Id: admsql.php,v 1.6 2009/07/11 10:54:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,9 +28,14 @@ NOTE: this feature IS DANGEROUS and you could destroy all your data. Please only
 <tr class="field"><td>
 	<div style="float:right; font-size:xx-small;">
 	Database: <?php echo $GLOBALS['DBHOST_USER'].'@'.$GLOBALS['DBHOST_DBNAME'] ?> :: 
-	[ <a href="#" onclick="document.admsql.sql.value+='<?php echo $GLOBALS['DBHOST_TBL_PREFIX'];?>';">Insert table prefix</a> ]
+	<select onchange="if(this.selectedIndex!=0) document.admsql.sql.value+=this.options[this.selectedIndex].value;">
+	<option>Insert table:</option>
+	<?php foreach(get_fud_table_list() as $tbl) {
+		echo '<option value="'.$tbl.'">'.$tbl.'</option>';
+	} ?>
+	</select>
 	</div>
-	<textarea id="sql" name="sql" rows="7" cols="72" style="width:99%;"><?php if (isset($_POST['sql'])) { print $_POST['sql']; } ?></textarea>
+	<textarea id="sql" name="sql" rows="7" cols="72" style="width:99%;"><?php if (isset($_POST['sql'])) { print $_POST['sql']; } else { print 'SELECT * FROM '; } ?></textarea>
 </td></tr>
 <tr><td>
 	<input type="submit" class="submit" value="Run It" />
@@ -60,7 +65,7 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 
 			echo '<h2>SQL Results</h2>';
 			echo '<table class="resulttable">';
-			
+
 			$i = 1;
 			while ($result = db_fetch_array($q)) {
 				echo '<tr class="resulttopic">';
@@ -80,10 +85,10 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 					}
 				}
 				echo '</tr>';
-		
+
 				$i++;
 			}
-	
+
 			echo '</table>';
 		}
 

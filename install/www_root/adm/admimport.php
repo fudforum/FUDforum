@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.72 2009/06/24 14:37:04 frank Exp $
+* $Id: admimport.php,v 1.73 2009/07/11 10:54:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -309,7 +309,7 @@ function resolve_dest_path($path)
 	}
 ?>
 <h2>Import forum data</h2>
-<div class="alert">Note that the import process will REMOVE ALL current forum data (all tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the one from the file you enter.<br /><br />Please <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing!</div>
+<div class="alert">The import process will REMOVE ALL current forum data (all messages and tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the data in the backup file you enter.<br /><br />Remember to <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing! Use the <a href="admbrowse.php?cur=<?php echo urlencode($TMP).'&'.__adm_rsid ?>">File Manager</a> to upload off-site backup files.</div>
 <br />
 
 <?php
@@ -321,7 +321,7 @@ if ($datadumps) {
 	<?php foreach ($datadumps as $datadump) { ?>
 		<tr class="field admin_fixed"><td><?php echo basename($datadump); ?> [ <a href="javascript://" onclick="document.admimport.path.value='<?php echo $datadump; ?>';">use</a> ]</td></tr>
 	<?php } ?>
-	<tr class="resultrow2 tiny"><td>[ <a href="admbrowse.php?down=1&cur=<?php echo urlencode(dirname($datadump)); ?>&<?php echo __adm_rsid; ?>">Manage files</a> ]</td></tr>
+	<tr class="resultrow2 tiny"><td>[ <a href="admbrowse.php?down=1&cur=<?php echo urlencode(dirname($datadump)); ?>&<?php echo __adm_rsid; ?>">Manage backup files</a> ]</td></tr>
 	</table><br />
 <?php } ?>
 
@@ -329,7 +329,7 @@ if ($datadumps) {
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
-	<td>Import Data Path:<br /><font size="-1">Full path to the backup file (*.fud or *.fud.gz) on disk that you want to import from.</font></td>
+	<td>Import Data File:<br /><font size="-1">Full path to the backup file (*.fud or *.fud.gz) on disk that you want to import from.</font></td>
 	<td><?php if (isset($path_error)) { echo $path_error; $path = $_POST['path']; } else { $path = ''; } ?><input type="text" value="<?php echo $path; ?>" name="path" size="40" /></td>
 </tr>
 <tr class="field">

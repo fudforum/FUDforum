@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.31 2009/04/04 08:18:46 frank Exp $
+* $Id: admext.php,v 1.32 2009/07/11 10:54:38 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,8 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('ext.inc', true);
-
+	include($WWW_ROOT_DISK . 'adm/admpanel.php');
+		
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (!empty($_POST['c_ext'])) {
@@ -35,6 +36,7 @@
 
 	if (!isset($nada) && db_affected()) {
 		ext_cache_rebuild();
+		echo '<font color="green">Extension cache was successfully rebuilt.</font>';
 	}
 
 	if (isset($_GET['edit'])) {
@@ -42,14 +44,12 @@
 	} else {
 		$edit = $c_ext = '';
 	}
-
-	include($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Allowed Extensions</h2>
 <form id="exf" method="post" action="admext.php">
 <table class="datatable solidtable">
 	<tr class="tutor">
-		<td colspan="2"><b>Note:</b> If no file extension is entered, all files will be allowed.</td>
+		<td colspan="2"><b>Security Warning:</b> If no file extension is entered, all files will be allowed.</td>
 	</tr>
 	<tr class="field">
 		<td>Extension:</td>
