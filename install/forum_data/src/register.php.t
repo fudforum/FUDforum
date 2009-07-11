@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.176 2009/06/24 09:45:37 frank Exp $
+* $Id: register.php.t,v 1.177 2009/07/11 10:36:05 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -96,8 +96,10 @@ function register_form_check($user_id)
 			set_err('reg_login', '{TEMPLATE: register_err_loginunique}');
 		}
 
-		if (!($GLOBALS['FUD_OPT_3'] & 128) && (empty($_POST['turing_test']) || empty($_POST['turing_res']) || md5(strtoupper(trim($_POST['turing_test']))) != $_POST['turing_res'])) {
-			set_err('reg_turing', '{TEMPLATE: register_err_turing}');
+		if (!($GLOBALS['FUD_OPT_3'] & 128)) { // captcha not disabled
+			if (empty($_POST['turing_test']) || empty($_POST['turing_res']) || !test_turing_answer($_POST['turing_test'], $_POST['turing_res'])) {
+				set_err('reg_turing', '{TEMPLATE: register_err_turing}');
+			}
 		}
 
 		$_POST['reg_email'] = trim($_POST['reg_email']);

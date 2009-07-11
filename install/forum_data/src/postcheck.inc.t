@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.40 2009/02/13 22:07:51 frank Exp $
+* $Id: postcheck.inc.t,v 1.41 2009/07/11 10:36:05 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,8 +52,10 @@ function check_post_form()
 	}
 
 	/* captcha check for anon users */
-	if (!_uid && $GLOBALS['FUD_OPT_3'] & 8192 && (empty($_POST['turing_test']) || empty($_POST['turing_res']) || md5(strtoupper(trim($_POST['turing_test']))) != $_POST['turing_res'])) {
-		set_err('reg_turing', '{TEMPLATE: register_err_turing}');
+	if (!_uid && $GLOBALS['FUD_OPT_3'] & 8192 ) {
+		if (empty($_POST['turing_test']) || empty($_POST['turing_res']) || !test_turing_answer($_POST['turing_test'], $_POST['turing_res'])) {
+			set_err('reg_turing', 'Invalid validation code.');
+		}
 	}
 
 	if (defined('fud_bad_sq')) {

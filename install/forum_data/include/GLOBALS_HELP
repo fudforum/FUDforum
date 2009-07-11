@@ -320,7 +320,7 @@ Whether or not to use php to compress forum's output. By turning this option you
 If php's compression is used, this indicates how extensively should the data be compressed, the values can range from 1-9.}}}
 
 {{{USE_PATH_INFO	FUD_OPT_2	32768
-Whether or not use PATH_INFO based URLs, this will make forum's URLs look like http://a.com/index.php/a/b/c/. This makes forum's URLs much easier to remember as well as more search engine friendly. Unfortunately this feature mostly works with Apache 1.X based servers and may not work with other webservers. To see if your webserver supports this feature, click on the test link above. If you see forum's front page, then you can make use of this feature. To make use of this you will also need to create a new template based on the 'path_info' template set.}}}
+Whether or not use PATH_INFO based URLs, this will make forum's URLs look like http://a.com/index.php/a/b/c/. This makes forum's URLs much easier to remember as well as more search engine friendly. Unfortunately this feature mostly works with Apache based servers and may not work with other webservers. To see if your webserver supports this feature, click on the test link above. If you see forum's front page, then you can make use of this feature. To make use of this you will also need to create a new template based on the 'path_info' template set.}}}
 
 {{{ALLOW_PROFILE_IMAGE	FUD_OPT_2	65536
 Whether or not to allow users to enter a URL to an image in their profile that will be displayed on the user info page for that user. The danger of this feature is that the user could potentially link to a page other then an image and some browsers like Internet Explorer will parse that page executing any potentially hostile Javascript that may be present.}}}
@@ -474,3 +474,6 @@ Enable/disable the forum's quick reply editor.}}}
 
 {{{QUICK_REPLY_DISPLAY	FUD_OPT_3	"Expanded\nCollapsed"	"0\n16777216"
 Quick reply display mode: collapsed or expanded.}}}
+
+{{{GRAPHICAL_TURING	FUD_OPT_3	33554432
+Use a graphical captcha instead of a text captcha (only if your PHP has GD support).}}}
