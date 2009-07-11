@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: coppa.tmpl,v 1.19 2009/03/26 18:08:58 frank Exp $
+* $Id: coppa.tmpl,v 1.20 2009/07/11 10:49:08 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,6 +20,7 @@
 {TEMPLATE: usercp}
 <div class="ctb">
 <table cellspacing="1" cellpadding="2" class="DialogTable">
+<tr><th>{MSG: coppa_conf}</th></tr>
 <tr class="RowStyleA GenText ac"><td>
 {MSG: coppa_link}<br /><br />
 [<a href="{TEMPLATE: COPPA_PAGE_lnk}">{MSG: coppa_before}</a>]&nbsp;
@@ -31,6 +32,7 @@
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}
+
 {SECTION: coppa_conf}
 {MSG: coppa_conf}
 {SECTION: END}

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: feed.php.t,v 1.1 2009/06/23 20:50:51 frank Exp $
+* $Id: feed.php.t,v 1.2 2009/07/11 10:49:08 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -72,7 +72,7 @@ function fud_xml_encode($str)
 function feed_cache_cleanup()
 {
 	foreach (glob($GLOBALS['FORUM_SETTINGS_PATH'].'feed_cache_*') as $v) {
-		if (filemtime($v) + $GLOBALS['RDF_CACHE_AGE'] < __request_timestamp__) {
+		if (filemtime($v) + $GLOBALS['FEED_CACHE_AGE'] < __request_timestamp__) {
 			unlink($v);
 		}
 	}
@@ -105,17 +105,17 @@ function smiley_full(&$data)
 	$res = 0;
 	$offset = isset($_GET['o']) ? (int)$_GET['o'] : 0;
 
-	if ($RDF_CACHE_AGE) {
+	if ($FEED_CACHE_AGE) {
 		register_shutdown_function('feed_cache_cleanup');
 
 		$key = $_GET; 
-		if ($RDF_AUTH_ID) {
-			$key['auth_id'] = $RDF_AUTH_ID;
+		if ($FEED_AUTH_ID) {
+			$key['auth_id'] = $FEED_AUTH_ID;
 		}
 		unset($key['S'], $key['rid'], $key['SQ']); // remove not relavent components
 
 		$file_name = $FORUM_SETTINGS_PATH.'feed_cache_'.md5(serialize($key));
-		if (file_exists($file_name) && (($t = filemtime($file_name)) + $RDF_CACHE_AGE) > __request_timestamp__) {
+		if (file_exists($file_name) && (($t = filemtime($file_name)) + $FEED_CACHE_AGE) > __request_timestamp__) {
 			$mod = gmdate('D, d M Y H:i:s', $t) . ' GMT';
 			if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && !isset($_SERVER['HTTP_RANGE']) && $_SERVER['HTTP_IF_MODIFIED_SINCE'] == $mod) {
 				header('HTTP/1.1 304 Not Modified');
@@ -130,10 +130,10 @@ function smiley_full(&$data)
 		ob_start();
 	}
 
-	if ($RDF_MAX_N_RESULTS < 1) { // handler for events when the value is not set
-		$RDF_MAX_N_RESULTS = 100;
+	if ($FEED_MAX_N_RESULTS < 1) { // handler for events when the value is not set
+		$FEED_MAX_N_RESULTS = 100;
 	}
-	$limit  = (isset($_GET['n']) && $_GET['n'] <= $RDF_MAX_N_RESULTS) ? (int)$_GET['n'] : $RDF_MAX_N_RESULTS;
+	$limit  = (isset($_GET['n']) && $_GET['n'] <= $FEED_MAX_N_RESULTS) ? (int)$_GET['n'] : $FEED_MAX_N_RESULTS;
 
 	$feed_data = $feed_header = $join = '';
 	switch ($mode) {
@@ -185,10 +185,10 @@ function smiley_full(&$data)
 			}
 
 			if ($FUD_OPT_2 & 33554432) {
-				if ($RDF_AUTH_ID) {
+				if ($FEED_AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
-							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$RDF_AUTH_ID.' AND g2.resource_id=f.id
-							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$RDF_AUTH_ID.' ';
+							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$FEED_AUTH_ID.' AND g2.resource_id=f.id
+							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$FEED_AUTH_ID.' ';
 					$lmt .= " AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)";
 				} else {
 					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
@@ -298,10 +298,10 @@ function smiley_full(&$data)
 			}
 
 			if ($FUD_OPT_2 & 33554432) {
-				if ($RDF_AUTH_ID) {
+				if ($FEED_AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
-							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$RDF_AUTH_ID.' AND g2.resource_id=f.id
-							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$RDF_AUTH_ID.' ';
+							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$FEED_AUTH_ID.' AND g2.resource_id=f.id
+							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$FEED_AUTH_ID.' ';
 					$lmt .= " AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)";
 				} else {
 					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
@@ -375,10 +375,10 @@ function smiley_full(&$data)
 				$lmt .= ' AND u.last_visit>='.(__request_timestamp__ - $LOGEDIN_TIMEOUT * 60);
 			}
 			if ($FUD_OPT_2 & 33554432) {
-				if ($RDF_AUTH_ID) {
+				if ($FEED_AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
-							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$RDF_AUTH_ID.' AND g2.resource_id=f.id
-							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$RDF_AUTH_ID.' ';
+							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$FEED_AUTH_ID.' AND g2.resource_id=f.id
+							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$FEED_AUTH_ID.' ';
 					$perms = ", (CASE WHEN (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0) THEN 1 ELSE 0 END) AS can_show_msg";
 				} else {
 					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
@@ -440,7 +440,7 @@ function smiley_full(&$data)
 	} // switch ($mode)
 
 	if ($res) {
-		if ($RDF_CACHE_AGE) {
+		if ($FEED_CACHE_AGE) {
 			echo ($out = ob_get_clean());
 			$fp = fopen($file_name, "w");
 			fwrite($fp, $out);
