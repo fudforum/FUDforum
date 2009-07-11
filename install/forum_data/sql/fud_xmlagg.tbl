@@ -1,0 +1,27 @@
+#   copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_xmlagg.tbl,v 1.1 2009/07/11 09:55:24 frank Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; version 2 of the License.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}xmlagg;
+
+CREATE TABLE {SQL_TABLE_PREFIX}xmlagg
+(
+	id			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name			VARCHAR(255) NOT NULL DEFAULT '',
+	url			VARCHAR(255) NOT NULL DEFAULT '',
+	forum_id		INT NOT NULL DEFAULT 0,
+	xmlagg_opt		INT NOT NULL DEFAULT 2,
+	last_load_date		BIGINT(20) NOT NULL DEFAULT 0
+);
+
+CREATE INDEX {SQL_TABLE_PREFIX}xmlagg_i_f ON {SQL_TABLE_PREFIX}xmlagg (forum_id);
+
+# 1 xml_post_apr (ON/OFF)
+# 2 create_users (ON/OFF)
+# 4 skip_non_forum_users (ON/OFF)
+
