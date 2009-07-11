@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.25 2009/05/02 16:24:20 frank Exp $
+* $Id: install-cli.php,v 1.26 2009/07/11 11:19:14 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -225,10 +225,10 @@ function dbperms_check()
 		} else {
 			$version = 0;
 		}
-		if (__dbtype__ == 'mysql' && !version_compare($version, '3.23.0', '>=')) {
-			fe("The specified MySQL server is running version '{$version}', which is older then the minimum required version '3.23.0'\n");
-		} else if (__dbtype__ == 'pgsql' && !version_compare($version, '7.2.0', '>=')) {
-			fe("The specified PostgreSQL server is running version '{$version}', which is older then the minimum required version '7.2.0'\n");
+		if (__dbtype__ == 'mysql' && !version_compare($version, '4.1.0', '>=')) {
+			fe("The specified MySQL server is running version '{$version}', which is older then the minimum required version '4.1.0'\n");
+		} else if (__dbtype__ == 'pgsql' && !version_compare($version, '8.1.0', '>=')) {
+			fe("The specified PostgreSQL server is running version '{$version}', which is older then the minimum required version '8.1.0'\n");
 		}
 	}
 
@@ -339,8 +339,8 @@ function db_connect($settings)
 
 	$module_status = module_check();
 
-	if (!version_compare(PHP_VERSION, '4.3.0', '>=')) {
-		fe("Your php version (<?php echo PHP_VERSION; ?>) is older then the minimum required version (4.3.0)\n\n");
+	if (!version_compare(PHP_VERSION, '5.1.0', '>=')) {
+		fe("Your php version (<?php echo PHP_VERSION; ?>) is older then the minimum required version (5.1.0)\n\n");
 	} else if (($fs = filesize(__FILE__)) < 200000) {
 		fe("The installer is missing the data archive, append the archive to the installer and try again.\n\n");
 	} else if ($fs < 3500000 && !$module_status['zlib']) {
@@ -348,7 +348,7 @@ function db_connect($settings)
 	} else if (!$module_status['mysql'] && !$module_status['pgsql']) {
 		fe("FUDforum can utilize either MySQL or PosgreSQL database to store it's data, unfortunately, your PHP does not have\nsupport for either one. Please install or load the appropriate database extension and then re-run the install script.\n\n");
 	} else if (!$module_status['pcre']) {
-		fe("PCRE (Perl Compatible Regular Expression) extension required for proper forum operation is not avaliable,\nplease load or install this extension and then re-run the installer.\n\n");
+		fe("PCRE (Perl Compatible Regular Expression) extension required for proper forum operation is not available,\nplease load or install this extension and then re-run the installer.\n\n");
 	}
 
 	$got_config = 0;
@@ -598,9 +598,6 @@ function db_connect($settings)
 	));
 
 	/* handle language selection */
-	if (!defined('GLOB_NOSORT')) { /* pre PHP 4.3.3 hack for Windows & FreeBSD */
-		define('GLOB_NOSORT', 0);
-	}
 	$ln_dir = glob($settings['SERVER_DATA_ROOT'].'thm/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT);
 	if (!$ln_dir) {
 		fe("Could not open i18n directory at '{$settings['SERVER_DATA_ROOT']}thm/default/i18n'\n");
