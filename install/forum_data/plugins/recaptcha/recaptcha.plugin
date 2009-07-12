@@ -1,0 +1,78 @@
+<?php
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: recaptcha.plugin,v 1.1 2009/07/12 07:54:34 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin
+plugin_add_hook('CAPTCHA',          'plugin_recaptcha_display');
+plugin_add_hook('CAPTCHA_VALIDATE', 'plugin_recaptcha_validate');
+
+// Display recaptcha image
+function plugin_recaptcha_display() {
+	if((@include $GLOBALS['PLUGIN_PATH'].'/recaptcha/recaptcha.ini') === false) {
+		die('ERROR: Please configure the Recaptcha plugin from the Plugin Manager Control panel.');
+	}
+
+	$html = "<div id='recaptcha_widget' style='display:none;'><script type='text/javascript'>var RecaptchaOptions = {theme : 'custom',  custom_theme_widget: 'recaptcha_widget'};</script>
+<div id='recaptcha_image'></div><input type='hidden' id='recaptcha_response_field' name='recaptcha_response_field' />[ <a href='javascript:Recaptcha.reload()'>Get another CAPTCHA</a> ]<span class='recaptcha_only_if_image'>[ <a href='javascript:Recaptcha.switch_type(\"audio\")'>Get audio CAPTCHA</a> ]</span><span class='recaptcha_only_if_audio'>[ <a href='javascript:Recaptcha.switch_type(\"image\")'>Show image CAPTCHA</a> ]</span> 
+<script type='text/javascript' src='http://api.recaptcha.net/challenge?k=".$ini['RECAPTCHA_PUBKEY']."'></script>
+<noscript><iframe src='http://api.recaptcha.net/noscript?k=".$ini['RECAPTCHA_PUBKEY']."' height='300' width='500' frameborder='0'></iframe><textarea name='recaptcha_challenge_field' rows='1' cols='40'></textarea><input type='hidden' name='recaptcha_response_field' value='manual_challenge'></noscript></div>";
+
+	return array($html, 'not set');
+}
+
+// Validate user response
+function plugin_recaptcha_validate($array) {
+	list($test, $res) = $array;
+
+	require_once('recaptchalib.php');
+	require_once($GLOBALS['PLUGIN_PATH'].'/recaptcha/recaptcha.ini');
+	$resp = recaptcha_check_answer($ini['RECAPTCHA_PRIVKEY'],
+				$_SERVER['REMOTE_ADDR'],
+				$_POST['recaptcha_challenge_field'],
+				$test); // recaptcha_response_field
+	if ($resp->is_valid) {
+		return 1;
+	}
+	return 0;
+}
+
+function recaptcha_info() {
+	return array('name' => 'Recaptcha',
+	             'desc' => 'This plugin, if enabled, will use recaptcha instead of FUDforum\'s default captcha challenge.');
+}
+
+// Configuration via the Admin Control Panel
+function recaptcha_config() {
+	if (isset($_POST['Set'])) {
+		foreach (array_keys($_POST) as $key) {
+			if (substr($key,0,10) == 'RECAPTCHA_') {
+				$ini[$key] = $_POST[$key];
+			}
+		}
+		$fp = fopen($GLOBALS['PLUGIN_PATH'].'/recaptcha/recaptcha.ini', 'w');
+		fwrite($fp, '<?php $ini = '.var_export($ini, 1).'; ?>');
+		fclose($fp);
+		echo '<font color="green">Settings successfully saved.</font>';
+	} else {
+		if((@include_once $GLOBALS['PLUGIN_PATH'].'/recaptcha/recaptcha.ini') === false) {
+			$ini = NULL;
+		}
+	}
+	?>
+<p>Your Recaptcha private key (get one from <a href="http://recaptcha.net/api/getkey">recaptcha.net</a>):<br />
+<input name="RECAPTCHA_PRIVKEY" value="<?php echo $ini['RECAPTCHA_PRIVKEY'] ?>" size="50" /></p>
+
+<p>Your Recaptcha public key:<br />
+<input name="RECAPTCHA_PUBKEY" value="<?php echo $ini['RECAPTCHA_PUBKEY'] ?>" size="50" /></p>
+
+	<?php
+}
+
+?>
