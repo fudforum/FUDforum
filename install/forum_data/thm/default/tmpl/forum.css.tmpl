@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.83 2009/05/08 20:10:15 frank Exp $
+* $Id: forum.css.tmpl,v 1.84 2009/07/13 17:09:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -207,10 +207,36 @@ font.ptp { /* space between poll title & number of votes */
 	margin : 0px;
 }
 
-.quote {
+cite {
+	/* quote titles */
+	font-size: 9pt;
+	font-weight: bold;
+	margin-left: 20px;
+	display: block;
+	background: transparent url("images/quote.gif") left top no-repeat;
+	padding-left: 25px;	
+}
+
+blockquote {
+	/* quote tags */
 	color: #444444;
-	background: #FAFAFA;
+	background: #fafafa;
 	border: 1px solid #c2cdd6;
+	margin: 8px 1px 0 20px;
+	overflow: hidden;
+	padding: 5px;
+
+}
+
+blockquote blockquote {
+	/* nested quote tags */
+	background-color: #f0f0f0;
+	margin: 8px 1px 0 10px;
+}
+
+blockquote blockquote blockquote {
+	/* double nested quote tags */
+	background-color: #e0e0e0;
 }
 
 .dashed {
@@ -382,7 +408,11 @@ legend {
 	font-size: 11pt;
 	font-weight: bold;
 	background-color: white;
-	border: 1px solid black;
+	border: 1px solid #aebdc4;
+}
+
+fieldset {
+	border: 1px solid #aebdc4;
 }
 
 th.SelTS, th.SelFS {
@@ -442,7 +472,7 @@ table.tab {
 }
 
 .curtime {
-	border: 1px solid lightgray;
+	border: 1px solid #aebdc4;
 	vertical-align: middle;
 	padding: 1px 3px 1px 3px;
 }
@@ -586,16 +616,17 @@ hr.sig {
 }
 
 /* Header with rounded corners */
-.header {background:#527bbd; margin:0 0px;}
+.header {background:#517ca1; margin:0 0px; background-image: url(images/header.gif); background-repeat: no-repeat;}
 .header a {text-decoration:none;}
 .rtop, .rbottom {display:block; background:white;}
-.rtop *, .rbottom * {display: block; height: 1px; overflow: hidden; background:#527bbd;}
+.rtop *, .rbottom * {display: block; height: 1px; overflow: hidden; background:#517ca1;}
 .r1 {margin: 0 5px; font-size: 1px;}
 .r2 {margin: 0 3px; font-size: 1px;}
 .r3 {margin: 0 2px; font-size: 1px;}
 .r4 {margin: 0 1px; height: 2px; font-size: 1px;}
 .headtitle {color:white; font-size:xx-large; font-weight:bold; text-decoration:none;}
-.headsearch {color:white; font-size: small; font-weight:bold; float:right;}
+.headdescr {padding: 2px; color:#eeeeee; font-size:small;}
+.headsearch {color:white; font-size: small; font-weight:bold; float:right; white-space: nowrap; vertical-align: top;}
 .headbutton {color:white; background-color: red;} 
 
 /* Textarea editor */

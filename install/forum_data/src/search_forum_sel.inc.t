@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search_forum_sel.inc.t,v 1.25 2009/06/07 16:09:49 frank Exp $
+* $Id: search_forum_sel.inc.t,v 1.26 2009/07/13 17:09:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,7 +53,7 @@ if (!$forum_limit_data) {
 
 function trim_body($body)
 {
-	/* remove stuff in quotes */
+	/* remove stuff in old bad quote tags - remove in future release */
 	while (($p = strpos($body, '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>')) !== false) {
 		if (($pos = strpos($body, '<br></td></tr></table>', $p)) === false) {
 			$pos = strpos($body, '<br /></td></tr></table>', $p);
@@ -65,6 +65,11 @@ function trim_body($body)
 			$e = $pos + strlen('<br></td></tr></table>');
 		}
 		$body = substr($body, 0, $p) . substr($body, $e);
+	}
+
+	/* Remove stuff in quotes */
+	while (preg_match('!{TEMPLATE: post_html_quote_start_p1}(.*?){TEMPLATE: post_html_quote_start_p2}(.*?){TEMPLATE: post_html_quote_end}!is', $body)) {
+		$body = preg_replace('!{TEMPLATE: post_html_quote_start_p1}(.*?){TEMPLATE: post_html_quote_start_p2}(.*?){TEMPLATE: post_html_quote_end}!is', '', $body);
 	}
 
 	$body = strip_tags($body);

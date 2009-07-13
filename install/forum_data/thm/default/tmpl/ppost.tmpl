@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.tmpl,v 1.71 2009/04/03 05:40:32 frank Exp $
+* $Id: ppost.tmpl,v 1.72 2009/07/13 17:09:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -66,7 +66,7 @@
 {SECTION: END}
 
 {SECTION: html_quote quote style for html enabled forums}
-<table border="0" class="ac" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText fb">{MSG: ppost_quote_msg}</td></tr><tr><td class="quote"><br />{VAR: msg_body}<br /></td></tr></table>
+<cite>{MSG: ppost_quote_msg}</cite><blockquote>{VAR: msg_body}</blockquote>
 {SECTION: END}
 
 {SECTION: plain_quote quoting style for plain text forums}

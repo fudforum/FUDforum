@@ -315,7 +315,7 @@ Donat que en alguns casos l`administrador no permet l`ús d`HTML als missatges, 
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[quote]</b></font>Hola món<font color="#ff0000"><b>[/quote]</b></font></td>
-    <td valign="middle" align="center"><table border="0" align="center" width="50%" cellpadding="3" cellspacing="1"><tr><td class="SmallText" align="left"><b>Quote:</b></td></tr><tr><td class="quote" align="left">Hola món<br /></td></tr></table></td>
+    <td><cite>Quote:</cite><blockquote>Hola món</blockquote></td>
   </tr>
 </table>
 <br /><br />

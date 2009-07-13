@@ -127,7 +127,7 @@ FUD代码支持文本通过使用[align]标签以下列3种方式排列：
 <div align="Center"><font color="#ff0000"><b>[quote]</b></font>你好，世界！<font color="#ff0000"><b>[/quote]</b></font><br /></div>
   将显示为：<br />
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote：</b></td></tr><tr><td class="quote">你好，世界！<br /></td></tr></table>
+<cite>Quote：</cite><blockquote>你好，世界！</blockquote>
 <p>
 <b>计算机代码和前格式化文本</b><br />
  该代码 <font color="#ff0000"><b>[code][/code]</b></font> 允许提交的文件保留相关的格式，比如制表符或者更多的空间。<br />

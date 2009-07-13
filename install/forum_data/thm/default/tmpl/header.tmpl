@@ -1,7 +1,7 @@
 /**************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: header.tmpl,v 1.31 2009/02/22 00:00:37 frank Exp $
+* $Id: header.tmpl,v 1.32 2009/07/13 17:09:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,6 +14,7 @@
 <head>
 {META-CONTENT-LANGUAGE}
 <title>{GVAR: FORUM_TITLE}{VAR: TITLE_EXTRA}</title>
+<meta name="description" content="{GVAR: FORUM_DESCR}" />
 <base href="{FULL_ROOT}" />
 <script type="text/javascript" src="lib.js"></script>
 <script type="text/javascript" src="jquery.js"></script>
@@ -25,14 +26,17 @@
 <table class="wa" border="0" cellspacing="3" cellpadding="5"><tr><td class="ForumBackground">
 <div class="header">
 <b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
-  <table width="100%"><tr><td class="header"><a href="{ROOT}" title="{MSG: home}"><span class="headtitle">{GVAR: FORUM_TITLE}</span></a></td><td>
-  <form id="headsearch" method="get" action="{ROOT}">{DEF: _hs}
-    <span class="headsearch">{MSG: search_forum_search}:<br />
-    <input type="hidden" name="t" value="search" />
-    <input type="text" name="srch" accesskey="f" value="" />
-    <input type="submit" name="btn_submit" value="{MSG: search}" class="headbutton" />
-  </span></form>
-  </td></tr></table>
+<div class="header">
+  <div class="headsearch">
+    <form id="headsearch" method="get" action="{ROOT}">{DEF: _hs}
+      {MSG: search_forum_search}:<br />
+      <input type="hidden" name="t" value="search" />
+      <input type="text" name="srch" accesskey="f" value="" size="15" />
+      <input type="submit" name="btn_submit" value="{MSG: search}" class="headbutton" />
+    </form>
+  </div>
+<a href="{ROOT}" title="{MSG: home}"><span class="headtitle">{GVAR: FORUM_TITLE}</span></a><br />
+<span class="headdescr">{GVAR: FORUM_DESCR}</span></div>
 <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
 </div>
 <br />

@@ -125,7 +125,7 @@ BBcode supporte l'alignement du texte par la marque [align] ce qui vous permet d
 <div align="Center"><font color="#ff0000"><b>[quote]</b></font>Hello World<font color="#ff0000"><b>[/quote]</b></font><br /></div>
   apparaîtrait tel que&nbsp;:<br />
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hello World<br /></td></tr></table>
+<cite>Quote:</cite><blockquote>Hello World</blockquote>
 <p>
 <b>Code d'ordinateur et texte pré-formaté</b><br />
  Les marques <font color="#ff0000"><b>[code][/code]</b></font> permettent d'envoyer un texte exactement comme il est, en conservant le formatage relatif comme les tabulations et les espaces multiples. <br />

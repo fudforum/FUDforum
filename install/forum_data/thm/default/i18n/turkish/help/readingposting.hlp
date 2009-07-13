@@ -136,8 +136,7 @@ Birisinin gönderdiği iletiyi alıntı şeklinde göstermek mümkdür, yapmanı
 <div align="Center"><font color="#ff0000"><b>[quote]</b></font>Selam herkese<font color="#ff0000"><b>[/quote]</b></font><br /></div>
 aşağıdaki şekilde görünecektir:<br />
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Alıntı:</b></td></tr><tr>
-<td class="quote">Selam herkese<br /></td></tr></table>
+<cite>Alıntı:<cite><blockquote>Selam herkes/blockquote>
 <p>
 <b>Bilgisayar kodu ve önceden biçimlendirilmiş metin</b><br />
 <font color="#ff0000"><b>[code][/code]</b></font> takılarını kullanarak yazmış olduğunuz

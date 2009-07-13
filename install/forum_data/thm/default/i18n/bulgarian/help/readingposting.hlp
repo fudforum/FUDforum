@@ -170,10 +170,10 @@ BBcode поддерживает различные способы выравни
   При ответе на сообщение возможно приведение цитат из оригинала, для этого
   используется тег <font color="#ff0000"><b>[quote][/quote]</b></font>. 
 <p>
-<div align="Center"><font color="#ff0000"><b>[quote]</b></font>hello world<font color="#ff0000"><b>[/quote]</b></font></div>
+<div align="Center"><font color="#ff0000"><b>[quote]</b></font>Hello World<font color="#ff0000"><b>[/quote]</b></font></div>
 <p>
   будет выглядеть как:
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Цитата:</b></td></tr><tr><td class="quote">Hello World<br /></td></tr></table>
+<cite>Цитата:</cite><blockquote>Hello World</blockquote>
 <p>
 <b>Исходный (преформатированный) текст</b>
 <br />

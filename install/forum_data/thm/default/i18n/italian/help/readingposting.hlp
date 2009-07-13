@@ -126,7 +126,7 @@ BBcode permette di allineare il testo con il tag [align], che permette di giusti
 <div align="Center"><font color="#ff0000"><b>[quote]</b></font>ciao mondo<font color="#ff0000"><b>[/quote]</b></font><br /></div>
   apparirebbe come:<br />
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">ciao mondo<br /></td></tr></table>
+<cite>Quote:</cite><blockquote>ciao mondo</blockquote>
 <p>
 <b>Codice e testo pre-formattato</b><br />
 I tag <font color="#ff0000"><b>[code][/code]</b></font> permettono di inserire del testo esattamente com'è, mantenendo formattazioni già inserite, come spazi e tabulazioni. <br />

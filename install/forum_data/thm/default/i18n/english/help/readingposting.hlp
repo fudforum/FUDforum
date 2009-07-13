@@ -317,7 +317,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[quote]</b></font>Hello World<font color="#ff0000"><b>[/quote]</b></font></td>
-    <td valign="middle" align="center"><table border="0" align="center" width="50%" cellpadding="3" cellspacing="1"><tr><td class="SmallText" align="left"><b>Quote:</b></td></tr><tr><td class="quote" align="left">Hello World<br /></td></tr></table></td>
+    <td><cite>Quote:</cite><blockquote>Hello World</blockquote></td>
   </tr>
 </table>
 <br /><br />
@@ -452,8 +452,8 @@ More visible text.</td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=<font color="#006600">ca</font>]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
-    <td valign="middle" align="center"><a href="http://ca.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=<font color="#006600">en</font>]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
+    <td valign="middle" align="center"><a href="http://en.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
   </tr>
 </table>
 <i>Explanation:</i> The [wikipedia][/wikipedia] tag allows you to create a reference to a wikipedia page based on the subject. To use the tag, surround the term with [wikipedia] tags, if you want to link to a particular wikipedia mirror you can use [wikipedia=ca] format for openning the tag, where ca is the prefix of the mirror.

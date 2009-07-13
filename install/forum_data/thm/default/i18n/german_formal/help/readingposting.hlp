@@ -317,7 +317,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. BBcode ist se
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[quote]</b></font>Hallo Welt<font color="#ff0000"><b>[/quote]</b></font></td>
-    <td valign="middle" align="center"><table border="0" align="center" width="50%" cellpadding="3" cellspacing="1"><tr><td class="SmallText" align="left"><b>Zitat:</b></td></tr><tr><td class="quote" align="left">Hallo Welt<br /></td></tr></table></td>
+    <td><cite>Zitat:</cite><blockquote>Hallo Welt</blockquote></td>
   </tr>
 </table>
 <br /><br />
@@ -451,8 +451,8 @@ Weiterer sichtbarer Text.</td>
     <td width="300" align="center" valign="middle"><b>Ergebnis</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=<font color="#006600">ca</font>]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
-    <td valign="middle" align="center"><a href="http://ca.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=<font color="#006600">de</font>]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
+    <td valign="middle" align="center"><a href="http://de.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
   </tr>
 </table>
 <i>Erkl&auml;rung:</i> Der [wikipedia][/wikipedia] Tag erlaubt Ihnen, einen Link zu einem Wikipedia-Artikel mit einem bestimmten Thema zu erstellen. Um den Tag zu verwenden, schlie&szlig;en Sie den Ausdruck in [wikipedia][/wikipedia] ein, wenn Sie du einen bestimmten Mirror verwenden m&ouml;chten, verwenden Sie [wikipedia=ca] als einleitendes Tag, dabei ist ca der zu verwendende Mirror.

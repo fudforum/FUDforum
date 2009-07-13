@@ -99,7 +99,7 @@ wat zal resulteren in een afbeelding met een link zoals<br />
 Het is mogelijk om iets te citeren dat al eerder gepost is door er gewoon <font color="#ff0000"><b>[quote][/quote]</b></font> tags omheen te zetten. 
 <br /><div align="Center"><font color="#ff0000"><b>[quote]</b></font>Hallo wereld<font color="#ff0000"><b>[/quote]</b></font><br /></div>
 ziet er dan als volgt uit:<br />
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hallo wereld<br /></td></tr></table>
+<cite>Quote:</cite><blockquote>Hallo wereld</blockquote>
 <p><b>Computer Code en voorbewerkte tekst</b><br />
 De <font color="#ff0000"><b>[code][/code]</b></font> tags zorgen ervoor dat tekst precies zo geplaatst kan worden zoals je het
 invoert, waarbij de voorbewerkte opmaak behouden blijft zoals meerdere tabulatorstops en spaties.<p>

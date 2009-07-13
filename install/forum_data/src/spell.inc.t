@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: spell.inc.t,v 1.28 2009/01/29 18:37:17 frank Exp $
+* $Id: spell.inc.t,v 1.29 2009/07/13 17:09:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,16 +45,36 @@ function tokenize_string($data)
 				}
 
 				$wrd = substr($data,$i,($p-$i)+1);
-				$p3=$l=null;
+				$p3 = $l = null;
 
+				/* remove code blocks */
 				if ($wrd == '<pre>') {
 					$l = 'pre';
+					
+				/* deal with bad old style quotes - remove in future release */
 				} else if ($wrd == '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1">') {
 					$l = 1;
 					$p3 = $p;
 
 					while ($l > 0) {
 						$p3 = strpos($data, 'table', $p3);
+
+						if ($data[$p3-1] == '<') {
+							$l++;
+						} else if ($data[$p3-1] == '/' && $data[$p3-2] == '<') {
+							$l--;
+						}
+
+						$p3 = strpos($data, '>', $p3);
+					}
+					
+				/* remove new style quotes */
+				} else if ($wrd == '<blockquote>') {
+					$l = 1;
+					$p3 = $p;
+
+					while ($l > 0) {
+						$p3 = strpos($data, 'blockquote', $p3);
 
 						if ($data[$p3-1] == '<') {
 							$l++;

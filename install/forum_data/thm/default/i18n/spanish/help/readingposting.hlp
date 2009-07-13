@@ -317,7 +317,7 @@ especial de etiquetas que le permiten cierto formateo para su texto. El BBcode e
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[quote]</b></font>Hola mundo<font color="#ff0000"><b>[/quote]</b></font></td>
-    <td valign="middle" align="center"><table border="0" align="center" width="50%" cellpadding="3" cellspacing="1"><tr><td class="SmallText" align="left"><b>Quote:</b></td></tr><tr><td class="quote" align="left">Hola mundo<br /></td></tr></table></td>
+    <td><cite>Quote:</cite><blockquote>Hola mundo</blockquote></td>
   </tr>
 </table>
 <br /><br />
@@ -450,8 +450,8 @@ Más texto visible.</td>
     <td width="300" align="center" valign="middle"><b>Resultado</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=ca]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
-    <td valign="middle" align="center"><a href="http://ca.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=es]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
+    <td valign="middle" align="center"><a href="http://es.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
   </tr>
 </table>
 <i>Explicación:</i> La etiqueta [wikipedia][/wikipedia] le permite crear una referencia a una página de la wikipedia basada en el asunto. Para usar la etiqueta rodee el término entre etiquetas [wikipedia], y si desea usar una de las versiones nacionales de la wikipedia puede emplear el formato [wikipedia=ca] en la apertura de la etiqueta, donde ca es el código de dos letras del identificador nacional (es para la versión en español).

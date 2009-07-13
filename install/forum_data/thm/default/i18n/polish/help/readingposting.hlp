@@ -124,7 +124,7 @@ BBcode pozwala wyrównywać tekst za pomocą znacznika [align] na trzy sposoby:
 <div align="Center"><font color="#ff0000"><b>[quote]</b></font>Witaj świecie<font color="#ff0000"><b>[/quote]</b></font><br /></div>
   pojawi się jako:<br />
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Witaj świecie<br /></td></tr></table>
+<cite>Quote:</cite><blockquote>Witaj świecie</blockquote>
 <p>
 <b>Programy komptuerowe i uprzednio sformatowany tekst</b><br />
  Znacznik <font color="#ff0000"><b>[code][/code]</b></font> pozwala wysyłać wiadomość z tekstem w niezmienionej postaci, bez usuwania zbędnych spacji czy tabulatorów.<br /> 
