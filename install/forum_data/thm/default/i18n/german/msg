@@ -582,7 +582,7 @@ register_update:		Aktualisieren
 register_uploaded:		Avatar hochladen
 register_use_sig_default:	Standardm&auml;&szlig;ig Signatur verwenden:
 register_use_sig_default_desc:	Die Signatur automatisch jedem Beitrag hinzuf&uuml;gen
-register_welcome_msg:		Vielen Dank für deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehe bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		Vielen Dank für deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Gro&szlig;- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehe bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register\n
 register_welcome_subject:	Registrierungsbestätigung für das Forum
 register_yahoo:			Yahoo Messenger:
 register_year:			Jahr
@@ -838,13 +838,13 @@ register_tree_msg_view:		Baumansicht der Themen/Flache Themenanzeige
 mmod_delete_cofirm_ttl:		Best&auml;tigung f&uuml;r Themen/Beitragsl&ouml;schung
 spell_alts:			keine Alternativen
 insert_uploaded_image:		Bild in den Beitrag einf&uuml;gen
-finduser_help:			Die Suchmaschine f&uuml;gt automatisch eine * Maske Ihrer Anfrage hinzu, die Suche <b>ber&uuml;cksichtigt GroÃŸ- und Kleinschreibung</b>. Um zum Beispiel alle Benutzer zu suchen, deren Login mit einem &#39;a&#39; beginnt, tr&auml;gt man &#39;a&#39; in die Sucheingabe ein.
+finduser_help:			Die Suchmaschine f&uuml;gt automatisch eine * Maske Ihrer Anfrage hinzu, die Suche <b>ber&uuml;cksichtigt Gro&szlig;- und Kleinschreibung</b>. Um zum Beispiel alle Benutzer zu suchen, deren Login mit einem &#39;a&#39; beginnt, tr&auml;gt man &#39;a&#39; in die Sucheingabe ein.
 back_to_top:			Zur&uuml;ck zum Anfang
 iemail_participate:		Zur Teilnahme an der Diskussion geht es hier entlang:
 pm_err_disabled_title:		Private Nachrichten deaktiviert
 pm_err_disabled_msg:		Du kannst keine privaten Nachrichten verschicken, solange du nicht die Option &#39;Private Nachrichten erlauben&#39; in deinem Profil aktivierst.
 err_mod_acc_ttl:		Unbest&auml;tigtes Benutzerkonto
-err_mod_acc_msg:		Der Administrator hat beschlossen, alle Konten vor der Aktivierung pers&ouml;nlich durchzugehen. Daher wirst du nicht im vollen Umfang vom Konto Gebrauch machen können, solange dieses nicht vom Administrator best&auml;tigt worden ist.
+err_mod_acc_msg:		Der Administrator hat beschlossen, alle Konten vor der Aktivierung pers&ouml;nlich durchzugehen. Daher wirst du nicht im vollen Umfang vom Konto Gebrauch machen k&ouml;nnen, solange dieses nicht vom Administrator best&auml;tigt worden ist.
 accounts_pending_approval:	Billigung des sich in der Schwebe befindlichen Kontos
 saved:				Abgespeichert
 register_err_time_limit:	Die Beschr&auml;nkung auf eine Registrierung pro {GVAR: REG_TIME_LIMIT} Sekunden ist erreicht worden. Bitte warte {VAR: reg_limit_reached} Sekunden und versuche danach noch einmal dich zu registrieren.
@@ -1023,7 +1023,7 @@ post_common_blist:		Aufz&auml;hlung einf&uuml;gen
 post_common_quote:		Zitat einf&uuml;gen
 post_common_code:		Code einf&uuml;gen
 rating:				Bewertung
-rating_track:			Verwaltung der Bewertungen fÃ¼r das Thema <b>{VAR: thr->subject}</b>:
+rating_track:			Verwaltung der Bewertungen für das Thema <b>{VAR: thr->subject}</b>:
 rating_delete:			L&ouml;schen
 post_always_on_top:		Dieses Thema immer am Anfang der Themenliste anzeigen
 register_skype:			Skype:
