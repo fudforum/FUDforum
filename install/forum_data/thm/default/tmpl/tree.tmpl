@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.92 2009/06/23 20:50:51 frank Exp $
+* $Id: tree.tmpl,v 1.93 2009/07/17 13:59:41 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -197,36 +197,36 @@
 <script type="text/javascript">
 /* <![CDATA[ */
 var cur_msg = {VAR: mid};
-document.getElementById('b' + cur_msg).className = 'RowStyleC';
+$('#b' + cur_msg).removeClass().addClass('RowStyleC');
+
 function changeMsgFocus(mid)
 {
 	$('body').css('cursor', 'progress');
 	$('#msgTbl').fadeTo('fast', 0.33);
 
-	$('#b' + mid).removeClass().addClass("RowStyleC");
+	$('#b' + mid).removeClass().addClass('RowStyleC');
 	$('#b' + cur_msg).removeClass().addClass( (cur_msg % 2 ? 'RowStyleA' : 'RowStyleB') );
 	cur_msg = mid;
 
 	$.ajax({
 		url: '{GVAR: WWW_ROOT}index.php?t=tree_msg&id='+mid+'&S={DEF: s}',
+		dataType: 'html',
+		contentType: 'text/html; charset={CHARSET}',
 		beforeSend: function(xhr) {
-			xhr.overrideMimeType('text/html; charset={CHARSET}');
+			if (xhr.overrideMimeType) {	// IE doesn't have this
+			    xhr.overrideMimeType('text/html; charset={CHARSET}');
+			}
 		},
 		success: function(data){
-			$('#msgIn'+mid).attr('src', '{THEME_IMAGE_ROOT}/read{DEF: img_ext}');
-			$('#msgIn'+mid).attr('alt', '{MSG: read_message}');
-			$('#msgIn'+mid).attr('title', $('#msgIn'+mid).attr('alt'));
-			$('#msgTbl').empty();
-			$('#msgTbl').append(data);
-			chng_focus('page_top');
-			$('#msgTbl').fadeTo('fast', 1);
+			$('#msgTbl').empty().append('<tbody><tr><td>'+data+'</td></tr></tbody>').fadeTo('fast', 1);
 		},
 		error: function(xhr, desc, e) {
-			alert("Failed to submit: " + desc);
+			alert('Failed to submit: ' + desc);
 		},
 		complete: function() {
+			chng_focus('page_top');
 			$('body').css('cursor', 'auto');
-		},
+		}
 	});
 }
 /* ]]> */
