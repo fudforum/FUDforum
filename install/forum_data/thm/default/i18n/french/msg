@@ -1055,3 +1055,9 @@ move_msg_btn:			Déplacez les messages sélectionnés
 move_msg_th_expl:		Précisez l\'identifiant du sujet de destination (peut être situé dans un autre forum)
 quick_reply:			Réponse rapide
 thread_loc_all:			Verrouiller / Déverrouiller toute la sélection
+powered-by:			Powered by:
+captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
+captcha_img_help:		There is no zero or one in the image.
+code_title:			CODE:
+code_select_all:		Select all
+code_show_hide:			Show/ hide

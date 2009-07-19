@@ -1055,3 +1055,9 @@ unbookmark_all_topics:		fjern alle bogmærker
 index_url_redirection:		Redirection 
 quick_reply:			Kvik-svar
 thread_loc_all:			Lock/Unlock All Selected
+powered-by:			Powered by:
+captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
+captcha_img_help:		There is no zero or one in the image.
+code_title:			CODE:
+code_select_all:		Select all
+code_show_hide:			Show/ hide

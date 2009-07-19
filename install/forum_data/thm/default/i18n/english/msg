@@ -1055,3 +1055,9 @@ pmsg_download_dump:		Download Message Dump
 move_messages:			Move messages
 move_msg_btn:			Move Selected Messages
 move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
+captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
+captcha_img_help:		There is no zero or one in the image.
+powered-by:			Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:			CODE:
+code_select_all:		Select all
+code_show_hide:			Show/ hide
