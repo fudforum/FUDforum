@@ -13,13 +13,13 @@ var JS_HELPOFF = false;
 var DOM = (document.getElementById) ? 1 : 0;
 var NS4 = (document.layers) ? 1 : 0;
 var IE4 = (document.all) ? 1 : 0;
-var OPERA = navigator.userAgent.indexOf("Opera") > -1 ? 1 : 0;
-var MAC = navigator.userAgent.indexOf("Mac") > -1 ? 1 : 0;
+var OPERA = navigator.userAgent.indexOf('Opera') > -1 ? 1 : 0;
+var MAC = navigator.userAgent.indexOf('Mac') > -1 ? 1 : 0;
 
 /* edit box stuff */
 function insertTag(obj, stag, etag)
 {
-	if (navigator.userAgent.indexOf("MSIE") > -1 && !OPERA) {
+	if (navigator.userAgent.indexOf('MSIE') > -1 && !OPERA) {
 		insertTagIE(obj, stag, etag);
 	} else {
 		insertTagMoz(obj, stag, etag);
@@ -100,7 +100,7 @@ function check_selection()
 	}
 
 	if ( document.layers ) return 0;
-	if ( navigator.userAgent.indexOf("MSIE") < 0 ) return 0;
+	if ( navigator.userAgent.indexOf('MSIE') < 0 ) return 0;
 
 	r = document.selection.createRange();
 
@@ -155,7 +155,7 @@ function window_open(url,winName,width,height)
 {
 	xpos = (screen.width-width)/2;
 	ypos = (screen.height-height)/2;
-	options = "scrollbars=1,width="+width+",height="+height+",left="+xpos+",top="+ypos+"position:absolute";
+	options = 'scrollbars=1,width='+width+',height='+height+',left='+xpos+',top='+ypos+'position:absolute';
 	window.open(url,winName,options);
 }
 
@@ -163,10 +163,10 @@ function layerVis(layer, on)
 {
 	thisDiv = document.getElementById(layer);
 	if (thisDiv) {
-		if (thisDiv.style.display == "none") {
-			thisDiv.style.display = "block";
+		if (thisDiv.style.display == 'none') {
+			thisDiv.style.display = 'block';
 		} else {
-			thisDiv.style.display = "none";
+			thisDiv.style.display = 'none';
 		}
 	}
 }
@@ -174,7 +174,7 @@ function layerVis(layer, on)
 function fud_msg_focus(mid_hash)
 {
 	if (!window.location.hash) {
-		self.location.replace(window.location+"#"+mid_hash);
+		self.location.replace(window.location+'#'+mid_hash);
 	}
 }
 
@@ -206,7 +206,7 @@ function highlightWord(node,word,Wno)
 		if (document.all && !OPERA) {
 			hiword = document.createElement('<span class="st'+Wno+'"></span>');
 		} else {
-			hiword = document.createElement("span");
+			hiword = document.createElement('span');
 			hiword.setAttribute('class', 'st'+Wno);
 		}
 		hiword.appendChild(document.createTextNode(word));
@@ -219,8 +219,8 @@ function highlightWord(node,word,Wno)
 
 function highlightSearchTerms(searchText)
 {
-	searchText = searchText.toLowerCase()
-	var terms = searchText.split(" ");
+	searchText = searchText.toLowerCase();
+	var terms = searchText.split(' ');
 	var e = document.getElementsByTagName('span'); // message body
 
 	for (var i = 0; e[i]; i++) {
@@ -243,23 +243,23 @@ function highlightSearchTerms(searchText)
 
 function rs_txt_box(col_inc, row_inc)
 {
-        var obj = $('textarea');
-        obj.height( obj.height() + row_inc);
-        obj.width(obj.width() + col_inc);
+	var obj = $('textarea');
+	obj.height( obj.height() + row_inc);
+	obj.width(obj.width() + col_inc);
 }
 
 function topicVote(rating, topic_id, ses, sq)
 {
-        $.ajax({
-          url: 'index.php?t=ratethread&sel_vote='+rating+'&rate_thread_id='+topic_id+'&S='+ses+'&SQ='+sq,
-          success: function(data){
-                $("#threadRating").html(data);
-                $("#RateFrm").empty();
-          },
-          error: function(xhr, desc, e) {
-                alert("Failed to submit: " + desc);
-          }
-        });
+	$.ajax({
+		url: 'index.php?t=ratethread&sel_vote='+rating+'&rate_thread_id='+topic_id+'&S='+ses+'&SQ='+sq,
+		success: function(data){
+			$('#threadRating').html(data);
+			$('#RateFrm').empty();
+		},
+		error: function(xhr, desc, e) {
+		alert('Failed to submit: ' + desc);
+		}
+	});
 }
 
 function prevCat(id)
@@ -292,41 +292,41 @@ function nextCat(id)
 
 function min_max_cats(theme_image_root, img_ext, minimize_category, maximize_category, sq, s)
 {
-$(document).ready(function() {
-  var toggleMinus = theme_image_root +'/min'+ img_ext;
-  var togglePlus  = theme_image_root +'/max'+ img_ext;
+	$(document).ready(function() {
+		var toggleMinus = theme_image_root +'/min'+ img_ext;
+		var togglePlus  = theme_image_root +'/max'+ img_ext;
 
-  $(".collapsed").prepend('<img src="'+ togglePlus +'" alt="+" title="'+ maximize_category +'" /> ')
-                 .addClass("collapsable");
-  $(".expanded").prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_category +'" /> ')
-                .addClass("collapsable");
+		$('.collapsed').prepend('<img src="'+ togglePlus +'" alt="+" title="'+ maximize_category +'" /> ')
+		               .addClass('collapsable');
+		$('.expanded').prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_category +'" /> ')
+		              .addClass('collapsable');
 
-  $("img", $(".collapsable")).addClass('clickable')
-  .css("cursor", "pointer")
+  $('img', $('.collapsable')).addClass('clickable')
+  .css('cursor', 'pointer')
   .click(function() {
     var toggleSrc = $(this).attr('src');
-    var cat = $(this).parents("tr").attr('id');
+    var cat = $(this).parents('tr').attr('id');
     var on;
 
     if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        // Hide cat
       $(this).attr('src', togglePlus)
-             .attr("title", maximize_category)
-             .attr("alt", "+")
-             .parents('tr').siblings(".child-"+cat).fadeOut('fast');
+             .attr('title', maximize_category)
+             .attr('alt', '+')
+             .parents('tr').siblings('.child-'+cat).fadeOut('fast');
       on = 1;
     } else{                             // Show cat
       $(this).attr('src', toggleMinus)
-             .attr("title", minimize_category)
-             .attr("alt", "-")
-             .parents('tr').siblings(".child-"+cat).fadeIn('fast');
+             .attr('title', minimize_category)
+             .attr('alt', '-')
+             .parents('tr').siblings('.child-'+cat).fadeIn('fast');
       on = 0;
     };
 
     if (sq != '') {
        $.ajax({
-          type: "POST",
-          url: "index.php?t=cat_focus",
-          data: "SQ="+ sq +"&S="+ s +"&c="+ cat.substr(1) +"&on="+ on
+          type: 'POST',
+          url: 'index.php?t=cat_focus',
+          data: 'SQ='+ sq +'&S='+ s +'&c='+ cat.substr(1) +'&on='+ on
         });
     } 
 
@@ -341,25 +341,64 @@ $(document).ready(function() {
   var toggleMinus = theme_image_root +'/min'+ img_ext;
   var togglePlus  = theme_image_root +'/max'+ img_ext;
 
-  $(".MsgSubText").prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_message +'" class="collapsable" /> '
-)
+  $('.MsgSubText').prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_message +'" class="collapsable" /> ');
 
-  $(".collapsable").addClass('clickable').css("cursor", "pointer")
+  $('.collapsable').addClass('clickable').css('cursor', 'pointer')
   .click(function() {
     var toggleSrc = $(this).attr('src');
 
     if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        // Hide message
       $(this).attr('src', togglePlus)
-             .attr("title", maximize_message)
-             .attr("alt", "+")
-             .parents(".MsgTable").find("td").not(".MsgR1").fadeOut('fast');
-    } else{                                             // Show message
+             .attr('title', maximize_message)
+             .attr('alt', '+')
+             .parents('.MsgTable').find('td').not('.MsgR1').fadeOut('fast');
+    } else {                                             // Show message
       $(this).attr('src', toggleMinus)
-             .attr("title", minimize_message)
-             .attr("alt", "-")
-             .parents(".MsgTable").find("td").fadeIn('fast');
+             .attr('title', minimize_message)
+             .attr('alt', '-')
+             .parents('.MsgTable').find('td').fadeIn('fast');
     };
   });
 })
+}
+
+function selectCode(a) 
+{
+	var e = a.parentNode.getElementsByTagName('PRE')[0];
+	if (window.getSelection) {	// Not IE
+		var s = window.getSelection();
+		if (s.setBaseAndExtent) {	// Safari
+			s.setBaseAndExtent(e, 0, e, e.innerText.length - 1);
+		} else {	// Firefox and Opera
+			var r = document.createRange();
+			r.selectNodeContents(e);
+			s.removeAllRanges();
+			s.addRange(r);
+		}
+	} else if (document.getSelection) {	// Older browsers
+		var s = document.getSelection();
+		var r = document.createRange();
+		r.selectNodeContents(e);
+		s.removeAllRanges();
+		s.addRange(r);
+	} else if (document.selection) {	// IE
+		var r = document.body.createTextRange();
+		r.moveToElementText(e);
+		r.select();
+	}
+}
+
+function format_code(codeMsg, selMsg, hideMsg) 
+{
+	$(document).ready(function() {
+		$("div pre").each(function() {
+			var content = $(this).parent().html();
+			$(this).parent().html(
+			  '<span><b>'+codeMsg+'</b> '+
+			  '[<a href="#" onclick="selectCode(this); return false;">'+selMsg+'</a>] '+
+			  '[<a href="#" onclick="$(this).parent().find(\'pre\').slideToggle(); return false;">'+hideMsg+'</a>]'+
+			  content+'</span>');
+		});
+	});
 }
 
