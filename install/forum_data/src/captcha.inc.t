@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: captcha.inc.t,v 1.7 2009/07/11 10:36:05 frank Exp $
+* $Id: captcha.inc.t,v 1.8 2009/07/19 20:09:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,7 +36,7 @@ function generate_turing_val(&$rt)
 
 	if (($GLOBALS['FUD_OPT_3'] & 33554432) && extension_loaded('gd') && function_exists('imagecreate') ) {
 		ses_putvar((int)$GLOBALS['usr']->sid, $captcha);
-		return '<img src="index.php?t=captchaimg" alt="Captch Verification: you will need to recognize the text in this image." /><br />There is no zero or one in the image.';
+		return '{TEMPLATE: image_captcha_link}';
 	} else {
 		$bg_fill_chars = array(' ', '.', ',', '`', '_', '\'');
 		$bg_fill = $bg_fill_chars[array_rand($bg_fill_chars)];

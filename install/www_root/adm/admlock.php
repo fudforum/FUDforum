@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.49 2009/04/29 20:06:35 frank Exp $
+* $Id: admlock.php,v 1.50 2009/07/19 20:09:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,6 +12,8 @@
 	require ('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	if (isset($_POST['usr_passwd'], $_POST['usr_login']) && q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._esc($_POST['usr_login'])." AND passwd='".md5($_POST['usr_passwd'])."' AND (users_opt & 1048576) > 0")) {
 		$FUD_OPT_2 |= 8388608;
@@ -60,8 +62,6 @@
 	}
 
 	$status = ($FUD_OPT_2 & 8388608 ? 'LOCKED' : 'UNLOCKED');
-
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Lock/Unlock Forum Files</h2>
 <?php if ($status == 'UNLOCKED' ) echo '<div class="alert">For security reasons, remember to lock your forum\'s files after you are done editing them.</div>'; ?>

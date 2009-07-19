@@ -1,6 +1,6 @@
 body, body.popup {
 	color: #333;
-	background: #aabbaa;
+	background: #aba;
 	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
 	font-size: medium;
 	font-size-adjust: 0.50;
@@ -8,13 +8,13 @@ body, body.popup {
 
 body.popup {
 	vertical-align: top;
-	background: #ccddee;
+	background: #cde;
 }
 a {
 	text-decoration: none;
 }
 a:visited, a:link {
-	color: #224422;
+	color: #242;
 }
 a:active, a:hover {
 	color: red;
@@ -38,9 +38,9 @@ table.headtable a {
 
 table.maintable {
 	background: #ddefed;
-	border-spacing: 0px;
-	border: 0px;
-	padding: 0px;
+	border-spacing: 0;
+	border: 0;
+	padding: 0;
 	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
 	border-radius: 0.75em;
@@ -48,9 +48,9 @@ table.maintable {
 
 table.linktable {
 	text-align: center;
-	border: 0px;
-	border-spacing: 0px;
-	padding: 0px;
+	border: 0;
+	border-spacing: 0;
+	padding: 0;
 	padding-top: 10px;
 	font-size: small;
 }
@@ -61,10 +61,11 @@ table.linktable {
 
 .maindata {
 	vertical-align: top;
-	background: #ccddee;
+	background: #cde;
 	width: 100%;
 	padding-left: 5px;
 }
+
 span.linkhead {
 	color: #fff;
 	font-weight: bold;
@@ -72,7 +73,7 @@ span.linkhead {
 }
 
 span.linkgroup {
-	color: #339966;
+	color: #396;
 	font-weight: bold;
 	font-size: medium;
 }
@@ -94,7 +95,7 @@ span.linkgroup {
 
 
 .fulltable {
-	border: 1px dashed black;
+	border: 1px dashed #000;
 	width: 100%;
 }
 
@@ -143,7 +144,7 @@ span.linkgroup {
 }
 
 .resultrow3 {
-	background: #00BB00;
+	background: #0b0;
 }
 
 .tutor {
@@ -159,7 +160,7 @@ span.linkgroup {
 	padding: 5px;
 	margin: 3px;
 	color: red;
-	background-color: #ffcccc;
+	background-color: #fcc;
 	font-size: large;
 	text-align: center;
 	-moz-border-radius: 0.75em;
@@ -172,10 +173,10 @@ phpinfo {border-collapse: collapse;}
 .center table { margin-left: auto; margin-right: auto; text-align: left;}
 .center th { text-align: center !important; }
 .p {text-align: left;}
-.e {background-color: #ccccff; font-weight: bold; color: #000000;}
-.h {background-color: #9999cc; font-weight: bold; color: #000000;}
-.v {background-color: #cccccc; color: #000000;}
-.vr {background-color: #cccccc; text-align: right; color: #000000;}
-hr {width: 600px; background-color: #cccccc; border: 0px; height: 1px; color: #000000;}
+.e {background-color: #ccf; font-weight: bold; color: #000;}
+.h {background-color: #99c; font-weight: bold; color: #000;}
+.v {background-color: #ccc; color: #000000;}
+.vr {background-color: #ccc; text-align: right; color: #000;}
+hr {width: 600px; background-color: #ccc; border: 0px; height: 1px; color: #000;}
 
 img {float: right; border: 0px;}

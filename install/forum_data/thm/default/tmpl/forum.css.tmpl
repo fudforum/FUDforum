@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.84 2009/07/13 17:09:50 frank Exp $
+* $Id: forum.css.tmpl,v 1.85 2009/07/19 20:09:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,8 +12,8 @@
 
 {PAGE: FORUM_CSS forum's css styles}
 body {
-	background: #E5E5E5;
-	color: #000000;
+	background: #e5e5e5;
+	color: #000;
 	margin: 2px;
 	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
 	font-size: 11pt;
@@ -35,16 +35,16 @@ text,	.ForumBackground, a:link, a:visited, a:active, a.CatLink, .CatDesc, a.User
 }
 
 text, .GenText {
-	color: black;
+	color: #000;
 }
 
 .ForumBackground {
-	background: #FFFFFF;
-	border: 1px solid #AEBDC4;
+	background: #fff;
+	border: 1px solid #aebdc4;
 }
 
 a:link, a:visited, a:active, a.PagerLink {
-	color: #006699;
+	color: #069;
 	text-decoration: underline;
 }
 
@@ -52,17 +52,17 @@ a.CatLink {
 	font-size: 10pt;
 	font-weight: bold;
 	text-decoration: none;
-	color: #000000;
+	color: #000;
 }
 
 .CatDesc {
-	color: #000000;
+	color: #000;
 	height: 23px;
-	background: url("images/tableHeaderbg2.png");
+	background: url('images/tableHeaderbg2.png');
 }
 
 a.UserControlPanel, a.UserControlPanel:visited {
-	color: #006699;
+	color: #069;
 	text-decoration: none;
 }
 
@@ -81,7 +81,7 @@ div.UserControlPanel {
 }
 
 .GenText, .MsgIg, td.repI {
-	color: #000000;
+	color: #000;
 }
 
 .GenTextRed, .ErrorText {
@@ -93,32 +93,32 @@ div.UserControlPanel {
 }
 
 .SmallText, .DateText, .TopBy, td.msgud, td.msgot, td.permYES, td.permNO {
-	color: #000000;
+	color: #000;
 	font-size: 9pt;
 }
 
 th {
 	font-size: 10pt;
 	text-align: left;
-	color: #FFFFFF;
+	color: #fff;
 	font-weight: bold;
 	height: 23px;
 	vertical-align: middle;
-	background: url("images/tableHeaderbg.png");
+	background: url('images/tableHeaderbg.png');
 }
 
 a.thLnk:link, a.thLnk:active, a.thLnk:visited {
 	font-size: 10pt;
 	text-decoration: underline;
-	color: #EEEEEE;
+	color: #eee;
 }
 
 a.thLnk:visited {
-	color: #C2CDD6;
+	color: #c2cdd6;
 }
 
 .RowStyleA, td.tt {
-	background: #eeeeee;
+	background: #eee;
 }
 
 .RowStyleB, .curtime, fieldset {
@@ -130,7 +130,7 @@ a.thLnk:visited {
 }
 
 .MsgToolBar {
-	background: #DEE2E6;
+	background: #dee2e6;
 	padding-left: 3px;
 	padding-right: 3px;
 }
@@ -141,10 +141,10 @@ a.thLnk:visited {
 }
 
 .PollTable, .ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable {
-	background : #FFFFFF;
-	border : 0px;
-	padding : 0px;
-	margin : 0px;
+	background : #FFF;
+	border : 0;
+	padding : 0;
+	margin : 0;
 }
 
 font.ptp { /* space between poll title & number of votes */
@@ -157,9 +157,9 @@ font.ptp { /* space between poll title & number of votes */
 }
 
 .MsgTable {
-	margin-top: 0px;
-	margin-bottom: 0px;
-	border: 1px solid black;
+	margin-top: 0;
+	margin-bottom: 0;
+	border: 1px solid #000;
 }
 
 .DialogTable {
@@ -171,7 +171,7 @@ font.ptp { /* space between poll title & number of votes */
 }
 
 .AnnText {
-	color: #000000;
+	color: #000;
 	background: #f5d300;
 }
 
@@ -180,7 +180,7 @@ font.ptp { /* space between poll title & number of votes */
 }
 
 .LevelText, div.ctags {
-	color: #000000;
+	color: #000;
 	text-decoration: none;
 }
 
@@ -193,18 +193,18 @@ font.ptp { /* space between poll title & number of votes */
 }
 
 .FormattingToolsBG {
-	background: #000000;
+	background: #000;
 }
 
 .FormattingToolsCLR {
-	background: #FFFFFF;
+	background: #fff;
 }
 
 .MiniTable {
-	background: #FFFFFF;
-	border : 0px;
-	padding : 0px;
-	margin : 0px;
+	background: #fff;
+	border : 0;
+	padding : 0;
+	margin : 0;
 }
 
 cite {
@@ -213,13 +213,13 @@ cite {
 	font-weight: bold;
 	margin-left: 20px;
 	display: block;
-	background: transparent url("images/quote.gif") left top no-repeat;
+	background: transparent url('images/quote.gif') left top no-repeat;
 	padding-left: 25px;	
 }
 
 blockquote {
 	/* quote tags */
-	color: #444444;
+	color: #444;
 	background: #fafafa;
 	border: 1px solid #c2cdd6;
 	margin: 8px 1px 0 20px;
@@ -245,53 +245,53 @@ blockquote blockquote blockquote {
 
 .adminColor {
 	font-weight: bold;
-	color: #FF0000;
+	color: #f00;
 }
 
 .modsColor {
-	color: #00BB00;
+	color: #0b0;
 	font-weight: bold;
 }
 
 .brdrNormal, td.tabItop, td.tabImid, td.tabIbot {
-	border: #000000;
+	border: #000;
 	border-style: solid;
-	border-left-width: 0px;
-	border-top-width: 0px;
-	border-right-width: 0px;
+	border-left-width: 0;
+	border-top-width: 0;
+	border-right-width: 0;
 	border-bottom-width: 1px;
 	background-repeat: repeat;
 	background-position: top;
 }
 
 .brdrSelected, td.tabAmid, td.tabAmid, td.tabAbot {
-	border: #000000;
+	border: #000;
 	border-style: solid;
-	border-left-width: 0px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
+	border-left-width: 0;
+	border-top-width: 0;
+	border-right-width: 0;
+	border-bottom-width: 0;
 	background-repeat: repeat;
 	background-position: top;
 }
 
 input.button {
-        background: #EEEEEE;
-	color: #000000;
+        background: #eee;
+	color: #000;
 	font-weight: normal;
 	border-width: 1px;
 	border-style: solid;
-	border-color: #B4B2B4 #444444 #444444 #B4B2B4;
+	border-color: #b4b2b4;
 
 }
 
 form {
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 }
 
 img {
-	border: 0px;
+	border: 0;
 }
 
 .StClr {
@@ -312,33 +312,33 @@ img {
 
 .TopBy {
 	margin-top: 3px;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 	padding-right: 2px;
 	text-align: right;
 }
 
 .MsgR2, .MsgR1, .MsgR3, .MsgIg {
-	background: #DEE2E6;
-	border-bottom: 1px solid #AAAAAA;
+	background: #dee2e6;
+	border-bottom: 1px solid #aaa;
 	padding: 2px;
 }
 
 .MsgIg {
-	border: 0px;
+	border: 0;
 }
 
 .MsgR1 {
-	background: #DEE2E6;
+	background: #dee2e6;
 }
 
 .MsgR3 {
-	background: #F4F4F4;
+	background: #f4f4f4;
 	padding: 1ex;
 	padding-top: 2ex;
 }
 
 .mnavMsg {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #000;
 	width : 100%;
 }
 
@@ -357,19 +357,19 @@ font.lg {
 td.tt {
 	text-align: left;
 	width: 100%;
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid #fff;
 }
 
 table.tt {
 	width: 100%;
 	padding: 1px;
-	margin: 0px;
+	margin: 0;
 	text-align: center;
 	border: 1px solid black;
 }
 
 a.big:link, a.big:active, a.big:visited {
-	color: #006699;
+	color: #069;
 	font-size: 11pt;
 }
 
@@ -379,7 +379,7 @@ a.big:link, a.big:active, a.big:visited {
 }
 
 a.small:link, a.small:active, a.small:visited {
-	color: #006699;
+	color: #069;
 }
 
 td.msgot, td.msgud {
@@ -398,7 +398,7 @@ td.msgud {
 div.ctags {
 	overflow: auto;
 	white-space: nowrap;
-	margin: 0px;
+	margin: 0;
 	padding: 2px;
 	width: 100%;
 	height: 36px;
@@ -407,7 +407,7 @@ div.ctags {
 legend {
 	font-size: 11pt;
 	font-weight: bold;
-	background-color: white;
+	background-color: #fff;
 	border: 1px solid #aebdc4;
 }
 
@@ -417,12 +417,12 @@ fieldset {
 
 th.SelTS, th.SelFS {
 	padding: 2px;
-	color: #FFFFFF;
+	color: #fff;
 }
 
 th.SelFS {
-	 border-bottom: 1px solid white;
-	 color: #FFFFFF;
+	 border-bottom: 1px solid #fff;
+	 color: #fff;
 }
 
 td.NoAvatar {
@@ -448,7 +448,7 @@ td.tabI, td.tabA, td.tabI:hover, td.tabOVER, td.tabON {
 }
 
 td.tabOVER, td.tabI:hover, td.tabI:active {
-	background: white;
+	background: #fff;
 }
 
 td.tabON {
@@ -456,7 +456,7 @@ td.tabON {
 }
 
 a.tabON:link, a.tabON:active, a.tabON:visited, a.tabON:hover {
-	color: white;
+	color: #fff;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -468,7 +468,7 @@ div.tabT {
 }
 
 table.tab {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #000;
 }
 
 .curtime {
@@ -478,12 +478,12 @@ table.tab {
 }
 
 td.rpasswdE {
-	background: #ffffff;
+	background: #fff;
 	text-align: center;
 }
 
 td.pmSn {
-	background: white;
+	background: #fff;
 }
 
 td.pmSa {
@@ -496,7 +496,7 @@ td.pmSf {
 
 table.pmDu {
 	width: 175px;
-	background-color: #FFFFFF;
+	background-color: #fff;
 	border: 1px #c2cdd6 solid;
 }
 
@@ -505,7 +505,7 @@ td.mvTc {
 }
 
 td.pmNav {
-	background: white;
+	background: #fff;
 	text-align: right;
 }
 
@@ -514,7 +514,7 @@ td.miniMH {
 }
 
 tr.mnavH {
-	background: #eeeeee;
+	background: #eee;
 }
 
 tr.mnavM {
@@ -523,11 +523,11 @@ tr.mnavM {
 
 table.regConf {
 	width: 80%;
-	border: 1px dashed #ff0000;
+	border: 1px dashed #f00;
 }
 
 font.anon, font.reg {
-	color: #00AA00;
+	color: #0a0;
 }
 
 td.permYES, td.permNO {
@@ -542,7 +542,7 @@ td.permNO {
 
 font.regEW {
 	font-size: xx-small;
-	color: #005500;
+	color: #050;
 	font-weight: bold;
 }
 
@@ -572,7 +572,7 @@ div.pre {
         border: 1px blue dashed;
         font-size: 10pt;
         white-space: pre;
-        background: #FAFAFA;
+        background: #fafafa;
 	overflow: auto;
 	margin: 5px;
 }
@@ -582,7 +582,7 @@ pre { white-space: pre-wrap; }
 a.big:active, a.big:hover, a:active, a:hover, a.CatLink:active, a.CatLink:hover,
 a.UserControlPanel:active, a.UserControlPanel:hover, a.thLnk:active,
 a.thLnk:hover, a.small:active, a.small:hover, a.PagerLink:active, a.PagerLink:hover {
-	color: #DC143C;
+	color: #dc143c;
 }
 
 img.l {
@@ -598,42 +598,42 @@ img.r {
 }
 
 .AttachmentsList {
-	margin-left: 0px;
+	margin-left: 0;
 	list-style: none;
 	margin-top: 10px;
-	padding: 0px;
+	padding: 0;
 }
 
 hr.sig {
-	color: black;
-	background-color: black;
+	color: #000;
+	background-color: #000;
 	height: 1px;
 	width: 175px;
-	border: 0px;
+	border: 0;
 	text-align: left;
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 }
 
 /* Header with rounded corners */
-.header {background:#517ca1; margin:0 0px; background-image: url(images/header.gif); background-repeat: no-repeat;}
+.header {background:#517ca1; margin:0 0; background-image: url(images/header.gif); background-repeat: no-repeat;}
 .header a {text-decoration:none;}
-.rtop, .rbottom {display:block; background:white;}
+.rtop, .rbottom {display:block; background:#fff;}
 .rtop *, .rbottom * {display: block; height: 1px; overflow: hidden; background:#517ca1;}
 .r1 {margin: 0 5px; font-size: 1px;}
 .r2 {margin: 0 3px; font-size: 1px;}
 .r3 {margin: 0 2px; font-size: 1px;}
 .r4 {margin: 0 1px; height: 2px; font-size: 1px;}
-.headtitle {color:white; font-size:xx-large; font-weight:bold; text-decoration:none;}
-.headdescr {padding: 2px; color:#eeeeee; font-size:small;}
-.headsearch {color:white; font-size: small; font-weight:bold; float:right; white-space: nowrap; vertical-align: top;}
-.headbutton {color:white; background-color: red;} 
+.headtitle {color:#fff; font-size:xx-large; font-weight:bold; text-decoration:none;}
+.headdescr {padding: 2px; color:#eee; font-size:small;}
+.headsearch {color:#fff; font-size: small; font-weight:bold; float:right; white-space: nowrap; vertical-align: top;}
+.headbutton {color:#fff; background-color: red;} 
 
 /* Textarea editor */
 .resizable-textarea .grippie {
 	height: 9px;
-	background: #eeeeee url("images/grippie.gif") no-repeat center 2px;
-	border: 1px solid #dddddd;
+	background: #eee url('images/grippie.gif') no-repeat center 2px;
+	border: 1px solid #ddd;
 	border-top-width: 0;
 	cursor: s-resize;
 	overflow: hidden;
@@ -658,21 +658,21 @@ div.sr { float: left; padding: 5px; }
 div.ctb {text-align: center;}
 div.ctb table {margin: 0 auto; text-align: left;}
 div.foot { padding: 3px; margin: 3px;}
-div.ip { overflow: auto; margin: 0px; padding: 2px; width: 600px; height: 400px; }
+div.ip { overflow: auto; margin: 0; padding: 2px; width: 600px; height: 400px; }
 span.vt { padding-left: 20px; }
-table.icqCP { font-family: arial, sans-serif; font-size: smaller; border: 0px; }
+table.icqCP { font-family: arial, sans-serif; font-size: smaller; border: 0; }
 div.pmL { padding-top: 2px; }
 table.ucPW { width: 175px; }
 
-.st0 { background-color: #ffff66; }
+.st0 { background-color: #ff6; }
 .st1 { background-color: #A0FFFF; }
-.st2 { background-color: #99ff99; }
-.st3 { background-color: #ff9999; }
-.st4 { background-color: #ff66ff; }
-.st5 { background-color: #880000; }
-.st6 { background-color: #00aa00; }
+.st2 { background-color: #9f9; }
+.st3 { background-color: #f99; }
+.st4 { background-color: #f6f; }
+.st5 { background-color: #800; }
+.st6 { background-color: #0a0; }
 .st7 { background-color: #886800; }
 .st8 { background-color: #004699; }
-.st9 { background-color: #990099; }
+.st9 { background-color: #909; }
 
 {PAGE: END}

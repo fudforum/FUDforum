@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: xmlagg.php,v 1.1 2009/07/11 09:55:24 frank Exp $
+* $Id: xmlagg.php,v 1.2 2009/07/19 20:09:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -138,7 +138,7 @@
 		}
 		$m->body = '(no body)';
 		if (isset($body)) {
-			$m->body = apply_custom_replace($body) . trim($config->custom_sig);
+			$m->body = apply_custom_replace($body);
 		}
  
 		if ( isset($node->getElementsByTagName('creator')->item(0)->nodeValue)) {
@@ -151,17 +151,17 @@
 		$m->poster_id = 0;
 		if (isset($poster)) {
 			$email = $poster.'@'.$server;	// generate dummy email address
-			$m->poster_id = match_user_to_post($email, $poster, $config->xml_opt & 2, $m->poster_id, $m->post_stamp);
+			$m->poster_id = match_user_to_post($email, $poster, $config->xmlagg_opt & 2, $m->poster_id, $m->post_stamp);
 		}
 		// skip_non_forum_users is set
-		if (!$m->poster_id && $config->xml_opt & 4) {
+		if (!$m->poster_id && $config->xmlagg_opt & 4) {
 			continue;
 		}
 
  		echo "Loading article: ". $m->subject ." (".$poster.")\n";
 		try {
 			$m->add($frm->id, 0, 2, 0, 0, $config->name);
-			if (!($config->xml_opt & 1)) {
+			if (!($config->xmlagg_opt & 1)) {
 				$m->approve($m->id);
 			}
 		} catch (Exception $e) {

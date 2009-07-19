@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: captcha.tmpl,v 1.6 2009/01/29 18:37:29 frank Exp $
+* $Id: captcha.tmpl,v 1.7 2009/07/19 20:09:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,5 +11,9 @@
 
 {SECTION: register_err_turing}
 {MSG: register_err_turing}
+{SECTION: END}
+
+{SECTION: image_captcha_link}
+<img src="index.php?t=captchaimg" alt="{MSG: captcha_img_alt}" /><br />{MSG: captcha_img_help}
 {SECTION: END}
 
