@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.179 2009/07/07 20:28:57 frank Exp $
+* $Id: imsg_edt.inc.t,v 1.180 2009/08/02 20:57:34 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -725,7 +725,8 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 
 	$goto_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&goto='.$msg_id.'#msg_'.$msg_id;
 	$CHARSET = $GLOBALS['CHARSET'];
-	if ($GLOBALS['FUD_OPT_2'] & 64) {
+	if ($GLOBALS['FUD_OPT_2'] & 64) {	// NOTIFY_WITH_BODY
+		$munge_newlines = 0;
 		$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.reply_to, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.apr=1");
 
 		if (!$obj->alias) { /* anon user */
@@ -754,10 +755,11 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$plain_text = read_msg_body($obj->foff, $obj->length, $obj->file_id);
 		$iemail_unsub = html_entity_decode($id_type == 'thr' ? '{TEMPLATE: iemail_thread_unsub}' : '{TEMPLATE: iemail_forum_unsub}');
 
-		$body_email = 	$boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . html_entity_decode(strip_tags($plain_text)) . "\r\n\r\n" . html_entity_decode('{TEMPLATE: iemail_participate}') . ' ' . '{FULL_ROOT}{ROOT}?t=rview&'.($id_type == 'thr' ? 'th' : 'frm_id').'=' . $id . "\r\n" .
-				$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . make_email_message($plain_text, $obj, $iemail_unsub) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
+		$body_email = 	$boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 8bit\r\n\r\n" . html_entity_decode(strip_tags($plain_text)) . "\r\n\r\n" . html_entity_decode('{TEMPLATE: iemail_participate}') . ' ' . '{FULL_ROOT}{ROOT}?t=rview&'.($id_type == 'thr' ? 'th' : 'frm_id').'=' . $id . "\r\n" .
+				$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 8bit\r\n\r\n" . make_email_message($plain_text, $obj, $iemail_unsub) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
 	} else {
-		$headers = "Content-Type: text/plain; charset={$CHARSET}\r\n";
+		$munge_newlines = 1;
+		$headers = '';
 	}
 
 	$thr_subject = reverse_fmt($thr_subject);
@@ -781,6 +783,6 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		}
 	}
 
-	send_email($GLOBALS['NOTIFY_FROM'], $to, $subj, $body_email, $headers, 0);
+	send_email($GLOBALS['NOTIFY_FROM'], $to, $subj, $body_email, $headers, $munge_newlines);
 }
 ?>

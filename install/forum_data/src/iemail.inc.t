@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.48 2009/07/11 10:49:08 frank Exp $
+* $Id: iemail.inc.t,v 1.49 2009/08/02 20:57:34 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,6 +56,21 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 		$subj = html_entity_decode($subj);
 	}
 
+	if ($header) {
+		$header = "\n" . str_replace("\r", '', $header);
+	}
+	$extra_header = '';
+	if (strpos($header, 'MIME-Version') === false) {
+		$extra_header = "\nMIME-Version: 1.0\nContent-Type: text/plain; charset={TEMPLATE: iemail_CHARSET}\nContent-Transfer-Encoding: 8bit".$header;
+	}
+	$header = 'From: '.$from."\nErrors-To: ".$from."\nReturn-Path: ".$from."\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION'].$extra_header.$header;
+
+	$body = str_replace("\r", '', $body);
+	if ($munge_newlines) {
+		$body = str_replace('\n', "\n", $body);
+	}
+	$subj = encode_subject($subj);
+
 	if ($GLOBALS['FUD_OPT_1'] & 512) {
 		if (!class_exists('fud_smtp')) {
 			fud_use('smtp.inc');
@@ -70,36 +85,8 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 		return;
 	}
 
-	if ($header) {
-		$header = "\n" . str_replace("\r", "", $header);
-	}
-	$header = "From: ".$from."\nErrors-To: ".$from."\nReturn-Path: ".$from."\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION'].$header;
-
-	$body = str_replace("\r", "", $body);
-	if ($munge_newlines) {
-		$body = str_replace('\n', "\n", $body);
-	}
-	$subj = encode_subject($subj);
-	if (version_compare("4.3.3RC2", phpversion(), ">")) {
-		$body = str_replace("\n.", "\n..", $body);
-	}
-
-	/* ensure mails are sent with correct charset */
-	if (!empty($GLOBALS['usr']->lang) && extension_loaded('mbstring')) {
-		if ($GLOBALS['usr']->lang == 'japanese') {
-			mb_language('ja');
-		} else {
-			mb_language('uni');
-		}
-		// $mail_func = 'mb_send_mail'; // mb_send_mail messes up multipart messages
-		$mail_func = 'mail';
-	} else {
-		$header .= "\nMIME-Version: 1.0\nContent-Type: text/plain; charset={TEMPLATE: iemail_CHARSET}\nContent-Transfer-Encoding: 8bit";
-		$mail_func = 'mail';
-	}
-
 	foreach ((array)$to as $email) {
-		$mail_func($email, $subj, $body, $header);
+		mail($email, $subj, $body, $header);
 	}
 }
 ?>
