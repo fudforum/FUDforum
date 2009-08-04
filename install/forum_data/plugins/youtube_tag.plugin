@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: youtube_tag.plugin,v 1.2 2009/07/11 11:03:14 frank Exp $
+* $Id: youtube_tag.plugin,v 1.3 2009/08/04 19:09:57 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,5 +33,6 @@ function plugin_youtube_html_to_tag($array) {
 
 function youtube_tag_info() {
 	return array('name' => 'Youtube Video',
-	             'desc' => 'Allow forum users to use a spacial [youtube] BBcode tag for embedding videos into forum posts.');
+	             'desc' => 'Allow forum users to use a spacial [youtube] BBcode tag for embedding videos into forum posts.',
+				 'version' => '1.1');
 }
