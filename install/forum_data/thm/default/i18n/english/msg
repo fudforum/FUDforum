@@ -298,13 +298,13 @@ register_location:		Location:
 register_occupation:		Occupation:
 register_interests:		Interests:
 register_image:			Image:
-register_icq:			ICQ
+register_icq:			ICQ:
 register_aim:			AIM Handle:
 register_yahoo:			Yahoo Messenger:
 register_msnm:			MSN Messenger:
 register_homepage:		Homepage:
 register_bday:			Birth Date:
-register_bday_desc:		If you enter a birth date, then other forum members will be able to see it in your profile
+register_bday_desc:		If you enter a birth date, then other forum members will be able to see it in your profile.
 register_day:			Day
 register_month:			Month
 register_year:			Year
@@ -313,24 +313,24 @@ register_bio:			Biography:
 register_bio_desc:		A few details about yourself, such as your interests, job, etc...
 register_prefs:			Preferences
 register_sig:			Signature:
-register_sig_desc:		Optional signature, which will appear at the bottom of your messages
+register_sig_desc:		Optional signature, which will appear at the bottom of your messages.
 register_reset:			Reset
 register_def_thread_view:	Default Topic View:
 register_msg_per_page:		Messages Per Page:
 register_show_sig:		Show Signatures:
-register_show_sig_desc:		Allows you to either hide or show other forum members&#39; signatures
+register_show_sig_desc:		Allows you to either hide or show other forum members&#39; signatures.
 register_use_sig_default:	Use Signature by Default:
-register_use_sig_default_desc:	Automatically append your signature to every message you post
+register_use_sig_default_desc:	Automatically append your signature to every message you post.
 register_timezone:		Time Zone:
 register_ignore_admin:		Ignore Administrative Messages:
 register_invisible_mode:	Invisible Mode:
-register_invisible_mode_desc:	Hides your online status
+register_invisible_mode_desc:	Hides your online status.
 register_show_email:		Show E-mail Address:
 register_show_email_desc:	Choose this option if you want your e-mail address to be displayed publicly.
 register_notification:		Select Notification by Default:
 register_notification_desc:	If notification is enabled by default, it can be disabled when posting.
 register_notify_method:		Choose Notification Method:
-register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
+register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation).
 register_allow_email_msg:	Allow E-mail Messages:
 register_allow_email_msg_desc:	Allow other users to send you e-mails via this forum.
 buddy_status:			Status
@@ -777,7 +777,7 @@ online_today_update:		Viewing the list of people who were on the forum today.
 logedin_todays_visitors:	Today&#39;s Visitors
 logedin_latest_post:		Last message on the forum: 
 register_show_avatar:		Show Avatars:
-register_show_avatar_desc:	Allows you to hide avatars of other users when viewing their messages
+register_show_avatar_desc:	Allows you to hide avatars of other users when viewing their messages.
 drawmsg_view_rest_post:		Show the rest of the message
 post_re:			Re: 
 forumsel_goto_forum:		Goto Forum:
@@ -834,7 +834,7 @@ pmsg_recepient:			Recipient
 register_err_taken_alias:	The alias you are trying to use is already in use by another forum member. Please choose another.
 register_alias:			Alias:
 register_alias_desc:		If you want a nickname other than your login to be displayed in the forum, enter it here.
-register_allow_pm_msg:		Allow Private Messages
+register_allow_pm_msg:		Allow Private Messages:
 register_allow_pm_msg_desc:	Allow other users to send you private messages in this forum.
 postcheck_pm_disabled:		You cannot send a private message to "{VAR-HTML: v}", because this person is not accepting private messages.
 polllist_vote:			Vote
@@ -858,7 +858,7 @@ post_moderated_forum:		You have made a post in a moderated forum. Your message w
 post_moderated_forum_ttl:	Moderated Forum Notice
 buddy_list_bday:		Today {VAR: r[2]} turns {VAR: age}
 email_warning_msg:		If you change your current e-mail address, your account will be marked unconfirmed until you confirm it via e-mail.
-register_show_im:		Show IM indicators
+register_show_im:		Show IM indicators:
 register_show_im_desc:		Whether or not to show IM indicators of the author beside their messages.
 unread_message:			Unread Message
 read_message:			Read Message
@@ -937,7 +937,7 @@ mnav_title:			Message Navigator
 mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}", from "{VAR: from}", in the forum "{GVAR: FORUM_TITLE}".\nTo view the message, click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-register_pm_notification:	Private Message Notification
+register_pm_notification:	Private Message Notification:
 register_pm_notification_desc:	If enabled, you will be notified whenever a private message is sent to you.
 findu_admin_opts_header:	Admin Opts.
 findu_unban:			UnBan

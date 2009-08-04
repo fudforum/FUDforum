@@ -349,7 +349,7 @@ post_thread_expiry:		Onderwerp verval:
 post_locked:			Onderwerp gesluit
 post_icons:			Pos-ikoon:
 post_no_icon:			Geen Ikoon
-post_smiley:			Smilies:
+post_smiley:			Gesiggies:
 post_format_tools:		Formatting Tools:
 post_upload_file:		Laai lêer
 post_file_del:			Verwyder
@@ -362,7 +362,7 @@ max_files_per_msg:		Maksimum aantal lêers per boodskap:
 post_notification:		Post Kennisgewing
 include_sig:			Met handtekening
 include_sig_desc:		Sluit my handtekening in.
-disable_smilies:		Deaktiveer smilies in die boodskap
+disable_smilies:		Deaktiveer gesiggies in die boodskap
 spell_check_msg:		Speltoets boodskap
 post_form:			Stel boodskap saam
 post_forum:			Forum:
@@ -412,12 +412,12 @@ login_name_required:		Gebruikersnaam moet verskaf word
 login_passwd_required:		Wagwoord moet verskaf word
 login_invalid_radius:		ongeldige gebruiker/wagwoord kombinasie
 reset_confirmation:		Baie dankie vir u registrasie,\n\nVoor die activering van u account ga na deonderstaande URL:\n\n{VAR: url}\n\nSodra u rekening geaktiveer is sal u aangeteken word op die forum en\ndeurgestuur word na die tuisblad van die forum.\n
-reset_reset:			Hallo,\n\nU het gevra dat u wagwoord herstel moet word. Indien u effectief u wagwoord wil reseten\ngaan dan na die volgende URL\n\n{VAR: url}\n\nNOTA: Dit forum slaat het wagwoord op in een one-way encryption mechanisme wat betekend, dat\neenmaal u u wagwoord het ingegeven het gecodeerd waarna er GEEN manier is om het terug op te vragen.\nDit werkt deur simpelweg u wagwoord te coderen iedere keer u het ingeeft en\ndaarna te sien of het met het gecodeerde ooreenstem. (Indien u ge�ntereseerd bent hoe dit mechanisme werkt lees info oor het MD5 HASH algoritme)
+reset_reset:			Hallo,\n\nU, of iemand wat voorgee as u het gevra dat u wagwoord herstel moet word. Indien u regtig u wagwoord wil herstel\ngaan na die volgende URL\n\n{VAR: url}\n\nNOTA: Die forum stel wagwoorde saam met \'n een-rigting enkripsie meganisme, wat beteken dat\nsodra u u wagwoord intik dit gekodeer word waarna daar GEEN manier is om dit terug te kry nie.\nDit werk deur eenvoudig u wagwoord te enkodeer elke keer as u dit insleutel en\ndaarna te sien of dit met die gekodeerde wagwoord ooreenstem. (Indien u belangstel in hoe die meganisme werk, lees meer oor die MD6 HASH algoritme)
 rpasswd_invalid_passwd:		ongeldige wagwoord
 rpasswd_passwd_nomatch:		Wagwoorde is nie dieselfde nie
 rpasswd_passwd_length:		Wagwoord moet ten minste 6 karakters lank wees
 reset_remind_pass:		Wagwoord herwinning
-reset_reset_conf:		U wagwoord sal herstel word en na u gestuur word of indien u u email nog nie bevestig het nie, word die epos bevestiging weer na u gestuur.
+reset_reset_conf:		U wagwoord sal herstel word en aan u gestuur word. Indien u nog nie u epos bevestig het nie, sal die bevestiging weer aan u gestuur word.
 reset_error:			Epos nie in database gevind nie
 rpasswd_change_pass:		Verander wagwoord
 rpasswd_login:			Gebruiker
@@ -492,7 +492,7 @@ poll_timelimit:			Tydslimiet
 poll_maxiumvotes:		Maksimum stemme
 poll_create:			Skep
 poll_update:			Wysig
-poll_disablesmilies:		Skakel smilies af
+poll_disablesmilies:		Skakel gesiggies af
 poll_create_poll:		Skep Stemming
 poll_update_poll:		Wysig Stemming
 poll_delete:			Verwyder
@@ -544,11 +544,11 @@ err_inc_criticaltitle:		KRITIEKE FOUT
 err_inc_criticalmsg:		u het een fout opgelopen maar jammer genoeg is er een probleem met het fouten rapporteer sisteem
 finduser_update:		Soek na lid
 help_index_update:		Die <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> lees
-iemail_thr_subject:		Nuwe Antwoord op {VAR: thr_subject} deur {VAR: poster_login}
-iemail_thr_bodyemail:		Om ongeleesde antwoorde te lees gaan na {VAR: goto_url['email']}\n\nIndien u die verdere berichtgeving oor reaksies op die onderwerp wenst te schrappen gaan dan na  hier: {VAR: unsub_url['email']}
+iemail_thr_subject:		Nuwe antwoord op {VAR: thr_subject} deur {VAR: poster_login}
+iemail_thr_bodyemail:		Om ongeleesde antwoorde te lees gaan na {VAR: goto_url['email']}\n\nIndien u nie verdere kennisgewings oor die onderwerp wil ontvang nie, gaan na: {VAR: unsub_url['email']}
 iemail_frm_subject:		Nuwe ondwerwerp in forum {VAR: frm_name} genaamd {VAR: thr_subject} deur {VAR: poster_login}
 iemail_frm_bodyemail:		om die onderwerp te sien gaan na:\n{VAR: goto_url['email']}\n\nIndien u die verdere kennisgewings oor nuwe onderwerpe op dit forum wenst te schrappen gaan dan na hier: {VAR: unsub_url['email']}
-iemail_participate:		Om deel te neam aan die bespreking, gaan na:
+iemail_participate:		Om deel te neem aan die bespreking, gaan na:
 ignore_list_err_info_title:	Info
 ignore_list_err_dup_msg:	Die lid is reeds in u ignoreerlys
 ignore_list_err_nu_title:	lid nie gevind nie
@@ -658,11 +658,11 @@ poll_add_option:		Voeg opsie by:
 post_opt_html_on:		<b>HTML</b> is <b>AAN</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBkode</b> is <b>AAN</b></a>
 post_opt_images_on:		<b>fotos</b> is <b>AAN</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> is <b>AAN</b></a>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Gesiggies</b> is <b>AAN</b></a>
 post_opt_html_off:		<b>HTML</b> kode is <b>AF</b>
 post_opt_fud_off:		<b>BBkode</b> is <b>AF</b>
 post_opt_images_off:		<b>Fotos</b> is <b>AF</b>
-post_opt_smilies_off:		<b>Smilies</b> is <b>AF</b>
+post_opt_smilies_off:		<b>Gesiggies</b> is <b>AF</b>
 post_opt:			Forum Opsies
 register_change_passwd:		verander wagwoord
 approved_avatar_title:		U avatar is goedgekeur.
@@ -718,7 +718,7 @@ p_RATE:				Beoordeel onderwerpe
 p_SPLIT:			Split onderwerpe
 p_LOCK:				sluit onderwerpe
 p_MOVE:				skuif onderwerpe
-p_SML:				Gebruik smilies
+p_SML:				Gebruik gesiggies
 p_IMG:				Gebruik foto etikette
 group_mgr_search:		<a href="javascript://" onClick="window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Vind lid</a>
 group_mgr_indicator:		Wysig tans: <b>{VAR: grp->name}</b>
@@ -778,7 +778,7 @@ no_view_perm:			U het nie die nodige regte om die onderwerp te kan lees nie.
 report_empty_report:		U kan nie \'n lee rapport stuur nie.  Tik asseblief die rede in.
 report_already_reported_title:	Reeds gerapporteer
 report_already_reported_msg:	Die boodskap is reeds gerapporteer en het rapport zit momenteel in die moderators review queue.
-register_err_toomanyimages:	U probeer meer as die max {GVAR: FORUM_IMG_CNT_SIG} toegelaten foto&#39;s te gebruiken in u signature.
+register_err_toomanyimages:	U probeer om meer as die maks {GVAR: FORUM_IMG_CNT_SIG} toegelate foto&#39;s in u handtekening te gebruik.
 pmsg_next_msg:			Volgend boodskap
 pmsg_prev_msg:			Vorig boodskap
 post_proc_reveal_spoiler:	wys Spoiler
@@ -786,15 +786,15 @@ register_jabber:		Jabber Handle:
 im_jabber:			Jabber: 
 forum_contact:			Kontak
 forum_home:			Tuis
-post_cur_attached:		momenteel bygevoegde {VAR: i} lêers
+post_cur_attached:		tans {VAR: i} aangehegde lêers
 ignored_anon_post:		{GVAR: ANON_NICK} word geignoreer
 ignored_user_post:		Pos deur <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> word geignoreer
 smladd_close_window:		Sluit venster
-post_list_smilies:		lys alle smilies
+post_list_smilies:		lys alle gesiggies
 p_VISIBLE:			Sigbaar
 reported_in_thread:		In onderwerp
 help_back_to_top:		na bo
-help_return_to_index:		Terug na help index
+help_return_to_index:		Terug na help indeks
 imsg_err_message_title:		ongeldige boodskap
 imsg_err_message_msg:		die boodskap wat u wil sien bestaan nie.
 poll_edit:			Wysig
@@ -826,16 +826,16 @@ post_proceed:			Vooruit
 post_moderated_forum:		U het \'n boodskap geplaas in \'n gemodereerde forum, wat beteken dat u boodskap nie op die forum word sigbaar gemaak totdat het is goedgekeurd deur een van die moderator(s) van die forum en of die administrateur(s).
 post_moderated_forum_ttl:	Gemodereerd forum boodskap
 buddy_list_bday:		word vandag {VAR: r[2]}&nbsp;{VAR: age} jaar oud
-email_warning_msg:		Indien u u huidig emailadres wysig sal u rekening as &quot;nie bevestig&quot; gemerk word totdat u dit via epos bevestig.
+email_warning_msg:		Indien u u huidig eposadres wysig sal u rekening as &quot;nie bevestig&quot; gemerk word totdat u dit via epos bevestig.
 register_show_im:		Wys IM-indikators
 register_show_im_desc:		Indien u die IM-indikators van outeurs langs hulle boodskappe wil sien.
 unread_message:			ongeleesde boodskappe
 read_message:			lees boodskappe
 threadt_more:			&lt;meer&gt;
 threadt_disabled_ttl:		Boomstruktuur van die reeks is uitgeschakeld.
-threadt_disabled_desc:		Die administeur het die tree view van die threads afgeskakel, gebruik asb die flat view in die plaats.
+threadt_disabled_desc:		Die administrateur het die tree view van die threads afgeskakel, gebruik asb die flat view in die plaats.
 threadt_update:			Browsing die forum (tree view) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
-mmod_delete_cofirm_ttl:		Onderwerp/Booskap verwydering bevestiging
+mmod_delete_cofirm_ttl:		Onderwerp/Boodskap verwydering bevestiging
 spell_alts:			geen alternatiewe
 insert_uploaded_image:		Voeg beeld in die boodskap
 finduser_help:			Die soekenjin voeg outomaties 'n * by u soekvraag. Byvoorbeeld, om na lede te soek wat se login met 'n &quot;a&quot; begin, tik slegs &quot;a&quot; in die soekveld in.
@@ -857,9 +857,9 @@ post_all_ext_allowed:		(onbeperk)
 register_err_avatardimtobig:	Avatar dimensies van <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> oorskry die toelaatbare dimensies van <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:			{VAR: r[2]} is tans af-lyn
 buddy_online:			{VAR: r[2]} is tans aan-lyn
-sml_no_smilies:			Geen smilies beskikbaar.
+sml_no_smilies:			Geen gesiggies beskikbaar.
 login_unapproved_account_ttl:	Onbevestigde rekening
-login_unapproved_account_msg:	Die administrateur of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefore you will not be able to access some of the features available to registered members until your account is approved.
+login_unapproved_account_msg:	Die administrateur van die forum het besluit om nuwe rekeninge handmatig na te gaan alvorens dit bevestig word. U rekening is nog nie bevestig nie. As a gevolg sal u nie al die funksies van die forum kan gebruik nie.
 remove_from_buddy_list:		verwyder van vriendelys
 iemail_msg_author:		<b>Outeur:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Onderwerp:</b> {VAR: obj->subject}
@@ -883,7 +883,7 @@ primary_group_prefix:		Primêre groep vir forum:
 group_resources:		This group controls permissions of the following forums
 register_admin_newuser_title:	A new user has registered and their account is pending confirmation
 register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
-post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
+post_mod_msg_notify_title:	Nuwe boodskap in forum "{VAR: frm->name}" wag vir goedkeuring
 post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
 thread_printable_pdf:		Genereer PDF
 thread_syndicate:		XML-voer
@@ -920,12 +920,12 @@ findu_edit:			Wysig
 findu_delete:			Verwyder
 dmsg_reply_to:			is \'n antwoord op boodskap #{VAR: obj->reply_to}
 merge_topics:			Versmelt onderwerpe
-merge_topics_cp:		Administratiescherm onderwerp samenvoegen
-merge_topics_tpl:		Select Topics To Merge <font class="SmallText">(you must select more then 1 topic)</font>
-merge_merge:			Versmelt Gekiesde Onderwerpe
+merge_topics_cp:		Administrasieskerm onderwerp samevoeging
+merge_topics_tpl:		Kies Onderwerpe om te Versmelt <font class="SmallText">(u moet meer as 1 boodskap kies)</font>
+merge_merge:			Versmelt Gekose Onderwerpe
 merge_next:			Volgende Onderwerpe
 merge_prev:			Vorige Onderwerpe
-split_cp:			Thread Split Control Panel
+split_cp:			Onderwerp Split Control Panel
 groups_perms_header:		Regte <font size="-1">(beweeg muis oor regte om details te sien)</font>
 register_err_sig_too_long:	Jou handtekening oorskry die maksimum toelaatbare lengte van {GVAR: FORUM_SIG_ML} karakters.
 register_sig_limit:		{GVAR: FORUM_SIG_ML} karakters. <a href="javascript: alert(\'Jou Handtekening is \'+document.forms[\'fud_register\'].reg_sig.value.length+\' karakters lank. Die maksimum toelaatbare lengte is {GVAR: FORUM_SIG_ML} karakters.\');" class="SmallText">Wys Handtekening Lengte</a>.
