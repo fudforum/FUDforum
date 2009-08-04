@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: email_msg_format.inc,v 1.23 2009/01/29 18:37:17 frank Exp $
+* $Id: email_msg_format.inc,v 1.24 2009/08/04 19:26:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,7 +28,7 @@ function plain_text(&$data, $qs, $qm, $qe)
 		}
 
 		$str = trim(strip_tags(substr($data, $s, ($e1 - $s)))) . "\n";
-		$str .= "> " . str_replace("\n", "\n> ", trim(strip_tags(substr($data, $e1, ($e2 - $e1))))) . "\n";
+		$str .= '> ' . str_replace("\n", "\n> ", trim(strip_tags(substr($data, $e1, ($e2 - $e1))))) . "\n";
 
 		$data = substr_replace($data, $str, $s, ($e2 + strlen($qe) - $s));
 	}

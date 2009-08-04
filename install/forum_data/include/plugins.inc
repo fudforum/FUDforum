@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: plugins.inc,v 1.2 2009/05/03 18:57:06 frank Exp $
+* $Id: plugins.inc,v 1.3 2009/08/04 19:26:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -59,7 +59,7 @@ function plugin_load_from_cache() {
 
 // Write list of enabled plugins to cache
 function plugin_rebuild_cache($plugins) {
-        $fp = fopen($GLOBALS['TMP'].'plugin_cache', "w");
+        $fp = fopen($GLOBALS['TMP'].'plugin_cache', 'w');
         fwrite($fp, '<?php $plugins = '.var_export($plugins, 1).'; ?>');
         fclose($fp);
 

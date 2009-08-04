@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: widgets.inc,v 1.21 2009/05/16 17:43:02 frank Exp $
+* $Id: widgets.inc,v 1.22 2009/08/04 19:26:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,15 +14,15 @@ function create_select($name, $options, $opt_val, $def_val, $js='', $extraval=''
 {
 	if( !strlen($options) ) return;
 
-	$options = str_replace("\t", "", $options);
-	$opt_val = str_replace("\t", "", $opt_val);
+	$options = str_replace("\t", '', $options);
+	$opt_val = str_replace("\t", '', $opt_val);
 
 	$opt_nam = explode("\n", $options);
 	$opt_val = explode("\n", $opt_val);
 	$opt_tag = explode("\n", $extraval);
 
 	if (($c = count($opt_nam)) != count($opt_val) ) {
-		exit("option count doesn't match value count\n");
+		exit('option count doesn\'t match value count');
 	}
 
 	if ( $js ) $js = ' '.$js;
@@ -98,7 +98,7 @@ function create_radio_buttons($name, $options, $values, $def, $vertical=0)
 	$opt = explode("\n", $options);
 	$val = explode("\n", $values);
 
-	if ( count($opt) != count($val) ) exit("number of options doesn't match number of values");
+	if ( count($opt) != count($val) ) exit('number of options doesn\'t match number of values');
 
 	$rval = "";
 	for ( $i=0; $i<count($opt); $i++ ) {

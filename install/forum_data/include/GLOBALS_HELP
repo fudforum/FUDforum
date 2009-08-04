@@ -477,3 +477,6 @@ Quick reply display mode: collapsed or expanded.}}}
 
 {{{GRAPHICAL_TURING	FUD_OPT_3	33554432
 Use a graphical captcha instead of a text captcha (only if your PHP has GD support).}}}
+
+{{{PHP_CLI
+Full path to the command line PHP executable on your system. This command will be used to execute batch scripts.}}}

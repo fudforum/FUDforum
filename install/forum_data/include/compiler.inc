@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.100 2009/07/10 21:00:54 frank Exp $
+* $Id: compiler.inc,v 1.101 2009/08/04 19:26:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -594,11 +594,11 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$GLOBALS['file_cache']          = array();
 
 	@unlink($GLOBALS['DATA_DIR'].'src/db.inc.t'); // win32 hack
-	if (!$GLOBALS['DBHOST_DBTYPE']) {
-		copy($GLOBALS['DATA_DIR'].'sql/'.__dbtype__.'/db.inc', $GLOBALS['DATA_DIR'].'src/db.inc.t');
-	} else {
-		copy($GLOBALS['DATA_DIR'].'sql/pdo/db.inc', $GLOBALS['DATA_DIR'].'src/db.inc.t');
-	}
+	// if (preg_match('/^pdo_/', $GLOBALS['DBHOST_DBTYPE'])) {
+	// 	copy($GLOBALS['DATA_DIR'].'sql/pdo/db.inc', $GLOBALS['DATA_DIR'].'src/db.inc.t');
+	// } else {
+		copy($GLOBALS['DATA_DIR'].'sql/'.$GLOBALS['DBHOST_DBTYPE'].'/db.inc', $GLOBALS['DATA_DIR'].'src/db.inc.t');		
+	// }	
 
 	$GLOBALS['__COMPILER__'] = array('tset' => $tset, 'lang' => $lang, 'tname' => $tname);
 	$cmpl =& $GLOBALS['__COMPILER__'];

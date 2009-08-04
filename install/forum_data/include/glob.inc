@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: glob.inc,v 1.33 2009/05/08 06:11:16 frank Exp $
+* $Id: glob.inc,v 1.34 2009/08/04 19:26:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,9 +14,9 @@ function read_help()
 	$data = file_get_contents($GLOBALS['INCLUDE'].'GLOBALS_HELP');
 	$p = 0;
 
-	while (($p = strpos($data, "{{{", $p)) !== false) {
+	while (($p = strpos($data, '{{{', $p)) !== false) {
 		$p += 3;
-		if (($e = strpos($data, "}}}", $p)) === false) {
+		if (($e = strpos($data, '}}}', $p)) === false) {
 			break;
 		}
 		$t = strpos($data, "\n", $p);
@@ -57,7 +57,7 @@ function print_bit_field($descr, $field)
 				break;
 			}
 		}
-		echo create_select($o[0].'_'.$field, str_replace("\\n", "\n", $o[1]), str_replace("\\n", "\n", $o[2]), $val);
+		echo create_select($o[0].'_'.$field, str_replace('\n', "\n", $o[1]), str_replace('\n', "\n", $o[2]), $val);
 	}
 
 	echo '</td></tr>';
@@ -94,8 +94,8 @@ function change_global_settings($list)
 			if (is_int($v)) {
 				$settings = substr_replace($settings, "\${$k}\t= {$v};\n\t", $p, 0);
 			} else {
-				$v = addcslashes($v, '\\"$');
-				$settings = substr_replace($settings, "\${$k}\t= \"{$v}\";\n\t", $p, 0);
+				$v = addcslashes($v, '\\\'');
+				$settings = substr_replace($settings, "\${$k}\t= '{$v}';\n\t", $p, 0);
 			}
 		} else {
 			$p = strpos($settings, '=', $p) + 1;
@@ -104,8 +104,8 @@ function change_global_settings($list)
 			if (is_int($v)) {
 				$settings = substr_replace($settings, ' '.$v, $p, ($e - $p));
 			} else {
-				$v = addcslashes($v, '\\"$');
-				$settings = substr_replace($settings, ' "'.$v.'"', $p, ($e - $p));
+				$v = addcslashes($v, '\\\'');
+				$settings = substr_replace($settings, ' \''.$v.'\'', $p, ($e - $p));
 			}
 		}
 	}

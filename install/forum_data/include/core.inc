@@ -2,14 +2,14 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.199 2009/05/08 06:11:16 frank Exp $
+* $Id: core.inc,v 1.200 2009/08/04 19:26:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-$FORUM_VERSION = "2.8.1";
+$FORUM_VERSION = '2.8.1';
 
 ignore_user_abort('1');
 set_magic_quotes_runtime(0);
@@ -157,32 +157,32 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 		$_SERVER['PATH_TRANSLATED'] .= "{$v['file']}:{$v['line']}<br />\n";
 	}
 
-	$error_msg = "(".$_SERVER['PATH_TRANSLATED'].") ".$error_number.": ".$error_string."<br />\n";
-	$error_msg .= "Query: ".htmlspecialchars($query)."<br />\n";
+	$error_msg = '('.$_SERVER['PATH_TRANSLATED'].') '.$error_number.': '.$error_string."<br />\n";
+	$error_msg .= 'Query: '.htmlspecialchars($query)."<br />\n";
 	if (!empty($_GET)) {
-		$error_msg .= "_GET: ";
+		$error_msg .= '_GET: ';
 		if (count($_GET, 1) < 100) {
 			$error_msg .= htmlspecialchars(var_export($_GET, 1));
 		} else {
-			$error_msg .= "Too many vars: ".count($_GET, 1);
+			$error_msg .= 'Too many vars: '.count($_GET, 1);
 		}
 		$error_msg .= "<br />\n";
 	}
 	if (!empty($_POST)) {
-		$error_msg .= "_POST: ";
+		$error_msg .= '_POST: ';
 		if (count($_POST, 1) < 100) {
 			$error_msg .= htmlspecialchars(var_export($_POST, 1));
 		} else {
-			$error_msg .= "Too many vars: ".count($_POST, 1);
+			$error_msg .= 'Too many vars: '.count($_POST, 1);
 		}
 		$error_msg .= "<br />\n";
 	}
-	$error_msg .= "Server Version: ".$server_version."<br />\n";
+	$error_msg .= 'Server Version: '.$server_version."<br />\n";
 	if (isset($_SERVER['HTTP_REFERER'])) {
-		$error_msg .= "[Referring Page] ".htmlspecialchars($_SERVER['HTTP_REFERER'])."<br />\n";
+		$error_msg .= '[Referring Page] '.htmlspecialchars($_SERVER['HTTP_REFERER'])."<br />\n";
 	}
 
-	$pfx = sprintf("?%-10d?%-10d?", strlen($error_msg) + 1, __request_timestamp__);
+	$pfx = sprintf('?%-10d?%-10d?', strlen($error_msg) + 1, __request_timestamp__);
 	ini_set('log_errors_max_len', 0);
 	if (!error_log($pfx.$error_msg."\n", 3, $GLOBALS['ERROR_PATH'].'sql_errors')) {
 		echo "<b>UNABLE TO WRITE TO SQL LOG FILE</b><br />\n";
