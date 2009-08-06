@@ -1,7 +1,7 @@
 /**************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: header.tmpl,v 1.33 2009/07/19 20:09:10 frank Exp $
+* $Id: header.tmpl,v 1.34 2009/08/06 18:00:55 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,6 +27,7 @@
 <div class="header">
 <b class="rtop"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
 <div class="header">
+{IF: $FUD_OPT_1 & 16777216}
   <div class="headsearch">
     <form id="headsearch" method="get" action="{ROOT}">{DEF: _hs}
       {MSG: search_forum_search}:<br />
@@ -35,6 +36,7 @@
       <input type="submit" name="btn_submit" value="{MSG: search}" class="headbutton" />
     </form>
   </div>
+{ENDIF}
 <a href="{ROOT}" title="{MSG: home}"><span class="headtitle">{GVAR: FORUM_TITLE}</span></a><br />
 <span class="headdescr">{GVAR: FORUM_DESCR}</span></div>
 <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>

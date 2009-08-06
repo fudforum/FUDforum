@@ -1,7 +1,7 @@
 ﻿/**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: quick_reply.tmpl,v 1.2 2009/07/11 10:46:11 frank Exp $
+* $Id: quick_reply.tmpl,v 1.3 2009/08/06 18:00:55 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,7 @@
 <tr><td class="MsgR1 fb {IF: !$quick_reply_collapsed}MsgSubText{ENDIFI}">{IF: $quick_reply_collapsed}<img src="{THEME_IMAGE_ROOT}/max{DEF: img_ext}" alt="+" title="{MSG: maximize_message}" class="collapsable" />{ENDIFI} {MSG: quick_reply}</td></tr>
 <tr><td class="MsgR3" {IF: $quick_reply_collapsed}style="display:none;"{ENDIFI}>
 	<table>{TEMPLATE: fud_code_icons}</table>
-	<textarea wrap="virtual" id="txtb" name="msg_body" class="resizable" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
+	<textarea wrap="virtual" id="txtb" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" style="width:99%!important; height:100px;"></textarea>
 	{DEF: _hs}
 	<input type="hidden" name="submitted" value="" />
 	<input type="hidden" name="msg_subject" value="{VAR: quick_reply_subject}" />
@@ -32,36 +32,4 @@
 	<input type="submit" class="button" tabindex="5" name="btn_submit" value="{MSG: submit_reply}" onClick="javascript: document.post_form.submitted.value=1;" />
 </td></tr></table></td></tr></table>
 </form>
-<script type="text/javascript">
-/* <![CDATA[ */
-$(function init() {
-$(\'textarea.resizable:not(.textarea-processed)\').each(function() {
-var textarea = $(this).addClass(\'textarea-processed\'), staticOffset = null;
-
-$(this).wrap(\'<div class="resizable-textarea"><span></span></div>\')
-.parent().append($(\'<div class="grippie"></div>\').mousedown(startDrag));
-
-var grippie = $(\'div.grippie\', $(this).parent())[0];
-grippie.style.marginRight = (grippie.offsetWidth - $(this)[0].offsetWidth) +\'px\';
-
-function startDrag(e) {
-  staticOffset = textarea.height() - e.pageY;
-  textarea.css(\'opacity\', 0.25);
-  $(document).mousemove(performDrag).mouseup(endDrag);
-  return false;
-}
-
-function performDrag(e) {
-  textarea.height(Math.max(32, staticOffset + e.pageY) + \'px\');
-  return false;
-}
-
-function endDrag(e) {
-  $(document).unbind("mousemove", performDrag).unbind("mouseup", endDrag);
-  textarea.css(\'opacity\', 1);
-}
-});
-});
-/* ]]> */
-</script>
 {SECTION: END}

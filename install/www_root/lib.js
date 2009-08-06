@@ -312,13 +312,13 @@ function min_max_cats(theme_image_root, img_ext, minimize_category, maximize_cat
       $(this).attr('src', togglePlus)
              .attr('title', maximize_category)
              .attr('alt', '+')
-             .parents('tr').siblings('.child-'+cat).fadeOut('fast');
+             .parents('tr').siblings('.child-'+cat).fadeOut('slow');
       on = 1;
     } else{                             // Show cat
       $(this).attr('src', toggleMinus)
              .attr('title', minimize_category)
              .attr('alt', '-')
-             .parents('tr').siblings('.child-'+cat).fadeIn('fast');
+             .parents('tr').siblings('.child-'+cat).fadeIn('slow');
       on = 0;
     };
 
@@ -351,20 +351,20 @@ $(document).ready(function() {
       $(this).attr('src', togglePlus)
              .attr('title', maximize_message)
              .attr('alt', '+')
-             .parents('.MsgTable').find('td').not('.MsgR1').fadeOut('fast');
+             .parents('.MsgTable').find('td').not('.MsgR1').fadeOut('slow');
     } else {                                             // Show message
       $(this).attr('src', toggleMinus)
              .attr('title', minimize_message)
              .attr('alt', '-')
-             .parents('.MsgTable').find('td').fadeIn('fast');
+             .parents('.MsgTable').find('td').fadeIn('slow');
     };
   });
 })
 }
 
-function selectCode(a) 
+function select_code(a) 
 {
-	var e = a.parentNode.getElementsByTagName('PRE')[0];
+	var e = a.parentNode.parentNode.getElementsByTagName('PRE')[0];
 	if (window.getSelection) {	// Not IE
 		var s = window.getSelection();
 		if (s.setBaseAndExtent) {	// Safari
@@ -383,22 +383,54 @@ function selectCode(a)
 		s.addRange(r);
 	} else if (document.selection) {	// IE
 		var r = document.body.createTextRange();
-		r.moveToElementText(e);
-		r.select();
+		try {
+			r.moveToElementText(e);
+			r.select();
+		} catch(err) {}
 	}
 }
 
 function format_code(codeMsg, selMsg, hideMsg) 
 {
 	$(document).ready(function() {
-		$("div pre").each(function() {
+		$('div pre').each(function() {
 			var content = $(this).parent().html();
 			$(this).parent().html(
-			  '<span><b>'+codeMsg+'</b> '+
-			  '[<a href="#" onclick="selectCode(this); return false;">'+selMsg+'</a>] '+
-			  '[<a href="#" onclick="$(this).parent().find(\'pre\').slideToggle(); return false;">'+hideMsg+'</a>]'+
-			  content+'</span>');
+			  '<span><div class="codehead">'+codeMsg+' '+
+			  '[<a href="#" onclick="select_code(this); return false;">'+selMsg+'</a>] '+
+			  '[<a href="#" onclick="$(this).parent().parent().find(\'pre\').slideToggle(); return false;">'+hideMsg+'</a>]'+
+			  '</div>'+content+'</span>');
 		});
 	});
 }
 
+/* Code that will run on each page */
+
+$(function init() {
+	$('textarea:not(.textarea-processed)').each(function() {
+	var textarea = $(this).addClass('textarea-processed'), staticOffset = null;
+
+	$(this).wrap('<div class="resizable-textarea"><span></span></div>')
+	.parent().append($('<div class="grippie"></div>').mousedown(startDrag));
+
+	var grippie = $('div.grippie', $(this).parent())[0];
+	grippie.style.marginRight = (grippie.offsetWidth - $(this)[0].offsetWidth) +'px';
+
+	function startDrag(e) {
+	  staticOffset = textarea.height() - e.pageY;
+	  textarea.css('opacity', 0.25);
+	  $(document).mousemove(performDrag).mouseup(endDrag);
+	  return false;
+	}
+
+	function performDrag(e) {
+	  textarea.height(Math.max(32, staticOffset + e.pageY) + 'px');
+	  return false;
+	}
+
+	function endDrag(e) {
+	  $(document).unbind("mousemove", performDrag).unbind("mouseup", endDrag);
+	  textarea.css('opacity', 1);
+	}
+	});
+});

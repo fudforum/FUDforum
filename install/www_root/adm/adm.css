@@ -1,5 +1,5 @@
 body, body.popup {
-	color: #333;
+	color: #555;
 	background: #aba;
 	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
 	font-size: medium;
@@ -10,15 +10,19 @@ body.popup {
 	vertical-align: top;
 	background: #cde;
 }
+
 a {
 	text-decoration: none;
 }
+
 a:visited, a:link {
 	color: #242;
 }
+
 a:active, a:hover {
 	color: red;
 }
+
 .admin_fixed {
 	font-family: courier;
 	text-decoration: none;
@@ -77,6 +81,7 @@ span.linkgroup {
 	font-weight: bold;
 	font-size: medium;
 }
+
 .linktable a {
 	font-size: small;
 }
@@ -84,7 +89,7 @@ span.linkgroup {
 .datatable {
 	border: 0px;
 	border-spacing: 1px;
-	padding:	3px;
+	padding: 3px;
 }
 
 .resulttable {
@@ -102,7 +107,9 @@ span.linkgroup {
 .solidtable {
 	border-spacing: 0px;
 }
+
 .field {
+	vertical-align: top;
 	background: #deeffe;
 }
 
@@ -116,7 +123,12 @@ span.linkgroup {
 
 .field:hover {
         background: #eeeffe;
+	border-bottom: 1px solid red;
 } 
+
+.field td {
+        border-bottom: 1px inset #f0f0f0;
+}
 
 .tiny {
 	font-size: x-small;
@@ -166,6 +178,16 @@ span.linkgroup {
 	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
 	border-radius: 0.75em;
+}
+
+/* Textarea editor */
+.resizable-textarea .grippie {
+	height: 9px;
+	background: #eaf4e9 url('../theme/default/images/grippie.gif') no-repeat center 2px;
+	border: 1px solid #ddd;
+	border-top-width: 0;
+	cursor: s-resize;
+	overflow: hidden;
 }
 
 phpinfo {border-collapse: collapse;}

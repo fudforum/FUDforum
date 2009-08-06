@@ -4,6 +4,7 @@
 <?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel</title>' ?>
 <link rel="styleSheet" href="adm.css" type="text/css" />
 <script type="text/javascript" src="../jquery.js"></script>
+<script type="text/javascript" src="../lib.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php 
 if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
 	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
@@ -48,6 +49,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Management</a><br />
 	<a href="admsql.php?<?php echo __adm_rsid; ?>">SQL Manager</a><br />
 	<a href="admbrowse.php?<?php echo __adm_rsid; ?>">File Manager</a><br />
+	<a href="admbatch.php?<?php echo __adm_rsid; ?>">Job Manager</a><br />	
 <?php
 	if (strncasecmp('win', PHP_OS, 3)) {
 		echo '<a href="admlock.php?'.__adm_rsid.'">Lock/Unlock Forum Files</a><br />';

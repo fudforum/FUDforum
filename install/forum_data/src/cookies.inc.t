@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.87 2009/07/22 20:30:21 frank Exp $
+* $Id: cookies.inc.t,v 1.88 2009/08/06 18:00:54 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,12 +33,12 @@ function ses_get($id=0)
 {
 	if (!$id) {
 		if (!empty($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
-			$q_opt = "s.ses_id="._esc($_COOKIE[$GLOBALS['COOKIE_NAME']]);
+			$q_opt = 's.ses_id='._esc($_COOKIE[$GLOBALS['COOKIE_NAME']]);
 		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['FUD_OPT_1'] & 128) {
 			$url_s = 1;
-			$q_opt = "s.ses_id="._esc((isset($_GET['S']) ? (string) $_GET['S'] : (string) $_POST['S']));
+			$q_opt = 's.ses_id='._esc((isset($_GET['S']) ? (string) $_GET['S'] : (string) $_POST['S']));
 			/* do not validate against expired URL sessions */
-			$q_opt .= " AND s.time_sec > ".(__request_timestamp__ - $GLOBALS['SESSION_TIMEOUT']);
+			$q_opt .= ' AND s.time_sec > '.(__request_timestamp__ - $GLOBALS['SESSION_TIMEOUT']);
 		} else {
 			return;
 		}
@@ -47,11 +47,11 @@ function ses_get($id=0)
 			$host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'];
 			/* $p > 8 https:// or http:// */
 			if (($p = strpos($_SERVER['HTTP_REFERER'], $host)) === false || $p > 8) {
-				$q_opt .= " AND s.user_id > 2000000000 ";
+				$q_opt .= ' AND s.user_id > 2000000000 ';
 			}
 		}
 	} else {
-		$q_opt = "s.id='".$id."'";
+		$q_opt = 's.id='.$id;
 	}
 
 	$u = db_sab('SELECT

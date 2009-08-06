@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admxmlagg.php,v 1.1 2009/07/11 09:55:24 frank Exp $
+* $Id: admxmlagg.php,v 1.2 2009/08/06 18:00:55 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -154,7 +154,7 @@
 </table>
 <br /><br />
 <b>***Notes***</b><br />
-Exec Line parameter in the table above shows the execution line that you will need to place in your cron.
+Exec Line parameter in the table above shows the execution line that you will need to place in your job scheduler.
 <br />
 Cron example:
 <pre>

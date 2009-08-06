@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admplugins.php,v 1.8 2009/07/11 11:03:14 frank Exp $
+* $Id: admplugins.php,v 1.9 2009/08/06 18:00:55 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -96,13 +96,13 @@
 		}
 
 		echo '<fieldset><legend>Meta-information:</legend>';
-		echo '<p><b>Plugin file:</b> '.$plugin.'</p>';
-		echo '<p><b>Last modified:</b> '.date("d F Y H:i:s", filemtime($PLUGIN_PATH.'/'.$plugin)).'</p>';
+		echo '<b>Plugin file:</b> '.$plugin.'<br />';
+		echo '<b>Last modified:</b> '.date("d F Y H:i:s", filemtime($PLUGIN_PATH.'/'.$plugin)).'<br />';
 		if (isset($info['author'])) {
-			echo '<p><b>Author:</b> '.$info['author'].'</p>';
+			echo '<b>Author:</b> '.$info['author'].'<br />';
 		}
 		if (isset($info['version'])) {
-			echo '<p><b>Plugin version:</b> '.$info['version'].'</p>';
+			echo '<b>Plugin version:</b> '.$info['version'].'<br />';
 		}
 		echo '</fieldset>';
 

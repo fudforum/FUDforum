@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.105 2009/07/13 17:09:50 frank Exp $
+* $Id: post_proc.inc.t,v 1.106 2009/08/06 18:00:54 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -159,6 +159,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					}
 
 					$url = url_check($url);
+					$url = str_replace('&quot;', '', $url); // Remove quotes from URL
 
 					if (!strncasecmp($url, 'www.', 4)) {
 						$url = 'http&#58;&#47;&#47;'. $url;
@@ -191,6 +192,9 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 'email':
 					if (!$parms) {
 						$parms = str_replace('@', '&#64;', substr($str, $epos+1, ($cpos-$epos)-1));
+						if (strpos( substr($email,1,-1), '.') === false) {	// E-mail mostly have dots in them
+							$ppos = $pos += 1; continue;
+						}
 						$ostr .= '<a href="mailto:'.$parms.'" target="_blank">'.$parms.'</a>';
 						$epos = $cepos;
 						$str[$cpos] = '<';

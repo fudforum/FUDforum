@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.47 2009/06/24 14:37:04 frank Exp $
+* $Id: admnntp.php,v 1.48 2009/08/06 18:00:55 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -246,7 +246,7 @@
 </table>
 <br /><br />
 <b>***Notes***</b><br />
-Exec Line parameter in the table above shows the execution line that you will need to place in your cron.
+Exec Line parameter in the table above shows the execution line that you will need to place in your job scheduler.
 It is recommended you run the script on a small interval, we recommend a 2-3 minute interval.
 <br />
 Cron example:

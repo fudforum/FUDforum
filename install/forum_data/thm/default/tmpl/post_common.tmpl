@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.36 2009/05/30 11:49:07 frank Exp $
+* $Id: post_common.tmpl,v 1.37 2009/08/06 18:00:55 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,9 +28,9 @@
 <tr><td>
 <table cellspacing="1" cellpadding="2" class="FormattingToolsBG">
 <tr>
-<td class="FormattingToolsCLR"><a title="{MSG: post_common_bold}" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, \'[B]\', \'[/B]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_bold.gif" /></a></td>
-<td class="FormattingToolsCLR"><a title="{MSG: post_common_italics}" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, \'[I]\', \'[/I]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_italic.gif" /></a></td>
-<td class="FormattingToolsCLR"><a title="{MSG: post_common_underline}" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, \'[U]\', \'[/U]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_underline.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_bold}" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, \'[b]\', \'[/b]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_bold.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_italics}" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, \'[i]\', \'[/i]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_italic.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_underline}" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, \'[u]\', \'[/u]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_underline.gif" /></a></td>
 <td class="FormattingToolsCLR"><a title="{MSG: post_common_align_left}" href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=left]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_aleft.gif" /></a></td>
 <td class="FormattingToolsCLR"><a title="{MSG: post_common_align_center}" href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=center]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_acenter.gif" /></a></td>
 <td class="FormattingToolsCLR"><a title="{MSG: post_common_align_right}" href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=right]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_aright.gif" /></a></td>
@@ -39,13 +39,13 @@
 <td class="FormattingToolsCLR"><a title="{MSG: post_common_image}" accesskey="m" href="javascript: image_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_image.gif" /></a></td>
 <td class="FormattingToolsCLR"><a title="{MSG: post_common_nlist}" accesskey="l" href="javascript: window_open(\'{TEMPLATE: fud_code_icons_lnk1}\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_numlist.gif" /></a></td>
 <td class="FormattingToolsCLR"><a title="{MSG: post_common_blist}" href="javascript: window_open(\'{TEMPLATE: fud_code_icons_lnk2}\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_bulletlist.gif" /></a></td>
-<td class="FormattingToolsCLR"><a title="{MSG: post_common_quote}" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, \'[QUOTE]\', \'[/QUOTE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_quote.gif" /></a></td>
-<td class="FormattingToolsCLR"><a title="{MSG: post_common_code}" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, \'[CODE]\', \'[/CODE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_code.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_quote}" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, \'[quote]\', \'[/quote]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_quote.gif" /></a></td>
+<td class="FormattingToolsCLR"><a title="{MSG: post_common_code}" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, \'[code]\', \'[/code]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_code.gif" /></a></td>
 </tr>
 </table>
 </td>
 <td>&nbsp;&nbsp;
-<select name="fnt_size" onchange="insertTag(document.post_form.msg_body, \'[SIZE=\'+document.post_form.fnt_size.options[this.selectedIndex].value+\']\', \'[/SIZE]\'); document.post_form.fnt_size.options[0].selected=true">
+<select name="fnt_size" onchange="insertTag(document.post_form.msg_body, \'[size=\'+document.post_form.fnt_size.options[this.selectedIndex].value+\']\', \'[/size]\'); document.post_form.fnt_size.options[0].selected=true">
 <option value="" selected="selected">{MSG: post_size}</option>
 <option value="1">1</option>
 <option value="2">2</option>
@@ -55,7 +55,7 @@
 <option value="6">6</option>
 <option value="7">7</option>
 </select>
-<select name="fnt_color" onchange="insertTag(document.post_form.msg_body, \'[COLOR=\'+document.post_form.fnt_color.options[this.selectedIndex].value+\']\', \'[/COLOR]\'); document.post_form.fnt_color.options[0].selected=true">
+<select name="fnt_color" onchange="insertTag(document.post_form.msg_body, \'[color=\'+document.post_form.fnt_color.options[this.selectedIndex].value+\']\', \'[/color]\'); document.post_form.fnt_color.options[0].selected=true">
 <option value="">{MSG: post_color}</option>
 <option value="skyblue" style="color:skyblue">Sky Blue</option>
 <option value="royalblue" style="color:royalblue">Royal Blue</option>
@@ -82,7 +82,7 @@
 <option value="teal" style="color:teal">Teal</option>
 <option value="silver" style="color:silver">Silver</option>
 </select>
-<select name="fnt_face" onchange="insertTag(document.post_form.msg_body, \'[FONT=\'+document.post_form.fnt_face.options[this.selectedIndex].value+\']\', \'[/FONT]\'); document.post_form.fnt_face.options[0].selected=true">
+<select name="fnt_face" onchange="insertTag(document.post_form.msg_body, \'[font=\'+document.post_form.fnt_face.options[this.selectedIndex].value+\']\', \'[/font]\'); document.post_form.fnt_face.options[0].selected=true">
 <option value="">{MSG: post_font}</option>
 <option value="Arial" style="font-family:Arial">Arial</option>
 <option value="Times" style="font-family:Times">Times</option>
@@ -126,35 +126,6 @@ if (!document.getElementById('preview')) {
                 document.post_form.msg_body.focus();
         }
 }
-
-$(function init() {
-$('textarea.resizable:not(.textarea-processed)').each(function() {
-var textarea = $(this).addClass('textarea-processed'), staticOffset = null;
-
-$(this).wrap('<div class="resizable-textarea"><span></span></div>')
-.parent().append($('<div class="grippie"></div>').mousedown(startDrag));
-
-var grippie = $('div.grippie', $(this).parent())[0];
-grippie.style.marginRight = (grippie.offsetWidth - $(this)[0].offsetWidth) +'px';
-
-function startDrag(e) {
-  staticOffset = textarea.height() - e.pageY;
-  textarea.css('opacity', 0.25);
-  $(document).mousemove(performDrag).mouseup(endDrag);
-  return false;
-}
-
-function performDrag(e) {
-  textarea.height(Math.max(32, staticOffset + e.pageY) + 'px');
-  return false;
-}
-
-function endDrag(e) {
-  $(document).unbind("mousemove", performDrag).unbind("mouseup", endDrag);
-  textarea.css('opacity', 1);
-}
-});
-});
 /* ]]> */
 </script> 
 {SECTION: END}

@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: xmlagg.php,v 1.2 2009/07/19 20:09:10 frank Exp $
+* $Id: xmlagg.php,v 1.3 2009/08/06 18:00:54 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -140,7 +140,7 @@
 		if (isset($body)) {
 			$m->body = apply_custom_replace($body);
 		}
- 
+
 		if ( isset($node->getElementsByTagName('creator')->item(0)->nodeValue)) {
 			$poster = $node->getElementsByTagName('creator')->item(0)->nodeValue;
 		} else if ( isset($node->getElementsByTagName('author')->item(0)->nodeValue)) {
@@ -173,4 +173,6 @@
 	if (isset($new_last_load_date)) {
 		q('UPDATE '.sql_p.'xmlagg SET last_load_date = '.$new_last_load_date.' WHERE id = '.$config->id);
 	}
+
+	echo 'Done!';
 ?>

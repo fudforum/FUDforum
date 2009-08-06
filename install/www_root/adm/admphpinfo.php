@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admphpinfo.php,v 1.8 2009/06/24 14:37:04 frank Exp $
+* $Id: admphpinfo.php,v 1.9 2009/08/06 18:00:55 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,7 +20,7 @@
 	$info = preg_replace('%^.*<body>(.*)</body>.*$%ms', '$1', $info);
 
 	echo '<h2>System Configuration</h2>';
-	echo '<p>This page lists information about the PHP version installed on this server.<br />It may contain sensitive information and should be kept private.</p>';
+	echo '<p><b>This page lists information about the PHP version installed on this server.<br />It may contain sensitive information and <u>should be kept private</u>!</b></p>';
 	echo '<table class="phpinfo">'.$info.'</table>';
 
 	require($WWW_ROOT_DISK . 'adm/admclose.html');

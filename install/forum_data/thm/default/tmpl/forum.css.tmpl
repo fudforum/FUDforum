@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.85 2009/07/19 20:09:10 frank Exp $
+* $Id: forum.css.tmpl,v 1.86 2009/08/06 18:00:54 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@ body {
 	background: #e5e5e5;
 	color: #000;
 	margin: 2px;
-	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
+	font-family: Verdana,Geneva,Lucida,'Lucida Grande',Arial,Helvetica,Sans-serif;
 	font-size: 11pt;
 }
 
@@ -30,7 +30,7 @@ text,	.ForumBackground, a:link, a:visited, a:active, a.CatLink, .CatDesc, a.User
 	a.big:link, a.big:active, a.big:visited, .small, a.small:link, a.small:active, a.small:visited, td.rpasswdE, .curtime,
 	font.anon, font.reg, td.permYES, td.permNO, td.repI, div.UserControlPanel, font.selmsgInd, fieldset
 {
-	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
+	font-family: Verdana,Geneva,Lucida,'Lucida Grande',Arial,Helvetica,Sans-serif;
 	font-size: 10pt;
 }
 
@@ -141,7 +141,7 @@ a.thLnk:visited {
 }
 
 .PollTable, .ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable {
-	background : #FFF;
+	background : #fff;
 	border : 0;
 	padding : 0;
 	margin : 0;
@@ -159,7 +159,7 @@ font.ptp { /* space between poll title & number of votes */
 .MsgTable {
 	margin-top: 0;
 	margin-bottom: 0;
-	border: 1px solid #000;
+	border: 1px solid #888;
 }
 
 .DialogTable {
@@ -578,6 +578,7 @@ div.pre {
 }
 
 pre { white-space: pre-wrap; }
+.codehead, .codehead a { background: #e9e9e9; font-size: xx-small; font-weight:bold; }
 
 a.big:active, a.big:hover, a:active, a:hover, a.CatLink:active, a.CatLink:hover,
 a.UserControlPanel:active, a.UserControlPanel:hover, a.thLnk:active,

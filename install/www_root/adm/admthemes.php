@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.78 2009/07/19 20:09:10 frank Exp $
+* $Id: admthemes.php,v 1.79 2009/08/06 18:00:55 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,22 +30,27 @@
 		$root = $DATA_DIR . 'thm/';
 		$root_nn = $root . preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
 		$u = umask(0);
-		if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777)) {
+		if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777) && !@mkdir($root_nn.'tmpl/', 0777)) {
 			exit('can\'t create ('.$root_nn.')<br />');
 		}
 
-		fudcopy($root . 'default/', $root_nn, '*', true);
-		if ($_POST['base_template_set'] == 'path_info') {
-			fudcopy($root . 'path_info/', $root_nn, '*', true);
+		if ($_POST['copy_mode'] == 'all') {
+			fudcopy($root . 'default/', $root_nn, '*', true);
+			if ($_POST['base_template_set'] == 'path_info') {
+				fudcopy($root . 'path_info/', $root_nn, '*', true);
+		}
+		
+		if ($_POST['base_template_set'] == 'path_info') {	// Copy the PATH_INFO pointer
+			fudcopy($root . 'path_info/', $root_nn, '.path_info', true);
 		}
 		umask($u);
-		echo 'Template set '.$_POST['newname'].' was successfully created.<br />';
+		echo '<font color="green">Template set '.$_POST['newname'].' was successfully created.</font>';
 	}
 
 	if (isset($_GET['rebuild_all'])) {
 		$r = q('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes');
 		while (($data = db_rowarr($r))) {
-			echo 'Rebuilding theme '. $data[2] . ' ('. $data[1] .')...<br />';
+			echo '<font color="green">Rebuilding theme '. $data[2] . ' ('. $data[1] .')...</font>';
 			compile_all($data[0], $data[1], $data[2]);
 		}
 		unset($r);
@@ -61,7 +66,7 @@
 		if ($thm->name) {
 			$thm->add();
 			compile_all($thm->theme, $thm->lang, $thm->name);
-			echo 'Theme '.$thm->name.' was successfully created.<br />';
+			echo '<font color="green">Theme '.$thm->name.' was successfully created.</font>';
 		}
 	} else if (isset($_POST['edit'])) {
 		$thm = new fud_theme;
@@ -73,9 +78,9 @@
 			compile_all($thm->theme, $thm->lang, $thm->name);
 		}
 		$edit = '';
-		echo 'Theme saved and successfully rebuilt.<br />';
+		echo '<font color="green">Theme saved and successfully rebuilt.</font>';
 	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.(int)$_GET['rebuild']))) {
-		echo 'Rebuilding theme '. $data[2] . ' ('. $data[1] .')...';
+		echo '<font color="green">Rebuilding theme '. $data[2] . ' ('. $data[1] .')...</font>';
 		compile_all($data[0], $data[1], $data[2]);
 	} else if (isset($_GET['edit']) && ($c = db_arr_assoc('SELECT * FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.$edit))) {
 		foreach ($c as $k => $v) {
@@ -85,7 +90,7 @@
 		$thm_enabled = $c['theme_opt'] & 1;
 	} else if (isset($_GET['del']) && (int)$_GET['del'] > 1) {
 		fud_theme::delete((int)$_GET['del']);
-		echo 'Theme successfully deleted<br />';
+		echo '<font color="green">Theme successfully deleted</font>';
 	}
 
 	if (!$edit) {
@@ -97,8 +102,8 @@
 		} else {
 			$thm_locale = 'english';			// No UTF-8 locales on Windows
 		}
-		$thm_pspell_lang = 'en';
-		$thm_t_default = $thm_enabled = 0;
+		$thm_pspell_lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'en';
+		$thm_t_default = 0; $thm_enabled = 1;
 	}
 ?>
 <h2>Theme Manager</h2>
@@ -145,7 +150,7 @@
 	</td>
 </tr>
 <tr class="field">
-	<td>Language</td>
+	<td>Language:</td>
 	<td>
 	<?php
 		if (!$thm_lang) {
@@ -234,8 +239,16 @@ function update_locale()
 	</select></td>
 </tr>
 <tr class="field">
-	<td>Name</td>
+	<td>Name:</td>
 	<td><input type="text" name="newname" /></td>
+</tr>
+<tr class="field">
+	<td>What to copy:</td>
+	<td>
+	<select name="copy_mode">
+	<option value="none">Only required files</option>
+	<option value="all">All files (not recommended)</option>
+	</select></td>
 </tr>
 <tr class="fieldaction">
 	<td colspan="2" align="right"><input type="submit" name="btn_submit" value="Create" /></td>

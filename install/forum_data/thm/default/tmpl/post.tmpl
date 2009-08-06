@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.84 2009/07/13 17:09:50 frank Exp $
+* $Id: post.tmpl,v 1.85 2009/08/06 18:00:55 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -161,7 +161,7 @@
 {IF: $perms & 16384}{FUNC: draw_post_smiley_cntrl()}{ENDIF}
 {IF: $frm->forum_opt & 16}{TEMPLATE: fud_code_icons}{ENDIF}
 
-<tr class="RowStyleA"><td class="vt nw GenText">{MSG: post_body}<br /><br />{FUNC: tmpl_post_options($frm->forum_opt, $perms)}</td><td>{FUNC: get_err('msg_body', 1)}<span style="float:left;"><textarea rows="20" cols="65" tabindex="4" wrap="virtual" id="txtb" name="msg_body" class="resizable" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);">{VAR: msg_body}</textarea></span>
+<tr class="RowStyleA"><td class="vt nw GenText">{MSG: post_body}<br /><br />{FUNC: tmpl_post_options($frm->forum_opt, $perms)}</td><td>{FUNC: get_err('msg_body', 1)}<span style="float:left;"><textarea rows="20" cols="65" tabindex="4" wrap="virtual" id="txtb" name="msg_body" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);">{VAR: msg_body}</textarea></span>
 {TEMPLATE: resize_controls}
 </td></tr>
 
