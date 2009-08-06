@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.70 2009/08/06 17:43:45 frank Exp $
+* $Id: db.inc,v 1.1 2009/08/06 17:43:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -10,13 +10,16 @@
 **/
 #define('fud_query_stats', 1);
 
-if (!defined('fud_sql_lnk')) {
-	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'mysql_pconnect' : 'mysql_connect';
+class db { public static $db, $ar, $res, $buf; }
 
-	$conn = $connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or fud_sql_error_handler("Initiating $connect_func", mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), "Unknown");
-	define('fud_sql_lnk', $conn);
-	mysql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version());
-	mysql_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
+if (empty(db::$db)) {
+	// TODO: pconnect support
+
+	db::$db = new mysqli($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $GLOBALS['DBHOST_DBNAME']);
+	if (mysqli_connect_errno()) {
+		fud_sql_error_handler("Failed to establish database connection, MySQLi says: ".mysqli_connect_error(), '', '', '');
+	}
+	db::$db->set_charset('utf8');
 
 	define('__dbtype__', 'mysql');
 	define('__FUD_SQL_CONCAT__', 'CONCAT');
@@ -25,7 +28,8 @@ if (!defined('fud_sql_lnk')) {
 function get_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		$ver = mysql_fetch_row(mysql_query('SELECT VERSION()', fud_sql_lnk));
+		$r = db::$db->query('SELECT VERSION()');
+		$ver = $r->fetch_row();
 		define('__FUD_SQL_VERSION__', $ver[0]);
 	}
 	return __FUD_SQL_VERSION__;
@@ -47,7 +51,7 @@ function db_unlock()
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", get_version());
 	}
-	
+
 	if (--$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", get_version());
@@ -63,19 +67,21 @@ function db_locked()
 
 function db_affected()
 {
-	return mysql_affected_rows(fud_sql_lnk);	
+	return db::$db-> affected_rows;
 }
 
 if (!defined('fud_query_stats')) {
 	function q($query)
 	{
-		$r = mysql_query($query, fud_sql_lnk) or fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version());
+		$r = db::$db->query($query);
+		if (db::$db->error) {
+			fud_sql_error_handler($query, db::$db->error, db::$db->errno, get_version());
+		}
 		return $r;
 	}
 	function uq($query)
 	{
-		$r = mysql_unbuffered_query($query,fud_sql_lnk) or fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version());
-		return $r;
+		return q($query);
 	}
 } else {
 	function q($query)
@@ -91,7 +97,10 @@ if (!defined('fud_query_stats')) {
 		}
 	
 		$s = gettimeofday();
-		$result = mysql_query($query, fud_sql_lnk) or fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version());
+		$result = db::$db->query($query);
+		if (db::$db->error) {
+			fud_sql_error_handler($query, db::$db->error, db::$db->errno, get_version());
+		}
 		$e = gettimeofday(); 
 
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));
@@ -114,22 +123,23 @@ if (!defined('fud_query_stats')) {
 
 function db_count($result)
 {
-	return (int) mysql_num_rows($result);
+	return (int) $result->num_rows;
 }
 
 function db_rowobj($result)
 {
-	return mysql_fetch_object($result);
+	return $result->fetch_object();
 }
 
 function db_rowarr($result)
 {
-	return mysql_fetch_row($result);
+	return $result->fetch_row();
 }
 
 function q_singleval($query)
 {
-	if (($res = mysql_fetch_row(q($query))) !== false) {
+	$r = q($query);
+	if (($res = $r->fetch_row()) !== false) {
 		return $res[0];
 	}
 }
@@ -165,40 +175,45 @@ function optimize_tables($tbl_list=null)
 
 function db_saq($q)
 {
-	return mysql_fetch_row(q($q));
+	$r = q($q);
+	return $r->fetch_row() ;
 }
+
 function db_sab($q)
 {
-	return mysql_fetch_object(q($q));
+	$r = q($q);
+	return $r->fetch_object();
 }
+
 function db_qid($q)
 {
 	q($q);
-	return mysql_insert_id(fud_sql_lnk);
+	return db::$db->insert_id;
 }
 function db_arr_assoc($q)
 {
-	return mysql_fetch_array(q($q), MYSQL_ASSOC);
+	$r = q($q);
+	return $r->fetch_array(MYSQLI_ASSOC);
 }
 
-function db_fetch_array($q)
+function db_fetch_array($r)
 {
-        return mysql_fetch_array($q);
+        return $r->fetch_array();
 }
 
 function db_li($q, &$ef, $li=0)
 {
-	$r = mysql_query($q, fud_sql_lnk);
+	$r = db::$db->query($q);
 	if ($r) {
-		return ($li ? mysql_insert_id(fud_sql_lnk) : $r);
+		return ($li ? db::$db->insert_id : $r);
 	}
 
 	/* duplicate key */
-	if (mysql_errno(fud_sql_lnk) == 1062) {
-		$ef = ltrim(strrchr(mysql_error(fud_sql_lnk), ' '));
+	if (db::$db->errno == 1062) {
+		$ef = ltrim(strrchr(db::$db->error, ' '));
 		return null;
 	} else {
-		fud_sql_error_handler($q, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version());
+		fud_sql_error_handler($q, db::$db->error, db::$db->errno, get_version());
 	}
 }
 
@@ -211,7 +226,7 @@ function db_all($q)
 {
 	$f = array();
 	$c = uq($q);
-	while ($r = mysql_fetch_row($c)) {
+	while ($r = $c->fetch_row()) {
 		$f[] = $r[0];
 	}
 	return $f;
@@ -219,6 +234,6 @@ function db_all($q)
 
 function _esc($s)
 {
-	return "'".mysql_real_escape_string($s, fud_sql_lnk)."'";
+	return "'".db::$db->real_escape_string($s)."'";
 }
 ?>

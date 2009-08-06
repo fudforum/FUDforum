@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.85 2009/04/16 14:55:43 frank Exp $
+* $Id: db.inc,v 1.86 2009/08/06 17:43:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -25,7 +25,7 @@ if (!defined('fud_sql_lnk')) {
 	if ($GLOBALS['DBHOST_DBNAME']) {
 		$connect_str .= ' dbname='.$GLOBALS['DBHOST_DBNAME'];
 	}
-	$conn = $connect_func(ltrim($connect_str)) or die (fud_sql_error_handler('Initiating '.$connect_func, pg_last_error($conn), '', 'Unknown'));
+	$conn = $connect_func(ltrim($connect_str)) or fud_sql_error_handler('Initiating '.$connect_func, pg_last_error($conn), '', 'Unknown');
 	define('fud_sql_lnk', $conn);
 	define('__dbtype__', 'pgsql');
 	define('__FUD_SQL_CONCAT__', 'textcat');
@@ -90,7 +90,7 @@ function uq($q)
 if (!defined('fud_query_stats')) {
 	function q($q)
 	{
-		$GLOBALS['__FLPG__'] = pg_query(fud_sql_lnk, $q) or die (fud_sql_error_handler($q, pg_last_error(fud_sql_lnk), '', get_version()));
+		$GLOBALS['__FLPG__'] = pg_query(fud_sql_lnk, $q) or fud_sql_error_handler($q, pg_last_error(fud_sql_lnk), '', get_version());
 		return $GLOBALS['__FLPG__'];
 	}
 } else {
@@ -107,7 +107,7 @@ if (!defined('fud_query_stats')) {
 		}
 	
 		$s = gettimeofday();
-		$GLOBALS['__FLPG__'] = pg_query(fud_sql_lnk, $q) or die (fud_sql_error_handler($q, pg_last_error(fud_sql_lnk), '', get_version()));
+		$GLOBALS['__FLPG__'] = pg_query(fud_sql_lnk, $q) or fud_sql_error_handler($q, pg_last_error(fud_sql_lnk), '', get_version());
 		$e = gettimeofday(); 
 	
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));;
