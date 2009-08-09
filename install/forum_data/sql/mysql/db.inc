@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.70 2009/08/06 17:43:45 frank Exp $
+* $Id: db.inc,v 1.71 2009/08/09 11:33:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -53,7 +53,7 @@ function db_unlock()
 		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", get_version());
 	}
 	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-	q('UNLOCK TABLES', fud_sql_lnk);
+	q('UNLOCK TABLES');
 }
 
 function db_locked()

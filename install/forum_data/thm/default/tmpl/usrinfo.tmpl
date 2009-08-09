@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@fudforum.org
-* $Id: usrinfo.tmpl,v 1.62 2009/03/26 18:08:58 frank Exp $
+* $Id: usrinfo.tmpl,v 1.63 2009/08/09 11:33:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -143,12 +143,13 @@
 			</table>
 			</td>
 </tr>{ENDIF}
-{IF: $u->aim}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_aim}</td><td class="GenText"><a href="aim:goim?screenname={VAR: u->aim}&amp;message=Hello+Are+you+there?">{FUNC: htmlentities(urldecode($u->aim))}</a></td></tr>{ENDIF}
-{IF: $u->yahoo}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_yahoo}</td><td class="GenText"><a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: u->yahoo}&amp;.src=pg">{FUNC: htmlentities(urldecode($u->yahoo))}</a></td></tr>{ENDIF}
-{IF: $u->msnm}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_msnm}</td><td class="GenText">{FUNC: char_fix(htmlspecialchars(urldecode($u->msnm)))}</td></tr>{ENDIF}
-{IF: $u->jabber}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_jabber}</td><td class="GenText">{VAR: u->jabber}</td></tr>{ENDIF}
-{IF: $u->google}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_google}</td><td class="GenText">{VAR: u->google}</td></tr>{ENDIF}
-{IF: $u->skype}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_skype}</td><td class="GenText">{VAR: u->skype}</td></tr>{ENDIF}
+{IF: $u->aim}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_aim}</td><td class="GenText"><a href="aim:goim?screenname={VAR: u->aim}&amp;message=Hello+Are+you+there?"><img src="{THEME_IMAGE_ROOT}/aim{DEF: img_ext}" title="{VAR: obj->aim}" alt="" />{FUNC: htmlentities(urldecode($u->aim))}</a></td></tr>{ENDIF}
+{IF: $u->yahoo}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_yahoo}</td><td class="GenText"><a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: u->yahoo}&amp;.src=pg"><img src="{THEME_IMAGE_ROOT}/yahoo{DEF: img_ext}" title="{VAR: obj->yahoo}" alt="" />{FUNC: htmlentities(urldecode($u->yahoo))}</a></td></tr>{ENDIF}
+{IF: $u->msnm}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_msnm}</td><td class="GenText"><img src="{THEME_IMAGE_ROOT}/msnm{DEF: img_ext}" title="{VAR: obj->msnm}" alt="" />{FUNC: char_fix(htmlspecialchars(urldecode($u->msnm)))}</td></tr>{ENDIF}
+{IF: $u->jabber}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_jabber}</td><td class="GenText"><img src="{THEME_IMAGE_ROOT}/jabber{DEF: img_ext}" title="{VAR: obj->jabber}" alt="" />{VAR: u->jabber}</td></tr>{ENDIF}
+{IF: $u->google}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_google}</td><td class="GenText"><img src="{THEME_IMAGE_ROOT}/google{DEF: img_ext}" title="{VAR: obj->google}" alt="" />{VAR: u->google}</td></tr>{ENDIF}
+{IF: $u->skype}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_skype}</td><td class="GenText"><a href="callto://{VAR: u->skype}"><img src="{THEME_IMAGE_ROOT}/skype{DEF: img_ext}" title="{VAR: obj->skype}" alt="" />{VAR: u->skype}</a></td></tr>{ENDIF}
+{IF: $u->twitter}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_twitter}</td><td class="GenText"><a href="http://twitter.com/{VAR: u->twitter}"><img src="{THEME_IMAGE_ROOT}/twitter{DEF: img_ext}" title="{VAR: obj->twitter}" alt="" />{VAR: u->twitter}</a></td></tr>{ENDIF}
 {IF: ($FUD_OPT_2 & 2048 && $u->affero)}<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR: u->affero}" target="_blank">{VAR-UH: u->affero}</a></td></tr>{ENDIF}
 {IF: $is_a}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: findu_admin_opts_header}</td>

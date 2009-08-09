@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: feed.php.t,v 1.2 2009/07/11 10:49:08 frank Exp $
+* $Id: feed.php.t,v 1.3 2009/08/09 11:33:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -389,7 +389,7 @@ function smiley_full(&$data)
 			}
 			$c = q('SELECT
 						u.id, u.alias, u.join_date, u.posted_msg_count, u.avatar_loc, u.users_opt,
-						u.home_page, u.bday, u.last_visit, u.icq, u.aim, u.yahoo, u.msnm, u.jabber, u.affero,
+						u.home_page, u.bday, u.last_visit, u.icq, u.aim, u.yahoo, u.msnm, u.jabber, u.google, u.skype, u.twitter, u.affero,
 						u.name, u.email,
 						m.id AS msg_id, m.subject, m.thread_id,
 						t.forum_id,

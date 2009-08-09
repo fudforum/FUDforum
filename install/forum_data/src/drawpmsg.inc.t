@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.inc.t,v 1.51 2009/01/29 18:37:17 frank Exp $
+* $Id: drawpmsg.inc.t,v 1.52 2009/08/09 11:33:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -83,6 +83,9 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 			}
 			if ($obj->skype) {
 				$im .=  '{TEMPLATE: dpmsg_im_skype}';
+			}
+			if ($obj->twitter) {
+				$im .=  '{TEMPLATE: dpmsg_im_twitter}';
 			}
 			if ($o2 & 2048) {
 				if ($obj->affero) {

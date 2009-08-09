@@ -811,10 +811,12 @@ pmsg_prev_msg:			Previous message
 post_proc_reveal_spoiler:	Toggle Spoiler
 register_jabber:		Jabber Handle:
 register_skype:			Skype Handle:
+register_twitter:		Twitter Handle:
 register_google:		Google Chat/IM Handle:
 im_jabber:			Jabber: 
 im_google:			Google Talk: 
 im_skype:			Skype: 
+im_twitter:			Twitter: 
 forum_contact:			Contact
 forum_home:			Home
 post_cur_attached:		currently attached: {VAR: i} file(s) 

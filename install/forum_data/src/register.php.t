@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.177 2009/07/11 10:36:05 frank Exp $
+* $Id: register.php.t,v 1.178 2009/08/09 11:33:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -245,6 +245,7 @@ function decode_uent(&$uent)
 	$uent->affero = urldecode($uent->affero);
 	$uent->google = urldecode($uent->google);
 	$uent->skype = urldecode($uent->skype);
+	$uent->twitter = urldecode($uent->twitter);
 }
 
 function email_encode($val)
