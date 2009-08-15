@@ -31,7 +31,6 @@ forum_none_messages:		既読と未読メッセージの追跡はフォーラム�
 forum_old_messages:		新規メッセージはありません
 from:				差出人:
 gender:				性別:
-go:				Go
 goto_next_msg:			次のメッセージに移動
 goto_prev_msg:			前のメッセージに移動
 home:				ホーム
@@ -46,7 +45,6 @@ image:				画像:
 index_forum:			フォーラム
 index_new_posts:		最後に読んだ頃より新しいメッセージがあります。
 index_no_new_posts:		最後に読んだ頃より新しいメッセージはありません。
-interests:			Interests:
 last_post:			最後のメッセージ
 last_thread_msg:		このトピックの最後のメッセージに行く
 legend:				凡例
@@ -76,7 +74,6 @@ more_unread_messages_desc:	現在見えているメッセージを既読にマ�
 move_thread:			移動
 moved:				別のフォーラムに移動しました。
 moved_thread_message:		このトピックは別のフォーラムに移動しました。
-na:				n/a
 new_posts:			新規メッセージ
 new_private_messages:		<span class="GenTextRed">({VAR: c})</span> 個の未読プライベートメッセージがあります。
 new_thread:			新規トピック作成
@@ -95,8 +92,6 @@ no_unread_msg_unreg:		登録ユーザーのみが既読と未読メッセージ�
 num_pages:			({VAR: ttl_pg}) ページ:
 num_votes:			投票数 {VAR: obj->total_votes} 票
 occupation:			職業:
-off:				OFF
-on:				ON
 page_timings:			このページを生成するのにかかった時間: {VAR: page_gen_time} 秒
 pm:				プライベートメッセージ
 poll:				投票:
@@ -116,8 +111,6 @@ registered_on:			登録日 {DATE: u_reg_date %Y %B %d (%a)}
 replies:			返信数
 report_to_mod:			モデレーターにメッセージを報告する
 reported_messages:		報告済みメッセージ
-reveal_all_posts:		reveal all messages by {VAR: user_login}
-reveal_post:			reveal message
 search:				検索
 sel_todays_posts:		今日のメッセージ
 sel_todays_posts_desc:		今日のメッセージフィルターの切り替え (今日作成されたメッセージのみ表示するでしょう)
@@ -157,7 +150,6 @@ un_ignore_user:			このユーザーのメッセージの無視をやめる
 unanswered_posts:		未返答メッセージ
 unanswered_posts_desc:		返信のないすべてのメッセージを表示する
 unlock_thread:			未ロックトピック
-unread_msg:			This topic contains messages you have not yet read
 unread_msg_locked:		トピックと未読メッセージをロックしました
 unread_posts:			未読メッセージ
 unread_posts_desc:		全てのみどくメッセージを見る
@@ -189,7 +181,6 @@ reported_reported_msg:		報告メッセージ
 modque_pending_approval:	承認待ちメッセージ
 modque_approve:			承認
 modque_delete:			削除
-modque_no_message:		There are no messages pending approval
 pmsg_new_messages:		未読プライベートメッセージ
 pmsg_old_messages:		既読プライベートメッセージ
 deny_recipt:			受信拒否
@@ -200,7 +191,6 @@ list_referes_referrals:		紹介
 list_referes_members:		紹介されたメンバー
 list_referes_member:		メンバー
 referals_none:			紹介された人はまだいません。
-referals_refered_by:		Forum members referred by: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		メッセージ数
 referals_registered_on:		登録日
 referals_action:		操作
@@ -212,7 +202,6 @@ pmsg_forwarded:			転送済み
 pmsg_subject:			件名
 pmsg_author:			著者
 pmsg_time:			時間
-pmsg_selected:			Selected
 pmsg_delete:			削除
 cur_ppage_pm:			プライベートメッセージ
 writing_pm:			プライベートメッセージを書く
@@ -222,7 +211,6 @@ draft:				草稿
 sent:				送信済み
 trash:				ごみ箱
 msg_author:			著者
-avatar_sel_form:		Avatar Selection Form
 no_avatars:			有効なアバターがありません。
 month_1:			1 月
 month_2:			2 月
@@ -261,8 +249,6 @@ pmuserloc_login:		ログイン:
 pmuserloc_submit:		送信
 pmuserloc_user:			ユーザー
 pmuserloc_no_result:		結果なし
-register_builtin:		Built In
-register_specify_url:		Specify URL
 register_uploaded:		アバターアップロード
 register_login:			ログイン:
 register_password:		パスワード:
@@ -275,7 +261,6 @@ register_avatar_type:		アバタータイプ:
 register_del_avatar:		アバター削除
 register_avatar:		アバター:
 register_sel_avatar:		アバター選択
-register_custom_avatar_rules:	The custom avatar will not appear until it is approved by the administrator.<br /><span class="SmallText">The avatar, should be no larger than <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> and must be in <b>jpg</b>, <b>gif</b> or <b>png</b> format.</span>
 register_custom_avatar_url:	カスタムアバター URL:
 register_preview:		プレビュー
 register_custom_avatar_upload:	カスタムアバターファイル:
@@ -283,7 +268,6 @@ register_register:		登録
 register_required:		必須情報
 register_required_desc:		すべて必須項目です。パスワードは英大小文字を区別することを注意してください。
 register_optional:		オプション情報
-register_optional_desc:		It is recommended that you not reveal any personal or identifying information in your profile.  All information will be viewable by other forum members.
 register_location:		所在地:
 register_occupation:		職業:
 register_interests:		興味:
@@ -299,8 +283,6 @@ register_day:			日
 register_month:			月
 register_year:			年
 register_gender:		性別:
-register_bio:			Biography:
-register_bio_desc:		A few details about yourself, such as your interests, job, etc...
 register_prefs:			設定
 register_sig:			署名:
 register_sig_desc:		Optional signature, which will appear at the bottom of your messages
@@ -318,15 +300,12 @@ register_invisible_mode_desc:	オンライン状況を隠します
 register_show_email:		電子メールアドレスを表示:
 register_show_email_desc:	電子メールアドレスを公開表示するならこのオプションを選びます。
 register_notification:		デフォルトの通知選択:
-register_notification_desc:	If notification is enabled by default, it can be disabled when posting.
 register_notify_method:		通知方法を選択:
 register_allow_email_msg:	電子メールメッセージを許可:
-register_allow_email_msg_desc:	Allow other users to send you e-mails via this forum.
 buddy_status:			状況
 my_buddies:			自分の仲間
 add_buddy:			仲間を追加
 add:				追加
-buddy_search:			Enter the login of the user you wish to add.
 member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 buddy_remove:			削除
 post_normal:			通常
@@ -347,7 +326,6 @@ post_poll:			投票:
 post_create_poll:		投票作成
 post_poll_delete:		削除
 post_poll_edit:			編集
-post_mod_opt:			Moderator Options:
 post_thread_type:		トピックタイプ:
 post_thread_expiry:		トピック終了:
 post_locked:			トピックロック済み
@@ -375,7 +353,6 @@ post_body:			本文:
 post_options:			オプション:
 post_preview_btn:		メッセージプレビュー
 ignore_users:			無視ユーザー一覧
-add_ignore:			Add Ignoramus
 forum_terms:			フォーラム用語
 forum_rules:			このフォーラムへの登録は自由です! 私たちは、あなたが下記に記述された規則とポリシーに従うことを要求します。条件に同意する場合は、ページの終わりの「承諾」ボタンを押してください。注: ボタンを押すことによって、13歳以上であると宣言します。あなたが13以下である場合は、この登録フォームを使用してください。<p>このフォーラムの管理者およびモデレータはこのフォーラムからすべての不愉快なメッセージを取り除き試み続けますが、私たちはメッセージをすべて調査することができません。メッセージはすべて著者の意見を表現し、フォーラム所有者あるいは開発者のどちらも、いかなるメッセージの内容に責任を負わないでしょう。<p>「承諾」ボタンのクリックによって、わいせつ、下品、静的嫌がらせ、不愉快な、脅迫、その他のどんな法にも違反するメッセージを記入しないと保証します。<p>このフォーラムの所有者には、任意の理由でどんなトピックも移動、編集、移動、あるいは閉る権利を持ちます。<p>
 forum_rules_13:			All users under the age of 13 must seek permission from their parent or guardian in order to gain membership to the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send e-mail to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
@@ -391,11 +368,9 @@ coppa_fax_instructions:		親か保護者のため説明書
 coppa_fax_instructions2:	このページを印刷し、署名し、それを次に FAX してください:
 coppa_fax_reg_form:		登録フォーム
 coppa_fax_sign:			フォームの下に署名し、私たちにそれを送ってください。
-coppa_fax_conf:			I have reviewed the information my child has supplied and I have read the Privacy Policy for the web site. I understand that the profile information may be changed using a password. I understand that I may ask that this registration profile be removed entirely from the forum.
 coppa_fax_permission:		許可が与えられた場合、ここに署名する
 coppa_fax_no_permission:	アカウントを削除してほしい場合、ここに署名する
 coppa_fax_parent_name:		親/保護者のフルネーム:
-coppa_fax_relation:		Relation to Child:
 coppa_fax_telephone:		電話番号:
 coppa_fax_email:		電子メールアドレス:
 coppa_fax_date:			日付:
@@ -416,7 +391,6 @@ login_name_required:		ログイン名が必要です。
 login_passwd_required:		パスワードが必要です。
 login_invalid_radius:		ログイン名とパスワードの組み合わせが正しくありません。
 reset_confirmation:		Thank you for registering,\n\nTo activate your account please go to the URL below:\n\n{VAR: url}\n\nOnce your account is activated you will be logged-into the forum and\nredirected to the main page.\n
-reset_reset:			Hello,\n\nYou have requested for your password to be reset. To complete the process,\nplease go to this URL:\n\n{VAR: url}\n\nNOTE: This forum stores the passwords in a one-way encryption mechanism, which means that\nonce you have entered your password it is encoded so that there is NO WAY to get it back.\nThis works by comparing the encoded version we have on record with the encoded version of what you type into the Login prompt.\n(If you are interested in how this mechanism works, read up on MD5 HASH algorithm)
 rpasswd_invalid_passwd:		無効なパスワードです。
 rpasswd_passwd_nomatch:		パスワードが一致しません。
 rpasswd_passwd_length:		パスワードは 6 文字以上必要です。
@@ -432,13 +406,11 @@ login_passwd:			パスワード:
 reset_email:			電子メール:
 reset_reset_button:		パスワードリセット
 rate_this_thread:		評価
-report_reporting_about:		Reporting About:
 report_subject:			件名:
 report_by:			著者:
 report_posted_on:		投稿日:
 report_give_reason:		このメッセージになぜ報告しようとしたか書いてください。
 report_submit_report:		報告送信
-search_entire_msg:		Entire Message
 search_subect_only:		件名のみ
 search_forum:			フォーラム
 search_posted_on:		投稿日
@@ -452,23 +424,16 @@ remail_your_name:		あなたの名前:
 remail_your_email:		あなたの電子メール:
 remail_friends_name:		友達の名前:
 remail_friends_email:		友達の電子メール:
-remail_required:		required
 remail_subject:			件名:
 remail_message:			メッセージ:
 remail_send_now:		今電子メールを送る
-remail_anon_opt:		Copy this message into a mail client of your choice to send it to your friend(s).
 remail_done:			終了
-remail_sent_conf:		The e-mail to your friend at {VAR-HTML: _POST['femail']} about the {VAR: data->subject} topic was successfully sent.
 remail_error:			エラーがありました。
 mklist_type:			種類:
 mklist_option:			オプション:
 mklist_additem:			項目追加
-mklist_apply:			Apply
 mklist_delete:			削除
 qbud_nick_name:			ニックネーム
-qbud_add_selected:		Add Selected
-qbud_selected:			Selected
-qbud_no_buddies:		No buddies to choose from
 mklist_numerical:		数字
 mklist_aplha:			英字
 mklist_square:			四角
@@ -525,42 +490,31 @@ error_invalidurl:		無効な URL
 error_error:			エラー
 usrinfo_profile:		{VAR: u->alias} のプロフィール
 usrinfo_show_all_posts:		{VAR: u->alias} の書いたメッセージをすべて見る
-actions_update:			Snooping on other people, just like you
 err_info:			情報
 buddy_list_err_cantadd:		自分自身は仲間リストに追加できません
 buddy_list_err_dup:		このユーザーは仲間リストに既に居ます。
 buddy_list_err_nouser:		友達リストに加えようとしたユーザは見つかりませんでした。
 buddy_list_err_nouser_title:	ユーザを加えることができませんでした
-buddy_list_update:		Browsing own buddy list
 core_err_invinp_title:		無効な入力
 core_err_invinp_err:		無効なリンクを追跡しました。どうやってここに着いたか <a href="mailto:{GVAR: ADMIN_EMAIL}">サイト管理者</a> に通知してください。
 core_adm_login_msg:		<br />管理者は <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ここ</a> でログインできます。
-email_err_unabletoemail_title:	ERROR: Unable to e-mail
 email_err_unabletoemail_msg:	管理者により電子メールシステムが無効です。
-email_error_unabletolocaddr:	Sorry, the system was unable to e-mail {VAR-HTML: _POST['tx_name']} because it was unable to determine the e-mail address
 email_error_body:		本文が必要です。
 email_error_subject:		件名が必要です。
 email_error_namerequired:	名前が必要です。
 email_error_invaliduser:	無効なユーザーです。
 emailconf_err_invkey_title:	エラー
 emailconf_err_invkey_msg:	確認キーが無効です。Please check your e-mail to make sure that you have entered the URL correctly.
-err_inc_criticaltitle:		CRITICAL ERROR
-err_inc_criticalmsg:		An error has occurred. Unfortunately, there is also a problem with the error reporting system.
 finduser_update:		ユーザーの検索中
 help_index_update:		<a href="{TEMPLATE: help_index_update_lnk}">FAQ</a> を読みました。
 iemail_thr_subject:		{VAR: poster_login} から次の返信がありました: {VAR: thr_subject}
-iemail_thr_bodyemail:		To view unread replies go to {VAR: goto_url['email']}\n\nIf you do not wish to receive further notifications about replies in this topic, please go here: {VAR: unsub_url['email']}
 iemail_frm_subject:		{VAR: poster_login} からフォーラム「{VAR: frm_name}」で次の題名の新規投稿です: {VAR: thr_subject}
-iemail_frm_bodyemail:		To view the topic go to:\n{VAR: goto_url['email']}\n\nTo stop receiving notifications about new topics in this forum, please go here: {VAR: unsub_url['email']}
-iemail_participate:		To participate in the discussion, go here:
 ignore_list_err_info_title:	情報
 ignore_list_err_dup_msg:	このユーザーは既に無視リストに存在します。
 ignore_list_err_nu_title:	ユーザーが見つかりません
-ignore_list_err_nu_msg:		The user you tried to add to your ignore list was not found.
 ignore_list_cantign_msg:	このユーザーを無視できません。
 ignore_list_update:		無視リストを参照しました。
 index_update:			<a href="{TEMPLATE: index_update_lnk}">フォーラム一覧</a> を参照しました。
-list_referers_update:		Browsing referrals
 login_update:			ログインフォーム
 msg_update:			トピック <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> を閲覧する
 pm_err_nopm_title:		エラー: プライベートメッセージは無効です。
@@ -569,7 +523,6 @@ pm_update:			プライベートメッセージを使う
 post_err_lockedthread_title:	エラー: ロックされたトピックです。
 post_err_lockedthread_msg:	このトピックはロックされています。投稿はもう許可されていません。
 err_coppa_title:		えらー: あなたのアカウントは確認が済んでいません。
-err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your COPPA form, <a href="{TEMPLATE: err_coppa_msg_lnk}">click here</a> to see it again.
 post_err_edttimelimit_title:	エラー
 post_err_edttimelimit_msg:	もうこのメッセージを編集することができません
 post_err_noannontopics_msg2:	<fieldset><legend>ERROR: 特権不十分</legend>匿名ユーザーはトピック作成を許可されていません。</fieldset><br />
@@ -577,14 +530,12 @@ post_err_noannonposts_msg2:	<fieldset><legend>ERROR: 特権不十分</legend>名
 post_err_floodtrig_title:	エラー: Post flood triggered.
 post_err_floodtrig_msg:		{VAR: tm} 秒後にもう一度試してください。
 post_err_attach_size:		<span class="ErrorText">添付ファイルが大きすぎます (許可された制限 {VAR: MAX_F_SIZE} バイトを超えています。</span><br />
-post_err_attach_ext:		<span class="ErrorText">The file you are trying to upload does not match the allowed file types.</span><br />
 post_err_attach_filelimit:	<span class="ErrorText">許可されたファイル数より多くのファイルをアップロードしようとしています。</span><br />
 post_err_passwd:		パスワードが違います。
 post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		エラーがありました。
 postcheck_max_images_err:	メッセージ当りの画像は {GVAR: MAX_IMAGE_COUNT} 子まで許可されています。画像の数を減らしてみてください。
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		件名が必要です。
 postcheck_no_such_user:		このフォーラムに "{FUNC: char_fix(htmlspecialchars($v))}" という名前のユーザーはいません。
 postcheck_ignored:		この人はあなたを無視しているので、プライベートメッセージを "{FUNC: char_fix(htmlspecialchars($v))}" に送信できませんでした。
@@ -594,7 +545,6 @@ postcheck_email_subject:	件名がなければ電子メールを送信できま�
 postcheck_email_body:		メッセージ本文がなければ電子メールを送信できません。
 private_msg_notify_subj:	次の奇特通知: {VAR: m->subject}
 private_msg_notify_body:	こんにちは。<br />{VAR: usr->login} さんは {DATE: m->post_stamp %Y %B %d (%a) %H:%M} に書いたプライベートメッセージ「{VAR: m->subject}」を読みました。
-referals_update:		Browsing referrals
 register_err_short_login:	選択したログイン名は短すぎます。ログイン名は少なくとも 4 文字なければいけません。
 register_err_login_notallowed:	このログイン名は許可していません。
 register_err_loginunique:	フォーラムのログイン名は一意でなければなりません。この名前を持ったユーザーが既にいます。
@@ -627,8 +577,6 @@ reset_newpass_msg:		Hello,\n\nAs requested, your login information appears below
 reset_login_notify:		パスワードは電子メールで送信されました。数分でそれを受信しているはずです。<br />
 search_update:			メッセージ検索中
 selmsg_update:			<a href="{TEMPLATE: selmsg_update_lnk}">本日の投稿</a> を参照しました。
-showposts_update:		Viewing posts by: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-subscribed_update:		Browsing own subscriptions
 thread_update:			フォーラム <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a> を参照しました。
 tree_update:			トピック <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> をツリービューで参照しました。
 userinfo_update:		<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> のプロファイルを見る
@@ -660,7 +608,6 @@ search_title:			{VAR-HTML: srch} を検索する
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		電子メールを送信しました
-remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		追加オプション:
 post_opt_html_on:		<b>HTML</b> は <b>ON</b> です
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDコード</b> は <b>ON</b></a> です
@@ -683,16 +630,13 @@ thread_exchange:		トピック交換
 move_request_by:		トピックの移動要求を出したのは:
 move_reason:			トピック移動の理由:
 thr_exch_accept:		トピック許可
-thr_exch_decline:		decline topic
 thr_exch_orig_forum:		元フォーラム:
 thr_exch_dest_forum:		対象フォーラム:
 thr_exch_no_threads:		承認待ちのトピックはありません。
 thr_exch_decl_reason:		トピック <b>{VAR: data->subject}</b> を <b>{VAR-HTML: data->f2_name}</b> への移動を断った理由
 thr_exch_submit:		送信
 exch_decline_ttl:		トピック {VAR: data->subject} のフォーラム {VAR-HTML: data->f2_name} への移動は拒否されました。
-ppost_original_msg:		message you are forwarding or replying to
 split_thread:			トピックを分ける
-groupmgr_no_user:		There is no user with a login of "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:	ユーザー "{FUNC: char_fix(htmlspecialchars($gr_member))}" はこのグループにすでに居ます。
 groupmgr_yes:			はい
 groupmgr_no:			いいえ
@@ -705,7 +649,6 @@ groupmgr_edit:			編集
 groupmgr_delete:		削除
 group_mgr_anon:			匿名
 group_mgr_reged:		すべての登録ユーザー
-show_show:			Show:
 group_mgr:			グループ管理
 group_mgr_edit_btn:		グループ編集
 group_mgr_heading:		グループエディタセクション
@@ -734,7 +677,6 @@ rate_worst:			最悪
 rate_best:			最高
 post_quote_msg:			{VAR: msg->login} が {DATE: msg->post_stamp %Y %B %d (%a) %H:%M} に書きました
 post_quote:			引用:
-userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} メンバー
 pm_no_space_title:		空きがありません!
 pm_no_space_msg:		プライベートメッセージのフォルダーが許可された <b>{GVAR: MAX_PMSG_FLDR_SIZE} バイトのサイズを超えました。現在 <b>{VAR: fldr_size} バイト</b> のメッセージがあります。<br /><br /><span class="ErrorText">空きを整理するため、いくつかのメッセージを削除します。</span>
@@ -762,8 +704,6 @@ logedin_todays_visitors:	今日の訪問者
 logedin_latest_post:		最終メッセージがあるフォーラム: 
 register_show_avatar:		アバター表示:
 register_show_avatar_desc:	それらのメッセージを閲覧する場合、他のユーザのアバターを隠すことを許可します。
-drawmsg_view_rest_post:		Show the rest of the message
-post_re:			Re: 
 forumsel_goto_forum:		フォーラム移動:
 minimsg_thread_view:		トピック閲覧
 split_th_post_by:		投稿者:
@@ -786,13 +726,10 @@ maximize_category:		最大カテゴリ
 no_view_perm:			このトピックを見るために必要とされる適切な許可を持っていません。
 report_empty_report:		空の報告を送ることができません。報告の理由を入力してください。
 report_already_reported_title:	既に報告済みです。
-report_already_reported_msg:	This message was already reported and the report is currently in the moderator&#39;s queue.
-register_err_toomanyimages:	You are trying to use more than the allowed {GVAR: FORUM_IMG_CNT_SIG} images in your signature.
 pmsg_next_msg:			次のメッセージ
 pmsg_prev_msg:			前のメッセージ
 post_proc_reveal_spoiler:	Reveal Spoiler
 register_jabber:		Jabber ハンドル:
-im_jabber:			Jabber: 
 forum_contact:			連絡
 forum_home:			ホーム
 post_cur_attached:		現在の添付は {VAR: i} ファイルです
@@ -811,7 +748,6 @@ register_err_not_valid_img:	指定された URL は有効な画像を含んで�
 pmsg_recepient:			受取人
 register_err_taken_alias:	The alias you are trying to use is already in use by another forum member. その他を選んでください。
 register_alias:			エイリアス:
-register_alias_desc:		If you want a nickname other than your login to be displayed in the forum, enter it here.
 register_allow_pm_msg:		プライベートメッセージを許可
 register_allow_pm_msg_desc:	このフォーラムで他のユーザーがあなたにプライベートメッセージを送信することを許可します。
 postcheck_pm_disabled:		この人はプライベートメッセージを受理しないため、"{VAR-HTML: v} に送信できませんでした。
@@ -825,19 +761,14 @@ polllist_action:		操作
 polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">有効な投票をレビュー</a>
 userinfo_polls:			投票一覧:
 show_pollist:			投票を表示
-search_and:			AND
-search_or:			OR
 search_desc_order:		降順
 search_asc_order:		昇順
 search_logic:			検索ロジック:
 search_sorting:			日付での結果ソート:
 post_proceed:			進む
-post_moderated_forum:		You have made a post in a moderated forum. Your message will not be visible to others until it is approved by one of the forum&#39;s moderator(s) or administrator(s).
 post_moderated_forum_ttl:	モデレート済フォーラムの通知
-buddy_list_bday:		Today {VAR: r[2]} turns {VAR: age}
 email_warning_msg:		もし現在の電子メールアドレスを変更した場合、電子メールにて確認されるまでアカウントは未確認に設定されます。
 register_show_im:		IM インジケーターの表示
-register_show_im_desc:		Whether or not to show IM indicators of the author beside their messages.
 unread_message:			未読メッセージ
 read_message:			既読メッセージ
 threadt_more:			&lt;もっと&gt;
@@ -845,20 +776,15 @@ threadt_disabled_ttl:		トピックのツリービューでの一覧は無効で
 threadt_disabled_desc:		トピック一覧のツリービューは管理者が無効にしました。変わりにフラットビューを使用してください。
 threadt_update:			フォーラム <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a> をツリービューで参照しました。
 mmod_delete_cofirm_ttl:		トピック/メッセージの削除を確認する
-spell_alts:			no alternatives
 insert_uploaded_image:		メッセージ本文に画像を挿入
 finduser_help:			検索エンジンは自動的に「*」を問合せに付加します。<b>検索は英大小文字(そして全角半角)を区別します</b>。<br />例)「a」で始まるすべてのユーザーを検索するなら検索ボックスに「a」を入力します。
 back_to_top:			トップに戻る
 pm_err_disabled_title:		プライベートメッセージが無効です
 pm_err_disabled_msg:		プロファイルのオプション「プライベートメッセージを許可する」を有効にするまで、プライベートメッセージの送信は使用できません。
 err_mod_acc_ttl:		未確認アカウント
-err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account has been validated by the administrator you will not be able to utilize the full capabilities of your account.
 accounts_pending_approval:	承認保留アカウント
 saved:				保存済み
 register_err_time_limit:	The limit of one registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. {VAR: reg_limit_reached} 秒待って、もう一度登録を試みてください。
-register_affero:		Affero Username:<br /><span class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username, enter it here.</span>
-im_affero:			Affero Username
-register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:			{VAR: r[2]} は現在オフラインです
 buddy_online:			{VAR: r[2]} は現在オンラインです
 sml_no_smilies:			表情アイコンは利用できません。
@@ -992,72 +918,11 @@ pmsg_pdf_btn:			PDF アーカイブの作成する
 search_results_hdr:		{VAR: total} 個の検索結果が見つかりました。
 thread_del_all:			すべての選択を削除する
 thread_mov_all:			すべての選択を移動する
-dmsg_ip:			IP:
 err_banned_acct_title:		エラー: 禁止されました。
-err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
 err_blockedaccnt_title:		エラー: アカウントはフィルターされました。
 err_blockedaccnt_msg:		アカウントは、インストールされたユーザーフィルターのうちのつ 1 により、フォーラムにアクセスすることを遮断されました。
 merge_th_page_list:		トピックページ選択
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:		すべてのフォーラムの購読を止める
 sub_unsub_all_topics:		すべてのトピックの購読を止める
-tabs_own_posts:			Show Own Posts
 buddy_list_err_ignore:		あなたの友達リストに自分を無視するユーザーとして追加することはできません。
-sml_emoticon:			Emoticon
-sml_code:			Code
-mnav_sub_only:			Search in subscribed forums only
-register_topics_per_page:	Topics Per Page:
-login_min_time:			This forum allows one login attempt every {VAR: MIN_TIME_BETWEEN_LOGIN} seconds, please wait {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconds before your next attempt.
-post_not_logged_in:		You are not currently logged in, the message will be posted anonymously.
-post_common_bold:		Bold
-post_common_italics:		Italics
-post_common_underline:		Underline
-post_common_align_left:		Align Left
-post_common_align_center:	Align Center
-post_common_align_right:	Align Right
-post_common_link:		Insert a Link
-post_common_email:		Insert an E-mail address
-post_common_image:		Insert an image
-post_common_nlist:		Add numbered list
-post_common_blist:		Add bulleted list
-post_common_quote:		Add Quote
-post_common_code:		Add Code
-rating:				Rating
-rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
-rating_delete:			Delete
-post_always_on_top:		Make the topic always appear at the top of the topic listing
-register_skype:			Skype Handle:
-register_google:		Google Chat/IM Handle:
-im_google:			Google Talk: 
-im_skype:			Skype: 
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
-register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
-tabs_notifications:		Notifications
-finduser_flag:			Flag
-post_descr:			Topic Description
-pmsg_on:			on
-pmsg_download_dump:		Download Message Dumpmove_messages:			Move messages
-move_msg_btn:			Move Selected Messages
-move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
-move_messages:			Move messages
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
-index_url_redirection:		Redirection
 quick_reply:			迅速な返事
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

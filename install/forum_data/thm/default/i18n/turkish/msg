@@ -4,7 +4,6 @@ admin:				Yönetici
 admin_control_panel:		Yönetici Denetim Masası
 administrator:			Yönetici
 attachment:			Ek:
-avatar:				Avatar:
 average_post_count:		İleti sayısı: {VAR: u->posted_msg_count} Günlük ortalama ileti sayısı: ({VAR: avg})
 biography:			Kişisel bilgiler:
 birth_date:			Doğum tarihi:
@@ -23,7 +22,6 @@ faq:				S.S.S.
 first_unread_msg:		Okunmayan iletilere git.
 first_unread_msg_desc:		Bu zincirdeki okunmamış ilk iletiye git.
 flat_view:			Varsayılan düz görünüme geri dön.
-forum:				Forum:
 forum_icon:			Forum Simgesi
 forum_new_messages:		Yeni ileti
 forum_none_messages:		Sadece kayıtlı kullanıcılar iletileri izleyebilir.
@@ -42,7 +40,6 @@ im_aim:				AIM:
 im_msnm:			MSN:
 im_yahoo:			Yahoo:
 image:				Resim:
-index_forum:			Forum
 index_new_posts:		Son ziyaretinizden sonra yeni ileti gönderilmiş
 index_no_new_posts:		Son ziyaretinizden sonra yeni ileti gönderilmemiş 
 interests:			İlgi alanları:
@@ -268,7 +265,6 @@ register_your_pass:		Parolanız:
 register_update:		Güncelle
 register_avatar_type:		Avatar Tipi:
 register_del_avatar:		Avatarı Sil
-register_avatar:		Avatar:
 register_sel_avatar:		Avatar Seçimi
 register_custom_avatar_rules:	Özel avatar yönetici tarafından onaylanıncaya dek görünmeyecek.<br /><font class="SmallText">Avatar, <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} piksel </b> boyutundan daha büyük olmamalı ve <b>jpg</b>, <b>gif</b> veya <b>png</b> biçiminde olmalı.</font>
 register_custom_avatar_url:	Özel Avatar URL&#39;si:
@@ -363,7 +359,6 @@ include_sig_desc:		Kişisel bilgilerinizdeki imzanızı dahil eder.
 disable_smilies:		Bu iletide gülücükleri kapat.
 spell_check_msg:		İletinin yazım hatalarını sına.
 post_form:			Formu Gönder
-post_forum:			Forum:
 post_title:			Başlık:
 post_body:			Gövde:
 post_options:			Seçenekler:
@@ -434,7 +429,6 @@ report_give_reason:		Bu iletiyi bildirme sebebiniz:
 report_submit_report:		Bildirimi gönder
 search_entire_msg:		Tüm iletide
 search_subect_only:		Sadece başlıkta
-search_forum:			Forum
 search_posted_on:		Gönderilme Tarihi
 search_no_results:		Bulunamadı
 search_all_forums:		Tüm forumlar
@@ -575,7 +569,6 @@ post_reply_update:		{VAR-HTML: frm->name} forumundaki <a href="{TEMPLATE: msg_po
 post_topic_update:		<a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> forumunda yeni tartışma açıyor.
 post_error_generic:		Bir hata oluştu
 postcheck_max_images_err:	İleti başına en fazla {GVAR: MAX_IMAGE_COUNT} resim gönderilebilir, lütfen resim sayısını azaltın.
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Konu bölümü zorunlu
 postcheck_no_such_user:		Bu forumda "{FUNC: char_fix(htmlspecialchars($v))}" isminde bir kullanıcı yok.
 postcheck_ignored:		"{FUNC: char_fix(htmlspecialchars($v))}" kullanıcısına özel ileti gönderemezsiniz, çünkü bu kişi sizi gözardı ediyor.
@@ -759,7 +752,6 @@ split_th_post_by:		Gönderen:
 split_th_posted_on:		Gönderildiği Tarih:
 split_th_subject:		Konu:
 split_th_new_thread_title:	Yeni zincir başlığı:
-split_th_forum:			Forum:
 split_th_split_sel:		Seçilen iletileri böl
 split_th_split_unsel:		Seçilmeyen iletileri böl
 split_th_messages:		İletiler
@@ -928,12 +920,10 @@ split_cp:			Zinciri Böl Denetim Masası
 groups_perms_header:		İzinler <font size="-1">(izin hakkında açıklama almak için fareyi üzerine getirin)</font>
 register_err_sig_too_long:	İmzanız en fazla {GVAR: FORUM_SIG_ML} karakter olabilir.
 register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'İmzanız \'+document.forms[\'fud_register\'].reg_sig.value.length+\' karakter uzunluğunda. İzin verilen en fazla karakter sayısı {GVAR: FORUM_SIG_ML}\');" class="SmallText">İmzanızın uzunluğunu gözden geçirin</a>
-p_SEARCH:			Can Search
 adm_account_accepted:		Hesabınız (\'{VAR: GLOBALS['r']->login}\') yönetici tarafından onaylandı ve şu an etkin durumda. Artık \'{GVAR: FORUM_TITLE}\' forumuna onaylı kayıtlı kullanıcı olarak erişebilirsiniz.
 adm_account_accepted_s:		\'{GVAR: FORUM_TITLE}\' için hesap isteğiniz kabul edildi.
 adm_account_rejected:		Hesabınız (\'{VAR: GLOBALS['r']->login}\') yönetici tarafından reddedildi. Bu kararın arkasındaki neden hakkında bilgi almak için \'{GVAR: ADMIN_EMAIL}\' adresinden yönetici ile iletişime geçebilirsiniz.
 adm_account_rejected_s:		\'{GVAR: FORUM_TITLE}\' forumu için hesap isteğiniz reddedildi.
-thread_on:			on
 register_email:			Email
 userinfo_buddy:			Arkadaş:
 register_email_addr:		E-mektup Adresi:
@@ -951,13 +941,10 @@ ip_all_ips:			&#39;{VAR: user}&#39; tafından kullanılan tüm IP adresleri
 ip_title:			IP Tarayıcı
 userinfo_real_name:		Gerçek İsim:
 register_err_alias_notallowed:	Bu takma isme izin verilmiyor
-post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
 ERR_login_msg2:			<fieldset><legend>HATA: Giriş yapmadınız.</legend>Bu sayfaya erişebilmek için bu forumun bir üyesi olmanız gerekiyor.</fieldset><br />
 post_err_mod_forum_edit_ttl:	HATA
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			ileti #{VAR: obj->id}
-postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>İsteğe bağlı</b><br />İletinin neden silindiği konusunda yazara bilgi gönderin.
 delete_message_extra_body:	Yazara silinen iletinin gövdesini gönderin.
 delete_msg_removed_ttl:		İletiniz yönetici tarafından silindi.
@@ -977,87 +964,3 @@ search_options:			Arama Seçenekleri
 search_user_filter:		Kullanıcıya göre ara:
 register_none:			Haberdar etme
 findu_no_conf:			onaylanmamış kullanıcı
-register_max_sig_len:		Maximum Length:
-register_turing:		Please enter the code shown below:
-register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum
-idx_compact_forum_row:		Available Forums:
-mmd_del_title:			Delete Topics
-mmd_mov_title:			Move Topics
-mmd_move_threads_to:		Destination Forum:
-mmd_abort_move:			Cancel
-mmd_move:			Move Topics
-pmsg_pdf_btn:			Make PDF Archive
-search_results_hdr:		{VAR: total} Search Results Found
-thread_del_all:			Delete All Selected
-thread_mov_all:			Move All Selected
-dmsg_ip:			IP:
-err_banned_acct_title:		ERROR: You have been banned.
-err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
-err_blockedaccnt_title:		ERROR: Your account has been filtered out.
-err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
-merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
-tabs_own_posts:			Show Own Posts
-buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
-sml_emoticon:			Emoticon
-sml_code:			Code
-mnav_sub_only:			Search in subscribed forums only
-register_topics_per_page:	Topics Per Page:
-login_min_time:			This forum allows one login attempt every {VAR: MIN_TIME_BETWEEN_LOGIN} seconds, please wait {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconds before your next attempt.
-post_not_logged_in:		You are not currently logged in, the message will be posted anonymously.
-post_common_bold:		Bold
-post_common_italics:		Italics
-post_common_underline:		Underline
-post_common_align_left:		Align Left
-post_common_align_center:	Align Center
-post_common_align_right:	Align Right
-post_common_link:		Insert a Link
-post_common_email:		Insert an E-mail address
-post_common_image:		Insert an image
-post_common_nlist:		Add numbered list
-post_common_blist:		Add bulleted list
-post_common_quote:		Add Quote
-post_common_code:		Add Code
-rating:				Rating
-rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
-rating_delete:			Delete
-post_always_on_top:		Make the topic always appear at the top of the topic listing
-register_skype:			Skype Handle:
-register_google:		Google Chat/IM Handle:
-im_google:			Google Talk: 
-im_skype:			Skype: 
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
-register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
-tabs_notifications:		Notifications
-finduser_flag:			Flag
-post_descr:			Topic Description
-pmsg_on:			on
-pmsg_download_dump:		Download Message Dump
-move_messages:			Move messages
-move_msg_btn:			Move Selected Messages
-move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
-index_url_redirection:		Redirection 
-quick_reply:			Quick Reply
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

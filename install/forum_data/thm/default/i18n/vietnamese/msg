@@ -16,7 +16,6 @@ date_posted:			Ngày Đăng Bài
 date_registered:		Ngày đăng ký:
 download_counter:		Tải xuống {VAR: v[3]} lần
 pmsg_download_counter:		Tải xuống {VAR: r->dlcount} lần
-email:				E-mail:
 email_to_friend:		E-mail đến bạn
 email_to_friend_desc:		Gởi đường dẫn trang này đến bạn của bạn bằng email
 email_user:			Nhấn chuột vào đây để gửi mail cho thành viên này
@@ -36,12 +35,7 @@ goto_next_msg:			Đến tin kế tiếp
 goto_prev_msg:			Lùi lại tin sau
 home:				Trang Chủ
 homepage:			Trang web cá nhân:
-icq_control_panel:		ICQ Online-Message Panel
-icq_message_form:		ICQ Message Form:
 ignore_user:			Từ chối tất cả bài viết bởi thành viên này
-im_aim:				AIM Handle:
-im_msnm:			MSN Messenger:
-im_yahoo:			Yahoo Messenger:
 image:				Hình ảnh:
 index_forum:			Diễn Đàn
 index_new_posts:		Bài viết mới kể từ lần xem sau cùng
@@ -61,12 +55,10 @@ logout:				Thoát
 mark_all_read:			Đánh dấu đọc tất cả bài viết
 mark_all_read_desc:		Đánh dấu đã đọc cho tất cả bài viết chưa xem của bạn
 members:			Thành Viên
-message:			Message
 message_counter:		Thành viên của chúng ta đã gửi tổng cộng <b>{VAR: post_count}</b> bài viết trong <b>{VAR: thread_count}</b> chủ đề .
 message_index:			Chỉ mục bài viết
 message_index_desc:		Xem danh sách bài viết
 minimize_category:		Thu nhỏ danh mục
-moderation_queue:		Moderation Queue
 moderator:			Người Điều Tiết
 moderator_of:			Người điều tiết của:
 moderator_options:		Mục chọn của người điều tiết
@@ -76,7 +68,6 @@ more_unread_messages_desc:	Xem thêm những bài viết chưa đọc và đánh
 move_thread:			Di chuyển
 moved:				Chuyển đến một diễn đàn khác
 moved_thread_message:		Chủ đề này đã bị chuyển sang một diễn đàn khác
-na:				n/a
 new_posts:			Bài Viết Mới
 new_private_messages:		Bạn có <span class="GenTextRed">({VAR: c})</span> tin nhắn chưa đọc
 new_thread:			Tạo một chủ đề mới
@@ -116,8 +107,6 @@ registered_on:			Đăng ký vào {TEMPLATE: registered_on_date}
 replies:			TrảLời
 report_to_mod:			Thông báo đến người điều tiết
 reported_messages:		Bài viết đã được trình bày
-reveal_all_posts:		reveal all messages by {VAR: user_login}
-reveal_post:			reveal message
 search:				Tìm kiếm
 sel_todays_posts:		Bài viết hôm nay
 sel_todays_posts_desc:		Giữ bộ lọc bài viết ngày hôm nay (sẽ chỉ xem những bài viết ngày hôm nay)
@@ -130,10 +119,8 @@ send_pm_desc:			Gởi một tin nhắn cá nhân đến thành viên này
 sender_email:			Người gửi email:
 sender_name:			Tên người gửi:
 show_posts_by:			Xem Bài Viết Bởi: {VAR: u_alias}
-size:				Size:
 status:				Trạng thái:
 status_line:			Hiện có <b>{VAR: st_obj->online_users_reg}</b> thành viên , <b>{VAR: st_obj->online_users_hidden}</b> thành viên ẩn danh và <b>{VAR: st_obj->online_users_anon}</b> khách đã ghé thăm trang này.
-sticky:				sticky:
 stop_ignoring:			Không từ chối thành viên này
 sub_to_thread:			Theo dõi chủ đề
 sub_to_thread_desc:		Nhận thông báo về tin mới trong chủ đề này
@@ -196,11 +183,7 @@ deny_recipt:			Từ chối nhận
 deny_recipt_desc:		Không gửi thông báo khi bạn đọc tin nhắn này
 restore_to:			Phục hồi đến:
 move_to:			Chuyển đến:
-list_referes_referrals:		Referrals
-list_referes_members:		Members Referred
 list_referes_member:		Thành Viên
-referals_none:			No referrals yet.
-referals_refered_by:		Forum members referred by: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Số bài viết
 referals_registered_on:		Đăng ký vào
 referals_action:		Hànhđộng
@@ -247,14 +230,12 @@ use_forum_default:		Sử dụng diễn đàn chuẩn
 finduser_user_info:		Thông tin người sử dụng
 finduser_by_login:		Bằng Tên Đăng Nhập:
 finduser_submit:		Tìm
-finduser_no_such_user:		No Such User
 finduser_user:			Thành viên
 finduser_postcount:		Số bài viết
 finduser_joindate:		Ngày tham gia
 finduser_action:		Hành động
 yes:				Có
 no:				Không
-register_email:			E-mail
 edit_time_limit:		<br /><b>Hạn chế thời gian sửa</b> : <b>{GVAR: EDIT_TIME_LIMIT}</b> phút
 no_edit_time_limit:		<br /><b>Hạn chế thời gian sửa</b>:<b>Không<br />hạn chế</b>
 pmuserloc_login:		Tên đăng nhập:
@@ -289,9 +270,6 @@ register_occupation:		Nghề nghiệp:
 register_interests:		Sở thích:
 register_image:			Hình Ảnh:
 register_icq:			ICQ
-register_aim:			AIM Handle:
-register_yahoo:			Yahoo Messenger:
-register_msnm:			MSN Messenger:
 register_homepage:		Trang web của bạn:
 register_bday:			Ngày sinh nhật:
 register_bday_desc:		Nếu bạn nhập vào ngày sinh nhật .Thành viên khác trong diễn dàn có thể sẽ nhìn thấy được ngày sinh của bạn trong phần tiểu sử
@@ -330,11 +308,8 @@ buddy_search:			Nhập vào tên đăng nhập của thành viên mà bạn mu�
 member_search:			<br />hoặc sử dụng chức năng <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Tìm thành viên</a> để kiếm một người.
 buddy_remove:			Xóa bỏ
 post_normal:			Bình Thường
-post_sticky:			Sticky
 post_annoncement:		Thông Báo
-post_size:			Size
 post_color:			Màu
-post_font:			Font
 create_thread:			Tạo Chủ Đề
 submit_reply:			Đăng bài trả lời
 edit_message:			Áp dụng thay đổi bài viết
@@ -379,7 +354,6 @@ add_ignore:			Thêm người bị từ chối
 forum_terms:			Những điều khoản của diễn đàn
 forum_rules:			<center><h1>Chào đón những thành viên mới của <b>Trường Long Forum </b></h1><br />Chúc Các Bạn Vui Vẻ ^_^ <br />Nếu bạn đồng ý --->> [Đồng ý]<br />nếu không -->> [không đồng ý]</center>
 forum_rules_13:			Tất cả những thành viên dưới 13 tuổi phải có sự chấp nhận của cha mẹ hoặc người bảo hộ để có thể trở thành thành viên của diễn đàn While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send e-mail to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
-coppa_conf:			COPPA Confirmation
 coppa_before:			Trước {TEMPLATE: coppa_date}
 coppa_after:			Sau {TEMPLATE: coppa_date}
 coppa_link:			Nhấn chuột vào link này để chịu trách nhiệm về ngày sinh của bạn
@@ -387,23 +361,7 @@ coppa:				A parent or guardian must mail or fax a signed permission form to the 
 prereg_info:			Thông tin
 prereg_agree:			Đồng Ý
 prereg_disagree:		Không đồng ý
-coppa_fax_instructions:		Instructions for a Parent or Guardian
-coppa_fax_instructions2:	Please print this page, sign it, and fax it to:
-coppa_fax_reg_form:		Registration Form
-coppa_fax_sign:			Please sign the form below and send it to us
-coppa_fax_conf:			I have reviewed the information my child has supplied and I have read the Privacy Policy for the web site. I understand that the profile information may be changed using a password. I understand that I may ask that this registration profile be removed entirely from the forum.
-coppa_fax_permission:		Sign here if you give permission
-coppa_fax_no_permission:	Sign here if you would like the account to be deleted
-coppa_fax_parent_name:		Parent/Guardian Full Name:
-coppa_fax_relation:		Relation to Child:
-coppa_fax_telephone:		Telephone:
-coppa_fax_email:		E-mail Address:
-coppa_fax_date:			Date:
-coppa_fax_questions:		Please contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> with any questions
-coppa_fax_login:		Login
 coppa_fax_passwd:		Mật khẩu
-coppa_fax_remail:		E-mail
-coppa_fax_name:			Name
 login_not_logedin:		Bạn không đăng nhập được. Có thể do một vài lý do:
 login_cookie_expired:		Cookies của bạn đã hết hạn, và bạn cần phải đăng nhập lại để làm mới cookie.
 login_perm_denied:		Bạn không được phép truy cập khi là thành viên vô danh. Bạn phải đăng nhập để có được sự cho phép.
@@ -416,11 +374,9 @@ login_name_required:		Tên đăng nhập đòi hỏi phải có
 login_passwd_required:		Mật khẩu đòi hỏi phải có
 login_invalid_radius:		Tên đăng nhập hoặc mật khẩu không chính xác
 reset_confirmation:		Cám ơn bạn đã đăng ký,\n\n Để kích hoạt tài khoản Xin vui lòng đến đường dẫn bên dưới :\n\n{VAR: url}\n\n Tài khoản của bạn được kích hoạt sẽ đăng nhập vào diễn đàn và \n chuyển đến trang chính.\n
-reset_reset:			Hello,\n\nYou have requested for your password to be reset. To complete the process,\nplease go to this URL:\n\n{VAR: url}\n\nNOTE: This forum stores the passwords in a one-way encryption mechanism, which means that\nonce you have entered your password it is encoded so that there is NO WAY to get it back.\nThis works by comparing the encoded version we have on record with the encoded version of what you type into the Login prompt.\n(If you are interested in how this mechanism works, read up on MD5 HASH algorithm)
 rpasswd_invalid_passwd:		Mật khẩu không chính xác
 rpasswd_passwd_nomatch:		Mật khẩu không tìm thấy
 rpasswd_passwd_length:		Mật khẩu phải dài ít nhất 6 kí tự
-reset_remind_pass:		Password Reminder
 reset_reset_conf:		Mật khẩu của bạn sẽ được tạo mới và gửi đến bạn. Nếu bạn chưa xác nhận địa chỉ email , Yêu cầu xác nhận sẽ gửi lại đến bạn.
 reset_error:			Địa chỉ email không tìm thấy trong cơ sở dữ liệu
 rpasswd_change_pass:		Thay đổi mật khẩu
@@ -429,15 +385,7 @@ rpasswd_cur_pass:		Mật khẩu hiện tại:
 rpasswd_new_pass:		Mật khẩu mới:
 rpasswd_conf_pass:		Xác nhận mật khẩu:
 login_passwd:			Mật Khẩu:
-reset_email:			E-mail:
 reset_reset_button:		Tạo mới mật khẩu
-rate_this_thread:		Rate
-report_reporting_about:		Reporting About:
-report_subject:			Subject:
-report_by:			By:
-report_posted_on:		Posted on:
-report_give_reason:		Please give a reason why you are reporting this message:
-report_submit_report:		Submit Report
 search_entire_msg:		Toàn bộ bài viết
 search_subect_only:		Chỉ tựa đề
 search_forum:			Diễn đàn
@@ -447,36 +395,15 @@ search_all_forums:		Tìm tất cả diễn đàn
 search_in_forum:		Tìm trong diễn đàn:
 search_forum_search:		Tìm Kiếm
 move_thread_to:			Chuyển chủ đề <b>{VAR: thr->subject}</b> đến:
-remail_email_topic:		E-mail This Topic to a Friend
-remail_your_name:		Your Name:
-remail_your_email:		Your E-mail:
-remail_friends_name:		Friend&#39;s Name:
-remail_friends_email:		Friend&#39;s E-mail:
-remail_required:		required
-remail_subject:			Subject:
-remail_message:			Message:
-remail_send_now:		Send E-mail Now
-remail_anon_opt:		Copy this message into a mail client of your choice to send it to your friend(s).
-remail_done:			Done
-remail_sent_conf:		The e-mail to your friend at {VAR-HTML: _POST['femail']} about the {VAR: data->subject} topic was successfully sent.
-remail_error:			There was an error
 mklist_type:			Loại:
-mklist_option:			Option:
-mklist_additem:			Add Item
-mklist_apply:			Apply
 mklist_delete:			Xóa
 qbud_nick_name:			Bí danh
-qbud_add_selected:		Add Selected
 qbud_selected:			Được chọn
 qbud_no_buddies:		Không có bạn được chọn từ
 mklist_numerical:		Số
 mklist_aplha:			Kí tự
 mklist_square:			Hình vuông
-mklist_disc:			Disc
-mklist_circle:			Circle
-mklist_close:			Close
 email_to:			Đến:
-email_pg_title:			E-mail
 email_subject:			Tựa Đề:
 email_body:			Nội Dung:
 email_submit:			Gửi Email
@@ -512,20 +439,15 @@ poll_year:			năm
 poll_week:			tuần
 tabs_register:			Hiệu Chỉnh
 tabs_subscriptions:		Theo Dõi
-tabs_referrals:			Referrals
 tabs_buddy_list:		Danh Sách Bạn Bè
 tabs_ignore_list:		Danh Sách Từ Chối
 tabs_private_messaging:		Tin Nhắn Cá Nhân
 single_msg_delete:		You are about to <span class="ErrorText">DELETE</span> the message titled: <b>{VAR: data[3]}</b><p>
 thread_delete:			You are about to <span class="ErrorText">DELETE</span> the <span class="ErrorText">ENTIRE TOPIC</span> titled: <b>{VAR: data[3]}</b><p>
-delete_proceed:			<span class="fb">Do you wish to proceed?</span>
-delete_yes:			Yes
-delete_no:			No
 error_invalidurl:		Đường dẫn URL không có giá trị
 error_error:			Lỗi
 usrinfo_profile:		Tiểu sử của {VAR: u->alias}
 usrinfo_show_all_posts:		Xem tất cả bài viết bởi  {VAR: u->alias}
-actions_update:			Snooping on other people, just like you
 err_info:			Thông tin
 buddy_list_err_cantadd:		Bạn không thể thêm chính bạn vào trong danh sách bạn bè
 buddy_list_err_dup:		Bạn đã có người này trong danh sách
@@ -533,8 +455,6 @@ buddy_list_err_nouser:		Người sử dụng mà bạn muốn thêm không thể
 buddy_list_err_nouser_title:	Không thể thêm người sử dụng
 buddy_list_err_ignore:		Không thể thêm thành viên này vì họ đã từ chối bạn thêm vào danh sách bạn bè.
 buddy_list_update:		Xem qua danh sách bạn bè của tôi
-core_err_invinp_title:		Invalid Input
-core_err_invinp_err:		You have followed an invalid link. Please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> how you got here.
 core_adm_login_msg:		<br />người quản trị tối cao có thể đăng nhập  <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ở đây</a>
 email_err_unabletoemail_title:	Lỗi : Không thể gửi email
 email_err_unabletoemail_msg:	Hệ thống email đã bị vô hiệu hóa bởi người quản trị tối cao.
@@ -545,15 +465,7 @@ email_error_namerequired:	Tên đòi hỏi phải có
 email_error_invaliduser:	Tên người sử dụng không có giá trị
 emailconf_err_invkey_title:	Lỗi
 emailconf_err_invkey_msg:	Khóa xác nhận không chính xác.  Xin vui lòng kiểm tra lại email của bạn để chắc chắn rằng bạn đã nhập vào đúng đường dẫn URL.
-err_inc_criticaltitle:		CRITICAL ERROR
-err_inc_criticalmsg:		An error has occurred. Unfortunately, there is also a problem with the error reporting system.
 finduser_update:		Đang kiếm thành viên
-help_index_update:		Reading the <a href="{TEMPLATE: help_index_update_lnk}">Help</a>
-iemail_thr_subject:		New reply to {VAR: thr_subject} by {VAR: poster_login}
-iemail_thr_bodyemail:		To view unread replies go to {VAR: goto_url['email']}\n\nIf you do not wish to receive further notifications about replies in this topic, please go here: {VAR: unsub_url['email']}
-iemail_frm_subject:		New topic in forum {VAR: frm_name}, called {VAR: thr_subject}, by {VAR: poster_login}
-iemail_frm_bodyemail:		To view the topic go to:\n{VAR: goto_url['email']}\n\nTo stop receiving notifications about new topics in this forum, please go here: {VAR: unsub_url['email']}
-iemail_participate:		To participate in the discussion, go here:
 ignore_list_err_info_title:	Thông tin
 ignore_list_err_dup_msg:	Bạn đã có người này trong danh sách của bạn
 ignore_list_err_nu_title:	Không tìm thấy thành viên
@@ -561,7 +473,6 @@ ignore_list_err_nu_msg:		Thành viên mà bạn muốn thêm vào danh sách đ�
 ignore_list_cantign_msg:	Bạn không thể từ chối thành viên này
 ignore_list_update:		Xem qua danh sách của bạn
 index_update:			Xem qua <a href="{TEMPLATE: index_update_lnk}">danh sách diễn đàn </a>
-list_referers_update:		Browsing referrals
 login_update:			Đăng Nhập
 msg_update:			Xem qua chủ đề <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		Lỗi : Tin Nhắn Cá Nhân Đã Bị Vô Hiệu Hóa
@@ -587,7 +498,6 @@ post_reply_update:		Trả lời đến <a href="{TEMPLATE: msg_post_lnk}">{VAR: 
 post_topic_update:		Tạo chủ đề mới trong <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:		Có một lỗi xảy ra
 postcheck_max_images_err:	Số lượng hình ảnh được cho phép trong mỗi bài viết không được hơn {GVAR: MAX_IMAGE_COUNT} hình. Xin vui lòng giảm số lượng hình.
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Yêu cầu có tựa đề
 postcheck_no_such_user:		Không có thành viên tên "{FUNC: char_fix(htmlspecialchars($v))}" trong diễn đàn này.
 postcheck_ignored:		Bạn không thể gửi tin nhắn cá nhân đên "{FUNC: char_fix(htmlspecialchars($v))}", vì người này đã từ chối bạn.
@@ -597,7 +507,6 @@ postcheck_email_subject:	bạn không thể gửi email mà không có tựa đ�
 postcheck_email_body:		bạn không thể gửi email mà không có nội dung.
 private_msg_notify_subj:	Đọc thông báo : {VAR: m->subject}
 private_msg_notify_body:	Xin chào,<br />{VAR: usr->login} đã đọc tin nhắn của bạn, "{VAR: m->subject}", vào {TEMPLATE: private_msg_notify_body_date}<br />
-referals_update:		Browsing referrals
 register_err_short_login:	Tên đăng nhập bạn lựa chọn quá ngắn. Tên đăng nhập phải ít nhất 4 kí tự.
 register_err_login_notallowed:	Tên đăng nhập này không được cho phép.
 register_err_loginunique:	Tên đăng nhập phải là duy nhất. Đã có người khác sử dụng tên này.
@@ -614,24 +523,15 @@ register_err_avatarnotallowed:	Hình đại diện bạn gửi lên không đư�
 register_conf_subject:		Xác Nhận Đăng Ký
 register_conf_msg:		Cám ơn bạn đã đăng ký,\n Để kích hoạt tài khoản của bạn xin vui lòng vào đường dẫn :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKhi tài khoản của bạn được kích hoạt bạn đã đăng nhập vào diễn đàn và \n chuyển đến trang chính.
 register_welcome_subject:	Xác Nhận Đăng Ký Diễn Đàn
-register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nPlease note that passwords are case sensitive!\nTo modify your settings or profile, go to this page:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	Lỗi :Không thể đăng ký
 regsiter_err_cantreg_msg:	Không thể tạo tài khoản người sử dụng, xin vui lòng liên hệ với người quản trị tối cao ở <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Xem tiểu sử của bạn
 register_register_update:	Trang Đăng Ký
-report_err_nosuchmsg_title:	ERROR
-report_err_nosuchmsg_msg:	No Such Message
-reset_err_invalidkey_title:	ERROR
-reset_err_invalidkey_msg:	Invalid password reset key. It is possible that your e-mail client had already automatically open this page, invalidating the reset key. If this is the case, you should shortly receive an e-mail with your new password. If such an e-mail does not arrive, please retry resetting the password.
-reset_err_rstconf_title:	Information
-reset_err_rstconf_msg:		You should receive instructions in your e-mail in the next few minutes.
 reset_newpass_title:		Tạo lại mật khẩu
 reset_newpass_msg:		Xin chào,\n\n Như yêu cầu, thông tin đăng nhập của bạn hiện bên dưới:\n\n Tên đăng nhập: {VAR: ui[1]}\n Mật khẩu: {VAR: passwd}\n\n Xin vui lòng chú ý mật khẩu mới của bạn đã được tạo bên trên. Nếu bạn muốn thay đổi mật khẩu bạn có thể làm qua khu vực người sử dụng:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Your password has been e-mailed to you. You should receive it within the next few minutes.<br />
 search_update:			Bài viết tìm kiếm
 selmsg_update:			Xem qua <a href="{TEMPLATE: selmsg_update_lnk}">Bài viết hôm nay</a>
 showposts_update:		Xem Bài Viết Bởi: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-subscribed_update:		Browsing own subscriptions
 thread_update:			Xem qua diễn đàn <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:			Xem qua chủ đề (xem dạng cây) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Kiếm tiểu sử của <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
@@ -644,26 +544,17 @@ ERR_registration_disabled_ttl:	Đăng ký đã bị vô hiệu hóa
 ERR_registration_disabled_msg:	Người quản trị tối cao đã vô hiệu hóa đăng ký .Xin vui lòng đăng ký lại lần sau.
 ERR_emailconf_ttl:		LỖI : Tài khoản của bạn vẫn chưa được xác nhận
 ERR_emailconf_msg:		Tài khoản của bạn vẫn chưa được xác nhận bằng email <br /><table border="0"><tr><td><ol><li>Nếu bạn không nhận được email xác nhận, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">nhấn chuột vào đây</a><li>Nếu {VAR: usr_d->email} không phải là email của bạn, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">nhấn chuột vào đây</a></ol></td></tr></table>
-ERR_user_ttl:			ERROR: No such user
-ERR_user_msg:			There is no such user
 ERR_systemerr_ttl:		Lỗi :Lỗi hệ thống
 ERR_systemerr_msg:		Đã xảy ra một lỗi hệ thống. Xin vui lòng thông báo nó đến <a href="mailto:{GVAR: ADMIN_EMAIL}">người quản lý trang web </a>.
 email_title:			Mẫu Email
 finduser_title:			Tìm Kiếm Thành Viên
-help_title:			Help
 login_title:			Đăng Nhập
-msg_title:			{VAR: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Khung soạn thảo bảng khảo sát
 register_title:			Mẫu Đăng Ký
-reset_title:			Reset Password
 rpasswd_title:			Thay đổi mật khẩu
 error_title:			Lỗi
 index_title:			Chào mừng đến với diễn đàn
 search_title:			Tìm kiếm  {VAR-HTML: srch}
-thread_title:			{VAR: frm->name}
-tree_title:			{VAR: frm->name} =&gt; {VAR: frm->subject}
-remail_emailsent:		E-mail was sent
-remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Thêm mục chọn:
 post_opt_html_on:		<b>Mã HTML</b> đang <b>Mở</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>TLcode</b> đang <b>Mở</b></a>
@@ -684,7 +575,6 @@ move_request_reason:		Tại sao bạn muốn chuyển chủ đề này?
 mvthread_submit_req:		Gửi yêu cầu
 thread_exchange:		Thay đổi chủ đề
 move_request_by:		Chuyển chủ đề được yêu cầu bởi:
-move_reason:			Reason for topic move:
 thr_exch_accept:		Chấp nhận chủ đề
 thr_exch_decline:		Từ chối chủ đề
 thr_exch_orig_forum:		Diễn đàn gốc:
@@ -695,50 +585,14 @@ thr_exch_submit:		Đăng bài
 exch_decline_ttl:		Di chuyển chủ đề {VAR: data->subject} vào diễn đàn {VAR: data->f2_name} đã bị từ chối.
 ppost_original_msg:		Tin nhắn bạn đang chuyển đi hoặc trả lời đến
 split_thread:			Cắt chủ đề
-groupmgr_no_user:		There is no user with a login of "{FUNC: char_fix(htmlspecialchars($gr_member))}"
-groupmgr_already_exists:	User "{FUNC: char_fix(htmlspecialchars($gr_member))}" already exists in this group.
-groupmgr_yes:			Yes
-groupmgr_no:			No
-groupmgr_action:		Action
-groupmgr_member:		Member
-groupmgr_cancel:		Cancel
-groupmgr_add_member:		Add Member
-groupmgr_update_member:		Update Member
-groupmgr_edit:			Edit
-groupmgr_delete:		Delete
-group_mgr_anon:			Anonymous
-group_mgr_reged:		All Registered Users
 show_show:			Xem :
 group_mgr:			Nhóm quản lý
-group_mgr_edit_btn:		Edit Group
-group_mgr_heading:		Group Editor Selection
-group_mgr_group:		Group:
 permission_denied_title:	Cho phép đã bị từ chối
-permission_denied_msg:		Your user permissions do not allow you to perform the action you are attempting.
-p_READ:				Read
-p_POST:				Post
-p_REPLY:			Reply
-p_EDIT:				Edit
-p_DEL:				Delete
-p_STICKY:			Sticky messages
-p_POLL:				Create polls
-p_FILE:				Attach files
-p_VOTE:				Vote
-p_RATE:				Rate topics
-p_SPLIT:			Split topics
-p_LOCK:				Lock topics
-p_MOVE:				Move topics
-p_SML:				Use smilies
-p_IMG:				Use image tags
-p_SEARCH:			Can Search
 group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Find User</a>
-group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
 rate_worst:			Tệ nhất
 rate_best:			Tốt nhất
 post_quote_msg:			{VAR: msg->login} được viết vào {TEMPLATE: make_report_date}
 post_quote:			Trích dẫn:
-userinfo_referals:		Referred Users:
-userinfo_referals_count:	{VAR: referals} Members
 pm_no_space_title:		Không đủ khoảng trống
 pm_no_space_msg:		Thư mục tin nhắn cá nhân của bạn có dung lượng không được vượt quá <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Sức chứa hiện giờ là <b>{VAR: fldr_size} bytes</b> số tin nhắn.<br /><br /><span class="ErrorText">Xóa một vài tin nhắn cũ để làm trống không gian.</span>.
 pm_space_indct_msg:		Thư mục tin nhắn cá nhân của bạn có {VAR: percent_full}% đầy.
@@ -748,15 +602,6 @@ th_expr_three_hr:		3 giờ
 th_expr_four_hr:		4 Giờ
 th_expr_eight_hr:		8 giờ
 th_expr_sixteen_hr:		16 giờ
-th_expr_one_day:		1 Day
-th_expr_two_day:		2 Days
-th_expr_four_day:		4 Days
-th_expr_one_week:		1 Week
-th_expr_two_week:		2 Weeks
-th_expr_one_month:		1 Month
-th_expr_two_month:		2 Month
-th_expr_four_month:		4 Month
-th_expr_one_year:		1 Year
 thread_mod_delete:		Xóa
 action_latest_post:		Tin Cuối Cùng
 online_today_last_visit:	Lần ghé thăm cuối
@@ -769,16 +614,6 @@ drawmsg_view_rest_post:		Xem những bài viết còn lại
 post_re:			Trả lời:
 forumsel_goto_forum:		Đến diễn đàn:
 minimsg_thread_view:		Xem chủ đề
-split_th_post_by:		Message By:
-split_th_posted_on:		Posted On:
-split_th_subject:		Subject:
-split_th_new_thread_title:	New topic title:
-split_th_forum:			Forum:
-split_th_split_sel:		Split selected messages
-split_th_split_unsel:		Split unselected messages
-split_th_messages:		Messages
-split_th_select:		Select
-report_report_post:		Report Message
 quicklogin_login:		Tên Đăng Nhập
 quicklogin_password:		Mật Khẩu
 quicklogin_use_cookies:		Sử dụng Cookie?
@@ -787,26 +622,15 @@ post_notification_desc:		Thông báo khi một ai đó trả lời bài viết n
 post_all_ext_allowed:		(Không có giới hạn)
 maximize_category:		Phóng to danh mục
 no_view_perm:			Bạn không có sự chấp nhận cho phép xem chủ đề này.
-report_empty_report:		You cannot send an empty report. Please enter a reason for your report.
-report_already_reported_title:	Already Reported
-report_already_reported_msg:	This message was already reported and the report is currently in the moderator&#39;s queue.
 register_err_toomanyimages:	Bạn đã sử dụng hơn  {GVAR: FORUM_IMG_CNT_SIG} hình cho phép chèn trong bài viết.
 pmsg_next_msg:			Tin nhắn kế
 pmsg_prev_msg:			Tin nhắn sau
-post_proc_reveal_spoiler:	Toggle Spoiler
-register_jabber:		Jabber Handle:
-im_jabber:			Jabber: 
 forum_contact:			Liên hệ
-forum_home:			Home
 post_cur_attached:		Tập tin đính kèm hiện giờ  {VAR: i}
 ignored_anon_post:		{GVAR: ANON_NICK} đã bị từ chối
 ignored_user_post:		Bài viết bởi <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> đã bị từ chối
 smladd_close_window:		Đóng cửa sổ
 post_list_smilies:		Danh sách tất cả biểu tượng cười
-p_VISIBLE:			Visible
-reported_in_thread:		In
-help_back_to_top:		back to top
-help_return_to_index:		Return to Help Index
 imsg_err_message_title:		Bài viết không có
 imsg_err_message_msg:		Bài viết mà bạn muốn xem không tồn tại.
 poll_edit:			Chỉnh Sửa
@@ -828,8 +652,6 @@ polllist_action:		Hành động
 polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Xem những phiếu hiện có</a>
 userinfo_polls:			Bảng khảo sát:
 show_pollist:			Xem bảng khảo sát
-search_and:			AND
-search_or:			OR
 search_desc_order:		Xếp giảm dần
 search_asc_order:		Xếp tăng dần
 search_logic:			Tìm kiếm logic:
@@ -847,8 +669,6 @@ threadt_more:			&lt;thêm nữa&gt;
 threadt_disabled_ttl:		Xem dạng cây của chủ đề đã bị vô hiệu hóa
 threadt_disabled_desc:		Người quản trị tối cao đã vô hiệu hóa xem dạng cây chủ đề. Xin vui lòng sử dụng xem dạng khối để thay thế.
 threadt_update:			Xem qua diễn đàn (xem dạng cây) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
-mmod_delete_cofirm_ttl:		Confirm Topic/Message Deletion
-spell_alts:			no alternatives
 insert_uploaded_image:		Chèn hình vào nội dung bài viết
 finduser_help:			Bộ máy tìm kiếm sẽ tự động thêm dấu * vào dữ liệu của bạn, <b>tìm kiếm theo trường hợp</b>.<br />Ví dụ như :Để tìm những thành viên có tên đăng nhập bắt đầu bằng một chử a thì nhập vào ô tìm kiếm 'a' thế là xong .
 back_to_top:			Trở lên đầu trang
@@ -859,8 +679,6 @@ err_mod_acc_msg:		Người quản trị tối cao đã xem lại toàn bộ tài
 accounts_pending_approval:	Tài khoản đang chờ sự chấp nhận
 saved:				Lưu tạm
 register_err_time_limit:	Hạn chế một lần đăng ký là {GVAR: REG_TIME_LIMIT} giây. Xin vui lòng chờ đợi khoảng {VAR: reg_limit_reached} giây, và thử đăng ký lại lần  nữa.
-register_affero:		Affero Username:<br /><span class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username, enter it here.</span>
-im_affero:			Affero Username
 register_err_avatardimtobig:	Kích cỡ hình đai diện <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> vượt quá kích cỡ cho phép là <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:			{VAR: r[2]} hiện giờ đã offline
 buddy_online:			{VAR: r[2]} hiện giờ đang online
@@ -868,15 +686,8 @@ sml_no_smilies:			Không có ký tự vui.
 login_unapproved_account_ttl:	Tài khoản chưa được chấp nhận
 login_unapproved_account_msg:	Người quản trị tối cao của diễn đàn đã xác nhận mỗi tài khoản binh thường trước khi kích hoạt . Tài khoản của bạn vẫn chưa được xác nhận, Vì vậy bạn không thể sử dụng những chức năng của thành viên đã được xác nhận .
 remove_from_buddy_list:		Xóa khỏi danh sách bạn bè
-iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Trả lời
-iemail_msg_quote:		Quote
-iemail_msg_view:		View Topic/Message
-threadt_sticky:			sticky
 threadt_announce:		Thông báo
-reported_no_messages:		There are no reported messages.
 poll_no_polls:			Không có bảng khảo sát nào.
 no_unread_messages:		Không có bài viết chưa đọc tìm thấy trong cơ sở dữ liệu của bạn .
 thread_mark_all_read:		Đánh dấu đọc bài viết chưa đọc trong diễn đàn
@@ -884,20 +695,11 @@ thread_mark_all_read_desc:	Đánh dấu đã đọc tất cả bài viết chưa
 private_no_messages:		Không có tin nhắn trong thư mục này.
 register_email_change_subject:	Xác nhận thay đổi email
 register_email_change_msg:	Xin vui lòng xác nhận tài khoản email mới của bạn "{VAR: uent->email}" để thay tài khoản email cũ của bạn "{VAR: old_email}", bằng cách đến đường dẫn :\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n Khi tài khoản email của bạn được xác nhận , tài khoản diễn đàn của bạn sẽ được kích hoạt lại.
-iemail_thread_unsub:		Unsubscribe from this topic
-iemail_forum_unsub:		Unsubscribe from this forum
-primary_group_prefix:		Primary group for forum:
-group_resources:		This group controls permissions of the following forums
 register_admin_newuser_title:	Một thành viên mới đã đăng ký và tài khoản của họ đang chờ được xác nhận
 register_admin_newuser_msg:	Một thành viên mới ({VAR: uent->login}) vừa đăng ký,Khi việc xác nhận tài khoản có thể được, tài khoản của họ sẽ không được kích hoạt cho đến khi nó được xác nhận bởi bạn hoặc người quản trị tối cao của diễn đàn. Để xem lại tài khoản xin vui lòng vào: {GVAR: WWW_ROOT}adm/admaccapr.php\n\n Đây là một quá trình tự động. Không trả lời bài viết này.\n Nếu bạn muốn tắt chức năng thông báo bằng email khi có người đăng ký mới, bạn có thể làm được điều đó qua khu vực người quản trị. Thay đổi hiệu chỉnh "New Account Notification".
 post_mod_msg_notify_title:	Bài viết mới trong diễn đàn "{VAR: frm->name}" đang chờ được chấp nhận
 post_mod_msg_notify_msg:	Bài viết mới có tựa là "{VAR: msg_post->subject}" vừa mới được gửi trong diễn đàn mà bạn quản lý. Để xem lại bài viết này đến : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n Đây là một quá trình tự động. Bạn có trả lời bài viết này không.\n
 thread_printable_pdf:		Tạo trang PDF
-thread_syndicate:		Syndicate this forum (XML)
-reg_conf_title:			Registration Confirmation
-reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you have specified is correct. Once you confirm your account, you will be able to access forum features available only to confirmed, registered users.
-reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s). Once that happens you will receive an e-mail indicating that your account has been confirmed. In the meantime you can log-into your account, however you will not be able to access certain features.
-forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Goodbye.
 mnav_description:		Bộ lọc bài viết
 mnav_date_limit:		Xếp theo ngày:
 mnav_forum_limit:		Chỉ tìm trong diễn đàn:
@@ -920,20 +722,13 @@ pm_notify_subject:		[{GVAR: FORUM_TITLE}] Thông báo có tin nhắn mới
 pm_notify_body_email:		Bạn có tin nhắn cá nhân tựa là "{VAR: subject}", từ "{VAR: from}", trong diễn đàn "{GVAR: FORUM_TITLE}".\n Để xem tin này , click vào đây: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nĐể dừng chức năng thông báo, vô hiệu hóa "Thông báo tin nhắn cá nhân" trong phần tiểu sử của bạn.
 register_pm_notification:	Thông báo tin nhắn cá nhân
 register_pm_notification_desc:	Nếu được kích hoạt ,bạn sẽ nhận được một thông báo bất cứ khi nào bạn nhận được một tin nhắn cá nhân.
-findu_admin_opts_header:	Admin Opts.
 findu_unban:			Không Cấm
 findu_ban:			Cấm
 findu_edit:			Chỉnh Sửa
 findu_delete:			Xóa
 dmsg_reply_to:			là bài trả lời đến bài viết  #{VAR: obj->reply_to}
 merge_topics:			Gộp Chủ Đề
-merge_topics_cp:		Merge Topic Control Panel
-merge_topics_tpl:		Select Topics to Merge <span class="SmallText">(you must select more than one topic)</span>
-merge_merge:			Merge Selected Topics
-merge_next:			Next Topics
-merge_prev:			Previous Topics
 split_cp:			Thread Split Control Panel
-groups_perms_header:		Permissions <span class="small">(move mouse over the permission to see its type)</span>
 register_err_sig_too_long:	Chữ ký của bạn vượt quá độ dài cho phép {GVAR: FORUM_SIG_ML} ký tự.
 register_sig_limit:		{GVAR: FORUM_SIG_ML} kí tự <a href="javascript: alert(\'Chữ ký của bạn dài \'+document.forms[\'fud_register\'].reg_sig.value.length+\' kí tự. Độ dài chữ ký tối đa là {GVAR: FORUM_SIG_ML} kí tự.\');" class="SmallText">Kiểm tra độ dài chữ ký</a>
 adm_account_accepted:		Tài khoản \'{VAR: GLOBALS['r']->login}\' của bạn  đã được chấp nhận bởi người quản trị tối cao và bây giờ đã được kích hoạt. Bạn có thể truy cập vào diễn đàn {GVAR: FORUM_TITLE}\' ngay khi được xác nhận, thành viên đã được đăng ký.
@@ -943,31 +738,15 @@ adm_account_rejected_s:		Tài khoản của bạn yêu cầu cho \'{GVAR: FORUM_
 thread_on:			vào
 userinfo_buddy:			Bạn bè:
 register_email_addr:		Địa chỉ Email:
-reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
 usrinfo_last_visit:		Lần ghé thăm sau cùng:
 mnav_newer:			mới hơn
 mnav_older:			cũ hơn
-ip_search_by_ip:		Search users by IP
-ip_search_syntax:		Supported syntax: 1.2.3.4, 1.2.3, 1.2, 1
-ip_search:			Search
-ip_analyze_usage:		Analyze IP usage
-ip_analyze_usage_descr:		Please specify the user&#39;s exact login.
-ip_users_using:			User(s) using &#39;{VAR: ip}&#39; IP address
-ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
-ip_title:			IP Browser
 userinfo_real_name:		Tên thật là :
 register_err_alias_notallowed:	Bí danh này không được cho phép
 post_err_mod_forum_edit_ttl:	Lỗi
 post_err_mod_forum_edit_msg:	Bạn không thể chỉnh sửa bài viết trong diễn đàn đã được quản lý.
 dmsg_num:			bài viết #{VAR: obj->id}
 postcheck_session_invalid:	Phiên của bạn đã hết hạn. Xin vui lòng đăng nhập lại. Chúng tôi rất tiếc về sự bất tiện này.
-delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
-delete_message_extra_body:	Include the body of the removed message that will be sent to the author.
-delete_msg_removed_ttl:		Your message was removed by administration staff.
-delete_msg_pm_body:		Original message
-delete_msg_pm_subject:		Subject: {VAR: data[15]}
-ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
-ip_whois_title:			<b>ISP Information</b><br />
 register_theme:			Giao Diện:
 pmsg_trash:			Xóa rác
 uc_new_pm:			Tin nhắn cá nhân mới
@@ -987,24 +766,14 @@ modque_cat:			Danh mục
 modque_forum:			Diễn Đàn
 idx_compact_forum_row:		Những diễn đàn hiện có:
 mmd_del_title:			Chủ đề bị xóa
-mmd_mov_title:			Move Topics
-mmd_move_threads_to:		Destination Forum:
-mmd_abort_move:			Cancel
-mmd_move:			Move Topics
 pmsg_pdf_btn:			Tạo trang PDF
 search_results_hdr:		Kết quả tìm kiếm được {VAR: total}
 thread_del_all:			Xóa tất cả đã được chọn
 thread_mov_all:			Di chuyển tất cả đã được chọn
-dmsg_ip:			IP:
 err_blockedaccnt_title:		Lỗi :Tài khoản của bạn đã bị lọc ra ngoài.
 err_blockedaccnt_msg:		Tài khoản của bạn đã bị cấm truy cập vào diễn đàn vì bộ lọc người sử dụng đã được thiết lập.
-merge_th_page_list:		Topic Page Selection
 most_users_online:		Thành viên online nhiều nhất là <b>{VAR: st_obj->most_online}</b> vào <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
 tabs_own_posts:			Bài viết của bạn
-sml_emoticon:			Emoticon
-sml_code:			Code
 mnav_sub_only:			Chỉ tìm trong những diễn đàn theo dõi
 register_topics_per_page:	Số chủ đề trong một trang:
 login_min_time:			Diễn dàn chỉ cho phép bạn đăng nhập mỗi {VAR: MIN_TIME_BETWEEN_LOGIN} giây, Xin vui lòng chờ đợi {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} giây trước khi đăng nhập lần kế tiếp.
@@ -1022,42 +791,3 @@ post_common_nlist:		Thêm danh sách số
 post_common_blist:		Thêm danh sách chấm
 post_common_quote:		Thêm trích dẫn
 post_common_code:		Thêm mã
-rating:				Rating
-rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
-register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
-register_skype:			Skype Handle:
-register_google:		Google Chat/IM Handle:
-im_google:			Google Talk: 
-im_skype:			Skype: 
-rating_delete:			Delete
-post_always_on_top:		Make the topic always appear at the top of the topic listing
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
-tabs_notifications:		Notifications
-finduser_flag:			Flag
-post_descr:			Topic Description
-pmsg_on:			on
-pmsg_download_dump:		Download Message Dump
-move_messages:			Move messages
-move_msg_btn:			Move Selected Messages
-move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
-index_url_redirection:		Redirection 
-quick_reply:			Quick Reply
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

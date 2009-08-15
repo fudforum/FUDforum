@@ -35,7 +35,6 @@ goto_next_msg:			Pāriet uz nākošo ierakstu
 goto_prev_msg:			Pāriet uz iepriekšējo ierakstu
 home:				Sākums
 homepage:			Saite uz mājas lapu:
-icq_control_panel:		ICQ Online-Message Panel
 icq_message_form:		Nosūtīt ICQ paziņojumu
 ignore_user:			ignorēt visus paziņojumus<br /> no šī lietotāja
 im_aim:				AIM tīkls:
@@ -65,7 +64,6 @@ message_counter:		Mūsu lietotājiem nosūtīti <b>{VAR: post_count}</b> paziņo
 message_index:			Ierakstu saraksts
 message_index_desc:		Saraksta pārskats
 minimize_category:		Sakļaut kategoriju
-moderation_queue:		Moderation Queue
 moderator:			Moderātors
 moderator_of:			Moderējamie forumi:
 moderator_options:		Moderātora funkcijas
@@ -75,7 +73,6 @@ more_unread_messages_desc:	Parādīt pārējos nelasītos ierakstus un atzīmēt
 move_thread:			Pārvietot
 moved:				Tēma pārvietota uz citu forumu
 moved_thread_message:		Šī tēma ir pārvietota uz citu forumu
-na:				n/a
 new_posts:			Jaunie ieraksti
 new_private_messages:		Saņemti un nelasīti<span class="GenText" style="color: #ff0000">({VAR: c})</span> ieraksti
 new_thread:			Izveidot jaunu tēmu
@@ -94,8 +91,6 @@ no_unread_msg_unreg:		Lasītu vai nelasītu ierakstu pārskats pieejams tikai re
 num_pages:			({VAR: ttl_pg})lapas:
 num_votes:			{VAR: obj->total_votes} balsis:
 occupation:			Nodarbošanās:
-off:				OFF
-on:				ON
 page_timings:			{VAR: page_gen_time} sekundes patērētas lapas ģenerēšanai
 pm:				Privātā sarakste
 poll:				Balsojumi:
@@ -300,7 +295,6 @@ register_bio_desc:		Dažas papildus detaļas par Jums
 register_prefs:			Privātie uzstādījumi
 register_sig:			Paraksts:
 register_sig_desc:		Neobligātais paraksts. Tiks pievienots Jūsu sūtījumiem.
-register_reset:			Reset
 register_def_thread_view:	Noklusētais tēmu skats:
 register_msg_per_page:		Ieraksti lapā:
 register_show_sig:		Uzrādīt pierakstus:
@@ -322,10 +316,8 @@ buddy_status:			Statuss
 my_buddies:			Kontaktu saraksts
 add_buddy:			Pievienot kontaktu sarakstam
 add:				Pievienot
-buddy_search:			Enter the login of the user you wish to add.
 buddy_remove:			dzēst
 post_normal:			Normāls
-post_sticky:			Sticky
 post_annoncement:		Sludinājums
 post_size:			Izmērs
 post_color:			Krāsa
@@ -387,18 +379,9 @@ coppa_fax_instructions2:	Lūdzu izdrukājiet un aizpildiet šo formu, parakstiet
 coppa_fax_reg_form:		Reģistrācijas forma
 coppa_fax_sign:			Lūdzu izdrukājiet un aizpildiet šo formu, parakstiet to un nosūtiet mums
 coppa_fax_conf:			I have reviewed the information my child has supplied and I have read the Privacy Policy for the web site. I understand that the profile information may be changed by a using a password. I understand that I may ask for this registration profile be removed entirely.
-coppa_fax_permission:		Sign here if you give permission
-coppa_fax_no_permission:	Sign here if you would like the account to be deleted
-coppa_fax_parent_name:		Parent/Guardian Full Name:
 coppa_fax_relation:		Relation to child:
-coppa_fax_telephone:		Telephone:
 coppa_fax_email:		Email address:
-coppa_fax_date:			Date:
-coppa_fax_questions:		Please contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> with any questions
-coppa_fax_login:		Login
-coppa_fax_passwd:		Password
 coppa_fax_remail:		Email
-coppa_fax_name:			Name
 login_not_logedin:		Jūs neiekļuvāt forumā. Par iemeslu tam var būt sekojoši apstākļi:
 login_cookie_expired:		Jūsu Web pārlūka cookie darbības laiks ir beidzies, lai to atjaunotu vēlreiz ielogojieties.
 login_perm_denied:		Jums nav tiesību piekļūt pieprasītajiem resursiem kā anonīmajam lietotājam, tādēļ ienāciet ar reālu foruma dalībnieka Niku un Paroli.
@@ -547,7 +530,6 @@ iemail_thr_subject:		Jauna atbilde par {VAR: thr_subject} no {VAR: poster_login}
 iemail_thr_bodyemail:		Lai pārskatītu nelasītās atbildes sekojiet\n{VAR: goto_url['email']}\n\nJa nevēlaties saņemt paziņojumus par šo tēmu sekojiet:\n{VAR: unsub_url['email']}
 iemail_frm_subject:		Jauna tēma forumā {VAR: frm_name}, ar nosaukumu {VAR: thr_subject} no {VAR: poster_login}
 iemail_frm_bodyemail:		Lai apskatītu:\n{VAR: goto_url['email']}\n\nJa nevēlaties saņemt paziņojumus tad šeit:\n{VAR: unsub_url['email']}
-iemail_participate:		To participate in the discussion, go here:
 ignore_list_err_info_title:	Informācija
 ignore_list_err_dup_msg:	Šis lietotājs jau atrodas ignorēto sarakstā
 ignore_list_err_nu_title:	Lietotājs nav atrasts
@@ -577,7 +559,6 @@ post_reply_update:		Atbilde publikācijai <a href="{TEMPLATE: msg_post_lnk}">{VA
 post_topic_update:		Jaunas tēmas izveidošana <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>forumā
 post_error_generic:		Kļūda
 postcheck_max_images_err:	Samaziniet bilžu skaitu publikācijā līdz {GVAR: MAX_IMAGE_COUNT}
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Norāde uz tēmu ir obligāta
 postcheck_no_such_user:		Šajā forumā nav lietotāja ar niku "{FUNC: char_fix(htmlspecialchars($v))}"
 postcheck_ignored:		Šim lietotājam "{FUNC: char_fix(htmlspecialchars($v))}" nosūtīt privāto vēstuli nevarat, jo viņš Jūs ir iekļavis ignorējamo sarakstā.
@@ -754,7 +735,6 @@ logedin_latest_post:		Pēdējās publikācijas forumā:
 register_show_avatar:		Rādīt nozīmītes:
 register_show_avatar_desc:	Rādīt lietotāju nozīmītes apskatot viņu publikācijas
 drawmsg_view_rest_post:		Rādīt pārējo
-post_re:			Re: 
 forumsel_goto_forum:		Pāriet uz forumu:
 minimsg_thread_view:		Tēmas apskats
 split_th_post_by:		Sūtītājs
@@ -782,7 +762,6 @@ pmsg_next_msg:			Nākošā publikācija
 pmsg_prev_msg:			Iepriekšējā publikācija
 post_proc_reveal_spoiler:	Norādiet traucēkļus
 register_jabber:		Tīkla Jabber pseidonīms:
-im_jabber:			Jabber: 
 forum_contact:			Webmaster
 forum_home:			Sākums
 post_cur_attached:		{VAR: i} pievienotie faili
@@ -815,8 +794,6 @@ polllist_action:		Darbības
 polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Pieejamo balsojumu saraksts</a>
 userinfo_polls:			Balsojumi:
 show_pollist:			Parādīt balsojumus
-search_and:			AND
-search_or:			OR
 search_desc_order:		Dilstoši
 search_asc_order:		Augoši
 search_logic:			Loģiskie argumenti:
@@ -838,226 +815,5 @@ register_msg_tree_view:		Izplāti forumi/Tēmas koka skatā
 register_tree_msg_view:		Koka skata forumi/Izplātas tēmas
 mmod_delete_cofirm_ttl:		Tēmas/Publikācijas dzēšanas apstiprinājums
 spell_alts:			variantu nav
-back_to_top:			Back to Top
-insert_uploaded_image:		Insert image into message body
-finduser_help:			The search engine will automatically add * mask to your query. ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
 pm_err_disabled_title:		Privātā sarakste atslēgta
-pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.
-err_mod_acc_ttl:		Unverified Account
-err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account is validated by the administrator you will not be able to utilize the full capabilities of your account.
-accounts_pending_approval:	Accounts Pending Approval
-saved:				Saved
-register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.
-register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
-im_affero:			Affero Username
-register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
-post_all_ext_allowed:		(unrestricted)
-buddy_offline:			{VAR: r[2]} is currently offline
-buddy_online:			{VAR: r[2]} is currently online
-sml_no_smilies:			No emoticons available.
-login_unapproved_account_ttl:	Unapproved Account
-login_unapproved_account_msg:	The administrator of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefore you will not be able to access some of the features available to registered members until your account is approved.
-remove_from_buddy_list:		remove from buddy list
-iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {TEMPLATE: dmsg_post_date}
-iemail_msg_reply:		Reply
-iemail_msg_quote:		Quote
-iemail_msg_view:		View Topic/Message
-threadt_sticky:			sticky
-threadt_announce:		announcement
-reported_no_messages:		There are no reported messages.
-poll_no_polls:			There are no accessible polls.
-no_unread_messages:		There are no unread messages matching your query.
-thread_mark_all_read:		mark all unread forum messages read
-thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
-private_no_messages:		There are no messages inside this folder
-register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
-iemail_thread_unsub:		Unsubscribe from this thread		
-iemail_forum_unsub:		Unsubscribe from this forum
-primary_group_prefix:		Primary group for forum:
-group_resources:		This group controls permissions of the following forums
-register_email:			Email
-register_admin_newuser_title:	A new user has registered and their account is pending confirmation
-register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
-post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
-thread_printable_pdf:		Generate printable PDF
-thread_syndicate:		Syndicate this forum (XML)
-reg_conf_title:			Registration Confirmation
-reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you&#39;ve specified is correct. Once you confirm your account you will be able to access the forum features available to the confirmed registered users.
-reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s), once that happens you will recieve an e-mail indicating that your account has been confirmed. Until that point you will be able to login to your account, however will not be able to access features limited to approved users.
-forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
-mnav_description:		Message Navigator
-mnav_date_limit:		Date range:
-mnav_forum_limit:		Only search In:
-mnav_all_forums:		Search all forums
-mnav_submit:			Begin Search
-mnav_no_range:			You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
-mnav_invalid_unit:		You must specify a valid time unit.
-mnav_invalid_date:		The date range you&#39;ve specified is larger then the one allowed by the administrator, narrow down date range of your search.
-mnav_no_results:		There are no messages matching query.
-mnav_posted_by:			Posted By:
-mnav_more:			More &raquo;&raquo;
-mnav_minute:			Minute(s)
-mnav_hour:			Hour(s)
-mnav_day:			Day(s)
-mnav_week:			Week(s)
-mnav_month:			Month(s)
-mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-register_pm_notification:	Private Message Notification
-register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.
-findu_admin_opts_header:	Admin Opts.
-findu_unban:			UnBan
-findu_ban:			Ban
-findu_edit:			Edit
-findu_delete:			Delete
-dmsg_reply_to:			is a reply to message #{VAR: obj->reply_to}
-merge_topics:			Merge Topics
-merge_topics_cp:		Merge Topic Control Panel
-merge_topics_tpl:		Select Topics To Merge <font class="SmallText">(you must select more then 1 topic)</font>
-merge_merge:			Merge Selected Topics
-merge_next:			Next Topics
-merge_prev:			Previous Topics
-split_cp:			Thread Split Control Panel
-groups_perms_header:		Permissions <font size="-1">(move mouse over the permission to see permission type)</font>
-register_err_sig_too_long:	Your signature exceeds the maximum allowed length of {GVAR: FORUM_SIG_ML} characters characters.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Your Signature is \'+document.forms[\'fud_register\'].reg_sig.value.length+\' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML}\');" class="SmallText">Check Signature Length</a>
-p_SEARCH:			Can Search
-adm_account_accepted:		Your account \'{VAR: GLOBALS['r']->login}\' was approved by the administrator and is now active. You may now access the {GVAR: FORUM_TITLE}\' forum as a confirmed registered user.
-adm_account_accepted_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was accepted.
-adm_account_rejected:		Your account \'{VAR: GLOBALS['r']->login}\' was declined by the administrator and is now active. If you would like to know the reason behind this decision feel free to contact the administrator at \'{GVAR: ADMIN_EMAIL}\'.
-adm_account_rejected_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was declined.
-thread_on:			on
-userinfo_buddy:			Buddy:
-register_email_addr:		E-mail Address:
-reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
 usrinfo_last_visit:		Pēdējais apmeklējums:
-mnav_newer:			newer then
-mnav_older:			older then
-ip_search_by_ip:		Search users by IP
-ip_search_syntax:		Supported syntax: 1.2.3.4, 1.2.3, 1.2, 1
-ip_search:			Search
-ip_analyze_usage:		Analyze IP usage
-ip_analyze_usage_descr:		Please specify the user&#39;s exact login.
-ip_users_using:			User(s) using &#39;{VAR: ip}&#39; IP address
-ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
-ip_title:			IP Browser
-userinfo_real_name:		Real Name:
-register_err_alias_notallowed:	This alias is not allowed
-post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
-ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
-post_err_mod_forum_edit_ttl:	ERROR
-post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
-dmsg_num:			message #{VAR: obj->id}
-postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
-delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
-delete_message_extra_body:	Include the body of the removed message that will be sent to the author.
-delete_msg_removed_ttl:		Your message was removed by administration staff.
-delete_msg_pm_body:		Original message
-delete_msg_pm_subject:		Subject: {VAR: data[15]}
-ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
-ip_whois_title:			<b>ISP Information</b><br />
-register_theme:			Theme:
-pmsg_trash:			Empty Trash
-uc_new_pm:			New Private Messages
-uc_new_topic:			New Topic
-uc_new_cat_forum:		Subscribed Forums With New Messages
-uc_cat_forum:			Category &raquo; Forum
-uc_sub_topics:			Subscribed Topics With New Messages
-uc_page_title:			Viewing personal control panel.
-search_options:			Search Options
-search_user_filter:		Filter by user:
-register_none:			Don&#39;t Notify
-findu_no_conf:			unconfirmed user
-register_max_sig_len:		Maximum Length:
-register_turing:		Please enter the code shown below:
-register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum
-idx_compact_forum_row:		Available Forums:
-mmd_del_title:			Delete Topics
-mmd_mov_title:			Move Topics
-mmd_move_threads_to:		Destination Forum:
-mmd_abort_move:			Cancel
-mmd_move:			Move Topics
-pmsg_pdf_btn:			Make PDF Archive
-search_results_hdr:		{VAR: total} Search Results Found
-thread_del_all:			Delete All Selected
-thread_mov_all:			Move All Selected
-dmsg_ip:			IP:
-err_banned_acct_title:		ERROR: You have been banned.
-err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
-err_blockedaccnt_title:		ERROR: Your account has been filtered out.
-err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
-merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
-tabs_own_posts:			Show Own Posts
-buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
-sml_emoticon:			Emoticon
-sml_code:			Code
-mnav_sub_only:			Search in subscribed forums only
-register_topics_per_page:	Topics Per Page:
-login_min_time:			This forum allows one login attempt every {VAR: MIN_TIME_BETWEEN_LOGIN} seconds, please wait {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconds before your next attempt.
-post_not_logged_in:		You are not currently logged in, the message will be posted anonymously.
-post_common_bold:		Bold
-post_common_italics:		Italics
-post_common_underline:		Underline
-post_common_align_left:		Align Left
-post_common_align_center:	Align Center
-post_common_align_right:	Align Right
-post_common_link:		Insert a Link
-post_common_email:		Insert an E-mail address
-post_common_image:		Insert an image
-post_common_nlist:		Add numbered list
-post_common_blist:		Add bulleted list
-post_common_quote:		Add Quote
-post_common_code:		Add Code
-rating:				Rating
-rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
-rating_delete:			Delete
-post_always_on_top:		Make the topic always appear at the top of the topic listing
-register_skype:			Skype Handle:
-register_google:		Google Chat/IM Handle:
-im_google:			Google Talk: 
-im_skype:			Skype: 
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
-register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
-tabs_notifications:		Notifications
-finduser_flag:			Flag
-post_descr:			Topic Description
-pmsg_on:			on
-pmsg_download_dump:		Download Message Dump
-move_messages:			Move messages
-move_msg_btn:			Move Selected Messages
-move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
-index_url_redirection:		Redirection 
-quick_reply:			Quick Reply
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

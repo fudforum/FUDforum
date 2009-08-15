@@ -4,7 +4,6 @@ admin:				Administrasie
 admin_control_panel:		Konfigurasie
 administrator:			Administrateur
 attachment:			Aanhangsel:
-avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} Boodskappe (gemiddeld {VAR: avg} per dag)
 biography:			Biografie:
 birth_date:			Geboortedatum:
@@ -23,7 +22,6 @@ faq:				Hulp
 first_unread_msg:		na ongeleesde boodskappe
 first_unread_msg_desc:		na eerste ongeleesde boodskap in die onderwerp
 flat_view:			Gee weer in die &quot;standaardweergawe&quot;
-forum:				Forum:
 forum_icon:			Forumikoon
 forum_new_messages:		Nuwe boodskappe
 forum_none_messages:		Slegs geregistreerde forumlede kan geleesde en ongeleesde boodskappe naspoor
@@ -38,11 +36,7 @@ homepage:			Tuisblad:
 icq_control_panel:		ICQ aan-lyn boodskappe paneel
 icq_message_form:		ICQ boodskapvorm:
 ignore_user:			Ignoreer boodskappe van die gebruiker
-im_aim:				AIM Handle:
-im_msnm:			MSN Messenger:
-im_yahoo:			Yahoo Messenger:
 image:				Foto:
-index_forum:			Forum
 index_new_posts:		Nuwe boodskappe sedert my vorige besoek
 index_no_new_posts:		Geen nuwe boodskappe sedert vorige besoek
 interests:			Belange:
@@ -66,10 +60,8 @@ message_index:			Boodskaplys
 message_index_desc:		bekyk die boodskapslys
 minimize_category:		Versteek kategorie
 moderation_queue:		Moderasie waglys
-moderator:			Moderator
 moderator_of:			Moderator van:
 moderator_options:		Modereer:
-moderators:			Moderator(s)
 more_unread_messages:		meer ongeleesde boodskappe
 more_unread_messages_desc:	Wys meer ongeleesde boodskappe en mark die huidig bekikbare boodskappe as gelees
 move_thread:			Skuif
@@ -130,9 +122,7 @@ sender_email:			Epos stuurder:
 sender_name:			Naam stuurder:
 show_posts_by:			Wys boodskappe van: {VAR: u_alias}
 size:				Grootte:
-status:				Status:
 status_line:			Daar is <b>{VAR: st_obj->online_users_reg}</b> lede, <b>{VAR: st_obj->online_users_hidden}</b> onsigbare lede en <b>{VAR: st_obj->online_users_anon}</b> gaste wat die forum tans besoek.
-sticky:				sticky:
 stop_ignoring:			hou op om gebruiker te ignoreer
 sub_to_thread:			Skryf in op onderwerp
 sub_to_thread_desc:		Ontvang \'n boodskap indien daar nuwe antwoorde by die onderwep gepos word
@@ -226,14 +216,11 @@ no_avatars:			Geen Avatars beskikbaar nie
 month_1:			Januarie
 month_2:			Februarie
 month_3:			Maart
-month_4:			April
 month_5:			Mei
 month_6:			Junie
 month_7:			Julie
 month_8:			Augustus
-month_9:			September
 month_10:			Oktober
-month_11:			November
 month_12:			Desember
 male:				Man
 female:				Vrou
@@ -271,7 +258,6 @@ register_your_pass:		U wagwoord:
 register_update:		Opdateer
 register_avatar_type:		Avatar-tipe:
 register_del_avatar:		Verwyder Avatar
-register_avatar:		Avatar:
 register_sel_avatar:		Kies avatar
 register_custom_avatar_rules:	Die doelgemaakte avatar sal nie vertoon word alvorens dit nie deur \'n administrateur goedgekeur is nie.<br /><font class="SmallText">Die avatar mag nie groter as <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> wees nie en moet in <b>jpg</b>, <b>gif</b> of <b>png</b> formaat wees.</font>
 register_custom_avatar_url:	Doelgemaakte Avatar URL:
@@ -287,9 +273,6 @@ register_occupation:		Beroep:
 register_interests:		Belange:
 register_image:			Foto:
 register_icq:			ICQ
-register_aim:			AIM Handle:
-register_yahoo:			Yahoo Messenger:
-register_msnm:			MSN Messenger:
 register_homepage:		Tuisblad:
 register_bday:			Geboortedatum:
 register_bday_desc:		As u u geboortedatum verskaf, sal ander gebruikers dit in u profiel kan sien.
@@ -320,14 +303,12 @@ register_notification_desc:	of die notifikasie standaard is ingesteld, u kan het
 register_notify_method:		Kies notifikasie metode:
 register_allow_email_msg:	Laat Epos Boodskappe toe:
 register_allow_email_msg_desc:	Laat andere lede toe om vir u epos deur die forum te stuur.
-buddy_status:			Status
 my_buddies:			My Vriende
 add_buddy:			Voeg vriend by
 add:				voeg by
 buddy_search:			Sleutel die naam van die gebruiker wat u wil byvoeg in.
 buddy_remove:			Verwyder
 post_normal:			Normaal
-post_sticky:			Sticky
 post_annoncement:		Mededeling
 post_size:			Groote
 post_color:			Kleur
@@ -350,7 +331,6 @@ post_locked:			Onderwerp gesluit
 post_icons:			Pos-ikoon:
 post_no_icon:			Geen Ikoon
 post_smiley:			Gesiggies:
-post_format_tools:		Formatting Tools:
 post_upload_file:		Laai lêer
 post_file_del:			Verwyder
 post_file_name:			Naam
@@ -365,7 +345,6 @@ include_sig_desc:		Sluit my handtekening in.
 disable_smilies:		Deaktiveer gesiggies in die boodskap
 spell_check_msg:		Speltoets boodskap
 post_form:			Stel boodskap saam
-post_forum:			Forum:
 post_title:			Titel:
 post_body:			Boodskap:
 post_options:			Opsies:
@@ -436,7 +415,6 @@ report_give_reason:		Verskaf asseblief die rede waarom u die boodskap rapporteer
 report_submit_report:		vStuur Rapport
 search_entire_msg:		Volledige boodskappe
 search_subect_only:		Slegs in die onderwerp
-search_forum:			Forum
 search_posted_on:		Gepos op
 search_no_results:		Geen resultate
 search_all_forums:		Deursoek alle forums
@@ -459,7 +437,6 @@ remail_error:			U het een fout
 mklist_type:			Tipe:
 mklist_option:			Opsie:
 mklist_additem:			Voeg item by
-mklist_apply:			Apply
 mklist_delete:			Verwyder
 qbud_nick_name:			Bynaam
 qbud_add_selected:		Voeg gekose by
@@ -505,7 +482,6 @@ poll_hour:			uur
 poll_hours:			ure
 poll_month:			maand
 poll_year:			jaar
-poll_week:			week
 tabs_register:			Voorkeure
 tabs_subscriptions:		Inskrywings
 tabs_referrals:			Verwysings
@@ -522,7 +498,6 @@ error_error:			Fout
 usrinfo_profile:		{VAR: u->alias} se profiel
 usrinfo_show_all_posts:		Wys alle pos van {VAR: u->alias}
 actions_update:			Loer ander mense af, net soos jy.
-err_info:			Info
 buddy_list_err_cantadd:		Jy kan jouself nie by jou &quot;vriendelys&quot; byvoeg nie
 buddy_list_err_dup:		U het reeds die gebruiker by u &quot;vriendelys&quot; gevoeg
 buddy_list_err_nouser:		Die lid wat u probeer om by u &quot;vriendelys&quot; te voeg bestaan nie op die forum nie.
@@ -549,7 +524,6 @@ iemail_thr_bodyemail:		Om ongeleesde antwoorde te lees gaan na {VAR: goto_url['e
 iemail_frm_subject:		Nuwe ondwerwerp in forum {VAR: frm_name} genaamd {VAR: thr_subject} deur {VAR: poster_login}
 iemail_frm_bodyemail:		om die onderwerp te sien gaan na:\n{VAR: goto_url['email']}\n\nIndien u die verdere kennisgewings oor nuwe onderwerpe op dit forum wenst te schrappen gaan dan na hier: {VAR: unsub_url['email']}
 iemail_participate:		Om deel te neem aan die bespreking, gaan na:
-ignore_list_err_info_title:	Info
 ignore_list_err_dup_msg:	Die lid is reeds in u ignoreerlys
 ignore_list_err_nu_title:	lid nie gevind nie
 ignore_list_err_nu_msg:		Die lid wat u by u ignoreerlys wil voeg kon nie op die forum gevind word nie.
@@ -682,11 +656,9 @@ thr_exch_dest_forum:		Bestemming:
 thr_exch_no_threads:		Geen ondewerpe wat op goedkeuring wag nie.
 thr_exch_decl_reason:		Reden voor die afkeuring van topic <b>{VAR-HTML: frm->name}</b> in forum <b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:		Stuur
-exch_decline_ttl:		Verplaatsing van topic {VAR: data->subject} in forum {VAR-HTML: data->f2_name} is afgekeurd.
-ppost_original_msg:		bericht wat u deurstuurt of waarop u antwoord
+exch_decline_ttl:		Verplaasing van onderwerp {VAR: data->subject} na forum {VAR-HTML: data->f2_name} is afgekeurd.
+ppost_original_msg:		boodskap wat u deurstuur of waarop u antwoord
 split_thread:			Split Onderwerp
-groupmgr_no_user:		There is no user with a login of "{FUNC: char_fix(htmlspecialchars($gr_member))}"
-groupmgr_already_exists:	User "{FUNC: char_fix(htmlspecialchars($gr_member))}" already exists in this group.
 groupmgr_yes:			Ja
 groupmgr_no:			Nee
 groupmgr_action:		Aksie
@@ -740,7 +712,6 @@ th_expr_sixteen_hr:		16 ure
 th_expr_one_day:		1 Dag
 th_expr_two_day:		2 Dae
 th_expr_four_day:		4 Dae
-th_expr_one_week:		1 Week
 th_expr_two_week:		2 Weke
 th_expr_one_month:		1 Maand
 th_expr_two_month:		2 Maande
@@ -755,14 +726,12 @@ logedin_latest_post:		Nuutste boodskap op stelsel:
 register_show_avatar:		Wys Avatars:
 register_show_avatar_desc:	laat toe om avatars van andere gebruikers te verberg as u na hulle boodskappe kyk
 drawmsg_view_rest_post:		Wys die res van die boodskap
-post_re:			Re: 
 forumsel_goto_forum:		Gaan na forum
 minimsg_thread_view:		Besigtig onderwerp
 split_th_post_by:		Gepos deur:
 split_th_posted_on:		Gepos op:
 split_th_subject:		onderwerp:
 split_th_new_thread_title:	titel Nuwe onderwerp:
-split_th_forum:			Forum:
 split_th_split_sel:		Split geselekteerde boodskappe
 split_th_split_unsel:		Split nie-geselekteerde boodksppe
 split_th_messages:		Boodskappe
@@ -782,8 +751,6 @@ register_err_toomanyimages:	U probeer om meer as die maks {GVAR: FORUM_IMG_CNT_S
 pmsg_next_msg:			Volgend boodskap
 pmsg_prev_msg:			Vorig boodskap
 post_proc_reveal_spoiler:	wys Spoiler
-register_jabber:		Jabber Handle:
-im_jabber:			Jabber: 
 forum_contact:			Kontak
 forum_home:			Tuis
 post_cur_attached:		tans {VAR: i} aangehegde lêers
@@ -880,8 +847,6 @@ register_email_change_msg:	Please confirm your new epos account "{VAR: uent->ema
 iemail_thread_unsub:		Afmeld van hiedie reeks		
 iemail_forum_unsub:		Afmeld van die forum
 primary_group_prefix:		Primêre groep vir forum:
-group_resources:		This group controls permissions of the following forums
-register_admin_newuser_title:	A new user has registered and their account is pending confirmation
 register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
 post_mod_msg_notify_title:	Nuwe boodskap in forum "{VAR: frm->name}" wag vir goedkeuring
 post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
@@ -934,23 +899,15 @@ adm_account_accepted:		Your account \'{VAR: GLOBALS['r']->login}\' was approved 
 adm_account_accepted_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was accepted.
 adm_account_rejected:		Your account \'{VAR: GLOBALS['r']->login}\' was declined by the administrator and is now active. If you would like to know the reason behind this decision feel free to contact the administrator at \'{GVAR: ADMIN_EMAIL}\'.
 adm_account_rejected_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was declined.
-thread_on:			on
 userinfo_buddy:			Vriend:
 register_email_addr:		E-pos Address:
-reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
 usrinfo_last_visit:		Laaste besoek:
 mnav_newer:			nuwer as
 mnav_older:			ouer as
 ip_search_by_ip:		Soek lede volgens IP
-ip_search_syntax:		Supported syntax: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:			Soek
 ip_analyze_usage:		Analiseer IP-adres
-ip_analyze_usage_descr:		Please specify the user&#39;s exact login.
-ip_users_using:			User(s) using &#39;{VAR: ip}&#39; IP address
-ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
-ip_title:			IP Browser
 userinfo_real_name:		Regte naam:
-register_err_alias_notallowed:	This alias is not allowed
 post_err_noannontopics_msg2:	<fieldset><legend>FOUT: Onvoldoende Regte</legend>Anonieme gebruikers word nie toegelaat om nuwe onderwerpe te begin nie.</fieldset><br />
 post_err_noannonposts_msg2:	<fieldset><legend>FOUT: Onvoldoende Regte</legend>Anonieme gebruikers word nie toegelaat om antwoorde te pos nie.</fieldset><br />
 ERR_login_msg2:			<fieldset><legend>FOUT: U is nie aangeteken nie</legend>U moet \'n lid van die forum wees akvorens u die bladsy kan besoek.</fieldset><br />
@@ -959,7 +916,6 @@ post_err_mod_forum_edit_msg:	U mag nie boodskappe wysig in \'n gemodereerde foru
 dmsg_num:			boodskap #{VAR: obj->id}
 postcheck_session_invalid:	U sessie het verval, pos asseblief weer die inligting. Jammer vir die ongerief.
 delete_message_extra_desc:	<b>Opsioneel</b><br />Verskaf die rede hoekom die boodskap verwyder is. Die rede sal aan die outeur d.m.v. \'n privaat boodspap gestuur word.
-delete_message_extra_body:	Include the body of the removed message that will be sent to the author.
 delete_msg_removed_ttl:		Die administrateurs het u boodskap verwyder.
 delete_msg_pm_body:		Oorspronklike boodskap
 delete_msg_pm_subject:		Onderwerp: {VAR: data[15]}
@@ -972,7 +928,6 @@ uc_new_topic:			Nuwe onderwerp
 uc_new_cat_forum:		Ingetekende forums met nuwe boodskappe
 uc_cat_forum:			Kategorie &raquo; Forum
 uc_sub_topics:			Ingetekende onderwerpe met nuwe boodskappe
-uc_page_title:			Viewing personal control panel.
 search_options:			Soek opsies
 search_user_filter:		Vir gebruiker:
 register_none:			Geen kennisgewings
@@ -981,7 +936,6 @@ register_max_sig_len:		Maksimum lengte:
 register_turing:		Sleutel asb die volgende letters in:
 register_err_turing:		Ongeldige validasie-kode.
 modque_cat:			Kategorie
-modque_forum:			Forum
 idx_compact_forum_row:		Beskikbare forums:
 mmd_del_title:			Verwyder onderwerpe
 mmd_mov_title:			Skuif onderwerpe
@@ -992,12 +946,9 @@ pmsg_pdf_btn:			Maak PDF-argief
 search_results_hdr:		{VAR: total} resultate gevind
 thread_del_all:			Verwyder seleksie
 thread_mov_all:			Skuif seleksie
-dmsg_ip:			IP:
 err_banned_acct_title:		FOUT: U is verban.
 err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
 err_blockedaccnt_title:		FOUT: Your account has been filtered out.
-err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
-merge_th_page_list:		Topic Page Selection
 most_users_online:		Die meeste aanlyn gebruikers was <b>{VAR: st_obj->most_online}</b> op <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:		Afmeld van alle Forums
 sub_unsub_all_topics:		Afmeld van alle Ondwerwerpe
@@ -1026,9 +977,6 @@ rating:				Waardering
 rating_track:			Beheer waardering vir reeks <b>{VAR: thr->subject}</b>:
 rating_delete:			Verwyder
 post_always_on_top:		Laat die onderwerp altyd boaan die onderwerplys verskein.
-register_skype:			Skype Handle:
-register_google:		Google Chat/IM Handle:
-im_google:			Google Talk: 
 im_skype:			Skype:
 topic_rating:			{VAR: frm->rating} uit {VAR: frm->n_rating} stemme
 topic_list_rating:		{VAR: r[17]} uit {VAR: r[21]} stemme

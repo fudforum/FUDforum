@@ -1,4 +1,3 @@
-action:				Action
 add_to_buddy_list:		Ajouter à la liste de mes amis
 admin:				Admin
 admin_control_panel:		Panneau d&#39;administration
@@ -43,7 +42,6 @@ im_aim:				Identifiant AIM:
 im_msnm:			Identifiant MSN Messenger :
 im_yahoo:			Identifiant Yahoo Messenger :
 image:				Image :
-index_forum:			Forum
 index_new_posts:		Nouveaux messages depuis votre dernière visite
 index_no_new_posts:		Pas de nouveau message depuis votre dernière visite
 index_url_redirection:		Redirection
@@ -62,7 +60,6 @@ logout:				Déconnexion
 mark_all_read:			Marquer tous les messages comme lus
 mark_all_read_desc:		Tous vos messages non lus vont être marqués comme lus
 members:			Membres
-message:			Message
 message_counter:		Nos utilisateurs ont posté un total de <b>{VAR: post_count}</b> message(s) dans <b>{VAR: thread_count}</b> fil(s).
 message_index:			Index des messages
 message_index_desc:		Voir la liste des messages
@@ -78,7 +75,6 @@ more_unread_messages_desc:	Montrer d&#39;autres messages non lus et marquer le m
 move_thread:			Déplacer
 moved:				Déplacé dans un autre forum
 moved_thread_message:		Ce fil a été déplacé dans un autre forum
-na:				n/a
 new_posts:			Nouveau(x) message(s)
 new_private_messages:		Vous avez <span class="GenText" style="color: #ff0000">({VAR: c})</span> message(s) privé(s) non lu(s)
 new_thread:			Créer un nouveau fil
@@ -96,7 +92,6 @@ no_unread_locked:		Ce fil a été verrouillé
 no_unread_msg:			Ce fil ne contient pas de message non lu
 no_unread_msg_unreg:		La fonctionnalité permettant de suivre vos message lus &amp; non lus n&#39;est activée que pour les utilisateurs inscrits
 num_pages:			Pages ({VAR: ttl_pg}) :
-num_votes:			{VAR: obj->total_votes} vote(s)
 occupation:			Métier :
 off:				DÉSACTIVÉ
 on:				ACTIVÉ
@@ -185,9 +180,7 @@ user_online:			{VAR: obj->login} est en ligne
 usrinfo_last_post:		Dernier Message :
 view_results:			Voir les résultats
 views:				Visites
-vote:				{VAR: frm->n_rating} Vote(s)
 vote_button:			Voter
-vote_for_thread:		Vote
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a été déplacé vers <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> par le modérateur
 welcome_message:		Bienvenue <b>{VAR: usr->alias}</b>, votre dernière visite a eu lieu le {TEMPLATE: welcome_message_date}
 what_ppl_doing:			Montrer ce que les autres sont en train de faire
@@ -213,7 +206,6 @@ referals_none:			Pas encore de parrainage
 referals_refered_by:		Membre(s) du forum parrainé(s) par: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Compteur de messages
 referals_registered_on:		Inscrit(e) depuis le
-referals_action:		Action
 pmsg_all:			tous/toutes
 pmsg_none:			aucun(e)
 folder:				Dossier :
@@ -261,10 +253,8 @@ finduser_no_such_user:		Aucun utilisateur ne correspond à cette requête
 finduser_user:			Utilisateur
 finduser_postcount:		Compteur de messages
 finduser_joindate:		s&#39;est inscrit le
-finduser_action:		Action
 yes:				Oui
 no:				Non
-register_email:			E-mail
 edit_time_limit:		<br /><b>Temps maximum alloué pour l&#39;édition</b> : <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
 no_edit_time_limit:		<br /><b>Temps maximum alloué pour l&#39;édition</b> : <b>Illimité</b>
 pmuserloc_login:		Utilisateur :
@@ -340,7 +330,6 @@ add:				Ajouter
 buddy_search:			Entrez le nom de l&#39;utilisateur que vous souhaitez ajouter à votre liste.
 member_search:			<br />Ou utilisez la fonctionnalité <a href="javascript://" onClick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">chercher un utilisateur</a> pour trouver cette personne.
 buddy_remove:			Enlever de ma liste d&#39;amis
-post_normal:			Normal
 post_sticky:			Épinglé
 post_annoncement:		Annonce
 post_size:			Taille
@@ -451,7 +440,6 @@ report_give_reason:		Quelle est la raison pour laquelle vous rapportez ce messag
 report_submit_report:		Soumettre le rapport
 search_entire_msg:		Dans tout le message
 search_subect_only:		Uniquement dans le sujet
-search_forum:			Forum
 search_posted_on:		Posté le
 search_no_results:		Pas de résultat
 search_all_forums:		Chercher dans tous les forums
@@ -481,7 +469,6 @@ qbud_add_selected:		Ajouter les éléments sélectionnés
 qbud_selected:			Sélectionné(s)
 qbud_no_buddies:		Pas d&#39;ami disponible dans la liste
 mklist_numerical:		Numérique
-mklist_aplha:			Alpha
 mklist_square:			Carré
 mklist_disc:			Disque
 mklist_circle:			Cercle
@@ -538,7 +525,6 @@ error_error:			Erreur
 usrinfo_profile:		Profil de {VAR: u->alias}
 usrinfo_show_all_posts:		Montrer tous les messages de {VAR: u->alias}
 actions_update:			Espionne d&#39;autres gens comme vous
-err_info:			Info
 buddy_list_err_cantadd:		Vous ne pouvez pas ajouter votre propre personne à votre liste d&#39;amis
 buddy_list_err_dup:		Cet utilisateur figure déjà dans votre liste d&#39;amis
 buddy_list_err_nouser:		L&#39;utilisateur que vous avez essayé d&#39;ajouter à votre liste d&#39;amis ne semble pas exister sur le forum.
@@ -566,7 +552,6 @@ iemail_thr_bodyemail:		Pour lire les réponses non lues, veuillez cliquer ici : 
 iemail_frm_subject:		Nouveau fil dans le forum {VAR: frm_name} intitulé {VAR: thr_subject} par {VAR: poster_login}
 iemail_frm_bodyemail:		Pour lire le fil, allez à :\n{VAR: goto_url['email']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux nouveaux fils dans ce forum à l\'avenir, veuillez cliquer ici : {VAR: unsub_url['email']}
 iemail_participate:		Pour participer à la discussion, allez ici :
-ignore_list_err_info_title:	Info
 ignore_list_err_dup_msg:	Cet utilisateur figure déjà dans votre liste de personnes à ignorer
 ignore_list_err_nu_title:	L&#39;utilisateur n&#39;a pas été trouvé
 ignore_list_err_nu_msg:		L&#39;utilisateur que vous essayez d&#39;ajouter à la liste des personnes à ignorer n&#39;a pas été trouvé sur le forum.
@@ -599,7 +584,6 @@ post_reply_update:		Répond à <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->sub
 post_topic_update:		Écrit un nouveau sujet dans <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:		Une erreur s&#39;est produite
 postcheck_max_images_err:	Un maximum de {GVAR: MAX_IMAGE_COUNT} images est autorisé par message, veuillez réduire le nombre d&#39;images
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Le champ sujet est obligatoire
 postcheck_no_such_user:		Il n&#39;y a pas d&#39;utilisateur nommé "{FUNC: char_fix(htmlspecialchars($v))}" dans ce forum
 postcheck_ignored:		Vous ne pouvez pas envoyer de message privé à "{FUNC: char_fix(htmlspecialchars($v))}" car cet utilisateur a décidé de vous ignorer.
@@ -635,7 +619,6 @@ report_err_nosuchmsg_title:	ERREUR
 report_err_nosuchmsg_msg:	Message non trouvé
 reset_err_invalidkey_title:	ERREUR
 reset_err_invalidkey_msg:	Clé de réinitialisation de mot de passe invalide
-reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		Vous devriez recevoir des instructions par e-mail dans quelques minutes.
 reset_newpass_title:		Réinitialisation du mot de passe
 reset_newpass_msg:		Bonjour,\n\nveuillez trouver ci-joint les informations dont vous avez besoin pour accéder au forum :\n\n\nNom d\'utilisateur: {VAR: ui[1]}\nMot de passe: {VAR: passwd}\n\nNotez que vous pouvez modifier votre mot de passe à tout moment via le panneau de configuration de votre profil sur le site du forum, également accessible à l\'URL suivante:\n{FULL_ROOT}{ROOT}?t=register\n\n
@@ -673,7 +656,6 @@ rpasswd_title:			Changer de mot de passe
 error_title:			Formulaire d&#39;erreur
 index_title:			Bienvenue sur le forum
 search_title:			Recherche de {VAR-HTML: srch}
-thread_title:			{VAR: frm->name}
 tree_title:			{VAR: frm->name} => {VAR: frm->subject}
 remail_emailsent:		L&#39;e-mail a été envoyé
 remail_email:			Voici, sur la page {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) un sujet, intitulé {VAR: data->subject}, que je trouve intéressant. Il est accessible ici : {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nDe {VAR: usr->alias}\n
@@ -712,7 +694,6 @@ groupmgr_no_user:		Il n&#39;existe pas d&#39;utilisateur nommé "{FUNC: char_fix
 groupmgr_already_exists:	L&#39;utilisateur "{FUNC: char_fix(htmlspecialchars($gr_member))}" existe déjà dans ce groupe.
 groupmgr_yes:			Oui
 groupmgr_no:			Non
-groupmgr_action:		Action
 groupmgr_member:		Membre(s)
 groupmgr_cancel:		Annuler
 groupmgr_add_member:		Ajouter un membre
@@ -789,7 +770,6 @@ split_th_new_thread_title:	Titre du nouveau fil :
 split_th_forum:			Forum :
 split_th_split_sel:		Diviser les messages sélectionnés
 split_th_split_unsel:		Diviser les messages non sélectionnés
-split_th_messages:		Messages
 split_th_select:		Sélectionnez
 report_report_post:		Rapporter un message
 quicklogin_login:		Nom d&#39;Utilisateur
@@ -812,8 +792,6 @@ register_jabber:		Identifiant Jabber :
 register_skype:			Identifiant Skype :
 register_google:		Identifiant Google Chat/IM :
 im_jabber:			Jabber :
-im_google:			Google Talk: 
-im_skype:			Skype: 
 forum_contact:			Nous contacter
 forum_home:			Page principale
 post_cur_attached:		{VAR: i} fichier(s) attaché(s)
@@ -821,7 +799,6 @@ ignored_anon_post:		{GVAR: ANON_NICK} est ignoré
 ignored_user_post:		Le message de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> est ignoré
 smladd_close_window:		Fermer la fenêtre
 post_list_smilies:		Montrer tous les smileys
-p_VISIBLE:			Visible
 reported_in_thread:		Dans le fil
 help_back_to_top:		Retour en haut de la page
 help_return_to_index:		Retour à l&#39;index d&#39;aide
@@ -836,13 +813,11 @@ register_alias_desc:		Si vous désirez qu&#39;un pseudonyme différent de votre 
 register_allow_pm_msg:		Autoriser les messages privés
 register_allow_pm_msg_desc:	Permettre aux autres utilisateurs de vous envoyer des messages privés via le forum.
 postcheck_pm_disabled:		Vous ne pouvez pas envoyer de message privé à "{VAR-HTML: v}", car cette personne n&#39;accepte pas les messages privés.
-polllist_vote:			Vote
 polllist_view_results:		Voir les résultats
 polllist_name:			Nom du sondage
 polllist_date:			Créé le
 polllist_owner:			Créé par
 polllist_votes:			Total des votes
-polllist_action:		Action
 polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Regarde les sondages disponibles</a>
 userinfo_polls:			Sondages :
 show_pollist:			Voir les sondages
@@ -861,7 +836,6 @@ register_show_im:		Afficher les indicateurs IM
 register_show_im_desc:		Afficher ou non les indicateurs de Messagerie Instantanée  des auteurs de messages.
 unread_message:			Message non lu
 read_message:			Message lu
-threadt_more:			&lt;more&gt;
 threadt_disabled_ttl:		La vue arborescente de la liste des fils est désactivée.
 threadt_disabled_desc:		L&#39;administrateur a désactivé la vue arborescente de la liste des fils, merci d&#39;utiliser la vue plane.
 threadt_update:			Parcourt le forum (vue arborescente) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -927,7 +901,6 @@ mnav_invalid_date:		L&#39;intervalle de dates que vous avez spécifié est plus 
 mnav_no_results:		Il n&#39;y a aucun message correspondant à votre recherche.
 mnav_posted_by:			Envoyé par :
 mnav_more:			Plus &raquo;&raquo;
-mnav_minute:			Minute(s)
 mnav_hour:			Heure(s)
 mnav_day:			Jour(s)
 mnav_week:			Semaine(s)
@@ -977,7 +950,6 @@ userinfo_real_name:		Vrai nom :
 register_err_alias_notallowed:	Cet alias n&#39;est pas autorisé.
 post_err_mod_forum_edit_ttl:	ERREUR
 post_err_mod_forum_edit_msg:	Vous ne pouvez pas éditer les messages d&#39;un forum modéré.
-dmsg_num:			message #{VAR: obj->id}
 postcheck_session_invalid:	Votre session a expiré, veuillez re-soumettre le formulaire. Désolé pour le dérangement.
 delete_message_extra_desc:	<b>Optionnel</b><br />Indiquez une raison justifiant l&#39;effacement du message. Ceci sera envoyé par message privé à l&#39;auteur.
 delete_message_extra_body:	Inclure le corps du message et l&#39;envoyer à l&#39;auteur.
@@ -1002,7 +974,6 @@ register_max_sig_len:		Longueur maximale :
 register_turing:		Veuillez entrer le code ci-dessous:
 register_err_turing:		Code de validation incorrect.
 modque_cat:			Catégorie
-modque_forum:			Forum
 idx_compact_forum_row:		Forums disponibles :
 mmd_del_title:			Effacement de sujets
 mmd_mov_title:			Déplacement de sujets
@@ -1023,41 +994,16 @@ sub_unsub_all_topics:		Cesser la surveillance de tous les fils
 unbookmark_all_topics:		Supprimez tous les favoris
 tabs_own_posts:			Montrer ses propres messages
 sml_emoticon:			Émoticon
-sml_code:			Code
 mnav_sub_only:			Rechercher dans les forums surveillés seulement
 register_topics_per_page:	Sujets par page :
 login_min_time:			Ce forum ne permet qu\'une tentative de connexion par période de {VAR: MIN_TIME_BETWEEN_LOGIN} secondes, veuillez patienter {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} secondes avant votre prochaine tentative.
 post_not_logged_in:		Vous n\'êtes pas connecté, le message sera posté anonymement.
-post_common_bold:		Bold
-post_common_italics:		Italics
-post_common_underline:		Underline
-post_common_align_left:		Align Left
-post_common_align_center:	Align Center
-post_common_align_right:	Align Right
-post_common_link:		Insert a Link
-post_common_email:		Insert an E-mail address
-post_common_image:		Insert an image
-post_common_nlist:		Add numbered list
-post_common_blist:		Add bulleted list
-post_common_quote:		Add Quote
-post_common_code:		Add Code
 rating_delete:			Supprimez
-post_always_on_top:		Make the topic always appear at the top of the topic listing
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
-tabs_notifications:		Notifications
 finduser_flag:			Drapeau
 post_descr:			Description du sujet
-pmsg_on:			on
 pmsg_download_dump:		Téléchargez une sauvegarde des messages
 move_messages:			Déplacez les messages
 move_msg_btn:			Déplacez les messages sélectionnés
 move_msg_th_expl:		Précisez l\'identifiant du sujet de destination (peut être situé dans un autre forum)
 quick_reply:			Réponse rapide
 thread_loc_all:			Verrouiller / Déverrouiller toute la sélection
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

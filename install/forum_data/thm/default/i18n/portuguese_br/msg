@@ -4,7 +4,6 @@ admin:				Admin
 admin_control_panel:		Admin Painel de Controle
 administrator:			Administrador
 attachment:			Anexo:
-avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} Post(s) ({VAR: avg} em média por dia)
 biography:			Biografia:
 birth_date:			Data de Nascimento :
@@ -39,8 +38,6 @@ icq_control_panel:		Painel de mensagens do ICQ Online
 icq_message_form:		Formulario de mensagem ICQ:
 ignore_user:			Ignorar todos os posts deste usuário 
 im_aim:				Apontar manuseamento:
-im_msnm:			MSN Messenger:
-im_yahoo:			Yahoo Messenger:
 image:				Imagem:
 index_forum:			Fórum
 index_new_posts:		Existem novos posts desde o último lido
@@ -271,7 +268,6 @@ register_your_pass:		A sua Senha:
 register_update:		Atualizar
 register_avatar_type:		Tipo de Avatar:
 register_del_avatar:		Apagar Avatar
-register_avatar:		Avatar:
 register_sel_avatar:		Selecionar Avatar
 register_custom_avatar_rules:	O Avatar escolhido não aparecerá até que seja aprovado pelo administrador.<br /><font class="SmallText">O Avatar não poderá ter mais de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> de largura e terá de estar no formato.<b>jpg</b>, <b>gif</b> ou <b>png</b></font>
 register_custom_avatar_url:	URL do Avatar escolhido:
@@ -288,8 +284,6 @@ register_interests:		Interesses:
 register_image:			Imagem:
 register_icq:			ICQ
 register_aim:			AIM:
-register_yahoo:			Yahoo Messenger:
-register_msnm:			MSN Messenger:
 register_homepage:		Página Pessoal:
 register_bday:			Data de nascimento:
 register_bday_desc:		Se selecionar a data de nascimento todos os membros a poderão ver no seu perfil
@@ -326,7 +320,6 @@ add_buddy:			Adicionar Amigo
 add:				Adicionar
 buddy_search:			Introduza o id do usuário que quer adicionar.
 buddy_remove:			remover
-post_normal:			Normal
 post_sticky:			Fixo
 post_annoncement:		Anunciar
 post_size:			Tamanho
@@ -467,7 +460,6 @@ qbud_add_selected:		Adicionar seleção
 qbud_selected:			Selecionado
 qbud_no_buddies:		Não há amigos para escolha
 mklist_numerical:		Numérico
-mklist_aplha:			Alpha
 mklist_square:			Quadrado
 mklist_disc:			Disco
 mklist_circle:			Circulo
@@ -523,7 +515,6 @@ error_error:			Erro
 usrinfo_profile:		Ficha de {VAR: u->alias}
 usrinfo_show_all_posts:		Mostrar todos os comentários por {VAR: u->alias}
 actions_update:			A bisbilhotar outras pessoas
-err_info:			Info
 buddy_list_err_cantadd:		Não se pode adicionar à sua própria lista de amigos
 buddy_list_err_dup:		Já tem este usuário na lista de amigos
 buddy_list_err_nouser:		O usuário que tentou adicionar à sua lista de amigos não foi encontrado no fórum.
@@ -550,7 +541,6 @@ iemail_thr_bodyemail:		Para ver todas as respostas não lidas vá para {VAR: got
 iemail_frm_subject:		Novo tópico no fórum {VAR: frm_name} chamado {VAR: thr_subject} por {VAR: poster_login}
 iemail_frm_bodyemail:		Para ver o tópico vá para:\n{VAR: goto_url['email']}\n\nPara parar de receber notificações acerca de novos tópicos neste fórum, vá aqui: {VAR: unsub_url['email']}
 iemail_participate:		Para participar na discussão vá aqui 
-ignore_list_err_info_title:	Info
 ignore_list_err_dup_msg:	Já tem este usuário na lista de ignorados
 ignore_list_err_nu_title:	Usuário não encontrado
 ignore_list_err_nu_msg:		O usuário que tentou adicionar à sua lista de ignorados, não existe neste fórum
@@ -579,7 +569,6 @@ post_reply_update:		Responder a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->su
 post_topic_update:		Escrevando novo tópico em <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		tem um erro
 postcheck_max_images_err:	No máximo são permitidas {GVAR: MAX_IMAGE_COUNT} imagens por comentário, por favor diminua o n.º de imagens
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Assunto obrigatório
 postcheck_no_such_user:		Não existe um usuário chamado "{FUNC: char_fix(htmlspecialchars($v))}" neste fórum
 postcheck_ignored:		Não pode enviar uma mensagem privada  para "{FUNC: char_fix(htmlspecialchars($v))}", porque a pessoa está ignorando-o.
@@ -992,72 +981,4 @@ pmsg_pdf_btn:			Criar arquivo PDF
 search_results_hdr:		{VAR: total} Resultados encontrados
 thread_del_all:			Apagar Todos os selecionados
 thread_mov_all:			Mover Todos os selecionados
-dmsg_ip:			IP:
-err_banned_acct_title:		ERROR: You have been banned.
-err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
-err_blockedaccnt_title:		ERROR: Your account has been filtered out.
-err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
-merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
-tabs_own_posts:			Show Own Posts
-buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
-sml_emoticon:			Emoticon
-sml_code:			Code
-mnav_sub_only:			Search in subscribed forums only
-register_topics_per_page:	Topics Per Page:
-login_min_time:			This forum allows one login attempt every {VAR: MIN_TIME_BETWEEN_LOGIN} seconds, please wait {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconds before your next attempt.
-post_not_logged_in:		You are not currently logged in, the message will be posted anonymously.
-post_common_bold:		Bold
-post_common_italics:		Italics
-post_common_underline:		Underline
-post_common_align_left:		Align Left
-post_common_align_center:	Align Center
-post_common_align_right:	Align Right
-post_common_link:		Insert a Link
-post_common_email:		Insert an E-mail address
-post_common_image:		Insert an image
-post_common_nlist:		Add numbered list
-post_common_blist:		Add bulleted list
-post_common_quote:		Add Quote
-post_common_code:		Add Code
-rating:				Rating
-rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
-rating_delete:			Delete
-post_always_on_top:		Make the topic always appear at the top of the topic listing
-register_skype:			Skype Handle:
-register_google:		Google Chat/IM Handle:
-im_google:			Google Talk: 
-im_skype:			Skype: 
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
-register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
-tabs_notifications:		Notifications
-finduser_flag:			Flag
-post_descr:			Topic Description
-pmsg_on:			on
-pmsg_download_dump:		Download Message Dump
-move_messages:			Move messages
-move_msg_btn:			Move Selected Messages
-move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
-index_url_redirection:		Redirection 
 quick_reply:			Resposta rápida
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

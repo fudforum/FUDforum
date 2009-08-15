@@ -2,7 +2,6 @@ action:				Actiune
 add_to_buddy_list:		adauga la lista cu prieteni
 admin:				Administrator 
 admin_control_panel:		Panou de Control Administrator
-administrator:			Administrator
 attachment:			Atasament:
 avatar:				Imagime:
 average_post_count:		{VAR: u->posted_msg_count} mesaje ({VAR: avg} mesaje trimise pe zi)
@@ -23,7 +22,6 @@ faq:				Intrebari frecvente
 first_unread_msg:		Du-te la mesajele necitite
 first_unread_msg_desc:		Du-te la primul mesaj necitit din acest subiect
 flat_view:			Intoarcere la vizualizare normala
-forum:				Forum:
 forum_icon:			Iconita Forum
 forum_new_messages:		Mesaje noi
 forum_none_messages:		Doar membrii inregistrati pot citi mesajele necitite
@@ -39,10 +37,7 @@ icq_control_panel:		Panoul de control mesaje ICQ
 icq_message_form:		Formularul de mesaje ICQ:
 ignore_user:			ignora toate mesajele trimise de acest utilizator
 im_aim:				AIM:
-im_msnm:			MSN Messenger:
-im_yahoo:			Yahoo Messenger:
 image:				Imagine:
-index_forum:			Forum
 index_new_posts:		Mesaje noi de la ultima citire
 index_no_new_posts:		Nici un mesaj nou de la ultima citire
 interests:			Interese:
@@ -66,7 +61,6 @@ message_index:			Indexul mesajului
 message_index_desc:		Vezi lista de mesaje
 minimize_category:		Minimizeaza categoria
 moderation_queue:		Moderator
-moderator:			Moderator
 moderator_of:			Moderator la:
 moderator_options:		Optiunile Moderatorului
 moderators:			Moderator(i)
@@ -132,7 +126,6 @@ show_posts_by:			Arata mesaje trimise de: {VAR: u_alias}
 size:				Marimea:
 status:				Statut:
 status_line:			Sunt <b>{VAR: st_obj->online_users_reg}</b> membri, <b>{VAR: st_obj->online_users_hidden}</b> membri invizibili si <b>{VAR: st_obj->online_users_anon}</b> vizitatori.
-sticky:				sticky:
 stop_ignoring:			nu mai ignora acest utilizator
 sub_to_thread:			Inscriere la tema
 sub_to_thread_desc:		Primeste notificari despre mesaje noi in aceasta tema
@@ -230,7 +223,6 @@ month_4:			Aprilie
 month_5:			Mai
 month_6:			Junie
 month_7:			Julie
-month_8:			August
 month_9:			Septembrie
 month_10:			Octombrie
 month_11:			Noiembrie
@@ -289,8 +281,6 @@ register_interests:		Interese:
 register_image:			Imagine:
 register_icq:			Numar ICQ:
 register_aim:			AIM:
-register_yahoo:			Yahoo Messenger:
-register_msnm:			MSN Messenger:
 register_homepage:		Pagina personala:
 register_bday:			Data nasterii:
 register_bday_desc:		Daca selectati data nasterii atunci ceilati membri o vor putea vedea.
@@ -327,12 +317,9 @@ add_buddy:			Adauga prieteni
 add:				Adauga
 buddy_search:			Introduceti numele celui pe care doriti sa il cautati.
 buddy_remove:			sterge
-post_normal:			Normal
-post_sticky:			Sticky
 post_annoncement:		Anunt
 post_size:			Marime
 post_color:			Culoare
-post_font:			Font
 create_thread:			Creeaza Tema
 submit_reply:			Trimite raspuns
 edit_message:			Aplica modificarile mesajului
@@ -367,7 +354,6 @@ include_sig_desc:		Include semnatura profilului meu
 disable_smilies:		Dezactiveaza smilies
 spell_check_msg:		Verifica limba mesajului
 post_form:			Trimite Forum
-post_forum:			Forum:
 post_title:			Titlu:
 post_body:			Corpul mesajului:
 post_options:			Optiuni:
@@ -438,7 +424,6 @@ report_give_reason:		Va rugam sa introduceti un motiv pentru care ati raportat a
 report_submit_report:		Trimite raport
 search_entire_msg:		Tot mesajul
 search_subect_only:		Doar subiectul
-search_forum:			Forum
 search_posted_on:		Trimis la data de
 search_no_results:		Nici un rezultat
 search_all_forums:		Cauta in tote forumurile
@@ -470,7 +455,6 @@ qbud_no_buddies:		Nici un prieten
 mklist_numerical:		Numeric
 mklist_aplha:			Alfa
 mklist_square:			Patrat
-mklist_disc:			Disc
 mklist_circle:			Cerc
 mklist_close:			Inchide
 email_to:			La:
@@ -580,7 +564,6 @@ post_reply_update:		Raspunde la <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->su
 post_topic_update:		Scrie tema noua in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Aveti o eroare
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} imagini puteti trimite
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Subiectul este obligatoriu
 postcheck_no_such_user:		Nu este nici un utilizator numit "{FUNC: char_fix(htmlspecialchars($v))}" in acest forum
 postcheck_ignored:		Nu puteti trimite mesaje personale la "{FUNC: char_fix(htmlspecialchars($v))}", deoarece aceasta persoana va ignora.
@@ -757,14 +740,12 @@ logedin_latest_post:		Ultimul mesaj trimis:
 register_show_avatar:		Arata imagini:
 register_show_avatar_desc:	Permite ascunderea si afisarea mesajelor
 drawmsg_view_rest_post:		Arata restul mesajelor
-post_re:			Re: 
 forumsel_goto_forum:		Mergi la forum:
 minimsg_thread_view:		Vizualizare Forum
 split_th_post_by:		Trimis de:
 split_th_posted_on:		Trimis la:
 split_th_subject:		Subiect:
 split_th_new_thread_title:	Noul titlu al temei:
-split_th_forum:			Forum:
 split_th_split_sel:		Imparte mesajele selectate
 split_th_split_unsel:		Imparte mesajele neselectate
 split_th_messages:		Mesaje
@@ -785,7 +766,6 @@ pmsg_next_msg:			Urmatorul mesaj
 pmsg_prev_msg:			Mesaj precedent
 post_proc_reveal_spoiler:	Arata spoiler
 register_jabber:		Numele pentru Jabber:
-im_jabber:			Jabber: 
 forum_contact:			Contactare
 forum_home:			Prima Pagina
 post_cur_attached:		fisiere atasate {VAR: i}
@@ -867,7 +847,6 @@ iemail_msg_date:		<b>Data:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Raspunde
 iemail_msg_quote:		Citeaza
 iemail_msg_view:		Vizualizare Tema
-threadt_sticky:			sticky
 threadt_announce:		anunt
 reported_no_messages:		Nu sunt mesaje raportate.
 poll_no_polls:			Nu sunt sondaje accesibile.
@@ -916,7 +895,6 @@ register_pm_notification_desc:	Daca este activata aceasta optiune veti fi notifi
 findu_admin_opts_header:	Optiuni Admin.
 findu_unban:			DeBlocheaza
 findu_ban:			Blocheaza
-findu_edit:			Edit
 findu_delete:			Sterge
 dmsg_reply_to:			este un raspuns la mesajul #{VAR: obj->reply_to}
 merge_topics:			Combina Temele
@@ -941,37 +919,20 @@ reset_suffix:			\n\nDaca ati primit acest mesaj din greseala, va rugam sa il ign
 usrinfo_last_visit:		Ultima pagina vizitata:
 mnav_newer:			mai nou decat
 mnav_older:			mai vechi decat
-ip_search_by_ip:		Search users by IP
-ip_search_syntax:		Supported syntax: 1.2.3.4, 1.2.3, 1.2, 1
-ip_search:			Search
-ip_analyze_usage:		Analyze IP usage
-ip_analyze_usage_descr:		Please specify the user&#39;s exact login.
-ip_users_using:			User(s) using &#39;{VAR: ip}&#39; IP address
 ip_all_ips:			Toate IP(urile) sunt folosite de &#39;{VAR: user}&#39;
-ip_title:			IP Browser
 userinfo_real_name:		Nume real:
-register_err_alias_notallowed:	This alias is not allowed
 post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
 post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
-ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
-post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	Mesajele intr&#39;un forum moderat nu pot fi editate.
-dmsg_num:			message #{VAR: obj->id}
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
-delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
-delete_message_extra_body:	Include the body of the removed message that will be sent to the author.
 delete_msg_removed_ttl:		Mesajul dumneavoastra a fost sters de catre administrator.
 delete_msg_pm_body:		Mesaj original
-delete_msg_pm_subject:		Subject: {VAR: data[15]}
-ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
 ip_whois_title:			<b>Informatii despre ISP</b><br />
 register_theme:			Tema:
 pmsg_trash:			Goleste Cosul
 uc_new_pm:			Mesaje Private Noi
 uc_new_topic:			Tema Noua
-uc_new_cat_forum:		Subscribed Forums With New Messages
 uc_cat_forum:			&raquo; Forum Categorie
-uc_sub_topics:			Subscribed Topics With New Messages
 uc_page_title:			Vizualizare panou de control personal.
 search_options:			Optiuni de cautare
 search_user_filter:		Filtrat de utilizator:
@@ -981,7 +942,6 @@ register_max_sig_len:		Lungimea Maxima:
 register_turing:		Va rog sa introduceti codul afisat mai jos:
 register_err_turing:		Cod de validare incorect.
 modque_cat:			Categorie
-modque_forum:			Forum
 idx_compact_forum_row:		Forumuri Disponibile:
 mmd_del_title:			Sterge Temele
 mmd_mov_title:			Muta Temele
@@ -992,72 +952,4 @@ pmsg_pdf_btn:			Creeaza Arhiva PDF
 search_results_hdr:		{VAR: total} Rezultate Gasite
 thread_del_all:			Sterge Toata Selectia
 thread_mov_all:			Muta Toata Selectia
-dmsg_ip:			IP:
-err_banned_acct_title:		ERROR: You have been banned.
-err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
-err_blockedaccnt_title:		ERROR: Your account has been filtered out.
-err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
-merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
-tabs_own_posts:			Show Own Posts
-buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
-sml_emoticon:			Emoticon
-sml_code:			Code
-mnav_sub_only:			Search in subscribed forums only
-register_topics_per_page:	Topics Per Page:
-login_min_time:			This forum allows one login attempt every {VAR: MIN_TIME_BETWEEN_LOGIN} seconds, please wait {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconds before your next attempt.
-post_not_logged_in:		You are not currently logged in, the message will be posted anonymously.
-post_common_bold:		Bold
-post_common_italics:		Italics
-post_common_underline:		Underline
-post_common_align_left:		Align Left
-post_common_align_center:	Align Center
-post_common_align_right:	Align Right
-post_common_link:		Insert a Link
-post_common_email:		Insert an E-mail address
-post_common_image:		Insert an image
-post_common_nlist:		Add numbered list
-post_common_blist:		Add bulleted list
-post_common_quote:		Add Quote
-post_common_code:		Add Code
-rating:				Rating
-rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
-rating_delete:			Delete
-post_always_on_top:		Make the topic always appear at the top of the topic listing
-register_skype:			Skype Handle:
-register_google:		Google Chat/IM Handle:
-im_google:			Google Talk: 
-im_skype:			Skype: 
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
-register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
-tabs_notifications:		Notifications
-finduser_flag:			Flag
-post_descr:			Topic Description
-pmsg_on:			on
-pmsg_download_dump:		Download Message Dump
-move_messages:			Move messages
-move_msg_btn:			Move Selected Messages
-move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
-index_url_redirection:		Redirection 
 quick_reply:			Răspuns rapid
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

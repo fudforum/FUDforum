@@ -4,7 +4,6 @@ admin:				Admin
 admin_control_panel:		Admin Painel de Controlo
 administrator:			Administrador
 attachment:			Anexo:
-avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} Post(s) ({VAR: avg} em média por dia)
 biography:			Biografia:
 birth_date:			Data de Nascimento :
@@ -23,7 +22,6 @@ faq:				F.A.Q.
 first_unread_msg:		Ir para a(s) mensagem(s)não lida(s)
 first_unread_msg_desc:		Ir para a 1ª mensagem não lida neste tópico
 flat_view:			Retornar para a vista padrão
-forum:				Forum:
 forum_icon:			Icon do Forum
 forum_new_messages:		Novas Mensagens
 forum_none_messages:		Apenas membros registados no forum podem ler mensagems não lidas
@@ -39,10 +37,7 @@ icq_control_panel:		Painel de mensagens do ICQ Online
 icq_message_form:		Formulario de mensagem ICQ:
 ignore_user:			Ignorar todos os posts deste utilizador 
 im_aim:				Apontar manuseamento:
-im_msnm:			MSN Messenger:
-im_yahoo:			Yahoo Messenger:
 image:				Imagem:
-index_forum:			Forum
 index_new_posts:		Existem novos posts desde o último lido
 index_no_new_posts:		Não existem novos posts desde o último lido
 interests:			Interesses:
@@ -271,7 +266,6 @@ register_your_pass:		A sua Password:
 register_update:		Actualizar
 register_avatar_type:		Tipo de Avatar:
 register_del_avatar:		Apagar Avatar
-register_avatar:		Avatar:
 register_sel_avatar:		Selecionar Avatar
 register_custom_avatar_rules:	O Avatar escolhido não aparecerá até que seja aprovado pelo administrador.<br /><font class="SmallText">O Avatar não poderá ter mais de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> de largura e terá de estar no formato.<b>jpg</b>, <b>gif</b> ou <b>png</b></font>
 register_custom_avatar_url:	URL do Avatar escolhido:
@@ -288,8 +282,6 @@ register_interests:		Interesses:
 register_image:			Imagem:
 register_icq:			ICQ
 register_aim:			AIM:
-register_yahoo:			Yahoo Messenger:
-register_msnm:			MSN Messenger:
 register_homepage:		Página Pessoal:
 register_bday:			Data de nascimento:
 register_bday_desc:		Se selecionar a data de nascimento todos os membros a poderão ver no seu perfil
@@ -326,7 +318,6 @@ add_buddy:			Adicionar Amigo
 add:				Adicionar
 buddy_search:			Introduza o id do utlizador que quer adicionar.
 buddy_remove:			remover
-post_normal:			Normal
 post_sticky:			Fixo
 post_annoncement:		Anunciar
 post_size:			Tamanho
@@ -366,7 +357,6 @@ include_sig_desc:		Incluir a minha assinatura no perfil.
 disable_smilies:		Cancelar smilies nesta mensagem
 spell_check_msg:		Accionar ortografia na mensagem
 post_form:			Colocar Formulário
-post_forum:			Forum:
 post_title:			Titulo:
 post_body:			Corpo:
 post_options:			Opções:
@@ -437,7 +427,6 @@ report_give_reason:		Por favor informe a razão pela pela qual está a reportar 
 report_submit_report:		Submeter 
 search_entire_msg:		Mensagem completa
 search_subect_only:		Apenas o assunto
-search_forum:			Forum
 search_posted_on:		Afixado em
 search_no_results:		Sem resultados
 search_all_forums:		Procurar em todos os foruns
@@ -467,7 +456,6 @@ qbud_add_selected:		Adicionar selecção
 qbud_selected:			Selecionado
 qbud_no_buddies:		Não há amigos para escolha
 mklist_numerical:		Numérico
-mklist_aplha:			Alpha
 mklist_square:			Quadrado
 mklist_disc:			Disco
 mklist_circle:			Circulo
@@ -523,7 +511,6 @@ error_error:			Erro
 usrinfo_profile:		Ficha de {VAR: u->alias}
 usrinfo_show_all_posts:		Mostrar todos os comentários por {VAR: u->alias}
 actions_update:			A bisbilhotar outras pessoas, é mesmo seu :P
-err_info:			Info
 buddy_list_err_cantadd:		Não se pode adicionar á sua própria lista de amigos
 buddy_list_err_dup:		Já tem este utilizador na lista de amigos
 buddy_list_err_nouser:		O utilizador que tentou adicionar á sua lista de amigos não foi encontrado no forum.
@@ -550,7 +537,6 @@ iemail_thr_bodyemail:		Para ver todas as respostas não lidas vá a {VAR: goto_u
 iemail_frm_subject:		Novo tópico no forum {VAR: frm_name} chamado {VAR: thr_subject} by {VAR: poster_login}
 iemail_frm_bodyemail:		Para ver o tópico vá a:\n{VAR: goto_url['email']}\n\nPara parar de receber notificações acerca de novos tópicos neste forum, vá aqui: {VAR: unsub_url['email']}
 iemail_participate:		Para participar na discussão vá aqui 
-ignore_list_err_info_title:	Info
 ignore_list_err_dup_msg:	Já tem este utilizador na lista de ignorados
 ignore_list_err_nu_title:	Utilizador não encontrado
 ignore_list_err_nu_msg:		O utilizador que tentou adicionar á sua lista de ignorados, não existe neste forum
@@ -579,7 +565,6 @@ post_reply_update:		Responder a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->su
 post_topic_update:		A escrever novo tópico em <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		tem um erro
 postcheck_max_images_err:	No máximo são permitidas {GVAR: MAX_IMAGE_COUNT} imagens por comentário, por favor diminua o n.º de imagens
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Assunto obrigatório
 postcheck_no_such_user:		Não existe um utlizador chamado "{FUNC: char_fix(htmlspecialchars($v))}" neste forum
 postcheck_ignored:		Não pode enviar uma mensagem privada  para "{FUNC: char_fix(htmlspecialchars($v))}", porque a pessoa está a ignora-lo.
@@ -763,7 +748,6 @@ split_th_post_by:		Colocado por:
 split_th_posted_on:		Colocado em:
 split_th_subject:		Assunto:
 split_th_new_thread_title:	Novo titulo do Tópico:
-split_th_forum:			Forum:
 split_th_split_sel:		Dividir mensagens seleccionadas
 split_th_split_unsel:		Dividir mensagens não seleccionadas
 split_th_messages:		Mensagens
@@ -891,173 +875,31 @@ reg_conf_title:			Confirmação do Registo
 reg_conf_email:			<b>Confirmação via E-mail</b><br />Um email foi-lhe enviado contendo uma URL especial que terá de aceder antes da sua conta ser activada. Se não receber essa notificação nos próximos minutos, conecte-se na sua conta e garanta que o endereço de e-mail que introduziu está correcto. Após confirmar a sua conta terá acesso às opções do forum disponíveis aos utilizadores confirmados.
 reg_conf_account:		<b>Confirmação de Conta</b><br />Antes da sua conta se tornar activa é necessário que seja aprovada pelo(s) administrador(es), assim que tal acontecer você receberá um e-mail indicando que a mesmo foi activada. Até essa altura você poderá aceder à sua conta, no entanto não poderá aceder às opções do forum somente disponíveis aos utilizadores confirmados.
 forum_banned_user:		As suas acções anteriores obtiveram como resultado a sua expulsão permanente deste forum. Adeus.
-mnav_description:		Message Navigator
-mnav_date_limit:		Date range:
-mnav_forum_limit:		Only search In:
-mnav_all_forums:		Search all forums
-mnav_submit:			Begin Search
 mnav_no_range:			You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
-mnav_invalid_unit:		You must specify a valid time unit.
 mnav_invalid_date:		The date range you&#39;ve specified is larger then the one allowed by the administrator, narrow down date range of your search.
 mnav_no_results:		There are no messages matching query.
-mnav_posted_by:			Posted By:
-mnav_more:			More &raquo;&raquo;
-mnav_minute:			Minute(s)
-mnav_hour:			Hour(s)
-mnav_day:			Day(s)
-mnav_week:			Week(s)
-mnav_month:			Month(s)
-mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Private Message Notification
 register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.
-findu_admin_opts_header:	Admin Opts.
-findu_unban:			UnBan
-findu_ban:			Ban
-findu_edit:			Edit
-findu_delete:			Delete
-dmsg_reply_to:			is a reply to message #{VAR: obj->reply_to}
-merge_topics:			Merge Topics
-merge_topics_cp:		Merge Topic Control Panel
 merge_topics_tpl:		Select Topics To Merge <font class="SmallText">(you must select more then 1 topic)</font>
-merge_merge:			Merge Selected Topics
-merge_next:			Next Topics
-merge_prev:			Previous Topics
 split_cp:			Thread Split Control Panel
 groups_perms_header:		Permissions <font size="-1">(move mouse over the permission to see permission type)</font>
-register_err_sig_too_long:	Your signature exceeds the maximum allowed length of {GVAR: FORUM_SIG_ML} characters characters.
 register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Your Signature is \'+document.forms[\'fud_register\'].reg_sig.value.length+\' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML}\');" class="SmallText">Check Signature Length</a>
-p_SEARCH:			Can Search
 adm_account_accepted:		Your account \'{VAR: GLOBALS['r']->login}\' was approved by the administrator and is now active. You may now access the {GVAR: FORUM_TITLE}\' forum as a confirmed registered user.
 adm_account_accepted_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was accepted.
 adm_account_rejected:		Your account \'{VAR: GLOBALS['r']->login}\' was declined by the administrator and is now active. If you would like to know the reason behind this decision feel free to contact the administrator at \'{GVAR: ADMIN_EMAIL}\'.
 adm_account_rejected_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was declined.
-thread_on:			on
-userinfo_buddy:			Buddy:
-register_email_addr:		E-mail Address:
-reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
 usrinfo_last_visit:		Ultimo Visitado:
 mnav_newer:			newer then
 mnav_older:			older then
-ip_search_by_ip:		Search users by IP
-ip_search_syntax:		Supported syntax: 1.2.3.4, 1.2.3, 1.2, 1
-ip_search:			Search
-ip_analyze_usage:		Analyze IP usage
-ip_analyze_usage_descr:		Please specify the user&#39;s exact login.
-ip_users_using:			User(s) using &#39;{VAR: ip}&#39; IP address
-ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
-ip_title:			IP Browser
-userinfo_real_name:		Real Name:
-register_err_alias_notallowed:	This alias is not allowed
 post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
 post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
-ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
-post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
-dmsg_num:			message #{VAR: obj->id}
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
-delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
-delete_message_extra_body:	Include the body of the removed message that will be sent to the author.
-delete_msg_removed_ttl:		Your message was removed by administration staff.
-delete_msg_pm_body:		Original message
-delete_msg_pm_subject:		Subject: {VAR: data[15]}
-ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
-ip_whois_title:			<b>ISP Information</b><br />
-register_theme:			Theme:
-pmsg_trash:			Empty Trash
-uc_new_pm:			New Private Messages
-uc_new_topic:			New Topic
-uc_new_cat_forum:		Subscribed Forums With New Messages
-uc_cat_forum:			Category &raquo; Forum
-uc_sub_topics:			Subscribed Topics With New Messages
-uc_page_title:			Viewing personal control panel.
-search_options:			Search Options
-search_user_filter:		Filter by user:
-register_none:			Don&#39;t Notify
-findu_no_conf:			unconfirmed user
-register_max_sig_len:		Maximum Length:
-register_turing:		Please enter the code shown below:
-register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum
-idx_compact_forum_row:		Available Forums:
-mmd_del_title:			Delete Topics
-mmd_mov_title:			Move Topics
-mmd_move_threads_to:		Destination Forum:
-mmd_abort_move:			Cancel
-mmd_move:			Move Topics
-pmsg_pdf_btn:			Make PDF Archive
-search_results_hdr:		{VAR: total} Search Results Found
-thread_del_all:			Delete All Selected
-thread_mov_all:			Move All Selected
-dmsg_ip:			IP:
-err_banned_acct_title:		ERROR: You have been banned.
 err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
-err_blockedaccnt_title:		ERROR: Your account has been filtered out.
-err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
-merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
-tabs_own_posts:			Show Own Posts
-buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
-sml_emoticon:			Emoticon
-sml_code:			Code
-mnav_sub_only:			Search in subscribed forums only
-register_topics_per_page:	Topics Per Page:
-login_min_time:			This forum allows one login attempt every {VAR: MIN_TIME_BETWEEN_LOGIN} seconds, please wait {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconds before your next attempt.
-post_not_logged_in:		You are not currently logged in, the message will be posted anonymously.
-post_common_bold:		Bold
-post_common_italics:		Italics
-post_common_underline:		Underline
-post_common_align_left:		Align Left
-post_common_align_center:	Align Center
-post_common_align_right:	Align Right
-post_common_link:		Insert a Link
-post_common_email:		Insert an E-mail address
-post_common_image:		Insert an image
-post_common_nlist:		Add numbered list
-post_common_blist:		Add bulleted list
-post_common_quote:		Add Quote
-post_common_code:		Add Code
-rating:				Rating
 rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
-rating_delete:			Delete
-post_always_on_top:		Make the topic always appear at the top of the topic listing
-register_skype:			Skype Handle:
-register_google:		Google Chat/IM Handle:
-im_google:			Google Talk: 
-im_skype:			Skype: 
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
 register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
-tabs_notifications:		Notifications
-finduser_flag:			Flag
 post_descr:			Topic Description
-pmsg_on:			on
-pmsg_download_dump:		Download Message Dump
-move_messages:			Move messages
-move_msg_btn:			Move Selected Messages
-move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
 index_url_redirection:		Redirection
 quick_reply:			Resposta rápid
-thread_loc_all:			Lock/Unlock All Selected
 powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

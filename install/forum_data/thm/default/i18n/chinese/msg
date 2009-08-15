@@ -575,7 +575,6 @@ post_reply_update:		回复 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject
 post_topic_update:		发表新主题 <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		发生错误
 postcheck_max_images_err:	一次提交图片允许的最大数是{GVAR: MAX_IMAGE_COUNT} ，请尽量减少图片数量。
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		输入主题
 postcheck_no_such_user:	本论坛没有 "{FUNC: char_fix(htmlspecialchars($v))}" 用户
 postcheck_ignored:		"{FUNC: char_fix(htmlspecialchars($v))}"用户拒绝接受你的悄悄话。
@@ -991,7 +990,6 @@ pmsg_pdf_btn:			生成PDF文档
 search_results_hdr:		{VAR: total} 搜索结果 
 thread_del_all:			删除所有选中的
 thread_mov_all:			移动所有选中的
-dmsg_ip:			IP:
 err_banned_acct_title:		错误:你被屏蔽了.
 err_banned_acct_msg:		你的帐号被暂时{IF: $ban_expiry}锁定直到{DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}允许{ENDI} 登录本站，因为本站的&#39s规则.
 err_blockedaccnt_title:		错误:你的帐号已经被过滤了。
@@ -1039,25 +1037,4 @@ pmsg_download_dump:		查看所有悄悄话
 move_messages:			移动帖子
 move_msg_btn:			移动所有选中的
 move_msg_th_expl:		移至指定主题的ID（可以跨版块）
-pmsg_on:			on
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-register_err_taken_alias:	The alias you are trying to use is already in use by another forum member. Please choose another.
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
-index_url_redirection:		Redirection 
 quick_reply:			快速回复
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

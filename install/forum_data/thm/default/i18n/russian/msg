@@ -15,7 +15,6 @@ custom_avatar_queue:		Очередь внешних картинок
 date_posted:			Дата отправки
 date_registered:		Дата регистрации:
 download_counter:		Загружено {VAR: v[3]} раз
-email:				E-mail:
 email_to_friend:		Отправить по e-mail
 email_to_friend_desc:		Отправить URL-ссылку на это сообщение по e-mail
 email_user:			Нажмите для отправки по e-mail
@@ -424,7 +423,6 @@ rpasswd_cur_pass:		Текущий пароль:
 rpasswd_new_pass:		Новый пароль:
 rpasswd_conf_pass:		Пароль повторно (для проверки):
 login_passwd:			Пароль:
-reset_email:			E-mail:
 reset_reset_button:		Сброс пароля
 rate_this_thread:		Оценить
 report_reporting_about:		Извещение о сообщении:
@@ -471,10 +469,8 @@ mklist_disc:			Бюллетень - диски
 mklist_circle:			Бюллетень - кружки
 mklist_close:			Закрыть
 email_to:			Кому:
-email_pg_title:			E-mail
 email_subject:			Тема:
 email_body:			Текст:
-email_submit:			E-mail
 ppost_quote_msg:		{VAR: msg_to_list} написал(а) {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Цитата:
 ppost_to:			Кому:
@@ -880,7 +876,6 @@ iemail_thread_unsub:		Отписаться от этой темы
 iemail_forum_unsub:		Отписаться от этого форума
 primary_group_prefix:		Первичная группа для форума:
 group_resources:		Данная группа контролирует доступ к следующим форумам
-register_email:			E-mail
 register_admin_newuser_title:	Зарегистрирован новый пользователь и ожидается утверждение его учетной записи
 register_admin_newuser_msg:	В форуме был зарегистрирован новый пользователь ({VAR: uent->login}), и, поскольку включен режим утверждения пользователей, его учетная запись не будет активизирована до ее утверждения вами или другим администратором форума. Для утверждения учетной записи перейдите по ссылке: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nЭто автоматически сгенерированное сообщение, не пытайтесь на него отвечать.\nЕсли вы хотите выключить извещения о регистрации новых пользователей в дальнейшем, сделайте это в панели управления, изменив значения параметра "Извещение о новых пользователях".
 post_mod_msg_notify_title:	Новое сообщение в форуме "{VAR: frm->name}" ожидает утверждения
@@ -992,7 +987,6 @@ pmsg_pdf_btn:			Создать PDF-архив
 search_results_hdr:		В результате поиска найдено страниц: {VAR: total}
 thread_del_all:			Удалить отмеченные
 thread_mov_all:			Перенести отмеченные
-dmsg_ip:			IP:
 err_banned_acct_title:		ОШИБКА: Вы были забанены.
 err_banned_acct_msg:		Вам был {IF: $ban_expiry}запрещен вход на форум до {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}навсегда запрещен вход на форум{ENDI}, скорее всего в результате грубого нарушения правил.
 err_blockedaccnt_title:		ОШИБКА: Ваш аккаунт внесен в список запрещенных.
@@ -1028,7 +1022,6 @@ rating_delete:			Удалить
 post_always_on_top:		Удерживать тему наверху списка тем в форуме
 register_skype:			Имя в Skype:
 register_google:		Имя в сети Google Chat/IM:
-im_google:			Google Talk: 
 im_skype:			Имя в Skype: 
 topic_rating:			рейтинг:&nbsp;{VAR: frm->rating}&nbsp;(голосов:&nbsp;{VAR: frm->n_rating})
 topic_list_rating:		рейтинг:&nbsp;{VAR: r[17]}&nbsp;(голосов:&nbsp;{VAR: r[21]})
@@ -1052,12 +1045,4 @@ tabs_bookmarkes:		Закладки
 bookmarked_update:		Просмотр вашего списка закладок
 unbookmark_all_topics:		Удалить все закладки
 pmsg_on:			вкл
-index_url_redirection:		Redirection 
 quick_reply:			быстрый ответ
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

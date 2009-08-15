@@ -4,7 +4,6 @@ admin:				Amministrazione
 admin_control_panel:		Pannello di controllo Amministrazione
 administrator:			Amministratore
 attachment:			Allegato:
-avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} Post ({VAR: avg} media di post giornalieri)
 biography:			Bio:
 birth_date:			Data di nascita:
@@ -23,7 +22,6 @@ faq:				F.A.Q.
 first_unread_msg:		Vai ai messaggi non letti
 first_unread_msg_desc:		Vai al primo messaggio non letto di questo argomento
 flat_view:			Ritorna alla vista piatta (default)
-forum:				Forum:
 forum_icon:			Icona del forum
 forum_new_messages:		Nuovi messaggi
 forum_none_messages:		Solo gli utenti registrati del forum possono tener traccia dei messaggi letti e non letti
@@ -33,16 +31,10 @@ gender:				Genere:
 go:				Vai
 goto_next_msg:			Messaggio successivo
 goto_prev_msg:			Messaggio precedente
-home:				Home
-homepage:			Homepage:
 icq_control_panel:		Pannello Messaggi on-line ICQ
 icq_message_form:		ICQ Form Messaggi:
 ignore_user:			ignora tutti i messaggi<br />di questo utente
-im_aim:				AIM Handle:
-im_msnm:			MSN Messenger:
-im_yahoo:			Yahoo Messenger:
 image:				Immagine:
-index_forum:			Forum
 index_new_posts:		Nuovi messaggi dall&#39;ultima visita
 index_no_new_posts:		Nessun nuovo messaggio dall&#39;ultima visita
 interests:			Interessi:
@@ -54,9 +46,6 @@ lock_thread:			Chiudi argomento
 locked:				Chiuso
 locked_with_new_posts:		Chiuso (con messaggi non letti)
 logged_in_list:			Utenti collegati
-login:				Login
-login_header:			Login:
-logout:				Logout
 mark_all_read:			segna tutti i messaggi come letti
 mark_all_read_desc:		Tutti i tuoi messaggi non letti verranno marcati come letti
 members:			Utenti
@@ -94,8 +83,6 @@ no_unread_msg_unreg:		I messaggi letti e non letti possono essere tenuti sotto c
 num_pages:			Pagine ({VAR: ttl_pg}):
 num_votes:			{VAR: obj->total_votes} voti
 occupation:			Occupazione:
-off:				OFF
-on:				ON
 page_timings:			Tempo totale richiesto per generare la pagina: {VAR: page_gen_time} secondi
 pm:				Messaggistica Privata
 poll:				Sondaggio:
@@ -250,18 +237,14 @@ finduser_postcount:		Numero di messaggi
 finduser_joindate:		Data di registrazione
 finduser_action:		Azione
 yes:				S&igrave;
-no:				No
 edit_time_limit:		<br /><b>Tempo limite per la modifica</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuti
 no_edit_time_limit:		<br /><b>Tempo limite per la modifica</b>: <b>illimitato</b>
-pmuserloc_login:		Login:
 pmuserloc_submit:		Invia
 pmuserloc_user:			Utente
 pmuserloc_no_result:		Nessun risultato
 register_builtin:		Di serie
 register_specify_url:		Specifica URL
 register_uploaded:		Carica avatar
-register_login:			Login:
-register_password:		Password:
 register_conf_pass:		Conferma Password:
 register_email_desc:		Per favore, inserisci un indirizzo email valido. Puoi decidere di renderlo non visibile nelle opzioni del tuo profilo utente.
 register_name:			Nome:
@@ -269,7 +252,6 @@ register_your_pass:		Password:
 register_update:		Aggiorna
 register_avatar_type:		Avatar:
 register_del_avatar:		Cancella
-register_avatar:		Avatar:
 register_sel_avatar:		Seleziona avatar
 register_custom_avatar_rules:	L&#39;avatar personalizzato non apparir&agrave; fino a quando non sar&agrave; approvato dall&#39;amministratore del forum.<br /><font class="SmallText">L&#39;immagine dell&#39;avatar non dovrebbe essere pi&ugrave; grande di <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixel</b> e deve essere in formato <b>jpg</b>, <b>gif</b> o <b>png</b>.</font>
 register_custom_avatar_url:	URL dell&#39;avatar personalizzato:
@@ -285,10 +267,6 @@ register_occupation:		Occupazione:
 register_interests:		Interessi:
 register_image:			Immagine:
 register_icq:			ICQ
-register_aim:			AIM Handle:
-register_yahoo:			Yahoo Messenger:
-register_msnm:			MSN Messenger:
-register_homepage:		Homepage:
 register_bday:			Data di nascita:
 register_bday_desc:		Se decidi di rendere nota la tua data di nascita, gli altri utenti registrati del forum potranno vederla
 register_day:			Giorno
@@ -318,7 +296,6 @@ register_notification_desc:	Se la notifica &egrave; abilitata di default, pu&ogr
 register_notify_method:		Seleziona il metodo di notifica:
 register_allow_email_msg:	Consenti messaggi email:
 register_allow_email_msg_desc:	Consenti ad altri utenti di inviarti messaggi email tramite il forum (questo non render&agrave; pubblico il tuo indirizzo).
-buddy_status:			Status
 my_buddies:			Elenco amici
 add_buddy:			Aggiungi amico
 add:				Aggiungi
@@ -364,7 +341,6 @@ include_sig_desc:		Inserisci la firma del mio profilo.
 disable_smilies:		Disabilita le faccine in questo messaggio
 spell_check_msg:		Controllo ortografico del messaggio
 post_form:			Crea nuovo argomento
-post_forum:			Forum:
 post_title:			Titolo:
 post_body:			Testo:
 post_options:			Opzioni:
@@ -376,7 +352,6 @@ forum_rules_13:			Tutti gli utenti sotto i 13 anni devono ottenere il permesso d
 coppa_conf:			Conferma del COPPA
 coppa_before:			Prima del {TEMPLATE: coppa_date}
 coppa_after:			Dopo {TEMPLATE: coppa_date}
-coppa_link:			Click the link that corresponds to your birth date
 coppa:				Un genitore o un tutore deve spedire o faxare un modulo sottoscritto di consenso all&#39;amministratore di questo forum prima che un utente minore di 13 anni possa completare la registrazione.<p>Per ulteriori informazioni contattare <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informazioni generali
 prereg_agree:			Accetto
@@ -394,8 +369,6 @@ coppa_fax_telephone:		Telefono:
 coppa_fax_email:		Indirizzo Email:
 coppa_fax_date:			Data:
 coppa_fax_questions:		Per piacere contatta <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> per qualsiasi domanda
-coppa_fax_login:		Login
-coppa_fax_passwd:		Password
 coppa_fax_remail:		Email
 coppa_fax_name:			Nome
 login_not_logedin:		Non sei autenticato. Ecco quali potrebbero essere le cause:
@@ -405,7 +378,6 @@ login_want_to_register:		Vuoi registrarti?
 login_forgot_passwd:		Hai dimenticato la password?
 login_use_cookie:		Utilizza i cookie<br /><font class="SmallText">Se stai utilizzando un terminale pubblico, ad esempio un PC in una biblioteca o in un Internet Caf&egrave;, per maggior sicurezza &egrave; consigliabile disabilitare questa opzione.<br />Se lasci questa opzione attiva, d&#39;ora in poi risulterai sempre autenticato (fino allo scadere del cookie).
 login_login:			Login
-login_login_btn:		Login
 login_name_required:		Login richiesta
 login_passwd_required:		Password richiesta
 login_invalid_radius:		Login/password non corretti
@@ -418,11 +390,9 @@ reset_remind_pass:		Promemoria per Password
 reset_reset_conf:		La tua password sar&agrave; reimpostata e spedita al tuo indirizzo di posta. Nel caso tu non abbia accettato l&#39;email di conferma, essa ti sar&agrave; spedita nuovamente.
 reset_error:			Email non trovata nel database
 rpasswd_change_pass:		Modifica password
-rpasswd_login:			Login
 rpasswd_cur_pass:		Password attuale:
 rpasswd_new_pass:		Nuova password:
 rpasswd_conf_pass:		Conferma password:
-login_passwd:			Password:
 reset_email:			Email:
 reset_reset_button:		Reimposta Password
 rate_this_thread:		Giudizio
@@ -434,7 +404,6 @@ report_give_reason:		Per favore, indica il motivo per cui stai segnalando questo
 report_submit_report:		Invia segnalazione
 search_entire_msg:		Messaggio completo
 search_subect_only:		Solo oggetto
-search_forum:			Forum
 search_posted_on:		Inviato 
 search_no_results:		Nessun risultato
 search_all_forums:		Cerca in tutti i forum
@@ -475,7 +444,6 @@ email_subject:			Oggetto:
 email_body:			Messaggio:
 email_submit:			Email
 ppost_quote_msg:		{VAR-HTML: msg_r->login} scritto {TEMPLATE: ppost_quote_msg_date}
-ppost_quote:			Quote:
 ppost_to:			A:
 ppost_from_buddy_list:		Seleziona dalla Lista Amici
 ppost_find_User:		Trova utente
@@ -514,7 +482,6 @@ single_msg_delete:		Stai per <font color="#ff0000" size="4">CANCELLARE</font> un
 thread_delete:			Stai per <font color="#ff0000" size="4">CANCELLARE</font> un <font color="#ff0000" size="4">INTERO ARGOMENTO</font> intitolato: <b>{VAR: data[3]}</b><p>
 delete_proceed:			Vuoi procedere?
 delete_yes:			S&igrave;
-delete_no:			No
 error_invalidurl:		URL non corretto
 error_error:			Errore
 usrinfo_profile:		Profilo {VAR: u->alias}
@@ -575,7 +542,6 @@ post_reply_update:		Risponde a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->sub
 post_topic_update:		Scrive un nuovo argomento in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:		Si &egrave; verificato un errore
 postcheck_max_images_err:	Sono consentite un massimo di {GVAR: MAX_IMAGE_COUNT} immagini per messaggio; per cortesia, riduci il numero di immagini
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Oggetto necessario
 postcheck_no_such_user:		Non c&#39;&egrave; alcun utente "{FUNC: char_fix(htmlspecialchars($v))}" in questo forum
 postcheck_ignored:		Non puoi spedire un messaggio personale a "{FUNC: char_fix(htmlspecialchars($v))}", perch&egrave; questo utente ha deciso di ignorarti.
@@ -645,7 +611,6 @@ reset_title:			Reimposta password
 rpasswd_title:			Pagina per il cambio di password
 error_title:			Pagina di errore
 search_title:			Ricerca {VAR-HTML: srch}
-thread_title:			{VAR: frm->name}
 tree_title:			{VAR: frm->name} => {VAR: frm->subject}
 remail_emailsent:		L&#39;email &egrave; stata spedita
 remail_email:			C&#39;&egrave; una pagina nel forum {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) che ti potrebbe interessare.\nEcco l&#39;argomento che credo ti interessi, {VAR: data->subject}: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nDa {VAR: usr->alias}\n
@@ -683,7 +648,6 @@ split_thread:			Spezza il Topic
 groupmgr_no_user:		Non esiste utente con login "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:	L&#39;utente "{FUNC: char_fix(htmlspecialchars($gr_member))}" esiste gi&agrave; all&#39;interno di questo gruppo.
 groupmgr_yes:			S&igrave;
-groupmgr_no:			No
 groupmgr_action:		Azione
 groupmgr_member:		Utente
 groupmgr_cancel:		Annulla
@@ -750,23 +714,18 @@ logedin_latest_post:		Ultimo messaggio del forum:
 register_show_avatar:		Mostra gli avatar:
 register_show_avatar_desc:	Ti permette di non visualizzare gli avatar di altri utenti quando leggi i loro messaggi
 drawmsg_view_rest_post:		Mostra il resto del messaggio
-post_re:			Re: 
 forumsel_goto_forum:		Vai al forum:
 minimsg_thread_view:		Thread View
 split_th_post_by:		Inviato da:
 split_th_posted_on:		Scritto:
 split_th_subject:		Oggetto:
 split_th_new_thread_title:	Titolo del nuovo argomento:
-split_th_forum:			Forum:
 split_th_split_sel:		Spezza i messaggi selezionati
 split_th_split_unsel:		Spezza i messaggi non selezionati
 split_th_messages:		Messaggi
 split_th_select:		Seleziona
 report_report_post:		Segnala il messaggio
-quicklogin_login:		Login
-quicklogin_password:		Password
 quicklogin_use_cookies:		Utilizzi i cookie?
-quicklogin_login_btn:		Login
 post_notification_desc:		Segnala quando qualcuno risponde a questo messaggio.
 maximize_category:		Espandi la categoria
 no_view_perm:			Non disponi dei permessi necessari per visualizzare questo argomento.
@@ -778,9 +737,7 @@ pmsg_next_msg:			Messaggio successivo
 pmsg_prev_msg:			Messaggio precedente
 post_proc_reveal_spoiler:	Mostra lo spoiler
 register_jabber:		Jabber username:
-im_jabber:			Jabber: 
 forum_contact:			Contatti
-forum_home:			Home
 post_cur_attached:		allegati {VAR: i} file 
 ignored_anon_post:		{GVAR: ANON_NICK} &egrave; ignorato
 ignored_user_post:		Il messaggio di <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> viene ignorato
@@ -805,8 +762,6 @@ polllist_action:		Azione
 polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Sto controllando i sondaggi</a>
 userinfo_polls:			Sondaggi:
 show_pollist:			Mostra i sondaggi
-search_and:			AND
-search_or:			OR
 search_desc_order:		ordine decrescente		
 search_asc_order:		ordine crescente
 search_logic:			Criterio di ricerca:
@@ -981,83 +936,11 @@ forum_rules:			La registrazione a questo forum &egrave; libera! Insistiamo affin
 register_conf_msg:		Grazie per esserti registrato,\nPer attivare il tuo account vai cortesemente all&#39;URL sotto indicato:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nOUna volta che il tuo account verr&agrave; attivato, tu risulterai loggato dentro al forum e\nverrai ridirezionato sulla pagina principale.
 index_title:			Benvenuto nel forum
 modque_cat:			Categoria
-modque_forum:			Forum
 idx_compact_forum_row:		Forum disponibili:
 mmd_del_title:			Cancella degli Argomenti
 mmd_mov_title:			Sposta degli Argomenti
 mmd_move_threads_to:		Forum di destinazione:
 mmd_abort_move:			Cancella
 mmd_move:			Sposta degli Argomenti
-pmsg_pdf_btn:			Make PDF Archive
-search_results_hdr:		{VAR: total} Search Results Found
-thread_del_all:			Delete All Selected
-thread_mov_all:			Move All Selected
-dmsg_ip:			IP:
-err_banned_acct_title:		ERROR: You have been banned.
-err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
-err_blockedaccnt_title:		ERROR: Your account has been filtered out.
-err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
-merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
-tabs_own_posts:			Show Own Posts
-buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
-sml_emoticon:			Emoticon
-sml_code:			Code
-mnav_sub_only:			Search in subscribed forums only
-register_topics_per_page:	Topics Per Page:
-login_min_time:			This forum allows one login attempt every {VAR: MIN_TIME_BETWEEN_LOGIN} seconds, please wait {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconds before your next attempt.
-post_not_logged_in:		You are not currently logged in, the message will be posted anonymously.
-post_common_bold:		Bold
-post_common_italics:		Italics
-post_common_underline:		Underline
-post_common_align_left:		Align Left
-post_common_align_center:	Align Center
-post_common_align_right:	Align Right
-post_common_link:		Insert a Link
-post_common_email:		Insert an E-mail address
-post_common_image:		Insert an image
-post_common_nlist:		Add numbered list
-post_common_blist:		Add bulleted list
-post_common_quote:		Add Quote
-post_common_code:		Add Code
-rating:				Rating
-rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
-rating_delete:			Delete
-post_always_on_top:		Make the topic always appear at the top of the topic listing
-register_skype:			Skype Handle:
-register_google:		Google Chat/IM Handle:
-im_google:			Google Talk: 
-im_skype:			Skype: 
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
-register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
-tabs_notifications:		Notifications
-finduser_flag:			Flag
 post_descr:			Topic Description
-pmsg_on:			on
-pmsg_download_dump:		Download Message Dump
-move_messages:			Move messages
-move_msg_btn:			Move Selected Messages
-move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
-index_url_redirection:		Redirection 
 quick_reply:			Risposta rapida
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

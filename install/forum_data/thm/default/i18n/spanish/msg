@@ -4,7 +4,6 @@ admin:				Admin
 admin_control_panel:		Panel del administrador
 administrator:			Administrador
 attachment:			Archivo adjunto:
-avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} mensaje(s) ({VAR: avg} promedio por día)
 biography:			Biografía:
 birth_date:			Fecha de nacimiento:
@@ -38,9 +37,6 @@ homepage:			Página de inicio:
 icq_control_panel:		Panel ICQ en línea-mensaje
 icq_message_form:		Formulario de mensaje ICQ:
 ignore_user:			ignorar todos los mensajes publicados por este usuario
-im_aim:				AIM Handle:
-im_msnm:			MSN Messenger:
-im_yahoo:			Yahoo Messenger:
 image:				Imagen:
 index_forum:			Foro
 index_new_posts:		Hay mensajes nuevos desde la última lectura
@@ -55,7 +51,6 @@ locked:				Bloqueado
 locked_with_new_posts:		Bloqueado (con mensajes no leídos)
 logged_in_list:			Lista de usuarios conectados
 login:				Iniciar sesión
-login_header:			Login:
 logout:				Salir
 mark_all_read:			Marcar todos los mensajes como leídos
 mark_all_read_desc:		Todos sus mensajes no leídos serán marcados como leídos
@@ -249,10 +244,8 @@ finduser_postcount:		Total de mensajes
 finduser_joindate:		Fecha de incorporación
 finduser_action:		Acción
 yes:				Sí
-no:				No
 edit_time_limit:		<br /><b>Límite de tiempo de edición</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
 no_edit_time_limit:		<br /><b>Límite de tiempo de edición</b>: <b>Ilimitado</b>
-pmuserloc_login:		Login:
 pmuserloc_submit:		Enviar
 pmuserloc_user:			Usuario
 pmuserloc_no_result:		No hubo resultados
@@ -268,7 +261,6 @@ register_your_pass:		Su contraseña:
 register_update:		Actualizar
 register_avatar_type:		Tipo de avatar:
 register_del_avatar:		Borrar avatar
-register_avatar:		Avatar:
 register_sel_avatar:		Seleccionar avatar
 register_custom_avatar_rules:	El avatar a la medida no aparecerá hasta después de ser aprobado por el administrador.<br /><font class="SmallText">El avatar no deberá tener más de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixeles</b> y debe estar en formato <b>jpg</b>, <b>gif</b> o <b>png</b>.</font>
 register_custom_avatar_url:	URL del avatar personalizado:
@@ -285,8 +277,6 @@ register_interests:		Intereses:
 register_image:			Imagen:
 register_icq:			ICQ
 register_aim:			Usuario AIM:
-register_yahoo:			Yahoo Messenger:
-register_msnm:			MSN Messenger:
 register_homepage:		Página personal:
 register_bday:			Fecha de nacimiento:
 register_bday_desc:		Si selecciona su fecha de nacimiento, otros miembros del foro podrán verla en su perfil
@@ -323,11 +313,9 @@ add_buddy:			Añadir amigo
 add:				Agregar
 buddy_search:			Introduzca el nombre de usuario que desee añadir.
 buddy_remove:			eliminar
-post_normal:			Normal
 post_sticky:			Fijo
 post_annoncement:		Anuncio
 post_size:			Tamaño
-post_color:			Color
 post_font:			Tipo de letra
 create_thread:			Crear hilo de discusión
 submit_reply:			Enviar respuesta
@@ -514,13 +502,10 @@ single_msg_delete:		Está a punto de <font color="#ff0000" size="4">BORRAR</font
 thread_delete:			Está a puto de <font color="#ff0000" size="4">BORRAR</font> el <font color="#ff0000" size="4">HILO COMPLETO</font> titulado: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>¿Desea continuar?</b></font>
 delete_yes:			Sí
-delete_no:			No
 error_invalidurl:		La URL no es válida
-error_error:			Error
 usrinfo_profile:		Perfil de {VAR: u->alias}
 usrinfo_show_all_posts:		Mostrar todos los mensajes publicados por {VAR: u->alias}
 actions_update:			Espiando a otros usuarios como usted
-err_info:			Info
 buddy_list_err_cantadd:		No se puede añadir a sí mismo a su lista de amigos
 buddy_list_err_dup:		Usted ya tiene a este usuario en su lista de amigos
 buddy_list_err_nouser:		El usuario que ha intentado agregar a su lista de amigos no fue encontrado en el foro.
@@ -536,7 +521,6 @@ email_error_body:		Se necesita un cuerpo del mensaje
 email_error_subject:		Se necesita un asunto
 email_error_namerequired:	Se necesita un nombre
 email_error_invaliduser:	El usuario no es válido
-emailconf_err_invkey_title:	Error
 emailconf_err_invkey_msg:	La clave de confirmación no es válida. Por favor, revise su correo para asegurarse de que ha ido a la URL correcta
 err_inc_criticaltitle:		ERROR CRITICO
 err_inc_criticalmsg:		Usted ha encontrado un error, pero desafortunadamente hay un problema con el sistema de informe de errores
@@ -546,7 +530,6 @@ iemail_thr_subject:		Nueva respuesta a {VAR: thr_subject} publicado por {VAR: po
 iemail_thr_bodyemail:		Para ver las respuestas no leídas vaya a {VAR: goto_url['email']}\n\nSi
 iemail_frm_subject:		Nuevo hilo de discusión en el foro {VAR: frm_name} llamado {VAR: thr_subject}, creado por {VAR: poster_login}
 iemail_frm_bodyemail:		Para ver este hilo de discusión vaya a:\n{VAR: goto_url['email']}\n\nPara no recibir más notificaciones acerca de nuevos hilos de discusión en este foro, por favor vaya aquí: {VAR: unsub_url['email']}
-ignore_list_err_info_title:	Info
 ignore_list_err_dup_msg:	Ya tiene a este usuario en su lista de ignorados
 ignore_list_err_nu_title:	Usuario no encontrado
 ignore_list_err_nu_msg:		El usuario que ha tratado de agregar a su lista de ignorados no fue encontrado en el foro.
@@ -563,7 +546,6 @@ post_err_lockedthread_title:	ERROR: el hilo de discusión está bloqueado
 post_err_lockedthread_msg:	Este hilo de discusión esta bloqueado, no se permiten más mensajes
 err_coppa_title:		ERROR: Su cuenta aún no ha sido confirmada
 err_coppa_msg:			No hemos recibido una confirmación de su padre y/o tutor legal, la cual le permitiría publicar mensajes. Si Ud perdió su formulario COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">pulse aquí</a> para obtenerlo
-post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	Ya no puede editar este mensaje
 post_err_floodtrig_title:	ERROR: el mecanismo contra publicación masiva está activado.
 post_err_floodtrig_msg:		Por favor, inténtelo de nuevo en {VAR: tm} segundos
@@ -575,7 +557,6 @@ post_reply_update:		Respondiendo a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr-
 post_topic_update:		Escribiendo un nuevo hilo en <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Hay un error en el envío
 postcheck_max_images_err:	Se permite un máximo de {GVAR: MAX_IMAGE_COUNT} imágenes por mensaje. Por favor, reduzca el número de imágenes
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Se necesita asunto
 postcheck_no_such_user:		No hay un usuario llamado "{FUNC: char_fix(htmlspecialchars($v))}" en este foro
 postcheck_ignored:		No puede enviar un mensaje privado a "{FUNC: char_fix(htmlspecialchars($v))}", porque este usuario le está ignorando.
@@ -607,9 +588,7 @@ register_err_cantreg_title:	ERROR: no se puede registrar
 regsiter_err_cantreg_msg:	No se puede crear la cuenta de usuario. Por favor, póngase en contacto con el administrador en <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Viendo el perfil propio
 register_register_update:	Página de registro
-report_err_nosuchmsg_title:	ERROR
 report_err_nosuchmsg_msg:	El mensaje no existe
-reset_err_invalidkey_title:	ERROR
 reset_err_invalidkey_msg:	La clave de actualización de contraseña no es válida
 reset_err_rstconf_title:	Información
 reset_err_rstconf_msg:		Debería recibir instrucciones en su correo electrónico en los próximos minutos
@@ -685,7 +664,6 @@ split_thread:			Dividir el hilo de discusión
 groupmgr_no_user:		No existe un usuario con el nombre "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:	El usuario "{FUNC: char_fix(htmlspecialchars($gr_member))}" ya existe en este grupo.
 groupmgr_yes:			Sí
-groupmgr_no:			No
 groupmgr_action:		Acción
 groupmgr_member:		Miembro
 groupmgr_cancel:		Cancelar
@@ -788,7 +766,6 @@ ignored_anon_post:		{GVAR: ANON_NICK} es ignorado
 ignored_user_post:		El mensaje de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> es ignorado
 smladd_close_window:		Cerrar ventana
 post_list_smilies:		listar todos los emoticonos
-p_VISIBLE:			Visible
 reported_in_thread:		En hilo de discusión
 help_back_to_top:		Volver arriba
 help_return_to_index:		Volver al Índice de ayuda
@@ -814,8 +791,6 @@ polllist_action:		Acción
 polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Revisando las encuestas disponibles</a>
 userinfo_polls:			Encuestas:
 show_pollist:			Mostrar encuestas
-search_and:			AND
-search_or:			OR
 search_desc_order:		Orden descendente
 search_asc_order:		Orden ascendente
 search_logic:			Lógica de búsqueda:
@@ -934,7 +909,6 @@ adm_account_accepted:		Su cuenta \'{VAR: GLOBALS['r']->login}\' ha sido aprobada
 adm_account_accepted_s:		Su solicitud para una cuenta en \'{GVAR: FORUM_TITLE}\' ha sido aceptada.
 adm_account_rejected:		Su cuenta \'{VAR: GLOBALS['r']->login}\' fue rechazada por el administrador. Si desea saber el motivo de la decisión, puede mandar un mensaje al administrador a la dirección \'{GVAR: ADMIN_EMAIL}\'.
 adm_account_rejected_s:		Su solicitud de cuenta en \'{GVAR: FORUM_TITLE}\' fue rechazada.
-thread_on:			on
 userinfo_buddy:			Amigo:
 register_email_addr:		Correo electrónico
 reset_suffix:			\n\nSi recibió este mensaje por error, por favor, ignórelo. Si está recibiendo múltiples copias de este correo, y no las ha solicitado, por favor, póngase en contacto con el administrador del foro en {GVAR: ADMIN_EMAIL}\n\nEsta solicitud se realizó desde: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
@@ -954,7 +928,6 @@ register_err_alias_notallowed:	Este alias no está permitido
 post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Privilegios insuficientes</legend>Los usuarios anónimos no tienen permiso para crear hilos.</fieldset><br />
 post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Privilegios insuficientes </legend>Los usuarios anónimos no pueden responder.</fieldset><br />
 ERR_login_msg2:			<fieldset><legend>ERROR: No ha iniciado sesión</legend>Para acceder a esta página debe ser un miembro de este foro.</fieldset><br />
-post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	No puede editar mensajes en un foro moderado.
 dmsg_num:			mensaje nº{VAR: obj->id}
 postcheck_session_invalid:	Su sesión había expirado. Por favor, vuelva a enviar el formulario. Perdón por las molestias.
@@ -992,7 +965,6 @@ pmsg_pdf_btn:			Crear archivo PDF
 search_results_hdr:		Se encontraron {VAR: total} resultados para su búsqueda
 thread_del_all:			Borrar todos los seleccionados
 thread_mov_all:			Mover todos los seleccionados
-dmsg_ip:			IP:
 err_banned_acct_title:		ERROR: Ha sido expulsado.
 err_banned_acct_msg:		Su cuenta tenía el acceso restringido {IF: $ban_expiry}temporalmente hasta {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentemente{ENDI} al sitio, debido a una violación de las reglas del foro.
 err_blockedaccnt_title:		ERROR: Su cuenta ha sido filtrada.
@@ -1004,7 +976,6 @@ sub_unsub_all_topics:		Desuscribir de todos los hilos
 tabs_own_posts:			Mostrar mensajes propios
 buddy_list_err_ignore:		No puede añadir usuarios que le ignoran a su lista de amigos.
 sml_emoticon:			Emoticono
-sml_code:			Code
 mnav_sub_only:			Buscar sólo en los foros suscritos
 register_topics_per_page:	Hilos por página:
 login_min_time:			Este foro permite un intento de login cada {VAR: MIN_TIME_BETWEEN_LOGIN} segundos, por favor espere {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} segundos antes de intentarlo de nuevo.
@@ -1028,36 +999,6 @@ rating_delete:			Borrar
 post_always_on_top:		Hacer que el hilo siempre aparezca arriba en la lista de hilos
 register_skype:			Identificador Skype:
 register_google:		Identificador Google Chat/IM:
-im_google:			Google Talk: 
-im_skype:			Skype: 
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
 register_notify_method_desc:	Establezca su mecanismo de notificación preferido o desactive las notificaciones (por ejemplo cuando se marche de vacaciones)
 tabs_notifications:		Notificaciones
-finduser_flag:			Flag
-post_descr:			Topic Description
-pmsg_on:			on
-pmsg_download_dump:		Download Message Dump
-move_messages:			Move messages
-move_msg_btn:			Move Selected Messages
-move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
-index_url_redirection:		Redirection 
 quick_reply:			Respuesta rápida
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

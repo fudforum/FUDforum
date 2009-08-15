@@ -4,7 +4,6 @@ admin:				Admin
 admin_control_panel:		Panell de l`administrador
 administrator:			Administrador
 attachment:			Arxiu adjunt:
-avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} missatge(s) ({VAR: avg} promig per dia)
 biography:			Biografia:
 birth_date:			Data de naixement:
@@ -38,9 +37,6 @@ homepage:			Pàgina d`inici:
 icq_control_panel:		Panell ICQ en líni-missatge
 icq_message_form:		Formulari de missatge ICQ:
 ignore_user:			ignorar tots els missatges publicats per aquest usuari
-im_aim:				AIM Handle:
-im_msnm:			MSN Messenger:
-im_yahoo:			Yahoo Messenger:
 image:				Imatge:
 index_forum:			Comuniat
 index_new_posts:		Hi ha missatges nous des de l`última lectura
@@ -55,7 +51,6 @@ locked:				Bloquejat
 locked_with_new_posts:		Bloquejat (amb missatges no llegits)
 logged_in_list:			Llista d`usuaris connectats
 login:				Iniciar sessió
-login_header:			Login:
 logout:				Sortir
 mark_all_read:			Marcar tots els missatges no llegits
 mark_all_read_desc:		Tots els seus missatges no llegits seran marcats com a llegits
@@ -249,10 +244,8 @@ finduser_postcount:		Total de missatges
 finduser_joindate:		data d`incorporació
 finduser_action:		Acció
 yes:				Sí­
-no:				No
 edit_time_limit:		<br /><b>Lí­mit de temps d`edició</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuts
 no_edit_time_limit:		<br /><b>Lí­mit de temps d`edició</b>: <b>Il.limitat</b>
-pmuserloc_login:		Login:
 pmuserloc_submit:		Enviar
 pmuserloc_user:			Usuari
 pmuserloc_no_result:		No hi ha hagut resultats
@@ -268,7 +261,6 @@ register_your_pass:		La seva contrasenya:
 register_update:		Actualitzar
 register_avatar_type:		Tipus d`avatar:
 register_del_avatar:		Esborrar avatar
-register_avatar:		Avatar:
 register_sel_avatar:		Seleccionar avatar
 register_custom_avatar_rules:	L`avatar a la mida no apareixerà  fins després de ser aprovat per l`administrador.<br /><font class="SmallText">L`avatar no haurà  de tenir més de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pÃ­xels</b> i ha d`estar en format <b>jpg</b>, <b>gif</b> o <b>png</b>.</font>
 register_custom_avatar_url:	URL del avatar personalitzat:
@@ -285,8 +277,6 @@ register_interests:		Interessos:
 register_image:			Imatge:
 register_icq:			ICQ
 register_aim:			Usuari AIM:
-register_yahoo:			Yahoo Messenger:
-register_msnm:			MSN Messenger:
 register_homepage:		Pàgina personal:
 register_bday:			Data de naixement:
 register_bday_desc:		Si selecciona la seva data de naixement, altres membres del fòrum podran veure-la en el seu perfil
@@ -323,11 +313,9 @@ add_buddy:			Afegir amic
 add:				Afegirr
 buddy_search:			Introdueixi el nom d`usuari que desitgi afegir.
 buddy_remove:			eliminar
-post_normal:			Normal
 post_sticky:			Fixe
 post_annoncement:		Anunci
 post_size:			Mida
-post_color:			Color
 post_font:			Tipus de lletra
 create_thread:			Crear fil de discussió
 submit_reply:			Enviar resposta
@@ -466,7 +454,6 @@ qbud_no_buddies:		No hi ha amics dels quals escollir
 mklist_numerical:		Numèric
 mklist_aplha:			Alfanumèric
 mklist_square:			Quadrat
-mklist_disc:			Disc
 mklist_circle:			Cercle
 mklist_close:			Tancar
 email_to:			Per a:
@@ -514,13 +501,10 @@ single_msg_delete:		està  a punt de <font color="#ff0000" size="4">ESBORRAR</f
 thread_delete:			està  a punt de <font color="#ff0000" size="4">ESBORRAR</font> el <font color="#ff0000" size="4">FIL COMPLET</font> titulat: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Desitja continuar?</b></font>
 delete_yes:			Sí­
-delete_no:			No
 error_invalidurl:		La URL no és vàlida
-error_error:			Error
 usrinfo_profile:		Perfil de {VAR: u->alias}
 usrinfo_show_all_posts:		Mostrar tots els missatges publicats per {VAR: u->alias}
 actions_update:			Espiant a altres usuaris com Vostè
-err_info:			Info
 buddy_list_err_cantadd:		No es pot afegir a si mateix a la seva llista d`amics
 buddy_list_err_dup:		Vostè ja té a aquest usuari a la seva llista d`amics
 buddy_list_err_nouser:		L`usuari que ha intentat afegir a la seva llista d`amics no s`ha trobat en el fòrum.
@@ -536,7 +520,6 @@ email_error_body:		Es necessita un cos del missatge
 email_error_subject:		Es necessita un assumpte
 email_error_namerequired:	Es necessita un nom
 email_error_invaliduser:	L`usuari no és vàlid
-emailconf_err_invkey_title:	Error
 emailconf_err_invkey_msg:	La clau de confirmació no és vàlida. Si us plau, revisi el seu correu per a assegurar-se que ha anat a la URL correcta
 err_inc_criticaltitle:		ERROR CRÍTIC
 err_inc_criticalmsg:		Vostè ha  trobat un error, però desafortunadament hi ha un problema amb el sistema d`informe d`errors
@@ -546,7 +529,6 @@ iemail_thr_subject:		Nova resposta a {VAR: thr_subject} publicat per {VAR: poste
 iemail_thr_bodyemail:		Per a veure les respostes no llegides vagi a {VAR: goto_url['email']}\n\nSi
 iemail_frm_subject:		Nou fil de discussió en el fòrum {VAR: frm_name} trucat {VAR: thr_subject}, creat per {VAR: poster_login}
 iemail_frm_bodyemail:		Per a veure aquest fil de discussió vagi a:\n{VAR: goto_url['email']}\n\nPer a no rebre més notificacions referents a nous fils de discussió en aquest fòrum, si us plau vagi aquí­: {VAR: unsub_url['email']}
-ignore_list_err_info_title:	Info
 ignore_list_err_dup_msg:	Ja té a aquest usuari a la seva llista d`ignorats
 ignore_list_err_nu_title:	Usuari no trobat
 ignore_list_err_nu_msg:		L`usuari que ha tractat d`afegir a la seva llista d`ignorats no ha estat trobat al fòrum.
@@ -563,7 +545,6 @@ post_err_lockedthread_title:	ERROR: el fil de discussió està  bloquejat
 post_err_lockedthread_msg:	Aquest fil de discussió està  bloquejat, no es permeten més missatges
 err_coppa_title:		ERROR: El seu compte encara no ha estat confirmat
 err_coppa_msg:			No hem rebut una confirmació del seu pare i/o tutor legal, la qual cosa li permetrà publicar missatges. Si vostè ha perdut el seu formulari COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">premi aquí­</a> per a obtenir-lo
-post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	Ja no pot editar aquest missatge
 post_err_floodtrig_title:	ERROR: el mecanisme contra publicació massiva està  activat.
 post_err_floodtrig_msg:		Si us plau, intenti-ho novament en {VAR: tm} segons
@@ -575,7 +556,6 @@ post_reply_update:		Responent a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->su
 post_topic_update:		Escrivint un nou fil a  <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Hi ha un error en l`enviament
 postcheck_max_images_err:	Es permet un màxim de {GVAR: MAX_IMAGE_COUNT} imatges per missatge. Si us plau, redueix el nombre d`imatges
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Es necessita assumpte
 postcheck_no_such_user:		No hi ha un usuari anomenat "{FUNC: char_fix(htmlspecialchars($v))}" en aquest fòrum
 postcheck_ignored:		No pot enviar un missatge privat a "{FUNC: char_fix(htmlspecialchars($v))}", perquè aquest usuari l`està  ignorant.
@@ -607,9 +587,7 @@ register_err_cantreg_title:	ERROR: no es pot enregistrar
 regsiter_err_cantreg_msg:	No es pot crear el compte d`usuari. Si us plau, posi`s en contacte amb l`administrador en <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Veient el perfil propi
 register_register_update:	Pàgina de registre
-report_err_nosuchmsg_title:	ERROR
 report_err_nosuchmsg_msg:	El missatge no existeix
-reset_err_invalidkey_title:	ERROR
 reset_err_invalidkey_msg:	La clau d`actualització de contrasenya no és vàlida
 reset_err_rstconf_title:	Informació
 reset_err_rstconf_msg:		Hauria de rebre instruccions al seu correu electrònic en els propers minuts
@@ -685,7 +663,6 @@ split_thread:			Dividir el fil de discussió
 groupmgr_no_user:		No existeix un usuari amb el nom "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:	L`usuari "{FUNC: char_fix(htmlspecialchars($gr_member))}" ja existeix en aquest grup.
 groupmgr_yes:			Sí­
-groupmgr_no:			No
 groupmgr_action:		Acció
 groupmgr_member:		Membre
 groupmgr_cancel:		Cancel.lar
@@ -788,7 +765,6 @@ ignored_anon_post:		{GVAR: ANON_NICK} és ignorat
 ignored_user_post:		El missatge de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> és ignorat
 smladd_close_window:		Tancar finestra
 post_list_smilies:		llistar totes les emoticones
-p_VISIBLE:			Visible
 reported_in_thread:		En fil de discussió
 help_back_to_top:		Tornar a dalt
 help_return_to_index:		Tornar a l`í­ndex d`ajuda
@@ -814,8 +790,6 @@ polllist_action:		Acció
 polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Revisant les enquestes disponibles</a>
 userinfo_polls:			Enquestes:
 show_pollist:			Mostrar enquestes
-search_and:			AND
-search_or:			OR
 search_desc_order:		Ordre descendent
 search_asc_order:		Ordre ascendent
 search_logic:			Lògica de recerca:
@@ -934,7 +908,6 @@ adm_account_accepted:		El seu compte \'{VAR: GLOBALS['r']->login}\' ha estat apr
 adm_account_accepted_s:		La seva sol.licitud per a un compte a \'{GVAR: FORUM_TITLE}\' ha estat acceptada.
 adm_account_rejected:		El seu compte \'{VAR: GLOBALS['r']->login}\' ha estat refusat per l`administrador. Si desitja saber el motiu de la decisió, pot enviar un missatge a l`administrador a l`adreça \'{GVAR: ADMIN_EMAIL}\'.
 adm_account_rejected_s:		La seva sol.licitud de compte a \'{GVAR: FORUM_TITLE}\' ha estat refusada.
-thread_on:			on
 userinfo_buddy:			Amic:
 register_email_addr:		Correu electrònic
 reset_suffix:			\n\nSi ha rebut aquest missatge per error, si us plau, ignori`l. Si està  rebent múltiples còpies d`aquest correu i no les ha sol.licitat, si us plau, posi`s en contacte amb l`administrador del fòrum a {GVAR: ADMIN_EMAIL}\n\nAquesta sol.licitud s`ha realitzat des de: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
@@ -954,7 +927,6 @@ register_err_alias_notallowed:	Aquest àlies no està  permès
 post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Privilegis insuficients</legend>Els usuaris anònims no tenen permís per a crear fils.</fieldset><br />
 post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Privilegis insuficients </legend>Els usuaris anònims no poden respondre.</fieldset><br />
 ERR_login_msg2:			<fieldset><legend>ERROR: No ha iniciat sessió</legend>Per a accedir a aquesta pàgina ha de ser un membre d`aquest fòrum.</fieldset><br />
-post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	No pot editar missatges en un fòrum moderat.
 dmsg_num:			missatge nº{VAR: obj->id}
 postcheck_session_invalid:	La seva sessió havia expirat. Si us plau, torni a enviar el formulari. Perdó per les molèsties.
@@ -992,7 +964,6 @@ pmsg_pdf_btn:			Crear arxiu PDF
 search_results_hdr:		S`han trobat {VAR: total} resultats per a la seva recerca
 thread_del_all:			Esborrar tots els seleccionats
 thread_mov_all:			Moure tots els seleccionats
-dmsg_ip:			IP:
 err_banned_acct_title:		ERROR: Ha estat expulsat.
 err_banned_acct_msg:		El seu compte tenia l`accés restringit {IF: $ban_expiry}temporalment fins {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentement{ENDI} al lloc, degut a una violació de les regles del fòrum.
 err_blockedaccnt_title:		ERROR: el seu compte ha estat filtrat.
@@ -1004,7 +975,6 @@ sub_unsub_all_topics:		Desubscriure de tots els fils
 tabs_own_posts:			Mostrar missatges propis
 buddy_list_err_ignore:		No pot afegir usuaris que l`ignoren a la seva llista d`amics.
 sml_emoticon:			Emoticona
-sml_code:			Code
 mnav_sub_only:			Cercar solament en els fòrums subscrits
 register_topics_per_page:	Fils per pàgina:
 login_min_time:			Aquest fòrum permet un intent de login cada {VAR: MIN_TIME_BETWEEN_LOGIN} segons, si us plau, esperi {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} segons abans d`intentar-ho novament.
@@ -1028,36 +998,4 @@ rating_delete:			Esborrar
 post_always_on_top:		Fer que el fil sempre aparegui a dalt a la llista de fils
 register_skype:			Identificador Skype:
 register_google:		Identificador Google Chat/IM:
-im_google:			Google Talk: 
-im_skype:			Skype: 
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
 register_notify_method_desc:	Estableixi el seu mecanisme de notificació preferit o desactivi les notificacions (per exemple quan se`n vagi de vacances)
-tabs_notifications:		Notificacions
-finduser_flag:			Flag
-post_descr:			Topic Description
-pmsg_on:			on
-pmsg_download_dump:		Download Message Dump
-move_messages:			Move messages
-move_msg_btn:			Move Selected Messages
-move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
-index_url_redirection:		Redirection 
-quick_reply:			Quick Reply
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

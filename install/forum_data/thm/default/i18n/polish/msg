@@ -2,9 +2,7 @@ action:				Akcja
 add_to_buddy_list:		Dodaj do listy znajomych
 admin:				Administrator 
 admin_control_panel:		Panel administracyjny
-administrator:			Administrator
 attachment:			Załącznik:
-avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} wiadomości (średnio {VAR: avg} wiadomości dziennie)
 biography:			Biografia:
 birth_date:			Data urodzenia:
@@ -15,7 +13,6 @@ custom_avatar_queue:		Kolejka Avatarów Użytkowników
 date_posted:			Data zamieszczenia
 date_registered:		Dołączył:
 download_counter:		Pobrane {VAR: v[3]} razy
-email:				E-mail:
 email_to_friend:		Wyślij do znajomego
 email_to_friend_desc:		Wyślij adres tej strony znajomemu pocztą elektroniczną
 email_user:			Wyślij list użytkownikowi
@@ -23,7 +20,6 @@ faq:				Pomoc
 first_unread_msg:		Przejdź do nieprzeczytanych wiadomości
 first_unread_msg_desc:		Przejdź do pierwszej nieprzeczytanej wiadomości w tym temacie
 flat_view:			Powróć do standardowego płaskiego widoku
-forum:				Forum:
 forum_icon:			Ikona Forum
 forum_new_messages:		Nowe wiadomości
 forum_none_messages:		Tylko zarejestrowani użytkownicy forum mogą śledzić przeczytane i nieprzeczytane wiadomości
@@ -43,7 +39,6 @@ im_aim:				Pseudonim AIM:
 im_msnm:			Komunikator GaduGadu:
 im_yahoo:			Komunikator Yahoo:
 image:				Obrazek:
-index_forum:			Forum
 index_new_posts:		Nowe wiadomości od ostatniej wizyty
 index_no_new_posts:		Brak nowych wiadomości od ostatniej wizyty
 interests:			Zainteresowania:
@@ -67,7 +62,6 @@ message_index:			Indeks wiadomości
 message_index_desc:		Zobacz listę wiadomości
 minimize_category:		Zminimalizuj kategorię
 moderation_queue:		Kolejka moderowania
-moderator:			Moderator
 moderator_of:			Moderator wątku:
 moderator_options:		Opcje Moderatora
 moderators:			Moderatorzy
@@ -131,7 +125,6 @@ sender_email:			E-mail nadawcy:
 sender_name:			Nazwa nadawcy:
 show_posts_by:			Pokaż wiadomości użytkownika: {VAR: u_alias}
 size:				Rozmiar:
-status:				Status:
 status_line:			Mamy <b>{VAR: st_obj->online_users_reg}</b> użytkowników, <b>{VAR: st_obj->online_users_hidden}</b> ukrytych użytkowników i <b>{VAR: st_obj->online_users_anon}</b> gości odwiedzających forum.
 sticky:				przyczepiony:
 stop_ignoring:			przestań ignorować tego użytkownika
@@ -269,7 +262,6 @@ register_your_pass:		Twoje hasło:
 register_update:		Uaktualnij
 register_avatar_type:		Typ avatara:
 register_del_avatar:		Usuń Avatar
-register_avatar:		Avatar:
 register_sel_avatar:		wybierz avatar
 register_custom_avatar_rules:	Avatar użytkownika nie pojawi się dopóki nie zostanie zatwierdzony przez administratora.<br /><font class="SmallText">Avatar nie powinien być większy niż <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikseli</b> i musi być w formacie <b>jpg</b>, <b>gif</b> lub <b>png</b>.</font>
 register_custom_avatar_url:	Adres avatara użytkownika:
@@ -318,7 +310,6 @@ register_notification_desc:	Jeśli powiadamianie jest domyślnie włączone, mo�
 register_notify_method:		Wybierz metodę powiadamiania:
 register_allow_email_msg:	Zezwól na wysyłanie listów e-mail:
 register_allow_email_msg_desc:	Zezwól innym użytkownikom na wysyłanie Ci listów na e-mail poprzez forum.
-buddy_status:			Status
 my_buddies:			Moi Znajomi
 add_buddy:			Dodawanie Znajomych
 add:				Dodaj
@@ -363,7 +354,6 @@ include_sig_desc:		Dołącz swój podpis z profilu.
 disable_smilies:		Wyłącz uśmieszki w tej wiadomości 
 spell_check_msg:		Sprawdź pisownię w wiadomości
 post_form:			Formularz wiadomości
-post_forum:			Forum:
 post_title:			Temat:
 post_body:			Treść:
 post_options:			Opcje:
@@ -396,7 +386,6 @@ coppa_fax_date:			Data:
 coppa_fax_questions:		Proszę o kontakt z <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> w przypadku jakichkolwiek pytań
 coppa_fax_login:		Nazwa użytkownika
 coppa_fax_passwd:		Hasło
-coppa_fax_remail:		E-mail
 coppa_fax_name:			Nazwa
 login_not_logedin:		Nie jesteś zalogowany. Może to wynikać z dwóch powodów:
 login_cookie_expired:		Twoje ciasteczko wygasło i musisz się zalogować, aby je odnowić.
@@ -423,7 +412,6 @@ rpasswd_cur_pass:		Aktualne hasło:
 rpasswd_new_pass:		Nowe hasło:
 rpasswd_conf_pass:		Potwierdż hasło:
 login_passwd:			Hasło:
-reset_email:			E-mail:
 reset_reset_button:		Wyzeruj hasło
 rate_this_thread:		Oceń
 report_reporting_about:		O zgłoszeniu:
@@ -434,7 +422,6 @@ report_give_reason:		Podaj powód, dla którego zgłaszasz tę wiadomość:
 report_submit_report:		Wyślij zgłoszenie
 search_entire_msg:		Całą wiadomość
 search_subect_only:		Tylko temat
-search_forum:			Forum
 search_posted_on:		Zamieszczona dnia
 search_no_results:		Brak wyników.
 search_all_forums:		Przeszukaj wszystkie fora
@@ -470,7 +457,6 @@ mklist_disc:			Dysk
 mklist_circle:			Okrąg
 mklist_close:			Zamknij
 email_to:			Do:
-email_pg_title:			E-mail
 email_subject:			Temat:
 email_body:			Treść:
 email_submit:			Wyślij
@@ -575,7 +561,6 @@ post_reply_update:		Odpowiadanie na wątek <a href="{TEMPLATE: msg_post_lnk}">{V
 post_topic_update:		Tworzenie nowego wątku na forum <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Wiadomość nie została wysłana, gdyż wystąpił błąd:
 postcheck_max_images_err:	Maksimum dozwolonych obrazków w wiadomości to {GVAR: MAX_IMAGE_COUNT}, dlatego musisz zmniejszyć ich liczbę.
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Temat jest wymagany
 postcheck_no_such_user:		Nie ma użytkownika o nazwie "{FUNC: char_fix(htmlspecialchars($v))}" w tym forum
 postcheck_ignored:		Nie możesz wysłać wiadomości do "{FUNC: char_fix(htmlspecialchars($v))}", ponieważ ta osoba ignoruje Cię.
@@ -759,7 +744,6 @@ split_th_post_by:		Wiadomość zamieszczona przez:
 split_th_posted_on:		Zamieszczona dnia: 
 split_th_subject:		Temat:   
 split_th_new_thread_title:	Nowy temat wątku:
-split_th_forum:			Forum:
 split_th_split_sel:		Podziel wybrane wiadomości
 split_th_split_unsel:		Podziel niewybrane wiadomości
 split_th_messages:		Wiadomości
@@ -781,7 +765,6 @@ pmsg_next_msg:			Następna prywatna wiadomość
 pmsg_prev_msg:			Poprzednia prywatna wiadomość
 post_proc_reveal_spoiler:	Ujawnij Spoiler
 register_jabber:		Identyfikator Jabber:
-im_jabber:			Jabber: 
 forum_contact:			Kontakt
 forum_home:			Strona główna
 post_cur_attached:		ilość aktualnie załączonych plików: {VAR: i}
@@ -880,13 +863,11 @@ iemail_thread_unsub:		Porzuć subskrybcję tego wątku
 iemail_forum_unsub:		Porzuć subskrybcję tego forum
 primary_group_prefix:		Podstawowa grupa dla forum:
 group_resources:		Ta grupa wyznacza przywileje następujących forów
-register_email:			E-mail
 register_admin_newuser_title:	Nowe konto na forum czeka na zatwierdzenie
 register_admin_newuser_msg:	Nowy użytkownik ({VAR: uent->login}) właśnie zarejestrował się na Forum Opoka.\nJako, że zostało włączone zatwierdzanie nowych kont, nie zostanie ono\naktywowane bez potwierdzenia przez Ciebie albo innego administrator tego forum.\nCelem weryfikacji tego konta, udaj się proszę pod poniższy adres:\n{GVAR: WWW_ROOT}adm/admaccapr.php\n\nUWAGA!! Wiadomość została wygenerowana automatycznie. Prosimy nie odpowiadać\nna nią. Jeśli chcesz wyłączyć powiadamianie o rejestracji nowych użytkowników,\nmożesz to zrobić przy użyciu Panelu administracyjnego, zmieniając wartość\ndla "New Account Notification".\n
 post_mod_msg_notify_title:	Nowa wiadomość na forum "{VAR: frm->name}" oczekuje zatwierdzenia
 post_mod_msg_notify_msg:	Nowa wiadomość zatytułowana "{VAR: msg_post->subject}"\nzostała właśnie wysłana na forum, którego jesteś moderatorem.\nAby obejrzeć wiadomość, udaj się pod następujący adres adres:\n{FULL_ROOT}{ROOT}?t=modque\n\nPowiadomienie generowane jest automatycznie. Prosimy nie odpowiadać na ten e-mail.\n
 thread_printable_pdf:		Wygeneruj PDF do wydruku
-thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Potwierdzenie Rejestracji
 reg_conf_email:			<b>Potwierdzenie</b><br />Na podany adres e-mail został wysłany adres strony, na którą musisz wejść aby Twoje konto na forum zostało aktywowane. Jeśli nie otrzymasz tego e-maila w ciągu kilku minut, zaloguj się na forum i upewnij się że podany przez Ciebie adres e-mail jest poprawny. Jak tylko Twoje konto zostanie aktywowane, będzie można korzystać z przywilejów dostępnych wyłącznie dla zarejestrowanych użytkowników.
 reg_conf_account:		<b>Zatwierdzenie Konta</b><br />Przed aktywacją, konto na forum musi zostać zatwierdzone przez administratora. Gdy to się stanie, wyślemy do Ciebie e-maila z powiadomieniem o zatwierdzeniu konta na forum. Do tego czasu będzie można zalogować się na to konto, jednak nie będą dostępne przywileje zarezerwowane dla zatwierdzonych użytkowników.
@@ -981,83 +962,4 @@ register_max_sig_len:		Maksymalna długość:
 register_turing:		Wpisz kod widoczny poniżej:
 register_err_turing:		Kod sprawdzający jest nieprawidłowy.
 modque_cat:			Kategoria
-modque_forum:			Forum
-idx_compact_forum_row:		Available Forums:
-mmd_del_title:			Delete Topics
-mmd_mov_title:			Move Topics
-mmd_move_threads_to:		Destination Forum:
-mmd_abort_move:			Cancel
-mmd_move:			Move Topics
-pmsg_pdf_btn:			Make PDF Archive
-search_results_hdr:		{VAR: total} Search Results Found
-thread_del_all:			Delete All Selected
-thread_mov_all:			Move All Selected
-dmsg_ip:			IP:
-err_banned_acct_title:		ERROR: You have been banned.
-err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
-err_blockedaccnt_title:		ERROR: Your account has been filtered out.
-err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
-merge_th_page_list:		Topic Page Selection
-most_users_online:		Most users ever online was <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Unsubscribe From All Forums
-sub_unsub_all_topics:		Unsubscribe From All Topics
-tabs_own_posts:			Show Own Posts
-buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
-sml_emoticon:			Emoticon
-sml_code:			Code
-mnav_sub_only:			Search in subscribed forums only
-register_topics_per_page:	Topics Per Page:
-login_min_time:			This forum allows one login attempt every {VAR: MIN_TIME_BETWEEN_LOGIN} seconds, please wait {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} seconds before your next attempt.
-post_not_logged_in:		You are not currently logged in, the message will be posted anonymously.
-post_common_bold:		Bold
-post_common_italics:		Italics
-post_common_underline:		Underline
-post_common_align_left:		Align Left
-post_common_align_center:	Align Center
-post_common_align_right:	Align Right
-post_common_link:		Insert a Link
-post_common_email:		Insert an E-mail address
-post_common_image:		Insert an image
-post_common_nlist:		Add numbered list
-post_common_blist:		Add bulleted list
-post_common_quote:		Add Quote
-post_common_code:		Add Code
-rating:				Rating
-rating_track:			Manage ratings for thread <b>{VAR: thr->subject}</b>:
-rating_delete:			Delete
-post_always_on_top:		Make the topic always appear at the top of the topic listing
-register_skype:			Skype Handle:
-register_google:		Google Chat/IM Handle:
-im_google:			Google Talk: 
-im_skype:			Skype: 
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
-register_notify_method_desc:	Set your preferred notification method or disable notifications (for example when you go on vacation)
-tabs_notifications:		Notifications
-finduser_flag:			Flag
-post_descr:			Topic Description
-pmsg_on:			on
-pmsg_download_dump:		Download Message Dump
-move_messages:			Move messages
-move_msg_btn:			Move Selected Messages
-move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
-minimize_message:		Minimize Message
-maximize_message:		Maximize Message
-no_bookmarked_threads:		No bookmarked topics
-bookmark_thread:		Bookmark topic
-bookmark_thread_desc:		Add this topic to your list of bookmarks
-bookmarked_threads:		Bookmarked Topics
-unbookmark_thread:		Remove from bookmarks
-unbookmark_thread_desc:		Remove this topic from your list of bookmarks
-tabs_bookmarkes:		Bookmarks
-bookmarked_update:		Browsing own bookmark list
-unbookmark_all_topics:		Remove all bookmarks
-index_url_redirection:		Redirection 
 quick_reply:			Szybka odpowiedź
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide

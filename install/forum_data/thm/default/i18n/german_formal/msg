@@ -19,13 +19,11 @@ add_ignore:			Benutzer zur Ignorierliste hinzuf&uuml;gen
 add_to_buddy_list:		zur Buddyliste hinzuf&uuml;gen
 admin:				Admin
 admin_control_panel:		Administratormen&uuml;
-administrator:			Administrator
 allowed_files:			Erlaubte Dateitypen:
 apply_spell_changes:		Rechtschreibkorrektur anwenden
 approved_avatar_msg:		Ihr Avatar wurde vom Administrator genehmigt. Er sollte nun in s&auml;mtlichen von Ihnen erstellten Beitr&auml;gen erscheinen. Falls Sie ihn nicht sehen oder stattdessen den alten Avatar, liegt es daran, dass der Browser die Seite im Cache gespeichert hat. Versuchen Sie, die Seite ein- oder zweimal zu aktualisieren, das sollte in den meisten F&auml;llen das Problem beheben.
 approved_avatar_title:		Ihr pers&ouml;nlicher Avatar wurde genehmigt.
 attachment:			Anhang:
-avatar:				Avatar:
 avatar_sel_form:		Avatar Auswahl
 average_post_count:		{VAR: u->posted_msg_count} Beitr&auml;ge (durchschnittlich {VAR: avg} Beitr&auml;ge pro Tag)
 biography:			Werdegang:
@@ -38,7 +36,6 @@ buddy_list_err_nouser_title:	Kann Benutzer nicht hinzuf&uuml;gen
 buddy_list_update:		Durchsucht die eigene Buddyliste
 buddy_remove:			Entfernen
 buddy_search:			Trage den Login des Benutzers ein, den Sie hinzuf&uuml;gen m&ouml;chten
-buddy_status:			Status
 by:				Von:
 by_mod:				vom Moderator
 coppa:				Ein Elternteil oder Vormund muss eine unterschriebene Einwilligungserkl&auml;rung an den Administrator des Forums schicken oder faxen, bevor ein Benutzer unter 13 die Registrierung abschlie&szlig;en kann.<p>F&uuml;r weitere Informationen kontaktiere <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
@@ -106,7 +103,6 @@ err_coppa_msg:			Wir haben noch keine Best&auml;tigung von einem Elternteil oder
 err_coppa_title:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
 err_inc_criticalmsg:		Es ist ein Fehler aufgetreten, aber ungl&uuml;cklicherweise gibt es ein Problem mit dem Benachrichtigungssystem f&uuml;r Fehler
 err_inc_criticaltitle:		KRITISCHER FEHLER
-err_info:			Info
 error_error:			Fehler
 error_invalidurl:		Ung&uuml;ltige URL
 error_title:			Fehlerseite
@@ -128,7 +124,6 @@ first_unread_msg:		Zu den ungelesenen Beitr&auml;gen gehen
 first_unread_msg_desc:		Zum ersten ungelesenen Beitrag innerhalb dieses Themas gehen
 flat_view:			Zur flachen Standardansicht zur&uuml;ckkehren
 folder:				Ordner:
-forum:				Forum:
 forum_contact:			Kontakt
 forum_home:			Forumsindex
 forum_icon:			Forumsicon
@@ -168,7 +163,6 @@ help_index_update:		Liest die <a href="{TEMPLATE: help_index_update_lnk}">Hilfe<
 help_return_to_index:		Zur&uuml;ck zum Hilfeindex
 help_title:			Hilfe
 home:				Startseite
-homepage:			Homepage:
 icq_control_panel:		ICQ Online-Men&uuml;
 icq_message_form:		ICQ-Nachricht erstellen:
 iemail_frm_bodyemail:		Um das Thema anzusehen, gehen Sie zu:\n{VAR: goto_url['email']}\n\nUm keine weiteren Benachrichtigungen über neue Themen in diesem Forum zu erhalten, gehen Sie bitte hier hin:\n{VAR: unsub_url['email']}
@@ -177,7 +171,6 @@ iemail_thr_bodyemail:		Um ungelesene Antworten anzusehen, gehen Sie zu\n{VAR: go
 iemail_thr_subject:		Neue Antwort zu "{VAR: thr_subject}" von {VAR: poster_login}
 ignore_list_cantign_msg:	Sie können diesen Benutzer nicht ignorieren
 ignore_list_err_dup_msg:	Dieser Benutzer ist bereits auf Ihrer Ignorierliste
-ignore_list_err_info_title:	Info
 ignore_list_err_nu_msg:		Der Benutzer, den Sie zu Ihrer Liste hinzuzuf&uuml;gen m&ouml;chten, kann vom System nicht gefunden werden.
 ignore_list_err_nu_title:	Benutzer nicht gefunden
 ignore_list_update:		Durchsucht die eigene Ignorierliste
@@ -186,14 +179,10 @@ ignore_users:			Ignorierte Benutzer
 ignored_anon_post:		{GVAR: ANON_NICK} wird ignoriert
 ignored_user_post:		Beitrag von <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> wird ignoriert
 im_aim:				AIM-Benutzername:
-im_jabber:			Jabber: 
-im_msnm:			MSN Messenger:
-im_yahoo:			Yahoo Messenger:
 image:				Bild:
 inbox:				Posteingang
 include_sig:			Signatur anh&auml;ngen
 include_sig_desc:		Die Signatur aus Ihrem Profil anh&auml;ngen.
-index_forum:			Forum
 index_new_posts:		Neue Beitr&auml;ge seit dem letzten Besuch
 index_no_new_posts:		Keine neuen Beitr&auml;ge seit dem letzten Besuch
 index_title:			Willkommen im Forum
@@ -219,7 +208,6 @@ login_forgot_passwd:		Passwort vergessen
 login_header:			Login
 login_invalid_radius:		Ung&uuml;ltige Login/Passwort Kombination
 login_login:			Login
-login_login_btn:		Login
 login_name_required:		Anmeldename erforderlich
 login_not_logedin:		Sie sind nicht angemeldet. Dies k&ouml;nnte einen der folgenden Gr&uuml;nde haben:
 login_passwd:			Passwort
@@ -255,7 +243,6 @@ mklist_option:			Auswahl:
 mklist_square:			Quadrat
 mklist_type:			Art:
 moderation_queue:		Zu &uuml;berpr&uuml;fende Beitr&auml;ge
-moderator:			Moderator
 moderator_of:			Moderator von:
 moderator_options:		Moderatoren-Optionen
 moderators:			Moderatoren
@@ -266,14 +253,10 @@ modque_pending_approval:	Noch zu genehmigende Beitr&auml;ge
 month_1:			Januar
 month_2:			Februar
 month_3:			M&auml;rz
-month_4:			April
 month_5:			Mai
 month_6:			Juni
 month_7:			Juli
-month_8:			August
-month_9:			September
 month_10:			Oktober
-month_11:			November
 month_12:			Dezember
 more_unread_messages:		Weitere ungelesene Beitr&auml;ge
 more_unread_messages_desc:	Weitere ungelesene Beitr&auml;ge anzeigen und die momentan sichtbaren als gelesen kennzeichnen
@@ -291,7 +274,6 @@ msg_update:			Durchsucht das Thema <a href="{TEMPLATE: msg_update_lnk}">{VAR: fr
 mvthread_request_move:		Um das Verschieben eines Themas bitten
 mvthread_submit_req:		Anfrage abschicken
 my_buddies:			Meine Buddies
-na:				n/a
 new_posts:			Neue Beitr&auml;ge
 new_private_messages:		Sie haben <span class="GenText" style="color: #ff0000">({VAR: c})</span> ungelesene private Nachrichten
 new_thread:			Ein neues Thema erstellen
@@ -357,7 +339,6 @@ pmsg_replied:			beantwortet
 pmsg_selected:			Ausgew&auml;hlt
 pmsg_subject:			Betreff
 pmsg_time:			Zeit
-pmuserloc_login:		Login:
 pmuserloc_no_result:		Keine Ergebnisse
 pmuserloc_submit:		Abschicken
 pmuserloc_user:			Benutzer
@@ -404,12 +385,9 @@ post_err_lockedthread_title:	FEHLER: gesperrtes Thema
 post_err_passwd:		Falsches Passwort.
 post_error_generic:		Es ist ein Fehler aufgetreten
 post_file_del:			L&ouml;schen
-post_file_name:			Name
 post_file_size:			Gr&ouml;&szlig;e
-post_font:			Font
 post_form:			Beitrag erstellen
 post_format_tools:		Formatierungshilfen:
-post_forum:			Forum:
 post_icons:			Beitrags-Icon:
 post_list_smilies:		Alle Smileys anzeigen
 post_locked:			Thema gesperrt
@@ -417,7 +395,6 @@ post_logedin_user:		Angemeldeter Benutzer:
 post_logout:			Abmelden
 post_mod_opt:			Moderatoren-Optionen:
 post_no_icon:			Kein Icon
-post_normal:			Normal
 post_notification:		Benachrichtigung &uuml;ber Beitrag
 post_notification_desc:		Benachrichtige mich, wenn jemand auf meinen Beitrag antwortet.
 post_opt:			Forumseinstellungen
@@ -439,7 +416,6 @@ post_preview_btn:		Beitragsvorschau
 post_proc_reveal_spoiler:	Spoiler anzeigen
 post_quote:			Zitat:
 post_quote_msg:			{VAR: msg->login} schrieb am {TEMPLATE: make_report_date}
-post_re:			Re: 
 post_reply_update:		Antwortet auf <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_size:			Gr&ouml;&szlig;e
 post_smiley:			Smiley-K&uuml;rzel:
@@ -482,8 +458,6 @@ qbud_add_selected:		Markierte hinzuf&uuml;gen
 qbud_nick_name:			Spitzname
 qbud_no_buddies:		Keine Buddies zur Auswahl
 qbud_selected:			Markiert
-quicklogin_login:		Login
-quicklogin_login_btn:		Login
 quicklogin_password:		Passwort
 quicklogin_use_cookies:		Cookies verwenden?
 rate_best:			am besten
@@ -501,7 +475,6 @@ register:			Registrieren
 register_aim:			AIM Benutzername:
 register_allow_email_msg:	E-Mail Nachrichten erlauben:
 register_allow_email_msg_desc:	Anderen Benutzern erlauben, Ihnen E-Mails &uuml;ber das FUDforum zu schicken.
-register_avatar:		Avatar:
 register_avatar_type:		Avatar Typ:
 register_bday:			Geburtsdatum:
 register_bday_desc:		Falls Sie Ihren Geburtstag angeben, wird dieser allen Besuchern des Forums angezeigt werden
@@ -536,7 +509,6 @@ register_err_shortpasswd:	Das Passwort muss mindestens 6 Zeichen lang sein.
 register_err_toomanyimages:	Sie versuchen, mehr als die erlaubten {GVAR: FORUM_IMG_CNT_SIG} Bilder in Ihrer Signatur zu verwenden.
 register_flat_view:		Flachansicht
 register_gender:		Geschlecht:
-register_homepage:		Homepage:
 register_icq:			ICQ
 register_ignore_admin:		Administratoren Mitteilungen ignorieren:
 register_image:			Bild:
@@ -545,11 +517,8 @@ register_invisible_mode:	Unsichtbarmodus:
 register_invisible_mode_desc:	Anzeige Ihres Onlinestatus unterdr&uuml;cken.
 register_jabber:		Jabber Benutzername:
 register_location:		Ort:
-register_login:			Login:
 register_month:			Monat
 register_msg_per_page:		Beitr&auml;ge pro Seite:
-register_msnm:			MSN Messenger:
-register_name:			Name:
 register_notification:		Standardm&auml;&szlig;ige Benachrichtigung ausw&auml;hlen:
 register_notification_desc:	Soll die Benachrichtigung aktiviert sein? (kann beim Erstellen eines Beitrags deaktiviert werden)
 register_notify_method:		Benachrichtigungsmethode ausw&auml;hlen:
@@ -584,7 +553,6 @@ register_use_sig_default:	Standardm&auml;&szlig;ig Signatur verwenden:
 register_use_sig_default_desc:	Die Signatur automatisch jedem Beitrag hinzuf&uuml;gen
 register_welcome_msg:		Vielen Dank für Ihre Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achten Sie beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehen Sie bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register\n
 register_welcome_subject:	Registrierungsbestätigung für das Forum
-register_yahoo:			Yahoo Messenger:
 register_year:			Jahr
 register_your_pass:		Dein Passwort:
 registered:			Registriert:
@@ -631,7 +599,6 @@ reset_email:			E-Mail:
 reset_err_invalidkey_msg:	Ung&uuml;ltiger Schl&uuml;ssel zum Zur&uuml;cksetzen des Passwortes
 reset_err_invalidkey_title:	FEHLER
 reset_err_rstconf_msg:		Sie sollten in den n&auml;chsten Minuten eine Anleitung per E-Mail erhalten
-reset_err_rstconf_title:	Information
 reset_error:			E-Mail-Adresse nicht in der Datenbank gefunden
 reset_login_notify:		Das Passwort wurde an Sie versendet. Sie sollten es in den n&auml;chsten Minuten erhalten. Bitte &uuml;berpr&uuml;fen Sie die E-Mail auf Benutzername und Passwort.<br />.<br />.<br />
 reset_newpass_msg:		Guten Tag,\n\nWie von Ihnen gewünscht, wird Ihnen der Anmeldename zugesendet.\nHier sind Ihre Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachten Sie, dass Ihr Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn Sie es ändern möchten, so können Sie das in\nden persönlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register\n\n
@@ -656,7 +623,6 @@ rpasswd_title:			Passwort &auml;ndern
 search:				Suche
 search_all_forums:		In allen Foren suchen
 search_entire_msg:		Ganzer Beitrag
-search_forum:			Forum
 search_forum_search:		Forumssuche
 search_in_forum:		Suchen im Forum:
 search_no_results:		Keine Ergebnisse
@@ -683,7 +649,6 @@ single_msg_delete:		Sie sind gerade dabei, den Beitrag: <b>{VAR: data[3]}</b> zu
 size:				Gr&ouml;&szlig;e:
 smladd_close_window:		Fenster schlie&szlig;en
 spell_check_msg:		Rechtschreibung des Beitrages &uuml;berpr&uuml;fen
-split_th_forum:			Forum:
 split_th_messages:		Beitr&auml;ge
 split_th_new_thread_title:	Neue Themen&uuml;berschrift:
 split_th_post_by:		Erstellt von:
@@ -693,7 +658,6 @@ split_th_split_sel:		Ausgew&auml;hlte Beitr&auml;ge aufteilen
 split_th_split_unsel:		Nicht ausgew&auml;hlte Beitr&auml;ge aufteilen
 split_th_subject:		Thema:
 split_thread:			Thema aufteilen
-status:				Status:
 status_line:			Es sind <b>{VAR: st_obj->online_users_reg}</b> Mitglieder, <b>{VAR: st_obj->online_users_hidden}</b> unsichtbare Mitglieder und <b>{VAR: st_obj->online_users_anon}</b> Besucher auf diesem Board unterwegs.
 sticky:				Angeheftet:
 stop_ignoring:			Das Ignorieren des Benutzers beenden
@@ -935,7 +899,6 @@ adm_account_accepted_s:		Ihre Bitte um ein Konto für \'{GVAR: FORUM_TITLE}\' wu
 adm_account_rejected:		Ihr Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Administrator abgewiesen und ist daher nicht aktiviert. Falls Sie den Grund für diese Entscheidung erfahren möchten, steht es Ihnen frei, den Administrator über \'{GVAR: ADMIN_EMAIL}\' zu kontaktieren.
 adm_account_rejected_s:		Ihre Bitte um ein Konto für \'{GVAR: FORUM_TITLE}\' wurde abgewiesen.
 thread_on:			am
-userinfo_buddy:			Buddy:
 register_email_addr:		E-Mail-Adresse:
 reset_suffix:			\n\nFalls Sie diese Nachricht unbeabsichtigt erhalten haben, ignorieren Sie sie bitte. Falls Sie mehrfache Kopien dieser E-Mail erhalten haben und um diese gar nicht gebeten haben, so kontaktieren Sie bitte den Forumsadministrator {GVAR: ADMIN_EMAIL}\n\nDiese Anfrage wurde von {VAR: _SERVER['REMOTE_ADDR']} gestellt.\n\n
 usrinfo_last_visit:		Letzter Besuch:
@@ -981,7 +944,6 @@ register_max_sig_len:		Maximale Länge:
 register_turing:		Bitte geben Sie den unten angezeigten Code ein:
 register_err_turing:		Ung&uuml;ltiger Code
 modque_cat:			Kategorie
-modque_forum:			Forum
 idx_compact_forum_row:		Verf&uuml;gbare Foren:
 mmd_del_title:			Themen l&ouml;schen
 mmd_mov_title:			Themen verschieben
@@ -992,7 +954,6 @@ pmsg_pdf_btn:			PDF-Archiv erzeugen
 search_results_hdr:		{VAR: total} Suchergebnisse gefunden
 thread_del_all:			Alle markierten l&ouml;schen
 thread_mov_all:			Alle markierten verschieben
-dmsg_ip:			IP:
 err_banned_acct_title:		FEHLER: Sie wurden verbannt.
 err_banned_acct_msg:		Ihr Konto wurde aufgrund von Verletzungen der Forumsregeln {IF: $ban_expiry}vor&uuml;bergehend bis zum {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent{ENDI} gebannt.
 err_blockedaccnt_title:		FEHLER: Ihr Konto wurde ausgefiltert.
@@ -1004,7 +965,6 @@ sub_unsub_all_topics:		Abonnement f&uuml;r alle Themen beenden
 tabs_own_posts:			Eigene Beitr&auml;ge ansehen
 buddy_list_err_ignore:		Sie können keine Benutzer zu Ihrerer Buddyliste hinzuf&uuml;gen, die Sie ignorieren.
 sml_emoticon:			Smiley
-sml_code:			Code
 mnav_sub_only:			Nur in abonnierten Foren suchen
 register_topics_per_page:	Themen pro Seite:
 login_min_time:			Das Forum erlaubt Anmeldeversuche alle {VAR: MIN_TIME_BETWEEN_LOGIN} Sekunden, bitte warten Sie {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} Sekunden vor Ihrem nächsten Versuch.
@@ -1028,8 +988,6 @@ rating_delete:			L&ouml;schen
 post_always_on_top:		Dieses Thema immer am Anfang der Themenliste anzeigen
 register_skype:			Skype:
 register_google:		Google Chat/IM:
-im_google:			Google Talk: 
-im_skype:			Skype: 
 topic_rating:			{VAR: frm->rating} aus {VAR: frm->n_rating} Bewertungen
 topic_list_rating:		{VAR: r[17]} aus {VAR: r[21]} Bewertungen
 register_notify_method_desc:	W&auml;hlen Sie Ihre bevorzugte Benachrichtigungsmethode oder deaktivieren Sie Benachrichtigungen (zum Beispiel, wenn Sie Urlaub machen)
@@ -1052,12 +1010,5 @@ unbookmark_thread_desc:		Dieses Thema von den Lesezeichen entfernen
 tabs_bookmarkes:		Lesezeichen
 bookmarked_update:		Sieht sich eigene Lesezeichen-Liste an
 unbookmark_all_topics:		Alle Lesezeichen entfernen
-index_url_redirection:		Redirection 
 quick_reply:			Schnelle Antwort
-thread_loc_all:			Lock/Unlock All Selected
-powered-by:			Powered by:
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
-captcha_img_help:		There is no zero or one in the image.
-code_title:			CODE:
-code_select_all:		Select all
-code_show_hide:			Show/ hide
+
