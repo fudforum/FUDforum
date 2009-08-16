@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.102 2009/08/06 18:00:54 frank Exp $
+* $Id: compiler.inc,v 1.103 2009/08/16 09:16:13 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -502,15 +502,8 @@ function build_msg($file)
 	$GLOBALS['MSG_FILES'][$file] = 1;
 
 	/*
-	 * we 1st read in the default msg file for the equivalent translation and read it in
-	 * then we replace simular values from the actual msg file. This allows partial msg
-	 * files to be used inside themes
-	 */
-	$ts = substr(strstr(dirname($file), '/'), 1);
-	$ts = $GLOBALS['DATA_DIR'] . 'thm/default/i18n/' . $ts . '/msg';
-
-	$GLOBALS['CURFILE'] = '';
-
+	 * Read in requested message file.
+	 */		
 	if (file_exists($file)) {
 		if (preg_match('!thm/([^/]+)/i18n!', $file, $m)) {
 			parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] . 'thm/'.$m[1].'/tmpl/messages'), '', 1);
@@ -520,10 +513,24 @@ function build_msg($file)
 		}
 		parse_msgs($file);
 	}
+
+	/*
+	 * Append any missing entries from the DEFAULT template set (same language).
+	 */
+	$ts = substr(strrchr(dirname($file), '/'), 1);
+	$ts = $GLOBALS['DATA_DIR'] . 'thm/default/i18n/' . $ts . '/msg';
 	if ($ts != $file && file_exists($ts)) {
 		parse_sections(file_get_contents($GLOBALS['DATA_DIR'] . 'thm/default/tmpl/messages'), '', 1);
 		parse_sections(file_get_contents($GLOBALS['DATA_DIR'] . 'thm/default/tmpl/date_formats.tmpl'), '', 1);
 		parse_msgs($ts);
+	}
+
+	/*
+	 * Append any missing entries from the DEFAULT ENGLISH template set.
+	 */
+	$en = $GLOBALS['DATA_DIR'] . 'thm/default/i18n/english/msg';
+	if ($en != $file && $en != $ts && file_exists($en)) {
+		parse_msgs($en);
 	}
 }
 
@@ -625,22 +632,13 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$GLOBALS['CMP_LOC_K'] = array($cmpl['ROOT'], "'.\$GLOBALS['WWW_ROOT'].'", $cmpl['THEME_ROOT'], $cmpl['THEME_ROOT_DISK'], ';', '.');
 
 	$charset = @is_file($file1) ? $file1 : $file2;
-
 	$GLOBALS['char_set'] = trim(file_get_contents($charset));
 
+	/*	
+	 * Build the message array.
+	 */
 	$prim_msg_file = $GLOBALS['DATA_DIR'].'thm/'.$cmpl['tset'].'/i18n/'.$cmpl['lang'].'/msg';
-	$back_msg_file = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$cmpl['lang'].'/msg';
-
-	/*
-	 * build the message array
-	 */
-	if (@file_exists($prim_msg_file)) {
-		build_msg($prim_msg_file);
-	}
-	/*
-	 * append any missing entries from the default language file
-	 */
-	build_msg($back_msg_file);
+	build_msg($prim_msg_file);
 
 	$fl = array();
 	if ($cmpl['tset'] != 'default') {
