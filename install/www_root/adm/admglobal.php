@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.111 2009/08/06 18:00:55 frank Exp $
+* $Id: admglobal.php,v 1.112 2009/08/16 09:48:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -158,23 +158,24 @@ function get_max_upload_size()
 	}
 ?>
 <h2>Global Settings Manager</h2>
-
+<a name="top"></a>
 <div class="tutor" style="font-size: small;">[
 <a href="#1">Primary Forum Options</a> |
 <a href="#2">URL &amp; directories</a> |
 <a href="#3">Database</a> |
 <a href="#4">Interface Look &amp; Feel</a> |
 <a href="#5">Front Page</a> |
-<a href="#6">Message</a> |
-<a href="#7">PM</a> |
-<a href="#8">User Accounts</a> |
-<a href="#9">Cookie &amp; Session</a> |
-<a href="#10">Avatar</a> |
-<a href="#11">Signature</a> |
-<a href="#12">Search</a> |
-<a href="#13">Spell Checker</a> |
-<a href="#14">E-mail</a> |
-<a href="#15">General</a>
+<a href="#6">Topic</a> |
+<a href="#7">Post</a> |
+<a href="#8">PM</a> |
+<a href="#9">User Accounts</a> |
+<a href="#10">Cookie &amp; Session</a> |
+<a href="#11">Avatar</a> |
+<a href="#12">Signature</a> |
+<a href="#13">Search</a> |
+<a href="#14">Spell Checker</a> |
+<a href="#15">E-mail</a> |
+<a href="#16">General</a>
 ]</div>
 
 <form method="post" action="admglobal.php" autocomplete="off">
@@ -188,7 +189,7 @@ function get_max_upload_size()
 	print_bit_field('Forum Enabled', 'FORUM_ENABLED');
 	print_txt_field('Reason for Disabling', 'DISABLED_REASON');
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
 <tr class="fieldtopic"><td colspan="2"><a name="2" /><br /><b>URL &amp; directories</b></td></tr>
 <?php
@@ -197,7 +198,7 @@ function get_max_upload_size()
 	print_reg_field('Data Root', 'DATA_DIR');
 	print_bit_field('Use PATH_INFO style URLs<br /><a href="'.$WWW_ROOT.'index.php/a/b/c" target="_blank">Test Link</a>', 'USE_PATH_INFO');
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
 <tr class="fieldtopic"><td colspan="2"><a name="3" /><br /><b>Database Settings</b> </td></tr>
 <?php
@@ -219,18 +220,18 @@ function get_max_upload_size()
 	print_bit_field('Use Temporary Tables', 'USE_TEMP_TABLES');
 	print_bit_field('Use Database for message storage', 'DB_MESSAGE_STORAGE');
 	?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
 <tr class="fieldtopic"><td colspan="2"><a name="4" /><br /><b>Interface Look &amp; Feel</b> </td></tr>
 <?php
+	print_reg_field('General Pager Link Count', 'GENERAL_PAGER_COUNT', 1);
+	print_reg_field('Quick Pager Link Count', 'THREAD_MSG_PAGER', 1);	
 	print_bit_field('Public Stats', 'PUBLIC_STATS');
-	print_bit_field('Enable Quick Reply', 'QUICK_REPLY_ENABLED');
-	print_bit_field('Quick Reply Display Mode', 'QUICK_REPLY_DISPLAY');
 	print_bit_field('Show PDF Generation Link', 'SHOW_PDF_LINK');
 	print_bit_field('Show Syndication Link', 'SHOW_XML_LINK');
 	print_bit_field('Online/Offline Status Indicator', 'ONLINE_OFFLINE_STATUS');
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
 <tr class="fieldtopic"><td colspan="2"><a name="5" /><br /><b>Front Page Settings</b></td></tr>
 <?php
@@ -241,48 +242,66 @@ function get_max_upload_size()
 	print_bit_field('Forum Info', 'FORUM_INFO');
 	print_reg_field('Forum Info Cache Age', 'STATS_CACHE_AGE', 1);
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><a name="6" /><br /><b>Message Settings</b></td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="6" /><br /><b>Topic Settings</b></td></tr>
 <?php
-	print_reg_field('Word Wrap', 'WORD_WRAP', 1);
+	print_reg_field('Topics Per Page', 'THREADS_PER_PAGE', 1);
+	print_bit_field('Allow Tree View of Thread Listing', 'TREE_THREADS_ENABLE');
+	print_bit_field('Disable Tree View of Message Listing', 'DISABLE_TREE_MSG');
+	print_bit_field('Default Topic View', 'DEFAULT_THREAD_VIEW');
+	print_reg_field('Maximum Depth of Thread Listing (tree view)', 'TREE_THREADS_MAX_DEPTH', 1);
 	print_bit_field('Topic Rating', 'ENABLE_THREAD_RATING');
+?>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
+
+<tr class="fieldtopic"><td colspan="2"><a name="7" /><br /><b>Post Settings</b></td></tr>
+<?php
+	print_reg_field('Posts Per Page', 'POSTS_PER_PAGE', 1);
+	print_reg_field('Word Wrap', 'WORD_WRAP', 1);
+	print_reg_field('Messages before allowing users to post links', 'POSTS_BEFORE_LINKS', 1);
 	print_bit_field('Enable Affero<br /><a href="http://www.affero.net/bbsteps.html" target="_blank">Click here for details</a>', 'ENABLE_AFFERO');
 	print_bit_field('Show Edited By', 'SHOW_EDITED_BY');
 	print_bit_field('Show Edited By Moderator', 'EDITED_BY_MOD');
 	print_reg_field('Edit Time Limit (minutes)', 'EDIT_TIME_LIMIT', 1);
 	print_bit_field('Display IP Publicly', 'DISPLAY_IP');
 	print_reg_field('Max Image Count', 'MAX_IMAGE_COUNT', 1);
+	print_bit_field('Enable Quick Reply', 'QUICK_REPLY_ENABLED');
+	print_bit_field('Quick Reply Display Mode', 'QUICK_REPLY_DISPLAY');	
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><a name="7" /><br /><b>Private Messaging</b></td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="8" /><br /><b>Private Messaging</b></td></tr>
 <?php
 	print_bit_field('Allow Private Messaging', 'PM_ENABLED');
 	print_reg_field('File Attachments in Private Messages', 'PRIVATE_ATTACHMENTS', 1);
 	print_reg_field('Maximum Attachment Size (bytes)', 'PRIVATE_ATTACH_SIZE', 1);
 	print_bit_field('Allow Smilies', 'PRIVATE_MSG_SMILEY');
-	print_bit_field('Allow Images (fudcode only)', 'PRIVATE_IMAGES');
+	print_bit_field('Allow Images (BBcode only)', 'PRIVATE_IMAGES');
 	print_bit_field('Tag Style', 'PRIVATE_TAGS');
 	print_reg_field('Maximum Private Messages Folder Size', 'MAX_PMSG_FLDR_SIZE', 1);
 	print_reg_field('Maximum Private Messages Folder Size (for moderators)', 'MAX_PMSG_FLDR_SIZE_PM', 1);
 	print_reg_field('Maximum Private Messages Folder Size (for administrators)', 'MAX_PMSG_FLDR_SIZE_AD', 1);
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><a name="8" /><br /><b>User Account Settings</b></td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="9" /><br /><b>User Account Settings</b></td></tr>
 <?php
-	print_reg_field('Anonymous Username', 'ANON_NICK');
 	print_bit_field('Use Aliases', 'USE_ALIASES');
 	print_bit_field('Hide user profiles', 'HIDE_PROFILES_FROM_ANON');
 	print_bit_field('Profile Image', 'ALLOW_PROFILE_IMAGE');
 	print_reg_field('Registration Time Limit', 'REG_TIME_LIMIT', 1);
 	print_bit_field('New Account Moderation', 'MODERATE_USER_REGS');
 	print_bit_field('New Account Notification', 'NEW_ACCOUNT_NOTIFY');
+	print_reg_field('Anonymous Username', 'ANON_NICK');
+	print_bit_field('Disable caching for anonymous users', 'DISABLE_ANON_CACHE');
+	print_bit_field('Disable actions list for anonymous users', 'NO_ANON_ACTION_LIST');
+	print_bit_field('Disable who\'s online for anonymous users', 'NO_ANON_WHO_ONLINE');
+	print_reg_field('Unconfirmed User Expiry', 'UNCONF_USER_EXPIRY', 1);
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><a name="9" /><br /><b>Cookie &amp; Session Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="10" /><br /><b>Cookie &amp; Session Settings</b> </td></tr>
 <?php
 	print_reg_field('Cookie Path', 'COOKIE_PATH');
 	print_reg_field('Cookie Domain', 'COOKIE_DOMAIN');
@@ -293,11 +312,12 @@ function get_max_upload_size()
 	print_bit_field('Use Session Cookies', 'SESSION_COOKIES');
 	print_bit_field('Session Referrer Check', 'ENABLE_REFERRER_CHECK');
 	print_bit_field('Session IP Validation', 'SESSION_IP_CHECK');
+	print_reg_field('Time between login attempts', 'MIN_TIME_BETWEEN_LOGIN', 1);
 	print_bit_field('Multiple Host Login', 'MULTI_HOST_LOGIN');
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><a name="10" /><br /><b>Avatar Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="11" /><br /><b>Avatar Settings</b> </td></tr>
 <?php
 	print_bit_field('Avatar Approval', 'CUSTOM_AVATAR_APPROVAL');
 	print_bit_field('Allow Flash (swf) avatars', 'CUSTOM_AVATAR_ALLOW_SWF');
@@ -305,29 +325,29 @@ function get_max_upload_size()
 	print_reg_field('Custom Avatar Max Size (bytes)', 'CUSTOM_AVATAR_MAX_SIZE', 1);
 	print_reg_field('Custom Avatar Max Dimensions', 'CUSTOM_AVATAR_MAX_DIM');
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><a name="11" /><br /><b>Signature Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="12" /><br /><b>Signature Settings</b> </td></tr>
 <?php
 	print_bit_field('Allow Signatures', 'ALLOW_SIGS');
 	print_bit_field('Tag Style', 'FORUM_CODE_SIG');
 	print_bit_field('Allow Smilies', 'FORUM_SML_SIG');
-	print_bit_field('Allow Images (fudcode only)', 'FORUM_IMG_SIG');
+	print_bit_field('Allow Images (BBcode only)', 'FORUM_IMG_SIG');
 	print_reg_field('Maximum number of images', 'FORUM_IMG_CNT_SIG', 1);
 	print_reg_field('Maximum signature length', 'FORUM_SIG_ML', 1);
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><a name="12" /><br /><b>Search Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="13" /><br /><b>Search Settings</b> </td></tr>
 <?php
 	print_bit_field('Forum Search Engine', 'FORUM_SEARCH');
 	print_reg_field('Search results cache', 'SEARCH_CACHE_EXPIRY', 1);
 	print_bit_field('Member Search', 'MEMBER_SEARCH_ENABLED');
 	print_reg_field('Members Per Page', 'MEMBERS_PER_PAGE', 1);
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><a name="13" /><br /><b>Spell Checker</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="14" /><br /><b>Spell Checker</b> </td></tr>
 <?php
 	if (extension_loaded('pspell')) {
 		$pspell_support = '<font color="red">is enabled.</font>';
@@ -337,9 +357,9 @@ function get_max_upload_size()
 	}
 	print_bit_field('Enable Spell Checker', 'SPELL_CHECK_ENABLED');
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><a name="14" /><br /><b>E-mail Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="15" /><br /><b>E-mail Settings</b> </td></tr>
 <?php
 	print_bit_field('Allow E-mail', 'ALLOW_EMAIL');
 	print_reg_field('Administrator E-mail', 'ADMIN_EMAIL');
@@ -357,9 +377,9 @@ function get_max_upload_size()
 	print_reg_field('SMTP Server Password', 'FUD_SMTP_PASS');
 	print_bit_field('E-mail Confirmation', 'EMAIL_CONFIRMATION');
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 
-<tr class="fieldtopic"><td colspan="2"><a name="15" /><br /><b>General Settings</b> </td></tr>
+<tr class="fieldtopic"><td colspan="2"><a name="16" /><br /><b>General Settings</b> </td></tr>
 <?php
 	print_bit_field('Public Host Resolving', 'PUBLIC_RESOLVE_HOST');
 
@@ -371,28 +391,18 @@ function get_max_upload_size()
 	print_reg_field('Maximum Shown Login Length', 'MAX_LOGIN_SHOW', 1);
 	print_reg_field('Maximum Shown Location Length', 'MAX_LOCATION_SHOW', 1);
 
-	print_reg_field('Posts Per Page', 'POSTS_PER_PAGE', 1);
-	print_reg_field('Topics Per Page', 'THREADS_PER_PAGE', 1);
 	print_reg_field('Message icons per row', 'POST_ICONS_PER_ROW', 1);
 
-	print_bit_field('Allow Tree View of Thread Listing', 'TREE_THREADS_ENABLE');
-	print_bit_field('Disable Tree View of Message Listing', 'DISABLE_TREE_MSG');
-	print_bit_field('Default Topic View', 'DEFAULT_THREAD_VIEW');
-	print_reg_field('Maximum Depth of Thread Listing (tree view)', 'TREE_THREADS_MAX_DEPTH', 1);
 	print_reg_field('Maximum Shown Subject Length (tree view)', 'TREE_THREADS_MAX_SUBJ_LEN', 1);
 	print_reg_field('Polls Per Page', 'POLLS_PER_PAGE', 1);
 
-	print_reg_field('Unconfirmed User Expiry', 'UNCONF_USER_EXPIRY', 1);
 	print_reg_field('Flood Trigger (seconds)', 'FLOOD_CHECK_TIME', 1);
-	print_reg_field('Messages before allowing users to post links', 'POSTS_BEFORE_LINKS', 1);
 	print_reg_field('Moved Topic Pointer Expiry', 'MOVED_THR_PTR_EXPIRY', 1);
 	print_bit_field('Bust&#39;A&#39;Punk', 'BUST_A_PUNK');
 ?>
 <tr class="field"><td colspan="2">Server Time Zone: <font size="-1"> <?php echo $help_ar['SERVER_TZ'][0]; ?></font><br /><select name="CF_SERVER_TZ" style="font-size: xx-small;"><?php echo tmpl_draw_select_opt($tz_values, $tz_names, $SERVER_TZ, '', ''); ?></select></td></tr>
 <?php
 	print_bit_field('Do not set timezone', 'APACHE_PUTENV');
-	print_reg_field('Quick Pager Link Count', 'THREAD_MSG_PAGER', 1);
-	print_reg_field('General Pager Link Count', 'GENERAL_PAGER_COUNT', 1);
 	print_bit_field('Track referrals', 'TRACK_REFERRALS');
 	print_reg_field('Max History', 'MNAV_MAX_DATE', 1);
 	print_reg_field('Max Message Preview Length', 'MNAV_MAX_LEN', 1);
@@ -410,14 +420,10 @@ function get_max_upload_size()
 	print_bit_field('Disable AutoComplete', 'DISABLE_AUTOCOMPLETE');
 	print_bit_field('All Message Forum Notification', 'FORUM_NOTIFY_ALL');
 	print_reg_field('Whois Server Address', 'FUD_WHOIS_SERVER');
-	print_reg_field('Time between login attempts', 'MIN_TIME_BETWEEN_LOGIN', 1);
-	print_bit_field('Disable caching for anonymous users', 'DISABLE_ANON_CACHE');
-	print_bit_field('Disable actions list for anonymous users', 'NO_ANON_ACTION_LIST');
-	print_bit_field('Disable who\'s online for anonymous users', 'NO_ANON_WHO_ONLINE');
 	print_bit_field('Enable Geo-Location', 'ENABLE_GEO_LOCATION');
 	print_bit_field('Update Geo-Location on login', 'UPDATE_GEOLOC_ON_LOGIN');
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </table>
 <input type="hidden" name="form_posted" value="1" />
 </form>

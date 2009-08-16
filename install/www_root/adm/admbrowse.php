@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.38 2009/06/24 14:37:04 frank Exp $
+* $Id: admbrowse.php,v 1.39 2009/08/16 09:48:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -254,9 +254,10 @@ if (!extension_loaded('posix')) {
 		$cur_dir = $ROOT_PATH[0];
 	}
 
-	echo 'WWW_SERVER_ROOT: <a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($ROOT_PATH[0]).'">'.$ROOT_PATH[0].'</a><br />
-		DATA_ROOT:  <a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($ROOT_PATH[1]).'">'.$ROOT_PATH[1].'</a><br />';
-	echo 'Currently Browsing: <b>'.htmlspecialchars($cur_dir)."</b><br />\n";
+	echo 'Currently browsing: <b>'.htmlspecialchars($cur_dir)."</b><br />\n";
+	echo 'Go to directory: ';
+	echo '[ <a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($ROOT_PATH[0]).'" title="'.htmlentities($ROOT_PATH[0]).'">WWW_SERVER_ROOT</a> ] ';
+	echo '[ <a href="admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($ROOT_PATH[1]).'" title="'.htmlentities($ROOT_PATH[1]).'">DATA_ROOT</a> ]<br />';
 
 	clearstatcache();
 	if (!is_readable($cur_dir)) {
@@ -267,10 +268,10 @@ if (!extension_loaded('posix')) {
 <br />
 <form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
 <fieldset class="field">
-        <legend><b>Create Directory</b></legend>
+        <legend><b>Create directory</b></legend>
 <table class="datatable">
 	<tr class="tiny">
-		<td>Directory To Create:</td>
+		<td>New directory name:</td>
 		<td><input type="text" name="mkdir" value="" /></td>
 		<td align="right" colspan="2"><input type="submit" name="btn_mkdir" value="Create Directory" /></td>
 	</tr>
@@ -281,14 +282,14 @@ if (!extension_loaded('posix')) {
 
 <form method="post" action="admbrowse.php" enctype="multipart/form-data"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
 <fieldset class="field">
-        <legend><b>Upload File</b></legend>
+        <legend><b>Upload a file</b></legend>
 <table cellspacing="2" cellpadding="2" border="0">
 	<tr class="tiny">
-		<td>File To Upload:</td>
+		<td>File to upload:</td>
 		<td><input type="file" name="fname" /><input type="hidden" name="tmp_f_val" value="1" /></td>
 	</tr>
 	<tr class="tiny">
-		<td>New File Name:<br />(leave blank if want the uploaded filename to remain unchanged)</td>
+		<td>New file name:<br />(leave blank if want the uploaded filename to remain unchanged)</td>
 		<td><input type="text" name="d_name" value="" /></td>
 	</tr>
 	<tr class="tiny">

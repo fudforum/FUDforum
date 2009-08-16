@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.54 2009/07/03 13:34:54 frank Exp $
+* $Id: tmpllist.php,v 1.55 2009/08/16 09:48:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -163,7 +163,6 @@ function goto_tmpl($tmpl)
 	}
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<script src="../lib.js" type="text/javascript"></script>
 <style type="text/css">
 .file_name {
 	font-weight: bold;
@@ -198,7 +197,7 @@ function goto_tmpl($tmpl)
 
 <table width="100%" cellspacing="2" cellpadding="2">
 <tr>
-<td nowrap="nowrap">
+<td valign="top" nowrap="nowrap">
 <?php
 	$path = $DATA_DIR . 'thm/' . $tname . '/tmpl';
 	$pathl = $path . '/';
@@ -338,7 +337,7 @@ function goto_tmpl($tmpl)
 		echo '<font color="black"><b>***Theme was successfully updated.***</b></font><br /><br />';
 	}
 ?>
-<font color="#008800"><b>Explanation:</b>
+<font color="#008800"><b>Purpose:</b>
 <?php
 	if (isset($file_info_help[$msec.$sec])) {
 		echo $file_info_help[$msec.$sec];

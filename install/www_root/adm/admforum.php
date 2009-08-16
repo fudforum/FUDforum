@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.58 2009/05/08 20:10:15 frank Exp $
+* $Id: admforum.php,v 1.59 2009/08/16 09:48:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -128,7 +128,7 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
-		<td valign="top">Description</td>
+		<td valign="top">Description:</td>
 		<td><textarea nowrap="nowrap" name="frm_descr" cols="28" rows="5"><?php echo htmlspecialchars($frm_descr); ?></textarea>
 	</tr>
 
@@ -138,22 +138,22 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
-		<td>Tag Style<br /><font size="-2">What markup language may users use</font></td>
-		<td><?php draw_select('frm_tag_style', "FUD ML\nHTML\nNone", "16\n0\n8", ($frm_forum_opt & 8 ? 8 : ($frm_forum_opt & 16 ? 16 : 0))); ?></td>
+		<td>Tag Style:<br /><font size="-2">What markup language may users use.</font></td>
+		<td><?php draw_select('frm_tag_style', "BBCode\nHTML\nNone", "16\n0\n8", ($frm_forum_opt & 8 ? 8 : ($frm_forum_opt & 16 ? 16 : 0))); ?></td>
 	</tr>
 
 	<tr class="field">
-		<td>Password Posting<br /><font size="-2">Posting is only allowed with a knowledge of a password</font></td>
+		<td>Password Posting:<br /><font size="-2">Posting is only allowed with a knowledge of a password.</font></td>
 		<td><?php draw_select('frm_passwd_posting', "No\nYes", "0\n4", $frm_forum_opt & 4); ?></td>
 	</tr>
 
 	<tr class="field">
-		<td>Posting Password</td>
+		<td>Posting Password:<br /><font size="-2">Password when <i>Password Posting</i> is enabled.</font></td>
 		<td><input type="passwd" maxlength="32" name="frm_post_passwd" value="<?php echo htmlspecialchars($frm_post_passwd); ?>" /></td>
 	</tr>
 
 	<tr class="field">
-		<td>Moderated Forum</td>
+		<td>Moderated Forum:<br /><font size="-2">Messages must be approved before they will be visible on the forum.</font></td>
 		<td><?php draw_select('frm_moderated', "No\nYes", "0\n2", $frm_forum_opt & 2); ?></td>
 	</tr>
 
@@ -178,18 +178,18 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
-		<td>Message Threshold<br /><font size="-2">Maximum size of the message DISPLAYED<br />without the reveal link (0 == unlimited) </font></td>
+		<td>Message Threshold:<br /><font size="-2">Maximum size of the message DISPLAYED<br />without the reveal link (0 == unlimited).</font></td>
 		<td><input type="text" name="frm_message_threshold" value="<?php echo $frm_message_threshold; ?>" size="5" /> bytes</td>
 	</tr>
 
 	<tr class="field">
-		<td><a name="frm_icon_pos">Forum Icon</a></td>
+		<td><a name="frm_icon_pos">Forum Icon:</a></td>
 		<td><input type="text" name="frm_forum_icon" value="<?php echo $frm_forum_icon; ?>" /> <a href="javascript://" onclick="window.open('admiconsel.php?type=1&amp;<?php echo __adm_rsid; ?>', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
 	</tr>
 
 <?php if (!$edit) { ?>
 	<tr class="field">
-		<td>Insert Position</td>
+		<td>Insert Position:</td>
 		<td><?php draw_select('frm_pos', "Last\nFirst", "LAST\nFIRST", ''); ?></td>
 	</tr>
 <?php } ?>

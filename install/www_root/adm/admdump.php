@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.86 2009/08/06 18:00:55 frank Exp $
+* $Id: admdump.php,v 1.87 2009/08/16 09:48:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,7 +27,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			echo 'Could not open "'.$v.'" for reading<br />';
 			return;
 		}
-		echo 'Processing directory: '.$v.'<br />';
+		echo 'Processing directory: '.$v."<br />\n";
 		@ob_flush(); flush();
 
 		if (!($files = glob($v . '/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
@@ -85,12 +85,13 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	require('./GLOBALS.php');
 	fud_use('db.inc');
 	fud_use('mem_limit.inc', true);
-	// uncomment the lines below if you wish to run this script via command line
-	// fud_use('adm_cli.inc', 1); // this contains cli_execute() function.
-	// cli_execute('');
-	// when using this the script accepts 2 arguments
-	// php admdump.php /path/to/dump_file [compress]
-	// compress is optional and should only be specified if you want to datadump to be compressed
+
+	// Uncomment the 2 lines below if you wish to run this script via command line:
+	//fud_use('adm_cli.inc', 1); // this contains cli_execute() function.
+	//cli_execute('');
+	// When using this, the script accepts 2 arguments:
+	//	php admdump.php /path/to/dump_file [compress]
+	// Compress is optional and should only be specified if you want to datadump to be compressed.
 
 	/* check for cli arguments */
 	if (php_sapi_name() == 'cli' && defined('forum_debug')) {
@@ -109,7 +110,6 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	 * this is done to allow for easier running of this process via an
 	 * automated cronjob.
 	 */
-
 	if (isset($_GET['do_http_auth']) && !isset($_SERVER['PHP_AUTH_USER'])) {
 		header('WWW-Authenticate: Basic realm="Private"');
 		header('HTTP/1.0 401 Unauthorized');

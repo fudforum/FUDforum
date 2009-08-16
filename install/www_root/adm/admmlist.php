@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.48 2009/05/18 20:22:33 frank Exp $
+* $Id: admmlist.php,v 1.49 2009/08/16 09:48:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -229,7 +229,7 @@ function format_regex(&$regex)
 
 	<tr class="field">
 		<td valign="top">Custom Headers:</td>
-		<td nowrap="nowrap"><textarea cols="50" rows="5" name="ml_additional_headers"><?php echo htmlspecialchars($ml_additional_headers); ?></textarea></td>
+		<td nowrap="nowrap"><textarea name="ml_additional_headers" cols="50" rows="5"><?php echo htmlspecialchars($ml_additional_headers); ?></textarea></td>
 	</tr>
 
 	<tr class="field">
@@ -237,7 +237,7 @@ function format_regex(&$regex)
 			<font size="-1">A string of text to append to the end of every message 
 			sent from the forum back to the mailing list.</font>
 		</td>
-		<td><textarea name="ml_custom_sig" rows="7" cols="30"><?php echo htmlspecialchars($ml_custom_sig); ?></textarea></td>
+		<td><textarea name="ml_custom_sig" cols="50" rows="5"><?php echo htmlspecialchars($ml_custom_sig); ?></textarea></td>
 	</tr>
 
 	<tr>

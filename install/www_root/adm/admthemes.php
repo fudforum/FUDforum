@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.79 2009/08/06 18:00:55 frank Exp $
+* $Id: admthemes.php,v 1.80 2009/08/16 09:48:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,16 +30,32 @@
 		$root = $DATA_DIR . 'thm/';
 		$root_nn = $root . preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
 		$u = umask(0);
-		if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777) && !@mkdir($root_nn.'tmpl/', 0777)) {
-			exit('can\'t create ('.$root_nn.')<br />');
+		if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777)) {
+			exit('ERROR: Unable to create ['.$root_nn.']<br />');
 		}
 
-		if ($_POST['copy_mode'] == 'all') {
+		if ($_POST['copy_mode'] == 'headfoot') {	// sparse theme - header & footer
+			mkdir($root_nn.'/tmpl', 0777);
+			if ($_POST['base_template_set'] == 'path_info') {
+				fudcopy($root . 'path_info/tmpl/', $root_nn.'/tmpl', '{header.tmpl,footer.tmpl}', true);
+		    } else {
+				fudcopy($root . 'default/tmpl/', $root_nn.'/tmpl', '{header.tmpl,footer.tmpl}', true);
+			}
+		} else if ($_POST['copy_mode'] == 'headfootcss') {	// sparse theme - header, footer & css
+			mkdir($root_nn.'/tmpl', 0777);
+			fudcopy($root . 'default/tmpl/', $root_nn.'/tmpl', 'forum.css.tmpl', true);
+			if ($_POST['base_template_set'] == 'path_info') {
+				fudcopy($root . 'path_info/tmpl/', $root_nn.'/tmpl', '{header.tmpl,footer.tmpl}', true);
+		    } else {
+				fudcopy($root . 'default/tmpl/', $root_nn.'/tmpl', '{header.tmpl,footer.tmpl}', true);
+			}
+		} else if ($_POST['copy_mode'] == 'all') {	// full theme with all files - not recommended!
 			fudcopy($root . 'default/', $root_nn, '*', true);
 			if ($_POST['base_template_set'] == 'path_info') {
 				fudcopy($root . 'path_info/', $root_nn, '*', true);
+		    }
 		}
-		
+
 		if ($_POST['base_template_set'] == 'path_info') {	// Copy the PATH_INFO pointer
 			fudcopy($root . 'path_info/', $root_nn, '.path_info', true);
 		}
@@ -246,8 +262,9 @@ function update_locale()
 	<td>What to copy:</td>
 	<td>
 	<select name="copy_mode">
-	<option value="none">Only required files</option>
-	<option value="all">All files (not recommended)</option>
+	<option value="headfoot">Header and footer templates</option>	
+	<option value="headfootcss">Header, footer and CSS templates</option>
+	<option value="all">All template files (not recommended)</option>
 	</select></td>
 </tr>
 <tr class="fieldaction">
