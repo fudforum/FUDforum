@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.47 2009/08/16 09:48:28 frank Exp $
+* $Id: msglist.php,v 1.48 2009/08/18 20:04:13 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,7 +43,7 @@ function makedeps()
 		$data = file_get_contents($f);
 		$file = basename($f);
 
-		// check for msgs int the php code
+		// check for msgs in the php code
 		$s = $e = 0;
 
 		while (($s = strpos($data, '{REF: ', $s)) !== false) {
@@ -106,7 +106,7 @@ function makedeps()
 			}
 
 			// Update message entry.
-			$s += 3 + strlen($v);
+			$s += 2 + strlen($v);
 			while ($data[$s] == "\t") {
 				++$s;
 			}
@@ -207,7 +207,7 @@ if (isset($warn)) {
 			if (($s = strpos($data, "\n" . $v . ':')) === false) {
 				$txt = '';
 			} else {
-				$s += 3 + strlen($v);
+				$s += 2 + strlen($v);
 				if (($e = strpos($data, "\n", $s)) === false) {
 					$e = strlen($data);
 				}

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemesel.php,v 1.39 2009/07/19 20:09:10 frank Exp $
+* $Id: admthemesel.php,v 1.40 2009/08/18 20:04:13 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,7 +25,7 @@
 		echo '<div class="tutor">Please document all changes you make to FUDforum\'s default templates, as future upgrades may overwrite your changes.</div>';
 	} else if ( $ret == 'msglist' ) {
                 echo '<h2>Message Editor</h2>';
-		echo '<div class="tutor">Please post all language updates you make on the <a href="http://fudforum.org/forum/">support forum</a> so it can be included into the next release.</div>';
+		echo '<div class="tutor">Please use <a href="http://translatewiki.net/wiki/Translating:FUDforum">TranslateWiki.net</a> to translate FUDforum\'s messages into other languages. This control panel should only be used to make site specific languages updates or to apply temporary translation changes.</div>';
 	}
 
 	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt=3');

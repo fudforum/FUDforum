@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.103 2009/08/16 09:16:13 frank Exp $
+* $Id: compiler.inc,v 1.104 2009/08/18 20:04:13 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -153,7 +153,7 @@ function resolve_sections($str)
 		switch ($tag) {
 			case 'MSG':
 				if (!isset($GLOBALS['MSG'][$name])) {
-					exit('Missing Message entry '.$name.' inside i18n/'.$GLOBALS['__COMPILER__']['lang'].'/msg');
+					exit('Missing message entry '.$name.' inside i18n/'.$GLOBALS['__COMPILER__']['lang'].'/msg');
 				}
 				$ret .= $GLOBALS['MSG'][$name]['data'];
 				break;
@@ -479,18 +479,45 @@ function generate_file($php_file)
 
 function parse_msgs($file)
 {
+	// Read and process message file.
 	foreach (file($file) as $k => $v) {
-		if (substr($v,0,1) == '#') {
+		if (preg_match('/^\s*$|^#/', $v)) {	// Skip empty lines and comments.
 			continue;
 		}
-		$m = trim(strtok($v, "\t"), ':');
-		if (isset($GLOBALS['MSG'][$m])) {
-			if ($GLOBALS['MSG'][$m]['file'] != $file) {
+
+		// Extract message ID and message text from line.
+		$mid = trim(substr($v, 0, strpos($v, ':')));
+		$msg = trim(substr($v, strpos($v, ':')+1));
+
+		// Remove {sections} containing variables, templates, etc.
+		$sections = NULL; $i = 0;
+		if (preg_match_all('#\{(.*?)\}#si', $msg, $sections, PREG_SET_ORDER)) {
+			foreach ($sections as $section) {
+				$msg = str_replace($section[0], "***sEcTiOn$i***", $msg);
+				$sections[$i++] = $section[0];
+			}
+		}
+
+		// Encode message test (without sections) to ensure they don't break our templates.
+		$msg = str_replace('\'', '&#39;', $msg);
+		$msg = str_replace('\\\'', '&#39;', $msg); // Delete when all \' are removed from message files
+
+		// Re-insert {sections}.
+		if( is_array($sections)) {
+			foreach($sections as $i => $section) {
+				$msg = str_replace("***sEcTiOn$i***", $section, $msg);
+			}
+		}
+
+		// Check for duplicate messages
+		if (isset($GLOBALS['MSG'][$mid])) {
+			if ($GLOBALS['MSG'][$mid]['file'] != $file) {
 				continue;
 			}
-			exit('duplicated message: '.$m.' in '.$file.' on line #'.($k + 1).', previous entry found on line #'.$GLOBALS['MSG'][$m]['line'].' in '.$GLOBALS['MSG'][$m]['file']);
+			exit('Duplicated message: '.$mid.' in '.$file.' on line #'.($k + 1).', previous entry found on line #'.$GLOBALS['MSG'][$mid]['line'].' in '.$GLOBALS['MSG'][$mid]['file']);
 		}
-		$GLOBALS['MSG'][$m] = array('data' => resolve_sections(trim(strtok("\t"))), 'file' => $file, 'line'=> $k);
+
+		$GLOBALS['MSG'][$mid] = array('data' => resolve_sections($msg), 'file' => $file, 'line'=> $k);
 	}
 }
 
@@ -500,6 +527,7 @@ function build_msg($file)
 		return;
 	}
 	$GLOBALS['MSG_FILES'][$file] = 1;
+	$GLOBALS['CURFILE'] = '';
 
 	/*
 	 * Read in requested message file.
