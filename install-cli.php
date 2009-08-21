@@ -2,23 +2,21 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.26 2009/07/11 11:19:14 frank Exp $
+* $Id: install-cli.php,v 1.27 2009/08/21 15:48:57 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 ***************************************************************************/
-// TODO:  PDO database support must be added
 
 	set_time_limit(-1);
-	ini_set("magic_quotes_runtime", 0);
-	ini_set("display_errors", 1);
+	ini_set('magic_quotes_runtime', 0);
+	ini_set('display_errors', 1);
 	error_reporting(E_ALL);
 
 function pf($str)
 {
 	echo $str;
-	flush();
 }
 
 function fe($str)
@@ -30,7 +28,7 @@ function fe($str)
 
 function is_wr($path)
 {
-	while ($path && $path != "/") {
+	while ($path && $path != '/') {
 		if (@is_writeable($path)) {
 			return 1;
 		}
@@ -80,9 +78,17 @@ function validate_url($path)
 	return 0;
 }
 
+/* we need this for PDO in 5.0+ */
+if (version_compare(PHP_VERSION, '5.0.0', '>=')) {
+	function ex_handle($ex) { fe($ex->getMessage()); }
+	set_exception_handler('ex_handle');
+	$GLOBALS['DB'] = null;
+	function pdo_fetch($res) { return $res->fetch(PDO_FETCH_NUM); }
+}
+
 function module_check()
 {
-	$modules = array('zlib', 'mysql', 'pgsql', 'pcre', 'pspell', 'posix');
+	$modules = array('zlib', 'mysql', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pgsql', 'oci8', 'pcre', 'pspell', 'posix');
 	foreach ($modules as $m) {
 		$status[$m] = extension_loaded($m);
 	}
@@ -167,9 +173,10 @@ function decompress_archive($data_root, $web_root)
 	} while (($pos = strpos($data, "\n//", $pos)) !== false);
 }
 
-/* win32 does not have symlink\s, so we use this crude emulation */
-if (!function_exists('symlink')) {
-	function symlink($src, $dest)
+/* Older windows systems doesn't have symlinks and some hosts disable them - use crude emulation */
+$WINDOWS = DIRECTORY_SEPARATOR != '/';
+if ($WINDOWS || !function_exists('symlink')) {
+	function fud_symlink($src, $dest)
 	{
 		if (!($fp = fopen($dest, 'wb'))) {
 			return FALSE;
@@ -188,26 +195,64 @@ function htaccess_handler($web_root, $ht_pass)
 	}
 }
 
-function dbquery($qry)
+function dbquery($qry, $fetch=0)
 {
-	switch (__dbtype__) {
+	if (!$GLOBALS['DB']) {
+		return FALSE;
+	}
+
+	switch ($GLOBALS['DBHOST_DBTYPE']) {
 		case 'mysql':
-			return mysql_query($qry, __FUD_SQL_LNK__);
+			return mysql_query($qry, $GLOBALS['DB']);
+			break;
+		case 'mysqli':
+			return $GLOBALS['DB']->query($qry);
 			break;
 		case 'pgsql':
-			return pg_query(__FUD_SQL_LNK__, $qry);
+			return pg_query($GLOBALS['DB'], $qry);
+			break;
+		case 'pdo_mysql':
+		case 'pdo_pgsql':
+		case 'pdo_sqlite':
+			if (!$fetch) {
+				return ($GLOBALS['DB']->exec($qry) !== FALSE);
+			} else {
+				return $GLOBALS['DB']->query($qry);
+			}
+			break;
+		case 'oci8':
+			// OR values together
+			$qry = preg_replace_callback('/\b(\d[\d\|]+\d\b)/', 
+				create_function('$matches',
+					'$or=0; foreach( explode("|", $matches[0]) as $val) {$or = $or|$val;} return $or;'),
+				$qry);
+			$r = oci_parse($GLOBALS['DB'], $qry);
+			oci_execute($r);
+			return $r;
 			break;
 	}
 }
 
 function dberror()
 {
-	switch (__dbtype__) {
+	switch ($GLOBALS['DBHOST_DBTYPE']) {
 		case 'mysql':
-			return mysql_error(__FUD_SQL_LNK__);
+			return mysql_error($GLOBALS['DB']);
 			break;
+		case 'mysqli':
+			return $GLOBALS['DB']->error;
+			break;			
 		case 'pgsql':
-			return pg_last_error(__FUD_SQL_LNK__);
+			return pg_last_error($GLOBALS['DB']);
+			break;
+		case 'pdo_mysql':
+		case 'pdo_pgsql':
+		case 'pdo_sqlite':
+			$err = $GLOBALS['DB']->errorInfo();
+			return end($err);
+			break;			
+		case 'oci8':
+			return oci_error($GLOBALS['DB']);
 			break;
 	}
 }
@@ -216,24 +261,42 @@ function dbperms_check()
 {
 	global $version;
 
+	if ($GLOBALS['DBHOST_DBTYPE'] == 'oci8') {
+		return;
+	}
+
 	/* version check */
-	if (($r = dbquery('SELECT VERSION()'))) {
-		$fetch = __dbtype__ == 'pgsql' ? 'pg_fetch_row' : 'mysql_fetch_row';
-		$val = $fetch($r);
+	if (($r = dbquery('SELECT VERSION()', 1)) && $GLOBALS['DBHOST_DBTYPE'] != 'pdo_sqlite') {
+		switch ($GLOBALS['DBHOST_DBTYPE']) {
+			case 'mysql':
+				$val = mysql_fetch_row($r);
+				break;
+			case 'mysqli':
+				$val = $r->fetch_row();
+				break;
+			case 'pgsql':
+				$val = pg_fetch_row($r);
+				break;
+			case 'pdo_mysql':
+			case 'pdo_pgsql':
+				$val = array($r->fetchColumn());
+				break;
+		}	
 		if ($val && preg_match('!([3-8]\.[0-9]+(?:\.[0-9]+)?)!', $val[0], $m)) {
 			$version = $m[1];
 		} else {
 			$version = 0;
 		}
-		if (__dbtype__ == 'mysql' && !version_compare($version, '4.1.0', '>=')) {
+		if (($GLOBALS['DBHOST_DBTYPE'] == 'mysql' || $GLOBALS['DBHOST_DBTYPE'] == 'mysqli' || $GLOBALS['DBHOST_DBTYPE'] == 'pdo_mysql') && !version_compare($version, '4.1.0', '>=')) {
 			fe("The specified MySQL server is running version '{$version}', which is older then the minimum required version '4.1.0'\n");
-		} else if (__dbtype__ == 'pgsql' && !version_compare($version, '8.1.0', '>=')) {
+		} else if (($GLOBALS['DBHOST_DBTYPE'] == 'pgsql' || $GLOBALS['DBHOST_DBTYPE'] == 'pdo_pgsql') && !version_compare($version, '8.1.0', '>=')) {
 			fe("The specified PostgreSQL server is running version '{$version}', which is older then the minimum required version '8.1.0'\n");
 		}
 	}
 
-	switch (__dbtype__) {
+	switch ($GLOBALS['DBHOST_DBTYPE']) {
 		case 'mysql':
+		case 'pdo_mysql':		
 			mysql_query('DROP TABLE IF EXISTS fud_forum_install_test_table');
 			if (!mysql_query('CREATE TABLE fud_forum_install_test_table (test_val INT)')) {
 				fe("Your MySQL account does not have permissions to create new MySQL tables.\nEnable this functionality and restart the script.\n");
@@ -250,25 +313,28 @@ function dbperms_check()
 			}
 			break;
 		case 'pgsql':
-			@pg_query(__FUD_SQL_LNK__, 'DROP TABLE fud_forum_install_test_table');
-			if (!pg_query(__FUD_SQL_LNK__, 'CREATE TABLE fud_forum_install_test_table (test_val INT)')) {
+		case 'pdo_pgsql':		
+			@pg_query($GLOBALS['DB'], 'DROP TABLE fud_forum_install_test_table');
+			if (!pg_query($GLOBALS['DB'], 'CREATE TABLE fud_forum_install_test_table (test_val INT)')) {
 				fe("Your PostgreSQL account does not have permissions to create new PostgreSQL tables.\nEnable this functionality and restart the script.\n");
 			}
-			if (!pg_query(__FUD_SQL_LNK__, 'BEGIN WORK') || !pg_query(__FUD_SQL_LNK__, 'ALTER TABLE fud_forum_install_test_table ADD test_val2 INT')) {
+			if (!pg_query($GLOBALS['DB'], 'BEGIN WORK') || !pg_query($GLOBALS['DB'], 'ALTER TABLE fud_forum_install_test_table ADD test_val2 INT')) {
 				fe("Your PostgreSQL account does not have permissions to run ALTER queries on existing PostgreSQL tables\nEnable this functionality and restart the script.\n");
 			}
-			pg_query(__FUD_SQL_LNK__, 'COMMIT WORK');
+			pg_query($GLOBALS['DB'], 'COMMIT WORK');
 
-			if (!pg_query(__FUD_SQL_LNK__, 'DROP TABLE fud_forum_install_test_table')) {
+			if (!pg_query($GLOBALS['DB'], 'DROP TABLE fud_forum_install_test_table')) {
 				fe("Your PostgreSQL account does not have permissions to run DROP TABLE queries on existing PostgreSQL tables\nEnable this functionality and restart the script.\n");
 			}
 			break;
+		case 'pdo_sqlite': /* no need to check perms, we've got our own DB */
+			return;			
 	}
 }
 
 function make_into_query($data)
 {
-	return trim(str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['settings']['DBHOST_TBL_PREFIX'], preg_replace('!\s+!', ' ', preg_replace('!\#.*$!s', '', $data))));
+	return trim(str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['settings']['DBHOST_TBL_PREFIX'], preg_replace('!\h+!', ' ', preg_replace('!\#.*$!s', '', $data))));
 }
 
 function change_global_settings($list)
@@ -280,8 +346,8 @@ function change_global_settings($list)
 			if (is_int($v)) {
 				$settings = substr_replace($settings, "\${$k}\t= {$v};\n\t", $p, 0);
 			} else {
-				$v = addcslashes($v, '\\"$');
-				$settings = substr_replace($settings, "\${$k}\t= \"{$v}\";\n\t", $p, 0);
+				$v = addcslashes($v, '\\\'');
+				$settings = substr_replace($settings, "\${$k}\t= '{$v}';\n\t", $p, 0);
 			}
 		} else {
 			$p = strpos($settings, '=', $p) + 1;
@@ -290,8 +356,8 @@ function change_global_settings($list)
 			if (is_int($v)) {
 				$settings = substr_replace($settings, ' '.$v, $p, ($e - $p));
 			} else {
-				$v = addcslashes($v, '\\"$');
-				$settings = substr_replace($settings, ' "'.$v.'"', $p, ($e - $p));
+				$v = addcslashes($v, '\\\'');
+				$settings = substr_replace($settings, ' \''.$v.'\'', $p, ($e - $p));
 			}
 		}
 	}
@@ -301,21 +367,66 @@ function change_global_settings($list)
 	fclose($fp);
 }
 
-function db_connect($settings)
+function initdb(&$settings)
 {
+	if (preg_match('![^A-Za-z0-9_]!', $settings['DBHOST_TBL_PREFIX'])) {
+		pf('Corrupted database prefix!');
+	}
+	
 	if ($settings['DBHOST_DBTYPE'] == 'mysql') {
 		if (($conn = @mysql_connect($settings['DBHOST'], $settings['DBHOST_USER'], $settings['DBHOST_PASSWORD']))) {
 			if (@mysql_select_db($settings['DBHOST_DBNAME'], $conn)) {
-				return $conn;
+				$GLOBALS['DB'] = $conn;
+				return;
 			}
 		}
 		pf("Failed to connect using provided information '".mysql_error()."'\n");
-	} else {
+	} else if ($settings['DBHOST_DBTYPE'] == 'mysqli') {
+			$GLOBALS['DB'] = new mysqli($settings['DBHOST'], $settings['DBHOST_USER'], $settings['DBHOST_PASSWORD'], $settings['DBHOST_DBNAME']);
+			if (mysqli_connect_errno()) {
+				pf("Failed to connect using provided information ". mysqli_connect_error());
+			} else {
+				return;
+			}
+	} else  if ($settings['DBHOST_DBTYPE'] == 'pgsql') {
 		$connect_str = "host={$settings['DBHOST']} user={$settings['DBHOST_USER']} password={$settings['DBHOST_PASSWORD']} dbname={$settings['DBHOST_DBNAME']}";
 		if (($conn = pg_connect($connect_str))) {
-			return $conn;
+			$GLOBALS['DB'] = $conn;
+			return;
 		}
 		pf("Failed to connect using provided information '".pg_last_error()."'\n");
+	} else  if ($settings['DBHOST_DBTYPE'] == 'pdo_mysql') {		
+			if ($settings['DBHOST']{0} == ':') {
+				$host = 'unix_socket='.substr($settings['DBHOST'], 1);
+			} else {
+				$host = 'host='.$settings['DBHOST'];
+			}
+		
+			$dsn = 'mysql:'.$host.';dbname='.$settings['DBHOST_DBNAME'];
+			$GLOBALS['DB'] = new PDO($dsn, $settings['DBHOST_USER'], $settings['DBHOST_PASSWORD']);
+			return;
+	} else  if ($settings['DBHOST_DBTYPE'] == 'pdo_pgsql') {		
+			$dsn = 'pgsql:';
+			$vals = array('DBHOST' => 'host', 'DBHOST_USER' => 'user', 'DBHOST_PASSWORD' => 'password', 'DBHOST_DBNAME' => 'dbname');
+			foreach ($vals as $k => $v) {
+				if (!empty($settings[$k])) {
+					$dsn .= $v.'='.$settings[$k].' ';
+				}
+			}
+			$GLOBALS['DB'] = new PDO($dsn);
+			return;
+	} else  if ($settings['DBHOST_DBTYPE'] == 'pdo_sqlite') {		
+			$settings['DBHOST'] = $settings['SERVER_DATA_ROOT'].'/forum.db.php';
+			$GLOBALS['DB'] = new PDO('sqlite:'.$settings['DBHOST']);
+			return;
+	} else if ($settings['DBHOST_DBTYPE'] == 'oci8') {
+		if (($conn = @oci_connect($settings['DBHOST_USER'], $settings['DBHOST_PASSWORD'], $settings['DBHOST_DBNAME']))) {
+			$GLOBALS['DB'] = $conn;
+			return;
+		}
+		pf("Failed to connect using provided information '".oci_error()."'\n");
+	} else {
+		pf('Unsupported database specified: '. $settings['DBHOST_DBTYPE'] ."\n");
 	}
 }
 
@@ -413,7 +524,7 @@ function db_connect($settings)
 	}
 	/* determine if this host can support .htaccess directives */
 	htaccess_handler($settings['WWW_ROOT'], $settings['SERVER_ROOT'] . '.htaccess');
-	
+
 	$INCLUDE = $settings['SERVER_DATA_ROOT'].'include/';
 	$ERROR_PATH  = $settings['SERVER_DATA_ROOT'].'errors/';
 	$MSG_STORE_DIR = $settings['SERVER_DATA_ROOT'].'messages/';
@@ -431,9 +542,15 @@ function db_connect($settings)
 	@unlink($settings['SERVER_DATA_ROOT'] . 'scripts/GLOBALS.php');
 
 	/* make symlinks to GLOBALS.php */
-	symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] . 'GLOBALS.php');
-	symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] . 'adm/GLOBALS.php');
-	symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_DATA_ROOT'] . 'scripts/GLOBALS.php');
+	if ($WINDOWS || !function_exists('symlink')) {
+		fud_symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] . 'GLOBALS.php');
+		fud_symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] . 'adm/GLOBALS.php');
+		fud_symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_DATA_ROOT'] . 'scripts/GLOBALS.php');				
+	} else {
+		symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] . 'GLOBALS.php');
+		symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] . 'adm/GLOBALS.php');
+		symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_DATA_ROOT'] . 'scripts/GLOBALS.php');
+	}
 
 	/* default bitmask values */
 	$FUD_OPT_1 = 1744762047;
@@ -467,28 +584,43 @@ function db_connect($settings)
 	if ($module_status['pgsql']) {
 		$dbs[] = 'pgsql';
 	}
+	if ($module_status['pdo_mysql']) {
+		$dbs[] = 'pdo_mysql';
+	}
+	if ($module_status['pdo_pgsql']) {
+		$dbs[] = 'pdo_pgsql';
+	}
+	if ($module_status['pdo_sqlite']) {
+		$dbs[] = 'pdo_sqlite';
+	}
+	if ($module_status['oci8']) {
+		$dbs[] = 'oci8';
+	}
+	if (function_exists('mysqli_connect')) {
+		$dbs[] = 'mysqli';
+	}
+
 	if (count($dbs) == 1) {
 		$settings['DBHOST_DBTYPE'] = $dbs[0];
-	} else {
-		while (!$settings['DBHOST_DBTYPE']) {
-			pf("Please choose a database type [mysql pgsql]: ");
-			$db = trim(fgets(STDIN, 1024));
-			if (in_array($db, $dbs)) {
-				$settings['DBHOST_DBTYPE'] = $db;
-				break;
-			}
-			pf("'{$db}' is not a valid database type or is not supported.\n");
-		}
 	}
-	define('__dbtype__', $settings['DBHOST_DBTYPE']);
+	while (!in_array($settings['DBHOST_DBTYPE'], $dbs)) {
+		pf("Please choose a database type [mysql pgsql]: ");
+		$db = trim(fgets(STDIN, 1024));
+		if (in_array($db, $dbs)) {
+			$settings['DBHOST_DBTYPE'] = $db;
+			break;
+		}
+		pf("'{$db}' is not a valid database type or is not supported.\n");
+	}
+	$GLOBALS['DBHOST_DBTYPE'] = $settings['DBHOST_DBTYPE'];
 
 	if ($got_config) {
-		$conn = db_connect($settings);
+		initdb($settings);
 	} else {
-		$conn = null;
+		$GLOBALS['DB'] = null;
 	}
 
-	while (!$conn) {
+	while (!$GLOBALS['DB']) {
 		pf("Please specify database host: ");
 		$settings['DBHOST'] = trim(fgets(STDIN, 1024));
 	
@@ -504,18 +636,31 @@ function db_connect($settings)
 		pf("Please specify SQL table prefix '{$settings['DBHOST_TBL_PREFIX']}' [fud28_]: ");
 		$settings['DBHOST_TBL_PREFIX'] = preg_replace('![^[:alnum:]_]!', '', trim(fgets(STDIN, 1024)));
 		if (!$settings['DBHOST_TBL_PREFIX']) {
-			$settings['DBHOST_TBL_PREFIX'] = 'fud26_';
+			$settings['DBHOST_TBL_PREFIX'] = 'fud28_';
 		}
-		$conn = db_connect($settings);
+		initdb($settings);
 	}
-	define('__FUD_SQL_LNK__', $conn);
 
 	/* check SQL permissions */
 	dbperms_check();
 
 	/* Import sql data */
 	$tables = $def_data = array();
-	if (__dbtype__ == 'pgsql') {
+	if ($GLOBALS['DBHOST_DBTYPE'] == 'oci8') {
+		$prefix =& $settings['DBHOST_TBL_PREFIX'];
+		$preflen = strlen($prefix);
+		
+		/* remove sequences */
+		echo "Start dropping sequences...\n";
+		$c = dbquery("SELECT sequence_name FROM user_sequences WHERE sequence_name LIKE '".strtoupper($prefix)."%'");
+		while ($r = oci_fetch_row($c)) {
+			if (!dbquery('DROP SEQUENCE '.$r[0])) {
+				fe(dberror());
+			}
+		}
+		unset($c);
+	}
+	if ($GLOBALS['DBHOST_DBTYPE'] == 'pgsql') {
 		$prefix =& $settings['DBHOST_TBL_PREFIX'];
 		$preflen = strlen($prefix);
 
@@ -550,16 +695,33 @@ function db_connect($settings)
 	}
 
 	/* import tables */
+	$ora_statements = array();
 	foreach ($tbl as $t) {
-		$data = explode(';', preg_replace('!#.*?\n!s', '', file_get_contents($t)));
-		foreach ($data as $q) {
+		foreach (explode(';', preg_replace('!#.*?\n!s', '', file_get_contents($t))) as $q) {
 			$q = trim($q);
 
-			if (__dbtype__ != 'mysql') {
-				if (!strncmp($q, 'DROP TABLE IF EXISTS', strlen('DROP TABLE IF EXISTS'))) {
-					continue;	
+			if ($GLOBALS['DBHOST_DBTYPE'] == 'oci8') {
+				if (preg_match('/^DROP TABLE IF EXISTS (.*)$/', $q, $m)) {
+					$q = "BEGIN execute immediate 'DROP TABLE ". $m[1] ."'; exception when others then null; END;";
 				}
-				$q = str_replace(array('BINARY', 'INT NOT NULL AUTO_INCREMENT'), array('', 'SERIAL'), $q);
+				if (preg_match('/^\s*CREATE\s*TABLE\s*([\{\}\w]*)/i', $q, $m)) {
+					$ora_tab = $m[1];				
+					
+					preg_match_all('/\n\s*(\w*)\s*INT NOT NULL AUTO_INCREMENT/i', $q, $m, PREG_PATTERN_ORDER);
+					foreach ($m[1] as $c) {
+						array_push($ora_statements, 'CREATE SEQUENCE '.$ora_tab.'_'.$c.'_seq');
+						array_push($ora_statements, 'CREATE TRIGGER '.$ora_tab.'_'.$c.'_trg BEFORE INSERT ON '.$ora_tab.' FOR EACH ROW BEGIN SELECT '.$ora_tab.'_'.$c.'_seq.nextval INTO :new.'.$c.' FROM dual; END;');
+					}
+				}
+				$q = str_replace(array('NOT NULL DEFAULT', 'TEXT', 'BIGINT', 'BINARY', 'INT NOT NULL AUTO_INCREMENT'), 
+				                 array('DEFAULT',          'CLOB', 'NUMBER', '',       'INT NOT NULL'), $q);
+			} else if ($GLOBALS['DBHOST_DBTYPE'] != 'mysql' &&  $GLOBALS['DBHOST_DBTYPE'] != 'mysqli' && $GLOBALS['DBHOST_DBTYPE'] != 'pdo_mysql') {
+				if (!strncmp($q, 'DROP TABLE IF EXISTS', strlen('DROP TABLE IF EXISTS')) ||
+					!strncmp($q, 'ALTER TABLE', strlen('ALTER TABLE'))) {
+					continue;
+				}
+				$rep = array('BINARY'=>'', 'INT NOT NULL AUTO_INCREMENT'=> ($GLOBALS['DBHOST_DBTYPE'] == 'pdo_sqlite' ? 'INTEGER' : 'SERIAL'));
+				$q = strtr($q, $rep);
 			} else if (version_compare($version, '4.1.2', '>=') && !strncmp($q, 'CREATE TABLE', strlen('CREATE TABLE'))) {
 				/* for MySQL 4.1.2 we need to specify a default charset */
 				$q .= " DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci";
@@ -573,10 +735,21 @@ function db_connect($settings)
 		}
 	}
 
-	/* import table data */
+	/* create Oracle sequences and triggers */
+	foreach($ora_statements as $q) {
+		echo "Execute Oracle stmt : ". $q ."\n";
+		if (($q = make_into_query(trim($q)))) {
+				if (!dbquery($q)) {
+					fe('Failed to create table "'.basename($t, '.tbl').'" ("'.$q.'"), SQL Reason: '.dberror()."\n");
+					break;
+				}
+		}
+	}
+
+	/* import seed data */
 	foreach ($sql as $t) {
-		$data = preg_replace('/\r\n|\r/', "\n", file_get_contents($t));
-		foreach (explode(";\n", $data) as $q) {
+		$file = str_replace(array('\r\n', '\r'), "\r\n", file_get_contents($t));
+		foreach (explode(";\n", $file) as $q) { 
 			if (strpos($q, 'UNIX_TIMESTAMP') !== false) {
 				$q = str_replace('UNIX_TIMESTAMP', time(), $q);
 			}
@@ -594,6 +767,7 @@ function db_connect($settings)
 		'DBHOST_USER' => $settings['DBHOST_USER'],
 		'DBHOST_PASSWORD' => $settings['DBHOST_PASSWORD'],
 		'DBHOST_DBNAME' => $settings['DBHOST_DBNAME'],
+		'DBHOST_DBTYPE' => $settings['DBHOST_DBTYPE'],
 		'DBHOST_TBL_PREFIX' => $settings['DBHOST_TBL_PREFIX']
 	));
 
@@ -668,17 +842,13 @@ function db_connect($settings)
 	$GLOBALS['INCLUDE'] 			= $settings['SERVER_DATA_ROOT'] . '/include/';
 	$GLOBALS['WWW_ROOT']			= $settings['WWW_ROOT'];
 	$GLOBALS['DBHOST_TBL_PREFIX']	= $settings['DBHOST_TBL_PREFIX'];
+	$GLOBALS['DBHOST_DBTYPE']		= $settings['DBHOST_DBTYPE'];
 	$GLOBALS['FUD_OPT_2']			= 8388608;
-	if (!strncmp($settings['DBHOST_DBTYPE'], 'pdo_', 4)) {
-		$GLOBALS['DBHOST_DBTYPE'] = $settings['DBHOST_DBTYPE'];
-	} else {
-		$GLOBALS['DBHOST_DBTYPE'] = '';
-	}
 
 	require($settings['SERVER_DATA_ROOT'] . 'include/compiler.inc');
 	compile_all('default', $settings['LANGUAGE']);
 
-	pf("Congratulations. Your FUDforum installation is now complete.\n");
+	pf("Congratulations! Your FUDforum installation is now complete.\n");
 	pf("You may access your new forum at: {$settings['WWW_ROOT']}/index.php\n\n");
 	exit;
 ?>
