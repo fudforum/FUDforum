@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.75 2009/01/29 18:37:17 frank Exp $
+* $Id: search.php.t,v 1.76 2009/08/21 16:15:05 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -133,7 +133,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 
 /*{POST_HTML_PHP}*/
 
-	$search_options = tmpl_draw_radio_opt('field', "all\nsubject", "{TEMPLATE: search_entire_msg}\n{TEMPLATE: search_subect_only}", $field, '{TEMPLATE: radio_button_separator}');
+	$search_options = tmpl_draw_radio_opt('field', "all\nsubject", "{TEMPLATE: search_entire_msg}\n{TEMPLATE: search_subject_only}", $field, '{TEMPLATE: radio_button_separator}');
 	$logic_options = tmpl_draw_select_opt("AND\nOR", "{TEMPLATE: search_and}\n{TEMPLATE: search_or}", $search_logic);
 	$sort_options = tmpl_draw_select_opt("DESC\nASC", "{TEMPLATE: search_desc_order}\n{TEMPLATE: search_asc_order}", $sort_order);
 

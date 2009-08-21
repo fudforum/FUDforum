@@ -450,7 +450,7 @@ report_posted_on:		Posted on:
 report_give_reason:		Please give a reason why you are reporting this message:
 report_submit_report:		Submit Report
 search_entire_msg:		Entire Message
-search_subect_only:		Subject Only
+search_subject_only:		Subject Only
 search_forum:			Forum
 search_posted_on:		Posted On
 search_no_results:		No Results
@@ -665,7 +665,7 @@ email_title:			E-mail Form
 finduser_title:			Find User
 help_title:			Help
 login_title:			Login Form
-msg_title:			{VAR: frm->name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR: frm->name} &raquo; {VAR: frm->subject}
 poll_title:			Poll Editor
 register_title:			Register Form
 reset_title:			Reset Password
@@ -674,7 +674,7 @@ error_title:			Error Form
 index_title:			Welcome to the forum
 search_title:			Search For {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
-tree_title:			{VAR: frm->name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR: frm->name} &raquo; {VAR: frm->subject}
 remail_emailsent:		E-mail was sent
 remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Add Option:
