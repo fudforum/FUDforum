@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.85 2009/08/09 11:33:37 frank Exp $
+* $Id: register.tmpl,v 1.86 2009/08/22 07:58:09 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -116,10 +116,6 @@
 <br /><span class="ErrorText">{VAR: GLOBALS['err_msg'][$err_name]}</span>
 {SECTION: END}
 
-{SECTION: register_affero}
-<tr class="RowStyleA"><td>{MSG: register_affero}</td><td><input type="text" name="reg_affero" value="{VAR: reg_affero}" maxlength="32" size="25" /></td></tr>
-{SECTION: END}
-
 {SECTION: reg_user_image}
 <tr class="RowStyleA"><td>{MSG: register_image}</td><td><input type="text" name="reg_user_image" value="{VAR: reg_user_image}" maxlength="255" size="30" /></td></tr>
 {SECTION: END}
@@ -138,17 +134,6 @@
 <tr class="RowStyleA"><td>{MSG: register_location}</td><td><input type="text" spellcheck="true" name="reg_location" value="{VAR: reg_location}" maxlength="255" size="30" /></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_occupation}</td><td><input type="text" spellcheck="true" name="reg_occupation" value="{VAR: reg_occupation}" maxlength="255" size="30" /></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_interests}</td><td><input type="text" spellcheck="true" name="reg_interests" value="{VAR: reg_interests}" maxlength="255" size="30" /></td></tr>
-{IF: $FUD_OPT_2 & 65536}{TEMPLATE: reg_user_image}{ENDIF}
-<tr class="RowStyleA"><td>{MSG: register_icq}</td><td><img src="{THEME_IMAGE_ROOT}/icq{DEF: img_ext}" title="{VAR: obj->icq}" alt="" /><input type="text" name="reg_icq" value="{VAR: reg_icq}" maxlength="32" size="25" /></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_aim}</td><td><img src="{THEME_IMAGE_ROOT}/aim{DEF: img_ext}" title="{VAR: obj->aim}" alt="" /><input type="text" name="reg_aim" value="{VAR: reg_aim}" maxlength="32" size="25" /></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_yahoo}</td><td><img src="{THEME_IMAGE_ROOT}/yahoo{DEF: img_ext}" title="{VAR: obj->yahoo}" alt="" /><input type="text" name="reg_yahoo" value="{VAR: reg_yahoo}" maxlength="32" size="25" /></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_msnm}</td><td><img src="{THEME_IMAGE_ROOT}/msnm{DEF: img_ext}" title="{VAR: obj->msnm}" alt="" /><input type="text" name="reg_msnm" value="{VAR: reg_msnm}" maxlength="32" size="25" /></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_jabber}</td><td><img src="{THEME_IMAGE_ROOT}/jabber{DEF: img_ext}" title="{VAR: obj->jabber}" alt="" /><input type="text" name="reg_jabber" value="{VAR: reg_jabber}" maxlength="32" size="25" /></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_google}</td><td><img src="{THEME_IMAGE_ROOT}/google{DEF: img_ext}" title="{VAR: obj->google}" alt="" /><input type="text" name="reg_google" value="{VAR: reg_google}" maxlength="32" size="25" /></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_skype}</td><td><img src="{THEME_IMAGE_ROOT}/skype{DEF: img_ext}" title="{VAR: obj->skype}" alt="" /><input type="text" name="reg_skype" value="{VAR: reg_skype}" maxlength="32" size="25" /></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_twitter}</td><td><img src="{THEME_IMAGE_ROOT}/twitter{DEF: img_ext}" title="{VAR: obj->twitter}" alt="" /><input type="text" name="reg_twitter" value="{VAR: reg_twitter}" maxlength="32" size="25" /></td></tr>
-{TEMPLATE-DATA: register_affero}
-<tr class="RowStyleA"><td>{MSG: register_homepage}</td><td><input type="text" name="reg_home_page" value="{VAR: reg_home_page}" maxlength="255" /></td></tr>
 {TEMPLATE-DATA: avatar_type_sel}
 {TEMPLATE-DATA: avatar}
 <tr class="RowStyleA vt"><td>{MSG: register_bday}<br /><span class="SmallText">{MSG: register_bday_desc}</span></td>
@@ -166,7 +151,36 @@
  </tr>
 </table></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_gender}</td><td><select name="reg_gender">{TEMPLATE-DATA: gender_select}</select></td></tr>
+{IF: $FUD_OPT_2 & 65536}{TEMPLATE: reg_user_image}{ENDIF}
+<tr class="RowStyleA"><td>{MSG: register_homepage}</td><td><input type="text" name="reg_home_page" value="{VAR: reg_home_page}" maxlength="255" /></td></tr>
 <tr class="RowStyleA"><td class="RowStyleA" valign="top">{MSG: register_bio}<br /><span class="SmallText">{MSG: register_bio_desc}</span></td><td><textarea name="reg_bio" rows="5" cols="35">{VAR: reg_bio}</textarea></td></tr>
+<tr class="RowStyleA"><td colspan="2">
+<fieldset><legend>Social networking sites:</legend>
+<table border="0" cellspacing="3" cellpadding="5" align="center">
+<tr class="GenText"><td>
+	<label>{MSG: register_icq}<br /><img src="{THEME_IMAGE_ROOT}/icq{DEF: img_ext}" title="{VAR: obj->icq}" alt="" /><input type="text" name="reg_icq" value="{VAR: reg_icq}" maxlength="32" size="25" /></label>
+</td><td>
+	<label>{MSG: register_aim}<br /><img src="{THEME_IMAGE_ROOT}/aim{DEF: img_ext}" title="{VAR: obj->aim}" alt="" /><input type="text" name="reg_aim" value="{VAR: reg_aim}" maxlength="32" size="25" /></label>
+</td></tr><tr><td>
+	<label>{MSG: register_yahoo}<br /><img src="{THEME_IMAGE_ROOT}/yahoo{DEF: img_ext}" title="{VAR: obj->yahoo}" alt="" /><input type="text" name="reg_yahoo" value="{VAR: reg_yahoo}" maxlength="32" size="25" /></label>
+</td><td>	
+	<label>{MSG: register_msnm}<br /><img src="{THEME_IMAGE_ROOT}/msnm{DEF: img_ext}" title="{VAR: obj->msnm}" alt="" /><input type="text" name="reg_msnm" value="{VAR: reg_msnm}" maxlength="32" size="25" /></label>
+</td></tr><tr><td>
+	<label>{MSG: register_jabber}<br /><img src="{THEME_IMAGE_ROOT}/jabber{DEF: img_ext}" title="{VAR: obj->jabber}" alt="" /><input type="text" name="reg_jabber" value="{VAR: reg_jabber}" maxlength="32" size="25" /></label>
+</td><td>		
+	<label>{MSG: register_google}<br /><img src="{THEME_IMAGE_ROOT}/google{DEF: img_ext}" title="{VAR: obj->google}" alt="" /><input type="text" name="reg_google" value="{VAR: reg_google}" maxlength="32" size="25" /></label>
+</td></tr><tr><td>
+	<label>{MSG: register_skype}<br /><img src="{THEME_IMAGE_ROOT}/skype{DEF: img_ext}" title="{VAR: obj->skype}" alt="" /><input type="text" name="reg_skype" value="{VAR: reg_skype}" maxlength="32" size="25" /></label>
+</td><td>
+	<label>{MSG: register_twitter}<br /><img src="{THEME_IMAGE_ROOT}/twitter{DEF: img_ext}" title="{VAR: obj->twitter}" alt="" /><input type="text" name="reg_twitter" value="{VAR: reg_twitter}" maxlength="32" size="25" /></label>
+{IF: $FUD_OPT_2 & 2048}
+</td></tr><tr><td>
+	<label>{MSG: register_affero}<br /><input type="text" name="reg_affero" value="{VAR: reg_affero}" maxlength="32" size="25" /></label>
+{ENDIFI}
+</td></tr></table>
+</fieldset>
+<br />
+<td></tr>
 <tr><th colspan="2">{MSG: register_prefs}</th></tr>
 {IF: $FUD_OPT_1 & 32768}
 <tr class="RowStyleA"><td class="vt">{MSG: register_sig}<br /><span class="SmallText">{MSG: register_sig_desc}<br /></span>{FUNC: tmpl_post_options('sig')}{IF: $FORUM_SIG_ML}<br /><b>{MSG: register_max_sig_len} </b>{MSG: register_sig_limit}{ENDIFI}</td><td>{FUNC: draw_err('reg_sig')}<textarea name="reg_sig" rows="8" cols="50">{VAR: reg_sig}</textarea></td></tr>
@@ -270,7 +284,7 @@
 {SECTION: END}
 
 {SECTION: register_welcome_msg}
-{MSG: register_welcome_msg}
+{MSG: register_welcome_msg}\n
 {SECTION: END}
 
 {SECTION: register_err_cantreg_title}
