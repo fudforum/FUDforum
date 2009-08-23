@@ -1,0 +1,679 @@
+/***************************************************************************
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: forum.css.tmpl,v 1.1 2009/08/23 05:43:24 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+***************************************************************************/
+
+{PHP_FILE: input: forum.css.t; output: forum.css;}
+
+{PAGE: FORUM_CSS forum's css styles}
+body {
+	background: #ecf3eb;
+	color: #000;
+	margin: 2px;
+	font-family: Verdana,Geneva,Lucida,'Lucida Grande',Arial,Helvetica,Sans-serif;
+	font-size: 11pt;
+}
+
+text,	.ForumBackground, a:link, a:visited, a:active, a.CatLink, .CatDesc, a.UserControlPanel, .CatLockedName, .GenText,
+	.GenTextRed, .ErrorText, .SmallText, .DateText, .TopBy, th, a.thLnk:link, a.thLnk:active, a.thLnk:visited,
+	a.thLnk:active, .RowStyleA, .RowStyleB, .RowStyleC, .MsgToolBar, .PollTable, .MsgIg, td.miniMH,
+	.ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable, .AnnText, td.NoAvatar, td.Av1, td.Av2, td.tabA,
+	.AnnSubjText, a.PagerLink, .LevelText, .MsgSubText, .MsgBodyText, th.SelTS, th.SelFS, legend, td.tabH, div.tabT,
+	.FormattingToolsBG, .FormattingToolsCLR, .MiniTable, .quote, .dashed, .adminColor, .modsColor, td.tabI, td.tabA:hover,
+	.brdrNormal, .brdrSelected, input.button, form, img, .StClr, .AnClr, td.msgot, td.msgud, div.ctags, td.mvTc, td.pmNav,
+	.ModOpt, .MsgR1, .MsgR2, .MsgR3, .mnavMsg, .mnavWarnTbl, .mnavNoRes, font.lg, td.tt, table.tt, tr.tab, table.tab,
+	a.big:link, a.big:active, a.big:visited, .small, a.small:link, a.small:active, a.small:visited, td.rpasswdE, .curtime,
+	font.anon, font.reg, td.permYES, td.permNO, td.repI, div.UserControlPanel, font.selmsgInd, fieldset
+{
+	font-family: Verdana,Geneva,Lucida,'Lucida Grande',Arial,Helvetica,Sans-serif;
+	font-size: 10pt;
+}
+
+text, .GenText {
+	color: #000;
+}
+
+.ForumBackground {
+	background: #fff;
+	border: 1px solid #AEBDC4;
+}
+
+a:link, a:visited, a:active, a.PagerLink {
+	color: #226c22;
+	text-decoration: underline;
+}
+
+a.CatLink {
+	font-size: 10pt;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000;
+}
+
+.CatDesc {
+	color: #000;
+	height: 23px;
+	background: url("images/tableHeaderbg2.png");
+}
+
+a.UserControlPanel, a.UserControlPanel:visited {
+	color: #226c22;
+	text-decoration: none;
+}
+
+div.UserControlPanel {
+	margin-bottom: 5px;
+	text-align: right;
+}
+
+.CatLockedName {
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.CatLockPad {
+	padding-left: 20px;
+}
+
+.GenText, .MsgIg, td.repI {
+	color: #000;
+}
+
+.GenTextRed, .ErrorText {
+	color: red;
+}
+
+.ErrorText, td.rpasswdE {
+	font-weight: bold;
+}
+
+.SmallText, .DateText, .TopBy, td.msgud, td.msgot, td.permYES, td.permNO {
+	color: #000;
+	font-size: 9pt;
+}
+
+th {
+	font-size: 10pt;
+	text-align: left;
+	color: #fff;
+	font-weight: bold;
+	height: 23px;
+	vertical-align: middle;
+	background: url('images/tableHeaderbg.png');
+}
+
+a.thLnk:link, a.thLnk:active, a.thLnk:visited {
+	font-size: 10pt;
+	text-decoration: underline;
+	color: #eaf4e9;
+}
+
+a.thLnk:visited {
+	color: #9c9;
+}
+
+.RowStyleA, td.tt {
+	background: #eaf4e9;
+}
+
+.RowStyleB, .curtime, fieldset {
+	background: #d0f0c0;
+}
+
+.RowStyleC {
+	background: #9c9;
+}
+
+.MsgToolBar {
+	background: #d0f0c0;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.MsgSpacer {
+	padding-bottom: 2px;
+	padding-top: 2px;
+}
+
+.PollTable, .ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable {
+	background : #fff;
+	border : 0;
+	padding : 0;
+	margin : 0;
+}
+
+font.ptp { /* space between poll title & number of votes */
+	font-size: smaller;
+	padding-left: 10px;
+}
+
+.ContentTable, .AnnonTable, .MsgTable, table.pad {
+	width : 100%;
+}
+
+.MsgTable {
+	margin-top: 0;
+	margin-bottom: 0;
+	border: 1px solid #000;
+}
+
+.DialogTable {
+	width : 66%;
+}
+
+.PreviewTable {
+	width: 75%;
+}
+
+.AnnText {
+	color: #000;
+	background: #f5d300;
+}
+
+.AnnSubjText {
+	font-weight: bold;
+}
+
+.LevelText, div.ctags {
+	color: #000;
+	text-decoration: none;
+}
+
+.MsgSubText {
+	font-weight: bold;
+}
+
+.MsgBodyText {
+	font-size: 10pt;
+}
+
+.FormattingToolsBG {
+	background: #000;
+}
+
+.FormattingToolsCLR {
+	background: #fff;
+}
+
+.MiniTable {
+	background: #fff;
+	border : 0;
+	padding : 0;
+	margin : 0;
+}
+
+cite {
+	/* quote titles */
+	font-size: 9pt;
+	font-weight: bold;
+	margin-left: 20px;
+	display: block;
+	background: transparent url('images/quote.gif') left top no-repeat;
+	padding-left: 25px;	
+}
+
+blockquote {
+	/* 	quote tags */
+	color: #444;
+	background: #f0fff0;
+	border: 1px solid #9c9;
+	margin: 8px 1px 0 20px;
+	overflow: hidden;
+	padding: 5px;
+
+}
+
+blockquote blockquote {
+	/* 	nested quote tags */
+	background-color: #e0eee0;
+	margin: 8px 1px 0 10px;
+}
+
+blockquote blockquote blockquote {
+	/* 	double nested quote tags */
+	background-color: #c1cdc1;
+}
+
+.dashed {
+	border: 1px dashed #1b7cad;
+}
+
+.adminColor {
+	font-weight: bold;
+	color: #f00;
+}
+
+.modsColor {
+	color: #0b0;
+	font-weight: bold;
+}
+
+.brdrNormal, td.tabItop, td.tabImid, td.tabIbot {
+	border: #000;
+	border-style: solid;
+	border-left-width: 0;
+	border-top-width: 0;
+	border-right-width: 0;
+	border-bottom-width: 1px;
+	background-repeat: repeat;
+	background-position: top;
+}
+
+.brdrSelected, td.tabAmid, td.tabAmid, td.tabAbot {
+	border: #000;
+	border-style: solid;
+	border-left-width: 0;
+	border-top-width: 0;
+	border-right-width: 0;
+	border-bottom-width: 0;
+	background-repeat: repeat;
+	background-position: top;
+}
+
+input.button {
+        background: #eaf4e9;
+	color: #000;
+	font-weight: normal;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #b4b2b4;
+
+}
+
+form {
+	padding: 0;
+	margin: 0;
+}
+
+img {
+	border: 0;
+}
+
+.StClr {
+	font-weight: bold;
+	color: green;
+}
+
+.AnClr {
+	font-weight: bold;
+	color: red;
+}
+
+.ModOpt {
+	margin-top: 2px;
+	font-size: 10pt;
+	text-align: right;
+}
+
+.TopBy {
+	margin-top: 3px;
+	margin-bottom: 0;
+	padding-right: 2px;
+	text-align: right;
+}
+
+.MsgR2, .MsgR1, .MsgR3, .MsgIg {
+	background: #d0f0c0;
+	border-bottom: 1px solid #aaa;
+	padding: 2px;
+}
+
+.MsgIg {
+	border: 0;
+}
+
+.MsgR1 {
+	background: #9c9;
+}
+
+.MsgR3 {
+	background: #eaf4e9;
+	padding: 1ex;
+	padding-top: 2ex;
+}
+
+.mnavMsg {
+	border-bottom: 1px solid #000;
+	width : 100%;
+}
+
+.mnavWarnTbl {
+	border: 1px dashed red;
+}
+
+.mnavNoRes {
+	border: 1px dashed blue;
+}
+
+font.lg {
+	font-size: 10pt;
+}
+
+td.tt {
+	text-align: left;
+	width: 100%;
+	border-bottom: 1px solid #fff;
+}
+
+table.tt {
+	width: 100%;
+	padding: 1px;
+	margin: 0;
+	text-align: center;
+	border: 1px solid black;
+}
+
+a.big:link, a.big:active, a.big:visited {
+	color: #226c22;
+	font-size: 11pt;
+}
+
+.small, a.small:link, a.small:active, a.small:visited {
+	font-size: 9pt;
+	font-weight: normal;
+}
+
+a.small:link, a.small:active, a.small:visited {
+	color: #226c22;
+}
+
+td.msgot, td.msgud {
+	text-align: right;
+	vertical-align: top;
+	width: 33%;
+	white-space: nowrap;
+}
+
+td.msgud {
+	padding-right: 10px;
+	text-align: left;
+	width: 33%;
+}
+
+div.ctags {
+	overflow: auto;
+	white-space: nowrap;
+	margin: 0;
+	padding: 2px;
+	width: 100%;
+	height: 36px;
+}
+
+legend {
+	font-size: 11pt;
+	font-weight: bold;
+	background-color: #fff;
+	border: 1px solid #aebdc4;
+}
+
+fieldset {
+	border: 1px solid #aebdc4;
+}
+
+th.SelTS, th.SelFS {
+	padding: 2px;
+	color: #fff;
+}
+
+th.SelFS {
+	 border-bottom: 1px solid white;
+	 color: #fff;
+}
+
+td.NoAvatar {
+	background: #eaf4e9;
+	text-align: center;
+}
+
+td.Av1, td.Av2 {
+	text-align: center;
+	background: #eaf4e9;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+td.Av2 {
+	background: #fefefe;
+}
+
+td.tabI, td.tabA, td.tabI:hover, td.tabOVER, td.tabON {
+	border: 1px solid black;
+	background: #d0f0c0; 
+        padding: 2px;
+}
+
+td.tabOVER, td.tabI:hover, td.tabI:active {
+	background: #9c9;
+}
+
+td.tabON {
+	background: #4f7942;
+}
+
+a.tabON:link, a.tabON:active, a.tabON:visited, a.tabON:hover {
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+div.tabT {
+	padding: 1px;
+        padding-left: 10px;
+        padding-right: 10px;
+}
+
+table.tab {
+	border-bottom: 1px solid #000;
+}
+
+.curtime {
+	border: 1px solid #aebdc4;
+	vertical-align: middle;
+	padding: 1px 3px 1px 3px;
+}
+
+td.rpasswdE {
+	background: #fff;
+	text-align: center;
+}
+
+td.pmSn {
+	background: #fff;
+}
+
+td.pmSa {
+	background: #fffa00;
+}
+
+td.pmSf {
+	background: red;
+}
+
+table.pmDu {
+	width: 175px;
+	background-color: #fff;
+	border: 1px #9c9 solid;
+}
+
+td.mvTc {
+	background: #e5ffe7;
+}
+
+td.pmNav {
+	background: #fff;
+	text-align: right;
+}
+
+td.miniMH {
+	text-align: center;
+}
+
+tr.mnavH {
+	background: #eaf4e9;
+}
+
+tr.mnavM {
+	background: #d0f0c0;
+}
+
+table.regConf {
+	width: 80%;
+	border: 1px dashed #f00;
+}
+
+font.anon, font.reg {
+	color: #0a0;
+}
+
+td.permYES, td.permNO {
+	text-align: center;
+	color: red;
+	white-space: nowrap;
+}
+
+td.permNO {
+	color: blue;
+}
+
+font.regEW {
+	font-size: xx-small;
+	color: #050;
+	font-weight: bold;
+}
+
+td.repI {
+	padding: 5px;
+	padding-left: 20px;
+}
+
+table.pad {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+font.selmsgInd {
+	font-size: xx-small;
+	font-weight: bold;
+	text-decoration: none;
+}
+td.avatarPad {
+	padding-right: 3px;
+	vertical-align: top;
+}
+
+div.pre {
+	font-family: monospace;
+        padding: 5px;
+        border: 1px blue dashed;
+        font-size: 10pt;
+        white-space: pre;
+        background: #fafafa;
+	overflow: auto;
+	margin: 5px;
+}
+
+pre { white-space: pre-wrap; }
+
+
+a.big:active, a.big:hover, a:active, a:hover, a.CatLink:active, a.CatLink:hover,
+a.UserControlPanel:active, a.UserControlPanel:hover, a.thLnk:active,
+a.thLnk:hover, a.small:active, a.small:hover, a.PagerLink:active, a.PagerLink:hover {
+	color: #131;
+}
+
+img.l {
+	float: left;
+	clear: right;
+	margin: 3px;
+}
+
+img.r {
+	float: right;
+	clear: left;
+	margin: 3px;
+}
+
+.AttachmentsList {
+	margin-left: 0;
+	list-style: none;
+	margin-top: 10px;
+	padding: 0;
+}
+
+hr.sig {
+	color: black;
+	background-color: #000;
+	height: 1px;
+	width: 175px;
+	border: 0;
+	text-align: left;
+	padding: 0;
+	margin: 0;
+}
+
+/* Header with rounded corners */
+.header {background: #337147; margin:0 0; background-image: url(images/header.gif); background-repeat: no-repeat;}
+.header a {text-decoration:none;}
+.rtop, .rbottom {display:block; background:#fff;}
+.rtop *, .rbottom * {display: block; height: 1px; overflow: hidden; background:	#337147;}
+.r1 {margin: 0 5px; font-size: 1px;}
+.r2 {margin: 0 3px; font-size: 1px;}
+.r3 {margin: 0 2px; font-size: 1px;}
+.r4 {margin: 0 1px; height: 2px; font-size: 1px;}
+.headtitle {color:#eaf4e9; font-size:xx-large; font-weight:bold; text-decoration:none;}
+.headdescr {padding: 2px; color:#eaf4e9; font-size:small;}
+.headsearch {color:#eaf4e9; font-size: small; font-weight:bold; float:right; white-space: nowrap; vertical-align: top;}
+.headbutton {color:#eaf4e9; background-color: #004123;} 
+
+/* Textarea editor */
+.resizable-textarea .grippie {
+	height: 9px;
+	background: #eaf4e9 url('images/grippie.gif') no-repeat center 2px;
+	border: 1px solid #ddd;
+	border-top-width: 0;
+	cursor: s-resize;
+	overflow: hidden;
+}
+
+/* The following are partial elements that are used to save space */
+.wo { width:		1px; }
+.wa { width:		100%; }
+.al { text-align:	left; }
+.ar { text-align:	right; }
+.ac { text-align:	center; }
+.vb { vertical-align:	bottom; }
+.vt { vertical-align:	top; }
+.vm { vertical-align:	middle; }
+.nw { white-space: 	nowrap; }
+.fb { font-weight:	bold; }
+
+img.at { float: left; clear: left; }
+
+div.sr { float: left; padding: 5px; }
+
+div.ctb {text-align: center;}
+div.ctb table {margin: 0 auto; text-align: left;}
+div.foot { padding: 3px; margin: 3px;}
+div.ip { overflow: auto; margin: 0; padding: 2px; width: 600px; height: 400px; }
+span.vt { padding-left: 20px; }
+table.icqCP { font-family: arial, sans-serif; font-size: smaller; border: 0; }
+div.pmL { padding-top: 2px; }
+table.ucPW { width: 175px; }
+
+.st0 { background-color: #ff6; }
+.st1 { background-color: #a0ffff; }
+.st2 { background-color: #9f9; }
+.st3 { background-color: #f99; }
+.st4 { background-color: #f6f; }
+.st5 { background-color: #800; }
+.st6 { background-color: #0a0; }
+.st7 { background-color: #886800; }
+.st8 { background-color: #004699; }
+.st9 { background-color: #909; }
+
+{PAGE: END}
