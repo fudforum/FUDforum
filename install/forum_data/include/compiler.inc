@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.104 2009/08/18 20:04:13 frank Exp $
+* $Id: compiler.inc,v 1.105 2009/08/26 17:54:58 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -66,8 +66,8 @@ function parse_sections($str, $file, $sl=0)
 {
 	$PHP_FILE = ($file && substr($file, -4) == '.php') ? 1 : 0;
 
-	/* we parse each section individually, it is faster the looking for all of them together
-	 * due to the large number of {} that can be found inside the template files
+	/* We parse each section individually, it is faster than looking for all of them together
+	 * due to the large number of {} that can be found inside the template files.
 	 */
 
 	foreach ($GLOBALS['__FUD_SECTIONS__'] as $k => $v) {
@@ -140,10 +140,7 @@ function resolve_sections($str)
 		if (($te = strpos($str, ': ', $p)) !== false && $te < $e) {
 			$tag = substr($str, $p, ($te - $p));
 			$te += 2;
-			if (($ds = strpos($str, ' ', $te)) === false || $ds > $e) {
-				$ds = $e;
-			}
-			$name = substr($str, $te, ($ds - $te));
+			$name = substr($str, $te, ($e - $te));
 		} else {
 			$tag = substr($str, $p, ($e - $p));
 		}
@@ -156,6 +153,13 @@ function resolve_sections($str)
 					exit('Missing message entry '.$name.' inside i18n/'.$GLOBALS['__COMPILER__']['lang'].'/msg');
 				}
 				$ret .= $GLOBALS['MSG'][$name]['data'];
+				break;
+			case 'PLURAL':	// Pluralize messages at runtime.
+				list($var, $forms) = explode('|', $name, 2);
+				$forms_arr = str_replace('\'', '&#39;', $forms);	// Encode single quotes
+				$forms_arr = str_replace('|', '\',\'', $forms_arr);
+				$forms_arr = str_replace('$1', "'.$". $var .".'", $forms_arr);
+				$ret .= "'.convertPlural($". $var .", array('". $forms_arr ."')).'";
 				break;
 			case 'VAR':
 			case 'TEMPLATE-DATA':
@@ -180,10 +184,10 @@ function resolve_sections($str)
 				$ret .= '\'.stripslashes($'.$name.').\'';
 				break;
 			case 'ALT-VAR':
-				$t = strtok(substr($str, ++$ds, ($e - $ds)), ' ');
-				$ret .= '\'.alt_var(\''.$name.'\',\''.$t.'\',\''.strtok(' ').'\').\'';
+				list($name, $class1, $class2) = explode(' ', $name, 3);
+				$ret .= '\'.alt_var(\''.$name.'\',\''.$class1.'\',\''.$class2.'\').\'';
 				break;
-                        case 'DATE':
+			case 'DATE':
 				if (stristr($GLOBALS['char_set'], 'utf-8') !== false && substr(PHP_OS, 0, 3) == 'WIN') {
 					// Windows doesn't have UTF-8 locales
 					$func = '\'.utf8_encode(strftime("';
@@ -192,10 +196,11 @@ function resolve_sections($str)
 					$func = '\'.strftime("';
 					$close = ').\'';
 				}
-				if ($name[0] != '!') {
-					$ret .= $func.ltrim(substr($str, ++$ds, ($e - $ds))).'", $'.$name.$close;
+				list($var, $format) = explode(' ', $name, 2);
+				if ($var[0] != '!') {
+					$ret .= $func.$format.'", $'.$var.$close;
 				} else {
-					$ret .= $func.  ltrim(substr($str, ++$ds, ($e - $ds))).'", '.substr($name,1).$close;
+					$ret .= $func.$format.'", '.substr($var,1).$close;
 				}
 				break;
 			case 'TEMPLATE':
@@ -211,6 +216,7 @@ function resolve_sections($str)
 				$ret .= $GLOBALS['TC'][$sec][$name]['data'] = resolve_sections($GLOBALS['TC'][$sec][$name]['data']);
 				break;
 			case 'META-CONTENT-LANGUAGE':
+				echo 'WARNING: {META-CONTENT-LANGUAGE} is depricated, please remove it from your templates.<br />';
 				$ret .= '<meta http-equiv="Content-Type" content="text/html; charset='.$GLOBALS['char_set'].'" />';
 				break;
 			case 'CHARSET':
@@ -707,6 +713,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$thm->lang = $lang;
 	copyimages($thm);
 	copyhelp($thm);
+	copylangfuncs($thm);
 }
 
 class cmpl_local_theme
@@ -778,13 +785,14 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 	}
 }
 
+/* Copy localized images files to the theme's image directory. */
 function copyimages($thm)
 {
 	$path = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images';
 
 	$u = umask(0);
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
-		exit('Failed Creating: '.$path.'<br />');
+		exit('ERROR: Unable to create directory: '.$path.'<br />');
 	}
 
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
@@ -806,6 +814,7 @@ function copyimages($thm)
 	umask($u);
 }
 
+/* Copy help files to the theme's help directory. */
 function copyhelp($thm)
 {
 	$path = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help';
@@ -827,7 +836,7 @@ function copyhelp($thm)
 	}
 
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
-		exit('Failed Creating: '.$path.'<br />');
+		exit('ERROR: Unable to create directory: '.$path.'<br />');
 	}
 
 	$path .= '/';
@@ -848,6 +857,27 @@ function copyhelp($thm)
 		fclose($fp);
 		@chmod($file, $perms);
 	}
+	umask($u);
+}
+
+/* Copy langauge helper functions (language.inc) to the theme's directory. */
+function copylangfuncs($thm) {
+	$path = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/';
+	$src = $GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/language.inc';
+	if (!@file_exists($src)) {
+		$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/language.inc';
+		if (!@file_exists($src)) {
+			$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/english/language.inc';
+		}
+	}
+	
+	$u = umask(0);
+
+	if (!@is_dir($path) && !@mkdir($path, 0777)) {
+		exit('ERROR: Unable to create directory: '.$path.'<br />');
+	}
+	
+	fudcopy(dirname($src), $path, '{language.inc}');
 	umask($u);
 }
 ?>
