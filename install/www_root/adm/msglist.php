@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.48 2009/08/18 20:04:13 frank Exp $
+* $Id: msglist.php,v 1.49 2009/08/26 19:03:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,7 +43,7 @@ function makedeps()
 		$data = file_get_contents($f);
 		$file = basename($f);
 
-		// check for msgs in the php code
+		// Check for msgs in the php code.
 		$s = $e = 0;
 
 		while (($s = strpos($data, '{REF: ', $s)) !== false) {
@@ -98,7 +98,7 @@ function makedeps()
 					// Message present in templates, let's add it.
 					$_POST[$v] = str_replace(array("\r", "\n"), array("", "\\n"), trim($_POST[$v]));
 					if ($data[strlen($data)-1] != "\n") {
-						$data .= "\n";	// if last char is not a new line, we add one
+						$data .= "\n";	// Last char is not a new line, add one.
 					}
 					$data .= $v.":\t\t".$_POST[$v];
 				}
@@ -135,7 +135,7 @@ function makedeps()
 		if (isset($_POST['NO_TREE_LIST'])) {
 			exit('<html><script type="text/javascript">window.close();</script></html>');
 		}
-		$warn = 'Message(s) successfully saved.';
+		$warn = 'Message(s) successfully saved and dependant themes were recompiled.';
 		unset($_POST);
 	}
 
@@ -147,19 +147,19 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 ?>
 <style type="text/css">
 .file_name {
+	color: #f00;
 	font-weight: bold;
-	color: #ff0000;
 	font-size: small;
 	text-decoration: underline;
 }
 .deps {
-	color: #00AA00;
+	color: #0a0;
 	font-size: small;
 	text-decoration: dashed;
 }
 
 .depson {
-	color: #CC6600;
+	color: #c60;
 	font-size: small;
 	text-decoration: dashed;
 }
@@ -168,19 +168,19 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 <table border="0" cellspacing="0" cellpadding="3">
 <?php
 
-if (isset($warn)) {
-	echo '<div align="center"><font color="green">'.$warn.'</font><br /><br /></div>';
-}
+	if (isset($warn)) {
+		echo '<div align="center"><font color="green">'.$warn.'</font><br /><br /></div>';
+	}
 	$tab = str_repeat('&nbsp;', 5);
 
 	foreach($tmplmsglist as $file => $msg) {
 		$list = $msgnamelist = '';
 		foreach($msg as $k => $msgname) {
 			$msgnamelist .= urlencode($msgname).':';
-			$list .='<tr><td><img src="../blank.gif" height="1" width="20" alt="blank"><a class="deps" href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;msglist='.urlencode($msgname).'&amp;fl='.$file.'">'.$msgname.'</a></td></tr>';
+			$list .='<tr><td><img src="../blank.gif" height="1" width="20" alt="blank"><a class="deps" href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;msglist='.urlencode($msgname).'&amp;fl='.$file.'" title="Edit this message.">'.$msgname.'</a></td></tr>';
 		}
 		$msgnamelist = substr($msgnamelist, 0, -1);
-		echo '<tr><td><a class="file_name" href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;msglist='.$msgnamelist.'&amp;fl='.$file.'">'.$file.'</a><a name="'.$file.'"></a></td></tr>' . $list;
+		echo '<tr><td><a class="file_name" href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;msglist='.$msgnamelist.'&amp;fl='.$file.'" title="Edit all messages in template.">'.$file.'</a><a name="'.$file.'"></a></td></tr>' . $list;
 		if (isset($filedeps[$file])) {
 			echo '<tr><td class="depson">'.$tab.'<b>&raquo; Used By:</b></td></tr>'."\n";
 			foreach($filedeps[$file] as $v) {
@@ -214,12 +214,14 @@ if (isset($warn)) {
 				$txt = htmlspecialchars(trim(substr($data, $s, ($e - $s))));
 			}
 
-			if (strlen($txt) > 50) {
-				$inptd = '<textarea name="'.$v.'" rows="20" cols="60">'.$txt.'</textarea>';
+			$len = strlen($txt);
+			if ($len > 50) {
+				$rows = ceil($len / 60) + 1;
+				$inptd = '<textarea name="'.$v.'" rows="'.$rows.'" cols="60">'.$txt.'</textarea>';
 			} else {
-				$inptd = '<input type="text" name="'.$v.'" value="'.$txt.'" size="50" />';
+				$inptd = '<input type="text" name="'.$v.'" value="'.$txt.'" size="60" />';
 			}
-			echo '<tr><td valign="top" nowrap="nowrap"><a name="'.$v.'"><b>'.$v.'</b></a>:</td><td valign="top">'.$inptd.'</td></tr>';
+			echo '<tr><td valign="top" nowrap="nowrap"><a name="'.$v.'"></a><b><a href="http://translatewiki.net/w/i.php?title=Special%3ATranslations&message='.$v.'&namespace=1218" title="Show translations (new window)." target="_blank">'.$v.'</a></b>:</td><td valign="top">'.$inptd.'</td></tr>';
 		}
 		echo '<tr><td align="right" colspan="2"><input type="submit" name="btn_submit" value="Edit" /></td></tr>';
 		echo '<tr><td><input type="hidden" name="msglist" value="'.$msglist.'" /></td></tr></table>';
