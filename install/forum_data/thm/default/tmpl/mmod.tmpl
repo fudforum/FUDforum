@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmod.tmpl,v 1.27 2009/08/16 09:20:01 frank Exp $
+* $Id: mmod.tmpl,v 1.28 2009/08/27 18:20:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,12 +30,16 @@
 <input type="hidden" name="del" value="{VAR: del}" />
 <input type="hidden" name="confirm" value="1" />
 {DEF: _hs}
+<br />
 {TEMPLATE-DATA: delete_msg}
+<br /><br />
 <div class="mnavWarnTbl">
 {MSG: delete_message_extra_desc}<br />
-<textarea rows="10" cols="40" name="del_reason"></textarea><br />
+<textarea rows="10" cols="80" name="del_reason"></textarea><br />
 <label><input type="checkbox" name="del_inc_body" /> {MSG: delete_message_extra_body}</label>
+<br /><br />
 </div>
+<br />
 {MSG: delete_proceed}<br />
 <input type="submit" class="button" name="YES" value="{MSG: delete_yes}" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="NO" value="{MSG: delete_no}" />
 </form>

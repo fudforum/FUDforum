@@ -5,7 +5,7 @@ admin_control_panel:		Admin Control Panel
 administrator:			Administrator
 attachment:			Attachment:
 avatar:				Avatar:
-average_post_count:		{VAR: u->posted_msg_count} Messages(s) ({VAR: avg} average messages per day)
+average_post_count:		{PLURAL: u->posted_msg_count|$1 Message|$1 Messages} ({PLURAL: avg|$1 average message|$1 average messages} per day)
 biography:			Biography:
 birth_date:			Date Of Birth:
 by:				By:
@@ -14,14 +14,14 @@ current_time:			Current Time
 custom_avatar_queue:		Custom Avatar Queue
 date_posted:			Date Posted
 date_registered:		Date Registered:
-download_counter:		Downloaded {VAR: v[3]} time(s)
-pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
+download_counter:		Downloaded {PLURAL: v[3]|$1 time|$1 times}
+pmsg_download_counter:		Downloaded {PLURAL: r->dlcount|$1 time|$1 times}
 email:				E-mail:
 email_to_friend:		E-mail to friend
 email_to_friend_desc:		Send the URL to this page to your friend(s) via e-mail
-email_user:			Click here to e-mail the user
+email_user:			Send user an e-mail message
 faq:				Help
-first_unread_msg:		Go to unread message(s)
+first_unread_msg:		Go to unread messages
 first_unread_msg_desc:		Go to the 1st unread message inside this topic
 flat_view:			Return to the default flat view
 forum:				Forum:
@@ -63,7 +63,7 @@ mark_all_read:			mark all messages read
 mark_all_read_desc:		All your unread messages will be marked as read
 members:			Members
 message:			Message
-message_counter:		Our users have posted a total of <b>{VAR: post_count}</b> messages inside <b>{VAR: thread_count}</b> topics.
+message_counter:		Our users have posted a total of <b>{PLURAL: post_count|$1 message|$1 messages}</b> inside <b>{PLURAL: thread_count|$1 topic|$1 topics}</b>.
 message_index:			Message index
 message_index_desc:		View the message list
 minimize_category:		Minimize Category
@@ -72,7 +72,7 @@ moderation_queue:		Moderation Queue
 moderator:			Moderator
 moderator_of:			Moderator of:
 moderator_options:		Moderator Options
-moderators:			Moderator(s)
+moderators:			{PLURAL: modcount|Moderator|Moderators}
 more_unread_messages:		more unread messages
 more_unread_messages_desc:	Show more unread messages and mark the currently viewable messages read
 move_thread:			Move
@@ -80,7 +80,7 @@ moved:				Moved to another forum
 moved_thread_message:		This topic has been moved to another forum
 na:				n/a
 new_posts:			New Messages
-new_private_messages:		You have <span class="GenTextRed">({VAR: c})</span> unread private message(s)
+new_private_messages:		You have <span class="GenTextRed">({VAR: c})</span> unread {PLURAL: c|private message|privates}
 new_thread:			Create a new topic
 newest_user:			The newest registered user is
 next_page:			Next Page
@@ -96,10 +96,10 @@ no_unread_locked:		This topic has been locked
 no_unread_msg:			This topic has no unread messages
 no_unread_msg_unreg:		The read &amp; unread messages are only tracked for registered users
 num_pages:			Pages ({VAR: ttl_pg}):
-num_votes:			{VAR: obj->total_votes} vote(s)
+num_votes:			{VAR: obj->total_votes} {PLURAL: obj->total_votes|vote|votes}
 occupation:			Occupation:
-off:				OFF
-on:				ON
+off:				off
+on:				on
 page_timings:			Total time taken to generate the page: {VAR: page_gen_time} seconds
 pm:				Private Messaging
 poll:				Poll:
@@ -110,7 +110,7 @@ posts_c:			Messages:
 prev_thread:			Previous Topic:
 usrinfo_private_message:	Private Message:
 profile:			Control Panel
-profile_desc:			Click here to access user control panel
+profile_desc:			Access the user control panel
 rate_thread:			Rate Topic
 rating:				Rating
 rating_track:			Manage ratings for topic <b>{VAR: thr->subject}</b>:
@@ -137,7 +137,7 @@ sender_name:			Sender Name:
 show_posts_by:			Show Messages by: {VAR: u_alias}
 size:				Size:
 status:				Status:
-status_line:			There are <b>{VAR: st_obj->online_users_reg}</b> member(s), <b>{VAR: st_obj->online_users_hidden}</b> invisible member(s) and <b>{VAR: st_obj->online_users_anon}</b> guest(s) visiting this board.
+status_line:			There are <b>{PLURAL: st_obj->online_users_reg|$1 member|$1 members}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 invisible member|$1 invisible members}</b> and <b>{PLURAL: st_obj->online_users_anon|$1 guest|$1 guests}</b> visiting this board.
 sticky:				sticky:
 stop_ignoring:			stop ignoring this user
 sub_to_thread:			Subscribe to topic
@@ -155,7 +155,7 @@ bookmarked_threads:		Bookmarked Topics
 switch_to_thread_view:		Switch to threaded view of this topic
 thread:				Topic:
 thread_announcement:		Announcement:
-thread_first_unread_msg:	Click here to go the first unread message in this topic
+thread_first_unread_msg:	Go the first unread message in this topic
 thread_thread:			Topic
 threads:			Topics
 time:				Time
@@ -177,7 +177,7 @@ unsubscribe:			Unsubscribe
 unsubscribe_desc:		Stop receiving notifications about new topics in the forum
 updated_on:			Updated on:
 user:				User
-user_counter:			We have <b>{VAR: st_obj->user_count}</b> registered user(s).
+user_counter:			We have <b>{VAR: st_obj->user_count}</b> registered {PLURAL: st_obj->user_count|user|users}.
 user_info:			User Information
 user_info_l:			User Information {VAR: u->alias}
 user_offline:			{VAR: obj->login}  is currently offline
@@ -185,7 +185,7 @@ user_online:			{VAR: obj->login} is currently online
 usrinfo_last_post:		Last Message:
 view_results:			View Results
 views:				Views
-vote:				{VAR: frm->n_rating} Vote(s)
+vote:				{PLURAL: frm->n_rating|$1 Vote|$1 Votes}
 vote_button:			Vote
 vote_for_thread:		Vote
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> by the moderator
@@ -212,7 +212,7 @@ list_referes_member:		Member
 referals_none:			No referrals yet.
 referals_refered_by:		Forum members referred by: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Message Count
-referals_registered_on:		Registered On
+referals_registered_on:		Registered on
 referals_action:		Action
 pmsg_all:			all
 pmsg_none:			none
@@ -265,8 +265,8 @@ finduser_action:		Action
 yes:				Yes
 no:				No
 register_email:			E-mail
-edit_time_limit:		<br /><b>Editing Time Limit</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
-no_edit_time_limit:		<br /><b>Editing Time Limit</b>: <b>Unlimited</b>
+edit_time_limit:		<b>Editing Time Limit</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
+no_edit_time_limit:		<b>Editing Time Limit</b>: <b>Unlimited</b>
 pmuserloc_login:		Login:
 pmuserloc_submit:		Submit
 pmuserloc_user:			User
@@ -338,7 +338,7 @@ my_buddies:			My Buddies
 add_buddy:			Add Buddy
 add:				Add
 buddy_search:			Enter the login of the user you wish to add.
-member_search:			<br />Or use the <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Find User</a> feature to find a person.
+member_search:			Or use the <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Find User</a> feature to find a person.
 buddy_remove:			remove
 post_normal:			Normal
 post_sticky:			Sticky
@@ -388,13 +388,13 @@ post_preview_btn:		Preview Message
 ignore_users:			Ignored Users
 add_ignore:			Add Ignoramus
 forum_terms:			Forum Terms
-forum_rules:			Registration to this forum is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please press the Agree button at the end of the page. Note: By pressing the button you declare that you are over the age of 13. If you are 13 or under, please use this registration form.<p />Although the administrators and moderators of this forum will attempt to keep all objectionable messages off this forum, it is impossible for us to review all messages. All messages express the views of the author, and neither the owners of forum or the developers will be held responsible for the content of any message.<p />By clicking the Agree button, you warrant that you will not post any messages that are obscene, vulgar, sexually-oriented, hateful, threatening, or otherwise violate any laws. <p />The owners of this forum  have the right to remove, edit, move or close any topic for any reason.<p />
-forum_rules_13:			All users under the age of 13 must seek permission from their parent or guardian in order to gain membership to the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p />If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index.<p />A copy of the permission form can be downloaded here. For more information about the registration process, please send e-mail to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p />
+forum_rules:			<p>Registration to this forum is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please press the <b>Agree</b> button at the end of the page. Note: By pressing the button you declare that you are over the age of 13. If you are 13 or under, please use this registration form.</p><p>Although the administrators and moderators of this forum will attempt to keep all objectionable messages off this forum, it is impossible for us to review all messages. All messages express the views of the author, and neither the owners of forum or the developers will be held responsible for the content of any message.</p><p>By clicking the Agree button, you warrant that you will not post any messages that are obscene, vulgar, sexually-oriented, hateful, threatening, or otherwise violate any laws.</p><p>The owners of this forum  have the right to remove, edit, move or close any topic for any reason.</p>
+forum_rules_13:			<p>All users under the age of 13 must seek permission from their parent or guardian in order to gain membership to the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.</p><p>If you would like to start the registration process prior to us receiving a permission form, press the <b>Agree</b> button below. If you would like to cancel the registration, press <b>Disagree</b> to return to the forums index.</p><p>A copy of the permission form can be downloaded here. For more information about the registration process, please send e-mail to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:			COPPA Confirmation
 coppa_before:			Before {TEMPLATE: coppa_date}
 coppa_after:			After {TEMPLATE: coppa_date}
 coppa_link:			Click the link that corresponds to your birth date
-coppa:				A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete registration.<p />For further information contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:				<p>A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete registration.</p><p>For further information contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:			Forum Rules
 prereg_agree:			Agree
 prereg_disagree:		Disagree
@@ -420,7 +420,7 @@ login_cookie_expired:		Your cookie has expired, and you need to login to renew y
 login_perm_denied:		You do not have permission to access the requested resource as an anonymous user. You must login to gain permission.
 login_want_to_register:		Want to register?
 login_forgot_passwd:		Forgot password
-login_use_cookie:		Use cookies<br /><span class="SmallText">If you're using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br />If you leave this option selected then you will be automatically logged-into the forum the next time you visit.
+login_use_cookie:		Use cookies<br /><span class="SmallText">If you're using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br />If you leave this option selected then you will be automatically logged-into the forum the next time you visit.</span>
 login_login:			Login:
 login_login_btn:		Login
 login_name_required:		Login name is required
@@ -503,8 +503,8 @@ ppost_save_draft:		Save Draft
 poll_blank_option:		You cannot add a blank option.
 poll_del_conf:			If you want to delete this option, press OK
 poll_name:			Poll Name:
-poll_timelimit:			Time Limit
-poll_maxiumvotes:		Maximum Votes
+poll_timelimit:			Time Limit:
+poll_maxiumvotes:		Maximum Votes:
 poll_create:			Create
 poll_update:			Update
 poll_disablesmilies:		Disable smilies
@@ -528,8 +528,8 @@ tabs_referrals:			Referrals
 tabs_buddy_list:		Buddy List
 tabs_ignore_list:		Ignore List
 tabs_private_messaging:		Private Messaging
-single_msg_delete:		You are about to <span class="ErrorText">DELETE</span> the message titled: <b>{VAR: data[3]}</b><p />
-thread_delete:			You are about to <span class="ErrorText">DELETE</span> the <span class="ErrorText">ENTIRE TOPIC</span> titled: <b>{VAR: data[3]}</b><p />
+single_msg_delete:		You are about to <span class="ErrorText">delete</span> the message titled: <b>{VAR: data[3]}</b>
+thread_delete:			You are about to <span class="ErrorText">delete</span> the <span class="ErrorText">entire topic</span> titled: <b>{VAR: data[3]}</b>
 delete_proceed:			<span class="fb">Do you wish to proceed?</span>
 delete_yes:			Yes
 delete_no:			No
@@ -547,7 +547,7 @@ buddy_list_err_ignore:		Cannot add users who ignore you to your buddy list.
 buddy_list_update:		Browsing own buddy list
 core_err_invinp_title:		Invalid Input
 core_err_invinp_err:		You have followed an invalid link. Please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> how you got here.
-core_adm_login_msg:		<br /><br />Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>.
+core_adm_login_msg:		Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>.
 email_err_unabletoemail_title:	ERROR: Unable to e-mail
 email_err_unabletoemail_msg:	The e-mail system has been disabled by the administrator.
 email_error_unabletolocaddr:	Sorry, the system was unable to e-mail {VAR-HTML: _POST['tx_name']} because it was unable to determine the e-mail address
@@ -557,7 +557,7 @@ email_error_namerequired:	A Name is required
 email_error_invaliduser:	Invalid user
 emailconf_err_invkey_title:	Error
 emailconf_err_invkey_msg:	Invalid confirmation key.  Please check your e-mail to make sure that you have entered the URL correctly.
-err_inc_criticaltitle:		CRITICAL ERROR
+err_inc_criticaltitle:		Critical error
 err_inc_criticalmsg:		An error has occurred. Unfortunately, there is also a problem with the error reporting system.
 finduser_update:		Searching for users
 help_index_update:		Reading the <a href="{TEMPLATE: help_index_update_lnk}">Help</a>
@@ -582,18 +582,18 @@ pm_update:			Using private messaging
 post_err_lockedthread_title:	ERROR: Locked Topic
 post_err_lockedthread_msg:	This topic is locked. Posting is no longer allowed.
 err_coppa_title:		ERROR: Your account is not yet confirmed
-err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your COPPA form, <a href="{TEMPLATE: err_coppa_msg_lnk}">click here</a> to see it again.
+err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your COPPA form, <a href="{TEMPLATE: err_coppa_msg_lnk}">view it again</a>.
 err_banned_acct_title:		ERROR: You have been banned.
 err_banned_acct_msg:		Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently banned{ENDI} from accessing the site, due to a violation of the forum's rules.
 post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	You can no longer edit this message
-post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users are not allowed to create topics.</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users are not allowed to reply.</fieldset><br />
+post_err_noannontopics_msg2:	<legend>ERROR: Insufficient Privileges</legend>Anonymous users are not allowed to create topics.
+post_err_noannonposts_msg2:	<legend>ERROR: Insufficient Privileges</legend>Anonymous users are not allowed to reply.
 post_err_floodtrig_title:	ERROR: Post flood triggered.
-post_err_floodtrig_msg:		Please try again in {VAR: tm} second(s)
-post_err_attach_size:		<span class="ErrorText">File Attachment is too big (over allowed limit of {VAR: MAX_F_SIZE} bytes)</span><br />
-post_err_attach_ext:		<span class="ErrorText">The file you are trying to upload does not match the allowed file types.</span><br />
-post_err_attach_filelimit:	<span class="ErrorText">You are trying to upload more files than are allowed.</span><br />
+post_err_floodtrig_msg:		Please try again in {PLURAL: tm|$1 second|$1 seconds}
+post_err_attach_size:		File Attachment is too big (over allowed limit of {VAR: MAX_F_SIZE} bytes)
+post_err_attach_ext:		The file you are trying to upload does not match the allowed file types.
+post_err_attach_filelimit:	You are trying to upload more files than are allowed.
 post_err_passwd:		Incorrect password.
 post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name}
 post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
@@ -602,7 +602,7 @@ postcheck_max_images_err:	No more than {GVAR: MAX_IMAGE_COUNT} images are allowe
 postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
 postcheck_subj_needed:		Subject required
 postcheck_no_such_user:		There is no user named "{FUNC: char_fix(htmlspecialchars($v))}" in this forum.
-postcheck_ignored:		You cannot send a private message to "{FUNC: char_fix(htmlspecialchars($v))}", because this person is ignoring you.
+postcheck_ignored:		You cannot send a private message to "{FUNC: char_fix(htmlspecialchars($v))}", because this user is ignoring you.
 postcheck_no_recepient:		Cannot send a message, missing recipient
 postcheck_invalid_email:	Please enter a valid e-mail address for your friend.
 postcheck_email_subject:	You cannot send an e-mail without a subject.
@@ -619,7 +619,7 @@ register_err_passwdnomatch:	Your passwords do not match, please try again.
 register_err_invalidemail:	The e-mail address you have specified does not appear to be valid.
 register_err_needname:		To successfully complete this registration you must enter your name.
 register_err_enterpasswd:	You must enter your current password to complete the changes.
-register_err_adminpasswd:	You must enter your ADMINISTRATOR password to complete the changes.
+register_err_adminpasswd:	You must enter your <b>administrator</b> password to complete the changes.
 register_err_notyouremail:	Someone else is already registered with this e-mail address.
 register_err_avatartobig:	The file you are trying to upload is too big, more than {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:	The avatar you are trying to upload is not allowed. Check the allowed file types.
@@ -648,7 +648,7 @@ bookmarked_update:		Browsing own bookmark list
 thread_update:			Browsing forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:			Browsing topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Looking at <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> profile
-ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+ERR_login_msg2:			<legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.
 ERR_disabled_ttl:		Disabled feature
 ERR_disabled_msg:		This feature has been disabled by the system administrator
 ERR_access_ttl:			ERROR: Insufficient Permissions
@@ -656,7 +656,7 @@ ERR_access_msg:			You do not have the required permissions to perform this actio
 ERR_registration_disabled_ttl:	Registration Disabled
 ERR_registration_disabled_msg:	The administrator has disabled registration. Please try again later.
 ERR_emailconf_ttl:		ERROR: Your account is not yet confirmed
-ERR_emailconf_msg:		You have not confirmed your account via e-mail yet<br /><table border="0"><tr><td><ol><li>If you have not received a confirmation e-mail, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">click here</a><li>If {VAR: usr_d->email} is not your correct e-mail address, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">click here</a></ol></td></tr></table>
+ERR_emailconf_msg:		You have not confirmed your account via e-mail yet.<br /><table border="0"><tr><td><ol><li>If you have not received a confirmation e-mail, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">request it again</a>.</li><li>If {VAR: usr_d->email} is not your correct e-mail address, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">specify the correct address</a>.</li></ol></td></tr></table>
 ERR_user_ttl:			ERROR: No such user
 ERR_user_msg:			There is no such user
 ERR_systemerr_ttl:		ERROR: System Error
@@ -678,14 +678,14 @@ tree_title:			{VAR: frm->name} &raquo; {VAR: frm->subject}
 remail_emailsent:		E-mail was sent
 remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Add Option:
-post_opt_html_on:		<b>HTML</b> is <b>ON</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> is <b>ON</b></a>
-post_opt_images_on:		<b>Images</b> are <b>ON</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> are <b>ON</b></a>
-post_opt_html_off:		<b>HTML</b> code is <b>OFF</b>
-post_opt_fud_off:		<b>BBcode</b> is <b>OFF</b>
-post_opt_images_off:		<b>Images</b> are <b>OFF</b>
-post_opt_smilies_off:		<b>Smilies</b> are <b>OFF</b>
+post_opt_html_on:		<b>HTML</b> is <b>on</b>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> is <b>on</b></a>
+post_opt_images_on:		<b>Images</b> are <b>on</b>
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> are <b>on</b></a>
+post_opt_html_off:		<b>HTML</b> code is <b>off</b>
+post_opt_fud_off:		<b>BBcode</b> is <b>off</b>
+post_opt_images_off:		<b>Images</b> are <b>off</b>
+post_opt_smilies_off:		<b>Smilies</b> are <b>off</b>
 post_opt:			Forum Options
 register_change_passwd:		change password
 approved_avatar_title:		Your custom avatar was approved.
@@ -722,7 +722,7 @@ groupmgr_delete:		Delete
 group_mgr_anon:			Anonymous
 group_mgr_reged:		All Registered Users
 show_show:			Show:
-group_mgr:			Group(s) Manager
+group_mgr:			Group Manager
 group_mgr_edit_btn:		Edit Group
 group_mgr_heading:		Group Editor Selection
 group_mgr_group:		Group:
@@ -744,7 +744,7 @@ p_MOVE:				Move topics
 p_SML:				Use smilies
 p_IMG:				Use image tags
 p_SEARCH:			Can Search
-group_mgr_search:		<a href="javascript://" onclick="javascript: window_open('{TEMPLATE: group_mgr_search_lnk}', 'user_list', 325,250);">Find User</a>
+group_mgr_search:		Find User
 group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
 rate_worst:			Worst
 rate_best:			Best
@@ -753,7 +753,7 @@ post_quote:			Quote:
 userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} Members
 pm_no_space_title:		No space left!
-pm_no_space_msg:		Your private message folders exceed the allowed storage size of <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. They currently contain <b>{VAR: fldr_size} bytes</b> worth of messages.<br /><br /><span class="ErrorText">Remove some old messages to clear up space.</span>.
+pm_no_space_msg:		Your private message folders exceed the allowed storage size of <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. They currently contain <b>{VAR: fldr_size} bytes</b> worth of messages.<br /><br /><span class="ErrorText">Remove some old messages to clear up space.</span>
 pm_space_indct_msg:		Your private message folders are {VAR: percent_full}% full.
 th_expr_never:			Never
 th_expr_one_hr:			1 Hour
@@ -773,7 +773,7 @@ th_expr_one_year:		1 Year
 thread_mod_delete:		Delete
 action_latest_post:		Last Message
 online_today_last_visit:	Last Visited
-online_today_update:		Viewing the list of people who were on the forum today.
+online_today_update:		Viewing the list of users who were on the forum today.
 logedin_todays_visitors:	Today's Visitors
 logedin_latest_post:		Last message on the forum: 
 register_show_avatar:		Show Avatars:
@@ -792,8 +792,8 @@ split_th_split_unsel:		Split unselected messages
 split_th_messages:		Messages
 split_th_select:		Select
 report_report_post:		Report Message
-quicklogin_login:		Login
-quicklogin_password:		Password
+quicklogin_login:		Login:
+quicklogin_password:		Password:
 quicklogin_use_cookies:		Use Cookies?
 quicklogin_login_btn:		Login
 quick_reply:			Quick Reply
@@ -819,19 +819,19 @@ im_skype:			Skype:
 im_twitter:			Twitter: 
 forum_contact:			Contact
 forum_home:			Home
-post_cur_attached:		currently attached: {VAR: i} file(s) 
+post_cur_attached:		currently attached: {VAR: i} {PLURAL: i|file|files}
 ignored_anon_post:		{GVAR: ANON_NICK} is ignored
 ignored_user_post:		Message by <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> is ignored
 smladd_close_window:		close window
 post_list_smilies:		list all smilies
 p_VISIBLE:			Visible
-reported_in_thread:		In
+reported_in_thread:		In:
 help_back_to_top:		back to top
 help_return_to_index:		Return to Help Index
 imsg_err_message_title:		Invalid Message
 imsg_err_message_msg:		The message you are trying to view does not exist.
 poll_edit:			Edit
-register_err_not_valid_img:	The specified url does not contain a valid image.
+register_err_not_valid_img:	The specified URL does not contain a valid image.
 pmsg_recepient:			Recipient
 register_err_taken_alias:	The alias you are trying to use is already in use by another forum member. Please choose another.
 register_alias:			Alias:
@@ -856,7 +856,7 @@ search_asc_order:		Ascending Order
 search_logic:			Search Logic:
 search_sorting:			Sort Results by Date in:
 post_proceed:			Proceed
-post_moderated_forum:		You have made a post in a moderated forum. Your message will not be visible to others until it is approved by one of the forum's moderator(s) or administrator(s).
+post_moderated_forum:		You have made a post in a moderated forum. Your message will not be visible to others until it is approved by one of the forum's moderators or administrators.
 post_moderated_forum_ttl:	Moderated Forum Notice
 buddy_list_bday:		Today {VAR: r[2]} turns {VAR: age}
 email_warning_msg:		If you change your current e-mail address, your account will be marked unconfirmed until you confirm it via e-mail.
@@ -879,7 +879,7 @@ err_mod_acc_ttl:		Unverified Account
 err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account has been validated by the administrator you will not be able to utilize the full capabilities of your account.
 accounts_pending_approval:	Accounts Pending Approval
 saved:				Saved
-register_err_time_limit:	The limit of one registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} second(s), and then try to register once again.
+register_err_time_limit:	The limit of one registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {PLURAL: reg_limit_reached|$1 second|$1 seconds}, and then try to register once again.
 register_affero:		Affero Username:<br /><span class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username, enter it here.</span>
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
@@ -917,11 +917,11 @@ thread_printable_pdf:		Generate printable PDF
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Registration Confirmation
 reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you have specified is correct. Once you confirm your account, you will be able to access forum features available only to confirmed, registered users.
-reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s). Once that happens you will receive an e-mail indicating that your account has been confirmed. In the meantime you can log-into your account, however you will not be able to access certain features.
+reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by an administrator. Once that happens you will receive an e-mail indicating that your account has been confirmed. In the meantime you can log-into your account, however you will not be able to access certain features.
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Goodbye.
 mnav_description:		Message Navigator
 mnav_date_limit:		Date range:
-mnav_forum_limit:		Only search In:
+mnav_forum_limit:		Only search in:
 mnav_all_forums:		Search all forums
 mnav_submit:			Begin Search
 mnav_no_range:			You must enter a valid date range. This value can contain a decimal point, (0.12) but it must be greater than zero.
@@ -964,7 +964,7 @@ adm_account_rejected_s:		Your account request for '{GVAR: FORUM_TITLE}' was decl
 thread_on:			on
 userinfo_buddy:			Buddy:
 register_email_addr:		E-mail Address:
-reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
+reset_suffix:			If you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.
 usrinfo_last_visit:		Last Visited:
 mnav_newer:			newer than
 mnav_older:			older than
@@ -973,8 +973,8 @@ ip_search_syntax:		Supported syntax: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:			Search
 ip_analyze_usage:		Analyze IP usage
 ip_analyze_usage_descr:		Please specify the user's exact login.
-ip_users_using:			User(s) using '{VAR: ip}' IP address
-ip_all_ips:			All IP(s) used by '{VAR: user}'
+ip_users_using:			Users using '{VAR: ip}' IP address
+ip_all_ips:			All IPs used by '{VAR: user}'
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
@@ -988,7 +988,7 @@ delete_msg_removed_ttl:		Your message was removed by administration staff.
 delete_msg_pm_body:		Original message
 delete_msg_pm_subject:		Subject: {VAR: data[15]}
 ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
-ip_whois_title:			<b>ISP Information</b><br />
+ip_whois_title:			ISP Information
 register_theme:			Theme:
 pmsg_trash:			Empty Trash
 uc_new_pm:			New Private Messages
@@ -1047,8 +1047,8 @@ post_common_quote:		Add Quote
 post_common_code:		Add Code
 rating_delete:			Delete
 post_always_on_top:		Make the topic always appear at the top of the topic listing
-topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
-topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
+topic_rating:			{VAR: frm->rating} from {PLURAL: frm->n_rating|$1 vote|$1 votes}
+topic_list_rating:		{VAR: r[17]} from {PLURAL: r[21]|$1 vote|$1 votes}
 tabs_notifications:		Notifications
 finduser_flag:			Flag
 post_descr:			Topic Description:
@@ -1057,9 +1057,9 @@ pmsg_download_dump:		Download Message Dump
 move_messages:			Move messages
 move_msg_btn:			Move Selected Messages
 move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
-captcha_img_alt:		Captch Verification: you will need to recognize the text in this image.
+captcha_img_alt:		Captcha Verification: you will need to recognize the text in this image.
 captcha_img_help:		There is no zero or one in the image.
 powered-by:			Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
-code_title:			CODE:
+code_title:			Code:
 code_select_all:		Select all
 code_show_hide:			Show/ hide

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: feed.php.t,v 1.3 2009/08/09 11:33:37 frank Exp $
+* $Id: feed.php.t,v 1.4 2009/08/27 18:20:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,11 +21,11 @@
 	/* control options */
 	$mode = (isset($_GET['mode']) && in_array($_GET['mode'], array('m', 't', 'u'))) ? $_GET['mode'] : 'm';
 	$basic = isset($_GET['basic']);
-	$format = 'rdf';
+	$format = 'rdf';	// Default syndication type.
 	if (isset($_GET['format'])) {
-		if (strtolower($_GET['format']) == 'atom') {
+		if (strtolower(substr($_GET['format'], 0, 4)) == 'atom') {
 			$format = 'atom';
-		} else if (strtolower($_GET['format']) == 'rss') {
+		} else if (strtolower(substr($_GET['format'], 0, 3)) == 'rss') {
 			$format = 'rss';
 		}
 	}

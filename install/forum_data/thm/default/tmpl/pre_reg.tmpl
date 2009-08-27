@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pre_reg.tmpl,v 1.21 2009/03/26 18:08:58 frank Exp $
+* $Id: pre_reg.tmpl,v 1.22 2009/08/27 18:20:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,7 +24,11 @@
 <tr><th>{MSG: prereg_info}</th></tr>
 <tr class="RowStyleA ac GenText"><td>
 {IF: $_GET['coppa']}{TEMPLATE: forum_rules_13}{ELSE}{TEMPLATE: forum_rules}{END}
-<br /><input type="hidden" name="coppa" value="{VAR: _GET['coppa']}" /><input type="submit" class="button" name="agree" value="{MSG: prereg_agree}" /> <input type="submit" class="button" name="disagree" value="{MSG: prereg_disagree}" /></td></tr>
+<input type="hidden" name="coppa" value="{VAR: _GET['coppa']}" />
+<input type="submit" class="button" name="agree" value="{MSG: prereg_agree}" />
+<input type="submit" class="button" name="disagree" value="{MSG: prereg_disagree}" />
+<br /><br />
+</td></tr>
 </table></div></form>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: wikilinks.plugin,v 1.1 2009/08/04 19:09:57 frank Exp $
+* $Id: wikilinks.plugin,v 1.2 2009/08/27 18:20:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@ function plugin_wikilinks_tag_to_html($array) {
 	}
 
 	// Remove [notag] blocks
-	$pre = NULL;
+	$pre = NULL; $i = 0;
 	if (preg_match_all('#\[notag\](.*?)\[\/notag\]#si', $bbcode, $notags, PREG_SET_ORDER)) {
 		foreach ($notags as $notag) {
 			$bbcode = str_replace($notag[0], "***nOtAg_sTrInG$i***", $bbcode);

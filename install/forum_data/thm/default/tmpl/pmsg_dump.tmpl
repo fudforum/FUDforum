@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg_dump.tmpl,v 1.5 2009/01/29 18:37:29 frank Exp $
+* $Id: pmsg_dump.tmpl,v 1.6 2009/08/27 18:20:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,7 +38,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
 <head>
-{META-CONTENT-LANGUAGE}
+<meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
 <title>{GVAR: FORUM_TITLE}{VAR: TITLE_EXTRA}</title>
 <style type="text/css">
 {FUNC: @file_get_contents($GLOBALS["WWW_ROOT_DISK"]."theme/".$GLOBALS["usr"]->theme."/forum.css")}

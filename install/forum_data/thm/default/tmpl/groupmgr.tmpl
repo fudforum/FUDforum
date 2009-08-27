@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.tmpl,v 1.51 2009/02/22 00:00:37 frank Exp $
+* $Id: groupmgr.tmpl,v 1.52 2009/08/27 18:20:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,7 +48,7 @@
 <br />
 <form method="post" action="{TEMPLATE: group_control_panel_lnk3}" id="groupmgr">
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-{IF: $edit}<tr class="RowStyleA"><td class="nw fb">{MSG: groupmgr_member}</td><td class="wa al">{IF: $mbr->user_id > 0 && $mbr->user_id < 2147483647}<a href="{ROOT}?t=usrinfo&amp;id={VAR: mbr->user_id}&amp;{DEF: _rsid}">{ENDIFI}{TEMPLATE-DATA: gr_member}{IF: $mbr->user_id > 0 && $mbr->user_id < 2147483647}</a>{ENDIFI}</td></tr>{ELSE}<tr class="RowStyleA"><td class="nw db">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: login_error}<input tabindex="1" type="text" name="gr_member" value="{IF: isset($_POST['gr_member'])}{FUNC: char_fix(htmlspecialchars($_POST['gr_member']))}{ENDIFI}" />{IF: $FUD_OPT_1 & (8388608|4194304)}&nbsp;&nbsp;&nbsp;[{MSG: group_mgr_search}]{ENDIFI}</td></tr>{END}
+{IF: $edit}<tr class="RowStyleA"><td class="nw fb">{MSG: groupmgr_member}</td><td class="wa al">{IF: $mbr->user_id > 0 && $mbr->user_id < 2147483647}<a href="{ROOT}?t=usrinfo&amp;id={VAR: mbr->user_id}&amp;{DEF: _rsid}">{ENDIFI}{TEMPLATE-DATA: gr_member}{IF: $mbr->user_id > 0 && $mbr->user_id < 2147483647}</a>{ENDIFI}</td></tr>{ELSE}<tr class="RowStyleA"><td class="nw db">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: login_error}<input tabindex="1" type="text" name="gr_member" value="{IF: isset($_POST['gr_member'])}{FUNC: char_fix(htmlspecialchars($_POST['gr_member']))}{ENDIFI}" />{IF: $FUD_OPT_1 & (8388608|4194304)}&nbsp;&nbsp;&nbsp;[ <a href="javascript://" onclick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">{MSG: group_mgr_search}</a> ]{ENDIFI}</td></tr>{END}
 <tr class="RowStyleB">
 	<td colspan="2">
 		<table cellspacing="1" cellpadding="3" width="100%" class="ContentTable">

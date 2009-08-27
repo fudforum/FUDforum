@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.86 2009/08/22 07:58:09 frank Exp $
+* $Id: post.tmpl,v 1.87 2009/08/27 18:20:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -203,11 +203,11 @@
 {SECTION: END}
 
 {SECTION: post_err_noannontopics_msg}
-{MSG: post_err_noannontopics_msg2}
+<fieldset>{MSG: post_err_noannontopics_msg2}</fieldset><br />
 {SECTION: END}
 
 {SECTION: post_err_noannonposts_msg}
-{MSG: post_err_noannonposts_msg2}
+<fieldset>{MSG: post_err_noannonposts_msg2}</fieldset><br />
 {SECTION: END}
 
 {SECTION: post_err_floodtrig_title}
@@ -219,15 +219,15 @@
 {SECTION: END}
 
 {SECTION: post_err_attach_size}
-{MSG: post_err_attach_size}
+<span class="ErrorText">{MSG: post_err_attach_size}</span><br />
 {SECTION: END}
 
 {SECTION: post_err_attach_ext}
-{MSG: post_err_attach_ext}
+<span class="ErrorText">{MSG: post_err_attach_ext}</span><br />
 {SECTION: END}
 
 {SECTION: post_err_attach_filelimit}
-{MSG: post_err_attach_filelimit}
+<span class="ErrorText">{MSG: post_err_attach_filelimit}</span><br />
 {SECTION: END}
 
 {SECTION: post_err_passwd}

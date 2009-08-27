@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: root_index.php.t,v 1.49 2009/06/07 16:09:49 frank Exp $
+* $Id: root_index.php.t,v 1.50 2009/08/27 18:20:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,8 +16,8 @@
 /*{POST_HTML_PHP}*/
 
 	fud_use('err.inc');
-
-	/* before we go on, we need to do some very basic activation checks */
+	
+	/* Before we go on, we need to do some very basic activation checks. */
 	if (!($FUD_OPT_1 & 1)) {
 		fud_use('errmsg.inc');
 		exit($DISABLED_REASON . __fud_ecore_adm_login_msg);
@@ -52,6 +52,7 @@
 	} else {
 		define('img_ext', '.png');
 	}
-
+	
+	require($WWW_ROOT_DISK . fud_theme . 'language.inc');	// Initialize theme's language helper functions.
 	require($WWW_ROOT_DISK . fud_theme . $t . '.php');
 ?>

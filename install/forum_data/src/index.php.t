@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.113 2009/04/16 14:55:43 frank Exp $
+* $Id: index.php.t,v 1.114 2009/08/27 18:20:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -148,9 +148,11 @@
 		}
 
 		if ($r[9] && ($mods = unserialize($r[9]))) {
-			$moderators = '';
+			$moderators = '';	// List of forum modeators.
+			$modcount = 0;		// Use singular or plural message form.
 			foreach($mods as $k => $v) {
 				$moderators .= '{TEMPLATE: profile_link_mod}';
+				$modcount++;
 			}
 			$moderators = '{TEMPLATE: moderators}';
 		} else {

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.178 2009/08/09 11:33:37 frank Exp $
+* $Id: register.php.t,v 1.179 2009/08/27 18:20:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -683,13 +683,6 @@ function email_encode($val)
 
 /*{POST_HTML_PHP}*/
 
-	if ($FUD_OPT_2 & 2048) {
-		$affero_domain = parse_url($WWW_ROOT);
-		$register_affero = '{TEMPLATE: register_affero}';
-	} else {
-		$register_affero = '';
-	}
-
 	/* Initialize avatar options */
 	$avatar = $avatar_type_sel = '';
 
@@ -799,7 +792,7 @@ function email_encode($val)
 	}
 
 	$theme_select = '';
-	$r = uq('SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY ((theme_opt & 2) > 0) DESC');
+	$r = uq('SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY ((theme_opt & 2) > 0) DESC, name');
 	/* only display theme select if there is >1 theme */
 	while ($t = db_rowarr($r)) {
 		$theme_select .= '{TEMPLATE: theme_select_value}';
