@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.87 2009/08/16 09:48:28 frank Exp $
+* $Id: admdump.php,v 1.88 2009/08/29 06:33:44 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -156,15 +156,30 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 
 		$write_func($fp, "\n----SQL_START----\n");
 
-		/* read sql table defenitions */
-		
+		/* Read sql table defenitions. */
 		if (!($files = glob($DATA_DIR . 'sql/*.tbl', GLOB_NOSORT))) {
 			exit('Failed to open SQL directory "'.$DATA_DIR.'sql/"');
 		}
+		$sql_col_list = array();
 		foreach ($files as $f) {
 			$sql_data = file_get_contents($f);
-			$sql_data = preg_replace(array("!\#.*?\n!s","!\s+!s"), array("\n"," "), $sql_data);
-			$sql_data = str_replace(";", "\n", $sql_data);
+			$sql_data = preg_replace(array("!\#.*?\n!s","!\s+!s"), array("\n",' '), $sql_data);
+
+			/* Extract table's column list - needed for when we SELECT the data. */
+			foreach(explode(';', $sql_data) as $stmt) {
+				if (preg_match('/CREATE TABLE.*?\{.*?\}(\w*?) .*?\((.*)/', $stmt, $matches)) {
+					$cols = explode(',', $matches[2]);
+					$col_list = '';
+					foreach($cols as $col) {
+						$col = preg_replace('/^(.*?) .*$/', '\1', trim($col));
+						$col_list .= empty($col_list) ? $col : ','.$col;
+					}					
+					$sql_col_list[preg_quote($DBHOST_TBL_PREFIX).$matches[1]] = $col_list;
+				}
+			}
+
+			/* Write table definition to backup file. */
+			$sql_data = str_replace(';', "\n", $sql_data);
 			$write_func($fp, $sql_data . "\n");
 		}
 		unset($files);
@@ -173,7 +188,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		db_lock(implode(' WRITE, ', $sql_table_list) . ' WRITE');
 
 		foreach($sql_table_list as $tbl_name) {
-			/* not needed, will be rebuilt by consistency checker */
+			/* Skip tables that will be rebuilt by consistency checker. */
 			if (!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'tv_', strlen($DBHOST_TBL_PREFIX.'tv_')) || 
 				$tbl_name == $DBHOST_TBL_PREFIX . 'ses' ||
 				!strncmp($tbl_name, $DBHOST_TBL_PREFIX.'fl_', strlen($DBHOST_TBL_PREFIX.'fl_'))
@@ -198,7 +213,8 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '', $tbl_name);
 				$write_func($fp, "\0\0\0\0".$db_name."\n");
 				
-				$c = uq('SELECT * FROM '.$tbl_name);
+				/* Fetch table data from database. */
+				$c = uq('SELECT '. $sql_col_list[$tbl_name] .' FROM '.$tbl_name);
 				while ($r = db_rowarr($c)) {
 					$tmp = '';
 					foreach ($r as $v) {
@@ -208,7 +224,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 							$tmp .= _esc($v).',';
 						}
 					}
-					/* make sure new lines inside queries don't cause problems */
+					/* Ensure new lines inside queries don't cause problems. */
 					if (strpos($tmp, "\n") !== false) {
 						$tmp = str_replace("\n", '\n', $tmp);
 					}
