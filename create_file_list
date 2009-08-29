@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: create_file_list,v 1.23 2009/07/19 19:27:22 frank Exp $
+* $Id: create_file_list,v 1.24 2009/08/29 06:24:40 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -61,7 +61,7 @@ function w_err($msg, $exit=true)
 	exit;
 }
 	ini_set('memory_limit', '64M');
-	set_magic_quotes_runtime(0);
+	@set_magic_quotes_runtime(0);
 
 	if (!defined('STDERR')) {
 		define('STDERR', fopen('php://stderr', 'wb'));
