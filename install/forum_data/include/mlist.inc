@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mlist.inc,v 1.25 2009/01/29 18:37:17 frank Exp $
+* $Id: mlist.inc,v 1.26 2009/09/01 18:59:24 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,8 +12,9 @@
 class fud_mlist
 {
 	var $id, $forum_id, $name, $custom_sig;
-	var $mlist_opt=73;
+	var $mlist_opt=72;
 	var $subject_regex_haystack, $subject_regex_needle, $body_regex_haystack, $body_regex_needle, $additional_headers;
+	var $mbox_server, $mbox_user, $mbox_pass, $mbox_type=0;
 
 	function fud_mlist()
 	{
@@ -26,15 +27,19 @@ class fud_mlist
 			}
 
 			// text fields 
-			foreach (array('custom_sig','additional_headers') as $v) {
+			foreach (array('custom_sig','additional_headers','mbox_server','mbox_user') as $v) {
 				$this->$v = trim($this->$v);
 			}
 
-			$this->mlist_opt =0;
+			$this->mlist_opt = 0;
 			foreach (array('skip_non_forum_users', 'mlist_post_apr', 'allow_frm_post', 'frm_post_apr', 'allow_mlist_attch', 'allow_mlist_html', 'complex_reply_match', 'create_users') as $v) {
 				if (isset($_POST['ml_'.$v])) {
 					$this->mlist_opt |= (int) $_POST['ml_'.$v];
 				}
+			}
+
+			if (isset($_POST['ml_mbox_type'])) {
+				$this->mbox_type |= (int) $_POST['ml_mbox_type'];
 			}
 
 			if ($this->subject_regex_haystack) {
@@ -61,7 +66,11 @@ class fud_mlist
 			body_regex_haystack,
 			body_regex_needle,
 			additional_headers,
-			custom_sig
+			custom_sig,
+			mbox_server,
+			mbox_user, 
+			mbox_pass, 
+			mbox_type
 			)
 			VALUES(
 			".$this->forum_id.",
@@ -72,7 +81,11 @@ class fud_mlist
 			"._esc($this->body_regex_haystack).",
 			"._esc($this->body_regex_needle).",
 			"._esc($this->additional_headers).",
-			"._esc($this->custom_sig)."
+			"._esc($this->custom_sig).",
+			"._esc($this->mbox_server).",
+			"._esc($this->mbox_user).",
+			"._esc($this->mbox_pass).",
+			".$this->mbox_type."
 			)");
 		if ($this->mlist_opt & 4) {
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt|2 WHERE id='.$this->forum_id);
@@ -100,7 +113,11 @@ class fud_mlist
 			body_regex_haystack="._esc($this->body_regex_haystack).",
 			body_regex_needle="._esc($this->body_regex_needle).",
 			additional_headers="._esc($this->additional_headers).",
-			custom_sig="._esc($this->custom_sig)."
+			custom_sig="._esc($this->custom_sig).",
+			mbox_server="._esc($this->mbox_server).",
+			mbox_user="._esc($this->mbox_user).",
+			mbox_pass="._esc($this->mbox_pass).",
+			mbox_type=".$this->mbox_type."
 		WHERE id=".$id);
 
 		if ($old_frm_id != $this->forum_id && $mlist_opt & 4) {

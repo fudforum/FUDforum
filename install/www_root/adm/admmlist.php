@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.49 2009/08/16 09:48:28 frank Exp $
+* $Id: admmlist.php,v 1.50 2009/09/01 18:59:24 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,7 +34,7 @@ function format_regex(&$regex)
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
-	if (isset($_POST['ml_forum_id'])) {
+	if (!empty($_POST['ml_name']) && !empty($_POST['ml_forum_id'])) {
 		$mlist = new fud_mlist;
 		if ($edit) {
 			$mlist->sync($edit);
@@ -75,6 +75,40 @@ function format_regex(&$regex)
 		<td><input type="text" name="ml_name" value="<?php echo htmlspecialchars($ml_name); ?>" maxlength="255" /></td>
 	</tr>
 
+	<tr>
+		<td colspan="2"><br /></td>
+	</tr>
+
+<?php	if (function_exists('imap_open')) { ?>
+	<tr>
+		<td colspan="2">Mailbox from which to load and <font color="red">delete</font> messages. Leave empty to pipe messages into the forum.<br /></td>
+	</tr>
+
+	<tr class="field">
+		<td>Mailbox Server Name:<br /><font size="-1">Server and optional port where mailbox is located. For example: imap.gmail.com:993</font></td>
+		<td><input type="text" name="ml_mbox_server" value="<?php echo htmlspecialchars($ml_mbox_server); ?>" maxlength="255" /></td>
+	</tr>
+
+	<tr class="field">
+		<td>Mailbox Username:<br /><font size="-1">Username to login to the mailbox.</font></td>
+		<td><input type="text" name="ml_mbox_user" value="<?php echo htmlspecialchars($ml_mbox_user); ?>" maxlength="255" /></td>
+	</tr>
+
+	<tr class="field">
+		<td>Mailbox Password:<br /><font size="-1">Password to login to the mailbox.</font></td>
+		<td><input type="text" name="ml_mbox_pass" value="<?php echo htmlspecialchars($ml_mbox_pass); ?>" maxlength="255" /></td>
+	</tr>
+
+	<tr class="field">
+		<td>Mailbox Type:<br /><font size="-1">Protocol and mode to use to connect to the mailbox. Select TLS mode for secure connections.</font></td>
+		<td><?php draw_select('ml_mbox_type', "POP3\nIMAP\nPOP3, TLS mode\nIMAP, TLS mode", "0\n1\n2\n4", $ml_mbox_type); ?></td>
+	</tr>
+
+	<tr>
+		<td colspan="2"><br /></td>
+	</tr>
+<?php	}	/* imap module is loaded */ ?>
+	
 	<tr class="field">
 		<td>
 			Forum:<br />
@@ -101,7 +135,7 @@ function format_regex(&$regex)
 	<tr class="field">
 		<td>
 			Moderate Mailing List Posts:<br />
-			<font size="-1">Any posts from the mailing list would 1st need to be approved by moderator(s) before
+			<font size="-1">Any posts from the mailing list would 1st need to be approved by a moderator before
 			they are made visible on the forum.</font>
 		</td>
 		<td><?php draw_select('ml_mlist_post_apr', "No\nYes", "0\n1", ($ml_mlist_opt & 1 ? 1 : 0)); ?></td>
@@ -121,7 +155,7 @@ function format_regex(&$regex)
 		<td>
 			Moderate Forum Posts:<br />
 			<font size="-1">If enabled, any posts made by forum members in the forum would need to be 1st approved
-			by the moderator(s) before they are synchronized to the mailing list or appear in the forum.</font>
+			by a moderator before they are synchronized to the mailing list or appear in the forum.</font>
 		</td>
 		<td><?php draw_select('ml_frm_post_apr', "No\nYes", "0\n4", ($ml_mlist_opt & 4 ? 4 : 0)); ?></td>
 	</tr>

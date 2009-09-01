@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_mlist.tbl,v 1.14 2009/01/29 18:37:17 frank Exp $
+#   $Id: fud_mlist.tbl,v 1.15 2009/09/01 18:59:24 frank Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -23,11 +23,17 @@ CREATE TABLE {SQL_TABLE_PREFIX}mlist
 
 	additional_headers	TEXT,
 	mlist_opt		INT NOT NULL DEFAULT 76,
-	custom_sig		TEXT
+	custom_sig		TEXT,
+
+	mbox_server	VARCHAR(255),
+	mbox_user	VARCHAR(30),
+	mbox_pass	VARCHAR(30),
+	mbox_type	INT NOT NULL DEFAULT 0
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}mlist_i_f ON {SQL_TABLE_PREFIX}mlist (forum_id);
 
+# mlist_opt:
 # 1 mlist_post_apr (ON/OFF)
 # 2 allow_frm_post (ON/OFF)
 # 4 frm_post_apr (ON/OFF)
@@ -36,3 +42,9 @@ CREATE INDEX {SQL_TABLE_PREFIX}mlist_i_f ON {SQL_TABLE_PREFIX}mlist (forum_id);
 # 32 complex_reply_match (ON/OFF)
 # 64 create_users (ON/OFF)
 # 128 skip_non_forum_users (ON/OFF)
+
+# mbox_type:
+# 0 a POP3 mailbox (default)
+# 1 a IMAP mailbox
+# 2 POP3, TLS mode
+# 4 IMAP, TLS mode
