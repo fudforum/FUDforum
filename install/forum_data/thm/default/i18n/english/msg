@@ -1,6 +1,6 @@
 action:				Action
 add_to_buddy_list:		add to buddy list
-admin:				Admin 
+admin:				Admin
 admin_control_panel:		Admin Control Panel
 administrator:			Administrator
 attachment:			Attachment:
@@ -46,7 +46,7 @@ image:				Image:
 index_forum:			Forum
 index_new_posts:		New messages since last read
 index_no_new_posts:		No new messages since last read
-index_url_redirection:		Redirection 
+index_url_redirection:		Redirection
 interests:			Interests:
 last_post:			Last message
 last_thread_msg:		Go to the last message in this topic
@@ -80,7 +80,7 @@ moved:				Moved to another forum
 moved_thread_message:		This topic has been moved to another forum
 na:				n/a
 new_posts:			New Messages
-new_private_messages:		You have <span class="GenTextRed">({VAR: c})</span> unread {PLURAL: c|private message|privates}
+new_private_messages:		You have <span class="GenTextRed">({VAR: c})</span> unread {PLURAL: c|private message|private messages}
 new_thread:			Create a new topic
 newest_user:			The newest registered user is
 next_page:			Next Page
@@ -117,7 +117,7 @@ rating_track:			Manage ratings for topic <b>{VAR: thr->subject}</b>:
 refresh_list:			Refresh List
 register:			Register
 registered:			Registered:
-registered_on:			Registered On {TEMPLATE: registered_on_date}
+registered_on:			Registered on {TEMPLATE: registered_on_date}
 replies:			Replies
 report_to_mod:			Report message to a moderator
 reported_messages:		Reported Messages
@@ -155,7 +155,7 @@ bookmarked_threads:		Bookmarked Topics
 switch_to_thread_view:		Switch to threaded view of this topic
 thread:				Topic:
 thread_announcement:		Announcement:
-thread_first_unread_msg:	Go the first unread message in this topic
+thread_first_unread_msg:	Go to the first unread message in this topic
 thread_thread:			Topic
 threads:			Topics
 time:				Time
@@ -249,10 +249,10 @@ month_12:			December
 male:				Male
 female:				Female
 unspecified:			UNSPECIFIED
-register_tree_view:		Tree View message and topic listing 
+register_tree_view:		Tree View message and topic listing
 register_msg_tree_view:		Flat topic listing/Tree message listing
-register_tree_msg_view:		Tree topic listing/Flat message listing 
-register_flat_view:		Flat View message and topic listing 
+register_tree_msg_view:		Tree topic listing/Flat message listing
+register_flat_view:		Flat View message and topic listing
 use_forum_default:		Use forum default
 finduser_user_info:		User Information
 finduser_by_login:		By Login:
@@ -452,7 +452,7 @@ report_submit_report:		Submit Report
 search_entire_msg:		Entire Message
 search_subject_only:		Subject Only
 search_forum:			Forum
-search_posted_on:		Posted On
+search_posted_on:		Posted on
 search_no_results:		No Results
 search_all_forums:		Search All Forums
 search_in_forum:		Search in Forum:
@@ -599,7 +599,7 @@ post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->su
 post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:		There was an error
 postcheck_max_images_err:	No more than {GVAR: MAX_IMAGE_COUNT} images are allowed per message. Please reduce the number of images.
-postcheck_no_links_allowed:	You cannot use links until you have posted more than {GVAR: POSTS_BEFORE_LINKS} messages.
+postcheck_no_links_allowed:	You cannot use links until you have posted more than {PLURAL: posts_before_links|$1 message|$1 messages}.
 postcheck_subj_needed:		Subject required
 postcheck_no_such_user:		There is no user named "{FUNC: char_fix(htmlspecialchars($v))}" in this forum.
 postcheck_ignored:		You cannot send a private message to "{FUNC: char_fix(htmlspecialchars($v))}", because this user is ignoring you.
@@ -638,7 +638,7 @@ reset_err_invalidkey_msg:	Invalid password reset key. It is possible that your e
 reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		You should receive instructions in your e-mail in the next few minutes.
 reset_newpass_title:		Reset Password
-reset_newpass_msg:		Hello,\n\nAs requested, your login information appears below:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease note that your password has been reset to the value above. If you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		Hello,\n\nAs requested, your login information appears below:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease note that your password has been reset to the value above. If you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:		Your password has been e-mailed to you. You should receive it within the next few minutes.<br />
 search_update:			Searching messages
 selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Today's Posts</a>
@@ -695,7 +695,7 @@ unapproved_avatar_msg:		The administrator did not approve your avatar. The most 
 mvthread_request_move:		request a move
 move_request_reason:		Why do you wish the topic to be moved?
 mvthread_submit_req:		Submit Request
-thread_exchange:		Topic Exchange 
+thread_exchange:		Topic Exchange
 move_request_by:		Topic move requested by:
 move_reason:			Reason for topic move:
 thr_exch_accept:		accept topic
@@ -775,11 +775,11 @@ action_latest_post:		Last Message
 online_today_last_visit:	Last Visited
 online_today_update:		Viewing the list of users who were on the forum today.
 logedin_todays_visitors:	Today's Visitors
-logedin_latest_post:		Last message on the forum: 
+logedin_latest_post:		Last message on the forum:
 register_show_avatar:		Show Avatars:
 register_show_avatar_desc:	Allows you to hide avatars of other users when viewing their messages.
 drawmsg_view_rest_post:		Show the rest of the message
-post_re:			Re: 
+post_re:			Re:
 forumsel_goto_forum:		Goto Forum:
 minimsg_thread_view:		Topic View
 split_th_post_by:		Message By:
@@ -813,10 +813,10 @@ register_jabber:		Jabber Handle:
 register_skype:			Skype Handle:
 register_twitter:		Twitter Handle:
 register_google:		Google Chat/IM Handle:
-im_jabber:			Jabber: 
-im_google:			Google Talk: 
-im_skype:			Skype: 
-im_twitter:			Twitter: 
+im_jabber:			Jabber:
+im_google:			Google Talk:
+im_skype:			Skype:
+im_twitter:			Twitter:
 forum_contact:			Contact
 forum_home:			Home
 post_cur_attached:		currently attached: {VAR: i} {PLURAL: i|file|files}
@@ -1063,3 +1063,4 @@ powered-by:			Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2
 code_title:			Code:
 code_select_all:		Select all
 code_show_hide:			Show/ hide
+social_sites:			Social networking sites:
