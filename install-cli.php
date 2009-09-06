@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.27 2009/08/21 15:48:57 frank Exp $
+* $Id: install-cli.php,v 1.28 2009/09/06 02:15:44 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -750,8 +750,8 @@ function initdb(&$settings)
 	foreach ($sql as $t) {
 		$file = str_replace(array('\r\n', '\r'), "\r\n", file_get_contents($t));
 		foreach (explode(";\n", $file) as $q) { 
-			if (strpos($q, 'UNIX_TIMESTAMP') !== false) {
-				$q = str_replace('UNIX_TIMESTAMP', time(), $q);
+			if (strpos($q, '{UNIX_TIMESTAMP}') !== false) {
+				$q = str_replace('{UNIX_TIMESTAMP}', time(), $q);
 			}
 			if (($q = make_into_query(trim($q)))) {
 				if (!dbquery($q)) {
@@ -831,7 +831,7 @@ function initdb(&$settings)
 	}
 
 	dbquery("DELETE FROM ".$settings['DBHOST_TBL_PREFIX']."users WHERE id > 1");
-	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."users (login, alias, passwd, name, email, users_opt, join_date, theme, posted_msg_count) VALUES('".addslashes($settings['ROOT_LOGIN'])."', '".addslashes(htmlspecialchars($settings['ROOT_LOGIN']))."', '".md5($settings['ROOT_PASS'])."', 'Administrator', '".addslashes($settings['ADMIN_EMAIL'])."', 5405687, ".time().", 1, 1)")) {
+	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."users (login, alias, passwd, name, email, avatar, avatar_loc, users_opt, join_date, theme, posted_msg_count) VALUES('".addslashes($settings['ROOT_LOGIN'])."', '".addslashes(htmlspecialchars($settings['ROOT_LOGIN']))."', '".md5($settings['ROOT_PASS'])."', 'Administrator', '".addslashes($settings['ADMIN_EMAIL'])."', 3, '<img src=\"". $settings['WWW_ROOT'] ."images/avatars/smiley03.jpg\" alt=\"\" width=\"64\" height=\"64\" />', 13810679, ".time().", 1, 1)")) {
 		fe(dberror());
 	}
 	change_global_settings(array('ADMIN_EMAIL' => $settings['ADMIN_EMAIL'], 'NOTIFY_FROM' => $settings['ADMIN_EMAIL']));
