@@ -1,92 +1,69 @@
 TOPIC_TITLE: <a name="post">How do I post messages?</a>
 TOPIC_HELP:
-To start a new topic you should click on the <b>New Topic</b> button that can be found on message/topic listing pages.
-You will then be taken to a message composer form allowing you to write the content of your message. To reply
-to existing messages, simply click on the <b>Reply</b>, or <b>Quote</b> buttons found on the lower right side of each message.<br />
-In some cases clicking on those buttons will give you a permission error. This means that your may be required to login
-or register on the forum to gain posting privileges or that the posting in this forum is restricted.
+To start a new topic you should click on the <b>New Topic</b> button that can be found on message/topic listing pages. You will then be taken to a message composer form allowing you to write the content of your message. To reply
+to existing messages, simply click on the <b>Reply</b>, or <b>Quote</b> buttons found on the lower right side of each message.
+<br />
+In some cases clicking on those buttons will give you a permission error. This means that your may be required to login or register on the forum to gain posting privileges or that the posting in this forum is restricted.
 
 TOPIC_TITLE: <a name="bsearch">How can I search?</a>
 TOPIC_HELP:
-Unless disabled by the administrator, you can <a href="{ROOT}?t=search&amp;%_rsid%">search for messages</a> that were posted inside the forum. You can search for a message by 
-specifying one or more keywords you wish to be found and choosing where to find those keywords, you can either search in subject alone 
-or do a full text search on both the message body &amp; subject. You can also limit your search to a forum of your choice if you do not wish to search 
-in all the forums.<br />
-You can also search for other forum members, by their login name or email address via the <a href="{ROOT}?t=finduser&amp;%_rsid%">user search form</a>.
+Unless disabled by the administrator, you can <a href="{ROOT}?t=search&%_rsid%">search for messages</a> that were posted inside the forum. You can search for a message by specifying one or more keywords you wish to be found and choosing where to find those keywords, you can either search in subject alone or do a full text search on both the message body & subject. You can also limit your search to a forum of your choice if you do not wish to search in all the forums.
+<br />
+You can also search for other forum members, by their login name or email address via the <a href="{ROOT}?t=finduser&%_rsid%">user search form</a>.
 
 TOPIC_TITLE: <a name="email">Can I email other forum members?</a>
 TOPIC_HELP:
-Unless disabled by the administrator, you will be able to get in touch with other forum members via email.<br />
-To send a member and email, you can either find them through the member list page and then click on the <b>Contact</b> button 
-or simply click on the <b>Email</b> button located near their every post. This will take you to a new page where you will have the opportunity to 
-enter you intended email subject &amp; body. When you're done, simple click on the <b>Email</b> button and you're email will be sent.
+Unless disabled by the administrator, you will be able to get in touch with other forum members via email.
+<br />
+To send a member and email, you can either find them through the member list page and then click on the <b>Contact</b> button or simply click on the <b>Email</b> button located near their every post. This will take you to a new page where you will have the opportunity to enter you intended email subject & body. When you're done, simple click on the <b>Email</b> button and you're email will be sent.
 <br /><br />
-In addition to sending emails to forum members, you can also use the <b>Email to friend</b> link to recommend a particular page to your friend 
-by sending them a URL with the description. This link can be found on the topic &amp; message view pages of the forum.
+In addition to sending emails to forum members, you can also use the <b>Email to friend</b> link to recommend a particular page to your friend by sending them a URL with the description. This link can be found on the topic & message view pages of the forum.
 
-TOPIC_TITLE: <a name="pmsg">What are private messages and how do I send them?</a> 
+TOPIC_TITLE: <a name="pmsg">What are private messages and how do I send them?</a>
 TOPIC_HELP:
-If the administrator has not disabled Private Messaging system, you may send private messages to one or more registered 
-members of the forum. To access the PM system, simply click on the <a href="{ROOT}?t=pmsg&amp;%_rsid%">Private Messaging</a> link 
-which can be found at the top of the page's right corner. If you have any unread private messages, this link will indicate how many unread messages you have.
-<p />
-<b>Sending a private message</b><br />
-Private messages are very similar to email, you specify the person(s) who you wish to send the message to, enter the subject &amp; the message 
-and click send. There are two links available, that would allow you to easily find members who you wish to send your message to,
-<b>Select from Buddy List</b>, which will allow to select people from your buddy list, by listing all your buddies and <b>Find User</b>, which
-will allow to search the forum's entire member list for people to whom you wish to address your message.
-A copy of every sent message will be stored inside your <b>Sent</b> folder, for future reference, you can always delete those message should 
-your choose to do so.
-<p />
+If the administrator has not disabled Private Messaging system, you may send private messages to one or more registered members of the forum. To access the PM system, simply click on the <a href="{ROOT}?t=pmsg&%_rsid%">Private Messaging</a> link which can be found at the top of the page's right corner. If you have any unread private messages, this link will indicate how many unread messages you have.
+<br /><br />
+<b>Sending a private message</b>
+<br />
+Private messages are very similar to email, you specify the person(s) who you wish to send the message to, enter the subject & the message and click send. There are two links available, that would allow you to easily find members who you wish to send your message to, <b>Select from Buddy List</b>, which will allow to select people from your buddy list, by listing all your buddies and <b>Find User</b>, which will allow to search the forum's entire member list for people to whom you wish to address your message. A copy of every sent message will be stored inside your <b>Sent</b> folder, for future reference, you can always delete those message should your choose to do so.
+<br /><br />
 There are three other folders that you should be aware of:
-<p />
-<b>Inbox</b> folder contains any messages that you have received, each message has an read/unread indicator to allow you to see if you 
-have read this message or not. You will also be able to see who sent this message and if that person is currently online or not, the date when 
-the message was sent is also shown.
-<p />
-<b>Drafts</b> folder contains the messages you have written but did not yet send yet. By clicking on the message you will go to edit mode, 
-which will allow you to further modify the message as well as send it if you choose to. Once the message is sent it will be moved from the <b>Drafts</b> folder to your <b>Sent</b> folder.
-<p />
-<b>Trash</b> folder stores all the message you have marked for deletion, but did not delete as of yet. If you delete a message which is located 
-inside <b>Trash</b> this message will become permanently deleted.
-<p />
-<b>Message Tracking</b><p />
-When you send a message you have the ability to request a read-receipt, when the recipient reads the message you will receive a system message 
-notifying you that your message has been read.<br />
-However, if you request such a receipt the recipient may choose to decline sending the read-receipt, so if you have requested a receipt and 
-did not receive it this does not necessarily mean your message was not read.
+<br /><br />
+<b>Inbox</b> folder contains any messages that you have received, each message has an read/unread indicator to allow you to see if you have read this message or not. You will also be able to see who sent this message and if that person is currently online or not, the date when the message was sent is also shown.
+<br /><br />
+<b>Drafts</b> folder contains the messages you have written but did not yet send yet. By clicking on the message you will go to edit mode, which will allow you to further modify the message as well as send it if you choose to. Once the message is sent it will be moved from the <b>Drafts</b> folder to your <b>Sent</b> folder.
+<br /><br />
+<b>Trash</b> folder stores all the message you have marked for deletion, but did not delete as of yet. If you delete a message which is located inside <b>Trash</b> this message will become permanently deleted.
+<br /><br />
+<b>Message Tracking</b>
+<br /><br />
+When you send a message you have the ability to request a read-receipt, when the recipient reads the message you will receive a system message notifying you that your message has been read.
+<br />
+However, if you request such a receipt the recipient may choose to decline sending the read-receipt, so if you have requested a receipt and did not receive it this does not necessarily mean your message was not read.
 
 TOPIC_TITLE: <a name="mlist">Member List?</a>
 TOPIC_HELP:
 The member list is a complete list of all the registered users on a forum. 
-You can sort the list in 3 ways: by login name alphabetically, by number of posts &amp; the date of registration.
+You can sort the list in 3 ways: by login name alphabetically, by number of posts & the date of registration.
 <br /><br />
 The member list also has a search capability, allowing you to find a particular member by either login name or email address.
 
-TOPIC_TITLE:<a name="ann">What are announcements &amp; sticky messages?</a>
+TOPIC_TITLE: <a name="ann">What are announcements & sticky messages?</a>
 TOPIC_HELP:
-These are special messages that can be created by administrators &amp; moderators and stay at the top of a forum(s) for a period of time.
-Generally they are used to inform the users of the forum of a certain event or outline rules etc...
+These are special messages that can be created by administrators & moderators and stay at the top of a forum(s) for a period of time. Generally they are used to inform the users of the forum of a certain event or outline rules etc...
 
 TOPIC_TITLE: <a name="rate">Can I rate topics?</a>
 TOPIC_HELP:
-You may have noticed that certain topics have a rating. If allowed by the administrator you can contribute your own rating of the topic.
-You can do so by going to the bottom of the message view page and choose a number between 1-5 (5 highest rating) from the 
-<b>Rate Topic</b> select box.
+You may have noticed that certain topics have a rating. If allowed by the administrator you can contribute your own rating of the topic. You can do so by going to the bottom of the message view page and choose a number between 1-5 (5 highest rating) from the <b>Rate Topic</b> select box.
 
 TOPIC_TITLE: <a name="ref">What are referrals?</a>
 TOPIC_HELP:
-Referrals allows you to see, which forum members you or other members of the forum have referred. 
-The referrals are tracked automatically, when you give someone a URL to the forum and they register you will be credit 
-with the referral of that person. The list of people you have referred can be viewed from your profile, when you click on the <b>Referrals</b> tab.
+Referrals allows you to see, which forum members you or other members of the forum have referred. The referrals are tracked automatically, when you give someone a URL to the forum and they register you will be credit with the referral of that person. The list of people you have referred can be viewed from your profile, when you click on the <b>Referrals</b> tab.
 
 TOPIC_TITLE: <a name="syndicate">Syndicating this forum</a>
 TOPIC_HELP:
-If permitted by the administrator, FUDforum allows you to syndicate a variety of forum data via XML (RDF, ATOM or RSS). The XML feed works primarily
-in 3 modes, message retrieval, topic retrieval and user retrieval. Each mode of operation supports a number of modifier parameters that
-will allow you to specify what sort of data do you wish to fetch. Below is the explanation of the supported parameters for each mode
-of operation.<br />
-
+If permitted by the administrator, FUDforum allows you to syndicate a variety of forum data via XML (RDF, ATOM or RSS). The XML feed works primarily in 3 modes, message retrieval, topic retrieval and user retrieval. Each mode of operation supports a number of modifier parameters that will allow you to specify what sort of data do you wish to fetch. Below is the explanation of the supported parameters for each mode of operation.
+<br />
 <h4><u><b>'m' mode (messages)</b></u></h4>
 <blockquote>
 	<table border="0" cellspacing="1" cellpadding="3">
@@ -128,17 +105,20 @@ of operation.<br />
 		<tr><td class="GenText"><i>format</i></td><td class="GenText">Output format: RDF (default), ATOM or RSS.</td></tr>
 	</table>
 </blockquote>
-<b>Examples:</b><br />
-<p>Fetch the 10 most recent <i>messages</i> from your forum and format it as an <i>RDF</i> feed:<br />
-<a href="feed.php?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank">feed.php?mode=m&amp;l=1&amp;n=10</a></p>
-<p>Fetch the 15 most recent <i>topics</i> from your forum and format it as an <i>ATOM</i> feed:<br />
-<a href="feed.php?mode=t&amp;l=1&amp;n=15&amp;format=atom" target="_blank">feed.php?mode=t&amp;l=1&amp;n=15&amp;format=atom</a></p>
+<b>Examples:</b>
+<br />
+<p>Fetch the 10 most recent <i>messages</i> from your forum and format it as an <i>RDF</i> feed:
+<br />
+<a href="feed.php?mode=m&l=1&n=10&basic=1" target="_blank">feed.php?mode=m&l=1&n=10</a></p>
+<p>Fetch the 15 most recent <i>topics</i> from your forum and format it as an <i>ATOM</i> feed:
+<br />
+<a href="feed.php?mode=t&l=1&n=15&format=atom" target="_blank">feed.php?mode=t&l=1&n=15&format=atom</a></p>
 
 TOPIC_TITLE: <a name="accesskeys">Access Keys</a>
 TOPIC_HELP:
 Access keys are keyboard shortcuts intended to simplify keyboard navigation. FUDforum uses this functionality
-to simplify several tasks primary used for message posting forms.<br /><br />
-
+to simplify several tasks primary used for message posting forms.
+<br /><br />
 <fieldset style="width: 350px;">
 	<legend><b>Browser Support</b></legend>
 	<i>Windows</i><br />
@@ -182,3 +162,4 @@ to simplify several tasks primary used for message posting forms.<br /><br />
 		<b>E</b> - E-mail
 	</blockquote>
 </blockquote>
+

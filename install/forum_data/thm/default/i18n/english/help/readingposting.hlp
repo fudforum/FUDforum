@@ -1,21 +1,18 @@
 TOPIC_TITLE: <a name="style">How to format text?</a>
 TOPIC_HELP:
-Generally, messages on the forum are mostly plain text, however on occasion you may want to add 
-some formatting to your text, such as making certain words bold, italics, etc...
-<p />
-Since in most cases the admin does not permit you to use HTML inside your posts, you can use BBcode, which is a special 
-set of tags that allows you to apply certain formatting to your text. BBcode is very easy to use and is a lot more secure than HTML.
-<p />
-
-<a name="url"><b>URL Hyperlinking</b></a><br />
-
+Generally, messages on the forum are mostly plain text, however on occasion you may want to add some formatting to your text, such as making certain words bold, italics, etc...
+<br /><br />
+Since in most cases the admin does not permit you to use HTML inside your posts, you can use BBcode, which is a special set of tags that allows you to apply certain formatting to your text. BBcode is very easy to use and is a lot more secure than HTML.
+<br /><br />
+<a name="url"><b>URL Hyperlinking</b></a>
+<br />
 <table>
   <tr>
     <td width="300" align="center" valign="middle"><b>BBcode</b></td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><b><font color="#FF0000">http://cvs.prohost.org</font></b></td>
+    <td valign="middle" align="center"><b><font color="#f00">http://cvs.prohost.org</font></b></td>
     <td valign="middle" align="center"><a href="http://cvs.prohost.org" target="_blank">http://cvs.prohost.org</a></td>
   </tr>
 </table>
@@ -28,7 +25,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><b><font color="#ff0000">[url]<font color="#006600">http://www.myhomepage.com</font>[/url]</font></b></td>
+    <td valign="middle" align="center"><b><font color="#f00">[url]<font color="#060">http://www.myhomepage.com</font>[/url]</font></b></td>
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target="_blank">http://www.myhomepage.com</a></td>
   </tr>
 </table>
@@ -41,15 +38,15 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[url=<font color="#006600">http://www.myhomepage.com</font>]<br />My Homepage<br />[/url]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[url=<font color="#060">http://www.myhomepage.com</font>]<br />My Homepage<br />[/url]</b></font></td>
     <td valign="middle" align="center"><a href="http://www.myhomepage.com" target="_blank">My Homepage</a></td>
   </tr>
 </table>
 <i>Explanation:</i> You can use BBcode to make URLs with a self-chosen caption.
 <br /><br /><br />
 
-<p />
-<a name="email"><b>Email Hyperlinking</b></a><br />
+<a name="email"><b>Email Hyperlinking</b></a>
+<br />
 
 <table>
   <tr>
@@ -57,7 +54,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>support@prohost.org</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>support@prohost.org</b></font></td>
     <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">support@prohost.org</a></td>
   </tr>
 </table>
@@ -70,7 +67,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font><br />Click here to email our tech support<br /><font color="#ff0000"><b>[/email]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[email=<font color="#060">support@prohost.org</font>]</b></font><br />Click here to email our tech support<br /><font color="#f00"><b>[/email]</b></font></td>
     <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Click here to email our tech support</a></td>
   </tr>
 </table>
@@ -78,7 +75,8 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
 <br /><br />
 
 <br />
-<b>Text Styling</b><br />
+<b>Text Styling</b>
+<br />
 <a name="b"></a>
 
 <table>
@@ -87,7 +85,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[b]</b></font>bold<font color="#ff0000"><b>[/b]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[b]</b></font>bold<font color="#f00"><b>[/b]</b></font></td>
     <td valign="middle" align="center"><b>bold</b></td>
   </tr>
 </table>
@@ -101,7 +99,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[u]</b></font>underlined<font color="#ff0000"><b>[/u]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[u]</b></font>underlined<font color="#f00"><b>[/u]</b></font></td>
     <td valign="middle" align="center"><u>underlined</u></td>
   </tr>
 </table>
@@ -115,7 +113,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[i]</b></font>italicized<font color="#ff0000"><b>[/i]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[i]</b></font>italicized<font color="#f00"><b>[/i]</b></font></td>
     <td valign="middle" align="center"><i>italicized</i></td>
   </tr>
 </table>
@@ -129,7 +127,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[sub]</b></font>subscript<font color="#ff0000"><b>[/sub]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[sub]</b></font>subscript<font color="#f00"><b>[/sub]</b></font></td>
     <td valign="middle" align="center"><sub>subscript</sub></td>
   </tr>
 </table>
@@ -143,7 +141,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>[/sup]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[sup]</b></font>superscript<font color="#f00"><b>[/sup]</b></font></td>
     <td valign="middle" align="center"><sup>superscript</sup></td>
   </tr>
 </table>
@@ -157,8 +155,8 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[color=<font color="#006600">red</font>]</b></font>red text<font color="#ff0000"><b>[/color]</b></font></td>
-    <td valign="middle" align="center"><font color="#ff0000">red text</font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[color=<font color="#060">red</font>]</b></font>red text<font color="#f00"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00">red text</font></td>
   </tr>
 </table>
 <br />
@@ -171,7 +169,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[size=<font color="#006600">4</font>]</b></font>big text<font color="#ff0000"><b>[/size]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[size=<font color="#060">4</font>]</b></font>big text<font color="#f00"><b>[/size]</b></font></td>
     <td valign="middle" align="center"><font size="4">big text</font></td>
   </tr>
 </table>
@@ -185,7 +183,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[font=<font color="#006600">courier</font>]</b></font>text<font color="#ff0000"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[font=<font color="#060">courier</font>]</b></font>text<font color="#f00"><b>[/color]</b></font></td>
     <td valign="middle" align="center"><font face="Courier New, Courier, monospace">text</font></td>
   </tr>
 </table>
@@ -197,14 +195,15 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=<font color="#006600">red</font>][size=<font color="#006600">4</font>][font=<font color="#006600">courier</font>]</b></font><br />Formatted Text<br /><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></td>
-    <td valign="middle" align="center"><font color="#ff0000" size="4" face="Courier New, Courier, monospace"><u><i><b>Formatted Text</b></i></u></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[b][u][i][color=<font color="#060">red</font>][size=<font color="#060">4</font>][font=<font color="#060">courier</font>]</b></font><br />Formatted Text<br /><font color="#f00"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></td>
+    <td valign="middle" align="center"><font color="#f00" size="4" face="Courier New, Courier, monospace"><u><i><b>Formatted Text</b></i></u></font></td>
   </tr>
 </table>
 <i>Explanation:</i> You can use as much text styling tags together as you like.
 <br /><br /><br />
         
-<a name="align"><b>Text Alignment</b></a><br />
+<a name="align"><b>Text Alignment</b></a>
+<br />
 
 <table>
   <tr>
@@ -212,7 +211,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=<font color="#006600">center</font>]</b></font>centered text<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[align=<font color="#060">center</font>]</b></font>centered text<font color="#f00"><b>[/align]</b></font></td>
     <td valign="middle" align="center">centered text</td>
   </tr>
 </table>
@@ -224,7 +223,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=<font color="#006600">right</font>]</b></font>right aligned<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[align=<font color="#060">right</font>]</b></font>right aligned<font color="#f00"><b>[/align]</b></font></td>
     <td valign="middle" align="right">right aligned</td>
   </tr>
 </table>
@@ -236,7 +235,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=<font color="#006600">left</font>]</b></font>left aligned<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[align=<font color="#060">left</font>]</b></font>left aligned<font color="#f00"><b>[/align]</b></font></td>
     <td valign="middle" align="left">left aligned</td>
   </tr>
 </table>
@@ -251,7 +250,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[list]</b></font><br /><font color="#f00"><b>[*]</b></font>list item<br /><font color="#f00"><b>[*]</b></font>list item<br /><font color="#f00"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ul><li>list item</li><li>list item</li></ul></td>
   </tr>
 </table>
@@ -263,7 +262,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=<font color="#006600">1</font>]</b></font><br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[list type=<font color="#060">1</font>]</b></font><br /><font color="#f00"><b>[*]</b></font>list item<br /><font color="#f00"><b>[*]</b></font>list item<br /><font color="#f00"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ol><li>list item</li><li>list item</li></ol></td>
   </tr>
 </table>
@@ -275,13 +274,14 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=<font color="#006600">a</font>]</b></font><br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[list type=<font color="#060">a</font>]</b></font><br /><font color="#f00"><b>[*]</b></font>list item<br /><font color="#f00"><b>[*]</b></font>list item<br /><font color="#f00"><b>[/list]</b></font><br /></td>
     <td valign="middle" align="center"><ol type="a"><li>list item</li><li>list item</li></ol></td>
   </tr>
 </table>
 <br /><br />
 
-<a name="img"><b>Adding Images</b></a><br />
+<a name="img"><b>Adding Images</b></a>
+<br />
 
 <table>
   <tr>
@@ -289,7 +289,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br /><font color="#006600">http://www.prohost.org/img/pro_logo.gif<br /></font><font color="#ff0000"><b>[/img]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[img]</b></font><br /><font color="#060">http://www.prohost.org/img/pro_logo.gif<br /></font><font color="#f00"><b>[/img]</b></font></td>
     <td valign="middle" align="center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="204" height="31" /></td>
   </tr>
 </table>
@@ -301,14 +301,15 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>]<br />[img]</b></font><br />http://www.prohost.org/img/pro_logo.gif<br /><b><font color="#ff0000">[/img]<br />[/url]</font></b></font></td>
+    <td valign="middle" align="center"><font color="#060"><font color="#f00"><b>[url=<font color="#060">http://www.prohost.org</font>]<br />[img]</b></font><br />http://www.prohost.org/img/pro_logo.gif<br /><b><font color="#f00">[/img]<br />[/url]</font></b></font></td>
     <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="204" height="31" border="0" /></a></td>
   </tr>
 </table>
 <i>Explanation:</i> You can use BBcode to create linked images by enclosing the [img][/img] tag with the [url][/url] tag.
 <br /><br /><br />
 
-<a name="quote"><b>Quoting other messages</b></a><br />
+<a name="quote"><b>Quoting other messages</b></a>
+<br />
 
 <table>
   <tr>
@@ -316,13 +317,14 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[quote]</b></font>Hello World<font color="#ff0000"><b>[/quote]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[quote]</b></font>Hello World<font color="#f00"><b>[/quote]</b></font></td>
     <td><cite>Quote:</cite><blockquote>Hello World</blockquote></td>
   </tr>
 </table>
 <br /><br />
 
-<a name="pre"><b>Pre-formatted Text</b></a><br />
+<a name="pre"><b>Pre-formatted Text</b></a>
+<br />
 
 <table>
   <tr>
@@ -330,16 +332,17 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle"><font color="#ff0000"><b>[pre]</b><br /></font>
+    <td valign="middle"><font color="#f00"><b>[pre]</b><br /></font>
 <pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre>
-<font color="#ff0000"><b>[/pre]</b></font></td>
+<font color="#f00"><b>[/pre]</b></font></td>
     <td valign="middle"><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre></td>
   </tr>
 </table>
 <i>Explanation:</i> This tag produces the text exactly as it was typed maintaining the formatting.
 <br /><br /><br />
 
-<a name="php"><b>PHP Code</b></a><br />
+<a name="php"><b>PHP Code</b></a>
+<br />
 
 <table>
   <tr>
@@ -347,7 +350,7 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle"><font color="#ff0000"><b>[php]</b></font>
+    <td valign="middle"><font color="#f00"><b>[php]</b></font>
 <pre>
 function hello()
 {
@@ -356,9 +359,9 @@ function hello()
 
 hello();
 </pre>
-<font color="#ff0000"><b>[/php]</b></font></td>
-    <td valign="middle"><code><font color="#000000">
-<font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
+<font color="#f00"><b>[/php]</b></font></td>
+    <td valign="middle"><code><font color="#000">
+<font color="#00b"><?php<br /></font><font color="#070">function </font><font color="#00b">hello</font><font color="#070">()<br />{<br />        echo </font><font color="#d00">"Hello World!"</font><font color="#070">;<br />}<br /><br /></font><font color="#00b">hello</font><font color="#070">();<br /></font><font color="#00b">?></font>
 </font>
 </code></td>
   </tr>
@@ -366,7 +369,8 @@ hello();
 <i>Explanation:</i> The [php][/php] tag allows to post PHP-code with automatic syntax highlighting by the forum.
 <br /><br /><br />
 
-<a name="code"><b>Non-PHP Program Code</b></a><br />
+<a name="code"><b>Non-PHP Program Code</b></a>
+<br />
 
 <table>
   <tr>
@@ -374,7 +378,7 @@ hello();
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle"><font color="#ff0000"><b>[code]</b></font><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /></pre><font color="#ff0000"><b>[/code]</b></font>
+    <td valign="middle"><font color="#f00"><b>[code]</b></font><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /></pre><font color="#f00"><b>[/code]</b></font>
     </td>
     <td valign="middle"><div class="pre"><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');       <br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre></div>
     </td>
@@ -383,13 +387,15 @@ hello();
 <i>Explanation:</i> The [code][/code] tag works pretty much the same way as the [pre][/pre] tag but it puts a visually identifiable box around the text.
 <br /><br /><br />
 
-<a name="notag"><b>No Tag</b></a><br />
-<i>Explanation:</i> The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
+<a name="notag"><b>No Tag</b></a>
+<br />
+<i>Explanation:</i> The <font color="#f00"><b>[notag][/notag]</b></font> tag allows you to have the text inside
 the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of BBcode 
 and not have them converted to equivalent HTML.
 <br /><br /><br />
 
-<a name="hr"><b>Horizontal Line Tag</b></a><br />
+<a name="hr"><b>Horizontal Line Tag</b></a>
+<br />
 
 <table>
   <tr>
@@ -397,15 +403,16 @@ and not have them converted to equivalent HTML.
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[hr]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[hr]</b></font></td>
     <td valign="middle" align="center"><hr /></td>
   </tr>
 </table>
-<i>Explanation:</i> The [hr] tag produces a horizontal line, it is an equivalent to the &lt;hr&gt;
+<i>Explanation:</i> The [hr] tag produces a horizontal line, it is an equivalent to the <hr>
  HTML tag.
 <br /><br /><br />
 
-<a name="spoiler"><b>Spoiler</b></a><br />
+<a name="spoiler"><b>Spoiler</b></a>
+<br />
 
 <table>
   <tr>
@@ -414,9 +421,9 @@ and not have them converted to equivalent HTML.
   </tr>
   <tr>
     <td valign="middle" align="center">Visible part of the message<br />
-<font color="#ff0000"><b>[spoiler]</b></font>
+<font color="#f00"><b>[spoiler]</b></font>
 <br />Hidden part of the message<br />
-<font color="#ff0000"><b>[/spoiler]</b></font><br />
+<font color="#f00"><b>[/spoiler]</b></font><br />
 More visible text.</td>
     <td valign="middle" align="center">Visible part of the message<br />
 <div class="dashed" style="padding: 3px;" align="center"><a href="javascript://" onclick="javascript: layerVis('s28415', 1);">Toggle Spoiler</a><div align="left" id="s28415" style="display: none;"> <br />
@@ -429,7 +436,8 @@ More visible text.</td>
 <i>Explanation:</i> The [spoiler][/spoiler] tag allows you to hide a portion of message from being displayed. To see the hidden portion the users must click a link that will display the hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually reloaded, instead a hidden layer is made visible.
 <br /><br /><br />
 
-<a name="acronym"><b>Acronym</b></a><br />
+<a name="acronym"><b>Acronym</b></a>
+<br />
 
 <table>
   <tr>
@@ -437,14 +445,15 @@ More visible text.</td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=<font color="#006600">Fast Uncompromising Discussion Forum</font>]</b></font><br />FUDforum<br /><font color="#ff0000"><b>[/acronym]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[acronym=<font color="#060">Fast Uncompromising Discussion Forum</font>]</b></font><br />FUDforum<br /><font color="#f00"><b>[/acronym]</b></font></td>
     <td valign="middle" align="center"><acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym></td>
   </tr>
 </table>
 <i>Explanation:</i> The [acronym][/acronym] tag allows you to identify the text as an acronym and provide a full name when the user moves their mouse over the tag.
 <br /><br /><br />
 
-<a name="wikipedia"><b>Wikipedia</b></a><br />
+<a name="wikipedia"><b>Wikipedia</b></a>
+<br />
 
 <table>
   <tr>
@@ -452,84 +461,73 @@ More visible text.</td>
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=<font color="#006600">en</font>]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[wikipedia=<font color="#060">en</font>]</b></font>FUDforum<font color="#f00"><b>[/wikipedia]</b></font></td>
     <td valign="middle" align="center"><a href="http://en.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
   </tr>
 </table>
 <i>Explanation:</i> The [wikipedia][/wikipedia] tag allows you to create a reference to a wikipedia page based on the subject. To use the tag, surround the term with [wikipedia] tags, if you want to link to a particular wikipedia mirror you can use [wikipedia=ca] format for openning the tag, where ca is the prefix of the mirror.
 <br />
 
-TOPIC_TITLE: <a name="sml">What are Smilies/Emoticons?</a> 
+TOPIC_TITLE: <a name="sml">What are Smilies/Emoticons?</a>
 TOPIC_HELP:
-Smilies are small icons that you can insert into your message to convey various emotions &amp; feelings.
-If smilies are enabled, a list of smilies supported by the forum will be listed above the message box where you type your message.
-Clicking on a smiley, will insert that smiley into your message.<br />
-Common smilies may automatically be replaced with their equivalent images, if you do not wish for that to happen, click on the 
-<b>Disable smilies in this message</b> checkbox.<p />
+Smilies are small icons that you can insert into your message to convey various emotions & feelings. If smilies are enabled, a list of smilies supported by the forum will be listed above the message box where you type your message.
+Clicking on a smiley, will insert that smiley into your message.
+<br /><br />
+Common smilies may automatically be replaced with their equivalent images, if you do not wish for that to happen, click on the <b>Disable smilies in this message</b> checkbox.
 
 TOPIC_TITLE: <a name="polls">How do I use Polls?</a>
 TOPIC_HELP:
-In certain forums you may have the ability to include polls inside your messages. Polls allow you to ask a question and 
-provide a number of answers other forum members may choose from. For the sake of accuracy only registered users may cast in 
-their votes.<br />
-When you click on the <b>CREATE POLL</b> link, located on the post page a pop-up will appear allowing to create a poll with several 
-potential multiple choice answers. When you are done, simply click on the <b>Update</b> button and you will be taken back to the post page 
-and then poll you've created will be attached to the message.<br />
+In certain forums you may have the ability to include polls inside your messages. Polls allow you to ask a question and provide a number of answers other forum members may choose from. For the sake of accuracy only registered users may cast in their votes.
+<br />
+When you click on the <b>CREATE POLL</b> link, located on the post page a pop-up will appear allowing to create a poll with several potential multiple choice answers. When you are done, simply click on the <b>Update</b> button and you will be taken back to the post page and then poll you've created will be attached to the message.
+<br />
 You can edit an existing poll, by clicking on the <b>EDIT</b> link, or you can remove the poll entirely by click on the <b>DELETE</b>.
-<p />
+<br /><br />
 You will only have one opportunity to vote in a poll, so make your decision carefully, you will not be able to change it at a later point.
 
 TOPIC_TITLE: <a name="attach">Can I attach files to messages?</a>
 TOPIC_HELP:
-If allowed by administrator, you may attach one or more files to your normal as well as private messages. This ability is 
-determined on a forum by forum basis, so while you may be able to attach files in one forum you may not be able to do so in another.
+If allowed by administrator, you may attach one or more files to your normal as well as private messages. This ability is determined on a forum by forum basis, so while you may be able to attach files in one forum you may not be able to do so in another.
 <br />
-The post form will list three rules which apply to your file attachments:<p />
-<b>Allowed File Types</b> - a list of file types that you may attach to your message. ex. jpg, gif, png<br />
-<b>Maximum File Size</b> - the maximum size of each file that you may attach to your message<br />
+The post form will list three rules which apply to your file attachments:
+<br /><br />
+<b>Allowed File Types</b> - a list of file types that you may attach to your message. ex. jpg, gif, png
+<br />
+<b>Maximum File Size</b> - the maximum size of each file that you may attach to your message
+<br />
 <b>Maximum Files per Message</b> - the number of files you can attach to your message.
-<p />
-To attach a file to a message, click the <b>Browse</b> button at the bottom of the post page. In response your browser will 
-open a dialog window allowing your to select a file you wish to upload from your hard drive. Once you've selected a file, click on the
-<b>Upload File</b> button to attach the file to your message.<br />
+<br /><br />
+To attach a file to a message, click the <b>Browse</b> button at the bottom of the post page. In response your browser will open a dialog window allowing your to select a file you wish to upload from your hard drive. Once you've selected a file, click on the <b>Upload File</b> button to attach the file to your message.
+<br />
 If you wish to remove any attached files, simply click on the <b>Delete</b> located to the right of the file.
-
 
 TOPIC_TITLE: <a name="msgico">What's a post icon?</a>
 TOPIC_HELP:
-Post icons are small images that you can choose to show beside your messages. They are most 
-commonly used to indicate the nature of your message or the feeling your are trying to convey.
-If you do not see those icons on the post form, it means the administrator has disabled this feature.
+Post icons are small images that you can choose to show beside your messages. They are most commonly used to indicate the nature of your message or the feeling your are trying to convey. If you do not see those icons on the post form, it means the administrator has disabled this feature.
 
 TOPIC_TITLE: <a name="edit">Can I edit my message?</a>
 TOPIC_HELP:
-If you are a registered member, you may be able to edit messages that you have previously posted. This option may be 
-time-limited, so it is possible that you'll be able to edit your recent posts, while unable to edit posts made a while ago.<br />
-If you edit your post, a small note will be prepended to your message, showing that this message was edited by you and indicate the time &amp; date 
-of editing.<br />
-If a moderator or an administrator have edited your message you may or may not, depending on the forum settings see a note identifying the fact 
-that this message was edited.
+If you are a registered member, you may be able to edit messages that you have previously posted. This option may be time-limited, so it is possible that you'll be able to edit your recent posts, while unable to edit posts made a while ago.
+<br />
+If you edit your post, a small note will be prepended to your message, showing that this message was edited by you and indicate the time & date of editing.
+<br />
+If a moderator or an administrator have edited your message you may or may not, depending on the forum settings see a note identifying the fact that this message was edited.
 
-TOPIC_TITLE: <a name="mod">Who are the moderators &amp; administrators?</a> 
+TOPIC_TITLE: <a name="mod">Who are the moderators &amp; administrators?</a>
 TOPIC_HELP:
-Moderators are "super users" who generally oversee one or more forums. They have the ability to edit, delete, approve messages as well 
-as make forum announcements. These are the people to contact if you see something inappropriate being done in a forum they are moderating. 
-You may also address moderators if you have any questions in regard on how to use the forum.<p />
-Administrators are the controllers of the forum, they can do ANYTHING, so be polite when talking to them ;-). Administrator in addition to being 
-able to do everything a moderator can do, also can approve Avatars, assign &amp; remove custom tags, block users and respond to various forum questions.
-If you encounter any bugs with the forum, Administrator is the person to contact.
+Moderators are "super users" who generally oversee one or more forums. They have the ability to edit, delete, approve messages as well as make forum announcements. These are the people to contact if you see something inappropriate being done in a forum they are moderating. You may also address moderators if you have any questions in regard on how to use the forum.
+<br /><br />
+Administrators are the controllers of the forum, they can do ANYTHING, so be polite when talking to them ;-). Administrator in addition to being able to do everything a moderator can do, also can approve Avatars, assign & remove custom tags, block users and respond to various forum questions. If you encounter any bugs with the forum, Administrator is the person to contact.
 
 TOPIC_TITLE: <a name="cens">Censorship?</a>
 TOPIC_HELP:
-The administrator may choose to censor certain words, those words would be replaced by the administrator's chosen alternative. Censorship is forum wide, 
-so the same things you cannot see, other people will also not be able to see.
+The administrator may choose to censor certain words, those words would be replaced by the administrator's chosen alternative. Censorship is forum wide, so the same things you cannot see, other people will also not be able to see.
 
-TOPIC_TITLE: <a name="not">Can I be notified of replies to my messages?</a> 
+TOPIC_TITLE: <a name="not">Can I be notified of replies to my messages?</a>
 TOPIC_HELP:
-When you post a new topic or make a reply to an existing topic, you may choose to be notified via email of the replies. You can also subscribe to a topic without posting a reply, by clicking on the <b>Subscribe</b> link at the top of the page or if you 
-want you can subscribe to a forum, so that whenever a new topic is made in that forum you will receive a notification about it.
-<p />
-If you choose to stop receiving notifications from a topic or forum, you can click on the <b>Unsubscribe</b> link, while viewing that topic or forum.
-Or go to the <b>Subscriptions</b> tab in your profile and remove the topic or forum from that list.
-<p />
+When you post a new topic or make a reply to an existing topic, you may choose to be notified via email of the replies. You can also subscribe to a topic without posting a reply, by clicking on the <b>Subscribe</b> link at the top of the page or if you want you can subscribe to a forum, so that whenever a new topic is made in that forum you will receive a notification about it.
+<br /><br />
+If you choose to stop receiving notifications from a topic or forum, you can click on the <b>Unsubscribe</b> link, while viewing that topic or forum. Or go to the <b>Subscriptions</b> tab in your profile and remove the topic or forum from that list.
+<br /><br />
 The ability to receive notifications is limited to registered users.
+
