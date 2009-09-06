@@ -4,7 +4,7 @@ exit("To run the un-installer, comment out the 2nd line of the script!\n");
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uninstall.php,v 1.24 2009/07/19 19:29:40 frank Exp $
+* $Id: uninstall.php,v 1.25 2009/09/06 02:12:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -165,8 +165,8 @@ function fud_rmdir($dir)
 ?>
 <div align="center">
 <form name="uninstall" action="uninstall.php" method="post">
-<table bgcolor="#000000" align="center" border="0" cellspacing="0" cellpadding="1">
-<tr><td><table bgcolor="#FFFFFF" border="0" cellspacing="1" cellpadding="4" align="center">
+<table bgcolor="#000" align="center" border="0" cellspacing="0" cellpadding="1">
+<tr><td><table bgcolor="#fff" border="0" cellspacing="1" cellpadding="4" align="center">
 	<tr><td colspan="2" bgcolor="#e5ffe7"><font color="red"><b>This utility will uninstall FUDforum from the specified directories. Make sure that this is what you want to do, because once it runs there is no going back. We recommend running a full backup of your system before continuing.</b></font></td></tr>
 	<tr bgcolor="#bff8ff"><td valign="top"><b>Forum Data Root</b><br /><font size="-1">This is the directory where you've installed the non-browseable forum files</font></td><td><input type="text" name="SERVER_DATA_ROOT" value="" size=40 /></td></tr>
 	<tr bgcolor="#bff8ff"><td valign="top"><b>Server Root</b><br /><font size="-1">This is the directory where you've installed the browseable forum files. If it is the same as "Forum Data Root", you can leave this field blank.</font></td><td><input type="text" name="SERVER_ROOT" value="" size="40" /></td></tr>

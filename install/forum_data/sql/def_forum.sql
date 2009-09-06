@@ -1,4 +1,4 @@
-INSERT INTO {SQL_TABLE_PREFIX}forum (cat_id, name, descr, date_created, thread_count, post_count, last_post_id, max_attach_size, view_order) VALUES(1, 'First Forum', 'Test forum for demonstration purposes. Please navigate to <font color="darkgreen">Admin Control Panel</font> -> <font color="darkgreen">Category &amp; Forum Management</font> to create your own categories and forums.', UNIX_TIMESTAMP, 1, 1, 1, 1024, 1);
+INSERT INTO {SQL_TABLE_PREFIX}forum (cat_id, name, descr, date_created, thread_count, post_count, last_post_id, max_attach_size, view_order) VALUES(1, 'First Forum', 'Test forum for demonstration purposes. Please navigate to <font color="darkgreen">Admin Control Panel</font> -> <font color="darkgreen">Category &amp; Forum Management</font> to create your own categories and forums.', {UNIX_TIMESTAMP}, 1, 1, 1, 1024, 1);
 INSERT INTO {SQL_TABLE_PREFIX}fc_view (c, f) VALUES(1, 1);
 INSERT INTO {SQL_TABLE_PREFIX}groups (name, forum_id, groups_opt) VALUES('Global Anonymous Access', 0, 1|2|262144);
 INSERT INTO {SQL_TABLE_PREFIX}groups (name, forum_id, groups_opt) VALUES('Global Registered Access', 0, 1|2|4|8|128|256|512|1024|16384|32768|262144);

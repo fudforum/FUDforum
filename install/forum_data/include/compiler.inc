@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.105 2009/08/26 17:54:58 frank Exp $
+* $Id: compiler.inc,v 1.106 2009/09/06 02:07:44 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -156,9 +156,9 @@ function resolve_sections($str)
 				break;
 			case 'PLURAL':	// Pluralize messages at runtime.
 				list($var, $forms) = explode('|', $name, 2);
-				$forms_arr = str_replace('\'', '&#39;', $forms);	// Encode single quotes
+				$forms_arr = str_replace('\'', '&#39;', $forms);	// Encode single quotes.
 				$forms_arr = str_replace('|', '\',\'', $forms_arr);
-				$forms_arr = str_replace('$1', "'.$". $var .".'", $forms_arr);
+				$forms_arr = preg_replace('/\$\d/', "'.$". $var .".'", $forms_arr);	// $1, $2, etc. refers to the count.
 				$ret .= "'.convertPlural($". $var .", array('". $forms_arr ."')).'";
 				break;
 			case 'VAR':

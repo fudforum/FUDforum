@@ -1,6 +1,6 @@
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.86 2009/08/22 07:58:09 frank Exp $
+* $Id: register.tmpl,v 1.87 2009/09/06 02:07:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -153,11 +153,11 @@
 <tr class="RowStyleA"><td>{MSG: register_gender}</td><td><select name="reg_gender">{TEMPLATE-DATA: gender_select}</select></td></tr>
 {IF: $FUD_OPT_2 & 65536}{TEMPLATE: reg_user_image}{ENDIF}
 <tr class="RowStyleA"><td>{MSG: register_homepage}</td><td><input type="text" name="reg_home_page" value="{VAR: reg_home_page}" maxlength="255" /></td></tr>
-<tr class="RowStyleA"><td class="RowStyleA" valign="top">{MSG: register_bio}<br /><span class="SmallText">{MSG: register_bio_desc}</span></td><td><textarea name="reg_bio" rows="5" cols="35">{VAR: reg_bio}</textarea></td></tr>
+<tr class="RowStyleA"><td class="RowStyleA" valign="top">{MSG: register_bio}<br /><span class="SmallText">{MSG: register_bio_desc}</span></td><td><textarea name="reg_bio" rows="5" cols="50">{VAR: reg_bio}</textarea></td></tr>
 <tr class="RowStyleA"><td colspan="2">
-<fieldset><legend>Social networking sites:</legend>
+<fieldset class="RowStyleA"><legend class="RowStyleB">{MSG: social_sites}</legend>
 <table border="0" cellspacing="3" cellpadding="5" align="center">
-<tr class="GenText"><td>
+<tr><td>
 	<label>{MSG: register_icq}<br /><img src="{THEME_IMAGE_ROOT}/icq{DEF: img_ext}" title="{VAR: obj->icq}" alt="" /><input type="text" name="reg_icq" value="{VAR: reg_icq}" maxlength="32" size="25" /></label>
 </td><td>
 	<label>{MSG: register_aim}<br /><img src="{THEME_IMAGE_ROOT}/aim{DEF: img_ext}" title="{VAR: obj->aim}" alt="" /><input type="text" name="reg_aim" value="{VAR: reg_aim}" maxlength="32" size="25" /></label>
@@ -183,7 +183,7 @@
 <td></tr>
 <tr><th colspan="2">{MSG: register_prefs}</th></tr>
 {IF: $FUD_OPT_1 & 32768}
-<tr class="RowStyleA"><td class="vt">{MSG: register_sig}<br /><span class="SmallText">{MSG: register_sig_desc}<br /></span>{FUNC: tmpl_post_options('sig')}{IF: $FORUM_SIG_ML}<br /><b>{MSG: register_max_sig_len} </b>{MSG: register_sig_limit}{ENDIFI}</td><td>{FUNC: draw_err('reg_sig')}<textarea name="reg_sig" rows="8" cols="50">{VAR: reg_sig}</textarea></td></tr>
+<tr class="RowStyleA"><td class="vt">{MSG: register_sig}<br /><span class="SmallText">{MSG: register_sig_desc}<br /></span>{FUNC: tmpl_post_options('sig')}{IF: $FORUM_SIG_ML}<br /><b>{MSG: register_max_sig_len} </b>{MSG: register_sig_limit}{ENDIFI}</td><td>{FUNC: draw_err('reg_sig')}<textarea name="reg_sig" rows="5" cols="50">{VAR: reg_sig}</textarea></td></tr>
 {ENDIF}
 <tr class="RowStyleA"><td>{MSG: register_timezone}</td><td><select name="reg_time_zone" class="SmallText" style="width: 390px">{TEMPLATE-DATA: timezone_select}</select></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_ignore_admin}</td><td>{TEMPLATE-DATA: ignore_admin_radio}</td></tr>

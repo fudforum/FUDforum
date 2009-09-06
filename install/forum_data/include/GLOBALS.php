@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: GLOBALS.php,v 1.64 2009/08/04 19:26:57 frank Exp $
+* $Id: GLOBALS.php,v 1.65 2009/09/06 02:07:44 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@
 
 	$FUD_OPT_1		= 1743713471;
 	$FUD_OPT_2		= 695668799;
-	$FUD_OPT_3		= 0;
+	$FUD_OPT_3		= 41943040;
 
 	$CUSTOM_AVATAR_MAX_SIZE = 10000;	/* bytes */
 	$CUSTOM_AVATAR_MAX_DIM	= '64x64';	/* width x height (pixels) */
@@ -68,7 +68,7 @@
 	$NOTIFY_FROM		= '';		/* email */
 	$ANON_NICK		= 'Anonymous Coward';
 	$FLOOD_CHECK_TIME	= 60;		/* seconds */
-	$POSTS_BEFORE_LINKS	= 0;
+	$POSTS_BEFORE_LINKS	= 5;
 	$SERVER_TZ		= 'America/Montreal'; /* timezone code from tz.inc */
 	$SEARCH_CACHE_EXPIRY	= 172800;	/* seconds */
 	$MEMBERS_PER_PAGE	= 40;
@@ -80,7 +80,7 @@
 	$MAX_IMAGE_COUNT	= 10;
 	$STATS_CACHE_AGE	= 600;		/* seconds */
 	$FORUM_TITLE		= 'My forum, my way!';
-	$FORUM_DESCR		= 'Fast Uncompromising Discussions. FUDforum will get your users talking!';
+	$FORUM_DESCR		= 'Fast Uncompromising Discussions. FUDforum will get your users talking';
 	$MAX_LOGIN_SHOW		= 25;
 	$MAX_LOCATION_SHOW	= 25;
 	$SHOW_N_MODS		= 2;

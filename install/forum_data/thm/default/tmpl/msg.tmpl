@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.79 2009/08/06 18:00:55 frank Exp $
+* $Id: msg.tmpl,v 1.80 2009/09/06 02:07:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -111,7 +111,7 @@
 {IF: ($FUD_OPT_2 & 4096 && $perms & 1024 && !$frm->cant_rate)}{TEMPLATE: rate_thread}{ENDIF}
 {FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
 <br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
-<div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: msg_pdf_link}{ENDIF} {IF: $FUD_OPT_2 & 1048576}{TEMPLATE: msg_xml_link}{ENDIF}</div>
+<div class="ar SmallText">{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: msg_xml_link}{ENDIF} {IF: $FUD_OPT_2 & 2097152}{TEMPLATE: msg_pdf_link}{ENDIF}</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 <script type="text/javascript">
@@ -130,7 +130,7 @@ format_code('{MSG: code_title}', '{MSG: code_select_all}', '{MSG: code_show_hide
 {PAGE: END}
 
 {SECTION: msg_pdf_link}
-[ <a href="{GVAR: WWW_ROOT}pdf.php?th={VAR: th}&amp;{DEF: _rsid}">{MSG: thread_printable_pdf}</a> ]
+[ <a href="{GVAR: WWW_ROOT}pdf.php?th={VAR: th}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/pdf.gif" title="{MSG: thread_printable_pdf}" alt="PDF" /></a> ]
 {SECTION: END}
 
 {SECTION: msg_xml_link}

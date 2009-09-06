@@ -2,17 +2,17 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.200 2009/08/04 19:26:58 frank Exp $
+* $Id: core.inc,v 1.201 2009/09/06 02:07:44 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-$FORUM_VERSION = '2.8.1';
+$FORUM_VERSION = '3.0.0RC1';
 
 ignore_user_abort('1');
-set_magic_quotes_runtime(0);
+@set_magic_quotes_runtime(0);
 
 function rls_db_lck()
 {

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp_adm.inc,v 1.29 2009/01/29 18:37:17 frank Exp $
+* $Id: nntp_adm.inc,v 1.30 2009/09/06 02:07:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@ class fud_nntp_adm
 	var $server, $port=119, $login, $pass, $timeout=25, $newsgroup, $auth, $imp_limit;
 
 	// General Settings
-	var $forum_id, $id, $nntp_opt=33, $custom_sig;
+	var $forum_id, $id, $nntp_opt=97, $custom_sig;
 
 	function fud_nntp_adm()
 	{

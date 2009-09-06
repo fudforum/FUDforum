@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.41 2009/07/11 10:36:05 frank Exp $
+* $Id: postcheck.inc.t,v 1.42 2009/09/06 02:07:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -68,6 +68,7 @@ function check_post_form()
 		if (eregi('(\[url)|(http://)|(https://)', $_POST['msg_body'])) {
 			$c = q_singleval("SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id="._uid);
 			if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
+				$posts_before_links = $GLOBALS['POSTS_BEFORE_LINKS'];
 				set_err('msg_body', '{TEMPLATE: postcheck_no_links_allowed}');
 			}
 		}

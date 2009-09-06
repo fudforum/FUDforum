@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.tmpl,v 1.45 2009/08/06 18:00:55 frank Exp $
+* $Id: thread_view_common.tmpl,v 1.46 2009/09/06 02:07:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,7 @@
 {SECTION: END}
 
 {SECTION: thread_mark_all_read}
-<div class="ar SmallText">[ <a href="{TEMPLATE: thread_mark_all_read_lnk}" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a> ]{IF: ($FUD_OPT_2 & 270532608) == 270532608}{TEMPLATE: thread_printable_pdf}{ENDIF}{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: thread_syndicate}{ENDIFI}</div>
+<div class="ar SmallText">[ <a href="{TEMPLATE: thread_mark_all_read_lnk}" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a> ]{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: thread_syndicate}{ENDIF}{IF: ($FUD_OPT_2 & 270532608) == 270532608}{TEMPLATE: thread_printable_pdf}{ENDIFI}</div>
 {SECTION: END}
 
 {SECTION: new_thread_link_lnk}
@@ -89,7 +89,7 @@
 {SECTION: END}
 
 {SECTION: thread_printable_pdf}
-&nbsp;[ <a href="{TEMPLATE: thread_printable_pdf_lnk}">{MSG: thread_printable_pdf}</a> ]
+&nbsp;[ <a href="{TEMPLATE: thread_printable_pdf_lnk}"><img src="{THEME_IMAGE_ROOT}/pdf.gif" title="{MSG: thread_printable_pdf}" alt="PDF" /></a> ]
 {SECTION: END}
 
 {SECTION: thread_syndicate_lnk}
