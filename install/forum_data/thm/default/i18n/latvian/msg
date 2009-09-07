@@ -1,819 +1,858 @@
-action:				Darbība
-add_to_buddy_list:		pievienot kontaktu sarakstam
-admin:				Admins
-admin_control_panel:		Administratīvais centrs
-administrator:			Administrators
-attachment:			Pielikums:
-avatar:				Bildītes:
-average_post_count:		{VAR: u->posted_msg_count} (vidēji {VAR: avg} dienā)
-biography:			Biogrāfija:
-birth_date:			Dzimšanas datums:
-by:				No:
-by_mod:				no moderātora
-current_time:			Tekošais laiks
-custom_avatar_queue:		Citas bildītes
-date_posted:			Nosūtīšanas datums
-date_registered:		Reģistrācijas datums:
-download_counter:		{VAR: v[3]} reizes ielādēts
-email:				E-pasts:
-email_to_friend:		Nosūtīt E-pastu
-email_to_friend_desc:		Nosūtīt URL-saiti par šo ierakstu pa E-pastu
-email_user:			Nospied lai nosūtītu E-pastu
-faq:				F.A.Q.
-first_unread_msg:		Pāriet uz nelasītajiem paziņojumiem
-first_unread_msg_desc:		Pāriet uz pirmo nelasīto šajā tēmā
-flat_view:			Pāriet uz noklusēto izplāto skatu
-forum:				Forums:
-forum_icon:			Foruma nozīmīte
-forum_new_messages:		Jaunie ieraksti
-forum_none_messages:		Tikai piereģistrētie lietotāji var pārlūkot un lasīt &amp; jaunos ierakstus
-forum_old_messages:		Jaunu ierakstu nav
-from:				No:
-gender:				Dzimums:
-go:				Pāriet
-goto_next_msg:			Pāriet uz nākošo ierakstu
-goto_prev_msg:			Pāriet uz iepriekšējo ierakstu
-home:				Sākums
-homepage:			Saite uz mājas lapu:
-icq_message_form:		Nosūtīt ICQ paziņojumu
-ignore_user:			ignorēt visus paziņojumus<br /> no šī lietotāja
-im_aim:				AIM tīkls:
-im_msnm:			MSN tīkls:
-im_yahoo:			Yahoo tīkls:
-image:				Bildīte:
-index_forum:			Forums
-index_new_posts:		Saņemti jauni ieraksti
-index_no_new_posts:		Jaunu ierakstu nav
-interests:			Intereses:
-last_post:			Pēdējie
-last_thread_msg:		Pāriet uz šīs tēmas pēdējo ierakstu
-legend:				Leģenda:
-location:			Dzīves vieta:
-lock_thread:			Slēgt tēmu
-locked:				Tēma slēgta
-locked_with_new_posts:		Ir nelasīti ieraksti slēgtajā tēmā
-logged_in_list:			Šobrīd forumā
-login:				Ieiet
-login_header:			Lietotājs:
-logout:				Iziet
-mark_all_read:			Visus ierakstus iezīmēt kā lasītus
-mark_all_read_desc:		Visi ieraksti iezīmēti kā lasīti
-members:			Lietotāji
-message:			Ieraksts
-message_counter:		Mūsu lietotājiem nosūtīti <b>{VAR: post_count}</b> paziņojumi pa <b>{VAR: thread_count}</b> tēmām.
-message_index:			Ierakstu saraksts
-message_index_desc:		Saraksta pārskats
-minimize_category:		Sakļaut kategoriju
-moderator:			Moderātors
-moderator_of:			Moderējamie forumi:
-moderator_options:		Moderātora funkcijas
-moderators:			Moderātori
-more_unread_messages:		pārējie nelasītie ieraksti
-more_unread_messages_desc:	Parādīt pārējos nelasītos ierakstus un atzīmēt aktivizēto kā lasīto
-move_thread:			Pārvietot
-moved:				Tēma pārvietota uz citu forumu
-moved_thread_message:		Šī tēma ir pārvietota uz citu forumu
-new_posts:			Jaunie ieraksti
-new_private_messages:		Saņemti un nelasīti<span class="GenText" style="color: #ff0000">({VAR: c})</span> ieraksti
-new_thread:			Izveidot jaunu tēmu
-newest_user:			Pēdējais reģistrētais lietotājs:
-next_page:			Nākošā lapa
-next_thread:			Nākošā tēma:
-no_messages:			Šajā forumā nav jaunu ierakstu.
-no_msg_body:			Nav teksta ieraksta
-no_new_posts:			Nav jaunu ierakstu
-no_posts:			Nav ierakstu
-no_subscribed_forums:		Nav izvēlētu forumu
-no_subscribed_threads:		Izvēlē nav tēmu
-no_unread_locked:		Šī tēma ir slēgta
-no_unread_msg:			Šajā tēmā nav nelasītu ierakstu
-no_unread_msg_unreg:		Lasītu vai nelasītu ierakstu pārskats pieejams tikai reģistrētiem lietotājiem
-num_pages:			({VAR: ttl_pg})lapas:
-num_votes:			{VAR: obj->total_votes} balsis:
-occupation:			Nodarbošanās:
-page_timings:			{VAR: page_gen_time} sekundes patērētas lapas ģenerēšanai
-pm:				Privātā sarakste
-poll:				Balsojumi:
-post_count:			{VAR: u_pcount}ieraksti
-post_count_l:			Ierakstu skaits:
-posts:				Ieraksti
-posts_c:			Ieraksti:
-prev_thread:			Iepriekšējā tēma:
-usrinfo_private_message:	Privātā vēstule:
-profile:			Uzstādījumi
-profile_desc:			Nospiest lai pārietu uz vadības paneli
-rate_thread:			Novērtēt tēmu
-refresh_list:			Atjaunot sarakstu
-register:			Reģistrācija
-registered:			Piereģistrēts:
-registered_on:			Reģistrācijas datums: {TEMPLATE: registered_on_date}
-replies:			Atbildes
-report_to_mod:			Paziņojums moderātoram
-reported_messages:		Paziņojumi par ierakstiem
-reveal_all_posts:		Uzrādīt visus {VAR: user_login} ierakstus
-reveal_post:			Parādīt ierakstus
-search:				Meklēt
-sel_todays_posts:		Šodienas ieraksti
-sel_todays_posts_desc:		Uzrādīt tikai šodienas ierakstus
-sel_unanswered_posts:		Ieraksti bez atbildēm
-sel_unanswered_posts_desc:	Uzrādīt tikai ierakstus bez atbildēm
-sel_unread_messages:		Nelasītie ieraksti
-sel_unread_messages_desc:	Uzrādīt tikai nelasītos ierakstus
-send:				Nosūtīt
-send_pm_desc:			Nosūtīt privāto vēstuli
-sender_email:			Autora E-pasts:
-sender_name:			Autora vārds:
-show_posts_by:			Uzrādīt ierakstus kurus iesūtīja: {VAR: u_alias}
-size:				Izmērs:
-status:				Statuss:
-status_line:			Šobrīd forumos <b>{VAR: st_obj->online_users_reg}</b>lietotāji, <b>{VAR: st_obj->online_users_hidden}</b>neredzamie, <b>{VAR: st_obj->online_users_anon}</b>viesi.
-sticky:				Sticky:
-stop_ignoring:			pārtraukt lietotāju ignorēšanu
-sub_to_thread:			Pierakstīties tēmā
-sub_to_thread_desc:		Saņemt paziņojumus par jauniem ierakstiem šajā tēmā
-subject:			Tēma
-subscribe:			Pierakstīties forumā
-subscribe_desc:			Saņemt paziņojumus par izveidotajām jaunajām tēmām šajā forumā
-subscribed_forums:		Pierakstītie forumi
-subscribed_forums_desc:		Uzrādīt ierakstus tikai no pierakstītiem forumiem
-subscribed_threads:		Pierakstītās tēmas
-subscribed_threads_desc:	Uzrādīt ierakstus tikai no pierakstītajām tēmām
-switch_to_thread_view:		Uzrādīt ierakstus un atbildes hierarhijas koka veidā
-thread:				Tēma:
-thread_announcement:		Sludinājums:
-thread_first_unread_msg:	Uz pirmo nelasīto ierakstu šajā tēmā
-thread_thread:			Tēma
-threads:			Tēmas
-time:				Laiks
-todays_posts:			Šodienas ieraksti
-todays_posts_desc:		Uzrādīt šodien nosūtītos ierakstus
-un_ignore_user:			pārtraukt ignorēt ierakstus no
-unanswered_posts:		Ieraksti bez atbildes
-unanswered_posts_desc:		Uzrādīt visus ierakstus bez atbildēm
-unlock_thread:			Atvērt tēmu
-unread_msg:			Šajā tēmā ir nelasītie ieraksti
-unread_msg_locked:		Slēgtā tēma ar nelasītajiem ierakstiem
-unread_posts:			Nelasītie ieraksti
-unread_posts_desc:		Rādīt visus nelasītos ierakstus
-unsub_from_thread:		Atteikties no tēmas
-unsub_from_thread_desc:		Pārtraukt paziņojumu nosūtīšanu par jaunumiem šajā tēmā
-unsubscribe:			Atteikties no foruma
-unsubscribe_desc:		Pārtraukt paziņojumu nosūtīšanu par jaunumiem šajā forumā
-updated_on:			Jauninājumi:
-user:				Lietotājs:
-user_counter:			<b>{VAR: st_obj->user_count}</b> reģistrētie lietotāji.
-user_info:			Info par lietotāju
-user_info_l:			Info par {VAR: u->alias}
-user_offline:			{VAR: obj->login} šobrīd nav On-Line režīmā
-user_online:			{VAR: obj->login} šobrīd On-Line režīmā
-usrinfo_last_post:		Pēdējais ieraksts:
-view_results:			Rezultātu pārskats
-views:				Pārskati
-vote:				{VAR: frm->n_rating}balsis
-vote_button:			Balsot
-vote_for_thread:		Novērtējums
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> moderātors pārcēla uz forumu <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
-welcome_message:		Sveiki <b><u>{VAR: usr->alias}</u></b>, prieks Jūs atkal redzēt kopš {TEMPLATE: welcome_message_date}
-what_ppl_doing:			parādīt ko kurš dara
-reported_del_report:		Dzēst atskaiti
-reported_reason:		Iemesls
-reported_on:			Paziņojuma datums:
-reported_reported_by:		Paziņojums no:
-reported_reported_msg:		Paziņojums par ierakstu
-modque_pending_approval:	Ieraksti uz apstiprinājumu
-modque_approve:			Apstiprināt
-modque_delete:			Dzēst
-modque_no_message:		Nav ierakstu uz apstiprināšanu
-pmsg_new_messages:		Nelasīta privātā vēstule
-pmsg_old_messages:		Lasītā privātā vēstule
-deny_recipt:			Aizliegt paziņojumus
-deny_recipt_desc:		Nesūtīt paziņojumu autoram par to, ka esat lasījis
-restore_to:			Atjaunot:
-move_to:			Pārvietot:
-list_referes_referrals:		Uzaicināti
-list_referes_members:		Uzaicinātie lietotāji
-list_referes_member:		Lietotājs
-referals_none:			Neviens nav uzaicināts.
-referals_refered_by:		Uzaicinātie lietotāji <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:		Ieraksti
-referals_registered_on:		Reģistrācijas datums
-referals_action:		Darbība
-pmsg_all:			Viss
-pmsg_none:			Nē
-folder:				Mape:
-pmsg_replied:			atbildēts
-pmsg_forwarded:			labots
-pmsg_subject:			Tēma
-pmsg_author:			Autors
-pmsg_time:			Laiks
-pmsg_selected:			Izvēlēts
-pmsg_delete:			Dzēst
-cur_ppage_pm:			Privātais pasts
-writing_pm:			Izveidot privāto vēstuli
-browsing_folder:		Pārskatīt mapi <b>{VAR: folders[$folder_id]}</b>
-inbox:				Ienākošās
-draft:				Melnraksti
-sent:				Nosūtītās
-trash:				Papīrgrozs
-msg_author:			Autors
-avatar_sel_form:		Nozīmītes izvēle
-no_avatars:			Nav brīvu nozīmīšu
-month_1:			Janvāris
-month_2:			Februāris
-month_3:			Marts
-month_4:			Aprīlis
-month_5:			Maijs
-month_6:			Jūnijs
-month_7:			Jūlijs
-month_8:			Augusts
-month_9:			Septembris
-month_10:			Oktobris
-month_11:			Novembris
-month_12:			Decembris
-male:				Vīrietis
-female:				Sieviete
-unspecified:			Nekatrais
-register_tree_view:		Hierarhijas koka skats
-register_flat_view:		Izplātais skats
-use_forum_default:		Izmantot foruma noklusējumuzstādījumus
-finduser_user_info:		Info par lietotāju
-finduser_by_login:		Pēc vārda:
-finduser_submit:		Meklēt
-finduser_no_such_user:		Neesošs lietotājs
-finduser_user:			Lietotājs
-finduser_postcount:		Ieraksti
-finduser_joindate:		Pieslēgšanās datums
-finduser_action:		Darbības
-yes:				Jā
-no:				Nē
-edit_time_limit:		<br /><b>Izmaiņu veikšanas periods</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minūtes
-no_edit_time_limit:		<br /><b> Izmaiņu veikšanas periods </b>: <b>Nelimitēts</b>
-pmuserloc_login:		Vārds:
-pmuserloc_submit:		Meklēt
-pmuserloc_user:			Lietotājs
-pmuserloc_no_result:		Nekas nav atrasts
-register_builtin:		Iebūvēta
-register_specify_url:		Norādīt URL
-register_uploaded:		Ielādēt nozīmīti
-register_login:			Lietotāja vārds:
-register_password:		Parole:
-register_conf_pass:		Atkārtot paroli:
-register_email_desc:		Ievadiet savu reālo E-pasta adresi. To apslēp varēsiet uzstādījumos zemāk.
-register_name:			Vārds:
-register_your_pass:		Jūsu parole:
-register_update:		Atjaunot
-register_avatar_type:		Personīgās nozīmītes tips:
-register_del_avatar:		Dzēst nozīmīti
-register_avatar:		Privātā nozīmīte:
-register_sel_avatar:		Izvēlēties nozīmīti
-register_custom_avatar_rules:	Ārējā nozīmīte netiks attēlota kāmēr to neapstiprinās foruma administrators.<br /><font class="SmallText">Nozīmītes lielums nedrīkst būt lielāks par <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikseļiem</b> un tai jābūt <b>jpg</b>, <b>gif</b> vai <b>png</b> formātā.</font>
-register_custom_avatar_url:	Nozīmītes URL:
-register_preview:		Priekšapskate
-register_custom_avatar_upload:	Nozīmītes fails:
-register_register:		Reģistrācija
-register_required:		Obligātā informācija
-register_required_desc:		Visi lauki ir obligāti jāaizpilda. Atcerieties, ka paroles ir reģistra jūtīgas.
-register_optional:		Papildus informācija
-register_optional_desc:		Nav vēlams pārlieki izplūst.
-register_location:		Dzīves vieta:
-register_occupation:		Nodarbošanās:
-register_interests:		Intereses:
-register_image:			Nozīmīte:
-register_icq:			ICQ
-register_aim:			AIM pseidonīms:
-register_yahoo:			Yahoo tīkls:
-register_msnm:			MSN tīkls:
-register_homepage:		Mālas lapas URL:
-register_bday:			Dzimšanas datums:
-register_bday_desc:		Uzrādot dzimšanas datumu tas būs redzams foruma lietotājiem.
-register_day:			Diena
-register_month:			Mēnesis
-register_year:			Gads
-register_gender:		Dzimums:
-register_bio:			Biogrāfija:
-register_bio_desc:		Dažas papildus detaļas par Jums
-register_prefs:			Privātie uzstādījumi
-register_sig:			Paraksts:
-register_sig_desc:		Neobligātais paraksts. Tiks pievienots Jūsu sūtījumiem.
-register_def_thread_view:	Noklusētais tēmu skats:
-register_msg_per_page:		Ieraksti lapā:
-register_show_sig:		Uzrādīt pierakstus:
-register_show_sig_desc:		Atļauj Jums ieslēgt/atslēgt citu lietotāju reģistrācijas-pierakstus
-register_use_sig_default:	Pielietot pierakstus pēc noklusējuma:
-register_use_sig_default_desc:	Automātiski pievienot pierakstu ikvienam nosūtītajam ziņojumam
-register_timezone:		Laika josla:
-register_ignore_admin:		Ignorēt administrācijas paziņojumus:
-register_invisible_mode:	Neredzamības režīms:
-register_invisible_mode_desc:	Apslēpj Jūsu darbības citiem lietotājiem.
-register_show_email:		Uzrādīt E-pasta adresi:
-register_show_email_desc:	Ieslēgt, lai citi lietotāji redzētu Jūsu E-pasta adresi.
-register_notification:		Ieslēgt paziņojumus pēc noklusējuma:
-register_notification_desc:	Šo režīmu var atslēgt pirms ziņojuma nosūtīšanas.
-register_notify_method:		Ziņojuma nosūtīšanas metode:
-register_allow_email_msg:	Atļaut ziņojumu nosūtīšanu uz E-pasta adresi:
-register_allow_email_msg_desc:	Atļauj citiem lietotājiem nosūtīt ziņojumus no foruma uz Jūsu E-pasta adresi.
-buddy_status:			Statuss
-my_buddies:			Kontaktu saraksts
-add_buddy:			Pievienot kontaktu sarakstam
-add:				Pievienot
-buddy_remove:			dzēst
-post_normal:			Normāls
-post_annoncement:		Sludinājums
-post_size:			Izmērs
-post_color:			Krāsa
-post_font:			Fonts
-create_thread:			Izveidot tēmu
-submit_reply:			Nosūtīt atbildi
-edit_message:			Rediģēt ierakstu
-apply_spell_changes:		Apstiprināt pareizrakstības pārbaudi
-post_preview:			Priekšapskate
-post_logedin_user:		Lietotājs:
-post_logout:			Izeja
-post_passwd:			Foruma parole:
-post_poll:			Balsojums:
-post_create_poll:		IZVEIDOT
-post_poll_delete:		DZĒST
-post_poll_edit:			LABOT
-post_mod_opt:			Moderātora darbības:
-post_thread_type:		Tēmas tips:
-post_thread_expiry:		Tēma noveco:
-post_locked:			Slēgta tēma
-post_icons:			Ieraksta nozīmīte:
-post_no_icon:			Bez nozīmītes 
-post_smiley:			Smaidiņu ievietošana:
-post_format_tools:		Formatēšana:
-post_upload_file:		Ielādēt failu
-post_file_del:			Dzēst
-post_file_name:			Vārds
-post_file_size:			Izmērs
-file_attachments:		Faila iekļaušana:
-allowed_files:			Pieļaujamie faila paplašinājumi:
-max_file_size:			Maksimālais faila lielums:
-max_files_per_msg:		Maksimālais failu skaits ierakstā:
-post_notification:		Paziņojumi par ierakstiem
-include_sig:			Iekļaut parakstu ierakstā
-include_sig_desc:		Iekļauj Jūsu paraksta tekstu, kas atrodas Jūsu privātajos uztādījumos.
-disable_smilies:		Atslēgt smaidiņus
-spell_check_msg:		Pārbaudīt ortogrāfiju
-post_form:			Ieraksta nosūtīšana
-post_forum:			Forums:
-post_title:			Virsraksts:
-post_body:			Teksts:
-post_options:			Parametri:
-post_preview_btn:		Priekšapskate
-ignore_users:			Ignorējamie lietotāji
-add_ignore:			Pievienot ignorējamo
-forum_terms:			Foruma noteikumi
-forum_rules:			Ikviens interesents var brīvi piereģistrēties un kļūt par šī foruma dalībnieku-lietotāju. Ceram, ka pirms reģistrācijas forumā Jūs iepazīsieties ar dažiem forumu lietošanas noteikumiem un ja šie noteikumi nebūs pretrunā ar Jūsu pārliecību, nospiedīsiet pogu <b>Piekrītu</b>. <b><u>Atcerieties!</u></b> Nospiežot pogu <b>Piekrītu</b> Jūs apstipriniet, ka Jūs esat vecāks par 13 gadiem, kā arī uzņematies autora atbildību par visu to, ko publicēciet forumā. Foruma īpašnieki un tā veidotāji nav atbildīgi par informācijas saturu, kas publicēta forumos. Ikviena publikācija atspoguļo autora viedokli un līdz ar to arī atbildību uzņemas publikāciju autori. Nospiežot pogu <b>Piekrītu</b> Jūs apstiprināt, ka savās publikācijās izturēsieties korekti pret pārējiem foruma dalībnikiem un pārējo sabiedrību kopumā. Nepaudīsiet antisemītiskus un rasistiskus uzskatus, nepublicēsiet seksuāli orientētus, draudus izsakošus un kādus citus izteikumus un materiālus kas ir pretrunā ar spēkā esošajiem likumdošanas un citiem normatīvajiem aktiem. Foruma īpašnieki un veidotāji ir tiesīgi veikt izmaiņas Jūsu lietotāja kontā un uzstādījumos, slēgt, dzēst vai pārvietot ikvienu foruma tēmu bez iepriekšējas saskaņošanas ar foruma lietotājiem vai dalībniekiem.
-forum_rules_13:			Visiem lietotājiem, kas ir jaunāki par 13. gadiem, pirms reģistrācijas forumā jāsaņem vecāku atļauja vai ieteikums, kas jānosūta pa pastu vai faksu foruma administrācijai, šīs atļaujas vai ieteikuma izskatīšanai un akceptam. Kaut arī forumā var piedalīties visi interesenti un bez vecuma ierobežojuma, tomēr lai dotu tiesības forumā piedalīties dalībniekiem līdz 13. gadiem, vēlamies saņemt vecāku atļauju vai ieteikumu.<p>Ja vēlaties turpināt reģistrāciju pirms mūsu akcepta, nospiediet pogu <b>Piekrītu</b>, pretējā gadījumā nospieiet <b>Nepiekrītu</b>.<p>Atļaujas-ieteikuma veidlapas kopiju Jūs varat saņemt <a href="{TEMPLATE: err_coppa_msg_lnk}"> šeit</a>. Papildinformāciju par reģistrāciju forumā Jūs varat saņemt nosūtot vēstuli uz e-pasta adresi <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
-coppa_conf:			Apstiprināt COPPA
-coppa_before:			Pirms {TEMPLATE: coppa_date}
-coppa_after:			Pēc {TEMPLATE: coppa_date}
-coppa_link:			Izvēlieties norādi, kas pareizi norāda Jūsu dzimšanas datumu.
-coppa:				Lai pabeigtu lietotāju, kas jaunāki par 13. gadiem, reģistrāciju, nepieciešams nosūtīt pa pastu vai faksu ieteikuma vēstuli vai atļauju. <p>Papildus informācija saņemama: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
-prereg_info:			Informācija
-prereg_agree:			Piekrītu
-prereg_disagree:		Nepiekrītu
-coppa_fax_instructions:		Instrukcija vecākiem vai aizbildņiem
-coppa_fax_instructions2:	Lūdzu izdrukājiet un aizpildiet šo formu, parakstiet to un nosūtiet uz adresi:
-coppa_fax_reg_form:		Reģistrācijas forma
-coppa_fax_sign:			Lūdzu izdrukājiet un aizpildiet šo formu, parakstiet to un nosūtiet mums
-coppa_fax_conf:			I have reviewed the information my child has supplied and I have read the Privacy Policy for the web site. I understand that the profile information may be changed by a using a password. I understand that I may ask for this registration profile be removed entirely.
-coppa_fax_relation:		Relation to child:
-coppa_fax_email:		Email address:
-coppa_fax_remail:		Email
-login_not_logedin:		Jūs neiekļuvāt forumā. Par iemeslu tam var būt sekojoši apstākļi:
-login_cookie_expired:		Jūsu Web pārlūka cookie darbības laiks ir beidzies, lai to atjaunotu vēlreiz ielogojieties.
-login_perm_denied:		Jums nav tiesību piekļūt pieprasītajiem resursiem kā anonīmajam lietotājam, tādēļ ienāciet ar reālu foruma dalībnieka Niku un Paroli.
-login_want_to_register:		Vēlaties piereģistrēties?
-login_forgot_passwd:		Esmu aizmirsis paroli.
-login_use_cookie:		Izmantot cookies<br /><font class="SmallText">Gadījumos ja strādājat no publiskajām darbstacijām, skolas, interneta kafejnīcas, vai citiem publiskajiem termināliem, drošības apsvērumu pēc ieteicams šo opciju atslēgt.<br />Atstājot cookies ieslēgtus, nākošais savienojums automātiski atvērs forumu bez nika un parojes ievadīšanas.
-login_login:			Niks
-login_login_btn:		Ieiet
-login_name_required:		Nav norādīts Niks!
-login_passwd_required:		Nav norādīta parole!
-login_invalid_radius:		Neprecīza Nika/Paroles kombinācija!
-reset_confirmation:		Paldies par reģistrāciju,\n\nLai aktivizētu Jūsu reģistrāciju sekojiet norādītajai saitei:\n\n{VAR: url}\n\nPēc aktivizācijas Jūs būsiet reģistrēti foruma dalībnieku datu bāzē un\nnokļusiet foruma galvenajā lapā.\n
-reset_reset:			Sveiki,\n\nJūs pieprasījāt jaunas paroles piešķiršanu. Sekojiet\nsaitei\n\n{VAR: url}\n\nPiezīme: Foruma paroles tiek uzglabātas šifrētā veidā,\nkas nosaka to, ka parole nav pieejama atklāta teksta veidā\npēc tās ievadīšanas. Pēc paroles ievadīšanas tā tiek šifrēta un šifrēšanas rezultāts tiek salīdzināts ar \noriģinālu. (Ja Jūs interesē detalizētāka informācija par MD5 HASH šifrēšanas algoritmu,\nJūs varat izlasīt attīcīgu literatūru)
-rpasswd_invalid_passwd:		Nepareiza parole
-rpasswd_passwd_nomatch:		Paroles nesakrīt
-rpasswd_passwd_length:		Parolei jāsatur minimums 6 simboli
-reset_remind_pass:		Paroles atgādinājums
-reset_reset_conf:		Jūsu parole tiks no jauna izveidota un nosūtīta uz Jūsu E-pasta adresi.
-reset_error:			Datu bāzē E-pasta adreses nav
-rpasswd_change_pass:		Nomainīt paroli
-rpasswd_login:			Lietotājs:
-rpasswd_cur_pass:		Esošā parole:
-rpasswd_new_pass:		Jaunā parole:
-rpasswd_conf_pass:		Jaunā parole (pārbaudei):
-login_passwd:			Parole:
-reset_email:			E-pasts:
-reset_reset_button:		Izveidot jaunu paroli
-rate_this_thread:		Novērtēt
-report_reporting_about:		Paziņojums par publikāciju:
-report_subject:			Tēma:
-report_by:			Autors:
-report_posted_on:		Nosūtīts:
-report_give_reason:		Norādiet, kādēļ vēlaties informēt moderātoru par šo publikāciju:
-report_submit_report:		Informēt
-search_entire_msg:		Visu publikāciju
-search_subect_only:		Tikai tēma
-search_forum:			Forums
-search_posted_on:		Nosūtīšanas datums
-search_no_results:		Rezultātu nav
-search_all_forums:		Visi forumi
-search_in_forum:		Meklēt forumā:
-search_forum_search:		Meklēšana forumos
-move_thread_to:			Pārvietot tēmu <b>{VAR: thr->subject}</b> uz forumu:
-remail_email_topic:		Nosūtīt šo tēmu uz E-pasta adresi
-remail_your_name:		Jūsu vārds:
-remail_your_email:		Jūsu E-pasts:
-remail_friends_name:		Adresāta vārds:
-remail_friends_email:		Adresāta E-pasts:
-remail_required:		obligāti
-remail_subject:			Tēma:
-remail_message:			Publikācija:
-remail_send_now:		Nosūtīt E-pastu
-remail_anon_opt:		Pārkopējiet publikāciju uz E-pasta klienta programmu (pie. Outlook Express), lai pārsūtītu saviem draugiem.
-remail_done:			Gatavs
-remail_sent_conf:		Elektroniskā vēstule uz adresi {VAR-HTML: _POST['femail']} par tēmu {{VAR: data->subject} veiksmīgi nosūtīta.
-remail_error:			Kļūda
-mklist_type:			Tips:
-mklist_option:			Elements:
-mklist_additem:			Pievienot
-mklist_apply:			Izpildīt
-mklist_delete:			Dzēst
-qbud_nick_name:			Pseidonīms
-qbud_add_selected:		Pievienot izvēlēto
-qbud_selected:			Izvēlēts
-qbud_no_buddies:		Saraksts izvēlei ir tukšs
-mklist_numerical:		Nummurēts - cipari
-mklist_aplha:			Nummurēts - burti
-mklist_square:			Aizzīme - kvadrātiņi
-mklist_disc:			Aizzīme - diski
-mklist_circle:			Aizzīme - aplīši
-mklist_close:			Aizvērt
-email_to:			Kam:
-email_pg_title:			Email
-email_subject:			Tēma:
-email_body:			Teksts:
-email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} uzrakstīja {TEMPLATE: ppost_quote_msg_date}
-ppost_quote:			Citāts:
-ppost_to:			Kam:
-ppost_from_buddy_list:		Izvēlēties no kontaktu saraksta
-ppost_find_User:		Lietotāju meklēšana
-ppost_track_msg:		Paziņojums par publikācijas apskati
-ppost_track_msg_desc:		Paziņot man par to, ka adresāts ir iepazinies ar publikāciju.
-ppost_send:			Nosūtīt
-ppost_save_draft:		Saglabāt
-poll_blank_option:		Tukšumu nevar pievienot.
-poll_del_conf:			Lai dzēstu, spiediet OK
-poll_name:			Balsojuma nosaukums:
-poll_timelimit:			Darbības laiks
-poll_maxiumvotes:		Maksimālais balsu skaits
-poll_create:			Izveidot
-poll_update:			Izmainīt
-poll_disablesmilies:		Aizliegt smaidiņus
-poll_create_poll:		Izveidot balsojumu
-poll_update_poll:		Rediģēt balsojumu
-poll_delete:			Dzēst
-poll_updateoption:		Rediģet variantu
-poll_addoption:			Pievienot variantu
-poll_unlimited:			Neierobežots
-poll_day:			diena
-poll_days:			dienas
-poll_hour:			stunda
-poll_hours:			stundas
-poll_month:			mēnesis
-poll_year:			gads
-poll_week:			nedēļa
-tabs_register:			Uzstādījumi
-tabs_subscriptions:		Parakstīšanās
-tabs_referrals:			Uzaicinātie
-tabs_buddy_list:		Kontaktu saraksts
-tabs_ignore_list:		Ignorēto saraksts
-tabs_private_messaging:		Privātā sarakste
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
-delete_proceed:			<font size="3"><b>Vai tiešām? Vai turpināt?</b></font>
-delete_yes:			Jā
-delete_no:			Nē
-error_invalidurl:		Nepieļaujams URL
-error_error:			Kļūda
-usrinfo_profile:		Informācija par lietotāju {VAR: u->alias}
-usrinfo_show_all_posts:		Uzrādīt visas {VAR: u->alias} publikācijas
-actions_update:			Lietotāju meklēšana
-err_info:			Informācija
-buddy_list_err_cantadd:		Pats sevi nevar pievienot kontaktu sarakstā
-buddy_list_err_dup:		Dotais lietotājs jau bija pievienots kontaktu sarakstā agrāk
-buddy_list_err_nouser:		Šāda lietotāja datu bāzē nav.
-buddy_list_err_nouser_title:	Lietotāju pievienot nav iespējams
-buddy_list_update:		Kontaktu saraksta pārskats
-core_err_invinp_title:		Ievade nav atļauta
-core_err_invinp_err:		You&#39;ve followed an invalid link, please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
-core_adm_login_msg:		<br />Administratoriem ieiet <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">šeit</a>
-email_err_unabletoemail_title:	KĻŪDA!!! Nevar nosūtīt E-pastu
-email_err_unabletoemail_msg:	Administrators ir atslēdzis E-pasta nosūtīšanas sistēmu.
-email_error_unabletolocaddr:	Atvainojiet. Nosūtīt paziņojumu {VAR-HTML: _POST['tx_name']} nav iespējams, jo nav zināma adresāta E-pasta adrese
-email_error_body:		Publikācijas teksts ir obligāts
-email_error_subject:		Tēma ir obligāta
-email_error_namerequired:	Vārds ir obligāts
-email_error_invaliduser:	Neatļauts lietotājs
-emailconf_err_invkey_title:	Kļūda
-emailconf_err_invkey_msg:	Neatļauta apstiprinājuma atslēga. Lūdzu `vēlreiz pārbaudiet savu E-pastu un pārliecinieties vai pareizi ievadījāt apstiprinājuma atslēgu.
-err_inc_criticaltitle:		KRITISKA KĻŪDA
-err_inc_criticalmsg:		Jūs konstatējāt problēmu. Diemžēl kļūdu paziņojumu sistēmas darbs patreiz nestrādā korekti.
-finduser_update:		Lietotāju meklēšana
-help_index_update:		Lasīt <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q. (Biežāk uzdotie jautājumi</a>
-iemail_thr_subject:		Jauna atbilde par {VAR: thr_subject} no {VAR: poster_login}
-iemail_thr_bodyemail:		Lai pārskatītu nelasītās atbildes sekojiet\n{VAR: goto_url['email']}\n\nJa nevēlaties saņemt paziņojumus par šo tēmu sekojiet:\n{VAR: unsub_url['email']}
-iemail_frm_subject:		Jauna tēma forumā {VAR: frm_name}, ar nosaukumu {VAR: thr_subject} no {VAR: poster_login}
-iemail_frm_bodyemail:		Lai apskatītu:\n{VAR: goto_url['email']}\n\nJa nevēlaties saņemt paziņojumus tad šeit:\n{VAR: unsub_url['email']}
-ignore_list_err_info_title:	Informācija
-ignore_list_err_dup_msg:	Šis lietotājs jau atrodas ignorēto sarakstā
-ignore_list_err_nu_title:	Lietotājs nav atrasts
-ignore_list_err_nu_msg:		Lietotājs kuru vēlaties ignorēt nav atrasts
-ignore_list_cantign_msg:	Šo lietotāju nevar ignorēt
-ignore_list_update:		Ignorēto saraksta pārskats
-index_update:			Forumu saraksta <a href="{TEMPLATE: index_update_lnk}">pārskats</a>
-list_referers_update:		Uzaicināto saraksta pārskats
-login_update:			Ieiet forumā
-msg_update:			Tēmas <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> apskats
-pm_err_nopm_title:		KĻŪDA: Privātie paziņojumi aizliegti
-pm_err_nopm_msg:		Privāto paziņojumu sistēmu nevar lietot, jo tā ir atslēgta.
-pm_update:			Privātā sarakste
-post_err_lockedthread_title:	KĻŪDA: Tēma ir slēgta
-post_err_lockedthread_msg:	Šī tēma ir slēgta. Publikācijas uz šo tēmu nosūtīt nevar.
-err_coppa_title:		KĻŪDA: Jūsu reģistrācija nav apstiprināta
-err_coppa_msg:			Nav saņemta Jūsu vecāku atļauja. Ja reģistrācijas veidlapa ir nozaudēta <a href="{TEMPLATE: err_coppa_msg_lnk}">spiediet šeit</a> lai to saņemtu vēlreiz.
-post_err_edttimelimit_title:	KĻŪDA
-post_err_edttimelimit_msg:	Jūs vairs nedrīkstat rediģēt šo publikāciju
-post_err_floodtrig_title:	KĻŪDA: Konstatēts masīvs nosūtīšanas mēģinājums.
-post_err_floodtrig_msg:		Atkārtojiet mēģinājumu pēc {VAR: tm} sekundēm
-post_err_attach_size:		<font class="ErrorText">Fails par lielu (pārsniedz atļauto lielumu {VAR: MAX_F_SIZE} byte)</font><br />
-post_err_attach_ext:		<font class="ErrorText">Ielādētais fails neatbilst nevienam atļautajam faila tipam.</font><br />
-post_err_attach_filelimit:	<font class="ErrorText">Mēģinājums ielādēt vairāk failu far pieļaujamo skaitu.</font><br />
-post_err_passwd:		Kļūdaina parole.
-post_reply_update:		Atbilde publikācijai <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> forumā {VAR-HTML: frm->name}
-post_topic_update:		Jaunas tēmas izveidošana <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>forumā
-post_error_generic:		Kļūda
-postcheck_max_images_err:	Samaziniet bilžu skaitu publikācijā līdz {GVAR: MAX_IMAGE_COUNT}
-postcheck_subj_needed:		Norāde uz tēmu ir obligāta
-postcheck_no_such_user:		Šajā forumā nav lietotāja ar niku "{FUNC: char_fix(htmlspecialchars($v))}"
-postcheck_ignored:		Šim lietotājam "{FUNC: char_fix(htmlspecialchars($v))}" nosūtīt privāto vēstuli nevarat, jo viņš Jūs ir iekļavis ignorējamo sarakstā.
-postcheck_no_recepient:		Nevar nosūtīt ziņojumu ja nav norādīts adresāts
-postcheck_invalid_email:	Ievadiet pareizu E-pasta adresi.
-postcheck_email_subject:	Nevar nosūtīt bez tēmas norādīšanas.
-postcheck_email_body:		Nevar nosūtīt bez publikācijas teksta.
-private_msg_notify_subj:	Paziņojums par: {VAR: m->subject}izlasīšanu
-private_msg_notify_body:	Sveiki <br />{VAR: usr->login}. Izlasīju Jūsu ziņu "{VAR: m->subject}" {TEMPLATE: private_msg_notify_body_date}<br />
-referals_update:		Uzaicināto saraksts
-register_err_short_login:	Pārāk maz simbolu. Minimālais simbolu skaits nikā – 4 simboli
-register_err_login_notallowed:	Izvēlētais niks nav pieejams vai atļauts
-register_err_loginunique:	Nikam jābūt unikālam un Jūsu izvēlētais niks jau ir reģistrēts sistēmā citam lietotājam
-register_err_emailexists:	Lietotājs ar tādu E-pasta adresi jau eksistē. Ja esat aizmirsis paroli izmantojiet funkciju paroles atjaunošanai.
-register_err_shortpasswd:	Parolei jāsatur vismaz 6 simboli
-register_err_passwdnomatch:	Ievadītās paroles nesakrīt.
-register_err_invalidemail:	Ievadītā E-pasta adrese nesakrīt ar Jūsu E-pasta adresi.
-register_err_needname:		Lai pabeigtu reģistrāciju ievadiet savu vārdu.
-register_err_enterpasswd:	Ievadiet paroli lai izmaiņas tiktu reģistrētas.
-register_err_adminpasswd:	Ievadiet Administratora paroli lai izmaiņas tiktu reģistrētas
-register_err_notyouremail:	Sistēmā jau ir reģistrēts lietotājs ar tādu E-pasta adresi un tā pieder viņam nevis Jums
-register_err_avatartobig:	Jūsu ielādētais nozīmītes fails ir pārāk liels, maksimāli pieļaujamais nozīmīšu faila izmērs ir {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
-register_err_avatarnotallowed:	Ielādētais nozīmītes fails neatbilst nevienam pieļaujamajam failu formātam.
-register_conf_subject:		Reģistrācijas apstiprinājums
-register_conf_msg:		Jūs esat pereģistrēts,\nLai apstiprinātu sava nika reģistrāciju sekojiet saitei:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTiklīdz reģistrācija tiks aktivizēta, Jūs automātiski ieiesiet foruma\ngalvenajā lapā.
-register_welcome_subject:	Foruma reģistrācijas apliecinājums
-register_welcome_msg:		Paldies par reģistrāciju,\n\nZemāk informācija par Jūsu reģistrāciju:\n\nforuma URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nParole: {VAR: _POST['reg_plaintext_passwd']}\n\nAtcerieties, paroles ir reģistra jūtīgas!\nSavus privātos uzstādījumus jūs variet rediģēt šeit:\n{FULL_ROOT}{ROOT}?t=register\n
-register_err_cantreg_title:	KĻŪDA! Reģistrācija nav iespējama
-regsiter_err_cantreg_msg:	Nevar piereģistrēt šo lietotāju. Lūdzu paziņojiet Administratoram <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-register_profile_update:	Personīgo uzstādījumu un datu pārskats
-register_register_update:	Reģistrācijas lapa
-report_err_nosuchmsg_title:	KĻŪDA
-report_err_nosuchmsg_msg:	Neesoša publikācija
-reset_err_invalidkey_title:	KĻŪDA
-reset_err_invalidkey_msg:	Nepareiza paroles nomaiņas atslēga
-reset_err_rstconf_title:	Informācija
-reset_err_rstconf_msg:		Instrukcijas nosūtītas uz Jūsu E-pastu un tās Jūs saņemsiet pēc dažām minūtēm
-reset_newpass_title:		Paroles nomaiņa
-reset_newpass_msg:		Sveiki,\n\nUz Jūsu pieprasījumu tiek nosūtīta informācija par Jūsu <b>Niku</b> un <b>Paroli</b>.\nJūsu reģistrācijas dati:\n\nNiks: {VAR: ui[1]}\nParole: {VAR: passwd}\n\nAtcerieties, ka Jūsu vecā parole ir nomainīta ar šeit uzrādīto un tā pašreiz nav derīga. Ja\nJūs vēlaties to nomainīt, tad to varat izdarīt vadības panelī:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Jūsu jaunā parole ir nosūtīta uz Jūsu E-pastu un to Jūs saņemsiet pēc dažām minūtēm. Lūdzu pārbaudiet savu E-pasta kastīti..<br />.<br />.<br />
-search_update:			Publikāciju meklēšana
-selmsg_update:			Šodienas <a href="{TEMPLATE: selmsg_update_lnk}">publikāciju pārskats</a>
-showposts_update:		Visu <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>publikāciju pārskats
-subscribed_update:		Personīgās sarakstes pārskats
-thread_update:			Foruma <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>apskate
-tree_update:			Foruma <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>apskate hierarhija koka veidā
-userinfo_update:		Peronīgās informācijas <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>apskats
-ERR_disabled_ttl:		Darbība nav iespējama
-ERR_disabled_msg:		Šī darbība ir atslēgta un pašreiz nav pieejama
-ERR_access_ttl:			KĻŪDA: Nepietiekošs piekļuves līmenis
-ERR_access_msg:			Jums piešķirtās tiesības neatļauj pieprasīto darbību izpildi
-ERR_registration_disabled_ttl:	Reģistrācija atslēgta
-ERR_registration_disabled_msg:	Dotajā brīdī reģistrācija ir liegta. Lūdzu mēģiniet vēlreiz, bet vēlāk.
-ERR_emailconf_ttl:		KĻŪDA: Jūsu reģistrācija nav apstiprināta
-ERR_emailconf_msg:		Jūs neesat akceptējis reģistrāciju no E-pasta<br /><table border="0"><tr><td><ol><li>Ja neesat saņēmis reģistrācijas apliecinājuma E-pastu <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">spiediet šeit</a><li>Ja {VAR: usr_d->email} nav Jūsu E-pasta adrese <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">spediet šeit</a></ol></td></tr></table>
-ERR_user_ttl:			KĻŪDA: Neesošs lietotājs
-ERR_user_msg:			Tāda lietotāja datu bāzē nav
-ERR_systemerr_ttl:		KĻŪDA: Sistēmas kļūda
-ERR_systemerr_msg:		Sistēmas kļūda, paziņojiet par to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>&#39;?.
-email_title:			E-pasta paziņojums
-finduser_title:			Lietotāju meklēšana
-help_title:			F.A.Q.
-login_title:			Ieeja forumā
-msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-poll_title:			Balsojumu redaktors
-register_title:			Reģistrācija
-reset_title:			Paroles nomaiņa
-rpasswd_title:			Nomainīt paroli
-error_title:			Kļūda
-index_title:			Laipni lūdzam mūsu forumā
-search_title:			Meklēt {VAR-HTML: srch}
-thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-remail_emailsent:		E-pasts nosūtīts
-remail_email:			Sveiki,\n\nForumā "{GVAR: FORUM_TITLE}" publicētas ziņas par tēmu "{VAR: data->subject}", kas pēc manām domām varētu Jūs interesēt. Šīs ziņas Jūs varat izlasīt šeit:\n\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ar cieņu,\n\n{VAR: usr->alias}\n
-poll_add_option:		Pievienot variantu:
-post_opt_html_on:		<b>HTML</b> - <b>ieslēgts</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> - <b>ieslēgts</b></a>
-post_opt_images_on:		<b>Nozīmītes</b> - <b>ieslēgtas</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smaidiņi</b> - <b>ieslēgti</b></a>
-post_opt_html_off:		<b>HTML</b>  - <b>izslēgts</b>
-post_opt_fud_off:		<b>BBcode</b> - <b>izslēgts</b>
-post_opt_images_off:		<b>Nozīmītes</b> - <b>izslēgtas</b>
-post_opt_smilies_off:		<b>Smaidiņi</b> - <b>izslēgti</b>
-post_opt:			Foruma parametri
-register_change_passwd:		nomainīt paroli
-approved_avatar_title:		Jūsu nozīmīte apstiprināta.
-approved_avatar_msg:		Jūsu nozīmīte ir apstiprināta un tai jābūt redzamai. Iespējams Jūsu Web pārlūks attēlo novecojušu lapas saturu no kešatmiņas, tādēļ atjaunojiet to.
-unapproved_avatar_title:	Jūsu nozīmīte nav apstiprināta.
-unapproved_avatar_msg:		Administrators neapstiprināja Jūsu nozīmīti. Iespējams ka tā bija pārāk liela izmēra. Lai saņemtu papildiformāciju sakarā ar šādu lēmumu sazinieties ar Foruma Administratoru.
-mvthread_request_move:		Pieprasīt pārvietošanu
-move_request_reason:		Kādēļ Jūs vēlaties pārvietot tēmu?
-mvthread_submit_req:		Nosūtīt pieprasījumu
-thread_exchange:		Tēmas pārvietošana
-move_request_by:		Tēmas pārvietošanu pieprasīja:
-move_reason:			Pārvietošanas iemesls:
-thr_exch_accept:		apstiprināt
-thr_exch_decline:		noraidīt
-thr_exch_orig_forum:		Izejošais forums:
-thr_exch_dest_forum:		Forums pārvietošanai:
-thr_exch_no_threads:		Nav tēmu uz apstiprināšanu.
-thr_exch_decl_reason:		Tēmas <b>{VAR-HTML: frm->name}</b> pārvietošanas uz <b>{VAR-HTML: frm->name}</b>forumu iemesls
-thr_exch_submit:		Turpināt
-exch_decline_ttl:		Tēmas {VAR: data->subject} pārvietošana uz {VAR-HTML: data->f2_name} forumu noraidīta.
-ppost_original_msg:		publicējums kuru pārsūtat vai uz kuru atbildat
-split_thread:			Sadalīt tēmu
-groupmgr_no_user:		Lietotājs "{FUNC: char_fix(htmlspecialchars($gr_member))}" neeksistē
-groupmgr_already_exists:	Lietotājs "{FUNC: char_fix(htmlspecialchars($gr_member))}" jau ir piederīgs šai grupai.
-groupmgr_yes:			Jā
-groupmgr_no:			Nē
-groupmgr_action:		Darbība
-groupmgr_member:		Lietotāji
-groupmgr_cancel:		Atcelt
-groupmgr_add_member:		Pievienot lietotāju
-groupmgr_update_member:		Veikt izmaiņas lietotāja ID
-groupmgr_edit:			Labot
-groupmgr_delete:		Dzēst
-group_mgr_anon:			Anonīmie
-group_mgr_reged:		Reģistrētie
-show_show:			Rādīt:
-group_mgr:			Grupas menedžeris
-group_mgr_edit_btn:		Labot grupu
-group_mgr_heading:		Izvēlēties grupu labošanai
-group_mgr_group:		Grupa:
-permission_denied_title:	Piekļuve noraidīta!
-permission_denied_msg:		Jums nav tiesību veikt pieprasītās operācijas.
-p_READ:				Lasīt
-p_POST:				Rakstīt
-p_REPLY:			Atbilde
-p_EDIT:				Labot
-p_DEL:				Dzēst
-p_STICKY:			Stycky
-p_POLL:				Izveidot<br />balsojumu
-p_FILE:				Failu<br />ievietošana
-p_VOTE:				Balsot
-p_RATE:				Tēmu<br />novērtējums
-p_SPLIT:			Tēmu<br />sadalīšana
-p_LOCK:				Tēmu<br />slēgšana
-p_MOVE:				Tēmu<br />pārvietošana
-p_SML:				Smaidiņi
-p_IMG:				Nozīmīšu<br />tegi
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Lietotāja meklēšana</a>
-group_mgr_indicator:		Grupa labošanai: <b>{VAR: grp->name}</b>
-rate_worst:			Tā pat vien
-rate_best:			Labākā
-post_quote_msg:			{VAR: msg->login} rakstīja {TEMPLATE: make_report_date}
-post_quote:			Citāts:
-userinfo_referals:		Uzaicinājums:
-userinfo_referals_count:	{VAR: referals} lietotāju
-pm_no_space_title:		Nepietiek brīvas vietas!
-pm_no_space_msg:		Jūsu privātās informācijas mapju apjoms <b>{VAR: fldr_size} bytes pārsniedz pieļaujamo <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes apjomu.<br /><br /><font class="ErrorText">Izdzēsiet lieko informāciju!!!</font>.
-pm_space_indct_msg:		Jūsu privātās informācijas mapes aizņem {VAR: percent_full}% no atļautā apjoma.
-th_expr_never:			Nekad
-th_expr_one_hr:			1 stunda
-th_expr_three_hr:		3 stundas
-th_expr_four_hr:		4 stundas
-th_expr_eight_hr:		8 stundas
-th_expr_sixteen_hr:		16 stundas
-th_expr_one_day:		1 dienu
-th_expr_two_day:		2 dienas
-th_expr_four_day:		4 dienas
-th_expr_one_week:		1 nedēļu
-th_expr_two_week:		2 nedēļas
-th_expr_one_month:		1 mēnesi
-th_expr_two_month:		2 mēnešus
-th_expr_four_month:		4 mēnešus
-th_expr_one_year:		1 gadu
-thread_mod_delete:		Dzēst
-action_latest_post:		Pēdējā publikācija
-online_today_last_visit:	Pēdējais apmeklējums
-online_today_update:		Šodienas apmeklētāju saraksts.
-logedin_todays_visitors:	Šodienas apmeklētāji
-logedin_latest_post:		Pēdējās publikācijas forumā: 
-register_show_avatar:		Rādīt nozīmītes:
-register_show_avatar_desc:	Rādīt lietotāju nozīmītes apskatot viņu publikācijas
-drawmsg_view_rest_post:		Rādīt pārējo
-forumsel_goto_forum:		Pāriet uz forumu:
-minimsg_thread_view:		Tēmas apskats
-split_th_post_by:		Sūtītājs
-split_th_posted_on:		Nosūtīts:
-split_th_subject:		Tēma:
-split_th_new_thread_title:	Jaunās tēmas nosaukums:
-split_th_forum:			Forums:
-split_th_split_sel:		Sadalīt iezīmētās publikācijas
-split_th_split_unsel:		Sadalīt neiezīmētās publikācijas
-split_th_messages:		Publikācijas
-split_th_select:		Izvēle
-report_report_post:		Paziņojumi
-quicklogin_login:		Vārds
-quicklogin_password:		Parole
-quicklogin_use_cookies:		Izmantot Cookies?
-quicklogin_login_btn:		Ieiet
-post_notification_desc:		Paziņot man par ienākošajām atbildēm uz publikāciju.
-maximize_category:		Izplest kategoriju
-no_view_perm:			Jums nav piekļuves tiesību šai tēmai.
-report_empty_report:		Tukšumu nav vērts un arī nevar nosūtīt.
-report_already_reported_title:	Paziņojums nosūtīts
-report_already_reported_msg:	Materiāls jau ir rindā uz akceptēšanu publicēšanai.
-register_err_toomanyimages:	Pārāk daudz nozīmīmīsu. Samaziniet to skaitu: {GVAR: FORUM_IMG_CNT_SIG}.
-pmsg_next_msg:			Nākošā publikācija
-pmsg_prev_msg:			Iepriekšējā publikācija
-post_proc_reveal_spoiler:	Norādiet traucēkļus
-register_jabber:		Tīkla Jabber pseidonīms:
-forum_contact:			Webmaster
-forum_home:			Sākums
-post_cur_attached:		{VAR: i} pievienotie faili
-ignored_anon_post:		{GVAR: ANON_NICK} ignorēts
-ignored_user_post:		Ziņojums no <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ignorēts
-smladd_close_window:		aizvērt logu
-post_list_smilies:		rādīt visus smaidiņus
-p_VISIBLE:			Redzams
-reported_in_thread:		No Tēmas
-help_back_to_top:		atgriezt uz augšu
-help_return_to_index:		Atgriezties uz galveno HELP lapu
-imsg_err_message_title:		Nepieļaujama publikācija
-imsg_err_message_msg:		Jūsu izvēlētās publikācijas nav.
-poll_edit:			Labot
-register_err_not_valid_img:	Norādītajā URL nozīmītes nav
-pmsg_recepient:			Saņēmējs
-register_err_taken_alias:	Pseidonīms kuru vēlaties izmantot ir aizņemts, nomainiet to.
-register_alias:			Pseidonīms
-register_alias_desc:		Ja jūs, atrodoties sistēmā, sava nika vietā vēlaties izmantot pseidonīmu, tad ierakstiet to šeit.
-register_allow_pm_msg:		Atļaut privātos ziņojumus
-register_allow_pm_msg_desc:	Atļaut citiem lietotājiem privāto ziņojumu nosūtīšanu Jums.
-postcheck_pm_disabled:		Jūs nevarat nosūtīt privāto paziņojumu "{VAR-HTML: v}", jo šis dalībnieks to ir aizliedzis.
-polllist_vote:			Balsot
-polllist_view_results:		Rezultāti
-polllist_name:			Balsošanas tēma
-polllist_date:			Izveidots
-polllist_owner:			Autors
-polllist_votes:			Balsis kopā
-polllist_action:		Darbības
-polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Pieejamo balsojumu saraksts</a>
-userinfo_polls:			Balsojumi:
-show_pollist:			Parādīt balsojumus
-search_desc_order:		Dilstoši
-search_asc_order:		Augoši
-search_logic:			Loģiskie argumenti:
-search_sorting:			Pēc datuma:
-post_proceed:			Turpināt
-post_moderated_forum:		Publikācija nosūtīta modērējamajai tēmai, līdz ar to tā tiks publicēta tikai pēc moderātora akcepta.
-post_moderated_forum_ttl:	Moderējamais forums
-buddy_list_bday:		Šodien {VAR: r[2]} izpildē {VAR: age}
-email_warning_msg:		Jūsu E-pasta adreses izmaiņas gadījumā Jūsu konta reģistrācija tiks uzrādīta kā neapstiprināta. Apstiprināšana notiks tikai pēc reģistrācijas akcepta no Jūsu jaunās E-pasta adreses.
-register_show_im:		Uzrādīt tīkla On-Line indikātorus
-register_show_im_desc:		Uzrādīt publikācijās autora On_Line indikātorus ICQ, AIM u.c. tīklos.
-unread_message:			Publikācija lasīta
-read_message:			Publikācija nav lasīta
-threadt_more:			&lt;tālāk&gt;
-threadt_disabled_ttl:		Publikāciju hierarhijas koka pārlūks ieslēgts.
-threadt_disabled_desc:		Publikāciju hierarhijas koka pārlūks izslēgts. Izmantojiet izplāto pārlūku.
-threadt_update:			Koka pārlūks <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
-register_msg_tree_view:		Izplāti forumi/Tēmas koka skatā
-register_tree_msg_view:		Koka skata forumi/Izplātas tēmas
-mmod_delete_cofirm_ttl:		Tēmas/Publikācijas dzēšanas apstiprinājums
-spell_alts:			variantu nav
-pm_err_disabled_title:		Privātā sarakste atslēgta
-usrinfo_last_visit:		Pēdējais apmeklējums:
+# Messages for Latvian (Latviešu)
+# Exported from translatewiki.net
+
+action:Darbība
+add_to_buddy_list:pievienot kontaktu sarakstam
+admin:Admins
+admin_control_panel:Administratīvais centrs
+administrator:Administrators
+attachment:Pielikums:
+avatar:Bildītes:
+# Fuzzy
+average_post_count:{VAR: u->posted_msg_count} (vidēji {VAR: avg} dienā)
+biography:Biogrāfija:
+birth_date:Dzimšanas datums:
+by:No:
+by_mod:no moderātora
+current_time:Tekošais laiks
+custom_avatar_queue:Citas bildītes
+date_posted:Nosūtīšanas datums
+date_registered:Reģistrācijas datums:
+# Fuzzy
+download_counter:{VAR: v[3]} reizes ielādēts
+email:E-pasts:
+email_to_friend:Nosūtīt E-pastu
+email_to_friend_desc:Nosūtīt URL-saiti par šo ierakstu pa E-pastu
+# Fuzzy
+email_user:Nospied lai nosūtītu E-pastu
+faq:F.A.Q.
+first_unread_msg:Pāriet uz nelasītajiem paziņojumiem
+first_unread_msg_desc:Pāriet uz pirmo nelasīto šajā tēmā
+flat_view:Pāriet uz noklusēto izplāto skatu
+forum:Forums:
+forum_icon:Foruma nozīmīte
+forum_new_messages:Jaunie ieraksti
+forum_none_messages:Tikai piereģistrētie lietotāji var pārlūkot un lasīt &amp; jaunos ierakstus
+forum_old_messages:Jaunu ierakstu nav
+from:No:
+gender:Dzimums:
+go:Pāriet
+goto_next_msg:Pāriet uz nākošo ierakstu
+goto_prev_msg:Pāriet uz iepriekšējo ierakstu
+home:Sākums
+homepage:Saite uz mājas lapu:
+icq_message_form:Nosūtīt ICQ paziņojumu
+ignore_user:ignorēt visus paziņojumus<br /> no šī lietotāja
+im_aim:AIM tīkls:
+im_msnm:MSN tīkls:
+im_yahoo:Yahoo tīkls:
+image:Bildīte:
+index_forum:Forums
+index_new_posts:Saņemti jauni ieraksti
+index_no_new_posts:Jaunu ierakstu nav
+interests:Intereses:
+last_post:Pēdējie
+last_thread_msg:Pāriet uz šīs tēmas pēdējo ierakstu
+legend:Leģenda:
+location:Dzīves vieta:
+lock_thread:Slēgt tēmu
+locked:Tēma slēgta
+locked_with_new_posts:Ir nelasīti ieraksti slēgtajā tēmā
+logged_in_list:Šobrīd forumā
+login:Ieiet
+login_header:Lietotājs:
+logout:Iziet
+mark_all_read:Visus ierakstus iezīmēt kā lasītus
+mark_all_read_desc:Visi ieraksti iezīmēti kā lasīti
+members:Lietotāji
+message:Ieraksts
+# Fuzzy
+message_counter:Mūsu lietotājiem nosūtīti <b>{VAR: post_count}</b> paziņojumi pa <b>{VAR: thread_count}</b> tēmām.
+message_index:Ierakstu saraksts
+message_index_desc:Saraksta pārskats
+minimize_category:Sakļaut kategoriju
+moderator:Moderātors
+moderator_of:Moderējamie forumi:
+moderator_options:Moderātora funkcijas
+# Fuzzy
+moderators:Moderātori
+more_unread_messages:pārējie nelasītie ieraksti
+more_unread_messages_desc:Parādīt pārējos nelasītos ierakstus un atzīmēt aktivizēto kā lasīto
+move_thread:Pārvietot
+moved:Tēma pārvietota uz citu forumu
+moved_thread_message:Šī tēma ir pārvietota uz citu forumu
+new_posts:Jaunie ieraksti
+# Fuzzy
+new_private_messages:Saņemti un nelasīti<span class="GenText" style="color: #ff0000">({VAR: c})</span> ieraksti
+new_thread:Izveidot jaunu tēmu
+newest_user:Pēdējais reģistrētais lietotājs:
+next_page:Nākošā lapa
+next_thread:Nākošā tēma:
+no_messages:Šajā forumā nav jaunu ierakstu.
+no_msg_body:Nav teksta ieraksta
+no_new_posts:Nav jaunu ierakstu
+no_posts:Nav ierakstu
+no_subscribed_forums:Nav izvēlētu forumu
+no_subscribed_threads:Izvēlē nav tēmu
+no_unread_locked:Šī tēma ir slēgta
+no_unread_msg:Šajā tēmā nav nelasītu ierakstu
+no_unread_msg_unreg:Lasītu vai nelasītu ierakstu pārskats pieejams tikai reģistrētiem lietotājiem
+num_pages:({VAR: ttl_pg})lapas:
+# Fuzzy
+num_votes:{VAR: obj->total_votes} balsis:
+occupation:Nodarbošanās:
+page_timings:{VAR: page_gen_time} sekundes patērētas lapas ģenerēšanai
+pm:Privātā sarakste
+poll:Balsojumi:
+post_count:{VAR: u_pcount}ieraksti
+post_count_l:Ierakstu skaits:
+posts:Ieraksti
+posts_c:Ieraksti:
+prev_thread:Iepriekšējā tēma:
+usrinfo_private_message:Privātā vēstule:
+profile:Uzstādījumi
+# Fuzzy
+profile_desc:Nospiest lai pārietu uz vadības paneli
+rate_thread:Novērtēt tēmu
+refresh_list:Atjaunot sarakstu
+register:Reģistrācija
+registered:Piereģistrēts:
+registered_on:Reģistrācijas datums: {TEMPLATE: registered_on_date}
+replies:Atbildes
+report_to_mod:Paziņojums moderātoram
+reported_messages:Paziņojumi par ierakstiem
+reveal_all_posts:Uzrādīt visus {VAR: user_login} ierakstus
+reveal_post:Parādīt ierakstus
+search:Meklēt
+sel_todays_posts:Šodienas ieraksti
+sel_todays_posts_desc:Uzrādīt tikai šodienas ierakstus
+sel_unanswered_posts:Ieraksti bez atbildēm
+sel_unanswered_posts_desc:Uzrādīt tikai ierakstus bez atbildēm
+sel_unread_messages:Nelasītie ieraksti
+sel_unread_messages_desc:Uzrādīt tikai nelasītos ierakstus
+send:Nosūtīt
+send_pm_desc:Nosūtīt privāto vēstuli
+sender_email:Autora E-pasts:
+sender_name:Autora vārds:
+show_posts_by:Uzrādīt ierakstus kurus iesūtīja: {VAR: u_alias}
+size:Izmērs:
+status:Statuss:
+# Fuzzy
+status_line:Šobrīd forumos <b>{VAR: st_obj->online_users_reg}</b>lietotāji, <b>{VAR: st_obj->online_users_hidden}</b>neredzamie, <b>{VAR: st_obj->online_users_anon}</b>viesi.
+sticky:Sticky:
+stop_ignoring:pārtraukt lietotāju ignorēšanu
+sub_to_thread:Pierakstīties tēmā
+sub_to_thread_desc:Saņemt paziņojumus par jauniem ierakstiem šajā tēmā
+subject:Tēma
+subscribe:Pierakstīties forumā
+subscribe_desc:Saņemt paziņojumus par izveidotajām jaunajām tēmām šajā forumā
+subscribed_forums:Pierakstītie forumi
+subscribed_forums_desc:Uzrādīt ierakstus tikai no pierakstītiem forumiem
+subscribed_threads:Pierakstītās tēmas
+subscribed_threads_desc:Uzrādīt ierakstus tikai no pierakstītajām tēmām
+switch_to_thread_view:Uzrādīt ierakstus un atbildes hierarhijas koka veidā
+thread:Tēma:
+thread_announcement:Sludinājums:
+# Fuzzy
+thread_first_unread_msg:Uz pirmo nelasīto ierakstu šajā tēmā
+thread_thread:Tēma
+threads:Tēmas
+time:Laiks
+todays_posts:Šodienas ieraksti
+todays_posts_desc:Uzrādīt šodien nosūtītos ierakstus
+un_ignore_user:pārtraukt ignorēt ierakstus no
+unanswered_posts:Ieraksti bez atbildes
+unanswered_posts_desc:Uzrādīt visus ierakstus bez atbildēm
+unlock_thread:Atvērt tēmu
+unread_msg:Šajā tēmā ir nelasītie ieraksti
+unread_msg_locked:Slēgtā tēma ar nelasītajiem ierakstiem
+unread_posts:Nelasītie ieraksti
+unread_posts_desc:Rādīt visus nelasītos ierakstus
+unsub_from_thread:Atteikties no tēmas
+unsub_from_thread_desc:Pārtraukt paziņojumu nosūtīšanu par jaunumiem šajā tēmā
+unsubscribe:Atteikties no foruma
+unsubscribe_desc:Pārtraukt paziņojumu nosūtīšanu par jaunumiem šajā forumā
+updated_on:Jauninājumi:
+user:Lietotājs:
+# Fuzzy
+user_counter:<b>{VAR: st_obj->user_count}</b> reģistrētie lietotāji.
+user_info:Info par lietotāju
+user_info_l:Info par {VAR: u->alias}
+user_offline:{VAR: obj->login} šobrīd nav On-Line režīmā
+user_online:{VAR: obj->login} šobrīd On-Line režīmā
+usrinfo_last_post:Pēdējais ieraksts:
+view_results:Rezultātu pārskats
+views:Pārskati
+# Fuzzy
+vote:{VAR: frm->n_rating}balsis
+vote_button:Balsot
+vote_for_thread:Novērtējums
+# Fuzzy
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> moderātors pārcēla uz forumu <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
+welcome_message:Sveiki <b><u>{VAR: usr->alias}</u></b>, prieks Jūs atkal redzēt kopš {TEMPLATE: welcome_message_date}
+what_ppl_doing:parādīt ko kurš dara
+reported_del_report:Dzēst atskaiti
+reported_reason:Iemesls
+reported_on:Paziņojuma datums:
+reported_reported_by:Paziņojums no:
+reported_reported_msg:Paziņojums par ierakstu
+modque_pending_approval:Ieraksti uz apstiprinājumu
+modque_approve:Apstiprināt
+modque_delete:Dzēst
+modque_no_message:Nav ierakstu uz apstiprināšanu
+pmsg_new_messages:Nelasīta privātā vēstule
+pmsg_old_messages:Lasītā privātā vēstule
+deny_recipt:Aizliegt paziņojumus
+deny_recipt_desc:Nesūtīt paziņojumu autoram par to, ka esat lasījis
+restore_to:Atjaunot:
+move_to:Pārvietot:
+list_referes_referrals:Uzaicināti
+list_referes_members:Uzaicinātie lietotāji
+list_referes_member:Lietotājs
+referals_none:Neviens nav uzaicināts.
+referals_refered_by:Uzaicinātie lietotāji <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Ieraksti
+referals_registered_on:Reģistrācijas datums
+referals_action:Darbība
+pmsg_all:Viss
+pmsg_none:Nē
+folder:Mape:
+pmsg_replied:atbildēts
+pmsg_forwarded:labots
+pmsg_subject:Tēma
+pmsg_author:Autors
+pmsg_time:Laiks
+pmsg_selected:Izvēlēts
+pmsg_delete:Dzēst
+cur_ppage_pm:Privātais pasts
+writing_pm:Izveidot privāto vēstuli
+browsing_folder:Pārskatīt mapi <b>{VAR: folders[$folder_id]}</b>
+inbox:Ienākošās
+draft:Melnraksti
+sent:Nosūtītās
+trash:Papīrgrozs
+msg_author:Autors
+avatar_sel_form:Nozīmītes izvēle
+no_avatars:Nav brīvu nozīmīšu
+month_1:Janvāris
+month_2:Februāris
+month_3:Marts
+month_4:Aprīlis
+month_5:Maijs
+month_6:Jūnijs
+month_7:Jūlijs
+month_8:Augusts
+month_9:Septembris
+month_10:Oktobris
+month_11:Novembris
+month_12:Decembris
+male:Vīrietis
+female:Sieviete
+unspecified:Nekatrais
+register_tree_view:Hierarhijas koka skats
+register_msg_tree_view:Izplāti forumi/Tēmas koka skatā
+register_tree_msg_view:Koka skata forumi/Izplātas tēmas
+register_flat_view:Izplātais skats
+use_forum_default:Izmantot foruma noklusējumuzstādījumus
+finduser_user_info:Info par lietotāju
+finduser_by_login:Pēc vārda:
+finduser_submit:Meklēt
+finduser_no_such_user:Neesošs lietotājs
+finduser_user:Lietotājs
+finduser_postcount:Ieraksti
+finduser_joindate:Pieslēgšanās datums
+finduser_action:Darbības
+yes:Jā
+no:Nē
+edit_time_limit:<b>Izmaiņu veikšanas periods</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minūtes
+no_edit_time_limit:<b> Izmaiņu veikšanas periods </b>: <b>Nelimitēts</b>
+pmuserloc_login:Vārds:
+pmuserloc_submit:Meklēt
+pmuserloc_user:Lietotājs
+pmuserloc_no_result:Nekas nav atrasts
+register_builtin:Iebūvēta
+register_specify_url:Norādīt URL
+register_uploaded:Ielādēt nozīmīti
+register_login:Lietotāja vārds:
+register_password:Parole:
+register_conf_pass:Atkārtot paroli:
+register_email_desc:Ievadiet savu reālo E-pasta adresi. To apslēp varēsiet uzstādījumos zemāk.
+register_name:Vārds:
+register_your_pass:Jūsu parole:
+register_update:Atjaunot
+register_avatar_type:Personīgās nozīmītes tips:
+register_del_avatar:Dzēst nozīmīti
+register_avatar:Privātā nozīmīte:
+register_sel_avatar:Izvēlēties nozīmīti
+register_custom_avatar_rules:Ārējā nozīmīte netiks attēlota kāmēr to neapstiprinās foruma administrators.<br /><font class="SmallText">Nozīmītes lielums nedrīkst būt lielāks par <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikseļiem</b> un tai jābūt <b>jpg</b>, <b>gif</b> vai <b>png</b> formātā.</font>
+register_custom_avatar_url:Nozīmītes URL:
+register_preview:Priekšapskate
+register_custom_avatar_upload:Nozīmītes fails:
+register_register:Reģistrācija
+register_required:Obligātā informācija
+register_required_desc:Visi lauki ir obligāti jāaizpilda. Atcerieties, ka paroles ir reģistra jūtīgas.
+register_optional:Papildus informācija
+register_optional_desc:Nav vēlams pārlieki izplūst.
+register_location:Dzīves vieta:
+register_occupation:Nodarbošanās:
+register_interests:Intereses:
+register_image:Nozīmīte:
+register_icq:ICQ
+register_aim:AIM pseidonīms:
+register_yahoo:Yahoo tīkls:
+register_msnm:MSN tīkls:
+register_homepage:Mālas lapas URL:
+register_bday:Dzimšanas datums:
+register_bday_desc:Uzrādot dzimšanas datumu tas būs redzams foruma lietotājiem.
+register_day:Diena
+register_month:Mēnesis
+register_year:Gads
+register_gender:Dzimums:
+register_bio:Biogrāfija:
+register_bio_desc:Dažas papildus detaļas par Jums
+register_prefs:Privātie uzstādījumi
+register_sig:Paraksts:
+register_sig_desc:Neobligātais paraksts. Tiks pievienots Jūsu sūtījumiem.
+register_def_thread_view:Noklusētais tēmu skats:
+register_msg_per_page:Ieraksti lapā:
+register_show_sig:Uzrādīt pierakstus:
+register_show_sig_desc:Atļauj Jums ieslēgt/atslēgt citu lietotāju reģistrācijas-pierakstus
+register_use_sig_default:Pielietot pierakstus pēc noklusējuma:
+register_use_sig_default_desc:Automātiski pievienot pierakstu ikvienam nosūtītajam ziņojumam
+register_timezone:Laika josla:
+register_ignore_admin:Ignorēt administrācijas paziņojumus:
+register_invisible_mode:Neredzamības režīms:
+register_invisible_mode_desc:Apslēpj Jūsu darbības citiem lietotājiem.
+register_show_email:Uzrādīt E-pasta adresi:
+register_show_email_desc:Ieslēgt, lai citi lietotāji redzētu Jūsu E-pasta adresi.
+register_notification:Ieslēgt paziņojumus pēc noklusējuma:
+register_notification_desc:Šo režīmu var atslēgt pirms ziņojuma nosūtīšanas.
+register_notify_method:Ziņojuma nosūtīšanas metode:
+register_allow_email_msg:Atļaut ziņojumu nosūtīšanu uz E-pasta adresi:
+register_allow_email_msg_desc:Atļauj citiem lietotājiem nosūtīt ziņojumus no foruma uz Jūsu E-pasta adresi.
+buddy_status:Statuss
+my_buddies:Kontaktu saraksts
+add_buddy:Pievienot kontaktu sarakstam
+add:Pievienot
+buddy_remove:dzēst
+post_normal:Normāls
+post_annoncement:Sludinājums
+post_size:Izmērs
+post_color:Krāsa
+post_font:Fonts
+create_thread:Izveidot tēmu
+submit_reply:Nosūtīt atbildi
+edit_message:Rediģēt ierakstu
+apply_spell_changes:Apstiprināt pareizrakstības pārbaudi
+post_preview:Priekšapskate
+post_logedin_user:Lietotājs:
+post_logout:Izeja
+post_passwd:Foruma parole:
+post_poll:Balsojums:
+post_create_poll:IZVEIDOT
+post_poll_delete:DZĒST
+post_poll_edit:LABOT
+post_mod_opt:Moderātora darbības:
+post_thread_type:Tēmas tips:
+post_thread_expiry:Tēma noveco:
+post_locked:Slēgta tēma
+post_icons:Ieraksta nozīmīte:
+post_no_icon:Bez nozīmītes
+post_smiley:Smaidiņu ievietošana:
+post_format_tools:Formatēšana:
+post_upload_file:Ielādēt failu
+post_file_del:Dzēst
+post_file_name:Vārds
+post_file_size:Izmērs
+file_attachments:Faila iekļaušana:
+allowed_files:Pieļaujamie faila paplašinājumi:
+max_file_size:Maksimālais faila lielums:
+max_files_per_msg:Maksimālais failu skaits ierakstā:
+post_notification:Paziņojumi par ierakstiem
+include_sig:Iekļaut parakstu ierakstā
+include_sig_desc:Iekļauj Jūsu paraksta tekstu, kas atrodas Jūsu privātajos uztādījumos.
+disable_smilies:Atslēgt smaidiņus
+spell_check_msg:Pārbaudīt ortogrāfiju
+post_form:Ieraksta nosūtīšana
+post_forum:Forums:
+post_title:Virsraksts:
+post_body:Teksts:
+post_options:Parametri:
+post_preview_btn:Priekšapskate
+ignore_users:Ignorējamie lietotāji
+add_ignore:Pievienot ignorējamo
+forum_terms:Foruma noteikumi
+# Fuzzy
+forum_rules:Ikviens interesents var brīvi piereģistrēties un kļūt par šī foruma dalībnieku-lietotāju. Ceram, ka pirms reģistrācijas forumā Jūs iepazīsieties ar dažiem forumu lietošanas noteikumiem un ja šie noteikumi nebūs pretrunā ar Jūsu pārliecību, nospiedīsiet pogu <b>Piekrītu</b>. <b><u>Atcerieties!</u></b> Nospiežot pogu <b>Piekrītu</b> Jūs apstipriniet, ka Jūs esat vecāks par 13 gadiem, kā arī uzņematies autora atbildību par visu to, ko publicēciet forumā. Foruma īpašnieki un tā veidotāji nav atbildīgi par informācijas saturu, kas publicēta forumos. Ikviena publikācija atspoguļo autora viedokli un līdz ar to arī atbildību uzņemas publikāciju autori. Nospiežot pogu <b>Piekrītu</b> Jūs apstiprināt, ka savās publikācijās izturēsieties korekti pret pārējiem foruma dalībnikiem un pārējo sabiedrību kopumā. Nepaudīsiet antisemītiskus un rasistiskus uzskatus, nepublicēsiet seksuāli orientētus, draudus izsakošus un kādus citus izteikumus un materiālus kas ir pretrunā ar spēkā esošajiem likumdošanas un citiem normatīvajiem aktiem. Foruma īpašnieki un veidotāji ir tiesīgi veikt izmaiņas Jūsu lietotāja kontā un uzstādījumos, slēgt, dzēst vai pārvietot ikvienu foruma tēmu bez iepriekšējas saskaņošanas ar foruma lietotājiem vai dalībniekiem.
+# Fuzzy
+forum_rules_13:Visiem lietotājiem, kas ir jaunāki par 13. gadiem, pirms reģistrācijas forumā jāsaņem vecāku atļauja vai ieteikums, kas jānosūta pa pastu vai faksu foruma administrācijai, šīs atļaujas vai ieteikuma izskatīšanai un akceptam. Kaut arī forumā var piedalīties visi interesenti un bez vecuma ierobežojuma, tomēr lai dotu tiesības forumā piedalīties dalībniekiem līdz 13. gadiem, vēlamies saņemt vecāku atļauju vai ieteikumu.<p>Ja vēlaties turpināt reģistrāciju pirms mūsu akcepta, nospiediet pogu <b>Piekrītu</b>, pretējā gadījumā nospieiet <b>Nepiekrītu</b>.<p>Atļaujas-ieteikuma veidlapas kopiju Jūs varat saņemt <a href="{TEMPLATE: err_coppa_msg_lnk}"> šeit</a>. Papildinformāciju par reģistrāciju forumā Jūs varat saņemt nosūtot vēstuli uz e-pasta adresi <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+coppa_conf:Apstiprināt COPPA
+coppa_before:Pirms {TEMPLATE: coppa_date}
+coppa_after:Pēc {TEMPLATE: coppa_date}
+coppa_link:Izvēlieties norādi, kas pareizi norāda Jūsu dzimšanas datumu.
+# Fuzzy
+coppa:Lai pabeigtu lietotāju, kas jaunāki par 13. gadiem, reģistrāciju, nepieciešams nosūtīt pa pastu vai faksu ieteikuma vēstuli vai atļauju. <p>Papildus informācija saņemama: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+prereg_info:Informācija
+prereg_agree:Piekrītu
+prereg_disagree:Nepiekrītu
+coppa_fax_instructions:Instrukcija vecākiem vai aizbildņiem
+coppa_fax_instructions2:Lūdzu izdrukājiet un aizpildiet šo formu, parakstiet to un nosūtiet uz adresi:
+coppa_fax_reg_form:Reģistrācijas forma
+coppa_fax_sign:Lūdzu izdrukājiet un aizpildiet šo formu, parakstiet to un nosūtiet mums
+coppa_fax_conf:I have reviewed the information my child has supplied and I have read the Privacy Policy for the web site. I understand that the profile information may be changed by a using a password. I understand that I may ask for this registration profile be removed entirely.
+coppa_fax_relation:Relation to child:
+coppa_fax_email:Email address:
+coppa_fax_remail:Email
+login_not_logedin:Jūs neiekļuvāt forumā. Par iemeslu tam var būt sekojoši apstākļi:
+login_cookie_expired:Jūsu Web pārlūka cookie darbības laiks ir beidzies, lai to atjaunotu vēlreiz ielogojieties.
+login_perm_denied:Jums nav tiesību piekļūt pieprasītajiem resursiem kā anonīmajam lietotājam, tādēļ ienāciet ar reālu foruma dalībnieka Niku un Paroli.
+login_want_to_register:Vēlaties piereģistrēties?
+login_forgot_passwd:Esmu aizmirsis paroli.
+# Fuzzy
+login_use_cookie:Izmantot cookies<br /><font class="SmallText">Gadījumos ja strādājat no publiskajām darbstacijām, skolas, interneta kafejnīcas, vai citiem publiskajiem termināliem, drošības apsvērumu pēc ieteicams šo opciju atslēgt.<br />Atstājot cookies ieslēgtus, nākošais savienojums automātiski atvērs forumu bez nika un parojes ievadīšanas.
+login_login:Niks
+login_login_btn:Ieiet
+login_name_required:Nav norādīts Niks!
+login_passwd_required:Nav norādīta parole!
+login_invalid_radius:Neprecīza Nika/Paroles kombinācija!
+reset_confirmation:Paldies par reģistrāciju,\n\nLai aktivizētu Jūsu reģistrāciju sekojiet norādītajai saitei:\n\n{VAR: url}\n\nPēc aktivizācijas Jūs būsiet reģistrēti foruma dalībnieku datu bāzē un\nnokļusiet foruma galvenajā lapā.
+reset_reset:Sveiki,\n\nJūs pieprasījāt jaunas paroles piešķiršanu. Sekojiet\nsaitei\n\n{VAR: url}\n\nPiezīme: Foruma paroles tiek uzglabātas šifrētā veidā,\nkas nosaka to, ka parole nav pieejama atklāta teksta veidā\npēc tās ievadīšanas. Pēc paroles ievadīšanas tā tiek šifrēta un šifrēšanas rezultāts tiek salīdzināts ar \noriģinālu. (Ja Jūs interesē detalizētāka informācija par MD5 HASH šifrēšanas algoritmu,\nJūs varat izlasīt attīcīgu literatūru)
+rpasswd_invalid_passwd:Nepareiza parole
+rpasswd_passwd_nomatch:Paroles nesakrīt
+rpasswd_passwd_length:Parolei jāsatur minimums 6 simboli
+reset_remind_pass:Paroles atgādinājums
+reset_reset_conf:Jūsu parole tiks no jauna izveidota un nosūtīta uz Jūsu E-pasta adresi.
+reset_error:Datu bāzē E-pasta adreses nav
+rpasswd_change_pass:Nomainīt paroli
+rpasswd_login:Lietotājs:
+rpasswd_cur_pass:Esošā parole:
+rpasswd_new_pass:Jaunā parole:
+rpasswd_conf_pass:Jaunā parole (pārbaudei):
+login_passwd:Parole:
+reset_email:E-pasts:
+reset_reset_button:Izveidot jaunu paroli
+rate_this_thread:Novērtēt
+report_reporting_about:Paziņojums par publikāciju:
+report_subject:Tēma:
+report_by:Autors:
+report_posted_on:Nosūtīts:
+report_give_reason:Norādiet, kādēļ vēlaties informēt moderātoru par šo publikāciju:
+report_submit_report:Informēt
+search_entire_msg:Visu publikāciju
+search_subject_only:Tikai tēma
+search_forum:Forums
+search_posted_on:Nosūtīšanas datums
+search_no_results:Rezultātu nav
+search_all_forums:Visi forumi
+search_in_forum:Meklēt forumā:
+search_forum_search:Meklēšana forumos
+move_thread_to:Pārvietot tēmu <b>{VAR: thr->subject}</b> uz forumu:
+remail_email_topic:Nosūtīt šo tēmu uz E-pasta adresi
+remail_your_name:Jūsu vārds:
+remail_your_email:Jūsu E-pasts:
+remail_friends_name:Adresāta vārds:
+remail_friends_email:Adresāta E-pasts:
+remail_required:obligāti
+remail_subject:Tēma:
+remail_message:Publikācija:
+remail_send_now:Nosūtīt E-pastu
+remail_anon_opt:Pārkopējiet publikāciju uz E-pasta klienta programmu (pie. Outlook Express), lai pārsūtītu saviem draugiem.
+remail_done:Gatavs
+# Fuzzy
+remail_sent_conf:Elektroniskā vēstule uz adresi {VAR-HTML: _POST['femail']} par tēmu {{VAR: data->subject} veiksmīgi nosūtīta.
+remail_error:Kļūda
+mklist_type:Tips:
+mklist_option:Elements:
+mklist_additem:Pievienot
+mklist_apply:Izpildīt
+mklist_delete:Dzēst
+qbud_nick_name:Pseidonīms
+qbud_add_selected:Pievienot izvēlēto
+qbud_selected:Izvēlēts
+qbud_no_buddies:Saraksts izvēlei ir tukšs
+mklist_numerical:Nummurēts - cipari
+mklist_aplha:Nummurēts - burti
+mklist_square:Aizzīme - kvadrātiņi
+mklist_disc:Aizzīme - diski
+mklist_circle:Aizzīme - aplīši
+mklist_close:Aizvērt
+email_to:Kam:
+email_pg_title:Email
+email_subject:Tēma:
+email_body:Teksts:
+email_submit:Email
+ppost_quote_msg:{VAR: msg_to_list} uzrakstīja {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Citāts:
+ppost_to:Kam:
+ppost_from_buddy_list:Izvēlēties no kontaktu saraksta
+ppost_find_User:Lietotāju meklēšana
+ppost_track_msg:Paziņojums par publikācijas apskati
+ppost_track_msg_desc:Paziņot man par to, ka adresāts ir iepazinies ar publikāciju.
+ppost_send:Nosūtīt
+ppost_save_draft:Saglabāt
+poll_blank_option:Tukšumu nevar pievienot.
+poll_del_conf:Lai dzēstu, spiediet OK
+poll_name:Balsojuma nosaukums:
+# Fuzzy
+poll_timelimit:Darbības laiks
+# Fuzzy
+poll_maxiumvotes:Maksimālais balsu skaits
+poll_create:Izveidot
+poll_update:Izmainīt
+poll_disablesmilies:Aizliegt smaidiņus
+poll_create_poll:Izveidot balsojumu
+poll_update_poll:Rediģēt balsojumu
+poll_delete:Dzēst
+poll_updateoption:Rediģet variantu
+poll_addoption:Pievienot variantu
+poll_unlimited:Neierobežots
+poll_day:diena
+poll_days:dienas
+poll_hour:stunda
+poll_hours:stundas
+poll_month:mēnesis
+poll_year:gads
+poll_week:nedēļa
+tabs_register:Uzstādījumi
+tabs_subscriptions:Parakstīšanās
+tabs_referrals:Uzaicinātie
+tabs_buddy_list:Kontaktu saraksts
+tabs_ignore_list:Ignorēto saraksts
+tabs_private_messaging:Privātā sarakste
+# Fuzzy
+single_msg_delete:You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b>
+# Fuzzy
+thread_delete:You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b>
+delete_proceed:<font size="3"><b>Vai tiešām? Vai turpināt?</b></font>
+delete_yes:Jā
+delete_no:Nē
+error_invalidurl:Nepieļaujams URL
+error_error:Kļūda
+usrinfo_profile:Informācija par lietotāju {VAR: u->alias}
+usrinfo_show_all_posts:Uzrādīt visas {VAR: u->alias} publikācijas
+actions_update:Lietotāju meklēšana
+err_info:Informācija
+buddy_list_err_cantadd:Pats sevi nevar pievienot kontaktu sarakstā
+buddy_list_err_dup:Dotais lietotājs jau bija pievienots kontaktu sarakstā agrāk
+buddy_list_err_nouser:Šāda lietotāja datu bāzē nav.
+buddy_list_err_nouser_title:Lietotāju pievienot nav iespējams
+buddy_list_update:Kontaktu saraksta pārskats
+core_err_invinp_title:Ievade nav atļauta
+core_err_invinp_err:You've followed an invalid link, please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
+core_adm_login_msg:Administratoriem ieiet <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">šeit</a>
+email_err_unabletoemail_title:KĻŪDA!!! Nevar nosūtīt E-pastu
+email_err_unabletoemail_msg:Administrators ir atslēdzis E-pasta nosūtīšanas sistēmu.
+email_error_unabletolocaddr:Atvainojiet. Nosūtīt paziņojumu {VAR-HTML: _POST['tx_name']} nav iespējams, jo nav zināma adresāta E-pasta adrese
+email_error_body:Publikācijas teksts ir obligāts
+email_error_subject:Tēma ir obligāta
+email_error_namerequired:Vārds ir obligāts
+email_error_invaliduser:Neatļauts lietotājs
+emailconf_err_invkey_title:Kļūda
+emailconf_err_invkey_msg:Neatļauta apstiprinājuma atslēga. Lūdzu `vēlreiz pārbaudiet savu E-pastu un pārliecinieties vai pareizi ievadījāt apstiprinājuma atslēgu.
+# Fuzzy
+err_inc_criticaltitle:KRITISKA KĻŪDA
+err_inc_criticalmsg:Jūs konstatējāt problēmu. Diemžēl kļūdu paziņojumu sistēmas darbs patreiz nestrādā korekti.
+finduser_update:Lietotāju meklēšana
+# Fuzzy
+help_index_update:Lasīt <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q. (Biežāk uzdotie jautājumi</a>
+iemail_thr_subject:Jauna atbilde par {VAR: thr_subject} no {VAR: poster_login}
+iemail_thr_bodyemail:Lai pārskatītu nelasītās atbildes sekojiet\n{VAR: goto_url['email']}\n\nJa nevēlaties saņemt paziņojumus par šo tēmu sekojiet:\n{VAR: unsub_url['email']}
+iemail_frm_subject:Jauna tēma forumā {VAR: frm_name}, ar nosaukumu {VAR: thr_subject} no {VAR: poster_login}
+iemail_frm_bodyemail:Lai apskatītu:\n{VAR: goto_url['email']}\n\nJa nevēlaties saņemt paziņojumus tad šeit:\n{VAR: unsub_url['email']}
+ignore_list_err_info_title:Informācija
+ignore_list_err_dup_msg:Šis lietotājs jau atrodas ignorēto sarakstā
+ignore_list_err_nu_title:Lietotājs nav atrasts
+ignore_list_err_nu_msg:Lietotājs kuru vēlaties ignorēt nav atrasts
+ignore_list_cantign_msg:Šo lietotāju nevar ignorēt
+ignore_list_update:Ignorēto saraksta pārskats
+index_update:Forumu saraksta <a href="{TEMPLATE: index_update_lnk}">pārskats</a>
+list_referers_update:Uzaicināto saraksta pārskats
+login_update:Ieiet forumā
+msg_update:Tēmas <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> apskats
+pm_err_nopm_title:KĻŪDA: Privātie paziņojumi aizliegti
+pm_err_nopm_msg:Privāto paziņojumu sistēmu nevar lietot, jo tā ir atslēgta.
+pm_update:Privātā sarakste
+post_err_lockedthread_title:KĻŪDA: Tēma ir slēgta
+post_err_lockedthread_msg:Šī tēma ir slēgta. Publikācijas uz šo tēmu nosūtīt nevar.
+err_coppa_title:KĻŪDA: Jūsu reģistrācija nav apstiprināta
+# Fuzzy
+err_coppa_msg:Nav saņemta Jūsu vecāku atļauja. Ja reģistrācijas veidlapa ir nozaudēta <a href="{TEMPLATE: err_coppa_msg_lnk}">spiediet šeit</a> lai to saņemtu vēlreiz.
+post_err_edttimelimit_title:KĻŪDA
+post_err_edttimelimit_msg:Jūs vairs nedrīkstat rediģēt šo publikāciju
+post_err_floodtrig_title:KĻŪDA: Konstatēts masīvs nosūtīšanas mēģinājums.
+# Fuzzy
+post_err_floodtrig_msg:Atkārtojiet mēģinājumu pēc {VAR: tm} sekundēm
+post_err_attach_size:Fails par lielu (pārsniedz atļauto lielumu {VAR: MAX_F_SIZE} byte)
+post_err_attach_ext:Izvēlētais fails neatbilst nevienam no atļautajiem failu tipiem.
+post_err_attach_filelimit:Mēģinājums ielādēt vairāk failu far pieļaujamo skaitu.
+post_err_passwd:Kļūdaina parole.
+# Fuzzy
+post_reply_update:Atbilde publikācijai <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> forumā {VAR-HTML: frm->name}
+# Fuzzy
+post_topic_update:Jaunas tēmas izveidošana <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>forumā
+post_error_generic:Kļūda
+postcheck_max_images_err:Samaziniet bilžu skaitu publikācijā līdz {GVAR: MAX_IMAGE_COUNT}
+postcheck_subj_needed:Norāde uz tēmu ir obligāta
+postcheck_no_such_user:Šajā forumā nav lietotāja ar niku "{FUNC: char_fix(htmlspecialchars($v))}"
+postcheck_ignored:Šim lietotājam "{FUNC: char_fix(htmlspecialchars($v))}" nosūtīt privāto vēstuli nevarat, jo viņš Jūs ir iekļavis ignorējamo sarakstā.
+postcheck_no_recepient:Nevar nosūtīt ziņojumu ja nav norādīts adresāts
+postcheck_invalid_email:Ievadiet pareizu E-pasta adresi.
+postcheck_email_subject:Nevar nosūtīt bez tēmas norādīšanas.
+postcheck_email_body:Nevar nosūtīt bez publikācijas teksta.
+private_msg_notify_subj:Paziņojums par: {VAR: m->subject}izlasīšanu
+private_msg_notify_body:Sveiki <br />{VAR: usr->login}. Izlasīju Jūsu ziņu "{VAR: m->subject}" {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Uzaicināto saraksts
+register_err_short_login:Pārāk maz simbolu. Minimālais simbolu skaits nikā – 4 simboli
+register_err_login_notallowed:Izvēlētais niks nav pieejams vai atļauts
+register_err_loginunique:Nikam jābūt unikālam un Jūsu izvēlētais niks jau ir reģistrēts sistēmā citam lietotājam
+register_err_emailexists:Lietotājs ar tādu E-pasta adresi jau eksistē. Ja esat aizmirsis paroli izmantojiet funkciju paroles atjaunošanai.
+register_err_shortpasswd:Parolei jāsatur vismaz 6 simboli
+register_err_passwdnomatch:Ievadītās paroles nesakrīt.
+register_err_invalidemail:Ievadītā E-pasta adrese nesakrīt ar Jūsu E-pasta adresi.
+register_err_needname:Lai pabeigtu reģistrāciju ievadiet savu vārdu.
+register_err_enterpasswd:Ievadiet paroli lai izmaiņas tiktu reģistrētas.
+# Fuzzy
+register_err_adminpasswd:Ievadiet Administratora paroli lai izmaiņas tiktu reģistrētas
+register_err_notyouremail:Sistēmā jau ir reģistrēts lietotājs ar tādu E-pasta adresi un tā pieder viņam nevis Jums
+register_err_avatartobig:Jūsu ielādētais nozīmītes fails ir pārāk liels, maksimāli pieļaujamais nozīmīšu faila izmērs ir {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
+register_err_avatarnotallowed:Ielādētais nozīmītes fails neatbilst nevienam pieļaujamajam failu formātam.
+register_conf_subject:Reģistrācijas apstiprinājums
+register_conf_msg:Jūs esat pereģistrēts,\nLai apstiprinātu sava nika reģistrāciju sekojiet saitei:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTiklīdz reģistrācija tiks aktivizēta, Jūs automātiski ieiesiet foruma\ngalvenajā lapā.
+register_welcome_subject:Foruma reģistrācijas apliecinājums
+register_welcome_msg:Paldies par reģistrāciju,\n\nZemāk informācija par Jūsu reģistrāciju:\n\nforuma URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nParole: {VAR: _POST['reg_plaintext_passwd']}\n\nAtcerieties, paroles ir reģistra jūtīgas!\nSavus privātos uzstādījumus jūs variet rediģēt šeit:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:KĻŪDA! Reģistrācija nav iespējama
+regsiter_err_cantreg_msg:Nevar piereģistrēt šo lietotāju. Lūdzu paziņojiet Administratoram <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Personīgo uzstādījumu un datu pārskats
+register_register_update:Reģistrācijas lapa
+report_err_nosuchmsg_title:KĻŪDA
+report_err_nosuchmsg_msg:Neesoša publikācija
+reset_err_invalidkey_title:KĻŪDA
+reset_err_invalidkey_msg:Nepareiza paroles nomaiņas atslēga
+reset_err_rstconf_title:Informācija
+reset_err_rstconf_msg:Instrukcijas nosūtītas uz Jūsu E-pastu un tās Jūs saņemsiet pēc dažām minūtēm
+reset_newpass_title:Paroles nomaiņa
+reset_newpass_msg:Sveiki,\n\nUz Jūsu pieprasījumu tiek nosūtīta informācija par Jūsu <b>Niku</b> un <b>Paroli</b>.\nJūsu reģistrācijas dati:\n\nNiks: {VAR: ui[1]}\nParole: {VAR: passwd}\n\nAtcerieties, ka Jūsu vecā parole ir nomainīta ar šeit uzrādīto un tā pašreiz nav derīga. Ja\nJūs vēlaties to nomainīt, tad to varat izdarīt vadības panelī:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Jūsu jaunā parole ir nosūtīta uz Jūsu E-pastu un to Jūs saņemsiet pēc dažām minūtēm. Lūdzu pārbaudiet savu E-pasta kastīti..<br />.<br />.<br />
+search_update:Publikāciju meklēšana
+selmsg_update:Šodienas <a href="{TEMPLATE: selmsg_update_lnk}">publikāciju pārskats</a>
+showposts_update:Visu <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>publikāciju pārskats
+subscribed_update:Personīgās sarakstes pārskats
+# Fuzzy
+thread_update:Foruma <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>apskate
+tree_update:Foruma <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>apskate hierarhija koka veidā
+userinfo_update:Peronīgās informācijas <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>apskats
+ERR_disabled_ttl:Darbība nav iespējama
+ERR_disabled_msg:Šī darbība ir atslēgta un pašreiz nav pieejama
+ERR_access_ttl:KĻŪDA: Nepietiekošs piekļuves līmenis
+ERR_access_msg:Jums piešķirtās tiesības neatļauj pieprasīto darbību izpildi
+ERR_registration_disabled_ttl:Reģistrācija atslēgta
+ERR_registration_disabled_msg:Dotajā brīdī reģistrācija ir liegta. Lūdzu mēģiniet vēlreiz, bet vēlāk.
+ERR_emailconf_ttl:KĻŪDA: Jūsu reģistrācija nav apstiprināta
+# Fuzzy
+ERR_emailconf_msg:Jūs neesat akceptējis reģistrāciju no E-pasta<br /><table border="0"><tr><td><ol><li>Ja neesat saņēmis reģistrācijas apliecinājuma E-pastu <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">spiediet šeit</a><li>Ja {VAR: usr_d->email} nav Jūsu E-pasta adrese <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">spediet šeit</a></ol></td></tr></table>
+ERR_user_ttl:KĻŪDA: Neesošs lietotājs
+ERR_user_msg:Tāda lietotāja datu bāzē nav
+ERR_systemerr_ttl:KĻŪDA: Sistēmas kļūda
+ERR_systemerr_msg:Sistēmas kļūda, paziņojiet par to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>'?.
+email_title:E-pasta paziņojums
+finduser_title:Lietotāju meklēšana
+help_title:F.A.Q.
+login_title:Ieeja forumā
+poll_title:Balsojumu redaktors
+register_title:Reģistrācija
+reset_title:Paroles nomaiņa
+rpasswd_title:Nomainīt paroli
+error_title:Kļūda
+index_title:Laipni lūdzam mūsu forumā
+search_title:Meklēt {VAR-HTML: srch}
+remail_emailsent:E-pasts nosūtīts
+remail_email:Sveiki,\n\nForumā "{GVAR: FORUM_TITLE}" publicētas ziņas par tēmu "{VAR: data->subject}", kas pēc manām domām varētu Jūs interesēt. Šīs ziņas Jūs varat izlasīt šeit:\n\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ar cieņu,\n\n{VAR: usr->alias}
+poll_add_option:Pievienot variantu:
+post_opt_html_on:<b>HTML</b> - <b>ieslēgts</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> - <b>ieslēgts</b></a>
+post_opt_images_on:<b>Nozīmītes</b> - <b>ieslēgtas</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smaidiņi</b> - <b>ieslēgti</b></a>
+post_opt_html_off:<b>HTML</b>  - <b>izslēgts</b>
+post_opt_fud_off:<b>BBcode</b> - <b>izslēgts</b>
+post_opt_images_off:<b>Nozīmītes</b> - <b>izslēgtas</b>
+post_opt_smilies_off:<b>Smaidiņi</b> - <b>izslēgti</b>
+post_opt:Foruma parametri
+register_change_passwd:nomainīt paroli
+approved_avatar_title:Jūsu nozīmīte apstiprināta.
+approved_avatar_msg:Jūsu nozīmīte ir apstiprināta un tai jābūt redzamai. Iespējams Jūsu Web pārlūks attēlo novecojušu lapas saturu no kešatmiņas, tādēļ atjaunojiet to.
+unapproved_avatar_title:Jūsu nozīmīte nav apstiprināta.
+unapproved_avatar_msg:Administrators neapstiprināja Jūsu nozīmīti. Iespējams ka tā bija pārāk liela izmēra. Lai saņemtu papildiformāciju sakarā ar šādu lēmumu sazinieties ar Foruma Administratoru.
+mvthread_request_move:Pieprasīt pārvietošanu
+move_request_reason:Kādēļ Jūs vēlaties pārvietot tēmu?
+mvthread_submit_req:Nosūtīt pieprasījumu
+thread_exchange:Tēmas pārvietošana
+move_request_by:Tēmas pārvietošanu pieprasīja:
+move_reason:Pārvietošanas iemesls:
+thr_exch_accept:apstiprināt
+thr_exch_decline:noraidīt
+thr_exch_orig_forum:Izejošais forums:
+thr_exch_dest_forum:Forums pārvietošanai:
+thr_exch_no_threads:Nav tēmu uz apstiprināšanu.
+# Fuzzy
+thr_exch_decl_reason:Tēmas <b>{VAR-HTML: frm->name}</b> pārvietošanas uz <b>{VAR-HTML: frm->name}</b>forumu iemesls
+thr_exch_submit:Turpināt
+# Fuzzy
+exch_decline_ttl:Tēmas {VAR: data->subject} pārvietošana uz {VAR-HTML: data->f2_name} forumu noraidīta.
+ppost_original_msg:publicējums kuru pārsūtat vai uz kuru atbildat
+split_thread:Sadalīt tēmu
+groupmgr_no_user:Lietotājs "{FUNC: char_fix(htmlspecialchars($gr_member))}" neeksistē
+groupmgr_already_exists:Lietotājs "{FUNC: char_fix(htmlspecialchars($gr_member))}" jau ir piederīgs šai grupai.
+groupmgr_yes:Jā
+groupmgr_no:Nē
+groupmgr_action:Darbība
+groupmgr_member:Lietotāji
+groupmgr_cancel:Atcelt
+groupmgr_add_member:Pievienot lietotāju
+groupmgr_update_member:Veikt izmaiņas lietotāja ID
+groupmgr_edit:Labot
+groupmgr_delete:Dzēst
+group_mgr_anon:Anonīmie
+group_mgr_reged:Reģistrētie
+show_show:Rādīt:
+group_mgr:Grupas menedžeris
+group_mgr_edit_btn:Labot grupu
+group_mgr_heading:Izvēlēties grupu labošanai
+group_mgr_group:Grupa:
+permission_denied_title:Piekļuve noraidīta!
+permission_denied_msg:Jums nav tiesību veikt pieprasītās operācijas.
+p_READ:Lasīt
+p_POST:Rakstīt
+p_REPLY:Atbilde
+p_EDIT:Labot
+p_DEL:Dzēst
+p_STICKY:Stycky
+p_POLL:Izveidot<br />balsojumu
+p_FILE:Failu<br />ievietošana
+p_VOTE:Balsot
+p_RATE:Tēmu<br />novērtējums
+p_SPLIT:Tēmu<br />sadalīšana
+p_LOCK:Tēmu<br />slēgšana
+p_MOVE:Tēmu<br />pārvietošana
+p_SML:Smaidiņi
+p_IMG:Nozīmīšu<br />tegi
+group_mgr_search:Lietotāja meklēšana
+group_mgr_indicator:Grupa labošanai: <b>{VAR: grp->name}</b>
+rate_worst:Tā pat vien
+rate_best:Labākā
+post_quote_msg:{VAR: msg->login} rakstīja {TEMPLATE: make_report_date}
+post_quote:Citāts:
+userinfo_referals:Uzaicinājums:
+userinfo_referals_count:{VAR: referals} lietotāju
+pm_no_space_title:Nepietiek brīvas vietas!
+pm_no_space_msg:Jūsu privātās informācijas mapju apjoms <b>{VAR: fldr_size} bytes pārsniedz pieļaujamo <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes apjomu.<br /><br /><font class="ErrorText">Izdzēsiet lieko informāciju!!!</font>.
+pm_space_indct_msg:Jūsu privātās informācijas mapes aizņem {VAR: percent_full}% no atļautā apjoma.
+th_expr_never:Nekad
+th_expr_one_hr:1 stunda
+th_expr_three_hr:3 stundas
+th_expr_four_hr:4 stundas
+th_expr_eight_hr:8 stundas
+th_expr_sixteen_hr:16 stundas
+th_expr_one_day:1 dienu
+th_expr_two_day:2 dienas
+th_expr_four_day:4 dienas
+th_expr_one_week:1 nedēļu
+th_expr_two_week:2 nedēļas
+th_expr_one_month:1 mēnesi
+th_expr_two_month:2 mēnešus
+th_expr_four_month:4 mēnešus
+th_expr_one_year:1 gadu
+thread_mod_delete:Dzēst
+action_latest_post:Pēdējā publikācija
+online_today_last_visit:Pēdējais apmeklējums
+online_today_update:Šodienas apmeklētāju saraksts.
+logedin_todays_visitors:Šodienas apmeklētāji
+logedin_latest_post:Pēdējās publikācijas forumā:
+register_show_avatar:Rādīt nozīmītes:
+register_show_avatar_desc:Rādīt lietotāju nozīmītes apskatot viņu publikācijas
+drawmsg_view_rest_post:Rādīt pārējo
+forumsel_goto_forum:Pāriet uz forumu:
+minimsg_thread_view:Tēmas apskats
+split_th_post_by:Sūtītājs
+split_th_posted_on:Nosūtīts:
+split_th_subject:Tēma:
+split_th_new_thread_title:Jaunās tēmas nosaukums:
+split_th_forum:Forums:
+split_th_split_sel:Sadalīt iezīmētās publikācijas
+split_th_split_unsel:Sadalīt neiezīmētās publikācijas
+split_th_messages:Publikācijas
+split_th_select:Izvēle
+report_report_post:Paziņojumi
+# Fuzzy
+quicklogin_login:Vārds
+# Fuzzy
+quicklogin_password:Parole
+quicklogin_use_cookies:Izmantot Cookies?
+# Fuzzy
+quicklogin_login_btn:Ieiet
+post_notification_desc:Paziņot man par ienākošajām atbildēm uz publikāciju.
+maximize_category:Izplest kategoriju
+no_view_perm:Jums nav piekļuves tiesību šai tēmai.
+report_empty_report:Tukšumu nav vērts un arī nevar nosūtīt.
+report_already_reported_title:Paziņojums nosūtīts
+report_already_reported_msg:Materiāls jau ir rindā uz akceptēšanu publicēšanai.
+register_err_toomanyimages:Pārāk daudz nozīmīmīsu. Samaziniet to skaitu: {GVAR: FORUM_IMG_CNT_SIG}.
+pmsg_next_msg:Nākošā publikācija
+pmsg_prev_msg:Iepriekšējā publikācija
+post_proc_reveal_spoiler:Norādiet traucēkļus
+register_jabber:Tīkla Jabber pseidonīms:
+forum_contact:Webmaster
+forum_home:Sākums
+# Fuzzy
+post_cur_attached:{VAR: i} pievienotie faili
+ignored_anon_post:{GVAR: ANON_NICK} ignorēts
+ignored_user_post:Ziņojums no <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ignorēts
+smladd_close_window:aizvērt logu
+post_list_smilies:rādīt visus smaidiņus
+p_VISIBLE:Redzams
+# Fuzzy
+reported_in_thread:No Tēmas
+help_back_to_top:atgriezt uz augšu
+help_return_to_index:Atgriezties uz galveno HELP lapu
+imsg_err_message_title:Nepieļaujama publikācija
+imsg_err_message_msg:Jūsu izvēlētās publikācijas nav.
+poll_edit:Labot
+register_err_not_valid_img:Norādītajā URL nozīmītes nav
+pmsg_recepient:Saņēmējs
+register_err_taken_alias:Pseidonīms kuru vēlaties izmantot ir aizņemts, nomainiet to.
+register_alias:Pseidonīms
+register_alias_desc:Ja jūs, atrodoties sistēmā, sava nika vietā vēlaties izmantot pseidonīmu, tad ierakstiet to šeit.
+register_allow_pm_msg:Atļaut privātos ziņojumus
+register_allow_pm_msg_desc:Atļaut citiem lietotājiem privāto ziņojumu nosūtīšanu Jums.
+postcheck_pm_disabled:Jūs nevarat nosūtīt privāto paziņojumu "{VAR-HTML: v}", jo šis dalībnieks to ir aizliedzis.
+polllist_vote:Balsot
+polllist_view_results:Rezultāti
+polllist_name:Balsošanas tēma
+polllist_date:Izveidots
+polllist_owner:Autors
+polllist_votes:Balsis kopā
+polllist_action:Darbības
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Pieejamo balsojumu saraksts</a>
+userinfo_polls:Balsojumi:
+show_pollist:Parādīt balsojumus
+search_desc_order:Dilstoši
+search_asc_order:Augoši
+search_logic:Loģiskie argumenti:
+search_sorting:Pēc datuma:
+post_proceed:Turpināt
+post_moderated_forum:Publikācija nosūtīta modērējamajai tēmai, līdz ar to tā tiks publicēta tikai pēc moderātora akcepta.
+post_moderated_forum_ttl:Moderējamais forums
+buddy_list_bday:Šodien {VAR: r[2]} izpildē {VAR: age}
+email_warning_msg:Jūsu E-pasta adreses izmaiņas gadījumā Jūsu konta reģistrācija tiks uzrādīta kā neapstiprināta. Apstiprināšana notiks tikai pēc reģistrācijas akcepta no Jūsu jaunās E-pasta adreses.
+register_show_im:Uzrādīt tīkla On-Line indikātorus
+register_show_im_desc:Uzrādīt publikācijās autora On_Line indikātorus ICQ, AIM u.c. tīklos.
+unread_message:Publikācija lasīta
+read_message:Publikācija nav lasīta
+threadt_more:&lt;tālāk&gt;
+threadt_disabled_ttl:Publikāciju hierarhijas koka pārlūks ieslēgts.
+threadt_disabled_desc:Publikāciju hierarhijas koka pārlūks izslēgts. Izmantojiet izplāto pārlūku.
+# Fuzzy
+threadt_update:Koka pārlūks <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+mmod_delete_cofirm_ttl:Tēmas/Publikācijas dzēšanas apstiprinājums
+spell_alts:variantu nav
+pm_err_disabled_title:Privātā sarakste atslēgta
+usrinfo_last_visit:Pēdējais apmeklējums:

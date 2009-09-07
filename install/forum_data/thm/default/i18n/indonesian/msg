@@ -1,922 +1,1068 @@
-action:				Tindakan
-add_to_buddy_list:		tambahkan ke daftar teman
-admin_control_panel:		Kontrol panel Admin
-attachment:			Sisipan:
-average_post_count:		{VAR: u->posted_msg_count} pesan ({VAR: avg} pesan / hari )
-biography:			Biografi:
-birth_date:			Tgl.Lahir:
-by:				Oleh:
-by_mod:				Oleh Moderator
-current_time:			Waktu sekarang
-custom_avatar_queue:		Antrian avatar kustom
-date_posted:			Tgl dimasukkan
-date_registered:		Tgl terdaftar:
-download_counter:		Didownload {VAR: v[3]} time(s)
-pmsg_download_counter:		Didownload {VAR: r->dlcount} time(s)
-email_to_friend:		E-mail ke teman
-email_to_friend_desc:		Kirim URL halaman ini ke teman melalui e-mail
-email_user:			Klik disini untuk kirim e-mail ke pengguna
-faq:				FAQ
-first_unread_msg:		Menuju ke pesan blm terbaca
-first_unread_msg_desc:		Menuju ke pesan perta di topik ini
-flat_view:			Kembali ke tampilan rata awal
-forum_icon:			Ikon forum
-forum_new_messages:		Pesan baru
-forum_none_messages:		Hanya anggota yang bisa menelusuri pesan blm terbaca
-forum_old_messages:		Tidak ada pesan baru
-from:				Dari:
-gender:				Jns.Kelamin:
-go:				Lakukan
-goto_next_msg:			Ke pesan berikutnya
-goto_prev_msg:			Ke pesan sebelumnya
-home:				AWAL
-homepage:			Hal.Awal:
-icq_control_panel:		Panel pesan ICQ
-icq_message_form:		Formulir pesan ICQ:
-ignore_user:			acuhkan semua pesan dari pengguna ini
-image:				Gambar:
-index_new_posts:		Pesan baru sejak pembacaan terakhir
-index_no_new_posts:		Tidak ada pesan baru sejak pembacaan terakhir
-interests:			Interes:
-last_post:			Pesan terakhir
-last_thread_msg:		Ke pesan terakhir di topik ini
-legend:				Keterangan
-location:			Lokasi:
-lock_thread:			Kunci topik
-locked:				Terkunci
-locked_with_new_posts:		Terkunci (dg/ pesan blm terbaca)
-logged_in_list:			Daftar pemakai sedang aktif
-mark_all_read:			Tandai semua terbaca
-mark_all_read_desc:		Semua pesan blm terbaca akan ditandai sbg terbaca
-members:			Anggota
-message:			Pesan
-message_counter:		Ada sejumlah <b>{VAR: post_count}</b> pesan dlm <b>{VAR: thread_count}</b> topik.
-message_index:			Daftar pesan
-message_index_desc:		Lihat daftar pesan
-minimize_category:		Perkecil kategori
-moderation_queue:		Antrian moderasi
-moderator_of:			Moderator dari:
-moderator_options:		Pilhan Moderator
-moderators:			Moderator
-more_unread_messages:		Pesan blm terbaca lain
-more_unread_messages_desc:	Tampilkan pesan belum terbaca lain,tandai yg sekarang sebagai terbaca
-move_thread:			Pindahkan
-moved:				Sudah dipindahkan ke forum lain
-moved_thread_message:		Topik ini sudah dipindahkan ke forum lain
-na:				t/a
-new_posts:			Pesan baru
-new_private_messages:		Ada <span class="GenTextRed">({VAR: c})</span> pesan pribadi belum terbaca
-new_thread:			Buat topic baru
-newest_user:			Anggota terbaru
-next_page:			Halaman berikutnya
-next_thread:			Topik berikutnya:
-no_messages:			Belum ada pesan di forum ini
-no_msg_body:			Tidak ada isi pesan
-no_new_posts:			Tidak ada pesan baru
-no_posts:			Tidak ada pesan
-no_subscribed_forums:		Tidak ada forum berlangganan
-no_subscribed_threads:		Tidak ada topik berlangganan
-no_unread_locked:		Topik ini sudah dikunci
-no_unread_msg:			Tidak ada pesan belum terbaca di topik ini
-no_unread_msg_unreg:		Hanya anggota yang bisa menelusuri pesan belum terbaca
-num_pages:			Hal ({VAR: ttl_pg}):
-num_votes:			{VAR: obj->total_votes} suara
-occupation:			Pekerjaan:
-off:				NON-AKTIF
-on:				AKTIF
-page_timings:			Dibuat dlm {VAR: page_gen_time} detik
-pm:				Pesan pribadi
-post_count:			Jumlah Pesan {VAR: u_pcount}
-post_count_l:			Jumlah Pesan:
-posts:				Pesan
-posts_c:			Pesan:
-prev_thread:			Topik seblumnya:
-usrinfo_private_message:	Pesan pribadi:
-profile:			Panel pengguna
-profile_desc:			Klik disini utk akses kontrol panel pengguna
-rate_thread:			Nilai Topik
-refresh_list:			Perbaharui daftar
-register:			Daftar
-registered:			Terdaftar:
-registered_on:			Terdaftar pada {TEMPLATE: registered_on_date}
-replies:			Balasan
-report_to_mod:			Laporkan ke moderator
-reported_messages:		Pesan yg dilaporkan
-reveal_all_posts:		tampilkan semua pesan dari {VAR: user_login}
-reveal_post:			tampilkan pesan
-search:				Cari
-sel_todays_posts:		Pesan hari ini
-sel_todays_posts_desc:		Hidup/matikan filter pesan hari ini (hanya pesan har ini yg ditamplkan)
-sel_unanswered_posts:		Pesan belum dibalas
-sel_unanswered_posts_desc:	Hidup/matikan filter untuk pesan belum terbalas (hanya menampilkan pesan yg tidak ada balasan)
-sel_unread_messages:		Belum terbaca
-sel_unread_messages_desc:	Hidup/matikan filter pesan belum terbaca (hanya menampilkan pesan belum terbaca)
-send:				Kirim
-send_pm_desc:			Kirim pesan pribadi ke pengguna ini
-sender_email:			E-mail pengirim:
-sender_name:			Nama perngirim:
-show_posts_by:			Tampilkan pesan-pesan dari: {VAR: u_alias}
-size:				Ukuran:
-status_line:			Ada <b>{VAR: st_obj->online_users_reg}</b> anggota, <b>{VAR: st_obj->online_users_hidden}</b> anggota tersembunyi dan <b>{VAR: st_obj->online_users_anon}</b> tamu sedang berkunjung.
-sticky:				Melekat:
-stop_ignoring:			Hilangkan status ACUH dari pengguna ini
-sub_to_thread:			Berlangganan topik ini
-sub_to_thread_desc:		Terima pemberitahuan tentang pesan baru dalam topik ini
-subject:			Subyek
-subscribe:			Berlangganan
-subscribe_desc:			Terima pemberitahuan satt seseorang membuat topic baru di forum ini
-subscribed_forums:		Forum langganan
-subscribed_forums_desc:		Hidup/matikan filter forum langganan (hanya tampilkan forum berlangganan)
-subscribed_threads:		Topik langganan
-subscribed_threads_desc:	Hidup/matikan filter topik langganan (hanya tampilankan topik berlangganan)
-switch_to_thread_view:		Ubah tampilan berurutan untuk topik ini
-thread:				berurutan:
-thread_announcement:		Pengumuman:
-thread_first_unread_msg:	Klik disini untuk menuju pesan berlum terbaca pertama dalam topic ini
-threads:			Topik-topik
-time:				Waktu
-todays_posts:			Pesan hari ini
-todays_posts_desc:		Tampilkan semua pesan yng dibuat hari ini
-un_ignore_user:			Hentikan pengacuhan pesan dari pengguna ini
-unanswered_posts:		Pesan belum terjawab
-unanswered_posts_desc:		Tampilkan semua pesan yang belum terbalas
-unlock_thread:			Buka kunci opik
-unread_msg:			Topik ini memliki pesan yg belum anda baca
-unread_msg_locked:		Topic terkunci deengan pesan belum terbaca
-unread_posts:			Pesan belum terbaca
-unread_posts_desc:		Tampilkan semua pesan belum terbaca
-unsub_from_thread:		Hentikan langganan topik ini
-unsub_from_thread_desc:		Hentikan penerimaan pemberitahuan tentang pesan baru dalam topik ini
-unsubscribe:			Hentikan berlangganan
-unsubscribe_desc:		Hentikan penerimaan pemberitahuan tentang topik baru dalam forum ini
-updated_on:			diperbaiki pada:
-user:				Pengguna
-user_counter:			Ada <b>{VAR: st_obj->user_count}</b> pengguna terdaftar.
-user_info:			Informasi pengguna
-user_info_l:			Informasi pengguna {VAR: u->alias}
-user_offline:			{VAR: obj->login}  sedang tidak aktif
-user_online:			{VAR: obj->login} sedang aktif
-usrinfo_last_post:		peran terakhir:
-view_results:			Lihat hasil
-views:				Tampilan
-vote:				{VAR: frm->n_rating} suara
-vote_button:			Pilih
-vote_for_thread:		Berikan suara
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> sudah dipindahkan ke <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> oleh moderator
-welcome_message:		Selamat datang <b>{VAR: usr->alias}</b>, kunjungan terakhir anda pada {TEMPLATE: welcome_message_date}
-what_ppl_doing:			Perlihatkan aktivitas pengguna lain
-reported_del_report:		Hapus laporan
-reported_reason:		Alasan
-reported_on:			pada:
-reported_reported_by:		Dilaporkan oleh:
-reported_reported_msg:		Pesan-pesan sudah dilaporkan
-modque_pending_approval:	Pesan menunggu persetujuan
-modque_approve:			Setujui
-modque_delete:			Hapus
-modque_no_message:		Tidak ada pesan menunggu untuk disetujui
-pmsg_new_messages:		Pesan pribadi belum terbaca
-pmsg_old_messages:		Baca pesan pribadi
-deny_recipt:			Tolak bukti penerimaan
-deny_recipt_desc:		Jangan kirim bukti bahwa anda sudah membaca pesan ini
-restore_to:			Kembalikan ke:
-move_to:			Pindahkan ke:
-list_referes_referrals:		Referensi
-list_referes_members:		Anggota direferensikan
-list_referes_member:		Anggota
-referals_none:			Belum ada referensi.
-referals_refered_by:		Anggota forum direferensikan oleh: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:		Jumlah pesan
-referals_registered_on:		Terdaftar pada
-referals_action:		Aksi
-pmsg_replied:			sdh dibalas
-pmsg_forwarded:			diteruskan
-pmsg_subject:			Subyek
-pmsg_author:			Penulis
-pmsg_time:			Waktu
-pmsg_selected:			Dipilih
-pmsg_delete:			Hapus
-cur_ppage_pm:			Pesan pribadi
-writing_pm:			Sedang menulis pesan pribadi
-browsing_folder:		Sedang melihat folder <b>{VAR: folders[$folder_id]}</b>
-avatar_sel_form:		Formulir pilihan Avatar
-no_avatars:			Avatar tidak tersedia
-month_1:			Januari
-month_2:			Pebuari
-month_3:			Maret
-month_5:			Mei
-month_6:			Juni
-month_7:			Juli
-month_8:			Agustus
-month_10:			Oktober
-month_12:			Desember
-male:				Pria
-female:				Wanita
-unspecified:			TIDAK JELAS
-register_tree_view:		Tampilan topik&pesan bercabang
-register_msg_tree_view:		Tampilan topic rata,pesan bercabang
-register_tree_msg_view:		Tampilan topik bercabang,pesan rata
-register_flat_view:		Tampilan topik&pesan rata
-use_forum_default:		pergunakan nilai awal forum
-finduser_user_info:		Informasi pengguna
-finduser_by_login:		Oleh:
-finduser_submit:		Cari
-finduser_no_such_user:		Pengguna tidak ditemukan
-finduser_user:			Pengguna
-finduser_postcount:		Jumlah pesan
-finduser_joindate:		Tgl bergabung
-finduser_action:		LAkukan
-yes:				Ya
-no:				Tidak
-edit_time_limit:		<br /><b>diubah pada</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
-no_edit_time_limit:		<br /><b>Batas waktu perbaikan</b>: <b>Unlimited</b>
-pmuserloc_submit:		Masukkan
-pmuserloc_user:			Pengguna
-pmuserloc_no_result:		Tidak ada hasil
-register_specify_url:		Berikan URL
-register_uploaded:		Kirimkan Avatar
-register_conf_pass:		Konfirmasi Password:
-register_email_desc:		Masukkan e-mail yang sah. Anda bisa menyembunyikan e-mail, lakukan di bagian kesukaan.
-register_name:			Nama:
-register_your_pass:		Password anda:
-register_update:		Perbaiki
-register_avatar_type:		Tipe Avatar:
-register_del_avatar:		Hapus Avatar
-register_sel_avatar:		Pilih Avatar
-register_custom_avatar_rules:	Avatar kustom tidak akan muncul sampai disetujui oleh administrator.<br /><span class="SmallText">Avatar, tidak boleh lebih besar dari <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> dan harus dalam format <b>jpg</b>, <b>gif</b> atau <b>png</b>.</span>
-register_custom_avatar_url:	URL Avatar kustom:
-register_preview:		Perlihatkan
-register_custom_avatar_upload:	Berkas avatar kustom:
-register_register:		Daftar
-register_required:		Informasi diharuskan
-register_required_desc:		Semua informasi diharuskan. Harap diingat password sensitif terhadap huruf besar/kecil.
-register_optional:		Informasi pilihan
-register_optional_desc:		Disarankan anda TIDAK memberikan informasi pribadi di profile anda, karena dapat dilihat oleh anggota forum lainnya.
-register_location:		Lokasi:
-register_occupation:		Pekerjaan:
-register_interests:		Interes:
-register_image:			Gambar:
-register_icq:			ICQ
-register_bday:			Tgl lahir:
-register_bday_desc:		Jika anda memberikan tanggal lahir, pengguna lain bisa melihatnya di profile anda.
-register_day:			Tgl
-register_month:			Bulan
-register_year:			Tahun
-register_gender:		Jns Kelamin:
-register_bio:			Biografi:
-register_bio_desc:		Beberapa keterangan mengenai anda, misalkan hobi, pekerjaan, dll.
-register_prefs:			Kesukaan
-register_sig:			Tanda tangan:
-register_sig_desc:		Tanda tangan alternatif, akan muncul dibawah semua pesan yang anda buat
-register_reset:			Ulangi
-register_def_thread_view:	Tampilan topik standar:
-register_msg_per_page:		Jumlah pesan per halaman:
-register_show_sig:		Tampilkan tanda tangan:
-register_show_sig_desc:		Memungkinkan anda untuk menyembumyikan tanda tangan pengguna lain
-register_use_sig_default:	Memakai tanda tangan:
-register_use_sig_default_desc:	Tambahkan tanda tangan secara otomatis ke setiap pesan yg anda buat
-register_timezone:		Area Waktu:
-register_ignore_admin:		Acuhkan pesan administratif:
-register_invisible_mode:	mode sembunyi:
-register_invisible_mode_desc:	Sembunyikan status anda
-register_show_email:		Tampilkan alamat e-mail:
-register_show_email_desc:	Pilih ini jika anda ingin e-mail anda ditampilkan ke umum.
-register_notification:		Pemberitahuan secara otomatis:
-register_notification_desc:	Jika pemberitahuan dipilih otomatis, bisa dihentikan saat menulis pesan.
-register_notify_method:		Metode pemberitahuan:
-register_allow_email_msg:	Ijinkan pesan e-mail:
-register_allow_email_msg_desc:	Ijinkan pengguna lain untuk mengirim e-mail ke anda melalui forum ini.
-my_buddies:			Temanku
-add_buddy:			Tambah teman
-add:				Tambah
-buddy_search:			Masukkan identifikasi pengguna yang anda hendak tambahkan.
-member_search:			<br />Atau pergunakan fasilitas <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Cari pengguna</a> ini.
-buddy_remove:			hilangkan
-post_sticky:			Menempel
-post_annoncement:		Pengumuman
-post_size:			Ukuran
-post_color:			Warna
-create_thread:			Buat topik
-submit_reply:			Kirim balasan
-edit_message:			Lakukan pengubahan pesan
-apply_spell_changes:		Lakukan pengubahan ejaan
-post_preview:			Tampilan pesan semantara
-post_logedin_user:		Pengguna sedang Aktif:
-post_passwd:			Password untuk menulis:
-post_poll:			Angket:
-post_create_poll:		BUAT ANGKET
-post_poll_delete:		HAPUS
-post_poll_edit:			UBAH
-post_mod_opt:			Pilihan Moderator:
-post_thread_type:		Tipe Topik:
-post_thread_expiry:		Tgl Batas topik:
-post_locked:			Topik terkunci
-post_icons:			Ikon pesan:
-post_no_icon:			Tidak ada ikon
-post_smiley:			jln pintas Smiley:
-post_format_tools:		Alat pemformat:
-post_upload_file:		Kirim file
-post_file_del:			Hapus
-post_file_name:			Nama
-post_file_size:			Ukuran
-file_attachments:		Berkas sisipan:
-allowed_files:			Jenis berkas diijinkan:
-max_file_size:			Ukuran paling besar:
-max_files_per_msg:		Batas berkas sisipan per pesan:
-post_notification:		Berikan pemberitahuan
-include_sig:			masukkan tanda tangan
-include_sig_desc:		masukkan tanda tangan profile anda.
-disable_smilies:		Acuhkan smilies dipesan ini.
-spell_check_msg:		Periksa ejaan pesan
-post_form:			Formulir pengiriman
-post_title:			Judul:
-post_body:			Isi pesan:
-post_options:			Pilihan:
-post_preview_btn:		Tampilan sementara pesan
-ignore_users:			Pengguna diacuhkan
-add_ignore:			Tambah diacuhkan
-forum_terms:			Pernyataan Forum
-forum_rules:			Pendaftaran diforum ini gratis! Tetapi kami ingin anda memahami &amp; mentaati peraturan yang ada. Catatan: Dengan menekan tombol dibawah, anda menyatakan bahwa anda sudah berusia 13 tahun atau lebih. Jika anda berusia kurang dari 13 tahun,Silakan pergunakan formulir ini. Walaupun administrator anda moderator berusaha mengawasi pesan-pesan yang masuk, tidak mungkin bagi kami untuk memeriksa smua pesan yang masuk. Setiap pesan ada ungkapan dari penulis, pemilik dan pengembang forum tidak bertanggung-jawab atas isi pesan.<p>Dengan memilih tombol persetujuan, anda menjamin bahwa anda tidak akan menulis pesan yang berisi SARA, pornografi, hasutan, ancaman atau hal-hal lain yang bertentangan dengan hukum. <p>Pemilik dan moderator forum berhak untuk mengubah dan/atau memindahkan atau menghapus setiap pesan dengan alasan apapun.<p>
-forum_rules_13:			Setiap pengguna dibawah 13 tahun memperoleh ijin dari orang-tua atau wali untuk mejadi anggota forum ini. Walaupun kami mengharapakan partisipasi anggota dibawah 13 tahun, kami membutuhkan ijin tertulis melalui faksmili atau email sebelum menjadi anggota penuh. Salinan dapat diambil dari sini. Untuk keterangan lebih lanjut tentang proses pendaftaran, kirimkan e-mail ke <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
-coppa_conf:			Konfirmasi COPPA
-coppa_before:			Sebelum {TEMPLATE: coppa_date}
-coppa_after:			Sesudah {TEMPLATE: coppa_date}
-coppa_link:			Klik tujuan sesuai tanggal lahir anda
-coppa:				Orang tua/wali harus mengirimkan ijin tertulis yang sudah ditanda-tangani ke administrator forum sebelum pengguna dibawah usia 13 tahun lengkap proses pendaftarannya. Untuk informasi lebih lanjut, e-mail <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
-prereg_info:			Informasi
-prereg_agree:			Setuju
-prereg_disagree:		Tidak setuju
-coppa_fax_instructions:		Petunjuk untuk orang-tua / wali
-coppa_fax_instructions2:	Silakan cetak dan tanda-tangani dan kirim melalui fax:
-coppa_fax_reg_form:		Formulir Registrasi
-coppa_fax_sign:			Silakan tanda-tangani formulir dibawah ini dan kirimkan ke kami
-coppa_fax_conf:			Kami sudah melihat informasi yang diberikan anak kami dan kami sudah membaca&mengerti Kebijakan Kepribadian dari halaman web. Kami mengerti bahwa informasi profile bisa diubah menggunakan password. Kami mengerti bahwa data profile dapat dihapus dari forum.
-coppa_fax_permission:		Tanda-tangan disini jika anda setuju/memberikan ijin
-coppa_fax_no_permission:	Tanda-tangan disini jika anda ingin data pendaftaran dihapus
-coppa_fax_parent_name:		Nama orang-tua/wali:
-coppa_fax_relation:		Hubungan dengan anak:
-coppa_fax_telephone:		Telepon:
-coppa_fax_email:		Alamat E-mail:
-coppa_fax_date:			Tanggal:
-coppa_fax_questions:		Silakan hubungi <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> jika ada pertanyaan
-coppa_fax_name:			Nama
-login_not_logedin:		Anda belum login. Ada beberapa kemungkinan sebab:
-login_cookie_expired:		Cookie sudah kedaluwarsa, dan anda harus login ulang untuk memperbaharuinya.
-login_perm_denied:		Anda tidak berhak mengakses sumber daya sebagai pengguna tamu. Anda harus login untuk memperoleh hak.
-login_want_to_register:		Hendak mendaftar?
-login_forgot_passwd:		Lupa password
-login_use_cookie:		Pergunakan cookies<br /><span class="SmallText">Jika anda mempergunakan komputer umum (warnet,kantor,perpustakaan,dll), dianjurkan anda tidak memakai cookie untuk lebih aman.<br />Jika anda memakai pilihan ini, anda bisa secara otomatis login tanpa password lagi.
-login_login:			Login
-login_name_required:		Diperlukan nama Login
-login_passwd_required:		Diperlukan Password
-login_invalid_radius:		Kombinasi Login/password tidak berlaku
-reset_confirmation:		Terima-kasih atas pendaftarannya,\n\nUntuk mengaktifkan, silakan buka halaman:\n\n{VAR: url}\n\nBila sudah aktif, anda bisa login ke forum dan\nsecara otomatis diarahkan ke halaman utama.\n
-reset_reset:			Hallo,\n\nAnda meminta password anda ditimpa ulang. Untuk meneruskan proses silakan menjuj ke halaman ini:\n\n{VAR: url}\n\nCatatan: Forum ini menyimpan password dengan proses satu arah, artinya sekali anda memberikan password\nakan dienkripsi sehingga tidak mungkin untuk mengambilnya lagi!\nCara kerjanya adalah dengan membandingkan versi terenkripsi dengan yang anda ketik saat login.\n(Jika ingin tahu lebih detil, baca algoritma MD5 HASH)
-rpasswd_invalid_passwd:		Password salah
-rpasswd_passwd_nomatch:		Passwords tidak cocok
-rpasswd_passwd_length:		Password minimal 6 karakter
-reset_remind_pass:		Pengingat Password
-reset_reset_conf:		Password akan ditimpa dan dikirimkan ke anda. Jika anda belum mengkonfirmasikan di alamat e-mail, konfirmasi akan dikirim ulang.
-reset_error:			E-mail address tidak ada di database
-rpasswd_change_pass:		Ubah Password
-rpasswd_cur_pass:		Password sekarang:
-rpasswd_new_pass:		Password baru:
-rpasswd_conf_pass:		Ulang Password:
-reset_reset_button:		Timpa Password
-rate_this_thread:		Nilai
-report_reporting_about:		Melaporkan mengenai:
-report_subject:			subyek:
-report_by:			Oleh:
-report_posted_on:		dimasukkan pada:
-report_give_reason:		Berikan alasan mengapa anda melaporkan pesan ini:
-report_submit_report:		Kirimkan laporan
-search_entire_msg:		Seluruh pesan
-search_subect_only:		Hanya subyek
-search_posted_on:		dimasukkan pada
-search_no_results:		tidak ada hasil
-search_all_forums:		Cari disemua forum
-search_in_forum:		Cari di forum:
-search_forum_search:		Cari Forum
-move_thread_to:			Pindahkan topik <b>{VAR: thr->subject}</b> ke:
-remail_email_topic:		E-mail topik ini ke teman
-remail_your_name:		Nama anda:
-remail_your_email:		E-mail anda:
-remail_friends_name:		Nama teman:
-remail_friends_email:		E-mail teman:
-remail_required:		diperlukan
-remail_subject:			subyek:
-remail_message:			Pesan:
-remail_send_now:		Kirim E-mail sekarang
-remail_anon_opt:		Salin pesan ini dan letakkan di aplikasi e-mail kesukaan anda dan kirimkan ke teman anda.
-remail_done:			Selesai
-remail_sent_conf:		Pengiriman e-mail ke {VAR-HTML: _POST['femail']} tentang topik {VAR: data->subject} sukses.
-remail_error:			Ada kesalahan
-mklist_type:			Tipe:
-mklist_option:			Pilihan:
-mklist_additem:			Tambahkan lainnya
-mklist_apply:			Terapkan
-mklist_delete:			Hapus
-qbud_nick_name:			Nama
-qbud_add_selected:		Tambah yang terpilih
-qbud_selected:			Terpilih
-qbud_no_buddies:		Tidak ada teman yang bisa dipilih
-mklist_numerical:		Numerik
-email_to:			Ke:
-email_subject:			subyek:
-email_body:			Isi:
-ppost_quote_msg:		{VAR: msg_to_list} ditulis pada {TEMPLATE: ppost_quote_msg_date}
-ppost_quote:			Petikan:
-ppost_to:			Ke:
-ppost_from_buddy_list:		Pilih teman
-ppost_find_User:		Cari pengguna
-ppost_track_msg:		Telusuri pesan ini
-ppost_track_msg_desc:		Beritahu (melalui pesan pribadi) bila pesan ini dibaca.
-ppost_send:			Kirim
-ppost_save_draft:		Simpan pesan sementara
-poll_blank_option:		Anda tidak bisa menambah pilihan kosong.
-poll_del_conf:			Jika anda hendak menghapus pilihan ini, pilih OK
-poll_name:			Nama poling:
-poll_timelimit:			Batas waktu
-poll_maxiumvotes:		Pilihan maksimal
-poll_create:			Buat
-poll_update:			Perbaiki
-poll_disablesmilies:		Non-aktifkan smilies
-poll_create_poll:		Buat poling
-poll_update_poll:		perbaiki poling
-poll_delete:			hapus
-poll_updateoption:		Ubah pilihan
-poll_addoption:			tambah pilihan
-poll_unlimited:			Tak terbatas
-poll_day:			hari
-poll_days:			hari
-poll_hour:			jam
-poll_hours:			jam
-poll_month:			bulan
-poll_year:			tahun
-poll_week:			minggu
-tabs_register:			Seting-seting
-tabs_subscriptions:		Langganan
-tabs_referrals:			Rerefensi
-tabs_buddy_list:		Daftar teman
-tabs_ignore_list:		Daftar acuh
-tabs_private_messaging:		Pesan pribadi
-single_msg_delete:		Anda akan <span class="ErrorText">MENGHAPUS</span> judul pesan: <b>{VAR: data[3]}</b><p>
-thread_delete:			Anda akan <span class="ErrorText">MENGHAPUS</span> <span class="ErrorText">SELURUH</span> berjudul: <b>{VAR: data[3]}</b><p>
-delete_proceed:			<span class="fb">Apakah ingin melanjutkan?</span>
-delete_yes:			Ya
-delete_no:			Tidak
-error_invalidurl:		URL tidak sah
-usrinfo_profile:		Profile dari {VAR: u->alias}
-usrinfo_show_all_posts:		Tampilkan semua pesan dari {VAR: u->alias}
-actions_update:			Melihat aktifitas orang lain, seperti anda
-buddy_list_err_cantadd:		Tidak bisa menambahkan diri sendiri ke daftar teman
-buddy_list_err_dup:		Penggun tersebut sudah ada di daftar teman
-buddy_list_err_nouser:		Pengguna yang akan anda masukkan tidak ditemukan
-buddy_list_err_nouser_title:	Tidak bisa menambah teman
-buddy_list_update:		Melihat daftar teman sendiri
-core_err_invinp_title:		Masukan tidak sah
-core_err_invinp_err:		Anda mengikuti alamat yang salah. Beritahu <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> bagaimana anda bisa sampai disini.
-core_adm_login_msg:		<br />Administrator login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">disini</a>
-email_err_unabletoemail_title:	ERROR: tidak bisa mengirim e-mail
-email_err_unabletoemail_msg:	e-mail sudah dinon-aktifkan oleh administrator.
-email_error_unabletolocaddr:	Maaf, tidak bisa mengirim ke {VAR-HTML: _POST['tx_name']} karena alamat tujuan tidak diketahui
-email_error_body:		Isi pesan harus ada
-email_error_subject:		Isi subyek harus ada
-email_error_namerequired:	Nama tidak boleh kosong
-email_error_invaliduser:	Pengguna tidak sah
-emailconf_err_invkey_title:	Salah
-emailconf_err_invkey_msg:	Kode konfirmasi tidak benar. Mohon periksa e-mail anda untuk memastikan kebenaran alamat URL.
-err_inc_criticaltitle:		KESALAHAN KRITIS
-err_inc_criticalmsg:		Terjadi kesalahan. Sayangnya, terjadi juga kesalahan dengan sistem pelaporan.
-finduser_update:		Mencari pengguna
-help_index_update:		Sedang membaca <a href="{TEMPLATE: help_index_update_lnk}">FAQ</a>
-iemail_thr_subject:		Balasan baru untuk {VAR: thr_subject} oleh {VAR: poster_login}
-iemail_thr_bodyemail:		Untuk membaca balasan baru {VAR: goto_url['email']}\n\nJIka anda tidak ingin menerima pemberitahuan lebih lanjut, silakan klik: {VAR: unsub_url['email']}
-iemail_frm_subject:		Topik baru di forum {VAR: frm_name}, berjudul {VAR: thr_subject}, oleh {VAR: poster_login}
-iemail_frm_bodyemail:		Untuk membaca topik tsb, silakan:\n{VAR: goto_url['email']}\n\nUntuk menghentikan pemberitahuan tentang topik baru: {VAR: unsub_url['email']}
-iemail_participate:		Untuk berpartisipasi dalam diskusi:
-ignore_list_err_dup_msg:	Pengguna tsb sudah ada di daftar acuh anda
-ignore_list_err_nu_title:	Pengguna tidak ditemukan
-ignore_list_err_nu_msg:		Pengguna yang hendak anda masukkan ke dalam daftar acuh tidak ditemukan
-ignore_list_cantign_msg:	Anda tidak boleh mengacuhkan perngguna ini
-ignore_list_update:		Memeriksa daftar acuh sendiri
-index_update:			Sedang melihat <a href="{TEMPLATE: index_update_lnk}">daftar forum</a>
-list_referers_update:		Memerika pe-referensi
-login_update:			Formulir Login
-msg_update:			Melihat topik <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:		SALAH: Pengiriman pesan pribadi ditiadakan
-pm_err_nopm_msg:		Anda tidak bisa memakai pesan pribadi, sudah dihentikan oleh administrator.
-pm_update:			Memakai pengiriman pesan pribadi
-post_err_lockedthread_title:	SALAH: Topik terkunci
-post_err_lockedthread_msg:	Topik ini sudah terkunci, tidak bisa menambah pembahasan lagi
-err_coppa_title:		SALAH: Akun anda belum terkonfirmasi
-err_coppa_msg:			Konfirmasi belum kami terima dari orang-tua/wali. Jika formulir COPPA anda hilang, <a href="{TEMPLATE: err_coppa_msg_lnk}">klik disini</a> untuk melihatnya lagi
-err_banned_acct_title:		SALAH: anda sudah di cekal.
-err_banned_acct_msg:		Akun anda {IF: $ban_expiry}di-cekal sementara sampai {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanen{ENDI} karena pelanggaran peraturan forum ini.
-post_err_edttimelimit_title:	Salah
-post_err_edttimelimit_msg:	Pesan tersebut sudah tidak boleh anda ubah
-post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Wewenang tidak mencukupi</legend> Tamu tidak diperkenankan membuat topik.</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Wewenang tidak mencukupi</legend> Tamu tidak diperkenankan memberikan tanggapan.</fieldset><br />
-post_err_floodtrig_title:	SALAH: Pengiriman tertubi-tubi tidak diperkenankan.
-post_err_floodtrig_msg:		Mohon coba lagi dalam {VAR: tm} detik
-post_err_attach_size:		<span class="ErrorText">Berkas lampiran terlalu besar(melebihi batas yang diijinkan sebesar {VAR: MAX_F_SIZE} bytes)</span><br />
-post_err_attach_ext:		<span class="ErrorText">Berkas yang anda kirimkan tidak diijinkan, jenis file tidak sesuai dengan yang diijinkan.</span><br />
-post_err_attach_filelimit:	<span class="ErrorText">Anda mencoba melebihi batas jumal berkas sisipan.</span><br />
-post_err_passwd:		Password tidak benar.
-post_reply_update:		Sedang membalas <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> di {VAR: frm->name}
-post_topic_update:		Sedang menulis topik baru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
-post_error_generic:		Terjadi kesalahan
-postcheck_max_images_err:	Tidak lebih dari {GVAR: MAX_IMAGE_COUNT} gambar diijinkan per pesan, mohon dkurangi.
-postcheck_subj_needed:		Diperlukan Subyek
-postcheck_no_such_user:		Tidak ada pengguna dengan nama "{FUNC: char_fix(htmlspecialchars($v))}" di forum ini.
-postcheck_ignored:		Anda tidak bisa mengirim pesan pribadi ke "{FUNC: char_fix(htmlspecialchars($v))}", karena oeang tersebut mengacuhkan anda.
-postcheck_no_recepient:		Pesan tidak terkirim, penerima kosong.
-postcheck_invalid_email:	Mohon masukkan alamat e-mail teman anda.
-postcheck_email_subject:	Tidak bisa mengirim e-mail tanpa subyek yang jelas.
-postcheck_email_body:		Tidak bisa mengirim e-mail tanpa isi.
-private_msg_notify_subj:	Baca pemberitahuan tentang: {VAR: m->subject}
-private_msg_notify_body:	Halo,<br />{VAR: usr->login} sudah membaca pesan pribadi anda tentang "{VAR: m->subject}", pada {TEMPLATE: private_msg_notify_body_date}<br />
-referals_update:		Memeriksa pe-referensi
-register_err_short_login:	Nama Login yang anda pilih terlalu singkat. Nama Login minimal 4 karakter.
-register_err_login_notallowed:	Nama Login tersebut tidak diijinkan.
-register_err_loginunique:	Nama login harus unik, nama tersebut sudah terpakai.
-register_err_emailexists:	alamat e-mail tersebut sudah dihubungkan dengan sebuah akun. Jika anda lupa password, pergunakan bantuan TIMPA Password, jangan mendaftar lagi.
-register_err_shortpasswd:	Password minimal 6 karakter.
-register_err_passwdnomatch:	Password tidak sesuai, mohon dicoba lagi.
-register_err_invalidemail:	Alamat e-mail yang anda masukkan tampaknya tidak berlaku.
-register_err_needname:		ANda harus memasukkan nama agar proses registrasi sukses.
-register_err_enterpasswd:	Password diperlukan untuk melakukan perubahan
-register_err_adminpasswd:	Anda harus memasukkan password ADMINISTRATOR untuk melakukan perubahan.
-register_err_notyouremail:	Seseorang sudah memakai alamat e-mail tsb.
-register_err_avatartobig:	Berkas yang anda kirimkan terlalu besar, lebih dari {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
-register_err_avatarnotallowed:	Avatar yang anda kirimkan tidak sah. Mohon perika jenis berkan yang diijinkan.
-register_conf_subject:		Konfirmasi Registrasi
-register_conf_msg:		Terima-kasih atas registrasi anda,\nUntuk mengaktifkan akun anda, silakan ke:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSesudah aktif, anda bisa login&\nsecara otomatis akan diarahkan ke halaman utama.
-register_welcome_subject:	Konfirmasi Registrasi Forum
-register_welcome_msg:		Terima-kasih atas pendaftaran anda,\n\nBerikut adalah keterangan lengkap login anda:\n\nURL Forum: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nMohon diingat 
-register_err_cantreg_title:	SALAH: tidak besa mendaftar
-regsiter_err_cantreg_msg:	Tidak bisa membuat akun pengguna, mohon hubungi administrator di <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-register_profile_update:	Melihat profil probadi
-register_register_update:	Halaman Registrasi
-report_err_nosuchmsg_title:	SALAH
-report_err_nosuchmsg_msg:	Pesan tidak ada
-reset_err_invalidkey_title:	SALAH
-reset_err_invalidkey_msg:	Kunci penimpaan password tidak benar. Mungkin aplikasi e-mail anda membuka halaman ini, menjadikan kunci tidak berlaku. Jika demikian, dalam beberapa saat lagi, anda akan menerima e-mail dengan password anda yang baru. Jika tidak demikian, silakan ulang proses penimpaan password.
-reset_err_rstconf_title:	Informasi
-reset_err_rstconf_msg:		Dalam beberapa menit, anda akan menerima petunjuk di e-mail.
-reset_newpass_title:		Timpa password
-reset_newpass_msg:		Halo,\n\nSesuai permintaan anda, informasi login anda adalah:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nHarap diingat baik-baik. Jika anda ingin merubah password\nbisa andalakukan di panel kontrol pengguna di:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Password anda sudah dikirim melalui e-mail, dalam beberapa saat anda akan menerimanya<br />
-search_update:			Mencari pesan
-selmsg_update:			Melihat <a href="{TEMPLATE: selmsg_update_lnk}">pesan hari ini</a>
-showposts_update:		Melihat pesan dari: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-subscribed_update:		Memeriksa daftar berlangganan
-thread_update:			Melihat forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
-tree_update:			Melihat topik (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:		Melihat profile dari <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> 
-ERR_login_msg2:			<fieldset><legend>SALAH: Anda tidak login</legend>Untuk mengakses forum ini, anda harus menjadi anggota</fieldset><br />
-ERR_disabled_ttl:		Fasilitas dinon-aktifkan
-ERR_disabled_msg:		Fasilitas ini sudah di non-aktifkan oleh administrator
-ERR_access_ttl:			SALAH: Wewenang tidak mencukupi
-ERR_access_msg:			Anda tidak berwenang untuk melakukan hal tersebut
-ERR_registration_disabled_ttl:	Registrasi di non-aktifkan
-ERR_registration_disabled_msg:	Administrator sudah menon-aktifkan proses registrasi, coba laha beberapa saat lagi.
-ERR_emailconf_ttl:		SALAH: Akun anda belum dikonfirmasi
-ERR_emailconf_msg:		Anda belum memberikan konfirmasi melalui e-mail.<br /><table border="0"><tr><td><ol><li>Jika anda tidak menerima konfirmasi, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klik disini</a><li>Jika {VAR: usr_d->email} bukan alamat e-mail anda, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klik disini</a></ol></td></tr></table>
-ERR_user_ttl:			SALAH: Pengguna tidak ada
-ERR_user_msg:			Pengguna tidak ada
-ERR_systemerr_ttl:		SALAH: Kesalahan sistem
-ERR_systemerr_msg:		Sebuah kesalahan sistem telah terjadi, mohon laporkan ke <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-email_title:			Formulir E-mail
-finduser_title:			Cari Pengguna
-help_title:			FAQ
-login_title:			Formulir Login
-poll_title:			Pembuatan Poling
-register_title:			Formulir Registrasi
-reset_title:			Timpa Password
-rpasswd_title:			Formulir pengubah Password
-error_title:			Formulir Kesalahan
-index_title:			Selamat datang di forum
-search_title:			Mencari {VAR-HTML: srch}
-remail_emailsent:		E-mail terkirim
-remail_email:			Halo,\n\nAda topik menarik tentang "{VAR: data->subject}" di forum {GVAR: FORUM_TITLE} yang mungkin ingin anda baca. Anda dapat melihatnya dari sini:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
-poll_add_option:		Tambah pilihan:
-post_opt_html_on:		kode <b>HTML</b> di<b>AKTIFKAN</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> di<b>AKTIFKAN</b></a>
-post_opt_images_on:		<b>Gambar</b> di<b>AKTIFKAN</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> di<b>AKTIFKAN</b></a>
-post_opt_html_off:		kode <b>HTML</b> di<b>NON-AKTIFKAN</b>
-post_opt_fud_off:		<b>BBcode</b> di<b>NON-AKTIFKAN</b>
-post_opt_images_off:		<b>Images</b> di<b>NON-AKTIFKAN</b>
-post_opt_smilies_off:		<b>Smilies</b> di<b>NON-AKTIFKAN</b>
-post_opt:			Pilihan Forum
-register_change_passwd:		ubah password
-approved_avatar_title:		Avatar kustom anda disetujui.
-approved_avatar_msg:		Avatar kustom anda disetujui oleh administrator. Avatar ini seharusnya muncul disetiap pesan anda. Jika tidak, refresh browser sekali atau dua kali.
-unapproved_avatar_title:	Avatar kustom anda tidak disetujui.
-unapproved_avatar_msg:		Administrator tidak menyetujui avatar anda. Alasan yang paling sering adalah karena terlalu besar(ukuran dan/atau dimensi) atau berisi hal yang tidak diperknankan. Jika anda ingin alsan tepatnya, hubungi administrator.
-mvthread_request_move:		Permintaan pemindahan
-move_request_reason:		Alasan mengapa and minta dipindahkan?
-mvthread_submit_req:		Kirimkan permintaan
-thread_exchange:		Pertukan topik 
-move_request_by:		Pemindahan topik diminta oleh:
-move_reason:			Dengan alasan pemindahan:
-thr_exch_accept:		terima topic
-thr_exch_decline:		tolak topic
-thr_exch_orig_forum:		Forum semula:
-thr_exch_dest_forum:		Forum tujuan:
-thr_exch_no_threads:		Tidak ada topik menunggu persetujuan.
-thr_exch_decl_reason:		Alasan penolakan topik <b>{VAR: data->subject}</b> ke forum <b>{VAR: data->f2_name}</b>
-thr_exch_submit:		Kirim
-exch_decline_ttl:		Pemindahkan topik {VAR: data->subject} ke forum {VAR: data->f2_name} ditolak.
-ppost_original_msg:		Pesan yang anda teruskan atau balas
-split_thread:			Pecah topik
-groupmgr_no_user:		Tidak ada pengguna dengan nama login "{FUNC: char_fix(htmlspecialchars($gr_member))}"
-groupmgr_already_exists:	Pengguna "{FUNC: char_fix(htmlspecialchars($gr_member))}" sudah ada di group ini.
-groupmgr_yes:			Ya
-groupmgr_no:			Tidak
-groupmgr_action:		Aksi
-groupmgr_member:		Anggota
-groupmgr_cancel:		Batal
-groupmgr_add_member:		Tambah anggota
-groupmgr_update_member:		Ubah anggota
-groupmgr_edit:			Ubah
-groupmgr_delete:		Hapus
-group_mgr_anon:			Tidak bernama
-group_mgr_reged:		Semua pengguna terdaftar
-show_show:			Perlihatkan:
-group_mgr:			Pengelola group
-group_mgr_edit_btn:		Ubah Group
-group_mgr_heading:		Pilihan editor Group
-permission_denied_title:	Ijin ditolak!
-permission_denied_msg:		Anda tidak dijinkan melkukan hal itu.
-p_READ:				Baca
-p_POST:				Tulis
-p_REPLY:			Balas
-p_EDIT:				Ubah
-p_DEL:				Hapus
-p_STICKY:			Pesan tetap
-p_POLL:				Buat poling
-p_FILE:				Sisipkan berkas
-p_VOTE:				Beri suara
-p_RATE:				Nilai topik
-p_SPLIT:			Pecahkan topik
-p_LOCK:				Kunci topik
-p_MOVE:				Pindahkan topik
-p_SML:				Pergunakan smilies
-p_IMG:				Pergunakan tanda gambar
-p_SEARCH:			Bisa dicari
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Cari Pengguna</a>
-group_mgr_indicator:		Sedang memperbaiki: <b>{VAR: grp->name}</b>
-rate_worst:			Paling Jelek
-rate_best:			Bagus
-post_quote_msg:			{VAR: msg->login} ditulis pada {TEMPLATE: make_report_date}
-post_quote:			Petikan:
-userinfo_referals:		Pengguna direferensikan:
-userinfo_referals_count:	{VAR: referals} anggota
-pm_no_space_title:		Tidak ada ruang sisa!
-pm_no_space_msg:		Pesan pribadi anda sudah mencapai batas ukuran <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Dengan <b>{VAR: fldr_size} bytes</b> pesan.<br /><br /><span class="ErrorText">Hapus beberapa pesan yang tidak terpakai untuk membuat ruang sisa.</span>.
-pm_space_indct_msg:		Kapasitas pesan pribadi anda sudah mencapai {VAR: percent_full}%.
-th_expr_never:			Tidak pernah
-th_expr_one_hr:			1 jam
-th_expr_three_hr:		3 jam
-th_expr_four_hr:		4 jam
-th_expr_eight_hr:		8 jam
-th_expr_sixteen_hr:		16 jam
-th_expr_one_day:		1 hari
-th_expr_two_day:		2 hari
-th_expr_four_day:		4 hari
-th_expr_one_week:		1 minggu
-th_expr_two_week:		2 minggu
-th_expr_one_month:		1 bulan
-th_expr_two_month:		2 bulan
-th_expr_four_month:		4 bulan
-th_expr_one_year:		1 tahun
-thread_mod_delete:		Hapus
-action_latest_post:		Pesan terakhir
-online_today_last_visit:	Kunjungan terakhir
-online_today_update:		Melihat pengguna-pengguna yang berkuung ke forum hari ini.
-logedin_todays_visitors:	Pengunjung hari ini
-logedin_latest_post:		Pesan terkahir di forum: 
-register_show_avatar:		Perlihatkan avatar:
-register_show_avatar_desc:	Memungkin anda melihat avatar pengguna lain saat anda melihat pesan mereka
-drawmsg_view_rest_post:		Perlihatkan sisa pesan yang lain
-post_re:			Balasan: 
-forumsel_goto_forum:		Ke Forum:
-minimsg_thread_view:		Tampilan topik
-split_th_post_by:		Pesan oleh:
-split_th_posted_on:		Dibuat pada:
-split_th_subject:		Subyek:
-split_th_new_thread_title:	Judul topik baru:
-split_th_split_sel:		Pisahkan pesan terpilih
-split_th_split_unsel:		Pisahkan pesan tak terpilih
-split_th_messages:		Pesan-pesan
-split_th_select:		Pilih
-report_report_post:		Laporkan pesan
-quicklogin_use_cookies:		pergunakan "Cookies"?
-post_notification_desc:		Beritahu jika ada balasan untuk pesan ini.
-post_all_ext_allowed:		(Tidak dibatasi)
-maximize_category:		Perbesar kategori
-no_view_perm:			Anda tidak memilik wewenang yang cukup untuk melihat topik ini.
-report_empty_report:		Berikan alasan anda untuk melaporkan
-report_already_reported_title:	Sudah dilaporkan
-report_already_reported_msg:	Pesan ini sudah dilaporkan ke moderator, sedang menunggu antrian untuk diperiksa.
-register_err_toomanyimages:	Anda mencoba untuk memakai lebih dari {GVAR: FORUM_IMG_CNT_SIG} gambar di tanda-tangan anda. 
-pmsg_next_msg:			Pesan berikutnya
-pmsg_prev_msg:			Pesan sebelumnya
-post_proc_reveal_spoiler:	Aktif-NonAktifkan spoiler
-register_jabber:		Identitas Jabber:
-forum_contact:			Kontek
-forum_home:			AWAL
-post_cur_attached:		Saat ini ada {VAR: i} buah sisipan 
-ignored_anon_post:		{GVAR: ANON_NICK} si acuhkan
-ignored_user_post:		Pesan-pesan dari <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> diacuhkan
-smladd_close_window:		Tutup jendela
-post_list_smilies:		Perlihatkan semua smilies
-p_VISIBLE:			Tampak
-reported_in_thread:		di topik
-help_back_to_top:		Kembali ke atas
-help_return_to_index:		Kembali ke daftar bantuan
-imsg_err_message_title:		Pesan tidak sah
-imsg_err_message_msg:		Pesan yang anda akan lihat tidak ada
-poll_edit:			Perbaiki
-register_err_not_valid_img:	Alamat URL yang dimasukkan tidak memilik gambar yang sah
-pmsg_recepient:			Penerima
-register_err_taken_alias:	Alias yang hendak anda pakai sudah dipergunakan pengguna lain, silakan pilih yg lain.
-register_alias_desc:		Jika anda ingin nama singkat lain yang tampak di forum,masukkan disini.
-register_allow_pm_msg:		Perbolehkan pesan pribadi
-register_allow_pm_msg_desc:	Perbolehkan pengguna lain mengirimkan pesan pribadi ke anda di forum ini.
-postcheck_pm_disabled:		Anda tidak bisa mengirim pesan pribadi ke "{VAR-HTML: v}", karena yang bersangkutan tidak bersedia menerima pesan pribadi.
-polllist_vote:			Berikan suara
-polllist_view_results:		Lihat hasil
-polllist_name:			Nama Angket
-polllist_date:			Dibuat pada
-polllist_owner:			Oleh
-polllist_votes:			Total suara
-polllist_action:		Tindakan
-polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">melihat poling yang ada</a>
-userinfo_polls:			Poling:
-show_pollist:			Tampilkan angket
-search_and:			DAN
-search_or:			ATAU
-search_desc_order:		Urutan terbalik
-search_asc_order:		Urutan 
-search_logic:			Logika pencarian:
-search_sorting:			Urutkan hasil pencarian berdasarkan tanggal dengan:
-post_proceed:			Proses
-post_moderated_forum:		Anda sudah menulis di forum termoderasi. Pesan anda tidak akan terbaca oleh pengguna lain sampai disetujui oleh salah satu moderator atau administrator.
-post_moderated_forum_ttl:	Catatan forum termoderasi
-buddy_list_bday:		Hari ini {VAR: r[2]} menjadi {VAR: age} tahun
-email_warning_msg:		Jika anda mengubah alamat e-mail, akun anda akan dianggap belum sah sampai ada konfirmasi dari e-mail
-register_show_im:		Perlihatkan indikator IM
-register_show_im_desc:		Apakah indikator IM muncul atau tidak disamping pesan-pesannya.
-unread_message:			Pesan belum terbaca
-read_message:			Baca pesan
-threadt_more:			&lt;lagi&gt;
-threadt_disabled_ttl:		Tampilan bercabang tidak diaktifkan.
-finduser_help:			Mesin pencari akan secara otomatis menambahkan "*" ke kata pencarian, <b>Pencarian membedakan huruf besar/kecil</b>.<br />misalkan untuk mencari semua pengguna yang berawal &#39;a&#39;, masukkan &#39;a&#39; ke kotak pencari.
-pm_err_disabled_msg:		Anda tidak bisa mengirim pesan pribadi sampai mengaktifkan pilihan &#39;mekanisme Pesan Pribadi&#39; di profile anda.
-err_mod_acc_ttl:		Akun belum diverifikasi
-err_mod_acc_msg:		Administrator sudah mentntukan bahwa semua akun baru harus diperiksa secara manual sebelum diaktifkan. Sebelum akun anda divalidasi oleh administrator, anda belum memperoleh semua fasilitas yang tersedia untuk akun anda.
-accounts_pending_approval:	Akun menunggu persetujuan
-saved:				Tersimpan
-register_err_time_limit:	Batas pendaftaran selama {GVAR: REG_TIME_LIMIT} detik terlampaui. Mohon tunggu {VAR: reg_limit_reached} detik, dan cobalah lagi.
-register_affero:		Nama pengguna Affero:<br /><span class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username, enter it here.</span>
-im_affero:			Nama pengguna Affero
-register_err_avatardimtobig:	Dimensi Avatar anda: <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> melampaui batas sebesar <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-buddy_offline:			{VAR: r[2]} pengguna sedah offline
-buddy_online:			{VAR: r[2]} pengguna sedang online
-sml_no_smilies:			Emoticons tidak tersedia
-login_unapproved_account_ttl:	Akun belum disetujui
-remove_from_buddy_list:		hilangkan dari daftar teman
-iemail_msg_author:		<b>Penulis:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Subyek:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Tanggal:</b> {TEMPLATE: dmsg_post_date}
-iemail_msg_reply:		Balas
-iemail_msg_quote:		Petikan
-iemail_msg_view:		Lihat topik/pesan
-threadt_sticky:			Lengket
-threadt_announce:		pengumuman
-reported_no_messages:		Tidak pesan dilaporkan.
-poll_no_polls:			Tidak ada poling yang bisa diakses.
-no_unread_messages:		Tidak ada pesan yang sesuai dengan yang anda inginkan.
-thread_mark_all_read:		tandai semua pesan di forum ini terbaca
-thread_mark_all_read_desc:	Semua pesan akan ditandai sebagai terbaca
-private_no_messages:		Tidak ada pesan di folder ini.
-register_email_change_subject:	Konfirmasi perubahan E-mail
-register_email_change_msg:	Mohon konfirmasikan e-mail baru "{VAR: uent->email}" yang menggantikan e-mail yang lama "{VAR: old_email}", dengan membuka halam ini:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSesudah mengkonfirmasi, akun anda akan diaktifkan kembali.
-iemail_thread_unsub:		Stop langganan topik ini
-iemail_forum_unsub:		Stop langganan forum ini
-primary_group_prefix:		Group utama forum ini:
-group_resources:		Group ini memilik wewenang mengatur forum
-register_admin_newuser_title:	Pengguna baru sudah mendaftar dan sedang menunggu konfirmasi
-register_admin_newuser_msg:	Pengguna baru ({VAR: uent->login}), dan karena konfirmasi di aktifkan, akun tidak aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nIni proses otomatis, jangan membalas e-mail ini.\nPemberitahuan lewat e-mail bisa dinon-aktifkan melalui kontrol panel admin. Ubah seting di "Pemberitahuan Akun baru".
-post_mod_msg_notify_title:	Pesan baru di forum "{VAR: frm->name}" menunggu persetuhuan anda
-post_mod_msg_notify_msg:	Pesan baru berjudul "{VAR: msg_post->subject}" baru saja dimasukkan di forum yang anda moderasikan. Untum memeriksa,silakan ke: {FULL_ROOT}{ROOT}?t=modque\n\nIni proses otomatis, jangan membalas email ini.\n
-thread_printable_pdf:		Buat PDF utk pencetakan
-thread_syndicate:		Sindikasikan forum ini (XML)
-reg_conf_title:			Konfirmasi Pendaftaran
-reg_conf_email:			<b>Konfirmasi E-mail</b><br />Sebuah e-mail sudah dikirimkan dengan alamat yang harus anda kunjungi sebelum akun anda aktif. Jika anda tidak menerima e-mail tsb dalam beberapa menit, login dan pastikan e-mail anda benar. Sesudah anda konfirmasikan, semua fasilitas akan tersedia.
-reg_conf_account:		<b>Konfirmasi Akun</b><br />Sebelum akun anda aktif, harus ada persetujuan dari administrator. Anda akan menerima pembertahuan melalui e-mail jika sudah disetujui. Sementara ini, anda bisa login tetapi beberapa fasilitas belum tersedia.
-mnav_description:		Navigasi pesan
-mnav_date_limit:		Rentang tgl:
-mnav_forum_limit:		Hanya cari di:
-mnav_all_forums:		Cari di semua forum
-mnav_submit:			Mulai Cari
-mnav_no_range:			Anda harus memasukkan rentang tanggal yang benar. Boleh berisi angka desimal (0.12 misalnya) tapi harus lebih besar dari nol.
-mnav_invalid_unit:		Anda harus memasukkan satuan waktu yang sah.
-mnav_invalid_date:		Rentang tanggal yang anda masukkan lebih besar dari yang diijinkan administrator. Mohon dicoba perkecil.
-mnav_no_results:		Tidak ada pesan yang sesuai keinginan anda
-mnav_posted_by:			Dibuat oleh:
-mnav_more:			Lagi &raquo;&raquo;
-mnav_minute:			Menit
-mnav_hour:			Jam
-mnav_day:			Hari
-mnav_week:			Minggu
-mnav_month:			Bulan
-mnav_title:			Navigasi Pesan
-mnav_update:			Memeriksa pesan dengan <a href="{TEMPLATE: mnav_update_lnk}">Navigasi Pesan</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] Pemberitahuan Pesan Pribadi Baru
-pm_notify_body_email:		Anda mendapat pesan pribadi baru dengan subyek "{VAR: subject}", dari "{VAR: from}", di forum "{GVAR: FORUM_TITLE}".\nUntuk melihat, Tekan disini: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUntuk menghentikan pemberitahuan, non-aktifkan "Pemberitahuan Pesan Pribadi" di profile anda.
-register_pm_notification:	Pemberitahuan Pesan Pribadi
-register_pm_notification_desc:	Jika di aktifkan, anda akan menerima e-mail jika ada pesan pribadi untuk anda.
-findu_admin_opts_header:	Pilihan Admin.
-findu_unban:			Ijinkan
-findu_ban:			Cekal
-findu_edit:			Ubah
-findu_delete:			Hapus
-dmsg_reply_to:			adalah balasan dari pesan #{VAR: obj->reply_to}
-merge_topics:			Gabungkan topik
-merge_topics_cp:		Kontrol Panel penggabungan Topik
-merge_topics_tpl:		Pilih topik yang akan digabungkan <span class="SmallText">(anda harus memilih lebih dari satu topik)</span>
-merge_merge:			Gabungkan Topik-topik terpilih
-merge_next:			Topik berikutnya
-merge_prev:			Topik Sebelumnya
-split_cp:			Panel kontrol pemisah topik
-groups_perms_header:		Wewenang <span class="small">(gerakkan mouse anda untuk melihat tipe wewenang)</span>
-register_err_sig_too_long:	Tanda-tangan anda melebihi batas yang diijinkan sebesar {GVAR: FORUM_SIG_ML} karakter.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} karakter <a href="javascript: alert(\'Tanda-tangan anda \'+document.forms[\'fud_register\'].reg_sig.value.length+\' karakter. Maksimum diijinkan adalah sebesar {GVAR: FORUM_SIG_ML} karakter.\');" class="SmallText">Perksa panjang tanda-tangan</a> 
-adm_account_accepted:		Akun anda \'{VAR: GLOBALS['r']->login}\' disetujui oleh administrator dan sekarang sudah aktif. Anda bisa mengakses forum \'{GVAR: FORUM_TITLE}\' sebagai anggota terdaftar penuh.
-adm_account_accepted_s:		Permintaan anda untuk forum  \'{GVAR: FORUM_TITLE}\' diterima.
-adm_account_rejected:		Akun anda \'{VAR: GLOBALS['r']->login}\' ditolak oleh administrator. Jika anda ingin tahu alasan penolakan silakan hubungi administrator di alamat \'{GVAR: ADMIN_EMAIL}\'.
-adm_account_rejected_s:		Permintaan akun \'{GVAR: FORUM_TITLE}\' ditolak.
-thread_on:			Aktif
-userinfo_buddy:			Teman:
-register_email_addr:		Alamat E-mail:
-reset_suffix:			\n\nJika anda menerima pesan ini karena kesalahan, mohon diabaikan. Jika anda menerima beberapa e-mail yang sama, yang tidak anda minta, mohon hubungi administrator di {GVAR: ADMIN_EMAIL}\n\nPermintaan ini dipicu dari: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
-usrinfo_last_visit:		Kunjungan terakhir:
-mnav_newer:			lebih baru dari
-mnav_older:			lebih lama dari
-ip_search_by_ip:		Cari pengguna berdasarkan IP
-ip_search_syntax:		Sintaksis: 1.2.3.4, 1.2.3, 1.2, 1
-ip_search:			Cari
-ip_analyze_usage:		Analisa penggunaan IP
-ip_analyze_usage_descr:		Spesifikasikan pengguna secara tepat.
-ip_users_using:			Pengguna memakai IP: {VAR: ip}
-ip_all_ips:			Semua IP yang dipakai pengguna {VAR: user}
-ip_title:			Penguna IP
-userinfo_real_name:		Nama asli:
-register_err_alias_notallowed:	Alias ini tidak diperbolehkan
-post_err_mod_forum_edit_ttl:	SALAH
-post_err_mod_forum_edit_msg:	Anda tidak bisa mengubah pesan di forum termoderasi
-dmsg_num:			pesan #{VAR: obj->id}
-postcheck_session_invalid:	Sesi anda kedaluwarsa. Kirim ulang formulir, maaf merepotkan.
-delete_message_extra_desc:	<b>Pilihan</b><br />Berikan alasan mengapa anda ingin menghapus pesan yang akan dikirimkan ke penulis pesan melalui pesan pribadi.
-delete_message_extra_body:	Ikut-sertakan isi pesan yang sedang dihapus untuk dikirim ke penulis pesan.
-delete_msg_removed_ttl:		Pesan anda dihapus oleh staf administrasi.
-delete_msg_pm_body:		Pesan asli
-delete_msg_pm_subject:		Subyek: {VAR: data[15]}
-ip_no_whois:			Informasi Whois untuk <b>{VAR: ip}</b> tidak tersedia.
-ip_whois_title:			<b>Informasi penyelenggara internet</b><br />
-register_theme:			Tema:
-pmsg_trash:			Kosongkan tempat sampah
-uc_new_pm:			Pesan pribadi baru
-uc_new_topic:			Topik baru
-uc_new_cat_forum:		Forum berlangganan untuk pesan-pesan baru
-uc_cat_forum:			Forum kategori
-uc_sub_topics:			Topik berlangganan untuk pesan baru
-uc_page_title:			Melihat panel kontrol pribadi
-search_options:			Opsi pencarian
-search_user_filter:		Filter atas dasar pengguna:
-register_none:			Jangan beritahu
-findu_no_conf:			Pengguna belum dikonfirmasi
-register_max_sig_len:		Panjang maksimum:
-register_turing:		Masukkan kode terlihat dibawah ini:
-register_err_turing:		Kode validasi tidak sah.
-modque_cat:			Kategori
-idx_compact_forum_row:		Forum tersedia:
-mmd_del_title:			Hapus topik
-mmd_mov_title:			Pindahkan topik
-mmd_move_threads_to:		Forum tujuan:
-mmd_abort_move:			Batal
-mmd_move:			Pindahkan topik
-pmsg_pdf_btn:			Buat PDF
-search_results_hdr:		Ada: {VAR: total} hasil pencarian 
-thread_del_all:			Hapus semua yang terpilih
-thread_mov_all:			Pindahkan yang terpilih
-err_blockedaccnt_title:		SALAH: Akun anda sudah di-filter.
-err_blockedaccnt_msg:		Akun anda sudaj diblokir dari forum karena salah satu filter dari pengguna.
-merge_th_page_list:		Pemilihan halaman topik
-most_users_online:		Paling banyak <b>{VAR: st_obj->most_online}</b> pengguna aktif pada <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-sub_unsub_all_forums:		Hentikan langgan dari semua forum
-sub_unsub_all_topics:		Hentikan langgan dari semua topik
-tabs_own_posts:			Perlihatkan tulisan sendiri
+# Messages for Indonesian (Bahasa Indonesia)
+# Exported from translatewiki.net
+# Author: Bennylin
+# Author: Irwangatot
+
+action:Tindakan
+add_to_buddy_list:tambahkan ke daftar teman
+admin:Admin
+admin_control_panel:Kontrol panel Admin
+administrator:Pengurus
+attachment:Sisipan:
+avatar:Avatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Message|$1 Messages} ({PLURAL: avg|$1 average message|$1 average messages} per day)
+biography:Biografi:
+birth_date:Tgl.Lahir:
+by:Oleh:
+by_mod:Oleh Moderator
+current_time:Waktu sekarang
+custom_avatar_queue:Antrian avatar kustom
+date_posted:Tgl dimasukkan
+date_registered:Tgl terdaftar:
+download_counter:Diunduh {PLURAL: v[3]|$1 time|$1 times}
+pmsg_download_counter:Diunduh {PLURAL: r->dlcount|$1 time|$1 times}
+email:Surat-e:
+email_to_friend:E-mail ke teman
+email_to_friend_desc:Kirim URL halaman ini ke teman melalui e-mail
+email_user:Kirim pengguna pesan surat-e
+faq:FAQ
+first_unread_msg:Menuju ke pesan blm terbaca
+first_unread_msg_desc:Menuju ke pesan perta di topik ini
+flat_view:Kembali ke tampilan rata awal
+forum:Forum:
+forum_icon:Ikon forum
+forum_new_messages:Pesan baru
+forum_none_messages:Hanya anggota yang bisa menelusuri pesan blm terbaca
+forum_old_messages:Tidak ada pesan baru
+from:Dari:
+gender:Jns.Kelamin:
+go:Cari
+goto_next_msg:Ke pesan berikutnya
+goto_prev_msg:Ke pesan sebelumnya
+home:Utama
+homepage:Hal.Awal:
+icq_control_panel:Panel pesan ICQ
+icq_message_form:Formulir pesan ICQ:
+ignore_user:acuhkan semua pesan dari pengguna ini
+im_aim:AIM Handle:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:Gambar:
+index_forum:Forum
+index_new_posts:Pesan baru sejak pembacaan terakhir
+index_no_new_posts:Tidak ada pesan baru sejak pembacaan terakhir
+index_url_redirection:Pengalihan
+interests:Interes:
+last_post:Pesan terakhir
+last_thread_msg:Ke pesan terakhir di topik ini
+legend:Keterangan
+location:Lokasi:
+lock_thread:Kunci topik
+locked:Terkunci
+locked_with_new_posts:Terkunci (dg/ pesan blm terbaca)
+logged_in_list:Daftar pemakai sedang aktif
+login:Masuk log
+login_header:Masuk log:
+logout:keluar log
+mark_all_read:Tandai semua terbaca
+mark_all_read_desc:Semua pesan blm terbaca akan ditandai sbg terbaca
+members:Anggota
+message:Pesan
+message_counter:Pengguna kami telah mengirim sejumlah <b>{PLURAL: post_count|$1 message|$1 messages}</b> dalam <b>{PLURAL: thread_count|$1 topic|$1 topics}</b>.
+message_index:Daftar pesan
+message_index_desc:Lihat daftar pesan
+minimize_category:Perkecil kategori
+minimize_message:Perkecil Pesan
+moderation_queue:Antrian moderasi
+moderator:Moderator
+moderator_of:Moderator dari:
+moderator_options:Pilhan Moderator
+moderators:{PLURAL: modcount|Moderator|Moderators}
+more_unread_messages:Pesan blm terbaca lain
+more_unread_messages_desc:Tampilkan pesan belum terbaca lain,tandai yg sekarang sebagai terbaca
+move_thread:Pindahkan
+moved:Sudah dipindahkan ke forum lain
+moved_thread_message:Topik ini sudah dipindahkan ke forum lain
+na:t/a
+new_posts:Pesan baru
+new_private_messages:Anda memiliki <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|private message|privates} belum terbaca
+new_thread:Buat topic baru
+newest_user:Anggota terbaru
+next_page:Halaman berikutnya
+next_thread:Topik berikutnya:
+no_messages:Belum ada pesan di forum ini
+no_msg_body:Tidak ada isi pesan
+no_new_posts:Tidak ada pesan baru
+no_posts:Tidak ada pesan
+no_subscribed_forums:Tidak ada forum berlangganan
+no_subscribed_threads:Tidak ada topik berlangganan
+no_bookmarked_threads:Topik tidak ditandai
+no_unread_locked:Topik ini sudah dikunci
+no_unread_msg:Tidak ada pesan belum terbaca di topik ini
+no_unread_msg_unreg:Hanya anggota yang bisa menelusuri pesan belum terbaca
+num_pages:Hal ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|suara|suara}
+occupation:Pekerjaan:
+off:NON-AKTIF
+on:AKTIF
+page_timings:Dibuat dlm {VAR: page_gen_time} detik
+pm:Pesan pribadi
+poll:Jajak:
+post_count:Jumlah Pesan {VAR: u_pcount}
+post_count_l:Jumlah Pesan:
+posts:Pesan
+posts_c:Pesan:
+prev_thread:Topik seblumnya:
+usrinfo_private_message:Pesan pribadi:
+profile:Panel pengguna
+profile_desc:Akses kontrol panel pengguna
+rate_thread:Nilai Topik
+rating:penilaian
+rating_track:Mengatur pemberian peringkat untuk topik <b>{VAR: thr->subject}</b>:
+refresh_list:Perbaharui daftar
+register:Daftar
+registered:Terdaftar:
+registered_on:Terdaftar pada {TEMPLATE: registered_on_date}
+replies:Balasan
+report_to_mod:Laporkan ke moderator
+reported_messages:Pesan yg dilaporkan
+reveal_all_posts:tampilkan semua pesan dari {VAR: user_login}
+reveal_post:tampilkan pesan
+search:Cari
+sel_todays_posts:Pesan hari ini
+sel_todays_posts_desc:Hidup/matikan filter pesan hari ini (hanya pesan har ini yg ditamplkan)
+sel_unanswered_posts:Pesan belum dibalas
+sel_unanswered_posts_desc:Hidup/matikan filter untuk pesan belum terbalas (hanya menampilkan pesan yg tidak ada balasan)
+sel_unread_messages:Belum terbaca
+sel_unread_messages_desc:Hidup/matikan filter pesan belum terbaca (hanya menampilkan pesan belum terbaca)
+send:Kirim
+send_pm_desc:Kirim pesan pribadi ke pengguna ini
+sender_email:E-mail pengirim:
+sender_name:Nama perngirim:
+show_posts_by:Tampilkan pesan-pesan dari: {VAR: u_alias}
+size:Ukuran:
+status:Status:
+status_line:Ada <b>{PLURAL: st_obj->online_users_reg|$1 anggota|$1 anggota}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 anggota tersembunyi |$1 anggota tersembunyi}</b> dan <b>{PLURAL: st_obj->online_users_anon|$1 tamu|$1 tamu}</b>  sedang berkunjung.
+sticky:stiki:
+stop_ignoring:Hilangkan status ACUH dari pengguna ini
+sub_to_thread:Berlangganan topik ini
+sub_to_thread_desc:Terima pemberitahuan tentang pesan baru dalam topik ini
+bookmark_thread:Tandai topik
+bookmark_thread_desc:Tambahkan topik ini pada daftar penanda anda
+subject:Subyek
+subscribe:Berlangganan
+subscribe_desc:Terima pemberitahuan satt seseorang membuat topic baru di forum ini
+subscribed_forums:Forum langganan
+subscribed_forums_desc:Hidup/matikan filter forum langganan (hanya tampilkan forum berlangganan)
+subscribed_threads:Topik langganan
+subscribed_threads_desc:Hidup/matikan filter topik langganan (hanya tampilankan topik berlangganan)
+bookmarked_threads:Tandai Topik
+switch_to_thread_view:Ubah tampilan berurutan untuk topik ini
+thread:berurutan:
+thread_announcement:Pengumuman:
+thread_first_unread_msg:Menuju pesan pertama belum terbaca dalam topic ini
+thread_thread:Topik
+threads:Topik-topik
+time:Waktu
+todays_posts:Pesan hari ini
+todays_posts_desc:Tampilkan semua pesan yng dibuat hari ini
+un_ignore_user:Hentikan pengacuhan pesan dari pengguna ini
+unanswered_posts:Pesan belum terjawab
+unanswered_posts_desc:Tampilkan semua pesan yang belum terbalas
+unlock_thread:Buka kunci opik
+unread_msg:Topik ini memliki pesan yg belum anda baca
+unread_msg_locked:Topic terkunci deengan pesan belum terbaca
+unread_posts:Pesan belum terbaca
+unread_posts_desc:Tampilkan semua pesan belum terbaca
+unsub_from_thread:Hentikan langganan topik ini
+unsub_from_thread_desc:Hentikan penerimaan pemberitahuan tentang pesan baru dalam topik ini
+unbookmark_thread:Hilangkan dari penanda
+unbookmark_thread_desc:Buang topik ini dari daftar penanda anda
+unsubscribe:Hentikan berlangganan
+unsubscribe_desc:Hentikan penerimaan pemberitahuan tentang topik baru dalam forum ini
+updated_on:diperbaiki pada:
+user:Pengguna
+user_counter:Kami memiliki <b>{VAR: st_obj->user_count}</b>  {PLURAL: st_obj->user_count|pengguna|pengguna} terdaftar.
+user_info:Informasi pengguna
+user_info_l:Informasi pengguna {VAR: u->alias}
+user_offline:{VAR: obj->login}  sedang tidak aktif
+user_online:{VAR: obj->login} sedang aktif
+usrinfo_last_post:peran terakhir:
+view_results:Lihat hasil
+views:Tampilan
+vote:{PLURAL: frm->n_rating|$1 Vote|$1 Votes}
+vote_button:Pilih
+vote_for_thread:Berikan suara
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> sudah dipindahkan ke <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> oleh moderator
+welcome_message:Selamat datang <b>{VAR: usr->alias}</b>, kunjungan terakhir anda pada {TEMPLATE: welcome_message_date}
+what_ppl_doing:Perlihatkan aktivitas pengguna lain
+reported_del_report:Hapus laporan
+reported_reason:Alasan
+reported_on:pada:
+reported_reported_by:Dilaporkan oleh:
+reported_reported_msg:Pesan-pesan sudah dilaporkan
+modque_pending_approval:Pesan menunggu persetujuan
+modque_approve:Setujui
+modque_delete:Hapus
+modque_no_message:Tidak ada pesan menunggu untuk disetujui
+pmsg_new_messages:Pesan pribadi belum terbaca
+pmsg_old_messages:Baca pesan pribadi
+deny_recipt:Tolak bukti penerimaan
+deny_recipt_desc:Jangan kirim bukti bahwa anda sudah membaca pesan ini
+restore_to:Kembalikan ke:
+move_to:Pindahkan ke:
+list_referes_referrals:Referensi
+list_referes_members:Anggota direferensikan
+list_referes_member:Anggota
+referals_none:Belum ada referensi.
+referals_refered_by:Anggota forum direferensikan oleh: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Jumlah pesan
+referals_registered_on:Terdaftar pada
+referals_action:Aksi
+pmsg_all:semua
+pmsg_none:tidak ada
+folder:Folder:
+pmsg_replied:sdh dibalas
+pmsg_forwarded:diteruskan
+pmsg_subject:Subyek
+pmsg_author:Penulis
+pmsg_time:Waktu
+pmsg_selected:Dipilih
+pmsg_delete:Hapus
+cur_ppage_pm:Pesan pribadi
+writing_pm:Sedang menulis pesan pribadi
+browsing_folder:Sedang melihat folder <b>{VAR: folders[$folder_id]}</b>
+inbox:Kotak masuk
+draft:Rancangan
+sent:Kirim
+trash:Sampah
+msg_author:Pembuat
+avatar_sel_form:Formulir pilihan Avatar
+no_avatars:Avatar tidak tersedia
+month_1:Januari
+month_2:Pebuari
+month_3:Maret
+month_4:April
+month_5:Mei
+month_6:Juni
+month_7:Juli
+month_8:Agustus
+month_9:September
+month_10:Oktober
+month_11:November
+month_12:Desember
+male:Pria
+female:Wanita
+unspecified:TIDAK JELAS
+register_tree_view:Tampilan topik&pesan bercabang
+register_msg_tree_view:Tampilan topic rata,pesan bercabang
+register_tree_msg_view:Tampilan topik bercabang,pesan rata
+register_flat_view:Tampilan topik&pesan rata
+use_forum_default:pergunakan nilai awal forum
+finduser_user_info:Informasi pengguna
+finduser_by_login:Oleh:
+finduser_submit:Cari
+finduser_no_such_user:Pengguna tidak ditemukan
+finduser_user:Pengguna
+finduser_postcount:Jumlah pesan
+finduser_joindate:Tgl bergabung
+finduser_action:LAkukan
+yes:Ya
+no:Tidak
+register_email:Surat-e
+edit_time_limit:<b>diubah pada</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
+no_edit_time_limit:<b>Batas waktu perbaikan</b>: <b>Unlimited</b>
+pmuserloc_login:Masuk log
+pmuserloc_submit:Masukkan
+pmuserloc_user:Pengguna
+pmuserloc_no_result:Tidak ada hasil
+register_builtin:Langsung
+register_specify_url:Berikan URL
+register_uploaded:Kirimkan Avatar
+register_login:Masuk log
+register_password:Kata sandi:
+register_conf_pass:Konfirmasi Password:
+register_email_desc:Masukkan e-mail yang sah. Anda bisa menyembunyikan e-mail, lakukan di bagian kesukaan.
+register_name:Nama:
+register_your_pass:Kata sandi Anda:
+register_update:Perbarui
+register_avatar_type:Tipe Avatar:
+register_del_avatar:Hapus Avatar
+register_avatar:Avatar:
+register_sel_avatar:Pilih Avatar
+register_custom_avatar_rules:Avatar kustom tidak akan muncul sampai disetujui oleh administrator.<br /><span class="SmallText">Avatar, tidak boleh lebih besar dari <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> dan harus dalam format <b>jpg</b>, <b>gif</b> atau <b>png</b>.</span>
+register_custom_avatar_url:URL Avatar kustom:
+register_preview:Pratayang
+register_custom_avatar_upload:Berkas avatar kustom:
+register_register:Daftar
+register_required:Informasi diharuskan
+register_required_desc:Semua informasi diharuskan. Harap diingat password sensitif terhadap huruf besar/kecil.
+register_optional:Informasi pilihan
+register_optional_desc:Disarankan anda TIDAK memberikan informasi pribadi di profile anda, karena dapat dilihat oleh anggota forum lainnya.
+register_location:Lokasi:
+register_occupation:Pekerjaan:
+register_interests:Interes:
+register_image:Gambar:
+register_icq:ICQ
+register_aim:AIM Handle:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Homepage:
+register_bday:Tgl lahir:
+register_bday_desc:Jika anda memberikan tanggal lahir, pengguna lain bisa melihatnya di profile anda.
+register_day:Tgl
+register_month:Bulan
+register_year:Tahun
+register_gender:Jns Kelamin:
+register_bio:Biografi:
+register_bio_desc:Beberapa keterangan mengenai anda, misalkan hobi, pekerjaan, dll.
+register_prefs:Kesukaan
+register_sig:Tanda tangan:
+register_sig_desc:Tanda tangan alternatif, akan muncul dibawah semua pesan yang anda buat
+register_reset:Reset
+register_def_thread_view:Tampilan topik standar:
+register_msg_per_page:Jumlah pesan per halaman:
+register_show_sig:Tampilkan tanda tangan:
+register_show_sig_desc:Memungkinkan anda untuk menyembumyikan tanda tangan pengguna lain
+register_use_sig_default:Memakai tanda tangan:
+register_use_sig_default_desc:Tambahkan tanda tangan secara otomatis ke setiap pesan yg anda buat
+register_timezone:Area Waktu:
+register_ignore_admin:Acuhkan pesan administratif:
+register_invisible_mode:mode sembunyi:
+register_invisible_mode_desc:Sembunyikan status anda
+register_show_email:Tampilkan alamat e-mail:
+register_show_email_desc:Pilih ini jika anda ingin e-mail anda ditampilkan ke umum.
+register_notification:Pemberitahuan secara otomatis:
+register_notification_desc:Jika pemberitahuan dipilih otomatis, bisa dihentikan saat menulis pesan.
+register_notify_method:Metode pemberitahuan:
+register_notify_method_desc:Atur preferensi metode pemberitahuan anda atau menonaktifkan pemberitahuan (misalnya ketika Anda pergi berlibur).
+register_allow_email_msg:Ijinkan pesan e-mail:
+register_allow_email_msg_desc:Ijinkan pengguna lain untuk mengirim e-mail ke anda melalui forum ini.
+buddy_status:Status
+my_buddies:Temanku
+add_buddy:Tambah teman
+add:Tambah
+buddy_search:Masukkan identifikasi pengguna yang anda hendak tambahkan.
+member_search:Atau pergunakan fitur <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Cari Pengguna</a> untuk mencari seseorang.
+buddy_remove:hapus
+post_normal:Normal
+post_sticky:Stiki
+post_annoncement:Pengumuman
+post_size:Ukuran
+post_color:Warna
+post_font:Jenis huruf
+create_thread:Buat topik
+submit_reply:Kirim balasan
+edit_message:Lakukan pengubahan pesan
+apply_spell_changes:Lakukan pengubahan ejaan
+post_preview:Tampilan pesan semantara
+post_logedin_user:Pengguna sedang Aktif:
+post_logout:keluar log
+post_passwd:Password untuk menulis:
+post_poll:Angket:
+post_create_poll:BUAT ANGKET
+post_poll_delete:HAPUS
+post_poll_edit:SUNTING
+post_mod_opt:Pilihan Moderator:
+post_thread_type:Tipe Topik:
+post_thread_expiry:Tgl Batas topik:
+post_locked:Topik terkunci
+post_icons:Ikon pesan:
+post_no_icon:Tidak ada ikon
+post_smiley:jln pintas Smiley:
+post_format_tools:Alat pemformat:
+post_upload_file:Kirim file
+post_file_del:Hapus
+post_file_name:Nama
+post_file_size:Ukuran
+file_attachments:Berkas sisipan:
+allowed_files:Jenis berkas diijinkan:
+max_file_size:Ukuran paling besar:
+max_files_per_msg:Batas berkas sisipan per pesan:
+post_notification:Berikan pemberitahuan
+include_sig:masukkan tanda tangan
+include_sig_desc:masukkan tanda tangan profile anda.
+disable_smilies:Acuhkan smilies dipesan ini.
+spell_check_msg:Periksa ejaan pesan
+post_form:Formulir pengiriman
+post_forum:Forum:
+post_title:Judul:
+post_body:Isi pesan:
+post_options:Pilihan:
+post_preview_btn:Tampilan sementara pesan
+ignore_users:Pengguna diacuhkan
+add_ignore:Tambah diacuhkan
+forum_terms:Pernyataan Forum
+forum_rules:<p>Pendaftaran untuk forum ini bebas! Kami bersikeras bahwa anda mematuhi peraturan dan kebijakan yang rinci di bawah ini. Jika Anda setuju dengan persyaratan, silahkan tekan tombol <b>Setuju</b> di akhir halaman. Catatan: Dengan menekan tombol Anda menyatakan bahwa Anda berusia lebih dari 13. Jika Anda berusia 13 atau kurang, silakan gunakan formulir registrasi ini. </p> <p> Meskipun para administrator dan moderator forum ini akan berusaha untuk menyimpan semua pesan keberatan dari forum ini, tidak mungkin bagi kami untuk memeriksa semua pesan. Semua pesan mengungkapkan pandangan dari penulis, dan baik pemilik forum atau para pengembang akan bertanggung jawab atas isi dari setiap pesan. </p> <p> Setuju Dengan mengklik tombol, Anda menjamin bahwa Anda tidak akan Posting segala pesan yang cabul, vulgar, berorientasi seksual, kebencian, mengancam, atau melanggar hukum. </p> <p> pemilik forum ini memiliki hak untuk menghapus, mengedit, memindahkan atau menutup topik apapun untuk alasan apapun. </p>
+forum_rules_13:<p>Semua pengguna di bawah umur 13 tahun harus meminta izin dari orang tua atau wali mereka untuk mendapatkan keanggotaan  forum. Sementara kami menyambut partisipasi dari anggota di bawah 13, kami meminta orang tua atau wali mengirim faks atau surat formulir izin yang telah ditandatangani sebelum kami memberikan keanggotaan.</p><p>Jika Anda ingin memulai proses registrasi sebelum kami menerima bentuk izin, tekan tombol <b>Setuju</b> di bawah ini. Jika Anda ingin membatalkan registrasi, tekan <b>Tidak setuju</b> untuk kembali ke indeks forum. </p><p>Salinan formulir izin dapat didownload di sini. Untuk informasi lebih lanjut tentang proses pendaftaran, silakan kirim e-mail ke <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:Konfirmasi COPPA
+coppa_before:Sebelum {TEMPLATE: coppa_date}
+coppa_after:Sesudah {TEMPLATE: coppa_date}
+coppa_link:Klik tujuan sesuai tanggal lahir anda
+coppa:<p>Orang tua atau wali harus mengirim surat atau fax formulir izin masuk administrator forum ini sebelum pengguna di bawah usia 13 tahun bisa menyelesaikan pendaftaran. </p><p>Untuk informasi lebih lanjut hubungi <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Informasi
+prereg_agree:Setuju
+prereg_disagree:Tidak setuju
+coppa_fax_instructions:Petunjuk untuk orang-tua / wali
+coppa_fax_instructions2:Silakan cetak dan tanda-tangani dan kirim melalui fax:
+coppa_fax_reg_form:Formulir Registrasi
+coppa_fax_sign:Silakan tanda-tangani formulir dibawah ini dan kirimkan ke kami
+coppa_fax_conf:Kami sudah melihat informasi yang diberikan anak kami dan kami sudah membaca&mengerti Kebijakan Kepribadian dari halaman web. Kami mengerti bahwa informasi profile bisa diubah menggunakan password. Kami mengerti bahwa data profile dapat dihapus dari forum.
+coppa_fax_permission:Tanda-tangan disini jika anda setuju/memberikan ijin
+coppa_fax_no_permission:Tanda-tangan disini jika anda ingin data pendaftaran dihapus
+coppa_fax_parent_name:Nama orang-tua/wali:
+coppa_fax_relation:Hubungan dengan anak:
+coppa_fax_telephone:Telepon:
+coppa_fax_email:Alamat E-mail:
+coppa_fax_date:Tanggal:
+coppa_fax_questions:Silakan hubungi <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> jika ada pertanyaan
+coppa_fax_login:Masuk log
+coppa_fax_passwd:Kata sandi
+coppa_fax_remail:Surat-e
+coppa_fax_name:Nama
+login_not_logedin:Anda belum login. Ada beberapa kemungkinan sebab:
+login_cookie_expired:Cookie sudah kedaluwarsa, dan anda harus login ulang untuk memperbaharuinya.
+login_perm_denied:Anda tidak berhak mengakses sumber daya sebagai pengguna tamu. Anda harus login untuk memperoleh hak.
+login_want_to_register:Hendak mendaftar?
+login_forgot_passwd:Lupa password
+login_use_cookie:\nGunakan cookie <br /> <span class="SmallText">Jika anda menggunakan terminal publik seperti komputer di perpustakaan, sekolah, atau Internet kafe, direkomendasikan bahwa Anda harus centang pada pilihan ini untuk lebih aman.<br />Jika anda mengacuhkan pilihan  ini maka Anda akan langsung login ke forum, ketika Anda berkunjung.</span>
+login_login:Login
+login_login_btn:Masuk log
+login_name_required:Diperlukan nama Login
+login_passwd_required:Diperlukan Password
+login_invalid_radius:Kombinasi Login/password tidak berlaku
+reset_confirmation:Terima-kasih atas pendaftarannya,\n\nUntuk mengaktifkan, silakan buka halaman:\n\n{VAR: url}\n\nBila sudah aktif, anda bisa login ke forum dan\nsecara otomatis diarahkan ke halaman utama.
+reset_reset:Hallo,\n\nAnda meminta password anda ditimpa ulang. Untuk meneruskan proses silakan menjuj ke halaman ini:\n\n{VAR: url}\n\nCatatan: Forum ini menyimpan password dengan proses satu arah, artinya sekali anda memberikan password\nakan dienkripsi sehingga tidak mungkin untuk mengambilnya lagi!\nCara kerjanya adalah dengan membandingkan versi terenkripsi dengan yang anda ketik saat login.\n(Jika ingin tahu lebih detil, baca algoritma MD5 HASH)
+rpasswd_invalid_passwd:Password salah
+rpasswd_passwd_nomatch:Passwords tidak cocok
+rpasswd_passwd_length:Password minimal 6 karakter
+reset_remind_pass:Pengingat Password
+reset_reset_conf:Password akan ditimpa dan dikirimkan ke anda. Jika anda belum mengkonfirmasikan di alamat e-mail, konfirmasi akan dikirim ulang.
+reset_error:E-mail address tidak ada di database
+rpasswd_change_pass:Ubah Password
+rpasswd_login:Masuk log
+rpasswd_cur_pass:Password sekarang:
+rpasswd_new_pass:Password baru:
+rpasswd_conf_pass:Ulang Password:
+login_passwd:Kata sandi:
+reset_email:Surat-e:
+reset_reset_button:Timpa Password
+rate_this_thread:Nilai
+report_reporting_about:Melaporkan mengenai:
+report_subject:subyek:
+report_by:Oleh:
+report_posted_on:dimasukkan pada:
+report_give_reason:Berikan alasan mengapa anda melaporkan pesan ini:
+report_submit_report:Kirimkan laporan
+search_entire_msg:Seluruh pesan
+search_subject_only:Hanya Subyek
+search_forum:Forum
+search_posted_on:dimasukkan pada
+search_no_results:tidak ada hasil
+search_all_forums:Cari disemua forum
+search_in_forum:Cari di forum:
+search_forum_search:Cari Forum
+move_thread_to:Pindahkan topik <b>{VAR: thr->subject}</b> ke:
+remail_email_topic:E-mail topik ini ke teman
+remail_your_name:Nama anda:
+remail_your_email:E-mail anda:
+remail_friends_name:Nama teman:
+remail_friends_email:E-mail teman:
+remail_required:diperlukan
+remail_subject:subyek:
+remail_message:Pesan:
+remail_send_now:Kirim E-mail sekarang
+remail_anon_opt:Salin pesan ini dan letakkan di aplikasi e-mail kesukaan anda dan kirimkan ke teman anda.
+remail_done:Selesai
+remail_sent_conf:Pengiriman e-mail ke {VAR-HTML: _POST['femail']} tentang topik {VAR: data->subject} sukses.
+remail_error:Ada kesalahan
+mklist_type:Tipe:
+mklist_option:Pilihan:
+mklist_additem:Tambahkan lainnya
+mklist_apply:Terapkan
+mklist_delete:Hapus
+qbud_nick_name:Nama
+qbud_add_selected:Tambah yang terpilih
+qbud_selected:Terpilih
+qbud_no_buddies:Tidak ada teman yang bisa dipilih
+mklist_numerical:Numerik
+mklist_aplha:Alpha
+mklist_square:Kotak
+mklist_disc:Lain-lain
+mklist_circle:Lingkaran
+mklist_close:Tutup
+email_to:Ke:
+email_pg_title:Surat-e
+email_subject:subyek:
+email_body:Isi:
+email_submit:Surat-e
+ppost_quote_msg:{VAR: msg_to_list} ditulis pada {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Petikan:
+ppost_to:Ke:
+ppost_from_buddy_list:Pilih teman
+ppost_find_User:Cari pengguna
+ppost_track_msg:Telusuri pesan ini
+ppost_track_msg_desc:Beritahu (melalui pesan pribadi) bila pesan ini dibaca.
+ppost_send:Kirim
+ppost_save_draft:Simpan pesan sementara
+poll_blank_option:Anda tidak bisa menambah pilihan kosong.
+poll_del_conf:Jika anda hendak menghapus pilihan ini, pilih OK
+poll_name:Nama poling:
+poll_timelimit:Batas waktu:
+poll_maxiumvotes:Maksimal Pemilih:
+poll_create:Buat
+poll_update:Perbarui
+poll_disablesmilies:Non-aktifkan smilies
+poll_create_poll:Buat poling
+poll_update_poll:perbaiki poling
+poll_delete:Hapus
+poll_updateoption:Ubah pilihan
+poll_addoption:tambah pilihan
+poll_unlimited:Tak terbatas
+poll_day:hari
+poll_days:hari
+poll_hour:jam
+poll_hours:jam
+poll_month:bulan
+poll_year:tahun
+poll_week:minggu
+tabs_register:Seting-seting
+tabs_subscriptions:Langganan
+tabs_bookmarkes:Tandai
+tabs_referrals:Rerefensi
+tabs_buddy_list:Daftar teman
+tabs_ignore_list:Daftar acuh
+tabs_private_messaging:Pesan pribadi
+single_msg_delete:Anda akan <span class="ErrorText">MENGHAPUS</span> judul pesan: <b>{VAR: data[3]}</b>
+thread_delete:Anda akan <span class="ErrorText">menghapus</span> <span class="ErrorText">seluruh topik</span> berjudul: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Apakah ingin melanjutkan?</span>
+delete_yes:Ya
+delete_no:Tidak
+error_invalidurl:URL tidak sah
+error_error:Galat
+usrinfo_profile:Profile dari {VAR: u->alias}
+usrinfo_show_all_posts:Tampilkan semua pesan dari {VAR: u->alias}
+actions_update:Melihat aktifitas orang lain, seperti anda
+err_info:Info
+buddy_list_err_cantadd:Tidak bisa menambahkan diri sendiri ke daftar teman
+buddy_list_err_dup:Penggun tersebut sudah ada di daftar teman
+buddy_list_err_nouser:Pengguna yang akan anda masukkan tidak ditemukan
+buddy_list_err_nouser_title:Tidak bisa menambah teman
+buddy_list_err_ignore:Tidak dapat menambah pengguna yang mengacuhkan anda untuk dimasukan ke daftar teman
+buddy_list_update:Melihat daftar teman sendiri
+core_err_invinp_title:Masukan tidak sah
+core_err_invinp_err:Anda mengikuti alamat yang salah. Beritahu <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> bagaimana anda bisa sampai disini.
+core_adm_login_msg:Administrator login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">disini</a>
+email_err_unabletoemail_title:ERROR: tidak bisa mengirim e-mail
+email_err_unabletoemail_msg:e-mail sudah dinon-aktifkan oleh administrator.
+email_error_unabletolocaddr:Maaf, tidak bisa mengirim ke {VAR-HTML: _POST['tx_name']} karena alamat tujuan tidak diketahui
+email_error_body:Isi pesan harus ada
+email_error_subject:Isi subyek harus ada
+email_error_namerequired:Nama tidak boleh kosong
+email_error_invaliduser:Pengguna tidak sah
+emailconf_err_invkey_title:Galat
+emailconf_err_invkey_msg:Kode konfirmasi tidak benar. Mohon periksa e-mail anda untuk memastikan kebenaran alamat URL.
+err_inc_criticaltitle:Kesalahan kritis
+err_inc_criticalmsg:Terjadi kesalahan. Sayangnya, terjadi juga kesalahan dengan sistem pelaporan.
+finduser_update:Mencari pengguna
+help_index_update:Sedang membaca <a href="{TEMPLATE: help_index_update_lnk}">FAQ</a>
+iemail_thr_subject:Balasan baru untuk {VAR: thr_subject} oleh {VAR: poster_login}
+iemail_thr_bodyemail:Untuk membaca balasan baru {VAR: goto_url['email']}\n\nJIka anda tidak ingin menerima pemberitahuan lebih lanjut, silakan klik: {VAR: unsub_url['email']}
+iemail_frm_subject:Topik baru di forum {VAR: frm_name}, berjudul {VAR: thr_subject}, oleh {VAR: poster_login}
+iemail_frm_bodyemail:Untuk membaca topik tsb, silakan:\n{VAR: goto_url['email']}\n\nUntuk menghentikan pemberitahuan tentang topik baru: {VAR: unsub_url['email']}
+iemail_participate:Untuk berpartisipasi dalam diskusi:
+ignore_list_err_info_title:Info
+ignore_list_err_dup_msg:Pengguna tsb sudah ada di daftar acuh anda
+ignore_list_err_nu_title:Pengguna tidak ditemukan
+ignore_list_err_nu_msg:Pengguna yang hendak anda masukkan ke dalam daftar acuh tidak ditemukan
+ignore_list_cantign_msg:Anda tidak boleh mengacuhkan perngguna ini
+ignore_list_update:Memeriksa daftar acuh sendiri
+index_update:Sedang melihat <a href="{TEMPLATE: index_update_lnk}">daftar forum</a>
+list_referers_update:Memerika pe-referensi
+login_update:Formulir Login
+msg_update:Melihat topik <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:SALAH: Pengiriman pesan pribadi ditiadakan
+pm_err_nopm_msg:Anda tidak bisa memakai pesan pribadi, sudah dihentikan oleh administrator.
+pm_update:Memakai pengiriman pesan pribadi
+post_err_lockedthread_title:SALAH: Topik terkunci
+post_err_lockedthread_msg:Topik ini sudah terkunci, tidak bisa menambah pembahasan lagi
+err_coppa_title:SALAH: Akun anda belum terkonfirmasi
+err_coppa_msg:Kami belum menerima konfirmasi dari orangtua dan/atau wali Anda yang sah, yang akan mengijinkan anda untuk mengirim pesan. Jika Anda kehilangan COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">lihat lagi disini</a>.
+err_banned_acct_title:SALAH: anda sudah di cekal.
+err_banned_acct_msg:Akun anda {IF: $ban_expiry}di-cekal sementara sampai {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanen{ENDI} karena pelanggaran peraturan forum ini.
+post_err_edttimelimit_title:GALAT
+post_err_edttimelimit_msg:Pesan tersebut sudah tidak boleh anda ubah
+post_err_noannontopics_msg2:<legend>ERROR: Wewenang tidak mencukupi</legend> Tamu tidak diperkenankan membuat topik.
+post_err_noannonposts_msg2:<legend>ERROR: Wewenang tidak mencukupi</legend> Tamu tidak diperkenankan memberikan tanggapan.
+post_err_floodtrig_title:SALAH: Pengiriman tertubi-tubi tidak diperkenankan.
+post_err_floodtrig_msg:Coba lagi dalam {PLURAL: tm|$1 detik|$1 detik}
+post_err_attach_size:Berkas lampiran terlalu besar(melebihi batas yang diijinkan sebesar {VAR: MAX_F_SIZE} bytes)
+post_err_attach_ext:Berkas yang anda kirimkan tidak diijinkan, jenis file tidak sesuai dengan yang diijinkan.
+post_err_attach_filelimit:Anda mencoba melebihi batas jumal berkas sisipan.
+post_err_passwd:Password tidak benar.
+post_reply_update:Sedang membalas <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> di {VAR: frm->name}
+post_topic_update:Sedang menulis topik baru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Terjadi kesalahan
+postcheck_max_images_err:Tidak lebih dari {GVAR: MAX_IMAGE_COUNT} gambar diijinkan per pesan, mohon dkurangi.
+postcheck_no_links_allowed:Anda tidak dapat menggunakan pranala sampai Anda telah mengirim lebih dari {PLURAL: posts_before_links||}$1 pesan.
+postcheck_subj_needed:Diperlukan Subyek
+postcheck_no_such_user:Tidak ada pengguna dengan nama "{FUNC: char_fix(htmlspecialchars($v))}" di forum ini.
+postcheck_ignored:Anda tidak bisa mengirim pesan pribadi ke "{FUNC: char_fix(htmlspecialchars($v))}", karena oeang tersebut mengacuhkan anda.
+postcheck_no_recepient:Pesan tidak terkirim, penerima kosong.
+postcheck_invalid_email:Mohon masukkan alamat e-mail teman anda.
+postcheck_email_subject:Tidak bisa mengirim e-mail tanpa subyek yang jelas.
+postcheck_email_body:Tidak bisa mengirim e-mail tanpa isi.
+private_msg_notify_subj:Baca pemberitahuan tentang: {VAR: m->subject}
+private_msg_notify_body:Halo,<br />{VAR: usr->login} sudah membaca pesan pribadi anda tentang "{VAR: m->subject}", pada {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Memeriksa pe-referensi
+register_err_short_login:Nama Login yang anda pilih terlalu singkat. Nama Login minimal 4 karakter.
+register_err_login_notallowed:Nama Login tersebut tidak diijinkan.
+register_err_loginunique:Nama login harus unik, nama tersebut sudah terpakai.
+register_err_emailexists:alamat e-mail tersebut sudah dihubungkan dengan sebuah akun. Jika anda lupa password, pergunakan bantuan TIMPA Password, jangan mendaftar lagi.
+register_err_shortpasswd:Password minimal 6 karakter.
+register_err_passwdnomatch:Password tidak sesuai, mohon dicoba lagi.
+register_err_invalidemail:Alamat e-mail yang anda masukkan tampaknya tidak berlaku.
+register_err_needname:ANda harus memasukkan nama agar proses registrasi sukses.
+register_err_enterpasswd:Password diperlukan untuk melakukan perubahan
+register_err_adminpasswd:Anda harus memasukkan katakunci <b>pengurus</b> untuk melakukan perubahan.
+register_err_notyouremail:Seseorang sudah memakai alamat e-mail tsb.
+register_err_avatartobig:Berkas yang anda kirimkan terlalu besar, lebih dari {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
+register_err_avatarnotallowed:Avatar yang anda kirimkan tidak sah. Mohon perika jenis berkan yang diijinkan.
+register_conf_subject:Konfirmasi Registrasi
+register_conf_msg:Terima-kasih atas registrasi anda,\nUntuk mengaktifkan akun anda, silakan ke:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSesudah aktif, anda bisa login&\nsecara otomatis akan diarahkan ke halaman utama.
+register_welcome_subject:Konfirmasi Registrasi Forum
+register_welcome_msg:Terima-kasih telah mendaftar,\n\nBerikut adalah keterangan lengkap anda:\n\nURL Forum: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nMohon diingat password merupakan ''case sensitive''!\nUntuk mengubah pengesetan atau profile, tuju halaman ini:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:SALAH: tidak besa mendaftar
+regsiter_err_cantreg_msg:Tidak bisa membuat akun pengguna, mohon hubungi administrator di <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Melihat profil probadi
+register_register_update:Halaman Registrasi
+report_err_nosuchmsg_title:GALAT
+report_err_nosuchmsg_msg:Pesan tidak ada
+reset_err_invalidkey_title:GALAT
+reset_err_invalidkey_msg:Kunci penimpaan password tidak benar. Mungkin aplikasi e-mail anda membuka halaman ini, menjadikan kunci tidak berlaku. Jika demikian, dalam beberapa saat lagi, anda akan menerima e-mail dengan password anda yang baru. Jika tidak demikian, silakan ulang proses penimpaan password.
+reset_err_rstconf_title:Informasi
+reset_err_rstconf_msg:Dalam beberapa menit, anda akan menerima petunjuk di e-mail.
+reset_newpass_title:Timpa password
+reset_newpass_msg:Halo,\n\nSesuai permintaan anda, informasi login anda adalah:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nHarap diingat baik-baik. Jika anda ingin merubah password\nbisa andalakukan di panel kontrol pengguna di:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Password anda sudah dikirim melalui e-mail, dalam beberapa saat anda akan menerimanya<br />
+search_update:Mencari pesan
+selmsg_update:Melihat <a href="{TEMPLATE: selmsg_update_lnk}">pesan hari ini</a>
+showposts_update:Melihat pesan dari: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Memeriksa daftar berlangganan
+bookmarked_update:Jelajahi daftar tanda anda
+thread_update:Melihat forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Melihat topik (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Melihat profile dari <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
+ERR_login_msg2:<legend>SALAH: Anda tidak login</legend>Untuk mengakses forum ini, anda harus menjadi anggota
+ERR_disabled_ttl:Fasilitas dinon-aktifkan
+ERR_disabled_msg:Fasilitas ini sudah di non-aktifkan oleh administrator
+ERR_access_ttl:SALAH: Wewenang tidak mencukupi
+ERR_access_msg:Anda tidak berwenang untuk melakukan hal tersebut
+ERR_registration_disabled_ttl:Registrasi di non-aktifkan
+ERR_registration_disabled_msg:Administrator sudah menon-aktifkan proses registrasi, coba laha beberapa saat lagi.
+ERR_emailconf_ttl:SALAH: Akun anda belum dikonfirmasi
+ERR_emailconf_msg:Anda belum mengkonfirmasi akun Anda melalui surat-e.<br /><table border="0"><tr><td><ol><li>Jika Anda belum menerima konfirmasi surat-e,<a href="{TEMPLATE: ERR_emailconf_msg_lnk}"> minta lagi disini</a>.</li><li>Jika {VAR: usr_d->email} bukan surat-e Anda yang benar, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">isi alamat yang benar disini</a>.</li></ol></td></tr></table>
+ERR_user_ttl:SALAH: Pengguna tidak ada
+ERR_user_msg:Pengguna tidak ada
+ERR_systemerr_ttl:SALAH: Kesalahan sistem
+ERR_systemerr_msg:Kesalahan sistem telah terjadi, laporkan ke <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+email_title:Formulir E-mail
+finduser_title:Cari Pengguna
+help_title:FAQ
+login_title:Formulir Login
+poll_title:Pembuatan Poling
+register_title:Formulir Registrasi
+reset_title:Timpa Password
+rpasswd_title:Formulir pengubah Password
+error_title:Formulir Kesalahan
+index_title:Selamat datang di forum
+search_title:Mencari {VAR-HTML: srch}
+remail_emailsent:E-mail terkirim
+remail_email:Halo,\n\nAda topik menarik tentang "{VAR: data->subject}" di forum {GVAR: FORUM_TITLE} yang mungkin ingin anda baca. Anda dapat melihatnya dari sini:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}
+poll_add_option:Tambah pilihan:
+post_opt_html_on:kode <b>HTML</b> di<b>AKTIFKAN</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> di<b>AKTIFKAN</b></a>
+post_opt_images_on:<b>Gambar</b> di<b>AKTIFKAN</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> di<b>AKTIFKAN</b></a>
+post_opt_html_off:kode <b>HTML</b> di<b>NON-AKTIFKAN</b>
+post_opt_fud_off:<b>BBcode</b> di<b>NON-AKTIFKAN</b>
+post_opt_images_off:<b>Images</b> di<b>NON-AKTIFKAN</b>
+post_opt_smilies_off:<b>Smilies</b> di<b>NON-AKTIFKAN</b>
+post_opt:Pilihan Forum
+register_change_passwd:ubah password
+approved_avatar_title:Avatar kustom anda disetujui.
+approved_avatar_msg:Avatar kustom anda disetujui oleh administrator. Avatar ini seharusnya muncul disetiap pesan anda. Jika tidak, refresh browser sekali atau dua kali.
+unapproved_avatar_title:Avatar kustom anda tidak disetujui.
+unapproved_avatar_msg:Administrator tidak menyetujui avatar anda. Alasan yang paling sering adalah karena terlalu besar(ukuran dan/atau dimensi) atau berisi hal yang tidak diperknankan. Jika anda ingin alsan tepatnya, hubungi administrator.
+mvthread_request_move:Permintaan pemindahan
+move_request_reason:Alasan mengapa and minta dipindahkan?
+mvthread_submit_req:Kirimkan permintaan
+thread_exchange:Pertukan topik
+move_request_by:Pemindahan topik diminta oleh:
+move_reason:Dengan alasan pemindahan:
+thr_exch_accept:terima topic
+thr_exch_decline:tolak topic
+thr_exch_orig_forum:Forum semula:
+thr_exch_dest_forum:Forum tujuan:
+thr_exch_no_threads:Tidak ada topik menunggu persetujuan.
+thr_exch_decl_reason:Alasan penolakan topik <b>{VAR: data->subject}</b> ke forum <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Kirim
+exch_decline_ttl:Pemindahkan topik {VAR: data->subject} ke forum {VAR: data->f2_name} ditolak.
+ppost_original_msg:Pesan yang anda teruskan atau balas
+split_thread:Pecah topik
+groupmgr_no_user:Tidak ada pengguna dengan nama login "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Pengguna "{FUNC: char_fix(htmlspecialchars($gr_member))}" sudah ada di group ini.
+groupmgr_yes:Ya
+groupmgr_no:Tidak
+groupmgr_action:Aksi
+groupmgr_member:Anggota
+groupmgr_cancel:Batalkan
+groupmgr_add_member:Tambah anggota
+groupmgr_update_member:Ubah anggota
+groupmgr_edit:Sunting
+groupmgr_delete:Hapus
+group_mgr_anon:Tidak bernama
+group_mgr_reged:Semua pengguna terdaftar
+show_show:Tampilkan:
+group_mgr:Pengelola group
+group_mgr_edit_btn:Ubah Group
+group_mgr_heading:Pilihan editor Group
+group_mgr_group:Kelompok:
+permission_denied_title:Ijin ditolak!
+permission_denied_msg:Anda tidak dijinkan melkukan hal itu.
+p_READ:Baca
+p_POST:Tulis
+p_REPLY:Balas
+p_EDIT:Sunting
+p_DEL:Hapus
+p_STICKY:Pesan tetap
+p_POLL:Buat poling
+p_FILE:Sisipkan berkas
+p_VOTE:Beri suara
+p_RATE:Nilai topik
+p_SPLIT:Pecahkan topik
+p_LOCK:Kunci topik
+p_MOVE:Pindahkan topik
+p_SML:Pergunakan smilies
+p_IMG:Pergunakan tanda gambar
+p_SEARCH:Bisa dicari
+group_mgr_search:Cari Pengguna
+group_mgr_indicator:Sedang memperbaiki: <b>{VAR: grp->name}</b>
+rate_worst:Paling Jelek
+rate_best:Bagus
+post_quote_msg:{VAR: msg->login} ditulis pada {TEMPLATE: make_report_date}
+post_quote:Petikan:
+userinfo_referals:Pengguna direferensikan:
+userinfo_referals_count:{VAR: referals} anggota
+pm_no_space_title:Tidak ada ruang sisa!
+pm_no_space_msg:Pesan pribadi anda sudah mencapai batas ukuran <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Dengan <b>{VAR: fldr_size} bytes</b> pesan.<br /><br /><span class="ErrorText">Hapus beberapa pesan yang tidak terpakai untuk membuat ruang sisa.</span>
+pm_space_indct_msg:Kapasitas pesan pribadi anda sudah mencapai {VAR: percent_full}%.
+th_expr_never:Tidak pernah
+th_expr_one_hr:1 jam
+th_expr_three_hr:3 jam
+th_expr_four_hr:4 jam
+th_expr_eight_hr:8 jam
+th_expr_sixteen_hr:16 jam
+th_expr_one_day:1 hari
+th_expr_two_day:2 hari
+th_expr_four_day:4 hari
+th_expr_one_week:1 minggu
+th_expr_two_week:2 minggu
+th_expr_one_month:1 bulan
+th_expr_two_month:2 bulan
+th_expr_four_month:4 bulan
+th_expr_one_year:1 tahun
+thread_mod_delete:Hapus
+action_latest_post:Pesan terakhir
+online_today_last_visit:Kunjungan terakhir
+online_today_update:Melihat pengguna-pengguna yang berkuung ke forum hari ini.
+logedin_todays_visitors:Pengunjung hari ini
+logedin_latest_post:Pesan terkahir di forum:
+register_show_avatar:Perlihatkan avatar:
+register_show_avatar_desc:Memungkin anda melihat avatar pengguna lain saat anda melihat pesan mereka
+drawmsg_view_rest_post:Perlihatkan sisa pesan yang lain
+post_re:Balasan:
+forumsel_goto_forum:Ke Forum:
+minimsg_thread_view:Tampilan topik
+split_th_post_by:Pesan oleh:
+split_th_posted_on:Dibuat pada:
+split_th_subject:Subyek:
+split_th_new_thread_title:Judul topik baru:
+split_th_forum:Forum:
+split_th_split_sel:Pisahkan pesan terpilih
+split_th_split_unsel:Pisahkan pesan tak terpilih
+split_th_messages:Pesan-pesan
+split_th_select:Pilih
+report_report_post:Laporkan pesan
+quicklogin_login:Masuk log:
+quicklogin_password:Katasandi:
+quicklogin_use_cookies:pergunakan "Cookies"?
+quicklogin_login_btn:Masuk log
+quick_reply:Balas dengan cepat
+post_notification_desc:Beritahu jika ada balasan untuk pesan ini.
+post_all_ext_allowed:(Tidak dibatasi)
+maximize_category:Perbesar kategori
+maximize_message:Pesan diperbesar
+no_view_perm:Anda tidak memilik wewenang yang cukup untuk melihat topik ini.
+report_empty_report:Berikan alasan anda untuk melaporkan
+report_already_reported_title:Sudah dilaporkan
+report_already_reported_msg:Pesan ini sudah dilaporkan ke moderator, sedang menunggu antrian untuk diperiksa.
+register_err_toomanyimages:Anda mencoba untuk memakai lebih dari {GVAR: FORUM_IMG_CNT_SIG} gambar di tanda-tangan anda.
+pmsg_next_msg:Pesan berikutnya
+pmsg_prev_msg:Pesan sebelumnya
+post_proc_reveal_spoiler:Aktif-NonAktifkan spoiler
+register_jabber:Identitas Jabber:
+register_skype:Skype Handle:
+register_twitter:Twitter Handle:
+register_google:Google Chat/IM Handle:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Kontek
+forum_home:Utama
+post_cur_attached:Saat ini ada {VAR: i} {PLURAL: i|berkas|berkas}
+ignored_anon_post:{GVAR: ANON_NICK} si acuhkan
+ignored_user_post:Pesan-pesan dari <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> diacuhkan
+smladd_close_window:Tutup jendela
+post_list_smilies:Perlihatkan semua smilies
+p_VISIBLE:Tampak
+reported_in_thread:Dalam:
+help_back_to_top:Kembali ke atas
+help_return_to_index:Kembali ke daftar bantuan
+imsg_err_message_title:Pesan tidak sah
+imsg_err_message_msg:Pesan yang anda akan lihat tidak ada
+poll_edit:Sunting
+register_err_not_valid_img:Alamat URL yang dimasukkan tidak memilik gambar yang sah
+pmsg_recepient:Penerima
+register_err_taken_alias:Alias yang hendak anda pakai sudah dipergunakan pengguna lain, silakan pilih yg lain.
+register_alias:Samaran:
+register_alias_desc:Jika anda ingin nama singkat lain yang tampak di forum,masukkan disini.
+register_allow_pm_msg:Perbolehkan pesan pribadi
+register_allow_pm_msg_desc:Perbolehkan pengguna lain mengirimkan pesan pribadi ke anda di forum ini.
+postcheck_pm_disabled:Anda tidak bisa mengirim pesan pribadi ke "{VAR-HTML: v}", karena yang bersangkutan tidak bersedia menerima pesan pribadi.
+polllist_vote:Berikan suara
+polllist_view_results:Lihat hasil
+polllist_name:Nama Angket
+polllist_date:Dibuat pada
+polllist_owner:Oleh
+polllist_votes:Total suara
+polllist_action:Tindakan
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">melihat poling yang ada</a>
+userinfo_polls:Poling:
+show_pollist:Tampilkan angket
+search_and:DAN
+search_or:ATAU
+search_desc_order:Urutan terbalik
+search_asc_order:Urutan
+search_logic:Logika pencarian:
+search_sorting:Urutkan hasil pencarian berdasarkan tanggal dengan:
+post_proceed:Proses
+post_moderated_forum:Anda sudah menulis di forum termoderasi. Pesan anda tidak akan terbaca oleh pengguna lain sampai disetujui oleh salah satu moderator atau administrator.
+post_moderated_forum_ttl:Catatan forum termoderasi
+buddy_list_bday:Hari ini {VAR: r[2]} menjadi {VAR: age} tahun
+email_warning_msg:Jika anda mengubah alamat e-mail, akun anda akan dianggap belum sah sampai ada konfirmasi dari e-mail
+register_show_im:Perlihatkan indikator IM
+register_show_im_desc:Apakah indikator IM muncul atau tidak disamping pesan-pesannya.
+unread_message:Pesan belum terbaca
+read_message:Baca pesan
+threadt_more:&lt;lagi&gt;
+threadt_disabled_ttl:Tampilan bercabang tidak diaktifkan.
+threadt_disabled_desc:Administrator telah menonaktifkan tampilan struktur pohon dari daftar topik. Harap gunakan tampilan datar saja.
+threadt_update:Jelajahi forum (tree view) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Konfirmasi Penghapusan Topik/Pesan
+spell_alts:Tidak ada alternatif
+insert_uploaded_image:Masukan gambar pada badan pesan
+finduser_help:Mesin pencari akan secara otomatis menambahkan "*" ke kata pencarian, <b>Pencarian membedakan huruf besar/kecil</b>.<br />misalkan untuk mencari semua pengguna yang berawal 'a', masukkan 'a' ke kotak pencari.
+back_to_top:Kembali ke Atas
+pm_err_disabled_title:Pesan pribadi nonaktif
+pm_err_disabled_msg:Anda tidak bisa mengirim pesan pribadi sampai mengaktifkan pilihan 'mekanisme Pesan Pribadi' di profile anda.
+err_mod_acc_ttl:Akun belum diverifikasi
+err_mod_acc_msg:Administrator sudah mentntukan bahwa semua akun baru harus diperiksa secara manual sebelum diaktifkan. Sebelum akun anda divalidasi oleh administrator, anda belum memperoleh semua fasilitas yang tersedia untuk akun anda.
+accounts_pending_approval:Akun menunggu persetujuan
+saved:Tersimpan
+register_err_time_limit:Batas pendaftaran selama {GVAR: REG_TIME_LIMIT} detik terlampaui. Mohon tunggu {PLURAL: reg_limit_reached|$1 detik|$1 detik}, dan cobalah lagi.
+register_affero:Nama pengguna Affero:<br /><span class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username, enter it here.</span>
+im_affero:Nama pengguna Affero
+register_err_avatardimtobig:Dimensi Avatar anda: <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> melampaui batas sebesar <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+buddy_offline:{VAR: r[2]} pengguna sedah offline
+buddy_online:{VAR: r[2]} pengguna sedang online
+sml_no_smilies:Emoticons tidak tersedia
+login_unapproved_account_ttl:Akun belum disetujui
+login_unapproved_account_msg:Administrator dari forum telah memilih untuk mengkonfirmasi setiap akun baru secara manual sebelum aktivasi. Akun Anda belum dikonfirmasi, sehingga Anda tidak akan dapat mengakses beberapa fitur yang tersedia untuk mengukuhkan keanggotaan.
+remove_from_buddy_list:hilangkan dari daftar teman
+iemail_msg_author:<b>Penulis:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Subyek:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Tanggal:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Balas
+iemail_msg_quote:Petikan
+iemail_msg_view:Lihat topik/pesan
+threadt_sticky:stiki
+threadt_announce:pengumuman
+reported_no_messages:Tidak pesan dilaporkan.
+poll_no_polls:Tidak ada poling yang bisa diakses.
+no_unread_messages:Tidak ada pesan yang sesuai dengan yang anda inginkan.
+thread_mark_all_read:tandai semua pesan di forum ini terbaca
+thread_mark_all_read_desc:Semua pesan akan ditandai sebagai terbaca
+private_no_messages:Tidak ada pesan di folder ini.
+register_email_change_subject:Konfirmasi perubahan E-mail
+register_email_change_msg:Mohon konfirmasikan e-mail baru "{VAR: uent->email}" yang menggantikan e-mail yang lama "{VAR: old_email}", dengan membuka halam ini:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSesudah mengkonfirmasi, akun anda akan diaktifkan kembali.
+iemail_thread_unsub:Stop langganan topik ini
+iemail_forum_unsub:Stop langganan forum ini
+primary_group_prefix:Group utama forum ini:
+group_resources:Group ini memilik wewenang mengatur forum
+register_admin_newuser_title:Pengguna baru sudah mendaftar dan sedang menunggu konfirmasi
+register_admin_newuser_msg:Pengguna baru ({VAR: uent->login}), dan karena konfirmasi di aktifkan, akun tidak aktif sampai disetujui administrator. Untuk memeriksa, silakan ke: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nIni proses otomatis, jangan membalas e-mail ini.\nPemberitahuan lewat e-mail bisa dinon-aktifkan melalui kontrol panel admin. Ubah seting di "Pemberitahuan Akun baru".
+post_mod_msg_notify_title:Pesan baru di forum "{VAR: frm->name}" menunggu persetuhuan anda
+post_mod_msg_notify_msg:Pesan baru berjudul "{VAR: msg_post->subject}" baru saja dimasukkan di forum yang anda moderasikan. Untum memeriksa,silakan ke: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIni proses otomatis, jangan membalas email ini.
+thread_printable_pdf:Buat PDF utk pencetakan
+thread_syndicate:Sindikasikan forum ini (XML)
+reg_conf_title:Konfirmasi Pendaftaran
+reg_conf_email:<b>Konfirmasi E-mail</b><br />Sebuah e-mail sudah dikirimkan dengan alamat yang harus anda kunjungi sebelum akun anda aktif. Jika anda tidak menerima e-mail tsb dalam beberapa menit, login dan pastikan e-mail anda benar. Sesudah anda konfirmasikan, semua fasilitas akan tersedia.
+reg_conf_account:<b>Konfirmasi Akun</b><br />Sebelum akun anda aktif, harus ada persetujuan dari administrator. Anda akan menerima pembertahuan melalui e-mail jika sudah disetujui. Sementara ini, anda bisa login tetapi beberapa fasilitas belum tersedia.
+forum_banned_user:Tindakan Anda sebelumnya telah mengakibatkan Anda secara permanen dilarang dari forum ini. Sampai jumpa.
+mnav_description:Navigasi pesan
+mnav_date_limit:Rentang tgl:
+mnav_forum_limit:Hanya cari di:
+mnav_all_forums:Cari di semua forum
+mnav_submit:Mulai Cari
+mnav_no_range:Anda harus memasukkan rentang tanggal yang benar. Boleh berisi angka desimal (0.12 misalnya) tapi harus lebih besar dari nol.
+mnav_invalid_unit:Anda harus memasukkan satuan waktu yang sah.
+mnav_invalid_date:Rentang tanggal yang anda masukkan lebih besar dari yang diijinkan administrator. Mohon dicoba perkecil.
+mnav_no_results:Tidak ada pesan yang sesuai keinginan anda
+mnav_posted_by:Dibuat oleh:
+mnav_more:Lagi &raquo;&raquo;
+mnav_minute:Menit
+mnav_hour:Jam
+mnav_day:Hari
+mnav_week:Minggu
+mnav_month:Bulan
+mnav_title:Navigasi Pesan
+mnav_update:Memeriksa pesan dengan <a href="{TEMPLATE: mnav_update_lnk}">Navigasi Pesan</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Pemberitahuan Pesan Pribadi Baru
+pm_notify_body_email:Anda mendapat pesan pribadi baru dengan subyek "{VAR: subject}", dari "{VAR: from}", di forum "{GVAR: FORUM_TITLE}".\nUntuk melihat, Tekan disini: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUntuk menghentikan pemberitahuan, non-aktifkan "Pemberitahuan Pesan Pribadi" di profile anda.
+register_pm_notification:Pemberitahuan Pesan Pribadi
+register_pm_notification_desc:Jika di aktifkan, anda akan menerima e-mail jika ada pesan pribadi untuk anda.
+findu_admin_opts_header:Pilihan Admin.
+findu_unban:Ijinkan
+findu_ban:Cekal
+findu_edit:Sunting
+findu_delete:Hapus
+dmsg_reply_to:adalah balasan dari pesan #{VAR: obj->reply_to}
+merge_topics:Gabungkan topik
+merge_topics_cp:Kontrol Panel penggabungan Topik
+merge_topics_tpl:Pilih topik yang akan digabungkan <span class="SmallText">(anda harus memilih lebih dari satu topik)</span>
+merge_merge:Gabungkan Topik-topik terpilih
+merge_next:Topik berikutnya
+merge_prev:Topik Sebelumnya
+split_cp:Panel kontrol pemisah topik
+groups_perms_header:Wewenang <span class="small">(gerakkan mouse anda untuk melihat tipe wewenang)</span>
+register_err_sig_too_long:Tanda-tangan anda melebihi batas yang diijinkan sebesar {GVAR: FORUM_SIG_ML} karakter.
+register_sig_limit:{GVAR: FORUM_SIG_ML} karakter <a href="javascript: alert('Tanda-tangan anda '+document.forms['fud_register'].reg_sig.value.length+' karakter. Maksimum diijinkan adalah sebesar {GVAR: FORUM_SIG_ML} karakter.');" class="SmallText">Perksa panjang tanda-tangan</a>
+adm_account_accepted:Akun anda '{VAR: login}' disetujui oleh administrator dan sekarang sudah aktif. Anda bisa mengakses forum '{GVAR: FORUM_TITLE}' sebagai anggota terdaftar penuh.
+adm_account_accepted_s:Permintaan akun Anda di '{GVAR: FORUM_TITLE}' diterima.
+adm_account_rejected:Akun Anda '{VAR: login}' ditolak oleh pengurus. Jika Anda ingin tahu alasan penolakan silakan hubungi pengurus di '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Permintaan akun Anda di '{GVAR: FORUM_TITLE}' ditolak.
+thread_on:Aktif
+userinfo_buddy:Teman:
+register_email_addr:Alamat E-mail:
+reset_suffix:Jika anda menerima pesan ini karena kesalahan, mohon diabaikan. Jika anda menerima beberapa e-mail yang sama, yang tidak anda minta, mohon hubungi administrator di {GVAR: ADMIN_EMAIL}\n\nPermintaan ini dipicu dari: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Kunjungan terakhir:
+mnav_newer:lebih baru dari
+mnav_older:lebih lama dari
+ip_search_by_ip:Cari pengguna berdasarkan IP
+ip_search_syntax:Sintaksis: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Cari
+ip_analyze_usage:Analisa penggunaan IP
+ip_analyze_usage_descr:Spesifikasikan pengguna secara tepat.
+ip_users_using:Pengguna memakai IP: {VAR: ip}
+ip_all_ips:Semua IP yang dipakai pengguna {VAR: user}
+ip_title:Penguna IP
+userinfo_real_name:Nama asli:
+register_err_alias_notallowed:Alias ini tidak diperbolehkan
+post_err_mod_forum_edit_ttl:GALAT
+post_err_mod_forum_edit_msg:Anda tidak bisa mengubah pesan di forum termoderasi
+dmsg_num:pesan #{VAR: obj->id}
+postcheck_session_invalid:Sesi anda kedaluwarsa. Kirim ulang formulir, maaf merepotkan.
+delete_message_extra_desc:<b>Pilihan</b><br />Berikan alasan mengapa anda ingin menghapus pesan yang akan dikirimkan ke penulis pesan melalui pesan pribadi.
+delete_message_extra_body:Ikut-sertakan isi pesan yang sedang dihapus untuk dikirim ke penulis pesan.
+delete_msg_removed_ttl:Pesan anda dihapus oleh staf administrasi.
+delete_msg_pm_body:Pesan asli
+delete_msg_pm_subject:Subyek: {VAR: data[15]}
+ip_no_whois:Informasi Whois untuk <b>{VAR: ip}</b> tidak tersedia.
+ip_whois_title:Informasi penyelenggara internet
+register_theme:Tema:
+pmsg_trash:Kosongkan tempat sampah
+uc_new_pm:Pesan pribadi baru
+uc_new_topic:Topik baru
+uc_new_cat_forum:Forum berlangganan untuk pesan-pesan baru
+uc_cat_forum:Forum kategori
+uc_sub_topics:Topik berlangganan untuk pesan baru
+uc_page_title:Melihat panel kontrol pribadi
+search_options:Opsi pencarian
+search_user_filter:Filter atas dasar pengguna:
+register_none:Jangan beritahu
+findu_no_conf:Pengguna belum dikonfirmasi
+register_max_sig_len:Panjang maksimum:
+register_turing:Masukkan kode terlihat dibawah ini:
+register_err_turing:Kode validasi tidak sah.
+modque_cat:Kategori
+modque_forum:Forum
+idx_compact_forum_row:Forum tersedia:
+mmd_del_title:Hapus topik
+mmd_mov_title:Pindahkan topik
+mmd_move_threads_to:Forum tujuan:
+mmd_abort_move:Batalkan
+mmd_move:Pindahkan topik
+pmsg_pdf_btn:Buat PDF
+search_results_hdr:Ada: {VAR: total} hasil pencarian
+thread_del_all:Hapus semua yang terpilih
+thread_mov_all:Pindahkan yang terpilih
+thread_loc_all:Kunci/Buka kunci Semua Pilihan
+dmsg_ip:IP:
+err_blockedaccnt_title:SALAH: Akun anda sudah di-filter.
+err_blockedaccnt_msg:Akun anda sudaj diblokir dari forum karena salah satu filter dari pengguna.
+merge_th_page_list:Pemilihan halaman topik
+most_users_online:Paling banyak <b>{VAR: st_obj->most_online}</b> pengguna aktif pada <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Hentikan langgan dari semua forum
+sub_unsub_all_topics:Hentikan langgan dari semua topik
+unbookmark_all_topics:Hilangkan semua tanda
+tabs_own_posts:Perlihatkan tulisan sendiri
+sml_emoticon:IkonEmosi
+sml_code:Kode
+mnav_sub_only:Cari hanya dalam forum berlangganan
+register_topics_per_page:Topik Per Halaman:
+login_min_time:Forum ini memungkinkan satu upaya  login setiap {VAR: MIN_TIME_BETWEEN_LOGIN} detik, harap menunggu {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} detik sebelum Anda mencoba berikutnya.
+post_not_logged_in:Anda belum masuk log, pesan akan di kirim dengan anonim.
+post_common_bold:Tebal
+post_common_italics:Cetak miring
+post_common_underline:Garis bawah
+post_common_align_left:Rata kiri
+post_common_align_center:Rata tengah
+post_common_align_right:Rata kanan
+post_common_link:Sisipkan pranala
+post_common_email:Masukan alamat Surat-e
+post_common_image:Masukan berkas
+post_common_nlist:tambahkan daftar nomor
+post_common_blist:Tambahkan daftar biasa
+post_common_quote:Tambah kutipan
+post_common_code:Tambahkan Kode
+rating_delete:Hapus
+post_always_on_top:Buat topik ini selalu muncul di atas daftar topik
+topic_rating:{VAR: frm->rating} dari {PLURAL: frm->n_rating|$1 pemilih|$1 pemilih}
+topic_list_rating:{VAR: r[17]} dari {PLURAL: r[21]|$1 pemilih|$1 pemilih}
+tabs_notifications:Notifikasi
+finduser_flag:Panji
+post_descr:Keterangan Topik:
+pmsg_on:pada
+pmsg_download_dump:Unduh tumpukan pesan
+move_messages:Pindahkan pesan
+move_msg_btn:Pindahkan Pesan Terpilih
+move_msg_th_expl:Penetapan ID dari tujuan topik (bisa juga terdapat di Forum lain)
+captcha_img_alt:Verifikasi Captcha: Anda harus mengenali teks dalam gambar ini.
+captcha_img_help:Tidak ada nol atau satu pada berkas.
+powered-by:Di dukung oleh: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Perangkat lunak Bulletin Board </a>
+code_title:Kode:
+code_select_all:Pilih semua
+code_show_hide:Tampil/ sembunyi
+social_sites:Situs jejaring sosial:

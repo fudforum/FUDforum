@@ -1,793 +1,827 @@
-action:				Hànhđộng
-add_to_buddy_list:		thêm vào danh sách bạn bè
-admin:				Người quản lý
-admin_control_panel:		Khu vực người quản lý
-administrator:			Người Quản Trị Tối Cao
-attachment:			Đính kèm:
-avatar:				Hình Đại Diện:
-average_post_count:		{VAR: u->posted_msg_count} bài viết ( trung bình {VAR: avg} bài viết trong một ngày )
-biography:			Tự bạch:
-birth_date:			Ngày sinh nhật:
-by:				Bởi:
-by_mod:				bởi Người điều tiết
-current_time:			Giờ Hiện Tại
-custom_avatar_queue:		Hình đại diện quen thuộc
-date_posted:			Ngày Đăng Bài
-date_registered:		Ngày đăng ký:
-download_counter:		Tải xuống {VAR: v[3]} lần
-pmsg_download_counter:		Tải xuống {VAR: r->dlcount} lần
-email_to_friend:		E-mail đến bạn
-email_to_friend_desc:		Gởi đường dẫn trang này đến bạn của bạn bằng email
-email_user:			Nhấn chuột vào đây để gửi mail cho thành viên này
-faq:				Giúp Đỡ
-first_unread_msg:		Đến tin chưa đọc
-first_unread_msg_desc:		Đến tin chưa đọc đầu tiên trong chủ đề này
-flat_view:			Trở lại xem dạng khối
-forum:				Diễn Đàn:
-forum_icon:			Biểu Tượng Diễn Đàn
-forum_new_messages:		Tin mới
-forum_none_messages:		Chỉ có thành viên đã đăng ký của diễn đàn mới có thể xem những bài viết chưa đọc và đã đọc
-forum_old_messages:		Không có tin mới
-from:				Từ:
-gender:				Giới tính:
-go:				Thực hiện
-goto_next_msg:			Đến tin kế tiếp
-goto_prev_msg:			Lùi lại tin sau
-home:				Trang Chủ
-homepage:			Trang web cá nhân:
-ignore_user:			Từ chối tất cả bài viết bởi thành viên này
-image:				Hình ảnh:
-index_forum:			Diễn Đàn
-index_new_posts:		Bài viết mới kể từ lần xem sau cùng
-index_no_new_posts:		Không có bài viết mới kể từ lần xem sau cùng
-interests:			Sở Thích:
-last_post:			Bài Viết Cuối Cùng
-last_thread_msg:		Đến bài viết cuối cùng trong chủ đề này
-legend:				Ghi Chú
-location:			Địa chỉ:
-lock_thread:			Khóa chủ đề
-locked:				Khóa
-locked_with_new_posts:		Khóa (w/ bài viết chưa đọc)
-logged_in_list:			Danh sách thành viên đã đăng nhập
-login:				Đăng nhập
-login_header:			Tên Đăng Nhập:
-logout:				Thoát
-mark_all_read:			Đánh dấu đọc tất cả bài viết
-mark_all_read_desc:		Đánh dấu đã đọc cho tất cả bài viết chưa xem của bạn
-members:			Thành Viên
-message_counter:		Thành viên của chúng ta đã gửi tổng cộng <b>{VAR: post_count}</b> bài viết trong <b>{VAR: thread_count}</b> chủ đề .
-message_index:			Chỉ mục bài viết
-message_index_desc:		Xem danh sách bài viết
-minimize_category:		Thu nhỏ danh mục
-moderator:			Người Điều Tiết
-moderator_of:			Người điều tiết của:
-moderator_options:		Mục chọn của người điều tiết
-moderators:			Người điều tiết
-more_unread_messages:		Thêm những bài viết chưa đọc
-more_unread_messages_desc:	Xem thêm những bài viết chưa đọc và đánh dấu đọc những bài viết có thể xem hiện giờ
-move_thread:			Di chuyển
-moved:				Chuyển đến một diễn đàn khác
-moved_thread_message:		Chủ đề này đã bị chuyển sang một diễn đàn khác
-new_posts:			Bài Viết Mới
-new_private_messages:		Bạn có <span class="GenTextRed">({VAR: c})</span> tin nhắn chưa đọc
-new_thread:			Tạo một chủ đề mới
-newest_user:			Thành viên mới đăng ký là
-next_page:			Trang kế
-next_thread:			Chủ đề kế tiếp:
-no_messages:			Không có bài viết trong diễn đàn này
-no_msg_body:			Không có nội dung bài viết
-no_new_posts:			Không Có Bài Viết Mới
-no_posts:			Không có bài
-no_subscribed_forums:		Không có diễn đàn theo dõi
-no_subscribed_threads:		Không có chủ đề theo dõi
-no_unread_locked:		Chủ đề này đã bị khóa
-no_unread_msg:			Chủ đề này không có bài viết chưa đọc
-no_unread_msg_unreg:		Những bài viết chưa đọc và đã đọc chỉ được xem bởi thành viên đã đăng ký
-num_pages:			Trang ({VAR: ttl_pg}):
-num_votes:			{VAR: obj->total_votes} phiếu
-occupation:			Nghề nghiệp:
-off:				Tắt
-on:				Mở
-page_timings:			Tổng thời gian để tạo trang: {VAR: page_gen_time} giây
-pm:				Tin Nhắn Cá Nhân
-poll:				Bảng khảo sát:
-post_count:			Số Bài Viết  {VAR: u_pcount}
-post_count_l:			Số bài viết:
-posts:				Bài Viết
-posts_c:			Bài viết:
-prev_thread:			Chủ đề sau :
-usrinfo_private_message:	Tin nhắn cá nhân:
-profile:			Hiệu Chỉnh
-profile_desc:			Nhấn chuột vào đây để truy cập vào khu vực người sử dụng
-rate_thread:			Nhận xét chủ đề
-refresh_list:			Làm Tươi Danh Sách
-register:			Đăng ký
-registered:			Đăng vào:
-registered_on:			Đăng ký vào {TEMPLATE: registered_on_date}
-replies:			TrảLời
-report_to_mod:			Thông báo đến người điều tiết
-reported_messages:		Bài viết đã được trình bày
-search:				Tìm kiếm
-sel_todays_posts:		Bài viết hôm nay
-sel_todays_posts_desc:		Giữ bộ lọc bài viết ngày hôm nay (sẽ chỉ xem những bài viết ngày hôm nay)
-sel_unanswered_posts:		Bài viết chưa trả lời
-sel_unanswered_posts_desc:	Giữ bộ lọc những bài chưa được trả lời (sẽ chỉ xem những bài viết không có trả lời)
-sel_unread_messages:		Bài viết chưa đọc
-sel_unread_messages_desc:	Giữ bộ lọc bài viết chưa đọc (sẽ chỉ xem những bài viết chưa đọc)
-send:				Gửi
-send_pm_desc:			Gởi một tin nhắn cá nhân đến thành viên này
-sender_email:			Người gửi email:
-sender_name:			Tên người gửi:
-show_posts_by:			Xem Bài Viết Bởi: {VAR: u_alias}
-status:				Trạng thái:
-status_line:			Hiện có <b>{VAR: st_obj->online_users_reg}</b> thành viên , <b>{VAR: st_obj->online_users_hidden}</b> thành viên ẩn danh và <b>{VAR: st_obj->online_users_anon}</b> khách đã ghé thăm trang này.
-stop_ignoring:			Không từ chối thành viên này
-sub_to_thread:			Theo dõi chủ đề
-sub_to_thread_desc:		Nhận thông báo về tin mới trong chủ đề này
-subject:			Tựa Đề
-subscribe:			Theo dõi
-subscribe_desc:			Nhận thông báo khi một ai đó tạo chủ đề mới trong diễn đàn này
-subscribed_forums:		Diễn đàn theo dõi
-subscribed_forums_desc:		Giữ bộ lọc theo dõi diễn đàn (sẽ chỉ xem những bài viết bạn từ diễn đàn bạn theo dõi)
-subscribed_threads:		Chủ đề theo dõi
-subscribed_threads_desc:	Giữ bộ lọc theo dõi chủ đề (sẽ chỉ xem những bài viết từ chủ đề mà bạn theo dõi)
-switch_to_thread_view:		Chuyển sang chủ đề đã xem trong chủ đề này
-thread:				Chủ Đề:
-thread_announcement:		Thông báo:
-thread_first_unread_msg:	nhấn chuột vào đây để xem bài viết chưa đọc đầu tiên trong chủ đề này
-thread_thread:			Chủ Đề
-threads:			Chủ Đề
-time:				Thời Gian
-todays_posts:			Bài viết hôm nay
-todays_posts_desc:		xem tất cả bài viết được gửi ngày hôm nay
-un_ignore_user:			Không từ chối bài viết bởi thành viên này
-unanswered_posts:		Bài viết chưa trả lời
-unanswered_posts_desc:		Xem tất cả bài viết chưa có trả lời
-unlock_thread:			Mở khóa chủ đề
-unread_msg:			Chủ đề này có những bài viết bạn chưa đọc
-unread_msg_locked:		Chủ đề đã bị khóa với những bài viết chưa đọc
-unread_posts:			Bài viết chưa đọc
-unread_posts_desc:		Xem tất cả bài viết chưa đọc
-unsub_from_thread:		Không theo dõi chủ đề này
-unsub_from_thread_desc:		Không nhận thông báo về tin mới trong chủ đề này
-unsubscribe:			Không theo dõi
-unsubscribe_desc:		Không nhận thông báo về chủ đề mới trong diễn đàn này
-updated_on:			Cập nhật vào:
-user:				Thành Viên
-user_counter:			Chúng ta có <b>{VAR: st_obj->user_count}</b> thành viên đăng ký.
-user_info:			Thông Tin Người Sử Dụng
-user_info_l:			Thông Tin Người Sử Dụng {VAR: u->alias}
-user_offline:			{VAR: obj->login}  hiện giờ đã offline
-user_online:			{VAR: obj->login} hiện giờ đang online
-usrinfo_last_post:		Bài viết sau cùng:
-view_results:			Xem kết quả
-views:				Xem
-vote:				{VAR: frm->n_rating} Phiếu
-vote_button:			Bỏ phiếu
-vote_for_thread:		Phiếu
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> đã được chuyển đến <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> bởi người điều tiết
-welcome_message:		Chào mừng <b>{VAR: usr->alias}</b>, lần ghé thăm cuối của bạn vào {TEMPLATE: welcome_message_date}
-what_ppl_doing:			Xem mọi người đang làm gì
-reported_del_report:		Xóa thông báo
-reported_reason:		Lý do
-reported_on:			Vào:
-reported_reported_by:		Được thông báo bởi:
-reported_reported_msg:		Bài viết được thông báo
-modque_pending_approval:	Bài viết đang chờ được chấp nhận
-modque_approve:			Chấp nhận
-modque_delete:			Xóa
-modque_no_message:		Không có bài viết đang chờ được chấp nhận
-pmsg_new_messages:		Tin nhắn cá nhân chưa đọc
-pmsg_old_messages:		Tin nhắn cá nhân đã đọc
-deny_recipt:			Từ chối nhận
-deny_recipt_desc:		Không gửi thông báo khi bạn đọc tin nhắn này
-restore_to:			Phục hồi đến:
-move_to:			Chuyển đến:
-list_referes_member:		Thành Viên
-referals_post_count:		Số bài viết
-referals_registered_on:		Đăng ký vào
-referals_action:		Hànhđộng
-pmsg_all:			tất cả
-pmsg_none:			không
-folder:				Thư mục:
-pmsg_replied:			đã trả lời
-pmsg_forwarded:			đã chuyển đi
-pmsg_subject:			Tựa đề
-pmsg_author:			Tác Giả
-pmsg_time:			Thời gian
-pmsg_selected:			Đã Chọn
-pmsg_delete:			Xóa
-cur_ppage_pm:			Tin nhắn cá nhân
-writing_pm:			Viết tin nhắn cá nhân
-browsing_folder:		Xem qua thư mục <b>{VAR: folders[$folder_id]}</b>
-inbox:				Hộp thư
-draft:				Thư nháp
-sent:				Gửi
-trash:				Thư rác
-msg_author:			Tác Giả
-avatar_sel_form:		Mẫu lựa chọn hình đại diện
-no_avatars:			Không có hình đại diện
-month_1:			Tháng Giêng
-month_2:			Tháng Hai
-month_3:			Tháng Ba
-month_4:			Tháng Tư
-month_5:			Tháng Năm
-month_6:			Tháng Sáu
-month_7:			Tháng Bảy
-month_8:			Tháng Tám
-month_9:			Tháng Chín
-month_10:			Tháng Mười
-month_11:			Tháng Mười Một
-month_12:			Tháng Mười Hai
-male:				Nam
-female:				Nữ
-unspecified:			Không xác định
-register_tree_view:		Xem danh sách bài viết và chủ đề dạng cây
-register_msg_tree_view:		Danh sách chủ đề dạng khối/Danh sách bài viết dạng cây
-register_tree_msg_view:		Danh sách chủ đề dạng cây/Danh sách bài viết dạng khối
-register_flat_view:		Xem danh sách chủ đề và bài viết dạng khối
-use_forum_default:		Sử dụng diễn đàn chuẩn
-finduser_user_info:		Thông tin người sử dụng
-finduser_by_login:		Bằng Tên Đăng Nhập:
-finduser_submit:		Tìm
-finduser_user:			Thành viên
-finduser_postcount:		Số bài viết
-finduser_joindate:		Ngày tham gia
-finduser_action:		Hành động
-yes:				Có
-no:				Không
-edit_time_limit:		<br /><b>Hạn chế thời gian sửa</b> : <b>{GVAR: EDIT_TIME_LIMIT}</b> phút
-no_edit_time_limit:		<br /><b>Hạn chế thời gian sửa</b>:<b>Không<br />hạn chế</b>
-pmuserloc_login:		Tên đăng nhập:
-pmuserloc_submit:		Tìm
-pmuserloc_user:			Thành viên
-pmuserloc_no_result:		Không có kết quả
-register_builtin:		Được làm trong
-register_specify_url:		Đường dẫn cụ thể
-register_uploaded:		Gửi hình đại diện lên
-register_login:			Tên đăng nhập:
-register_password:		Mật khẩu:
-register_conf_pass:		Xác nhận mật khẩu:
-register_email_desc:		Xin vui lòng nhập vào địa chỉ email có giá trị. Bạn có thể lựa chọn ẩn email, trong phần TỰ CHỌN .
-register_name:			Tên :
-register_your_pass:		Mật khẩu của bạn:
-register_update:		Cập nhật
-register_avatar_type:		Hình ảnh đại diện:
-register_del_avatar:		Xóa hình đại diện
-register_avatar:		Hình đại diện:
-register_sel_avatar:		Chọn hình đại diện
-register_custom_avatar_rules:	Hình đại diện quen thuộc sẽ không xuất hiện cho đến khi nó được sự chấp nhận của người quản trị tối cao.<br /><span class="SmallText">Hình đại diện không nên lớn hơn <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> và phải là dạng <b>jpg</b>, <b>gif</b> or <b>png</b>.</span>
-register_custom_avatar_url:	Đường dẫn hình đại diện quen thuộc:
-register_preview:		Xem lại
-register_custom_avatar_upload:	Tập tin hình đại diện:
-register_register:		Đăng ký
-register_required:		Thông tin bắt buộc
-register_required_desc:		Tất cả những ô bắt buộc.  Xin vui lòng chú ý mật khẩu nhằm an toàn bảo mật.
-register_optional:		Thông tin tự chọn
-register_optional_desc:		Xin chú ý: Tất cả những thông tin bên dưới của bạn có thể  được xem bởi những thành viên khác của diễn đàn .
-register_location:		Địa chỉ:
-register_occupation:		Nghề nghiệp:
-register_interests:		Sở thích:
-register_image:			Hình Ảnh:
-register_icq:			ICQ
-register_homepage:		Trang web của bạn:
-register_bday:			Ngày sinh nhật:
-register_bday_desc:		Nếu bạn nhập vào ngày sinh nhật .Thành viên khác trong diễn dàn có thể sẽ nhìn thấy được ngày sinh của bạn trong phần tiểu sử
-register_day:			Ngày
-register_month:			Tháng
-register_year:			Năm
-register_gender:		Giới tính:
-register_bio:			Tự Bạch:
-register_bio_desc:		Một vài đặc điểm về bạn như sở thích ,công việc ,bạn bè ,màu sắc ,món ăn ,âm nhạc...
-register_prefs:			Tự Chọn
-register_sig:			Chữ Ký:
-register_sig_desc:		Chữ ký tự chọn , chữ ký này sẽ xuất hiện ở cuối mỗi bài viết của bạn .
-register_reset:			Làm lại
-register_def_thread_view:	Xem chủ đề theo chuẩn:
-register_msg_per_page:		Số bài trong một trang:
-register_show_sig:		Xem chữ ký:
-register_show_sig_desc:		Cho phép bạn ẩn hoặc xem chữ ký của thành viên khác trong diễn đàn
-register_use_sig_default:	Sử dụng chữ ký theo chuẩn:
-register_use_sig_default_desc:	Tự động xuất hiện chữ ký của bạn khi bạn gửi bài
-register_timezone:		Vùng thời gian:
-register_ignore_admin:		Từ chối tin nhắn của người quản trị tối cao:
-register_invisible_mode:	Trạng thái ẩn danh:
-register_invisible_mode_desc:	Ẩn trạng thái online của bạn
-register_show_email:		Cho hiện địa chỉ email:
-register_show_email_desc:	Chọn mục này nếu bạn muốn địa chỉ email của bạn được xem bởi những thành viên khác.
-register_notification:		Chọn thông báo theo tiêu chuẩn:
-register_notification_desc:	Nếu thông báo theo tiêu chuẩn được kích hoạt ,nó có thể bị vô hiệu khi gửi bài.
-register_notify_method:		Chọn phương pháp thông báo:
-register_allow_email_msg:	Cho phép nhắn tin Email:
-register_allow_email_msg_desc:	Cho phép thành viên khác gủi email đến bạn qua diễn đàn này.
-buddy_status:			Trạng thái
-my_buddies:			Bạn bè của tôi
-add_buddy:			Thêm danh sách bạn bè
-add:				Thêm
-buddy_search:			Nhập vào tên đăng nhập của thành viên mà bạn muốn thêm
-member_search:			<br />hoặc sử dụng chức năng <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Tìm thành viên</a> để kiếm một người.
-buddy_remove:			Xóa bỏ
-post_normal:			Bình Thường
-post_annoncement:		Thông Báo
-post_color:			Màu
-create_thread:			Tạo Chủ Đề
-submit_reply:			Đăng bài trả lời
-edit_message:			Áp dụng thay đổi bài viết
-apply_spell_changes:		Áp dụng thay đổi chính tả
-post_preview:			Xem Lại Bài Viết
-post_logedin_user:		Tên người đăng nhập:
-post_logout:			Thoát
-post_passwd:			Mật khẩu gửi bài:
-post_poll:			Bảng khảo sát:
-post_create_poll:		Tạo Bảng Khảo Sát
-post_poll_delete:		Xóa
-post_poll_edit:			Chỉnh Sửa
-post_mod_opt:			Mục Chọn Của Người Điều Tiết:
-post_thread_type:		Loại Chủ Đề:
-post_thread_expiry:		Thời Hạn Chủ Đề:
-post_locked:			Khóa Chủ Đề
-post_icons:			Biểu tượng bài viết:
-post_no_icon:			Không biểu tượng
-post_smiley:			Biểu tượng cười:
-post_format_tools:		Công cụ định dạng:
-post_upload_file:		Gửi tập tin
-post_file_del:			Xóa
-post_file_name:			Tên
-post_file_size:			Dung lượng
-file_attachments:		Tập Tin Đính Kèm:
-allowed_files:			Đuôi tập tin được cho phép:
-max_file_size:			Dung lượng tối đa tập tin:
-max_files_per_msg:		Số tập tin tối đa trong một bài viết:
-post_notification:		Thông báo bài viết
-include_sig:			Bao Gồm Chữ Ký
-include_sig_desc:		Bao Gồm Chữ Ký Của Bạn.
-disable_smilies:		Vô hiệu biểu tượng cười trong bài viết này.
-spell_check_msg:		Kiểm tra chính tả bài viết
-post_form:			Mẫu Gửi Bài
-post_forum:			Diễn Đàn:
-post_title:			Tựa Đề:
-post_body:			Nội Dung:
-post_options:			Mục Chọn:
-post_preview_btn:		Xem Lại Bài Viết
-ignore_users:			Thành viên bị từ chối
-add_ignore:			Thêm người bị từ chối
-forum_terms:			Những điều khoản của diễn đàn
-forum_rules:			<center><h1>Chào đón những thành viên mới của <b>Trường Long Forum </b></h1><br />Chúc Các Bạn Vui Vẻ ^_^ <br />Nếu bạn đồng ý --->> [Đồng ý]<br />nếu không -->> [không đồng ý]</center>
-forum_rules_13:			Tất cả những thành viên dưới 13 tuổi phải có sự chấp nhận của cha mẹ hoặc người bảo hộ để có thể trở thành thành viên của diễn đàn While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send e-mail to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
-coppa_before:			Trước {TEMPLATE: coppa_date}
-coppa_after:			Sau {TEMPLATE: coppa_date}
-coppa_link:			Nhấn chuột vào link này để chịu trách nhiệm về ngày sinh của bạn
-coppa:				A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete registration.<p>For further information contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
-prereg_info:			Thông tin
-prereg_agree:			Đồng Ý
-prereg_disagree:		Không đồng ý
-coppa_fax_passwd:		Mật khẩu
-login_not_logedin:		Bạn không đăng nhập được. Có thể do một vài lý do:
-login_cookie_expired:		Cookies của bạn đã hết hạn, và bạn cần phải đăng nhập lại để làm mới cookie.
-login_perm_denied:		Bạn không được phép truy cập khi là thành viên vô danh. Bạn phải đăng nhập để có được sự cho phép.
-login_want_to_register:		Bạn muốn đăng ký chứ?
-login_forgot_passwd:		Quên mật khẩu
-login_use_cookie:		Sử dụng cookie<br /><span class="SmallText">Nếu bạn sử dụng máy tính nơi công cộng như thư viên, trường học ,hoặc dịch vụ internet, Chúng tôi khuyên bạn không nên chọn mục này nhằm tăng độ bảo mật hơn.<br />Nếu bạn chọn mục này ,bạn sẽ tự động đăng nhập vào lần ghé thăm kế tiếp .
-login_login:			Tên Đăng Nhập
-login_login_btn:		Đăng Nhập
-login_name_required:		Tên đăng nhập đòi hỏi phải có
-login_passwd_required:		Mật khẩu đòi hỏi phải có
-login_invalid_radius:		Tên đăng nhập hoặc mật khẩu không chính xác
-reset_confirmation:		Cám ơn bạn đã đăng ký,\n\n Để kích hoạt tài khoản Xin vui lòng đến đường dẫn bên dưới :\n\n{VAR: url}\n\n Tài khoản của bạn được kích hoạt sẽ đăng nhập vào diễn đàn và \n chuyển đến trang chính.\n
-rpasswd_invalid_passwd:		Mật khẩu không chính xác
-rpasswd_passwd_nomatch:		Mật khẩu không tìm thấy
-rpasswd_passwd_length:		Mật khẩu phải dài ít nhất 6 kí tự
-reset_reset_conf:		Mật khẩu của bạn sẽ được tạo mới và gửi đến bạn. Nếu bạn chưa xác nhận địa chỉ email , Yêu cầu xác nhận sẽ gửi lại đến bạn.
-reset_error:			Địa chỉ email không tìm thấy trong cơ sở dữ liệu
-rpasswd_change_pass:		Thay đổi mật khẩu
-rpasswd_login:			Tên đăng nhập
-rpasswd_cur_pass:		Mật khẩu hiện tại:
-rpasswd_new_pass:		Mật khẩu mới:
-rpasswd_conf_pass:		Xác nhận mật khẩu:
-login_passwd:			Mật Khẩu:
-reset_reset_button:		Tạo mới mật khẩu
-search_entire_msg:		Toàn bộ bài viết
-search_subect_only:		Chỉ tựa đề
-search_forum:			Diễn đàn
-search_posted_on:		Được gửi vào
-search_no_results:		Không có kết quả
-search_all_forums:		Tìm tất cả diễn đàn
-search_in_forum:		Tìm trong diễn đàn:
-search_forum_search:		Tìm Kiếm
-move_thread_to:			Chuyển chủ đề <b>{VAR: thr->subject}</b> đến:
-mklist_type:			Loại:
-mklist_delete:			Xóa
-qbud_nick_name:			Bí danh
-qbud_selected:			Được chọn
-qbud_no_buddies:		Không có bạn được chọn từ
-mklist_numerical:		Số
-mklist_aplha:			Kí tự
-mklist_square:			Hình vuông
-email_to:			Đến:
-email_subject:			Tựa Đề:
-email_body:			Nội Dung:
-email_submit:			Gửi Email
-ppost_quote_msg:		{VAR: msg_to_list} được viết vào {TEMPLATE: ppost_quote_msg_date}
-ppost_quote:			Trích dẫn:
-ppost_to:			Đến :
-ppost_from_buddy_list:		Lựa chọn từ danh sách bạn bè
-ppost_find_User:		Tìm thành viên
-ppost_track_msg:		Có thể xem bài này
-ppost_track_msg_desc:		Thông báo đến tôi (bằng tin nhắn cá nhân) khi tin nhắn này được đọc.
-ppost_send:			Gửi
-ppost_save_draft:		Lưu tạm
-poll_blank_option:		Bạn không thể thêm một mục chọn trống
-poll_del_conf:			Nếu bạn muốn xóa mục này ,nhấn phím OK
-poll_name:			Tên Bảng Khảo Sát:
-poll_timelimit:			Thời hạn
-poll_maxiumvotes:		Số phiếu tối đa
-poll_create:			Tạo
-poll_update:			Cập nhật
-poll_disablesmilies:		Vô hiệu hóa biểu tượng cười
-poll_create_poll:		Tạo Bảng Khảo Sát
-poll_update_poll:		Cập Nhật Bảng Khảo Sát
-poll_delete:			Xóa
-poll_updateoption:		Cập nhật mục chọn
-poll_addoption:			Thêm mục chọn
-poll_unlimited:			Không hạn chế
-poll_day:			ngày
-poll_days:			ngày
-poll_hour:			giờ
-poll_hours:			giờ
-poll_month:			tháng
-poll_year:			năm
-poll_week:			tuần
-tabs_register:			Hiệu Chỉnh
-tabs_subscriptions:		Theo Dõi
-tabs_buddy_list:		Danh Sách Bạn Bè
-tabs_ignore_list:		Danh Sách Từ Chối
-tabs_private_messaging:		Tin Nhắn Cá Nhân
-single_msg_delete:		You are about to <span class="ErrorText">DELETE</span> the message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <span class="ErrorText">DELETE</span> the <span class="ErrorText">ENTIRE TOPIC</span> titled: <b>{VAR: data[3]}</b><p>
-error_invalidurl:		Đường dẫn URL không có giá trị
-error_error:			Lỗi
-usrinfo_profile:		Tiểu sử của {VAR: u->alias}
-usrinfo_show_all_posts:		Xem tất cả bài viết bởi  {VAR: u->alias}
-err_info:			Thông tin
-buddy_list_err_cantadd:		Bạn không thể thêm chính bạn vào trong danh sách bạn bè
-buddy_list_err_dup:		Bạn đã có người này trong danh sách
-buddy_list_err_nouser:		Người sử dụng mà bạn muốn thêm không thể tìm thấy.
-buddy_list_err_nouser_title:	Không thể thêm người sử dụng
-buddy_list_err_ignore:		Không thể thêm thành viên này vì họ đã từ chối bạn thêm vào danh sách bạn bè.
-buddy_list_update:		Xem qua danh sách bạn bè của tôi
-core_adm_login_msg:		<br />người quản trị tối cao có thể đăng nhập  <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ở đây</a>
-email_err_unabletoemail_title:	Lỗi : Không thể gửi email
-email_err_unabletoemail_msg:	Hệ thống email đã bị vô hiệu hóa bởi người quản trị tối cao.
-email_error_unabletolocaddr:	Lỗi :hệ thống không thể gửi email đến {VAR-HTML: _POST['tx_name']} bởi vì nó không thể xác định rõ địa chỉ email
-email_error_body:		Nội dung đòi hỏi phải có
-email_error_subject:		Tựa đề đòi hỏi phải có
-email_error_namerequired:	Tên đòi hỏi phải có
-email_error_invaliduser:	Tên người sử dụng không có giá trị
-emailconf_err_invkey_title:	Lỗi
-emailconf_err_invkey_msg:	Khóa xác nhận không chính xác.  Xin vui lòng kiểm tra lại email của bạn để chắc chắn rằng bạn đã nhập vào đúng đường dẫn URL.
-finduser_update:		Đang kiếm thành viên
-ignore_list_err_info_title:	Thông tin
-ignore_list_err_dup_msg:	Bạn đã có người này trong danh sách của bạn
-ignore_list_err_nu_title:	Không tìm thấy thành viên
-ignore_list_err_nu_msg:		Thành viên mà bạn muốn thêm vào danh sách đã không tìm thấy.
-ignore_list_cantign_msg:	Bạn không thể từ chối thành viên này
-ignore_list_update:		Xem qua danh sách của bạn
-index_update:			Xem qua <a href="{TEMPLATE: index_update_lnk}">danh sách diễn đàn </a>
-login_update:			Đăng Nhập
-msg_update:			Xem qua chủ đề <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:		Lỗi : Tin Nhắn Cá Nhân Đã Bị Vô Hiệu Hóa
-pm_err_nopm_msg:		Bạn không thê sử dụng hệ thống tin nhắn cá nhân. Nó đã bị vô hiệu hóa bởi người quản trị tối cao.
-pm_update:			Đang sử dụng tin nhắn cá nhân
-post_err_lockedthread_title:	Lỗi :Chủ đề đã bị khóa
-post_err_lockedthread_msg:	Chủ đề này đã bị khóa .Bài viết của bạn không được phép.
-err_coppa_title:		Lỗi : Tài khoản của bạn chưa được kích hoạt
-err_coppa_msg:			Chúng tôi chưa nhận được sự xác nhận từ cha mẹ hoặc người bảo hộ của bạn, để cho phép bạn gửi bài viết. Nếu bạn mất mẫu COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">nhấn chuột vào đây</a> để xem lại nó.
-err_banned_acct_title:		Lỗi :Tài khoản đã bị cấm.
-err_banned_acct_msg:		Tài khoản của bạn {IF: $ban_expiry}tạm thời bị cấm cho đến khi {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}lâu dài{ENDI} cho việc truy cập vào diễn đàn, vì vi phạm nội qui của diễn đàn.
-post_err_edttimelimit_title:	Lỗi
-post_err_edttimelimit_msg:	Bạn không thể chỉnh sửa bài viết này
-post_err_noannontopics_msg2:	<fieldset><legend>Lỗi : Không được phép</legend>Thành viên vô danh không được phép tạo chủ de .</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>Lỗi : Không được phép</legend>Thành viên vô danh không được phép trả loi.</fieldset><br />
-post_err_floodtrig_title:	Lỗi : Gởi bài đã gây quá tải.
-post_err_floodtrig_msg:		Xin vui lòng thử lại sau {VAR: tm} giây nữa
-post_err_attach_size:		<span class="ErrorText">Kích thước tập tin đính kèm quá lớn(lớn hơn giới hạn cho phép {VAR: MAX_F_SIZE} bytes)</span><br />
-post_err_attach_ext:		<span class="ErrorText">Loại tập tin bạn gửi lên không được cho phép.</span><br />
-post_err_attach_filelimit:	<span class="ErrorText">Số tập tin bạn gửi lên nhiều hơn được cho phép.</span><br />
-post_err_passwd:		Mật khẩu không chính xác.
-post_reply_update:		Trả lời đến <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> trong {VAR: frm->name}
-post_topic_update:		Tạo chủ đề mới trong <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
-post_error_generic:		Có một lỗi xảy ra
-postcheck_max_images_err:	Số lượng hình ảnh được cho phép trong mỗi bài viết không được hơn {GVAR: MAX_IMAGE_COUNT} hình. Xin vui lòng giảm số lượng hình.
-postcheck_subj_needed:		Yêu cầu có tựa đề
-postcheck_no_such_user:		Không có thành viên tên "{FUNC: char_fix(htmlspecialchars($v))}" trong diễn đàn này.
-postcheck_ignored:		Bạn không thể gửi tin nhắn cá nhân đên "{FUNC: char_fix(htmlspecialchars($v))}", vì người này đã từ chối bạn.
-postcheck_no_recepient:		Không thể gửi tin nhắn, không tìm thấy người nhận
-postcheck_invalid_email:	Xin vui lòng nhập vào địa chỉ email có giá trị của bạn.
-postcheck_email_subject:	bạn không thể gửi email mà không có tựa đề.
-postcheck_email_body:		bạn không thể gửi email mà không có nội dung.
-private_msg_notify_subj:	Đọc thông báo : {VAR: m->subject}
-private_msg_notify_body:	Xin chào,<br />{VAR: usr->login} đã đọc tin nhắn của bạn, "{VAR: m->subject}", vào {TEMPLATE: private_msg_notify_body_date}<br />
-register_err_short_login:	Tên đăng nhập bạn lựa chọn quá ngắn. Tên đăng nhập phải ít nhất 4 kí tự.
-register_err_login_notallowed:	Tên đăng nhập này không được cho phép.
-register_err_loginunique:	Tên đăng nhập phải là duy nhất. Đã có người khác sử dụng tên này.
-register_err_emailexists:	Địa chỉ email này đã được sử dụng. Nếu bạn quên mật khẩu của bạn xin vui lòng dùng chức năng phục hồi mật khẩu, thay vì phải đăng ký lại.
-register_err_shortpasswd:	Mật khẩu phải dài ít nhất 6 kí tự.
-register_err_passwdnomatch:	Mật khẩu của bạn không phù hợp ,xin vui lòng thử lại.
-register_err_invalidemail:	Địa chỉ email của bạn không có giá trị.
-register_err_needname:		Để hoàn thành việc đăng ký ,xin vui lòng nhập vào tên của bạn.
-register_err_enterpasswd:	Bạn phải nhập vào mật khẩu hiện giờ để hoàn thành việc thay đổi.
-register_err_adminpasswd:	Bạn phải nhập vào mật khẩu của người quản lý tối cao của bạn để hoàn thành việc thay đổi.
-register_err_notyouremail:	Một ai đó đã đăng ký với địa chỉ email này.
-register_err_avatartobig:	Tập tin bạn gửi lên có dung lượng quá lớn, hơn {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
-register_err_avatarnotallowed:	Hình đại diện bạn gửi lên không được cho phép. Xin vui lòng kiểm tra loại tập tin được cho phép.
-register_conf_subject:		Xác Nhận Đăng Ký
-register_conf_msg:		Cám ơn bạn đã đăng ký,\n Để kích hoạt tài khoản của bạn xin vui lòng vào đường dẫn :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKhi tài khoản của bạn được kích hoạt bạn đã đăng nhập vào diễn đàn và \n chuyển đến trang chính.
-register_welcome_subject:	Xác Nhận Đăng Ký Diễn Đàn
-register_err_cantreg_title:	Lỗi :Không thể đăng ký
-regsiter_err_cantreg_msg:	Không thể tạo tài khoản người sử dụng, xin vui lòng liên hệ với người quản trị tối cao ở <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-register_profile_update:	Xem tiểu sử của bạn
-register_register_update:	Trang Đăng Ký
-reset_newpass_title:		Tạo lại mật khẩu
-reset_newpass_msg:		Xin chào,\n\n Như yêu cầu, thông tin đăng nhập của bạn hiện bên dưới:\n\n Tên đăng nhập: {VAR: ui[1]}\n Mật khẩu: {VAR: passwd}\n\n Xin vui lòng chú ý mật khẩu mới của bạn đã được tạo bên trên. Nếu bạn muốn thay đổi mật khẩu bạn có thể làm qua khu vực người sử dụng:\n{FULL_ROOT}{ROOT}?t=register\n\n
-search_update:			Bài viết tìm kiếm
-selmsg_update:			Xem qua <a href="{TEMPLATE: selmsg_update_lnk}">Bài viết hôm nay</a>
-showposts_update:		Xem Bài Viết Bởi: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-thread_update:			Xem qua diễn đàn <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
-tree_update:			Xem qua chủ đề (xem dạng cây) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:		Kiếm tiểu sử của <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
-ERR_login_msg2:			<fieldset><legend>Lỗi: Bạn không đăng nhập được</legend>Để truy cập vào trang này bạn phải là thành viên của diễn đàn.</fieldset><br />
-ERR_disabled_ttl:		Chức năng bị vô hiệu
-ERR_disabled_msg:		Chức năng này đã bị vô hiệu bởi người quản trị hệ thống
-ERR_access_ttl:			Lỗi :Không đủ quyền
-ERR_access_msg:			Bạn không được phép yêu cầu xem hành động này
-ERR_registration_disabled_ttl:	Đăng ký đã bị vô hiệu hóa
-ERR_registration_disabled_msg:	Người quản trị tối cao đã vô hiệu hóa đăng ký .Xin vui lòng đăng ký lại lần sau.
-ERR_emailconf_ttl:		LỖI : Tài khoản của bạn vẫn chưa được xác nhận
-ERR_emailconf_msg:		Tài khoản của bạn vẫn chưa được xác nhận bằng email <br /><table border="0"><tr><td><ol><li>Nếu bạn không nhận được email xác nhận, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">nhấn chuột vào đây</a><li>Nếu {VAR: usr_d->email} không phải là email của bạn, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">nhấn chuột vào đây</a></ol></td></tr></table>
-ERR_systemerr_ttl:		Lỗi :Lỗi hệ thống
-ERR_systemerr_msg:		Đã xảy ra một lỗi hệ thống. Xin vui lòng thông báo nó đến <a href="mailto:{GVAR: ADMIN_EMAIL}">người quản lý trang web </a>.
-email_title:			Mẫu Email
-finduser_title:			Tìm Kiếm Thành Viên
-login_title:			Đăng Nhập
-poll_title:			Khung soạn thảo bảng khảo sát
-register_title:			Mẫu Đăng Ký
-rpasswd_title:			Thay đổi mật khẩu
-error_title:			Lỗi
-index_title:			Chào mừng đến với diễn đàn
-search_title:			Tìm kiếm  {VAR-HTML: srch}
-poll_add_option:		Thêm mục chọn:
-post_opt_html_on:		<b>Mã HTML</b> đang <b>Mở</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>TLcode</b> đang <b>Mở</b></a>
-post_opt_images_on:		<b>Hình ảnh</b> đang <b>Mở</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Biểu tượng cười</b> đang <b>Mở</b></a>
-post_opt_html_off:		<b>Mã HTML</b> đã <b>Tắt</b>
-post_opt_fud_off:		<b>TLcode</b> đã <b>Tắt</b>
-post_opt_images_off:		<b>Hình ảnh</b> đã <b>Tắt</b>
-post_opt_smilies_off:		<b>Biểu tượng cười</b> đã <b>Tắt</b>
-post_opt:			Mục chọn diễn đàn
-register_change_passwd:		Đổi mật khẩu
-approved_avatar_title:		Hình đại diện quen thuộc của bạn đã được chấp nhận.
-approved_avatar_msg:		Hình đại diện của bạn đã được chấp nhận bởi người quản trị tối cao. Ngay bây giờ nó sẽ xuất hiện trong mọi bài viết của bạn. Nếu bạn không nhìn thấy nó, hoặc nhìn thấy hình đại diện cũ , bởi vì trình duyệt của bạn đã chụp lại. Thử làm tươi trình duyệt một , hai lần xem sao bằng cách nhấn phím F5. Trong hầu hết trường hợp đều do cất trữ của trình duyệt mà ra .
-unapproved_avatar_title:	Hình đại diện của bạn đã bị từ chối.
-unapproved_avatar_msg:		Người quản trị tối cao không chấp nhận hình đại diện của bạn. Hầu hết lý do đều là kích cỡ hình của bạn quá lớn (kích thước) hoặc nó chứa những vấn đề không được chấp nhận. Nếu bạn muốn biết thêm thông tin tại sao hình của bạn bị từ chối , xin vui lòng liên hệ với người quản trị tối cao.
-mvthread_request_move:		Yêu cầu một sự di chuyển
-move_request_reason:		Tại sao bạn muốn chuyển chủ đề này?
-mvthread_submit_req:		Gửi yêu cầu
-thread_exchange:		Thay đổi chủ đề
-move_request_by:		Chuyển chủ đề được yêu cầu bởi:
-thr_exch_accept:		Chấp nhận chủ đề
-thr_exch_decline:		Từ chối chủ đề
-thr_exch_orig_forum:		Diễn đàn gốc:
-thr_exch_dest_forum:		Diễn đàn đích:
-thr_exch_no_threads:		Không có chủ đề chờ chấp nhận
-thr_exch_decl_reason:		Lý do vì từ chối chủ đề <b>{VAR: data->subject}</b> vào diễn đàn <b>{VAR: data->f2_name}</b>
-thr_exch_submit:		Đăng bài
-exch_decline_ttl:		Di chuyển chủ đề {VAR: data->subject} vào diễn đàn {VAR: data->f2_name} đã bị từ chối.
-ppost_original_msg:		Tin nhắn bạn đang chuyển đi hoặc trả lời đến
-split_thread:			Cắt chủ đề
-show_show:			Xem :
-group_mgr:			Nhóm quản lý
-permission_denied_title:	Cho phép đã bị từ chối
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Find User</a>
-rate_worst:			Tệ nhất
-rate_best:			Tốt nhất
-post_quote_msg:			{VAR: msg->login} được viết vào {TEMPLATE: make_report_date}
-post_quote:			Trích dẫn:
-pm_no_space_title:		Không đủ khoảng trống
-pm_no_space_msg:		Thư mục tin nhắn cá nhân của bạn có dung lượng không được vượt quá <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Sức chứa hiện giờ là <b>{VAR: fldr_size} bytes</b> số tin nhắn.<br /><br /><span class="ErrorText">Xóa một vài tin nhắn cũ để làm trống không gian.</span>.
-pm_space_indct_msg:		Thư mục tin nhắn cá nhân của bạn có {VAR: percent_full}% đầy.
-th_expr_never:			Không bao giờ
-th_expr_one_hr:			1 giờ
-th_expr_three_hr:		3 giờ
-th_expr_four_hr:		4 Giờ
-th_expr_eight_hr:		8 giờ
-th_expr_sixteen_hr:		16 giờ
-thread_mod_delete:		Xóa
-action_latest_post:		Tin Cuối Cùng
-online_today_last_visit:	Lần ghé thăm cuối
-online_today_update:		Xem danh sách những người đã vào diễn đàn hôm nay.
-logedin_todays_visitors:	Khách ghé thăm hôm nay
-logedin_latest_post:		Bài viết cuối cùng trong diễn đàn:
-register_show_avatar:		Xem hình đại diện:
-register_show_avatar_desc:	Cho phép bạn ẩn hoặc xem hình đại diện của thành viên khác trong diễn đàn
-drawmsg_view_rest_post:		Xem những bài viết còn lại
-post_re:			Trả lời:
-forumsel_goto_forum:		Đến diễn đàn:
-minimsg_thread_view:		Xem chủ đề
-quicklogin_login:		Tên Đăng Nhập
-quicklogin_password:		Mật Khẩu
-quicklogin_use_cookies:		Sử dụng Cookie?
-quicklogin_login_btn:		Đăng Nhập
-post_notification_desc:		Thông báo khi một ai đó trả lời bài viết này.
-post_all_ext_allowed:		(Không có giới hạn)
-maximize_category:		Phóng to danh mục
-no_view_perm:			Bạn không có sự chấp nhận cho phép xem chủ đề này.
-register_err_toomanyimages:	Bạn đã sử dụng hơn  {GVAR: FORUM_IMG_CNT_SIG} hình cho phép chèn trong bài viết.
-pmsg_next_msg:			Tin nhắn kế
-pmsg_prev_msg:			Tin nhắn sau
-forum_contact:			Liên hệ
-post_cur_attached:		Tập tin đính kèm hiện giờ  {VAR: i}
-ignored_anon_post:		{GVAR: ANON_NICK} đã bị từ chối
-ignored_user_post:		Bài viết bởi <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> đã bị từ chối
-smladd_close_window:		Đóng cửa sổ
-post_list_smilies:		Danh sách tất cả biểu tượng cười
-imsg_err_message_title:		Bài viết không có
-imsg_err_message_msg:		Bài viết mà bạn muốn xem không tồn tại.
-poll_edit:			Chỉnh Sửa
-register_err_not_valid_img:	Đường dẫn không có ảnh .
-pmsg_recepient:			Người nhận
-register_err_taken_alias:	Bí danh bạn định sử dụng đã được thành viên khác sử dụng. Xin vui lòng chọn một tên khác.
-register_alias:			Bí Danh:
-register_alias_desc:		Nếu bạn muốn một tên bí danh hơn là tên đăng nhập xuất hiện trong diễn đàn, xin vui lòng nhập vào đây.
-register_allow_pm_msg:		Cho phép tin nhắn cá nhân
-register_allow_pm_msg_desc:	Cho phép thành viên khác gửi đến bạn tin nhắn cá nhân qua diễn đàn này.
-postcheck_pm_disabled:		bạn không thể gửi tin nhắn cá nhân đến "{VAR-HTML: v}", vì người này không chấp nhận tin nhắn cá nhân.
-polllist_vote:			Phiếu
-polllist_view_results:		Xem kết quả
-polllist_name:			Tên bảng khảo sát
-polllist_date:			Được tạo vào
-polllist_owner:			Được tạo bởi
-polllist_votes:			Tổng số phiếu
-polllist_action:		Hành động
-polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Xem những phiếu hiện có</a>
-userinfo_polls:			Bảng khảo sát:
-show_pollist:			Xem bảng khảo sát
-search_desc_order:		Xếp giảm dần
-search_asc_order:		Xếp tăng dần
-search_logic:			Tìm kiếm logic:
-search_sorting:			Xếp kết quả ngày theo:
-post_proceed:			Bắt đầu
-post_moderated_forum:		Bạn đã gửi bài trong diễn đàn đã được quản lý. Bài viết của bạn không thể xem bởi người khác cho đến khi nó được sự chấp nhận của người điều tiết diễn đàn hoặc người quản trị tối cao
-post_moderated_forum_ttl:	Thông báo người điều tiết diễn đàn
-buddy_list_bday:		Hôm nay {VAR: r[2]} turns {VAR: age}
-email_warning_msg:		Nếu bạn thay đổi địa chỉ email hiện tại của bạn, tài khoản của bạn sẽ bị đánh dấu là chưa xác nhận cho đến khi bạn xác nhận thông qua email của bạn.
-register_show_im:		xem IM indicators
-register_show_im_desc:		Cho phép bạn xem hoặc không xem IM indicators của tác giả bên cạnh bài viết của họ.
-unread_message:			Bài Viết Chưa Đọc
-read_message:			Bài Viết Đã Đọc
-threadt_more:			&lt;thêm nữa&gt;
-threadt_disabled_ttl:		Xem dạng cây của chủ đề đã bị vô hiệu hóa
-threadt_disabled_desc:		Người quản trị tối cao đã vô hiệu hóa xem dạng cây chủ đề. Xin vui lòng sử dụng xem dạng khối để thay thế.
-threadt_update:			Xem qua diễn đàn (xem dạng cây) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
-insert_uploaded_image:		Chèn hình vào nội dung bài viết
-finduser_help:			Bộ máy tìm kiếm sẽ tự động thêm dấu * vào dữ liệu của bạn, <b>tìm kiếm theo trường hợp</b>.<br />Ví dụ như :Để tìm những thành viên có tên đăng nhập bắt đầu bằng một chử a thì nhập vào ô tìm kiếm 'a' thế là xong .
-back_to_top:			Trở lên đầu trang
-pm_err_disabled_title:		Tin nhắn cá nhân bị vô hiệu
-pm_err_disabled_msg:		Bạn không thể gửi tin nhắn cho đến khi bạn kích hoạt mục chọn Tin nhắn cá nhân trong phần tiểu sử của bạn.
-err_mod_acc_ttl:		Tài khoản chưa được xác nhận
-err_mod_acc_msg:		Người quản trị tối cao đã xem lại toàn bộ tài khoản kích hoạt. Cho đến khi tài khoản của bạn được xác nhận bởi người quản trị tối cao ,bạn sẽ không thể sử dụng đầy đủ chức năng của tài khoản người sử dụng.
-accounts_pending_approval:	Tài khoản đang chờ sự chấp nhận
-saved:				Lưu tạm
-register_err_time_limit:	Hạn chế một lần đăng ký là {GVAR: REG_TIME_LIMIT} giây. Xin vui lòng chờ đợi khoảng {VAR: reg_limit_reached} giây, và thử đăng ký lại lần  nữa.
-register_err_avatardimtobig:	Kích cỡ hình đai diện <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> vượt quá kích cỡ cho phép là <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
-buddy_offline:			{VAR: r[2]} hiện giờ đã offline
-buddy_online:			{VAR: r[2]} hiện giờ đang online
-sml_no_smilies:			Không có ký tự vui.
-login_unapproved_account_ttl:	Tài khoản chưa được chấp nhận
-login_unapproved_account_msg:	Người quản trị tối cao của diễn đàn đã xác nhận mỗi tài khoản binh thường trước khi kích hoạt . Tài khoản của bạn vẫn chưa được xác nhận, Vì vậy bạn không thể sử dụng những chức năng của thành viên đã được xác nhận .
-remove_from_buddy_list:		Xóa khỏi danh sách bạn bè
-iemail_msg_reply:		Trả lời
-threadt_announce:		Thông báo
-poll_no_polls:			Không có bảng khảo sát nào.
-no_unread_messages:		Không có bài viết chưa đọc tìm thấy trong cơ sở dữ liệu của bạn .
-thread_mark_all_read:		Đánh dấu đọc bài viết chưa đọc trong diễn đàn
-thread_mark_all_read_desc:	Đánh dấu đã đọc tất cả bài viết chưa đọc trong diễn đàn này\n
-private_no_messages:		Không có tin nhắn trong thư mục này.
-register_email_change_subject:	Xác nhận thay đổi email
-register_email_change_msg:	Xin vui lòng xác nhận tài khoản email mới của bạn "{VAR: uent->email}" để thay tài khoản email cũ của bạn "{VAR: old_email}", bằng cách đến đường dẫn :\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n Khi tài khoản email của bạn được xác nhận , tài khoản diễn đàn của bạn sẽ được kích hoạt lại.
-register_admin_newuser_title:	Một thành viên mới đã đăng ký và tài khoản của họ đang chờ được xác nhận
-register_admin_newuser_msg:	Một thành viên mới ({VAR: uent->login}) vừa đăng ký,Khi việc xác nhận tài khoản có thể được, tài khoản của họ sẽ không được kích hoạt cho đến khi nó được xác nhận bởi bạn hoặc người quản trị tối cao của diễn đàn. Để xem lại tài khoản xin vui lòng vào: {GVAR: WWW_ROOT}adm/admaccapr.php\n\n Đây là một quá trình tự động. Không trả lời bài viết này.\n Nếu bạn muốn tắt chức năng thông báo bằng email khi có người đăng ký mới, bạn có thể làm được điều đó qua khu vực người quản trị. Thay đổi hiệu chỉnh "New Account Notification".
-post_mod_msg_notify_title:	Bài viết mới trong diễn đàn "{VAR: frm->name}" đang chờ được chấp nhận
-post_mod_msg_notify_msg:	Bài viết mới có tựa là "{VAR: msg_post->subject}" vừa mới được gửi trong diễn đàn mà bạn quản lý. Để xem lại bài viết này đến : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n Đây là một quá trình tự động. Bạn có trả lời bài viết này không.\n
-thread_printable_pdf:		Tạo trang PDF
-mnav_description:		Bộ lọc bài viết
-mnav_date_limit:		Xếp theo ngày:
-mnav_forum_limit:		Chỉ tìm trong diễn đàn:
-mnav_all_forums:		Tìm trong tất cả diễn đàn
-mnav_submit:			Bắt đầu tìm
-mnav_no_range:			Bạn phải nhập vào ngày xếp có giá trị. Giá trị này có thể chứa dấu chấm, (0.12) nhưng nó phải lớn hơn không.
-mnav_invalid_unit:		Bạn phải nhập vào đơn vị thời gian cụ thể.
-mnav_invalid_date:		Ngày xếp mà bạn nhập vào lớn hơn được cho phép . Hãy thử lại với số nhỏ hơn.
-mnav_no_results:		Không có bài viết được tìm thấy trong dữ liệu
-mnav_posted_by:			Được viết bởi:
-mnav_more:			Thêm &raquo;&raquo;
-mnav_minute:			Phút
-mnav_hour:			Giờ
-mnav_day:			Ngày
-mnav_week:			Tuần
-mnav_month:			Tháng
-mnav_title:			Bộ lọc bài viết
-mnav_update:			Xem những bài viết đang sử dụng <a href="{TEMPLATE: mnav_update_lnk}">Bộ lọc bài viết</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] Thông báo có tin nhắn mới
-pm_notify_body_email:		Bạn có tin nhắn cá nhân tựa là "{VAR: subject}", từ "{VAR: from}", trong diễn đàn "{GVAR: FORUM_TITLE}".\n Để xem tin này , click vào đây: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nĐể dừng chức năng thông báo, vô hiệu hóa "Thông báo tin nhắn cá nhân" trong phần tiểu sử của bạn.
-register_pm_notification:	Thông báo tin nhắn cá nhân
-register_pm_notification_desc:	Nếu được kích hoạt ,bạn sẽ nhận được một thông báo bất cứ khi nào bạn nhận được một tin nhắn cá nhân.
-findu_unban:			Không Cấm
-findu_ban:			Cấm
-findu_edit:			Chỉnh Sửa
-findu_delete:			Xóa
-dmsg_reply_to:			là bài trả lời đến bài viết  #{VAR: obj->reply_to}
-merge_topics:			Gộp Chủ Đề
-split_cp:			Thread Split Control Panel
-register_err_sig_too_long:	Chữ ký của bạn vượt quá độ dài cho phép {GVAR: FORUM_SIG_ML} ký tự.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} kí tự <a href="javascript: alert(\'Chữ ký của bạn dài \'+document.forms[\'fud_register\'].reg_sig.value.length+\' kí tự. Độ dài chữ ký tối đa là {GVAR: FORUM_SIG_ML} kí tự.\');" class="SmallText">Kiểm tra độ dài chữ ký</a>
-adm_account_accepted:		Tài khoản \'{VAR: GLOBALS['r']->login}\' của bạn  đã được chấp nhận bởi người quản trị tối cao và bây giờ đã được kích hoạt. Bạn có thể truy cập vào diễn đàn {GVAR: FORUM_TITLE}\' ngay khi được xác nhận, thành viên đã được đăng ký.
-adm_account_accepted_s:		Tài khoản của bạn yêu cầu cho \'{GVAR: FORUM_TITLE}\' đã được chấp nhận.
-adm_account_rejected:		Tài khoản \'{VAR: GLOBALS['r']->login}\' của bạn đã bị từ chối bởi người quản trị tối cao. Nếu bạn muốn biết lý do về quyết định này, Xin vui lòng liên hệ với người quản trị tối cao \'{GVAR: ADMIN_EMAIL}\'.
-adm_account_rejected_s:		Tài khoản của bạn yêu cầu cho \'{GVAR: FORUM_TITLE}\' đã bị từ chối.
-thread_on:			vào
-userinfo_buddy:			Bạn bè:
-register_email_addr:		Địa chỉ Email:
-usrinfo_last_visit:		Lần ghé thăm sau cùng:
-mnav_newer:			mới hơn
-mnav_older:			cũ hơn
-userinfo_real_name:		Tên thật là :
-register_err_alias_notallowed:	Bí danh này không được cho phép
-post_err_mod_forum_edit_ttl:	Lỗi
-post_err_mod_forum_edit_msg:	Bạn không thể chỉnh sửa bài viết trong diễn đàn đã được quản lý.
-dmsg_num:			bài viết #{VAR: obj->id}
-postcheck_session_invalid:	Phiên của bạn đã hết hạn. Xin vui lòng đăng nhập lại. Chúng tôi rất tiếc về sự bất tiện này.
-register_theme:			Giao Diện:
-pmsg_trash:			Xóa rác
-uc_new_pm:			Tin nhắn cá nhân mới
-uc_new_topic:			Chủ đề mới
-uc_new_cat_forum:		Theo dõi diễn đàn này với bài viết mới
-uc_cat_forum:			Danh mục &raquo; Diễn đàn
-uc_sub_topics:			Theo dõi chủ đề này với bài viết mới
-uc_page_title:			Xem khu vực cá nhân.
-search_options:			Chọn lựa tìm kiếm
-search_user_filter:		Lọc thành viên:
-register_none:			Không thông báo
-findu_no_conf:			Thành Viên Chưa Xác Nhận
-register_max_sig_len:		Độ dài tối đa:
-register_turing:		Xin vui lòng nhập vào mã bên dưới:
-register_err_turing:		Mã Không Phù Hợp.
-modque_cat:			Danh mục
-modque_forum:			Diễn Đàn
-idx_compact_forum_row:		Những diễn đàn hiện có:
-mmd_del_title:			Chủ đề bị xóa
-pmsg_pdf_btn:			Tạo trang PDF
-search_results_hdr:		Kết quả tìm kiếm được {VAR: total}
-thread_del_all:			Xóa tất cả đã được chọn
-thread_mov_all:			Di chuyển tất cả đã được chọn
-err_blockedaccnt_title:		Lỗi :Tài khoản của bạn đã bị lọc ra ngoài.
-err_blockedaccnt_msg:		Tài khoản của bạn đã bị cấm truy cập vào diễn đàn vì bộ lọc người sử dụng đã được thiết lập.
-most_users_online:		Thành viên online nhiều nhất là <b>{VAR: st_obj->most_online}</b> vào <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
-tabs_own_posts:			Bài viết của bạn
-mnav_sub_only:			Chỉ tìm trong những diễn đàn theo dõi
-register_topics_per_page:	Số chủ đề trong một trang:
-login_min_time:			Diễn dàn chỉ cho phép bạn đăng nhập mỗi {VAR: MIN_TIME_BETWEEN_LOGIN} giây, Xin vui lòng chờ đợi {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} giây trước khi đăng nhập lần kế tiếp.
-post_not_logged_in:		Hiện giờ bạn chưa đăng nhập, khi là thành viên vô danh bạn không thể gửi bài.
-post_common_bold:		In đậm
-post_common_italics:		In Nghiêng
-post_common_underline:		Gạch dưới
-post_common_align_left:		Canh trái
-post_common_align_center:	Canh Giữa
-post_common_align_right:	Canh Phải
-post_common_link:		Chèn liên kết
-post_common_email:		Chèn địa chỉ Email
-post_common_image:		Chèn hình ảnh
-post_common_nlist:		Thêm danh sách số
-post_common_blist:		Thêm danh sách chấm
-post_common_quote:		Thêm trích dẫn
-post_common_code:		Thêm mã
+# Messages for Vietnamese (Tiếng Việt)
+# Exported from translatewiki.net
+
+action:Hànhđộng
+add_to_buddy_list:thêm vào danh sách bạn bè
+admin:Người quản lý
+admin_control_panel:Khu vực người quản lý
+administrator:Người Quản Trị Tối Cao
+attachment:Đính kèm:
+avatar:Hình Đại Diện:
+# Fuzzy
+average_post_count:{VAR: u->posted_msg_count} bài viết ( trung bình {VAR: avg} bài viết trong một ngày )
+biography:Tự bạch:
+birth_date:Ngày sinh nhật:
+by:Bởi:
+by_mod:bởi Người điều tiết
+current_time:Giờ Hiện Tại
+custom_avatar_queue:Hình đại diện quen thuộc
+date_posted:Ngày Đăng Bài
+date_registered:Ngày đăng ký:
+# Fuzzy
+download_counter:Tải xuống {VAR: v[3]} lần
+# Fuzzy
+pmsg_download_counter:Tải xuống {VAR: r->dlcount} lần
+email_to_friend:E-mail đến bạn
+email_to_friend_desc:Gởi đường dẫn trang này đến bạn của bạn bằng email
+# Fuzzy
+email_user:Nhấn chuột vào đây để gửi mail cho thành viên này
+faq:Giúp Đỡ
+first_unread_msg:Đến tin chưa đọc
+first_unread_msg_desc:Đến tin chưa đọc đầu tiên trong chủ đề này
+flat_view:Trở lại xem dạng khối
+forum:Diễn Đàn:
+forum_icon:Biểu Tượng Diễn Đàn
+forum_new_messages:Tin mới
+forum_none_messages:Chỉ có thành viên đã đăng ký của diễn đàn mới có thể xem những bài viết chưa đọc và đã đọc
+forum_old_messages:Không có tin mới
+from:Từ:
+gender:Giới tính:
+go:Thực hiện
+goto_next_msg:Đến tin kế tiếp
+goto_prev_msg:Lùi lại tin sau
+home:Trang Chủ
+homepage:Trang web cá nhân:
+ignore_user:Từ chối tất cả bài viết bởi thành viên này
+image:Hình ảnh:
+index_forum:Diễn Đàn
+index_new_posts:Bài viết mới kể từ lần xem sau cùng
+index_no_new_posts:Không có bài viết mới kể từ lần xem sau cùng
+interests:Sở Thích:
+last_post:Bài Viết Cuối Cùng
+last_thread_msg:Đến bài viết cuối cùng trong chủ đề này
+legend:Ghi Chú
+location:Địa chỉ:
+lock_thread:Khóa chủ đề
+locked:Khóa
+locked_with_new_posts:Khóa (w/ bài viết chưa đọc)
+logged_in_list:Danh sách thành viên đã đăng nhập
+login:Đăng nhập
+login_header:Tên Đăng Nhập:
+logout:Thoát
+mark_all_read:Đánh dấu đọc tất cả bài viết
+mark_all_read_desc:Đánh dấu đã đọc cho tất cả bài viết chưa xem của bạn
+members:Thành Viên
+# Fuzzy
+message_counter:Thành viên của chúng ta đã gửi tổng cộng <b>{VAR: post_count}</b> bài viết trong <b>{VAR: thread_count}</b> chủ đề .
+message_index:Chỉ mục bài viết
+message_index_desc:Xem danh sách bài viết
+minimize_category:Thu nhỏ danh mục
+moderator:Người Điều Tiết
+moderator_of:Người điều tiết của:
+moderator_options:Mục chọn của người điều tiết
+# Fuzzy
+moderators:Người điều tiết
+more_unread_messages:Thêm những bài viết chưa đọc
+more_unread_messages_desc:Xem thêm những bài viết chưa đọc và đánh dấu đọc những bài viết có thể xem hiện giờ
+move_thread:Di chuyển
+moved:Chuyển đến một diễn đàn khác
+moved_thread_message:Chủ đề này đã bị chuyển sang một diễn đàn khác
+new_posts:Bài Viết Mới
+# Fuzzy
+new_private_messages:Bạn có <span class="GenTextRed">({VAR: c})</span> tin nhắn chưa đọc
+new_thread:Tạo một chủ đề mới
+newest_user:Thành viên mới đăng ký là
+next_page:Trang kế
+next_thread:Chủ đề kế tiếp:
+no_messages:Không có bài viết trong diễn đàn này
+no_msg_body:Không có nội dung bài viết
+no_new_posts:Không Có Bài Viết Mới
+no_posts:Không có bài
+no_subscribed_forums:Không có diễn đàn theo dõi
+no_subscribed_threads:Không có chủ đề theo dõi
+no_unread_locked:Chủ đề này đã bị khóa
+no_unread_msg:Chủ đề này không có bài viết chưa đọc
+no_unread_msg_unreg:Những bài viết chưa đọc và đã đọc chỉ được xem bởi thành viên đã đăng ký
+num_pages:Trang ({VAR: ttl_pg}):
+# Fuzzy
+num_votes:{VAR: obj->total_votes} phiếu
+occupation:Nghề nghiệp:
+off:Tắt
+on:Mở
+page_timings:Tổng thời gian để tạo trang: {VAR: page_gen_time} giây
+pm:Tin Nhắn Cá Nhân
+poll:Bảng khảo sát:
+post_count:Số Bài Viết  {VAR: u_pcount}
+post_count_l:Số bài viết:
+posts:Bài Viết
+posts_c:Bài viết:
+prev_thread:Chủ đề sau :
+usrinfo_private_message:Tin nhắn cá nhân:
+profile:Hiệu Chỉnh
+# Fuzzy
+profile_desc:Nhấn chuột vào đây để truy cập vào khu vực người sử dụng
+rate_thread:Nhận xét chủ đề
+refresh_list:Làm Tươi Danh Sách
+register:Đăng ký
+registered:Đăng vào:
+registered_on:Đăng ký vào {TEMPLATE: registered_on_date}
+replies:TrảLời
+report_to_mod:Thông báo đến người điều tiết
+reported_messages:Bài viết đã được trình bày
+search:Tìm kiếm
+sel_todays_posts:Bài viết hôm nay
+sel_todays_posts_desc:Giữ bộ lọc bài viết ngày hôm nay (sẽ chỉ xem những bài viết ngày hôm nay)
+sel_unanswered_posts:Bài viết chưa trả lời
+sel_unanswered_posts_desc:Giữ bộ lọc những bài chưa được trả lời (sẽ chỉ xem những bài viết không có trả lời)
+sel_unread_messages:Bài viết chưa đọc
+sel_unread_messages_desc:Giữ bộ lọc bài viết chưa đọc (sẽ chỉ xem những bài viết chưa đọc)
+send:Gửi
+send_pm_desc:Gởi một tin nhắn cá nhân đến thành viên này
+sender_email:Người gửi email:
+sender_name:Tên người gửi:
+show_posts_by:Xem Bài Viết Bởi: {VAR: u_alias}
+status:Trạng thái:
+# Fuzzy
+status_line:Hiện có <b>{VAR: st_obj->online_users_reg}</b> thành viên , <b>{VAR: st_obj->online_users_hidden}</b> thành viên ẩn danh và <b>{VAR: st_obj->online_users_anon}</b> khách đã ghé thăm trang này.
+stop_ignoring:Không từ chối thành viên này
+sub_to_thread:Theo dõi chủ đề
+sub_to_thread_desc:Nhận thông báo về tin mới trong chủ đề này
+subject:Tựa Đề
+subscribe:Theo dõi
+subscribe_desc:Nhận thông báo khi một ai đó tạo chủ đề mới trong diễn đàn này
+subscribed_forums:Diễn đàn theo dõi
+subscribed_forums_desc:Giữ bộ lọc theo dõi diễn đàn (sẽ chỉ xem những bài viết bạn từ diễn đàn bạn theo dõi)
+subscribed_threads:Chủ đề theo dõi
+subscribed_threads_desc:Giữ bộ lọc theo dõi chủ đề (sẽ chỉ xem những bài viết từ chủ đề mà bạn theo dõi)
+switch_to_thread_view:Chuyển sang chủ đề đã xem trong chủ đề này
+thread:Chủ Đề:
+thread_announcement:Thông báo:
+# Fuzzy
+thread_first_unread_msg:nhấn chuột vào đây để xem bài viết chưa đọc đầu tiên trong chủ đề này
+thread_thread:Chủ Đề
+threads:Chủ Đề
+time:Thời Gian
+todays_posts:Bài viết hôm nay
+todays_posts_desc:xem tất cả bài viết được gửi ngày hôm nay
+un_ignore_user:Không từ chối bài viết bởi thành viên này
+unanswered_posts:Bài viết chưa trả lời
+unanswered_posts_desc:Xem tất cả bài viết chưa có trả lời
+unlock_thread:Mở khóa chủ đề
+unread_msg:Chủ đề này có những bài viết bạn chưa đọc
+unread_msg_locked:Chủ đề đã bị khóa với những bài viết chưa đọc
+unread_posts:Bài viết chưa đọc
+unread_posts_desc:Xem tất cả bài viết chưa đọc
+unsub_from_thread:Không theo dõi chủ đề này
+unsub_from_thread_desc:Không nhận thông báo về tin mới trong chủ đề này
+unsubscribe:Không theo dõi
+unsubscribe_desc:Không nhận thông báo về chủ đề mới trong diễn đàn này
+updated_on:Cập nhật vào:
+user:Thành Viên
+# Fuzzy
+user_counter:Chúng ta có <b>{VAR: st_obj->user_count}</b> thành viên đăng ký.
+user_info:Thông Tin Người Sử Dụng
+user_info_l:Thông Tin Người Sử Dụng {VAR: u->alias}
+user_offline:{VAR: obj->login}  hiện giờ đã offline
+user_online:{VAR: obj->login} hiện giờ đang online
+usrinfo_last_post:Bài viết sau cùng:
+view_results:Xem kết quả
+views:Xem
+# Fuzzy
+vote:{VAR: frm->n_rating} Phiếu
+vote_button:Bỏ phiếu
+vote_for_thread:Phiếu
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> đã được chuyển đến <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> bởi người điều tiết
+welcome_message:Chào mừng <b>{VAR: usr->alias}</b>, lần ghé thăm cuối của bạn vào {TEMPLATE: welcome_message_date}
+what_ppl_doing:Xem mọi người đang làm gì
+reported_del_report:Xóa thông báo
+reported_reason:Lý do
+reported_on:Vào:
+reported_reported_by:Được thông báo bởi:
+reported_reported_msg:Bài viết được thông báo
+modque_pending_approval:Bài viết đang chờ được chấp nhận
+modque_approve:Chấp nhận
+modque_delete:Xóa
+modque_no_message:Không có bài viết đang chờ được chấp nhận
+pmsg_new_messages:Tin nhắn cá nhân chưa đọc
+pmsg_old_messages:Tin nhắn cá nhân đã đọc
+deny_recipt:Từ chối nhận
+deny_recipt_desc:Không gửi thông báo khi bạn đọc tin nhắn này
+restore_to:Phục hồi đến:
+move_to:Chuyển đến:
+list_referes_member:Thành Viên
+referals_post_count:Số bài viết
+referals_registered_on:Đăng ký vào
+referals_action:Hànhđộng
+pmsg_all:tất cả
+pmsg_none:không
+folder:Thư mục:
+pmsg_replied:đã trả lời
+pmsg_forwarded:đã chuyển đi
+pmsg_subject:Tựa đề
+pmsg_author:Tác Giả
+pmsg_time:Thời gian
+pmsg_selected:Đã Chọn
+pmsg_delete:Xóa
+cur_ppage_pm:Tin nhắn cá nhân
+writing_pm:Viết tin nhắn cá nhân
+browsing_folder:Xem qua thư mục <b>{VAR: folders[$folder_id]}</b>
+inbox:Hộp thư
+draft:Thư nháp
+sent:Gửi
+trash:Thư rác
+msg_author:Tác Giả
+avatar_sel_form:Mẫu lựa chọn hình đại diện
+no_avatars:Không có hình đại diện
+month_1:Tháng Giêng
+month_2:Tháng Hai
+month_3:Tháng Ba
+month_4:Tháng Tư
+month_5:Tháng Năm
+month_6:Tháng Sáu
+month_7:Tháng Bảy
+month_8:Tháng Tám
+month_9:Tháng Chín
+month_10:Tháng Mười
+month_11:Tháng Mười Một
+month_12:Tháng Mười Hai
+male:Nam
+female:Nữ
+unspecified:Không xác định
+register_tree_view:Xem danh sách bài viết và chủ đề dạng cây
+register_msg_tree_view:Danh sách chủ đề dạng khối/Danh sách bài viết dạng cây
+register_tree_msg_view:Danh sách chủ đề dạng cây/Danh sách bài viết dạng khối
+register_flat_view:Xem danh sách chủ đề và bài viết dạng khối
+use_forum_default:Sử dụng diễn đàn chuẩn
+finduser_user_info:Thông tin người sử dụng
+finduser_by_login:Bằng Tên Đăng Nhập:
+finduser_submit:Tìm
+finduser_user:Thành viên
+finduser_postcount:Số bài viết
+finduser_joindate:Ngày tham gia
+finduser_action:Hành động
+yes:Có
+no:Không
+edit_time_limit:<b>Hạn chế thời gian sửa</b> : <b>{GVAR: EDIT_TIME_LIMIT}</b> phút
+no_edit_time_limit:<b>Hạn chế thời gian sửa</b>:<b>Khônghạn chế</b>
+pmuserloc_login:Tên đăng nhập:
+pmuserloc_submit:Tìm
+pmuserloc_user:Thành viên
+pmuserloc_no_result:Không có kết quả
+register_builtin:Được làm trong
+register_specify_url:Đường dẫn cụ thể
+register_uploaded:Gửi hình đại diện lên
+register_login:Tên đăng nhập:
+register_password:Mật khẩu:
+register_conf_pass:Xác nhận mật khẩu:
+register_email_desc:Xin vui lòng nhập vào địa chỉ email có giá trị. Bạn có thể lựa chọn ẩn email, trong phần TỰ CHỌN .
+register_name:Tên :
+register_your_pass:Mật khẩu của bạn:
+register_update:Cập nhật
+register_avatar_type:Hình ảnh đại diện:
+register_del_avatar:Xóa hình đại diện
+register_avatar:Hình đại diện:
+register_sel_avatar:Chọn hình đại diện
+register_custom_avatar_rules:Hình đại diện quen thuộc sẽ không xuất hiện cho đến khi nó được sự chấp nhận của người quản trị tối cao.<br /><span class="SmallText">Hình đại diện không nên lớn hơn <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> và phải là dạng <b>jpg</b>, <b>gif</b> or <b>png</b>.</span>
+register_custom_avatar_url:Đường dẫn hình đại diện quen thuộc:
+register_preview:Xem lại
+register_custom_avatar_upload:Tập tin hình đại diện:
+register_register:Đăng ký
+register_required:Thông tin bắt buộc
+register_required_desc:Tất cả những ô bắt buộc.  Xin vui lòng chú ý mật khẩu nhằm an toàn bảo mật.
+register_optional:Thông tin tự chọn
+register_optional_desc:Xin chú ý: Tất cả những thông tin bên dưới của bạn có thể  được xem bởi những thành viên khác của diễn đàn .
+register_location:Địa chỉ:
+register_occupation:Nghề nghiệp:
+register_interests:Sở thích:
+register_image:Hình Ảnh:
+register_icq:ICQ
+register_homepage:Trang web của bạn:
+register_bday:Ngày sinh nhật:
+register_bday_desc:Nếu bạn nhập vào ngày sinh nhật .Thành viên khác trong diễn dàn có thể sẽ nhìn thấy được ngày sinh của bạn trong phần tiểu sử
+register_day:Ngày
+register_month:Tháng
+register_year:Năm
+register_gender:Giới tính:
+register_bio:Tự Bạch:
+register_bio_desc:Một vài đặc điểm về bạn như sở thích ,công việc ,bạn bè ,màu sắc ,món ăn ,âm nhạc...
+register_prefs:Tự Chọn
+register_sig:Chữ Ký:
+register_sig_desc:Chữ ký tự chọn , chữ ký này sẽ xuất hiện ở cuối mỗi bài viết của bạn .
+register_reset:Làm lại
+register_def_thread_view:Xem chủ đề theo chuẩn:
+register_msg_per_page:Số bài trong một trang:
+register_show_sig:Xem chữ ký:
+register_show_sig_desc:Cho phép bạn ẩn hoặc xem chữ ký của thành viên khác trong diễn đàn
+register_use_sig_default:Sử dụng chữ ký theo chuẩn:
+register_use_sig_default_desc:Tự động xuất hiện chữ ký của bạn khi bạn gửi bài
+register_timezone:Vùng thời gian:
+register_ignore_admin:Từ chối tin nhắn của người quản trị tối cao:
+register_invisible_mode:Trạng thái ẩn danh:
+register_invisible_mode_desc:Ẩn trạng thái online của bạn
+register_show_email:Cho hiện địa chỉ email:
+register_show_email_desc:Chọn mục này nếu bạn muốn địa chỉ email của bạn được xem bởi những thành viên khác.
+register_notification:Chọn thông báo theo tiêu chuẩn:
+register_notification_desc:Nếu thông báo theo tiêu chuẩn được kích hoạt ,nó có thể bị vô hiệu khi gửi bài.
+register_notify_method:Chọn phương pháp thông báo:
+register_allow_email_msg:Cho phép nhắn tin Email:
+register_allow_email_msg_desc:Cho phép thành viên khác gủi email đến bạn qua diễn đàn này.
+buddy_status:Trạng thái
+my_buddies:Bạn bè của tôi
+add_buddy:Thêm danh sách bạn bè
+add:Thêm
+buddy_search:Nhập vào tên đăng nhập của thành viên mà bạn muốn thêm
+member_search:hoặc sử dụng chức năng <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Tìm thành viên</a> để kiếm một người.
+buddy_remove:Xóa bỏ
+post_normal:Bình Thường
+post_annoncement:Thông Báo
+post_color:Màu
+create_thread:Tạo Chủ Đề
+submit_reply:Đăng bài trả lời
+edit_message:Áp dụng thay đổi bài viết
+apply_spell_changes:Áp dụng thay đổi chính tả
+post_preview:Xem Lại Bài Viết
+post_logedin_user:Tên người đăng nhập:
+post_logout:Thoát
+post_passwd:Mật khẩu gửi bài:
+post_poll:Bảng khảo sát:
+post_create_poll:Tạo Bảng Khảo Sát
+post_poll_delete:Xóa
+post_poll_edit:Chỉnh Sửa
+post_mod_opt:Mục Chọn Của Người Điều Tiết:
+post_thread_type:Loại Chủ Đề:
+post_thread_expiry:Thời Hạn Chủ Đề:
+post_locked:Khóa Chủ Đề
+post_icons:Biểu tượng bài viết:
+post_no_icon:Không biểu tượng
+post_smiley:Biểu tượng cười:
+post_format_tools:Công cụ định dạng:
+post_upload_file:Gửi tập tin
+post_file_del:Xóa
+post_file_name:Tên
+post_file_size:Dung lượng
+file_attachments:Tập Tin Đính Kèm:
+allowed_files:Đuôi tập tin được cho phép:
+max_file_size:Dung lượng tối đa tập tin:
+max_files_per_msg:Số tập tin tối đa trong một bài viết:
+post_notification:Thông báo bài viết
+include_sig:Bao Gồm Chữ Ký
+include_sig_desc:Bao Gồm Chữ Ký Của Bạn.
+disable_smilies:Vô hiệu biểu tượng cười trong bài viết này.
+spell_check_msg:Kiểm tra chính tả bài viết
+post_form:Mẫu Gửi Bài
+post_forum:Diễn Đàn:
+post_title:Tựa Đề:
+post_body:Nội Dung:
+post_options:Mục Chọn:
+post_preview_btn:Xem Lại Bài Viết
+ignore_users:Thành viên bị từ chối
+add_ignore:Thêm người bị từ chối
+forum_terms:Những điều khoản của diễn đàn
+# Fuzzy
+forum_rules:<center><h1>Chào đón những thành viên mới của <b>Trường Long Forum </b></h1><br />Chúc Các Bạn Vui Vẻ ^_^ <br />Nếu bạn đồng ý --->> [Đồng ý]<br />nếu không -->> [không đồng ý]</center>
+# Fuzzy
+forum_rules_13:Tất cả những thành viên dưới 13 tuổi phải có sự chấp nhận của cha mẹ hoặc người bảo hộ để có thể trở thành thành viên của diễn đàn While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send e-mail to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+coppa_before:Trước {TEMPLATE: coppa_date}
+coppa_after:Sau {TEMPLATE: coppa_date}
+coppa_link:Nhấn chuột vào link này để chịu trách nhiệm về ngày sinh của bạn
+# Fuzzy
+coppa:A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete registration.<p>For further information contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+prereg_info:Thông tin
+prereg_agree:Đồng Ý
+prereg_disagree:Không đồng ý
+coppa_fax_passwd:Mật khẩu
+login_not_logedin:Bạn không đăng nhập được. Có thể do một vài lý do:
+login_cookie_expired:Cookies của bạn đã hết hạn, và bạn cần phải đăng nhập lại để làm mới cookie.
+login_perm_denied:Bạn không được phép truy cập khi là thành viên vô danh. Bạn phải đăng nhập để có được sự cho phép.
+login_want_to_register:Bạn muốn đăng ký chứ?
+login_forgot_passwd:Quên mật khẩu
+# Fuzzy
+login_use_cookie:Sử dụng cookie<br /><span class="SmallText">Nếu bạn sử dụng máy tính nơi công cộng như thư viên, trường học ,hoặc dịch vụ internet, Chúng tôi khuyên bạn không nên chọn mục này nhằm tăng độ bảo mật hơn.<br />Nếu bạn chọn mục này ,bạn sẽ tự động đăng nhập vào lần ghé thăm kế tiếp .
+login_login:Tên Đăng Nhập
+login_login_btn:Đăng Nhập
+login_name_required:Tên đăng nhập đòi hỏi phải có
+login_passwd_required:Mật khẩu đòi hỏi phải có
+login_invalid_radius:Tên đăng nhập hoặc mật khẩu không chính xác
+reset_confirmation:Cám ơn bạn đã đăng ký,\n\n Để kích hoạt tài khoản Xin vui lòng đến đường dẫn bên dưới :\n\n{VAR: url}\n\n Tài khoản của bạn được kích hoạt sẽ đăng nhập vào diễn đàn và \n chuyển đến trang chính.
+rpasswd_invalid_passwd:Mật khẩu không chính xác
+rpasswd_passwd_nomatch:Mật khẩu không tìm thấy
+rpasswd_passwd_length:Mật khẩu phải dài ít nhất 6 kí tự
+reset_reset_conf:Mật khẩu của bạn sẽ được tạo mới và gửi đến bạn. Nếu bạn chưa xác nhận địa chỉ email , Yêu cầu xác nhận sẽ gửi lại đến bạn.
+reset_error:Địa chỉ email không tìm thấy trong cơ sở dữ liệu
+rpasswd_change_pass:Thay đổi mật khẩu
+rpasswd_login:Tên đăng nhập
+rpasswd_cur_pass:Mật khẩu hiện tại:
+rpasswd_new_pass:Mật khẩu mới:
+rpasswd_conf_pass:Xác nhận mật khẩu:
+login_passwd:Mật Khẩu:
+reset_reset_button:Tạo mới mật khẩu
+search_entire_msg:Toàn bộ bài viết
+search_subject_only:Chỉ tựa đề
+search_forum:Diễn đàn
+search_posted_on:Được gửi vào
+search_no_results:Không có kết quả
+search_all_forums:Tìm tất cả diễn đàn
+search_in_forum:Tìm trong diễn đàn:
+search_forum_search:Tìm Kiếm
+move_thread_to:Chuyển chủ đề <b>{VAR: thr->subject}</b> đến:
+mklist_type:Loại:
+mklist_delete:Xóa
+qbud_nick_name:Bí danh
+qbud_selected:Được chọn
+qbud_no_buddies:Không có bạn được chọn từ
+mklist_numerical:Số
+mklist_aplha:Kí tự
+mklist_square:Hình vuông
+email_to:Đến:
+email_subject:Tựa Đề:
+email_body:Nội Dung:
+email_submit:Gửi Email
+ppost_quote_msg:{VAR: msg_to_list} được viết vào {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Trích dẫn:
+ppost_to:Đến :
+ppost_from_buddy_list:Lựa chọn từ danh sách bạn bè
+ppost_find_User:Tìm thành viên
+ppost_track_msg:Có thể xem bài này
+ppost_track_msg_desc:Thông báo đến tôi (bằng tin nhắn cá nhân) khi tin nhắn này được đọc.
+ppost_send:Gửi
+ppost_save_draft:Lưu tạm
+poll_blank_option:Bạn không thể thêm một mục chọn trống
+poll_del_conf:Nếu bạn muốn xóa mục này ,nhấn phím OK
+poll_name:Tên Bảng Khảo Sát:
+# Fuzzy
+poll_timelimit:Thời hạn
+# Fuzzy
+poll_maxiumvotes:Số phiếu tối đa
+poll_create:Tạo
+poll_update:Cập nhật
+poll_disablesmilies:Vô hiệu hóa biểu tượng cười
+poll_create_poll:Tạo Bảng Khảo Sát
+poll_update_poll:Cập Nhật Bảng Khảo Sát
+poll_delete:Xóa
+poll_updateoption:Cập nhật mục chọn
+poll_addoption:Thêm mục chọn
+poll_unlimited:Không hạn chế
+poll_day:ngày
+poll_days:ngày
+poll_hour:giờ
+poll_hours:giờ
+poll_month:tháng
+poll_year:năm
+poll_week:tuần
+tabs_register:Hiệu Chỉnh
+tabs_subscriptions:Theo Dõi
+tabs_buddy_list:Danh Sách Bạn Bè
+tabs_ignore_list:Danh Sách Từ Chối
+tabs_private_messaging:Tin Nhắn Cá Nhân
+single_msg_delete:You are about to <span class="ErrorText">DELETE</span> the message titled: <b>{VAR: data[3]}</b>
+# Fuzzy
+thread_delete:You are about to <span class="ErrorText">DELETE</span> the <span class="ErrorText">ENTIRE TOPIC</span> titled: <b>{VAR: data[3]}</b>
+error_invalidurl:Đường dẫn URL không có giá trị
+error_error:Lỗi
+usrinfo_profile:Tiểu sử của {VAR: u->alias}
+usrinfo_show_all_posts:Xem tất cả bài viết bởi  {VAR: u->alias}
+err_info:Thông tin
+buddy_list_err_cantadd:Bạn không thể thêm chính bạn vào trong danh sách bạn bè
+buddy_list_err_dup:Bạn đã có người này trong danh sách
+buddy_list_err_nouser:Người sử dụng mà bạn muốn thêm không thể tìm thấy.
+buddy_list_err_nouser_title:Không thể thêm người sử dụng
+buddy_list_err_ignore:Không thể thêm thành viên này vì họ đã từ chối bạn thêm vào danh sách bạn bè.
+buddy_list_update:Xem qua danh sách bạn bè của tôi
+core_adm_login_msg:người quản trị tối cao có thể đăng nhập  <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ở đây</a>
+email_err_unabletoemail_title:Lỗi : Không thể gửi email
+email_err_unabletoemail_msg:Hệ thống email đã bị vô hiệu hóa bởi người quản trị tối cao.
+email_error_unabletolocaddr:Lỗi :hệ thống không thể gửi email đến {VAR-HTML: _POST['tx_name']} bởi vì nó không thể xác định rõ địa chỉ email
+email_error_body:Nội dung đòi hỏi phải có
+email_error_subject:Tựa đề đòi hỏi phải có
+email_error_namerequired:Tên đòi hỏi phải có
+email_error_invaliduser:Tên người sử dụng không có giá trị
+emailconf_err_invkey_title:Lỗi
+emailconf_err_invkey_msg:Khóa xác nhận không chính xác.  Xin vui lòng kiểm tra lại email của bạn để chắc chắn rằng bạn đã nhập vào đúng đường dẫn URL.
+finduser_update:Đang kiếm thành viên
+ignore_list_err_info_title:Thông tin
+ignore_list_err_dup_msg:Bạn đã có người này trong danh sách của bạn
+ignore_list_err_nu_title:Không tìm thấy thành viên
+ignore_list_err_nu_msg:Thành viên mà bạn muốn thêm vào danh sách đã không tìm thấy.
+ignore_list_cantign_msg:Bạn không thể từ chối thành viên này
+ignore_list_update:Xem qua danh sách của bạn
+index_update:Xem qua <a href="{TEMPLATE: index_update_lnk}">danh sách diễn đàn </a>
+login_update:Đăng Nhập
+msg_update:Xem qua chủ đề <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:Lỗi : Tin Nhắn Cá Nhân Đã Bị Vô Hiệu Hóa
+pm_err_nopm_msg:Bạn không thê sử dụng hệ thống tin nhắn cá nhân. Nó đã bị vô hiệu hóa bởi người quản trị tối cao.
+pm_update:Đang sử dụng tin nhắn cá nhân
+post_err_lockedthread_title:Lỗi :Chủ đề đã bị khóa
+post_err_lockedthread_msg:Chủ đề này đã bị khóa .Bài viết của bạn không được phép.
+err_coppa_title:Lỗi : Tài khoản của bạn chưa được kích hoạt
+# Fuzzy
+err_coppa_msg:Chúng tôi chưa nhận được sự xác nhận từ cha mẹ hoặc người bảo hộ của bạn, để cho phép bạn gửi bài viết. Nếu bạn mất mẫu COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">nhấn chuột vào đây</a> để xem lại nó.
+err_banned_acct_title:Lỗi :Tài khoản đã bị cấm.
+err_banned_acct_msg:Tài khoản của bạn {IF: $ban_expiry}tạm thời bị cấm cho đến khi {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}lâu dài{ENDI} cho việc truy cập vào diễn đàn, vì vi phạm nội qui của diễn đàn.
+post_err_edttimelimit_title:Lỗi
+post_err_edttimelimit_msg:Bạn không thể chỉnh sửa bài viết này
+post_err_noannontopics_msg2:<legend>Lỗi : Không được phép</legend>Thành viên vô danh không được phép tạo chủ de .
+post_err_noannonposts_msg2:<legend>Lỗi : Không được phép</legend>Thành viên vô danh không được phép trả loi.
+post_err_floodtrig_title:Lỗi : Gởi bài đã gây quá tải.
+# Fuzzy
+post_err_floodtrig_msg:Xin vui lòng thử lại sau {VAR: tm} giây nữa
+post_err_attach_size:Kích thước tập tin đính kèm quá lớn(lớn hơn giới hạn cho phép {VAR: MAX_F_SIZE} bytes)
+post_err_attach_ext:Loại tập tin bạn gửi lên không được cho phép.
+post_err_attach_filelimit:Số tập tin bạn gửi lên nhiều hơn được cho phép.
+post_err_passwd:Mật khẩu không chính xác.
+post_reply_update:Trả lời đến <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> trong {VAR: frm->name}
+post_topic_update:Tạo chủ đề mới trong <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Có một lỗi xảy ra
+postcheck_max_images_err:Số lượng hình ảnh được cho phép trong mỗi bài viết không được hơn {GVAR: MAX_IMAGE_COUNT} hình. Xin vui lòng giảm số lượng hình.
+postcheck_subj_needed:Yêu cầu có tựa đề
+postcheck_no_such_user:Không có thành viên tên "{FUNC: char_fix(htmlspecialchars($v))}" trong diễn đàn này.
+postcheck_ignored:Bạn không thể gửi tin nhắn cá nhân đên "{FUNC: char_fix(htmlspecialchars($v))}", vì người này đã từ chối bạn.
+postcheck_no_recepient:Không thể gửi tin nhắn, không tìm thấy người nhận
+postcheck_invalid_email:Xin vui lòng nhập vào địa chỉ email có giá trị của bạn.
+postcheck_email_subject:bạn không thể gửi email mà không có tựa đề.
+postcheck_email_body:bạn không thể gửi email mà không có nội dung.
+private_msg_notify_subj:Đọc thông báo : {VAR: m->subject}
+private_msg_notify_body:Xin chào,<br />{VAR: usr->login} đã đọc tin nhắn của bạn, "{VAR: m->subject}", vào {TEMPLATE: private_msg_notify_body_date}<br />
+register_err_short_login:Tên đăng nhập bạn lựa chọn quá ngắn. Tên đăng nhập phải ít nhất 4 kí tự.
+register_err_login_notallowed:Tên đăng nhập này không được cho phép.
+register_err_loginunique:Tên đăng nhập phải là duy nhất. Đã có người khác sử dụng tên này.
+register_err_emailexists:Địa chỉ email này đã được sử dụng. Nếu bạn quên mật khẩu của bạn xin vui lòng dùng chức năng phục hồi mật khẩu, thay vì phải đăng ký lại.
+register_err_shortpasswd:Mật khẩu phải dài ít nhất 6 kí tự.
+register_err_passwdnomatch:Mật khẩu của bạn không phù hợp ,xin vui lòng thử lại.
+register_err_invalidemail:Địa chỉ email của bạn không có giá trị.
+register_err_needname:Để hoàn thành việc đăng ký ,xin vui lòng nhập vào tên của bạn.
+register_err_enterpasswd:Bạn phải nhập vào mật khẩu hiện giờ để hoàn thành việc thay đổi.
+# Fuzzy
+register_err_adminpasswd:Bạn phải nhập vào mật khẩu của người quản lý tối cao của bạn để hoàn thành việc thay đổi.
+register_err_notyouremail:Một ai đó đã đăng ký với địa chỉ email này.
+register_err_avatartobig:Tập tin bạn gửi lên có dung lượng quá lớn, hơn {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
+register_err_avatarnotallowed:Hình đại diện bạn gửi lên không được cho phép. Xin vui lòng kiểm tra loại tập tin được cho phép.
+register_conf_subject:Xác Nhận Đăng Ký
+register_conf_msg:Cám ơn bạn đã đăng ký,\n Để kích hoạt tài khoản của bạn xin vui lòng vào đường dẫn :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKhi tài khoản của bạn được kích hoạt bạn đã đăng nhập vào diễn đàn và \n chuyển đến trang chính.
+register_welcome_subject:Xác Nhận Đăng Ký Diễn Đàn
+register_err_cantreg_title:Lỗi :Không thể đăng ký
+regsiter_err_cantreg_msg:Không thể tạo tài khoản người sử dụng, xin vui lòng liên hệ với người quản trị tối cao ở <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Xem tiểu sử của bạn
+register_register_update:Trang Đăng Ký
+reset_newpass_title:Tạo lại mật khẩu
+reset_newpass_msg:Xin chào,\n\n Như yêu cầu, thông tin đăng nhập của bạn hiện bên dưới:\n\n Tên đăng nhập: {VAR: ui[1]}\n Mật khẩu: {VAR: passwd}\n\n Xin vui lòng chú ý mật khẩu mới của bạn đã được tạo bên trên. Nếu bạn muốn thay đổi mật khẩu bạn có thể làm qua khu vực người sử dụng:\n{FULL_ROOT}{ROOT}?t=register
+search_update:Bài viết tìm kiếm
+selmsg_update:Xem qua <a href="{TEMPLATE: selmsg_update_lnk}">Bài viết hôm nay</a>
+showposts_update:Xem Bài Viết Bởi: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+thread_update:Xem qua diễn đàn <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Xem qua chủ đề (xem dạng cây) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Kiếm tiểu sử của <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+ERR_login_msg2:<legend>Lỗi: Bạn không đăng nhập được</legend>Để truy cập vào trang này bạn phải là thành viên của diễn đàn.
+ERR_disabled_ttl:Chức năng bị vô hiệu
+ERR_disabled_msg:Chức năng này đã bị vô hiệu bởi người quản trị hệ thống
+ERR_access_ttl:Lỗi :Không đủ quyền
+ERR_access_msg:Bạn không được phép yêu cầu xem hành động này
+ERR_registration_disabled_ttl:Đăng ký đã bị vô hiệu hóa
+ERR_registration_disabled_msg:Người quản trị tối cao đã vô hiệu hóa đăng ký .Xin vui lòng đăng ký lại lần sau.
+ERR_emailconf_ttl:LỖI : Tài khoản của bạn vẫn chưa được xác nhận
+# Fuzzy
+ERR_emailconf_msg:Tài khoản của bạn vẫn chưa được xác nhận bằng email <br /><table border="0"><tr><td><ol><li>Nếu bạn không nhận được email xác nhận, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">nhấn chuột vào đây</a><li>Nếu {VAR: usr_d->email} không phải là email của bạn, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">nhấn chuột vào đây</a></ol></td></tr></table>
+ERR_systemerr_ttl:Lỗi :Lỗi hệ thống
+# Fuzzy
+ERR_systemerr_msg:Đã xảy ra một lỗi hệ thống. Xin vui lòng thông báo nó đến <a href="mailto:{GVAR: ADMIN_EMAIL}">người quản lý trang web </a>.
+email_title:Mẫu Email
+finduser_title:Tìm Kiếm Thành Viên
+login_title:Đăng Nhập
+poll_title:Khung soạn thảo bảng khảo sát
+register_title:Mẫu Đăng Ký
+rpasswd_title:Thay đổi mật khẩu
+error_title:Lỗi
+index_title:Chào mừng đến với diễn đàn
+search_title:Tìm kiếm  {VAR-HTML: srch}
+poll_add_option:Thêm mục chọn:
+post_opt_html_on:<b>Mã HTML</b> đang <b>Mở</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>TLcode</b> đang <b>Mở</b></a>
+post_opt_images_on:<b>Hình ảnh</b> đang <b>Mở</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Biểu tượng cười</b> đang <b>Mở</b></a>
+post_opt_html_off:<b>Mã HTML</b> đã <b>Tắt</b>
+post_opt_fud_off:<b>TLcode</b> đã <b>Tắt</b>
+post_opt_images_off:<b>Hình ảnh</b> đã <b>Tắt</b>
+post_opt_smilies_off:<b>Biểu tượng cười</b> đã <b>Tắt</b>
+post_opt:Mục chọn diễn đàn
+register_change_passwd:Đổi mật khẩu
+approved_avatar_title:Hình đại diện quen thuộc của bạn đã được chấp nhận.
+approved_avatar_msg:Hình đại diện của bạn đã được chấp nhận bởi người quản trị tối cao. Ngay bây giờ nó sẽ xuất hiện trong mọi bài viết của bạn. Nếu bạn không nhìn thấy nó, hoặc nhìn thấy hình đại diện cũ , bởi vì trình duyệt của bạn đã chụp lại. Thử làm tươi trình duyệt một , hai lần xem sao bằng cách nhấn phím F5. Trong hầu hết trường hợp đều do cất trữ của trình duyệt mà ra .
+unapproved_avatar_title:Hình đại diện của bạn đã bị từ chối.
+unapproved_avatar_msg:Người quản trị tối cao không chấp nhận hình đại diện của bạn. Hầu hết lý do đều là kích cỡ hình của bạn quá lớn (kích thước) hoặc nó chứa những vấn đề không được chấp nhận. Nếu bạn muốn biết thêm thông tin tại sao hình của bạn bị từ chối , xin vui lòng liên hệ với người quản trị tối cao.
+mvthread_request_move:Yêu cầu một sự di chuyển
+move_request_reason:Tại sao bạn muốn chuyển chủ đề này?
+mvthread_submit_req:Gửi yêu cầu
+thread_exchange:Thay đổi chủ đề
+move_request_by:Chuyển chủ đề được yêu cầu bởi:
+thr_exch_accept:Chấp nhận chủ đề
+thr_exch_decline:Từ chối chủ đề
+thr_exch_orig_forum:Diễn đàn gốc:
+thr_exch_dest_forum:Diễn đàn đích:
+thr_exch_no_threads:Không có chủ đề chờ chấp nhận
+thr_exch_decl_reason:Lý do vì từ chối chủ đề <b>{VAR: data->subject}</b> vào diễn đàn <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Đăng bài
+exch_decline_ttl:Di chuyển chủ đề {VAR: data->subject} vào diễn đàn {VAR: data->f2_name} đã bị từ chối.
+ppost_original_msg:Tin nhắn bạn đang chuyển đi hoặc trả lời đến
+split_thread:Cắt chủ đề
+show_show:Xem :
+group_mgr:Nhóm quản lý
+permission_denied_title:Cho phép đã bị từ chối
+# Fuzzy
+group_mgr_search:Find User
+rate_worst:Tệ nhất
+rate_best:Tốt nhất
+post_quote_msg:{VAR: msg->login} được viết vào {TEMPLATE: make_report_date}
+post_quote:Trích dẫn:
+pm_no_space_title:Không đủ khoảng trống
+pm_no_space_msg:Thư mục tin nhắn cá nhân của bạn có dung lượng không được vượt quá <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. Sức chứa hiện giờ là <b>{VAR: fldr_size} bytes</b> số tin nhắn.<br /><br /><span class="ErrorText">Xóa một vài tin nhắn cũ để làm trống không gian.</span>
+pm_space_indct_msg:Thư mục tin nhắn cá nhân của bạn có {VAR: percent_full}% đầy.
+th_expr_never:Không bao giờ
+th_expr_one_hr:1 giờ
+th_expr_three_hr:3 giờ
+th_expr_four_hr:4 Giờ
+th_expr_eight_hr:8 giờ
+th_expr_sixteen_hr:16 giờ
+thread_mod_delete:Xóa
+action_latest_post:Tin Cuối Cùng
+online_today_last_visit:Lần ghé thăm cuối
+online_today_update:Xem danh sách những người đã vào diễn đàn hôm nay.
+logedin_todays_visitors:Khách ghé thăm hôm nay
+logedin_latest_post:Bài viết cuối cùng trong diễn đàn:
+register_show_avatar:Xem hình đại diện:
+register_show_avatar_desc:Cho phép bạn ẩn hoặc xem hình đại diện của thành viên khác trong diễn đàn
+drawmsg_view_rest_post:Xem những bài viết còn lại
+post_re:Trả lời:
+forumsel_goto_forum:Đến diễn đàn:
+minimsg_thread_view:Xem chủ đề
+# Fuzzy
+quicklogin_login:Tên Đăng Nhập
+# Fuzzy
+quicklogin_password:Mật Khẩu
+quicklogin_use_cookies:Sử dụng Cookie?
+# Fuzzy
+quicklogin_login_btn:Đăng Nhập
+post_notification_desc:Thông báo khi một ai đó trả lời bài viết này.
+post_all_ext_allowed:(Không có giới hạn)
+maximize_category:Phóng to danh mục
+no_view_perm:Bạn không có sự chấp nhận cho phép xem chủ đề này.
+register_err_toomanyimages:Bạn đã sử dụng hơn  {GVAR: FORUM_IMG_CNT_SIG} hình cho phép chèn trong bài viết.
+pmsg_next_msg:Tin nhắn kế
+pmsg_prev_msg:Tin nhắn sau
+forum_contact:Liên hệ
+# Fuzzy
+post_cur_attached:Tập tin đính kèm hiện giờ  {VAR: i}
+ignored_anon_post:{GVAR: ANON_NICK} đã bị từ chối
+ignored_user_post:Bài viết bởi <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> đã bị từ chối
+smladd_close_window:Đóng cửa sổ
+post_list_smilies:Danh sách tất cả biểu tượng cười
+imsg_err_message_title:Bài viết không có
+imsg_err_message_msg:Bài viết mà bạn muốn xem không tồn tại.
+poll_edit:Chỉnh Sửa
+register_err_not_valid_img:Đường dẫn không có ảnh .
+pmsg_recepient:Người nhận
+register_err_taken_alias:Bí danh bạn định sử dụng đã được thành viên khác sử dụng. Xin vui lòng chọn một tên khác.
+register_alias:Bí Danh:
+register_alias_desc:Nếu bạn muốn một tên bí danh hơn là tên đăng nhập xuất hiện trong diễn đàn, xin vui lòng nhập vào đây.
+register_allow_pm_msg:Cho phép tin nhắn cá nhân
+register_allow_pm_msg_desc:Cho phép thành viên khác gửi đến bạn tin nhắn cá nhân qua diễn đàn này.
+postcheck_pm_disabled:bạn không thể gửi tin nhắn cá nhân đến "{VAR-HTML: v}", vì người này không chấp nhận tin nhắn cá nhân.
+polllist_vote:Phiếu
+polllist_view_results:Xem kết quả
+polllist_name:Tên bảng khảo sát
+polllist_date:Được tạo vào
+polllist_owner:Được tạo bởi
+polllist_votes:Tổng số phiếu
+polllist_action:Hành động
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Xem những phiếu hiện có</a>
+userinfo_polls:Bảng khảo sát:
+show_pollist:Xem bảng khảo sát
+search_desc_order:Xếp giảm dần
+search_asc_order:Xếp tăng dần
+search_logic:Tìm kiếm logic:
+search_sorting:Xếp kết quả ngày theo:
+post_proceed:Bắt đầu
+post_moderated_forum:Bạn đã gửi bài trong diễn đàn đã được quản lý. Bài viết của bạn không thể xem bởi người khác cho đến khi nó được sự chấp nhận của người điều tiết diễn đàn hoặc người quản trị tối cao
+post_moderated_forum_ttl:Thông báo người điều tiết diễn đàn
+buddy_list_bday:Hôm nay {VAR: r[2]} turns {VAR: age}
+email_warning_msg:Nếu bạn thay đổi địa chỉ email hiện tại của bạn, tài khoản của bạn sẽ bị đánh dấu là chưa xác nhận cho đến khi bạn xác nhận thông qua email của bạn.
+register_show_im:xem IM indicators
+register_show_im_desc:Cho phép bạn xem hoặc không xem IM indicators của tác giả bên cạnh bài viết của họ.
+unread_message:Bài Viết Chưa Đọc
+read_message:Bài Viết Đã Đọc
+threadt_more:&lt;thêm nữa&gt;
+threadt_disabled_ttl:Xem dạng cây của chủ đề đã bị vô hiệu hóa
+threadt_disabled_desc:Người quản trị tối cao đã vô hiệu hóa xem dạng cây chủ đề. Xin vui lòng sử dụng xem dạng khối để thay thế.
+threadt_update:Xem qua diễn đàn (xem dạng cây) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+insert_uploaded_image:Chèn hình vào nội dung bài viết
+finduser_help:Bộ máy tìm kiếm sẽ tự động thêm dấu * vào dữ liệu của bạn, <b>tìm kiếm theo trường hợp</b>.<br />Ví dụ như :Để tìm những thành viên có tên đăng nhập bắt đầu bằng một chử a thì nhập vào ô tìm kiếm 'a' thế là xong .
+back_to_top:Trở lên đầu trang
+pm_err_disabled_title:Tin nhắn cá nhân bị vô hiệu
+pm_err_disabled_msg:Bạn không thể gửi tin nhắn cho đến khi bạn kích hoạt mục chọn Tin nhắn cá nhân trong phần tiểu sử của bạn.
+err_mod_acc_ttl:Tài khoản chưa được xác nhận
+err_mod_acc_msg:Người quản trị tối cao đã xem lại toàn bộ tài khoản kích hoạt. Cho đến khi tài khoản của bạn được xác nhận bởi người quản trị tối cao ,bạn sẽ không thể sử dụng đầy đủ chức năng của tài khoản người sử dụng.
+accounts_pending_approval:Tài khoản đang chờ sự chấp nhận
+saved:Lưu tạm
+# Fuzzy
+register_err_time_limit:Hạn chế một lần đăng ký là {GVAR: REG_TIME_LIMIT} giây. Xin vui lòng chờ đợi khoảng {VAR: reg_limit_reached} giây, và thử đăng ký lại lần  nữa.
+register_err_avatardimtobig:Kích cỡ hình đai diện <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> vượt quá kích cỡ cho phép là <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
+buddy_offline:{VAR: r[2]} hiện giờ đã offline
+buddy_online:{VAR: r[2]} hiện giờ đang online
+sml_no_smilies:Không có ký tự vui.
+login_unapproved_account_ttl:Tài khoản chưa được chấp nhận
+login_unapproved_account_msg:Người quản trị tối cao của diễn đàn đã xác nhận mỗi tài khoản binh thường trước khi kích hoạt . Tài khoản của bạn vẫn chưa được xác nhận, Vì vậy bạn không thể sử dụng những chức năng của thành viên đã được xác nhận .
+remove_from_buddy_list:Xóa khỏi danh sách bạn bè
+iemail_msg_reply:Trả lời
+threadt_announce:Thông báo
+poll_no_polls:Không có bảng khảo sát nào.
+no_unread_messages:Không có bài viết chưa đọc tìm thấy trong cơ sở dữ liệu của bạn .
+thread_mark_all_read:Đánh dấu đọc bài viết chưa đọc trong diễn đàn
+thread_mark_all_read_desc:Đánh dấu đã đọc tất cả bài viết chưa đọc trong diễn đàn này
+private_no_messages:Không có tin nhắn trong thư mục này.
+register_email_change_subject:Xác nhận thay đổi email
+register_email_change_msg:Xin vui lòng xác nhận tài khoản email mới của bạn "{VAR: uent->email}" để thay tài khoản email cũ của bạn "{VAR: old_email}", bằng cách đến đường dẫn :\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n Khi tài khoản email của bạn được xác nhận , tài khoản diễn đàn của bạn sẽ được kích hoạt lại.
+register_admin_newuser_title:Một thành viên mới đã đăng ký và tài khoản của họ đang chờ được xác nhận
+register_admin_newuser_msg:Một thành viên mới ({VAR: uent->login}) vừa đăng ký,Khi việc xác nhận tài khoản có thể được, tài khoản của họ sẽ không được kích hoạt cho đến khi nó được xác nhận bởi bạn hoặc người quản trị tối cao của diễn đàn. Để xem lại tài khoản xin vui lòng vào: {GVAR: WWW_ROOT}adm/admaccapr.php\n\n Đây là một quá trình tự động. Không trả lời bài viết này.\n Nếu bạn muốn tắt chức năng thông báo bằng email khi có người đăng ký mới, bạn có thể làm được điều đó qua khu vực người quản trị. Thay đổi hiệu chỉnh "New Account Notification".
+post_mod_msg_notify_title:Bài viết mới trong diễn đàn "{VAR: frm->name}" đang chờ được chấp nhận
+post_mod_msg_notify_msg:Bài viết mới có tựa là "{VAR: msg_post->subject}" vừa mới được gửi trong diễn đàn mà bạn quản lý. Để xem lại bài viết này đến : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\n Đây là một quá trình tự động. Bạn có trả lời bài viết này không.
+thread_printable_pdf:Tạo trang PDF
+mnav_description:Bộ lọc bài viết
+mnav_date_limit:Xếp theo ngày:
+mnav_forum_limit:Chỉ tìm trong diễn đàn:
+mnav_all_forums:Tìm trong tất cả diễn đàn
+mnav_submit:Bắt đầu tìm
+mnav_no_range:Bạn phải nhập vào ngày xếp có giá trị. Giá trị này có thể chứa dấu chấm, (0.12) nhưng nó phải lớn hơn không.
+mnav_invalid_unit:Bạn phải nhập vào đơn vị thời gian cụ thể.
+mnav_invalid_date:Ngày xếp mà bạn nhập vào lớn hơn được cho phép . Hãy thử lại với số nhỏ hơn.
+mnav_no_results:Không có bài viết được tìm thấy trong dữ liệu
+mnav_posted_by:Được viết bởi:
+mnav_more:Thêm &raquo;&raquo;
+mnav_minute:Phút
+mnav_hour:Giờ
+mnav_day:Ngày
+mnav_week:Tuần
+mnav_month:Tháng
+mnav_title:Bộ lọc bài viết
+mnav_update:Xem những bài viết đang sử dụng <a href="{TEMPLATE: mnav_update_lnk}">Bộ lọc bài viết</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Thông báo có tin nhắn mới
+pm_notify_body_email:Bạn có tin nhắn cá nhân tựa là "{VAR: subject}", từ "{VAR: from}", trong diễn đàn "{GVAR: FORUM_TITLE}".\n Để xem tin này , click vào đây: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nĐể dừng chức năng thông báo, vô hiệu hóa "Thông báo tin nhắn cá nhân" trong phần tiểu sử của bạn.
+register_pm_notification:Thông báo tin nhắn cá nhân
+register_pm_notification_desc:Nếu được kích hoạt ,bạn sẽ nhận được một thông báo bất cứ khi nào bạn nhận được một tin nhắn cá nhân.
+findu_unban:Không Cấm
+findu_ban:Cấm
+findu_edit:Chỉnh Sửa
+findu_delete:Xóa
+dmsg_reply_to:là bài trả lời đến bài viết  #{VAR: obj->reply_to}
+merge_topics:Gộp Chủ Đề
+split_cp:Thread Split Control Panel
+register_err_sig_too_long:Chữ ký của bạn vượt quá độ dài cho phép {GVAR: FORUM_SIG_ML} ký tự.
+register_sig_limit:{GVAR: FORUM_SIG_ML} kí tự <a href="javascript: alert('Chữ ký của bạn dài '+document.forms['fud_register'].reg_sig.value.length+' kí tự. Độ dài chữ ký tối đa là {GVAR: FORUM_SIG_ML} kí tự.');" class="SmallText">Kiểm tra độ dài chữ ký</a>
+adm_account_accepted:Tài khoản '{VAR: login}' của bạn  đã được chấp nhận bởi người quản trị tối cao và bây giờ đã được kích hoạt. Bạn có thể truy cập vào diễn đàn {GVAR: FORUM_TITLE}' ngay khi được xác nhận, thành viên đã được đăng ký.
+adm_account_accepted_s:Tài khoản của bạn yêu cầu cho '{GVAR: FORUM_TITLE}' đã được chấp nhận.
+adm_account_rejected:Tài khoản '{VAR: login}' của bạn đã bị từ chối bởi người quản trị tối cao. Nếu bạn muốn biết lý do về quyết định này, Xin vui lòng liên hệ với người quản trị tối cao '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Tài khoản của bạn yêu cầu cho '{GVAR: FORUM_TITLE}' đã bị từ chối.
+thread_on:vào
+userinfo_buddy:Bạn bè:
+register_email_addr:Địa chỉ Email:
+usrinfo_last_visit:Lần ghé thăm sau cùng:
+mnav_newer:mới hơn
+mnav_older:cũ hơn
+userinfo_real_name:Tên thật là :
+register_err_alias_notallowed:Bí danh này không được cho phép
+post_err_mod_forum_edit_ttl:Lỗi
+post_err_mod_forum_edit_msg:Bạn không thể chỉnh sửa bài viết trong diễn đàn đã được quản lý.
+dmsg_num:bài viết #{VAR: obj->id}
+postcheck_session_invalid:Phiên của bạn đã hết hạn. Xin vui lòng đăng nhập lại. Chúng tôi rất tiếc về sự bất tiện này.
+register_theme:Giao Diện:
+pmsg_trash:Xóa rác
+uc_new_pm:Tin nhắn cá nhân mới
+uc_new_topic:Chủ đề mới
+uc_new_cat_forum:Theo dõi diễn đàn này với bài viết mới
+uc_cat_forum:Danh mục &raquo; Diễn đàn
+uc_sub_topics:Theo dõi chủ đề này với bài viết mới
+uc_page_title:Xem khu vực cá nhân.
+search_options:Chọn lựa tìm kiếm
+search_user_filter:Lọc thành viên:
+register_none:Không thông báo
+findu_no_conf:Thành Viên Chưa Xác Nhận
+register_max_sig_len:Độ dài tối đa:
+register_turing:Xin vui lòng nhập vào mã bên dưới:
+register_err_turing:Mã Không Phù Hợp.
+modque_cat:Danh mục
+modque_forum:Diễn Đàn
+idx_compact_forum_row:Những diễn đàn hiện có:
+mmd_del_title:Chủ đề bị xóa
+pmsg_pdf_btn:Tạo trang PDF
+search_results_hdr:Kết quả tìm kiếm được {VAR: total}
+thread_del_all:Xóa tất cả đã được chọn
+thread_mov_all:Di chuyển tất cả đã được chọn
+err_blockedaccnt_title:Lỗi :Tài khoản của bạn đã bị lọc ra ngoài.
+err_blockedaccnt_msg:Tài khoản của bạn đã bị cấm truy cập vào diễn đàn vì bộ lọc người sử dụng đã được thiết lập.
+most_users_online:Thành viên online nhiều nhất là <b>{VAR: st_obj->most_online}</b> vào <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+tabs_own_posts:Bài viết của bạn
+mnav_sub_only:Chỉ tìm trong những diễn đàn theo dõi
+register_topics_per_page:Số chủ đề trong một trang:
+login_min_time:Diễn dàn chỉ cho phép bạn đăng nhập mỗi {VAR: MIN_TIME_BETWEEN_LOGIN} giây, Xin vui lòng chờ đợi {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} giây trước khi đăng nhập lần kế tiếp.
+post_not_logged_in:Hiện giờ bạn chưa đăng nhập, khi là thành viên vô danh bạn không thể gửi bài.
+post_common_bold:In đậm
+post_common_italics:In Nghiêng
+post_common_underline:Gạch dưới
+post_common_align_left:Canh trái
+post_common_align_center:Canh Giữa
+post_common_align_right:Canh Phải
+post_common_link:Chèn liên kết
+post_common_email:Chèn địa chỉ Email
+post_common_image:Chèn hình ảnh
+post_common_nlist:Thêm danh sách số
+post_common_blist:Thêm danh sách chấm
+post_common_quote:Thêm trích dẫn
+post_common_code:Thêm mã

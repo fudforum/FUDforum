@@ -1,919 +1,1012 @@
-add_to_buddy_list:		Pridať do zoznamu priateľov
-attachment:			Príloha:
-avatar:				Ikona užívateľa:
-average_post_count:		{VAR: u->posted_msg_count} Príspevkov (priemerne {VAR: avg} denne)
-biography:			Životopis:
-birth_date:			Dátum narodenia:
-by:				Od:
-by_mod:				od Moderátora
-current_time:			Aktuálny čas
-custom_avatar_queue:		Fronta ikon užívateľov
-date_posted:			Dátum Pridania
-date_registered:		Dátum registrácie:
-download_counter:		Stiahnuté {VAR: v[3]} krát
-pmsg_download_counter:		Stiahnuté {VAR: r->dlcount} krát
-email:				Email:
-email_to_friend:		Poslať email priateľovi
-email_to_friend_desc:		Poslať priateľovi URL na túto stránku emailom
-email_user:			Poslať email užívateľovi
-faq:				Nápoveda
-first_unread_msg:		Choď na neprečítané správy
-first_unread_msg_desc:		Choď na prvú neprečítanú správu
-flat_view:			Späť k štandardnému plochému zobrazeniu
-forum:				Fórum:
-forum_icon:			Ikona fóra
-forum_new_messages:		Nové správy
-forum_none_messages:		Iba registrovaný užívatelia fóra môžu sledovať prečítané a neprečítané správy
-forum_old_messages:		Žiadne nové správy
-from:				Od:
-gender:				Pohlavie:
-go:				Choď
-goto_next_msg:			Choď na ďalšiu správu
-goto_prev_msg:			Choď na predchádzajúcu správu
-home:				Domov
-icq_control_panel:		ICQ Online Panel
-icq_message_form:		Fomulár ICQ správy:
-ignore_user:			Ignorovať všetky príspevky od tohoto užívateľa
-im_aim:				AIM:
-image:				Obrázok / Fotka:
-index_forum:			Fórum
-index_new_posts:		Nové príspevky od poslednej návštevy
-index_no_new_posts:		Žiadne nové príspevky od poslednej návštevy
-interests:			Záujmy:
-last_post:			Posledný príspevok
-last_thread_msg:		Choď na poslednú správu tejto témy
-legend:				Legenda:
-location:			Oblasť / Región:
-lock_thread:			Zamknúť tému
-locked:				Zamknuté
-locked_with_new_posts:		Zamknuté (s neprečítanými príspevkami)
-logged_in_list:			Zoznam prihlásených užívateľov
-login:				Prihlásiť sa
-login_header:			Užívateľské meno:
-logout:				Odhlásiť sa
-mark_all_read:			Označiť všetky správy ako prečítané
-mark_all_read_desc:		Všetky Vaše neprečítané správy budú označené ako prečítané
-members:			Členovia
-message:			Správa
-message_counter:		Naši užívatelia pridali celkovo <b>{VAR: post_count}</b> správ k <b>{VAR: thread_count}</b> témam.
-message_index:			Zoznam správ
-message_index_desc:		Zobraziť zoznam správ
-minimize_category:		Minimalizovať kategóriu
-moderation_queue:		Moderačná fronta
-moderator:			Moderátor
-moderator_of:			Moderátor:
-moderator_options:		Možnosti moderátora
-moderators:			Moderátori
-more_unread_messages:		Viac neprečítaných správ
-more_unread_messages_desc:	Ukáž ďalšie neprečítané správy a označ práve zobrazené ako prečítané
-move_thread:			Presunúť
-moved:				Presunuté do iného fóra
-moved_thread_message:		Táto téma bola presunutá do iného fóra
-na:				nie je k dispozícii
-new_posts:			Nové príspevky
-new_private_messages:		Neprečítaných správ v pošte <span class="GenText" style="color: #ff0000">({VAR: c})</span>
-new_thread:			Vytvor novú tému
-newest_user:			Najnovším užívateľom je
-next_page:			Ďalšia strana
-next_thread:			Ďalšia téma:
-no_messages:			Žiadne ďalšie správy v tomto fóre.
-no_msg_body:			Správa nemá obsah
-no_new_posts:			Žiadne nové príspevky
-no_posts:			Žiadne príspevky
-no_subscribed_forums:		Žiadne odoberané fóra
-no_subscribed_threads:		Žiadne odoberané témy
-no_unread_locked:		Táto téma bola uzamknutá
-no_unread_msg:			Žiadne neprečítané správy k tejto téme
-no_unread_msg_unreg:		Sledovanie prečítaných a neprečítaných správ je dostupné iba registrovaným uživateľom
-num_pages:			Stránok ({VAR: ttl_pg}):
-num_votes:			{VAR: obj->total_votes} hlasov
-occupation:			Zamestnanie:
-page_timings:			Celkový čas potrebný na vygenerovanie tejto stránky: {VAR: page_gen_time} sekundy
-pm:				Pošta
-poll:				Anketa:
-post_count:			Počet príspevkov {VAR: u_pcount}
-post_count_l:			Počet príspevkov:
-posts:				Príspevky
-posts_c:			Príspevky:
-prev_thread:			Predchádzajúca téma:
-usrinfo_private_message:	Pošta:
-profile:			Profil
-profile_desc:			Kliknite sem pre prístup k panelu užívateľských nastavení
-rate_thread:			Ohodnotiť tému
-refresh_list:			Aktualizovať zoznam
-register:			Registrovať sa
-registered:			Registrácia:
-registered_on:			Zaregistrovaný {TEMPLATE: registered_on_date}
-replies:			Reakcie
-report_to_mod:			Oznámiť príspevok moderátorovi
-reported_messages:		Oznámené príspevky
-reveal_all_posts:		odkryť všetky príspevky od užívateľa {VAR: user_login}
-reveal_post:			odkryť príspevok
-search:				Hľadať
-sel_todays_posts:		Dnešné príspevky
-sel_todays_posts_desc:		Zapnúť/Vypnúť filter dnešných príspevkov (iba dnešné príspevky budú zobrazené)
-sel_unanswered_posts:		Príspevky bez reakcie
-sel_unanswered_posts_desc:	Zapnúť/Vypnúť filter príspevkov bez reakcie (iba príspevky bez reakcie budú zobrazené)
-sel_unread_messages:		Neprečítané príspevky
-sel_unread_messages_desc:	Zpanúť/Vypnúť filter neprečítaných príspevkov (iba neprečítané príspevky budú zobrazené)
-send:				Poslať
-send_pm_desc:			Poslať poštu tomuto užívatelovi
-sender_email:			Email odosielateľa:
-sender_name:			Meno odosielateľa:
-show_posts_by:			Zobraz príspevky od: {VAR: u_alias}
-size:				Veľkosť:
-status:				Hodnosť:
-status_line:			Tieto fóra práve navštevuje <b>{VAR: st_obj->online_users_reg}</b> člen(ov), <b>{VAR: st_obj->online_users_hidden}</b> skrytý(ch) člen(ov) a <b>{VAR: st_obj->online_users_anon}</b> hosť(ov).
-sticky:				Výveska:
-stop_ignoring:			prestaň ignorovať tohoto užívateľa
-sub_to_thread:			Odoberať túto tému
-sub_to_thread_desc:		Dostávať oznámenia o nových príspevkoch k tejto téme
-subject:			Predmet
-subscribe:			Odoberať
-subscribe_desc:			Dostávať oznámenia keď niekto vytvorí novú tému v tomto fóre
-subscribed_forums:		Odoberané fóra
-subscribed_forums_desc:		Zapnúť/Vypnúť filter odoberaných fór (iba príspevky z odoberaných fór budú zobrazené)
-subscribed_threads:		Odoberané témy
-subscribed_threads_desc:	Zapnúť/Vypnúť filter odoberaných tém (iba príspevky k odoberaným témam budú zobrazené)
-switch_to_thread_view:		Prepnúť na stromové zobrazenie tejto témy
-thread:				Téma:
-thread_announcement:		Oznam:
-thread_first_unread_msg:	Kliknite sem pre presun na prvý neprečítaný príspevok k tejto téme
-thread_thread:			Téma
-threads:			Témy
-time:				Čas
-todays_posts:			Dnešné príspevky
-todays_posts_desc:		Zobraziť všetky dnes uverejnené správy
-un_ignore_user:			prestaň ignorovať príspevky od tohoto užívateľa
-unanswered_posts:		Príspevky bez reakcie
-unanswered_posts_desc:		Zobraz všetky správy, ktoré sú bez reakcie
-unlock_thread:			Odomknúť tému
-unread_msg:			Táto téma obsahuje neprečítané správy
-unread_msg_locked:		Uzamknutá téma s neprečítanými témami
-unread_posts:			Neprečítané príspevky
-unread_posts_desc:		Zobraziť všetky neprečítané správy
-unsub_from_thread:		Zrušiť odoberanie témy
-unsub_from_thread_desc:		Zrušiť odoberanie oznámení o nových príspevkoch k tejto téme
-unsubscribe:			Zrušiť odoberanie
-unsubscribe_desc:		Zrušiť odoberanie oznámení o nových témach v tomto fóre
-updated_on:			Aktualizované:
-user:				Užívateľ
-user_counter:			Máme <b>{VAR: st_obj->user_count}</b> registrovaných užívateľov.
-user_info:			Informácie o užívateľovi
-user_info_l:			Informácie o užívateľovi {VAR: u->alias}
-user_offline:			{VAR: obj->login}  je práve offline
-user_online:			{VAR: obj->login} je práve online
-usrinfo_last_post:		Posledný príspevok:
-view_results:			Zobraziť výsledky
-views:				Zobrazené
-vote:				{VAR: frm->n_rating} hlasov
-vote_button:			Hlasovať
-vote_for_thread:		Hlasovať
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]}</a> bola premiestnená do <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{VAR: r[12]}</a> moderátorom
-welcome_message:		Vitajte <b>{VAR: usr->alias}</b>, Vaša posledná návšteva bola v {TEMPLATE: welcome_message_date}
-what_ppl_doing:			Ukáž, čo robia ostatní
-reported_del_report:		Zmazať oznámenie
-reported_reason:		Dôvod
-reported_on:			Čas oznámenia:
-reported_reported_by:		Oznámené užívateľom:
-reported_reported_msg:		Oznámené správy
-modque_pending_approval:	Správy na schválenie
-modque_approve:			Schváliť
-modque_delete:			Vymazať
-modque_no_message:		Žiadne správy na schválenie
-pmsg_new_messages:		Neprečítaná pošta
-pmsg_old_messages:		Prečítať poštu
-deny_recipt:			zamietnuť príjem
-deny_recipt_desc:		Neposielať oznámenie, že ste čítali túto správu.
-restore_to:			Obnoviť do:
-move_to:			Presunúť do:
-list_referes_referrals:		Privedení
-list_referes_members:		Privedení členovia
-list_referes_member:		Člen
-referals_none:			Zatial ste do fóra nepriviedli nikoho
-referals_refered_by:		Členovia fóra registrovaný na základe referencií užívateľa: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:		Počet príspevkov
-referals_registered_on:		Registrácia
-referals_action:		Akcia
-pmsg_all:			všetko
-pmsg_none:			nič
-folder:				Priečinok:
-pmsg_replied:			odpovedané
-pmsg_forwarded:			preposlané
-pmsg_subject:			Predmet
-pmsg_author:			Autor
-pmsg_time:			Čas
-pmsg_selected:			Vybrané
-pmsg_delete:			Vymazať
-cur_ppage_pm:			Pošta
-writing_pm:			Písanie správy
-browsing_folder:		priečinok <b>{VAR: folders[$folder_id]}</b> 
-inbox:				Doručené
-draft:				Rozpísané
-sent:				Odoslané
-trash:				Kôš
-msg_author:			Autor
-avatar_sel_form:		Formulár pre výber ikony užívateľa
-no_avatars:			Žiadne ikony užívateľa k dispozícii
-month_1:			Január
-month_2:			Február
-month_3:			Marec
-month_4:			Apríl
-month_5:			Máj
-month_6:			Jún
-month_7:			Júl
-month_10:			Október
-male:				Muž
-female:				Žena
-unspecified:			NEŠPECIFIKOVANÉ
-register_tree_view:		Stromové zobrazenie správ a vlákien 
-register_msg_tree_view:		Ploché zobrazenie vlákien / Stromové zobrazenie správ
-register_tree_msg_view:		Stromové zobrazenie vlákien / Ploché zobrazenie správ
-register_flat_view:		Ploché zobrazenie správ a vlákien
-use_forum_default:		Použiť predvolené
-finduser_user_info:		Informácie o užívateľovi
-finduser_by_login:		Podľa užívateľského mena:
-finduser_submit:		Hľadať
-finduser_no_such_user:		Hľadaný užívateľ neexistuje
-finduser_user:			Užívateľ
-finduser_postcount:		Počet príspevkov
-finduser_joindate:		Dátum registrácie
-finduser_action:		Akcia
-yes:				Áno
-no:				Nie
-register_email:			Email
-edit_time_limit:		<br /><b>Časový limit na editáciu</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minút
-no_edit_time_limit:		<br /><b>Časový limit na editáciu</b>: <b>Neobmedzený</b>
-pmuserloc_login:		Uživateľské meno:
-pmuserloc_submit:		Odoslať
-pmuserloc_user:			Užívateľ
-pmuserloc_no_result:		Bez výsledku
-register_builtin:		Prednastavené
-register_specify_url:		Zadať URL
-register_uploaded:		Uploadovať ikonu užívateľa
-register_login:			<font class="StClr">Užívateľské meno:</font>
-register_password:		<font class="StClr">Heslo:</font>
-register_conf_pass:		<font class="StClr">Potvrdenie Hesla:</font>
-register_email_desc:		Prosím, zadajte platnú emailovú adresu. V sekcii Nastavenia ju môžete pred ostatnými uživateľmi skryť.
-register_name:			<font class="StClr">Skutočné meno:</font>
-register_your_pass:		<font class="StClr">Vaše heslo:</font>
-register_update:		Aktualizovať
-register_avatar_type:		Typ ikony užívateľa:
-register_del_avatar:		Zmazať ikonu užívateľa
-register_avatar:		Ikona užívateľa:
-register_sel_avatar:		Vybrať ikonu užívateľa
-register_custom_avatar_rules:	Vlastná ikona užívateľa nebude zobrazená pokiaľ ju neodsúhlasí administrátor.<br /><font class="SmallText">Ikona užívateľa nesmie byť väčšia ako <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixelov</b> a musí byť v <b>jpg</b>, <b>gif</b> alebo <b>png</b> formáte.</font>
-register_custom_avatar_url:	URL vlastnej ikony užívateľa:
-register_preview:		Náhľad
-register_custom_avatar_upload:	Súbor vlastnej ikony užívateľa:
-register_register:		Registrovať
-register_required:		Požadované informácie
-register_required_desc:		Všetky položky sú požadované. Prosím nezabudnite, že heslo je citlivé na veľké / malé písmená.
-register_optional:		Voliteľné informácie
-register_optional_desc:		Doporučujeme nezverejňovať žiadne dôverné informáciele.  Všetky tieto informácie budú dostupné pre registrovaných užívateľov.
-register_location:		Oblasť / Región:
-register_occupation:		Zamestnanie:
-register_interests:		Záujmy:
-register_image:			Obrázok / Fotka (URL):
-register_icq:			ICQ
-register_aim:			AIM:
-register_homepage:		Domovská Stránka:
-register_bday:			Dátum narodenia:
-register_bday_desc:		Ak zadáte Váš dátum narodenia, ostatní užívatelia ho budú môcť vidieť vo Vašom profile.
-register_day:			Deň
-register_month:			Mesiac
-register_year:			Rok
-register_gender:		Pohlavie:
-register_bio:			Životopis:
-register_bio_desc:		Pár detailov o Vás ako sú záujmy, práca, atď...
-register_prefs:			Nastavenia
-register_sig:			Podpis:
-register_sig_desc:		Voliteľný podpis, ktorý sa bude zobrazovať na konci Vašich príspevkov.
-register_reset:			Vymazať
-register_def_thread_view:	Východzie zobrazenie tém:
-register_msg_per_page:		Počet správ na stránku:
-register_show_sig:		Zobrazovať podpis:
-register_show_sig_desc:		Umožňuje Vám zobrazovať alebo schovať podpisy ostatných členov.
-register_use_sig_default:	Východzie používanie podpisu:
-register_use_sig_default_desc:	Automaticky pridať podpis na koniec každej Vašej správy.
-register_timezone:		Časová zóna:
-register_ignore_admin:		Ignorovať administrátorské oznamy:
-register_invisible_mode:	Neviditeľný mód:
-register_invisible_mode_desc:	Aj keď budete online, ostatní to neuvidia.
-register_show_email:		Zobraziť emailovú adresu:
-register_show_email_desc:	Vyberte túto možnosť, pokiaľ chcete, aby Vaša emailová adresa bola zverejnená.
-register_notification:		Východzie nastavenie doručovania oznamov:
-register_notification_desc:	Ak je zapnuté, možete ho vypnúť pri posielaní príspevku.
-register_notify_method:		Vyberte si spôsob doručovania oznamov
-register_allow_email_msg:	Povoliť správy cez email:
-register_allow_email_msg_desc:	Povoliť ostatným užívateľom, aby Vám mohli posielať emaily cez fórum.
-buddy_status:			Stav
-my_buddies:			Moji priatelia
-add_buddy:			Pridať priateľa
-add:				Pridať
-buddy_search:			Zadajte užívateľské meno užívateľa, ktorého si želáte pridať,
-member_search:			<br />alebo použite voľbu <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Hľadať užívateľa</a>.
-buddy_remove:			odstrániť
-post_normal:			Normálna
-post_sticky:			Výveska
-post_annoncement:		Oznam
-post_size:			Veľkosť
-post_color:			Farba
-create_thread:			Vytvoriť tému
-submit_reply:			Odoslať odpoveď
-edit_message:			Aplikuj zmeny
-apply_spell_changes:		Aplikuj jazykové úpravy
-post_preview:			Náhľad príspevku
-post_logedin_user:		Prihlásený užívateľ:
-post_logout:			Odhlásiť sa
-post_passwd:			Heslo na uverejňovanie príspevkov:
-post_poll:			Anketa:
-post_create_poll:		VYTVORIŤ ANKETU
-post_poll_delete:		VYMAZAŤ
-post_poll_edit:			EDITOVAŤ
-post_mod_opt:			Možnosti moderátora:
-post_thread_type:		Typ témy:
-post_thread_expiry:		Téma vyprší:
-post_locked:			Téma uzamknutá
-post_icons:			Ikona správy:
-post_no_icon:			Bez ikony
-post_smiley:			Výber smajlíkov:
-post_format_tools:		Formátovanie:
-post_upload_file:		Nahrať súbor
-post_file_del:			Vymazať
-post_file_name:			Názov
-post_file_size:			Veľkosť
-file_attachments:		Prílohy:
-allowed_files:			Povolené prípony príloh:
-max_file_size:			Maximálna veľkosť súboru:
-max_files_per_msg:		Maximálny počet súborov na správu:
-post_notification:		Upozorniť na pridanie príspevku
-include_sig:			Pridať podpis
-include_sig_desc:		Pridať podpis z profilu.
-disable_smilies:		Vypnúť smajlíkov v tejto správe
-spell_check_msg:		Skontrolovať pravopis správy
-post_form:			Nová správa
-post_forum:			Fórum:
-post_title:			Predmet:
-post_body:			Obsah:
-post_options:			Možnosti:
-post_preview_btn:		Náhľad správy
-ignore_users:			Ignorovaný užívatelia
-add_ignore:			Pridať ignorovaného
-forum_terms:			Podmienky Fóra
-forum_rules:			Registrácia na tomto fóre je zadarmo! Trváme na dodržiavaní všetkých pravidiel uvedených nižšie. Ak súhlasíte s týmito podmienkami, prosím stlačte tlačítko Súhlasím na konci tejto stránky.<p>Aj keď sa administrátori a moderátori tohoto fóra budú snažiť o odstránenie všetkých neprípustných správ z tohoto fóra, je pre nás nemožné prezrieť všetky uverejnené príspevky a správy. Všetky správy vyjadrujú názory ich autorov a prevádzkovatelia tohto fóra, tak ako aj jeho tvorcovia, nie sú zodpovední za obsah ktorejkoľvek správy.<p>Stlačením tlačítka Súhlasím dávate súhlas, že nebudete uverejňovať správy ktoré sú obscénne, vulgárne, sexuálne orientované, vyjadrujúce nenávisť alebo hrozbu, alebo inak porušujúce zákony Slovenskej republiky. <p>Prevázkovatelia tohto fóra majú právo na zmazanie, editovanie, presúvanie alebo uzatvorenie akejkoľvek témy z akéhokoľvek dôvodu.<p>
-forum_rules_13:			Všetci užívateľia mladši ako 13 rokov, musia získať povolenie ich rodiča, alebo zákonného zástupcu na to aby sa mohli stať členom tohoto fóra. Napriek tomu, že vítame príspevky od členov mladších ako 13 rokov, vyžadujeme aby rodič alebo zákonný zástupca odfaxoval alebo poslal poštou podpísaný registračný formulár, pred tým ako bude užívateľovi po volený prístup.<p>Ak chcete začať proces registrácie, pred tým ako dostaneme registračný formulár, stlačte tlačítko Súhlasím. Ak chcete prerušiť registračný proces stlačte tlačítko Zrušiť a vrátite sa do zoznamu fór.</p><p>Kópiu registračného formuláru si môžete stiahnuť tu. V prípade že potrebujete viac informácií o registračnom procese, prosím pošlite email na túto adresu <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.</p>
-coppa_conf:			COPPA Potvrdenie
-coppa_before:			Pred {TEMPLATE: coppa_date}
-coppa_after:			Po {TEMPLATE: coppa_date}
-coppa_link:			Kliknite na linku ktorá zodpovedá Vášmu dátumu narodenia 
-coppa:				Rodič alebo zákonný zástupca musí poslať poštou alebo faxom podpísaný povolenie administrátorovi tohoto fóra pred tým ako sa užívateľ mladší ako 13 rokov može zaregistrovať.<p>Pre viac informácií kontaktujte <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
-prereg_info:			Informácia
-prereg_agree:			Súhlasím
-prereg_disagree:		Nesúhlasím
-coppa_fax_instructions:		Inštrukcie pre rodiča alebo zákonného zástupcu
-coppa_fax_instructions2:	Prosím vytlačte si túto stránku, podpíšte ju a odošlite / odfaxujte na:
-coppa_fax_reg_form:		Registračný formulár
-coppa_fax_sign:			Prosím dole podpíšte tento formulár a odošlite nám ho
-coppa_fax_conf:			Prezrel som všetky informácie, ktoré my moje dieťa poskytlo a prečítal som si pravidlá tohoto fóra. Rozumiem, že  informácie uvedené v profile môžu byť zmenené použitím hesla a rozumiem, že môžem požiadať o odstránenie registrovaného profilu.
-coppa_fax_permission:		Tu podpíšte ak dávate povolenie
-coppa_fax_no_permission:	Tu podpíšte ak žiadate o vymazanie registrovaného profilu
-coppa_fax_parent_name:		Celé meno rodiča / zákonného zástupcu:
-coppa_fax_relation:		Príbuznosť k dieťaťu:
-coppa_fax_telephone:		Telefón:
-coppa_fax_email:		Emailová adresa:
-coppa_fax_date:			Dátum:
-coppa_fax_questions:		Prosím kontaktujte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> s akýmikoľvek otázkami
-coppa_fax_login:		Užívateľské meno
-coppa_fax_passwd:		Heslo
-coppa_fax_remail:		Email
-coppa_fax_name:			Meno
-login_not_logedin:		Nie ste prihlásený. Môže to byť spôsobené viacerými dôvodmi:
-login_cookie_expired:		Platnosť vašej cookie vypršala, a preto sa musíte znovu prihlásiť aby ste ju obnovili.
-login_perm_denied:		K danému zdroju nemáte ako anonymný užívateľ prístup, a pre to aby ste ho získali sa musíte prihlásiť.
-login_want_to_register:		Chcete sa registrovať?
-login_forgot_passwd:		Zabudli ste heslo?
-login_use_cookie:		Použiť cookie<br /><font class="SmallText">Ak používate verejný počítač ako napríklad v knižnici, škole, alebo v Internet café, je kvôli zvýšeniu bezpečnosti odporúčané nepoužiť túto možnosť.<br />Ak necháte túto možnosť zaškrtnutú, nabudúce budete automaticky prihlásený.
-login_login:			Užívateľské meno
-login_login_btn:		Prihlásiť
-login_name_required:		Na prihlásenie je potrebné užívateľské meno
-login_passwd_required:		Na prihlásenie je potrebné heslo
-login_invalid_radius:		Zlá kombinácia užívateľského mena / hesla
-reset_confirmation:		Ďakujeme Vám za registráciu,\n\npre aktivovanie Vášho konta choďte na túto URL:\n\n{VAR: url}\n\nAk je Vaše konto už aktivované, budete prihlásený do fóra a\n presmerovaný na hlavnú stránku fóra.\n
-reset_reset:			Dobrý deň,\n\npožiadali ste o resetnutie Vášho hesla. Ak chcete aby bolo Vaše heslo RESETNUTÉ \nprosím choďte na túto URL\n\n{VAR: url}\n\nPOZNÁNMKA: Toto fórum ukladá heslá pomocou jednosmerného kryptografického mechanizmu, to znamená,\nže keď zadáte Vaše heslo, toto heslo je zakódované tak, že NEEXISTUJE spôsob ako ho získať späť.\nFunguje to tak, že zadávané heslo sa pri každom prihlásení zakóduje a porovná sa so zakódovaným uloženým heslom.\n(Ak chcete podrobnejšie informácie o tom ako tento mechanizmus funguje vyhľadajte si informácie o MD5 HASHovacom algoritme)
-rpasswd_invalid_passwd:		Nesprávne heslo
-rpasswd_passwd_nomatch:		Heslá nie sú rovnaké
-rpasswd_passwd_length:		Heslo musí mať aspoň 6 znakov
-reset_remind_pass:		Upozornenie
-reset_reset_conf:		Vaše heslo bude resetnuté a odoslané na Vašu emailovú adresu. V prípade, že ste ešte nepotvrdili Vašu emailovú adresu, bude namiesto hesla poslaný email so žiadosťou o potvrdenie Vášho emailu.
-reset_error:			Emailová adresa sa v databáze nenašla
-rpasswd_change_pass:		Zmeniť heslo
-rpasswd_login:			Užívateľské meno
-rpasswd_cur_pass:		Súčasné heslo:
-rpasswd_new_pass:		Nové heslo:
-rpasswd_conf_pass:		Potvrdiť heslo:
-login_passwd:			Heslo:
-reset_email:			Email:
-reset_reset_button:		Reset hesla
-rate_this_thread:		Ohodnotiť
-report_reporting_about:		Oznamujem:
-report_subject:			Predmet:
-report_by:			Od:
-report_posted_on:		Pridané dňa:
-report_give_reason:		Prosím uveďte dôvod oznámenia tejto správy:
-report_submit_report:		Odoslať oznámenie
-search_entire_msg:		Celá správa
-search_subect_only:		Iba predmet
-search_forum:			Fórum
-search_posted_on:		Pridané
-search_no_results:		Žiadne výsledky
-search_all_forums:		Hľadať vo všetkých fórach
-search_in_forum:		Hľadať vo fóre:
-search_forum_search:		Vyhľadávanie vo fóre
-move_thread_to:			Presunúť tému <b>{VAR: thr->subject}</b> do:
-remail_email_topic:		Poslať túto tému priateľovi emailom
-remail_your_name:		Vaše meno:
-remail_your_email:		Váš email:
-remail_friends_name:		Meno priateľa:
-remail_friends_email:		Priateľov email:
-remail_required:		povinné
-remail_subject:			Predmet:
-remail_message:			Správa:
-remail_send_now:		Odoslať email
-remail_anon_opt:		Kopírovať správu na odoslanie do Vášho emailového klienta.
-remail_done:			Hotovo
-remail_sent_conf:		Email Vášmu priateľovi s adresou {VAR-HTML: _POST['femail']} ohľadne témy {VAR: data->subject} bol úspešne odoslaný.
-remail_error:			Chyba!
-mklist_type:			Typ:
-mklist_option:			Voľba:
-mklist_additem:			Pridať položku
-mklist_apply:			Aplikovať
-mklist_delete:			Vymazať
-qbud_nick_name:			Prezývka
-qbud_add_selected:		Pridať vybrané
-qbud_selected:			Vybrané
-qbud_no_buddies:		Žiadny priatelia, z ktorých by sa dalo vyberať
-mklist_numerical:		Číselný
-mklist_aplha:			Alfa
-mklist_square:			Štvorec
-mklist_disc:			Ovál
-mklist_circle:			Kruh
-mklist_close:			Zatvoriť
-email_to:			Komu:
-email_pg_title:			Email
-email_subject:			Predmet:
-email_body:			Obsah:
-email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} napísané {TEMPLATE: ppost_quote_msg_date}
-ppost_quote:			Citované:
-ppost_to:			Pre:
-ppost_from_buddy_list:		Vybrať zo zoznamu priateľov
-ppost_find_User:		Hľadať užívateľa
-ppost_track_msg:		Sledovať túto správu
-ppost_track_msg_desc:		Upozorni ma (poštou) keď bude táto správa prečítaná.
-ppost_send:			Odoslať
-ppost_save_draft:		Uložiť koncept
-poll_blank_option:		Nemôžete pridať prázdnu voľbu.
-poll_del_conf:			Ak chcete vymazať túto voľbu stlačte OK
-poll_name:			Názov ankety:
-poll_timelimit:			Časový limit
-poll_maxiumvotes:		Maximálny počet hlasov
-poll_create:			Vytvoriť
-poll_update:			Aktualizovať
-poll_disablesmilies:		Vypnúť smajlíky
-poll_create_poll:		Vytvoriť anketu
-poll_update_poll:		Aktualizovať anketu
-poll_delete:			Vymazať
-poll_updateoption:		Aktualizovať voľbu
-poll_addoption:			Pridať voľbu
-poll_unlimited:			Neobmedzené
-poll_day:			deň
-poll_days:			dni
-poll_hour:			hodina
-poll_hours:			hodiny
-poll_month:			mesiac
-poll_year:			rok
-poll_week:			týždeň
-tabs_register:			Nastavenia
-tabs_subscriptions:		Odoberania
-tabs_referrals:			Privedení
-tabs_buddy_list:		Zoznam priateľov
-tabs_ignore_list:		Zoznam ignorovaných
-tabs_private_messaging:		Pošta
-single_msg_delete:		Idete <font color="#ff0000" size="4">VYMAZAŤ</font> správu s názvom: <b>{VAR: data[3]}</b><p>
-thread_delete:			Idete <font color="#ff0000" size="4">VYMAZAŤ</font> <font color="#ff0000" size="4">CELÚ TÉMU</font> s názvom: <b>{VAR: data[3]}</b><p>
-delete_proceed:			<font size="3"><b>Želáte si pokračovať?</b></font>
-delete_yes:			Áno
-delete_no:			Nie
-error_invalidurl:		Nesprávna URL
-error_error:			Chyba
-usrinfo_profile:		Užívateľský profil {VAR: u->alias}
-usrinfo_show_all_posts:		Zobraz všetky príspevky od užívateľa {VAR: u->alias}
-actions_update:			Špehuje ostatných, presne ako Vy
-err_info:			Informácie
-buddy_list_err_cantadd:		Nemôžete pridať sám seba do zoznamu priateľov
-buddy_list_err_dup:		Užívateľ sa už nachádza v zozname priateľov
-buddy_list_err_nouser:		Užívateľ, ktorého ste chceli pridať do zoznamu priateľov sa na tomto fóre nenašiel.
-buddy_list_err_nouser_title:	Nie je možné pridať užívateľa
-buddy_list_update:		Prezerá si vlastný zoznam priateľov
-core_err_invinp_title:		Nesprávny vstup
-core_err_invinp_err:		Nasledovali ste neplatný odkaz, prosím oznámte to <a href="mailto:{GVAR: ADMIN_EMAIL}">administrátorovi</a>
-core_adm_login_msg:		<br />Administrátori sa môžu prihlásiť <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tu</a>
-email_err_unabletoemail_title:	CHYBA: Nie je možné poslať email
-email_err_unabletoemail_msg:	Systém emailov bol administrátorom vypnutý.
-email_error_unabletolocaddr:	Ospravedlňujeme sa, ale systém nemohol odoslať email uživateľovi {VAR: usr_dst->alias} pretože nemohol zistiť/nájsť jeho emailovú adresu.
-email_error_body:		Obsah správy je povinný
-email_error_subject:		Predmet správy je povinný
-email_error_namerequired:	Meno je povinné
-email_error_invaliduser:	Nesprávny užívateľ
-emailconf_err_invkey_title:	Chyba
-emailconf_err_invkey_msg:	Nesprávny potvrdzujúci kľúč.  Prosím skontrolujte si svoj email o potvrdení, aby ste sa uistili, že ste zadali správnu URL
-err_inc_criticaltitle:		KRITICKÁ CHYBA ... niečo sa asi nepodarilo! Na sobotu zvolávam hon na programátora!!!
-err_inc_criticalmsg:		Narazili ste na chybu, naneštastie je tu aj problém v systéme reportovania chýb 
-finduser_update:		Vyhľadávam užívateľov
-help_index_update:		Číta si <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">nápovedu</a>
-iemail_thr_subject:		Nová odpoveď pre {VAR: thr_subject} od {VAR: poster_login}
-iemail_thr_bodyemail:		Neprečítané odpovede si môžete prezriet na tejto linke {VAR: goto_url['email']}\n\nAk si už neželáte prijímať žiadne ďalšie oznamy o príspevkoch v tejto téme, choď prosím sem: {VAR: unsub_url['email']}
-iemail_frm_subject:		Vo fóre {VAR: frm_name} sa nachádza nová téma nazvaná {VAR: thr_subject} od užívateľa {VAR: poster_login}
-iemail_frm_bodyemail:		Ak si chcete tému prezrieť choďte na:\n{VAR: goto_url['email']}\n\nAk si neželáte dostávať žiadne ďalšie oznamy o nových témach, choďte sem: {VAR: unsub_url['email']}
-iemail_participate:		Ak sa chcete zúčastniť diskusie, choďte sem:
-ignore_list_err_info_title:	Informácie
-ignore_list_err_dup_msg:	Tento užívateľ sa už nachádza na zozname ignorovaných
-ignore_list_err_nu_title:	Užívateľ nebol nájdený
-ignore_list_err_nu_msg:		Užívateľ, ktorého ste chceli pridať do svojho zoznamu ignorovaných, nebol vo fóre nájdený.
-ignore_list_cantign_msg:	Tohoto užívateľa nemôžete ignorovať
-ignore_list_update:		Prehliada si vlastný zoznam ignorovaných
-index_update:			Prehliada si <a href="{TEMPLATE: index_update_lnk}" class="GenLink">zoznam fór</a>
-list_referers_update:		Prehliada si zoznam ludí registrovaných na základe referencií
-login_update:			Prihlasovací formulár
-msg_update:			Prehliadate si tému <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:		CHYBA: Pošta je vypnutá
-pm_err_nopm_msg:		Systém privátnej pošty nemôžete používať, lebo bol administrátorom vypnutý.
-pm_update:			Používa poštu
-post_err_lockedthread_title:	CHYBA: Téma je uzamknutá
-post_err_lockedthread_msg:	Táto téma je uzamknutá, žiadne ďalšie príspevky niesu povolené
-err_coppa_title:		CHYBA: Vaše konto ešte nebolo potvrdené
-err_coppa_msg:			Nedostali sme ešte potvrdenie Vašich rodičov a/alebo zákonných zástupcov, ktoré by Vám umožňovalo uverejňovanie správ na fóre. Ak ste Váš COOPA formulár stratili <a href="{TEMPLATE: err_coppa_msg_lnk}">kliknite sem</a> na vydanie nového
-post_err_edttimelimit_title:	CHYBA
-post_err_edttimelimit_msg:	Túto správu už nie je možné editovať
-post_err_floodtrig_title:	CHYBA: Príliš veľa odoslaných príspevkov do systému
-post_err_floodtrig_msg:		Prosím skúste znova o {VAR: tm} sekúnd
-post_err_attach_size:		<font class="ErrorText">Priložený súbor je príliš veľký (stanovený limit je {VAR: MAX_F_SIZE} bajtov)</font><br />
-post_err_attach_ext:		<font class="ErrorText">Súbor, ktorý chcete uploadovať nezodpovedá povoleným typom súborom.</font><br />
-post_err_attach_filelimit:	<font class="ErrorText">Chcete priložiť viac súborov ako je povolené.</font><br />
-post_err_passwd:		Nesprávne heslo.
-post_reply_update:		Odpovedáte na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> vo fóre {VAR-HTML: frm->name}
-post_topic_update:		Vytvárate novú tému vo fóre <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
-post_error_generic:		Vyskytla sa chyba
-postcheck_max_images_err:	Maximálnu počet obrázkov na príspevok je {GVAR: MAX_IMAGE_COUNT}, prosím znížte počet obrázkov
-postcheck_subj_needed:		Predmet je povinný
-postcheck_no_such_user:		V tomto fóre sa nenachádza užívateľ s menom "{FUNC: char_fix(htmlspecialchars($v))}"
-postcheck_ignored:		Užívateľovi "{FUNC: char_fix(htmlspecialchars($v))}" nemôžete poslať poštu, pretože tento užívateľ Vás ignoruje.
-postcheck_no_recepient:		Správu nie je možné poslať, chýba príjemca
-postcheck_invalid_email:	Prosím pridajte platnú emailovú adresu Vášho priateľa.
-postcheck_email_subject:	Nemôžete poslať email bez predmetu.
-postcheck_email_body:		Nemôžete poslať email bez obsahu.
-private_msg_notify_subj:	Prečítať oznámenie pre: {VAR: m->subject}
-private_msg_notify_body:	Dobrý deň,<br />užívateľ {VAR: usr->login} si prečítal Vašu správu, "{VAR: m->subject}", o {TEMPLATE: private_msg_notify_body_date}<br />
-referals_update:		Prehliada si zoznam ludí registrovaných na základe referencií
-register_err_short_login:	Užívateľské meno, ktoré ste zadali, je príliš krátke. Zadajte aspoň 4 znaky
-register_err_login_notallowed:	Toto užívateľské meno nie je povolené
-register_err_loginunique:	Užívateľské mená vo fóre musia byť unikátne, užívateľ s takýmto menom sa už v systéme nachádza
-register_err_emailexists:	Táto emailová adresa už bola použitá, ak ste svoje heslo zabudli, prosím použite možnosť resetnutia hesla namiesto novej registrácie
-register_err_shortpasswd:	Heslo musí mať aspoň 6 znakov
-register_err_passwdnomatch:	Vaše heslá sa nezhodujú.
-register_err_invalidemail:	Emailová adresa, ktorú ste zadali, nie je platná.
-register_err_needname:		Pre úspešné ukončenie tejto registrácie prosím zadajte svoje meno.
-register_err_enterpasswd:	Na prevedenie zmien musíte zadať Vaše súčastné heslo
-register_err_adminpasswd:	Na prevedenie zmien musíte zadať Vaše ADMINISTRÁTORSKÉ heslo
-register_err_notyouremail:	Na túto emailovú adresu je už niekto registrovaný, ale ten niekto NIESTE vy
-register_err_avatartobig:	Súbor ktorý sa snažíte uploadovať je príliš veľký, limit je {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytov 
-register_err_avatarnotallowed:	Užívateľská ikona, ktorú sa pokúšate uploadovať, nie je povoleného typu. Skontrolujte si povolené typy súborov.
-register_conf_subject:		Potvrdenie registrácie
-register_conf_msg:		Ďakujeme Vám za registráciu,\nak Chcete aktivovať Vaše konto, choďte na nižšie uvedenú URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPo aktivovaní Vášho konta budete prihlásený do fóra a\npresmerovaný na hlavnú stránku fóra.
-register_welcome_subject:	Potvrdenie registrácie do fóra
-register_welcome_msg:		Ďakujeme za Vašu registráciu,\n\ntu sú údaje potrebné na prihlásenie do fóra\n\nURL fóra: {ROOT}?t=index\nUživateľské meno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamätajte prosím, že heslo je citlivé na veľké/malé písmená\nAk si chcete zmeniť Vaše nastavenie a profil choďte sem:\n{FULL_ROOT}{ROOT}?t=register\n
-register_err_cantreg_title:	CHYBA: nemôžeme Vás zaregistrovať
-regsiter_err_cantreg_msg:	Nie je možné vytvoriť uživateľský účet, prosím kontaktujte administrátora na adrese <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-register_profile_update:	Prezerá si vlastný profil
-register_register_update:	Registračná Stránka
-report_err_nosuchmsg_title:	CHYBA
-report_err_nosuchmsg_msg:	Zadaná správa neexistuje
-reset_err_invalidkey_title:	CHYBA
-reset_err_invalidkey_msg:	Chybný kľúč pre resetnutie hesla
-reset_err_rstconf_title:	Informácia
-reset_err_rstconf_msg:		V priebehu pár minút by ste e-mailom mali obdržať ďalšie pokyny
-reset_newpass_title:		Resetnutie hesla
-reset_newpass_msg:		Dobrý deň,\n\nna základe Vašej žiadosti Vám posielame prihlasovacie informácie:\n\nUžívateľské meno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím všimnite si, že Vaše heslo bolo zmenené na horeuvedenú hodnotu.\nAk si chcete ho chcete zmeniť, môžete tak urobiť v užívateľskom kontrolnom paneli na adrese:\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		Vaše heslo Vám bolo odoslané emailom. V priebehu niekoľkých minút by ste ho mali obdržať. Prosím skontrolujte si Vašu poštu.<br />
-search_update:			Vyhľadáva správy
-selmsg_update:			Prehliada <a href="{TEMPLATE: selmsg_update_lnk}">dnešné príspevky</a>
-showposts_update:		Prezerá si príspevky od: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-subscribed_update:		Prehliada si odoberané témy a fóra
-thread_update:			Prehliada si fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			Prehliada si tému (stromové zobrazenie) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:		Prezerá si profil užívateľa <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a>
-ERR_disabled_ttl:		Vypnuté možnosti 
-ERR_disabled_msg:		Táto možnosť bola vypnutá administrátorom
-ERR_access_ttl:			CHYBA: Nedostatočné právomoci
-ERR_access_msg:			Nemáte dostatočné právomoci na vykonanie tejto akcie
-ERR_registration_disabled_ttl:	Registrácia je vypnutá
-ERR_registration_disabled_msg:	Administrátor vypol registračný systém, prosím skúste neskor
-ERR_emailconf_ttl:		CHYBA: Vaše konto ešte nebolo potvrdené
-ERR_emailconf_msg:		Zatiaľ ste nepotvrdili Vaše konto prostredníctvom emailu<br /><br /><table border="0"><tr><td><div class="SmallText"><ol><li>Ak ste nedostali verifikačný email <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliknite sem</a><li>Ak {VAR: usr_d->email} nie je Vaša správna emailová adresa <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliknite sem</a></ol></div></td></tr></table>
-ERR_user_ttl:			CHYBA: Užívateľ neexistuje
-ERR_user_msg:			Zadaný užívateľ neexistuje
-ERR_systemerr_ttl:		CHYBA: Systémová Chyba
-ERR_systemerr_msg:		V systéme sa vyskytla chyba, prosím oznámte to <a href="mailto:{GVAR: ADMIN_EMAIL}">administrátorovi</a>.
-email_title:			Emailový Formulár
-finduser_title:			Hľadanie užívateľa
-help_title:			F.A.Q.
-login_title:			Prihlasovací formulár
-msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-poll_title:			Editor Ankiet
-register_title:			Registračný formulár
-reset_title:			Resetnutie Hesla
-rpasswd_title:			Formulár pre zmenu hesla
-error_title:			Formulár chýbových hlásení
-index_title:			Vitajte vo fóre
-search_title:			Hľadať {VAR-HTML: srch}
-thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-remail_emailsent:		Email bol odoslaný
-remail_email:			Dobrý deň,\n\nvo fóre {GVAR: FORUM_TITLE} sa nachádza zaujímavá téma "{VAR: data->subject}", ktorú by ste si mohli chcieť prečítať. Tému si môžete prezrieť na adrese:\n {ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Váš priateľ,\n\n{VAR: usr->alias}\n
-poll_add_option:		Pridať možnosť:
-post_opt_html_on:		<b>HTML</b> je <b>ZAPNUTÉ</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> je <b>ZAPNUTÝ</b></a>
-post_opt_images_on:		<b>Obrázky</b> sú <b>ZAPNUTÉ</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smajlíci</b> sú <b>ZAPNUTÍ</b></a>
-post_opt_html_off:		<b>HTML</b> kód je <b>VYPNUTÝ</b>
-post_opt_fud_off:		<b>BBcode</b> je <b>VYPNUTÝ</b>
-post_opt_images_off:		<b>Obrázky</b> sú <b>VYPNUTÉ</b>
-post_opt_smilies_off:		<b>Smajlíci</b> sú <b>VYPNUTÍ</b>
-post_opt:			Nastavenia fóra
-register_change_passwd:		zmeniť heslo
-approved_avatar_title:		Vaša ikona bola schválená.
-approved_avatar_msg:		Vaša ikona bola schválená administrátorom. Mala by sa teraz zobraziť vedľa všetkých Vašich správ. Ak ju nevidíte, alebo vidíte Vašu starú ikonu, je to preto, že Vás prehliadač má stránku v pamäti. Skúste ju raz alebo dva krát obnoviť, vo väčšine prípadov to problém vyrieši.
-unapproved_avatar_title:	Vaša ikona bola zamietnutá.
-unapproved_avatar_msg:		Administrátor neschválil Vašu ikonu. Najčastejším dôvodom býva, že ikona je príliš veľká (veľkosť a/alebo rozmery), alebo mala nevhodný obsah. Ak chcete viac informácii o tom prečo bola Vaša ikona zamietnutá kontaktujte administrátora.
-mvthread_request_move:		požiadavka na presun
-move_request_reason:		Prečo chcete aby bola téma presunutá?
-mvthread_submit_req:		Odoslať požiadavku
-thread_exchange:		Výmena témy 
-move_request_by:		Požiadavka na presun od:
-move_reason:			Dôvod na presun:
-thr_exch_accept:		prijať tému
-thr_exch_decline:		odmietnuť tému
-thr_exch_orig_forum:		Pôvodné Fórum:
-thr_exch_dest_forum:		Cieľové Fórum:
-thr_exch_no_threads:		Žiadne témy nečakajú na schválenie.
-thr_exch_decl_reason:		Dôvod na odmietnutie témy <b>{VAR: data->subject}</b> vo fóre <b>{VAR-HTML: data->f2_name}</b>
-thr_exch_submit:		Odoslať
-exch_decline_ttl:		Presun témy z fóra {VAR: data->subject} do fóra {VAR-HTML: data->f2_name} bol zamietnutý.
-ppost_original_msg:		správa ktorú preposielate alebo na ktorú odpovedáte
-split_thread:			Rozdeliť Tému
-groupmgr_no_user:		Užívateľ s užívateľským menom "{FUNC: char_fix(htmlspecialchars($gr_member))}" neexistuje
-groupmgr_already_exists:	Užívateľ "{FUNC: char_fix(htmlspecialchars($gr_member))}" sa už v tejto skupine nachádza.
-groupmgr_yes:			Áno
-groupmgr_no:			Nie
-groupmgr_action:		Akcia
-groupmgr_member:		Člen
-groupmgr_cancel:		Zrušiť
-groupmgr_add_member:		Pridať člena
-groupmgr_update_member:		Aktualizovať člena
-groupmgr_edit:			Editovať
-groupmgr_delete:		Vymazať
-group_mgr_anon:			Anonymní
-group_mgr_reged:		Všetci registrovaný užívatelia
-show_show:			Ukázať:
-group_mgr:			Správa skupín
-group_mgr_edit_btn:		Editovať skupinu
-group_mgr_heading:		Výber skupiny pre editovanie
-group_mgr_group:		Skupina:
-permission_denied_title:	Prístup zamietnutý!
-permission_denied_msg:		Vaše užívateľské právomoci Vám neumožňujú vykonať zmeny o ktoré sa pokúšate.
-p_READ:				Čítať
-p_POST:				Vytvoriť tému
-p_REPLY:			Odpovedať
-p_EDIT:				Editovať
-p_DEL:				Vymazať
-p_STICKY:			Výveska
-p_POLL:				Vytvoriť anketu
-p_FILE:				Priložiť súbor
-p_VOTE:				Hlasovať
-p_RATE:				Ohodnotiť tému
-p_SPLIT:			Rozdeliť tému
-p_LOCK:				Uzamknúť tému
-p_MOVE:				Presunúť tému
-p_SML:				Používať smajlíkov
-p_IMG:				Používať obrázkové tagy
-p_SEARCH:			Môže vyhladávať
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 325,250);">Hladať užívateľa</a>
-group_mgr_indicator:		Práve editujete: <b>{VAR: grp->name}</b>
-rate_worst:			Najhoršia
-rate_best:			Najlepšia
-post_quote_msg:			{VAR: msg->login} napísal dňa {TEMPLATE: make_report_date}
-post_quote:			Citát:
-userinfo_referals:		Privedený užívatelia:
-userinfo_referals_count:	{VAR: referals} Členovia
-pm_no_space_title:		Priestor vyčerpaný!
-pm_no_space_msg:		Váš poštový pričinok prekročil maximálnu veľkosť <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytov</b>. Vaša pošta momentálne obsahuje <b>{VAR: fldr_size} bytov</b> správ.<br /><br /><font class="ErrorText">Odstráňte niekoľko starých správ, aby ste uvolnili miesto</font>.
-pm_space_indct_msg:		Vaša poštová schránka je na {VAR: percent_full}% plná.
-th_expr_never:			Nikdy
-th_expr_one_hr:			1 hodina
-th_expr_three_hr:		3 hodiny
-th_expr_four_hr:		4 hodiny
-th_expr_eight_hr:		8 hodín
-th_expr_sixteen_hr:		16 hodín
-th_expr_one_day:		1 deň
-th_expr_two_day:		2 dni
-th_expr_four_day:		4 dni
-th_expr_one_week:		1 týždeň
-th_expr_two_week:		2 týždne
-th_expr_one_month:		1 mesiac
-th_expr_two_month:		2 mesiace
-th_expr_four_month:		4 mesiace
-th_expr_one_year:		1 rok
-thread_mod_delete:		Vymazať
-action_latest_post:		Posledný príspevok
-online_today_last_visit:	Posledná návšteva
-online_today_update:		Prezerá si zoznam dnešných návštevníkov.
-logedin_todays_visitors:	Zoznam dnešných návštevníkov
-logedin_latest_post:		Posledný príspevok vo fóre: 
-register_show_avatar:		Ukázať užívateľské ikony:
-register_show_avatar_desc:	Umožňuje Vám schovať ikony užívateľov, keď si prezeráte ich správy 
-drawmsg_view_rest_post:		Ukázať zvyšok správy
-forumsel_goto_forum:		Ísť do fóra:
-minimsg_thread_view:		Zobrazenie témy
-split_th_post_by:		Príspevok od:
-split_th_posted_on:		Pridané dňa:
-split_th_subject:		Predmet:
-split_th_new_thread_title:	Titul novej témy:
-split_th_forum:			Fórum:
-split_th_split_sel:		Rozdeliť vybrané témy
-split_th_split_unsel:		Rozdeliť nevybrané témy
-split_th_messages:		Správy
-split_th_select:		Vybrať
-report_report_post:		Oznámiť príspevok
-quicklogin_login:		Užívateľské meno
-quicklogin_password:		Heslo
-quicklogin_use_cookies:		Používať Cookies?
-quicklogin_login_btn:		Prihlásiť
-post_notification_desc:		Upozorni ma, keď niekto bude reagovať na túto správu.
-post_all_ext_allowed:		(neobmedzené)
-maximize_category:		Maximalizuj/Otvor kategóriu
-no_view_perm:			Na prezeranie tejto tému nemáte dostatočné právomoci.
-report_empty_report:		Nemôžete odoslať prázdne oznámenie, vyplňte prosím dôvod oznámenia.
-report_already_reported_title:	Už oznámené	
-report_already_reported_msg:	Táto správa už bola oznámená a oznam čaká na spracovanie moderátormi.
-register_err_toomanyimages:	Pokúšate sa použiť viac ako povolených {GVAR: FORUM_IMG_CNT_SIG} obrázkov vo Vašom podpise.
-pmsg_next_msg:			Ďaľšia správa
-pmsg_prev_msg:			Predchádzajúca správa
-post_proc_reveal_spoiler:	Odkryť narušiteľa
-forum_contact:			Kontakt
-forum_home:			Domov
-post_cur_attached:		momentálne máte {VAR: i} priložených súborov 
-ignored_anon_post:		{GVAR: ANON_NICK} je ignorovaný
-ignored_user_post:		Príspevok od <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> je ignorovaný
-smladd_close_window:		Zatvoriť okno
-post_list_smilies:		Zoznam všetkých smailíkov
-p_VISIBLE:			Vidieť
-reported_in_thread:		V téme
-help_back_to_top:		späť na začiatok
-help_return_to_index:		Späť na úvod nápovedy
-imsg_err_message_title:		Nesprávna téma
-imsg_err_message_msg:		Správa, ktorú si chcete prezrieť neexistuje.
-poll_edit:			Editovať
-register_err_not_valid_img:	Uvedená URL neobsahuje platný obrázok
-pmsg_recepient:			Príjemca
-register_err_taken_alias:	Prezývku, ktorú chcete použiť už používa iný člen fóra, prosím vyberte si inú.
-register_alias:			<font class="StClr">Prezývka:</font>
-register_alias_desc:		Ak chcete aby sa vo fóre zobrazovala prezývka iná ako je Váše uživateľské meno, zadajte prosím túto prezývku.
-register_allow_pm_msg:		Povoliť poštu	
-register_allow_pm_msg_desc:	Povoliť ostatným užívateľom poslať Vám cez fórum poštu do Vašej schránky na fóre.
-postcheck_pm_disabled:		Nemôžete poslať poštu užívateľovi "{VAR-HTML: v}", pretože tento užívateľ má poštu vypnutú.
-polllist_vote:			Hlasovať
-polllist_view_results:		Zobraziť výsledky
-polllist_name:			Meno ankety
-polllist_date:			Vytvorená dňa
-polllist_owner:			Autor
-polllist_votes:			Celkom hlasov
-polllist_action:		Akcia
-polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">prezerá si aktívne ankety</a>
-userinfo_polls:			Ankety:
-show_pollist:			Zobraziť ankety
-search_and:			A
-search_or:			ALEBO
-search_desc_order:		Zostupne		
-search_asc_order:		Vzostupne
-search_logic:			Logika vyhľadávania:
-search_sorting:			Zoradiť výsledky podľa dátumu:
-post_proceed:			Pokračovať
-post_moderated_forum:		Poslali ste správu do moderovaného fóra, čo znamená, že správa nebude vo fóre viditeľná pokiaľ nebude odsúhlasená moderátorom fóra a/alebo administrátorom.
-post_moderated_forum_ttl:	Upozornenie: Moderované fórum
-buddy_list_bday:		Dnes bude mať {VAR: r[2]} {VAR: age} rokov
-email_warning_msg:		Ak si zmeníte Vašu súčasnú emailovú adresu, bude Vaše konto označené ako nepotvrdené, až pokiaľ ho nepotvrdíte cez URL v odoslanom emaile.
-register_show_im:		Zobraziť IM indikátory
-register_show_im_desc:		Či sa majú alebo nemajú zobrazovať IM (Instant Messaging) indikátory autorov vedľa ich správ.
-read_message:			Čítať Správu
-threadt_more:			&lt;viac&gt;
-threadt_disabled_ttl:		Stromové zobrazenie vlákien bolo vypnuté.
-threadt_disabled_desc:		Administrátor vypol stromové zobrazenie vlákien, použite prosím ploché zobrazenie.
-threadt_update:			Prehliada fórum (stromové zobrazenie) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
-mmod_delete_cofirm_ttl:		Potvrdenie vymazania Témy/Správy
-spell_alts:			bez alternatív
-insert_uploaded_image:		Pridať obrázok do tela správy
-finduser_help:			Vyhľadávací stroj pridá automaticky do Vášho dotazu masku *  napr. ak chcete nájsť užívateľov, ktorých užívateľské meno začína s &#39;a&#39;, zadajte &#39;a&#39; do vyhľadávacieho pola.
-back_to_top:			Späť na začiatok
-pm_err_disabled_title:		Pošta je vypnutá
-pm_err_disabled_msg:		Nemôžete odoslať správu poštou pokiaľ si nezapnete možnosť &#39;Povoliť poštu&#39; vo Vašom profile.
-err_mod_acc_ttl:		Neoverené konto
-err_mod_acc_msg:		Administrátor sa rozhodol pre manuálne potvrdzovanie všetkých nových registrácií. Pokiaľ Vaše konto nebude potvrdené administrátorom, nebudete môcť naplno využívať všetky možnosti Vášho konta.
-accounts_pending_approval:	Kontá čakajúce na schválenie
-saved:				Uložené
-register_err_time_limit:	Limit jednej registrácie za {GVAR: REG_TIME_LIMIT} sekúnd bol dosiahnutý. Prosím počkajte {VAR: reg_limit_reached} sekúnd a potom sa pokúste o registráciu opäť.
-register_affero:		Affero užívateľské meno:<br /><font class="SmallText">Ak máte <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> užívateľské meno, zadajte ho sem.</font>
-im_affero:			Affero užívateľské meno
-register_err_avatardimtobig:	Rozmery Vašej užívateľskej ikony <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> su väčšie ako povolené rozmery <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-buddy_offline:			{VAR: r[2]} je práve offline
-buddy_online:			{VAR: r[2]} je práve online
-sml_no_smilies:			Smajlíci niesu dostupný.
-login_unapproved_account_ttl:	Neschválené kontá
-login_unapproved_account_msg:	Administrátor tohoto fóra sa rozhodol manuálne potvrdzovať každé nové konto pred jeho aktiváciou. Vaše konto ešte nebolo potvrdené, preto nebudete mocť pristupovať k niektorým funkciám fóra určeným pre registrovaných užívateľov, pokial Vaše konto nebude schválené.
-remove_from_buddy_list:		Odstrániť zo zoznamu priateľov
-iemail_msg_author:		<b>Autor:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Predmet:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Dátum:</b> {TEMPLATE: dmsg_post_date}
-iemail_msg_reply:		Odpovedať
-iemail_msg_quote:		Citovať
-iemail_msg_view:		Prezrieť Tému/Správu
-threadt_sticky:			výveska
-threadt_announce:		oznam
-reported_no_messages:		Neexistujú žiadne oznámené správy.
-poll_no_polls:			Neexistujú žiadne prístupne ankety.
-no_unread_messages:		Neexistujú žiadne neprečítané správy spĺňajúce Vaše požiadavky.
-thread_mark_all_read:		Označiť všetky neprečítané správy v tomto fóre ako prečítané
-thread_mark_all_read_desc:	Všetky neprečítané správy v tomto fóre budú označené ako prečítané
-private_no_messages:		V tomto adresári niesu žiadne správy
-register_email_change_subject:	Potvrdenie zmeny E-mailu
-register_email_change_msg:	Prosím potvrďte Vaše nové emailové konto "{VAR: uent->email}", ktoré nahrádza Vaše staré konto "{VAR: old_email}" tým, že pôjdete na nasledovnú URL:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKeď potvrdíte Vašu novú emailovú adresu, Vaše konto bude reaktivované.
-iemail_thread_unsub:		Odhlásiť sa z tohoto vlákna		
-iemail_forum_unsub:		Odhlásiť sa z tohoto fóra
-primary_group_prefix:		Primárna skupina pre fórum:
-group_resources:		Táto skupina kontroluje práva pre nasledujúce fóra
-register_admin_newuser_title:	Nový užívateľ sa zaregistroval a jeho konto čaká na schválenie
-register_admin_newuser_msg:	Nový užívateľ ({VAR: uent->login}) sa práve registroval a keďže je potvrdzovanie kont je zapnuté, toto konto nebude aktivované pokiaľ ho Vy alebo iný administrátor na tomto fóre nepotvrdí. Ak chcete prezrieť toto konto choďte na: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nTáto správa je generovaná serverom, prosím neodpovedajte na ňu\nAk chcete vypnúť ďalšiu e-mailovú notifikáciu nových registrácií, môžete tak urobiť cez Admin Control Panel, zmenením nastavenie "New Account Notification".
-post_mod_msg_notify_title:	Nová správa vo fóre "{VAR: frm->name}" čakajúca na schválenie
-post_mod_msg_notify_msg:	Správa s predmetom "{VAR: msg_post->subject}" bola práve uverejnená na fóre ktoré moderujete. Ak chcete prezrieť túto správu choďte na: {FULL_ROOT}{ROOT}?t=modque\n\nTáto správa je generovaná serverom, prosím neodpovedajte na ňu.\n
-thread_printable_pdf:		Generovať PDF
-thread_syndicate:		Vytvoriť XML súbor tohoto fóra
-reg_conf_title:			Overenie registrácie
-reg_conf_email:			<b>Potvrdenie E-mailu</b><br />Na Vašu emailovú adresu bol odoslaný mail obsahujúci špeciálnu URL, na ktorú musíte ísť, aby bolo Vaše konto aktivované. Ak tento mail neobdržíte v nasledujúcich niekoľkých minútach, prihláste sa na svoje konto a skontrolujte, či Vaša emailová adresa, ktorú ste uviedli je správna. Keď overíte svoju emailovú adresu, budete môcť využívať možnosti tohoto fóra určené overeným registrovaným užívateľom.
-reg_conf_account:		<b>Potvrdenie konta</b><br />Pred tým než bude Vaše konto aktivované, musí byť odsúhlasené administrátorom. Keď sa tak stane, obdržíte email so správou o potvrdení Vášho konta. Do tej doby sa nebudete moc na toto konto prihlásiť a pristupovať k funkciám určeným pre registrovaných užívateľov.
-forum_banned_user:		Vaše predchádzajúce správanie vyústilo do toho, že Váš prístup do tohoto fóra bol na stálo zakázaný. Zbohom.
-mnav_description:		Navigátor správ
-mnav_date_limit:		Časový interval:
-mnav_forum_limit:		Hľadať iba v:
-mnav_all_forums:		Hľadať vo všetkých fórach
-mnav_submit:			Začať Vyhľadávanie
-mnav_no_range:			Musíte vložiť platný časový rozsah. Táto hodnota može byť reálne číslo (0.12), ale musí to byť číslo väčšie ako nula.
-mnav_invalid_unit:		Musíte vložiť platnú jednotku času.
-mnav_invalid_date:		Časový rozsah, ktorý ste zadali je väčší ako je povolené administrátorom. Zúžte prosím časový rozsah Vášho vyhľadávania.
-mnav_no_results:		Neexistujú žiadne správy spĺňajúce kritériá.
-mnav_posted_by:			Autor:
-mnav_minute:			Minúta
-mnav_hour:			Hodina
-mnav_day:			Deň
-mnav_week:			Týždeň
-mnav_month:			Mesiac
-mnav_title:			Navigátor správ
-mnav_update:			Prezerá si príspevky cez <a href="{TEMPLATE: mnav_update_lnk}">Navigátor správ</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] Upozornenie na novú správu v pošte
-pm_notify_body_email:		V pošte máte novú správu s predmetom "{VAR: subject}" od užívateľa "{VAR: from}" z fóra "{GVAR: FORUM_TITLE}" forum.\nPre prezretie správy kliknite sem: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAk si neželáte dostávať ďalšie takéto upozornenia, vypnite možnosť "Upozorňovať na prijatú poštu" vo Vašom profile.
-register_pm_notification:	Upozorňovať na prijatú poštu
-register_pm_notification_desc:	Ak je povolené, budete upozornený prostredníctvom komunikačnej metódy podľa Vášho výberu vždy, keď do Vašej pošty príde správa.
-findu_admin_opts_header:	Možnosti Admina
-findu_unban:			Odblokovať
-findu_ban:			Zablokovať
-findu_edit:			Editovať
-findu_delete:			Vymazat
-dmsg_reply_to:			je odpoveďou na správu #{VAR: obj->reply_to}
-merge_topics:			Zlúčiť témy
-merge_topics_cp:		Ovládací panel pre zlúčenie tém
-merge_topics_tpl:		Vyberte témy na zlúčenie <font class="SmallText">(musíte vybrať viac než jednu tému)</font>
-merge_merge:			Zlúčiť vybrané témy
-merge_next:			Ďalšie témy
-merge_prev:			Predchádzajúce témy
-split_cp:			Ovládací panel pre rozdelenie vlákien
-groups_perms_header:		Právomoci <font size="-1">(presuňte kurzor myši nad právomoc aby ste uvideli jej typ)</font>
-register_err_sig_too_long:	Váš podpis prekračuje maximálnu povolenú dĺžku, ktorá je {GVAR: FORUM_SIG_ML} znakov.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} znakov <a href="javascript: alert(\'Váš podpis má dĺžku \'+document.forms[\'fud_register\'].reg_sig.value.length+\' znakov. Maximálna povolená dĺžka je {GVAR: FORUM_SIG_ML} znakov.\');" class="SmallText">Skontrolovať dĺžku podpisu</a>
-adm_account_accepted:		Vaše konto \'{VAR: GLOBALS['r']->login}\' bolo odsúhlasené administrátorom a je aktívne. Od teraz máte prístup na fórum {GVAR: FORUM_TITLE}\' ako registrovaný odsúhlasený užívateľ.
-adm_account_accepted_s:		Vaša požiadavka na/pre \'{GVAR: FORUM_TITLE}\' bola prijatá.
-adm_account_rejected:		Vaše konto \'{VAR: GLOBALS['r']->login}\' bolo administrátorom zamietnuté. Ak chcete poznať dôvod tohoto rozhodnutia, kontaktujte administrátora na adrese \'{GVAR: ADMIN_EMAIL}\'.
-adm_account_rejected_s:		Vaše požiadavka na/pre \'{GVAR: FORUM_TITLE}\' bola zamietnutá.
-thread_on:			Pridané:
-userinfo_buddy:			Priateľ:
-register_email_addr:		<font class="StClr">E-mailová Adresa:</font>
-reset_suffix:			\n\nAk ste dostali túto správu ako chybu, prosím ignorujte ju. Ak dostávate viac kópií tohoto emailu, ktoré ste si nevyžiadali, prosím kontaktujte administrátora fóra na adrese {GVAR: ADMIN_EMAIL}\n\nTáto požiadavka bola inicialzivaná z: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
-usrinfo_last_visit:		Posledná návšteva:
+# Messages for Slovak (Slovenčina)
+# Exported from translatewiki.net
+# Author: Rudko
+
+action:Akcia
+add_to_buddy_list:Pridať do zoznamu priateľov
+admin:Administrátor
+admin_control_panel:Kontrolný Panel Administrátora
+administrator:Administrátor
+attachment:Príloha:
+avatar:Ikona užívateľa:
+# Fuzzy
+average_post_count:{VAR: u->posted_msg_count} Príspevkov (priemerne {VAR: avg} denne)
+biography:Životopis:
+birth_date:Dátum narodenia:
+by:Od:
+by_mod:od Moderátora
+current_time:Aktuálny čas
+custom_avatar_queue:Fronta ikon užívateľov
+date_posted:Dátum Pridania
+date_registered:Dátum registrácie:
+# Fuzzy
+download_counter:Stiahnuté {VAR: v[3]} krát
+# Fuzzy
+pmsg_download_counter:Stiahnuté {VAR: r->dlcount} krát
+email:Email:
+email_to_friend:Poslať email priateľovi
+email_to_friend_desc:Poslať priateľovi URL na túto stránku emailom
+# Fuzzy
+email_user:Poslať email užívateľovi
+faq:Nápoveda
+first_unread_msg:Choď na neprečítané správy
+first_unread_msg_desc:Choď na prvú neprečítanú správu
+flat_view:Späť k štandardnému plochému zobrazeniu
+forum:Fórum:
+forum_icon:Ikona fóra
+forum_new_messages:Nové správy
+forum_none_messages:Iba registrovaný užívatelia fóra môžu sledovať prečítané a neprečítané správy
+forum_old_messages:Žiadne nové správy
+from:Od:
+gender:Pohlavie:
+go:Choď
+goto_next_msg:Choď na ďalšiu správu
+goto_prev_msg:Choď na predchádzajúcu správu
+home:Domov
+homepage:Domovská Stránka:
+icq_control_panel:ICQ Online Panel
+icq_message_form:Fomulár ICQ správy:
+ignore_user:Ignorovať všetky príspevky od tohoto užívateľa
+im_aim:AIM:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:Obrázok / Fotka:
+index_forum:Fórum
+index_new_posts:Nové príspevky od poslednej návštevy
+index_no_new_posts:Žiadne nové príspevky od poslednej návštevy
+index_url_redirection:Presmerovanie
+interests:Záujmy:
+last_post:Posledný príspevok
+last_thread_msg:Choď na poslednú správu tejto témy
+legend:Legenda:
+location:Oblasť / Región:
+lock_thread:Zamknúť tému
+locked:Zamknuté
+locked_with_new_posts:Zamknuté (s neprečítanými príspevkami)
+logged_in_list:Zoznam prihlásených užívateľov
+login:Prihlásiť sa
+login_header:Užívateľské meno:
+logout:Odhlásiť sa
+mark_all_read:Označiť všetky správy ako prečítané
+mark_all_read_desc:Všetky Vaše neprečítané správy budú označené ako prečítané
+members:Členovia
+message:Správa
+# Fuzzy
+message_counter:Naši užívatelia pridali celkovo <b>{VAR: post_count}</b> správ k <b>{VAR: thread_count}</b> témam.
+message_index:Zoznam správ
+message_index_desc:Zobraziť zoznam správ
+minimize_category:Minimalizovať kategóriu
+minimize_message:Minimalizovať Správu
+moderation_queue:Moderačná fronta
+moderator:Moderátor
+moderator_of:Moderátor:
+moderator_options:Možnosti moderátora
+# Fuzzy
+moderators:Moderátori
+more_unread_messages:Viac neprečítaných správ
+more_unread_messages_desc:Ukáž ďalšie neprečítané správy a označ práve zobrazené ako prečítané
+move_thread:Presunúť
+moved:Presunuté do iného fóra
+moved_thread_message:Táto téma bola presunutá do iného fóra
+na:nie je k dispozícii
+new_posts:Nové príspevky
+# Fuzzy
+new_private_messages:Neprečítaných správ v pošte <span class="GenText" style="color: #ff0000">({VAR: c})</span>
+new_thread:Vytvor novú tému
+newest_user:Najnovším užívateľom je
+next_page:Ďalšia strana
+next_thread:Ďalšia téma:
+no_messages:Žiadne ďalšie správy v tomto fóre.
+no_msg_body:Správa nemá obsah
+no_new_posts:Žiadne nové príspevky
+no_posts:Žiadne príspevky
+no_subscribed_forums:Žiadne odoberané fóra
+no_subscribed_threads:Žiadne odoberané témy
+no_bookmarked_threads:Žiadne záložky na témy
+no_unread_locked:Táto téma bola uzamknutá
+no_unread_msg:Žiadne neprečítané správy k tejto téme
+no_unread_msg_unreg:Sledovanie prečítaných a neprečítaných správ je dostupné iba registrovaným uživateľom
+num_pages:Stránok ({VAR: ttl_pg}):
+# Fuzzy
+num_votes:{VAR: obj->total_votes} hlasov
+occupation:Zamestnanie:
+off:VYPNUTÉ
+on:ZAPNUTÉ
+page_timings:Celkový čas potrebný na vygenerovanie tejto stránky: {VAR: page_gen_time} sekundy
+pm:Pošta
+poll:Anketa:
+post_count:Počet príspevkov {VAR: u_pcount}
+post_count_l:Počet príspevkov:
+posts:Príspevky
+posts_c:Príspevky:
+prev_thread:Predchádzajúca téma:
+usrinfo_private_message:Pošta:
+profile:Profil
+# Fuzzy
+profile_desc:Kliknite sem pre prístup k panelu užívateľských nastavení
+rate_thread:Ohodnotiť tému
+rating:Hodnotenie
+rating_track:Správa hodnotení pre tému <b>{VAR: thr->subject}</b>:
+refresh_list:Aktualizovať zoznam
+register:Registrovať sa
+registered:Registrácia:
+registered_on:Zaregistrovaný {TEMPLATE: registered_on_date}
+replies:Reakcie
+report_to_mod:Oznámiť príspevok moderátorovi
+reported_messages:Oznámené príspevky
+reveal_all_posts:odkryť všetky príspevky od užívateľa {VAR: user_login}
+reveal_post:odkryť príspevok
+search:Hľadať
+sel_todays_posts:Dnešné príspevky
+sel_todays_posts_desc:Zapnúť/Vypnúť filter dnešných príspevkov (iba dnešné príspevky budú zobrazené)
+sel_unanswered_posts:Príspevky bez reakcie
+sel_unanswered_posts_desc:Zapnúť/Vypnúť filter príspevkov bez reakcie (iba príspevky bez reakcie budú zobrazené)
+sel_unread_messages:Neprečítané príspevky
+sel_unread_messages_desc:Zpanúť/Vypnúť filter neprečítaných príspevkov (iba neprečítané príspevky budú zobrazené)
+send:Poslať
+send_pm_desc:Poslať poštu tomuto užívatelovi
+sender_email:Email odosielateľa:
+sender_name:Meno odosielateľa:
+show_posts_by:Zobraz príspevky od: {VAR: u_alias}
+size:Veľkosť:
+status:Hodnosť:
+# Fuzzy
+status_line:Tieto fóra práve navštevuje <b>{VAR: st_obj->online_users_reg}</b> člen(ov), <b>{VAR: st_obj->online_users_hidden}</b> skrytý(ch) člen(ov) a <b>{VAR: st_obj->online_users_anon}</b> hosť(ov).
+sticky:Výveska:
+stop_ignoring:prestaň ignorovať tohoto užívateľa
+sub_to_thread:Odoberať túto tému
+sub_to_thread_desc:Dostávať oznámenia o nových príspevkoch k tejto téme
+subject:Predmet
+subscribe:Odoberať
+subscribe_desc:Dostávať oznámenia keď niekto vytvorí novú tému v tomto fóre
+subscribed_forums:Odoberané fóra
+subscribed_forums_desc:Zapnúť/Vypnúť filter odoberaných fór (iba príspevky z odoberaných fór budú zobrazené)
+subscribed_threads:Odoberané témy
+subscribed_threads_desc:Zapnúť/Vypnúť filter odoberaných tém (iba príspevky k odoberaným témam budú zobrazené)
+switch_to_thread_view:Prepnúť na stromové zobrazenie tejto témy
+thread:Téma:
+thread_announcement:Oznam:
+# Fuzzy
+thread_first_unread_msg:Kliknite sem pre presun na prvý neprečítaný príspevok k tejto téme
+thread_thread:Téma
+threads:Témy
+time:Čas
+todays_posts:Dnešné príspevky
+todays_posts_desc:Zobraziť všetky dnes uverejnené správy
+un_ignore_user:prestaň ignorovať príspevky od tohoto užívateľa
+unanswered_posts:Príspevky bez reakcie
+unanswered_posts_desc:Zobraz všetky správy, ktoré sú bez reakcie
+unlock_thread:Odomknúť tému
+unread_msg:Táto téma obsahuje neprečítané správy
+unread_msg_locked:Uzamknutá téma s neprečítanými témami
+unread_posts:Neprečítané príspevky
+unread_posts_desc:Zobraziť všetky neprečítané správy
+unsub_from_thread:Zrušiť odoberanie témy
+unsub_from_thread_desc:Zrušiť odoberanie oznámení o nových príspevkoch k tejto téme
+unsubscribe:Zrušiť odoberanie
+unsubscribe_desc:Zrušiť odoberanie oznámení o nových témach v tomto fóre
+updated_on:Aktualizované:
+user:Užívateľ
+# Fuzzy
+user_counter:Máme <b>{VAR: st_obj->user_count}</b> registrovaných užívateľov.
+user_info:Informácie o užívateľovi
+user_info_l:Informácie o užívateľovi {VAR: u->alias}
+user_offline:{VAR: obj->login}  je práve offline
+user_online:{VAR: obj->login} je práve online
+usrinfo_last_post:Posledný príspevok:
+view_results:Zobraziť výsledky
+views:Zobrazené
+# Fuzzy
+vote:{VAR: frm->n_rating} hlasov
+vote_button:Hlasovať
+vote_for_thread:Hlasovať
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]}</a> bola premiestnená do <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{VAR: r[12]}</a> moderátorom
+welcome_message:Vitajte <b>{VAR: usr->alias}</b>, Vaša posledná návšteva bola v {TEMPLATE: welcome_message_date}
+what_ppl_doing:Ukáž, čo robia ostatní
+reported_del_report:Zmazať oznámenie
+reported_reason:Dôvod
+reported_on:Čas oznámenia:
+reported_reported_by:Oznámené užívateľom:
+reported_reported_msg:Oznámené správy
+modque_pending_approval:Správy na schválenie
+modque_approve:Schváliť
+modque_delete:Vymazať
+modque_no_message:Žiadne správy na schválenie
+pmsg_new_messages:Neprečítaná pošta
+pmsg_old_messages:Prečítať poštu
+deny_recipt:zamietnuť príjem
+deny_recipt_desc:Neposielať oznámenie, že ste čítali túto správu.
+restore_to:Obnoviť do:
+move_to:Presunúť do:
+list_referes_referrals:Privedení
+list_referes_members:Privedení členovia
+list_referes_member:Člen
+referals_none:Zatial ste do fóra nepriviedli nikoho
+referals_refered_by:Členovia fóra registrovaný na základe referencií užívateľa: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Počet príspevkov
+referals_registered_on:Registrácia
+referals_action:Akcia
+pmsg_all:všetko
+pmsg_none:nič
+folder:Priečinok:
+pmsg_replied:odpovedané
+pmsg_forwarded:preposlané
+pmsg_subject:Predmet
+pmsg_author:Autor
+pmsg_time:Čas
+pmsg_selected:Vybrané
+pmsg_delete:Vymazať
+cur_ppage_pm:Pošta
+writing_pm:Písanie správy
+browsing_folder:priečinok <b>{VAR: folders[$folder_id]}</b>
+inbox:Doručené
+draft:Rozpísané
+sent:Odoslané
+trash:Kôš
+msg_author:Autor
+avatar_sel_form:Formulár pre výber ikony užívateľa
+no_avatars:Žiadne ikony užívateľa k dispozícii
+month_1:Január
+month_2:Február
+month_3:Marec
+month_4:Apríl
+month_5:Máj
+month_6:Jún
+month_7:Júl
+month_8:August
+month_9:September
+month_10:Október
+month_11:November
+month_12:December
+male:Muž
+female:Žena
+unspecified:NEŠPECIFIKOVANÉ
+register_tree_view:Stromové zobrazenie správ a vlákien
+register_msg_tree_view:Ploché zobrazenie vlákien / Stromové zobrazenie správ
+register_tree_msg_view:Stromové zobrazenie vlákien / Ploché zobrazenie správ
+register_flat_view:Ploché zobrazenie správ a vlákien
+use_forum_default:Použiť predvolené
+finduser_user_info:Informácie o užívateľovi
+finduser_by_login:Podľa užívateľského mena:
+finduser_submit:Hľadať
+finduser_no_such_user:Hľadaný užívateľ neexistuje
+finduser_user:Užívateľ
+finduser_postcount:Počet príspevkov
+finduser_joindate:Dátum registrácie
+finduser_action:Akcia
+yes:Áno
+no:Nie
+register_email:Email
+edit_time_limit:<b>Časový limit na editáciu</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minút
+no_edit_time_limit:<b>Časový limit na editáciu</b>: <b>Neobmedzený</b>
+pmuserloc_login:Uživateľské meno:
+pmuserloc_submit:Odoslať
+pmuserloc_user:Užívateľ
+pmuserloc_no_result:Bez výsledku
+register_builtin:Prednastavené
+register_specify_url:Zadať URL
+register_uploaded:Uploadovať ikonu užívateľa
+register_login:<font class="StClr">Užívateľské meno:</font>
+register_password:<font class="StClr">Heslo:</font>
+register_conf_pass:<font class="StClr">Potvrdenie Hesla:</font>
+register_email_desc:Prosím, zadajte platnú emailovú adresu. V sekcii Nastavenia ju môžete pred ostatnými uživateľmi skryť.
+register_name:<font class="StClr">Skutočné meno:</font>
+register_your_pass:<font class="StClr">Vaše heslo:</font>
+register_update:Aktualizovať
+register_avatar_type:Typ ikony užívateľa:
+register_del_avatar:Zmazať ikonu užívateľa
+register_avatar:Ikona užívateľa:
+register_sel_avatar:Vybrať ikonu užívateľa
+register_custom_avatar_rules:Vlastná ikona užívateľa nebude zobrazená pokiaľ ju neodsúhlasí administrátor.<br /><font class="SmallText">Ikona užívateľa nesmie byť väčšia ako <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixelov</b> a musí byť v <b>jpg</b>, <b>gif</b> alebo <b>png</b> formáte.</font>
+register_custom_avatar_url:URL vlastnej ikony užívateľa:
+register_preview:Náhľad
+register_custom_avatar_upload:Súbor vlastnej ikony užívateľa:
+register_register:Registrovať
+register_required:Požadované informácie
+register_required_desc:Všetky položky sú požadované. Prosím nezabudnite, že heslo je citlivé na veľké / malé písmená.
+register_optional:Voliteľné informácie
+register_optional_desc:Doporučujeme nezverejňovať žiadne dôverné informáciele.  Všetky tieto informácie budú dostupné pre registrovaných užívateľov.
+register_location:Oblasť / Región:
+register_occupation:Zamestnanie:
+register_interests:Záujmy:
+register_image:Obrázok / Fotka (URL):
+register_icq:ICQ
+register_aim:AIM:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Domovská Stránka:
+register_bday:Dátum narodenia:
+register_bday_desc:Ak zadáte Váš dátum narodenia, ostatní užívatelia ho budú môcť vidieť vo Vašom profile.
+register_day:Deň
+register_month:Mesiac
+register_year:Rok
+register_gender:Pohlavie:
+register_bio:Životopis:
+register_bio_desc:Pár detailov o Vás ako sú záujmy, práca, atď...
+register_prefs:Nastavenia
+register_sig:Podpis:
+register_sig_desc:Voliteľný podpis, ktorý sa bude zobrazovať na konci Vašich príspevkov.
+register_reset:Vymazať
+register_def_thread_view:Východzie zobrazenie tém:
+register_msg_per_page:Počet správ na stránku:
+register_show_sig:Zobrazovať podpis:
+register_show_sig_desc:Umožňuje Vám zobrazovať alebo schovať podpisy ostatných členov.
+register_use_sig_default:Východzie používanie podpisu:
+register_use_sig_default_desc:Automaticky pridať podpis na koniec každej Vašej správy.
+register_timezone:Časová zóna:
+register_ignore_admin:Ignorovať administrátorské oznamy:
+register_invisible_mode:Neviditeľný mód:
+register_invisible_mode_desc:Aj keď budete online, ostatní to neuvidia.
+register_show_email:Zobraziť emailovú adresu:
+register_show_email_desc:Vyberte túto možnosť, pokiaľ chcete, aby Vaša emailová adresa bola zverejnená.
+register_notification:Východzie nastavenie doručovania oznamov:
+register_notification_desc:Ak je zapnuté, možete ho vypnúť pri posielaní príspevku.
+register_notify_method:Vyberte si spôsob doručovania oznamov
+register_allow_email_msg:Povoliť správy cez email:
+register_allow_email_msg_desc:Povoliť ostatným užívateľom, aby Vám mohli posielať emaily cez fórum.
+buddy_status:Stav
+my_buddies:Moji priatelia
+add_buddy:Pridať priateľa
+add:Pridať
+buddy_search:Zadajte užívateľské meno užívateľa, ktorého si želáte pridať,
+member_search:alebo použite voľbu <a href="javascript://" class="GenLink" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Hľadať užívateľa</a>.
+buddy_remove:odstrániť
+post_normal:Normálna
+post_sticky:Výveska
+post_annoncement:Oznam
+post_size:Veľkosť
+post_color:Farba
+post_font:Písmo
+create_thread:Vytvoriť tému
+submit_reply:Odoslať odpoveď
+edit_message:Aplikuj zmeny
+apply_spell_changes:Aplikuj jazykové úpravy
+post_preview:Náhľad príspevku
+post_logedin_user:Prihlásený užívateľ:
+post_logout:Odhlásiť sa
+post_passwd:Heslo na uverejňovanie príspevkov:
+post_poll:Anketa:
+post_create_poll:VYTVORIŤ ANKETU
+post_poll_delete:VYMAZAŤ
+post_poll_edit:EDITOVAŤ
+post_mod_opt:Možnosti moderátora:
+post_thread_type:Typ témy:
+post_thread_expiry:Téma vyprší:
+post_locked:Téma uzamknutá
+post_icons:Ikona správy:
+post_no_icon:Bez ikony
+post_smiley:Výber smajlíkov:
+post_format_tools:Formátovanie:
+post_upload_file:Nahrať súbor
+post_file_del:Vymazať
+post_file_name:Názov
+post_file_size:Veľkosť
+file_attachments:Prílohy:
+allowed_files:Povolené prípony príloh:
+max_file_size:Maximálna veľkosť súboru:
+max_files_per_msg:Maximálny počet súborov na správu:
+post_notification:Upozorniť na pridanie príspevku
+include_sig:Pridať podpis
+include_sig_desc:Pridať podpis z profilu.
+disable_smilies:Vypnúť smajlíkov v tejto správe
+spell_check_msg:Skontrolovať pravopis správy
+post_form:Nová správa
+post_forum:Fórum:
+post_title:Predmet:
+post_body:Obsah:
+post_options:Možnosti:
+post_preview_btn:Náhľad správy
+ignore_users:Ignorovaný užívatelia
+add_ignore:Pridať ignorovaného
+forum_terms:Podmienky Fóra
+# Fuzzy
+forum_rules:Registrácia na tomto fóre je zadarmo! Trváme na dodržiavaní všetkých pravidiel uvedených nižšie. Ak súhlasíte s týmito podmienkami, prosím stlačte tlačítko Súhlasím na konci tejto stránky.<p>Aj keď sa administrátori a moderátori tohoto fóra budú snažiť o odstránenie všetkých neprípustných správ z tohoto fóra, je pre nás nemožné prezrieť všetky uverejnené príspevky a správy. Všetky správy vyjadrujú názory ich autorov a prevádzkovatelia tohto fóra, tak ako aj jeho tvorcovia, nie sú zodpovední za obsah ktorejkoľvek správy.<p>Stlačením tlačítka Súhlasím dávate súhlas, že nebudete uverejňovať správy ktoré sú obscénne, vulgárne, sexuálne orientované, vyjadrujúce nenávisť alebo hrozbu, alebo inak porušujúce zákony Slovenskej republiky. <p>Prevázkovatelia tohto fóra majú právo na zmazanie, editovanie, presúvanie alebo uzatvorenie akejkoľvek témy z akéhokoľvek dôvodu.<p>
+# Fuzzy
+forum_rules_13:Všetci užívateľia mladši ako 13 rokov, musia získať povolenie ich rodiča, alebo zákonného zástupcu na to aby sa mohli stať členom tohoto fóra. Napriek tomu, že vítame príspevky od členov mladších ako 13 rokov, vyžadujeme aby rodič alebo zákonný zástupca odfaxoval alebo poslal poštou podpísaný registračný formulár, pred tým ako bude užívateľovi po volený prístup.<p>Ak chcete začať proces registrácie, pred tým ako dostaneme registračný formulár, stlačte tlačítko Súhlasím. Ak chcete prerušiť registračný proces stlačte tlačítko Zrušiť a vrátite sa do zoznamu fór.</p><p>Kópiu registračného formuláru si môžete stiahnuť tu. V prípade že potrebujete viac informácií o registračnom procese, prosím pošlite email na túto adresu <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:COPPA Potvrdenie
+coppa_before:Pred {TEMPLATE: coppa_date}
+coppa_after:Po {TEMPLATE: coppa_date}
+coppa_link:Kliknite na linku ktorá zodpovedá Vášmu dátumu narodenia
+# Fuzzy
+coppa:Rodič alebo zákonný zástupca musí poslať poštou alebo faxom podpísaný povolenie administrátorovi tohoto fóra pred tým ako sa užívateľ mladší ako 13 rokov može zaregistrovať.<p>Pre viac informácií kontaktujte <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+prereg_info:Informácia
+prereg_agree:Súhlasím
+prereg_disagree:Nesúhlasím
+coppa_fax_instructions:Inštrukcie pre rodiča alebo zákonného zástupcu
+coppa_fax_instructions2:Prosím vytlačte si túto stránku, podpíšte ju a odošlite / odfaxujte na:
+coppa_fax_reg_form:Registračný formulár
+coppa_fax_sign:Prosím dole podpíšte tento formulár a odošlite nám ho
+coppa_fax_conf:Prezrel som všetky informácie, ktoré my moje dieťa poskytlo a prečítal som si pravidlá tohoto fóra. Rozumiem, že  informácie uvedené v profile môžu byť zmenené použitím hesla a rozumiem, že môžem požiadať o odstránenie registrovaného profilu.
+coppa_fax_permission:Tu podpíšte ak dávate povolenie
+coppa_fax_no_permission:Tu podpíšte ak žiadate o vymazanie registrovaného profilu
+coppa_fax_parent_name:Celé meno rodiča / zákonného zástupcu:
+coppa_fax_relation:Príbuznosť k dieťaťu:
+coppa_fax_telephone:Telefón:
+coppa_fax_email:Emailová adresa:
+coppa_fax_date:Dátum:
+coppa_fax_questions:Prosím kontaktujte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> s akýmikoľvek otázkami
+coppa_fax_login:Užívateľské meno
+coppa_fax_passwd:Heslo
+coppa_fax_remail:Email
+coppa_fax_name:Meno
+login_not_logedin:Nie ste prihlásený. Môže to byť spôsobené viacerými dôvodmi:
+login_cookie_expired:Platnosť vašej cookie vypršala, a preto sa musíte znovu prihlásiť aby ste ju obnovili.
+login_perm_denied:K danému zdroju nemáte ako anonymný užívateľ prístup, a pre to aby ste ho získali sa musíte prihlásiť.
+login_want_to_register:Chcete sa registrovať?
+login_forgot_passwd:Zabudli ste heslo?
+# Fuzzy
+login_use_cookie:Použiť cookie<br /><font class="SmallText">Ak používate verejný počítač ako napríklad v knižnici, škole, alebo v Internet café, je kvôli zvýšeniu bezpečnosti odporúčané nepoužiť túto možnosť.<br />Ak necháte túto možnosť zaškrtnutú, nabudúce budete automaticky prihlásený.
+login_login:Užívateľské meno
+login_login_btn:Prihlásiť
+login_name_required:Na prihlásenie je potrebné užívateľské meno
+login_passwd_required:Na prihlásenie je potrebné heslo
+login_invalid_radius:Zlá kombinácia užívateľského mena / hesla
+reset_confirmation:Ďakujeme Vám za registráciu,\n\npre aktivovanie Vášho konta choďte na túto URL:\n\n{VAR: url}\n\nAk je Vaše konto už aktivované, budete prihlásený do fóra a\n presmerovaný na hlavnú stránku fóra.
+reset_reset:Dobrý deň,\n\npožiadali ste o resetnutie Vášho hesla. Ak chcete aby bolo Vaše heslo RESETNUTÉ \nprosím choďte na túto URL\n\n{VAR: url}\n\nPOZNÁNMKA: Toto fórum ukladá heslá pomocou jednosmerného kryptografického mechanizmu, to znamená,\nže keď zadáte Vaše heslo, toto heslo je zakódované tak, že NEEXISTUJE spôsob ako ho získať späť.\nFunguje to tak, že zadávané heslo sa pri každom prihlásení zakóduje a porovná sa so zakódovaným uloženým heslom.\n(Ak chcete podrobnejšie informácie o tom ako tento mechanizmus funguje vyhľadajte si informácie o MD5 HASHovacom algoritme)
+rpasswd_invalid_passwd:Nesprávne heslo
+rpasswd_passwd_nomatch:Heslá nie sú rovnaké
+rpasswd_passwd_length:Heslo musí mať aspoň 6 znakov
+reset_remind_pass:Upozornenie
+reset_reset_conf:Vaše heslo bude resetnuté a odoslané na Vašu emailovú adresu. V prípade, že ste ešte nepotvrdili Vašu emailovú adresu, bude namiesto hesla poslaný email so žiadosťou o potvrdenie Vášho emailu.
+reset_error:Emailová adresa sa v databáze nenašla
+rpasswd_change_pass:Zmeniť heslo
+rpasswd_login:Užívateľské meno
+rpasswd_cur_pass:Súčasné heslo:
+rpasswd_new_pass:Nové heslo:
+rpasswd_conf_pass:Potvrdiť heslo:
+login_passwd:Heslo:
+reset_email:Email:
+reset_reset_button:Reset hesla
+rate_this_thread:Ohodnotiť
+report_reporting_about:Oznamujem:
+report_subject:Predmet:
+report_by:Od:
+report_posted_on:Pridané dňa:
+report_give_reason:Prosím uveďte dôvod oznámenia tejto správy:
+report_submit_report:Odoslať oznámenie
+search_entire_msg:Celá správa
+search_subject_only:Iba predmet
+search_forum:Fórum
+search_posted_on:Pridané
+search_no_results:Žiadne výsledky
+search_all_forums:Hľadať vo všetkých fórach
+search_in_forum:Hľadať vo fóre:
+search_forum_search:Vyhľadávanie vo fóre
+move_thread_to:Presunúť tému <b>{VAR: thr->subject}</b> do:
+remail_email_topic:Poslať túto tému priateľovi emailom
+remail_your_name:Vaše meno:
+remail_your_email:Váš email:
+remail_friends_name:Meno priateľa:
+remail_friends_email:Priateľov email:
+remail_required:povinné
+remail_subject:Predmet:
+remail_message:Správa:
+remail_send_now:Odoslať email
+remail_anon_opt:Kopírovať správu na odoslanie do Vášho emailového klienta.
+remail_done:Hotovo
+remail_sent_conf:Email Vášmu priateľovi s adresou {VAR-HTML: _POST['femail']} ohľadne témy {VAR: data->subject} bol úspešne odoslaný.
+remail_error:Chyba!
+mklist_type:Typ:
+mklist_option:Voľba:
+mklist_additem:Pridať položku
+mklist_apply:Aplikovať
+mklist_delete:Vymazať
+qbud_nick_name:Prezývka
+qbud_add_selected:Pridať vybrané
+qbud_selected:Vybrané
+qbud_no_buddies:Žiadny priatelia, z ktorých by sa dalo vyberať
+mklist_numerical:Číselný
+mklist_aplha:Alfa
+mklist_square:Štvorec
+mklist_disc:Ovál
+mklist_circle:Kruh
+mklist_close:Zatvoriť
+email_to:Komu:
+email_pg_title:Email
+email_subject:Predmet:
+email_body:Obsah:
+email_submit:Email
+ppost_quote_msg:{VAR: msg_to_list} napísané {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Citované:
+ppost_to:Pre:
+ppost_from_buddy_list:Vybrať zo zoznamu priateľov
+ppost_find_User:Hľadať užívateľa
+ppost_track_msg:Sledovať túto správu
+ppost_track_msg_desc:Upozorni ma (poštou) keď bude táto správa prečítaná.
+ppost_send:Odoslať
+ppost_save_draft:Uložiť koncept
+poll_blank_option:Nemôžete pridať prázdnu voľbu.
+poll_del_conf:Ak chcete vymazať túto voľbu stlačte OK
+poll_name:Názov ankety:
+# Fuzzy
+poll_timelimit:Časový limit
+# Fuzzy
+poll_maxiumvotes:Maximálny počet hlasov
+poll_create:Vytvoriť
+poll_update:Aktualizovať
+poll_disablesmilies:Vypnúť smajlíky
+poll_create_poll:Vytvoriť anketu
+poll_update_poll:Aktualizovať anketu
+poll_delete:Vymazať
+poll_updateoption:Aktualizovať voľbu
+poll_addoption:Pridať voľbu
+poll_unlimited:Neobmedzené
+poll_day:deň
+poll_days:dni
+poll_hour:hodina
+poll_hours:hodiny
+poll_month:mesiac
+poll_year:rok
+poll_week:týždeň
+tabs_register:Nastavenia
+tabs_subscriptions:Odoberania
+tabs_bookmarkes:Záložky
+tabs_referrals:Privedení
+tabs_buddy_list:Zoznam priateľov
+tabs_ignore_list:Zoznam ignorovaných
+tabs_private_messaging:Pošta
+# Fuzzy
+single_msg_delete:Idete <font color="#ff0000" size="4">VYMAZAŤ</font> správu s názvom: <b>{VAR: data[3]}</b>
+# Fuzzy
+thread_delete:Idete <font color="#ff0000" size="4">VYMAZAŤ</font> <font color="#ff0000" size="4">CELÚ TÉMU</font> s názvom: <b>{VAR: data[3]}</b>
+delete_proceed:<font size="3"><b>Želáte si pokračovať?</b></font>
+delete_yes:Áno
+delete_no:Nie
+error_invalidurl:Nesprávna URL
+error_error:Chyba
+usrinfo_profile:Užívateľský profil {VAR: u->alias}
+usrinfo_show_all_posts:Zobraz všetky príspevky od užívateľa {VAR: u->alias}
+actions_update:Špehuje ostatných, presne ako Vy
+err_info:Informácie
+buddy_list_err_cantadd:Nemôžete pridať sám seba do zoznamu priateľov
+buddy_list_err_dup:Užívateľ sa už nachádza v zozname priateľov
+buddy_list_err_nouser:Užívateľ, ktorého ste chceli pridať do zoznamu priateľov sa na tomto fóre nenašiel.
+buddy_list_err_nouser_title:Nie je možné pridať užívateľa
+buddy_list_update:Prezerá si vlastný zoznam priateľov
+core_err_invinp_title:Nesprávny vstup
+core_err_invinp_err:Nasledovali ste neplatný odkaz, prosím oznámte to <a href="mailto:{GVAR: ADMIN_EMAIL}">administrátorovi</a>
+core_adm_login_msg:Administrátori sa môžu prihlásiť <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tu</a>
+email_err_unabletoemail_title:CHYBA: Nie je možné poslať email
+email_err_unabletoemail_msg:Systém emailov bol administrátorom vypnutý.
+email_error_unabletolocaddr:Ospravedlňujeme sa, ale systém nemohol odoslať email uživateľovi {VAR-HTML: _POST['tx_name']} pretože nemohol zistiť/nájsť jeho emailovú adresu
+email_error_body:Obsah správy je povinný
+email_error_subject:Predmet správy je povinný
+email_error_namerequired:Meno je povinné
+email_error_invaliduser:Nesprávny užívateľ
+emailconf_err_invkey_title:Chyba
+emailconf_err_invkey_msg:Nesprávny potvrdzujúci kľúč.  Prosím skontrolujte si svoj email o potvrdení, aby ste sa uistili, že ste zadali správnu URL
+# Fuzzy
+err_inc_criticaltitle:KRITICKÁ CHYBA ... niečo sa asi nepodarilo! Na sobotu zvolávam hon na programátora!!!
+err_inc_criticalmsg:Narazili ste na chybu, naneštastie je tu aj problém v systéme reportovania chýb
+finduser_update:Vyhľadávam užívateľov
+help_index_update:Číta si <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">nápovedu</a>
+iemail_thr_subject:Nová odpoveď pre {VAR: thr_subject} od {VAR: poster_login}
+iemail_thr_bodyemail:Neprečítané odpovede si môžete prezriet na tejto linke {VAR: goto_url['email']}\n\nAk si už neželáte prijímať žiadne ďalšie oznamy o príspevkoch v tejto téme, choď prosím sem: {VAR: unsub_url['email']}
+iemail_frm_subject:Vo fóre {VAR: frm_name} sa nachádza nová téma nazvaná {VAR: thr_subject} od užívateľa {VAR: poster_login}
+iemail_frm_bodyemail:Ak si chcete tému prezrieť choďte na:\n{VAR: goto_url['email']}\n\nAk si neželáte dostávať žiadne ďalšie oznamy o nových témach, choďte sem: {VAR: unsub_url['email']}
+iemail_participate:Ak sa chcete zúčastniť diskusie, choďte sem:
+ignore_list_err_info_title:Informácie
+ignore_list_err_dup_msg:Tento užívateľ sa už nachádza na zozname ignorovaných
+ignore_list_err_nu_title:Užívateľ nebol nájdený
+ignore_list_err_nu_msg:Užívateľ, ktorého ste chceli pridať do svojho zoznamu ignorovaných, nebol vo fóre nájdený.
+ignore_list_cantign_msg:Tohoto užívateľa nemôžete ignorovať
+ignore_list_update:Prehliada si vlastný zoznam ignorovaných
+index_update:Prehliada si <a href="{TEMPLATE: index_update_lnk}" class="GenLink">zoznam fór</a>
+list_referers_update:Prehliada si zoznam ludí registrovaných na základe referencií
+login_update:Prihlasovací formulár
+msg_update:Prehliadate si tému <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:CHYBA: Pošta je vypnutá
+pm_err_nopm_msg:Systém privátnej pošty nemôžete používať, lebo bol administrátorom vypnutý.
+pm_update:Používa poštu
+post_err_lockedthread_title:CHYBA: Téma je uzamknutá
+post_err_lockedthread_msg:Táto téma je uzamknutá, žiadne ďalšie príspevky niesu povolené
+err_coppa_title:CHYBA: Vaše konto ešte nebolo potvrdené
+# Fuzzy
+err_coppa_msg:Nedostali sme ešte potvrdenie Vašich rodičov a/alebo zákonných zástupcov, ktoré by Vám umožňovalo uverejňovanie správ na fóre. Ak ste Váš COOPA formulár stratili <a href="{TEMPLATE: err_coppa_msg_lnk}">kliknite sem</a> na vydanie nového
+post_err_edttimelimit_title:CHYBA
+post_err_edttimelimit_msg:Túto správu už nie je možné editovať
+post_err_floodtrig_title:CHYBA: Príliš veľa odoslaných príspevkov do systému
+# Fuzzy
+post_err_floodtrig_msg:Prosím skúste znova o {VAR: tm} sekúnd
+post_err_attach_size:Priložený súbor je príliš veľký (stanovený limit je {VAR: MAX_F_SIZE} bajtov)
+post_err_attach_ext:Súbor, ktorý chcete uploadovať nezodpovedá povoleným typom súborom.
+post_err_attach_filelimit:Chcete priložiť viac súborov ako je povolené.
+post_err_passwd:Nesprávne heslo.
+post_reply_update:Odpovedáte na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> v {VAR: frm->name}
+post_topic_update:Vytvárate novú tému v <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Vyskytla sa chyba
+postcheck_max_images_err:Maximálnu počet obrázkov na príspevok je {GVAR: MAX_IMAGE_COUNT}, prosím znížte počet obrázkov
+postcheck_subj_needed:Predmet je povinný
+postcheck_no_such_user:V tomto fóre sa nenachádza užívateľ s menom "{FUNC: char_fix(htmlspecialchars($v))}"
+postcheck_ignored:Užívateľovi "{FUNC: char_fix(htmlspecialchars($v))}" nemôžete poslať poštu, pretože tento užívateľ Vás ignoruje.
+postcheck_no_recepient:Správu nie je možné poslať, chýba príjemca
+postcheck_invalid_email:Prosím pridajte platnú emailovú adresu Vášho priateľa.
+postcheck_email_subject:Nemôžete poslať email bez predmetu.
+postcheck_email_body:Nemôžete poslať email bez obsahu.
+private_msg_notify_subj:Prečítať oznámenie pre: {VAR: m->subject}
+private_msg_notify_body:Dobrý deň,<br />užívateľ {VAR: usr->login} si prečítal Vašu správu, "{VAR: m->subject}", o {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Prehliada si zoznam ludí registrovaných na základe referencií
+register_err_short_login:Užívateľské meno, ktoré ste zadali, je príliš krátke. Zadajte aspoň 4 znaky
+register_err_login_notallowed:Toto užívateľské meno nie je povolené
+register_err_loginunique:Užívateľské mená vo fóre musia byť unikátne, užívateľ s takýmto menom sa už v systéme nachádza
+register_err_emailexists:Táto emailová adresa už bola použitá, ak ste svoje heslo zabudli, prosím použite možnosť resetnutia hesla namiesto novej registrácie
+register_err_shortpasswd:Heslo musí mať aspoň 6 znakov
+register_err_passwdnomatch:Vaše heslá sa nezhodujú.
+register_err_invalidemail:Emailová adresa, ktorú ste zadali, nie je platná.
+register_err_needname:Pre úspešné ukončenie tejto registrácie prosím zadajte svoje meno.
+register_err_enterpasswd:Na prevedenie zmien musíte zadať Vaše súčastné heslo
+# Fuzzy
+register_err_adminpasswd:Na prevedenie zmien musíte zadať Vaše ADMINISTRÁTORSKÉ heslo
+register_err_notyouremail:Na túto emailovú adresu je už niekto registrovaný, ale ten niekto NIESTE vy
+register_err_avatartobig:Súbor ktorý sa snažíte uploadovať je príliš veľký, limit je {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytov
+register_err_avatarnotallowed:Užívateľská ikona, ktorú sa pokúšate uploadovať, nie je povoleného typu. Skontrolujte si povolené typy súborov.
+register_conf_subject:Potvrdenie registrácie
+register_conf_msg:Ďakujeme Vám za registráciu,\nak Chcete aktivovať Vaše konto, choďte na nižšie uvedenú URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPo aktivovaní Vášho konta budete prihlásený do fóra a\npresmerovaný na hlavnú stránku fóra.
+register_welcome_subject:Potvrdenie registrácie do fóra
+register_welcome_msg:Ďakujeme za Vašu registráciu,\n\nTu sú údaje potrebné na prihlásenie do fóra:\n\nURL fóra: {TEMPLATE: index_update_lnk}\nUžívateľské meno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamätajte prosím, že heslo je citlivé na veľké/malé písmená!\nAk si chcete zmeniť Vaše nastavenie alebo profil, choďte sem:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:CHYBA: nemôžeme Vás zaregistrovať
+regsiter_err_cantreg_msg:Nie je možné vytvoriť uživateľský účet, prosím kontaktujte administrátora na adrese <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Prezerá si vlastný profil
+register_register_update:Registračná Stránka
+report_err_nosuchmsg_title:CHYBA
+report_err_nosuchmsg_msg:Zadaná správa neexistuje
+reset_err_invalidkey_title:CHYBA
+reset_err_invalidkey_msg:Chybný kľúč pre resetnutie hesla
+reset_err_rstconf_title:Informácia
+reset_err_rstconf_msg:V priebehu pár minút by ste e-mailom mali obdržať ďalšie pokyny
+reset_newpass_title:Resetnutie hesla
+reset_newpass_msg:Dobrý deň,\n\nna základe Vašej žiadosti Vám posielame prihlasovacie informácie:\n\nUžívateľské meno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím všimnite si, že Vaše heslo bolo zmenené na horeuvedenú hodnotu.\nAk si chcete ho chcete zmeniť, môžete tak urobiť v užívateľskom kontrolnom paneli na adrese:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Vaše heslo Vám bolo odoslané emailom. V priebehu niekoľkých minút by ste ho mali obdržať. Prosím skontrolujte si Vašu poštu.<br />
+search_update:Vyhľadáva správy
+selmsg_update:Prehliada <a href="{TEMPLATE: selmsg_update_lnk}">dnešné príspevky</a>
+showposts_update:Prezerá si príspevky od: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Prehliada si odoberané témy a fóra
+thread_update:Prehliada fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Prehliada si tému (stromové zobrazenie) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Prezerá si profil užívateľa <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
+ERR_disabled_ttl:Vypnuté možnosti
+ERR_disabled_msg:Táto možnosť bola vypnutá administrátorom
+ERR_access_ttl:CHYBA: Nedostatočné právomoci
+ERR_access_msg:Nemáte dostatočné právomoci na vykonanie tejto akcie
+ERR_registration_disabled_ttl:Registrácia je vypnutá
+ERR_registration_disabled_msg:Administrátor vypol registračný systém, prosím skúste neskor
+ERR_emailconf_ttl:CHYBA: Vaše konto ešte nebolo potvrdené
+ERR_emailconf_msg:Zatiaľ ste nepotvrdili Vaše konto prostredníctvom emailu<br /><table border="0"><tr><td><ol><li>Ak ste neobdržali verifikačný email, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliknite sem</a><li>Ak {VAR: usr_d->email} nie je Vaša správna emailová adresa, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliknite sem</a></ol></td></tr></table>
+ERR_user_ttl:CHYBA: Užívateľ neexistuje
+ERR_user_msg:Zadaný užívateľ neexistuje
+ERR_systemerr_ttl:CHYBA: Systémová Chyba
+ERR_systemerr_msg:V systéme sa vyskytla chyba. Prosím oznámte to <a href="mailto:{GVAR: ADMIN_EMAIL}">administrátorovi</a>.
+email_title:Emailový Formulár
+finduser_title:Hľadanie užívateľa
+help_title:F.A.Q.
+login_title:Prihlasovací formulár
+poll_title:Editor Ankiet
+register_title:Registračný formulár
+reset_title:Resetnutie Hesla
+rpasswd_title:Formulár pre zmenu hesla
+error_title:Formulár chýbových hlásení
+index_title:Vitajte vo fóre
+search_title:Hľadať {VAR-HTML: srch}
+remail_emailsent:Email bol odoslaný
+remail_email:Dobrý deň,\n\nvo fóre {GVAR: FORUM_TITLE} sa nachádza zaujímavá téma "{VAR: data->subject}" ktorú by ste si možno chceli prečítať. Tému si môžete prezrieť na adrese:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVáš priateľ,\n\n{VAR: usr->alias}
+poll_add_option:Pridať možnosť:
+post_opt_html_on:<b>HTML</b> je <b>ZAPNUTÉ</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> je <b>ZAPNUTÝ</b></a>
+post_opt_images_on:<b>Obrázky</b> sú <b>ZAPNUTÉ</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smajlíci</b> sú <b>ZAPNUTÍ</b></a>
+post_opt_html_off:<b>HTML</b> kód je <b>VYPNUTÝ</b>
+post_opt_fud_off:<b>BBcode</b> je <b>VYPNUTÝ</b>
+post_opt_images_off:<b>Obrázky</b> sú <b>VYPNUTÉ</b>
+post_opt_smilies_off:<b>Smajlíci</b> sú <b>VYPNUTÍ</b>
+post_opt:Nastavenia fóra
+register_change_passwd:zmeniť heslo
+approved_avatar_title:Vaša ikona bola schválená.
+approved_avatar_msg:Vaša ikona bola schválená administrátorom. Mala by sa teraz zobraziť vedľa všetkých Vašich správ. Ak ju nevidíte, alebo vidíte Vašu starú ikonu, je to preto, že Vás prehliadač má stránku v pamäti. Skúste ju raz alebo dva krát obnoviť, vo väčšine prípadov to problém vyrieši.
+unapproved_avatar_title:Vaša ikona bola zamietnutá.
+unapproved_avatar_msg:Administrátor neschválil Vašu ikonu. Najčastejším dôvodom býva, že ikona je príliš veľká (veľkosť a/alebo rozmery), alebo mala nevhodný obsah. Ak chcete viac informácii o tom prečo bola Vaša ikona zamietnutá kontaktujte administrátora.
+mvthread_request_move:požiadavka na presun
+move_request_reason:Prečo chcete aby bola téma presunutá?
+mvthread_submit_req:Odoslať požiadavku
+thread_exchange:Výmena témy
+move_request_by:Požiadavka na presun od:
+move_reason:Dôvod na presun:
+thr_exch_accept:prijať tému
+thr_exch_decline:odmietnuť tému
+thr_exch_orig_forum:Pôvodné Fórum:
+thr_exch_dest_forum:Cieľové Fórum:
+thr_exch_no_threads:Žiadne témy nečakajú na schválenie.
+thr_exch_decl_reason:Dôvod na odmietnutie témy <b>{VAR: data->subject}</b> vo fóre <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Odoslať
+exch_decline_ttl:Presun témy {VAR: data->subject} do fóra {VAR: data->f2_name} bol zamietnutý.
+ppost_original_msg:správa ktorú preposielate alebo na ktorú odpovedáte
+split_thread:Rozdeliť Tému
+groupmgr_no_user:Užívateľ s užívateľským menom "{FUNC: char_fix(htmlspecialchars($gr_member))}" neexistuje
+groupmgr_already_exists:Užívateľ "{FUNC: char_fix(htmlspecialchars($gr_member))}" sa už v tejto skupine nachádza.
+groupmgr_yes:Áno
+groupmgr_no:Nie
+groupmgr_action:Akcia
+groupmgr_member:Člen
+groupmgr_cancel:Zrušiť
+groupmgr_add_member:Pridať člena
+groupmgr_update_member:Aktualizovať člena
+groupmgr_edit:Editovať
+groupmgr_delete:Vymazať
+group_mgr_anon:Anonymní
+group_mgr_reged:Všetci registrovaný užívatelia
+show_show:Ukázať:
+group_mgr:Správa skupín
+group_mgr_edit_btn:Editovať skupinu
+group_mgr_heading:Výber skupiny pre editovanie
+group_mgr_group:Skupina:
+permission_denied_title:Prístup zamietnutý!
+permission_denied_msg:Vaše užívateľské právomoci Vám neumožňujú vykonať zmeny o ktoré sa pokúšate.
+p_READ:Čítať
+p_POST:Vytvoriť tému
+p_REPLY:Odpovedať
+p_EDIT:Editovať
+p_DEL:Vymazať
+p_STICKY:Výveska
+p_POLL:Vytvoriť anketu
+p_FILE:Priložiť súbor
+p_VOTE:Hlasovať
+p_RATE:Ohodnotiť tému
+p_SPLIT:Rozdeliť tému
+p_LOCK:Uzamknúť tému
+p_MOVE:Presunúť tému
+p_SML:Používať smajlíkov
+p_IMG:Používať obrázkové tagy
+p_SEARCH:Môže vyhladávať
+group_mgr_search:Hladať užívateľa
+group_mgr_indicator:Práve editujete: <b>{VAR: grp->name}</b>
+rate_worst:Najhoršia
+rate_best:Najlepšia
+post_quote_msg:{VAR: msg->login} napísal dňa {TEMPLATE: make_report_date}
+post_quote:Citát:
+userinfo_referals:Privedený užívatelia:
+userinfo_referals_count:{VAR: referals} Členovia
+pm_no_space_title:Priestor vyčerpaný!
+pm_no_space_msg:Váš poštový pričinok prekročil maximálnu veľkosť <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytov</b>. Vaša pošta momentálne obsahuje <b>{VAR: fldr_size} bytov</b> správ.<br /><br /><font class="ErrorText">Odstráňte niekoľko starých správ, aby ste uvolnili miesto</font>.
+pm_space_indct_msg:Vaša poštová schránka je na {VAR: percent_full}% plná.
+th_expr_never:Nikdy
+th_expr_one_hr:1 hodina
+th_expr_three_hr:3 hodiny
+th_expr_four_hr:4 hodiny
+th_expr_eight_hr:8 hodín
+th_expr_sixteen_hr:16 hodín
+th_expr_one_day:1 deň
+th_expr_two_day:2 dni
+th_expr_four_day:4 dni
+th_expr_one_week:1 týždeň
+th_expr_two_week:2 týždne
+th_expr_one_month:1 mesiac
+th_expr_two_month:2 mesiace
+th_expr_four_month:4 mesiace
+th_expr_one_year:1 rok
+thread_mod_delete:Vymazať
+action_latest_post:Posledný príspevok
+online_today_last_visit:Posledná návšteva
+online_today_update:Prezerá si zoznam dnešných návštevníkov.
+logedin_todays_visitors:Zoznam dnešných návštevníkov
+logedin_latest_post:Posledný príspevok vo fóre:
+register_show_avatar:Ukázať užívateľské ikony:
+register_show_avatar_desc:Umožňuje Vám schovať ikony užívateľov, keď si prezeráte ich správy
+drawmsg_view_rest_post:Ukázať zvyšok správy
+forumsel_goto_forum:Ísť do fóra:
+minimsg_thread_view:Zobrazenie témy
+split_th_post_by:Príspevok od:
+split_th_posted_on:Pridané dňa:
+split_th_subject:Predmet:
+split_th_new_thread_title:Titul novej témy:
+split_th_forum:Fórum:
+split_th_split_sel:Rozdeliť vybrané témy
+split_th_split_unsel:Rozdeliť nevybrané témy
+split_th_messages:Správy
+split_th_select:Vybrať
+report_report_post:Oznámiť príspevok
+# Fuzzy
+quicklogin_login:Užívateľské meno
+# Fuzzy
+quicklogin_password:Heslo
+quicklogin_use_cookies:Používať Cookies?
+# Fuzzy
+quicklogin_login_btn:Prihlásiť
+quick_reply:Rýchla Odpoveď
+post_notification_desc:Upozorni ma, keď niekto bude reagovať na túto správu.
+post_all_ext_allowed:(neobmedzené)
+maximize_category:Maximalizuj/Otvor kategóriu
+maximize_message:Maximalizovať Správu
+no_view_perm:Na prezeranie tejto tému nemáte dostatočné právomoci.
+report_empty_report:Nemôžete odoslať prázdne oznámenie, vyplňte prosím dôvod oznámenia.
+report_already_reported_title:Už oznámené
+report_already_reported_msg:Táto správa už bola oznámená a oznam čaká na spracovanie moderátormi.
+register_err_toomanyimages:Pokúšate sa použiť viac ako povolených {GVAR: FORUM_IMG_CNT_SIG} obrázkov vo Vašom podpise.
+pmsg_next_msg:Ďaľšia správa
+pmsg_prev_msg:Predchádzajúca správa
+post_proc_reveal_spoiler:Odkryť narušiteľa
+im_jabber:Jabber:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Kontakt
+forum_home:Domov
+# Fuzzy
+post_cur_attached:momentálne máte {VAR: i} priložených súborov
+ignored_anon_post:{GVAR: ANON_NICK} je ignorovaný
+ignored_user_post:Príspevok od <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> je ignorovaný
+smladd_close_window:Zatvoriť okno
+post_list_smilies:Zoznam všetkých smailíkov
+p_VISIBLE:Vidieť
+# Fuzzy
+reported_in_thread:V téme
+help_back_to_top:späť na začiatok
+help_return_to_index:Späť na úvod nápovedy
+imsg_err_message_title:Nesprávna téma
+imsg_err_message_msg:Správa, ktorú si chcete prezrieť neexistuje.
+poll_edit:Editovať
+register_err_not_valid_img:Uvedená URL neobsahuje platný obrázok
+pmsg_recepient:Príjemca
+register_err_taken_alias:Prezývku, ktorú chcete použiť už používa iný člen fóra, prosím vyberte si inú.
+register_alias:<font class="StClr">Prezývka:</font>
+register_alias_desc:Ak chcete aby sa vo fóre zobrazovala prezývka iná ako je Váše uživateľské meno, zadajte prosím túto prezývku.
+register_allow_pm_msg:Povoliť poštu
+register_allow_pm_msg_desc:Povoliť ostatným užívateľom poslať Vám cez fórum poštu do Vašej schránky na fóre.
+postcheck_pm_disabled:Nemôžete poslať poštu užívateľovi "{VAR-HTML: v}", pretože tento užívateľ má poštu vypnutú.
+polllist_vote:Hlasovať
+polllist_view_results:Zobraziť výsledky
+polllist_name:Meno ankety
+polllist_date:Vytvorená dňa
+polllist_owner:Autor
+polllist_votes:Celkom hlasov
+polllist_action:Akcia
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">prezerá si aktívne ankety</a>
+userinfo_polls:Ankety:
+show_pollist:Zobraziť ankety
+search_and:A
+search_or:ALEBO
+search_desc_order:Zostupne
+search_asc_order:Vzostupne
+search_logic:Logika vyhľadávania:
+search_sorting:Zoradiť výsledky podľa dátumu:
+post_proceed:Pokračovať
+post_moderated_forum:Poslali ste správu do moderovaného fóra, čo znamená, že správa nebude vo fóre viditeľná pokiaľ nebude odsúhlasená moderátorom fóra a/alebo administrátorom.
+post_moderated_forum_ttl:Upozornenie: Moderované fórum
+buddy_list_bday:Dnes bude mať {VAR: r[2]} {VAR: age} rokov
+email_warning_msg:Ak si zmeníte Vašu súčasnú emailovú adresu, bude Vaše konto označené ako nepotvrdené, až pokiaľ ho nepotvrdíte cez URL v odoslanom emaile.
+register_show_im:Zobraziť IM indikátory
+register_show_im_desc:Či sa majú alebo nemajú zobrazovať IM (Instant Messaging) indikátory autorov vedľa ich správ.
+unread_message:Neprečítaná Správa
+read_message:Čítať Správu
+threadt_more:&lt;viac&gt;
+threadt_disabled_ttl:Stromové zobrazenie vlákien bolo vypnuté.
+threadt_disabled_desc:Administrátor vypol stromové zobrazenie vlákien, použite prosím ploché zobrazenie.
+threadt_update:Prehliada fórum (stromové zobrazenie) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Potvrdenie vymazania Témy/Správy
+spell_alts:bez alternatív
+insert_uploaded_image:Pridať obrázok do tela správy
+finduser_help:Vyhľadávací stroj pridá automaticky do Vášho dotazu masku *  napr. ak chcete nájsť užívateľov, ktorých užívateľské meno začína s 'a', zadajte 'a' do vyhľadávacieho pola.
+back_to_top:Späť na začiatok
+pm_err_disabled_title:Pošta je vypnutá
+pm_err_disabled_msg:Nemôžete odoslať správu poštou pokiaľ si nezapnete možnosť 'Povoliť poštu' vo Vašom profile.
+err_mod_acc_ttl:Neoverené konto
+err_mod_acc_msg:Administrátor sa rozhodol pre manuálne potvrdzovanie všetkých nových registrácií. Pokiaľ Vaše konto nebude potvrdené administrátorom, nebudete môcť naplno využívať všetky možnosti Vášho konta.
+accounts_pending_approval:Kontá čakajúce na schválenie
+saved:Uložené
+# Fuzzy
+register_err_time_limit:Limit jednej registrácie za {GVAR: REG_TIME_LIMIT} sekúnd bol dosiahnutý. Prosím počkajte {VAR: reg_limit_reached} sekúnd a potom sa pokúste o registráciu opäť.
+register_affero:Affero užívateľské meno:<br /><font class="SmallText">Ak máte <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> užívateľské meno, zadajte ho sem.</font>
+im_affero:Affero užívateľské meno
+register_err_avatardimtobig:Rozmery Vašej užívateľskej ikony <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> su väčšie ako povolené rozmery <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+buddy_offline:{VAR: r[2]} je práve offline
+buddy_online:{VAR: r[2]} je práve online
+sml_no_smilies:Smajlíci niesu dostupný.
+login_unapproved_account_ttl:Neschválené kontá
+login_unapproved_account_msg:Administrátor tohoto fóra sa rozhodol manuálne potvrdzovať každé nové konto pred jeho aktiváciou. Vaše konto ešte nebolo potvrdené, preto nebudete mocť pristupovať k niektorým funkciám fóra určeným pre registrovaných užívateľov, pokial Vaše konto nebude schválené.
+remove_from_buddy_list:Odstrániť zo zoznamu priateľov
+iemail_msg_author:<b>Autor:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Predmet:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Dátum:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Odpovedať
+iemail_msg_quote:Citovať
+iemail_msg_view:Prezrieť Tému/Správu
+threadt_sticky:výveska
+threadt_announce:oznam
+reported_no_messages:Neexistujú žiadne oznámené správy.
+poll_no_polls:Neexistujú žiadne prístupne ankety.
+no_unread_messages:Neexistujú žiadne neprečítané správy spĺňajúce Vaše požiadavky.
+thread_mark_all_read:Označiť všetky neprečítané správy v tomto fóre ako prečítané
+thread_mark_all_read_desc:Všetky neprečítané správy v tomto fóre budú označené ako prečítané
+private_no_messages:V tomto adresári niesu žiadne správy
+register_email_change_subject:Potvrdenie zmeny E-mailu
+register_email_change_msg:Prosím potvrďte Vaše nové emailové konto "{VAR: uent->email}", ktoré nahrádza Vaše staré konto "{VAR: old_email}" tým, že pôjdete na nasledovnú URL:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKeď potvrdíte Vašu novú emailovú adresu, Vaše konto bude reaktivované.
+iemail_thread_unsub:Odhlásiť sa z tohoto vlákna
+iemail_forum_unsub:Odhlásiť sa z tohoto fóra
+primary_group_prefix:Primárna skupina pre fórum:
+group_resources:Táto skupina kontroluje práva pre nasledujúce fóra
+register_admin_newuser_title:Nový užívateľ sa zaregistroval a jeho konto čaká na schválenie
+register_admin_newuser_msg:Nový užívateľ ({VAR: uent->login}) sa práve registroval a keďže je potvrdzovanie kont je zapnuté, toto konto nebude aktivované pokiaľ ho Vy alebo iný administrátor na tomto fóre nepotvrdí. Ak chcete prezrieť toto konto choďte na: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nTáto správa je generovaná serverom, prosím neodpovedajte na ňu\nAk chcete vypnúť ďalšiu e-mailovú notifikáciu nových registrácií, môžete tak urobiť cez Admin Control Panel, zmenením nastavenie "New Account Notification".
+post_mod_msg_notify_title:Nová správa vo fóre "{VAR: frm->name}" čakajúca na schválenie
+post_mod_msg_notify_msg:Správa s predmetom "{VAR: msg_post->subject}" bola práve uverejnená na fóre ktoré moderujete. Ak chcete prezrieť túto správu choďte na: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTáto správa je automaticky generovaná. Prosím neodpovedajte na ňu.
+thread_printable_pdf:Generovať PDF
+thread_syndicate:Vytvoriť XML súbor tohoto fóra
+reg_conf_title:Overenie registrácie
+reg_conf_email:<b>Potvrdenie E-mailu</b><br />Na Vašu emailovú adresu bol odoslaný mail obsahujúci špeciálnu URL, na ktorú musíte ísť, aby bolo Vaše konto aktivované. Ak tento mail neobdržíte v nasledujúcich niekoľkých minútach, prihláste sa na svoje konto a skontrolujte, či Vaša emailová adresa, ktorú ste uviedli je správna. Keď overíte svoju emailovú adresu, budete môcť využívať možnosti tohoto fóra určené overeným registrovaným užívateľom.
+reg_conf_account:<b>Potvrdenie konta</b><br />Pred tým než bude Vaše konto aktivované, musí byť odsúhlasené administrátorom. Keď sa tak stane, obdržíte email so správou o potvrdení Vášho konta. Do tej doby sa nebudete moc na toto konto prihlásiť a pristupovať k funkciám určeným pre registrovaných užívateľov.
+forum_banned_user:Vaše predchádzajúce správanie vyústilo do toho, že Váš prístup do tohoto fóra bol na stálo zakázaný. Zbohom.
+mnav_description:Navigátor správ
+mnav_date_limit:Časový interval:
+mnav_forum_limit:Hľadať iba v:
+mnav_all_forums:Hľadať vo všetkých fórach
+mnav_submit:Začať Vyhľadávanie
+mnav_no_range:Musíte vložiť platný časový rozsah. Táto hodnota može byť reálne číslo (0.12), ale musí to byť číslo väčšie ako nula.
+mnav_invalid_unit:Musíte vložiť platnú jednotku času.
+mnav_invalid_date:Časový rozsah, ktorý ste zadali je väčší ako je povolené administrátorom. Zúžte prosím časový rozsah Vášho vyhľadávania.
+mnav_no_results:Neexistujú žiadne správy spĺňajúce kritériá.
+mnav_posted_by:Autor:
+mnav_minute:Minúta
+mnav_hour:Hodina
+mnav_day:Deň
+mnav_week:Týždeň
+mnav_month:Mesiac
+mnav_title:Navigátor správ
+mnav_update:Prezerá si príspevky cez <a href="{TEMPLATE: mnav_update_lnk}">Navigátor správ</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Upozornenie na novú správu v pošte
+pm_notify_body_email:V pošte máte novú správu s predmetom "{VAR: subject}" od užívateľa "{VAR: from}" z fóra "{GVAR: FORUM_TITLE}" forum.\nPre prezretie správy kliknite sem: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAk si neželáte dostávať ďalšie takéto upozornenia, vypnite možnosť "Upozorňovať na prijatú poštu" vo Vašom profile.
+register_pm_notification:Upozorňovať na prijatú poštu
+register_pm_notification_desc:Ak je povolené, budete upozornený prostredníctvom komunikačnej metódy podľa Vášho výberu vždy, keď do Vašej pošty príde správa.
+findu_admin_opts_header:Možnosti Admina
+findu_unban:Odblokovať
+findu_ban:Zablokovať
+findu_edit:Editovať
+findu_delete:Vymazat
+dmsg_reply_to:je odpoveďou na správu #{VAR: obj->reply_to}
+merge_topics:Zlúčiť témy
+merge_topics_cp:Ovládací panel pre zlúčenie tém
+merge_topics_tpl:Vyberte témy na zlúčenie <font class="SmallText">(musíte vybrať viac než jednu tému)</font>
+merge_merge:Zlúčiť vybrané témy
+merge_next:Ďalšie témy
+merge_prev:Predchádzajúce témy
+split_cp:Ovládací panel pre rozdelenie vlákien
+groups_perms_header:Právomoci <font size="-1">(presuňte kurzor myši nad právomoc aby ste uvideli jej typ)</font>
+register_err_sig_too_long:Váš podpis prekračuje maximálnu povolenú dĺžku, ktorá je {GVAR: FORUM_SIG_ML} znakov.
+register_sig_limit:{GVAR: FORUM_SIG_ML} znakov <a href="javascript: alert('Váš podpis má dĺžku '+document.forms['fud_register'].reg_sig.value.length+' znakov. Maximálna povolená dĺžka je {GVAR: FORUM_SIG_ML} znakov.');" class="SmallText">Skontrolovať dĺžku podpisu</a>
+adm_account_accepted:Vaše konto '{VAR: login}' bolo odsúhlasené administrátorom a je aktívne. Od teraz máte prístup na fórum {GVAR: FORUM_TITLE}' ako registrovaný odsúhlasený užívateľ.
+adm_account_accepted_s:Vaša požiadavka na/pre '{GVAR: FORUM_TITLE}' bola prijatá.
+adm_account_rejected:Vaše konto '{VAR: login}' bolo administrátorom zamietnuté. Ak chcete poznať dôvod tohoto rozhodnutia, kontaktujte administrátora na adrese '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Vaše požiadavka na/pre '{GVAR: FORUM_TITLE}' bola zamietnutá.
+thread_on:Pridané:
+userinfo_buddy:Priateľ:
+register_email_addr:<font class="StClr">E-mailová Adresa:</font>
+reset_suffix:Ak ste dostali túto správu ako chybu, prosím ignorujte ju. Ak dostávate viac kópií tohoto emailu, ktoré ste si nevyžiadali, prosím kontaktujte administrátora fóra na adrese {GVAR: ADMIN_EMAIL}\n\nTáto požiadavka bola inicialzivaná z: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Posledná návšteva:
+mnav_newer:novší než
+mnav_older:staršie než
+ip_search:Vyhľadávať
+userinfo_real_name:Skutočné Meno:
+register_err_alias_notallowed:Táto prezývka nie je povolená
+post_err_mod_forum_edit_ttl:CHYBA
+dmsg_num:správa #{VAR: obj->id}
+delete_msg_pm_body:Pôvodná správa
+uc_new_pm:Nové Súkromné Správy
+uc_new_topic:Nová Téma
+findu_no_conf:nepotvrdený užívateľ
+register_max_sig_len:Maximálna Dĺžka:
+modque_cat:Kategória
+modque_forum:Fórum
+mmd_del_title:Zmazať Témy
+mmd_mov_title:Presunúť Témy
+mmd_move:Presunúť Témy
+thread_del_all:Zmazať Všetky Vybrané
+thread_mov_all:Presunúť Všetky Vybrané
+sml_code:Kód
+post_common_link:Vložiť Odkaz
+post_common_email:Vložiť Emailovú adresu
+post_common_image:Vložiť obrázok
+post_common_code:Pridať Kód
+rating_delete:Zmazať
+post_descr:Popis Témy:
+pmsg_on:dňa
+pmsg_download_dump:Stiahnuť Archív Správ
+move_messages:Presunúť správy
+move_msg_btn:Presunúť Vybrané Správy
+code_title:KÓD:
+code_select_all:Vybrať všetko
+code_show_hide:Zobraziť/ skryť

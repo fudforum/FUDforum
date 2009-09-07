@@ -1,1040 +1,1097 @@
-action:				操作
-add_to_buddy_list:		加入好友列表
-admin:				管理
-admin_control_panel:		管理界面
-administrator:			系统管理员
-attachment:			附件：
-avatar:				头像：
-average_post_count:		{VAR: u->posted_msg_count} 帖子(日均发帖数{VAR: avg} )
-biography:			个人简介：
-birth_date:			生日：
-by:				发帖：
-by_mod:				版主
-current_time:			当前时间
-custom_avatar_queue:		定制头像列表
-date_posted:			发布时间
-date_registered:		注册日期：
-download_counter:		下载次数{VAR: v[3]}
-email:				邮件：
-email_to_friend:		发送邮件给朋友
-email_to_friend_desc:		发送邮件，向你的朋友推荐这个帖子
-email_user:			点击这里向此用户发送邮件。
-faq:				帮助
-first_unread_msg:		转入未读的帖子
-first_unread_msg_desc:		转入本主题第一个未读帖子
-flat_view:			返回至默认浏览方式
-forum:				论坛：
-forum_icon:			论坛图标
-forum_new_messages:		新消息
-forum_none_messages:		只有本论坛的注册用户能够把帖子标为“已读”或“未读”
-forum_old_messages:		没有新消息
-from:				来自：
-gender:				性别：
-go:				跳转
-goto_next_msg:			下一楼
-goto_prev_msg:			楼上
-home:				主页
-homepage:			主页：
-icq_control_panel:		ICQ 在线信息
-icq_message_form:		ICQ 信息列表：
-ignore_user:			加入黑名单
-im_aim:				AIM：
-im_msnm:			MSN信息：
-im_yahoo:			Yahoo信息：
-image:				照片：
-index_forum:			论坛
-index_new_posts:		上次浏览以后的新帖
-index_no_new_posts:		自从上次浏览以后没有新帖
-interests:			兴趣：
-last_post:			最新帖子
-last_thread_msg:		转入本主题最后一个帖子。
-legend:				图例：
-location:			地区：
-lock_thread:			锁定本主题
-locked:				被锁定
-locked_with_new_posts:		锁定（且未读）
-logged_in_list:			登录用户列表
-login:				登录
-login_header:			昵称：
-logout:				注销
-mark_all_read:			标记所有信息为已读
-mark_all_read_desc:		所有你没有读过的信息都将被标为已读。
-members:			成员
-message:			信息
-message_counter:		用户已经提交 <b>{VAR: post_count}</b>个帖子，分布在<b>{VAR: thread_count}</b>个主题里。
-message_index:			信息索引
-message_index_desc:		查看信息列表
-minimize_category:		减少目录层次
-moderation_queue:		版主列表
-moderator:			版主
-moderator_of:			版主：
-moderator_options:		版主功能
-moderators:			版主
-more_unread_messages:		更多未读信息
-more_unread_messages_desc:	显示更多未读信息，并且把现在的信息标为已读。
-move_thread:			转移
-moved:				转移至别的论坛
-moved_thread_message:		这个主题已被转移至别的论坛。
-na:				暂无
-new_posts:			新的主题
-new_private_messages:		你有 <span class="GenText" style="color: #ff0000">({VAR: c})</span> 条未读悄悄话。
-new_thread:			生成新的主题
-newest_user:			最新注册的用户是
-next_page:			下一页
-next_thread:			上一个主题：
-no_messages:			本论坛没有任何发言。
-no_msg_body:			没有内容！
-no_new_posts:			没有新的主题
-no_posts:			没有新主题
-no_subscribed_forums:		没有预定的论坛
-no_subscribed_threads:		没有预定的主题
-no_unread_locked:		本主题已被锁定（不可回复）。
-no_unread_msg:			这个主题没有未读信息。
-no_unread_msg_unreg:		只有注册用户能够把信息标为已读和未读。
-num_pages:			页（{VAR: ttl_pg}）：
-num_votes:			{VAR: obj->total_votes} 选票
-occupation:			职业：
-off:				关闭
-on:				打开
-page_timings:			生成本页面共花费时间：{VAR: page_gen_time} 秒。
-pm:				悄悄话
-poll:				调查：
-post_count:			发帖数： {VAR: u_pcount}
-post_count_l:			帖子数：
-posts:				帖子
-posts_c:			发帖数：
-prev_thread:			下一个主题：
-usrinfo_private_message:	悄悄话
-profile:			           个人信息
-profile_desc:			点击这里至用户管理界面
-rate_thread:			主题评价
-refresh_list:			更新目录
-register:			注册
-registered:			注册时间：
-registered_on:			注册日期：{DATE: u_reg_date %Y-%m-%d}
-replies:			           回复
-report_to_mod:			违规帖举报
-reported_messages:		已向版主举报的违规帖
-reveal_all_posts:		显示所有结果 {VAR: user_login}
-reveal_post:			显示结果
-search:				搜索
-sel_todays_posts:		今天的主题
-sel_todays_posts_desc:		只显示今天的主题
-sel_unanswered_posts:		未回复主题
-sel_unanswered_posts_desc:	只显示未回复主题
-sel_unread_messages:		未读信息
-sel_unread_messages_desc:	只显示未读信息
-send:				发送
-send_pm_desc:			发悄悄话给这个用户
-sender_email:			发送者邮件：
-sender_name:			发送者姓名：
-show_posts_by:			显示用户 {VAR: u_alias}发布的主题
-size:				大小：
-status:				级别：
-status_line:			现有 <b>{VAR: st_obj->online_users_reg}</b> 名用户，还有 <b>{VAR: st_obj->online_users_hidden}</b> 名隐身用户和 <b>{VAR: st_obj->online_users_anon}</b> 名访客访问本论坛。
-sticky:				置顶：
-stop_ignoring:			不再拒绝这个用户
-sub_to_thread:			订阅这个主题
-sub_to_thread_desc:		接受关于这个主题的最新回复的通知
-subject:			           主题
-subscribe:			预定
-subscribe_desc:			当本论坛有人发布新的主题时，请通知我。
-subscribed_forums:		预定论坛信息
-subscribed_forums_desc:		只显示预定的论坛信息
-subscribed_threads:		预定论坛主题
-subscribed_threads_desc:	只显示预定论坛主题
-switch_to_thread_view:		转换成以树状方式浏览
-thread:				主题：
-thread_announcement:		公告：
-thread_first_unread_msg:	点击这里到达本主题的第一条未读信息。
-thread_thread:			主题
-threads:			主题
-time:				时间
-todays_posts:			今天的主题
-todays_posts_desc:		显示所有今天发布的主题
-un_ignore_user:			不再拒绝这个用户提交的信息
-unanswered_posts:		未回复主题
-unanswered_posts_desc:	显示未回复信息
-unlock_thread:			解开被锁定的主题
-unread_msg:			这个主题中有你未读的信息。
-unread_msg_locked:		被锁定的主题（且未读）
-unread_posts:			未读的主题
-unread_posts_desc:		显示所有未读信息
-unsub_from_thread:		不预定本主题
-unsub_from_thread_desc:	不接受关于这个主题的最新回复的邮件通知
-unsubscribe:			不预定
-unsubscribe_desc:		当本论坛有人发布新的主题时，请勿通知我。
-updated_on:			更新：
-user:				用户名
-user_counter:			我们有 <b>{VAR: st_obj->user_count}</b> 注册用户。
-user_info:			用户信息
-user_info_l:			用户信息 {VAR: u->alias}
-user_offline:			{VAR: obj->login}  现在不在线
-user_online:			{VAR: obj->login} 现在在线
-usrinfo_last_post:		上一次登录：
-view_results:			查看结果
-views:				点击
-vote:				{VAR: frm->n_rating} 投票
-vote_button:			投票
-vote_for_thread:		调查
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> 已经被版主移至<a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
-welcome_message:		欢迎！ <b>{VAR: usr->alias}</b>，你上一次访问是 {DATE: usr->last_visit %Y-%m-%d %H:%M}
-what_ppl_doing:			显示浏览者的操作
-reported_del_report:		删除报告
-reported_reason:		原因
-reported_on:			关于：
-reported_reported_by:		报告提出人：
-reported_reported_msg:		报告相关内容
-modque_pending_approval:	等待批复的信息
-modque_approve:		批复
-modque_delete:			删除
-modque_no_message:		没有需要批复的信息
-pmsg_new_messages:		未读悄悄话
-pmsg_old_messages:		阅读悄悄话
-deny_recipt:			拒绝接受
-deny_recipt_desc:		阅读这条消息后不发送确认信息
-restore_to:			存入：
-move_to:			移至：
-list_referes_referrals:		被提名者
-list_referes_members:		被提名的用户
-list_referes_member:		用户
-referals_none:			目前还没有被提名的人。
-referals_refered_by:		被推荐的论坛成员是：<b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:		发帖数
-referals_registered_on:		登录
-referals_action:		           操作
-pmsg_all:			所有
-pmsg_none:			没有
-folder:				文件夹：
-pmsg_replied:			回复
-pmsg_forwarded:		向前
-pmsg_subject:			主题
-pmsg_author:			作者
-pmsg_time:			日期
-pmsg_selected:			选择
-pmsg_delete:			删除
-cur_ppage_pm:			悄悄话通知
-writing_pm:			写悄悄话
-browsing_folder:		           浏览 <b>{VAR: folders[$folder_id]}</b> 文件夹
-inbox:				收件箱
-draft:				草稿箱
-sent:				发件箱
-trash:				垃圾箱
-msg_author:			作者
-avatar_sel_form:		选择头像
-no_avatars:			没有可用的头像
-month_1:			1月
-month_2:			2月
-month_3:			3月
-month_4:			4月
-month_5:			5月
-month_6:			6月
-month_7:			7月
-month_8:			8月
-month_9:			9月
-month_10:			10月
-month_11:			11月
-month_12:			12月
-male:				男
-female:				女
-register_tree_view:		树状浏览
-register_flat_view:		展开浏览
-use_forum_default:		使用论坛默认值
-finduser_user_info:		用户信息
-finduser_by_login:		账号：
-finduser_submit:		           查找
-finduser_no_such_user:		没有这个用户
-finduser_user:			用户名
-finduser_postcount:		发帖数
-finduser_joindate:		注册日期
-finduser_action:		           操作
-yes:				是
-no:				否
-edit_time_limit:		<br /><b>编辑时间限制为</b>：<b>{GVAR: EDIT_TIME_LIMIT}</b> 分钟
-no_edit_time_limit:		<br /><b>编辑时间限制</b>：<b>不限</b>
-pmuserloc_login:		           登录：
-pmuserloc_submit:		提交
-pmuserloc_user:			用户
-pmuserloc_no_result:		没有结果
-register_builtin:		           选择头像：
-register_specify_url:		指定地址
-register_uploaded:		上传头像
-register_login:			账号：
-register_password:		密码：
-register_conf_pass:		密码确认：
-register_email_desc:		请输入正确的电子邮件地址。在下面的参数选项中你可以选择不在论坛中显示自己的邮件地址。
-register_name:			姓名：
-register_your_pass:		密码：<br /><font color=red><b>修改任何个人信息都必须填写当前密码！</b></font>
-register_update:		           更新
-register_avatar_type:		头像类型：
-register_del_avatar:		删除头像
-register_avatar:		           头像：
-register_sel_avatar:		选择头像
-register_custom_avatar_rules:	只有经过系统管理员允许后，才能出现定制的头像。<br /><font class="SmallText">头像不能大于<b>{GVAR: CUSTOM_AVATAR_MAX_DIM} 像素</b> 具体大小是<b>jpg</b>, <b>gif</b> or <b>png</b> </font>
-register_custom_avatar_url:	定制头像地址：
-register_preview:		预览
-register_custom_avatar_upload:	定制头像文件：
-register_register:		注册
-register_required:		必填信息
-register_required_desc:		所有内容都必须填写。请注意密码是区分大小写的。
-register_optional:		可选择的信息
-register_optional_desc:		由于你的信息将会被别的论坛成员看到，因此我们建议你填写信息时不要暴露自己的个人身份。
-register_location:		地址：
-register_occupation:		职业：
-register_interests:		兴趣：
-register_image:			头像：
-register_icq:			ICQ：
-register_aim:			AIM：
-register_yahoo:			Yahoo信息：
-register_msnm:			MSN信息：
-register_homepage:		主页：
-register_bday:			生日：
-register_bday_desc:		如果你选择了“生日”选项，别的论坛成员将在你的个人信息中看到。
-register_day:			日
-register_month:			月
-register_year:			年
-register_gender:		           性别
-register_bio:			个人简介：
-register_bio_desc:		其它的一些个人信息，比如兴趣、职业等等。
-register_prefs:			参数选择
-register_sig:			签名：
-register_sig_desc:		跟在你的发言后的个性化签名。
-register_reset:			重填
-register_def_thread_view:	默认主题浏览方式：
-register_msg_per_page:		每页帖子数：
-register_show_sig:		显示签名：
-register_show_sig_desc:		选择是否在发帖后显示你的签名档。
-register_use_sig_default:	           显示其他成员签名：
-register_use_sig_default_desc:	是否显示其他论坛成员的签名档。
-register_timezone:		时区：
-register_ignore_admin:		忽略管理信息：
-register_invisible_mode:	           隐身登录：
-register_invisible_mode_desc:	登录后是否显示在在线用户列表中。
-register_show_email:		显示电子邮件地址：
-register_show_email_desc:	如果你想公开自己的电子邮件地址，请选择这个选项。
-register_notification:		是否默认打开提醒功能：
-register_notification_desc:	如果选择"是"，在发帖时依然可以选择是否提醒。
-register_notify_method:		请选择提醒方式：
-register_allow_email_msg:	允许向你的电子邮箱发送信息：
-register_allow_email_msg_desc:	允许别的用户通过本论坛向你发送邮件。
-buddy_status:			级别
-my_buddies:			我的好友
-add_buddy:			添加好友
-add:				添加
-buddy_search:			输入要添加的用户名。
-buddy_remove:			删除
-post_normal:			正常
-post_sticky:			置顶
-post_annoncement:		公告
-post_size:			大小
-post_color:			颜色
-post_font:			字体
-create_thread:			生成主题
-submit_reply:			回复
-edit_message:			编辑信息
-apply_spell_changes:		应用拼写检查的更改。
-post_preview:			预览
-post_logedin_user:		登录用户：
-post_logout:			注销
-post_passwd:			输入密码
-post_poll:			调查：
-post_create_poll:		发起调查
-post_poll_delete:		删除
-post_poll_edit:			编辑
-post_mod_opt:			版主选项
-post_thread_type:		主题类型
-post_thread_expiry:		主题到期期限：
-post_locked:			被锁定（不可回复）的主题
-post_icons:			添加图标：
-post_no_icon:			不用图标
-post_smiley:			表情符号：
-post_format_tools:		编辑工具：
-post_upload_file:		上传
-post_file_del:			删除
-post_file_name:			姓名
-post_file_size:			大小
-file_attachments:		添加附件：
-allowed_files:			允许的文件扩展名：
-max_file_size:			文件的最大限制：
-max_files_per_msg:		每条信息允许添加的最多文件：
-post_notification:		发布通告
-include_sig:			使用签名
-include_sig_desc:		包括我的个人签名。
-disable_smilies:		           这条信息中不使用表情符号
-spell_check_msg:		拼写检查信息
-post_form:			发布表格
-post_forum:			论坛：
-post_title:			主题：
-post_body:			内容：
-post_options:			选项：
-post_preview_btn:		预览
-ignore_users:			被拒绝的用户
-add_ignore:			添加被拒绝的用户
-forum_terms:			论坛协议
-forum_rules:			本论坛免费注册！我们希望你务必遵守下列政策和规定。如果你同意这些规定，请点击本页最下面的“我同意”按钮。注：如果你点击了此按钮即表明你宣告自己是13岁以上公民；如果你未满13岁，请领取注册表。<p>尽管论坛管理员和版主将尽力清除非法言论，但是难免挂一漏万。因此我们在此郑重声明，所有发言都仅代表作者观点，作者言责自负。论坛所有者和发展商对此不负任何责任。<p>点击了“我同意”按钮即表明你保证不在论坛上发布任何淫秽、色情、反动、暴力等非法言论。<p>论坛管理者有权因为任何理由编辑、删除或者关闭任何发言。<p>
-forum_rules_13:			所有13岁以下用户必须经过父母或者监视人允许才能成为论坛成员。我们欢迎13岁以下用户加入，但是只有在收到你的父母或者监护人通过传真或者电子邮件给我们的签名授权文件以后，我们才能通过你的申请。<p>如果你想在我们收到授权文件之前注册，请点击下面的“我同意”按钮，如果你不想继续注册，请点击“删除”按钮回到论坛主页。<p>你可以在这里下载授权文件，想了解更多的信息请发邮件至<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>。<p>
-coppa_conf:			注册确认
-coppa_before:			之前 {DATE: coppa %Y-%m-%d}
-coppa_after:			之后{DATE: coppa %Y-%m-%d}
-coppa_link:			根据你的出生日期，请选择
-coppa:				对于13岁以下的用户，只有当论坛管理员收到了你的父母或者监护人的确认邮件或者传真以后才能完成注册。<p>要了解更多的信息，请联系<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
-prereg_info:			信息
-prereg_agree:			同意
-prereg_disagree:		           不同意
-coppa_fax_instructions:		父母或监护人介绍
-coppa_fax_instructions2:	           请打印这页，并签名传真至：
-coppa_fax_reg_form:		登记表
-coppa_fax_sign:			请在下面的表格签字并且寄给我们
-coppa_fax_conf:			我已经知道了我的孩子在贵网站提交的相关注册信息并且仔细阅读了贵网站的相关隐私条款。 我知道通过密码可以修改相关信息并且我可以要求更改所有信息。
-coppa_fax_permission:		如果同意请签字
-coppa_fax_no_permission:	如果不同意请签字
-coppa_fax_parent_name:	父母/监护人的真实姓名
-coppa_fax_relation:		和孩子的关系：
-coppa_fax_telephone:		电话
-coppa_fax_email:		电子邮箱
-coppa_fax_date:		日期
-coppa_fax_questions:		有任何问题请联系 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
-coppa_fax_login:		账号
-coppa_fax_passwd:		密码
-coppa_fax_remail:		电子邮箱
-coppa_fax_name:		姓名
-login_not_logedin:		你尚未登录。原因是：
-login_cookie_expired:		你的cookie功能被终止了。需要登录重新开启cookie功能。
-login_perm_denied:		作为匿名用户，只有登录以后才有权限访问相关资源。
-login_want_to_register:		先注册?
-login_forgot_passwd:		密码忘了
-login_use_cookie:		使用cookies功能<br /><font class="SmallText">如果你是在学校、图书馆、网吧等公共场合使用计算机，为安全起见，建议你不要使用这个功能。
-login_login:			登录
-login_login_btn:		           登录
-login_name_required:		登录时必须输入账号
-login_passwd_required:		输入密码
-login_invalid_radius:		错误的账号或密码
-reset_confirmation:		谢谢注册！\n\n进入当前账号，请点击下面的地址：\n\n{VAR: url}\n\n一旦进入当前账户，你将直接进入\n论坛主页。\n
-reset_reset:			你好,\n\n你提交了重新设置密码的请求，需要重新设置密码\n请点击\n\n{VAR: url}\n\n注意：本论坛以单向加密的方式储存密码，即\n密码一经输入即被重新编码、无法找回。\n你每次登录输入密码时，\n该系统将自动对密码进行校验。（如果你对此加密方式感兴趣，请查阅关于MD5加密算法的相关资料。）
-rpasswd_invalid_passwd:		密码错误
-rpasswd_passwd_nomatch:	密码不符
-rpasswd_passwd_length:		密码必须至少6个字符
-reset_remind_pass:		密码提示问题
-reset_reset_conf:		你的密码已经重新设定，并将发送电子邮件给你进行确认。如果没有确认，系统将再次发送确认邮件。
-reset_error:			你的个人资料中没有这个电子邮件地址。
-rpasswd_change_pass:		修改密码
-rpasswd_login:			登录
-rpasswd_cur_pass:		当前密码：
-rpasswd_new_pass:		新密码：
-rpasswd_conf_pass:		密码确认：
-login_passwd:			密码：
-reset_email:			电子邮箱：
-reset_reset_button:		重新输入密码
-rate_this_thread:		评价
-report_reporting_about:		报告主题：
-report_subject:			主题：
-report_by:			发布：
-report_posted_on:		发帖时间：
-report_give_reason:		请填写你报告这个主题的原因：
-report_submit_report:		完成
-search_entire_msg:		全文搜索
-search_subect_only:		主题搜索
-search_forum:			论坛
-search_posted_on:		提交
-search_no_results:		没有查询结果
-search_all_forums:		搜索所有论坛
-search_in_forum:		搜索这个论坛：
-search_forum_search:		论坛搜索
-move_thread_to:		把本主题移至 <b>{VAR: thr->subject}</b> ：
-remail_email_topic:		通过电子邮件向朋友推荐这个主题
-remail_your_name:		你的姓名：
-remail_your_email:		你的电子邮箱：
-remail_friends_name:		朋友的名字：
-remail_friends_email:		朋友的电子邮箱：
-remail_required:		           必填的
-remail_subject:			主题：
-remail_message:			内容：
-remail_send_now:		发送邮件
-remail_anon_opt:		把这些内容拷贝到你选择的邮件地址中，发送给你的朋友。
-remail_done:			完成
-remail_sent_conf:		给你的朋友 {VAR-HTML: _POST['femail']} 的关于{{VAR: data->subject} 的邮件已经成功发送。
-remail_error:			发生了错误
-mklist_type:			类型：
-mklist_option:			选项：
-mklist_additem:			添加条目
-mklist_apply:			提交
-mklist_delete:			删除
-qbud_nick_name:		昵称
-qbud_add_selected:		添加选定用户
-qbud_selected:			选择
-qbud_no_buddies:		没有用户选择
-mklist_numerical:		数字
-mklist_aplha:			字母
-mklist_square:			方点
-mklist_disc:			圆点
-mklist_circle:			圆圈
-mklist_close:			取消
-email_to:			至：
-email_pg_title:			电子邮箱
-email_subject:			主题：
-email_body:			内容：
-email_submit:			发送
-ppost_quote_msg:		{VAR: msg_to_list} 于 {DATE: msg_r->post_stamp %Y-%m-%d %H:%M} 在大作中提到：
-ppost_quote:			引用：
-ppost_to:			至：
-ppost_from_buddy_list:		从好友名单中选择
-ppost_find_User:		查找用户
-ppost_track_msg:		跟踪这条信息
-ppost_track_msg_desc:		当这条信息被阅读时请用悄悄话通知我。
-ppost_send:			发送
-ppost_save_draft:		保存草稿
-poll_blank_option:		你不能提交空的选项。
-poll_del_conf:			如果你想删除这个选项，请按OK
-poll_name:			调查名称：
-poll_timelimit:			时间限制
-poll_maxiumvotes:		最大的投票量
-poll_create:			完成
-poll_update:			更新
-poll_disablesmilies:		不使用表情符号
-poll_create_poll:		           发起调查
-poll_update_poll:		更新调查
-poll_delete:			删除
-poll_updateoption:		更新选项
-poll_addoption:			添加选项
-poll_unlimited:			不限制
-poll_day:			日期
-poll_days:			天
-poll_hour:			小时
-poll_hours:			小时
-poll_month:			月
-poll_year:			年
-poll_week:			周
-tabs_register:			设置
-tabs_subscriptions:		预定内容
-tabs_referrals:			推荐
-tabs_buddy_list:		           好友列表
-tabs_ignore_list:		           黑名单
-tabs_private_messaging:		悄悄话
-single_msg_delete:		你正要<font color="#ff0000" size="4">删除</font>标题为：<b>{VAR: data[3]}</b>的帖子。<p>
-thread_delete:			你正要<font color="#ff0000" size="4">删除整个主题</font> 标题为：<b>{VAR: data[3]}</b><p>
-delete_proceed:			<font size="3"><b>是否继续?</b></font>
-delete_yes:			是
-delete_no:			否
-error_invalidurl:		           该地址无效
-error_error:			错误
-usrinfo_profile:		{VAR: u->alias}的个人信息
-usrinfo_show_all_posts:		显示用户 {VAR: u->alias}发布的所有主题
-actions_update:			查找和你的个人信息内容相匹配的用户。
-err_info:			信息
-buddy_list_err_cantadd:		无法把你加入好友名单
-buddy_list_err_dup:		你的好友列表中已经添加了这个用户
-buddy_list_err_nouser:		你要添加的用户不存在
-buddy_list_err_nouser_title:	无法添加
-buddy_list_update:		浏览我的好友列表
-core_err_invinp_title:		输入错误
-core_err_invinp_err:		你输入了一个错误的链接，请更正
-core_adm_login_msg:		<br /><a href="adm/admloginuser.php">管理员登陆</a>
-email_err_unabletoemail_title:	错误：无法发送邮件
-email_err_unabletoemail_msg:	系统管理员设置邮件系统无法使用。
-email_error_unabletolocaddr:	对不起，因为无法登录对方的邮件服务器导致系统无法发送邮件{VAR-HTML: _POST['tx_name']}
-email_error_body:		必须填写邮件内容
-email_error_subject:		必须填写邮件主题
-email_error_namerequired:	必须填写邮件接受者姓名
-email_error_invaliduser:	用户名错误
-emailconf_err_invkey_title:	错误
-emailconf_err_invkey_msg:	无效的地址。请检查并确认你的填写的是正确的地址信息。
-err_inc_criticaltitle:		紧急错误
-err_inc_criticalmsg:		发生错误，而且很不幸的是错误报告系统本身也存在问题。
-finduser_update:		搜索用户
-help_index_update:		阅读<a href="{TEMPLATE: help_index_update_lnk}">使用帮助</a>
-iemail_thr_subject:		新的回复 {VAR: thr_subject} 由{VAR: poster_login}
-iemail_thr_bodyemail:		查看未读的回复 {VAR: goto_url['email']}\n\n如果你不想收到关于这个主题新的回复通知，请点击： {VAR: unsub_url['email']}
-iemail_frm_subject:		论坛新主题 {VAR: frm_name} called {VAR: thr_subject}由{VAR: poster_login}
-iemail_frm_bodyemail:		查看主题：\n{VAR: goto_url['email']}\n\n不再接受本论坛的新主题发布通知，请点击： {VAR: unsub_url['email']}
-ignore_list_err_info_title:	           信息
-ignore_list_err_dup_msg:	           你已经把这用户添加到你的“被拒绝用户”名单中。
-ignore_list_err_nu_title:	           没有找到这个用户
-ignore_list_err_nu_msg:		本论坛不存在你要添加的用户。
-ignore_list_cantign_msg:	           你无法拒绝该用户
-ignore_list_update:		浏览“被拒绝用户”名单
-index_update:			浏览<a href="{TEMPLATE: index_update_lnk}">论坛列表</a>
-list_referers_update:		浏览被提名者
-login_update:			登录格式
-msg_update:			展开浏览 <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:		错误：无法发送悄悄话
-pm_err_nopm_msg:		系统管理员禁止你使用悄悄话系统。
-pm_update:			使用悄悄话功能
-post_err_lockedthread_title:	错误：该帖子已被锁定
-post_err_lockedthread_msg:	这个主题已被锁定，不能回复
-err_coppa_title:		           错误：你没有此项权限
-err_coppa_msg:			我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认证明。 如果丢失了申请表，<a href="{TEMPLATE: err_coppa_msg_lnk}">请点这里</a>。
-post_err_edttimelimit_title:	错误
-post_err_edttimelimit_msg:	你不能再编辑这条信息
-post_err_floodtrig_title:	           错误：发布灌水帖子
-post_err_floodtrig_msg:		请在{VAR: tm}秒以内重试
-post_err_attach_size:		<font class="ErrorText">附件文件太大（超过了允许的最大{VAR: MAX_F_SIZE}字节)</font><br />
-post_err_attach_ext:		<font class="ErrorText">你正在上传的文件类型不符合论坛对上传文件类型的设置。</font><br />
-post_err_attach_filelimit:	<font class="ErrorText">你正在上传的文件超过了限制的数量。</font><br />
-post_err_passwd:		密码错误。
-post_reply_update:		回复 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> 在 {VAR-HTML: frm->name}
-post_topic_update:		发表新主题 <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
-post_error_generic:		发生错误
-postcheck_max_images_err:	一次提交图片允许的最大数是{GVAR: MAX_IMAGE_COUNT} ，请尽量减少图片数量。
-postcheck_subj_needed:		输入主题
-postcheck_no_such_user:	本论坛没有 "{FUNC: char_fix(htmlspecialchars($v))}" 用户
-postcheck_ignored:		"{FUNC: char_fix(htmlspecialchars($v))}"用户拒绝接受你的悄悄话。
-postcheck_no_recepient:	因为没有接受方，所以无法发送信息
-postcheck_invalid_email:	           请输入你的朋友的正确电子邮箱地址。
-postcheck_email_subject:	如果不输入主题，你将无法发送邮件。
-postcheck_email_body:		如果没有内容，你将无法发送邮件。
-private_msg_notify_subj:	读取通知：{VAR: m->subject}
-private_msg_notify_body:	你好，<br />{VAR: usr->login} 用户已经阅读了你的悄悄话， "{VAR: m->subject}"，在 {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br />
-referals_update:	             	浏览被推荐者
-register_err_short_login:	           你输入的账号太短，必须至少包括4个字符。
-register_err_login_notallowed:	不能使用这个账号注册。
-register_err_loginunique:	论坛账号必须是唯一的，这个账号已经有人使用。
-register_err_emailexists:	这个电子邮件地址已经存在，请不要重复注册。如果你忘记了密码，请通过“找回密码”程序找回你的密码。
-register_err_shortpasswd:	密码必须至少有6个字符。
-register_err_passwdnomatch:	你的密码不对。
-register_err_invalidemail:	你输入的电子邮件地址不正确。
-register_err_needname:		你必须输入你的姓名才能完成此次注册。
-register_err_enterpasswd:	你必须输入密码才能进行修改。
-register_err_adminpasswd:	你必须输入系统管理员密码才能完成这些修改。
-register_err_notyouremail:	已经有人用这个电子邮箱地址注册了，但是那个人不是你。
-register_err_avatartobig:	你正在上传的文件太大，超过了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节的最大限制。
-register_err_avatarnotallowed:	你正在上传的头像不能上传，请查看允许上传的文件类型。
-register_conf_subject:		注册确认
-register_conf_msg:		谢谢注册,\n进入当前账号，请点击下列地址：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
-register_welcome_subject:	论坛注册确认
-register_welcome_msg:		谢谢注册，\n\n这是你注册的详细资料：\n\n论坛URL：{GVAR: WWW_ROOT}\n账号：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要更改你的设置或者个人信息，请点击：\n{FULL_ROOT}{ROOT}?t=register\n
-register_err_cantreg_title:	错误：无法注册
-regsiter_err_cantreg_msg:	无法注册新的账号，请和系统管理员联系<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-register_profile_update:	查看个人信息
-register_register_update:	注册页
-report_err_nosuchmsg_title:	错误
-report_err_nosuchmsg_msg:	没有这样的信息
-reset_err_invalidkey_title:	错误
-reset_err_invalidkey_msg:	密码提示错误
-reset_err_rstconf_title:	信息
-reset_err_rstconf_msg:		一会你将通过邮件收到相关说明。
-reset_newpass_title:		重新输入密码
-reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息：\n\n账号：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n注意：你的密码已经被改为上面的值字符组合，如果你想\n修改密码，请在个人信息中修改：\n{FULL_ROOT}{ROOT}?t=register\n\n
-reset_login_notify:		一会儿，你将通过邮件收到密码。请检查你的密码并登录。.<br />.<br />.<br />
-search_update:			搜索
-selmsg_update:			浏览 <a href="{TEMPLATE: selmsg_update_lnk}">今天发布的主题</a>
-showposts_update:		查看用户 <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>发布的主题
-subscribed_update:		浏览自己预定的内容
-thread_update:			浏览论坛<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			浏览（以树状方式） <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:		查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 个人信息
-ERR_disabled_ttl:		被禁止的功能
-ERR_disabled_msg:		此项功能已经被系统管理员关闭。
-ERR_access_ttl:			错误：权限不够
-ERR_access_msg:		你没有权利进行此项操作
-ERR_registration_disabled_ttl:	注册失败
-ERR_registration_disabled_msg:	注册功能被系统管理员禁止，请重试！
-ERR_emailconf_ttl:		错误：此账号无效
-ERR_emailconf_msg:		你注册的账号尚未进行邮件确认<br /><table border="0"><tr><td><ol><li>如果你没有收到确认邮件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">请点击这里</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">请点击这里</a></ol></td></tr></table>
-ERR_user_ttl:			错误：没有这个用户
-ERR_user_msg:			没有这个用户
-ERR_systemerr_ttl:		系统错误
-ERR_systemerr_msg:		发生系统错误，请报告错误给管理人员。
-email_title:			邮件格式
-finduser_title:			查找用户
-help_title:			使用帮助
-login_title:			登录格式
-msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-poll_title:			调查编辑
-register_title:			注册
-reset_title:			重新输入密码
-rpasswd_title:			修改密码页面
-error_title:			格式错误
-index_title:			欢迎到来
-search_title:			搜索 {VAR-HTML: srch}
-thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-remail_emailsent:		邮件已经发送
-remail_email:			这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能会感兴趣！\n这里是你可能感兴趣的主题：{VAR: data->subject} 请点击：{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n 发件人 {VAR: usr->alias}\n
-poll_add_option:		添加选项：
-post_opt_html_on:		<b>HTML</b><b>代码：开放</b>
-post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUD代码：</b><b>开放</a></b>
-post_opt_images_on:		<b>帖图功能：</b><b>开放</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>表情符号：</b> <b>开放</b></a>
-post_opt_html_off:		<b>HTML</b> 代码： <b>关闭</b>
-post_opt_fud_off:		<b>FUD代码：</b><b>关闭</b>
-post_opt_images_off:		<b>帖图功能：</b><b>关闭</b>
-post_opt_smilies_off:		<b>表情符号：</b><b>关闭</b>
-post_opt:			论坛选项
-register_change_passwd:	更改密码
-approved_avatar_title:		你定制的头像已被管理员批准。
-approved_avatar_msg:		你定制的头像已被系统管理员批准，以后你发布的所有信息都将显示该头像。如果你尚未看到或者看到的是旧的头像，那可能是你的浏览器缓存了相关页面，尝试多刷新几次或许能解决这个问题。
-unapproved_avatar_title:	你定制的头像未被批准。
-unapproved_avatar_msg:	系统管理员没有批准你的头像。最可能的原因是你的头像太大（字节或者尺寸），还有可能是因为包括不合适的主题文件。如果需要了解更多的相关信息，请和系统管理员联系。
-mvthread_request_move:	申请移动本主题
-move_request_reason:		你为什么要移动本主题
-mvthread_submit_req:		提交申请
-thread_exchange:		转移主题
-move_request_by:		主题转移人：
-move_reason:			转移主题的理由：
-thr_exch_accept:		接受该主题
-thr_exch_decline:		拒绝该主题
-thr_exch_orig_forum:		转出的论坛：
-thr_exch_dest_forum:		目标论坛：
-thr_exch_no_threads:		没有需要批复的主题。
-thr_exch_decl_reason:		拒绝主题 <b>{VAR-HTML: frm->name}</b> 转入<b>{VAR-HTML: frm->name}</b>论坛的理由。
-thr_exch_submit:		发布
-exch_decline_ttl:		把主题 {VAR: data->subject} 转移至{VAR-HTML: data->f2_name} 论坛的要求被拒绝。
-ppost_original_msg:		你正在发送或者回复的信息
-split_thread:			分开主题
-groupmgr_no_user:		此账号不存在 "{FUNC: char_fix(htmlspecialchars($gr_member))}"
-groupmgr_already_exists:	"{FUNC: char_fix(htmlspecialchars($gr_member))}" 本论坛已经存在这个用户
-groupmgr_yes:			是
-groupmgr_no:			否
-groupmgr_action:		操作
-groupmgr_member:		成员
-groupmgr_cancel:		删除
-groupmgr_add_member:		添加成员
-groupmgr_update_member:	更新成员名单
-groupmgr_edit:			编辑
-groupmgr_delete:		删除
-group_mgr_anon:		匿名
-group_mgr_reged:		所有注册用户
-show_show:			显示：
-group_mgr:			论坛板块管理
-group_mgr_edit_btn:		编辑论坛
-group_mgr_heading:		选择论坛管理员
-group_mgr_group:		论坛：
-permission_denied_title:	你的要求被拒绝
-permission_denied_msg:		你没有权限执行此项操作
-p_READ:			查看
-p_POST:			发布
-p_REPLY:			回复
-p_EDIT:				编辑
-p_DEL:				删除
-p_STICKY:			发布论坛公告
-p_POLL:				发起调查
-p_FILE:				添加附件
-p_VOTE:			投票
-p_RATE:			评价帖子
-p_SPLIT:			分开主题
-p_LOCK:			封闭帖子
-p_MOVE:			转移帖子
-p_SML:				应用表情符号
-p_IMG:				应用图像标签
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">查找用户</a>
-group_mgr_indicator:		正在编辑：<b>{VAR: grp->name}</b>
-rate_worst:			最差的
-rate_best:			最好的
-post_quote_msg:			{VAR: msg->login} 于 {DATE: msg->post_stamp %Y-%m-%d %H:%M} 在大作中提到：
-post_quote:			引用：
-userinfo_referals:		被推荐的用户：
-userinfo_referals_count:	{VAR: referals} 成员：
-pm_no_space_title:		空间不够
-pm_no_space_msg:		你的悄悄话文件夹已经超出了系统限制的空间范围 <b>{GVAR: MAX_PMSG_FLDR_SIZE} 字节</b>，其中包括 <b>{VAR: fldr_size} 字节的</b> 有用信息，<br /><br /><font class="ErrorText">请删除一些旧信息以腾出空间</font>。
-pm_space_indct_msg:		你的悄悄话信箱已占用{VAR: percent_full}%空间。
-th_expr_never:			从不
-th_expr_one_hr:			1个小时
-th_expr_three_hr:		3个小时
-th_expr_four_hr:	            	4个小时
-th_expr_eight_hr:		8个小时
-th_expr_sixteen_hr:		16小时
-th_expr_one_day:		一天
-th_expr_two_day:		2天
-th_expr_four_day:		4天
-th_expr_one_week:		1周
-th_expr_two_week:		2周
-th_expr_one_month:		1个月
-th_expr_two_month:		2个月
-th_expr_four_month:		4个月
-th_expr_one_year:		1年
-thread_mod_delete:		删除
-action_latest_post:		最近一次登录
-online_today_last_visit:	           最近一次登录
-online_today_update:		查看本论坛今天的在线用户
-logedin_todays_visitors:	           今天的访问者
-logedin_latest_post:		本论坛最新发布的主题
-register_show_avatar:		显示头像：
-register_show_avatar_desc:	是否显示用户的头像。
-drawmsg_view_rest_post:	显示剩余信息
-post_re:			回复：
-forumsel_goto_forum:		转至论坛：
-minimsg_thread_view:		浏览主题
-split_th_post_by:		作者：
-split_th_posted_on:		发表时间：
-split_th_subject:		主题：
-split_th_new_thread_title:	新的主题：
-split_th_forum:			论坛：
-split_th_split_sel:		分出选中的帖子
-split_th_split_unsel:		分出没有选中的帖子
-split_th_messages:		信息
-split_th_select:	            	选择
-report_report_post:		报告发布
-quicklogin_login:	            	登录
-quicklogin_password:		密码
-quicklogin_use_cookies:		是否使用Cookies功能？
-quicklogin_login_btn:		登录
-post_notification_desc:		当有人回复本主题时请通知我。
-maximize_category:		增加目录层次
-no_view_perm:			很抱歉，你没有察看这个页面的权限
-report_empty_report:		你不能提交空的报告，请说明推荐理由。
-report_already_reported_title:	报告已经提交
-report_already_reported_msg:	这条信息已被推荐，相关推荐报告在论坛管理信息列表中。
-register_err_toomanyimages:	你的个人签名中使用了禁止使用的图片{GVAR: FORUM_IMG_CNT_SIG}。
-pmsg_next_msg:			下一条信息
-pmsg_prev_msg:			前一条信息
-post_proc_reveal_spoiler:	显示隐藏内容
-register_jabber:	            	Jabber：
-im_jabber:			Jabber：
-forum_contact:			联系
-forum_home:			主页
-post_cur_attached:		正在粘帖{VAR: i} 个文件
-ignored_anon_post:		{GVAR: ANON_NICK} 被忽略
-ignored_user_post:		设置忽略信息<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>
-smladd_close_window:		关闭窗口
-post_list_smilies:		显示所有表情符号
-p_VISIBLE:			可见的
-reported_in_thread:		展开浏览
-help_back_to_top:		回到页首
-help_return_to_index:		返回帮助索引
-imsg_err_message_title:		帖子出错
-imsg_err_message_msg:		你要查看的帖子不存在。
-poll_edit:			编辑
-unspecified:			保密
-register_err_not_valid_img:	指定的图片连接不正确
-pmsg_recepient:			收信人
-register_alias:			昵称
-register_alias_desc:		如果你想应用昵称代替你的用户名来显示在论坛上就请你填入你想要的昵称。
-register_allow_pm_msg:		接受悄悄话
-register_allow_pm_msg_desc:	接受论坛其他用户向你发送的悄悄话。
-postcheck_pm_disabled:		你不能给 "{VAR-HTML: v}" 发送悄悄话，因为他没有开启悄悄话功能。
-polllist_vote:			参加调查
-polllist_view_results:		查看结果
-polllist_name:			调查主题
-polllist_date:			发起时间
-polllist_owner:			发起人
-polllist_votes:			总票数
-polllist_action:	             	操作
-polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">以往调查</a>
-userinfo_polls:			发起调查数
-show_pollist:			调查列表
-search_and:			和
-search_or:			或
-search_desc_order:		降序排列
-search_asc_order:		升序排列
-search_logic:			方式：
-search_sorting:			结果按日期：
-post_moderated_forum:		恭喜！你已经发表成功，等版主或者管理员确认后会发布到网上！
-post_moderated_forum_ttl:	受限论坛说明
-post_proceed:			返回论坛
-buddy_list_bday:		今天是 {VAR: r[2]} 的 {VAR: age} 岁生日
-email_warning_msg:		如果你修改了Email，则此账号会被暂时隐藏，请你查收邮件，点击邮件中的连接以重新激活账号！
-register_show_im:		显示 IM 指示器
-register_show_im_desc:		是否在用户帖子旁边显示IM。
-unread_message:		未读帖子
-read_message:			阅读更多帖子：			&lt;更多&gt;
-threadt_disabled_ttl:		树状浏览已经被关闭。
-threadt_disabled_desc:		管理员已经关闭树状浏览，请用展开浏览方式。
-threadt_update:			浏览论坛（树状浏览）<a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
-threadt_more:			&lt;更多&gt;
-register_msg_tree_view:		展开浏览/树状浏览
-register_tree_msg_view:		树状浏览/展开浏览
-mmod_delete_cofirm_ttl:		确认删除主题/内容
-spell_alts:			没有选择
-insert_uploaded_image:		将此图片显示在文章中
-finduser_help:			小提示：输入单个字母就可以搜索到以这个字母开头的用户。
-back_to_top:			返回顶部
-iemail_participate:		参与讨论，点此：
-pm_err_disabled_title:		不能发送悄悄话
-pm_err_disabled_msg:		你当前设置为不能发送悄悄话！可以在个人信息中修改设置，以激活悄悄话功能。
-err_mod_acc_ttl:		未被批准的账号
-err_mod_acc_msg:		账号在被激活之前必须得到系统管理员的确认，在得到确认之前，你的账号不享有注册用户的所有功能！
-accounts_pending_approval:	待审核帐号
-saved:				珍藏夹
-register_err_time_limit:	每 {GVAR: REG_TIME_LIMIT} 秒限制一个用户可以注册， 请稍等 {VAR: reg_limit_reached} 秒再来注册。
-register_affero:		Affero用户名：<br /><font class="SmallText">如果你有<a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>帐户，请在此处输入用户名。</font>
-im_affero:			Affero用户名
-register_err_avatardimtobig:	头像大小 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> 超出了论坛限制的： <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-pmsg_download_counter:	下载了 {VAR: r->dlcount} 次
-member_search:			<br />或者使用 <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">用户查找</a> 功能来找人。
-post_all_ext_allowed:		（没有限制）
-buddy_offline:			{VAR: r[2]} 当前不在线
-buddy_online:			{VAR: r[2]} 当前在线
-sml_no_smilies:			没有表情符号供选择。
-login_unapproved_account_ttl:	未审核的帐号
-login_unapproved_account_msg:	帐号需要管理员审核后才能激活使用。你的帐号还未通过审核，在通过审核之前，可能不能使用论坛的某些功能。
-remove_from_buddy_list:		从好友名单中删除
-iemail_msg_author:		<b>作者：</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>主题：</b> {VAR: obj->subject}
-iemail_msg_date:		<b>日期：</b> {DATE: obj->post_stamp %Y-%m-%d %H:%M}
-iemail_msg_reply:		回复
-iemail_msg_quote:		引用
-iemail_msg_view:		查看主题/帖子
-threadt_sticky:			置顶
-threadt_announce:		公告
-reported_no_messages:		没有报告的帖子。
-poll_no_polls:			没有可用的投票。
-no_unread_messages:		没有符合条件的未读帖子。
-thread_mark_all_read:		标记所有帖子为已读
-thread_mark_all_read_desc:	论坛中所有的未读标记将被清除
-private_no_messages:		此板上没有帖子
-register_email_change_subject:	电子邮件更改确认
-register_email_change_msg:	请确认你的新邮件地址 "{VAR: uent->email}"（用于替换老地址 "{VAR: old_email}"），点击以下的URL：\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n你的帐号将在新邮件地址被确认后被重新激活。
-iemail_thread_unsub:		取消对此主题的订阅
-iemail_forum_unsub:		取消对此板块的订阅
-primary_group_prefix:		中心组对于板块：
-group_resources:		此组控制下列板块的访问权限
-register_email:			电子邮件：
-register_admin_newuser_title:	有新用户注册并等候批复
-register_admin_newuser_msg:	新用户 ({VAR: uent->login}) 刚刚注册，正等待管理员的审核批复。要批复用户，请转到： {GVAR: WWW_ROOT}adm/admaccapr.php\n\n这是一封自动发出的邮件，请勿回复此邮件。\n如果要取消此提醒，请在管理界面的 "New Account Notification" 中设置。
-post_mod_msg_notify_title:	有新帖在 "{VAR: frm->name}" 板上等待审核
-post_mod_msg_notify_msg:	新帖子 "{VAR: msg_post->subject}" 刚刚发布，等候审核。要审核此帖，请到：{FULL_ROOT}{ROOT}?t=modque\n\n这是一封自动发出的邮件，请勿回复此邮件。\n
-thread_printable_pdf:		生成可打印的PDF格式
-thread_syndicate:		同步此板块（XML格式）
-reg_conf_title:			论坛注册验证邮件
-reg_conf_email:			<b>电子邮件验证</b><br />一封特殊的邮件已经发往你填写的邮箱，邮件里包含了一个特殊的URL网址，你需要访问此网址以通过论坛的电子邮件验证步骤。如果几分钟后你没有收到这样的邮件，请登录论坛并检查邮件地址是否填写正确。在通过验证之前你将不能使用论坛的某些功能。
-reg_conf_account:		<b>帐号确认</b><br />在帐号被激活启用之前，必须通过管理员的审核和批复。帐号被管理员批复之后在你注册时填写的邮箱里会收到一封提示注册成功的邮件，在通过批复之前，你将不能使用论坛的某些功能。
-forum_banned_user:		由于此帐号上次在论坛的所作所为严重违反论坛规定，导致帐号被论坛管理员封闭，再见。
-mnav_description:		帖子浏览器
-mnav_date_limit:		日期范围：
-mnav_forum_limit:		限制在如下的版面上查找：
-mnav_all_forums:		所有论坛版面
-mnav_submit:			浏 览
-mnav_no_range:			请输入合理的日期范围。你可以输入从0到12中任意数字，注意数字必须大于0。
-mnav_invalid_unit:		请指定合理的时间单位。
-mnav_invalid_date:		输入的日期范围超出论坛限制，请改小后重新输入。
-mnav_no_results:		没有符合条件的帖子。
-mnav_posted_by:		发帖人：
-mnav_more:			更多 &raquo;&raquo;
-mnav_minute:			分钟
-mnav_hour:			小时
-mnav_day:			天
-mnav_week:			周
-mnav_month:			月
-mnav_title:			帖子浏览器
-mnav_update:			用<a href="{TEMPLATE: mnav_update_lnk}">帖子浏览器</a>来查看。
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] 你收到了新悄悄话！
-pm_notify_body_email:		你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒邮件，请在“个人信息”中禁止“新悄悄话提醒”。
-register_pm_notification:	新悄悄话提醒
-register_pm_notification_desc:	如果选“是”，则在有新悄悄话收到时，论坛会通过所选的方式通知你。
-findu_admin_opts_header:	管理员选项
-findu_unban:			解封
-findu_ban:			封
-findu_edit:			编辑
-findu_delete:			删除
-dmsg_reply_to:			是对于帖子 #{VAR: obj->reply_to} 的回复
-merge_topics:			合并主题
-merge_topics_cp:		合并主题功能面板
-merge_topics_tpl:		选择要合并的主题<font class="SmallText">（至少需要选择两个主题）</font>
-merge_merge:			合并所选主题
-merge_next:			下一页
-merge_prev:			上一页
-split_cp:			打散主题功能面板
-groups_perms_header:		权限列表<font size="-1">（将鼠标指针挪至相应权限位以查看相应权限）</font>
-register_err_sig_too_long:	你的签名超长了，最多只能 {GVAR: FORUM_SIG_ML} characters 个字符（一个汉子算两个字符）。
-register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'你的签名档共 \'+document.forms[\'fud_register\'].reg_sig.value.length+\' 字符长。本论坛限制长度为 {GVAR: FORUM_SIG_ML} 个字符。\');" class="SmallText">检查签名档长度</a>
-p_SEARCH:			允许搜索
-adm_account_accepted:		你的帐号 \'{VAR: GLOBALS['r']->login}\' 已经通过审核且已被激活。恭喜你，你现在已经是 {GVAR: FORUM_TITLE}\' 论坛的正式注册用户了！
-adm_account_accepted_s:	你在论坛 \'{GVAR: FORUM_TITLE}\' 的注册已被接受！
-adm_account_rejected:		你的帐号 \'{VAR: GLOBALS['r']->login}\' 没有通过管理员的审核。请检查帐号是否符合论坛相关规定，如果不能确定问题，请联系 \'{GVAR: ADMIN_EMAIL}\'.
-adm_account_rejected_s:	你在论坛 \'{GVAR: FORUM_TITLE}\' 注册的帐号未通过审核，请检查是否符合论坛相关规定。
-thread_on:			于
-userinfo_buddy:			好友：
-register_email_addr:		电子邮件地址：
-reset_suffix:			\n\n如果你没有要求密码重置功能，请删除此邮件。如果你没有要求密码重置而收到了多封类似邮件，请联络管理员： {GVAR: ADMIN_EMAIL}\n\n密码重置请求来自： {VAR: _SERVER['REMOTE_ADDR']}.\n\n
-usrinfo_last_visit:		最近一次登录:
-mnav_newer:			新于：
-mnav_older:			旧于：
-ip_search_by_ip:		根据 IP 查找使用者
-ip_search_syntax:		支持的格式：1.2.3.4, 1.2.3, 1.2, 1
-ip_search:			查 找
-ip_analyze_usage:		分析 IP 使用情况
-ip_analyze_usage_descr:		请输入使用者的确切登录名。
-ip_users_using:			使用 IP 地址 &#39;{VAR: ip}&#39; 的用户
-ip_all_ips:			用户 &#39;{VAR: user}&#39; 使用的所有 IP 地址
-ip_title:	             		IP 浏览器
-userinfo_real_name:		真实姓名：
-register_err_alias_notallowed:	此昵称被禁用
-post_err_noannontopics_msg2:	<fieldset><legend>错误：权限不够</legend>匿名用户不允许发帖。</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>错误：权限不够</legend>匿名用户不许回帖。</fieldset><br />
-ERR_login_msg2:			<fieldset><legend>错误：未登录</legend>登录后才能访问所需页面。</fieldset><br />
-post_err_mod_forum_edit_ttl:	错误
-post_err_mod_forum_edit_msg:	在需要审查的论坛里不可编辑帖子。
-dmsg_num:			帖号 #{VAR: obj->id}
-postcheck_session_invalid:	超时，请重新提交。抱歉！
-delete_message_extra_desc:	<b>可 选</b><br />用悄悄话向原帖作者说明删帖的原因。
-delete_message_extra_body:	同时包含原帖内容。
-delete_msg_removed_ttl:	你发的帖子已被管理员删除。
-delete_msg_pm_body:		原帖
-delete_msg_pm_subject:		原帖标题： {VAR: data[15]}
-ip_no_whois:			没有找到关于 <b>{VAR: ip}</b> 的 whois 信息。
-ip_whois_title:			<b>ISP 信息</b><br />
-register_theme:			主题：
-pmsg_trash:			清空垃圾箱
-uc_new_pm:			新悄悄话
-uc_new_topic:			新帖
-uc_new_cat_forum:		包含新帖的已订阅论坛
-uc_cat_forum:			分区 &raquo; 论坛
-uc_sub_topics:			包含新帖的已订阅话题
-uc_page_title:			查看个人控制面板
-search_options:			搜索选项
-search_user_filter:		仅限作者：
-register_none:			不要通知
-findu_no_conf:			未验证Email
-register_max_sig_len:		最大长度:
-register_turing:	            	请输入下面显示的代码:
-register_err_turing:		无效的验证码.
-modque_cat:			类别:
-modque_forum:			论坛
-idx_compact_forum_row:		可用论坛
-mmd_del_title:			删除话题
-mmd_mov_title:			移动话题
-mmd_move_threads_to:		目标论坛
-mmd_abort_move:		取消
-mmd_move:			移动话题
-pmsg_pdf_btn:			生成PDF文档
-search_results_hdr:		{VAR: total} 搜索结果 
-thread_del_all:			删除所有选中的
-thread_mov_all:			移动所有选中的
-err_banned_acct_title:		错误:你被屏蔽了.
-err_banned_acct_msg:		你的帐号被暂时{IF: $ban_expiry}锁定直到{DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}允许{ENDI} 登录本站，因为本站的&#39s规则.
-err_blockedaccnt_title:		错误:你的帐号已经被过滤了。
-err_blockedaccnt_msg:		你的帐号因为一个已经安装的用户过滤器而被阻止了。
-merge_th_page_list:		话题页面选择
-most_users_online:		最高在线人数：<b>{VAR: st_obj->most_online}</b> 在 <b>{DATE: st_obj->most_online_time 周%a, %B%d日 %Y %H:%M}</b>
-sub_unsub_all_forums:		从所有的论坛取消订阅
-sub_unsub_all_topics:		从所有的话题取消订阅
-tabs_own_posts:		显示自己发的帖子
-buddy_list_err_ignore:		不能增加忽略你的用户到你的朋友列表.
-sml_emoticon:			表情
-sml_code:			代码
-mnav_sub_only:			仅在订阅的版块中搜索
-register_topics_per_page:	每页主题数；
-login_min_time:			论坛允许前后两次登录时间间隔是 {VAR: MIN_TIME_BETWEEN_LOGIN} 秒，请等待 {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} 秒后再尝试。
-post_not_logged_in:		未登录状态，将匿名发表帖子。
-post_common_bold:		粗体
-post_common_italics:		斜体
-post_common_underline:		下划线
-post_common_align_left:		左对齐
-post_common_align_center:	居中
-post_common_align_right:	右对齐
-post_common_link:		插入超链接
-post_common_email:		电子邮件超链接
-post_common_image:		插入图片
-post_common_nlist:		添加顺序的排列
-post_common_blist:		添加无序的排列
-post_common_quote:		添加引用
-post_common_code:		添加代码
-rating:				评价
-rating_track:			给帖子评价 <b>{VAR: thr->subject}</b>：
-rating_delete:			删除
-post_always_on_top:		将帖子置顶
-register_skype:			Skype:
-register_google:		           Google Chat/IM：
-im_google:			Google Talk： 
-im_skype:			Skype： 
-topic_rating:			{VAR: frm->rating} 得票， {VAR: frm->n_rating} 总票数
-topic_list_rating:		{VAR: r[17]} 得票， {VAR: r[21]} 总票数
-register_notify_method_desc:	设置首选的通知方式或关闭通知（如果您正在度假）
-tabs_notifications:		通知
-finduser_flag:			标识
-post_descr:			帖子简述
-pmsg_download_dump:		查看所有悄悄话
-move_messages:			移动帖子
-move_msg_btn:			移动所有选中的
-move_msg_th_expl:		移至指定主题的ID（可以跨版块）
-quick_reply:			快速回复
+# Messages for Simplified Chinese (‪中文(简体)‬)
+# Exported from translatewiki.net
+# Author: PhiLiP
+
+action:操作
+add_to_buddy_list:加入好友列表
+admin:管理
+admin_control_panel:管理界面
+administrator:系统管理员
+attachment:附件：
+avatar:头像：
+# Fuzzy
+average_post_count:{VAR: u->posted_msg_count} 帖子(日均发帖数{VAR: avg} )
+biography:个人简介：
+birth_date:生日：
+by:发帖：
+by_mod:版主
+current_time:当前时间
+custom_avatar_queue:定制头像列表
+date_posted:发布时间
+date_registered:注册日期：
+# Fuzzy
+download_counter:下载次数{VAR: v[3]}
+# Fuzzy
+pmsg_download_counter:下载了 {VAR: r->dlcount} 次
+email:邮件：
+email_to_friend:发送邮件给朋友
+email_to_friend_desc:发送邮件，向你的朋友推荐这个帖子
+# Fuzzy
+email_user:点击这里向此用户发送邮件。
+faq:帮助
+first_unread_msg:转入未读的帖子
+first_unread_msg_desc:转入本主题第一个未读帖子
+flat_view:返回至默认浏览方式
+forum:论坛：
+forum_icon:论坛图标
+forum_new_messages:新消息
+forum_none_messages:只有本论坛的注册用户能够把帖子标为“已读”或“未读”
+forum_old_messages:没有新消息
+from:来自：
+gender:性别：
+go:跳转
+goto_next_msg:下一楼
+goto_prev_msg:楼上
+home:主页
+homepage:主页：
+icq_control_panel:ICQ 在线信息
+icq_message_form:ICQ 信息列表：
+ignore_user:加入黑名单
+im_aim:AIM：
+im_msnm:MSN信息：
+im_yahoo:Yahoo信息：
+image:照片：
+index_forum:论坛
+index_new_posts:上次浏览以后的新帖
+index_no_new_posts:自从上次浏览以后没有新帖
+interests:兴趣：
+last_post:最新帖子
+last_thread_msg:转入本主题最后一个帖子。
+legend:图例：
+location:地区：
+lock_thread:锁定本主题
+locked:被锁定
+locked_with_new_posts:锁定（且未读）
+logged_in_list:登录用户列表
+login:登录
+login_header:昵称：
+logout:注销
+mark_all_read:标记所有信息为已读
+mark_all_read_desc:所有你没有读过的信息都将被标为已读。
+members:成员
+message:信息
+# Fuzzy
+message_counter:用户已经提交 <b>{VAR: post_count}</b>个帖子，分布在<b>{VAR: thread_count}</b>个主题里。
+message_index:信息索引
+message_index_desc:查看信息列表
+minimize_category:减少目录层次
+moderation_queue:版主列表
+moderator:版主
+moderator_of:版主：
+moderator_options:版主功能
+# Fuzzy
+moderators:版主
+more_unread_messages:更多未读信息
+more_unread_messages_desc:显示更多未读信息，并且把现在的信息标为已读。
+move_thread:转移
+moved:转移至别的论坛
+moved_thread_message:这个主题已被转移至别的论坛。
+na:暂无
+new_posts:新的主题
+# Fuzzy
+new_private_messages:你有 <span class="GenText" style="color: #ff0000">({VAR: c})</span> 条未读悄悄话。
+new_thread:生成新的主题
+newest_user:最新注册的用户是
+next_page:下一页
+next_thread:上一个主题：
+no_messages:本论坛没有任何发言。
+no_msg_body:没有内容！
+no_new_posts:没有新的主题
+no_posts:没有新主题
+no_subscribed_forums:没有预定的论坛
+no_subscribed_threads:没有预定的主题
+no_unread_locked:本主题已被锁定（不可回复）。
+no_unread_msg:这个主题没有未读信息。
+no_unread_msg_unreg:只有注册用户能够把信息标为已读和未读。
+num_pages:页（{VAR: ttl_pg}）：
+# Fuzzy
+num_votes:{VAR: obj->total_votes} 选票
+occupation:职业：
+off:关闭
+on:打开
+page_timings:生成本页面共花费时间：{VAR: page_gen_time} 秒。
+pm:悄悄话
+poll:调查：
+post_count:发帖数： {VAR: u_pcount}
+post_count_l:帖子数：
+posts:帖子
+posts_c:发帖数：
+prev_thread:下一个主题：
+usrinfo_private_message:悄悄话
+profile:个人信息
+# Fuzzy
+profile_desc:点击这里至用户管理界面
+rate_thread:主题评价
+rating:评价
+rating_track:给帖子评价 <b>{VAR: thr->subject}</b>：
+refresh_list:更新目录
+register:注册
+registered:注册时间：
+# Fuzzy
+registered_on:注册日期：{DATE: u_reg_date %Y-%m-%d}
+replies:回复
+report_to_mod:违规帖举报
+reported_messages:已向版主举报的违规帖
+reveal_all_posts:显示所有结果 {VAR: user_login}
+reveal_post:显示结果
+search:搜索
+sel_todays_posts:今天的主题
+sel_todays_posts_desc:只显示今天的主题
+sel_unanswered_posts:未回复主题
+sel_unanswered_posts_desc:只显示未回复主题
+sel_unread_messages:未读信息
+sel_unread_messages_desc:只显示未读信息
+send:发送
+send_pm_desc:发悄悄话给这个用户
+sender_email:发送者邮件：
+sender_name:发送者姓名：
+show_posts_by:显示用户 {VAR: u_alias}发布的主题
+size:大小：
+status:级别：
+# Fuzzy
+status_line:现有 <b>{VAR: st_obj->online_users_reg}</b> 名用户，还有 <b>{VAR: st_obj->online_users_hidden}</b> 名隐身用户和 <b>{VAR: st_obj->online_users_anon}</b> 名访客访问本论坛。
+sticky:置顶：
+stop_ignoring:不再拒绝这个用户
+sub_to_thread:订阅这个主题
+sub_to_thread_desc:接受关于这个主题的最新回复的通知
+subject:主题
+subscribe:预定
+subscribe_desc:当本论坛有人发布新的主题时，请通知我。
+subscribed_forums:预定论坛信息
+subscribed_forums_desc:只显示预定的论坛信息
+subscribed_threads:预定论坛主题
+subscribed_threads_desc:只显示预定论坛主题
+switch_to_thread_view:转换成以树状方式浏览
+thread:主题：
+thread_announcement:公告：
+# Fuzzy
+thread_first_unread_msg:点击这里到达本主题的第一条未读信息。
+thread_thread:主题
+threads:主题
+time:时间
+todays_posts:今天的主题
+todays_posts_desc:显示所有今天发布的主题
+un_ignore_user:不再拒绝这个用户提交的信息
+unanswered_posts:未回复主题
+unanswered_posts_desc:显示未回复信息
+unlock_thread:解开被锁定的主题
+unread_msg:这个主题中有你未读的信息。
+unread_msg_locked:被锁定的主题（且未读）
+unread_posts:未读的主题
+unread_posts_desc:显示所有未读信息
+unsub_from_thread:不预定本主题
+unsub_from_thread_desc:不接受关于这个主题的最新回复的邮件通知
+unsubscribe:不预定
+unsubscribe_desc:当本论坛有人发布新的主题时，请勿通知我。
+updated_on:更新：
+user:用户名
+# Fuzzy
+user_counter:我们有 <b>{VAR: st_obj->user_count}</b> 注册用户。
+user_info:用户信息
+user_info_l:用户信息 {VAR: u->alias}
+user_offline:{VAR: obj->login}  现在不在线
+user_online:{VAR: obj->login} 现在在线
+usrinfo_last_post:上一次登录：
+view_results:查看结果
+views:点击
+# Fuzzy
+vote:{VAR: frm->n_rating} 投票
+vote_button:投票
+vote_for_thread:调查
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> 已经被版主移至<a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
+# Fuzzy
+welcome_message:欢迎！ <b>{VAR: usr->alias}</b>，你上一次访问是 {DATE: usr->last_visit %Y-%m-%d %H:%M}
+what_ppl_doing:显示浏览者的操作
+reported_del_report:删除报告
+reported_reason:原因
+reported_on:关于：
+reported_reported_by:报告提出人：
+reported_reported_msg:报告相关内容
+modque_pending_approval:等待批复的信息
+modque_approve:批复
+modque_delete:删除
+modque_no_message:没有需要批复的信息
+pmsg_new_messages:未读悄悄话
+pmsg_old_messages:阅读悄悄话
+deny_recipt:拒绝接受
+deny_recipt_desc:阅读这条消息后不发送确认信息
+restore_to:存入：
+move_to:移至：
+list_referes_referrals:被提名者
+list_referes_members:被提名的用户
+list_referes_member:用户
+referals_none:目前还没有被提名的人。
+referals_refered_by:被推荐的论坛成员是：<b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:发帖数
+referals_registered_on:登录
+referals_action:操作
+pmsg_all:所有
+pmsg_none:没有
+folder:文件夹：
+pmsg_replied:回复
+pmsg_forwarded:向前
+pmsg_subject:主题
+pmsg_author:作者
+pmsg_time:日期
+pmsg_selected:选择
+pmsg_delete:删除
+cur_ppage_pm:悄悄话通知
+writing_pm:写悄悄话
+browsing_folder:浏览 <b>{VAR: folders[$folder_id]}</b> 文件夹
+inbox:收件箱
+draft:草稿箱
+sent:发件箱
+trash:垃圾箱
+msg_author:作者
+avatar_sel_form:选择头像
+no_avatars:没有可用的头像
+month_1:1月
+month_2:2月
+month_3:3月
+month_4:4月
+month_5:5月
+month_6:6月
+month_7:7月
+month_8:8月
+month_9:9月
+month_10:10月
+month_11:11月
+month_12:12月
+male:男
+female:女
+unspecified:保密
+register_tree_view:树状浏览
+register_msg_tree_view:展开浏览/树状浏览
+register_tree_msg_view:树状浏览/展开浏览
+register_flat_view:展开浏览
+use_forum_default:使用论坛默认值
+finduser_user_info:用户信息
+finduser_by_login:账号：
+finduser_submit:查找
+finduser_no_such_user:没有这个用户
+finduser_user:用户名
+finduser_postcount:发帖数
+finduser_joindate:注册日期
+finduser_action:操作
+yes:是
+no:否
+register_email:电子邮件：
+edit_time_limit:<b>编辑时间限制为</b>：<b>{GVAR: EDIT_TIME_LIMIT}</b> 分钟
+no_edit_time_limit:<b>编辑时间限制</b>：<b>不限</b>
+pmuserloc_login:登录：
+pmuserloc_submit:提交
+pmuserloc_user:用户
+pmuserloc_no_result:没有结果
+register_builtin:选择头像：
+register_specify_url:指定地址
+register_uploaded:上传头像
+register_login:账号：
+register_password:密码：
+register_conf_pass:密码确认：
+register_email_desc:请输入正确的电子邮件地址。在下面的参数选项中你可以选择不在论坛中显示自己的邮件地址。
+register_name:姓名：
+register_your_pass:密码：<br /><font color=red><b>修改任何个人信息都必须填写当前密码！</b></font>
+register_update:更新
+register_avatar_type:头像类型：
+register_del_avatar:删除头像
+register_avatar:头像：
+register_sel_avatar:选择头像
+register_custom_avatar_rules:只有经过系统管理员允许后，才能出现定制的头像。<br /><font class="SmallText">头像不能大于<b>{GVAR: CUSTOM_AVATAR_MAX_DIM} 像素</b> 具体大小是<b>jpg</b>, <b>gif</b> or <b>png</b> </font>
+register_custom_avatar_url:定制头像地址：
+register_preview:预览
+register_custom_avatar_upload:定制头像文件：
+register_register:注册
+register_required:必填信息
+register_required_desc:所有内容都必须填写。请注意密码是区分大小写的。
+register_optional:可选择的信息
+register_optional_desc:由于你的信息将会被别的论坛成员看到，因此我们建议你填写信息时不要暴露自己的个人身份。
+register_location:地址：
+register_occupation:职业：
+register_interests:兴趣：
+register_image:头像：
+register_icq:ICQ：
+register_aim:AIM：
+register_yahoo:Yahoo信息：
+register_msnm:MSN信息：
+register_homepage:主页：
+register_bday:生日：
+register_bday_desc:如果你选择了“生日”选项，别的论坛成员将在你的个人信息中看到。
+register_day:日
+register_month:月
+register_year:年
+register_gender:性别
+register_bio:个人简介：
+register_bio_desc:其它的一些个人信息，比如兴趣、职业等等。
+register_prefs:参数选择
+register_sig:签名：
+register_sig_desc:跟在你的发言后的个性化签名。
+register_reset:重置
+register_def_thread_view:默认主题浏览方式：
+register_msg_per_page:每页帖子数：
+register_show_sig:显示签名：
+register_show_sig_desc:选择是否在发帖后显示你的签名档。
+register_use_sig_default:显示其他成员签名：
+register_use_sig_default_desc:是否显示其他论坛成员的签名档。
+register_timezone:时区：
+register_ignore_admin:忽略管理信息：
+register_invisible_mode:隐身登录：
+register_invisible_mode_desc:登录后是否显示在在线用户列表中。
+register_show_email:显示电子邮件地址：
+register_show_email_desc:如果你想公开自己的电子邮件地址，请选择这个选项。
+register_notification:是否默认打开提醒功能：
+register_notification_desc:如果选择"是"，在发帖时依然可以选择是否提醒。
+register_notify_method:请选择提醒方式：
+register_notify_method_desc:设置首选的通知方式或关闭通知（如果您正在度假）
+register_allow_email_msg:允许向你的电子邮箱发送信息：
+register_allow_email_msg_desc:允许别的用户通过本论坛向你发送邮件。
+buddy_status:级别
+my_buddies:我的好友
+add_buddy:添加好友
+add:添加
+buddy_search:输入要添加的用户名。
+member_search:或者使用 <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">用户查找</a> 功能来找人。
+buddy_remove:移除
+post_normal:正常
+post_sticky:置顶
+post_annoncement:公告
+post_size:大小
+post_color:颜色
+post_font:字体
+create_thread:生成主题
+submit_reply:回复
+edit_message:编辑信息
+apply_spell_changes:应用拼写检查的更改。
+post_preview:预览
+post_logedin_user:登录用户：
+post_logout:注销
+post_passwd:输入密码
+post_poll:调查：
+post_create_poll:发起调查
+post_poll_delete:删除
+post_poll_edit:编辑
+post_mod_opt:版主选项
+post_thread_type:主题类型
+post_thread_expiry:主题到期期限：
+post_locked:被锁定（不可回复）的主题
+post_icons:添加图标：
+post_no_icon:不用图标
+post_smiley:表情符号：
+post_format_tools:编辑工具：
+post_upload_file:上传
+post_file_del:删除
+post_file_name:姓名
+post_file_size:大小
+file_attachments:添加附件：
+allowed_files:允许的文件扩展名：
+max_file_size:文件的最大限制：
+max_files_per_msg:每条信息允许添加的最多文件：
+post_notification:发布通告
+include_sig:使用签名
+include_sig_desc:包括我的个人签名。
+disable_smilies:这条信息中不使用表情符号
+spell_check_msg:拼写检查信息
+post_form:发布表格
+post_forum:论坛：
+post_title:主题：
+post_body:内容：
+post_options:选项：
+post_preview_btn:预览
+ignore_users:被拒绝的用户
+add_ignore:添加被拒绝的用户
+forum_terms:论坛协议
+# Fuzzy
+forum_rules:本论坛免费注册！我们希望你务必遵守下列政策和规定。如果你同意这些规定，请点击本页最下面的“我同意”按钮。注：如果你点击了此按钮即表明你宣告自己是13岁以上公民；如果你未满13岁，请领取注册表。<p>尽管论坛管理员和版主将尽力清除非法言论，但是难免挂一漏万。因此我们在此郑重声明，所有发言都仅代表作者观点，作者言责自负。论坛所有者和发展商对此不负任何责任。<p>点击了“我同意”按钮即表明你保证不在论坛上发布任何淫秽、色情、反动、暴力等非法言论。<p>论坛管理者有权因为任何理由编辑、删除或者关闭任何发言。<p>
+# Fuzzy
+forum_rules_13:所有13岁以下用户必须经过父母或者监视人允许才能成为论坛成员。我们欢迎13岁以下用户加入，但是只有在收到你的父母或者监护人通过传真或者电子邮件给我们的签名授权文件以后，我们才能通过你的申请。<p>如果你想在我们收到授权文件之前注册，请点击下面的“我同意”按钮，如果你不想继续注册，请点击“删除”按钮回到论坛主页。<p>你可以在这里下载授权文件，想了解更多的信息请发邮件至<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>。<p>
+coppa_conf:注册确认
+# Fuzzy
+coppa_before:之前 {DATE: coppa %Y-%m-%d}
+# Fuzzy
+coppa_after:之后{DATE: coppa %Y-%m-%d}
+coppa_link:根据你的出生日期，请选择
+# Fuzzy
+coppa:对于13岁以下的用户，只有当论坛管理员收到了你的父母或者监护人的确认邮件或者传真以后才能完成注册。<p>要了解更多的信息，请联系<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+prereg_info:信息
+prereg_agree:同意
+prereg_disagree:不同意
+coppa_fax_instructions:父母或监护人介绍
+coppa_fax_instructions2:请打印这页，并签名传真至：
+coppa_fax_reg_form:登记表
+coppa_fax_sign:请在下面的表格签字并且寄给我们
+coppa_fax_conf:我已经知道了我的孩子在贵网站提交的相关注册信息并且仔细阅读了贵网站的相关隐私条款。 我知道通过密码可以修改相关信息并且我可以要求更改所有信息。
+coppa_fax_permission:如果同意请签字
+coppa_fax_no_permission:如果不同意请签字
+coppa_fax_parent_name:父母/监护人的真实姓名
+coppa_fax_relation:和孩子的关系：
+coppa_fax_telephone:电话
+coppa_fax_email:电子邮箱
+coppa_fax_date:日期
+coppa_fax_questions:有任何问题请联系 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa_fax_login:账号
+coppa_fax_passwd:密码
+coppa_fax_remail:电子邮箱
+coppa_fax_name:姓名
+login_not_logedin:你尚未登录。原因是：
+login_cookie_expired:你的cookie功能被终止了。需要登录重新开启cookie功能。
+login_perm_denied:作为匿名用户，只有登录以后才有权限访问相关资源。
+login_want_to_register:先注册?
+login_forgot_passwd:密码忘了
+# Fuzzy
+login_use_cookie:使用cookies功能<br /><font class="SmallText">如果你是在学校、图书馆、网吧等公共场合使用计算机，为安全起见，建议你不要使用这个功能。
+login_login:登录
+login_login_btn:登录
+login_name_required:登录时必须输入账号
+login_passwd_required:输入密码
+login_invalid_radius:错误的账号或密码
+reset_confirmation:谢谢注册！\n\n进入当前账号，请点击下面的地址：\n\n{VAR: url}\n\n一旦进入当前账户，你将直接进入\n论坛主页。
+reset_reset:你好,\n\n你提交了重新设置密码的请求，需要重新设置密码\n请点击\n\n{VAR: url}\n\n注意：本论坛以单向加密的方式储存密码，即\n密码一经输入即被重新编码、无法找回。\n你每次登录输入密码时，\n该系统将自动对密码进行校验。（如果你对此加密方式感兴趣，请查阅关于MD5加密算法的相关资料。）
+rpasswd_invalid_passwd:密码错误
+rpasswd_passwd_nomatch:密码不符
+rpasswd_passwd_length:密码必须至少6个字符
+reset_remind_pass:密码提示问题
+reset_reset_conf:你的密码已经重新设定，并将发送电子邮件给你进行确认。如果没有确认，系统将再次发送确认邮件。
+reset_error:你的个人资料中没有这个电子邮件地址。
+rpasswd_change_pass:修改密码
+rpasswd_login:登录
+rpasswd_cur_pass:当前密码：
+rpasswd_new_pass:新密码：
+rpasswd_conf_pass:密码确认：
+login_passwd:密码：
+reset_email:电子邮箱：
+reset_reset_button:重新输入密码
+rate_this_thread:评价
+report_reporting_about:报告主题：
+report_subject:主题：
+report_by:发布：
+report_posted_on:发帖时间：
+report_give_reason:请填写你报告这个主题的原因：
+report_submit_report:完成
+search_entire_msg:全文搜索
+search_subject_only:主题搜索
+search_forum:论坛
+search_posted_on:提交
+search_no_results:没有查询结果
+search_all_forums:搜索所有论坛
+search_in_forum:搜索这个论坛：
+search_forum_search:论坛搜索
+move_thread_to:把本主题移至 <b>{VAR: thr->subject}</b> ：
+remail_email_topic:通过电子邮件向朋友推荐这个主题
+remail_your_name:你的姓名：
+remail_your_email:你的电子邮箱：
+remail_friends_name:朋友的名字：
+remail_friends_email:朋友的电子邮箱：
+remail_required:必填的
+remail_subject:主题：
+remail_message:内容：
+remail_send_now:发送邮件
+remail_anon_opt:把这些内容拷贝到你选择的邮件地址中，发送给你的朋友。
+remail_done:完成
+# Fuzzy
+remail_sent_conf:给你的朋友 {VAR-HTML: _POST['femail']} 的关于{{VAR: data->subject} 的邮件已经成功发送。
+remail_error:发生了错误
+mklist_type:类型：
+mklist_option:选项：
+mklist_additem:添加条目
+mklist_apply:提交
+mklist_delete:删除
+qbud_nick_name:昵称
+qbud_add_selected:添加选定用户
+qbud_selected:选择
+qbud_no_buddies:没有用户选择
+mklist_numerical:数字
+mklist_aplha:字母
+mklist_square:方点
+mklist_disc:圆点
+mklist_circle:圆圈
+mklist_close:取消
+email_to:至：
+email_pg_title:电子邮箱
+email_subject:主题：
+email_body:内容：
+email_submit:发送
+# Fuzzy
+ppost_quote_msg:{VAR: msg_to_list} 于 {DATE: msg_r->post_stamp %Y-%m-%d %H:%M} 在大作中提到：
+ppost_quote:引用：
+ppost_to:至：
+ppost_from_buddy_list:从好友名单中选择
+ppost_find_User:查找用户
+ppost_track_msg:跟踪这条信息
+ppost_track_msg_desc:当这条信息被阅读时请用悄悄话通知我。
+ppost_send:发送
+ppost_save_draft:保存草稿
+poll_blank_option:你不能提交空的选项。
+poll_del_conf:如果你想删除这个选项，请按OK
+poll_name:调查名称：
+# Fuzzy
+poll_timelimit:时间限制
+# Fuzzy
+poll_maxiumvotes:最大的投票量
+poll_create:完成
+poll_update:更新
+poll_disablesmilies:不使用表情符号
+poll_create_poll:发起调查
+poll_update_poll:更新调查
+poll_delete:删除
+poll_updateoption:更新选项
+poll_addoption:添加选项
+poll_unlimited:不限制
+poll_day:日期
+poll_days:天
+poll_hour:小时
+poll_hours:小时
+poll_month:月
+poll_year:年
+poll_week:周
+tabs_register:设置
+tabs_subscriptions:预定内容
+tabs_referrals:推荐
+tabs_buddy_list:好友列表
+tabs_ignore_list:黑名单
+tabs_private_messaging:悄悄话
+# Fuzzy
+single_msg_delete:你正要<font color="#ff0000" size="4">删除</font>标题为：<b>{VAR: data[3]}</b>的帖子。
+# Fuzzy
+thread_delete:你正要<font color="#ff0000" size="4">删除整个主题</font> 标题为：<b>{VAR: data[3]}</b>
+delete_proceed:<font size="3"><b>是否继续?</b></font>
+delete_yes:是
+delete_no:否
+error_invalidurl:该地址无效
+error_error:错误
+usrinfo_profile:{VAR: u->alias}的个人信息
+usrinfo_show_all_posts:显示用户 {VAR: u->alias}发布的所有主题
+actions_update:查找和你的个人信息内容相匹配的用户。
+err_info:信息
+buddy_list_err_cantadd:无法把你加入好友名单
+buddy_list_err_dup:你的好友列表中已经添加了这个用户
+buddy_list_err_nouser:你要添加的用户不存在
+buddy_list_err_nouser_title:无法添加
+buddy_list_err_ignore:不能增加忽略你的用户到你的朋友列表.
+buddy_list_update:浏览我的好友列表
+core_err_invinp_title:输入错误
+# Fuzzy
+core_err_invinp_err:你输入了一个错误的链接，请更正
+# Fuzzy
+core_adm_login_msg:<a href="adm/admloginuser.php">管理员登陆</a>
+email_err_unabletoemail_title:错误：无法发送邮件
+email_err_unabletoemail_msg:系统管理员设置邮件系统无法使用。
+email_error_unabletolocaddr:对不起，因为无法登录对方的邮件服务器导致系统无法发送邮件{VAR-HTML: _POST['tx_name']}
+email_error_body:必须填写邮件内容
+email_error_subject:必须填写邮件主题
+email_error_namerequired:必须填写邮件接受者姓名
+email_error_invaliduser:用户名错误
+emailconf_err_invkey_title:错误
+emailconf_err_invkey_msg:无效的地址。请检查并确认你的填写的是正确的地址信息。
+# Fuzzy
+err_inc_criticaltitle:紧急错误
+err_inc_criticalmsg:发生错误，而且很不幸的是错误报告系统本身也存在问题。
+finduser_update:搜索用户
+help_index_update:阅读<a href="{TEMPLATE: help_index_update_lnk}">使用帮助</a>
+iemail_thr_subject:新的回复 {VAR: thr_subject} 由{VAR: poster_login}
+iemail_thr_bodyemail:查看未读的回复 {VAR: goto_url['email']}\n\n如果你不想收到关于这个主题新的回复通知，请点击： {VAR: unsub_url['email']}
+iemail_frm_subject:论坛新主题 {VAR: frm_name} called {VAR: thr_subject}由{VAR: poster_login}
+iemail_frm_bodyemail:查看主题：\n{VAR: goto_url['email']}\n\n不再接受本论坛的新主题发布通知，请点击： {VAR: unsub_url['email']}
+iemail_participate:参与讨论，点此：
+ignore_list_err_info_title:信息
+ignore_list_err_dup_msg:你已经把这用户添加到你的“被拒绝用户”名单中。
+ignore_list_err_nu_title:没有找到这个用户
+ignore_list_err_nu_msg:本论坛不存在你要添加的用户。
+ignore_list_cantign_msg:你无法拒绝该用户
+ignore_list_update:浏览“被拒绝用户”名单
+index_update:浏览<a href="{TEMPLATE: index_update_lnk}">论坛列表</a>
+list_referers_update:浏览被提名者
+login_update:登录格式
+msg_update:展开浏览 <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:错误：无法发送悄悄话
+pm_err_nopm_msg:系统管理员禁止你使用悄悄话系统。
+pm_update:使用悄悄话功能
+post_err_lockedthread_title:错误：该帖子已被锁定
+post_err_lockedthread_msg:这个主题已被锁定，不能回复
+err_coppa_title:错误：你没有此项权限
+# Fuzzy
+err_coppa_msg:我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认证明。 如果丢失了申请表，<a href="{TEMPLATE: err_coppa_msg_lnk}">请点这里</a>。
+err_banned_acct_title:错误:你被屏蔽了.
+err_banned_acct_msg:你的帐号被暂时{IF: $ban_expiry}锁定直到{DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}允许{ENDI} 登录本站，因为本站的&#39s规则.
+post_err_edttimelimit_title:错误
+post_err_edttimelimit_msg:你不能再编辑这条信息
+post_err_noannontopics_msg2:<legend>错误：权限不够</legend>匿名用户不允许发帖。
+post_err_noannonposts_msg2:<legend>错误：权限不够</legend>匿名用户不许回帖。
+post_err_floodtrig_title:错误：发布灌水帖子
+# Fuzzy
+post_err_floodtrig_msg:请在{VAR: tm}秒以内重试
+post_err_attach_size:附件文件太大（超过了允许的最大{VAR: MAX_F_SIZE}字节）
+post_err_attach_ext:你正在上传的文件类型不符合论坛对上传文件类型的设置。
+post_err_attach_filelimit:你正在上传的文件超过了限制的数量。
+post_err_passwd:密码错误。
+# Fuzzy
+post_reply_update:回复 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> 在 {VAR-HTML: frm->name}
+# Fuzzy
+post_topic_update:发表新主题 <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_error_generic:发生错误
+postcheck_max_images_err:一次提交图片允许的最大数是{GVAR: MAX_IMAGE_COUNT} ，请尽量减少图片数量。
+postcheck_subj_needed:输入主题
+postcheck_no_such_user:本论坛没有 "{FUNC: char_fix(htmlspecialchars($v))}" 用户
+postcheck_ignored:"{FUNC: char_fix(htmlspecialchars($v))}"用户拒绝接受你的悄悄话。
+postcheck_no_recepient:因为没有接受方，所以无法发送信息
+postcheck_invalid_email:请输入你的朋友的正确电子邮箱地址。
+postcheck_email_subject:如果不输入主题，你将无法发送邮件。
+postcheck_email_body:如果没有内容，你将无法发送邮件。
+private_msg_notify_subj:读取通知：{VAR: m->subject}
+# Fuzzy
+private_msg_notify_body:你好，<br />{VAR: usr->login} 用户已经阅读了你的悄悄话， "{VAR: m->subject}"，在 {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br />
+referals_update:浏览被推荐者
+register_err_short_login:你输入的账号太短，必须至少包括4个字符。
+register_err_login_notallowed:不能使用这个账号注册。
+register_err_loginunique:论坛账号必须是唯一的，这个账号已经有人使用。
+register_err_emailexists:这个电子邮件地址已经存在，请不要重复注册。如果你忘记了密码，请通过“找回密码”程序找回你的密码。
+register_err_shortpasswd:密码必须至少有6个字符。
+register_err_passwdnomatch:你的密码不对。
+register_err_invalidemail:你输入的电子邮件地址不正确。
+register_err_needname:你必须输入你的姓名才能完成此次注册。
+register_err_enterpasswd:你必须输入密码才能进行修改。
+# Fuzzy
+register_err_adminpasswd:你必须输入系统管理员密码才能完成这些修改。
+register_err_notyouremail:已经有人用这个电子邮箱地址注册了，但是那个人不是你。
+register_err_avatartobig:你正在上传的文件太大，超过了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节的最大限制。
+register_err_avatarnotallowed:你正在上传的头像不能上传，请查看允许上传的文件类型。
+register_conf_subject:注册确认
+register_conf_msg:谢谢注册,\n进入当前账号，请点击下列地址：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
+register_welcome_subject:论坛注册确认
+# Fuzzy
+register_welcome_msg:谢谢注册，\n\n这是你注册的详细资料：\n\n论坛URL：{GVAR: WWW_ROOT}\n账号：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要更改你的设置或者个人信息，请点击：\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:错误：无法注册
+regsiter_err_cantreg_msg:无法注册新的账号，请和系统管理员联系<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:查看个人信息
+register_register_update:注册页
+report_err_nosuchmsg_title:错误
+report_err_nosuchmsg_msg:没有这样的信息
+reset_err_invalidkey_title:错误
+reset_err_invalidkey_msg:密码提示错误
+reset_err_rstconf_title:信息
+reset_err_rstconf_msg:一会你将通过邮件收到相关说明。
+reset_newpass_title:重新输入密码
+reset_newpass_msg:你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息：\n\n账号：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n注意：你的密码已经被改为上面的值字符组合，如果你想\n修改密码，请在个人信息中修改：\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:一会儿，你将通过邮件收到密码。请检查你的密码并登录。.<br />.<br />.<br />
+search_update:搜索
+selmsg_update:浏览 <a href="{TEMPLATE: selmsg_update_lnk}">今天发布的主题</a>
+showposts_update:查看用户 <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>发布的主题
+subscribed_update:浏览自己预定的内容
+# Fuzzy
+thread_update:浏览论坛<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:浏览（以树状方式） <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 个人信息
+ERR_login_msg2:<legend>错误：未登录</legend>登录后才能访问所需页面。
+ERR_disabled_ttl:被禁止的功能
+ERR_disabled_msg:此项功能已经被系统管理员关闭。
+ERR_access_ttl:错误：权限不够
+ERR_access_msg:你没有权利进行此项操作
+ERR_registration_disabled_ttl:注册失败
+ERR_registration_disabled_msg:注册功能被系统管理员禁止，请重试！
+ERR_emailconf_ttl:错误：此账号无效
+# Fuzzy
+ERR_emailconf_msg:你注册的账号尚未进行邮件确认<br /><table border="0"><tr><td><ol><li>如果你没有收到确认邮件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">请点击这里</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">请点击这里</a></ol></td></tr></table>
+ERR_user_ttl:错误：没有这个用户
+ERR_user_msg:没有这个用户
+ERR_systemerr_ttl:系统错误
+ERR_systemerr_msg:发生系统错误，请报告错误给管理人员。
+email_title:邮件格式
+finduser_title:查找用户
+help_title:使用帮助
+login_title:登录格式
+poll_title:调查编辑
+register_title:注册
+reset_title:重新输入密码
+rpasswd_title:修改密码页面
+error_title:格式错误
+index_title:欢迎到来
+search_title:搜索 {VAR-HTML: srch}
+remail_emailsent:邮件已经发送
+# Fuzzy
+remail_email:这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能会感兴趣！\n这里是你可能感兴趣的主题：{VAR: data->subject} 请点击：{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n 发件人 {VAR: usr->alias}
+poll_add_option:添加选项：
+post_opt_html_on:<b>HTML</b><b>代码：开放</b>
+post_opt_fud_on:<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUD代码：</b><b>开放</a></b>
+post_opt_images_on:<b>帖图功能：</b><b>开放</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>表情符号：</b> <b>开放</b></a>
+post_opt_html_off:<b>HTML</b> 代码： <b>关闭</b>
+post_opt_fud_off:<b>FUD代码：</b><b>关闭</b>
+post_opt_images_off:<b>帖图功能：</b><b>关闭</b>
+post_opt_smilies_off:<b>表情符号：</b><b>关闭</b>
+post_opt:论坛选项
+register_change_passwd:更改密码
+approved_avatar_title:你定制的头像已被管理员批准。
+approved_avatar_msg:你定制的头像已被系统管理员批准，以后你发布的所有信息都将显示该头像。如果你尚未看到或者看到的是旧的头像，那可能是你的浏览器缓存了相关页面，尝试多刷新几次或许能解决这个问题。
+unapproved_avatar_title:你定制的头像未被批准。
+unapproved_avatar_msg:系统管理员没有批准你的头像。最可能的原因是你的头像太大（字节或者尺寸），还有可能是因为包括不合适的主题文件。如果需要了解更多的相关信息，请和系统管理员联系。
+mvthread_request_move:申请移动本主题
+move_request_reason:你为什么要移动本主题
+mvthread_submit_req:提交申请
+thread_exchange:转移主题
+move_request_by:主题转移人：
+move_reason:转移主题的理由：
+thr_exch_accept:接受该主题
+thr_exch_decline:拒绝该主题
+thr_exch_orig_forum:转出的论坛：
+thr_exch_dest_forum:目标论坛：
+thr_exch_no_threads:没有需要批复的主题。
+# Fuzzy
+thr_exch_decl_reason:拒绝主题 <b>{VAR-HTML: frm->name}</b> 转入<b>{VAR-HTML: frm->name}</b>论坛的理由。
+thr_exch_submit:发布
+# Fuzzy
+exch_decline_ttl:把主题 {VAR: data->subject} 转移至{VAR-HTML: data->f2_name} 论坛的要求被拒绝。
+ppost_original_msg:你正在发送或者回复的信息
+split_thread:分开主题
+groupmgr_no_user:此账号不存在 "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:"{FUNC: char_fix(htmlspecialchars($gr_member))}" 本论坛已经存在这个用户
+groupmgr_yes:是
+groupmgr_no:否
+groupmgr_action:操作
+groupmgr_member:成员
+groupmgr_cancel:删除
+groupmgr_add_member:添加成员
+groupmgr_update_member:更新成员名单
+groupmgr_edit:编辑
+groupmgr_delete:删除
+group_mgr_anon:匿名
+group_mgr_reged:所有注册用户
+show_show:显示：
+group_mgr:论坛板块管理
+group_mgr_edit_btn:编辑论坛
+group_mgr_heading:选择论坛管理员
+group_mgr_group:论坛：
+permission_denied_title:你的要求被拒绝
+permission_denied_msg:你没有权限执行此项操作
+p_READ:查看
+p_POST:发布
+p_REPLY:回复
+p_EDIT:编辑
+p_DEL:删除
+p_STICKY:发布论坛公告
+p_POLL:发起调查
+p_FILE:添加附件
+p_VOTE:投票
+p_RATE:评价帖子
+p_SPLIT:分开主题
+p_LOCK:封闭帖子
+p_MOVE:转移帖子
+p_SML:应用表情符号
+p_IMG:应用图像标签
+p_SEARCH:允许搜索
+group_mgr_search:查找用户
+group_mgr_indicator:正在编辑：<b>{VAR: grp->name}</b>
+rate_worst:最差的
+rate_best:最好的
+# Fuzzy
+post_quote_msg:{VAR: msg->login} 于 {DATE: msg->post_stamp %Y-%m-%d %H:%M} 在大作中提到：
+post_quote:引用：
+userinfo_referals:被推荐的用户：
+userinfo_referals_count:{VAR: referals} 成员：
+pm_no_space_title:空间不够
+pm_no_space_msg:你的悄悄话文件夹已经超出了系统限制的空间范围 <b>{GVAR: MAX_PMSG_FLDR_SIZE} 字节</b>，其中包括 <b>{VAR: fldr_size} 字节的</b> 有用信息，<br /><br /><font class="ErrorText">请删除一些旧信息以腾出空间</font>。
+pm_space_indct_msg:你的悄悄话信箱已占用{VAR: percent_full}%空间。
+th_expr_never:从不
+th_expr_one_hr:1个小时
+th_expr_three_hr:3个小时
+th_expr_four_hr:4个小时
+th_expr_eight_hr:8个小时
+th_expr_sixteen_hr:16小时
+th_expr_one_day:一天
+th_expr_two_day:2天
+th_expr_four_day:4天
+th_expr_one_week:1周
+th_expr_two_week:2周
+th_expr_one_month:1个月
+th_expr_two_month:2个月
+th_expr_four_month:4个月
+th_expr_one_year:1年
+thread_mod_delete:删除
+action_latest_post:最近一次登录
+online_today_last_visit:最近一次登录
+online_today_update:查看本论坛今天的在线用户
+logedin_todays_visitors:今天的访问者
+logedin_latest_post:本论坛最新发布的主题
+register_show_avatar:显示头像：
+register_show_avatar_desc:是否显示用户的头像。
+drawmsg_view_rest_post:显示剩余信息
+post_re:回复：
+forumsel_goto_forum:转至论坛：
+minimsg_thread_view:浏览主题
+split_th_post_by:作者：
+split_th_posted_on:发表时间：
+split_th_subject:主题：
+split_th_new_thread_title:新的主题：
+split_th_forum:论坛：
+split_th_split_sel:分出选中的帖子
+split_th_split_unsel:分出没有选中的帖子
+split_th_messages:信息
+split_th_select:选择
+report_report_post:报告发布
+# Fuzzy
+quicklogin_login:登录
+# Fuzzy
+quicklogin_password:密码
+quicklogin_use_cookies:是否使用Cookies功能？
+# Fuzzy
+quicklogin_login_btn:登录
+quick_reply:快速回复
+post_notification_desc:当有人回复本主题时请通知我。
+post_all_ext_allowed:（没有限制）
+maximize_category:增加目录层次
+no_view_perm:很抱歉，你没有察看这个页面的权限
+report_empty_report:你不能提交空的报告，请说明推荐理由。
+report_already_reported_title:报告已经提交
+report_already_reported_msg:这条信息已被推荐，相关推荐报告在论坛管理信息列表中。
+register_err_toomanyimages:你的个人签名中使用了禁止使用的图片{GVAR: FORUM_IMG_CNT_SIG}。
+pmsg_next_msg:下一条信息
+pmsg_prev_msg:前一条信息
+post_proc_reveal_spoiler:显示隐藏内容
+register_jabber:Jabber：
+register_skype:Skype:
+register_google:Google Chat/IM：
+im_jabber:Jabber：
+im_google:Google Talk：
+im_skype:Skype：
+forum_contact:联系
+forum_home:主页
+# Fuzzy
+post_cur_attached:正在粘帖{VAR: i} 个文件
+ignored_anon_post:{GVAR: ANON_NICK} 被忽略
+ignored_user_post:设置忽略信息<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>
+smladd_close_window:关闭窗口
+post_list_smilies:显示所有表情符号
+p_VISIBLE:可见的
+# Fuzzy
+reported_in_thread:展开浏览
+help_back_to_top:回到页首
+help_return_to_index:返回帮助索引
+imsg_err_message_title:帖子出错
+imsg_err_message_msg:你要查看的帖子不存在。
+poll_edit:编辑
+register_err_not_valid_img:指定的图片连接不正确
+pmsg_recepient:收信人
+register_alias:昵称
+register_alias_desc:如果你想应用昵称代替你的用户名来显示在论坛上就请你填入你想要的昵称。
+register_allow_pm_msg:接受悄悄话
+register_allow_pm_msg_desc:接受论坛其他用户向你发送的悄悄话。
+postcheck_pm_disabled:你不能给 "{VAR-HTML: v}" 发送悄悄话，因为他没有开启悄悄话功能。
+polllist_vote:参加调查
+polllist_view_results:查看结果
+polllist_name:调查主题
+polllist_date:发起时间
+polllist_owner:发起人
+polllist_votes:总票数
+polllist_action:操作
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">以往调查</a>
+userinfo_polls:发起调查数
+show_pollist:调查列表
+search_and:和
+search_or:或
+search_desc_order:降序排列
+search_asc_order:升序排列
+search_logic:方式：
+search_sorting:结果按日期：
+post_proceed:返回论坛
+post_moderated_forum:恭喜！你已经发表成功，等版主或者管理员确认后会发布到网上！
+post_moderated_forum_ttl:受限论坛说明
+buddy_list_bday:今天是 {VAR: r[2]} 的 {VAR: age} 岁生日
+email_warning_msg:如果你修改了Email，则此账号会被暂时隐藏，请你查收邮件，点击邮件中的连接以重新激活账号！
+register_show_im:显示 IM 指示器
+register_show_im_desc:是否在用户帖子旁边显示IM。
+unread_message:未读帖子
+read_message:阅读更多帖子：			&lt;更多&gt;
+threadt_more:&lt;更多&gt;
+threadt_disabled_ttl:树状浏览已经被关闭。
+threadt_disabled_desc:管理员已经关闭树状浏览，请用展开浏览方式。
+# Fuzzy
+threadt_update:浏览论坛（树状浏览）<a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+mmod_delete_cofirm_ttl:确认删除主题/内容
+spell_alts:没有选择
+insert_uploaded_image:将此图片显示在文章中
+finduser_help:小提示：输入单个字母就可以搜索到以这个字母开头的用户。
+back_to_top:返回顶部
+pm_err_disabled_title:不能发送悄悄话
+pm_err_disabled_msg:你当前设置为不能发送悄悄话！可以在个人信息中修改设置，以激活悄悄话功能。
+err_mod_acc_ttl:未被批准的账号
+err_mod_acc_msg:账号在被激活之前必须得到系统管理员的确认，在得到确认之前，你的账号不享有注册用户的所有功能！
+accounts_pending_approval:待审核帐号
+saved:珍藏夹
+# Fuzzy
+register_err_time_limit:每 {GVAR: REG_TIME_LIMIT} 秒限制一个用户可以注册， 请稍等 {VAR: reg_limit_reached} 秒再来注册。
+# Fuzzy
+register_affero:Affero用户名：<br /><font class="SmallText">如果你有<a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>帐户，请在此处输入用户名。</font>
+im_affero:Affero用户名
+register_err_avatardimtobig:头像大小 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> 超出了论坛限制的： <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+buddy_offline:{VAR: r[2]} 当前不在线
+buddy_online:{VAR: r[2]} 当前在线
+sml_no_smilies:没有表情符号供选择。
+login_unapproved_account_ttl:未审核的帐号
+login_unapproved_account_msg:帐号需要管理员审核后才能激活使用。你的帐号还未通过审核，在通过审核之前，可能不能使用论坛的某些功能。
+remove_from_buddy_list:从好友名单中删除
+iemail_msg_author:<b>作者：</b> {VAR: obj->alias}
+iemail_msg_subject:<b>主题：</b> {VAR: obj->subject}
+# Fuzzy
+iemail_msg_date:<b>日期：</b> {DATE: obj->post_stamp %Y-%m-%d %H:%M}
+iemail_msg_reply:回复
+iemail_msg_quote:引用
+iemail_msg_view:查看主题/帖子
+threadt_sticky:置顶
+threadt_announce:公告
+reported_no_messages:没有报告的帖子。
+poll_no_polls:没有可用的投票。
+no_unread_messages:没有符合条件的未读帖子。
+thread_mark_all_read:标记所有帖子为已读
+thread_mark_all_read_desc:论坛中所有的未读标记将被清除
+private_no_messages:此板上没有帖子
+register_email_change_subject:电子邮件更改确认
+register_email_change_msg:请确认你的新邮件地址 "{VAR: uent->email}"（用于替换老地址 "{VAR: old_email}"），点击以下的URL：\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n你的帐号将在新邮件地址被确认后被重新激活。
+iemail_thread_unsub:取消对此主题的订阅
+iemail_forum_unsub:取消对此板块的订阅
+primary_group_prefix:中心组对于板块：
+group_resources:此组控制下列板块的访问权限
+register_admin_newuser_title:有新用户注册并等候批复
+register_admin_newuser_msg:新用户 ({VAR: uent->login}) 刚刚注册，正等待管理员的审核批复。要批复用户，请转到： {GVAR: WWW_ROOT}adm/admaccapr.php\n\n这是一封自动发出的邮件，请勿回复此邮件。\n如果要取消此提醒，请在管理界面的 "New Account Notification" 中设置。
+post_mod_msg_notify_title:有新帖在 "{VAR: frm->name}" 板上等待审核
+# Fuzzy
+post_mod_msg_notify_msg:新帖子 "{VAR: msg_post->subject}" 刚刚发布，等候审核。要审核此帖，请到：{FULL_ROOT}{ROOT}?t=modque\n\n这是一封自动发出的邮件，请勿回复此邮件。
+thread_printable_pdf:生成可打印的PDF格式
+thread_syndicate:同步此板块（XML格式）
+reg_conf_title:论坛注册验证邮件
+reg_conf_email:<b>电子邮件验证</b><br />一封特殊的邮件已经发往你填写的邮箱，邮件里包含了一个特殊的URL网址，你需要访问此网址以通过论坛的电子邮件验证步骤。如果几分钟后你没有收到这样的邮件，请登录论坛并检查邮件地址是否填写正确。在通过验证之前你将不能使用论坛的某些功能。
+reg_conf_account:<b>帐号确认</b><br />在帐号被激活启用之前，必须通过管理员的审核和批复。帐号被管理员批复之后在你注册时填写的邮箱里会收到一封提示注册成功的邮件，在通过批复之前，你将不能使用论坛的某些功能。
+forum_banned_user:由于此帐号上次在论坛的所作所为严重违反论坛规定，导致帐号被论坛管理员封闭，再见。
+mnav_description:帖子浏览器
+mnav_date_limit:日期范围：
+mnav_forum_limit:限制在如下的版面上查找：
+mnav_all_forums:所有论坛版面
+mnav_submit:浏 览
+mnav_no_range:请输入合理的日期范围。你可以输入从0到12中任意数字，注意数字必须大于0。
+mnav_invalid_unit:请指定合理的时间单位。
+mnav_invalid_date:输入的日期范围超出论坛限制，请改小后重新输入。
+mnav_no_results:没有符合条件的帖子。
+mnav_posted_by:发帖人：
+mnav_more:更多 &raquo;&raquo;
+mnav_minute:分钟
+mnav_hour:小时
+mnav_day:天
+mnav_week:周
+mnav_month:月
+mnav_title:帖子浏览器
+mnav_update:用<a href="{TEMPLATE: mnav_update_lnk}">帖子浏览器</a>来查看。
+pm_notify_subject:[{GVAR: FORUM_TITLE}] 你收到了新悄悄话！
+pm_notify_body_email:你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒邮件，请在“个人信息”中禁止“新悄悄话提醒”。
+register_pm_notification:新悄悄话提醒
+register_pm_notification_desc:如果选“是”，则在有新悄悄话收到时，论坛会通过所选的方式通知你。
+findu_admin_opts_header:管理员选项
+findu_unban:解封
+findu_ban:封
+findu_edit:编辑
+findu_delete:删除
+dmsg_reply_to:是对于帖子 #{VAR: obj->reply_to} 的回复
+merge_topics:合并主题
+merge_topics_cp:合并主题功能面板
+merge_topics_tpl:选择要合并的主题<font class="SmallText">（至少需要选择两个主题）</font>
+merge_merge:合并所选主题
+merge_next:下一页
+merge_prev:上一页
+split_cp:打散主题功能面板
+groups_perms_header:权限列表<font size="-1">（将鼠标指针挪至相应权限位以查看相应权限）</font>
+register_err_sig_too_long:你的签名超长了，最多只能 {GVAR: FORUM_SIG_ML} characters 个字符（一个汉子算两个字符）。
+register_sig_limit:{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert('你的签名档共 '+document.forms['fud_register'].reg_sig.value.length+' 字符长。本论坛限制长度为 {GVAR: FORUM_SIG_ML} 个字符。');" class="SmallText">检查签名档长度</a>
+adm_account_accepted:你的帐号 '{VAR: login}' 已经通过审核且已被激活。恭喜你，你现在已经是 {GVAR: FORUM_TITLE}' 论坛的正式注册用户了！
+adm_account_accepted_s:你在论坛 '{GVAR: FORUM_TITLE}' 的注册已被接受！
+adm_account_rejected:你的帐号 '{VAR: login}' 没有通过管理员的审核。请检查帐号是否符合论坛相关规定，如果不能确定问题，请联系 '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:你在论坛 '{GVAR: FORUM_TITLE}' 注册的帐号未通过审核，请检查是否符合论坛相关规定。
+thread_on:于
+userinfo_buddy:好友：
+register_email_addr:电子邮件地址：
+reset_suffix:如果你没有要求密码重置功能，请删除此邮件。如果你没有要求密码重置而收到了多封类似邮件，请联络管理员： {GVAR: ADMIN_EMAIL}\n\n密码重置请求来自： {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:最近一次登录:
+mnav_newer:新于：
+mnav_older:旧于：
+ip_search_by_ip:根据 IP 查找使用者
+ip_search_syntax:支持的格式：1.2.3.4, 1.2.3, 1.2, 1
+ip_search:查 找
+ip_analyze_usage:分析 IP 使用情况
+ip_analyze_usage_descr:请输入使用者的确切登录名。
+ip_users_using:使用 IP 地址 '{VAR: ip}' 的用户
+ip_all_ips:用户 '{VAR: user}' 使用的所有 IP 地址
+ip_title:IP 浏览器
+userinfo_real_name:真实姓名：
+register_err_alias_notallowed:此昵称被禁用
+post_err_mod_forum_edit_ttl:错误
+post_err_mod_forum_edit_msg:在需要审查的论坛里不可编辑帖子。
+dmsg_num:帖号 #{VAR: obj->id}
+postcheck_session_invalid:超时，请重新提交。抱歉！
+delete_message_extra_desc:<b>可 选</b><br />用悄悄话向原帖作者说明删帖的原因。
+delete_message_extra_body:同时包含原帖内容。
+delete_msg_removed_ttl:你发的帖子已被管理员删除。
+delete_msg_pm_body:原帖
+delete_msg_pm_subject:原帖标题： {VAR: data[15]}
+ip_no_whois:没有找到关于 <b>{VAR: ip}</b> 的 whois 信息。
+ip_whois_title:ISP 信息
+register_theme:主题：
+pmsg_trash:清空垃圾箱
+uc_new_pm:新悄悄话
+uc_new_topic:新帖
+uc_new_cat_forum:包含新帖的已订阅论坛
+uc_cat_forum:分区 &raquo; 论坛
+uc_sub_topics:包含新帖的已订阅话题
+uc_page_title:查看个人控制面板
+search_options:搜索选项
+search_user_filter:仅限作者：
+register_none:不要通知
+findu_no_conf:未验证Email
+register_max_sig_len:最大长度:
+register_turing:请输入下面显示的代码:
+register_err_turing:无效的验证码.
+modque_cat:类别:
+modque_forum:论坛
+idx_compact_forum_row:可用论坛
+mmd_del_title:删除话题
+mmd_mov_title:移动话题
+mmd_move_threads_to:目标论坛
+mmd_abort_move:取消
+mmd_move:移动话题
+pmsg_pdf_btn:生成PDF文档
+search_results_hdr:{VAR: total} 搜索结果
+thread_del_all:删除所有选中的
+thread_mov_all:移动所有选中的
+err_blockedaccnt_title:错误:你的帐号已经被过滤了。
+err_blockedaccnt_msg:你的帐号因为一个已经安装的用户过滤器而被阻止了。
+merge_th_page_list:话题页面选择
+# Fuzzy
+most_users_online:最高在线人数：<b>{VAR: st_obj->most_online}</b> 在 <b>{DATE: st_obj->most_online_time 周%a, %B%d日 %Y %H:%M}</b>
+sub_unsub_all_forums:从所有的论坛取消订阅
+sub_unsub_all_topics:从所有的话题取消订阅
+tabs_own_posts:显示自己发的帖子
+sml_emoticon:表情
+sml_code:代码
+mnav_sub_only:仅在订阅的版块中搜索
+register_topics_per_page:每页主题数；
+login_min_time:论坛允许前后两次登录时间间隔是 {VAR: MIN_TIME_BETWEEN_LOGIN} 秒，请等待 {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} 秒后再尝试。
+post_not_logged_in:未登录状态，将匿名发表帖子。
+post_common_bold:粗体
+post_common_italics:斜体
+post_common_underline:下划线
+post_common_align_left:左对齐
+post_common_align_center:居中
+post_common_align_right:右对齐
+post_common_link:插入超链接
+post_common_email:电子邮件超链接
+post_common_image:插入图片
+post_common_nlist:添加顺序的排列
+post_common_blist:添加无序的排列
+post_common_quote:添加引用
+post_common_code:添加代码
+rating_delete:删除
+post_always_on_top:将帖子置顶
+# Fuzzy
+topic_rating:{VAR: frm->rating} 得票， {VAR: frm->n_rating} 总票数
+# Fuzzy
+topic_list_rating:{VAR: r[17]} 得票， {VAR: r[21]} 总票数
+tabs_notifications:通知
+finduser_flag:标识
+post_descr:帖子简述
+pmsg_download_dump:查看所有悄悄话
+move_messages:移动帖子
+move_msg_btn:移动所有选中的
+move_msg_th_expl:移至指定主题的ID（可以跨版块）
