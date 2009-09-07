@@ -33,12 +33,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 <table class="linktable">
 <tr>
 	<td nowrap="nowrap">
-	<span class="linkgroup">Checks/Consistency</span><br />
-	<a href="consist.php?<?php echo __adm_rsid; ?>">Forum Consistency</a><br />
-	<a href="indexdb.php?<?php echo __adm_rsid; ?>">Rebuild Search Index</a><br />
-<?php if (!($FUD_OPT_3 & 32768)) { ?>
-	<a href="compact.php?<?php echo __adm_rsid; ?>">Compact Messages</a><br />
-<?php } ?><br />
+<?php } ?>
 	<span class="linkgroup">General Management</span><br />
 	<a href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a><br />
 	<a href="admplugins.php?<?php echo __adm_rsid; ?>">Plugin Manager</a><br />
@@ -88,8 +83,9 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 
 	<span class="linkgroup">Template Management</span><br />
 	<a href="admthemes.php?<?php echo __adm_rsid; ?>">Theme Manager</a><br />
-	<a href="tmpllist.php?<?php echo __adm_rsid; ?>">Template Editor</a><br />
-	<a href="msglist.php?<?php echo __adm_rsid; ?>">Message Editor</a><br /><br />
+	<a href="admtemplates.php?<?php echo __adm_rsid; ?>">Template Editor</a><br />
+	<a href="admmessages.php?<?php echo __adm_rsid; ?>">Message Editor</a><br />
+	<a href="admhelp.php?<?php echo __adm_rsid; ?>">Help Editor</a><br /><br />
 
 	<span class="linkgroup">Icon Management</span><br />
 	<a href="admsmiley.php?<?php echo __adm_rsid; ?>">Smiley Manager</a><br />
@@ -105,6 +101,12 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="admipfilter.php?<?php echo __adm_rsid; ?>">IP filter</a><br />
 	<a href="admlogin.php?<?php echo __adm_rsid; ?>">Login filter</a><br />
 	<a href="admext.php?<?php echo __adm_rsid; ?>">File filter</a><br /><br />
+
+	<span class="linkgroup">Checks/Consistency</span><br />
+	<a href="consist.php?<?php echo __adm_rsid; ?>">Forum Consistency</a><br />
+	<a href="indexdb.php?<?php echo __adm_rsid; ?>">Rebuild Search Index</a><br />
+<?php if (!($FUD_OPT_3 & 32768)) { ?>
+	<a href="compact.php?<?php echo __adm_rsid; ?>">Compact Messages</a><br /><br />
 
 	<span class="linkgroup">Forum Data Management</span><br />
 	<a href="admdump.php?<?php echo __adm_rsid; ?>">Make forum datadump</a><br />

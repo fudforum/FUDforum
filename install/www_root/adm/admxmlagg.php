@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admxmlagg.php,v 1.2 2009/08/06 18:00:55 frank Exp $
+* $Id: admxmlagg.php,v 1.3 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,7 +19,7 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
-	if (!empty($_POST['xmlagg_forum_id'])) {
+	if (!empty($_POST['xmlagg_name']) && !empty($_POST['xmlagg_forum_id'])) {
 		$xmlagg_adm = new fud_xmlagg_adm;
 		if ($edit) {
 			$xmlagg_adm->sync($edit);
@@ -47,9 +47,9 @@
 		}
 	}
 
-	if ($FUD_OPT_2 & 8388608 && strncasecmp('win', PHP_OS, 3)) {	// Forum is locked and not windows
-		echo '<div class="alert">You may need to <a href="admlock.php?'.__adm_rsid.'">unlock</a> the forum\'s files before you can run the XML importing script(s).</div>';
-	}
+	// if ($FUD_OPT_2 & 8388608 && strncasecmp('win', PHP_OS, 3)) {	// Forum is locked and not windows
+	//	echo '<div class="alert">You may need to <a href="admlock.php?'.__adm_rsid.'">unlock</a> the forum\'s files before you can run the XML importing script(s).</div>';
+	// }
 ?>
 <h2>XML Aggregation</h2>
 <form method="post" id="frm_forum" action="admxmlagg.php">
@@ -136,7 +136,7 @@
 		<td align="center">Action</td>
 	</tr>
 <?php
-	$c = uq('SELECT x.id, x.url, f.name FROM '.$tbl.'xmlagg x INNER JOIN '.$tbl.'forum f ON x.forum_id=f.id');
+	$c = uq('SELECT x.id, x.url, x.name, f.name FROM '.$tbl.'xmlagg x INNER JOIN '.$tbl.'forum f ON x.forum_id=f.id');
 	$i = 1;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {
@@ -144,8 +144,8 @@
 		} else {
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
-		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
-			<td nowrap="nowrap"><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/xmlagg.php '.$r[0].' </font></td>
+		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.$r[3].'</td>
+			<td nowrap="nowrap">xmlagg.php '.$r[0].'</td>
 			<td>[<a href="admxmlagg.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admxmlagg.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
 			[<a href="admxmlagg.php?trk='.$r[0].'&amp;'.__adm_rsid.'">Clear Tracker</a>]</td></tr>';
 	}
@@ -154,10 +154,9 @@
 </table>
 <br /><br />
 <b>***Notes***</b><br />
-Exec Line parameter in the table above shows the execution line that you will need to place in your job scheduler.
-<br />
-Cron example:
+The <i>Exec Line</i> in the table above shows the execution line that you will need to place in your system's job scheduler.
+Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron" target="_new">cron</a> example:
 <pre>
-*/2 * * * * /home/forum/forum/scripts/xmlagg.php 1
+0 * * * * <?php echo realpath($GLOBALS['DATA_DIR'].'scripts/xmlagg.php'); ?> 1
 </pre>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

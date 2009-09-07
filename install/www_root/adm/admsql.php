@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsql.php,v 1.6 2009/07/11 10:54:37 frank Exp $
+* $Id: admsql.php,v 1.7 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,7 +30,9 @@ NOTE: this feature IS DANGEROUS and you could destroy all your data. Please only
 	Database: <?php echo $GLOBALS['DBHOST_USER'].'@'.$GLOBALS['DBHOST_DBNAME'] ?> :: 
 	<select onchange="if(this.selectedIndex!=0) document.admsql.sql.value+=this.options[this.selectedIndex].value;">
 	<option>Insert table:</option>
-	<?php foreach(get_fud_table_list() as $tbl) {
+	<?php   $tables = get_fud_table_list();
+		sort($tables);
+		foreach($tables as $tbl) {
 		echo '<option value="'.$tbl.'">'.$tbl.'</option>';
 	} ?>
 	</select>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.55 2009/08/16 09:48:28 frank Exp $
+* $Id: tmpllist.php,v 1.56 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,7 +87,7 @@ function goto_tmpl($tmpl)
 	$edit = isset($_POST['edit']) ? $_POST['edit'] : (isset($_GET['edit']) ? $_GET['edit'] : '');
 
 	if (!$tname || !$tlang) {
-		header('Location: '.$WWW_ROOT.'adm/admthemesel.php?ret=tmpllist&'.__adm_rsidl);
+		header('Location: '.$WWW_ROOT.'adm/admtemplates.php?'.__adm_rsidl);
 		exit;
 	}
 
@@ -158,42 +158,11 @@ function goto_tmpl($tmpl)
 			$p = $e;
 		}
 		if (isset($msg_list)) {
-			$msg_list = ' <font size="-1">[ <a href="#" onclick="window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsid.'&NO_TREE_LIST=1&msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
+			$msg_list = ' <font size="-1">[ <a title="Edit embedded messages (popup window)" href="#" onclick="window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsid.'&NO_TREE_LIST=1&msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
 		}
 	}
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<style type="text/css">
-.file_name {
-	font-weight: bold;
-	color: #ff0000;
-	font-size: small;
-	text-decoration: none;
-}
-.msec {
-	color: #bb0088;
-	font-size: small;
-	text-decoration: underline;
-}
-
-.sec {
-	color: #446644;
-	font-size: small;
-	text-decoration: underline;
-}
-
-.deps {
-	color: #00AA00;
-	font-size: small;
-	text-decoration: dashed;
-}
-
-.depson {
-	color: #CC6600;
-	font-size: small;
-	text-decoration: dashed;
-}
-</style>
 
 <table width="100%" cellspacing="2" cellpadding="2">
 <tr>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.81 2009/08/26 19:03:03 frank Exp $
+* $Id: admthemes.php,v 1.82 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,50 +18,6 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
-
-	/* Limit theme names to sane characters */
-	if (isset($_POST['newname'])) {
-		$_POST['newname'] = preg_replace('![^A-Za-z0-9_]!', '_', trim($_POST['newname']));
-	} else {
-		$_POST['newname'] = '';
-	}
-
-	if ($_POST['newname'] && !q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."themes WHERE name="._esc($_POST['newname']))) {
-		$root = $DATA_DIR . 'thm/';
-		$root_nn = $root . preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
-		$u = umask(0);
-		if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777)) {
-			exit('ERROR: Unable to create ['.$root_nn.']<br />');
-		}
-
-		if ($_POST['copy_mode'] == 'headfoot') {	// sparse theme - header & footer
-			mkdir($root_nn.'/tmpl', 0777);
-			if ($_POST['base_template_set'] == 'path_info') {
-				fudcopy($root . 'path_info/tmpl/', $root_nn.'/tmpl', '{header.tmpl,footer.tmpl}', true);
-		    } else {
-				fudcopy($root . 'default/tmpl/', $root_nn.'/tmpl', '{header.tmpl,footer.tmpl}', true);
-			}
-		} else if ($_POST['copy_mode'] == 'headfootcss') {	// sparse theme - header, footer & css
-			mkdir($root_nn.'/tmpl', 0777);
-			fudcopy($root . 'default/tmpl/', $root_nn.'/tmpl', 'forum.css.tmpl', true);
-			if ($_POST['base_template_set'] == 'path_info') {
-				fudcopy($root . 'path_info/tmpl/', $root_nn.'/tmpl', '{header.tmpl,footer.tmpl}', true);
-		    } else {
-				fudcopy($root . 'default/tmpl/', $root_nn.'/tmpl', '{header.tmpl,footer.tmpl}', true);
-			}
-		} else if ($_POST['copy_mode'] == 'all') {	// full theme with all files - not recommended!
-			fudcopy($root . 'default/', $root_nn, '*', true);
-			if ($_POST['base_template_set'] == 'path_info') {
-				fudcopy($root . 'path_info/', $root_nn, '*', true);
-		    }
-		}
-
-		if ($_POST['base_template_set'] == 'path_info') {	// Copy the PATH_INFO pointer
-			fudcopy($root . 'path_info/', $root_nn, '.path_info', true);
-		}
-		umask($u);
-		echo '<font color="green">Template set '.$_POST['newname'].' was successfully created.</font>';
-	}
 
 	if (isset($_GET['rebuild_all'])) {
 		$r = q('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes');
@@ -123,17 +79,23 @@
 	}
 ?>
 <h2>Theme Manager</h2>
+<div class="tutor">
+	Themes combine a <a href="admtemplates.php?<?php echo __adm_rsid; ?>">template set</a> (layout) 
+	with <a href="admmessages.php?<?php echo __adm_rsid; ?>">message files</a> of a particular language.
+	The resulting files are deployed to the forum's web accessable <a href="admbrowse.php?cur=<?php echo urlencode($GLOBALS['WWW_ROOT_DISK'].'/theme'); ?>&<?php echo __adm_rsid; ?>">'theme' directory</a>.
+	You can define multiple themes to support different languages and/or layouts.
+</div>
 
+<?php
+    if ($edit && $edit == 1) {
+		echo '<h3>Edit Theme:</h3>';
+	} else {
+		echo '<h3>Create New Theme:</h3>';
+	}
+?>
 <form id="admthm" action="admthemes.php" method="post">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
-<?php
-        if ($edit && $edit == 1) {
-		echo '<tr class="field"><th colspan="2">Edit Theme:</td></tr>';
-	} else {
-		echo '<tr class="field"><th colspan="2">Create New Theme:</td></tr>';
-	}
-?>
 <tr class="field">
 	<td>Theme Name:</td>
 	<td>
@@ -243,42 +205,8 @@ function update_locale()
 </form>
 <br />
 
-<form method="post" action="">
-<table class="datatable solidtable">
-<tr class="field"><th colspan="2">Create New Template Set:</td></tr>
-<tr class="field">
-	<td>Base Template Set:</td>
-	<td>
-	<select name="base_template_set">
-	<option value="default">Default</option>
-	<option value="path_info">Path Info</option>
-	</select></td>
-</tr>
-<tr class="field">
-	<td>Name:</td>
-	<td><input type="text" name="newname" /></td>
-</tr>
-<tr class="field">
-	<td>What to copy:</td>
-	<td>
-	<select name="copy_mode">
-	<option value="headfoot">Header and footer templates</option>	
-	<option value="headfootcss">Header, footer and CSS templates</option>
-	<option value="all">All template files (not recommended)</option>
-	</select></td>
-</tr>
-<tr class="fieldaction">
-	<td colspan="2" align="right"><input type="submit" name="btn_submit" value="Create" /></td>
-</tr>
-</table>
-<?php echo _hs; ?>
-</form>
-
-<div align="right" style="font-size:x-large;">
-[ <b><a href="admthemes.php?rebuild_all=1&amp;<?php echo __adm_rsid; ?>">Rebuild all Themes</a></b> ]
-</div>
+<h3>Available Themes:</h3>
 <table class="resulttable fulltable">
-<tr class="field"><th colspan="8">Available Themes:</td></tr>
 <tr class="resulttopic">
 	<td>Name</td>
 	<td>Template Set</td>
@@ -315,4 +243,6 @@ function update_locale()
 	unset($c);
 ?>
 </table>
+[ <a href="admthemes.php?rebuild_all=1&amp;<?php echo __adm_rsid; ?>">Rebuild all Themes</a> ]
+
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

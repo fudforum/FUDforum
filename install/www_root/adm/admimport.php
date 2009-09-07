@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.73 2009/07/11 10:54:37 frank Exp $
+* $Id: admimport.php,v 1.74 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -302,14 +302,15 @@ function resolve_dest_path($path)
 			unset($c);
 
 			echo '<b>Import successfully completed.</b><br /><br />';
-			echo '<div class="tutor">To finalize the process you should now run the <nbsp>>> <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> <<</nbsp>.</div>';
+			echo '<div class="tutor">To finalize the process you should now run the <nbsp>&gt;&gt; <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> &lt;&lt;</nbsp>.</div>';
 			require($WWW_ROOT_DISK . 'adm/admclose.html');
 			exit;
 		}
 	}
 ?>
 <h2>Import forum data</h2>
-<div class="alert">The import process will REMOVE ALL current forum data (all messages and tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the data in the backup file you enter.<br /><br />Remember to <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing! Use the <a href="admbrowse.php?cur=<?php echo urlencode($TMP).'&'.__adm_rsid ?>">File Manager</a> to upload off-site backup files.</div>
+<div class="alert">The import process will REMOVE ALL current forum data (all messages and tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the data in the backup file you enter.</div>
+<div class="tutor">Remember to <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing! You can use the <a href="admbrowse.php?cur=<?php echo urlencode($TMP).'&'.__adm_rsid ?>">File Manager</a> to upload off-site backup files.</div>
 <br />
 
 <?php

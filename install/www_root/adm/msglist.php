@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.49 2009/08/26 19:03:03 frank Exp $
+* $Id: msglist.php,v 1.50 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,7 @@
 	$tlang = isset($_POST['tlang']) ? $_POST['tlang'] : (isset($_GET['tlang']) ? $_GET['tlang'] : '');
 
 	if (!$tname || !$tlang) {
-		header('Location: '.$WWW_ROOT.'adm/admthemesel.php?ret=msglist&'.__adm_rsidl);
+		header('Location: '.$WWW_ROOT.'adm/admmessages.php?'.__adm_rsidl);
 		exit;
 	}
 
@@ -145,26 +145,8 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<style type="text/css">
-.file_name {
-	color: #f00;
-	font-weight: bold;
-	font-size: small;
-	text-decoration: underline;
-}
-.deps {
-	color: #0a0;
-	font-size: small;
-	text-decoration: dashed;
-}
-
-.depson {
-	color: #c60;
-	font-size: small;
-	text-decoration: dashed;
-}
-</style>
 <table border="0" cellspacing="0" cellpadding="0"><tr><td valign="top">
+
 <table border="0" cellspacing="0" cellpadding="3">
 <?php
 

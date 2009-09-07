@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.50 2009/09/01 18:59:24 frank Exp $
+* $Id: admmlist.php,v 1.51 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,9 +62,9 @@ function format_regex(&$regex)
 		$ml_subject_regex_haystack_opt = $ml_body_regex_haystack_opt = '';
 	}
 
-	if ($FUD_OPT_2 & 8388608 && strncasecmp('win', PHP_OS, 3)) {	// Forum is locked and not windows
-		echo '<div class="alert">You may need to <a href="admlock.php?'.__adm_rsid.'">unlock</a> the forum\'s files before you can run the newsgroup importing script(s).</div>';
-	}
+	// if ($FUD_OPT_2 & 8388608 && strncasecmp('win', PHP_OS, 3)) {	// Forum is locked and not windows
+	// 	echo '<div class="alert">You may need to <a href="admlock.php?'.__adm_rsid.'">unlock</a> the forum\'s files before you can run the newsgroup importing script(s).</div>';
+	// }
 ?>
 <h2>Mailing List Manager</h2>
 <form method="post" id="frm_forum" action="admmlist.php">
@@ -305,7 +305,7 @@ function format_regex(&$regex)
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
-		<td nowrap="nowrap"><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/maillist.php '.$r[0].'</font></td>
+		<td nowrap="nowrap">maillist.php '.$r[0].'</td>
 		<td>[<a href="admmlist.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admmlist.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
@@ -313,11 +313,11 @@ function format_regex(&$regex)
 </table>
 <br /><br />
 <b>***Notes***</b><br />
-Exec Line parameter in the table above shows the execution line that you will need to pipe
-the mailing list messages to.<br /> Procmail example:
-<pre>
+The <i>Exec Line</i> in the table above shows the execution line required to pipe mailing list messages into the forum.
+Here is a <a href="http://www.procmail.org/" target="_new">procmail</a> example:
+<blockquote><pre><code>
 :0:
 * ^TO_.*php-general@lists.php.net
-| /home/forum/F/test/maillist.php 1
-</pre>
+| <?php echo realpath($GLOBALS['DATA_DIR'].'scripts/maillist.php'); ?> 1
+</code></pre></blockquote>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

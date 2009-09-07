@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemesel.php,v 1.40 2009/08/18 20:04:13 frank Exp $
+* $Id: admhelp.php,v 1.1 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,27 +12,20 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 
-	if (isset($_POST['tname'], $_POST['tlang'], $_POST['ret'])) {
-		header('Location: '.$_POST['ret'].'.php?tname='.$_POST['tname'].'&tlang='.$_POST['tlang'].'&'.__adm_rsidl);
+	if (isset($_POST['tname'], $_POST['tlang'], $_POST['btn_edit'])) {
+		header('Location: hlplist.php?tname='.$_POST['tname'].'&tlang='.$_POST['tlang'].'&'.__adm_rsidl);
 		exit;
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
-	$ret = isset($_GET['ret']) ? $_GET['ret'] : 'tmpllist';
-	if ( $ret == 'tmpllist' ) {
-		echo '<h2>Template Editor</h2>';
-		echo '<div class="tutor">Please document all changes you make to FUDforum\'s default templates, as future upgrades may overwrite your changes.</div>';
-	} else if ( $ret == 'msglist' ) {
-                echo '<h2>Message Editor</h2>';
-		echo '<div class="tutor">Please use <a href="http://translatewiki.net/wiki/Translating:FUDforum">TranslateWiki.net</a> to translate FUDforum\'s messages into other languages. This control panel should only be used to make site specific languages updates or to apply temporary translation changes.</div>';
-	}
-
 	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt=3');
 ?>
+<h2>Help File Editor</h2>
+<div class="tutor">Please document all changes you make to FUDforum's default help files, as future upgrades may overwrite your changes. Create a <a href="admtemplates.php?<?php echo __adm_rsid; ?>">custom template set</a> to prevent this from happening.</div>
 <p>Select a template set and language to edit:</p>
-<form method="post" action="admthemesel.php">
-<input type="hidden" name="ret" value="<?php echo $ret; ?>" /><?php echo _hs; ?>
+<form method="post" action="admhelp.php">
+<?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
 <td>Template Set:</td><td><select name="tname">
@@ -59,6 +52,6 @@
 	}
 ?>
 </select></td></tr>
-<tr class="fieldaction" align="right"><td colspan="2"><input type="submit" name="btn_submit" value="Edit" /></td></tr></table></form>
+<tr class="fieldaction" align="right"><td colspan="2"><input type="submit" name="btn_edit" value="Edit" /></td></tr></table></form>
 
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

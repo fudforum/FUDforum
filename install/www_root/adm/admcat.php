@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.49 2009/01/29 18:37:40 frank Exp $
+* $Id: admcat.php,v 1.50 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -129,7 +129,7 @@
 	</tr>
 
 	<tr class="field">
-		<td>Collapsible</td>
+		<td>Collapsible:</td>
 		<td><?php draw_select('cat_allow_collapse', "Yes\nNo", "1\n0", $cat_opt & 1); ?></td>
 	</tr>
 

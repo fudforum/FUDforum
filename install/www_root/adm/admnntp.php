@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.48 2009/08/06 18:00:55 frank Exp $
+* $Id: admnntp.php,v 1.49 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,7 +19,7 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
-	if (!empty($_POST['nntp_forum_id'])) {
+	if (!empty($_POST['nntp_newsgroup']) && !empty($_POST['nntp_forum_id'])) {
 		$nntp_adm = new fud_nntp_adm;
 		if ($edit) {
 			$nntp_adm->sync($edit);
@@ -48,32 +48,32 @@
 		}
 	}
 
-	if ($FUD_OPT_2 & 8388608 && strncasecmp('win', PHP_OS, 3)) {	// Forum is locked and not windows
-		echo '<div class="alert">You may need to <a href="admlock.php?'.__adm_rsid.'">unlock</a> the forum\'s files before you can run the newsgroup importing script(s).</div>';
-	}
+	// if ($FUD_OPT_2 & 8388608 && strncasecmp('win', PHP_OS, 3)) {	// Forum is locked and not windows
+	//	echo '<div class="alert">You may need to <a href="admlock.php?'.__adm_rsid.'">unlock</a> the forum\'s files before you can run the newsgroup importing script(s).</div>';
+	// }
 ?>
 <h2>Newsgroup Manager</h2>
 <form method="post" id="frm_forum" action="admnntp.php">
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
+		<td>Newsgroup Name:<br /><font size="-1">The name of the newsgroup to import.</font></td>
+		<td><input type="text" name="nntp_newsgroup" value="<?php echo $nntp_newsgroup; ?>" maxlength="255" /></td>
+	</tr>
+
+	<tr class="field">
 		<td>Newsgroup Server:<br /><font size="-1">The ip or the hostname of your newsgroup server.</font></td>
 		<td><input type="text" name="nntp_server" value="<?php echo htmlspecialchars($nntp_server); ?>" maxlength="255" /></td>
 	</tr>
 
 	<tr class="field">
-		<td>Newsgroup Server Port:</td>
+		<td>Newsgroup Server Port:<br /><font size="-1">Port number the server is listeneing on. Default is 119.</font></td>
 		<td><input type="text" name="nntp_port" value="<?php echo $nntp_port; ?>" maxlength="10" /></td>
 	</tr>
 
 	<tr class="field">
 		<td>Newsgroup Server Timeout:<br /><font size="-1">Number of seconds to wait for the nntp server to respond.</font></td>
 		<td><input type="text" name="nntp_timeout" value="<?php echo $nntp_timeout; ?>" maxlength="10" /></td>
-	</tr>
-
-	<tr class="field">
-		<td>Newsgroup:<br /><font size="-1">The name of the newsgroup to import.</font></td>
-		<td><input type="text" name="nntp_newsgroup" value="<?php echo $nntp_newsgroup; ?>" maxlength="255" /></td>
 	</tr>
 
 	<tr>
@@ -237,7 +237,7 @@
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
-			<td nowrap="nowrap"><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/nntp.php '.$r[0].' </font></td>
+			<td nowrap="nowrap">nntp.php '.$r[0].'</td>
 			<td>[<a href="admnntp.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admnntp.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
 			[<a href="admnntp.php?trk='.$r[0].'&amp;'.__adm_rsid.'">Clear Tracker</a>]</td></tr>';
 	}
@@ -246,11 +246,10 @@
 </table>
 <br /><br />
 <b>***Notes***</b><br />
-Exec Line parameter in the table above shows the execution line that you will need to place in your job scheduler.
+The <i>Exec Line</i> in the table above shows the execution line that you will need to place in your system's job scheduler.
 It is recommended you run the script on a small interval, we recommend a 2-3 minute interval.
-<br />
-Cron example:
+Here is a Linux <a href="http://en.wikipedia.org/wiki/Cron" target="_new">cron</a> example:
 <pre>
-*/2 * * * * /home/forum/forum/scripts/nntp.php 1
+*/2 * * * * <?php echo realpath($GLOBALS['DATA_DIR'].'scripts/nntp.php'); ?> 1
 </pre>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

@@ -202,3 +202,34 @@ phpinfo {border-collapse: collapse;}
 hr {width: 600px; background-color: #ccc; border: 0px; height: 1px; color: #000;}
 
 img {float: right; border: 0px;}
+
+.file_name {
+	font-weight: bold;
+	color: #f00;
+	font-size: small;
+	text-decoration: none;
+}
+
+.deps {
+	color: #0a0;
+	font-size: small;
+	text-decoration: dashed;
+}
+
+.depson {
+	color: #c60;
+	font-size: small;
+	text-decoration: dashed;
+}
+
+.msec {
+	color: #b08;
+	font-size: small;
+	text-decoration: underline;
+}
+
+.sec {
+	color: #464;
+	font-size: small;
+	text-decoration: underline;
+}

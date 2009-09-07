@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmysql.php,v 1.17 2009/05/16 17:43:03 frank Exp $
+* $Id: admmysql.php,v 1.18 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 	fud_use('adm.inc', true);
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
-	
+
 	if (__dbtype__ != 'mysql') {
 		exit("This control panel is intended for MySQL users only!");
 	}
@@ -69,7 +69,10 @@
 
 <br />
 <table class="tutor" width="99%"><tr><td>
-All forums should convert their tables to the <b>UTF-8</b> character set. Note that the conversion will take a long time to run, especially on large databases. After converting your database, remember to also convert your forum's messages by running the <b><a href="compact.php?<?php echo __adm_rsid; ?>">compactor</a></b>.
+All forums should convert their tables to the <b>UTF-8</b> character set. 
+If unsure, it is safe to just re-run it.
+Note that the conversion will take a long time to run, especially on large databases. 
+After converting your database, remember to also convert your forum's messages by running the <b><a href="compact.php?<?php echo __adm_rsid; ?>">compactor</a></b>.
 </td></tr></table><br />
 
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.59 2009/08/16 09:48:28 frank Exp $
+* $Id: admforum.php,v 1.60 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -168,12 +168,12 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
-		<td>Can moderator(s) bypass attachment limits:</td>
+		<td>Can moderators bypass attachment limits:</td>
 		<td><?php draw_select('frm_mod_attach', "No\nYes", "0\n32", $frm_forum_opt & 32); ?></td>
 	</tr>
 
 	<tr class="field">
-		<td>Notify moderator(s) of all new messages:</td>
+		<td>Notify moderators of all new messages:</td>
 		<td><?php draw_select('frm_mod_notify', "No\nYes", "0\n64", $frm_forum_opt & 64); ?></td>
 	</tr>
 

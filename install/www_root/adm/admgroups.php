@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.60 2009/04/29 20:06:35 frank Exp $
+* $Id: admgroups.php,v 1.61 2009/09/07 15:49:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,7 +41,7 @@
 			$val = (int) $_POST[$k];
 
 			if ($val < 0 && !$gr_inherit_id) {
-				$error_reason = 'One of your permissions is set to Inherit, however you have not selected a group to inherit from';
+				$error_reason = 'One of your permissions is set to Inherit, however you have not selected a group to inherit from.';
 				$error = 1;
 			}
 
@@ -65,7 +65,7 @@
 					$ihl = array($edit=>1);
 					while (1) {
 						if (isset($ihl[$ih])) {
-							$error_reason = 'You\'ve created a circular inheritence for "'.$v[1].'" permission';
+							$error_reason = 'You\'ve created a circular inheritence for "'.$v[1].'" permission.';
 							$error = 1;
 							$val = 0;
 							break;
@@ -93,7 +93,7 @@
 		}
 
 		if (!$error && !$gr_resource && $edit < 2) {
-			$error_reason = 'You must assign at least 1 resource (forum) to this group';
+			$error_reason = 'You must assign at least 1 resource (forum) to this group.';
 			$error = 1;
 		}
 
@@ -102,7 +102,7 @@
 				$rid1 = array_shift($gr_resource);
 				$gid = group_add((int)$rid1, $_POST['gr_name'], $gr_ramasks, $perm, $permi, $gr_inherit_id);
 				if (!$gid) {
-					$error_reason = 'Failed to add group';
+					$error_reason = 'Failed to add group.';
 					$error = 1;
 				} else {
 					if ($gr_resource) {
