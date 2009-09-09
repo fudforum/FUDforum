@@ -1,0 +1,383 @@
+# Messages for Greek (Ελληνικά)
+# Exported from translatewiki.net
+# Author: Crazymadlover
+# Author: Omnipaedista
+# Author: ZaDiak
+
+action:Ενέργεια
+add_to_buddy_list:προσθήκη στη λίστα φίλων
+admin:Διαχειριστής
+admin_control_panel:Πίνακας Ελέγχου Διαχειριστή
+administrator:Διαχειριστής
+attachment:Σύνδεση:
+avatar:Άβαταρ:
+biography:Βιογραφία:
+birth_date:Ημερομηνία Γεννήσεως:
+by:Από:
+by_mod:από τον Συντονιστή
+current_time:Τωρινή Ώρα
+date_posted:Ημερομηνία Δημοσίευσης
+date_registered:Ημερομηνία Εγγραφής:
+download_counter:Λήφθηκε {PLURAL: v[3]|$1 φορά |$1 φορές}
+pmsg_download_counter:Λήφθηκε {PLURAL: r->dlcount|$1 φορά |$1 φορές} φορές
+email:Ηλεκτρονική διεύθυνση:
+email_to_friend:E-mail σε έναν φίλο
+email_user:Στείλτε e-mail σε αυτόν τον χρήστη
+faq:Βοήθεια
+first_unread_msg:Πήγαινε στα αδιάβαστα μηνύματα
+forum:Φόρουμ:
+forum_icon:Εικονίδιο Φόρουμ
+forum_new_messages:Νέα μηνύματα
+forum_old_messages:Καθόλου νέα μηνύματα
+from:Από:
+gender:Γένος:
+go:Πήγαινε
+goto_next_msg:Πήγαινε στο επόμενο μήνυμα
+goto_prev_msg:Πήγαινε στο προηγούμενο μήνυμα
+home:Κεντρική
+homepage:Κεντρική σελίδα:
+icq_control_panel:Πίνακας ICQ Online-Μηνυμάτων
+icq_message_form:Φόρμα Μηνύματος ICQ:
+ignore_user:αγνόηση όλων των μηνυμάτων από αυτόν τον χρήστη
+im_aim:Διαχείριση ΑΙΜ:
+im_msnm:MSN Αγγελιοφόρος:
+im_yahoo:Yahoo Αγγελιοφόρος:
+image:Εικόνα:
+index_forum:Φόρουμ
+index_new_posts:Νέα μηνύματα από την τελευταία ανάγνωση
+index_no_new_posts:Όχι νέα μηνύματα από την τελευταία ανάγνωση
+index_url_redirection:Ανακατεύθυνση
+interests:Ενδιαφέροντα:
+last_post:Τελευταίο μήνυμα
+last_thread_msg:Πήγαινε στο τελευταίο μήνυμα σε αυτό το θέμα
+legend:Θρύλος
+location:Τοποθεσία:
+lock_thread:Κλείδωμα Θέματος
+locked:Κλειδώθηκε
+locked_with_new_posts:Κλειδώθηκε (w/ μη αναγνωσμένα μηνύματα)
+logged_in_list:Λίστα συνδεδεμένων χρηστών
+login:Σύνδεση
+login_header:Σύνδεση:
+logout:Αποσύνδεση
+mark_all_read:σήμανση όλων των μηνυμάτων ως διαβασμένων
+mark_all_read_desc:Όλα τα μη αναγνωσμένα μηνύματα θα σημανθούν ως αναγνωσμένα
+members:Μέλη
+message:Μήνυμα
+message_index:Δείκτης μηνύματος
+message_index_desc:Εμφάνιση της λίστας μηνυμάτων
+minimize_category:Ελαχιστοποίηση Κατηγορίας
+minimize_message:Ελαχιστοποίηση Μηνύματος
+moderation_queue:Σειρά Συντονισμού
+moderator:Συντονιστής
+moderator_of:Συντονιστής του:
+moderator_options:Επιλογές Συντονιστή
+moderators:{PLURAL: modcount|$1 Συντονιστης|$1 Συντονιστές}
+more_unread_messages:περισσότερα μη αναγνωσμένα μηνύματα
+move_thread:Μετακίνηση
+moved:Μετακινήθηκε σε άλλο φόρουμ
+moved_thread_message:Το θέμα έχει μετακινηθεί σε άλλο φόρουμ
+na:μ/δ
+new_posts:Νέα Μηνύματα
+new_private_messages:Έχετε <span class="GenTextRed">({VAR: c})</span> μη {PLURAL: c|αναγνωσμένο προσωπικο μήνυμα|αναγνωσμένα προσωπικά μηνύματα}
+new_thread:Δημιουργία νέου θέματος
+newest_user:Ο νεότερος εγγεγραμμένος χρήστη είναι ο
+next_page:Επόμενη Σελίδα
+next_thread:Επόμενο Θέμα:
+no_messages:Δεν υπάρχουν καθόλου μηνύματα σε αυτό το φόρουμ.
+no_msg_body:Κανένα Σώμα Μηνύματος
+no_new_posts:Καθόλου Νέα μηνύματα
+no_posts:Καθόλου Μηνύματα
+no_subscribed_forums:Κανένα παρακολουθούμενο φόρουμ
+no_subscribed_threads:Κανένα παρακολουθούμενο θέμα
+no_bookmarked_threads:Καθόλου θέματα σελιδοδεικτών
+no_unread_locked:Αυτό το θέμα έχει κλειδωθεί
+no_unread_msg:Το θέμα δεν έχει μη αναγνωσμένα μηνύματα
+num_pages:Σελίδες ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|ψήφος|ψήφοι}
+occupation:Απασχόληση:
+off:ΕΚΤΟΣ
+on:ΕΝΤΟΣ
+pm:Προσωπικά Μηνύματα
+poll:Δημοσκόπηση:
+post_count:Καταμέτρηση Μηνυμάτων {VAR: u_pcount}
+post_count_l:Καταμέτρηση Μηνυμάτων:
+posts:Μηνύματα
+posts_c:Μηνύματα:
+prev_thread:Προηγούμενο Θέμα:
+usrinfo_private_message:Προσωπικό Μήνυμα:
+profile:Πίνακας Ελέγχου
+profile_desc:Προσβάση στον πίνακα ελέγχου χρήστη
+rate_thread:Βαθμολόγηση Θέματος
+rating:Βαθμολογία
+refresh_list:Ανανέωση Λίστας
+register:Εγγραφή
+registered:Εγγεγραμμένοι:
+replies:Απαντήσεις
+report_to_mod:Αναφορά του μηνύματος σε έναν συντονιστή
+reported_messages:Αναφερμένα Μηνύματα
+reveal_all_posts:αποκάλυψη όλων των μηνυμάτων από {VAR: user_login}
+reveal_post:αποκάλυψη μηνύματος
+search:Αναζήτηση
+sel_todays_posts:Σημερινά Μηνύματα
+sel_unanswered_posts:Μη Απαντημένα Μηνύματα
+sel_unread_messages:Μη Αναγνωσμένα Μηνύματα
+send:Αποστολή
+send_pm_desc:Αποστολή ενός προσωπικού μηνύματος σε αυτόν τον χρήστη
+sender_email:Αποστολέας E-mail:
+sender_name:Όνομα Αποστολέα:
+show_posts_by:Εμφάνιση Μηνυμάτων βάσει: {VAR: u_alias}
+size:Μέγεθος:
+status:Κατάσταση:
+stop_ignoring:διακοπή αγνόησης αυτού του χρήστη
+sub_to_thread:Παρακολούθηση θέματος
+bookmark_thread:Σελιδοδείκτης θέμα
+bookmark_thread_desc:Προσθήκη αυτού του θέματος στη λίστα σελιδοδεικτών σας
+subject:Υποκείμενο
+subscribe:Παρακολούθηση
+subscribe_desc:Λήψη ειδοποιήσεων όταν κάποιος δημιουργεί ένα νέο θέμα σε αυτό το φόρουμ
+subscribed_forums:Παρακολουθούμενα Φόρουμ
+subscribed_threads:Παρακολουθούμενα Θέματα
+bookmarked_threads:Θέματα σελιδοδείκτες
+thread:Θέμα:
+thread_announcement:Ανακοίνωση:
+thread_thread:Θέμα
+threads:Θέματα
+time:Ώρα
+todays_posts:Σημερινά Μηνύματα
+unanswered_posts:Μη Απαντημένα Μηνύματα
+unlock_thread:Ξεκλείδωμα Θέματος
+unread_posts:Μη Αναγνωσμένα Μηνύματα
+unread_posts_desc:Εμφάνιση όλων των μη διαβασμένων μηνυμάτων
+unsub_from_thread:Μη παρακολούθηση θέματος
+unbookmark_thread:Αφαίρεση από σελιδοδείκτες
+unsubscribe:Αποπαρακολούθηση
+updated_on:Ενημερώθηκε στις:
+user:Χρήστης
+user_info:Πληροφορίες Χρήστη
+user_info_l:Πληροφορίες Χρήστη {VAR: u->alias}
+user_offline:{VAR: obj->login}  είναι τώρα offline
+user_online:{VAR: obj->login} είναι τώρα online
+usrinfo_last_post:Τελευταίο Μήνυμα:
+view_results:Εμφάνιση Αποτελεσμάτων
+views:Εμφανίσεις
+vote:{PLURAL: frm->n_rating|$1 Ψήφος|$1 Ψήφοι}
+vote_button:Ψήφισε
+vote_for_thread:Ψήφισε
+what_ppl_doing:Εμφάνιση του τι κάνουν οι άνθρωποι
+reported_del_report:Διαγραφή Αναφοράς
+reported_reason:Αιτιολογία
+reported_on:Στις:
+reported_reported_by:Αναφέρθηκε από:
+reported_reported_msg:Αναφερμένα Μηνύματα
+modque_pending_approval:Μηνύματα με εκκρεμή έγκριση
+modque_approve:Έγκριση
+modque_delete:Διαγραφή
+modque_no_message:Δεν υπάρχουν μηνύματα με εκκρεμή έγκριση
+pmsg_new_messages:Μη αναγνωσμένο προσωπικό μήνυμα
+pmsg_old_messages:Αναγνωσμένο προσωπικό μήνυμα
+deny_recipt:λογαριασμός άρνησης
+deny_recipt_desc:Μη αποστολή επιβεβαίωσης ότι διάβασες αυτό το μήνυμα
+restore_to:Επαναφορά Σε:
+move_to:Μετακίνηση Σε:
+list_referes_referrals:Παραπομπές
+list_referes_members:Παραπομπόμενα μέλη
+list_referes_member:Μέλος
+referals_none:Καθόλου παραπομπές ακόμα.
+referals_post_count:Καταμέτρηση Μηνύματων
+referals_registered_on:Εγγεγραμμένες Στο
+referals_action:Ενέργεια
+pmsg_all:όλα
+pmsg_none:καθόλου
+folder:Φάκελος:
+pmsg_replied:απαντημένα
+pmsg_forwarded:προωθημένα
+pmsg_subject:Θέμα
+pmsg_author:Συγγραφέας
+pmsg_time:Ώρα
+pmsg_selected:Επιλεγμένα
+pmsg_delete:Διαγραφή
+cur_ppage_pm:Προσωπικά Μηνύματα
+writing_pm:Γράφοντας ένα Προσωπικό Μήνυμα
+inbox:Εισερχόμενα
+draft:Πρόταση
+sent:Απεστάλη
+trash:Κάδος
+msg_author:Συγγραφέας
+avatar_sel_form:Φόρμα Επιλογής Άβαταρ
+no_avatars:Καθόλου διαθέσιμα Άβαταρ
+month_1:Ιανουάριος
+month_2:Φεβρουάριος
+month_3:Μάρτιος
+month_4:Απρίλιος
+month_5:Μάιος
+month_6:Ιούνιος
+month_7:Ιούλιος
+month_8:Αύγουστος
+month_9:Σεπτέμβριος
+month_10:Οκτώβριος
+month_11:Νοέμβριος
+month_12:Δεκέμβριος
+male:Άνδρας
+female:Γυναίκα
+unspecified:ΑΠΡΟΣΔΙΟΡΙΣΤΟ
+use_forum_default:Χρησιμοποίηση προεπιλογής του φόρουμ
+finduser_user_info:Πληροφορίες Χρήστη
+finduser_by_login:Από Σύνδεση:
+finduser_submit:Αναζήτηση
+finduser_no_such_user:Κανένας Τέτοιος Χρήστης
+finduser_user:Χρήστης
+finduser_postcount:Καταμέτρηση Μηνυμάτων
+finduser_joindate:Ένωση Ημερομηνίας
+finduser_action:Ενέργεια
+yes:Ναι
+no:Όχι
+register_email:Ηλεκτρονική διεύθυνση
+pmuserloc_login:Σύνδεση:
+pmuserloc_submit:Καταχώρηση
+pmuserloc_user:Χρήστης
+pmuserloc_no_result:Κανένα Αποτέλεσμα
+register_builtin:Ενσωματώθηκε
+register_specify_url:Δώστε URL
+register_uploaded:Φόρτωση Άβαταρ
+register_login:Σύνδεση:
+register_password:Κωδικός:
+register_conf_pass:Επιβεβαίωση Κωδικού:
+register_name:Όνομα:
+register_your_pass:Ο Κωδικός Σας:
+register_update:Ενημέρωση
+register_avatar_type:Τύπος Άβαταρ:
+register_del_avatar:Διαγραφή Άβαταρ
+register_avatar:Άβαταρ:
+register_sel_avatar:Επιλογή Άβαταρ
+register_custom_avatar_url:Σύνηθες URL Άβαταρ:
+register_preview:Προεπισκόπηση
+register_custom_avatar_upload:Σύνηθες Αρχείο Άβαταρ:
+register_register:Εγγραφή
+register_required:Απαραίτητες Πληροφορίες
+register_optional:Προαιρετικές Πληροφορίες
+register_location:Τοποθεσία:
+register_occupation:Απασχόληση:
+register_interests:Ενδιαφέροντα:
+register_image:Εικόνα:
+register_icq:Ταυτότητα ICQ:
+register_aim:Διαχείριση ΑΙΜ:
+register_yahoo:Αγγελιοφόρος Yahoo:
+register_msnm:Αγγελιοφόρος MSN:
+register_homepage:Κεντρική σελίδα:
+register_bday:Ημερομηνία Γέννησης:
+register_day:Ημέρα
+register_month:Μήνας
+register_year:Χρόνος
+register_gender:Φύλο:
+register_bio:Βιογραφία:
+register_bio_desc:Μερικές λεπτομέρειες για τον εαυτό σας, σαν τα ενδιαφέροντα, την δουλειά σας κτλ...
+register_prefs:Προτιμήσεις
+register_sig:Υπογραφή:
+register_reset:Επαναφορά
+register_msg_per_page:Μηνύματα Ανά Σελίδα:
+register_show_sig:Εμφάνιση Υπογραφών:
+register_timezone:Ζώνη Ώρας:
+register_invisible_mode:Αόρατη Λειτουργία:
+register_invisible_mode_desc:Αποκρύπτει την online κατάστασή σας.
+register_show_email:Εμφάνιση Ηλεκτρονικής Διεύθυνσης:
+register_notify_method:Επιλογή Μεθόδου Ειδοποιήσεων:
+register_allow_email_msg:Επέτρεψε Ηλεκτρονικές Διευθύνσεις:
+buddy_status:Κατάσταση
+my_buddies:Οι επαφές μου
+add_buddy:Προσθήκη Φίλου
+add:Προσθήκη
+buddy_search:Εισάγετε τη σύνδεση του χρήστη που θέλετε να προσθέσετε.
+buddy_remove:αφαίρεση
+post_normal:Κανονικό
+post_sticky:Στίκυ
+post_annoncement:Ανακοίνωση
+post_size:Μέγεθος
+post_color:Χρώμα
+post_font:Γραμματοσειρά
+post_logout:έξοδος
+post_poll:Κάλπη:
+post_poll_delete:Διαγραφή
+post_poll_edit:Επεξεργασία
+post_file_del:Διαγραφή
+post_file_name:Όνομα
+post_file_size:Μέγεθος
+post_title:Τίτλος:
+post_options:Επιλογές:
+coppa_fax_telephone:Τηλέφωνο:
+coppa_fax_date:Ημερομηνία:
+coppa_fax_login:Είσοδος
+coppa_fax_passwd:Κωδικός
+coppa_fax_remail:Email
+coppa_fax_name:Όνομα
+login_login:Είσοδος:
+login_login_btn:Είσοδος
+rpasswd_login:Είσοδος
+login_passwd:Κωδικός:
+reset_email:Ηλεκτρονικό ταχυδρομείο:
+report_by:Από:
+remail_your_name:Το όνομά σας:
+remail_your_email:Το ηλεκτρονικό ταχυδρομείο σας:
+remail_required:απαιτούμενος
+remail_subject:Θέμα:
+remail_message:Μήνυμα:
+remail_done:Έγινε
+mklist_type:Τύπος
+mklist_option:Επιλογή:
+mklist_delete:Διαγραφή
+qbud_selected:Επιλεγμένος
+ppost_to:Προς:
+poll_unlimited:Απεριόριστο
+poll_day:ημέρα
+poll_days:ημέρες
+poll_hour:ώρα
+poll_hours:ώρες
+poll_month:μήνας
+poll_year:έτος
+poll_week:εβδομάδα
+tabs_bookmarkes:Σελιδοδείκτες
+delete_yes:Ναι
+error_error:Σφάλμα
+err_info:Πληροφορίες
+email_error_invaliduser:Μη έγκυρος χρήστης
+emailconf_err_invkey_title:Σφάλμα
+ignore_list_err_info_title:Πληροφορίες
+login_update:Φόρμα Σύνδεσης
+post_err_edttimelimit_title:Σφάλμα
+reset_err_rstconf_title:Πληροφορία
+help_title:Βοήθεια
+groupmgr_cancel:Άκυρο
+groupmgr_edit:Επεξεργασία
+group_mgr_group:Ομάδα:
+p_VOTE:Ψηφοφορία
+th_expr_never:Ποτέ
+thread_mod_delete:Διαγραφή
+split_th_subject:Θέμα:
+split_th_select:Επιλογή
+quicklogin_login:Σύνδεση:
+quicklogin_password:Κωδικός πρόσβασης:
+quicklogin_login_btn:Σύνδεση:
+register_jabber:Αναγνωριστής Jabber:
+register_skype:Αναγνωριστής Skype:
+register_twitter:Αναγνωριστής Twitter:
+register_google:Αναγνωριστής Google Chat/IM:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+poll_edit:Επεξεργασία
+polllist_vote:Ψηφοφορία
+threadt_more:&lt;περισσότερα&gt;
+saved:Αποθηκεύθηκε
+iemail_msg_reply:Απάντηση
+findu_edit:Επεξεργασία
+findu_delete:Διαγραφή
+ip_search:Αναζήτηση
+register_theme:Θεματολογία:
+modque_cat:Κατηγορία
+mmd_abort_move:Άκυρο
+dmsg_ip:IP:
+sml_code:Κωδικός
+post_common_bold:Έντονα
+post_common_italics:Πλάγια
+rating_delete:Διαγραφή
+tabs_notifications:Ειδοποιήσεις

@@ -1,0 +1,1068 @@
+# Messages for Breton (Brezhoneg)
+# Exported from translatewiki.net
+# Author: Fohanno
+# Author: Fulup
+
+action:Ober
+add_to_buddy_list:Ouzhpennañ d'ar roll mignoned
+admin:Merañ
+admin_control_panel:Panell gontrollañ ar merour
+administrator:Merour
+attachment:Pezh stag :
+avatar:Avatar :
+average_post_count:{PLURAL: u->posted_msg_count|$1 gemennadenn|$1 kemennadenn} ({PLURAL: avg|$1 kemennadenn|$1 kemennadenn} an deiz)
+biography:Tamm buhez :
+birth_date:Deiziad ganedigezh :
+by:Gant :
+by_mod:Gant an habasker
+current_time:Eur vremañ
+custom_avatar_queue:Roll gortoz an avataroù personelaet
+date_posted:Deiziad postañ
+date_registered:Enskrivet d'an :
+download_counter:Pellgarget {PLURAL: v[3]|$1 wech|$1 gwech}
+pmsg_download_counter:Pellgarget {PLURAL: r->dlcount|$1 wech|$1 gwech}
+email:Postel :
+email_to_friend:Kas dre postel d'ur mignon
+email_to_friend_desc:Kas URL ar bajenn-mañ dre bostel d'ur mignon/d'ho mignoned
+email_user:Kas ur postel d'an implijer
+faq:Skoazell
+first_unread_msg:Mont d'ar c'hemennadennoù n'int ket bet lennet
+first_unread_msg_desc:Mont da gemennadenn gentañ ar gaoz n'eo ket bet lennet
+flat_view:Distreiñ d'ar gwel plaen (dre ziouer)
+forum:Forom :
+forum_icon:Arlun ar Forom
+forum_new_messages:Kemennadennoù nevez
+forum_none_messages:N'eus nemet an izili enskrivet er forom a c'hall evezhiañ ar c'hemennadenoù hag o merkañ evel lennet pe da lenn
+forum_old_messages:Kemennadenn nevez ebet
+from:Digant :
+gender:Reizh :
+go:Mont
+goto_next_msg:Mont d'ar gemennadenn da-heul
+goto_prev_msg:Mont d'ar gemennadenn gent
+home:Pajenn degemer
+homepage:Lec'hienn Web :
+icq_control_panel:Kemennadenn enlinenn ICQ
+icq_message_form:Furmskrid kemennadenn ICQ :
+ignore_user:Dianavezout an holl gemennadennoù gant an implijer-mañ
+im_aim:Anavezer AIM :
+im_msnm:Anavezer MSN Messenger :
+im_yahoo:Anavezer Yahoo Messenger :
+image:Skeudenn :
+index_forum:Forom
+index_new_posts:Kemennadennoù nevez abaoe ar wech paseet
+index_no_new_posts:Kemennadenn nevez ebet abaoe ar wech all
+index_url_redirection:Adkas
+interests:Danvezioù dedenn :
+last_post:Kemennadenn diwezhañ
+last_thread_msg:Mont d'ar gemennadenn diwezhañ er gaoz-mañ
+legend:Alc'hwez
+location:Lec'hiadur :
+lock_thread:Prennañ ar gaoz
+locked:Prennet
+locked_with_new_posts:Prennet (gant kemennadennoù n'int ket bet lennet enni)
+logged_in_list:Roll an implijerien kevreet evit ar mare
+login:Kevreañ
+login_header:Kevreañ :
+logout:Kuitaat
+mark_all_read:Merkañ an holl gemennadennoù evel lennet
+mark_all_read_desc:Merket e vo an holl gemennadennoù n'int ket bet lennet evel lennet
+members:Izili
+message:Kemennadenn
+message_counter:Hon implijerien o deus postet <b>{PLURAL: post_count|$1 gemennadenn|$1 kemennadenn}</b> en holl e-barzh <b>{PLURAL: thread_count|$1 gaoz|$1 kaoz}</b>.
+message_index:Meneger ar c'hemennadennoù
+message_index_desc:Gwelet roll ar c'hemennadennoù
+minimize_category:Bihanaat ar rummad
+minimize_message:Bihanaat ar gemennadenn
+moderation_queue:Roll gortoz evit an habasker
+moderator:Habasker
+moderator_of:Habasker :
+moderator_options:Dibarzhioù an habasker
+moderators:{PLURAL: modcount|habasker|habasker}
+more_unread_messages:kemennadennoù anlennet ouzhpenn
+more_unread_messages_desc:Diskouez muioc'h a gemennadennoù anlennet ha merkañ ar c'hemennadennoù a c'haller gwelet bremañ evel lennet
+move_thread:Dilec'hiañ
+moved:Dilec'hiet d'ur forom all
+moved_thread_message:Dilec'hiet eo bet ar gaoz-mañ d'ur forom all
+na:k/h
+new_posts:Kemennadennoù nevez
+new_private_messages:Bez' hoc'h eus <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|kemennadenn|kemennadenn} brevez anlennet
+new_thread:Krouiñ ur gaoz nevez
+newest_user:An implijer enskrivet da ziwezhañ zo
+next_page:Pajenn da-heul
+next_thread:Kaoz da-heul :
+no_messages:N'eus kemennadenn ebet er forom-mañ.
+no_msg_body:N'eus testenn ebet er gemennadenn
+no_new_posts:Kemennadenn nevez ebet
+no_posts:Kemennadenn ebet
+no_subscribed_forums:Forom evezhiet ebet
+no_subscribed_threads:Kaoz evezhiet ebet
+no_bookmarked_threads:Kaoz ebet er sinedoù
+no_unread_locked:Prennet eo bet ar gaoz-mañ
+no_unread_msg:N'eus kemennadenn anlennet ebet er gaoz-mañ
+no_unread_msg_unreg:An arc'hweladur evit heuliañ ar c'hemennadennoù lennet hag anlennet ne vez gweredekaet nemet evit an implijerien enskrivet
+num_pages:Pajennoù ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vouezh|mouezh}
+occupation:Micher :
+off:DIWEREDEKAET
+on:GWEREDEKAET
+page_timings:Amzer lakaet da grouiñ ar bajenn-mañ, en holl : {VAR: page_gen_time} eilenn
+pm:Kemennadennoù prevez
+poll:Sontadeg :
+post_count:Konter kemennadennoù : {VAR: u_pcount}
+post_count_l:Konter kemennadennoù :
+posts:Kemennadennoù
+posts_c:Kemennadennoù :
+prev_thread:Kaoz kent :
+usrinfo_private_message:Kemennadenn brevez :
+profile:Profil
+profile_desc:Mont da banell gontrollañ an implijer
+rate_thread:Reiñ un notenn d'ar gaoz-mañ
+rating:Notenn
+rating_track:Merañ an notennoù evit ar gaoz <b>{VAR: thr->subject}</b> :
+refresh_list:Freskaat ar roll
+register:En em enskrivañ
+registered:Enskrivet :
+registered_on:Enskrivet d'an {TEMPLATE: registered_on_date}
+replies:Respontoù
+report_to_mod:Titourañ ar gemennadenn d'un habasker
+reported_messages:Kemennadennoù titouret
+reveal_all_posts:Diskouez an holl gemennadennoù gant {VAR: user_login}
+reveal_post:Diskouez ar gemennadenn
+search:Klask
+sel_todays_posts:Kemennadennoù an deiz
+sel_todays_posts_desc:Gweredekaat/Diweredekaat ar sil evit kemennadennoù an deiz (evit diskouez ar c'hemennadennoù krouet hiziv hepken)
+sel_unanswered_posts:Kemennadennoù direspont
+sel_unanswered_posts_desc:Gweredekaat/Diweredekaat ar sil evit ar c'hemennadennoù direspont (evit diskouez ar c'hemennadennoù direspont hepken)
+sel_unread_messages:Kemennadennoù anlennet
+sel_unread_messages_desc:Gweredekaat/Diweredekaat ar sil evit ar c'hemennadennoù anlennet (evit diskouez ar c'hemennadennoù anlennet hepken)
+send:Kas
+send_pm_desc:Kas ur gemennadenn brevez d'an implijer-mañ
+sender_email:Postel ar c'haser :
+sender_name:Anv ar c'haser :
+show_posts_by:Diskouez ar c'hemennadennoù gant : {VAR: u_alias}
+size:Ment :
+status:Statud :
+status_line:Bez' ez eus <b>{PLURAL: st_obj->online_users_reg|$1 ezel|$1 ezel}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 ezel diwelus|$1 ezel diwelus} ha <b>{PLURAL: st_obj->online_users_anon|$1 c'houviad|$1 kouviad}</b> o weladenniñ ar forom-mañ.
+sticky:pegus :
+stop_ignoring:Paouez da zianavezout an implijer-mañ
+sub_to_thread:Evezhiañ ar gaoz-mañ
+sub_to_thread_desc:Resev ur c'hemenn pa vez kemennadennoù nevez e-barzh ar gaoz-mañ
+bookmark_thread:Merkañ ar gaoz-mañ
+bookmark_thread_desc:Ouzhpennañ ar gaoz-mañ d'ho roll sinedoù
+subject:Danvez
+subscribe:Evezhiañ
+subscribe_desc:Resev ur c'hemenn pa vez krouet ur gaoz nevez er forom-mañ
+subscribed_forums:Foromoù evezhiet ganeoc'h
+subscribed_forums_desc:Gweredekaat/Diweredekaat ar sil evit ar foromoù evezhiet ganeoc'h (diskouez kemennadennoù eus foromoù evezhiet ganeoc'h hepken)
+subscribed_threads:Kaozioù evezhiet
+subscribed_threads_desc:Gweredekaat/Diweredekaat ar sil evit ar c'haozioù evezhiet ganeoc'h (evit diskouez kemennadennoù eus kaozioù evezhiet ganeoc'h hepken)
+bookmarked_threads:Kaozioù er sinedoù
+switch_to_thread_view:Gwelet ar gaoz e stumm ur gwezennadur
+thread:Kaoz :
+thread_announcement:Kemenn :
+thread_first_unread_msg:Mont d'ar gemennadenn anlennet kentañ er gaoz-mañ
+thread_thread:Kaoz
+threads:Kaozioù
+time:Eur
+todays_posts:Kemennadennoù an deiz
+todays_posts_desc:Diskouez an holl gemennadennoù zo bet postet hiziv
+un_ignore_user:Paouez da zianavezout kemennadennoù an implijer-mañ
+unanswered_posts:Kemennadennoù direspont
+unanswered_posts_desc:Diskouez an holl gemennadennoù direspont
+unlock_thread:Dibrennañ ar gaoz
+unread_msg:Er gaoz-mañ ez eus kemennadennoù n'hoc'h eus ket lennet c'hoazh
+unread_msg_locked:Kaoz prennet gant kemennadennoù anlennet
+unread_posts:Kemennadennoù n'int ket bet lennet
+unread_posts_desc:Diskouez an holl gemennadennoù n'int ket bet lennet
+unsub_from_thread:Paouez da evezhiañ ar gaoz-mañ
+unsub_from_thread_desc:Paouez da resev kemennoù diwar-benn kemennadennoù nevez er gaoz-mañ
+unbookmark_thread:Lemel eus ar sinedoù
+unbookmark_thread_desc:Lemel ar gaoz-mañ eus ho roll sinedoù
+unsubscribe:Paouez da evezhiañ
+unsubscribe_desc:Paouez da resev kemennoù diwar-benn kaozioù nevez er forom
+updated_on:Hizivaet d'an :
+user:Implijer
+user_counter:Bez' hon eus <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|implijer|implijer} enskrivet.
+user_info:Titouroù diwar-benn an implijer
+user_info_l:Titouroù diwar-benn {VAR: u->alias}
+user_offline:Emañ {VAR: obj->login} ezlinenn evit poent
+user_online:Emañ {VAR: obj->login} enlinenn evit poent
+usrinfo_last_post:Kemennadenn diwezhañ :
+view_results:Gwelet an disoc'hoù
+views:Gweladennoù
+vote:{PLURAL: frm->n_rating|$1 vouezh|$1 mouezh}
+vote_button:Votiñ
+vote_for_thread:Mouezh
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> zo bet dilec'hiet da <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> gant an hanterour
+welcome_message:Degemer mat deoc'h, <b>{VAR: usr->alias}</b>. D'an {TEMPLATE: welcome_message_date} e oa ho kweladenn diwezhañ
+what_ppl_doing:Diskouez petra emañ an dud oc'h ober
+reported_del_report:Dilemel un danevell
+reported_reason:Abeg
+reported_on:D'an :
+reported_reported_by:Titouret gant :
+reported_reported_msg:Kemennadennoù titouret
+modque_pending_approval:Kemennadennoù o c'hortoz bezañ aprouet
+modque_approve:Aprouiñ
+modque_delete:Dilemel
+modque_no_message:N'eus kemennadenn ebet o c'hortoz bezañ aprouet
+pmsg_new_messages:Kemennadenn brevez anlennet
+pmsg_old_messages:Lenn ur gemennadenn brevez
+deny_recipt:Nac'h kas un testeni resev
+deny_recipt_desc:Chom hep kemenn hoc'h eus lennet ar gemennadenn-mañ
+restore_to:Assevel da :
+move_to:Dilec'hiañ da :
+list_referes_referrals:Tud paeroniet
+list_referes_members:Izili paeroniet
+list_referes_member:Ezel
+referals_none:N'eus implijer paeroniet ebet c'hoazh
+referals_refered_by:Izili ar forom paeroniet gant : <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Konter kemennadennoù
+referals_registered_on:Enskrivet abaoe an
+referals_action:Ober
+pmsg_all:pep tra
+pmsg_none:hini ebet
+folder:Renkell :
+pmsg_replied:respontet
+pmsg_forwarded:adkaset
+pmsg_subject:Danvez
+pmsg_author:Aozer
+pmsg_time:Eur
+pmsg_selected:Diuzet
+pmsg_delete:Dilemel
+cur_ppage_pm:Kemennadennoù prevez
+writing_pm:Skrivañ ur gemennadenn brevez
+browsing_folder:O furchal ar renkell <b>{VAR: folders[$folder_id]}</b>
+inbox:Boest resev
+draft:Brouilhed
+sent:Kaset
+trash:Pod-lastez
+msg_author:Aozer
+avatar_sel_form:Furmskrid diuzañ un avatar
+no_avatars:Avatar ebet da gaout
+month_1:Genver
+month_2:C'hwevrer
+month_3:Meurzh
+month_4:Ebrel
+month_5:Mae
+month_6:Mezheven
+month_7:Gouere
+month_8:Eost
+month_9:Gwengolo
+month_10:Here
+month_11:Du
+month_12:Kerzu
+male:Paotr
+female:Merc'h
+unspecified:DIANAV
+register_tree_view:Diskwel en ur gwezennadur
+register_msg_tree_view:Roll kaozioù plaen / Gwezennadur kemennadennoù
+register_tree_msg_view:Gwezennadur kaozioù / Roll kemennadennoù plaen
+register_flat_view:Diskwel plaen
+use_forum_default:Talvoudoù dre ziouer ar forom
+finduser_user_info:Titouroù diwar-benn un implijer :
+finduser_by_login:Dre anv implijer :
+finduser_submit:Klask
+finduser_no_such_user:N'eus implijer ebet evel-se
+finduser_user:Implijer
+finduser_postcount:Konter kemennadennoù
+finduser_joindate:Deiziad enskrivañ
+finduser_action:Ober
+yes:Ya
+no:Ket
+register_email:Postel
+edit_time_limit:<b>Harz amzer evit aozañ</b> : <b>{GVAR: EDIT_TIME_LIMIT}</b> munutenn
+no_edit_time_limit:<b>Harz amzer evit aozañ</b>: <b>Diharz</b>
+pmuserloc_login:Anv implijer :
+pmuserloc_submit:Kas
+pmuserloc_user:Implijer
+pmuserloc_no_result:Disoc'h ebet
+register_builtin:Dre ziouer war al lec'hienn
+register_specify_url:Spisaat un URL
+register_uploaded:Kas un avatar
+register_login:Anv implijer :
+register_password:Ger-tremen :
+register_conf_pass:Kadarnaat ar ger-tremen :
+register_email_desc:Ebarzhit ur chomlec'h postel reizh, mar plij. Gallout a rit e guzhat amañ dindan, er rann Dibaboù gwellañ.
+register_name:Anv :
+register_your_pass:Ho ker-tremen :
+register_update:Hizivaat
+register_avatar_type:Seurt avatar :
+register_del_avatar:Dilemel an avatar
+register_avatar:Avatar :
+register_sel_avatar:Diuzañ un avatar
+register_custom_avatar_rules:Ne zeuio ket an avatar personel war wel betek ma vo aprouet gant ar merour. <br /><span class="SmallText">Ne zle ket an avatar bezañ brasoc'h eget <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} piksel</b> ha ret eo dezhañ bezañ er furmad <b>jpg</b>, <b>gif</b> pe <b>png</b> format.</span>
+register_custom_avatar_url:URL an avatar personel :
+register_preview:Rakwelet
+register_custom_avatar_upload:Restr an avatar personel :
+register_register:En em enskrivañ
+register_required:Titouroù rekis
+register_required_desc:Ret eo leuniañ an holl vaeziennoù. Diwallit, ar gerioù-tremen a ra ar c'hemm etre lizherennoù bihan ha bras.
+register_optional:Titouroù diret
+register_optional_desc:Erbediñ a reomp deoc'h chom hep diskuliañ titouroù personel en ho profil. An holl ditouroù-se a c'hallo bezañ gwelet gant izili all ar forom.
+register_location:Lec'h :
+register_occupation:Micher :
+register_interests:Ar pezh oc'h dedennet gantañ :
+register_image:Skeudenn :
+register_icq:Anavezer ICQ :
+register_aim:Anavezer AIM :
+register_yahoo:Anavezer Yahoo Messenger :
+register_msnm:Anavezer MSN Messenger :
+register_homepage:Lec'hienn web personel :
+register_bday:Deiziad ganedigezh :
+register_bday_desc:Ma ebarzhit un deiziad ganedigezh e vo gwelet gant izili all ar forom en ho profil.
+register_day:Deiz
+register_month:Miz
+register_year:Bloavezh
+register_gender:Reizh :
+register_bio:Tamm buhez :
+register_bio_desc:Un nebeud munudoù diwar ho penn, evel ar pezh ho tedenn, ho micher, hag all...
+register_prefs:Dibaboù gwellañ
+register_sig:Sinadur :
+register_sig_desc:Sinadur a zeuio war wel e traoñ ho kemennadennoù.
+register_reset:Adderaouekaat
+register_def_thread_view:Diskwel dre ziouer ar c'haozioù :
+register_msg_per_page:Kemennadennoù dre bajenn :
+register_show_sig:Diskouez ar sinadurioù :
+register_show_sig_desc:Ho lez da guzhat pe da ziskouez sinadurioù an izili all eus ar forom.
+register_use_sig_default:Implijout ar sinadur dre ziouer :
+register_use_sig_default_desc:Lakaat ho sinadur ouzh kement kemennadenn a gasit.
+register_timezone:Gwerzhid-eur :
+register_ignore_admin:Dianavezout ar c'hemennadennoù merañ :
+register_invisible_mode:Mod diwelus :
+register_invisible_mode_desc:Kuzhat ho statud enlinenn
+register_show_email:Diskouez ma chomlec'h postel :
+register_show_email_desc:Dibabit an dibarzh-mañ ma fell deoc'h e vefe ho chomlec'h postel a-wel d'an holl.
+register_notification:Diuzañ ar c'hemenn dre ziouer :
+register_notification_desc:Un dibarzh dre ziouer eo hemañ, ha gallout a ra bezañ diweredekaet pa bostit kemennadennoù.
+register_notify_method:Dibab an doare da gemenn :
+register_notify_method_desc:Dibabit ho toare kemenn pe diweredekait ar c'hemennoù (evit ar vakañsoù, da skouer).
+register_allow_email_msg:Aotren ar posteloù :
+register_allow_email_msg_desc:Aotren an implijerien all da gas posteloù deoc'h dre ar forom-mañ.
+buddy_status:Statud
+my_buddies:Ma mignoned
+add_buddy:Ouzhpennañ ur mignon
+add:Ouzhpennañ
+buddy_search:Ebarzhit anv an implijer hoc'h eus c'hoant da ouzhpennañ.
+member_search:Pe implijit an arc'hweladur <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Kavout un implijer</a> evit kavout unan bennak.
+buddy_remove:lemel
+post_normal:Reizh
+post_sticky:Pegus
+post_annoncement:Kemenn
+post_size:Ment
+post_color:Liv
+post_font:Font
+create_thread:Krouiñ ur gaoz
+submit_reply:Respont
+edit_message:Arloañ kemmoù ar gemennadenn
+apply_spell_changes:Arloañ ar c'hemmoù reizhskrivadur
+post_preview:Rakwelet ar gemennadenn
+post_logedin_user:Implijer kevreet :
+post_logout:Digevreañ
+post_passwd:Ger-tremen evit postañ :
+post_poll:Sontadeg :
+post_create_poll:KROUIÑ UR SONTADEG
+post_poll_delete:DILEMEL
+post_poll_edit:AOZAÑ
+post_mod_opt:Dibarzhioù an habasker :
+post_thread_type:Seurt kaoz :
+post_thread_expiry:Termen ar gaoz :
+post_locked:Kaoz prennet
+post_icons:Arlun ar gemennadenn :
+post_no_icon:Arlun ebet
+post_smiley:Berradennoù fromlunioù :
+post_format_tools:Binvioù furmaozañ :
+post_upload_file:Pellgargañ ar restr
+post_file_del:Dilemel
+post_file_name:Anv
+post_file_size:Ment
+file_attachments:Restr(où) staget :
+allowed_files:astennoù aotreet evit ar restroù :
+max_file_size:Ment vrasañ ar restroù :
+max_files_per_msg:Niver uhelañ a restroù dre gemennadenn :
+post_notification:Kemenn kemennadennoù
+include_sig:Ensoc'hañ ma sinadur
+include_sig_desc:Ebarzhiñ sinadur ho profil.
+disable_smilies:Diweredekaat ar fromlunioù er gemennadenn-mañ
+spell_check_msg:Kontrollañ reizhskrivadur ar gemennadenn
+post_form:Kemennadenn nevez
+post_forum:Forom :
+post_title:Titl :
+post_body:Testenn :
+post_options:Dibarzhioù :
+post_preview_btn:Rakwelet ar gemennadenn
+ignore_users:Implijerien dianavezet
+add_ignore:Ouzhpennañ un den dianavezet
+forum_terms:Reolennoù ar forom
+forum_rules:<p>Digoust eo en em enskrivañ er forom-mañ ! Koulskoude e tleit degemer an divizoù hag ar munudoù amañ dindan. M'o degemerit, pouezit war ar bouton <b>Aprouiñ</b> e fin ar bajenn. Notenn : Pa bouezit war ar bouton e tisklêriit ez oc'h en tu-hont da 13 vloaz. Ma n'oc'h ket trizek vloaz c'hoazh, implijit ar furmskrid en em enskrivañ-mañ. </p><p> Daoust ma vez distaolet ar c'hemennadennoù dizereat eus ar forom-mañ gant ar verourien hag an habaskerien, n'omp ket evit lenn ha kontrollañ an holl anezho. Pep kemennadenn a eztaol soñjoù an aozer anezhi, ha ne vo ket kiriek merourien ha habaskerien ar forom-mañ d'ar pezh zo er c'hemennadennoù. </p><p> Dre glikañ war ar bouton Aprouiñ e prometit chom hep postañ kemennadennoù hudur, lous, o tennañ d'ar revelezh, kasonius, gourdrouzus, pe o terriñ al lezenn e kement doare zo. </p><p> Gwir o deus perc'henned ar forom-mañ da lemel, aozañ, dilec'hiañ pe serriñ forzh peseurt kaoz evit forzh peseurt abeg.</p>
+forum_rules_13:<p>An holl implijerien dindan 13 vloaz a rank goulenn aotre o zud pe o gward evit dont da vezañ ezel eus ar forom-mañ. Daoust ma'z eo digor ar forom d'ar re dindan 13 vloaz, e rankomp kaout un aotre sinet digant unan eus an dud pe ar gward, dre lizher pe dre belleilenn, a-raok enskrivañ an den dindan 13 vloaz da vat. </p><p> Ma fell deoc'h kregiñ gant an argerzh enskrivañ a-raok ma resevfemp an aotre, pouezit war ar bouton Aprouiñ amañ dindan. Ma fell deoc'h nullañ an argerzh enskrivañ, klikit war ar bouton Nullañ evit distreiñ da veneger ar foromoù. <p /> Tu zo da bellgargañ un eilenn eus ar furmskrid aotren amañ. Evit gouzout hiroc'h diwar-benn an argerzh enskrivañ, kasit ur postel da href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>, mar plij.</p>
+coppa_conf:Kadarnadur COPPA
+coppa_before:A-raok {TEMPLATE: coppa_date}
+coppa_after:Goude {TEMPLATE: coppa_date}
+coppa_link:Klikit war al liamm a glot gant ho teiziad ganedigezh
+coppa:<p>Unan eus an dud pe ar gward a rank postañ pe pelleilañ un aotre sinet da verour ar forom-mañ a-raok ma c'hallfe un implijer dindan trizek vloaz kas e enskrivadur da benn. </p><p>Evit gouzout hiroc'h, kit e darempred gant <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Reolennoù ar forom
+prereg_agree:Mat eo din
+prereg_disagree:Ne savan ket a-du
+coppa_fax_instructions:Kelennoù evit tud pe gward ar vugale
+coppa_fax_instructions2:Moullit ar bajenn-mañ, mar plij, sinit-hi ha pelleilit-hi da :
+coppa_fax_reg_form:Furmskrid enskrivañ
+coppa_fax_sign:Sinit ar furmskrid amañ dindan ha kasit-eñ dimp, mar plij.
+coppa_fax_conf:Gwiriet em eus an titouroù zo bet pourchaset gant ma bugel ha lennet em eus karta ho lec'hienn web war ar vuhez prevez. Kompren a ran e c'haller cheñch an titouroù war ar profil war-bouez ur ger-tremen. Kompren a ran e c'hallan goulenn e vefe lamet ar profil eus ar forom penn-da-benn.
+coppa_fax_permission:Sinit amañ ma roit hoc'h aotre
+coppa_fax_no_permission:Sinit amañ ma fell deoc'h e vefe dilamet ar gont
+coppa_fax_parent_name:Anv klok an tad / ar vamm / ar gward :
+coppa_fax_relation:Liamm kerentiezh gant ar bugel :
+coppa_fax_telephone:Pellgomz :
+coppa_fax_email:Chomlec'h postel :
+coppa_fax_date:Deiziad :
+coppa_fax_questions:Kit e darempred gant <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>, m'ho pez goulenn pe c'houlenn
+coppa_fax_login:Anv implijer
+coppa_fax_passwd:Ger-tremen
+coppa_fax_remail:Chomlec'h postel
+coppa_fax_name:Anv
+login_not_logedin:N'oc'h ket kevreet. Meur a abeg a c'hall bezañ evit se :
+login_cookie_expired:Aet eo ho toupin d'e dermen, ha dleout a rit kevreañ evit neveziñ ho toupin.
+login_perm_denied:N'oc'h ket aotreet da vont d'al loaz hoc'h eus goulennet evel implijer dizanv. Ret eo deoc'h kevreañ evit bezañ aotreet.
+login_want_to_register:C'hoant hoc'h eus d'en em enskrivañ ?
+login_forgot_passwd:Ankouaet em eus ma ger-tremen
+login_use_cookie:Implijout toupinoù<br /><span class="SmallText">M'emaoc'h oc'h implijout un urzhiataer en ul lec'h foran, evel ul levraoueg, ur skol pe ur sibertavarn, ez erbedomp deoc'h diweredekaat an dibarzh-mañ evit abegoù surentez.<br />Ma lezit an dibarzh-mañ gweredekaet, e viot kevreet ent emgefreek ouzh ar forom pe zeuot en-dro.</span>
+login_login:Anv implijer :
+login_login_btn:Kevreañ
+login_name_required:Ret eo deoc'h skriverezañ hoc'h anv implijer
+login_passwd_required:Ret eo lakaat ur ger-tremen
+login_invalid_radius:Direizh eo ar c'henstrollad anv implijer / ger-tremen
+reset_confirmation:Trugarez evit bezañ en em enskrivet.\n\nEvit gweredekaat ho kont, kit d'an URL amañ dindan, mar plij :\n\n{VAR: url}\n\nUr wech gweredekaet ho kont e viot kevreet ouzh ar forom\nha kaset d'ar bajenn degemer.
+reset_reset:Demat,\n\nDivizet hoc'h eus adderaouekaat ho ker-tremen. Evit kas an argerzh da benn, kit d'an URL-mañ, mar plij :\n\n{VAR: url}\n\nNOTENN : Er forom-mañ e vez enrollet ar gerioù-tremen war-bouez ur wikefre godañ untu, ar pezh a dalvez N'EUS KET TU da adtapout ho ker-tremen ur wech m'eo bet ebarzhet ha kodet. Mont a ra en-dro en ur geñveriañ ar stumm kodet zo enrollet ganimp gant ar stumm kodet eus ar pezh a ebarzhit pa gevreit (Ma'z oc'h dedennet gant an dra-se, klaskit lenn traoù diwar-benn an algoritm MD5 HASH).
+rpasswd_invalid_passwd:Ger-tremen direizh
+rpasswd_passwd_nomatch:Ar gerioù-tremen ne glotont ket an eil gant egile
+rpasswd_passwd_length:Ar ger-tremen a rank kaout 6 arouezenn da nebeutañ
+reset_remind_pass:Degas ho ker-tremen da soñj deoc'h
+reset_reset_conf:Adderaouekaet e vo ho ker-tremen, hag adkaset deoc'h. Ma n'hoc'h eus ket kadarnaet ho chomlec'h postel c'hoazh, e vo adkaset ar goulenn kadarnaat deoc'h.
+reset_error:Ar chomlec'h postel n'eo ket bet kavet en diaz roadennoù
+rpasswd_change_pass:Cheñch ar ger-tremen
+rpasswd_login:Kevreañ
+rpasswd_cur_pass:Ger-tremen bremañ :
+rpasswd_new_pass:Ger-tremen nevez :
+rpasswd_conf_pass:Kadarnaat ar ger-tremen :
+login_passwd:Ger-tremen :
+reset_email:Postel :
+reset_reset_button:Adderaouekaat ar ger-tremen
+rate_this_thread:Notenn
+report_reporting_about:O titourañ :
+report_subject:Danvez :
+report_by:Gant :
+report_posted_on:Postet d'an :
+report_give_reason:Displegit perak e titourit ar gemennadenn-mañ, mar plij :
+report_submit_report:Kas an danevell
+search_entire_msg:Er gemennadenn a-bezh
+search_subject_only:En danvez hepken
+search_forum:Forom
+search_posted_on:Postet d'an
+search_no_results:Disoc'h ebet
+search_all_forums:Klask en holl foromoù
+search_in_forum:Klask er forom :
+search_forum_search:Klask en ur forom
+move_thread_to:Dilec'hiañ ar gaoz <b>{VAR: thr->subject}</b> da :
+remail_email_topic:Kas ar gaoz-mañ d'ur mignon dre bostel
+remail_your_name:Hoc'h anv :
+remail_your_email:Ho chomlec'h postel :
+remail_friends_name:Anv ar mignon :
+remail_friends_email:Chomlec'h postel ar mignon :
+remail_required:rekis
+remail_subject:Danvez :
+remail_message:Kemennadenn :
+remail_send_now:Kas ar postel bremañ
+remail_anon_opt:Eilañ ar gemennadenn-mañ en un arval postel dibabet ganeoc'h evit he c'has d'ho mignon(ed).
+remail_done:Graet eo
+remail_sent_conf:Kaset mat eo bet ho postel diwar-benn ar gaoz {VAR: data->subject} d'ho mignon {VAR-HTML: _POST['femail']}.
+remail_error:Ur fazi zo bet
+mklist_type:Seurt :
+mklist_option:Dibarzh :
+mklist_additem:Ouzhpennañ un elfenn
+mklist_apply:Arloañ
+mklist_delete:Dilemel
+qbud_nick_name:Lesanv
+qbud_add_selected:Ouzhpennañ an elfennoù diuzet
+qbud_selected:Diuzet
+qbud_no_buddies:Mignon ebet da zibab
+mklist_numerical:Niverel
+mklist_aplha:Lizherennek
+mklist_square:Karrez
+mklist_disc:Pladenn
+mklist_circle:Kelc'h
+mklist_close:Serriñ
+email_to:Da :
+email_pg_title:Postel
+email_subject:Danvez :
+email_body:Testenn :
+email_submit:Postel
+ppost_quote_msg:{VAR: msg_to_list} en doa skrivet d'an {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Meneg :
+ppost_to:Da :
+ppost_from_buddy_list:Diuzañ er roll mignoned
+ppost_find_User:Kavout un implijer
+ppost_track_msg:Heuliañ ar gemennadenn-mañ
+ppost_track_msg_desc:Ma c'hemenn (gant ur gemennadenn brevez) pa vo lennet ar gemennadenn-mañ.
+ppost_send:Kas
+ppost_save_draft:Enrollañ ar brouilhed
+poll_blank_option:Ne c'hallit ket ouzhpennañ un dibarzh goullo
+poll_del_conf:Ma fell deoc'h dilemel an dibarzh-mañ, klikit war OK
+poll_name:Anv ar sontadeg :
+poll_timelimit:Harz amzer :
+poll_maxiumvotes:Niver uhelañ a vouezhioù :
+poll_create:Krouiñ
+poll_update:Hizivaat
+poll_disablesmilies:Diweredekaat ar fromlunioù
+poll_create_poll:Krouiñ ur sontadeg
+poll_update_poll:Hizivaat ar sontadeg
+poll_delete:Dilemel
+poll_updateoption:Dibarzh hizivaat
+poll_addoption:Ouzhpennañ un dibarzh
+poll_unlimited:Hep harz ebet
+poll_day:deiz
+poll_days:deiz
+poll_hour:eur
+poll_hours:eur
+poll_month:miz
+poll_year:bloaz
+poll_week:sizhun
+tabs_register:Arventennoù ar gont
+tabs_subscriptions:Elfennoù evezhiet
+tabs_bookmarkes:Sinedoù
+tabs_referrals:Implijerien paeroniet
+tabs_buddy_list:Roll mignoned
+tabs_ignore_list:Roll an implijerien dianavezet
+tabs_private_messaging:Kemennadennoù prevez
+single_msg_delete:War-nes <span class="ErrorText">DILEMEL</span> ar gemennadenn anvet : <b>{VAR: data[3]}</b>  emaoc'h
+thread_delete:War-nes <span class="ErrorText">dilemel</span> ar <span class="ErrorText">gaoz a-bezh</span>, zo hec'h anv : <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">C'hoant hoc'h eus da genderc'hel ?</span>
+delete_yes:Ya
+delete_no:Ket
+error_invalidurl:URL direizh
+error_error:Fazi
+usrinfo_profile:Profil {VAR: u->alias}
+usrinfo_show_all_posts:Diskouez an holl gemennadennoù gant {VAR: u->alias}
+actions_update:O spiañ tud all, eveldoc'h
+err_info:Titouroù
+buddy_list_err_cantadd:Ne c'hallit ket hoc'h ouzhpennañ hoc'h-unan d'ho roll mignoned
+buddy_list_err_dup:Emañ an implijer-mañ en ho roll mignoned dija
+buddy_list_err_nouser:An implijer hoc'h eus klasket ouzhpennañ d'ho roll mignoned n'eo ket bet kavet.
+buddy_list_err_nouser_title:Ne c'haller ket ouzhpennañ un implijer
+buddy_list_err_ignore:Ne c'hallit ket ouzhpennañ implijerien ho tianavez d'ho roll mignoned.
+buddy_list_update:Furchal roll mignoned an-unan
+core_err_invinp_title:Roadenn direizh
+core_err_invinp_err:Heuliet hoc'h eus ul liamm direizh. Lavarit d'ar <a href="mailto:{GVAR: ADMIN_EMAIL}">mestr-gwiad</a> penaos ez oc'h en em gavet amañ, mar plij.
+core_adm_login_msg:Gallout a ra ar verourien kevreañ <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">amañ</a>.
+email_err_unabletoemail_title:FAZI : Ne c'haller ket kas posteloù
+email_err_unabletoemail_msg:Diweredekaet eo bet an arc'hweladur postel gant ar merour.
+email_error_unabletolocaddr:Hon digarezit, n'eo ket bet ar reizhiad evit kas ar postel da {VAR-HTML: _POST['tx_name']} abalamour ma n'he deus ket kavet e chomlec'h postel
+email_error_body:Ret eo lakaat un destenn
+email_error_subject:Ret eo lakaat un danvez
+email_error_namerequired:Ret eo lakaat un anv
+email_error_invaliduser:Implijer direizh
+emailconf_err_invkey_title:Fazi
+emailconf_err_invkey_msg:Alc'hwez kadarnaat direizh. Gwiriit ho postel, mar plij, evit bezañ sur hoc'h eus ebarzhet an URL reizh.
+err_inc_criticaltitle:Fazi grevus
+err_inc_criticalmsg:C'hoarvezet ez eus ur fazi. Dre zichañs ez eus ivez ur gudenn gant ar reizhiad da ditourañ fazioù.
+finduser_update:Klask un implijer
+help_index_update:O lenn ar <a href="{TEMPLATE: help_index_update_lnk}">Skoazell</a>
+iemail_thr_subject:Respont nevez da {VAR: thr_subject} gant {VAR: poster_login}
+iemail_thr_bodyemail:Evit gwelet respontoù anlennet, kit da {VAR: goto_url['email']}\n\nMa ne fell ket deoc'h ken resev kemennoù diwar-benn respontoù er gaoz-mañ, klikit amañ : {VAR: unsub_url['email']}, mar plij
+iemail_frm_subject:Kaoz nevez er forom {VAR: frm_name}, anvet {VAR: thr_subject}, gant {VAR: poster_login}
+iemail_frm_bodyemail:Evit gwelet ar gaoz, kit da :\n\n{VAR: goto_url['email']}\n\nMa ne fell ket deoc'h ken resev kemennoù diwar-benn kaozioù nevez er forom-mañ, kit da {VAR: unsub_url['email']}, mar plij
+iemail_participate:Evit kemer perzh en diviz, kit amañ :
+ignore_list_err_info_title:Titouroù
+ignore_list_err_dup_msg:Emañ an implijer-mañ en ho roll implijerien dianavezet dija
+ignore_list_err_nu_title:An implijer n'eo ket bet kavet
+ignore_list_err_nu_msg:An implijer hoc'h eus klasket ouzhpennañ d'ho roll dianavezout n'eo ket bet kavet.
+ignore_list_cantign_msg:Ne c'hallit ket dianavezout an implijer-mañ
+ignore_list_update:Furchal ar roll dianavezout
+index_update:O furchal <a href="{TEMPLATE: index_update_lnk}">roll ar foromoù</a>
+list_referers_update:Furchal ar roll implijerien paeroniet
+login_update:Furmskrid kevreañ
+msg_update:O furchal ar gaoz <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:FAZI : Diweredekaet eo ar c'hemennadennoù prevez
+pm_err_nopm_msg:Ne c'hallit ket implijout ar c'hemennadennoù prevez. Diweredekaet int bet gant ar merour.
+pm_update:Oc'h ober gant kemennadennoù prevez
+post_err_lockedthread_title:FAZI : Kaoz prennet
+post_err_lockedthread_msg:Prennet eo ar gaoz-mañ. N'eur ket aotreet da bostañ ken.
+err_coppa_title:FAZI : Ho kont n'eo ket kadarnaet c'hoazh
+err_coppa_msg:N'hon eus ket resevet ur c'hadarnadur digant ho tud ha/pe ho kward evit hoc'h aotren da bostañ kemennadennoù. M'hoc'h eus kollet ho furmskrid COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">klikit amañ d'e welet en-dro</a>.
+err_banned_acct_title:FAZI : Forbannet oc'h bet
+err_banned_acct_msg:Ho kont zo bet {IF: $ban_expiry}forbannet evit ur mare betek an {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}forbannet da viken{ENDI} diouzh al lec'hienn, abalamour m'hoc'h eus torret reolennoù ar forom.
+post_err_edttimelimit_title:FAZI
+post_err_edttimelimit_msg:Ne c'hallit ket aozañ ar gemennadenn-mañ ken
+post_err_noannontopics_msg2:<legend>FAZI : Aotreoù skort</legend>N'eo ket aotreet an implijerien dizanv da grouiñ kaozioù.
+post_err_noannonposts_msg2:<legend>FAZI : Aotreoù skort</legend>An implijerien dizanv n'int ket aotreet da respont.
+post_err_floodtrig_title:FAZI : Dinoet ez eus bet un arnod beuziñ
+post_err_floodtrig_msg:Esaeit adarre a-benn {PLURAL: tm|$1 eilenn|$1 eilenn}, mar plij
+post_err_attach_size:Re vras eo ar restr stag (en tu-hont d'an harz a {VAR: MAX_F_SIZE} okted)
+post_err_attach_ext:Ar restr emaoc'h o klask pellgargañ ne glot ket gant ar seurtoù restr aotreet.
+post_err_attach_filelimit:Emaoc'h o klask pellgargañ muioc'h a restroù eget n'oc'h aotreet.
+post_err_passwd:Ger-tremen direizh
+post_reply_update:O respont da <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> e-barzh {VAR: frm->name}
+post_topic_update:O skrivañ ur gaoz nevez e-barzh <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Ur fazi a oa
+postcheck_max_images_err:Ne vez ket aotreet muioc'h eget {GVAR: MAX_IMAGE_COUNT} skeudenn dre gemennadenn. Digreskit an niver a skeudennoù, mar plij.
+postcheck_no_links_allowed:Ne c'hallit ket implijout liammoù a-raok bezañ postet {PLURAL: posts_before_links|$1 gemennadenn|$1 kemennadenn} da nebeutañ.
+postcheck_subj_needed:Ret eo lakaat un danvez
+postcheck_no_such_user:N'eus implijer ebet anvet "{FUNC: char_fix(htmlspecialchars($v))}" er forom-mañ.
+postcheck_ignored:Ne c'hallit ket kas ur gemennadenn brevez da "{FUNC: char_fix(htmlspecialchars($v))}", rak an implijer-mañ en deus divizet ho tianavezout.
+postcheck_no_recepient:Ne c'haller ket kas ar gemennadenn, an degemerer a vank
+postcheck_invalid_email:Ebarzhit ur chomlec'h postel reizh evit ho mignon, mar plij.
+postcheck_email_subject:Ne c'hallit ket kas ur postel hep danvez ebet
+postcheck_email_body:Ne c'hallit ket kas ur postel hep testenn ebet.
+private_msg_notify_subj:Lenn ar c'hemenn evit : {VAR: m->subject}
+private_msg_notify_body:Demat, <br />{VAR: usr->login} en deus digoret ho kemennadenn brevez anvet« {VAR: m->subject} » d'an {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Furchal roll an dud paeroniet
+register_err_short_login:Re verr eo an anv implijer hoc'h eus dibabet. 4 arouezenn da nebeutañ a rank bezañ en anvioù implijer.
+register_err_login_notallowed:An anv implijer-mañ n'eo ket aotreet.
+register_err_loginunique:Implijet e vez an anv-mañ gant un ezel eus ar forom dija. Dibabit unan all, mar plij.
+register_err_emailexists:Stag eo ar chomlec'h postel-mañ ouzh ur gont dija. M'hoc'h eus ankouaet ho ker-tremen, implijit an dibarzh Assevel, mar plij, kentoc'h eget en em enskrivañ en-dro.
+register_err_shortpasswd:Ar gerioù-tremen a rank kaout 6 arouezenn da nebeutañ.
+register_err_passwdnomatch:Ho kerioù-tremen ne glotont ket an eil gant egile, esaeit en-dro mar plij.
+register_err_invalidemail:Direizh eo ar chomlec'h postel hoc'h eus skriverezet war a seblant
+register_err_needname:Evit echuiñ an enskrivadur e rankit ebarzhiñ hoc'h anv.
+register_err_enterpasswd:Ret eo deoc'h ebarzhiñ ho ker-tremen bremañ a-benn kas ar c'hemmoù da benn.
+register_err_adminpasswd:Ret eo deoc'h ebarzhiñ ho ker-tremen <b>merour</b> evit kas ar c'hemmoù da benn.
+register_err_notyouremail:Unan bennak zo enskrivet gant ar chomlec'h postel-mañ dija.
+register_err_avatartobig:Re vras eo ar restr emaoc'h o klask pellgargañ, brasoc'h eget {GVAR: CUSTOM_AVATAR_MAX_SIZE} okted
+register_err_avatarnotallowed:An avatar emaoc'h o klask pellgargañ n'eo ket aotreet. Gwiriit ar seurtoù restroù aotreet, mar plij.
+register_conf_subject:Kadarnaat an enskrivadur
+register_conf_msg:Trugarez evit bezañ en em enskrivet.\nEvit gweredekaat ho kont, kit d'an URL amañ dindan :\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUr wech gweredekaet ho kont e viot kevreet ouzh ar forom hag adkaset da bajenn degemer ar forom.
+register_welcome_subject:Kadarnaat hoc'h enskrivadur er forom.
+register_welcome_msg:Trugarez deoc'h evit bezañ en em enskrivet.\n\nSetu amañ ho titouroù kevreañ evit ar forom :\n\nURL ar forom : {TEMPLATE: index_update_lnk}\nAnv implijer : {VAR: uent->login}\nGer-tremen : {VAR: _POST['reg_plaintext_passwd']}\n\nDiwallit : kemm zo er gerioù-tremen etre al lizherennoù bihan ha bras !\nEvit kemmañ hoc'h arventennoù pe ho profil, kit d'ar bajenn-mañ :\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:FAZI : N'hon eus ket gallet hoc'h enskrivañ
+regsiter_err_cantreg_msg:Ne c'haller ket krouiñ ar gont implijer. Kit e darempred gant ar merour, mar plij : <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Gwelet profil an-unan
+register_register_update:Pajenn enskrivañ
+report_err_nosuchmsg_title:FAZI
+report_err_nosuchmsg_msg:N'eus kemennadenn ebet evel-se
+reset_err_invalidkey_title:FAZI
+reset_err_invalidkey_msg:Direizh eo an alc'hwez da adderaouekaat ar ger-tremen
+reset_err_rstconf_title:Titouroù
+reset_err_rstconf_msg:Resev a reot displegadennoù dre bostel a-benn un nebeud munutennoù.
+reset_newpass_title:Adderaouekaat ar ger-tremen
+reset_newpass_msg:Demat deoc'h,\n\nSetu amañ an titouroù hoc'h eus ezhomm evit mont d'ar forom :\n\n\nAnv implijer : {VAR: ui[1]}\nGer-tremen : {VAR: passwd}\n\nGallout a rit kemmañ ho ker-tremen ne vern pegoulz gant ar banell da gontrollañ titouroù an implijer :\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:Kaset eo bet ho ker-tremen deoc'h dre bostel. Dleout a rafec'h e resev a-benn un nebeud munutennoù.<br />
+search_update:O klask kemennadennoù
+selmsg_update:O furchal ar <a href="{TEMPLATE: selmsg_update_lnk}">c'hemennadennoù kaset hiziv</a>
+showposts_update:Gwelet ar c'hemennadennoù gant : <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:O furchal elfennoù evezhiet an-unan
+bookmarked_update:Furchal roll sinedoù an-unan
+thread_update:O furchal ar forom <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:O furchal ar gaoz (diskwel gwezennadur) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:O sellet ouzh profil <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
+ERR_login_msg2:<legend>FAZI : N'oc'h ket kevreet</legend>Evit mont d'ar bajenn-mañ e rankit bezañ un ezel eus ar forom-mañ.
+ERR_disabled_ttl:Arc'hweladur diweredekaet
+ERR_disabled_msg:Diweredekaet eo bet an arc'hweladur-mañ gant merour ar reizhiad
+ERR_access_ttl:FAZI : Aotreoù skort
+ERR_access_msg:N'emañ ket an aotreoù ret ganeoc'h evit seveniñ an ober-mañ
+ERR_registration_disabled_ttl:Enskrivadur diweredekaet
+ERR_registration_disabled_msg:Diweredekaet eo bet an enskrivadur gant ar merour. Esaeit en-dro diwezhatoc'h, mar plij.
+ERR_emailconf_ttl:FAZI : N'eo ket kadarnaet ho kont c'hoazh
+ERR_emailconf_msg:N'hoc'h eus ket kadarnaet ho kont dre bostel c'hoazh<br /><table border="0"><tr><td><ol><li>Ma n'hoc'h eus ket resevet ur postel kadarnaat, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klikit amañ</a><li>Ma n'eo ket {VAR: usr_d->email} ho chomlec'h postel reizh, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klikit amañ</a></ol></td></tr></table>
+ERR_user_ttl:FAZI : n'eus ket eus an implijer
+ERR_user_msg:N'eus implijer ebet evel-se
+ERR_systemerr_ttl:FAZI : Fazi gant ar reizhiad
+ERR_systemerr_msg:C'hoarvezet ez eus ur fazi gant ar reizhiad. Titourit-eñ d'ar <a href="mailto:{GVAR: ADMIN_EMAIL}">mestr-gwiad</a>, mar plij.
+email_title:Postel
+finduser_title:Kavout un implijer
+help_title:Skoazell
+login_title:Furmskrid kevreañ
+poll_title:Aozer sontadegoù
+register_title:Furmskrid enskrivañ
+reset_title:Adderaouekaat ar ger-tremen
+rpasswd_title:Furmskrid cheñch ger-tremen
+error_title:Furmskrid fazi
+index_title:Degemer mat er forom
+search_title:Klask {VAR-HTML: srch}
+remail_emailsent:Kaset eo bet ar postel
+remail_email:Demat,\n\nBez' ez eus ur gaoz dedennus diwar-benn "{VAR: data->subject}" er forom {GVAR: FORUM_TITLE}. Gallout a rafec'h kaout c'hoant d'he lenn. Gallout a rit gwelet ar gaoz amañ :\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nHo mignon,\n\n{VAR: usr->alias}
+poll_add_option:Ouzhpennañ un dibarzh :
+post_opt_html_on:<b>GWEREDEKAET</b> eo ar c'hod <b>HTML</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>GWEREDEKAET</b> eo <b>BBcode</b></a>
+post_opt_images_on:<b>GWEREDEKAET</b> eo ar <b>skeudennoù</b>
+post_opt_smilies_on:<b>GWEREDEKAET</b></a> eo ar <a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>fromlunioù</b>
+post_opt_html_off:<b>DIWEREDEKAET</b> eo ar c'hod <b>HTML</b>
+post_opt_fud_off:<b>DIWEREDEKAET</b> eo ar <b>BBcode</b>
+post_opt_images_off:<b>DIWEREDEKAET</b> eo ar <b>skeudennoù</b>
+post_opt_smilies_off:<b>DIWEREDEKAET</b> eo ar <b>fromlunioù</b>
+post_opt:Dibarzhioù ar forom
+register_change_passwd:cheñch ger-tremen
+approved_avatar_title:Aprouet eo bet hoc'h avatar personel.
+approved_avatar_msg:Aprouet eo bet hoc'h avatar gant ar merour. Bremañ e tlefe dont war wel en hoc'h holl gemennadennoù. Ma n'en gwelit ket, pe ma welit hoc'h avatar kozh, ez eo abalamour m'emañ ar bajenn er grubuilh. Klaskit he freskaat ur wech pe ziv. Peurliesañ e vo diskoulmet ar gudenn evel-se.
+unapproved_avatar_title:Nac'het eo bet hoc'h avatar personel.
+unapproved_avatar_msg:N'eo ket bet aprouet hoc'h avatar gant ar merour. Peurliesañ e nac'h pa vez re vras hoc'h avatar, pe pa vez traoù dizereat ennañ. Ma fell deoc'h gouzout perak eo bet nac'het hoc'h avatar, kit e darempred gant ar merour.
+mvthread_request_move:Goulenn un dilec'hiadenn
+move_request_reason:Perak hoc'h eus c'hoant da zilec'hiañ ar gaoz ?
+mvthread_submit_req:Kas ar reked
+thread_exchange:Eskemm kaozioù
+move_request_by:Dilec'hiadenn ar gaoz goulennet gant :
+move_reason:Abeg evit dilec'hiañ ar gaoz :
+thr_exch_accept:asantiñ d'ar gaoz
+thr_exch_decline:nac'h ar gaoz
+thr_exch_orig_forum:Forom orin :
+thr_exch_dest_forum:Forom pal :
+thr_exch_no_threads:Kaoz ebet o c'hortoz bezañ aprouet.
+thr_exch_decl_reason:Abeg evit nac'h ar gaoz <b>{VAR: data->subject}</b> er forom <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Kas
+exch_decline_ttl:Nac'het eo bet dilec'hiadenn ar gaoz {VAR: data->subject} d'ar forom {VAR: data->f2_name}.
+ppost_original_msg:Kemennadenn emaoc'h oc'h adkas pe o respont
+split_thread:Rannañ ar gaoz
+groupmgr_no_user:N'eus implijer ebet gant an anv implijer "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Bez' ez eus eus an implijer « {FUNC: char_fix(htmlspecialchars($gr_member))} » er strollad dija.
+groupmgr_yes:Ya
+groupmgr_no:Ket
+groupmgr_action:Ober
+groupmgr_member:Ezel
+groupmgr_cancel:Nullañ
+groupmgr_add_member:Ouzhpennañ un ezel
+groupmgr_update_member:Hizivaat an ezel
+groupmgr_edit:Aozañ
+groupmgr_delete:Dilemel
+group_mgr_anon:Dizanv
+group_mgr_reged:An holl implijerien enskrivet
+show_show:Diskouez :
+group_mgr:Merañ ar strolladoù
+group_mgr_edit_btn:Aozañ ar strollad
+group_mgr_heading:Diuzañ an aozer strolladoù
+group_mgr_group:Strollad :
+permission_denied_title:Aotre dinac'het !
+permission_denied_msg:Hoc'h aotreoù implijer n'hoc'h aotreont ket da seveniñ an ober emaoc'h o klask kas da benn.
+p_READ:Lenn
+p_POST:Postañ
+p_REPLY:Respont
+p_EDIT:Aozañ
+p_DEL:Dilemel
+p_STICKY:Kemennadennoù pegus
+p_POLL:Krouiñ sontadegoù
+p_FILE:Stagañ restroù
+p_VOTE:Votiñ
+p_RATE:Notennañ ar c'haozioù
+p_SPLIT:Rannañ ar c'haozioù
+p_LOCK:Prennañ ar c'haozioù
+p_MOVE:Dilec'hiañ kaozioù
+p_SML:Implijout fromlunioù
+p_IMG:Implijout balizennoù skeudenn
+p_SEARCH:Gallout a ra klask
+group_mgr_search:Kavout un implijer
+group_mgr_indicator:Oc'h aozañ : <b>{VAR: grp->name}</b>
+rate_worst:Gwashañ
+rate_best:Gwellañ
+post_quote_msg:{VAR: msg->login} en doa skrivet d'an {TEMPLATE: make_report_date}
+post_quote:Meneg :
+userinfo_referals:Implijerien paeroniet :
+userinfo_referals_count:{VAR: referals} Ezel
+pm_no_space_title:N'eus ket plas a-walc'h ken !
+pm_no_space_msg:Ment ho renkelloù kemennadennoù prevez zo en tu-hont d'ar vent aotreet a <b>{GVAR: MAX_PMSG_FLDR_SIZE} okted</b>. Evit poent ez eus enno <b>{VAR: fldr_size} okted</b> a gemennadennoù.<br /><br /><span class="ErrorText">Lemel kemennadennoù kozh d'ober plas.</span>
+pm_space_indct_msg:Leun eo ho renkelloù kemennadennoù prevez e {VAR: percent_full}%.
+th_expr_never:Morse
+th_expr_one_hr:1 eurvezh
+th_expr_three_hr:3 eurvezh
+th_expr_four_hr:4 eurvezh
+th_expr_eight_hr:8 eurvezh
+th_expr_sixteen_hr:16 eurvezh
+th_expr_one_day:1 devezh
+th_expr_two_day:2 zevezh
+th_expr_four_day:4 devezh
+th_expr_one_week:1 sizhunvezh
+th_expr_two_week:2 sizhunvezh
+th_expr_one_month:1 mizvezh
+th_expr_two_month:2 vizvezh
+th_expr_four_month:4 mizvezh
+th_expr_one_year:1 bloavezh
+thread_mod_delete:Dilemel
+action_latest_post:Kemennadenn diwezhañ
+online_today_last_visit:Gweladennet da ziwezhañ
+online_today_update:Gwelet roll an dud o deus gweladennet ar forom hiziv.
+logedin_todays_visitors:Gweladennerien an deiz
+logedin_latest_post:Kemennadenn diwezhañ er forom :
+register_show_avatar:Diskouez an avatarioù :
+register_show_avatar_desc:Ho lez da guzhat avatarioù an implijerien all pa lennit o c'hemennadennoù.
+drawmsg_view_rest_post:Diskouez ar peurrest eus ar gemennadenn
+post_re:Resp :
+forumsel_goto_forum:Mont d'ar forom :
+minimsg_thread_view:Gwelet ar gaoz
+split_th_post_by:Kemennadenn gant :
+split_th_posted_on:Postet d'an :
+split_th_subject:Danvez :
+split_th_new_thread_title:Titl ar gaoz nevez :
+split_th_forum:Forom :
+split_th_split_sel:Rannañ ar c'hemennadennoù diuzet
+split_th_split_unsel:Rannañ ar c'hemennadennoù n'int ket diuzet
+split_th_messages:Kemennadennoù
+split_th_select:Diuzañ
+report_report_post:Titourañ ar gemennadenn
+quicklogin_login:Anv implijer :
+quicklogin_password:Ger-tremen :
+quicklogin_use_cookies:Implijout toupinoù ?
+quicklogin_login_btn:Kevreañ
+quick_reply:Respont prim
+post_notification_desc:Ma c'hemenn pa respont unan bennak d'ar gemennadenn-mañ.
+post_all_ext_allowed:(n'eo ket strishaet)
+maximize_category:Brasaat ar rummad
+maximize_message:Brasaat ar gemennadenn
+no_view_perm:N'emañ ket an aotreoù ret ganeoc'h evit gwelet ar gaoz-mañ.
+report_empty_report:Ne c'hallit ket kas un danevell c'houllo. Ebarzhit un abeg evit ho tanevell, mar plij.
+report_already_reported_title:Titouret dija
+report_already_reported_msg:Titouret eo bet ar gemennadenn-mañ dija hag e roll an habasker emañ an danevell evit bremañ.
+register_err_toomanyimages:Emaoc'h o klask implijout en tu all da {GVAR: FORUM_IMG_CNT_SIG} skeudenn en ho sinadur.
+pmsg_next_msg:Kemennadenn da-heul
+pmsg_prev_msg:Kemennadenn gent
+post_proc_reveal_spoiler:Gweredekaat / diweredekaat ar Spoiler
+register_jabber:Anavezer Jabber :
+register_skype:Anavezer Skype :
+register_twitter:Anavezer Twitter :
+register_google:Anavezer Google Chat/IM :
+im_jabber:Jabber :
+im_google:Google Talk :
+im_skype:Skype :
+im_twitter:Twitter :
+forum_contact:Dont e darempred ganimp
+forum_home:Pajenn degemer
+post_cur_attached:{VAR: i} {PLURAL: i|restr|restr} stag
+ignored_anon_post:{GVAR: ANON_NICK} zo dianavezet
+ignored_user_post:Ar gemennadenn gant <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> zo bet dianavezet
+smladd_close_window:Serriñ ar prenestr
+post_list_smilies:Diskouez an holl fromlunioù
+p_VISIBLE:Gwelus
+reported_in_thread:E-barzh :
+help_back_to_top:Distreiñ da grec'h ar bajenn
+help_return_to_index:Distreiñ da veneger ar skoazell
+imsg_err_message_title:Kemennadenn direizh
+imsg_err_message_msg:N'eus ket eus ar gemennadenn emaoc'h o klask gwelet.
+poll_edit:Aozañ
+register_err_not_valid_img:N'eus skeudenn reizh ebet en URL diferet.
+pmsg_recepient:Degemerer
+register_err_taken_alias:An alias emaoc'h o klask implijout zo en implij dija gant un ezel all eus ar forom. Dibabit unan all, mar plij.
+register_alias:Alias :
+register_alias_desc:Ma fell deoc'h e vefe diskouezet ul lesanv disheñvel diouzh hoc'h anv implijer er forom, ebarzhit-eñ amañ.
+register_allow_pm_msg:Aotren ar c'hemennadennoù prevez :
+register_allow_pm_msg_desc:Aotren an implijerien all da gas kemennadennoù prevez deoc'h er forom-mañ.
+postcheck_pm_disabled:Ne c'hallit ket kas ur gemennadenn brevez da « {VAR-HTML: v} » rak an den-se ne zegemer ket ar c'hemennadennoù prevez.
+polllist_vote:Mouezh
+polllist_view_results:Gwelet an disoc'hoù
+polllist_name:Anv ar sontadeg
+polllist_date:Krouet d'an
+polllist_owner:Krouet gant
+polllist_votes:Hollad ar mouezhioù
+polllist_action:Ober
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">O welet ar sontadegoù</a>
+userinfo_polls:Sontadegoù :
+show_pollist:Diskouez ar sontadegoù
+search_and:HA
+search_or:PE
+search_desc_order:Urzh war zigresk
+search_asc_order:Urzh war gresk
+search_logic:Dezverkoù klask :
+search_sorting:Urzhiañ an disoc'hoù dre zeiziad, e-barzh :
+post_proceed:Kadarnaat
+post_moderated_forum:Postet hoc'h eus ur gemennadenn en ur forom habaskaet. Ne c'hallo ket bezañ gwelet gant ar re all a-raok na vo aprouet gant unan eus habaskerien pe merourien ar forom.
+post_moderated_forum_ttl:Habaskaat ar forom
+buddy_list_bday:{VAR: r[2]} zo {VAR: age} vloaz hiziv.
+email_warning_msg:Ma cheñchit ho chomlec'h postel, e vo lakaet ho kont da "n'eo ket kadarnaet" betek ma vo kadarnaet ganeoc'h dre bostel.
+register_show_im:Diskouez ar merkerioù IM
+register_show_im_desc:Diskouez pe chom hep diskouez merkerioù KP an aozerien e-kichen o c'hemennadennoù.
+unread_message:Kemennadenn anlennet
+read_message:Kemennadenn lennet
+threadt_more:&lt;muioc'h&gt;
+threadt_disabled_ttl:Diweredekaet eo bet diskwel ar roll kaozioù en ur gwezennadur.
+threadt_disabled_desc:Diwerekaet eo bet diskwel ar roll kaozioù en ur gwezennadur gant ar merour. Implijit an diskwel plaen kentoc'h, mar plij.
+threadt_update:Furchal ar forom (diskwel gwezennadur) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Kadarnaat dilamadenn ar gaoz/gemennadenn
+spell_alts:n'eus dibab all ebet
+insert_uploaded_image:Ensoc'hañ ur skeudenn e testenn ar gemennadenn
+finduser_help:Ouzhpennet e vo ur maskl * d'ho reked gant ar c'heflusker enklask. Evit klask an holl implijerien a grog o anvioù gant 'a', da skouer, ebarzhit 'a' er voest klask.
+back_to_top:Distreiñ da grec'h ar bajenn
+pm_err_disabled_title:Diweredekaet eo ar c'hemennadennoù prevez
+pm_err_disabled_msg:Ne c'hallit ket kas kemennadennoù prevez keit ha ma n'ho po ket gweredekaet an dibarzh 'Allow Private Messages' en ho profil.
+err_mod_acc_ttl:Kont n'eo ket bet gwiriekaet
+err_mod_acc_msg:Dibabet en deus ar merour adwelet an holl gontoù a-raok o gweredekaat. Betek ma vo gwiriekaet ho kont gant ar merour ne viot ket evit implijout holl varregezhioù ho kont.
+accounts_pending_approval:Kontoù o c'hortoz bezañ aprouet
+saved:Enrollet
+register_err_time_limit:Tizhet eo bet an harz a 1 enskrivadur dre {GVAR: REG_TIME_LIMIT}. Gortozit {PLURAL: reg_limit_reached|$1 eilenn|$1 eilenn}, mar plij, hag esaeit en-dro.
+register_affero:Anv implijer Affero : <br /><font class="SmallText">M'hoc'h eus un anv implijer <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, ebarzhit-eñ amañ.</font>
+im_affero:Anv implijer Affero :
+register_err_avatardimtobig:Emañ ment an avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> en tu-hont d'ar vent aotreet a <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> piksel.
+buddy_offline:{VAR: r[2]} zo ezlinenn evit poent
+buddy_online:{VAR: r[2]} zo enlinenn evit poent
+sml_no_smilies:Fromlun ebet da gaout.
+login_unapproved_account_ttl:Kont n'eo ket bet aprouet
+login_unapproved_account_msg:Merour ar forom-mañ en deus dibabet kadarnaat pep kont nevez gant an dorn a-raok he gweredekaat. N'eo ket bet kadarnaet ho kont c'hoazh, setu ne viot ket evit mont da arc'hweladurioù zo a-raok ma vo aprouet ho kont.
+remove_from_buddy_list:Lemel eus ar roll mignoned
+iemail_msg_author:<b>Aozer&nbsp;:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Danvez&nbsp;:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Deiziad :</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Respont
+iemail_msg_quote:Menegiñ
+iemail_msg_view:Gwelet ar gemennadenn
+threadt_sticky:pegus
+threadt_announce:kemenn
+reported_no_messages:N'eus kemennadenn titouret ebet.
+poll_no_polls:Ne c'haller ket mont da sontadeg ebet.
+no_unread_messages:N'eus kemennadenn anlennet ebet a glot gant ho reked.
+thread_mark_all_read:Merkañ holl gemennadennoù ar forom evel lennet
+thread_mark_all_read_desc:An holl gemennadennoù anlennet er forom-mañ a vo merket evel lennet
+private_no_messages:N'eus kemennadenn ebet er renkell-mañ
+register_email_change_subject:Kadarnaat ar cheñchamant postel
+register_email_change_msg:Kadarnait ho kont postel nevez « {VAR: uent->email} », a erlec'hio ho kont postel kozh « {VAR: old_email} », dre vont d'an URL amañ dindan :\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUr wech m'ho po kadarnaet ho chomlec'h postel nevez e vo gweredekaet ho kont war ar forom en-dro.
+iemail_thread_unsub:Paouez da evezhiañ ar gaoz-mañ
+iemail_forum_unsub:Paouez da evezhiañ ar forom-mañ
+primary_group_prefix:Strollad kentañ evit ar forom :
+group_resources:Ar strollad-mañ a gontroll aotreoù ar foromoù-mañ
+register_admin_newuser_title:Un implijer nevez zo en em enskrivet hag emañ e gont o c'hortoz bezañ kadarnaet
+register_admin_newuser_msg:Un implijer nevez ({VAR: uent->login}) zo o paouez en em enskrivañ. O vezañ m'eo gweredekaet kadarnadur ar c'hontoù, ne vo oberiant e gont nemet pa vo kadarnaet ganeoc'h pe gant ur merour all eus ar forom. Evit adwelet ar gont, kit da {GVAR: WWW_ROOT}adm/admaccapr.php, mar plij.\n\nUn argerzh emlusk eo hemañ. Arabat respont d'ar gemennadenn-mañ.\nMa fell deoc'h diweredekaat ar c'hemenn dre bostel evit an implijerien nevez pelloc'h, gallout a rit ober gant panell gontrollañ ar merour en ur cheñch an arventenn "Kemenn ar c'hontoù nevez".
+post_mod_msg_notify_title:Kemennadenn nevez er forom « {VAR: frm->name} » o c'hortoz bezañ aprouet
+post_mod_msg_notify_msg:Postet ez eus bet ur gemennadenn nevez, hec'h anv « {VAR: msg_post->subject} », er forom a habaskait. Evit adwelet ar gemennadenn-mañ, kit da : {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nUn argerzh emlusk eo hemañ, arabat respont d'ar gemennadenn-mañ.
+thread_printable_pdf:Krouiñ ur PDF a c'haller moullañ
+thread_syndicate:Embann ar forom-mañ (XML)
+reg_conf_title:Kadarnaat an enskrivadur
+reg_conf_email:<b>Postel kadarnaat</b><br />Kaset ez eus bet ur postel deoc'h, ennañ un URL hag a rankot gweladenniñ a-raok ma vo gweredekaet ho kont. Ma ne resevit ket ar postel-se a-benn un nebeud munutennoù, kevreit ouzh ho kont ha gwiriit ha reizh eo ar chomlec'h postel hoc'h eus lakaet. Pa vo kadarnaet ho kont ganeoc'h e c'hallot implijout an arc'hweladurioù eus ar forom miret evit an implijerien enskrivet.
+reg_conf_account:<b>Kadarnaat ur gont</b><br />A-raok ma vefe lakaet oberiant ho kont e tle bezañ aprouet gant ar verourien. Goude-se e resevot ur postel a lavaro eo bet kadarnaet ho kont. Etretant e c'hallit kevreañ ouzh ho kont, met ne viot ket evit implijout an holl arc'hweladurioù anezhi.
+forum_banned_user:Abalamour d'ar pezh hoc'h eus graet a-raok ez oc'h forbannet eus ar forom-mañ da viken. Kenavo.
+mnav_description:Merdeer kemennadennoù
+mnav_date_limit:Frapad :
+mnav_forum_limit:Klask hepken e-barzh :
+mnav_all_forums:Klask en holl foromoù
+mnav_submit:Kregiñ da glask
+mnav_no_range:Ret eo deoc'h ebarzhiñ ur frapad reizh. Ur virgulenn a c'hall bezañ en talvoud, met brasoc'h eget zero e rank bezañ.
+mnav_invalid_unit:Ret eo deoc'h spisaat un unanenn amzer reizh.
+mnav_invalid_date:Brasoc'h eo ar frapad hoc'h eus spisaet eget an hini aotreet gant ar merour. Esaeit gant ur frapad berroc'h.
+mnav_no_results:N'eus kemennadenn ebet a glot gant ar reked.
+mnav_posted_by:Postet gant :
+mnav_more:Muioc'h &raquo;&raquo;
+mnav_minute:munutenn
+mnav_hour:eurvezh
+mnav_day:devezh
+mnav_week:sizhunvezh
+mnav_month:mizvezh
+mnav_title:Merdeer kemennadennoù
+mnav_update:O furchal ar c'hemennadennoù war-bouez ar <a href="{TEMPLATE: mnav_update_lnk}">Merdeer kemennadennoù</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Kemenn ur gemennadenn brevez nevez
+pm_notify_body_email:Ur gemennadenn brevez nevez hoc'h eus, hec'h anv « {VAR: subject} », digant « {VAR: from} », er forom « {GVAR: FORUM_TITLE} ».\nEvit gwelet ar gemennadenn, klikit amañ : {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nEvit chom hep resev kemennoù evel hemañ, diweredekait « Kemenn kemennadennoù prevez » en ho profil.
+register_pm_notification:Kemenn ur gemennadenn brevez :
+register_pm_notification_desc:Ma vez gweredekaet an dibarzh-mañ, e viot kemennet bewech ma vo kaset ur gemennadenn brevez deoc'h.
+findu_admin_opts_header:Dibarzhioù ar merour
+findu_unban:Aotren
+findu_ban:Forbannañ
+findu_edit:Aozañ
+findu_delete:Dilemel
+dmsg_reply_to:zo ur respont d'ar gemennadenn niv. {VAR: obj->reply_to}
+merge_topics:Kendeuziñ ar c'haozioù
+merge_topics_cp:Panell gontrollañ evit kendeuziñ kaozioù
+merge_topics_tpl:Diuzañ kaozioù da gendeuziñ <span class="SmallText">(ret eo deoc'h diuzañ ouzhpenn ur gaoz)</span>
+merge_merge:Kendeuziñ ar c'haozioù diuzet
+merge_next:Kaozioù da-heul
+merge_prev:Kaozioù kent
+split_cp:Panell gontrollañ evit rannañ ar c'haozioù
+groups_perms_header:Aotreoù <span class="small">(dilec'hiit al logodenn war an aotre evit gwelet ar seurt anezhañ)</span>
+register_err_sig_too_long:Re hir eo ho sinadur. Ne zle bezañ ennañ nemet {GVAR: FORUM_SIG_ML} arouezenn d'ar muiañ.
+register_sig_limit:{GVAR: FORUM_SIG_ML} arouezenn <a href="javascript: alert('+document.forms['fud_register'].reg_sig.value.length+' arouezenn zo en ho sinadur. An niver uhelañ a arouezennoù zo {GVAR: FORUM_SIG_ML} arouezenn.');" class="SmallText">Check Signature Length</a>
+adm_account_accepted:Aprouet eo bet ho kont '{VAR: login}' gant ar merour, hag oberiant eo bremañ. Pelloc'h e c'hallit mont d'ar forom {GVAR: FORUM_TITLE}' evel un implijer enskrivet ha kadarnaet.
+adm_account_accepted_s:Asantet eo bet ho koulenn kont evit '{GVAR: FORUM_TITLE}'.
+adm_account_rejected:Nac'het eo bet ho kont '{VAR: login}' gant ar merour. Ma fell deoc'h gouzout abeg an diviz-se, kit e darempred gant ar merour da '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Nac'het eo bet ho koulenn kont evit '{GVAR: FORUM_TITLE}'.
+thread_on:gweredekaet
+userinfo_buddy:Mignon :
+register_email_addr:Chomlec'h postel :
+reset_suffix:M'hoc'h eus resevet ar gemennadenn-mañ dre fazi, dianavezit-hi mar plij. Ma resevit meur a skouerenn eus ar postel-mañ, kit e darempred gant ar merour da {GVAR: ADMIN_EMAIL}, mar plij.\n\nGraet e oa bet ar reked diwar : {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Gweladenn diwezhañ :
+mnav_newer:nevesoc'h eget
+mnav_older:koshoc'h eget
+ip_search_by_ip:Klask implijerien dre IP
+ip_search_syntax:Ereadurioù anavezet : 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Klask
+ip_analyze_usage:Dielfennañ implij an IP
+ip_analyze_usage_descr:Spisait anv an implijer rik-ha-rak, mar plij.
+ip_users_using:Implijer(ien) oc'h implijout ar chomlec'h IP « {VAR: ip} »
+ip_all_ips:An holl IPoù implijet gant '{VAR: user}'
+ip_title:Merdeer IP
+userinfo_real_name:Gwir anv :
+register_err_alias_notallowed:An alias-mañ n'eo ket aotreet
+post_err_mod_forum_edit_ttl:FAZI
+post_err_mod_forum_edit_msg:Ne c'hallit ket aozañ kemennadennoù en ur forom habaskaet.
+dmsg_num:kemennadenn niv.{VAR: obj->id}
+postcheck_session_invalid:Aet eo ho talc'h d'e dermen. Adkasit ar furmskrid, mar plij. Digarezit evit an direnkadenn.
+delete_message_extra_desc:<b>Diret</b><br />Lakait un abeg evit dilemel ar gemennadenn. Kaset e vo d'an aozer gant ur gemennadenn brevez.
+delete_message_extra_body:Enklozañ testenn ar gemennadenn lamet a vo kaset d'an aozer.
+delete_msg_removed_ttl:Lamet eo bet ho kemennadenn gant ar skipailh merañ.
+delete_msg_pm_body:Kemennadenn orin
+delete_msg_pm_subject:Danvez : {VAR: data[15]}
+ip_no_whois:N'eus ket titouroù Whois da gaout evit <b>{VAR: ip}</b>.
+ip_whois_title:Titouroù ISP
+register_theme:Tem :
+pmsg_trash:Goulloiñ ar pod-lastez
+uc_new_pm:Kemennadennoù prevez nevez
+uc_new_topic:Kaoz nevez
+uc_new_cat_forum:Foromoù evezhiet gant kemennadennoù nevez
+uc_cat_forum:Rummad &raquo; Forom
+uc_sub_topics:Kaozioù evezhiet gant kemennadennoù nevez
+uc_page_title:Gwelet ar banell gontrollañ personel.
+search_options:Dibarzhioù klask
+search_user_filter:Silañ dre implijer :
+register_none:Arabat kemenn
+findu_no_conf:implijer n'eo ket kadarnaet
+register_max_sig_len:Hirded vrasañ :
+register_turing:Ebarzhit ar c'hod diskouezet amañ dindan, mar plij :
+register_err_turing:Kod kadarnaat direizh
+modque_cat:Rummad
+modque_forum:Forom
+idx_compact_forum_row:Foromoù a c'haller mont dezho :
+mmd_del_title:Dilemel kaozioù
+mmd_mov_title:Dilec'hiañ kaozioù
+mmd_move_threads_to:Forom pal :
+mmd_abort_move:Nullañ
+mmd_move:Dilec'hiañ ar c'haozioù
+pmsg_pdf_btn:Ober un diell PDF
+search_results_hdr:{VAR: total} disoc'h evit an enklask
+thread_del_all:Dilemel ar pezh zo diuzet
+thread_mov_all:Dilec'hiañ an holl elfennoù diuzet
+thread_loc_all:Prennañ / Dibrennañ an elfennoù diuzet
+dmsg_ip:IP :
+err_blockedaccnt_title:FAZI : Silet eo bet ho kont.
+err_blockedaccnt_msg:Ne c'hall ket ho kont mont d'ar forom abalamour da unan eus ar siloù implijer staliet.
+merge_th_page_list:Diuzañ pajenn ar gaoz
+most_users_online:An niver uhelañ a implijerien enlinenn a oa <b>{VAR: st_obj->most_online}</b> d'an <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Paouez da evezhiañ an holl foromoù
+sub_unsub_all_topics:Paouez da evezhiañ an holl gaozioù
+unbookmark_all_topics:Lemel an holl sinedoù
+tabs_own_posts:Diskouez kemennadennoù an-unan
+sml_emoticon:Fromlun
+sml_code:Kod
+mnav_sub_only:Klask er foromoù evezhiet hepken
+register_topics_per_page:Kaozioù dre bajenn :
+login_min_time:Ar forom-mañ a aotre un esae kevreañ bep {VAR: MIN_TIME_BETWEEN_LOGIN} eilenn. Gortozit {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} eilenn, mar plij, a-raok ober un esae all.
+post_not_logged_in:Noc'h ket kevreet evit poent, postet e vo ar gemennadenn ent dizanv.
+post_common_bold:Druz
+post_common_italics:Stouet
+post_common_underline:Islinennet
+post_common_align_left:Linennet a-gleiz
+post_common_align_center:Kreizet
+post_common_align_right:Linennet a-zehou
+post_common_link:Ensoc'hañ ul liamm
+post_common_email:Ensoc'hañ ur chomlec'h postel
+post_common_image:Ensoc'hañ ur skeudenn
+post_common_nlist:Ouzhpennañ ur roll niverennet
+post_common_blist:Ouzhpennañ ur roll padelliget
+post_common_quote:Ouzhpennañ ur meneg
+post_common_code:Ouzhpennañ kod
+rating_delete:Dilemel
+post_always_on_top:Lakaat ar gaoz e penn-krec'h ar roll kaozioù atav
+topic_rating:{VAR: frm->rating} diwar {PLURAL: frm->n_rating|$1 vouezh|$1 mouezh}
+topic_list_rating:{VAR: r[17]} diwar {PLURAL: r[21]|$1 vouezh|$1 mouezh}
+tabs_notifications:Kemennoù
+finduser_flag:Banniel
+post_descr:Deskrivadur ar gaoz :
+pmsg_on:gweredekaet
+pmsg_download_dump:Pellgargañ un enrolladenn eus ar c'hemennadennoù
+move_messages:Dilec'hiañ kemennadennoù
+move_msg_btn:Dilec'hiañ ar c'hemennadennoù diuzet
+move_msg_th_expl:Spisait anavezer ar gaoz pal (a c'hall bezañ en ur forom all)
+captcha_img_alt:Gwiriadur dre Captcha : dav eo deoc'h anavezout an destenn er skeudenn-mañ.
+captcha_img_help:N'eus ket a zero pe a unan er skeudenn.
+powered-by:Kaset en-dro gant : FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:KOD :
+code_select_all:Diuzañ pep tra
+code_show_hide:Diskouez / kuzhat
+social_sites:Lec'hiennoù rouedadoù sokial :

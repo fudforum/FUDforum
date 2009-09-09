@@ -955,7 +955,7 @@ merge_next:			Next Topics
 merge_prev:			Previous Topics
 split_cp:			Topic Split Control Panel
 groups_perms_header:		Permissions <span class="small">(move mouse over the permission to see its type)</span>
-register_err_sig_too_long:	Your signature exceeds the maximum allowed length of {GVAR: FORUM_SIG_ML} characters characters.
+register_err_sig_too_long:	Your signature exceeds the maximum allowed length of {GVAR: FORUM_SIG_ML} characters.
 register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert('Your Signature is '+document.forms['fud_register'].reg_sig.value.length+' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML} characters.');" class="SmallText">Check Signature Length</a>
 adm_account_accepted:		Your account '{VAR: login}' was approved by the administrator and is now active. You may now access the {GVAR: FORUM_TITLE}' forum as a confirmed, registered user.
 adm_account_accepted_s:		Your account request for '{GVAR: FORUM_TITLE}' was accepted.
@@ -1064,3 +1064,20 @@ code_title:			Code:
 code_select_all:		Select all
 code_show_hide:			Show/ hide
 social_sites:			Social networking sites:
+postcheck_min_len_err:		Your message is too short. The minimum lenght is {PLURAL: post_min_len|$1 character|$1 characters}.
+postcheck_dup_err:		Please do not create duplicate topics.
+btn_new_topic:			New Topic
+btn_new_pm:			New P.Message
+btn_post_reply:			Post Reply
+btn_tree_view:			Tree view
+btn_flat_view:			Flat view
+btn_about:			Profile
+btn_small_pm:			PM
+btn_delete:			delete
+btn_edit:			edit
+btn_reply:			reply
+btn_forward:			forward
+btn_quote:			quote
+btn_email:			Email
+btn_show_posts:			posts
+btn_homepage:			www

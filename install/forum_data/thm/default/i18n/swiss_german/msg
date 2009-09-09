@@ -1,0 +1,575 @@
+# Messages for Swiss German (Alemannisch)
+# Exported from translatewiki.net
+# Author: Als-Holder
+
+action:Aktion
+add_to_buddy_list:zue dr Fryndlischt zuefiege
+admin:Ammann
+admin_control_panel:Ammannemenü
+administrator:Ammann
+attachment:Aahang:
+avatar:Avatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Byytrag|$1 Byytreg}, (durschnittlig {PLURAL: avg|$1 Byytrag am Tag|$1 Byytreg am Tag})
+biography:Biografii:
+birth_date:Geburtstag:
+by:Vu:
+by_mod:vum Moderator
+current_time:Aktuälli Zyt
+custom_avatar_queue:Benutzeravatar, wu sotte iberprieft wäre
+date_posted:Byytragsdatum
+date_registered:Datum vu dr Regischtrierig:
+download_counter:{PLURAL: v[3]|$1 Mol|$1 Mol} abeglade
+pmsg_download_counter:{PLURAL: r->dlcount|$1 Mol|$1 Mol} abeglade
+email:E-Mail:
+email_to_friend:E-Mail an e Frynd
+email_to_friend_desc:Verschick d URL vu däre Syte an Dyy Frynd per E-Mail
+email_user:E E-Mail an dr Benutzer schicke
+faq:Hilf
+first_unread_msg:Zue dr nit uugläsene Byytreg goh
+first_unread_msg_desc:Zum erschte uugläsene Byytrag innerhalb vu däm Themas goh
+flat_view:Zue dr flache Standardaasicht zruckchehre
+forum:Forum:
+forum_icon:Forums-Icon
+forum_new_messages:Neji Byytreg
+forum_none_messages:Nume regischtrierti Forumsmitglider chenne gläsenu un uugläseni Byytreg verfolge
+forum_old_messages:Keini neje Byytreg
+from:Vu:
+gender:Gschlächt:
+go:Gang
+goto_next_msg:Zum negschte Byytrag goh
+goto_prev_msg:Zum vorige Byytrag goh
+home:Hauptsyte
+homepage:Homepage:
+icq_control_panel:ICQ Online-Menü;
+icq_message_form:ICQ-Nochrichteformular:
+ignore_user:alli Byytreg vu däm Benutzer ignoriere
+im_aim:AIM-Benutzername:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:Bild:
+index_forum:Forum
+index_new_posts:Neji Byytreg syt em letschte Bsuech
+index_no_new_posts:Keini neje Byytreg syt em letschte Bsuech
+index_url_redirection:Wyterleitig
+interests:Inträsse:
+last_post:Letschte Byytrag
+last_thread_msg:Zum letschte Byytrag in däm Thema goh
+legend:Zeicherklärig:
+location:Ort:
+lock_thread:Thema sperre
+locked:Gsperrt
+locked_with_new_posts:Gsperrt (mit uugläsene Byytreg)
+logged_in_list:Lischt vu dr aagmäldete Benutzer
+login:Aamälde
+login_header:Aamälde:
+logout:Abmälde
+mark_all_read:alli Byytreg as gläse markiere
+mark_all_read_desc:Alli Dyyni uugläsene Byytreg wäre as gläse markiert
+members:Miglider
+message:Byytrag
+message_counter:Unsri Benutzer hän insgsamt <b>{PLURAL: post_count|$1 Byytrag|$1 Byytreg }</b> in <b>{PLURAL: thread_count|$1 Thema|$1 Themene}</b> aagleit.
+message_index:Byytragsverzeichnis
+message_index_desc:Lischt vu dr Byytreg aaluege
+minimize_category:Kategorii verchleinere
+minimize_message:Byytrag verchleinere
+moderation_queue:Byytreg, wu sotte iberprieft wäre
+moderator:Moderator
+moderator_of:Moderator vu:
+moderator_options:Moderatore-Optione
+moderators:{PLURAL: modcount|Moderator|Moderatore}
+more_unread_messages:meh uugläseni Byytreg
+more_unread_messages_desc:Meh uugläseni Byytreg aazeige un di zur Zyt sichtbare as gläse markiere
+move_thread:Verschiebe
+moved:In e ander Forum verschiebe
+moved_thread_message:Des Thema isch in e ander Forum verschobe wore
+na:kei Aagab
+new_posts:Neji Byytreg
+new_private_messages:Du hesch <span class="GenTextRed">({VAR: c})</span> uugläseni privati {PLURAL: c|Nochricht|Nochrichte}
+new_thread:E nej Thema aalege
+newest_user:S nejscht regischtriert Mitglid isch
+next_page:Negschti Syte
+next_thread:Negscht Thema:
+no_messages:S het kei Byytreg in däm Forum.
+no_msg_body:Lääre Byytrag
+no_new_posts:Keini neje Byytreg
+no_posts:Keini Byytreg
+no_subscribed_forums:Keini abonnierte Fore
+no_subscribed_threads:Keini abonnierte Themene
+no_bookmarked_threads:Keini Läsezeiche
+no_unread_locked:Des Thema wisch gsperrt wore
+no_unread_msg:In däm Thema het s kei uugläseni Byytreg
+no_unread_msg_unreg:Gläseni un uugläseni Byytreg wäre nume fir regischtrierti Benutzer wyterverfolgt
+num_pages:Syte ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|Stimm|Stimme}
+occupation:Beruef:
+off:UUS
+on:AA
+page_timings:Insgsamt bruchtig Zyt fir zem Aalege vu däre Syte: {VAR: page_gen_time} Sekunde
+pm:Privati Nochrichte
+poll:Abstimmig:
+post_count:Aazahl vu dr Byytreg {VAR: u_pcount}
+post_count_l:Byytragszeller:
+posts:Byytreg
+posts_c:Byytreg:
+prev_thread:Vorig Thema:
+usrinfo_private_message:Privati Nochricht:
+profile:Profil
+profile_desc:Zum Benutzermenü goh
+rate_thread:Thema bewärte
+rating:Bewärtig
+rating_track:Bewärtige fir s Thema <b>{VAR: thr->subject}</b> verwalte:
+refresh_list:Lischt aktualisiere
+register:Regischtriere
+registered:Regischtriert:
+registered_on:Regischtriert am {TEMPLATE: registered_on_date}
+replies:Antworte
+report_to_mod:Dr Byytrag eme Moderator mälde
+reported_messages:Gmäldeti Byytreg
+reveal_all_posts:Alli Byytreg vu {VAR: user_login} aazeige
+reveal_post:Byytrag aazeige
+search:Sueche
+sel_todays_posts:Hitigi Byytreg
+sel_todays_posts_desc:Dr Filter fir di hitige Byytreg setze (zeigt nume d Byytreg vu hite aa)
+sel_unanswered_posts:Byytreg ohni Antwort
+sel_unanswered_posts_desc:Dr Filter fir Byytreg ohni Antwort setze (zeigt nume Byytreg ohni Antwort aa)
+sel_unread_messages:Uugläseni Byytreg
+sel_unread_messages_desc:Dr Filter fir uugläseni Byytreg setze (zeigt nume uugläseni Byytreg aa)
+send:Verschicke
+send_pm_desc:E privati Nochricht an dää Benutzer schicke
+sender_email:E-Mail vum Absänder:
+sender_name:Name vum Absänder:
+show_posts_by:Byytreg vu {VAR: u_alias} aazeige
+size:Greßi:
+status:Status:
+status_line:S sin <b>{PLURAL: st_obj->online_users_reg|$1 Mitglid|$1 Mitglider}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 nit sichtbar Mitglid|$1 nit sichtbari Mitglider}</b>  un <b>{PLURAL: st_obj->online_users_anon|$1 Gascht|$1 Gescht}</b> in däm Forum unterwägs.
+sticky:aagheftet:
+stop_ignoring:Ufhere mit Ignoriere vu däm Benutzer
+sub_to_thread:s Thema abonniere
+sub_to_thread_desc:Benochrichtigunge iber neji Byytreg zue däm Thema iberchuu
+bookmark_thread:As Läsezeiche spychere
+bookmark_thread_desc:Des Thema zue Dyyne Läsezeiche zuefiege
+subject:Beträff
+subscribe:Abonniere
+subscribe_desc:Benochrichtigunge iber neji Themene in däm Forum iberchuu
+subscribed_forums:Abonnierti Fore
+subscribed_forums_desc:Dr Filter fir abonnierti Fore setze (zeigt nume Fore aa, wu Du abonniert hesch)
+subscribed_threads:Abonnierti Themene
+subscribed_threads_desc:Dr Filter fir abonnierti Themene setze (zeigt nume Themene aa, wu Du abonniert hesch)
+bookmarked_threads:As Läsezeiche gspychereti Themene
+switch_to_thread_view:Zue dr Baumaasicht vu däm Thema wägsle
+thread:Thema:
+thread_announcement:Aachindigung:
+thread_first_unread_msg:Zem erschte uugläsene Byytrag vu däm Thema goh
+thread_thread:Thema
+threads:Themene
+time:Zyt
+todays_posts:Hitigi Byytreg
+todays_posts_desc:Alli Byytreg aazeige, wu hite aagleit wore sin
+un_ignore_user:Ufhere mit Ignoriere vu dr Byytreg vu däm Benutzer
+unanswered_posts:Byytreg ohni Antwort
+unanswered_posts_desc:Alli Byytreg ohni Antwort aazeige
+unlock_thread:Sperri vum Thema ufhebe
+unread_msg:In däm Thema het s no Byytreg, wu Du nonig gläse hesch
+unread_msg_locked:Gsperrt Thema mit uugläsene Byytreg
+unread_posts:Uugläseni Byytreg
+unread_posts_desc:Alli uugläsene Byytreg aazeige
+unsub_from_thread:S Abonnement fir des Thema chinde
+unsub_from_thread_desc:Dr Empfang vu Benochrichtigunge iber neji Themene in däm Forum chinde
+unbookmark_thread:Us dr Läsezeiche useneh
+unbookmark_thread_desc:Des Thema us Dyyne Läsezeiche useneh
+unsubscribe:Abonnement chinde
+unsubscribe_desc:Dr Empfang vu Benochrichtigunge iber neji Themene im Forum chinde
+updated_on:Aktualisiert am:
+user:Benutzer
+user_counter:Mir hän <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|regischtrierte Benutzer|regischtrierti Benutzer}.
+user_info:Benutzerinformation
+user_info_l:Benutzerinformation {VAR: u->alias}
+user_offline:{VAR: obj->login} isch grad offline
+user_online:{VAR: obj->login} isch grad online
+usrinfo_last_post:Letschte Byytrag:
+view_results:Ergebnis aaluege
+views:Ufruef
+vote:{PLURAL: frm->n_rating|$1 Bewärtig|$1 Bewärtige}
+vote_button:Abstimme
+vote_for_thread:Abstimme
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> isch vum Moderator no <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> verschobe wore
+welcome_message:Willchuu <b>{VAR: usr->alias}</b>, dyy letschte Bsuech isch am {TEMPLATE: welcome_message_date} gsi
+what_ppl_doing:Aazeige, was d Lyt grad mache
+reported_del_report:Benochrichtigung lesche
+reported_reason:Grund
+reported_on:Am:
+reported_reported_by:Gmäldet vu:
+reported_reported_msg:Gmäldeti Byytreg
+modque_pending_approval:Byytreg, wu no gnähmigt mien wäre
+modque_approve:Gnähmige
+modque_delete:Lesche
+modque_no_message:S het kei Byytreg, wu no mien gnähmigt wäre
+pmsg_new_messages:Uugläseni privati Nochrichte
+pmsg_old_messages:Privati Nochrichte läse
+deny_recipt:Empfangsbstetigung verweigere
+deny_recipt_desc:Kei Bstetigung verschicke, ass die Nochricht gläse woren isch
+restore_to:Widerhärstellen in:
+move_to:Verschiebe no:
+list_referes_referrals:Aawärbige
+list_referes_members:aagworbeni Mitglider
+list_referes_member:Mitglid
+referals_none:No kei Aawärbige.
+referals_refered_by:Vu <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b> aagworbeni Mitglider
+referals_post_count:Aazahl vu dr Byytreg
+referals_registered_on:Regischtriert am
+referals_action:Aktion
+pmsg_all:alli
+pmsg_none:keini
+folder:Ordner:
+pmsg_replied:Antwort gee
+pmsg_forwarded:wytergleitet
+pmsg_subject:Beträff
+pmsg_author:Verfasser
+pmsg_time:Zyt
+pmsg_selected:Uusgwehlt
+pmsg_delete:Lesche
+cur_ppage_pm:Privati Nochrichte
+writing_pm:E privati Nochricht schrybe
+browsing_folder:Dursuecht dr <b>{VAR: folders[$folder_id]}</b>-Ordner
+inbox:Poschtyygang
+draft:Entwurf
+sent:Verschickt
+trash:Chutter
+msg_author:Verfasser
+avatar_sel_form:Avatar-Uuswahl
+no_avatars:Kei Avatar verfiegbar
+month_1:Jänner
+month_2:Februar
+month_3:Merz
+month_4:April
+month_5:Mai
+month_6:Juni
+month_7:Juli
+month_8:Augschte
+month_9:Septämber
+month_10:Oktober
+month_11:Novämber
+month_12:Dezämber
+male:Männlig
+female:Wyyblig
+unspecified:Kei Aagab
+register_tree_view:Baumaasicht
+register_msg_tree_view:Flachi Themeneaazeig/Baumaasicht vu dr Themene
+register_tree_msg_view:Baumaasicht vu dr Themene/Flachi Themeneaazeig
+register_flat_view:Flachaasicht
+use_forum_default:Standardyystellig vum Forum bruche
+finduser_user_info:Benutzerinformation
+finduser_by_login:no Benutzername:
+finduser_submit:Sueche
+finduser_no_such_user:Benutzer git s nit
+finduser_user:Benutzer
+finduser_postcount:Aazahl vu dr Byytreg
+finduser_joindate:Byytrittsdatum
+finduser_action:Aktion
+yes:Jo
+no:Nei
+register_email:E-Mail
+edit_time_limit:<b>Zytspanne zum Bearbeite</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> Minute
+no_edit_time_limit:<b>Zytspanne zum Bearbeite</b>: <b>Nit begränzt</b>
+pmuserloc_login:Aamälde:
+pmuserloc_submit:Abschicke
+pmuserloc_user:Benutzer
+pmuserloc_no_result:Kei Ergebnis
+register_builtin:Yyböue
+register_specify_url:URL aagee
+register_uploaded:Avatar ufelade
+register_login:Benutzername:
+register_password:Passwort:
+register_conf_pass:Passwort bstetige:
+register_email_desc:Bitte ne giltigi E-Mail-Adräss aagee. Du chasch si derno wyter unter im Menü verstecke.
+register_name:Name:
+register_your_pass:Dyy Passwort:
+register_update:Aktualisiere
+register_avatar_type:Avatar-Typ:
+register_del_avatar:Avatar lesche
+register_avatar:Avatar:
+register_sel_avatar:Avatar uuswehle
+register_custom_avatar_rules:Dr Benutzeravatar wird erscht noch dr Gnähmigung dur dr Administrator aazeigt.<br /><span class="SmallText">Dr Avatar sott nit greßer yy wie <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} Pixel</b> un är muess es  <b>jpg</b>-, <b>gif</b>- oder <b>png</b>-Format haa.</span>
+register_custom_avatar_url:URL zum Benutzeravatar:
+register_preview:Vorschau
+register_custom_avatar_upload:Benutzeravatar-Datei:
+register_register:Regischtriere
+register_required:Aagabe, wu s brucht
+register_required_desc:S brucht alli Fälder. Bitte gib Acht uf d Groß- un Chleischrybig bim Passwort.
+register_optional:Frejwilligi Aagabe
+register_optional_desc:Mir empfähle, kei Informatione im Profil aazgee, wu zuen ere Identifizierig vu dr Person geignet sin.  Sämtligi Informatione chenne vu Bsuecher vum Forum aagluegt wäre.
+register_location:Ort:
+register_occupation:Beruef:
+register_interests:Inträsse:
+register_image:Bild:
+register_icq:ICQ:
+register_aim:AIM-Benutzername:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Homepage:
+register_bday:Geburtsdatum:
+register_bday_desc:Wänn Du Dyy Geburtstag aagisch, chenne ne di andre Bsuecher vum Forum in Dyym Profil säh.
+register_day:Tag
+register_month:Monet
+register_year:Johr
+register_gender:Gschlächt:
+register_bio:Biografii:
+register_bio_desc:E paar Detail iber Di, wie z. B. Dyyni Inträsse, Beruef usw...
+register_prefs:Yystellige
+register_sig:Unterschrift:
+register_sig_desc:Optionali Unterschrift, wu Du unter Dyyni Byytreg chasch setze.
+register_reset:Zrucksetze
+register_def_thread_view:Standardthemeneaasicht:
+register_msg_per_page:Byytreg pro Syte:
+register_show_sig:Unterschrift aazeige:
+register_show_sig_desc:Macht s megli, d Unterschrifte vu Forumsmitglider aazzeige oder z verstecke.
+register_use_sig_default:Standardmäßig Unterschrift bruche:
+register_use_sig_default_desc:D Unterschrift automatisch jedem vu Dyyne Byytreg zuefiege.
+register_timezone:Zytzone:
+register_ignore_admin:Mitteilige vu Administratore ignoriere:
+register_invisible_mode:Uusichtbarmodus:
+register_invisible_mode_desc:Versteckt Dyy Onlinestatus.
+register_show_email:E-Mail-Adräss aazeige:
+register_show_email_desc:Wehl die Option uus, wänn Du Dyy E-Mail-Adräss witt effentlig aazeigt haa.
+register_notification:Standardmäßig Benochrichtigung uuswehle:
+register_notification_desc:Wänn d Benochrichtigung aktiviert isch, cha si bim Aalege vun eme Byytrag abgstellt wäre.
+register_notify_method:Benochrichtigungsmethod uuswehle:
+register_notify_method_desc:Wehl d Benochrichtigungsmethod, wu Dir am liebschten isch, oder schalt d Benochrichtigunge ab (zem Byyschpel, wänn Du in dr Ferine bisch)
+register_allow_email_msg:E-Mail Nochrichte erlaube:
+register_allow_email_msg_desc:Andere Benutzern erlaube, Dir E-Mail iber s FUDforum z schicke.
+buddy_status:Status
+my_buddies:Myy Frynd
+add_buddy:Frynd zuefiege
+add:Zuefiege
+buddy_search:Trag dr Benutzername vum Benutzer yy, wu Du witt zuefiege.
+member_search:Oder verwänd d <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Benutzersuechi</a> go ne Benutzer finde.
+buddy_remove:Useneh
+post_normal:Normal
+post_sticky:Aagheftet
+post_annoncement:Aachindigung
+post_size:Greßi
+post_color:Farb
+post_font:Schrifttyp
+create_thread:Thema aalege
+submit_reply:Antwort abschicke
+edit_message:Byytrag bearbeite
+apply_spell_changes:Rächtschryybkorräktur aawände
+post_preview:Byytragsvorschau
+post_logedin_user:Aagmäldete Benutzer:
+post_logout:Abmälde
+post_passwd:Passwort zum Aalege vu Byytreg:
+post_poll:Abstimmig:
+post_create_poll:Abstimmig aalege
+post_poll_delete:Lesche
+post_poll_edit:Bearbeite
+post_mod_opt:Moderatore-Optione:
+post_thread_type:Art vum Thema:
+post_thread_expiry:Ablaufdatum vum Thema:
+post_locked:Thema gsperrt
+post_icons:Byytrags-Icon:
+post_no_icon:Kei Icon
+post_smiley:Smiley-Chirzel
+post_format_tools:Formatierigshilfe:
+post_upload_file:Datei ufelade
+post_file_del:Lesche
+post_file_name:Name
+post_file_size:Greßi
+file_attachments:Dateiaahang
+allowed_files:Erlaubti Dateitype:
+max_file_size:Maximali Dateigreßi:
+max_files_per_msg:Maximali Dateie pro Byytrag:
+post_notification:Benochrichtigung iber Byytrag
+include_sig:Signatur aahänge
+include_sig_desc:D Signatur us Dyym Profil aahänge.
+disable_smilies:Smileys in däm Byytrag deaktiviere
+spell_check_msg:Rächtschryybig vum Byytrag iberpriefe
+post_form:Byytrag aalege
+post_forum:Forum:
+post_title:Titel:
+post_body:Inhalt:
+post_options:Optione:
+post_preview_btn:Byytragsvorschau
+ignore_users:Ignorierti Benutzer
+add_ignore:Benutzer zue dr Ignorierlischt zuefiege
+forum_terms:Forumsregle
+forum_rules:<p>D Regischtrierig fir des Forum choschtet nyt. Mir bstehn aber druf, ass Du Di an die Vereinbarig unte haltesch. Wänn Du mit däne Regle yyverstande bisch, druck bitte uf dr <b>Zuestimme</b>-Chnopf. Obacht: Dur s Klicke vu däre Schaltflechi erklärsch Du, ass Du iber 13 Johr alt bisch. Wänn Du imfall 13 oder drunter bisch, no verwänd bitte des Regischtrierigsformular.</p><p>Au wänn d Administratore un Moderatore vum Forum versueche, des vu aasteßlige Mitteilige frejzhalte, isch s is eiewäg uumeglig, alli ibermittlete Byytreg aazluege. Die gän d Aasichte vu vum jewylige Autor wider, wäge däm cha keine vu dr Forumsmitarbeiter fir sälli Inhalt verantwortlig gmacht wäre.</p><p>Mit Aaklicken vu dr "Zuestimme"-Schaltflechi sicheresch Du is verbindlig zue, ass Dyyni Byytreg keinerlei obzöni, vulgäri, sexistischi, hasserfillti, nötigendi oder sunscht irgedwie gsetzeswidrigi Inhalt hän. <p />Di Verantwortlige vu däm Forum hän s Rächt, zue jedwädere Zyt us jedwäderem Grund Diskussionsthemene usezneh, z bearbeite, z verschiebe oder zuezmache.</p>
+forum_rules_13:<p>Alli Benutzer unter 13 Johr mien ihri Eltere oder ihre Vormund um Erlaubnis bitte go d Mitglidschaft im Forum z iberchuu. Au wänn mir fir d Teilnahm vu Benutzer unter 13 sin, verlange mit eiewäg, ass d Eltere oder dr Vormund e unterschribeni Yywilligungserklärig zruckschicke oder faxe, voreb mir d Mitglidschaft chenne gwähre.</p><p>Wänn Du d Regischtrierig mechtsch yyleite, voreb mir die Yywilligungserklärig iberchuu hän, klick uf d <b>Zuestimme</b>-Schaltflechi unte. Wänn Du d Regischtrierig witt abbräche, klick uf <b>Abbräche</b> go zum Forumsverzeichnis zruckchehre.</p><p>E Kopii vu dr Yywilligungserklärig, wu muess unterschryybe wäre, cha do abeglade wäre. Fir wyteri Informatione zue dr Regischtrierig schick bitte ne E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:COPPA Bstetigung
+coppa_before:Vor em {TEMPLATE: coppa_date}
+coppa_after:Noch em {TEMPLATE: coppa_date}
+coppa_link:Klick uf s Gleich, wu zue Dyym Geburtsdatum passt
+coppa:<p>E Elteredeil oder Vormund muess e unterschribeni Yywilligungserklärig an dr Administrator vum Forum schicke oder faxe, voreb e Benutzer unter 13 d Regischtrierig cha abschließe.</p><p>Fir meh Informatione kontaktier <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Forumsregle
+prereg_agree:Zuestimme
+prereg_disagree:Ablähne
+coppa_fax_instructions:Anleitig fir e Eltereteil oder Vormund
+coppa_fax_instructions2:Bitte drucke des Formular uus, unterschryybe s un schicke s an:
+coppa_fax_reg_form:Regischtrierigsformular
+coppa_fax_sign:Bitte unterschryybe s Formular un schicke s an is
+coppa_fax_conf:Ich haa d Informatione vu myynem Chind aagluegt un d Handhab vu dr Privatssphäre uf dr Websyte gläse. Mir isch bekannt, ass d Informatione im Profil dur s Benutze vun eme Passwort chenne gänderet wäre. Mir isch bekannt, ass ich um e vollständig Entfärnig vum Benutzerprofil cha bitte.
+coppa_fax_permission:Unterschryybe do go d Erlaubnis erteile
+coppa_fax_no_permission:Unterschryybe do go s Benutzerkonto lesche loo
+coppa_fax_parent_name:Vollständige Name vum Eltereteil/Vormund:
+coppa_fax_relation:Bezug zum Chind:
+coppa_fax_telephone:Delifon:
+coppa_fax_email:E-Mail-Adräss:
+coppa_fax_date:Datum:
+coppa_fax_questions:Bitte nämme Kontakt uf zue <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>, wänn Ihr meh Froge hän
+coppa_fax_login:Benutzername
+coppa_fax_passwd:Passwort
+coppa_fax_remail:E-Mail
+coppa_fax_name:Name
+login_not_logedin:Du bisch nit aagmäldet. Des chennt ein vu däne Grind haa:
+login_cookie_expired:Dyy Cookie isch abglofe un Du muesch Di nej aamälde go nejs z iberchuu.
+login_perm_denied:S isch Dir as anonyme Benutzer nit gstattet, uf di aagforderet Quälle zuezgryfe. Du muesch Di zerscht aamälde.
+login_want_to_register:Witt Di regischtriere?
+login_forgot_passwd:Passwort vergässe
+login_use_cookie:Cookies verwände<br /><span class="SmallText">Wänn Du ne effetlig zuegängige Rächner bruchsch (z. B. in Biechereje, Schuele oder Internetcafés), isch s rotsam, dää Menüpunkt fir e hecheri Sicherheit abzwehle.<br />Wänn Du die Option uuswehlsch, wirsch automatisch aagmäldet, wänn Du s negscht Mol uf s Forum gohsch.</span>
+login_login:Benutzername:
+login_login_btn:Aamälde
+login_name_required:S brucht e Benutzename
+login_passwd_required:S brucht e Passwort
+login_invalid_radius:Nit giltigi Benutzername/Passwort-Kombination
+reset_confirmation:Danke fir Dyy Regischtrierig,\n\nGo Dyy Konto aktiviere, gang bitte uf URL, wu unte aazeigt wird:\n\n{VAR: url}\n\nSobald Dyy Konto aktiviert isch, wirsch am Forum aagmäldet\nun zue dr Startsyte vum Forums gleitet.
+reset_reset:Hallo,\n\nDu hesch, drum bätte, s Passwort zruckzsetze. Go wirkli s Passwort\nZRUCKSETZE gang bitte zue däre URL\n\n{VAR: url}\n\nACHTIG: Des Forum verschlisslet d Passwerter nume in ei Richtig, des heißt, ass sobald Du Dyy Passwort yygee hesch, wird s verschlisslet. S git derno KEI Megligkeit meh, s widerhärzstelle. Des wird\nerreicht, indäm bi dr Passwortyygab s Passwort verschlisslet un uf Ibereinstimmig iberprieft wird. (Bi Inträssi an dr Verschlissligsmethod, schla unter MD5-Hash-Algorithmus no.)
+rpasswd_invalid_passwd:Nit giltig Passwort
+rpasswd_passwd_nomatch:Passwerter stimme nit zämme
+rpasswd_passwd_length:S Passwort muess zmindescht 6 Zeiche lang syy
+reset_remind_pass:Passwort-Hiiwys
+reset_reset_conf:Dyy Passwort wird zruckgsetzt un an Di verschickt, oder wänn Du Dyy E-Mail nonig bstetigt hesch, wird die Bstetigungsaafrog nomol an di gschickt.
+reset_error:E-Mail-Adräss nit gfunde in dr Datebank
+rpasswd_change_pass:Passwort ändere
+rpasswd_login:Aamälde
+rpasswd_cur_pass:Aktuäll Passwort:
+rpasswd_new_pass:Nej Passwort:
+rpasswd_conf_pass:Passwort bstetige:
+login_passwd:Passwort:
+reset_email:E-Mail:
+reset_reset_button:Passwort zrucksetze
+rate_this_thread:Bewärte
+report_reporting_about:Benochrichtigung iber:
+report_subject:Beträff:
+report_by:Vu:
+report_posted_on:Yytrait am:
+report_give_reason:Bitte e Grund derfir aagee, wurum Du dää Byytrag mäldesch:
+report_submit_report:Benochrichtigung losschicke
+search_entire_msg:Ganze Byytrag
+search_subject_only:Nume Beträff
+search_forum:Forum
+search_posted_on:Aagleit am
+search_no_results:Kei Ergebnis
+search_all_forums:In allne Fore sueche
+search_in_forum:Sueche im Forum:
+search_forum_search:Forumssuechi
+move_thread_to:Thema <b>{VAR: thr->subject}</b> verschiebe no:
+remail_email_topic:S Thema an e Frynd verschicke
+remail_your_name:Dyy Name:
+remail_your_email:Dyy E-Mail:
+remail_friends_name:Name vum Frynd:
+remail_friends_email:E-Mail vum Frynd:
+remail_required:brucht s
+remail_subject:Beträff:
+remail_message:Byytrag:
+remail_send_now:E-Mail jetz verschicke
+remail_anon_opt:Dää Byytrag in e E-Mail-Programm kopiere, wu Du chasch uuswehle, go ne an Dyyni Frynd schicke.
+remail_done:Fertig
+remail_sent_conf:D E-Mail an Dyy Frynd {VAR-HTML: _POST['femail']} zum Thema {VAR: data->subject} isch erfolgryych verschickt wore.
+remail_error:S het e Fähler gee
+mklist_type:Art:
+mklist_option:Uuswahl:
+mklist_additem:Thema zuefiege
+mklist_apply:Aawände
+mklist_delete:Lesche
+qbud_nick_name:Spitzname
+qbud_add_selected:Markierti zuefiege
+qbud_selected:Markiert
+qbud_no_buddies:Kei Frynd zur Uuswahl
+mklist_numerical:Nummeriert
+mklist_aplha:Alfabetisch
+mklist_square:Quadrat
+mklist_disc:Schybe
+mklist_circle:Chreis
+mklist_close:Zuemache
+email_to:An:
+email_pg_title:E-Mail
+email_subject:Beträff:
+email_body:Inhalt:
+email_submit:E-Mail
+ppost_quote_msg:{VAR: msg_to_list} het am {TEMPLATE: ppost_quote_msg_date} gschribe
+ppost_quote:Zitat:
+ppost_to:An:
+ppost_from_buddy_list:Us dr Fryndlischt uuswehle
+ppost_find_User:Benutzer sueche
+ppost_track_msg:Die Nochricht wyterverfolge
+ppost_track_msg_desc:Benochrichtigung wänn s Thema gläse wird.
+ppost_send:Verschicke
+ppost_save_draft:Entwurf spychere
+poll_blank_option:Lääri Menüpinkt chasch nit zuefiege.
+poll_del_conf:Wänn Du dää Menüpunkt witt lesche, no druck uf OK.
+poll_name:Thema vu dr Umfrog:
+poll_timelimit:Zytlimit:
+poll_maxiumvotes:Maximali Stimme:
+poll_create:Aalege
+poll_update:Aktualisiere
+poll_disablesmilies:Smileys deaktiviere
+poll_create_poll:Abstimmig aalege
+poll_update_poll:Abstimmig aktualisiere
+poll_delete:Lesche
+poll_updateoption:Menüpunkt aktualisiere
+poll_addoption:Menüpunkt zuefiege
+poll_unlimited:Uubegränzt
+poll_day:Tag
+poll_days:Täg
+poll_hour:Stund
+poll_hours:Stunde
+poll_month:Monet
+poll_year:Johr
+poll_week:Wuche
+tabs_register:Yystellige
+tabs_subscriptions:Abonnements
+tabs_bookmarkes:Läsezeiche
+tabs_referrals:Aawärbige
+tabs_buddy_list:Fryndlischt
+tabs_ignore_list:Ignorierlischt
+tabs_private_messaging:Privati Nóchricht
+single_msg_delete:Du bisch grad am <b>{VAR: data[3]}</b> <span class="ErrorText">LESCHE</span> vum Byytrag
+thread_delete:Du bisch grad am <span class="ErrorText">Lesche</span> vum <span class="ErrorText">ganze Thema</span> mit em Titel: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Wottsch wytermache?</span>
+delete_yes:Jo
+delete_no:Nei
+error_invalidurl:Nit giltigi URL
+error_error:Fähler
+usrinfo_profile:Profil vu {VAR: u->alias}
+usrinfo_show_all_posts:Alli Byytreg vu {VAR: u->alias} aazeige
+actions_update:Luegt no Aktivitete vu andre Lyt, eso wie Du grad
+err_info:Information
+buddy_list_err_cantadd:Du chasch Di nit sälber zue Dyre Fryndlischt zuefiege
+buddy_list_err_dup:Dää Benutzer isch scho uf Dyre Frynlischt
+buddy_list_err_nouser:Dää Benutzer, wu Du in Dyyni Fryndlischt hesch welle zuefiege, isch nit gfunde wore.
+buddy_list_err_nouser_title:Cha dr Benutzer nit zuefiege
+buddy_list_err_ignore:Du chasch kei Benutzer in Dyy Fryndlischt yyfiege, wu Di ignoriere.
+buddy_list_update:Dursuecht di eige Fryndlischt
+core_err_invinp_title:Nit giltigi Yygab
+core_err_invinp_err:Du bisch eme tote Gleich gfolgt, bitte benochrichtig dr <a href="mailto:{GVAR: ADMIN_EMAIL}">Webmaster</a> driber, wie Du dohär chuu bisch.
+core_adm_login_msg:Adminischtratore chenne sich <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">doo</a> aamälde.
+email_err_unabletoemail_title:FÄHLER: Cha E-Mail nit verschicke
+email_err_unabletoemail_msg:S E-Mail-Syschtem isch vum Administrator deaktiviert wore.
+email_error_unabletolocaddr:Excusez, s Syschtem het d E-Mail an {VAR-HTML: _POST['tx_name']} nit chenne schicke, wel s d E-Mail-Adräss nit cha finde.
+email_error_body:S brucht dr Inhalt
+email_error_subject:S brucht e Beträff
+email_error_namerequired:S brucht e Name
+email_error_invaliduser:Nit giltige Benutzer
+emailconf_err_invkey_title:Fähler
+emailconf_err_invkey_msg:Nit giltige Bstetigungsschlissel. Bitte iberprief in Dyre E-Mail, eb Du d URL au richtig ufgruefe hesch.
+err_inc_criticaltitle:Kritische Fähler
+err_inc_criticalmsg:S het e Fähler gee. Uuglickligerwys git s e Probläm mit em Benochrichtigungssyschtem fir Fähler.
+finduser_update:Am Sueche no Benutzer
+help_index_update:Am Läse vu dr <a href="{TEMPLATE: help_index_update_lnk}">Hilf</a>
+iemail_thr_subject:Neji Antwort zue "{VAR: thr_subject}" vu {VAR: poster_login}
+iemail_thr_bodyemail:Go uugläseni Antworte aaluege, gang uf\n{VAR: goto_url['email']}\n\nWänn Du keini wytere Benochrichtigunge zue däm Thema witt iberchuu, gang bitte do ane:\n{VAR: unsub_url['email']}
+iemail_frm_subject:Nej Thema im Forum "{VAR: frm_name}" mit em Name "{VAR: thr_subject}" vu {VAR: poster_login}
+iemail_frm_bodyemail:Go s Thema aaluege, gang uf:\n{VAR: goto_url['email']}\n\nWänn Du keini wytere Benochrichtigunge iber neji Theme in däm Forum wit iberchuu, gang bitte do ane:\n{VAR: unsub_url['email']}
+iemail_participate:Go an dr Diskussion mitmache gang do ane:
+ignore_list_err_info_title:Information
+ignore_list_err_dup_msg:Dää Benutzer isch scho uf Dyre Ignorierlischt
+ignore_list_err_nu_title:Benutzer nit gfunde
