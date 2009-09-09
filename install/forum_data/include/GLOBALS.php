@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: GLOBALS.php,v 1.65 2009/09/06 02:07:44 frank Exp $
+* $Id: GLOBALS.php,v 1.66 2009/09/09 16:15:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@
 	$DBHOST_USER		= '';
 	$DBHOST_PASSWORD	= '';
 	$DBHOST_DBNAME		= '';
-	$DBHOST_TBL_PREFIX	= 'fud28_';		/* do not modify this */
+	$DBHOST_TBL_PREFIX	= 'fud30_';		/* do not modify this */
 	$DBHOST_DBTYPE		= '';
 
 	$FUD_SMTP_SERVER	= '';
@@ -68,7 +68,8 @@
 	$NOTIFY_FROM		= '';		/* email */
 	$ANON_NICK		= 'Anonymous Coward';
 	$FLOOD_CHECK_TIME	= 60;		/* seconds */
-	$POSTS_BEFORE_LINKS	= 5;
+	$POSTS_BEFORE_LINKS	= 0;
+	$POST_MIN_LEN		= 3;
 	$SERVER_TZ		= 'America/Montreal'; /* timezone code from tz.inc */
 	$SEARCH_CACHE_EXPIRY	= 172800;	/* seconds */
 	$MEMBERS_PER_PAGE	= 40;
@@ -80,7 +81,7 @@
 	$MAX_IMAGE_COUNT	= 10;
 	$STATS_CACHE_AGE	= 600;		/* seconds */
 	$FORUM_TITLE		= 'My forum, my way!';
-	$FORUM_DESCR		= 'Fast Uncompromising Discussions. FUDforum will get your users talking';
+	$FORUM_DESCR		= 'Fast Uncompromising Discussions. FUDforum will get your users talking.';
 	$MAX_LOGIN_SHOW		= 25;
 	$MAX_LOCATION_SHOW	= 25;
 	$SHOW_N_MODS		= 2;
@@ -102,7 +103,7 @@
 	$PDF_PAGE		= 'letter';	/* string */
 	$PDF_WMARGIN		= 15;		/* int */
 	$PDF_HMARGIN		= 15;		/* int */
-	$PDF_MAX_CPU		= 60;		/* seconds */
+	$PDF_MAX_CPU		= 15;		/* seconds */
 
 	$FUD_WHOIS_SERVER	= 'ws.arin.net';
 	$MIN_TIME_BETWEEN_LOGIN = 10;		/* seconds */

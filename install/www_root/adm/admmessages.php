@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmessages.php,v 1.1 2009/09/07 15:49:52 frank Exp $
+* $Id: admmessages.php,v 1.2 2009/09/09 16:15:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,9 +21,9 @@
 		
 	if (isset($_POST['btn_download']) && isset($_POST['tlang'])) {
 		$tlang = $_POST['tlang'];
-		
+
 		// Get language code.
-		$lang = file_get_contents( $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $tlang .'/pspell_lang' );
+		$lang = trim(file_get_contents( $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $tlang .'/pspell_lang' ));
 		echo '<font color="green">Downloading '. $tlang .' ('. $lang .') messages from tranalatewiki.net...</font><br />';
 
 		$url = "http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language=$lang&limit=2500";
@@ -50,18 +50,20 @@
 
 			if (!strlen($messages)) {
 				echo '<font color="red">Download failed. Your connection might be down or a firewall or proxy is blocking access.</font><br />';
+			} elseif ( substr($messages,0,15) != '# Messages for ' ) {
+				echo '<font color="red">Corrupted download. Please try again.</font><br />';
 			} else {
 				// echo "DEBUG: <pre>". $messages . "</pre>";
 
 				$msgfile = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$tlang.'/msg';
 				file_put_contents($msgfile, $messages);
 		
-				// Rebuild themes based on this language
+				// Rebuild themes based on this language.
 				fud_use('compiler.inc', true);
-				$c = q("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme="._esc($tname)." AND lang="._esc($tlang));
+				$c = q("SELECT theme, name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE lang="._esc($tlang));
 				while ($r = db_rowarr($c)) {
-					compile_all($tname, $tlang, $r[0]);
-					echo '<font color="green">Theme '. $tname .' ('. $tlang .') was successfully rebuilt.</font><br />';
+					compile_all($r[0], $tlang, $r[1]);
+					echo '<font color="green">Theme '. $r[0] .' ('. $tlang .') was successfully rebuilt.</font><br />';
 				}
 				unset($c);
 			}

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.42 2009/09/06 02:07:45 frank Exp $
+* $Id: postcheck.inc.t,v 1.43 2009/09/09 16:15:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,17 +41,17 @@ function post_check_images()
 
 function check_post_form()
 {
-	/* make sure we got a valid subject */
+	/* Make sure we got a valid subject. */
 	if (!strlen(trim((string)$_POST['msg_subject']))) {
 		set_err('msg_subject', '{TEMPLATE: postcheck_subj_needed}');
 	}
 
-	/* make sure the number of images [img] inside the body do not exceed the allowed limit */
+	/* Make sure the number of images [img] inside the body do not exceed the allowed limit. */
 	if (post_check_images()) {
 		set_err('msg_body', '{TEMPLATE: postcheck_max_images_err}');
 	}
 
-	/* captcha check for anon users */
+	/* Captcha check for anon users. */
 	if (!_uid && $GLOBALS['FUD_OPT_3'] & 8192 ) {
 		if (empty($_POST['turing_test']) || empty($_POST['turing_res']) || !test_turing_answer($_POST['turing_test'], $_POST['turing_res'])) {
 			set_err('reg_turing', 'Invalid validation code.');
@@ -63,8 +63,22 @@ function check_post_form()
 		set_err('msg_session', '{TEMPLATE: postcheck_session_invalid}');
 	}
 
-	/* check if user is allowed to post links */
-	if (!empty($_POST['msg_body']) && $GLOBALS['POSTS_BEFORE_LINKS']) {
+	/* Check for duplicate topics. */
+	if (($GLOBALS['FUD_OPT_3'] & 67108864) && $_POST['reply_to'] == 0) {
+		$c = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE subject=". _esc($_POST['msg_subject']) ." AND reply_to=0 AND poster_id="._uid." AND post_stamp >= ".(__request_timestamp__ - 86400));
+		if ( $c > 0 ) {
+			set_err('msg_body', '{TEMPLATE: postcheck_dup_err}');
+		}
+	}
+
+	/* Check against minimum post length. */
+	if ($GLOBALS['POST_MIN_LEN'] && strlen($_POST['msg_body']) < $GLOBALS['POST_MIN_LEN']) {
+		$post_min_len = $GLOBALS['POST_MIN_LEN'];
+		set_err('msg_body', '{TEMPLATE: postcheck_min_len_err}');
+	}
+
+	/* Check if user is allowed to post links. */
+	if ($GLOBALS['POSTS_BEFORE_LINKS'] && !empty($_POST['msg_body'])) {
 		if (eregi('(\[url)|(http://)|(https://)', $_POST['msg_body'])) {
 			$c = q_singleval("SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id="._uid);
 			if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {

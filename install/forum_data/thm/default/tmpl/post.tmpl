@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.87 2009/08/27 18:20:04 frank Exp $
+* $Id: post.tmpl,v 1.88 2009/09/09 16:15:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -85,22 +85,22 @@
 {SECTION: END}
 
 {SECTION: reg_user_options various options for logged in registered users}
-<tr><td><input type="checkbox" name="msg_poster_notif" value="Y"{IF: $msg_poster_notif} checked="checked"{ENDIFI} /></td><td class="GenText fb">{MSG: post_notification}</td></tr>
+<tr><td><input type="checkbox" name="msg_poster_notif" id="msg_poster_notif" value="Y"{IF: $msg_poster_notif} checked="checked"{ENDIFI} /></td><td class="GenText fb"><label for="msg_poster_notif">{MSG: post_notification}</label></td></tr>
 <tr><td>&nbsp;</td><td class="SmallText">{MSG: post_notification_desc}</td></tr>
-<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{IF: $msg_show_sig} checked="checked"{ENDIFI} /></td><td class="GenText fb">{MSG: include_sig}</td></tr>
+<tr><td><input type="checkbox" name="msg_show_sig" id="msg_show_sig" value="Y"{IF: $msg_show_sig} checked="checked"{ENDIFI} /></td><td class="GenText fb"><label for="msg_show_sig">{MSG: include_sig}</label></td></tr>
 <tr><td>&nbsp;</td><td class="SmallText">{MSG: include_sig_desc}</td></tr>
 {TEMPLATE-DATA: mod_post_opts}
 {IF: $perms & 64 && (!$th_id || $msg_id == $thr->root_msg_id)}
-	<tr><td><input type="checkbox" name="thr_always_on_top" value="Y"{IF: $thr_always_on_top} checked="checked"{ENDIFI} /></td><td class="GenText fb">{MSG: post_always_on_top}</td></tr>
+	<tr><td><input type="checkbox" name="thr_always_on_top" id="thr_always_on_top" value="Y"{IF: $thr_always_on_top} checked="checked"{ENDIFI} /></td><td class="GenText fb"><label for="thr_always_on_top">{MSG: post_always_on_top}</label</td></tr>
 {ENDIFI}
 {SECTION: END}
 
 {SECTION: mod_post_opts}
-<tr><td><input type="checkbox" name="thr_locked" value="Y"{VAR: thr_locked_checked} /></td><td class="GenText fb">{MSG: post_locked}</td></tr>
+<tr><td><input type="checkbox" name="thr_locked" id="thr_locked" value="Y"{VAR: thr_locked_checked} /></td><td class="GenText fb"><label for="thr_locked">{MSG: post_locked}</label></td></tr>
 {SECTION: END}
 
 {SECTION: disable_smileys}
-<tr><td><input type="checkbox" name="msg_smiley_disabled" value="Y"{IF: $msg_smiley_disabled} checked="checked"{ENDIFI} /></td><td class="GenText fb">{MSG: disable_smilies}</td></tr>
+<tr><td><input type="checkbox" name="msg_smiley_disabled" id="msg_smiley_disabled" value="Y"{IF: $msg_smiley_disabled} checked="checked"{ENDIFI} /></td><td class="GenText fb"><label for="msg_smiley_disabled">{MSG: disable_smilies}</label></td></tr>
 {SECTION: END}
 
 {SECTION: spell_check_button}

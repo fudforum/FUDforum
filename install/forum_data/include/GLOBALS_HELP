@@ -160,7 +160,7 @@ Enable/disable the Children's Online Privacy Protection Act of 1998 (COPPA) chec
 Enable/disable the built-in spell checker.}}}
 
 {{{POSTS_PER_PAGE
-The default number of posts per page.}}}
+The default number of messages to display per page.}}}
 
 {{{THREADS_PER_PAGE
 The default number of topics per page. NOTE: This value also represents the maximum value a user can set this setting to in their profile.}}}
@@ -170,6 +170,9 @@ This setting defines on how many character to wrap message bodies on, any text s
 
 {{{FLOOD_CHECK_TIME
 The minimum time delay before a user can post a message.}}}
+
+{{{POST_MIN_LEN
+Prevent new users from posting empty or very short messages. Messages must be longer than this amount of characters.}}}
 
 {{{POSTS_BEFORE_LINKS
 Prevent new users from posting spam. Users are required to post more than this amount of messages before they can embed links into their posts.}}}
@@ -286,6 +289,9 @@ Maximum depth of the tree to allow, this option will prevent long trees from scr
 {{{TREE_THREADS_MAX_SUBJ_LEN
 At which point to cutoff subjects of messages on topic listing in tree mode. This options allows you to save on screen space if you want to show large topic trees.}}}
 
+{{{THREAD_DUP_CHECK	FUD_OPT_3	67108864 
+Prevent users from posting duplicate topics.}}}
+
 {{{MODERATE_USER_REGS	FUD_OPT_2	1024
 Whether or not every new registration will need to be approved by the administrator before the new account is activated.}}}
 
@@ -323,7 +329,7 @@ If php's compression is used, this indicates how extensively should the data be 
 Whether or not use PATH_INFO based URLs, this will make forum's URLs look like http://a.com/index.php/a/b/c/. This makes forum's URLs much easier to remember as well as more search engine friendly. Unfortunately this feature mostly works with Apache based servers and may not work with other webservers. To see if your webserver supports this feature, click on the test link above. If you see forum's front page, then you can make use of this feature. To make use of this you will also need to create a new template based on the 'path_info' template set.}}}
 
 {{{ALLOW_PROFILE_IMAGE	FUD_OPT_2	65536
-Whether or not to allow users to enter a URL to an image in their profile that will be displayed on the user info page for that user. The danger of this feature is that the user could potentially link to a page other then an image and some browsers like Internet Explorer will parse that page executing any potentially hostile Javascript that may be present.}}}
+Whether or not to allow users to enter a URL to an image in their profile that will be displayed on the user info page for that user. The danger of this feature is that the user could potentially link to a page other then an image and insecure browsers like Internet Explorer will parse that page executing any potentially hostile Javascript that may be present.}}}
 
 {{{NEW_ACCOUNT_NOTIFY	FUD_OPT_2	131072
 This setting will only be used if you have chosen to manually approve all new registrations. If enabled, then everytime a new user is registered all forum administrators will receive a notification via e-mail.}}}

@@ -56,10 +56,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="admstats.php?<?php echo __adm_rsid; ?>">Forum Statistics</a><br />
 	<a href="admlog.php?<?php echo __adm_rsid; ?>">Action Log Viewer</a><br />
 	<a href="admerr.php?<?php echo __adm_rsid; ?>">Error Log Viewer</a><br />
-	<a href="admsysinfo.php?<?php echo __adm_rsid; ?>">System Info</a><br />
-<?php if (__dbtype__ == 'mysql') { ?>
-	<a href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a><br />
-<?php } ?><br />
+	<a href="admsysinfo.php?<?php echo __adm_rsid; ?>">System Info</a><br /><br />
 
 	<span class="linkgroup">Forum Management</span><br />
 	<a href="admcat.php?<?php echo __adm_rsid; ?>">Category &amp; Forum Management</a><br />
@@ -106,7 +103,10 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<a href="consist.php?<?php echo __adm_rsid; ?>">Forum Consistency</a><br />
 	<a href="indexdb.php?<?php echo __adm_rsid; ?>">Rebuild Search Index</a><br />
 <?php if (!($FUD_OPT_3 & 32768)) { ?>
-	<a href="compact.php?<?php echo __adm_rsid; ?>">Compact Messages</a><br /><br />
+	<a href="compact.php?<?php echo __adm_rsid; ?>">Compact Messages</a><br />
+<?php if (__dbtype__ == 'mysql') { ?>
+	<a href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a><br />
+<?php } ?><br /><br />
 
 	<span class="linkgroup">Forum Data Management</span><br />
 	<a href="admdump.php?<?php echo __adm_rsid; ?>">Make forum datadump</a><br />

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.tmpl,v 1.73 2009/08/06 18:00:55 frank Exp $
+* $Id: ppost.tmpl,v 1.74 2009/09/09 16:15:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,7 +54,7 @@
 {SECTION: END}
 
 {SECTION: disable_smileys disable smilis checkbox}
-<tr><td><input type="checkbox" name="msg_smiley_disabled" value="Y" {IF: $msg_smiley_disabled} checked="checked"{ENDIFI} /></td><td class="GenText"><b>{MSG: disable_smilies}</b></td></tr>
+<tr><td><input type="checkbox" name="msg_smiley_disabled" id="msg_smiley_disabled" value="Y" {IF: $msg_smiley_disabled} checked="checked"{ENDIFI} /></td><td class="GenText"><b><label for="msg_smiley_disabled">{MSG: disable_smilies}</label></b></td></tr>
 {SECTION: END}
 
 {SECTION: spell_check_button}
@@ -119,9 +119,9 @@
 <td class="GenText">{MSG: post_options}</td>
 <td>
 <table border="0" cellspacing="0" cellpadding="1">
-<tr><td><input type="checkbox" name="msg_track" value="Y"{IF: $msg_track} checked="checked"{ENDIF} /></td><td class="GenText fb">{MSG: ppost_track_msg}</td></tr>
+<tr><td><input type="checkbox" name="msg_track" id="msg_track" value="Y"{IF: $msg_track} checked="checked"{ENDIF} /></td><td class="GenText fb"><label for="msg_track">{MSG: ppost_track_msg}</label></td></tr>
 <tr><td>&nbsp;</td><td class="SmallText">{MSG: ppost_track_msg_desc}</td></tr>
-<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{IF: $msg_show_sig} checked="checked"{ENDIF} /></td><td class="GenText fb">{MSG: include_sig}</td></tr>
+<tr><td><input type="checkbox" name="msg_show_sig" id="msg_show_sig" value="Y"{IF: $msg_show_sig} checked="checked"{ENDIF} /></td><td class="GenText fb"><label for="msg_show_sig">{MSG: include_sig}</label></td></tr>
 <tr><td>&nbsp;</td><td class="SmallText">{MSG: include_sig_desc}</td></tr>
 {IF: $FUD_OPT_1 & 8192}{TEMPLATE: disable_smileys}{ENDIF}
 </table>

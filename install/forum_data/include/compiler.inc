@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.106 2009/09/06 02:07:44 frank Exp $
+* $Id: compiler.inc,v 1.107 2009/09/09 16:15:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -657,6 +657,8 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	}
 
 	fud_mkdir($GLOBALS['WWW_ROOT_DISK'].'theme', $perms);
+	file_put_contents($GLOBALS['WWW_ROOT_DISK'] . 'theme/README', "Files in this directory are generated. Do not edit them.\nTo regenerate, navigate to the Theme Manager admin control panel.");
+
 	fud_mkdir($GLOBALS['WWW_ROOT_DISK'] . 'theme/' . $tname, $perms);
 	fud_mkdir($GLOBALS['INCLUDE'] . 'theme', $perms);
 	fud_mkdir($GLOBALS['INCLUDE'] . 'theme/' . $tname, $perms);

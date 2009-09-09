@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: hlplist.php,v 1.1 2009/09/07 15:49:52 frank Exp $
+* $Id: hlplist.php,v 1.2 2009/09/09 16:15:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -81,6 +81,9 @@ $(document).ready(function () {
 		$file = $path .'/'. $_GET['file'];
 		$data = file_get_contents($file);
 		$sections = preg_split('/TOPIC_TITLE: /', $data);
+		if (count($sections) < 2 && empty($sections[0])) {	// Default entry for empty help file.
+			$sections[0] = "First topic.\nTOPIC_HELP:\n\nSome text or HTML code.";
+		}
 		foreach ($sections as $sec) {
 			if ($sec) {
 				$topic = substr($sec, 0, strpos($sec, 'TOPIC_HELP:'));

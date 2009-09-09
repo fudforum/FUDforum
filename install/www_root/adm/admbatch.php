@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbatch.php,v 1.1 2009/09/07 15:49:52 frank Exp $
+* $Id: admbatch.php,v 1.2 2009/09/09 16:15:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,7 +52,7 @@
 ?>
 
 <h2>Job Administration System</h2>
-<div class="tutor">The Job Administration System can be used to run import scripts ad hoc (to load <a href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing list messages</a>, <a href="admnntp.php?<?php echo __adm_rsid; ?>">USENET posts</a> or <a href="admxmlagg.php?<?php echo __adm_rsid; ?>">XML Feeds</a>) and view their output log files. These scripts are stored in <?php echo realpath($path); ?>.</div>
+<div class="tutor">The Job Administration System can be used to run ad hoc import scripts (to load <a href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing list messages</a>, <a href="admnntp.php?<?php echo __adm_rsid; ?>">USENET posts</a> or <a href="admxmlagg.php?<?php echo __adm_rsid; ?>">XML Feeds</a>) and view their output log files. These scripts are stored in <?php echo realpath($path); ?>.</div>
 <h3>Job settings:</h3>
 <form method="post" action="admbatch.php">
 <?php echo _hs; ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdelfrm.php,v 1.34 2009/09/07 15:49:52 frank Exp $
+* $Id: admdelfrm.php,v 1.35 2009/09/09 16:15:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,10 +48,10 @@
 	}
 ?>
 <h2>Orphaned Forums</h2>
-<p>The follwoing forums were deleted and are now in the recycle bin (not visible on the forum):</p>
+<p>The follwoing forums were deleted and are now in the recycle bin (not visible to users):</p>
 <table class="resulttable fulltable">
 <tr class="resulttopic">
-	<td width="50%">Name</td>
+	<td width="50%">Forum Name</td>
 	<td width="10%">Action</td>
 	<td width="40%">Reassign To Category</td>
 </tr>

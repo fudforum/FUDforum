@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admipfilter.php,v 1.31 2009/01/29 18:37:40 frank Exp $
+* $Id: admipfilter.php,v 1.32 2009/09/09 16:15:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,7 +58,7 @@
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="field">
-		<td>IP Address</td>
+		<td>Block IP Address:</td>
 		<td><input tabindex="1" type="text" name="ipaddr" value="<?php echo $ipaddr; ?>" size="15" maxlength="15" /></td>
 	</tr>
 	<tr class="fieldaction">

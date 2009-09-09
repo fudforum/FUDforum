@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.32 2009/07/11 10:54:38 frank Exp $
+* $Id: admext.php,v 1.33 2009/09/09 16:15:00 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,7 +52,7 @@
 		<td colspan="2"><b>Security Warning:</b> If no file extension is entered, all files will be allowed.</td>
 	</tr>
 	<tr class="field">
-		<td>Extension:</td>
+		<td>Allow File Extension:</td>
 		<td><input tabindex="1" type="text" name="c_ext" value="<?php echo htmlspecialchars($c_ext); ?>" /></td>
 	</tr>
 
