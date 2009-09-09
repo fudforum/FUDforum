@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.28 2009/09/06 02:15:44 frank Exp $
+* $Id: install-cli.php,v 1.29 2009/09/09 16:31:39 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -439,7 +439,7 @@ function initdb(&$settings)
 			'DBHOST_USER' => '',
 			'DBHOST_PASSWORD' => '',
 			'DBHOST_DBNAME' => '',
-			'DBHOST_TBL_PREFIX' => 'fud28_',
+			'DBHOST_TBL_PREFIX' => 'fud30_',
 			'DBHOST_DBTYPE' => 'mysql',
 			'COOKIE_DOMAIN' => '',
 			'LANGUAGE' => '',
@@ -633,10 +633,10 @@ function initdb(&$settings)
 		pf("Please specify password for '{$settings['DBHOST_USER']}': ");
 		$settings['DBHOST_PASSWORD'] = trim(fgets(STDIN, 1024));
 		
-		pf("Please specify SQL table prefix '{$settings['DBHOST_TBL_PREFIX']}' [fud28_]: ");
+		pf("Please specify SQL table prefix '{$settings['DBHOST_TBL_PREFIX']}' [fud30_]: ");
 		$settings['DBHOST_TBL_PREFIX'] = preg_replace('![^[:alnum:]_]!', '', trim(fgets(STDIN, 1024)));
 		if (!$settings['DBHOST_TBL_PREFIX']) {
-			$settings['DBHOST_TBL_PREFIX'] = 'fud28_';
+			$settings['DBHOST_TBL_PREFIX'] = 'fud30_';
 		}
 		initdb($settings);
 	}
