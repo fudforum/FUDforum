@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.29 2009/09/09 16:31:39 frank Exp $
+* $Id: install-cli.php,v 1.30 2009/09/10 12:13:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -372,7 +372,7 @@ function initdb(&$settings)
 	if (preg_match('![^A-Za-z0-9_]!', $settings['DBHOST_TBL_PREFIX'])) {
 		pf('Corrupted database prefix!');
 	}
-	
+
 	if ($settings['DBHOST_DBTYPE'] == 'mysql') {
 		if (($conn = @mysql_connect($settings['DBHOST'], $settings['DBHOST_USER'], $settings['DBHOST_PASSWORD']))) {
 			if (@mysql_select_db($settings['DBHOST_DBNAME'], $conn)) {
@@ -384,7 +384,8 @@ function initdb(&$settings)
 	} else if ($settings['DBHOST_DBTYPE'] == 'mysqli') {
 			$GLOBALS['DB'] = new mysqli($settings['DBHOST'], $settings['DBHOST_USER'], $settings['DBHOST_PASSWORD'], $settings['DBHOST_DBNAME']);
 			if (mysqli_connect_errno()) {
-				pf("Failed to connect using provided information ". mysqli_connect_error());
+				pf("Failed to connect using provided information ". mysqli_connect_error()."\n");
+				$GLOBALS['DB'] = null;
 			} else {
 				return;
 			}
