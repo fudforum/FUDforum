@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.82 2009/09/07 15:49:52 frank Exp $
+* $Id: admthemes.php,v 1.83 2009/09/10 12:08:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,7 +30,7 @@
 
 	if (isset($_POST['thm_theme']) && @file_exists($DATA_DIR.'thm/'.$_POST['thm_theme'].'/.path_info') && !($FUD_OPT_2 & 32768)) {
 		unset($_POST['edit'], $_POST['thm_theme']);
-		echo '<h3 class="alert">You need to enable PATH_INFO support in the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> before using a path_info theme.</h3>';
+		echo '<h3 class="alert">You need to enable PATH_INFO support in the <a href="admglobal.php?'.__adm_rsid.'#2">Global Settings Manager</a> before using a path_info theme.</h3>';
 	}
 
 	if (isset($_POST['thm_theme']) && !$edit) {

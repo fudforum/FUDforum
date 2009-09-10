@@ -426,7 +426,7 @@ login_login_btn:		Login
 login_name_required:		Login name is required
 login_passwd_required:		Password is required
 login_invalid_radius:		Invalid login/password combination
-reset_confirmation:		Thank you for registering.\n\nTo activate your account please go to the URL below:\n\n{VAR: url}\n\nOnce your account is activated you will be logged-into the forum and\nredirected to the main page.\n
+reset_confirmation:		Thank you for registering.\n\nTo activate your account please go to the URL below:\n\n{VAR: url}\n\nOnce your account is activated you will be logged-into the forum and\nredirected to the main page.
 reset_reset:			Hello,\n\nYou have requested for your password to be reset. To complete the process,\nplease go to this URL:\n\n{VAR: url}\n\nNOTE: This forum stores the passwords in a one-way encryption mechanism, which means that\nonce you have entered your password it is encoded so that there is NO WAY to get it back.\nThis works by comparing the encoded version we have on record with the encoded version of what you type into the Login prompt.\n(If you are interested in how this mechanism works, read up on MD5 HASH algorithm)
 rpasswd_invalid_passwd:		Invalid Password
 rpasswd_passwd_nomatch:		Passwords do not match
@@ -626,7 +626,7 @@ register_err_avatarnotallowed:	The avatar you are trying to upload is not allowe
 register_conf_subject:		Registration Confirmation
 register_conf_msg:		Thank you for registering,\nTo activate your account please go to the URL below:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nOnce your account is activated you will be logged-into the forum and\nredirected to the main page.
 register_welcome_subject:	Forum Registration Confirmation
-register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nPlease note that passwords are case sensitive!\nTo modify your settings or profile, go to this page:\n{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nPlease note that passwords are case sensitive!\nTo modify your settings or profile, go to this page:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:	ERROR: unable to register
 regsiter_err_cantreg_msg:	Unable to create user account, please contact the administrator at <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Viewing own profile
@@ -676,7 +676,7 @@ search_title:			Search For {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
 tree_title:			{VAR: frm->name} &raquo; {VAR: frm->subject}
 remail_emailsent:		E-mail was sent
-remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
+remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}
 poll_add_option:		Add Option:
 post_opt_html_on:		<b>HTML</b> is <b>on</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> is <b>on</b></a>
@@ -912,7 +912,7 @@ group_resources:		This group controls permissions of the following forums
 register_admin_newuser_title:	A new user has registered and their account is pending confirmation
 register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered, and since account confirmation is enabled, their account will not become active until it is confirmed by you or another forum administrator. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process. Do not reply to this message.\nIf you want to turn off future e-mail notifications of new user registrations, you can do so via the Admin Control Panel. Change the "New Account Notification" setting.
 post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nThis is an automated process. Do not reply to this message.\n
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nThis is an automated process. Do not reply to this message.
 thread_printable_pdf:		Generate printable PDF
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Registration Confirmation
@@ -1064,7 +1064,7 @@ code_title:			Code:
 code_select_all:		Select all
 code_show_hide:			Show/ hide
 social_sites:			Social networking sites:
-postcheck_min_len_err:		Your message is too short. The minimum lenght is {PLURAL: post_min_len|$1 character|$1 characters}.
+postcheck_min_len_err:		Your message is too short. The minimum length is {PLURAL: post_min_len|$1 character|$1 characters}.
 postcheck_dup_err:		Please do not create duplicate topics.
 btn_new_topic:			New Topic
 btn_new_pm:			New P.Message
