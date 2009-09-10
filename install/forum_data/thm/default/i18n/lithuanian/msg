@@ -1,560 +1,580 @@
-action:				Veiksmas
-add_to_buddy_list:		įdėti į bičiulių sąrašą
-admin:				Administravimas 
-admin_control_panel:		Administratoriaus langas
-administrator:			Administratorius
-attachment:			Priedas:
-avatar:				Logotipas:
-average_post_count:		{VAR: u->posted_msg_count} pranešimų. (Vidutiniškai {VAR: avg} pranešimų per dieną.)
-biography:			Biografija:
-birth_date:			Gimimo data:
-by:				Parašė:
-by_mod:				Moderuota
-current_time:			Dabar:
-date_posted:			Rašymo data
-date_registered:		Prisiregistravo:
-download_counter:		Atsisiųsta {VAR: v[3]} kartą(-ų).
-pmsg_download_counter:		Atsisiųsta {VAR: r->dlcount} kartą(-ų).
-email:				Email:
-email_to_friend:		Siųsti email draugui
-email_to_friend_desc:		Siųsti šio puslapio URL nuorodą draugui email paštu.
-email_user:			Spausk čia norėdamas nusiusti email.
-faq:				D.U.K.
-first_unread_msg:		Pereiti prie neskaitytų pranešimų
-first_unread_msg_desc:		Pereiti prie pirmos neskaitytos šios temos žinutės.
-flat_view:			Grižti į įprastą vaizdą.
-forum:				Forumas:
-forum_icon:			Forumo ženklas
-forum_new_messages:		Naujos žinutės
-forum_old_messages:		Nėra naujų pranešimų
-from:				Nuo:
-gender:				Lytis:
-go:				Pirmyn
-goto_next_msg:			Sekanti žinutė
-goto_prev_msg:			Praeita žinutė
-home:				Į forumo pradžią
-homepage:			Namų puslapis:
-icq_message_form:		ICQ Message Message Form:
-ignore_user:			ignoruoti visus šio nario pranešimus
-image:				Paveiksliukas:
-index_forum:			Forumas
-index_new_posts:		Naujos žinutės po paskutinio apsilankymo
-index_no_new_posts:		Nėra naujų pranešimų po paskutinio apsilankymo
-interests:			Pomėgiai:
-last_post:			Paskutinė žinutė
-last_thread_msg:		Į paskutinę žinutę
-legend:				Legenda:
-location:			Vieta:
-lock_thread:			Uždaryti temą
-locked:				Uždaryta
-locked_with_new_posts:		Uždaryta (yra naujų pranešimų)
-logged_in_list:			Prisijungusių narių sąrašas
-login:				Prisijungti
-login_header:			Prisijungimas:
-logout:				Atsijungti
-mark_all_read:			pažymėti visas žinutes kaip skaitytas
-members:			Nariai
-message:			Žinutė
-message_counter:		Mūsų nariai parašė viso <b>{VAR: post_count}</b> žinutes, <b>{VAR: thread_count}</b> temose.
-message_index_desc:		Žinučių sąrašo peržiūra
-moderator:			Moderatorius
-moderator_options:		Moderatoriaus veiksmai
-moderators:			Moderatorius(-iai)
-more_unread_messages:		daugiau neskaitytų žinučių
-more_unread_messages_desc:	Rodyti daugiau neskaitytų žinučių ir pažymėti jas kaip skaitytas
-move_thread:			Perkelti
-moved:				Perkelta į kitą forumą
-moved_thread_message:		Ši tema perkelta į kitą forumą
-new_posts:			Yra naujų pranešimų
-new_private_messages:		Jūs turite <span class="GenText" style="color: #ff0000">({VAR: c})</span> neskaitytų privačių žinučių.
-new_thread:			Sukurti naują temą
-newest_user:			Naujausias registruotas narys yra
-next_page:			Sekantis puslapis
-next_thread:			Sekanti tema:
-no_messages:			Nėra naujų pranešimų šiame forume.
-no_msg_body:			Tuščia žinutė
-no_new_posts:			Nėra naujų pranešimų
-no_posts:			Nėra pranešimų
-no_subscribed_forums:		Nėra prenumeruotų forumų
-no_subscribed_threads:		Nėra prenumeruotų temų
-no_unread_locked:		Ši tema uždaryta
-no_unread_msg:			Šioje temoje nėra neskaitytų pranešimų
-no_unread_msg_unreg:		Skaitytų &amp; neskaitytų pranešimų paslauga pateikiamą tik užsiregistravusiems nariams.
-num_pages:			Puslapių ({VAR: ttl_pg}):
-num_votes:			{VAR: obj->total_votes} balsų
-occupation:			Pareigos:
-off:				IŠJUNGTA
-on:				ĮJUNGTA
-page_timings:			Puslapis sugeneruotas per: {VAR: page_gen_time} sekundžių.
-pm:				Asmeninės žinutės
-poll:				Apklausa:
-post_count:			Viso pranešimų {VAR: u_pcount}
-post_count_l:			Viso pranešimų:
-posts:				Žinutės
-posts_c:			Parašė pranešimų:
-prev_thread:			Preita tema:
-usrinfo_private_message:	Asmeninė žinutė:
-profile:			Profilis
-profile_desc:			Spausk čia, norėdamas patekti į nario nustatymų puslapį
-rate_thread:			Vertinti temą
-refresh_list:			Atnaujinti sąrašą
-register:			Registruotis
-registered:			Užsiregistravęs:
-registered_on:			Užsiregistravęs {TEMPLATE: registered_on_date}
-replies:			Atsakymai
-report_to_mod:			Pranešti apie žinutė moderatoriui
-reported_messages:		Moderatoriui praneštos žinutės
-reveal_all_posts:		peržiūrėti visas {VAR: user_login} žinutes
-reveal_post:			peržiūrėti žinutes
-search:				Ieškoti
-sel_todays_posts:		Šiandienos žinutės
-sel_todays_posts_desc:		Toggle today&#39;s posts filter (will only show posts made today)
-sel_unanswered_posts:		Neatsakyti pranešimai
-sel_unanswered_posts_desc:	Toggle the un-answered posts filter (will show only posts that have no replies)
-sel_unread_messages:		Neatsakytos žinutės
-sel_unread_messages_desc:	Toggle unread message filter (will only show unread messages)
-send:				Siūsti
-send_pm_desc:			Siūsti privačią žinutę šiam nariui
-sender_email:			Siuntėjo email adresas:
-sender_name:			Siuntėjo vardas:
-show_posts_by:			Rodyti: {VAR: u_alias} pranešimus
-size:				Dydis:
-status:				Būklė:
-status_line:			Šiuo metu prisijungę <b>{VAR: st_obj->online_users_reg}</b> narys(-iai), <b>{VAR: st_obj->online_users_hidden}</b> nematomi nariai ir <b>{VAR: st_obj->online_users_anon}</b> svečias(-iai).
-sticky:				lipnus:
-stop_ignoring:			nustoti ignoruoti vartotoją
-sub_to_thread:			Užsiprenumeruoti temą.
-sub_to_thread_desc:		Gauti žinutes apie šios temos naujus pranešimus.
-subject:			Tema
-subscribe:			Užsiprenumeruoti
-subscribe_desc:			Gauti pranešimus kai kas nors sukrs naują temą šiame forume.
-subscribed_forums:		Prenumeruoti forumai
-subscribed_forums_desc:		Toggle the subscribed forums filter (will only show posts from the forums you are subscribed to)
-subscribed_threads:		Prenumeruotos temos
-subscribed_threads_desc:	Toggle the subscribed topics filter (will only show posts from the topics you are subscribed to)
-thread:				Tema:
-thread_announcement:		Skelbimas:
-thread_thread:			Tema
-threads:			Temos
-time:				Laikas
-todays_posts:			Šiandienos žinutes
-todays_posts_desc:		Rodyti visas šiandien parašytas žinutes
-un_ignore_user:			nebeignoruoti šio nario
-unanswered_posts:		Neatsakytus pranešimus
-unlock_thread:			Atrakinti temą
-unread_posts:			Neskaitytas žinutes
-unread_posts_desc:		Rodyti visas neskatytas žinutes
-unsub_from_thread:		Nutraukti šios temos prenumeratą
-unsub_from_thread_desc:		Stop receiving notifications about new posts in this topic
-unsubscribe:			Nutraukti prenumeratą
-updated_on:			Atnaujinta:
-user:				Vartotojas
-user_counter:			Iš viso yra <b>{VAR: st_obj->user_count}</b> prisiregistravusių narių.
-user_info:			Nario informacija
-user_info_l:			Nario inforcija {VAR: u->alias}
-usrinfo_last_post:		Paskutinė žinutė:
-views:				Peržiūrėta
-vote_button:			Balsuoti
-vote_for_thread:		Balsuoti
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> perkelta moderatoriaus į <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
-welcome_message:		Labas <b>{VAR: usr->alias}</b>, paskutinį kartą buvai {TEMPLATE: welcome_message_date}
-what_ppl_doing:			rodyti ką veikia prisijungę žmonės
-reported_reason:		Priežastis
-modque_approve:			Patvirtinti
-modque_delete:			Ištrinti
-restore_to:			Atkurti:
-move_to:			Perkelti į:
-list_referes_referrals:		Rekomenduoti
-list_referes_members:		Rekomenduoti nariai
-list_referes_member:		Narys
-referals_none:			Rekomenduotu narių dar nebuvo.
-referals_refered_by:		STREETRACE.lt nariai rekomenduoti : <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
-referals_post_count:		Viso parašė
-referals_registered_on:		Prisiregistravęs
-referals_action:		Veiksmas
-pmsg_all:			visi
-pmsg_none:			nėra
-folder:				Katalogas:
-pmsg_replied:			atsakyti
-pmsg_forwarded:			perSiųsti
-pmsg_subject:			Tema
-pmsg_author:			Autorius
-pmsg_time:			Laikas
-pmsg_selected:			Pažymėti
-pmsg_delete:			Ištrinti
-cur_ppage_pm:			Asmeninės žinutės
-writing_pm:			Asmeninės žinutės rašymas
-browsing_folder:		<b>{VAR: folders[$folder_id]}</b> katalogo peržiūra
-inbox:				Gauti
-draft:				Ruošiniai
-sent:				Siųsti
-trash:				Šiukšlių dėžė
-msg_author:			Autorius
-avatar_sel_form:		Logotipo pasirinkimo forma
-no_avatars:			Logotipų nėra!
-month_1:			Sausis
-month_2:			Vasaris
-month_3:			Kovas
-month_4:			Balandis
-month_5:			Gegužė
-month_6:			Birželis
-month_7:			Liepa
-month_8:			Rugpjūtis
-month_9:			Rugsėjis
-month_10:			Spalis
-month_11:			Lapkritis
-month_12:			Gruodis
-male:				Vyras
-female:				Moteris
-unspecified:			NENURODYTA
-finduser_user_info:		Nario informacija
-finduser_by_login:		Pagal prisijungimo vardą:
-finduser_submit:		Rasti
-finduser_no_such_user:		Tokio nario nėra
-finduser_user:			Narys
-finduser_postcount:		Viso parašė pranešimų
-finduser_joindate:		Prisijungė
-finduser_action:		Veiksmas
-yes:				Taip
-no:				Ne
-register_email:			Email
-edit_time_limit:		<br /><b>Redagavimo laiko limitas</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minučių
-no_edit_time_limit:		<br /><b>Redagavimo laiko limitas</b>: <b>Nelimituota</b>
-pmuserloc_login:		Vardas:
-pmuserloc_submit:		Siųsti
-pmuserloc_user:			Vartotojas
-pmuserloc_no_result:		Nerasta
-register_builtin:		Integruotas
-register_specify_url:		Atsiųsti logotipą iš interneto
-register_uploaded:		Atsiųsti logotipą iš savo kompiuterio
-register_login:			Nario vardas:
-register_password:		Slaptažodis:
-register_conf_pass:		Patvirtinti slaptažodį:
-register_email_desc:		Įveskite teisingą email adresą. Nenorėdami publikuoti adreso vešai galite tai nurodyti žemiau esančiuose nustatymuose.
-register_name:			Vardas:
-register_your_pass:		Jūsų slaptažodis:
-register_update:		Atnaujinti
-register_avatar_type:		Logotipo tipas:
-register_del_avatar:		Panaikinti logotipą
-register_avatar:		Logotipas:
-register_sel_avatar:		Pasirinkti logotipą
-register_custom_avatar_rules:	<br /><font class="SmallText">Logotipas negali būti didesnis nei <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> ir turi būti <b>jpg</b>, <b>gif</b>, <b>png</b> arba <b>swf</b> formato.</font>
-register_custom_avatar_url:	Jūsų logotipo URL adresas internete:
-register_preview:		Peržiūrėti
-register_custom_avatar_upload:	Jūsų logotipo failas:
-register_register:		Registruotis
-register_required:		Būtina informacija
-register_required_desc:		Visi šioje dalyje laukai yra būtini. Atminkite kad slaptažodyje mažosios ir didžiosios raidės traktuojamos, kaip skirtingi simboliai.
-register_optional:		Papildoma informacija
-register_optional_desc:		Žemiau esančiuose laukuose įveskite tik tą informaciją, kurią neskaitote konfidenciale. Visa jūsų įvesta informacija bus prieinama visiems registruotiems nariams.
-register_location:		Vieta:
-register_occupation:		Užsiėmimas:
-register_interests:		Pomėgiai:
-register_image:			Paveikslėlis:
-register_icq:			ICQ
-register_homepage:		Namų puslapio adresas:
-register_bday:			Gimimo data:
-register_bday_desc:		Jei įvesite gimimo datą ją galės matyti kiti nariai.
-register_day:			Diena
-register_month:			Mėnesis
-register_year:			Metai
-register_gender:		Lytis:
-register_bio:			Biografija:
-register_bio_desc:		Smulkiau apie save: užsiėmimai, pomėgiai ir kt.
-register_prefs:			Nustatymai
-register_sig:			Parašas:
-register_sig_desc:		Parašas, kuris atsiras po visomis jūsų forumuose rašytomis žinutėmis.
-register_reset:			Panaikinti pakeitimus
-register_def_thread_view:	Temų peržiūros tipas pagal nutylėjimą:
-register_msg_per_page:		Žinučių kiekis puslapyje:
-register_show_sig:		Rodyti parašą:
-register_show_sig_desc:		Galite įjungti arba išjungti kitų narių parašo rodymą žinutės teksto pabaigoje.
-register_use_sig_default:	Ar naudoti parašą:
-register_use_sig_default_desc:	Automatiškai pridėti parašą po jūsų žinučių teksto pabaigoje.
-register_timezone:		Laiko zona:
-register_ignore_admin:		Ignoruoti bendras informacines žinutes:
-register_invisible_mode:	Nematomas vartotojas:
-register_invisible_mode_desc:	Panaikina jūsų vardo publikavimą prisijungusių narių sąraše.
-register_show_email:		Rodyti jūsų email adresą:
-register_show_email_desc:	Galite pasirinkti rodyti ar ne viešai jūsų email adresą.
-register_notification:		Pasirinkti perspėjimus pagal nutylėjimą:
-register_notification_desc:	Jei perspėjimai įjungti pagal nutylėjimą, juos galite išjungtii ir rašydami žinutę.
-register_notify_method:		Pasirinkite perspėjimo būdą:
-register_allow_email_msg:	Leisti email laiškų siuntimą:
-register_allow_email_msg_desc:	Leisti kitiems nariams Siųsti jums email laiškus STREETRACE.lt forumo pagalba.
-buddy_status:			Būklė
-my_buddies:			Mano draugai
-add_buddy:			Įrašyti naują draugą
-add:				Irašyti
-post_normal:			Paprasta
-post_sticky:			Lipni
-post_annoncement:		Skelbimas
-post_size:			Dydis
-post_color:			Spalva
-post_font:			Šriftas
-create_thread:			Sukurti temą
-submit_reply:			Siųsti atsakymą
-edit_message:			Atlikti žinutės pakeitimus
-post_preview:			Žinutės peržiūra
-post_logedin_user:		Prisijungęs narys:
-post_logout:			atsijungti
-post_poll:			Apklausa:
-post_create_poll:		SUKURTI APKLAUSĄ
-post_poll_delete:		IŠTRINTI
-post_poll_edit:			REDAGUOTI
-post_mod_opt:			Moderatoriaus veiksmai:
-post_thread_type:		Temos rūšis:
-post_thread_expiry:		Temos galiojimo pabaiga:
-post_locked:			Tema uždaryta
-post_icons:			Žinutės ženklas:
-post_no_icon:			Be ženklo
-post_smiley:			Šypsenėlės:
-post_format_tools:		Tvarkymo įrankiai:
-post_upload_file:		Siųsti failą
-post_file_del:			Ištrinti
-post_file_name:			Pavadinimas
-post_file_size:			Dydis
-file_attachments:		Prisegti failai:
-allowed_files:			Leidžiami failų tipai:
-max_file_size:			Maksimalus failo dydis:
-max_files_per_msg:		Maksimalus failų kiekis žinutėje:
-post_notification:		Atsakymų patvirtinimas
-include_sig:			Naudoti parašą
-include_sig_desc:		Naudoti profilyje nustatytą parašą.
-disable_smilies:		Deaktyvuoti šypsenėles šioje žinutėje
-post_form:			Rašymo forma
-post_forum:			Forumas:
-post_title:			Pavadinimas:
-post_body:			Žinutės tekstas:
-post_options:			Nustatymai:
-post_preview_btn:		Peržiūrėti žinutę
-prereg_info:			informacija
-prereg_agree:			Sutinku
-prereg_disagree:		Nesutinku
-coppa_fax_reg_form:		Registracijos forma
-coppa_fax_telephone:		Telefonas:
-coppa_fax_date:			Data:
-coppa_fax_remail:		Email
-coppa_fax_name:			Vardas
-login_not_logedin:		Jūs neprisijungę. Tai galėjo įvykti dėl sekančių priežasčių:
-login_cookie_expired:		Jūs buvote seniai prisijungę ir jums reikia iš naujo prisijungti.
-login_perm_denied:		Jūs neturite teisių kaip anonimas prieiti prie srities, kurią bandėte pasiekti. Prisiregistruokite ir prisijunkite norėdami ten patekti.
-login_want_to_register:		Norite užsiregistruoti?
-login_forgot_passwd:		Pamiršau slaptažodį
-login_use_cookie:		Use cookies<br /><font class="SmallText">If you&#39;re using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br />If you leave this option selected then you will be automatically logedin into the forum.
-login_login:			Vardas
-login_login_btn:		Prisijungti
-login_name_required:		Vardas turi būti įvestas
-login_passwd_required:		Slaptažodis turi būti įvestas
-login_invalid_radius:		Neteisingas vardas arba slaptažodis
-reset_confirmation:		Thank you for registering,\n\nTo activate your account please go to the URL below:\n\n{VAR: url}\n\nOnce your account is activated you will be logged into the forum and\nredirected to the main page of the forum.\n
-reset_reset:			Hello,\n\nYou have requested for your password to be reset, to actually RESET your password\nplease go to this URL\n\n{VAR: url}\n\nNOTE: This forum stores the passwords in a one-way encryption mechanism which means, that\nonce you have entered your password it is encoded so that there is NO WAY to get it back.\nThis works by simply encoding the password every time you enter it against the encoded version and\nseeing if they match. (If you are interested in how this mechanism works read up on MD5 HASH algorithm)
-rpasswd_invalid_passwd:		Neteisingas slaptažodis
-rpasswd_passwd_nomatch:		Slaptažodžiai nesutampa
-rpasswd_passwd_length:		Slaptažodis turi būti sudarytas iš mažiausiai 6 simbolių
-reset_remind_pass:		Slaptažodžio priminimas
-reset_error:			Email adresas nerastas duomenų bazėje
-rpasswd_change_pass:		Keisti slaptažodį
-rpasswd_login:			Vardas
-rpasswd_cur_pass:		Dabartinis slaptažodis:
-rpasswd_new_pass:		Naujas slaptažodis:
-rpasswd_conf_pass:		Patvirtinti slaptažodį:
-login_passwd:			Slaptažodis:
-reset_email:			Email:
-rate_this_thread:		Vertinti
-report_subject:			Tema:
-report_posted_on:		Parašyta:
-search_entire_msg:		Visuose pranešimuose
-search_subect_only:		Tik pranešimų temose
-search_forum:			Forumas
-search_posted_on:		Sukurta
-search_no_results:		Nerasta
-search_all_forums:		Ieškoti visuose forumuose
-search_in_forum:		Ieškoti forume:
-search_forum_search:		Paieška forumuose
-move_thread_to:			Perkeltį <b>{VAR: thr->subject}</b> temą į:
-remail_email_topic:		Email This Topic To A Friend
-remail_your_name:		Jūsų vardas:
-remail_your_email:		Jūsų email:
-remail_friends_name:		Draugo vardas:
-remail_friends_email:		Draugo email:
-remail_required:		būtina užpildyti
-remail_subject:			Tema:
-remail_message:			Žinutė:
-remail_send_now:		Siųsti laišką dabar
-remail_done:			Atlikta
-mklist_delete:			Ištrinti
-qbud_nick_name:			Nario vardas
-qbud_add_selected:		Įdėti pažymėtus
-qbud_selected:			Pažymėti
-qbud_no_buddies:		Nėra pasirinkta draugų
-mklist_close:			Uždaryti
-email_to:			Kam:
-email_pg_title:			Email
-email_subject:			Tema:
-email_body:			Turinys:
-email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} parašyta {TEMPLATE: ppost_quote_msg_date}
-ppost_quote:			Cituoti:
-ppost_to:			Kam:
-ppost_from_buddy_list:		Pasirinkti iš draugų sąrašo
-ppost_find_User:		Rasti narį
-ppost_track_msg:		Stebėti šią žinutę
-ppost_track_msg_desc:		Informuoti mane (privačia žinute) kai ši žinutė bus perskaityta.
-ppost_send:			Siųsti
-ppost_save_draft:		Išsaugoti ruošiniuose
-poll_name:			Apklausos pavadinimas:
-poll_timelimit:			Laiko limitas
-poll_maxiumvotes:		Maksimalus balsų skaičius
-poll_create:			Sukurti
-poll_update:			Atnaujinti
-poll_disablesmilies:		Deaktyvuoti šypsenėles
-poll_create_poll:		Sukurti apklausą
-poll_update_poll:		Atnaujinti apklausą
-poll_delete:			Ištrinti
-poll_day:			diena
-poll_days:			dienos
-poll_hour:			valanda
-poll_hours:			valandos
-poll_month:			mėnesis
-poll_year:			metai
-poll_week:			savaitė
-tabs_register:			Nustatymai
-tabs_subscriptions:		Prenumeratos
-tabs_referrals:			Rekomenduotų narių sąrašas
-tabs_buddy_list:		Draugų sąrašas
-tabs_ignore_list:		Juodasis sąrašas
-tabs_private_messaging:		Asmeninės žinutės
-single_msg_delete:		Ar tikrai jūs norite <font color="#ff0000" size="4">IŠTRINTI</font> žinutę, kuri vadinasi: <b>{VAR: data[3]}</b><p>
-thread_delete:			Ar tikrai jūs norite <font color="#ff0000" size="4">IŠTRINTI</font> visą <font color="#ff0000" size="4">TEMĄ</font>, kru vadinasi: <b>{VAR: data[3]}</b><p>
-delete_proceed:			<font size="3"><b>Vykdyti?</b></font>
-delete_yes:			Taip
-delete_no:			Ne
-error_invalidurl:		Neteisingas URL adresas
-error_error:			Klaida
-usrinfo_profile:		{VAR: u->alias} profilis
-usrinfo_show_all_posts:		Rodyti visas {VAR: u->alias} rašytas žinutes
-login_update:			Prisijungimo langas
-post_err_lockedthread_title:	KLAIDA: Tema uždaryta
-reset_newpass_msg:		Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register\n\n
-ERR_access_ttl:			KLAIDA: Nepakanka teisių
-ERR_emailconf_ttl:		KLAIDA: Your account is not yet confirmed
-ERR_user_ttl:			KLAIDA: Nėra tokio nario
-ERR_systemerr_ttl:		KLAIDA: Sistemos klaida
-ERR_systemerr_msg:		System error has occurred, please report it to the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-email_title:			Email'o forma
-finduser_title:			Rasti narį
-help_title:			F.A.Q.
-login_title:			Prisijungimo forma:
-msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-register_title:			Registravimosi forma
-index_title:			Sveiki forume
-thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
-post_opt_html_on:		<b>HTML</b> kodas <b>ĮJUNGTAS</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> <b>ĮJUNGTAS</b></a>
-post_opt_images_on:		<b>Paveikslėliai</b> <b>ĮJUNGTI</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Šypsenėlės</b> <b>ĮJUNGTOS</b></a>
-post_opt_html_off:		<b>HTML</b> kodas <b>IŠJUNGTAS</b>
-post_opt_fud_off:		<b>BBcode</b> <b>IŠJUNGTA</b>
-post_opt_images_off:		<b>Paveikslėliai</b> <b>IŠJUNGTI</b>
-post_opt_smilies_off:		<b>Šypsenėlės</b> <b>IŠJUNGTOS</b>
-post_opt:			Forumo nustatymai
-register_change_passwd:		keisti slaptažodį
-thr_exch_accept:		patvirtinti temą
-thr_exch_decline:		atmesti temą
-thr_exch_submit:		Siųsti
-split_thread:			Padalinti temą
-groupmgr_yes:			Taip
-groupmgr_no:			Ne
-groupmgr_member:		Narys
-groupmgr_edit:			Redaguoti
-groupmgr_delete:		Ištrinti
-show_show:			Rodyti:
-group_mgr:			Grupių administravimas
-p_DEL:				Ištrinti
-p_STICKY:			Lipnios temos
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a>
-rate_worst:			Blogiausiai
-rate_best:			Geriausiai
-post_quote_msg:			{VAR: msg->login} parašė {TEMPLATE: make_report_date}
-pm_no_space_msg:		Your private message folders exceed the allowed storage size of <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, as they currently contain <b>{VAR: fldr_size} bytes</b> worth of messages.<br /><br /><font class="ErrorText">Remove some old messages to clear up space</font>.
-pm_space_indct_msg:		Jūsų privačių žinučių katalogai užpildyti {VAR: percent_full}%.
-th_expr_never:			Be pabaigos
-th_expr_one_hr:			1 valanda
-th_expr_three_hr:		3 valandos
-th_expr_four_hr:		4 valandos
-th_expr_eight_hr:		8 valandos
-th_expr_sixteen_hr:		16 valandos
-th_expr_one_day:		1 diena
-th_expr_two_day:		2 dienos
-th_expr_four_day:		4 dienos
-th_expr_one_week:		1 savaitė
-th_expr_two_week:		2 savaitės
-th_expr_one_month:		1 mėnesis
-th_expr_two_month:		2 mėnesiai
-th_expr_four_month:		4 mėnesiai
-th_expr_one_year:		1 metai
-thread_mod_delete:		Ištrinti
-action_latest_post:		Paskutinis pranešimas
-online_today_last_visit:	Paskutinį kartą buvo
-logedin_todays_visitors:	Šiandienos lankytojai
-logedin_latest_post:		Paskutinė žinutė forumuose: 
-forumsel_goto_forum:		Pereiti į forumą:
-minimsg_thread_view:		Suglausta peržiūra
-quicklogin_login:		Vardas
-quicklogin_password:		Slaptažodis
-post_all_ext_allowed:		(nėra apribojimų)
-forum_contact:			Susisiekti su admistratoriumi
-forum_home:			Į forumo pradžią
-smladd_close_window:		uždaryti langą
-post_list_smilies:		rodyti visas šypsenėles
-polllist_vote:			Balsuoti
-polllist_view_results:		Peržiūrėti rezultatus
-polllist_name:			Apklausos pavadinimas
-polllist_date:			Sukurta
-polllist_owner:			Sukūrė
-polllist_action:		Veiksmas
-userinfo_polls:			Apklausos:
-show_pollist:			Apklausas
-search_and:			IR
-search_or:			ARBA
-search_desc_order:		Pirma naujesnius 		
-search_asc_order:		Pirma senesnius
-search_logic:			Paieškos loginė sąlyga:
-search_sorting:			Rodyti pagal datą:
-post_proceed:			Vykdyti
-email_warning_msg:		Jei pakeisite esamą email adresą, tapsite neaktyvus, kol nepatvirtinsite jums išsiųsto laiško.
-mmod_delete_cofirm_ttl:		Temos/žinutės naikinimo patvirtinimas
-insert_uploaded_image:		Įterpti nuotrauką į žinutės turinį.	
-finduser_help:			Vykdant paiešką automatiškai prie jūsų parašyto žodžio bus pridėta * maskė. Pvz. Norėdami rasti visus narius kurių vardai prasideda an (Andrius, Antanas ir kt.), jums užtenka paieškos langelyje įrašyti "an".
-back_to_top:			Į viršų
-saved:				Išsaugoti
-register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username enter it here.</font>
-register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-remove_from_buddy_list:		panaikinti iš draugų sarašo
-threadt_sticky:			lipnus
-threadt_announce:		skelbimas
-no_unread_messages:		Nėra žinučių atitinkančių jūsų užklausą.
-thread_mark_all_read:		visus neskaitytus forumo pranešimus pažymėti kaip skaitytus
-thread_printable_pdf:		Generuoti PDF spausdinimui
-thread_syndicate:		Syndikuoti šį forumą (XML)
-mnav_description:		Žinučių atranka
-mnav_minute:			Minutė(s)
-mnav_hour:			Valanda(-os)
-mnav_day:			Diena(-os)
-mnav_week:			Savaitė(-ės)
-mnav_month:			Mėnesis(-iai)
-mnav_title:			Žinučių atranka
-mnav_update:			Žinučių peržiūra naudojant <a href="{TEMPLATE: mnav_update_lnk}"> atranką</a>
-findu_admin_opts_header:	Administratoriaus įrankiai
-findu_unban:			Atblokuoti
-findu_ban:			Blokuoti
-findu_edit:			Redaguoti
-findu_delete:			Naikinti
-merge_topics:			Apjungti temas
-merge_next:			Sekanti tema
-merge_prev:			Praeita tema
-split_cp:			Thread Split Control Panel
-p_SEARCH:			Ieskoti
-usrinfo_last_visit:		Paskutinį kartą buvo:
+# Messages for Lithuanian (Lietuvių)
+# Exported from translatewiki.net
+
+action:Veiksmas
+add_to_buddy_list:įdėti į bičiulių sąrašą
+admin:Administravimas
+admin_control_panel:Administratoriaus langas
+administrator:Administratorius
+attachment:Priedas:
+avatar:Logotipas:
+# Fuzzy
+average_post_count:{VAR: u->posted_msg_count} pranešimų. (Vidutiniškai {VAR: avg} pranešimų per dieną.)
+biography:Biografija:
+birth_date:Gimimo data:
+by:Parašė:
+by_mod:Moderuota
+current_time:Dabar:
+date_posted:Rašymo data
+date_registered:Prisiregistravo:
+# Fuzzy
+download_counter:Atsisiųsta {VAR: v[3]} kartą(-ų).
+# Fuzzy
+pmsg_download_counter:Atsisiųsta {VAR: r->dlcount} kartą(-ų).
+email:Email:
+email_to_friend:Siųsti email draugui
+email_to_friend_desc:Siųsti šio puslapio URL nuorodą draugui email paštu.
+# Fuzzy
+email_user:Spausk čia norėdamas nusiusti email.
+faq:D.U.K.
+first_unread_msg:Pereiti prie neskaitytų pranešimų
+first_unread_msg_desc:Pereiti prie pirmos neskaitytos šios temos žinutės.
+flat_view:Grižti į įprastą vaizdą.
+forum:Forumas:
+forum_icon:Forumo ženklas
+forum_new_messages:Naujos žinutės
+forum_old_messages:Nėra naujų pranešimų
+from:Nuo:
+gender:Lytis:
+go:Pirmyn
+goto_next_msg:Sekanti žinutė
+goto_prev_msg:Praeita žinutė
+home:Į forumo pradžią
+homepage:Namų puslapis:
+icq_message_form:ICQ Message Message Form:
+ignore_user:ignoruoti visus šio nario pranešimus
+image:Paveiksliukas:
+index_forum:Forumas
+index_new_posts:Naujos žinutės po paskutinio apsilankymo
+index_no_new_posts:Nėra naujų pranešimų po paskutinio apsilankymo
+interests:Pomėgiai:
+last_post:Paskutinė žinutė
+last_thread_msg:Į paskutinę žinutę
+legend:Legenda:
+location:Vieta:
+lock_thread:Uždaryti temą
+locked:Uždaryta
+locked_with_new_posts:Uždaryta (yra naujų pranešimų)
+logged_in_list:Prisijungusių narių sąrašas
+login:Prisijungti
+login_header:Prisijungimas:
+logout:Atsijungti
+mark_all_read:pažymėti visas žinutes kaip skaitytas
+members:Nariai
+message:Žinutė
+# Fuzzy
+message_counter:Mūsų nariai parašė viso <b>{VAR: post_count}</b> žinutes, <b>{VAR: thread_count}</b> temose.
+message_index_desc:Žinučių sąrašo peržiūra
+moderator:Moderatorius
+moderator_options:Moderatoriaus veiksmai
+# Fuzzy
+moderators:Moderatorius(-iai)
+more_unread_messages:daugiau neskaitytų žinučių
+more_unread_messages_desc:Rodyti daugiau neskaitytų žinučių ir pažymėti jas kaip skaitytas
+move_thread:Perkelti
+moved:Perkelta į kitą forumą
+moved_thread_message:Ši tema perkelta į kitą forumą
+new_posts:Yra naujų pranešimų
+# Fuzzy
+new_private_messages:Jūs turite <span class="GenText" style="color: #ff0000">({VAR: c})</span> neskaitytų privačių žinučių.
+new_thread:Sukurti naują temą
+newest_user:Naujausias registruotas narys yra
+next_page:Sekantis puslapis
+next_thread:Sekanti tema:
+no_messages:Nėra naujų pranešimų šiame forume.
+no_msg_body:Tuščia žinutė
+no_new_posts:Nėra naujų pranešimų
+no_posts:Nėra pranešimų
+no_subscribed_forums:Nėra prenumeruotų forumų
+no_subscribed_threads:Nėra prenumeruotų temų
+no_unread_locked:Ši tema uždaryta
+no_unread_msg:Šioje temoje nėra neskaitytų pranešimų
+no_unread_msg_unreg:Skaitytų &amp; neskaitytų pranešimų paslauga pateikiamą tik užsiregistravusiems nariams.
+num_pages:Puslapių ({VAR: ttl_pg}):
+# Fuzzy
+num_votes:{VAR: obj->total_votes} balsų
+occupation:Pareigos:
+off:IŠJUNGTA
+on:ĮJUNGTA
+page_timings:Puslapis sugeneruotas per: {VAR: page_gen_time} sekundžių.
+pm:Asmeninės žinutės
+poll:Apklausa:
+post_count:Viso pranešimų {VAR: u_pcount}
+post_count_l:Viso pranešimų:
+posts:Žinutės
+posts_c:Parašė pranešimų:
+prev_thread:Preita tema:
+usrinfo_private_message:Asmeninė žinutė:
+profile:Profilis
+# Fuzzy
+profile_desc:Spausk čia, norėdamas patekti į nario nustatymų puslapį
+rate_thread:Vertinti temą
+refresh_list:Atnaujinti sąrašą
+register:Registruotis
+registered:Užsiregistravęs:
+registered_on:Užsiregistravęs {TEMPLATE: registered_on_date}
+replies:Atsakymai
+report_to_mod:Pranešti apie žinutė moderatoriui
+reported_messages:Moderatoriui praneštos žinutės
+reveal_all_posts:peržiūrėti visas {VAR: user_login} žinutes
+reveal_post:peržiūrėti žinutes
+search:Ieškoti
+sel_todays_posts:Šiandienos žinutės
+sel_todays_posts_desc:Toggle today's posts filter (will only show posts made today)
+sel_unanswered_posts:Neatsakyti pranešimai
+sel_unanswered_posts_desc:Toggle the un-answered posts filter (will show only posts that have no replies)
+sel_unread_messages:Neatsakytos žinutės
+sel_unread_messages_desc:Toggle unread message filter (will only show unread messages)
+send:Siūsti
+send_pm_desc:Siūsti privačią žinutę šiam nariui
+sender_email:Siuntėjo email adresas:
+sender_name:Siuntėjo vardas:
+show_posts_by:Rodyti: {VAR: u_alias} pranešimus
+size:Dydis:
+status:Būklė:
+# Fuzzy
+status_line:Šiuo metu prisijungę <b>{VAR: st_obj->online_users_reg}</b> narys(-iai), <b>{VAR: st_obj->online_users_hidden}</b> nematomi nariai ir <b>{VAR: st_obj->online_users_anon}</b> svečias(-iai).
+sticky:lipnus:
+stop_ignoring:nustoti ignoruoti vartotoją
+sub_to_thread:Užsiprenumeruoti temą.
+sub_to_thread_desc:Gauti žinutes apie šios temos naujus pranešimus.
+subject:Tema
+subscribe:Užsiprenumeruoti
+subscribe_desc:Gauti pranešimus kai kas nors sukrs naują temą šiame forume.
+subscribed_forums:Prenumeruoti forumai
+subscribed_forums_desc:Toggle the subscribed forums filter (will only show posts from the forums you are subscribed to)
+subscribed_threads:Prenumeruotos temos
+subscribed_threads_desc:Toggle the subscribed topics filter (will only show posts from the topics you are subscribed to)
+thread:Tema:
+thread_announcement:Skelbimas:
+thread_thread:Tema
+threads:Temos
+time:Laikas
+todays_posts:Šiandienos žinutes
+todays_posts_desc:Rodyti visas šiandien parašytas žinutes
+un_ignore_user:nebeignoruoti šio nario
+unanswered_posts:Neatsakytus pranešimus
+unlock_thread:Atrakinti temą
+unread_posts:Neskaitytas žinutes
+unread_posts_desc:Rodyti visas neskatytas žinutes
+unsub_from_thread:Nutraukti šios temos prenumeratą
+unsub_from_thread_desc:Stop receiving notifications about new posts in this topic
+unsubscribe:Nutraukti prenumeratą
+updated_on:Atnaujinta:
+user:Vartotojas
+# Fuzzy
+user_counter:Iš viso yra <b>{VAR: st_obj->user_count}</b> prisiregistravusių narių.
+user_info:Nario informacija
+user_info_l:Nario inforcija {VAR: u->alias}
+usrinfo_last_post:Paskutinė žinutė:
+views:Peržiūrėta
+vote_button:Balsuoti
+vote_for_thread:Balsuoti
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> perkelta moderatoriaus į <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
+welcome_message:Labas <b>{VAR: usr->alias}</b>, paskutinį kartą buvai {TEMPLATE: welcome_message_date}
+what_ppl_doing:rodyti ką veikia prisijungę žmonės
+reported_reason:Priežastis
+modque_approve:Patvirtinti
+modque_delete:Ištrinti
+restore_to:Atkurti:
+move_to:Perkelti į:
+list_referes_referrals:Rekomenduoti
+list_referes_members:Rekomenduoti nariai
+list_referes_member:Narys
+referals_none:Rekomenduotu narių dar nebuvo.
+referals_refered_by:STREETRACE.lt nariai rekomenduoti : <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Viso parašė
+referals_registered_on:Prisiregistravęs
+referals_action:Veiksmas
+pmsg_all:visi
+pmsg_none:nėra
+folder:Katalogas:
+pmsg_replied:atsakyti
+pmsg_forwarded:perSiųsti
+pmsg_subject:Tema
+pmsg_author:Autorius
+pmsg_time:Laikas
+pmsg_selected:Pažymėti
+pmsg_delete:Ištrinti
+cur_ppage_pm:Asmeninės žinutės
+writing_pm:Asmeninės žinutės rašymas
+browsing_folder:<b>{VAR: folders[$folder_id]}</b> katalogo peržiūra
+inbox:Gauti
+draft:Ruošiniai
+sent:Siųsti
+trash:Šiukšlių dėžė
+msg_author:Autorius
+avatar_sel_form:Logotipo pasirinkimo forma
+no_avatars:Logotipų nėra!
+month_1:Sausis
+month_2:Vasaris
+month_3:Kovas
+month_4:Balandis
+month_5:Gegužė
+month_6:Birželis
+month_7:Liepa
+month_8:Rugpjūtis
+month_9:Rugsėjis
+month_10:Spalis
+month_11:Lapkritis
+month_12:Gruodis
+male:Vyras
+female:Moteris
+unspecified:NENURODYTA
+finduser_user_info:Nario informacija
+finduser_by_login:Pagal prisijungimo vardą:
+finduser_submit:Rasti
+finduser_no_such_user:Tokio nario nėra
+finduser_user:Narys
+finduser_postcount:Viso parašė pranešimų
+finduser_joindate:Prisijungė
+finduser_action:Veiksmas
+yes:Taip
+no:Ne
+register_email:Email
+edit_time_limit:<b>Redagavimo laiko limitas</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minučių
+no_edit_time_limit:<b>Redagavimo laiko limitas</b>: <b>Nelimituota</b>
+pmuserloc_login:Vardas:
+pmuserloc_submit:Siųsti
+pmuserloc_user:Vartotojas
+pmuserloc_no_result:Nerasta
+register_builtin:Integruotas
+register_specify_url:Atsiųsti logotipą iš interneto
+register_uploaded:Atsiųsti logotipą iš savo kompiuterio
+register_login:Nario vardas:
+register_password:Slaptažodis:
+register_conf_pass:Patvirtinti slaptažodį:
+register_email_desc:Įveskite teisingą email adresą. Nenorėdami publikuoti adreso vešai galite tai nurodyti žemiau esančiuose nustatymuose.
+register_name:Vardas:
+register_your_pass:Jūsų slaptažodis:
+register_update:Atnaujinti
+register_avatar_type:Logotipo tipas:
+register_del_avatar:Panaikinti logotipą
+register_avatar:Logotipas:
+register_sel_avatar:Pasirinkti logotipą
+register_custom_avatar_rules:<br /><font class="SmallText">Logotipas negali būti didesnis nei <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> ir turi būti <b>jpg</b>, <b>gif</b>, <b>png</b> arba <b>swf</b> formato.</font>
+register_custom_avatar_url:Jūsų logotipo URL adresas internete:
+register_preview:Peržiūrėti
+register_custom_avatar_upload:Jūsų logotipo failas:
+register_register:Registruotis
+register_required:Būtina informacija
+register_required_desc:Visi šioje dalyje laukai yra būtini. Atminkite kad slaptažodyje mažosios ir didžiosios raidės traktuojamos, kaip skirtingi simboliai.
+register_optional:Papildoma informacija
+register_optional_desc:Žemiau esančiuose laukuose įveskite tik tą informaciją, kurią neskaitote konfidenciale. Visa jūsų įvesta informacija bus prieinama visiems registruotiems nariams.
+register_location:Vieta:
+register_occupation:Užsiėmimas:
+register_interests:Pomėgiai:
+register_image:Paveikslėlis:
+register_icq:ICQ
+register_homepage:Namų puslapio adresas:
+register_bday:Gimimo data:
+register_bday_desc:Jei įvesite gimimo datą ją galės matyti kiti nariai.
+register_day:Diena
+register_month:Mėnesis
+register_year:Metai
+register_gender:Lytis:
+register_bio:Biografija:
+register_bio_desc:Smulkiau apie save: užsiėmimai, pomėgiai ir kt.
+register_prefs:Nustatymai
+register_sig:Parašas:
+register_sig_desc:Parašas, kuris atsiras po visomis jūsų forumuose rašytomis žinutėmis.
+register_reset:Panaikinti pakeitimus
+register_def_thread_view:Temų peržiūros tipas pagal nutylėjimą:
+register_msg_per_page:Žinučių kiekis puslapyje:
+register_show_sig:Rodyti parašą:
+register_show_sig_desc:Galite įjungti arba išjungti kitų narių parašo rodymą žinutės teksto pabaigoje.
+register_use_sig_default:Ar naudoti parašą:
+register_use_sig_default_desc:Automatiškai pridėti parašą po jūsų žinučių teksto pabaigoje.
+register_timezone:Laiko zona:
+register_ignore_admin:Ignoruoti bendras informacines žinutes:
+register_invisible_mode:Nematomas vartotojas:
+register_invisible_mode_desc:Panaikina jūsų vardo publikavimą prisijungusių narių sąraše.
+register_show_email:Rodyti jūsų email adresą:
+register_show_email_desc:Galite pasirinkti rodyti ar ne viešai jūsų email adresą.
+register_notification:Pasirinkti perspėjimus pagal nutylėjimą:
+register_notification_desc:Jei perspėjimai įjungti pagal nutylėjimą, juos galite išjungtii ir rašydami žinutę.
+register_notify_method:Pasirinkite perspėjimo būdą:
+register_allow_email_msg:Leisti email laiškų siuntimą:
+register_allow_email_msg_desc:Leisti kitiems nariams Siųsti jums email laiškus STREETRACE.lt forumo pagalba.
+buddy_status:Būklė
+my_buddies:Mano draugai
+add_buddy:Įrašyti naują draugą
+add:Irašyti
+post_normal:Paprasta
+post_sticky:Lipni
+post_annoncement:Skelbimas
+post_size:Dydis
+post_color:Spalva
+post_font:Šriftas
+create_thread:Sukurti temą
+submit_reply:Siųsti atsakymą
+edit_message:Atlikti žinutės pakeitimus
+post_preview:Žinutės peržiūra
+post_logedin_user:Prisijungęs narys:
+post_logout:atsijungti
+post_poll:Apklausa:
+post_create_poll:SUKURTI APKLAUSĄ
+post_poll_delete:IŠTRINTI
+post_poll_edit:REDAGUOTI
+post_mod_opt:Moderatoriaus veiksmai:
+post_thread_type:Temos rūšis:
+post_thread_expiry:Temos galiojimo pabaiga:
+post_locked:Tema uždaryta
+post_icons:Žinutės ženklas:
+post_no_icon:Be ženklo
+post_smiley:Šypsenėlės:
+post_format_tools:Tvarkymo įrankiai:
+post_upload_file:Siųsti failą
+post_file_del:Ištrinti
+post_file_name:Pavadinimas
+post_file_size:Dydis
+file_attachments:Prisegti failai:
+allowed_files:Leidžiami failų tipai:
+max_file_size:Maksimalus failo dydis:
+max_files_per_msg:Maksimalus failų kiekis žinutėje:
+post_notification:Atsakymų patvirtinimas
+include_sig:Naudoti parašą
+include_sig_desc:Naudoti profilyje nustatytą parašą.
+disable_smilies:Deaktyvuoti šypsenėles šioje žinutėje
+post_form:Rašymo forma
+post_forum:Forumas:
+post_title:Pavadinimas:
+post_body:Žinutės tekstas:
+post_options:Nustatymai:
+post_preview_btn:Peržiūrėti žinutę
+prereg_info:informacija
+prereg_agree:Sutinku
+prereg_disagree:Nesutinku
+coppa_fax_reg_form:Registracijos forma
+coppa_fax_telephone:Telefonas:
+coppa_fax_date:Data:
+coppa_fax_remail:Email
+coppa_fax_name:Vardas
+login_not_logedin:Jūs neprisijungę. Tai galėjo įvykti dėl sekančių priežasčių:
+login_cookie_expired:Jūs buvote seniai prisijungę ir jums reikia iš naujo prisijungti.
+login_perm_denied:Jūs neturite teisių kaip anonimas prieiti prie srities, kurią bandėte pasiekti. Prisiregistruokite ir prisijunkite norėdami ten patekti.
+login_want_to_register:Norite užsiregistruoti?
+login_forgot_passwd:Pamiršau slaptažodį
+# Fuzzy
+login_use_cookie:Use cookies<br /><font class="SmallText">If you're using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br />If you leave this option selected then you will be automatically logedin into the forum.
+login_login:Vardas
+login_login_btn:Prisijungti
+login_name_required:Vardas turi būti įvestas
+login_passwd_required:Slaptažodis turi būti įvestas
+login_invalid_radius:Neteisingas vardas arba slaptažodis
+reset_confirmation:Thank you for registering,\n\nTo activate your account please go to the URL below:\n\n{VAR: url}\n\nOnce your account is activated you will be logged into the forum and\nredirected to the main page of the forum.
+reset_reset:Hello,\n\nYou have requested for your password to be reset, to actually RESET your password\nplease go to this URL\n\n{VAR: url}\n\nNOTE: This forum stores the passwords in a one-way encryption mechanism which means, that\nonce you have entered your password it is encoded so that there is NO WAY to get it back.\nThis works by simply encoding the password every time you enter it against the encoded version and\nseeing if they match. (If you are interested in how this mechanism works read up on MD5 HASH algorithm)
+rpasswd_invalid_passwd:Neteisingas slaptažodis
+rpasswd_passwd_nomatch:Slaptažodžiai nesutampa
+rpasswd_passwd_length:Slaptažodis turi būti sudarytas iš mažiausiai 6 simbolių
+reset_remind_pass:Slaptažodžio priminimas
+reset_error:Email adresas nerastas duomenų bazėje
+rpasswd_change_pass:Keisti slaptažodį
+rpasswd_login:Vardas
+rpasswd_cur_pass:Dabartinis slaptažodis:
+rpasswd_new_pass:Naujas slaptažodis:
+rpasswd_conf_pass:Patvirtinti slaptažodį:
+login_passwd:Slaptažodis:
+reset_email:Email:
+rate_this_thread:Vertinti
+report_subject:Tema:
+report_posted_on:Parašyta:
+search_entire_msg:Visuose pranešimuose
+search_subject_only:Tik pranešimų temose
+search_forum:Forumas
+search_posted_on:Sukurta
+search_no_results:Nerasta
+search_all_forums:Ieškoti visuose forumuose
+search_in_forum:Ieškoti forume:
+search_forum_search:Paieška forumuose
+move_thread_to:Perkeltį <b>{VAR: thr->subject}</b> temą į:
+remail_email_topic:Email This Topic To A Friend
+remail_your_name:Jūsų vardas:
+remail_your_email:Jūsų email:
+remail_friends_name:Draugo vardas:
+remail_friends_email:Draugo email:
+remail_required:būtina užpildyti
+remail_subject:Tema:
+remail_message:Žinutė:
+remail_send_now:Siųsti laišką dabar
+remail_done:Atlikta
+mklist_delete:Ištrinti
+qbud_nick_name:Nario vardas
+qbud_add_selected:Įdėti pažymėtus
+qbud_selected:Pažymėti
+qbud_no_buddies:Nėra pasirinkta draugų
+mklist_close:Uždaryti
+email_to:Kam:
+email_pg_title:Email
+email_subject:Tema:
+email_body:Turinys:
+email_submit:Email
+ppost_quote_msg:{VAR: msg_to_list} parašyta {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Cituoti:
+ppost_to:Kam:
+ppost_from_buddy_list:Pasirinkti iš draugų sąrašo
+ppost_find_User:Rasti narį
+ppost_track_msg:Stebėti šią žinutę
+ppost_track_msg_desc:Informuoti mane (privačia žinute) kai ši žinutė bus perskaityta.
+ppost_send:Siųsti
+ppost_save_draft:Išsaugoti ruošiniuose
+poll_name:Apklausos pavadinimas:
+# Fuzzy
+poll_timelimit:Laiko limitas
+# Fuzzy
+poll_maxiumvotes:Maksimalus balsų skaičius
+poll_create:Sukurti
+poll_update:Atnaujinti
+poll_disablesmilies:Deaktyvuoti šypsenėles
+poll_create_poll:Sukurti apklausą
+poll_update_poll:Atnaujinti apklausą
+poll_delete:Ištrinti
+poll_day:diena
+poll_days:dienos
+poll_hour:valanda
+poll_hours:valandos
+poll_month:mėnesis
+poll_year:metai
+poll_week:savaitė
+tabs_register:Nustatymai
+tabs_subscriptions:Prenumeratos
+tabs_referrals:Rekomenduotų narių sąrašas
+tabs_buddy_list:Draugų sąrašas
+tabs_ignore_list:Juodasis sąrašas
+tabs_private_messaging:Asmeninės žinutės
+# Fuzzy
+single_msg_delete:Ar tikrai jūs norite <font color="#ff0000" size="4">IŠTRINTI</font> žinutę, kuri vadinasi: <b>{VAR: data[3]}</b>
+# Fuzzy
+thread_delete:Ar tikrai jūs norite <font color="#ff0000" size="4">IŠTRINTI</font> visą <font color="#ff0000" size="4">TEMĄ</font>, kru vadinasi: <b>{VAR: data[3]}</b>
+delete_proceed:<font size="3"><b>Vykdyti?</b></font>
+delete_yes:Taip
+delete_no:Ne
+error_invalidurl:Neteisingas URL adresas
+error_error:Klaida
+usrinfo_profile:{VAR: u->alias} profilis
+usrinfo_show_all_posts:Rodyti visas {VAR: u->alias} rašytas žinutes
+login_update:Prisijungimo langas
+post_err_lockedthread_title:KLAIDA: Tema uždaryta
+reset_newpass_msg:Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register
+ERR_access_ttl:KLAIDA: Nepakanka teisių
+ERR_emailconf_ttl:KLAIDA: Your account is not yet confirmed
+ERR_user_ttl:KLAIDA: Nėra tokio nario
+ERR_systemerr_ttl:KLAIDA: Sistemos klaida
+# Fuzzy
+ERR_systemerr_msg:System error has occurred, please report it to the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+email_title:Email'o forma
+finduser_title:Rasti narį
+help_title:F.A.Q.
+login_title:Prisijungimo forma:
+register_title:Registravimosi forma
+index_title:Sveiki forume
+post_opt_html_on:<b>HTML</b> kodas <b>ĮJUNGTAS</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> <b>ĮJUNGTAS</b></a>
+post_opt_images_on:<b>Paveikslėliai</b> <b>ĮJUNGTI</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Šypsenėlės</b> <b>ĮJUNGTOS</b></a>
+post_opt_html_off:<b>HTML</b> kodas <b>IŠJUNGTAS</b>
+post_opt_fud_off:<b>BBcode</b> <b>IŠJUNGTA</b>
+post_opt_images_off:<b>Paveikslėliai</b> <b>IŠJUNGTI</b>
+post_opt_smilies_off:<b>Šypsenėlės</b> <b>IŠJUNGTOS</b>
+post_opt:Forumo nustatymai
+register_change_passwd:keisti slaptažodį
+thr_exch_accept:patvirtinti temą
+thr_exch_decline:atmesti temą
+thr_exch_submit:Siųsti
+split_thread:Padalinti temą
+groupmgr_yes:Taip
+groupmgr_no:Ne
+groupmgr_member:Narys
+groupmgr_edit:Redaguoti
+groupmgr_delete:Ištrinti
+show_show:Rodyti:
+group_mgr:Grupių administravimas
+p_DEL:Ištrinti
+p_STICKY:Lipnios temos
+p_SEARCH:Ieskoti
+# Fuzzy
+group_mgr_search:Find User
+rate_worst:Blogiausiai
+rate_best:Geriausiai
+post_quote_msg:{VAR: msg->login} parašė {TEMPLATE: make_report_date}
+pm_no_space_msg:Your private message folders exceed the allowed storage size of <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, as they currently contain <b>{VAR: fldr_size} bytes</b> worth of messages.<br /><br /><font class="ErrorText">Remove some old messages to clear up space</font>.
+pm_space_indct_msg:Jūsų privačių žinučių katalogai užpildyti {VAR: percent_full}%.
+th_expr_never:Be pabaigos
+th_expr_one_hr:1 valanda
+th_expr_three_hr:3 valandos
+th_expr_four_hr:4 valandos
+th_expr_eight_hr:8 valandos
+th_expr_sixteen_hr:16 valandos
+th_expr_one_day:1 diena
+th_expr_two_day:2 dienos
+th_expr_four_day:4 dienos
+th_expr_one_week:1 savaitė
+th_expr_two_week:2 savaitės
+th_expr_one_month:1 mėnesis
+th_expr_two_month:2 mėnesiai
+th_expr_four_month:4 mėnesiai
+th_expr_one_year:1 metai
+thread_mod_delete:Ištrinti
+action_latest_post:Paskutinis pranešimas
+online_today_last_visit:Paskutinį kartą buvo
+logedin_todays_visitors:Šiandienos lankytojai
+logedin_latest_post:Paskutinė žinutė forumuose:
+forumsel_goto_forum:Pereiti į forumą:
+minimsg_thread_view:Suglausta peržiūra
+# Fuzzy
+quicklogin_login:Vardas
+# Fuzzy
+quicklogin_password:Slaptažodis
+post_all_ext_allowed:(nėra apribojimų)
+forum_contact:Susisiekti su admistratoriumi
+forum_home:Į forumo pradžią
+smladd_close_window:uždaryti langą
+post_list_smilies:rodyti visas šypsenėles
+polllist_vote:Balsuoti
+polllist_view_results:Peržiūrėti rezultatus
+polllist_name:Apklausos pavadinimas
+polllist_date:Sukurta
+polllist_owner:Sukūrė
+polllist_action:Veiksmas
+userinfo_polls:Apklausos:
+show_pollist:Apklausas
+search_and:IR
+search_or:ARBA
+search_desc_order:Pirma naujesnius
+search_asc_order:Pirma senesnius
+search_logic:Paieškos loginė sąlyga:
+search_sorting:Rodyti pagal datą:
+post_proceed:Vykdyti
+email_warning_msg:Jei pakeisite esamą email adresą, tapsite neaktyvus, kol nepatvirtinsite jums išsiųsto laiško.
+mmod_delete_cofirm_ttl:Temos/žinutės naikinimo patvirtinimas
+insert_uploaded_image:Įterpti nuotrauką į žinutės turinį.
+finduser_help:Vykdant paiešką automatiškai prie jūsų parašyto žodžio bus pridėta * maskė. Pvz. Norėdami rasti visus narius kurių vardai prasideda an (Andrius, Antanas ir kt.), jums užtenka paieškos langelyje įrašyti "an".
+back_to_top:Į viršų
+saved:Išsaugoti
+register_affero:Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username enter it here.</font>
+register_err_avatardimtobig:Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+remove_from_buddy_list:panaikinti iš draugų sarašo
+threadt_sticky:lipnus
+threadt_announce:skelbimas
+no_unread_messages:Nėra žinučių atitinkančių jūsų užklausą.
+thread_mark_all_read:visus neskaitytus forumo pranešimus pažymėti kaip skaitytus
+thread_printable_pdf:Generuoti PDF spausdinimui
+thread_syndicate:Syndikuoti šį forumą (XML)
+mnav_description:Žinučių atranka
+mnav_minute:Minutė(s)
+mnav_hour:Valanda(-os)
+mnav_day:Diena(-os)
+mnav_week:Savaitė(-ės)
+mnav_month:Mėnesis(-iai)
+mnav_title:Žinučių atranka
+mnav_update:Žinučių peržiūra naudojant <a href="{TEMPLATE: mnav_update_lnk}"> atranką</a>
+findu_admin_opts_header:Administratoriaus įrankiai
+findu_unban:Atblokuoti
+findu_ban:Blokuoti
+findu_edit:Redaguoti
+findu_delete:Naikinti
+merge_topics:Apjungti temas
+merge_next:Sekanti tema
+merge_prev:Praeita tema
+split_cp:Thread Split Control Panel
+usrinfo_last_visit:Paskutinį kartą buvo:

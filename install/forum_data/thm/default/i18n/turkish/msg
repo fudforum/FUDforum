@@ -1,5 +1,6 @@
 # Messages for Turkish (Türkçe)
 # Exported from translatewiki.net
+# Author: Srhat
 
 action:Eylem
 add_to_buddy_list:Arkadaş listesine ekle
@@ -7,8 +8,8 @@ admin:Yönetici
 admin_control_panel:Yönetici Denetim Masası
 administrator:Yönetici
 attachment:Ek:
-# Fuzzy
-average_post_count:İleti sayısı: {VAR: u->posted_msg_count} Günlük ortalama ileti sayısı: ({VAR: avg})
+avatar:Avatar:
+average_post_count:Toplam {PLURAL: u->posted_msg_count|1 ileti|$1 ileti}, günlük ortalama ({PLURAL: avg|1 ileti|$1 ileti})
 biography:Kişisel bilgiler:
 birth_date:Doğum tarihi:
 by:Gönderen:

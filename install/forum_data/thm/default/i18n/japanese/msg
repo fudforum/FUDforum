@@ -1066,3 +1066,20 @@ code_title:コード:
 code_select_all:すべて選択
 code_show_hide:表示 / 非表示
 social_sites:ソーシャル・ネットワーキングサイト:
+postcheck_min_len_err:メッセージが短すぎます。最低の長さは {PLURAL: post_min_len|$1文字}です。
+postcheck_dup_err:重複したトピックは作らないでください。
+btn_new_topic:新規トピック
+btn_new_pm:新規プライベートメッセージ
+btn_post_reply:返信投稿
+btn_tree_view:ツリー表示
+btn_flat_view:フラット表示
+btn_about:プロフィール
+btn_small_pm:プライベートメッセージ
+btn_delete:削除
+btn_edit:編集
+btn_reply:返信
+btn_forward:転送
+btn_quote:引用
+btn_email:電子メール
+btn_show_posts:投稿表示
+btn_homepage:ウェブ

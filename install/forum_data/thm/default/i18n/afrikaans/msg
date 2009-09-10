@@ -62,7 +62,7 @@ locked_with_new_posts:Gesluit (m/ ongeleesde boodskappe)
 logged_in_list:Aangetekende gebruikers
 login:Teken aan
 login_header:Lid:
-logout:Teken af
+logout:Teken uit
 mark_all_read:merk alle boodskappe as gelees
 mark_all_read_desc:Alle boodskappe wat u nog nie gelees het nie sal as gelees gemerk word
 members:Lede
@@ -356,7 +356,7 @@ edit_message:Pas wysigings toe
 apply_spell_changes:Pas spel-wysigings toe
 post_preview:Pos Voorskou
 post_logedin_user:Aangetekende lid:
-post_logout:teken af
+post_logout:teken uit
 post_passwd:Pos Wagwoord:
 post_poll:Stemming:
 post_create_poll:SKEP STEMMING
@@ -540,7 +540,7 @@ delete_no:Nee
 error_invalidurl:ongeldige URL
 error_error:Fout
 usrinfo_profile:{VAR: u->alias} se profiel
-usrinfo_show_all_posts:Wys alle pos van {VAR: u->alias}
+usrinfo_show_all_posts:Wys al {VAR: u->alias} se boodskappe
 actions_update:Loer ander mense af, net soos jy.
 err_info:Info
 buddy_list_err_cantadd:U kan nie uself by u eie &quot;vriendelys&quot; voeg nie
@@ -1065,3 +1065,20 @@ code_title:KODE:
 code_select_all:Kies alles
 code_show_hide:Wys/ versteek
 social_sites:Sosiale netwerke:
+postcheck_min_len_err:U boodskap is te kort. Die minimum lengte is (PLURAL: post_min_len|$1 karakter|$1 karakters).
+postcheck_dup_err:Moet asseblief nie duplikaat boodskappe pos nie.
+btn_new_topic:Nuwe Onderwerp
+btn_new_pm:Nuwe PB
+btn_post_reply:Antwoord
+btn_tree_view:Vertak
+btn_flat_view:Onvertak
+btn_about:Profiel
+btn_small_pm:PM
+btn_delete:skrap
+btn_edit:wysig
+btn_reply:antwoord
+btn_forward:aanstuur
+btn_quote:aanhaal
+btn_email:E-pos
+btn_show_posts:wys pos
+btn_homepage:www

@@ -1,5 +1,14 @@
 #!/usr/local/bin/php -q
 <?php
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: tr_status.php,v 1.1 2009/09/10 15:19:29 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
 
 function make_lang_arr($path)
 {
