@@ -1066,6 +1066,18 @@ code_title:Code:
 code_select_all:Alles selecteren
 code_show_hide:Weergeven/verbergen
 social_sites:Sociale netwerksites:
+postcheck_min_len_err:Uw bericht is te kort. De minimale lengte is {PLURAL: post_min_len|$1 karakter|$1 karakters}.
+postcheck_dup_err:Maak alstublieft geen dubbele onderwerpen aan.
 btn_new_topic:Nieuw onderwerp
+btn_new_pm:Nieuw privébericht
 btn_post_reply:Antwoord geven
 btn_about:Profiel
+btn_small_pm:PB
+btn_delete:verwijderen
+btn_edit:bewerken
+btn_reply:antwoorden
+btn_forward:doorsturen
+btn_quote:citeren
+btn_email:E-mail
+btn_show_posts:berichten
+btn_homepage:www
