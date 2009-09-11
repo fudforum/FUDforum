@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.113 2009/09/09 16:15:00 frank Exp $
+* $Id: admglobal.php,v 1.114 2009/09/11 17:41:57 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -184,7 +184,6 @@ $(document).ready(function() {
   $(".seclink").click(function () {
     $('tbody.section').hide();
     $sec = $(this).attr('href').substr(1);
-    // $('.'+$sec).show();
     $('.'+$sec).slideDown("slow");
   }); 
 });

@@ -9,14 +9,14 @@
 ***************************************************************************/
 
 var JS_HELPOFF = false;
-/* indentify the browser */
+/* Indentify the browser */
 var DOM = (document.getElementById) ? 1 : 0;
 var NS4 = (document.layers) ? 1 : 0;
 var IE4 = (document.all) ? 1 : 0;
 var OPERA = navigator.userAgent.indexOf('Opera') > -1 ? 1 : 0;
 var MAC = navigator.userAgent.indexOf('Mac') > -1 ? 1 : 0;
 
-/* edit box stuff */
+/* Edit box stuff */
 function insertTag(obj, stag, etag)
 {
 	if (navigator.userAgent.indexOf('MSIE') > -1 && !OPERA) {
@@ -185,22 +185,22 @@ function chng_focus(phash)
 
 function highlightWord(node,word,Wno)
 {
-	// Iterate into this nodes childNodes
+	/* Iterate into this nodes childNodes */
 	if (node.hasChildNodes) {
 		for (var i = 0; node.childNodes[i]; i++) {
 			highlightWord(node.childNodes[i], word, Wno);
 		}
 	}
 
-	// And do this node itself
-	if (node.nodeType == 3) { // text node
+	/* And do this node itself */
+	if (node.nodeType == 3) { /* text node */
 		var tempNodeVal = node.nodeValue.toLowerCase();
 		var pn = node.parentNode;
 		var nv = node.nodeValue;
 
 		if ((ni = tempNodeVal.indexOf(word)) == -1 || pn.className.indexOf('st') != -1) return;
 
-		// Create a load of replacement nodes
+		/* Create a load of replacement nodes */
 		before = document.createTextNode(nv.substr(0,ni));
 		after = document.createTextNode(nv.substr(ni+word.length));
 		if (document.all && !OPERA) {
@@ -221,21 +221,21 @@ function highlightSearchTerms(searchText)
 {
 	searchText = searchText.toLowerCase();
 	var terms = searchText.split(' ');
-	var e = document.getElementsByTagName('span'); // message body
+	var e = document.getElementsByTagName('span'); /* message body */
 
 	for (var i = 0; e[i]; i++) {
 		if (e[i].className != 'MsgBodyText') continue;
 		for (var j = 0, k = 0; j < terms.length; j++, k++) {
-			if (k > 9) k = 0; // we only have 9 colors
+			if (k > 9) k = 0; /* we only have 9 colors */
 			highlightWord(e[i], terms[j], k);
 		}
 	}
 
-	e = document.getElementsByTagName('td'); // subject
+	e = document.getElementsByTagName('td'); /* subject */
 	for (var i = 0; e[i]; i++) {
 		if (e[i].className.indexOf('MsgSubText') == -1) continue;
 		for (var j = 0, k = 0; j < terms.length; j++, k++) {
-			if (k > 9) k = 0; // we only have 9 colors
+			if (k > 9) k = 0; /* we only have 9 colors */
 			highlightWord(e[i], terms[j], k);
 		}
 	}
@@ -308,13 +308,13 @@ function min_max_cats(theme_image_root, img_ext, minimize_category, maximize_cat
     var cat = $(this).parents('tr').attr('id');
     var on;
 
-    if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        // Hide cat
+    if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        /* Hide cat */
       $(this).attr('src', togglePlus)
              .attr('title', maximize_category)
              .attr('alt', '+')
              .parents('tr').siblings('.child-'+cat).fadeOut('slow');
       on = 1;
-    } else{                             // Show cat
+    } else{                             /* Show cat */
       $(this).attr('src', toggleMinus)
              .attr('title', minimize_category)
              .attr('alt', '-')
@@ -347,12 +347,12 @@ $(document).ready(function() {
   .click(function() {
     var toggleSrc = $(this).attr('src');
 
-    if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        // Hide message
+    if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {        /* Hide message */
       $(this).attr('src', togglePlus)
              .attr('title', maximize_message)
              .attr('alt', '+')
              .parents('.MsgTable').find('td').not('.MsgR1').fadeOut('slow');
-    } else {                                             // Show message
+    } else {                                             /* Show message */
       $(this).attr('src', toggleMinus)
              .attr('title', minimize_message)
              .attr('alt', '-')
@@ -365,23 +365,23 @@ $(document).ready(function() {
 function select_code(a) 
 {
 	var e = a.parentNode.parentNode.getElementsByTagName('PRE')[0];
-	if (window.getSelection) {	// Not IE
+	if (window.getSelection) {	/* Not IE */
 		var s = window.getSelection();
-		if (s.setBaseAndExtent) {	// Safari
+		if (s.setBaseAndExtent) {	/* Safari */
 			s.setBaseAndExtent(e, 0, e, e.innerText.length - 1);
-		} else {	// Firefox and Opera
+		} else {	/* Firefox and Opera */
 			var r = document.createRange();
 			r.selectNodeContents(e);
 			s.removeAllRanges();
 			s.addRange(r);
 		}
-	} else if (document.getSelection) {	// Older browsers
+	} else if (document.getSelection) {	/* Older browsers */
 		var s = document.getSelection();
 		var r = document.createRange();
 		r.selectNodeContents(e);
 		s.removeAllRanges();
 		s.addRange(r);
-	} else if (document.selection) {	// IE
+	} else if (document.selection) {	/* IE */
 		var r = document.body.createTextRange();
 		try {
 			r.moveToElementText(e);
