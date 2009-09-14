@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admtemplates.php,v 1.1 2009/09/07 15:49:52 frank Exp $
+* $Id: admtemplates.php,v 1.2 2009/09/14 19:05:40 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,12 +14,12 @@
 	fud_use('compiler.inc', true);
 	fud_use('theme.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
-
 	if (isset($_POST['tname'], $_POST['tlang'], $_POST['btn_edit'])) {
 		header('Location: tmpllist.php?tname='.$_POST['tname'].'&tlang='.$_POST['tlang'].'&'.__adm_rsidl);
 		exit;
 	}
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	/* Limit theme names to sane characters */
 	if (isset($_POST['newname'], $_POST['btn_create'])) {
