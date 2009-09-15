@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admemail.php,v 1.30 2009/05/18 20:22:33 frank Exp $
+* $Id: admemail.php,v 1.31 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,6 +41,7 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>E-mail Filter</h2>
+<p>Block users with matching E-mail address from registering or posting messages on the forum.</p>
 <form id="ef" method="post" action="admemail.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">

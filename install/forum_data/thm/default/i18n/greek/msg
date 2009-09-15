@@ -50,7 +50,7 @@ index_url_redirection:Ανακατεύθυνση
 interests:Ενδιαφέροντα:
 last_post:Τελευταίο μήνυμα
 last_thread_msg:Πήγαινε στο τελευταίο μήνυμα σε αυτό το θέμα
-legend:Θρύλος
+legend:Λεζάντα
 location:Τοποθεσία:
 lock_thread:Κλείδωμα Θέματος
 locked:Κλειδώθηκε
@@ -296,14 +296,15 @@ post_color:Χρώμα
 post_font:Γραμματοσειρά
 post_logout:έξοδος
 post_poll:Κάλπη:
-post_poll_delete:Διαγραφή
-post_poll_edit:Επεξεργασία
+post_poll_delete:ΔΙΑΓΡΑΦΗ
+post_poll_edit:ΕΠΕΞΕΡΓΑΣΙΑ
 post_file_del:Διαγραφή
 post_file_name:Όνομα
 post_file_size:Μέγεθος
 post_title:Τίτλος:
 post_options:Επιλογές:
 coppa_fax_telephone:Τηλέφωνο:
+coppa_fax_email:Διεύθυνση ηλεκτρονικού ταχυδρομείου:
 coppa_fax_date:Ημερομηνία:
 coppa_fax_login:Είσοδος
 coppa_fax_passwd:Κωδικός
@@ -312,6 +313,7 @@ coppa_fax_name:Όνομα
 login_login:Είσοδος:
 login_login_btn:Είσοδος
 rpasswd_login:Είσοδος
+rpasswd_new_pass:Νέος κωδικός πρόσβασης:
 login_passwd:Κωδικός:
 reset_email:Ηλεκτρονικό ταχυδρομείο:
 report_by:Από:
@@ -326,6 +328,7 @@ mklist_option:Επιλογή:
 mklist_delete:Διαγραφή
 qbud_selected:Επιλεγμένος
 ppost_to:Προς:
+poll_delete:Διαγραφή
 poll_unlimited:Απεριόριστο
 poll_day:ημέρα
 poll_days:ημέρες
@@ -336,18 +339,26 @@ poll_year:έτος
 poll_week:εβδομάδα
 tabs_bookmarkes:Σελιδοδείκτες
 delete_yes:Ναι
+delete_no:Όχι
 error_error:Σφάλμα
 err_info:Πληροφορίες
 email_error_invaliduser:Μη έγκυρος χρήστης
 emailconf_err_invkey_title:Σφάλμα
+err_inc_criticaltitle:Κρίσιμο σφάλμα
 ignore_list_err_info_title:Πληροφορίες
 login_update:Φόρμα Σύνδεσης
-post_err_edttimelimit_title:Σφάλμα
+post_err_edttimelimit_title:ΣΦΑΛΜΑ
+report_err_nosuchmsg_title:ΣΦΑΛΜΑ
+reset_err_invalidkey_title:ΣΦΑΛΜΑ
 reset_err_rstconf_title:Πληροφορία
 help_title:Βοήθεια
+groupmgr_no:Όχι
 groupmgr_cancel:Άκυρο
 groupmgr_edit:Επεξεργασία
+groupmgr_delete:Διαγραφή
 group_mgr_group:Ομάδα:
+p_EDIT:Επεξεργασία
+p_DEL:Διαγραφή
 p_VOTE:Ψηφοφορία
 th_expr_never:Ποτέ
 thread_mod_delete:Διαγραφή
@@ -371,7 +382,9 @@ saved:Αποθηκεύθηκε
 iemail_msg_reply:Απάντηση
 findu_edit:Επεξεργασία
 findu_delete:Διαγραφή
+register_email_addr:Διεύθυνση ηλεκτρονικού ταχυδρομείου:
 ip_search:Αναζήτηση
+post_err_mod_forum_edit_ttl:ΣΦΑΛΜΑ
 register_theme:Θεματολογία:
 modque_cat:Κατηγορία
 mmd_abort_move:Άκυρο
@@ -381,3 +394,9 @@ post_common_bold:Έντονα
 post_common_italics:Πλάγια
 rating_delete:Διαγραφή
 tabs_notifications:Ειδοποιήσεις
+finduser_flag:Σημαία
+code_title:Κωδικός:
+btn_delete:διαγραφή
+btn_edit:επεξεργασία
+btn_email:Ηλεκτρονικό ταχυδρομείο
+btn_homepage:www

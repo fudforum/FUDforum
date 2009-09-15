@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.67 2009/01/29 18:37:17 frank Exp $
+* $Id: pmsg.php.t,v 1.68 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -100,12 +100,14 @@
 	if (isset($_GET['o'])) {
 		switch ($_GET['o']) {
 			case 'subject':
+				$o = 'p.subject';
 			case 'alias':
+				$o = 'u.alias';
 			case 'alias2':
-				$o = $_GET['o'];
+				$o = 'u2.alias';
 				break;
 			default:
-				$o = 'post_stamp';
+				$o = 'p.post_stamp';
 		}	
 	} else {
 		$o = 'post_stamp';

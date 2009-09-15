@@ -3,14 +3,14 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: xmlagg.php,v 1.3 2009/08/06 18:00:54 frank Exp $
+* $Id: xmlagg.php,v 1.4 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License. 
 **/
 
- 	/* prevent session initialization */
+ 	/* Prevent session initialization. */
  	define('forum_debug', 1);
  	unset($_SERVER['REMOTE_ADDR']);
  
@@ -31,7 +31,7 @@
 		exit("Forum is currently disabled.\n");
 	}
 
-	/* include all the necessary FUDforum includes */
+	/* Include all the necessary FUDforum includes. */
 	fud_use('err.inc');
 	fud_use('db.inc');
 	fud_use('users.inc');
@@ -55,15 +55,16 @@
 		$config = db_sab("SELECT * FROM ".sql_p."xmlagg WHERE name=".esc($_SERVER['argv'][1]));
 	}
 	if (!$config) {
-		exit('Invalid feed identifier');
+		exit('Invalid feed identifier.');
 	}
 
-	/* set language & locale */
+	/* Set language & locale. */
+	$GLOBALS['usr'] = new stdClass();
 	list($GLOBALS['usr']->lang, $locale) = db_saq("SELECT lang, locale FROM ".sql_p."themes WHERE theme_opt=1|2 LIMIT 1");
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 
 	$frm = new fud_forum;
-	$frm->id = $config->forum_id;		// Load into forum 
+	$frm->id = $config->forum_id;		// Load into forum.
  
 	$opts = array(
 		'http' => array(
@@ -82,10 +83,10 @@
 	$ip_addr = gethostbyname($server);
 
  	$arrFeeds = array();
-	foreach ($doc->getElementsByTagName('item') as $node) {  // RSS Items
+	foreach ($doc->getElementsByTagName('item') as $node) {  // RSS items.
 		array_push($arrFeeds, $node);
 	}
-	foreach ($doc->getElementsByTagName('entry') as $node) {  // ATOM Entries
+	foreach ($doc->getElementsByTagName('entry') as $node) {  // ATOM entries.
 		array_push($arrFeeds, $node);
 	}
 
@@ -119,7 +120,7 @@
 			$new_last_load_date = $m->post_stamp;
 		} else {
 			if ($config->last_load_date != 0) {
-				continue;	// skip already loaded
+				continue;	// Skip already loaded.
 			}
 		}
 
@@ -150,13 +151,16 @@
 		}
 		$m->poster_id = 0;
 		if (isset($poster)) {
-			$email = $poster.'@'.$server;	// generate dummy email address
+			$email = $poster.'@'.$server;	// Generate dummy email address.
 			$m->poster_id = match_user_to_post($email, $poster, $config->xmlagg_opt & 2, $m->poster_id, $m->post_stamp);
 		}
-		// skip_non_forum_users is set
+		// skip_non_forum_users is set.
 		if (!$m->poster_id && $config->xmlagg_opt & 4) {
 			continue;
 		}
+
+		// Apply custom signature.
+		$m->body .= $config->custom_sig;
 
  		echo "Loading article: ". $m->subject ." (".$poster.")\n";
 		try {
@@ -169,7 +173,7 @@
 		}
 	}
 
-	// Store last article date to prevent loading duplicates
+	// Store last article date to prevent loading duplicates.
 	if (isset($new_last_load_date)) {
 		q('UPDATE '.sql_p.'xmlagg SET last_load_date = '.$new_last_load_date.' WHERE id = '.$config->id);
 	}

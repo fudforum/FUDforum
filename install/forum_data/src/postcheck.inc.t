@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.43 2009/09/09 16:15:00 frank Exp $
+* $Id: postcheck.inc.t,v 1.44 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -79,7 +79,7 @@ function check_post_form()
 
 	/* Check if user is allowed to post links. */
 	if ($GLOBALS['POSTS_BEFORE_LINKS'] && !empty($_POST['msg_body'])) {
-		if (eregi('(\[url)|(http://)|(https://)', $_POST['msg_body'])) {
+		if (preg_match('?(\[url)|(http://)|(https://)?i', $_POST['msg_body'])) {
 			$c = q_singleval("SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id="._uid);
 			if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
 				$posts_before_links = $GLOBALS['POSTS_BEFORE_LINKS'];

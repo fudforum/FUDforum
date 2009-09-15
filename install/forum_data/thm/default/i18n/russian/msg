@@ -1069,3 +1069,20 @@ code_title:CODE:
 code_select_all:Выделить все
 code_show_hide:Показать / скрыть
 social_sites:Сайты социальных сетей:
+postcheck_min_len_err:Ваше сообщение слишком коротко. Минимальный размер составляет {PLURAL: post_min_len|$1 символ|$1 символа|$1 символов}.
+postcheck_dup_err:Пожалуйста, не создавайте дубликатов тем.
+btn_new_topic:Новая тема
+btn_new_pm:Новое личное сообщение
+btn_post_reply:Опубликовать ответ
+btn_tree_view:В виде дерева
+btn_flat_view:Плоский вид
+btn_about:Профиль
+btn_small_pm:ЛС
+btn_delete:удалить
+btn_edit:править
+btn_reply:ответить
+btn_forward:переслать
+btn_quote:цитировать
+btn_email:письмо
+btn_show_posts:сообщения
+btn_homepage:www

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admipfilter.php,v 1.32 2009/09/09 16:15:00 frank Exp $
+* $Id: admipfilter.php,v 1.33 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,6 +54,7 @@
 	include($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>IP Filter System</h2>
+<p>Block users with a matching IP address from registering or posting messages on the forum.</p>
 <form id="ipf" method="post" action="admipfilter.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">

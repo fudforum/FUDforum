@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbatch.php,v 1.2 2009/09/09 16:15:00 frank Exp $
+* $Id: admbatch.php,v 1.3 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -75,11 +75,7 @@
 	$c = uq('SELECT id, name, \'xmlagg\' FROM '.$tbl.'xmlagg UNION select id, name, \'maillist\' FROM '.$tbl.'mlist UNION select id, newsgroup, \'nntp\' FROM '.$tbl.'nntp');
 	$i = 1;
 	while ($r = db_rowarr($c)) {
-		if ($edit == $r[0]) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-		}
+		$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td>
 			<td nowrap="nowrap">'.$r[2].'.php '.$r[0].' </font></td>
 			<td>[<a href="admbatch.php?script='.$r[2].'&amp;job='.$r[0].'&amp;'.__adm_rsid.'">Run now!</a>] [<a href="admbatch.php?viewlog='.$r[2].'&amp;job='.$r[0].'&amp;'.__adm_rsid.'">View Log</a>]

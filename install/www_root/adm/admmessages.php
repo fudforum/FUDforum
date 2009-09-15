@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmessages.php,v 1.2 2009/09/09 16:15:00 frank Exp $
+* $Id: admmessages.php,v 1.3 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,8 +53,6 @@
 			} elseif ( substr($messages,0,15) != '# Messages for ' ) {
 				echo '<font color="red">Corrupted download. Please try again.</font><br />';
 			} else {
-				// echo "DEBUG: <pre>". $messages . "</pre>";
-
 				$msgfile = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$tlang.'/msg';
 				file_put_contents($msgfile, $messages);
 		
@@ -111,7 +109,14 @@
 <tr class="fieldaction" align="right"><td colspan="2"><input type="submit" name="btn_edit" value="Edit" /></td></tr></table></form>
 
 <h3>Download latest translations:</h3>
-<p>Download the latest default tanslations from the <a href="http://translatewiki.net/wiki/Translating:FUDforum">translatewiki.net</a> website:</p>
+<?php
+	$disabled = ((bool)ini_get('allow_url_fopen')) ? '' : 'disabled="disabled"';
+	if ($disabled) {
+		echo '<p>Your PHP installation does not allow downloading of files from the Internet. Enable <b>allow_url_fopen</b> in <b>php.ini</b> to use this feature.</p>';
+	} else {
+		echo '<p>Download the latest default tanslations from the <a href="http://translatewiki.net/wiki/Translating:FUDforum">translatewiki.net</a> website:</p>';
+	}
+?>
 <form method="post" action="admmessages.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
@@ -130,6 +135,6 @@
 	}
 ?>
 </select></td></tr>
-<tr class="fieldaction" align="right"><td colspan="2"><input type="submit" name="btn_download" value="Download" /></td></tr></table></form>
+<tr class="fieldaction" align="right"><td colspan="2"><input type="submit" name="btn_download" value="Download" <?php echo $disabled; ?> /></td></tr></table></form>
 
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

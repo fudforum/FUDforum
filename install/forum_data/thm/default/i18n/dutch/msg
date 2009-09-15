@@ -1071,6 +1071,8 @@ postcheck_dup_err:Maak alstublieft geen dubbele onderwerpen aan.
 btn_new_topic:Nieuw onderwerp
 btn_new_pm:Nieuw privébericht
 btn_post_reply:Antwoord geven
+btn_tree_view:Boomstructuurweergave
+btn_flat_view:Platte weergave
 btn_about:Profiel
 btn_small_pm:PB
 btn_delete:verwijderen

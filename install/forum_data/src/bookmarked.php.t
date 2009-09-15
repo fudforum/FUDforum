@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: bookmarked.php.t,v 1.3 2009/05/06 18:44:28 frank Exp $
+* $Id: bookmarked.php.t,v 1.4 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,7 +49,7 @@
 
 	/* Since a person can have MANY bookmarked threads, we need a pager & for the pager we need a entry count */
 	if (($total = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {
-		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}bookmarks b LEFT JOIN {SQL_TABLE_PREFIX}thread t ON b.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE b.user_id='._uid.' '.$lmt);
+		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}bookmarks b LEFT JOIN {SQL_TABLE_PREFIX}thread t ON b.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE b.user_id='._uid);
 	}
 
 	if ($FUD_OPT_2 & 32768) {

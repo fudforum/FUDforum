@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: xmlagg_adm.inc,v 1.1 2009/07/11 09:55:24 frank Exp $
+* $Id: xmlagg_adm.inc,v 1.2 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@ class fud_xmlagg_adm
 	var $name, $url;
 
 	// General Settings
-	var $forum_id, $id, $xmlagg_opt=2;
+	var $forum_id, $id, $xmlagg_opt=2, $custom_sig;
 
 	function fud_xmlagg_adm()
 	{
@@ -42,13 +42,15 @@ class fud_xmlagg_adm
 			forum_id,
 			name,
 			url,
-			xmlagg_opt
+			xmlagg_opt,
+			custom_sig
 			)
 			VALUES(
 			".(int)$this->forum_id.",
 			"._esc($this->name).",
 			"._esc($this->url).",
-			".$this->xmlagg_opt."
+			".$this->xmlagg_opt.",
+			".$this->custom_sig."
 			)");
 
 		if ($this->xmlagg_opt & 1) {
@@ -66,7 +68,8 @@ class fud_xmlagg_adm
 			forum_id=".(int)$this->forum_id.",
 			name="._esc($this->name).",
 			url="._esc($this->url).",
-			xmlagg_opt=".$this->xmlagg_opt."
+			xmlagg_opt=".$this->xmlagg_opt.",
+			custom_sig="._esc($this->custom_sig)."
 		WHERE id=".$id);
 
 		if ($old_frm_id != $this->forum_id && $xmlagg_opt & 1) {

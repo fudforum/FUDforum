@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.37 2009/05/18 20:22:33 frank Exp $
+* $Id: admadduser.php,v 1.38 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -93,6 +93,20 @@ function validate_input()
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Add User</h2>
+<script type="text/javascript">
+/* <![CDATA[ */
+function randomPassword() {
+	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+	var string_length = 8;
+	var randomstring = '';
+	for (var i=0; i<string_length; i++) {
+		var rnum = Math.floor(Math.random() * chars.length);
+		randomstring += chars.substring(rnum,rnum+1);
+	}
+	document.forms['frm_usr'].passwd.value = randomstring;
+}
+/* ]]> */
+</script>
 <?php
 	if ($error) {
 		echo '<h3 style="color: red">Error Has Occured</h3>';
@@ -113,7 +127,7 @@ function validate_input()
 	</tr>
 	<tr class="field">
 		<td>Password:</td>
-		<td><?php if ($error && isset($err_passwd)) { echo $err_passwd; } ?><input tabindex="2" type="text" name="passwd" value="<?php echo $passwd; ?>" size="30" /></td>
+		<td><?php if ($error && isset($err_passwd)) { echo $err_passwd; } ?><input tabindex="2" type="text" name="passwd" value="<?php echo $passwd; ?>" size="30" /> [ <a href="#" onclick="randomPassword();">Random password</a> ]</td>
 	</tr>
 	<tr class="field">
 		<td>E-mail:</td>

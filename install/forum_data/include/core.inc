@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.201 2009/09/06 02:07:44 frank Exp $
+* $Id: core.inc,v 1.202 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -188,7 +188,10 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 		echo "<b>UNABLE TO WRITE TO SQL LOG FILE</b><br />\n";
 		echo $error_msg;
 	} else {
-		if (defined('forum_debug') || (isset($GLOBALS['usr']->users_opt) && $GLOBALS['usr']->users_opt & 1048576)) {
+		if (isset($GLOBALS['usr']->users_opt) && $GLOBALS['usr']->users_opt & 1048576) { // Admin user.
+			// ACP may try to catch DB errors, e.g. temp table check in admglobal.php.
+			throw new Exception($error_msg);
+		} elseif (defined('forum_debug')) {	// Debug mode.
 			echo $error_msg;
 		} else {
 			trigger_error('SQL Error has occurred, please contact the <a href="mailto:'.$GLOBALS['ADMIN_EMAIL'].'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log', E_USER_ERROR);

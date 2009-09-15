@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.php.t,v 1.34 2009/02/22 11:54:01 frank Exp $
+* $Id: pmuserloc.php.t,v 1.35 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@
 		default:
 			exit;
 	}
-	list($frm, $fld) = split('\.', $js_redr);
+	list($frm, $fld) = explode('.', $js_redr);
 
 	$find_user_data = '';
 	if ($usr_login) {

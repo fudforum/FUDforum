@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admslist.php,v 1.13 2009/05/03 18:57:06 frank Exp $
+* $Id: admslist.php,v 1.14 2009/09/15 18:11:30 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,9 +29,9 @@ function print_ul($qry)
 ?>
 <h2>Privileged User List</h2>
 <p>The following users have elevated forum permissions:</p>
-<table class="datatable">
-<tr>
-	<th class="fieldtopic" width="33%">Administrators</th>
+<table class="resulttable fulltable">
+<tr class="resulttopic">
+	<th width="33%">Administrators</th>
 	<th width="33%">Moderators</th>
 	<th width="33%">Group Leaders</th>
 </tr>

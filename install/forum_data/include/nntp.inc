@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.83 2009/06/24 13:07:26 frank Exp $
+* $Id: nntp.inc,v 1.84 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -557,7 +557,7 @@ class fud_nntp
 			}
 
 			$msg_post->body = apply_custom_replace($msg_post->body);
-			if ($frm->forum_opt & 16) {
+			if ($frm->forum_opt & 16) {	// tag_style == HTML
 				$msg_post->body = tags_to_html($msg_post->body, 'N');
 			} else {
 				$msg_post->body = nl2br($msg_post->body);
@@ -663,7 +663,7 @@ class fud_nntp
 			return;
 		}
 
-		if ($GLOBALS['FUD_OPT_3'] & 8) {
+		if ($GLOBALS['FUD_OPT_3'] & 8) {	// NNTP_OBFUSCATE_EMAIL
 			$from = str_replace(array('.', '@'), array('[dot]','[at]'), $from);
 		}
 

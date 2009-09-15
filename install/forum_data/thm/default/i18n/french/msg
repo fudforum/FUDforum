@@ -3,6 +3,8 @@
 # Author: Cedric31
 # Author: Crochet.david
 # Author: IAlex
+# Author: Omnipaedista
+# Author: Peter17
 
 action:Action
 add_to_buddy_list:Ajouter à la liste de mes amis
@@ -56,7 +58,7 @@ index_url_redirection:Redirection
 interests:Centres d'intérêt :
 last_post:Dernier message
 last_thread_msg:Aller au dernier message dans ce fil
-legend:Légende :
+legend:Légende
 location:Situation géographique :
 lock_thread:Verrouiller le fil
 locked:Verrouillé
@@ -1067,3 +1069,18 @@ code_title:CODE :
 code_select_all:Tout sélectionner
 code_show_hide:Afficher / masquer
 social_sites:Site de réseaux sociaux :
+postcheck_min_len_err:Votre message est trop court. La longueur minimale est {PLURAL: post_min_len|$1 caractère|$1 caractères}.
+postcheck_dup_err:Merci de ne pas créer de sujet en doublon.
+btn_new_topic:Nouveau sujet
+btn_new_pm:Nouveau MP
+btn_post_reply:Poster une réponse
+btn_tree_view:Arborescence
+btn_flat_view:Liste
+btn_about:Profil
+btn_small_pm:MP
+btn_delete:supprimer
+btn_edit:modifier
+btn_reply:répondre
+btn_forward:transférer
+btn_quote:citer
+btn_email:Courriel

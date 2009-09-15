@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.81 2009/09/01 18:59:24 frank Exp $
+* $Id: maillist.php,v 1.82 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -342,10 +342,10 @@ function add_attachment($name, $data, $pid)
 	unset($_SERVER['REMOTE_ADDR']);
 
 	if (!ini_get("register_argc_argv")) {
-		exit("Enable the 'register_argc_argv' php.ini directive\n");
+		exit("Enable the 'register_argc_argv' php.ini directive.\n");
 	}
 	if ($_SERVER['argc'] < 2) {
-		exit("Missing Forum ID Parameter\n");
+		exit("Missing Forum ID Parameter.\n");
 	}
 
 	if (strncmp($_SERVER['argv'][0], '.', 1)) {
@@ -394,7 +394,8 @@ function add_attachment($name, $data, $pid)
 	$FUD_OPT_2 |= $FUD_OPT_2 &~ (1024|8388608);
 	$FUD_OPT_2 |= 128;
 	
-	/* Set locale. */
+	/* Set language & locale. */
+	$GLOBALS['usr'] = new stdClass();
 	list($GLOBALS['usr']->lang, $locale) = db_saq("SELECT lang, locale FROM ".sql_p."themes WHERE theme_opt=1|2 LIMIT 1");
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 

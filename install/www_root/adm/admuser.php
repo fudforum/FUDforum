@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.97 2009/08/26 19:03:03 frank Exp $
+* $Id: admuser.php,v 1.98 2009/09/15 18:11:30 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -40,7 +40,7 @@
 		$u = $usr_id = null;
 	}
 
-	/* check if ban had expired */
+	/* Check if ban had expired. */
 	if ($usr_id && !$act && $u->users_opt & 65536 && $u->ban_expiry && $u->ban_expiry < __request_timestamp__) {
 		q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry=0, users_opt=users_opt &~ 65536 WHERE id='.$usr_id);
 	}
@@ -55,13 +55,18 @@
 		case 'sig':
 		case 'pm':
 		case 'accmod':
-			/* only admins can do this */
+			/* Only admins can do this. */
 			if ($act == 'accmod' && $acc_mod_only) {
 				break;
 			}
 
+			if ($GLOBALS['usr']->id == $usr_id) {
+				echo '<font color="red">ERROR: You cannot ban or unban yourself!</font><br />';
+				break;
+			}
+
 			if ($act == 'block' && isset($_POST['ban_duration'])) {
-				/* for post requests involving ban, do not act as a toggle */
+				/* For post requests involving ban, do not act as a toggle. */
 				if (!isset($_POST['block'])) {
 					$u->users_opt |= $keys[$act];
 					$u->ban_expiry = 0;
@@ -115,7 +120,7 @@
 			echo '<font color="green">Password was successfully reset and e-mailed to the user.</font>';
 			break;
 		case 'del':
-			if ($usr_id == 1) {	// Prevent deletion of "Anonymous"
+			if ($usr_id == 1) {	// Prevent deletion of "Anonymous".
 				break;
 			}
 

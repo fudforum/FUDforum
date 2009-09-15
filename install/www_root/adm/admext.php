@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.33 2009/09/09 16:15:00 frank Exp $
+* $Id: admext.php,v 1.34 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,6 +46,7 @@
 	}
 ?>
 <h2>Allowed Extensions</h2>
+<p>Specify which files types users can attach to forum messages.</p>
 <form id="exf" method="post" action="admext.php">
 <table class="datatable solidtable">
 	<tr class="tutor">

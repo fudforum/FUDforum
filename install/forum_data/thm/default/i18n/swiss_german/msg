@@ -573,3 +573,15 @@ iemail_participate:Go an dr Diskussion mitmache gang do ane:
 ignore_list_err_info_title:Information
 ignore_list_err_dup_msg:Dää Benutzer isch scho uf Dyre Ignorierlischt
 ignore_list_err_nu_title:Benutzer nit gfunde
+ignore_list_err_nu_msg:Dr Benutzer, wu Du hesch welle zue Dyyre Ignorier-Lischt zuefiege, het nit chenne gfunde wäre.
+ignore_list_cantign_msg:Du chasch dää Benutzer nit ignoriere
+ignore_list_update:Am Dursueche vu dr eigene Ignorierlischt
+index_update:Am Dursueche vu dr <a href="{TEMPLATE: index_update_lnk}">Forumslischt</a>
+list_referers_update:Am Dursueche vu dr Aawärbige
+login_update:Aamäldesyte
+msg_update:Am Dursueche vum Thema <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:FÄHLER: Privati Nochrichte deaktiviert
+pm_err_nopm_msg:Du chasch s Syschtem fir privati Nochrichte nit verwände, wel s vum Administrator deaktiviert woren isch.
+pm_update:Verwändet s Syschtem fir privati Nochrichte
+post_err_lockedthread_title:FÄHLER: gsperrt Thema
+post_err_lockedthread_msg:Des Thema isch gsperrt. Wyteri Byytreg sin nimi erlaubt.

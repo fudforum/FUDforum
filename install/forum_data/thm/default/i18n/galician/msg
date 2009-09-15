@@ -1065,3 +1065,20 @@ code_title:Código:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/agochar
 social_sites:Redes sociais:
+postcheck_min_len_err:A túa mensaxe é moi curta. A lonxitude mínima é {PLURAL: post_min_len|dun carácter|de $1 caracteres}.
+postcheck_dup_err:Por favor, non crees fíos duplicados.
+btn_new_topic:Novo fío
+btn_new_pm:Nova mensaxe privada
+btn_post_reply:Publicar a resposta
+btn_tree_view:Vista en árbore
+btn_flat_view:Vista chá
+btn_about:Perfil
+btn_small_pm:Mensaxe privada
+btn_delete:borrar
+btn_edit:editar
+btn_reply:responder
+btn_forward:reenviar
+btn_quote:citar
+btn_email:Correo
+btn_show_posts:mensaxes
+btn_homepage:www

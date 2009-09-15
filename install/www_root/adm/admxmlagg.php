@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admxmlagg.php,v 1.3 2009/09/07 15:49:52 frank Exp $
+* $Id: admxmlagg.php,v 1.4 2009/09/15 18:11:30 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -116,6 +116,13 @@
 			to existing forum members be ignored.</font>
 		</td>
 		<td><?php draw_select('xmlagg_skip_non_forum_users', "Yes\nNo", "4\n0", ($xmlagg_xmlagg_opt & 4 ? 4 : 0)); ?></td>
+	</tr>
+
+	<tr class="field">
+		<td>Forum Signature:<br />
+			<font size="-1">A string of text to append to the end of every aggregated article loaded into the forum.</font>
+		</td>
+		<td><textarea name="xmlagg_custom_sig" rows="7" cols="30"><?php echo htmlspecialchars($xmlagg_custom_sig); ?></textarea></td>
 	</tr>
 
 	<tr class="fieldaction">

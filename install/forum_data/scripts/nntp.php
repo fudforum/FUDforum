@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.php,v 1.36 2009/05/08 06:11:16 frank Exp $
+* $Id: nntp.php,v 1.37 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,13 +16,13 @@
 	unset($_SERVER['REMOTE_ADDR']);
 
 	if (!ini_get("register_argc_argv")) {
-		exit("Enable the 'register_argc_argv' php.ini directive\n");
+		exit("Enable the 'register_argc_argv' php.ini directive.\n");
 	}
 	if ($_SERVER['argc'] < 2) {
-		exit("Missing Forum ID Parameter\n");
+		exit("Missing Forum ID Parameter.\n");
 	}
 	if (!($fid = (int)$_SERVER['argv'][1])) {
-		exit("Missing Forum ID Paramater\n");
+		exit("Missing Forum ID Paramater.\n");
 	}
 
 	if (strncmp($_SERVER['argv'][0], '.', 1)) {
@@ -81,9 +81,9 @@
 
 	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$nntp_adm->forum_id);
 
+	/* Set language & locale. */
+	$GLOBALS['usr'] = new stdClass();
 	list($GLOBALS['usr']->lang, $locale) = db_saq("SELECT lang, locale FROM ".sql_p."themes WHERE theme_opt=1|2 LIMIT 1");
-
-	/* set locale */
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 
 	$FUD_OPT_2 |= 128;

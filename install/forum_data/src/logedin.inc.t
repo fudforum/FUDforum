@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.inc.t,v 1.49 2009/01/29 18:37:17 frank Exp $
+* $Id: logedin.inc.t,v 1.50 2009/09/15 18:11:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,6 +13,7 @@ function &rebuild_stats_cache($last_msg_id)
 {
 	$tm_expire = __request_timestamp__ - ($GLOBALS['LOGEDIN_TIMEOUT'] * 60);
 
+	$obj = new stdClass();	// Initialize to prevent 'strict standards' notice.
 	list($obj->last_user_id, $obj->user_count) = db_saq('SELECT MAX(id), count(*)-1 FROM {SQL_TABLE_PREFIX}users');
 
 	$obj->online_users_anon	= q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}ses s WHERE time_sec>'.$tm_expire.' AND user_id>2000000000');

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.107 2009/09/09 16:15:00 frank Exp $
+* $Id: compiler.inc,v 1.108 2009/09/15 18:11:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,12 +18,25 @@ function resolve_refs($file_name)
 	}
 	$fc =& $GLOBALS['file_cache'][$file_name];
 
-	/* Fetch file definition */
-	$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/tmpl/'.$file_name;
+	/* Fetch file definition. */
+	$tset = $GLOBALS['__COMPILER__']['tset'];
+	$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'].'thm/'.$tset.'/tmpl/'.$file_name;
 	if (($str = @file_get_contents($GLOBALS['CURFILE'])) === false) {
-		$file1 = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
-		if (($str = @file_get_contents($file1)) === false) {
-			exit('referenced file named (<b>'.$file_name.'</b>) doesn\'t exist');
+		// Not found, look in PATH_INFO theme.
+		if (file_exists($GLOBALS['DATA_DIR'].'thm/'.$tset.'/.path_info')) {
+			$file1 = $GLOBALS['DATA_DIR'].'thm/path_info/tmpl/'.$file_name;
+			if (($str = @file_get_contents($file1)) === false) {
+				// Not found, look in DEFAULT theme.
+				$file1 = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
+				if (($str = @file_get_contents($file1)) === false) {
+					exit('referenced file named (<b>'.$file_name.'</b>) doesn\'t exist');
+				}
+			}
+		} else {	// Not a path_info theme
+			$file1 = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
+			if (($str = @file_get_contents($file1)) === false) {
+				exit('referenced file named (<b>'.$file_name.'</b>) doesn\'t exist');
+			}
 		}
 	}
 	if (($st = strpos($str, '{PHP_FILE: ')) !== false) {
@@ -647,8 +660,14 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$tname;
 	$cmpl['THEME_IMAGE_ROOT'] = $cmpl['THEME_ROOT'].'/images';
 
-	$file1 = $GLOBALS['DATA_DIR'].'thm/'.$tset.'/i18n/'.$lang.'/charset';
-	$file2 = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$lang.'/charset';
+	$charset = $GLOBALS['DATA_DIR'].'thm/'.$tset.'/i18n/'.$lang.'/charset';
+	if (!is_file($charset)) {
+		$charset = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$lang.'/charset';
+		if (!is_file($charset)) {
+			$charset = $GLOBALS['DATA_DIR'].'thm/default/i18n/englsh/charset';
+		}
+	}
+	$GLOBALS['char_set'] = trim(file_get_contents($charset));
 
 	$u = umask(0);
 	$perms = $GLOBALS['FUD_OPT_2'] & 8388608 ? 0700 : 0777;
@@ -666,9 +685,6 @@ function compile_all($tset='default', $lang='english', $tname='default')
 
 	$GLOBALS['CMP_LOC_S'] = array('{ROOT}', '{FULL_ROOT}', '{THEME_ROOT}', '{THEME_ROOT_DISK}', ".'';", ".''.");
 	$GLOBALS['CMP_LOC_K'] = array($cmpl['ROOT'], "'.\$GLOBALS['WWW_ROOT'].'", $cmpl['THEME_ROOT'], $cmpl['THEME_ROOT_DISK'], ';', '.');
-
-	$charset = @is_file($file1) ? $file1 : $file2;
-	$GLOBALS['char_set'] = trim(file_get_contents($charset));
 
 	/*	
 	 * Build the message array.
@@ -787,7 +803,7 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 	}
 }
 
-/* Copy localized images files to the theme's image directory. */
+/* Copy localized image files to the theme's image directory. */
 function copyimages($thm)
 {
 	$path = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images';

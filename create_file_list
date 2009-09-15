@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: create_file_list,v 1.24 2009/08/29 06:24:40 frank Exp $
+* $Id: create_file_list,v 1.25 2009/09/15 18:11:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -33,15 +33,15 @@ function create_file_archive($dir)
 			if (is_file($v . "/" . $f)) {
 				$fdata = file_get_contents($v . "/" . $f);
 				if ($f == 'lib.js') {
-					// Crude JavaScript compression
-					$multiline_comment = '/\/\*(?!-)[\x00-\xff]*?\*\//';
-					$fdata = preg_replace($multiline_comment, '', $fdata);
-					$singleline_comment = '/[^:]\/\/.*/';
-					$fdata = preg_replace($singleline_comment, '', $fdata);
-					$extra_space = '/\s+/';
-					$fdata = preg_replace($extra_space, ' ', $fdata);
-					$removable_space = '/\s?([\{\};\=\(\)\\\/\+\*-])\s?/';
-					$fdata = preg_replace('/\s?([\{\};\=\(\)\/\+\*-])\s?/', '\\1', $fdata);
+				 	// Crude JavaScript compression.
+				 	$multiline_comment = '/\/\*(?!-)[\x00-\xff]*?\*\//';
+				 	$fdata = preg_replace($multiline_comment, '', $fdata);
+				 	$singleline_comment = '/[^:]\/\/.*/';
+				 	$fdata = preg_replace($singleline_comment, '', $fdata);
+				 	// $extra_space = '/\s+/';
+				 	// $fdata = preg_replace($extra_space, ' ', $fdata);
+				 	// $removable_space = '/\s?([\{\};\=\(\)\/\+\*-])\s?/';
+				 	// $fdata = preg_replace($removable_space, '\\1', $fdata);
 				}
 				$data .= '//' . $f . '//0600//' . $dd . '//' . md5($fdata) . '//' . strlen($fdata) . "//\n" . $fdata . "\n";
 			} else {
@@ -60,7 +60,9 @@ function w_err($msg, $exit=true)
 	fwrite(STDERR, $msg . "\n"); 
 	exit;
 }
-	ini_set('memory_limit', '64M');
+
+/* main */
+	@ini_set('memory_limit', '64M');
 	@set_magic_quotes_runtime(0);
 
 	if (!defined('STDERR')) {
@@ -68,13 +70,13 @@ function w_err($msg, $exit=true)
 	}
 
 	if (!isset($_SERVER['argv'][1]) ) {
-		w_err("No Arguments\n\tSyntax: ./create_file_list directory_name [use compression]");
+		w_err("No arguments.\n\tSyntax: create_file_list directory_name [use compression]");
 	} else if (!@is_dir($_SERVER['argv'][1])) {
-		w_err("Supplied Argument [".$_SERVER['argv'][1]."] is not a valid directory");
+		w_err("Supplied argument [".$_SERVER['argv'][1]."] is not a valid directory.");
 	}
 
 	if (isset($_SERVER['argv'][2]) && !extension_loaded('zlib')) {
-		w_err('The zlib extension that is required to compress the archive is not installed.');
+		w_err('The zlib extension that is required to compress the archive is not installed. Restart without compression.');
 	}	
 
 	$_SERVER['argv'][1] = preg_replace('!/+$!', '', $_SERVER['argv'][1]);
@@ -83,12 +85,12 @@ function w_err($msg, $exit=true)
 	$check_sum = md5($archive);
 
 	$clean = array('<?' => 'PHP_OPEN_TAG', '<%' => 'PHP_OPEN_ASP_TAG');
-	
+
 	if (isset($_SERVER['argv'][2])) {
 		$a_len = str_pad(strlen($archive), 10, '0', STR_PAD_LEFT);
 		echo $check_sum . $a_len . strtr(gzcompress($archive, 9), $clean);
 	} else {
 		$clean['<?'] = 'RAW_PHP_OPEN_TAG';
 		echo $check_sum . strtr($archive, $clean);
-	}	
+	}
 ?>

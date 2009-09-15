@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.45 2009/04/29 20:06:35 frank Exp $
+* $Id: admprune.php,v 1.46 2009/09/15 18:11:30 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -148,6 +148,7 @@ delete topics with no messages in the last 10 days.</p>
 			echo '<option value="'.$r[0].'">&nbsp;&nbsp;-&nbsp;'.$r[1].'</option>';
 		}
 		unset($c);
+		/* echo '<option value="P">- Private Messages -</option>'; */
 		echo '</select>';
 	?>
 </td></tr>
