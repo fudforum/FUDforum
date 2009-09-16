@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.2 2009/08/09 11:33:37 frank Exp $
+* $Id: db.inc,v 1.3 2009/09/16 05:59:22 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -13,9 +13,18 @@
 class db { public static $db, $ar, $res, $buf; }
 
 if (empty(db::$db)) {
-	// TODO: pconnect support
+	if (substr($GLOBALS['DBHOST'], 0, 1) == ':') {	// Socket connection.
+		$socket = substr($GLOBALS['DBHOST'], 1);
+		$GLOBALS['DBHOST'] = 'localhost';
+	} else {
+		$socket = NULL;
+	}
 
-	db::$db = new mysqli($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $GLOBALS['DBHOST_DBNAME']);
+	if ($GLOBALS['FUD_OPT_1'] & 256 && version_compare(PHP_VERSION, '5.3.0', '>=')) {	// Enable pconnect for PHP 5.3+.
+		$GLOBALS['DBHOST'] .= 'p:';
+	}
+
+	db::$db = new mysqli($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'], $GLOBALS['DBHOST_DBNAME'], NULL, $socket);
 	if (mysqli_connect_errno()) {
 		fud_sql_error_handler("Failed to establish database connection, MySQLi says: ".mysqli_connect_error(), '', '', '');
 	}

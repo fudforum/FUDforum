@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: xmlagg_adm.inc,v 1.2 2009/09/15 18:11:29 frank Exp $
+* $Id: xmlagg_adm.inc,v 1.3 2009/09/16 05:59:22 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,7 +50,7 @@ class fud_xmlagg_adm
 			"._esc($this->name).",
 			"._esc($this->url).",
 			".$this->xmlagg_opt.",
-			".$this->custom_sig."
+			"._esc($this->custom_sig)."
 			)");
 
 		if ($this->xmlagg_opt & 1) {

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php,v 1.16 2009/06/24 14:37:04 frank Exp $
+* $Id: index.php,v 1.17 2009/09/16 05:59:22 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,7 +41,7 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 <h4>Versions:</h4>
 <b>FUDforum</b>: <?php echo $FORUM_VERSION; ?><br />
 <b>PHP</b>: <?php echo PHP_VERSION; ?><br />
-<b>Database</b>: <?php echo __dbtype__; ?><br />
+<b>Database</b>: <?php echo __dbtype__ .' ('. $GLOBALS['DBHOST_DBTYPE'] .')'; ?><br />
 <b>DB version</b>: <?php echo get_version(); ?><br />
 <span style="float:right;"><a href="admsysinfo.php?<?php echo __adm_rsid; ?>">More... &raquo;</a></span>
 

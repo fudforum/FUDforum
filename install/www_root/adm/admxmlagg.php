@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admxmlagg.php,v 1.4 2009/09/15 18:11:30 frank Exp $
+* $Id: admxmlagg.php,v 1.5 2009/09/16 05:59:22 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,7 +120,7 @@
 
 	<tr class="field">
 		<td>Forum Signature:<br />
-			<font size="-1">A string of text to append to the end of every aggregated article loaded into the forum.</font>
+			<font size="-1">A string of text to append to the end of every aggregated article. Use <i>{link}</i> to refer to the article's URL.</font>
 		</td>
 		<td><textarea name="xmlagg_custom_sig" rows="7" cols="30"><?php echo htmlspecialchars($xmlagg_custom_sig); ?></textarea></td>
 	</tr>

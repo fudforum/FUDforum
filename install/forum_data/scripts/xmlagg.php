@@ -3,7 +3,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: xmlagg.php,v 1.4 2009/09/15 18:11:29 frank Exp $
+* $Id: xmlagg.php,v 1.5 2009/09/16 05:59:22 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -159,8 +159,13 @@
 			continue;
 		}
 
-		// Apply custom signature.
-		$m->body .= $config->custom_sig;
+		// Apply custom signature, may contain {link} tag.
+		if ( isset($node->getElementsByTagName('link')->item(0)->nodeValue)) {
+		    $link = $node->getElementsByTagName('link')->item(0)->nodeValue;
+		} else {
+		    $link = $node->getElementsByTagName('link')->item(0)->getAttribute('href');
+		}
+		$m->body .= str_ireplace('{link}', $link, $config->custom_sig);
 
  		echo "Loading article: ". $m->subject ." (".$poster.")\n";
 		try {
