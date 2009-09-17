@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: email_msg_format.inc,v 1.24 2009/08/04 19:26:58 frank Exp $
+* $Id: email_msg_format.inc,v 1.25 2009/09/17 19:52:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,9 +13,9 @@ function plain_text(&$data, $qs, $qm, $qe)
 {
 	$data = post_to_smiley($data);
 
-	/* handle quote tags */
+	/* Handle quote tags. */
 	while (($s = strpos($data, $qs)) !== false) {
-		/* for recursive quote tags we need to find the start of the very last tag */
+		/* For recursive quote tags we need to find the start of the very last tag. */
 		while (($s2 = strpos($data, $qs, $s+1)) !== false) {
 			$s = $s2;
 		}
@@ -33,7 +33,7 @@ function plain_text(&$data, $qs, $qm, $qe)
 		$data = substr_replace($data, $str, $s, ($e2 + strlen($qe) - $s));
 	}
 
-	/* handle links, the wordwrapping may have corrupted the caption */
+	/* Handle links, the wordwrapping may have corrupted the caption. */
 	while (($s = strpos($data, '<a href="'))) {
 		//$s += 9;
 		if (!($e = strpos($data, '</a>', $s))) {
@@ -45,7 +45,7 @@ function plain_text(&$data, $qs, $qm, $qe)
 		$data = substr_replace($data, substr($data, $s + 9, ($e2 - $s - 9)), $s, ($e + 4 - $s));
 	}
 
-	/* handle encoded e-mails */
+	/* Handle encoded e-mails. */
 	if (strpos($data, '&#64;') !== false) {
 		$data = str_replace('&#64;', '@', $data);
 	}
@@ -53,6 +53,30 @@ function plain_text(&$data, $qs, $qm, $qe)
 		$data = str_replace('&#58;&#47;&#47;', '://', $data);
 	}
 
-	return html_entity_decode(reverse_fmt(strip_tags($data)));
+	// Cleanup.
+	$data = reverse_fmt(strip_tags($data));
+
+	// If required, apply word wrapping (take special care of quoted text).
+	$m = (int) $GLOBALS['WORD_WRAP'];
+	if ($m > 0) {
+		$lines = explode("\n", $data);
+		$new_data = array();
+		foreach($lines as $line) {
+			if (substr($line, 0, 8) == '> > > > ') {
+				$wrapped_data[] = str_replace("\n", "\n> > > > ", wordwrap($line, $m-8));	
+			} elseif (substr($line, 0, 6) == '> > > ') {
+				$wrapped_data[] = str_replace("\n", "\n> > > ", wordwrap($line, $m-6));
+			} elseif (substr($line, 0, 4) == '> > ') {
+				$wrapped_data[] = str_replace("\n", "\n> > ", wordwrap($line, $m-4));
+			} elseif (substr($line, 0, 2) == '> ') {
+				$wrapped_data[] = str_replace("\n", "\n> ", wordwrap($line, $m-2));
+			} else {
+				$wrapped_data[] = wordwrap($line, $m);
+			}
+		}
+		$data = implode("\n", $wrapped_data);
+	}
+
+	return html_entity_decode($data);
 }
 ?>

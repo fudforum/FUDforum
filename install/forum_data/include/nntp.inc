@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.84 2009/09/15 18:11:29 frank Exp $
+* $Id: nntp.inc,v 1.85 2009/09/17 19:52:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -668,7 +668,7 @@ class fud_nntp
 		}
 
 		fputs($this->fs, "From: $from\r\n");
-	        fputs($this->fs, "Newsgroups: $this->newsgroup\r\n");
+		fputs($this->fs, "Newsgroups: $this->newsgroup\r\n");
 		if (function_exists('iconv_mime_encode')) {
 			fputs($this->fs, iconv_mime_encode("Subject", $subject,
 				array('scheme'=>'Q', 'input-charset'=>$GLOBALS['CHARSET'], 'output-charset'=>$GLOBALS['CHARSET']))
@@ -677,33 +677,40 @@ class fud_nntp
 		        fputs($this->fs, "Subject: $subject\r\n");
 		}
 
-	        if ($GLOBALS['FORUM_TITLE']) {
+		if ($GLOBALS['FORUM_TITLE']) {
 	        	fputs($this->fs, "Organization: ".$GLOBALS['FORUM_TITLE']."\r\n");
-	        }
+		}
 
-	        fputs($this->fs, "Date: ".date("r")."\r\n");
-	        fputs($this->fs, "Reply-To: $from\r\n");
-	        fputs($this->fs, "Lines: ".substr_count($body,"\n")."\r\n");
+		fputs($this->fs, "Date: ".date("r")."\r\n");
+		fputs($this->fs, "Reply-To: $from\r\n");
+		fputs($this->fs, "Lines: ".substr_count($body,"\n")."\r\n");
 
-	        // will be used to identify forum's messages
-	        fputs($this->fs, "X-FUDforum: ".md5($GLOBALS['WWW_ROOT'])." <$forum_msg_id>\r\n");
+		// Will be used to identify forum's messages.
+		fputs($this->fs, "X-FUDforum: ".md5($GLOBALS['WWW_ROOT'])." <$forum_msg_id>\r\n");
 
-	        if ($reply_to) {
-	        	fputs($this->fs, "References: <".$reply_to.">\r\n");
-	        }
+		if ($reply_to) {
+			fputs($this->fs, "References: <".$reply_to.">\r\n");
+		}
 
-	        fputs($this->fs, "User-Agent: FUDforum ".$GLOBALS['FORUM_VERSION']."\r\n");
+		fputs($this->fs, "User-Agent: FUDforum ".$GLOBALS['FORUM_VERSION']."\r\n");
 		fputs($this->fs, "Content-Type: text/plain; charset=".$GLOBALS['CHARSET']."; format=flowed\r\n");
-	        fputs($this->fs, "\r\n$body\r\n");
 
-	        // handle file attachments, if there are any
-	        if (is_array($attch)) {
-	        	fputs($this->fs, "\r\n");
-	        	foreach ($attch as $fname => $file_data) {
-	                        fputs($this->fs, uuencode($file_data, $fname));
+		// Split body at first signature.
+		$sigpos = strpos($body, "\n-- \n");
+		$body_before_sig = $sigpos ? substr($body, 0, $sigpos) : $body;
+		$body_after_sig  = $sigpos ? substr($body, $sigpos)    : '';
+
+		fputs($this->fs, "\r\n$body_before_sig");
+
+		// Insert file attachments before the first signature to prevent signature pruning from removing them.
+		if (is_array($attch)) {
+			fputs($this->fs, "\r\n");
+			foreach ($attch as $fname => $file_data) {
+				fputs($this->fs, uuencode($file_data, $fname));
 			}
 		}
 
+		fputs($this->fs, "$body_after_sig\r\n");
 		fputs($this->fs, ".\r\n");
 
 		if (!$this->compare_return_codes(240)) {

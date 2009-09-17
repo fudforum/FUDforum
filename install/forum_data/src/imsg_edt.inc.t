@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.180 2009/08/02 20:57:34 frank Exp $
+* $Id: imsg_edt.inc.t,v 1.181 2009/09/17 19:52:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -486,7 +486,7 @@ class fud_msg_edit extends fud_msg
 				$to = !$to ? $tmp : array_unique(array_merge($to, $tmp));
 				$notify_type = 'thr';
 			}
-	
+
 			if ($mtf->forum_opt & 64) {
 				$tmp = db_all('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='.$mtf->forum_id);
 				$to = !$to ? $tmp : array_unique(array_merge($to, $tmp));
@@ -531,8 +531,11 @@ class fud_msg_edit extends fud_msg
 				fud_use('nntp.inc', true);
 
 				$nntp_adm = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}nntp WHERE id='.$mtf->nntp_id);
-				$nntp = new fud_nntp;
+				if (!empty($nntp_adm->custom_sig)) {	// Add signature marker.
+					$nntp_adm->custom_sig = "\n-- \n". $nntp_adm->custom_sig;
+				}
 
+				$nntp = new fud_nntp;
 				$nntp->server = $nntp_adm->server;
 				$nntp->newsgroup = $nntp_adm->newsgroup;
 				$nntp->port = $nntp_adm->port;
@@ -544,13 +547,16 @@ class fud_msg_edit extends fud_msg
 				define('sql_p', '{SQL_TABLE_PREFIX}');
 
 				$lock = $nntp->get_lock();
-				$nntp->post_message($mtf->subject, $body."\n".$nntp_adm->custom_sig, $from, $mtf->id, $replyto_id, $attach);
+				$nntp->post_message($mtf->subject, $body.$nntp_adm->custom_sig, $from, $mtf->id, $replyto_id, $attach);
 				$nntp->close_connection();
 				$nntp->release_lock($lock);
 			} else {
 				fud_use('mlist_post.inc', true);
 				
 				$r = db_saq('SELECT name, additional_headers, custom_sig FROM {SQL_TABLE_PREFIX}mlist WHERE id='.$mtf->mlist_id);
+				if (!empty($r[2])) {	// Add signature marker.
+					$r[2] = "\n-- \n". $r[2];
+				}
 				mail_list_post($r[0], $from, $mtf->subject, $body.$r[2], $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
 			}
 		}
