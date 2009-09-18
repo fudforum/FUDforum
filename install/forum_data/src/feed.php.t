@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: feed.php.t,v 1.4 2009/08/27 18:20:04 frank Exp $
+* $Id: feed.php.t,v 1.5 2009/09/18 14:42:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -131,14 +131,14 @@ function smiley_full(&$data)
 	}
 
 	if ($FEED_MAX_N_RESULTS < 1) { // handler for events when the value is not set
-		$FEED_MAX_N_RESULTS = 100;
+		$FEED_MAX_N_RESULTS = 20;
 	}
 	$limit  = (isset($_GET['n']) && $_GET['n'] <= $FEED_MAX_N_RESULTS) ? (int)$_GET['n'] : $FEED_MAX_N_RESULTS;
 
 	$feed_data = $feed_header = $join = '';
 	switch ($mode) {
 		case 'm':
-			$lmt = " t.moved_to=0 AND m.apr=1";
+			$lmt = ' t.moved_to=0 AND m.apr=1';
 			/* check for various supported limits
 			 * cat		- category
 			 * frm		- forum
@@ -176,11 +176,12 @@ function smiley_full(&$data)
 			if (isset($_GET['de'])) {
 				$lmt .= ' AND m.post_stamp <='.(int)$_GET['de'];
 			}
+
 			/* This is an optimization so that the forum does not need to
 			 * go through the entire message db to fetch latest messages.
 			 * So, instead we set an arbitrary search limit of 5 days.
 			 */
-			if (isset($_GET['l']) && $lmt == " t.moved_to=0 AND m.apr=1") {
+			if (isset($_GET['l']) && $lmt == ' t.moved_to=0 AND m.apr=1') {
 				$lmt .= ' AND t.last_post_date >=' . (__request_timestamp__ - 86400 * 5);
 			}
 
@@ -272,7 +273,7 @@ function smiley_full(&$data)
 			 * n		- number of rows to get
 			 * l		- latest
 			 */
-			$lmt = " t.moved_to=0 AND m.apr=1";
+			$lmt = ' t.moved_to=0 AND m.apr=1';
 			if (isset($_GET['cat'])) {
 				$lmt .= ' AND f.cat_id IN('.multi_id($_GET['cat']).')';
 			}
@@ -293,7 +294,7 @@ function smiley_full(&$data)
 			 * go through the entire message db to fetch latest messages.
 			 * So, instead we set an arbitrary search limit if 5 days.
 			 */
-			if (isset($_GET['l']) && $lmt == " t.moved_to=0 AND m.apr=1") {
+			if (isset($_GET['l']) && $lmt == ' t.moved_to=0 AND m.apr=1') {
 				$lmt .= ' AND t.last_post_date >=' . (__request_timestamp__ - 86400 * 5);
 			}
 

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsql.php,v 1.7 2009/09/07 15:49:52 frank Exp $
+* $Id: admsql.php,v 1.8 2009/09/18 14:42:10 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -57,7 +57,7 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 	$sqlfile = explode(";\n", $sqlfile);
 
 	foreach ($sqlfile as $sql) {
-		if (preg_match("/[a-zA-Z]/", $sql) and !preg_match("/^(#|--)/", $sql)) {
+		if (preg_match('/[a-zA-Z]/', $sql) and !preg_match('/^(#|--)/', $sql)) {
 			if (preg_match('/^\s*use\s+\w+\s*;?$/i', $sql)) {
 				echo '<div class="tutor">For security reasons you may not switch to another database</div>';
 				break;
@@ -95,7 +95,7 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 		}
 
 		$num_rows = db_count($q);
-		if (!$num_rows) $num_rows = 0;
+		if (!$num_rows) $num_rows = ($i-1);
 		echo '<br /><i>'. $num_rows .' row(s) returned.</i>';
 	}
 }

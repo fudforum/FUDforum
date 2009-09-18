@@ -585,3 +585,11 @@ pm_err_nopm_msg:Du chasch s Syschtem fir privati Nochrichte nit verwände, wel s
 pm_update:Verwändet s Syschtem fir privati Nochrichte
 post_err_lockedthread_title:FÄHLER: gsperrt Thema
 post_err_lockedthread_msg:Des Thema isch gsperrt. Wyteri Byytreg sin nimi erlaubt.
+err_coppa_title:FÄHLER: Dyy Konto isch nonig bstetigt wore
+err_coppa_msg:Mir hän no kei Bstetigung iberchuu vun eme Eltereteil oder eme gsetzlige Vormund, wu Dir deet erlaube, Nochrichte aazlege. Wänn Du imfall Dyy COPPA-Formular verlore hesch, <a href="{TEMPLATE: err_coppa_msg_lnk}">lueg s der nonemol aa</a>.
+err_banned_acct_title:FÄHLER: Du bisch gsperrt wore.
+err_banned_acct_msg:Dyy Konto isch wäge Verletzige vu dr Forumsregle {IF: $ban_expiry}erscht emol bis zum {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent{ENDI} gsperrt wore.
+post_err_edttimelimit_title:FÄHLER
+post_err_edttimelimit_msg:Du chasch Dyyy Byytrag nimmi bearbeite
+post_err_noannontopics_msg2:<legend>FÄHLER: Rächt länge nit</legend>Anonymi Benutzer derfe kei Themene aalege.
+post_err_noannonposts_msg2:<legend>FÄHLER: Rächt länge nit</legend>Anonymi Benutzer derfe kei Antwort gee.

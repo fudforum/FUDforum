@@ -772,5 +772,41 @@ th_expr_two_month:2 meses
 th_expr_four_month:4 meses
 th_expr_one_year:1 an
 thread_mod_delete:Escafar
+action_latest_post:Darrièr messatge
+online_today_last_visit:Darrièra visita uèi
+online_today_update:Veire la lista de las personas qu'an visitat lo forum uèi.
+logedin_todays_visitors:Visitaires del jorn
+logedin_latest_post:Darrièr messatge sul forum :
+register_show_avatar:Far veire los avatars :
+register_show_avatar_desc:Vos permet de veire pas los avatars dels autres utilizaires quand legissètz lors messatges
+drawmsg_view_rest_post:Veire la seguida d'aqueste messatge
+post_re:Re :
+forumsel_goto_forum:Anar al forum :
+minimsg_thread_view:Apercebut del fial
+split_th_post_by:Messatge de :
+split_th_posted_on:Postat lo :
+split_th_subject:Subjècte :
+split_th_new_thread_title:Títol del fial novèl :
+split_th_forum:Forum :
+split_th_split_sel:Devesir los messatges seleccionats
+split_th_split_unsel:Devesir los messatges pas seleccionats
+split_th_messages:Messatges
+split_th_select:Seleccionatz
+report_report_post:Raportar un messatge
+quicklogin_login:Nom d'utilizaire :
+quicklogin_password:Senhal :
+quicklogin_use_cookies:Utilizar un cookie ?
+quicklogin_login_btn:Connexion
+quick_reply:Responsa rapida
+post_notification_desc:Permet de recebre una notificacion tre que qualqu'un a respondut a aqueste messatge.
+post_all_ext_allowed:(pas restrench)
+maximize_category:Maximizar la categoria
+maximize_message:Maximizar lo messatge
+no_view_perm:Avètz pas los privilègis necessaris per accedir a aqueste fial.
+report_empty_report:Podètz pas mandar un rapòrt void. Picatz lo motiu d'aqueste rapòrt.
+report_already_reported_title:Ja raportat
+report_already_reported_msg:Aqueste messatge es estat raportat ja e nòstra còla va prene coneissença d'aqueste incident lèu.
+register_err_toomanyimages:Podètz pas inserir mai de {GVAR: FORUM_IMG_CNT_SIG} imatges dins vòstra signatura.
+pmsg_prev_msg:Messatge precedent
 code_select_all:Seleccionar tot
 code_show_hide:Afichar / amagar
