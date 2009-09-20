@@ -1,0 +1,1025 @@
+# Messages for Hungarian (Magyar)
+# Exported from translatewiki.net
+# Author: Dani
+# Author: Glanthor Reviol
+
+action:Művelet
+add_to_buddy_list:hozzáadás a barátok listájához
+admin:Adminisztrátor
+admin_control_panel:Adminisztrátori vezérlőpult
+administrator:Adminisztrátor
+attachment:Csatolmány:
+avatar:Avatár:
+average_post_count:{PLURAL: u->posted_msg_count|Egy|$1} üzenet (átlagosan {PLURAL: avg|egy|$1} üzenet naponta)
+biography:Biográfia:
+birth_date:Születési dátum:
+by:Írta:
+by_mod:moderátor szerint
+current_time:Jelenlegi idő
+custom_avatar_queue:Egyéni avatar-várólista
+date_posted:Beküldés dátuma
+date_registered:Regisztráció dátuma:
+download_counter:Letöltve {PLURAL: v[3]|egy|$1} alkalommal
+pmsg_download_counter:Letöltve {PLURAL: r->dlcount|egy|$1} alkalommal
+email:E-mail cím:
+email_to_friend:Elküldés e-mailben
+email_to_friend_desc:A lap URL-címének elküldése barátaidnak e-mailen keresztül
+email_user:E-mail üzenet küldése a felhasználónak
+faq:Segítség
+first_unread_msg:Ugrás az olvasatlan üzenetekre
+first_unread_msg_desc:Ugrás az első olvasatlan üzenetre ebben a témában
+flat_view:Visszatérés az alapnézethez
+forum:Fórum:
+forum_icon:Fórum ikon
+forum_new_messages:Új üzenetek
+forum_none_messages:Csak regisztrált felhasználók követhetik az olvasott és olvasatlan üzeneteket
+forum_old_messages:Nincsenek új üzenetek
+from:Feladó:
+gender:Nem:
+go:Menj
+goto_next_msg:Ugrás a következő üzenetre
+goto_prev_msg:Ugrás az előző üzenetre
+home:Kezdőlap
+homepage:Honlap:
+icq_control_panel:ICQ online üzenőfal
+icq_message_form:ICQ üzenetküldő űrlap:
+ignore_user:a felhasználó üzeneteinek figyelmen kívül hagyása
+im_aim:AIM Handle:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:Kép:
+index_forum:Fórum
+index_new_posts:Új üzenetek érkeztek az utolsó olvasás óta
+index_no_new_posts:Nincsenek új üzenetek az utolsó olvasás óta
+index_url_redirection:Átirányítás
+interests:Érdeklődési kör:
+last_post:Utolsó üzenet
+last_thread_msg:Ugrás a téma utolsó üzenetére
+legend:Jelmagyarázat
+location:Helyszín:
+lock_thread:Téma lezárása
+locked:Lezárva
+locked_with_new_posts:Lezárva (vannak olvasatlan üzenetek)
+logged_in_list:Bejelentkezett felhasználók listája
+login:Bejelentkezés
+login_header:Bejelentkezés:
+logout:Kijelentkezés
+mark_all_read:az összes üzenet olvasottnak jelölése
+mark_all_read_desc:Az összes olvasatlan üzeneted olvasottnak lesz jelölve
+members:Tagok
+message:Üzenet
+message_counter:Felhasználóink összesen <b>{PLURAL: post_count|egy|$1} üzenetet</b> írtak, <b>{PLURAL: thread_count|egy|$1} témában</b>.
+message_index:Üzenetlista
+message_index_desc:Üzenetek listájának megtekintése
+minimize_category:Kategória elrejtése
+minimize_message:Üzenet elrejtése
+moderation_queue:Moderátori várólista
+moderator:Moderátor
+moderator_of:Moderátora:
+moderator_options:Moderátori beállítások
+moderators:{PLURAL: modcount|Moderátor|Moderátorok}
+more_unread_messages:több olvasatlan üzenet
+more_unread_messages_desc:További olvasatlan üzenetek megjelenítése, és a jelenleg látható üzenetek olvasottnak jelölése
+move_thread:Mozgatás
+moved:Áthelyezve egy másik fórumba
+moved_thread_message:Ez a téma át lett helyezve egy másik fórumba
+na:n/a
+new_posts:Új üzenetek
+new_private_messages:<span class="GenTextRed">({VAR: c})</span> olvasatlan privát {PLURAL: c|üzeneted|üzeneted} van
+new_thread:Új téma létrehozása
+newest_user:A legújabb regisztrált felhasználó:
+next_page:Következő oldal
+next_thread:Következő téma:
+no_messages:Ebben a fórumban nincsenek üzenetek.
+no_msg_body:Az üzenetnek nincs szövege
+no_new_posts:Nincsenek új üzenetek
+no_posts:Nincsenek üzenetek
+no_subscribed_forums:Nem iratkoztál fel egyetlen fórumra sem
+no_subscribed_threads:Nem iratkoztál fel egyetlen témára sem
+no_bookmarked_threads:Nincsenek témák a könyvjelzők listájában
+no_unread_locked:Ez a téma le van zárva
+no_unread_msg:Ebben a témában nincsenek új üzenetek
+no_unread_msg_unreg:Az olvasott és olvasatlan üzeneteket csak a regisztrált felhasználók követhetik nyomon
+num_pages:Oldalak ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|szavazat|szavazat}
+occupation:Foglalkozás:
+off:kikapcsolva
+on:bekapcsolva
+page_timings:Az oldal elkészítése {VAR: page_gen_time} másodpercet vett igénybe.
+pm:Privát üzenetek
+poll:Szavazás:
+post_count:Üzenetek száma {VAR: u_pcount}
+post_count_l:Üzenetek száma:
+posts:Üzenetek
+posts_c:Üzenetek:
+prev_thread:Előző téma:
+usrinfo_private_message:Privát üzenet:
+profile:Beállítások
+profile_desc:A felhasználói vezérlőpult megtekintése
+rate_thread:Téma értékelése
+rating:Értékelés
+rating_track:A(z) <b>{VAR: thr->subject}</b> téma értékeléseinek beállítása:
+refresh_list:Lista frissítése
+register:Regisztráció
+registered:Regisztráció ideje:
+registered_on:Regisztráció ideje: {TEMPLATE: registered_on_date}
+replies:Válaszok
+report_to_mod:Üzenet jelentése a moderátornak
+reported_messages:Jelentett üzenetek
+search:Keresés
+sel_todays_posts:Mai üzenetek
+sel_todays_posts_desc:Mai üzenet-szűrő be- vagy kikapcsolása (csak a ma érkezett üzenetek megjelenítése)
+sel_unanswered_posts:Megválaszolatlan üzenetek
+sel_unanswered_posts_desc:Megválaszolatlan üzenet-szűrő be- vagy kikapcsolása (csak a válasz nélküli üzenetek megjelenítése)
+sel_unread_messages:Olvasatlan üzenetek
+sel_unread_messages_desc:Olvasatlan üzenet-szűrő be- vagy kikapcsolása (csak az olvasatlan üzenetek megjelenítése)
+send:Küldés
+send_pm_desc:Privát üzenet küldése ennek a felhasználónak
+sender_email:Küldő e-mail címe:
+sender_name:Küldő neve:
+show_posts_by:{VAR: u_alias} üzeneteinek megjelenítése
+size:Méret:
+status:Állapot:
+status_line:Jelenleg <b>{PLURAL: st_obj->online_users_reg|egy|$1} tag</b>, <b>{PLURAL: st_obj->online_users_hidden|egy|$1} rejtett tag</b> és <b>{PLURAL: st_obj->online_users_anon|egy|$1} vendég</b> van jelen a fórumon.
+sticky:kiemelt:
+stop_ignoring:felhasználó figyelmen kívül hagyásának befejezése
+sub_to_thread:Feliratkozás a témára
+sub_to_thread_desc:Értesítést kérek a témába érkezett új üzenetekről
+bookmark_thread:Téma könyvjelzőbe mentése
+bookmark_thread_desc:Téma hozzáadása a könyvjelzőidhez
+subject:Tárgy
+subscribe:Feliratkozás
+subscribed_forums:Fórum-feliratkozások
+subscribed_forums_desc:Feliratkozott fórum-szűrő be- vagy kikapcsolása (csak azok az üzenetek jelennek  meg, melyek azokba a fórumokba érkeznek, melyekre feliratkoztál)
+subscribed_threads:Téma-feliratkozások
+subscribed_threads_desc:Feliratkozott téma-szűrő be- vagy kikapcsolása (csak azok az üzenetek jelennek  meg, melyek azokba a témákba érkeznek, melyekre feliratkoztál)
+bookmarked_threads:Könyvjelzőzött témák
+thread:Téma:
+thread_announcement:Bejelentés:
+thread_first_unread_msg:Ugrás a téma első olvasatlan üzenetéhez
+thread_thread:Téma
+threads:Témák
+time:Idő
+todays_posts:Mai üzenetek
+todays_posts_desc:Az összes ma érkezett üzenet megjelenítése
+un_ignore_user:a felhasználó által érkezett üzenetek figyelmen kívül hagyása
+unanswered_posts:Válaszolatlan üzenetek
+unanswered_posts_desc:Az összes válasz nélküli üzenet megjelenítése
+unlock_thread:Téma lezárásának feloldása
+unread_msg:Ebben a témában olyan üzenetek vannak, melyeket még nem olvastál el
+unread_msg_locked:Lezárt téma olvasatlan üzenetekkel
+unread_posts:Olvasatlan üzenetek
+unread_posts_desc:Olvasatlan üzenetek megtekintése
+unsub_from_thread:Leiratkozás a témáról
+unsub_from_thread_desc:Nem kérek értesítéseket a témába érkezett új üzenetekről
+unbookmark_thread:Eltávolítás a könyvjelzőkből
+unbookmark_thread_desc:A téma eltávolítása a könyvjelzőid listájából
+unsubscribe:Leiratkozás
+unsubscribe_desc:Nem kérek értesítést a fórumban nyitott új témákról
+updated_on:Frissítve:
+user:Felhasználó
+user_counter:Jelenleg <b>{VAR: st_obj->user_count}</b> regisztrált {PLURAL: st_obj->user_count|felhasználónk|felhasználónk} van.
+user_info:Felhasználói információk
+user_info_l:Felhasználói információk {VAR: u->alias}
+user_offline:{VAR: obj->login} jelenleg nem érhető el
+user_online:{VAR: obj->login} jelenleg itt van
+usrinfo_last_post:Utolsó üzenet:
+view_results:Eredmények megtekintése
+views:Megtekintések
+vote:{PLURAL: frm->n_rating|egy|$1} szavazat
+vote_button:Szavazás
+vote_for_thread:Szavazás
+was_moved_msg:A moderátor áthelyezte a(z) <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> üzenetet a(z) <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> témába
+welcome_message:Szia, <b>{VAR: usr->alias}</b>! Legutóbb ekkor jártál erre: {TEMPLATE: welcome_message_date}
+what_ppl_doing:Mit csinálnak az emberek
+reported_del_report:Törlési jelentés
+reported_reason:Ok
+reported_on:Ideje:
+reported_reported_by:Jelentette:
+reported_reported_msg:Jelentett üzenet:
+modque_pending_approval:Elfogadásra váró üzenetek
+modque_approve:Elfogadás
+modque_delete:Törlés
+modque_no_message:Nincsenek elfogadásra váró üzenetek
+pmsg_new_messages:Olvasatlan privát üzenet
+pmsg_old_messages:Privát üzenet olvasása
+deny_recipt:visszaigazolás letiltása
+deny_recipt_desc:Ne küldjön megerősítést arról, hogy elolvastad az üzenetet
+restore_to:Visszaállítás ide:
+move_to:Áthelyezés:
+list_referes_referrals:Hivatkozók
+list_referes_members:Hivatkozott tagok
+list_referes_member:Tag
+referals_none:Még nincsenek hivatkozó tagok.
+referals_post_count:Üzenetek száma
+referals_registered_on:Regisztráció ideje:
+referals_action:Művelet
+pmsg_all:összes
+pmsg_none:semmi
+folder:Mappa:
+pmsg_replied:megválaszolva
+pmsg_forwarded:továbbítva
+pmsg_subject:Tárgy
+pmsg_author:Szerző
+pmsg_time:Idő
+pmsg_selected:Kiválasztott
+pmsg_delete:Törlés
+cur_ppage_pm:Privát üzenetek
+writing_pm:Privát üzenet írása
+browsing_folder:A(z) <b>{VAR: folders[$folder_id]}</b> mappa böngészése
+inbox:Beérkező
+draft:Piszkozatok
+sent:Elküldött
+trash:Szemetes
+msg_author:Szerző
+avatar_sel_form:Avatarválasztó űrlap
+no_avatars:Nincsenek avatarok
+month_1:január
+month_2:február
+month_3:március
+month_4:április
+month_5:május
+month_6:június
+month_7:július
+month_8:augusztus
+month_9:szeptember
+month_10:október
+month_11:november
+month_12:december
+male:férfi
+female:nő
+unspecified:NINCS MEGADVA
+register_msg_tree_view:Alap témalistázás/Üzenetek listázása faként
+register_tree_msg_view:Témák listázása faként/Alap üzenetlistázás
+register_flat_view:Alap üzenet- és témalistázás
+use_forum_default:A fórum alapértelmezett beállításának használata
+finduser_user_info:Felhasználói információ
+finduser_by_login:Bejelentkezési név alapján:
+finduser_submit:Keresés
+finduser_no_such_user:Nincs ilyen felhasználó.
+finduser_user:Felhasználó
+finduser_postcount:Üzenetek száma
+finduser_joindate:Csatlakozás dátuma
+finduser_action:Művelet
+yes:Igen
+no:Nem
+register_email:E-mail
+edit_time_limit:<b>Szerkesztési időkorlát</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> perc
+no_edit_time_limit:<b>Szerkesztési időkorlát</b>: <b>korlátlan</b>
+pmuserloc_login:Bejelentkezés:
+pmuserloc_submit:Elküldés
+pmuserloc_user:Felhasználó
+pmuserloc_no_result:Nincsenek eredmények
+register_builtin:Beépített
+register_specify_url:URL megadása
+register_uploaded:Avatar feltöltése
+register_login:Bejelentkezés:
+register_password:Jelszó:
+register_conf_pass:Jelszó megerősítése:
+register_email_desc:Egy érvényes e-mail címet kell megadnod. A Beállítások szakaszban beállíthatod, hogy ne jelenjen meg.
+register_name:Név:
+register_your_pass:Jelszavad:
+register_update:Frissítés
+register_avatar_type:Avatar típusa:
+register_del_avatar:Avatar törlése
+register_avatar:Avatar:
+register_sel_avatar:Avatar kiválasztása
+register_custom_avatar_rules:A saját avatar addig nem fog megjelenni, míg egy adminisztrátor el nem fogadja.<br /><span class="SmallText"> Az avatar ne legyen nagyobb, mint <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} képpont</b>, és <b>jpg</b>, <b>gif</b> or <b>png</b> formátumú képet válassz ki.
+register_custom_avatar_url:Saját avatar URL-címe:
+register_preview:Előnézet
+register_custom_avatar_upload:Saját avatar-fájl:
+register_register:Regisztráció
+register_required:Szükséges információ
+register_required_desc:Az összes mező kötelező.  A jelszavak kis- és nagybetű-érzékenyek.
+register_optional:Nem kötelező információ
+register_optional_desc:Ajánlott, hogy ne adj meg személyes vagy azonosításra alkalmas információt a profilodban.  A fórum összes tagja láthatja az összes itt megadott információt.
+register_location:Tartózkodási hely:
+register_occupation:Foglalkozás:
+register_interests:Érdeklődési kör:
+register_image:Kép:
+register_icq:ICQ:
+register_aim:AIM Handle:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Honlap:
+register_bday:Születési dátum:
+register_bday_desc:Ha megadod a születési dátumodat, a fórum tagjai láthatják a profilodban.
+register_day:Nap
+register_month:Hónap
+register_year:Év
+register_gender:Nem:
+register_bio:Életrajz:
+register_bio_desc:Néhány információ saját magadról, például érdeklődési köröd, foglalkozásod stb.
+register_prefs:Beállítások
+register_sig:Aláírás:
+register_sig_desc:Nem kötelező aláírás, ami az üzeneteid alján fog megjelenni
+register_reset:Alaphelyzet
+register_def_thread_view:A téma alapértelmezett nézete:
+register_msg_per_page:Üzenetek oldalanként:
+register_show_sig:Aláírások megjelenítése:
+register_show_sig_desc:Elrejtheted vagy megjelenítheted a többi fórumtag aláírásait.
+register_use_sig_default:Aláírás használata alapértelmezettként:
+register_use_sig_default_desc:Az aláírásod hozzáadása minden általad írt üzenethez.
+register_timezone:Időzóna:
+register_ignore_admin:Adminisztratív üzenetek figyelmen kívül hagyása:
+register_invisible_mode:Rejtett mód:
+register_invisible_mode_desc:Az elérhetőséged elrejtése.
+register_show_email:E-mail cím megjelenítése:
+register_show_email_desc:Válaszd ezt a lehetőséget, ha nem szeretnéd, hogy mások lássák az e-mail címedet.
+register_notification:Az értesítés legyen kijelölve alapértelmezettként:
+register_notification_desc:Ha az értesítés ki van kapcsolva alapértelmezettként, üzenet írásakor ki lehet kapcsolni.
+register_notify_method:Értesítési módszer választása:
+register_notify_method_desc:Válaszd ki az általad előnyben részesített értesítési módszert, vagy tiltsd le azt (például ha nyaralni mész).
+register_allow_email_msg:E-mail üzenetek engedélyezése:
+register_allow_email_msg_desc:Más felhasználók e-mail üzenetet küldhetnek neked a fórumon keresztül.
+buddy_status:Állapot
+my_buddies:Barátaim
+add_buddy:Barát hozzáadása
+add:Hozzáadás
+buddy_search:Add meg a felhasználó nevét, akit hozzá szeretnél adni.
+member_search:Használhatod a <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">felhasználókeresőt</a> személyek megtalálásához.
+buddy_remove:eltávolítás
+post_normal:Normális
+post_sticky:Kiemelt
+post_annoncement:Bejelentés
+post_size:Méret
+post_color:Szín
+post_font:Betűtípus
+create_thread:Téma létrehozása
+submit_reply:Válasz elküldése
+edit_message:Az üzenet módosításainak mentése
+apply_spell_changes:Helyesírási javítások alkalmazása
+post_preview:Az üzenet előnézete
+post_logedin_user:Bejelentkezett felhasználó:
+post_logout:kijelentkezés
+post_passwd:Jelszó hozzászóláshoz:
+post_poll:Szavazás:
+post_create_poll:SZAVAZÁS LÉTREHOZÁSA
+post_poll_delete:Törlés
+post_poll_edit:Szerkesztés
+post_mod_opt:Moderátori beállítások:
+post_thread_type:Téma típusa:
+post_thread_expiry:Téma lejárata:
+post_locked:Téma lezárva
+post_icons:Üzenet ikon:
+post_no_icon:Nincs ikon
+post_smiley:Hangulatjelek rövidítései:
+post_format_tools:Formázó eszközök:
+post_upload_file:Fájl feltöltése
+post_file_del:Törlés
+post_file_name:Név
+post_file_size:Méret
+file_attachments:Csatolt fájlok:
+allowed_files:Engedélyezett fájlkiterjesztések:
+max_file_size:Maximális fájlméret:
+max_files_per_msg:Fájlok száma üzenetenként, legfeljebb:
+post_notification:Figyelmeztetés elküldése
+include_sig:Aláírás hozzáfűzése
+include_sig_desc:A profilod aláírásának hozzáfűzése.
+disable_smilies:Hangulatjelek letiltása ebben az üzenetben
+spell_check_msg:Helyesírásellenőrzés
+post_form:Űrlap elküldése
+post_forum:Fórum:
+post_title:Cím:
+post_options:Beállítások:
+post_preview_btn:Üzenet előnézete
+ignore_users:Figyelmen kívül hagyott felhasználók
+add_ignore:Hozzáadás
+forum_terms:A fórum szabályai
+coppa_conf:COPPA-megerősítés
+coppa_before:{TEMPLATE: coppa_date} előtt
+coppa_after:{TEMPLATE: coppa_date} után
+coppa_link:Kattints arra a hivatkozásra, ami érvényes a születési dátumodra
+prereg_info:A fórum szabályai
+prereg_agree:Elfogadom
+prereg_disagree:Nem fogadom el
+coppa_fax_instructions:Utasítások szülők vagy gondviselők számára
+coppa_fax_instructions2:Nyomtasd ki a lapot, írd alá, és faxold el ide:
+coppa_fax_reg_form:Regisztrációs űrlap
+coppa_fax_sign:Nyomtasd ki az alábbi űrlapot, és küld el nekünk
+coppa_fax_conf:Áttekintettem a gyermekem által megadott információkat, és elolvastam az oldal jogi nyilatkozatát. Megértettem, hogy a profilinformációk módosíthatóak egy jelszó használatával. Megértettem, hogy kérhetem a regisztrált profil teljes eltávolítását a fórumból.
+coppa_fax_permission:Írd alá itt, ha engedélyt adsz
+coppa_fax_no_permission:Írd alá itt, ha a fiók törlését szeretnéd kérni
+coppa_fax_parent_name:Szülő/gondviselő teljes neve:
+coppa_fax_relation:Kapcsolata a gyermekkel:
+coppa_fax_telephone:Telefonszám:
+coppa_fax_email:E-mail cím:
+coppa_fax_date:Dátum:
+coppa_fax_questions:Kérdéseit a következő címre küldje: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa_fax_login:Bejelentkezés
+coppa_fax_passwd:Jelszó
+coppa_fax_remail:E-mail
+coppa_fax_name:Név
+login_not_logedin:Nem vagy bejelentkezve. Ennek az alábbi oka lehet:
+login_cookie_expired:A süti lejárt, és be kell jelentkezned a süti megújításához.
+login_perm_denied:Névtelen felhasználóként nem férhetsz hozzá a kért oldalhoz. Be kell jelentkezned.
+login_want_to_register:Szeretnél regisztrálni?
+login_forgot_passwd:Elfelejtett jelszó
+login_use_cookie:Sütik használata<br /><span class="SmallText">Ha nyilvános gépet használsz, például könyvtárban, iskolában, vagy internetkávézóban, ajánlott, hogy vedd ki előle a pipát a nagyobb biztonság miatt.<br />Ha bepipálva hagyod, a következő látogatásodnál automatikusan be leszel jelentkeztetve.</span>
+login_login:Bejelentkezés:
+login_login_btn:Bejelentkezés
+login_name_required:A bejelentkezési nevet kötelező megadni.
+login_passwd_required:A jelszót kötelező megadni.
+login_invalid_radius:Érvénytelen felhasználónév/jelszó-páros
+reset_confirmation:Köszönjük, hogy regisztráltál.\n\nA fiókod aktiválásához az alábbi URL-címet kell meglátogatnod:\n\n{VAR: url}\n\nMiután aktiválva lett a fiókod, be leszel jelentkeztetve a fórumba, és át leszel irányítva a főoldalra.
+reset_reset:Szia!\n\nÚj jelszót kértél. A folyamat befejezéséhez látogass el a következő URL-címre:\n\n{VAR: url}\n\nMEGJEGYZÉS: Ez a fórum a jelszavakat egy egyirányú titkosítási módszer segítségével tárolja, ami azt jelenti,\nhogy ha egyszer megadtad, titkosítva lesz, és NINCS MÓD a visszafejtésére.\nKésőbbiek során úgy működik, hogy az adatbázisunkban található kódolt változatot hasonlítjuk össze a bejelentkezésnél megadott jelszó kódolt változatával.\n(Amennyiben többet szeretnél megtudni arról, hogy ez hogy működik, nézz utána az MD5 HASH-algoritmusnak)
+rpasswd_invalid_passwd:Érvénytelen jelszó
+rpasswd_passwd_nomatch:A jelszavak nem egyeznek
+rpasswd_passwd_length:A jelszónak legalább 6 karakter hosszúnak kell lennie
+reset_remind_pass:Jelszóemlékeztető
+reset_reset_conf:Az új jelszavadat elküldtük. Ha még nem erősítetted meg az e-mail címedet, a megerősítési levelet újra elküldjük neked.
+reset_error:Az e-mail cím nem található az adatbázisban
+rpasswd_change_pass:Jelszó módosítása
+rpasswd_login:Bejelentkezés
+rpasswd_cur_pass:Jelenlegi jelszó:
+rpasswd_new_pass:Új jelszó:
+rpasswd_conf_pass:Új jelszó megerősítése:
+login_passwd:Jelszó:
+reset_email:E-mail:
+reset_reset_button:Új jelszó kérése
+rate_this_thread:Értékelés
+report_reporting_about:Jelentés tárgya:
+report_subject:Tárgy:
+report_by:Írta:
+report_posted_on:Elküldve:
+report_give_reason:Add meg az okát, hogy miért jelented az üzenetet:
+report_submit_report:Jelentés elküldése
+search_entire_msg:Az egész üzenetben
+search_subject_only:Csak a tárgyban
+search_forum:Fórum
+search_posted_on:Elküldve:
+search_no_results:Nincsenek találatok
+search_all_forums:Keresés az összes fórumban
+search_in_forum:Keresés a fórumban:
+search_forum_search:Keresés a fórumban
+move_thread_to:<b>{VAR: thr->subject}</b> téma áthelyezése ide:
+remail_email_topic:Téma elküldése e-mailben egy barátnak
+remail_your_name:A te neved:
+remail_your_email:A te e-mail címed:
+remail_friends_name:Barát neve:
+remail_friends_email:Barát e-mail címe:
+remail_required:kötelező
+remail_subject:Tárgy:
+remail_message:Üzenet:
+remail_send_now:E-mail küldése most
+remail_anon_opt:Másold be ezt az üzenetet egy általad választott e-mail-kliensbe, majd küldd el a barátodnak vagy barátaidnak.
+remail_done:Kész
+remail_sent_conf:Az e-mail a(z) {VAR: data->subject} témáról el lett küldve a barátodnak a(z) {VAR-HTML: _POST['femail']} címre.
+remail_error:Hiba történt
+mklist_type:Típus:
+mklist_option:Beállítás:
+mklist_additem:Elem hozzáadása
+mklist_apply:Alkalmazás
+mklist_delete:Törlés
+qbud_nick_name:Becenév
+qbud_add_selected:Kiválasztott hozzáadása
+qbud_selected:Kiválasztott
+qbud_no_buddies:Nincsenek barátaid, akik közül választhatnál
+mklist_close:Bezárás
+email_to:Címzett:
+email_pg_title:E-mail
+email_subject:Tárgy:
+email_submit:E-mail
+ppost_quote_msg:{VAR: msg_to_list} írta, ekkor: {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Idézet:
+ppost_to:Címzett:
+ppost_from_buddy_list:Kiválasztás a barátok listájából
+ppost_find_User:Felhasználó keresése
+ppost_track_msg:Üzenet követése
+ppost_track_msg_desc:Kapjak privát üzenetet, ha az üzenetet elolvassák
+ppost_send:Küldés
+ppost_save_draft:Vázlat mentése
+poll_blank_option:Nem adhatsz hozzá egy üres válaszlehetőséget.
+poll_del_conf:Ha törölni szeretnéd ezt a válaszlehetőséget, kattints az OK-ra
+poll_name:Szavazás címe:
+poll_timelimit:Időkorlát:
+poll_maxiumvotes:Szavazatok maximális száma:
+poll_create:Létrehozás
+poll_update:Frissítés
+poll_disablesmilies:Hangulatjelek letiltása
+poll_create_poll:Szavazás létrehozása
+poll_update_poll:Szavazás frissítése
+poll_delete:Törlés
+poll_updateoption:Válaszlehetőség frissítése
+poll_addoption:Válaszlehetőség hozzáadása
+poll_unlimited:Nem korlátozott
+poll_day:nap
+poll_days:nap
+poll_hour:óra
+poll_hours:óra
+poll_month:hónap
+poll_year:év
+poll_week:hét
+tabs_register:Fiók beállításai
+tabs_subscriptions:Feliratkozások
+tabs_bookmarkes:Könyvjelzők
+tabs_referrals:Hivatkozók
+tabs_buddy_list:Barátok listája
+tabs_ignore_list:Figyelmen kívül hagyottak listája
+tabs_private_messaging:Privát üzenetek
+single_msg_delete:<span class="ErrorText">Törölni</span> készülsz a következő üzenetet: <b>{VAR: data[3]}</b>
+thread_delete:<span class="ErrorText">Törölni</span> készülsz az <span class="ErrorText">egész</span> következő témát: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Szeretnéd folytatni?</span>
+delete_yes:Igen
+delete_no:Nem
+error_invalidurl:Érvénytelen URL-cím
+error_error:Hiba
+usrinfo_profile:{VAR: u->alias} profilja
+usrinfo_show_all_posts:{VAR: u->alias} összes üzenetének megjelenítése
+actions_update:Más emberek után szaglászik, akár csak te
+err_info:Információ
+buddy_list_err_cantadd:Nem adhatod hozzá saját magadat a barátaid listájához
+buddy_list_err_dup:Ez a felhasználó már szerepel a barátaid listáján
+buddy_list_err_nouser:A felhasználó, akit hozzá akartál adni a barátaid listájához, nem létezik.
+buddy_list_err_nouser_title:Nem sikerült hozzáadni a felhasználót
+buddy_list_err_ignore:Nem adhatod hozzá azokat a felhasználókat a barátaid listájához, akik figyelmen kívül hagynak téged.
+buddy_list_update:Saját barátok listájának böngészése
+core_err_invinp_title:Érvénytelen bemenet
+core_err_invinp_err:Egy érvénytelen hivatkozást követtél. Értesítsd a <a href="mailto:{GVAR: ADMIN_EMAIL}">webmestert</a>, hogyan kerültél ide.
+core_adm_login_msg:Az adminisztrátorok <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">itt</a> jelentkezhetnek be.
+email_err_unabletoemail_title:HIBA: Nem sikerült az e-mail elküldése
+email_err_unabletoemail_msg:Az e-mail-rendszert letiltotta az adminisztrátor.
+email_error_unabletolocaddr:Sajnáljuk, a rendszernek nem sikerült e-mailt küldeni {VAR-HTML: _POST['tx_name']} részére, mert nem sikerült megállapítani az e-mail címét
+email_error_subject:A Tárgy mező kötelező
+email_error_namerequired:A Név mező kötelező
+email_error_invaliduser:Érvénytelen felhasználó
+emailconf_err_invkey_title:Hiba
+emailconf_err_invkey_msg:Érvénytelen megerősítési kulcs.  Ellenőrizd az e-mailedet, hogy biztosan helyesen írtad-e be az URL-címet.
+err_inc_criticaltitle:Súlyos hiba
+err_inc_criticalmsg:Hiba történt. Sajnos a hibajelentő rendszerrel is problémák vannak.
+finduser_update:Felhasználók keresése
+help_index_update:A <a href="{TEMPLATE: help_index_update_lnk}">segítség</a> olvasása
+iemail_thr_subject:{VAR: poster_login} új hozzászólást írt a(z) {VAR: thr_subject} témához
+iemail_thr_bodyemail:Az olvasatlan hozzászólásokhoz menj a következő címre: {VAR: goto_url['email']}\n\nAmennyiben nem szeretnél további értesítéseket kapni az ehhez a témához érkező új hozzászólásokról, látogass el ide: {VAR: unsub_url['email']}
+iemail_frm_subject:{VAR: poster_login} új témát hozott létre a(z) {VAR: frm_name} fórumban {VAR: thr_subject} címmel
+iemail_frm_bodyemail:A téma megtekintéséhez menj a következő címre:\n{VAR: goto_url['email']}\n\nHa nem szeretnél további értesítéseket kapni az ebben a fórumban létrehozott új témákról, kattints ide: {VAR: unsub_url['email']}
+iemail_participate:A beszélgetésben való részvételhez látogass el ide:
+ignore_list_err_info_title:Információ
+ignore_list_err_dup_msg:Ez a felhasználó már rajta van a figyelmen kívül hagyottak listáján
+ignore_list_err_nu_title:A felhasználó nem található
+ignore_list_err_nu_msg:A felhasználó, akit a figyelmen kívül hagyottak listájához akartál adni, nem létezik.
+ignore_list_cantign_msg:Nem veheted figyelmen kívül ezt a felhasználót
+ignore_list_update:Saját figyelmen kívül hagyás-lista böngészése
+index_update:A <a href="{TEMPLATE: index_update_lnk}">fórumok listájának</a> böngészése
+list_referers_update:Hivatkozók böngészése
+login_update:Bejelentkezési űrlap
+msg_update:A(z) <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> téma böngészése
+pm_err_nopm_title:HIBA: Privát üzenetek küldése letiltva
+pm_err_nopm_msg:Nem használhatod a privát üzenet-küldő rendszert, mert az adminisztrátor letiltotta.
+pm_update:Privát üzenetküldés használata
+post_err_lockedthread_title:HIBA: Lezárt téma
+post_err_lockedthread_msg:Ez a téma le van zárva. Nem lehet új üzeneteket írni.
+err_coppa_title:HIBA: A fiókod még nincs megerősítve
+err_coppa_msg:Még nem kaptuk meg a megerősítést a szülődtől és/vagy törvényes képviselődtől, ami után írhatnál üzeneteket. Ha elveszítetted a COPPA-űrlapodat, <a href="{TEMPLATE: err_coppa_msg_lnk}">itt megnézheted újra</a>.
+err_banned_acct_title:HIBA: Le vagy tiltva.
+err_banned_acct_msg:A fiókod {IF: $ban_expiry}ideiglenesen blokkolva van {DATE: ban_expiry %a, %d %B %Y %H:%M}-ig{ELSE}véglegesen blokkolva van{ENDI} a fórumhoz való hozzáféréstől a fórum szabályainak megsértése miatt.
+post_err_edttimelimit_title:HIBA
+post_err_edttimelimit_msg:Már nem szerkesztheted ezt az üzenetet.
+post_err_noannontopics_msg2:<legend>HIBA: nincs megfelelő jogosultságod</legend>Nem bejelentkezett felhasználók nem hozhatnak létre témákat.
+post_err_noannonposts_msg2:<legend>HIBA: nincs megfelelő jogosultságod</legend>Nem bejelentkezett felhasználók nem válaszolhatnak.
+post_err_floodtrig_msg:Próbáld újra {PLURAL: tm|egy|$1} másodperc múlva
+post_err_attach_size:A csatolt fájl mérete túl nagy (nagyobb a megengedett {VAR: MAX_F_SIZE} bájtnál)
+post_err_attach_ext:A fájl, amit fel szeretnél tölteni, nincs az engedélyezett típusúak között.
+post_err_attach_filelimit:Több fájt próbáltál meg feltölteni, mint amennyi engedélyezett.
+post_err_passwd:Érvénytelen jelszó.
+post_error_generic:Hiba történt
+postcheck_no_links_allowed:Nem használhatsz hivatkozásokat, amíg nem írsz legalább {PLURAL: posts_before_links|egy|$1} hozzászólást.
+postcheck_subj_needed:A tárgyat kötelező megadni
+postcheck_no_such_user:Nincs "{FUNC: char_fix(htmlspecialchars($v))}" nevű felhasználó ebben a fórumban.
+postcheck_no_recepient:Nem sikerült elküldeni az üzenetet, hiányzó címzett
+postcheck_invalid_email:Kérlek add meg a barátod érvényes e-mail címét.
+postcheck_email_subject:Nem küldhetsz e-mail üzenetet a tárgy megadása nélkül.
+private_msg_notify_subj:Olvasási visszajelzés: {VAR: m->subject}
+private_msg_notify_body:Szia!<br />{VAR: usr->login} kinyitotta a(z) "{VAR: m->subject}" tárgyú privát üzenetedet.<br />Ez az automatikusan generált értesítő üzenet {TEMPLATE: private_msg_notify_body_date}-kor készült.<br />
+referals_update:Hivatkozók böngészése
+register_err_shortpasswd:A jelszónak legalább 6 karakter hosszúnak kell lennie.
+register_err_passwdnomatch:A megadott jelszavak nem egyeznek, próbáld újra.
+register_err_invalidemail:Az általad megadott e-mail cím nem tűnik érvényesnek.
+register_err_needname:A regisztráció sikeres befejezéséhez meg kell adnod a nevedet.
+register_err_enterpasswd:Meg kell adnod a jelenlegi jelszavadat a változtatások mentéséhez.
+register_err_adminpasswd:Meg kell adnod az <b>adminisztrátori</b> jelszavadat a változtatások mentéséhez.
+register_err_notyouremail:Valaki más már regisztrált ezzel az e-mail címmel.
+register_err_avatartobig:A fájl, amelyet fel akarsz tölteni, túl nagy, több, mint {GVAR: CUSTOM_AVATAR_MAX_SIZE} bájt
+register_err_avatarnotallowed:Az avatar, amit fel akartál tölteni, nem engedélyezett. Ellenőrizd az engedélyezett fájltípusok listáját.
+register_conf_subject:Regisztráció megerősítése
+register_conf_msg:Köszönjük, hogy regisztráltál,\nA fiókod aktiválásához kattints az alább látható URL-címre:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nMiután a fiókod aktiválva van, be leszel jelentkeztetve a fórumba, és át leszel\nirányítva a kezdőlapra.
+register_welcome_subject:Fórum regisztráció megerősítése
+register_welcome_msg:Köszönjük, hogy regisztráltál.\n\nItt vannak a bejelentkezési adataid a fórumba:\n\nFórum URL-címe: {TEMPLATE: index_update_lnk}\nBejelentkezési név: {VAR: uent->login}\nJelszó: {VAR: _POST['reg_plaintext_passwd']}\n\nFontos, hogy a jelszavak kis- és nagybetűérzékenyek!\nA beállításaid, vagy a profilod módosításához menj erre a lapra:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:HIBA: a regisztráció nem sikerült
+regsiter_err_cantreg_msg:Nem sikerült létrehozni a fiókot, értesítsd az adminisztrátort a(z) <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> címen
+register_profile_update:Saját profil megtekintése
+register_register_update:Regisztrációs lap
+report_err_nosuchmsg_title:HIBA
+report_err_nosuchmsg_msg:Nincs ilyen üzenet
+reset_err_invalidkey_title:HIBA
+reset_err_invalidkey_msg:Érvénytelen új jelszó-kulcs. Lehetséges, hogy az e-mail kliensed már korábban automatikusan megnyitotta ezt a lapot, érvénytelenítve a kulcsot. Ha ez a helyzet, hamarosan kapsz egy e-mailt az új jelszavaddal. Ha nem érkezik ilyen levél, próbálj meg ismét új jelszót kérni.
+reset_err_rstconf_title:Információ
+reset_err_rstconf_msg:Pár percen belül megkapod az utasításokat az e-mail címedre.
+reset_newpass_title:Új jelszó kérése
+reset_login_notify:A jelszót elküldtük e-mailben. Pár percen belül meg fogod kapni.<br />
+search_update:Üzenetek keresése
+selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">Mai hozzászólások</a> böngészése
+showposts_update:<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> hozzászólásainak megtekintése
+subscribed_update:Saját feliratkozások böngészése
+bookmarked_update:Saját könyvjelzők listájának böngészése
+thread_update:<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a> fórum böngészése
+userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> profiljának megtekintése
+ERR_login_msg2:<legend>HIBA: Nem vagy bejelentkezve</legend>A lap megtekintéséhez a fórum tagjának kell lenned.
+ERR_disabled_ttl:Letiltott funkció
+ERR_disabled_msg:Ezt a funkciót letiltotta a rendszeradminisztrátor
+ERR_access_ttl:HIBA: nem megfelelő jogosultságok
+ERR_access_msg:Nincs megfelelő jogosultságod a művelet elvégzéséhez
+ERR_registration_disabled_ttl:Regisztráció letiltva
+ERR_registration_disabled_msg:A regisztrációt letiltotta az adminisztrátor. Próbáld újra később.
+ERR_emailconf_ttl:HIBA: a fiókod még nincs megerősítve
+ERR_user_ttl:HIBA: nincs ilyen felhasználó
+ERR_user_msg:Nincs ilyen felhaszáló
+ERR_systemerr_ttl:HIBA: rendszerhiba
+ERR_systemerr_msg:Rendszerhiba történt. Kérlek, jelezd a <a href="mailto:{GVAR: ADMIN_EMAIL}">webmesternek</a>.
+email_title:E-mail-űrlap
+finduser_title:Felhasználó keresése
+help_title:Segítség
+login_title:Bejelentkezés-űrlap
+poll_title:Szavazásszerkesztő
+register_title:Regisztrációs űrlap
+reset_title:Új jelszó kérése
+index_title:Üdvözlünk a fórumban
+search_title:{VAR-HTML: srch} keresése
+remail_emailsent:E-mail elküldve
+poll_add_option:Válaszlehetőség hozzáadása:
+post_opt_html_on:<b>HTML</b>-kód <b>engedélyezve</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> <b>engedélyezve</b></a>
+post_opt_images_on:<b>Képek</b> <b>engedélyezve</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Hangulatjelek</b> <b>engedélyezve</b></a>
+post_opt_html_off:<b>HTML</b>-kód <b>letiltva</b>
+post_opt_fud_off:<b>BBcode</b>-kód <b>letiltva</b>
+post_opt_images_off:<b>Képek</b> <b>letiltva</b>
+post_opt_smilies_off:<b>Hangulatjelek</b> <b>letiltva</b>
+post_opt:Fórum beállításai
+register_change_passwd:jelszó módosítása
+approved_avatar_title:Az egyedi avatarod el lett fogadva.
+approved_avatar_msg:Az avatarodat elfogadta egy adminisztrátor. Ezután az avatar meg fog jelenni az összes üzeneted mellett. Ha nem látod, vagy a régi avatarodat látod, azért van, mert a böngésződ gyorsítótárazta a lapot. Próbáld frissíteni a lapot egyszer vagy kétszer. Ez legtöbbször megoldja a gyorsítótárazási problémát.
+unapproved_avatar_title:Az egyedi avatarod vissza lett utasítva.
+unapproved_avatar_msg:Az adminisztrátor nem fogadta el az avatarodat. A leggyakoribb okok a túl nagy méret (képpontban vagy fájlméretben) vagy nem elfogadható a tárgya. Ha több információt szeretnél kapni arról, miért nem lett elgoadva, értesítsd az adminisztrátort.
+mvthread_request_move:áthelyezés kérése
+move_request_reason:Miért szeretnéd áthelyeztetni a témát?
+mvthread_submit_req:Kérés elküldése
+thread_exchange:Témacsere
+move_request_by:A téma átmozgatását kérte:
+move_reason:Téma mozgatásának oka:
+thr_exch_accept:téma elfogadása
+thr_exch_decline:téma visszautasítása
+thr_exch_orig_forum:Eredeti fórum:
+thr_exch_dest_forum:Célfórum:
+thr_exch_no_threads:Nincsenek elfogadásra váró témák.
+thr_exch_decl_reason:A(z) <b>{VAR: data->f2_name}</b> fórumbeli <b>{VAR: data->subject}</b> téma visszautasításának oka
+thr_exch_submit:Elküldés
+exch_decline_ttl:A(z) {VAR: data->subject} téma áthelyezése a(z) {VAR: data->f2_name} fórumba vissza lett utasítva.
+ppost_original_msg:üzenet, amit továbbítasz vagy amire válaszolsz
+split_thread:Téma szétválasztása
+groupmgr_no_user:Nincs "{FUNC: char_fix(htmlspecialchars($gr_member))}" nevű felhasználó
+groupmgr_yes:Igen
+groupmgr_no:Nem
+groupmgr_action:Művelet
+groupmgr_member:Tag
+groupmgr_cancel:Mégse
+groupmgr_add_member:Tag hozzáadása
+groupmgr_update_member:Tag frissítése
+groupmgr_edit:Szerkesztés
+groupmgr_delete:Törlés
+group_mgr_anon:Nem bejelentkezett
+group_mgr_reged:Az összes regisztrált felhasználó
+show_show:Megjelenítés:
+group_mgr:Csoportkezelő
+group_mgr_edit_btn:Csoport szerkesztése
+group_mgr_group:Csoport:
+permission_denied_title:Engedély megtagadva!
+permission_denied_msg:Jelenlegi jogosultságaid nem teszik lehetővé annak a művelet végrehajtását, amelyet próbáltál.
+p_READ:Olvasás
+p_POST:Hozzászólás
+p_REPLY:Válaszolás
+p_EDIT:Szerkesztés
+p_DEL:Törlés
+p_STICKY:Kiemelt üzenetek
+p_POLL:Szavazás létrehozása
+p_FILE:Fájlok csatolása
+p_VOTE:Szavazás
+p_RATE:Témák értékelése
+p_SPLIT:Témák szétválasztása
+p_LOCK:Témák lezárása
+p_MOVE:Témák áthelyezése
+p_SML:Hangulatjelek használata
+p_IMG:Képtagek használata
+group_mgr_search:Felhasználó keresése
+group_mgr_indicator:Jelenleg szerkesztett: <b>{VAR: grp->name}</b>
+rate_worst:Legrosszabb
+rate_best:Legjobb
+post_quote_msg:{VAR: msg->login} írta, ekkor: {TEMPLATE: make_report_date}
+post_quote:Idézet:
+userinfo_referals:Hivatkozott felhasználók:
+userinfo_referals_count:{VAR: referals} tag
+pm_no_space_title:Nincs több hely!
+pm_no_space_msg:A privát üzeneteid túllépték a megengedett, <b>{GVAR: MAX_PMSG_FLDR_SIZE} bájtos</b> tárhelyet. Jelenleg <b>{VAR: fldr_size} bájtnyi</b> üzenetet tartalmaznak.<br /><br /><span class="ErrorText">Távolíts el néhány régi üzenetet tárterület felszabadítása érdekében.</span>
+pm_space_indct_msg:A privát üzeneteidet tartalmazó mappák {VAR: percent_full}%-a van tele.
+th_expr_never:Soha
+th_expr_one_hr:1 óra
+th_expr_three_hr:3 óra
+th_expr_four_hr:4 óra
+th_expr_eight_hr:8 óra
+th_expr_sixteen_hr:16 óra
+th_expr_one_day:1 nap
+th_expr_two_day:2 nap
+th_expr_four_day:4 nap
+th_expr_one_week:1 hét
+th_expr_two_week:2 hét
+th_expr_one_month:1 hónap
+th_expr_two_month:2 hónap
+th_expr_four_month:4 hónap
+th_expr_one_year:1 év
+thread_mod_delete:Törlés
+action_latest_post:Utolsó üzenet
+online_today_last_visit:Utolsó látogatás
+logedin_todays_visitors:Mai látogatók
+logedin_latest_post:Utolsó üzenet a fórumban:
+register_show_avatar:Avatarok megjelenítése:
+register_show_avatar_desc:Lehetővé teszi más felhasználók avatarjainak elrejtését az üzeneteik megtekintésekor
+drawmsg_view_rest_post:Az üzenet többi részének megjelenítése
+post_re:Vá:
+forumsel_goto_forum:Ugrás a fórumra:
+split_th_post_by:Írta:
+split_th_posted_on:Elküldés ideje:
+split_th_subject:Tárgy:
+split_th_new_thread_title:Új téma címe:
+split_th_forum:Fórum:
+split_th_split_sel:Kiválasztott üzenetek szétválasztása
+split_th_split_unsel:A nem kiválasztott üzenetek szétválasztása
+split_th_messages:Üzenetek
+split_th_select:Kiválasztás
+report_report_post:Üzenet jelentése
+quicklogin_login:Bejelentkezés:
+quicklogin_password:Jelszó:
+quicklogin_use_cookies:Sütik használata?
+quicklogin_login_btn:Bejelentkezés
+quick_reply:Gyors válasz
+post_notification_desc:Kapjak értesítést, ha valaki válaszol erre az üzenetre.
+post_all_ext_allowed:(korlátlan)
+maximize_category:Kategória megjelenítése
+maximize_message:Üzenet megjelenítése
+no_view_perm:Nincs megfelelő jogosultságod a téma megtekintéséhez.
+report_empty_report:Üres jelentést nem küldhetsz el. Kérlek add meg a jelentés okát.
+report_already_reported_title:Már jelentve van
+report_already_reported_msg:Ezt az üzenetet már jelentették, a jelentés a moderátori várósorban van.
+register_err_toomanyimages:Több képet akarsz használni az aláírásodban az engedélyezett {GVAR: FORUM_IMG_CNT_SIG} darabnál.
+pmsg_next_msg:Következő üzenet
+pmsg_prev_msg:Előző üzenet
+post_proc_reveal_spoiler:Spoiler be- vagy kikapcsolása
+register_jabber:Jabber Handle:
+register_skype:Skype Handle:
+register_twitter:Twitter Handle:
+register_google:Google Chat/IM Handle:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Kapcsolat
+forum_home:Kezdőlap
+post_cur_attached:jelenleg {VAR: i} fájl van csatolva
+ignored_anon_post:{GVAR: ANON_NICK} figyelmen kívül van hagyva
+ignored_user_post:A(z) <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> által írt üzenetek figyelmen kívül vannak hagyva
+smladd_close_window:ablak bezárása
+post_list_smilies:az összes hangulatjel listája
+p_VISIBLE:Látható
+reported_in_thread:Helye:
+help_back_to_top:vissza a lap tetejére
+help_return_to_index:Visszatérés a segítség tartalomjegyzékéhez
+imsg_err_message_title:Érvénytelen üzenet
+imsg_err_message_msg:Az üzenet, amit meg akartál tekinteni, nem létezik.
+poll_edit:Szerkesztés
+register_err_not_valid_img:A megadott URL-címen nem található érvényes kép.
+pmsg_recepient:Címzett
+register_err_taken_alias:Az álnevet, amit használni szeretnél, már lefoglalta egy másik fórumtag. Válassz másikat.
+register_alias:Álnév:
+register_alias_desc:Ha bejelentkezési neved helyett más nevet szeretnél megjeleníteni a fórumban, itt add meg.
+register_allow_pm_msg:Privát üzenetek engedélyezése:
+register_allow_pm_msg_desc:Más felhasználók küldhetnek neked privát üzeneteket ebben a fórumban.
+postcheck_pm_disabled:Nem küldhetsz privát üzenetet "{VAR-HTML: v}" részére, mert nem fogad privát üzeneteket.
+polllist_vote:Szavazás
+polllist_view_results:Eredmények megjelenítése
+polllist_name:Szavazás címe:
+polllist_date:Elkészítés ideje:
+polllist_owner:Készítette:
+polllist_votes:Összes szavazat
+polllist_action:Művelet
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Elérhető szavazások áttekintése</a>
+userinfo_polls:Szavazások:
+show_pollist:Szavazások megjelenítése
+search_and:ÉS
+search_or:VAGY
+search_desc_order:Csökkenő sorrend
+search_asc_order:Növekvő sorrend
+search_logic:Összekötő logika:
+search_sorting:Eredmények rendezése dátum szerint:
+post_proceed:Folytatás
+post_moderated_forum:Hozzászólást írtál egy moderált fórumba. A hozzászólásod nem lesz látható, míg el nem fogadja a fórum egyik moderátora vagy adminisztrátora.
+post_moderated_forum_ttl:Moderált fórum értesítés
+buddy_list_bday:Ma {VAR: r[2]} {VAR: age} éves lett
+email_warning_msg:Ha megváltoztatod a jelenlegi e-mail címedet, a fiókod nem megerősítettnek lesz jelölve, amíg meg nem erősíted e-mailen keresztül.
+register_show_im:IM-jelzők megjelenítése:
+unread_message:Olvasatlan üzenet
+read_message:Üzenet olvasása
+threadt_more:&lt;tovább&gt;
+threadt_disabled_ttl:A témák fa nézetben való listázása le van tiltva.
+threadt_disabled_desc:Az adminisztrátor letiltotta a témák fa nézetben való listázását. Használd helyette az alap nézetet.
+mmod_delete_cofirm_ttl:Téma/üzenet törlésének megerősítése
+spell_alts:nincsenek alternatívák
+insert_uploaded_image:Kép beszúrása az üzenet szövegébe
+back_to_top:Vissza a lap tetejére
+pm_err_disabled_title:Privát üzenetküldés letiltva
+pm_err_disabled_msg:Nem küldhetsz privát üzeneteket, amíg nem engedélyezed a 'Privát üzenetek engedélyezése' beállítást a profilodban.
+err_mod_acc_ttl:Nem ellenőrzött fiók
+accounts_pending_approval:Elfogadásra váró fiókok
+saved:Elmentve
+im_affero:Affero-felhasználónév
+buddy_offline:{VAR: r[2]} jelenleg nem elérhető
+buddy_online:{VAR: r[2]} jelenleg elérhető
+sml_no_smilies:Nincsenek elérhető hangulatjelek.
+login_unapproved_account_ttl:Nem elfogadott fiók
+remove_from_buddy_list:eltávolítás a barátok listájáról
+iemail_msg_author:<b>Szerző:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Tárgy:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Dátum:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Válasz
+iemail_msg_quote:Idéz
+iemail_msg_view:Téma/hozzászólás megtekintése
+threadt_sticky:kiemelt
+threadt_announce:bejelentés
+reported_no_messages:Nincsenek jelentett üzenetek.
+poll_no_polls:Nincsenek szavazások, melyekhez hozzáférhetsz.
+no_unread_messages:Nincsenek a feltételeknek megfelelő olvasatlan üzenetek.
+thread_mark_all_read:az összes olvasatlan fórumüzenet olvasottnak jelölése
+thread_mark_all_read_desc:Az összes olvasatlan üzenet olvasottnak lesz jelölve
+private_no_messages:Ebben a mappában nincsenek üzenetek.
+register_email_change_subject:E-mail cím csere megerősítése
+iemail_thread_unsub:Leiratkozás erről a témáról
+iemail_forum_unsub:Leiratkozás erről a fórumról
+primary_group_prefix:A fórum elsődleges csoportja:
+group_resources:Ez a csoport a következő fórum jogosultságait vezérli
+register_admin_newuser_title:Új felhasználó regisztrált, és fiókja megerősítésre vár
+post_mod_msg_notify_title:Új üzenet vár elfogadásra a(z) "{VAR: frm->name}" fórumban
+thread_printable_pdf:Nyomtatható PDF gererálása
+reg_conf_title:Regisztráció megerősítése
+forum_banned_user:Korábbi tevékenységeid eredményeképpen véglegesen ki lettél tiltva ebből a fórumból. Szia!
+mnav_description:Üzenetböngésző
+mnav_date_limit:Időköz:
+mnav_forum_limit:Csak itt keressen:
+mnav_all_forums:Keresés az összes fórumban
+mnav_submit:Keresés indítása
+mnav_no_range:Adj meg egy érvényes időközt. Tartalmazhat tizedespontot (0.12), és nagyobbnak kell lennie, mint nulla.
+mnav_invalid_unit:Érvényes időegységet kell megadnod.
+mnav_invalid_date:Az általad megadott időköz nagyobb, mint az adminisztrátor által engedélyezett legnagyobb. Adj meg egy kisebbet.
+mnav_no_results:Nincsenek a feltételeknek megfelelő üzenetek.
+mnav_posted_by:Írta:
+mnav_more:Tovább &raquo;&raquo;
+mnav_minute:perc
+mnav_hour:óra
+mnav_day:nap
+mnav_week:hét
+mnav_month:hónap
+mnav_title:Üzenetböngésző
+mnav_update:Üzenetek megtekintése az <a href="{TEMPLATE: mnav_update_lnk}">Üzenetböngésző</a> segítségével
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Értesítés új privát üzenetről
+# Fuzzy
+pm_notify_body_email:Új privát üzenetet kaptál "{VAR: subject}" címmel a(z) "{GVAR: FORUM_TITLE}" fórumban.\nAz üzenet megtekintéséhez kattints ide: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nHa nem szeretnél további értesítéseket kapni, tiltsd le az "Értesítések privát üzenetekről" beállítást a profilodban.
+register_pm_notification:Értesítés privát üzenetről:
+register_pm_notification_desc:Ha engedélyezve van, értesítve leszel, ha privát üzenetet kapsz.
+findu_edit:Szerkesztés
+findu_delete:Törlés
+dmsg_reply_to:válasz a(z) {VAR: obj->reply_to}. hozzászólásra
+merge_topics:Témák összevonása
+merge_topics_cp:Témaösszevonó vezérlőpult
+merge_topics_tpl:Válaszd ki az összevonandó témákat <span class="SmallText">(egynél több témát kell kiválasztanod)</span>
+merge_merge:Kiválasztott témák összevonása
+merge_next:Következő témák
+merge_prev:Előző témák
+split_cp:Témabontó vezérlőpult
+groups_perms_header:Jogosultságok <span class="small">(vidd az egeret a jogosultság felé, hogy lásd a típusát)</span>
+register_err_sig_too_long:Az aláírásod túllépi a megengedett {GVAR: FORUM_SIG_ML} karakter hosszt.
+adm_account_accepted:A fiókodat ('{VAR: login}') elfogadta az adminisztrátor, most már aktív. A(z) {GVAR: FORUM_TITLE} fórumhoz most már megerősített, regisztrált felhasználóként férhetsz hozzá.
+adm_account_rejected:A fiókodat ('{VAR: login}') visszautasította az adminisztrátor. Ha szeretnéd megtudni, mi áll a döntés mögött, értesítsd lépj kapcsolatba vele a(z) '{GVAR: ADMIN_EMAIL}' címen.
+adm_account_rejected_s:Fiókkérésedet a(z) '{GVAR: FORUM_TITLE}' fórumon visszautasították.
+thread_on:ekkor:
+userinfo_buddy:Barát:
+register_email_addr:E-mail cím:
+reset_suffix:Ha tévedésből kaptad ezt az üzenetet, hagyd figyelmen kívül. Ha több másolatot is kaptál ebből az e-mailből, pedig nem kérted, értesítsd a fórum adminisztrátorát a(z) {GVAR: ADMIN_EMAIL} címen\n\nEz a kérés a következő címről származik: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:Utolsó látogatás:
+mnav_newer:újabb, mint
+mnav_older:régebbi, mint
+ip_search_by_ip:Felhasználók keresése IP-cím alapján
+ip_search_syntax:Támogatott szintaxis: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Keresés
+ip_analyze_usage:IP-használat elemzése
+ip_analyze_usage_descr:Kérlek add meg a felhasználó pontos bejelentkezési nevét.
+ip_users_using:Felhasználók, akik a(z) '{VAR: ip}' IP-címet használják
+ip_all_ips:'{VAR: user}' által használt összes IP-cím
+ip_title:IP-böngésző
+userinfo_real_name:Valódi név:
+register_err_alias_notallowed:Ez az álnév nem engedélyezett
+post_err_mod_forum_edit_ttl:HIBA
+post_err_mod_forum_edit_msg:Moderált fórumban nem szerkesztheted az üzeneteket.
+dmsg_num:{VAR: obj->id}. hozzászólás
+postcheck_session_invalid:A munkameneted lejárt. Kérjük küldd el újra az űrlapot. Elnézést a kellemetlenségekért.
+delete_message_extra_desc:<b>Nem kötelező</b><br />Add meg az okát, hogy miért törlöd ez üzenetet. Ez el lesz küldve a szerzőnek privát üzenetben.
+delete_message_extra_body:A szerzőnek küldött üzenet tartalmazza az eltávolított üzenet szövegét.
+delete_msg_pm_body:Eredeti üzenet
+delete_msg_pm_subject:Tárgy: {VAR: data[15]}
+ip_whois_title:Szolgáltatói információ
+register_theme:Téma:
+pmsg_trash:Üres szemetes
+uc_new_pm:Új privát üzenetek
+uc_new_topic:Új téma
+uc_new_cat_forum:Feliratkozott fórumok új üzenetekkel
+uc_cat_forum:Kategória &raquo; Fórum
+uc_sub_topics:Feliratkozott témák új üzenetekkel
+uc_page_title:Saját felhasználói vezérlőpult megtekintése.
+search_options:Keresési beállítások
+search_user_filter:Szűrés felhasználó alapján:
+register_none:Nem kérek értesítést
+findu_no_conf:nem megerősített felhasználó
+register_max_sig_len:Maximális hossz:
+register_turing:Írd be az alább látható kódot:
+register_err_turing:Érvénytelen ellenőrzőkód.
+modque_cat:Kategória
+modque_forum:Fórum
+idx_compact_forum_row:Elérhető fórumok:
+mmd_del_title:Témák törlése
+mmd_mov_title:Témák áthelyezése
+mmd_move_threads_to:Célfórum:
+mmd_abort_move:Mégse
+mmd_move:Témák áthelyezése
+pmsg_pdf_btn:PDF-archícvum készítése
+search_results_hdr:Összesen {VAR: total} találat van
+thread_del_all:Az összes kiválasztott törlése
+thread_mov_all:Az összes kiválasztott áthelyezése
+thread_loc_all:Az összes kiválasztott lezárása/feloldása
+dmsg_ip:IP-cím:
+err_blockedaccnt_title:HIBA: a fiókod ki lett szűrve.
+err_blockedaccnt_msg:A fiókod blokkolva van a fórumhoz való hozzáféréstől a telepített szűrők egyike miatt.
+most_users_online:Legtöbben egyszerre <b>{VAR: st_obj->most_online}</b> felhasználó volt jelen <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>-kor
+sub_unsub_all_forums:Leiratkozás az összes fórumról
+sub_unsub_all_topics:Leiratkozás az összes témáról
+unbookmark_all_topics:Az összes könyvjelző eltávolítása
+tabs_own_posts:Saját hozzászólások megjelenítése
+sml_emoticon:Hangulatjel
+sml_code:Kód
+mnav_sub_only:Keresés csak azokban a fórumokban, melyekre fel vagyok iratkozva
+register_topics_per_page:Témák oldalanként:
+login_min_time:Ez a fórum egy bejelentkezési kísérletet engedélyez minden {VAR: MIN_TIME_BETWEEN_LOGIN} másodpercben, kérlek várj {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} másodpercet a következő próbálkozásod előtt.
+post_not_logged_in:Jelenleg nem vagy bejelentkezve, az üzenet névtelenül lesz elküldve.
+post_common_bold:Félkövér
+post_common_italics:Dőlt
+post_common_underline:Aláhúzott
+post_common_align_left:Balra igazítás
+post_common_align_center:Középre igazítás
+post_common_align_right:Jobbra igazítás
+post_common_link:Hivatkozás beszúrása
+post_common_email:E-mail cím beszúrása
+post_common_image:Kép beszúrása
+post_common_nlist:Számozott lista hozzáadása
+post_common_blist:Felsorolásos lista hozzáaádsa
+post_common_quote:Idézet hozzáadása
+post_common_code:Kód hozzáadása
+rating_delete:Törlés
+post_always_on_top:Ez a téma mindig a témák listájának tetején jelenjen meg
+topic_rating:{VAR: frm->rating} {PLURAL: frm->n_rating|egy|$1} szavazat alapján
+topic_list_rating:{VAR: r[17]} {PLURAL: r[21]|egy|$1} szavazat alapján
+tabs_notifications:Értesítések
+post_descr:Téma leírása:
+pmsg_on:ekkor:
+pmsg_download_dump:Üzenetarchívum letöltése
+move_messages:Üzenetek áthelyezése
+move_msg_btn:Kiválasztott üzenetek áthelyezése
+move_msg_th_expl:Add meg a céltéma azonosítóját (lehet más fórumban is)
+captcha_img_alt:Captcha-ellenőrzés: fel kell ismerned a képen látható szöveget.
+captcha_img_help:Nincs nulla vagy egy a képen.
+powered-by:Az oldalt a FUDfórum {GVAR: FORUM_VERSION} hajtja.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Kód:
+code_select_all:Összes kijelölése
+code_show_hide:Megjelenítés/ elrejtés
+social_sites:Ismeretségi hálózat-oldalak:
+postcheck_min_len_err:A hozzászólásod túl rövid. Legalább {PLURAL: post_min_len|egy|$1} karakter hosszúnak kell lennie.
+postcheck_dup_err:Ne hozd létre mégegyszer ugyanazt a témát.
+btn_new_topic:Új téma
+btn_new_pm:Új privát üzenet
+btn_post_reply:Válasz elküldése
+btn_tree_view:Fa nézet
+btn_flat_view:Alap nézet
+btn_about:Profil
+btn_small_pm:PÜ
+btn_delete:törlés
+btn_edit:szerkesztés
+btn_reply:válasz
+btn_forward:továbbítás
+btn_quote:idéz
+btn_email:Email
+btn_show_posts:hozzászólások
+btn_homepage:www
