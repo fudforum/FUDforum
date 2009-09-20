@@ -27,8 +27,7 @@ pmsg_download_counter:Ladattu {VAR: r->dlcount} kertaa
 email:Sähköpostiosoite:
 email_to_friend:Kerro kaverille
 email_to_friend_desc:Lähetä kaverille linkki tälle sivulle
-# Fuzzy
-email_user:Lähetä sähköpostia tälle käyttäjälle
+email_user:Lähetä käyttäjälle sähköpostiviesti
 faq:Ohje
 first_unread_msg:Siirry lukemattomiin viesteihin
 first_unread_msg_desc:Siirry tämän aiheen ensimmäiseen lukemattomaan viestiin
@@ -518,10 +517,8 @@ ppost_save_draft:Tallenna vedos
 poll_blank_option:Et voi lisätä tyhjää valintaa.
 poll_del_conf:Paina OK jos haluat poistaa tämän valinnan
 poll_name:Gallupin nimi:
-# Fuzzy
-poll_timelimit:Aikarajoitus
-# Fuzzy
-poll_maxiumvotes:Maks. ääniä
+poll_timelimit:Aikarajoitus:
+poll_maxiumvotes:Enintään ääniä:
 poll_create:Tallenna
 poll_update:Päivitä
 poll_disablesmilies:Ei hymiöitä
@@ -573,8 +570,7 @@ email_error_namerequired:Nimi on pakollinen
 email_error_invaliduser:Virheellinen käyttäjä
 emailconf_err_invkey_title:Virhe
 emailconf_err_invkey_msg:Virheellinen vahvistusavain. Tarkista sähköpostistasi, että olet valinnut linkin oikein.
-# Fuzzy
-err_inc_criticaltitle:KRIITTINEN VIRHE
+err_inc_criticaltitle:Kriittinen virhe
 err_inc_criticalmsg:Virhe virheiden raportoinnnissa.
 finduser_update:Etsii käyttäjiä
 help_index_update:Lukee <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> listaa
