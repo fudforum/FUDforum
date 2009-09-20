@@ -2,23 +2,24 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: feed.php.t,v 1.5 2009/09/18 14:42:10 frank Exp $
+* $Id: feed.php.t,v 1.6 2009/09/20 19:05:48 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
+	mb_internal_encoding('{TEMPLATE: forum_CHARSET}');
 	require('./GLOBALS.php');
 	fud_use('err.inc');
 
-	/* before we go on, we need to do some very basic activation checks */
+	/* Before we go on, we need to do some very basic activation checks. */
 	if (!($FUD_OPT_1 & 1)) {
 		fud_use('errmsg.inc');
-		exit($DISABLED_REASON . __fud_ecore_adm_login_msg);
+		exit('<?xml version="1.0" encoding="{TEMPLATE: forum_CHARSET}"?><error><message>'. $DISABLED_REASON .'</message></error>');
 	}
 
-	/* control options */
+	/* Control options. */
 	$mode = (isset($_GET['mode']) && in_array($_GET['mode'], array('m', 't', 'u'))) ? $_GET['mode'] : 'm';
 	$basic = isset($_GET['basic']);
 	$format = 'rdf';	// Default syndication type.
@@ -28,6 +29,9 @@
 		} else if (strtolower(substr($_GET['format'], 0, 3)) == 'rss') {
 			$format = 'rss';
 		}
+	}
+	if (!isset($_GET['th'])) {
+	   $_GET['l'] = 1;	// Unless thread is syndicated, we will always order entries from newest to oldest.
 	}
 
 /*{PRE_HTML_PHP}*/
@@ -112,7 +116,10 @@ function smiley_full(&$data)
 		if ($FEED_AUTH_ID) {
 			$key['auth_id'] = $FEED_AUTH_ID;
 		}
-		unset($key['S'], $key['rid'], $key['SQ']); // remove not relavent components
+		unset($key['S'], $key['rid'], $key['SQ']);	// Remove irrelavent components.
+		$key = array_change_key_case($key, CASE_LOWER);	// Cleanup the key.
+		$key = array_map('strtolower', $key);
+		ksort($key);
 
 		$file_name = $FORUM_SETTINGS_PATH.'feed_cache_'.md5(serialize($key));
 		if (file_exists($file_name) && (($t = filemtime($file_name)) + $FEED_CACHE_AGE) > __request_timestamp__) {
@@ -130,7 +137,7 @@ function smiley_full(&$data)
 		ob_start();
 	}
 
-	if ($FEED_MAX_N_RESULTS < 1) { // handler for events when the value is not set
+	if ($FEED_MAX_N_RESULTS < 1) {	// Handler for events when the value is not set.
 		$FEED_MAX_N_RESULTS = 20;
 	}
 	$limit  = (isset($_GET['n']) && $_GET['n'] <= $FEED_MAX_N_RESULTS) ? (int)$_GET['n'] : $FEED_MAX_N_RESULTS;
@@ -185,7 +192,7 @@ function smiley_full(&$data)
 				$lmt .= ' AND t.last_post_date >=' . (__request_timestamp__ - 86400 * 5);
 			}
 
-			if ($FUD_OPT_2 & 33554432) {
+			if ($FUD_OPT_2 & 33554432) {	// FEED_AUTH
 				if ($FEED_AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$FEED_AUTH_ID.' AND g2.resource_id=f.id
@@ -298,7 +305,7 @@ function smiley_full(&$data)
 				$lmt .= ' AND t.last_post_date >=' . (__request_timestamp__ - 86400 * 5);
 			}
 
-			if ($FUD_OPT_2 & 33554432) {
+			if ($FUD_OPT_2 & 33554432) {	// FEED_AUTH
 				if ($FEED_AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$FEED_AUTH_ID.' AND g2.resource_id=f.id
@@ -375,7 +382,7 @@ function smiley_full(&$data)
 			if (isset($_GET['cl'])) {
 				$lmt .= ' AND u.last_visit>='.(__request_timestamp__ - $LOGEDIN_TIMEOUT * 60);
 			}
-			if ($FUD_OPT_2 & 33554432) {
+			if ($FUD_OPT_2 & 33554432) {	// FEED_AUTH
 				if ($FEED_AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$FEED_AUTH_ID.' AND g2.resource_id=f.id

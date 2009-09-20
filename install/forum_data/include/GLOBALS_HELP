@@ -362,7 +362,8 @@ Whether or not to use secure file permissions (0600/0700).}}}
 Whether to allow XML (RDF, Atom and RSS) feeds of the forum's data.}}}
 
 {{{FEED_AUTH	FUD_OPT_2	33554432
-Whether or not to perform permission checks to determine if the user has access the requested data.}}}
+Whether or not to perform permission checks to determine if the user has access the requested data.
+If disabled, messages from restricted forums may be publicly visible in your forum's XML feed.}}}
 
 {{{FEED_AUTH_ID
 When performing authentication, the forum will treat the user as anonymous. However, to increase or lower security you can specify exactly which user the feed will be authenticated as. This field allows you to enter the id of that user (0=Anonymous).}}}
