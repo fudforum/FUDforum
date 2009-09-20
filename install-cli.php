@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.30 2009/09/10 12:13:32 frank Exp $
+* $Id: install-cli.php,v 1.31 2009/09/20 19:13:23 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -116,7 +116,7 @@ function decompress_archive($data_root, $web_root)
 	}
 
 	if (md5($data) != $checksum) {
-		fe("Archive did not pass checksum test, CORRUPT ARCHIVE!\nIf you've encountered this error it means that you've:\n\tdownloaded a corrupt archive\n\tuploaded the archive in ASCII and not BINARY mode\n\tyour FTP Server/Decompression software/Operating System added un-needed cartrige return ('\\r') characters to the archive, resulting in archive corruption.\n\n");
+		fe("Archive did not pass checksum test, CORRUPT ARCHIVE!\nIf you've encountered this error it means that you've:\n\tdownloaded a corrupt archive\n\tuploaded the archive to your server in ASCII and not BINARY mode\n\tyour FTP Server/Decompression software/Operating System added un-needed cartrige return ('\\r') characters to the archive, resulting in archive corruption.\n\n");
 	}
 
 	$pos = 0;
@@ -173,7 +173,7 @@ function decompress_archive($data_root, $web_root)
 	} while (($pos = strpos($data, "\n//", $pos)) !== false);
 }
 
-/* Older windows systems doesn't have symlinks and some hosts disable them - use crude emulation */
+/* Older windows systems doesn't have symlinks and some hosts disable them - use crude emulation. */
 $WINDOWS = DIRECTORY_SEPARATOR != '/';
 if ($WINDOWS || !function_exists('symlink')) {
 	function fud_symlink($src, $dest)
@@ -456,7 +456,7 @@ function initdb(&$settings)
 	} else if (($fs = filesize(__FILE__)) < 200000) {
 		fe("The installer is missing the data archive, append the archive to the installer and try again.\n\n");
 	} else if ($fs < 3500000 && !$module_status['zlib']) {
-		fe("zlib extension required to decompress the archive is not loaded.\nPlease recompile your PHP with zlib support or load the zlib extension, in the event this is not possible download\nthe non-zlib version of the install or upgrade script from FUDforum's website at:\nhttp://fudforum.org/forum/\n\n");
+		fe("The zlib extension required to decompress the archive is not loaded.\nPlease recompile your PHP with zlib support or load the zlib extension, in the event this is not possible download\nthe non-zlib version of the install or upgrade script from FUDforum's website at:\nhttp://fudforum.org/forum/\n\n");
 	} else if (!$module_status['mysql'] && !$module_status['pgsql']) {
 		fe("FUDforum can utilize either MySQL or PosgreSQL database to store it's data, unfortunately, your PHP does not have\nsupport for either one. Please install or load the appropriate database extension and then re-run the install script.\n\n");
 	} else if (!$module_status['pcre']) {
@@ -832,7 +832,7 @@ function initdb(&$settings)
 	}
 
 	dbquery("DELETE FROM ".$settings['DBHOST_TBL_PREFIX']."users WHERE id > 1");
-	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."users (login, alias, passwd, name, email, avatar, avatar_loc, users_opt, join_date, theme, posted_msg_count) VALUES('".addslashes($settings['ROOT_LOGIN'])."', '".addslashes(htmlspecialchars($settings['ROOT_LOGIN']))."', '".md5($settings['ROOT_PASS'])."', 'Administrator', '".addslashes($settings['ADMIN_EMAIL'])."', 3, '<img src=\"". $settings['WWW_ROOT'] ."images/avatars/smiley03.jpg\" alt=\"\" width=\"64\" height=\"64\" />', 13810679, ".time().", 1, 1)")) {
+	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."users (login, alias, passwd, name, email, avatar, avatar_loc, users_opt, join_date, theme, posted_msg_count, u_last_post_id, level_id, custom_status) VALUES('".addslashes($settings['ROOT_LOGIN'])."', '".addslashes(htmlspecialchars($settings['ROOT_LOGIN']))."', '".md5($settings['ROOT_PASS'])."', 'Administrator', '".addslashes($settings['ADMIN_EMAIL'])."', 3, '<img src=\"". $settings['WWW_ROOT'] ."images/avatars/smiley03.jpg\" alt=\"\" width=\"64\" height=\"64\" />', 13810679, ".time().", 1, 1, 1, 3, 'Administrator')")) {
 		fe(dberror());
 	}
 	change_global_settings(array('ADMIN_EMAIL' => $settings['ADMIN_EMAIL'], 'NOTIFY_FROM' => $settings['ADMIN_EMAIL']));
