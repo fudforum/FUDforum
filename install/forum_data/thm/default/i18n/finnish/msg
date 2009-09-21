@@ -31,7 +31,7 @@ email_user:Lähetä käyttäjälle sähköpostiviesti
 faq:Ohje
 first_unread_msg:Siirry lukemattomiin viesteihin
 first_unread_msg_desc:Siirry tämän aiheen ensimmäiseen lukemattomaan viestiin
-flat_view:Palaa taso listaukseen
+flat_view:Palaa oletustasolistaukseen
 forum:Foorumi:
 forum_icon:Foorumin kuvake
 forum_new_messages:Uudet viestit
@@ -79,8 +79,7 @@ moderation_queue:Moderointijono
 moderator:Moderaattori
 moderator_of:Moderaattori:
 moderator_options:Moderaattorin valinnat
-# Fuzzy
-moderators:Moderaattori(t
+moderators:{PLURAL: modcount|Moderaattori|Moderaattorit}
 more_unread_messages:näytä lisää lukemattomia viestejä
 more_unread_messages_desc:Näytä lisää lukemattomia viestejä ja merkitse parhaillaan näkyvät viestit luetuiksi
 move_thread:Siirrä
@@ -104,11 +103,10 @@ no_unread_locked:Tämä aihe on lukittu
 no_unread_msg:Tämä aihe ei sisällä lukemattomia viestejä
 no_unread_msg_unreg:Luetut/lukemattomat viestit näytetään vain rekisteröityneille käyttäjille
 num_pages:Sivut ({VAR: ttl_pg}):
-# Fuzzy
-num_votes:ääniä: {VAR: obj->total_votes}
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|ääni|ääntä}
 occupation:Ammatti:
-off:EI
-on:KYLLÄ
+off:ei
+on:kyllä
 page_timings:Sivun luominen kesti {VAR: page_gen_time} sekuntia.
 pm:Yksityisviestit
 poll:Gallup:
@@ -118,10 +116,8 @@ posts:Viestejä
 posts_c:Lähetetyt:
 prev_thread:Edellinen aihe:
 usrinfo_private_message:Yksityisviesti:
-# Fuzzy
-profile:Profiili
-# Fuzzy
-profile_desc:Tästä pääset muuttamaan asetuksia ja käyttäjätietojasi
+profile:Hallintapaneeli
+profile_desc:Siirry käyttäjän hallintapaneeliin
 rate_thread:Arvostele aihe
 refresh_list:Päivitä lista
 register:Rekisteröidy
@@ -214,9 +210,9 @@ pmsg_old_messages:Luettu yksityisviesti
 deny_recipt:ei kuittausta
 deny_recipt_desc:Ei lähetetä vahvistusta viestin lukemisesta
 restore_to:Palauta Kansioon:
-move_to:Siirrä Kansioon:
+move_to:Siirrä kansioon:
 list_referes_referrals:Suosittelut
-list_referes_members:Suositellut Käyttäjät
+list_referes_members:Suositellut käyttäjät
 list_referes_member:Käyttäjä
 referals_none:Ei suositeltuja käyttäjiä.
 referals_refered_by:Käyttäjän <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b> suosittelemat foorumin käyttäjät
@@ -257,12 +253,12 @@ month_11:Marraskuu
 month_12:Joulukuu
 male:Mies
 female:Nainen
-unspecified:MÄÄRITTELEMÄTÖN
+unspecified:Määrittelemätön
 register_tree_view:Puu - viesti ja aihelistaus
 register_msg_tree_view:Taso - aihelistaus/puu - viestilistaus
 register_tree_msg_view:Puu - aihelistaus/taso - viestilistaus
 register_flat_view:Taso - viesti- ja aihelistaus
-use_forum_default:Käytä foorumin oletusarvoa
+use_forum_default:Käytä oletusarvoa
 finduser_user_info:Profiili
 finduser_by_login:Hae käyttäjätunnuksella:
 finduser_submit:Hae käyttäjä
@@ -290,7 +286,7 @@ register_email_desc:Anna toimiva sähköpostiosoite. Voit valita Asetukset-osios
 register_name:Nimi:
 register_your_pass:Salasanasi:
 register_update:Päivitä
-register_avatar_type:Avatar tyyppi:
+register_avatar_type:Avatar-tyyppi:
 register_del_avatar:Poista avatar
 register_sel_avatar:Valitse avatar
 # Fuzzy
@@ -313,7 +309,7 @@ register_yahoo:Yahoo Messenger:
 register_msnm:MSN Messenger:
 register_homepage:Kotisivu:
 register_bday:Syntymäaika:
-register_bday_desc:Huom! Jos asetat syntymäaikasi, muut foorumin käyttäjät näkevät sen profiilissasi.
+register_bday_desc:Jos asetat syntymäaikasi, muut foorumin käyttäjät näkevät sen profiilissasi.
 register_day:päivä
 register_month:kuukausi
 register_year:vuosi
@@ -363,9 +359,9 @@ post_logedin_user:Sisäänkirjautunut käyttäjä:
 post_logout:kirjaudu ulos
 post_passwd:Viestin salasana:
 post_poll:Gallup:
-post_create_poll:LUO GALLUP
-post_poll_delete:POISTA
-post_poll_edit:MUOKKAA
+post_create_poll:Luo gallup
+post_poll_delete:Poista
+post_poll_edit:Muokkaa
 post_mod_opt:Moderaattorin valinnat:
 post_thread_type:Aiheen tyyppi:
 post_thread_expiry:Aihe vanhenee:
@@ -416,7 +412,7 @@ coppa_fax_sign:Allekirjoittakaa alla oleva kaavake ja lähettäkää se meille
 coppa_fax_conf:Olen tarkistanut tiedot jotka lapseni on antanut ja olen lukenut tämän web-sivuston tietosuojaperiaatteista. Ymmärrän, että käyttäjätiedot voi muuttaa salasanaa käyttämällä. Ymmärrän, että voin vaatia että tämä käyttäjätili poistetaan kokonaan.
 coppa_fax_permission:Allekirjoitus tähän jos annatte suostumuksenne
 coppa_fax_no_permission:Allekirjoitus tähän jos haluatte että käyttäjätili poistetaan
-coppa_fax_parent_name:Vanhemman/huoltajan koko nimi:
+coppa_fax_parent_name:Vanhemman tai huoltajan koko nimi:
 coppa_fax_relation:Suhde lapseen:
 coppa_fax_telephone:Puhelin:
 coppa_fax_email:Sähköpostiosoite:
@@ -484,7 +480,7 @@ remail_send_now:Lähetä sähköposti
 remail_anon_opt:Kopioi tämä viesti käyttämääsi sähköpostiohjelmaan lähettääksesi sen kaverillesi
 remail_done:Valmis
 remail_sent_conf:Sähköposti kaverillesi osoitteeseen {VAR-HTML: _POST['femail']} aiheesta {VAR: data->subject} on lähetetty.
-remail_error:Virhe!
+remail_error:Virhe
 mklist_type:Luettelon tyyppi:
 mklist_option:Rivi:
 mklist_additem:Lisää rivi
@@ -515,14 +511,14 @@ ppost_track_msg_desc:Ilmoitus (yksityisviestinä) kun tämä viesti luetaan
 ppost_send:Lähetä
 ppost_save_draft:Tallenna vedos
 poll_blank_option:Et voi lisätä tyhjää valintaa.
-poll_del_conf:Paina OK jos haluat poistaa tämän valinnan
+poll_del_conf:Paina OK, jos haluat poistaa tämän valinnan
 poll_name:Gallupin nimi:
 poll_timelimit:Aikarajoitus:
-poll_maxiumvotes:Enintään ääniä:
+poll_maxiumvotes:Ääniä enintään:
 poll_create:Tallenna
 poll_update:Päivitä
 poll_disablesmilies:Ei hymiöitä
-poll_create_poll:Laadi gallup
+poll_create_poll:Luo gallup
 poll_update_poll:Päivitä gallup
 poll_delete:Poista
 poll_updateoption:Päivitä valinta
@@ -563,7 +559,7 @@ core_err_invinp_err:Yritit ladata virheellista linkkiä, ole hyvä ja ilmoita t�
 core_adm_login_msg:Ylläpitäjät voivat kirjautua sisään <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">täällä</a>
 email_err_unabletoemail_title:VIRHE: Sähköpostin lähetys ei onnistunut
 email_err_unabletoemail_msg:Ylläpitäjä on estänyt sähköpostin lähetyksen.
-email_error_unabletolocaddr:Sori, systeemi ei pystynyt lähettämään sähköpostia {VAR-HTML: _POST['tx_name']} koska ei löytänyt hänen osoitettaan
+email_error_unabletolocaddr:Järjestelmä ei pystynyt lähettämään sähköpostia {VAR-HTML: _POST['tx_name']}, koska hänen osoitettaan ei löytynyt
 email_error_body:Viestin teksti on pakollinen
 email_error_subject:Otsikko on pakollinen
 email_error_namerequired:Nimi on pakollinen
@@ -610,7 +606,7 @@ post_err_passwd:Virheellinen salasana.
 post_reply_update:Vastaa viestiin otsikolla <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> {VAR-HTML: frm->name} foorumissa
 # Fuzzy
 post_topic_update:Kirjoittaa uutta aihetta <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> foorumille
-post_error_generic:Sinulla on virhe
+post_error_generic:Tapahtui virhe
 postcheck_max_images_err:Maksimissaan {GVAR: MAX_IMAGE_COUNT} kuvaa sallittu per viesti. Ole hyvä ja vähennä kuvien määrää
 postcheck_subj_needed:Otsikko on pakollinen
 postcheck_no_such_user:Käyttäjää nimellä "{FUNC: char_fix(htmlspecialchars($v))}" ei löydy tältä foorumilta
@@ -632,8 +628,7 @@ register_err_passwdnomatch:Salasanat eivät täsmää.
 register_err_invalidemail:Antamasi sähköpostiosoite on virheellinen.
 register_err_needname:Sinun on annettava nimesi voidaksesi rekisteröityä.
 register_err_enterpasswd:Sinun on annettava tämänhetkinen salasanasi muuttaaksesi tietoja
-# Fuzzy
-register_err_adminpasswd:Sinun on annettava YLLÄPITO salasanasi muuttaaksesi tietoja
+register_err_adminpasswd:Sinun on annettava <b>ylläpitosalasana</b> muuttaaksesi tietoja.
 register_err_notyouremail:Tämä sähköpostiosoite on jo käytössä
 register_err_avatartobig:Lähetetyn tiedoston koko ylittää suurimman sallitun {GVAR: CUSTOM_AVATAR_MAX_SIZE} tavun rajan
 register_err_avatarnotallowed:Lähetetyn tiedoston tyyppi ei ole sallittu. Tarkista sallitut tiedostotyypit.
@@ -808,10 +803,8 @@ split_th_split_unsel:Pilko valitsemattomat viestit
 split_th_messages:Viestit
 split_th_select:Valitse
 report_report_post:Ilmoita viestistä
-# Fuzzy
-quicklogin_login:Käyttäjätunnus
-# Fuzzy
-quicklogin_password:Salasana
+quicklogin_login:Käyttäjätunnus:
+quicklogin_password:Salasana:
 quicklogin_use_cookies:Käytä evästeitä (cookie) ?
 # Fuzzy
 quicklogin_login_btn:Kirjaudu
@@ -968,8 +961,7 @@ findu_delete:Poista
 dmsg_reply_to:on vastaus viestiin #{VAR: obj->reply_to}
 merge_topics:Yhdistä aiheita
 merge_topics_cp:Aiheiden yhdistäminen
-# Fuzzy
-merge_topics_tpl:Valitse yhdistettävät aiheet <font class="SmallText">(sinun täytyy valita enemmän kuin 1 aihe)</font>
+merge_topics_tpl:Valitse yhdistettävät aiheet <span class="SmallText">(sinun täytyy valita enemmän kuin yksi aihe)</span>
 merge_merge:Yhdistä valitut aiheet
 merge_next:Seuraavat aiheet
 merge_prev:Edelliset aiheet

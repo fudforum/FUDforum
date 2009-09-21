@@ -26,14 +26,14 @@ email_to_friend:Elküldés e-mailben
 email_to_friend_desc:A lap URL-címének elküldése barátaidnak e-mailen keresztül
 email_user:E-mail üzenet küldése a felhasználónak
 faq:Segítség
-first_unread_msg:Ugrás az olvasatlan üzenetekre
-first_unread_msg_desc:Ugrás az első olvasatlan üzenetre ebben a témában
+first_unread_msg:Ugrás az olvasatlan hozzászólásokra
+first_unread_msg_desc:Ugrás az első olvasatlan hozzászólásra ebben a témában
 flat_view:Visszatérés az alapnézethez
 forum:Fórum:
 forum_icon:Fórum ikon
-forum_new_messages:Új üzenetek
+forum_new_messages:Új hozzászólások
 forum_none_messages:Csak regisztrált felhasználók követhetik az olvasott és olvasatlan üzeneteket
-forum_old_messages:Nincsenek új üzenetek
+forum_old_messages:Nincsenek új hozzászólások
 from:Feladó:
 gender:Nem:
 go:Menj
@@ -49,11 +49,11 @@ im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Kép:
 index_forum:Fórum
-index_new_posts:Új üzenetek érkeztek az utolsó olvasás óta
+index_new_posts:Új hozzászólások érkeztek az utolsó olvasás óta
 index_no_new_posts:Nincsenek új üzenetek az utolsó olvasás óta
 index_url_redirection:Átirányítás
 interests:Érdeklődési kör:
-last_post:Utolsó üzenet
+last_post:Utolsó hozzászólás
 last_thread_msg:Ugrás a téma utolsó üzenetére
 legend:Jelmagyarázat
 location:Helyszín:
@@ -94,8 +94,8 @@ no_messages:Ebben a fórumban nincsenek üzenetek.
 no_msg_body:Az üzenetnek nincs szövege
 no_new_posts:Nincsenek új üzenetek
 no_posts:Nincsenek üzenetek
-no_subscribed_forums:Nem iratkoztál fel egyetlen fórumra sem
-no_subscribed_threads:Nem iratkoztál fel egyetlen témára sem
+no_subscribed_forums:Még nem iratkoztál fel egyetlen fórumra sem
+no_subscribed_threads:Még nem iratkoztál fel egyetlen témára sem
 no_bookmarked_threads:Nincsenek témák a könyvjelzők listájában
 no_unread_locked:Ez a téma le van zárva
 no_unread_msg:Ebben a témában nincsenek új üzenetek
@@ -272,14 +272,14 @@ no:Nem
 register_email:E-mail
 edit_time_limit:<b>Szerkesztési időkorlát</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> perc
 no_edit_time_limit:<b>Szerkesztési időkorlát</b>: <b>korlátlan</b>
-pmuserloc_login:Bejelentkezés:
+pmuserloc_login:Bejelentkezési név:
 pmuserloc_submit:Elküldés
 pmuserloc_user:Felhasználó
 pmuserloc_no_result:Nincsenek eredmények
 register_builtin:Beépített
 register_specify_url:URL megadása
 register_uploaded:Avatar feltöltése
-register_login:Bejelentkezés:
+register_login:Bejelentkezési név:
 register_password:Jelszó:
 register_conf_pass:Jelszó megerősítése:
 register_email_desc:Egy érvényes e-mail címet kell megadnod. A Beállítások szakaszban beállíthatod, hogy ne jelenjen meg.
@@ -295,9 +295,9 @@ register_custom_avatar_url:Saját avatar URL-címe:
 register_preview:Előnézet
 register_custom_avatar_upload:Saját avatar-fájl:
 register_register:Regisztráció
-register_required:Szükséges információ
+register_required:Szükséges információk
 register_required_desc:Az összes mező kötelező.  A jelszavak kis- és nagybetű-érzékenyek.
-register_optional:Nem kötelező információ
+register_optional:Nem kötelező információk
 register_optional_desc:Ajánlott, hogy ne adj meg személyes vagy azonosításra alkalmas információt a profilodban.  A fórum összes tagja láthatja az összes itt megadott információt.
 register_location:Tartózkodási hely:
 register_occupation:Foglalkozás:
@@ -310,15 +310,15 @@ register_msnm:MSN Messenger:
 register_homepage:Honlap:
 register_bday:Születési dátum:
 register_bday_desc:Ha megadod a születési dátumodat, a fórum tagjai láthatják a profilodban.
-register_day:Nap
-register_month:Hónap
-register_year:Év
+register_day:nap
+register_month:hónap
+register_year:év
 register_gender:Nem:
 register_bio:Életrajz:
 register_bio_desc:Néhány információ saját magadról, például érdeklődési köröd, foglalkozásod stb.
 register_prefs:Beállítások
 register_sig:Aláírás:
-register_sig_desc:Nem kötelező aláírás, ami az üzeneteid alján fog megjelenni
+register_sig_desc:Aláírás, amit nem kötelező megadni. A hozzászólásaid alatt fog megjelenni.
 register_reset:Alaphelyzet
 register_def_thread_view:A téma alapértelmezett nézete:
 register_msg_per_page:Üzenetek oldalanként:
@@ -337,7 +337,7 @@ register_notification_desc:Ha az értesítés ki van kapcsolva alapértelmezettk
 register_notify_method:Értesítési módszer választása:
 register_notify_method_desc:Válaszd ki az általad előnyben részesített értesítési módszert, vagy tiltsd le azt (például ha nyaralni mész).
 register_allow_email_msg:E-mail üzenetek engedélyezése:
-register_allow_email_msg_desc:Más felhasználók e-mail üzenetet küldhetnek neked a fórumon keresztül.
+register_allow_email_msg_desc:Más felhasználók küldhetnek neked e-mail üzenetet a fórumon keresztül.
 buddy_status:Állapot
 my_buddies:Barátaim
 add_buddy:Barát hozzáadása
@@ -420,7 +420,7 @@ coppa_fax_login:Bejelentkezés
 coppa_fax_passwd:Jelszó
 coppa_fax_remail:E-mail
 coppa_fax_name:Név
-login_not_logedin:Nem vagy bejelentkezve. Ennek az alábbi oka lehet:
+login_not_logedin:Nem vagy bejelentkezve. Ennek oka a következők valamelyike lehet:
 login_cookie_expired:A süti lejárt, és be kell jelentkezned a süti megújításához.
 login_perm_denied:Névtelen felhasználóként nem férhetsz hozzá a kért oldalhoz. Be kell jelentkezned.
 login_want_to_register:Szeretnél regisztrálni?
@@ -549,7 +549,7 @@ buddy_list_err_dup:Ez a felhasználó már szerepel a barátaid listáján
 buddy_list_err_nouser:A felhasználó, akit hozzá akartál adni a barátaid listájához, nem létezik.
 buddy_list_err_nouser_title:Nem sikerült hozzáadni a felhasználót
 buddy_list_err_ignore:Nem adhatod hozzá azokat a felhasználókat a barátaid listájához, akik figyelmen kívül hagynak téged.
-buddy_list_update:Saját barátok listájának böngészése
+buddy_list_update:A saját barátjainak listáját böngészi
 core_err_invinp_title:Érvénytelen bemenet
 core_err_invinp_err:Egy érvénytelen hivatkozást követtél. Értesítsd a <a href="mailto:{GVAR: ADMIN_EMAIL}">webmestert</a>, hogyan kerültél ide.
 core_adm_login_msg:Az adminisztrátorok <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">itt</a> jelentkezhetnek be.
@@ -564,8 +564,8 @@ emailconf_err_invkey_title:Hiba
 emailconf_err_invkey_msg:Érvénytelen megerősítési kulcs.  Ellenőrizd az e-mailedet, hogy biztosan helyesen írtad-e be az URL-címet.
 err_inc_criticaltitle:Súlyos hiba
 err_inc_criticalmsg:Hiba történt. Sajnos a hibajelentő rendszerrel is problémák vannak.
-finduser_update:Felhasználók keresése
-help_index_update:A <a href="{TEMPLATE: help_index_update_lnk}">segítség</a> olvasása
+finduser_update:Felhasználókat keres
+help_index_update:A <a href="{TEMPLATE: help_index_update_lnk}">segítség</a>et olvassa
 iemail_thr_subject:{VAR: poster_login} új hozzászólást írt a(z) {VAR: thr_subject} témához
 iemail_thr_bodyemail:Az olvasatlan hozzászólásokhoz menj a következő címre: {VAR: goto_url['email']}\n\nAmennyiben nem szeretnél további értesítéseket kapni az ehhez a témához érkező új hozzászólásokról, látogass el ide: {VAR: unsub_url['email']}
 iemail_frm_subject:{VAR: poster_login} új témát hozott létre a(z) {VAR: frm_name} fórumban {VAR: thr_subject} címmel
@@ -576,14 +576,14 @@ ignore_list_err_dup_msg:Ez a felhasználó már rajta van a figyelmen kívül ha
 ignore_list_err_nu_title:A felhasználó nem található
 ignore_list_err_nu_msg:A felhasználó, akit a figyelmen kívül hagyottak listájához akartál adni, nem létezik.
 ignore_list_cantign_msg:Nem veheted figyelmen kívül ezt a felhasználót
-ignore_list_update:Saját figyelmen kívül hagyás-lista böngészése
+ignore_list_update:A saját figyelmen kívül hagyás-listáját böngészi
 index_update:A <a href="{TEMPLATE: index_update_lnk}">fórumok listájának</a> böngészése
-list_referers_update:Hivatkozók böngészése
+list_referers_update:A hivatkozók listáját böngészi
 login_update:Bejelentkezési űrlap
-msg_update:A(z) <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> téma böngészése
+msg_update:A(z) <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> témát böngészi
 pm_err_nopm_title:HIBA: Privát üzenetek küldése letiltva
 pm_err_nopm_msg:Nem használhatod a privát üzenet-küldő rendszert, mert az adminisztrátor letiltotta.
-pm_update:Privát üzenetküldés használata
+pm_update:A privát üzenet-küldést használja
 post_err_lockedthread_title:HIBA: Lezárt téma
 post_err_lockedthread_msg:Ez a téma le van zárva. Nem lehet új üzeneteket írni.
 err_coppa_title:HIBA: A fiókod még nincs megerősítve
@@ -614,7 +614,7 @@ postcheck_email_subject:Nem küldhetsz e-mail üzenetet a tárgy megadása nélk
 postcheck_email_body:Nem küldhetsz e-mail üzenetet az üzenet szövege nélkül.
 private_msg_notify_subj:Olvasási visszajelzés: {VAR: m->subject}
 private_msg_notify_body:Szia!<br />{VAR: usr->login} kinyitotta a(z) "{VAR: m->subject}" tárgyú privát üzenetedet.<br />Ez az automatikusan generált értesítő üzenet {TEMPLATE: private_msg_notify_body_date}-kor készült.<br />
-referals_update:Hivatkozók böngészése
+referals_update:Böngészi a hivatkozók listáját
 register_err_short_login:Az általad megadott bejelentkezési név túl rövid. Legalább 4 karakter hosszúnak kell lennie.
 register_err_login_notallowed:Ez a bejelentkezési név nem engedélyezett.
 register_err_loginunique:A bejelentkezési neveknek egyedieknek kell lenniük. Már van ilyen nevű felhasználónk.
@@ -634,7 +634,7 @@ register_welcome_subject:Fórum regisztráció megerősítése
 register_welcome_msg:Köszönjük, hogy regisztráltál.\n\nItt vannak a bejelentkezési adataid a fórumba:\n\nFórum URL-címe: {TEMPLATE: index_update_lnk}\nBejelentkezési név: {VAR: uent->login}\nJelszó: {VAR: _POST['reg_plaintext_passwd']}\n\nFontos, hogy a jelszavak kis- és nagybetűérzékenyek!\nA beállításaid, vagy a profilod módosításához menj erre a lapra:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:HIBA: a regisztráció nem sikerült
 regsiter_err_cantreg_msg:Nem sikerült létrehozni a fiókot, értesítsd az adminisztrátort a(z) <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> címen
-register_profile_update:Saját profil megtekintése
+register_profile_update:A saját profilját nézi
 register_register_update:Regisztrációs lap
 report_err_nosuchmsg_title:HIBA
 report_err_nosuchmsg_msg:Nincs ilyen üzenet
@@ -645,14 +645,14 @@ reset_err_rstconf_msg:Pár percen belül megkapod az utasításokat az e-mail c�
 reset_newpass_title:Új jelszó kérése
 reset_newpass_msg:Szia!\n\nAhogy kérted, a bejelentkezési információid alább láthatóak:\n\nBejelentkezési név: {VAR: ui[1]}\nJelszó: {VAR: passwd}\n\nA jelszavad le lett cserélve a fenn látható értékre. Ha meg szeretnéd változtatni,\na felhasználói vezérlőpulton teheted meg:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:A jelszót elküldtük e-mailben. Pár percen belül meg fogod kapni.<br />
-search_update:Üzenetek keresése
-selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">Mai hozzászólások</a> böngészése
-showposts_update:<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> hozzászólásainak megtekintése
-subscribed_update:Saját feliratkozások böngészése
-bookmarked_update:Saját könyvjelzők listájának böngészése
-thread_update:<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a> fórum böngészése
-tree_update:Téma böngészése fa nézetben: <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> profiljának megtekintése
+search_update:Hozzászólásokat keres
+selmsg_update:A <a href="{TEMPLATE: selmsg_update_lnk}">mai hozzászólásokat</a> böngészi
+showposts_update:<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> hozzászólásait nézi
+subscribed_update:A saját feliratkozásait böngészi
+bookmarked_update:A saját könyvjelzőinek listáját böngészi
+thread_update:A(z) <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a> fórumot böngészi
+tree_update:A(z) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> témát böngészi fa nézetben
+userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> profilját nézi
 ERR_login_msg2:<legend>HIBA: Nem vagy bejelentkezve</legend>A lap megtekintéséhez a fórum tagjának kell lenned.
 ERR_disabled_ttl:Letiltott funkció
 ERR_disabled_msg:Ezt a funkciót letiltotta a rendszeradminisztrátor
@@ -666,10 +666,10 @@ ERR_user_ttl:HIBA: nincs ilyen felhasználó
 ERR_user_msg:Nincs ilyen felhaszáló
 ERR_systemerr_ttl:HIBA: rendszerhiba
 ERR_systemerr_msg:Rendszerhiba történt. Kérlek, jelezd a <a href="mailto:{GVAR: ADMIN_EMAIL}">webmesternek</a>.
-email_title:E-mail-űrlap
+email_title:E-mail
 finduser_title:Felhasználó keresése
 help_title:Segítség
-login_title:Bejelentkezés-űrlap
+login_title:Bejelentkezés
 poll_title:Szavazásszerkesztő
 register_title:Regisztrációs űrlap
 reset_title:Új jelszó kérése
@@ -775,11 +775,11 @@ th_expr_one_year:1 év
 thread_mod_delete:Törlés
 action_latest_post:Utolsó üzenet
 online_today_last_visit:Utolsó látogatás
-online_today_update:A fórumot ma látogató felhasználók listájának megtekintése.
+online_today_update:A fórumot ma látogató felhasználók listáját nézi.
 logedin_todays_visitors:Mai látogatók
 logedin_latest_post:Utolsó üzenet a fórumban:
 register_show_avatar:Avatarok megjelenítése:
-register_show_avatar_desc:Lehetővé teszi más felhasználók avatarjainak elrejtését az üzeneteik megtekintésekor
+register_show_avatar_desc:Lehetővé teszi más felhasználók avatarjainak elrejtését az üzeneteik megtekintésekor.
 drawmsg_view_rest_post:Az üzenet többi részének megjelenítése
 post_re:Vá:
 forumsel_goto_forum:Ugrás a fórumra:
@@ -794,7 +794,7 @@ split_th_split_unsel:A nem kiválasztott üzenetek szétválasztása
 split_th_messages:Üzenetek
 split_th_select:Kiválasztás
 report_report_post:Üzenet jelentése
-quicklogin_login:Bejelentkezés:
+quicklogin_login:Bejelentkezési név:
 quicklogin_password:Jelszó:
 quicklogin_use_cookies:Sütik használata?
 quicklogin_login_btn:Bejelentkezés
@@ -848,7 +848,7 @@ polllist_date:Elkészítés ideje:
 polllist_owner:Készítette:
 polllist_votes:Összes szavazat
 polllist_action:Művelet
-polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Elérhető szavazások áttekintése</a>
+polllist_update:Az <a href="{TEMPLATE: polllist_update_lnk}">elérhető szavazásokat ellenőrzi</a>
 userinfo_polls:Szavazások:
 show_pollist:Szavazások megjelenítése
 search_and:ÉS
@@ -869,7 +869,7 @@ read_message:Üzenet olvasása
 threadt_more:&lt;tovább&gt;
 threadt_disabled_ttl:A témák fa nézetben való listázása le van tiltva.
 threadt_disabled_desc:Az adminisztrátor letiltotta a témák fa nézetben való listázását. Használd helyette az alap nézetet.
-threadt_update:Fórum böngészése (fa nézetben): <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+threadt_update:A(z) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a> fórumot böngészi fa nézetben
 mmod_delete_cofirm_ttl:Téma/üzenet törlésének megerősítése
 spell_alts:nincsenek alternatívák
 insert_uploaded_image:Kép beszúrása az üzenet szövegébe
@@ -937,8 +937,8 @@ mnav_hour:óra
 mnav_day:nap
 mnav_week:hét
 mnav_month:hónap
-mnav_title:Üzenetböngésző
-mnav_update:Üzenetek megtekintése az <a href="{TEMPLATE: mnav_update_lnk}">Üzenetböngésző</a> segítségével
+mnav_title:Hozzászólásböngésző
+mnav_update:A hozzászólásokat nézi a <a href="{TEMPLATE: mnav_update_lnk}">Hozzászólásböngésző</a> segítségével
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Értesítés új privát üzenetről
 pm_notify_body_email:{VAR: from} új privát üzenetet küldött neked "{VAR: subject}" címmel a(z) "{GVAR: FORUM_TITLE}" fórumban.\nAz üzenet megtekintéséhez kattints ide: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nHa nem szeretnél további értesítéseket kapni, tiltsd le az "Értesítések privát üzenetekről" beállítást a profilodban.
 register_pm_notification:Értesítés privát üzenetről:

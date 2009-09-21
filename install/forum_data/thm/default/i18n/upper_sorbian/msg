@@ -758,3 +758,127 @@ th_expr_one_week:1 tydźeń
 th_expr_two_week:2 njedźeli
 th_expr_one_month:1 měsac
 th_expr_two_month:2 měsacaj
+th_expr_four_month:4 měsacy
+th_expr_one_year:1 lěto
+thread_mod_delete:Zničić
+action_latest_post:Poslednja powěsć
+online_today_last_visit:Posledni wopyt
+online_today_update:Lisćinu wužiwarjow sej wobhladać, kotřiž běchu dźensa we forumje.
+logedin_todays_visitors:Dźensniši wopytowarjo
+logedin_latest_post:Poslednja powěsć we forumje:
+register_show_avatar:Awatary pokazać:
+register_show_avatar_desc:Dowola ći awatary druhich wužiwarjow schować, hdyž sej jich powěsće wobhladuješ.
+drawmsg_view_rest_post:Zbytk powěsće pokazać
+post_re:Re:
+forumsel_goto_forum:Dźi k forumej:
+minimsg_thread_view:Temowy napohlad
+split_th_post_by:Powěsć spisana wot:
+split_th_posted_on:Datum spisanja:
+split_th_subject:Nastupa:
+split_th_new_thread_title:Nowe temowe nadpismo:
+split_th_forum:Forum:
+split_th_split_sel:Wubrane powěsće rozdźělić
+split_th_split_unsel:Njewubrane powěsće rozdźělić
+split_th_messages:Powěsće
+split_th_select:Wubrać
+report_report_post:Powěsć zdźělić
+quicklogin_login:Přizjewjenske mjeno:
+quicklogin_password:Hesło:
+quicklogin_use_cookies:Placki wužiwać?
+quicklogin_login_btn:Přizjewić
+quick_reply:Spěšna wotmołwa
+post_notification_desc:Zdźělić, hdyž něchtó na tutu powěsć wotmołwja.
+post_all_ext_allowed:(njewobmjezowany)
+maximize_category:Kategoriju maksiměrować
+maximize_message:Powěsć maksiměrować
+no_view_perm:Njemóžeš trěbne prawa, zo by sej tutu temu wobhladał.
+report_empty_report:Njemóžeš prózdnu zdźělenku wotpósłać. Prošu zapodaj přičinu za twoju zdźělenku.
+report_already_reported_title:Hižo zdźěleny
+report_already_reported_msg:Tuta powěsć bu hižo zdźělena a zdźělenka je tuchwilu w čakanskim rynku moderatora.
+register_err_toomanyimages:Pospytuješ wjace hač dowolenych {GVAR: FORUM_IMG_CNT_SIG} wobrazow w tutej signaturje wužiwać.
+pmsg_next_msg:Přichodna powěsć
+pmsg_prev_msg:Předchadna powěsć
+post_proc_reveal_spoiler:Wjeselokažerja zapinyć
+register_jabber:Wužiwarske mjeno Jabber:
+register_skype:Wužiwarske mjeno Skype:
+register_twitter:Wužiwarske mjeno Twitter:
+register_google:Wužiwarske mjeno Google Chat/IM:
+im_jabber:Jabber:
+im_google:Google diskusija:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Kontakt
+forum_home:Startowa strona
+post_cur_attached:tuchwili připowěsnjeny: {VAR: i} {PLURAL: i|dataja|dataji|dataje|datajow}
+ignored_anon_post:{GVAR: ANON_NICK} so ignoruje
+ignored_user_post:Powěsć wot <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> so ignoruje
+smladd_close_window:wokno začinić
+post_list_smilies:wšě smějački nalistować
+p_VISIBLE:Widźomny
+reported_in_thread:W:
+help_back_to_top:wróćo do spočatka
+help_return_to_index:Wróćo k indeksej pomocy
+imsg_err_message_title:Njepłaćiwa powěsć
+imsg_err_message_msg:Powěsć, kotruž pospytuješ sej wobhladać, njeeksistuje.
+poll_edit:Wobdźěłać
+register_err_not_valid_img:Podaty URL njewobsahuje płaćiwy wobraz.
+pmsg_recepient:Přijimowar
+register_err_taken_alias:Alias, kotryž pospytuješ wužiwać, so hižo wot druheho čłona foruma wužiwa. Prošu wubjer druhi.
+register_alias:Alias:
+register_alias_desc:Jeli chceš, zo so přimjeno, kotryž so we forumje zwobraznjuje, wot přizjewjenskeho mjena rozeznawa, da zapodaj mjeno, kotrež ma so pokazać.
+register_allow_pm_msg:Priwatne powěsće dowolić
+register_allow_pm_msg_desc:Druhim wužiwarjam dowolić, tebi priwatne powěsće w tutym forumje pósłać.
+postcheck_pm_disabled:Njemóžeš priwatnu powěsć wužiwarjej "{VAR-HTML: v}" pósłać, dokelž tuta wosoba priwatne powěsće njeakceptuje.
+polllist_vote:Wothłosować
+polllist_view_results:Wuslědki sej wobhladać
+polllist_name:Mjeno wothłosowanja
+polllist_date:Datum załoženja
+polllist_owner:Załoženy wot
+polllist_votes:Hłosy dohromady
+polllist_action:Akcija
+userinfo_polls:Wothłosowanja:
+show_pollist:Wothłosowanja pokazać
+search_and:A
+search_or:ABO
+search_desc_order:Spadowace sortěrowanje
+search_asc_order:Postupowace sortěrowanje
+search_logic:Pytanska logika:
+search_sorting:Wuslědki po datumje sortěrować w:
+post_proceed:Pokročować
+unread_message:Njepřečitana powěsć
+read_message:Přečitana powěsć
+threadt_more:&lt;wjace&gt;
+spell_alts:žane alternatiwy
+saved:Składowany
+buddy_offline:{VAR: r[2]} je tuchwilu offline
+buddy_online:{VAR: r[2]} je tuchwilu online
+sml_no_smilies:Žane smějački k dispoziciji.
+login_unapproved_account_ttl:Njeschwalene konto
+remove_from_buddy_list:z lisćiny přećelow wotstronić
+iemail_msg_author:<b>Awtor:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Nastupa:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Datum:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Wotmołwa
+iemail_msg_quote:Citat
+iemail_msg_view:Temu/Powěsć sej wobhladać
+threadt_sticky:polěpjeny
+threadt_announce:připowědźenje
+reported_no_messages:Žane powěsće zdźělene.
+poll_no_polls:Žane přistupne wothłosowanja.
+no_unread_messages:Njejsu njepřečitane powěsće, kotrež twojemu naprašowanju wotpowěduja.
+thread_mark_all_read:wšě njepřečitane forumowe powěsće jako přečitane markěrować
+thread_mark_all_read_desc:Wšě njepřečitane powěsće w tutym forumje budu so jako přečitane markěrować
+private_no_messages:W tutym rjadowaku powěsće njejsu.
+iemail_thread_unsub:Tutu temu wotskazać
+iemail_forum_unsub:Tutón forum wotskazać
+primary_group_prefix:Hłowna skupina za forum:
+mnav_forum_limit:Jenož pytać w:
+mnav_all_forums:Wšě forumy přepytać
+mnav_submit:Pytanje započeć
+mnav_more:Wjace &raquo;&raquo;
+mnav_minute:Mjeńšiny
+mnav_hour:Hodźiny
+mnav_day:Dny
+mnav_week:Tydźenje
+mnav_month:Měsacy
+userinfo_real_name:Woprawdźite mjeno:

@@ -1,0 +1,651 @@
+# Messages for Esperanto (Esperanto)
+# Exported from translatewiki.net
+# Author: Yekrats
+
+action:Ago
+add_to_buddy_list:aldoni al amika listo
+admin:Administranto
+admin_control_panel:Administrilo
+administrator:Administranto
+attachment:Afiŝo
+avatar:Avataro:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Mesaĝo|$1 Mesaĝoj} (po {PLURAL: avg|$1 averaĝa mesaĝo|$1 averaĝaj mesaĝoj} por tago)
+biography:Biografio
+birth_date:Loko de Naskiĝo
+by:De:
+by_mod:de Administranto
+current_time:Nuna Tempo
+custom_avatar_queue:Memkreita Avatar-atendovico
+date_posted:Dato Afiŝita
+date_registered:Dato Registrita
+download_counter:Elŝutis {PLURAL: v[3]|$1 fojon|$1 fojojn}
+pmsg_download_counter:Elŝutiĝis {PLURAL: r->dlcount|$1 fojon|$1 fojojn}
+email:Retadreso:
+email_to_friend:Retpoŝti al amiko
+email_to_friend_desc:Sendi la URL-on de ĉi tiu paĝo al via(j) amiko(j) per retpoŝto
+email_user:Sendi al uzanto retpoŝtan mesaĝon
+faq:Helpo
+first_unread_msg:Iru al nelegitaj mesaĝoj
+first_unread_msg_desc:Iru al la unua nelegita mesaĝo en ĉi tiu fadeno
+flat_view:Reiri al la defaŭlta plata vido
+forum:Forumo:
+forum_icon:Foruma Bildsimbolo
+forum_new_messages:Novaj mesaĝoj
+forum_none_messages:Nur registritaj forumanoj povas sekvi legitajn &amp; nelegitajn mesaĝojn
+forum_old_messages:Neniuj novaj mesaĝoj
+from:De:
+gender:Sekso
+go:Ek
+goto_next_msg:Iri al posta mesaĝo
+goto_prev_msg:Iri al antaŭa mesaĝo
+home:Hejmo
+homepage:Hejmpaĝo
+icq_control_panel:ICQ Retmesaĝa Panelo
+icq_message_form:ICQ Mesaĝa Formularo:
+ignore_user:ignori ĉiujn mesaĝoj de ĉi tiu uzanto
+im_aim:AIM-Salutnomo:
+im_msnm:MSN-Ekmesaĝilo
+im_yahoo:Yahoo-Ekmesaĝilo
+image:Bildo:
+index_forum:Forumo
+index_new_posts:Novaj mesaĝoj ekde lasta lego
+index_no_new_posts:Neniuj novaj mesaĝoj ekde lasta lego
+index_url_redirection:Alidirektado
+interests:Interestoj:
+last_post:Lasta mesaĝo
+last_thread_msg:Iri al la lasta mesaĝo en ĉi tiu fadeno
+legend:Klarigeto
+location:Loko:
+lock_thread:Ŝlosi Fadenon
+locked:Ŝlosita
+locked_with_new_posts:Ŝlosita (kun nelegitaj mesaĝoj)
+logged_in_list:Listo de ensalutitaj uzantoj
+login:Ensaluti
+login_header:Ensaluti:
+logout:Elsaluti
+mark_all_read:marki ĉiujn mesaĝojn kiel legitajn
+mark_all_read_desc:Ĉiuj de viaj nelegitaj mesaĝoj estos markitaj kiel legitaj
+members:Forumanoj
+message:Mesaĝo
+message_counter:Niaj uzantoj estas afiŝitaj sumon de <b>{PLURAL: post_count|$1 mesaĝo|$1 mesaĝojn}</b> en <b>{PLURAL: thread_count|$1 fadeno|$1 fadenoj}</b>.
+message_index:Mesaĝa indekso
+message_index_desc:Vidi la mesaĝlisto
+minimize_category:Minimumigi Kategorion
+minimize_message:Minimumigi Mesaĝon
+moderation_queue:Kontrolada Atendovico
+moderator:Kontrolanto
+moderator_of:Kontrolanto de:
+moderator_options:Opcioj por Kontrolantoj
+moderators:{PLURAL: modcount|Kontrolanto|Kontrolantoj}
+more_unread_messages:pliaj nelegitaj mesaĝoj
+more_unread_messages_desc:Montri pliajn nelegitajn mesaĝojn kaj marki la nunajn videblajn mesaĝojn kiel legitajn
+move_thread:Movi
+moved:Movita al alia forumo
+moved_thread_message:Ĉi tiu fadeno estis movita al alia forumo
+na:n/a
+new_posts:Novaj Mesaĝoj
+new_private_messages:Vi havas <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|nelegitan privatan mesaĝon|nelegitajn privatajn mesaĝojn}
+new_thread:Krei novan fadenon
+newest_user:La plej nova registrita uzanto estas
+next_page:Posta Paĝo
+next_thread:Posta Fadeno:
+no_messages:Estas neniuj mesaĝoj en ĉi tiu forumo.
+no_msg_body:Neniu Mesaĝkorpo
+no_new_posts:Neniuj Novaj Mesaĝoj
+no_posts:Neniuj Mesaĝoj
+no_subscribed_forums:Neniuj abonitaj forumoj
+no_subscribed_threads:Neniuj abonitaj fadenoj
+no_bookmarked_threads:Neniuj fadenoj kun legosignoj
+no_unread_locked:Ĉi tiu fadeno estis ŝlosita
+no_unread_msg:Ĉi tiu fadeno havas neniujn nelegitajn mesaĝojn
+no_unread_msg_unreg:La legitaj &amp; nelegitaj mesaĝoj estas nur sekvitaj por registritaj uzantoj
+num_pages:Paĝoj ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voĉdono|voĉdonoj}
+occupation:Laboro:
+off:malŝalta
+on:ŝalta
+page_timings:Suma tempo pasita por generi la paĝon: {VAR: page_gen_time} sekundoj
+pm:Privata Mesaĝado
+poll:Opinisondo:
+post_count:Nombro de Mesaĝoj {VAR: u_pcount}
+post_count_l:Nombro de Mesaĝoj:
+posts:Mesaĝoj
+posts_c:Mesaĝoj:
+prev_thread:Antaŭa Fadeno:
+usrinfo_private_message:Privata Mesaĝo
+profile:Agordpanelo
+profile_desc:Atingi la agordpanelon por uzantoj
+rate_thread:Taksi Fadenon
+rating:Taksado
+rating_track:Administri taksadon por fadeno <b>{VAR: thr->subject}</b>:
+refresh_list:Refreŝigi Liston
+register:Registri
+registered:Registrita:
+registered_on:Registrita je {TEMPLATE: registered_on_date}
+replies:Respondoj
+report_to_mod:Raporti mesaĝon al kontrolanto
+reported_messages:Raportitaj Mesaĝoj
+reveal_all_posts:montri ĉiujn mesaĝojn de {VAR: user_login}
+reveal_post:montri mesaĝon
+search:Serĉi
+sel_todays_posts:Mesaĝoj de Hodiaŭ
+sel_todays_posts_desc:Baskuligi filtrilo por hodiaŭaj mesaĝoj (nur montros mesaĝojn faritajn hodiaŭ)
+sel_unanswered_posts:Neresponditaj Mesaĝoj
+sel_unanswered_posts_desc:Baskuligi la filtrilon de neresponditaj mesaĝoj (nur montros la mesaĝojn kiuj havas neniujn respondojn)
+sel_unread_messages:Nelegitaj Mesaĝoj
+sel_unread_messages_desc:Baskuligi filtrilon de nelegitaj mesaĝoj (nur montros nelegitajn mesaĝojn)
+send:Sendi
+send_pm_desc:Sendi privatan mesaĝon al ĉi tiu uzanto
+sender_email:Retadreso de sendanto:
+sender_name:Sendanto:
+show_posts_by:Montri Mesaĝojn laŭ: {VAR: u_alias}
+size:Grandeco:
+status:Statuso:
+status_line:Estas <b>{PLURAL: st_obj->online_users_reg|$1 forumano|$1 forumanoj}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 nevidebla forumano|$1 nevideblaj forumanoj}</b> kaj <b>{PLURAL: st_obj->online_users_anon|$1 gasto|$1 gastoj}</b> vizitante la forumon.
+sticky:fiksita:
+stop_ignoring:malignori ĉi tiun uzanton
+sub_to_thread:Aboni fadenon
+sub_to_thread_desc:Ricevi sciigon pri novaj mesaĝoj en ĉi tiu fadeno
+bookmark_thread:Legosigni fadenon
+bookmark_thread_desc:Aldoni ĉi tiun fadenon al via listo de legosignoj
+subject:Temo
+subscribe:Aboni
+subscribe_desc:Ricevi sciigojn kiam iu kreas novan fadenon en ĉi tiu forumo
+subscribed_forums:Abonitaj Forumoj
+subscribed_forums_desc:Baskuligi la filtrilon pri abonitaj forumoj (nur montros mesaĝojn de la forumoj kiujn vi estas abonita)
+subscribed_threads:Abonitaj Fadenoj
+subscribed_threads_desc:Baskuligi la filtrilon pri abonitaj fadenoj (nur montros mesaĝojn de la fadenoj kiujn vi estas abonita)
+bookmarked_threads:Legosignitaj Fadenoj
+switch_to_thread_view:Baskuli al la fadenita aspekto de ĉi tiu fadeno
+thread:Fadeno:
+thread_announcement:Anonco:
+thread_first_unread_msg:Iri al la unua nelegita mesaĝo en ĉi tiu fadeno
+thread_thread:Fadeno
+threads:Fadenoj
+time:Tempo
+todays_posts:Mesaĝoj de Hodiaŭ
+todays_posts_desc:Montri ĉiujn mesaĝojn kiuj estis afiŝitaj hodiaŭ
+un_ignore_user:malignori mesaĝoj de ĉi tiu uzanto
+unanswered_posts:Neresponditaj Mesaĝoj
+unanswered_posts_desc:Montri ĉiujn mesaĝojn sen respondoj
+unlock_thread:Malŝlosi Fadenon
+unread_msg:Ĉi tiu fadeno enhavas mesaĝojn kiun vi ne aknoraŭ legis
+unread_msg_locked:Ŝlosita fadeno kun nelegitaj mesaĝoj
+unread_posts:Nelegitaj Mesaĝoj
+unread_posts_desc:Montri ĉiujn nelegitajn mesaĝojn
+unsub_from_thread:Malaboni fadenon
+unsub_from_thread_desc:Malŝalti ricevaj sciigoj pri novaj mesaĝoj en ĉi tiu fadeno
+unbookmark_thread:Forigi el legosignoj
+unbookmark_thread_desc:Forigi ĉi tiun fadenon el via listo de legosignoj
+unsubscribe:Malaboni
+unsubscribe_desc:Malŝalti sciigojn pri novaj fadenoj en ĉi tiu forumo
+updated_on:Ĝisdatigita je:
+user:Uzanto
+user_counter:Ni havas <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|registritan uzanton|registritajn uzantojn}.
+user_info:Informo pri Uzanto
+user_info_l:Informo pri Uzanto {VAR: u->alias}
+user_offline:{VAR: obj->login}  estas nune rete malkonektita
+user_online:{VAR: obj->login}  estas nune rete konektita
+usrinfo_last_post:Lasta Mesaĝo:
+view_results:Rigardi Rezultojn
+views:Rigardoj
+vote:{PLURAL: frm->n_rating|$1 Voĉdono|$1 Voĉdonoj}
+vote_button:Voĉdoni
+vote_for_thread:Voĉdoni
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> estis movita al <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> de la kontrolanto
+welcome_message:Bonvenon, <b>{VAR: usr->alias}</b>. Via lasta vizito estis je {TEMPLATE: welcome_message_date}
+what_ppl_doing:Montri kion uzantoj estas farantaj
+reported_del_report:Forigi Raporton
+reported_reason:Kialo
+reported_on:Je:
+reported_reported_by:Raportita De:
+reported_reported_msg:Raportitaj Mesaĝoj
+modque_pending_approval:Mesaĝoj atendantaj aprobon
+modque_approve:Aprobi
+modque_delete:Forigi
+modque_no_message:Estas neniuj mesaĝoj atendantaj aprobon
+pmsg_new_messages:Nelegita privata mesaĝo
+pmsg_old_messages:Legi privatan mesaĝon
+deny_recipt:malpermesi ricevon
+deny_recipt_desc:Ne sendi konfirmmesaĝon ke vi legis ĉi tiun mesaĝon
+restore_to:Restarigi Al:
+move_to:Movi Al:
+list_referes_referrals:Referencoj
+list_referes_members:Forumanoj referencigitaj
+list_referes_member:Forumano
+referals_none:Neniuj referencoj ankoraŭ.
+referals_refered_by:Forumanoj referencigitaj de: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Nombro de Mesaĝoj
+referals_registered_on:Registrita je
+referals_action:Ago
+pmsg_all:ĉiuj
+pmsg_none:neniuj
+folder:Mesaĝujo:
+pmsg_replied:responditaj
+pmsg_forwarded:plusenditaj
+pmsg_subject:Temo
+pmsg_author:Aŭtoro
+pmsg_time:Tempo
+pmsg_selected:Selektitaj
+pmsg_delete:Forigi
+cur_ppage_pm:Privata Mesaĝado
+writing_pm:Skribante Privatan Mesaĝon
+browsing_folder:Legante <b>{VAR: folders[$folder_id]}</b> fadenujon
+inbox:Ricevujo
+draft:Malnetujo
+sent:Senditujo
+trash:Rubujo
+msg_author:Aŭtoro
+avatar_sel_form:Formularo por Avatara Elektado
+no_avatars:Neniuj Avataroj haveblaj
+month_1:januaro
+month_2:februaro
+month_3:marto
+month_4:aprilo
+month_5:majo
+month_6:junio
+month_7:julio
+month_8:aŭgusto
+month_9:septembro
+month_10:oktobro
+month_11:novembro
+month_12:decembro
+male:Vira
+female:Virina
+unspecified:NESPECIFITA
+register_tree_view:Arbeca listado de mesaĝoj kaj fadenoj
+register_msg_tree_view:Plata listado de fadenoj/Arbeca listado de mesaĝoj
+register_tree_msg_view:Arbeca listado de fadenoj/Plata listado de mesaĝoj
+register_flat_view:Plata listado de mesaĝoj kaj fadenoj
+use_forum_default:Uzi foruman defaŭltaĵon
+finduser_user_info:Informo pri Uzanto
+finduser_by_login:Laŭ Salutnomo
+finduser_submit:Serĉi
+finduser_no_such_user:Nenia Uzanto
+finduser_user:Uzanto
+finduser_postcount:Nombro de Mesaĝoj
+finduser_joindate:Dato de Aliĝo
+finduser_action:Ago
+yes:Jes
+no:Ne
+register_email:Retadreso
+edit_time_limit:<b>Redaktante Tempa Limo</b> <b>{GVAR: EDIT_TIME_LIMIT}</b> minutoj
+no_edit_time_limit:<b>Redaktante Tempa Limo</b>: <b>Senlimigita</b>
+pmuserloc_login:Ensaluti:
+pmuserloc_submit:Enigi
+pmuserloc_user:Uzanto
+pmuserloc_no_result:Neniu Rezulto
+register_builtin:Integrita
+register_specify_url:Specifigi URL-on
+register_uploaded:Alŝuti Avataron
+register_login:Salutnomo:
+register_password:Pasvorto:
+register_conf_pass:Konfirmi Pasvorton:
+register_email_desc:Bonvolu enigi validan retadreson. Vi povas elekti kaŝi ĝin sube, en la Agordoj-sekcio.
+register_name:Nomo:
+register_your_pass:Via Pasvorto:
+register_update:Ĝisdatigi
+register_avatar_type:Speco de Avataro:
+register_del_avatar:Forigi Avataron
+register_avatar:Avataro:
+register_sel_avatar:Elektu Avataron
+register_custom_avatar_rules:La tajlorita avataro ne aperos ĝis ĝi estas aprobita de la kontrolanto.<br /><span class="SmallText">La avataro devas esti ne pli granda ol <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} rasterumoj</b> kaj esti <b>jpg</b>, <b>gif</b>, aŭ <b>png</b> formato.
+register_custom_avatar_url:URL-o de Memproviza Avataro:
+register_preview:Antaŭvido
+register_custom_avatar_upload:Memprovizita Avatar-dosiero:
+register_register:Registri
+register_required:Deviga Informo
+register_required_desc:Ĉiuj kampoj estas devigaj. Bonvolu noti ke pasvortoj estas usklecodistingaj.
+register_optional:Nedeviga informo
+register_optional_desc:Estas rekomendita ke vi ne eldonu iun personan aŭ identigan informon en via profilo. Ĉiu informo estos videbla de aliaj forumanoj.
+register_location:Loko:
+register_occupation:Laboro:
+register_interests:Interesoj:
+register_image:Bildo:
+register_icq:ICQ:
+register_aim:AIM Salutnomo:
+register_yahoo:Yahoo-Ekmesaĝilo:
+register_msnm:MSN-Ekmesaĝilo:
+register_homepage:Hejmpaĝo:
+register_bday:Naskiĝdato:
+register_bday_desc:Se vi enigi naskiĝdato, alia forumanoj eblos vidi ĝin en via profilo.
+register_day:Tago
+register_month:Monato
+register_year:Jaro
+register_gender:Sekso:
+register_bio:Biografio:
+register_bio_desc:Kelkaj detaloj pri vi, kiel viaj interesoj, laboro, ktp...
+register_prefs:Preferoj
+register_sig:Subskribo:
+register_sig_desc:Nedeviga subskribo, kiu aperos ĉe la subo de ĉiuj viaj mesaĝoj.
+register_reset:Restarigi
+register_def_thread_view:Defaŭlta Fadena Aspekto:
+register_msg_per_page:Po mesaĝoj por paĝoj:
+register_show_sig:Montri subskribojn:
+register_show_sig_desc:Permesas al vi aŭ kaŝi aŭ montri subskribojn de aliaj forumanoj.
+register_use_sig_default:Uzi Subskribon Defaŭlte:
+register_use_sig_default_desc:Aŭtomate aldoni vian subskribon al ĉiu mesaĝo afiŝita.
+register_timezone:Horzono:
+register_ignore_admin:Ignori Administrecajn Mesaĝojn
+register_invisible_mode:Nevidebla Reĝimo
+register_invisible_mode_desc:Kaŝas vian retkonektan statuson.
+register_show_email:Montri Retadreson:
+register_show_email_desc:Elekti ĉi tiun opcion se vi volas vian retpoŝton esti montrata publike.
+register_notification:Elekti Sciigado Defaŭlte:
+register_notification_desc:Se sciigado estas ŝalta defaŭlte, ĝi povas esti malŝaltita kiam afiŝante.
+register_notify_method:Elekti Sciigadan Metodon:
+register_notify_method_desc:Agordi viajn preferatajn sciigo-metodon aŭ malŝalti sciigojn (ekzemple, kiam vi provizore forestos).
+register_allow_email_msg:Permesi Retpoŝtajn Mesaĝojn
+register_allow_email_msg_desc:Permesi aliajn uzantojn sendi al vi retpoŝtojn per ĉi tiu forumo.
+buddy_status:Statuso
+my_buddies:Miaj Amikoj
+add_buddy:Aldoni Amikon
+add:Aldoni
+buddy_search:Enigi la salutnomo de la uzanto kiun vi volas aldoni.
+member_search:Aŭ uzu <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Trovi Uzanto</a> por trovi personon.
+buddy_remove:forigi
+post_normal:Norma
+post_sticky:Fiksita
+post_annoncement:Anonco
+post_size:Grandeco
+post_color:Koloro
+post_font:Tiparo
+create_thread:Krei Fadenon
+submit_reply:Elsendi Respondon
+edit_message:Apliki Mesaĝajn Ŝanĝojn
+apply_spell_changes:Apliki Literumajn Ŝanĝojn
+post_preview:Mesaĝa Antaŭvido
+post_logedin_user:Ensalutita uzanto:
+post_logout:elsaluti
+post_passwd:Sendante Pasvorton:
+post_poll:Opinisondo:
+post_create_poll:KREI OPINISONDON
+post_poll_delete:FORIGI
+post_poll_edit:REDAKTI
+post_mod_opt:Opcioj por kontrolantoj
+post_thread_type:Fadena Speco:
+post_thread_expiry:Fadena Eksvalidiĝo
+post_locked:Fadeno Ŝlosita
+post_icons:Mesaĝa Bildsimbolo
+post_no_icon:Neniu Bildsimbolo
+post_smiley:Miensimbolaj Klavkombinoj:
+post_format_tools:Formatiloj:
+post_upload_file:Alŝuti Dosieron
+post_file_del:Forigi
+post_file_name:Nomo
+post_file_size:Grandeco
+file_attachments:Dosieraj Afiŝoj:
+allowed_files:Permesitaj Dosieraj Sufiksoj:
+max_file_size:ksimuma Grandeco de Dosiero:
+max_files_per_msg:Maksimumaj Dosieroj por Mesaĝo:
+post_notification:Afiŝa Sciigo
+include_sig:Inkluzivi Subskribon
+include_sig_desc:Inkluzivi vian profilan subskribon.
+disable_smilies:Malŝalti miensimbolojn en ĉi tiu mesaĝo
+spell_check_msg:Literumkontroli Mesaĝon
+post_form:Afiŝa Formularo
+post_forum:Forumo:
+post_title:Titolo:
+post_body:Korpo:
+post_options:Agordoj
+post_preview_btn:Antaŭvidi Mesaĝon
+ignore_users:Ignoritaj Uzantoj
+add_ignore:Aldoni Ignoranton
+forum_terms:Foruma Regularo
+forum_rules:<p>Registrado al ĉi tiu forumo estas senpaga! Ni ja insistas ke vi sekvas la jenajn regularojn. Se vi konsentas la regulojn, bonvolu klaki la butonon <b>Mi Konsentas</b> ĉe la subo de la paĝo. Notu ke: Klakante la butonon, vi deklaras ke vi pli aĝas ol 13. Se vi estas 13 jaraĝa aŭ malpli, bonvolu uzi ĉi tiun registradan formularon.</p><p>Kvankam la administrantoj kaj kontrolantoj de ĉi tiu forumo provas forviŝi ĉiujn fiaĵojn el ĉi tiu forumo, ne eblas ke ni kontrolos ĉiujn mesaĝojn. Ĉiuj mesaĝoj esprimas la opiniojn de la aŭtoro, kaj nek la proprantoj de la forumo aŭ la disvolvantoj estos respondeca por la enhavo de iu mesaĝo.</p><p>Klakante la butonon Mi Konsentas, vi asertas ke vi ne afiŝos iujn mesaĝojn fivortecajn, seksecajn, malamikecajn, minacajn, aŭ alimaniere kontraŭigi iun ŝtatajn regularojn.</p><p>La proprantoj de ĉi tiu forumo havas la rajton forigi, redakti, movi, aŭ fermi iun fadenon por ia kialo.</p>
+forum_rules_13:<p>Ĉiuj uzantoj sub 13-jaraĝa bezonas permeson de iliaj gepatro aŭ zorganto por gajni membreco al la forumoj. Kvankam vi bonvenas participado de forumanoj antaŭ 13-jaraĝa, ni devigas permeso-formularon antaŭ ni donas membrecon.</p><p>Se vi volus komenci la registrada procezo antaŭ sendante permeso-formularon, klaku la butonon <b>Mi Konsentas</b> sube. Se vi volus nuligi la registrado, klaku butonon <b>Mi Malkonsentas</b> por reiri al la foruma indekso.</p><p>Kopio de la permeso-formularo povas esti elŝutita ĉi tie. Por plia informo pri la registrada procezo, bonvolu sendi retpoŝton al <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:COPPA-Konfirmado
+coppa_before:Antaŭ {TEMPLATE: coppa_date}
+coppa_after:Poste {TEMPLATE: coppa_date}
+coppa_link:Klaku la ligilon kiu kongruas vian naskiĝdaton
+coppa:<p>Gepatro aŭ zorganto devas retpoŝti aŭ faksi subskribita permesilo por la administranto de ĉi tiu forumo antaŭ uzanto sub 13-jaraĝa povas flenumi registrado.</p><p>Por plua informo, kontakti <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Foruma Regularo
+prereg_agree:Mi Konsentas
+prereg_disagree:Mi Malkonsentas
+coppa_fax_instructions:Instruoj por Gepatro aŭ Zorganto
+coppa_fax_instructions2:Bonvolu printi ĉi tiun paĝon, subskribi ĝin, kaj faksi ĝin al:
+coppa_fax_reg_form:Registrilo
+coppa_fax_sign:Bonvolu subskribi la jenan forumularon kaj sendi ĝin al ni
+coppa_fax_conf:Mi estas tralegita la informo de mia infano, kaj mi legis la Privatecan Regularon por la retejo. Mi komprenas ke la profila informo estas ŝanĝebla per pasvorto. Mi komprenas ke mi povas peti ke ĉi tiu informo esti forigita plene de la forumo.
+coppa_fax_permission:Subskribu jene se vi permesas
+coppa_fax_no_permission:Subskribu ĉi tie se vi volus la konton esti forigita
+coppa_fax_parent_name:Plena Nomo de Gepatro/Zorganto
+coppa_fax_relation:Parenco:
+coppa_fax_telephone:Telefono:
+coppa_fax_email:Retadreso:
+coppa_fax_date:Dato:
+coppa_fax_questions:Bonvolu kontakti <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> kun iuj demandoj
+coppa_fax_login:Ensaluti
+coppa_fax_passwd:Pasvorto
+coppa_fax_remail:Retadreso
+coppa_fax_name:Nomo
+login_not_logedin:Vi ne estas ensalutita. Ĉi tel eble okazas pro unu el pluraj kialoj:
+login_cookie_expired:Via kuketo estas senvalidiĝis, kaj vi devas ensaluti por refreŝigi vian kuketon.
+login_perm_denied:Vi ne havas permeson por atingi la petitan rimedon kiel anonima uzanto. Vi devas ensaluti por gajni permeson.
+login_want_to_register:Ĉu vi volas registri?
+login_forgot_passwd:Forgesita pasvorto
+login_use_cookie:Uzi kuketojn<br /><span class="SmallText">Se vi uzas publikan terminalon kiel komputilo en biblioteko, lernejo, aŭ Interreta kafejo, estas rekomendita ke vi malŝalti ĉi tiun opcion por pli bona sekureco.<br />Se vi daŭras ŝalti ĉi tiun opcion, vi aŭtomate estos ensalutita kiam vi denove vizitos.</span>
+login_login:Ensaluti:
+login_login_btn:Ensaluti
+login_name_required:Elsalutado estas deviga
+login_passwd_required:Pasvorto estas deviga
+login_invalid_radius:Malvalida kombinaĵo de salutnomo/pasvorto
+reset_confirmation:Dankon por registrado.\n\nPor aktivigi vian konton, bonvolu iru al la jena URL-o:\n\n{VAR: url}\n\nPost via konto estas aktivigita, vi estos ensalutita en la forumo kaj alidirektita al la ĉefa paĝo.
+reset_reset:Saluton,\n\nVi petis por via pasvorto esti restarigita. Por plenumi la procezon, bonvolu iri al ĉi tiu URL:\n\n{VAR: url}\n\nNOTU: Ĉi tiu forumo konservas la pasvortojn en unu-direkta ĉifra mekanismo, kiu signifas ke post vi enigis vian pasvorton, ĝi estas ĉifrita tiel ne eblos reatingi ĝin. Ĉi tiu funkcias per komparante la ĉifritan registritan version kun la ĉifrita versio entajpita ĉe la ensaluta invito.\n(Se vi estas interesa kiel ĉi tiu mekanismo funkcias, prilegu pri MD5 HASH algoritmo)
+rpasswd_invalid_passwd:Malvalida Pasvorto
+rpasswd_passwd_nomatch:Pasvortoj ne kongruas
+rpasswd_passwd_length:Pasvorto devas esti almenaŭ 6 signoj longaj
+reset_remind_pass:Pasvorta Memorilo
+reset_reset_conf:Via pasvorto estos restarigita kajk sendita al vi. Se vi ne estas konfirmita vian retadreson, la konfirmada peto estos resendita al vi.
+reset_error:Retadreso ne trovita en datumbazo
+rpasswd_change_pass:Ŝanĝi Pasvorton
+rpasswd_login:Ensaluti
+rpasswd_cur_pass:Nuna Pasvorto:
+rpasswd_new_pass:Nova Pasvorto:
+rpasswd_conf_pass:Konfirmu Pasvorton:
+login_passwd:Pasvorto:
+reset_email:Retadreso:
+reset_reset_button:Restarigi Pasvorton
+rate_this_thread:Taksi
+report_reporting_about:Raportante Pri:
+report_subject:Temo:
+report_by:De:
+report_posted_on:Afiŝita je:
+report_give_reason:Bonvolu doni kial vi raportas ĉi tiun mesaĝon:
+report_submit_report:Sendi Raporton
+search_entire_msg:Tuta Mesaĝo
+search_subject_only:Nur Temo
+search_forum:Forumo
+search_posted_on:Afiŝita je
+search_no_results:Neniuj Rezultoj
+search_all_forums:Serĉi Ĉiujn Forumojn
+search_in_forum:Serĉi en Forumon:
+search_forum_search:Foruma Serĉo
+move_thread_to:Movi fadenon <b>{VAR: thr->subject}</b> al:
+remail_email_topic:Retpoŝti ĉi tiu fadeno al amiko
+remail_your_name:Via Nomo:
+remail_your_email:Via Retadreso:
+remail_friends_name:Nomo de Amiko:
+remail_friends_email:Retadreso de Amiko:
+remail_required:deviga
+remail_subject:Temo:
+remail_message:Mesaĝo:
+remail_send_now:Sendi Retpoŝton Nun
+remail_anon_opt:Kopiu ĉi tiun mesaĝon en retpoŝtan klienton de via prefero por sendi ĝin al via(j) amiko(j).
+remail_done:Farita
+remail_sent_conf:La retpoŝto sendita al via amiko ĉe {VAR-HTML: _POST['femail']} pri la temo {VAR: data->subject} estis sukcese sendita.
+remail_error:Estis eraro
+mklist_type:Speco:
+mklist_option:Opcio:
+mklist_additem:Aldoni Aĵon
+mklist_apply:Apliki
+mklist_delete:Forigi
+qbud_nick_name:Kromnomo
+qbud_add_selected:Aldoni Elektitan
+qbud_selected:Elektita
+qbud_no_buddies:Neniuj amikoj por elekti de
+mklist_numerical:Cifera listo
+mklist_aplha:Litereca
+mklist_square:Kvadrataĵo
+mklist_disc:Disko
+mklist_circle:Cirklo
+mklist_close:Fermi
+email_to:Al:
+email_pg_title:Retadreso
+email_subject:Temo:
+email_body:Korpo:
+email_submit:Retadreso
+ppost_quote_msg:{VAR: msg_to_list} skribita je {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Citi:
+ppost_to:Al:
+ppost_from_buddy_list:Elekti el Amika Listo
+ppost_find_User:Trovi Uzanton
+ppost_track_msg:Sekvi Ĉi Tiun Mesaĝon
+ppost_track_msg_desc:Sciigu min (per privata mesaĝo) kiam ĉi tiu mesaĝo estas legita.
+ppost_send:Sendi
+ppost_save_draft:Konservi Malneton
+poll_blank_option:Vi ne povas aldoni nulan opcion.
+poll_del_conf:Se vi volas forigi ĉi tiun opcion, klaku OK
+poll_name:Opinisonda nomo:
+poll_timelimit:Daŭrlimo:
+poll_maxiumvotes:Maksimumaj Voĉdonoj:
+poll_create:Krei
+poll_update:Ĝisdatigi
+poll_disablesmilies:Malŝalti miensimbolojn
+poll_create_poll:Krei Opinisondon
+poll_update_poll:Ĝisdatigi Opinisondon
+poll_delete:Forigi
+poll_updateoption:Ĝisdatigi Opciojn
+poll_addoption:Aldoni Opcion
+poll_unlimited:Senlimigita
+poll_day:tago
+poll_days:tagoj
+poll_hour:horo
+poll_hours:horoj
+poll_month:monato
+poll_year:jaro
+poll_week:semajno
+tabs_register:Kontaj Agordoj
+tabs_subscriptions:Abonaĵoj
+tabs_bookmarkes:Legosignoj
+tabs_referrals:Referencoj
+tabs_buddy_list:Amika Listo
+tabs_ignore_list:Ignora Listo
+tabs_private_messaging:Privata Mesaĝado
+single_msg_delete:Vi preskaŭ <span class="ErrorText">forigas</span> la mesaĝon titolitan: <b>{VAR: data[3]}</b>
+thread_delete:Vi preskaŭ <span class="ErrorText">forigas</span> la <span class="ErrorText">tutan fadenon</span> titolitan: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Ĉu vi volas kontinui?</span>
+delete_yes:Jes
+delete_no:Ne
+error_invalidurl:Malvalida URL-o
+error_error:Eraro
+usrinfo_profile:Profilo de {VAR: u->alias}
+usrinfo_show_all_posts:Montri ĉiujn mesaĝojn de {VAR: u->alias}
+actions_update:Spioni aliajn uzantojn kiel vi
+err_info:Informo
+buddy_list_err_cantadd:Vi ne povas aldoni vin mem al via amika listo
+buddy_list_err_dup:Vi jam havas ĉi tiun uzanton en via amika listo
+buddy_list_err_nouser:La uzanto kiun vi provis aldoni al via amika listo ne estis trovita.
+buddy_list_err_nouser_title:Ne eblas aldoni uzanton
+buddy_list_err_ignore:Ne povas aldoni uzantojn kiu ignori vin al via amika listo.
+buddy_list_update:Rigardante vian amikan liston
+core_err_invinp_title:Malvalida Enigo
+core_err_invinp_err:Vi ĵus sekvis malvalidan ligilon. Bonvolu sciigi la <a href="mailto:{GVAR: ADMIN_EMAIL}">retmajstro</a> kiel vi venis ĉi tien.
+core_adm_login_msg:Administrantoj povas ensaluti <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ĉi tie</a>.
+email_err_unabletoemail_title:ERARO: Ne eblas retpoŝti
+email_err_unabletoemail_msg:La retpoŝta sistemo estis malŝalta de la administranto.
+email_error_unabletolocaddr:Bedaŭrinde, la sistemo ne eblis retpoŝti {VAR-HTML: _POST['tx_name']} ĉar ĝi ne eblis determini la retadreson.
+email_error_body:La korpo estas deviga
+email_error_subject:La Temo estas deviga
+email_error_namerequired:Nomo estas deviga
+email_error_invaliduser:Malvalida uzanto
+emailconf_err_invkey_title:Eraro
+emailconf_err_invkey_msg:Malvalida konfirm-ŝlosilo. Bonvolu kontroli vian retpoŝton por certigi ke vi eniris la URL-on korekte.
+err_inc_criticaltitle:Kritika eraro
+err_inc_criticalmsg:Eraro okazis. Bedaŭrinde, estis ankaŭ problemo kun la eraro-raportada sistemo.
+finduser_update:Serĉante uzantojn
+help_index_update:Legante la <a href="{TEMPLATE: help_index_update_lnk}">Helpo</a>
+iemail_thr_subject:{VAR: thr_subject} de {VAR: poster_login}
+iemail_thr_bodyemail:Rigardi nelegitajn respondojn iru {VAR: goto_url['email']}\n\nSe vi ne volas ricevi pluajn sciigojn pri respondoj en ĉi tiu fadeno, bonvolu iru ĉi tie: {VAR: unsub_url['email']}
+iemail_frm_subject:Nova fadeno en forumo {VAR: frm_name}, nomita {VAR: thr_subject}, de {VAR: poster_login}
+iemail_frm_bodyemail:Rigardi la fadenon, iru a;:\n{VAR: goto_url['email']}\n\nMalŝalti ricevante sciigojn pri novaj fadenoj en ĉi tiu forumo, bonvolu iri ĉi tie: {VAR: unsub_url['email']}
+iemail_participate:Partopreni la diskuton, iru ĉi tie:
+ignore_list_err_info_title:Informo
+ignore_list_err_dup_msg:Vi ankoraŭ havas ĉi tiun uzanton en via ignorlisto
+ignore_list_err_nu_title:Uzanto ne trovita
+ignore_list_err_nu_msg:La uzanto kiun vi provis aldoni al via ignorlisto ne estis trovita.
+ignore_list_cantign_msg:Vi ne povas ignori ĉi tiun uzanton
+ignore_list_update:Tralegante nian ignorliston
+index_update:Tralegante la <a href="{TEMPLATE: index_update_lnk}">foruman liston</a>
+list_referers_update:Tralegante referencojn
+login_update:Ensaluta Formularon
+msg_update:Tralegante fadenon <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:ERARO: Privata Mesaĝado estas Malŝalta
+pm_err_nopm_msg:Vi ne povas uzi la privatan mesaĝo-sistemon. Ĝi estis malŝalta de la administranto.
+pm_update:Uzante privatan mesaĝadon
+post_err_lockedthread_title:ERARO: Ŝlosita Fadeno
+post_err_lockedthread_msg:Ĉi tiu fadeno estas ŝlosita. Afiŝado ne plu estas permesita.
+err_coppa_title:ERARO: Via konto ne ankoraŭ estas konfirmita
+err_coppa_msg:Ni ne ricevis konfirmaĵon de via gepatro kaj/aŭ leĝa zorganto, kiu permesus al vi afiŝi mesaĝojn. Se vi perdis vian COPPA-formularon, <a href="{TEMPLATE: err_coppa_msg_lnk}">rerigardu ĝin</a>.
+err_banned_acct_title:ERARO: Vi estis forbarita.
+err_banned_acct_msg:Via konto estis {IF: $ban_expiry}provizore forbarita ĝis {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}ĉiame forbarita{ENDI} de atingo la retejo, pro malobservo de la foruma regularo.
+post_err_edttimelimit_title:ERARO
+post_err_edttimelimit_msg:Vi ne plu povas redakti ĉi tiun mesaĝon
+post_err_noannontopics_msg2:<legend>ERARO: Nesufiĉaj Rajtoj</legend>Anonimuloj ne estas permesitaj krei fadenojn
+post_err_noannonposts_msg2:<legend>ERARO: Nesufiĉaj Rajtoj</legend>Anonimuloj ne estas permesitaj respondi.
+post_err_floodtrig_title:ERARO: Afiŝ-inundo sproniĝis.
+post_err_floodtrig_msg:Bonvolu reprovi post {PLURAL: tm|$1 sekundo|$1 sekundoj}
+post_err_attach_size:Dosiera Afiŝo estas tro granda (pli granda ol la limo de {VAR: MAX_F_SIZE} bitikoj)
+post_err_attach_ext:La dosiero kiun vi provas alŝuti ne kongruas la permesitaj dosiertipoj.
+post_err_attach_filelimit:Vi provas alŝuti tro multajn dosierojn ol permesitaj.
+post_err_passwd:Malkorekta pasvorto.
+post_reply_update:Respondante al <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> en {VAR: frm->name}
+post_topic_update:Skribante novan fadenon en <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:Okazis eraro
+postcheck_max_images_err:Ne pli ol {GVAR: MAX_IMAGE_COUNT} bildoj estas permesitaj por mesaĝo. Bonvolu malgrandigi la nombron de bildoj.
+postcheck_no_links_allowed:Vi ne povas uzi ligilojn ĝis vi afiŝas pli ol {PLURAL: posts_before_links|$1 mesaĝon|$1 mesaĝojn}.
+postcheck_subj_needed:Temo estas deviga
+postcheck_no_such_user:Ne estas iu uzanto nomita "{FUNC: char_fix(htmlspecialchars($v))}" en ĉi tiu forumo.
+postcheck_ignored:Vi ne povas sendi privatan mesaĝon al "{FUNC: char_fix(htmlspecialchars($v))}", ĉar ĉi tiu uzanto ignoras vin.
+postcheck_no_recepient:Ne povas sendi mesaĝon; mankas ricevanto
+postcheck_invalid_email:Bonvolu enigi validan retadreson por via amiko.
+postcheck_email_subject:Vi ne povas sendi retpoŝton sen temo.
+postcheck_email_body:Vi ne povas sendi retpoŝton sen la mesaĝa korpo.
+private_msg_notify_subj:Lega Sciigo Por: {VAR: m->subject}
+private_msg_notify_body:Saluton,<br />{VAR: usr->login} malfermis vian privatan mesaĝon titolita,  "{VAR: m->subject}".<br />Ĉi tiu estas aŭtomata sciigo generita je {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:Tralegante referencojn
+register_err_short_login:La Salutnomo kiun vi elektis estas tro mallonga. Salutnomoj devas esti almenaŭ 4 signoj longa.
+register_err_login_notallowed:Ĉi tiu salutnomo ne estas permesita.
+register_err_loginunique:Forumaj salutnomoj devas esti unikaj. Jam estas uzanto kun ĉi tiu nomo.
+register_err_emailexists:Ĉi tiu retadreso jam ligita kun konto. Se vi forgesis vian pasvorto, bonvolu uzi la opcion Restarigi, anstataŭ reregistradon.
+register_err_shortpasswd:Pasvortoj devas esti almenaŭ 6 signoj longaj.
+register_err_passwdnomatch:Viaj pasvortoj ne kongruas. Bonvolu reprovi.
+register_err_invalidemail:La retadreso kiun vi specifigita verŝajne estas malvalida.
+register_err_needname:Por sukcese fini ĉi tiun registradon, vi devas enigi vian nomon.
+register_err_enterpasswd:Vi devas enigi vian nunan pasvorton por fini la ŝanĝojn.
+register_err_adminpasswd:Vi devas enigi vian <b>administrulan</b> pasvorton por plenumi la ŝanĝojn.
+register_err_notyouremail:Iu alia jam estas registrita kun ĉi tiu retadreso.
+register_err_avatartobig:La dosiero kiun vi provas alŝuti estas tro granda, pli ol {GVAR: CUSTOM_AVATAR_MAX_SIZE} bitikoj
+register_err_avatarnotallowed:La avatro kiun vi provas alŝuti ne estas permesita. Kontrolu la permesitajn dosiertipojn.
+register_conf_subject:Konfirmado de Registrado
+register_conf_msg:Dankon por via registrado.\nAktivigi vian konton bonvolu iru al la jenan URL-on:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPost via konoto estas aktiva vi estos ensalutita en la forumo kaj alidirektita al la ĉefa paĝo.
+register_welcome_subject:Konfirmado de Foruma Registrado
+register_welcome_msg:Dankon por via registrado.\n\nJen vian ensalutaj detaloj por la forumo:\n\n\nForuma URL-o: {TEMPLATE: index_update_lnk}\nSalutnomo: {VAR: uent->login}\nPasvorto: {VAR: _POST['reg_plaintext_passwd']}\n\nBonvolu sciigi ke pasvortoj estas usklecodistinga!\nModifi vian agordojn aŭ profilon, iru al ĉi tiu paĝo:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:ERARO: ne eblas registri
+regsiter_err_cantreg_msg:Ne eblas krei uzanto-konto; bonvolu kontakti la administranto ĉe <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Rigardante propran profilon
+register_register_update:Registrada Paĝo
+report_err_nosuchmsg_title:ERARO
+report_err_nosuchmsg_msg:Nenia Mesaĝo
+reset_err_invalidkey_title:ERARO
+reset_err_invalidkey_msg:Nevalida pasvorto restariga ŝlosilo. Eblas ke via retpoŝta kliento jam aŭtomate malfermis ĉi tiun paĝon, malvalidigante la restarigo-ŝlosilo. Ĉi-kaze, vi baldaŭ ricevos retpoŝton kun via nova pasvorto. Se tia retpoŝto ne arivas, bonvolu reprovi restarigante la pasvorton.
+reset_err_rstconf_title:Informo
+reset_err_rstconf_msg:Vi ricevos instruojn en via retpoŝtkesto dum la sekvaj kelkaj minutoj.
+reset_newpass_title:Restarigi Pasvorton
+reset_newpass_msg:Saluton,\n\nTiel petita, jen via salutinformo: \n\nSalutnomo: {VAR: ui[1]}\nPasvorto: {VAR: passwd}\n\nBonvolu noti ke via pasvorto estis restarigita al la valoro supre. Se vi volas\nŝanĝi vian pasvorton, vi povas fari tiel per la uzula kontrolilo ĉe: \n{FULL_ROOT}{ROOT}?t=register
+search_update:Serĉante mesaĝojn
+ERR_disabled_ttl:Malŝalta eco
+ERR_user_ttl:ERARO: Nenia uzanto
+ERR_systemerr_ttl:ERARO: Sistema Eraro
+reset_title:Restarigi Pasvorton
+remail_emailsent:Retpoŝto estis sendita
