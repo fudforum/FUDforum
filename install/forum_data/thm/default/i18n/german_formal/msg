@@ -307,7 +307,7 @@ register_month:Monat
 register_year:Jahr
 register_gender:Geschlecht:
 register_bio:Biographie:
-register_bio_desc:Ein paar Details &uuml;ber Sie, wie zum Beispiel Ihre Interessen, Beruf usw...
+register_bio_desc:Ein paar Details über Sie, wie zum Beispiel Ihre Interessen, Beruf usw.
 register_prefs:Einstellungen
 register_sig:Signatur:
 register_sig_desc:Optionale Signatur, die Sie unter Ihre Beitr&auml;ge setzen k&ouml;nnen.
@@ -886,7 +886,7 @@ primary_group_prefix:Hauptgruppe f&uuml;r Forum:
 group_resources:Diese Gruppe kontrolliert die Berechtigungen f&uuml;r folgende Foren
 register_admin_newuser_title:Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
 register_admin_newuser_msg:Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor es durch Sie oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten, gehen Sie zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworten Sie diese Nachricht nicht.\nWenn Sie weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen abstellen möchten, können Sie dies über das Administratormenü und durch Ändern des Wertes der Einstellung "New Account Notification" erledigen.
-post_mod_msg_notify_title:Neuer Beitrag im Forum "{VAR: frm->name}" wartet auf Bestätigung
+post_mod_msg_notify_title:Neuer Beitrag im Forum „{VAR: frm->name}“ wartet auf Bestätigung
 post_mod_msg_notify_msg:Ein neuer Beitrag mit der Überschrift "{VAR: msg_post->subject}" wurde gerade in einem Forum, welches von Ihnen moderiert wird, erstellt. Um diesen Beitrag zu begutachten, gehe Sie zu: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDas ist ein automatisierter Vorgang, bitte beantworten Sie diese Benachrichtigung nicht.
 thread_printable_pdf:Druckbares PDF erzeugen
 thread_syndicate:Themen als Syndicate anderen Seiten zur Verf&uuml;gung stellen (XML)
@@ -913,7 +913,7 @@ mnav_month:Monat(e)
 mnav_title:Beitragsnavigator
 mnav_update:Durchsucht Beitr&auml;ge mit Hilfe des <a href="{TEMPLATE: mnav_update_lnk}">Beitragsnavigators</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Nachricht
-pm_notify_body_email:Sie haben eine neue private Nachricht mit der Überschrift "{VAR: subject}" von "{VAR: from}" im Forum "{GVAR: FORUM_TITLE}".\nKlicke Sie hier, um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktivieren Sie "Benachrichtigung über private Nachrichten" in Ihrem Profil.
+pm_notify_body_email:Sie haben eine neue private Nachricht mit der Überschrift „{VAR: subject}“ von „{VAR: from}“ im Forum „{GVAR: FORUM_TITLE}“.\nKlicke Sie hier, um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktivieren Sie „Benachrichtigung über private Nachrichten“ in Ihrem Profil.
 register_pm_notification:Benachrichtigung &uuml;ber private Nachricht
 register_pm_notification_desc:Falls aktiviert, werden Sie &uuml;ber die Benachrichtigungsmethode Ihrer Wahl eine Mitteilung erhalten, sobald eine private Nachricht an Sie gesendet worden ist.
 findu_admin_opts_header:Admin-Optionen
@@ -932,9 +932,9 @@ split_cp:Men&uuml; zum Teilen von Themen
 groups_perms_header:Rechte <span class="small">(Bewegen Sie den Mauszeiger &uuml;ber die Rechte, um deren Typ zu erkennen)</span>
 register_err_sig_too_long:Ihre Signatur &uuml;berschreitet die maximal erlaubte L&auml;nge von {GVAR: FORUM_SIG_ML} Zeichen.
 register_sig_limit:{GVAR: FORUM_SIG_ML} Zeichen <a href="javascript: alert('Ihre Signatur ist '+document.forms['fud_register'].reg_sig.value.length+' Zeichen lang. Die maximal erlaubte Signaturlänge beträgt {GVAR: FORUM_SIG_ML}');" class="SmallText">&Uuml;berpr&uuml;fe die Signaturl&auml;nge</a>
-adm_account_accepted:Ihr Konto '{VAR: login}' wurde vom Administrator gebilligt und ist jetzt aktiviert. Sie können jetzt auf das {GVAR: FORUM_TITLE}' Forum als bestätigter Benutzer zugreifen.
-adm_account_accepted_s:Ihre Bitte um ein Konto für '{GVAR: FORUM_TITLE}' wurde akzeptiert.
-adm_account_rejected:Ihr Konto '{VAR: login}' wurde vom Administrator abgewiesen und ist daher nicht aktiviert. Falls Sie den Grund für diese Entscheidung erfahren möchten, steht es Ihnen frei, den Administrator über '{GVAR: ADMIN_EMAIL}' zu kontaktieren.
+adm_account_accepted:Ihr Konto „{VAR: login}“ wurde vom Administrator gebilligt und ist jetzt aktiviert. Sie können jetzt auf das {GVAR: FORUM_TITLE}' Forum als bestätigter Benutzer zugreifen.
+adm_account_accepted_s:Ihre Bitte um ein Konto für „{GVAR: FORUM_TITLE}“ wurde akzeptiert.
+adm_account_rejected:Ihr Konto „{VAR: login}“ wurde vom Administrator abgewiesen und ist daher nicht aktiviert. Falls Sie den Grund für diese Entscheidung erfahren möchten, steht es Ihnen frei, den Administrator über „{GVAR: ADMIN_EMAIL}“ zu kontaktieren.
 adm_account_rejected_s:Ihre Bitte um ein Konto für '{GVAR: FORUM_TITLE}' wurde abgewiesen.
 thread_on:am
 register_email_addr:E-Mail-Adresse:

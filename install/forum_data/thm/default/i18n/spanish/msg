@@ -1059,6 +1059,8 @@ post_common_quote:Añadir cita
 post_common_code:Añarir código
 rating_delete:Borrar
 post_always_on_top:Hacer que el hilo siempre aparezca arriba en la lista de hilos
+topic_rating:{VAR: frm->rating} de {PLURAL: frm->n_rating|$1 voto|$1 votos}
+topic_list_rating:{VAR: r[17]} de {PLURAL: r[21]|$1 voto|$1 votos}
 tabs_notifications:Notificaciones
 finduser_flag:Bandera
 post_descr:Descripción de tópico
@@ -1073,9 +1075,16 @@ code_title:CODIGO:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/ocultar
 social_sites:Sitios de redes sociales:
+postcheck_min_len_err:Tu mensaje es demasiado corto. El tamaño mínimo es de {PLURAL: post_min_len|$1 caracter|$1 caracteres}.
+postcheck_dup_err:Por favor no crear tópicos duplicados.
+btn_new_topic:Nuevo tópico
+btn_post_reply:Respuesta a mensaje
+btn_tree_view:Vista en árbol
+btn_flat_view:Vista plana
 btn_about:Perfil
 btn_delete:borrar
 btn_edit:editar
 btn_reply:respuesta
 btn_email:Correo electrónico
+btn_show_posts:mensajes
 btn_homepage:www

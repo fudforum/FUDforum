@@ -1081,3 +1081,7 @@ btn_quote:			quote
 btn_email:			Email
 btn_show_posts:			posts
 btn_homepage:			www
+feed_no_data:			No matching data found.
+feed_rdf:			RDF feed
+feed_rss:			RSS2 feed
+feed_atom:			ATOM feed

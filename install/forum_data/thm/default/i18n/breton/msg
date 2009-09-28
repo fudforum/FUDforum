@@ -1066,3 +1066,20 @@ code_title:KOD :
 code_select_all:Diuzañ pep tra
 code_show_hide:Diskouez / kuzhat
 social_sites:Lec'hiennoù rouedadoù sokial :
+postcheck_min_len_err:Re verr eo ho kemennadenn. An hirded a rank bezañ  {PLURAL: post_min_len|$1 arouezenn|$1 arouezenn} da nebeutañ.
+postcheck_dup_err:Arabat krouiñ kaozioù doublet, mar plij.
+btn_new_topic:Kaoz nevez
+btn_new_pm:Kemenadenn brevez nevez
+btn_post_reply:Postañ ur respont
+btn_tree_view:Diskwel gwezennadur
+btn_flat_view:Diskwel plaen
+btn_about:Profil
+btn_small_pm:KB
+btn_delete:dilemel
+btn_edit:aozañ
+btn_reply:respont
+btn_forward:kas en-dro
+btn_quote:menegiñ
+btn_email:Postel
+btn_show_posts:kemennadenn
+btn_homepage:www

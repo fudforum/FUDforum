@@ -593,3 +593,492 @@ post_err_edttimelimit_title:FÄHLER
 post_err_edttimelimit_msg:Du chasch Dyyy Byytrag nimmi bearbeite
 post_err_noannontopics_msg2:<legend>FÄHLER: Rächt länge nit</legend>Anonymi Benutzer derfe kei Themene aalege.
 post_err_noannonposts_msg2:<legend>FÄHLER: Rächt länge nit</legend>Anonymi Benutzer derfe kei Antwort gee.
+post_err_floodtrig_title:FEHLER: Schutz vor Iberfluetig mit Beitreg aktiviert.
+post_err_floodtrig_msg:Bitte versuech s in {PLURAL: tm|$1 Sekund|$1 Sekunde} nomol
+post_err_attach_size:Dateiaahang isch z groß; (iber dr erlaubte Gränz vu {VAR: MAX_F_SIZE} Bytes)
+post_err_attach_ext:Dr Dateityp, wu Du witt uffelade, isch nit erlaubt.
+post_err_attach_filelimit:Du versuechsch, meh Dateie uffezlade wie erlaubt sin.
+post_err_passwd:Falsch Passwort.
+post_reply_update:Git e Antwort uf <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name}
+post_topic_update:Leit e nej Thema in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a> aa
+post_error_generic:S het e Fähler gee
+postcheck_max_images_err:Maximal {GVAR: MAX_IMAGE_COUNT} Bilder pro Byytrag sin erlaubt, bitte verringere d Aazahl vu dr Bilder.
+postcheck_no_links_allowed:Du chasch kei Gleicher (Links) bruche, bis Du meh wie {PLURAL: posts_before_links|$1 Beitrag|$1 Beitreg} gschribe hesch.
+postcheck_subj_needed:S brucht e Beträff
+postcheck_no_such_user:S git kei Benutzer mit em Name "{FUNC: char_fix(htmlspecialchars($v))}" in däm Forum.
+postcheck_ignored:Du chasch kei privati Nochricht an "{FUNC: char_fix(htmlspecialchars($v))}" verschicke, wel die Person Di uf d Ignorierlischt gsetzt het.
+postcheck_no_recepient:Cha d Nochricht nit verschicke, wel kei Empfänger aagee isch
+postcheck_invalid_email:Bitte trag e giltigi Adräss fir Dyy Frynd yy.
+postcheck_email_subject:Du chasch kei E-Mail ohni Beträff verschicke.
+postcheck_email_body:Du chasch kei E-Mail ohni Inhalt verschicke.
+private_msg_notify_subj:Benochrichtigung läse zue: {VAR: m->subject}
+private_msg_notify_body:Sali,<br />{VAR: usr->login} het Dyy privati Nochricht, "{VAR: m->subject}", am {TEMPLATE: private_msg_notify_body_date} gläse<br />
+referals_update:Am Dursueche vu dr Aawärbige
+register_err_short_login:Dr Benutzername, wu Du gwehlt hesch, isch z churz. Är muess zmindescht 4 Zeiche lang syy.
+register_err_login_notallowed:Dää Benutzername isch nit erlaubt.
+register_err_loginunique:Benutzernäme fir s Forum mien einmolig syy, s git scho ne Benutzer mit däm Name im Syschtem.
+register_err_emailexists:Die E-Mail-Adräss isch scho brucht wore, wänn Di imfall Dyy Passwort vergässe hesch, loss es bitte zrucksetze, statt ass Du di nej regischtriersch.
+register_err_shortpasswd:S Passwort muess zmindescht 6 Zeiche lang syy.
+register_err_passwdnomatch:Dyy Passwerter stimme nit zämme.
+register_err_invalidemail:D E-Mail-Adräss, wu Du aagee hesch, isch schyns nit giltig.
+register_err_needname:Go d Regischtrierig erfolgryych abzschließe muesch Dyy Name aagee.
+register_err_enterpasswd:Du muesch Dyy aktuäll Passwort yygee go d Veränderige abschließe.
+register_err_adminpasswd:Du muesch Dyy Administrator-Passwort yygee go d Veränderige abschließe.
+register_err_notyouremail:S git eber ander, wu mit däre E-Mail-Adräss regischtriert isch.
+register_err_avatartobig:D Datei, wu Du witt uffelade, isch z groß un lyt iber dr Gränz vu {GVAR: CUSTOM_AVATAR_MAX_SIZE} Bytes.
+register_err_avatarnotallowed:Dr Avatar, wu Du witt uffelade, isch nit erlaubt, iberprief di erlaubte Dateitype.
+register_conf_subject:Regischtrierigsbstetigung
+register_conf_msg:Dankschen vilmol fir Dyy Regischtrierig,\nGo Dyy Konto aktiviere gang b itte uf d Adräss, wu do unte aagee isch: \n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald Dyy Konto aktiviert isch, wirsch Du am Syschtem aagmäldet un\nzue dr Hauptsyte vum Forum wytergleitet.
+register_welcome_subject:Regischtrierigsbstetigung fir s Forum
+register_welcome_msg:Dankschen vilmol fir Dyy Regischtrierig,\n\nDi sin d Aamäldedetails fir s Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nBenutzername: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte gibt Acht bim Passwort uf d Groß- un Chleischrybig!\nGo d Yystellige un s Profil ändere gang bitte uf die Syte:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:FÄHLER: Regischtrierig nit megli
+regsiter_err_cantreg_msg:Cha s Benutzerkonto nit aalege, nimm bitte Kontakt uf zum Administrator: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:Am Bschaue vum eigene Profil
+register_register_update:Regischtrierigssyte
+report_err_nosuchmsg_title:FÄHLER
+report_err_nosuchmsg_msg:Kei sonige Byytrag
+reset_err_invalidkey_title:FÄHLER
+reset_err_invalidkey_msg:Nit giltige Passwortschlissel. S isch meglig, ass Dyy E-Mail-Client die Syte scho ufgmacht het un dr Schlissel zum Zrucksetze uugiltig gmacht het. Wänn s dodra lyt, chunnsch bal e E-Mail iber mit Dyym neje Passwort. Wänn Du kei sonigi E-Mail iberchunnsch, no versuech nomol Dyy Passwort yyzgee.
+reset_err_rstconf_title:Information
+reset_err_rstconf_msg:Du sottsch in dr negschte Minute ne Aaleitig per E-Mail iberchuu.
+reset_newpass_title:Passwort zrucksetze
+reset_newpass_msg:Sali,\n\nWie vu Dir gwinscht, wird der dr Benutzername zueschickt.\nDo sin Dyyni Aamäldeinformatione:\n\nBenutzername: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte gib Acht, ass Dyy Passwort uf dr Wärt dobe zruckgsetzt woren isch,\nwänn Du s witt ändere, no chasch des in dr persenlige Yystellige mache:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:S Passwort isch an di gschickt wore. Du sottsch s in dr negschte Minute iberchuun.<br />
+search_update:Suecht no Byytreg
+selmsg_update:Am Dursuech vu dr <a href="{TEMPLATE: selmsg_update_lnk}">hitige Byytreg</a>
+showposts_update:Am Bschaue vu dr Byytreg vu <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Am Dursuehce vu dr eigene Abonnements
+bookmarked_update:Am Bschaue vu dr eigene Läsezeiche-Lischt
+thread_update:Am Dursueche vum Forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Am Dursueche vum Thema (Baumaasicht) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Am Bschaue vum Profil vu <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+ERR_login_msg2:<legend>FÄHLER: Du bisch nit aagmäldet</legend>Go Zuegriff uf die Syte iberchuu muesch Miglid in däm Forum syy.
+ERR_disabled_ttl:Deaktivierti Funktion
+ERR_disabled_msg:Die Funktion isch vum Systemadministrator deaktiviert wore
+ERR_access_ttl:FÄHLER: Rächt länge nit
+ERR_access_msg:Du hesch nit nit notwädnige Rächt go die Aktion durfiere
+ERR_registration_disabled_ttl:Regischtrierig isch deaktiviert
+ERR_registration_disabled_msg:Dr Administrator het d Regischtrierig deaktiviert, versuech s bitte speter nomol.
+ERR_emailconf_ttl:FÄHLER: Dyy Konto isch nonig bstetigt wore
+ERR_emailconf_msg:Du hesch Dyy Konto nonig per E-Mail bstetigt<br /><table border="0"><tr><td><ol><li>Wänn Du imfall kei Bstetigungs-E-Mail iberchuu hesch, druck <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">do</a><li>Wänn {VAR: usr_d->email} nit Dyy richtigi E-Mail-Adräss isch, druck <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">do</a></ol></td></tr></table>
+ERR_user_ttl:FÄHLER: Benutzer git s nit
+ERR_user_msg:Dää Benutzer git s nit
+ERR_systemerr_ttl:FÄHLER: Syschtemfähler
+ERR_systemerr_msg:S het e Syschtemfähler gee, bitte benöchrichtige dr <a href="mailto:{GVAR: ADMIN_EMAIL}">Webmaster</a>.
+email_title:E-Mailformular
+finduser_title:Benutzer sueche
+help_title:Hilf
+login_title:Aamäldesyte
+poll_title:Abstimmigseditor
+register_title:Regischtrierigssyte
+reset_title:Passwort zrucksetze
+rpasswd_title:Passwort ändere
+error_title:Fählersyte
+index_title:Willchuu im Forum
+search_title:No {VAR-HTML: srch} sueche
+remail_emailsent:D E-Mail isch gschickt wore.
+remail_email:Sali,\n\nim Forum {GVAR: FORUM_TITLE} git s e inträssanti Diskussion zum Thema „{VAR: data->subject}“, wu Di chennt inträssiere. Du findsch si do: {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nVu {VAR: usr->alias}
+poll_add_option:Optione zuefiege:
+post_opt_html_on:<b>HTML</b> Code isch <b>AA</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> isch <b>AA</b></a>
+post_opt_images_on:<b>Bilder</b> sin <b>AA</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smileys</b> sin <b>AA</b></a>
+post_opt_html_off:<b>HTML</b> Code isch <b>UUS</b>
+post_opt_fud_off:<b>BBcode</b> isch <b>UUS</b>
+post_opt_images_off:<b>Bilder</b> sin <b>UUS</b>
+post_opt_smilies_off:<b>Smileys</b> sin <b>UUS</b>
+post_opt:Forumsyystellige
+register_change_passwd:Passwort ändere
+approved_avatar_title:Dyy persenlige Avatar isch gnähmigt wore.
+approved_avatar_msg:Dyy Avatar isch vum Administrator gnähmigt wore. Är sott jetz in allne Byytreg vu Dir erschyne. Wänn Du ne nit sihsch oder sttaat däm dr alt Avatar, lyt s dodra, ass dr Browser d Syte im Cache gspycheret het. Versuech d Syte ei- oder zweimol z aktualisiere, des sott in dr meischte Fäll s Probläm lese.
+unapproved_avatar_title:Dyy Benutzeravatar isch abglähnt wore.
+unapproved_avatar_msg:Dr Administrator het Dyy Avatar nit gnähmigt. Dr hyfigscht Grund doderfir isch, ass es z groß (Dateigreßi un/oder Uusmaß) gsi isch oder e Inhalt gha het, wu nit aagmässe gsi isch. Wänn Du meh Informatione iber d Grind vu dr Ablähnig witt haa, nimm Kontakt zum Administrator uf.
+mvthread_request_move:E Aafrog stelle uf d Verschiebig vun eme Thema
+move_request_reason:Wurum witt s Thema verschiebe?
+mvthread_submit_req:Aafrog abschicke
+thread_exchange:Themenewägsel
+move_request_by:Aafrog uf Themeverschiebig dur:
+move_reason:Grund fir d Verschiebig:
+thr_exch_accept:Thema akzeptiere
+thr_exch_decline:Thema ablähne
+thr_exch_orig_forum:Ursprinlig Forum:
+thr_exch_dest_forum:Ziilforum:
+thr_exch_no_threads:Kei Themene, wu mien gnähmigt wäre.
+thr_exch_decl_reason:Begrindig fir s Nit-Verschiebe vu <b>{VAR: data->subject}</b> in s Forum <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Abschicke
+exch_decline_ttl:S Verschiebe vum Thema {VAR: data->subject} in s Forum {VAR: data->f2_name} isch abglähnt wore.
+ppost_original_msg:Nochricht, wu Du wyterleite tuesch oder e Antwort druf gisch
+split_thread:Thema ufteile
+groupmgr_no_user:S git kei Benutzer mit em Login "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:Benutzer "{FUNC: char_fix(htmlspecialchars($gr_member))}" git s scho in däre Gruppe.
+groupmgr_yes:Jo
+groupmgr_no:Nei
+groupmgr_action:Vorgang
+groupmgr_member:Mitglid
+groupmgr_cancel:Abbräche
+groupmgr_add_member:Miglid zuefiege
+groupmgr_update_member:Mitglid aktualisiere
+groupmgr_edit:Bearbeite
+groupmgr_delete:Lesche
+group_mgr_anon:Anonym
+group_mgr_reged:Alli regischtrierte Benutzer
+show_show:Aazeige:
+group_mgr:Gruppemanager
+group_mgr_edit_btn:Gruppe bearbeite
+group_mgr_heading:Uuswahl vum Gruppeneditor
+group_mgr_group:Gruppe:
+permission_denied_title:Zuegriff verweigeret!
+permission_denied_msg:Dyy Benutzerrächt gstatte s Dir nit, dr vu Dir plant Vorgang uuszfiere.
+p_READ:Läse
+p_POST:Byytrag
+p_REPLY:Antwort gee
+p_EDIT:Bearbeite
+p_DEL:Lesche
+p_STICKY:Aaghefteti Byytreg
+p_POLL:Umfroge aalege
+p_FILE:Dateie aahänke
+p_VOTE:Abstimme
+p_RATE:Themene bewärte
+p_SPLIT:Themene ufteile
+p_LOCK:Themene sperre
+p_MOVE:Themene verschiebe
+p_SML:Smileys verwände
+p_IMG:Bilder-Tags verwände
+p_SEARCH:Cha sueche
+group_mgr_search:Benutzer sueche
+group_mgr_indicator:Grad am Bearbeite vu <b>{VAR: grp->name}</b>
+rate_worst:Am schlächteschte
+rate_best:Am beschte
+post_quote_msg:{VAR: msg->login} het am {TEMPLATE: make_report_date} gschribe
+post_quote:Zitat:
+userinfo_referals:Aagworbeni Benutzer:
+userinfo_referals_count:{VAR: referals} Mitglider
+pm_no_space_title:Kei freje Platz meh ibrig!
+pm_no_space_msg:Dyy Ordner fir privati Nochrichte iberschryte di maximal erlaubt Greßi vu <b>{GVAR: MAX_PMSG_FLDR_SIZE} Bytes</b>, wel si zur Zyt <b>{VAR: fldr_size} Bytes</b> mit Nochrichte belege.<br /><br /><span class="ErrorText">Nimm e paar alti Nochrichte uus go wider Platz schaffe</span>.
+pm_space_indct_msg:Dyy Ordner fir privati Nochrichte sin zue {VAR: percent_full}% beleit.
+th_expr_never:Nie
+th_expr_one_hr:1 Stund
+th_expr_three_hr:3 Stunde
+th_expr_four_hr:4 Stunde
+th_expr_eight_hr:8 Stunde
+th_expr_sixteen_hr:16 Stunde
+th_expr_one_day:1 Tag
+th_expr_two_day:2 Täg
+th_expr_four_day:4 Täg
+th_expr_one_week:1 Wuche
+th_expr_two_week:2 Wuche
+th_expr_one_month:1 Monet
+th_expr_two_month:2 Monet
+th_expr_four_month:4 Monet
+th_expr_one_year:1 Johr
+thread_mod_delete:Lesche
+action_latest_post:Letschte Byytrag
+online_today_last_visit:Letschte bsuechte
+online_today_update:D Lischt vu dr Lyt aaluege, wu hite z Bsuech im Forum gsi sin.
+logedin_todays_visitors:Hitigi Bsuecher
+logedin_latest_post:Letschte Byytrag im Forum:
+register_show_avatar:Avatar aszeige:
+register_show_avatar_desc:Macht s Dir meglig, d Avatar vu dr andere z verstecke derwylscht Du ihri Byytreg lisch.
+drawmsg_view_rest_post:Dr Räscht vu dr Nochricht aazeige
+post_re:Re:
+forumsel_goto_forum:Gang zum Forum:
+minimsg_thread_view:Themene-Aasicht
+split_th_post_by:Aagleit vu:
+split_th_posted_on:Aagleit am:
+split_th_subject:Thema:
+split_th_new_thread_title:Neji Themeneiberschrift:
+split_th_forum:Forum:
+split_th_split_sel:Uusgwehlti Byytreg ufteile
+split_th_split_unsel:Nit uusgwehlti Byytreg ufteile
+split_th_messages:Byytreg
+split_th_select:Uuswehle
+report_report_post:Byytrag mälde
+quicklogin_login:Benutzername:
+quicklogin_password:Passwort:
+quicklogin_use_cookies:Cookies verwände?
+quicklogin_login_btn:Benutzer:
+quick_reply:Schnälli Antwort
+post_notification_desc:Gib mer e Nochricht, wänn eber uf myy Byytrag e Antwort git.
+post_all_ext_allowed:(nit begränzt)
+maximize_category:Kategorii maximiere
+maximize_message:Byytrag maximiere
+no_view_perm:Du derfsch des Thema nit aaluege.
+report_empty_report:Du chsch kei lääri Mäldig abschicke, gib bitte ne Grund aa.
+report_already_reported_title:Scho gmäldet
+report_already_reported_msg:Dr Byytrag isch scho gmäldet un wird bal vum Moderatorenteam aagluegt.
+register_err_toomanyimages:Du versuechsch, meh wie di erlaubte {GVAR: FORUM_IMG_CNT_SIG} Bilder in Dyyre Signatur z verwände.
+pmsg_next_msg:Negschti Nochricht
+pmsg_prev_msg:Vorigi Nochricht
+post_proc_reveal_spoiler:Spoiler aazeige
+register_jabber:Jabber Benutzername:
+register_skype:Skype:
+register_twitter:Twitter:
+register_google:Google Chat/IM:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:Kontakt
+forum_home:Forumsindex
+post_cur_attached:(zur Zyt aaghänkt: {VAR: i} {PLURAL: i|Datei|Dateie})
+ignored_anon_post:{GVAR: ANON_NICK} wird ignoriert
+ignored_user_post:Byytrag vu <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> wird ignoriert
+smladd_close_window:Fänschter zuemache
+post_list_smilies:Alli Smileys aazeige
+p_VISIBLE:Sichtbar
+reported_in_thread:In:
+help_back_to_top:Zruck zum Aafang
+help_return_to_index:Zruck zum Hilf-Index
+imsg_err_message_title:Nit giltige Byytrag
+imsg_err_message_msg:Dr Byytrag, wu Du versuechsch aazluege, git s nit.
+poll_edit:Bearbeite
+register_err_not_valid_img:In dr URL, wu du aagee hesch, het s kei giltig Bild.
+pmsg_recepient:Empfänger
+register_err_taken_alias:Dr Alias, wu Du witt verwände, wird scho vun eme Forumsmitglid brucht. Bitte nimm e andere Alias.
+register_alias:Alias:
+register_alias_desc:Wänn Du witt, ass Dyy Nickname, wu im Forum aazeigt wird, sich vu Dyym Benutzername unterscheidet, derno trag do däjenig yy, wu soll aazeigt wäre.
+register_allow_pm_msg:Privati Nochrichte erlaube
+register_allow_pm_msg_desc:Andere Benutzer erlaube, ass si Dir iber s FUDforum privati Nochrichte chenne schicke.
+postcheck_pm_disabled:Du chasch an "{VAR-HTML: v}" kei privati Nochrichte verschicke, wel die Person des nit will.
+polllist_vote:Abstimme
+polllist_view_results:Ergebnis aaluege
+polllist_name:Titel vu dr Abstimmig
+polllist_date:Aagleit am
+polllist_owner:Aagleit vu
+polllist_votes:Stimme insgsamt
+polllist_action:Aktion
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Verfiegbari Abstimmige bschaue</a>
+userinfo_polls:Abstimmige:
+show_pollist:Abstimmige aazeige
+search_and:UN
+search_or:ODER
+search_desc_order:Sortierig abezues
+search_asc_order:Sortierig uffezues
+search_logic:Suechlogik:
+search_sorting:Ergebnis no Datum sortiere in:
+post_proceed:Wytermache
+post_moderated_forum:Du hesch e Byytrag in eme moderierte Forum aagleit. DEs heißt, ass dää erscht im Forum erschynt, wänn er dur e Moderator oder Administrator billigt woren isch.
+post_moderated_forum_ttl:Mitteilig vum moderierte Forum
+buddy_list_bday:Hite wird {VAR: r[2]} {VAR: age} Johr alt
+email_warning_msg:Wänn Du Dyy E-Mail-Adräss änderesch, wird Dyy Benutzerkonto eso lang as nit bstetigt gfiert, bis es mit dr neje Adräss bstetigt wird.
+register_show_im:Dr IM-Status aazeige
+register_show_im_desc:Eb dr IM-Status vum Verfasser näben an syynem Byytrag soll aazeigt wäre oder nit.
+unread_message:Uugläseni Nochricht
+read_message:Gläseni Nochricht
+threadt_more:&lt;meh&gt;
+threadt_disabled_ttl:D Baumaasicht vu dr Themene isch deaktiviert wore.
+threadt_disabled_desc:Dr Administrator het d Baumaasicht fir Themene deaktiviert, bruch wäge däm bitte di flach Aasicht.
+threadt_update:Am Dursueche vum Forum (Baumaasicht) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Bstetigung fir Themene/Byytragsleschig
+spell_alts:kei Alternative
+insert_uploaded_image:Bild in dr Byytrag yyfiege
+finduser_help:D Suechmaschin fiegt automatisch e * Maske vu Dyyre Aafrog derzue, d Suechi <b>berucksichtigt Groß- un Chleischryybig</b>. Go zem Byschpel alli Benutzer sueche, wu dr Benutzername vun ene mit eme 'a' aafangt, trait mer 'a' in d Suechyygab yy.
+back_to_top:Zruck zum Aafang
+pm_err_disabled_title:Privati Nochrichte deaktiviert
+pm_err_disabled_msg:Du chasch kei privati Nochrichte verschicken, solang Du nit d Option 'Privati Nochrichte erlaube' in Dyym Profil aktiviersch.
+err_mod_acc_ttl:Nit bstetigt Benutzerkonto
+err_mod_acc_msg:Dr Administrator het bschlosse, alli Konte vor dr Aktivierig persenlig durezgoh. Wäge däm chasch Du Dyy Konto nit im volle Umfang bruche, solang s nit vum Administrator bstetigt woren isch.
+accounts_pending_approval:Billigung vum Konto, wu in dr Schwäbi isch
+saved:Gspycheret
+register_err_time_limit:Du bisch zue dr Gränz vu eire Regischtrierig pro {GVAR: REG_TIME_LIMIT} Sekunde chuu. Bitte wart {PLURAL: reg_limit_reached|$1 Sekund|$1 Sekunde} un versuech derno nonemol di z regischtriere.
+register_affero:Affero-Benutzername:<br /><span class="SmallText">Wänn Du ne <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>-Benutzername hast, trag e do yy.</span>
+im_affero:Affero-Benutzername
+register_err_avatardimtobig:D Uusmaß vum Avatar vu <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> iberschryte di maximal erlaubt Greßi vu <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+buddy_offline:{VAR: r[2]} isch grad offline
+buddy_online:{VAR: r[2]} isch grad online
+sml_no_smilies:S het kei Smileys.
+login_unapproved_account_ttl:Nit bstetigt Konto
+login_unapproved_account_msg:Dr Administrator vu däm Forum het sich derzue entschide, e jedes nej Konto vor dr Aktivierig eigehändig z billige. Dyy Konto isch nonig billigt wore, wäge däm chasch Du uf e Teil Optione nonig zuegryfe, wu billite Mitglider z Verfiegig stehn.
+remove_from_buddy_list:us dr Fryndlischt uuseneh
+iemail_msg_author:<b>Verfasser:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Beträff:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Datum:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Antwort
+iemail_msg_quote:Zitat
+iemail_msg_view:Thema/Nochricht aaluege
+threadt_sticky:aagheftet
+threadt_announce:Aachindigung
+reported_no_messages:S sin kei Byytreg gmäldet wore.
+poll_no_polls:S git kei zuegängige Abstimmige.
+no_unread_messages:S git kei uugläseni Byytreg, wu zue dr Suechkriterie passe.
+thread_mark_all_read:Alli nit gläsene Byytreg im Forum as gläse chännzeichne
+thread_mark_all_read_desc:Alli nit gläsene Byytreg in däm Forum wäre as gläse gchännzeich1net
+private_no_messages:S het kei Nochrichten in däm Ordner.
+register_email_change_subject:Bstetigung vu dr gänderete E-Mail-Adräss
+register_email_change_msg:Bitte bstetig Dyy nej E-Mail-Adräss "{VAR: uent->email}", wu di alt Adräss "{VAR: old_email}" ersetze tuet, doderzue ruefsch die URL uf:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald Du di nej Adräss bstetigt hesch, wird Dyy Konto wider aktiviert.
+iemail_thread_unsub:Abonnement fir des Thema ufhebe
+iemail_forum_unsub:S Abonnement fir des Forum ufhebe
+primary_group_prefix:Hauptgruppe fir s Forum:
+group_resources:Die Gruppe kontrolliert d Berächtigunge fir die Fore
+register_admin_newuser_title:E neje Benutzer het sich regischtriert un wartet uf d Bstetigung vum Konto
+register_admin_newuser_msg:E neje Benutzer ({VAR: uent->login}) het sich grad fir des Forum regischtriert un wel d Bstetigung fir Konten aktiviert isch, wird des Konto nit aktiviert, voreb s dur Di oder e andere Forumsadministrator bstetigt woren isch. Go s Konto bschaue gang uf: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDes isch e automatisierte Vorgang, bitte gib kei Antwort uf die Nochricht.\nWänn Du wyteri E-Mail-Benochrichtigunge iber neji Benutzerregischtrierige witt abstelle, chasch des iber s Administratormenü un dur Ändere vum Wärt vu dr Yystellig "New Account Notification" mache.
+post_mod_msg_notify_title:Neje Byytrag im Forum "{VAR: frm->name}" wartet uf Bstetigung
+post_mod_msg_notify_msg:E neje Byytrag mit dr Iberschrift „{VAR: msg_post->subject}“ isch grad in eme Forum aagleit wore, wu vu Dir moderiert wird. Go dää Byytrag bschauen gang uf: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDes isch e automatisierte Vorgang, bitte gib kei Antwort uf die Nochricht.
+thread_printable_pdf:Druckbars PDF erzyyge
+thread_syndicate:Themene as Syndicat vu andere Syten z Verfiegig stelle (XML)
+reg_conf_title:Regischtrierigsbstetigung
+reg_conf_email:<b>E-Mail-Bstetigung</b><br />An Di isch e E-Mail mit ere speziälle URL gschickt wore, wu Du muesch druf goh, voreb Dyy Konto aktiviert cha wäre. Wänn Du die E-Mail nit in dr negschte Minute iberchunnsch, sottsch di mit Dyym Konto aamälden un sicherstelle, ass d E-Mail-Adräss, wu Du aagee hesch, korräkt isch. Sobald Du Dyy Konto bstetigt hesch, chasch au die Optione bruche, wu nume bstetigti Benutzer derfe bruche.
+reg_conf_account:<b>Konto-Bstetigung</b><br />Voreb Dyy Konto aktiviert wird, muess es vu dr Administratore billigt wäre. Sobald des gschäh isch, chunnsch e E-Mail iber, wu di iber d Bstetigung unterrichtet. Bis dert chasch di zwar mit Dyym Konto aamälde, aber Du chasch keini vu dr Funktione bruche, wu nume billigti Benutzer chenne bruche.
+forum_banned_user:Dyy vorigs Verhalte het derzue gfiert, ass Du us däm Forum verbannt wore bisch. Adje!
+mnav_description:Byytragsnavigator
+mnav_date_limit:Datumsberyych:
+mnav_forum_limit:Suech numen in:
+mnav_all_forums:Alli Fore dursueche
+mnav_submit:Mit em Sueche aafange
+mnav_no_range:Du muesch e giltige Datumsberyych aagee. Dää Wärt cha au ne Fließkommazahl syy (0.12), är muess aber greßer syy wie 0.
+mnav_invalid_unit:Du muesch e giltigi Zyteinheit aagee.
+mnav_invalid_date:Dr Datumsberyych, wu Du aagee hesch, isch greßer wie dää, wu vum Administrator gstattet woren isch, schränk wäge däm Dyy Suechi e weng yy.
+mnav_no_results:S git kei Byytreg, wu zue däne Suechkriterie passe.
+mnav_posted_by:Aagleit vu:
+mnav_more:Meh &raquo;&raquo;
+mnav_minute:Minut(e)
+mnav_hour:Stund(e)
+mnav_day:Tag/Täg
+mnav_week:Wuche
+mnav_month:Monet
+mnav_title:Byytragsnavigator
+mnav_update:Am Dursueche vu Byytreg mit em <a href="{TEMPLATE: mnav_update_lnk}">Byytragsnavigators</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Neji Benochrichtigung iber e privati Nochricht
+pm_notify_body_email:Du hesch e neji privati Nochricht mit dr Iberschrift "{VAR: subject}" vu "{VAR: from}" im Forum "{GVAR: FORUM_TITLE}" iberchuu.\nKlick do go si bschaue: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nGo zuechimftigi Benochrichtigunge verhindere, deaktivier "Benochrichtigung iber privati Nochrichte" in Dyym Profil.
+register_pm_notification:Benochrichtigung iber privati Nochricht:
+register_pm_notification_desc:Wänn aktiviert, chunnsch e Mitteilig iber, sobald e privati Nochricht an Di gschickt woren isch.
+findu_admin_opts_header:Admin-Optione
+findu_unban:Bann ufhebe
+findu_ban:Verbanne
+findu_edit:Bearbeite
+findu_delete:Lesche
+dmsg_reply_to:isch e Antwort uf #{VAR: obj->reply_to}
+merge_topics:Themene zämmefiere
+merge_topics_cp:Menü zum Zämmefiere vu Themene
+merge_topics_tpl:Themene zum Zämmefiere uuswehle <span class="SmallText">(Du muesch meh wie ei Thema uuswehle)</span>
+merge_merge:Uusgwehlti Themene zämmefiere
+merge_next:Negschti Themene
+merge_prev:Vorigi Themene
+split_cp:Menü zum Teile vu Themene
+groups_perms_header:Rächt <span class="small">(Beweg d Muus iber d Rächt go dr Typ vun ene säh)</span>
+register_err_sig_too_long:Dyy Signatur iberschrytet di maximal erlaubt Lengi vu {GVAR: FORUM_SIG_ML} Zeiche.
+register_sig_limit:{GVAR: FORUM_SIG_ML} Zeiche <a href="javascript: alert('Dyy Signatur isch '+document.forms['fud_register'].reg_sig.value.length+' Zeiche lang. Di maximal erlaubt Signaturlengi isch {GVAR: FORUM_SIG_ML} Zeiche');" class="SmallText">Iberprief d Signaturlengi</a>
+adm_account_accepted:Dyy Konto '{VAR: login}' isch vum Administrator billigt wore un isch jetz aktiviert. Du chasch jetz uf s {GVAR: FORUM_TITLE}'-Forum as bstetigte Benutzer zuegryfe.
+adm_account_accepted_s:Dyy Bitti um e Konto fir '{GVAR: FORUM_TITLE}' isch akzeptiert wore.
+adm_account_rejected:Dyy Konto '{VAR: login}' isch vum Administrator abgwise wore un isch wäge däm nit aktiviert. Wänn du dr Grund fir die Entscheidig mechtsch wisse, chasch rueig Kontakt ufneh zum Administrator iber '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:Dyy Bitti um e Konto fir '{GVAR: FORUM_TITLE}' isch abgwise wore.
+thread_on:am
+userinfo_buddy:Frynd:
+register_email_addr:E-Mail-Adräss:
+reset_suffix:Wänn Du die Nochricht uubeabsichtigt iberchuu hesch, ignorier si bitte. Wänn Du mehfachi Kopie vu däre E-Mail iberchuu hesch un gar nit drum bätte hesch, nimm bitte Kontakt uf zum Forumsadministrator {GVAR: ADMIN_EMAIL}\n\nDie Aafrog isch vu {VAR: _SERVER['REMOTE_ADDR']} gstellt wore.
+usrinfo_last_visit:Letschte Bsuech:
+mnav_newer:nejer wie
+mnav_older:elter wie
+ip_search_by_ip:Benutzer no dr IP sueche
+ip_search_syntax:Unterstitzti Syntax: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Sueche
+ip_analyze_usage:IP-Nutzig analysiere
+ip_analyze_usage_descr:Bitte gib dr gnau Benutzername vum Benutzer aa.
+ip_users_using:Benutzer, wu d IP-Adräss '{VAR: ip}' brucht hän
+ip_all_ips:Alli IP, wu vu '{VAR: user}' brucht wore sin
+ip_title:IP-Browser
+userinfo_real_name:Ächte Name:
+register_err_alias_notallowed:Dää Alias isch nit erlaubt
+post_err_mod_forum_edit_ttl:FÄHLER
+post_err_mod_forum_edit_msg:Du chasch in eme moderierte Forum kei Byytreg bearbeite.
+dmsg_num:Byytrag #{VAR: obj->id}
+postcheck_session_invalid:Dyy Sitzig isch abglofe, schick s Formular bitte nomol ab. Entschuldig d Unanähmligkeite.
+delete_message_extra_desc:<b>Optional</b><br />Gib e Grund aa fir d Leschig. Dää Grund wird derno mit ere private Nochricht an dr Autor gschickt.
+delete_message_extra_body:Fieg dr Text vum Byytrag, wu uusegnuu woren isch, in d Nochricht yy, wu an dr Autor gschickt wird.
+delete_msg_removed_ttl:Dyy Nochricht isch vum Administrator uusegnuu wore.
+delete_msg_pm_body:Urspringligi Nochricht
+delete_msg_pm_subject:Thema: {VAR: data[15]}
+ip_no_whois:Whois-Informatione fir <b>{VAR: ip}</b> sin nit verfiegbar.
+ip_whois_title:Provider-Informatione
+register_theme:Thema:
+pmsg_trash:Papierchorb uuslääre
+uc_new_pm:Neji Privati Nochrichte
+uc_new_topic:Nej Thema
+uc_new_cat_forum:Abonnierti Fore mit neje Byytreg
+uc_cat_forum:Kategorii &raquo; Forum
+uc_sub_topics:Abonnierti Themene mit neje Byytreg
+uc_page_title:Am Aaluege vum eigene Profil
+search_options:Suechoptione
+search_user_filter:No Benutzer filtere:
+register_none:Nit benochrichtige
+findu_no_conf:nit bstetigte Benutzer
+register_max_sig_len:Maximali Lengi:
+register_turing:Bitte gib dr Code yy, wu unte aazeigt wird:
+register_err_turing:Nit giltige Code
+modque_cat:Kategorii
+modque_forum:Forum
+idx_compact_forum_row:Verfiegbari Fore:
+mmd_del_title:Themene lesche
+mmd_mov_title:Themene verschiebe
+mmd_move_threads_to:Ziilforum:
+mmd_abort_move:Abbräche
+mmd_move:Themene verschiebe
+pmsg_pdf_btn:PDF-Archiv aalege
+search_results_hdr:{VAR: total} Suechergebnis gfunde
+thread_del_all:Alli markierte lesche
+thread_mov_all:Alli markierte verschiebe
+thread_loc_all:Alli uusgwehlte sperre/entsperre
+dmsg_ip:IP:
+err_blockedaccnt_title:FÄHLER: Dyy Konto isch uusegfilteret wore.
+err_blockedaccnt_msg:Dyym Konto isch wäg dr aktivierte Benutzerfilter dr Zuegriff uf s Forum verweigeret wore.
+merge_th_page_list:Syte vu dr Themeneuuswahl
+most_users_online:Mit <b>{VAR: st_obj->most_online}</b> Benutzer sin am <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> di meischte Benutzer glyychzeitig online gsi.
+sub_unsub_all_forums:Abonnement fir alli Fore chinde
+sub_unsub_all_topics:Abonnement fir alli Themene chinde
+unbookmark_all_topics:Alli Läsezeiche uuseneh
+tabs_own_posts:Eigeni Byytreg aaluege
+sml_emoticon:Smiley
+sml_code:Code
+mnav_sub_only:Nume in abonnierte Fore sueche
+register_topics_per_page:Themene pro Syte:
+login_min_time:S Forum erlaubt Aamäldeversuech alli {VAR: MIN_TIME_BETWEEN_LOGIN} Sekunde, bitte wart {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} Sekunde vor Dyym negschte Versuech.
+post_not_logged_in:Du bisch zur Zyt nit aagmäldet, dr Byytrag wird anonym postet.
+post_common_bold:Fett
+post_common_italics:Kursiv
+post_common_underline:Unterstryyche
+post_common_align_left:Linksbindig
+post_common_align_center:Zäntriert
+post_common_align_right:Rächtsbindig
+post_common_link:Gleich (Link) yyfiege
+post_common_email:E-Mail-Adräss yyfiege
+post_common_image:Bild yyfiege
+post_common_nlist:Nummerierti Lischt yyfiege
+post_common_blist:Ufzellig yyfiege
+post_common_quote:Zitat yyfiege
+post_common_code:Code yyfiege
+rating_delete:Lesche
+post_always_on_top:Des Thema alliwyl am Aafang vu dr Themenelischt aazeige
+topic_rating:{VAR: frm->rating} us {PLURAL: frm->n_rating|$1 Bewärtig|$1 Bewärtige}
+topic_list_rating:{VAR: r[17]} us {PLURAL: r[21]|$1 Bewärtig|$1 Bewärtige}
+tabs_notifications:Benochrichtigunge
+finduser_flag:Fahne
+post_descr:Themenebschryybig:
+pmsg_on:am
+pmsg_download_dump:Nochrichtenarchiv abelade
+move_messages:Byytreg verschiebe
+move_msg_btn:Uusgwehlti Byytreg verschiebe
+move_msg_th_expl:Gib d ID vum Ziilthemas aa (cha in eme andere Forum syy)
+captcha_img_alt:Captchakontrolle: Du muesch dää Text in däm Bild wider chänne.
+captcha_img_help:S het kei Null oder Eis im Bild.
+powered-by:Mit fryndliger Unterstitzig vu.: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Code:
+code_select_all:Alli uuswehle
+code_show_hide:Zeige/verstecke
+social_sites:Soziali Netzwärch-Syte:
+postcheck_min_len_err:Dyy Nochricht isch z churz. D Mindeschtlengi isch {PLURAL: post_min_len|$1 Zeiche|$1 Zeiche}.
+postcheck_dup_err:Bitte leg kei Kopie vu Themene aa.
+btn_new_topic:Nej Thema
+btn_new_pm:Neji Privati Nochricht
+btn_post_reply:Antwort gee
+btn_tree_view:Baumstruktur-Aasicht
+btn_flat_view:Flachi Aasicht
+btn_about:Profil
+btn_small_pm:PN
+btn_delete:lesche
+btn_edit:bearbeite
+btn_reply:Antwort gee
+btn_forward:wyterleite
+btn_quote:zitiere
+btn_email:E-Mail
+btn_show_posts:Byytreg
+btn_homepage:www

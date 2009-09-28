@@ -392,6 +392,7 @@ post_preview_btn:Powěsćowy přehlad
 ignore_users:Ignorowani wužiwarjo
 add_ignore:Ignorowaneho přidać
 forum_terms:Forumowe wuměnjenja
+forum_rules:<p>Registrowanje za tutón forum je swobodne! Wobstejemy na tym, zo dźeržeš so slědowacych prawidłow a zasadow. Jeli sy z wuměnjenjemi přezjedny, klikń na tłóčatko <b>Přihłosować</b> na kóncu strony. Kedźbu: Přez kliknjenje na tłóčatko deklaruješ, zo maš wjace hač 13 lět. Jeli sy 13 lět stary abo młódši, wužij prošu registrowanski formular.</p><p>Hačrunjež administratorojo a moderatorojo tutoho foruma budu pospytować, wšě njepřiměrjene powěsće wot tutoho foruma wotdźeržeć, je njemóžno za nas, wšě powěsće přepruwować. Wšě powěsće zwuraznjeja nahlady awtora a ani wobsedźerjo foruma ani jeho wuwiwarjo njemóžeja so zamołwitych za wobsah powěsće činić.</p><p>Přez kliknjenje na tłóčatko Přihłosować lubiš, zo njebudźeš žane powěsće słać, kotrež su obscene, wulgarne, seksuelnje orientowane, hidypołne, hrožace abo so na hinaše wašnje přećiwo zakonjam přeńdu.</p><p>Wobsedźerjo tutoho foruma maja prawo, temu z někajkeje přičiny wotstronić, wobdźěłać, přesunyć abo začinić.</p>
 coppa_conf:Wobkrućenje COPPA
 coppa_before:Do {TEMPLATE: coppa_date}
 coppa_after:Po {TEMPLATE: coppa_date}
@@ -420,12 +421,14 @@ login_cookie_expired:Twój plack je spadnjeny a dyrbiš so znowa přizjewić, zo
 login_perm_denied:Nimaš prawo požadanu resursu jako anonymny wužiwar wužiwać. Dyrbiš so přizjewić, zo by prawo dóstał.
 login_want_to_register:Chceš so registrować?
 login_forgot_passwd:Hesło zabyte
+login_use_cookie:Placki wužiwać<br /><span class="SmallText">Jeli zjawny terminal kaž ličak w knihowni, šuli abo internetnej kofejowni wužiwaš, poručamy, zo znjemóžnješ tutu opciju za wjetšu wěstotu.<br />Jeli wostaješ tutu opciju wubranu, budźeš so awtomatisce do foruma přizjewjeć, hdyž wopytaš forum přichodny raz.</span>
 login_login:Přizjewjenje:
 login_login_btn:Přizjewjenje
 login_name_required:Přizjewjenske mjeno trěbne
 login_passwd_required:Hesło trěbne
 login_invalid_radius:Njepłaćiwa kombinacija wužiwarske mjeno/hesło
 reset_confirmation:Dźakujemy so za registrowanje.\n\nZo by swoje konto aktiwizował, dźi k slědowacemu URL:\n\n{VAR: url}\n\nTak ruče kaž twoje konto je zaktiwizowane, budźeš so do foruma přizjewjeć a na hłownu stronu dale posrědkować.
+reset_reset:Witaj,\n\nsy požadał, zo by so swoje hesło wróćo stajiło. Zo by proceso dokónčił,\ndźi prošu k tutomu URL:\n\n{VAR: url}\n\nKEDŹBU: Tutón forum składuje hesło z jednosměrnym zaklučowanjom, štož woznamjenja, zo so hesło, tak ruče kaž sy jo składował, zaklučuje, zo by njeje ŽANA MÓŽNOSĆ, jo wróćo dóstać. To funguje přez přirunanje zaklučowaneje wersije, kotrež mamy składowane, ze zaklučowanej wersiju, kotruž zapodawaš.\n(Jeli sy na funkciskim wašnju tutoho mechanizma zajimowany, studuj algoritmus MD5 HASH)
 rpasswd_invalid_passwd:Njepłaćiwe hesło
 rpasswd_passwd_nomatch:Hesle so njekryjetej
 rpasswd_passwd_length:Hesło dyrbi znajmjeńša 6 pismikow měć
@@ -682,7 +685,9 @@ post_opt_smilies_off:<b>Smějački</b> su <b>wupinjene</b>
 post_opt:Forumowe opcije
 register_change_passwd:hesło změnić
 approved_avatar_title:Twój swójski awatar bu schwaleny.
+approved_avatar_msg:Twój awatar bu wot administratora schwaleny. Měł so nětko na wšěch twojich stronach jako awatar jewić. Jeli jón njewidźeš abo stary awatar widźeš, je strona najskerje w pufrowaku twojeho wobhladowaka. Spytaj stronu jónu abo dwójce aktualizować. W najwjace padach so pufrowanski problem potom rozrisa.
 unapproved_avatar_title:Twój swójski awatar bu wotpokazany.
+unapproved_avatar_msg:Administrator njeje twój awatar schwalił. Najhusćišej přičinje stej, zo twój awatar bě přewulki (datajowa wulkosć a/abo wotměry) abo ma njepřistojny wobsah. Jeli chceš wjace informacijow wo tym dóstać, čehoždla twój awatar bu wotpokazany, staj so z administratorom do zwiska.
 mvthread_request_move:wo přesunjenje prosyć
 move_request_reason:Čehodla chceš temu přesunyć?
 mvthread_submit_req:Naprašowanje wotpósłać
@@ -744,6 +749,7 @@ post_quote:Citat:
 userinfo_referals:Doporučeni wužiwarjo:
 userinfo_referals_count:{VAR: referals} čłonow
 pm_no_space_title:Žadyn rum wyše!
+pm_no_space_msg:Twoje rjadowaki za priwatne powěsće překročuja dowolenu składowansku wulkosć <b>{GVAR: MAX_PMSG_FLDR_SIZE} bajtow</b>. Tuchwilu wobsahuja powěsće z cyłkownu wulkosću <b>{VAR: fldr_size} bajtow</b>.<br /><br /><span class="ErrorText">Wotstroń někotre stare powěsće, zo by rum wuswobodźił.</span>
 pm_space_indct_msg:Twoje rjadowaki priwatnych powěsćow su {VAR: percent_full}% połne.
 th_expr_never:Ženje
 th_expr_one_hr:1 hodźina
@@ -845,11 +851,28 @@ search_asc_order:Postupowace sortěrowanje
 search_logic:Pytanska logika:
 search_sorting:Wuslědki po datumje sortěrować w:
 post_proceed:Pokročować
+post_moderated_forum:Sy powěsć w moderěrowanym forumje spisał. Twoja powěsć njebudźe widźomna za druhich, doniž njeje wot jednoho z moderatorow abo administratorow foruma schwalena.
+post_moderated_forum_ttl:Zdźělenka moderěrowaneho foruma
+buddy_list_bday:Dźensa {VAR: r[2]} změje {VAR: age} lět
+email_warning_msg:Jeli změniš swoju aktualnu e-mejlowu adresu, twoje konto budźe so jako njewobkrućene markěrować, doniž njewobkrućiš ju přez e-mejl.
 unread_message:Njepřečitana powěsć
 read_message:Přečitana powěsć
 threadt_more:&lt;wjace&gt;
+threadt_disabled_ttl:Štomowy napohlad lisćiny temow je so znjemóžnił.
+threadt_disabled_desc:Administrator je štomowy napohlad lisćiny temow znjemóžnił. Prošu wužij płony napohlad město toho.
+threadt_update:Přepytuje forum (štomowy napohlad) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 spell_alts:žane alternatiwy
+insert_uploaded_image:Wobraz do powěsće zasunyć
+back_to_top:Wróćo k spočatkej
+pm_err_disabled_title:Priwatne powěsće znjemóžnjene
+pm_err_disabled_msg:Njemóžeš priwatne powěsće pósłać, doniž njezmóžnješ opciju 'Priwatne powěsće dowolić' w swojim profilu.
+err_mod_acc_ttl:Njepřepruwowane konto
+accounts_pending_approval:Konta, kotrež na schwalenje čakaja
 saved:Składowany
+register_err_time_limit:Limit jednoho registrowanja na {GVAR: REG_TIME_LIMIT} sekundow je so nětko docpěł. Prošu čakaj {PLURAL: reg_limit_reached|$1 sekundu|$1 sekundaj|$1 sekundy|$1 sekundow}, prjedy hač pospytuješ so hišće raz registrować.
+register_affero:Wužiwarske mjeno Affero:<br /><span class="SmallText">Jeli maš wužiwarske mjeno <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, zapodaj jo tu.</span>
+im_affero:Wužiwarske mjeno za Affero
+register_err_avatardimtobig:Awatarowe wotměry <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> překročuja dowolene wotměry <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pikselow.
 buddy_offline:{VAR: r[2]} je tuchwilu offline
 buddy_online:{VAR: r[2]} je tuchwilu online
 sml_no_smilies:Žane smějački k dispoziciji.
@@ -869,16 +892,174 @@ no_unread_messages:Njejsu njepřečitane powěsće, kotrež twojemu naprašowanj
 thread_mark_all_read:wšě njepřečitane forumowe powěsće jako přečitane markěrować
 thread_mark_all_read_desc:Wšě njepřečitane powěsće w tutym forumje budu so jako přečitane markěrować
 private_no_messages:W tutym rjadowaku powěsće njejsu.
+register_email_change_subject:Wobkrućenje změnjeneje e-mejloweje adresy
 iemail_thread_unsub:Tutu temu wotskazać
 iemail_forum_unsub:Tutón forum wotskazać
 primary_group_prefix:Hłowna skupina za forum:
+group_resources:Tuta skupina kontroluje prawa slědowacych forumow
+register_admin_newuser_title:Nowy wužiwar je so zregistrował a jeho konto čaka na wobkrućenje
+post_mod_msg_notify_title:Nowa powěsć we forumje "{VAR: frm->name}" čaka na schwalenje
+post_mod_msg_notify_msg:Nowa powěsć z nadpismom "{VAR: msg_post->subject}" je so runje do foruma pósłała, kotryž moderěruješ. Zo by tutu powěsć přepruwował, dźi k: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTo je awtomatizowany proces. Njewotmołw na powěsć.
+thread_printable_pdf:Ćišćomny PDF płodźić
+thread_syndicate:Strony tutoho foruma druhim stronam k dispoziciji stajić (XML)
+reg_conf_title:Wobkrućenje registrowanja
+forum_banned_user:Twoje prjedawše akcije su k tomu wjedli, zo sy na přeco z tutoho foruma zatamany. Božemje.
+mnav_description:Nawigator powěsćow
+mnav_date_limit:Datumowy rozsah:
 mnav_forum_limit:Jenož pytać w:
 mnav_all_forums:Wšě forumy přepytać
 mnav_submit:Pytanje započeć
+mnav_no_range:Dyrbiš płaćiwy datumowy rozsah zapodać. Tuta hódnota móže decimalny dypk wobsahować, (0.12), dyrbi pak wjetša hač nul być.
+mnav_invalid_unit:Dyrbiš płaćiwu časowu jednotku podać.
+mnav_invalid_date:Datumowy rozsah, kotryž sy podał, je wjetši hač tón, kotryž administrator je dowolił. Spytaj mjeńše datumowe rozsahi.
+mnav_no_results:Njejsu powěsće, kotrež naprašowanju wotpowěduja.
+mnav_posted_by:Pósłany wot:
 mnav_more:Wjace &raquo;&raquo;
 mnav_minute:Mjeńšiny
 mnav_hour:Hodźiny
 mnav_day:Dny
 mnav_week:Tydźenje
 mnav_month:Měsacy
+mnav_title:Nawigator powěsćow
+mnav_update:Powěsće z pomocu <a href="{TEMPLATE: mnav_update_lnk}">Nawigatora powěsćow</a> přepytać
+pm_notify_subject:[{GVAR: FORUM_TITLE}] Nowa zdźělenka wo priwatnej powěsći
+pm_notify_body_email:Maš nowu priwatnu powěsć z temowym nadpismom "{VAR: subject}" wot "{VAR: from}" we forumje "{GVAR: FORUM_TITLE}".\nZo by sej powěsć wobhladał, klikń sem: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nZo by dalšim zdźělenkam zadźěwał, znjemóžń "Zdźělenje wo priwatnej powěsći" w swojim profilu.
+register_pm_notification:Zdźělenka wo priwatnej powěsći
+register_pm_notification_desc:Jeli zmóžnjene, dóstanješ zdźělenku, hdyžkuli so ći priwatna powěsće sćele.
+findu_admin_opts_header:Administratorowe opcije
+findu_unban:Klatwu zběhnyć
+findu_ban:Zatamać
+findu_edit:Wobdźěłać
+findu_delete:Zničić
+dmsg_reply_to:je wotmołwa na powěsć #{VAR: obj->reply_to}
+merge_topics:Temy zjednoćić
+merge_topics_cp:Meni za zjednoćenje temow
+merge_topics_tpl:Temy wubrać, kotrež maja so zjadnoćić <span class="SmallText">(dyrbiš wjace hač jednu temu wubrać)</span>
+merge_merge:Wubrane temy zjednoćić
+merge_next:Přichodna tema
+merge_prev:Předchadna tema
+groups_perms_header:Prawa <span class="small">(pohibaj myšacy pokazowak nad prawo, zo by jeho typ widźał)</span>
+register_err_sig_too_long:Twoja signatura překročuje maksimalnje dowolenu dołhosć {GVAR: FORUM_SIG_ML} znamješkow.
+register_sig_limit:{GVAR: FORUM_SIG_ML} znamješkow <a href="javascript: alert('Towja signatura je '+document.forms['fud_register'].reg_sig.value.length+' znamješkow dołha. Maksimalnje dowolena signaturowa dołhosć je {GVAR: FORUM_SIG_ML} znamješkow.');" class="SmallText">Přepruwuj dołhosć signatury</a>
+adm_account_accepted:Twoje konto '{VAR: login}' bu wot administratora schwalene a je nětko aktiwne. Móžeš nětko na forum {GVAR: FORUM_TITLE}' jako wobkrućeny, zregistrowany wužiwar přistup měć.
+adm_account_accepted_s:Twoje kontowe požadanje za '{GVAR: FORUM_TITLE}' bu akceptowane.
+adm_account_rejected:Twoje konto '{VAR: login}' bu wot administratora wotpokazane. Jeli chceš přičinu za tutón rozsud wědźeć, wostanje ći přewostanjeny so z administratorom přez '{GVAR: ADMIN_EMAIL}' do zwiska stajić.
+adm_account_rejected_s:Twoje kontowe požadanje za '{GVAR: FORUM_TITLE}' bu wotpokazane.
+thread_on:datum:
+userinfo_buddy:Přećel:
+register_email_addr:E-mejlowa adresa:
+usrinfo_last_visit:Posledni wopyt:
+mnav_newer:nowši hač
+mnav_older:starši hač
+ip_search_by_ip:Wužiwarjow po IP pytać
+ip_search_syntax:Podpěrowana syntaksa: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:Pytać
+ip_analyze_usage:Wužiće IP analyzować
+ip_analyze_usage_descr:Prošu podaj eksaktne wužiwarskeho mjena uwžiwarja.
+ip_users_using:Wužiwarjo, kotřiž IP-adresu '{VAR: ip}' wužiwaja
+ip_all_ips:Wšě IP, kotrež so wot wužiwarja '{VAR: user}' wužiwaja
+ip_title:IP-wobhladowak
 userinfo_real_name:Woprawdźite mjeno:
+register_err_alias_notallowed:Tutón alias njeje dowoleny.
+post_err_mod_forum_edit_ttl:ZMYLK
+post_err_mod_forum_edit_msg:Njemóžeš powěsće w moderěrowanym forumje wobdźěłać.
+dmsg_num:powěsć #{VAR: obj->id}
+postcheck_session_invalid:Twoje posedźenje je spadnjene. Prošu wotpósćel formular znowa. Wodaj njepřijomnosće.
+delete_message_extra_desc:<b>Opcionalny</b><br />Podaj přičinu za zničenje powěsće, kotraž so přez priwatnu powěsć awtorej pósćele.
+delete_message_extra_body:Tekst wotstronjeneje powěsće zasunyć a awtorej připósłać.
+delete_msg_removed_ttl:Twoja powěsć bu wot administratora wotstronjena.
+delete_msg_pm_body:Prěnjotna powěsć
+delete_msg_pm_subject:Nastupa: {VAR: data[15]}
+ip_no_whois:Informacije Whois za <b>{VAR: ip}</b> k dispoziciji njesteji.
+ip_whois_title:ISP-informacije
+register_theme:Šat:
+pmsg_trash:Papjernik wuprózdnić
+uc_new_pm:Nowe priwatne powěsće
+uc_new_topic:Nowa tema
+uc_new_cat_forum:Abonowane forumy z nowymi powěsćemi
+uc_cat_forum:Kategorija &raquo; forum
+uc_sub_topics:Abonowane temy z nowymi powěsćemi
+search_options:Pytanske opcije
+search_user_filter:Po wužiwarjom filtrować:
+register_none:Njezdźělić
+findu_no_conf:njewobkrućeny wužiwar
+register_max_sig_len:Maksimalna dołhosć:
+register_turing:Prošu zapodaj slědowacy kod:
+register_err_turing:Njepłaćiwy přepruwowanski kod.
+modque_cat:Kategorija
+modque_forum:Forum
+idx_compact_forum_row:K dispoziciji stejace forumy:
+mmd_del_title:Temy zničić
+mmd_mov_title:Temy přesunyć
+mmd_move_threads_to:Cilowy forum:
+mmd_abort_move:Přetorhnyć
+mmd_move:Temy přesunyć
+pmsg_pdf_btn:PDF-archiw wutworić
+search_results_hdr:{VAR: total} pytanskich wuslědkow namakanych
+thread_del_all:Wšě wubrane zničić
+thread_mov_all:Wšě wubrane přesunyć
+thread_loc_all:Wšě wubrane zawrěć/wotewrěć
+dmsg_ip:IP:
+err_blockedaccnt_title:ZMYLK: Twoje konto bu wufiltrowane.
+err_blockedaccnt_msg:Twoje konto přez jeden z instalowanych filtrow přistup na forum nima.
+merge_th_page_list:Wuběr temowych stronow
+most_users_online:Najwjace wužiwarjow, kotřiž běchu online, bě <b>{VAR: st_obj->most_online}</b> dnja <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:Wšě forumy wotskazać
+sub_unsub_all_topics:Wšě temy wotskazać
+unbookmark_all_topics:Wšě zapołožki wotstronić
+tabs_own_posts:Swójske powěsće pokazać
+sml_emoticon:Smějačk
+sml_code:Kod
+mnav_sub_only:Jenož w abonowanych forumach pytać
+register_topics_per_page:Temy na stronu:
+login_min_time:Tutón forum dowola jedne přizjewjenje kóždych {VAR: MIN_TIME_BETWEEN_LOGIN} sekundow, prošu čakaj {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekundow do swojeho přichodneho pospyta.
+post_not_logged_in:Njejsy tuchwilu přizjewjeny, powěsć budźe so anonymnje wotposyłać.
+post_common_bold:Tučny
+post_common_italics:Kursiwny
+post_common_underline:Podšmórnyć
+post_common_align_left:Nalěwo wusměrjeny
+post_common_align_center:Centrowany
+post_common_align_right:Naprawo wusměrjeny
+post_common_link:Wotkaz zasunyć
+post_common_email:E-mejlowa dresu zasunyć
+post_common_image:Wobraz zasunyć
+post_common_nlist:Čisłowanu lisćinu přidać
+post_common_blist:Naličenje přidać
+post_common_quote:Citat přidać
+post_common_code:Kod přidać
+rating_delete:Zničić
+post_always_on_top:Temu přeco na spočatku lisćiny temow zwobraznić
+topic_rating:{VAR: frm->rating} z {PLURAL: frm->n_rating|$1 hłosa|$1 hłosow|$1 hłosow|$1hłosow}
+topic_list_rating:{VAR: r[17]} z {PLURAL: r[21]|$1 hłosa|$1 hłosow|$1 hłosow|$1 hłosow}
+tabs_notifications:Zdźělenja
+finduser_flag:Chorhojčka
+post_descr:Wopisanje temy:
+pmsg_on:dnja
+pmsg_download_dump:Archiw powěsćow sćahnyć
+move_messages:Powěsće přesunyć
+move_msg_btn:Wubrane powěsće přesunyć
+move_msg_th_expl:Podaj ID ciloweje temy (móže w druhich forumach być)
+captcha_img_alt:Pruwowanje captcha: dyrbiš tekst we wobrazu spóznać.
+captcha_img_help:Njeje nula abo jedynka we wobrazu.
+powered-by:Pohonjeny přez: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Kod:
+code_select_all:Wšě wubrać
+code_show_hide:Pokazać/schować
+social_sites:Sydła socialneje syće:
+postcheck_min_len_err:Twoja powěsć je překrótka. Minimalna dołhosć je {PLURAL: post_min_len|$1 znamješko|$1 znamješce|znamješka|znamješkow}.
+postcheck_dup_err:Prošu njezałož dwójne temy.
+btn_new_topic:Nowa tema
+btn_new_pm:Nowa priwatna powěsć
+btn_post_reply:Wotmołwu wotpósłać
+btn_tree_view:Štomowy napohlad
+btn_flat_view:Płony napohlad
+btn_about:Profil
+btn_small_pm:PP
+btn_delete:zničić
+btn_edit:wobdźěłać
+btn_reply:wotmołwić
+btn_forward:dale sposrědkować
+btn_quote:citować
+btn_email:E-mejl
+btn_show_posts:powěsće
+btn_homepage:www

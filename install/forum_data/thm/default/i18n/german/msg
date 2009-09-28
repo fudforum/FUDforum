@@ -309,7 +309,7 @@ register_month:Monat
 register_year:Jahr
 register_gender:Geschlecht:
 register_bio:Biographie:
-register_bio_desc:Ein paar Details &uuml;ber dich, wie zum Beispiel deine Interessen, Beruf usw...
+register_bio_desc:Ein paar Details über dich, wie zum Beispiel deine Interessen, Beruf usw.
 register_prefs:Einstellungen
 register_sig:Signatur:
 register_sig_desc:Optionale Signatur, die du unter deine Beitr&auml;ge setzen kannst.
@@ -591,7 +591,7 @@ post_error_generic:Es ist ein Fehler aufgetreten
 postcheck_max_images_err:Maximal {GVAR: MAX_IMAGE_COUNT} Bilder pro Beitrag sind erlaubt, bitte reduziere die Anzahl der Bilder.
 postcheck_no_links_allowed:Du kannst keine Links verwenden, bis du mehr als {PLURAL: posts_before_links|$1 Beitrag|$1 Beiträge} geschrieben hast.
 postcheck_subj_needed:Betreff erforderlich
-postcheck_no_such_user:Es gibt keinen Benutzer mit Namen "{FUNC: char_fix(htmlspecialchars($v))}" in diesem Forum
+postcheck_no_such_user:Es gibt keinen Benutzer mit Namen "{FUNC: char_fix(htmlspecialchars($v))}" in diesem Forum.
 postcheck_ignored:Du kannst keine private Nachricht an "{FUNC: char_fix(htmlspecialchars($v))}" verschicken, weil diese Person dich auf die Ignorierliste gesetzt hat.
 postcheck_no_recepient:Kann die Nachricht nicht versenden, weil kein Empf&auml;nger angegeben ist
 postcheck_invalid_email:Bitte trage eine g&uuml;ltige Adresse f&uuml;r deinen Freund ein.
@@ -602,7 +602,7 @@ private_msg_notify_body:Hallo,<br />{VAR: usr->login} hat deine private Nachrich
 referals_update:Durchsucht die Anwerbungen
 register_err_short_login:Der Anmeldename, den du gew&auml;hlt hast, ist zu kurz. Er muss mindestens 4 Zeichen enthalten.
 register_err_login_notallowed:Dieser Anmeldename ist nicht erlaubt
-register_err_loginunique:Anmeldenamen f&uuml;r das Forum m&uuml;ssen einmalig sein, es gibt bereits einen Benutzer mit diesen Anmeldenamen im System
+register_err_loginunique:Anmeldenamen f&uuml;r das Forum m&uuml;ssen einmalig sein, es gibt bereits einen Benutzer mit diesen Anmeldenamen im System.
 register_err_emailexists:Diese E-Mail-Adresse wurde schon verwendet, falls du dein Passwort vergessen hast, lasse es bitte zur&uuml;cksetzen, anstatt dich neu zu registrieren
 register_err_shortpasswd:Das Passwort muss mindestens 6 Zeichen lang sein.
 register_err_passwdnomatch:Deine Passw&ouml;rter stimmen nicht &uuml;berein.
@@ -728,7 +728,7 @@ p_SPLIT:Themen aufteilen
 p_LOCK:Themen sperren
 p_MOVE:Themen verschieben
 p_SML:Smileys verwenden
-p_IMG:Bilder Tags verwenden
+p_IMG:Bilder-Tags verwenden
 p_SEARCH:Kann suchen
 group_mgr_search:Benutzer suchen
 group_mgr_indicator:Im Augenblick wird <b>{VAR: grp->name}</b> bearbeitet
@@ -888,7 +888,7 @@ primary_group_prefix:Hauptgruppe f&uuml;r Forum:
 group_resources:Diese Gruppe kontrolliert die Berechtigungen f&uuml;r folgende Foren
 register_admin_newuser_title:Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
 register_admin_newuser_msg:Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor es durch dich oder einem anderen Forumsadministrator bestätigt wurde. Um das Konto zu begutachten, gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail-Benachrichtigungen über neue Benutzerregistrierungen abstellen willst, kannst du dies über das Administratormenü und durch Ändern des Wertes der Einstellung "New Account Notification" erledigen.
-post_mod_msg_notify_title:Neuer Beitrag im Forum "{VAR: frm->name}" wartet auf Bestätigung
+post_mod_msg_notify_title:Neuer Beitrag im Forum „{VAR: frm->name}“ wartet auf Bestätigung
 post_mod_msg_notify_msg:Ein neuer Beitrag mit der Überschrift „{VAR: msg_post->subject}“ wwurde gerade in einem Forum erstellt, das von dir moderiert wird. Um diesen Beitrag zu begutachten, gehe zu: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDas ist ein automatisierter Vorgang, bitte antworte nicht auf diese Nachricht.
 thread_printable_pdf:Druckbares PDF erzeugen
 thread_syndicate:Themen als Syndicate anderen Seiten zur Verf&uuml;gung stellen (XML)
@@ -915,7 +915,7 @@ mnav_month:Monat(e)
 mnav_title:Beitragsnavigator
 mnav_update:Durchsucht Beitr&auml;ge mit Hilfe des <a href="{TEMPLATE: mnav_update_lnk}">Beitragsnavigators</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Nachricht
-pm_notify_body_email:Du hast eine neue private Nachricht mit der Überschrift "{VAR: subject}" von "{VAR: from}" im Forum "{GVAR: FORUM_TITLE}".\nKlicke hier, um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Nachrichten" in deinem Profil.
+pm_notify_body_email:Du hast eine neue private Nachricht mit der Überschrift „{VAR: subject}“ von „{VAR: from}“ im Forum „{GVAR: FORUM_TITLE}“.\nKlicke hier, um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere „Benachrichtigung über private Nachrichten“ in deinem Profil.
 register_pm_notification:Benachrichtigung &uuml;ber private Nachricht
 register_pm_notification_desc:Falls aktiviert, wirst du &uuml;ber die Benachrichtigungsmethode deiner Wahl eine Mitteilung erhalten, sobald eine private Nachricht an dich gesendet worden ist.
 findu_admin_opts_header:Admin-Optionen
@@ -934,9 +934,9 @@ split_cp:Men&uuml; zum Teilen von Themen
 groups_perms_header:Rechte <span class="small">(Bewege den Mauszeiger &uuml;ber die Rechte, um deren Typ zu erkennen)</span>
 register_err_sig_too_long:Deine Signatur &uuml;berschreitet die maximal erlaubte L&auml;nge von {GVAR: FORUM_SIG_ML} Zeichen.
 register_sig_limit:{GVAR: FORUM_SIG_ML} Zeichen <a href="javascript: alert('Deine Signatur ist '+document.forms['fud_register'].reg_sig.value.length+' Zeichen lang. Die maximal erlaubte Signaturlänge beträgt {GVAR: FORUM_SIG_ML}');" class="SmallText">&Uuml;berpr&uuml;fe die Signaturl&auml;nge</a>
-adm_account_accepted:Dein Konto '{VAR: login}' wurde vom Administrator gebilligt und ist jetzt aktiviert. Du kannst jetzt auf das {GVAR: FORUM_TITLE}' Forum als bestätigter Benutzer zugreifen.
-adm_account_accepted_s:Deine Bitte um ein Konto für '{GVAR: FORUM_TITLE}' wurde akzeptiert.
-adm_account_rejected:Dein Konto '{VAR: login}' wurde vom Administrator abgewiesen und ist daher nicht aktiviert. Falls du den Grund für diese Entscheidung erfahren möchtest, steht es dir frei, den Administrator über '{GVAR: ADMIN_EMAIL}' zu kontaktieren.
+adm_account_accepted:Dein Konto „{VAR: login}“ wurde vom Administrator gebilligt und ist jetzt aktiviert. Du kannst jetzt auf das {GVAR: FORUM_TITLE}' Forum als bestätigter Benutzer zugreifen.
+adm_account_accepted_s:Deine Bitte um ein Konto für „{GVAR: FORUM_TITLE}“ wurde akzeptiert.
+adm_account_rejected:Dein Konto „{VAR: login}“ wurde vom Administrator abgewiesen und ist daher nicht aktiviert. Falls du den Grund für diese Entscheidung erfahren möchtest, steht es dir frei, den Administrator über „{GVAR: ADMIN_EMAIL}“ zu kontaktieren.
 adm_account_rejected_s:Deine Bitte um ein Konto für '{GVAR: FORUM_TITLE}' wurde abgewiesen.
 thread_on:am
 register_email_addr:E-Mail-Adresse:
@@ -963,7 +963,7 @@ delete_message_extra_body:F&uuml;ge den Text des entfernten Beitrags in die Nach
 delete_msg_removed_ttl:Deine Nachricht wurde durch den Administrator entfernt.
 delete_msg_pm_body:Urspr&uuml;ngliche Nachricht
 delete_msg_pm_subject:Thema: {VAR: data[15]}
-ip_no_whois:Whois-Informationen f&uuml;r <b>{VAR: ip}</b> ist nicht verf&uuml;gbar.
+ip_no_whois:Whois-Informationen f&uuml;r <b>{VAR: ip}</b> sind nicht verf&uuml;gbar.
 ip_whois_title:Provider-Informationen
 register_theme:Style:
 pmsg_trash:Papierkorb leeren
@@ -1011,7 +1011,7 @@ post_common_align_left:Linksb&uuml;ndig
 post_common_align_center:Zentriert
 post_common_align_right:Rechtsb&uuml;ndig
 post_common_link:Link einf&uuml;gen
-post_common_email:E-Mail-Addresse einf&uuml;gen
+post_common_email:E-Mail-Adresse einf&uuml;gen
 post_common_image:Bild einf&uuml;gen
 post_common_nlist:Nummerierte Liste einf&uuml;gen
 post_common_blist:Aufz&auml;hlung einf&uuml;gen
