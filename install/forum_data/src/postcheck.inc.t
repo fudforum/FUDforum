@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.44 2009/09/15 18:11:29 frank Exp $
+* $Id: postcheck.inc.t,v 1.45 2009/09/29 10:18:28 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,8 +63,8 @@ function check_post_form()
 		set_err('msg_session', '{TEMPLATE: postcheck_session_invalid}');
 	}
 
-	/* Check for duplicate topics. */
-	if (($GLOBALS['FUD_OPT_3'] & 67108864) && $_POST['reply_to'] == 0) {
+	/* Check for duplicate topics (exclude replies and edits). */
+	if (($GLOBALS['FUD_OPT_3'] & 67108864) && $_POST['reply_to'] == 0 && $_POST['msg_id'] == 0) {
 		$c = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE subject=". _esc($_POST['msg_subject']) ." AND reply_to=0 AND poster_id="._uid." AND post_stamp >= ".(__request_timestamp__ - 86400));
 		if ( $c > 0 ) {
 			set_err('msg_body', '{TEMPLATE: postcheck_dup_err}');
