@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: feed.tmpl,v 1.3 2009/09/20 19:05:48 frank Exp $
+* $Id: feed.tmpl,v 1.4 2009/09/30 16:07:15 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,7 +23,7 @@ Content-Type: application/{VAR: format}+xml
 
 {SECTION: xml_no_data empty XML document}
 <?xml version="1.0" encoding="{CHARSET}"?>
-<error><message>No data matching data.</message></error>
+<error><message>{MSG: feed_no_data}</message></error>
 </xml>
 {SECTION: END}
 
@@ -39,9 +39,9 @@ Content-Type: application/{VAR: format}+xml
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/">
 {END}
 <channel rdf:about="{FULL_ROOT}">
-	<title>{VAR: FORUM_TITLE} - RDF feed</title>
+	<title>{VAR: FORUM_TITLE} - {MSG: feed_rdf}</title>
 	<link>{FULL_ROOT}</link>
-	<description>{VAR: FORUM_TITLE} RDF feed</description>
+	<description>{VAR: FORUM_DESCR}</description>
 {IF: $basic && $feed_header}
 	<items>
 		<rdf:Seq>
@@ -189,7 +189,7 @@ Content-Type: application/{VAR: format}+xml
 {SECTION: atom_doc format an ATOM document}
 <?xml version="1.0" encoding="{CHARSET}"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<title>{VAR: FORUM_TITLE} - Atom feed</title>
+	<title>{VAR: FORUM_TITLE} - {MSG: feed_atom}</title>
 	<subtitle>{GVAR: FORUM_DESCR}</subtitle>
 	<link href="{FULL_ROOT}"/>
 	<updated>{FUNC: gmdate("Y-m-d\TH:i:s", __request_timestamp__)}-00:00</updated>
@@ -247,7 +247,7 @@ Content-Type: application/{VAR: format}+xml
 <?xml version="1.0" encoding="{CHARSET}"?>
 <rss version="2.0">
 <channel>
-	<title>{VAR: FORUM_TITLE} - RSS2 feed</title>
+	<title>{VAR: FORUM_TITLE} - {MSG: feed_rss}</title>
 	<link>{FULL_ROOT}</link>
 	<description>{GVAR: FORUM_DESCR}</description>
 	<language>{LANG}</language>
