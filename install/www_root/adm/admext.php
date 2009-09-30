@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.34 2009/09/15 18:11:29 frank Exp $
+* $Id: admext.php,v 1.35 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('ext.inc', true);
-	include($WWW_ROOT_DISK . 'adm/admpanel.php');
+	include($WWW_ROOT_DISK . 'adm/header.php');
 		
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
@@ -46,12 +46,9 @@
 	}
 ?>
 <h2>Allowed Extensions</h2>
-<p>Specify which files types users can attach to forum messages.</p>
+<p>Specify which files types users can attach to forum messages. If no file extension is entered, all files will be allowed.</p>
 <form id="exf" method="post" action="admext.php">
 <table class="datatable solidtable">
-	<tr class="tutor">
-		<td colspan="2"><b>Security Warning:</b> If no file extension is entered, all files will be allowed.</td>
-	</tr>
 	<tr class="field">
 		<td>Allow File Extension:</td>
 		<td><input tabindex="1" type="text" name="c_ext" value="<?php echo htmlspecialchars($c_ext); ?>" /></td>
@@ -96,4 +93,4 @@ document.forms['exf'].c_ext.focus();
 	unset($c);
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

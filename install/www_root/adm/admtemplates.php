@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admtemplates.php,v 1.2 2009/09/14 19:05:40 frank Exp $
+* $Id: admtemplates.php,v 1.3 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,7 +19,7 @@
 		exit;
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	/* Limit theme names to sane characters */
 	if (isset($_POST['newname'], $_POST['btn_create'])) {
@@ -136,4 +136,4 @@
 <?php echo _hs; ?>
 </form>
 
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

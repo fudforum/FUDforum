@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.89 2009/09/07 15:49:52 frank Exp $
+* $Id: admdump.php,v 1.90 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,16 +21,15 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 	$dirs = array(realpath($dirp));
 	$repl = realpath($GLOBALS[$keep_dir]);
 	$is_win = !strncasecmp('win', PHP_OS, 3);
-	
+
 	while (list(,$v) = each($dirs)) {
 		if (!is_readable($v)) {
-			echo 'Could not open "'.$v.'" for reading<br />';
+			pf('Could not open "'. $v .'" for reading');
 			return;
 		}
-		echo 'Processing directory: '.$v."<br />\n";
-		@ob_flush(); flush();
+		pf('Processing directory: '. $v);
 
-		if (!($files = glob($v . '/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
+		if (!($files = glob($v .'/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
 		}
 		if ($is_win) {
@@ -63,7 +62,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				continue;
 			}
 			if (!is_readable($f)) {
-				echo "WARNING: unable to open '".$f."' for reading<br />\n";
+				pf('WARNING: unable to open "'.$f.'" for reading');
 				continue;
 			}
 			$ln = filesize($f);
@@ -84,20 +83,19 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 
 	require('./GLOBALS.php');
 	fud_use('db.inc');
-	fud_use('mem_limit.inc', true);
+	fud_use('mem_limit.inc', 1);
 
-	// Uncomment the 2 lines below if you wish to run this script via command line:
-	//fud_use('adm_cli.inc', 1); // this contains cli_execute() function.
-	//cli_execute('');
-	// When using this, the script accepts 2 arguments:
-	//	php admdump.php /path/to/dump_file [compress]
-	// Compress is optional and should only be specified if you want to datadump to be compressed.
+	// Run from command line.
+	if (php_sapi_name() == 'cli') {
+		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
+		cli_execute('');
 
-	/* check for cli arguments */
-	if (php_sapi_name() == 'cli' && defined('forum_debug')) {
 		if (empty($_SERVER['argv'][1])) {
-			exit("Usage: php admdump.php /path/to/dump_file [compress]\n");
+			echo "Usage: php admdump.php /path/to/dump_file [compress]\n";
+			echo " - 'compress' is optional; specify only if you want to compress the dump_file.\n";
+			die();
 		}
+
 		$_POST['submitted'] = 1;
 		$_POST['path'] = $_SERVER['argv'][1];
 		if (!empty($_SERVER['argv'][2])) {
@@ -122,31 +120,30 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			exit('Authorization Required.');
 		}
 	} else {
-		fud_use('adm.inc', true);
+		fud_use('adm.inc', 1);
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	if (isset($_POST['submitted']) && !@fopen($_POST['path'], 'w')) {
-		$path_error = '<font color="#ff0000">Couldn\'t open backup destination file, '.$_POST['path'].' for write.</font><br />';
+		$path_error = errorify('Couldn\'t open backup destination file, '. $_POST['path'] .' for write.');
 		$_POST['submitted'] = null;
 	}
 
 	if (isset($_POST['submitted'])) {
 		if (isset($_POST['compress'])) {
 			if (!$fp = gzopen($_POST['path'], 'wb9')) {
-				exit('cannot create file');
+				exit('Cannot create file.');
 			}
 			$write_func = 'gzwrite';
 		} else {
 			if (!$fp = fopen($_POST['path'], 'wb')) {
-				exit('cannot create file');
+				exit('Cannot create file.');
 			}
 			$write_func = 'fwrite';
 		}
 
-		echo "Compressing forum datafiles<br />\n";
-		@ob_flush(); flush();
+		pf('Compressing forum datafiles.');
 		$write_func($fp, "\n----FILES_START----\n");
 		backup_dir($DATA_DIR, $fp, $write_func, 'DATA_DIR');
 		backup_dir($WWW_ROOT_DISK.'images/', $fp, $write_func, 'WWW_ROOT_DISK', 1);
@@ -185,7 +182,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		unset($files);
 
 		$sql_table_list = get_fud_table_list();
-		db_lock(implode(' WRITE, ', $sql_table_list) . ' WRITE');
+		db_lock(implode(' WRITE, ', $sql_table_list) .' WRITE');
 
 		foreach($sql_table_list as $tbl_name) {
 			/* Skip tables that will be rebuilt by consistency checker. */
@@ -201,14 +198,13 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				$tbl_name == $DBHOST_TBL_PREFIX.'search' || 
 				$tbl_name == $DBHOST_TBL_PREFIX.'search_cache')
 			) {
-				echo 'Skipping table: '.$tbl_name.'<br />';
+				pf('Skipping table: '.$tbl_name);
 				continue;
 			}
 
 			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);
 
-			echo 'Processing table: '.$tbl_name.' ('.$num_entries.' rows) .... ';
-			@ob_flush(); flush();
+			pf('Processing table: '.$tbl_name.' ('.$num_entries.' rows) .... ');
 			if ($num_entries) {
 				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '', $tbl_name);
 				$write_func($fp, "\0\0\0\0".$db_name."\n");
@@ -233,12 +229,12 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				unset($c);
 			}
 
-			echo "DONE<br />\n";
+			pf('DONE');
 		}
 
 		$write_func($fp, "\n----SQL_END----\n");
 
-		/* backup GLOBALS.php */
+		/* Backup GLOBALS.php. */
 		fud_use('glob.inc', true);
 		$skip = array_flip(array('WWW_ROOT','COOKIE_PATH','COOKIE_DOMAIN','COOKIE_NAME',
 			'DBHOST','DBHOST_USER','DBHOST_PASSWORD','DBHOST_DBNAME','DBHOST_TBL_PREFIX',
@@ -304,5 +300,5 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 <?php
 	} /* isset($_POST['submitted']) */
 
-	require($WWW_ROOT_DISK . 'adm/admclose.html');
+	require($WWW_ROOT_DISK . 'adm/footer.php');
 ?>

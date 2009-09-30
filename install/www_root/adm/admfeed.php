@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admfeed.php,v 1.1 2009/06/23 20:50:51 frank Exp $
+* $Id: admfeed.php,v 1.2 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -59,7 +59,7 @@
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	$feed_url = $WWW_ROOT . 'feed.php';
 ?>
@@ -140,4 +140,4 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 <a href="<?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=15&amp;format=atom" target="_blank"><?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=15&amp;format=atom</a></p>
 </td></tr>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admslist.php,v 1.14 2009/09/15 18:11:30 frank Exp $
+* $Id: admslist.php,v 1.15 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,7 +25,7 @@ function print_ul($qry)
 		echo "<center>None</center>";
 	}
 }
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Privileged User List</h2>
 <p>The following users have elevated forum permissions:</p>
@@ -58,4 +58,4 @@ function print_ul($qry)
 </td>
 </tr>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

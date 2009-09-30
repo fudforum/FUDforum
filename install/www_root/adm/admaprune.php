@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaprune.php,v 1.25 2009/05/03 18:57:06 frank Exp $
+* $Id: admaprune.php,v 1.26 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,7 +45,7 @@
 				$a_cnt = 0;
 			}
 
-			require($WWW_ROOT_DISK . 'adm/admpanel.php');
+			require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <div align="center">You are about to delete <font color="red"><?php echo $a_cnt; ?></font> public file attachments AND <font color="red"><?php echo $pa_cnt; ?></font> private file attachments.
 <br />That were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $msg; ?><br /><br />
@@ -62,7 +62,7 @@
 			</form>
 </div>
 <?php
-			require($WWW_ROOT_DISK . 'adm/admclose.html');
+			require($WWW_ROOT_DISK . 'adm/footer.php');
 			exit;
 		} else if ($back > 0) {
 			$limit = time() - $_POST['units'] * $_POST['thread_age'];
@@ -109,7 +109,7 @@
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Attachment Pruning</h2>
 
@@ -160,4 +160,4 @@ this form will offer to delete attachments olders than 10 days.</p>
 document.forms['adpa'].thread_age.focus();
 /* ]]> */
 </script>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

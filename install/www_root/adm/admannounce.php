@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admannounce.php,v 1.31 2009/05/16 17:43:03 frank Exp $
+* $Id: admannounce.php,v 1.32 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -80,7 +80,7 @@ function mk_date($y, $m, $d)
 		unset($frm_list);
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Announcement System</h2>
 <form method="post" id="a_frm" action="admannounce.php">
@@ -201,4 +201,4 @@ function mk_date($y, $m, $d)
 	unset($c);
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

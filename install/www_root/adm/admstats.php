@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.52 2009/05/16 17:43:03 frank Exp $
+* $Id: admstats.php,v 1.53 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -77,7 +77,7 @@ function get_sql_disk_usage()
 	$vl_y = $kl_y = implode("\n", range($s_year, ($e_year + 1)));
 
 	$same_dir = (!strncmp($WWW_ROOT_DISK, $DATA_DIR, strlen($WWW_ROOT_DISK)) || !strncmp($DATA_DIR, $WWW_ROOT_DISK, strlen($DATA_DIR)));
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Forum Statistics</h2>
 <?php
@@ -172,7 +172,7 @@ function get_sql_disk_usage()
 		}
 
 		foreach($day_list as $k => $v) {
-			echo '<tr><td style="font-size: xx-small;">'.date($date_str, $details[$k]).'</td><td width="100" bgcolor="#000000"><img style="background-color: #ff0000;" src="../blank.gif" height=5 width='.(round($v / $unit) * 3).' alt="statistic"></td><td style="font-size: xx-small;">('.$v.')</td></tr>';
+			echo '<tr><td style="font-size: xx-small;">'.date($date_str, $details[$k]).'</td><td width="100" bgcolor="white"><img style="background-color:red;" src="../blank.gif" height=5 width='.(round($v / $unit) * 3).' alt="statistic"></td><td style="font-size: xx-small;">('.$v.')</td></tr>';
 			$ttl += $v;
 		}
 		echo '<tr style="font-size: xx-small;"><td><b>Total:</b></td><td colspan="2" align="right">'.$ttl.'</td></tr></table><br />';
@@ -367,5 +367,5 @@ function get_sql_disk_usage()
 <?php
 	} /* !isset($total_disk_usage) */
 
-	require($WWW_ROOT_DISK . 'adm/admclose.html');
+	require($WWW_ROOT_DISK . 'adm/footer.php');
 ?>

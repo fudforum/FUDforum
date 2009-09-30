@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlog.php,v 1.41 2009/05/18 20:22:33 frank Exp $
+* $Id: admlog.php,v 1.42 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,7 +42,7 @@ function return_forum_name($id)
 	return check_data_avl(q_singleval('SELECT name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum WHERE id='.$id));
 }
 
-	include('admpanel.php');
+	include('header.php');
 ?>
 <h2>Action Log Viewer</h2>
 [ <a href="admlog.php?clear=1&amp;<?php echo __adm_rsid; ?>">Clear Admin Log</a> ]
@@ -152,4 +152,4 @@ function return_forum_name($id)
 	unset($c);
 ?>
 </table>
-<?php require('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

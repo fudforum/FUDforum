@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php,v 1.17 2009/09/16 05:59:22 frank Exp $
+* $Id: index.php,v 1.18 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,7 +11,7 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 
-	include($WWW_ROOT_DISK . 'adm/admpanel.php');
+	include($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Forum Dashboard</h2>
 
@@ -61,7 +61,7 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 	$forum_stats['GROUP_MEMBERS'] = q_singleval('SELECT count(*) FROM '.$tbl.'group_members');
 ?>
 
-<h4>Forum statistics</h4>
+<h4>Forum statistics:</h4>
 <table class="resulttable fulltable">
 <tr class="field">
 	<td><b>Messages:</b></td>
@@ -143,5 +143,5 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 <span style="float:right;"><a href="admstats.php?<?php echo __adm_rsid; ?>">More... &raquo;</a></span>
 <br />
 
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
 

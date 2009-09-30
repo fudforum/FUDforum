@@ -251,7 +251,7 @@ Enable/disable the showing of forum statistics on the front page. Statistics inc
 Enable/disable the online/offline status indicator for the poster on messages.}}}
 
 {{{UNCONF_USER_EXPIRY 
-The number of days unconfirmed forum members are held in the database. They will be removed from database after this period of time.}}}
+The number of days unconfirmed forum members are held in the database. They will be removed from the database after this period of time.}}}
 
 {{{MOVED_THR_PTR_EXPIRY
 The number of days to show a pointer of a moved topic from the original forum to the new forum. The pointer will be removed after this period of time.}}}

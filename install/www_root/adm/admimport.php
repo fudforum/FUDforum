@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.74 2009/09/07 15:49:52 frank Exp $
+* $Id: admimport.php,v 1.75 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,17 +54,17 @@ function resolve_dest_path($path)
 	return $path;
 }
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	if (isset($_POST['path'])) {
 		if (!@is_readable($_POST['path'])) {
 			if (!@file_exists($path)) {
-				$path_error = '<font color="#ff0000"><b>'.$_POST['path'].'</b> file does not exist.</font><br />';
+				$path_error = errorify('<b>'. $_POST['path'] .'</b> file does not exist.');
 			} else {
-				$path_error = '<font color="#ff0000">the webserver has no permission to open <b>'.$_POST['path'].'</b> for reading</font><br />';
+				$path_error = errorify('The webserver has no permission to open <b>'. $_POST['path'] .'</b> for reading');
 			}
 		} else if (($gz_file = preg_match('!\.gz$!', $_POST['path'])) && !extension_loaded('zlib')) {
-			$path_error = '<font color="#ff0000">The file <b>'.$_POST['path'].'</b> is compressed using gzip & your PHP does not have gzip extension install. Please decompress the file yourself and try again.</font><br />';
+			$path_error = errorify('The file <b>'. $_POST['path'] .'</b> is compressed using gzip & your PHP does not have gzip extension install. Please decompress the file yourself and try again.');
 		} else {
 			if (!$gz_file) {
 				$fp = fopen($_POST['path'], 'rb');
@@ -271,7 +271,7 @@ function resolve_dest_path($path)
 			if (($uid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".$usr->login."' AND users_opt>=1048576 AND (users_opt & 1048576) > 0"))) {
 				q('INSERT INTO '.$DBHOST_TBL_PREFIX.'ses (ses_id, user_id, time_sec) VALUES(\''.$usr->ses_id.'\', '.$uid.', '.__request_timestamp__.')');
 			} else {
-				echo '<font color="#ff0000">Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br />Therefor you\'ll need to re-login once the import process is complete<br /></font>';
+				echo errorify('Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br />Therefor you\'ll need to re-login once the import process is complete.<br />');
 			}
 
 			/* we now need to correct cached paths for file attachments and avatars */
@@ -303,7 +303,7 @@ function resolve_dest_path($path)
 
 			echo '<b>Import successfully completed.</b><br /><br />';
 			echo '<div class="tutor">To finalize the process you should now run the <nbsp>&gt;&gt; <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> &lt;&lt;</nbsp>.</div>';
-			require($WWW_ROOT_DISK . 'adm/admclose.html');
+			require($WWW_ROOT_DISK . 'adm/footer.php');
 			exit;
 		}
 	}
@@ -331,7 +331,7 @@ if ($datadumps) {
 <table class="datatable solidtable">
 <tr class="field">
 	<td>Import Data File:<br /><font size="-1">Full path to the backup file (*.fud or *.fud.gz) on disk that you want to import from.</font></td>
-	<td><?php if (isset($path_error)) { echo $path_error; $path = $_POST['path']; } else { $path = ''; } ?><input type="text" value="<?php echo $path; ?>" name="path" size="40" /></td>
+	<td><?php if (isset($path_error)) { echo $path_error.'<br />'; $path = $_POST['path']; } else { $path = ''; } ?><input type="text" value="<?php echo $path; ?>" name="path" size="40" /></td>
 </tr>
 <tr class="field">
 	<td>Skip Search Index:<br /><font size="-1">Do not load search data. You will need to reindex your forum after the import.
@@ -341,4 +341,4 @@ if ($datadumps) {
 </table>
 </form>
 
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

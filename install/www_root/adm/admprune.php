@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.46 2009/09/15 18:11:30 frank Exp $
+* $Id: admprune.php,v 1.47 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -57,7 +57,7 @@
 				$msg_cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."msg m INNER JOIN ".$DBHOST_TBL_PREFIX."thread t ON m.thread_id=t.id WHERE m.poster_id=".$usr_id." AND t.last_post_date<".$back.$lmt);
 				$umsg = ' <font color="red">posted by "'.q_singleval("SELECT alias FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".$usr_id).'"</font>';
 			}
-			require($WWW_ROOT_DISK . 'adm/admpanel.php');
+			require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <div align="center">You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics containing <font color="red"><?php echo $msg_cnt; ?></font> messages,
 which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $umsg . $msg; ?><br /><br />
@@ -74,7 +74,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 			</form>
 </div>
 <?php
-			require($WWW_ROOT_DISK . 'adm/admclose.html');
+			require($WWW_ROOT_DISK . 'adm/footer.php');
 			exit;
 		} else if ($back > 0) {
 			$frm_list = array();
@@ -108,7 +108,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Topic Pruning</h2>
 
@@ -165,4 +165,4 @@ delete topics with no messages in the last 10 days.</p>
 document.forms['adp'].thread_age.focus();
 /* ]]> */
 </script>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.39 2009/08/16 09:48:28 frank Exp $
+* $Id: admbrowse.php,v 1.40 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -246,7 +246,7 @@ if (!extension_loaded('posix')) {
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>File Adminstration System</h2>
 <?php
@@ -379,5 +379,5 @@ if (!extension_loaded('posix')) {
 	}
 echo '</table>';
 
-require($WWW_ROOT_DISK . 'adm/admclose.html');
+require($WWW_ROOT_DISK . 'adm/footer.php');
 ?>

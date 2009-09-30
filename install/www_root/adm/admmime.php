@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmime.php,v 1.35 2009/01/29 18:37:40 frank Exp $
+* $Id: admmime.php,v 1.36 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,7 +39,7 @@
 		q('INSERT INTO '.$tbl.'mime (descr, mime_hdr, fl_ext, icon) VALUES ('._esc($_POST['mime_descr']).', '._esc($_POST['mime_mime_hdr']).', '._esc($_POST['mime_fl_ext']).', '._esc($_POST['mime_icon']).')');
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>MIME Management System</h2>
 <form action="admmime.php" id="frm_mime" method="post" enctype="multipart/form-data">
@@ -55,7 +55,7 @@
 </tr>
 <?php } else { ?>
 <tr class="fieldtopic">
-	<td colspan="2"><font color="#ff0000">Web server does not have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK']; ?>images/mime/'</b>, mime icon upload disabled</font></td>
+	<td colspan="2"><span style="color:red;">Web server does not have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK']; ?>images/mime/'</b>, mime icon upload disabled</span></td>
 </tr>
 <?php } ?>
 <tr><td colspan="2">&nbsp;</td></tr>
@@ -135,4 +135,4 @@
 	unset($c);
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admemail.php,v 1.31 2009/09/15 18:11:29 frank Exp $
+* $Id: admemail.php,v 1.32 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,7 +38,7 @@
 		$edit = $e_email_block_opt = $e_string = '';
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>E-mail Filter</h2>
 <p>Block users with matching E-mail address from registering or posting messages on the forum.</p>
@@ -51,7 +51,7 @@
 	</tr>
 
 	<tr class="field">
-		<td>String:</td>
+		<td>Address:</td>
 		<td><input tabindex="1" type="text" name="e_string" value="<?php echo htmlspecialchars($e_string); ?>" /></td>
 	</tr>
 
@@ -95,4 +95,4 @@ document.forms['ef'].e_string.focus();
 	unset($c);
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

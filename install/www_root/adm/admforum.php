@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.60 2009/09/07 15:49:52 frank Exp $
+* $Id: admforum.php,v 1.61 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,7 +33,7 @@ function get_max_upload_size()
 	fud_use('widgets.inc', true);
 	fud_use('logaction.inc');
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 		
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$max_upload_size = get_max_upload_size();
@@ -263,4 +263,4 @@ if (!isset($_GET['chpos'])) {
 ?>
 </table>
 <a href="admcat.php?<?php echo __adm_rsid; ?>">&laquo; Back to categories</a>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

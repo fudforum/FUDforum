@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.42 2009/05/18 20:22:33 frank Exp $
+* $Id: admavatar.php,v 1.43 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -132,7 +132,7 @@ function import_avatars($path)
 	// fetch a list of available galleries
 	$galleries = db_all("SELECT DISTINCT(gallery) FROM ".$tbl."avatar");
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Avatar Management System</h2>
 
@@ -171,7 +171,7 @@ function import_avatars($path)
 		</tr>
 	<?php } else { ?>
 		<tr class="field">
-			<td colspan="2"><font color="#ff0000">Web server doesn't have write permission to write to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/avatars'; ?>'</b>, avatar upload disabled</font></td>
+			<td colspan="2"><span style="color:red;">Web server doesn't have write permission to write to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/avatars'; ?>'</b>, avatar upload disabled</span></td>
 		</tr>
 	<?php } ?>
 
@@ -280,4 +280,4 @@ function import_avatars($path)
 	unset($c);
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

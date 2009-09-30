@@ -1,3 +1,4 @@
+<?php if (defined('shell_script') ) return; ?>
 <br />
 <div style="text-align:right;">
 <script type="text/javascript">

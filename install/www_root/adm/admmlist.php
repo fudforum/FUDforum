@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.51 2009/09/07 15:49:52 frank Exp $
+* $Id: admmlist.php,v 1.52 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@ function format_regex(&$regex)
 	fud_use('widgets.inc', true);
 	fud_use('mlist.inc', true);
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 		
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
@@ -320,4 +320,4 @@ Here is a <a href="http://www.procmail.org/" target="_new">procmail</a> example:
 * ^TO_.*php-general@lists.php.net
 | <?php echo realpath($GLOBALS['DATA_DIR'].'scripts/maillist.php'); ?> 1
 </code></pre></blockquote>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

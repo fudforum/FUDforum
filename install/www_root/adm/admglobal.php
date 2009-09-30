@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.115 2009/09/15 18:11:29 frank Exp $
+* $Id: admglobal.php,v 1.116 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@ function get_max_upload_size()
 	return $size;
 }
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 	
 	$max_attach_size = get_max_upload_size();
 	if (isset($_POST['CF_PRIVATE_ATTACH_SIZE'])) {
@@ -283,16 +283,17 @@ $(document).ready(function() {
 <tr class="fieldtopic"><td colspan="2"><a name="7" /><br /><b>Message Settings</b></td></tr>
 <?php
 	print_reg_field('Messages Per Page', 'POSTS_PER_PAGE', 1);
+	print_bit_field('Show Reply Reference', 'SHOW_REPL_LNK');
+	print_bit_field('Show Edited By', 'SHOW_EDITED_BY');
+	print_bit_field('Show Edited By Moderator', 'EDITED_BY_MOD');
+	print_bit_field('Display IP Publicly', 'DISPLAY_IP');
+	print_bit_field('Enable Quick Reply', 'QUICK_REPLY_ENABLED');
+	print_bit_field('Quick Reply Display Mode', 'QUICK_REPLY_DISPLAY');
 	print_reg_field('Minimum Message Length', 'POST_MIN_LEN', 1);
 	print_reg_field('Messages Before Allowing Links', 'POSTS_BEFORE_LINKS', 1);
 	print_reg_field('Word Wrap', 'WORD_WRAP', 1);
-	print_bit_field('Show Edited By', 'SHOW_EDITED_BY');
-	print_bit_field('Show Edited By Moderator', 'EDITED_BY_MOD');
 	print_reg_field('Edit Time Limit (minutes)', 'EDIT_TIME_LIMIT', 1);
-	print_bit_field('Display IP Publicly', 'DISPLAY_IP');
 	print_reg_field('Max Image Count', 'MAX_IMAGE_COUNT', 1);
-	print_bit_field('Enable Quick Reply', 'QUICK_REPLY_ENABLED');
-	print_bit_field('Quick Reply Display Mode', 'QUICK_REPLY_DISPLAY');	
 	print_reg_field('Max Smilies Shown', 'MAX_SMILIES_SHOWN', 1);
 	print_reg_field('Message icons per row', 'POST_ICONS_PER_ROW', 1);
 	print_bit_field('Enable Affero<br /><a href="http://www.affero.net/bbsteps.html" target="_blank">Click here for details</a>', 'ENABLE_AFFERO');
@@ -443,7 +444,6 @@ $(document).ready(function() {
 	print_reg_field('Max History', 'MNAV_MAX_DATE', 1);
 	print_reg_field('Max Message Preview Length', 'MNAV_MAX_LEN', 1);
 	print_bit_field('Attachment Referrer Check', 'DWLND_REF_CHK');
-	print_bit_field('Show Reply Reference', 'SHOW_REPL_LNK');
 	print_bit_field('Disable Captcha Test', 'DISABLE_TURING_TEST');
 	print_bit_field('Anonymous User Captcha Test', 'USE_ANON_TURING');
 	print_bit_field('Use Captcha images', 'GRAPHICAL_TURING');
@@ -464,4 +464,4 @@ $(document).ready(function() {
 </table>
 <input type="hidden" name="form_posted" value="1" />
 </form>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

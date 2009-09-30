@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.41 2009/05/16 07:10:04 frank Exp $
+* $Id: indexdb.php,v 1.42 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,9 +13,18 @@
 	@ini_set('memory_limit', '128M');
 
 	require('./GLOBALS.php');
-	// uncomment the lines below if you wish to run this script via command line
-	// fud_use('adm_cli.inc', 1); // this contains cli_execute() function.
-	// cli_execute(1);
+
+	// Run from command line.
+	if (php_sapi_name() == 'cli') {
+		if (empty($_SERVER['argv'][1]) || $_SERVER['argv'][1] != 'yes') {
+			echo "Usage: php indexdb.php yes\n";
+			echo " - specify 'yes' to confirm execution.\n";
+			die();
+		}
+
+		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
+		cli_execute(1);
+	}
 
 	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
@@ -23,7 +32,11 @@
 	fud_use('fileio.inc');
 	fud_use('rev_fmt.inc');
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	if (isset($_POST['btn_cancel'])) {
+		header('Location: '. $WWW_ROOT .'adm/index.php?'.__adm_rsid);
+	}
+
+	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	if (!isset($_POST['conf'])) {
 ?>
@@ -38,17 +51,16 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 <?php echo _hs; ?>
 </form>
 <?php
-		require($WWW_ROOT_DISK . 'adm/admclose.html');
+		require($WWW_ROOT_DISK . 'adm/footer.php');
 		exit;
 	}
 
 	if ($FUD_OPT_1 & 1) {
-		echo 'Disabling the forum for the duration of maintenance run<br />';
+		pf('Disabling the forum for the duration of maintenance run.');
 		maintenance_status('Undergoing maintenance, please come back later.', 1);
 	}
 
-	echo 'Please wait while index is being rebuilt.<br />This may take a while depending on the size of your forum.<br />';
-	@ob_flush(); flush();
+	pf('Please wait while index is being rebuilt. This may take a while depending on the size of your forum.');
 
 	$tbl =& $DBHOST_TBL_PREFIX;
 
@@ -80,15 +92,15 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 	q('DELETE FROM '.$tbl.'search_cache');
 	db_unlock();
 
-	echo 'Done.<br />';
+	pf('Done.');
 
 	if ($FUD_OPT_1 & 1) {
-		echo 'Re-enabling the forum.<br />';
+		pf('Re-enabling the forum.');
 		maintenance_status($GLOBALS['DISABLED_REASON'], 0);
 	} else {
 		echo '<br /><font size=+1 color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
-	echo '<br /><div class="tutor">Messages successfully reindexed.</div>';
-	require($WWW_ROOT_DISK . 'adm/admclose.html');
+	pf('<br /><div class="tutor">Messages successfully reindexed.</div>');
+	require($WWW_ROOT_DISK . 'adm/footer.php');
 ?>

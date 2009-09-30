@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admloginuser.php,v 1.37 2009/04/15 16:45:48 frank Exp $
+* $Id: admloginuser.php,v 1.38 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,7 +49,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 <h2>Login into the forum</h2>
 <?php
 	if ($err) {
-		echo '<font color="#ff0000">'.$err.'</font>';
+		echo '<span style="color:red">'. $err .'</span>';
 	}
 ?>
 <form method="post" action="admloginuser.php" name="admloginuser" id="admloginuser"><?php echo _hs; ?>

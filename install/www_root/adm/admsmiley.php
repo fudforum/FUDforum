@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.38 2009/05/18 20:22:33 frank Exp $
+* $Id: admsmiley.php,v 1.39 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -76,7 +76,7 @@
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	if (!isset($_GET['chpos'])) {
 ?>
@@ -113,7 +113,7 @@ onsubmit="return sml_form_check();">
 		</tr>
 	<?php } else { ?>
 		<tr class="field">
-			<td colspan="2"><font color="#ff0000">Web server doesn't have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons'; ?>'</b>, smiley upload disabled</font></td>
+			<td colspan="2"><span style="color:red;">Web server doesn't have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons'; ?>'</b>, smiley upload disabled</span></td>
 		</tr>
 	<?php } ?>
 
@@ -209,4 +209,4 @@ onsubmit="return sml_form_check();">
 	}
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

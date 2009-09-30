@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.143 2009/05/16 17:43:03 frank Exp $
+* $Id: consist.php,v 1.144 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,15 +10,25 @@
 **/
 
 	@set_time_limit(600);
-	@ini_set("memory_limit", "100M");
-	define('back_to_main', 1);
+	@ini_set('memory_limit', '128M');
 
 	require('./GLOBALS.php');
 
-	// uncomment the lines below if you wish to run this script via command line
-	// fud_use('adm_cli.inc', 1); // this contains cli_execute() function.
-	// cli_execute(1); /* uncomment this line to run consistency checker */
-	// cli_execute(0, array('opt'=>1)); /* uncomment this line to run SQL optimizer */
+	// Run from command line.
+	if (php_sapi_name() == 'cli') {
+		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
+
+		if (isset($_SERVER['argv'][1]) && $_SERVER['argv'][1] == 'optimize') {
+			cli_execute(0, array('opt'=>1));	// Run SQL optimizer.
+		} elseif (isset($_SERVER['argv'][1]) && $_SERVER['argv'][1] == 'check') {
+			cli_execute(1);	// Run SQL optimizer.
+		} else {
+			echo "Usage: php consist.php check|optimize\n";
+			echo " - specify 'check' to run the consistency checker.\n";
+			echo " - specify 'optimize' to run the SQL optimizer.\n";
+			die();
+		}
+	}
 
 	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
@@ -45,8 +55,7 @@
 
 function draw_stat($text)
 {
-	echo htmlspecialchars($text).'<br />' . "\n";
-	@ob_flush(); flush();	
+	pf(htmlspecialchars($text));
 }
 
 function draw_info($cnt)
@@ -68,7 +77,11 @@ function delete_zero($tbl, $q)
 	}
 }
 
-	include($WWW_ROOT_DISK . 'adm/admpanel.php');
+	if (isset($_POST['btn_cancel'])) {
+		header('Location: '. $WWW_ROOT .'adm/index.php?'.__adm_rsid);
+	}
+
+	include($WWW_ROOT_DISK . 'adm/header.php');
 
 	if (!isset($_POST['conf']) && !isset($_GET['enable_forum']) && !isset($_GET['opt'])) {
 ?>
@@ -79,32 +92,32 @@ While it is running, your forum will be disabled.
 </div>
 <form method="post" action="consist.php">
 <p>Do you wish to proceed?</p>
-<input type="submit" name="cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
+<input type="submit" name="btn_cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
 <?php echo _hs; ?>
 </form>
 <?php
-		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
+		require($WWW_ROOT_DISK . 'adm/footer.php');
 		exit;
 	}
 
 	if ($FUD_OPT_1 & 1) {
-		draw_stat('Disabling the forum for the duration of maintenance run');
+		draw_stat('Disabling the forum for the duration of maintenance run.');
 		maintenance_status('Undergoing maintenance, please come back later.', 1);
 	}
 	if (isset($_GET['opt'])) {
-		draw_stat('Optimizing forum\'s SQL tables');
+		draw_stat('Optimizing forum\'s SQL tables.');
 		optimize_tables();
-		draw_stat('Done: Optimizing forum\'s SQL tables');
+		draw_stat('Done: Optimizing forum\'s SQL tables.');
 
 		if ($FUD_OPT_1 & 1 || isset($_GET['enable_forum'])) {
 			draw_stat('Re-enabling the forum.');
 			maintenance_status($DISABLED_REASON, 0);
-			echo '<br /><div class="tutor">Database tables were successfully optimized.</div><br />';
+			pf('<br /><div class="tutor">Database tables were successfully optimized.</div>');
 		} else {
-			echo '<br/><div class="tutor">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</div><br />';
+			pf('<br/><div class="tutor">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</div>');
 		}
 
-		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
+		require($WWW_ROOT_DISK . 'adm/footer.php');
 		exit;
 	}
 
@@ -687,7 +700,7 @@ While it is running, your forum will be disabled.
 		foreach ($files as $file) {
 			// remove if file and not-standard forum backup file.
 			if (is_file($file) && !preg_match("/FUDforum_.*\.fud.*/", $file)) {
-				echo "- remove file: $file<br />\n";
+				pf('- remove file: '. $file);
 				@unlink($file);
 			}
 		}
@@ -727,11 +740,13 @@ While it is running, your forum will be disabled.
 		draw_stat('Re-enabling the forum.');
 		maintenance_status($DISABLED_REASON, 0);
 	} else {
-		echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font><br />';
+		pf('<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>');
 }
 
-	draw_stat('DONE');
+	draw_stat('DONE!');
 
-	echo '<hr /><div class="tutor">It is recommended that you run SQL table optimizer after completing the consistency check. To do so <span style="white-spaces:nobreak">&gt;&gt; <b><a href="consist.php?opt=1&amp;'.__adm_rsid.'">click here</a></b> &lt;&lt;</span>, keep in mind that this process may take several minutes to perform.</div><br />';
-	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
+	if (!defined('shell_script')) {
+		pf('<hr /><div class="tutor">It is recommended that you run SQL table optimizer after completing the consistency check. To do so <span style="white-spaces:nobreak">&gt;&gt; <b><a href="consist.php?opt=1&amp;'.__adm_rsid.'">click here</a></b> &lt;&lt;</span>, keep in mind that this process may take several minutes to perform.</div>');
+	}
+	require($WWW_ROOT_DISK . 'adm/footer.php');
 ?>

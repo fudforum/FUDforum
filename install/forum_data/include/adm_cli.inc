@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: adm_cli.inc,v 1.8 2009/01/29 18:37:17 frank Exp $
+* $Id: adm_cli.inc,v 1.9 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,12 +11,15 @@
 
 function cli_execute($post_conf, $get_opts=null)
 {
-	$s = $_SERVER['REMOTE_ADDR'];
-	unset($_SERVER['REMOTE_ADDR']);
+	/* Prevent session initialization. */
 	define('forum_debug', 1);
-	$GLOBALS['usr']->users_opt = 1048576;
+	unset($_SERVER['REMOTE_ADDR']);
 
-	fud_use('adm.inc');
+	$GLOBALS['usr'] = new stdClass();
+	$GLOBALS['usr']->users_opt = 1048576;	// is_admin
+
+	define('shell_script', 1);
+	fud_use('adm.inc', 1);
 
 	if ($post_conf) {
 		$_POST['conf'] = 1;
@@ -26,7 +29,5 @@ function cli_execute($post_conf, $get_opts=null)
 			$_GET[$k] = $v;
 		}
 	}
-
-	$_SERVER['REMOTE_ADDR'] = $s;
 }
 ?>

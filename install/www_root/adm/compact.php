@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.85 2009/09/07 15:49:52 frank Exp $
+* $Id: compact.php,v 1.86 2009/09/30 16:47:33 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,17 +11,22 @@
 
 	@set_time_limit(0);
 
-	define('back_to_main', 1);
-
 	require('./GLOBALS.php');
-
 	if ($FUD_OPT_3 & 32768) {
-		exit('Unnecessary if database used for message storage');
+		exit('Unnecessary if messages are stored in a database.');
 	}
 
-	// uncomment the lines below if you wish to run this script via command line
-	// fud_use('adm_cli.inc', 1); // this contains cli_execute() function.
-	// cli_execute(1);
+	// Run from command line.
+	if (php_sapi_name() == 'cli') {
+		if (empty($_SERVER['argv'][1]) || $_SERVER['argv'][1] != 'yes') {
+			echo "Usage: php compact.php yes\n";
+			echo " - specify 'yes' to confirm execution.\n";
+			die();
+		}
+
+		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
+		cli_execute(1);
+	}
 
 	fud_use('db.inc');
 	fud_use('fileio.inc');
@@ -30,7 +35,11 @@
 	fud_use('glob.inc', true);
 	fud_use('imsg_edt.inc');
 
-	include($WWW_ROOT_DISK . 'adm/admpanel.php');
+	if (isset($_POST['btn_cancel'])) {
+		header('Location: '. $WWW_ROOT .'adm/index.php?'.__adm_rsid);
+	}
+
+	include($WWW_ROOT_DISK . 'adm/header.php');
 
 	if (!isset($_POST['conf'])) {
 ?>
@@ -54,7 +63,7 @@ $charsets = ARRAY(
 ?>
 <fieldset>
 	<legend><b>Optional character set conversion:</b></legend>
-	<p>Non-English forums that are not using UTF-8 might want to convert their messages to UTF-8. Convering twice will corrupt your messages. Please leave empty if you don't require a character set conversion or if you are unsure:</p>
+	<p>Non-English forums that are not using UTF-8 might want to convert their messages to UTF-8. Converting twice will corrupt your messages. Please leave empty if you don't require a character set conversion or if you are unsure:</p>
 	<table class="datatable">
     <tr class="field"><td>From character set:</td>
 	    <td><select name="fromcharset" id="fromcharset" class="input">
@@ -74,18 +83,18 @@ $charsets = ARRAY(
 <?php } ?>
 
 <p>Do you wish to proceed?</p>
-<input type="submit" name="cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
+<input type="submit" name="btn_cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
 <?php echo _hs; ?>
 </form>
 <?php
-		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
+		require($WWW_ROOT_DISK . 'adm/footer.php');
 		exit;
 	}
 ?>
-
 <?php
+
 $GLOBALS['__FUD_TMP_F__'] = array();
-set_error_handler ('error_handler');
+set_error_handler('error_handler');
 
 function error_handler ($level, $message, $file, $line, $context) {
 	if (error_reporting() != 0) {
@@ -123,7 +132,7 @@ function write_body_c($data, &$len, &$offset, $fid)
 	}
 
 	if (fwrite($f[$s][0], $data) != $len) {
-		exit("FATAL ERROR: system has ran out of disk space<br />\n");
+		exit('FATAL ERROR: system has ran out of disk space.');
 	}
 	$offset = $f[$s][1];
 	$f[$s][1] += $len;
@@ -137,26 +146,25 @@ function eta_calc($start, $pos, $pc)
 	$prg = $pos / $pc;
 	$eta = ($cur - $start) / $prg * (10 - $prg);
 	if ($eta > 60) {
-		echo ($prg * 10) . "% done<br />\nETA: ".sprintf('%.2f', $eta/60)." minutes<br />\n";
+		pf( ($prg * 10) .'% done; ETA: '. sprintf('%.2f', $eta/60) .' minutes');
 	} else {
-		echo ($prg * 10) . "% done<br />\nETA: " . $eta . " seconds<br />\n";
+		pf( ($prg * 10) .'% done; ETA: '. $eta .' seconds');
 	}
-	@ob_flush(); flush();
 }
 
 	if ($FUD_OPT_1 & 1) {
-		echo '<br />Disabling the forum for the duration of maintenance run<br />';
+		pf('Disabling the forum for the duration of maintenance run.');
 		maintenance_status('Undergoing maintenance, please come back later.', 1);
 	}
 
-	echo "<br />Please wait while forum is being compacted.<br />This may take a while depending on the size of your forum.<br />\n";
+	pf('Please wait while forum is being compacted. This may take a while depending on the size of your forum.');
 
 	$mode = ($FUD_OPT_2 & 8388608 ? 0600 : 0666);
 	$tbl =& $DBHOST_TBL_PREFIX;
 	$stm = time();
 
 	/* Normal Messages */
-	echo "Compacting normal messages...<br />\n";
+	pf('Compacting normal messages...');
 
 	$pc = ceil(q_singleval('SELECT count(*) FROM '.$tbl.'msg WHERE file_id>0') / 10);
 	$i = 0;
@@ -184,39 +192,38 @@ function eta_calc($start, $pos, $pc)
 			if ($i == $j) break;
 		}
 
-		/* rename our temporary files & update the database */
+		/* Rename our temporary files & update the database. */
 		q('UPDATE '.$tbl.'msg SET file_id=-file_id, file_id_preview=-file_id_preview WHERE file_id<0');
 
-		/* Close message files before we delete them */
+		/* Close message files before we delete them. */
 		if (isset($GLOBALS['__MSG_FP__'])) {
 			foreach ($GLOBALS['__MSG_FP__'] as $id => $fp) {
 				fclose($GLOBALS['__MSG_FP__'][$id]);
 			}      
 		}
 
-		/* remove old message files */
+		/* Remove old message files. */
 		foreach (glob($MSG_STORE_DIR.'msg_*') as $f) {
 			if (!unlink($f)) {
-				exit("FATAL ERROR: unable to remove file ".$f."<br />\n");
+				exit('FATAL ERROR: unable to remove file '.$f.'.');
 			}
 		}
 
-		/* move new message files to the new location */
+		/* Move new message files to the new location. */
 		foreach ($GLOBALS['__FUD_TMP_F__'] as $k => $f) {
 			fclose($GLOBALS['__FUD_TMP_F__'][$k][0]);
 			if(!rename($MSG_STORE_DIR . 'tmp_msg_'.$k, $MSG_STORE_DIR . 'msg_'.$k)) {
-				exit("FATAL ERROR: unable to rename tmp_msg_".$k." to msg_".$k."<br />\n");
+				exit('FATAL ERROR: unable to rename tmp_msg_'.$k.' to msg_'.$k.'.');
 			}
 			chmod($MSG_STORE_DIR . 'msg_'.$k, $mode);
 		}
 
 		db_unlock();
 	}
-	echo "100% Done<br />\n";
+	pf('100% Done.');
 
 	/* Private Messages */
-	echo "Compacting private messages...<br />\n";
-	@ob_flush(); flush();
+	pf('Compacting private messages...');
 
 	q('CREATE INDEX '.$tbl.'pmsg_foff_idx ON '.$tbl.'pmsg (foff)');
 
@@ -241,7 +248,7 @@ function eta_calc($start, $pos, $pc)
 			}
 
 			if (($len = fwrite($fp, $data)) === FALSE || !fflush($fp)) {
-				exit("FATAL ERROR: system has ran out of disk space<br />\n");
+				exit('FATAL ERROR: system has ran out of disk space.');
 			}
 			q('UPDATE '.$tbl.'pmsg SET foff='.$off.', length='.$len.' WHERE foff='.$r[0]);
 			$off += $len;
@@ -257,7 +264,7 @@ function eta_calc($start, $pos, $pc)
 
 	q('DROP INDEX '.$tbl.'pmsg_foff_idx'.(__dbtype__ == 'mysql' ? ' ON '.$tbl.'pmsg' : ''));
 
-	echo "100% Done<br />\n";
+	pf('100% Done.');
 
 	@unlink($MSG_STORE_DIR . 'private');
 	if (!$i) {
@@ -269,15 +276,15 @@ function eta_calc($start, $pos, $pc)
 
 	db_unlock();
 
-	printf("Done in %.2f minutes<br />\n", (time() - $stm) / 60);
+	pf(sprintf('All done in %.2f minutes', (time() - $stm) / 60));
 
 	if ($FUD_OPT_1 & 1) {
-		echo '<br />Re-enabling the forum.<br />';
+		pf('Re-enabling the forum.');
 		maintenance_status($DISABLED_REASON, 0);
 	} else {
 		echo '<br /><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsid.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
-	echo '<br /><div class="tutor">Messages successfully compacted.</div>';
-	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
+	pf('<br /><div class="tutor">Messages successfully compacted.</div>');
+	require($WWW_ROOT_DISK . 'adm/footer.php');
 ?>

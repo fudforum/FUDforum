@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admipfilter.php,v 1.33 2009/09/15 18:11:29 frank Exp $
+* $Id: admipfilter.php,v 1.34 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,7 +51,7 @@
 		$ipaddr = $edit = '';
 	}
 
-	include($WWW_ROOT_DISK . 'adm/admpanel.php');
+	include($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>IP Filter System</h2>
 <p>Block users with a matching IP address from registering or posting messages on the forum.</p>
@@ -59,7 +59,7 @@
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="field">
-		<td>Block IP Address:</td>
+		<td>Block IP Mask:</td>
 		<td><input tabindex="1" type="text" name="ipaddr" value="<?php echo $ipaddr; ?>" size="15" maxlength="15" /></td>
 	</tr>
 	<tr class="fieldaction">
@@ -106,4 +106,4 @@ document.forms['ipf'].ipaddr.focus();
 	unset($c);
 ?>
 </table>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

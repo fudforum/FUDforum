@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbatch.php,v 1.3 2009/09/15 18:11:29 frank Exp $
+* $Id: admbatch.php,v 1.4 2009/09/30 16:47:32 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@
 	fud_use('widgets.inc', true);
 
 	$help_ar = read_help();
-	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	$tbl  = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$path = $GLOBALS['DATA_DIR'].'scripts/';
@@ -102,5 +102,5 @@
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admclose.html'); 
+	require($WWW_ROOT_DISK . 'adm/footer.php'); 
 ?>
