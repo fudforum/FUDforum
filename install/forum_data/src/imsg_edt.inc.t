@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.181 2009/09/17 19:52:53 frank Exp $
+* $Id: imsg_edt.inc.t,v 1.182 2009/09/30 16:00:45 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -254,7 +254,7 @@ class fud_msg_edit extends fud_msg
 		}
 	}
 
-	function delete($rebuild_view=1, $mid=0, $th_rm=0)
+	static function delete($rebuild_view=1, $mid=0, $th_rm=0)
 	{
 		if (!$mid) {
 			$mid = $this->id;
