@@ -228,7 +228,7 @@ function fud_fetch_topic($arg)
 		u.alias, u.id,
 		u2.id, u2.alias,
 		m2.id, m2.post_stamp,
-		t.id AS topic_id, t.moved_to, t.root_msg_id, t.replies, t.rating, t.thread_opt, t.views, t.descr
+		t.id AS topic_id, t.moved_to, t.root_msg_id, t.replies, t.rating, t.thread_opt, t.views, t.tdescr
 		FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread t
 			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg	m	ON t.root_msg_id=m.id
 			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg	m2	ON m2.id=t.last_post_id

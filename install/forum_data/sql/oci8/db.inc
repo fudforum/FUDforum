@@ -4,7 +4,7 @@
 
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.1 2009/08/06 17:43:45 frank Exp $
+* $Id: db.inc,v 1.2 2009/09/30 16:02:20 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -42,7 +42,7 @@ function get_version()
 
 function db_lock($tables)
 {
-	// echo "FRANK db_lock..............<br>";
+	// echo "DEBUG db_lock..............<br>";
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		fud_sql_error_handler("Recursive Lock", "internal", "internal", get_version());
 	} else {
@@ -58,7 +58,7 @@ function db_lock($tables)
 
 function db_unlock()
 {
-	// echo "FRANK db_unlock..............<br>";
+	// echo "DEBUG db_unlock..............<br>";
 	if (empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
 		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", get_version());
@@ -144,7 +144,7 @@ function db_rowarr($result)
 
 function q_singleval($query)
 {
-	// echo "FRANK q_singleval: Q=".$query."<br>\n";
+	// echo "DEBUG q_singleval: Q=".$query."<br>\n";
 	$val = oci_fetch_array(q($query), OCI_RETURN_LOBS+OCI_ASSOC);
 	return $val ? $val[0] : null;
 }
@@ -189,7 +189,7 @@ function db_qid($q)
 {
 	$r = q($q.' RETURNING id');
 	//TODO return q_singleval('SELECT lastval()');
-	// echo "FRANK db_qid: q=".$q.", r=".$r."<br />\n";
+	// echo "DEBUG db_qid: q=".$q.", r=".$r."<br />\n";
 	return $r;
 }
 
@@ -202,7 +202,7 @@ function db_li($q, &$ef, $li=0)
 {
 	$id = 0;
 
-	// echo "FRANK db_li: q=".$q."<br />\n";
+	// echo "DEBUG db_li: q=".$q."<br />\n";
 	$r = oci_parse(fud_sql_lnk, $q.' RETURNING id INTO :id');
 	oci_bind_by_name($r, ":id", $id, -1, SQLT_INT);
 	oci_execute($r);
@@ -210,7 +210,7 @@ function db_li($q, &$ef, $li=0)
 	if ($r) {
 		if ($li) {
 			//TODO return q_singleval('SELECT lastval()');
-			// echo "FRANK db_li: q=".$q.", id=".$id."<br />\n";
+			// echo "DEBUG db_li: q=".$q.", id=".$id."<br />\n";
 			return $id;
 		}
 		return $r;
@@ -223,7 +223,7 @@ function db_li($q, &$ef, $li=0)
 
 function ins_m($tbl, $flds, $vals, $type)
 {
-	// echo "FRANK ins_m: Q=".$tbl."<br/>\n";
+	// echo "DEBUG ins_m: Q=".$tbl."<br/>\n";
 	$pid = $GLOBALS['DBHOST_TBL_PREFIX'] . substr(md5(mt_rand()), 0, 10);
 
 	ora_query(fud_sql_lnk, 'PREPARE '.$pid.' ('.$type.') AS INSERT INTO '.$tbl.' ('.$flds.') VALUES($'.implode(',$', range(1, substr_count($flds, ',') + 1)).')');
@@ -275,7 +275,7 @@ function ora_query($fud_sql_lnk, $q)
 	// 
 	// $query = 'SELECT * FROM (SELECT /*+ FIRST_ROWS */ rownum AS xrownum, a.* FROM (' . $query . ') a WHERE rownum <= ' . ($offset + $total) . ') WHERE xrownum >= ' . $offset;
 			
-	echo "<HR>FRANK ora_query: Q=".$q."<br/>\n";
+	echo "<HR>DEBUG ora_query: Q=".$q."<br/>\n";
 
 	$r = oci_parse($fud_sql_lnk, $q);
 	oci_execute($r);
