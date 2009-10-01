@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.116 2009/08/09 11:33:37 frank Exp $
+* $Id: drawmsg.inc.t,v 1.117 2009/10/01 19:31:52 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -359,18 +359,22 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 	$rpl = '';
 	if (!$hide_controls) {
-		if ($obj->reply_to && $obj->reply_to != $obj->id && $o2 & 536870912) {
+
+		/* Show reply links, eg: [message #1 is a reply to message #2]. */
+		if ($o2 & 536870912) {
 			if ($_GET['t'] != 'tree' && $_GET['t'] != 'msg') {
 				$lnk = d_thread_view;
 			} else {
 				$lnk =& $_GET['t'];
 			}
-			$rpl = '{TEMPLATE: dmsg_reply_to}';
-		} else {
-			$rpl = '{TEMPLATE: dmsg_num_wrap}';
+			if ($obj->reply_to && $obj->reply_to != $obj->id) {
+				$rpl = '{TEMPLATE: dmsg_reply_to}';
+			} else {
+				$rpl = '{TEMPLATE: dmsg_num_wrap}';
+			}
 		}
 
-		/* little trick, this variable will only be available if we have a next link leading to another page */
+		/* Little trick, this variable will only be available if we have a next link leading to another page. */
 		if (empty($next_page)) {
 			$next_page = '{TEMPLATE: dmsg_no_next_msg_page}';
 		}

@@ -946,7 +946,8 @@ findu_unban:			UnBan
 findu_ban:			Ban
 findu_edit:			Edit
 findu_delete:			Delete
-dmsg_reply_to:			is a reply to message #{VAR: obj->reply_to}
+dmsg_reply_to:			is a reply to
+dmsg_reply_num:			message #{VAR: obj->reply_to}
 merge_topics:			Merge Topics
 merge_topics_cp:		Merge Topic Control Panel
 merge_topics_tpl:		Select Topics to Merge <span class="SmallText">(you must select more than one topic)</span>
