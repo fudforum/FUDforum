@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.php.t,v 1.28 2009/02/22 00:00:37 frank Exp $
+* $Id: qbud.php.t,v 1.29 2009/10/01 19:38:01 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,7 @@
 		std_error('login');
 	}
 
-	if (!$all && isset($_POST['names']) && is_array($_POST['names'])) {
+	if (isset($_POST['names']) && is_array($_POST['names'])) {
 		$names = addcslashes(implode(';', $_POST['names']), '"\\');
 ?>
 <html><body>

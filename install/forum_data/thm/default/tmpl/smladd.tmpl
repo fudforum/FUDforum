@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smladd.tmpl,v 1.24 2009/02/22 00:00:37 frank Exp $
+* $Id: smladd.tmpl,v 1.25 2009/10/01 19:38:01 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,8 +18,8 @@
 {TEMPLATE: header_plain}
 <table cellspacing="1"  cellpadding="0" width="100%" class="dashed">
 <tr>
-	<th>Emoticon</th>
-	<th>Code</th>
+	<th>{MSG: sml_emoticon}</th>
+	<th>{MSG: sml_code}</th>
 </tr>
 {IF: $smileys}{TEMPLATE-DATA: smileys}{ELSE}{MSG: sml_no_smilies}{END}
 <tr><td colspan="2" class="ac RowStyleC">[<a href="javascript://" onclick="window.close();">{MSG: smladd_close_window}</a>]</td></tr>

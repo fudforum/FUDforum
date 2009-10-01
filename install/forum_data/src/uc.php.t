@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.php.t,v 1.14 2009/01/29 18:37:17 frank Exp $
+* $Id: uc.php.t,v 1.15 2009/10/01 19:38:01 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,6 +35,7 @@
 	$c = uq("SELECT u.id, u.alias, u.last_visit, (users_opt & 32768) FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id="._uid." ORDER BY u.last_visit DESC");
 	while ($r = db_rowarr($c)) {
 		$uc_pm = ($FUD_OPT_1 & 1024) ? '{TEMPLATE: uc_pm}' : '';
+		$obj = new stdClass();
 		$obj->login = $r[1];
 		$uc_online = (!$r[3] && ($r[2] + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__) ? '{TEMPLATE: uc_online_indicator}' : '{TEMPLATE: uc_offline_indicator}';
 		$uc_buddy_ents .= '{TEMPLATE: uc_buddy_ent}';
