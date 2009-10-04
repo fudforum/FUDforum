@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.162 2009/10/01 19:38:00 frank Exp $
+* $Id: post.php.t,v 1.163 2009/10/04 21:19:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,7 +58,7 @@ function flood_check()
 	} else {
 		std_error('systemerr');
 	}
-	$frm = db_sab('SELECT id, name, max_attach_size, forum_opt, max_file_attachments, post_passwd, message_threshold FROM {SQL_TABLE_PREFIX}forum WHERE id='.$frm_id);
+	$frm = db_sab('SELECT id, cat_id, name, max_attach_size, forum_opt, max_file_attachments, post_passwd, message_threshold FROM {SQL_TABLE_PREFIX}forum WHERE id='.$frm_id);
 	if (!$frm) {
 		std_error('systemerr');
 	}

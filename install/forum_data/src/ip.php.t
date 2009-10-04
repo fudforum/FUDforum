@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.php.t,v 1.21 2009/01/29 18:37:17 frank Exp $
+* $Id: ip.php.t,v 1.22 2009/10/04 21:19:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 /*{PRE_HTML_PHP}*/
 
 	/* permissions check, this form is only allowed for moderators & admins unless public
-	 * IP display is allowed
+	 * Check if IP display is allowed.
 	 */
 	if (!($usr->users_opt & (524288|1048576)) && !($FUD_OPT_1 & 134217728)) {
 		invl_inp_err();
@@ -26,9 +26,9 @@ function __fud_whois($ip, $whois_server='')
 
 	$er = error_reporting(0);
 
-	if (!$sock = fsockopen($whois_server, 43, $n, $e, 20)) {
+	if (!$sock = fsockopen($whois_server, 43, $errno, $errstr, 20)) {
 		error_reporting($er);
-		return;
+		return '{MSG: error_error}: '.$errstr;
 	}
 	fputs($sock, $ip."\n");
 	$buffer = '';
@@ -44,7 +44,7 @@ function fud_whois($ip)
 {
 	$result = __fud_whois($ip);
 
-	/* check if Arin can handle the request or if we need to
+	/* Check if Arin can handle the request or if we need to
 	 * request information from another server.
 	 */
 	if (($p = strpos($result, 'ReferralServer: whois://')) !== false) {

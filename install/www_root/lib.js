@@ -341,7 +341,7 @@ $(document).ready(function() {
   var toggleMinus = theme_image_root +'/min'+ img_ext;
   var togglePlus  = theme_image_root +'/max'+ img_ext;
 
-  $('.MsgSubText').prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_message +'" class="collapsable" /> ');
+  $('td.MsgSubText').prepend('<img src="'+ toggleMinus +'" alt="-" title="'+ minimize_message +'" class="collapsable" /> ');
 
   $('.collapsable').addClass('clickable').css('cursor', 'pointer')
   .click(function() {

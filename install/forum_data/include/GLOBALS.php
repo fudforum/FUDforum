@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: GLOBALS.php,v 1.68 2009/09/18 14:42:10 frank Exp $
+* $Id: GLOBALS.php,v 1.69 2009/10/04 21:19:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,7 +21,7 @@
 	$PLUGIN_PATH 		= '';
 
 	$FUD_OPT_1		= 1743713471;
-	$FUD_OPT_2		= 695668799;
+	$FUD_OPT_2		= 695603263;
 	$FUD_OPT_3		= 41943040;
 
 	$CUSTOM_AVATAR_MAX_SIZE = 10000;	/* bytes */

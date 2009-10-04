@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.116 2009/09/30 16:47:32 frank Exp $
+* $Id: admglobal.php,v 1.117 2009/10/04 21:19:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -270,7 +270,6 @@ $(document).ready(function() {
 	print_reg_field('Topics Per Page', 'THREADS_PER_PAGE', 1);
 	print_reg_field('Moved Topic Pointer Expiry', 'MOVED_THR_PTR_EXPIRY', 1);
 	print_bit_field('Allow Tree View of Thread Listing', 'TREE_THREADS_ENABLE');
-	print_bit_field('Disable Tree View of Message Listing', 'DISABLE_TREE_MSG');
 	print_bit_field('Default Topic View', 'DEFAULT_THREAD_VIEW');
 	print_reg_field('Maximum Depth of Thread Listing (tree view)', 'TREE_THREADS_MAX_DEPTH', 1);
 	print_bit_field('Check for Duplicates', 'THREAD_DUP_CHECK');
@@ -283,6 +282,7 @@ $(document).ready(function() {
 <tr class="fieldtopic"><td colspan="2"><a name="7" /><br /><b>Message Settings</b></td></tr>
 <?php
 	print_reg_field('Messages Per Page', 'POSTS_PER_PAGE', 1);
+	print_bit_field('Disable Tree View of Message Listing', 'DISABLE_TREE_MSG');
 	print_bit_field('Show Reply Reference', 'SHOW_REPL_LNK');
 	print_bit_field('Show Edited By', 'SHOW_EDITED_BY');
 	print_bit_field('Show Edited By Moderator', 'EDITED_BY_MOD');

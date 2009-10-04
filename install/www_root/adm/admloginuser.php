@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admloginuser.php,v 1.38 2009/09/30 16:47:33 frank Exp $
+* $Id: admloginuser.php,v 1.39 2009/10/04 21:19:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,6 +20,7 @@
 	if (isset($_POST['login'])) {
 		if (($id = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._esc($_POST['login'])." AND passwd='".md5($_POST['passwd'])."' AND users_opt>=1048576 AND (users_opt & 1048576) > 0 AND (last_login + ".$MIN_TIME_BETWEEN_LOGIN.") < ".__request_timestamp__))) {
 			$sid = user_login($id, $usr->ses_id, true);
+			$GLOBALS['new_sq'] = regen_sq($id);
 			header('Location: '.$WWW_ROOT.'adm/index.php?S='.$sid.'&SQ='.$new_sq);
 			exit;
 		} else {

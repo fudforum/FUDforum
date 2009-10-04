@@ -296,7 +296,7 @@ Prevent users from posting duplicate topics.}}}
 Whether or not every new registration will need to be approved by the administrator before the new account is activated.}}}
 
 {{{REG_TIME_LIMIT
-This limit allows you to define how often can a registration can occur. Set the value of this field to -1 if you do not wish to limit registrations.}}}
+This limit allows you to define how often can a registration can occur (in seconds). Set the value of this field to -1 if you do not wish to limit registrations.}}}
 
 {{{ENABLE_AFFERO	FUD_OPT_2	2048
 Enable affero, this will result in an Affero button being shown beside each message, allowing users to give feedback via the Affero system.}}}

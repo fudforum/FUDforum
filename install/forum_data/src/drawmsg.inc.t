@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.117 2009/10/01 19:31:52 frank Exp $
+* $Id: drawmsg.inc.t,v 1.118 2009/10/04 21:19:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -357,16 +357,17 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		$modified_message = '';
 	}
 
+	if ($_GET['t'] != 'tree' && $_GET['t'] != 'msg') {
+		$lnk = d_thread_view;
+	} else {
+		$lnk =& $_GET['t'];
+	}
+
 	$rpl = '';
 	if (!$hide_controls) {
 
 		/* Show reply links, eg: [message #1 is a reply to message #2]. */
 		if ($o2 & 536870912) {
-			if ($_GET['t'] != 'tree' && $_GET['t'] != 'msg') {
-				$lnk = d_thread_view;
-			} else {
-				$lnk =& $_GET['t'];
-			}
 			if ($obj->reply_to && $obj->reply_to != $obj->id) {
 				$rpl = '{TEMPLATE: dmsg_reply_to}';
 			} else {

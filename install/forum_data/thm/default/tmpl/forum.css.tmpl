@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.87 2009/08/27 18:20:04 frank Exp $
+* $Id: forum.css.tmpl,v 1.88 2009/10/04 21:19:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -186,6 +186,11 @@ font.ptp { /* space between poll title & number of votes */
 
 .MsgSubText {
 	font-weight: bold;
+}
+
+a.MsgSubText, a.MsgSubText:visited {
+	color: black;
+	text-decoration: none;
 }
 
 .MsgBodyText {
@@ -582,7 +587,8 @@ pre { white-space: pre-wrap; }
 
 a.big:active, a.big:hover, a:active, a:hover, a.CatLink:active, a.CatLink:hover,
 a.UserControlPanel:active, a.UserControlPanel:hover, a.thLnk:active,
-a.thLnk:hover, a.small:active, a.small:hover, a.PagerLink:active, a.PagerLink:hover {
+a.thLnk:hover, a.small:active, a.small:hover, a.PagerLink:active, a.PagerLink:hover,
+a.MsgSubText:active, a.MsgSubText:hover {
 	color: #dc143c;
 }
 

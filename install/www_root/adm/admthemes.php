@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.84 2009/09/30 16:47:33 frank Exp $
+* $Id: admthemes.php,v 1.85 2009/10/04 21:19:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,16 +29,22 @@
 	}
 
 	if (isset($_POST['thm_theme']) && @file_exists($DATA_DIR.'thm/'.$_POST['thm_theme'].'/.path_info') && !($FUD_OPT_2 & 32768)) {
+		echo '<h3 class="alert">You need to enable PATH_INFO support in the <a href="admglobal.php?'.__adm_rsid.'#2">Global Settings Manager</a> before using a path_info theme.</h3>';	
+		// Change POST to GET request to reload editor window.
+		$_GET['edit'] = $_POST['edit'];
 		unset($_POST['edit'], $_POST['thm_theme']);
-		echo '<h3 class="alert">You need to enable PATH_INFO support in the <a href="admglobal.php?'.__adm_rsid.'#2">Global Settings Manager</a> before using a path_info theme.</h3>';
 	}
 
 	if (isset($_POST['thm_theme']) && !$edit) {
 		$thm = new fud_theme;
 		if ($thm->name) {
-			$thm->add();
-			compile_all($thm->theme, $thm->lang, $thm->name);
-			echo '<font color="green">Theme '.$thm->name.' was successfully created.</font>';
+			if (q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'themes WHERE name='._esc($_POST['thm_name']))) {
+			  echo errorify('There is already a theme with this name.');
+			} else {
+			  $thm->add();
+			  compile_all($thm->theme, $thm->lang, $thm->name);
+			  echo '<font color="green">Theme '.$thm->name.' was successfully created.</font>';
+			}
 		}
 	} else if (isset($_POST['edit'])) {
 		$thm = new fud_theme;
@@ -87,7 +93,7 @@
 </div>
 
 <?php
-    if ($edit && $edit == 1) {
+    if ($edit && $edit >= 1) {
 		echo '<h3>Edit Theme:</h3>';
 	} else {
 		echo '<h3>Create New Theme:</h3>';
@@ -99,13 +105,13 @@
 <tr class="field">
 	<td>Theme Name:</td>
 	<td>
-<?php
-	if ($edit && $edit == 1) {
-		echo htmlspecialchars($thm_name);
-	} else {
-		echo '<input type="text" name="thm_name" value="'.htmlspecialchars($thm_name).'" />';
-	}
-?>
+	<?php
+		if ($edit && $edit == 1) {
+			echo htmlspecialchars($thm_name);
+		} else {
+			echo '<input type="text" name="thm_name" value="'.htmlspecialchars($thm_name).'" />';
+		}
+	?>
 	</td>
 </tr>
 
@@ -114,7 +120,7 @@
 	<td>
 	<select name="thm_theme">
 	<?php
-		if (!$thm_theme) {
+		if (!isset($thm_theme) || empty($thm_theme)) {
 			$thm_theme = 'default';
 		}
 		foreach (glob($DATA_DIR.'/thm/*', GLOB_ONLYDIR) as $file) {
@@ -131,7 +137,7 @@
 	<td>Language:</td>
 	<td>
 	<?php
-		if (!$thm_lang) {
+		if (!isset($thm_lang) || empty($thm_lang)) {
 			$thm_lang = 'english';
 		}
 		$selopt = '';

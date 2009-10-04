@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.95 2009/10/01 19:31:52 frank Exp $
+* $Id: drawmsg.tmpl,v 1.96 2009/10/04 21:19:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -342,7 +342,7 @@
 {MAIN_SECTION: message_entry Message Entry (a single message)}
 <tr><td class="MsgSpacer"><table cellspacing="0" cellpadding="0" class="MsgTable">
 <tr>
-<td class="MsgR1 vt al MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{IF: $obj->icon && !$hide_controls}<img src="images/message_icons/{VAR: obj->icon}" alt="{VAR: obj->icon}" />&nbsp;&nbsp;{ENDIFI}{VAR: obj->subject} {TEMPLATE-DATA: rpl}</td>
+<td class="MsgR1 vt al MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{IF: $obj->icon && !$hide_controls}<img src="images/message_icons/{VAR: obj->icon}" alt="{VAR: obj->icon}" />&nbsp;&nbsp;{ENDIFI}{TEMPLATE: dmsg_subject}</td>
 <td class="MsgR1 vt ar"><span class="DateText">{TEMPLATE: dmsg_post_date}</span> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
 </tr>
 <tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
@@ -361,6 +361,10 @@
 </table></td></tr>
 {MAIN_SECTION: END}
 
+{SECTION: dmsg_subject}
+<a href="{TEMPLATE: dmsg_num_lnk}" class="MsgSubText">{VAR: obj->subject}</a> {TEMPLATE-DATA: rpl}
+{SECTION: END}
+
 {SECTION: dmsg_no_msg_body}
 {MSG: no_msg_body}
 {SECTION: END}
@@ -374,7 +378,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_reply_to_lnk}
-{ROOT}?t={VAR: lnk}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;goto={VAR: obj->reply_to}#msg_{VAR: obj->reply_to}
+{ROOT}?t={VAR: lnk}&amp;th={VAR: obj->thread_id}&amp;goto={VAR: obj->reply_to}&amp;{DEF: _rsid}#msg_{VAR: obj->reply_to}
 {SECTION: END}
 
 {SECTION: dmsg_reply_to}
@@ -382,7 +386,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_num_lnk}
-{ROOT}?t={VAR: lnk}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;goto={VAR: obj->id}#msg_{VAR: obj->id}
+{ROOT}?t={VAR: lnk}&amp;th={VAR: obj->thread_id}&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}#msg_{VAR: obj->id}
 {SECTION: END}
 
 {SECTION: dmsg_num}
