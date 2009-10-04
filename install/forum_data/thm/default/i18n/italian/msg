@@ -922,6 +922,7 @@ findu_unban:De-Banna
 findu_ban:Banna
 findu_edit:Edita
 findu_delete:Cancella
+# Fuzzy
 dmsg_reply_to:&egrave; una replica al messaggio #{VAR: obj->reply_to}
 merge_topics:Unisci argomenti
 merge_topics_cp:Pannello di Controllo per l'unione di argomenti

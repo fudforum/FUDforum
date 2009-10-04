@@ -760,6 +760,7 @@ findu_unban:Không Cấm
 findu_ban:Cấm
 findu_edit:Chỉnh Sửa
 findu_delete:Xóa
+# Fuzzy
 dmsg_reply_to:là bài trả lời đến bài viết  #{VAR: obj->reply_to}
 merge_topics:Gộp Chủ Đề
 split_cp:Thread Split Control Panel

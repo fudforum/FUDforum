@@ -942,6 +942,7 @@ findu_unban:Luk ind igen
 findu_ban:Udeluk
 findu_edit:Redigér
 findu_delete:Slet
+# Fuzzy
 dmsg_reply_to:er et svar på indlæg #{VAR: obj->reply_to}
 merge_topics:Sammenføj emner
 merge_topics_cp:Sammenflet emner kontrolpanel

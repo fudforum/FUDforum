@@ -947,7 +947,8 @@ findu_unban:Retirar a expulsión
 findu_ban:Expulsar
 findu_edit:Editar
 findu_delete:Borrar
-dmsg_reply_to:é unha resposta á mensaxe nº {VAR: obj->reply_to}
+dmsg_reply_to:é unha resposta á
+dmsg_reply_num:mensaxe nº {VAR: obj->reply_to}
 merge_topics:Fusionar os fíos
 merge_topics_cp:Panel de control da fusión de fíos
 merge_topics_tpl:Selecciona os fíos a fusionar <span class="SmallText">(tes que seleccionar máis dun fío)</span>
@@ -1082,3 +1083,7 @@ btn_quote:citar
 btn_email:Correo
 btn_show_posts:mensaxes
 btn_homepage:www
+feed_no_data:Non se atopou ningún dato que coincidise.
+feed_rdf:Fonte de novas RDF
+feed_rss:Fonte de novas RSS2
+feed_atom:Fonte de novas ATOM

@@ -921,7 +921,7 @@ findu_unban:Bann aufheben
 findu_ban:Verbannen
 findu_edit:Bearbeiten
 findu_delete:L&ouml;schen
-dmsg_reply_to:ist eine Antwort auf #{VAR: obj->reply_to}
+dmsg_reply_to:ist eine Antwort auf
 merge_topics:Themen zusammenf&uuml;hren
 merge_topics_cp:Men&uuml; zum Zusammenf&uuml;hren von Themen
 merge_topics_tpl:Themen zum Zusammenf&uuml;hren ausw&auml;hlen <span class="SmallText">(Sie m&uuml;ssen mehr als ein Thema ausw&auml;hlen)</span>

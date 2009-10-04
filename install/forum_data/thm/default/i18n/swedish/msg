@@ -948,6 +948,7 @@ findu_unban:Upphäv Bannlysning
 findu_ban:Bannlys
 findu_edit:Redigera
 findu_delete:Radera
+# Fuzzy
 dmsg_reply_to:är ett svar till meddelandet #{VAR: obj->reply_to}
 merge_topics:Sammanfoga Ämnen
 merge_topics_cp:Inställningar för Sammanfogade Ämnen

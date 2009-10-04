@@ -947,6 +947,7 @@ findu_admin_opts_header:Optiuni Admin.
 findu_unban:DeBlocheaza
 findu_ban:Blocheaza
 findu_delete:Sterge
+# Fuzzy
 dmsg_reply_to:este un raspuns la mesajul #{VAR: obj->reply_to}
 merge_topics:Combina Temele
 merge_topics_cp:Panoul de Control pentru Combinarea Temelor

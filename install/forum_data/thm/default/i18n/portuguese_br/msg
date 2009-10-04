@@ -955,6 +955,7 @@ findu_unban:Desbanir
 findu_ban:Banir
 findu_edit:Editar
 findu_delete:Apagar
+# Fuzzy
 dmsg_reply_to:É uma resposta para mensagem #{VAR: obj->reply_to}
 merge_topics:Unir Tópicos
 merge_topics_cp:Painel de Controle de União de Tópicos

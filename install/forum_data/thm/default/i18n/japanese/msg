@@ -948,6 +948,7 @@ findu_unban:入室禁止解除
 findu_ban:入室禁止
 findu_edit:編集
 findu_delete:削除
+# Fuzzy
 dmsg_reply_to:メッセージ #{VAR: obj->reply_to} への返信
 merge_topics:トピック統合
 merge_topics_cp:トピック統合コントロールパネル
@@ -1083,3 +1084,7 @@ btn_quote:引用
 btn_email:電子メール
 btn_show_posts:投稿表示
 btn_homepage:ウェブ
+feed_no_data:一致するデータは見つかりません。
+feed_rdf:RDF フィード
+feed_rss:RSS2 フィード
+feed_atom:ATOM フィード

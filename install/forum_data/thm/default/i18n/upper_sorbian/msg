@@ -393,10 +393,12 @@ ignore_users:Ignorowani wužiwarjo
 add_ignore:Ignorowaneho přidać
 forum_terms:Forumowe wuměnjenja
 forum_rules:<p>Registrowanje za tutón forum je swobodne! Wobstejemy na tym, zo dźeržeš so slědowacych prawidłow a zasadow. Jeli sy z wuměnjenjemi přezjedny, klikń na tłóčatko <b>Přihłosować</b> na kóncu strony. Kedźbu: Přez kliknjenje na tłóčatko deklaruješ, zo maš wjace hač 13 lět. Jeli sy 13 lět stary abo młódši, wužij prošu registrowanski formular.</p><p>Hačrunjež administratorojo a moderatorojo tutoho foruma budu pospytować, wšě njepřiměrjene powěsće wot tutoho foruma wotdźeržeć, je njemóžno za nas, wšě powěsće přepruwować. Wšě powěsće zwuraznjeja nahlady awtora a ani wobsedźerjo foruma ani jeho wuwiwarjo njemóžeja so zamołwitych za wobsah powěsće činić.</p><p>Přez kliknjenje na tłóčatko Přihłosować lubiš, zo njebudźeš žane powěsće słać, kotrež su obscene, wulgarne, seksuelnje orientowane, hidypołne, hrožace abo so na hinaše wašnje přećiwo zakonjam přeńdu.</p><p>Wobsedźerjo tutoho foruma maja prawo, temu z někajkeje přičiny wotstronić, wobdźěłać, přesunyć abo začinić.</p>
+forum_rules_13:<p>Wšitcy wužiwarjo, kotřiž su młódši hač 13 lět, trjebaja dowolnosć jednoho ze swojeju staršeju abo předporučnika, zo bychu čłonstwo we forumach dóstali. Hačrunjež za to wuprajamy, zo čłonojo, kotřiž su młódši hač 13 lět, smědźa so we forumje wobdźělić, žadamy tola, zo jedyn ze staršeju abo předporučnik nam podpisany přizwolenski formular faksuje abo přez e-mejl wróćo sćele, prjedy hač damy čłonstwo.</p><p>Jeli chceš registrowanski proces startować, prjedy hač smy přizwolenski formular dóstali, klikń deleka na tłóčatko <b>Přihłosować</b>. Jeli chceš registrowanje přetorhnyć, klikń na <b>Wotpokazać</b>, zo by so k přehladej forumow wróćił.</p><p>Kopija přizwolenskeho formulara móžeš tu sćahnyć. Za dalše informacije wo registrowanskim procesu, pósćel prošu e-mejl administratorej <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Wobkrućenje COPPA
 coppa_before:Do {TEMPLATE: coppa_date}
 coppa_after:Po {TEMPLATE: coppa_date}
 coppa_link:Klikń na wotkaz, kotryž twojim narodninam wotpowěduje
+coppa:<p>Jedyn ze staršeju abo předporučnik dyrbi administratorej podpisany přizwolenski formular přez faks abo e-mejl připósłać, prjedy hač wužiwar, kotryž je młódši hač 13 lět, móže registrowanje dokónčić.</p><p>Za dalše informacije staj so z <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> do zwiska</p>
 prereg_info:Forumowe prawidła
 prereg_agree:Přihłosować
 prereg_disagree:Wotpokazać
@@ -404,6 +406,7 @@ coppa_fax_instructions:Instrukcije za jednoho ze staršeju abo předporučnika
 coppa_fax_instructions2:Prošu wućišć tutu stronu, podpisaj ju a faksuj ju na:
 coppa_fax_reg_form:Registrowanski formular
 coppa_fax_sign:Prošu podpisaj formular a pósćel jón nam
+coppa_fax_conf:Sym informacije přehladał, kotrež moje dźěćo je mi podało a sym zasady priwatnosće za websydło přečitał. Rozumju, zo profilowe informacije hodźa so z pomocu hesła změnić. Rozumju, zo móžu požadać, zo tute registrowanski profil móže so dospołnje z foruma wotstronić.
 coppa_fax_permission:Podpisaj tu, zo by dowolnosć dał
 coppa_fax_no_permission:Podpisaj tu, jeli chceš konto rozpušćić
 coppa_fax_parent_name:Dospołne mjeno jednoho ze staršeju abo předporučnika:
@@ -635,6 +638,7 @@ register_register_update:Registrowanska strona
 report_err_nosuchmsg_title:ZMYLK
 report_err_nosuchmsg_msg:Tajka powěsć njeeksistuje
 reset_err_invalidkey_title:ZMYLK
+reset_err_invalidkey_msg:Njepłaćiwy kluč za wróćostajenje hesła. Je móžno, zo twój e-mejlowy program bě tutu stronu hižo awtomatisce wočinił a kluč nětko je njepłaćiwy. Jeli tomu tak je, ty měł za krótki čas e-mejl ze swojim nowym hesłom dóstać. Jeli tajka e-mejl njedóndźe, spytaj prošu hesło wróćo stajeć.
 reset_err_rstconf_title:Informacije
 reset_err_rstconf_msg:Ty měł za por mjeńšin přez e-mejl instrukcije dóstać.
 reset_newpass_title:Hesło wróćo stajić
@@ -656,6 +660,7 @@ ERR_access_msg:Nimaš trěbne prawa, zo by tutu akciju wuwjedł
 ERR_registration_disabled_ttl:Registrowanje znjemóžnjene
 ERR_registration_disabled_msg:Administrator je registrowanje znjemóžnił. Prošu spytaj pozdźišo hišće raz.
 ERR_emailconf_ttl:ZMYLK: Twoje konto hišće njeje wobkrućene
+ERR_emailconf_msg:Njejsy swoje konto přez e-mejl wobkrućił.<br /><table border="0"><tr><td><ol><li>Jeli njejsy wobkrućensku e-mejl dóstał, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">požadaj ju hišće raz</a>.</li><li>Jeli {VAR: usr_d->email} njeje twoja prawa e-mejlowa adresa, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">podaj prawu adresu</a>.</li></ol></td></tr></table>
 ERR_user_ttl:ZMYLK: Wužiwar njeeksistuje
 ERR_user_msg:Wužiwar njeeksistuje
 ERR_systemerr_ttl:ZMYLK: Systemowy zmylk
@@ -842,6 +847,7 @@ polllist_date:Datum załoženja
 polllist_owner:Załoženy wot
 polllist_votes:Hłosy dohromady
 polllist_action:Akcija
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">K dispoziciji stejace wothłosowanja přepruwować</a>
 userinfo_polls:Wothłosowanja:
 show_pollist:Wothłosowanja pokazać
 search_and:A
@@ -855,18 +861,23 @@ post_moderated_forum:Sy powěsć w moderěrowanym forumje spisał. Twoja powěs�
 post_moderated_forum_ttl:Zdźělenka moderěrowaneho foruma
 buddy_list_bday:Dźensa {VAR: r[2]} změje {VAR: age} lět
 email_warning_msg:Jeli změniš swoju aktualnu e-mejlowu adresu, twoje konto budźe so jako njewobkrućene markěrować, doniž njewobkrućiš ju přez e-mejl.
+register_show_im:IM-indikatory pokazać:
+register_show_im_desc:Hač so maja IM-indikatory awtora pódla jich powěsće pokazać abo nic.
 unread_message:Njepřečitana powěsć
 read_message:Přečitana powěsć
 threadt_more:&lt;wjace&gt;
 threadt_disabled_ttl:Štomowy napohlad lisćiny temow je so znjemóžnił.
 threadt_disabled_desc:Administrator je štomowy napohlad lisćiny temow znjemóžnił. Prošu wužij płony napohlad město toho.
 threadt_update:Přepytuje forum (štomowy napohlad) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Temu wobkrućić/Powěsć zničić
 spell_alts:žane alternatiwy
 insert_uploaded_image:Wobraz do powěsće zasunyć
+finduser_help:Pytawa awtomatisce přidawa  twojemu naprašowanju hwěžku * jako masku, <b>pytanje dźiwa na wulkopisanje</b>.<br />Na př., zo by wšěch wužiwarjow pytał, kotrychž wužiwarske mjeno započina so z pismikom 'a', zapodaj prosće 'a' do pytanskeho kašćika.
 back_to_top:Wróćo k spočatkej
 pm_err_disabled_title:Priwatne powěsće znjemóžnjene
 pm_err_disabled_msg:Njemóžeš priwatne powěsće pósłać, doniž njezmóžnješ opciju 'Priwatne powěsće dowolić' w swojim profilu.
 err_mod_acc_ttl:Njepřepruwowane konto
+err_mod_acc_msg:Administrator je rozsudźił, wšě konta do aktiwizowanja manuelnje pruwować. Doniž twoje konto njeje wot administratora wobkrućene, njemóžeš wšě móžnosće twojeho konta wužiwać.
 accounts_pending_approval:Konta, kotrež na schwalenje čakaja
 saved:Składowany
 register_err_time_limit:Limit jednoho registrowanja na {GVAR: REG_TIME_LIMIT} sekundow je so nětko docpěł. Prošu čakaj {PLURAL: reg_limit_reached|$1 sekundu|$1 sekundaj|$1 sekundy|$1 sekundow}, prjedy hač pospytuješ so hišće raz registrować.
@@ -877,6 +888,7 @@ buddy_offline:{VAR: r[2]} je tuchwilu offline
 buddy_online:{VAR: r[2]} je tuchwilu online
 sml_no_smilies:Žane smějački k dispoziciji.
 login_unapproved_account_ttl:Njeschwalene konto
+login_unapproved_account_msg:Administrator foruma je rozsudźił, kóžde nowe konto do aktiwizowanja manuelnje wobkrućić. Twoje konto hišće njeje wobkrućene, tohodla njezměješ přistup na někotre funkcije, kotrež wobkrućenym čłonam k dispoziciji steja.
 remove_from_buddy_list:z lisćiny přećelow wotstronić
 iemail_msg_author:<b>Awtor:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Nastupa:</b> {VAR: obj->subject}
@@ -893,16 +905,20 @@ thread_mark_all_read:wšě njepřečitane forumowe powěsće jako přečitane ma
 thread_mark_all_read_desc:Wšě njepřečitane powěsće w tutym forumje budu so jako přečitane markěrować
 private_no_messages:W tutym rjadowaku powěsće njejsu.
 register_email_change_subject:Wobkrućenje změnjeneje e-mejloweje adresy
+register_email_change_msg:Wobkruć prošu swoje nowe e-mejlowe konto "{VAR: uent->email}", kotrež naruna twoje stare e-mejlowe konto "{VAR: old_email}". Dźi za to k slědowacemu URL:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nHdyž sy swoju nowu e-mejlowu adresu wobkrućił, budźe so twój forum znowa aktiwizować.
 iemail_thread_unsub:Tutu temu wotskazać
 iemail_forum_unsub:Tutón forum wotskazać
 primary_group_prefix:Hłowna skupina za forum:
 group_resources:Tuta skupina kontroluje prawa slědowacych forumow
 register_admin_newuser_title:Nowy wužiwar je so zregistrował a jeho konto čaka na wobkrućenje
+register_admin_newuser_msg:Nowy wužiwar ({VAR: uent->login}) je so runje zregistrował, a dokelž kontowe wobkrućenje je zmóžnjene, njebudźe jeho konto aktiwne, doniž so wot tebje abo druheho forumoweho administratora njewobkrući. Zo by konto přepruwował, dźi prošu k: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nTo je awtomatizowany proces. Njewotmołw na tutu powěsć.\nJeli chceš přichodne e-mejlowe zdźělenja nowych wužiwarskich registrowanjow wupinyć, móžeš to přez administratowy meni činić. Změń za to nastajenje "New Account Notification".
 post_mod_msg_notify_title:Nowa powěsć we forumje "{VAR: frm->name}" čaka na schwalenje
 post_mod_msg_notify_msg:Nowa powěsć z nadpismom "{VAR: msg_post->subject}" je so runje do foruma pósłała, kotryž moderěruješ. Zo by tutu powěsć přepruwował, dźi k: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTo je awtomatizowany proces. Njewotmołw na powěsć.
 thread_printable_pdf:Ćišćomny PDF płodźić
 thread_syndicate:Strony tutoho foruma druhim stronam k dispoziciji stajić (XML)
 reg_conf_title:Wobkrućenje registrowanja
+reg_conf_email:<b>E-mejlowe wobkrućenje</b><br />E-mejl je so ći pósłała, kotraž wosebity URL wobsahuje, kotryž dyrbiš zawołać, prjedy hač so konto aktiwizuje. Jeli njedóstanješ tutu e-mejl w běhu přichodnych por mjeńšin, přizjew so do swojeho konta a přeswědč so, zo e-mejlowa adresa, kotruž sy zapodał, je prawa. Tak ruče kaž swoje konto wobkrućeš, změješ přistup na forumowe funkcije, kotrež jenož wobkrućenym, zregistrowanym wužiwarjam k dispoziciji steja.
+reg_conf_account:<b>Kontowe wobkrućenje</b><br />Prjedy hač so twoje konto aktiwizuje, dyrbi so wot administratora schwalić. Hdyž to je so stało, dóstanješ e-mejl, kotraž će informuje, zo twoje konto je wobkrućene. Mjeztym móžeš so při swojim konće přizjewić, njezměješ wšak žadyn přistup na wěste funkcije.
 forum_banned_user:Twoje prjedawše akcije su k tomu wjedli, zo sy na přeco z tutoho foruma zatamany. Božemje.
 mnav_description:Nawigator powěsćow
 mnav_date_limit:Datumowy rozsah:
@@ -931,13 +947,15 @@ findu_unban:Klatwu zběhnyć
 findu_ban:Zatamać
 findu_edit:Wobdźěłać
 findu_delete:Zničić
-dmsg_reply_to:je wotmołwa na powěsć #{VAR: obj->reply_to}
+dmsg_reply_to:je wotmołwa na
+dmsg_reply_num:powěsć #{VAR: obj->reply_to}
 merge_topics:Temy zjednoćić
 merge_topics_cp:Meni za zjednoćenje temow
 merge_topics_tpl:Temy wubrać, kotrež maja so zjadnoćić <span class="SmallText">(dyrbiš wjace hač jednu temu wubrać)</span>
 merge_merge:Wubrane temy zjednoćić
 merge_next:Přichodna tema
 merge_prev:Předchadna tema
+split_cp:Wodźenske polo za rozdźělenje temow
 groups_perms_header:Prawa <span class="small">(pohibaj myšacy pokazowak nad prawo, zo by jeho typ widźał)</span>
 register_err_sig_too_long:Twoja signatura překročuje maksimalnje dowolenu dołhosć {GVAR: FORUM_SIG_ML} znamješkow.
 register_sig_limit:{GVAR: FORUM_SIG_ML} znamješkow <a href="javascript: alert('Towja signatura je '+document.forms['fud_register'].reg_sig.value.length+' znamješkow dołha. Maksimalnje dowolena signaturowa dołhosć je {GVAR: FORUM_SIG_ML} znamješkow.');" class="SmallText">Přepruwuj dołhosć signatury</a>
@@ -948,6 +966,7 @@ adm_account_rejected_s:Twoje kontowe požadanje za '{GVAR: FORUM_TITLE}' bu wotp
 thread_on:datum:
 userinfo_buddy:Přećel:
 register_email_addr:E-mejlowa adresa:
+reset_suffix:Jeli sy tutu powěsć mylnje dóstał, ignoruj ju prošu. Jeli dóstanješ wjacore kopije tuteje e-mejle, wo kotrež njejsy prosył, staj so prošu z forumowym administratorom přez {GVAR: ADMIN_EMAIL} do zwiska.\n\nTute naprašowanje bu wot {VAR: _SERVER['REMOTE_ADDR']} iniciěrowane.
 usrinfo_last_visit:Posledni wopyt:
 mnav_newer:nowši hač
 mnav_older:starši hač
@@ -979,6 +998,7 @@ uc_new_topic:Nowa tema
 uc_new_cat_forum:Abonowane forumy z nowymi powěsćemi
 uc_cat_forum:Kategorija &raquo; forum
 uc_sub_topics:Abonowane temy z nowymi powěsćemi
+uc_page_title:Pokazuje swójski profil
 search_options:Pytanske opcije
 search_user_filter:Po wužiwarjom filtrować:
 register_none:Njezdźělić
@@ -1063,3 +1083,7 @@ btn_quote:citować
 btn_email:E-mejl
 btn_show_posts:powěsće
 btn_homepage:www
+feed_no_data:Žane wotpowědowace daty namakane.
+feed_rdf:RDF-kanal
+feed_rss:RSS2-kanal
+feed_atom:ATOM-kanal

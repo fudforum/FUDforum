@@ -948,6 +948,7 @@ findu_unban:Ijinkan
 findu_ban:Cekal
 findu_edit:Sunting
 findu_delete:Hapus
+# Fuzzy
 dmsg_reply_to:adalah balasan dari pesan #{VAR: obj->reply_to}
 merge_topics:Gabungkan topik
 merge_topics_cp:Kontrol Panel penggabungan Topik

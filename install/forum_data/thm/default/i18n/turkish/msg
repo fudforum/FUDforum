@@ -958,6 +958,7 @@ findu_unban:Yasağı Kaldır
 findu_ban:Yasakla
 findu_edit:Düzenle
 findu_delete:Sil
+# Fuzzy
 dmsg_reply_to:, #{VAR: obj->reply_to} iletisine yanıttır.
 merge_topics:Zincirleri Birleştir
 merge_topics_cp:Zincirleri Birleştir Denetim Masası

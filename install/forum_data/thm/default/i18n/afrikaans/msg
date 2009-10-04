@@ -20,7 +20,7 @@ date_posted:Datum gepos
 date_registered:Datum geregistreer:
 download_counter:{PLURAL: v[3]|$1 keer|$1 kere} afgelaai
 pmsg_download_counter:{PLURAL: r->dlcount|$1 keer|$1 kere} afgelaai
-email:Epos:
+email:E-pos:
 email_to_friend:Epos na vriend
 email_to_friend_desc:Stuur die URL van hierdie bladsy aan 'n vriend of vriendin via e-pos
 email_user:Stuur 'n e-pos aan die gebruiker
@@ -80,7 +80,7 @@ moderators:{PLURAL: modcount|Moderator|Moderators}
 more_unread_messages:meer ongeleesde boodskappe
 more_unread_messages_desc:Wys meer ongeleesde boodskappe en mark die huidig bekikbare boodskappe as gelees
 move_thread:Skuif
-moved:Geskuif na 'n ander forum
+moved:Na ander forum geskuif
 moved_thread_message:Die onderwerp is na 'n ander forum geskuif
 na:Geen
 new_posts:Nuwe boodskappe
@@ -260,8 +260,8 @@ register_flat_view:Lys onderwerpe en boodskappe chronologies
 use_forum_default:Gebruik forum standaard
 finduser_user_info:Ledeinformasie
 finduser_by_login:Soek lid:
-finduser_submit:vind
-finduser_no_such_user:onbekend lid
+finduser_submit:Vind
+finduser_no_such_user:Onbekend lid
 finduser_user:Lid
 finduser_postcount:Boodskappe gepos
 finduser_joindate:Aansluit op
@@ -342,7 +342,7 @@ my_buddies:My Vriende
 add_buddy:Voeg vriend by
 add:Voeg by
 buddy_search:Sleutel die naam van die gebruiker wat u wil byvoeg in.
-member_search:of gebruik die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Find User</a> feature to find a person.
+member_search:of gebruik die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Vind Lid</a> funksie om vir 'n gebruiker te soek.
 buddy_remove:Verwyder
 post_normal:Normaal
 post_sticky:Plakker
@@ -442,7 +442,7 @@ rpasswd_change_pass:Verander wagwoord
 rpasswd_login:Gebruiker
 rpasswd_cur_pass:Huidige wagwoord:
 rpasswd_new_pass:Nuwe wagwoord:
-rpasswd_conf_pass:bevestig wagwoord:
+rpasswd_conf_pass:Bevestig wagwoord:
 login_passwd:Wagwoord:
 reset_email:Epos:
 reset_reset_button:Herstel wagwoord
@@ -604,7 +604,7 @@ post_topic_update:Begin nuwe onderwerp in <a href="{TEMPLATE: post_topic_update_
 post_error_generic:Daar was 'n probleem
 postcheck_max_images_err:Maksimum {GVAR: MAX_IMAGE_COUNT} fotos word toegelaat per boodskap, verminder die aantal foto&quot;s
 postcheck_no_links_allowed:U mag geen skakels pos voordat u nie ten minste {PLURAL: posts_before_links|$1 boodskap|$1 boodskappe} gepos het nie.
-postcheck_subj_needed:Onderwerp vereist
+postcheck_subj_needed:U moet 'n onderwerp verskaf
 postcheck_no_such_user:Daar is geen lid genaamd "{FUNC: char_fix(htmlspecialchars($v))}" in die forum
 postcheck_ignored:U kan nie 'n privaatboodskap aan "{FUNC: char_fix(htmlspecialchars($v))}" stuur nie omdat die gebruiker u ignoreer.
 postcheck_no_recepient:U kan geen boodskap versturen, ontvanger ontbreek
@@ -755,7 +755,7 @@ userinfo_referals:Verwysde lede:
 userinfo_referals_count:{VAR: referals} lede
 pm_no_space_title:Geen spasie oor nie!
 pm_no_space_msg:U privaat boodskap oorskry die <b>{GVAR: MAX_PMSG_FLDR_SIZE} grepe</b> wat aan u toegeken is. U boodskappe neem op die oomblik <b>{VAR: fldr_size} grepe</b> op.<br /><br /><font class="ErrorText">Verwyder assblief van ouer boodskappe voor u nuwes plaas.</font>.
-pm_space_indct_msg:U gebruik tans {VAR: percent_full}% van die spasie wat vir u privaat boodskappe toegeken is.
+pm_space_indct_msg:U gebruik tans {VAR: percent_full}% van die spasie wat vir u privaatboodskappe toegeken is.
 th_expr_never:Nooit
 th_expr_one_hr:1 uur
 th_expr_three_hr:3 ure
@@ -914,7 +914,7 @@ register_admin_newuser_title:Nuwe gebruiker het geregistreer en sy rekening wag 
 register_admin_newuser_msg:Die nuwe gebruiker {VAR: uent->login} het sopas geregistreer. Omdat gebruikersbevestiging geaktiveer is, moet die rekening deur 'n administrateur goedgekeur word. Vir bevestiging, gaan asseblief na: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDie is 'n outomaties gestuurde boodskap. Moet asseblief nie antwoord nie. As u toekomstige E-posboodskappe vir nuwe gebruikers wil deaktiveer, kan u "New Account Notification" in die kontrolepaneel afskakel.
 post_mod_msg_notify_title:Nuwe boodskap in forum "{VAR: frm->name}" wag vir goedkeuring
 post_mod_msg_notify_msg:'n Nuwe boodskap met titel "{VAR: msg_post->subject}" is sopas gepos in 'n forum wat u modereer. Om die boodskap te hersien, gaan na: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDie is 'n outomatiese boodskap. Moet asseblief nie antwoord nie.
-thread_printable_pdf:Genereer PDF
+thread_printable_pdf:Genereer PDF-dokument
 thread_syndicate:XML-voer
 reg_conf_title:Bevestiging van registrasie
 reg_conf_email:<b>E-posbevestiging</b><br />'n E-pos is aan u gestuur met 'n spesiale URL waarop u moet kliek voordat u rekening geaktiveer sal word. Indien u nie die e-pos binne 'n paar minute ontvang nie, teken in en maak seker dat die e-posadres wat u verskaf het geldig is. Sodra u u rekening bevestig het sal u al die funksies wat aan geregistreerde lede toegeken is kan uitvoer.
@@ -947,7 +947,8 @@ findu_unban:Ontban
 findu_ban:Verban
 findu_edit:Wysig
 findu_delete:Verwyder
-dmsg_reply_to:is 'n antwoord op boodskap #{VAR: obj->reply_to}
+dmsg_reply_to:is 'n antwoord op
+dmsg_reply_num:boodskap #{VAR: obj->reply_to}
 merge_topics:Versmelt onderwerpe
 merge_topics_cp:Administrasieskerm onderwerp samevoeging
 merge_topics_tpl:Kies onderwerpe om te versmelt <span class="SmallText">(u moet meer as een boodskap kies)</span>
@@ -956,8 +957,8 @@ merge_next:Volgende Onderwerpe
 merge_prev:Vorige Onderwerpe
 split_cp:Beheervenster vir die opsplit van onderwerpe
 groups_perms_header:Regte <span class="small">(beweeg muis oor regte om details te sien)</span>
-register_err_sig_too_long:Jou handtekening oorskry die maksimum toelaatbare lengte van {GVAR: FORUM_SIG_ML} karakters.
-register_sig_limit:{GVAR: FORUM_SIG_ML} karakters. <a href="javascript: alert('Jou Handtekening is '+document.forms['fud_register'].reg_sig.value.length+' karakters lank. Die maksimum toelaatbare lengte is {GVAR: FORUM_SIG_ML} karakters.');" class="SmallText">Wys Handtekening Lengte</a>.
+register_err_sig_too_long:U handtekening oorskry die maksimum toelaatbare lengte van {GVAR: FORUM_SIG_ML} karakters.
+register_sig_limit:{GVAR: FORUM_SIG_ML} karakters. <a href="javascript: alert('U handtekening is '+document.forms['fud_register'].reg_sig.value.length+' karakters lank. Die maksimum toelaatbare lengte is {GVAR: FORUM_SIG_ML} karakters.');" class="SmallText">Wys Handtekening Lengte</a>.
 adm_account_accepted:U gebruiker '{VAR: login}' is deur die administrateur goedgekeur en is nou aktief. U mag nou die forum {GVAR: FORUM_TITLE}' gebruik as 'n geregistreerde en bevestigde gebruiker.
 adm_account_accepted_s:U versoek vir 'n gebruiker vir '{GVAR: FORUM_TITLE}' was goedgekeur.
 adm_account_rejected:Die administrateur het nie u gebruiker '{VAR: login}' goedgekeur nie. As u 'n rede verlang kan u die administrateur by '{GVAR: ADMIN_EMAIL}' kontak.
@@ -1065,7 +1066,7 @@ code_title:KODE:
 code_select_all:Kies alles
 code_show_hide:Wys/ versteek
 social_sites:Sosiale netwerke:
-postcheck_min_len_err:U boodskap is te kort. Die minimum lengte is (PLURAL: post_min_len|$1 karakter|$1 karakters).
+postcheck_min_len_err:U boodskap is te kort. Die minimum lengte is {PLURAL: post_min_len|$1 karakter|$1 karakters}.
 postcheck_dup_err:Moet asseblief nie duplikaat boodskappe pos nie.
 btn_new_topic:Nuwe Onderwerp
 btn_new_pm:Nuwe PB
@@ -1082,3 +1083,7 @@ btn_quote:aanhaal
 btn_email:E-pos
 btn_show_posts:wys pos
 btn_homepage:www
+feed_no_data:Geen inligting is gevind nie.
+feed_rdf:RDF-voer
+feed_rss:RSS2-voer
+feed_atom:ATOM-voer

@@ -952,6 +952,7 @@ findu_unban:Odblokuj
 findu_ban:Zablokuj
 findu_edit:Edycja
 findu_delete:Usuń
+# Fuzzy
 dmsg_reply_to:(odpowiedź na #{VAR: obj->reply_to})
 merge_topics:Łącz Wątki
 merge_topics_cp:Panel Sterowania Łączeniem Wątków

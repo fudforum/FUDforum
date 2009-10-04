@@ -948,7 +948,8 @@ findu_unban:Deblokkeren
 findu_ban:Blokkeren
 findu_edit:Wijzigen
 findu_delete:Verwijderen
-dmsg_reply_to:is een antwoord op bericht #{VAR: obj->reply_to}
+dmsg_reply_to:is een antwoord op
+dmsg_reply_num:bericht #{VAR: obj->reply_to}
 merge_topics:Onderwerpen samenvoegen
 merge_topics_cp:Beheerscherm onderwerp samenvoegen
 merge_topics_tpl:Selecteer samen te voegen onderwerpen <span class="SmallText">(u moet meerdere onderwerpen selecteren)</span>
@@ -1083,3 +1084,7 @@ btn_quote:citeren
 btn_email:E-mail
 btn_show_posts:berichten
 btn_homepage:www
+feed_no_data:Er zijn geen gegevens gevonden.
+feed_rdf:RDF-feed
+feed_rss:RSS2-feed
+feed_atom:Atom-feed

@@ -958,6 +958,7 @@ findu_unban:No expulsado
 findu_ban:Expulsado
 findu_edit:Editar
 findu_delete:Borrar
+# Fuzzy
 dmsg_reply_to:es una respuesta al mensaje #{VAR: obj->reply_to}
 merge_topics:Juntar hilo
 merge_topics_cp:Panel para unir hilos de discusión

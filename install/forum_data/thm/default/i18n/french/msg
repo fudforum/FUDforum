@@ -951,7 +951,8 @@ findu_unban:Autoriser
 findu_ban:Bannir
 findu_edit:Éditer
 findu_delete:Supprimer
-dmsg_reply_to:est une réponse au message n° {VAR: obj->reply_to}
+dmsg_reply_to:est une réponse au
+dmsg_reply_num:message n° {VAR: obj->reply_to}
 merge_topics:Fusionner les fils
 merge_topics_cp:Panneau de contrôle de fusion de sujets
 merge_topics_tpl:Sélectionnez les fils à fusionner <font class="SmallText">(vous devez sélectionner plus d'1 sujet)</font>
@@ -1086,3 +1087,7 @@ btn_quote:citer
 btn_email:Courriel
 btn_show_posts:messages
 btn_homepage:www
+feed_no_data:Aucune donnée correspondante trouvée.
+feed_rdf:flux RDF
+feed_rss:flux RSS2
+feed_atom:flux ATOM

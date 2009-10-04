@@ -948,7 +948,8 @@ findu_unban:Kitiltás feloldása
 findu_ban:Kitiltás
 findu_edit:Szerkesztés
 findu_delete:Törlés
-dmsg_reply_to:válasz a(z) {VAR: obj->reply_to}. hozzászólásra
+dmsg_reply_to:válasz erre:
+dmsg_reply_num:{VAR: obj->reply_to}. üzenet
 merge_topics:Témák összevonása
 merge_topics_cp:Témaösszevonó vezérlőpult
 merge_topics_tpl:Válaszd ki az összevonandó témákat <span class="SmallText">(egynél több témát kell kiválasztanod)</span>
@@ -1083,3 +1084,7 @@ btn_quote:idéz
 btn_email:Email
 btn_show_posts:hozzászólások
 btn_homepage:www
+feed_no_data:Nem található egyező adat.
+feed_rdf:RDF-hírcsatorna
+feed_rss:RSS2-hírcsatorna
+feed_atom:ATOM-hírcsatorna

@@ -935,6 +935,7 @@ findu_unban:Odblokovať
 findu_ban:Zablokovať
 findu_edit:Editovať
 findu_delete:Vymazat
+# Fuzzy
 dmsg_reply_to:je odpoveďou na správu #{VAR: obj->reply_to}
 merge_topics:Zlúčiť témy
 merge_topics_cp:Ovládací panel pre zlúčenie tém

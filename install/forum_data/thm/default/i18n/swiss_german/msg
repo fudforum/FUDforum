@@ -947,6 +947,7 @@ findu_unban:Bann ufhebe
 findu_ban:Verbanne
 findu_edit:Bearbeite
 findu_delete:Lesche
+# Fuzzy
 dmsg_reply_to:isch e Antwort uf #{VAR: obj->reply_to}
 merge_topics:Themene zämmefiere
 merge_topics_cp:Menü zum Zämmefiere vu Themene
@@ -1082,3 +1083,7 @@ btn_quote:zitiere
 btn_email:E-Mail
 btn_show_posts:Byytreg
 btn_homepage:www
+feed_no_data:Kei Date gfunde.
+feed_rdf:RDF-Feed
+feed_rss:RSS2-Feed
+feed_atom:Atom-Feed

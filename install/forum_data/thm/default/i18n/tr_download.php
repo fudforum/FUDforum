@@ -3,12 +3,15 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tr_download.php,v 1.2 2009/09/11 17:36:12 frank Exp $
+* $Id: tr_download.php,v 1.3 2009/10/04 20:59:27 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
+
+	$encount = count(file('english/msg'));
+	echo "Number of English messages: $encount\n";
 
 	$i = 0;
 	$dp = opendir('.');
@@ -19,7 +22,7 @@
 
 		// Get language code.
 		$lang = trim(file_get_contents($de .'/pspell_lang'));
-		echo "Downloading ". $de ." (". $lang .") messages from tranalatewiki.net...\n";
+		echo "Downloading ". $de ." (". $lang .") messages from tranalatewiki.net...";
 
 		$url = "http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language=$lang&limit=2500";
 		$url_stuff = parse_url($url);
@@ -48,6 +51,14 @@
 			} else {
 				$msgfile = $de .'/msg';
 				file_put_contents($msgfile, $messages);
+
+				// Count messages.
+				$msgcount = 0;
+				foreach( explode("\n", $messages) as $msg) {
+					if (preg_match('/(^#|^\s+|^$)/', $msg)) continue;
+					$msgcount++;
+				}
+				echo "$msgcount messages.\n";
 			}
 		}
 
@@ -55,5 +66,5 @@
 		$i++;
 	}
 	closedir($dp);
-	echo "\nTotal translations: $i\n";
+	echo "\nTotal translated languages: $i\n";
 ?>

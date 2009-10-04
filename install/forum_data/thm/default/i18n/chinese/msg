@@ -985,6 +985,7 @@ findu_unban:解封
 findu_ban:封
 findu_edit:编辑
 findu_delete:删除
+# Fuzzy
 dmsg_reply_to:是对于帖子 #{VAR: obj->reply_to} 的回复
 merge_topics:合并主题
 merge_topics_cp:合并主题功能面板

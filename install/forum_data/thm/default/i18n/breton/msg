@@ -948,6 +948,7 @@ findu_unban:Aotren
 findu_ban:Forbannañ
 findu_edit:Aozañ
 findu_delete:Dilemel
+# Fuzzy
 dmsg_reply_to:zo ur respont d'ar gemennadenn niv. {VAR: obj->reply_to}
 merge_topics:Kendeuziñ ar c'haozioù
 merge_topics_cp:Panell gontrollañ evit kendeuziñ kaozioù
@@ -1083,3 +1084,7 @@ btn_quote:menegiñ
 btn_email:Postel
 btn_show_posts:kemennadenn
 btn_homepage:www
+feed_no_data:N'eus ket roadennoù a glot.
+feed_rdf:gwazh RDF
+feed_rss:gwazh RSS2
+feed_atom:gwazh ATOM

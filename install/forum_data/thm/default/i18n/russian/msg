@@ -951,7 +951,8 @@ findu_unban:Разрешить
 findu_ban:Запретить
 findu_edit:Править
 findu_delete:Удалить
-dmsg_reply_to:ответ на {VAR: obj->reply_to}
+dmsg_reply_to:является ответом на
+dmsg_reply_num:сообщение #{VAR: obj->reply_to}
 merge_topics:Объединить темы
 merge_topics_cp:Панель управления объединением тем
 merge_topics_tpl:Выберите темы для объединения <font class="SmallText">(необходимо выбрать более одной темы)</font>
@@ -1086,3 +1087,7 @@ btn_quote:цитировать
 btn_email:письмо
 btn_show_posts:сообщения
 btn_homepage:www
+feed_no_data:Не найдено соответствующих данных.
+feed_rdf:RDF-канал
+feed_rss:RSS2-канал
+feed_atom:ATOM-канал

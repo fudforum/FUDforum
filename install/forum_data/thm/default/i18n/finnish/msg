@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Crt
 # Author: Nike
+# Author: Olli
 # Author: Silvonen
 
 action:Toiminto
@@ -10,6 +11,7 @@ admin:Ylläpito
 admin_control_panel:Ylläpidon hallintapaneeli
 administrator:Ylläpitäjä
 attachment:Liitetiedosto:
+avatar:Käyttäjäkuva:
 average_post_count:{PLURAL: u->posted_msg_count|$1 viesti|$1 viestiä} (keskimäärin {PLURAL: avg|$1 viesti|$1 viestiä} päivässä)
 biography:Biografia:
 birth_date:Syntymäaika:
@@ -51,6 +53,7 @@ image:Kuva:
 index_forum:Foorumi
 index_new_posts:Uudet viestit edellisen käynnin jälkeen
 index_no_new_posts:Ei uusia viestejä edellisen käynnin jälkeen
+index_url_redirection:Uudelleenohjaus
 interests:Harrastukset:
 last_post:Viimeisin viesti
 last_thread_msg:Siirry tämän aiheen viimeiseen viestiin
@@ -938,6 +941,7 @@ findu_unban:Poista häätö
 findu_ban:Aseta häätö
 findu_edit:Muokkaa
 findu_delete:Poista
+# Fuzzy
 dmsg_reply_to:on vastaus viestiin #{VAR: obj->reply_to}
 merge_topics:Yhdistä aiheita
 merge_topics_cp:Aiheiden yhdistäminen
@@ -1008,3 +1012,7 @@ code_show_hide:Näytä tai piilota
 btn_delete:poista
 btn_edit:muokkaa
 btn_reply:vastaa
+btn_email:Sähköposti
+feed_rdf:RDF-syöte
+feed_rss:RSS2-syöte
+feed_atom:Atom-syöte

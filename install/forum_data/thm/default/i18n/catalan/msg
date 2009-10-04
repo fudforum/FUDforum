@@ -1,5 +1,6 @@
 # Messages for Catalan (Català)
 # Exported from translatewiki.net
+# Author: Qllach
 
 action:Acció
 add_to_buddy_list:afegir a la llista d`amics
@@ -24,8 +25,7 @@ pmsg_download_counter:Descarregat {VAR: r->dlcount} cop(s)
 email:Correu electrònic:
 email_to_friend:Enviar un correu a un amic
 email_to_friend_desc:Enviar la URL d`aquesta pàgina per correu a un amic
-# Fuzzy
-email_user:Premi aquí­ per a enviar un correu a l`usuari
+email_user:Envieu un correu a l'usuari
 faq:Preguntes
 first_unread_msg:Anar als missatges no llegits
 first_unread_msg_desc:Anar al primer missatge no llegit d`aquest fil
@@ -113,8 +113,7 @@ posts_c:Missatges:
 prev_thread:Fil de discussió anterior:
 usrinfo_private_message:Missatge privat:
 profile:Perfil
-# Fuzzy
-profile_desc:Prémer aquí­ per a accedir al panell de control d`usuari
+profile_desc:Accediu al tauler de control d'usuari
 rate_thread:Avaluar fil de discussió
 rating:Valoració
 rating_track:Gestionar les valoracions del fil <b>{VAR: thr->subject}</b>:
@@ -157,8 +156,7 @@ subscribed_threads_desc:Activar/desactivar el filtre de fils de discussió subsc
 switch_to_thread_view:Canviar a la vista en arbre per a aquest fil
 thread:Fil de discussió:
 thread_announcement:anunci:
-# Fuzzy
-thread_first_unread_msg:Premi aquí­ per anar al primer missatge no llegit d`aquest fil de discussió
+thread_first_unread_msg:Aneu al primer missatge no llegit d'aquest tema
 thread_thread:Fil de discussió
 threads:Fils de discussió
 time:Hora
@@ -504,10 +502,8 @@ ppost_save_draft:Guardar esborrany
 poll_blank_option:No es pot afegir una opció buida.
 poll_del_conf:Si vol esborrar aquesta opció, premi Acceptar
 poll_name:Nom de l`enquesta:
-# Fuzzy
-poll_timelimit:Lí­mit de temps
-# Fuzzy
-poll_maxiumvotes:Vots màxims
+poll_timelimit:Lí­mit de temps:
+poll_maxiumvotes:Vots màxims:
 poll_create:Crear
 poll_update:Actualitzar
 poll_disablesmilies:Desactivar les emoticones
@@ -559,8 +555,7 @@ email_error_subject:Es necessita un assumpte
 email_error_namerequired:Es necessita un nom
 email_error_invaliduser:L`usuari no és vàlid
 emailconf_err_invkey_msg:La clau de confirmació no és vàlida. Si us plau, revisi el seu correu per a assegurar-se que ha anat a la URL correcta
-# Fuzzy
-err_inc_criticaltitle:ERROR CRÍTIC
+err_inc_criticaltitle:Error crític
 err_inc_criticalmsg:Vostè ha  trobat un error, però desafortunadament hi ha un problema amb el sistema d`informe d`errors
 finduser_update:Buscant usuaris
 help_index_update:Llegint les <a href="{TEMPLATE: help_index_update_lnk}">Preguntes frequents</a>
@@ -799,8 +794,7 @@ split_th_select:Seleccionar
 report_report_post:Informar de missatge
 # Fuzzy
 quicklogin_login:Usuari
-# Fuzzy
-quicklogin_password:Contrasenya
+quicklogin_password:Contrasenya:
 quicklogin_use_cookies:Usar cookies?
 # Fuzzy
 quicklogin_login_btn:Iniciar sessió
@@ -951,6 +945,7 @@ findu_unban:No expulsat
 findu_ban:Expulsat
 findu_edit:Editar
 findu_delete:Esborrar
+# Fuzzy
 dmsg_reply_to:és una resposta al missatge #{VAR: obj->reply_to}
 merge_topics:Ajuntar fil
 merge_topics_cp:Panell per a unir fils de discussió
