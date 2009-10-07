@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.31 2009/09/20 19:13:23 frank Exp $
+* $Id: install-cli.php,v 1.32 2009/10/07 10:47:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -779,8 +779,12 @@ function initdb(&$settings)
 	}
 	foreach ($ln_dir as $f) {
 		if (file_exists($f . '/locale')) {
+			$tryloc = file($f .'/locale', FILE_IGNORE_NEW_LINES);
+			$tryloc[] = '';	// Also consider the system's default locale.
+			$loc = setlocale(LC_ALL, $tryloc);
+		
 			$lang = strtolower(basename($f));
-			$langs[$lang] = array(trim(file_get_contents($f . '/locale')), @trim(file_get_contents($f . '/pspell_lang')));
+			$langs[$lang] = array($loc, @trim(file_get_contents($f . '/pspell_lang')));
 		} 
 	}
 
