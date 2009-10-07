@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.39 2009/09/30 16:47:32 frank Exp $
+* $Id: admadduser.php,v 1.40 2009/10/07 15:19:24 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -127,7 +127,7 @@ function randomPassword() {
 	</tr>
 	<tr class="field">
 		<td>Password:</td>
-		<td><?php if ($error && isset($err_passwd)) { echo $err_passwd; } ?><input tabindex="2" type="text" name="passwd" value="<?php echo $passwd; ?>" size="30" /> [ <a href="#" onclick="randomPassword();">Random password</a> ]</td>
+		<td><?php if ($error && isset($err_passwd)) { echo $err_passwd; } ?><input tabindex="2" type="text" name="passwd" value="<?php echo $passwd; ?>" size="30" /> <font size="-1">[ <a href="#" onclick="randomPassword();">Random password</a> ]</font></td>
 	</tr>
 	<tr class="field">
 		<td>E-mail:</td>
