@@ -1086,3 +1086,4 @@ feed_no_data:			No matching data found.
 feed_rdf:			RDF feed
 feed_rss:			RSS2 feed
 feed_atom:			ATOM feed
+ip_whois_connect_err:		Unable to connect to whois server ({VAR: whois_server}): {VAR: errstr}

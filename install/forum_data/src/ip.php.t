@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.php.t,v 1.22 2009/10/04 21:19:37 frank Exp $
+* $Id: ip.php.t,v 1.23 2009/10/07 10:41:39 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,7 +28,7 @@ function __fud_whois($ip, $whois_server='')
 
 	if (!$sock = fsockopen($whois_server, 43, $errno, $errstr, 20)) {
 		error_reporting($er);
-		return '{MSG: error_error}: '.$errstr;
+		return '{TEMPLATE: ip_connect_err}';
 	}
 	fputs($sock, $ip."\n");
 	$buffer = '';

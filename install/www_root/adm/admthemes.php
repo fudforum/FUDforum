@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.85 2009/10/04 21:19:37 frank Exp $
+* $Id: admthemes.php,v 1.86 2009/10/07 10:41:39 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,6 +10,19 @@
 **/
 
 	require('./GLOBALS.php');
+
+	// Run from command line.
+	if (php_sapi_name() == 'cli') {
+		if (empty($_SERVER['argv'][1]) || $_SERVER['argv'][1] != 'compileall') {
+			echo "Usage: php admthemes.php compileall\n";
+			echo " - specify compileall' to confirm execution.\n";
+			die();
+		}
+
+		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
+		cli_execute(0, array('rebuild_all'=>1));
+	}
+
 	fud_use('widgets.inc', true);
 	fud_use('adm.inc', true);
 	fud_use('compiler.inc', true);
@@ -22,10 +35,14 @@
 	if (isset($_GET['rebuild_all'])) {
 		$r = q('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes');
 		while (($data = db_rowarr($r))) {
-			echo '<font color="green">Rebuilding theme '. $data[2] . ' ('. $data[1] .')...</font><br />';
+			pf('<font color="green">Rebuilding theme '. $data[2] . ' ('. $data[1] .')...</font>');
 			compile_all($data[0], $data[1], $data[2]);
 		}
 		unset($r);
+		if (php_sapi_name() == 'cli') {
+			pf('Done!');
+			return;
+		}
 	}
 
 	if (isset($_POST['thm_theme']) && @file_exists($DATA_DIR.'thm/'.$_POST['thm_theme'].'/.path_info') && !($FUD_OPT_2 & 32768)) {
@@ -147,15 +164,19 @@
 			}
 			$n = basename($file);
 			$selopt .= '<option'.($thm_lang == $n ? ' selected="selected"' : '').'>'.$n.'</option>';
-			$locales[$n]['locale'] = trim(file_get_contents($file . '/locale'));
+
+			$tryloc = file($file .'/locale', FILE_IGNORE_NEW_LINES);
+			$tryloc[] = '';	// Also consider the system's default locale.
+			$locales[$n]['locale'] = setlocale(LC_ALL, $tryloc);
+
 			$pspell_file = $file . '/pspell_lang';
 			$locales[$n]['pspell_lang'] = file_exists($pspell_file) ? trim(file_get_contents($pspell_file)) : 'en';
 		}
 
 		$cases = '';
 		foreach($locales as $k => $v) {
-			$cases .= "case '$k': document.admthm.thm_locale.value = '".$v['locale']."'; ";
-			$cases .= "document.admthm.thm_pspell_lang.value='".$v['pspell_lang']."'; ";
+			$cases .= "case '$k': document.forms['admthm'].thm_locale.value = '".$v['locale']."'; ";
+			$cases .= "document.forms['admthm'].thm_pspell_lang.value='".$v['pspell_lang']."'; ";
 			$cases .= "break;\n";
 		}
 	?>
@@ -163,7 +184,7 @@
 /* <![CDATA[ */
 function update_locale()
 {
-	switch (document.admthm.thm_lang.value) {
+	switch (document.forms['admthm'].thm_lang.value) {
 		<?php echo $cases; ?>
 	}
 }
