@@ -947,8 +947,8 @@ findu_unban:Bann ufhebe
 findu_ban:Verbanne
 findu_edit:Bearbeite
 findu_delete:Lesche
-# Fuzzy
-dmsg_reply_to:isch e Antwort uf #{VAR: obj->reply_to}
+dmsg_reply_to:isch e Antwort uf
+dmsg_reply_num:Nochricht #{VAR: obj->reply_to}
 merge_topics:Themene zämmefiere
 merge_topics_cp:Menü zum Zämmefiere vu Themene
 merge_topics_tpl:Themene zum Zämmefiere uuswehle <span class="SmallText">(Du muesch meh wie ei Thema uuswehle)</span>

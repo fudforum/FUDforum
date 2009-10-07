@@ -141,7 +141,7 @@ sender_name:Naam stuurder:
 show_posts_by:Wys boodskappe van: {VAR: u_alias}
 size:Grootte:
 status:Status:
-status_line:Daar is <b>{PLURAL: st_obj->online_users_reg|$1 lid|$1 lede}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 onsigbare lid|$1 onsigbare lede}</b> en <b>{PLURAL: st_obj->online_users_anon|$1 gas|$1 gaste} wat die forum tans besoek.
+status_line:Daar is <b>{PLURAL: st_obj->online_users_reg|$1 lid|$1 lede}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 onsigbare lid|$1 onsigbare lede}</b> en <b>{PLURAL: st_obj->online_users_anon|$1 gas|$1 gaste}</b> wat die forum tans besoek.
 sticky:plakker:
 stop_ignoring:hou op om gebruiker te ignoreer
 sub_to_thread:Skryf in op onderwerp

@@ -948,8 +948,8 @@ findu_unban:Aotren
 findu_ban:Forbannañ
 findu_edit:Aozañ
 findu_delete:Dilemel
-# Fuzzy
-dmsg_reply_to:zo ur respont d'ar gemennadenn niv. {VAR: obj->reply_to}
+dmsg_reply_to:zo ur respont da
+dmsg_reply_num:kemennadenn niv. {VAR: obj->reply_to}
 merge_topics:Kendeuziñ ar c'haozioù
 merge_topics_cp:Panell gontrollañ evit kendeuziñ kaozioù
 merge_topics_tpl:Diuzañ kaozioù da gendeuziñ <span class="SmallText">(ret eo deoc'h diuzañ ouzhpenn ur gaoz)</span>

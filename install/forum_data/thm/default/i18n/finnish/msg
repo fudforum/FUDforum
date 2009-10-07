@@ -11,7 +11,7 @@ admin:Ylläpito
 admin_control_panel:Ylläpidon hallintapaneeli
 administrator:Ylläpitäjä
 attachment:Liitetiedosto:
-avatar:Käyttäjäkuva:
+avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 viesti|$1 viestiä} (keskimäärin {PLURAL: avg|$1 viesti|$1 viestiä} päivässä)
 biography:Biografia:
 birth_date:Syntymäaika:
@@ -390,13 +390,12 @@ forum_terms:Foorumin ehdot
 # Fuzzy
 forum_rules:Rekisteröityminen on ilmaista. Edellytämme toki, että hyväksyt alla mainitut ehdot ja säännöt. Jos hyväksyt nämä ehdot, klikkaa Hyväksyn-nappia sivun alareunassa.<p>Vaikka tämän sivuston ylläpito ja moderaattorit pyrkivätkin poistamaan arveluttavan sisällön niin nopeasti kuin mahdollista, on kuitenkin mahdotonta tarkistaa jokaista viestiä. Kaikki viestit ilmaisevat kirjoittajiensa mielipiteitä joten ylläpito, moderaattorit tai foorumin kehittäjät eivät ole vastuussa näistä kirjoituksista, lukuun ottamatta heidän omia viestejään. <p>Napsauttamalla Hyväksyn-nappia, suostut olemaan esittämättä mitään loukkaavaa, vihamielistä, epämoraalista tai muutakaan materiaalia joka voisi loukata voimassa olevia lakeja. <p>Suostut myös siihen, että ylläpito ja moderaattorit ovat oikeutettuja poistamaan, muokkaamaan, siirtämään tai sulkemaan minkä tahansa aiheen milloin tahansa. <p>Käyttäjänä suostut siihen, että kaikki antamasi tiedot tallennetaan tietokantaan. Mitään tietoja ei anneta millekään kolmannelle osapuolelle ilman suostumustasi. Ylläpito ei myöskään ole vastuullinen jos tietoturva vaarantuu hakkeroinnin, tms. takia.<br />
 # Fuzzy
-forum_rules_13:Kaikkien alle 13 vuotiaiden lasten täytyy hankkia lupa vanhemmaltaan tai huoltajaltaan voidakseen liittyä foorumien käyttäjäksi. Edellytämme, että vanhempi tai huoltaja faksaa tai postittaa allekirjoitetun suostumuskaavakkeen ennen käyttöoikeuden myöntämistä.<p>Klikkaa Hyväksyn-nappia, jos haluat aloittaa rekisteröitymisprosessin ennenkuin olemme vastaanottaneet suostumuskaavakkeen. Jos haluat peruuttaa rekisteröitymisen, klikkaa Peruuta palataksesi foorumi listaan.<p>Suostumuskaaveke löytyy täältä. Lisätietoja rekisteröitymisprosessista saat lähettämällä ylläpidolle sähköpostia: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:<p>Kaikkien alle 13-vuotiaiden täytyy hankkia lupa vanhemmaltaan tai huoltajaltaan voidakseen liittyä foorumien käyttäjäksi. Edellytämme, että vanhempi tai huoltaja faksaa tai postittaa allekirjoitetun suostumuskaavakkeen ennen käyttöoikeuden myöntämistä.</p><p>Napsauta <b>Hyväksyn</b>-nappia, jos haluat aloittaa rekisteröitymisprosessin ennen kuin olemme vastaanottaneet suostumuskaavakkeen. Jos haluat peruuttaa rekisteröitymisen, napsauta <b>Peruuta</b> palataksesi foorumilistaan.</p><p>Suostumuskaavake löytyy täältä. Lisätietoja rekisteröitymisprosessista saat lähettämällä ylläpidolle sähköpostia: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-varmistus
 coppa_before:Ennen {TEMPLATE: coppa_date}
 coppa_after:Jälkeen {TEMPLATE: coppa_date}
 coppa_link:Klikkaa linkkiä joka vastaa syntymäaikaasi
-# Fuzzy
-coppa:Vanhempasi tai huoltajasi täytyy postittaa tai faksata allekirjoitettu suostumuskaavake tämän foorumin ylläpitäjälle ennenkuin alle 13 vuotias käyttäjä voi jatkaa rekisteröitymistä. <p>Lisätietoja: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:<p>Vanhempasi tai huoltajasi täytyy postittaa tai faksata allekirjoitettu suostumuskaavake tämän foorumin ylläpitäjälle ennen kuin alle 13-vuotias käyttäjä voi jatkaa rekisteröitymistä.</p><p>Lisätietoja: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:Foorumin käyttöehdot
 prereg_agree:Hyväksyn
 prereg_disagree:En hyväksy
@@ -582,14 +581,12 @@ pm_update:Käyttää yksityiviestintää
 post_err_lockedthread_title:VIRHE: Aihe lukittu
 post_err_lockedthread_msg:Tämä aihe on lukittu, uusia viestejä ei sallita
 err_coppa_title:VIRHE: Käyttäjätiliä ei ole vielä hyväksytty
-# Fuzzy
-err_coppa_msg:Emme ole vastaanottaneet varmistusta vanhemmiltasi tai lailliselta huoltajaltasi, joten et voi vielä lähettää viestejä foorumille. Jos olet hukannut COPPA-kaavakkeen, saat sen <a href="{TEMPLATE: err_coppa_msg_lnk}">täältä</a>.
+err_coppa_msg:Emme ole vastaanottaneet varmistusta vanhemmiltasi tai lailliselta huoltajaltasi, joten et voi vielä lähettää viestejä foorumille. Jos olet hukannut COPPA-kaavakkeen – <a href="{TEMPLATE: err_coppa_msg_lnk}">voit hakea sen uudelleen</a>.
 err_banned_acct_title:VIRHE: Olet estetty.
 post_err_edttimelimit_title:VIRHE
 post_err_edttimelimit_msg:Et voi enää muokata tätä viestiä.
 post_err_floodtrig_title:VIRHE: Viestitulva (message flood)
-# Fuzzy
-post_err_floodtrig_msg:Yritä uudelleen {VAR: tm} sekunnin päästä
+post_err_floodtrig_msg:Odota {PLURAL: tm|$1 sekunti|$1 sekuntia} ja yritä uudelleen.
 post_err_attach_size:Liitetiedoston koko ylittää suurimman sallitun {VAR: MAX_F_SIZE} tavun rajan
 post_err_attach_ext:Lähetetyn tiedoston tyyppi ei vastaa sallittuja tiedostotyyppejä.
 post_err_attach_filelimit:Yritit lähettää sallittua enemmän tiedostoja.
@@ -792,7 +789,6 @@ report_report_post:Ilmoita viestistä
 quicklogin_login:Käyttäjätunnus:
 quicklogin_password:Salasana:
 quicklogin_use_cookies:Käytä evästeitä?
-# Fuzzy
 quicklogin_login_btn:Kirjaudu
 quick_reply:Nopea vastaus
 post_notification_desc:Ilmoita minulle, kun joku vastaa tähän viestiin.
@@ -873,8 +869,7 @@ err_mod_acc_ttl:Tarkistamaton käyttäjätili
 err_mod_acc_msg:Ylläpitäjä tarkistaa kaikki käyttäjätilit ennen niiden aktivoimista. Et voi käyttää kaikkia foorumin toimintoja ennenkuin ylläpitäjä on tarkistanut käyttäjätilisi.
 accounts_pending_approval:Hyväksymättömät käyttäjät
 saved:Tallennetut
-# Fuzzy
-register_err_time_limit:Rekisteröitymiset on rajoitettu {GVAR: REG_TIME_LIMIT} sekuntiin per rekisteröinti. Odota {VAR: reg_limit_reached} sekuntia ja yritä rekisteröityä uudelleen.
+register_err_time_limit:Rekisteröitymiset on rajoitettu {GVAR: REG_TIME_LIMIT} sekuntiin per rekisteröinti. Odota {PLURAL: reg_limit_reached|$1 sekunti|$1 sekuntia} ja yritä rekisteröityä uudelleen.
 register_affero:Affero tunnus:<br /><font class="SmallText">Voit antaa mahdollisen <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> tunnuksesi tässä.</font>
 im_affero:Affero-tunnus
 register_err_avatardimtobig:Avatarin kuvakoko <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ylittää suurimman sallitun koon <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
@@ -941,8 +936,7 @@ findu_unban:Poista häätö
 findu_ban:Aseta häätö
 findu_edit:Muokkaa
 findu_delete:Poista
-# Fuzzy
-dmsg_reply_to:on vastaus viestiin #{VAR: obj->reply_to}
+dmsg_reply_to:on vastaus viestiin
 merge_topics:Yhdistä aiheita
 merge_topics_cp:Aiheiden yhdistäminen
 merge_topics_tpl:Valitse yhdistettävät aiheet <span class="SmallText">(sinun täytyy valita enemmän kuin yksi aihe)</span>

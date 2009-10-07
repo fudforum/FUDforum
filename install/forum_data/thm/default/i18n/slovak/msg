@@ -141,7 +141,7 @@ sender_name:Meno Odosielateľa:
 show_posts_by:Zobraz príspevky od: {VAR: u_alias}
 size:Veľkosť:
 status:Hodnosť:
-status_line: Toto fóru práve navštevuje <b>{PLURAL: st_obj->online_users_reg|$1 člen|$1 členov}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 skrytý člen|$1 skrytých členov}</b> a <b>{PLURAL: st_obj->online_users_anon|$1 hosť|$1 hostí}</b>.
+status_line:Toto fóru práve navštevuje <b>{PLURAL: st_obj->online_users_reg|$1 člen|$1 členov}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 skrytý člen|$1 skrytých členov}</b> a <b>{PLURAL: st_obj->online_users_anon|$1 hosť|$1 hostí}</b>.
 sticky:výveska:
 stop_ignoring:prestaň ignorovať tohoto používateľa
 sub_to_thread:Odoberať túto tému

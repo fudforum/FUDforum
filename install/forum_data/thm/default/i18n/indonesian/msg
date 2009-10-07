@@ -425,7 +425,7 @@ login_cookie_expired:Cookie sudah kedaluwarsa, dan anda harus login ulang untuk 
 login_perm_denied:Anda tidak berhak mengakses sumber daya sebagai pengguna tamu. Anda harus login untuk memperoleh hak.
 login_want_to_register:Hendak mendaftar?
 login_forgot_passwd:Lupa password
-login_use_cookie:\nGunakan cookie <br /> <span class="SmallText">Jika anda menggunakan terminal publik seperti komputer di perpustakaan, sekolah, atau Internet kafe, direkomendasikan bahwa Anda harus centang pada pilihan ini untuk lebih aman.<br />Jika anda mengacuhkan pilihan  ini maka Anda akan langsung login ke forum, ketika Anda berkunjung.</span>
+login_use_cookie:Gunakan cookie <br /> <span class="SmallText">Jika anda menggunakan terminal publik seperti komputer di perpustakaan, sekolah, atau Internet kafe, direkomendasikan bahwa Anda harus centang pada pilihan ini untuk lebih aman.<br />Jika anda mengacuhkan pilihan  ini maka Anda akan langsung login ke forum, ketika Anda berkunjung.</span>
 login_login:Login
 login_login_btn:Masuk log
 login_name_required:Diperlukan nama Login
