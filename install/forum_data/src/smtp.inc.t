@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smtp.inc.t,v 1.28 2009/06/17 11:19:49 frank Exp $
+* $Id: smtp.inc.t,v 1.29 2009/10/08 20:09:26 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -40,8 +40,8 @@ class fud_smtp
 		}
 
 		$es = strpos($this->last_ret, 'ESMTP') !== false;
-		$smtp_svr = $_SERVER["SERVER_NAME"];
-		if ($smtp_srv == 'localhost' || $smtp_svr == '127.0.0.1') {
+		$smtp_srv = $_SERVER["SERVER_NAME"];
+		if ($smtp_srv == 'localhost' || $smtp_srv == '127.0.0.1') {
 			$smtp_srv = 'FUDforum SMTP server';
 		}
 
