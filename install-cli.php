@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.32 2009/10/07 10:47:50 frank Exp $
+* $Id: install-cli.php,v 1.33 2009/10/10 07:50:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -78,7 +78,7 @@ function validate_url($path)
 	return 0;
 }
 
-/* we need this for PDO in 5.0+ */
+/* We need this for PDO in 5.0+. */
 if (version_compare(PHP_VERSION, '5.0.0', '>=')) {
 	function ex_handle($ex) { fe($ex->getMessage()); }
 	set_exception_handler('ex_handle');
@@ -188,7 +188,7 @@ if ($WINDOWS || !function_exists('symlink')) {
 
 function htaccess_handler($web_root, $ht_pass)
 {
-	/* opening a connection to itself should not take more then 5 seconds */
+	/* Opening a connection to itself should not take more then 5 seconds. */
 	ini_set("default_socket_timeout", 5);
 	if (@fopen($web_root . 'index.php', 'r') === FALSE) {
 		unlink($ht_pass);
@@ -265,7 +265,7 @@ function dbperms_check()
 		return;
 	}
 
-	/* version check */
+	/* Version check. */
 	if (($r = dbquery('SELECT VERSION()', 1)) && $GLOBALS['DBHOST_DBTYPE'] != 'pdo_sqlite') {
 		switch ($GLOBALS['DBHOST_DBTYPE']) {
 			case 'mysql':
@@ -327,7 +327,7 @@ function dbperms_check()
 				fe("Your PostgreSQL account does not have permissions to run DROP TABLE queries on existing PostgreSQL tables\nEnable this functionality and restart the script.\n");
 			}
 			break;
-		case 'pdo_sqlite': /* no need to check perms, we've got our own DB */
+		case 'pdo_sqlite': /* No need to check perms, we've got our own DB. */
 			return;			
 	}
 }
@@ -472,7 +472,7 @@ function initdb(&$settings)
 		$got_config = 1;
 	}
 
-	/* Fetch forum's URL */
+	/* Fetch forum's URL. */
 	while (!validate_url($settings['WWW_ROOT'])) {
 		pf("Your forum's URL: ");
 		$path = trim(fgets(STDIN, 1024));
@@ -482,7 +482,7 @@ function initdb(&$settings)
 		pf("'{$path} is not a valid URL, please supply a url in the 'http://host/path/' format\n");
 	}
 
-	/* Fetch file system path of the forum's web files */
+	/* Fetch file system path of the forum's web files. */
 	while (!$settings['SERVER_ROOT'] || !is_wr($settings['SERVER_ROOT'])) {
 		pf("Path to forum's web browseable files: ");
 		$path = trim(fgets(STDIN, 1024));
@@ -496,7 +496,7 @@ function initdb(&$settings)
 	$settings['SERVER_ROOT'] = str_replace('\\', '/', $settings['SERVER_ROOT']);
 	mkdir_r($settings['SERVER_ROOT']);
 
-	/* Fetch file path of the forum's web files */
+	/* Fetch file path of the forum's web files. */
 	while (!$settings['SERVER_DATA_ROOT'] || !is_wr($settings['SERVER_DATA_ROOT'])) {
 		pf("Path to forum's data files (non-browseable) [{$settings['SERVER_ROOT']}]: ");
 		$path = trim(fgets(STDIN, 1024));
@@ -513,9 +513,9 @@ function initdb(&$settings)
 	$settings['SERVER_DATA_ROOT'] = str_replace('\\', '/', $settings['SERVER_DATA_ROOT']);
 	mkdir_r($settings['SERVER_DATA_ROOT']);
 
-	/* decompress the archive */
+	/* Decompress the archive. */
 	decompress_archive($settings['SERVER_DATA_ROOT'], $settings['SERVER_ROOT']);
-	/* verify that all the important directories exist (old php bug) */
+	/* Verify that all the important directories exist (old php bug). */
 	$dir_ar = array('include', 'errors', 'messages', 'files', 'template', 'tmp', 'cache', 'errors/.nntp', 'errors/.mlist');
 	foreach ($dir_ar as $v) {
 		if (is_dir($settings['SERVER_DATA_ROOT'] . $v)) {
@@ -523,7 +523,7 @@ function initdb(&$settings)
 		}
 		chmod($settings['SERVER_DATA_ROOT'], 0755);
 	}
-	/* determine if this host can support .htaccess directives */
+	/* Determine if this host can support .htaccess directives. */
 	htaccess_handler($settings['WWW_ROOT'], $settings['SERVER_ROOT'] . '.htaccess');
 
 	$INCLUDE = $settings['SERVER_DATA_ROOT'].'include/';
@@ -537,12 +537,12 @@ function initdb(&$settings)
 	chmod($INCLUDE . 'GLOBALS.php', 0666);
 	touch($ERROR_PATH . 'FILE_LOCK');
 
-	/* ensure we don't have any bogus symlinks (re-installing over old forum) */
+	/* Ensure we don't have any bogus symlinks (re-installing over old forum). */
 	@unlink($settings['SERVER_ROOT'] . 'GLOBALS.php');
 	@unlink($settings['SERVER_ROOT'] . 'adm/GLOBALS.php');
 	@unlink($settings['SERVER_DATA_ROOT'] . 'scripts/GLOBALS.php');
 
-	/* make symlinks to GLOBALS.php */
+	/* Make symlinks to GLOBALS.php. */
 	if ($WINDOWS || !function_exists('symlink')) {
 		fud_symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] . 'GLOBALS.php');
 		fud_symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_ROOT'] . 'adm/GLOBALS.php');
@@ -553,12 +553,12 @@ function initdb(&$settings)
 		symlink($INCLUDE . 'GLOBALS.php', $settings['SERVER_DATA_ROOT'] . 'scripts/GLOBALS.php');
 	}
 
-	/* default bitmask values */
-	$FUD_OPT_1 = 1744762047;
+	/* Default bitmask values. */
+	$FUD_OPT_1 = 1743713471;
 	if (!$module_status['pspell']) {
 		$FUD_OPT_1 ^= 2097152;
 	}
-	$FUD_OPT_2 = 695676991 | 8388608;
+	$FUD_OPT_2 = 1769345087 | 8388608 /* FILE_LOCK */;
 
 	change_global_settings(array(
 		'INCLUDE' => $INCLUDE,
@@ -577,7 +577,7 @@ function initdb(&$settings)
 		'COOKIE_DOMAIN' => $settings['COOKIE_DOMAIN'],
 		'DATA_DIR' => $settings['SERVER_DATA_ROOT']));
 
-	/* Pick a database type */
+	/* Pick a database type. */
 	$dbs = array();
 	if ($module_status['mysql']) {
 		$dbs[] = 'mysql';
@@ -642,7 +642,7 @@ function initdb(&$settings)
 		initdb($settings);
 	}
 
-	/* check SQL permissions */
+	/* Check SQL permissions. */
 	dbperms_check();
 
 	/* Import sql data */
@@ -651,7 +651,7 @@ function initdb(&$settings)
 		$prefix =& $settings['DBHOST_TBL_PREFIX'];
 		$preflen = strlen($prefix);
 		
-		/* remove sequences */
+		/* Remove sequences. */
 		echo "Start dropping sequences...\n";
 		$c = dbquery("SELECT sequence_name FROM user_sequences WHERE sequence_name LIKE '".strtoupper($prefix)."%'");
 		while ($r = oci_fetch_row($c)) {
@@ -665,7 +665,7 @@ function initdb(&$settings)
 		$prefix =& $settings['DBHOST_TBL_PREFIX'];
 		$preflen = strlen($prefix);
 
-		/* remove possibly conflicting tables */
+		/* Remove possibly conflicting tables. */
 		$c = dbquery("select relname from pg_class WHERE relkind='r' AND relname LIKE '".str_replace('_', '\\\\_', $prefix)."%'");
 		while ($r = pg_fetch_row($c)) {
 			if (!strncmp($r[0], $prefix, $preflen)) {
@@ -676,7 +676,7 @@ function initdb(&$settings)
 		}
 		unset($c);
 
-		/* remove possibly conflicting sequences */
+		/* Remove possibly conflicting sequences. */
 		$c = dbquery("select relname from pg_class WHERE relkind='S' AND relname LIKE '".str_replace('_', '\\\\_', $prefix)."%'");
 		while ($r = pg_fetch_row($c)) {
 			if (!strncmp($r[0], $prefix, $preflen)) {
@@ -695,7 +695,7 @@ function initdb(&$settings)
 		fe("Failed to get a list of table defenitions and/or base table data from: '{$settings['SERVER_DATA_ROOT']}sql/'\n");
 	}
 
-	/* import tables */
+	/* Import tables. */
 	$ora_statements = array();
 	foreach ($tbl as $t) {
 		foreach (explode(';', preg_replace('!#.*?\n!s', '', file_get_contents($t))) as $q) {
@@ -736,7 +736,7 @@ function initdb(&$settings)
 		}
 	}
 
-	/* create Oracle sequences and triggers */
+	/* Create Oracle sequences and triggers. */
 	foreach($ora_statements as $q) {
 		echo "Execute Oracle stmt : ". $q ."\n";
 		if (($q = make_into_query(trim($q)))) {
@@ -747,7 +747,7 @@ function initdb(&$settings)
 		}
 	}
 
-	/* import seed data */
+	/* Import seed data. */
 	foreach ($sql as $t) {
 		$file = str_replace(array('\r\n', '\r'), "\r\n", file_get_contents($t));
 		foreach (explode(";\n", $file) as $q) { 
@@ -772,7 +772,7 @@ function initdb(&$settings)
 		'DBHOST_TBL_PREFIX' => $settings['DBHOST_TBL_PREFIX']
 	));
 
-	/* handle language selection */
+	/* Handle language selection. */
 	$ln_dir = glob($settings['SERVER_DATA_ROOT'].'thm/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT);
 	if (!$ln_dir) {
 		fe("Could not open i18n directory at '{$settings['SERVER_DATA_ROOT']}thm/default/i18n'\n");
@@ -804,14 +804,14 @@ function initdb(&$settings)
 		pf("Unsupported language '{$lang}', please choose a language\n");
 	}
 	
-	/* load default theme into db */
+	/* Load default theme into db. */
 	$lang = $settings['LANGUAGE'];
 	dbquery("DELETE FROM ".$settings['DBHOST_TBL_PREFIX']."themes");
 	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."themes(id, name, theme, lang, locale, theme_opt, pspell_lang) VALUES(1, 'default', 'default', '{$lang}', '{$langs[$lang][0]}', 3, '{$langs[$lang][1]}')")) {
 		fe(dberror());
 	}
 
-	/* get admin account information */
+	/* Get admin account information. */
 	if (!$got_config) {
 		pf("Forum's Administrator Login [{$settings['ROOT_LOGIN']}]: ");
 		$tmp = trim(fgets(STDIN, 1024));
@@ -836,7 +836,7 @@ function initdb(&$settings)
 	}
 
 	dbquery("DELETE FROM ".$settings['DBHOST_TBL_PREFIX']."users WHERE id > 1");
-	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."users (login, alias, passwd, name, email, avatar, avatar_loc, users_opt, join_date, theme, posted_msg_count, u_last_post_id, level_id, custom_status) VALUES('".addslashes($settings['ROOT_LOGIN'])."', '".addslashes(htmlspecialchars($settings['ROOT_LOGIN']))."', '".md5($settings['ROOT_PASS'])."', 'Administrator', '".addslashes($settings['ADMIN_EMAIL'])."', 3, '<img src=\"". $settings['WWW_ROOT'] ."images/avatars/smiley03.jpg\" alt=\"\" width=\"64\" height=\"64\" />', 13810679, ".time().", 1, 1, 1, 3, 'Administrator')")) {
+	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."users (login, alias, passwd, name, email, avatar, avatar_loc, users_opt, join_date, theme, posted_msg_count, u_last_post_id, level_id, custom_status) VALUES('".addslashes($settings['ROOT_LOGIN'])."', '".addslashes(htmlspecialchars($settings['ROOT_LOGIN']))."', '".md5($settings['ROOT_PASS'])."', 'Administrator', '".addslashes($settings['ADMIN_EMAIL'])."', 3, '<img src=\"". $settings['WWW_ROOT'] ."images/avatars/smiley03.jpg\" alt=\"\" width=\"64\" height=\"64\" />', 13777910, ".time().", 1, 1, 1, 3, 'Administrator')")) {
 		fe(dberror());
 	}
 	change_global_settings(array('ADMIN_EMAIL' => $settings['ADMIN_EMAIL'], 'NOTIFY_FROM' => $settings['ADMIN_EMAIL']));
