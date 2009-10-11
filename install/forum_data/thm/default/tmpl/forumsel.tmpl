@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forumsel.tmpl,v 1.27 2009/01/29 18:37:29 frank Exp $
+* $Id: forumsel.tmpl,v 1.28 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,12 +11,14 @@
 {PHP_FILE: input: forumsel.inc.t; output: @forumsel.inc;}
 
 {MAIN_SECTION: forum_select a drop down select of all the categories & forums}
+{IF: $frmcount > 1}
 <span class="SmallText fb">{MSG: forumsel_goto_forum}</span>
 <form action="{TEMPLATE: forum_select_lnk3}" id="frmquicksel" method="get">
 <input type="hidden" name="t" value="{VAR: dest}" />{DEF: _hs}
 <select class="SmallText" name="frm_id">
 {TEMPLATE-DATA: selection_options}
 </select>&nbsp;&nbsp;<input type="submit" class="button" name="frm_goto" value="{MSG: go}" /></form>
+{ENDIF}
 {MAIN_SECTION: END}
 
 {SECTION: category_option}

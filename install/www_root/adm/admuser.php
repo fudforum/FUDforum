@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.99 2009/09/30 16:47:33 frank Exp $
+* $Id: admuser.php,v 1.100 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,7 +61,7 @@
 			}
 
 			if ($GLOBALS['usr']->id == $usr_id) {
-				echo '<font color="red">ERROR: You cannot ban or unban yourself!</font><br />';
+				echo errorify('Sorry, you cannot ban or unban yourself!');
 				break;
 			}
 
@@ -175,6 +175,10 @@ Are you sure you want to do this?<br />
 <?php
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
+					if ($GLOBALS['usr']->id == $usr_id) {
+						echo errorify('Sorry, you cannot abdicate from being and administrator!');
+						break;
+					}
 					if (q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'mod WHERE user_id='.$u->id)) {
 						q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt & ~ 1048576) |524288 WHERE id='.$usr_id);
 						$u->users_opt ^= 1048576;

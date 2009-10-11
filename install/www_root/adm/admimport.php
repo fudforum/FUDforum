@@ -2,31 +2,41 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.75 2009/09/30 16:47:32 frank Exp $
+* $Id: admimport.php,v 1.76 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-	error_reporting(E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR);
+	error_reporting(E_ALL);
 	@ini_set('display_errors', '1');
 	@ini_set('memory_limit', '256M');
 	@set_time_limit(0);
 
-	/* Uncomment the line below if you wish to import data without authentication
-	 * This is useful if the previous import had failed resulting in the loss of old SQL data
-	**/
-	// define('recovery_mode', 1);
-	
-	/* Uncomment if you wish to import data from the command line
-	**/
-	// define('recovery_mode', 1);
-	// $_POST['path'] = '/path/to/your/forum/dump';
-
 	require('./GLOBALS.php');
-	fud_use('glob.inc', true);
 
+	/* Uncomment the line below if you wish to import data without authentication.
+	 * This is useful if the previous import had failed resulting in the loss of old SQL data.
+	**/
+	// define('recovery_mode', 1);
+
+	// Run from command line.
+	if (php_sapi_name() == 'cli') {
+		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
+		cli_execute('');
+
+		if (empty($_SERVER['argv'][1])) {
+			echo "Usage: php admimport.php /path/to/dump_file\n";
+			die();
+		}
+
+		define('recovery_mode', 1);
+		$_POST['path'] = $_SERVER['argv'][1];
+		$_POST['submitted'] = 1;
+	}
+
+	fud_use('glob.inc', true);
 	if (defined('recovery_mode')) {
 		fud_use('db.inc');
 	} else {
@@ -79,34 +89,33 @@ function resolve_dest_path($path)
 				$closef = 'gzclose';
 				$feoff = 'gzeof';
 			}
-			/* skip to the start of data files */
+			/* Skip to the start of data files. */
 			while ($getf($fp, 1024) != "----FILES_START----\n" && !$feoff($fp));
 
-			/* handle data files */
-			echo "Restoring forum files...<br />\n";
-			@ob_flush(); flush();
+			/* Handle data files. */
+			pf('Restoring forum files...');
 			while (($line = $getf($fp, 1000000)) && $line != "----FILES_END----\n") {
-				/* each file is preceeded by a header ||path||size|| */
+				/* Each file is preceeded by a header ||path||size|| */
 				if (strncmp($line, '||', 2)) {
 					continue;
 				}
 				list(,$path,$size,) = explode("||", $line);
 
 				if ($path == 'WWW_ROOT_DISK/adm/admimport.php' ) {
-					// Skip admimport.php, don't overwrite the running script
+					// Skip admimport.php, don't overwrite the running script.
 					continue;
 				}
 
 				$path = resolve_dest_path($path);
 				if (!($fd = fopen($path, 'wb'))) {
-					echo "WARNING: couldn't create '".$path."'<br />\n";
+					pf('WARNING: couldn\'t create '.$path);
 					if ($readf == 'gzread') {
 						gzseek($fp, (gztell($fp) + $size));
 					} else {
 						fseek($fp, $size, SEEK_CUR);
 					}
 				} else {
-					if ($size < 1) { /* empty file */
+					if ($size < 1) { /* Empty file. */
 						continue;
 					}
 					if ($size < 2000000) {
@@ -125,17 +134,16 @@ function resolve_dest_path($path)
 				}
 			}
 
-			/* skip to the start of the SQL code */
+			/* Skip to the start of the SQL code. */
 			while ($getf($fp, 1024) != "----SQL_START----\n" && !$feoff($fp));
 
-			echo "Drop database tables...<br />\n";
-			@ob_flush(); flush();
-			/* clear SQL data */
+			/* Clear SQL data. */
+			pf('Drop database tables...');			
 			foreach(get_fud_table_list() as $v) {
 				q('DROP TABLE '.$v);
 			}
 
-			/* if we are dealing with pgSQL drop all sequences too */
+			/* If we are dealing with pgSQL drop all sequences too. */
 			if (__dbtype__ == 'pgsql') {
 				$c = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".str_replace("_", '\\\\_', $DBHOST_TBL_PREFIX)."'");
 				while($r = db_rowarr($c)) {
@@ -144,7 +152,7 @@ function resolve_dest_path($path)
 				unset($c);
 			}
 
-			/* check if MySQL version > 4.1.2 */
+			/* Check if MySQL version > 4.1.2. */
 			if (__dbtype__ == 'mysql') {
 				$my412 = version_compare(q_singleval("SELECT VERSION()"), '4.1.2', '>=');
 			} else {
@@ -153,29 +161,28 @@ function resolve_dest_path($path)
 
 			$idx = array();
 
-			/* create table structure */
-			echo "Create database tables...<br />\n";
-			@ob_flush(); flush();
+			/* Create table structure. */
+			pf('Create database tables...');
 			while (($line = $getf($fp, 1000000)) && !$feoff($fp)) {
 				if (($line = trim($line))) {
 					if (!strncmp($line, 'DROP', 4) || !strncmp($line, 'ALTER', 5)) {
-						continue; // no need to drop tables, already gone
+						continue; // No need to drop tables, already gone.
 					}
 
 					if (strncmp($line, 'CREATE', 6)) {
 						break;
 					}
 
-					// speed up inserts, create indexes later
+					// Speed up inserts, create indexes later.
 					if (strpos($line, ' INDEX ') !== false) {
 						$idx[] = $line;
 						continue;
 					}
 
 					if (__dbtype__ != 'mysql') {
-						$line = strtr($line, array('BINARY'=>'', 'INT NOT NULL AUTO_INCREMENT'=>'SERIAL'));
+						$line = strtr($line, array('BINARY'=>'', 'INT NOT NULL AUTO_INCREMENT'=>(__dbtype__ == 'sqlite' ? 'INTEGER' : 'SERIAL')));
 					} else if ($my412 && !strncmp($line, 'CREATE TABLE', strlen('CREATE TABLE'))) {
-						/* for MySQL 4.1.2+ we need to specify a default charset */
+						/* For MySQL 4.1.2+ we need to specify a default charset. */
 						$line .= " DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci";
 					}
 
@@ -186,6 +193,9 @@ function resolve_dest_path($path)
 			$tmp = $pfx = ''; 
 			$m = __dbtype__ == 'mysql'; $p = __dbtype__ == 'pgsql';
 			do {
+				// Reverse formatting applied in admdump.php.
+				$line = str_replace('\n', "\n", $line);
+
 				if (($line = trim($line))) {
 					if ($line{0} != '(') {
 						if ($tmp && !$skip) {
@@ -193,19 +203,18 @@ function resolve_dest_path($path)
 							$tmp = '';
 						}
 						if ($i > 0) {
-							echo $i.' rows loaded.<br />';
+							pf($i.' rows loaded.');
 							$i = 0;
 						}
 						$pfx = 'INSERT INTO '.$DBHOST_TBL_PREFIX.$line.' VALUES ';
 						$r = $line != 'mime';
 						if (isset($_POST['skipsearch']) && $_POST['skipsearch'] == 'y' && ($line == 'index' || $line == 'title_index' || $line == 'search' || $line == 'search_cache')) {
 							$skip = 1;
-							echo 'Skipping over table '.$DBHOST_TBL_PREFIX.$line.'...<br />';
+							pf('Skipping over table '.$DBHOST_TBL_PREFIX.$line.'...');
 						} else {
 							$skip = 0;
-							echo 'Processing table '.$DBHOST_TBL_PREFIX.$line.'...<br />';
+							pf('Processing table '.$DBHOST_TBL_PREFIX.$line.'...');
 						}
-						@ob_flush(); flush();
 						continue;
 					}
 					if ($skip) continue;
@@ -225,8 +234,7 @@ function resolve_dest_path($path)
 					}
 
 					if ($i && !($i % 10000)) {
-						echo '&nbsp;...'.$i.' rows<br />';
-						@ob_flush(); flush();
+						pf('&nbsp;...'.$i.' rows');
 					}
 					++$i;
 				}
@@ -234,14 +242,13 @@ function resolve_dest_path($path)
 
 			if ($tmp && !$skip) {
 				q($pfx.substr($tmp, 0, -1));
-				echo $i.' rows loaded.<br />';
+				pf($i.' rows loaded.');
 				unset($tmp);
 			}
 
-			echo "Creating indexes...<br />\n";
-			@ob_flush(); flush();
+			pf('Creating indexes...');
 			foreach ($idx as $v) {
-				if ($m) {	// Prevent the famous 'duplicate entry' error on MySQL
+				if ($m) {	// Prevent the famous 'duplicate entry' error on MySQL.
 					$q = str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $v);
 					preg_match('/^CREATE (.*) ON (.*) \((.*)\)/is', $q, $m);
 					q('ALTER IGNORE TABLE '.$m[2].' ADD '.$m[1].' ('.$m[3].')');
@@ -252,7 +259,7 @@ function resolve_dest_path($path)
 			}
 
 			if (__dbtype__ == 'pgsql') {
-				/* we need to restore sequence numbers for postgreSQL */
+				/* We need to restore sequence numbers for postgreSQL. */
 				foreach(db_all("SELECT relname FROM pg_class WHERE relkind='S' AND relname LIKE '".addcslashes($DBHOST_TBL_PREFIX, '_')."%\_id\_seq'") as $v) {
 					if (!($m = q_singleval('SELECT MAX(id) FROM '.basename($v, '_id_seq')))) {
 						$m = 1;
@@ -261,29 +268,28 @@ function resolve_dest_path($path)
 				}
 			}
 
-			/* handle importing of GLOBAL options */
-			echo "Import GLOBAL settings...<br />\n";
-			@ob_flush(); flush();			
-			eval(trim($readf($fp, 100000))); // should be enough to read all options in one shot
+			/* Handle importing of GLOBAL options. */
+			pf('Import GLOBAL settings...');
+			eval(trim($readf($fp, 100000))); // Should be enough to read all options in one shot.
 			change_global_settings($global_vals);
 
-			/* Try to restore the current admin's account by seeing if he exists in the imported database */
-			if (($uid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".$usr->login."' AND users_opt>=1048576 AND (users_opt & 1048576) > 0"))) {
-				q('INSERT INTO '.$DBHOST_TBL_PREFIX.'ses (ses_id, user_id, time_sec) VALUES(\''.$usr->ses_id.'\', '.$uid.', '.__request_timestamp__.')');
-			} else {
-				echo errorify('Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br />Therefor you\'ll need to re-login once the import process is complete.<br />');
+			/* Try to restore the current admin's account by seeing if he exists in the imported database. */
+			if (!defined('recovery_mode')) {
+				if (($uid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".$usr->login."' AND users_opt>=1048576 AND (users_opt & 1048576) > 0"))) {
+					q('INSERT INTO '.$DBHOST_TBL_PREFIX.'ses (ses_id, user_id, time_sec) VALUES(\''.$usr->ses_id.'\', '.$uid.', '.__request_timestamp__.')');
+				} else if (!defined('recovery_mode')) {
+					pf( errorify('Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br />Therefor you\'ll need to re-login once the import process is complete.') );
+				}
 			}
 
-			/* we now need to correct cached paths for file attachments and avatars */
-			echo "Correcting Avatar Paths...<br />\n";
-			@ob_flush(); flush();
+			/* We now need to correct cached paths for file attachments and avatars. */
+			pf('Correcting Avatar Paths...');
 			if (($old_path = q_singleval('SELECT location FROM '.$DBHOST_TBL_PREFIX.'attach LIMIT 1'))) {
 				preg_match('!(.*)/!', $old_path, $m);
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'attach SET location=REPLACE(location, '._esc($m[1]).', '._esc($GLOBALS['FILE_STORE']).')');
 			}
 
-			echo "Correcting Attachment Paths...<br />\n";
-			@ob_flush(); flush();			
+			pf('Correcting Attachment Paths...');
 			if (($old_path = q_singleval('SELECT avatar_loc FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0 LIMIT 1'))) {
 				preg_match('!http://(.*)/images/!', $old_path, $m);
 				preg_match('!//(.*)/!', $GLOBALS['WWW_ROOT'], $m2);
@@ -291,8 +297,7 @@ function resolve_dest_path($path)
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET avatar_loc=REPLACE(avatar_loc, '._esc($m[1]).', '._esc($m2[1]).') WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0');
 			}
 
-			echo "Recompiling Templates...<br />\n";
-			@ob_flush(); flush();
+			pf('Recompiling Templates...');
 
 			fud_use('compiler.inc', true);
 			$c = uq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0');
@@ -301,21 +306,21 @@ function resolve_dest_path($path)
 			}
 			unset($c);
 
-			echo '<b>Import successfully completed.</b><br /><br />';
-			echo '<div class="tutor">To finalize the process you should now run the <nbsp>&gt;&gt; <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> &lt;&lt;</nbsp>.</div>';
+			pf('<b>Import successfully completed.</b><br /><br />');
+			pf('<div class="tutor">To finalize the process you should now run the <nbsp>&gt;&gt; <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> &lt;&lt;</nbsp>.</div>');
 			require($WWW_ROOT_DISK . 'adm/footer.php');
 			exit;
 		}
 	}
 ?>
 <h2>Import forum data</h2>
-<div class="alert">The import process will REMOVE ALL current forum data (all messages and tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the data in the backup file you enter.</div>
+<div class="alert">The import process will REMOVE ALL current forum data (all files and tables with '<?php echo $DBHOST_TBL_PREFIX; ?>' prefix) and replace it with the data in the backup file you enter.</div>
 <div class="tutor">Remember to <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing! You can use the <a href="admbrowse.php?cur=<?php echo urlencode($TMP).'&'.__adm_rsid ?>">File Manager</a> to upload off-site backup files.</div>
 <br />
 
 <?php
 $datadumps = (glob("$TMP*.fud*"));
-if ($datadumps) { 
+if ($datadumps) {
 ?>
 	<table class="datatable solidtable">
 	<tr><td class="fieldtopic">Available datadumps:</td></tr>

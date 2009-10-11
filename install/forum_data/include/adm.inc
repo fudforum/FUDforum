@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: adm.inc,v 1.45 2009/09/30 16:47:32 frank Exp $
+* $Id: adm.inc,v 1.46 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,8 +13,7 @@ fud_use('db.inc');
 
 if (!defined('shell_script')) {
 	if (php_sapi_name() == 'cli') {	// adm_cli.inc wasn't called.
-		echo "Cannot run from command line.\n";
-		exit();
+		exit("Sorry, cannot run from command line.\n");
 	}
 
 	if ($GLOBALS['FUD_OPT_2'] & 32768) {	// USE_PATH_INFO
@@ -52,9 +51,11 @@ if (!($GLOBALS['usr']->users_opt & 1048576)) {	// is_admin
 	}
 }
 
-function pf($str)
+/* Print string to web browser or command line. */
+function pf($str, $webonly=false)
 {
 	if (php_sapi_name() == 'cli') {
+		if ($webonly) return;
 		echo strip_tags($str) ."\n";
 	} else {
 		echo $str .'<br />';
@@ -62,8 +63,15 @@ function pf($str)
 	}
 }
 
+/* Format string as a success message. */
+function successify($msg)
+{
+	return '<span style="color:green;">'. $msg .'</span><br />';
+}
+
+/* Format string as an error message. */
 function errorify($err)
 {
-	return '<span style="color:red;">'.$err.'</span><br />';
+	return '<span style="color:red;">'. $err .'</span><br />';
 }
 ?>

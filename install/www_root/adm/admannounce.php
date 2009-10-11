@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admannounce.php,v 1.32 2009/09/30 16:47:32 frank Exp $
+* $Id: admannounce.php,v 1.33 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -116,7 +116,7 @@ function mk_date($y, $m, $d)
 		} else {
 			++$row;
 		}
-		echo '<td>'.($row == 2 ? $pfx : '').create_checkbox('frm_list['.$r[0].']', $r[0], isset($frm_list[$r[0]])).' <font size="-2"> '.$r[1].'</font></td>';
+		echo '<td><label>'.($row == 2 ? $pfx : '').create_checkbox('frm_list['.$r[0].']', $r[0], isset($frm_list[$r[0]])).' <font size="-2"> '.$r[1].'</font></label></td>';
 	}
 	unset($c);
 ?>

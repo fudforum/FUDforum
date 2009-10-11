@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.163 2009/10/04 21:19:37 frank Exp $
+* $Id: post.php.t,v 1.164 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -402,7 +402,7 @@ function flood_check()
 			if (!$MOD && !($perms & 2)) {
 				check_return();
 			} else if ($frm->forum_opt & 2 && !$MOD) {
-				if ($FUD_OPT_2 & 262144) {
+				if ($FUD_OPT_2 & 262144) {	// MODERATED_POST_NOTIFY
 					$modl = db_all('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='.$frm->id);
 					if ($modl) {
 						send_email($NOTIFY_FROM, $modl, '{TEMPLATE: post_mod_msg_notify_title}', '{TEMPLATE: post_mod_msg_notify_msg}', '');

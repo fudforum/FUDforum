@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.182 2009/09/30 16:00:45 frank Exp $
+* $Id: imsg_edt.inc.t,v 1.183 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -441,14 +441,14 @@ class fud_msg_edit extends fud_msg
 			index_text((strncasecmp($mtf->subject, 'Re: ', 4) ? $mtf->subject : ''), $mtf->body, $mtf->id);
 		}
 
-		/* handle notifications */
-		if (!($GLOBALS['FUD_OPT_3'] & 1048576)) {
-			if ($mtf->root_msg_id == $mtf->id || $GLOBALS['FUD_OPT_3'] & 16384) {
+		/* Handle notifications. */
+		if (!($GLOBALS['FUD_OPT_3'] & 1048576)) {	// not DISABLE_NOTIFICATION_EMAIL
+			if ($mtf->root_msg_id == $mtf->id || $GLOBALS['FUD_OPT_3'] & 16384) {	// FORUM_NOTIFY_ALL
 				if (empty($mtf->frm_last_post_date)) {
 					$mtf->frm_last_post_date = 0;
 				}
 
-				/* send new thread notifications to forum subscribers */
+				/* Send new thread notifications to forum subscribers. */
 				$to = db_all('SELECT u.email
 						FROM {SQL_TABLE_PREFIX}forum_notify fn
 						INNER JOIN {SQL_TABLE_PREFIX}users u ON fn.user_id=u.id AND (u.users_opt & 134217728) = 0

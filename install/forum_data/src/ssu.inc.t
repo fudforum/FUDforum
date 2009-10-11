@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ssu.inc.t,v 1.24 2009/01/29 18:37:17 frank Exp $
+* $Id: ssu.inc.t,v 1.25 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,7 +11,7 @@
 
 function send_status_update($uid, $ulogin, $uemail, $title, $msg)
 {
-	if ($GLOBALS['FUD_OPT_1'] & 1024) {
+	if ($GLOBALS['FUD_OPT_1'] & 1024) {	// PM_ENABLED
 		if (defined('no_inline')) {
 			fud_use('private.inc');
 			fud_use('iemail.inc');

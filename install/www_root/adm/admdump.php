@@ -2,14 +2,14 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.90 2009/09/30 16:47:32 frank Exp $
+* $Id: admdump.php,v 1.91 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-	error_reporting(E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR);
+	error_reporting(E_ALL);
 	@ini_set('display_errors', '1');
 	@ini_set('memory_limit', '256M');
 	@set_time_limit(0);
@@ -62,7 +62,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				continue;
 			}
 			if (!is_readable($f)) {
-				pf('WARNING: unable to open "'.$f.'" for reading');
+				pf('WARNING: unable to open "'.$f.'" for reading.');
 				continue;
 			}
 			$ln = filesize($f);
@@ -204,7 +204,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 
 			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);
 
-			pf('Processing table: '.$tbl_name.' ('.$num_entries.' rows) .... ');
+			pf('Processing table: '.$tbl_name.' ('.$num_entries.' rows)');
 			if ($num_entries) {
 				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '', $tbl_name);
 				$write_func($fp, "\0\0\0\0".$db_name."\n");
@@ -228,8 +228,6 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 				}
 				unset($c);
 			}
-
-			pf('DONE');
 		}
 
 		$write_func($fp, "\n----SQL_END----\n");
@@ -258,8 +256,8 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 		db_unlock();
 
 		$datadump = realpath($_POST['path']);
-		echo '<div align="right">[ <a href="admbrowse.php?down=1&cur='. urlencode(dirname($datadump)) .'&dest='. urlencode(basename($datadump)) .'&'. __adm_rsid .'">Download</a> ] [ <a href="admbrowse.php?cur='. urlencode(dirname($datadump)) .'&'. __adm_rsid .'">Open Directory</a> ]</div>';
-		echo '<div class="tutor">The backup process is complete! The dump file can be found at: <b>'.$datadump.'</b>. It is occupying '.filesize($_POST['path']).' bytes.</div><br />';
+		pf('<div align="right">[ <a href="admbrowse.php?down=1&cur='. urlencode(dirname($datadump)) .'&dest='. urlencode(basename($datadump)) .'&'. __adm_rsid .'">Download</a> ] [ <a href="admbrowse.php?cur='. urlencode(dirname($datadump)) .'&'. __adm_rsid .'">Open Directory</a> ]</div>');
+		pf('<div class="tutor">The backup process is complete! The dump file can be found at: <b>'.$datadump.'</b>. It is occupying '.filesize($_POST['path']).' bytes.</div>');
 	} else {
 		$gz = extension_loaded('zlib');
 		if (!isset($path_error)) {

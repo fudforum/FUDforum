@@ -1,4 +1,7 @@
-<?php if (defined('shell_script') ) return; ?>
+<?php
+	if (defined('shell_script') ) return;	// Command line execution.
+	if (!isset($FORUM_TITLE, $DATA_DIR)) die('Go away!');	// Hacking attempt?
+?>
 <br />
 <div style="text-align:right;">
 <script type="text/javascript">

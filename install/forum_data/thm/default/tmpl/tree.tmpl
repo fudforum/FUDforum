@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.94 2009/08/06 18:00:55 frank Exp $
+* $Id: tree.tmpl,v 1.95 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -172,7 +172,11 @@
 <span id="threadRating">{IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}</span>
 <table cellspacing="0" cellpadding="0" border="0" class="wa">
 <tr>
-<td class="GenText al">{TEMPLATE: show_links}{IF: ($frm->replies && $perms & 2048)}{TEMPLATE: split_thread}{ENDIF}{IF: $perms & 8192}{IF: $frm->replies}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIFI}<a href="javascript://" onclick="window_open(\'{TEMPLATE: tree_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}{TEMPLATE-DATA: lock_thread}{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_page_to_friend}{ENDIF}{TEMPLATE-DATA: subscribe_status}{TEMPLATE-DATA: bookmark_status}</td>
+<td class="GenText al">{TEMPLATE: show_links}
+{IF: ($frm->replies && $perms & 2048)}{TEMPLATE: split_thread}{ENDIF}
+{IF: $perms & 8192}{IF: $frm->replies}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIFI}<a href="javascript://" onclick="window_open(\'{TEMPLATE: tree_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}{TEMPLATE-DATA: lock_thread}
+{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_page_to_friend}{ENDIF}
+{TEMPLATE-DATA: subscribe_status}{TEMPLATE-DATA: bookmark_status}</td>
 <td class="vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
 </tr>
 </table>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.36 2009/09/30 16:47:33 frank Exp $
+* $Id: admsysinfo.php,v 1.37 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,34 +32,34 @@ function get_server_software()
 	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>System Configuration</h2>
-<p>Overview of your system's configuration:</p>
+<p>Overview of your system's configuration. Please include this when reporting bugs on the <a href="http://fudforum.org/">support forum</a>:</p>
 <table class="datatable">
 <tr class="field">
-	<td><b>Forum Version:</b></td>
+	<td><b>FUDforum version:</b></td>
 	<td><?php echo $FORUM_VERSION; ?></td>
 </tr>
 <tr class="field">
-	<td><b>PHP Version:</b></td>
+	<td><b>PHP version:</b></td>
 	<td><?php echo PHP_VERSION; ?></td>
 </tr>
 <tr class="field">
-	<td><b>PHP built On:</b></td>
+	<td><b>PHP built on:</b></td>
 	<td><?php echo php_uname(); ?></td>
 </tr>
 <tr class="field">
-	<td><b>Database Type:</b></td>
-	<td><?php echo __dbtype__; ?></td>
+	<td><b>Database type:</b></td>
+	<td><?php echo __dbtype__ .' ('. $DBHOST_DBTYPE .')'; ?></td>
 </tr>
 <tr class="field">
-	<td><b>Database Version:</b></td>
+	<td><b>Database version:</b></td>
 	<td><?php echo get_version(); ?></td>
 </tr>
 <tr class="field">
-	<td><b>Web Server:</b></td>
+	<td><b>Web server:</b></td>
 	<td><?php echo get_server_software(); ?></td>
 </tr>
 <tr class="field">
-	<td><b>Web Server to PHP interface:</b></td>
+	<td><b>Web server to PHP interface:</b></td>
 	<td><?php echo php_sapi_name(); ?></td>
 </tr>
 <?php
@@ -72,11 +72,11 @@ echo '<tr class="field">
 ?>
 
 <tr class="field">
-	<td valign="top"><b>Relevant PHP Settings:</b></td>
+	<td valign="top"><b>Relevant PHP settings:</b></td>
 	<td>
 		<table cellspacing="1" cellpadding="1" border="0">
 			<tr>
-				<td>Safe Mode:</td>
+				<td>Safe mode:</td>
 				<td><?php echo get_php_setting('safe_mode'); ?></td>
 			</tr>
 			<tr>
@@ -84,39 +84,39 @@ echo '<tr class="field">
 				<td><?php echo (($ob = ini_get('open_basedir')) ? $ob : 'none'); ?></td>
 			</tr>
 			<tr>
-				<td>Display Errors:</td>
+				<td>Display errors:</td>
 				<td><?php echo get_php_setting('display_errors'); ?></td>
 			</tr>
 			<tr>
-				<td>File Uploads:</td>
+				<td>File uploads:</td>
 				<td><?php echo get_php_setting('file_uploads'); ?></td>
 			</tr>
 			<tr>
-				<td>Maximum File Upload Size:</td>
+				<td>Maximum file upload size:</td>
 				<td><?php echo ini_get('upload_max_filesize'); ?></td>
 			</tr>
 			<tr>
-				<td>Magic Quotes:</td>
+				<td>Magic quotes:</td>
 				<td><?php echo get_php_setting('magic_quotes_gpc'); ?></td>
 			</tr>
 			<tr>
-				<td>Register Globals:</td>
+				<td>Register globals:</td>
 				<td><?php echo get_php_setting('register_globals'); ?></td>
 			</tr>
 			<tr>
-				<td>Output Buffering:</td>
+				<td>Output buffering:</td>
 				<td><?php echo (is_numeric(ini_get('output_buffering')) ? 'Yes' : 'No'); ?></td>
 			</tr>
 			<tr>
-				<td>Disabled Functions:</td>
+				<td>Disabled functions:</td>
 				<td><?php echo (($df=ini_get('disable_functions'))?$df:'none'); ?></td>
 			</tr>
 			<tr>
-				<td>PSpell Support:</td>
+				<td>PSpell support:</td>
 				<td><?php echo extension_loaded('pspell') ? 'Yes' : 'No'; ?></td>
 			</tr>
 			<tr>
-				<td>Zlib Support:</td>
+				<td>Zlib support:</td>
 				<td><?php echo extension_loaded('zlib') ? 'Yes' : 'No'; ?></td>
 			</tr>
 		</table>

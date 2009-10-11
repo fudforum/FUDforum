@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forumsel.inc.t,v 1.39 2009/03/31 10:26:45 frank Exp $
+* $Id: forumsel.inc.t,v 1.40 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,6 +30,7 @@ function tmpl_create_forum_select($frm_id, $mod)
 	}
 	$f = array($frm_id => 1);
 
+	$frmcount = 0;
 	$oldc = $selection_options = '';
 	while ($r = db_rowarr($c)) {
 		if ($oldc != $r[2]) {
@@ -46,6 +47,7 @@ function tmpl_create_forum_select($frm_id, $mod)
 			$oldc = $r[2];
 		}
 		$selection_options .= '{TEMPLATE: forum_option}';
+		$frmcount++;
 	}
 	unset($c);
 	

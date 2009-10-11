@@ -2,14 +2,14 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admplugins.php,v 1.11 2009/09/30 16:47:33 frank Exp $
+* $Id: admplugins.php,v 1.12 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-	// Enable error reporting before GLOBALS.php to show plugin errors
+	// Enable error reporting before GLOBALS.php to show plugin errors.
 	ini_set('display_errors', 1);
 	error_reporting(E_ALL); 
 
@@ -104,6 +104,11 @@
 		if (isset($info['version'])) {
 			echo '<b>Plugin version:</b> '.$info['version'].'<br />';
 		}
+		if (isset($info['help'])) {
+			echo '<div style="font-size: small; float:right;">[ <a href="'.$info['help'].'">Plugin documentation</a> ]</div>';
+		} else {
+			echo '<div style="font-size: small; float:right;">[ <a href="http://cvs.prohost.org/index.php/'.$func_base.'.plugin">Documentation on Wiki</a> ]</div>';
+		}
 		echo '</fieldset>';
 
 		$config_func = $func_base . '_config';
@@ -116,12 +121,7 @@
 			echo '<input type="submit" name="Set" value="Change settings" />';
 			echo '</fieldset></form>';
 		}
-		
-		if (isset($info['help'])) {
-			echo '<div style="float:left;">[ <a href="'.$info['help'].'">Plugin documentation</a> ]</div>';
-		} else {
-			echo '<div style="float:left;">[ <a href="http://cvs.prohost.org/index.php/'.$func_base.'.plugin">Documentation on Wiki</a> ]</div>';
-		}
+
 		echo '<div style="float:right;">[ <a href="admplugins.php?'.__adm_rsid.'">Return to Plugin Manager &raquo;</a> ]</div>';
 		exit;
 	}

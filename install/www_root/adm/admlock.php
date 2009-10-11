@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.51 2009/09/30 16:47:33 frank Exp $
+* $Id: admlock.php,v 1.52 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,7 +42,7 @@
 		while (list(,$v) = each($dirs)) {
 			@chmod($v, $dirperms);
 			if (!is_readable($v)) {
-				echo 'ERROR: Unable to open "'.$v.'" directory<br />';
+				echo errorify('ERROR: Unable to open directory '. $v .'!');
 				continue;
 			}
 			if (!($files = glob($v . '/{.b*,.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
@@ -64,10 +64,11 @@
 	$status = ($FUD_OPT_2 & 8388608 ? 'LOCKED' : 'UNLOCKED');
 ?>
 <h2>Lock/Unlock Forum Files</h2>
-<?php if ($status == 'UNLOCKED' ) echo '<div class="alert">For security reasons, remember to lock your forum\'s files after you are done editing them.</div>'; ?>
+<?php if ($status == 'UNLOCKED' ) echo '<div class="alert">For security reasons, please remember to lock your forum\'s files when you are done editing them.</div>'; ?>
 <form method="post" action="">
 <p>The forum's files appear to be: 
-<?php echo '<font color="'. ($status=='LOCKED' ? 'green' : 'red') .'">'. $status .'</font>'; ?>
+<?php echo '<font size="+2" color="'. ($status=='LOCKED' ? 'green' : 'red') .'">'. $status .'</font>'; ?>.<br />
+If this test claims that the forum is unlocked, but you still cannot modify your files click on the "Unlock Files" button.
 </p>
 <table border="0" cellspacing="0" cellpadding="3">
 <tr><td>Login:</td><td><input type="text" name="usr_login" value="<?php echo $usr->alias; ?>" /></td></tr>
@@ -77,8 +78,6 @@
 	<input type="submit" name="btn_unlock" value="Unlock Files" />
 </td></tr>
 </table>
-<br />
-<div class="tutor">If this test claims that the forum is unlocked, but you still cannot modify your files click on the "Unlock Files" button.</div>
 <?php echo _hs; ?>
 </form>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

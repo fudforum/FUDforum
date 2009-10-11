@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.80 2009/09/06 02:07:45 frank Exp $
+* $Id: msg.tmpl,v 1.81 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -89,7 +89,7 @@
 {IF: ($frm->replies && $perms & 8192)}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIF}
 {IF: $perms & 8192}<a href="javascript://" onclick="window_open(\'{TEMPLATE: msg_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}
 {IF: $perms & 4096}{IF: $frm->thread_opt & 1}<a href="{TEMPLATE: mod_unlock_thread_lnk}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;{ELSE}<a href="{TEMPLATE: mod_lock_thread_lnk}">{MSG: lock_thread}</a>&nbsp;|&nbsp;{END}{ENDIF}
-{IF: $FUD_OPT_2 & 1073741824}<a href="{TEMPLATE: email_page_to_friend_lnk}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>&nbsp;{ENDIF}
+{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_page_to_friend}{ENDIF}
 {TEMPLATE-DATA: first_unread_message_link}{TEMPLATE-DATA: subscribe_status}{TEMPLATE-DATA: bookmark_status}</td>
 <td class="vb ar">{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
 </tr>
@@ -165,6 +165,10 @@ format_code('{MSG: code_title}', '{MSG: code_select_all}', '{MSG: code_show_hide
 
 {SECTION: email_page_to_friend_lnk}
 {ROOT}?t=remail&amp;th={VAR: th}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: email_page_to_friend}
+<a href="{TEMPLATE: email_page_to_friend_lnk}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: first_unread_message_link_lnk}

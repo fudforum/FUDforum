@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.60 2009/09/30 16:47:33 frank Exp $
+* $Id: admmassemail.php,v 1.61 2009/10/11 11:41:50 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,7 +14,9 @@
 	fud_use('widgets.inc', true);
 	fud_use('smtp.inc');
 	fud_use('iemail.inc');
-
+	
+	require($WWW_ROOT_DISK . 'adm/header.php');
+	
 	/* special user groups */
 	$all_mods = -1000000000;
 	$all_grp_lead = -1000000001;	
@@ -29,24 +31,23 @@
 	$err = 0;
 
 	if (!empty($_POST['subject']) && !empty($_POST['body'])) {
+		$fld = !empty($_POST['pm']) ? 'u.id' : 'email';
 		if (!$_POST['group']) {
-			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'users '.(isset($_POST['ignore_override']) ? '' : 'WHERE id > 1 AND (users_opt & 8)=0'));
+			$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'users u WHERE u.id > 1'.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
 		} else if (!isset($groups[$_POST['group']]) && $_POST['group'] != $all_mods && $_POST['group'] != $all_grp_lead && $_POST['group'] > 0) {
-			echo '<font color="+1" color="red">Invalid group id</font><br />';
+			echo errorify('Invalid group id!');
 			$err = 1;
-			$c = uq('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE id=-1');
+			$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'users u WHERE id=-1');
 		} else {
 			$gid = (int) $_POST['group'];
-			$fld = !empty($_POST['pm']) ? 'u.id' : 'email';
-
 			if ($gid > 0) {
-				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$gid.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
+				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE u.id > 1 AND gm.group_id='.$gid.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
 			} else if ($gid == $all_mods) {
-				$c = uq('SELECT DISTINCT('.$fld.') FROM '.$DBHOST_TBL_PREFIX.'mod m INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=m.user_id '.(isset($_POST['ignore_override']) ? '' : ' WHERE (users_opt & 8)=0'));
+				$c = uq('SELECT DISTINCT('.$fld.') FROM '.$DBHOST_TBL_PREFIX.'mod m INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=m.user_id WHERE u.id > 1'.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
 			} else if ($gid == $all_grp_lead) {
-				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE (gm.group_members_opt & 131072) '.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
+				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE u.id > 1 AND (gm.group_members_opt & 131072) '.(isset($_POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
 			} else {
-				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'users u WHERE level_id='.($gid * -1).(isset($_POST['ignore_override']) ? '' : ' AND id > 1 AND (users_opt & 8)=0'));
+				$c = uq('SELECT '.$fld.' FROM '.$DBHOST_TBL_PREFIX.'users u WHERE u.id > 1 AND level_id='.($gid * -1).(isset($_POST['ignore_override']) ? '' : ' AND id > 1 AND (users_opt & 8)=0'));
 			}
 		}
 
@@ -67,10 +68,8 @@
 			$send_to = $ADMIN_EMAIL;
 			$to = array();
 
-			if (!($FUD_OPT_1 & 512)) {
-				if (version_compare("4.3.3RC2", PHP_VERSION, ">")) {
-					$_POST['body'] = str_replace("\n.", "\n..", $_POST['body']);
-				}
+			if (!($FUD_OPT_1 & 512)) {	// USE_SMTP
+				$_POST['body'] = str_replace("\n.", "\n..", $_POST['body']);
 
 				while ($r = db_rowarr($c)) {
 					$to[] = $r[0];
@@ -113,11 +112,10 @@
 			}
 		}
 		if (!$err) {
-			echo '<font size="+1" color="green">'.$total.' '.(empty($_POST['pm']) ? 'E-mails' : 'Private Mesages').' were sent</font><br />';
+			echo '<font size="+1" color="green">'.$total.' '.(empty($_POST['pm']) ? 'E-mails' : 'Private Mesages').' were sent.</font><br />';
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Mass Mail System</h2>
 <form method="post" action="" id="a_frm">
