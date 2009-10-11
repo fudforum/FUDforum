@@ -677,7 +677,7 @@ register_change_passwd:Passwort &auml;ndern
 approved_avatar_title:Dein pers&ouml;nlicher Avatar wurde genehmigt.
 approved_avatar_msg:Dein Avatar wurde vom Administrator genehmigt. Er sollte nun in s&auml;mtlichen von dir erstellten Beitr&auml;gen erscheinen. Falls du ihn nicht siehst oder stattdessen den alten Avatar, liegt es daran, dass der Browser die Seite im Cache gespeichert hat. Versuche, die Seite ein- oder zweimal zu aktualisieren, das sollte in den meisten F&auml;llen das Problem beheben.
 unapproved_avatar_title:Dein Benutzeravatar wurde abgelehnt.
-unapproved_avatar_msg:Der Administrator hat deinen Avatar nicht genehmigt. Die h&auml;figste Ursache daf&uuml;r ist das dieser zu gro&szlig; (Dateigr&ouml;&szlig;e und/oder Ausma&szlig;e)war oder einen unangemessenen Inhalt darstellte. Falls du mehr Informationen &uuml;ber die Gr&uuml;nde der Ablehnung erfahren m&ouml;chtest, nimm Kontakt zum Administrator auf.
+unapproved_avatar_msg:Der Administrator hat deinen Avatar nicht genehmigt. Die häufigste Ursache dafür ist das dieser zu groß (Dateigröße und/oder Ausmaße) war oder einen unangemessenen Inhalt darstellte. Falls du mehr Informationen über die Gründe der Ablehnung erfahren möchtest, nimm Kontakt zum Administrator auf.
 mvthread_request_move:Um das Verschieben eines Themas bitten
 move_request_reason:Warum m&ouml;chtest du das Thema verschieben?
 mvthread_submit_req:Anfrage abschicken
@@ -808,7 +808,7 @@ help_return_to_index:Zur&uuml;ck zum Hilfeindex
 imsg_err_message_title:Ung&uuml;tiger Beitrag
 imsg_err_message_msg:Der Beitrag, den du versuchst anzusehen, existiert nicht.
 poll_edit:Bearbeiten
-register_err_not_valid_img:Die angegebene URL enth&auml;t kein g&uuml;ltiges Bild.
+register_err_not_valid_img:Die angegebene URL enthält kein gültiges Bild.
 pmsg_recepient:Empf&auml;nger
 register_err_taken_alias:Der Alias, welchen du verwenden m&ouml;chtest, wird bereits von einem Forumsmitglied genutzt. Bitte nimm einen anderen Alias.
 register_alias:Alias

@@ -349,7 +349,7 @@ post_sticky:Plakker
 post_annoncement:Aankondiging
 post_size:Groote
 post_color:Kleur
-post_font:Lettersoort
+post_font:Lettertipe
 create_thread:Begin onderwerp
 submit_reply:Stuur antwoord
 edit_message:Pas wysigings toe
@@ -467,7 +467,7 @@ remail_your_name:U naam:
 remail_your_email:U Epos:
 remail_friends_name:Vriend se naam:
 remail_friends_email:Vriend se epos:
-remail_required:vereis
+remail_required:verpligtend
 remail_subject:Onderwerp:
 remail_message:Boodskap:
 remail_send_now:Stuur Epos

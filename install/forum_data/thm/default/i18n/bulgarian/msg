@@ -52,6 +52,7 @@ image:Изображение:
 index_forum:Форум
 index_new_posts:Има нови съобщения от вашето последно посещение
 index_no_new_posts:Няма нови съобщения от вашето последно посещение
+index_url_redirection:Пренасочване
 interests:Интереси:
 last_post:Последно съобщение
 last_thread_msg:Отиди към последното съобщение по тази тема
@@ -445,6 +446,7 @@ rpasswd_cur_pass:Текущата парола:
 rpasswd_new_pass:Нова парола:
 rpasswd_conf_pass:Въведи пак (за проверка):
 login_passwd:Парола:
+reset_email:Е-поща:
 reset_reset_button:Изчисти паролата
 rate_this_thread:Оцени тази тема
 report_reporting_about:Съобщи на Администратор за:
@@ -492,6 +494,7 @@ mklist_disc:Номериране - дисково
 mklist_circle:Номериране - точки
 mklist_close:Затвори
 email_to:На кой:
+email_pg_title:Е-поща
 email_subject:Заглавие:
 email_body:Текст:
 email_submit:Email
@@ -797,13 +800,10 @@ split_th_split_unsel:Раздели неотбелязаните съобщен�
 split_th_messages:Съобщения
 split_th_select:Избери
 report_report_post:Съобщи
-# Fuzzy
-quicklogin_login:Потребителско име
-# Fuzzy
-quicklogin_password:Парола
+quicklogin_login:Потребителско име:
+quicklogin_password:Парола:
 quicklogin_use_cookies:Да се ползват ли Cookies?
-# Fuzzy
-quicklogin_login_btn:Влез
+quicklogin_login_btn:Влизане
 quick_reply:Бърз отговор
 post_notification_desc:Извести ме, ако някой отговори на това съобщение.
 maximize_category:Разгърни Категорията
@@ -817,6 +817,9 @@ pmsg_prev_msg:Предишно съобщение
 post_proc_reveal_spoiler:Посочи Пречката
 register_jabber:Логин в Jabber:
 im_jabber:Jabber:&nbsp;
+im_google:Google Разговори:
+im_skype:Скайп:
+im_twitter:Туитър:
 forum_contact:Обратна връзка
 forum_home:Начало
 # Fuzzy
@@ -873,6 +876,11 @@ threadt_disabled_desc:Администраторът изключи разгър
 threadt_update:Разглеждане (разгърнат изглед) на форума <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:Потвърждение за Изтриване на Тема/Съобщение&nbsp;
 spell_alts:няма други възможности
+iemail_msg_author:<b>Автор:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>Тема:</b> {VAR: obj->subject}
+iemail_msg_date:<b>Дата:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:Отговаряне
+iemail_msg_quote:Цитиране
 findu_edit:Редактиране
 findu_delete:Изтриване
 usrinfo_last_visit:Последно посещение:

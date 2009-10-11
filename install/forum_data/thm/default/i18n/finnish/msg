@@ -61,7 +61,7 @@ legend:Selite
 location:Sijainti:
 lock_thread:Lukitse aihe
 locked:Lukittu
-locked_with_new_posts:Lukittu (sis. lukemattomia viestejä)
+locked_with_new_posts:Lukittu (sisältää lukemattomia viestejä)
 logged_in_list:Kirjautuneet käyttäjät
 login:Kirjaudu
 login_header:Käyttäjätunnus:
@@ -139,8 +139,7 @@ sender_name:Lähettäjän nimi:
 show_posts_by:Näytä käyttäjän {VAR: u_alias} viestit
 size:Koko:
 status:Tila:
-# Fuzzy
-status_line:Tällä hetkellä <b>{VAR: st_obj->online_users_reg}</b> rekisteröitynyt(tä), <b>{VAR: st_obj->online_users_hidden}</b> näkymätön(tä) ja <b>{VAR: st_obj->online_users_anon}</b> vieras(ta) käyttäjä(ä).
+status_line:Tällä hetkellä paikalla <b>{PLURAL: st_obj->online_users_reg|$1 jäsen|$1 jäsentä}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 näkymätön jäsen|$1 näkymätöntä jäsentä}</b> ja <b>{PLURAL: st_obj->online_users_anon|$1 vieras|$1 vierasta}</b>.
 sticky:kelluva:
 stop_ignoring:huomioi jälleen tämän käyttäjän viestit
 sub_to_thread:Tilaa aihe
@@ -155,8 +154,7 @@ subscribed_threads_desc:Valitse Tilatut aiheet -suodatin (näyttää viestit vai
 switch_to_thread_view:Vaihda puulistaukseen
 thread:Aihe:
 thread_announcement:Tiedote:
-# Fuzzy
-thread_first_unread_msg:Siirry tämän aiheen ensimmäiseen lukemattomaan viestiin
+thread_first_unread_msg:Siirry ensimmäiseen lukemattomaan viestiin tässä aiheessa
 thread_thread:Aihe
 threads:Aiheita
 time:Aika
@@ -204,7 +202,7 @@ pmsg_new_messages:Lukematon yksityisviesti
 pmsg_old_messages:Luettu yksityisviesti
 deny_recipt:ei kuittausta
 deny_recipt_desc:Ei lähetetä vahvistusta viestin lukemisesta
-restore_to:Palauta Kansioon:
+restore_to:Palauta kansioon:
 move_to:Siirrä kansioon:
 list_referes_referrals:Suosittelut
 list_referes_members:Suositellut käyttäjät
@@ -226,7 +224,7 @@ pmsg_selected:Valittu
 pmsg_delete:Poista
 cur_ppage_pm:Yksityisviestit
 writing_pm:Yksityisviestin kirjoitus
-browsing_folder:<b>{VAR: folders[$folder_id]}</b> kansio
+browsing_folder:Selataan kansiota <b>{VAR: folders[$folder_id]}</b>
 inbox:Saapuneet
 draft:Luonnokset
 sent:Lähetetyt
@@ -283,9 +281,9 @@ register_your_pass:Salasanasi:
 register_update:Päivitä
 register_avatar_type:Avatar-tyyppi:
 register_del_avatar:Poista avatar
+register_avatar:Avatar:
 register_sel_avatar:Valitse avatar
-# Fuzzy
-register_custom_avatar_rules:Oma avatar näytetään vasta kun ylläpitäjä on sen hyväksynyt.<br /><font class="SmallText">Kuva saa olla korkeintaan <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikselin kokoinen.</b> Hyväksytyt kuvaformaatit ovat <b>jpg</b>, <b>gif</b> ja <b>png</b></font>
+register_custom_avatar_rules:Oma avatar näytetään vasta kun ylläpitäjä on hyväksynyt sen.<br /><span class="SmallText">Kuva saa olla enintään <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} kuvapistettä</b>. Sallitut tiedostomuodot ovat <b>jpg</b>, <b>gif</b> ja <b>png</b>.</span>
 register_custom_avatar_url:Oman avatarin URL:
 register_preview:Esikatselu
 register_custom_avatar_upload:Oma avatar-tiedosto
@@ -428,8 +426,7 @@ login_name_required:Käyttäjätunnus on pakollinen
 login_passwd_required:Salasana on pakollinen
 login_invalid_radius:Käyttäjätunnus/salasana-yhdistelmä oli virheellinen
 reset_confirmation:Kiitos rekisteröitymisestä.\n\nAktivoidaksesi käyttäjätilisi siirry alla olevaan osoitteeseen:\n\n{VAR: url}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti\nja sinut ohjataan foorumin etusivulle.
-# Fuzzy
-reset_reset:Hei,\n\nOlet pyytänyt että salasanasi vaihdetaan, napsauta tätä linkkiä aktivoidaksesi\nsalasanan muutos:\n\n{VAR: url}\n\nHUOM! Tämä foorumi tallentaa salasanat yhdensuuntaisella salausmekanismilla\nmikä tarkoittaa, että antamasi salasana salataan menetelmällä joka estää sen\nnäkemisen selväkielisenä. Tämä toimii yksinkertaisuudessaan siten, että aina\nkun annat salasanasi se salataan samalla salausmenetelmällä ja verrataan\ntietokantaan tallennettuun salattuun salasanaan.\n(Jos olet kiinnostunut kuinka tämä salausmenetelmä toimii, etsi tietoja MD5 HASH -algoritmista)
+reset_reset:Hei, olet pyytänyt, että salasanasi vaihdetaan. Siirry alla olevaan osoitteeseen jatkaaksesi:\n\n{VAR: url}\n\nHuomaa: Tämä foorumi tallentaa salasanat yhdensuuntaisella salausmekanismilla, eli antamasi salasana salataan menetelmällä, joka estää sen näkemisen selväkielisenä. Tämä toimii yksinkertaisuudessaan siten, että aina kun annat salasanasi – se salataan samalla salausmenetelmällä ja verrataan tietokantaan tallennettuun salattuun salasanaan. (Jos olet kiinnostunut kuinka tämä salausmenetelmä toimii, etsi tietoja MD5 HASH -algoritmista)
 rpasswd_invalid_passwd:Virheellinen salasana
 rpasswd_passwd_nomatch:Salasanat eivät täsmää
 rpasswd_passwd_length:Salasanan täytyy olla vähintään 6 merkkiä pitkä
@@ -582,10 +579,10 @@ post_err_lockedthread_title:VIRHE: Aihe lukittu
 post_err_lockedthread_msg:Tämä aihe on lukittu, uusia viestejä ei sallita
 err_coppa_title:VIRHE: Käyttäjätiliä ei ole vielä hyväksytty
 err_coppa_msg:Emme ole vastaanottaneet varmistusta vanhemmiltasi tai lailliselta huoltajaltasi, joten et voi vielä lähettää viestejä foorumille. Jos olet hukannut COPPA-kaavakkeen – <a href="{TEMPLATE: err_coppa_msg_lnk}">voit hakea sen uudelleen</a>.
-err_banned_acct_title:VIRHE: Olet estetty.
-post_err_edttimelimit_title:VIRHE
+err_banned_acct_title:Virhe: Olet estetty.
+post_err_edttimelimit_title:Virhe
 post_err_edttimelimit_msg:Et voi enää muokata tätä viestiä.
-post_err_floodtrig_title:VIRHE: Viestitulva (message flood)
+post_err_floodtrig_title:Virhe: Viestitulva.
 post_err_floodtrig_msg:Odota {PLURAL: tm|$1 sekunti|$1 sekuntia} ja yritä uudelleen.
 post_err_attach_size:Liitetiedoston koko ylittää suurimman sallitun {VAR: MAX_F_SIZE} tavun rajan
 post_err_attach_ext:Lähetetyn tiedoston tyyppi ei vastaa sallittuja tiedostotyyppejä.
@@ -603,8 +600,7 @@ postcheck_invalid_email:Virheellinen sähköpostiosoite.
 postcheck_email_subject:Et voi lähettää sähköpostia ilman otsikkoa.
 postcheck_email_body:Et voi lähettää sahköpostia ilman viestiä.
 private_msg_notify_subj:Viesti otsikolla {VAR: m->subject} on luettu
-# Fuzzy
-private_msg_notify_body:Hei,<br />{VAR: usr->login} on lukenut viestisi otsikolla "{VAR: m->subject}" {DATE: m->post_stamp %a, %d. %Bta %Y %H:%M}<br />
+private_msg_notify_body:Hei,<br />{VAR: usr->login} on lukenut viestisi otsikolla ”{VAR: m->subject}”.<br />Tämä automaattinen huomautus luotiin {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Selaa suosittelujaan
 register_err_short_login:Valitsemasi käyttäjätunnus on liian lyhyt. Käyttäjätunnuksen täytyy olla vähintään 4 merkkiä pitkä.
 register_err_login_notallowed:Tätä tunnusta ei hyväksytty
@@ -627,9 +623,9 @@ register_err_cantreg_title:VIRHE: rekisteröityminen epäonnistui
 regsiter_err_cantreg_msg:Rekisteröityminen epäonnistui, ole hyvä ja ota yhteyttä ylläpitäjään: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Selaa omia käyttäjätietojaan
 register_register_update:Rekisteröitymissivu
-report_err_nosuchmsg_title:VIRHE
+report_err_nosuchmsg_title:Virhe
 report_err_nosuchmsg_msg:Viestiä ei ole
-reset_err_invalidkey_title:VIRHE
+reset_err_invalidkey_title:Virhe
 reset_err_invalidkey_msg:Virheellinen salasanan varmistusavain
 reset_err_rstconf_title:Info
 reset_err_rstconf_msg:Ohjeiden pitäisi saapua sähköpostiisi muutaman minuutin kuluessa
@@ -647,20 +643,19 @@ userinfo_update:Katselee käyttäjän <a href="{TEMPLATE: userinfo_update_lnk}">
 ERR_login_msg2:<legend>VIRHE: Et ole sisäänkirjautunut</legend>Voidaksesi käyttää tätä toimintoa, tulee sinun ensin kirjautua sisään.
 ERR_disabled_ttl:Toiminto ei ole käytössä
 ERR_disabled_msg:Ylläpitäjä on poistanut tämän toiminnon käytöstä
-ERR_access_ttl:VIRHE: Käyttöoikeudet riittämättömät
+ERR_access_ttl:Virhe: Käyttöoikeudet riittämättömät
 ERR_access_msg:Sinulla ei ole vaadittuja käyttöoikeuksia suorittaaksesi tämän toiminnon
 ERR_registration_disabled_ttl:Rekisteröinti ei ole käytössä
 ERR_registration_disabled_msg:Ylläpitäjä on poistanut rekisteröinnin käytöstä. Yritä myöhemmin uudelleen
-ERR_emailconf_ttl:VIRHE: Käyttäjätiliäsi ei ole vahvistettu
-# Fuzzy
-ERR_emailconf_msg:Et ole vahvistanut käyttäjätiliäsi vielä.<br /><table border="0"><tr><td><ol><li>Jos et ole saanut vahvistussähköpostia <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klikkaa tätä</a><li>Jos {VAR: usr_d->email} ei ole oikea sähköpostiosoitteesi <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klikkaa tätä</a></ol></td></tr></table>
-ERR_user_ttl:VIRHE: Käyttäjää ei ole
+ERR_emailconf_ttl:Virhe: Käyttäjätiliäsi ei ole vahvistettu
+ERR_emailconf_msg:Et ole vahvistanut käyttäjätiliäsi vielä.<br /><table border="0"><tr><td><ol><li>Jos et ole saanut vahvistussähköpostia – <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">pyydä se uudelleen</a>.</li><li>Jos {VAR: usr_d->email} ei ole oikea sähköpostiosoitteesi – <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">määritä oikea osoite</a>.</li></ol></td></tr></table>
+ERR_user_ttl:Virhe: Käyttäjää ei ole
 ERR_user_msg:Käyttäjää ei ole olemassa
-ERR_systemerr_ttl:VIRHE: Systeemivirhe
+ERR_systemerr_ttl:Virhe: Järjestelmävirhe
 ERR_systemerr_msg:Tapahtui järjestelmävirhe. Ole hyvä ja raportoi se <a href="mailto:{GVAR: ADMIN_EMAIL}">sivuston ylläpitäjälle</a>.
 email_title:Sähköpostikaavake
-finduser_title:Hae Käyttäjä
-help_title:F.A.Q.
+finduser_title:Hae käyttäjä
+help_title:Ohje
 login_title:Sisäänkirjautuminen
 poll_title:Gallup-editori
 register_title:Rekisteröityminen
@@ -738,7 +733,7 @@ p_MOVE:Siirtää aiheita
 p_SML:Käyttää hymiöitä
 p_IMG:Käyttää kuvia
 p_SEARCH:Hakea viestejä
-group_mgr_search:Hae Käyttäjä
+group_mgr_search:Hae käyttäjä
 group_mgr_indicator:Muokkaat tällä hetkellä: <b>{VAR: grp->name}</b>
 rate_worst:Huonoin
 rate_best:Paras
@@ -747,7 +742,7 @@ post_quote:Lainaus:
 userinfo_referals:Suositellut käyttäjät:
 userinfo_referals_count:{VAR: referals} käyttäjää
 pm_no_space_title:Ei tilaa jäljellä!
-pm_no_space_msg:Yksityisviestikansiosi sisältävät yhteensä <b>{VAR: fldr_size} tavun verran viestejä joka ylittää suurimman sallitun <b>{GVAR: MAX_PMSG_FLDR_SIZE} tavun rajan.<br /><br /><font class="ErrorText">Vapauta tilaa poistamalla vanhoja viestejä</font>.
+pm_no_space_msg:Yksityisviestikansiosi sisältävät yhteensä <b>{VAR: fldr_size} tavun verran viestejä, joka ylittää suurimman sallitun <b>{GVAR: MAX_PMSG_FLDR_SIZE} tavun rajan.<br /><br /><span class="ErrorText">Vapauta tilaa poistamalla vanhoja viestejä.</span>
 pm_space_indct_msg:Kansioiden käyttämä tila: {VAR: percent_full}%
 th_expr_never:Ei koskaan
 th_expr_one_hr:1 tunnissa
@@ -781,8 +776,8 @@ split_th_posted_on:Lähetetty:
 split_th_subject:Otsikko:
 split_th_new_thread_title:Uusi otsikko aiheelle:
 split_th_forum:Foorumi:
-split_th_split_sel:Pilko valitut viestit
-split_th_split_unsel:Pilko valitsemattomat viestit
+split_th_split_sel:Jaa valitut viestit
+split_th_split_unsel:Jaa valitsemattomat viestit
 split_th_messages:Viestit
 split_th_select:Valitse
 report_report_post:Ilmoita viestistä
@@ -926,14 +921,14 @@ mnav_day:Päivä(ä)
 mnav_week:Viikko(a)
 mnav_month:Kuukautta
 mnav_title:Viestiselain
-mnav_update:Selaa viestejä käyttäen <a href="{TEMPLATE: mnav_update_lnk}">Viestiselainta</a>
+mnav_update:Selaa viestejä käyttäen <a href="{TEMPLATE: mnav_update_lnk}">viestiselainta</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Ilmoitus uudesta yksityisviestistä
 pm_notify_body_email:Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\nNäet viestin klikkaamalla tätä: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.
 register_pm_notification:Ilmoitukset uusista yksityisviesteistä:
 register_pm_notification_desc:Määrittää lähetetäänkö uusista yksityisviesteistä viesti määrittelemälläsi ilmoitusten lähetystavalla.
 findu_admin_opts_header:Ylläpidon toiminnot
-findu_unban:Poista häätö
-findu_ban:Aseta häätö
+findu_unban:Poista esto
+findu_ban:Aseta esto
 findu_edit:Muokkaa
 findu_delete:Poista
 dmsg_reply_to:on vastaus viestiin
@@ -943,8 +938,8 @@ merge_topics_tpl:Valitse yhdistettävät aiheet <span class="SmallText">(sinun t
 merge_merge:Yhdistä valitut aiheet
 merge_next:Seuraavat aiheet
 merge_prev:Edelliset aiheet
-split_cp:Aiheiden pilkkominen
-groups_perms_header:Käyttöoikeudet <font size="-1">(näet käyttöoikeuden tyypin laittamalla hiiren kursorin sen päälle)</font>
+split_cp:Aiheiden jakaminen
+groups_perms_header:Käyttöoikeudet <span class="small">(näet käyttöoikeuden tyypin laittamalla hiiren osoittimen sen päälle)</span>
 register_err_sig_too_long:Allekirjoituksesi ylittää suurimman sallitun pituuden {GVAR: FORUM_SIG_ML} merkkiä.
 register_sig_limit:{GVAR: FORUM_SIG_ML} merkkiä <a href="javascript: alert('Allekirjoituksesi on '+document.forms['fud_register'].reg_sig.value.length+' merkkiä pitkä. Allekirjoituksen suurin sallittu pituus on {GVAR: FORUM_SIG_ML} merkkiä.');" class="SmallText">Tarkista allekirjoituksen pituus</a>
 adm_account_accepted:Ylläpitäjä on hyväksynyt ja aktivoinut tunnuksen '{VAR: login}'.\nVoit nyt käyttää '{GVAR: FORUM_TITLE}' foorumia rekisteröityneenä käyttäjänä.
@@ -959,7 +954,7 @@ mnav_older:vanhempia kuin
 ip_search:Etsi
 ip_title:IP-selain
 userinfo_real_name:Nimi:
-post_err_mod_forum_edit_ttl:VIRHE
+post_err_mod_forum_edit_ttl:Virhe
 post_err_mod_forum_edit_msg:Et voi muokata moderoidun foorumin viestejä.
 dmsg_num:viesti nro {VAR: obj->id}
 postcheck_session_invalid:Istuntosi oli päättynyt, syötä lomakkeen tiedot uudelleen.
