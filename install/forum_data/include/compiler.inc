@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.109 2009/10/04 21:19:37 frank Exp $
+* $Id: compiler.inc,v 1.110 2009/10/11 09:22:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -232,10 +232,13 @@ function resolve_sections($str)
 				echo 'WARNING: {META-CONTENT-LANGUAGE} is depricated, please remove it from your templates.<br />';
 				$ret .= '<meta http-equiv="Content-Type" content="text/html; charset='.$GLOBALS['char_set'].'" />';
 				break;
-			case 'CHARSET':
+			case 'CHARSET':	// Character set name.
 				$ret .= $GLOBALS['char_set'];
 				break;
-			case 'LANG':
+			case 'DIR':	// Text direction (LTR or RTL).
+				$ret .= $GLOBALS['text_dir'];
+				break;
+			case 'LANG':	// Language code.
 				if (isset($GLOBALS['usr']->pspell_lang)) {
 					$ret .= $GLOBALS['usr']->pspell_lang;				
 				} else {
@@ -668,6 +671,15 @@ function compile_all($tset='default', $lang='english', $tname='default')
 		}
 	}
 	$GLOBALS['char_set'] = trim(file_get_contents($charset));
+
+	$text_dir = $GLOBALS['DATA_DIR'].'thm/'.$tset.'/i18n/'.$lang.'/dir';
+	if (!is_file($text_dir)) {
+		$text_dir = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$lang.'/dir';
+		if (!is_file($text_dir)) {
+			$text_dir = $GLOBALS['DATA_DIR'].'thm/default/i18n/english/dir';
+		}
+	}
+	$GLOBALS['text_dir'] = trim(file_get_contents($text_dir));
 
 	$u = umask(0);
 	$perms = $GLOBALS['FUD_OPT_2'] & 8388608 ? 0700 : 0777;
