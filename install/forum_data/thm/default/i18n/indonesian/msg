@@ -1079,7 +1079,11 @@ btn_edit:sunting
 btn_reply:balas
 btn_forward:teruskan
 btn_quote:kutipan
+btn_email:SuratE
+btn_show_posts:pesan
 btn_homepage:www
+feed_no_data:Tidak ada data sesuai ditemukan.
 feed_rdf:RDF asupan
 feed_rss:RSS2 asupan
 feed_atom:ATOM asupan
+ip_whois_connect_err:Tidak dapat terhubung ke server whois ({VAR: whois_server}): {VAR: errstr}

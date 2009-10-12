@@ -1087,3 +1087,4 @@ feed_no_data:Geen inligting is gevind nie.
 feed_rdf:RDF-voer
 feed_rss:RSS2-voer
 feed_atom:ATOM-voer
+ip_whois_connect_err:Kon nie 'n verbinding met die WHOIS-bediener ({VAR: whois_server}) bewerkstellig nie: {VAR: errstr}
