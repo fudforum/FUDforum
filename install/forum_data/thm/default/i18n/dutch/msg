@@ -1088,3 +1088,4 @@ feed_no_data:Er zijn geen gegevens gevonden.
 feed_rdf:RDF-feed
 feed_rss:RSS2-feed
 feed_atom:Atom-feed
+ip_whois_connect_err:Het was niet mogelijk verbinding te maken met de WHOIS-server ({VAR: whois_server}): {VAR: errstr}

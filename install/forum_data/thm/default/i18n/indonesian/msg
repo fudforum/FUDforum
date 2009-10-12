@@ -948,8 +948,8 @@ findu_unban:Ijinkan
 findu_ban:Cekal
 findu_edit:Sunting
 findu_delete:Hapus
-# Fuzzy
-dmsg_reply_to:adalah balasan dari pesan #{VAR: obj->reply_to}
+dmsg_reply_to:adalah balasan ke
+dmsg_reply_num:pesan #{VAR: obj->reply_to}
 merge_topics:Gabungkan topik
 merge_topics_cp:Kontrol Panel penggabungan Topik
 merge_topics_tpl:Pilih topik yang akan digabungkan <span class="SmallText">(anda harus memilih lebih dari satu topik)</span>
@@ -1067,3 +1067,19 @@ code_title:Kode:
 code_select_all:Pilih semua
 code_show_hide:Tampil/ sembunyi
 social_sites:Situs jejaring sosial:
+postcheck_min_len_err:Pesan anda terlalu singkat. Panjang terkecil adalah {PLURAL: post_min_len|$1 karakter|$1 karakter}.
+postcheck_dup_err:Mohon untuk tidak membuat topik ganda.
+btn_new_topic:Topik Baru
+btn_new_pm:Pesan pribadi baru
+btn_post_reply:Kirim balasan
+btn_about:Profile
+btn_small_pm:PP
+btn_delete:hapus
+btn_edit:sunting
+btn_reply:balas
+btn_forward:teruskan
+btn_quote:kutipan
+btn_homepage:www
+feed_rdf:RDF asupan
+feed_rss:RSS2 asupan
+feed_atom:ATOM asupan

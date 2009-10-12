@@ -73,7 +73,8 @@ message:Viesti
 message_counter:Yhteensä <b>{PLURAL: post_count|$1 viesti|$1 viestiä}</b> <b>{PLURAL: thread_count|$1 aiheesta|$1 aiheesta}</b>.
 message_index:Viestiluettelo
 message_index_desc:Näytä viestiluettelo
-minimize_category:Pienennä kategoria
+minimize_category:Pienennä luokka
+minimize_message:Pienennä viesti
 moderation_queue:Moderointijono
 moderator:Moderaattori
 moderator_of:Moderaattori:
@@ -98,7 +99,7 @@ no_subscribed_forums:Ei tilattuja foorumeita
 no_subscribed_threads:Ei tilattuja aiheita
 no_unread_locked:Tämä aihe on lukittu
 no_unread_msg:Tämä aihe ei sisällä lukemattomia viestejä
-no_unread_msg_unreg:Luetut/lukemattomat viestit näytetään vain rekisteröityneille käyttäjille
+no_unread_msg_unreg:Luetut ja lukemattomat viestit näytetään vain rekisteröityneille käyttäjille
 num_pages:Sivut ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|ääni|ääntä}
 occupation:Ammatti:
@@ -145,7 +146,7 @@ stop_ignoring:huomioi jälleen tämän käyttäjän viestit
 sub_to_thread:Tilaa aihe
 sub_to_thread_desc:Vastaanota ilmoitukset tämän aiheen uusista viesteistä
 subject:Otsikko
-subscribe:Tilaa foorumi
+subscribe:Tilaa
 subscribe_desc:Vastaanota ilmoitukset tämän foorumin uusista viesteistä
 subscribed_forums:Tilatut foorumit
 subscribed_forums_desc:Valitse Tilatut foorumit -suodatin (näyttää viestit vain tilaamistasi foorumeista)
@@ -162,10 +163,10 @@ todays_posts:Päivän viestit
 todays_posts_desc:Näytä kaikki tänään lähetetyt viestit
 un_ignore_user:poista tämän käyttäjän torjunta
 unanswered_posts:Vastaamattomat viestit
-unanswered_posts_desc:Näytä kaikki viestit joihin ei ole vastattu
+unanswered_posts_desc:Näytä kaikki viestit, joihin ei ole vastattu
 unlock_thread:Vapauta aihe
 unread_msg:Tämä aihe sisältää viestejä joita et ole vielä lukenut
-unread_msg_locked:Lukittu aihe joka sisältää lukemattomia viestejä
+unread_msg_locked:Lukittu aihe, joka sisältää lukemattomia viestejä
 unread_posts:Lukemattomat viestit
 unread_posts_desc:Näytä kaikki lukemattomat viestit
 unsub_from_thread:Peruuta aiheen tilaus
@@ -308,7 +309,7 @@ register_month:kuukausi
 register_year:vuosi
 register_gender:Sukupuoli:
 register_bio:Biografia:
-register_bio_desc:Muutama yksityiskohta itsestäsi: Työ, harrastukset, jne...
+register_bio_desc:Muutama yksityiskohta itsestäsi, kuten harrastukset, työ, jne...
 register_prefs:Asetukset
 register_sig:Allekirjoitus:
 register_sig_desc:Valinnainen allekirjoitus, jonka voit liittää viesteihisi.
@@ -335,7 +336,7 @@ my_buddies:Kaverit
 add_buddy:Lisää kaveri
 add:Lisää
 buddy_search:Anna käyttäjätunnus, jonka haluat lisätä.
-member_search:Tai käytä <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Hae Käyttäjä</a> toimintoa löytääksesi henkilön.
+member_search:Tai käytä <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Hae käyttäjä</a> -toimintoa löytääksesi henkilön.
 buddy_remove:poista
 post_normal:Normaali
 post_sticky:Kelluva
@@ -385,24 +386,22 @@ post_preview_btn:Viestin esikatselu
 ignore_users:Torjutut käyttäjät
 add_ignore:Lisää torjuttu
 forum_terms:Foorumin ehdot
-# Fuzzy
-forum_rules:Rekisteröityminen on ilmaista. Edellytämme toki, että hyväksyt alla mainitut ehdot ja säännöt. Jos hyväksyt nämä ehdot, klikkaa Hyväksyn-nappia sivun alareunassa.<p>Vaikka tämän sivuston ylläpito ja moderaattorit pyrkivätkin poistamaan arveluttavan sisällön niin nopeasti kuin mahdollista, on kuitenkin mahdotonta tarkistaa jokaista viestiä. Kaikki viestit ilmaisevat kirjoittajiensa mielipiteitä joten ylläpito, moderaattorit tai foorumin kehittäjät eivät ole vastuussa näistä kirjoituksista, lukuun ottamatta heidän omia viestejään. <p>Napsauttamalla Hyväksyn-nappia, suostut olemaan esittämättä mitään loukkaavaa, vihamielistä, epämoraalista tai muutakaan materiaalia joka voisi loukata voimassa olevia lakeja. <p>Suostut myös siihen, että ylläpito ja moderaattorit ovat oikeutettuja poistamaan, muokkaamaan, siirtämään tai sulkemaan minkä tahansa aiheen milloin tahansa. <p>Käyttäjänä suostut siihen, että kaikki antamasi tiedot tallennetaan tietokantaan. Mitään tietoja ei anneta millekään kolmannelle osapuolelle ilman suostumustasi. Ylläpito ei myöskään ole vastuullinen jos tietoturva vaarantuu hakkeroinnin, tms. takia.<br />
-# Fuzzy
-forum_rules_13:<p>Kaikkien alle 13-vuotiaiden täytyy hankkia lupa vanhemmaltaan tai huoltajaltaan voidakseen liittyä foorumien käyttäjäksi. Edellytämme, että vanhempi tai huoltaja faksaa tai postittaa allekirjoitetun suostumuskaavakkeen ennen käyttöoikeuden myöntämistä.</p><p>Napsauta <b>Hyväksyn</b>-nappia, jos haluat aloittaa rekisteröitymisprosessin ennen kuin olemme vastaanottaneet suostumuskaavakkeen. Jos haluat peruuttaa rekisteröitymisen, napsauta <b>Peruuta</b> palataksesi foorumilistaan.</p><p>Suostumuskaavake löytyy täältä. Lisätietoja rekisteröitymisprosessista saat lähettämällä ylläpidolle sähköpostia: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules:<p>Rekisteröityminen on ilmaista. Edellytämme, että hyväksyt alla mainitut ehdot ja säännöt. Jos hyväksyt nämä ehdot – napsauta <b>Hyväksyn</b>-nappia sivun alareunassa.</p><p>Vaikka tämän sivuston ylläpito ja moderaattorit pyrkivät poistamaan arveluttavan sisällön niin nopeasti kuin mahdollista, on kuitenkin mahdotonta tarkistaa jokaista viestiä. Kaikki viestit ilmaisevat kirjoittajiensa mielipiteitä, joten ylläpito, moderaattorit tai foorumin kehittäjät eivät ole vastuussa näistä kirjoituksista.</p><p>Napsauttamalla Hyväksyn-nappia – suostut olemaan esittämättä mitään loukkaavaa, vihamielistä, epämoraalista tai muutakaan materiaalia, joka voisi loukata voimassa olevia lakeja.</p><p>Tämän foorumin omistajat ovat oikeutettuja poistamaan, muokkaamaan, siirtämään tai sulkemaan minkä tahansa aiheen milloin tahansa.</p>
+forum_rules_13:<p>Kaikkien alle 13-vuotiaiden täytyy hankkia lupa vanhemmaltaan tai huoltajaltaan voidakseen liittyä foorumien käyttäjäksi. Edellytämme, että vanhempi tai huoltaja faksaa tai postittaa allekirjoitetun suostumuskaavakkeen ennen käyttöoikeuden myöntämistä.</p><p>Napsauta <b>Hyväksyn</b>-nappia, jos haluat aloittaa rekisteröitymisprosessin ennen kuin olemme vastaanottaneet suostumuskaavakkeen. Napsauta <b>En hyväksy</b>, jos haluat peruuttaa rekisteröitymisen.</p><p>Suostumuskaavake löytyy täältä. Lisätietoja rekisteröitymisprosessista saat lähettämällä ylläpidolle sähköpostia: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-varmistus
 coppa_before:Ennen {TEMPLATE: coppa_date}
 coppa_after:Jälkeen {TEMPLATE: coppa_date}
-coppa_link:Klikkaa linkkiä joka vastaa syntymäaikaasi
+coppa_link:Napsauta linkkiä, joka vastaa syntymäaikaasi
 coppa:<p>Vanhempasi tai huoltajasi täytyy postittaa tai faksata allekirjoitettu suostumuskaavake tämän foorumin ylläpitäjälle ennen kuin alle 13-vuotias käyttäjä voi jatkaa rekisteröitymistä.</p><p>Lisätietoja: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:Foorumin käyttöehdot
 prereg_agree:Hyväksyn
 prereg_disagree:En hyväksy
-coppa_fax_instructions:Ohjeet vanhemmille/huoltajille
+coppa_fax_instructions:Ohjeet vanhemmille tai huoltajille
 coppa_fax_instructions2:Tulostakaa tämä kaavake, allekirjoittakaa ja faksatkaa tänne:
 coppa_fax_reg_form:Rekisteröityminen
 coppa_fax_sign:Allekirjoittakaa alla oleva kaavake ja lähettäkää se meille
 coppa_fax_conf:Olen tarkistanut tiedot jotka lapseni on antanut ja olen lukenut tämän web-sivuston tietosuojaperiaatteista. Ymmärrän, että käyttäjätiedot voi muuttaa salasanaa käyttämällä. Ymmärrän, että voin vaatia että tämä käyttäjätili poistetaan kokonaan.
-coppa_fax_permission:Allekirjoitus tähän jos annatte suostumuksenne
+coppa_fax_permission:Allekirjoitus tähän, jos annatte suostumuksenne
 coppa_fax_no_permission:Allekirjoitus tähän jos haluatte että käyttäjätili poistetaan
 coppa_fax_parent_name:Vanhemman tai huoltajan koko nimi:
 coppa_fax_relation:Suhde lapseen:
@@ -415,11 +414,11 @@ coppa_fax_passwd:Salasana
 coppa_fax_remail:Sähköpostiosoite
 coppa_fax_name:Nimi
 login_not_logedin:Et ole sisäänkirjautunut. Tämä voi johtua monista syistä:
-login_cookie_expired:Eväste (cookie) on vanhentunut.
+login_cookie_expired:Eväste on vanhentunut. Päivitä eväste kirjautumalla sisään.
 login_perm_denied:Sinulla ei ole oikeuksia käyttää pyydettyä resurssia anonyyminä käyttäjänä.
 login_want_to_register:Haluatko rekisteröityä?
 login_forgot_passwd:Salasana unohtunut
-login_use_cookie:Käytä evästeitä (cookie).<br /><span class="SmallText">Jos käytät yhteiskäytössä olevaa tietokonetta, esimerkiksi kirjastossa, koulussa tai Internet-kahvilassa, suosittelemme että poistat ruksin tästä paremman tietoturvan takia.<br />Jättämällä tämän valinnan päälle kirjaudut automaattisesti foorumille.</span>
+login_use_cookie:Käytä evästeitä.<br /><span class="SmallText">Jos käytät yhteiskäytössä olevaa tietokonetta, esimerkiksi kirjastossa, koulussa tai Internet-kahvilassa, suosittelemme että poistat ruksin tästä paremman tietoturvan takia.<br />Jättämällä tämän valinnan päälle kirjaudut automaattisesti foorumille.</span>
 login_login:Käyttäjätunnus
 login_login_btn:Sisään
 login_name_required:Käyttäjätunnus on pakollinen
@@ -455,7 +454,7 @@ search_posted_on:Lähetetty
 search_no_results:Ei tuloksia
 search_all_forums:Hae kaikista foorumeista
 search_in_forum:Hae foorumista:
-search_forum_search:Foorumin haku
+search_forum_search:Hae foorumilta
 move_thread_to:Siirrä aihe <b>{VAR: thr->subject}</b>:
 remail_email_topic:Lähetä tämä aihe kaverille
 remail_your_name:Nimesi:
@@ -478,7 +477,7 @@ mklist_delete:Poista
 qbud_nick_name:Nimi
 qbud_add_selected:Lisää valitut
 qbud_selected:Valitut
-qbud_no_buddies:Ei kavereita joista valita
+qbud_no_buddies:Ei kavereita, joista valita
 mklist_numerical:Numerot
 mklist_aplha:Aakkoset
 mklist_square:Neliö
@@ -545,7 +544,7 @@ buddy_list_update:Selaa listaa kavereistaan
 core_err_invinp_title:Virheellinen syöte
 core_err_invinp_err:Yritit ladata virheellista linkkiä, ole hyvä ja ilmoita tästä <href="mailto:{GVAR: ADMIN_EMAIL}">webmasterille</a>
 core_adm_login_msg:Ylläpitäjät voivat kirjautua sisään <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">täällä</a>
-email_err_unabletoemail_title:VIRHE: Sähköpostin lähetys ei onnistunut
+email_err_unabletoemail_title:Virhe: Sähköpostin lähetys ei onnistunut
 email_err_unabletoemail_msg:Ylläpitäjä on estänyt sähköpostin lähetyksen.
 email_error_unabletolocaddr:Järjestelmä ei pystynyt lähettämään sähköpostia {VAR-HTML: _POST['tx_name']}, koska hänen osoitettaan ei löytynyt
 email_error_body:Viestin teksti on pakollinen
@@ -572,12 +571,12 @@ index_update:Selaa <a href="{TEMPLATE: index_update_lnk}">foorumi listaa</a>
 list_referers_update:Selaa suosittelujaan
 login_update:Sisäänkirjautuminen
 msg_update:Lukee <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> viestiä
-pm_err_nopm_title:VIRHE: Yksityisviestit poistettu käytöstä
+pm_err_nopm_title:Virhe: Yksityisviestit poistettu käytöstä
 pm_err_nopm_msg:Et voi käyttää yksityisviestejä koska ylläpitäjä on poistanut ne käytöstä.
 pm_update:Käyttää yksityiviestintää
-post_err_lockedthread_title:VIRHE: Aihe lukittu
+post_err_lockedthread_title:Virhe: Aihe lukittu
 post_err_lockedthread_msg:Tämä aihe on lukittu, uusia viestejä ei sallita
-err_coppa_title:VIRHE: Käyttäjätiliä ei ole vielä hyväksytty
+err_coppa_title:Virhe: Käyttäjätiliä ei ole vielä hyväksytty
 err_coppa_msg:Emme ole vastaanottaneet varmistusta vanhemmiltasi tai lailliselta huoltajaltasi, joten et voi vielä lähettää viestejä foorumille. Jos olet hukannut COPPA-kaavakkeen – <a href="{TEMPLATE: err_coppa_msg_lnk}">voit hakea sen uudelleen</a>.
 err_banned_acct_title:Virhe: Olet estetty.
 post_err_edttimelimit_title:Virhe
@@ -788,7 +787,8 @@ quicklogin_login_btn:Kirjaudu
 quick_reply:Nopea vastaus
 post_notification_desc:Ilmoita minulle, kun joku vastaa tähän viestiin.
 post_all_ext_allowed:(kaikki)
-maximize_category:Suurenna kategoria
+maximize_category:Suurenna luokka
+maximize_message:Suurenna viesti
 no_view_perm:Sinulla ei ole tarvittavia oikeuksia nähdäksesi tämän aiheen.
 report_empty_report:Et voi lähettää ilmiantoa ilman syytä. Ole hyvä ja anna ilmiannon syy.
 report_already_reported_title:On jo ilmiannettu
@@ -932,6 +932,7 @@ findu_ban:Aseta esto
 findu_edit:Muokkaa
 findu_delete:Poista
 dmsg_reply_to:on vastaus viestiin
+dmsg_reply_num:viesti {VAR: obj->reply_to}
 merge_topics:Yhdistä aiheita
 merge_topics_cp:Aiheiden yhdistäminen
 merge_topics_tpl:Valitse yhdistettävät aiheet <span class="SmallText">(sinun täytyy valita enemmän kuin yksi aihe)</span>
@@ -961,19 +962,24 @@ postcheck_session_invalid:Istuntosi oli päättynyt, syötä lomakkeen tiedot uu
 delete_msg_removed_ttl:Ylläpito on poistanut viestisi.
 delete_msg_pm_body:Alkuperäinen viesti
 delete_msg_pm_subject:Otsikko: {VAR: data[15]}
+ip_whois_title:ISP-tiedot
 register_theme:Teema:
+pmsg_trash:Tyhjennä roskat
 uc_new_pm:Uudet yksityisviestit
 uc_new_topic:Uusi aihe
 uc_new_cat_forum:Tilattujen foorumien uudet viestit
+uc_cat_forum:Luokka &raquo; Foorumi
 uc_sub_topics:Tilattujen aiheiden uudet viestit
 search_options:Haun valinnat
 search_user_filter:Suodata käyttäjän mukaan:
 register_max_sig_len:Maksimipituus:
 register_turing:Syötä alla oleva varmistuskoodi:
 register_err_turing:Virheellinen varmistuskoodi.
-modque_cat:Kategoria
+modque_cat:Luokka
 modque_forum:Foorumi
+mmd_move_threads_to:Kohdefoorumi:
 mmd_abort_move:Peruuta
+pmsg_pdf_btn:Luo PDF-arkisto
 search_results_hdr:Haku löysi {VAR: total} viestiä
 thread_del_all:Poista kaikki valitut
 thread_mov_all:Siirrä kaikki valitut
@@ -988,6 +994,7 @@ post_common_email:Lisää sähköpostiosoite
 post_common_image:Lisää kuva
 post_common_nlist:Lisää numeroitu lista
 post_common_quote:Lisää lainaus
+post_common_code:Lisää koodi
 rating_delete:Poista
 tabs_notifications:Huomautukset
 post_descr:Aiheen kuvaus:
@@ -998,10 +1005,21 @@ powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright
 code_title:Koodi:
 code_select_all:Valitse kaikki
 code_show_hide:Näytä tai piilota
+btn_new_topic:Uusi aihe
+btn_new_pm:Uusi yksityisviesti
+btn_post_reply:Lähetä vastaus
+btn_tree_view:Puunäkymä
+btn_flat_view:Tasonäkymä
+btn_about:Profiili
+btn_small_pm:Yksityisviesti
 btn_delete:poista
 btn_edit:muokkaa
 btn_reply:vastaa
+btn_forward:välitä
+btn_quote:lainaa
 btn_email:Sähköposti
+btn_show_posts:viestit
+btn_homepage:www
 feed_rdf:RDF-syöte
 feed_rss:RSS2-syöte
 feed_atom:Atom-syöte

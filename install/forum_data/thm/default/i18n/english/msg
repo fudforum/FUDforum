@@ -767,8 +767,8 @@ th_expr_four_day:		4 Days
 th_expr_one_week:		1 Week
 th_expr_two_week:		2 Weeks
 th_expr_one_month:		1 Month
-th_expr_two_month:		2 Month
-th_expr_four_month:		4 Month
+th_expr_two_month:		2 Months
+th_expr_four_month:		4 Months
 th_expr_one_year:		1 Year
 thread_mod_delete:		Delete
 action_latest_post:		Last Message

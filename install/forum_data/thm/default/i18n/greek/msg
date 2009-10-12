@@ -294,6 +294,9 @@ post_annoncement:Ανακοίνωση
 post_size:Μέγεθος
 post_color:Χρώμα
 post_font:Γραμματοσειρά
+create_thread:Δημιουργία Θέματος
+submit_reply:Υποβολή Απάντησης
+post_preview:Προεπισκόπηση Μηνύματος
 post_logout:έξοδος
 post_poll:Κάλπη:
 post_poll_delete:ΔΙΑΓΡΑΦΗ
@@ -301,6 +304,7 @@ post_poll_edit:ΕΠΕΞΕΡΓΑΣΙΑ
 post_file_del:Διαγραφή
 post_file_name:Όνομα
 post_file_size:Μέγεθος
+post_forum:Φόρουμ:
 post_title:Τίτλος:
 post_options:Επιλογές:
 coppa_fax_telephone:Τηλέφωνο:
