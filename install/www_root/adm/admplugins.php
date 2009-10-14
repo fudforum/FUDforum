@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admplugins.php,v 1.12 2009/10/11 11:41:50 frank Exp $
+* $Id: admplugins.php,v 1.13 2009/10/14 10:40:49 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,8 +10,8 @@
 **/
 
 	// Enable error reporting before GLOBALS.php to show plugin errors.
-	ini_set('display_errors', 1);
-	error_reporting(E_ALL); 
+	@ini_set('display_errors', 1);
+	error_reporting(E_ALL);
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
@@ -52,7 +52,7 @@
 	}
 	$plugins = plugin_load_from_cache();
 
-	// install new plugins
+	// Install new plugins.
 	while (list($key, $val) = @each($plugins)) {
 		if (! in_array($val, $prev_plugins)) {
 			echo "Install/activate plugin: ". $val ."...<br />\n";
@@ -62,7 +62,7 @@
 			}
 		}
 	}
-	// deinstall plugins
+	// Deinstall plugins.
 	while (list($key, $val) = @each($prev_plugins)) {
 		if (! in_array($val, $plugins)) {
 			echo "Deinstall/deactivate plugin: ". $val ."...<br />\n";
@@ -73,7 +73,7 @@
 		}
 	}
 
-	// configure a plugin
+	// Configure a plugin.
 	if (isset($_GET['config']) || isset($_POST['config'])) {
 		$plugin = isset($_GET['config']) ? $_GET['config'] : $_POST['config'];
 		$func_base = substr($plugin, 0, strrpos($plugin, '.'));
@@ -104,6 +104,7 @@
 		if (isset($info['version'])) {
 			echo '<b>Plugin version:</b> '.$info['version'].'<br />';
 		}
+		echo '<b>Status:</b> '. (in_array($plugin, $plugins) ? 'Enabled' : 'Disabled') .'<br />';
 		if (isset($info['help'])) {
 			echo '<div style="font-size: small; float:right;">[ <a href="'.$info['help'].'">Plugin documentation</a> ]</div>';
 		} else {

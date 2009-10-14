@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.37 2009/10/11 11:41:50 frank Exp $
+* $Id: admsysinfo.php,v 1.38 2009/10/14 10:40:49 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,7 +44,7 @@ function get_server_software()
 </tr>
 <tr class="field">
 	<td><b>PHP built on:</b></td>
-	<td><?php echo php_uname(); ?></td>
+	<td><?php echo (@php_uname() ? php_uname() : 'n/a'); ?></td>
 </tr>
 <tr class="field">
 	<td><b>Database type:</b></td>
@@ -109,7 +109,7 @@ echo '<tr class="field">
 			</tr>
 			<tr>
 				<td>Disabled functions:</td>
-				<td><?php echo (($df=ini_get('disable_functions'))?$df:'none'); ?></td>
+				<td><?php echo (($df=str_replace(',', ', ', ini_get('disable_functions'))) ? $df : 'none'); ?></td>
 			</tr>
 			<tr>
 				<td>PSpell support:</td>
