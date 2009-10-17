@@ -1091,3 +1091,4 @@ feed_no_data:Не найдено соответствующих данных.
 feed_rdf:RDF-канал
 feed_rss:RSS2-канал
 feed_atom:ATOM-канал
+ip_whois_connect_err:Не удалось подключиться к WHOIS-серверу ({VAR: whois_server}): {VAR: errstr}

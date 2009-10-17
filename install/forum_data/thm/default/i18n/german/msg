@@ -6,9 +6,9 @@
 # Author: Umherirrender
 
 action:Aktion
-add_to_buddy_list:zur Buddyliste hinzuf&uuml;gen
+add_to_buddy_list:zur Buddyliste hinzufügen
 admin:Admin
-admin_control_panel:Administratormen&uuml;
+admin_control_panel:Administratormenü
 administrator:Administrator
 attachment:Anhang:
 avatar:Avatar:
@@ -18,7 +18,7 @@ birth_date:Geburtstag:
 by:Von:
 by_mod:vom Moderator
 current_time:aktuelle Zeit
-custom_avatar_queue:Zu &uuml;berpr&uuml;fende Benutzeravatare
+custom_avatar_queue:Zu überprüfende Benutzeravatare
 date_posted:Beitragsdatum
 date_registered:Datum der Registrierung:
 download_counter:{PLURAL: v[3]|einmal|$1 mal} heruntergeladen
@@ -28,60 +28,60 @@ email_to_friend:E-Mail an einen Freund
 email_to_friend_desc:Verschicke die URL dieser Seite an deine Freunde per E-Mail
 email_user:Eine E-Mail an den Benutzer senden
 faq:Hilfe
-first_unread_msg:Zu den ungelesenen Beitr&auml;gen gehen
+first_unread_msg:Zu den ungelesenen Beiträgen gehen
 first_unread_msg_desc:Zum ersten ungelesenen Beitrag innerhalb dieses Themas gehen
-flat_view:Zur flachen Standardansicht zur&uuml;ckkehren
+flat_view:Zur flachen Standardansicht zurückkehren
 forum:Forum:
 forum_icon:Forumsicon
-forum_new_messages:Neue Beitr&auml;ge
-forum_none_messages:Nur registrierte Forumsmitglieder k&ouml;nnen gelesene &amp; ungelesene Beitr&auml;ge verfolgen
-forum_old_messages:Keine neuen Beitr&auml;ge
+forum_new_messages:Neue Beiträge
+forum_none_messages:Nur registrierte Forumsmitglieder können gelesene &amp; ungelesene Beiträge verfolgen
+forum_old_messages:Keine neuen Beiträge
 from:Von:
 gender:Geschlecht:
 go:Los
-goto_next_msg:Zum n&auml;chsten Beitrag gehen
+goto_next_msg:Zum nächsten Beitrag gehen
 goto_prev_msg:Zum vorherigen Beitrag gehen
 home:Startseite
 homepage:Homepage:
 icq_control_panel:ICQ-Online-Menü
 icq_message_form:ICQ-Nachricht erstellen:
-ignore_user:Alle Beitr&auml;ge dieses Benutzers ignorieren
+ignore_user:Alle Beiträge dieses Benutzers ignorieren
 im_aim:AIM-Benutzername:
 im_msnm:MSN Messenger:
 im_yahoo:Yahoo Messenger:
 image:Bild:
 index_forum:Forum
-index_new_posts:Neue Beitr&auml;ge seit dem letzten Besuch
-index_no_new_posts:Keine neuen Beitr&auml;ge seit dem letzten Besuch
+index_new_posts:Neue Beiträge seit dem letzten Besuch
+index_no_new_posts:Keine neuen Beiträge seit dem letzten Besuch
 index_url_redirection:Weiterleitung
 interests:Interessen:
 last_post:Letzter Beitrag
 last_thread_msg:Zum letzten Beitrag in diesem Thema gehen
-legend:Zeichenerkl&auml;rung:
+legend:Zeichenerklärung:
 location:Ort:
 lock_thread:Thema sperren
 locked:Gesperrt
-locked_with_new_posts:Gesperrt (mit ungelesenen Beitr&auml;gen)
+locked_with_new_posts:Gesperrt (mit ungelesenen Beiträgen)
 logged_in_list:Liste der angemeldeten Benutzer
 login:Anmelden
 login_header:Anmeldung:
 logout:Abmelden
-mark_all_read:Alle Beitr&auml;ge als gelesen kennzeichnen
-mark_all_read_desc:Alle Beitr&auml;ge werden als gelesen gekenzeichnet.
+mark_all_read:Alle Beiträge als gelesen kennzeichnen
+mark_all_read_desc:Alle Beiträge werden als gelesen gekenzeichnet.
 members:Mitglieder
 message:Beitrag
 message_counter:Unsere Benutzer haben insgesamt <b>{PLURAL: post_count|$1 Nachricht|$1 Nachrichten}</b> in <b>{PLURAL: thread_count|$1 Thema|$1 Themen}</b> erstellt.
 message_index:Beitragsindex
-message_index_desc:Liste der Beitr&auml;ge ansehen
+message_index_desc:Liste der Beiträge ansehen
 minimize_category:Kategorie minimieren
 minimize_message:Beitrag minimieren
-moderation_queue:Zu &uuml;berpr&uuml;fende Beitr&auml;ge
+moderation_queue:Zu überprüfende Beiträge
 moderator:Moderator
 moderator_of:Moderator von:
 moderator_options:Moderatoren-Optionen
 moderators:{PLURAL: modcount|Moderator|Moderatoren}
-more_unread_messages:Weitere ungelesene Beitr&auml;ge
-more_unread_messages_desc:Weitere ungelesene Beitr&auml;ge anzeigen und die momentan sichtbaren als gelesen kennzeichnen
+more_unread_messages:Weitere ungelesene Beiträge
+more_unread_messages_desc:Weitere ungelesene Beiträge anzeigen und die momentan sichtbaren als gelesen kennzeichnen
 move_thread:Verschieben
 moved:In ein anderes Forum verschoben
 moved_thread_message:Dieses Thema wurde in ein anderes Forum verschoben
@@ -141,7 +141,7 @@ send_pm_desc:Eine private Nachricht an diesen Benutzer verschicken
 sender_email:E-Mail des Absenders:
 sender_name:Name des Absenders:
 show_posts_by:Beitr&auml;ge von {VAR: u_alias} anzeigen
-size:Gr&ouml;&szlig;e:
+size:Größe:
 status:Status:
 status_line:Es sind <b>{PLURAL: st_obj->online_users_reg|$1 Mitglied|$1 Mitglieder}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 unsichtbares Mitglied|$1 unsichtbare Mitglieder}</b> und <b>{PLURAL: st_obj->online_users_anon|$1 Besucher|$1 Besucher}</b> auf diesem Board unterwegs.
 sticky:Angeheftet:
@@ -287,13 +287,13 @@ register_update:Aktualisieren
 register_avatar_type:Avatar Typ:
 register_del_avatar:Avatar l&ouml;schen
 register_sel_avatar:Avatar ausw&auml;hlen
-register_custom_avatar_rules:Der Benutzeravatar wird erst nach der Billigung durch den Administrator angezeigt.<br /><span class="SmallText">Der Avatar sollte nicht gr&ouml;&szlig;er als <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} Pixel</b> sein und muss das <b>jpg</b>, <b>gif</b> oder <b>png</b> Format besitzen.</span>
+register_custom_avatar_rules:Der Benutzeravatar wird erst nach der Billigung durch den Administrator angezeigt.<br /><span class="SmallText">Der Avatar sollte nicht größer als <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} Pixel</b> sein und muss das <b>jpg</b>, <b>gif</b> oder <b>png</b> Format besitzen.</span>
 register_custom_avatar_url:URL zum Benutzeravatar:
 register_preview:Vorschau
 register_custom_avatar_upload:Benutzeravatar Datei:
 register_register:Registrieren
 register_required:Erforderliche Angaben
-register_required_desc:Alle Felder sind erforderlich. Bitte beachte die Gro&szlig;- und Kleinschreibung beim Passwort.
+register_required_desc:Alle Felder sind erforderlich. Bitte beachte die Groß- und Kleinschreibung beim Passwort.
 register_optional:Freiwillige Angaben
 register_optional_desc:Wir empfehlen, keine Informationen im Profil preiszugeben, die zu einer Identifizierung der Person geeignet w&auml;ren. S&auml;mtliche Informationen k&ouml;nnen von Besuchern des Forums eingesehen werden.
 register_location:Ort:
@@ -318,7 +318,7 @@ register_def_thread_view:Standard Themenansicht:
 register_msg_per_page:Beitr&auml;ge pro Seite:
 register_show_sig:Signatur anzeigen:
 register_show_sig_desc:Erm&ouml;glicht es, die Signaturen von Forumsmitgliedern anzuzeigen oder zu verstecken.
-register_use_sig_default:Standardm&auml;&szlig;ig Signatur verwenden:
+register_use_sig_default:Standardmäßig Signatur verwenden:
 register_use_sig_default_desc:Die Signatur automatisch jedem Beitrag hinzuf&uuml;gen
 register_timezone:Zeitzone:
 register_ignore_admin:Administratoren Mitteilungen ignorieren:
@@ -326,7 +326,7 @@ register_invisible_mode:Unsichtbarmodus:
 register_invisible_mode_desc:Anzeige deines Onlinestatus unterdr&uuml;cken.
 register_show_email:E-Mail-Adresse anzeigen:
 register_show_email_desc:W&auml;hle diese Option aus, wenn du deine E-Mail-Adresse &ouml;ffentlich anzeigen m&ouml;chtest.
-register_notification:Standardm&auml;&szlig;ige Benachrichtigung ausw&auml;hlen:
+register_notification:Standardmäßige Benachrichtigung auswählen:
 register_notification_desc:Soll die Benachrichtigung aktiviert sein? (kann beim Erstellen eines Beitrags deaktiviert werden)
 register_notify_method:Benachrichtigungsmethode ausw&auml;hlen:
 register_notify_method_desc:W&auml;hle deine bevorzugte Benachrichtigungsmethode oder deaktiviere Benachrichtigungen (zum Beispiel, wenn du Urlaub machst)
@@ -340,7 +340,7 @@ member_search:Oder verwende die <a href="javascript://" onclick="javascript: win
 buddy_remove:Entfernen
 post_sticky:Angeheftet
 post_annoncement:Ank&uuml;ndigung
-post_size:Gr&ouml;&szlig;e
+post_size:Größe
 post_color:Farbe
 create_thread:Thema erstellen
 submit_reply:Antwort abschicken
@@ -364,10 +364,10 @@ post_smiley:Smiley-K&uuml;rzel:
 post_format_tools:Formatierungshilfen:
 post_upload_file:Datei hochladen
 post_file_del:L&ouml;schen
-post_file_size:Gr&ouml;&szlig;e
+post_file_size:Größe
 file_attachments:Dateianhang:
 allowed_files:Erlaubte Dateitypen:
-max_file_size:Maximale Dateigr&ouml;&szlig;e
+max_file_size:Maximale Dateigröße:
 max_files_per_msg:Maximale Dateien pro Beitrag:
 post_notification:Benachrichtigung &uuml;ber Beitrag
 include_sig:Signatur anh&auml;ngen
@@ -477,7 +477,7 @@ mklist_aplha:Alphabetisch
 mklist_square:Quadrat
 mklist_disc:Scheibe
 mklist_circle:Kreis
-mklist_close:Abschlie&szlig;en
+mklist_close:Abschließen
 email_to:An:
 email_pg_title:E-Mail
 email_subject:Betreff:
@@ -581,7 +581,7 @@ post_err_noannontopics_msg2:<legend>FEHLER: Nicht ausreichende Rechte</legend>An
 post_err_noannonposts_msg2:<legend>FEHLER: Nicht ausreichende Rechte</legend>Anonyme Benutzer d&uuml;rfen nicht antworten.
 post_err_floodtrig_title:FEHLER: Schutz vor Flooding mit Beitr&auml;gen aktiviert.
 post_err_floodtrig_msg:Bitte versuche es in {PLURAL: tm|$1 Sekunde|$1 Sekunden} erneut
-post_err_attach_size:Dateianhang ist zu gro&szlig; (&uuml;ber der erlaubten Grenze von {VAR: MAX_F_SIZE} Bytes)
+post_err_attach_size:Dateianhang ist zu groß (über der erlaubten Grenze von {VAR: MAX_F_SIZE} Bytes)
 post_err_attach_ext:Der Dateityp, den du hochladen m&ouml;chtest, ist nicht erlaubt.
 post_err_attach_filelimit:Du versuchst, mehr Dateien hochzuladen als erlaubt sind.
 post_err_passwd:Falsches Passwort.
@@ -607,7 +607,7 @@ register_err_emailexists:Diese E-Mail-Adresse wurde schon verwendet, falls du de
 register_err_shortpasswd:Das Passwort muss mindestens 6 Zeichen lang sein.
 register_err_passwdnomatch:Deine Passw&ouml;rter stimmen nicht &uuml;berein.
 register_err_invalidemail:Die E-Mail-Adresse, die du angegeben hast, ist anscheinend nicht g&uuml;ltig.
-register_err_needname:Um die Registrierung erfolgreich abzuschlie&szlig;en, musst du deinen Namen angeben.
+register_err_needname:Um die Registrierung erfolgreich abzuschließen, musst du deinen Namen angeben.
 register_err_enterpasswd:Du musst dein aktuelles Passwort eingeben, um die Ver&auml;nderungen wirksam werden zu lassen.
 register_err_adminpasswd:Du musst dein Administrator-Passwort eingeben, um die Veränderungen wirkam werden zu lassen.
 register_err_notyouremail:Jemand ist bereits mit dieser E-Mail registriert, und dieser Jemand bist NICHT Du
@@ -616,7 +616,7 @@ register_err_avatarnotallowed:Der Avatar, den du hochladen m&ouml;chtest, ist ni
 register_conf_subject:Registrierungsbestätigung
 register_conf_msg:Vielen Dank für deine Registrierung,\nUm dein Konto zu aktivieren, gehe bitte auf die unten angegebene Adresse:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald dein Konto aktiviert ist, wirst du am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
 register_welcome_subject:Registrierungsbestätigung für das Forum
-register_welcome_msg:Vielen Dank für deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Gro&szlig;- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehe bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Vielen Dank für deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehe bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FEHLER: Registrierung nicht m&ouml;glich
 regsiter_err_cantreg_msg:Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nimm Kontakt zum Administrator auf: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Betrachtet das eigene Profil
@@ -739,7 +739,7 @@ post_quote:Zitat:
 userinfo_referals:Angeworbene Benutzer:
 userinfo_referals_count:{VAR: referals} Mitglieder
 pm_no_space_title:Kein freier Platz mehr &uuml;brig!
-pm_no_space_msg:Deine Ordner f&uuml;r private Nachrichten &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>{GVAR: MAX_PMSG_FLDR_SIZE} Bytes</b>, weil sie momentan <b>{VAR: fldr_size} Bytes</b> mit Nachrichten belegen.<br /><br /><span class="ErrorText">Entferne einige alte Nachrichten, um wieder Platz zu schaffen</span>.
+pm_no_space_msg:Deine Ordner für private Nachrichten überschreiten die maximal erlaubte Größe von <b>{GVAR: MAX_PMSG_FLDR_SIZE} Bytes</b>, weil sie momentan <b>{VAR: fldr_size} Bytes</b> mit Nachrichten belegen.<br /><br /><span class="ErrorText">Entferne einige alte Nachrichten, um wieder Platz zu schaffen</span>.
 pm_space_indct_msg:Deine PN Ordner sind zu {VAR: percent_full}% belegt.
 th_expr_never:Nie
 th_expr_one_hr:1 Stunde
@@ -799,7 +799,7 @@ forum_home:Forumsindex
 post_cur_attached:(momentan angehängt: {VAR: i} {PLURAL: i|Datei|Dateien})
 ignored_anon_post:{GVAR: ANON_NICK} wird ignoriert
 ignored_user_post:Beitrag von <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> wird ignoriert
-smladd_close_window:Fenster schlie&szlig;en
+smladd_close_window:Fenster schließen
 post_list_smilies:Alle Smileys anzeigen
 p_VISIBLE:Sichtbar
 reported_in_thread:In:
@@ -848,7 +848,7 @@ threadt_update:Durchsucht das Forum (Baumansicht) <a href="{TEMPLATE: threadt_up
 mmod_delete_cofirm_ttl:Best&auml;tigung f&uuml;r Themen/Beitragsl&ouml;schung
 spell_alts:keine Alternativen
 insert_uploaded_image:Bild in den Beitrag einf&uuml;gen
-finduser_help:Die Suchmaschine f&uuml;gt automatisch eine * Maske Ihrer Anfrage hinzu, die Suche <b>ber&uuml;cksichtigt Gro&szlig;- und Kleinschreibung</b>. Um zum Beispiel alle Benutzer zu suchen, deren Login mit einem 'a' beginnt, tr&auml;gt man 'a' in die Sucheingabe ein.
+finduser_help:Die Suchmaschine fügt automatisch eine *-Maske deiner Anfrage hinzu, die Suche <b>berücksichtigt Groß- und Kleinschreibung</b>. Um zum Beispiel alle Benutzer zu suchen, deren Login mit einem „a“ beginnt, trägt man „a“ in die Sucheingabe ein.
 back_to_top:Zur&uuml;ck zum Anfang
 pm_err_disabled_title:Private Nachrichten deaktiviert
 pm_err_disabled_msg:Du kannst keine privaten Nachrichten verschicken, solange du nicht die Option 'Private Nachrichten erlauben' in deinem Profil aktivierst.
@@ -859,7 +859,7 @@ saved:Abgespeichert
 register_err_time_limit:Die Beschränkung auf eine Registrierung pro {GVAR: REG_TIME_LIMIT} Sekunden ist erreicht worden. Bitte warte {PLURAL: reg_limit_reached|$1 Sekunde|$1 Sekunden} und versuche danach noch einmal dich zu registrieren.
 register_affero:Affero-Benutzername:<br /><span class="SmallText">Falls du einen <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> Benutzernamen hast, trage ihn hier ein.</span>
 im_affero:Affero Benutzername
-register_err_avatardimtobig:Die Ausma&szlig;e des Avatar von <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+register_err_avatardimtobig:Die Ausmaße des Avatar von <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> überschreiten die maximal erlaubte Größe von <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} ist gerade offline
 buddy_online:{VAR: r[2]} ist gerade online
 sml_no_smilies:Keine Smileys vorhanden.
@@ -901,9 +901,9 @@ mnav_date_limit:Datumsbereich:
 mnav_forum_limit:Suche nur in:
 mnav_all_forums:Durchsuche alle Foren
 mnav_submit:Fange mit der Suche an
-mnav_no_range:Du musst einen g&uuml;ltigen Datumsbereich angeben. Dieser Wert kann auch eine Flie&szlig;kommazahl sein (0.12), jedoch muss er gr&ouml;&szlig;er als 0 sein.
+mnav_no_range:Du musst einen gültigen Datumsbereich angeben. Dieser Wert kann auch eine Fließkommazahl sein (0.12), jedoch muss er größer als 0 sein.
 mnav_invalid_unit:Du musst eine g&uuml;ltige Zeiteinheit angeben.
-mnav_invalid_date:Der Datumsbereich, den du angegeben hast, ist gr&ouml;&szlig;er als der vom Administrator gestattete, schr&auml;nke daher deine Suche etwas ein.
+mnav_invalid_date:Der Datumsbereich, den du angegeben hast, ist größer als der vom Administrator gestattete, schränke daher deine Suche etwas ein.
 mnav_no_results:Es gibt keine Beitr&auml;ge, die den Suchkriterien entsprechen.
 mnav_posted_by:Erstellt von:
 mnav_more:Mehr &raquo;&raquo;

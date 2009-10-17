@@ -1087,3 +1087,4 @@ feed_no_data:Non se atopou ningún dato que coincidise.
 feed_rdf:Fonte de novas RDF
 feed_rss:Fonte de novas RSS2
 feed_atom:Fonte de novas ATOM
+ip_whois_connect_err:Non se puido conectar co servidor WHOIS ({VAR: whois_server}): {VAR: errstr}

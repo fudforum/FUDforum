@@ -429,7 +429,7 @@ login_login:Gebruiker:
 login_login_btn:Teken aan
 login_name_required:Gebruikersnaam moet verskaf word
 login_passwd_required:Wagwoord moet verskaf word
-login_invalid_radius:ongeldige gebruiker/wagwoord kombinasie
+login_invalid_radius:Die kombinasie van gebruikersnaam en wagwoord is verkeerd
 reset_confirmation:Baie dankie vir u registrasie,\n\nOm u rekening te bevestig, gaan asseblief na die onderstaande URL toe:\n\n{VAR: url}\n\nSodra u rekening geaktiveer is sal u aangeteken word op die forum en\ndeurgestuur word na die tuisblad van die forum.
 reset_reset:Hallo,\n\nU, of iemand wat voorgee as u, het gevra dat u wagwoord herstel moet word. Indien u regtig u wagwoord wil herstel, gaan na die volgende URL:\n\n{VAR: url}\n\nNOTA: Die forum stel wagwoorde saam met 'n een-rigting enkripsie meganisme, wat beteken dat\nsodra u u wagwoord intik dit gekodeer word waarna daar GEEN manier is om dit terug te kry nie.\nDit werk deur eenvoudig u wagwoord te enkodeer elke keer as u dit insleutel en\ndaarna te sien of dit met die gekodeerde wagwoord ooreenstem. \n(Indien u belangstel in hoe die meganisme werk, lees meer oor die MD5 HASH algoritme)
 rpasswd_invalid_passwd:ongeldige wagwoord

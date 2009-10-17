@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.61 2009/09/30 16:47:32 frank Exp $
+* $Id: admforum.php,v 1.62 2009/10/17 11:13:19 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -123,12 +123,12 @@ if (!isset($_GET['chpos'])) {
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
-		<td>Forum Name:</td>
+		<td>Forum Name:<br /><font size="-2">The forum's name.</font></td>
 		<td><input type="text" name="frm_name" value="<?php echo $frm_name; ?>" maxlength="100" /></td>
 	</tr>
 
 	<tr class="field">
-		<td valign="top">Description:</td>
+		<td valign="top">Description:<br /><font size="-2">Description that will be shown on the forums main index page.</font></td>
 		<td><textarea nowrap="nowrap" name="frm_descr" cols="28" rows="5"><?php echo htmlspecialchars($frm_descr); ?></textarea>
 	</tr>
 
@@ -138,7 +138,7 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 
 	<tr class="field">
-		<td>Tag Style:<br /><font size="-2">What markup language may users use.</font></td>
+		<td>Tag Style:<br /><font size="-2">What markup language may users use. The tag style must match the content that will be stored in the form.</font></td>
 		<td><?php draw_select('frm_tag_style', "BBCode\nHTML\nNone", "16\n0\n8", ($frm_forum_opt & 8 ? 8 : ($frm_forum_opt & 16 ? 16 : 0))); ?></td>
 	</tr>
 

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.76 2009/10/11 11:41:50 frank Exp $
+* $Id: admimport.php,v 1.77 2009/10/17 11:13:19 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -307,7 +307,11 @@ function resolve_dest_path($path)
 			unset($c);
 
 			pf('<b>Import successfully completed.</b><br /><br />');
-			pf('<div class="tutor">To finalize the process you should now run the <nbsp>&gt;&gt; <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> &lt;&lt;</nbsp>.</div>');
+			if (defined('__adm_rsid')) {
+				pf('<div class="tutor">To finalize the process you should now run the <nbsp>&gt;&gt; <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> &lt;&lt;</nbsp>.</div>');
+			} else {
+				pf('To finalize the process you should now run the consistency checker.');
+			}
 			require($WWW_ROOT_DISK . 'adm/footer.php');
 			exit;
 		}

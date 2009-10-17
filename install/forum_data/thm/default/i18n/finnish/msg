@@ -165,7 +165,7 @@ un_ignore_user:poista tämän käyttäjän torjunta
 unanswered_posts:Vastaamattomat viestit
 unanswered_posts_desc:Näytä kaikki viestit, joihin ei ole vastattu
 unlock_thread:Vapauta aihe
-unread_msg:Tämä aihe sisältää viestejä joita et ole vielä lukenut
+unread_msg:Tämä aihe sisältää viestejä, joita et ole vielä lukenut
 unread_msg_locked:Lukittu aihe, joka sisältää lukemattomia viestejä
 unread_posts:Lukemattomat viestit
 unread_posts_desc:Näytä kaikki lukemattomat viestit
@@ -400,7 +400,7 @@ coppa_fax_instructions:Ohjeet vanhemmille tai huoltajille
 coppa_fax_instructions2:Tulostakaa tämä kaavake, allekirjoittakaa ja faksatkaa tänne:
 coppa_fax_reg_form:Rekisteröityminen
 coppa_fax_sign:Allekirjoittakaa alla oleva kaavake ja lähettäkää se meille
-coppa_fax_conf:Olen tarkistanut tiedot jotka lapseni on antanut ja olen lukenut tämän web-sivuston tietosuojaperiaatteista. Ymmärrän, että käyttäjätiedot voi muuttaa salasanaa käyttämällä. Ymmärrän, että voin vaatia että tämä käyttäjätili poistetaan kokonaan.
+coppa_fax_conf:Olen tarkistanut tiedot, jotka lapseni on antanut ja olen lukenut tämän sivuston tietosuojaperiaatteista. Ymmärrän, että käyttäjätiedot voi muuttaa salasanaa käyttämällä. Ymmärrän, että voin vaatia että tämä käyttäjätili poistetaan kokonaan.
 coppa_fax_permission:Allekirjoitus tähän, jos annatte suostumuksenne
 coppa_fax_no_permission:Allekirjoitus tähän jos haluatte että käyttäjätili poistetaan
 coppa_fax_parent_name:Vanhemman tai huoltajan koko nimi:
@@ -556,7 +556,7 @@ emailconf_err_invkey_msg:Virheellinen vahvistusavain. Tarkista sähköpostistasi
 err_inc_criticaltitle:Kriittinen virhe
 err_inc_criticalmsg:Virhe virheiden raportoinnnissa.
 finduser_update:Etsii käyttäjiä
-help_index_update:Lukee <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> listaa
+help_index_update:Lukee <a href="{TEMPLATE: help_index_update_lnk}">ohjeita</a>
 iemail_thr_subject:Uusi viesti aiheessa {VAR: thr_subject} käyttäjältä: {VAR: poster_login}
 iemail_thr_bodyemail:Lue uudet lukemattomat viestit täällä:\n{VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista viesteistä tässä aiheessa\nkäy täällä: {VAR: unsub_url['email']}
 iemail_frm_subject:Uusi aihe foorumissa {VAR: frm_name} otsikolla {VAR: thr_subject} käyttäjältä: {VAR: poster_login}
@@ -615,7 +615,7 @@ register_err_notyouremail:Tämä sähköpostiosoite on jo käytössä
 register_err_avatartobig:Lähetetyn tiedoston koko ylittää suurimman sallitun {GVAR: CUSTOM_AVATAR_MAX_SIZE} tavun rajan
 register_err_avatarnotallowed:Lähetetyn tiedoston tyyppi ei ole sallittu. Tarkista sallitut tiedostotyypit.
 register_conf_subject:Rekisteröitymisen vahvistus
-register_conf_msg:Kiitos rekisteröitymisestä,\n\naktivoidaksesi käyttäjätilisi klikkaa allaolevaa linkkiä:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti\nja sinut ohjataan foorumin kotisivulle.
+register_conf_msg:Kiitos rekisteröitymisestä.\nAktivoi käyttäjätilisi napsauttamalla alla olevaa linkkiä:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti ja sinut ohjataan foorumin kotisivulle.
 register_welcome_subject:Rekisteröintivahvistus
 register_welcome_msg:Kiitos rekisteröitymisestä,\n\nTässä ovat kirjautumistietosi foorumille:\n\nFoorumin linkki: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nHuom! Salasanojen isot ja pienet kirjaimet ovat eri merkkejä!\nVoit vaihtaa asetuksia ja käyttäjätietojasi täällä:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:VIRHE: rekisteröityminen epäonnistui
@@ -761,7 +761,7 @@ th_expr_one_year:1 vuodessa
 thread_mod_delete:Poista
 action_latest_post:Viimeisin viesti
 online_today_last_visit:Käytti viimeksi
-online_today_update:Selaa listaa ihmisistä jotka ovat tänään käyneet foorumilla.
+online_today_update:Selaa listaa ihmisistä, jotka ovat tänään käyneet foorumilla.
 logedin_todays_visitors:Kävijät tänään
 logedin_latest_post:Viimeisin viesti foorumeilla:
 register_show_avatar:Näytä avatarit:
@@ -823,7 +823,7 @@ register_alias:Alias
 register_alias_desc:Anna lempinimi (muu kuin käyttäjätunnus), jonka haluat näkyvän foorumilla.
 register_allow_pm_msg:Yksityisviestien vastaanotto muilta käyttäjiltä:
 register_allow_pm_msg_desc:Salli muiden käyttäjien lähettää sinulle yksityisviestejä.
-postcheck_pm_disabled:Et voi lähettää yksityisviestiä koska "{VAR-HTML: v}" ei halua vastaanottaa yksityisviestejä.
+postcheck_pm_disabled:Et voi lähettää yksityisviestiä, koska "{VAR-HTML: v}" ei halua vastaanottaa yksityisviestejä.
 polllist_vote:Äänestä
 polllist_view_results:Näytä tulokset
 polllist_name:Gallupin nimi
@@ -831,7 +831,7 @@ polllist_date:Laadittu
 polllist_owner:Laatija
 polllist_votes:Ääniä yhteensä
 polllist_action:Toiminnot
-polllist_update:Selaa <a href="{TEMPLATE: polllist_update_lnk}">Galluppeja</a>
+polllist_update:Selaa <a href="{TEMPLATE: polllist_update_lnk}">galluppeja</a>
 userinfo_polls:Gallupit:
 show_pollist:Gallupit
 search_and:JA
@@ -889,7 +889,7 @@ thread_mark_all_read:merkitse lukemattomat viestit luetuiksi
 thread_mark_all_read_desc:Kaikki tämän foorumin viestit merkitään luetuiksi
 private_no_messages:Ei viestejä tässä kansiossa.
 register_email_change_subject:Sähköpostiosoitteen vaihdon vahvistus
-register_email_change_msg:Vahvista uusi sähköpostiosoitteesi "{VAR: uent->email}" joka korvaa vanhan sähköpostiosoitteesi "{VAR: old_email}" klikkaamalla alla olevaa linkkiä:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKäyttäjätilisi aktivoituu uudestaan kun olet vahvistanut uuden sähköpostiosoitteesi.
+register_email_change_msg:Vahvista uusi sähköpostiosoitteesi {VAR: uent->email}, joka korvaa vanhan sähköpostiosoitteesi {VAR: old_email} napsauttamalla alla olevaa linkkiä:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKäyttäjätilisi aktivoituu uudestaan, kun olet vahvistanut uuden sähköpostiosoitteesi.
 iemail_thread_unsub:Lopeta tämän aiheen tilaus
 iemail_forum_unsub:Lopeta tämän foorumin tilaus
 primary_group_prefix:Foorumin pääryhmä:
@@ -901,7 +901,7 @@ post_mod_msg_notify_msg:Uusi viesti otsikolla "{VAR: msg_post->subject}" lähete
 thread_printable_pdf:Luo tulostettava PDF-tiedosto
 thread_syndicate:Foorumin syndikointi (XML)
 reg_conf_title:Rekisteröinnin vahvistus
-reg_conf_email:<b>Sähköpostivahvistus</b><br />Sinulle on lähetetty sähköposti sisältäen erityisen linkin jossa sinun pitää käydä ennenkuin käyttäjätunnuksesi aktivoidaan. Jos et saa tätä sähköpostia muutaman minuutin kuluttua, kirjaudu sisään tunnuksellasi ja varmista että sähköpostiosoite jonka annoit on oikein. Pääset käyttämään foorumin rekisteröityneille käyttäjille tarkoitettuja toimintoja vasta kun olet vahvistanut käyttäjätilisi.
+reg_conf_email:<b>Sähköpostivahvistus</b><br />Sinulle on lähetetty sähköposti sisältäen erityisen linkin, jossa sinun pitää käydä ennen kuin käyttäjätunnuksesi aktivoidaan. Jos et saa tätä sähköpostia muutaman minuutin kuluttua, kirjaudu sisään tunnuksellasi ja varmista että sähköpostiosoite, jonka annoit on oikein. Pääset käyttämään foorumin rekisteröityneille käyttäjille tarkoitettuja toimintoja vasta kun olet vahvistanut käyttäjätilisi.
 reg_conf_account:<b>Käyttäjätilin hyväksyminen</b><br />Ylläpidon täytyy hyväksyä käyttäjätilisi ennen sen aktivoitumista. Saat sähköpostitse ilmoituksen kun ylläpito on hyväksynyt käyttäjätilisi. Ennen tätä pystyt kuitenkin kirjautumaan sisään, mutta et voi käyttää toimintoja jotka on varattu hyväksytyille käyttäjille.
 forum_banned_user:Sinut on lopullisesti häädetty tältä foorumilta aikaisemman käytöksesi perusteella. Hyvästi.
 mnav_description:Viestiselain
@@ -923,7 +923,7 @@ mnav_month:Kuukautta
 mnav_title:Viestiselain
 mnav_update:Selaa viestejä käyttäen <a href="{TEMPLATE: mnav_update_lnk}">viestiselainta</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Ilmoitus uudesta yksityisviestistä
-pm_notify_body_email:Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\nNäet viestin klikkaamalla tätä: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.
+pm_notify_body_email:Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\nNäet viestin napsauttamalla tätä: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.
 register_pm_notification:Ilmoitukset uusista yksityisviesteistä:
 register_pm_notification_desc:Määrittää lähetetäänkö uusista yksityisviesteistä viesti määrittelemälläsi ilmoitusten lähetystavalla.
 findu_admin_opts_header:Ylläpidon toiminnot

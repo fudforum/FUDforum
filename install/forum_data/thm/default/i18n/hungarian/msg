@@ -1088,3 +1088,4 @@ feed_no_data:Nem található egyező adat.
 feed_rdf:RDF-hírcsatorna
 feed_rss:RSS2-hírcsatorna
 feed_atom:ATOM-hírcsatorna
+ip_whois_connect_err:Nem sikerült csatlakozni a WHOIS szerverhez ({VAR: whois_server}): {VAR: errstr}

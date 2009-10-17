@@ -1087,3 +1087,4 @@ feed_no_data:Kei Date gfunde.
 feed_rdf:RDF-Feed
 feed_rss:RSS2-Feed
 feed_atom:Atom-Feed
+ip_whois_connect_err:Cha kei Verbindig härstelle zum WHOIS-Server ({VAR: whois_server}): {VAR: errstr}

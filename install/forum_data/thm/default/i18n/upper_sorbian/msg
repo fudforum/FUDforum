@@ -1087,3 +1087,4 @@ feed_no_data:Žane wotpowědowace daty namakane.
 feed_rdf:RDF-kanal
 feed_rss:RSS2-kanal
 feed_atom:ATOM-kanal
+ip_whois_connect_err:Njeje móžno z WHOIS-serwerom ({VAR: whois_server}) zwjazać: {VAR: errstr}

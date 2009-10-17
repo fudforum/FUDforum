@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmessages.php,v 1.4 2009/09/30 16:47:33 frank Exp $
+* $Id: admmessages.php,v 1.5 2009/10/17 11:13:19 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,16 +24,16 @@
 
 		// Get language code.
 		$lang = trim(file_get_contents( $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $tlang .'/pspell_lang' ));
-		echo '<font color="green">Downloading '. $tlang .' ('. $lang .') messages from tranalatewiki.net...</font><br />';
+		pf('<font color="green">Downloading '. $tlang .' ('. $lang .') messages from tranalatewiki.net...</font>');
 
 		$url = "http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language=$lang&limit=2500";
 		$url_stuff = parse_url($url);
 
 		$fp = fsockopen($url_stuff['host'], 80, $errno, $errstr);
 		if (!$fp) {
-			echo '<font color="red">ERROR: '. $errstr .' ('. $errno .')</font><br />';
+			echo errorify('ERROR: '. $errstr .' ('. $errno .')');
 		} else {
-			$query .= "GET ". $url_stuff['path'] ."?". $url_stuff['query'] ." HTTP/1.0\r\n";
+			$query = "GET ". $url_stuff['path'] ."?". $url_stuff['query'] ." HTTP/1.0\r\n";
 			$query .= "User-Agent: FUDforum\r\n";
 			$query .= "Connection: close\r\n";
 			$query .= "\r\n\r\n";
@@ -49,9 +49,9 @@
 			fclose($fp);
 
 			if (!strlen($messages)) {
-				echo '<font color="red">Download failed. Your connection might be down or a firewall or proxy is blocking access.</font><br />';
+				echo errorify('Download failed. Your connection might be down or a firewall or proxy is blocking access.');
 			} elseif ( substr($messages,0,15) != '# Messages for ' ) {
-				echo '<font color="red">Corrupted download. Please try again.</font><br />';
+				echo errorify('Corrupted download. Please try again.');
 			} else {
 				$msgfile = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$tlang.'/msg';
 				file_put_contents($msgfile, $messages);

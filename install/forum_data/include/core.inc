@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.204 2009/10/07 15:19:24 frank Exp $
+* $Id: core.inc,v 1.205 2009/10/17 11:13:18 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -89,6 +89,7 @@ function get_ip()
 	if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 		$ip = strtok($_SERVER['HTTP_X_FORWARDED_FOR'], ',');
 		do {
+			$ip = str_replace('::ffff:', '', $ip);
 			if (($lip = ip2long($ip)) === -1) {
 				continue;
 			}
@@ -104,7 +105,10 @@ function get_ip()
 			return long2ip($lip);
 		} while (($ip = strtok(',')));
 	}
-	return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0');
+
+	$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : $_SERVER['REMOTE_ADDR'];
+	$ip = str_replace('::ffff:', '', $ip);
+	return (!empty($ip) ? $ip : '0.0.0.0');
 }
 
 function ssn($str)

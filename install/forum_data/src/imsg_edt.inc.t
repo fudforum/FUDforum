@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.183 2009/10/11 11:41:50 frank Exp $
+* $Id: imsg_edt.inc.t,v 1.184 2009/10/17 11:13:18 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -374,7 +374,7 @@ class fud_msg_edit extends fud_msg
 		unset($r);
 	}
 
-	function approve($id)
+	static function approve($id)
 	{
 		/* fetch info about the message, poll (if one exists), thread & forum */
 		$mtf = db_sab('SELECT

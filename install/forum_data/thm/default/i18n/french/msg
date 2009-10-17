@@ -1091,3 +1091,4 @@ feed_no_data:Aucune donnée correspondante trouvée.
 feed_rdf:flux RDF
 feed_rss:flux RSS2
 feed_atom:flux ATOM
+ip_whois_connect_err:Impossible de se connecter au serveur WHOIS ({VAR: whois_server}) : {VAR: errstr}
