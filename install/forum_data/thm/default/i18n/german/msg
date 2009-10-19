@@ -85,34 +85,34 @@ more_unread_messages_desc:Weitere ungelesene Beiträge anzeigen und die momentan
 move_thread:Verschieben
 moved:In ein anderes Forum verschoben
 moved_thread_message:Dieses Thema wurde in ein anderes Forum verschoben
-new_posts:Neue Beitr&auml;ge
+new_posts:Neue Beiträge
 new_private_messages:Du hast <span class="GenTextRed">({VAR: c})</span> ungelesene private {PLURAL: c|Nachricht|Nachrichten}
 new_thread:Ein neues Thema erstellen
 newest_user:Das neueste registrierte Mitglied ist
-next_page:N&auml;chste Seite
-next_thread:N&auml;chstes Thema:
-no_messages:Keine Beitr&auml;ge in diesem Forum vorhanden.
+next_page:Nächste Seite
+next_thread:Nächstes Thema:
+no_messages:Keine Beiträge in diesem Forum vorhanden.
 no_msg_body:leerer Beitrag
-no_new_posts:Keine neuen Beitr&auml;ge
-no_posts:Keine Beitr&auml;ge
+no_new_posts:Keine neuen Beiträge
+no_posts:Keine Beiträge
 no_subscribed_forums:Keine abonnierten Foren
 no_subscribed_threads:Keine abonnierten Themen
 no_bookmarked_threads:Keine Lesezeichen
 no_unread_locked:Dieses Thema wurde gesperrt
-no_unread_msg:Dieses Thema enth&auml;t keine ungelesenen Beitr&auml;ge
-no_unread_msg_unreg:Gelesene &amp; ungelesene Beitr&auml;ge werden nur f&uuml;r registrierte Benutzer weiterverfolgt
+no_unread_msg:Dieses Thema enthält keine ungelesenen Beiträge
+no_unread_msg_unreg:Gelesene &amp; ungelesene Beiträge werden nur für registrierte Benutzer weiterverfolgt
 num_pages:Seiten ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|Stimme|Stimmen}
 occupation:Beruf:
 off:AUS
 on:AN
-page_timings:Insgesamt ben&ouml;tigte Zeit, um die Seite zu erzeugen: {VAR: page_gen_time} Sekunden
+page_timings:Insgesamt benötigte Zeit, um die Seite zu erzeugen: {VAR: page_gen_time} Sekunden
 pm:Private Nachrichten
 poll:Abstimmung:
-post_count:Anzahl der Beitr&auml;ge {VAR: u_pcount}
-post_count_l:Beitragsz&auml;hler:
-posts:Beitr&auml;ge
-posts_c:Beitr&auml;ge:
+post_count:Anzahl der Beiträge {VAR: u_pcount}
+post_count_l:Beitragszähler:
+posts:Beiträge
+posts_c:Beiträge:
 prev_thread:Vorheriges Thema:
 usrinfo_private_message:Private Nachricht:
 profile:Profil
@@ -127,15 +127,15 @@ registered_on:Registriert am {TEMPLATE: registered_on_date}
 replies:Antworten
 report_to_mod:Den Beitrag einem Moderator melden
 reported_messages:Gemeldete Beitr&auml;ge
-reveal_all_posts:Alle Beitr&auml;ge von {VAR: user_login} anzeigen
+reveal_all_posts:Alle Beiträge von {VAR: user_login} anzeigen
 reveal_post:Beitrag anzeigen
 search:Suche
-sel_todays_posts:Heutige Beitr&auml;ge
-sel_todays_posts_desc:Den Filter f&uuml;r heutige Beitr&auml;ge erzwingen (zeigt nur die Beitr&auml;ge von heute an)
-sel_unanswered_posts:Unbeantwortete Beitr&auml;ge
-sel_unanswered_posts_desc:Den Filter f&uuml;r unbeantwortete Beitr&auml;ge erzwingen (zeigt nur unbeantwortete Beitr&auml;ge an)
-sel_unread_messages:Ungelesene Beitr&auml;ge
-sel_unread_messages_desc:Den Filter f&uuml;r ungelesene Beitr&auml;ge erzwingen (zeigt nur ungelesene Beitr&auml;ge an)
+sel_todays_posts:Heutige Beiträge
+sel_todays_posts_desc:Den Filter für heutige Beiträge erzwingen (zeigt nur die Beiträge von heute an)
+sel_unanswered_posts:Unbeantwortete Beiträge
+sel_unanswered_posts_desc:Den Filter für unbeantwortete Beiträge erzwingen (zeigt nur unbeantwortete Beiträge an)
+sel_unread_messages:Ungelesene Beiträge
+sel_unread_messages_desc:Den Filter für ungelesene Beiträge erzwingen (zeigt nur ungelesene Beiträge an)
 send:Verschicken
 send_pm_desc:Eine private Nachricht an diesen Benutzer verschicken
 sender_email:E-Mail des Absenders:
@@ -924,6 +924,7 @@ findu_ban:Verbannen
 findu_edit:Bearbeiten
 findu_delete:L&ouml;schen
 dmsg_reply_to:ist eine Antwort auf
+dmsg_reply_num:Beitrag #{VAR: obj->reply_to}
 merge_topics:Themen zusammenf&uuml;hren
 merge_topics_cp:Men&uuml; zum Zusammenf&uuml;hren von Themen
 merge_topics_tpl:Themen zum Zusammenf&uuml;hren ausw&auml;hlen <span class="SmallText">(Du musst mehr als ein Thema ausw&auml;hlen)</span>
@@ -1029,3 +1030,4 @@ pmsg_download_dump:Nachrichtenarchiv herunterladen
 move_messages:Beitr&auml;ge verschieben
 move_msg_btn:Verschiebe ausgew&auml;hlte Beitr&auml;ge
 move_msg_th_expl:Gib die ID des Zielthemas an (kann in einem anderem Forum sein)
+ip_whois_connect_err:Verbindung zu WHOIS-Server ({VAR: whois_server}) fehlgeschlagen: {VAR: errstr}

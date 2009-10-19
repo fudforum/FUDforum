@@ -1072,6 +1072,8 @@ postcheck_dup_err:Mohon untuk tidak membuat topik ganda.
 btn_new_topic:Topik Baru
 btn_new_pm:Pesan pribadi baru
 btn_post_reply:Kirim balasan
+btn_tree_view:Tayangan pohon
+btn_flat_view:Tayangan datar
 btn_about:Profile
 btn_small_pm:PP
 btn_delete:hapus

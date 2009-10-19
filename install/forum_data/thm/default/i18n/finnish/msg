@@ -97,6 +97,7 @@ no_new_posts:Ei uusia viestejä
 no_posts:Ei viestejä
 no_subscribed_forums:Ei tilattuja foorumeita
 no_subscribed_threads:Ei tilattuja aiheita
+no_bookmarked_threads:Ei kirjanmerkittyjä aiheita
 no_unread_locked:Tämä aihe on lukittu
 no_unread_msg:Tämä aihe ei sisällä lukemattomia viestejä
 no_unread_msg_unreg:Luetut ja lukemattomat viestit näytetään vain rekisteröityneille käyttäjille
@@ -172,6 +173,7 @@ unread_posts_desc:Näytä kaikki lukemattomat viestit
 unsub_from_thread:Peruuta aiheen tilaus
 unsub_from_thread_desc:Lopettaa ilmoitusten vastaanoton tämän aiheen uusista viesteistä
 unbookmark_thread:Poista kirjanmerkeistä
+unbookmark_thread_desc:Poista tämä aihe kirjanmerkeistäsi
 unsubscribe:Peruuta tilaus
 unsubscribe_desc:Lopettaa ilmoitusten vastaanoton tämän foorumin uusista viesteistä
 updated_on:Päivitetty:
@@ -369,8 +371,8 @@ post_file_del:Poista
 post_file_name:Nimi
 post_file_size:Tiedoston koko
 file_attachments:Tiedostoliitteet:
-allowed_files:Sallitut tiedostojen päätteet:
-max_file_size:Suurin sallittu tiedoston koko:
+allowed_files:Sallitut tiedostopäätteet:
+max_file_size:Suurin sallittu tiedostokoko:
 max_files_per_msg:Tiedostoja enintään per viesti:
 post_notification:Ilmoitus vastauksista
 include_sig:Liitä allekirjoitus
@@ -402,7 +404,7 @@ coppa_fax_reg_form:Rekisteröityminen
 coppa_fax_sign:Allekirjoittakaa alla oleva kaavake ja lähettäkää se meille
 coppa_fax_conf:Olen tarkistanut tiedot, jotka lapseni on antanut ja olen lukenut tämän sivuston tietosuojaperiaatteista. Ymmärrän, että käyttäjätiedot voi muuttaa salasanaa käyttämällä. Ymmärrän, että voin vaatia että tämä käyttäjätili poistetaan kokonaan.
 coppa_fax_permission:Allekirjoitus tähän, jos annatte suostumuksenne
-coppa_fax_no_permission:Allekirjoitus tähän jos haluatte että käyttäjätili poistetaan
+coppa_fax_no_permission:Allekirjoitus tähän, jos haluatte että käyttäjätili poistetaan
 coppa_fax_parent_name:Vanhemman tai huoltajan koko nimi:
 coppa_fax_relation:Suhde lapseen:
 coppa_fax_telephone:Puhelin:
@@ -425,7 +427,7 @@ login_name_required:Käyttäjätunnus on pakollinen
 login_passwd_required:Salasana on pakollinen
 login_invalid_radius:Käyttäjätunnus/salasana-yhdistelmä oli virheellinen
 reset_confirmation:Kiitos rekisteröitymisestä.\n\nAktivoidaksesi käyttäjätilisi siirry alla olevaan osoitteeseen:\n\n{VAR: url}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti\nja sinut ohjataan foorumin etusivulle.
-reset_reset:Hei, olet pyytänyt, että salasanasi vaihdetaan. Siirry alla olevaan osoitteeseen jatkaaksesi:\n\n{VAR: url}\n\nHuomaa: Tämä foorumi tallentaa salasanat yhdensuuntaisella salausmekanismilla, eli antamasi salasana salataan menetelmällä, joka estää sen näkemisen selväkielisenä. Tämä toimii yksinkertaisuudessaan siten, että aina kun annat salasanasi – se salataan samalla salausmenetelmällä ja verrataan tietokantaan tallennettuun salattuun salasanaan. (Jos olet kiinnostunut kuinka tämä salausmenetelmä toimii, etsi tietoja MD5 HASH -algoritmista)
+reset_reset:Hei, olet pyytänyt salasanasi vaihtamista. Siirry alla olevaan osoitteeseen jatkaaksesi:\n\n{VAR: url}\n\nHuomaa: Tämä foorumi tallentaa salasanat yhdensuuntaisella salausmekanismilla, eli antamasi salasana salataan menetelmällä, joka estää sen näkemisen selväkielisenä. Tämä toimii yksinkertaisuudessaan siten, että aina kun annat salasanasi – se salataan samalla salausmenetelmällä ja verrataan tietokantaan tallennettuun salattuun salasanaan. (Jos olet kiinnostunut kuinka tämä salausmenetelmä toimii, etsi tietoja MD5 HASH -algoritmista)
 rpasswd_invalid_passwd:Virheellinen salasana
 rpasswd_passwd_nomatch:Salasanat eivät täsmää
 rpasswd_passwd_length:Salasanan täytyy olla vähintään 6 merkkiä pitkä
@@ -436,7 +438,7 @@ rpasswd_change_pass:Vaihda salasana
 rpasswd_login:Käyttäjätunnus:
 rpasswd_cur_pass:Nykyinen salasana:
 rpasswd_new_pass:Uusi salasana:
-rpasswd_conf_pass:Vahvista uusi salasana:
+rpasswd_conf_pass:Vahvista salasana:
 login_passwd:Salasana:
 reset_email:Sähköpostiosoite:
 reset_reset_button:Vaihda salasana
@@ -495,7 +497,7 @@ ppost_to:Vastaanottaja:
 ppost_from_buddy_list:Valitse kaverilistalta
 ppost_find_User:Hae käyttäjä
 ppost_track_msg:Pyydä kuittaus
-ppost_track_msg_desc:Ilmoitus (yksityisviestinä) kun tämä viesti luetaan
+ppost_track_msg_desc:Ilmoitus yksityisviestinä, kun tämä viesti luetaan
 ppost_send:Lähetä
 ppost_save_draft:Tallenna luonnos
 poll_blank_option:Et voi lisätä tyhjää valintaa.
@@ -503,7 +505,7 @@ poll_del_conf:Paina OK, jos haluat poistaa tämän valinnan
 poll_name:Gallupin nimi:
 poll_timelimit:Aikarajoitus:
 poll_maxiumvotes:Ääniä enintään:
-poll_create:Tallenna
+poll_create:Luo
 poll_update:Päivitä
 poll_disablesmilies:Ei hymiöitä
 poll_create_poll:Luo gallup
@@ -540,7 +542,7 @@ buddy_list_err_cantadd:Et voi lisätä itseäsi omalle kaverilistallesi
 buddy_list_err_dup:Tämä käyttäjä on jo kaverilistallasi
 buddy_list_err_nouser:Käyttäjää, jonka yritit lisätä, ei löydy foorumilta
 buddy_list_err_nouser_title:Käyttäjän lisääminen ei onnistunut
-buddy_list_update:Selaa listaa kavereistaan
+buddy_list_update:Selaa omaa kaverilistaansa
 core_err_invinp_title:Virheellinen syöte
 core_err_invinp_err:Yritit ladata virheellista linkkiä, ole hyvä ja ilmoita tästä <href="mailto:{GVAR: ADMIN_EMAIL}">webmasterille</a>
 core_adm_login_msg:Ylläpitäjät voivat kirjautua sisään <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">täällä</a>
@@ -560,14 +562,14 @@ help_index_update:Lukee <a href="{TEMPLATE: help_index_update_lnk}">ohjeita</a>
 iemail_thr_subject:Uusi viesti aiheessa {VAR: thr_subject} käyttäjältä: {VAR: poster_login}
 iemail_thr_bodyemail:Lue uudet lukemattomat viestit täällä:\n{VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista viesteistä tässä aiheessa\nkäy täällä: {VAR: unsub_url['email']}
 iemail_frm_subject:Uusi aihe foorumissa {VAR: frm_name} otsikolla {VAR: thr_subject} käyttäjältä: {VAR: poster_login}
-iemail_frm_bodyemail:Lue aihe täällä:\n{VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista aiheista tässä foorumissa\nkäy täällä: {VAR: unsub_url['email']}
+iemail_frm_bodyemail:Lue aihe täällä:\n{VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista aiheista tässä foorumissa – käy täällä: {VAR: unsub_url['email']}
 iemail_participate:Osallistuaksesi keskusteluun, mene tänne:
 ignore_list_err_dup_msg:Tämä käyttäjä on jo torjuttujen listalla
 ignore_list_err_nu_title:Käyttäjää ei löydy
 ignore_list_err_nu_msg:Käyttäjää jonka yritit torjua ei löytynyt.
 ignore_list_cantign_msg:Et voi torjua tätä käyttäjää
 ignore_list_update:Selaa omaa torjuttujen listaa
-index_update:Selaa <a href="{TEMPLATE: index_update_lnk}">foorumi listaa</a>
+index_update:Selaa <a href="{TEMPLATE: index_update_lnk}">foorumilistaa</a>
 list_referers_update:Selaa suosittelujaan
 login_update:Sisäänkirjautuminen
 msg_update:Lukee <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> viestiä
@@ -802,7 +804,7 @@ im_jabber:Jabber:
 im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter:
-forum_contact:Kontakti
+forum_contact:Ota yhteyttä
 forum_home:Etusivu
 post_cur_attached:tällä hetkellä liitteenä: {VAR: i} {PLURAL: i|tiedosto|tiedostoa}
 ignored_anon_post:{GVAR: ANON_NICK} viestit on torjuttu
@@ -818,7 +820,7 @@ imsg_err_message_msg:Viestiä ei ole olemassa.
 poll_edit:Muokkaa
 register_err_not_valid_img:Valittu linkki ei johda kelvolliseen kuvaan
 pmsg_recepient:Vastaanottaja
-register_err_taken_alias:Alias jonka valitsit on jo käytössä, ole hyvä ja valitse uusi.
+register_err_taken_alias:Alias, jonka valitsit on jo käytössä, ole hyvä ja valitse toinen.
 register_alias:Alias
 register_alias_desc:Anna lempinimi (muu kuin käyttäjätunnus), jonka haluat näkyvän foorumilla.
 register_allow_pm_msg:Yksityisviestien vastaanotto muilta käyttäjiltä:
@@ -841,9 +843,9 @@ search_asc_order:vanhin ensin
 search_logic:Hakulogiikka:
 search_sorting:Järjestä tulokset päivämäärän mukaan:
 post_proceed:Jatka
-post_moderated_forum:Lähetit viestin moderoidulle foorumille. Viestisi ei näy foorumilla ennenkuin joku foorumin moderaattoreista tai ylläpidosta hyväksyy sen.
+post_moderated_forum:Lähetit viestin moderoidulle foorumille. Viestisi ei näy foorumilla ennen kuin joku foorumin moderaattoreista tai ylläpidosta hyväksyy sen.
 post_moderated_forum_ttl:Moderoitu foorumi
-buddy_list_bday:{VAR: r[2]} täyttää tänään {VAR: age} vuotta
+buddy_list_bday:{VAR: r[2]} täyttää tänään {VAR: age}-vuotta
 email_warning_msg:Jos vaihdat sähköpostiosoitteesi, käyttäjätilisi merkitään vahvistamattomaksi kunnes olet vahivistanut sen sähköpostilla.
 register_show_im:Näytä IM (ICQ, AIM, jne) indikaattorit:
 register_show_im_desc:Määrittää näytetäänkö viesteissä kirjoittajan IM (Instant Messaging) indikaattori(t).
@@ -853,10 +855,10 @@ threadt_more:&lt;lisää&gt;
 threadt_disabled_ttl:Aiheiden puulistaus ei ole käytössä
 threadt_disabled_desc:Ylläpitäjä on poistanut aiheiden puulistauksen käytöstä. Käytä tasolistausta sen sijaan.
 threadt_update:Selaa foorumia (puulistaus) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
-mmod_delete_cofirm_ttl:Aiheen/Viestin poiston varmistus
+mmod_delete_cofirm_ttl:Aiheen tai viestin poiston varmistus
 spell_alts:ei vaihtoehtoja
 insert_uploaded_image:Lisää kuva viestin tekstiin
-finduser_help:Hakukone lisää automaattisesti * hakuun. Esim. jos haluat etsiä kaikki käyttäjät joiden käyttäjätunnus alkaa 'a' kirjaimella, syötä 'a' haku kenttään.
+finduser_help:Hakukone lisää automaattisesti hakuun merkin *. Esimerkiksi, jos haluat etsiä kaikki käyttäjät, joiden käyttäjätunnus alkaa a-kirjaimella – syötä 'a' hakukenttään.
 back_to_top:Takaisin alkuun
 pm_err_disabled_title:Yksityisviestit poissa käytöstä
 pm_err_disabled_msg:Et voi lähettää yksityisviestejä ennenkuin otat ne käyttöön asetuksissasi.
@@ -865,7 +867,7 @@ err_mod_acc_msg:Ylläpitäjä tarkistaa kaikki käyttäjätilit ennen niiden akt
 accounts_pending_approval:Hyväksymättömät käyttäjät
 saved:Tallennetut
 register_err_time_limit:Rekisteröitymiset on rajoitettu {GVAR: REG_TIME_LIMIT} sekuntiin per rekisteröinti. Odota {PLURAL: reg_limit_reached|$1 sekunti|$1 sekuntia} ja yritä rekisteröityä uudelleen.
-register_affero:Affero tunnus:<br /><font class="SmallText">Voit antaa mahdollisen <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> tunnuksesi tässä.</font>
+register_affero:Affero-tunnus:<br /><span class="SmallText">Voit antaa mahdollisen <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>-tunnuksesi tässä.</span>
 im_affero:Affero-tunnus
 register_err_avatardimtobig:Avatarin kuvakoko <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> ylittää suurimman sallitun koon <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:{VAR: r[2]} ei ole sisäänkirjautunut
@@ -893,9 +895,9 @@ register_email_change_msg:Vahvista uusi sähköpostiosoitteesi {VAR: uent->email
 iemail_thread_unsub:Lopeta tämän aiheen tilaus
 iemail_forum_unsub:Lopeta tämän foorumin tilaus
 primary_group_prefix:Foorumin pääryhmä:
-group_resources:Tämä ryhmä kontrolloi seuraavien foorumien käyttöoikeuksia
+group_resources:Tämä ryhmä hallinnoi seuraavien foorumien käyttöoikeuksia
 register_admin_newuser_title:Uusi rekisteröitynyt käyttäjä
-register_admin_newuser_msg:Uusi käyttäjä ({VAR: uent->login}) on juuri rekisteröitynyt foorumille.\nTarkista ja hyväksy/hylkää käyttäjätili:\n\n{GVAR: WWW_ROOT}adm/admaccapr.php\n\nTämä on automatisoitu prosessi, älä vastaa tähän sähköpostiin.\nJos et enää halua vastaanottaa sähköpostitse ilmoituksia uusista rekisteröitymisistä,\nvaihda "New Account Notification" asetus "Ylläpitäjän kontrollipaneelissa".
+register_admin_newuser_msg:Uusi käyttäjä ({VAR: uent->login}) on juuri rekisteröitynyt foorumille.\nTarkista ja hyväksy tai hylkää käyttäjätili: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nTämä on automatisoitu prosessi, älä vastaa tähän sähköpostiin.\nJos et enää halua vastaanottaa sähköpostitse ilmoituksia uusista rekisteröitymisistä,\nvaihda "New Account Notification" -asetus Ylläpitäjän hallintapaneelissa.
 post_mod_msg_notify_title:Uusi viesti foorumilla "{VAR: frm->name}" odottaa hyväksyntää
 post_mod_msg_notify_msg:Uusi viesti otsikolla "{VAR: msg_post->subject}" lähetettiin foorumille, jonka moderaattori olet. Tarkistaaksesi tämän viestin siirry osoitteeseen: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTämä on automatisoitu prosessi. Älä vastaa tähän sähköpostiin.
 thread_printable_pdf:Luo tulostettava PDF-tiedosto
@@ -903,7 +905,7 @@ thread_syndicate:Foorumin syndikointi (XML)
 reg_conf_title:Rekisteröinnin vahvistus
 reg_conf_email:<b>Sähköpostivahvistus</b><br />Sinulle on lähetetty sähköposti sisältäen erityisen linkin, jossa sinun pitää käydä ennen kuin käyttäjätunnuksesi aktivoidaan. Jos et saa tätä sähköpostia muutaman minuutin kuluttua, kirjaudu sisään tunnuksellasi ja varmista että sähköpostiosoite, jonka annoit on oikein. Pääset käyttämään foorumin rekisteröityneille käyttäjille tarkoitettuja toimintoja vasta kun olet vahvistanut käyttäjätilisi.
 reg_conf_account:<b>Käyttäjätilin hyväksyminen</b><br />Ylläpidon täytyy hyväksyä käyttäjätilisi ennen sen aktivoitumista. Saat sähköpostitse ilmoituksen kun ylläpito on hyväksynyt käyttäjätilisi. Ennen tätä pystyt kuitenkin kirjautumaan sisään, mutta et voi käyttää toimintoja jotka on varattu hyväksytyille käyttäjille.
-forum_banned_user:Sinut on lopullisesti häädetty tältä foorumilta aikaisemman käytöksesi perusteella. Hyvästi.
+forum_banned_user:Sinut on lopullisesti estetty tältä foorumilta aikaisemman käytöksesi perusteella. Hyvästi.
 mnav_description:Viestiselain
 mnav_date_limit:Aikarajaus:
 mnav_forum_limit:Hae vain:
@@ -970,8 +972,9 @@ uc_new_topic:Uusi aihe
 uc_new_cat_forum:Tilattujen foorumien uudet viestit
 uc_cat_forum:Luokka &raquo; Foorumi
 uc_sub_topics:Tilattujen aiheiden uudet viestit
-search_options:Haun valinnat
+search_options:Hakuasetukset
 search_user_filter:Suodata käyttäjän mukaan:
+register_none:Älä huomauta
 register_max_sig_len:Maksimipituus:
 register_turing:Syötä alla oleva varmistuskoodi:
 register_err_turing:Virheellinen varmistuskoodi.

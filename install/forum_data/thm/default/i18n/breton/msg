@@ -1088,3 +1088,4 @@ feed_no_data:N'eus ket roadennoù a glot.
 feed_rdf:gwazh RDF
 feed_rss:gwazh RSS2
 feed_atom:gwazh ATOM
+ip_whois_connect_err:Ne c'haller ket kevreañ ouzh ar servijer WHOIS ({VAR: whois_server}) : {VAR: errstr}
