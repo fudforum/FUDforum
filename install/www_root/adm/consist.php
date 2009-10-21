@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.145 2009/10/01 19:38:01 frank Exp $
+* $Id: consist.php,v 1.146 2009/10/21 05:54:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -659,19 +659,7 @@ While it is running, your forum will be disabled.
 	draw_stat('Done: Rebuilding group cache');
 
 	draw_stat('Validating User/Theme Relations');
-	if (__dbtype__ == 'pgsql' || __dbtype__ == 'sqlite' || $FUD_OPT_3 & 1024) {
-		q('UPDATE '.$tbl.'users SET theme=(SELECT id FROM '.$tbl.'themes thm WHERE (theme_opt & 3) > 0 ) WHERE theme NOT IN( (SELECT id FROM '.$tbl.'themes WHERE (theme_opt & 1) > 0) )');
-	} else {
-		$te = array();
-		$c = uq('SELECT u.id FROM '.$tbl.'users u LEFT JOIN '.$tbl.'themes thm ON thm.id=u.theme WHERE thm.id IS NULL');
-		while (list($uid) = db_rowarr($c)) {
-			$te[] = $uid;
-		}
-		unset($c);
-		if ($te) {
-			q('UPDATE '.$tbl.'users SET theme='.q_singleval('SELECT id FROM '.$tbl.'themes WHERE (theme_opt & 3) > 0').' WHERE id IN('.implode(',', $te).')');
-		}
-	}
+	q('UPDATE '.$tbl.'users SET theme=(SELECT id FROM '.$tbl.'themes thm WHERE (theme_opt & 3) = 3) WHERE theme NOT IN( (SELECT id FROM '.$tbl.'themes WHERE (theme_opt & 1) > 0))');
 	draw_stat('Done: Validating User/Theme Relations');
 
 	draw_stat('Rebuilding Forum/Category order cache');
