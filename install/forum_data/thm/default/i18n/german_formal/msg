@@ -271,12 +271,14 @@ no:Nein
 register_email:E-Mail
 edit_time_limit:<b>Zeitspanne zum Bearbeiten</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> Minuten
 no_edit_time_limit:<b>Zeitspanne zum Bearbeiten</b>: <b>Unbegrenzt</b>
+pmuserloc_login:Benutzername:
 pmuserloc_submit:Abschicken
 pmuserloc_user:Benutzer
 pmuserloc_no_result:Keine Ergebnisse
 register_builtin:Eingebaut
 register_specify_url:URL angeben
 register_uploaded:Avatar hochladen
+register_login:Benutzername:
 register_password:Passwort:
 register_conf_pass:Passwort bestätigen:
 register_email_desc:Bitte geben Sie eine gültige E-Mail-Adresse an. Sie können diese dann weiter unten im Menü verstecken.
@@ -340,6 +342,7 @@ post_sticky:Angeheftet
 post_annoncement:Ankündigung
 post_size:Größe
 post_color:Farbe
+post_font:Schriftart
 create_thread:Thema erstellen
 submit_reply:Antwort abschicken
 edit_message:Beitrag bearbeiten
@@ -414,6 +417,7 @@ login_want_to_register:Möchten Sie sich registrieren?
 login_forgot_passwd:Passwort vergessen
 login_use_cookie:Cookies verwenden<br /><span class="SmallText">Falls Sie einen öffentlich zugänglichen Rechner (z.B. in Bibliotheken, Schulen oder Internetcafés) verwenden, ist es ratsam, diesen Menüpunkt für eine erhöhte Sicherheit abzuwählen.<br />Wenn diese Option ausgewählt bleibt, werden Sie automatisch in diesem Forum angemeldet, wenn Sie es in der nächsten Zeit besuchen.</span>
 login_login:Login
+login_login_btn:Anmelden
 login_name_required:Anmeldename erforderlich
 login_passwd_required:Passwort erforderlich
 login_invalid_radius:Ungültige Login/Passwort-Kombination
@@ -774,8 +778,10 @@ split_th_split_unsel:Nicht ausgewählte Beiträge aufteilen
 split_th_messages:Beiträge
 split_th_select:Auswählen
 report_report_post:Beitrag melden
+quicklogin_login:Benutzername:
 quicklogin_password:Passwort:
 quicklogin_use_cookies:Cookies verwenden?
+quicklogin_login_btn:Anmelden
 quick_reply:Schnelle Antwort
 post_notification_desc:Benachrichtige mich, wenn jemand auf meinen Beitrag antwortet.
 post_all_ext_allowed:(unbegrenzt)
@@ -791,6 +797,7 @@ pmsg_prev_msg:Vorherige Nachricht
 post_proc_reveal_spoiler:Spoiler anzeigen
 register_jabber:Jabber Benutzername:
 register_skype:Skype:
+register_twitter:Twitter-Benutzername:
 register_google:Google Chat/IM:
 forum_contact:Kontakt
 forum_home:Forumsindex
@@ -922,6 +929,7 @@ findu_ban:Verbannen
 findu_edit:Bearbeiten
 findu_delete:Löschen
 dmsg_reply_to:ist eine Antwort auf
+dmsg_reply_num:Beitrag #{VAR: obj->reply_to}
 merge_topics:Themen zusammenführen
 merge_topics_cp:Menü zum Zusammenführen von Themen
 merge_topics_tpl:Themen zum Zusammenführen auswählen <span class="SmallText">(Sie müssen mehr als ein Thema auswählen)</span>
@@ -989,6 +997,7 @@ pmsg_pdf_btn:PDF-Archiv erzeugen
 search_results_hdr:{VAR: total} Suchergebnisse gefunden
 thread_del_all:Alle markierten löschen
 thread_mov_all:Alle markierten verschieben
+thread_loc_all:Alle markierten sperren/entsperren
 err_blockedaccnt_title:FEHLER: Ihr Konto wurde ausgefiltert.
 err_blockedaccnt_msg:Ihrem Konto wurde aufgrund der aktivierten Benutzerfilter der Zugriff auf das Forum verwehrt.
 merge_th_page_list:Seite der Themenauswahl
@@ -1027,3 +1036,29 @@ pmsg_download_dump:Nachrichtenarchiv herunterladen
 move_messages:Beiträge verschieben
 move_msg_btn:Verschiebe ausgewählte Beiträge
 move_msg_th_expl:Geben Sie die ID des Zielthemas an (kann in einem anderem Forum sein)
+captcha_img_alt:CAPTCHA-Bestätigung: Sie müssen den Text in diesem Bild erkennen.
+captcha_img_help:Das Bild enthält keine Null oder Eins.
+code_select_all:alles markieren
+code_show_hide:anzeigen/verstecken
+social_sites:Soziale Netzwerke:
+postcheck_min_len_err:Ihr Beitrag ist zu kurz. Die Mindestlänge beträgt {PLURAL: post_min_len|$1 Zeichen|$1 Zeichen}.
+postcheck_dup_err:Bitte erstellen Sie Themen nicht doppelt.
+btn_new_topic:Neues Thema
+btn_new_pm:Neue PN
+btn_post_reply:Antwort
+btn_tree_view:als Baum
+btn_flat_view:flache Ansicht
+btn_about:Profil
+btn_small_pm:PN
+btn_delete:löschen
+btn_edit:ändern
+btn_reply:antworten
+btn_forward:weiterleiten
+btn_quote:zitieren
+btn_email:E-Mail
+btn_show_posts:Beiträge
+feed_no_data:Keine passenden Daten gefunden.
+feed_rdf:RDF-Feed
+feed_rss:RSS2-Feed
+feed_atom:ATOM-Feed
+ip_whois_connect_err:Verbindung zu WHOIS-Server ({VAR: whois_server}) fehlgeschlagen: {VAR: errstr}

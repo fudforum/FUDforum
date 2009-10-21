@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.40 2009/09/30 16:47:32 frank Exp $
+* $Id: admbrowse.php,v 1.41 2009/10/21 20:07:15 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -132,12 +132,41 @@ if (!extension_loaded('posix')) {
 		umask($u);
 	}
 
-	/* File upload code */
+	/* File upload code. */
 	if (isset($_FILES['fname']) && $_FILES['fname']['size']) {
 		$fdest = !empty($_POST['d_name']) ? $_POST['d_name'] : $_FILES['fname']['name'];
 		$fdest = $cur_dir . '/' . basename($fdest);
-		move_uploaded_file($_FILES['fname']['tmp_name'], $fdest);
-		@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
+		if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
+			echo successify('File successfully uploaded.');
+			@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
+		} else {
+			switch ($_FILES['fname']['error']) {
+			case UPLOAD_ERR_INI_SIZE:
+				errorify('The uploaded file exceeds the upload_max_filesize directive in php.ini.');
+				return;
+			case UPLOAD_ERR_FORM_SIZE:
+				errorify('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.');
+				return;
+			case UPLOAD_ERR_PARTIAL:
+				errorify('The uploaded file was only partially uploaded.');
+				return;
+			case UPLOAD_ERR_NO_FILE:
+				errorify('No file was uploaded.');
+				return;
+			case UPLOAD_ERR_NO_TMP_DIR:
+				errorify('Missing a temporary folder.');
+				return;
+			case UPLOAD_ERR_CANT_WRITE:
+				errorify('Failed to write file to disk.');
+				return;
+			case UPLOAD_ERR_EXTENSION:
+				errorify('File upload stopped by extension.');
+				return;
+			default:
+				errorify('Unknown upload error. Please try again.');
+			} 
+
+		}
 	}
 
 	/* Download file code */

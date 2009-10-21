@@ -1,6 +1,15 @@
 <?php
-	if (defined('shell_script') ) return;	// Command line execution.
 	if (!isset($FORUM_TITLE, $DATA_DIR)) die('Go away!');	// Hacking attempt?
+
+	if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
+		$charset = trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
+	} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
+		$charset = trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
+	} else {
+		$charset = trim(file_get_contents($DATA_DIR.'thm/default/i18n/english/charset'));
+	}
+
+	if (defined('shell_script') ) return;	// Command line execution.
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
@@ -9,15 +18,7 @@
 <link rel="styleSheet" href="adm.css" type="text/css" />
 <script type="text/javascript" src="../jquery.js"></script>
 <script type="text/javascript" src="../lib.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php 
-if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
-} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
-} else {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/english/charset'));
-}
-?>" />
+<meta http-equiv="Content-Type" content="text/html; charset=$charset" />
 </head>
 <body>
 <table class="headtable"><tr>

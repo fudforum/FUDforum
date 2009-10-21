@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.100 2009/10/11 11:41:50 frank Exp $
+* $Id: admuser.php,v 1.101 2009/10/21 20:07:15 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -143,6 +143,10 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 <?php
 					exit;
 			} else if (isset($_POST['btn_yes'])) {
+				if ($GLOBALS['usr']->id == $usr_id) {
+					echo errorify('Sorry, you cannot delete your own account!');
+					break;
+				}
 				logaction(_uid, 'DELETE_USER', 0, $u->alias);
 				usr_delete($usr_id);
 				echo '<font color="green">User <b>'.$u->alias.'</b> was successfully removed.</font>';

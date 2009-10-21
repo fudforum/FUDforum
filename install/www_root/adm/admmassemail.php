@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.61 2009/10/11 11:41:50 frank Exp $
+* $Id: admmassemail.php,v 1.62 2009/10/21 20:07:15 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -91,7 +91,7 @@
 				$smtp->msg = str_replace("\n.", "\n..", $_POST['body']);
 				$smtp->subject = encode_subject($_POST['subject']);
 				$smtp->from = $ADMIN_EMAIL;
-				$smtp->headers = "Reply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\n";
+				$smtp->headers = "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=$charset\r\nContent-Transfer-Encoding: 8bit\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\n";
 
 				while ($r = db_rowarr($c)) {
 					$to[] = $r[0];
