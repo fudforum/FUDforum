@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.41 2009/10/21 20:07:15 frank Exp $
+* $Id: admbrowse.php,v 1.42 2009/10/23 21:24:05 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -194,7 +194,7 @@ if (!extension_loaded('posix')) {
 			} else if (@is_file($cur_dir.'/'.$dest) && !unlink($cur_dir.'/'.$dest)) {
 				exit('<h2 style="color:red">ERROR: failed to remove file '.$cur_dir . '/' . $dest.'</h2>');
 			} else {
-				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
+				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 			}
 		} else {
 			$file = $cur_dir.'/'.$dest;
@@ -271,7 +271,7 @@ if (!extension_loaded('posix')) {
 		if (!@chmod($file, $new_mode)) {
 			exit('<html>Unable to chmod <b>'.$file.'</b><br /><a href="#" onclick="window.close();">close</a></html>');
 		} else {
-			exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsid.'&amp;cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
+			exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 		}
 	}
 
@@ -373,7 +373,7 @@ if (!extension_loaded('posix')) {
 		$group = $groupsent['name'];
 
 		$date_str = strftime("%b %d", (isset($st[9])?$st[9]:$st['mtime']));
-		$time_str = strftime("%T", (isset($st[9])?$st[9]:$st['mtime']));
+		$time_str = strftime("%H:%M:%S", (isset($st[9])?$st[9]:$st['mtime']));
 		$mode_o = sprintf('%o', 0x0FFF&$mode);
 
 		$size = round((isset($st[7])?$st[7]:$st['size'])/1024);

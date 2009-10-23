@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admplugins.php,v 1.13 2009/10/14 10:40:49 frank Exp $
+* $Id: admplugins.php,v 1.14 2009/10/23 21:24:05 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -102,7 +102,7 @@
 			echo '<b>Author:</b> '.$info['author'].'<br />';
 		}
 		if (isset($info['version'])) {
-			echo '<b>Plugin version:</b> '.$info['version'].'<br />';
+			echo '<b>Version:</b> '.$info['version'].'<br />';
 		}
 		echo '<b>Status:</b> '. (in_array($plugin, $plugins) ? 'Enabled' : 'Disabled') .'<br />';
 		if (isset($info['help'])) {
@@ -124,6 +124,7 @@
 		}
 
 		echo '<div style="float:right;">[ <a href="admplugins.php?'.__adm_rsid.'">Return to Plugin Manager &raquo;</a> ]</div>';
+
 		exit;
 	}
 
@@ -164,10 +165,10 @@ foreach ($plugin_files as $plugin) {
 	$checked = in_array($plugin, $plugins) ? 'checked="checked"' : '';
 ?>
 <tr class="field">
-  <td><a href="admplugins.php?config=<?php echo urlencode($plugin).'&'.__adm_rsid.'">'.$plugin; ?></a></td>
+  <td><a href="admplugins.php?config=<?php echo urlencode($plugin).'&amp;'.__adm_rsid.'">'.$plugin; ?></a></td>
   <td class="center"><input type="checkbox" name="plugins[]" value="<?php echo $plugin; ?>" <?php echo $checked.' '.$disabled; ?> /></td>
-<?php } ?> 
 </tr>
+<?php } ?> 
 <tr class="fieldtopic center">
   <td>&nbsp;</td>
   <td><input type="submit" name="plugin_state" value="Change state" <?php echo $disabled; ?> /></td>

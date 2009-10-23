@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaccapr.php,v 1.31 2009/09/30 16:47:32 frank Exp $
+* $Id: admaccapr.php,v 1.32 2009/10/23 21:24:05 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,7 +35,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		if ($no_html) {
 			$value = htmlspecialchars($value);
 		}
-		return $descr.': '.$value.'<br />';
+		return '<tr><td>'.$descr.':</td><td>'.$value.'</td></tr>';
 	}
 }
 
@@ -48,23 +48,32 @@ function print_if_avail($descr, $value, $no_html=1)
 <?php
 	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0 AND id >0');
 	while ($obj = db_rowobj($c)) {
-		echo '<tr><td class="field">'.
+		echo '<tr><td class="field"><table>'.
 		print_if_avail('Login', $obj->login) .
 		print_if_avail('E-mail', $obj->email) .
 		print_if_avail('Name', $obj->name) .
 		print_if_avail('Location', $obj->location) .
-		print_if_avail('Interests', $obj->interests) .
 		print_if_avail('Occupation', $obj->occupation) .
+		print_if_avail('Interests', $obj->interests) .
+		print_if_avail('Avatar', ($obj->avatar_loc), 0) .
+		print_if_avail('Birth Date', strftime('%B, %d, %Y', strtotime($obj->bday))) .
 		print_if_avail('Gender', ($obj->users_opt & 1024 ? 'Male' : ($obj->users_opt & 512 ? 'Unspecified' : 'Female'))) .
-		print_if_avail('ICQ UIN', $obj->icq) .
-		print_if_avail('AIM', $obj->aim) .
-		print_if_avail('MSN Messanger', $obj->msnm) .
-		print_if_avail('Jabber', $obj->jabber) .
-		print_if_avail('Birth Date', $obj->bday) .
+		print_if_avail('Homepage', $obj->home_page) .
+		print_if_avail('Image', $obj->user_image) .
+		print_if_avail('Biography', $obj->biography) .
+		print_if_avail('ICQ', $obj->icq) .
+		print_if_avail('AIM Handle', $obj->aim) .
+		print_if_avail('Yahoo Messenger', $obj->yahoo) .
+		print_if_avail('MSN Messenger', $obj->msnm) .
+		print_if_avail('Jabber Handle', $obj->jabber) .
+		print_if_avail('Google Chat/IM Handle', $obj->google) .
+		print_if_avail('Skype Handle', $obj->skype) .
+		print_if_avail('Twitter Handle', $obj->twitter) .
 		print_if_avail('Signature', $obj->sig, 0) .
 		print_if_avail('IP Address', long2ip($obj->reg_ip), 0) .
-		'</td>
-		<td class="fieldaction">[ <a href="admaccapr.php?apr='.$obj->id.'&amp;'.__adm_rsid.'">Approve Account</a> | <a href="admaccapr.php?rm='.$obj->id.'&amp;'.__adm_rsid.'">Delete Account</a> ]</td></tr>';
+		'</table></td>
+		<td class="fieldaction">[ <a href="admaccapr.php?apr='.$obj->id.'&amp;'.__adm_rsid.'">Approve Account</a> | <a href="admaccapr.php?rm='.$obj->id.'&amp;'.__adm_rsid.'">Delete Account</a> ]</td></tr>
+		<tr><td>&nbsp;</td></tr>';
 	}
 	unset($c);
 ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php,v 1.18 2009/09/30 16:47:33 frank Exp $
+* $Id: index.php,v 1.19 2009/10/23 21:24:05 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,13 +17,13 @@
 
 <?php	
 	if (@file_exists($WWW_ROOT_DISK.'install.php')) {
-		echo '<div class="alert">You still haven\'t removed the installation script at '.$WWW_ROOT_DISK.'install.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!</div><br />';
+		echo '<div class="alert">You still haven\'t removed the installation script at '.$WWW_ROOT_DISK.'install.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!</div><br />';
 	}
 	if (@file_exists($WWW_ROOT_DISK.'uninstall.php')) {
-		echo '<div class="alert">You still haven\'t removed the uninstall script at '.$WWW_ROOT_DISK.'uninstall.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!</div><br />';
+		echo '<div class="alert">You still haven\'t removed the uninstall script at '.$WWW_ROOT_DISK.'uninstall.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!</div><br />';
 	}
 	if (@file_exists($WWW_ROOT_DISK.'upgrade.php')) {
-		echo '<div class="alert">You still haven\'t removed the upgrade script at '.$WWW_ROOT_DISK.'upgrade.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!</div><br />';
+		echo '<div class="alert">You still haven\'t removed the upgrade script at '.$WWW_ROOT_DISK.'upgrade.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!</div><br />';
 	}
 ?>
 
