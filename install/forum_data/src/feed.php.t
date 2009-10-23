@@ -2,14 +2,16 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: feed.php.t,v 1.6 2009/09/20 19:05:48 frank Exp $
+* $Id: feed.php.t,v 1.7 2009/10/23 19:15:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-	mb_internal_encoding('{TEMPLATE: forum_CHARSET}');
+	if (function_exists('mb_internal_encoding')) {
+		mb_internal_encoding('{TEMPLATE: forum_CHARSET}');
+	}
 	require('./GLOBALS.php');
 	fud_use('err.inc');
 

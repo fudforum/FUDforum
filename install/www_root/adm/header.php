@@ -18,7 +18,7 @@
 <link rel="styleSheet" href="adm.css" type="text/css" />
 <script type="text/javascript" src="../jquery.js"></script>
 <script type="text/javascript" src="../lib.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=$charset" />
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
 </head>
 <body>
 <table class="headtable"><tr>

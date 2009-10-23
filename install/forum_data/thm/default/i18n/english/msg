@@ -556,7 +556,7 @@ email_error_subject:		The Subject is required
 email_error_namerequired:	A Name is required
 email_error_invaliduser:	Invalid user
 emailconf_err_invkey_title:	Error
-emailconf_err_invkey_msg:	Invalid confirmation key.  Please check your e-mail to make sure that you have entered the URL correctly.
+emailconf_err_invkey_msg:	Invalid confirmation key. Please check your e-mail to make sure that you have entered the URL correctly. If you've clicked the link twice, your account may already be confirmed. Login to the forum to request another key.
 err_inc_criticaltitle:		Critical error
 err_inc_criticalmsg:		An error has occurred. Unfortunately, there is also a problem with the error reporting system.
 finduser_update:		Searching for users

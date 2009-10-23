@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: err.inc.t,v 1.55 2009/01/29 18:37:17 frank Exp $
+* $Id: err.inc.t,v 1.56 2009/10/23 19:15:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,6 +61,7 @@ function std_error($type)
 	}
 
 	$ses_id = s;
+	$usr_d = new stdClass();
 	$usr_d->email = $GLOBALS['usr']->email;
 
 	if ($type == 'login') {

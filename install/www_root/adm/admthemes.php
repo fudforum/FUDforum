@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.86 2009/10/07 10:41:39 frank Exp $
+* $Id: admthemes.php,v 1.87 2009/10/23 19:15:04 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -57,6 +57,8 @@
 		if ($thm->name) {
 			if (q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'themes WHERE name='._esc($_POST['thm_name']))) {
 			  echo errorify('There is already a theme with this name.');
+			} elseif (setlocale(LC_ALL, $_POST['thm_locale']) === FALSE) {
+			  echo errorify('The specified locale ('.$_POST['thm_locale'].') does not exist on your system.');
 			} else {
 			  $thm->add();
 			  compile_all($thm->theme, $thm->lang, $thm->name);

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reset.php.t,v 1.31 2009/01/29 18:37:17 frank Exp $
+* $Id: reset.php.t,v 1.32 2009/10/23 19:15:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,7 +46,8 @@
 	if ($email) {
 		if ($uobj = db_sab('SELECT id, users_opt FROM {SQL_TABLE_PREFIX}users WHERE email='._esc($email))) {
 			if ($FUD_OPT_2 & 1 && !($uobj->users_opt & 131072)) {
-				$uent->conf_key= usr_email_unconfirm($uobj->id);
+				$uent = new stdClass();
+				$uent->conf_key = usr_email_unconfirm($uobj->id);
 				send_email($NOTIFY_FROM, $email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}');
 			} else {
 				q("UPDATE {SQL_TABLE_PREFIX}users SET reset_key='".($key = md5(__request_timestamp__ . $uobj->id . get_random_value()))."' WHERE id=".$uobj->id);

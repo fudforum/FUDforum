@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.181 2009/09/15 18:11:29 frank Exp $
+* $Id: register.php.t,v 1.182 2009/10/23 19:15:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,15 +55,14 @@ function sanitize_url($url)
 
 function sanitize_login($login)
 {
-	$list = '&'.chr(173);
+	// Remove control, formatting, and surrogate characters.
+	$login = preg_replace( '/[\p{Cc}\p{Cf}\p{Cs}]/u', ' ', $login);
 
-	for ($i = 0; $i < 32; $i++) {
-		$list .= chr($i);
-	}
-	for ($i = 127; $i < 161; $i++) {
-		$list .= chr($i);
-	}
-	return strtr($login, $list, str_repeat(" ", strlen($list)));
+	// Other "bad" characters to remove.
+	$badchars = '&';
+	for ($i = 0; $i < 32; $i++) $badchars .= chr($i);
+
+	return strtr($login, $badchars, str_repeat(' ', strlen($badchars)));
 }
 
 function register_form_check($user_id)

@@ -152,35 +152,35 @@ bookmark_thread:Als Lesezeichen speichern
 bookmark_thread_desc:Dieses Thema zu den Lesezeichen hinzufügen
 subject:Betreff
 subscribe:Abonnieren
-subscribe_desc:Benachrichtigungen &uuml;ber neue Themen in diesem Forum empfangen
+subscribe_desc:Benachrichtigungen über neue Themen in diesem Forum empfangen
 subscribed_forums:Abonnierte Foren
-subscribed_forums_desc:Den Filter f&uuml;r abonnierte Foren erzwingen (zeigt nur von dir abonnierte Foren an)
+subscribed_forums_desc:Den Filter für abonnierte Foren erzwingen (zeigt nur von dir abonnierte Foren an)
 subscribed_threads:Abonnierte Themen
-subscribed_threads_desc:Den Filter f&uuml;r abonnierte Themen erzwingen (zeigt nur von dir abonnierte Themen an)
+subscribed_threads_desc:Den Filter für abonnierte Themen erzwingen (zeigt nur von dir abonnierte Themen an)
 bookmarked_threads:Als Lesezeichen gespeicherte Themen
 switch_to_thread_view:Zur Baumansicht dieses Themas wechseln
 thread:Thema:
-thread_announcement:Ank&uuml;ndigung:
+thread_announcement:Ankündigung:
 thread_first_unread_msg:Zum ersten ungelesenen Beitrag dieses Themas
 thread_thread:Thema
 threads:Themen
 time:Zeit
-todays_posts:Heutige Beitr&auml;ge
-todays_posts_desc:Alle Beitr&auml;ge anzeigen, die heute erstellt wurden
-un_ignore_user:Die Beitr&auml;ge von diesem Benutzer nicht mehr ignorieren
-unanswered_posts:Unbeantwortete Beitr&auml;ge
-unanswered_posts_desc:Alle Beitr&auml;ge anzeigen, die keine Antworten haben
+todays_posts:Heutige Beiträge
+todays_posts_desc:Alle Beiträge anzeigen, die heute erstellt wurden
+un_ignore_user:Die Beiträge von diesem Benutzer nicht mehr ignorieren
+unanswered_posts:Unbeantwortete Beiträge
+unanswered_posts_desc:Alle Beiträge anzeigen, die keine Antworten haben
 unlock_thread:Sperre des Themas aufheben
-unread_msg:Dieses Thema enth&auml;lt noch ungelesene Beitr&auml;ge
-unread_msg_locked:Gesperrt mit ungelesenen Beitr&auml;gen
-unread_posts:Ungelesene Beitr&auml;ge
-unread_posts_desc:Alle ungelesenen Beitr&auml;ge anzeigen
-unsub_from_thread:Das Abonnement f&uuml;r dieses Thema beenden
-unsub_from_thread_desc:Den Empfang von Benachrichtigungen &uuml;ber neue Themen in diesem Forum beenden
+unread_msg:Dieses Thema enthält noch ungelesene Beiträge
+unread_msg_locked:Gesperrt mit ungelesenen Beiträgen
+unread_posts:Ungelesene Beiträge
+unread_posts_desc:Alle ungelesenen Beiträge anzeigen
+unsub_from_thread:Das Abonnement für dieses Thema beenden
+unsub_from_thread_desc:Den Empfang von Benachrichtigungen über neue Themen in diesem Forum beenden
 unbookmark_thread:Von den Lesenzeichen entfernen
 unbookmark_thread_desc:Dieses Thema von den Lesezeichen entfernen
 unsubscribe:Abonnement beenden
-unsubscribe_desc:Den Empfang von Benachrichtigungen &uuml;ber neue Themen im Forum beenden
+unsubscribe_desc:Den Empfang von Benachrichtigungen über neue Themen im Forum beenden
 updated_on:Aktualisiert am:
 user:Benutzer
 user_counter:Wir haben <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|registrierten Benutzer|registrierte Benutzer}.
@@ -197,19 +197,19 @@ vote_for_thread:Abstimmen
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> ist vom Moderator nach <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> verschoben worden
 welcome_message:Willkommen <b>{VAR: usr->alias}</b>, dein letzter Besuch war am {TEMPLATE: welcome_message_date}
 what_ppl_doing:Anzeigen, was die Leute gerade machen
-reported_del_report:Benachrichtigung l&ouml;schen
+reported_del_report:Benachrichtigung löschen
 reported_reason:Grund
 reported_on:Am:
 reported_reported_by:Gemeldet von:
-reported_reported_msg:Gemeldete Beitr&auml;ge
-modque_pending_approval:Noch zu genehmigende Beitr&auml;ge
+reported_reported_msg:Gemeldete Beiträge
+modque_pending_approval:Noch zu genehmigende Beiträge
 modque_approve:Genehmigen
-modque_delete:L&ouml;schen
-modque_no_message:Es sind keine Beitr&auml;ge vorhanden, die noch genehmigt werden m&uuml;ssen
+modque_delete:Löschen
+modque_no_message:Es sind keine Beiträge vorhanden, die noch genehmigt werden müssen
 pmsg_new_messages:Ungelesene private Nachrichten
 pmsg_old_messages:Private Nachrichten lesen
-deny_recipt:Empfangsbest&auml;tigung verweigern
-deny_recipt_desc:Keine Best&auml;tigung verschicken, dass die Nachricht gelesen wurde
+deny_recipt:Empfangsbestätigung verweigern
+deny_recipt_desc:Keine Bestätigung verschicken, dass die Nachricht gelesen wurde
 restore_to:Wiederherstellen in:
 move_to:Verschieben nach:
 list_referes_referrals:Anwerbungen
@@ -217,7 +217,7 @@ list_referes_members:angeworbene Mitglieder
 list_referes_member:Mitglied
 referals_none:Keine Anwerbungen bisher.
 referals_refered_by:Von <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b> angeworbene Mitglieder
-referals_post_count:Anzahl der Beitr&auml;ge
+referals_post_count:Anzahl der Beiträge
 referals_registered_on:Registriert am
 referals_action:Aktion
 pmsg_all:alle
@@ -228,21 +228,21 @@ pmsg_forwarded:weitergeleitet
 pmsg_subject:Betreff
 pmsg_author:Verfasser
 pmsg_time:Zeit
-pmsg_selected:Ausgew&auml;hlt
-pmsg_delete:L&ouml;schen
+pmsg_selected:Ausgewählt
+pmsg_delete:Löschen
 cur_ppage_pm:Private Nachrichten
 writing_pm:Eine private Nachricht schreiben
 browsing_folder:Durchsucht den <b>{VAR: folders[$folder_id]}</b> Ordner
 inbox:Posteingang
 draft:Entwurf
 sent:Verschickt
-trash:M&uuml;ll
+trash:Müll
 msg_author:Verfasser
 avatar_sel_form:Avatar Auswahl
-no_avatars:Keine Avatare verf&uuml;gbar
+no_avatars:Keine Avatare verfügbar
 month_1:Januar
 month_2:Februar
-month_3:M&auml;rz
+month_3:März
 month_4:April
 month_5:Mai
 month_6:Juni
@@ -252,7 +252,7 @@ month_9:September
 month_10:Oktober
 month_11:November
 month_12:Dezember
-male:M&auml;nnlich
+male:Männlich
 female:Weiblich
 unspecified:Nicht angegeben
 register_tree_view:Baumansicht
@@ -265,7 +265,7 @@ finduser_by_login:nach Benutzername:
 finduser_submit:Suchen
 finduser_no_such_user:Benutzer nicht vorhanden
 finduser_user:Benutzer
-finduser_postcount:Anzahl der Beitr&auml;ge
+finduser_postcount:Anzahl der Beiträge
 finduser_joindate:Beitrittsdatum
 finduser_action:Aktion
 yes:Ja
@@ -282,13 +282,13 @@ register_specify_url:URL angeben
 register_uploaded:Avatar hochladen
 register_login:Benutzername:
 register_password:Passwort:
-register_conf_pass:Passwort best&auml;tigen:
-register_email_desc:Bitte eine g&uuml;ltige E-Mail-Adresse angeben. Du kannst diese dann weiter unten im Men&uuml; verstecken.
+register_conf_pass:Passwort bestätigen:
+register_email_desc:Bitte eine gültige E-Mail-Adresse angeben. Du kannst diese dann weiter unten im Menü verstecken.
 register_your_pass:Dein Passwort:
 register_update:Aktualisieren
 register_avatar_type:Avatar Typ:
-register_del_avatar:Avatar l&ouml;schen
-register_sel_avatar:Avatar ausw&auml;hlen
+register_del_avatar:Avatar löschen
+register_sel_avatar:Avatar auswählen
 register_custom_avatar_rules:Der Benutzeravatar wird erst nach der Billigung durch den Administrator angezeigt.<br /><span class="SmallText">Der Avatar sollte nicht größer als <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} Pixel</b> sein und muss das <b>jpg</b>, <b>gif</b> oder <b>png</b> Format besitzen.</span>
 register_custom_avatar_url:URL zum Benutzeravatar:
 register_preview:Vorschau
@@ -297,7 +297,7 @@ register_register:Registrieren
 register_required:Erforderliche Angaben
 register_required_desc:Alle Felder sind erforderlich. Bitte beachte die Groß- und Kleinschreibung beim Passwort.
 register_optional:Freiwillige Angaben
-register_optional_desc:Wir empfehlen, keine Informationen im Profil preiszugeben, die zu einer Identifizierung der Person geeignet w&auml;ren. S&auml;mtliche Informationen k&ouml;nnen von Besuchern des Forums eingesehen werden.
+register_optional_desc:Wir empfehlen, keine Informationen im Profil preiszugeben, die zu einer Identifizierung der Person geeignet wären. Sämtliche Informationen können von Besuchern des Forums eingesehen werden.
 register_location:Ort:
 register_occupation:Beruf:
 register_interests:Interessen:
@@ -314,34 +314,34 @@ register_bio:Biographie:
 register_bio_desc:Ein paar Details über dich, wie zum Beispiel deine Interessen, Beruf usw.
 register_prefs:Einstellungen
 register_sig:Signatur:
-register_sig_desc:Optionale Signatur, die du unter deine Beitr&auml;ge setzen kannst.
-register_reset:Zur&uuml;cksetzen
+register_sig_desc:Optionale Signatur, die du unter deine Beiträge setzen kannst.
+register_reset:Zurücksetzen
 register_def_thread_view:Standard Themenansicht:
-register_msg_per_page:Beitr&auml;ge pro Seite:
+register_msg_per_page:Beiträge pro Seite:
 register_show_sig:Signatur anzeigen:
-register_show_sig_desc:Erm&ouml;glicht es, die Signaturen von Forumsmitgliedern anzuzeigen oder zu verstecken.
+register_show_sig_desc:Ermöglicht es, die Signaturen von Forumsmitgliedern anzuzeigen oder zu verstecken.
 register_use_sig_default:Standardmäßig Signatur verwenden:
-register_use_sig_default_desc:Die Signatur automatisch jedem Beitrag hinzuf&uuml;gen
+register_use_sig_default_desc:Die Signatur automatisch jedem Beitrag hinzufügen
 register_timezone:Zeitzone:
 register_ignore_admin:Administratoren Mitteilungen ignorieren:
 register_invisible_mode:Unsichtbarmodus:
-register_invisible_mode_desc:Anzeige deines Onlinestatus unterdr&uuml;cken.
+register_invisible_mode_desc:Anzeige deines Onlinestatus unterdrücken.
 register_show_email:E-Mail-Adresse anzeigen:
-register_show_email_desc:W&auml;hle diese Option aus, wenn du deine E-Mail-Adresse &ouml;ffentlich anzeigen m&ouml;chtest.
+register_show_email_desc:Wähle diese Option aus, wenn du deine E-Mail-Adresse öffentlich anzeigen möchtest.
 register_notification:Standardmäßige Benachrichtigung auswählen:
 register_notification_desc:Soll die Benachrichtigung aktiviert sein? (kann beim Erstellen eines Beitrags deaktiviert werden)
-register_notify_method:Benachrichtigungsmethode ausw&auml;hlen:
-register_notify_method_desc:W&auml;hle deine bevorzugte Benachrichtigungsmethode oder deaktiviere Benachrichtigungen (zum Beispiel, wenn du Urlaub machst)
+register_notify_method:Benachrichtigungsmethode auswählen:
+register_notify_method_desc:Wähle deine bevorzugte Benachrichtigungsmethode oder deaktiviere Benachrichtigungen (zum Beispiel, wenn du Urlaub machst)
 register_allow_email_msg:E-Mail Nachrichten erlauben:
-register_allow_email_msg_desc:Anderen Benutzern erlauben, dir E-Mails &uuml;ber das FUDforum zu schicken.
+register_allow_email_msg_desc:Anderen Benutzern erlauben, dir E-Mails über das Forum zu schicken.
 my_buddies:Meine Buddies
-add_buddy:Buddy hinzuf&uuml;gen
-add:Hinzuf&uuml;gen
-buddy_search:Trage den Login des Benutzers ein, den du hinzuf&uuml;gen m&ouml;chtest
+add_buddy:Buddy hinzufügen
+add:Hinzufügen
+buddy_search:Trage den Login des Benutzers ein, den du hinzufügen möchtest
 member_search:Oder verwende die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Benutzersuche</a>, um einen Benutzer ausfindig zu machen.
 buddy_remove:Entfernen
 post_sticky:Angeheftet
-post_annoncement:Ank&uuml;ndigung
+post_annoncement:Ankündigung
 post_size:Größe
 post_color:Farbe
 post_font:Schriftart
@@ -352,10 +352,10 @@ apply_spell_changes:Rechtschreibkorrektur anwenden
 post_preview:Beitragsvorschau
 post_logedin_user:Angemeldeter Benutzer:
 post_logout:Abmelden
-post_passwd:Passwort zum Erstellen von Beitr&auml;gen:
+post_passwd:Passwort zum Erstellen von Beiträgen:
 post_poll:Abstimmung:
 post_create_poll:Abstimmung erstellen
-post_poll_delete:L&ouml;schen
+post_poll_delete:Löschen
 post_poll_edit:Bearbeiten
 post_mod_opt:Moderatoren-Optionen:
 post_thread_type:Art des Themas:
@@ -363,27 +363,27 @@ post_thread_expiry:Ablaufdatum des Themas:
 post_locked:Thema gesperrt
 post_icons:Beitrags-Icon:
 post_no_icon:Kein Icon
-post_smiley:Smiley-K&uuml;rzel:
+post_smiley:Smiley-Kürzel:
 post_format_tools:Formatierungshilfen:
 post_upload_file:Datei hochladen
-post_file_del:L&ouml;schen
+post_file_del:Löschen
 post_file_size:Größe
 file_attachments:Dateianhang:
 allowed_files:Erlaubte Dateitypen:
 max_file_size:Maximale Dateigröße:
 max_files_per_msg:Maximale Dateien pro Beitrag:
-post_notification:Benachrichtigung &uuml;ber Beitrag
-include_sig:Signatur anh&auml;ngen
-include_sig_desc:Die Signatur aus deinem Profil anh&auml;ngen.
+post_notification:Benachrichtigung über Beitrag
+include_sig:Signatur anhängen
+include_sig_desc:Die Signatur aus deinem Profil anhängen.
 disable_smilies:Smileys in diesem Beitrag deaktivieren
-spell_check_msg:Rechtschreibung des Beitrages &uuml;berpr&uuml;fen
+spell_check_msg:Rechtschreibung des Beitrages überprüfen
 post_form:Beitrag erstellen
 post_title:Titel:
 post_body:Inhalt:
 post_options:Optionen:
 post_preview_btn:Beitragsvorschau
 ignore_users:Ignorierte Benutzer
-add_ignore:Benutzer zur Ignorierliste hinzuf&uuml;gen
+add_ignore:Benutzer zur Ignorierliste hinzufügen
 forum_terms:Forumsregeln
 forum_rules:<p>Die Registrierung für dieses Forum ist kostenlos. Jedoch bestehen wir darauf, dass du dich an nachfolgende Vereinbarung hältst. Wenn du mit diesen Regeln einverstanden bist, klicke bitte auf die "Zustimmen" Schaltfläche. Achtung: Durch das Klicken der Schaltfläche erklärst Du, dass du über 13 Jahre bist. Falls du 13 oder darunter bist, verwende bitte diese Registrierungsseite.</p><p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anstößigen Mitteilungen freizuhalten, so ist es dennoch für uns unmöglich, alle übermittelten Beiträge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter für jene Inhalte verantwortlich gemacht werden kann.</p><p>Mit Anklicken der "Zustimmen"-Schaltfläche sicherst du uns verbindlich zu, dass deine Beiträge keinerlei obzöne, vulgäre, sexistische, hasserfüllte, nötigende oder sonstwie gesetzeswidrige Inhalte haben werden.</p><p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, editieren, verschieben oder zu schließen.<p>
 forum_rules_13:<p>Alle Benutzer unter 13 Jahre müssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 befürworten, so verlangen wir dennoch, dass die Eltern oder der Vormund eine unterschriebene Einwilligungserklärung zurückschicken oder faxen, bevor wir die Mitgliedschaft gewähren können.</p><p>Wenn du die Registrierung einleiten möchtest bevor wir die Einwilligungserklärung erhalten haben, klicke auf die Zustimmen Schaltfläche unten. Falls du die Registrierung abbrechen möchtest, klicke auf Abbrechen um zum Forumsindex zurückzukehren.</p><p>Eine Kopie der zu unterschreibenden Einwilligungserklärung kann hier heruntergeladen werden. Für weitere Informationen bezüglich der Registrierung schicke bitte eine E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>

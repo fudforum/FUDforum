@@ -331,11 +331,11 @@ register_notification_desc:Soll die Benachrichtigung aktiviert sein? (kann beim 
 register_notify_method:Benachrichtigungsmethode auswählen:
 register_notify_method_desc:Wählen Sie Ihre bevorzugte Benachrichtigungsmethode oder deaktivieren Sie Benachrichtigungen (zum Beispiel, wenn Sie Urlaub machen)
 register_allow_email_msg:E-Mail Nachrichten erlauben:
-register_allow_email_msg_desc:Anderen Benutzern erlauben, Ihnen E-Mails über das FUDforum zu schicken.
+register_allow_email_msg_desc:Anderen Benutzern erlauben, Ihnen E-Mails über das Forum zu schicken.
 my_buddies:Meine Buddies
 add_buddy:Buddy hinzufügen
 add:Hinzufügen
-buddy_search:Trage den Login des Benutzers ein, den Sie hinzufügen möchten
+buddy_search:Tragen Sie den Login des Benutzers ein, den Sie hinzufügen möchten
 member_search:Oder verwenden Sie die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Benutzersuche</a>, um einen Benutzer ausfindig zu machen.
 buddy_remove:Entfernen
 post_sticky:Angeheftet

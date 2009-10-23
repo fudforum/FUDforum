@@ -2,21 +2,23 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: root_index.php.t,v 1.52 2009/09/20 19:05:48 frank Exp $
+* $Id: root_index.php.t,v 1.53 2009/10/23 19:15:03 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; version 2 of the License.
 **/
 
-	mb_internal_encoding('{TEMPLATE: forum_CHARSET}');
+	if (function_exists('mb_internal_encoding')) {
+		mb_internal_encoding('{TEMPLATE: forum_CHARSET}');
+	}
 	require('./GLOBALS.php');
 
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
 	fud_use('err.inc');
-	
+
 	/* Before we go on, we need to do some very basic activation checks. */
 	if (!($FUD_OPT_1 & 1)) {
 		fud_use('errmsg.inc');
