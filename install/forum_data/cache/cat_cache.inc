@@ -2,7 +2,7 @@
   1 => 
   array (
     0 => 0,
-    1 => 'Test Category',
+    1 => 'First Category',
   ),
 ); $cat_par = array (
   1 => 0,
