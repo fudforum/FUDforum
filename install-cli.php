@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.33 2009/10/10 07:50:50 frank Exp $
+* $Id: install-cli.php,v 1.34 2009/10/24 21:39:53 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -334,7 +334,7 @@ function dbperms_check()
 
 function make_into_query($data)
 {
-	return trim(str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['settings']['DBHOST_TBL_PREFIX'], preg_replace('!\h+!', ' ', preg_replace('!\#.*$!s', '', $data))));
+	return trim(str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['settings']['DBHOST_TBL_PREFIX'], preg_replace('![ \t]+!', ' ', preg_replace('!\#.*$!s', '', $data))));
 }
 
 function change_global_settings($list)
