@@ -43,7 +43,7 @@ class fud_forum_rdf_msg_print extends fud_forum_rdf_msg
 {
 	function handle_fud_data()
 	{
-		echo $this->category_title . '  ';
+		echo $this->category_title . ' &raquo; ';
 
 		echo '<a href="'.$this->forum_url.'?t=rview&amp;frm_id='.$this->forum_id.'">' . $this->topic_title . '</a> &raquo; ';
 
@@ -53,6 +53,8 @@ class fud_forum_rdf_msg_print extends fud_forum_rdf_msg
 
 		echo '<a href="'.$this->forum_url.'?t=rview&amp;th='.$this->topic_id.'&amp;goto='.$this->message_id.'">'.$this->title.'</a><br />';
 
+		echo '<b>Date: </b>'.$this->date.'<br />';
+		
 		if ($this->author_id) {
 			echo '<b>Author: </b><a href="'.$this->forum_url.'?t=usrinfo&amp;id='.$this->author_id.'">'.$this->author.'</a><br />';
 		} else {
@@ -218,7 +220,7 @@ class fud_forum_rdf_msg
 	var	$parser, $ctag, $ctag_attr, $in_parser=false, $forum_url=null;
 
 	var	$title, $topic_id, $topic_title, $message_id, $reply_to_id, $reply_to_title, $forum_id, $forum_title,
-		$category_title, $author, $author_id, $attachments, $poll_name, $total_votes, $poll_opts, $body;
+		$category_title, $author, $author_id, $date, $attachments, $poll_name, $total_votes, $poll_opts, $body;
 
 	var	$cur_poll_opt = 0, $cur_attach = 0;
 
@@ -260,6 +262,7 @@ class fud_forum_rdf_msg
 				case 'category_title':
 				case 'author':
 				case 'author_id':
+				case 'date':
 				case 'body':
 				case 'poll_name':
 				case 'total_votes':
@@ -291,7 +294,7 @@ class fud_forum_rdf_msg
 	{
 		if ($this->in_parser && $tag === 'item') {
 			$this->handle_fud_data();
-			unset($this->title, $this->topic_id, $this->topic_title, $this->message_id, $this->reply_to_id, $this->reply_to_title, $this->forum_id, $this->forum_title, $this->category_title, $this->author, $this->author_id, $this->attachments, $this->poll_name, $this->total_votes, $this->poll_opts, $this->body);
+			unset($this->title, $this->topic_id, $this->topic_title, $this->message_id, $this->reply_to_id, $this->reply_to_title, $this->forum_id, $this->forum_title, $this->category_title, $this->author, $this->author_id, $this->date, $this->attachments, $this->poll_name, $this->total_votes, $this->poll_opts, $this->body);
 			$this->cur_poll_opt = $this->cur_attach = 0;
 			$this->in_parser = false;
 		}

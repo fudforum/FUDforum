@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: feed.tmpl,v 1.4 2009/09/30 16:07:15 frank Exp $
+* $Id: feed.tmpl,v 1.5 2009/10/24 21:27:25 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,7 +24,6 @@ Content-Type: application/{VAR: format}+xml
 {SECTION: xml_no_data empty XML document}
 <?xml version="1.0" encoding="{CHARSET}"?>
 <error><message>{MSG: feed_no_data}</message></error>
-</xml>
 {SECTION: END}
 
 /* ------------- */
@@ -66,7 +65,7 @@ Content-Type: application/{VAR: format}+xml
 	<description>{FUNC: sp($body)}</description>
 	<dc:subject></dc:subject>
 	<dc:creator>{VAR: r->alias}</dc:creator>
-	<dc:date>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</dc:date>
+	<dc:date>{FUNC: gmdate('Y-m-d\TH:i:s', $r->post_stamp)}-00:00</dc:date>
 </item>
 {ELSE}
 <item>
@@ -81,6 +80,7 @@ Content-Type: application/{VAR: format}+xml
 	<category_title>{FUNC: sp($r->cat_name)}</category_title>
 	<author>{FUNC: sp($r->alias)}</author>
 	<author_id>{VAR: r->poster_id}</author_id>
+	<date>{FUNC: gmdate('Y-m-d\TH:i:s', $r->post_stamp)}-00:00</date>
 	<body>{FUNC: str_replace("\n", "", sp($body))}</body>
 	{IF: $rdf_message_attachements}
 	<content:items><rdf:Bag>
@@ -102,7 +102,7 @@ Content-Type: application/{VAR: format}+xml
 		<a_title>{FUNC: sp($a[1])}</a_title>
 		<a_id>{VAR: a[0]}</a_id>
 		<a_size>{VAR: a[2]}</a_size>
-		<a_nd>{VAR: a[3]}/a_nd>
+		<a_nd>{VAR: a[3]}</a_nd>
 	</content:item>
 </rdf:li>
 {SECTION: END}
@@ -128,13 +128,13 @@ Content-Type: application/{VAR: format}+xml
 	<description>{FUNC: sp($body)}</description>
 	<dc:subject>{FUNC: sp($r->frm_name)}</dc:subject>
 	<dc:creator>{FUNC: sp($r->alias)}</dc:creator>
-	<dc:date>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</dc:date>
+	<dc:date>{FUNC: gmdate('Y-m-d\TH:i:s', $r->post_stamp)}-00:00</dc:date>
 </item>
 {ELSE}
 <item>
 	<topic_id>{VAR: r->id}</topic_id>
 	<topic_title>{FUNC: sp($r->subject)}</topic_title>
-	<topic_creation_date>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</topic_creation_date>
+	<topic_creation_date>{FUNC: gmdate('Y-m-d\TH:i:s', $r->post_stamp)}-00:00</topic_creation_date>
 	<forum_id>{VAR: r->forum_id}</forum_id>
 	<forum_title>{FUNC: sp($r->frm_name)}</forum_title>
 	<category_title>{FUNC: sp($r->cat_name)}</category_title>
@@ -144,7 +144,7 @@ Content-Type: application/{VAR: format}+xml
 	<views>{VAR: r->views}</views>
 	{IF: $r->last_post_id}<last_post_id>{VAR: r->last_post_id}</last_post_id>{ENDIF}
 	{IF: $r->lp_subject}<last_post_subj>{FUNC: sp($r->lp_subject)}</last_post_subj>{ENDIF}
-	{IF: $r->last_post_date}<last_post_date>{FUNC: gmdate("Y-m-d\TH:i:s", $r->last_post_date)}-00:00</last_post_date>{ENDIF}
+	{IF: $r->last_post_date}<last_post_date>{FUNC: gmdate('Y-m-d\TH:i:s', $r->last_post_date)}-00:00</last_post_date>{ENDIF}
 	<body>{FUNC: str_replace("\n", "", sp($body))}</body>
 </item>
 {END}
@@ -160,8 +160,8 @@ Content-Type: application/{VAR: format}+xml
 	<avatar_img>{FUNC: sp($r->avatar_loc)}</avatar_img>
 	<homepage>{FUNC: sp(htmlspecialchars($r->homepage))}</homepage>
 	<bday>{VAR: r->bday}</bday>
-	{IF: $r->last_visit}<last_visit>{FUNC: gmdate("Y-m-d\TH:i:s", $r->last_visit)}</last_visit>{ENDIF}
-	{IF: $r->join_date}<reg_date>{FUNC: gmdate("Y-m-d\TH:i:s", $r->join_date)}</reg_date>{ENDIF}
+	{IF: $r->last_visit}<last_visit>{FUNC: gmdate('Y-m-d\TH:i:s', $r->last_visit)}</last_visit>{ENDIF}
+	{IF: $r->join_date}<reg_date>{FUNC: gmdate('Y-m-d\TH:i:s', $r->join_date)}</reg_date>{ENDIF}
 	<im_icq>{VAR: r->icq}</im_icq>
 	<im_aim>{FUNC: sp($r->aim)}</im_aim>
 	<im_yahoo>{FUNC: sp($r->yahoo)}</im_yahoo>
@@ -192,7 +192,7 @@ Content-Type: application/{VAR: format}+xml
 	<title>{VAR: FORUM_TITLE} - {MSG: feed_atom}</title>
 	<subtitle>{GVAR: FORUM_DESCR}</subtitle>
 	<link href="{FULL_ROOT}"/>
-	<updated>{FUNC: gmdate("Y-m-d\TH:i:s", __request_timestamp__)}-00:00</updated>
+	<updated>{FUNC: gmdate('Y-m-d\TH:i:s', __request_timestamp__)}-00:00</updated>
 	<id>{FULL_ROOT}</id>
 	<generator uri="http://fudforum.org/" version="{VAR: FORUM_VERSION}">FUDforum</generator>
 	{TEMPLATE-DATA: feed_data}
@@ -205,8 +205,8 @@ Content-Type: application/{VAR: format}+xml
 	<link href="{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}"/>
 	<id>{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}</id>
 	<author><name>{VAR: r->alias}</name></author>
-	<published>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</published>
-	{IF: $r->update_stamp}<updated>{FUNC: gmdate("Y-m-d\TH:i:s", $r->update_stamp)}-00:00</updated>{ENDIF}
+	<published>{FUNC: gmdate('Y-m-d\TH:i:s', $r->post_stamp)}-00:00</published>
+	{IF: $r->update_stamp}<updated>{FUNC: gmdate('Y-m-d\TH:i:s', $r->update_stamp)}-00:00</updated>{ENDIF}
 	<content type="html">{FUNC: sp($body)}</content>
 </entry>
 {SECTION: END}
@@ -218,8 +218,8 @@ Content-Type: application/{VAR: format}+xml
 	<link href="{FULL_ROOT}index.php?t=rview&amp;th={VAR: r->id}"/>
 	<id>{FULL_ROOT}index.php?t=rview&amp;th={VAR: r->id}</id>
 	<author><name>{FUNC: sp($r->alias)}</name></author>
-	<published>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</published>
-	{IF: $r->last_post_date}<updated>{FUNC: gmdate("Y-m-d\TH:i:s", $r->last_post_date)}-00:00</updated>{ENDIF}
+	<published>{FUNC: gmdate('Y-m-d\TH:i:s', $r->post_stamp)}-00:00</published>
+	{IF: $r->last_post_date}<updated>{FUNC: gmdate('Y-m-d\TH:i:s', $r->last_post_date)}-00:00</updated>{ENDIF}
 	<content type="html">{FUNC: sp($body)}</content>
 </entry>
 {SECTION: END}
@@ -234,8 +234,8 @@ Content-Type: application/{VAR: format}+xml
 		<email>{FUNC: sp(email_format($r->email))}</email>
 		{IF: $r->homepage}<uri>{FUNC: sp(htmlspecialchars($r->homepage))}</uri>{ENDIF}
 	</author>
-	{IF: $r->last_visit}<published>{FUNC: gmdate("Y-m-d\TH:i:s", $r->last_visit)}</published>{ENDIF}
-	{IF: $r->join_date}<updated>{FUNC: gmdate("Y-m-d\TH:i:s", $r->join_date)}</updated>{ENDIF}
+	{IF: $r->last_visit}<published>{FUNC: gmdate('Y-m-d\TH:i:s', $r->last_visit)}</published>{ENDIF}
+	{IF: $r->join_date}<updated>{FUNC: gmdate('Y-m-d\TH:i:s', $r->join_date)}</updated>{ENDIF}
 </entry>
 {SECTION: END}
 
@@ -251,7 +251,7 @@ Content-Type: application/{VAR: format}+xml
 	<link>{FULL_ROOT}</link>
 	<description>{GVAR: FORUM_DESCR}</description>
 	<language>{LANG}</language>
-	<pubDate>{FUNC: gmdate("Y-m-d\TH:i:s", __request_timestamp__)}-00:00</pubDate>
+	<pubDate>{FUNC: gmdate('Y-m-d\TH:i:s', __request_timestamp__)}-00:00</pubDate>
 	<generator>FUDforum {VAR: FORUM_VERSION}</generator>
 	{TEMPLATE-DATA: feed_data}
 </channel>
@@ -263,7 +263,7 @@ Content-Type: application/{VAR: format}+xml
 	<title>{FUNC: htmlspecialchars($r->subject)}</title>
 	<link>{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}</link>
 	<author>{VAR: r->alias}</author>
-	<pubDate>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</pubDate>
+	<pubDate>{FUNC: gmdate('Y-m-d\TH:i:s', $r->post_stamp)}-00:00</pubDate>
 	<description>{FUNC: sp($body)}</description>
 </item>
 {SECTION: END}
@@ -273,7 +273,7 @@ Content-Type: application/{VAR: format}+xml
 	<title>{FUNC: htmlspecialchars($r->subject)}</title>
 	<link>{FULL_ROOT}index.php?t=rview&amp;th={VAR: r->id}</link>
 	<author>{FUNC: sp($r->alias)}</author>
-	<pubDate>{FUNC: gmdate("Y-m-d\TH:i:s", $r->post_stamp)}-00:00</pubDate>
+	<pubDate>{FUNC: gmdate('Y-m-d\TH:i:s', $r->post_stamp)}-00:00</pubDate>
 	<description>{FUNC: sp($body)}</description>
 </item>
 {SECTION: END}
@@ -283,6 +283,6 @@ Content-Type: application/{VAR: format}+xml
 	<title>{FUNC: sp($r->alias)}</title>
 	<link>{FULL_ROOT}index.php?t=usrinfo&amp;id={VAR: r->id}</link>
 	<author>{FUNC: sp($r->name)}</author>
-	{IF: $r->last_visit}<pubDate>{FUNC: gmdate("Y-m-d\TH:i:s", $r->last_visit)}</pubDate>{ENDIF}
+	{IF: $r->last_visit}<pubDate>{FUNC: gmdate('Y-m-d\TH:i:s', $r->last_visit)}</pubDate>{ENDIF}
 </item>
 {SECTION: END}
