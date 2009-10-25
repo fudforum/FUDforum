@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.85 2009/09/17 19:52:53 frank Exp $
+* $Id: nntp.inc,v 1.86 2009/10/25 19:54:43 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -349,7 +349,7 @@ class fud_nntp
 	function parse_mime_attachments() {
 
 		$s = 0;
-		$text_body='';
+		$text_body = '';
 
 		while (($s = strpos($this->body, $this->boundary, $s)) !== false) {
 
@@ -372,34 +372,36 @@ class fud_nntp
 			   } while ($next_line != '');
 
 
-			   $have_text_body=false;
+			   $have_text_body = false;
 			   # Have processed headers at this point
 			   # if it's text/plain or text/html put into main message headers
 			   if (isset($content_type)) {
 				   if (strpos($content_type, 'text/plain') !== false) {
 					   $this->headers['content-type'] = $content_type;
 					   $this->headers['content-transfer-encoding'] = $content_transfer;
-					   $have_text_body=true;
+					   $have_text_body = true;
 				   } elseif (strpos($content_type, 'text/html') !== false) {
 					   if (!isset($this->headers['content-type'])) {
 						   # Give priority to text/plain
 						   $this->headers['content-type'] = $content_type;
 						   $this->headers['content-transfer-encoding'] = $content_transfer;
-						   $have_text_body=true;
+						   $have_text_body = true;
 					   }
 				   }
 			   }
 
-			   $eom = strpos($this->body, $this->boundary, $s);
+			   if( ($eom = strpos($this->body, $this->boundary, $s)) === FALSE) {
+			   	$eom = strlen($this->body);
+			   }
 			   if ($have_text_body) {
 				   $text_body = substr($this->body, $s, $eom-$s);
-				   $s=$eom;
+				   $s = $eom;
 			   }
 			   if (isset($filename)) {
 				   $data = substr($this->body, $s, $eom-$s);
-				   $data = str_replace("\r", "", $data);
+				   $data = str_replace("\r", '', $data);
 				   $this->attachments[$filename] = base64_decode($data);
-				   $s=$eom;
+				   $s = $eom;
 			   }
 
 

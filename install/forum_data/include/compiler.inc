@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.110 2009/10/11 09:22:25 frank Exp $
+* $Id: compiler.inc,v 1.111 2009/10/25 19:54:43 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -459,7 +459,7 @@ function generate_file($php_file)
 				$ins[$k] .= str_replace(array(" ''.", ".'';", ".''"), array(' ', ';', ''), trim(substr($v['compiled'], $s, (strrpos($v['compiled'], '?>') - $s))));
 			}
 
-			if (!ini_get("memory_limit")) {
+			if (!ini_get('memory_limit')) {
 				$file_data = str_replace(array('/*{PRE_HTML_PHP}*/', '/*{POST_HTML_PHP}*/', '/*{POST_PAGE_PHP_CODE}*/'), array($ins[0], $ins['@'], $ins['!']), $file_data);
 			} else {
 				$file_data = str_replace('/*{PRE_HTML_PHP}*/', $ins[0], $file_data);
