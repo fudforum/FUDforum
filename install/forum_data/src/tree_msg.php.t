@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree_msg.php.t,v 1.9 2009/10/07 10:41:39 frank Exp $
+* $Id: tree_msg.php.t,v 1.10 2009/10/25 20:00:18 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,16 +60,7 @@ WHERE
 	);
 	$usr->md = $msg_obj->md;
 
-	$simple_lang = array("dutch"=>1,"english"=>1,"finnish"=>1,"french"=>1,"german"=>1,"german_formal"=>1,"indonesian"=>1,"italian"=>1,"norwegian"=>1,"portuguese"=>1,"portuguese_br"=>1,"spanish"=>1,"swedish"=>1);
-	if (isset($simple_lang[$usr->lang])) {
-		$charset = 'ISO-8859-15';
-	} else {
-		$charset = trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
-		if (!$charset) {
-			$charset = 'ISO-8859-15';
-		}
-	}
-	header("Content-Type: text/html; charset=".$charset);
+	header('Content-Type: text/html; charset={TEMPLATE: tree_msg_CHARSET}');
 
 /*{POST_HTML_PHP}*/
 /*{POST_PAGE_PHP_CODE}*/
