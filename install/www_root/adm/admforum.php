@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.62 2009/10/17 11:13:19 frank Exp $
+* $Id: admforum.php,v 1.63 2009/11/02 22:03:46 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,7 +49,7 @@ function get_max_upload_size()
 			$_POST['frm_max_attach_size'] = floor($max_upload_size / 1024);
 		}
 		/* (int) $_POST['frm_anon_forum']  is unused */
-		$_POST['frm_forum_opt'] = (int) $_POST['frm_mod_attach'] | (int) $_POST['frm_moderated'] | (int) $_POST['frm_passwd_posting'] | (int) $_POST['frm_tag_style'];
+		$_POST['frm_forum_opt'] = (int) $_POST['frm_mod_notify'] | (int) $_POST['frm_mod_attach'] | (int) $_POST['frm_moderated'] | (int) $_POST['frm_passwd_posting'] | (int) $_POST['frm_tag_style'];
 
 		$frm = new fud_forum;
 
