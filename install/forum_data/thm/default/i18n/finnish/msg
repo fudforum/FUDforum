@@ -566,7 +566,7 @@ iemail_frm_bodyemail:Lue aihe täällä:\n{VAR: goto_url['email']}\n\nJos et hal
 iemail_participate:Osallistuaksesi keskusteluun, mene tänne:
 ignore_list_err_dup_msg:Tämä käyttäjä on jo torjuttujen listalla
 ignore_list_err_nu_title:Käyttäjää ei löydy
-ignore_list_err_nu_msg:Käyttäjää jonka yritit torjua ei löytynyt.
+ignore_list_err_nu_msg:Käyttäjää, jonka yritit torjua ei löytynyt.
 ignore_list_cantign_msg:Et voi torjua tätä käyttäjää
 ignore_list_update:Selaa omaa torjuttujen listaa
 index_update:Selaa <a href="{TEMPLATE: index_update_lnk}">foorumilistaa</a>
@@ -666,7 +666,7 @@ error_title:Virhe
 index_title:Tervetuloa foorumille
 search_title:Haku {VAR-HTML: srch}
 remail_emailsent:Sähköposti on lähetetty
-remail_email:Hei,\n\nLöysin {GVAR: FORUM_TITLE} foorumilta mielenkiintoisen aiheen\notsikolla "{VAR: data->subject}" joka ehkä kiinnostaa sinua.\nLöydät sen täältä:\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTerveisin,\n\n{VAR: usr->alias}
+remail_email:Hei, löysin foorumilta {GVAR: FORUM_TITLE} mielenkiintoisen aiheen otsikolla ”{VAR: data->subject}”, joka ehkä kiinnostaa sinua. Löydät sen täältä:\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTerveisin,\n\n{VAR: usr->alias}
 poll_add_option:Lisää valinta:
 post_opt_html_on:<b>HTML</b>-koodit: <b>Käytössä</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b>: <b>Käytössä</b></a>
@@ -899,7 +899,7 @@ group_resources:Tämä ryhmä hallinnoi seuraavien foorumien käyttöoikeuksia
 register_admin_newuser_title:Uusi rekisteröitynyt käyttäjä
 register_admin_newuser_msg:Uusi käyttäjä ({VAR: uent->login}) on juuri rekisteröitynyt foorumille.\nTarkista ja hyväksy tai hylkää käyttäjätili: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nTämä on automatisoitu prosessi, älä vastaa tähän sähköpostiin.\nJos et enää halua vastaanottaa sähköpostitse ilmoituksia uusista rekisteröitymisistä,\nvaihda "New Account Notification" -asetus Ylläpitäjän hallintapaneelissa.
 post_mod_msg_notify_title:Uusi viesti foorumilla "{VAR: frm->name}" odottaa hyväksyntää
-post_mod_msg_notify_msg:Uusi viesti otsikolla "{VAR: msg_post->subject}" lähetettiin foorumille, jonka moderaattori olet. Tarkistaaksesi tämän viestin siirry osoitteeseen: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTämä on automatisoitu prosessi. Älä vastaa tähän sähköpostiin.
+post_mod_msg_notify_msg:Uusi viesti otsikolla ”{VAR: msg_post->subject}” lähetettiin foorumille, jonka moderaattori olet. Tarkistaaksesi tämän viestin siirry osoitteeseen: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nTämä on automatisoitu prosessi. Älä vastaa tähän sähköpostiin.
 thread_printable_pdf:Luo tulostettava PDF-tiedosto
 thread_syndicate:Foorumin syndikointi (XML)
 reg_conf_title:Rekisteröinnin vahvistus

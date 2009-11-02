@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admplugins.php,v 1.14 2009/10/23 21:24:05 frank Exp $
+* $Id: admplugins.php,v 1.15 2009/11/02 20:35:18 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -125,6 +125,7 @@
 
 		echo '<div style="float:right;">[ <a href="admplugins.php?'.__adm_rsid.'">Return to Plugin Manager &raquo;</a> ]</div>';
 
+		echo '</td></tr></table></body></html>';	// Standard footer not applicable here.
 		exit;
 	}
 

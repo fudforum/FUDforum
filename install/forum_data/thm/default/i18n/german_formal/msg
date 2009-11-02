@@ -83,6 +83,7 @@ more_unread_messages_desc:Weitere ungelesene Beiträge anzeigen und die momentan
 move_thread:Verschieben
 moved:In ein anderes Forum verschoben
 moved_thread_message:Dieses Thema wurde in ein anderes Forum verschoben
+na:n/a
 new_posts:Neue Beiträge
 new_private_messages:Sie haben <span class="GenTextRed">({VAR: c})</span> ungelesene private {PLURAL: c|Nachricht|Nachrichten}
 new_thread:Ein neues Thema erstellen
@@ -282,10 +283,12 @@ register_login:Benutzername:
 register_password:Passwort:
 register_conf_pass:Passwort bestätigen:
 register_email_desc:Bitte geben Sie eine gültige E-Mail-Adresse an. Sie können diese dann weiter unten im Menü verstecken.
+register_name:Name:
 register_your_pass:Dein Passwort:
 register_update:Aktualisieren
 register_avatar_type:Avatar Typ:
 register_del_avatar:Avatar löschen
+register_avatar:Avatar:
 register_sel_avatar:Avatar auswählen
 register_custom_avatar_rules:Der Benutzeravatar wird erst nach der Billigung durch den Administrator angezeigt.<br /><span class="SmallText">Der Avatar sollte nicht größer als <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} Pixel</b> sein und muss das <b>jpg</b>, <b>gif</b> oder <b>png</b> Format besitzen.</span>
 register_custom_avatar_url:URL zum Benutzeravatar:
@@ -302,6 +305,9 @@ register_interests:Interessen:
 register_image:Bild:
 register_icq:ICQ:
 register_aim:AIM-Benutzername:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:Webseite:
 register_bday:Geburtsdatum:
 register_bday_desc:Falls Sie Ihren Geburtstag angeben, wird dieser allen Besuchern des Forums angezeigt werden
 register_day:Tag
@@ -332,12 +338,14 @@ register_notify_method:Benachrichtigungsmethode auswählen:
 register_notify_method_desc:Wählen Sie Ihre bevorzugte Benachrichtigungsmethode oder deaktivieren Sie Benachrichtigungen (zum Beispiel, wenn Sie Urlaub machen)
 register_allow_email_msg:E-Mail Nachrichten erlauben:
 register_allow_email_msg_desc:Anderen Benutzern erlauben, Ihnen E-Mails über das Forum zu schicken.
+buddy_status:Status
 my_buddies:Meine Buddies
 add_buddy:Buddy hinzufügen
 add:Hinzufügen
 buddy_search:Tragen Sie den Login des Benutzers ein, den Sie hinzufügen möchten
 member_search:Oder verwenden Sie die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Benutzersuche</a>, um einen Benutzer ausfindig zu machen.
 buddy_remove:Entfernen
+post_normal:Normal
 post_sticky:Angeheftet
 post_annoncement:Ankündigung
 post_size:Größe
@@ -365,6 +373,7 @@ post_smiley:Smiley-Kürzel:
 post_format_tools:Formatierungshilfen:
 post_upload_file:Datei hochladen
 post_file_del:Löschen
+post_file_name:Name
 post_file_size:Größe
 file_attachments:Dateianhang:
 allowed_files:Erlaubte Dateitypen:
@@ -376,6 +385,7 @@ include_sig_desc:Die Signatur aus Ihrem Profil anhängen.
 disable_smilies:Smileys in diesem Beitrag deaktivieren
 spell_check_msg:Rechtschreibung des Beitrages überprüfen
 post_form:Beitrag erstellen
+post_forum:Forum:
 post_title:Titel:
 post_body:Inhalt:
 post_options:Optionen:
@@ -446,6 +456,7 @@ report_give_reason:Bitte geben Sie einen Grund an, warum Sie diesen Beitrag meld
 report_submit_report:Benachrichtigung losschicken
 search_entire_msg:Ganzer Beitrag
 search_subject_only:Nur Betreff
+search_forum:Forum:
 search_posted_on:Erstellt am
 search_no_results:Keine Ergebnisse
 search_all_forums:In allen Foren suchen
@@ -532,6 +543,7 @@ error_error:Fehler
 usrinfo_profile:{VAR: u->alias}s Profil
 usrinfo_show_all_posts:Alle Beiträge von {VAR: u->alias} anzeigen
 actions_update:Schaut sich an, was andere Benutzer gerade machen
+err_info:Info
 buddy_list_err_cantadd:Sie können sich nicht selbst zur Buddyliste hinzufügen
 buddy_list_err_dup:Dieser Benutzer ist bereits auf Ihrer Buddyliste
 buddy_list_err_nouser:Der Benutzer, den Sie zu Ihrer Buddyliste hinzufügen möchten, kann vom System nicht gefunden werden.
@@ -554,11 +566,12 @@ err_inc_criticaltitle:Kritischer Fehler
 err_inc_criticalmsg:Es ist ein Fehler aufgetreten, aber unglücklicherweise gibt es ein Problem mit dem Benachrichtigungssystem für Fehler.
 finduser_update:Sucht nach Benutzern
 help_index_update:Liest die <a href="{TEMPLATE: help_index_update_lnk}">Hilfe</a>
-iemail_thr_subject:Neue Antwort zu "{VAR: thr_subject}" von {VAR: poster_login}
+iemail_thr_subject:Neue Antwort zu „{VAR: thr_subject}“ von {VAR: poster_login}
 iemail_thr_bodyemail:Um ungelesene Antworten anzusehen, gehen Sie zu\n{VAR: goto_url['email']}\n\nWenn Sie keine weiteren Benachrichtigungen zu diesem Thema erhalten möchten, gehen Sie bitte hier hin:\n{VAR: unsub_url['email']}
-iemail_frm_subject:Neues Thema im Forum "{VAR: frm_name}" mit den Namen "{VAR: thr_subject}" von {VAR: poster_login}
+iemail_frm_subject:Neues Thema im Forum „{VAR: frm_name}“ mit den Namen „{VAR: thr_subject}“ von {VAR: poster_login}
 iemail_frm_bodyemail:Um das Thema anzusehen, gehen Sie zu:\n{VAR: goto_url['email']}\n\nUm keine weiteren Benachrichtigungen über neue Themen in diesem Forum zu erhalten, gehen Sie bitte hier hin:\n{VAR: unsub_url['email']}
 iemail_participate:Zur Teilnahme an der Diskussion geht es hier entlang:
+ignore_list_err_info_title:Info
 ignore_list_err_dup_msg:Dieser Benutzer ist bereits auf Ihrer Ignorierliste
 ignore_list_err_nu_title:Benutzer nicht gefunden
 ignore_list_err_nu_msg:Der Benutzer, den Sie zu Ihrer Liste hinzuzufügen möchten, kann vom System nicht gefunden werden.
@@ -593,14 +606,14 @@ post_error_generic:Es ist ein Fehler aufgetreten
 postcheck_max_images_err:Maximal {GVAR: MAX_IMAGE_COUNT} Bilder pro Beitrag sind erlaubt, bitte reduzieren Sie die Anzahl der Bilder.
 postcheck_no_links_allowed:Sie können keine Links verwenden, bis sie mehr als {PLURAL: posts_before_links|$1 Beitrag|$1 Beiträge} geschrieben haben.
 postcheck_subj_needed:Betreff erforderlich
-postcheck_no_such_user:Es gibt keinen Benutzer mit Namen "{FUNC: char_fix(htmlspecialchars($v))}" in diesem Forum
-postcheck_ignored:Sie können keine private Nachricht an "{FUNC: char_fix(htmlspecialchars($v))}" verschicken, weil diese Person Sie auf die Ignorierliste gesetzt hat.
+postcheck_no_such_user:Es gibt keinen Benutzer mit Namen „{FUNC: char_fix(htmlspecialchars($v))}“ in diesem Forum.
+postcheck_ignored:Sie können keine private Nachricht an „{FUNC: char_fix(htmlspecialchars($v))}“ verschicken, weil diese Person Sie auf die Ignorierliste gesetzt hat.
 postcheck_no_recepient:Kann die Nachricht nicht versenden, weil kein Empfänger angegeben ist
 postcheck_invalid_email:Bitte tragen Sie eine gültige E-Mail-Adresse für Ihren Freund ein.
 postcheck_email_subject:Sie können keine E-Mail ohne Betreff versenden.
 postcheck_email_body:Sie können keine E-Mail ohne Inhalt verschicken.
 private_msg_notify_subj:Benachrichtigung lesen zu: {VAR: m->subject}
-private_msg_notify_body:Guten Tag,<br />{VAR: usr->login} hat Ihre private Nachricht, "{VAR: m->subject}", am {TEMPLATE: private_msg_notify_body_date} gelesen<br />
+private_msg_notify_body:Guten Tag,<br />{VAR: usr->login} hat Ihre private Nachricht, „{VAR: m->subject}“, am {TEMPLATE: private_msg_notify_body_date} gelesen<br />
 referals_update:Durchsucht die Anwerbungen
 register_err_short_login:Der Anmeldename, den Sie gewählt haben, ist zu kurz. Er muss mindestens 4 Zeichen enthalten.
 register_err_login_notallowed:Dieser Anmeldename ist nicht erlaubt
@@ -627,6 +640,7 @@ report_err_nosuchmsg_title:FEHLER
 report_err_nosuchmsg_msg:Kein solcher Beitrag vorhanden
 reset_err_invalidkey_title:FEHLER
 reset_err_invalidkey_msg:Ungültiger Schlüssel zum Zurücksetzen des Passwortes
+reset_err_rstconf_title:Information
 reset_err_rstconf_msg:Sie sollten in den nächsten Minuten eine Anleitung per E-Mail erhalten.
 reset_newpass_title:Passwort zurücksetzen
 reset_newpass_msg:Guten Tag,\n\nWie von Ihnen gewünscht, wird Ihnen der Anmeldename zugesendet.\nHier sind Ihre Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachten Sie, dass Ihr Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn Sie es ändern möchten, so können Sie das in\nden persönlichen Einstellungen tun:\n{FULL_ROOT}{ROOT}?t=register
@@ -696,8 +710,8 @@ thr_exch_submit:Abschicken
 exch_decline_ttl:Das Verschieben des Themas {VAR: data->subject} ins Forum {VAR: data->f2_name} wurde abgelehnt.
 ppost_original_msg:Nachricht, die Sie weiterleiten oder beantworten
 split_thread:Thema aufteilen
-groupmgr_no_user:Es gibt keinen Benutzer mit dem Login "{FUNC: char_fix(htmlspecialchars($gr_member))}"
-groupmgr_already_exists:Benutzer "{FUNC: char_fix(htmlspecialchars($gr_member))}" ist bereits in dieser Gruppe vorhanden.
+groupmgr_no_user:Es gibt keinen Benutzer mit dem Login „{FUNC: char_fix(htmlspecialchars($gr_member))}“
+groupmgr_already_exists:Benutzer „{FUNC: char_fix(htmlspecialchars($gr_member))}“ ist bereits in dieser Gruppe vorhanden.
 groupmgr_yes:Ja
 groupmgr_no:Nein
 groupmgr_action:Vorgang
@@ -767,12 +781,14 @@ logedin_latest_post:Letzter Beitrag im Forum:
 register_show_avatar:Avatare anzeigen:
 register_show_avatar_desc:Ermöglicht es Ihnen, die Avatare der anderen zu verstecken während Sie deren Beiträge lesen.
 drawmsg_view_rest_post:Den Rest der Nachricht anzeigen
+post_re:Aw:
 forumsel_goto_forum:Gehe zum Forum:
 minimsg_thread_view:Themenansicht
 split_th_post_by:Erstellt von:
 split_th_posted_on:Erstellt am:
 split_th_subject:Thema:
 split_th_new_thread_title:Neue Themenüberschrift:
+split_th_forum:Forum:
 split_th_split_sel:Ausgewählte Beiträge aufteilen
 split_th_split_unsel:Nicht ausgewählte Beiträge aufteilen
 split_th_messages:Beiträge
@@ -799,6 +815,10 @@ register_jabber:Jabber Benutzername:
 register_skype:Skype:
 register_twitter:Twitter-Benutzername:
 register_google:Google Chat/IM:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
 forum_contact:Kontakt
 forum_home:Forumsindex
 post_cur_attached:(momentan angehängt: {VAR: i} {PLURAL: i|Datei|Dateien})
@@ -886,7 +906,7 @@ thread_mark_all_read:Alle ungelesenen Beiträge im Forum als gelesen kennzeichne
 thread_mark_all_read_desc:Alle ungelesenen Beiträge in diesem Forum werden als gelesen gekennzeichnet
 private_no_messages:Es sind keine Nachrichten in diesen Ordner vorhanden
 register_email_change_subject:Bestätigung der geänderten E-Mail-Adresse
-register_email_change_msg:Bitte bestätigen Sie Ihre neue E-Mail-Adresse "{VAR: uent->email}", welche die alte Adresse "{VAR: old_email}" ersetzen wird, in dem Sie die folgende URL aufrufen:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald Sie die neue Adresse bestätigt haben, wird Ihr Konto wieder aktiviert werden.
+register_email_change_msg:Bitte bestätigen Sie Ihre neue E-Mail-Adresse „{VAR: uent->email}“, welche die alte Adresse „{VAR: old_email}“ ersetzen wird, in dem Sie die folgende URL aufrufen:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald Sie die neue Adresse bestätigt haben, wird Ihr Konto wieder aktiviert werden.
 iemail_thread_unsub:Abonnement für dieses Thema aufheben
 iemail_forum_unsub:Das Abonnement für dieses Forum beenden
 primary_group_prefix:Hauptgruppe für Forum:
@@ -945,6 +965,7 @@ adm_account_accepted_s:Ihre Bitte um ein Konto für „{GVAR: FORUM_TITLE}“ wu
 adm_account_rejected:Ihr Konto „{VAR: login}“ wurde vom Administrator abgewiesen und ist daher nicht aktiviert. Falls Sie den Grund für diese Entscheidung erfahren möchten, steht es Ihnen frei, den Administrator über „{GVAR: ADMIN_EMAIL}“ zu kontaktieren.
 adm_account_rejected_s:Ihre Bitte um ein Konto für „{GVAR: FORUM_TITLE}“ wurde abgewiesen.
 thread_on:am
+userinfo_buddy:Buddy:
 register_email_addr:E-Mail-Adresse:
 reset_suffix:Falls Sie diese Nachricht unbeabsichtigt erhalten haben, ignorieren Sie sie bitte. Falls Sie mehrfache Kopien dieser E-Mail erhalten haben und um diese gar nicht gebeten haben, so kontaktieren Sie bitte den Forumsadministrator {GVAR: ADMIN_EMAIL}\n\nDiese Anfrage wurde von {VAR: _SERVER['REMOTE_ADDR']} gestellt.
 usrinfo_last_visit:Letzter Besuch:
@@ -987,6 +1008,7 @@ register_max_sig_len:Maximale Länge:
 register_turing:Bitte geben Sie den unten angezeigten Code ein:
 register_err_turing:Ungültiger Code
 modque_cat:Kategorie
+modque_forum:Forum
 idx_compact_forum_row:Verfügbare Foren:
 mmd_del_title:Themen löschen
 mmd_mov_title:Themen verschieben
@@ -998,6 +1020,7 @@ search_results_hdr:{VAR: total} Suchergebnisse gefunden
 thread_del_all:Alle markierten löschen
 thread_mov_all:Alle markierten verschieben
 thread_loc_all:Alle markierten sperren/entsperren
+dmsg_ip:IP:
 err_blockedaccnt_title:FEHLER: Ihr Konto wurde ausgefiltert.
 err_blockedaccnt_msg:Ihrem Konto wurde aufgrund der aktivierten Benutzerfilter der Zugriff auf das Forum verwehrt.
 merge_th_page_list:Seite der Themenauswahl
@@ -1007,6 +1030,7 @@ sub_unsub_all_topics:Abonnement für alle Themen beenden
 unbookmark_all_topics:Alle Lesezeichen entfernen
 tabs_own_posts:Eigene Beiträge ansehen
 sml_emoticon:Smiley
+sml_code:Code
 mnav_sub_only:Nur in abonnierten Foren suchen
 register_topics_per_page:Themen pro Seite:
 login_min_time:Das Forum erlaubt Anmeldeversuche alle {VAR: MIN_TIME_BETWEEN_LOGIN} Sekunden, bitte warten Sie {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} Sekunden vor Ihrem nächsten Versuch.
@@ -1038,6 +1062,8 @@ move_msg_btn:Verschiebe ausgewählte Beiträge
 move_msg_th_expl:Geben Sie die ID des Zielthemas an (kann in einem anderem Forum sein)
 captcha_img_alt:CAPTCHA-Bestätigung: Sie müssen den Text in diesem Bild erkennen.
 captcha_img_help:Das Bild enthält keine Null oder Eins.
+powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001–2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:Code:
 code_select_all:alles markieren
 code_show_hide:anzeigen/verstecken
 social_sites:Soziale Netzwerke:
@@ -1057,6 +1083,7 @@ btn_forward:weiterleiten
 btn_quote:zitieren
 btn_email:E-Mail
 btn_show_posts:Beiträge
+btn_homepage:www
 feed_no_data:Keine passenden Daten gefunden.
 feed_rdf:RDF-Feed
 feed_rss:RSS2-Feed

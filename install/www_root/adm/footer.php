@@ -1,6 +1,6 @@
 <?php
-	if (defined('shell_script') ) return;	// Command line execution.
 	if (!isset($FORUM_TITLE, $DATA_DIR)) die('Go away!');	// Hacking attempt?
+	if (defined('shell_script') ) return;	// Command line execution.
 ?>
 <br />
 <div style="text-align:right;">

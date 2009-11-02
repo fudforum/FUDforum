@@ -1,6 +1,7 @@
 # Messages for Portuguese (Português)
 # Exported from translatewiki.net
 # Author: Fryed-peach
+# Author: Hamilton Abreu
 # Author: Malafaya
 
 action:Acção
@@ -731,7 +732,7 @@ groupmgr_edit:Editar
 groupmgr_delete:Apagar
 group_mgr_anon:Anónimo
 group_mgr_reged:Todos os utilizadores registados
-show_show:Mostar:
+show_show:Mostrar:
 group_mgr:Manager de Grupos
 group_mgr_edit_btn:Editar Grupo
 group_mgr_heading:Selecção de Editor de Grupo

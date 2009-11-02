@@ -209,7 +209,7 @@ pmsg_old_messages:Lees privaat boodskappe
 deny_recipt:moenie bevestiging van ontvangs stuur nie
 deny_recipt_desc:Stuur geen bevestiging dat u dit boodskap gelees het nie
 restore_to:Herstel na:
-move_to:Geskuif na:
+move_to:Skuif na:
 list_referes_referrals:Verwysings
 list_referes_members:Lede verwys
 list_referes_member:Lid
@@ -578,7 +578,7 @@ ignore_list_cantign_msg:U kan die lid nie ignoreer nie
 ignore_list_update:Blaai deur eie ignoreerlys
 index_update:Blaai deur die <a href="{TEMPLATE: index_update_lnk}">forum lys</a>
 list_referers_update:Blaai deur verwysings
-login_update:inlogvorm
+login_update:Aanmelding
 msg_update:Blaai deur onderwerp <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:FOUT: Die privaatboodskap-stelsel is gedeaktiveer.
 pm_err_nopm_msg:U kan nie die privaat boodskapstelsel gebruik nie, dit is deur die administrateur afgeskakel.
@@ -879,7 +879,7 @@ pm_err_disabled_msg:U kan nie privaatboodskappe stuur alvorens u nie die "Laat p
 err_mod_acc_ttl:ongeijkte rekening
 err_mod_acc_msg:Die administrateur het gekies om manueel alle rekeninge te hersien voor aktivering. Totdat u rekening gevalideerd is deur die administrateur sal u nie die volle kapasiteit van u rekening kan gebruik nie.
 accounts_pending_approval:Rekeninge afwagtend vir goedkeuring
-saved:Gestoor
+saved:Stoor
 register_err_time_limit:Die registrasie limiet van 1 registrasie per {GVAR: REG_TIME_LIMIT} sekondes is oorskry. Wag asseblief {PLURAL: reg_limit_reached|$1 sekonde|$1 sekondes} en probeer dan weer om te registreer.
 register_affero:Affero-gebruikersnaam:<br /><font class="SmallText">As u 'n <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero-gebruikersnaam</a> het, voer dit hier in.</span>
 im_affero:Affero Gebruikersnaam

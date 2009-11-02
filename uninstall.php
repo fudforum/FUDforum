@@ -1,10 +1,10 @@
 <?php
-exit("To run the un-installer, comment out the 2nd line of the script!\n");
+exit("To run the un-installer, comment out the 2nd line of this script!\n");
 
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uninstall.php,v 1.25 2009/09/06 02:12:23 frank Exp $
+* $Id: uninstall.php,v 1.26 2009/11/02 20:35:18 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -15,42 +15,25 @@ function fud_ini_get($opt)
 {
 	return (ini_get($opt) == '1' ? 1 : 0);
 }
-	set_magic_quotes_runtime(0);
 
-	define('SAFE_MODE', fud_ini_get('safe_mode'));
-
-	if (count($_POST) && $_POST['SERVER_DATA_ROOT']) {
-		if (SAFE_MODE && basename(__FILE__) != 'uninstall_safe.php') {
-			$c = getcwd();
-			copy($c . '/uninstall.php', $c . '/uninstall_safe.php');
-			header('Location: '.dirname($_SERVER['SCRIPT_NAME']).'/uninstall_safe.php?SERVER_DATA_ROOT='.urlencode($_POST['SERVER_DATA_ROOT']).'&SERVER_ROOT='.urlencode($_POST['SERVER_ROOT']));
-			exit;
-		}
-		$SERVER_DATA_ROOT = rtrim($_POST['SERVER_DATA_ROOT'], '\\/ ');
-		$SERVER_ROOT = rtrim($_POST['SERVER_ROOT'], '\\/ ');
-	} else if (SAFE_MODE && !empty($_GET['SERVER_DATA_ROOT'])) {
-		$SERVER_DATA_ROOT = rtrim($_GET['SERVER_DATA_ROOT'], '\\/ ');
-		$SERVER_ROOT = rtrim($_GET['SERVER_ROOT'], '\\/ ');
+function show_debug_message($msg, $webonly=false)
+{
+	if (php_sapi_name() == 'cli') {
+		if ($webonly) return;
+		echo strip_tags($msg) ."\n";
+	} else {
+		echo $msg .'<br />';
+		@ob_flush(); flush();
 	}
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-	<title>FUDforum Uninstaller</title>
-</head>
-<body>
-<table style="background: #527bbd; color: white; width: 100%; height: 50px;"><tr>
-  <td><img src="images/fudlogo.gif" alt="" style="float:left;" border="0" /></td>
-  <td><span style="color: #fff; font-weight: bold; font-size: x-large;">FUDforum Uninstall Wizard</span></td>
-  <td> &nbsp; </td>
-</tr></table>
-<br />
-
-<?php
+}
 
 function print_error($msg)
 {
-	exit('<br /><font color="red">'.$msg.'</font></body></html>');
+	if (php_sapi_name() == 'cli') {
+		exit(strip_tags($msg) ."\n");
+	} else {
+		exit('<br /><div style="color:red;">'.$msg.'</div></body></html>');
+	}
 }
 
 function fud_rmdir($dir)
@@ -65,7 +48,7 @@ function fud_rmdir($dir)
 			if (is_dir($file) && !is_link($file)) {
 				$dirs[] = $file;
 			} else if (!unlink($file)) {
-				echo '<b>Could not delete file "'.$file.'"<br />';
+				show_debug_message('<b>Could not delete file "'.$file.'"');
 			}
 		}
 	}
@@ -74,13 +57,57 @@ function fud_rmdir($dir)
 	
 	foreach ($dirs as $dir) {
 		if (!rmdir($dir)) {
-			echo '<b>Could not delete directory "'.$dir.'"<br />';
+			show_debug_message('<b>Could not delete directory "'.$dir.'"');
 		}
 	}
 }
 
+/* main */
+	@set_magic_quotes_runtime(0);
+
+	define('SAFE_MODE', fud_ini_get('safe_mode'));
+
+	/* Read command line parameters. */
+	if (php_sapi_name() == 'cli' && (!empty($_SERVER['argv'][1]))) {
+		$_POST['SERVER_DATA_ROOT'] = $_SERVER['argv'][1];
+		if (!empty($_SERVER['argv'][2])) {
+			$_POST['SERVER_ROOT'] = $_SERVER['argv'][2];
+		}
+	}
+
+	if (count($_POST) && $_POST['SERVER_DATA_ROOT']) {
+		if (SAFE_MODE && basename(__FILE__) != 'uninstall_safe.php') {
+			$c = getcwd();
+			copy($c . '/uninstall.php', $c . '/uninstall_safe.php');
+			header('Location: '.dirname($_SERVER['SCRIPT_NAME']).'/uninstall_safe.php?SERVER_DATA_ROOT='.urlencode($_POST['SERVER_DATA_ROOT']).'&SERVER_ROOT='.urlencode($_POST['SERVER_ROOT']));
+			exit;
+		}
+		$SERVER_DATA_ROOT = rtrim($_POST['SERVER_DATA_ROOT'], '\\/ ');
+		$SERVER_ROOT = isset($_POST['SERVER_ROOT']) ? rtrim($_POST['SERVER_ROOT'], '\\/ ') : '';
+	} else if (SAFE_MODE && !empty($_GET['SERVER_DATA_ROOT'])) {
+		$SERVER_DATA_ROOT = rtrim($_GET['SERVER_DATA_ROOT'], '\\/ ');
+		$SERVER_ROOT = isset($_POST['SERVER_ROOT']) ? rtrim($_GET['SERVER_ROOT'], '\\/ ') : '';
+	}
+
+	if (php_sapi_name() != 'cli') {
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<title>FUDforum Uninstaller</title>
+</head>
+<body>
+<table style="background: #527bbd; color: white; width: 100%; height: 50px;"><tr>
+  <td><img src="images/fudlogo.gif" alt="" style="float:left;" border="0" /></td>
+  <td><span style="color: #fff; font-weight: bold; font-size: x-large;">FUDforum Uninstall Wizard</span></td>
+  <td> &nbsp; </td>
+</tr></table>
+<br />
+<?php
+	}
+
 	if (isset($SERVER_DATA_ROOT)) {
-		/* sanity checks */
+		/* Sanity checks. */
 		if (!is_dir($SERVER_DATA_ROOT)) {
 			print_error('Forum Data Root directory "'.$SERVER_DATA_ROOT.'" does not exist!');
 		}
@@ -94,74 +121,46 @@ function fud_rmdir($dir)
 			print_error('Directory "'.$SERVER_ROOT.'" does not appear to be a Server Root directory!');
 		}		
 
-		/* read GLOBALS.php to determine database settings so that databases can be cleaned up */
+		/* Read GLOBALS.php to determine database settings so that databases can be cleaned up. */
 		$data = file_get_contents($SERVER_DATA_ROOT . '/include/GLOBALS.php');
 		$s = strpos($data, '*/') + 2;
 		$data = substr($data, $s, (strpos($data, 'DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING', $s) - $s)) . ' */';
 		eval($data);
 
-		if (file_exists($SERVER_DATA_ROOT . '/include/theme/default/db.inc')) {
-			$data = file_get_contents($SERVER_DATA_ROOT . '/include/theme/default/db.inc');
-			if (strpos($data, "define('__dbtype__', 'mysql')") !== FALSE) {
-				$dbtype = 'mysql';
-			} else {
-				$dbtype = 'pgsql';
-			}
-			$remove_db = 1;
+		/* Drop database tables. */
+		$dbinc = $SERVER_DATA_ROOT.'/sql/'.$DBHOST_DBTYPE.'/db.inc';
+		if (!file_exists($dbinc)) {
+			show_debug_message('DB driver not fount at '.$dbinc);
+			show_debug_message('Database tables will be dropped!');
 		} else {
-			echo 'Unable to detect database type, tables will not be dropped.<br />';
-		}
+			include_once $dbinc;
 
-		/* remove database stuff if needed */
-		if (isset($remove_db)) {
-			if ($dbtype == 'mysql') {
-				if (@mysql_connect($DBHOST, $DBHOST_USER, $DBHOST_PASSWORD)) {
-					if (@mysql_select_db($DBHOST_DBNAME) && $DBHOST_TBL_PREFIX) {
-						$c = mysql_query("SHOW TABLES LIKE '".$DBHOST_TBL_PREFIX."%'");
-						while ($r = mysql_fetch_row($c)) {
-							echo 'Dropping table '.$r[0].'<br />';
-							mysql_query('DROP TABLE '.$r[0]);
-						}
-					}
-				}
-			} else {
-				$connect_str = '';
-				if (!empty($DBHOST)) {
-					$connect_str .= 'host='.$DBHOST;
-				}
-				if (!empty($DBHOST_USER)) {
-					$connect_str .= ' user='.$DBHOST_USER;
-				}
-				if (!empty($DBHOST_PASSWORD)) {
-					$connect_str .= ' password='.$DBHOST_PASSWORD;
-				}
-				if (!empty($DBHOST_DBNAME)) {
-					$connect_str .= ' dbname='.$DBHOST_DBNAME;
-				}
-				if (($conn = @pg_connect($connect_str))) {
-					while ($r = pg_fetch_row($c)) {
-						echo 'Dropping table '.$r[0].'<br />';
-						pg_query($conn, 'DROP TABLE '.$r[0]);
-					}
-				}
+			foreach(get_fud_table_list() as $tbl) {
+				show_debug_message('Dropping table '. $tbl);
+				q('DROP TABLE '. $tbl);
 			}
 		}
 
-		/* remove symlinks first - unlink doesn't delete broken symlinks */
+		/* Remove symlinks first - unlink doesn't delete broken symlinks. */
 		@unlink($SERVER_DATA_ROOT . '/scripts/GLOBALS.php');
 		@unlink((empty($SERVER_ROOT) ? $SERVER_DATA_ROOT : $SERVER_DATA_ROOT) . '/GLOBALS.php');
 		@unlink((empty($SERVER_ROOT) ? $SERVER_DATA_ROOT : $SERVER_DATA_ROOT) . '/adm/GLOBALS.php');
 		
-		/* remove files on disk */
-		echo 'Removing files in directory '.$SERVER_DATA_ROOT.'<br />';
+		/* Remove files on disk. */
+		show_debug_message('Removing files in directory '.$SERVER_DATA_ROOT);
 		fud_rmdir($SERVER_DATA_ROOT);
 		if ($SERVER_ROOT != $SERVER_DATA_ROOT && $SERVER_ROOT) {
-			echo 'Removing files in directory '.$SERVER_ROOT.'<br />';
+			show_debug_message('Removing files in directory '.$SERVER_ROOT);
 			fud_rmdir($SERVER_ROOT);
 		}
 
 		print_error('FUDforum was successfully uninstalled!<br /><br />Sorry to see you go. If there is anything we can do to help, please let us know on the support forum at <a href="http://fudforum.org/">fudforum.org</a>.');
 	}
+
+	if (php_sapi_name() == 'cli') {
+		show_debug_message('Usage: uninstall.php SERVER_DATA_ROOT SERVER_ROOT');
+		print_error('Please run a full backup of your system before continuing!');
+	} else {
 ?>
 <div align="center">
 <form name="uninstall" action="uninstall.php" method="post">
@@ -176,3 +175,6 @@ function fud_rmdir($dir)
 </div>
 </body>
 </html>
+<?php
+	}
+?>
