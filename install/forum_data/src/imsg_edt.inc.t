@@ -487,8 +487,8 @@ class fud_msg_edit extends fud_msg
 				$notify_type = 'thr';
 			}
 
-			if ($mtf->forum_opt & 64) {
-				$tmp = db_all('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='.$mtf->forum_id);
+			if ($mtf->forum_opt & 64) {	// always_notify_mods
+				$tmp = db_all('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='.$mtf->forum_id);
 				$to = !$to ? $tmp : array_unique(array_merge($to, $tmp));
 			}
 
