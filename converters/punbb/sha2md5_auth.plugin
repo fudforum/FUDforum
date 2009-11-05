@@ -1,0 +1,27 @@
+<?php
+plugin_add_hook('AUTHENTICATE', 'plugin_sha2md5_auth');
+
+function plugin_sha2md5_auth($data) {
+	list($login, $password) = $data;
+
+	if (!($usr_d = db_sab('SELECT id, passwd, salt FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login='._esc($login)))) {
+		// Deny access, not a valid forum user.
+		return 0;
+	} else if ($usr_d->passwd == md5($password))  {
+		// Allow through, valid md5 password.
+		return 1;
+	} else if ($usr_d->passwd == sha1($password)) {
+		// Convert SHA1 password to MD5 hash.
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET passwd = \''.md5($password).'\' WHERE id='.$usr_d->id);
+		return 1;
+
+	} else if ($usr_d->passwd == sha1($usr_d->salt.sha1($password))) {
+		// Convert SHA1 password to MD5 hash and remove salt.
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET passwd = \''.md5($password).'\', salt = NULL WHERE id='.$usr_d->id);
+		return 1;
+	}
+
+	// Deny access.
+	return 0;
+}
+?>
