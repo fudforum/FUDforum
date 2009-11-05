@@ -807,6 +807,80 @@ report_empty_report:Podètz pas mandar un rapòrt void. Picatz lo motiu d'aquest
 report_already_reported_title:Ja raportat
 report_already_reported_msg:Aqueste messatge es estat raportat ja e nòstra còla va prene coneissença d'aqueste incident lèu.
 register_err_toomanyimages:Podètz pas inserir mai de {GVAR: FORUM_IMG_CNT_SIG} imatges dins vòstra signatura.
+pmsg_next_msg:Messatge seguent
 pmsg_prev_msg:Messatge precedent
+post_proc_reveal_spoiler:Revèla lo desnosament
+register_jabber:Identificant Jabber :
+register_skype:Identificant Skype :
+register_twitter:Identificant Twitter :
+register_google:Identificant Google Chat/IM :
+im_jabber:Jabber :
+im_google:Google Talk :
+im_skype:Skype :
+im_twitter:Twitter :
+forum_contact:Contacte
+forum_home:Pagina principala
+post_cur_attached:{VAR: i} {PLURAL: i|fichièr estacat|fichièrs estacats}
+ignored_anon_post:{GVAR: ANON_NICK} es ignorat
+ignored_user_post:Lo message de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> es ignorat
+smladd_close_window:Tampar la fenèstra
+post_list_smilies:Far veire totes los smileys
+p_VISIBLE:Visible
+reported_in_thread:Dins lo fial :
+help_back_to_top:Retorn en naut de la pagina
+help_return_to_index:Retorn a l'indèx d'ajuda
+imsg_err_message_title:Messatge invalid
+imsg_err_message_msg:Lo messatge qu'ensajatz de veire existís pas
+poll_edit:Editar
+register_err_not_valid_img:L'URL especificada punta pas cap a un imatge valid
+pmsg_recepient:Destinatari
+register_err_taken_alias:L'aliàs qu'avètz causit es ja utilizat actualament per qualqu'un mai, causissètz-ne un autre
+register_alias:Aliàs :
+register_alias_desc:Se volètz qu'un pseudonim diferent de vòstre login siá utilizat dins aquel forum, Picatz-lo aicí.
+register_allow_pm_msg:Autorizar los messatges privats
+register_allow_pm_msg_desc:Permetre als autres utilizaires de vos mandar de messatges privats via lo forum.
+postcheck_pm_disabled:Podètz pas mandar de messatges privats a « {VAR-HTML: v} », perque aquela persona accèpta pas los messatges privats.
+polllist_vote:Vòte
+polllist_view_results:Veire los resultats
+polllist_name:Nom del sondatge
+polllist_date:Creat lo
+polllist_owner:Creat per
+polllist_votes:Total dels vòtes
+polllist_action:Accion
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Agach los sondatges disponibles</a>
+userinfo_polls:Sondatges :
+show_pollist:Veire los sondatges
+search_and:E
+search_or:O
+search_desc_order:Òrdre descreissent
+search_asc_order:Òrdre creissent
+search_logic:Logic :
+search_sorting:Triar los resultats per data e per :
+post_proceed:Confirmar
+post_moderated_forum:Avètz escrich dins un forum moderat, aquò significa que vòstre messatge serà pas visible dins lo forum tant que serà pas estat aprovat per un dels moderators e/o administrators del forum.
+post_moderated_forum_ttl:Moderacion del forum
+buddy_list_bday:Uèi, {VAR: r[2]} a {VAR: age} ans.
+email_warning_msg:Se cambiatz vòstra adreça e-mail, vòstre compte serà marcat coma pas confirmat fins al moment que l'auretz confirmat per e-mail.
+register_show_im:Afichar los indicators IM
+register_show_im_desc:Afichar o pas los indicators de Messatjariá Instantanèa d'autors de messatges.
+unread_message:Messatge pas legit
+read_message:Messatge legit
+threadt_more:&lt;mai&gt;
+threadt_disabled_ttl:La vista arborescenta de la lista dels fials es desactivada.
+threadt_disabled_desc:L'administrator a desactivat la vista arborescenta de la lista dels fials, mercés d'utilizar la vista plana.
+threadt_update:Percórrer lo forum (vista arborescenta) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+mmod_delete_cofirm_ttl:Confirmacion de supression de subjècte/messatge
+spell_alts:Pas cap d'alternativa
+insert_uploaded_image:Inserir l'imatge dins lo còs del messatge
+finduser_help:Lo motor de recèrca apondrà automaticament una masqueta * a vòstra requèsta. Per exemple, per recercar totes los utilizaires que lo nom comença per un 'a', entratz 'a' dins la zòna de recèrca.
+back_to_top:Retorn en naut de la pagina
+pm_err_disabled_title:Messatjariá privada desactivada
+pm_err_disabled_msg:Poiretz pas mandar de messatge privat tant qu'auretz pas activat l'opcion 'Autorizar los messatges privats' dins vòstre perfil.
+err_mod_acc_ttl:Compte pas verificat
+err_mod_acc_msg:L'administrator a causit de passar en revista manualament totes los comptes abans lor activacion. Fins al moment que vòstre compte siá estat validat per l'administrator, d'unas capacitats de vòstre compte seràn indisponiblas.
+accounts_pending_approval:Comptes en espèra d'aprovacion
+saved:Salvat
+register_err_time_limit:Lo limit d'1 inscripcion per periòde de {GVAR: REG_TIME_LIMIT} segondas es estada atencha. Pacientatz {PLURAL: reg_limit_reached|$1 segonda|$1 segondas} e ensajatz tornarmai.
+register_affero:Nom d'utilizaire Affero :<br /><font class="SmallText">S'avètz un nom d'utilizaire <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a>, picatz-lo aicí.</font>
 code_select_all:Seleccionar tot
 code_show_hide:Afichar / amagar
