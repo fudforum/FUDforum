@@ -369,24 +369,23 @@ document.forms['frm_usr'].usr_login.focus();
 		echo '<tr class="field"><td>Last Used IP:</td><td>' . long2ip($u->last_known_ip) . '</td></tr>';
 	}
 
-	echo '<tr class="field"><td align="middle" colspan="2"><font size="+1">&gt;&gt; <a href="../'.__fud_index_name__.'?t=register&mod_id='.$usr_id.'&'.__adm_rsidl.'">Change User\'s Profile</a> &lt;&lt;</font></td></tr>';
-if (!$acc_mod_only) {
-	echo '<tr class="field"><td nowrap="nowrap"><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . __adm_rsidl.'">Toggle</a>]</td></tr>';
-} else {
-	echo '<tr class="field"><td nowrap="nowrap"><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').'</td></tr>';
-}
 	echo '<tr class="field"><td>E-mail Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Confirmed Account:</td><td>'.($u->users_opt & 2097152 ? 'No' : 'Yes').' [<a href="admuser.php?act=conf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? 'No' : 'Yes').' [<a href="admuser.php?act=sig&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Can use private messaging:</td><td>'.($u->users_opt & 33554432 ? 'No' : 'Yes').' [<a href="admuser.php?act=pm&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
-if ($acc_mod_only) {
-	echo '<tr class="field"><td>Account Moderator:</td><td>'.($u->users_opt & 268435456 ? 'Yes' : 'No').'</td></tr>';
-} else {
-	echo '<tr class="field"><td>Account Moderator:</td><td>'.($u->users_opt & 268435456 ? 'Yes' : 'No').' [<a href="admuser.php?act=accmod&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
-}
 	if ($FUD_OPT_1 & 1048576) {
 		echo '<tr class="field"><td>COPPA:</td><td>'.($u->users_opt & 262144 ? 'Yes' : 'No').' [<a href="admuser.php?act=coppa&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	}
+if (!$acc_mod_only) {
+	echo '<tr class="field"><td nowrap="nowrap">Forum Administrator:</td><td>'.($u->users_opt & 1048576 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . __adm_rsidl.'">Toggle</a>]</td></tr>';
+} else {
+	echo '<tr class="field"><td nowrap="nowrap">Forum Administrator:</td><td>'.($u->users_opt & 1048576 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No').'</td></tr>';
+}	
+if ($acc_mod_only) {
+	echo '<tr class="field"><td>Account Moderator:</td><td>'.($u->users_opt & 268435456 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No').'</td></tr>';
+} else {
+	echo '<tr class="field"><td>Account Moderator:</td><td>'.($u->users_opt & 268435456 ? '<b><font size="+1" color="red">Yes</font></b>' : 'No').' [<a href="admuser.php?act=accmod&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
+}
 
 	echo '<tr class="field"><td nowrap="nowrap" valign="top">Moderating Forums:</td><td valign="top">';
 	$c = uq('SELECT f.name FROM '.$DBHOST_TBL_PREFIX.'mod mm INNER JOIN '.$DBHOST_TBL_PREFIX.'forum f ON mm.forum_id=f.id WHERE mm.user_id='.$usr_id);
@@ -402,7 +401,7 @@ if ($acc_mod_only) {
 	unset($c);
 ?>
 	<a name="mod_here"> </a>
-	<a href="#mod_here" onclick="window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&amp;' . __adm_rsid; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
+	[ <a href="#mod_here" onclick="window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&amp;' . __adm_rsid; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a> ]
 
 
 	<tr class="field"><td valign="top">Custom Tags:</td><td valign="top">
@@ -439,11 +438,11 @@ if ($acc_mod_only) {
 <input type="hidden" name="act" value="block" />
 	<table cellspacing="0" border="0" cellpadding="0">
 	<tr class="field" align="center"><td colspan="2"><b>Ban User</b><br />
-	<font size="-1">To set a temporary ban specify the duration of the ban in number of days, 
-	for permanent ban leave duration value at 0. The value of the duration field for non-permanent bans will show
-	days remaining till ban expiry.</font></td></tr>
-	<tr class="field"><td>Is Banned:</td><td><label><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked /> <font color="red">Yes</font>' : ' /> No'); ?> </label></td></tr>
-	<tr class="field"><td>Ban Duration (in days)</td><td><input type="text" value="<?php 
+	<font size="-1">To set a temporary ban, specify the duration of the ban in number of days. 
+	For permanent bans, leave duration value at 0.
+	The value of the duration field for non-permanent bans will show days remaining till ban expiry.</font></td></tr>
+	<tr class="field"><td>Is Banned:</td><td><label><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked /> <b><font color="red">Yes</font></b>' : ' /> No'); ?> </label></td></tr>
+	<tr class="field"><td>Ban Duration (days left)</td><td><input type="text" value="<?php 
 	if ($u->ban_expiry) {
 		printf("%.2f", ($u->ban_expiry - __request_timestamp__) / 86400);
 	} else {
@@ -471,18 +470,24 @@ if ($acc_mod_only) {
 	<tr class="field">
 	<td colspan="2">
 <?php
-	if ($FUD_OPT_1 & 1024) {
-		echo '<a href="../'.__fud_index_name__.'?t=ppost&amp;'.__adm_rsid.'&amp;toi='.$usr_id.'">Send Private Message</a> | ';
+	echo '<a href="../'.__fud_index_name__.'?t=register&mod_id='.$usr_id.'&'.__adm_rsidl.'">Edit Profile</a> | ';
+	if ($FUD_OPT_1 & 1024) {	// PM_ENABLED
+		echo '<a href="../'.__fud_index_name__.'?t=ppost&amp;'.__adm_rsid.'&amp;toi='.$usr_id.'">Send PM</a> | ';
 	}
-	if ($FUD_OPT_1 & 4194304) {
+	if ($FUD_OPT_2 & 1073741824) {	// ALLOW_EMAIL
 		echo '<a href="../'.__fud_index_name__.'?t=email&amp;toi='.$usr_id.'&amp;'.__adm_rsid.'">Send E-mail</a> | ';
 	} else {
 		echo '<a href="mailto:'.$u->email.'">Send E-mail</a> | ';
 	}
 
-	echo '	<a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'">See Posts</a> | <a href="admuser.php?act=reset&amp;usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Reset Password</a> | <a href="admuser.php?act=del&amp;usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Delete User</a>';
-	if ($is_a) {	
-		echo ' | <a href="admprune.php?usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Delete All messages by this user.</a></td></tr>';
+	echo '  <a href="admuser.php?act=reset&amp;usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Reset Password</a> |';
+	echo '  <a href="admuser.php?act=del&amp;usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Delete User</a> |';
+	echo '	<a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'">See Messages</a>';	
+	if ($is_a) {
+		if ($FUD_OPT_1 & 1024) {	// PM_ENABLED
+			echo ' | <a href="admpmspy.php?user='.htmlspecialchars($u->login).'&amp;'.__adm_rsid.'">See Private Messages</a>';
+		}
+		echo ' | <a href="admprune.php?usr_id='.$usr_id.'&amp;'.__adm_rsid.'">Delete ALL messages by this user</a></td></tr>';
 	}
 ?>
 </td></tr></table>
