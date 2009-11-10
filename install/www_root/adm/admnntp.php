@@ -35,6 +35,7 @@
 	} else if (isset($_GET['trk']) && ($nn = db_sab('SELECT * FROM '.$tbl.'nntp WHERE id='.(int)$_GET['trk']))) {
 		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup.'.lock');
 		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup);
+		nntp_reset((int)$_GET['trk']);
 		echo '<font color="green">Newsgroup tracker was successfully cleard.</font>';
 	}
 
@@ -225,10 +226,11 @@
 		<td nowrap="nowrap">Newsgroup Rule</td>
 		<td>Forum</td>
 		<td>Exec Line</td>
+		<td>Tracker</td>
 		<td align="center">Action</td>
 	</tr>
 <?php
-	$c = uq('SELECT n.id, n.newsgroup, f.name FROM '.$tbl.'nntp n INNER JOIN '.$tbl.'forum f ON n.forum_id=f.id');
+	$c = uq('SELECT n.id, n.newsgroup, n.tracker, f.name FROM '.$tbl.'nntp n INNER JOIN '.$tbl.'forum f ON n.forum_id=f.id');
 	$i = 1;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {
@@ -236,8 +238,9 @@
 		} else {
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
-		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
+		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[3].'</td>
 			<td nowrap="nowrap">nntp.php '.$r[0].'</td>
+			<td nowrap="nowrap">'.$r[2].'</td>
 			<td>[<a href="admnntp.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admnntp.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
 			[<a href="admnntp.php?trk='.$r[0].'&amp;'.__adm_rsid.'">Clear Tracker</a>]</td></tr>';
 	}

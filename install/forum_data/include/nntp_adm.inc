@@ -104,4 +104,9 @@ function nntp_del($id)
 		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt & ~ 2 WHERE id='.$d[1]);
 	}
 }
+
+function nntp_reset($id)
+{
+	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp SET tracker = 0 WHERE id='.$id);
+}
 ?>

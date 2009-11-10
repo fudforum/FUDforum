@@ -11,7 +11,7 @@
 
 class fud_nntp
 {
-	var $server, $port=119, $user, $pass, $timeout=25, $newsgroup, $imp_limit;
+	var $rule_id, $server, $port=119, $user, $pass, $timeout=25, $newsgroup, $imp_limit, $tracker;
 	var $error, $lrc;
 	var $fs;
 	var $group_na, $group_first, $group_last, $nntp_opt, $custom_sig;
@@ -609,7 +609,7 @@ class fud_nntp
 				break;
 			}
 		}
-		$this->set_end($i); // we use $i so we stop in the right place if limit is reached
+		$this->set_tracker_end($i); // we use $i so we stop in the right place if limit is reached
 		$this->exit_handler();
 	}
 
@@ -628,27 +628,13 @@ class fud_nntp
 		fclose($fp);
 	}
 
-	function read_start()
+	function set_tracker_end($tracker)
 	{
-		if (!@file_exists($GLOBALS['ERROR_PATH'].'.nntp/'.$this->server.'-'.$this->newsgroup)) {
-			return;
+		if (++$tracker > $this->group_last) {
+			$tracker = $this->group_last;
 		}
 
-		return (int) trim(file_get_contents($GLOBALS['ERROR_PATH'].'.nntp/'.$this->server.'-'.$this->newsgroup));
-	}
-
-	function set_end($val)
-	{
-		if (++$val > $this->group_last) {
-			$val = $this->group_last;
-		}
-
-		$u = umask(0111);
-		$fp = fopen($GLOBALS['ERROR_PATH'].'.nntp/'.$this->server.'-'.$this->newsgroup , "wb");
-		flock($fp, LOCK_EX);
-		fwrite($fp, $val);
-		fclose($fp);
-		umask($u);
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp SET tracker = '.$tracker.' WHERE id='.$this->rule_id);
 	}
 
 	function post_message($subject, $body, $from, $forum_msg_id, $reply_to='', $attch='')

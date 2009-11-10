@@ -140,10 +140,11 @@
 		<td nowrap="nowrap">Aggregation Rule</td>
 		<td>Forum</td>
 		<td>Exec Line</td>
+		<td>Last Load</td>
 		<td align="center">Action</td>
 	</tr>
 <?php
-	$c = uq('SELECT x.id, x.url, x.name, f.name FROM '.$tbl.'xmlagg x INNER JOIN '.$tbl.'forum f ON x.forum_id=f.id');
+	$c = uq('SELECT x.id, x.url, x.name, x.last_load_date, f.name FROM '.$tbl.'xmlagg x INNER JOIN '.$tbl.'forum f ON x.forum_id=f.id');
 	$i = 1;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {
@@ -151,10 +152,11 @@
 		} else {
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
-		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.$r[3].'</td>
+		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.$r[4].'</td>
 			<td nowrap="nowrap">xmlagg.php '.$r[0].'</td>
+			<td nowrap="nowrap">'.gmdate('d M Y G:i', $r[3]).'</td>
 			<td>[<a href="admxmlagg.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admxmlagg.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
-			[<a href="admxmlagg.php?trk='.$r[0].'&amp;'.__adm_rsid.'">Clear Tracker</a>]</td></tr>';
+			[<a href="admxmlagg.php?trk='.$r[0].'&amp;'.__adm_rsid.'">Reset date</a>]</td></tr>';
 	}
 	unset($c);
 ?>

@@ -22,7 +22,8 @@ CREATE TABLE {SQL_TABLE_PREFIX}nntp
 	login			VARCHAR(255),
 	pass			VARCHAR(255),
 	imp_limit		INT NOT NULL DEFAULT 0,
-	custom_sig		TEXT
+	custom_sig		TEXT,
+	tracker			INT NOT NULL DEFAULT 0
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}nntp_i_f ON {SQL_TABLE_PREFIX}nntp (forum_id);

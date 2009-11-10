@@ -92,9 +92,6 @@ function xmlagg_del($id)
 
 function xmlagg_reset($id)
 {
-	if (!($d = db_saq('SELECT xmlagg_opt, forum_id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'xmlagg WHERE id='.$id))) {
-		return;
-	}
 	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'xmlagg SET last_load_date = 0 WHERE id='.$id);
 }
 ?>

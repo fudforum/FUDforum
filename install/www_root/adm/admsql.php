@@ -62,6 +62,10 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 				echo '<div class="tutor">For security reasons you may not switch to another database</div>';
 				break;
 			}
+			if (__dbtype__ == 'sqlite' && preg_match('/^\s*desc(ribe)?\s+\w+\s*;?$/i', $sql)) {
+				// Change DESC to SQLite's PRAGMA syntax.
+				$sql = preg_replace('/^\s*desc(ribe)?\s+(\w+)\s*;?$/i', 'pragma table_info (\2);', $sql);
+			}
 
 			$q = q($sql);
 

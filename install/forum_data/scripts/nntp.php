@@ -65,11 +65,12 @@
 
 	$nntp_adm = db_sab('SELECT * FROM '.sql_p.'nntp WHERE id='.$fid);
 	if (!$nntp_adm) {
-		exit("Invalid NNTP rule id\n");
+		exit("Invalid NNTP rule id.\n");
 	}
 
 	$nntp = new fud_nntp;
 
+	$nntp->rule_id 		= $nntp_adm->id;
 	$nntp->server 		= $nntp_adm->server;
 	$nntp->newsgroup 	= $nntp_adm->newsgroup;
 	$nntp->port 		= $nntp_adm->port;
@@ -78,6 +79,7 @@
 	$nntp->user 		= $nntp_adm->login;
 	$nntp->pass 		= $nntp_adm->pass;
 	$nntp->imp_limit	= $nntp_adm->imp_limit;
+	$nntp->tracker		= $nntp_adm->tracker;
 
 	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$nntp_adm->forum_id);
 
@@ -89,7 +91,7 @@
 	$FUD_OPT_2 |= 128;
 
 	$lock = $nntp->get_lock();
-	$nntp->parse_msgs($frm, $nntp_adm, $nntp->read_start());
+	$nntp->parse_msgs($frm, $nntp_adm, $nntp->tracker);
 	$nntp->release_lock($lock);
 
 	$nntp->close_connection();
