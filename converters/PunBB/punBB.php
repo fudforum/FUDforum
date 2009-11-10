@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: punBB.php,v 1.00 2009/10/15 23:58:57 frank Exp $
+* $Id$
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
