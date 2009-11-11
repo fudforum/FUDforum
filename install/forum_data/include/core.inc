@@ -106,7 +106,7 @@ function get_ip()
 		} while (($ip = strtok(',')));
 	}
 
-	$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : $_SERVER['REMOTE_ADDR'];
+	$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0');
 	$ip = str_replace('::ffff:', '', $ip);
 	return (!empty($ip) ? $ip : '0.0.0.0');
 }

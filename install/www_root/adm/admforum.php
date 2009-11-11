@@ -92,7 +92,7 @@ function get_max_upload_size()
 		if (frm_move_forum((int)$_GET['del'], 0, $cat_id)) {
 			rebuild_forum_cat_order();
 			$frm_name = q_singleval('SELECT name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']);
-			logaction(_uid, 'FRMMARKDEL', frm_name);
+			logaction(_uid, 'FRMMARKDEL', $frm_name);
 			echo 'The <b>'.$frm_name.'</b> forum was moved to the <b><a href="admdelfrm.php?'.__adm_rsid.'">recycle bin</a></b>.<br />';
 		}
 	} else if (isset($_POST['btn_chcat'], $_POST['frm_id'], $_POST['cat_id'], $_POST['dest_cat'])) {
