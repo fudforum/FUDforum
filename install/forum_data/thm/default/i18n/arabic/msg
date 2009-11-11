@@ -1,0 +1,1092 @@
+# Messages for Arabic (العربية)
+# Exported from translatewiki.net
+# Author: Meno25
+# Author: OsamaK
+# Author: ترجمان05
+
+action:فعل
+add_to_buddy_list:أضف إلى قائمة الأصدقاء
+admin:إداري
+admin_control_panel:لوحة تحكم الإدارة
+administrator:إداري
+attachment:المرفق:
+avatar:أفاتر:
+average_post_count:{PLURAL: u->posted_msg_count|رسالة واحدة|$1 رسائل} ({PLURAL: avg|بمعدل رسالة واحدة|بمعدل $1 رسائل} كل يوم)
+biography:سيرة شخصية:
+birth_date:تاريخ الميلاد:
+by:بقلم:
+by_mod:بواسطة المضيف
+current_time:الوقت الحالي
+custom_avatar_queue:طابور الأفاتر المخصص
+date_posted:تاريخ الكتابة
+date_registered:تاريخ التسجيل:
+download_counter:نُزّل {PLURAL: v[3]|مرة واحدة|$1 مرات}
+pmsg_download_counter:نُزّل {PLURAL: r->dlcount|مرة واحدة|$1 مرات}
+email:البريد الإلكتروني:
+email_to_friend:أرسلها إلى صديق
+email_to_friend_desc:أرسل مسار هذه الصفحة إلى صديقك (أو أصدقائك) عبر البريد الإلكتروني
+email_user:أرسل رسالة بريد إلكتروني للمستخدم
+faq:مساعدة
+first_unread_msg:اذهب إلى الرسائل غير المقروءة
+first_unread_msg_desc:اذهب إلى أول رسالة غير مقروءة في هذا الموضوع
+flat_view:ارجع إلى العرض المسطح المبدئي
+forum:المنتدى:
+forum_icon:أيقونة المنتدى
+forum_new_messages:رسائل جديدة
+forum_none_messages:يمكن فقط لأعضاء المنتدى المسجلين تتبع وقراءة وإلغاء قراءة الرسائل
+forum_old_messages:لا رسائل جديدة
+from:من:
+gender:الجنس:
+go:اذهب
+goto_next_msg:اذهب إلى الرسالة التالية
+goto_prev_msg:اذهب إلى الرسالة السابقة
+home:منزل
+homepage:الصفحة الرئيسية:
+icq_control_panel:لوحة رسائل ICQ على الإنترنت
+icq_message_form:نموذج رسالة ICQ:
+ignore_user:تجاهل كل رسائل هذا المستخدم
+im_aim:مدير AIM:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
+image:صورة:
+index_forum:المنتدى
+index_new_posts:توجد رسائل جديدة منذ آخر قراءة
+index_no_new_posts:لا رسائل جديدة منذ آخر قراءة
+index_url_redirection:تحويل
+interests:الاهتمامات:
+last_post:أخر رسالة
+last_thread_msg:اذهب إلى آخر رسالة في هذا الموضوع
+legend:الدليل
+location:الموقع:
+lock_thread:اقفل الموضوع
+locked:مُقفل
+locked_with_new_posts:مُقفل (مع رسائل غير مقروءة)
+logged_in_list:قائمة المستخدمين الوالجين
+login:لُج
+login_header:الولوج:
+logout:اخرج
+mark_all_read:علّم كل الرسائل مقروءة
+mark_all_read_desc:سوف تُعلّم كل رسائلك غير المقروءة مقروءة
+members:الأعضاء
+message:رسالة
+message_counter:أرسل مستخدمونا <b>{PLURAL: post_count|رسالة واحدة|$1 رسائل}</b> في <b>{PLURAL: thread_count|موضوع واحد|$1 مواضيع}</b>.
+message_index:فهرس الرسائل
+message_index_desc:أظهر قائمة الرسائل
+minimize_category:صغّر التصنيف
+minimize_message:صغّر الرسالة
+moderation_queue:طابور الإشراف
+moderator:مشرف
+moderator_of:المُشرف على:
+moderator_options:خيارات المشرفين
+moderators:{PLURAL: modcount|مشرف|مشرفين}
+more_unread_messages:رسائل غير مقروءة أخرى
+more_unread_messages_desc:أظهر المزيد من الرسائل غير المقروءة وعلم الرسائل المعروضة حاليًا مقروءة
+move_thread:انقل
+moved:نُقل إلى منتدى آخر
+moved_thread_message:نُقل هذا الموضوع إلى منتدى آخر
+na:غير متوفر
+new_posts:رسائل جديدة
+new_private_messages:لديك <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|رسالة خاصة|رسائل خاصة غير مقروءة} غير مقروءة
+new_thread:أنشئ موضوعًا جديدًا
+newest_user:أحدث مستخدم مُسجل هو
+next_page:الصفحة التالية
+next_thread:الموضوع التالي
+no_messages:لا توجد رسائل في هذا المنتدى.
+no_msg_body:لا جسم للرسالة
+no_new_posts:لا رسائل جديدة
+no_posts:لا رسائل
+no_subscribed_forums:لا منتديات مُشترك بها
+no_subscribed_threads:لا مواضيع مُشترك بها
+no_bookmarked_threads:لا مواضيع مُعلّمة
+no_unread_locked:أغلق هذا الموضوع
+no_unread_msg:لا يحتوي هذا الموضوع رسائل غير مقروءة
+no_unread_msg_unreg:الرسائل المقروءة وغير المقروءة مُتتبّعة للمستخدمين المسجلين فقط
+num_pages:الصفحات ({VAR: ttl_pg}):
+num_votes: {PLURAL: obj->total_votes|صوت|{VAR: obj->total_votes} أصوات}
+occupation:المهنة:
+off:مُطفأ
+on:مُشغّل
+page_timings:الوقت المستغرق لتوليد الصفحة: {VAR: page_gen_time} ثانية
+pm:مراسلة خاصة
+poll:اقتراع:
+post_count:عد الرسائل {VAR: u_pcount}
+post_count_l:عدّاد الرسائل:
+posts:رسائل
+posts_c:رسائل:
+prev_thread:الموضوع السابق:
+usrinfo_private_message:رسالة خاصة:
+profile:لوحة التحكم
+profile_desc:الوصول إلى لوحة تحكم المستخدم
+rate_thread:قيّم الموضوع
+rating:التقييم
+rating_track:أدر تقييمات موضوع <b>{VAR: thr->subject}</b>:
+refresh_list:أنعش القائمة
+register:سجّل
+registered:مسجل:
+registered_on:سجل في {TEMPLATE: registered_on_date}
+replies:الردود
+report_to_mod:بلّغ هذه الرسالة إلى مشرف
+reported_messages:الرسائل المُبلغ عنها
+reveal_all_posts:استخرج كل رسائل {VAR: user_login}
+reveal_post:استخرج رسالة
+search:ابحث
+sel_todays_posts:رسائل اليوم
+sel_todays_posts_desc:بدّل مُرشِّح رسائل اليوم (سوف يُظهر الرسائل المكتوبة اليوم فقط)
+sel_unanswered_posts:الرسائل غير المُجاب عليها
+sel_unanswered_posts_desc:بدّل مُرشِّح الرسائل غير المُجاب عليها (سوف يظهر الرسائل التي لا تحوي ردودًا فقط)
+sel_unread_messages:الرسائل غير المقروءة
+sel_unread_messages_desc:بدّل مُرشِّح الرسائل غير المقروءة (سوف يظهر الرسائل غير المقروءة فقط)
+send:أرسل
+send_pm_desc:أرسل رسالة خاصة إلى هذا المستخدم
+sender_email:بريد المرسل الإلكتروني:
+sender_name:اسم المرسل:
+show_posts_by:أظهر رسائل: {VAR: u_alias}
+size:الحجم:
+status:الحالة:
+status_line:يوجد <b>{PLURAL: st_obj->online_users_reg|عضو واحد|$1 أعضاء}</b> و<b>{PLURAL: st_obj->online_users_hidden|عضو مخفي|$1 أعضاء مخفيين}</b> و <b>{PLURAL: st_obj->online_users_anon|ضيف|$1 ضيوف}</b> يزورون هذه اللوحة.
+sticky:مُثبّت:
+stop_ignoring:أوقف تجاهل هذا المستخدم
+sub_to_thread:اشترك في الموضوع
+sub_to_thread_desc:استقبل إخطارًا عن الرسائل الجديدة في هذا الموضوع
+bookmark_thread:علّم الموضوع
+bookmark_thread_desc:أضف هذا الموضوع إلى قائمة علاماتك
+subject:الموضوع
+subscribe:اشترك
+subscribe_desc:استقبل إشعارات عندما ينشئ أحد موضوعًا جديدًا في هذا المنتدى
+subscribed_forums:المنتديات المُشترك فيها
+subscribed_forums_desc:بدل مُرشِّح المنتديات (سوف يظهر فقط الرسائل التي أنت مشترك فيها)
+subscribed_threads:المواضيع المُشترك فيها
+subscribed_threads_desc:بدّل مُرشِّح المواضيع المشترك فيها (سوف يظهر فقط رسائل المواضيع التي أنت مشترك فيها)
+bookmarked_threads:المواضيع المُعلّمة
+switch_to_thread_view:حوّل إلى عرض المواضيع لهذا الموضوع
+thread:موضوع:
+thread_announcement:إعلان:
+thread_first_unread_msg:اذهب إلى أول رسائل غير مقروءة في هذا الموضوع
+thread_thread:موضوع
+threads:مواضيع
+time:وقت
+todays_posts:رسائل اليوم
+todays_posts_desc:أظهر كل الرسائل المُرسلة اليوم
+un_ignore_user:أوقف تجاهل رسائل هذا المستخدم
+unanswered_posts:رسائل غير مُجاب عليها
+unanswered_posts_desc:أظهر كل الرسائل التي لا تحتوي ردودًا
+unlock_thread:فُك قفل الموضوع
+unread_msg:يحوي الموضوع رسائل لم تقرأها إلى الآن
+unread_msg_locked:موضوع مُقفل يحوي رسائل غير مقروءة
+unread_posts:الرسائل غير المقروءة
+unread_posts_desc:أظهر كل الرسائل غير المقروءة
+unsub_from_thread:ألغِ اشتراك الموضوع
+unsub_from_thread_desc:أوقف استقبال إشعارات عن الرسائل الجديد في هذا الموضوع
+unbookmark_thread:أزل من العلامات
+unbookmark_thread_desc:أزل هذا الموضوع من قائمة علاماتك
+unsubscribe:ألغِ الاشتراك
+unsubscribe_desc:أوقف استقبال إشعارات عن مواضيع المنتدى الجديدة
+updated_on:رُفع في:
+user:مستخدم
+user_counter:لدينا {PLURAL: st_obj->user_count|مستخدم مسجل|<b>{VAR: st_obj->user_count}</b> مستخدمين مسجلين}.
+user_info:معلومات مستخدم
+user_info_l:معلومات المستخدم {VAR: u->alias}
+user_offline:{VAR: obj->login} غير متصل الآن
+user_online:{VAR: obj->login} متصل حاليًا
+usrinfo_last_post:آخر رسالة:
+view_results:اعرض النتائج
+views:العروض
+vote:{PLURAL: frm->n_rating|صوت واحد|$1 أصوات}
+vote_button:تصويت
+vote_for_thread:صوت
+was_moved_msg:نقل المشرف <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> إلى <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
+welcome_message:أهلا <b>{VAR: usr->alias}</b>، آخر زيارة لك كانت في {TEMPLATE: welcome_message_date}
+what_ppl_doing:أظهر ما يفعله الناس
+reported_del_report:احذف البلاغ
+reported_reason:السبب
+reported_on:في:
+reported_reported_by:بلّغ عنها:
+reported_reported_msg:الرسائل المبلغ عنها
+modque_pending_approval:رسائل تنتظر الاعتماد
+modque_approve:اعتمد
+modque_delete:احذف
+modque_no_message:لا توجد رسائل تنتظر الاعتماد
+pmsg_new_messages:رسالة خاصة غير مقروءة
+pmsg_old_messages:رسالة خاصة مقروءة
+deny_recipt:اقطع مستلمًا
+deny_recipt_desc:لا ترسيل تأكيدًا أنك قرأت هذه الرسالة
+restore_to:استرجع إلى:
+move_to:انقل إلى:
+list_referes_referrals:الإحالات
+list_referes_members:الأعضاء المحالون
+list_referes_member:العضو
+referals_none:لا إحالات إلى الآن.
+referals_refered_by:أعضاء المنتدى الذي أحالتهم: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:عدد الرسائل
+referals_registered_on:سجّل في
+referals_action:فعل
+pmsg_all:كل
+pmsg_none:لا شيء
+folder:المجلد:
+pmsg_replied:مردودة
+pmsg_forwarded:مُمرّرة
+pmsg_subject:الموضوع
+pmsg_author:المؤلف
+pmsg_time:الوقت
+pmsg_selected:مُختار
+pmsg_delete:احذف
+cur_ppage_pm:مراسلة خاصة
+writing_pm:اكتب رسالة خاصة
+browsing_folder:تصفح المجلد <b>{VAR: folders[$folder_id]}</b>
+inbox:صندوق الوارد
+draft:المسودات
+sent:المُرسل
+trash:المهملات
+msg_author:المؤلف
+avatar_sel_form:نموذج اختيار الأفتار
+no_avatars:لا أفتار متوفرة
+month_1:يناير
+month_2:فبراير
+month_3:مارس
+month_4:أبريل
+month_5:مايو
+month_6:يونيو
+month_7:يوليو
+month_8:أغسطس
+month_9:سبتمبر
+month_10:أكتوبر
+month_11:نوفمبر
+month_12:ديسمبر
+male:ذكر
+female:أنثى
+unspecified:غير محدّد
+register_tree_view:عرض سرد الرسائل والمواضيع شجريًا
+register_msg_tree_view:سرد مواضيع مسطح/سرد رسائل شجري
+register_tree_msg_view:سرد مواضيع شجري/سرد رسائل مسطح
+register_flat_view:عرض سرد الرسائل والمواضيع سطحيًا
+use_forum_default:استخدم مبدئيّ المنتدى
+finduser_user_info:معلومات المستخدم
+finduser_by_login:حسب الولوج:
+finduser_submit:جِد
+finduser_no_such_user:لا مستخدم كهذا
+finduser_user:مستخدم
+finduser_postcount:عدد الرسائل
+finduser_joindate:تاريخ الانضمام
+finduser_action:فعل
+yes:نعم
+no:لا
+register_email:البريد الإلكتروني
+edit_time_limit:<bحد وقت التحرير></b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> دقيقة
+no_edit_time_limit:<b>حد وقت التحرير</b>: <b>غير محدود</b>
+pmuserloc_login:الولوج:
+pmuserloc_submit:أرسل
+pmuserloc_user:مستخدم
+pmuserloc_no_result:لا نتائج
+register_builtin:المُضمّنة
+register_specify_url:حدّد مسارًا
+register_uploaded:ارفع الأفتار
+register_login:الولوج:
+register_password:كلمة السر:
+register_conf_pass:تأكيد كلمة السر:
+register_email_desc:من فضلك أدخل عنوان بريد إلكتروني صالح. تستطيع اختيار اخفائه أدناه، في قسم التفضيلات.
+register_name:الاسم:
+register_your_pass:كلمة سرّك:
+register_update:حدّث
+register_avatar_type:نوع الأفتار:
+register_del_avatar:احذف الأفتار
+register_avatar:الأفتار:
+register_sel_avatar:اختر أفتارًا
+register_custom_avatar_rules:لن يظهر الأفتار المُخصّص حتى يعتمده إداري.<br /><span class="SmallText">يجب ألا يكون الأفتار أكبر من <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} بسكل</b> ويجب أن يكون بهيئة <b>jpg</b> أو <b>gif</b> أو <b>png</b></span
+register_custom_avatar_url:مسار أفتار مُخصّص:
+register_preview:عاين
+register_custom_avatar_upload:ملف أفتار مُخصّص:
+register_register:سجّل
+register_required:معلومات مطلوبة
+register_required_desc:كل الحقول مطلوبة. من فضلك لاحظ أن كلمات السر حساسة لحالة الأحرف.
+register_optional:معلومات اختيارية
+register_optional_desc:من الموصى به ألا تكشف عن أي معلومات شخصية في ملفك الشخصي. كل المعلومات ستكون ظاهرة لمستخدمي المنتدى الآخرين.
+register_location:المكان:
+register_occupation:المهنة:
+register_interests:الاهتمامات:
+register_image:الصورة:
+register_icq:ICQ:
+register_aim:مدير AIM:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
+register_homepage:الصفحة الرئيسية:
+register_bday:تاريخ الميلاد:
+register_bday_desc:إذا أدخلت تاريخ ميلاد، فسيتمكن أعضاء المنتدى الآخرون من رؤيته في ملفك الشخصي.
+register_day:يوم
+register_month:شهر
+register_year:عام
+register_gender:الجنس:
+register_bio:السيرة الذاتية:
+register_bio_desc:معلومات قليلة عنك مثل اهتمامتك وعملك إلخ...
+register_prefs:تفضيلات
+register_sig:توقيع:
+register_sig_desc:التوقيع الاختياري الذي سوف يظهر في أسفل رسائلك.
+register_reset:إعادة ضبط
+register_def_thread_view:عرض الموضوع المبدئي:
+register_msg_per_page:الرسائل في كل صفحة:
+register_show_sig:إظهار التواقيع:
+register_show_sig_desc:يسمح إما بعرض أو إخفاء تواقيع أعضاء المنتدى.
+register_use_sig_default:استخدام التوقيع مبدئيًا:
+register_use_sig_default_desc:يضيف توقيعك تلقائيًا مع كل رسالة ترسلها.
+register_timezone:المنطقة الزمنية:
+register_ignore_admin:تجاهل الرسائل الإدارية:
+register_invisible_mode:الوضع المخفي:
+register_invisible_mode_desc:يخفي حالة اتصالك.
+register_show_email:أظهر عنوان البريد الإلكتروني:
+register_show_email_desc:اختر هذا الخيار إذا أردت عرض عنوان بريدك الإلكتروني على العموم.
+register_notification:اختيار الإشعار المبدئي:
+register_notification_desc:إذا كان الإشعار ممكن مبدئيًا، يمكن أن يعطل عند الإرسال.
+register_notify_method:اختر طريقة للإشعار:
+register_notify_method_desc:اضبط طريقة إشعارك المفضلة أو عطل الإشعار (عندما تكون في إجازة مثلًا)
+register_allow_email_msg:السماح برسائل البريد الإلكتروني:
+register_allow_email_msg_desc:اسمح للمستخدمين الآخرين بإرسال رسائل بريد إلكتروني لك عبر هذا المنتدى.
+buddy_status:الحالة
+my_buddies:أصدقائي
+add_buddy:أضف صديقًا
+add:إضافة
+buddy_search:أدخل اسم ولوج المستخدم الذي تريد إضافته.
+member_search:أو استخدم ميزة <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">إيجاد مستخدم</a> لإيجاد شخص معين.
+buddy_remove:إزالة
+post_normal:عادي
+post_sticky:مُثبّت
+post_annoncement:إعلان
+post_size:الحجم
+post_color:اللون
+post_font:الخط
+create_thread:أنشئ موضوعًا
+submit_reply:أرسل ردًا
+edit_message:طبّق تغييرات الرسالة
+apply_spell_changes:طبّق تغييرات الإملاء
+post_preview:معاينة الرسالة
+post_logedin_user:مستخدم والج:
+post_logout:اخرج
+post_passwd:كلمة سر الإرسال:
+post_poll:اقتراع:
+post_create_poll:أنشئ اقتراعًا
+post_poll_delete:احذف
+post_poll_edit:حرّر
+post_mod_opt:خيارات المشرف:
+post_thread_type:نوع الموضوع:
+post_thread_expiry:انتهاء الموضوع:
+post_locked:الموضوع مقفل
+post_icons:أيقونة الرسالة:
+post_no_icon:لا أيقونة
+post_smiley:اختصارات الابتسامات:
+post_format_tools:أدوات التنسيق:
+post_upload_file:ارفع ملفًا
+post_file_del:احذف
+post_file_name:الاسم
+post_file_size:الحجم
+file_attachments:مرفقات الملفات:
+allowed_files:امتدادات الملفات المسموحة:
+max_file_size:حجم الملف الأقصى:
+max_files_per_msg:أكبر عدد ملفات في كل رسالة:
+post_notification:اشعار الإرسال
+include_sig:ضمّن التوقيع
+include_sig_desc:ضمّن توقيع ملفك الشخصي.
+disable_smilies:عطّل الابتسامات في هذه الرسالة
+spell_check_msg:دقّق الرسالة إملائيًا
+post_form:نموذج الإرسال
+post_forum:منتدى:
+post_title:العنوان:
+post_body:الجسم:
+post_options:خيارات:
+post_preview_btn:عاين الرسالة
+ignore_users:المستخدمون المتَجاهَلون
+add_ignore:أضف تجاهلًا
+forum_terms:شروط المنتدى
+forum_rules:<p>التسجيل في هذا المنتدى مجاني! نحن نصر على التزامك بالقوانين والسياسات المُفصلة أدناه. إذا وافقت عن الشروط، فانقر زر <b>أوافق</b> في نهاية هذه الصفحة. ملاحظة: بنقر الزر فإنك تصرح أنك فوق سن 13 عامًا. إذا كان عمرك 13 أو أقل، من فضلك استخدام سجل نموذج التسجيل هذا.</p><p>على الرغم من أن إداريي ومشرفي هذا المنتدى سيحاولون حذف كل الرسائل التي تخرق المنتدى، لكنه من المستحيل علينا مراجعة كل الرسائل. تعبر كل الرسائل عن وجهة نظر مؤلفيها ولن يتحمل ملاك أو مطورو هذا المنتدى أي مسؤولية عن أي رسالة.</p><p>بنقر زر أواف، أنت تضمن أنك لن ترسل أي رسائل فاحشة أو بيئة أو ذات توجه حنسي أو كارهة أو تهديدية أو غيرها من الرسائل التي تخرق القانون.</p><p> لملاك هذا المنتدى حق إزالة وتعديل ونقل وإغلاق أي موضوع لأي سبب.</p>
+forum_rules_13:<p>يجب أن يطلب جميع المستخدمين الأقل من 13 عامًا إذنًا من والديهم أو مرشديهم ليحصلوا غلى عضوية في المنتدى. وعلى الرغم من أننا نرحب بانضمام الأعضاء الأقل من 13 عامًا، إلا أننا نطلب نموذج إذن مُوقع من والديهم أو مرشديهم عبر الفاكس أو البريد قبل نمنحهم العضوية.</p><p>إذا أردت بدء عملية التسجيل فأرسل إلينا نموذج الإذن، انقر زر <b>أوافق</b>. إّا أردت إلغاء التسجيل، فانقر <b>أعارض</b> للرجوع إلى صفحة المنتدى الرئيسية.</p><p>يمكن تنزيل نسخة من نموذج الإذن هنا. لمزيد من المعلومات عن عملية التسجيل، من فضلك أرسل رسالة بريد إلكتروني إلى <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:تأكيد COPPA
+coppa_before:قبل {TEMPLATE: coppa_date}
+coppa_after:بعد {TEMPLATE: coppa_date}
+coppa_link:انقر الوصلة المرافقة لتاريخ ميلادك
+coppa:<p>يجب أن يرسل الوالد أو المرشد إذنًا موقعًا عبر البريد أو الفاكس إلى إداري هذا المنتدى قبل أن يتمكن المستخدمون الأقل من 13 سنة من إكمال التسجيل. لمزيد من المعلومات، اتصل ب<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:قوانين المنتدى
+prereg_agree:أوافق
+prereg_disagree:أعارض
+coppa_fax_instructions:تعليمات للوالد أو المرشد
+coppa_fax_instructions2:من فضلك اطبع هذه الصفحة، ووقعها وأرسلها عبر الفاكس إلى:
+coppa_fax_reg_form:نموذج التسجيل
+coppa_fax_sign:من فضلك وقّع النموذج أدناه وأرسله إلينا
+coppa_fax_conf:لقد راجعت المعلومات التي زودها طفلي وقرأت سياسة خصوصية الموقع. أتفهم أن معلومات الملف الشخصي يمكن تغييرات عبر كلمة الشر. أتفهم أن لي طلب حذف ملف التسجيل هذا نهائيًا من المنتدى.
+coppa_fax_permission:وقّع هنا إن كنت تعطي الإذن
+coppa_fax_no_permission:وقّع هنا إن كنت تريد حذف الحساب
+coppa_fax_parent_name:اسم الوالد/المرشد الكامل:
+coppa_fax_relation:العلاقة بالطفل:
+coppa_fax_telephone:الهاتف:
+coppa_fax_email:عنوان البريد الإلكتروني:
+coppa_fax_date:التاريخ:
+coppa_fax_questions:من فضلك اتصل ب<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> لأي سؤال
+coppa_fax_login:لُج
+coppa_fax_passwd:كلمة السر
+coppa_fax_remail:البريد الإلكتروني
+coppa_fax_name:الاسم
+login_not_logedin:لست والجًا. قد يكون هذا لعدة أسباب:
+login_cookie_expired:انتهت صلاحية كعكتك، وأنت بحاجة إلى الولوج لتجدد الكعكة.
+login_perm_denied:ليس لديك الإذن بالوصول إلى المورد المطلوب كمستخدم مجهول. يجب أن تسجل لتحصل على الإذن.
+login_want_to_register:أتريد التسجيل؟
+login_forgot_passwd:نسيتُ كلمة السر
+login_use_cookie:استخدام الكعكات<br /><span class="SmallText">إذا كنت تستخدم طرفية عامة كحاسوب في مكتبة أو مدرسة أو مقهى إنترنت، فإننا نوصي بإلغتء اختيار هذا الخيار لأمان أفضل.<br />إذا تركت هذا الخيار مختارًا فسوف تلج تلقائيًا إلى المنتدى في المرة القادمة التي تزوره فيها.</span>
+login_login:الولوج:
+login_login_btn:لُج
+login_name_required:اسم الولوج مطلوب
+login_passwd_required:كلمة السر مطلوبة
+login_invalid_radius:الحمع بين الولوج وكلمة السر غير صالح.
+reset_confirmation:شكرا للتسجيل.\n\nلتُنشّط حسابك من فضلك اذهب إلى المسار أسفله:\n\n{VAR: url}\n\nسوف تدخل إلى المنتدى وتُحوّل إلى الصفحات الرئيسية عندما تنشّط حسابك.
+reset_reset:مرحبًاَ!\n\nلقد طلبت إعادة ضبط كلمة سرك. لإكمال العملية، من فضلك اذهب إلى هذا المسار:\n\n{VAR: url}\n\nملاحظة: يحفظ هذا المنتدى كلمات السر بآلية تعمية ذات اتجاه واحد، مما يعني أنه بمجرد إدخال كلمة سرك فإنها ستُعمّى بطريقة من المستحيل معها استرجاعها.\nيتم هذا عبر مقارنة النسخة المعماة التي عندنا في التسجل مع النسخة المعماة لما كتبته في محث الولوج.\nإذا كنت مهتمًا في كيفية عمل هذه الآلية اقرأ عن خوارزمية MD5 HASH.
+rpasswd_invalid_passwd:كلمة سر غير صالحة
+rpasswd_passwd_nomatch:كلمتا السر لا تتطابقان
+rpasswd_passwd_length:يجب  أن يكون طول كلمة السر 6 محارف على الأقل
+reset_remind_pass:مُذكر كلمة السر
+reset_reset_conf:سيعاد ضبط كلمة سرك وسترسل إليك. إذا لم تؤكد بريدك إلى الآن، فإن طلب التأكيد سيرسل إليك مرة أخرى.
+reset_error:لو يوجد عنوان البريد الإكتروني في قاعدة البيانات
+rpasswd_change_pass:غيّر كلمة السر
+rpasswd_login:لُج
+rpasswd_cur_pass:كلمة السر الحالية:
+rpasswd_new_pass:كلمة السر الجديدة:
+rpasswd_conf_pass:تأكيد كلمة السر:
+login_passwd:كلمة السر:
+reset_email:البريد الإلكتروني:
+reset_reset_button:أعد ضبط كلمة السر
+rate_this_thread:قيّم
+report_reporting_about:الإبلاغ عن:
+report_subject:الموضوع:
+report_by:بواسطة:
+report_posted_on:أُرسل في:
+report_give_reason:من فضلك اكتب سبب تبليغك عن هذه الرسالة:
+report_submit_report:أرسل تقريرًا
+search_entire_msg:أدخل رسالة
+search_subject_only:الموضوع فقط
+search_forum:منتدى
+search_posted_on:أرسل في
+search_no_results:لا نتائج
+search_all_forums:ابحث في كل المنتديات
+search_in_forum:ابحث في منتدى:
+search_forum_search:بحث المنتدى
+move_thread_to:انقل الموضوع <b>{VAR: thr->subject}</b> إلى:
+remail_email_topic:أرسل هذا الموضوع إلى صديق
+remail_your_name:اسمك:
+remail_your_email:بريدك الإلكتروني:
+remail_friends_name:اسم صديقك:
+remail_friends_email:بريد صديقك الإلكتروني:
+remail_required:مطلوب
+remail_subject:الموضوع:
+remail_message:الرسالة:
+remail_send_now:أرسل البريد الإلكتروني الآن
+remail_anon_opt:انسخ هذه الرسالة إلى عميل بريدك لترسلها إلى صديقك (أو أصدقائك).
+remail_done:أنهِ
+remail_sent_conf:أرسل البريد إلى صديقك {VAR-HTML: _POST['femail']} عن موضوع {VAR: data->subject} بنجاح.
+remail_error:وُجد خطأ
+mklist_type:النوع:
+mklist_option:الخيار:
+mklist_additem:أضف عنصرًا
+mklist_apply:طبّق
+mklist_delete:احذف
+qbud_nick_name:الاسم المستعار
+qbud_add_selected:أِضف المختار
+qbud_selected:مختار
+qbud_no_buddies:لا أصدقاء يمكن الاختيار منهم
+mklist_numerical:مُرقمة
+mklist_aplha:ألفبائية
+mklist_square:مربع
+mklist_disc:قرص
+mklist_circle:دائرة
+mklist_close:أغلق
+email_to:إلى:
+email_pg_title:بريد إلكتروني
+email_subject:الموضوع:
+email_body:الجسم:
+email_submit:بريد إلكتروني
+ppost_quote_msg:كتب {VAR: msg_to_list} في {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:اقتباس:
+ppost_to:إلى:
+ppost_from_buddy_list:اختر من قائمة الأصدقاء
+ppost_find_User:جِد مستخدمًا
+ppost_track_msg:تتبّع هذه الرسالة
+ppost_track_msg_desc:أشعرني (عبر رسالة خاصة) عندما تُقرأ هذه الرسالة.
+ppost_send:أرسل
+ppost_save_draft:احفظ مسودة
+poll_blank_option:لا تستطيع إضافة خيار فارغ.
+poll_del_conf:اضغط موافق إذا أردت حذف الرسالة.
+poll_name:اسم الاقتراع:
+poll_timelimit:الحد الزمني:
+poll_maxiumvotes:عدد الأصوات القصوى:
+poll_create:أنشئ
+poll_update:حدّث
+poll_disablesmilies:عطّل الابتسامات
+poll_create_poll:أنشئ اقتراعًا
+poll_update_poll:حدّث الاقتراع
+poll_delete:احذف
+poll_updateoption:حدّث الخيار
+poll_addoption:أضف خيارًا
+poll_unlimited:غير محدود
+poll_day:يوم
+poll_days:أيام
+poll_hour:ساعة
+poll_hours:ساعات
+poll_month:شهر
+poll_year:عام
+poll_week:أسبوع
+tabs_register:إعدادات الحساب
+tabs_subscriptions:الاشتراكات
+tabs_bookmarkes:العلامات
+tabs_referrals:الإحالات
+tabs_buddy_list:قائمة الأصدقاء
+tabs_ignore_list:قائمة التجاهل
+tabs_private_messaging:المراسلة الخاصة
+single_msg_delete:أنت بصدد <span class="ErrorText">حذف</span> الرسالة المُعنونة بـ: <b>{VAR: data[3]}</b>
+thread_delete:أنت بصدد <span class="ErrorText">حذف</span> <span class="ErrorText">كامل الموضوع</span> المُعنون بـ:<b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">أتريد المتابعة؟</span>
+delete_yes:نعم
+delete_no:لا
+error_invalidurl:مسار غير صالح
+error_error:خطأ
+usrinfo_profile:ملف {VAR: u->alias} الشخصي
+usrinfo_show_all_posts:أظهر كل رسائل {VAR: u->alias}
+actions_update:يتطفل على أشخاص آخرين، مثلك تمامًا
+err_info:معلومات
+buddy_list_err_cantadd:لا يمكنك إضافة نفسك إلى قائمة أصدقائك
+buddy_list_err_dup:هذا المستخدم موجود مسبقًا في قائمة أصدقائك
+buddy_list_err_nouser:لم يوجد هذا المستخدم الذي تحاول إضافته إلى قائمة أصدقائك.
+buddy_list_err_nouser_title:تعذّرت إضافة مستخدم
+buddy_list_err_ignore:لا يمكن إضافة المستخدمين الذي يتجاهلونك إلى قائمة أصدقائك.
+buddy_list_update:يتصفح قائمة أصدقائه
+core_err_invinp_title:دخل غير صالح
+core_err_invinp_err:لقد اتبعت وصلة خاطئة. من فضلك أعلم <a href="mailto:{GVAR: ADMIN_EMAIL}">مدير الموقع</a> بكيفية وصولك إلى هنا.
+core_adm_login_msg:يمكن أن يدخل الإداريون <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">هنا</a>.
+email_err_unabletoemail_title:خطأ: تعذّر إرسال بريد إلكتروني
+email_err_unabletoemail_msg:عطل الإداري نظام البريد الإلكتروني.
+email_error_unabletolocaddr:عذرًا، تعذر على النظام مراسلة {VAR-HTML: _POST['tx_name']} لأنه لم يتمكن من تحديد البريد الإلكتروني.
+email_error_body:الجسم مطلوب
+email_error_subject:العنوان مطلوب
+email_error_namerequired:الاسم مطلوب
+email_error_invaliduser:مستخدم غير صالح
+emailconf_err_invkey_title:خطأ
+emailconf_err_invkey_msg:مفتاح تأكيد غير صالح. من فضلك تأكد من أنك أدخلت المسار بشكل صحيح من بريد الإلكتروني.
+err_inc_criticaltitle:خطأ فادح
+err_inc_criticalmsg:صودف خطأ. للأسف تودجد مشكلة أيضًا في نظام الإبلاغ عن مشاكل النظام.
+finduser_update:يبحث عن مستخدمين
+help_index_update:قراءة <a href="{TEMPLATE: help_index_update_lnk}">المساعدة</a>
+iemail_thr_subject:رد جديد على {VAR: thr_subject} من {VAR: poster_login}
+iemail_thr_bodyemail:لقراءة الردود غير المقروءة، اذهب إلى: {VAR: goto_url['email']}\n\nإذا لم ترد استقبال مزيد من الإشعارات عن ردود هذا الموضوه، من فضلك اذهب إلى: {VAR: unsub_url['email']}
+iemail_frm_subject:موضوع جديد في منتدى {VAR: frm_name}، اسمه {VAR: thr_subject}، بقلم {VAR: poster_login}
+iemail_frm_bodyemail:لعرض الموضوع، اذهب إلى:\n{VAR: goto_url['email']}\n\nلوقف استقبال إشعارات المواضيع الجديدة في هذا المنتدى، اذهب إلى : {VAR: unsub_url['email']}
+iemail_participate:اذهب هنا لتنضم إلى النقاش:
+ignore_list_err_info_title:معلومات
+ignore_list_err_dup_msg:هذا المستخدم موجود مسبقًا في قائمة تجاهلك
+ignore_list_err_nu_title:لم يوجد المستخدم
+ignore_list_err_nu_msg:لم يوجد المستخدم الذي حاولت إضافته إلى قائمة تجاهلك.
+ignore_list_cantign_msg:لا يمكنك تجاهل هذا المستخدم
+ignore_list_update:يتصفح قائمة تجاهله
+index_update:يتصفح <a href="{TEMPLATE: index_update_lnk}">قائمة المنتديات</a>
+list_referers_update:يتصفح الإحالات
+login_update:نموذج الولوج
+msg_update:يتصفح الموضوع <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:خطأ: المراسلة الخاصة معطلة
+pm_err_nopm_msg:لا يمكنك استخدام نظام المراسلة الخاصة. لقد عطله الإداري.
+pm_update:استخدام المراسلة الخاصة
+post_err_lockedthread_title:خطأ: موضوع مٌقفل
+post_err_lockedthread_msg:هذا الموضوع مقفل؛ لم يعد الإرسال مسموح به.
+err_coppa_title:خطأ: لم يؤكد حسابك إلى الآن
+err_coppa_msg:لم نتلقَ تأكيدًا من والدك أو مرشدك القانوني يسمح لك فيه بإرسال الرسائل. إذا ضيّعت نموذج COPPA، <a href="{TEMPLATE: err_coppa_msg_lnk}">فشاهده مرة أخرى</a>.
+err_banned_acct_title:خطأ: لقد طُردت.
+err_banned_acct_msg:حسابك {IF: $ban_expiry}مطرود مؤقتًا إلى {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}مطرود بشكل دائم{ENDI} من الوصول إلى الموقع بسبب خرق قوانين المنتدى.
+post_err_edttimelimit_title:خطأ
+post_err_edttimelimit_msg:لم يعد بمقدورك تعديل هذه الرسالة
+post_err_noannontopics_msg2:<legend>خطأ: صلاحيات غير كافية</legend>لا يسمح للمستخدمين المجهولين بإنشاء المواضيع.
+post_err_noannonposts_msg2:<legend>خطأ: صلاحيات غير كافية</legend>لا يسمح للمستخدمين المجهولين بالرد.
+post_err_floodtrig_title:خطأ: أثير طوفان رسائل.
+post_err_floodtrig_msg:من فضلك حاول مجددًا خلال {PLURAL: tmثانية واحدة|$1 ثوانٍ}
+post_err_attach_size:مرفق الملف كبير جدًا (فوق حد {VAR: MAX_F_SIZE} بايت)
+post_err_attach_ext:الملف الذي تحاول رفعه لا يطابق أنواع الملفات المسموح بها.
+post_err_attach_filelimit:أنت تحاول رفع ملفات أكثر مما هو مسموح به.
+post_err_passwd:كلمة سر غير صحيحة.
+post_reply_update:يرد على <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> في {VAR: frm->name}
+post_topic_update:يكتب موضوعًا جديدًا في <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
+post_error_generic:ثمّة خطأ ما
+postcheck_max_images_err:لا يسمح أكثر من {GVAR: MAX_IMAGE_COUNT} صورة لكل رسالة. من فضلك قلل عدد الصور.
+postcheck_no_links_allowed:لا يمكنك استخدام الوصلات قبل أن ترسل أكثر من {PLURAL: posts_before_links|رسالة واحدة|$1 رسائل}.
+postcheck_subj_needed:العنوان مطلوب
+postcheck_no_such_user:لا يوجد مستخدمه اسمه "{FUNC: char_fix(htmlspecialchars($v))}" في هذا المنتدى.
+postcheck_ignored:لا يمكنك إرسال رسالة خاصة إلى "{FUNC: char_fix(htmlspecialchars($v))}" لأن هذا المستخدم يتجاهلك.
+postcheck_no_recepient:تعذر إرسال الرسالة، المستلم مفقود
+postcheck_invalid_email:من فضلك أدخل عنوان بريد إلكتروني صالح لصديقك.
+postcheck_email_subject:لا تستطيع إرسال بريد إلكتروني بدون موضوع.
+postcheck_email_body:لا يمكنك إرسال بريد إلكتروني بدون جسم للرسالة.
+private_msg_notify_subj:اقرأ إشعارًا عن: {VAR: m->subject}
+private_msg_notify_body:مرحبًا! <br />{VAR: usr->login} فتح رسالتك الخاص ذات العنوان "{VAR: m->subject}".<br /> هذا إشعار آلي وُلد في {TEMPLATE: private_msg_notify_body_date}<br />
+referals_update:يتصفح الإحالات
+register_err_short_login:اسم الولوج الذي اخترته قصير جدًا. يجب ألا يقل طول أسماء الدخول عن 4 محارف.
+register_err_login_notallowed:اسم الولوج هذا غير مسموح به.
+register_err_loginunique:يجب أن تكون أسماء ولوج المنتدى فريدة. يوجد مستخدم مسبقًا بهذا الاسم.
+register_err_emailexists:عنوان البريد الإلكتروني هذا مربوط مسبقًا بحساب. إذا كنت نسيت كلمة سرك، فمن فضلك استخدم خيار الاسترجاع بدلًا من إعادة التسجيل.
+register_err_shortpasswd:يجب أن يكون طول كلمة السر 6 محارف على الأقل.
+register_err_passwdnomatch:كلمتا سرّك لا تتطابقان.
+register_err_invalidemail:لا يبدو عنوان البريد الإلكتروني الذي حدّدته صالحًا.
+register_err_needname:لتكمل التسجيل بنجاح، يجب أن تدخل اسمك.
+register_err_enterpasswd:يجب أن تدخل كلمة سرك الحالية لتكمل التغييرات.
+register_err_adminpasswd:يجب أن تدخل كلمة سر <b>الإداري</b> لتكمل التغييرات.
+register_err_notyouremail:أحد آخر مسجل مسبقًا بهذا البريد الإلكتروني.
+register_err_avatartobig:الملف الذي تحاول رفعه كبير جدًا، أكثر من بايت {GVAR: CUSTOM_AVATAR_MAX_SIZE}
+register_err_avatarnotallowed:لا يسمح بالأفتار التي تحاول رفعها. تحقق من أنواع الملفات المسموح بها.
+register_conf_subject:تأكيد التسجيل
+register_conf_msg:شكرًا على التسجيل!\n\nلتُنشّط حسابك من فضلك اذهب إلى المسار التالي:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nسوف تلج إلى المنتدى وتُحوّل إلى الصفحة الرئيسية بمجرد تنشيط حسابك.
+register_welcome_subject:تأكيد تسجيل المنتدى
+register_welcome_msg:شكرا لك على التسجيل!\n\nهنا تفاصيل ولوجك إلى المنتدى:\n\n\nمسار المنتدى: {TEMPLATE: index_update_lnk}\nالولوج: {VAR: uent->login}\nكلمة السر: {VAR: _POST['reg_plaintext_passwd']}\n\nمن فضلك لاحظ أن كلمة السر حساسة لحالة الأحرف!\nلتغيّر إعداداتك أو ملفك شخص الشخصي، اذهب إلى هذه الصفحة:\n{FULL_ROOT}{ROOT}?t=register
+register_err_cantreg_title:خطأ: تعذر التسجيل
+regsiter_err_cantreg_msg:تعذر إنشاء حساب المستخدم، من فضلك اتصل بالإداري عبر <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:يعرض ملفه
+register_register_update:صفحة التسجيل
+report_err_nosuchmsg_title:خطأ
+report_err_nosuchmsg_msg:لا توجد رسالة كهذه
+reset_err_invalidkey_title:خطأ
+reset_err_invalidkey_msg:مفتاح إعادة ضبط كلمة سر خاطئ. من الممكن أن يكون عميل بريدك الإكتروني قد فتح هذه الصفحة تلقائيًا، مما أدى إلى إبطال مفتاح إعادة الضبط. إذا كنت هذه هي الحالة، فيجب أن تتلقى رسالة بريد إلكتروني تحوي كلمة السر الجديدة. إذا لم يصل بريد كهذا، فحاول مرة إعادة ضبط كلمة السر.
+reset_err_rstconf_title:معلومات
+reset_err_rstconf_msg:ينبغي أن تتلقى التعليمات في بريدك الإلكتروني في الدقائق القليلة القادمة.
+reset_newpass_title:إعادة ضبط كلمة السر
+reset_newpass_msg:مرحبًا!\n\nكما تطلب، فإن معلومات ولوجك ظاهرة أدناه\n\n\nالولوج: {VAR: ui[1]}\nكلمة السر: {VAR: passwd}\n\nمن فضلك لاحظ أن كلمة السر أعيد ضبطها إلى القيمة أعلاه. تستطيع تغيير كلمة سرك عبر لوحة التحكم في: {FULL_ROOT}{ROOT}?t=register
+reset_login_notify:أرسلت كلمة سرك إليك. يجب أن تتلقاها خلال الدقائق القليلة القادمة.<br />
+search_update:يبحث عن رسائل
+selmsg_update:يتصفح <a href="{TEMPLATE: selmsg_update_lnk}">رسائل اليوم</a>
+showposts_update:يتصفح رسائل: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:يتضفح اشتراكته
+bookmarked_update:يتصفح قائمة علاماته
+thread_update:يتصفح منتدى <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:يتصفح الموضوع <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> (بالعرض الشجري)
+userinfo_update:ينظر إلى ملف <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> الشخصي
+ERR_login_msg2:<legend>خطأ: لست والجًا/legend> يجب أن تكون عضوًا في هذا المنتدى لتصل إلى هذه الصفحة.
+ERR_disabled_ttl:خاصية معطلة
+ERR_disabled_msg:عطل مدير النظام هذه الرسالة
+ERR_access_ttl:خطأ: أذونات غير كافية
+ERR_access_msg:لا تملك الأذونات المطلوبة لتنفيذ هذا الإجراء
+ERR_registration_disabled_ttl:التسجيل معطل
+ERR_registration_disabled_msg:عطل الإداري التسجيل. من فضلك حاول مرة أخرى لاحقًا.
+ERR_emailconf_ttl:خطأ: حسابك غير مؤكد
+ERR_emailconf_msg:لن تؤكد حسابك عبر البريد الإلكتروني إلى الآن.<br /><table border="0"><tr><td><ol><li>إذا لم تتلقَ بريد تأكيد إلكتروني، <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">فاطلبه مرة أخرى</a>.</li><li>إذا لم يكن {VAR: usr_d->email} عنوان بريدك الصحيح، <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">فحدد العنوان الصحيح</a>.</li></ol></td></tr></table
+ERR_user_ttl:خطأ: لا يوجد مستخدم كهذا
+ERR_user_msg:لا يوجد مستخدم كهذا
+ERR_systemerr_ttl:خطأ: خطأ نظام
+ERR_systemerr_msg:صودف خطأ نظام. من فضلك بلّغ <a href="mailto:{GVAR: ADMIN_EMAIL}">مدير الموقع</a> عنه.
+email_title:نموذج البريد الإكتروني
+finduser_title:البحث عن مستخدم
+help_title:مساعدة
+login_title:نموذج الولوج
+poll_title:مُحرّر الاقتراع
+register_title:نموذج التسجيل
+reset_title:إعادة ضبط كلمة السر
+rpasswd_title:نموذج تغيير كلمة السر
+error_title:نموذج الخطأ
+index_title:مرحبًا بكم إلى المنتدى
+search_title:البحث عن {VAR-HTML: srch}
+remail_emailsent:أرسل البريد
+remail_email:مرحبًا،\n\nيوجد موضوع مشوق عن "{VAR: data->subject}" في منتدى {GVAR: FORUM_TITLE} وقد ترغب في قراءته. تستطيع مشاهدة الموضوع على:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nصديقك،\n\n{VAR: usr->alias}
+poll_add_option:أضف خيارًا:
+post_opt_html_on:<b>HTML مُفعّل</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode مُفعّل</b></a>
+post_opt_images_on:<b>الصور مُفعّلة</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>الابتسامات مُفعّلة</b></a>
+post_opt_html_off:أكواد <b>HTML مُعطّلة</b>
+post_opt_fud_off:<b>BBcode مُعطّل</b>
+post_opt_images_off:<b>الصور مُعطّلة</b>
+post_opt_smilies_off:<b>الابتسامات مُعطّلة</b>
+post_opt:خيارات المنتدى
+register_change_passwd:غيّر كلمة السر
+approved_avatar_title:اعتمد أفاترك المُخصّص.
+approved_avatar_msg:اعتمد الإداري أفتارك. ينبغي أن تظهر الآن في جميع رسائلك. غذا لم ترها، أو إذا رأيت الأفتار القديمة، فلعل هذا بسبب اختزان متصفحك للصفحة. جرب إنعاش الصفحة مرة أو مرتين. سوف يحل هذا مشكلة الاختزان في معظم الحالات.
+unapproved_avatar_title:رُفض أفتارك المُخصّص.
+unapproved_avatar_msg:لم يعتمد الإداري أفتارك. أكثر الأسباب شيوعًا أن أفتارك كبير جدًا (في الحجم أو الأبعاد) أو أنه يحتوي أمور غير ملائمة. إذا أردت معلومات عن سبب رفض أفتارك، فاتصل بالإداري.
+mvthread_request_move:اطلب النقل
+move_request_reason:لماذا تريد نقل الموضوع؟
+mvthread_submit_req:أرسل طلبًا
+thread_exchange:نقل المواضيع
+move_request_by:طلب نقل الموضوع:
+move_reason:سبب نقل الموضوع:
+thr_exch_accept:اقبل الموضوع
+thr_exch_decline:ارفض الموضوع
+thr_exch_orig_forum:المنتدى الأصلي:
+thr_exch_dest_forum:المنتدى الهدف:
+thr_exch_no_threads:لا مواضيع تنتظر الاعتماد.
+thr_exch_decl_reason:سبب رفض نقل الموضوع <b>{VAR: data->subject}</b> إلى منتدى <b>{VAR: data->f2_name}</b>
+thr_exch_submit:أرسل
+exch_decline_ttl:رُفض نقل الموضوع {VAR: data->subject} إلى منتدى {VAR: data->f2_name}.
+ppost_original_msg:الرسالة التي تُمرّرها أو ترد عليها
+split_thread:افصل الموضوع
+groupmgr_no_user:لا يوجد مستخدم باسم الولوج "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+groupmgr_already_exists:المستخدم "{FUNC: char_fix(htmlspecialchars($gr_member))}" موجود مسبقًا في هذه المجموعة.
+groupmgr_yes:نعم
+groupmgr_no:لا
+groupmgr_action:فعل
+groupmgr_member:عضو
+groupmgr_cancel:ألغِ
+groupmgr_add_member:أضف عضوًا
+groupmgr_update_member:حدّث عضوًا
+groupmgr_edit:حرّر
+groupmgr_delete:حذف
+group_mgr_anon:مجهول
+group_mgr_reged:كل المستخدمين المسجلين
+show_show:أظهر:
+group_mgr:مدير المجموعة
+group_mgr_edit_btn:حرّر المجموعة
+group_mgr_heading:اختيار محرر المجموعة
+group_mgr_group:المجموعة:
+permission_denied_title:الإذن مرفوض!
+permission_denied_msg:لا تسمح أذونات مستخدمك بتنفيذ هذا الإجراء الذي تحاول.
+p_READ:قراءة
+p_POST:إرسال
+p_REPLY:رد
+p_EDIT:عدل
+p_DEL:احذف
+p_STICKY:تثبيت رسائل
+p_POLL:إنشاء اقتراعات
+p_FILE:إرفاق ملفات
+p_VOTE:تصويت
+p_RATE:تقييم المواضيع
+p_SPLIT:فصل المواضيع
+p_LOCK:قفل المواضيع
+p_MOVE:نقل المواضيع
+p_SML:استخدام الابتسامات
+p_IMG:استخدام وسوم الصور
+p_SEARCH:يستطيع البحث
+group_mgr_search:جِد مستخدمًا
+group_mgr_indicator:يُحرّر حاليًا: <b>{VAR: grp->name}</b>
+rate_worst:الأسوأ
+rate_best:الأفضل
+post_quote_msg:{VAR: msg->login} كتب في {TEMPLATE: make_report_date}
+post_quote:اقتباس:
+userinfo_referals:المستخدمون المحالون:
+userinfo_referals_count:أعضاء {VAR: referals}
+pm_no_space_title:لا مساحة متبقية!
+pm_no_space_msg:تخطّت مجلدات رسائلك الخاصة حد التخزين <b>{GVAR: MAX_PMSG_FLDR_SIZE} بايت</b>. تحتوي حاليًا <b>{VAR: fldr_size} بايت</b> من الرسائل.<br /><br /><span class="ErrorText">أزل بعض الرسائل القديمة لتحرّر بعض المساحة.</span>
+pm_space_indct_msg:{VAR: percent_full}% من مجلدات رسائلك الخاصة ممتلئة.
+th_expr_never:أبدا
+th_expr_one_hr:ساعة واحدة
+th_expr_three_hr:3 ساعات
+th_expr_four_hr:4 ساعات
+th_expr_eight_hr:8 ساعات
+th_expr_sixteen_hr:16 ساعة
+th_expr_one_day:يوم واحد
+th_expr_two_day:يومان
+th_expr_four_day:4 أيام
+th_expr_one_week:أسبوع واحد
+th_expr_two_week:أسبوعان
+th_expr_one_month:شهر واحد
+th_expr_two_month:شهران
+th_expr_four_month:4 أشهر
+th_expr_one_year:سنة واحدة
+thread_mod_delete:احذف
+action_latest_post:آخر رسالة
+online_today_last_visit:آخر زيارة
+online_today_update:يعرض قائمة المستخدمين الذي كانوا في المنتدى اليوم
+logedin_todays_visitors:زوار اليوم
+logedin_latest_post:آخر رسالة في المنتدى:
+register_show_avatar:آظهر الأفتار:
+register_show_avatar_desc:يسمح لك بإخفاء أفتار المستخدمين الآخرين عند عرض رسائلهم.
+drawmsg_view_rest_post:أظهر بقية الرسالة
+post_re:رد:
+forumsel_goto_forum:اذهب إلى منتدى:
+minimsg_thread_view:عرض الموضوع
+split_th_post_by:كتب الرسالة:
+split_th_posted_on:مُرسلة في:
+split_th_subject:الموضوع:
+split_th_new_thread_title:عنوان الموضوع الجديد:
+split_th_forum:المنتدى:
+split_th_split_sel:افصل الرسالة المُختارة
+split_th_split_unsel:افصل الرسائل غير المُختارة
+split_th_messages:رسائل
+split_th_select:اختر
+report_report_post:بلّغ عن الرسالة
+quicklogin_login:الولوج:
+quicklogin_password:كلمة السر:
+quicklogin_use_cookies:أأستخدم الكعكات؟
+quicklogin_login_btn:لُج
+quick_reply:رد سريع
+post_notification_desc:أشعرني عندما يرد أحد على هذه الرسالة.
+post_all_ext_allowed:(غير مقيد)
+maximize_category:كبّر التصنيف
+maximize_message:كبّر الرسالة
+no_view_perm:ليس لديك الأذونات الملائمة المطلوبة لرؤية هذا الموضوع.
+report_empty_report:لا يمكنك إرسال بلاغ فارغ. من فضلك أدخل سبب إبلاغك.
+report_already_reported_title:مُبلغ عنها بالفعل
+report_already_reported_msg:تم الإبلاغ عن هذه الرسالة مسبقًا والإبلاغ حاليًا في طابور المشرفين.
+register_err_toomanyimages:أنت تحاول استخدام أكثر من ال{GVAR: FORUM_IMG_CNT_SIG} صورة المسموح بها في توقيعك.
+pmsg_next_msg:الرسالة التالية
+pmsg_prev_msg:الرسالة السابقة
+post_proc_reveal_spoiler:بدّل الكابح
+register_jabber:مدير Jabber:
+register_skype:مدير Skype:
+register_twitter:مدير Twitter:
+register_google:مدير Google Chat والمراسلة الفورية:
+im_jabber:Jabber:
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
+forum_contact:اتصل
+forum_home:المنزل
+post_cur_attached:المرفق حاليًا: {PLURAL: i|ملف واحد|{VAR: i} ملفات}
+ignored_anon_post:{GVAR: ANON_NICK} مُتجاهَل
+ignored_user_post:رسالة كتبها <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> مُتجاهلة
+smladd_close_window:أغلق النافذة
+post_list_smilies:اسرد كل الابتسامات
+p_VISIBLE:ظاهر
+reported_in_thread:في:
+help_back_to_top:ارجع إلى الأعلى
+help_return_to_index:ارجع إلى فهرس المساعدة
+imsg_err_message_title:رسالة غير صالحة
+imsg_err_message_msg:الرسالة التي تحاول عرضها غير موجودة.
+poll_edit:حرّر
+register_err_not_valid_img:لا يحتوي المسار المُحدّد صورة صالحة.
+pmsg_recepient:المستلم
+register_err_taken_alias:الكنية التي تحاول استخدامها يستخدمها عضو منتدى آخر بالفعل. من فضلك اختر كنية أخرى.
+register_alias:كنية التسجيل:
+register_alias_desc:إذا أردت عرض اسم مستعار غير ولوجك في هذا المنتدى، فأدخله هنا.
+register_allow_pm_msg:السماح بالرسائل الخاصة:
+register_allow_pm_msg_desc:اسمح للمستخدمين الآخرين بإرسال رسائل خاصة لك في هذا المنتدى.
+postcheck_pm_disabled:لا يمكنك إرسال رسالة خاصة إلى "{VAR-HTML: v}"، لأن هذا الشخص لا يقبل الرسائل الخاصة.
+polllist_vote:صوّت
+polllist_view_results:اعرض النتائج
+polllist_name:اسم الاقتراع
+polllist_date:أنشأه في
+polllist_owner:أنشأه
+polllist_votes:مجموع الأصوات
+polllist_action:لإجراء
+polllist_update:a href="{TEMPLATE: polllist_update_lnk}">يراجع الاقتراعات المتوفرة</a>
+userinfo_polls:الاقتراعات:
+show_pollist:أظهر الاقتراعات
+search_and:و
+search_or:أو
+search_desc_order:ترتيب تنازلي
+search_asc_order:ترتيب تصاعدي
+search_logic:منطق البحث:
+search_sorting:رتّب النتائج حسب التاريخ:
+post_proceed:تابع
+post_moderated_forum:أرسلت رسالة في منتدى مُشرف عليه. لن تكون رسائك ظاخرة للآخرين حتى يعتمدها أحد مشرفي أو إداري المنتدى.
+post_moderated_forum_ttl:إشعار منتدى مُشرف عليه
+buddy_list_bday:أصبح عمر {VAR: r[2]} اليوم {VAR: age}
+email_warning_msg:إذا غيّرت عنوان بريدك الإلكتروني الحالي، فإن حسابك سوف يعلم غير مؤكد حتى تؤكده عبر البريد.
+register_show_im:أظهر مؤشرات المراسلة الفورية:
+register_show_im_desc:إظهار أو عدم إظهار مؤشرات مراسلة المؤلف الفورية مع رسائلهم
+unread_message:رسالة غير مقروءة
+read_message:رسالة مقروءة
+threadt_more:&lt;مزيد&gt;
+threadt_disabled_ttl:العرض الشجري لسرد المواضيع مُعطّل.
+threadt_disabled_desc:عطل الإداري عرض المواضيع الشجري. من فضلك استخدم العرض المسطح بدلًا منه.
+threadt_update:يتصفح منتدى <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a> (بالعرض الشجري)
+mmod_delete_cofirm_ttl:أكد حذف الموضوع/الرسالة
+spell_alts:لا بدائل
+insert_uploaded_image:أدرج صورة إلى جسم الرسالة
+finduser_help:سوف يضيف محرك البحث قناع * إلى استعلامك، <b>البحث حساس لحالة الأحرف</b><br /> على سبيل المثال، للبحث عن كل المستخدمين الوالجين الذي يبدؤون بحرف "أ"، أدخل "أ" في مربع البحث
+back_to_top:ارجع إلى الأعلى
+pm_err_disabled_title:المراسلة الخاصة معطلة
+pm_err_disabled_msg:لا يمكنك إرسال رسالة خاصة حتى تمكن خيار 'اسمح بالرسائل الخاصة' في ملفك الشخصي.
+err_mod_acc_ttl:حساب مُحقّق
+err_mod_acc_msg:اختار الإداري مراجعة كل الحسابات يدويًا قبل التنشيط. لن تتمكن من التمتع بكامل قدرات حسابك حتى يؤكده الإداري.
+accounts_pending_approval:حسابات تنتظر الاعتماد
+saved:محفوظ
+register_err_time_limit:وُصل إلى حد تسجيل واحد كل {GVAR: REG_TIME_LIMIT} ثوانٍ. من فضلك انتظر {PLURAL: reg_limit_reached|ثانية واحدة|$1 ثوانٍ} ثم حاول التسجيل مرة أخرى.
+register_affero:اسم مستخدم أفيرو:<br /><span class="SmallText">إذا كان لديك اسم مستخدم <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">أفيرو</a> فأدخله هنا.</span>
+im_affero:اسم مستخدم أفيرو
+register_err_avatardimtobig:أبعاد الأفتار <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> تتخطى الأبعاد المسموح به (<b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> بكسل)
+buddy_offline:{VAR: r[2]} غير متصل حاليًا
+buddy_online:{VAR: r[2]} متصل حاليًا
+sml_no_smilies:لا رموز متوفرة.
+login_unapproved_account_ttl:حساب غير معتمد
+login_unapproved_account_msg:اختر إداري المنتدى تأكيد كل حساب جديد يدويًا قبل التنشيط. لن يؤكد حسابك إلى الآ، ولذا فلن تكون قادرًا على الوصول إلى بعض المزايا المتوفرة للأعضاء المؤكدين.
+remove_from_buddy_list:أزل من قائمة الأصدقاء
+iemail_msg_author:<b>المؤلف:</b> {VAR: obj->alias}
+iemail_msg_subject:<b>الموضوع</b> {VAR: obj->subject}
+iemail_msg_date:<b>التاريخ</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_reply:رُد
+iemail_msg_quote:اقتبس
+iemail_msg_view:اعرض الموضوع/الرسالة
+threadt_sticky:مُثبّت
+threadt_announce:إعلان
+reported_no_messages:لا توجد رسائل مبلغ عنها.
+poll_no_polls:لا توجد اقتراعات يمكن الوصول إليها.
+no_unread_messages:لا توجد رسائل غير مقروءة تطابق استعلامك.
+thread_mark_all_read:علّم كل رسائل المنتدى غير المقروءة مقروءة
+thread_mark_all_read_desc:سوف تُعلّم كل الرسائل غير المقروءة في هذا المنتدى مقروءة
+private_no_messages:لا توجد رسائل في هذا المجلد.
+register_email_change_subject:تأكيد تغيير البريد الإلكتروني
+register_email_change_msg:من فضلك أكد حساب بريدك الإكتروني الجديد "{VAR: uent->email}" الذي يستبدل حساب البريد الإلكتروني القديم "{VAR: old_email}" عبر التوجه إلى المسار التالي:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nبمجرد تأكيد عنوان بريدك الإلكتروني الجديد، سوف يعاد تنشيط حسابك في المنتدى.
+iemail_thread_unsub:ألغِ الاشتراك من هذا الموضوع
+iemail_forum_unsub:ألغِ الاشتراك من هذا المنتدى
+primary_group_prefix:مجموعة المنتدى الرئيسية:
+group_resources:تتحكم هذه المجموعة بأذونات المنتديات التالية
+register_admin_newuser_title:مستخدم جديد سجل وحسابه ينتظر التأكيد
+register_admin_newuser_msg:سجل مستخدم جديد ({VAR: uent->login})، وبما أن تأكيد الحساب مفعل، فإن حسابه لن يُنشّط حتى تأكده أو يؤكده إداري آخر. لمراجعة الحساب، اذهب من فضلك إلى: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nهذه إجراء تلقائي. لا ترد على هذه الرسالة.\nإذا أردت إطفاء إخطارات البريد الإلكتروني المستقبلية لتسجيل المستخدمين الجدد، فقم بذلك عبر لوحة التحكم الإدارية. غيّر إعداد "إخطار الحسابات الجديدة".
+post_mod_msg_notify_title:رسائل جديدة في منتدى "{VAR: frm->name}" تنتظر الاعتماد
+post_mod_msg_notify_msg:أرسلت رسالة جديدة بالعنوان "{VAR: msg_post->subject}" في المنتدى الذي تشرف عليه. لمراجعة هذه الرسالة: اذهب إلى {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}.\n\nهذا إجراء تلقائي. لا ترد على هذه الرسالة.
+thread_printable_pdf:ولّد PDF يمكن طباعته
+thread_syndicate:نقّب هذا المنتدى (XML)
+reg_conf_title:تأكيد التسجيل
+reg_conf_email:<b>تأكيد البريد الإلكتروني</b><br />أرسل بريد إلكتروني إليك يحوي مسارًا مخصصًا يجب أن تدخله قبل أن يُنشّط حسابك. إذا لم تستلم رسالة البريد هذه خلال الدقائق القليلة القادمة، ادخل إلى حسابك وتأكد من البريد الإلكتروني الذي حددته صحيح. سوف تكون قادرًا على التمتع بمزايا المنتدى المتوفرة للمستخدمين المستجلين المؤكدين فقط عندما تؤكد حسابك.
+reg_conf_account:<b>تأكيد الحساب</b><br />يجب أن يعتمد إداري حسابك قبل أن يُنشّط. عندما يتم ذلك سوف تتلقى رسالة بريد إلكتروني تخبرك بتأكيد حسابك. في الوقت الراهن، تستطيع الولوج إلى حسابك، لكن لن تتمكن من الوصول إلى بعض الخيارت.
+forum_banned_user:أدت تصرفاتك السابقة إلى طردك نهائيًا من المنتدى. وداعًا!
+mnav_description:متصفح الرسائل
+mnav_date_limit:النطاق الزمني:
+mnav_forum_limit:ابحث فقط في:
+mnav_all_forums:ابحث في كل المنتديات
+mnav_submit:ابدأ البحث
+mnav_no_range:يجب أن تدخل نطاق تاريخ صحيح. يمكن أن تحتوي هذه القيمة فاصلة عشرية (0.12)، لكن يجب أن تكون أكبر من الصفر.
+mnav_invalid_unit:يجب أن تحدّد وحدة زمنية صالحة.
+mnav_invalid_date:نطاق التاريخ الذي أدخلته أكبر مما يسمح به الإداري. جرّب نطاق تواريخ أصغر.
+mnav_no_results:لا توجد رسائل تطابق الاستعلام.
+mnav_posted_by:أرسلها:
+mnav_more:المزيد &raquo;&aquo;
+mnav_minute:دقيقة (دقائق)
+mnav_hour:ساعة (ساعات)
+mnav_day:يوم (أيام)
+mnav_week:أسبوع (أسابيع)
+mnav_month:شهر (شهور)
+mnav_title:متصفح الرسائل
+mnav_update:يتصفح الرسائل باستخدام <a href="{TEMPLATE: mnav_update_lnk}">متصفح الرسائل</a>
+pm_notify_subject:[{GVAR: FORUM_TITLE}] إشعار رسالة خاصة جديدة
+pm_notify_body_email:لديك رسالة خاصة جديدة عنوانها "{VAR: subject}" من "{VAR: from}" في منتدى "{GVAR: FORUM_TITLE}".\nلعرض الرسالة، انقر هنا: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nلوقف الإشعارات القادمة، عطّل "إشعار الرسائل الخاصة" في ملفك الشخصي.
+register_pm_notification:إشعار رسالة جديدة:
+register_pm_notification_desc:إذا مُكن فسوف تُشعر كلما ترسل لك رسالة جديدة.
+findu_admin_opts_header:اختيارات الإداريين.
+findu_unban:ألغ الطرد
+findu_ban:اطرد
+findu_edit:عدل
+findu_delete:احذف
+dmsg_reply_to:رد على
+dmsg_reply_num:الرسالة #{VAR: obj->reply_to}
+merge_topics:ادمج المواضيع
+merge_topics_cp:لوحة تحكم دمج المواضيع
+merge_topics_tpl:اختر المواضيع التي تريد دمجها <span class="SmallText">(يجب أن تختار أكثر من موضوع)</span>
+merge_merge:ادمج المواضيع المختارة
+merge_next:المواضيع التالية
+merge_prev:المواضيع السابقة
+split_cp:لوحة تحكم فصل المواضيع
+groups_perms_header:الأذونات <span class="small">(حرك الفأرة فوق الإذن لترى نوعه)</span>
+register_err_sig_too_long:يتعدى توقيعك طول طول {GVAR: FORUM_SIG_ML} حرف.
+register_sig_limit:حرف {GVAR: FORUM_SIG_ML} characters <a href="javascript: alert('طول توقيعك '+document.forms['fud_register'].reg_sig.value.length+' حرف. أقصى شيء مسموح به {GVAR: FORUM_SIG_ML} characters.');" class="SmallText">التمس طول التوقيع</a>
+adm_account_accepted:اعتمد الإداري حسابك '{VAR: login}' وأصبح الآن نشطًا. تستطيع الآن الدخول إلى المنتدى '{GVAR: FORUM_TITLE}' كمستخدم مسجل مؤكد.
+adm_account_accepted_s:تم قبول طلبك لحساب عل '{GVAR: FORUM_TITLE}'.
+adm_account_rejected:رفض الإداري حسابك '{VAR: login}'. إذا أردت معرفة سبب ذلك، فلا تتردد في الاتصال بالإداري عبر '{GVAR: ADMIN_EMAIL}'.
+adm_account_rejected_s:رُفض حسابك على '{GVAR: FORUM_TITLE}'.
+thread_on:في
+userinfo_buddy:صديق:
+register_email_addr:عنوان البريد الإلكتروني
+reset_suffix:إذا تلقيت هذه الرسالة خطأً، فتجاهلها. إذا تلقيت نسخًا عديدة من هذا البريد الإلكتروني بدون طلبك، فمن فضلك اتصل بإداري المنتدى عبر {GVAR: ADMIN_EMAIL}.\n\nكان طلب من: {VAR: _SERVER['REMOTE_ADDR']}.
+usrinfo_last_visit:آخر زيارة:
+mnav_newer:الأحدث من
+mnav_older:الأقدم من
+ip_search_by_ip:ابحث عن المستخدمين عبر الآيبي
+ip_search_syntax:الصياغة المدعومة: 1.2.3.4، 1.2.3، 1.2، 1
+ip_search:ابحث
+ip_analyze_usage:أحصِ استخدام الآيبي
+ip_analyze_usage_descr:من فضلك حدّد بالضبط اسم ولوج المستخدم.
+ip_users_using:المستخدمون الذي يستخدمون عنوان الآيبي '{VAR: ip}'
+ip_all_ips:كل الآيبيات التي يستخدمها '{VAR: user}'
+ip_title:متصفح الآيبي
+userinfo_real_name:الاسم الحقيقي:
+register_err_alias_notallowed:هذه الكنية غير مسموح بها
+post_err_mod_forum_edit_ttl:خطأ
+post_err_mod_forum_edit_msg:لا يمكنك تعديل الرسائل في منتدى مُشرَف عليه.
+dmsg_num:الرسالة #{VAR: obj->id}
+postcheck_session_invalid:انتهت جلستك. من فضلك أعد إرسال النموذج. نأسف على الإزعاج.
+delete_message_extra_desc:<b>اختياري</b><br />حدّد سببًا لحذف الرسالة، والذي سوف يرسل إلى المؤلف عبر رسالة خاصة.
+delete_message_extra_body:ضمّن جسم الرسالة المحذوفة التي سوف ترسل إلى المؤلف.
+delete_msg_removed_ttl:أزل الطاقم الإداري رسالتك.
+delete_msg_pm_body:الرسالة الأصلية
+delete_msg_pm_subject:الموضوع: {VAR: data[15]}
+ip_no_whois:معلومات Whois عن <b>{VAR: ip}</b> غير متوفرة.
+ip_whois_title:معلومات مزود خدمة الإنترنت
+register_theme:السمة:
+pmsg_trash:أفرغ المهملات
+uc_new_pm:رسائل خاصة جديدة
+uc_new_topic:موضوع جديد
+uc_new_cat_forum:المنتديات المُشترك فيها ذات الرسائل الجديدة
+uc_cat_forum:التصنيف &laquo; المنتدى
+uc_sub_topics:المواضيع المُشترك فيها ذات الرسائل الجديدة
+uc_page_title:عرض لوحة التحكم الشخصية.
+search_options:خيارات البحث
+search_user_filter:رشّح المستخدم:
+register_none:لا تشعر
+findu_no_conf:مستخدم غير مؤكد
+register_max_sig_len:الدليل الأقصى:
+register_turing:من فضلك أدخل الرمز الظاهر أدناه:
+register_err_turing:رمز تحقق غير صالح.
+modque_cat:تصنيف
+modque_forum:منتدى
+idx_compact_forum_row:المنتديات المتوفرة:
+mmd_del_title:احذف المواضيع
+mmd_mov_title:انقل المواضيع
+mmd_move_threads_to:المنتدى الهدف:
+mmd_abort_move:ألغِ
+mmd_move:انقل مواضيع
+pmsg_pdf_btn:أنشئ أرشيف PDF
+search_results_hdr:وُجدت {VAR: total} نتيجة بحث
+thread_del_all:احذف كل المواضيع المختارة
+thread_mov_all:انقل كل المواضيع المختارة
+thread_loc_all:اقفل/ألغِ قفل كل المختار
+dmsg_ip:الآيبي:
+err_blockedaccnt_title:خطأ: رُشّح حسابك.
+err_blockedaccnt_msg:منعك حسابك من الوصول إلى المنتدى بسبب إحدى مُرشِّحات المستخدمين المثبتة.
+merge_th_page_list:اختيار صفحة الموضوع
+most_users_online:أكثر عدد للمستخدمين المسجلين كان <b>{VAR: st_obj->most_online}</b> في <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+sub_unsub_all_forums:ألغِ اشتراك جميع المنتديات
+sub_unsub_all_topics:ألغِ اشتراك جميع المواضيع
+unbookmark_all_topics:أزل كل العلامات
+tabs_own_posts:أظهر رسائله
+sml_emoticon:رمز
+sml_code:كود
+mnav_sub_only:ابحث في المنتديات المُشترك فيها فقط
+register_topics_per_page:المواضيع في صفحة:
+login_min_time:يسمح هذا المنتدى بمحاولة ولوج كل {VAR: MIN_TIME_BETWEEN_LOGIN} ثانية، من فضلك انتظر {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)}  ثوانٍ قبل المحاولة مرة أخرى.
+post_not_logged_in:لست والجًا الآن؛ سوف ترسل الرسالة بشكل مجهول.
+post_common_bold:عريض
+post_common_italics:مائل
+post_common_underline:سطّر
+post_common_align_left:حاذِ يسارًا
+post_common_align_center:حاذِ وسطًا
+post_common_align_right:حاذِ يمينًا
+post_common_link:أدرج وصلة
+post_common_email:أدرج عنوان بريد إلكتروني
+post_common_image:أدرج صورة
+post_common_nlist:أَضف قائمة مُرقّمة
+post_common_blist:أضف قائمة مُنقّطة
+post_common_quote:أضف اقتباسًا
+post_common_code:أضف كودًا
+rating_delete:احذف
+post_always_on_top:أظهر الموضوع دومًا في أعلى قائمة المواضيع
+topic_rating:{VAR: frm->rating} من {PLURAL: frm->n_rating|صوت واحد|$1 أصوات}
+topic_list_rating:{VAR: r[17]} من {PLURAL: r[21]|صوت واحد|$1 أصوات}
+tabs_notifications:الإشعارات
+finduser_flag:العلم
+post_descr:وصف الموضوع:
+pmsg_on:في
+pmsg_download_dump:نزّل قاعدة بيانات الرسائل
+move_messages:انقل الرسائل
+move_msg_btn:انقل الرسائل المختارة
+move_msg_th_expl:حدد هوية الموضوع الهدف (يمكن أن يكون في منتديات أخرى)
+captcha_img_alt:تحقق كابتشا: سوف تحتاج إلى التعرف على نص هذه الصورة.
+captcha_img_help:لا يوجد صفر ولا واحد في الصورة.
+powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.<br />حقوق النشر &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+code_title:الكود
+code_select_all:اختر الكل
+code_show_hide:أظهر/أخفِ
+social_sites:مواقع الشبكات الاجتماعية:
+postcheck_min_len_err:رسالتك قصيرة جدًا. الطول الأقصر {PLURAL: post_min_len|حرف واحد|$1 محارف}.
+postcheck_dup_err:من فضلك لا تنشئ مواضيع مكرّرة.
+btn_new_topic:موضوع جديد
+btn_new_pm:ر. خ. جديدة
+btn_post_reply:أرسل ردًا
+btn_tree_view:عرض الشجرة
+btn_flat_view:العرض المسطح
+btn_about:ملف
+btn_small_pm:ر.خ
+btn_delete:حذف
+btn_edit:تعديل
+btn_reply:رُد
+btn_forward:مرّر
+btn_quote:اقتبس
+btn_email:بريد إلكتروني
+btn_show_posts:رسائل
+btn_homepage:www
+feed_no_data:لم توجد بيانات مطابقة.
+feed_rdf:تغذية RDF
+feed_rss:تغذية RSS2
+feed_atom:تغذية ATOM
+ip_whois_connect_err:تعذر الاتصال بخادوم whois ({VAR: whois_server}): {VAR: errstr}

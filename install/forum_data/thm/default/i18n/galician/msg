@@ -431,7 +431,7 @@ login_name_required:Debe inserir un nome de usuario
 login_passwd_required:Debe inserir un contrasinal
 login_invalid_radius:O nome de usuario ou o contrasinal son incorrectos
 reset_confirmation:Grazas por te rexistrares.\n\nPara activar a túa conta, por favor, visita o enderezo URL que aparece a continuación:\n\n{VAR: url}\n\nUnha vez que a túa conta estea activada, accederás ao sistema do foro e\nserás redirixido cara á páxina principal.
-reset_reset:Ola,\n\nsolicitaches que o teu contrasinal fose restablecido. Para finalizar o proceso,\npor favor, visite o seguinte enderezo URL:\n\n{VAR: url}\n\nNOTA: este foro almacena os contrasinais nun mecanismo de cifrado nun único sentido, o que significa que\nunha vez que escribas o teu contrasinal, este é codificado de xeito que NON HAI FORMA ALGUNHA de recuperalo.\nIsto funciona comparando a versión codificada que temos no rexistro coa versión codificada que escribes no campo de rexistro.\n(Se estás interesado en saber como funciona este mecanismo, infórmese sobre o algoritmo de hash MD5)
+reset_reset:Ola:\n\nSolicitaches que o teu contrasinal fose restablecido. Para finalizar o proceso,\npor favor, visite o seguinte enderezo URL:\n\n{VAR: url}\n\nNOTA: este foro almacena os contrasinais nun mecanismo de cifrado nun único sentido, o que significa que\nunha vez que escribas o teu contrasinal, este é codificado de xeito que NON HAI FORMA ALGUNHA de recuperalo.\nIsto funciona comparando a versión codificada que temos no rexistro coa versión codificada que escribes no campo de rexistro.\n(Se estás interesado en saber como funciona este mecanismo, infórmate sobre o algoritmo de hash MD5)
 rpasswd_invalid_passwd:O contrasinal é inválido
 rpasswd_passwd_nomatch:Os contrasinais non coinciden
 rpasswd_passwd_length:O contrasinal debe ter, polo menos, 6 caracteres
@@ -612,7 +612,7 @@ postcheck_invalid_email:Por favor, insire un enderezo de correo electrónico vá
 postcheck_email_subject:Non podes enviar un correo electrónico sen asunto.
 postcheck_email_body:Non podes enviar un correo electrónico sen o corpo da mensaxe.
 private_msg_notify_subj:Notificación de lectura da mensaxe: {VAR: m->subject}
-private_msg_notify_body:Ola,<br />{VAR: usr->login} abriu a túa mensaxe privada titulada "{VAR: m->subject}".<br />Esta é unha mensaxe automática xerada o {TEMPLATE: private_msg_notify_body_date}<br />
+private_msg_notify_body:Ola:<br />{VAR: usr->login} abriu a túa mensaxe privada titulada "{VAR: m->subject}".<br />Esta é unha mensaxe automática xerada o {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Navegando polos usuarios referenciados
 register_err_short_login:O nome de usuario que elixiu é curto de máis. Os nomes de usuario deben ter, polo menos, 4 caracteres.
 register_err_login_notallowed:Este nome de usuario non está permitido.
@@ -642,7 +642,7 @@ reset_err_invalidkey_msg:A clave de restablecemento de contrasinal é incorrecta
 reset_err_rstconf_title:Información
 reset_err_rstconf_msg:Deberías recibir instrucións no teu correo electrónico nuns minutos.
 reset_newpass_title:Restablecer o contrasinal
-reset_newpass_msg:Ola,\n\ntal e como o solicitaches, a túa información de inicio de sesión aparece a continuación:\n\nNome de usuario: {VAR: ui[1]}\nContrasinal: {VAR: passwd}\n\nPor favor, ten en conta que o teu contrasinal foi restablecido ao valor citado enriba. Se queres\ncambiar o contrasinal, podes facelo a través do panel de control de información de usuario en:\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:Ola:\n\nTal e como o solicitaches, a túa información de inicio de sesión aparece a continuación:\n\nNome de usuario: {VAR: ui[1]}\nContrasinal: {VAR: passwd}\n\nPor favor, ten en conta que o teu contrasinal foi restablecido ao valor citado enriba. Se queres\ncambiar o contrasinal, podes facelo a través do panel de control de información de usuario en:\n{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:O teu contrasinal foiche enviado por correo electrónico. Deberías recibilo nuns minutos.<br />
 search_update:Buscando mensaxes
 selmsg_update:Navegando polas <a href="{TEMPLATE: selmsg_update_lnk}">mensaxes de hoxe</a>
@@ -677,7 +677,7 @@ error_title:Formulario de erro
 index_title:Benvido ao foro
 search_title:Procurar for {VAR-HTML: srch}
 remail_emailsent:Enviouse o correo electrónico
-remail_email:Ola,\n\nhai un fío interesante sobre "{VAR: data->subject}" no foro {GVAR: FORUM_TITLE} que pode que queiras ler. Podes ver o fío en:   {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nO teu amigo,\n\n{VAR: usr->alias}
+remail_email:Ola:\n\nHai un fío interesante sobre "{VAR: data->subject}" no foro {GVAR: FORUM_TITLE} que pode que queiras ler. Podes ver o fío en:   {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nO teu amigo,\n\n{VAR: usr->alias}
 poll_add_option:Engadir unha opción:
 post_opt_html_on:O código <b>HTML</b> está <b>activado</b>
 post_opt_fud_on:O <a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBCode</b> está <b>activado</b></a>
