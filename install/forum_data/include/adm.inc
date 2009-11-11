@@ -22,7 +22,7 @@ if (!defined('shell_script')) {
 	}
 	fud_use('cookies.inc');
 	fud_use('users.inc');
-	define('__adm_rsid', _rsidl.'&SQ='.$GLOBALS['sq']);
+	define('__adm_rsid', _rsidl.'&amp;SQ='.$GLOBALS['sq']);
 	define('__adm_rsidl', _rsidl.'&SQ='.$GLOBALS['sq']);
 	if (isset($t)) {
 		$GLOBALS['FUD_OPT_2'] |= 32768;	// Re-enable PATH_INFO.

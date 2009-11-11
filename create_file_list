@@ -28,7 +28,7 @@ function create_file_archive($dir)
 		}
 
 		while (($f = readdir($d))) {
-			if ($f == '.' || $f == '..' || $f == 'CVS') continue;
+			if ($f == '.' || $f == '..' || $f == '.svn') continue;
 
 			if (is_file($v . "/" . $f)) {
 				$fdata = file_get_contents($v . "/" . $f);
