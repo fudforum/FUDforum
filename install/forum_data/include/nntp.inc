@@ -357,24 +357,23 @@ class fud_nntp
 			   $this->skip_to_next_line($s);
 
 			   $line=$this->get_next_line($s);
-			   # Retrieve all lines until no more continuation lines or blank
+			   # Retrieve all lines until no more continuation lines or blank.
 			   do {
 				 $next_line=$this->get_next_line($s);
 				 if (($next_line != '') && ($next_line[0] == "\t")) {
-				   # Continuation line
+				   # Continuation line.
 				   $line .= $next_line;
 				 } else {
-				   # new header line, process previous completed line
+				   # New header line, process previous completed line.
 				   $this->process_content_header($line, $content_type, $content_transfer, $filename);
 				   $line = $next_line;
 				 }
 
 			   } while ($next_line != '');
 
-
 			   $have_text_body = false;
-			   # Have processed headers at this point
-			   # if it's text/plain or text/html put into main message headers
+			   # Have processed headers at this point.
+			   # If it's text/plain or text/html, put into main message headers.
 			   if (isset($content_type)) {
 				   if (strpos($content_type, 'text/plain') !== false) {
 					   $this->headers['content-type'] = $content_type;
@@ -382,7 +381,7 @@ class fud_nntp
 					   $have_text_body = true;
 				   } elseif (strpos($content_type, 'text/html') !== false) {
 					   if (!isset($this->headers['content-type'])) {
-						   # Give priority to text/plain
+						   # Give priority to text/plain.
 						   $this->headers['content-type'] = $content_type;
 						   $this->headers['content-transfer-encoding'] = $content_transfer;
 						   $have_text_body = true;
@@ -403,13 +402,12 @@ class fud_nntp
 				   $this->attachments[$filename] = base64_decode($data);
 				   $s = $eom;
 			   }
-
-
-
 		}
-		$this->body = $text_body;  // Replace multipart mime by the text body
-	}
 
+		if ($text_body) {
+			$this->body = $text_body;  // Replace multipart mime by the text body.
+		}
+	}
 
 	function parse_attachments()
 	{
