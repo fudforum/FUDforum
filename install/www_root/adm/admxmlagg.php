@@ -34,7 +34,7 @@
 		echo '<font color="green">Aggregation rule successfully deleted.</font>';
 	} else if (isset($_GET['trk']) && ($nn = db_sab('SELECT * FROM '.$tbl.'xmlagg WHERE id='.(int)$_GET['trk']))) {
 		xmlagg_reset((int)$_GET['trk']);
-		echo '<font color="green">Aggregation tracker was successfully cleard.</font>';
+		echo '<font color="green">Aggregation tracker was successfully cleard. The next load will start with the first fetched message.</font>';
 	}
 
 	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'xmlagg WHERE id='.$edit))) {

@@ -94,10 +94,10 @@
 		foreach (get_class_vars('fud_theme') as $k => $v) {
 			${'thm_'.$k} = '';
 		}
-		if (strncasecmp('win', PHP_OS, 3)) {	// Not Windows
+		if (strncasecmp('win', PHP_OS, 3)) {	// Not Windows.
 			$thm_locale = 'en_US.UTF-8';
 		} else {
-			$thm_locale = 'english';			// No UTF-8 locales on Windows
+			$thm_locale = 'english';			// No UTF-8 locales on Windows.
 		}
 		$thm_pspell_lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'en';
 		$thm_t_default = 0; $thm_enabled = 1;
@@ -157,7 +157,7 @@
 	<td>
 	<?php
 		if (!isset($thm_lang) || empty($thm_lang)) {
-			$thm_lang = 'english';
+			$thm_lang = 'en';
 		}
 		$selopt = '';
 		foreach (glob($DATA_DIR.'/thm/default/i18n/*', GLOB_ONLYDIR) as $file) {

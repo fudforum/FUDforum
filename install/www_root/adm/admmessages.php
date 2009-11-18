@@ -128,7 +128,7 @@
 			continue;
 		}
 		$n = basename($file);
-		if ($n == 'english') {
+		if ($n == 'en') {
 			continue; // No translations, English is the primary language.
 		}
 		echo '<option value="'.$n.'"'.($n == $def_tmpl ? ' selected="selected"' : '').'>'.$n.'</option>';

@@ -36,14 +36,14 @@
 		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup.'.lock');
 		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup);
 		nntp_reset((int)$_GET['trk']);
-		echo '<font color="green">Newsgroup tracker was successfully cleard.</font>';
+		echo '<font color="green">Newsgroup tracker was successfully cleard. The next load will start with the first message in the group.</font>';
 	}
 
 	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'nntp WHERE id='.$edit))) {
 		foreach ($o as $k => $v) {
 			${'nntp_' . $k} = $v;
 		}
-	} else { /* Set the some default values */
+	} else { /* Set the some default values. */
 		foreach (get_class_vars('fud_nntp_adm') as $k => $v) {
 			${'nntp_' . $k} = $v;
 		}

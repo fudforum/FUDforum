@@ -6,7 +6,7 @@
 	} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
 		$charset = trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
 	} else {
-		$charset = trim(file_get_contents($DATA_DIR.'thm/default/i18n/english/charset'));
+		$charset = trim(file_get_contents($DATA_DIR.'thm/default/i18n/en/charset'));
 	}
 
 	if (defined('shell_script') ) return;	// Command line execution.

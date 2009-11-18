@@ -789,17 +789,16 @@ function initdb(&$settings)
 	}
 
 	while (!$settings['LANGUAGE']) {
-	
 		pf("Supported languages: \n\t".wordwrap(ucwords(implode(' ', array_keys($langs))), 75, "\n\t")."\n");
-	
-		pf("Please choose a language [english]: ");
+
+		pf("Please choose a language [en]: ");
 		$lang = strtolower(trim(fgets(STDIN, 1024)));
 		if (!$lang) {
-			$lang = 'english';	
+			$lang = 'en';
 		}
 		if (isset($langs[$lang])) {
 			$settings['LANGUAGE'] = $lang;
-			break;		
+			break;
 		}
 		pf("Unsupported language '{$lang}', please choose a language\n");
 	}

@@ -578,7 +578,7 @@ function build_msg($file)
 	/*
 	 * Append any missing entries from the DEFAULT ENGLISH template set.
 	 */
-	$en = $GLOBALS['DATA_DIR'] . 'thm/default/i18n/english/msg';
+	$en = $GLOBALS['DATA_DIR'] . 'thm/default/i18n/en/msg';
 	if ($en != $file && $en != $ts && file_exists($en)) {
 		parse_msgs($en);
 	}
@@ -635,7 +635,7 @@ function fud_mkdir($dir, $perms=0700)
 	}
 }
 
-function compile_all($tset='default', $lang='english', $tname='default')
+function compile_all($tset='default', $lang='en', $tname='default')
 {
 	$oldmask = umask(0133);
 
@@ -667,7 +667,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	if (!is_file($charset)) {
 		$charset = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$lang.'/charset';
 		if (!is_file($charset)) {
-			$charset = $GLOBALS['DATA_DIR'].'thm/default/i18n/english/charset';
+			$charset = $GLOBALS['DATA_DIR'].'thm/default/i18n/en/charset';
 		}
 	}
 	$GLOBALS['char_set'] = trim(file_get_contents($charset));
@@ -676,7 +676,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	if (!is_file($text_dir)) {
 		$text_dir = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$lang.'/dir';
 		if (!is_file($text_dir)) {
-			$text_dir = $GLOBALS['DATA_DIR'].'thm/default/i18n/english/dir';
+			$text_dir = $GLOBALS['DATA_DIR'].'thm/default/i18n/en/dir';
 		}
 	}
 	$GLOBALS['text_dir'] = trim(file_get_contents($text_dir));
@@ -830,7 +830,7 @@ function copyimages($thm)
 	if (file_exists($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img/flat_view.gif')) {
 		fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 	} else {
-		fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/english/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+		fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/en/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 	}
 	if ($thm->theme != 'default') {
 		if (@file_exists($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images')) {
@@ -852,7 +852,7 @@ function copyhelp($thm)
 	if (!@file_exists($src)) {
 		$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/help';
 		if (!@file_exists($src)) {
-			$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/english/help';
+			$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/en/help';
 		}
 	}
 
@@ -897,7 +897,7 @@ function copylangfuncs($thm) {
 	if (!@file_exists($src)) {
 		$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/language.inc';
 		if (!@file_exists($src)) {
-			$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/english/language.inc';
+			$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/en/language.inc';
 		}
 	}
 	

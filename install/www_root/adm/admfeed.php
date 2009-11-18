@@ -138,6 +138,8 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 <a href="<?php echo $feed_url; ?>?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank"><?php echo $feed_url; ?>?mode=m&amp;l=1&amp;n=10</a></p>
 <p>Fetch the 15 most recent <i>topics</i> from your forum and format it as an <i>ATOM</i> feed:<br />
 <a href="<?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=15&amp;format=atom" target="_blank"><?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=15&amp;format=atom</a></p>
+<p>Fetch the 20 most recent <i>topics</i> from the first forum and format it as a <i>RSS2</i> feed:<br />
+<a href="<?php echo $feed_url; ?>?mode=t&l=1&n=20&frm=1&format=rss" target="_blank"><?php echo $feed_url; ?>?mode=t&l=1&n=20&frm=1&format=rss</a></p>
 </td></tr>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

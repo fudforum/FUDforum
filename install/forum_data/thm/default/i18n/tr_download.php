@@ -10,21 +10,19 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-$encount = count(file('english/msg'));
+$encount = count(file('en/msg'));
 echo "Number of English messages: $encount\n";
 
 $i = 0;
 $dp = opendir('.');
 while ($de = readdir($dp)) {
-	if (!is_dir($de) || $de == '.' || $de == '..' || $de == 'english' || !@file_exists($de . '/pspell_lang')) {
+	if (!is_dir($de) || $de == '.' || $de == '..' || $de == 'en' || !@file_exists($de . '/msg')) {
 		continue;
 	}
 
-	// Get language code.
-	$lang = trim(file_get_contents($de .'/pspell_lang'));
-	echo "Downloading ". $de ." (". $lang .") messages from translatewiki.net...";
+	echo "Downloading ". $de ." messages from translatewiki.net...";
 
-	$url = "http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language=$lang";
+	$url = "http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language=$de";
 	$url_stuff = parse_url($url);
 
 	$fp = fsockopen($url_stuff['host'], 80, $errno, $errstr);

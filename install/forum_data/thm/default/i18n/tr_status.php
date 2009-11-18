@@ -44,11 +44,11 @@ function make_lang_todo($list, $eng, $name)
 
 /* main */
 	printf("==Translation status==\n\n");
-	$eng = make_lang_arr('english/msg');
+	$eng = make_lang_arr('en/msg');
 	
 	$dp = opendir('.');
 	while ($de = readdir($dp)) {
-		if (!is_dir($de) || $de == '.' || $de == '..' || $de == 'english' || !@file_exists($de . '/msg')) {
+		if (!is_dir($de) || $de == '.' || $de == '..' || $de == 'en' || !@file_exists($de . '/msg')) {
 			continue;
 		}
 		$curl = make_lang_arr($de . '/msg');
