@@ -1,7 +1,7 @@
 <?php
 /* --------- CONFIG OPTIONS START (required) ----------- */
 $GLOBALS['PATH_TO_FUD_FORUM_GLOBALS_PHP'] = './GLOBALS.php';
-// this value is usually $DATA_DIR/include/theme/default/db.inc, if this is the case
+// This value is usually $DATA_DIR/include/theme/default/db.inc, if this is the case
 // leave the value empty.
 $GLOBALS['PATH_TO_FUD_FORUM_DB_INC'] = '';
 /* --------- CONFIG OPTIONS END (required) ----------- */
@@ -10,22 +10,23 @@ $GLOBALS['PATH_TO_FUD_FORUM_DB_INC'] = '';
    On successful execution the return value will be the session id for the user.
    Upon failure the return value will be NULL, this can only happen if invalid user id is specified.
 */
+function external_get_user_by_auth($login, $passwd)
+{
+	__fud_login_common(1);
 
-if (!function_exists('fud_sql_error_handler'))
-{
-function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
-{
-	exit("Query {$query} failed due to: {$error_string}");
-}
+	return q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login="._esc($login)." AND passwd='".md5($passwd)."'");
 }
 
+/*
+ * Log user in on the forum.
+ */
 function external_fud_login($user_id)
 {
 	if (($user_id = (int) $user_id) < 2 || !__fud_login_common(0, $user_id)) {
 		return;
 	}
 
-	/* create session */
+	/* Create session. */
 	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ses WHERE user_id=".$user_id);
 	$sys_id = __ses_make_sysid(($GLOBALS['FUD_OPT_2'] & 256), ($GLOBALS['FUD_OPT_3'] & 16));
 	do {
@@ -36,23 +37,43 @@ function external_fud_login($user_id)
 	return $ses_id;
 }
 
+/*
+ * Show what the user is busy doing in the forum's action list.
+ */
+function external_fud_status($action='Busy somewhere outside of the forum')
+{
+	__fud_login_common(1);
+	$ses_id = $_COOKIE[$GLOBALS['COOKIE_NAME']];
+	if (!empty($ses_id)) {
+		$sys_id = __ses_make_sysid(($GLOBALS['FUD_OPT_2'] & 256), ($GLOBALS['FUD_OPT_3'] & 16));
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'ses SET sys_id=\''.$sys_id.'\', time_sec='.__request_timestamp__.', action='._esc($action).' WHERE ses_id=\''.$ses_id.'\'');
+	}
+}
+
+/*
+ * Log user out of the forum.
+ */
 function external_fud_logout($user_id)
 {
 	if (($user_id = (int) $user_id) < 2 || !__fud_login_common(0, $user_id)) {
 		return;
 	}
 
-	// remove session from database
+	// Remove session from database.
 	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ses WHERE user_id=".$user_id);
-	// trash cookie
+	// Trash the cookie.
 	setcookie($GLOBALS['COOKIE_NAME'], '', 0, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 }
 
-function external_get_user_by_auth($login, $passwd)
+/*
+ * Default error handler, in case user doesn't spesified his/her own.
+ */
+if (!function_exists('fud_sql_error_handler'))
 {
-	__fud_login_common(1);
-
-	return q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login="._esc($login)." AND passwd='".md5($passwd)."'");
+	function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
+	{
+		exit("Query {$query} failed due to: {$error_string}");
+	}
 }
 
 function __fud_login_common($skip=0, $user_id=0)
