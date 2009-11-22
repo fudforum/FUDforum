@@ -506,7 +506,7 @@ ppost_send:Stuur
 ppost_save_draft:Stoor as kladwerk
 poll_blank_option:U mag nie leë opsies byvoeg nie.
 poll_del_conf:Indien u die opsie wil verwyder, kliek op OK
-poll_name:Stemming Naam:
+poll_name:Stemmingsnaam:
 poll_timelimit:Tydslimiet:
 poll_maxiumvotes:Maksimum aantal stemme:
 poll_create:Skep
@@ -786,7 +786,7 @@ minimsg_thread_view:Besigtig onderwerp
 split_th_post_by:Gepos deur:
 split_th_posted_on:Gepos op:
 split_th_subject:onderwerp:
-split_th_new_thread_title:titel Nuwe onderwerp:
+split_th_new_thread_title:Nuwe onderwerp:
 split_th_forum:Forum:
 split_th_split_sel:Split geselekteerde boodskappe
 split_th_split_unsel:Split nie-geselekteerde boodksppe
@@ -842,7 +842,7 @@ register_allow_pm_msg_desc:Laat ander gebruikers toe om aan u privaatboodskappe 
 postcheck_pm_disabled:U kan nie 'n privaatboodskap aan "{VAR-HTML: v}" stuur nie omdat die gebruiker nie privaatboodskappe aanvaar nie.
 polllist_vote:Stem
 polllist_view_results:Bekyk resultate
-polllist_name:Stemming Naam
+polllist_name:Stemmingsnaam
 polllist_date:gekep op
 polllist_owner:geskep deur
 polllist_votes:Totale aantal stemme

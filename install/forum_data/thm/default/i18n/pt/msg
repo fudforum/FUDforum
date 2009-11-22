@@ -10,8 +10,8 @@ admin:Admin
 admin_control_panel:Admin Painel de Controlo
 administrator:Administrador
 attachment:Anexo:
-# Fuzzy
-average_post_count:{VAR: u->posted_msg_count} Post(s) ({VAR: avg} em média por dia)
+avatar:Avatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Mensagem|$1 Mensagens} ({PLURAL: avg|$1 mensagem em média|$1 mensagens em média} por dia)
 biography:Biografia:
 birth_date:Data de Nascimento :
 by:Por:
@@ -20,28 +20,26 @@ current_time:Hora Actual
 custom_avatar_queue:Avatar do Costume
 date_posted:Data Post
 date_registered:Data do Registo:
-# Fuzzy
-download_counter:Foi baixada {VAR: v[3]} veze(s)
-# Fuzzy
-pmsg_download_counter:Descarregado {VAR: r->dlcount} vez(es)
-email:Email:
-email_to_friend:Email a um amigo
-email_to_friend_desc:Enviar o URL para esta pagina a um(s)amigo(s) via email
-# Fuzzy
-email_user:Clique para enviar um email para o Membro
-faq:F.A.Q.
-first_unread_msg:Ir para a(s) mensagem(s)não lida(s)
+download_counter:Transferido {PLURAL: v[3]|$1 vez|$1 vezes}
+pmsg_download_counter:Transferido {PLURAL: r->dlcount|$1 vez|$1 vezes}
+email:Correio electrónico:
+email_to_friend:Enviar correio a um amigo
+email_to_friend_desc:Enviar a URL desta página a um ou mais amigos por correio electrónico
+email_user:Enviar mensagem ao utilizador por correio electrónico
+faq:Perguntas frequentes
+first_unread_msg:Ir para mensagens não lidas
 first_unread_msg_desc:Ir para a 1ª mensagem não lida neste tópico
-flat_view:Retornar para a vista padrão
-forum_icon:Icon do Forum
-forum_new_messages:Novas Mensagens
-forum_none_messages:Apenas membros registados no forum podem ler mensagems não lidas
+flat_view:Voltar para a vista plana predefinida
+forum:Fórum:
+forum_icon:Ícone do Fórum
+forum_new_messages:Novas mensagens
+forum_none_messages:Só membros registados do fórum mantêm registo das mensagens lidas e não lidas
 forum_old_messages:Não há novas mensagens
 from:De:
 gender:Sexo:
 go:Avançar
-goto_next_msg:Ir para a proxima mensagem
-goto_prev_msg:Ir para a mensagem anterior
+goto_next_msg:Ir para mensagem seguinte
+goto_prev_msg:Ir para mensagem anterior
 home:Início
 homepage:página início:
 icq_control_panel:Painel de mensagens do ICQ Online
@@ -68,8 +66,7 @@ mark_all_read:marcar todas as mensagens como lidas
 mark_all_read_desc:Todas a suas mensagens serão marcadas como lidas
 members:Membros
 message:Mensagem
-# Fuzzy
-message_counter:Os nossos membros colocaram um total de <b>{VAR: post_count}</b> mensagens neste <b>{VAR: thread_count}</b> tópico.
+message_counter:Os nossos utilizadores colocaram um total de <b>{PLURAL: post_count|$1 mensagem|$1 mensagens}</b> em <b>{PLURAL: thread_count|$1 tópico|$1 tópicos}</b>.
 message_index:Indice da mensagem
 message_index_desc:Ver lista de mensagens
 minimize_category:Minimizar Categoria
@@ -89,7 +86,7 @@ new_posts:Novos Posts
 # Fuzzy
 new_private_messages:tem <span class="GenText" style="color: #ff0000">({VAR: c})</span> mensgens privadas não lidas
 new_thread:Criar um novo tópico
-newest_user:O mais novo membro registado é
+newest_user:O último utilizador registado é
 next_page:Próxima Página
 next_thread:Próximo Tópico:
 no_messages:Não há mensagens neste forum.
@@ -144,8 +141,7 @@ sender_name:Nome do remetente:
 show_posts_by:Mostrar posts por: {VAR: u_alias}
 size:Tamanho:
 status:Estado:
-# Fuzzy
-status_line:Há <b>{VAR: st_obj->online_users_reg}</b> membros(s), <b>{VAR: st_obj->online_users_hidden}</b> membros invisiveis e  <b>{VAR: st_obj->online_users_anon}</b> convidado(s) a visitar esta página.
+status_line:Há <b>{PLURAL: st_obj->online_users_reg|$1 membro|$1 membros}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 membro invisível|$1 membros invisíveis}</b> e <b>{PLURAL: st_obj->online_users_anon|$1 visitante|$1 visitantes}</b> a visitar esta página .
 sticky:fixo:
 stop_ignoring:parar de ignorar este utilizador
 sub_to_thread:Subscrever o tópico
@@ -181,8 +177,7 @@ unsubscribe:Anular subscrição
 unsubscribe_desc:Parar de receber notificações sobre novos posts neste forum
 updated_on:Actualizado em:
 user:Utilizador
-# Fuzzy
-user_counter:Existem <b>{VAR: st_obj->user_count}</b> membros registados.
+user_counter:Temos <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|utilizador registado|utilizadores registados}.
 user_info:Informação do utilizador
 user_info_l:Informação do utilizador {VAR: u->alias}
 user_offline:{VAR: obj->login}  está neste momento offline
@@ -785,7 +780,7 @@ action_latest_post:Ultima mensagem colocada
 online_today_last_visit:Ultimo Visitado
 online_today_update:Ver a lista de pessoas que estiveram no forum hoje.
 logedin_todays_visitors:Visitantes de Hoje
-logedin_latest_post:Ultima mensagem colocada no forum:
+logedin_latest_post:A última mensagem colocada no fórum é
 register_show_avatar:Mostrar Avatars:
 register_show_avatar_desc:Permite-lhe esconder avatars de outros utilizadores enquanto vê as mensagens deles
 drawmsg_view_rest_post:Mostrar o resto da mensagem
@@ -808,7 +803,7 @@ quicklogin_password:Senha
 quicklogin_use_cookies:Usa Cookies?
 # Fuzzy
 quicklogin_login_btn:Entrar
-quick_reply:Resposta rápid
+quick_reply:Resposta rápida
 post_notification_desc:Notificar quando alguém responder a esta mensagem.
 post_all_ext_allowed:(sem restrição)
 maximize_category:Maximizar Categoria
@@ -928,7 +923,7 @@ post_mod_msg_notify_msg:Uma nova mensagem entitulada "{VAR: msg_post->subject}" 
 thread_printable_pdf:Exportar para PDF
 thread_syndicate:Adicione este forum (XML)
 reg_conf_title:Confirmação do Registo
-reg_conf_email:<b>Confirmação via E-mail</b><br />Um email foi-lhe enviado contendo uma URL especial que terá de aceder antes da sua conta ser activada. Se não receber essa notificação nos próximos minutos, conecte-se na sua conta e garanta que o endereço de e-mail que introduziu está correcto. Após confirmar a sua conta terá acesso às opções do forum disponíveis aos utilizadores confirmados.
+reg_conf_email:<b>Confirmação por correio electrónico</b><br />Foi-lhe enviada uma mensagem contendo uma URL especial a que terá de aceder antes da sua conta ser activada. Se não receber essa notificação nos próximos minutos, entre na sua conta e garanta que o endereço de correio electrónico que introduziu está correcto. Após ter confirmado a sua conta, terá acesso às funcionalidades do fórum disponíveis aos utilizadores confirmados.
 reg_conf_account:<b>Confirmação de Conta</b><br />Antes da sua conta se tornar activa é necessário que seja aprovada pelo(s) administrador(es), assim que tal acontecer você receberá um e-mail indicando que a mesmo foi activada. Até essa altura você poderá aceder à sua conta, no entanto não poderá aceder às opções do forum somente disponíveis aos utilizadores confirmados.
 forum_banned_user:As suas acções anteriores obtiveram como resultado a sua expulsão permanente deste forum. Adeus.
 mnav_no_range:You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
@@ -950,6 +945,7 @@ mnav_newer:newer then
 mnav_older:older then
 post_err_mod_forum_edit_msg:You cannot edit messages inside a moderated forum.
 postcheck_session_invalid:Your session had expired, please re-submit the form. Sorry for the inconvenience.
+most_users_online:O recorde de utilizadores em linha foi <b>{VAR: st_obj->most_online}</b> <b>({DATE: st_obj->most_online_time %a, %d %B %Y %H:%M})</b>
 post_descr:Topic Description
 # Fuzzy
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>

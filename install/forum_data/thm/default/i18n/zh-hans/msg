@@ -87,7 +87,7 @@ move_thread:转移
 moved:转移至别的论坛
 moved_thread_message:这个主题已被转移至别的论坛。
 na:暂无
-new_posts:新的主题
+new_posts:新消息
 # Fuzzy
 new_private_messages:你有 <span class="GenText" style="color: #ff0000">({VAR: c})</span> 条未读悄悄话。
 new_thread:生成新的主题

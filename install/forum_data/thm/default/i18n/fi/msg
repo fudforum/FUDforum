@@ -617,9 +617,9 @@ register_err_notyouremail:Tämä sähköpostiosoite on jo käytössä
 register_err_avatartobig:Lähetetyn tiedoston koko ylittää suurimman sallitun {GVAR: CUSTOM_AVATAR_MAX_SIZE} tavun rajan
 register_err_avatarnotallowed:Lähetetyn tiedoston tyyppi ei ole sallittu. Tarkista sallitut tiedostotyypit.
 register_conf_subject:Rekisteröitymisen vahvistus
-register_conf_msg:Kiitos rekisteröitymisestä.\nAktivoi käyttäjätilisi napsauttamalla alla olevaa linkkiä:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti ja sinut ohjataan foorumin kotisivulle.
+register_conf_msg:Kiitos rekisteröitymisestä.\nAktivoi käyttäjätilisi napsauttamalla alla olevaa linkkiä:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti ja sinut ohjataan foorumin etusivulle.
 register_welcome_subject:Rekisteröintivahvistus
-register_welcome_msg:Kiitos rekisteröitymisestä,\n\nTässä ovat kirjautumistietosi foorumille:\n\nFoorumin linkki: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nHuom! Salasanojen isot ja pienet kirjaimet ovat eri merkkejä!\nVoit vaihtaa asetuksia ja käyttäjätietojasi täällä:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Kiitos rekisteröitymisestä.\n\nTässä ovat kirjautumistietosi foorumille:\n\nFoorumin linkki: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nSalasanojen isot ja pienet kirjaimet ovat eri merkkejä!\nVoit muuttaa asetuksia ja käyttäjätietojasi sivulla:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:VIRHE: rekisteröityminen epäonnistui
 regsiter_err_cantreg_msg:Rekisteröityminen epäonnistui, ole hyvä ja ota yhteyttä ylläpitäjään: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Selaa omia käyttäjätietojaan
@@ -945,10 +945,10 @@ split_cp:Aiheiden jakaminen
 groups_perms_header:Käyttöoikeudet <span class="small">(näet käyttöoikeuden tyypin laittamalla hiiren osoittimen sen päälle)</span>
 register_err_sig_too_long:Allekirjoituksesi ylittää suurimman sallitun pituuden {GVAR: FORUM_SIG_ML} merkkiä.
 register_sig_limit:{GVAR: FORUM_SIG_ML} merkkiä <a href="javascript: alert('Allekirjoituksesi on '+document.forms['fud_register'].reg_sig.value.length+' merkkiä pitkä. Allekirjoituksen suurin sallittu pituus on {GVAR: FORUM_SIG_ML} merkkiä.');" class="SmallText">Tarkista allekirjoituksen pituus</a>
-adm_account_accepted:Ylläpitäjä on hyväksynyt ja aktivoinut tunnuksen '{VAR: login}'.\nVoit nyt käyttää '{GVAR: FORUM_TITLE}' foorumia rekisteröityneenä käyttäjänä.
-adm_account_accepted_s:Tunnusanomuksesi '{GVAR: FORUM_TITLE}' foorumille on hyväksytty.
+adm_account_accepted:Ylläpitäjä on hyväksynyt ja aktivoinut tunnuksen '{VAR: login}'.\nVoit nyt käyttää foorumia '{GVAR: FORUM_TITLE}' rekisteröityneenä käyttäjänä.
+adm_account_accepted_s:Tunnusanomuksesi foorumille '{GVAR: FORUM_TITLE}' on hyväksytty.
 adm_account_rejected:Ylläpitäjä on hylännyt tunnuksen '{VAR: login}'.\nJos haluat tietää syyn tähän päätökseen, ota yhteyttä ylläpitäjään: '{GVAR: ADMIN_EMAIL}'.
-adm_account_rejected_s:Tunnusanomuksesi '{GVAR: FORUM_TITLE}' foorumille on hylätty.
+adm_account_rejected_s:Tunnusanomuksesi foorumille '{GVAR: FORUM_TITLE}' on hylätty.
 userinfo_buddy:Kaveri:
 register_email_addr:Sähköpostiosoite:
 usrinfo_last_visit:Käytti viimeksi:
