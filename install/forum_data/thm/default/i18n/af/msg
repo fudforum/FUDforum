@@ -136,8 +136,8 @@ sel_unread_messages:Ongeleesde boodskappe
 sel_unread_messages_desc:Wys slegs boodskappe wat nog nie gelees is nie
 send:Stuur
 send_pm_desc:Stuur 'n  privaatboodskap aan die gebruiker
-sender_email:Epos stuurder:
-sender_name:Naam stuurder:
+sender_email:Afsender se E-posadres:
+sender_name:Afsender se naam:
 show_posts_by:Wys boodskappe van: {VAR: u_alias}
 size:Grootte:
 status:Status:
@@ -192,7 +192,7 @@ views:Kere bekyk
 vote:{PLURAL: frm->n_rating|$1 stem|$1 stemme}
 vote_button:stem
 vote_for_thread:stem
-was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> is geskuif na <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> deur die moderator
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> is deur die moderator na <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> geskuif
 welcome_message:Welkom <b>{VAR: usr->alias}</b>, jou laaste besoek was op {TEMPLATE: welcome_message_date}
 what_ppl_doing:Loer wat ander mense doen
 reported_del_report:Verwyder verslag
@@ -338,7 +338,7 @@ register_notify_method_desc:Stel wat se kennisgewings wil u ontvang of skakel ke
 register_allow_email_msg:Laat Epos Boodskappe toe:
 register_allow_email_msg_desc:Laat andere lede toe om vir u epos deur die forum te stuur.
 buddy_status:Status
-my_buddies:My Vriende
+my_buddies:My vriende
 add_buddy:Voeg vriend by
 add:Voeg by
 buddy_search:Sleutel die naam van die gebruiker wat u wil byvoeg in.
@@ -378,7 +378,7 @@ file_attachments:Lêeraanhangsels:
 allowed_files:Toegelate Lêetipes:
 max_file_size:Maksimum Lêergrootte:
 max_files_per_msg:Maksimum aantal lêers per boodskap:
-post_notification:Post Kennisgewing
+post_notification:Stuur kennisgewings
 include_sig:Met handtekening
 include_sig_desc:Sluit my handtekening in.
 disable_smilies:Deaktiveer gesiggies in die boodskap
@@ -549,7 +549,7 @@ buddy_list_err_nouser:Die lid wat u by u &quot;vriendelys&quot; probeer voeg bes
 buddy_list_err_nouser_title:Nie in staat om lid by te voeg nie
 buddy_list_err_ignore:U kan nie gebruikers wat u ignoreer by u vriendelys byvoeg nie.
 buddy_list_update:Besigtig jou vriendelys
-core_err_invinp_title:ongeldige invoer
+core_err_invinp_title:Ongeldige invoer
 core_err_invinp_err:U het 'n ongeldige skakel gevolg. Laat asseblief die <a href="mailto:{GVAR: ADMIN_EMAIL}">webmeester</a> weet hoe u hier gekom het.
 core_adm_login_msg:Administrateurs kan <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hier</a> aanteken
 email_err_unabletoemail_title:FOUT: nie in staat om epos te stuur nie
@@ -772,8 +772,8 @@ th_expr_two_month:2 Maande
 th_expr_four_month:4 Maande
 th_expr_one_year:1 Jaar
 thread_mod_delete:Verwyder
-action_latest_post:Laaste Boodskap
-online_today_last_visit:Laaste Besoek
+action_latest_post:Laaste boodskap
+online_today_last_visit:Laaste besoek
 online_today_update:Wys wie die forum vandag besoek het.
 logedin_todays_visitors:Vandag se besoekers
 logedin_latest_post:Nuutste boodskap op stelsel:

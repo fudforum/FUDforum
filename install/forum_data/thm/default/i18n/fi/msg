@@ -124,7 +124,7 @@ registered:Rekisteröitynyt:
 registered_on:Rekisteröitynyt {TEMPLATE: registered_on_date}
 replies:Vastauksia
 report_to_mod:Ilmoita viestistä moderaattoreille
-reported_messages:Ilmoitukset
+reported_messages:Ilmoitetut viestit
 reveal_all_posts:paljasta kaikki käyttäjän {VAR: user_login} viestit
 reveal_post:paljasta viesti
 search:Haku
@@ -250,7 +250,7 @@ month_12:Joulukuu
 male:Mies
 female:Nainen
 unspecified:Määrittelemätön
-register_tree_view:Puu - viesti ja aihelistaus
+register_tree_view:Puunäkymä viesti- ja aihelistalle
 register_msg_tree_view:Taso - aihelistaus/puu - viestilistaus
 register_tree_msg_view:Puu - aihelistaus/taso - viestilistaus
 register_flat_view:Taso - viesti- ja aihelistaus

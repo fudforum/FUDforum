@@ -956,6 +956,7 @@ merge_topics_tpl:Selecteer samen te voegen onderwerpen <span class="SmallText">(
 merge_merge:Geselecteerde onderwerpen samenvoegen
 merge_next:Volgende onderwerpen
 merge_prev:Vorige onderwerpen
+merge_another:Naar het <a href="{TEMPLATE: merge_another_lnk}">laatst samengevoegde onderwerp</a> gaan of een ander onderwerp samenvoegen:
 split_cp:Beheervenster voor het splisen van onderwerpen
 groups_perms_header:Rechten <span class="small">(ga met uw muis over het recht om het type te bekijken)</span>
 register_err_sig_too_long:Uw ondertekening is langer dan het maximaal aantal toegelaten tekens ({GVAR: FORUM_SIG_ML})
