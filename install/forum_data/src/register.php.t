@@ -55,14 +55,21 @@ function sanitize_url($url)
 
 function sanitize_login($login)
 {
-	// Remove control, formatting, and surrogate characters.
-	$login = preg_replace( '/[\p{Cc}\p{Cf}\p{Cs}]/u', ' ', $login);
+	if (@preg_match('/\pL/u', 'a') == 1) {
+		// Remove unicode control, formatting, and surrogate characters.
+		$login = preg_replace( '/[\p{Cc}\p{Cf}\p{Cs}]/u', '', $login);
+	} else {
+		// PCRE unicode support is disabled, only keep word and whitespace characters.
+		$login = preg_replace( '/[^\w\s]/', '', $login);
+	}
 
-	// Other "bad" characters to remove.
-	$badchars = '&';
+	// Bad characters to remove from login names.
+	$badchars = '&;';
+
+	// Control characters are also bad.
 	for ($i = 0; $i < 32; $i++) $badchars .= chr($i);
 
-	return strtr($login, $badchars, str_repeat(' ', strlen($badchars)));
+	return strtr($login, $badchars, str_repeat('?', strlen($badchars)));
 }
 
 function register_form_check($user_id)
