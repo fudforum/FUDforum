@@ -106,14 +106,26 @@
 {TEMPLATE-DATA: announcements}
 {IF: $MOD || $mo == 8224}
 <tr>
-	<td colspan="3" class="RowStyleC ar"><input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="submit" class="button" name="loc_sel_all" value="{MSG: thread_loc_all}" /> <input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\');" /> </td>
+	<td colspan="3" class="RowStyleC ar">
+		<input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" />
+		<input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" />
+		<input type="submit" class="button" name="merge_sel_all" value="{MSG: thread_merge_all}" />
+		<input type="submit" class="button" name="loc_sel_all" value="{MSG: thread_loc_all}" />
+		<input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\');" />
+	</td>
 	<td colspan="3" class="RowStyleC"> </td>
 </tr>
 {ENDIF}
 {TEMPLATE-DATA: thread_list_table_data}
 {IF: $MOD || $mo == 8224}
 <tr>
-	<td colspan="3" class="RowStyleC ar"><input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="submit" class="button" name="loc_sel_all" value="{MSG: thread_loc_all}" /> <input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\')" /></td>
+	<td colspan="3" class="RowStyleC ar">
+		<input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" />
+		<input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" />
+		<input type="submit" class="button" name="merge_sel_all" value="{MSG: thread_merge_all}" />
+		<input type="submit" class="button" name="loc_sel_all" value="{MSG: thread_loc_all}" />
+		<input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\')" />
+	</td>
 	<td colspan="3" class="RowStyleC"> </td>
 </tr>
 {ENDIF}

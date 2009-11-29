@@ -595,7 +595,7 @@ function &init_user()
 			case 'met':
 				$_GET['t'] = 'merge_th';
 				if (isset($p[1])) {
-					$_GET['frm'] = $p[1];
+					$_GET['frm_id'] = $p[1];
 				}
 				break;
 

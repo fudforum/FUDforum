@@ -97,3 +97,7 @@
 {SECTION: mnav_update_lnk}
 {ROOT}?t=mnav
 {SECTION: END}
+
+{SECTION: merge_another_lnk}
+{ROOT}?t=msg&amp;{DEF: _rsid}&amp;th={VAR: new_th}
+{SECTION: END}

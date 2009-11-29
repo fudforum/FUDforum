@@ -12,7 +12,7 @@
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
-	if (!empty($_POST['NO']) || empty($_POST['_sel']) || (empty($_POST['mov_sel_all']) && empty($_POST['del_sel_all']) && empty($_POST['loc_sel_all']))) {
+	if (!empty($_POST['NO']) || empty($_POST['_sel']) || (empty($_POST['mov_sel_all']) && empty($_POST['del_sel_all']) && empty($_POST['loc_sel_all']) && empty($_POST['merge_sel_all']))) {
 		check_return($usr->returnto);
 	}
 
@@ -27,7 +27,7 @@
 		check_return($usr->returnto);
 	}
 
-	/* permission check, based on last thread since all threads are supposed to be from the same forum */
+	/* Permission check, based on last thread since all threads are supposed to be from the same forum. */
 	if (!($perms = db_saq('SELECT t.forum_id, COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco, mm.id AS md
 				FROM {SQL_TABLE_PREFIX}thread t
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
@@ -37,11 +37,13 @@
 		check_return($usr->returnto);		
 	}
 	if (!$is_a && !$perms[2]) {
-		if (!empty($_POST['mov_sel_all']) && !($perms[1] & 8192)) {
+		if (!empty($_POST['mov_sel_all']) && !($perms[1] & 8192)) {	// p_MOVE
 			std_error('access');
-		} else if (!empty($_POST['loc_sel_all']) && !($perms[1] & 32)) {
+		} else if (!empty($_POST['loc_sel_all']) && !($perms[1] & 4096)) {	// p_LOCK
 			std_error('access');			
-		} else if (!empty($_POST['del_sel_all']) && !($perms[1] & 32)) {
+		} else if (!empty($_POST['del_sel_all']) && !($perms[1] & 32)) {	// p_DEL
+			std_error('access');
+		} else if (!empty($_POST['merge_sel_all']) && !($perms[1] & 2048)) {	// p_SPLIT
 			std_error('access');
 		}
 	}
@@ -49,8 +51,9 @@
 	$final_del = !empty($_POST['del_sel_all']) && !empty($_POST['del_conf']);
 	$final_loc = !empty($_POST['loc_sel_all']);
 	$final_mv  = !empty($_POST['mov_sel_all']) && !empty($_POST['forum_id']);
+	$final_merge = !empty($_POST['merge_sel_all']);
 
-	/* ensure that all threads are from the same forum and that they exist */
+	/* Ensure that all threads are from the same forum and that they exist. */
 	$c = uq("SELECT m.subject, t.id, t.root_msg_id, t.replies, t.last_post_date, t.last_post_id, t.tdescr, t.thread_opt
 			FROM {SQL_TABLE_PREFIX}thread t 
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id
@@ -61,7 +64,7 @@
 		if ($final_del) {
 			$ext[$r[1]] = array($r[2], $r[3]);
 		} else if ($final_loc) {
-			$ext[$r[1]] = array($r[7]);			
+			$ext[$r[1]] = array($r[7]);
 		} else if ($final_mv) {
 			$ext[$r[1]] = array($r[2], $r[4], $r[5], $r[6]);
 		}
@@ -71,7 +74,7 @@
 		invl_inp_err();
 	}
 
-	if ($final_del) { /* remove threads, one by one */
+	if ($final_del) { /* Remove threads, one by one. */
 		foreach ($ext as $k => $v) {
 			logaction(_uid, 'DELTHR', 0, '"'.$list[$k].'" w/'.$v[1].' replies');
 			fud_msg_edit::delete(1, $v[0], 1);
@@ -88,8 +91,8 @@
 			}
 		}
 		check_return($usr->returnto);	
-	} else if ($final_mv) { /* move threads one by one */
-		/* validate permissions for destination forum */
+	} else if ($final_mv) { /* Move threads one by one. */
+		/* Validate permissions for destination forum. */
 		if (!($_POST['forum_id'] = (int) $_POST['forum_id'])) {
 			invl_inp_err();
 		}
@@ -109,21 +112,30 @@
 			logaction(_uid, 'THRMOVE', $k);
 			th_move($k, $_POST['forum_id'], $ext[$k][0], $perms[0], $ext[$k][1], $ext[$k][2], $ext[$k][3]);
 		}
-		
-		/* update last post ids in source & destination forums */
+	
+		/* Update last post ids in source & destination forums. */
 		foreach (array($perms[0], $_POST['forum_id']) as $v) {
 			$mid = (int) q_singleval('SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='.$v.' AND t.moved_to=0 AND m.apr=1');
 			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$mid.' WHERE id='.$v);
 		}
 
 		check_return($usr->returnto);
+	} else if ($final_merge) { /* Redirect merge request to merge_th.php. */
+		foreach ($list as $k => $v) {
+			$sel_th[] = $k;
+			if (empty($new_title)) {
+			    $new_title = $v;
+			}
+		}
+		header('Location: {FULL_ROOT}{ROOT}?t=merge_th&frm_id='.$perms[0].'&new_title='.urlencode($new_title).'&sel_th='.serialize($sel_th).'&'._rsidl);
+		exit;
 	}
-	
+
 	$mmd_topic_ents = '';
 	foreach ($list as $k => $v) {
 		$mmd_topic_ents .= '{TEMPLATE: mmd_topic_ent}';
 	}
-	
+
 	if (!empty($_POST['mov_sel_all'])) {
 		$table_data = $oldc = '';
 	

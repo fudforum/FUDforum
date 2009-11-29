@@ -12,12 +12,12 @@
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
-	$frm = isset($_GET['frm']) ? (int)$_GET['frm'] : (isset($_POST['frm']) ? (int)$_POST['frm'] : 0);
+	$frm = isset($_GET['frm_id']) ? (int)$_GET['frm_id'] : (isset($_POST['frm_id']) ? (int)$_POST['frm_id'] : 0);
 	if (!$frm) {
 		invl_inp_err();
 	}
 
-	/* permission check */
+	/* Permission check. */
 	if (!$is_a) {
 		$perms = db_saq('SELECT mm.id, '.(_uid ? ' COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco ' : ' g1.group_cache_opt AS gco ').'
 				FROM {SQL_TABLE_PREFIX}forum f
@@ -33,6 +33,9 @@
 	$error = '';
 	$post = (isset($_POST['next']) || isset($_POST['prev'])) ? 0 : 1;
 
+	if (isset($_GET['sel_th'])) {
+		$_POST['sel_th'] = unserialize($_GET['sel_th']);
+	}
 	if (isset($_POST['sel_th'])) {
 		foreach ($_POST['sel_th'] as $k => $v) {
 			if (!(int)$v) {
@@ -45,13 +48,15 @@
 		}
 	}
 
+	$new_title = isset($_GET['new_title']) ? $_GET['new_title'] : (isset($_POST['new_title']) ? $_POST['new_title'] : '');
+
 	if ($frm && $post && !empty($_POST['new_title']) && !empty($_POST['sel_th'])) {
 		/* we need to make sure that the user has access to destination forum */
 		if (!$is_a && !q_singleval('SELECT f.id FROM {SQL_TABLE_PREFIX}forum f LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.user_id='._uid.' AND mm.forum_id=f.id '.(_uid ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id').' WHERE f.id='.$forum.' AND (mm.id IS NOT NULL OR '.(_uid ? ' (COALESCE(g2.group_cache_opt, g1.group_cache_opt)' : ' (g1.group_cache_opt').' & 4) > 0)')) {
 			std_error('access');
 		}
 
-		/* sanity check */
+		/* Sanity check. */
 		if (empty($_POST['sel_th'])) {
 			if ($FUD_OPT_2 & 32768) {
 				header('Location: {FULL_ROOT}{ROOT}/t/'.$th.'/'._rsidl);
@@ -102,7 +107,7 @@
 			}
 			db_unlock();
 
-			/* handle thread subscriptions and message read indicators */
+			/* Handle thread subscriptions and message read indicators. */
 			if (__dbtype__ == 'mysql') {
 				q("UPDATE IGNORE {SQL_TABLE_PREFIX}thread_notify SET thread_id={$new_th} WHERE thread_id IN({$tl})");
 				q("UPDATE IGNORE {SQL_TABLE_PREFIX}bookmarks SET thread_id={$new_th} WHERE thread_id IN({$tl})");
@@ -128,7 +133,7 @@
 		}
 	}
 
-	/* fetch a list of accesible forums */
+	/* Fetch a list of accesible forums. */
 	$c = uq('SELECT f.id, f.name
 			FROM {SQL_TABLE_PREFIX}forum f
 			INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=f.id

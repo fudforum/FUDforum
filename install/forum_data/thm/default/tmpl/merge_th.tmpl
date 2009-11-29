@@ -30,9 +30,12 @@
 <form id="merge_th" action="{TEMPLATE: MERGE_TH_PAGE_lnk3}" method="post">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th class="wa" colspan="2">{MSG: merge_topics_cp}</th></tr>
+{IF: isset($new_th)}<tr  class="RowStyleA">
+	<td colspan="2" class="al"><b>{MSG: merge_another}</b></td>
+	</tr>{ENDIF}
 <tr class="RowStyleA">
 	<td class="al"><b>{MSG: split_th_new_thread_title}</b></td>
-	<td><input type="text" spellcheck="true" name="new_title" value="" size="50" /></td>
+	<td><input type="text" spellcheck="true" name="new_title" value="{VAR: new_title}" size="50" /></td>
 </tr>
 <tr class="RowStyleA">
 	<td class="al fb">{MSG: split_th_forum}</td>
@@ -43,10 +46,10 @@
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr><td colspan="3" class="ac">{MSG: merge_topics_tpl}</td></tr>
 			<tr><td colspan="3" class="ac">{MSG: merge_th_page_list}: 
-			<select name="tmp" onchange="document.merge_th.page.value=this.value; document.forms[\'merge_th\'].submit();">
+			<select name="tmp" onchange="document.forms['merge_th'].page.value=this.value; document.forms['merge_th'].submit();">
 			{FUNC: tmpl_draw_select_opt($pages, $pages, $page)}
 			</select></td></tr>
-			<tr><td colspan="3" class="ac"><select name="sel_th[]" size="10" multiple>{VAR: thread_sel}</select></td></tr>
+			<tr><td colspan="3" class="ac"><select name="sel_th[]" size="10" multiple="multiple" onchange="if (document.forms['merge_th'].new_title.value=='') document.forms['merge_th'].new_title.value=this.options[this.selectedIndex].text;">{VAR: thread_sel}</select></td></tr>
 			<tr>
 				<td class="al" width="100">
 					{IF: $page > 1}<input type="submit" name="prev" value="{MSG: merge_prev}" />{ENDIF}
@@ -61,7 +64,7 @@
 </tr>
 </table>
 <input type="hidden" name="page" value="{VAR: page}" />
-<input type="hidden" name="frm" value="{VAR: frm}" />
+<input type="hidden" name="frm_id" value="{VAR: frm}" />
 </form>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

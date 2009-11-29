@@ -188,7 +188,7 @@ views:				Views
 vote:				{PLURAL: frm->n_rating|$1 Vote|$1 Votes}
 vote_button:			Vote
 vote_for_thread:		Vote
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> by the moderator
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> by the moderator.
 welcome_message:		Welcome <b>{VAR: usr->alias}</b>, your last visit was on {TEMPLATE: welcome_message_date}
 what_ppl_doing:			Show what people are doing
 reported_del_report:		Delete Report
@@ -1018,6 +1018,7 @@ pmsg_pdf_btn:			Make PDF Archive
 search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
 thread_mov_all:			Move All Selected
+thread_merge_all:		Merge All Selected
 thread_loc_all:			Lock/Unlock All Selected
 dmsg_ip:			IP:
 err_blockedaccnt_title:		ERROR: Your account has been filtered out.
