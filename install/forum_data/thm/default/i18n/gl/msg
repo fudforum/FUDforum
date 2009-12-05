@@ -955,6 +955,7 @@ merge_topics_tpl:Selecciona os fíos a fusionar <span class="SmallText">(tes que
 merge_merge:Fusionar os fíos seleccionados
 merge_next:Fíos seguintes
 merge_prev:Fíos anteriores
+merge_another:Ir ao <a href="{TEMPLATE: merge_another_lnk}">último fío fusionado</a> ou fusione outro:
 split_cp:Panel de control da separación de fíos
 groups_perms_header:Permisos <span class="small">(move o rato sobre o permiso para ver de que tipo é)</span>
 register_err_sig_too_long:A túa sinatura excede o tamaño máximo permitido de {GVAR: FORUM_SIG_ML} caracteres.

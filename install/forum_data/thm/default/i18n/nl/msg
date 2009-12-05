@@ -193,7 +193,7 @@ views:keer bekeken
 vote:{PLURAL: frm->n_rating|$1 stem|$1 stemmen}
 vote_button:Stemmen
 vote_for_thread:Stemmen
-was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> is verplaatst naar <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> door de moderator
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> is verplaatst naar <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> door de moderator.
 welcome_message:Welkom <b>{VAR: usr->alias}</b>. Uw laatste bezoek was op {TEMPLATE: welcome_message_date}
 what_ppl_doing:Laat zien waar andere gebruikers mee bezig zijn
 reported_del_report:Rapport verwijderen
@@ -492,7 +492,7 @@ mklist_disc:Schijf
 mklist_circle:Cirkel
 mklist_close:Sluiten
 email_to:Aan:
-email_pg_title:E-mailadres
+email_pg_title:E-mail
 email_subject:Onderwerp:
 email_body:Bericht:
 email_submit:Verzenden
@@ -1020,6 +1020,7 @@ pmsg_pdf_btn:PDF-archief maken
 search_results_hdr:{VAR: total} resultaten gevonden
 thread_del_all:Selectie verwijderen
 thread_mov_all:Selectie verplaatsen
+thread_merge_all:Selectie samenvoegen
 thread_loc_all:Selectie op/van slot
 dmsg_ip:IP-adres:
 err_blockedaccnt_title:Fout: uw gebruiker is uitgefilterd.

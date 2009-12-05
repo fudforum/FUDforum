@@ -87,7 +87,7 @@ new_posts:Novos Posts
 new_private_messages:tem <span class="GenText" style="color: #ff0000">({VAR: c})</span> mensgens privadas não lidas
 new_thread:Criar um novo tópico
 newest_user:O último utilizador registado é
-next_page:Próxima Página
+next_page:Página Seguinte
 next_thread:Próximo Tópico:
 no_messages:Não há mensagens neste forum.
 no_msg_body:mensagem vazia

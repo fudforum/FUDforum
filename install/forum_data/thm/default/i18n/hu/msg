@@ -956,6 +956,7 @@ merge_topics_tpl:Válaszd ki az összevonandó témákat <span class="SmallText"
 merge_merge:Kiválasztott témák összevonása
 merge_next:Következő témák
 merge_prev:Előző témák
+merge_another:Ugrás az <a href="{TEMPLATE: merge_another_lnk}">utoljára összevont témára</a>, vagy másik összevonása:
 split_cp:Témabontó vezérlőpult
 groups_perms_header:Jogosultságok <span class="small">(vidd az egeret a jogosultság felé, hogy lásd a típusát)</span>
 register_err_sig_too_long:Az aláírásod túllépi a megengedett {GVAR: FORUM_SIG_ML} karakter hosszt.

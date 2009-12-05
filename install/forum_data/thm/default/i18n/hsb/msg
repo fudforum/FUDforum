@@ -955,6 +955,7 @@ merge_topics_tpl:Temy wubrać, kotrež maja so zjadnoćić <span class="SmallTex
 merge_merge:Wubrane temy zjednoćić
 merge_next:Přichodna tema
 merge_prev:Předchadna tema
+merge_another:Dźi k <a href="{TEMPLATE: merge_another_lnk}">poslednjej zjednoćenej temje</a> abo zjednoć druhu:
 split_cp:Wodźenske polo za rozdźělenje temow
 groups_perms_header:Prawa <span class="small">(pohibaj myšacy pokazowak nad prawo, zo by jeho typ widźał)</span>
 register_err_sig_too_long:Twoja signatura překročuje maksimalnje dowolenu dołhosć {GVAR: FORUM_SIG_ML} znamješkow.

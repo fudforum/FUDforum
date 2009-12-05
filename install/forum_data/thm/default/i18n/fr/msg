@@ -959,6 +959,7 @@ merge_topics_tpl:Sélectionnez les fils à fusionner <font class="SmallText">(vo
 merge_merge:Fusionner les fils sélectionnés
 merge_next:Fils suivants
 merge_prev:Fils précédents
+merge_another:Aller au <a href="{TEMPLATE: merge_another_lnk}">dernier sujet fusionné</a> ou en fusionner un autre :
 split_cp:Panneau de contrôle de division de fils
 groups_perms_header:Permissions <font size="-1">(déplacer la souris au-dessus de la permission pour en voir le type)</font>
 register_err_sig_too_long:Votre signature excède la longueur maximale autorisée de {GVAR: FORUM_SIG_ML} caractères.

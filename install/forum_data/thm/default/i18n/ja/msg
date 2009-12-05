@@ -956,6 +956,7 @@ merge_topics_tpl:統合するトピックを選択します<span class="SmallTex
 merge_merge:選択したトピックを統合
 merge_next:次のトピック一覧
 merge_prev:前のトピック一覧
+merge_another:<a href="{TEMPLATE: merge_another_lnk}">最後に統合されたトピック</a>を表示、または別のトピックを統合:
 split_cp:トピック分割コントロールパネル
 groups_perms_header:許可権限一覧<span class="small">（マウスを上に乗せるとその許可権限の種類を参照できます）</span>
 register_err_sig_too_long:あなたの署名は許可された最大長である {GVAR: FORUM_SIG_ML}文字を超えています。

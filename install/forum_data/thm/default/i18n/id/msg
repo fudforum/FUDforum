@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Bennylin
 # Author: Irwangatot
+# Author: IvanLanin
 
 action:Tindakan
 add_to_buddy_list:tambahkan ke daftar teman
@@ -956,6 +957,7 @@ merge_topics_tpl:Pilih topik yang akan digabungkan <span class="SmallText">(anda
 merge_merge:Gabungkan Topik-topik terpilih
 merge_next:Topik berikutnya
 merge_prev:Topik Sebelumnya
+merge_another:Pergi ke <a href="{TEMPLATE: merge_another_lnk}">topik yang terakhir digabung</a> atau gabungkan yang lain:
 split_cp:Panel kontrol pemisah topik
 groups_perms_header:Wewenang <span class="small">(gerakkan mouse anda untuk melihat tipe wewenang)</span>
 register_err_sig_too_long:Tanda-tangan anda melebihi batas yang diijinkan sebesar {GVAR: FORUM_SIG_ML} karakter.

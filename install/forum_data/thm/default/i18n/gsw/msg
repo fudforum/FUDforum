@@ -955,6 +955,7 @@ merge_topics_tpl:Themene zum Zämmefiere uuswehle <span class="SmallText">(Du mu
 merge_merge:Uusgwehlti Themene zämmefiere
 merge_next:Negschti Themene
 merge_prev:Vorigi Themene
+merge_another:Gan zum letschte <a href="{TEMPLATE: merge_another_lnk}">zämmegfierte Thema</a> oder fier e anders zämme:
 split_cp:Menü zum Teile vu Themene
 groups_perms_header:Rächt <span class="small">(Beweg d Muus iber d Rächt go dr Typ vun ene säh)</span>
 register_err_sig_too_long:Dyy Signatur iberschrytet di maximal erlaubt Lengi vu {GVAR: FORUM_SIG_ML} Zeiche.

@@ -21,7 +21,7 @@ date_registered:Datum geregistreer:
 download_counter:{PLURAL: v[3]|$1 keer|$1 kere} afgelaai
 pmsg_download_counter:{PLURAL: r->dlcount|$1 keer|$1 kere} afgelaai
 email:E-pos:
-email_to_friend:Epos na vriend
+email_to_friend:E-pos 'n vriend
 email_to_friend_desc:Stuur die URL van hierdie bladsy aan 'n vriend of vriendin via e-pos
 email_user:Stuur 'n e-pos aan die gebruiker
 faq:Hulp
@@ -190,9 +190,9 @@ usrinfo_last_post:Laaste boodskap:
 view_results:Wys resultate
 views:Kere bekyk
 vote:{PLURAL: frm->n_rating|$1 stem|$1 stemme}
-vote_button:stem
-vote_for_thread:stem
-was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> is deur die moderator na <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> geskuif
+vote_button:Stem
+vote_for_thread:Stem
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> is deur die moderator na <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> geskuif.
 welcome_message:Welkom <b>{VAR: usr->alias}</b>, jou laaste besoek was op {TEMPLATE: welcome_message_date}
 what_ppl_doing:Loer wat ander mense doen
 reported_del_report:Verwyder verslag
@@ -264,7 +264,7 @@ finduser_submit:Vind
 finduser_no_such_user:Onbekend lid
 finduser_user:Lid
 finduser_postcount:Boodskappe gepos
-finduser_joindate:Aansluit op
+finduser_joindate:Aangesluit op
 finduser_action:Aksie
 yes:Ja
 no:Nee
@@ -491,10 +491,10 @@ mklist_disc:Blokkie
 mklist_circle:Sirkel
 mklist_close:Geslote
 email_to:Aan:
-email_pg_title:Stel Epos saam:
+email_pg_title:Stel E-pos saam:
 email_subject:Onderwerp:
 email_body:Boodskap:
-email_submit:Stuur Epos
+email_submit:Stuur E-pos
 ppost_quote_msg:{VAR: msg_to_list} het op {TEMPLATE: ppost_quote_msg_date} geskryf
 ppost_quote:Kwoteer:
 ppost_to:Aan:
@@ -665,7 +665,7 @@ ERR_user_ttl:FOUT: onbekend lid
 ERR_user_msg:Hierdie gebruiker bestaan nie
 ERR_systemerr_ttl:FOUT: STESLELFOUT
 ERR_systemerr_msg:Daar was 'n STELSELFOUT, rapporteer dit asseblief aan die <a href="mailto:{GVAR: ADMIN_EMAIL}">webmeester</a>.
-email_title:Stuur Epos
+email_title:Stuur E-pos
 finduser_title:Vind lid
 help_title:F.A.Q.
 login_title:Aanmelding
@@ -708,7 +708,7 @@ thr_exch_decl_reason:Rede vir die afkeur van onderwerp <b>{VAR: data->subject}</
 thr_exch_submit:Stuur
 exch_decline_ttl:Die skuif van onderwerp {VAR: data->subject} na forum {VAR: data->f2_name} is afgekeur.
 ppost_original_msg:boodskap wat u aanstuur of waarop u antwoord
-split_thread:Split Onderwerp
+split_thread:Split onderwerp
 groupmgr_no_user:Daar is geen gebruiker met die gebruikersnaam "{FUNC: char_fix(htmlspecialchars($gr_member))}" nie
 groupmgr_already_exists:Gebruiker "{FUNC: char_fix(htmlspecialchars($gr_member))}" bestaan reeds in die groep.
 groupmgr_yes:Ja
@@ -955,6 +955,7 @@ merge_topics_tpl:Kies onderwerpe om te versmelt <span class="SmallText">(u moet 
 merge_merge:Versmelt Gekose Onderwerpe
 merge_next:Volgende Onderwerpe
 merge_prev:Vorige Onderwerpe
+merge_another:Gaan na die <a href="{TEMPLATE: merge_another_lnk}">laaste saamgevoegde onderwerp</a> of versmelt nog een:
 split_cp:Beheervenster vir die opsplit van onderwerpe
 groups_perms_header:Regte <span class="small">(beweeg muis oor regte om details te sien)</span>
 register_err_sig_too_long:U handtekening oorskry die maksimum toelaatbare lengte van {GVAR: FORUM_SIG_ML} karakters.
@@ -1018,6 +1019,7 @@ pmsg_pdf_btn:Maak PDF-argief
 search_results_hdr:{VAR: total} resultate gevind
 thread_del_all:Verwyder seleksie
 thread_mov_all:Skuif seleksie
+thread_merge_all:Versmelt seleksie
 thread_loc_all:Sluit/Ontsluit seleksie
 dmsg_ip:IP:
 err_blockedaccnt_title:FOUT: Your account has been filtered out.
