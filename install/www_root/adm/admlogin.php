@@ -13,14 +13,22 @@
 	fud_use('adm.inc', true);
 	fud_use('login_filter.inc', true);
 
+	require($WWW_ROOT_DISK . 'adm/header.php');
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && !empty($_POST['login'])) {
 		q('UPDATE '.$tbl.'blocked_logins SET login='._esc(trim($_POST['login'])).' WHERE id='.(int)$_POST['edit']);
+		echo successify('Regex ('.$_POST['login'].') was successfully updated.');
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['login'])) {
-		q('INSERT INTO '.$tbl.'blocked_logins (login) VALUES('._esc(trim($_POST['login'])).')');
+		if (preg_match('/'.addcslashes($_POST['login'], '\'/\\').'/i', $usr->login)) {
+			echo errorify('Regex ('.$_POST['login'].') cannot be added. It will block your current login.');
+		} else {
+			q('INSERT INTO '.$tbl.'blocked_logins (login) VALUES('._esc(trim($_POST['login'])).')');
+			echo successify('Regex ('.$_POST['login'].') was successfully added.');
+		}
 	} else if (isset($_GET['del'])) {
 		q('DELETE FROM '.$tbl.'blocked_logins WHERE id='.(int)$_GET['del']);
+		echo successify('Regex was successfully removed.');
 	} else {
 		$nada = 1;
 	}
@@ -33,8 +41,6 @@
 	} else {
 		$edit = $login = '';
 	}
-
-	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Login Blocker</h2>
 <p>Block users with a matching login name from registering or posting messages on the forum.</p>

@@ -39,17 +39,18 @@
 <tr>
 	<td nowrap="nowrap">
 <?php } ?>
+    [ <a href="admbrowse.php?<?php echo __adm_rsid; ?>">Files</a> ]
+	[ <a href="admsql.php?<?php echo __adm_rsid; ?>">SQL</a> ]
+	[ <a href="admbatch.php?<?php echo __adm_rsid; ?>">Jobs</a> ]
+	<br /><br />
+
 	<span class="linkgroup">General Management</span><br />
 	<a href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a><br />
 	<a href="admplugins.php?<?php echo __adm_rsid; ?>">Plugin Manager</a><br />
-	<a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement &amp; Censorship System</a><br />
 	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Management System</a><br />
 	<a href="admfeed.php?<?php echo __adm_rsid; ?>">Syndication Management</a><br />
 	<a href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Management</a><br />
 	<a href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Management</a><br />
-	<a href="admsql.php?<?php echo __adm_rsid; ?>">SQL Manager</a><br />
-	<a href="admbrowse.php?<?php echo __adm_rsid; ?>">File Manager</a><br />
-	<a href="admbatch.php?<?php echo __adm_rsid; ?>">Job Manager</a><br />	
 <?php
 	if (strncasecmp('win', PHP_OS, 3)) {
 		echo '<a href="admlock.php?'.__adm_rsid.'">Lock/Unlock Forum Files</a><br />';
@@ -104,6 +105,7 @@
 	<a href="admavatar.php?<?php echo __adm_rsid; ?>">Avatar Manager</a><br /><br />
 
 	<span class="linkgroup">Filters</span><br />
+	<a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement &amp; Censorship</a><br />
 	<a href="admemail.php?<?php echo __adm_rsid; ?>">E-mail filter</a><br />
 	<a href="admipfilter.php?<?php echo __adm_rsid; ?>">IP filter</a><br />
 	<a href="admlogin.php?<?php echo __adm_rsid; ?>">Login filter</a><br />
@@ -118,7 +120,7 @@
 	<a href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a><br />
 <?php } ?><br /><br />
 
-	<span class="linkgroup">Forum Data Management</span><br />
+	<span class="linkgroup">Backup/Restore</span><br />
 	<a href="admdump.php?<?php echo __adm_rsid; ?>">Make forum datadump</a><br />
 	<a href="admimport.php?<?php echo __adm_rsid; ?>">Import forum data</a><br />
 	<br />

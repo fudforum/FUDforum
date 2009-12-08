@@ -218,7 +218,7 @@ administration permissions to the forum. This individual will be able to do anyt
 
 	$search_error = $login_error = '';
 	if ($usr_id) {
-		/* deal with custom tags */
+		/* Deal with custom tags. */
 		if (!empty($_POST['c_tag'])) {
 			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'custom_tags (name, user_id) VALUES('.ssn($_POST['c_tag']).', '.$usr_id.')');
 			echo '<font color="green">Custom tag was added.</font>';
@@ -232,12 +232,12 @@ administration permissions to the forum. This individual will be able to do anyt
 			ctag_rebuild_cache($usr_id);
 		}
 
-		/* changing password */
+		/* Changing password. */
 		if (!empty($_POST['login_passwd'])) {
 			q("UPDATE ".$DBHOST_TBL_PREFIX."users SET passwd='".md5($_POST['login_passwd'])."' WHERE id=".$usr_id);
 			logaction(_uid, 'ADM_SET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
 			echo '<font color="green">User <b>'.$u->alias.'</b>\'s password was successfully changed.</font>';
-		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* chanding login name */
+		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* Chanding login name. */
 			$alias = _esc(make_alias($_POST['login_name']));
 			$login = _esc($_POST['login_name']);
 
@@ -264,53 +264,10 @@ administration permissions to the forum. This individual will be able to do anyt
 				echo '<font color="green">User <b>'.$u->alias.'</b>\'s login was successfully changed.</font>';
 			}
 		}
-	} else if (!empty($_POST['usr_email']) || !empty($_POST['usr_login'])) {
-		/* user searching logic */
-		$item = !empty($_POST['usr_email']) ? $_POST['usr_email'] : $_POST['usr_login'];
-		$field = !empty($_POST['usr_email']) ? 'email' : ($FUD_OPT_2 & 128 ? 'alias' : 'login');
-		if (strpos($item, '*') !== false) {
-			$like = 1;
-			$item = str_replace('*', '%', $item);
-			$item_s = str_replace('\\', '\\\\', $item);
-		} else {
-			$like = 0;
-			$item_s = $item;
-		}
-		if ($FUD_OPT_2 & 128) {
-			$item_s = char_fix(htmlspecialchars($item_s));
-		}
-		$item_s = _esc($item_s);
-
-		if (($cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50'))) {
-			$c = uq('SELECT id, alias, email FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
-		}
-		switch ($cnt) {
-			case 0:
-				$search_error = errorify('There are no users matching the specified '.$field.' mask.');
-				unset($c);
-				break;
-			case 1:
-				list($usr_id) = db_rowarr($c);
-				unset($c);
-				$u = db_sab('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id);
-				/* check if ban had expired */
-				if ($u->users_opt & 65536 && $u->ban_expiry && $u->ban_expiry < __request_timestamp__) {
-					q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry=0, users_opt=users_opt &~ 65536 WHERE id='.$usr_id);
-				}
-				break;
-			default:
-				echo '<h2>User Administration System</h2>';
-				echo '<p>There are '.$cnt.' users that match this '.$field.' mask:</p><ul>';
-				while ($r = db_rowarr($c)) {
-					echo '<li><b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b> [ <a href="admuser.php?usr_id='.$r[0].'&amp;act=m&amp;'.__adm_rsid.'">Pick user</a> ]</li>';
-				}
-				echo '</ul>';
-				unset($c);
-				exit;
-		}
 	}
 ?>
-<h2>User Administration System</h2>
+
+	<h2>User Administration System</h2>
 <?php if (!$usr_id) echo '<p>Use an asterisk (*) to match multiple user accounts.</p>'; ?>
 <form id="frm_usr" method="post" action="admuser.php">
 <fieldset>
@@ -338,7 +295,59 @@ administration permissions to the forum. This individual will be able to do anyt
 document.forms['frm_usr'].usr_login.focus();
 /* ]]> */
 </script>
-<?php if ($usr_id) { ?>
+
+<?php
+	/* User searching logic. */
+	if (!empty($_POST['usr_email']) || !empty($_POST['usr_login'])) {
+		$item = !empty($_POST['usr_email']) ? $_POST['usr_email'] : $_POST['usr_login'];
+		$field = !empty($_POST['usr_email']) ? 'email' : ($FUD_OPT_2 & 128 ? 'alias' : 'login');
+		if (strpos($item, '*') !== false) {
+			$like = 1;
+			$item = str_replace('*', '%', $item);
+			$item_s = str_replace('\\', '\\\\', $item);
+		} else {
+			$like = 0;
+			$item_s = $item;
+		}
+		if ($FUD_OPT_2 & 128) {
+			$item_s = char_fix(htmlspecialchars($item_s));
+		}
+		$item_s = _esc($item_s);
+
+		if (($cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50'))) {
+			$c = uq('SELECT id, alias, email FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
+		}
+		switch ($cnt) {
+			case 0:
+				$search_error = errorify('There are no users matching the specified '.$field.' mask.');
+				unset($c);
+				break;
+			case 1:
+				list($usr_id) = db_rowarr($c);
+				unset($c);
+				$u = db_sab('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id);
+				/* Check if ban had expired. */
+				if ($u->users_opt & 65536 && $u->ban_expiry && $u->ban_expiry < __request_timestamp__) {
+					q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET ban_expiry=0, users_opt=users_opt &~ 65536 WHERE id='.$usr_id);
+				}
+				break;
+			default:
+				echo '<p>There are '.$cnt.' users that match this '.$field.' mask:</p>';
+				echo '<table class="resulttable fulltable">';
+				echo '<tr class="resulttopic"><th>User Login</th><th>E-mail</th><th>Action</th></tr>';
+				$i = 0;
+				while ($r = db_rowarr($c)) {
+					$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
+					echo '<tr '. $bgcolor .'><td>'.$r[1].'</td><td>'.htmlspecialchars($r[2]).'</td><td>[ <a href="admuser.php?usr_id='.$r[0].'&amp;act=m&amp;'.__adm_rsid.'">Pick user</a> ]</td></tr>';
+				}
+				echo '</table>';
+				unset($c);
+				exit;
+		}
+	}
+
+	/* Print user's details. */
+	if ($usr_id) { ?>
 <form action="admuser.php" method="post"><?php echo _hs; ?>
 <h3>Admin controls for user: <?php echo char_fix(htmlspecialchars($u->login)); ?></h3>
 <table class="datatable solidtable">
@@ -353,24 +362,36 @@ document.forms['frm_usr'].usr_login.focus();
 <table class="datatable solidtable">
 <?php
 	if($FUD_OPT_2 & 128) {
-		echo '<tr class="field"><td>Alias:</td><td>'.$u->alias.'</td></tr>';
+		echo '<tr class="field"><td>Alias:</td><td>'. $u->alias .'</td></tr>';
 	}
 ?>
 	<tr class="field"><td>E-mail:</td><td><?php echo $u->email; ?></td></tr>
 	<tr class="field"><td>Name:</td><td><?php echo $u->name; ?></td></tr>
 <?php
+	if ($u->home_page) {
+		echo '<tr class="field"><td>Home page:</td><td><a href="'. $u->home_page .'" title="Visit user\'s homepage">'. $u->home_page . '</a></td></tr>';
+	}
+	if ($u->bio) {
+		echo '<tr class="field"><td>Bio:</td><td>'. $u->bio .'</td></tr>';
+	}
+	if ($u->sig) {
+		echo '<tr class="field"><td>Signature:</td><td>'. $u->sig .'</td></tr>';
+	}
 	if ($u->bday) {
-		echo '<tr class="field"><td>Birthday:</td><td>' . strftime('%B, %d, %Y', strtotime($u->bday)) . '</td></tr>';
+		echo '<tr class="field"><td>Birthday:</td><td>'. strftime('%B, %d, %Y', strtotime($u->bday)) .'</td></tr>';
 	}
 	if ($u->reg_ip) {
-		echo '<tr class="field"><td>Registration IP:</td><td>' . long2ip($u->reg_ip) . '</td></tr>';
+		echo '<tr class="field"><td>Registration:</td><td><a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->reg_ip) .'&amp;'. __adm_rsid. '" title="Analyse IP usage">'. long2ip($u->reg_ip) .'</a> on '. strftime('%d %B %Y', $u->join_date) .'</td></tr>';
 	}
 	if ($u->last_known_ip) {
-		echo '<tr class="field"><td>Last Used IP:</td><td>' . long2ip($u->last_known_ip) . '</td></tr>';
+		echo '<tr class="field"><td>Last visit:</td><td><a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->last_known_ip) .'&amp;'. __adm_rsid. '" title="Analyse IP usage">'. long2ip($u->last_known_ip) .'</a> on '. strftime('%d %B %Y', $u->last_visit) .'</td></tr>';
+	}
+	if ($u->posted_msg_count) {
+		echo '<tr class="field"><td>Post count:</td><td>'. $u->posted_msg_count .' [ <a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'" title="View user\'s messages on the forum">See Messages</a> ]</td></tr>';
 	}
 
-	echo '<tr class="field"><td>E-mail Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
-	echo '<tr class="field"><td>Confirmed Account:</td><td>'.($u->users_opt & 2097152 ? 'No' : 'Yes').' [<a href="admuser.php?act=conf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>E-mail Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : '<font size="+1" color="red">No</font>').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Confirmed Account:</td><td>'.($u->users_opt & 2097152 ? '<font size="+1" color="red">No</font>' : 'Yes').' [<a href="admuser.php?act=conf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? 'No' : 'Yes').' [<a href="admuser.php?act=sig&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	echo '<tr class="field"><td>Can use private messaging:</td><td>'.($u->users_opt & 33554432 ? 'No' : 'Yes').' [<a href="admuser.php?act=pm&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	if ($FUD_OPT_1 & 1048576) {
@@ -436,11 +457,13 @@ if ($acc_mod_only) {
 <?php echo _hs; ?>
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 <input type="hidden" name="act" value="block" />
+<br />
+
 	<table cellspacing="0" border="0" cellpadding="0">
 	<tr class="field" align="center"><td colspan="2"><b>Ban User</b><br />
-	<font size="-1">To set a temporary ban, specify the duration of the ban in number of days. 
+	<div style="font-size: small;">To set a temporary ban, specify the duration of the ban in number of days. 
 	For permanent bans, leave duration value at 0.
-	The value of the duration field for non-permanent bans will show days remaining till ban expiry.</font></td></tr>
+	The value of the duration field for non-permanent bans will show days remaining till ban expiry.</div></td></tr>
 	<tr class="field"><td>Is Banned:</td><td><label><input type="checkbox" name="block" value="65536" <?php echo ($u->users_opt & 65536 ? ' checked /> <b><font color="red">Yes</font></b>' : ' /> No'); ?> </label></td></tr>
 	<tr class="field"><td>Ban Duration (days left)</td><td><input type="text" value="<?php 
 	if ($u->ban_expiry) {

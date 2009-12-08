@@ -12,6 +12,14 @@
 	fud_use('adm.inc', true);
 
 	include($WWW_ROOT_DISK . 'adm/header.php');
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
+	// Reset most users ever online. 
+	if (isset($_POST['btn_clear_online'])) {
+		q('UPDATE '. $tbl .'stats_cache SET most_online = (online_users_reg+online_users_anon+online_users_hidden), most_online_time ='. __request_timestamp__);
+		echo successify('The forum\'s \'most online users\' statistic was sucessfully reset.');
+	}
+
 ?>
 <h2>Forum Dashboard</h2>
 
@@ -48,7 +56,6 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 </td></tr></table>
 
 <?php
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$forum_stats['MESSAGES'] = q_singleval('SELECT count(*) FROM '.$tbl.'msg');
 	$forum_stats['THREADS'] = q_singleval('SELECT count(*) FROM '.$tbl.'thread');
 	$forum_stats['PRIVATE_MESSAGES'] = q_singleval('SELECT count(*) FROM '.$tbl.'pmsg');
@@ -141,6 +148,12 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 </tr>
 </table>
 <span style="float:right;"><a href="admstats.php?<?php echo __adm_rsid; ?>">More... &raquo;</a></span>
+<br />
+
+<hr />
+<form method="post" action="index.php"><?php echo _hs; ?>
+<input type="submit" name="btn_clear_online" value="Reset most online users counter" />
+</form>
 <br />
 
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

@@ -17,7 +17,7 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('tar.inc', true);
-
+	
 function bit_test($val, $mask)
 {
 	return (($val & $mask) == $mask) ? $mask : 0;
@@ -25,8 +25,7 @@ function bit_test($val, $mask)
 
 function mode_string($mode, $de)
 {
-	/* determine string mode
-	01234567890 */
+	/* Determine string mode 01234567890. */
 	$mode_str = 'drwxrwxrwxt';
 
 	if (!is_dir($de)) {/* directory */
@@ -110,66 +109,20 @@ if (!extension_loaded('posix')) {
 	}
 }
 
-	/* Figure out the ROOT paths based on the location of web browseable dir & data dir */
+	/* Figure out the ROOT paths based on the location of web browseable dir & data dir. */
 	$ROOT_PATH[0] = realpath($GLOBALS['WWW_ROOT_DISK']);
 	$ROOT_PATH[1] = realpath($GLOBALS['DATA_DIR']);
 
 	$cur_dir = realpath(isset($_POST['cur']) ? $_POST['cur'] : (isset($_GET['cur']) ? $_GET['cur'] : $ROOT_PATH[0]));
 	$dest = isset($_POST['dest']) ? basename($_POST['dest']) : (isset($_GET['dest']) ? basename($_GET['dest']) : '');
 
-	/* make sure that the specified path is within the forum directories */
+	/* Ensure the specified path is within the forum directories. */
 	if (strpos($cur_dir, $ROOT_PATH[1]) !== 0 && strpos($cur_dir, $ROOT_PATH[0]) !== 0) {
 		$cur = $cur_dir = $ROOT_PATH[0];
 		$dest = '';
 	}
 
-	/* Directory creation code */
-	if (isset($_GET['btn_mkdir']) && !empty($_GET['mkdir'])) {
-		$u = umask(0);
-		if (!mkdir($cur_dir . '/' . basename($_GET['mkdir']), ($FUD_OPT_2 & 8388608 ? 0700 : 0777))) {
-			echo '<h2 style="color:red">ERROR: failed to create '.$cur_dir . '/' . basename($_GET['mkdir']).'</h2>';
-		}
-		umask($u);
-	}
-
-	/* File upload code. */
-	if (isset($_FILES['fname']) && $_FILES['fname']['size']) {
-		$fdest = !empty($_POST['d_name']) ? $_POST['d_name'] : $_FILES['fname']['name'];
-		$fdest = $cur_dir . '/' . basename($fdest);
-		if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
-			echo successify('File successfully uploaded.');
-			@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
-		} else {
-			switch ($_FILES['fname']['error']) {
-			case UPLOAD_ERR_INI_SIZE:
-				errorify('The uploaded file exceeds the upload_max_filesize directive in php.ini.');
-				return;
-			case UPLOAD_ERR_FORM_SIZE:
-				errorify('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.');
-				return;
-			case UPLOAD_ERR_PARTIAL:
-				errorify('The uploaded file was only partially uploaded.');
-				return;
-			case UPLOAD_ERR_NO_FILE:
-				errorify('No file was uploaded.');
-				return;
-			case UPLOAD_ERR_NO_TMP_DIR:
-				errorify('Missing a temporary folder.');
-				return;
-			case UPLOAD_ERR_CANT_WRITE:
-				errorify('Failed to write file to disk.');
-				return;
-			case UPLOAD_ERR_EXTENSION:
-				errorify('File upload stopped by extension.');
-				return;
-			default:
-				errorify('Unknown upload error. Please try again.');
-			} 
-
-		}
-	}
-
-	/* Download file code */
+		/* Download file code. */
 	if (isset($_GET['down']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
 		if (is_file($cur_dir . '/' . $dest)) {
 			header('Content-type: application/octet-stream');
@@ -183,21 +136,21 @@ if (!extension_loaded('posix')) {
 		exit;
 	}
 
-	/* Delete file/directory code */
+	/* Delete file/directory code .*/
 	if (isset($_GET['del']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
 		if ($dest == '.' || $dest == '..') {
-			exit('<h2 style="color:red">ERROR: You cannot delete . or ..</h2>');
+			exit(errorify('ERROR: You cannot delete . or ..'));
 		}
 		if (isset($_GET['del_conf'])) {
 			if (@is_dir($cur_dir . '/' . $dest) && !fud_rmdir($cur_dir . '/' . $dest)) {
-				exit('<h2 style="color:red">ERROR: failed to remove directory '.$cur_dir . '/' . $dest.'</h2>');
+				exit(errorify('ERROR: failed to remove directory '.$cur_dir . '/' . $dest));
 			} else if (@is_file($cur_dir.'/'.$dest) && !unlink($cur_dir.'/'.$dest)) {
-				exit('<h2 style="color:red">ERROR: failed to remove file '.$cur_dir . '/' . $dest.'</h2>');
+				exit(errorify('ERROR: failed to remove file '.$cur_dir . '/' . $dest));
 			} else {
 				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 			}
 		} else {
-			$file = $cur_dir.'/'.$dest;
+			$file = $cur_dir .'/'. $dest;
 			$type = @is_dir($file) ? 'directory' : 'file';
 		?>
 			<html><body bgcolor="red">
@@ -216,6 +169,8 @@ if (!extension_loaded('posix')) {
 			exit;
 		}
 	}
+	
+	/* Change file/directory mode. */
 	if (isset($_GET['chmod'])) {
 		$file = $cur_dir.'/'.$dest;
 		$st = stat($file);
@@ -258,7 +213,7 @@ if (!extension_loaded('posix')) {
 		exit;
 	}
 
-	/* change file/directory permissions */
+	/* Change file/directory permissions. */
 	if (isset($_POST['chmod'])) {
 		$file = $cur_dir.'/'.$dest;
 		$perm_bits = array('oread', 'owrite', 'oexec', 'gread', 'gwrite', 'gexec', 'wread', 'wwrite', 'wexec', 'setuid', 'setgid', 'sticky');
@@ -275,7 +230,55 @@ if (!extension_loaded('posix')) {
 		}
 	}
 
+	/* Print header & menu. No code for popup windows beyond this point. */
 	require($WWW_ROOT_DISK . 'adm/header.php');
+		
+	/* Directory creation code. */
+	if (isset($_GET['btn_mkdir']) && !empty($_GET['mkdir'])) {
+		$u = umask(0);
+		if (!mkdir($cur_dir . '/' . basename($_GET['mkdir']), ($FUD_OPT_2 & 8388608 ? 0700 : 0777))) {
+			echo errorify('ERROR: failed to create '. $cur_dir .'/'. basename($_GET['mkdir']) .'.');
+		} else {
+			echo successify('Directory '. $cur_dir .'/'. basename($_GET['mkdir']) .' sucessfully created.');
+		}
+		umask($u);
+	}
+
+	/* File upload code. */
+	if (isset($_FILES['fname']) && $_FILES['fname']['size']) {
+		$fdest = !empty($_POST['d_name']) ? $_POST['d_name'] : $_FILES['fname']['name'];
+		$fdest = $cur_dir . '/' . basename($fdest);
+		if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
+			echo successify('File '. $fdest .' successfully uploaded.');
+			@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
+		} else {
+			switch ($_FILES['fname']['error']) {
+			case UPLOAD_ERR_INI_SIZE:
+				errorify('The uploaded file exceeds the upload_max_filesize directive in php.ini.');
+				return;
+			case UPLOAD_ERR_FORM_SIZE:
+				errorify('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.');
+				return;
+			case UPLOAD_ERR_PARTIAL:
+				errorify('The uploaded file was only partially uploaded.');
+				return;
+			case UPLOAD_ERR_NO_FILE:
+				errorify('No file was uploaded.');
+				return;
+			case UPLOAD_ERR_NO_TMP_DIR:
+				errorify('Missing a temporary folder.');
+				return;
+			case UPLOAD_ERR_CANT_WRITE:
+				errorify('Failed to write file to disk.');
+				return;
+			case UPLOAD_ERR_EXTENSION:
+				errorify('File upload stopped by extension.');
+				return;
+			default:
+				errorify('Unknown upload error. Please try again.');
+			}
+		}
+	}
 ?>
 <h2>File Adminstration System</h2>
 <?php
@@ -296,7 +299,7 @@ if (!extension_loaded('posix')) {
 ?>
 <br />
 <form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" /><?php echo _hs; ?>
-<fieldset class="field">
+<fieldset class="field"">
         <legend><b>Create directory</b></legend>
 <table class="datatable">
 	<tr class="tiny">
@@ -389,20 +392,20 @@ if (!extension_loaded('posix')) {
 		echo $mode_str.' ('.$mode_o.')</td><td>'.$owner.'</td><td>'.$group.'</td><td nowrap="nowrap">'.$size.' KB</td><td nowrap="nowrap">'.$date_str.'</td><td>'.$time_str.'</td><td>'.$name.'</td>';
 		if (@is_readable($fpath)) {
 			if (@is_writeable($fpath) && !preg_match('/WIN/', PHP_OS)) {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';
+				echo '<td style="border: #aebdc4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';
 			} else {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
+				echo '<td style="border: #aebdc4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}
 
-			echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="admbrowse.php?down=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'">download</a></td>';
+			echo '<td style="border: #aebdc4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="admbrowse.php?down=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'">download</a></td>';
 
 			if (@is_writeable($fpath)) {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
+				echo '<td style="border: #aebdc4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
 			} else {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
+				echo '<td style="border: #aebdc4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}
 		} else {
-			echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" colspan="3" align="center">n/a</td>';
+			echo '<td style="border: #aebdc4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" colspan="3" align="center">n/a</td>';
 		}
 		echo '</tr>';
 	}

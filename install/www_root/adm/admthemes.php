@@ -15,7 +15,7 @@
 	if (php_sapi_name() == 'cli') {
 		if (empty($_SERVER['argv'][1]) || $_SERVER['argv'][1] != 'compileall') {
 			echo "Usage: php admthemes.php compileall\n";
-			echo " - specify compileall' to confirm execution.\n";
+			echo " - specify 'compileall' to confirm execution.\n";
 			die();
 		}
 

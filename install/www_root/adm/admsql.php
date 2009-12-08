@@ -17,7 +17,7 @@
 ?>
 <h2>SQL Manager</h2>
 <div class="alert">
-NOTE: this feature IS DANGEROUS and you could destroy all your data. Please only use it to run SELECT and DESCRIBE statements. Anything else may result in data loss.
+NOTE: this feature IS DANGEROUS and could destroy all your data. Please only use it to run SELECT and DESCRIBE statements. Anything else may result in data loss.
 </div>
 <form name="admsql" method="post" action="admsql.php">
 <?php echo _hs; ?>

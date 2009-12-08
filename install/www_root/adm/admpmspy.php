@@ -20,6 +20,10 @@
 		q('DELETE FROM '.$tbl.'pmsg WHERE id='.$_GET['delmsg']);
 		echo '<span style="color: green">Private message <b>'.$r[0].'</b> was sucessfully deleted.</span>';
 	}
+	
+	if (!empty($_POST['user']) || !empty($_GET['user'])) {
+		$user = empty($_POST['user']) ? $_GET['user'] : $_POST['user'];
+	}
 ?>
 <h2>Private Messages</h2>
 <div class="tutor">
@@ -30,7 +34,7 @@
 
 <center><form method="post" action="admpmspy.php"><?php echo _hs; ?>
 <b>Filter by user:</b>
-<input type="text" name="user" value="" />
+<input type="text" name="user" value="<?php if (isset($user)) echo $user; ?>" />
 <input type="submit" value="Go" name="btn_filter" />
 </form></center>
 
@@ -57,7 +61,6 @@
 	$folders = array(1=>'inbox', 2=>'saved', 4=>'draft', 3=>'sent', 5=>'trash');
 	$i = 0;
 	if (!empty($_POST['user']) || !empty($_GET['user'])) {
-		$user = empty($_POST['user']) ? $_GET['user'] : $_POST['user'];
 		echo '<h2>Private messages for user: '.$user.'</h2>';
 		$cond = 'WHERE u.alias = '._esc($user);
 	} else {

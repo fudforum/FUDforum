@@ -13,7 +13,9 @@
 	fud_use('adm.inc', true);
 	fud_use('ipfilter.inc', true);
 
-	/* validate the address */
+	include($WWW_ROOT_DISK . 'adm/header.php');
+		
+	/* Validate the IP address. */
 	$bits = null;
 	if (isset($_POST['ipaddr'])) {
 		$bits = explode('.', trim($_POST['ipaddr']));
@@ -28,10 +30,13 @@
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && isset($bits)) {
 		q('UPDATE '.$tbl.'ip_block SET ca='.$bits[0].', cb='.$bits[1].', cc='.$bits[2].', cd='.$bits[3].' WHERE id='.(int)$_POST['edit']);
+		echo successify('IP address ('.$_POST['ipaddr'].') was successfully updated.');
 	} else if (isset($_POST['btn_submit']) && isset($bits)) {
 		q('INSERT INTO '.$tbl.'ip_block (ca, cb, cc, cd) VALUES ('.$bits[0].', '.$bits[1].', '.$bits[2].', '.$bits[3].')');
+		echo successify('IP address ('.$_POST['ipaddr'].') was successfully added.');
 	} else if (isset($_GET['del'])) {
 		q('DELETE FROM '.$tbl.'ip_block WHERE id='.(int)$_GET['del']);
+		echo successify('IP address was successfully removed.');
 	} else {
 		$nada = 1;
 	}
@@ -50,8 +55,6 @@
 	} else {
 		$ipaddr = $edit = '';
 	}
-
-	include($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>IP Filter System</h2>
 <p>Block users with a matching IP address from registering or posting messages on the forum.</p>

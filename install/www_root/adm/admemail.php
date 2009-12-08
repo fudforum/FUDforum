@@ -14,16 +14,21 @@
 	fud_use('email_filter.inc', true);
 	fud_use('adm.inc', true);
 
+	require($WWW_ROOT_DISK . 'adm/header.php');
+		
 	if (isset($_POST['edit'], $_POST['btn_update']) && !empty($_POST['e_string'])) {
 		$e_email_block_opt = (int) $_POST['e_email_block_opt'];
 		$e_string = _esc(trim($_POST['e_string']));
 		q('UPDATE '.$DBHOST_TBL_PREFIX.'email_block SET email_block_opt='.$e_email_block_opt.', string='.$e_string.' WHERE id='.(int)$_POST['edit']);
+		echo successify('Address ('.$_POST['e_string'].') was successfully updated.');
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['e_string'])) {
 		$e_email_block_opt = (int) $_POST['e_email_block_opt'];
 		$e_string = _esc(trim($_POST['e_string']));
 		db_li('INSERT INTO '.$DBHOST_TBL_PREFIX.'email_block (email_block_opt, string) VALUES('.$e_email_block_opt.', '.$e_string.')', $tmp);
+		echo successify('Address ('.$_POST['e_string'].') was successfully added.');
 	} else if (isset($_GET['del'])) {
 		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'email_block WHERE id='.(int)$_GET['del']);
+		echo successify('Address was successfully removed.');
 	} else {
 		$nada = 1;
 	}
@@ -37,8 +42,6 @@
 	} else {
 		$edit = $e_email_block_opt = $e_string = '';
 	}
-
-	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>E-mail Filter</h2>
 <p>Block users with matching E-mail address from registering or posting messages on the forum.</p>

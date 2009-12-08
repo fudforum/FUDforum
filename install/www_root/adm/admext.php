@@ -12,8 +12,8 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('ext.inc', true);
-	include($WWW_ROOT_DISK . 'adm/header.php');
-		
+	
+	include($WWW_ROOT_DISK . 'adm/header.php');	
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (!empty($_POST['c_ext'])) {
@@ -26,17 +26,20 @@
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && $c_ext) {
 		q('UPDATE '.$tbl.'ext_block SET ext='._esc($c_ext).' WHERE id='.(int)$_POST['edit']);
+		echo successify('File extention (*.'.$c_ext.') was successfully updated.');
 	} else if (isset($_POST['btn_submit']) && $c_ext) {
 		q('INSERT INTO '.$tbl.'ext_block (ext) VALUES('._esc($c_ext).')');
+		echo successify('File extention (*.'.$c_ext.') was successfully added.');
 	} else if (isset($_GET['del'])) {
 		q('DELETE FROM '.$tbl.'ext_block WHERE id='.(int)$_GET['del']);
+		echo successify('File extention was successfully removed.');
 	} else {
 		$nada = 1;
 	}
 
 	if (!isset($nada) && db_affected()) {
 		ext_cache_rebuild();
-		echo '<font color="green">Extension cache was successfully rebuilt.</font>';
+		echo successify('Extension cache was successfully rebuilt.');
 	}
 
 	if (isset($_GET['edit'])) {
