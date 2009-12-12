@@ -9,11 +9,11 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-// Initialize plugin
+// Initialize plugin.
 plugin_add_hook('BBCODE2HTML', 'plugin_wikilinks_tag_to_html');
 plugin_add_hook('HTML2BBCODE', 'plugin_wikilinks_html_to_tag');
 
-// Convert [[wikilink]]s to html code (post message)
+// Convert [[wikilink]]s to html code (post message).
 function plugin_wikilinks_tag_to_html($array) {
 	list($bbcode) = $array;
 
@@ -21,7 +21,7 @@ function plugin_wikilinks_tag_to_html($array) {
 		die('ERROR: Please configure the wikilinks plugin from the Plugin Manager Control panel.');
 	}
 
-	// Remove [notag] blocks
+	// Remove [notag] blocks.
 	$pre = NULL; $i = 0;
 	if (preg_match_all('#\[notag\](.*?)\[\/notag\]#si', $bbcode, $notags, PREG_SET_ORDER)) {
 		foreach ($notags as $notag) {
@@ -29,16 +29,16 @@ function plugin_wikilinks_tag_to_html($array) {
 			$pre[$i++] = $notag[0];
 		}
 	}
-	// Convert wiki-style links into BBcode links
-	while (preg_match('!\[\[([\w\s\*\/:-]+?)\]\](\w*)!i', $bbcode, $res)) {
+	// Convert wiki-style links into BBcode links.
+	while (preg_match('!\[\[([\p{L}\p{N}\p{P}\p{Z}]+?)\]\](\w*)!ui', $bbcode, $res)) {
 		$m = str_replace(' ', '_', $res[1]);
 		$bbcode = str_replace($res[0], '[url='.$ini['WIKILINKS_URL'].$m.']'.$res[1].$res[2].'[/url]', $bbcode);
 	}
-	while (preg_match('!\[\[([\w\s\*\/:-]+)\|([\w\s\/-]+)\]\]!i', $bbcode, $res)) {
+	while (preg_match('!\[\[([\p{L}\p{N}\p{P}\p{Z}]+?)\|([\p{L}\p{N}\p{P}\p{Z}]+?)\]\]!ui', $bbcode, $res)) {
 		$m = str_replace(' ', '_', $res[1]);
 		$bbcode = str_replace($res[0], '[url='.$ini['WIKILINKS_URL'].$m.']'.$res[2].'[/url]', $bbcode);
 	}
-	// Reinsert [notag] blocks
+	// Reinsert [notag] blocks.
 	if( is_array($pre)) {
 		foreach($pre as $i => $notag) {
 			$bbcode = str_replace("***nOtAg_sTrInG$i***", $notag, $bbcode);
@@ -48,7 +48,7 @@ function plugin_wikilinks_tag_to_html($array) {
 	return array($bbcode);
 }
 
-// Convert html back to [[wikilink]] tags (edit message)
+// Convert html back to [[wikilink]] tags (edit message).
 function plugin_wikilinks_html_to_tag($array) {
 	list($bbcode) = $array;
 
@@ -56,7 +56,7 @@ function plugin_wikilinks_html_to_tag($array) {
 		die('ERROR: Please configure the wikilinks plugin from the Plugin Manager Control panel.');
 	}
 
-	while (preg_match('!<a href="'.str_replace('://', '&#58;&#47;&#47;', $ini['WIKILINKS_URL']).'([\w\s\*\/:-]+)" target="_blank">([\w\s\*\/-]+)</a>!i', $bbcode, $res)) {
+	while (preg_match('!<a href="'.str_replace('://', '&#58;&#47;&#47;', $ini['WIKILINKS_URL']).'([\p{L}\p{N}\p{P}\p{Z}]+?)" target="_blank">([\p{L}\p{N}\p{P}\p{Z}]+?)</a>!ui', $bbcode, $res)) {
 		$m = str_replace('_', ' ', $res[1]);
 		if ( strpos($res[2], $res[1]) === 0 ) {  // start with
 			$x = substr($res[2], strlen($res[1]));
