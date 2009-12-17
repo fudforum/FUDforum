@@ -4,11 +4,12 @@
 */
 
 *********************************
-*	Upgrade Instructions	*
+*	Upgrade instructions	*
 *********************************
 
-1) If you have safe_mode enabled you will need to upload the upgrade.php script using the forum's file manager in to the forum's
-   WWW_SERVER_ROOT directory. Otherwise copy the upgrade.php file in to that directory manually.
+Quick upgrade steps:
+
+1) Copy the upgrade.php file to your forum's WWW_SERVER_ROOT directory. In the unlikely event of 'safe_mode' being enabled, you will need to upload the upgrade.php script using the forum's file manager.
 
 2) This step applies ONLY to users who's PHP has a memory limit.
 	Make sure that the directory the upgrade script is in is either writable by the webserver or 
@@ -23,21 +24,26 @@
 5) After the consistency checker runs you should be running the new version of FUDforum.
 
 **NOTE**
-	For the runtime of the upgrade script 10-20 seconds your forum will be disabled to prevent data corruption.
+	For the runtime of the upgrade script (10-20 seconds) your forum will be disabled to prevent data corruption.
 
-*********************************
-*	CVS Instructions	*
-*********************************
+Detailed instructions are available at http://cvs.prohost.org/index.php/Upgrading
+
+*****************************************
+*	Create upgrade script from SVN	*
+*****************************************
+
+The below procedure can be used to create your own upgrade script if you don't want 
+to download it from the download site:
 
 1) Checkout the latest release of the forum using the command below:
-	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum21 checkout fud21_upgrade
+	svn co https://fudforum.svn.sourceforge.net/svnroot/fudforum/trunk fudforum
 
-2) Mark the files for edit by running:
-	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum21 edit fud21_upgrade
+2) Enter the 'fudforum' directory, and make a copy of 'upgrade.php':
+	cp upgrade.php upgrade-final.php
 
-3) Enter the fud21_upgrade directory, which was created by the CVS and run:
-	php -q create_file_list install 1 >> upgrade.php
-   ** If your php was not compiled with zlib support, remove 1 from the above command.
+3) Append the latest forum files to the copied 'upgrade-final.php' script:
+	php -q create_file_list install 1 >> upgrade-final.php
+   ** If your php was compiled without zlib (unlikely), remove 1 from the above command.
 
 4) Now you have latest working upgrade script, you can now begin the upgrade process by following the upgrade instructions above.
 
