@@ -21,11 +21,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
 </head>
 <body>
-<table class="headtable"><tr>
+<table class="headtable" width="100%"><tr>
   <td><a href="index.php<?php if (defined('__adm_rsid')) echo '?'.__adm_rsid; ?>" title="Return to the Admin Control Panel Dashboard"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a>
   </td>
   <td><span class="linkhead">Admin Control Panel</span></td>
-  <td><?php if (defined('__fud_index_name__')) { ?>
+  <td align="right"><?php if (defined('__fud_index_name__')) { ?>
       [ <a title="Go back to your forum" href="../<?php echo __fud_index_name__.'?'.__adm_rsid; ?>">Return to forum &raquo;</a> ]
       <?php } ?>
   </td>
@@ -39,10 +39,11 @@
 <tr>
 	<td nowrap="nowrap">
 <?php } ?>
-    [ <a href="admbrowse.php?<?php echo __adm_rsid; ?>">Files</a> ]
+	<center>
+	[ <a href="admbrowse.php?<?php echo __adm_rsid; ?>">Files</a> ]
 	[ <a href="admsql.php?<?php echo __adm_rsid; ?>">SQL</a> ]
 	[ <a href="admbatch.php?<?php echo __adm_rsid; ?>">Jobs</a> ]
-	<br /><br />
+	</center><br />
 
 	<span class="linkgroup">General Management</span><br />
 	<a href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a><br />

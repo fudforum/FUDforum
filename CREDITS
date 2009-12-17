@@ -1,39 +1,43 @@
 $Id$
 
-Developers
+Development
 ==============================================================================
 Ilia Alshanetsky (prottoss)		ilia@prohost.org
 Slava Poliakov (hackie)			hackie@prohost.org
 Frank Naude				naudefj on support forum
 Jan Reininghaus				JanRei on support forum
 
-Contributors
+Design
+==============================================================================
+David Rees (fudidudi)			(design of the Admin Control Panel)
+
+Stan Bloch (Ecxeleron)			(all FUDforum smilies & some icons)
+sbloch@yahomail.ne.gs
+http://ecxeleron.orphus.com
+
+DevoX 					(Default Layout Concept & Images)
+http://www.spudland.com/ 		
+
+The KDE Project				(a rather large amount of icons used
+http://www.kde.org			 in FUDforum are from the KDE project)
+
+Bug fixing
+==============================================================================
+
+Jan Reininghaus (JanRei)		(various patches and layout fixes)
+http://fudforum.org/forum/index.php?t=usrinfo&id=2786
+
+Brandon Browning (mauftarkie) 		(English grammar & spelling fixes, 
+http://www.powertie.org/		 consistency fixes and numerous bug
+					 fixes)
+
+Translattion
 ==============================================================================
 
 TranslateWiki				(translation platform for FUDforum)
 http://translatewiki.net/wiki/Translating:FUDforum
 
-------------------------------------------------------------------------------
-The KDE Project				(a rather large amount of icons used
-http://www.kde.org			 in FUDforum are from the KDE project)
-
------------------------------------------------------------------------------
-Jan Reininghaus				(various patches and layout fixes)
-http://fudforum.org/forum/index.php?t=usrinfo&id=2786
-
------------------------------------------------------------------------------
-Stan Bloch (Ecxeleron)			(all FUDforum smilies & some icons)
-sbloch@yahomail.ne.gs
-http://ecxeleron.orphus.com
-
-------------------------------------------------------------------------------
-DevoX 					(Default Layout Concept & Images)
-http://www.spudland.com/ 		
-
-------------------------------------------------------------------------------
-Brandon Browning (mauftarkie) 		(English grammar & spelling fixes, 
-http://www.powertie.org/		 consistency fixes and numerous bug
-					 fixes)
+Other translators (prior to TranslateWiki support):
 
 ------------------------------------------------------------------------------
 Olliver Wichmann (Ken Kizaki) 		(German Translation)

@@ -1,9 +1,25 @@
 body, body.popup {
 	color: #555;
-	background: #aba;
+	background: url(../images/adm_grd.gif) repeat-x top #dfe0df;
 	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
 	font-size: medium;
 	font-size-adjust: 0.50;
+}
+
+table.linktable h2, 
+table.linktable h3, 
+table.linktable p {
+	padding: 0px 0px 5px 3px;
+	margin: 0px;
+}
+
+table.linktable h4 {
+	padding: 0px 0px 5px 3px;
+	margin: 0px;
+}
+ 
+table.linktable a b {
+	color:#396;
 }
 
 body.popup {
@@ -30,37 +46,41 @@ a:active, a:hover, .headtable a:hover {
 }
 
 table.headtable {
-	background: #527bbd;
-	color: white;
-	width: 100%;
+	color: #bbb;
 	height: 50px;
+	margin-bottom:5px;
 }
 
 table.headtable a {
-	color: yellow;
+	color: #8c8;
 }
 
 table.maintable {
-	background: #ddefed;
+	background: #eee;
 	border-spacing: 0;
 	border: 0;
 	padding: 0;
 	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
 	border-radius: 0.75em;
+	width:100%
 }
 
 table.linktable {
-	text-align: center;
+	text-align: left;
 	border: 0;
 	border-spacing: 0;
-	padding: 0;
-	padding-top: 10px;
+	padding: 5px;
 	font-size: small;
 }
 
+table.linktable td {
+	vertical-align:top;
+	padding:3px;
+}
 .linkdata {
 	vertical-align: text-top;
+	padding-top: 0;
 }
 
 .maindata {
@@ -68,12 +88,16 @@ table.linktable {
 	background: #cde;
 	width: 100%;
 	padding-left: 5px;
+	background-color: #fff;
+	-moz-border-radius: 0.75em;
+	-webkit-border-radius: 0.75em;
+	border-radius: 0.75em;
 }
 
 span.linkhead {
 	color: #fff;
 	font-weight: bold;
-	font-size: x-large;
+	font-size: large;
 }
 
 span.linkgroup {
@@ -88,29 +112,30 @@ span.linkgroup {
 
 .datatable {
 	border: 0px;
-	border-spacing: 1px;
+	border-spacing: 2px;
 	padding: 3px;
 }
 
 .resulttable {
 	border: 0px;
-	border-spacing: 3px;
+	border-spacing: 1px;
 	padding: 1px;
 }
 
 
 .fulltable {
-	border: 1px dashed #000;
+	border: 1px solid #ddd;
 	width: 100%;
 }
 
 .solidtable {
 	border-spacing: 0px;
+	padding-top: 0px;
 }
 
 .field {
 	vertical-align: top;
-	background: #deeffe;
+	background: #eeeffe;
 }
 
 .field .fieldtopic {
@@ -122,12 +147,14 @@ span.linkgroup {
 }
 
 .field:hover {
-        background: #eeeffe;
+	background: #dddeed;
 	border-bottom: 1px solid red;
 } 
 
 .field td {
-        border-bottom: 1px inset #f0f0f0;
+	border-bottom: 2px inset #fff;
+	padding: 2px;
+	margin: 3px;
 }
 
 .tiny {
@@ -144,11 +171,13 @@ span.linkgroup {
 }
 
 .resulttopic {
-	background: #deefef;
+	background: url(../images/adm_th.gif) repeat #deefef 0 -1px;
+	height:21px;
+	overflow:hidden;
 }
 
 .resultrow1 {
-	background: #d0d0d0;
+	background: #fff;
 }
 
 .resultrow2 {
@@ -162,7 +191,7 @@ span.linkgroup {
 .tutor {
 	padding: 5px;
 	margin: 3px;
-	background: #fffeee;
+	background: #eeeffe;
 	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
 	border-radius: 0.75em;
