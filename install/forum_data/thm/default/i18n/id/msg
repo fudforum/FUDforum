@@ -1021,6 +1021,7 @@ pmsg_pdf_btn:Buat PDF
 search_results_hdr:Ada: {VAR: total} hasil pencarian
 thread_del_all:Hapus semua yang terpilih
 thread_mov_all:Pindahkan yang terpilih
+thread_merge_all:Gabungkan Semua yang Dipilih
 thread_loc_all:Kunci/Buka kunci Semua Pilihan
 dmsg_ip:IP:
 err_blockedaccnt_title:SALAH: Akun anda sudah di-filter.

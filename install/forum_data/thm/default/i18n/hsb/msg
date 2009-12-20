@@ -1019,6 +1019,7 @@ pmsg_pdf_btn:PDF-archiw wutworić
 search_results_hdr:{VAR: total} pytanskich wuslědkow namakanych
 thread_del_all:Wšě wubrane zničić
 thread_mov_all:Wšě wubrane přesunyć
+thread_merge_all:Wšě wubrane zjednoćić
 thread_loc_all:Wšě wubrane zawrěć/wotewrěć
 dmsg_ip:IP:
 err_blockedaccnt_title:ZMYLK: Twoje konto bu wufiltrowane.

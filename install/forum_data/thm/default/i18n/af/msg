@@ -90,7 +90,7 @@ newest_user:Die nuutste geregistreerde lid is
 next_page:Volgende bladsy
 next_thread:Volgende onderwerp:
 no_messages:Daar is geen nuwe boodskappe in die forum
-no_msg_body:Geen teks in die boodskap
+no_msg_body:Geen teks in die boodskap nie.
 no_new_posts:Geen nuwe boodskappe
 no_posts:Geen boodskappe
 no_subscribed_forums:Geen ingeskrewe forums
@@ -829,8 +829,8 @@ p_VISIBLE:Sigbaar
 reported_in_thread:In:
 help_back_to_top:na bo
 help_return_to_index:Terug na help indeks
-imsg_err_message_title:ongeldige boodskap
-imsg_err_message_msg:die boodskap wat u wil sien bestaan nie.
+imsg_err_message_title:Ongeldige boodskap
+imsg_err_message_msg:Die boodskap waarna u wil kyk bestaan nie.
 poll_edit:Wysig
 register_err_not_valid_img:Die gespesifiseerde URL bevat nie 'n geldige foto nie.
 pmsg_recepient:ontvanger
@@ -843,8 +843,8 @@ postcheck_pm_disabled:U kan nie 'n privaatboodskap aan "{VAR-HTML: v}" stuur nie
 polllist_vote:Stem
 polllist_view_results:Bekyk resultate
 polllist_name:Stemmingsnaam
-polllist_date:gekep op
-polllist_owner:geskep deur
+polllist_date:Geskep op
+polllist_owner:Geskep deur
 polllist_votes:Totale aantal stemme
 polllist_action:Aksie
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Wys beskikbare stemmings</a>

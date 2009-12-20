@@ -1,6 +1,7 @@
 # Messages for Catalan (Català)
 # Exported from translatewiki.net
 # Author: Qllach
+# Author: Ssola
 
 action:Acció
 add_to_buddy_list:afegir a la llista d`amics
@@ -352,7 +353,7 @@ post_passwd:Contrasenya de publicació:
 post_poll:Enquesta:
 post_create_poll:CREAR ENQUESTA
 post_poll_delete:ESBORRAR
-post_poll_edit:EDITAR
+post_poll_edit:MODIFICAR
 post_mod_opt:Opcions del moderador:
 post_thread_type:Tipus de fil de discussió:
 post_thread_expiry:Expiració de fil de discussió:
@@ -717,7 +718,7 @@ groupmgr_member:Membre
 groupmgr_cancel:Cancel.lar
 groupmgr_add_member:Afegir membre
 groupmgr_update_member:Actualitzar membre
-groupmgr_edit:Editar
+groupmgr_edit:Modificar
 groupmgr_delete:Esorrar
 group_mgr_anon:Anònim
 group_mgr_reged:Tots els usuaris enregistrats
@@ -731,7 +732,7 @@ permission_denied_msg:Els seus permisos no li permeten realitzar aquesta acció.
 p_READ:Llegir
 p_POST:Publicar
 p_REPLY:Respondre
-p_EDIT:Editar
+p_EDIT:Modificar
 p_DEL:Esborrar
 p_STICKY:Missatges fixos
 p_POLL:Crear enquestes
@@ -827,7 +828,7 @@ help_back_to_top:Tornar a dalt
 help_return_to_index:Tornar a l`í­ndex d`ajuda
 imsg_err_message_title:El missatge no és vàlid
 imsg_err_message_msg:El missatge que està  intentant veure no existeix.
-poll_edit:Editar
+poll_edit:Modificar
 register_err_not_valid_img:La URL especificada no conté una imatge vàlida
 pmsg_recepient:Destinatari
 register_err_taken_alias:L`àlies que està  intentant usar ja l`està  usant un altre membre del fòrum. si us plau, esculli`n un altre.
@@ -943,7 +944,7 @@ register_pm_notification_desc:Si està  activat, se li notificarà pel mètode 
 findu_admin_opts_header:Opcions d`administració
 findu_unban:No expulsat
 findu_ban:Expulsat
-findu_edit:Editar
+findu_edit:Modificar
 findu_delete:Esborrar
 # Fuzzy
 dmsg_reply_to:és una resposta al missatge #{VAR: obj->reply_to}
@@ -1041,3 +1042,4 @@ post_common_quote:Afegir cita
 post_common_code:Afegir codi
 rating_delete:Esborrar
 post_always_on_top:Fer que el fil sempre aparegui a dalt a la llista de fils
+btn_edit:modifica

@@ -1024,6 +1024,7 @@ pmsg_pdf_btn:Создать PDF-архив
 search_results_hdr:В результате поиска найдено страниц: {VAR: total}
 thread_del_all:Удалить отмеченные
 thread_mov_all:Перенести отмеченные
+thread_merge_all:Объединить все выбранные
 thread_loc_all:Блокировать / разблокировать всех выбранных
 dmsg_ip:IP:
 err_blockedaccnt_title:ОШИБКА: Ваш аккаунт внесен в список запрещенных.

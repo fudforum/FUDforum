@@ -1019,6 +1019,7 @@ pmsg_pdf_btn:Crear o arquivo PDF
 search_results_hdr:Atopáronse {VAR: total} resultados para a túa procura
 thread_del_all:Borrar toda a selección
 thread_mov_all:Mover toda a selección
+thread_merge_all:Fusionar toda a selección
 thread_loc_all:Bloquear/Desbloquear toda a selección
 dmsg_ip:Enderezo IP:
 err_blockedaccnt_title:ERRO: a túa conta foi filtrada.

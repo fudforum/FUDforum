@@ -1020,6 +1020,7 @@ pmsg_pdf_btn:PDF アーカイブを作成
 search_results_hdr:{VAR: total} 個の検索結果が見つかりました。
 thread_del_all:選択したものをすべて削除
 thread_mov_all:選択したものをすべて移動
+thread_merge_all:選択したものをすべて統合
 thread_loc_all:選択したものをすべてロックもしくはロック解除
 dmsg_ip:IP:
 err_blockedaccnt_title:エラー: あなたのアカウントは排除されています。
