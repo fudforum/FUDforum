@@ -1,0 +1,28 @@
+Files found in language directories:
+
+name
+  Name of language (used by installer & ACP).
+
+charset
+  Character set of the language, should typically be 'utf-8'.
+
+dir
+  Interface text direction ('ltr' or 'rtl').
+
+locale
+  List of locales to try (one locale per line).
+
+msg
+  Messages used in template files.
+
+language.inc
+  A PHP include file containing a single convertPlural() function.
+
+help/
+  Directory containing the forum's help files.
+
+img/
+  Directory containing the forum's buttons.
+
+Notes:
+* Missing files will be inherited from 'en' (English).
