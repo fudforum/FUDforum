@@ -171,8 +171,11 @@ This setting defines on how many character to wrap message bodies on, any text s
 {{{FLOOD_CHECK_TIME
 The minimum time delay before a user can post a message.}}}
 
+{{{MOD_FIRST_N_POSTS
+Queue user's first N posts for approval. If a user's post count exceeds this number his/her posts will be automatically approved (unless posted to a moderated forum). Set to 0 to disable.}}}
+
 {{{POST_MIN_LEN
-Prevent new users from posting empty or very short messages. Messages must be longer than this amount of characters.}}}
+Prevent users from posting empty or very short messages. Messages must be longer than this amount of characters before it will be accepted.}}}
 
 {{{POSTS_BEFORE_LINKS
 Prevent new users from posting spam. Users are required to post more than this amount of messages before they can embed links into their posts.}}}

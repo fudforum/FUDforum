@@ -194,7 +194,8 @@ $(document).ready(function() {
 <?php
 	print_reg_field('Forum Title', 'FORUM_TITLE');
 	print_txt_field('Forum Description', 'FORUM_DESCR');
-	print_bit_field('Forum Enabled', 'FORUM_ENABLED');
+	$msg = ($GLOBALS['FUD_OPT_1'] & 1) ? '' : '<font color="red">NOTE: </font>';
+	print_bit_field($msg .'Forum Enabled', 'FORUM_ENABLED');
 	print_txt_field('Reason for Disabling', 'DISABLED_REASON');
 	print_bit_field('Allow Registration', 'ALLOW_REGISTRATION');
 ?>
@@ -272,6 +273,7 @@ $(document).ready(function() {
 	print_bit_field('Allow Tree View of Thread Listing', 'TREE_THREADS_ENABLE');
 	print_bit_field('Default Topic View', 'DEFAULT_THREAD_VIEW');
 	print_reg_field('Maximum Depth of Thread Listing (tree view)', 'TREE_THREADS_MAX_DEPTH', 1);
+	print_reg_field('Maximum Shown Subject Length (tree view)', 'TREE_THREADS_MAX_SUBJ_LEN', 1);
 	print_bit_field('Check for Duplicates', 'THREAD_DUP_CHECK');
 	print_bit_field('Topic Rating', 'ENABLE_THREAD_RATING');
 ?>
@@ -289,7 +291,9 @@ $(document).ready(function() {
 	print_bit_field('Display IP Publicly', 'DISPLAY_IP');
 	print_bit_field('Enable Quick Reply', 'QUICK_REPLY_ENABLED');
 	print_bit_field('Quick Reply Display Mode', 'QUICK_REPLY_DISPLAY');
+	print_reg_field('Flood Trigger (seconds)', 'FLOOD_CHECK_TIME', 1);
 	print_reg_field('Minimum Message Length', 'POST_MIN_LEN', 1);
+	print_reg_field('Moderate user\'s first N messages', 'MOD_FIRST_N_POSTS', 1);
 	print_reg_field('Messages Before Allowing Links', 'POSTS_BEFORE_LINKS', 1);
 	print_reg_field('Word Wrap', 'WORD_WRAP', 1);
 	print_reg_field('Edit Time Limit (minutes)', 'EDIT_TIME_LIMIT', 1);
@@ -431,11 +435,7 @@ $(document).ready(function() {
 <tbody class="section 16">
 <tr class="fieldtopic"><td colspan="2"><a name="16" /><br /><b>General Settings</b> </td></tr>
 <?php
-	print_reg_field('Maximum Shown Subject Length (tree view)', 'TREE_THREADS_MAX_SUBJ_LEN', 1);
 	print_reg_field('Polls Per Page', 'POLLS_PER_PAGE', 1);
-
-	print_reg_field('Flood Trigger (seconds)', 'FLOOD_CHECK_TIME', 1);
-	print_bit_field('Bust&#39;A&#39;Punk', 'BUST_A_PUNK');
 ?>
 <tr class="field"><td colspan="2">Server Time Zone: <font size="-1"> <?php echo $help_ar['SERVER_TZ'][0]; ?></font><br /><select name="CF_SERVER_TZ" style="font-size: xx-small;"><?php echo tmpl_draw_select_opt($tz_values, $tz_names, $SERVER_TZ, '', ''); ?></select></td></tr>
 <?php
@@ -444,6 +444,7 @@ $(document).ready(function() {
 	print_reg_field('Max History', 'MNAV_MAX_DATE', 1);
 	print_reg_field('Max Message Preview Length', 'MNAV_MAX_LEN', 1);
 	print_bit_field('Attachment Referrer Check', 'DWLND_REF_CHK');
+	print_bit_field('Bust&#39;A&#39;Punk', 'BUST_A_PUNK');
 	print_bit_field('Disable Captcha Test', 'DISABLE_TURING_TEST');
 	print_bit_field('Anonymous User Captcha Test', 'USE_ANON_TURING');
 	print_bit_field('Use Captcha images', 'GRAPHICAL_TURING');

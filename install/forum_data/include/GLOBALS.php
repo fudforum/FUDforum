@@ -68,6 +68,7 @@
 	$NOTIFY_FROM		= '';		/* email */
 	$ANON_NICK		= 'Anonymous Coward';
 	$FLOOD_CHECK_TIME	= 60;		/* seconds */
+	$MOD_FIRST_N_POSTS	= 1;
 	$POSTS_BEFORE_LINKS	= 0;
 	$POST_MIN_LEN		= 3;
 	$SERVER_TZ		= 'America/Montreal'; /* timezone code from tz.inc */

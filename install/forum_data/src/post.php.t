@@ -25,18 +25,18 @@ function flood_check()
 	$pl_id = 0;
 	$old_subject = $attach_control_error = '';
 
-	/* redirect user where need be in moderated forums after they've seen the moderation message. */
+	/* Redirect user where need be in moderated forums after they've seen the moderation message. */
 	if (isset($_POST['moderated_redr'])) {
 		check_return($usr->returnto);
 	}
 
-	/* we do this because we don't want to take a chance that data is passed via cookies */
+	/* We do this because we don't want to take a chance that data is passed via cookies. */
 	$src = empty($_POST) ? '_GET' : '_POST';
 	foreach (array('reply_to','msg_id','th_id','frm_id') as $v) {
 		$$v = isset(${$src}[$v]) ? (int) ${$src}[$v] : 0;
 	}
 
-	/* replying or editing a message */
+	/* Replying or editing a message. */
 	if ($reply_to || $msg_id) {
 		if (($msg = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}msg WHERE id='.($reply_to ? $reply_to : $msg_id)))) {
 			$msg->body = read_msg_body($msg->foff, $msg->length, $msg->file_id);
@@ -64,20 +64,20 @@ function flood_check()
 	}
 	$frm->forum_opt = (int) $frm->forum_opt;
 
-	/* fetch permissions & moderation status */
+	/* Fetch permissions & moderation status. */
 	$MOD = (int) ($is_a || ($usr->users_opt & 524288 && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='._uid.' AND forum_id='.$frm->id)));
 	$perms = perms_from_obj(db_sab('SELECT group_cache_opt, '.$MOD.' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_id='.$frm->id.' ORDER BY user_id ASC LIMIT 1'), $is_a);
 
-	/* More Security */
+	/* More Security. */
 	if ($thr && !($perms & 4096) && $thr->thread_opt & 1) {
 		error_dialog('{TEMPLATE: post_err_lockedthread_title}', '{TEMPLATE: post_err_lockedthread_msg}');
 	}
 
 	if (_uid) {
-		/* all sorts of user blocking filters */
+		/* All sorts of user blocking filters. */
 		is_allowed_user($usr);
 
-		/* if not moderator, validate user permissions */
+		/* If not moderator, validate user permissions. */
 		if (!$reply_to && !$msg_id && !($perms & 4)) {
 			std_error('perms');
 		} else if (!$msg_id && ($th_id || $reply_to) && !($perms & 8)) {
@@ -110,7 +110,7 @@ function flood_check()
 	$attach_list = array();
 	$msg_tdescr = $msg_smiley_disabled = $msg_subject = $msg_body = '';
 
-	/* Retrieve Message */
+	/* Retrieve Message. */
 	if (!isset($_POST['prev_loaded'])) {
 		if (_uid) {
 			$msg_show_sig = !$msg_id ? ($usr->users_opt & 2048) : ($msg->msg_opt & 1);
@@ -178,7 +178,7 @@ function flood_check()
 			error_dialog('{TEMPLATE: post_err_floodtrig_title}', '{TEMPLATE: post_err_floodtrig_msg}');
 		}
 
-		/* import message options */
+		/* Import message options. */
 		$msg_show_sig		= isset($_POST['msg_show_sig']) ? (string)$_POST['msg_show_sig'] : '';
 		$msg_smiley_disabled	= isset($_POST['msg_smiley_disabled']) ? (string)$_POST['msg_smiley_disabled'] : '';
 		$msg_poster_notif	= isset($_POST['msg_poster_notif']) ? (string)$_POST['msg_poster_notif'] : '';
@@ -187,7 +187,7 @@ function flood_check()
 		$msg_subject		= isset($_POST['msg_subject']) ? (string)$_POST['msg_subject'] : '';
 		$msg_tdescr		= isset($_POST['msg_tdescr']) ? (string)$_POST['msg_tdescr'] : '';
 
-		/* Microsoft Word Hack to eliminate special characters */
+		/* Microsoft Word Hack to eliminate special characters. */
 		$in = array('”','“','’','‘','…','—','–'); $out = array('"','"',"'","'",'...','--');
 		$msg_body = str_replace($in,$out,$msg_body);
 		$msg_subject = str_replace($in,$out,$msg_subject);
@@ -196,7 +196,7 @@ function flood_check()
 		if ($perms & 256) {
 			$attach_count = 0;
 
-			/* restore the attachment array */
+			/* Restore the attachment array. */
 			if (!empty($_POST['file_array'])) {
 				if ($usr->data === md5($_POST['file_array'])) {
 					if (($attach_list = unserialize(base64_decode($_POST['file_array'])))) {
@@ -216,10 +216,10 @@ function flood_check()
 				}
 			}
 
-			/* remove file attachment */
+			/* Remove file attachment. */
 			if (!empty($_POST['file_del_opt']) && isset($attach_list[$_POST['file_del_opt']])) {
 				$attach_list[$_POST['file_del_opt']] = 0;
-				/* Remove any reference to the image from the body to prevent broken images */
+				/* Remove any reference to the image from the body to prevent broken images. */
 				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== false) {
 					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
 				}
@@ -239,7 +239,7 @@ function flood_check()
 			}
 			$MAX_F_SIZE = $frm->max_attach_size * 1024;
 
-			/* newly uploaded files */
+			/* Newly uploaded files. */
 			if (isset($_FILES['attach_control']) && $_FILES['attach_control']['size']) {
 				if ($_FILES['attach_control']['size'] > $MAX_F_SIZE) {
 					$attach_control_error = '{TEMPLATE: post_err_attach_size}';
@@ -262,7 +262,7 @@ function flood_check()
 			$attach_cnt = 0;
 		}
 
-		/* removal of a poll */
+		/* Removal of a poll. */
 		if (!empty($_POST['pl_del']) && $pl_id && $perms & 128) {
 			poll_delete($pl_id);
 			$pl_id = 0;
@@ -319,11 +319,11 @@ function flood_check()
 			set_err('password', '{TEMPLATE: post_err_passwd}');
 		}
 
-		/* submit processing */
+		/* Submit processing. */
 		if (isset($_POST['btn_submit']) && !check_post_form()) {
 			$msg_post = new fud_msg_edit;
 
-			/* Process Message Data */
+			/* Process Message Data. */
 			$msg_post->poster_id = _uid;
 			$msg_post->poll_id = $pl_id;
 			$msg_post->subject = $msg_subject;
@@ -353,7 +353,7 @@ function flood_check()
 				$msg_tdescr = '';
 			}
 
-		 	/* chose to create thread OR add message OR update message */
+		 	/* Chose to create thread OR add message OR update message. */
 
 		 	if (!$th_id) {
 		 		$create_thread = 1;
@@ -369,7 +369,7 @@ function flood_check()
 				$msg_post->file_id = $msg->file_id;
 				$msg_post->file_id_preview = $msg->file_id_preview;
 				$msg_post->sync(_uid, $frm->id, $frm->message_threshold, ($perms & (64|4096)), $msg_tdescr);
-				/* log moderator edit */
+				/* Log moderator edit. */
 			 	if (_uid && _uid != $msg->poster_id) {
 			 		logaction($usr->id, 'MSGEDIT', $msg_post->id);
 			 	}
@@ -377,31 +377,38 @@ function flood_check()
 				std_error('systemerr');
 			}
 
-			/* write file attachments */
+			/* Write file attachments. */
 			if ($perms & 256 && $attach_list) {
 				attach_finalize($attach_list, $msg_post->id);
 			}
 
-			if (!$msg_id && (!($frm->forum_opt & 2) || $MOD)) {
+			if (!$msg_id &&	// New post.
+			    (!($frm->forum_opt & 2) || $MOD) &&	// Forum not moderated.
+			    $usr->posted_msg_count > $MOD_FIRST_N_POSTS)	// Min quota posts reached.
+			{
 				$msg_post->approve($msg_post->id);
 			}
 
 			if (_uid && !$msg_id) {
-				/* deal with notifications */
+				/* Deal with notifications. */
 	 			if (isset($_POST['msg_poster_notif'])) {
 	 				thread_notify_add(_uid, $msg_post->thread_id);
 	 			} else {
 	 				thread_notify_del(_uid, $msg_post->thread_id);
 	 			}
 
-				/* register a view, so the forum marked as read */
+				/* Register a view, so the forum marked as read. */
 				user_register_forum_view($frm->id);
 			}
 
-			/* where to redirect, to the treeview or the flat view and consider what to do for a moderated forum or post-only forum */
-			if (!$MOD && !($perms & 2)) {
+			/* Where to redirect, to the tree view or the flat view and consider what to do for a moderated forum or post-only forum. */
+			if (!$MOD && 		// Not a modersator.
+			    !($perms & 2))	// p_READ (cannot read forum)
+			{
 				check_return();
-			} else if ($frm->forum_opt & 2 && !$MOD) {
+			} else if ($frm->forum_opt & 2 && !$MOD ||	// Moderated forum & not a mod.
+			           $usr->posted_msg_count <= $MOD_FIRST_N_POSTS)	// Min quota posts not reached.
+			{
 				if ($FUD_OPT_2 & 262144) {	// MODERATED_POST_NOTIFY
 					$modl = db_all('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='.$frm->id);
 					if ($modl) {
@@ -418,7 +425,7 @@ function flood_check()
 			} else {
 				$t = d_thread_view;
 
-				if ($msg_id && ($frm->forum_opt & 2) && !q_singleval('SELECT apr FROM {SQL_TABLE_PREFIX}msg WHERE id='.$msg_id)) { /* editing unapproved message in moderated forum */
+				if ($msg_id && ($frm->forum_opt & 2) && !q_singleval('SELECT apr FROM {SQL_TABLE_PREFIX}msg WHERE id='.$msg_id)) { /* Editing unapproved message in moderated forum. */
 					check_return($usr->returnto);
 				}
 
@@ -430,7 +437,7 @@ function flood_check()
 						$t = $tmp[1];
 					}
 				}
-				/* redirect the user to their message */
+				/* Redirect the user to their message. */
 				if ($FUD_OPT_2 & 32768) {
 					header('Location: {FULL_ROOT}{ROOT}/m/'.$msg_post->id.'/'._rsidl.'#msg_'.$msg_post->id);
 				} else {
@@ -438,8 +445,8 @@ function flood_check()
 				}
 				exit;
 			}
-		} /* Form submitted and user redirected to own message */
-	} /* $prevloaded is SET, this form has been submitted */
+		} /* Form submitted and user redirected to own message. */
+	} /* $prevloaded is SET, this form has been submitted. */
 
 	if ($reply_to || $th_id && !$msg_id) {
 		ses_update_status($usr->sid, '{TEMPLATE: post_reply_update}', $frm->id, 0);
@@ -522,7 +529,7 @@ function flood_check()
 		}
 	}
 
-	/* sticky/announcment controls */
+	/* Sticky/announcment controls. */
 	if ($perms & 64 && (!$thr || $msg_id == $thr->root_msg_id)) {
 		if (!isset($_POST['prev_loaded'])) {
 			if (!$thr) {
@@ -544,7 +551,7 @@ function flood_check()
 		$admin_options = '';
 	}
 
-	/* thread locking controls */
+	/* Thread locking controls. */
 	if ($perms & 4096) {
 		$thr_locked_checked = '';
 		if (!isset($_POST['prev_loaded']) && $thr && $thr->thread_opt & 1) {
@@ -572,7 +579,7 @@ function flood_check()
 	}
 	$msg_tdescr = char_fix(htmlspecialchars($msg_tdescr));
 
-	/* handle file attachments */
+	/* Handle file attachments. */
 	if ($perms & 256) {
 		if ($frm->forum_opt & 32 && $MOD) {
 			$frm->max_attach_size = (int) ini_get('upload_max_filesize');
