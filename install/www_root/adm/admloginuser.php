@@ -18,9 +18,10 @@
 	fud_use('users_reg.inc');
 
 	if (isset($_POST['login'])) {
-		if (($id = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._esc($_POST['login'])." AND passwd='".md5($_POST['passwd'])."' AND users_opt>=1048576 AND (users_opt & 1048576) > 0 AND (last_login + ".$MIN_TIME_BETWEEN_LOGIN.") < ".__request_timestamp__))) {
-			$sid = user_login($id, $usr->ses_id, true);
-			$GLOBALS['new_sq'] = regen_sq($id);
+		$r = db_sab('SELECT id, passwd, salt FROM '.$DBHOST_TBL_PREFIX.'users WHERE login='._esc($_POST['login']).' AND users_opt>=1048576 AND (users_opt & 1048576) > 0 AND (last_login + '.$MIN_TIME_BETWEEN_LOGIN.') < '.__request_timestamp__);
+		if ($r && (empty($r->salt) && $r->passwd == md5($_POST['passwd']) || $r->passwd == sha1($r->salt . sha1($_POST['passwd'])))) {
+			$sid = user_login($r->id, $usr->ses_id, true);
+			$GLOBALS['new_sq'] = regen_sq($r->id);
 			header('Location: '.$WWW_ROOT.'adm/index.php?S='.$sid.'&SQ='.$new_sq);
 			exit;
 		} else {

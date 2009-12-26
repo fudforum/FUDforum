@@ -788,13 +788,14 @@ function initdb(&$settings)
 		} 
 	}
 
-	while (!$settings['LANGUAGE']) {
-		pf("Supported languages: \n\t".wordwrap(ucwords(implode(' ', array_keys($langs))), 75, "\n\t")."\n");
+	while (!in_array($settings['LANGUAGE'], $langs)) {
+		pf("Supported languages: \n\t".wordwrap(implode(' ', array_keys($langs)), 75, "\n\t")."\n");
 
 		pf("Please choose a language [en]: ");
 		$lang = strtolower(trim(fgets(STDIN, 1024)));
 		if (!$lang) {
-			$lang = 'en';
+			$settings['LANGUAGE'] = 'en';
+			break;
 		}
 		if (isset($langs[$lang])) {
 			$settings['LANGUAGE'] = $lang;
@@ -835,7 +836,9 @@ function initdb(&$settings)
 	}
 
 	dbquery("DELETE FROM ".$settings['DBHOST_TBL_PREFIX']."users WHERE id > 1");
-	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."users (login, alias, passwd, name, email, avatar, avatar_loc, users_opt, join_date, theme, posted_msg_count, u_last_post_id, level_id, custom_status) VALUES('".addslashes($settings['ROOT_LOGIN'])."', '".addslashes(htmlspecialchars($settings['ROOT_LOGIN']))."', '".md5($settings['ROOT_PASS'])."', 'Administrator', '".addslashes($settings['ADMIN_EMAIL'])."', 3, '<img src=\"". $settings['WWW_ROOT'] ."images/avatars/smiley03.jpg\" alt=\"\" width=\"64\" height=\"64\" />', 13777910, ".time().", 1, 1, 1, 3, 'Administrator')")) {
+	$salt   = substr(md5(uniqid(rand(), true)), 0, 9);
+	$passwd = sha1($salt . sha1($settings['ROOT_PASS']));
+	if (!dbquery("INSERT INTO ".$settings['DBHOST_TBL_PREFIX']."users (login, alias, passwd, salt, name, email, avatar, avatar_loc, users_opt, join_date, theme, posted_msg_count, u_last_post_id, level_id, custom_status) VALUES('".addslashes($settings['ROOT_LOGIN'])."', '".addslashes(htmlspecialchars($settings['ROOT_LOGIN']))."', '".$passwd."', '".$salt."', 'Administrator', '".addslashes($settings['ADMIN_EMAIL'])."', 3, '<img src=\"". $settings['WWW_ROOT'] ."images/avatars/smiley03.jpg\" alt=\"\" width=\"64\" height=\"64\" />', 13777910, ".time().", 1, 1, 1, 3, 'Administrator')")) {
 		fe(dberror());
 	}
 	change_global_settings(array('ADMIN_EMAIL' => $settings['ADMIN_EMAIL'], 'NOTIFY_FROM' => $settings['ADMIN_EMAIL']));

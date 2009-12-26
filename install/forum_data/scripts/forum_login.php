@@ -14,7 +14,10 @@ function external_get_user_by_auth($login, $passwd)
 {
 	__fud_login_common(1);
 
-	return q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login="._esc($login)." AND passwd='".md5($passwd)."'");
+	$r = db_sab('SELECT id, passwd, salt FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login='._esc($login));
+	if ($r && (empty($r->salt) && $r->passwd == md5($passwd) || $r->passwd == sha1($r->salt . sha1($passwd)))) {
+		return $r->id;
+	}
 }
 
 /*
@@ -78,12 +81,12 @@ if (!function_exists('fud_sql_error_handler'))
 
 function __fud_login_common($skip=0, $user_id=0)
 {
-	/* load forum config */
+	/* Load forum config. */
 	if (!isset($GLOBALS['FUD_OPT_1'])) {
 		$data = file_get_contents($GLOBALS['PATH_TO_FUD_FORUM_GLOBALS_PHP']);
 		eval(str_replace('<?php', '', substr_replace($data, '', strpos($data, 'require'))));
 
-		/* db.inc needs certain vars inside the global scope to work, so we export them */
+		/* db.inc needs certain vars inside the global scope to work, so we export them. */
 		foreach (array('SERVER_TZ', 'MAX_LOGIN_SHOW', 'POSTS_PER_PAGE','WWW_ROOT', 'LOGEDIN_TIMEOUT', 'TMP','COOKIE_DOMAIN','COOKIE_NAME','COOKIE_TIMEOUT','COOKIE_PATH','FUD_OPT_1', 'FUD_OPT_3', 'FUD_OPT_2', 'DBHOST', 'DBHOST_USER', 'DBHOST_PASSWORD', 'DBHOST_DBNAME','DATA_DIR','INCLUDE','DBHOST_TBL_PREFIX') as $v) {
 			$GLOBALS[$v] = $$v;
 		}
@@ -99,7 +102,7 @@ function __fud_login_common($skip=0, $user_id=0)
 		return;
 	}
 
-	/* validate user */
+	/* Validate user. */
 	if (!q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE id=".$user_id)) {
 		return;
 	}
@@ -107,7 +110,7 @@ function __fud_login_common($skip=0, $user_id=0)
 	return 1;
 }
 
-/* internal functions, do not modify */
+/* Internal functions, do not modify. */
 function __ses_make_sysid($a, $b)
 {
 	if ($a) {

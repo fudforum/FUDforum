@@ -17,15 +17,22 @@
 		std_error('login');
 	}
 
+	/* Change current password (cpasswd) to passwd1 (use passwd2 for verification). */
 	if (isset($_POST['btn_submit'], $_POST['passwd1'], $_POST['cpasswd']) && is_string($_POST['passwd1'])) {
-		if (__fud_real_user__ != q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login="._esc($usr->login)." AND passwd='".md5((string)$_POST['cpasswd'])."'")) {
+		if (!($r = db_sab("SELECT id, passwd, salt FROM {SQL_TABLE_PREFIX}users WHERE login="._esc($usr->login)))) {
+			exit('Go away!');
+		}
+		
+		if (__fud_real_user__ != $r->id || !((empty($r->salt) && $r->passwd == md5((string)$_POST['cpasswd'])) || $r->passwd == sha1($r->salt . sha1((string)$_POST['cpasswd'])))) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_invalid_passwd}';
 		} else if ($_POST['passwd1'] !== $_POST['passwd2']) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_passwd_nomatch}';
 		} else if (strlen($_POST['passwd1']) < 6 ) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_passwd_length}';
 		} else {
-			q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5($_POST['passwd1'])."' WHERE id=".__fud_real_user__);
+			$salt = substr(md5(uniqid(mt_rand(), true)), 0, 9);
+			$secure_pass = sha1($salt . sha1($_POST['passwd1']));
+			q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".$secure_pass."', salt='".$salt."' WHERE id=".__fud_real_user__);
 			logaction(__fud_real_user__, 'CHANGE_PASSWD', 0, get_ip());
 			exit('<html><script>window.close();</script></html>');
 		}

@@ -14,7 +14,8 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	id			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	login			VARCHAR(50) NOT NULL DEFAULT '',
 	alias			VARCHAR(50) BINARY NOT NULL DEFAULT '',
-	passwd			VARCHAR(32) NOT NULL DEFAULT '',
+	passwd			VARCHAR(40) NOT NULL DEFAULT '',
+	salt			VARCHAR(12) DEFAULT NULL,
 	name			VARCHAR(255) NOT NULL DEFAULT '',
 
 	email			VARCHAR(255) NOT NULL DEFAULT '',
@@ -113,3 +114,6 @@ CREATE INDEX {SQL_TABLE_PREFIX}users_i_jd ON {SQL_TABLE_PREFIX}users (join_date)
 # 67108864 admin disabled signature (ON/OFF)
 # 134217728 do not send e-mail notifications (ON/OFF)
 # 268435456 account moderator (ON/OFF)
+
+# Notes
+# 'passwd' is a sha1() hash if we have a 'salt', else it will be md5() encoded.

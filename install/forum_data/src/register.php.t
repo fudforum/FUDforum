@@ -24,7 +24,7 @@ function fetch_img($url, $user_id)
 	$name = $user_id . '.' . $ext[$img_info[2]]. '_';
 
 	while (($fp = fopen(($path = tempnam($GLOBALS['TMP'], $name)), 'ab'))) {
-		if (!ftell($fp)) { /* make sure that the temporary file picked, did not exist before, yes, this is paranoid. */
+		if (!ftell($fp)) { /* Ensure that the temporary file picked did not exist before. Yes, this is paranoid. */
 			break;
 		}
 	}
@@ -74,7 +74,7 @@ function sanitize_login($login)
 
 function register_form_check($user_id)
 {
-	/* new user specific checks */
+	/* New user specific checks. */
 	if (!$user_id) {
 		if (($reg_limit_reached = $GLOBALS['REG_TIME_LIMIT'] + q_singleval('SELECT join_date FROM {SQL_TABLE_PREFIX}users WHERE id='.q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}users')) - __request_timestamp__) > 0) {
 			set_err('reg_time_limit', '{TEMPLATE: register_err_time_limit}');
@@ -110,7 +110,7 @@ function register_form_check($user_id)
 
 		$_POST['reg_email'] = trim($_POST['reg_email']);
 
-		/* E-mail validity check */
+		/* E-mail validity check. */
 		if (validate_email($_POST['reg_email'])) {
 			set_err('reg_email', '{TEMPLATE: register_err_invalidemail}');
 		} else if (get_id_by_email($_POST['reg_email'])) {
@@ -119,7 +119,11 @@ function register_form_check($user_id)
 			set_err('reg_email', '{TEMPLATE: register_err_emailexists}');
 		}
 	} else {
-		if (empty($_POST['reg_confirm_passwd']) || !q_singleval("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".(!empty($_POST['mod_id']) ? __fud_real_user__ : $user_id)." AND passwd='".md5($_POST['reg_confirm_passwd'])."'")) {
+		if (!($r = db_sab("SELECT id, passwd, salt FROM {SQL_TABLE_PREFIX}users WHERE id=".(!empty($_POST['mod_id']) ? __fud_real_user__ : $user_id)))) {
+			exit('Go away!');
+		}
+		
+		if (empty($_POST['reg_confirm_passwd']) || !((empty($r->salt) && $r->passwd == md5($_POST['reg_confirm_passwd'])) || $r->passwd == sha1($r->salt . sha1($_POST['reg_confirm_passwd'])))) {
 			if (!empty($_POST['mod_id'])) {
 				set_err('reg_confirm_passwd', '{TEMPLATE: register_err_adminpasswd}');
 			} else {
@@ -127,7 +131,7 @@ function register_form_check($user_id)
 			}
 		}
 
-		/* E-mail validity check */
+		/* E-mail validity check. */
 		if (validate_email($_POST['reg_email'])) {
 			set_err('reg_email', '{TEMPLATE: register_err_invalidemail}');
 		} else if (($email_id = get_id_by_email($_POST['reg_email'])) && $email_id != $user_id) {
@@ -139,21 +143,21 @@ function register_form_check($user_id)
 	$_POST['reg_home_page'] = sanitize_url(trim($_POST['reg_home_page']));
 	$_POST['reg_user_image'] = !empty($_POST['reg_user_image']) ? sanitize_url(trim($_POST['reg_user_image'])) : '';
 
-	if (!empty($_POST['reg_icq']) && !(int)$_POST['reg_icq']) { /* ICQ # can only be an integer */
+	if (!empty($_POST['reg_icq']) && !(int)$_POST['reg_icq']) { /* ICQ # can only be an integer. */
 		$_POST['reg_icq'] = '';
 	}
 
-	/* User's name or nick name */
+	/* User's name or nick name. */
 	if (strlen($_POST['reg_name']) < 2) {
 		set_err('reg_name', '{TEMPLATE: register_err_needname}');
 	}
 
-	/* Image count check */
+	/* Image count check. */
 	if ($GLOBALS['FORUM_IMG_CNT_SIG'] && $GLOBALS['FORUM_IMG_CNT_SIG'] < substr_count(strtolower($_POST['reg_sig']), '[img]') ) {
 		set_err('reg_sig', '{TEMPLATE: register_err_toomanyimages}');
 	}
 
-	/* Url Avatar check */
+	/* URL Avatar check. */
 	if (!empty($_POST['reg_avatar_loc']) && !($GLOBALS['reg_avatar_loc_file'] = fetch_img($_POST['reg_avatar_loc'], $user_id))) {
 		set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
 	}
@@ -161,7 +165,7 @@ function register_form_check($user_id)
 		set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
 	}
 
-	/* Alias Check */
+	/* Alias Check. */
 	if ($GLOBALS['FUD_OPT_2'] & 128 && isset($_POST['reg_alias'])) {
 		if (($_POST['reg_alias'] = trim(sanitize_login($_POST['reg_alias'])))) {
 			if (is_login_blocked($_POST['reg_alias'])) {
@@ -177,7 +181,7 @@ function register_form_check($user_id)
 		set_err('reg_sig', '{TEMPLATE: register_err_sig_too_long}');
 	}
 
-	/* check if user is allowed to post links */
+	/* Check if user is allowed to post links. */
 	if (preg_match('?(\[url)|(http://)|(https://)?i', $_POST['reg_sig'])) {
 		$c = q_singleval("SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id="._uid);
 		if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
@@ -297,15 +301,15 @@ function email_encode($val)
 		$reg_coppa = '';
 	}
 
-	/* ip filter */
+	/* IP filter. */
 	if (is_ip_blocked(get_ip())) {
 		invl_inp_err();
 	}
 
-	/* allow the root to modify settings other lusers */
+	/* Allow the root to modify settings of other users. */
 	if (_uid && $is_a && $mod_id) {
 		if (!($uent = usr_reg_get_full($mod_id))) {
-			exit('Invalid User Id');
+			exit('Invalid User Id.');
 		}
 		decode_uent($uent);
 	} else {
@@ -321,7 +325,7 @@ function email_encode($val)
 	}
 
 	$reg_avatar_loc_file = $avatar_tmp = $avatar_arr = null;
-	/* deal with avatars, only done for regged users */
+	/* Deal with avatars, only done for regged users. */
 	if (_uid) {
 		if (!empty($_POST['avatar_tmp']) && is_string($_POST['avatar_tmp'])) {
 			$tmp = explode("\n", base64_decode($_POST['avatar_tmp'])); 
@@ -380,7 +384,7 @@ function email_encode($val)
 			}
 		}
 
-		/* security check, prevent haxors from passing values that shouldn't */
+		/* Security check, prevent haxors from passing values that shouldn't. */
 		if (!($new_users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216|33554432|67108864))) {
 			$uent->users_opt = ($uent->users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216|33554432|67108864)) | $new_users_opt;
 		}
@@ -431,20 +435,20 @@ function email_encode($val)
 		}
 
 		if (!__fud_real_user__) { /* new user */
-			/* new users do not have avatars */
+			/* New users do not have avatars. */
 			$uent->users_opt |= 4194304;
 
-			/* handle coppa passed to us by pre_reg form */
+			/* Handle coppa passed to us by pre_reg form. */
 			if (!(int)$_POST['reg_coppa']) {
 				$uent->users_opt ^= 262144;
 			}
 
-			/* make the account un-validated, if admin wants to approve accounts manually */
+			/* Make the account un-validated, if admin wants to approve accounts manually. */
 			if ($FUD_OPT_2 & 1024) {
 				$uent->users_opt |= 2097152;
 			}
 
-			// Pre-registration plugins
+			// Pre-registration plugins.
 			if (defined('plugins')) {
 				$uent = plugin_call_hook('PREREGISTRATION', $uent);
 			}
@@ -457,13 +461,13 @@ function email_encode($val)
 				send_email($NOTIFY_FROM, $uent->email, '{TEMPLATE: register_welcome_subject}', '{TEMPLATE: register_welcome_msg}', '');
 			}
 
-			/* we notify all admins about the new user, so that they can approve him */
+			/* We notify all admins about the new user, so that they can approve him. */
 			if (($FUD_OPT_2 & 132096) == 132096) {
 				$admins = db_all('SELECT email FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=1048576 AND (users_opt & 1048576) > 0');
 				send_email($NOTIFY_FROM, $admins, '{TEMPLATE: register_admin_newuser_title}', '{TEMPLATE: register_admin_newuser_msg}', '');
 			}
 
-			/* login the new user into the forum */
+			/* Login the new user into the forum. */
 			user_login($uent->id, $usr->ses_id, 1);
 
 			if ($FUD_OPT_1 & 1048576 && $uent->users_opt & 262144) {
@@ -480,13 +484,13 @@ function email_encode($val)
 
 			check_return($usr->returnto);
 		} else if ($uent->id) { /* updating a user */
-			/* Restore avatar values to their previous values */
+			/* Restore avatar values to their previous values. */
 			$uent->avatar = $old_avatar;
 			$uent->avatar_loc = $old_avatar_loc;
 			$old_opt = $uent->users_opt & (4194304|16777216|8388608);
 			$uent->users_opt |= 4194304|16777216|8388608;
 
-			/* prevent non-confirmed users from playing with avatars, yes we are that cruel */
+			/* Prevent non-confirmed users from playing with avatars, yes we are that cruel. */
 			if ($FUD_OPT_1 & 28 && _uid) {
 				if ($_POST['avatar_type'] == 'b') { /* built-in avatar */
 					if (!$old_avatar && $old_avatar_loc) {
@@ -519,7 +523,7 @@ function email_encode($val)
 						$common_av_name = '';
 					}
 
-					/* remove old avatar if need be */
+					/* Remove old avatar if need be. */
 					if (!empty($avatar_arr['del'])) {
 						if (empty($avatar_arr['leave'])) {
 							@unlink($TMP . basename($avatar_arr['file']));
@@ -528,7 +532,7 @@ function email_encode($val)
 						}
 					}
 
-					/* add new avatar if needed */
+					/* Add new avatar if needed. */
 					if ($common_av_name) {
 						if (defined('real_avatar_name')) {
 							$av_path = 'images/custom_avatars/' . real_avatar_name;
@@ -564,7 +568,7 @@ function email_encode($val)
 
 			$uent->sync_user();
 
-			/* if the user had changed their e-mail, force them re-confirm their account (unless admin) */
+			/* If the user had changed their e-mail, force them re-confirm their account (unless admin). */
 			if ($FUD_OPT_2 & 1 && $old_email && $old_email != $uent->email && !($uent->users_opt & 1048576)) {
 				$conf_key = usr_email_unconfirm($uent->id);
 				send_email($NOTIFY_FROM, $uent->email, '{TEMPLATE: register_email_change_subject}', '{TEMPLATE: register_email_change_msg}', '');
@@ -595,7 +599,7 @@ function email_encode($val)
 		$reg_login = char_fix(htmlspecialchars($uent->login));
 	}
 
-	/* populate form variables based on user's profile */
+	/* Populate form variables based on user's profile. */
 	if (__fud_real_user__ && !isset($_POST['prev_loaded'])) {
 		foreach ($uent as $k => $v) {
 			${'reg_'.$k} = htmlspecialchars($v);
@@ -660,7 +664,7 @@ function email_encode($val)
 		}
 	}
 
-	/* When we need to create a new user, define default values for various options */
+	/* When we need to create a new user, define default values for various options. */
 	if (!__fud_real_user__ && !isset($_POST['prev_loaded'])) {
 		foreach (array_keys(get_object_vars($uent)) as $v) {
 			 ${'reg_'.$v} = '';
@@ -690,7 +694,7 @@ function email_encode($val)
 
 /*{POST_HTML_PHP}*/
 
-	/* Initialize avatar options */
+	/* Initialize avatar options. */
 	$avatar = $avatar_type_sel = '';
 
 	if (__fud_real_user__) {
@@ -702,7 +706,7 @@ function email_encode($val)
 
 		if ($FUD_OPT_1 & 28 && _uid) {
 			if ($FUD_OPT_1 == 28) {
-				/* if there are no built-in avatars, don't show them */
+				/* If there are no built-in avatars, don't show them. */
 				if (q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}avatar')) {
 					$sel_opt = "{TEMPLATE: register_builtin}\n{TEMPLATE: register_specify_url}\n{TEMPLATE: register_uploaded}";
 					$a_type='b';
@@ -738,14 +742,14 @@ function email_encode($val)
 				$sel_val = trim($sel_val);
 			}
 
-			if ($a_type) { /* rare condition, no built-in avatars & no other avatars are allowed */
+			if ($a_type) { /* Rare condition, no built-in avatars & no other avatars are allowed. */
 				if (!$avatar_type) {
 					$avatar_type = $a_type;
 				}
 				$avatar_type_sel_options = tmpl_draw_select_opt($sel_val, $sel_opt, $avatar_type);
 				$avatar_type_sel = '{TEMPLATE: avatar_type_sel}';
 
-				/* preview image */
+				/* Preview image. */
 				if (isset($_POST['prev_loaded'])) {
 					if ((!empty($_POST['reg_avatar']) && $_POST['reg_avatar'] == $uent->avatar) || (!empty($avatar_arr['file']) && empty($avatar_arr['del']) && $avatar_arr['leave'])) {
 						$custom_avatar_preview = $uent->avatar_loc;
@@ -771,7 +775,7 @@ function email_encode($val)
 					$custom_avatar_preview = '<img src="blank.gif" alt="" />';
 				}
 
-				/* determine the avatar specification field to show */
+				/* Determine the avatar specification field to show. */
 				if ($avatar_type == 'b') {
 					if (empty($reg_avatar)) {
 						$reg_avatar = '0';
@@ -800,7 +804,7 @@ function email_encode($val)
 
 	$theme_select = '';
 	$r = uq('SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY ((theme_opt & 2) > 0) DESC, name');
-	/* only display theme select if there is >1 theme */
+	/* Only display theme select if there is >1 theme. */
 	while ($t = db_rowarr($r)) {
 		$theme_select .= '{TEMPLATE: theme_select_value}';
 	}

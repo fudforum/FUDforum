@@ -465,7 +465,8 @@ stdClass Object
     [id] => // user's id
     [login] => // user's login name
     [alias] => // user's alias (html encoded) used for printing
-    [passwd] => // md5 of the password
+    [passwd] => // md5 or sha1 of the password
+    [salt] => // password salt
     [name] => // user's 'real' name
     [email] => // user's e-mail address
     [location] => // user's geographical location (optional)
@@ -563,8 +564,8 @@ function fud_fetch_top_poster()
  */
 function fud_add_user($vals, &$err)
 {
-	// check for required fields 
-	foreach (array('login','passwd','email','name') as $v) {
+	// Check for required fields.
+	foreach (array('login', 'passwd', 'email', 'name') as $v) {
 		if (empty($vals[$v])) {
 			$err = "missing value for a required field {$v}";
 			return 0;
@@ -586,8 +587,8 @@ function fud_add_user($vals, &$err)
 		$vals['alias'] = htmlspecialchars($vals['alias']);
 	}
 
-	// some fields must be unique, check them
-	foreach (array('login','email','alias')	as $v) {
+	// Some fields must be unique, check them.
+	foreach (array('login', 'email', 'alias') as $v) {
 		if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE {$v}="._esc($vals[$v]))) {
 			$err = "value for {$v} must be unique, specified value of {$vals[$v]} already exists.";
 			return 0;
@@ -611,7 +612,7 @@ function fud_add_user($vals, &$err)
 	$reg_ip = "127.0.0.1";
 	$last_visit = $last_read = $join_date = __request_timestamp__;
 
-	// make sure all fields are set 
+	// Make sure all fields are set.
 	foreach( array('login','alias','passwd','name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
 		'affero','posts_ppg','time_zone','bday','last_visit','conf_key','user_image',
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
@@ -725,7 +726,7 @@ function fud_update_user($uid, $vals, &$err)
 	}
 
 	$qry = "UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET ";
-	// apply changes
+	// Apply changes.
 	foreach( array('login','alias','passwd','name','email','icq','aim','yahoo','msnm','jabber','google','skype','twitter',
 		'affero','posts_ppg','time_zone','bday','last_visit','conf_key','user_image',
 		'join_date','location','theme','occupation','interests','referer_id','last_read',
@@ -1030,7 +1031,7 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 
 	fud_use('users.inc');
 	
-	// do not resolve host
+	// Do not resolve host.
 	if ($GLOBALS['FUD_OPT_1'] & 268435456) {
 		$GLOBALS['FUD_OPT_1'] ^= 268435456;
 	}

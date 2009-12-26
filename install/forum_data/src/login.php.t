@@ -11,7 +11,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	/* Remove old unconfirmed users */
+	/* Remove old unconfirmed users. */
 	if ($FUD_OPT_2 & 1) {
 		$account_expiry_date = __request_timestamp__ - (86400 * $UNCONF_USER_EXPIRY);
 		$list = db_all('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE (users_opt & 131072)=0 AND join_date<'.$account_expiry_date.' AND posted_msg_count=0 AND last_visit<'.$account_expiry_date.' AND id!=1 AND (users_opt & 1048576)=0');
@@ -134,7 +134,7 @@ function error_check()
 	$_ERROR_ = 0;
 	$_ERROR_MSG_ = array();
 
-	/* deal with quicklogin from if needed */
+	/* Deal with quicklogin from if needed. */
 	if (isset($_POST['quick_login']) && isset($_POST['quick_password'])) {
 		$_POST['login'] = $_POST['quick_login'];
 		$_POST['password'] = $_POST['quick_password'];
@@ -146,23 +146,32 @@ function error_check()
 			ses_putvar((int)$usr->sid, null);
 		}
 
-		// Call authentication plugins
+		// Call authentication plugins.
 		if (defined('plugins')) {
 			if (!plugin_call_hook('AUTHENTICATE', array($_POST['login'], $_POST['password'])) ) {
 				login_php_set_err('login', 'plugin: {TEMPLATE: login_invalid_radius}');
 			}
 		}
 
-		if (!($usr_d = db_sab('SELECT last_login, id, passwd, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($_POST['login'])))) {
+		if (!($usr_d = db_sab('SELECT last_login, id, passwd, salt, login, email, users_opt, ban_expiry FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($_POST['login'])))) {
+			/* Cannot login: user not in DB. */
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
+
 		} else if (($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN) > __request_timestamp__) { 
+			/* Flood control. */
 			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
 			login_php_set_err('login', '{TEMPLATE: login_min_time}');
-		} else if ($usr_d->passwd != md5($_POST['password'])) {
+
+		} else if (empty($usr_d->salt) && $usr_d->passwd != md5($_POST['password']) || 
+			  !empty($usr_d->salt) && $usr_d->passwd != sha1($usr_d->salt . sha1($_POST['password']))) 
+		{
+			/* Check password: No salt -> old md5() auth; with salt -> new sha1() auth. */
 			logaction($usr_d->id, 'WRONGPASSWD', 0, ($usr_d->users_opt & 1048576 ? 'ADMIN: ' : '').'Invalid Password '.htmlspecialchars(_esc($_POST['password'])).' for login '.htmlspecialchars(_esc($_POST['login'])).'. IP: '.get_ip());
 			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
-		} else if ($GLOBALS['_ERROR_'] != 1) { /* Perform check to ensure that the user is allowed to login */
+
+		} else if ($GLOBALS['_ERROR_'] != 1) {
+			/* Is user allowed to login. */
 			q('UPDATE {SQL_TABLE_PREFIX}users SET last_login='.__request_timestamp__.' WHERE id='.$usr_d->id);
 			$usr_d->users_opt = (int) $usr_d->users_opt;
 			$usr_d->sid = $usr_d->id;
@@ -203,7 +212,7 @@ function error_check()
 				foreach ($args as $k => $v) {
 					$ret .= $k.'='.$v.'&';
 				}
-			} else { /* PATH_INFO url or GET url with no args */
+			} else { /* PATH_INFO url or GET url with no args. */
 				if ($FUD_OPT_1 & 128 && $FUD_OPT_2 & 32768 && !$sesp) {
 					if (preg_match('![a-z0-9]{32}!', $usr->returnto, $m)) {
 						$usr->returnto = str_replace($m[0], $ses_id, $usr->returnto);
@@ -225,6 +234,6 @@ function error_check()
 {TEMPLATE: LOGIN_PAGE}
 <?php
 	while (@ob_end_flush());
-	/* clear old sessions */
+	/* Clear old sessions. */
 	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'.(__request_timestamp__- ($FUD_OPT_3 & 1 ? $SESSION_TIMEOUT : $COOKIE_TIMEOUT)));
 ?>
