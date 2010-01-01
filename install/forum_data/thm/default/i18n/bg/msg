@@ -78,8 +78,7 @@ moderation_queue:Опашка към модератора
 moderator:Модератор
 moderator_of:Модератор на:
 moderator_options:Настройки за модератора
-# Fuzzy
-moderators:Модератор(и)
+moderators:{PLURAL: modcount|Модератор|Модератори}
 more_unread_messages:други непрочетени съобщения
 more_unread_messages_desc:Отбележи видяното като прочетено и покажи други непрочетени съобщения&nbsp;
 move_thread:Премести
@@ -512,8 +511,7 @@ poll_del_conf:Натисни OK за да изтриеш опцията&nbsp;
 poll_name:Тема на гласуването:
 # Fuzzy
 poll_timelimit:Време за действие
-# Fuzzy
-poll_maxiumvotes:Максимум гласове
+poll_maxiumvotes:Максимум гласове:
 poll_create:Създай
 poll_update:Обнови
 poll_disablesmilies:Забрани усмивките
@@ -532,6 +530,7 @@ poll_year:година
 poll_week:седмица
 tabs_register:Настройки
 tabs_subscriptions:Абонаменти
+tabs_bookmarkes:Отметки
 tabs_referrals:Реферали
 tabs_buddy_list:Контактна листа
 tabs_ignore_list:Листа на игнорираните
@@ -876,6 +875,7 @@ threadt_disabled_desc:Администраторът изключи разгър
 threadt_update:Разглеждане (разгърнат изглед) на форума <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:Потвърждение за Изтриване на Тема/Съобщение&nbsp;
 spell_alts:няма други възможности
+back_to_top:Връщане в началото
 iemail_msg_author:<b>Автор:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Тема:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Дата:</b> {TEMPLATE: dmsg_post_date}

@@ -79,7 +79,6 @@ moderation_queue:Cola de moderación
 moderator:Moderador
 moderator_of:Moderador de:
 moderator_options:Opciones del moderador
-# Fuzzy
 moderators:{PLURAL: modcount|Moderador|Moderadores}
 more_unread_messages:más mensajes no leídos
 more_unread_messages_desc:Mostrar más mensajes no leídos y marcar los mensajes actualmente visibles como leídos
@@ -1085,6 +1084,7 @@ btn_about:Perfil
 btn_delete:borrar
 btn_edit:editar
 btn_reply:respuesta
+btn_quote:cita
 btn_email:Correo electrónico
 btn_show_posts:mensajes
 btn_homepage:www

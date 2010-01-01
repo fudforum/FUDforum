@@ -354,7 +354,7 @@ create_thread:Begin onderwerp
 submit_reply:Stuur antwoord
 edit_message:Pas wysigings toe
 apply_spell_changes:Pas spel-wysigings toe
-post_preview:Pos Voorskou
+post_preview:Boodskap voorskou
 post_logedin_user:Aangetekende lid:
 post_logout:teken uit
 post_passwd:Pos Wagwoord:
@@ -740,11 +740,11 @@ p_FILE:Heg lêer aan
 p_VOTE:Stem
 p_RATE:Beoordeel onderwerpe
 p_SPLIT:Split onderwerpe
-p_LOCK:sluit onderwerpe
-p_MOVE:skuif onderwerpe
+p_LOCK:Sluit onderwerpe
+p_MOVE:Skuif onderwerpe
 p_SML:Gebruik gesiggies
 p_IMG:Gebruik foto etikette
-p_SEARCH:Kan Soek
+p_SEARCH:Kan soek
 group_mgr_search:Vind lid
 group_mgr_indicator:Wysig tans: <b>{VAR: grp->name}</b>
 rate_worst:Slegste

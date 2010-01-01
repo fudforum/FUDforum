@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Fohanno
 # Author: Fulup
+# Author: Y-M D
 
 action:Ober
 add_to_buddy_list:Ouzhpennañ d'ar roll mignoned
@@ -956,6 +957,7 @@ merge_topics_tpl:Diuzañ kaozioù da gendeuziñ <span class="SmallText">(ret eo 
 merge_merge:Kendeuziñ ar c'haozioù diuzet
 merge_next:Kaozioù da-heul
 merge_prev:Kaozioù kent
+merge_another:Mont d'an <a href="{TEMPLATE: merge_another_lnk}">danvez kendeuzet da ziwezhañ</a> pe kendeuziñ unan all :
 split_cp:Panell gontrollañ evit rannañ ar c'haozioù
 groups_perms_header:Aotreoù <span class="small">(dilec'hiit al logodenn war an aotre evit gwelet ar seurt anezhañ)</span>
 register_err_sig_too_long:Re hir eo ho sinadur. Ne zle bezañ ennañ nemet {GVAR: FORUM_SIG_ML} arouezenn d'ar muiañ.
@@ -1019,6 +1021,7 @@ pmsg_pdf_btn:Ober un diell PDF
 search_results_hdr:{VAR: total} disoc'h evit an enklask
 thread_del_all:Dilemel ar pezh zo diuzet
 thread_mov_all:Dilec'hiañ an holl elfennoù diuzet
+thread_merge_all:Kendeuziñ an holl re dibabet
 thread_loc_all:Prennañ / Dibrennañ an elfennoù diuzet
 dmsg_ip:IP :
 err_blockedaccnt_title:FAZI : Silet eo bet ho kont.

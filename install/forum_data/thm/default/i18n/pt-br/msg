@@ -1,5 +1,6 @@
 # Messages for Brazilian Portuguese (Português do Brasil)
 # Exported from translatewiki.net
+# Author: Luckas Blade
 
 action:Ação
 add_to_buddy_list:Adicionar à lista de amigos
@@ -46,6 +47,8 @@ icq_control_panel:Painel de mensagens do ICQ Online
 icq_message_form:Formulario de mensagem ICQ:
 ignore_user:Ignorar todos os posts deste usuário
 im_aim:Apontar manuseamento:
+im_msnm:MSN Messenger:
+im_yahoo:Yahoo Messenger:
 image:Imagem:
 index_forum:Fórum
 index_new_posts:Existem novos posts desde o último lido
@@ -75,8 +78,7 @@ moderation_queue:Moderação
 moderator:Moderador
 moderator_of:Moderador ausente:
 moderator_options:Opções do Moderador
-# Fuzzy
-moderators:Moderador(es)
+moderators:{PLURAL: modcount|Moderador|Moderadores}
 more_unread_messages:mais mensagens não lidas
 more_unread_messages_desc:Mostrar mais mensagens não lidas e marcar as mensagens correntes como lidas
 move_thread:Mover
@@ -100,8 +102,7 @@ no_unread_locked:Este tópico foi fechado
 no_unread_msg:Neste tópico não há mensagens não lidas
 no_unread_msg_unreg:As mensagens lidas e não lidas só podem ser localizadas por membros registados
 num_pages:Páginas ({VAR: ttl_pg}):
-# Fuzzy
-num_votes:{VAR: obj->total_votes} voto(s)
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|voto|votos}
 occupation:Ocupação:
 off:DES
 on:LIG
@@ -187,8 +188,7 @@ user_online:{VAR: obj->login} está neste momento online
 usrinfo_last_post:Último Post:
 view_results:Ver resultados
 views:Vistas
-# Fuzzy
-vote:{VAR: frm->n_rating} Voto(s)
+vote:{PLURAL: frm->n_rating|$1 Voto|$1 Votos}
 vote_button:Voto
 vote_for_thread:Voto
 # Fuzzy
@@ -303,6 +303,8 @@ register_interests:Interesses:
 register_image:Imagem:
 register_icq:ICQ
 register_aim:AIM:
+register_yahoo:Yahoo Messenger:
+register_msnm:MSN Messenger:
 register_homepage:Página Pessoal:
 register_bday:Data de nascimento:
 register_bday_desc:Se selecionar a data de nascimento todos os membros a poderão ver no seu perfil
@@ -340,6 +342,7 @@ add:Adicionar
 buddy_search:Introduza o id do usuário que quer adicionar.
 member_search:Ou use <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Encontrar Usuário</a> para localizar a pessoa.
 buddy_remove:remover
+post_normal:Normal
 post_sticky:Fixo
 post_annoncement:Anunciar
 post_size:Tamanho
@@ -506,8 +509,7 @@ ppost_save_draft:Guardar rascunho
 poll_blank_option:Não pode adicionar uma opção em branco.
 poll_del_conf:Se quiser apagar esta opção, carregue em OK
 poll_name:Nome da Votação:
-# Fuzzy
-poll_timelimit:Tempo Limite
+poll_timelimit:Tempo limite:
 # Fuzzy
 poll_maxiumvotes:Máximo de votos
 poll_create:Criar
@@ -561,8 +563,7 @@ email_error_namerequired:O nome é obrigatório
 email_error_invaliduser:Usuário inválido
 emailconf_err_invkey_title:Erro
 emailconf_err_invkey_msg:Chave de confirmação inválida.  Por favor confirme no seu E-mail se seguiu o url corretamente
-# Fuzzy
-err_inc_criticaltitle:ERRO CRÍTICO
+err_inc_criticaltitle:Erro crítico
 err_inc_criticalmsg:Encontrou um erro, mas infelizmente existe um erro com o sistema de reportagem de erros
 finduser_update:A procurar usuário
 help_index_update:A ler o  <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
@@ -588,13 +589,13 @@ post_err_lockedthread_msg:Este tópico está bloqueado, não é permitido coloca
 err_coppa_title:ERRO: A sua conta ainda não foi confirmada
 # Fuzzy
 err_coppa_msg:Não foi recebida uma confirmação dos seus pais ou tutores legais, que permitam que coloque mensagens. Se perdeu o seu formulário <a href="{TEMPLATE: err_coppa_msg_lnk}">clique aqui</a> para o obter
+err_banned_acct_title:ERRO: Você foi banido.
 post_err_edttimelimit_title:ERRO
 post_err_edttimelimit_msg:Já não pode editar esta mensagem
 post_err_noannontopics_msg2:<legend>ERRO: Privilégios Insuficientes</legend>Usuários anônimos não podem criar tópicos.
 post_err_noannonposts_msg2:<legend>ERRO: Privilégios Insuficientes</legend>Usuários anônimos não podem responder a mensagens.
 post_err_floodtrig_title:ERRO: Segurança contra floods ativada.
-# Fuzzy
-post_err_floodtrig_msg:Por favor tente novamente em {VAR: tm} segundos
+post_err_floodtrig_msg:Por favor tente novamente em {PLURAL: tm|$1 segundo|$1 segundos}
 post_err_attach_size:O arquivo em anexo é demasiado grande (está a cima do limite por {VAR: MAX_F_SIZE} bytes)
 post_err_attach_ext:O arquivo que está tentando fazer upload não condiz com os tipos de arquivos permitidos.
 post_err_attach_filelimit:Está tentando fazer o upload de mais arquivos do que o permitido.
@@ -801,11 +802,9 @@ split_th_select:Selecionar
 report_report_post:Colocar Relatório
 # Fuzzy
 quicklogin_login:Usuário
-# Fuzzy
-quicklogin_password:Senha
+quicklogin_password:Senha:
 quicklogin_use_cookies:Usar Cookies?
-# Fuzzy
-quicklogin_login_btn:Entrar
+quicklogin_login_btn:Entrar:
 quick_reply:Resposta rápida
 post_notification_desc:Notificar quando alguém responder a esta mensagem.
 post_all_ext_allowed:(sem restrição)
@@ -820,6 +819,9 @@ pmsg_prev_msg:Mensagem Anterior
 post_proc_reveal_spoiler:- Mostrar Spoiler -
 register_jabber:- Jabber Handle - :
 im_jabber:- Jabber - :
+im_google:Google Talk:
+im_skype:Skype:
+im_twitter:Twitter:
 forum_contact:Contato
 forum_home:Início
 # Fuzzy
@@ -937,12 +939,12 @@ mnav_no_range:Você precisa informar um espaço de tempo válido. Este valor pod
 mnav_invalid_unit:Você precisa informar uma unidade de tempo válida.
 mnav_invalid_date:O espaço de tempo que você informou é maior que o permitido pelo administrador, diminua o espaço de tempo em sua procura.
 mnav_no_results:Não existem mensagens que coincidam com sua procura.
-mnav_posted_by:Postado Por:
+mnav_posted_by:Postado por:
 mnav_more:Mais &raquo;&raquo;
-mnav_minute:Minutos(s)
-mnav_hour:Horas(s)
-mnav_day:Dias(s)
-mnav_week:Semanas(s)
+mnav_minute:Minuto(s)
+mnav_hour:Hora(s)
+mnav_day:Dia(s)
+mnav_week:Semana(s)
 mnav_month:Meses(s)
 mnav_title:Navegador de Mensagens
 mnav_update:Navegando pelas Mensagens usando <a href="{TEMPLATE: mnav_update_lnk}">Navegador de Mensagens</a>
@@ -1013,10 +1015,10 @@ register_none:Não notificar
 findu_no_conf:usuário não confirmado
 register_max_sig_len:Comprimento máximo:
 register_turing:Por favor, entre com o código aqui abaixo:
-register_err_turing:Código de Validação inválido.
+register_err_turing:Código de validação inválido.
 modque_cat:Categoria
 modque_forum:Fórum
-idx_compact_forum_row:Fóruns Disponíveis:
+idx_compact_forum_row:Fóruns disponíveis:
 mmd_del_title:Apagar Tópicos
 mmd_mov_title:Mover Tópicos
 mmd_move_threads_to:Fórum de Destino:
@@ -1026,3 +1028,15 @@ pmsg_pdf_btn:Criar arquivo PDF
 search_results_hdr:{VAR: total} Resultados encontrados
 thread_del_all:Apagar Todos os selecionados
 thread_mov_all:Mover Todos os selecionados
+sml_code:Código
+register_topics_per_page:Tópicos por página:
+post_common_bold:Negrito
+post_common_italics:Itálico
+post_common_email:Inserir um endereço de e-mail
+post_common_image:Inserir uma imagem
+post_descr:Descrição do tópico:
+btn_new_topic:Novo tópico
+btn_about:Perfil
+btn_reply:responder
+btn_email:E-mail
+btn_homepage:www

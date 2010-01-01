@@ -1,5 +1,6 @@
 # Messages for Czech (Česky)
 # Exported from translatewiki.net
+# Author: Mormegil
 
 action:Akce
 add_to_buddy_list:přidat do seznamu přátel
@@ -563,8 +564,7 @@ emailconf_err_invkey_title:Chyba
 emailconf_err_invkey_msg:Špatný potvrzující klíč. Prosím, zkontrolujte váš email, aby jste se ujistil(a), že jste se sem dostal(a) správně
 # Fuzzy
 err_inc_criticaltitle:KRITICKÁ CHYBA   ...něco se krutě nepovedlo. Na sobotu svolávám hon na programátora.
-# Fuzzy
-err_inc_criticalmsg:Narazil(a) jste na chybu, ale naneštěstí je to chyba v systému na ohlašování chyb   ...tak to už je na mě fakt moc. dneska si ten překlad vážně užívám :-))) star trek hadr
+err_inc_criticalmsg:Došlo k chybě. Bohužel je rozbitý i systém pro hlášení chyb.
 finduser_update:Vyhledávám uživatele
 help_index_update:Čtete si <a href="{TEMPLATE: help_index_update_lnk}">nápovědu.</a>
 iemail_thr_subject:Nová odpověd pro {VAR: thr_subject} od {VAR: poster_login}

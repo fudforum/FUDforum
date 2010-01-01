@@ -791,7 +791,7 @@ quicklogin_use_cookies:Käytä evästeitä?
 quicklogin_login_btn:Kirjaudu
 quick_reply:Nopea vastaus
 post_notification_desc:Ilmoita minulle, kun joku vastaa tähän viestiin.
-post_all_ext_allowed:(kaikki)
+post_all_ext_allowed:(rajoittamaton)
 maximize_category:Suurenna luokka
 maximize_message:Suurenna viesti
 no_view_perm:Sinulla ei ole tarvittavia oikeuksia nähdäksesi tämän aiheen.
@@ -821,7 +821,7 @@ post_list_smilies:näytä kaikki hymiöt
 p_VISIBLE:Näkee foorumin
 reported_in_thread:Aiheessa:
 help_back_to_top:takaisin alkuun
-help_return_to_index:Palaa hakemistoon
+help_return_to_index:Palaa ohjehakemistoon
 imsg_err_message_title:Virheellinen viesti
 imsg_err_message_msg:Viestiä ei ole olemassa.
 poll_edit:Muokkaa
@@ -830,7 +830,7 @@ pmsg_recepient:Vastaanottaja
 register_err_taken_alias:Alias, jonka valitsit on jo käytössä. Ole hyvä ja valitse toinen.
 register_alias:Alias
 register_alias_desc:Anna lempinimi (muu kuin käyttäjätunnus), jonka haluat näkyvän foorumilla.
-register_allow_pm_msg:Yksityisviestien vastaanotto muilta käyttäjiltä:
+register_allow_pm_msg:Salli yksityisviestit:
 register_allow_pm_msg_desc:Salli muiden käyttäjien lähettää sinulle yksityisviestejä.
 postcheck_pm_disabled:Et voi lähettää yksityisviestiä, koska "{VAR-HTML: v}" ei halua vastaanottaa yksityisviestejä.
 polllist_vote:Äänestä
@@ -845,8 +845,8 @@ userinfo_polls:Gallupit:
 show_pollist:Gallupit
 search_and:JA
 search_or:TAI
-search_desc_order:uusin ensin
-search_asc_order:vanhin ensin
+search_desc_order:Uusin ensin
+search_asc_order:Vanhin ensin
 search_logic:Hakulogiikka:
 search_sorting:Järjestä tulokset päivämäärän mukaan:
 post_proceed:Jatka
@@ -854,7 +854,7 @@ post_moderated_forum:Lähetit viestin moderoidulle foorumille. Viestisi ei näy 
 post_moderated_forum_ttl:Moderoitu foorumi
 buddy_list_bday:{VAR: r[2]} täyttää tänään {VAR: age}-vuotta
 email_warning_msg:Jos vaihdat sähköpostiosoitteesi, käyttäjätilisi merkitään vahvistamattomaksi kunnes olet vahivistanut sen sähköpostilla.
-register_show_im:Näytä IM (ICQ, AIM, jne) indikaattorit:
+register_show_im:Näytä IM-indikaattorit:
 register_show_im_desc:Määrittää näytetäänkö viesteissä kirjoittajan IM (Instant Messaging) indikaattori(t).
 unread_message:Lukematon viesti
 read_message:Luettu viesti
@@ -869,7 +869,7 @@ finduser_help:Hakukone lisää automaattisesti hakuun merkin *. Esimerkiksi, jos
 back_to_top:Takaisin alkuun
 pm_err_disabled_title:Yksityisviestit poissa käytöstä
 pm_err_disabled_msg:Et voi lähettää yksityisviestejä ennenkuin otat ne käyttöön asetuksissasi.
-err_mod_acc_ttl:Tarkistamaton käyttäjätili
+err_mod_acc_ttl:Vahvistamaton käyttäjätili
 err_mod_acc_msg:Ylläpitäjä tarkistaa kaikki käyttäjätilit ennen niiden aktivoimista. Et voi käyttää kaikkia foorumin toimintoja ennenkuin ylläpitäjä on tarkistanut käyttäjätilisi.
 accounts_pending_approval:Hyväksymättömät käyttäjät
 saved:Tallennetut
@@ -968,6 +968,7 @@ post_err_mod_forum_edit_ttl:Virhe
 post_err_mod_forum_edit_msg:Et voi muokata moderoidun foorumin viestejä.
 dmsg_num:viesti nro {VAR: obj->id}
 postcheck_session_invalid:Istuntosi oli päättynyt, syötä lomakkeen tiedot uudelleen.
+delete_message_extra_desc:<b>Valinnainen</b><br />Määritä syy viestin poistoon, joka lähetetään yksityisviestinä viestin aloittajalle.
 delete_msg_removed_ttl:Ylläpito on poistanut viestisi.
 delete_msg_pm_body:Alkuperäinen viesti
 delete_msg_pm_subject:Otsikko: {VAR: data[15]}

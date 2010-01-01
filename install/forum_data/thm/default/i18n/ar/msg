@@ -957,6 +957,7 @@ merge_topics_tpl:اختر المواضيع التي تريد دمجها <span cl
 merge_merge:ادمج المواضيع المختارة
 merge_next:المواضيع التالية
 merge_prev:المواضيع السابقة
+merge_another:اذهب إلى <a href="{TEMPLATE: merge_another_lnk}">آخر موضوع مدمج</a> أو ادمج آخر:
 split_cp:لوحة تحكم فصل المواضيع
 groups_perms_header:الأذونات <span class="small">(حرك الفأرة فوق الإذن لترى نوعه)</span>
 register_err_sig_too_long:يتعدى توقيعك طول طول {GVAR: FORUM_SIG_ML} حرف.
@@ -1020,6 +1021,7 @@ pmsg_pdf_btn:أنشئ أرشيف PDF
 search_results_hdr:وُجدت {VAR: total} نتيجة بحث
 thread_del_all:احذف كل المواضيع المختارة
 thread_mov_all:انقل كل المواضيع المختارة
+thread_merge_all:ادمج كل المختار
 thread_loc_all:اقفل/ألغِ قفل كل المختار
 dmsg_ip:الآيبي:
 err_blockedaccnt_title:خطأ: رُشّح حسابك.
