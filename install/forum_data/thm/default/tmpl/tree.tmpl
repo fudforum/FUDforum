@@ -36,6 +36,10 @@
 <img src="{THEME_IMAGE_ROOT}/read{DEF: img_ext}" alt="{MSG: read_message}" title="{MSG: read_message}" />
 {SECTION: END}
 
+{SECTION: thread_icon}
+<img src="images/message_icons/{VAR: cur->icon}" alt="{VAR: cur->icon}" />
+{SECTION: END}
+
 {SECTION: split_thread_lnk}
 {ROOT}?t=split_th&amp;{DEF: _rsid}&amp;th={VAR: th}
 {SECTION: END}
@@ -156,6 +160,7 @@
 {SECTION: tree_branch message with replies}
 <tr class="{IF: $cur->id % 2}RowStyleA{ELSE}RowStyleB{ENDI}" id="b{VAR: cur->id}">
 <td>{IF: (_uid && $cur->post_stamp > $usr->last_read && $cur->post_stamp > $frm->last_view)}{TEMPLATE: tree_unread_message}{ELSE}{TEMPLATE: tree_read_message}{END}</td>
+<td>{IF: $cur->icon}{TEMPLATE: thread_icon}{ENDIF}</td>
 <td class="Gentext nw wa vt" style="padding-left: {FUNC: (15 * ($lev - 1))}px">
 <a href="javascript://" onclick="changeMsgFocus({VAR: cur->id});" class="big">{VAR: cur->subject}</a>
 <div class="TopBy">{MSG: by} {IF: $cur->poster_id}{TEMPLATE: reg_user_link}{ELSE}{TEMPLATE: anon_user}{END} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
