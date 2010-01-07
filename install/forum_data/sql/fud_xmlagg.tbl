@@ -25,4 +25,5 @@ CREATE INDEX {SQL_TABLE_PREFIX}xmlagg_i_f ON {SQL_TABLE_PREFIX}xmlagg (forum_id)
 # 1 xml_post_apr (ON/OFF)
 # 2 create_users (ON/OFF)
 # 4 skip_non_forum_users (ON/OFF)
+# 8 complex_reply_match
 

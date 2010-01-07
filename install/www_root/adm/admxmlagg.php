@@ -15,43 +15,63 @@
 	fud_use('xmlagg_adm.inc', true);
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
-	
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
+	if (!empty($_POST['btn_cancel'])) {
+		unset($_POST);
+	}
+	
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
 	if (!empty($_POST['xmlagg_name']) && !empty($_POST['xmlagg_forum_id'])) {
-		$xmlagg_adm = new fud_xmlagg_adm;
-		if ($edit) {
-			$xmlagg_adm->sync($edit);
-			echo '<font color="green">Aggregation rule successfully updated.</font>';
-			$edit = '';
+
+		/* Validate URL's protocol. */
+		$protocol = substr($_POST['xmlagg_url'], 0, strpos($_POST['xmlagg_url'], '://'));
+		if (!in_array($protocol, stream_get_wrappers())) {
+			echo errorify('Protocol '. $protocol .':// is not supported.');
+			echo 'Supported protocols: '. implode(stream_get_wrappers(), ', ') ."\n";
 		} else {
-			$xmlagg_adm->add();
-			echo '<font color="green">Aggregation rule successfully added (see list at bottom of page).</font>';
+			$xmlagg_adm = new fud_xmlagg_adm;
+			if ($edit) {
+				$xmlagg_adm->sync($edit);
+				echo successify('Aggregation rule successfully updated.');
+				$edit = '';
+			} else {
+				$xmlagg_adm->add();
+				echo successify('Aggregation rule successfully added (see list at bottom of page).');
+			}
+			unset($_POST);
 		}
 	} else if (isset($_GET['del'])) {
 		xmlagg_del((int)$_GET['del']);
-		echo '<font color="green">Aggregation rule successfully deleted.</font>';
+		echo successify('Aggregation rule successfully deleted.');
 	} else if (isset($_GET['trk']) && ($nn = db_sab('SELECT * FROM '.$tbl.'xmlagg WHERE id='.(int)$_GET['trk']))) {
 		xmlagg_reset((int)$_GET['trk']);
-		echo '<font color="green">Aggregation tracker was successfully cleard. The next load will start with the first fetched message.</font>';
+		echo successify('Aggregation tracker was successfully cleard. The next load will start with the oldest availale article.');
 	}
 
 	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'xmlagg WHERE id='.$edit))) {
 		foreach ($o as $k => $v) {
 			${'xmlagg_' . $k} = $v;
 		}
-	} else { /* Set the some default values */
+	} else { /* Set the some default values. */
 		foreach (get_class_vars('fud_xmlagg_adm') as $k => $v) {
-			${'xmlagg_' . $k} = $v;
+			if (isset($_POST['xmlagg_' . $k])) {
+				${'xmlagg_' . $k} = $_POST['xmlagg_' . $k];
+			} else {
+				${'xmlagg_' . $k} = $v;
+			}
 		}
 	}
-
-	// if ($FUD_OPT_2 & 8388608 && strncasecmp('win', PHP_OS, 3)) {	// Forum is locked and not windows
-	//	echo '<div class="alert">You may need to <a href="admlock.php?'.__adm_rsid.'">unlock</a> the forum\'s files before you can run the XML importing script(s).</div>';
-	// }
 ?>
 <h2>XML Aggregation</h2>
+<?php
+	if ($edit) {
+		echo '<h3>Edit rule</h3>';
+	} else {
+		echo '<h3>Add new rule</h3>';
+	}
+?>
 <form method="post" id="frm_forum" action="admxmlagg.php">
 <?php echo _hs; ?>
 <table class="datatable">
@@ -119,7 +139,16 @@
 	</tr>
 
 	<tr class="field">
-		<td>Forum Signature:<br />
+		<td>
+			Slow Reply Match:<br />
+			<font size="-1">If this option is enabled the forum will try to determine if an article is a reply
+			by comparing it's subject to subjects of existing messages in the forum.</font>
+		</td>
+		<td><?php draw_select('xmlagg_complex_reply_match', "No\nYes", "0\n8", ($xmlagg_xmlagg_opt & 8 ? 8 : 0)); ?></td>
+	</tr>
+
+	<tr class="field">
+		<td>Post Signature:<br />
 			<font size="-1">A string of text to append to the end of every aggregated article. Use <i>{link}</i> to refer to the article's URL.</font>
 		</td>
 		<td><textarea name="xmlagg_custom_sig" rows="7" cols="30"><?php echo htmlspecialchars($xmlagg_custom_sig); ?></textarea></td>
@@ -134,13 +163,14 @@
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
-<br /><br />
+
+<h3>Available rules</h3>
 <table class="resulttable fulltable">
 	<tr class="resulttopic">
 		<td nowrap="nowrap">Aggregation Rule</td>
 		<td>Forum</td>
 		<td>Exec Line</td>
-		<td>Last Load</td>
+		<td><abbr title="Date of last import. Used to track articles and prevent loading of duplicate content.">Last article</abbr></td>
 		<td align="center">Action</td>
 	</tr>
 <?php
