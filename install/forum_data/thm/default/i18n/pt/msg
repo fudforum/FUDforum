@@ -18,8 +18,8 @@ birth_date:Data de Nascimento :
 by:Por:
 by_mod:por Moderador
 current_time:Hora Actual
-custom_avatar_queue:Avatar do Costume
-date_posted:Data Post
+custom_avatar_queue:Fila de avatares personalizados
+date_posted:Data de Publicação
 date_registered:Data do Registo:
 download_counter:Transferido {PLURAL: v[3]|$1 vez|$1 vezes}
 pmsg_download_counter:Transferido {PLURAL: r->dlcount|$1 vez|$1 vezes}
@@ -327,19 +327,19 @@ register_timezone:Hora Local:
 register_ignore_admin:Ignorar mensagens do administrador:
 register_invisible_mode:Modo Invisivel:
 register_invisible_mode_desc:Ocultar o estado online.
-register_show_email:Mostrar endereço de E-mail:
+register_show_email:Mostrar Correio Electrónico:
 register_show_email_desc:Escolha esta opção se quiser que o seu endereço de e-mail seja publicado.
-register_notification:Selecionar a notificação como padrão:
-register_notification_desc:Se a notificação estiver activa como padrão, poderá ser desactivada quando colocar um post.
-register_notify_method:Escolher modo de notificação:
-register_notify_method_desc:Set your preferred notification method or disable notifications (for example when you go on vacation)
-register_allow_email_msg:Autorizar mensagens E-mail:
-register_allow_email_msg_desc:Autorizar que outros membros enviem e-mails via forum.
+register_notification:Seleccionar Notificação por Omissão:
+register_notification_desc:Se a notificação estiver activada por omissão, pode ser desactivada ao publicar mensagens.
+register_notify_method:Escolher Método de Notificação:
+register_notify_method_desc:Defina o seu método de notificação preferido ou desactive as notificações (por exemplo, quando vai de férias).
+register_allow_email_msg:Autorizar Mensagens por Correio Electrónico:
+register_allow_email_msg_desc:Autorizar que outros membros lhe enviem correio electrónico através do fórum.
 buddy_status:Estado
 my_buddies:Os meus amigos
 add_buddy:Adicionar Amigo
 add:Adicionar
-buddy_search:Introduza o id do utlizador que quer adicionar.
+buddy_search:Introduza o nome do utilizador que pretende adicionar.
 member_search:Ou use <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Encontrar Utilizador</a> para localizar a pessoa.
 buddy_remove:remover
 post_normal:Normal

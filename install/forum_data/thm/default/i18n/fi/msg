@@ -30,7 +30,7 @@ email_user:Lähetä käyttäjälle sähköpostiviesti
 faq:Ohje
 first_unread_msg:Siirry lukemattomiin viesteihin
 first_unread_msg_desc:Siirry tämän aiheen ensimmäiseen lukemattomaan viestiin
-flat_view:Palaa oletustasolistaukseen
+flat_view:Palaa oletustasonäkymään
 forum:Foorumi:
 forum_icon:Foorumin kuvake
 forum_new_messages:Uudet viestit
@@ -146,6 +146,8 @@ sticky:kelluva:
 stop_ignoring:huomioi jälleen tämän käyttäjän viestit
 sub_to_thread:Tilaa aihe
 sub_to_thread_desc:Vastaanota ilmoitukset tämän aiheen uusista viesteistä
+bookmark_thread:Kirjanmerkitty aihe
+bookmark_thread_desc:Lisää tämä aihe kirjanmerkkilistaasi
 subject:Otsikko
 subscribe:Tilaa
 subscribe_desc:Vastaanota ilmoitukset tämän foorumin uusista viesteistä
@@ -153,7 +155,8 @@ subscribed_forums:Tilatut foorumit
 subscribed_forums_desc:Valitse Tilatut foorumit -suodatin (näyttää viestit vain tilaamistasi foorumeista)
 subscribed_threads:Tilatut aiheet
 subscribed_threads_desc:Valitse Tilatut aiheet -suodatin (näyttää viestit vain tilaamistasi aiheista)
-switch_to_thread_view:Vaihda puulistaukseen
+bookmarked_threads:Kirjanmerkityt aiheet
+switch_to_thread_view:Vaihda puunäkymään
 thread:Aihe:
 thread_announcement:Tiedote:
 thread_first_unread_msg:Siirry ensimmäiseen lukemattomaan viestiin tässä aiheessa
@@ -319,7 +322,7 @@ register_prefs:Asetukset
 register_sig:Allekirjoitus:
 register_sig_desc:Valinnainen allekirjoitus, jonka voit liittää viesteihisi.
 register_reset:Tyhjennä
-register_def_thread_view:Aiheiden oletuslistaustapa:
+register_def_thread_view:Aiheiden oletusnäkymä:
 register_msg_per_page:Viestejä sivulla:
 register_show_sig:Näytä allekirjoitukset:
 register_show_sig_desc:Määrittää näytetäänkö muiden foorumin käyttäjien allekirjoitukset.
@@ -477,7 +480,7 @@ remail_error:Virhe
 mklist_type:Luettelon tyyppi:
 mklist_option:Rivi:
 mklist_additem:Lisää rivi
-mklist_apply:Liitä tekstiin
+mklist_apply:Käytä
 mklist_delete:Poista
 qbud_nick_name:Nimi
 qbud_add_selected:Lisää valitut
@@ -500,7 +503,7 @@ ppost_to:Vastaanottaja:
 ppost_from_buddy_list:Valitse kaverilistalta
 ppost_find_User:Hae käyttäjä
 ppost_track_msg:Pyydä kuittaus
-ppost_track_msg_desc:Ilmoitus yksityisviestinä, kun tämä viesti luetaan
+ppost_track_msg_desc:Ilmoitus yksityisviestinä, kun tämä viesti luetaan.
 ppost_send:Lähetä
 ppost_save_draft:Tallenna luonnos
 poll_blank_option:Et voi lisätä tyhjää valintaa.
@@ -539,15 +542,16 @@ delete_no:Ei
 error_invalidurl:Virheellinen URL
 error_error:Virhe
 usrinfo_profile:Profiili: {VAR: u->alias}
-usrinfo_show_all_posts:Näytä käyttäjän "{VAR: u->alias}" kaikki viestit
+usrinfo_show_all_posts:Näytä käyttäjän {VAR: u->alias} kaikki viestit
 actions_update:Vakoilee muita käyttäjiä, kuten sinäkin
+err_info:Tiedot
 buddy_list_err_cantadd:Et voi lisätä itseäsi omalle kaverilistallesi
 buddy_list_err_dup:Tämä käyttäjä on jo kaverilistallasi
 buddy_list_err_nouser:Käyttäjää, jonka yritit lisätä, ei löydy foorumilta
 buddy_list_err_nouser_title:Käyttäjän lisääminen ei onnistunut
 buddy_list_update:Selaa omaa kaverilistaansa
 core_err_invinp_title:Virheellinen syöte
-core_err_invinp_err:Yritit ladata virheellista linkkiä, ole hyvä ja ilmoita tästä <href="mailto:{GVAR: ADMIN_EMAIL}">webmasterille</a>
+core_err_invinp_err:Yritit ladata virheellistä linkkiä, ole hyvä ja ilmoita tästä <a href="mailto:{GVAR: ADMIN_EMAIL}">sivuston ylläpitäjälle</a>.
 core_adm_login_msg:Ylläpitäjät voivat kirjautua sisään <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">täällä</a>
 email_err_unabletoemail_title:Virhe: Sähköpostin lähetys ei onnistunut
 email_err_unabletoemail_msg:Ylläpitäjä on estänyt sähköpostin lähetyksen.
@@ -567,6 +571,7 @@ iemail_thr_bodyemail:Lue uudet lukemattomat viestit täällä:\n{VAR: goto_url['
 iemail_frm_subject:Uusi aihe foorumissa {VAR: frm_name} otsikolla {VAR: thr_subject} käyttäjältä: {VAR: poster_login}
 iemail_frm_bodyemail:Lue aihe täällä:\n{VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista aiheista tässä foorumissa – käy täällä: {VAR: unsub_url['email']}
 iemail_participate:Osallistuaksesi keskusteluun, mene tänne:
+ignore_list_err_info_title:Tiedot
 ignore_list_err_dup_msg:Tämä käyttäjä on jo torjuttujen listalla
 ignore_list_err_nu_title:Käyttäjää ei löydy
 ignore_list_err_nu_msg:Käyttäjää, jonka yritit torjua ei löytynyt.
@@ -575,7 +580,7 @@ ignore_list_update:Selaa omaa torjuttujen listaa
 index_update:Selaa <a href="{TEMPLATE: index_update_lnk}">foorumilistaa</a>
 list_referers_update:Selaa suosittelujaan
 login_update:Sisäänkirjautuminen
-msg_update:Lukee <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> viestiä
+msg_update:Selaa aihetta <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:Virhe: Yksityisviestit poistettu käytöstä
 pm_err_nopm_msg:Et voi käyttää yksityisviestejä koska ylläpitäjä on poistanut ne käytöstä.
 pm_update:Käyttää yksityiviestintää
@@ -611,7 +616,7 @@ register_err_login_notallowed:Tätä tunnusta ei hyväksytty
 register_err_loginunique:Foorumin käyttäjätunnusten täytyy olla uniikkeja ja annettu käyttäjätunnus on jo käytössä.
 register_err_emailexists:Tämä sähköpostiosoite on jo käytössä. Jos olet unohtanut salasanasi, ole hyvä ja käytä salasanan lähetys toimintoa uudelleen rekisteröitymisen sijaan.
 register_err_shortpasswd:Salasanan täytyy olla vähintään 6 merkkiä pitkä.
-register_err_passwdnomatch:Salasanat eivät täsmää.
+register_err_passwdnomatch:Salasanat eivät täsmää. Yritä uudelleen.
 register_err_invalidemail:Antamasi sähköpostiosoite on virheellinen.
 register_err_needname:Sinun on annettava nimesi voidaksesi rekisteröityä.
 register_err_enterpasswd:Sinun on annettava tämänhetkinen salasanasi muuttaaksesi tietoja
@@ -622,7 +627,7 @@ register_err_avatarnotallowed:Lähetetyn tiedoston tyyppi ei ole sallittu. Tarki
 register_conf_subject:Rekisteröitymisen vahvistus
 register_conf_msg:Kiitos rekisteröitymisestä.\nAktivoi käyttäjätilisi napsauttamalla alla olevaa linkkiä:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti ja sinut ohjataan foorumin etusivulle.
 register_welcome_subject:Rekisteröintivahvistus
-register_welcome_msg:Kiitos rekisteröitymisestä.\n\nTässä ovat kirjautumistietosi foorumille:\n\nFoorumin linkki: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nSalasanojen isot ja pienet kirjaimet ovat eri merkkejä!\nVoit muuttaa asetuksia ja käyttäjätietojasi sivulla:\n{FULL_ROOT}{ROOT}?t=register
+register_welcome_msg:Kiitos rekisteröitymisestä.\n\nTässä ovat kirjautumistietosi foorumille:\n\nFoorumin osoite: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nSalasanojen isot ja pienet kirjaimet ovat eri merkkejä!\nVoit muuttaa asetuksia ja käyttäjätietojasi sivulla:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:Virhe: Rekisteröityminen epäonnistui
 regsiter_err_cantreg_msg:Rekisteröityminen epäonnistui, ole hyvä ja ota yhteyttä ylläpitäjään: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Selaa omia käyttäjätietojaan
@@ -631,19 +636,19 @@ report_err_nosuchmsg_title:Virhe
 report_err_nosuchmsg_msg:Viestiä ei ole
 reset_err_invalidkey_title:Virhe
 reset_err_invalidkey_msg:Virheellinen salasanan varmistusavain
-reset_err_rstconf_title:Info
+reset_err_rstconf_title:Tiedot
 reset_err_rstconf_msg:Ohjeiden pitäisi saapua sähköpostiisi muutaman minuutin kuluessa
 reset_newpass_title:Salasana vaihdettu
 reset_newpass_msg:Hei.\n\nSalasanasi on nyt vaihdettu uuteen:\n\nKäyttäjätunnus: {VAR: ui[1]}\nSalasana: {VAR: passwd}\n\nJos haluat vaihtaa yllä olevan salasanan toiseksi, voit tehdä sen profiilisivulla:\n{FULL_ROOT}{ROOT}?t=register
-reset_login_notify:Uusi salasanasi on lähetetty sinulle sähköpostilla, jonka pitäisi saapua muutaman minuutin kuluessa. Ole hyvä ja tarkista onko sähköposti saapunut.
+reset_login_notify:Uusi salasanasi on lähetetty sinulle sähköpostilla, jonka pitäisi saapua muutaman minuutin kuluessa.<br />
 search_update:Etsii viestejä
 selmsg_update:Selaa <a href="{TEMPLATE: selmsg_update_lnk}">Päivän Viestejä</a>
-showposts_update:Selaa käyttäjän "<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>" viestejä
+showposts_update:Selaa käyttäjän <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> viestejä
 subscribed_update:Selaa omia tilauksiaan
 bookmarked_update:Selaa omaa kirjanmerkkilistaa
 thread_update:Selaa foorumia <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
-tree_update:Selaa aihetta (puulistaus) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:Katselee käyttäjän <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> profiilia.
+tree_update:Selaa aihetta (puunäkymä) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Tarkastelee käyttäjän <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> profiilia.
 ERR_login_msg2:<legend>Virhe: Et ole sisäänkirjautunut</legend>Voidaksesi käyttää tätä toimintoa, tulee sinun ensin kirjautua sisään.
 ERR_disabled_ttl:Toiminto ei ole käytössä
 ERR_disabled_msg:Ylläpitäjä on poistanut tämän toiminnon käytöstä
@@ -691,15 +696,15 @@ mvthread_submit_req:Lähetä pyyntö
 thread_exchange:Aiheiden siirtopyynnöt
 move_request_by:Aiheen siirtopyyntö käyttäjältä:
 move_reason:Siirron syy:
-thr_exch_accept:hyväksy
-thr_exch_decline:hylkää
+thr_exch_accept:hyväksy aihe
+thr_exch_decline:hylkää aihe
 thr_exch_orig_forum:Alkuperäinen foorumi:
 thr_exch_dest_forum:Kohdefoorumi:
 thr_exch_no_threads:Ei aiheiden siirtopyyntöjä.
 thr_exch_decl_reason:Hylkäyksen syy aiheen <b>{VAR: data->subject}</b> siirtopyynnölle foorumille <b>{VAR: data->f2_name}</b>
 thr_exch_submit:Lähetä
 exch_decline_ttl:Aiheen {VAR: data->subject} siirtopyyntö foorumille {VAR: data->f2_name} on hylätty.
-ppost_original_msg:viesti johon olet vastaamassa tai välittämässä
+ppost_original_msg:viesti, johon olet vastaamassa tai välittämässä
 split_thread:Jaa aihe
 groupmgr_no_user:Käyttäjätunnuksella "{FUNC: char_fix(htmlspecialchars($gr_member))}" ei löydy käyttäjää
 groupmgr_already_exists:Käyttäjä "{FUNC: char_fix(htmlspecialchars($gr_member))}" on jo tämän ryhmän jäsen.
@@ -712,7 +717,7 @@ groupmgr_add_member:Lisää jäsen
 groupmgr_update_member:Päivitä jäsen
 groupmgr_edit:Muokkaa
 groupmgr_delete:Poista
-group_mgr_anon:Anonyymit käyttäjät
+group_mgr_anon:Anonyymi
 group_mgr_reged:Kaikki rekisteröityneet käyttäjät
 show_show:Näytä:
 group_mgr:Ryhmien hallinta
@@ -794,7 +799,7 @@ post_notification_desc:Ilmoita minulle, kun joku vastaa tähän viestiin.
 post_all_ext_allowed:(rajoittamaton)
 maximize_category:Suurenna luokka
 maximize_message:Suurenna viesti
-no_view_perm:Sinulla ei ole tarvittavia oikeuksia nähdäksesi tämän aiheen.
+no_view_perm:Sinulla ei ole tarvittavia oikeuksia nähdäksesi tätä aihetta.
 report_empty_report:Et voi lähettää ilmiantoa ilman syytä. Ole hyvä ja anna ilmiannon syy.
 report_already_reported_title:On jo ilmiannettu
 report_already_reported_msg:Tämä viesti on jo ilmiannettu ja on tällä hetkellä moderaattoreiden tarkastuslistalla.
@@ -859,9 +864,9 @@ register_show_im_desc:Määrittää näytetäänkö viesteissä kirjoittajan IM 
 unread_message:Lukematon viesti
 read_message:Luettu viesti
 threadt_more:&lt;lisää&gt;
-threadt_disabled_ttl:Aiheiden puulistaus ei ole käytössä
-threadt_disabled_desc:Ylläpitäjä on poistanut aiheiden puulistauksen käytöstä. Käytä tasolistausta sen sijaan.
-threadt_update:Selaa foorumia (puulistaus) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
+threadt_disabled_ttl:Aiheiden puunäkymä on poistettu käytöstä.
+threadt_disabled_desc:Ylläpitäjä on poistanut aiheiden puunäkymän käytöstä. Käytä tasonäkymää sen sijaan.
+threadt_update:Selaa foorumia (puunäkymä) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:Aiheen tai viestin poiston varmistus
 spell_alts:ei vaihtoehtoja
 insert_uploaded_image:Lisää kuva viestin tekstiin
@@ -962,6 +967,7 @@ usrinfo_last_visit:Käytti viimeksi:
 mnav_newer:uudempia kuin
 mnav_older:vanhempia kuin
 ip_search:Etsi
+ip_all_ips:Kaikki IP-osoitteet, joita '{VAR: user}' on käyttänyt
 ip_title:IP-selain
 userinfo_real_name:Nimi:
 post_err_mod_forum_edit_ttl:Virhe
@@ -1005,6 +1011,8 @@ tabs_own_posts:Näytä omat viestit
 sml_emoticon:Hymiö
 sml_code:Koodi
 register_topics_per_page:Aiheita sivua kohti:
+login_min_time:Tämä foorumi sallii yhden kirjautumisyrityksen {VAR: MIN_TIME_BETWEEN_LOGIN} sekunnin välein. Odota {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} sekuntia ennen kuin yrität uudelleen.
+post_not_logged_in:Et ole kirjautuneena sisään, joten viesti lähetetään anonyyminä.
 post_common_link:Lisää linkki
 post_common_email:Lisää sähköpostiosoite
 post_common_image:Lisää kuva

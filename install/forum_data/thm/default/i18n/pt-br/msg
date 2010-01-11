@@ -25,8 +25,7 @@ pmsg_download_counter:Descarregado {VAR: r->dlcount} vez(es)
 email:Email:
 email_to_friend:Email a um amigo
 email_to_friend_desc:Enviar o endereço (URL) desta pagina a um(s)amigo(s) via email
-# Fuzzy
-email_user:Clique para enviar um email para o Membro
+email_user:Enviar ao usuário uma mensagem por e-mail
 faq:F.A.Q.
 first_unread_msg:Ir para a(s) mensagem(s)não lida(s)
 first_unread_msg_desc:Ir para a 1ª mensagem não lida neste tópico
@@ -226,7 +225,7 @@ pmsg_forwarded:reencaminhado
 pmsg_subject:Assunto
 pmsg_author:Autor
 pmsg_time:Hora
-pmsg_selected:Seleccionado
+pmsg_selected:Selecionado
 pmsg_delete:Apagar
 cur_ppage_pm:Mensagens privadas
 writing_pm:Escrever uma mensagem privada
