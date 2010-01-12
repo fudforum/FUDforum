@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -681,5 +681,15 @@ table.ucPW { width: 175px; }
 .st7 { background-color: #886800; }
 .st8 { background-color: #004699; }
 .st9 { background-color: #909; }
+
+/* Calendar. */
+table.calendar {border-left:1px solid #999; }
+tr.calendar-row {}
+td.calendar-day {min-height:80px; font-size:11px; position:relative; } * html div.calendar-day { height:80px; }
+td.calendar-day:hover {background:#eceff5; }
+td.calendar-day-np {background:#eee; min-height:80px; } * html div.calendar-day-np { height:80px; }
+td.calendar-day-head {background:#ccc; font-weight:bold; text-align:center; width:120px; padding:5px; border-bottom:1px solid #999; border-top:1px solid #999; border-right:1px solid #999; }
+div.day-number {background:#999; position:absolute; z-index:2; top:-5px; right:-25px; padding:5px; color:#fff; font-weight:bold; width:20px; text-align:center; }
+td.calendar-day, td.calendar-day-np { width:120px; padding:5px 25px 5px 5px; border-bottom:1px solid #999; border-right:1px solid #999; }
 
 {PAGE: END}

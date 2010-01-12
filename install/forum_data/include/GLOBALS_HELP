@@ -490,3 +490,6 @@ Use a graphical captcha instead of a text captcha (only if your PHP has GD suppo
 
 {{{PHP_CLI
 Full path to the command line PHP executable on your system. This command will be used to execute batch scripts.}}}
+
+{{{CALENDAR_ENABLED	FUD_OPT_3	134217728
+Enable or disable the forum's built-in calendar.}}}

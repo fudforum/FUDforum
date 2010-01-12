@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -608,6 +608,10 @@ function &init_user()
 
 			case 'mmd':
 				$_GET['t'] = 'mmd';
+				break;
+				
+			case 'cal':	/* Calendar */
+				$_GET['t'] = 'calendar';
 				break;
 
 			default:

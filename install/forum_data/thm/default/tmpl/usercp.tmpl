@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -27,7 +27,7 @@
 {SECTION: END}
 
 {MAIN_SECTION: usercp user control panel}
-<div class="UserControlPanel">{TEMPLATE-DATA: private_msg} {IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: member_search}{ENDIF} {IF: $FUD_OPT_1 & 16777216}{TEMPLATE: u_forum_search}{ENDIF} <a class="UserControlPanel nw" accesskey="h" href="{TEMPLATE: usercp_lnk2}" title="{MSG: faq}"><img src="{THEME_IMAGE_ROOT}/top_help{DEF: img_ext}" alt="" /> {MSG: faq}</a> {IF: __fud_real_user__}{TEMPLATE: usercp_usercp}{ELSE}{TEMPLATE: register}{END} {IF: __fud_real_user__}{TEMPLATE: logout}{ELSE}{TEMPLATE: login}{END}&nbsp;&nbsp; <a class="UserControlPanel nw" href="{TEMPLATE: usercp_lnk3}" title="{MSG: home}"><img src="{THEME_IMAGE_ROOT}/top_home{DEF: img_ext}" alt="" /> {MSG: home}</a> {IF: $is_a || ($usr->users_opt & 268435456)}{TEMPLATE: admin_control_panel}{ENDIF}</div>
+<div class="UserControlPanel">{TEMPLATE-DATA: private_msg} {IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: member_search}{ENDIF} {IF: $FUD_OPT_3 & 134217728}{TEMPLATE: calendar}{ENDIF} {IF: $FUD_OPT_1 & 16777216}{TEMPLATE: u_forum_search}{ENDIF} <a class="UserControlPanel nw" accesskey="h" href="{TEMPLATE: usercp_lnk2}" title="{MSG: faq}"><img src="{THEME_IMAGE_ROOT}/top_help{DEF: img_ext}" alt="" /> {MSG: faq}</a> {IF: __fud_real_user__}{TEMPLATE: usercp_usercp}{ELSE}{TEMPLATE: register}{END} {IF: __fud_real_user__}{TEMPLATE: logout}{ELSE}{TEMPLATE: login}{END}&nbsp;&nbsp; <a class="UserControlPanel nw" href="{TEMPLATE: usercp_lnk3}" title="{MSG: home}"><img src="{THEME_IMAGE_ROOT}/top_home{DEF: img_ext}" alt="" /> {MSG: home}</a> {IF: $is_a || ($usr->users_opt & 268435456)}{TEMPLATE: admin_control_panel}{ENDIF}</div>
 {MAIN_SECTION: END}
 
 {SECTION: login_lnk}
@@ -76,6 +76,14 @@
 
 {SECTION: private_msg_unread link to private msg control panel with unread messages indicator}
 <a href="{TEMPLATE: private_msg_unread_lnk}" class="UserControlPanel nw" title="{MSG: pm}"><img src="{THEME_IMAGE_ROOT}/top_pm{DEF: img_ext}" alt="" /> {MSG: new_private_messages}</a>&nbsp;&nbsp;
+{SECTION: END}
+
+{SECTION: calendar_lnk}
+{ROOT}?t=cal&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: calendar link to forum's calendar}
+<a class="UserControlPanel nw" href="{TEMPLATE: calendar_lnk}" title="{MSG: calendar}"><img src="{THEME_IMAGE_ROOT}/top_members{DEF: img_ext}" alt="" /> {MSG: calendar}</a>&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: member_search_lnk}

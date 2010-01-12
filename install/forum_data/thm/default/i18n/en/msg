@@ -62,6 +62,8 @@ logout:				Logout
 mark_all_read:			mark all messages read
 mark_all_read_desc:		All your unread messages will be marked as read
 members:			Members
+calendar:			Calendar
+cal_goto_date:			Jump to:
 message:			Message
 message_counter:		Our users have posted a total of <b>{PLURAL: post_count|$1 message|$1 messages}</b> inside <b>{PLURAL: thread_count|$1 topic|$1 topics}</b>.
 message_index:			Message index
@@ -246,6 +248,13 @@ month_9:			September
 month_10:			October
 month_11:			November
 month_12:			December
+sunday:				Sunday
+monday:				Monday
+tuesday:			Tuesday
+wednesday:			Wednesday
+thursday:			Thursday
+friday:				Friday
+saturday:			Saturday
 male:				Male
 female:				Female
 unspecified:			UNSPECIFIED
@@ -650,9 +659,9 @@ tree_update:			Browsing topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">
 userinfo_update:		Looking at <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> profile
 ERR_login_msg2:			<legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.
 ERR_disabled_ttl:		Disabled feature
-ERR_disabled_msg:		This feature has been disabled by the system administrator
+ERR_disabled_msg:		This feature has been disabled by the system administrator.
 ERR_access_ttl:			ERROR: Insufficient Permissions
-ERR_access_msg:			You do not have the required permissions to perform this action
+ERR_access_msg:			You do not have the required permissions to perform this action.
 ERR_registration_disabled_ttl:	Registration Disabled
 ERR_registration_disabled_msg:	The administrator has disabled registration. Please try again later.
 ERR_emailconf_ttl:		ERROR: Your account is not yet confirmed
@@ -676,7 +685,7 @@ search_title:			Search For {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
 tree_title:			{VAR: frm->name} &raquo; {VAR: frm->subject}
 remail_emailsent:		E-mail was sent
-remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}
+remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may want to read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}
 poll_add_option:		Add Option:
 post_opt_html_on:		<b>HTML</b> is <b>on</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> is <b>on</b></a>
@@ -797,6 +806,8 @@ quicklogin_password:		Password:
 quicklogin_use_cookies:		Use Cookies?
 quicklogin_login_btn:		Login
 quick_reply:			Quick Reply
+quick_reply_post:		Post Quick Reply
+quick_reply_preview:		Preview Quick Reply
 post_notification_desc:		Notify me when someone replies to this message.
 post_all_ext_allowed:		(unrestricted)
 maximize_category:		Maximize Category
@@ -1062,7 +1073,7 @@ move_msg_btn:			Move Selected Messages
 move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
 captcha_img_alt:		Captcha Verification: you will need to recognize the text in this image.
 captcha_img_help:		There is no zero or one in the image.
-powered-by:			Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:			Powered by: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:			Code:
 code_select_all:		Select all
 code_show_hide:			Show/ hide

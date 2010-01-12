@@ -1,0 +1,124 @@
+/**
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: calendar.php.t; output: calendar.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: usercp.tmpl}
+{REF: curtime.tmpl}
+{REF: stats.tmpl}
+{REF: footer.tmpl}
+
+{PAGE: CAL_PAGE display the forum's calendar}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<table cellspacing="1" cellpadding="2" class="ContentTable"><tr><td>
+<!--div class="ctb"-->
+&nbsp;
+<h2>{TEMPLATE: prev_year_month_lnks} {VAR: months[$month-1]} {VAR: year} {TEMPLATE: next_month_year_lnks}</h2>
+{FUNC: draw_calendar($month, $year, $events)}
+<form method="get">
+{MSG: cal_goto_date} <input type="hidden" name="t" value="cal" />
+{VAR: select_month_control} {VAR: select_year_control} <input type="submit" name="submit" value="Go" />
+</form>
+</div>
+</td></tr></table>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: next_month_year_lnks}
+&nbsp;<a href="?t=cal&month={VAR: next_month}&year={VAR: next_year}" class="control">></a>&nbsp;<a href="?t=cal&month={VAR: month}&year={VAR: year+1}" class="control">>></a>&nbsp;
+{SECTION: END}
+
+{SECTION: prev_year_month_lnks}
+&nbsp;<a href="?t=cal&month={VAR: month}&year={VAR: year-1}" class="control"><<</a>&nbsp;<a href="?t=cal&month={VAR: prev_month}&year={VAR: prev_year}" class="control"><</a>&nbsp;
+{SECTION: END}
+
+{SECTION: calendar_title}
+{MSG: calendar}
+{SECTION: END}
+
+{SECTION: sunday}
+{MSG: sunday}
+{SECTION: END}
+
+{SECTION: monday}
+{MSG: monday}
+{SECTION: END}
+
+{SECTION: tuesday}
+{MSG: tuesday}
+{SECTION: END}
+
+{SECTION: wednesday}
+{MSG: wednesday}
+{SECTION: END}
+
+{SECTION: thursday}
+{MSG: thursday}
+{SECTION: END}
+
+{SECTION: friday}
+{MSG: friday}
+{SECTION: END}
+
+{SECTION: saturday}
+{MSG: saturday}
+{SECTION: END}
+
+{SECTION: month_1}
+{MSG: month_1}
+{SECTION: END}
+
+{SECTION: month_2}
+{MSG: month_2}
+{SECTION: END}
+
+{SECTION: month_3}
+{MSG: month_3}
+{SECTION: END}
+
+{SECTION: month_4}
+{MSG: month_4}
+{SECTION: END}
+
+{SECTION: month_5}
+{MSG: month_5}
+{SECTION: END}
+
+{SECTION: month_6}
+{MSG: month_6}
+{SECTION: END}
+
+{SECTION: month_7}
+{MSG: month_7}
+{SECTION: END}
+
+{SECTION: month_8}
+{MSG: month_8}
+{SECTION: END}
+
+{SECTION: month_9}
+{MSG: month_9}
+{SECTION: END}
+
+{SECTION: month_10}
+{MSG: month_10}
+{SECTION: END}
+
+{SECTION: month_11}
+{MSG: month_11}
+{SECTION: END}
+
+{SECTION: month_12}
+{MSG: month_12}
+{SECTION: END}
