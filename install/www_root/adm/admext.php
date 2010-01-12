@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -77,6 +77,7 @@
 document.forms['exf'].c_ext.focus();
 /* ]]> */
 </script>
+<h3>Defined filters:</h3>
 <table class="resulttable fulltable">
 <tr class="resulttopic">
 	<td>Extension</td>
@@ -84,16 +85,19 @@ document.forms['exf'].c_ext.focus();
 </tr>
 <?php
 	$c = uq('SELECT ext,id FROM '.$tbl.'ext_block');
-	$i = 1;
+	$i = 0;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {
 			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
+			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		}
 		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admext.php?edit='.$r[1].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admext.php?del='.$r[1].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
+	if (!$i) {
+		echo '<tr class="field"><td colspan="2"><center>No filters found.</center></td></tr>';
+	}
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

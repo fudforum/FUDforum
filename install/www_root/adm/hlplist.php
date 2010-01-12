@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -48,7 +48,7 @@
                 }
                 unset($c);
 
-		echo '<font color="green">Help successfully saved to '. $_POST['file'] .'.</font>';
+		echo successify('Help successfully saved to '. $_POST['file'] .'.');
 	}
 ?>
 <table border="0" cellspacing="0" cellpadding="0"><tr><td valign="top">

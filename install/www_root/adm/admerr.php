@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,8 +14,10 @@
 
 	if (!empty($_GET['clear_sql_log'])) {
 		@unlink($ERROR_PATH.'sql_errors');
+		echo successify('SQL log successfully cleared.');
 	} else if (!empty($_GET['clear_fud_log'])) {
 		@unlink($ERROR_PATH.'fud_errors');
+		echo successify('Error log successfully cleared.');
 	}
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
@@ -34,7 +36,7 @@ function print_log($path)
 		if (!($pfx = fread($fp, 23))) {
 			break;
 		}
-		if ($pfx{0} != '?') { // for old log entries
+		if ($pfx{0} != '?') { // for old log entries.
 			continue;
 		}
 		list(,$s,$d,) = explode('?', $pfx);
@@ -57,7 +59,7 @@ function print_log($path)
 	}
 
 	if (!$err) {
-		echo '<h4>Error logs are currently empty</h4><br />';
+		echo '<h4>All error logs are empty. Lucky you!</h4><br />';
 	}
 
 	require($WWW_ROOT_DISK . 'adm/footer.php');

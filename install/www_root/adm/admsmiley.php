@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,6 +29,7 @@
 		}
 		smiley_rebuild_cache();
 		db_unlock();
+		echo successify('Smiley succesfully deleted.');
 	}
 
 	if (isset($_GET['edit'])) {
@@ -49,10 +50,12 @@
 	if (isset($_POST['btn_update'], $_POST['edit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code']) && $_POST['sml_code']{strlen($_POST['sml_code']) - 1} != '~') {
 		q('UPDATE '.$tbl.'smiley SET code='.ssn($_POST['sml_code']).', img='.ssn($_POST['sml_img']).', descr='.ssn($_POST['sml_descr']).' WHERE id='.(int)$_POST['edit']);
 		smiley_rebuild_cache();
+		echo successify('Smiley succesfully updated.');
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code']) && $_POST['sml_code']{strlen($_POST['sml_code']) - 1} != '~') {
 		$view_order = q_singleval('SELECT MAX(vieworder) FROM '.$tbl.'smiley') + 1;
 		q('INSERT INTO '.$tbl.'smiley (code, img, descr, vieworder) VALUES('.ssn($_POST['sml_code']).', '.ssn($_POST['sml_img']).', '.ssn($_POST['sml_descr']).', '.$view_order.')');
 		smiley_rebuild_cache();
+		echo successify('Smiley succesfully added.');
 	}
 
 	if (isset($_GET['chpos'], $_GET['chdest'])) {
@@ -73,6 +76,7 @@
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley SET vieworder='.$newp.' WHERE vieworder=2147483647');
 			db_unlock();
 			$_GET['chpos'] = null;
+			echo successify('Smiley\'s position was succesfully changed.');
 		}
 	}
 
@@ -181,13 +185,13 @@ onsubmit="return sml_form_check();">
 </tr>
 <?php
 	$c = uq('SELECT id, img, code, descr, vieworder FROM '.$tbl.'smiley ORDER BY vieworder');
-	$i = 1;
+	$i = 0;
 	$chpos = isset($_GET['chpos']) ? (int)$_GET['chpos'] : '';
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
 			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
+			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		}
 
 		if (isset($_GET['chpos'])) {
@@ -203,7 +207,6 @@ onsubmit="return sml_form_check();">
 			</tr>';
 	}
 	unset($c);
-
 	if (isset($lp)) {
 		echo '<tr class="field"><td align="center" colspan="9"><a href="admsmiley.php?chpos='.$_GET['chpos'].'&amp;chdest='.($lp + 1).'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
 	}

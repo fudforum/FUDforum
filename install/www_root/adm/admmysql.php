@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,13 +17,13 @@
 		exit("This control panel is intended for MySQL users only!");
 	}
 
-	// get a list of supported charsets
+	// Get a list of supported charsets.
 	$charsets = db_all('SHOW CHARACTER SET');
 	sort($charsets);
 
 	if (!empty($_POST['charset']) && in_array($_POST['charset'], $charsets)) {
 		foreach (get_fud_table_list() as $v) {
-			$res = db_saq("SHOW CREATE TABLE " . $v);
+			$res = db_saq('SHOW CREATE TABLE ' . $v);
 			$charset = $collate = '';
 			if (preg_match('!CHARSET\s*=\s*([A-Za-z0-9-]+)!', $res[1], $m)) {
 				$charset = $m[1];
@@ -42,7 +42,7 @@
 			} else {
 				q('ALTER IGNORE TABLE '.$v.' CONVERT TO CHARACTER SET '.$_POST['charset']);
 			}
-			echo "Table " . $v . " was successfully converted.<br />\n";
+			echo 'Table '. $v ." was successfully converted.<br />\n";
 		}
 	}
 ?>

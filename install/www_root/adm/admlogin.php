@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -71,6 +71,7 @@
 document.forms['alf'].login.focus();
 /* ]]> */
 </script>
+<h3>Defined filters:</h3>
 <table class="resulttable fulltable">
 <tr class="resulttopic">
 	<td>Regex</td>
@@ -78,16 +79,19 @@ document.forms['alf'].login.focus();
 </tr>
 <?php
 	$c = uq('SELECT login,id FROM '.$tbl.'blocked_logins');
-	$i = 1;
+	$i = 0;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {
 			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? 'class="resultrow2"' : 'class="resultrow1"';
+			$bgcolor = ($i++%2) ? 'class="resultrow1"' : 'class="resultrow2"';
 		}
 		echo '<tr '.$bgcolor.'><td>'.char_fix(htmlspecialchars($r[0])).'</td><td>[<a href="admlogin.php?edit='.$r[1].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admlogin.php?del='.$r[1].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
+	if (!$i) {
+		echo '<tr class="field"><td colspan="2"><center>No filters found.</center></td></tr>';
+	}
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

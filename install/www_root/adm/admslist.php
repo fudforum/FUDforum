@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -22,7 +22,7 @@ function print_ul($qry)
 	}
 	unset($c);
 	if ( $i == 0 ) {
-		echo "<center>None</center>";
+		echo '<center>None</center>';
 	}
 }
 	require($WWW_ROOT_DISK . 'adm/header.php');
@@ -38,22 +38,22 @@ function print_ul($qry)
 <tr>
 <td valign="top" class="resultrow1">
 <?php
-	print_ul("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE (users_opt & 1048576) > 0 ORDER BY alias");
+	print_ul('SELECT id, alias FROM '.$DBHOST_TBL_PREFIX.'users WHERE (users_opt & 1048576) > 0 ORDER BY alias');
 ?>
 </td>
 <td valign="top" class="resultrow2">
 <?php
-	print_ul("SELECT u.id, u.alias FROM ".$DBHOST_TBL_PREFIX."mod m
-		INNER JOIN ".$DBHOST_TBL_PREFIX."users u ON u.id=m.user_id
-		GROUP BY u.id, u.alias ORDER BY u.alias");
+	print_ul('SELECT u.id, u.alias FROM '.$DBHOST_TBL_PREFIX.'mod m
+		INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=m.user_id
+		GROUP BY u.id, u.alias ORDER BY u.alias');
 ?>
 </td>
 <td valign="top" class="resultrow1">
 <?php
-	print_ul("SELECT u.id, u.alias FROM ".$DBHOST_TBL_PREFIX."group_members g
-		INNER JOIN ".$DBHOST_TBL_PREFIX."users u ON u.id=g.user_id
+	print_ul('SELECT u.id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members g
+		INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=g.user_id
 		WHERE (group_members_opt & 131072) > 0
-		GROUP BY u.id, u.alias ORDER BY u.alias");
+		GROUP BY u.id, u.alias ORDER BY u.alias');
 ?>
 </td>
 </tr>

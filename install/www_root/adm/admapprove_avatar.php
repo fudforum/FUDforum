@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,27 +18,29 @@
 
 	if (isset($_GET['usr_id'])) {
 		usr_adm_avatar((int)$_GET['usr_id'], 0);
+		echo successify('Avatar was successfully approved.');
 	} else if (isset($_GET['del'])) {
 		usr_adm_avatar((int)$_GET['del'], 1);
+		echo successify('Avatar was successfully deleted.');
 	}
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Avatar Approval System</h2>
-<table class="datatable solidtable">
+<table class="resulttable fulltable">
+<tr class="resulttopic"><td>User</td><td>Avatar</td><td>Action</td></tr>
 <?php
-	$a = 0;
+	$i = 0;
 
 	$c = uq('SELECT id, avatar_loc, alias FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE users_opt>=16777216 AND (users_opt & 16777216) > 0 ORDER BY id');
 	while ($r = db_rowarr($c)) {
-		$a = 1;
-		echo '<tr class="field"><td>'.$r[2].'</td><td>[<a href="admapprove_avatar.php?usr_id='.$r[0].'&amp;'.__adm_rsid.'">Approve</a>] [<a href="admapprove_avatar.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
-		echo '<tr class="field"><td align="center" colspan="2">'.$r[1].'</td></tr>';
+		echo '<tr class="field"><td>'.$r[2].'</td><td><center>'.$r[1].'</center></td><td>[<a href="admapprove_avatar.php?usr_id='.$r[0].'&amp;'.__adm_rsid.'">Approve</a>] [<a href="admapprove_avatar.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		$i++;
 	}
 	unset($c);
 
-	if (!$a) {
-		echo '<tr><td>There are no avatars pending approval.</td></tr>';
+	if (!$i) {
+		echo '<tr class="field"><td colspan="3"><center>There are no avatars pending approval.</center></td></tr>';
 	}
 ?>
 </table>

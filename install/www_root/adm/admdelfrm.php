@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,9 +23,9 @@
 		q('UPDATE '.$tbl.'forum SET cat_id='.(int)$_POST['dst_cat'].', view_order='.$pos.' WHERE id='.(int)$_POST['frm_id']);
 		fud_use('cat.inc', true);
 		rebuild_forum_cat_order();
-		echo 'Forum was successfully restored.<br />';
+		echo successify('Forum was successfully restored.');
 	} else if (isset($_GET['del']) && ($f = db_saq('SELECT id, thread_count, post_count, name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']))) {
-		/* user considers deleting a forum, give them final confirmation check */
+		/* User considers deleting a forum, give them final confirmation check. */
 ?>
 <div align="center">
 <h3>You have selected to permanently delete this forum</h3><br />
@@ -44,11 +44,11 @@
 	} else if (isset($_POST['del'], $_POST['conf']) && $_POST['conf'] == 'Yes') {
 		/* let's delete this forum */
 		frm_delete((int)$_POST['del']);
-		echo "Forum was successfully deleted.<br />";
+		echo succesify('Forum was successfully deleted.');
 	}
 ?>
 <h2>Orphaned Forums</h2>
-<p>The follwoing forums were deleted and are now in the recycle bin (not visible to users):</p>
+<p>The following forums were deleted and are in the trash bin (not visible to users). You can permanently delete them or reassign them to a category.</p>
 <table class="resulttable fulltable">
 <tr class="resulttopic">
 	<td width="50%">Forum Name</td>
@@ -56,7 +56,7 @@
 	<td width="40%">Reassign To Category</td>
 </tr>
 <?php
-	$i = 1;
+	$i = 0;
 	$cat_sel = create_cat_select('dst_cat', '', 0);
 	$c = uq('SELECT id, name, descr FROM '.$tbl.'forum WHERE cat_id=0');
 	while ($r = db_rowarr($c)) {
@@ -64,6 +64,9 @@
 		echo '<tr '.$bgcolor.'><td>'.$r[1].'<br /><font size="-2">'.$r[2].'</font></td><td valign="top" nowrap="nowrap"><a href="admdelfrm.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a></td><td valign="top" nowrap="nowrap"><form method="post" action="admdelfrm.php">'._hs.$cat_sel.' <input type="submit" name="frm_submit" value="Reassign" /><input type="hidden" name="frm_id" value="'.$r[0].'" /></form></td></tr>';
 	}
 	unset($c);
+	if (!$i) {
+		echo '<tr class="field"><td colspan="3"><center>No deleted forums found.</center></td></tr>';
+	}
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

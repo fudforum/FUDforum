@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,16 +15,23 @@
 	fud_use('groups_adm.inc', true);
 	fud_use('groups.inc');
 
+	require($WWW_ROOT_DISK . 'adm/header.php');
+
+	if (!empty($_POST['btn_cancel'])) {
+		unset($_POST);
+	}
+
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : 0);
 
 	if (isset($_GET['del'])) {
 		group_delete((int)$_GET['del']);
+		echo successify('Group successfully deleted.');
 	}
 
 	$hdr = group_perm_array();
 	$error_reason = $error = 0;
 
-	/* check for errors */
+	/* Check for errors. */
 	if (isset($_POST['btn_submit'])) {
 		$gr_inherit_id = (int) $_POST['gr_inherit_id'];
 		if (isset($_POST['gr_resource'])) {
@@ -46,16 +53,16 @@
 			}
 
 			if (empty($_POST['gr_name']) && $edit > 2) {
-				$_POST['gr_name'] = q_singleval("SELECT name FROM ".$DBHOST_TBL_PREFIX."groups WHERE id=".$edit);
+				$_POST['gr_name'] = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$edit);
 			}
 
 			if ($val < 0) {
 				$val = $hdr[$k][0];
 				$permi |= $val;
-				/* determine what the permission should be */
+				/* Determine what the permission should be. */
 				if (!$error) {
 					if (!$res) {
-						$r = uq("SELECT id, groups_opt, groups_opti, inherit_id FROM ".$DBHOST_TBL_PREFIX."groups");
+						$r = uq('SELECT id, groups_opt, groups_opti, inherit_id FROM '.$DBHOST_TBL_PREFIX.'groups');
 						while ($o = db_rowobj($r)) {
 							$res[$o->id] = $o;
 						}
@@ -79,7 +86,7 @@
 							break;
 						}
 
-						/* go to the next 'source' group, maybe it has the actual permission */
+						/* Go to the next 'source' group, maybe it has the actual permission. */
 						if ($res[$ih]->groups_opti & $val) {
 							$ih = $res[$ih]->inherit_id;
 							continue;
@@ -98,7 +105,7 @@
 		}
 
 		if (!$error) {
-			if (!$edit) { /* create new group */
+			if (!$edit) { /* Create new group. */
 				$rid1 = array_shift($gr_resource);
 				$gid = group_add((int)$rid1, $_POST['gr_name'], $gr_ramasks, $perm, $permi, $gr_inherit_id);
 				if (!$gid) {
@@ -111,14 +118,15 @@
 						}
 					}
 
-					/* only rebuild the group cache if the all ANON/REG users were added */
+					/* Only rebuild the group cache if the all ANON/REG users were added. */
 					if ($gr_ramasks) {
 						grp_rebuild_cache(array(0, 2147483647));
 					}
+					echo successify('Group successfully added.');
 				}
 			} else if (($frm = q_singleval('SELECT forum_id FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$edit)) !== null) { /* update an existing group */
 				if (!$res) {
-					$old = db_sab("SELECT groups_opt, groups_opti FROM ".$DBHOST_TBL_PREFIX."groups WHERE id=".$edit);
+					$old = db_sab('SELECT groups_opt, groups_opti FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$edit);
 				} else {
 					$old =& $res[$edit];
 				}
@@ -131,9 +139,10 @@
 							q('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$edit.')');
 						}
 					}
+					echo successify('Group successfully removed.');
 				}
 
-				/* only rebuild caches if the permissions or number of resources had changed. */
+				/* Only rebuild caches if the permissions or number of resources had changed. */
 				if ($perm != $old->groups_opt || $permi != $old->groups_opti || $aff != count($gr_resource)) {
 					rebuild_group_ih($edit, ($perm ^ $old->groups_opt), $perm);
 					grp_rebuild_cache();
@@ -141,7 +150,7 @@
 			}
 		}
 
-		/* restore form values */
+		/* Restore form values. */
 		if ($error) {
 			$gr_name = !empty($_POST['gr_name']) ? $_POST['gr_name'] : '';
 			$gr_resource = array();
@@ -156,9 +165,9 @@
 		}
 	}
 
-	/* fetch all groups */
+	/* Fetch all groups. */
 	$gl = array();
-	$r = uq("SELECT g.id, g.name AS gn, g.inherit_id, g.groups_opt, g.groups_opti, f.name AS fname, g.forum_id FROM ".$DBHOST_TBL_PREFIX."groups g LEFT JOIN ".$DBHOST_TBL_PREFIX."forum f ON f.id=g.forum_id");
+	$r = uq('SELECT g.id, g.name AS gn, g.inherit_id, g.groups_opt, g.groups_opti, f.name AS fname, g.forum_id FROM '.$DBHOST_TBL_PREFIX.'groups g LEFT JOIN '.$DBHOST_TBL_PREFIX.'forum f ON f.id=g.forum_id');
 	while ($o = db_rowobj($r)) {
 		$o = (array) $o;
 		$gid = array_shift($o);
@@ -173,7 +182,7 @@
 			$perm = $gl[$edit]['groups_opt'];
 			$permi = $gl[$edit]['groups_opti'];
 
-			/* handle inheritences */
+			/* Handle inheritences. */
 			if ($gr_inherit_id) {
 				$ip =& $gl[$gr_inherit_id]['groups_opt'];
 				foreach ($hdr as $v2) {
@@ -185,21 +194,19 @@
 				}
 			}
 		} else {
-			/* default form values */
+			/* Default form values. */
 			$gr_ramasks = $gr_name = '';
 			$perm = $permi = $gr_inherit_id = 0;
 			$gr_resource = array();
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
-
 	if ($error_reason) {
 		echo errorify($error_reason);
 	}
 ?>
 <h2>Admin Group Manager</h2>
-<p>Add/Edit Groups:</p>
+<h3><?php echo $edit ? 'Edit Group:</h3>' : '<h3>Add New Group:'; ?></h3>
 <form method="post" action="admgroups.php">
 <?php echo _hs; ?>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
@@ -216,7 +223,7 @@
 </td></tr>
 <?php
 	if (!$edit || $edit > 2) {
-		echo '<tr><td valign="top">Group Resources: </td><td>';
+		echo '<tr><td valign="top">Group Resources:<br /><font size="-2">(select one or more)</font></td><td>';
 		if ($edit && $gl[$edit]['forum_id']) {
 			echo 'FORUM: '.$gl[$edit]['fname'];
 		} else {
@@ -235,7 +242,7 @@
 			unset($c);
 			echo '</select>';
 		}
-		echo '</td></tr><tr><td>Inherit From: </td><td><select name="gr_inherit_id"><option value="0">No where</option>';
+		echo '</td></tr><tr><td>Inherit from: </td><td><select name="gr_inherit_id"><option value="0">No where</option>';
 
 		foreach ($gl as $k => $v) {
 			if ($k == $edit) continue;
@@ -293,10 +300,10 @@
 </table>
 <input type="hidden" name="prevloaded" value="1" />
 </form>
-<br />
+
+<h3>Available Groups:</h3>
 <span class="linkgroup">The permissions shown below ONLY control the permissions group leaders will be able to change
 for the group's they manage. To change the user permissions please use the <a href="../index.php?t=groupmgr&amp;<?php echo __adm_rsid; ?>">user-land group manager</a>.</span>
-<br />
 
 <table class="datatable fulltable">
 <tr class="tiny field">
@@ -314,7 +321,7 @@ for the group's they manage. To change the user permissions please use the <a hr
 <td valign="top" align="center"><b>Actions</b></td>
 </tr>
 <?php
-	/* fetch all group leaders */
+	/* Fetch all group leaders. */
 	$c = uq('SELECT gm.group_id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON gm.user_id=u.id WHERE gm.group_members_opt>=131072 AND (gm.group_members_opt & 131072) > 0');
 	while ($r = db_rowarr($c)) {
 		$gll[$r[0]][] = $r[1];

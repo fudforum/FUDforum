@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,13 +23,16 @@ function clean_rgx()
 	}
 }
 
-	if (isset($_POST['btn_submit'])) {
+	require($WWW_ROOT_DISK . 'adm/header.php');
+
+	if (isset($_POST['btn_submit']) && !empty($_POST['rpl_replace_str']) && !empty($_POST['rpl_with_str'])) {
 		clean_rgx();
 		if (!$_POST['rpl_replace_opt']) {
 			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'replace (replace_opt, replace_str, with_str, from_post, to_msg) VALUES(0, '._esc($_POST['rpl_replace_str']).', '._esc($_POST['rpl_with_str']).', '._esc($_POST['rpl_from_post']).', '._esc($_POST['rpl_to_msg']).')');
 		} else {
 			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'replace (replace_opt, replace_str, with_str) VALUES(1, '._esc($_POST['rpl_replace_str']).', '._esc($_POST['rpl_with_str']).')');
 		}
+		echo successify('Replacement rule successfully added.');
 	} else if (isset($_POST['btn_update'], $_POST['edit'])) {
 		clean_rgx();
 		if ($_POST['rpl_replace_opt']) {
@@ -42,10 +45,12 @@ function clean_rgx()
 			from_post='._esc($_POST['rpl_from_post']).',
 			to_msg='._esc($_POST['rpl_to_msg']).'
 		WHERE id='.(int)$_POST['edit']);
+		echo successify('Replacement rule successfully updated.');
 	}
 
 	if (isset($_GET['del'])) {
 		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'replace WHERE id='.(int)$_GET['del']);
+		echo successify('Replacement rule successfully deleted.');
 	}
 	if (isset($_GET['edit'])) {
 		list($rpl_replace_opt, $rpl_replace_str, $rpl_with_str, $rpl_from_post, $rpl_to_msg) = db_saq('SELECT replace_opt,replace_str,with_str,from_post,to_msg FROM '.$DBHOST_TBL_PREFIX.'replace WHERE id='.(int)$_GET['edit']);
@@ -65,13 +70,14 @@ function clean_rgx()
 		$edit = $rpl_replace_str = $rpl_with_str = $rpl_from_post = $rpl_to_msg = $rpl_from_post_opt = $rpl_preg_opt = '';
 		$rpl_replace_opt = isset($_POST['rpl_replace_opt']) ? (int) $_POST['rpl_replace_opt'] : 1;
 	}
-
-	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Replacement and Censorship System</h2>
-<p>Add, edit, and remove words and phrases to censor on your forums:</p>
+<p>Add, edit, and remove words and phrases to censor on your forums.</p>
 <form id="frm_rpl" method="post" action="admreplace.php">
-<?php echo _hs; ?>
+<?php
+echo _hs;
+echo ($edit ? '<h3>Update Replacement:</h3>' : '<h3>Add Replacement:</h3>');
+?>
 <table class="datatable solidtable">
 	<tr class="field">
 		<td>Replacement Type:</td>
@@ -198,6 +204,7 @@ function clean_rgx()
 document.forms['frm_rpl'].rpl_replace_str.focus();
 /* ]]> */
 </script>
+<h3>Defined replacements:</h3>
 <table class="resulttable fulltable">
 <tr class="resulttopic">
 	<td>Replace Type</td>
@@ -209,12 +216,12 @@ document.forms['frm_rpl'].rpl_replace_str.focus();
 </tr>
 <?php
 	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'replace ORDER BY replace_opt');
-	$i = 1;
+	$i = 0;
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
 			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
+			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		}
 		if ($r->replace_opt) {
 			$rtype = 'Simple';
@@ -232,6 +239,9 @@ document.forms['frm_rpl'].rpl_replace_str.focus();
 		echo '<td>[<a href="admreplace.php?edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admreplace.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
+	if (!$i) {
+		echo '<tr class="field"><td colspan="6"><center>No replacments found.</center></td></tr>';
+	}
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

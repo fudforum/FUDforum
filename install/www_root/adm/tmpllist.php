@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -114,21 +114,21 @@ function goto_tmpl($tmpl)
 
 	if ($edit) {
 		if (!isset($fl)) {
-			exit('Missing template name<br />');
+			exit('Missing template name.<br />');
 		}
 		$f_path = $GLOBALS['DATA_DIR'].'thm/'.$tname.'/tmpl/'.$fl;
 		if (!@file_exists($f_path)) {
-			exit('Non-existent template<br />');
+			exit('Non-existent template.<br />');
 		} else if (!($data = @file_get_contents($f_path))) {
-			exit('Could not open template<br />');
+			exit('Could not open template.<br />');
 		}
 		$tmpl = $sec ? $sec : $msec;
 		$tmpl_type = $sec ? 'SECTION' : 'MAIN';
 		if (!$tmpl) {
-			exit('Section parameter not available<br />');
+			exit('Section parameter not available.<br />');
 		}
 		if (($sdata = fetch_section($data, $f_path, $tmpl, $tmpl_type)) === false) {
-			exit('Couldn\'t locate template "'.$tmpl.'" inside "'.$f_path.'"<br />');
+			exit('Couldn\'t locate template "'.$tmpl.'" inside "'.$f_path.'".<br />');
 		}
 
 		if (!isset($_POST['submitted'])) {
@@ -138,12 +138,12 @@ function goto_tmpl($tmpl)
 
 			$data = substr_replace($data, str_replace("\r", '', $tmpl_data), $sdata['offset'], $sdata['len']);
 			if (!($fp = fopen($f_path, 'wb'))) {
-				exit('unable to save modifications to "'.$f_path.'"');
+				exit('Unable to save modifications to "'.$f_path.'".');
 			}
 			fwrite($fp, $data);
 			fclose($fp);
 			fud_use('compiler.inc', true);
-			$c = q("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme="._esc($tname)." AND lang="._esc($tlang));
+			$c = q('SELECT name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme='._esc($tname).' AND lang='._esc($tlang));
 			while ($r = db_rowarr($c)) {
 				compile_all($tname, $tlang, $r[0]);
 			}
@@ -172,7 +172,7 @@ function goto_tmpl($tmpl)
 	$pathl = $path . '/';
 
 	if (!($files = glob($pathl . '*.tmpl', GLOB_NOSORT))) {
-		exit('Unable to open template directory at: "'.$path.'"<br />');
+		exit('Unable to open template directory at: "'.$path.'".<br />');
 	}
 	foreach ($files as $f) {
 		$data = file_get_contents($f);
@@ -197,7 +197,7 @@ function goto_tmpl($tmpl)
 			}
 		}
 
-		/* build dependency list */
+		/* Build dependency list. */
 		$p = 0;
 		$deps = array();
 		while (($p = strpos($data, '{REF: ', $p)) !== false) {
@@ -205,7 +205,7 @@ function goto_tmpl($tmpl)
 			$deps[$file][substr($data, $p, (strpos($data, '}', $p) - $p))] = 1;
 		}
 
-		if (isset($max_opts[$file])) { /* we need to show sections inside this file */
+		if (isset($max_opts[$file])) { /* We need to show sections inside this file. */
 			$p = 0;
 			while (($p = strpos($data, '{', $p)) !== false) {
 				$e = strpos($data, ':', ++$p);
@@ -244,7 +244,7 @@ function goto_tmpl($tmpl)
 						break;
 				}
 			}
-		} else { /* just parse the title & help if available */
+		} else { /* Just parse the title & help if available. */
 			$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;max_list='.maximize($file, $max_list).'" title="maximize">[ + ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a>';
 		}
 	}

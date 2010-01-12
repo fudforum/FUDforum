@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -32,20 +32,20 @@
 		}
 
 		if (($NEW_FUD_OPT_2 ^ $FUD_OPT_2) & (33554432|16777216|67108864)) {
-			if (!($NEW_FUD_OPT_2 & 33554432)) {
-				$FUD_OPT_2 &= ~33554432;
-			} else {
+			if ($NEW_FUD_OPT_2 & 33554432) {
 				$FUD_OPT_2 |= 33554432;
-			}
-			if (!($NEW_FUD_OPT_2 & 16777216)) {
-				$FUD_OPT_2 &= ~16777216;
 			} else {
+				$FUD_OPT_2 &= ~33554432;
+			}
+			if ($NEW_FUD_OPT_2 & 16777216) {
 				$FUD_OPT_2 |= 16777216;
-			}
-			if (!($NEW_FUD_OPT_2 & 67108864)) {
-				$FUD_OPT_2 &= ~67108864;
 			} else {
+				$FUD_OPT_2 &= ~16777216;
+			}
+			if ($NEW_FUD_OPT_2 & 67108864) {
 				$FUD_OPT_2 |= 67108864;
+			} else {
+				$FUD_OPT_2 &= ~67108864;
 			}
 			$ch_list['FUD_OPT_2'] = $FUD_OPT_2;
 		}
@@ -78,9 +78,9 @@
 </table>
 <input type="hidden" name="form_posted" value="1" />
 </form>
-<br />
+
+<h3>Quick XML tutorial</h3>
 <table class="datatable">
-<tr><th><b>Quick XML Tutorial</b></th></tr>
 <tr><td class="tutor">
 <p>If enabled, the XML feed for your forum can be found at: <a href="<?php echo $feed_url; ?>" target="_blank"><?php echo $feed_url; ?></a></p>
 <p>The feed has three modes of operation. You can specify the mode by passing the 'mode' parameter via GET to the feed script.

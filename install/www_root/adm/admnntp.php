@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,28 +15,32 @@
 	fud_use('nntp_adm.inc', true);
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
-	
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
+	if (!empty($_POST['btn_cancel'])) {
+		unset($_POST);
+	}
+
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
 	if (!empty($_POST['nntp_newsgroup']) && !empty($_POST['nntp_forum_id'])) {
 		$nntp_adm = new fud_nntp_adm;
 		if ($edit) {
 			$nntp_adm->sync($edit);
-			echo '<font color="green">Newsgroup rule successfully updated.</font>';
+			echo successify('Newsgroup rule successfully updated.');
 			$edit = '';
 		} else {
 			$nntp_adm->add();
-			echo '<font color="green">Newsgroup rule successfully added (see list at bottom of page).</font>';
+			echo successify('Newsgroup rule successfully added (see list at bottom of page).');
 		}
 	} else if (isset($_GET['del'])) {
 		nntp_del((int)$_GET['del']);
-		echo '<font color="green">Newsgroup rule successfully deleted.</font>';
+		echo successify('Newsgroup rule successfully deleted.');
 	} else if (isset($_GET['trk']) && ($nn = db_sab('SELECT * FROM '.$tbl.'nntp WHERE id='.(int)$_GET['trk']))) {
 		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup.'.lock');
 		@unlink($ERROR_PATH.'.nntp/'.$nn->server.'-'.$nn->newsgroup);
 		nntp_reset((int)$_GET['trk']);
-		echo '<font color="green">Newsgroup tracker was successfully cleard. The next load will start with the first message in the group.</font>';
+		echo successify('Newsgroup tracker was successfully cleard. The next load will start with the first message in the group.');
 	}
 
 	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'nntp WHERE id='.$edit))) {
@@ -54,6 +58,13 @@
 	// }
 ?>
 <h2>Newsgroup Manager</h2>
+<?php
+	if ($edit) {
+		echo '<h3>Edit rule</h3>';
+	} else {
+		echo '<h3>Add new rule</h3>';
+	}
+?>
 <form method="post" id="frm_forum" action="admnntp.php">
 <?php echo _hs; ?>
 <table class="datatable">
@@ -220,13 +231,14 @@
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
-<br /><br />
+
+<h3>Available rules</h3>
 <table class="resulttable fulltable">
 	<tr class="resulttopic">
 		<td nowrap="nowrap">Newsgroup Rule</td>
 		<td>Forum</td>
 		<td>Exec Line</td>
-		<td>Tracker</td>
+		<td><abbr title="Last imported message. Used to track posts and prevent importing of duplicate content.">Tracker</abbr></td>
 		<td align="center">Action</td>
 	</tr>
 <?php

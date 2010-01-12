@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,6 +20,8 @@
 	fud_use('attach.inc');
 	fud_use('th_adm.inc');
 
+	require($WWW_ROOT_DISK . 'adm/header.php');
+				
 	if (isset($_GET['usr_id'])) {
 		$usr_id = (int) $_GET['usr_id'];
 	} else if (isset($_POST['usr_id'])) {
@@ -31,7 +33,7 @@
 	if (isset($_POST['btn_prune']) && !empty($_POST['thread_age'])) {
 		$lmt = ' AND (thread_opt & (2|4)) = 0 ';
 	
-		/* figure out our limit if any */
+		/* Figure out our limit if any. */
 		if ($_POST['forumsel'] == '0') {
 			$msg = '<font color="red">from all forums</font>';
 		} else if (!strncmp($_POST['forumsel'], 'cat_', 4)) {
@@ -47,19 +49,18 @@
 		$back = __request_timestamp__ - $_POST['units'] * $_POST['thread_age'];
 
 		if (!isset($_POST['btn_conf']) && $back > 0) {
-			/* count the number of messages & topics that will be affected */
+			/* Count the number of messages & topics that will be affected. */
 			if (!$usr_id) {
 				$topic_cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt);
 				$msg_cnt = q_singleval('SELECT SUM(replies) FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt) + $topic_cnt;
 				$umsg = '';
 			} else {
-				$topic_cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."thread t INNER JOIN ".$DBHOST_TBL_PREFIX."msg m ON t.root_msg_id=m.id WHERE m.poster_id=".$usr_id." AND t.last_post_date<".$back.$lmt);
-				$msg_cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."msg m INNER JOIN ".$DBHOST_TBL_PREFIX."thread t ON m.thread_id=t.id WHERE m.poster_id=".$usr_id." AND t.last_post_date<".$back.$lmt);
-				$umsg = ' <font color="red">posted by "'.q_singleval("SELECT alias FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".$usr_id).'"</font>';
+				$topic_cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'thread t INNER JOIN '.$DBHOST_TBL_PREFIX.'msg m ON t.root_msg_id=m.id WHERE m.poster_id='.$usr_id.' AND t.last_post_date<'.$back.$lmt);
+				$msg_cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'msg m INNER JOIN '.$DBHOST_TBL_PREFIX.'thread t ON m.thread_id=t.id WHERE m.poster_id='.$usr_id.' AND t.last_post_date<'.$back.$lmt);
+				$umsg = ' <font color="red">posted by "'.q_singleval('SELECT alias FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id).'"</font>';
 			}
-			require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
-<div align="center">You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics containing <font color="red"><?php echo $msg_cnt; ?></font> messages,
+<div align="center">You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics and <font color="red"><?php echo $msg_cnt; ?></font> messages,
 which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $umsg . $msg; ?><br /><br />
 			Are you sure you want to do this?<br />
 			<form method="post" action="">
@@ -99,16 +100,14 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 			foreach ($frm_list as $v) {
 				rebuild_forum_view_ttl($v);
 			}
-			echo '<h2 color="red">It is highly recommended that you run a consitency checker after pruning.</h2>';
+			echo successify('Done. It is highly recommended that you run a <a href="consist.php?'.__adm_rsid.'">consitency check</a> after pruning.');
 		} else if ($back < 1) {
-			$first_msg = q_singleval("SELECT MIN(post_stamp) FROM ".$DBHOST_TBL_PREFIX."msg");
+			$first_msg = q_singleval('SELECT MIN(post_stamp) FROM '.$DBHOST_TBL_PREFIX.'msg');
 			echo '<div style="text-align:center; font-size: large; font-weight: bolder; color: darkred">You\'ve selected a date too far in the past,'
 			.($first_msg ? '<br />the earliest forum message was posted on '.date("r", $first_msg) : '')
 			.'.</div>';
 		}
 	}
-
-	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Topic Pruning</h2>
 
@@ -122,15 +121,15 @@ delete topics with no messages in the last 10 days.</p>
 <?php
 	if ($usr_id) {
 		echo '<tr class="field">';
-		echo '<td nowrap="nowrap">By Author:</td>';
-		echo '<td colspan="2">'.q_singleval("SELECT alias FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".$usr_id).'</td>';
+		echo '<td nowrap="nowrap">By author:</td>';
+		echo '<td colspan="2">'.q_singleval('SELECT alias FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id).'</td>';
 		echo '</tr>';
 	}
 ?>
 <tr class="field">
 	<td nowrap="nowrap">Topics with last post made:</td>
 	<td ><input tabindex="1" type="text" name="thread_age" /></td>
-	<td nowrap="nowrap"><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
+	<td nowrap="nowrap"><?php draw_select('units', "Second(s)\nMinute(s)\nHour(s)\nDay(s)\nWeek(s)\nMonth(s)\nYear(s)", "1\n60\n3600\n86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 
 <tr class="field">

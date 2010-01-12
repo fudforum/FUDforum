@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,17 +18,17 @@
 function validate_input()
 {
 	if (empty($_POST['login'])) {
-		$GLOBALS['err_login'] = errorify('Login cannot be blank');
+		$GLOBALS['err_login'] = errorify('Login cannot be blank.');
 		return 1;
 	}
 
 	if (empty($_POST['passwd'])) {
-		$GLOBALS['err_passwd'] = errorify('Password cannot be blank');
+		$GLOBALS['err_passwd'] = errorify('Password cannot be blank.');
 		return 1;
 	}
 
 	if (empty($_POST['email'])) {
-		$GLOBALS['err_email'] = errorify('E-mail cannot be blank');
+		$GLOBALS['err_email'] = errorify('E-mail cannot be blank.');
 		return 1;
 	}
 
@@ -56,13 +56,15 @@ function validate_input()
 
 		$i = 0;
 		$al = $alias;
+		$salt   = substr(md5(uniqid(mt_rand(), true)), 0, 9);
+		$passwd = sha1($salt . sha1($_POST['passwd']));
 		while (($user_added = db_li('INSERT INTO '.$DBHOST_TBL_PREFIX.'users
-			(login, alias, passwd, name, email, time_zone, join_date, theme, users_opt, last_read) VALUES (
-			'._esc($_POST['login']).', \''.$al.'\', \''.md5($_POST['passwd']).'\',
+			(login, alias, passwd, salt, name, email, time_zone, join_date, theme, users_opt, last_read) VALUES (
+			'._esc($_POST['login']).', \''.$al.'\', \''.$passwd.'\', \''.$salt.'\',
 			'._esc($_POST['name']).', '._esc($_POST['email']).', \''.$SERVER_TZ.'\',
 			'.__request_timestamp__.', '.$default_theme.', '.$users_opt.', '.__request_timestamp__.')',
-			$ef, 1)) === null) {
-
+			$ef, 1)) === null) 
+		{
 			if (q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE login='._esc($_POST['login']))) {
 				$error = 1;
 				$err_login = errorify('Login ('.htmlspecialchars($_POST['login']).') is already in use.');
@@ -109,9 +111,9 @@ function randomPassword() {
 </script>
 <?php
 	if ($error) {
-		echo '<h3 style="color: red">Error Has Occured</h3>';
+		echo errorify($error);
 	} else if (!empty($user_added)) {
-		echo '<font size="+1" color="green">User was successfully added. [ <a href="admuser.php?act=1&amp;usr_id='.$user_added.'&amp;'.__adm_rsid.'">Edit user '.$_POST['login'].'</a> ]</font><br />';
+		echo successify('User was successfully added. [ <a href="admuser.php?act=1&amp;usr_id='.$user_added.'&amp;'.__adm_rsid.'">Edit user '.$_POST['login'].'</a> ]<br />');
 	}
 ?>
 <form id="frm_usr" method="post" action="admadduser.php">
@@ -142,6 +144,7 @@ function randomPassword() {
 	</tr>
 </table>
 </form>
+<a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to Moderator/User Manager</a>
 <script type="text/javascript">
 /* <![CDATA[ */
 document.forms['frm_usr'].login.focus();

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -43,12 +43,15 @@
 <tr class="field">
 <td>Language:</td><td><select name="tlang">
 <?php
-	foreach (glob($GLOBALS['DATA_DIR'] . 'thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
+	foreach (glob($GLOBALS['DATA_DIR'] .'thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
 		if (!file_exists($file . '/msg')) {
 			continue;
 		}
-		$n = basename($file);
-		echo '<option value="'.$n.'"'.($n == $def_tmpl ? ' selected="selected"' : '').'>'.$n.'</option>';
+		$langcode = $langname = basename($file);
+		if (file_exists($file .'/name')) {
+			$langname = trim(file_get_contents($file .'/name'));
+		}
+		echo '<option value="'. $langcode .'"'.($langcode == $def_tmpl ? ' selected="selected"' : '').'>'. $langname .'</option>';
 	}
 ?>
 </select></td></tr>

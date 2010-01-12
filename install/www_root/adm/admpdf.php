@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,6 +15,8 @@
 	fud_use('widgets.inc', true);
 	fud_use('draw_select_opt.inc');
 
+	require($WWW_ROOT_DISK . 'adm/header.php');
+	
 	$help_ar = read_help();
 
 	if (isset($_POST['form_posted'])) {
@@ -48,14 +50,14 @@
 
 		if (isset($ch_list)) {
 			change_global_settings($ch_list);
-			/* put the settings 'live' so they can be seen on the form */
+			echo successify('Settings successfully updated.');
+			/* Put the settings 'live' so they can be seen on the form. */
 			foreach ($ch_list as $k => $v) {
 				$GLOBALS[$k] = $v;
 			}
 		}
+		echo successify('Setting successfully updated.');
 	}
-
-	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	$rdf_url = $WWW_ROOT . 'pdf.php';
 ?>
@@ -79,10 +81,9 @@
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Change Settings" /><input type="hidden" name="form_posted" value="1" /></td></tr>
 </table>
 </form>
-<br />
-<table border="0" cellspacing="1" cellpadding="3">
-<tr><th><b>Quick PDF Tutorial</b></th></tr>
-<tr class="tutor"><td>
+
+<h3>Quick PDF tutorial</h3>
+<div class="tutor">
 <p>If enabled, this feature will allow forum visitors to generate PDF files based on the forum data for easy printing and other uses.</p>
 <p>This facility supports 3 data retrieval modes - <i>messages</i>, <i>topics</i> and <i>entire forums</i>.</p>
 <b>Some examples:</b>
@@ -92,5 +93,6 @@
 	<li><a href="<?php echo $rdf_url; ?>?thread=1"><?php echo $rdf_url; ?>?thread=1</a> will generate a pdf with all the messages from topic with an id of 1.</li>
 	<li><a href="<?php echo $rdf_url; ?>?msg=1"><?php echo $rdf_url; ?>?msg=1</a> will generate a pdf contaning a message with an id of 1.</li>
 </ul>
-</td></tr></table>
+</div>
+
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

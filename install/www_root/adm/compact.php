@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -233,7 +233,7 @@ function eta_calc($start, $pos, $pc)
 	$stm2 = time();
 	$fp = fopen($MSG_STORE_DIR.'private_tmp', 'wb');
 	if (!$fp) {
-		exit("Failed to open temporary private message store.");
+		exit('Failed to open temporary private message store.');
 	}
 	$pc = q_singleval('SELECT count(*) FROM '.$tbl.'pmsg');
 	if ($pc) {

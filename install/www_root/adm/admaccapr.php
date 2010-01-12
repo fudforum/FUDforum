@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,14 +14,14 @@
 	fud_use('users_adm.inc', true);
 
 	if (isset($_GET['apr'])) {
-		if (($r = db_sab("SELECT email, login FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".(int)$_GET['apr']))) {
+		if (($r = db_sab('SELECT email, login FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.(int)$_GET['apr']))) {
 			fud_use('adm_acc.inc');
 			fud_use('iemail.inc');
 			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt & ~ 2097152 WHERE id='.(int)$_GET['apr']);
 			send_email($NOTIFY_FROM, $r->email, $account_accepted_s, $account_accepted);
 		}
 	} else if (isset($_GET['rm']) && (int)$_GET['rm'] != 1) {
-		if (($r = db_sab("SELECT email, login FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".(int)$_GET['rm']))) {
+		if (($r = db_sab('SELECT email, login FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.(int)$_GET['rm']))) {
 			fud_use('adm_acc.inc');
 			fud_use('iemail.inc');
 			send_email($NOTIFY_FROM, $r->email, $account_rejected_s, $account_rejected);
@@ -42,13 +42,16 @@ function print_if_avail($descr, $value, $no_html=1)
 	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Account Approval</h2>
-<table class="datatable">
-<tr class="fieldtopic">
-<td><b>Account Information</b></td><td align="center"><b>Action</b></td></tr>
+<p>Approve or delete users who have registered (if 'New Account Moderation' is enabled in the Global Settings Manager).</p>
+<table class="datatable fulltable">
+<tr class="resulttopic">
+<td>Account Information</td><td align="center">Action</td></tr>
 <?php
-	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0 AND id >0');
+	$i = 0;
+	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0 AND id > 0');
 	while ($obj = db_rowobj($c)) {
-		echo '<tr><td class="field"><table>'.
+		$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
+                echo '<tr '. $bgcolor .'"><td class="field"><table width="100%" '. $bgcolor .'>'.
 		print_if_avail('Login', $obj->login) .
 		print_if_avail('E-mail', $obj->email) .
 		print_if_avail('Name', $obj->name) .
@@ -60,7 +63,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		print_if_avail('Gender', ($obj->users_opt & 1024 ? 'Male' : ($obj->users_opt & 512 ? 'Unspecified' : 'Female'))) .
 		print_if_avail('Homepage', $obj->home_page) .
 		print_if_avail('Image', $obj->user_image) .
-		print_if_avail('Biography', $obj->biography) .
+		print_if_avail('Biography', $obj->bio) .
 		print_if_avail('ICQ', $obj->icq) .
 		print_if_avail('AIM Handle', $obj->aim) .
 		print_if_avail('Yahoo Messenger', $obj->yahoo) .
@@ -72,10 +75,12 @@ function print_if_avail($descr, $value, $no_html=1)
 		print_if_avail('Signature', $obj->sig, 0) .
 		print_if_avail('IP Address', long2ip($obj->reg_ip), 0) .
 		'</table></td>
-		<td class="fieldaction">[ <a href="admaccapr.php?apr='.$obj->id.'&amp;'.__adm_rsid.'">Approve Account</a> | <a href="admaccapr.php?rm='.$obj->id.'&amp;'.__adm_rsid.'">Delete Account</a> ]</td></tr>
-		<tr><td>&nbsp;</td></tr>';
+		<td class="fieldaction">[ <a href="admaccapr.php?apr='.$obj->id.'&amp;'.__adm_rsid.'">Approve Account</a> | <a href="admaccapr.php?rm='.$obj->id.'&amp;'.__adm_rsid.'">Delete Account</a> ]</td></tr>';
 	}
 	unset($c);
+	if (!$i) {
+		echo '<tr><td colspan="2" align="center">No pending accounts found.</td></tr>';
+	}
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -28,7 +28,7 @@
 		$_POST['newname'] = '';
 	}
 
-	if ($_POST['newname'] && !q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."themes WHERE name="._esc($_POST['newname']))) {
+	if ($_POST['newname'] && !q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'themes WHERE name='._esc($_POST['newname']))) {
 		$root = $DATA_DIR . 'thm/';
 		$root_nn = $root . preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
 		$u = umask(0);
@@ -62,7 +62,7 @@
 			fudcopy($root . 'path_info/', $root_nn, '.path_info', true);
 		}
 		umask($u);
-		echo '<font color="green">Template set '.$_POST['newname'].' was successfully created.</font>';
+		echo successify('Template set '.$_POST['newname'].' was successfully created.');
 	}
 	
 	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt=3');
@@ -98,8 +98,11 @@
 		if (!file_exists($file . '/msg')) {
 			continue;
 		}
-		$n = basename($file);
-		echo '<option value="'.$n.'"'.($n == $def_tmpl ? ' selected="selected"' : '').'>'.$n.'</option>';
+		$langcode = $langname = basename($file);
+		if (file_exists($file .'/name')) {
+			$langname = trim(file_get_contents($file .'/name'));
+		}
+		echo '<option value="'. $langcode .'"'.($langcode == $def_tmpl ? ' selected="selected"' : '').'>'. $langname .'</option>';
 	}
 ?>
 </select></td></tr>

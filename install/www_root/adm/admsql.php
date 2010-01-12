@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,12 +16,15 @@
 	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>SQL Manager</h2>
-<div class="alert">
-NOTE: this feature IS DANGEROUS and could destroy all your data. Please only use it to run SELECT and DESCRIBE statements. Anything else may result in data loss.
-</div>
 <form name="admsql" method="post" action="admsql.php">
 <?php echo _hs; ?>
 <table class="datatable">
+<tr><td class="alert">
+	NOTE: this feature IS DANGEROUS and can destroy your forum's data.
+	Please only use it to run SELECT and DESCRIBE statements. 
+	Anything else may result in data loss.
+<tr><td>&nbsp;</td></tr>
+</td></tr>
 <tr class="field"><td>
 	Enter SQL statements (terminate them with semicolons):<br />
 </td></tr>
@@ -33,7 +36,7 @@ NOTE: this feature IS DANGEROUS and could destroy all your data. Please only use
 	<?php   $tables = get_fud_table_list();
 		sort($tables);
 		foreach($tables as $tbl) {
-		echo '<option value="'.$tbl.'">'.$tbl.'</option>';
+		echo '<option value="'. $tbl .'">'. $tbl .'</option>';
 	} ?>
 	</select>
 	</div>
@@ -52,7 +55,7 @@ document.forms['admsql'].sql.focus();
 
 <?php
 if (isset($_POST['sql']) && $_POST['sql'] != '') {
-	$sqlfile = str_replace("\r","",$_POST['sql']);
+	$sqlfile = str_replace("\r", '', $_POST['sql']);
 	$sqlfile = str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $sqlfile);
 	$sqlfile = explode(";\n", $sqlfile);
 
@@ -74,20 +77,20 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 
 			$i = 1;
 			while ($result = db_fetch_array($q)) {
-				echo '<tr class="resulttopic">';
-				if ($i == 1) {
+				if ($i == 1) {	// Column name headings.
+					echo '<tr class="resulttopic">';
 					foreach ($result as $key => $value) {
 						if (!is_numeric($key)) {
-							echo '<th>'.$key.'</th>';
+							echo '<th>'. $key .'</th>';
 						}
 					}
+					echo '</tr>';
 				}
-				echo '</tr>';
-			
+
 				echo '<tr class="field">';
 				foreach ($result as $key => $value) {
 					if (!is_numeric($key)) {
-						echo '<td>'.$value.'</td>';
+						echo '<td>'. $value .'</td>';
 					}
 				}
 				echo '</tr>';

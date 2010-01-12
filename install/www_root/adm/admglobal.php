@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -30,7 +30,7 @@ function get_max_upload_size()
 }
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
-	
+
 	$max_attach_size = get_max_upload_size();
 	if (isset($_POST['CF_PRIVATE_ATTACH_SIZE'])) {
 		if ($_POST['CF_PRIVATE_ATTACH_SIZE'] > $max_attach_size) {
@@ -68,6 +68,10 @@ function get_max_upload_size()
 		$GLOBALS['NEW_FUD_OPT_2'] |= $FUD_OPT_2 & (16777216|33554432|67108864|134217728|268435456|8388608);
 		/* Restore plugin settings. */
 		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (4194304);
+		/* Restore calendar settings. */
+		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (134217728);
+		/* Restore GeoLocation settings. */
+		$GLOBALS['NEW_FUD_OPT_3'] |= $FUD_OPT_3 & (524288|2097152);
 
 		/* Disable apache_setenv() is no such function. */
 		if ($GLOBALS['NEW_FUD_OPT_3'] & 512 && !function_exists('apache_setenv')) {
@@ -79,7 +83,7 @@ function get_max_upload_size()
 			try {
 				q('CREATE TEMPORARY TABLE '.$DBHOST_TBL_PREFIX.'temp_test (val INT)');
 			} catch(Exception $e) {
-				echo '<font color="red">Unable to create temporary tables. Feature cannot be enabled on your installation.</font><br />';
+				echo errorify('Unable to create temporary tables. Feature cannot be enabled on your installation.');
 				$GLOBALS['NEW_FUD_OPT_3'] ^= 4096;
 			}
 		}
@@ -148,7 +152,7 @@ function get_max_upload_size()
 			foreach ($ch_list as $k => $v) {
 				$GLOBALS[$k] = $v;
 			}
-			echo '<font color="green">Forum settings successfully updated.</font><br />';
+			echo successify('Forum settings successfully updated.');
 		}
 	}
 ?>
@@ -222,7 +226,7 @@ $(document).ready(function() {
 	print_reg_field('Database Name', 'DBHOST_DBNAME');
 	print_bit_field('Use Persistent Connections', 'DBHOST_PERSIST');
 	if (__dbtype__ == 'mysql') { 
-		if (preg_match('!((3|4|5)\.([0-9]+)(\.([0-9]+))?)!',  q_singleval("SELECT VERSION()"), $m)) {
+		if (preg_match('!((3|4|5)\.([0-9]+)(\.([0-9]+))?)!',  q_singleval('SELECT VERSION()'), $m)) {
 			$version = $m[1];
 		} else {
 			$version = 0;
@@ -246,7 +250,7 @@ $(document).ready(function() {
 	print_bit_field('Show PDF Generation Link', 'SHOW_PDF_LINK');
 	print_bit_field('Show Syndication Link', 'SHOW_XML_LINK');
 	print_bit_field('Online/Offline Status Indicator', 'ONLINE_OFFLINE_STATUS');
-	print_bit_field('Disable AutoComplete', 'DISABLE_AUTOCOMPLETE');	
+	print_bit_field('Disable AutoComplete', 'DISABLE_AUTOCOMPLETE');
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </tbody>

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -122,7 +122,7 @@ if (!extension_loaded('posix')) {
 		$dest = '';
 	}
 
-		/* Download file code. */
+	/* Download file code. */
 	if (isset($_GET['down']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
 		if (is_file($cur_dir . '/' . $dest)) {
 			header('Content-type: application/octet-stream');
@@ -249,8 +249,8 @@ if (!extension_loaded('posix')) {
 		$fdest = !empty($_POST['d_name']) ? $_POST['d_name'] : $_FILES['fname']['name'];
 		$fdest = $cur_dir . '/' . basename($fdest);
 		if (move_uploaded_file($_FILES['fname']['tmp_name'], $fdest)) {
-			echo successify('File '. $fdest .' successfully uploaded.');
 			@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
+			echo successify('File '. $fdest .' successfully uploaded.');
 		} else {
 			switch ($_FILES['fname']['error']) {
 			case UPLOAD_ERR_INI_SIZE:

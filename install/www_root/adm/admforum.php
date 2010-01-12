@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,23 +23,26 @@ function get_max_upload_size()
 
 /* main program */
 	require('./GLOBALS.php');
-	
-	/* this is here so we get the cat_id when cancel button is clicked */
-	$cat_id = isset($_GET['cat_id']) ? (int)$_GET['cat_id'] : (isset($_POST['cat_id']) ? (int)$_POST['cat_id'] : '');
-
 	fud_use('adm.inc', true);
 	fud_use('forum_adm.inc', true);
 	fud_use('cat.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('logaction.inc');
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
-		
+	/* This is here so we get the cat_id when cancel button is clicked. */
+	$cat_id = isset($_GET['cat_id']) ? (int)$_GET['cat_id'] : (isset($_POST['cat_id']) ? (int)$_POST['cat_id'] : '');
+	
+	if (!empty($_POST['btn_cancel'])) {
+		unset($_POST);
+	}
+
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$max_upload_size = get_max_upload_size();
 
+	require($WWW_ROOT_DISK . 'adm/header.php');
+	
 	if (!$cat_id || ($cat_name = q_singleval('SELECT name FROM '.$tbl.'cat WHERE id='.$cat_id)) === NULL) {
-		exit('no such category');
+		exit('No such category.');
 	}
 
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
@@ -60,10 +63,12 @@ function get_max_upload_size()
 			$frm->add($_POST['frm_pos']);
 			rebuild_forum_cat_order();
 			logaction(_uid, 'ADDFORUM', $frm->id);
+			echo successify('Forum was successfully created.');
 		} else {
 			$frm->sync($edit, $cat_id);
 			logaction(_uid, 'SYNCFORUM', $edit);
 			$edit = '';
+			echo successify('Forum was successfully updated.');
 		}
 	}
 	if ($edit && ($c = db_arr_assoc('SELECT * FROM '.$tbl.'forum WHERE id='.$edit))) {
@@ -76,7 +81,7 @@ function get_max_upload_size()
 			${'frm_'.$k} = '';
 		}
 
-		/* some default values for new forums */
+		/* Some default values for new forums. */
 		$frm_pos = 'LAST';
 		$frm_max_attach_size = floor($max_upload_size / 1024);
 		$frm_message_threshold = '0';
@@ -88,18 +93,20 @@ function get_max_upload_size()
 		frm_change_pos((int)$_GET['chpos'], (int)$_GET['newpos'], $cat_id);
 		rebuild_forum_cat_order();
 		unset($_GET['chpos'], $_GET['newpos']);
+		echo successify('Forum position was successfully set.');
 	} else if (isset($_GET['del'])) {
 		if (frm_move_forum((int)$_GET['del'], 0, $cat_id)) {
 			rebuild_forum_cat_order();
 			$frm_name = q_singleval('SELECT name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']);
 			logaction(_uid, 'FRMMARKDEL', $frm_name);
-			echo 'The <b>'.$frm_name.'</b> forum was moved to the <b><a href="admdelfrm.php?'.__adm_rsid.'">recycle bin</a></b>.<br />';
+			echo successify('The <b>'.$frm_name.'</b> forum was moved to the <b><a href="admdelfrm.php?'.__adm_rsid.'">trash bin</a></b>.');
 		}
 	} else if (isset($_POST['btn_chcat'], $_POST['frm_id'], $_POST['cat_id'], $_POST['dest_cat'])) {
 		if (frm_move_forum((int)$_POST['frm_id'], (int)$_POST['dest_cat'], $cat_id)) {
 			rebuild_forum_cat_order();
 			$r = db_saq('SELECT f.name, c1.name, c2.name FROM '.$tbl.'forum f INNER JOIN '.$tbl.'cat c1 ON c1.id='.$cat_id.' INNER JOIN '.$tbl.'cat c2 ON c2.id='.(int)$_POST['dest_cat'].' WHERE f.id='.(int)$_POST['frm_id']);
 			logaction(_uid, 'CHCATFORUM', 'Moved forum "'.$r[0].'" from category: "'.$r[1].'" to category: "'.$r[2].'"');
+			echo successify('Forum was successfully moved.');
 		}
 	}
 	if (isset($_GET['o'], $_GET['ot'])) {
@@ -114,9 +121,10 @@ function get_max_upload_size()
 	}
 ?>
 <h2>Forum Management System</h2>
-<p>Editing forums for category: <b><?php echo $cat_name; ?></b>.</p>
+
 <?php
-if (!isset($_GET['chpos'])) {
+if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
+	echo ($edit ? '<h3>Edit Forum:</h3>' : '<h3>Add Forum to '. $cat_name .':</h3>');
 ?>
 
 <form method="post" id="frm_forum" action="admforum.php">
@@ -198,6 +206,7 @@ if (!isset($_GET['chpos'])) {
 		<td colspan="2" align="right">
 <?php
 	if ($edit) {
+		echo '<input type="hidden" name="edit" value="'.$edit.'" />';
 		echo '<input type="submit" value="Cancel" name="btn_cancel" /> ';
 	}
 ?>
@@ -207,32 +216,23 @@ if (!isset($_GET['chpos'])) {
 
 </table>
 <input type="hidden" name="cat_id" value="<?php echo $cat_id; ?>" />
+</form>
+
+<h3>Forums in Category: <a name="forumlist"><?php echo $cat_name; ?></a></h3>
 <?php
-	if ($edit) {
-		echo '<input type="hidden" name="edit" value="'.$edit.'" />';
-	}
-	echo '</form>';
-} else {
+} else {	// Busy changing position.
 	echo '<a href="admforum.php?cat_id='.$cat_id.'&'.__adm_rsid.'">Cancel</a>';
 }
 ?>
-<table class="datatable">
-<tr class="fieldtopic"><td valign="top" nowrap="nowrap">Reorder All Forums by:</td></tr>
-<tr><td class="field"><font size="-2">
-	<b>Forum Name</b> [ <a href="admforum.php?o=1&amp;ot=name&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Ascending</a> - <a href="admforum.php?o=0&amp;ot=name&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Descending</a> ]<br />
-	<b>Forum Description</b> [ <a href="admforum.php?o=1&amp;ot=descr&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Ascending</a> - <a href="admforum.php?o=0&amp;ot=descr&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Descending</a> ]<br />
-	<b>Forum Creation Date</b> [ <a href="admforum.php?o=1&amp;ot=date_created&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Ascending</a> - <a href="admforum.php?o=0&amp;ot=date_created&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>">Descending</a> ]<br />
-</font></td></tr>
-</table>
-<br />
+
 <table class="resulttable fulltable">
 <tr class="resulttopic">
-	<td nowrap="nowrap"><font size="-2">Forum name</font></td>
-	<td><font size="-2">Description</font></td>
-	<td nowrap="nowrap"><font size="-2">Password Posting</font></td>
-	<td align="center"><font size="-2">Action</font></td>
-	<td><font size="-2">Category</font></td>
-	<td><font size="-2">Position</font></td>
+	<td nowrap="nowrap">Forum name</td>
+	<td>Description</td>
+	<td nowrap="nowrap">Password Posting</td>
+	<td align="center">Action</td>
+	<td>Category</td>
+	<td>Position</td>
 </tr>
 <?php
 	$move_ct = create_cat_select('dest_cat', '', $cat_id);
@@ -254,7 +254,7 @@ if (!isset($_GET['chpos'])) {
 			$lp = $r->view_order;
 		}
 		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'._hs.'<input type="hidden" name="frm_id" value="'.$r->id.'" /><input type="hidden" name="cat_id" value="'.$cat_id.'" /><input type="submit" name="btn_chcat" value="Move To: " /> '.$move_ct.'</form>';
-		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-2">'.htmlspecialchars(substr($r->descr, 0, 30)).'</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap="nowrap">[<a href="admforum.php?cat_id='.$cat_id.'&amp;edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'.__adm_rsid.'">Delete</a>]</td><td nowrap="nowrap">'.$cat_name.'</td><td nowrap="nowrap">[<a href="admforum.php?chpos='.$r->view_order.'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Change</a>]</td></tr>';
+		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-1">'.htmlspecialchars(substr($r->descr, 0, 30)).'</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap="nowrap">[<a href="admforum.php?cat_id='.$cat_id.'&amp;edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'.__adm_rsid.'">Delete</a>]</td><td nowrap="nowrap">'.$cat_name.'</td><td nowrap="nowrap">[<a href="admforum.php?chpos='.$r->view_order.'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Change</a>]</td></tr>';
 	}
 	unset($c);
 	if (isset($lp)) {
@@ -262,5 +262,18 @@ if (!isset($_GET['chpos'])) {
 	}
 ?>
 </table>
+
+<br />
 <a href="admcat.php?<?php echo __adm_rsid; ?>">&laquo; Back to categories</a>
+
+<table class="datatable" align="right">
+<tr class="fieldtopic"><td valign="top" nowrap="nowrap">Reorder All Forums by:</td></tr>
+<tr><td class="field"><font size="-2">
+	<b>Forum Name:</b> [ <a href="admforum.php?o=1&amp;ot=name&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>#forumlist">Ascending</a> - <a href="admforum.php?o=0&amp;ot=name&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>#forumlist">Descending</a> ]<br />
+	<b>Description:</b> [ <a href="admforum.php?o=1&amp;ot=descr&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>#forumlist">Ascending</a> - <a href="admforum.php?o=0&amp;ot=descr&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>#forumlist">Descending</a> ]<br />
+	<b>Creation Date:</b> [ <a href="admforum.php?o=1&amp;ot=date_created&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>#forumlist">Ascending</a> - <a href="admforum.php?o=0&amp;ot=date_created&amp;cat_id=<?php echo $cat_id; ?>&amp;<?php echo __adm_rsid; ?>#forumlist">Descending</a> ]<br />
+</font></td></tr>
+</table>
+<br clear="right" />
+
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

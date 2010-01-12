@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,19 +29,21 @@
 
 	if (isset($_FILES['iconfile']) && $_FILES['iconfile']['size'] && preg_match('!\.(gif|png|jpg|jpeg)$!i', $_FILES['iconfile']['name'])) {
 		move_uploaded_file($_FILES['iconfile']['tmp_name'], $WWW_ROOT_DISK . $ICONS_DIR . '/' . $_FILES['iconfile']['name']);
-		/* rebuild message icon cache */
+		/* Rebuild message icon cache. */
 		if ($which_dir) {
 			fud_use('msg_icon_cache.inc', true);
 			rebuild_icon_cache();
 		}
+		echo successify('Icon sucessfully uploaded.');
 	}
 	if (isset($_GET['del'])) {
 		@unlink($WWW_ROOT_DISK . $ICONS_DIR . '/' . basename($_GET['del']));
-		/* rebuild message icon cache */
+		/* Rebuild message icon cache. */
 		if ($which_dir) {
 			fud_use('msg_icon_cache.inc', true);
 			rebuild_icon_cache();
 		}
+		echo successify('Icon sucessfully deleted.');
 	}
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
@@ -77,13 +79,13 @@
 <table class="resulttable">
 <tr class="resulttopic"><td>Icon</td><td>Action</td></tr>
 <?php
-	$i = 1;
+	$i = 0;
 	if (($files = glob($WWW_ROOT_DISK . $ICONS_DIR . '/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT))) {
 		foreach ($files as $file) {
 			$de = basename($file);
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
+			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 			echo '<tr'.$bgcolor.'><td><img src="'.$WWW_ROOT . $ICONS_DIR . '/' . $de.'" alt="Icon" /></td><td><a href="admforumicons.php?del='.urlencode($de).'&amp;'.__adm_rsid.'&amp;which_dir='.$which_dir.'">Delete</a></td></tr>';
-		}	
+		}
 	} else if ($files === FALSE && !is_readable($WWW_ROOT_DISK . $ICONS_DIR)) {
 		echo '<tr colspan="3"><td>Unable to open '.$WWW_ROOT_DISK . $ICONS_DIR.' for reading.</td></tr>';
 	}

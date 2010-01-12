@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -25,10 +25,10 @@
 	<th>Actions</th>
 </tr>
 <?php
-	$c = uq("SELECT id, login, alias, email, ban_expiry FROM ".$DBHOST_TBL_PREFIX."users WHERE (users_opt & 65536) > 0 ORDER BY alias");
+	$c = uq('SELECT id, login, alias, email, ban_expiry FROM '.$DBHOST_TBL_PREFIX.'users WHERE (users_opt & 65536) > 0 ORDER BY alias');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
-		$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
+		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr '. $bgcolor .'"><td>'. htmlspecialchars($r[1]) .' ( '. $r[2] .' ) </td>';
 		echo '<td>'. htmlspecialchars($r[3]).'</td>';
 		echo '<td>'. ($r[4] ? date("r", $r[4]) : 'never').'</td>';

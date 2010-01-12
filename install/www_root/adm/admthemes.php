@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -30,6 +30,9 @@
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
 
+	if (!empty($_POST['btn_cancel'])) {
+		unset($_POST);
+	}
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
 	if (isset($_GET['rebuild_all'])) {
@@ -62,7 +65,7 @@
 			} else {
 			  $thm->add();
 			  compile_all($thm->theme, $thm->lang, $thm->name);
-			  echo '<font color="green">Theme '.$thm->name.' was successfully created.</font>';
+			  echo successify('Theme '.$thm->name.' was successfully created.');
 			}
 		}
 	} else if (isset($_POST['edit'])) {
@@ -75,9 +78,9 @@
 			compile_all($thm->theme, $thm->lang, $thm->name);
 		}
 		$edit = '';
-		echo '<font color="green">Theme saved and successfully rebuilt.</font>';
+		echo successify('Theme saved and successfully rebuilt.');
 	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.(int)$_GET['rebuild']))) {
-		echo '<font color="green">Rebuilding theme '. $data[2] . ' ('. $data[1] .')...</font>';
+		echo successify('Rebuilding theme '. $data[2] . ' ('. $data[1] .')...');
 		compile_all($data[0], $data[1], $data[2]);
 	} else if (isset($_GET['edit']) && ($c = db_arr_assoc('SELECT * FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.$edit))) {
 		foreach ($c as $k => $v) {
@@ -87,26 +90,32 @@
 		$thm_enabled = $c['theme_opt'] & 1;
 	} else if (isset($_GET['del']) && (int)$_GET['del'] > 1) {
 		fud_theme::delete((int)$_GET['del']);
-		echo '<font color="green">Theme successfully deleted</font>';
+		echo successify('Theme successfully deleted.');
 	}
 
 	if (!$edit) {
+		// Set default values.
 		foreach (get_class_vars('fud_theme') as $k => $v) {
 			${'thm_'.$k} = '';
 		}
-		if (strncasecmp('win', PHP_OS, 3)) {	// Not Windows.
-			$thm_locale = 'en_US.UTF-8';
-		} else {
-			$thm_locale = 'english';			// No UTF-8 locales on Windows.
+
+		if (!isset($thm_theme) || empty($thm_theme)) {
+			$thm_theme = 'default';
+		}		
+		if (!isset($thm_lang) || empty($thm_lang)) {
+			// Get default language from browser.
+			$thm_lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'en';
 		}
-		$thm_pspell_lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'en';
+		if (!isset($thm_pspell_lang) || empty($thm_pspell_lang)) {
+			$thm_pspell_lang = $thm_lang;
+		}
 		$thm_t_default = 0; $thm_enabled = 1;
 	}
 ?>
 <h2>Theme Manager</h2>
 <div class="tutor">
-	Themes combine a <a href="admtemplates.php?<?php echo __adm_rsid; ?>">template set</a> (layout) 
-	with <a href="admmessages.php?<?php echo __adm_rsid; ?>">message files</a> of a particular language.
+	Themes combine the forum's source code (logic) with <a href="admtemplates.php?<?php echo __adm_rsid; ?>">templates</a> (for layout) 
+	and <a href="admmessages.php?<?php echo __adm_rsid; ?>">message files</a> of a particular language.
 	The resulting files are deployed to the forum's web accessable <a href="admbrowse.php?cur=<?php echo urlencode($GLOBALS['WWW_ROOT_DISK'].'/theme'); ?>&<?php echo __adm_rsid; ?>">'theme' directory</a>.
 	You can define multiple themes to support different languages and/or layouts.
 </div>
@@ -139,9 +148,6 @@
 	<td>
 	<select name="thm_theme">
 	<?php
-		if (!isset($thm_theme) || empty($thm_theme)) {
-			$thm_theme = 'default';
-		}
 		foreach (glob($DATA_DIR.'/thm/*', GLOB_ONLYDIR) as $file) {
 			if (!file_exists($file . '/tmpl')) {
 				continue;
@@ -156,23 +162,25 @@
 	<td>Language:</td>
 	<td>
 	<?php
-		if (!isset($thm_lang) || empty($thm_lang)) {
-			$thm_lang = 'en';
-		}
 		$selopt = '';
 		foreach (glob($DATA_DIR.'/thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
 			if (!file_exists($file . '/msg')) {
 				continue;
 			}
-			$n = basename($file);
-			$selopt .= '<option'.($thm_lang == $n ? ' selected="selected"' : '').'>'.$n.'</option>';
+			$langcode = $langname = basename($file);
+			if (file_exists($file .'/name')) {
+				$langname = trim(file_get_contents($file .'/name'));
+			}
+			$selopt .= '<option value="'. $langcode .'"'.($thm_lang == $langcode ? ' selected="selected"' : '').'>'. $langname .'</option>';
 
 			$tryloc = file($file .'/locale', FILE_IGNORE_NEW_LINES);
 			$tryloc[] = '';	// Also consider the system's default locale.
-			$locales[$n]['locale'] = setlocale(LC_ALL, $tryloc);
+			$locales[$langcode]['locale'] = setlocale(LC_ALL, $tryloc);
 
-			$pspell_file = $file . '/pspell_lang';
-			$locales[$n]['pspell_lang'] = file_exists($pspell_file) ? trim(file_get_contents($pspell_file)) : 'en';
+			$locales[$langcode]['pspell_lang'] = $langcode;
+		}
+		if (!isset($thm_locale) || empty($thm_locale)) {
+		    $thm_locale = $locales[$thm_lang]['locale'];
 		}
 
 		$cases = '';
@@ -184,6 +192,7 @@
 	?>
 <script type="text/javascript">
 /* <![CDATA[ */
+document.forms['admthm'].thm_name.focus();
 function update_locale()
 {
 	switch (document.forms['admthm'].thm_lang.value) {
@@ -205,7 +214,7 @@ function update_locale()
 </tr>
 
 <tr class="field">
-	<td>pSpell Language:</td>
+	<td>Spell check language:</td>
 	<td>
 		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars($thm_pspell_lang); ?>" size="2" />
 		[<a href="javascript://" onclick="document.forms['admthm'].thm_pspell_lang.value=''">disable</a>]
@@ -232,7 +241,6 @@ function update_locale()
 <input type="hidden" name="prevloaded" value="1" />
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
-<br />
 
 <h3>Available Themes:</h3>
 <table class="resulttable fulltable">
@@ -241,7 +249,7 @@ function update_locale()
 	<td>Template Set</td>
 	<td>Language</td>
 	<td>Locale</td>
-	<td>pSpell Lang</td>
+	<td>Spell Lang</td>
 	<td>Enabled</td>
 	<td>Default</td>
 	<td>Action</td>

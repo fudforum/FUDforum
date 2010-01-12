@@ -20,8 +20,8 @@
 <script type="text/javascript" src="../lib.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
 </head>
-<body>
-<table class="headtable" width="100%"><tr>
+<body >
+<table class="headtable"><tr>
   <td><a href="index.php<?php if (defined('__adm_rsid')) echo '?'.__adm_rsid; ?>" title="Return to the Admin Control Panel Dashboard"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a>
   </td>
   <td><span class="linkhead">Admin Control Panel</span></td>
@@ -33,22 +33,21 @@
 
 <table class="maintable">
 <tr>
-<?php if ($is_a) { ?>
+<?php if (defined('__adm_rsid') && $is_a) { ?>
 <td class="linkdata">
 <table class="linktable">
 <tr>
 	<td nowrap="nowrap">
-<?php } ?>
 	<center>
-	[ <a href="admbrowse.php?<?php echo __adm_rsid; ?>">Files</a> ]
-	[ <a href="admsql.php?<?php echo __adm_rsid; ?>">SQL</a> ]
-	[ <a href="admbatch.php?<?php echo __adm_rsid; ?>">Jobs</a> ]
+	[ <a title="File Manager" href="admbrowse.php?<?php echo __adm_rsid; ?>">Files</a> ]
+	[ <a title="Database Manager" href="admsql.php?<?php echo __adm_rsid; ?>">SQL</a> ]
+	[ <a title="Job Manager" href="admbatch.php?<?php echo __adm_rsid; ?>">Jobs</a> ]
 	</center><br />
 
 	<span class="linkgroup">General Management</span><br />
 	<a href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a><br />
 	<a href="admplugins.php?<?php echo __adm_rsid; ?>">Plugin Manager</a><br />
-	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Management System</a><br />
+	<a href="admcalendar.php?<?php echo __adm_rsid; ?>">Calendar Manager</a><br />
 	<a href="admfeed.php?<?php echo __adm_rsid; ?>">Syndication Management</a><br />
 	<a href="admpdf.php?<?php echo __adm_rsid; ?>">PDF Generation Management</a><br />
 	<a href="admgeoip.php?<?php echo __adm_rsid; ?>">Geolocation Management</a><br />
@@ -60,9 +59,10 @@
 		echo '<a href="admspell.php?'.__adm_rsid.'">Custom Dictionary Spell Checker</a><br />';
 	}
 ?>
-	<a href="admstats.php?<?php echo __adm_rsid; ?>">Forum Statistics</a><br />
+	<a href="admmime.php?<?php echo __adm_rsid; ?>">MIME Management System</a><br />
 	<a href="admlog.php?<?php echo __adm_rsid; ?>">Action Log Viewer</a><br />
 	<a href="admerr.php?<?php echo __adm_rsid; ?>">Error Log Viewer</a><br />
+	<a href="admstats.php?<?php echo __adm_rsid; ?>">Forum Statistics</a><br />
 	<a href="admsysinfo.php?<?php echo __adm_rsid; ?>">System Info</a><br /><br />
 
 	<span class="linkgroup">Forum Management</span><br />
@@ -82,7 +82,6 @@
 
 	<span class="linkgroup">User Management</span><br />
 	<a href="admuser.php?<?php echo __adm_rsid; ?>">Moderator/User Manager</a><br />
-	<a href="admadduser.php?<?php echo __adm_rsid; ?>">Add User</a><br />
 	<a href="admaccapr.php?<?php echo __adm_rsid; ?>">Account Approval</a><br />
 	<a href="admgroups.php?<?php echo __adm_rsid; ?>">Groups Manager</a><br />
 	<a href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a><br />
@@ -115,8 +114,9 @@
 	<span class="linkgroup">Checks/Consistency</span><br />
 	<a href="consist.php?<?php echo __adm_rsid; ?>">Forum Consistency</a><br />
 	<a href="indexdb.php?<?php echo __adm_rsid; ?>">Rebuild Search Index</a><br />
-<?php if (!($FUD_OPT_3 & 32768)) { ?>
+<?php if (!($FUD_OPT_3 & 32768)) /* Not using DB_MESSAGE_STORAGE. */ { ?>
 	<a href="compact.php?<?php echo __adm_rsid; ?>">Compact Messages</a><br />
+<?php } ?>
 <?php if (__dbtype__ == 'mysql') { ?>
 	<a href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a><br />
 <?php } ?><br /><br />

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,7 +24,7 @@
 	if (!empty($_POST['btn_submit'])) {
 		change_global_settings(array('PHP_CLI' => $_POST['CF_PHP_CLI']));
 		$GLOBALS['PHP_CLI'] = $_POST['CF_PHP_CLI'];
-		echo '<font color="green">PHP executable path successfully set.</font>';
+		echo successify('PHP executable path successfully set.');
 	}
 
 	// Submit job to run in background
@@ -34,9 +34,9 @@
 		$output = ' > '. $_GET['script'] .'_'. $job .'.log';
 
 	    if (!file_exists($php)) {
-		echo '<font color="red">ERROR: Command line PHP executable not found: '. $php .'</font>';
+		echo errorify('ERROR: Command line PHP executable not found: '. $php .'.');
 		} elseif (!file_exists($path.$script)) {
-			echo '<font color="red">ERROR: Script not found: '. $script .'</font>';
+			echo errorify('ERROR: Script not found: '. $script .'.');
 		} else {
 			chdir($path) or die('ERROR: Unable to change to scripts directory '. $path);
 
@@ -46,7 +46,7 @@
 			} else {
 				pclose(popen('start "FUDjob" /LOW /B "'. $php .'" '. escapeshellarg($script) .' '. $job . $output, 'r'));
 			}
-			echo '<font color="green">Job was submitted to run in background.</font>';
+			echo successify('Job was submitted to run in background.');
 		}
 	}
 ?>
@@ -73,15 +73,18 @@
 	</tr>
 <?php
 	$c = uq('SELECT id, name, \'xmlagg\' FROM '.$tbl.'xmlagg UNION select id, name, \'maillist\' FROM '.$tbl.'mlist UNION select id, newsgroup, \'nntp\' FROM '.$tbl.'nntp');
-	$i = 1;
+	$i = 0;
 	while ($r = db_rowarr($c)) {
-		$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
+		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td>
 			<td nowrap="nowrap">'.$r[2].'.php '.$r[0].' </font></td>
 			<td>[<a href="admbatch.php?script='.$r[2].'&amp;job='.$r[0].'&amp;'.__adm_rsid.'">Run now!</a>] [<a href="admbatch.php?viewlog='.$r[2].'&amp;job='.$r[0].'&amp;'.__adm_rsid.'">View Log</a>]
 			</td></tr>';
 	}
 	unset($c);
+	if (!$i) {
+		echo '<tr class="field"><td colspan="3" align="center">No jobs defined.</td></tr>';
+	}
 ?>
 </table>
 
@@ -98,7 +101,7 @@
 			} while (!feof($fh));
 			fclose($fh);
 		} else {
-			 echo('<font color="red">Log file not found!</font><br />');
+			 echo(errorify('Log file not found!'));
 		}
 	}
 

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -133,7 +133,7 @@ While it is running, your forum will be disabled.
 	$tbls = get_fud_table_list();
 
 	// add view tables as needed 
-	foreach (db_all("SELECT id FROM ".$tbl."forum") as $v) {
+	foreach (db_all('SELECT id FROM '.$tbl.'forum') as $v) {
 		$n = $tbl.'tv_'.$v;
 		if (!in_array($n, $tbls)) {
 			$tbls[] = $n;
@@ -248,7 +248,7 @@ While it is running, your forum will be disabled.
 			q('UPDATE '.$tbl.'thread SET last_post_id='.$r2[0].', last_post_date='.$r2[1].' WHERE id='.$v);
 		}
 	}
-	unset($m[1], $m[2]);
+	unset($m1, $m2);
 	draw_stat('Done: Checking thread last & first post ids');
 
 	draw_stat('Checking forum & topic relations');

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -32,26 +32,13 @@
 	} else {
 		$err = '';
 	}
+
+	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel - Login</title>' ?>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php 
-if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
-} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
-} else {
-	echo 'utf-8';
-}
-?>" />
-</head>
-<body>
-<h2>Login into the forum</h2>
+<h3>Login into the forum</h3>
 <?php
 	if ($err) {
-		echo '<span style="color:red">'. $err .'</span>';
+		echo errorify($err);
 	}
 ?>
 <form method="post" action="admloginuser.php" name="admloginuser" id="admloginuser"><?php echo _hs; ?>
@@ -64,16 +51,15 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	<td>Password:</td>
 	<td><input type="password" name="passwd" value="" size="25" /></td>
 </tr>
-
 <tr>
 	<td align="right" colspan="2"><input type="submit" name="btn_login" value="Login" /></td>
 </tr>
 </table>
 </form>
+<br /><br /><br />
 <script type="text/javascript">
 /* <![CDATA[ */
 document.forms['admloginuser'].login.focus();
 /* ]]> */
 </script>
-</body>
-</html>
+<?php 	require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

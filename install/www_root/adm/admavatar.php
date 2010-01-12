@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,15 +23,12 @@ function import_avatars($path)
 	$list = array(realpath($path));
 	$files = array();
 
-	/* no proper directory detection in early 4.3.X releases */
-	$ver = version_compare(PHP_VERSION, '4.3.3', '>=');
-
 	while (list(,$v) = each($list)) {
 		$files = array_merge($files, glob($v . "/{*.jpg,*.gif,*.png,*.jpeg}", GLOB_BRACE|GLOB_NOSORT));
 	
 		if (($dirs = glob($v . "/*", GLOB_BRACE|GLOB_NOSORT))) {
 			foreach ($dirs as $dir) {
-				if ($ver || is_dir($dir)) {
+				if (is_dir($dir)) {
 					$list[] = $dir;
 				}
 			}
@@ -55,10 +52,10 @@ function import_avatars($path)
 		}
 		$name_r = str_replace(' ', '_', $sect) . '_' . $name_r;
 
-		$id = db_li("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar (img, descr, gallery) VALUES("._esc($name_r).", "._esc($name).", "._esc($sect).")", $em, 1);
+		$id = db_li('INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].'avatar (img, descr, gallery) VALUES('._esc($name_r).', '._esc($name).', '._esc($sect).')', $em, 1);
 		if ($id) {
 			if (!copy($file, $av_path . $name_r)) {
-				q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar WHERE id=".$id);
+				q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'avatar WHERE id='.$id);
 				$i++;
 			}
 		}
@@ -67,8 +64,8 @@ function import_avatars($path)
 	return $i;
 }
 
+	require($WWW_ROOT_DISK . 'adm/header.php');
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-
 
 	if (!empty($_GET['del']) && ($im = q_singleval('SELECT img FROM '.$tbl.'avatar WHERE id='.(int)$_GET['del']))) {
 		q('DELETE FROM '.$tbl.'avatar WHERE id='.(int)$_GET['del']);
@@ -78,21 +75,21 @@ function import_avatars($path)
 		@unlink($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/'.$im);
 	}
 
-	// gallery importing
+	// Gallery importing.
 	if (!empty($_POST['gallery_path'])) {
 		$gallery_import = import_avatars($_POST['gallery_path']);
 	} else {
 		$gallery_import = 0;
 	}
 
-	// gallery removal
+	// Gallery removal.
 	if (!empty($_POST['gal_del'])) {
-		$r = uq("SELECT img FROM ".$tbl."avatar WHERE gallery="._esc($_POST['gal_del']));
+		$r = uq('SELECT img FROM '.$tbl.'avatar WHERE gallery='._esc($_POST['gal_del']));
 		while ($l = db_rowarr($r)) {
 			@unlink($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/' . $l[0]);
 		}
 		unset($r);
-		q("DELETE FROM ".$tbl."avatar WHERE gallery="._esc($_POST['gal_del']));
+		q('DELETE FROM '.$tbl.'avatar WHERE gallery='._esc($_POST['gal_del']));
 	}
 
 	if (isset($_GET['edit'])) {
@@ -129,10 +126,8 @@ function import_avatars($path)
 		q('INSERT INTO '.$tbl.'avatar (img, descr, gallery) VALUES ('.ssn($_POST['avt_img']).', '._esc($_POST['avt_descr']).', '.ssn($avt_gal).')');
 	}
 
-	// fetch a list of available galleries
-	$galleries = db_all("SELECT DISTINCT(gallery) FROM ".$tbl."avatar");
-
-	require($WWW_ROOT_DISK . 'adm/header.php');
+	// Fetch a list of available galleries.
+	$galleries = db_all('SELECT DISTINCT(gallery) FROM '.$tbl.'avatar');
 ?>
 <h2>Avatar Management System</h2>
 
@@ -165,7 +160,7 @@ function import_avatars($path)
 			<td colspan="2"><b>Avatar Upload</b> (upload avatars into the system)</td>
 		</tr>
 		<tr class="field">
-			<td>Avatar Upload:<br /><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
+			<td>Avatar to upload:<br /><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
 			<td><input type="file" name="icoul" /> <input type="submit" name="btn_upload" value="Upload" /></td>
 			<td><input type="hidden" name="tmp_f_val" value="1" /></td>
 		</tr>
@@ -178,7 +173,7 @@ function import_avatars($path)
 	<tr><td colspan="2">&nbsp;</td></tr>
 
 	<tr class="field">
-		<td colspan="2"><a name="img"><b>Avatar Management</b></a></td>
+		<td colspan="2"><a name="img"><b><?php echo $edit ? 'Edit Avatar' : 'Add new Avatar'; ?></b></a></td>
 	</tr>
 
 	<tr class="field">
@@ -239,18 +234,22 @@ function import_avatars($path)
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
+
 <?php
+	if (isset($_GET['avt_gal_sw'])) {
+		$avt_gal = $_GET['avt_gal_sw'];
+	}
+	$show_def = in_array($avt_gal, $galleries) ? $avt_gal : $galleries[0];
+	echo '<a name="list"><h3 align="left">Avatars in gallery: '. $show_def .'</h3></a>';
 	if (count($galleries) > 1) {
-		// change gallery
-		if (isset($_GET['avt_gal_sw'])) {
-			$avt_gal = $_GET['avt_gal_sw'];
-		}
-		echo '<form id="frm_avt" method="get" action="admavatar.php">'._hs.'<div align="center">';
-		echo '<select name="avt_gal_sw">';
+		// Change gallery.
+		echo '<div align="right">';
+		echo '<form id="frm_avt" method="get" action="admavatar.php#list">'._hs;
+		echo 'View gallery: <select name="avt_gal_sw">';
 		foreach ($galleries as $gal) {
 			echo '<option value="'.htmlspecialchars($gal).'"'.($avt_gal == $gal ? ' selected="selected"' : '').'>'.htmlspecialchars($gal).'</option>';
 		}
-		echo '</select> <input type="submit" name="submit" value="View" />';
+		echo '</select> <input type="submit" name="submit" value="Switch" />';
 		echo '</div></form>';
 	}
 ?>
@@ -261,15 +260,13 @@ function import_avatars($path)
 	<td align="center">Action</td>
 </tr>
 <?php
-	$show_def = in_array($avt_gal, $galleries) ? $avt_gal : $galleries[0];
-
 	$c = uq('SELECT id, img, descr FROM '.$tbl.'avatar WHERE gallery='._esc($show_def));
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {
 			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
+			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		}
 		echo '<tr '.$bgcolor.'>
 				<td><img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$r[1].'" alt="'.$r[2].'" border="0" /></td>

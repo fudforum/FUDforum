@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,7 +18,7 @@
 
 	if (isset($_GET['delmsg']) && ($r = db_saq('SELECT subject FROM '.$tbl.'pmsg WHERE id='.(int)$_GET['delmsg']))) {
 		q('DELETE FROM '.$tbl.'pmsg WHERE id='.$_GET['delmsg']);
-		echo '<span style="color: green">Private message <b>'.$r[0].'</b> was sucessfully deleted.</span>';
+		echo successify('Private message <b>'.$r[0].'</b> was sucessfully deleted.');
 	}
 	
 	if (!empty($_POST['user']) || !empty($_GET['user'])) {
@@ -83,6 +83,9 @@
 	}
 
 	unset($c);
+	if (!$i) {
+		echo '<tr class="field"><td colspan="6"><center>No private messages found.</center></td></tr>';
+	}
 ?>
 </table>
 

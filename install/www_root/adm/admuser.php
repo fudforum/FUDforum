@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -60,12 +60,12 @@
 				break;
 			}
 
-			if ($GLOBALS['usr']->id == $usr_id) {
-				echo errorify('Sorry, you cannot ban or unban yourself!');
-				break;
-			}
-
 			if ($act == 'block' && isset($_POST['ban_duration'])) {
+				if ($GLOBALS['usr']->id == $usr_id) {
+					echo errorify('Sorry, you cannot ban or unban yourself!');
+					break;
+				}
+				
 				/* For post requests involving ban, do not act as a toggle. */
 				if (!isset($_POST['block'])) {
 					$u->users_opt |= $keys[$act];
@@ -90,7 +90,7 @@
 				$u->users_opt |= $keys[$act];
 			}
 
-			echo '<font color="green">User options successfully updated.</font><br />';
+			echo successify('User options successfully updated.');
 			if (isset($_GET['f'])) {
 				echo '<p>[ <a href="'. $WWW_ROOT.__fud_index_name__.$usr->returnto.'">return</a> ]</p>';
 				exit;
@@ -99,7 +99,7 @@
 		case 'color':
 			$u->custom_color = trim($_POST['custom_color']);
 			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET custom_color='.ssn($u->custom_color).' WHERE id='.$usr_id);
-			echo '<font color="green">Custom color was successfully updated.</font><br /';
+			echo successify('Custom color was successfully updated.');
 			break;
 		case 'reset':
 			$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? "theme_opt>=2 AND (theme_opt & 2) > 0" : 'id='.$u->theme));
@@ -117,7 +117,7 @@
 				send_email($NOTIFY_FROM, $u->email, $reset_newpass_title, $reset_reset, "");
 				logaction(_uid, 'ADM_RESET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
 			}
-			echo '<font color="green">Password was successfully reset and e-mailed to the user.</font>';
+			echo successify('Password was successfully reset and e-mailed to the user.');
 			break;
 		case 'del':
 			if ($usr_id == 1) {	// Prevent deletion of "Anonymous".
@@ -149,7 +149,7 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 				}
 				logaction(_uid, 'DELETE_USER', 0, $u->alias);
 				usr_delete($usr_id);
-				echo '<font color="green">User <b>'.$u->alias.'</b> was successfully removed.</font>';
+				echo successify('User <b>'.$u->alias.'</b> was successfully removed.');
 				unset($act, $u);
 				$usr_id = '';
 				if (isset($_POST['f']) || isset($_GET['f'])) {
@@ -190,7 +190,7 @@ Are you sure you want to do this?<br />
 						q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt & ~ (524288|1048576) WHERE id='.$usr_id);
 						$u->users_opt = $u->users_opt &~ (1048576|524288);
 					}
-					echo '<font color="green">User <b>'.$u->alias.'</b> was demoted from admin.</font>';
+					echo successify('User <b>'.$u->alias.'</b> was demoted from being an administrator.');
 				}
 			} else {
 				if (!isset($_POST['adm_confirm'])) {
@@ -210,7 +210,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				} else if (isset($_POST['btn_yes'])) {
 					q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt & ~ 524288) | 1048576 WHERE id='.$usr_id);
 					$u->users_opt |= 1048576;
-					echo '<font color="green">User <b>'.$u->alias.'</b> was promoted to admin.</font>';
+					echo successify('User <b>'.$u->alias.'</b> was promoted to administrator.');
 				}
 			}
 			break;
@@ -221,10 +221,10 @@ administration permissions to the forum. This individual will be able to do anyt
 		/* Deal with custom tags. */
 		if (!empty($_POST['c_tag'])) {
 			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'custom_tags (name, user_id) VALUES('.ssn($_POST['c_tag']).', '.$usr_id.')');
-			echo '<font color="green">Custom tag was added.</font>';
+			echo successify('Custom tag was added.');
 		} else if (!empty($_GET['deltag'])) {
 			q('DELETE FROM '.$DBHOST_TBL_PREFIX.'custom_tags WHERE id='.(int)$_GET['deltag']);
-			echo '<font color="green">Custom tag was removed.</font>';
+			echo successify('Custom tag was removed.');
 		} else {
 			$nada = 1;
 		}
@@ -236,7 +236,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		if (!empty($_POST['login_passwd'])) {
 			q("UPDATE ".$DBHOST_TBL_PREFIX."users SET passwd='".md5($_POST['login_passwd'])."' WHERE id=".$usr_id);
 			logaction(_uid, 'ADM_SET_PASSWD', 0, char_fix(htmlspecialchars($u->login)));
-			echo '<font color="green">User <b>'.$u->alias.'</b>\'s password was successfully changed.</font>';
+			echo successify('User <b>'.$u->alias.'</b>\'s password was successfully changed.');
 		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* Chanding login name. */
 			$alias = _esc(make_alias($_POST['login_name']));
 			$login = _esc($_POST['login_name']);
@@ -261,19 +261,20 @@ administration permissions to the forum. This individual will be able to do anyt
 				if (!($FUD_OPT_2 & 128)) {
 					$u->alias = make_alias($u->alias);
 				}
-				echo '<font color="green">User <b>'.$u->alias.'</b>\'s login was successfully changed.</font>';
+				echo successify('User <b>'.$u->alias.'</b>\'s login was successfully changed.');
 			}
 		}
 	}
 ?>
-
-	<h2>User Administration System</h2>
+<h2>User Administration System</h2>
 <?php if (!$usr_id) echo '<p>Use an asterisk (*) to match multiple user accounts.</p>'; ?>
 <form id="frm_usr" method="post" action="admuser.php">
-<fieldset>
+<fieldset class="tutor">
 <legend><b>Search for user:</b></legend>
 <?php echo _hs . $search_error; ?>
-<table class="datatable solidtable">
+<table width="100%">
+<tr><td>
+	<table class="datatable solidtable">
 	<tr class="field">
 		<td>By <?php echo ($FUD_OPT_2 & 128 ? 'Alias' : 'Login'); ?>:</td>
 		<td><input tabindex="1" type="text" name="usr_login" /></td>
@@ -287,6 +288,11 @@ administration permissions to the forum. This individual will be able to do anyt
 	<tr class="fieldaction">
 		<td colspan="2" align="right"><input tabindex="3" type="submit" value="Search" name="usr_search" /></td>
 	</tr>
+	</table>
+</td><td valign="bottom">
+<center>[ <a href="admadduser.php?<?php echo __adm_rsid; ?>">Create new users</a> ]<br /><br />
+[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]</center>
+</td></tr>
 </table>
 </fieldset>
 </form>
@@ -349,7 +355,7 @@ document.forms['frm_usr'].usr_login.focus();
 	/* Print user's details. */
 	if ($usr_id) { ?>
 <form action="admuser.php" method="post"><?php echo _hs; ?>
-<h3>Admin controls for user: <?php echo char_fix(htmlspecialchars($u->login)); ?></h3>
+<h3>Admin Controls for: <i><?php echo char_fix(htmlspecialchars($u->login)); ?></i></h3>
 <table class="datatable solidtable">
 
 	<tr class="field"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo char_fix(htmlspecialchars($u->login)); ?>" maxlength="<?php echo $MAX_LOGIN_SHOW; ?>" name="login_name" /> <input type="submit" name="submit" value="Change Login Name" /></td></tr>
@@ -377,14 +383,11 @@ document.forms['frm_usr'].usr_login.focus();
 	if ($u->sig) {
 		echo '<tr class="field"><td>Signature:</td><td>'. $u->sig .'</td></tr>';
 	}
-	if ($u->bday) {
-		echo '<tr class="field"><td>Birthday:</td><td>'. strftime('%B, %d, %Y', strtotime($u->bday)) .'</td></tr>';
-	}
 	if ($u->reg_ip) {
-		echo '<tr class="field"><td>Registration:</td><td><a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->reg_ip) .'&amp;'. __adm_rsid. '" title="Analyse IP usage">'. long2ip($u->reg_ip) .'</a> on '. strftime('%d %B %Y', $u->join_date) .'</td></tr>';
+		echo '<tr class="field"><td>Registration:</td><td>'. strftime('%d %B %Y', $u->join_date) .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->reg_ip) .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. long2ip($u->reg_ip) .'</td></tr>';
 	}
 	if ($u->last_known_ip) {
-		echo '<tr class="field"><td>Last visit:</td><td><a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->last_known_ip) .'&amp;'. __adm_rsid. '" title="Analyse IP usage">'. long2ip($u->last_known_ip) .'</a> on '. strftime('%d %B %Y', $u->last_visit) .'</td></tr>';
+		echo '<tr class="field"><td>Last visit:</td><td>'. strftime('%d %B %Y', $u->last_visit) .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->last_known_ip) .'&amp;'. __adm_rsid. '" title="Analyse IP usage">'. long2ip($u->last_known_ip) .'</a></td></tr>';
 	}
 	if ($u->posted_msg_count) {
 		echo '<tr class="field"><td>Post count:</td><td>'. $u->posted_msg_count .' [ <a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'" title="View user\'s messages on the forum">See Messages</a> ]</td></tr>';
@@ -469,23 +472,23 @@ if ($acc_mod_only) {
 	if ($u->ban_expiry) {
 		printf("%.2f", ($u->ban_expiry - __request_timestamp__) / 86400);
 	} else {
-		echo 0;	
+		echo 0;
 	}
 	?>" name="ban_duration" />
 	<input type="submit" name="ban_user" value="Ban/Unban" /></td></tr>
 	<tr class="field">
 		<td valign="top"><b>Group Membership:</b></td>
 		<td><?php
-		
+
 	$c = uq('SELECT g.name FROM '.$DBHOST_TBL_PREFIX.'group_members m INNER JOIN '.$DBHOST_TBL_PREFIX.'groups g ON g.id=m.group_id WHERE m.user_id='.$usr_id);
 	while ($r = db_rowarr($c)) {
-		echo $r[0] . '<br />';
+		echo $r[0] .'<br />';
 	}
 	unset($c);
 	
 		?></td>
 	</tr>
-	
+
 	<tr class="field">
 		<td colspan="2"><br /><br /><b>Actions:</b></td>
 	</tr>

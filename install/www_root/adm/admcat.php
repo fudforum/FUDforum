@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,6 +16,11 @@
 	fud_use('widgets.inc', true);
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	require($WWW_ROOT_DISK . 'adm/header.php');
+
+	if (!empty($_POST['btn_cancel'])) {
+		unset($_POST);
+	}
 
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
@@ -32,8 +37,10 @@
 				$cat->sync($edit);
 			}
 			$edit = '';
+			echo successify('Category sucessfully updated.');
 		} else {
 			$cat->add($_POST['cat_pos']);
+			echo successify('Category sucessfully added.');
 		}
 		rebuild_forum_cat_order();
 	}
@@ -62,7 +69,7 @@
 			require $GLOBALS['FORUM_SETTINGS_PATH'] . 'cat_cache.inc';
 			$dell = array();
 			if (!empty($cat_cache[$del][2])) {
-				/* remove all child categories if available */
+				/* Remove all child categories if available. */
 				$dell = $cat_cache[$del][2];
 				q("DELETE FROM ".$tbl."cat WHERE id IN(".implode(',',  $cat_cache[$del][2]).")");
 			}
@@ -72,15 +79,17 @@
 			rebuild_forum_cat_order();
 		}
 		db_unlock();
+		echo successify('Category was deleted. Forums assigned to this catagory were moved to the <b><a href="admdelfrm.php?'.__adm_rsid.'">recycle bin</a></b>.');
 	}
-	if (isset($_GET['chpos'], $_GET['newpos'],$_GET['par'])) {
+	if (isset($_GET['chpos'], $_GET['newpos'], $_GET['par'])) {
 		cat_change_pos((int)$_GET['chpos'], (int)$_GET['newpos'], (int)$_GET['par']);
 		rebuild_forum_cat_order();
 		unset($_GET['chpos'], $_GET['newpos']);
+		echo successify('Position successfully set.');
 	}
 
 	$ol = $cat_list = array();
-	$c = uq("SELECT * FROM ".$tbl."cat ORDER BY parent, view_order");
+	$c = uq('SELECT * FROM '.$tbl.'cat ORDER BY parent, view_order');
 	while ($r = db_rowobj($c)) {
 		if (!isset($ol[$r->parent])) {
 			$ol[$r->parent] = array();
@@ -109,12 +118,35 @@
 		unset($lvl[$i--]);
 	}
 	unset($ol);
-	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Category Management System</h2>
+
 <?php
-	if (!isset($_GET['chpos'])) {
+	if (!isset($_GET['chpos'])) {	// Hide this if we are changing category order.
 ?>
+
+<div class="tutor">
+	The <i>Category Management System</i> is displayed below. To navigate to the 
+	<i>Forum Management System</i>, click on one of the '<i>Edit Forums</i>' links
+	next to one of the available categories.
+</div>
+<?php
+echo $edit ? '<h3>Edit Category:</h3>' : '<h3>Add New Category:</h3>';
+?>
+<script type="text/javascript">
+/* <![CDATA[ */
+function imposeMaxLength(Object, len)
+{
+	if (Object.value.length > len) {
+		alert('Maximum length exceeded: ' + len);
+		Object.value = Object.value.substr(0, len);
+		return false;
+	} else {
+		return true;
+	}
+}
+/* ]]> */
+</script>
 <form method="post" action="admcat.php">
 <?php echo _hs; ?>
 <table class="datatable">
@@ -125,7 +157,7 @@
 
 	<tr class="field">
 		<td>Description:</td>
-		<td><input type="text" name="cat_description" value="<?php echo htmlspecialchars($cat_description); ?>" maxlength="255" /></td>
+		<td><textarea name="cat_description" cols="30" rows="2" onkeypress="return imposeMaxLength(this, 255);"><?php echo htmlspecialchars($cat_description); ?></textarea></td>
 	</tr>
 
 	<tr class="field">
@@ -170,6 +202,7 @@
 		<td colspan="2" align="right">
 <?php
 	if ($edit) {
+		echo '<input type="hidden" value="'.$edit.'" name="edit" />';
 		echo '<input type="submit" name="btn_cancel" value="Cancel" />&nbsp;';
 	}
 ?>
@@ -177,16 +210,15 @@
 		</td>
 	</tr>
 </table>
+</form>
+
+<h3>Available Categories:</h3>
 <?php
-		if ($edit) {
-			echo '<input type="hidden" value="'.$edit.'" name="edit" />';
-		}
-		echo '</form>';
-	} else {
+	} else {	// Busy changing position.
 		echo '<a href="admcat.php?'.__adm_rsid.'">Cancel</a><br />';
 	}
 ?>
-<br />
+
 <table class="resulttable fulltable">
 <tr class="resulttopic">
 	<td>Category Name</td>
@@ -197,7 +229,7 @@
 	<td>Position</td>
 </tr>
 <?php
-	$cpid = empty($_GET['chpos']) ? -1 : (int) q_singleval("SELECT parent FROM ".$tbl."cat WHERE id=".(int)$_GET['cpid']);
+	$cpid = empty($_GET['chpos']) ? -1 : (int) q_singleval('SELECT parent FROM '.$tbl.'cat WHERE id='.(int)$_GET['cpid']);
 	$lp = '';
 
 	$stat = array(0 => 'Collapsed', 2 => 'Open', 4 => 'Compact');

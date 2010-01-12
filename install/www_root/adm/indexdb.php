@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -74,7 +74,7 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 	q('DELETE FROM '.$tbl.'search');
 	q('DELETE FROM '.$tbl.'index');
 	q('DELETE FROM '.$tbl.'title_index');
-	if (!($sid = q_singleval("SELECT MIN(query_type) FROM ".$tbl."search_cache WHERE srch_query='' AND query_type<0"))) {
+	if (!($sid = q_singleval('SELECT MIN(query_type) FROM '.$tbl."search_cache WHERE srch_query='' AND query_type<0"))) {
 		q('DELETE FROM '.$tbl.'search_cache');
 	}
 

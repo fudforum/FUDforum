@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -14,9 +14,9 @@
 	fud_use('widgets.inc', true);
 
 	if (isset($_POST['lev_submit'])) {
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."level (name, img, level_opt, post_count) VALUES ("._esc($_POST['lev_name']).", ".ssn($_POST['lev_img']).", ".(int)$_POST['lev_level_opt'].", ".(int)$_POST['lev_post_count'].")");
+		q('INSERT INTO '.$DBHOST_TBL_PREFIX.'level (name, img, level_opt, post_count) VALUES ('._esc($_POST['lev_name']).', '.ssn($_POST['lev_img']).', '.(int)$_POST['lev_level_opt'].', '.(int)$_POST['lev_post_count'].')');
 	} else if (isset($_POST['edit'], $_POST['lev_update'])) {
-		q("UPDATE ".$DBHOST_TBL_PREFIX."level SET name="._esc($_POST['lev_name']).", img=".ssn($_POST['lev_img']).", level_opt=".(int)$_POST['lev_level_opt'].", post_count=".(int)$_POST['lev_post_count']." WHERE id=".(int)$_POST['edit']);
+		q('UPDATE '.$DBHOST_TBL_PREFIX.'level SET name='._esc($_POST['lev_name']).', img='.ssn($_POST['lev_img']).' level_opt='.(int)$_POST['lev_level_opt'].', post_count='.(int)$_POST['lev_post_count'].' WHERE id='.(int)$_POST['edit']);
 	}
 
 	if (isset($_GET['edit'])) {
@@ -89,12 +89,12 @@
 </tr>
 <?php
 	$c = uq('SELECT id, name, post_count FROM '.$DBHOST_TBL_PREFIX.'level ORDER BY post_count');
-	$i = 1;
+	$i = 0;
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
 			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
+			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		}
 		echo '<tr'.$bgcolor.'><td>'.$r->name.'</td><td align="center">'.$r->post_count.'</td><td><a href="admlevel.php?edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a> | <a href="admlevel.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a></td></tr>';
 	}

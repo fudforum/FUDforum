@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,16 +11,18 @@
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
+	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	if (isset($_GET['clear'])) {
-		q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'action_log');
+		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'action_log');
+		echo successify('Action log successfully cleared.');
 	}
 
 function check_data_avl($data)
 {
 	$data = trim($data);
 	if (empty($data) && !strlen($data)) {
-		return 'no longer in the system';
+		return 'no longer in system';
 	}
 
 	return $data;
@@ -28,27 +30,27 @@ function check_data_avl($data)
 
 function return_thread_subject($id)
 {
-	$res = q_singleval('SELECT m.subject FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'thread t INNER JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'].'msg m ON t.root_msg_id=m.id WHERE t.id='.$id);
+	$res = q_singleval('SELECT m.subject FROM '.$DBHOST_TBL_PREFIX.'thread t INNER JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'].'msg m ON t.root_msg_id=m.id WHERE t.id='.$id);
 	return check_data_avl($res);
 }
 
 function return_msg_subject($id)
 {
-	return check_data_avl(q_singleval('SELECT subject FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'msg WHERE id='.$id));
+	return check_data_avl(q_singleval('SELECT subject FROM '.$DBHOST_TBL_PREFIX.'msg WHERE id='.$id));
 }
 
 function return_forum_name($id)
 {
-	return check_data_avl(q_singleval('SELECT name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum WHERE id='.$id));
+	return check_data_avl(q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'forum WHERE id='.$id));
 }
 
-	include('header.php');
 ?>
 <h2>Action Log Viewer</h2>
 [ <a href="admlog.php?clear=1&amp;<?php echo __adm_rsid; ?>">Clear Admin Log</a> ]
-<table class="resulttable">
+<table class="resulttable fulltable">
 <tr class="resulttopic"><td>User</td><td>Action</td><td>Object</td><td>Time (<b>GMT</b>)</td></tr>
 <?php
+	$i = 0;
 	$c = q('SELECT u.users_opt, u.alias, al.* FROM '.$DBHOST_TBL_PREFIX.'action_log al LEFT JOIN '.$DBHOST_TBL_PREFIX.'users u ON al.user_id=u.id ORDER BY logtime DESC');
 
 	while ($obj = db_rowobj($c)) {
@@ -70,86 +72,93 @@ function return_forum_name($id)
 		echo '<tr class="field"><td>'.$user_info.'</td>';
 
 		switch ($obj->a_res) {
-			case "THRMOVE":
+			case 'THRMOVE':
 				echo '<td>Moved Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
-			case "DELREPORT":
+			case 'DELREPORT':
 				echo '<td>Deleted Report</td><td>msg: '.return_msg_subject($obj->a_res_id).'</td>';
 				break;
-			case "THRLOCK":
+			case 'THRLOCK':
 				echo '<td>Locked Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
-			case "THRUNLOCK":
+			case 'THRUNLOCK':
 				echo '<td>Unlocked Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
-			case "THRXREQUEST":
+			case 'THRXREQUEST':
 				echo '<td>Requested Topic-X-Change</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
-			case "THRXAPPROVE":
+			case 'THRXAPPROVE':
 				echo '<td>Approved Topic-X-Change</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
-			case "THRXDECLINE":
+			case 'THRXDECLINE':
 				echo '<td>Declined Topic-X-Change</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
-			case "THRSPLIT":
+			case 'THRSPLIT':
 				echo '<td>Split Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
-			case "THRMERGE":
+			case 'THRMERGE':
 				echo '<td>Merged Topic</td><td>thread: "'.return_thread_subject($obj->a_res_id).'" is a result of merging "'.$obj->logaction.'" topics.</td>';
 				break;
-			case "MSGEDIT":
+			case 'MSGEDIT':
 				echo '<td>Edited Message</td><td>msg: '.return_msg_subject($obj->a_res_id).'</td>';
 				break;
-			case "APPROVEMSG":
+			case 'APPROVEMSG':
 				echo '<td>Approved Message</td><td>msg: '.return_msg_subject($obj->a_res_id).'</td>';
 				break;
-			case "DELMSG":
+			case 'DELMSG':
 				echo '<td>Deleted Message</td><td>'.$obj->logaction.'</td>';
 				break;
-			case "DELRATING":
+			case 'DELRATING':
 				echo '<td>Deleted Rating</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
-			case "DELTHR":
+			case 'DELTHR':
 				echo '<td>Deleted Topic</td><td>'.$obj->logaction.'</td>';
 				break;
-			case "ADDFORUM":
+			case 'ADDFORUM':
 				echo '<td>Created Forum</td><td>forum: '.return_forum_name($obj->a_res_id).'</td>';
 				break;
-			case "SYNCFORUM":
+			case 'SYNCFORUM':
 				echo '<td>Updated Forum</td><td>forum: '.return_forum_name($obj->a_res_id).'</td>';
 				break;
-			case "FRMMARKDEL":
+			case 'FRMMARKDEL':
 				echo '<td>Deleted Forum</td><td>forum: '.$obj->logaction.'</td>';
 				break;
-			case "CHCATFORUM":
+			case 'CHCATFORUM':
 				echo '<td>Changed Forum Category</td><td>forum: '.return_forum_name($obj->a_res_id).'</td>';
 				break;
-			case "WRONGPASSWD":
+			case 'WRONGPASSWD':
 				echo '<td>Failed login attempt</td><td>'.$obj->logaction.'</td>';
 				break;
-			case "DELETE_USER":
+			case 'DELETE_USER':
 				echo '<td>Removed user account</td><td>'.$obj->logaction.'</td>';
 				break;
-			case "SEND_ECONF":
+			case 'SEND_ECONF':
 				echo '<td>Sent E-mail Confirmation</td><td>to user: '.$obj->logaction.'</td>';
 				break;
-			case "ADM_RESET_PASSWD":
+			case 'ADM_RESET_PASSWD':
 				echo '<td>Admin Reset Password</td><td>for user: '.$obj->logaction.'</td>';
 				break;
-			case "ADM_SET_PASSWD":
+			case 'ADM_SET_PASSWD':
 				echo '<td>Admin Changed Password</td><td>for user: '.$obj->logaction.'</td>';
 				break;
-			case "CHANGE_PASSWD":
+			case 'CHANGE_PASSWD':
 				echo '<td>User Changed Own Password</td><td>ip address: '.$obj->logaction.'</td>';
 				break;
 			default:
-				echo '<td colspan="2">Unknown</td>';
+				echo '<td>'. $obj->a_res .'</td><td>'.$obj->logaction.'</td>';
 				break;
 		}
 
 		echo $logtime.'</tr>';
+		$i++;
 	}
 	unset($c);
 ?>
-</table>
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php
+	if (!$i) {
+		echo '<tr class="field"><td colspan="4"><center>No records found.</center></td></tr>';
+	}
+	echo '</table>';
+
+	require($WWW_ROOT_DISK . 'adm/footer.php');
+?>

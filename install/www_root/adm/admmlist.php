@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -30,23 +30,27 @@ function format_regex(&$regex)
 	fud_use('mlist.inc', true);
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
-		
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
+	if (!empty($_POST['btn_cancel'])) {
+		unset($_POST);
+	}
+
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
 	if (!empty($_POST['ml_name']) && !empty($_POST['ml_forum_id'])) {
 		$mlist = new fud_mlist;
 		if ($edit) {
 			$mlist->sync($edit);
-			echo '<font color="green">Mailing list rule successfully updated.</font>';
+			echo successify('Mailing list rule successfully updated.');
 			$edit = '';
 		} else {
 			$mlist->add();
-			echo '<font color="green">Mailing list rule successfully added (see list at bottom of page).</font>';
+			echo successify('Mailing list rule successfully added (see list at bottom of page).');
 		}
 	} else if (isset($_GET['del'])) {
 		fud_mlist::del((int)$_GET['del']);
-		echo '<font color="green">Mailing list rule successfully deleted.</font>';
+		echo successify('Mailing list rule successfully deleted.');
 	}
 
 	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'mlist WHERE id='.$edit))) {
@@ -67,6 +71,13 @@ function format_regex(&$regex)
 	// }
 ?>
 <h2>Mailing List Manager</h2>
+<?php
+	if ($edit) {
+		echo '<h3>Edit rule</h3>';
+	} else {
+		echo '<h3>Add new rule</h3>';
+	}
+?>
 <form method="post" id="frm_forum" action="admmlist.php">
 <?php echo _hs; ?>
 <table class="datatable">
@@ -287,7 +298,8 @@ function format_regex(&$regex)
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
-<br />
+
+<h3>Available rules</h3>
 <table class="resulttable fulltable">
 	<tr class="resulttopic">
 		<td nowrap="nowrap">Mailing List Rule</td>
@@ -314,10 +326,6 @@ function format_regex(&$regex)
 <br /><br />
 <b>***Notes***</b><br />
 The <i>Exec Line</i> in the table above shows the execution line required to pipe mailing list messages into the forum.
-Here is a <a href="http://www.procmail.org/" target="_new">procmail</a> example:
-<blockquote><pre><code>
-:0:
-* ^TO_.*php-general@lists.php.net
-| <?php echo realpath($GLOBALS['DATA_DIR'].'scripts/maillist.php'); ?> 1
-</code></pre></blockquote>
+The <i>Help</i> page contains <a href="http://www.procmail.org/" target="_new">procmail</a> and <a href="http://www.postfix.org/" target="_new">postfix</a> examples.
+
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

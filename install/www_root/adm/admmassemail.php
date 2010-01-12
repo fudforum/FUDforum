@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -137,7 +137,7 @@
 			echo '<option value="'.$k.'">'.$v[1].' member(s) of group '.htmlspecialchars($v[0]).'</option>';
 		}
 	}
-	$r = uq("SELECT id, name FROM ".$DBHOST_TBL_PREFIX."level");
+	$r = uq('SELECT id, name FROM '.$DBHOST_TBL_PREFIX.'level');
 	while (($v = db_rowarr($r))) {
 		echo '<option value="-'.$v[0].'">User Rank: '.$v[1].'</option>';
 	}

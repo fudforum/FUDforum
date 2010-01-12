@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -148,11 +148,11 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 </tr>
 </table>
 <span style="float:right;"><a href="admstats.php?<?php echo __adm_rsid; ?>">More... &raquo;</a></span>
-<br />
+<br /><br />
 
 <hr />
 <form method="post" action="index.php"><?php echo _hs; ?>
-<input type="submit" name="btn_clear_online" value="Reset most online users counter" />
+<input type="submit" name="btn_clear_online" value="Reset the 'most online users' counter" />
 </form>
 <br />
 

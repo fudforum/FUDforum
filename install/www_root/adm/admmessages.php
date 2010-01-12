@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,13 +18,10 @@
 	}
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
-		
+
 	if (isset($_POST['btn_download']) && isset($_POST['tlang'])) {
 		$tlang = $_POST['tlang'];
-
-		// Get language code.
-		$lang = trim(file_get_contents( $GLOBALS['DATA_DIR'] .'thm/default/i18n/'. $tlang .'/pspell_lang' ));
-		pf('<font color="green">Downloading '. $tlang .' ('. $lang .') messages from tranalatewiki.net...</font>');
+		pf('<font color="green">Downloading '. $langname .' messages from tranalatewiki.net...</font>');
 
 		$url = "http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language=$lang&limit=2500";
 		$url_stuff = parse_url($url);
@@ -50,7 +47,7 @@
 
 			if (!strlen($messages)) {
 				echo errorify('Download failed. Your connection might be down or a firewall or proxy is blocking access.');
-			} elseif ( substr($messages,0,15) != '# Messages for ' ) {
+			} elseif ( substr($messages, 0, 15) != '# Messages for ' ) {
 				echo errorify('Corrupted download. Please try again.');
 			} else {
 				$msgfile = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$tlang.'/msg';
@@ -58,7 +55,7 @@
 		
 				// Rebuild themes based on this language.
 				fud_use('compiler.inc', true);
-				$c = q("SELECT theme, name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE lang="._esc($tlang));
+				$c = q('SELECT theme, name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE lang='._esc($tlang));
 				while ($r = db_rowarr($c)) {
 					compile_all($r[0], $tlang, $r[1]);
 					echo '<font color="green">Theme '. $r[0] .' ('. $tlang .') was successfully rebuilt.</font><br />';
@@ -97,12 +94,15 @@
 <tr class="field">
 <td>Language:</td><td><select name="tlang">
 <?php
-	foreach (glob($GLOBALS['DATA_DIR'] . 'thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
-		if (!file_exists($file . '/msg')) {
+	foreach (glob($GLOBALS['DATA_DIR'] .'thm/default/i18n/*', GLOB_ONLYDIR) as $file) {
+		if (!file_exists($file .'/msg')) {
 			continue;
 		}
-		$n = basename($file);
-		echo '<option value="'.$n.'"'.($n == $def_tmpl ? ' selected="selected"' : '').'>'.$n.'</option>';
+		$langcode = $langname = basename($file);
+		if (file_exists($file .'/name')) {
+			$langname = trim(file_get_contents($file .'/name'));
+		}
+		echo '<option value="'. $langcode .'"'.($langcode == $def_tmpl ? ' selected="selected"' : '').'>'. $langname .'</option>';
 	}
 ?>
 </select></td></tr>
@@ -131,7 +131,7 @@
 		if ($n == 'en') {
 			continue; // No translations, English is the primary language.
 		}
-		echo '<option value="'.$n.'"'.($n == $def_tmpl ? ' selected="selected"' : '').'>'.$n.'</option>';
+		echo '<option value="'. $n .'"'.($n == $def_tmpl ? ' selected="selected"' : '').'>'. $n .'</option>';
 	}
 ?>
 </select></td></tr>

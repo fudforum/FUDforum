@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,7 +15,7 @@
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
 
-	if (isset($_POST['usr_passwd'], $_POST['usr_login']) && q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login="._esc($_POST['usr_login'])." AND passwd='".md5($_POST['usr_passwd'])."' AND (users_opt & 1048576) > 0")) {
+	if (isset($_POST['usr_passwd'], $_POST['usr_login']) && q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE login='._esc($_POST['usr_login'])." AND passwd='".md5($_POST['usr_passwd'])."' AND (users_opt & 1048576) > 0")) {
 		$FUD_OPT_2 |= 8388608;
 		if (isset($_POST['btn_unlock'])) {
 			$dirperms = 0777;

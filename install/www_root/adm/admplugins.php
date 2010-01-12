@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,21 +24,17 @@
 
 	$help_ar = read_help();
 
+	// Enable or disable PLUGINS_ENABLED.
 	if (isset($_POST['form_posted'])) {
-		foreach ($_POST as $k => $v) {
-			if (!strncmp($k, 'FUD_OPT_3', 9)) {
-				$NEW_FUD_OPT_3 = (int) $v;
-			}
-		}
-
-		if (($NEW_FUD_OPT_3 ^ $FUD_OPT_3) & (4194304)) {
-			if (!($NEW_FUD_OPT_3 & 4194304)) {
-				$FUD_OPT_3 &= ~4194304;
-			} else {
+		if (isset($_POST['FUD_OPT_3_PLUGINS_ENABLED'])) {
+			if ($_POST['FUD_OPT_3_PLUGINS_ENABLED'] & 4194304) {
 				$FUD_OPT_3 |= 4194304;
+				echo successify('Plugin support was successfully enabled.');
+			} else {
+				$FUD_OPT_3 &= ~4194304;
+				echo successify('Plugin support was successfully disabled.');
 			}
 			change_global_settings(array('FUD_OPT_3' => $FUD_OPT_3));
-			$GLOBALS['FUD_OPT_3'] = $FUD_OPT_3;
 		}
 	}
 
@@ -55,7 +51,7 @@
 	// Install new plugins.
 	while (list($key, $val) = @each($plugins)) {
 		if (! in_array($val, $prev_plugins)) {
-			echo "Install/activate plugin: ". $val ."...<br />\n";
+			echo successify('Install/activate plugin: '. $val .'.');
 			$enable_func = substr($val, 0, strrpos($val, '.')) .'_enable';
 			if ((include_once($PLUGIN_PATH.'/'.$val)) && function_exists($enable_func)) {
 				$enable_func(); 
@@ -65,7 +61,7 @@
 	// Deinstall plugins.
 	while (list($key, $val) = @each($prev_plugins)) {
 		if (! in_array($val, $plugins)) {
-			echo "Deinstall/deactivate plugin: ". $val ."...<br />\n";
+			echo successify('Deinstall/deactivate plugin: '. $val .'.');
 			$disable_func = substr($val, 0, strrpos($val, '.')) .'_disable';
 			if ((include_once($PLUGIN_PATH.'/'.$val)) && function_exists($disable_func)) {
 				$disable_func();
@@ -95,27 +91,28 @@
 			echo '<div class="tutor">'.$info['desc'].'</div><br />';
 		}
 
-		echo '<fieldset><legend>Meta-information:</legend>';
+		echo '<fieldset class="tutor"><legend>Meta-information:</legend>';
 		echo '<b>Plugin file:</b> '.$plugin.'<br />';
-		echo '<b>Last modified:</b> '.date("d F Y H:i:s", filemtime($PLUGIN_PATH.'/'.$plugin)).'<br />';
+		echo '<b>Last modified:</b> '.date('d F Y H:i:s', filemtime($PLUGIN_PATH.'/'.$plugin)).'<br />';
 		if (isset($info['author'])) {
 			echo '<b>Author:</b> '.$info['author'].'<br />';
 		}
 		if (isset($info['version'])) {
 			echo '<b>Version:</b> '.$info['version'].'<br />';
 		}
-		echo '<b>Status:</b> '. (in_array($plugin, $plugins) ? 'Enabled' : 'Disabled') .'<br />';
+		echo '<b>Status:</b> '. (in_array($plugin, $plugins) ? 'Enabled' : 'Disabled') .
+		                        (($FUD_OPT_3 & 4194304) ? '' : ' (plugin system is disabled)') .'<br />';
 		if (isset($info['help'])) {
-			echo '<div style="font-size: small; float:right;">[ <a href="'.$info['help'].'">Plugin documentation</a> ]</div>';
+			echo '<div style="font-size:small; float:right;">[ <a href="'.$info['help'].'">Plugin documentation</a> ]</div>';
 		} else {
-			echo '<div style="font-size: small; float:right;">[ <a href="http://cvs.prohost.org/index.php/'.$func_base.'.plugin">Documentation on Wiki</a> ]</div>';
+			echo '<div style="font-size:small; float:right;">[ <a href="http://cvs.prohost.org/index.php/'.$func_base.'.plugin">Documentation on Wiki</a> ]</div>';
 		}
 		echo '</fieldset>';
 
 		$config_func = $func_base . '_config';
 		if (function_exists($config_func)) {
 			echo '<form method="post" action="admplugins.php" autocomplete="off">';
-			echo '<fieldset><legend>Configuration:</legend>';
+			echo '<fieldset class="tutor"><legend>Configuration:</legend>';
 			echo _hs;
 			echo '<input type="hidden" name="config" value="'.$plugin.'" />';
 			$config_func();
@@ -150,18 +147,18 @@
 <tr class="fieldtopic"><td><b>Plugin name</b></td><td><b>Plugin activated?</b></td></tr>
 <?php
 foreach (glob("$PLUGIN_PATH/*") as $file) {
-	if (is_dir($file)) {	// Check for plugins in subdirectories
+	if (is_dir($file)) {	// Check for plugins in subdirectories.
 		$dir = basename($file);
 		foreach (glob("$PLUGIN_PATH/$dir/*") as $dirfile) {
-			if (!preg_match("/\.plugin$/", $dirfile)) continue;	// Not a plugin file
+			if (!preg_match('/\.plugin$/', $dirfile)) continue;	// Not a plugin file.
 			$plugin_files[] = $dir.'/'.basename($dirfile);
 		}
 	}
-	if (!preg_match("/\.plugin$/", $file)) continue;	// Not a plugin file
+	if (!preg_match('/\.plugin$/', $file)) continue;	// Not a plugin file.
 	$plugin_files[] = basename($file);
 }
 
-$disabled = ($GLOBALS['FUD_OPT_3'] & 4194304) ? '' : 'disabled="disabled"';
+$disabled = ($FUD_OPT_3 & 4194304) ? '' : 'disabled="disabled"';
 foreach ($plugin_files as $plugin) {	
 	$checked = in_array($plugin, $plugins) ? 'checked="checked"' : '';
 ?>

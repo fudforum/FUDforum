@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -145,7 +145,7 @@ function resolve_dest_path($path)
 
 			/* If we are dealing with pgSQL drop all sequences too. */
 			if (__dbtype__ == 'pgsql') {
-				$c = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".str_replace("_", '\\\\_', $DBHOST_TBL_PREFIX)."'");
+				$c = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".str_replace('_', '\\\\_', $DBHOST_TBL_PREFIX)."'");
 				while($r = db_rowarr($c)) {
 					q('drop sequence '.$r[0]);
 				}
@@ -154,7 +154,7 @@ function resolve_dest_path($path)
 
 			/* Check if MySQL version > 4.1.2. */
 			if (__dbtype__ == 'mysql') {
-				$my412 = version_compare(q_singleval("SELECT VERSION()"), '4.1.2', '>=');
+				$my412 = version_compare(q_singleval('SELECT VERSION()'), '4.1.2', '>=');
 			} else {
 				$my412 = 0;
 			}
@@ -183,7 +183,7 @@ function resolve_dest_path($path)
 						$line = strtr($line, array('BINARY'=>'', 'INT NOT NULL AUTO_INCREMENT'=>(__dbtype__ == 'sqlite' ? 'INTEGER' : 'SERIAL')));
 					} else if ($my412 && !strncmp($line, 'CREATE TABLE', strlen('CREATE TABLE'))) {
 						/* For MySQL 4.1.2+ we need to specify a default charset. */
-						$line .= " DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci";
+						$line .= ' DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci';
 					}
 
 					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));

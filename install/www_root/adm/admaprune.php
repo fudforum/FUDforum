@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,10 +15,12 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 
+	require($WWW_ROOT_DISK . 'adm/header.php');
+		
 	if (isset($_POST['btn_prune']) && !empty($_POST['thread_age'])) {
 	$lmt = ' AND (thread_opt & (2|4)) = 0 ';
 		
-		/* figure out our limit if any */
+		/* Figure out our limit if any. */
 		if ($_POST['forumsel'] == '0') {
 			$msg = '<font color="red">from all forums</font>';
 		} else if (!strncmp($_POST['forumsel'], 'cat_', 4)) {
@@ -35,17 +37,15 @@
 
 		if (!isset($_POST['btn_conf']) && $back > 0) {
 			if ($_POST['type'] == '0' || $_POST['type'] == '1') {
-				$pa_cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."pmsg m INNER JOIN ".$DBHOST_TBL_PREFIX."attach a ON a.message_id=m.id AND a.attach_opt=1 WHERE m.post_stamp < ".$back);
+				$pa_cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'pmsg m INNER JOIN '.$DBHOST_TBL_PREFIX.'attach a ON a.message_id=m.id AND a.attach_opt=1 WHERE m.post_stamp < '.$back);
 			} else {
 				$pa_cnt = 0;
 			}
 			if ($_POST['type'] == '0' || $_POST['type'] == '2') {
-				$a_cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."msg m INNER JOIN ".$DBHOST_TBL_PREFIX."thread t ON t.id=m.thread_id INNER JOIN ".$DBHOST_TBL_PREFIX."attach a ON a.message_id=m.id AND a.attach_opt=0 WHERE m.post_stamp < ".$back.$lmt);
+				$a_cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'msg m INNER JOIN '.$DBHOST_TBL_PREFIX.'thread t ON t.id=m.thread_id INNER JOIN '.$DBHOST_TBL_PREFIX.'attach a ON a.message_id=m.id AND a.attach_opt=0 WHERE m.post_stamp < '.$back.$lmt);
 			} else {
 				$a_cnt = 0;
 			}
-
-			require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <div align="center">You are about to delete <font color="red"><?php echo $a_cnt; ?></font> public file attachments AND <font color="red"><?php echo $pa_cnt; ?></font> private file attachments.
 <br />That were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $msg; ?><br /><br />
@@ -62,18 +62,18 @@
 			</form>
 </div>
 <?php
-			require($WWW_ROOT_DISK . 'adm/footer.php');
+			require($WWW_ROOT_DISK .'adm/footer.php');
 			exit;
 		} else if ($back > 0) {
 			$limit = time() - $_POST['units'] * $_POST['thread_age'];
 			$al = $ml = array();
 
 			if ($_POST['type'] == '0' || $_POST['type'] == '2') {
-				$c = uq("SELECT a.message_id, a.location, a.id
-					FROM ".$DBHOST_TBL_PREFIX."msg m
-					INNER JOIN ".$DBHOST_TBL_PREFIX."thread t ON t.id=m.thread_id
-					INNER JOIN ".$DBHOST_TBL_PREFIX."attach a ON a.message_id=m.id AND a.attach_opt=0
-					WHERE m.post_stamp < ".$back.$lmt);
+				$c = uq('SELECT a.message_id, a.location, a.id
+					FROM '.$DBHOST_TBL_PREFIX.'msg m
+					INNER JOIN '.$DBHOST_TBL_PREFIX.'thread t ON t.id=m.thread_id
+					INNER JOIN '.$DBHOST_TBL_PREFIX.'attach a ON a.message_id=m.id AND a.attach_opt=0
+					WHERE m.post_stamp < '.$back.$lmt);
 				while ($r = db_rowarr($c)) {
 					@unlink($r[1]);
 					$al[] = $r[2];
@@ -81,15 +81,15 @@
 				}
 				unset($c);
 				if ($ml) {
-					q("UPDATE ".$DBHOST_TBL_PREFIX."msg SET attach_cnt=0, attach_cache=NULL WHERE id IN(".implode(',', $ml).")");
+					q('UPDATE '.$DBHOST_TBL_PREFIX.'msg SET attach_cnt=0, attach_cache=NULL WHERE id IN('. implode(',', $ml) .')');
 				}
 				$ml = array();
 			}
 			if ($_POST['type'] == '0' || $_POST['type'] == '1') {
-				$c = uq("SELECT a.message_id, a.location, a.id
-					FROM ".$DBHOST_TBL_PREFIX."pmsg m
-					INNER JOIN ".$DBHOST_TBL_PREFIX."attach a ON a.message_id=m.id AND a.attach_opt=1
-					WHERE m.post_stamp < ".$back);
+				$c = uq('SELECT a.message_id, a.location, a.id
+					FROM '.$DBHOST_TBL_PREFIX.'pmsg m
+					INNER JOIN '.$DBHOST_TBL_PREFIX.'attach a ON a.message_id=m.id AND a.attach_opt=1
+					WHERE m.post_stamp < '.$back);
 				while ($r = db_rowarr($c)) {
 					@unlink($r[1]);
 					$al[] = $r[2];
@@ -97,19 +97,18 @@
 				}
 				unset($c);
 				if ($ml) {
-					q("UPDATE ".$DBHOST_TBL_PREFIX."pmsg SET attach_cnt=0 WHERE id IN(".implode(',', $ml).")");
+					q('UPDATE '.$DBHOST_TBL_PREFIX.'pmsg SET attach_cnt=0 WHERE id IN('. implode(',', $ml) .')');
 				}
 			}
 			if ($al) {
-				q("DELETE FROM ".$DBHOST_TBL_PREFIX."attach WHERE id IN(".implode(',', $al).")");
+				q('DELETE FROM '.$DBHOST_TBL_PREFIX.'attach WHERE id IN('. implode(',', $al) .')');
 			}
 			unset($c, $r, $al, $ml);
+			echo successify('Selected attachements were removed.');
 		} else if ($back < 1) {
 			echo '<div style="text-align:center; font-size: large; font-weight: bolder; color: darkred">You\'ve selected a date too far in the past.</div>';
 		}
 	}
-
-	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Attachment Pruning</h2>
 
@@ -122,12 +121,12 @@ this form will offer to delete attachments olders than 10 days.</p>
 <tr class="field">
 	<td nowrap="nowrap">Attachments Older Than:</td>
 	<td ><input type="text" name="thread_age" tabindex="1" /></td>
-	<td nowrap="nowrap"><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
+	<td nowrap="nowrap"><?php draw_select('units', "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 
 <tr class="field">
 	<td nowrap="nowrap">Attachment Type:</td>
-	<td colspan="2" nowrap="nowrap"><?php draw_select("type", "All\nPrivate Only\nPublic Only", "0\n1\n2", '0'); ?></td>
+	<td colspan="2" nowrap="nowrap"><?php draw_select('type', "All\nPrivate Only\nPublic Only", "0\n1\n2", '0'); ?></td>
 </tr>
 
 <tr class="field">
