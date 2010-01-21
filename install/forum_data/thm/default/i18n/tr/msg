@@ -662,8 +662,10 @@ tree_update:<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> zincir
 userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> kullanıcısının kişisel bilgilerine bakıyor
 ERR_login_msg2:<legend>HATA: Giriş yapmadınız.</legend>Bu sayfaya erişebilmek için bu forumun bir üyesi olmanız gerekiyor.
 ERR_disabled_ttl:Engellenmiş Özellik
+# Fuzzy
 ERR_disabled_msg:Bu özellik sistem yöneticisi tarafından engellenmiş durumda.
 ERR_access_ttl:HATA: Yetersiz Erişim İzni
+# Fuzzy
 ERR_access_msg:Yapmak istediğiniz için yeterli erişim iznine sahip değilsiniz.
 ERR_registration_disabled_ttl:Kayıt Engellenmiş
 ERR_registration_disabled_msg:Yönetici kayıtı engellemiş durumda. Lütfen daha sonra tekrar deneyin.

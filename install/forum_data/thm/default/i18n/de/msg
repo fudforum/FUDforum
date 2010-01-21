@@ -657,8 +657,10 @@ tree_update:Durchsucht das Thema (Baumansicht) <a href="{TEMPLATE: tree_update_l
 userinfo_update:Betrachtet das Profil von <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>FEHLER: Du bist nicht angemeldet</legend>Um Zugriff auf diese Seite zu erhalten, musst du Mitglied dieses Forums sein.
 ERR_disabled_ttl:Deaktivierte Funktion
+# Fuzzy
 ERR_disabled_msg:Diese Funktion wurde vom Systemadministrator deaktiviert
 ERR_access_ttl:FEHLER: Nicht ausreichende Rechte
+# Fuzzy
 ERR_access_msg:Du verfügst nicht über die benötigten Rechte, um diese Aktion auszuführen
 ERR_registration_disabled_ttl:Registrierung ist deaktiviert
 ERR_registration_disabled_msg:Der Administrator hat die Registrierung deaktiviert, versuche es bitte später noch einmal
@@ -1064,7 +1066,7 @@ move_msg_btn:Verschiebe ausgewählte Beiträge
 move_msg_th_expl:Gib die ID des Zielthemas an (kann in einem anderem Forum sein)
 captcha_img_alt:CAPTCHA-Bestätigung: Du musst den Text in diesem Bild erkennen.
 captcha_img_help:Das Bild enthält keine Null oder Eins.
-powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001–2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001–2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:alles markieren
 code_show_hide:anzeigen/verstecken

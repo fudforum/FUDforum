@@ -53,7 +53,7 @@ index_no_new_posts:Geen nuwe boodskappe sedert vorige besoek
 index_url_redirection:Aanstuur
 interests:Belange:
 last_post:Nuutste boodskap
-last_thread_msg:na laaste boodskap in die onderwerp
+last_thread_msg:Spring na laaste boodskap in die onderwerp
 legend:Sleutel:
 location:Ligging:
 lock_thread:Sluit
@@ -66,10 +66,12 @@ logout:Teken uit
 mark_all_read:merk alle boodskappe as gelees
 mark_all_read_desc:Alle boodskappe wat u nog nie gelees het nie sal as gelees gemerk word
 members:Lede
+calendar:Kalender
+cal_goto_date:Gaan na:
 message:Boodskap
 message_counter:Ons gebruikers het in totaal <b>{PLURAL: post_count|$1 boodskap|$1 boodskappe}</b> in <b>{PLURAL: thread_count|$1 onderwerp|$1 onderwerpe}</b> gepos.
 message_index:Boodskapslys
-message_index_desc:bekyk die boodskapslys
+message_index_desc:Wys die boodskapslys
 minimize_category:Versteek kategorie
 minimize_message:Versteek boodskap
 moderation_queue:Moderasie waglys
@@ -188,7 +190,7 @@ user_offline:{VAR: obj->login}  is tans af-lyn
 user_online:{VAR: obj->login} is tans aan-lyn
 usrinfo_last_post:Laaste boodskap:
 view_results:Wys resultate
-views:Kere bekyk
+views:Kere gewys
 vote:{PLURAL: frm->n_rating|$1 stem|$1 stemme}
 vote_button:Stem
 vote_for_thread:Stem
@@ -250,6 +252,13 @@ month_9:September
 month_10:Oktober
 month_11:November
 month_12:Desember
+sunday:Sondag
+monday:Maandag
+tuesday:Dinsdag
+wednesday:Woensdag
+thursday:Donderdag
+friday:Vrydag
+saturday:Saterdag
 male:Man
 female:Vrou
 unspecified:Nie gespesifiseer
@@ -654,9 +663,9 @@ tree_update:Blaai deur onderwerp (boomstruktuur) <a href="{TEMPLATE: tree_update
 userinfo_update:kyk na <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> se profiel
 ERR_login_msg2:<legend>FOUT: U is nie aangeteken nie</legend>U moet 'n lid van die forum wees alvorens u die bladsy mag besoek.
 ERR_disabled_ttl:afgeskakelde opsie
-ERR_disabled_msg:hierdie opsie is deur die administrateur afgeskakel
+ERR_disabled_msg:Hierdie opsie is deur die administrateur afgeskakel.
 ERR_access_ttl:FOUT: onvoldoende toegang
-ERR_access_msg:u het nie die vereiste toegang om hierdie handeling uit te voer nie
+ERR_access_msg:U het nie die vereiste regte om hierdie handeling uit te voer nie.
 ERR_registration_disabled_ttl:Registrasie is gedeaktiveer
 ERR_registration_disabled_msg:Die administrateur het registrasie gedeaktiveer. Probeer asseblief later weer.
 ERR_emailconf_ttl:FOUT: U lidmaatskap is nog nie bevestig nie
@@ -798,6 +807,8 @@ quicklogin_password:Wagwoord:
 quicklogin_use_cookies:Gebruik koekies?
 quicklogin_login_btn:Teken aan
 quick_reply:Vinnige antwoord
+quick_reply_post:Pos Vinnige Antwoord
+quick_reply_preview:Voorskou
 post_notification_desc:Waarsku my wanneer iemand die boodskap antwoord.
 post_all_ext_allowed:(onbeperk)
 maximize_category:Wys kategorie
@@ -841,7 +852,7 @@ register_allow_pm_msg:Laat privaatboodskappe toe
 register_allow_pm_msg_desc:Laat ander gebruikers toe om aan u privaatboodskappe deur die forum te stuur.
 postcheck_pm_disabled:U kan nie 'n privaatboodskap aan "{VAR-HTML: v}" stuur nie omdat die gebruiker nie privaatboodskappe aanvaar nie.
 polllist_vote:Stem
-polllist_view_results:Bekyk resultate
+polllist_view_results:Wys resultate
 polllist_name:Stemmingsnaam
 polllist_date:Geskep op
 polllist_owner:Geskep deur
@@ -861,7 +872,7 @@ post_moderated_forum:U het 'n boodskap in 'n gemodereerde forum gepos. U boodska
 post_moderated_forum_ttl:Gemodereerde forumboodskap
 buddy_list_bday:word vandag {VAR: r[2]}&nbsp;{VAR: age} jaar oud
 email_warning_msg:Indien u u huidig e-posadres wysig sal u rekening as &quot;nie bevestig&quot; gemerk word totdat u dit via e-pos bevestig.
-register_show_im:Wys IM-indikators
+register_show_im:Wys IM-indikators:
 register_show_im_desc:Indien u die IM-indikators van outeurs langs hulle boodskappe wil sien.
 unread_message:ongeleesde boodskappe
 read_message:lees boodskappe
@@ -895,7 +906,7 @@ iemail_msg_subject:<b>Onderwerp:</b> {VAR: obj->subject}
 iemail_msg_date:<b>Datum:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:Beantwoord
 iemail_msg_quote:Aanhaal
-iemail_msg_view:Bekyk onderwerp/boodskap
+iemail_msg_view:Wys onderwerp/boodskap
 threadt_sticky:plakker
 threadt_announce:aankondiging
 reported_no_messages:Daar is geen gerapporteerde boodskappe nie.
@@ -1063,7 +1074,7 @@ move_msg_btn:Skuif geselekteede boodskappe
 move_msg_th_expl:Spesifiseer die ID van die destinasie onderwerp (kan in 'n ander forum wees)
 captcha_img_alt:Captcha-verifikasie: u moet die teks in die beeld herken.
 captcha_img_help:Daar is nie 'n nul of 'n een in die beeld nie.
-powered-by:Aangedryf deur: FUDforum {GVAR: FORUM_VERSION}.<br />Kopiereg &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Aangedryf deur: FUDforum {GVAR: FORUM_VERSION}.<br />Kopiereg &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KODE:
 code_select_all:Kies alles
 code_show_hide:Wys/ versteek

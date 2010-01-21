@@ -654,8 +654,10 @@ tree_update:Tralegante fadenon (laŭ arbeca aspekto) <a href="{TEMPLATE: tree_up
 userinfo_update:Trarigardante profilon de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>ERARO: Vi ne estas ensalutita</legend>Atingi ĉi tiu paĝo, vi devas esti forumano.
 ERR_disabled_ttl:Malŝalta eco
+# Fuzzy
 ERR_disabled_msg:Ĉi tiu eco estis malŝalta de la sistema administranto
 ERR_access_ttl:ERARO: Nesufiĉaj Rajtoj
+# Fuzzy
 ERR_access_msg:Vi ne havas la devigajn rajtojn por fari ĉi tiun agon
 ERR_registration_disabled_ttl:Registrado Malŝaltita
 ERR_registration_disabled_msg:La administranto malŝaltis registradon. Bonvolu reprovi poste.

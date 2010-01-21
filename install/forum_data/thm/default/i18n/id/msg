@@ -656,8 +656,10 @@ tree_update:Melihat topik (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR
 userinfo_update:Melihat profile dari <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_login_msg2:<legend>SALAH: Anda tidak login</legend>Untuk mengakses forum ini, anda harus menjadi anggota
 ERR_disabled_ttl:Fasilitas dinon-aktifkan
+# Fuzzy
 ERR_disabled_msg:Fasilitas ini sudah di non-aktifkan oleh administrator
 ERR_access_ttl:SALAH: Wewenang tidak mencukupi
+# Fuzzy
 ERR_access_msg:Anda tidak berwenang untuk melakukan hal tersebut
 ERR_registration_disabled_ttl:Registrasi di non-aktifkan
 ERR_registration_disabled_msg:Administrator sudah menon-aktifkan proses registrasi, coba laha beberapa saat lagi.
@@ -1065,7 +1067,7 @@ move_msg_btn:Pindahkan Pesan Terpilih
 move_msg_th_expl:Penetapan ID dari tujuan topik (bisa juga terdapat di Forum lain)
 captcha_img_alt:Verifikasi Captcha: Anda harus mengenali teks dalam gambar ini.
 captcha_img_help:Tidak ada nol atau satu pada berkas.
-powered-by:Di dukung oleh: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Perangkat lunak Bulletin Board </a>
+powered-by:Di dukung oleh: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Perangkat lunak Bulletin Board </a>
 code_title:Kode:
 code_select_all:Pilih semua
 code_show_hide:Tampil/ sembunyi

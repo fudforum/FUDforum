@@ -642,8 +642,10 @@ thread_update:Foruma <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->nam
 tree_update:Foruma <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>apskate hierarhija koka veidā
 userinfo_update:Peronīgās informācijas <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>apskats
 ERR_disabled_ttl:Darbība nav iespējama
+# Fuzzy
 ERR_disabled_msg:Šī darbība ir atslēgta un pašreiz nav pieejama
 ERR_access_ttl:KĻŪDA: Nepietiekošs piekļuves līmenis
+# Fuzzy
 ERR_access_msg:Jums piešķirtās tiesības neatļauj pieprasīto darbību izpildi
 ERR_registration_disabled_ttl:Reģistrācija atslēgta
 ERR_registration_disabled_msg:Dotajā brīdī reģistrācija ir liegta. Lūdzu mēģiniet vēlreiz, bet vēlāk.

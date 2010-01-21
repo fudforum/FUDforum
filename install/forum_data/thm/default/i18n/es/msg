@@ -663,8 +663,10 @@ tree_update:Recorriendo hilo de discusión (vista en árbol) <a href="{TEMPLATE:
 userinfo_update:Viendo el perfil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>ERROR: No ha iniciado sesión</legend>Para acceder a esta página debe ser un miembro de este foro.
 ERR_disabled_ttl:Función desactivada
+# Fuzzy
 ERR_disabled_msg:Esta función ha sido desactivada por el administrador del sistema
 ERR_access_ttl:ERROR: Permisos insuficientes
+# Fuzzy
 ERR_access_msg:No tiene los permisos necesarios para realizar esta acción
 ERR_registration_disabled_ttl:Registro desactivado
 ERR_registration_disabled_msg:El administrador ha desactivado el registro. Por favor, vuelva a intentarlo más tarde
@@ -1069,7 +1071,7 @@ move_msg_btn:Mover mensajes seleccionados
 move_msg_th_expl:Especificar el ID del tópico de destino (puede estar en otros foros)
 captcha_img_alt:Verificación captcha: necesitarás reconocer el texto en esta imagen.
 captcha_img_help:No hay cero o uno en la imagen
-powered-by:Impulsado por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Impulsado por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODIGO:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/ocultar

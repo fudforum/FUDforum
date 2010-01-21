@@ -655,8 +655,10 @@ thread_update:Prohlížíte si fórum <a href="{TEMPLATE: thread_update_lnk}">{V
 tree_update:Prohlížíte si téma (ve stromovém zobrazení) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Prohlížíte si profil uživatele <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_disabled_ttl:Vypnutá vlastnost
+# Fuzzy
 ERR_disabled_msg:Tato vlastnost byla vypnuta administrátorem
 ERR_access_ttl:CHYBA: Nedostatečné pravomoci
+# Fuzzy
 ERR_access_msg:Nemáte dostatečné pravomoci na provedení této akce
 ERR_registration_disabled_ttl:Registrace vypnuta
 ERR_registration_disabled_msg:Administrátor vypnul registraci, prosím, zkuste to později

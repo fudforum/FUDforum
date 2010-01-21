@@ -656,8 +656,10 @@ tree_update:يتصفح الموضوع <a href="{TEMPLATE: tree_update_lnk}">{VAR
 userinfo_update:ينظر إلى ملف <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> الشخصي
 ERR_login_msg2:<legend>خطأ: لست والجًا/legend> يجب أن تكون عضوًا في هذا المنتدى لتصل إلى هذه الصفحة.
 ERR_disabled_ttl:خاصية معطلة
+# Fuzzy
 ERR_disabled_msg:عطل مدير النظام هذه الرسالة
 ERR_access_ttl:خطأ: أذونات غير كافية
+# Fuzzy
 ERR_access_msg:لا تملك الأذونات المطلوبة لتنفيذ هذا الإجراء
 ERR_registration_disabled_ttl:التسجيل معطل
 ERR_registration_disabled_msg:عطل الإداري التسجيل. من فضلك حاول مرة أخرى لاحقًا.
@@ -1065,7 +1067,7 @@ move_msg_btn:انقل الرسائل المختارة
 move_msg_th_expl:حدد هوية الموضوع الهدف (يمكن أن يكون في منتديات أخرى)
 captcha_img_alt:تحقق كابتشا: سوف تحتاج إلى التعرف على نص هذه الصورة.
 captcha_img_help:لا يوجد صفر ولا واحد في الصورة.
-powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.<br />حقوق النشر &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.<br />حقوق النشر &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:الكود
 code_select_all:اختر الكل
 code_show_hide:أظهر/أخفِ

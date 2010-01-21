@@ -648,8 +648,10 @@ tree_update:Gennemse emne (trævisning) <a href="{TEMPLATE: tree_update_lnk}">{V
 userinfo_update:Ser på <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
 ERR_login_msg2:<legend>FEJL: Du er ikke logget ind</legend> For at få adgang til denne side skal du være medlem af dette forum.
 ERR_disabled_ttl:Deaktiveret funktion
+# Fuzzy
 ERR_disabled_msg:Denne funktion er blevet deaktiveret af systemadministratoren
 ERR_access_ttl:FEJL: Utilstrækkelige tilladelser
+# Fuzzy
 ERR_access_msg:Du har ikke de nødvendige tilladelser til at udføre denne handling
 ERR_registration_disabled_ttl:Registrering deaktiveret
 ERR_registration_disabled_msg:Administratoren har deaktiveret registrering. Prøv igen senere.

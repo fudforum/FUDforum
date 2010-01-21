@@ -638,8 +638,10 @@ thread_update:Leser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: f
 tree_update:Leser tr&aring;den (tr&aring;det visning) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
 ERR_disabled_ttl:Avstengt funksjon
+# Fuzzy
 ERR_disabled_msg:Denne funksjonen er lukket av administratoren
 ERR_access_ttl:FEIL: Ikke tilstrekkelige rettigheter
+# Fuzzy
 ERR_access_msg:Du har ikke de rettigheter som er n&oslash;dvendig for &aring; gj&oslash;re dette
 ERR_registration_disabled_ttl:Registrering stengt
 ERR_registration_disabled_msg:Administratoren har stengt registreringen, pr&oslash;v p&aring; nytt senere

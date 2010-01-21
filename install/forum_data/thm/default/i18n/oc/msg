@@ -654,8 +654,10 @@ tree_update:Percor lo fial (vista arborescenta) <a href="{TEMPLATE: tree_update_
 userinfo_update:Agach lo perfil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_login_msg2:<legend>ERROR : sètz pas connectat</legend>Per accedir a aquesta pagina, vos cal èsser un membre d'aqueste forum
 ERR_disabled_ttl:Foncionalitat desactivada
+# Fuzzy
 ERR_disabled_msg:Aquesta foncionalitat es estada desactivada per l'administrator del forum
 ERR_access_ttl:ERROR : Privilègis insufisents
+# Fuzzy
 ERR_access_msg:Avètz pas los privilègis necessaris per efectuar aquesta operacion
 ERR_registration_disabled_ttl:Inscripcion desactivada
 ERR_registration_disabled_msg:L'administrator a desactivat l'inscripcion, tornatz ensajar mai tard

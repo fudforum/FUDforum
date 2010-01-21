@@ -656,8 +656,10 @@ tree_update:Visualizando tópico (vista de árvore) <a href="{TEMPLATE: tree_upd
 userinfo_update:Procurar em <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> perfil
 ERR_login_msg2:<legend>ERRO: Você não está conectado</legend>Para acessar esta página, você precisa ser um membro deste fórum.
 ERR_disabled_ttl:Possibilidade desabilitada
+# Fuzzy
 ERR_disabled_msg:Esta possibilidade foi desabilitada pelo administrador de sistema
 ERR_access_ttl:ERRO: Permissões insuficientes
+# Fuzzy
 ERR_access_msg:Não tem as permissões necessárias para fazer o que está tentando
 ERR_registration_disabled_ttl:Registo de usuários desabilitado
 ERR_registration_disabled_msg:O administrador desabiliotu o registo de usuários novos, por favor tente mais tarde

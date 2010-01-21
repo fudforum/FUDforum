@@ -649,8 +649,10 @@ thread_update:L&auml;ser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR-HT
 tree_update:L&auml;ser diskussionen (tr&aring;dad vy) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
 ERR_disabled_ttl:Avst&auml;ngd funktion
+# Fuzzy
 ERR_disabled_msg:Den h&auml;r funktionen &auml;r avst&auml;ngd av administratorn
 ERR_access_ttl:FEL: Otillr&auml;ckliga r&auml;ttigheter
+# Fuzzy
 ERR_access_msg:Du har inte de r&auml;ttigheter som beh&ouml;vs f&ouml;r att g&ouml;ra det h&auml;r
 ERR_registration_disabled_ttl:Registrering avst&auml;ngd
 ERR_registration_disabled_msg:Administratorn har st&auml;ng av registreringen, f&ouml;rs&ouml;k p&aring; nytt senare

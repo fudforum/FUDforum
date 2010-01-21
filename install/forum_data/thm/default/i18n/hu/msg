@@ -655,8 +655,10 @@ tree_update:A(z) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> t
 userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> profilját nézi
 ERR_login_msg2:<legend>HIBA: Nem vagy bejelentkezve</legend>A lap megtekintéséhez a fórum tagjának kell lenned.
 ERR_disabled_ttl:Letiltott funkció
+# Fuzzy
 ERR_disabled_msg:Ezt a funkciót letiltotta a rendszeradminisztrátor
 ERR_access_ttl:HIBA: nem megfelelő jogosultságok
+# Fuzzy
 ERR_access_msg:Nincs megfelelő jogosultságod a művelet elvégzéséhez
 ERR_registration_disabled_ttl:Regisztráció letiltva
 ERR_registration_disabled_msg:A regisztrációt letiltotta az adminisztrátor. Próbáld újra később.
@@ -1020,6 +1022,7 @@ pmsg_pdf_btn:PDF-archícvum készítése
 search_results_hdr:Összesen {VAR: total} találat van
 thread_del_all:Az összes kiválasztott törlése
 thread_mov_all:Az összes kiválasztott áthelyezése
+thread_merge_all:Minden kijelölt összevonása
 thread_loc_all:Az összes kiválasztott lezárása/feloldása
 dmsg_ip:IP-cím:
 err_blockedaccnt_title:HIBA: a fiókod ki lett szűrve.
@@ -1063,7 +1066,7 @@ move_msg_btn:Kiválasztott üzenetek áthelyezése
 move_msg_th_expl:Add meg a céltéma azonosítóját (lehet más fórumban is)
 captcha_img_alt:Captcha-ellenőrzés: fel kell ismerned a képen látható szöveget.
 captcha_img_help:Nincs nulla vagy egy a képen.
-powered-by:Az oldalt a FUDfórum {GVAR: FORUM_VERSION} hajtja.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Az oldalt a FUDfórum {GVAR: FORUM_VERSION} hajtja.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Összes kijelölése
 code_show_hide:Megjelenítés/ elrejtés

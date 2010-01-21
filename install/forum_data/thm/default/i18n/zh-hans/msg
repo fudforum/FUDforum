@@ -681,8 +681,10 @@ tree_update:浏览（以树状方式） <a href="{TEMPLATE: tree_update_lnk}">{V
 userinfo_update:查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 个人信息
 ERR_login_msg2:<legend>错误：未登录</legend>登录后才能访问所需页面。
 ERR_disabled_ttl:被禁止的功能
+# Fuzzy
 ERR_disabled_msg:此项功能已经被系统管理员关闭。
 ERR_access_ttl:错误：权限不够
+# Fuzzy
 ERR_access_msg:你没有权利进行此项操作
 ERR_registration_disabled_ttl:注册失败
 ERR_registration_disabled_msg:注册功能被系统管理员禁止，请重试！

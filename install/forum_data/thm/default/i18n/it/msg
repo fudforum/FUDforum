@@ -635,8 +635,10 @@ tree_update:Legge l'argomento (vista ad albero) <a href="{TEMPLATE: tree_update_
 userinfo_update:Guarda il profilo di <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>ERRORE: Non risulti loggato</legend>Per accedere a questa pagina devi essere un membro di questo forum.
 ERR_disabled_ttl:Opzione non attiva
+# Fuzzy
 ERR_disabled_msg:Questa opzione &egrave; stata disabilitata dall'amministratore
 ERR_access_ttl:ERRORE: permessi non sufficienti
+# Fuzzy
 ERR_access_msg:Non disponi dei permessi necessari per eseguire questa azione
 ERR_registration_disabled_ttl:Registrazione non attiva
 ERR_registration_disabled_msg:L'amministratore ha disabilitato la registrazione, riprova pi&ugrave; tardi

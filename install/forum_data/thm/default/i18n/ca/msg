@@ -650,8 +650,10 @@ tree_update:Recorrent fil de discussió (vista en arbre) <a href="{TEMPLATE: tre
 userinfo_update:Veient el perfil de  <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>ERROR: No ha iniciat sessió</legend>Per a accedir a aquesta pàgina ha de ser un membre d`aquest fòrum.
 ERR_disabled_ttl:Funció desactivada
+# Fuzzy
 ERR_disabled_msg:Aquesta funció ha estat desactivada per l`administrador del sistema
 ERR_access_ttl:ERROR: Permisos insuficients
+# Fuzzy
 ERR_access_msg:No té els permisos necessaris per a realitzar aquesta acció
 ERR_registration_disabled_ttl:Registre desactivat
 ERR_registration_disabled_msg:L`administrador ha desactivat el registre. Si us plau, torni a intentar-ho més tard

@@ -69,6 +69,7 @@ logout:Kirjaudu ulos
 mark_all_read:merkitse kaikki viestit luetuiksi
 mark_all_read_desc:Kaikki lukemattomat viestisi merkitään luetuiksi
 members:Käyttäjät
+calendar:Kalenteri
 message:Viesti
 message_counter:Yhteensä <b>{PLURAL: post_count|$1 viesti|$1 viestiä}</b> <b>{PLURAL: thread_count|$1 aiheesta|$1 aiheesta}</b>.
 message_index:Viestiluettelo
@@ -250,6 +251,13 @@ month_9:Syyskuu
 month_10:Lokakuu
 month_11:Marraskuu
 month_12:Joulukuu
+sunday:Sunnuntai
+monday:Maanantai
+tuesday:Tiistai
+wednesday:Keskiviikko
+thursday:Torstai
+friday:Perjantai
+saturday:Lauantai
 male:Mies
 female:Nainen
 unspecified:Määrittelemätön
@@ -651,9 +659,9 @@ tree_update:Selaa aihetta (puunäkymä) <a href="{TEMPLATE: tree_update_lnk}">{V
 userinfo_update:Tarkastelee käyttäjän <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> profiilia.
 ERR_login_msg2:<legend>Virhe: Et ole sisäänkirjautunut</legend>Voidaksesi käyttää tätä toimintoa, tulee sinun ensin kirjautua sisään.
 ERR_disabled_ttl:Toiminto ei ole käytössä
-ERR_disabled_msg:Ylläpitäjä on poistanut tämän toiminnon käytöstä
+ERR_disabled_msg:Ylläpitäjä on poistanut tämän toiminnon käytöstä.
 ERR_access_ttl:Virhe: Käyttöoikeudet riittämättömät
-ERR_access_msg:Sinulla ei ole vaadittuja käyttöoikeuksia suorittaaksesi tämän toiminnon
+ERR_access_msg:Sinulla ei ole vaadittuja käyttöoikeuksia suorittaaksesi tätä toimintoa.
 ERR_registration_disabled_ttl:Rekisteröinti ei ole käytössä
 ERR_registration_disabled_msg:Ylläpitäjä on poistanut rekisteröinnin käytöstä. Yritä myöhemmin uudelleen
 ERR_emailconf_ttl:Virhe: Käyttäjätiliäsi ei ole vahvistettu
@@ -795,6 +803,8 @@ quicklogin_password:Salasana:
 quicklogin_use_cookies:Käytä evästeitä?
 quicklogin_login_btn:Kirjaudu
 quick_reply:Nopea vastaus
+quick_reply_post:Lähetä nopea vastaus
+quick_reply_preview:Nopean vastauksen esikatselu
 post_notification_desc:Ilmoita minulle, kun joku vastaa tähän viestiin.
 post_all_ext_allowed:(rajoittamaton)
 maximize_category:Suurenna luokka
@@ -1025,7 +1035,7 @@ post_descr:Aiheen kuvaus:
 pmsg_download_dump:Lataa viestivedos
 move_messages:Siirrä viestit
 move_msg_btn:Siirrä valitut viestit
-powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Koodi:
 code_select_all:Valitse kaikki
 code_show_hide:Näytä tai piilota

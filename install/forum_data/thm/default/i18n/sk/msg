@@ -648,8 +648,10 @@ thread_update:Prehliada fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm
 tree_update:Prehliada si tému (stromové zobrazenie) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Prezerá si profil užívateľa <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_disabled_ttl:Vypnuté možnosti
+# Fuzzy
 ERR_disabled_msg:Táto možnosť bola vypnutá administrátorom
 ERR_access_ttl:CHYBA: Nedostatočné právomoci
+# Fuzzy
 ERR_access_msg:Nemáte dostatočné právomoci na vykonanie tejto akcie
 ERR_registration_disabled_ttl:Registrácia je vypnutá
 ERR_registration_disabled_msg:Administrátor vypol registračný systém, prosím skúste neskôr.

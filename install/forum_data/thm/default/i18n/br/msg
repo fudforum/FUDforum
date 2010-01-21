@@ -656,8 +656,10 @@ tree_update:O furchal ar gaoz (diskwel gwezennadur) <a href="{TEMPLATE: tree_upd
 userinfo_update:O sellet ouzh profil <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_login_msg2:<legend>FAZI : N'oc'h ket kevreet</legend>Evit mont d'ar bajenn-mañ e rankit bezañ un ezel eus ar forom-mañ.
 ERR_disabled_ttl:Arc'hweladur diweredekaet
+# Fuzzy
 ERR_disabled_msg:Diweredekaet eo bet an arc'hweladur-mañ gant merour ar reizhiad
 ERR_access_ttl:FAZI : Aotreoù skort
+# Fuzzy
 ERR_access_msg:N'emañ ket an aotreoù ret ganeoc'h evit seveniñ an ober-mañ
 ERR_registration_disabled_ttl:Enskrivadur diweredekaet
 ERR_registration_disabled_msg:Diweredekaet eo bet an enskrivadur gant ar merour. Esaeit en-dro diwezhatoc'h, mar plij.
@@ -1065,7 +1067,7 @@ move_msg_btn:Dilec'hiañ ar c'hemennadennoù diuzet
 move_msg_th_expl:Spisait anavezer ar gaoz pal (a c'hall bezañ en ur forom all)
 captcha_img_alt:Gwiriadur dre Captcha : dav eo deoc'h anavezout an destenn er skeudenn-mañ.
 captcha_img_help:N'eus ket a zero pe a unan er skeudenn.
-powered-by:Kaset en-dro gant : FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Kaset en-dro gant : FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD :
 code_select_all:Diuzañ pep tra
 code_show_hide:Diskouez / kuzhat

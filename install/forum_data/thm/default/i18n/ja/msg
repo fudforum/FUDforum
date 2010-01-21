@@ -67,6 +67,8 @@ logout:ログアウト
 mark_all_read:すべてのメッセージを既読とする
 mark_all_read_desc:すべての未読メッセージを既に読んだことにします
 members:メンバー一覧
+calendar:カレンダー
+cal_goto_date:移動:
 message:メンバー
 message_counter:<b>{PLURAL: thread_count|$1 件}のトピック</b>内に合計で<b>{PLURAL: post_count|$1 通}のメッセージ</b>が投稿されました。
 message_index:メッセージ索引
@@ -251,6 +253,13 @@ month_9:9月
 month_10:10月
 month_11:11月
 month_12:12月
+sunday:日曜日
+monday:月曜日
+tuesday:火曜日
+wednesday:水曜日
+thursday:木曜日
+friday:金曜日
+saturday:土曜日
 male:男
 female:女
 unspecified:非公開
@@ -655,9 +664,9 @@ tree_update:トピック「<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subj
 userinfo_update:<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> のプロフィールを見ています
 ERR_login_msg2:<legend>エラー: ログインしていません</legend>このページにアクセスするには、このフォーラムのメンバーでなければなりません。
 ERR_disabled_ttl:無効化された機能
-ERR_disabled_msg:この機能はシステム管理者により無効にされています
+ERR_disabled_msg:この機能はシステム管理者により無効化されています。
 ERR_access_ttl:エラー: 許可不十分
-ERR_access_msg:この操作を行なうために必要な許可がありません
+ERR_access_msg:この操作を行なうために必要な許可がありません。
 ERR_registration_disabled_ttl:登録は無効です。
 ERR_registration_disabled_msg:管理者は登録を無効にしています。後で確認してください。
 ERR_emailconf_ttl:エラー: あなたのアカウントはまだ確認されていません
@@ -798,7 +807,9 @@ quicklogin_login:利用者名:
 quicklogin_password:パスワード:
 quicklogin_use_cookies:cookie を使用しますか？
 quicklogin_login_btn:ログイン
-quick_reply:即時返信
+quick_reply:迅速返信
+quick_reply_post:迅速返信を投稿
+quick_reply_preview:迅速返信をプレビュー
 post_notification_desc:誰かがこのメッセージに返信したとき、あなたに通知します
 post_all_ext_allowed:（無制限）
 maximize_category:カテゴリーを最大化
@@ -1064,7 +1075,7 @@ move_msg_btn:選択したメッセージを移動
 move_msg_th_expl:移動先トピックのIDを指定してください（他のフォーラムのものも可です）
 captcha_img_alt:CAPTCHA検証: この画像中の文字列を認識する必要があります。
 captcha_img_help:画像中には 0 も 1 もありません。
-powered-by:提供: FUDforum {GVAR: FORUM_VERSION}<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:提供: FUDforum {GVAR: FORUM_VERSION}<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:コード:
 code_select_all:すべて選択
 code_show_hide:表示 / 非表示

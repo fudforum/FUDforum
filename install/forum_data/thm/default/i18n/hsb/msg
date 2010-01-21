@@ -66,6 +66,8 @@ logout:Wotzjewić
 mark_all_read:wšě powěsće jako přečitane markěrować
 mark_all_read_desc:Wšě twoje njepřečitane powěsće budu so jako přečitane markěrować
 members:Čłonojo
+calendar:Protyka
+cal_goto_date:Skočić do:
 message:Powěsć
 message_counter:Naši wužiwarjo su dohromady <b>{PLURAL: post_count|$1 powěsć|$1 powěsći|$1 powěsće|$1 powěsćow}</b> znutřka <b>{PLURAL: thread_count|$1 temy|$1 temow|$1 temow|$1 temow}</b> pósłali.
 message_index:Powěsćowy indeks
@@ -250,6 +252,13 @@ month_9:September
 month_10:Oktober
 month_11:Nowember
 month_12:December
+sunday:Njedźela
+monday:Póndźela
+tuesday:Wutora
+wednesday:Srjeda
+thursday:Štwórtk
+friday:Pjatk
+saturday:Sobota
 male:Muski
 female:Žónski
 unspecified:NJEPODATY
@@ -654,9 +663,9 @@ tree_update:Přepytuje temu (štomowy napohlad) <a href="{TEMPLATE: tree_update_
 userinfo_update:Wobhladuje sej profil <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_login_msg2:<legend>ZMYLK: Njejsy přizjewjeny</legend>Zo by přistup na tutu stronu měł, dyrbiš čłon tutoho foruma być.
 ERR_disabled_ttl:Znjemóžnjena funkcija
-ERR_disabled_msg:Tuta funkcija bu wot systemoweho administratora znjemóžnjena
+ERR_disabled_msg:Tuta funkcija bu wot systemoweho administratora znjemóžnjena.
 ERR_access_ttl:ZMYLK: Njedosahace prawa
-ERR_access_msg:Nimaš trěbne prawa, zo by tutu akciju wuwjedł
+ERR_access_msg:Nimaš trěbne prawa, zo by tutu akciju wuwjedł.
 ERR_registration_disabled_ttl:Registrowanje znjemóžnjene
 ERR_registration_disabled_msg:Administrator je registrowanje znjemóžnił. Prošu spytaj pozdźišo hišće raz.
 ERR_emailconf_ttl:ZMYLK: Twoje konto hišće njeje wobkrućene
@@ -798,6 +807,8 @@ quicklogin_password:Hesło:
 quicklogin_use_cookies:Placki wužiwać?
 quicklogin_login_btn:Přizjewić
 quick_reply:Spěšna wotmołwa
+quick_reply_post:Spěšnu wotmołwu pósłać
+quick_reply_preview:Přehlad spěšneje wotmołwy pokazać
 post_notification_desc:Zdźělić, hdyž něchtó na tutu powěsć wotmołwja.
 post_all_ext_allowed:(njewobmjezowany)
 maximize_category:Kategoriju maksiměrować
@@ -1063,7 +1074,7 @@ move_msg_btn:Wubrane powěsće přesunyć
 move_msg_th_expl:Podaj ID ciloweje temy (móže w druhich forumach być)
 captcha_img_alt:Pruwowanje captcha: dyrbiš tekst we wobrazu spóznać.
 captcha_img_help:Njeje nula abo jedynka we wobrazu.
-powered-by:Pohonjeny přez: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Pohonjeny přez: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Wšě wubrać
 code_show_hide:Pokazać/schować

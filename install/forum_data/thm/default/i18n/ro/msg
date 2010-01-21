@@ -652,8 +652,10 @@ thread_update:Navigare in forumul <a href="{TEMPLATE: thread_update_lnk}">{VAR-H
 tree_update:Navigare teme <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Vizualizati profilul utilizatorului <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_disabled_ttl:Optiune dezactivata
+# Fuzzy
 ERR_disabled_msg:Optiune dezactivata de administratorul sistemului
 ERR_access_ttl:EROARE: Permisiune insuficienta
+# Fuzzy
 ERR_access_msg:Nu aveti permisiune pentru a executa aceasta actiune
 ERR_registration_disabled_ttl:Inregistrarea dezactivata
 ERR_registration_disabled_msg:Administratorul a dezactivat inregistrarea, va rugam sa reveniti mai tarziu

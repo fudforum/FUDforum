@@ -607,6 +607,7 @@ subscribed_update:구독자 탐색
 thread_update:<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a> 포럼 탐색
 tree_update:<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a> 토픽 탐색(트리구조)
 ERR_disabled_ttl:기능 제한
+# Fuzzy
 ERR_disabled_msg:이 기능은 관리자에 의해 제한 되었습니다
 ERR_access_ttl:오류: Insufficient Permissions
 ERR_registration_disabled_ttl:등록불가

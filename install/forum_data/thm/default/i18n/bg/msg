@@ -658,8 +658,10 @@ thread_update:Разглеждане на форума <a href="{TEMPLATE: threa
 tree_update:Разглеждане (в разгърнат изглед) на темата <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Преглед на личния профил на <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_disabled_ttl:Изключена опция
+# Fuzzy
 ERR_disabled_msg:Тази опция е изключена от системния администратор
 ERR_access_ttl:ГРЕШКА: Недостатъчно ниво за достъп
+# Fuzzy
 ERR_access_msg:Нямаш изискваните разрешения за да вършиш тази операция
 ERR_registration_disabled_ttl:Регистрацията е изключена
 ERR_registration_disabled_msg:Администраторът забранява регистрацията, опитай пак по-късно

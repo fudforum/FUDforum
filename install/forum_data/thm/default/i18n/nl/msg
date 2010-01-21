@@ -67,6 +67,8 @@ logout:Afmelden
 mark_all_read:alle berichten als gelezen markeren
 mark_all_read_desc:Alle berichten die u nog niet gelezen hebt worden als gelezen gemarkeerd
 members:Leden
+calendar:Kalender
+cal_goto_date:Ga naar:
 message:Bericht
 message_counter:Onze gebruikers hebben in totaal <b>{PLURAL: post_count|$1 bericht|$1 berichten}</b> geplaatst in <b>{PLURAL: thread_count|$1 onderwerp|$1 onderwerpen}</b>.
 message_index:Berichtenlijst
@@ -251,6 +253,13 @@ month_9:september
 month_10:oktober
 month_11:november
 month_12:december
+sunday:zondag
+monday:maandag
+tuesday:dinsdag
+wednesday:woensdag
+thursday:donderdag
+friday:vrijdag
+saturday:zaterdag
 male:Man
 female:Vrouw
 unspecified:Niet opgegeven
@@ -655,9 +664,9 @@ tree_update:Onderwerp <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}<
 userinfo_update:Profiel van <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> aan het bekijken
 ERR_login_msg2:<legend>Fout: U bent niet aangemeld</legend>Enkel leden van dit forum kunnen dit bekijken.
 ERR_disabled_ttl:Uitgeschakelde optie
-ERR_disabled_msg:deze optie is uitgeschakeld door de beheerder
+ERR_disabled_msg:Deze optie is uitgeschakeld door de beheerder.
 ERR_access_ttl:FOUT: onvoldoende rechten
-ERR_access_msg:U hebt niet de vereiste rechten om deze handeling uit te voeren
+ERR_access_msg:U hebt niet de vereiste rechten om deze handeling uit te voeren.
 ERR_registration_disabled_ttl:Registratie is uitgeschakeld
 ERR_registration_disabled_msg:De beheerder heeft registratie uitgeschakeld. Probeer het later opnieuw.
 ERR_emailconf_ttl:Fout: uw gebruiker is nog niet bevestigd
@@ -799,6 +808,8 @@ quicklogin_password:Wachtwoord:
 quicklogin_use_cookies:Cookies gebruiken?
 quicklogin_login_btn:Gebruiker:
 quick_reply:Snel antwoorden
+quick_reply_post:Snel antwoord plaatsen
+quick_reply_preview:Voorvertoning antwoord
 post_notification_desc:Mij waarschuwen als iemand op dit bericht antwoordt.
 post_all_ext_allowed:(geen beperkingen)
 maximize_category:Categorie maximaliseren
@@ -1064,7 +1075,7 @@ move_msg_btn:Geselecteerde berichten verplaatsen
 move_msg_th_expl:Geef het nummer van het doelonderwerp (kan zich in een ander forum bevinden)
 captcha_img_alt:Captchacontrole: u moet de tekst in deze afbeelding herkennen
 captcha_img_help:Er is geen nul of een in de afbeelding.
-powered-by:Maakt gebruik van FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Maakt gebruik van FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alles selecteren
 code_show_hide:Weergeven/verbergen

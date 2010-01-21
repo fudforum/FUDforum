@@ -71,6 +71,8 @@ logout:Выход
 mark_all_read:отметить все сообщения как прочитанные
 mark_all_read_desc:Все непрочитанные вами сообщения были помечены как прочитанные
 members:Участники
+calendar:Календарь
+cal_goto_date:Перейти к:
 message:Сообщение
 message_counter:Нашими пользователями оставлено <b>{PLURAL: post_count|$1 сообщение|$1 сообщения|$1 сообщений}</b> по <b>{PLURAL: thread_count|$1 теме|$1 темам|$1 темам}</b>.
 message_index:Список сообщений
@@ -255,6 +257,13 @@ month_9:Сентябрь
 month_10:Октябрь
 month_11:Ноябрь
 month_12:Декабрь
+sunday:Воскресенье
+monday:Понедельник
+tuesday:Вторник
+wednesday:Среда
+thursday:Четверг
+friday:Пятница
+saturday:Суббота
 male:Мужской
 female:Женский
 unspecified:НЕ УКАЗАНО
@@ -659,9 +668,9 @@ tree_update:Просмотр в режиме дерева темы <a href="{TEM
 userinfo_update:Просмотр персональной информации о <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>ОШИБКА: Вы не вошли на форум</legend>Чтобы получить доступ к этой странице вы должны войти на форум.
 ERR_disabled_ttl:Действие невозможно
-ERR_disabled_msg:Данная возможность была отключена системным администратором
+ERR_disabled_msg:Данная возможность была отключена системным администратором.
 ERR_access_ttl:ОШИБКА: Недостаточен уровень доступа
-ERR_access_msg:Ваш уровень доступа недостаточен для выполнения затребованной операции
+ERR_access_msg:У вас недостаточно прав для выполнения этого действия.
 ERR_registration_disabled_ttl:Регистрация отключена
 ERR_registration_disabled_msg:Администратор запретил регистрацию пользователей, попробуйте еще раз через некоторое время
 ERR_emailconf_ttl:ОШИБКА: Ваша регистрация не была подтверждена
@@ -803,6 +812,8 @@ quicklogin_password:Пароль:
 quicklogin_use_cookies:Использовать Cookies?
 quicklogin_login_btn:Войти
 quick_reply:быстрый ответ
+quick_reply_post:Отправить быстрый ответ
+quick_reply_preview:Предварительный просмотр быстрого ответа
 post_notification_desc:Известить меня, когда кто-либо ответить на это сообщение.
 post_all_ext_allowed:(нет ограничений)
 maximize_category:Развернуть категорию
@@ -1068,7 +1079,7 @@ move_msg_btn:Перенести выбранные сообщения
 move_msg_th_expl:Укажите ID темы для переноса в нее сообщений (может быть в других форумах)
 captcha_img_alt:Антибот проверка. Вам нужно распознать текст на этом изображении.
 captcha_img_help:На изображении нет цифр 0 и 1.
-powered-by:При поддержке: FUDforum {GVAR: FORUM_VERSION}.<br /> Copyright © 2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:При поддержке: FUDforum {GVAR: FORUM_VERSION}.<br /> Copyright © 2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODE:
 code_select_all:Выделить все
 code_show_hide:Показать / скрыть

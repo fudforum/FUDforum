@@ -563,8 +563,10 @@ tree_update:Xem qua chủ đề (xem dạng cây) <a href="{TEMPLATE: tree_updat
 userinfo_update:Kiếm tiểu sử của <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>Lỗi: Bạn không đăng nhập được</legend>Để truy cập vào trang này bạn phải là thành viên của diễn đàn.
 ERR_disabled_ttl:Chức năng bị vô hiệu
+# Fuzzy
 ERR_disabled_msg:Chức năng này đã bị vô hiệu bởi người quản trị hệ thống
 ERR_access_ttl:Lỗi :Không đủ quyền
+# Fuzzy
 ERR_access_msg:Bạn không được phép yêu cầu xem hành động này
 ERR_registration_disabled_ttl:Đăng ký đã bị vô hiệu hóa
 ERR_registration_disabled_msg:Người quản trị tối cao đã vô hiệu hóa đăng ký .Xin vui lòng đăng ký lại lần sau.

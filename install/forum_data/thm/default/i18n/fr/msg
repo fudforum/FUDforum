@@ -6,6 +6,7 @@
 # Author: Jean-Frédéric
 # Author: Omnipaedista
 # Author: Peter17
+# Author: Robby
 
 action:Action
 add_to_buddy_list:Ajouter à la liste de mes amis
@@ -71,6 +72,8 @@ logout:Déconnexion
 mark_all_read:Marquer tous les messages comme lus
 mark_all_read_desc:Tous vos messages non lus vont être marqués comme lus
 members:Membres
+calendar:Calendrier
+cal_goto_date:Aller à :
 message:Message
 message_counter:Nos utilisateurs ont posté un total de <b>{PLURAL: post_count|$1 message|$1 messages}</b> message(s) dans <b>{PLURAL: thread_count|$1 fil|$1 fil}</b>.
 message_index:Index des messages
@@ -255,6 +258,13 @@ month_9:Septembre
 month_10:Octobre
 month_11:Novembre
 month_12:Décembre
+sunday:Dimanche
+monday:Lundi
+tuesday:Mardi
+wednesday:Mercredi
+thursday:Jeudi
+friday:Vendredi
+saturday:Samedi
 male:Homme
 female:Femme
 unspecified:Inconnu
@@ -297,7 +307,7 @@ register_sel_avatar:Sélectionner un avatar
 register_custom_avatar_rules:Les avatars personnels n'apparaissent qu'après leur approbation par l'administrateur.<br /><font class="SmallText"> L'avatar doit faire moins de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> et doit être dans l'un des formats suivants: <b>jpg</b>, <b>gif</b> ou <b>png</b>.</font>
 register_custom_avatar_url:URL de l'avatar personnel :
 register_preview:Prévisualisation
-register_custom_avatar_upload:Ficher correspondant à l'avatar personnel :
+register_custom_avatar_upload:Fichier correspondant à l'avatar personnel :
 register_register:S'inscrire
 register_required:Informations obligatoires
 register_required_desc:Tous les champs sont obligatoires. Attention, le mot de passe interprète les majuscules et minuscules différemment !
@@ -375,7 +385,7 @@ post_icons:Choisissez une icône à associer à votre message :
 post_no_icon:Pas d'icône
 post_smiley:Raccourcis de smileys :
 post_format_tools:Outils de mise en page :
-post_upload_file:Télécharger le ficher
+post_upload_file:Télécharger le fichier
 post_file_del:Effacer
 post_file_name:Nom
 post_file_size:Taille
@@ -659,9 +669,9 @@ tree_update:Parcourt le fil (vue arborescente) <a href="{TEMPLATE: tree_update_l
 userinfo_update:Regarde le profil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_login_msg2:<legend>ERREUR : vous n\'êtes pas connecté</legend>Pour accéder à cette page, vous devez être un membre de ce forum
 ERR_disabled_ttl:Fonctionnalité désactivée
-ERR_disabled_msg:Cette fonctionnalité a été désactivée par l'administrateur du forum
+ERR_disabled_msg:Cette fonctionnalité a été désactivée par l'administrateur du forum.
 ERR_access_ttl:ERREUR : Privilèges insuffisants
-ERR_access_msg:Vous n'avez pas les privilèges nécessaires pour effectuer cette opération
+ERR_access_msg:Vous n'avez pas les privilèges nécessaires pour effectuer cette opération.
 ERR_registration_disabled_ttl:Inscription désactivée
 ERR_registration_disabled_msg:L'administrateur a désactivé l'inscription, veuillez réessayer plus tard
 ERR_emailconf_ttl:ERREUR : Votre compte n'a pas encore été confirmé
@@ -803,6 +813,8 @@ quicklogin_password:Mot de passe :
 quicklogin_use_cookies:Utiliser un cookie ?
 quicklogin_login_btn:Connexion
 quick_reply:Réponse rapide
+quick_reply_post:Poster une réponse rapide
+quick_reply_preview:Prévisualiser la réponse rapide
 post_notification_desc:Permet de recevoir une notification dès que quelqu'un a répondu à ce message.
 post_all_ext_allowed:(non restreint)
 maximize_category:Maximiser la catégorie
@@ -1068,7 +1080,7 @@ move_msg_btn:Déplacez les messages sélectionnés
 move_msg_th_expl:Précisez l\'identifiant du sujet de destination (peut être situé dans un autre forum)
 captcha_img_alt:Vérification par Captcha : vous devez reconnaître le texte dans cette image.
 captcha_img_help:Il n'y a pas de zéro ou de un sur cette image.
-powered-by:Propulsé par : FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy; 2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Propulsé par : FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy; 2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODE :
 code_select_all:Tout sélectionner
 code_show_hide:Afficher / masquer

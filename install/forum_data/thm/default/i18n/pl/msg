@@ -659,8 +659,10 @@ tree_update:Przeglądanie wątku (widok drzewiasty) <a href="{TEMPLATE: tree_upd
 userinfo_update:Przeglądanie profilu użytkownika <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>BŁĄD: Musisz się zalogować</legend>Aby korzystać z tego serwisu musisz się wcześniej zarejestrować.
 ERR_disabled_ttl:Wyłączona funkcja
+# Fuzzy
 ERR_disabled_msg:Ta funkcja została wyłączona przez administratora systemu.
 ERR_access_ttl:BŁĄD: Niewystarczające uprawnienia
+# Fuzzy
 ERR_access_msg:Nie masz wymaganych uprawnień, aby wykonać tę operację.
 ERR_registration_disabled_ttl:Rejestracja jest wyłączona
 ERR_registration_disabled_msg:Administrator wyłączył rejestrację, więc spróbuj ponownie później.
@@ -1052,7 +1054,7 @@ post_descr:Opis wątku
 pmsg_download_dump:Pobierz zrzut wiadomości
 move_messages:Przenieś wiadomość
 move_msg_btn:Przenieś wybrane wiadomości
-powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD
 code_select_all:Wybierz wszystko
 code_show_hide:Pokaż lub ukryj

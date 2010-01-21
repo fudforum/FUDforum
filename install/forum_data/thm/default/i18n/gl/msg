@@ -66,6 +66,8 @@ logout:Saír
 mark_all_read:marcar todas as mensaxes como lidas
 mark_all_read_desc:Todas as túas mensaxes non lidas marcaranse como lidas
 members:Membros
+calendar:Calendario
+cal_goto_date:Ir a:
 message:Mensaxe
 message_counter:Os nosos usuarios publicaron un total <b>{PLURAL: post_count|dunha mensaxe|de $1 mensaxes}</b> <b>{PLURAL: thread_count|nun fío|en $1 fíos}</b>.
 message_index:Índice de mensaxes
@@ -250,6 +252,13 @@ month_9:setembro
 month_10:outubro
 month_11:novembro
 month_12:decembro
+sunday:Domingo
+monday:Luns
+tuesday:Martes
+wednesday:Mércores
+thursday:Xoves
+friday:Venres
+saturday:Sábado
 male:Masculino
 female:Feminino
 unspecified:NON ESPECIFICADO
@@ -654,9 +663,9 @@ tree_update:Navegando polo fío (vista en árbore) <a href="{TEMPLATE: tree_upda
 userinfo_update:Ollando o perfil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_login_msg2:<legend>ERRO: non accediches ao sistema</legend>Para visitar esta páxina debes ser un membro deste foro.
 ERR_disabled_ttl:Característica desactivada
-ERR_disabled_msg:Esta característica foi desactivada polo administrador do sistema
+ERR_disabled_msg:Esta característica foi desactivada polo administrador do sistema.
 ERR_access_ttl:ERRO: permisos insuficientes
-ERR_access_msg:Non tes os permisos necesarios para levar a cabo esta acción
+ERR_access_msg:Non tes os permisos necesarios para levar a cabo esta acción.
 ERR_registration_disabled_ttl:Rexistro desactivado
 ERR_registration_disabled_msg:O administrador desactivou o rexistro. Por favor, inténtao de novo máis tarde.
 ERR_emailconf_ttl:ERRO: a túa conta aínda non está confirmada
@@ -798,6 +807,8 @@ quicklogin_password:Contrasinal:
 quicklogin_use_cookies:Quere usar as cookies?
 quicklogin_login_btn:Acceder ao sistema
 quick_reply:Resposta rápida
+quick_reply_post:Publicar unha resposta rápida
+quick_reply_preview:Vista previa rápida da resposta
 post_notification_desc:Avisádeme cando alguén responda a esta mensaxe.
 post_all_ext_allowed:(sen restrición)
 maximize_category:Maximizar a categoría
@@ -1063,7 +1074,7 @@ move_msg_btn:Mover as mensaxes seleccionadas
 move_msg_th_expl:Especifique o ID do fío de destino (pode ser noutro foro)
 captcha_img_alt:Verificación por Captcha: terás que recoñecer o texto que hai nesta imaxe.
 captcha_img_help:Non hai cero ou un na imaxe.
-powered-by:Desenvolvido por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2009 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+powered-by:Desenvolvido por: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/agochar
