@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -119,12 +119,14 @@
 {SECTION: common_javascript}
 <script type="text/javascript">
 /* <![CDATA[ */
+quote_selected_text('{MSG: post_quote_selected}');
+
 if (!document.getElementById('preview')) {
-        if (!document.post_form.msg_subject.value.length) {
-                document.post_form.msg_subject.focus();
-        } else {
-                document.post_form.msg_body.focus();
-        }
+	if (!document.post_form.msg_subject.value.length) {
+		document.post_form.msg_subject.focus();
+	} else {
+		document.post_form.msg_body.focus();
+	}
 }
 /* ]]> */
 </script> 

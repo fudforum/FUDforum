@@ -67,6 +67,7 @@ mark_all_read_desc:		All your unread messages will be marked as read
 members:			Members
 calendar:			Calendar
 cal_goto_date:			Jump to:
+cal_no_events:			No events for day.
 message:			Message
 message_counter:		Our users have posted a total of <b>{PLURAL: post_count|$1 message|$1 messages}</b> inside <b>{PLURAL: thread_count|$1 topic|$1 topics}</b>.
 message_index:			Message index
@@ -252,12 +253,19 @@ month_10:			October
 month_11:			November
 month_12:			December
 sunday:				Sunday
+sunday_short:			S
 monday:				Monday
+monday_short:			M
 tuesday:			Tuesday
+tuesday_short:			Tu
 wednesday:			Wednesday
+wednesday_short:		W
 thursday:			Thursday
+thursday_short:			Th
 friday:				Friday
+friday_short:			F
 saturday:			Saturday
+saturday_short:			S
 male:				Male
 female:				Female
 unspecified:			UNSPECIFIED
@@ -762,6 +770,7 @@ rate_worst:			Worst
 rate_best:			Best
 post_quote_msg:			{VAR: msg->login} wrote on {TEMPLATE: make_report_date}
 post_quote:			Quote:
+post_quote_selected:		Quote Selected Text
 userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} Members
 pm_no_space_title:		No space left!

@@ -404,7 +404,32 @@ function format_code(codeMsg, selMsg, hideMsg)
 	});
 }
 
-/* Code that will run on each page */
+/* Allow users to select text and add it as a quote to the message box. */
+function quote_selected_text(quoteButtonText) {
+	// Add "Quote selected text" button.
+	$(".miniMH").parent().parent().append('<div class="ar"><button id="quote">'+ quoteButtonText +'</button></class>');
+
+	// Handle button clicks.
+	$("#quote").click(function() {
+		//  Get user selected text.
+		var selectedText = '';
+		if(window.getSelection){
+			selectedText = window.getSelection().toString();
+		} else if(document.getSelection){
+			selectedText = document.getSelection();
+		} else if(document.selection){
+			selectedText = document.selection.createRange().text;
+		}
+
+		// Append it to the textarea as quoted text.
+		if (selectedText) {
+			var textAreaVal = $("#txtb").val();
+			$("#txtb").val(textAreaVal +"\n[quote]"+ selectedText +"[/quote]").focus();
+		}
+	});
+}
+
+/* Code that will run on each page. */
 
 $(function init() {
 	$('textarea:not(.textarea-processed)').each(function() {
