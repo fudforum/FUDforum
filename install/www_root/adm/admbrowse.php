@@ -331,8 +331,10 @@ if (!extension_loaded('posix')) {
 </fieldset>
 </form>
 <br />
-<table border="0" cellspacing="1" cellpadding="3">
-<tr class="admin_fixed resulttopic"><td>Mode</td><td>Owner</td><td>Group</td><td>Size</td><td>Date</td><td>Time</td><td>Name</td><td align="center" colspan="3">Action</td></tr>
+<table class="resulttable fulltable">
+<thead><tr class="resulttopic">
+	<th>Mode</th><th>Owner</th><th>Group</th><th>Size</th><th>Date</th><th>Time</th><th>Name</th><th align="center" colspan="3">Action</th>
+</tr></thead>
 <?php
 	$file_list = array();
 	$dir_list = array('.', '..');
@@ -362,7 +364,7 @@ if (!extension_loaded('posix')) {
 			$name = htmlspecialchars($de);
 			$st = stat($fpath);
 		} else if (@is_dir($fpath)) {
-			$name = '<a href="admbrowse.php?cur='.urlencode($fpath).'&amp;'.__adm_rsid.'">'.htmlspecialchars($de).'</a>';
+			$name = '<a href="admbrowse.php?cur='.urlencode($fpath).'&amp;'.__adm_rsid.'" title="Change directory">'.htmlspecialchars($de).'</a>';
 			$st = stat($fpath);
 		}
 

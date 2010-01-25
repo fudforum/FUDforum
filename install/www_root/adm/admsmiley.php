@@ -15,7 +15,8 @@
 	fud_use('sml_rcache.inc', true);
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-
+	require($WWW_ROOT_DISK . 'adm/header.php');
+	
 	$smiley_dir = '../images/smiley_icons/';
 
 	if (isset($_GET['del'])) {
@@ -79,8 +80,6 @@
 			echo successify('Smiley\'s position was succesfully changed.');
 		}
 	}
-
-	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	if (!isset($_GET['chpos'])) {
 ?>
@@ -177,12 +176,12 @@ onsubmit="return sml_form_check();">
 </form>
 <?php } /* if (!isset($_GET['chpos'])) { */ ?>
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>Smiley</td>
-	<td>Code</td>
-	<td>Description</td>
-	<td>Action</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>Smiley</th>
+	<th>Code</th>
+	<th>Description</th>
+	<th>Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT id, img, code, descr, vieworder FROM '.$tbl.'smiley ORDER BY vieworder');
 	$i = 0;

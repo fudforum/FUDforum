@@ -219,7 +219,7 @@
 			<font size="-1">A string of text to append to the end of every message 
 			sent from the forum back to the newsgroup.</font>
 		</td>
-		<td><textarea name="nntp_custom_sig" rows="7" cols="30"><?php echo htmlspecialchars($nntp_custom_sig); ?></textarea></td>
+		<td><textarea name="nntp_custom_sig" rows="7" cols="40"><?php echo htmlspecialchars($nntp_custom_sig); ?></textarea></td>
 	</tr>
 
 	<tr class="fieldaction">
@@ -234,13 +234,13 @@
 
 <h3>Available rules</h3>
 <table class="resulttable fulltable">
-	<tr class="resulttopic">
-		<td nowrap="nowrap">Newsgroup Rule</td>
-		<td>Forum</td>
-		<td>Exec Line</td>
-		<td><abbr title="Last imported message. Used to track posts and prevent importing of duplicate content.">Tracker</abbr></td>
-		<td align="center">Action</td>
-	</tr>
+<thead><tr class="resulttopic">
+	<th nowrap="nowrap">Newsgroup Rule</th>
+	<th>Forum</th>
+	<th>Exec Line</th>
+	<th><abbr title="Last imported message. Used to track posts and prevent importing of duplicate content.">Tracker</abbr></th>
+	<th align="center">Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT n.id, n.newsgroup, n.tracker, f.name FROM '.$tbl.'nntp n INNER JOIN '.$tbl.'forum f ON n.forum_id=f.id');
 	$i = 1;

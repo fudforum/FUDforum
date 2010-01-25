@@ -78,13 +78,13 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 			$i = 1;
 			while ($result = db_fetch_array($q)) {
 				if ($i == 1) {	// Column name headings.
-					echo '<tr class="resulttopic">';
+					echo '<thead><tr class="resulttopic">';
 					foreach ($result as $key => $value) {
 						if (!is_numeric($key)) {
 							echo '<th>'. $key .'</th>';
 						}
 					}
-					echo '</tr>';
+					echo '</tr></thead>';
 				}
 
 				echo '<tr class="field">';

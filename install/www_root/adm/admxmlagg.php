@@ -166,13 +166,13 @@
 
 <h3>Available rules</h3>
 <table class="resulttable fulltable">
-	<tr class="resulttopic">
-		<td nowrap="nowrap">Aggregation Rule</td>
-		<td>Forum</td>
-		<td>Exec Line</td>
-		<td><abbr title="Date of last import. Used to track articles and prevent loading of duplicate content.">Last article</abbr></td>
-		<td align="center">Action</td>
-	</tr>
+<thead><tr class="resulttopic">
+	<th nowrap="nowrap">Aggregation Rule</th>
+	<th>Forum</th>
+	<th>Exec Line</th>
+	<th><abbr title="Date of last import. Used to track articles and prevent loading of duplicate content.">Last article</abbr></th>
+	<th align="center">Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT x.id, x.url, x.name, x.last_load_date, f.name FROM '.$tbl.'xmlagg x INNER JOIN '.$tbl.'forum f ON x.forum_id=f.id');
 	$i = 1;

@@ -254,11 +254,11 @@ function import_avatars($path)
 	}
 ?>
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>Avatar</td>
-	<td>Description</td>
-	<td align="center">Action</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>Avatar</th>
+	<th>Description</th>
+	<th>Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT id, img, descr FROM '.$tbl.'avatar WHERE gallery='._esc($show_def));
 	$i = 0;

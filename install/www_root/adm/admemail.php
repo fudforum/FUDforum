@@ -79,11 +79,11 @@ document.forms['ef'].e_string.focus();
 </script>
 <h3>Defined filters:</h3>
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>Address/Regex</td>
-	<td>Type</td>
-	<td>Action</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>Address/Regex</th>
+	<th>Type</th>
+	<th>Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT id, email_block_opt, string FROM '.$DBHOST_TBL_PREFIX.'email_block');
 	$i = 0;

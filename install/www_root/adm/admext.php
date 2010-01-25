@@ -79,10 +79,10 @@ document.forms['exf'].c_ext.focus();
 </script>
 <h3>Defined filters:</h3>
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>Extension</td>
-	<td>Action</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>Extension</th>
+	<th>Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT ext,id FROM '.$tbl.'ext_block');
 	$i = 0;

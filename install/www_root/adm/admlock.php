@@ -15,7 +15,19 @@
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
 
-	if (isset($_POST['usr_passwd'], $_POST['usr_login']) && q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE login='._esc($_POST['usr_login'])." AND passwd='".md5($_POST['usr_passwd'])."' AND (users_opt & 1048576) > 0")) {
+	// Authenticate login details.
+	$authenticated = 0;
+	if (isset($_POST['usr_passwd'], $_POST['usr_login'])) {
+		$r = db_sab('SELECT id, passwd, salt FROM '.$DBHOST_TBL_PREFIX.'users WHERE login='._esc($_POST['usr_login']).' AND users_opt>=1048576 AND (users_opt & 1048576) > 0');
+		if ($r && (empty($r->salt) && $r->passwd == md5($_POST['usr_passwd']) || $r->passwd == sha1($r->salt . sha1($_POST['usr_passwd'])))) {
+			$authenticated = 1;
+		} else {
+			echo errorify('Unable to authenticate.');
+		}
+	}
+
+	// Perform lock or unlock operation.
+	if ($authenticated) {
 		$FUD_OPT_2 |= 8388608;
 		if (isset($_POST['btn_unlock'])) {
 			$dirperms = 0777;
@@ -50,7 +62,7 @@
 			}
 			foreach ($files as $path) {
 				if (@is_file($path) && !@chmod($path, $fileperms)) {
-					echo 'ERROR: couldn\'t chmod "'.$path.'"<br />';
+					echo 'ERROR: couldn\'t chmod "'.$path.'".<br />';
 				} else if (@is_dir($path) && !is_link($path)) {
 					$dirs[] = $path;
 				}
@@ -67,7 +79,7 @@
 <?php if ($status == 'UNLOCKED' ) echo '<div class="alert">For security reasons, please remember to lock your forum\'s files when you are done editing them.</div>'; ?>
 <form method="post" action="">
 <p>The forum's files appear to be: 
-<?php echo '<font size="+2" color="'. ($status=='LOCKED' ? 'green' : 'red') .'">'. $status .'</font>'; ?>.<br />
+<?php echo '<font size="+2" color="'. ($status=='LOCKED' ? 'green' : 'red') .'">'. $status .'</font>.<br />'; ?>
 If this test claims that the forum is unlocked, but you still cannot modify your files click on the "Unlock Files" button.
 </p>
 <table border="0" cellspacing="0" cellpadding="3">

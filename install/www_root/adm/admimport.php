@@ -320,21 +320,27 @@ function resolve_dest_path($path)
 <h2>Import forum data</h2>
 <div class="alert">The import process will REMOVE ALL current forum data (all files and tables with '<?php echo $DBHOST_TBL_PREFIX; ?>' prefix) and replace it with the data in the backup file you enter.</div>
 <div class="tutor">Remember to <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing! You can use the <a href="admbrowse.php?cur=<?php echo urlencode($TMP).'&'.__adm_rsid ?>">File Manager</a> to upload off-site backup files.</div>
-<br />
 
 <?php
 $datadumps = (glob("$TMP*.fud*"));
 if ($datadumps) {
 ?>
-	<table class="datatable solidtable">
-	<tr><td class="fieldtopic">Available datadumps:</td></tr>
+	<h3>Available datadumps:</h3>
+	<table class="resulttable fulltable">
+	<thead><tr class="resulttopic">
+		<th>File name</th><th>Action</th>
+	</tr></thead>
 	<?php foreach ($datadumps as $datadump) { ?>
-		<tr class="field admin_fixed"><td><?php echo basename($datadump); ?> [ <a href="javascript://" onclick="document.admimport.path.value='<?php echo $datadump; ?>';">use</a> ]</td></tr>
+		<tr class="field admin_fixed">
+			<td><?php echo basename($datadump); ?></td>
+			<td> [ <a href="javascript://" onclick="document.admimport.path.value='<?php echo $datadump; ?>';">use</a> ]</td>
+		</tr>
 	<?php } ?>
 	<tr class="resultrow2 tiny"><td>[ <a href="admbrowse.php?down=1&cur=<?php echo urlencode(dirname($datadump)); ?>&<?php echo __adm_rsid; ?>">Manage backup files</a> ]</td></tr>
 	</table><br />
 <?php } ?>
 
+<h3>Dump to restore:</h3>
 <form method="post" action="admimport.php" id="admimport" name="admimport">
 <?php echo _hs; ?>
 <table class="datatable solidtable">

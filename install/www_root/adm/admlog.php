@@ -15,7 +15,7 @@
 
 	if (isset($_GET['clear'])) {
 		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'action_log');
-		echo successify('Action log successfully cleared.');
+		echo successify('Action log was successfully cleared.');
 	}
 
 function check_data_avl($data)
@@ -30,25 +30,27 @@ function check_data_avl($data)
 
 function return_thread_subject($id)
 {
-	$res = q_singleval('SELECT m.subject FROM '.$DBHOST_TBL_PREFIX.'thread t INNER JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'].'msg m ON t.root_msg_id=m.id WHERE t.id='.$id);
+	$res = q_singleval('SELECT m.subject FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'thread t INNER JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'].'msg m ON t.root_msg_id=m.id WHERE t.id='.$id);
 	return check_data_avl($res);
 }
 
 function return_msg_subject($id)
 {
-	return check_data_avl(q_singleval('SELECT subject FROM '.$DBHOST_TBL_PREFIX.'msg WHERE id='.$id));
+	return check_data_avl(q_singleval('SELECT subject FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'msg WHERE id='.$id));
 }
 
 function return_forum_name($id)
 {
-	return check_data_avl(q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'forum WHERE id='.$id));
+	return check_data_avl(q_singleval('SELECT name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum WHERE id='.$id));
 }
 
 ?>
 <h2>Action Log Viewer</h2>
 [ <a href="admlog.php?clear=1&amp;<?php echo __adm_rsid; ?>">Clear Admin Log</a> ]
 <table class="resulttable fulltable">
-<tr class="resulttopic"><td>User</td><td>Action</td><td>Object</td><td>Time (<b>GMT</b>)</td></tr>
+<thead><tr class="resulttopic">
+	<th>User</th><th>Action</th><th>Object</th><th>Time (<i>GMT</i>)</th>
+</tr></thead>
 <?php
 	$i = 0;
 	$c = q('SELECT u.users_opt, u.alias, al.* FROM '.$DBHOST_TBL_PREFIX.'action_log al LEFT JOIN '.$DBHOST_TBL_PREFIX.'users u ON al.user_id=u.id ORDER BY logtime DESC');

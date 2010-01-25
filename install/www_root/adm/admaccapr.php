@@ -44,14 +44,15 @@ function print_if_avail($descr, $value, $no_html=1)
 <h2>Account Approval</h2>
 <p>Approve or delete users who have registered (if 'New Account Moderation' is enabled in the Global Settings Manager).</p>
 <table class="datatable fulltable">
-<tr class="resulttopic">
-<td>Account Information</td><td align="center">Action</td></tr>
+<thead><tr class="resulttopic">
+	<th>Account Information</th><th align="center">Action</th>
+</tr></thead>
 <?php
 	$i = 0;
 	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0 AND id > 0');
 	while ($obj = db_rowobj($c)) {
 		$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-                echo '<tr '. $bgcolor .'"><td class="field"><table width="100%" '. $bgcolor .'>'.
+		echo '<tr '. $bgcolor .'"><td class="field"><table width="100%" '. $bgcolor .'>'.
 		print_if_avail('Login', $obj->login) .
 		print_if_avail('E-mail', $obj->email) .
 		print_if_avail('Name', $obj->name) .

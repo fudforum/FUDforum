@@ -13,6 +13,8 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 
+	require($WWW_ROOT_DISK . 'adm/header.php');
+
 	/*
 	 * The presense of the which_dir variable tells us whether we are editing
 	 * forum icons or message icons.
@@ -46,7 +48,6 @@
 		echo successify('Icon sucessfully deleted.');
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2><?php echo $form_descr; ?> Administration System</h2>
 <?php
@@ -77,7 +78,9 @@
 	}
 ?>
 <table class="resulttable">
-<tr class="resulttopic"><td>Icon</td><td>Action</td></tr>
+<thead><tr class="resulttopic">
+	<th>Icon</th><th>Action</th>
+</tr></thead>
 <?php
 	$i = 0;
 	if (($files = glob($WWW_ROOT_DISK . $ICONS_DIR . '/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT))) {

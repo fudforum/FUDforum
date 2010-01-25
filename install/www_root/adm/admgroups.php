@@ -210,8 +210,8 @@
 <form method="post" action="admgroups.php">
 <?php echo _hs; ?>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
-<table class="datatable field">
-<tr><td>Group Name: </td><td>
+<table class="datatable">
+<tr class="field"><td>Group Name: </td><td>
 <?php
 	if ($edit && ($edit < 3 || $gl[$edit]['forum_id'])) {
 		echo $gr_name;
@@ -223,7 +223,9 @@
 </td></tr>
 <?php
 	if (!$edit || $edit > 2) {
-		echo '<tr><td valign="top">Group Resources:<br /><font size="-2">(select one or more)</font></td><td>';
+		echo '<tr class="field"><td valign="top">Group Resources:';
+		echo $edit ? '' : '<br /><font size="-2">(select one or more)</font>';
+		echo '</td><td>';
 		if ($edit && $gl[$edit]['forum_id']) {
 			echo 'FORUM: '.$gl[$edit]['fname'];
 		} else {
@@ -242,7 +244,7 @@
 			unset($c);
 			echo '</select>';
 		}
-		echo '</td></tr><tr><td>Inherit from: </td><td><select name="gr_inherit_id"><option value="0">No where</option>';
+		echo '</td></tr><tr class="field"><td>Inherit from: </td><td><select name="gr_inherit_id"><option value="0">No where</option>';
 
 		foreach ($gl as $k => $v) {
 			if ($k == $edit) continue;
@@ -253,24 +255,24 @@
 	}
 
 	if (!$edit) {
-		echo '<tr><td>Anonymous and Registered Masks</td><td>';
+		echo '<tr class="field"><td>Anonymous and Registered Masks</td><td>';
 		draw_select('gr_ramasks', "No\nYes", "\n1", $gr_ramasks);
 		echo '</td></tr>';
 	}
 ?>
-<tr><td valign="top" colspan="2" align="center"><font size="+2"><b>Maximum Permissions</b></font><br /><font size="-1">(group leaders won't be able to assign permissions higher than these)</font></td></tr>
-<tr><td><table cellspacing="2" cellpadding="2" border="0">
+<tr class="field"><td valign="top" colspan="2" align="center"><font size="+2"><b>Maximum Permissions</b></font><br /><font size="-1">(group leaders won't be able to assign permissions higher than these)</font></td></tr>
+<tr><td colspan="2"><table cellspacing="2" cellpadding="2" border="0" width="100%">
 <?php
 	if (($edit || $error) && $gr_inherit_id && $permi) {
-		echo '<tr><th nowrap="nowrap"><font size="+1">Permission</font></th><th><font size="+1">Value</font></th><th><font size="+1">Via Inheritance</font></th></tr>';
+		echo '<tr class="field"><th nowrap="nowrap"><font size="+1">Permission</font></th><th><font size="+1">Value</font></th><th><font size="+1">Via Inheritance</font></th></tr>';
 		$v1 = 1;
 	} else {
-		echo '<tr><th nowrap="nowrap"><font size="+1">Permission</font></th><th><font size="+1">Value</font></th></tr>';
+		echo '<tr class="field"><th nowrap="nowrap"><font size="+1">Permission</font></th><th><font size="+1">Value</font></th></tr>';
 		$v1 = 0;
 	}
 
 	foreach ($hdr as $k => $v) {
-		echo '<tr><td>'.$v[1].'</td><td><select name="'.$k.'">';
+		echo '<tr class="field"><td>'.$v[1].'</td><td><select name="'.$k.'">';
 		if ($v1 && $permi & $v[0]) {
 			echo '<option value="-'.$v[0].'" selected="selected">Inherit</option>';
 			echo '<option value="0">No</option><option value="'.$v[0].'">Yes</option>';

@@ -82,11 +82,11 @@
 </form>
 
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>Name</td>
-	<td>Post Count</td>
-	<td>Action</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>Name</th>
+	<th>Post Count</th>
+	<th>Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT id, name, post_count FROM '.$DBHOST_TBL_PREFIX.'level ORDER BY post_count');
 	$i = 0;

@@ -58,6 +58,7 @@
 			}
 		}
 	}
+
 	// Deinstall plugins.
 	while (list($key, $val) = @each($prev_plugins)) {
 		if (! in_array($val, $plugins)) {
@@ -120,7 +121,7 @@
 			echo '</fieldset></form>';
 		}
 
-		echo '<div style="float:right;">[ <a href="admplugins.php?'.__adm_rsid.'">Return to Plugin Manager &raquo;</a> ]</div>';
+		echo '<br /><div style="float:right;">[ <a href="admplugins.php?'.__adm_rsid.'">Return to Plugin Manager &raquo;</a> ]</div>';
 
 		echo '</td></tr></table></body></html>';	// Standard footer not applicable here.
 		exit;
@@ -134,7 +135,7 @@
 <?php
 	print_bit_field('Plugins Enabled', 'PLUGINS_ENABLED');
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 </table>
 <input type="hidden" name="form_posted" value="1" />
 </form>

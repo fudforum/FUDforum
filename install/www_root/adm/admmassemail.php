@@ -118,6 +118,7 @@
 
 ?>
 <h2>Mass Mail System</h2>
+<p>Send a bulk message or newsletter to your forum's members:</p>
 <form method="post" action="" id="a_frm">
 <?php echo _hs; ?>
 <table class="datatable solidtable">

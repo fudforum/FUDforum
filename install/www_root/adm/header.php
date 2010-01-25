@@ -15,9 +15,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel</title>' ?>
-<link rel="styleSheet" href="adm.css" type="text/css" />
+<link rel="styleSheet" href="style/adm.css" type="text/css" />
 <script type="text/javascript" src="../jquery.js"></script>
 <script type="text/javascript" src="../lib.js"></script>
+<script type="text/javascript" src="style/jquery.tablesorter.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
 </head>
 <body >
@@ -63,7 +64,8 @@
 	<a href="admlog.php?<?php echo __adm_rsid; ?>">Action Log Viewer</a><br />
 	<a href="admerr.php?<?php echo __adm_rsid; ?>">Error Log Viewer</a><br />
 	<a href="admstats.php?<?php echo __adm_rsid; ?>">Forum Statistics</a><br />
-	<a href="admsysinfo.php?<?php echo __adm_rsid; ?>">System Info</a><br /><br />
+	<a href="admsysinfo.php?<?php echo __adm_rsid; ?>">System Info</a><br />
+	<br />
 
 	<span class="linkgroup">Forum Management</span><br />
 	<a href="admcat.php?<?php echo __adm_rsid; ?>">Category &amp; Forum Management</a><br />
@@ -87,29 +89,34 @@
 	<a href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a><br />
 	<a href="admlevel.php?<?php echo __adm_rsid; ?>">Rank Manager</a><br />
 	<a href="admslist.php?<?php echo __adm_rsid; ?>">Privileged User List</a><br />
-	<a href="admbanlist.php?<?php echo __adm_rsid; ?>">Banned User List</a><br /><br />
+	<a href="admbanlist.php?<?php echo __adm_rsid; ?>">Banned User List</a><br />
+	<br />
 
 	<span class="linkgroup">Template Management</span><br />
 	<a href="admthemes.php?<?php echo __adm_rsid; ?>">Theme Manager</a><br />
 	<a href="admtemplates.php?<?php echo __adm_rsid; ?>">Template Editor</a><br />
 	<a href="admmessages.php?<?php echo __adm_rsid; ?>">Message Editor</a><br />
-	<a href="admhelp.php?<?php echo __adm_rsid; ?>">Help Editor</a><br /><br />
+	<a href="admhelp.php?<?php echo __adm_rsid; ?>">Help Editor</a><br />
+	<br />
 
 	<span class="linkgroup">Icon Management</span><br />
 	<a href="admsmiley.php?<?php echo __adm_rsid; ?>">Smiley Manager</a><br />
 	<a href="admforumicons.php?<?php echo __adm_rsid; ?>">Forum Icon Manager</a><br />
-	<a href="admforumicons.php?<?php echo __adm_rsid; ?>&amp;which_dir=1">Message Icon Manager</a><br /><br />
+	<a href="admforumicons.php?<?php echo __adm_rsid; ?>&amp;which_dir=1">Message Icon Manager</a><br />
+	<br />
 
 	<span class="linkgroup">Avatar Management</span><br />
 	<a href="admapprove_avatar.php?<?php echo __adm_rsid; ?>">Avatar Approval</a><br />
-	<a href="admavatar.php?<?php echo __adm_rsid; ?>">Avatar Manager</a><br /><br />
+	<a href="admavatar.php?<?php echo __adm_rsid; ?>">Avatar Manager</a><br />
+	<br />
 
 	<span class="linkgroup">Filters</span><br />
 	<a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement &amp; Censorship</a><br />
 	<a href="admemail.php?<?php echo __adm_rsid; ?>">E-mail filter</a><br />
 	<a href="admipfilter.php?<?php echo __adm_rsid; ?>">IP filter</a><br />
 	<a href="admlogin.php?<?php echo __adm_rsid; ?>">Login filter</a><br />
-	<a href="admext.php?<?php echo __adm_rsid; ?>">File filter</a><br /><br />
+	<a href="admext.php?<?php echo __adm_rsid; ?>">File filter</a><br />
+	<br />
 
 	<span class="linkgroup">Checks/Consistency</span><br />
 	<a href="consist.php?<?php echo __adm_rsid; ?>">Forum Consistency</a><br />
@@ -119,7 +126,8 @@
 <?php } ?>
 <?php if (__dbtype__ == 'mysql') { ?>
 	<a href="admmysql.php?<?php echo __adm_rsid; ?>">MySQL Charset Changer</a><br />
-<?php } ?><br /><br />
+<?php } ?>
+	<br />
 
 	<span class="linkgroup">Backup/Restore</span><br />
 	<a href="admdump.php?<?php echo __adm_rsid; ?>">Make forum datadump</a><br />

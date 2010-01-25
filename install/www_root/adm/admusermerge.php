@@ -23,21 +23,24 @@
 		} else if ($u1 == $u2) {
 			echo errorify('Users cannot be the same.');
 		} else if (!($id1 = q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt >= 1048576 AND (users_opt & 1048576) > 0 AND login='._esc($u1)))) {
-				echo errorify('From user ('. $u1 .') not in DB or is an admin user.');
+				echo errorify('From user ('. $u1 .') not found or is an anonymous or admin user.');
 		} else if (!($id2 = q_singleval('SELECT id FROM '. $DBHOST_TBL_PREFIX .'users WHERE users_opt >= 1048576 AND (users_opt & 1048576) > 0 AND login='._esc($u2)))) {
-				echo errorify('To user ('. $u2 .') not in DB or is an admin user.');
+				echo errorify('To user ('. $u2 .') not found or is an anonymous or admin user.');
 		} else {
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'msg SET poster_id = '. $id2 .' WHERE poster_id = '. $id1);
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'pmsg SET ouser_id = '. $id2 .' WHERE ouser_id = '. $id1);
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'pmsg SET duser_id = '. $id2 .' WHERE duser_id = '. $id1);
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'bookmarks SET	user_id = '. $id2 .' WHERE user_id = '. $id1);
-			// DEL?  q('UPDATE '. $DBHOST_TBL_PREFIX .'read SET user_id = '. $id2 .' WHERE user_id = '. $id1);
-			// DEL? q('UPDATE '. $DBHOST_TBL_PREFIX .'forum_read SET user_id = '. $id2 .' WHERE user_id = '. $id1);
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'user_ignore SET user_id = '. $id2 .' WHERE user_id = '. $id1);
+			q('UPDATE '. $DBHOST_TBL_PREFIX .'buddy SET user_id = '. $id2 .' WHERE user_id = '. $id1);
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'thread_rate_track SET	user_id = '. $id2 .' WHERE 	user_id = '. $id1);
-			// DEL? q('UPDATE '. $DBHOST_TBL_PREFIX .'thread_notify SET	user_id = '. $id2 .' WHERE user_id = '. $id1);
+			
+			// Cleanup.
+			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'read WHERE user_id = '. $id1);
+			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'forum_read WHERE user_id = '. $id1);
+			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'thread_notify WHERE user_id = '. $id1);
 			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'users WHERE id = '. $id1);
-
+			
 			echo successify('Users '. $u1 .' and '. $u2 .' were sucessfully merged.');
 		}
 	}

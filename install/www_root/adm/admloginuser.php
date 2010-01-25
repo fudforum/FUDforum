@@ -17,7 +17,7 @@
 	fud_use('users.inc');
 	fud_use('users_reg.inc');
 
-	if (isset($_POST['login'])) {
+	if (!empty($_POST['login']) && !empty($_POST['passwd'])) {
 		$r = db_sab('SELECT id, passwd, salt FROM '.$DBHOST_TBL_PREFIX.'users WHERE login='._esc($_POST['login']).' AND users_opt>=1048576 AND (users_opt & 1048576) > 0 AND (last_login + '.$MIN_TIME_BETWEEN_LOGIN.') < '.__request_timestamp__);
 		if ($r && (empty($r->salt) && $r->passwd == md5($_POST['passwd']) || $r->passwd == sha1($r->salt . sha1($_POST['passwd'])))) {
 			$sid = user_login($r->id, $usr->ses_id, true);
@@ -35,12 +35,13 @@
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
-<h3>Login into the forum</h3>
+<h1>Admin login</h1>
 <?php
 	if ($err) {
-		echo errorify($err);
+		echo '<span style="color:red;">'. $err .'</span><br />';
 	}
 ?>
+<p>Please enter your username and password to continue.</p>
 <form method="post" action="admloginuser.php" name="admloginuser" id="admloginuser"><?php echo _hs; ?>
 <table border="0" cellspacing="0" cellpadding="3">
 <tr>

@@ -274,7 +274,7 @@ function format_regex(&$regex)
 
 	<tr class="field">
 		<td valign="top">Custom Headers:</td>
-		<td nowrap="nowrap"><textarea name="ml_additional_headers" cols="50" rows="5"><?php echo htmlspecialchars($ml_additional_headers); ?></textarea></td>
+		<td nowrap="nowrap"><textarea name="ml_additional_headers" cols="40" rows="5"><?php echo htmlspecialchars($ml_additional_headers); ?></textarea></td>
 	</tr>
 
 	<tr class="field">
@@ -282,7 +282,7 @@ function format_regex(&$regex)
 			<font size="-1">A string of text to append to the end of every message 
 			sent from the forum back to the mailing list.</font>
 		</td>
-		<td><textarea name="ml_custom_sig" cols="50" rows="5"><?php echo htmlspecialchars($ml_custom_sig); ?></textarea></td>
+		<td><textarea name="ml_custom_sig" cols="40" rows="5"><?php echo htmlspecialchars($ml_custom_sig); ?></textarea></td>
 	</tr>
 
 	<tr>
@@ -301,12 +301,12 @@ function format_regex(&$regex)
 
 <h3>Available rules</h3>
 <table class="resulttable fulltable">
-	<tr class="resulttopic">
-		<td nowrap="nowrap">Mailing List Rule</td>
-		<td>Forum</td>
-		<td>Exec Line</td>
-		<td align="center">Action</td>
-	</tr>
+<thead><tr class="resulttopic">
+	<th nowrap="nowrap">Mailing List Rule</th>
+	<th>Forum</th>
+	<th>Exec Line</th>
+	<th align="center">Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT ml.id, ml.name, f.name FROM '.$tbl.'mlist ml INNER JOIN '.$tbl.'forum f ON f.id=ml.forum_id');
 	$i = 1;

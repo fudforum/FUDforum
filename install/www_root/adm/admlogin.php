@@ -73,10 +73,10 @@ document.forms['alf'].login.focus();
 </script>
 <h3>Defined filters:</h3>
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>Regex</td>
-	<td>Action</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>Regex</th>
+	<th>Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT login,id FROM '.$tbl.'blocked_logins');
 	$i = 0;

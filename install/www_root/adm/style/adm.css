@@ -1,6 +1,6 @@
 body, body.popup {
 	color: #555;
-	background: url(../images/adm_grd.gif) repeat-x top #dfe0df;
+	background: url(adm_grd.gif) repeat-x top #dfe0df;
 	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
 	font-size: medium;
 	font-size-adjust: 0.50;
@@ -8,7 +8,7 @@ body, body.popup {
 
 body.popup {
 	vertical-align: top;
-	background: #eeeffe
+	background: #eeeffe;
 }
 
 a {
@@ -33,7 +33,6 @@ table.headtable {
 	color: #bbb;
 	width: 100%;
 	height: 50px;
-	width: 100%;
 	margin-bottom:5px;
 }
 
@@ -174,7 +173,7 @@ span.linkgroup {
 }
 
 .resulttopic {
-	background: url(../images/adm_th.gif) repeat #deefef 0 -1px;
+	background: url(adm_th.gif) repeat #deefef 0 -1px;
 	height:21px;
 	overflow:hidden;
 }
@@ -212,17 +211,7 @@ span.linkgroup {
 	border-radius: 0.75em;
 }
 
-/* Textarea editor */
-.resizable-textarea .grippie {
-	height: 9px;
-	background: #eaf4e9 url('../theme/default/images/grippie.gif') no-repeat center 2px;
-	border: 1px solid #ddd;
-	border-top-width: 0;
-	cursor: s-resize;
-	overflow: hidden;
-}
-
-phpinfo {border-collapse: collapse;}
+.phpinfo {border-collapse: collapse;}
 .center {text-align: center;}
 .center table { margin-left: auto; margin-right: auto; text-align: left;}
 .center th { text-align: center !important; }
@@ -264,4 +253,28 @@ img {float: right; border: 0px;}
 	color: #464;
 	font-size: small;
 	text-decoration: underline;
+}
+
+/* Textarea editor. */
+.resizable-textarea .grippie {
+	height: 9px;
+	background: #eaf4e9 url(../../theme/default/images/grippie.gif) no-repeat center 2px;
+	border: 1px solid #ddd;
+	border-top-width: 0;
+	cursor: s-resize;
+	overflow: hidden;
+}
+
+/* JQuery tablesorter. */
+th.header {
+	background: url(bg.gif) no-repeat center right;
+	cursor: pointer;
+	padding-right: 15px;
+	white-space: nowrap;
+}
+th.headerSortUp {
+	background: url(asc.gif) no-repeat center right #c0c0c0;
+}
+th.headerSortDown {
+	background: url(desc.gif) no-repeat center right #d0d0d0;
 }

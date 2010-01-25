@@ -244,16 +244,16 @@ function update_locale()
 
 <h3>Available Themes:</h3>
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>Name</td>
-	<td>Template Set</td>
-	<td>Language</td>
-	<td>Locale</td>
-	<td>Spell Lang</td>
-	<td>Enabled</td>
-	<td>Default</td>
-	<td>Action</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>Name</th>
+	<th>Template Set</th>
+	<th>Language</th>
+	<th>Locale</th>
+	<th>Spell Lang</th>
+	<th>Enabled</th>
+	<th>Default</th>
+	<th>Action</th>
+</tr></thead>
 <?php
 	$i = 1;
 	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'themes ORDER BY name');

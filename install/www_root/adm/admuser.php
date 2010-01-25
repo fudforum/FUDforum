@@ -340,7 +340,9 @@ document.forms['frm_usr'].usr_login.focus();
 			default:
 				echo '<p>There are '.$cnt.' users that match this '.$field.' mask:</p>';
 				echo '<table class="resulttable fulltable">';
-				echo '<tr class="resulttopic"><th>User Login</th><th>E-mail</th><th>Action</th></tr>';
+				echo '<thead><tr class="resulttopic">';
+				echo '	<th>User Login</th><th>E-mail</th><th>Action</th>';
+				echo '</tr></thead>';
 				$i = 0;
 				while ($r = db_rowarr($c)) {
 					$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
@@ -348,6 +350,7 @@ document.forms['frm_usr'].usr_login.focus();
 				}
 				echo '</table>';
 				unset($c);
+				require($WWW_ROOT_DISK . 'adm/footer.php');
 				exit;
 		}
 	}
@@ -480,11 +483,16 @@ if ($acc_mod_only) {
 		<td valign="top"><b>Group Membership:</b></td>
 		<td><?php
 
+	$i = 0;
 	$c = uq('SELECT g.name FROM '.$DBHOST_TBL_PREFIX.'group_members m INNER JOIN '.$DBHOST_TBL_PREFIX.'groups g ON g.id=m.group_id WHERE m.user_id='.$usr_id);
 	while ($r = db_rowarr($c)) {
 		echo $r[0] .'<br />';
+		$i++;
 	}
 	unset($c);
+	if (!$i) {
+		echo 'No group membership.<br />';
+	}
 	
 		?></td>
 	</tr>

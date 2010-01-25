@@ -87,8 +87,8 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 					$frm_list[$r[1]] = $r[1];
 				}
 			} else {
-				$msg_tbl = $DBHOST_TBL_PREFIX."msg";
-				$th_tbl = $DBHOST_TBL_PREFIX."thread";
+				$msg_tbl = $DBHOST_TBL_PREFIX.'msg';
+				$th_tbl = $DBHOST_TBL_PREFIX.'thread';
 				$c = q("SELECT {$msg_tbl}.id, {$th_tbl}.forum_id FROM {$msg_tbl} INNER JOIN {$th_tbl} ON {$msg_tbl}.thread_id={$th_tbl}.id WHERE poster_id=".$usr_id." AND last_post_date<".$back.$lmt);
 				while ($r = db_rowarr($c)) {
 					fud_msg_edit::delete(false, $r[0]);
@@ -104,7 +104,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 		} else if ($back < 1) {
 			$first_msg = q_singleval('SELECT MIN(post_stamp) FROM '.$DBHOST_TBL_PREFIX.'msg');
 			echo '<div style="text-align:center; font-size: large; font-weight: bolder; color: darkred">You\'ve selected a date too far in the past,'
-			.($first_msg ? '<br />the earliest forum message was posted on '.date("r", $first_msg) : '')
+			.($first_msg ? '<br />the earliest forum message was posted on '.date('r', $first_msg) : '')
 			.'.</div>';
 		}
 	}

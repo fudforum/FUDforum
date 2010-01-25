@@ -29,7 +29,10 @@
 
 function print_log($path)
 {
-	echo '<table class="resulttable"><tr class="resulttopic"><td>Time</td><td>Error Description</td></tr>';
+	echo '<table class="resulttable">';
+	echo '<thead><tr class="resulttopic">';
+	echo '	<th>Time</th><th>Error Description</th>';
+	echo '</tr></thead>';
 	$fp = fopen($path, 'r');
 	while (1) {
 		// ?%-10d?%-10d?

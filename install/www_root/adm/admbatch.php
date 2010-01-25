@@ -66,11 +66,11 @@
 
 <h3>Defined jobs:</h3>
 <table class="resulttable fulltable">
-	<tr class="resulttopic">
-		<td nowrap="nowrap">Job Name</td>
-		<td>Exec Line</td>
-		<td align="center">Action</td>
-	</tr>
+<thead><tr class="resulttopic">
+	<th nowrap="nowrap">Job Name</th>
+	<th>Exec Line</th>
+	<th align="center">Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT id, name, \'xmlagg\' FROM '.$tbl.'xmlagg UNION select id, name, \'maillist\' FROM '.$tbl.'mlist UNION select id, newsgroup, \'nntp\' FROM '.$tbl.'nntp');
 	$i = 0;

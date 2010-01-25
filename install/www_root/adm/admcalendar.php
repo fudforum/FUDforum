@@ -16,11 +16,11 @@
 	fud_use('widgets.inc', true);
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-	
+
 	/* Export calendar as an VCal calendar file. */
 	if (isset($_GET['export'])) {
-		header("Content-Type: text/x-vCalendar");
-		header("Content-Disposition: inline; filename=forum.vcs");
+		header('Content-Type: text/x-vCalendar; charset=utf-8');
+		header('Content-Disposition: inline; filename=forum.vcs');
 		$cal = new fud_calendar;
 		echo $cal->export();
 		exit;
@@ -62,7 +62,7 @@
 			echo errorify('Invalid month specified.');
 		}
 		$year = $_POST['cal_year'];
-		if ( $year != '*' && ((int)$year < 0 || (int)$year > 3000)) {
+		if ( $year != '*' && ((int)$year <= 0 || (int)$year > 3000)) {
 			$error = 1;
 			echo errorify('Invalid year specified.');
 		}
@@ -74,7 +74,7 @@
 		}
 
 		$link = htmlspecialchars($_POST['cal_link']);
-		
+
 		if ($edit && !$error) {
 			$cal = new fud_calendar;
 			$cal->sync($edit);
@@ -116,7 +116,7 @@
 <?php
 	print_bit_field('Calendar Enabled', 'CALENDAR_ENABLED');
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 </table>
 <input type="hidden" name="form_posted" value="1" />
 </form>
@@ -167,9 +167,9 @@ echo ($edit ? '<h3>Edit Event:</h3>' : '<h3>Add New Event:</h3>');
 
 <h3>Defined Events:</h3>
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>Year</td><td>Month</td><td>Day</td><td>Description</td><td>Link</td><td>Action</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>Year</th><th>Month</th><th>Day</th><th>Description</th><th>Link</th><th>Action</th>
+</tr></thead>
 <?php
 	$i = 0;
 	$c = uq('SELECT id, year, month, day, desc, link FROM '.$tbl.'calendar LIMIT 100');
@@ -179,10 +179,13 @@ echo ($edit ? '<h3>Edit Event:</h3>' : '<h3>Add New Event:</h3>');
 	}
 	unset($c);
 	if (!$i) {
-		echo '<tr class="field"><td colspan="3"><center>No calender events found.</center></td></tr>';
+		echo '<tr class="field"><td colspan="6"><center>No calender events found.</center></td></tr>';
 	}
 ?>
 </table>
-[ <a href="admcalendar.php?export=all&<?php echo __adm_rsid; ?>">Export as VCalendar</a> ]
+<?php if ($GLOBALS['FUD_OPT_3'] & 134217728) { // CALENDAR_ENABLED ?>
+	[ <a href="../<?php echo __fud_index_name__;?>?t=cal&amp;>?php echo __adm_rsid; ?>">View calendar</a> ]
+<?php } ?>
+[ <a href="admcalendar.php?export=all&<?php echo __adm_rsid; ?>">Export as vCal file</a> ]
 
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

@@ -206,14 +206,14 @@ document.forms['frm_rpl'].rpl_replace_str.focus();
 </script>
 <h3>Defined replacements:</h3>
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>Replace Type</td>
-	<td>Replace</td>
-	<td>With</td>
-	<td valign="middle"><font size="-3">(only if regexp:</font> From</td>
-	<td valign="middle">To<font size="-3">)</font></td>
-	<td>Action</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>Replace Type</th>
+	<th>Replace</th>
+	<th>With</th>
+	<th valign="middle"><font size="-3">(only if regexp:</font> From</th>
+	<th valign="middle">To<font size="-3">)</font></th>
+	<th>Action</td>
+</tr></thead>
 <?php
 	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'replace ORDER BY replace_opt');
 	$i = 0;

@@ -215,19 +215,19 @@ function imposeMaxLength(Object, len)
 <h3>Available Categories:</h3>
 <?php
 	} else {	// Busy changing position.
-		echo '<a href="admcat.php?'.__adm_rsid.'">Cancel</a><br />';
+		echo '<a href="admcat.php?'.__adm_rsid.'">Cancel reorder operation</a><br />';
 	}
 ?>
 
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>Category Name</td>
-	<td>Description</td>
-	<td>Collapsible</td>
-	<td>Default View</td>
-	<td align="center">Action</td>
-	<td>Position</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>Category Name</th>
+	<th>Description</th>
+	<th>Collapsible</th>
+	<th>Default View</th>
+	<th align="center">Action</th>
+	<th>Position</th>
+</tr></thead>
 <?php
 	$cpid = empty($_GET['chpos']) ? -1 : (int) q_singleval('SELECT parent FROM '.$tbl.'cat WHERE id='.(int)$_GET['cpid']);
 	$lp = '';

@@ -28,7 +28,9 @@
 ?>
 <h2>Avatar Approval System</h2>
 <table class="resulttable fulltable">
-<tr class="resulttopic"><td>User</td><td>Avatar</td><td>Action</td></tr>
+<thead><tr class="resulttopic">
+	<th>User</th><th>Avatar</th><th>Action</th>
+</tr></thead>
 <?php
 	$i = 0;
 

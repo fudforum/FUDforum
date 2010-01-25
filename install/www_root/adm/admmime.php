@@ -114,13 +114,13 @@
 </form>
 <p />
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>Icon</td>
-	<td>MIME Header</td>
-	<td>Description</td>
-	<td>Extension</td>
-	<td align="center">Action</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>Icon</th>
+	<th>MIME Header</th>
+	<th>Description</th>
+	<th>Extension</th>
+	<th align="center">Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT id, icon, mime_hdr, fl_ext, descr FROM '.$tbl.'mime');
 	$i = 1;

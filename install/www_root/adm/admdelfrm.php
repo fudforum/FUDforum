@@ -17,7 +17,7 @@
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
 
-	/* restore forum */
+	/* Restore forum. */
 	if (isset($_POST['frm_id'], $_POST['dst_cat'])) {
 		$pos = (int) q_singleval('SELECT MAX(view_order) FROM '.$tbl.'forum WHERE cat_id='.(int)$_POST['dst_cat']) + 1;
 		q('UPDATE '.$tbl.'forum SET cat_id='.(int)$_POST['dst_cat'].', view_order='.$pos.' WHERE id='.(int)$_POST['frm_id']);
@@ -42,7 +42,7 @@
 <?php
 		exit;
 	} else if (isset($_POST['del'], $_POST['conf']) && $_POST['conf'] == 'Yes') {
-		/* let's delete this forum */
+		/* Let's delete this forum. */
 		frm_delete((int)$_POST['del']);
 		echo succesify('Forum was successfully deleted.');
 	}
@@ -50,11 +50,11 @@
 <h2>Orphaned Forums</h2>
 <p>The following forums were deleted and are in the trash bin (not visible to users). You can permanently delete them or reassign them to a category.</p>
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td width="50%">Forum Name</td>
-	<td width="10%">Action</td>
-	<td width="40%">Reassign To Category</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th width="50%">Forum Name</th>
+	<th width="10%">Action</th>
+	<th width="40%">Reassign To Category</th>
+</tr></thead>
 <?php
 	$i = 0;
 	$cat_sel = create_cat_select('dst_cat', '', 0);

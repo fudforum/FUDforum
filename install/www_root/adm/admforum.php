@@ -109,6 +109,8 @@ function get_max_upload_size()
 			echo successify('Forum was successfully moved.');
 		}
 	}
+
+	// Reorder forum display order.
 	if (isset($_GET['o'], $_GET['ot'])) {
 		if (in_array($_GET['ot'], array('name', 'descr', 'date_created'))) {
 			$i = 0;
@@ -221,19 +223,19 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 <h3>Forums in Category: <a name="forumlist"><?php echo $cat_name; ?></a></h3>
 <?php
 } else {	// Busy changing position.
-	echo '<a href="admforum.php?cat_id='.$cat_id.'&'.__adm_rsid.'">Cancel</a>';
+	echo '<a href="admforum.php?cat_id='.$cat_id.'&'.__adm_rsid.'">Cancel reorder operation</a>';
 }
 ?>
 
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td nowrap="nowrap">Forum name</td>
-	<td>Description</td>
-	<td nowrap="nowrap">Password Posting</td>
-	<td align="center">Action</td>
-	<td>Category</td>
-	<td>Position</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th nowrap="nowrap">Forum name</th>
+	<th>Description</th>
+	<th nowrap="nowrap">Password Posting</th>
+	<th align="center">Action</th>
+	<th>Category</th>
+	<th>Position</th>
+</tr></thead>
 <?php
 	$move_ct = create_cat_select('dest_cat', '', $cat_id);
 

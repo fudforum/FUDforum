@@ -76,7 +76,7 @@ Geo-Location feature.<p />
 	print_bit_field('Enable Geo-Location', 'ENABLE_GEO_LOCATION');
 	print_bit_field('Update Geo-Location on login', 'UPDATE_GEOLOC_ON_LOGIN');
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Change settings" /></td></tr>
 </table>
 <input type="hidden" name="form_posted" value="1" />
 </form>

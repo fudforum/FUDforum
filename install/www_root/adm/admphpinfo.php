@@ -20,7 +20,7 @@
 	$info = preg_replace('%^.*<body>(.*)</body>.*$%ms', '$1', $info);
 
 	echo '<h2>System Configuration</h2>';
-	echo '<p><b>This page lists information about the PHP version installed on this server.<br />It may contain sensitive information and <u>should be kept private</u>!</b></p>';
+	echo '<p>This page lists information about the PHP version installed on this server.<br />It may contain sensitive information and <u>should be kept private</u>!</p>';
 	echo '<table class="phpinfo">'.$info.'</table>';
 
 	require($WWW_ROOT_DISK . 'adm/footer.php');

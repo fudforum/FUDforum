@@ -88,10 +88,10 @@ document.forms['ipf'].ipaddr.focus();
 </script>
 <h3>Defined filters:</h3>
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>IP Mask</td>
-	<td>Action</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>IP Mask</th>
+	<th>Action</th>
+</tr></thead>
 <?php
 	if (__dbtype__ == 'mysql') {
 		$c = uq("SELECT id, CONCAT(ca, '.', cb, '.', cc, '.', cd) FROM ".$tbl.'ip_block');

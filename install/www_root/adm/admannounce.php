@@ -176,13 +176,13 @@ function mk_date($y, $m, $d)
 
 <h3>Defined Announcements:</h3>
 <table class="resulttable fulltable">
-<tr class="resulttopic">
-	<td>Subject</td>
-	<td>Body</td>
-	<td>Starting Date</td>
-	<td>Ending Date</td>
-	<td>Action</td>
-</tr>
+<thead><tr class="resulttopic">
+	<th>Subject</th>
+	<th>Body</th>
+	<th>Starting Date</th>
+	<th>Ending Date</th>
+	<th>Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT * FROM '.$tbl.'announce ORDER BY date_started');
 	$i = 0;

@@ -6,6 +6,12 @@
 <div style="text-align:right;">
 <script type="text/javascript">
 /* <![CDATA[ */
+// Make tables sortable.
+$(document).ready(function() {
+	$('.resulttable').tablesorter();
+});
+
+// Inject context sensitive 'Help' links to the Wiki.
 var wikilink = document.getElementsByTagName('H2').item(0).firstChild.data;
 if (wikilink.length > 0) {
 	document.write('[ <a href="http://cvs.prohost.org/index.php/'+
