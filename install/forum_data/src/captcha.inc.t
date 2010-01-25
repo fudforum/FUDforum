@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,13 +9,14 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+/* Generate a CAPTCHA question to display. */
 function generate_turing_val(&$rt)
 {
 	if (defined('plugins')) {
 		list($text, $rt) = plugin_call_hook('CAPTCHA');
 		if ($text && $rt) {
 			$rt = md5($rt);
-			return $text .'<br />';
+			return $text;
 		}
 	}
 
@@ -43,7 +44,7 @@ function generate_turing_val(&$rt)
 		$fg_fill_chars = array('&#35;', '&#64;', '&#36;', '&#42;', '&#88;');
 		$fg_fill = $fg_fill_chars[array_rand($fg_fill_chars)];
 
-		// generate turing text
+		// Generate turing text.
 		$text = '';
 		for ($i = 0; $i < 7; $i++) {
 			foreach ($rv as $v) {
@@ -55,6 +56,7 @@ function generate_turing_val(&$rt)
 	}
 }
 
+/* Test if user entered a valid response to the CAPTCHA test. */
 function test_turing_answer($test, $res)
 {
 	if (defined('plugins')) {
@@ -64,6 +66,10 @@ function test_turing_answer($test, $res)
 		} elseif ($ok == 1) {
 			return true;
 		}
+	}
+
+	if (empty($test) || empty($res)) {
+		return false;
 	}
 
 	if (md5(strtoupper(trim($test))) != $res) {

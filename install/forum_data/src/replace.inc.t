@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,6 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
+/* Replace and censor text before it's stored. */
 function apply_custom_replace($text)
 {
 	if (!defined('__fud_replace_init')) {
@@ -37,6 +38,18 @@ function make_replace_array()
 	define('__fud_replace_init', 1);
 }
 
+/* Reverse replacement and censorship of text. */
+function apply_reverse_replace($text)
+{
+	if (!defined('__fud_replacer_init')) {
+		make_reverse_replace_array();
+	}
+	if (empty($GLOBALS['__FUD_REPLR__'])) {
+		return $text;
+	}
+	return preg_replace($GLOBALS['__FUD_REPLR__']['pattern'], $GLOBALS['__FUD_REPLR__']['replace'], $text);
+}
+
 function make_reverse_replace_array()
 {
 	$GLOBALS['__FUD_REPLR__']['pattern'] = $GLOBALS['__FUD_REPLR__']['replace'] = array();
@@ -57,16 +70,5 @@ function make_reverse_replace_array()
 	unset($c);
 
 	define('__fud_replacer_init', 1);
-}
-
-function apply_reverse_replace($text)
-{
-	if (!defined('__fud_replacer_init')) {
-		make_reverse_replace_array();
-	}
-	if (empty($GLOBALS['__FUD_REPLR__'])) {
-		return $text;
-	}
-	return preg_replace($GLOBALS['__FUD_REPLR__']['pattern'], $GLOBALS['__FUD_REPLR__']['replace'], $text);
 }
 ?>

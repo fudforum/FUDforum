@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -164,7 +164,7 @@ function flood_check()
 					$msg_body = html_to_tags($msg_body);
 				 	$msg_body = '{TEMPLATE: fud_quote}';
 				} else if ($frm->forum_opt & 8) {
-					$msg_body = "> ".str_replace("\n", "\n> ", reverse_nl2br(reverse_fmt($msg_body)));
+					$msg_body = '> '.str_replace("\n", "\n> ", reverse_nl2br(reverse_fmt($msg_body)));
 					$msg_body = str_replace('<br />', "\n", '{TEMPLATE: plain_quote}');
 				} else {
 					$msg_body = '{TEMPLATE: html_quote}';
@@ -384,7 +384,7 @@ function flood_check()
 
 			if (!$msg_id &&	// New post.
 			    (!($frm->forum_opt & 2) || $MOD) &&	// Forum not moderated.
-			    $usr->posted_msg_count > $MOD_FIRST_N_POSTS)	// Min quota posts reached.
+			    ($usr->posted_msg_count > $MOD_FIRST_N_POSTS || $MOD))	// Min quota posts reached.
 			{
 				$msg_post->approve($msg_post->id);
 			}
@@ -406,8 +406,8 @@ function flood_check()
 			    !($perms & 2))	// p_READ (cannot read forum)
 			{
 				check_return();
-			} else if ($frm->forum_opt & 2 && !$MOD ||	// Moderated forum & not a mod.
-			           $usr->posted_msg_count <= $MOD_FIRST_N_POSTS)	// Min quota posts not reached.
+			} else if (($frm->forum_opt & 2 && !$MOD) ||	// Moderated forum & not a mod.
+			           ($usr->posted_msg_count <= $MOD_FIRST_N_POSTS && !$MOD))	// Min quota posts not reached.
 			{
 				if ($FUD_OPT_2 & 262144) {	// MODERATED_POST_NOTIFY
 					$modl = db_all('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='.$frm->id);

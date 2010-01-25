@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -125,7 +125,7 @@
 				}
 			}
 		} else {
-			$prev_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data[1]." AND id < ".$data[2]." ORDER BY id DESC LIMIT 1");
+			$prev_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$data[1].' AND id < '.$data[2].' ORDER BY id DESC LIMIT 1');
 		
 			if ($FUD_OPT_2 & 32768) {
 				header('Location: {FULL_ROOT}{ROOT}/mv/msg/'.$data[1].'/'.$prev_id.'/'._rsidl);

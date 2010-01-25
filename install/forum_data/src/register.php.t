@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -33,7 +33,8 @@ function fetch_img($url, $user_id)
 
 	return $path;
 }
-	/* intialize error status */
+
+	/* Intialize error status. */
 	$GLOBALS['error'] = 0;
 	$GLOBALS['err_msg'] = array();
 
@@ -102,8 +103,8 @@ function register_form_check($user_id)
 			set_err('reg_login', '{TEMPLATE: register_err_loginunique}');
 		}
 
-		if (!($GLOBALS['FUD_OPT_3'] & 128)) { // captcha not disabled
-			if (empty($_POST['turing_test']) || empty($_POST['turing_res']) || !test_turing_answer($_POST['turing_test'], $_POST['turing_res'])) {
+		if (!($GLOBALS['FUD_OPT_3'] & 128)) { // Captcha not disabled.
+			if (!test_turing_answer($_POST['turing_test'], $_POST['turing_res'])) {
 				set_err('reg_turing', '{TEMPLATE: register_err_turing}');
 			}
 		}
@@ -119,7 +120,7 @@ function register_form_check($user_id)
 			set_err('reg_email', '{TEMPLATE: register_err_emailexists}');
 		}
 	} else {
-		if (!($r = db_sab("SELECT id, passwd, salt FROM {SQL_TABLE_PREFIX}users WHERE id=".(!empty($_POST['mod_id']) ? __fud_real_user__ : $user_id)))) {
+		if (!($r = db_sab('SELECT id, passwd, salt FROM {SQL_TABLE_PREFIX}users WHERE id='.(!empty($_POST['mod_id']) ? __fud_real_user__ : $user_id)))) {
 			exit('Go away!');
 		}
 		
@@ -183,7 +184,7 @@ function register_form_check($user_id)
 
 	/* Check if user is allowed to post links. */
 	if (preg_match('?(\[url)|(http://)|(https://)?i', $_POST['reg_sig'])) {
-		$c = q_singleval("SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id="._uid);
+		$c = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='._uid);
 		if ( $GLOBALS['POSTS_BEFORE_LINKS'] > $c ) {
 			$posts_before_links = $GLOBALS['POSTS_BEFORE_LINKS'];
 			set_err('reg_sig', '{TEMPLATE: postcheck_no_links_allowed}');
@@ -401,7 +402,7 @@ function email_encode($val)
 		}
 
 		/* import data from _POST into $uent object */
-		foreach (array_keys(get_class_vars("fud_user")) as $v) {
+		foreach (array_keys(get_class_vars('fud_user')) as $v) {
 			if (isset($_POST['reg_'.$v])) {
 				$uent->{$v} = $_POST['reg_'.$v];
 			}
@@ -634,7 +635,7 @@ function email_encode($val)
 		} else {
 			$b_year = $b_month = $b_day = '';
 		}
-		if (!$reg_avatar && $reg_avatar_loc) { /* custom avatar */
+		if (!$reg_avatar && $reg_avatar_loc) { /* Custom avatar. */
 			if (preg_match('!src="([^"]+)" width="!', reverse_fmt($reg_avatar_loc), $tmp)) {
 				$avatar_arr['file'] = $tmp[1];
 				$avatar_arr['del'] = 0;
@@ -642,7 +643,7 @@ function email_encode($val)
 				$avatar_type = 'u';
 			}
 		}
-	} else if (isset($_POST['prev_loaded'])) { /* import data from POST data */
+	} else if (isset($_POST['prev_loaded'])) { /* Import data from POST data. */
 		foreach ($_POST as $k => $v) {
 			if (!strncmp($k, 'reg_', 4)) {
 				${$k} = htmlspecialchars((string)$v);

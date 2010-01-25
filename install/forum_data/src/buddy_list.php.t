@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,7 +16,7 @@
 	}
 
 	if (isset($_POST['add_login']) && is_string($_POST['add_login'])) {
-		if (!($buddy_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias="._esc(char_fix(htmlspecialchars($_POST['add_login'])))))) {
+		if (!($buddy_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc(char_fix(htmlspecialchars($_POST['add_login'])))))) {
 			error_dialog('{TEMPLATE: buddy_list_err_nouser_title}', '{TEMPLATE: buddy_list_err_nouser}');
 		}
 		if ($buddy_id == _uid) {
@@ -80,7 +80,7 @@
 
 	if (($r = db_rowarr($c))) {
 		$dt = getdate(__request_timestamp__);
-		$md = sprintf("%02d%02d", $dt['mon'], $dt['mday']);
+		$md = sprintf('%02d%02d', $dt['mon'], $dt['mday']);
 
 		do {
 			if ((!($r[5] & 32768) && $FUD_OPT_2 & 32) || $is_a) {

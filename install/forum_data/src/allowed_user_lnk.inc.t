@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,9 +9,9 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'ip_filter_cache';
-	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'login_filter_cache';
-	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'email_filter_cache';
+	include $GLOBALS['FORUM_SETTINGS_PATH'] .'ip_filter_cache';
+	include $GLOBALS['FORUM_SETTINGS_PATH'] .'login_filter_cache';
+	include $GLOBALS['FORUM_SETTINGS_PATH'] .'email_filter_cache';
 
 function is_ip_blocked($ip)
 {
@@ -75,16 +75,16 @@ function is_email_blocked($addr)
 
 function is_allowed_user(&$usr, $simple=0)
 {
-	/* check if the ban expired */
+	/* Check if the ban expired. */
 	if (($banned = $usr->users_opt & 65536) && $usr->ban_expiry && $usr->ban_expiry < __request_timestamp__) {
-		q("UPDATE {SQL_TABLE_PREFIX}users SET users_opt = users_opt &~ 65536 WHERE id=".$usr->id);
-		$usr->users_opt ^= 65536; 
+		q('UPDATE {SQL_TABLE_PREFIX}users SET users_opt = users_opt &~ 65536 WHERE id='.$usr->id);
+		$usr->users_opt ^= 65536;
 		$banned = 0;
 	} 
 
 	if ($banned || is_email_blocked($usr->email) || is_login_blocked($usr->login) || is_ip_blocked(get_ip())) {
 		$ban_expiry = (int) $usr->ban_expiry;
-		if (!$simple) { // on login page we already have anon session
+		if (!$simple) { // On login page we already have anon session.
 			ses_delete($usr->sid);
 			$usr = ses_anon_make();
 		}

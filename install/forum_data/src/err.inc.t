@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -27,11 +27,11 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 	if (isset($_SERVER['HTTP_REFERER'])) {
 		$error_msg .= '[Referring Page] '.htmlspecialchars($_SERVER['HTTP_REFERER']).'<br />';
 	}
-	$pfx = sprintf("?%-10d?%-10d?", strlen($error_msg) + 1, __request_timestamp__);
+	$pfx = sprintf('?%-10d?%-10d?', strlen($error_msg) + 1, __request_timestamp__);
 	ini_set('log_errors_max_len', 0);
 	error_log($pfx.$error_msg."\n", 3, $GLOBALS['ERROR_PATH'].'fud_errors');
 
-	/* no need to redirect, we just want to log the error */
+	/* No need to redirect, we just want to log the error. */
 	if ($level == 'ATCH') {
 		return;
 	}

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -47,7 +47,7 @@ function mail_check()
 
 	if (!strlen(trim($_POST['tx_name']))) {
 		set_err('tx_name', '{TEMPLATE: email_error_namerequired}');
-	} else if (!q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias="._esc(htmlspecialchars($_POST['tx_name'])))) {
+	} else if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc(htmlspecialchars($_POST['tx_name'])))) {
 		set_err('tx_name', '{TEMPLATE: email_error_invaliduser}');
 	}
 

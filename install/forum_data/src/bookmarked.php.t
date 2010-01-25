@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,19 +15,19 @@
 		std_error('login');
 	}
 
-	/* delete thread bookmark */
+	/* Delete thread bookmark. */
 	if (isset($_GET['th']) && ($_GET['th'] = (int)$_GET['th']) && sq_check(0, $usr->sq)) {
 		thread_bookmark_del(_uid, $_GET['th']);
 	}
 
 	if (!empty($_POST['t_unbookmark_all'])) {
-		q("DELETE FROM {SQL_TABLE_PREFIX}bookmarks WHERE user_id="._uid);
+		q('DELETE FROM {SQL_TABLE_PREFIX}bookmarks WHERE user_id='._uid);
 	} else if (isset($_POST['t_unbookmark_sel'], $_POST['te'])) {
 		$list = array();
 		foreach((array)$_POST['te'] as $v) {
 			$list[(int)$v] = (int) $v;
 		}
-		q("DELETE FROM {SQL_TABLE_PREFIX}bookmarks WHERE user_id="._uid." AND thread_id IN(".implode(',', $list).")");
+		q('DELETE FROM {SQL_TABLE_PREFIX}bookmarks WHERE user_id='._uid.' AND thread_id IN('.implode(',', $list).')');
 	}
 
 	ses_update_status($usr->sid, '{TEMPLATE: bookmarked_update}');
@@ -47,8 +47,8 @@
 	}
 	unset($c);
 
-	/* Since a person can have MANY bookmarked threads, we need a pager & for the pager we need a entry count */
-	if (($total = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {
+	/* Since a person can have MANY bookmarked threads, we need a pager & for the pager we need a entry count. */
+	if (($total = (int) q_singleval('SELECT /*!40000 FOUND_ROWS(), */ -1')) < 0) {
 		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}bookmarks b LEFT JOIN {SQL_TABLE_PREFIX}thread t ON b.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE b.user_id='._uid);
 	}
 

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -19,7 +19,7 @@
 
 	/* Change current password (cpasswd) to passwd1 (use passwd2 for verification). */
 	if (isset($_POST['btn_submit'], $_POST['passwd1'], $_POST['cpasswd']) && is_string($_POST['passwd1'])) {
-		if (!($r = db_sab("SELECT id, passwd, salt FROM {SQL_TABLE_PREFIX}users WHERE login="._esc($usr->login)))) {
+		if (!($r = db_sab('SELECT id, passwd, salt FROM {SQL_TABLE_PREFIX}users WHERE login='._esc($usr->login)))) {
 			exit('Go away!');
 		}
 		

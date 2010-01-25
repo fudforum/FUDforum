@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -163,9 +163,9 @@ function smiley_full(&$data)
 			 * basic	- output basic info parsable by all rdf parsers
 			 */
 			if (isset($_GET['sf'])) {
-				$_GET['frm'] = db_all("SELECT forum_id FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id=".(int)$_GET['sf']);
+				$_GET['frm'] = db_all('SELECT forum_id FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id='.(int)$_GET['sf']);
 			} else if (isset($_GET['st'])) {
-				$_GET['th'] = db_all("SELECT thread_id FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id=".(int)$_GET['sf']);
+				$_GET['th'] = db_all('SELECT thread_id FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id='.(int)$_GET['sf']);
 			}
 			if (isset($_GET['cat'])) {
 			 	$lmt .= ' AND f.cat_id IN('.multi_id($_GET['cat']).')';
@@ -199,10 +199,10 @@ function smiley_full(&$data)
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$FEED_AUTH_ID.' AND g2.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$FEED_AUTH_ID.' ';
-					$lmt .= " AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)";
+					$lmt .= ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)';
 				} else {
 					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-					$lmt .= " AND (g1.group_cache_opt & 2) > 0";
+					$lmt .= ' AND (g1.group_cache_opt & 2) > 0';
 				}
 			}
 
@@ -312,10 +312,10 @@ function smiley_full(&$data)
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$FEED_AUTH_ID.' AND g2.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$FEED_AUTH_ID.' ';
-					$lmt .= " AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)";
+					$lmt .= ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)';
 				} else {
 					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-					$lmt .= " AND (g1.group_cache_opt & 2) > 0";
+					$lmt .= ' AND (g1.group_cache_opt & 2) > 0';
 				}
 			}
 			$c = q('SELECT
@@ -389,10 +389,10 @@ function smiley_full(&$data)
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$FEED_AUTH_ID.' AND g2.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$FEED_AUTH_ID.' ';
-					$perms = ", (CASE WHEN (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0) THEN 1 ELSE 0 END) AS can_show_msg";
+					$perms = ', (CASE WHEN (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0) THEN 1 ELSE 0 END) AS can_show_msg';
 				} else {
 					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-					$perms = ", (g1.group_cache_opt & 2) > 0 AS can_show_msg";
+					$perms = ', (g1.group_cache_opt & 2) > 0 AS can_show_msg';
 				}
 			} else {
 				$perms = ', 1 AS can_show_msg';
@@ -452,7 +452,7 @@ function smiley_full(&$data)
 	if ($res) {
 		if ($FEED_CACHE_AGE) {
 			echo ($out = ob_get_clean());
-			$fp = fopen($file_name, "w");
+			$fp = fopen($file_name, 'w');
 			fwrite($fp, $out);
 			fclose($fp);
 		}

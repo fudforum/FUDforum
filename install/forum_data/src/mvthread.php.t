@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -117,7 +117,7 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-			WHERE c.id!=0 AND f.id!='.$thr->forum_id.($is_a ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0 THEN 1 ELSE 0 END)=1').'
+			WHERE c.id!=0 AND f.url_redirect IS NULL AND f.id!='.$thr->forum_id.($is_a ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 1) > 0 THEN 1 ELSE 0 END)=1').'
 			ORDER BY v.id');
 
 		$table_data = $oldc = '';

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -37,7 +37,7 @@
 
 	$action_data = ''; $uc = 0;
 	while ($r = db_rowarr($c)) {
-		++$uc; // update loggedin user count
+		++$uc; // Update loggedin user count.
 
 		if ($r[6] & 32768 && !$is_a) {
 			continue;
@@ -100,6 +100,6 @@
 ?>
 {TEMPLATE: ACTION_PAGE}
 <?php
-	/* update loggedin user stats if needed */
+	/* Update loggedin user stats if needed. */
 	q('UPDATE {SQL_TABLE_PREFIX}stats_cache SET most_online='.$uc.', most_online_time='.__request_timestamp__.' WHERE most_online < '.$uc);
 ?>

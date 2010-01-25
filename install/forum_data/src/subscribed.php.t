@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -26,21 +26,21 @@
 	}
 
 	if (!empty($_POST['f_unsub_all'])) {
-		q("DELETE FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id="._uid);
+		q('DELETE FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id='._uid);
 	} else if (!empty($_POST['t_unsub_all'])) {
-		q("DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id="._uid);
+		q('DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id='._uid);
 	} else if (isset($_POST['f_unsub_sel'], $_POST['fe'])) {
 		$list = array();
 		foreach((array)$_POST['fe'] as $v) {
 			$list[(int)$v] = (int) $v;
 		}
-		q("DELETE FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id="._uid." AND forum_id IN(".implode(',', $list).")");
+		q('DELETE FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id='._uid.' AND forum_id IN('.implode(',', $list).')');
 	} else if (isset($_POST['t_unsub_sel'], $_POST['te'])) {
 		$list = array();
 		foreach((array)$_POST['te'] as $v) {
 			$list[(int)$v] = (int) $v;
 		}
-		q("DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id="._uid." AND thread_id IN(".implode(',', $list).")");
+		q('DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id='._uid.' AND thread_id IN('.implode(',', $list).')');
 	}
 
 	ses_update_status($usr->sid, '{TEMPLATE: subscribed_update}');
@@ -87,7 +87,7 @@
 	unset($c);
 
 	/* Since a person can have MANY subscribed threads, we need a pager & for the pager we need a entry count */
-	if (($total = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {
+	if (($total = (int) q_singleval('SELECT /*!40000 FOUND_ROWS(), */ -1')) < 0) {
 		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}thread_notify tn LEFT JOIN {SQL_TABLE_PREFIX}thread t ON tn.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tn.user_id='._uid.' '.$lmt);
 	}
 

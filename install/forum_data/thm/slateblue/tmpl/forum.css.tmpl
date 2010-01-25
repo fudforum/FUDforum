@@ -41,6 +41,10 @@ text, .GenText {
 .ForumBackground {
 	background: #fff;
 	border: 1px solid #aebdc4;
+	
+	-moz-border-radius: 0.75em;
+	-webkit-border-radius: 0.75em;
+	border-radius: 0.75em;
 }
 
 a:link, a:visited, a:active, a.PagerLink {
@@ -234,14 +238,21 @@ blockquote {
 }
 
 blockquote blockquote {
-	/* 	nested quote tags */
+	/* nested quote tags */
 	background-color: #f0f0f0;
 	margin: 8px 1px 0 10px;
 }
 
 blockquote blockquote blockquote {
-	/* 	double nested quote tags */
+	/* double nested quote tags */
 	background-color: #e0e0e0;
+}
+
+.quote {
+	/* old pre v3 quotes */
+	color: #444444;
+	background: #FAFAFA;
+	border: 1px solid #c2cdd6;
 }
 
 .dashed {

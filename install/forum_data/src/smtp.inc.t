@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -33,14 +33,14 @@ class fud_smtp
 	function open_smtp_connex()
 	{
 		if( !($this->fs = fsockopen($GLOBALS['FUD_SMTP_SERVER'], $GLOBALS['FUD_SMTP_PORT'], $errno, $errstr, $GLOBALS['FUD_SMTP_TIMEOUT'])) ) {
-			exit("ERROR: stmp server at ".$GLOBALS['FUD_SMTP_SERVER']." is not available<br />\nAdditional Problem Info: $errno -> $errstr <br />\n");
+			exit('ERROR: stmp server at '.$GLOBALS['FUD_SMTP_SERVER']." is not available<br />\nAdditional Problem Info: $errno -> $errstr <br />\n");
 		}
 		if (!$this->get_return_code(220)) {
 			return;
 		}
 
 		$es = strpos($this->last_ret, 'ESMTP') !== false;
-		$smtp_srv = $_SERVER["SERVER_NAME"];
+		$smtp_srv = $_SERVER['SERVER_NAME'];
 		if ($smtp_srv == 'localhost' || $smtp_srv == '127.0.0.1') {
 			$smtp_srv = 'FUDforum SMTP server';
 		}
@@ -127,12 +127,12 @@ class fud_smtp
 		}
 
 		/* This is done to ensure what we comply with RFC requiring each line to end with \r\n */
-		$this->msg = preg_replace("!(\r)?\n!si", "\r\n", $this->msg);
+		$this->msg = preg_replace('!(\r)?\n!si', "\r\n", $this->msg);
 
 		if( empty($this->from) ) $this->from = $GLOBALS['NOTIFY_FROM'];
 
 		$this->wts('Subject: '.$this->subject);
-		$this->wts('Date: '.date("r"));
+		$this->wts('Date: '.date('r'));
 		$this->wts('To: '.(count($this->to) == 1 ? $this->to[0] : $GLOBALS['NOTIFY_FROM']));
 		$this->wts('From: '.$this->from);
 		$this->wts('X-Mailer: FUDforum v'.$GLOBALS['FORUM_VERSION']);
@@ -152,19 +152,19 @@ class fud_smtp
 	function send_smtp_email()
 	{
 		if (!$this->open_smtp_connex()) {
-			exit("OC: Invalid SMTP return code: ".$this->last_ret."<br />\n");
+			exit('OC: Invalid SMTP return code: '.$this->last_ret."<br />\n");
 		}
 		if (!$this->send_from_hdr()) {
 			$this->close_connex();
-			exit("FH: Invalid SMTP return code: ".$this->last_ret."<br />\n");
+			exit('FH: Invalid SMTP return code: '.$this->last_ret."<br />\n");
 		}
 		if (!$this->send_to_hdr()) {
 			$this->close_connex();
-			exit("TH: Invalid SMTP return code: ".$this->last_ret."<br />\n");
+			exit('TH: Invalid SMTP return code: '.$this->last_ret."<br />\n");
 		}
 		if (!$this->send_data()) {
 			$this->close_connex();
-			exit("SD: Invalid SMTP return code: ".$this->last_ret."<br />\n");
+			exit('SD: Invalid SMTP return code: '.$this->last_ret."<br />\n");
 		}
 
 		$this->close_connex();

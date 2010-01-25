@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -112,7 +112,7 @@ function convert_bdate($val, $month_fmt)
 		$referals = '';
 	}
 
-	if (_uid && _uid != $u->id && !q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}buddy WHERE user_id="._uid." AND bud_id=".$u->id)) {
+	if (_uid && _uid != $u->id && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}buddy WHERE user_id='._uid.' AND bud_id='.$u->id)) {
 		$buddy = '{TEMPLATE: ui_buddy}';
 	} else {
 		$buddy = '';

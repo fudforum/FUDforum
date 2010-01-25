@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -125,11 +125,11 @@ function th_frm_last_post_id($id, $th)
 			/* Deal with the new thread */
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='.$new_th.' WHERE id IN ('.$mids.')');
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to='.$start.' WHERE thread_id='.$new_th.' AND reply_to NOT IN ('.$mids.')');
-			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject="._esc(htmlspecialchars($_POST['new_title']))." WHERE id=".$start);
+			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject='._esc(htmlspecialchars($_POST['new_title'])).' WHERE id='.$start);
 
 			/* Deal with the old thread */
-			list($lpi, $lpd) = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data->id." AND apr=1 ORDER BY post_stamp DESC LIMIT 1");$old_root_msg_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data->id." AND apr=1 ORDER BY post_stamp ASC LIMIT 1");
-			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=".$old_root_msg_id." WHERE thread_id=".$data->id." AND reply_to IN(".$mids.")");
+			list($lpi, $lpd) = db_saq('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$data->id.' AND apr=1 ORDER BY post_stamp DESC LIMIT 1');$old_root_msg_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$data->id.' AND apr=1 ORDER BY post_stamp ASC LIMIT 1');
+			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to='.$old_root_msg_id.' WHERE thread_id='.$data->id.' AND reply_to IN('.$mids.')');
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0 WHERE id='.$old_root_msg_id);
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET root_msg_id='.$old_root_msg_id.', replies=replies-'.$mc.', last_post_date='.$lpd.', last_post_id='.$lpi.' WHERE id='.$data->id);
 
@@ -167,7 +167,7 @@ function th_frm_last_post_id($id, $th)
 			logaction(_uid, 'THRSPLIT', $new_th);
 			$th_id = $new_th;
 		} else { /* moving entire thread */
-			q("UPDATE {SQL_TABLE_PREFIX}msg SET subject="._esc(htmlspecialchars($_POST['new_title']))." WHERE id=".$data->root_msg_id);
+			q('UPDATE {SQL_TABLE_PREFIX}msg SET subject='._esc(htmlspecialchars($_POST['new_title'])).' WHERE id='.$data->root_msg_id);
 			if ($forum != $data->forum_id) {
 				th_move($data->id, $forum, $data->root_msg_id, $thr->forum_id, $data->last_post_date, $data->last_post_id, $data->tdescr);
 
@@ -215,7 +215,7 @@ function th_frm_last_post_id($id, $th)
 	$anon_alias = htmlspecialchars($ANON_NICK);
 	$msg_entry = '';
 
-	$c = uq("SELECT m.id, m.foff, m.length, m.file_id, m.subject, m.post_stamp, u.alias FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id=".$th." AND m.apr=1 ORDER BY m.post_stamp ASC");
+	$c = uq('SELECT m.id, m.foff, m.length, m.file_id, m.subject, m.post_stamp, u.alias FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='.$th.' AND m.apr=1 ORDER BY m.post_stamp ASC');
 	while ($r = db_rowobj($c)) {
 		$msg_entry .= '{TEMPLATE: msg_entry}';
 	}

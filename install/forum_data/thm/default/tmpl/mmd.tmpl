@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -38,7 +38,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <form method="post" action="{ROOT}?t=mmd">{DEF: _hs}
-<div align="center">
+<div class="ac">
 <b>{IF: !empty($_POST['del_sel_all'])}{MSG: mmd_del_title}{ELSE}{MSG: mmd_mov_title}{END}:</b><br />
 <span class="SmallText">
 {TEMPLATE-DATA: mmd_topic_ents}

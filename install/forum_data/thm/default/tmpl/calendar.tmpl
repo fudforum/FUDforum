@@ -8,7 +8,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-{PHP_FILE: input: calendar.php.t; output: calendar.php;}
+{PHP_FILE: input: calendar.php.t; output: cal.php;}
 {REF: security.tmpl}
 {REF: header.tmpl}
 {REF: usercp.tmpl}
@@ -19,60 +19,178 @@
 {PAGE: CAL_PAGE display the forum's calendar}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<table cellspacing="1" cellpadding="2" class="ContentTable"><tr><td>
-<!--div class="ctb"-->
-&nbsp;
-<h2>{TEMPLATE: prev_year_month_lnks} {VAR: months[$month-1]} {VAR: year} {TEMPLATE: next_month_year_lnks}</h2>
-{FUNC: draw_calendar($month, $year, $events)}
-<form method="get">
-{MSG: cal_goto_date} <input type="hidden" name="t" value="cal" />
-{VAR: select_month_control} {VAR: select_year_control} <input type="submit" name="submit" value="Go" />
-</form>
-</div>
-</td></tr></table>
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+{IF: $view == 'y'}
+<tr><th colspan="3">
+	<h2>&nbsp;<a href="{TEMPLATE: year_prev_lnk}" class="control">&laquo;</a>&nbsp; {VAR: year} &nbsp;<a href="{TEMPLATE: year_next_lnk}" class="control">&raquo;</a>&nbsp;</h2>
+</th></tr>
+<tr>
+	<td width="33%" class="vt"><h4>{VAR: months[0]} {VAR: year}</a></h4>{FUNC: draw_calendar($year, 1, null, 'small', $year, $month, $day)}</td>
+	<td width="33%" class="vt"><h4>{VAR: months[1]} {VAR: year}</h4>{FUNC: draw_calendar($year, 2, null, 'small', $year, $month, $day)}</td>
+	<td width="33%" class="vt"><h4>{VAR: months[2]} {VAR: year}</h4>{FUNC: draw_calendar($year, 3, null, 'small', $year, $month, $day)}</td>
+</tr><tr>
+	<td width="33%" class="vt"><h4>{VAR: months[3]} {VAR: year}</h4>{FUNC: draw_calendar($year, 4, null, 'small', $year, $month, $day)}</td>
+	<td width="33%" class="vt"><h4>{VAR: months[4]} {VAR: year}</h4>{FUNC: draw_calendar($year, 5, null, 'small', $year, $month, $day)}</td>
+	<td width="33%" class="vt"><h4>{VAR: months[5]} {VAR: year}</h4>{FUNC: draw_calendar($year, 6, null, 'small', $year, $month, $day)}</td>
+</tr><tr>
+	<td width="33%" class="vt"><h4>{VAR: months[6]} {VAR: year}</h4>{FUNC: draw_calendar($year, 7, null, 'small', $year, $month, $day)}</td>
+	<td width="33%" class="vt"><h4>{VAR: months[7]} {VAR: year}</h4>{FUNC: draw_calendar($year, 8, null, 'small', $year, $month, $day)}</td>
+	<td width="33%" class="vt"><h4>{VAR: months[8]} {VAR: year}</h4>{FUNC: draw_calendar($year, 9, null, 'small', $year, $month, $day)}</td>
+</tr><tr>
+	<td width="33%" class="vt"><h4>{VAR: months[9]} {VAR: year}</h4>{FUNC: draw_calendar($year, 10, null, 'small', $year, $month, $day)}</td>
+	<td width="33%" class="vt"><h4>{VAR: months[10]} {VAR: year}</h4>{FUNC: draw_calendar($year, 11, null, 'small', $year, $month, $day)}</td>
+	<td width="33%" class="vt"><h4>{VAR: months[11]} {VAR: year}</h4>{FUNC: draw_calendar($year, 12, null, 'small', $year, $month, $day)}</td>
+</tr>
+{ENDIF}
+
+{IF: $view == 'm'}
+<tr><th class="al">
+	<a href="{TEMPLATE: month_prev_lnk}" class="control">&laquo;</a>
+</th><th class="ac">
+	<h2>{VAR: months[$month-1]} <a href="{TEMPLATE: year_cur_lnk}" class="control">{VAR: year}</a></h2>
+</th><th class="ar">
+	<a href="{TEMPLATE: month_next_lnk}" class="control">&raquo;</a>
+</th></tr>
+<tr><td colspan="3">
+{FUNC: draw_calendar($year, $month, $events, 'large', $year, $month, $day)}
+</td></tr><tr>
+	<td width="35%" class="vt"><h4>{VAR: months[$prev_month-1]} {VAR: prev_year}</h4>{FUNC: draw_calendar($prev_year, $prev_month, null, 'small')}</td>
+	<td width="30%" class="ac vt">
+		<br /><br /><br />
+		<form method="get">
+		<b>{MSG: cal_goto_date}</b><input type="hidden" name="t" value="cal" />
+		<br />{VAR: select_month_control} {VAR: select_year_control} <input type="submit" name="submit" value="Go" />
+		</form></td>
+	<td width="35%" class="vt"><h4>{VAR: months[$next_month-1]} {VAR: next_year}</h4>{FUNC: draw_calendar($next_year, $next_month, null, 'small')}</td>
+</tr>
+{ENDIF}
+
+{IF: $view == 'd'}
+<tr><th colspan="2">
+	<h2><a href="{TEMPLATE: day_prev_lnk}" class="control">&laquo;</a>
+		{VAR: day} <a href="{TEMPLATE: month_cur_lnk}"class="control">{VAR: months[$month-1]}</a> <a href="{TEMPLATE: year_cur_lnk}" class="control">{VAR: year}</a>
+		<a href="{TEMPLATE: day_next_lnk}" class="control">&raquo;</a></h2>
+</th></tr>
+<tr><td class="RowStyleB vt" width="55%">
+		<h3>Events for day</h3>
+		<ul>{VAR: events_for_day}</ul>
+		<br /><br />
+		<form method="get">
+		{MSG: cal_goto_date} <input type="hidden" name="t" value="cal" /><input type="hidden" name="view" value="{VAR: view}" />
+		{VAR: select_month_control} {VAR: select_year_control} 
+		<input type="hidden" name="day" value="{VAR: day}" /><input type="submit" name="submit" value="Go" />
+		</form>
+    </td>
+    <td class="ac" width="45%"> 
+		<h4><a href="{TEMPLATE: month_cur_lnk}" class="control">{VAR: months[$month-1]} {VAR: year}</a></h4>
+		    {FUNC: draw_calendar($year, $month, $events, 'small', $year, $month, $day)}
+    </td>
+{ENDIF}
+
+</table>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {PAGE: END}
 
-{SECTION: next_month_year_lnks}
-&nbsp;<a href="?t=cal&month={VAR: next_month}&year={VAR: next_year}" class="control">></a>&nbsp;<a href="?t=cal&month={VAR: month}&year={VAR: year+1}" class="control">>></a>&nbsp;
-{SECTION: END}
-
-{SECTION: prev_year_month_lnks}
-&nbsp;<a href="?t=cal&month={VAR: month}&year={VAR: year-1}" class="control"><<</a>&nbsp;<a href="?t=cal&month={VAR: prev_month}&year={VAR: prev_year}" class="control"><</a>&nbsp;
-{SECTION: END}
-
 {SECTION: calendar_title}
 {MSG: calendar}
 {SECTION: END}
 
+/* Calendar links. */
+
+{SECTION: year_cur_lnk}
+{ROOT}?t=cal&view=y&year={VAR: year}
+{SECTION: END}
+
+{SECTION: year_next_lnk}
+{ROOT}?t=cal&view=y&year={VAR: next_year}
+{SECTION: END}
+
+{SECTION: year_prev_lnk}
+{ROOT}?t=cal&view=y&year={VAR: prev_year}
+{SECTION: END}
+
+{SECTION: month_cur_lnk}
+{ROOT}?t=cal&view=m&month={VAR: month}&year={VAR: year}
+{SECTION: END}
+
+{SECTION: month_next_lnk}
+{ROOT}?t=cal&view=m&year={VAR: next_year}&month={VAR: next_month}
+{SECTION: END}
+
+{SECTION: month_prev_lnk}
+{ROOT}?t=cal&view=m&year={VAR: prev_year}&month={VAR: prev_month}
+{SECTION: END}
+
+{SECTION: day_cur_lnk}
+{ROOT}?t=cal&view=d&year={VAR: year}&month={VAR: month}&day={VAR: day}
+{SECTION: END}
+
+{SECTION: day_next_lnk}
+{ROOT}?t=cal&view=d&year={VAR: next_year}&month={VAR: next_month}&day={VAR: next_day}
+{SECTION: END}
+
+{SECTION: day_prev_lnk}
+{ROOT}?t=cal&view=d&year={VAR: prev_year}&month={VAR: prev_month}&day={VAR: prev_day}
+{SECTION: END}
+
+/* Day and month messages. */
+
 {SECTION: sunday}
 {MSG: sunday}
+{SECTION: END}
+
+{SECTION: sunday_short}
+{MSG: sunday_short}
 {SECTION: END}
 
 {SECTION: monday}
 {MSG: monday}
 {SECTION: END}
 
+{SECTION: monday_short}
+{MSG: monday_short}
+{SECTION: END}
+
 {SECTION: tuesday}
 {MSG: tuesday}
+{SECTION: END}
+
+{SECTION: tuesday_short}
+{MSG: tuesday_short}
 {SECTION: END}
 
 {SECTION: wednesday}
 {MSG: wednesday}
 {SECTION: END}
 
+{SECTION: wednesday_short}
+{MSG: wednesday_short}
+{SECTION: END}
+
 {SECTION: thursday}
 {MSG: thursday}
+{SECTION: END}
+
+{SECTION: thursday_short}
+{MSG: thursday_short}
 {SECTION: END}
 
 {SECTION: friday}
 {MSG: friday}
 {SECTION: END}
 
+{SECTION: friday_short}
+{MSG: friday_short}
+{SECTION: END}
+
 {SECTION: saturday}
 {MSG: saturday}
+{SECTION: END}
+
+{SECTION: saturday_short}
+{MSG: saturday_short}
 {SECTION: END}
 
 {SECTION: month_1}
@@ -121,4 +239,12 @@
 
 {SECTION: month_12}
 {MSG: month_12}
+{SECTION: END}
+
+{SECTION: cal_no_events}
+<p>{MSG: cal_no_events}</p>
+{SECTION: END}
+
+{SECTION: cal_entry}
+<li><div class="event">'. $event .'</div></li>
 {SECTION: END}

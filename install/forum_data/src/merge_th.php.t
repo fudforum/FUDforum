@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -43,7 +43,7 @@
 			}
 			$_POST['sel_th'][$k] = (int) $v;
 		}
-		if (count($_POST['sel_th']) != q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thread WHERE forum_id={$frm} AND id IN(".implode(',', $_POST['sel_th']).")")) {
+		if (count($_POST['sel_th']) != q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thread WHERE forum_id={$frm} AND id IN(".implode(',', $_POST['sel_th']).')')) {
 			std_error('access');
 		}
 	}
@@ -81,7 +81,7 @@
 			list($lpi, $lpd, $tdescr) = db_saq("SELECT last_post_id, last_post_date, tdescr FROM {SQL_TABLE_PREFIX}thread WHERE id IN({$tl}) ORDER BY last_post_date DESC LIMIT 1");
 
 			$new_th = th_add($start, $forum, $lpd, 0, 0, $replies, $views, $lpi, $tdescr);
-			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject="._esc(htmlspecialchars($_POST['new_title']))." WHERE id=".$start);
+			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject='._esc(htmlspecialchars($_POST['new_title'])).' WHERE id='.$start);
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to={$start} WHERE thread_id IN({$tl}) AND (reply_to=0 OR reply_to=id) AND id!={$start}");
 			if ($forum != $frm) {
 				$p = db_all('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id IN('.$tl.') AND apr=1 AND poll_id>0');
@@ -103,7 +103,7 @@
 					q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count={$r[2]}, post_count={$r[1]}, last_post_id={$r[0]} WHERE id={$v}");
 				}
 			} else {
-				q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-".(count($_POST['sel_th']) - 1)." WHERE id={$frm}");
+				q('UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-'.(count($_POST['sel_th']) - 1)." WHERE id={$frm}");
 			}
 			db_unlock();
 
@@ -118,10 +118,10 @@
 				q("UPDATE OR IGNORE {SQL_TABLE_PREFIX}read SET thread_id={$new_th} WHERE thread_id IN({$tl})");
 			} else {
 				foreach (db_all("SELECT user_id FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id IN({$tl}) AND thread_id!=".$new_th) as $v) {
-					db_li("INSERT INTO {SQL_TABLE_PREFIX}thread_notify (user_id, thread_id) VALUES(".$v.",".$new_th.")", $tmp);
+					db_li('INSERT INTO {SQL_TABLE_PREFIX}thread_notify (user_id, thread_id) VALUES('.$v.','.$new_th.')', $tmp);
 				}
 				foreach (db_all("SELECT user_id FROM {SQL_TABLE_PREFIX}bookmarks WHERE thread_id IN({$tl}) AND thread_id!=".$new_th) as $v) {
-					db_li("INSERT INTO {SQL_TABLE_PREFIX}bookmarks (user_id, thread_id) VALUES(".$v.",".$new_th.")", $tmp);
+					db_li('INSERT INTO {SQL_TABLE_PREFIX}bookmarks (user_id, thread_id) VALUES('.$v.','.$new_th.')', $tmp);
 				}
 			}
 			q("DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id IN({$tl})");
@@ -167,7 +167,7 @@
 
 	$thread_sel = '';
 	if (isset($_POST['sel_th'])) {
-		$c = uq("SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id IN(".implode(',', $_POST['sel_th']).")");
+		$c = uq('SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id IN('.implode(',', $_POST['sel_th']).')');
 		while ($r = db_rowarr($c)) {
 			$thread_sel .= '{TEMPLATE: m_sel_opt_selected}';
 		}

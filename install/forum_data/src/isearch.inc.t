@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -59,8 +59,8 @@ function index_text($subj, $body, $msg_id)
 		ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2, 'text', 0);
 	} else {
 		foreach ($w2 as $w) {
-			if (!q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word=".$w)) {
-				q("INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES(".$w.")");
+			if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word='.$w)) {
+				q('INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES('.$w.')');
 			}
 		}	
 	}	

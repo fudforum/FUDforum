@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -52,7 +52,7 @@ class fud_msg_edit extends fud_msg
 		} else {
 			$file_id = write_body($this->body, $length, $offset, $forum_id);
 
-			/* determine if preview needs building */
+			/* Determine if preview needs building. */
 			if ($message_threshold && $message_threshold < strlen($this->body)) {
 				$thres_body = trim_html($this->body, $message_threshold);
 				$file_id_preview = write_body($thres_body, $length_preview, $offset_preview, $forum_id);
@@ -60,12 +60,12 @@ class fud_msg_edit extends fud_msg
 				$file_id_preview = $offset_preview = $length_preview = 0;
 			}
 		}
-		$flag = db_saq("SELECT cc, country FROM {SQL_TABLE_PREFIX}geoip WHERE ".sprintf("%u", ip2long($this->ip_addr))." BETWEEN ips AND ipe");
+		$flag = db_saq('SELECT cc, country FROM {SQL_TABLE_PREFIX}geoip WHERE '.sprintf('%u', ip2long($this->ip_addr)).' BETWEEN ips AND ipe');
 		if (!$flag) {
 			$flag = array(null,null);
 		}
 
-		$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}msg (
+		$this->id = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg (
 			thread_id,
 			poster_id,
 			reply_to,
@@ -88,28 +88,28 @@ class fud_msg_edit extends fud_msg
 			flag_cc,
 			flag_country
 		) VALUES(
-			".$this->thread_id.",
-			".$this->poster_id.",
-			".(int)$this->reply_to.",
-			'".$this->ip_addr."',
-			".$this->host_name.",
-			".$this->post_stamp.",
-			".ssn($this->subject).",
-			".(int)$this->attach_cnt.",
-			".(int)$this->poll_id.",
-			".ssn($this->icon).",
-			".$this->msg_opt.",
-			".$file_id.",
-			".(int)$offset.",
-			".(int)$length.",
-			".$file_id_preview.",
-			".$offset_preview.",
-			".$length_preview.",
-			".ssn($this->mlist_msg_id).",
-			".ssn(poll_cache_rebuild($this->poll_id)).",
-			".ssn($flag[0]).",
-			".ssn($flag[1])."
-		)");
+			'.$this->thread_id.',
+			'.$this->poster_id.',
+			'.(int)$this->reply_to.',
+			\''.$this->ip_addr.'\',
+			'.$this->host_name.',
+			'.$this->post_stamp.',
+			'.ssn($this->subject).',
+			'.(int)$this->attach_cnt.',
+			'.(int)$this->poll_id.',
+			'.ssn($this->icon).',
+			'.$this->msg_opt.',
+			'.$file_id.',
+			'.(int)$offset.',
+			'.(int)$length.',
+			'.$file_id_preview.',
+			'.$offset_preview.',
+			'.$length_preview.',
+			'.ssn($this->mlist_msg_id).',
+			'.ssn(poll_cache_rebuild($this->poll_id)).',
+			'.ssn($flag[0]).',
+			'.ssn($flag[1]).'
+		)');
 
 		if ($GLOBALS['FUD_OPT_3'] & 32768) {
 			$file_id = db_qid('INSERT INTO {SQL_TABLE_PREFIX}msg_store (data) VALUES('._esc($this->body).')');
@@ -121,7 +121,7 @@ class fud_msg_edit extends fud_msg
 
 		$thread_opt = (int) ($perm & 4096 && isset($_POST['thr_locked']));
 
-		if (!$this->thread_id) { /* new thread */
+		if (!$this->thread_id) { /* New thread. */
 			if ($perm & 64) {
 				if (isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) && (int)$_POST['thr_ordertype']) {
 					$thread_opt |= (int) $_POST['thr_ordertype'];
@@ -164,23 +164,23 @@ class fud_msg_edit extends fud_msg
 			}
 		}
 
-		q("UPDATE {SQL_TABLE_PREFIX}msg SET
-			file_id=".$file_id.",
-			foff=".(int)$offset.",
-			length=".(int)$length.",
-			mlist_msg_id=".ssn($this->mlist_msg_id).",
-			file_id_preview=".$file_id_preview.",
-			offset_preview=".$offset_preview.",
-			length_preview=".$length_preview.",
-			updated_by=".$id.",
-			msg_opt=".$this->msg_opt.",
-			attach_cnt=".(int)$this->attach_cnt.",
-			poll_id=".(int)$this->poll_id.",
-			update_stamp=".__request_timestamp__.",
-			icon=".ssn($this->icon)." ,
-			poll_cache=".ssn(poll_cache_rebuild($this->poll_id)).",
-			subject=".ssn($this->subject)."
-		WHERE id=".$this->id);
+		q('UPDATE {SQL_TABLE_PREFIX}msg SET
+			file_id='.$file_id.',
+			foff='.(int)$offset.',
+			length='.(int)$length.',
+			mlist_msg_id='.ssn($this->mlist_msg_id).',
+			file_id_preview='.$file_id_preview.',
+			offset_preview='.$offset_preview.',
+			length_preview='.$length_preview.',
+			updated_by='.$id.',
+			msg_opt='.$this->msg_opt.',
+			attach_cnt='.(int)$this->attach_cnt.',
+			poll_id='.(int)$this->poll_id.',
+			update_stamp='.__request_timestamp__.',
+			icon='.ssn($this->icon).' ,
+			poll_cache='.ssn(poll_cache_rebuild($this->poll_id)).',
+			subject='.ssn($this->subject).'
+		WHERE id='.$this->id);
 
 		if ($GLOBALS['FUD_OPT_3'] & 32768) {
 			q('DELETE FROM {SQL_TABLE_PREFIX}msg_store WHERE id IN('.$this->file_id.','.$this->file_id_preview.')');
@@ -191,7 +191,7 @@ class fud_msg_edit extends fud_msg
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET file_id='.$file_id.', file_id_preview='.$file_id_preview.' WHERE id='.$this->id);
 		}
 
-		/* determine wether or not we should deal with locked & sticky stuff
+		/* Determine wether or not we should deal with locked & sticky stuff
 		 * current approach may seem a little redundant, but for (most) users who
 		 * do not have access to locking & sticky this eliminated a query.
 		 */
@@ -201,7 +201,7 @@ class fud_msg_edit extends fud_msg
 			$thread_opt = (int) $th_data[1];
 			$orderexpiry = isset($_POST['thr_orderexpiry']) ? (int) $_POST['thr_orderexpiry'] : 0;
 
-			/* confirm that user has ability to change lock status of the thread */
+			/* Confirm that user has ability to change lock status of the thread. */
 			if ($perm & 4096) {
 				if ($locked && !($thread_opt & $locked)) {
 					$thread_opt |= 1;
@@ -210,7 +210,7 @@ class fud_msg_edit extends fud_msg
 				}
 			}
 
-			/* confirm that user has ability to change sticky status of the thread */
+			/* Confirm that user has ability to change sticky status of the thread. */
 			if ($th_data[2] == $this->id && isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) && $perm & 64) {
 				if (!$_POST['thr_ordertype'] && $thread_opt > 1) {
 					$orderexpiry = 0;
@@ -230,11 +230,11 @@ class fud_msg_edit extends fud_msg
 				}
 			}
 
-			/* Determine if any work needs to be done */
+			/* Determine if any work needs to be done. */
 			if ($thread_opt != $th_data[1] || $orderexpiry != $th_data[0]) {
 				q('UPDATE {SQL_TABLE_PREFIX}thread SET '.($th_data[2] == $this->id ? 'tdescr='._esc($msg_tdescr).',' : '') . ' thread_opt='.$thread_opt.', orderexpiry='.$orderexpiry.' WHERE id='.$this->thread_id);
-				/* Avoid rebuilding the forum view whenever possible, since it's a rather slow process
-				 * Only rebuild if expiry time has changed or message gained/lost sticky status
+				/* Avoid rebuilding the forum view whenever possible, since it's a rather slow process.
+				 * Only rebuild if expiry time has changed or message gained/lost sticky status.
 				 */
 				$diff = $thread_opt ^ $th_data[1];
 				if (($diff > 1 && $diff & 14) || $orderexpiry != $th_data[0]) {
@@ -274,7 +274,7 @@ class fud_msg_edit extends fud_msg
 
 		q('DELETE FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mid);
 
-		/* attachments */
+		/* Attachments. */
 		if ($del->attach_cnt) {
 			$res = q('SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=0');
 			while ($loc = db_rowarr($res)) {
@@ -293,7 +293,7 @@ class fud_msg_edit extends fud_msg
 		/* check if thread */
 		if ($del->root_msg_id == $del->id) {
 			$th_rm = 1;
-			/* delete all messages in the thread if there is more than 1 message */
+			/* Delete all messages in the thread if there is more than 1 message. */
 			if ($del->replies) {
 				$rmsg = q('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND id != '.$del->id);
 				while ($dim = db_rowarr($rmsg)) {
@@ -309,14 +309,14 @@ class fud_msg_edit extends fud_msg
 			q('DELETE FROM {SQL_TABLE_PREFIX}thr_exchange WHERE th='.$del->thread_id);
 
 			if ($del->apr) {
-				/* we need to determine the last post id for the forum, it can be null */
+				/* We need to determine the last post id for the forum, it can be null. */
 				$lpi = (int) q_singleval('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.last_post_id=m.id AND m.apr=1 WHERE t.forum_id='.$del->forum_id.' AND t.moved_to=0 ORDER BY m.post_stamp DESC LIMIT 1');
 				q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$lpi.', thread_count=thread_count-1, post_count=post_count-'.$del->replies.'-1 WHERE id='.$del->forum_id);
 			}
 		} else if (!$th_rm  && $del->apr) {
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to='.$del->reply_to.' WHERE thread_id='.$del->thread_id.' AND reply_to='.$mid);
 
-			/* check if the message is the last in thread */
+			/* Check if the message is the last in thread. */
 			if ($del->thread_lip == $del->id) {
 				list($lpi, $lpd) = db_saq('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND apr=1 ORDER BY post_stamp DESC LIMIT 1');
 				q('UPDATE {SQL_TABLE_PREFIX}thread SET last_post_id='.$lpi.', last_post_date='.$lpd.', replies=replies-1 WHERE id='.$del->thread_id);
@@ -324,7 +324,7 @@ class fud_msg_edit extends fud_msg
 				q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-1 WHERE id='.$del->thread_id);
 			}
 
-			/* check if the message is the last in the forum */
+			/* Check if the message is the last in the forum. */
 			if ($del->forum_lip == $del->id) {
 				$page = q_singleval('SELECT seq FROM {SQL_TABLE_PREFIX}tv_'.$del->forum_id.' WHERE thread_id='.$del->thread_id);
 				$lp = db_saq('SELECT t.last_post_id, t.last_post_date 
@@ -364,7 +364,7 @@ class fud_msg_edit extends fud_msg
 			return;
 		}
 
-		/* needed for moved thread pointers */
+		/* Needed for moved thread pointers. */
 		$r = q('SELECT forum_id, id FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id='.$del->root_msg_id);
 		while (($res = db_rowarr($r))) {
 			q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id='.$res[1]);
@@ -376,7 +376,7 @@ class fud_msg_edit extends fud_msg
 
 	static function approve($id)
 	{
-		/* fetch info about the message, poll (if one exists), thread & forum */
+		/* Fetch info about the message, poll (if one exists), thread & forum. */
 		$mtf = db_sab('SELECT
 					m.id, m.poster_id, m.apr, m.subject, m.foff, m.length, m.file_id, m.thread_id, m.poll_id, m.attach_cnt,
 					m.post_stamp, m.reply_to, m.mlist_msg_id, m.msg_opt,
@@ -394,7 +394,7 @@ class fud_msg_edit extends fud_msg
 				LEFT JOIN {SQL_TABLE_PREFIX}nntp n ON n.forum_id=f.id AND (n.nntp_opt & 2) > 0
 				WHERE m.id='.$id.' AND m.apr=0');
 
-		/* nothing to do or bad message id */
+		/* Nothing to do or bad message id. */
 		if (!$mtf) {
 			return;
 		}
@@ -415,10 +415,10 @@ class fud_msg_edit extends fud_msg
 			$mtf->last_post_id = $mtf->id;
 		}		
 
-		if ($mtf->root_msg_id == $mtf->id) {	/* new thread */
+		if ($mtf->root_msg_id == $mtf->id) {	/* New thread. */
 			th_new_rebuild($mtf->forum_id, $mtf->thread_id, $mtf->thread_opt & (2|4|8));
 			$threads = 1;
-		} else {				/* reply to thread */
+		} else {				/* Reply to thread. */
 			if ($mtf->post_stamp > $mtf->last_post_date) {
 				th_inc_post_count($mtf->thread_id, 1, $mtf->id, $mtf->post_stamp);
 			} else {
@@ -428,7 +428,7 @@ class fud_msg_edit extends fud_msg
 			$threads = 0;
 		}
 
-		/* update forum thread & post count as well as last_post_id field */
+		/* Update forum thread & post count as well as last_post_id field. */
 		q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+1, thread_count=thread_count+'.$threads.', last_post_id='.$mtf->last_post_id.' WHERE id='.$mtf->forum_id);
 
 		if ($mtf->poll_id) {
@@ -470,7 +470,7 @@ class fud_msg_edit extends fud_msg
 				$to = array();
 			}
 			if ($mtf->root_msg_id != $mtf->id) {
-				/* send new reply notifications to thread subscribers */
+				/* Send new reply notifications to thread subscribers. */
 				$tmp = db_all('SELECT u.email
 						FROM {SQL_TABLE_PREFIX}thread_notify tn
 						INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id AND (u.users_opt & 134217728) = 0
@@ -578,7 +578,7 @@ function write_body($data, &$len, &$offset, $fid)
 	while ($s < $e) {
 		$fp = fopen($GLOBALS['MSG_STORE_DIR'].'msg_'.$s, 'ab');
 		if (!$fp) {
-			exit("FATAL ERROR: could not open message store for forum id#".$s."<br />\n");
+			exit('FATAL ERROR: could not open message store for forum id#'.$s."<br />\n");
 		}
 		fseek($fp, 0, SEEK_END);
 		if (!($off = ftell($fp))) {
@@ -595,7 +595,7 @@ function write_body($data, &$len, &$offset, $fid)
 		if ($fid) {
 			db_unlock();
 		}
-		exit("FATAL ERROR: system has ran out of disk space<br />\n");
+		exit("FATAL ERROR: system has ran out of disk space.<br />\n");
 	}
 	fclose($fp);
 
@@ -699,8 +699,8 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 		$pfx = str_repeat('/', substr_count(_rsid, '/'));
 	}
 
-	// we need this for spam filters like SpamAssassin
-	return str_replace('<script src="lib.js" type="text/javascript"></script>', '', '{TEMPLATE: iemail_body}');
+	// Remove all JavaScript. Spam filters like SpamAssassin don't like them.
+	return preg_replace('#<script[^>]*>.*?</script>#is', '', '{TEMPLATE: iemail_body}');
 }
 
 function poll_cache_rebuild($poll_id)
@@ -710,7 +710,7 @@ function poll_cache_rebuild($poll_id)
 	}
 
 	$data = array();
-	$c = uq('SELECT id, name, count FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='.$poll_id);
+	$c = uq('SELECT id, name, count FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='. $poll_id);
 	while ($r = db_rowarr($c)) {
 		$data[$r[0]] = array($r[1], $r[2]);
 	}
@@ -733,7 +733,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 	$CHARSET = $GLOBALS['CHARSET'];
 	if ($GLOBALS['FUD_OPT_2'] & 64) {	// NOTIFY_WITH_BODY
 		$munge_newlines = 0;
-		$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.reply_to, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.apr=1");
+		$obj = db_sab('SELECT p.total_votes, p.name AS poll_name, m.reply_to, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id='.$msg_id.' AND m.apr=1');
 
 		if (!$obj->alias) { /* anon user */
 			$obj->alias = htmlspecialchars($GLOBALS['ANON_NICK']);
@@ -741,9 +741,9 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 
 		$headers  = "MIME-Version: 1.0\r\n";
 		if ($obj->reply_to) {
-			$headers .= "In-Reply-To: ".$obj->reply_to."\r\n";
+			$headers .= 'In-Reply-To: '.$obj->reply_to."\r\n";
 		}
-		$headers .= "List-Id: ".$frm_id.".".(isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost')."\r\n";
+		$headers .= 'List-Id: '.$frm_id.'.'.(isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost')."\r\n";
 		$split = get_random_value(128)                                                                            ;
 		$headers .= "Content-Type: multipart/alternative;\n  boundary=\"------------" . $split . "\"\r\n";
 		$boundry = "\r\n--------------" . $split . "\r\n";
@@ -761,8 +761,8 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$plain_text = read_msg_body($obj->foff, $obj->length, $obj->file_id);
 		$iemail_unsub = html_entity_decode($id_type == 'thr' ? '{TEMPLATE: iemail_thread_unsub}' : '{TEMPLATE: iemail_forum_unsub}');
 
-		$body_email = 	$boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 8bit\r\n\r\n" . html_entity_decode(strip_tags($plain_text)) . "\r\n\r\n" . html_entity_decode('{TEMPLATE: iemail_participate}') . ' ' . '{FULL_ROOT}{ROOT}?t=rview&'.($id_type == 'thr' ? 'th' : 'frm_id').'=' . $id . "\r\n" .
-				$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 8bit\r\n\r\n" . make_email_message($plain_text, $obj, $iemail_unsub) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
+		$body_email = 	$boundry . 'Content-Type: text/plain; charset=' . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 8bit\r\n\r\n" . html_entity_decode(strip_tags($plain_text)) . "\r\n\r\n" . html_entity_decode('{TEMPLATE: iemail_participate}') . ' ' . '{FULL_ROOT}{ROOT}?t=rview&'.($id_type == 'thr' ? 'th' : 'frm_id').'=' . $id . "\r\n" .
+				$boundry . 'Content-Type: text/html; charset=' . $CHARSET . "\r\nContent-Transfer-Encoding: 8bit\r\n\r\n" . make_email_message($plain_text, $obj, $iemail_unsub) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
 	} else {
 		$munge_newlines = 1;
 		$headers = '';

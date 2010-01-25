@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,7 +18,7 @@ if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 	$total = $thr->replies + 1;
 
 	if ($reply_to && !isset($_POST['minimsg_pager_switch']) && $total > $count) {
-		$start = ($total - q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th_id." AND apr=1 AND id>=".$reply_to));
+		$start = ($total - q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th_id.' AND apr=1 AND id>='.$reply_to));
 		if ($start < 0) {
 			$start = 0;
 		}
@@ -31,7 +31,7 @@ if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 
 	/* This is an optimization intended for topics with many messages */
 	if ($use_tmp) {
-		q("CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_".__request_timestamp__." AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th_id." AND apr=1 ORDER BY id ".$msg_order_by." LIMIT " . qry_limit($count, $start));
+		q('CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_'.__request_timestamp__.' AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th_id.' AND apr=1 ORDER BY id '.$msg_order_by.' LIMIT ' . qry_limit($count, $start));
 	}
 
 	$c = q('SELECT m.*, t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
@@ -42,7 +42,7 @@ if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 			LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id' .
-		($use_tmp ? ' ORDER BY m.id '.$msg_order_by : " WHERE m.thread_id=".$th_id." AND m.apr=1 ORDER BY m.id ".$msg_order_by." LIMIT " . qry_limit($count, $start)));
+		($use_tmp ? ' ORDER BY m.id '.$msg_order_by : ' WHERE m.thread_id='.$th_id.' AND m.apr=1 ORDER BY m.id '.$msg_order_by.' LIMIT ' . qry_limit($count, $start)));
 
 	$message_data='';
 	$m_count = 0;
@@ -52,7 +52,7 @@ if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 	unset($c);
 
 	if ($use_tmp && $FUD_OPT_1 & 256) {
-		q("DROP TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_".__request_timestamp__);
+		q('DROP TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_'.__request_timestamp__);
 	}
 
 	$minimsg_pager = tmpl_create_pager($start, $count, $total, "javascript: document.post_form.minimsg_pager_switch.value='%s'; document.post_form.submit();", '', 0, 0, 1);

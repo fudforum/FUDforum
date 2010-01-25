@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,6 +24,10 @@ Content-Type: application/{VAR: format}+xml
 {SECTION: xml_no_data empty XML document}
 <?xml version="1.0" encoding="{CHARSET}"?>
 <error><message>{MSG: feed_no_data}</message></error>
+{SECTION: END}
+
+{SECTION: xml_msg_lnk}
+{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}
 {SECTION: END}
 
 /* ------------- */
@@ -54,14 +58,14 @@ Content-Type: application/{VAR: format}+xml
 {SECTION: END}
 
 {SECTION: rdf_message_header}
-<rdf:li rdf:resource="{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}" />
+<rdf:li rdf:resource="{TEMPLATE: xml_msg_lnk}" />
 {SECTION: END}
 
 {SECTION: rdf_message_entry}
 {IF: $basic}
-<item rdf:about="{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}">
+<item rdf:about="{TEMPLATE: xml_msg_lnk}">
 	<title>{FUNC: htmlspecialchars($r->subject)}</title>
-	<link>{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}</link>
+	<link>{TEMPLATE: xml_msg_lnk}</link>
 	<description>{FUNC: sp($body)}</description>
 	<dc:subject></dc:subject>
 	<dc:creator>{VAR: r->alias}</dc:creator>
@@ -191,7 +195,7 @@ Content-Type: application/{VAR: format}+xml
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>{VAR: FORUM_TITLE} - {MSG: feed_atom}</title>
 	<subtitle>{GVAR: FORUM_DESCR}</subtitle>
-	<link href="{FULL_ROOT}"/>
+	<link href="{FULL_ROOT}" />
 	<updated>{FUNC: gmdate('Y-m-d\TH:i:s', __request_timestamp__)}-00:00</updated>
 	<id>{FULL_ROOT}</id>
 	<generator uri="http://fudforum.org/" version="{VAR: FORUM_VERSION}">FUDforum</generator>
@@ -202,8 +206,8 @@ Content-Type: application/{VAR: format}+xml
 {SECTION: atom_message_entry}
 <entry>
 	<title>{FUNC: htmlspecialchars($r->subject)}</title>
-	<link href="{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}"/>
-	<id>{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}</id>
+	<link href="{TEMPLATE: xml_msg_lnk}" />
+	<id>{TEMPLATE: xml_msg_lnk}</id>
 	<author><name>{VAR: r->alias}</name></author>
 	<published>{FUNC: gmdate('Y-m-d\TH:i:s', $r->post_stamp)}-00:00</published>
 	{IF: $r->update_stamp}<updated>{FUNC: gmdate('Y-m-d\TH:i:s', $r->update_stamp)}-00:00</updated>{ENDIF}
@@ -215,7 +219,7 @@ Content-Type: application/{VAR: format}+xml
 <entry>
 	<title>{FUNC: htmlspecialchars($r->subject)}</title>
 	{IF: $r->tdescr}<subtitle>{FUNC: sp($r->tdescr)}</subtitle>{ENDIF}
-	<link href="{FULL_ROOT}index.php?t=rview&amp;th={VAR: r->id}"/>
+	<link href="{FULL_ROOT}index.php?t=rview&amp;th={VAR: r->id}" />
 	<id>{FULL_ROOT}index.php?t=rview&amp;th={VAR: r->id}</id>
 	<author><name>{FUNC: sp($r->alias)}</name></author>
 	<published>{FUNC: gmdate('Y-m-d\TH:i:s', $r->post_stamp)}-00:00</published>
@@ -227,7 +231,7 @@ Content-Type: application/{VAR: format}+xml
 {SECTION: atom_user_entry}
 <entry>
 	<title>{FUNC: sp($r->alias)}</title>
-	<link href="{FULL_ROOT}index.php?t=usrinfo&amp;id={VAR: r->id}"/>
+	<link href="{FULL_ROOT}index.php?t=usrinfo&amp;id={VAR: r->id}" />
 	<id>{FULL_ROOT}index.php?t=usrinfo&amp;id={VAR: r->id}</id>
 	<author>
 		<name>{FUNC: sp($r->name)}</name>
@@ -261,7 +265,7 @@ Content-Type: application/{VAR: format}+xml
 {SECTION: rss_message_entry}
 <item>
 	<title>{FUNC: htmlspecialchars($r->subject)}</title>
-	<link>{FULL_ROOT}index.php?t=rview&amp;goto={VAR: r->id}&amp;th={VAR: r->thread_id}#msg_{VAR: r->id}</link>
+	<link>{TEMPLATE: xml_msg_lnk}</link>
 	<author>{VAR: r->alias}</author>
 	<pubDate>{FUNC: gmdate('Y-m-d\TH:i:s', $r->post_stamp)}-00:00</pubDate>
 	<description>{FUNC: sp($body)}</description>

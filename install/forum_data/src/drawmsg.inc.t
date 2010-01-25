@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,10 +9,10 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-/* Handle poll votes if any are present */
+/* Handle poll votes if any are present. */
 function register_vote(&$options, $poll_id, $opt_id, $mid)
 {
-	/* invalid option or previously voted */
+	/* Invalid option or previously voted. */
 	if (!isset($options[$opt_id]) || q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$poll_id.' AND user_id='._uid)) {
 		return;
 	}
@@ -29,7 +29,7 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 
 $GLOBALS['__FMDSP__'] = array();
 
-/* needed for message threshold & reveling messages */
+/* Needed for message threshold & reveling messages. */
 if (isset($_GET['rev'])) {
 	$_GET['rev'] = htmlspecialchars((string)$_GET['rev']);
 	foreach (explode(':', $_GET['rev']) as $v) {
@@ -44,7 +44,7 @@ if (isset($_GET['rev'])) {
 	define('reveal_lnk', '');
 }
 
-/* initialize buddy & ignore list for registered users */
+/* Initialize buddy & ignore list for registered users. */
 if (_uid) {
 	if ($usr->buddy_list) {
 		$usr->buddy_list = unserialize($usr->buddy_list);
@@ -56,7 +56,7 @@ if (_uid) {
 		}
 	}
 
-	/* handle temporarily un-hidden users */
+	/* Handle temporarily un-hidden users. */
 	if (isset($_GET['reveal'])) {
 		$_GET['reveal'] = htmlspecialchars((string)$_GET['reveal']);
 		foreach(explode(':', $_GET['reveal']) as $v) {
@@ -127,21 +127,21 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	$b =& $usr->users_opt;
 
 	$next_page = $next_message = $prev_message = '';
-	/* draw next/prev message controls */
+	/* Draw next/prev message controls. */
 	if (!$hide_controls && $misc) {
-		/* tree view is a special condition, we only show 1 message per page */
+		/* Tree view is a special condition, we only show 1 message per page. */
 		if ($_GET['t'] == 'tree' || $_GET['t'] == 'tree_msg') {
 			$prev_message = $misc[0] ? '{TEMPLATE: dmsg_tree_prev_message_prev_page}' : '';
 			$next_message = $misc[1] ? '{TEMPLATE: dmsg_tree_next_message_next_page}' : '';
 		} else {
-			/* handle previous link */
+			/* Handle previous link. */
 			if (!$m_num && $obj->id > $obj->root_msg_id) { /* prev link on different page */
 				$prev_message = '{TEMPLATE: dmsg_prev_message_prev_page}';
-			} else if ($m_num) { /* inline link, same page */
+			} else if ($m_num) { /* Inline link, same page. */
 				$prev_message = '{TEMPLATE: dmsg_prev_message}';
 			}
 
-			/* handle next link */
+			/* Handle next link. */
 			if ($obj->id < $obj->last_post_id) {
 				if ($m_num && !($misc[1] - $m_num - 1)) { /* next page link */
 					$next_message = '{TEMPLATE: dmsg_next_message_next_page}';
@@ -156,7 +156,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 	$user_login = $obj->user_id ? $obj->login : $GLOBALS['ANON_NICK'];
 
-	/* check if the message should be ignored and it is not temporarily revelead */
+	/* Check if the message should be ignored and it is not temporarily revelead. */
 	if ($usr->ignore_list && !empty($usr->ignore_list[$obj->poster_id]) && !isset($GLOBALS['__FMDSP__'][$obj->id])) {
 		return !$hide_controls ? '{TEMPLATE: dmsg_ignored_user_message}' : '{TEMPLATE: dmsg_ignored_user_message_static}';
 	}
@@ -198,7 +198,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			$dmsg_bd_il = '';
 		}
 
-		/* show im buttons if need be */
+		/* Show im buttons if need be. */
 		if ($b & 16384) {
 			$im = '';
 			if ($obj->icq) {
@@ -245,10 +245,10 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		$dmsg_tags = $dmsg_im_row = $dmsg_bd_il = $location = $online_indicator = $avatar = '';
 	}
 
-	/* Display message body
-	 * If we have message threshold & the entirity of the post has been revelead show a preview
-	 * otherwise if the message body exists show an actual body
-	 * if there is no body show a 'no-body' message
+	/* Display message body.
+	 * If we have message threshold & the entirity of the post has been revelead show a
+	 * preview otherwise if the message body exists show an actual body.
+	 * If there is no body show a 'no-body' message.
 	 */
 	if (!$hide_controls && $obj->message_threshold && $obj->length_preview && $obj->length > $obj->message_threshold && !isset($GLOBALS['__FMDSP__'][$obj->id])) {
 		$msg_body = '{TEMPLATE: dmsg_short_message_body}';
@@ -258,7 +258,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		$msg_body = '{TEMPLATE: dmsg_no_msg_body}';
 	}
 
-	/* draw file attachments if there are any */
+	/* Draw file attachments if there are any. */
 	$drawmsg_file_attachments = '';
 	if ($obj->attach_cnt && !empty($obj->attach_cache)) {
 		$atch = unserialize($obj->attach_cache);
@@ -269,7 +269,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			}
 			$drawmsg_file_attachments = '{TEMPLATE: dmsg_drawmsg_file_attachments}';
 		}
-		/* append session to getfile */
+		/* Append session to getfile. */
 		if (_uid) {
 			if ($o1 & 128 && !isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
 				$msg_body = str_replace('<img src="index.php?t=getfile', '<img src="index.php?t=getfile&amp;S='.s, $msg_body);
@@ -289,7 +289,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		$obj->poll_cache = unserialize($obj->poll_cache);
 	}
 
-	/* handle poll votes */
+	/* Handle poll votes. */
 	if (!empty($_POST['poll_opt']) && ($_POST['poll_opt'] = (int)$_POST['poll_opt']) && !($obj->thread_opt & 1) && $perms & 512) {
 		if (register_vote($obj->poll_cache, $obj->poll_id, $_POST['poll_opt'], $obj->id)) {
 			$obj->total_votes += 1;
@@ -298,16 +298,16 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		unset($_GET['poll_opt']);
 	}
 
-	/* display poll if there is one */
+	/* Display poll if there is one. */
 	if ($obj->poll_id && $obj->poll_cache) {
-		/* we need to determine if we allow the user to vote or see poll results */
+		/* We need to determine if we allow the user to vote or see poll results. */
 		$show_res = 1;
 
 		if (isset($_GET['pl_view']) && !isset($_POST['pl_view'])) {
 			$_POST['pl_view'] = $_GET['pl_view'];
 		}
 
-		/* various conditions that may prevent poll voting */
+		/* Various conditions that may prevent poll voting. */
 		if (!$hide_controls && !$obj->cant_vote &&
 			(!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id) &&
 			($perms & 512 && (!($obj->thread_opt & 1) || $perms & 4096)) &&
@@ -344,7 +344,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		}
 	}
 
-	/* Determine if the message was updated and if this needs to be shown */
+	/* Determine if the message was updated and if this needs to be shown. */
 	if ($obj->update_stamp) {
 		if ($obj->updated_by != $obj->poster_id && $o1 & 67108864) {
 			$modified_message = '{TEMPLATE: dmsg_modified_message_mod}';

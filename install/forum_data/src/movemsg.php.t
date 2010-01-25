@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -22,7 +22,7 @@
 
 	// permissions checks for non-admins
 	if (!$is_a) {
-		// source thread
+		// Source thread.
 		$perms = db_saq('SELECT mm.id, '.(_uid ? ' COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco ' : ' g1.group_cache_opt AS gco ').'
 				FROM {SQL_TABLE_PREFIX}thread t
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.user_id='._uid.' AND mm.forum_id=t.forum_id
@@ -38,15 +38,15 @@
 		}
 	}
 
-	if (!($sth_info = db_arr_assoc("SELECT forum_id, root_msg_id, replies, last_post_id, last_post_date FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th))) {
+	if (!($sth_info = db_arr_assoc('SELECT forum_id, root_msg_id, replies, last_post_id, last_post_date FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th))) {
 		invl_inp_err();
 	}	
 
-	/* do the work */
+	/* Do the work. */
 	if (!empty($_POST['dest_th']) && !empty($_POST['msg_ids'])) {
 		$dth = (int)$_POST['dest_th'];
 
-		// destination
+		// Destination.
 		$perms = db_saq('SELECT mm.id, '.(_uid ? ' COALESCE(g2.group_cache_opt, g1.group_cache_opt) AS gco ' : ' g1.group_cache_opt AS gco ').'
 				FROM {SQL_TABLE_PREFIX}thread t
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.user_id='._uid.' AND mm.forum_id=t.forum_id
@@ -68,22 +68,22 @@
 			}
 		}
 		if ($mids && $dth > 0) {
-			$mids = db_all("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE id IN(".implode(',', $mids).") AND thread_id=".$th);
+			$mids = db_all('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE id IN('.implode(',', $mids).') AND thread_id='.$th);
 		}
 		if ($mids && $dth > 0) {
-			if (!($th_info = db_arr_assoc("SELECT forum_id, root_msg_id, replies, last_post_id, last_post_date FROM {SQL_TABLE_PREFIX}thread WHERE id=".$dth))) {
+			if (!($th_info = db_arr_assoc('SELECT forum_id, root_msg_id, replies, last_post_id, last_post_date FROM {SQL_TABLE_PREFIX}thread WHERE id='.$dth))) {
 				check_return($usr->returnto);
 			}
 
 			$mstr = implode(',', $mids);
 			$c_mids = count($mids);
-			// move thread
-			q("UPDATE {SQL_TABLE_PREFIX}msg SET thread_id=".$dth." WHERE id IN(".$mstr.") AND thread_id=".$th);
-			// fix up reply_to
-			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=".$th_info['root_msg_id']." WHERE id IN(".$mstr.") AND reply_to NOT IN(".$mstr.")");
+			// Move thread.
+			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='.$dth.' WHERE id IN('.$mstr.') AND thread_id='.$th);
+			// Fix up reply_to.
+			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to='.$th_info['root_msg_id'].' WHERE id IN('.$mstr.') AND reply_to NOT IN('.$mstr.')');
 
-			// determine if we need to update last_post_* in destination thread
-			$minfo = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE id IN(".$mstr.") ORDER BY post_stamp DESC LIMIT 1");
+			// Determine if we need to update last_post_* in destination thread.
+			$minfo = db_saq('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE id IN('.$mstr.') ORDER BY post_stamp DESC LIMIT 1');
 			if ($minfo[1] > $th_info['last_post_date']) {
 				$pfx = ', last_post_date='.$minfo[1].', last_post_id='.$minfo[0];
 				rebuild_forum_view_ttl($th_info['forum_id']);
@@ -91,32 +91,32 @@
 				$pfx = '';
 			}
 			
-			q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+".$c_mids.$pfx." WHERE id=".$dth);
-			if (q_singleval("SELECT last_post_id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$dth) == $th_info['last_post_id']) {
+			q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+'.$c_mids.$pfx.' WHERE id='.$dth);
+			if (q_singleval('SELECT last_post_id FROM {SQL_TABLE_PREFIX}forum WHERE id='.$dth) == $th_info['last_post_id']) {
 				$pfx = ', last_post_id='.$minfo[0];
 			} else {
 				$pfx = '';
 			}
-			q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+".$c_mids.$pfx." WHERE id=".$th_info['forum_id']);
+			q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+'.$c_mids.$pfx.' WHERE id='.$th_info['forum_id']);
 
-			// update source thread
+			// Update source thread.
 			if ($sth_info['replies']+1 == $c_mids) { // complete thread move
 				$del = new fud_msg_edit();
 				$del->delete(1, q_singleval('SELECT root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th), 1);
 			} else {
 				if (in_array($sth_info['last_post_id'], $mids)) {
-					$sinfo = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." ORDER BY post_stamp DESC LIMIT 1");
-					q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-".$c_mids.", last_post_date=".$sinfo[1].", last_post_id=".$sinfo[0]." WHERE id=".$th);
+					$sinfo = db_saq('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' ORDER BY post_stamp DESC LIMIT 1');
+					q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-'.$c_mids.', last_post_date='.$sinfo[1].', last_post_id='.$sinfo[0].' WHERE id='.$th);
 					rebuild_forum_view_ttl($sth_info['forum_id']);
-					$lp = q_singleval("SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}tv_".$sth_info['forum_id']." v 
+					$lp = q_singleval('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}tv_'.$sth_info['forum_id'].' v 
 								INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=v.thread_id
-								WHERE seq=1");
+								WHERE seq=1');
 					$pfx = ', last_post_id='.(int)$lp;
 				} else {
-					q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-".$c_mids." WHERE id=".$th);
+					q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-'.$c_mids.' WHERE id='.$th);
 					$pfx = '';
 				}
-				q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-".$c_mids.$pfx." WHERE id=".$th_info['forum_id']);
+				q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-'.$c_mids.$pfx.' WHERE id='.$th_info['forum_id']);
 			}
 		}
 	}
@@ -124,7 +124,7 @@
 	$anon_alias = htmlspecialchars($ANON_NICK);
 	$msg_entry = '';
 
-	$c = uq("SELECT m.id, m.foff, m.length, m.file_id, m.subject, m.post_stamp, u.alias FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id=".$th." AND m.apr=1 ORDER BY m.post_stamp ASC");
+	$c = uq('SELECT m.id, m.foff, m.length, m.file_id, m.subject, m.post_stamp, u.alias FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='.$th.' AND m.apr=1 ORDER BY m.post_stamp ASC');
 	while ($r = db_rowobj($c)) {
 		$msg_entry .= '{TEMPLATE: move_msg_entry}';
 	}

@@ -18,7 +18,7 @@ function &init_user()
 		$_SERVER['PATH_INFO'] = $_SERVER['ORIG_PATH_INFO'];
 	}
 
-	/* we need to parse S & rid right away since they are used during user init */
+	/* We need to parse S & rid right away since they are used during user init. */
 	if ($o2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
 		$pb = $p = explode('/', substr($_SERVER['PATH_INFO'], 1, -1));
 		if ($o1 & 128) {
@@ -29,11 +29,11 @@ function &init_user()
 		}
 		$_SERVER['QUERY_STRING'] = htmlspecialchars($_SERVER['PATH_INFO']) . '?' . $_SERVER['QUERY_STRING'];
 
-		/* continuation of path info parsing */
+		/* Continuation of path info parsing. */
 		if (!isset($p[0])) {
 			$p[0] = 'i';
 		}
-		/* notice prevention code */
+		/* Notice prevention code. */
 		for ($i = 1; $i < 5; $i++) {
 			if (!isset($p[$i])) {
 				$p[$i] = null;
@@ -300,7 +300,7 @@ function &init_user()
 			case 'pv':
 				$_GET['t'] = 0;
 				if (isset($p[1])) {
-					$_GET['goto'] = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE poll_id=".(int)$p[1]);
+					$_GET['goto'] = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE poll_id='.(int)$p[1]);
 					$_GET['pl_view'] = empty($p[2]) ? 0 : (int)$p[2];
 				}
 				break;
@@ -655,10 +655,10 @@ function &init_user()
 		}
 	}
 	if ($GLOBALS['is_post'] || $GLOBALS['is_aol'] || $u->id > 1) {
-		header("Cache-Control: no-store, private, must-revalidate, proxy-revalidate, post-check=0, pre-check=0, max-age=0, s-maxage=0");
+		header('Cache-Control: no-store, private, must-revalidate, proxy-revalidate, post-check=0, pre-check=0, max-age=0, s-maxage=0');
 		if (!$GLOBALS['is_aol']) { /* these headers cause troubles for AOL browser (amazing POS) */
-			header("Expires: Mon, 21 Jan 1980 06:01:01 GMT");
-			header("Pragma: no-cache");
+			header('Expires: Mon, 21 Jan 1980 06:01:01 GMT');
+			header('Pragma: no-cache');
 		}
 	}
 
@@ -771,7 +771,7 @@ function user_register_thread_view($thread_id, $tm=__request_timestamp__, $msg_i
 
 function user_set_post_count($uid)
 {
-	$pd = db_saq("SELECT MAX(id),count(*) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id=".$uid." AND apr=1");
+	$pd = db_saq('SELECT MAX(id),count(*) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='.$uid.' AND apr=1');
 	$level_id = (int) q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}level WHERE post_count <= '.$pd[1].' ORDER BY post_count DESC LIMIT 1');
 	q('UPDATE {SQL_TABLE_PREFIX}users SET u_last_post_id='.(int)$pd[0].', posted_msg_count='.(int)$pd[1].', level_id='.$level_id.' WHERE id='.$uid);
 }
@@ -793,7 +793,7 @@ function user_mark_forum_read($id, $fid, $last_view)
 		}
 	} else {
 		if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view, $ef)) {
-			q("UPDATE {SQL_TABLE_PREFIX}read SET user_id=".$id.", msg_id=t.last_post_id, last_view=".__request_timestamp__." FROM (SELECT id, last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE forum_id=".$fid." AND last_post_date > ".$last_view.") t WHERE user_id=".$id." AND thread_id=t.id");
+			q('UPDATE {SQL_TABLE_PREFIX}read SET user_id='.$id.', msg_id=t.last_post_id, last_view='.__request_timestamp__.' FROM (SELECT id, last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view.') t WHERE user_id='.$id.' AND thread_id=t.id');
 		}
 	}
 	user_register_forum_view($fid);

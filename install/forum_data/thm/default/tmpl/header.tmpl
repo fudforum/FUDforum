@@ -1,5 +1,5 @@
 /**************************************************************************
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -8,8 +8,7 @@
 * Free Software Foundation; version 2 of the License.
 ***************************************************************************/
 
-{MAIN_SECTION: header forum page header}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{MAIN_SECTION: header forum page header}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="{DIR}" lang="{LANG}" xml:lang="{LANG}">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
@@ -30,7 +29,7 @@
 {IF: $FUD_OPT_1 & 16777216}
   <div class="headsearch">
     <form id="headsearch" method="get" action="{ROOT}">{DEF: _hs}
-      {MSG: search_forum_search}:<br />
+      <br />{MSG: search_forum_search}:<br />
       <input type="hidden" name="t" value="search" />
       <input type="text" name="srch" accesskey="f" value="" size="15" />
       <input type="submit" name="btn_submit" value="{MSG: search}" class="headbutton" />
@@ -38,7 +37,7 @@
   </div>
 {ENDIF}
 <a href="{ROOT}" title="{MSG: home}"><span class="headtitle">{GVAR: FORUM_TITLE}</span></a><br />
-<span class="headdescr">{GVAR: FORUM_DESCR}</span></div>
+<span class="headdescr">{GVAR: FORUM_DESCR}<br /><br /></span></div>
 <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b>
 </div>
 <br />

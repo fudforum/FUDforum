@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,11 +15,11 @@ function th_add($root, $forum_id, $last_post_date, $thread_opt, $orderexpiry, $r
 		$lpi = $root;
 	}
 
-	return db_qid("INSERT INTO
+	return db_qid('INSERT INTO
 		{SQL_TABLE_PREFIX}thread
 			(forum_id, root_msg_id, last_post_date, replies, views, rating, last_post_id, thread_opt, orderexpiry, tdescr)
 		VALUES
-			(".$forum_id.", ".$root.", ".$last_post_date.", ".$replies.", $views, 0, ".$lpi.", ".$thread_opt.", ".$orderexpiry.","._esc($descr).")");
+			('.$forum_id.', '.$root.', '.$last_post_date.', '.$replies.', '.$views.', 0, '.$lpi.', '.$thread_opt.', '.$orderexpiry.','._esc($descr).')');
 }
 
 function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last_post_id, $tdescr)

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -56,7 +56,7 @@ function get_preview_img($id)
 	}
 
 	if ($FUD_OPT_2 & 4194304 && !empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $WWW_ROOT) === false) {
-		header("HTTP/1.0 404 Not Found");
+		header('HTTP/1.0 404 Not Found');
 		exit;
 	}
 
@@ -81,8 +81,8 @@ function get_preview_img($id)
 		$append = '';
 	}
 
-	/* if we encounter a compressed file and PHP's output compression is enabled do not
-	 * try to compress images & already compressed files */
+	/* If we encounter a compressed file and PHP's output compression is enabled do not
+	 * try to compress images & already compressed files. */
 	if ($FUD_OPT_2 & 16384 && $append) {
 		$comp_ext = array('zip', 'gz', 'rar', 'tgz', 'bz2', 'tar');
 		$ext = strtolower(substr(strrchr($r[1], '.'), 1));
@@ -91,15 +91,15 @@ function get_preview_img($id)
 		}
 	}
 
-	/* this is a hack for IE browsers when working on HTTPs,
-	 * the no-cache headers appear to cause problems as indicated by the following
+	/* This is a hack for IE browsers when working on HTTPs.
+	 * The no-cache headers appear to cause problems as indicated by the following
 	 * MS advisories:
 	 *	http://support.microsoft.com/?kbid=812935
 	 *	http://support.microsoft.com/default.aspx?scid=kb;en-us;316431
 	 */
-	if ($_SERVER["SERVER_PORT"] == "443" && (strpos($_SERVER["HTTP_USER_AGENT"], 'MSIE') !== false)) {
-		header("Cache-Control: must-revalidate, post-check=0, pre-check=0", 1);
-		header("Pragma: public", 1);
+	if ($_SERVER['SERVER_PORT'] == '443' && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) {
+		header('Cache-Control: must-revalidate, post-check=0, pre-check=0', 1);
+		header('Pragma: public', 1);
 	} else if (__fud_cache(filemtime($r[2]))) {
 		return;
 	}

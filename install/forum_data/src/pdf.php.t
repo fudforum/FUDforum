@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -220,7 +220,7 @@ class fud_pdf extends FPDF
 				unset($sel[$k]);
 			}
 		}
-		if (!$sel || !q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE id IN(".implode(',', $sel).") AND duser_id="._uid)) {
+		if (!$sel || !q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE id IN('.implode(',', $sel).') AND duser_id='._uid)) {
 			invl_inp_err();
 		}
 		fud_use('private.inc');
@@ -233,11 +233,11 @@ class fud_pdf extends FPDF
 			$join .= '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.' ';
-			$lmt .= " AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)";
+			$lmt .= ' AND (mm.id IS NOT NULL OR (COALESCE(g2.group_cache_opt, g1.group_cache_opt) & 2) > 0)';
 		}
 	} else {
 		$join .= ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-		$lmt .= " AND (g1.group_cache_opt & 2) > 0";
+		$lmt .= ' AND (g1.group_cache_opt & 2) > 0';
 	}
 
 	if ($forum) {
@@ -255,9 +255,9 @@ class fud_pdf extends FPDF
 			WHERE
 				t.moved_to=0 AND m.apr=1 '.$lmt.' ORDER BY m.post_stamp, m.thread_id');
 	} else {
-		$c = q("SELECT p.*, u.alias, p.duser_id AS uid FROM {SQL_TABLE_PREFIX}pmsg p 
+		$c = q('SELECT p.*, u.alias, p.duser_id AS uid FROM {SQL_TABLE_PREFIX}pmsg p 
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id
-				WHERE p.id IN(".implode(',', $sel).") AND p.duser_id="._uid);
+				WHERE p.id IN('.implode(',', $sel).') AND p.duser_id='._uid);
 	}
 
 	if (!($o = db_rowobj($c))) {

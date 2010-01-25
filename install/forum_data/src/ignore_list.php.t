@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,7 +17,7 @@
 
 function ignore_alias_fetch($al, &$is_mod)
 {
-	if (!($tmp = db_saq("SELECT id, (users_opt & 1048576) FROM {SQL_TABLE_PREFIX}users WHERE alias="._esc(char_fix(htmlspecialchars($al)))))) {
+	if (!($tmp = db_saq('SELECT id, (users_opt & 1048576) FROM {SQL_TABLE_PREFIX}users WHERE alias='._esc(char_fix(htmlspecialchars($al)))))) {
 		return;
 	}
 	$is_mod = $tmp[1];
@@ -59,7 +59,7 @@ function ignore_alias_fetch($al, &$is_mod)
 	}
 
 	/* anon user hack */
-	if (isset($_GET['del']) && $_GET['del'] === "0") {
+	if (isset($_GET['del']) && $_GET['del'] === '0') {
 		$_GET['del'] = 1;
 	}
 

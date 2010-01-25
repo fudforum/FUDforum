@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,12 +17,12 @@ function grp_delete_member($id, $user_id)
 
 	q('DELETE FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$id.' AND user_id='.$user_id);
 
-	if (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE user_id=".$user_id." LIMIT 1")) {
+	if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE user_id='.$user_id.' LIMIT 1')) {
 		/* we rebuild cache, since this user's permission for a particular resource are controled by
 		 * more the one group. */
 		grp_rebuild_cache(array($user_id));
 	} else {
-		q("DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=".$user_id);
+		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id='.$user_id);
 	}
 }
 
@@ -42,7 +42,7 @@ function grp_rebuild_cache($user_id=null)
 	}
 
 	/* generate an array of permissions, in the end we end up with 1ist of permissions */
-	$r = uq("SELECT gm.user_id AS uid, gm.group_members_opt AS gco, gr.resource_id AS rid FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_members_opt>=65536 AND (gm.group_members_opt & 65536) > 0" . ($lmt ? ' AND '.$lmt : ''));
+	$r = uq('SELECT gm.user_id AS uid, gm.group_members_opt AS gco, gr.resource_id AS rid FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_members_opt>=65536 AND (gm.group_members_opt & 65536) > 0' . ($lmt ? ' AND '.$lmt : ''));
 	while ($o = db_rowobj($r)) {
 		foreach ($o as $k => $v) {
 			$o->{$k} = (int) $v;
@@ -62,27 +62,27 @@ function grp_rebuild_cache($user_id=null)
 	$tmp = array();
 	foreach ($list as $k => $v) {
 		foreach ($v as $u => $p) {
-			$tmp[] = $k.",".$p.",".$u;
+			$tmp[] = $k.','.$p.','.$u;
 		}
 	}
 
 	if (!$tmp) {
-		q("DELETE FROM {SQL_TABLE_PREFIX}group_cache" . ($lmt ? ' WHERE '.$lmt : ''));
+		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache' . ($lmt ? ' WHERE '.$lmt : ''));
 		return;
 	}
 
 	if (__dbtype__ == 'mysql') {
-		q("REPLACE INTO {SQL_TABLE_PREFIX}group_cache (resource_id, group_cache_opt, user_id) VALUES (".implode('),(', $tmp).")");
-		q("DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE ".($lmt ? $lmt . ' AND ' : '')." id < LAST_INSERT_ID()");
+		q('REPLACE INTO {SQL_TABLE_PREFIX}group_cache (resource_id, group_cache_opt, user_id) VALUES ('.implode('),(', $tmp).')');
+		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE '.($lmt ? $lmt . ' AND ' : '').' id < LAST_INSERT_ID()');
 		return;
 	}
 	
 	if (($ll = !db_locked())) {
-		db_lock("{SQL_TABLE_PREFIX}group_cache WRITE");
+		db_lock('{SQL_TABLE_PREFIX}group_cache WRITE');
 	}
 
-	q("DELETE FROM {SQL_TABLE_PREFIX}group_cache" . ($lmt ? ' WHERE '.$lmt : ''));
-	ins_m("{SQL_TABLE_PREFIX}group_cache", "resource_id, group_cache_opt, user_id", $tmp, "integer, integer, integer");
+	q('DELETE FROM {SQL_TABLE_PREFIX}group_cache' . ($lmt ? ' WHERE '.$lmt : ''));
+	ins_m('{SQL_TABLE_PREFIX}group_cache', 'resource_id, group_cache_opt, user_id', $tmp, 'integer, integer, integer');
 
 	if ($ll) {
 		db_unlock();

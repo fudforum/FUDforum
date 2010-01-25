@@ -1,7 +1,7 @@
 #!/usr/local/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,14 +29,14 @@ function make_lang_todo($list, $eng, $name)
 		return;
 	}
 
-	if (!($fp = fopen($name . '.todo', 'w'))) {
-		exit("unable to open ".$name.".todo for writing\n");
+	if (!($fp = fopen($name .'.todo', 'w'))) {
+		exit('Unable to open '. $name .".todo for writing.\n");
 	}
-	fwrite($fp, "\n== Untranslated strings for ".  ucwords($name) ."==\n\n");	
+	fwrite($fp, "\n== Untranslated strings for ". ucwords($name) ."==\n\n");	
 	foreach ($eng as $k => $v) {
 		if (!isset($list[$k])) {
 			$n_tabs = 4 - floor((strlen($k) + 1) / 8);
-			fwrite($fp, "*". $k .":". str_repeat("\t", $n_tabs) . $v);	
+			fwrite($fp, '*'. $k .':'. str_repeat("\t", $n_tabs) . $v);	
 		}
 	}
 	fclose($fp);

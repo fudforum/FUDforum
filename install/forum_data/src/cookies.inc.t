@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -89,9 +89,9 @@ function ses_anon_make()
 	do {
 		$uid = 2000000000 + mt_rand(1, 147483647);
 		$ses_id = md5($uid . __request_timestamp__ . getmypid());
-	} while (!($id = db_li("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES ('".$ses_id."', ".__request_timestamp__.", '".ses_make_sysid()."', ".$uid.")", $ef, 1)));
+	} while (!($id = db_li("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES ('".$ses_id."', ".__request_timestamp__.", '".ses_make_sysid()."', ".$uid.')', $ef, 1)));
 
-	/* when we have an anon user, we set a special cookie allowing us to see who referred this user */
+	/* When we have an anon user, we set a special cookie allowing us to see who referred this user. */
 	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['FUD_OPT_2'] & 8192) {
 		setcookie($GLOBALS['COOKIE_NAME'].'_referer_id', $_GET['rid'], __request_timestamp__+31536000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 	}
@@ -112,7 +112,7 @@ function ses_putvar($ses_id, $data)
 	if (empty($data)) {
 		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=NULL WHERE '.$cond);
 	} else {
-		q("UPDATE {SQL_TABLE_PREFIX}ses SET data="._esc(serialize($data))." WHERE ".$cond);
+		q('UPDATE {SQL_TABLE_PREFIX}ses SET data='._esc(serialize($data)).' WHERE '.$cond);
 	}
 }
 
@@ -131,7 +131,7 @@ function ses_anonuser_auth($id, $error)
 	if (!empty($_POST)) {
 		$_SERVER['QUERY_STRING'] = '';
 	}
-	q("UPDATE {SQL_TABLE_PREFIX}ses SET data="._esc(serialize($error)).", returnto=".ssn($_SERVER['QUERY_STRING'])." WHERE id=".$id);
+	q('UPDATE {SQL_TABLE_PREFIX}ses SET data='._esc(serialize($error)).', returnto='.ssn($_SERVER['QUERY_STRING']).' WHERE id='.$id);
 	if ($GLOBALS['FUD_OPT_2'] & 32768) {
 		header('Location: {FULL_ROOT}{ROOT}/l/'._rsidl);
 	} else {

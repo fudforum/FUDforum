@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -54,10 +54,10 @@
 	$final_merge = !empty($_POST['merge_sel_all']);
 
 	/* Ensure that all threads are from the same forum and that they exist. */
-	$c = uq("SELECT m.subject, t.id, t.root_msg_id, t.replies, t.last_post_date, t.last_post_id, t.tdescr, t.thread_opt
+	$c = uq('SELECT m.subject, t.id, t.root_msg_id, t.replies, t.last_post_date, t.last_post_id, t.tdescr, t.thread_opt
 			FROM {SQL_TABLE_PREFIX}thread t 
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id
-			WHERE t.id IN(".implode(',', $list).") AND t.forum_id=".$perms[0]);
+			WHERE t.id IN('.implode(',', $list).') AND t.forum_id='.$perms[0]);
 	$ext = $list = array();
 	while ($r = db_rowarr($c)) {
 		$list[$r[1]] = $r[0];

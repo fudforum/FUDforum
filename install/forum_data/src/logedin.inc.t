@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -38,8 +38,8 @@ function &rebuild_stats_cache($last_msg_id)
 	$obj->last_user_alias = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$obj->last_user_id);
 	$obj->last_msg_subject = q_singleval('SELECT subject FROM {SQL_TABLE_PREFIX}msg WHERE id='.$last_msg_id);
 
-	list($obj->most_online,$obj->most_online_time) = db_saq("SELECT most_online, most_online_time FROM {SQL_TABLE_PREFIX}stats_cache");
-	/* update most online users stats if needed */
+	list($obj->most_online,$obj->most_online_time) = db_saq('SELECT most_online, most_online_time FROM {SQL_TABLE_PREFIX}stats_cache');
+	/* Update most online users stats if needed. */
 	if (($obj->online_users_reg + $obj->online_users_hidden + $obj->online_users_anon) > $obj->most_online) {
 		$obj->most_online = $obj->online_users_reg + $obj->online_users_hidden + $obj->online_users_anon;
 		$obj->most_online_time = __request_timestamp__;

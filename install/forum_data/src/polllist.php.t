@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,7 +13,7 @@
 
 	if (!empty($_GET['goto'])) {
 		$pl_view = empty($_GET['vote']) ? 0 : (int)$_GET['goto'];
-		$mid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE poll_id=".(int)$_GET['goto']);
+		$mid = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE poll_id='.(int)$_GET['goto']);
 		/* PATH_INFO is handled via /pv/ */
 		header('Location: {FULL_ROOT}{ROOT}?t='.d_thread_view.'&goto='.$mid.'&pl_view='.$pl_view.'&'._rsidl.'#msg_'.$mid);
 		return;
@@ -77,7 +77,7 @@
 	}
 	unset($c);
 
-	if (($ttl = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {
+	if (($ttl = (int) q_singleval('SELECT /*!40000 FOUND_ROWS(), */ -1')) < 0) {
 		$ttl = (int) q_singleval('SELECT count(*)
 				FROM {SQL_TABLE_PREFIX}poll p
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id

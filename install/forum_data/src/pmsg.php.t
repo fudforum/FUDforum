@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -25,7 +25,7 @@
 
 	/* empty trash */
 	if (isset($_POST['btn_trash'])) {
-		$c = q("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id="._uid." AND fldr=5");
+		$c = q('SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND fldr=5');
 		while ($r = db_rowarr($c)) {
 			pmsg_del((int)$r[0], 5);
 		}
@@ -119,7 +119,7 @@
 		$s = 'DESC';
 	}
 
-	$ttl = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id="._uid." AND fldr=".$folder_id);
+	$ttl = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND fldr='.$folder_id);
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 	$start = (empty($_GET['start']) || $_GET['start'] >= $ttl) ? 0 : (int) $_GET['start'];
 

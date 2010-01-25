@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,7 +20,7 @@
 		}
 		exit;
 	}
-	$name = q_singleval("SELECT name FROM {SQL_TABLE_PREFIX}users WHERE id=".__fud_real_user__);
+	$name = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}users WHERE id='.__fud_real_user__);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
