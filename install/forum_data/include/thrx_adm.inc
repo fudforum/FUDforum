@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,7 +16,7 @@ function thx_add($reason_msg, $th, $frm, $req_by)
 		db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'thr_exchange WRITE');
 	}
 
-	$id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."thr_exchange (reason_msg,th,frm,req_by) VALUES("._esc(nl2br(htmlspecialchars($reason_msg))).",".$th.",".$frm.",".$req_by.")");
+	$id = db_qid('INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].'thr_exchange (reason_msg,th,frm,req_by) VALUES('._esc(nl2br(htmlspecialchars($reason_msg))).','.$th.','.$frm.','.$req_by.')');
 
 	if (isset($ll)) {
 		db_unlock();

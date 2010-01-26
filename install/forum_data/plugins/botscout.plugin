@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -15,7 +15,7 @@ plugin_add_hook('PREREGISTRATION', 'plugin_botscout');
 // Validate registering users with BotScout
 function plugin_botscout($uent) {
 	if((@include_once $GLOBALS['PLUGIN_PATH'].'/botscout.ini') === false) {
-		die('ERROR: Please configure the BotScout plugin from the Plugin Manager Control panel.');
+		$ini = array();
 	}
 
 	$apiquery = 'http://botscout.com/test/?multi&mail='. urlencode($uent->email) .'.&ip='. $_SERVER['REMOTE_ADDR'];
@@ -38,7 +38,7 @@ function plugin_botscout($uent) {
 function botscout_info() {
 	return array('name' => 'BotScout',
 		     'desc' => 'This plugin integrates with the BotScout API to screen registering users and prevent known bots from creating accounts on your forum.',
-			 'version' => '1.1');
+			 'version' => '1.2');
 }
 
 function botscout_config() {

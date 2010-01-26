@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -66,7 +66,7 @@
 	$THREADS_PER_PAGE	= 40;
 	$WORD_WRAP		= 60;
 	$NOTIFY_FROM		= '';		/* email */
-	$ANON_NICK		= 'Anonymous Coward';
+	$ANON_NICK		= 'Anonymous';	/* coward */
 	$FLOOD_CHECK_TIME	= 60;		/* seconds */
 	$MOD_FIRST_N_POSTS	= 1;
 	$POSTS_BEFORE_LINKS	= 0;

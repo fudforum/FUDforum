@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -36,7 +36,7 @@ class fud_cat
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=view_order+1 WHERE parent='.(int)$this->parent);
 		}
 
-		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."cat (name, description, view_order, cat_opt, parent) VALUES ("._esc(htmlspecialchars($this->name)).", "._esc($this->description).", ".$this->view_order.", ".$this->cat_opt.", ".(int)$this->parent.")");
+		$this->id = db_qid('INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat (name, description, view_order, cat_opt, parent) VALUES ('._esc(htmlspecialchars($this->name)).', '._esc($this->description).', '.$this->view_order.', '.$this->cat_opt.', '.(int)$this->parent.')');
 
 		if (isset($ll)) {
 			db_unlock();
@@ -47,7 +47,7 @@ class fud_cat
 
 	function sync($id)
 	{
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."cat SET parent=".(int)$this->parent.", name="._esc(htmlspecialchars($this->name)).",description="._esc($this->description).", cat_opt=".$this->cat_opt." WHERE id=".$id);
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET parent='.(int)$this->parent.', name='._esc(htmlspecialchars($this->name)).',description='._esc($this->description).', cat_opt='.$this->cat_opt.' WHERE id='.$id);
 		cat_rebuild_order();
 	}
 }
@@ -99,13 +99,13 @@ function rebuild_forum_cat_order()
 		db_lock($tbl.'cat c WRITE,'.$tbl.'fc_view WRITE,'.$tbl.'forum f WRITE');
 	}
 
-	q("DELETE FROM ".$tbl."fc_view");
+	q('DELETE FROM '.$tbl.'fc_view');
 
-	/* we use left join to catch categories without any forums, but with sub-categories */
-	$c = uq("SELECT c.id, f.id, c.parent, c.name, c.view_order, f.view_order 
-			FROM ".$tbl."cat c 
-			LEFT JOIN ".$tbl."forum f ON f.cat_id=c.id
-			ORDER BY c.parent, c.view_order, f.view_order");
+	/* We use left join to catch categories without any forums, but with sub-categories. */
+	$c = uq('SELECT c.id, f.id, c.parent, c.name, c.view_order, f.view_order 
+			FROM '.$tbl.'cat c 
+			LEFT JOIN '.$tbl.'forum f ON f.cat_id=c.id
+			ORDER BY c.parent, c.view_order, f.view_order');
 
 	$tmp = $lvl = $cat_cache = $cat_par = $data = array();
 	$ml = $cm = $fm = 0;
@@ -144,7 +144,7 @@ function rebuild_forum_cat_order()
 	ksort($data);
 	foreach ($data as $v) {
 		if ($v[1]) {		
-			q("INSERT INTO ".$tbl."fc_view (c, f, lvl) VALUES(".$v[0].",".$v[1].",".$lvl[$v[0]].")");
+			q('INSERT INTO '.$tbl.'fc_view (c, f, lvl) VALUES('.$v[0].','.$v[1].','.$lvl[$v[0]].')');
 		}
 		if (isset($cat_cache[$v[0]])) {
 			continue;
@@ -175,7 +175,7 @@ function rebuild_forum_cat_order()
 	}
 
 	$cache_file = $GLOBALS['FORUM_SETTINGS_PATH'] . 'cat_cache.inc';
-	$fp = fopen($cache_file.'.tmp', "w");
+	$fp = fopen($cache_file.'.tmp', 'w');
 	fwrite($fp, '<?php $cat_cache = '.var_export($cat_cache, 1).'; $cat_par = '.var_export($cat_par, 1).'; ?>');
 	fclose($fp);
 	
@@ -185,7 +185,7 @@ function rebuild_forum_cat_order()
 	rename($cache_file.'.tmp', $cache_file);
 
 	/* now we build a special cache specifically for the front page */
-	$c = uq("SELECT 0, name, description, cat_opt, parent, id FROM ".$tbl."cat c");
+	$c = uq('SELECT 0, name, description, cat_opt, parent, id FROM '.$tbl.'cat c');
 	while ($r = db_rowarr($c)) {
 		$cid = (int) array_pop($r);
 
@@ -212,7 +212,7 @@ function rebuild_forum_cat_order()
 	unset($c);
 
 	$cache_file = $GLOBALS['FORUM_SETTINGS_PATH'] . 'idx.inc';
-	$fp = fopen($cache_file.'.tmp', "w");
+	$fp = fopen($cache_file.'.tmp', 'w');
 	fwrite($fp, '<?php $cidxc = '.var_export($cat_cache, 1).'; ?>');
 	fclose($fp);
 	if (!strncasecmp('win', PHP_OS, 3)) {

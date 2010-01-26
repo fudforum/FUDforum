@@ -33,9 +33,9 @@ class fud_calendar
 			desc,
 			link
 		) VALUES (
-			'. $this->year .',
-			'. $this->month .',
-			'. $this->day .',
+			'. ssn($this->year) .',
+			'. ssn($this->month) .',
+			'. ssn($this->day) .',
 			'. ssn($this->desc) .',
 			'. ssn($this->link) .'
 		)');
@@ -48,9 +48,9 @@ class fud_calendar
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 		q('UPDATE '. $tbl.'calendar SET
-			year='. $this->year.',
-			month='. $this->month.',
-			day='. $this->day.',
+			year='. ssn($this->year).',
+			month='. ssn($this->month).',
+			day='. ssn($this->day).',
 			desc='. ssn($this->desc).',
 			link='. ssn($this->link).'
 		WHERE id='. (int)$id);

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,16 +11,16 @@
 
 function ext_cache_rebuild()
 {
-	$c = uq('SELECT ext FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'ext_block');
+	$c = uq('SELECT ext FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'ext_block');
 	while ($r = db_rowarr($c)) {
 		$a[] = strtolower(addcslashes($r[0], '\'\\'));
 	}
 	unset($c);
 
-	$data = isset($a) ? "'" . implode("', '", $a) . "'" : '';
+	$data = isset($a) ? "'". implode("', '", $a) ."'" : '';
 
 	$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'] . 'file_filter_regexp', 'w');
-	fwrite($fp, '<?php $GLOBALS[\'__FUD_EXT_FILER__\'] = array(' . $data . '); ?>');
+	fwrite($fp, '<?php $GLOBALS[\'__FUD_EXT_FILER__\'] = array('. $data .'); ?>');
 	fclose($fp);
 }
 ?>

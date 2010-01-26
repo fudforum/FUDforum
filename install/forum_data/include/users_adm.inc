@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -41,7 +41,7 @@ function usr_delete($id)
 	q('DELETE FROM '.$tbl.'group_members WHERE user_id IN('.implode(',', $id).')');
 	q('UPDATE '.$tbl.'msg SET poster_id=0 WHERE poster_id IN('.implode(',', $id).')');
 
-	/* Delete the private messages of this user */
+	/* Delete the private messages of this user. */
 	$c = q('SELECT id FROM '.$tbl.'pmsg WHERE duser_id IN('.implode(',', $id).')');
 	while ($r = db_rowarr($c)) {
 		if (!function_exists('pmsg_del')) {

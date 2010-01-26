@@ -2,7 +2,7 @@
 exit("To run the un-installer, comment out the 2nd line of this script!\n");
 
 /***************************************************************************
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *

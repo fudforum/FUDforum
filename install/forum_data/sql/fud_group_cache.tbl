@@ -1,4 +1,4 @@
-#   copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+#   copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
 #   $Id$
@@ -22,7 +22,7 @@ CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}group_cache_i_ru ON {SQL_TABLE_PREFIX}grou
 CREATE INDEX {SQL_TABLE_PREFIX}group_cache_i_g ON {SQL_TABLE_PREFIX}group_cache (group_id);
 CREATE INDEX {SQL_TABLE_PREFIX}group_cache_i_u ON {SQL_TABLE_PREFIX}group_cache (user_id);
 
-
+# group_cache_opt:
 # 1 p_VISIBLE
 # 2 p_READ
 # 4 p_POST

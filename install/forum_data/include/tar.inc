@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -32,18 +32,18 @@ function add_to_tar($v, $di, $is_dir, $s)
 	$hdr .= str_pad(decoct($di[5]), 7, '0', STR_PAD_LEFT) . "\0";
 	$hdr .= str_pad(decoct(($is_dir ? 0 : $di[7])), 11, '0', STR_PAD_LEFT) . "\0";
 	$hdr .= str_pad(decoct($di[9]), 11, '0', STR_PAD_LEFT) . "\0";
-	$hdr .= "        " . ($is_dir ? '5' : '0');
+	$hdr .= '        ' . ($is_dir ? '5' : '0');
 	$hdr .= str_repeat("\0", 100);
 	$hdr .= "ustar  \0";
 	$hdr .= str_repeat("\0", 32 + 32 + 8 + 8 + 155 + 12);
 
-	// generate checksum
+	// Generate checksum.
 	$checksum = str_pad(decoct(_tar_hdr_checksum($hdr)), 6, '0', STR_PAD_LEFT);
 	for($i = 0; $i < 6; $i++) {
 		$hdr[148 + $i] = $checksum[$i];
 	}
 	$hdr[154] = "\0";
-	$hdr[155] = " ";
+	$hdr[155] = ' ';
 
 	if (!$is_dir) {
 		$pad = $di[7] % 512;
@@ -67,24 +67,24 @@ function make_tar($dir)
 	$dirs = array($dir);
 	while (list(,$v) = each($dirs)) {
 		if (!($d = opendir($v))) {
-			echo "Error: unable to read directory ".$v;
+			echo 'Error: unable to read directory '. $v;
 			continue;
 		}
 		$di = stat($v);
 		$out .= add_to_tar($v, $di, 1, $l);
 
-		// Add new tar formatted data to tar file contents
+		// Add new tar formatted data to tar file contents.
 		while (($f = readdir($d))) {
 			if ($f == '.' || $f == '..') {
 				continue;
 			}
-			$path = $v . "/" . $f;
+			$path = $v .'/'. $f;
 
 			$info = stat($path);
 			if ($info[2] & 0100000) {
 				$out .= add_to_tar($path, $info, 0, $l);
 			}
-			if ($info[2] & 0040000) { // directory
+			if ($info[2] & 0040000) { // Directory.
 				$dirs[] = $path;
 			}
 		}

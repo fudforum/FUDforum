@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,7 +13,7 @@ function smiley_rebuild_cache()
 {
 	$rep = $src = $dst = array();
 
-	/* Rebuild POST -> Smiley Cache */
+	/* Rebuild POST -> Smiley Cache. */
 	$c = uq('SELECT code, '.__FUD_SQL_CONCAT__.'(\'images/smiley_icons/\', img), descr FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley ORDER BY vieworder');
 	while ($r = db_rowarr($c)) {
 		$src[] = $co = '<img src="'.$r[1].'" border="0" alt="'.$r[2].'" />';
@@ -27,7 +27,7 @@ function smiley_rebuild_cache()
 	}
 	unset($c);
 
-	$fp = fopen($GLOBALS['TMP'].'ps_cache', "w");
+	$fp = fopen($GLOBALS['TMP'].'ps_cache', 'w');
 	fwrite($fp, '<?php $PS_SRC = '.var_export($src, 1).'; $PS_DST = '.var_export($dst, 1).'; ?>');
 	fclose($fp);
 
@@ -36,7 +36,7 @@ function smiley_rebuild_cache()
 	}
 	rename($GLOBALS['TMP'].'ps_cache', $GLOBALS['FORUM_SETTINGS_PATH'].'ps_cache');
 
-	$fp = fopen($GLOBALS['TMP'].'sp_cache', "w");
+	$fp = fopen($GLOBALS['TMP'].'sp_cache', 'w');
 	fwrite($fp, '<?php $SML_REPL = '.var_export($rep, 1).'; ?>');
 	fclose($fp);
 

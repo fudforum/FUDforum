@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -62,7 +62,7 @@ function create_month_select($name, $allow_null, $def)
 	if ( $allow_null ) $rval .= '<option value="0">';
 
 	for ( $i=1; $i<13; $i++ ) {
-		$month = date("F", mktime(1, 1, 1, $i, 1));
+		$month = date('F', mktime(1, 1, 1, $i, 1));
 		$rval .= '<option value="'.$i.'"'.(($i==$def)?' selected="selected"':'').'>'.$month."</option>\n";
 	}
 	$rval .= '</select>';
@@ -100,7 +100,7 @@ function create_radio_buttons($name, $options, $values, $def, $vertical=0)
 
 	if ( count($opt) != count($val) ) exit('number of options doesn\'t match number of values');
 
-	$rval = "";
+	$rval = '';
 	for ( $i=0; $i<count($opt); $i++ ) {
 		$rval .= '<input type="radio" name="'.$name.'" value="'.$val[$i].'"'.(($val[$i] == $def)?' checked':'').' />'.htmlspecialchars($opt[$i]);
 		if ( $vertical )

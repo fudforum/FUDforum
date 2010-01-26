@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -35,18 +35,18 @@ function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to=
 	}
 
 	if ($GLOBALS['FORUM_TITLE']) {
-		$header .= "Organization: ".$GLOBALS['FORUM_TITLE']."\n";
+		$header .= 'Organization: '.$GLOBALS['FORUM_TITLE']."\n";
 	}
 	if ($reply_to) {
-		$header .= "In-Reply-To: <".$reply_to.">\n";
+		$header .= 'In-Reply-To: <'.$reply_to.">\n";
 	}
-	$header .= "X-FUDforum: ".md5($GLOBALS['WWW_ROOT'])." <$msg_id>\n";
+	$header .= 'X-FUDforum: '.md5($GLOBALS['WWW_ROOT'])." <$msg_id>\n";
 
-	/* Set our own message id */
+	/* Set our own message id. */
 	$tmp = parse_url($GLOBALS['WWW_ROOT']);
 	$mid = dechex($msg_id).'.'.dechex(__request_timestamp__).'@'. $tmp['host'];
-	q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET mlist_msg_id="._esc($mid)." WHERE id=".$msg_id);
-	$header .= "Message-ID: <".$mid.">\n";
+	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'msg SET mlist_msg_id='._esc($mid).' WHERE id='.$msg_id);
+	$header .= 'Message-ID: <'.$mid.">\n";
 
 	if (is_array($additional_headers)) {
 		$header .= implode("\n", $additional_headers);

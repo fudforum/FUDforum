@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -72,7 +72,7 @@ function plugin_wikilinks_html_to_tag($array) {
 function wikilinks_info() {
 	return array('name' => 'Wikilink tags',
 				'desc' => 'Allow forum users to use [[wikilink]] tags as shorthand to link to articles on the site\'s wiki (or any other wiki for that matter).',
-				'version' => '1.0');
+				'version' => '1.1');
 }
 
 function wikilinks_config() {

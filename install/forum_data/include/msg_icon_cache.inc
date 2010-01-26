@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,7 +16,7 @@ function rebuild_icon_cache()
 		$iconl[] = basename($file);
 	}
 
-	$fp = fopen($GLOBALS['TMP'].'icon_cache', "w");
+	$fp = fopen($GLOBALS['TMP'].'icon_cache', 'w');
 	fwrite($fp, '<?php $ICON_L = '.var_export($iconl, 1).'; ?>');
 	fclose($fp);
 

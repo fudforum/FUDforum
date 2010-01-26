@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,17 +9,17 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled
+if ($GLOBALS['FUD_OPT_3'] & 4194304) {	// Plugins enabled?
 	define('plugins', 1);
 }
 
-// Add a new hook
+// Add a new hook.
 function plugin_add_hook($type, $func) {
 	global $plugin_hooks;
 	$plugin_hooks[$type][] = $func;
 }
 
-// Call all plugins
+// Call all plugins.
 function plugin_call_hook($type, $data=array()) {
 	global $plugin_hooks;
 
@@ -31,7 +31,7 @@ function plugin_call_hook($type, $data=array()) {
 	return $data;
 }
 
-// Activate enabled plugins
+// Activate enabled plugins.
 function plugin_activate_enbled() {
 	global $plugin_hooks;
 
@@ -41,7 +41,7 @@ function plugin_activate_enbled() {
 	}
 }
 
-// Read list of enabled plugins from cache
+// Read list of enabled plugins from cache.
 function plugin_load_from_cache() {
 	$cachefile = $GLOBALS['FORUM_SETTINGS_PATH'].'plugin_cache';
 
@@ -57,7 +57,7 @@ function plugin_load_from_cache() {
 	return $plugins;
 }
 
-// Write list of enabled plugins to cache
+// Write list of enabled plugins to cache.
 function plugin_rebuild_cache($plugins) {
         $fp = fopen($GLOBALS['TMP'].'plugin_cache', 'w');
         fwrite($fp, '<?php $plugins = '.var_export($plugins, 1).'; ?>');

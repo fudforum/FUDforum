@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,10 +11,10 @@
 
 class fud_nntp_adm
 {
-	// NNTP Settings
-	var $server, $port=119, $login, $pass, $timeout=25, $newsgroup, $auth, $imp_limit;
+	// NNTP Settings.
+	var $server, $port=119, $login, $pass, $timeout=25, $newsgroup, $auth, $imp_limit=10;
 
-	// General Settings
+	// General Settings.
 	var $forum_id, $id, $nntp_opt=97, $custom_sig;
 
 	function fud_nntp_adm()
@@ -38,7 +38,7 @@ class fud_nntp_adm
 
 	function add()
 	{
-		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp(
+		$this->id = db_qid('INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp(
 			forum_id,
 			server,
 			port,
@@ -51,17 +51,17 @@ class fud_nntp_adm
 			custom_sig
 			)
 			VALUES(
-			".(int)$this->forum_id.",
-			"._esc($this->server).",
-			".(int)$this->port.",
-			"._esc($this->login).",
-			"._esc($this->pass).",
-			".(int)$this->timeout.",
-			"._esc($this->newsgroup).",
-			".$this->nntp_opt.",
-			".(int)$this->imp_limit.",
-			"._esc($this->custom_sig)."
-			)");
+			'.(int)$this->forum_id.',
+			'._esc($this->server).',
+			'.(int)$this->port.',
+			'._esc($this->login).',
+			'._esc($this->pass).',
+			'.(int)$this->timeout.',
+			'._esc($this->newsgroup).',
+			'.$this->nntp_opt.',
+			'.(int)$this->imp_limit.',
+			'._esc($this->custom_sig).'
+			)');
 
 		if ($this->nntp_opt & 1) {
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt | 2 WHERE id='.$this->forum_id);
@@ -74,18 +74,18 @@ class fud_nntp_adm
 	{
 		list($old_frm_id, $nntp_opt) = db_saq('SELECT forum_id, nntp_opt FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WHERE id='.$id);
 
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp SET
-			forum_id=".(int)$this->forum_id.",
-			server="._esc($this->server).",
-			port=".(int)$this->port.",
-			login="._esc($this->login).",
-			pass="._esc($this->pass).",
-			timeout=".(int)$this->timeout.",
-			imp_limit=".(int)$this->imp_limit.",
-			newsgroup="._esc($this->newsgroup).",
-			nntp_opt=".$this->nntp_opt.",
-			custom_sig="._esc($this->custom_sig)."
-		WHERE id=".$id);
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp SET
+			forum_id='.(int)$this->forum_id.',
+			server='._esc($this->server).',
+			port='.(int)$this->port.',
+			login='._esc($this->login).',
+			pass='._esc($this->pass).',
+			timeout='.(int)$this->timeout.',
+			imp_limit='.(int)$this->imp_limit.',
+			newsgroup='._esc($this->newsgroup).',
+			nntp_opt='.$this->nntp_opt.',
+			custom_sig='._esc($this->custom_sig).'
+		WHERE id='.$id);
 
 		if ($old_frm_id != $this->forum_id && $nntp_opt & 1) {
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt & ~ 2 WHERE id='.$old_frm_id);

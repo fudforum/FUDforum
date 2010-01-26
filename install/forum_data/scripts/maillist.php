@@ -1,7 +1,7 @@
 #!/usr/local/bin/php -q
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,7 +23,7 @@ class fud_emsg
 
 	function read_data($data='')
 	{
-		$this->raw_msg = !$data ? file_get_contents("php://stdin") : $data;
+		$this->raw_msg = !$data ? file_get_contents('php://stdin') : $data;
 	}
 
 	function split_hdr_body()
@@ -271,7 +271,7 @@ class fud_emsg
 		}
 
 		if (empty($this->from_email) || empty($this->from_name)) {
-			mlist_error_log("no name or email for ".$this->headers['from'], $this->raw_msg);
+			mlist_error_log('No name or email for '.$this->headers['from'], $this->raw_msg);
 		}
 
 		if (isset($this->headers['message-id'])) {
@@ -279,7 +279,7 @@ class fud_emsg
 		} else if (isset($this->headers['x-qmail-scanner-message-id'])) {
 			$this->msg_id = substr(trim($this->headers['x-qmail-scanner-message-id']), 1, -1);
 		} else {
-			mlist_error_log("No message id", $this->raw_msg);
+			mlist_error_log('No message id', $this->raw_msg);
 		}
 
 		// This fetches the id of the message if this is a reply to an existing message.
@@ -308,7 +308,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 
 	if ($level != 'LOG') {
 		if (!($fp = fopen($err_msg_cpy, 'wb'))) {
-			exit("no perms to write ".$err_msg_cpy."\n");
+			exit('No perms to write '.$err_msg_cpy."\n");
 		}
 		fwrite($fp, $msg_data);
 		fclose($fp);
@@ -317,9 +317,9 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	}
 
 	if (!($fp = fopen($error_log_path, 'ab'))) {
-		exit("no perms to write ".$error_log_path."\n");
+		exit('No perms to write '.$error_log_path."\n");
 	}
-	fwrite($fp, $level." :: ".date("r")." :: ".$error." :: ".$err_msg_cpy."\n");
+	fwrite($fp, $level.' :: '.date('r').' :: '.$error.' :: '.$err_msg_cpy."\n");
 	fclose($fp);
 
 	if ($level == 'ERROR') {
@@ -341,7 +341,7 @@ function add_attachment($name, $data, $pid)
 	define('forum_debug', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
-	if (!ini_get("register_argc_argv")) {
+	if (!ini_get('register_argc_argv')) {
 		exit("Enable the 'register_argc_argv' php.ini directive.\n");
 	}
 	if ($_SERVER['argc'] < 2) {
@@ -384,7 +384,7 @@ function add_attachment($name, $data, $pid)
 	if (is_numeric($_SERVER['argv'][1])) {
 		$mlist = db_sab('SELECT * FROM '.sql_p.'mlist WHERE id='.$_SERVER['argv'][1]);
 	} else {
-		$mlist = db_sab("SELECT * FROM ".sql_p."mlist WHERE name=".esc($_SERVER['argv'][1]));
+		$mlist = db_sab('SELECT * FROM '.sql_p.'mlist WHERE name='.esc($_SERVER['argv'][1]));
 	}
 	if (!$mlist) {
 		exit('Invalid list identifier');
@@ -396,7 +396,7 @@ function add_attachment($name, $data, $pid)
 	
 	/* Set language & locale. */
 	$GLOBALS['usr'] = new stdClass();
-	list($GLOBALS['usr']->lang, $locale) = db_saq("SELECT lang, locale FROM ".sql_p."themes WHERE theme_opt=1|2 LIMIT 1");
+	list($GLOBALS['usr']->lang, $locale) = db_saq('SELECT lang, locale FROM '.sql_p.'themes WHERE theme_opt=1|2 LIMIT 1');
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 
 	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$mlist->forum_id);
@@ -457,21 +457,21 @@ function add_attachment($name, $data, $pid)
 		$msg_post = new fud_msg_edit;
 
 		/* Check if message was already imported. */
-		if ($emsg->msg_id && q_singleval("SELECT m.id FROM ".sql_p."msg m
-						INNER JOIN ".sql_p."thread t ON t.id=m.thread_id
-						WHERE mlist_msg_id="._esc($emsg->msg_id)." AND t.forum_id=".$frm->id)) {
+		if ($emsg->msg_id && q_singleval('SELECT m.id FROM '.sql_p.'msg m
+						INNER JOIN '.sql_p.'thread t ON t.id=m.thread_id
+						WHERE mlist_msg_id='._esc($emsg->msg_id).' AND t.forum_id='.$frm->id)) {
 			continue;
 		}
 
 		/* Handler for our own messages, which do not need to be imported. */
 		if (isset($emsg->headers['x-fudforum']) && preg_match('!'.md5($GLOBALS['WWW_ROOT']).' <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
-			q("UPDATE ".sql_p."msg SET mlist_msg_id="._esc($emsg->msg_id)." WHERE id=".(int)$m[1]." AND mlist_msg_id IS NULL");
+			q('UPDATE '.sql_p.'msg SET mlist_msg_id='._esc($emsg->msg_id).' WHERE id='.(int)$m[1].' AND mlist_msg_id IS NULL');
 			continue;
 		}
 
 		$msg_post->post_stamp = !empty($emsg->headers['date']) ? strtotime($emsg->headers['date']) : 0;
 		if ($msg_post->post_stamp < 1 || $msg_post->post_stamp > __request_timestamp__) {
-			mlist_error_log("Invalid Date", $emsg->raw_msg);
+			mlist_error_log('Invalid Date', $emsg->raw_msg);
 			if (($p = strpos($emsg->headers['received'], '; ')) !== false) {
 				$p += 2;
 				$msg_post->post_stamp = strtotime(substr($emsg->headers['received'], $p, (strpos($emsg->headers['received'], '00 ', $p) + 2 - $p)));
@@ -510,9 +510,9 @@ function add_attachment($name, $data, $pid)
 		/* For anonymous users prefix 'contact' link. */
 		if (!$msg_post->poster_id) {
 			if ($frm->forum_opt & 16) {
-				$msg_post->body = "[b]Originally posted by:[/b] [email=".$emsg->from_email."]".(!empty($emsg->from_name) ? $emsg->from_name : $emsg->from_email)."[/email]\n\n".$msg_post->body;
+				$msg_post->body = '[b]Originally posted by:[/b] [email='.$emsg->from_email.']'.(!empty($emsg->from_name) ? $emsg->from_name : $emsg->from_email)."[/email]\n\n".$msg_post->body;
 			} else {
-				$msg_post->body = "Originally posted by: ".str_replace('@', '&#64', $emsg->from_email)."\n\n".$msg_post->body;
+				$msg_post->body = 'Originally posted by: '.str_replace('@', '&#64', $emsg->from_email)."\n\n".$msg_post->body;
 			}
 		}
 
@@ -528,8 +528,8 @@ function add_attachment($name, $data, $pid)
 		fud_wordwrap($msg_post->body);
 		$msg_post->subject = htmlspecialchars(apply_custom_replace($emsg->subject));
 		if (!strlen($msg_post->subject)) {
-			mlist_error_log("Blank Subject", $emsg->raw_msg);
-			$msg_post->subject = "(no subject)";
+			mlist_error_log('Blank Subject', $emsg->raw_msg);
+			$msg_post->subject = '(no subject)';
 		}
 
 		$msg_post->ip_addr = $emsg->ip;

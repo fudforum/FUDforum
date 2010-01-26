@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -119,7 +119,7 @@ function q($query)
 
 function db_count($result)
 {
-	return (int) $result->rowCount();
+	return is_object($result) ? (int) $result->rowCount() : null;
 }
 
 function db_rowobj($result)
@@ -192,7 +192,7 @@ function db_arr_assoc($q)
 
 function db_fetch_array($q)
 {
-	return $q->fetch(PDO::FETCH_ASSOC);
+	return is_object($q) ? $q->fetch(PDO::FETCH_ASSOC) : null;
 }
 
 function db_li($q, &$ef, $li=0)

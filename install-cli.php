@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2010 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -467,7 +467,9 @@ function initdb(&$settings)
 	if (isset($_SERVER['argv'][1]) && !is_numeric($_SERVER['argv'][1]) && @file_exists($_SERVER['argv'][1])) {
 		$settings = array_merge($settings, parse_ini_file($_SERVER['argv'][1]));
 		$got_config = 1;
-	} else if (@file_exists("./fud_config.ini")) {
+		pf("Reading config file ". $_SERVER['argv'][1] .".\n");
+	} else if (@file_exists('./fud_config.ini')) {
+		pf("Reading config file fud_config.ini.\n");
 		$settings = array_merge($settings, parse_ini_file("./fud_config.ini"));
 		$got_config = 1;
 	}
@@ -645,7 +647,7 @@ function initdb(&$settings)
 	/* Check SQL permissions. */
 	dbperms_check();
 
-	/* Import sql data */
+	/* Import sql data. */
 	$tables = $def_data = array();
 	if ($GLOBALS['DBHOST_DBTYPE'] == 'oci8') {
 		$prefix =& $settings['DBHOST_TBL_PREFIX'];
@@ -788,10 +790,11 @@ function initdb(&$settings)
 		} 
 	}
 
-	while (!in_array($settings['LANGUAGE'], $langs)) {
-		pf("Supported languages: \n\t".wordwrap(implode(' ', array_keys($langs)), 75, "\n\t")."\n");
+	while (!isset($langs[ $settings['LANGUAGE'] ])) {
+		ksort($langs);
+		pf("Supported language codes: \n\t".wordwrap(implode(' ', array_keys($langs)), 75, "\n\t")."\n");
 
-		pf("Please choose a language [en]: ");
+		pf("Please enter language code [en]: ");
 		$lang = strtolower(trim(fgets(STDIN, 1024)));
 		if (!$lang) {
 			$settings['LANGUAGE'] = 'en';
@@ -801,7 +804,7 @@ function initdb(&$settings)
 			$settings['LANGUAGE'] = $lang;
 			break;
 		}
-		pf("Unsupported language '{$lang}', please choose a language\n");
+		pf("Invalid language code '{$lang}', please use a supported language code.\n");
 	}
 	
 	/* Load default theme into db. */
