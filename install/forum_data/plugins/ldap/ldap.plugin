@@ -9,8 +9,10 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-// Initialize me as an authentication plugin
-plugin_add_hook('AUTHENTICATE', 'plugin_ldap_auth');
+// Initialize me as an authentication plugin if LDAP extension is loaded.
+if (extension_loaded('ldap')) {
+	plugin_add_hook('AUTHENTICATE', 'plugin_ldap_auth');
+}
 
 // Authenticate users from LDAP directory
 function plugin_ldap_auth($data) {
@@ -27,7 +29,7 @@ function plugin_ldap_auth($data) {
 	$connection = ldap_connect($ini['LDAP_HOST'], $ini['LDAP_PORT']);
 
 	if (!connection) {
-		echo "Unable to connect to an LDAP server. Contact the forum administrator! (Debug 1)";
+		echo 'Unable to connect to an LDAP server. Contact the forum administrator! (Debug 1)';
 		return 0;
 	}
 
@@ -44,7 +46,7 @@ function plugin_ldap_auth($data) {
 	}
 
 	if (!bind) {
-		echo "Anonymous bind to LDAP FAILED. Contact the forum administrator! (Debug 2)";
+		echo 'Anonymous bind to LDAP FAILED. Contact the forum administrator! (Debug 2)';
 		return 0;
 	}
 
@@ -52,7 +54,7 @@ function plugin_ldap_auth($data) {
 
 	// Ensure only 1 result was returned - if not, there may be a * in the username.
 	if (ldap_count_entries($connection, $search) != 1) {
-		// echo "Unknown username. Please try to login again. (Debug 3)";
+		// echo 'Unknown username. Please try to login again. (Debug 3)';
 		return 0;
 	}
 
@@ -61,7 +63,7 @@ function plugin_ldap_auth($data) {
 	// Now, try to rebind with their full dn and password.
 	$bind = @ldap_bind($connection, $info[0][dn], $password);
 	if (!$bind || !isset($bind)) {
-		// echo "Wrong password! Please try again. (Debug 4)";
+		// echo 'Wrong password! Please try again. (Debug 4)';
 		return 0;
 	}
 
@@ -96,10 +98,14 @@ function plugin_ldap_auth($data) {
 function ldap_info() {
 	return array('name' => 'LDAP Authentication',
 	             'desc' => 'Authenticate forum users from an LDAP server. You may want to disable "<i>Allow Registration</i>" from the <i>Global Settings Manager</i> after enabling this plugin.',
-				 'version' => '1.1');
+				 'version' => '1.2');
 }
 
 function ldap_config() {
+	if (!extension_loaded('ldap')) {
+		echo '<div class="alert">Your PHP installation lacks support for LDAP, plugin will stay inactive.</div>';
+	}
+
 	if((@include_once $GLOBALS['PLUGIN_PATH'].'/ldap/ldap.ini') === false) {
 		$ini = NULL;
 	}
@@ -123,8 +129,8 @@ function ldap_config() {
 <input name="LDAP_PORT" value="<?php echo $ini['LDAP_PORT'] ?>" /></p>
 
 <p>Enable TLS (Transport Layer Security) mode:<br />
-<label><input type="radio" name="LDAP_START_TLS" value="1" <?php echo $ini['LDAP_START_TLS'] ? 'checked="checked"' : '' ?> >True<br /></label>
-<label><input type="radio" name="LDAP_START_TLS" value=""  <?php echo $ini['LDAP_START_TLS'] ? '' : 'checked="checked"' ?> >False</label></p>
+<label><input type="radio" name="LDAP_START_TLS" value="1" <?php echo $ini['LDAP_START_TLS'] ? 'checked="checked"' : '' ?> /> True<br /></label>
+<label><input type="radio" name="LDAP_START_TLS" value=""  <?php echo $ini['LDAP_START_TLS'] ? '' : 'checked="checked"' ?> /> False</label></p>
 
 <p>Proxy user (if required to bind via proxy):<br />
 <input name="LDAP_PROXY_DN" value="<?php echo $ini['LDAP_PROXY_DN'] ?>" /></p>

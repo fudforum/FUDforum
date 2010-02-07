@@ -94,7 +94,7 @@ function wikilinks_config() {
 	?>
 <p>Base URL to your wiki:<br />
 <input name="WIKILINKS_URL" value="<?php echo $ini['WIKILINKS_URL'] ?>" size="60" /><br />
-<font size=-1>For example, enter <i>http://en.wikipedia.org/wiki/</i> to link tags like <b>[[FUDforum]]</b> to Wikipedia articles.</font></p>
+<font size="-1">For example, enter <i>http://en.wikipedia.org/wiki/</i> to link tags like <b>[[FUDforum]]</b> to Wikipedia articles.</font></p>
 	<?php
 }
 
