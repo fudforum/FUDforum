@@ -104,7 +104,7 @@
 				q('DELETE FROM '.$DBHOST_TBL_PREFIX.'attach WHERE id IN('. implode(',', $al) .')');
 			}
 			unset($c, $r, $al, $ml);
-			echo successify('Selected attachements were removed.');
+			echo successify('Selected attachments were removed.');
 		} else if ($back < 1) {
 			echo '<div style="text-align:center; font-size: large; font-weight: bolder; color: darkred">You\'ve selected a date too far in the past.</div>';
 		}
@@ -114,7 +114,7 @@
 
 <p>This utility allows you to remove all attachments posted prior to the<br />
 specified date. For example if you enter a value of 10 and select "days"<br /> 
-this form will offer to delete attachments olders than 10 days.</p>
+this form will offer to delete attachments older than 10 days.</p>
 
 <form id="adpa" method="post" action="admaprune.php">
 <table class="datatable">

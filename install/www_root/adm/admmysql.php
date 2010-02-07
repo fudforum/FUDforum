@@ -44,7 +44,8 @@
 			}
 			echo 'Table '. $v ." was successfully converted.<br />\n";
 		}
-	}
+		pf('<br /><div class="tutor">Charset conversion done.</div>');
+	} else {
 ?>
 <h2>MySQL Character Set Adjuster</h2>
 <form method="post" id="a_frm" action="">
@@ -75,4 +76,4 @@ Note that the conversion will take a long time to run, especially on large datab
 After converting your database, remember to also convert your forum's messages by running the <b><a href="compact.php?<?php echo __adm_rsid; ?>">compactor</a></b>.
 </td></tr></table><br />
 
-<?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
+<?php } require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

@@ -67,7 +67,7 @@ function changeCaption(txt)
 <h2>Geolocation Configuration</h2>
 <p class="tutor">
 This control panel allows you to upload a CSV database containing ip-range to country associates necessary for the utilization of FUDforum's
-Geo-Location feature.<p />
+Geo-Location feature.</p>
 
 <h3>Settings</h3>
 <form method="post" action="admgeoip.php"><?php echo _hs ?>
@@ -89,13 +89,12 @@ Geo-Location feature.<p />
 <a href="http://www.maxmind.com/app/geoip_country" target="_blank">http://www.maxmind.com/app/geoip_country</a> or the IP-To-Country 
 database freely available from 
 <a href="http://ip-to-country.webhosting.info/node/view/6" target="_blank">http://ip-to-country.webhosting.info/node/view/6</a>.
-Please note that commercial offerings are also available that will give better results.<p />
+Please note that commercial offerings are also available that will give better results.</p>
 
 <p style="font-size: small;">The expected internal formats are as follows:<br />
 GeoIP - "2.6.190.56","2.6.190.63",<span class="o">"33996344"</span>,<span class="o">"33996351"</span>,<span class="o">"GB"</span>,<span class="o">"United Kingdom"</span><br />
 IP-2-Country - <span class="o">"33996344"</span>,<span class="o">"33996351"</span>,<span class="o">"GB"</span>,"GBR",<span class="o">"UNITED KINGDOM"</span><br />
-The fields marked in orange are the ones the forum cares about, the rest of the fields are not relevant.
-<p />
+The fields marked in orange are the ones the forum cares about, the rest of the fields are not relevant.</p>
 
 <b>The import process usually takes a few minutes.</b>
 	</td></tr>

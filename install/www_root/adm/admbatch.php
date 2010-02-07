@@ -19,7 +19,7 @@
 
 	$tbl  = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$path = $GLOBALS['DATA_DIR'].'scripts/';
-	$php  = $GLOBALS['PHP_CLI'];
+	$php  = escapeshellcmd($GLOBALS['PHP_CLI']);
 
 	if (!empty($_POST['btn_submit'])) {
 		change_global_settings(array('PHP_CLI' => $_POST['CF_PHP_CLI']));
@@ -27,20 +27,22 @@
 		echo successify('PHP executable path successfully set.');
 	}
 
-	// Submit job to run in background
+	// Submit job to run in background.
 	if (!empty($_GET['job']) && !empty($_GET['script'])) {
 		$job    = (int) $_GET['job'];
-		$script = $_GET['script'] .'.php';
+		$script = escapeshellcmd($_GET['script'] .'.php');
 		$output = ' > '. $_GET['script'] .'_'. $job .'.log';
 
-	    if (!file_exists($php)) {
-		echo errorify('ERROR: Command line PHP executable not found: '. $php .'.');
+		if (empty($php)) {
+			echo errorify('ERROR: Please enter the PHP CLI executable below.');
+		} elseif (!file_exists($php)) {
+			echo errorify('ERROR: Command line PHP executable not found: '. $php .'.');
 		} elseif (!file_exists($path.$script)) {
-			echo errorify('ERROR: Script not found: '. $script .'.');
+			echo errorify('ERROR: Script not found: '. $path.$script .'.');
 		} else {
 			chdir($path) or die('ERROR: Unable to change to scripts directory '. $path);
 
-			if (strncasecmp('win', PHP_OS, 3)) {	// not Windows
+			if (strncasecmp('win', PHP_OS, 3)) {	// Not Windows.
 				// exec($php .' '. escapeshellarg($script) .' '. $job . $output . ' 2>&1 &');
 				pclose(popen($php .' ./'. escapeshellarg($script) .' '. $job . $output . ' 2>&1 &', 'r'));
 			} else {
@@ -89,7 +91,7 @@
 </table>
 
 <?php 
-	// View a job's output log
+	// View a job's output log.
 	if (!empty($_GET['job']) && !empty($_GET['viewlog'])) {
 		echo '<h3>Job output (last run)</h3>';
 		$output = $path . $_GET['viewlog'] .'_'. (int)$_GET['job'] .'.log';

@@ -85,7 +85,7 @@ function validate_input()
 	}
 
 	if ($error) {
-		foreach (array('login','passwd','email','name') as $v) {
+		foreach (array('login', 'passwd', 'email', 'name') as $v) {
 			$$v = isset($_POST[$v]) ? htmlspecialchars($_POST[$v]) : '';
 		}
 	} else {
@@ -93,43 +93,25 @@ function validate_input()
 	}
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
+
+	if ($error) {
+		echo errorify('Error adding user.');
+	} else if (!empty($user_added)) {
+		echo successify('User was successfully added. [ <a href="admuser.php?act=1&amp;usr_id='. $user_added .'&amp;'. __adm_rsid .'">Edit user '. $_POST['login'] .'</a> ]<br />');
+	}
 ?>
 <h2>Add User</h2>
-<script type="text/javascript">
-/* <![CDATA[ */
-function randomPassword() {
-	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
-	var string_length = 8;
-	var randomstring = '';
-	for (var i=0; i<string_length; i++) {
-		var rnum = Math.floor(Math.random() * chars.length);
-		randomstring += chars.substring(rnum,rnum+1);
-	}
-	document.forms['frm_usr'].passwd.value = randomstring;
-}
-/* ]]> */
-</script>
-<?php
-	if ($error) {
-		echo errorify($error);
-	} else if (!empty($user_added)) {
-		echo successify('User was successfully added. [ <a href="admuser.php?act=1&amp;usr_id='.$user_added.'&amp;'.__adm_rsid.'">Edit user '.$_POST['login'].'</a> ]<br />');
-	}
-?>
 <form id="frm_usr" method="post" action="admadduser.php">
 <?php echo _hs; ?>
+Register a new forum user:
 <table class="datatable solidtable">
-	<tr class="fieldtopic">
-		<td colspan="2">Register a new forum user:</td>
-	</tr>
-
 	<tr class="field">
 		<td>Login:</td>
 		<td><?php if ($error && isset($err_login)) { echo $err_login; } ?><input tabindex="1" type="text" name="login" value="<?php echo $login; ?>" size="30" /></td>
 	</tr>
 	<tr class="field">
 		<td>Password:</td>
-		<td><?php if ($error && isset($err_passwd)) { echo $err_passwd; } ?><input tabindex="2" type="text" name="passwd" value="<?php echo $passwd; ?>" size="30" /> <font size="-1">[ <a href="#" onclick="randomPassword();">Random password</a> ]</font></td>
+		<td><?php if ($error && isset($err_passwd)) { echo $err_passwd; } ?><input tabindex="2" type="text" name="passwd" value="<?php echo $passwd; ?>" size="30" /> <font size="-1">[ <a href="#" onclick="randomPassword();">Generate</a> ]</font></td>
 	</tr>
 	<tr class="field">
 		<td>E-mail:</td>
@@ -144,10 +126,21 @@ function randomPassword() {
 	</tr>
 </table>
 </form>
-<a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to Moderator/User Manager</a>
+<p><a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to User Administration System</a></p>
 <script type="text/javascript">
 /* <![CDATA[ */
 document.forms['frm_usr'].login.focus();
+
+function randomPassword() {
+	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+	var string_length = 8;
+	var randomstring = '';
+	for (var i=0; i<string_length; i++) {
+		var rnum = Math.floor(Math.random() * chars.length);
+		randomstring += chars.substring(rnum, rnum+1);
+	}
+	document.forms['frm_usr'].passwd.value = randomstring;
+}
 /* ]]> */
 </script>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

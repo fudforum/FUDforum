@@ -59,7 +59,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 } else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
 	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
 } else {
-	echo 'utf-8';
+	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/en/charset'));
 }
 ?>" />
 <link rel="StyleSheet" href="adm.css" type="text/css" />

@@ -58,13 +58,8 @@
 	// }
 ?>
 <h2>Newsgroup Manager</h2>
-<?php
-	if ($edit) {
-		echo '<h3>Edit rule</h3>';
-	} else {
-		echo '<h3>Add new rule</h3>';
-	}
-?>
+
+<h3><?php echo $edit ? '<a name="edit">Edit Rule:</a>' : 'Add New Rule:'; ?></h3>
 <form method="post" id="frm_forum" action="admnntp.php">
 <?php echo _hs; ?>
 <table class="datatable">
@@ -219,7 +214,7 @@
 			<font size="-1">A string of text to append to the end of every message 
 			sent from the forum back to the newsgroup.</font>
 		</td>
-		<td><textarea name="nntp_custom_sig" rows="7" cols="40"><?php echo htmlspecialchars($nntp_custom_sig); ?></textarea></td>
+		<td><textarea name="nntp_custom_sig" rows="5" cols="40"><?php echo htmlspecialchars($nntp_custom_sig); ?></textarea></td>
 	</tr>
 
 	<tr class="fieldaction">
@@ -243,20 +238,21 @@
 </tr></thead>
 <?php
 	$c = uq('SELECT n.id, n.newsgroup, n.tracker, f.name FROM '.$tbl.'nntp n INNER JOIN '.$tbl.'forum f ON n.forum_id=f.id');
-	$i = 1;
+	$i = 0;
 	while ($r = db_rowarr($c)) {
-		if ($edit == $r[0]) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-		}
+		$i++;
+		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[3].'</td>
 			<td nowrap="nowrap">nntp.php '.$r[0].'</td>
 			<td nowrap="nowrap">'.$r[2].'</td>
-			<td>[<a href="admnntp.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admnntp.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
+			<td>[<a href="admnntp.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admnntp.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
 			[<a href="admnntp.php?trk='.$r[0].'&amp;'.__adm_rsid.'">Clear Tracker</a>]</td></tr>';
 	}
 	unset($c);
+	if (!$i) {
+		echo '<tr class="field"><td colspan="5" align="center">No rules. Define some above.</td></tr>';
+	}
 ?>
 </table>
 <br /><br />

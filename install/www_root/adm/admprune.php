@@ -100,7 +100,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 			foreach ($frm_list as $v) {
 				rebuild_forum_view_ttl($v);
 			}
-			echo successify('Done. It is highly recommended that you run a <a href="consist.php?'.__adm_rsid.'">consitency check</a> after pruning.');
+			echo successify('Done. It is highly recommended that you run a <a href="consist.php?'.__adm_rsid.'">consistency check</a> after pruning.');
 		} else if ($back < 1) {
 			$first_msg = q_singleval('SELECT MIN(post_stamp) FROM '.$DBHOST_TBL_PREFIX.'msg');
 			echo '<div style="text-align:center; font-size: large; font-weight: bolder; color: darkred">You\'ve selected a date too far in the past,'

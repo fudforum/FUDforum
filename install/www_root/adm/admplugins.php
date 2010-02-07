@@ -70,7 +70,7 @@
 		}
 	}
 
-	// Configure a plugin.
+	// Show plugin info and configuration options.
 	if (isset($_GET['config']) || isset($_POST['config'])) {
 		$plugin = isset($_GET['config']) ? $_GET['config'] : $_POST['config'];
 		$func_base = substr($plugin, 0, strrpos($plugin, '.'));
@@ -79,6 +79,7 @@
 		}
 		include_once($PLUGIN_PATH.'/'.$plugin);
 
+		// Process info hook.
 		$info_func = $func_base . '_info';
 		if (function_exists($info_func)) {
 			$info = $info_func();
@@ -88,28 +89,33 @@
 		} else {
 			echo '<h2>Plugin: '.$plugin.'</h2>';
 		}
-		if (isset($info['desc'])) {
-			echo '<div class="tutor">'.$info['desc'].'</div><br />';
-		}
 
 		echo '<fieldset class="tutor"><legend>Meta-information:</legend>';
-		echo '<b>Plugin file:</b> '.$plugin.'<br />';
-		echo '<b>Last modified:</b> '.date('d F Y H:i:s', filemtime($PLUGIN_PATH.'/'.$plugin)).'<br />';
+		echo '<table>';
+		echo '<tr><td><b>Plugin file:</b></td><td>'. $plugin .'</td></tr>';
+		echo '<tr><td><b>Last modified:</b></td><td>'.date('d F Y H:i:s', filemtime($PLUGIN_PATH.'/'.$plugin)).'</td></tr>';
 		if (isset($info['author'])) {
-			echo '<b>Author:</b> '.$info['author'].'<br />';
+			echo '<tr><td><b>Author:</b></td><td>'.$info['author'].'</td></tr>';
 		}
 		if (isset($info['version'])) {
-			echo '<b>Version:</b> '.$info['version'].'<br />';
+			echo '<tr><td><b>Version:</b></td><td>'.$info['version'].'</td></tr>';
 		}
-		echo '<b>Status:</b> '. (in_array($plugin, $plugins) ? 'Enabled' : 'Disabled') .
-		                        (($FUD_OPT_3 & 4194304) ? '' : ' (plugin system is disabled)') .'<br />';
+		echo '<tr><td><b>Status:</b></td><td>'. (in_array($plugin, $plugins) ? 'Enabled' : 'Disabled') .
+		                        (($FUD_OPT_3 & 4194304) ? '' : ' (plugin system is disabled)') .'</td></tr>';
+		if (isset($info['desc'])) {
+			echo '<tr><td valign="top"><b>Description:</b></td><td>'. $info['desc'] .'</td></tr>';
+		}
+		echo '<tr><td colspan="2">';
 		if (isset($info['help'])) {
 			echo '<div style="font-size:small; float:right;">[ <a href="'.$info['help'].'">Plugin documentation</a> ]</div>';
 		} else {
 			echo '<div style="font-size:small; float:right;">[ <a href="http://cvs.prohost.org/index.php/'.$func_base.'.plugin">Documentation on Wiki</a> ]</div>';
 		}
+		echo '</td></tr></table>';
 		echo '</fieldset>';
+		echo '<br />';
 
+		// Process config hook.
 		$config_func = $func_base . '_config';
 		if (function_exists($config_func)) {
 			echo '<form method="post" action="admplugins.php" autocomplete="off">';
@@ -126,7 +132,6 @@
 		echo '</td></tr></table></body></html>';	// Standard footer not applicable here.
 		exit;
 	}
-
 ?>
 <h2>Plugin Manager</h2>
 <form method="post" action="admplugins.php" autocomplete="off">

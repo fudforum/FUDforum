@@ -36,7 +36,7 @@
 			fud_use('msg_icon_cache.inc', true);
 			rebuild_icon_cache();
 		}
-		echo successify('Icon sucessfully uploaded.');
+		echo successify('Icon successfully uploaded.');
 	}
 	if (isset($_GET['del'])) {
 		@unlink($WWW_ROOT_DISK . $ICONS_DIR . '/' . basename($_GET['del']));
@@ -45,7 +45,7 @@
 			fud_use('msg_icon_cache.inc', true);
 			rebuild_icon_cache();
 		}
-		echo successify('Icon sucessfully deleted.');
+		echo successify('Icon successfully deleted.');
 	}
 
 ?>

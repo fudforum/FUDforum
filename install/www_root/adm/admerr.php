@@ -11,6 +11,7 @@
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
+	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	if (!empty($_GET['clear_sql_log'])) {
 		@unlink($ERROR_PATH.'sql_errors');
@@ -19,8 +20,6 @@
 		@unlink($ERROR_PATH.'fud_errors');
 		echo successify('Error log successfully cleared.');
 	}
-
-	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Error Log Viewer</h2>
 
@@ -50,19 +49,19 @@ function print_log($path)
 }
 
 	if (@file_exists($ERROR_PATH.'fud_errors') && filesize($ERROR_PATH.'fud_errors')) {
-		echo '<h4>FUDforum Error Log [ <a href="admerr.php?clear_fud_log=1&amp;'.__adm_rsid.'">clear log</a> ]</h4>';
+		echo '<h3>FUDforum Error Log [ <a href="admerr.php?clear_fud_log=1&amp;'.__adm_rsid.'">clear log</a> ]</h3>';
 		print_log($ERROR_PATH.'fud_errors');
 		$err = 1;
 	}
 
 	if (@file_exists($ERROR_PATH.'sql_errors') && filesize($ERROR_PATH.'sql_errors')) {
-		echo '<h4>SQL Error Log [ <a href="admerr.php?clear_sql_log=1&amp;'.__adm_rsid.'">clear log</a> ]</h4>';
+		echo '<h3>SQL Error Log [ <a href="admerr.php?clear_sql_log=1&amp;'.__adm_rsid.'">clear log</a> ]</h3>';
 		print_log($ERROR_PATH.'sql_errors');
 		$err = 1;
 	}
 
 	if (!$err) {
-		echo '<h4>All error logs are empty. Lucky you!</h4><br />';
+		echo '<p>All error logs are empty. Lucky you!</p>';
 	}
 
 	require($WWW_ROOT_DISK . 'adm/footer.php');

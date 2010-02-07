@@ -120,7 +120,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 			exit('Authorization Required.');
 		}
 	} else {
-		fud_use('adm.inc', 1);
+		fud_use('adm.inc', true);
 	}
 
 	require($WWW_ROOT_DISK . 'adm/header.php');
@@ -257,7 +257,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 
 		$datadump = realpath($_POST['path']);
 		if (defined('__adm_rsid')) {
-			pf('<div align="right">[ <a href="admbrowse.php?down=1&cur='. urlencode(dirname($datadump)) .'&dest='. urlencode(basename($datadump)) .'&'. __adm_rsid .'">Download</a> ] [ <a href="admbrowse.php?cur='. urlencode(dirname($datadump)) .'&'. __adm_rsid .'">Open Directory</a> ]</div>');
+			pf('<div align="right">[ <a href="admbrowse.php?down=1&amp;cur='. urlencode(dirname($datadump)) .'&amp;dest='. urlencode(basename($datadump)) .'&amp;'. __adm_rsid .'">Download</a> ] [ <a href="admbrowse.php?cur='. urlencode(dirname($datadump)) .'&amp;'. __adm_rsid .'">Open Directory</a> ]</div>');
 		}
 		pf('<div class="tutor">The backup process is complete! The dump file can be found at: <b>'.$datadump.'</b>. It is occupying '.filesize($_POST['path']).' bytes.</div>');
 	} else {
@@ -291,7 +291,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir, $p=0)
 </tr>
 <?php } ?>
 <tr class="field">
-        <td>Skip Search Index:<br /><font size="-1">Do not backup search data. You will need to reindex your forum after doing an import.
+        <td>Skip Search Index:<br /><font size="-1">Do not backup search data. You will need to reindex your forum after doing an import.</font></td>
         <td><label><input type="checkbox" value="y" name="skipsearch" /> Yes</label></td>
 </tr>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Take Backup" /><input type="hidden" name="submitted" value="1" /></td></tr>

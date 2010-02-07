@@ -29,7 +29,7 @@
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		echo '<tr '. $bgcolor .'"><td>'. htmlspecialchars($r[1]) .' ( '. $r[2] .' ) </td>';
+		echo '<tr'. $bgcolor .'"><td>'. htmlspecialchars($r[1]) .' ( '. $r[2] .' ) </td>';
 		echo '<td>'. htmlspecialchars($r[3]).'</td>';
 		echo '<td>'. ($r[4] ? date('r', $r[4]) : 'never').'</td>';
 		echo '<td><a href="admuser.php?act=1&amp;usr_id='.$r[0].'&amp;'.__adm_rsid.'">Edit</a></td></tr>';

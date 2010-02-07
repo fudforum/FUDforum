@@ -308,7 +308,7 @@ function resolve_dest_path($path)
 
 			pf('<b>Import successfully completed.</b><br /><br />');
 			if (defined('__adm_rsid')) {
-				pf('<div class="tutor">To finalize the process you should now run the <nbsp>&gt;&gt; <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> &lt;&lt;</nbsp>.</div>');
+				pf('<div class="tutor">To finalize the process you should now run the <span style="white-spaces:nobreak">&gt;&gt; <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> &lt;&lt;</span>.</div>');
 			} else {
 				pf('To finalize the process you should now run the consistency checker.');
 			}
@@ -319,7 +319,7 @@ function resolve_dest_path($path)
 ?>
 <h2>Import forum data</h2>
 <div class="alert">The import process will REMOVE ALL current forum data (all files and tables with '<?php echo $DBHOST_TBL_PREFIX; ?>' prefix) and replace it with the data in the backup file you enter.</div>
-<div class="tutor">Remember to <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing! You can use the <a href="admbrowse.php?cur=<?php echo urlencode($TMP).'&'.__adm_rsid ?>">File Manager</a> to upload off-site backup files.</div>
+<div class="tutor">Remember to <a href="admdump.php?<?php echo __adm_rsid; ?>">BACKUP</a> your data before importing! You can use the <a href="admbrowse.php?cur=<?php echo urlencode($TMP).'&amp;'.__adm_rsid ?>">File Manager</a> to upload off-site backup files.</div>
 
 <?php
 $datadumps = (glob("$TMP*.fud*"));
@@ -336,7 +336,7 @@ if ($datadumps) {
 			<td> [ <a href="javascript://" onclick="document.admimport.path.value='<?php echo $datadump; ?>';">use</a> ]</td>
 		</tr>
 	<?php } ?>
-	<tr class="resultrow2 tiny"><td>[ <a href="admbrowse.php?down=1&cur=<?php echo urlencode(dirname($datadump)); ?>&<?php echo __adm_rsid; ?>">Manage backup files</a> ]</td></tr>
+	<tr class="resultrow2 tiny"><td>[ <a href="admbrowse.php?down=1&amp;cur=<?php echo urlencode(dirname($datadump)); ?>&amp;<?php echo __adm_rsid; ?>">Manage backup files</a> ]</td></tr>
 	</table><br />
 <?php } ?>
 
@@ -349,7 +349,7 @@ if ($datadumps) {
 	<td><?php if (isset($path_error)) { echo $path_error.'<br />'; $path = $_POST['path']; } else { $path = ''; } ?><input type="text" value="<?php echo $path; ?>" name="path" size="40" /></td>
 </tr>
 <tr class="field">
-	<td>Skip Search Index:<br /><font size="-1">Do not load search data. You will need to reindex your forum after the import.
+	<td>Skip Search Index:<br /><font size="-1">Do not load search data. You will need to reindex your forum after the import.</font></td>
 	<td><label><input type="checkbox" value="y" name="skipsearch" /> Yes</label></td>
 </tr>
 <tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Import Data" /></td></tr>

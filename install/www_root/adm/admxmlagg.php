@@ -47,7 +47,7 @@
 		echo successify('Aggregation rule successfully deleted.');
 	} else if (isset($_GET['trk']) && ($nn = db_sab('SELECT * FROM '.$tbl.'xmlagg WHERE id='.(int)$_GET['trk']))) {
 		xmlagg_reset((int)$_GET['trk']);
-		echo successify('Aggregation tracker was successfully cleard. The next load will start with the oldest availale article.');
+		echo successify('Aggregation tracker was successfully cleared. The next load will start with the oldest availale article.');
 	}
 
 	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'xmlagg WHERE id='.$edit))) {
@@ -65,13 +65,8 @@
 	}
 ?>
 <h2>XML Aggregation</h2>
-<?php
-	if ($edit) {
-		echo '<h3>Edit rule</h3>';
-	} else {
-		echo '<h3>Add new rule</h3>';
-	}
-?>
+
+<h3><?php echo $edit ? '<a name="edit">Edit Rule:</a>' : 'Add New Rule:'; ?></h3>
 <form method="post" id="frm_forum" action="admxmlagg.php">
 <?php echo _hs; ?>
 <table class="datatable">
@@ -151,7 +146,7 @@
 		<td>Post Signature:<br />
 			<font size="-1">A string of text to append to the end of every aggregated article. Use <i>{link}</i> to refer to the article's URL.</font>
 		</td>
-		<td><textarea name="xmlagg_custom_sig" rows="7" cols="30"><?php echo htmlspecialchars($xmlagg_custom_sig); ?></textarea></td>
+		<td><textarea name="xmlagg_custom_sig" rows="5" cols="30"><?php echo htmlspecialchars($xmlagg_custom_sig); ?></textarea></td>
 	</tr>
 
 	<tr class="fieldaction">
@@ -170,25 +165,26 @@
 	<th nowrap="nowrap">Aggregation Rule</th>
 	<th>Forum</th>
 	<th>Exec Line</th>
-	<th><abbr title="Date of last import. Used to track articles and prevent loading of duplicate content.">Last article</abbr></th>
+	<th><abbr title="Date of last imported article. Used to track articles and prevent loading of duplicate content.">Last article</abbr></th>
 	<th align="center">Action</th>
 </tr></thead>
 <?php
 	$c = uq('SELECT x.id, x.url, x.name, x.last_load_date, f.name FROM '.$tbl.'xmlagg x INNER JOIN '.$tbl.'forum f ON x.forum_id=f.id');
-	$i = 1;
+	$i = 0;
 	while ($r = db_rowarr($c)) {
-		if ($edit == $r[0]) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-		}
+		$i++;
+		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.$r[4].'</td>
 			<td nowrap="nowrap">xmlagg.php '.$r[0].'</td>
 			<td nowrap="nowrap">'.gmdate('d M Y G:i', $r[3]).'</td>
-			<td>[<a href="admxmlagg.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admxmlagg.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
+			<td>[<a href="admxmlagg.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admxmlagg.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]
 			[<a href="admxmlagg.php?trk='.$r[0].'&amp;'.__adm_rsid.'">Reset date</a>]</td></tr>';
 	}
 	unset($c);
+	if (!$i) {
+		echo '<tr class="field"><td colspan="5" align="center">No rules. Define some above.</td></tr>';
+	}
 ?>
 </table>
 <br /><br />

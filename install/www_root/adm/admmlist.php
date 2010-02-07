@@ -71,13 +71,8 @@ function format_regex(&$regex)
 	// }
 ?>
 <h2>Mailing List Manager</h2>
-<?php
-	if ($edit) {
-		echo '<h3>Edit rule</h3>';
-	} else {
-		echo '<h3>Add new rule</h3>';
-	}
-?>
+
+<h3><?php echo $edit ? '<a name="edit">Edit Rule:</a>' : 'Add New Rule:'; ?></h3>
 <form method="post" id="frm_forum" action="admmlist.php">
 <?php echo _hs; ?>
 <table class="datatable">
@@ -118,7 +113,7 @@ function format_regex(&$regex)
 	<tr>
 		<td colspan="2"><br /></td>
 	</tr>
-<?php	}	/* imap module is loaded */ ?>
+<?php	}	/* IMAP module is loaded. */ ?>
 	
 	<tr class="field">
 		<td>
@@ -309,18 +304,19 @@ function format_regex(&$regex)
 </tr></thead>
 <?php
 	$c = uq('SELECT ml.id, ml.name, f.name FROM '.$tbl.'mlist ml INNER JOIN '.$tbl.'forum f ON f.id=ml.forum_id');
-	$i = 1;
+	$i = 0;
 	while ($r = db_rowarr($c)) {
-		if ($edit == $r[0]) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-		}
+		$i++;
+		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
 		<td nowrap="nowrap">maillist.php '.$r[0].'</td>
-		<td>[<a href="admmlist.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admmlist.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		<td>[<a href="admmlist.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admmlist.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
+	if (!$i) {
+		echo '<tr class="field"><td colspan="4" align="center">No rules. Define some above.</td></tr>';
+	}
 ?>
 </table>
 <br /><br />

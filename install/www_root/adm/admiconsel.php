@@ -10,10 +10,12 @@
 **/
 
 	require('./GLOBALS.php');
-	fud_use('adm.inc', 1);
+	fud_use('adm.inc', true);
 
 function print_image_list($dir,$js_field,$type)
 {
+	global $usr;
+
 	$web_dir = $GLOBALS['WWW_ROOT'] . $dir . '/';
 	$path = $GLOBALS['WWW_ROOT_DISK'] . $dir;
 ?>
@@ -27,7 +29,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 } else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
 	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
 } else {
-	echo 'utf-8';
+	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/en/charset'));
 }
 ?>" />
 </head>
@@ -49,7 +51,7 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 					if (window.opener.document.prev_icon) 
 						window.opener.document.prev_icon.src=\''.$web_dir.$f.'\';
 					window.close();">
-				<img src="'.$web_dir.$f.'" border="0" alt="avatar"><br /><font size="-2" />'.$f.'</font></a></td>';
+				<img src="'.$web_dir.$f.'" border="0" alt="avatar" /><br /><font size="-2">'.$f.'</font></a></td>';
 		}
 	} else if (!is_readable($path)) {
 		echo '<td>Unable to open '.$path.' for reading.</td>';

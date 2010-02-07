@@ -45,6 +45,8 @@
 ?>
 <h2>E-mail Filter</h2>
 <p>Block users with matching E-mail address from registering or posting messages on the forum.</p>
+
+<h3><?php echo $edit ? '<a name=edit">Edit filter:</a>' : 'Add New Filter:'; ?></h3>
 <form id="ef" method="post" action="admemail.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
@@ -77,6 +79,7 @@
 document.forms['ef'].e_string.focus();
 /* ]]> */
 </script>
+
 <h3>Defined filters:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
@@ -88,17 +91,14 @@ document.forms['ef'].e_string.focus();
 	$c = uq('SELECT id, email_block_opt, string FROM '.$DBHOST_TBL_PREFIX.'email_block');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
-		if ($edit == $r[0]) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		}
+		$i++;
+		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
-		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.($r[1] ? 'Simple' : 'Regex').'</td><td>[<a href="admemail.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admemail.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.($r[1] ? 'Simple' : 'Regex').'</td><td>[<a href="admemail.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admemail.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {
-		echo '<tr class="field"><td colspan="3"><center>No filters found.</center></td></tr>';
+		echo '<tr class="field"><td colspan="3"><center>No filters found. Define some above.</center></td></tr>';
 	}
 ?>
 </table>

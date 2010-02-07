@@ -73,11 +73,10 @@ function clean_rgx()
 ?>
 <h2>Replacement and Censorship System</h2>
 <p>Add, edit, and remove words and phrases to censor on your forums.</p>
+
+<h3><?php echo $edit ? '<a name="edit">Edit Replacement:</a>' : 'Add Replacement:'; ?></h3>
 <form id="frm_rpl" method="post" action="admreplace.php">
-<?php
-echo _hs;
-echo ($edit ? '<h3>Update Replacement:</h3>' : '<h3>Add Replacement:</h3>');
-?>
+<?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="field">
 		<td>Replacement Type:</td>
@@ -111,7 +110,7 @@ echo ($edit ? '<h3>Update Replacement:</h3>' : '<h3>Add Replacement:</h3>');
 
 	<tr class="field">
 		<td>Replace mask:</td>
-		<td>/<input type="text" name="rpl_from_post" value="<?php echo htmlspecialchars($rpl_from_post); ?>" />/<input type="text" name="rpl_from_post_opt" size="3" value="<?php echo htmlspecialchars($rpl_from_post_opt); ?>" /></td></td>
+		<td>/<input type="text" name="rpl_from_post" value="<?php echo htmlspecialchars($rpl_from_post); ?>" />/<input type="text" name="rpl_from_post_opt" size="3" value="<?php echo htmlspecialchars($rpl_from_post_opt); ?>" /></td>
 	</tr>
 
 	<tr class="field">
@@ -165,7 +164,7 @@ echo ($edit ? '<h3>Update Replacement:</h3>' : '<h3>Add Replacement:</h3>');
 
 	<tr class="field">
 		<td valign="top">Test text:</td>
-		<td><textarea name="regex_src"><?php echo htmlspecialchars($regex_src); ?></textarea></td>
+		<td><textarea name="regex_src" rows="2" cols="25"><?php echo htmlspecialchars($regex_src); ?></textarea></td>
 	</tr>
 <?php
 	if (isset($_POST['btn_regex'])) {
@@ -174,15 +173,14 @@ echo ($edit ? '<h3>Update Replacement:</h3>' : '<h3>Add Replacement:</h3>');
 	<tr class="fieldresult">
 		<td valign="top">Test result:</td>
 		<td>
-			<font size="-1">
-			'<?php echo htmlspecialchars($regex_str); ?>' applied to: <br />
+			<font size="-1">'<?php echo htmlspecialchars($regex_str); ?>' applied to:</font><br />
 			<table border="1" cellspacing="0" cellpadding="3">
-			<tr><td><?php echo htmlspecialchars($regex_src); ?></td></tr>
+			<tr><td><font size="-1"><?php echo htmlspecialchars($regex_src); ?></font></td></tr>
 			</table>
 			<br />
-			produces:<br />
+			<font size="-1">produces:</font><br />
 			<table border="1" cellspacing="0" cellpadding="3">
-			<tr><td><?php echo htmlspecialchars($str); ?></td></tr>
+			<tr><td><font size="-1"><?php echo htmlspecialchars($str); ?></font></td></tr>
 			</table>
 			</font>
 		</td>
@@ -218,11 +216,9 @@ document.forms['frm_rpl'].rpl_replace_str.focus();
 	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'replace ORDER BY replace_opt');
 	$i = 0;
 	while ($r = db_rowobj($c)) {
-		if ($edit == $r->id) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		}
+		$i++;
+		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+
 		if ($r->replace_opt) {
 			$rtype = 'Simple';
 			$r->replace_str = substr($r->replace_str, 1, -1);
@@ -236,11 +232,11 @@ document.forms['frm_rpl'].rpl_replace_str.focus();
 		} else {
 			echo '<td>'.htmlspecialchars($r->from_post).'</td><td>'.htmlspecialchars($r->to_msg).'</td>';
 		}
-		echo '<td>[<a href="admreplace.php?edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admreplace.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<td>[<a href="admreplace.php?edit='.$r->id.'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admreplace.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {
-		echo '<tr class="field"><td colspan="6"><center>No replacments found.</center></td></tr>';
+		echo '<tr class="field"><td colspan="6"><center>No replacments found. Define some above.</center></td></tr>';
 	}
 ?>
 </table>

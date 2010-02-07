@@ -116,17 +116,11 @@
 <div class="tutor">
 	Themes combine the forum's source code (logic) with <a href="admtemplates.php?<?php echo __adm_rsid; ?>">templates</a> (for layout) 
 	and <a href="admmessages.php?<?php echo __adm_rsid; ?>">message files</a> of a particular language.
-	The resulting files are deployed to the forum's web accessable <a href="admbrowse.php?cur=<?php echo urlencode($GLOBALS['WWW_ROOT_DISK'].'/theme'); ?>&<?php echo __adm_rsid; ?>">'theme' directory</a>.
+	The resulting files are deployed to the forum's web accessable <a href="admbrowse.php?cur=<?php echo urlencode($GLOBALS['WWW_ROOT_DISK'].'/theme'); ?>&amp;<?php echo __adm_rsid; ?>">'theme' directory</a>.
 	You can define multiple themes to support different languages and/or layouts.
 </div>
 
-<?php
-    if ($edit && $edit >= 1) {
-		echo '<h3>Edit Theme:</h3>';
-	} else {
-		echo '<h3>Create New Theme:</h3>';
-	}
-?>
+<h3><?php echo ($edit && $edit >= 1) ? '<a name="edit">Edit Theme:</a>' : 'Add New Theme:'; ?></h3>
 <form id="admthm" action="admthemes.php" method="post">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
@@ -255,16 +249,13 @@ function update_locale()
 	<th>Action</th>
 </tr></thead>
 <?php
-	$i = 1;
+	$i = 0;
 	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'themes ORDER BY name');
 	while ($r = db_rowobj($c)) {
-		if ($edit == $r->id) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-		}
+		$i++;
+		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
-		echo '<tr '.$bgcolor.'>
+		echo '<tr'.$bgcolor.'>
 			<td>'.htmlspecialchars($r->name).'</td>
 			<td>'.htmlspecialchars($r->theme).'</td>
 			<td>'.htmlspecialchars($r->lang).'</td>
@@ -272,7 +263,7 @@ function update_locale()
 			<td>'.(!$r->pspell_lang ? '<font color="green">disabled</font> ' : htmlspecialchars($r->pspell_lang)).'</td>
 			<td>'.($r->theme_opt & 1 ? 'Yes' : '<font color="green">No</font>').'</td>
 			<td>'.($r->theme_opt & 2 ? 'Yes' : '<font color="green">No</font>').'</td>
-			<td nowrap="nowrap">[<a href="admthemes.php?'.__adm_rsid.'&amp;edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'.__adm_rsid.'&amp;rebuild='.$r->id.'">Rebuild Theme</a>]
+			<td nowrap="nowrap">[<a href="admthemes.php?'.__adm_rsid.'&amp;edit='.$r->id.'#edit">Edit</a>] [<a href="admthemes.php?'.__adm_rsid.'&amp;rebuild='.$r->id.'">Rebuild Theme</a>]
 			'.($r->id != 1 ? '[<a href="admthemes.php?'.__adm_rsid.'&amp;del='.$r->id.'">Delete</a>]' : '').'
 			</td>
 		</tr>';

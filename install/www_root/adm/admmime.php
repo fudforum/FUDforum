@@ -42,15 +42,17 @@
 	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>MIME Management System</h2>
+
+<h3>Upload MIME icons</h3>
 <form action="admmime.php" id="frm_mime" method="post" enctype="multipart/form-data">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <?php if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/mime/')) { ?>
 <tr class="fieldtopic">
-	<td colspan="2"><b>MIME Icon Upload (upload mime icons into the system)</b></td>
+	<td colspan="2"><b>Upload mime icons into the system:</b></td>
 </tr>
 <tr class="field">
-	<td>MIME Icon Upload:<br /><font size="-1">Only (.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
+	<td>Icon to upload:<br /><font size="-1">Only (.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
 	<td><input type="file" name="icoul" /> <input type="submit" name="btn_upload" value="Upload" /><input type="hidden" name="tmp_f_val" value="1" /></td>
 </tr>
 <?php } else { ?>
@@ -58,12 +60,10 @@
 	<td colspan="2"><span style="color:red;">Web server does not have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK']; ?>images/mime/'</b>, mime icon upload disabled</span></td>
 </tr>
 <?php } ?>
-<tr><td colspan="2">&nbsp;</td></tr>
+</table>
 
-<tr class="fieldtopic">
-	<td colspan="2"><a name="img"><b>MIME Management</b></a></td>
-</tr>
-
+<h3><?php echo $edit ? '<a name="edit">Edit MIME definition</a>' : 'Add MIME definition'; ?></h3>
+<table class="datatable solidtable">
 <tr class="field">
 	<td>MIME Description:</td>
 	<td><input type="text" name="mime_descr" value="<?php echo htmlspecialchars($mime_descr); ?>" /></td>
@@ -82,8 +82,8 @@
 <tr class="field">
 	<td valign="top"><a name="mime_sel">MIME Icon:</a></td>
 	<td nowrap="nowrap"><input type="text" name="mime_icon" value="<?php echo htmlspecialchars($mime_icon); ?>" onchange="
-				if (document.frm_sml.mime_icon.value.length) {
-					document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/mime/' + document.frm_sml.mime_icon.value;
+				if (this.value.length) {
+					document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/mime/' + this.value;
 				} else {
 					document.prev_icon.src='../blank.gif';
 				}" /> [<a href="#mime_sel" onclick="window.open('admiconsel.php?type=2&amp;<?php echo __adm_rsid; ?>', 'admmimesel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">select MIME icon</a>]</td>
@@ -104,7 +104,7 @@
 	if (!$edit) {
 		echo '<input type="submit" name="btn_submit" value="Add MIME" />';
 	} else {
-		echo '<input type="submit" name="btn_update" value="Update" /></td>';
+		echo '<input type="submit" name="btn_update" value="Update" />';
 	}
 ?>
 	</td>
@@ -112,7 +112,8 @@
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
-<p />
+
+<h3>MIME definitions</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Icon</th>
@@ -125,14 +126,14 @@
 	$c = uq('SELECT id, icon, mime_hdr, fl_ext, descr FROM '.$tbl.'mime');
 	$i = 1;
 	while ($r = db_rowarr($c)) {
-		if ($edit == $r[0]) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-		}
-		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$GLOBALS['WWW_ROOT'].'images/mime/'.$r[1].'" border="0" alt="'.$r[4].'" /></td><td>'.$r[2].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td nowrap="nowrap">[<a href="admmime.php?edit='.$r[0].'&amp;'.__adm_rsid.'#img">Edit</a>] [<a href="admmime.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		$i++;
+		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$GLOBALS['WWW_ROOT'].'images/mime/'.$r[1].'" border="0" alt="'.$r[4].'" /></td><td>'.$r[2].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td nowrap="nowrap">[<a href="admmime.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admmime.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
+	if (!$i) {
+		echo '<tr class="field"><td colspan="6"><center>No MIME deninitions found. Define some above.</center></td></tr>';
+	}
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

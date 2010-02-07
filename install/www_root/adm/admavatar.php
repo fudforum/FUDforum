@@ -173,7 +173,7 @@ function import_avatars($path)
 	<tr><td colspan="2">&nbsp;</td></tr>
 
 	<tr class="field">
-		<td colspan="2"><a name="img"><b><?php echo $edit ? 'Edit Avatar' : 'Add new Avatar'; ?></b></a></td>
+		<td colspan="2"><b><?php echo $edit ? '<a name="edit">Edit Avatar</a>' : 'Add new Avatar'; ?></b></a></td>
 	</tr>
 
 	<tr class="field">
@@ -202,8 +202,8 @@ function import_avatars($path)
 		<td>
 			<input type="text" name="avt_img" value="<?php echo htmlspecialchars($avt_img); ?>"
 				onchange="
-					if (document.frm_avt.avt_img.value.length) {
-						document.prev_icon.src='<?php echo $WWW_ROOT_DISK; ?>images/avatars/' + document.frm_avt.avt_img.value;
+					if (this.value.length) {
+						document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/avatars/' + this.value;
 					} else {
 						document.prev_icon.src='../blank.gif';
 					}" />
@@ -216,7 +216,7 @@ function import_avatars($path)
 		<td>
 			<table border="1" cellspacing="1" cellpadding="2" bgcolor="#ffffff">
 				<tr><td align="center" valign="middle">
-					<img src="<?php echo ($avt_img ? $GLOBALS['WWW_ROOT'] . 'images/avatars/' . $avt_img : '../blank.gif'); ?>" name="prev_icon" border="0" alt="blank">
+					<img src="<?php echo ($avt_img ? $GLOBALS['WWW_ROOT'] . 'images/avatars/' . $avt_img : '../blank.gif'); ?>" name="prev_icon" border="0" alt="blank" />
 				</td></tr>
 			</table>
 		</td>
@@ -240,17 +240,17 @@ function import_avatars($path)
 		$avt_gal = $_GET['avt_gal_sw'];
 	}
 	$show_def = in_array($avt_gal, $galleries) ? $avt_gal : $galleries[0];
-	echo '<a name="list"><h3 align="left">Avatars in gallery: '. $show_def .'</h3></a>';
+	echo '<h3 align="left"><a name="list">Avatars in gallery: '. $show_def .'</a></h3>';
 	if (count($galleries) > 1) {
 		// Change gallery.
 		echo '<div align="right">';
-		echo '<form id="frm_avt" method="get" action="admavatar.php#list">'._hs;
+		echo '<form method="get" action="admavatar.php#list">'._hs;
 		echo 'View gallery: <select name="avt_gal_sw">';
 		foreach ($galleries as $gal) {
 			echo '<option value="'.htmlspecialchars($gal).'"'.($avt_gal == $gal ? ' selected="selected"' : '').'>'.htmlspecialchars($gal).'</option>';
 		}
 		echo '</select> <input type="submit" name="submit" value="Switch" />';
-		echo '</div></form>';
+		echo '</form></div>';
 	}
 ?>
 <table class="resulttable fulltable">
@@ -263,18 +263,19 @@ function import_avatars($path)
 	$c = uq('SELECT id, img, descr FROM '.$tbl.'avatar WHERE gallery='._esc($show_def));
 	$i = 0;
 	while ($r = db_rowarr($c)) {
-		if ($edit == $r[0]) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		}
-		echo '<tr '.$bgcolor.'>
+		$i++;
+		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+
+		echo '<tr'.$bgcolor.'>
 				<td><img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$r[1].'" alt="'.$r[2].'" border="0" /></td>
 				<td>'.$r[2].'</td>
-				<td>[<a href="admavatar.php?edit='.$r[0].'&amp;'.__adm_rsid.'#img">Edit</a>] [<a href="admavatar.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td>
+				<td>[<a href="admavatar.php?edit='.$r[0].'&amp;avt_gal_sw='.$avt_gal.'&amp'.__adm_rsid.'#edit">Edit</a>] [<a href="admavatar.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td>
 			</tr>';
 	}
 	unset($c);
+	if (!$i) {
+		echo '<tr class="field"><td colspan="6"><center>No avatars found. Define some above.</center></td></tr>';
+	}
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

@@ -37,10 +37,10 @@
 				$cat->sync($edit);
 			}
 			$edit = '';
-			echo successify('Category sucessfully updated.');
+			echo successify('Category successfully updated.');
 		} else {
 			$cat->add($_POST['cat_pos']);
-			echo successify('Category sucessfully added.');
+			echo successify('Category successfully added.');
 		}
 		rebuild_forum_cat_order();
 	}
@@ -79,7 +79,7 @@
 			rebuild_forum_cat_order();
 		}
 		db_unlock();
-		echo successify('Category was deleted. Forums assigned to this catagory were moved to the <b><a href="admdelfrm.php?'.__adm_rsid.'">recycle bin</a></b>.');
+		echo successify('Category was deleted. Forums assigned to this category were moved to the <b><a href="admdelfrm.php?'.__adm_rsid.'">recycle bin</a></b>.');
 	}
 	if (isset($_GET['chpos'], $_GET['newpos'], $_GET['par'])) {
 		cat_change_pos((int)$_GET['chpos'], (int)$_GET['newpos'], (int)$_GET['par']);
@@ -131,7 +131,7 @@
 	next to one of the available categories.
 </div>
 <?php
-echo $edit ? '<h3>Edit Category:</h3>' : '<h3>Add New Category:</h3>';
+echo '<h3>'. ($edit ? '<a name="edit">Edit Category:</a>' : 'Add New Category:') .'</h3>';
 ?>
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -151,7 +151,7 @@ function imposeMaxLength(Object, len)
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
-		<td>Category Name:</td>
+		<td>Category name:</td>
 		<td><input type="text" name="cat_name" value="<?php echo $cat_name; ?>" maxlength="50" /></td>
 	</tr>
 
@@ -171,7 +171,7 @@ function imposeMaxLength(Object, len)
 	</tr>
 	
 	<tr class="field">
-		<td>Parent Category: </td>
+		<td>Parent category: </td>
 <?php
 	$c_ids = $c_names = "\n";
 	foreach ($cat_list as $c) {
@@ -235,7 +235,8 @@ function imposeMaxLength(Object, len)
 	$stat = array(0 => 'Collapsed', 2 => 'Open', 4 => 'Compact');
 
 	foreach ($cat_list as $i => $r) {
-		$bgcolor = (($i % 2) && ($edit != $r->id)) ? ' class="resultrow2"' : ' class="resultrow1"';
+		$i++;
+		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
 		if ($r->parent == $cpid) {
 			if ($_GET['chpos'] == $r->view_order) {
@@ -254,16 +255,19 @@ function imposeMaxLength(Object, len)
 			$r->description = substr($r->description, 3);
 		}
 
-		echo '<tr '.$bgcolor.'>
-			<td>'.str_repeat("-", $r->lvl) . " " . $r->name.'</td>
-			<td>'.htmlspecialchars(substr($r->description, 0, 30)).'</td>
+		echo '<tr'.$bgcolor.'>
+			<td>'.str_repeat('-', $r->lvl) .' '. $r->name .'</td>
+			<td>'.htmlspecialchars(substr($r->description, 0, 30)).'...</td>
 			<td>'.($r->cat_opt & 1 ? 'Yes' : 'No').'</td>
 			<td>'.$stat[($r->cat_opt & (2|4))].'</td>
-			<td nowrap="nowrap">[<a href="admforum.php?cat_id='.$r->id.'&amp;'.__adm_rsid.'">Edit Forums</a>] [<a href="admcat.php?edit='.$r->id.'&amp;'.__adm_rsid.'">Edit Category</a>] [<a href="admcat.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td>
+			<td nowrap="nowrap">[<a href="admforum.php?cat_id='.$r->id.'&amp;'.__adm_rsid.'">Edit Forums</a>] [<a href="admcat.php?edit='.$r->id.'&amp;'.__adm_rsid.'#edit">Edit Category</a>] [<a href="admcat.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td>
 			<td>[<a href="admcat.php?chpos='.$r->view_order.'&amp;cpid='.$r->id.'&amp;'.__adm_rsid.'">Change</a>]</td></tr>';
 	}
 	if ($lp && $parent == $cpid) {
-		echo '<tr class="field"><td align="center" colspan="7"><font size="-1"><a href="admcat.php?chpos='.$_GET['chpos'].'&amp;newpos='.($lp + 1).'&amp;par='.$parent.'&amp;'.__adm_rsid.'">Place Here</a></font></td></tr>';
+		echo '<tr class="field"><td align="center" colspan="6"><font size="-1"><a href="admcat.php?chpos='.$_GET['chpos'].'&amp;newpos='.($lp + 1).'&amp;par='.$parent.'&amp;'.__adm_rsid.'">Place Here</a></font></td></tr>';
+	}
+	if (!$i) {
+		echo '<tr class="field"><td colspan="6"><center>No categories found. Define some above.</center></td></tr>';
 	}
 ?>
 </table>

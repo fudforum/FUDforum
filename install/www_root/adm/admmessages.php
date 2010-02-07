@@ -21,16 +21,16 @@
 
 	if (isset($_POST['btn_download']) && isset($_POST['tlang'])) {
 		$tlang = $_POST['tlang'];
-		pf('<font color="green">Downloading '. $langname .' messages from tranalatewiki.net...</font>');
+		pf('<font color="green">Downloading '. $tlang .' messages from tranalatewiki.net...</font>');
 
-		$url = "http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language=$lang&limit=2500";
+		$url = "http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language=$tlang&limit=2500";
 		$url_stuff = parse_url($url);
 
 		$fp = fsockopen($url_stuff['host'], 80, $errno, $errstr);
 		if (!$fp) {
 			echo errorify('ERROR: '. $errstr .' ('. $errno .')');
 		} else {
-			$query = "GET ". $url_stuff['path'] ."?". $url_stuff['query'] ." HTTP/1.0\r\n";
+			$query = 'GET '. $url_stuff['path'] .'?'. $url_stuff['query'] ." HTTP/1.0\r\n";
 			$query .= "User-Agent: FUDforum\r\n";
 			$query .= "Connection: close\r\n";
 			$query .= "\r\n\r\n";

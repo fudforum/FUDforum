@@ -50,6 +50,8 @@
 ?>
 <h2>Allowed Extensions</h2>
 <p>Specify which files types users can attach to forum messages. If no file extension is entered, all files will be allowed.</p>
+
+<h3><?php echo $edit ? '<a name="edit">Edit Extention:</a>' : 'Add New Extention:'; ?></h3>
 <form id="exf" method="post" action="admext.php">
 <table class="datatable solidtable">
 	<tr class="field">
@@ -77,26 +79,24 @@
 document.forms['exf'].c_ext.focus();
 /* ]]> */
 </script>
-<h3>Defined filters:</h3>
+<h3>Defined extensions:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Extension</th>
 	<th>Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT ext,id FROM '.$tbl.'ext_block');
+	$c = uq('SELECT id, ext FROM '.$tbl.'ext_block');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
-		if ($edit == $r[0]) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		}
-		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admext.php?edit='.$r[1].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admext.php?del='.$r[1].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		$i++;
+		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+
+		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>[<a href="admext.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admext.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {
-		echo '<tr class="field"><td colspan="2"><center>No filters found.</center></td></tr>';
+		echo '<tr class="field"><td colspan="2"><center>No extensions found. Define some above.</center></td></tr>';
 	}
 ?>
 </table>

@@ -126,7 +126,7 @@ function get_max_upload_size()
 
 <?php
 if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
-	echo ($edit ? '<h3>Edit Forum:</h3>' : '<h3>Add Forum to '. $cat_name .':</h3>');
+	echo '<h3>'. ($edit ? '<a name="edit">Edit Forum:</a>' : 'Add Forum to '. $cat_name .':') .'</h3>';
 ?>
 
 <form method="post" id="frm_forum" action="admforum.php">
@@ -139,7 +139,7 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 
 	<tr class="field">
 		<td valign="top">Description:<br /><font size="-2">Description that will be shown on the forums main index page.</font></td>
-		<td><textarea nowrap="nowrap" name="frm_descr" cols="28" rows="5"><?php echo htmlspecialchars($frm_descr); ?></textarea>
+		<td><textarea nowrap="nowrap" name="frm_descr" cols="28" rows="5"><?php echo htmlspecialchars($frm_descr); ?></textarea></td>
 	</tr>
 
 	<tr class="field">
@@ -159,7 +159,7 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 
 	<tr class="field">
 		<td>Posting Password:<br /><font size="-2">Password when <i>Password Posting</i> is enabled.</font></td>
-		<td><input type="passwd" maxlength="32" name="frm_post_passwd" value="<?php echo htmlspecialchars($frm_post_passwd); ?>" /></td>
+		<td><input maxlength="32" name="frm_post_passwd" value="<?php echo htmlspecialchars($frm_post_passwd); ?>" /></td>
 	</tr>
 
 	<tr class="field">
@@ -169,7 +169,7 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 
 	<tr class="field">
 		<td>Max Attachment Size:<br /><font size="-2">Your php's maximum file upload size is <b><?php echo floor($max_upload_size / 1024); ?></b> KB.<br />You cannot set the forum's attachment size limit higher than that.</font></td>
-		<td><input type="text" name="frm_max_attach_size" value="<?php echo $frm_max_attach_size; ?>" maxlength="100" size="5" />kb</td>
+		<td><input type="text" name="frm_max_attach_size" value="<?php echo $frm_max_attach_size; ?>" maxlength="100" size="5" />KB</td>
 	</tr>
 
 	<tr class="field">
@@ -223,7 +223,7 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 <h3>Forums in Category: <a name="forumlist"><?php echo $cat_name; ?></a></h3>
 <?php
 } else {	// Busy changing position.
-	echo '<a href="admforum.php?cat_id='.$cat_id.'&'.__adm_rsid.'">Cancel reorder operation</a>';
+	echo '<a href="admforum.php?cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Cancel reorder operation</a>';
 }
 ?>
 
@@ -239,28 +239,28 @@ if (!isset($_GET['chpos'])) {	// Hide this if we are changing forum order.
 <?php
 	$move_ct = create_cat_select('dest_cat', '', $cat_id);
 
-	$i = 1;
+	$i = 0;
 	$c = uq('SELECT id, name, descr, forum_opt, view_order FROM '.$tbl.'forum WHERE cat_id='.$cat_id.' ORDER BY view_order');
 	while ($r = db_rowobj($c)) {
-		if ($edit == $r->id) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-		}
+		$i++;
+		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 		if (isset($_GET['chpos'])) {
 			if ($_GET['chpos'] == $r->view_order) {
-				$bgcolor = ' class="resultrow2"';
+				$bgcolor = ' class="resultrow3"';
 			} else if ($_GET['chpos'] != ($r->view_order - 1)) {
 				echo '<tr class="field"><td align="center" colspan="9"><a href="admforum.php?chpos='.$_GET['chpos'].'&amp;newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
 			}
 			$lp = $r->view_order;
 		}
 		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'._hs.'<input type="hidden" name="frm_id" value="'.$r->id.'" /><input type="hidden" name="cat_id" value="'.$cat_id.'" /><input type="submit" name="btn_chcat" value="Move To: " /> '.$move_ct.'</form>';
-		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-1">'.htmlspecialchars(substr($r->descr, 0, 30)).'</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap="nowrap">[<a href="admforum.php?cat_id='.$cat_id.'&amp;edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'.__adm_rsid.'">Delete</a>]</td><td nowrap="nowrap">'.$cat_name.'</td><td nowrap="nowrap">[<a href="admforum.php?chpos='.$r->view_order.'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Change</a>]</td></tr>';
+		echo '<tr'.$bgcolor.'><td>'.$r->name.'</td><td><font size="-1">'.htmlspecialchars(substr($r->descr, 0, 30)).'...</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap="nowrap">[<a href="admforum.php?cat_id='.$cat_id.'&amp;edit='.$r->id.'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&amp;del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td><td nowrap="nowrap">'.$cat_name.'</td><td nowrap="nowrap">[<a href="admforum.php?chpos='.$r->view_order.'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Change</a>]</td></tr>';
 	}
 	unset($c);
 	if (isset($lp)) {
-		echo '<tr class="field""><td align="center" colspan="9"><a href="admforum.php?chpos='.$_GET['chpos'].'&amp;newpos='.($lp + 1).'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
+		echo '<tr class="field""><td align="center" colspan="6"><a href="admforum.php?chpos='.$_GET['chpos'].'&amp;newpos='.($lp + 1).'&amp;cat_id='.$cat_id.'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
+	}
+	if (!$i) {
+		echo '<tr class="field"><td colspan="6"><center>No forums found. Define some above.</center></td></tr>';
 	}
 ?>
 </table>

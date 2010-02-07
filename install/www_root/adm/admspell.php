@@ -31,6 +31,10 @@
 			}
 		}
 	}
+
+	if ($status) {
+		echo successify($status .' word(s) were successfully added.');
+	}
 ?>
 <h2>Custom Dictionary Spell Checker</h2>
 <?php
@@ -45,9 +49,6 @@
 <form method="post" id="spell" action="admspell.php">
 <?php
 	echo _hs;
-	if ($status) {
-		echo '<div style="text-align: center; color: green; font-size: 125%">'.$status.' word(s) were added successfully.</div>';
-	}
 ?>
 <br />
 

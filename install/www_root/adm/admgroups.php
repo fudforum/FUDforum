@@ -206,7 +206,8 @@
 	}
 ?>
 <h2>Admin Group Manager</h2>
-<h3><?php echo $edit ? 'Edit Group:</h3>' : '<h3>Add New Group:'; ?></h3>
+
+<h3><?php echo $edit ? '<a name="edit">Edit Group:</a>' : 'Add New Group:'; ?></h3>
 <form method="post" action="admgroups.php">
 <?php echo _hs; ?>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
@@ -331,6 +332,9 @@ for the group's they manage. To change the user permissions please use the <a hr
 	unset($c);
 
 	foreach ($gl as $k => $v) {
+		$i++;
+		$bgcolor = ($edit == $k) ? ' class="tiny resultrow3"' : (($i%2) ? ' class="tiny resultrow1"' : ' class="tiny resultrow2"');
+
 		if (isset($gll[$k])) {
 			$grl = '<font size="-1">(total: '.count($gll[$k]).')</font><br /><select name="gr_leaders"><option>'.implode('</option><option>', $gll[$k]).'</option></select>';
 		} else {
@@ -340,7 +344,7 @@ for the group's they manage. To change the user permissions please use the <a hr
 		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='.$k.'&amp;'.__adm_rsid.'">Delete</a>]' : '';
 		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'<br />[<a href="admgrouplead.php?group_id='.$k.'&amp;'.__adm_rsid.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&amp;group_id='.$k.'&amp;'.__adm_rsid.'" target="_new">Manage Users</a>]' : '';
 
-		echo '<tr class="tiny field"><td><a name="g'.$k.'">'.$v['gn'].'</a></td>';
+		echo '<tr'.$bgcolor.'><td><a name="g'.$k.'">'.$v['gn'].'</a></td>';
 		foreach ($hdr as $v2) {
 			echo '<td nowrap="nowrap" align="center" title="'.$v2[1].'">';
 			if ($v['inherit_id'] && $v['groups_opti'] & $v2[0]) {
@@ -350,7 +354,10 @@ for the group's they manage. To change the user permissions please use the <a hr
 			}
 			echo '</td>';
 		}
-		echo '<td valign="middle" align="center">'.$grl.'</td> <td nowrap="nowrap">[<a href="admgroups.php?edit='.$k.'&amp;'.__adm_rsid.'">Edit</a>] '.$user_grp_mgr.'</td></tr>';
+		echo '<td valign="middle" align="center">'.$grl.'</td> <td nowrap="nowrap">[<a href="admgroups.php?edit='.$k.'&amp;'.__adm_rsid.'#edit">Edit</a>] '.$user_grp_mgr.'</td></tr>';
+	}
+	if (!$i) {
+		echo '<tr class="field"><td colspan="6"><center>No groups found. Define some above.</center></td></tr>';
 	}
 ?>
 </table>

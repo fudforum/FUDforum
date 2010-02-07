@@ -62,7 +62,7 @@ $charsets = ARRAY(
 	'windows-1251','windows-1252','windows-1253','windows-1254','windows-1255','windows-1256',
 	'windows-1257','windows-1258');
 ?>
-<fieldset>
+<fieldset class="tutor">
 	<legend><b>Optional character set conversion:</b></legend>
 	<p>Non-English forums that are not using UTF-8 might want to convert their messages to UTF-8. Converting twice will corrupt your messages. Please leave empty if you don't require a character set conversion or if you are unsure:</p>
 	<table class="datatable">
@@ -82,8 +82,8 @@ $charsets = ARRAY(
 	</tr></table>
 </fieldset>
 <?php } ?>
-
-<p>Do you wish to proceed?</p>
+<p><b>Do you wish to proceed?</b></p>
+<p><label>Permanently apply <a href="admreplace.php?<?php echo __adm_rsid; ?>">Replacement and Censorship</a> rules to message bodies: <input name="replace" value="1" type="checkbox"></label></p>
 <input type="submit" name="btn_cancel" value="No" />&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes" />
 <?php echo _hs; ?>
 </form>
@@ -113,11 +113,32 @@ function write_body_c($data, &$len, &$offset, $fid)
 {
 	$MAX_FILE_SIZE = 2140000000;
 
+	// Character set conversion.
 	if (!empty($_POST['fromcharset']) || !empty($_POST['tocharset'])) {
 		$newdata = iconv($_POST['fromcharset'], $_POST['tocharset'], $data);
 		$data = $newdata;
 	}
 
+	// Replacement and censorship (code from replace.inc.t).
+	if (!empty($_POST['replace'])) {
+		if (!defined('__fud_replace_init')) {
+			$GLOBALS['__FUD_REPL__']['pattern'] = $GLOBALS['__FUD_REPL__']['replace'] = array();
+			$a =& $GLOBALS['__FUD_REPL__']['pattern'];
+			$b =& $GLOBALS['__FUD_REPL__']['replace'];
+
+			$c = uq('SELECT with_str, replace_str FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'replace WHERE replace_str IS NOT NULL AND with_str IS NOT NULL AND LENGTH(replace_str)>0');
+			while ($r = db_rowarr($c)) {
+				$a[] = $r[1];
+				$b[] = $r[0];
+			}
+			unset($c);
+
+			define('__fud_replace_init', 1);
+		}
+
+		$data = preg_replace($GLOBALS['__FUD_REPL__']['pattern'], $GLOBALS['__FUD_REPL__']['replace'], $data);
+	}
+	
 	$len = strlen($data);
 
 	$s = $fid * 10000;
@@ -158,7 +179,7 @@ function eta_calc($start, $pos, $pc)
 		maintenance_status('Undergoing maintenance, please come back later.', 1);
 	}
 
-	pf('Please wait while forum is being compacted. This may take a while depending on the size of your forum.');
+	pf('Please wait while the forum is being compacted. This may take a while depending on the size of your forum.');
 
 	$mode = ($FUD_OPT_2 & 8388608 ? 0600 : 0666);
 	$tbl =& $DBHOST_TBL_PREFIX;

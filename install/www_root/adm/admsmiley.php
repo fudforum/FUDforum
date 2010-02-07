@@ -100,17 +100,17 @@ function sml_form_check()
 
 <h2>Smiley Management System</h2>
 
-<form id="frm_sml" method="post" enctype="multipart/form-data" action="admsmiley.php" 
-onsubmit="return sml_form_check();">
+<h3>Upload smiley:</h3>
+<form id="frm_sml" method="post" enctype="multipart/form-data" action="admsmiley.php" onsubmit="return sml_form_check();">
 <?php
 	echo _hs;
 	echo '<table class="datatable solidtable">';
 	if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons')) { ?>
 		<tr class="fieldtopic">
-			<td colspan="2"><b>Smilies Upload (upload smiley into the system)</b></td>
+			<td colspan="2"><b>Upload smiley into the system:</b></td>
 		</tr>
 		<tr class="field">
-			<td>Smilies Upload:<br /><font size="-1">Only (*.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
+			<td>Smily to upload:<br /><font size="-1">Only (*.gif, *.jpg, *.jpeg, *.png) files are supported</font></td>
 			<td><input type="file" name="icoul" /> <input type="submit" name="btn_upload" value="Upload" /></td>
 			<td><input type="hidden" name="tmp_f_val" value="1" /></td>
 		</tr>
@@ -119,13 +119,10 @@ onsubmit="return sml_form_check();">
 			<td colspan="2"><span style="color:red;">Web server doesn't have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons'; ?>'</b>, smiley upload disabled</span></td>
 		</tr>
 	<?php } ?>
+</table>
 
-	<tr><td colspan="2">&nbsp;</td></tr>
-
-	<tr class="fieldtopic">
-		<td colspan="2"><a name="img"><b>Smilies Management</b></a></td>
-	</tr>
-
+<h3><?php echo $edit ? '<a name="edit">Edit Smiley:</a>' : 'Add New Smiley:'; ?></h3>
+<table class="datatable solidtable">
 	<tr class="field">
 		<td>Smiley Description:</td>
 		<td><input type="text" name="sml_descr" value="<?php echo htmlspecialchars($sml_descr); ?>" /></td>
@@ -141,8 +138,8 @@ onsubmit="return sml_form_check();">
 		<td>
 			<input type="text" name="sml_img" value="<?php echo htmlspecialchars($sml_img); ?>"
 				onchange="
-						if (document.frm_sml.sml_img.value.length) {
-							document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/smiley_icons/' + document.frm_sml.sml_img.value;
+						if (this.value.length) {
+							document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/smiley_icons/' + this.value;
 						} else {
 							document.prev_icon.src='../blank.gif';
 						}" />
@@ -175,6 +172,8 @@ onsubmit="return sml_form_check();">
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 <?php } /* if (!isset($_GET['chpos'])) { */ ?>
+
+<h3>Available smilies:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Smiley</th>
@@ -187,11 +186,8 @@ onsubmit="return sml_form_check();">
 	$i = 0;
 	$chpos = isset($_GET['chpos']) ? (int)$_GET['chpos'] : '';
 	while ($r = db_rowobj($c)) {
-		if ($edit == $r->id) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		}
+		$i++;
+		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
 
 		if (isset($_GET['chpos'])) {
 			if ($_GET['chpos'] == $r->vieworder) {
@@ -201,13 +197,16 @@ onsubmit="return sml_form_check();">
 			}
 			$lp = $r->vieworder;
 		}
-		echo '<tr '.$bgcolor.'><td><img src="'.$GLOBALS['WWW_ROOT'].'images/smiley_icons/'.$r->img.'" border="0" alt="'.$r->descr.'" /></td><td>'.htmlspecialchars($r->code).'</td><td>'.$r->descr.'</td>
-			<td nowrap="nowrap">[<a href="admsmiley.php?edit='.$r->id.'&amp;'.__adm_rsid.'#img">Edit</a>] [<a href="admsmiley.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>] [<a href="admsmiley.php?chpos='.$r->vieworder.'&amp;'.__adm_rsid.'">Change Position</a>]</td>
+		echo '<tr'.$bgcolor.'><td><img src="'.$GLOBALS['WWW_ROOT'].'images/smiley_icons/'.$r->img.'" border="0" alt="'.$r->descr.'" /></td><td>'.htmlspecialchars($r->code).'</td><td>'.$r->descr.'</td>
+			<td nowrap="nowrap">[<a href="admsmiley.php?edit='.$r->id.'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admsmiley.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>] [<a href="admsmiley.php?chpos='.$r->vieworder.'&amp;'.__adm_rsid.'">Change Position</a>]</td>
 			</tr>';
 	}
 	unset($c);
 	if (isset($lp)) {
-		echo '<tr class="field"><td align="center" colspan="9"><a href="admsmiley.php?chpos='.$_GET['chpos'].'&amp;chdest='.($lp + 1).'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
+		echo '<tr class="field"><td align="center" colspan="4"><a href="admsmiley.php?chpos='.$_GET['chpos'].'&amp;chdest='.($lp + 1).'&amp;'.__adm_rsid.'">Place Here</a></td></tr>';
+	}
+	if (!$i) {
+		echo '<tr class="field"><td colspan="4"><center>No smileys found. Define some above.</center></td></tr>';
 	}
 ?>
 </table>

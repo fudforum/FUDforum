@@ -44,6 +44,8 @@
 ?>
 <h2>Login Blocker</h2>
 <p>Block users with a matching login name from registering or posting messages on the forum.</p>
+
+<h3><?php echo $edit ? '<a name="edit">Edit filter:</a>' : 'Add New Filter:'; ?></h3>
 <form id="alf" method="post" action="admlogin.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
@@ -71,6 +73,7 @@
 document.forms['alf'].login.focus();
 /* ]]> */
 </script>
+
 <h3>Defined filters:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
@@ -78,19 +81,17 @@ document.forms['alf'].login.focus();
 	<th>Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT login,id FROM '.$tbl.'blocked_logins');
+	$c = uq('SELECT id, login FROM '.$tbl.'blocked_logins');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
-		if ($edit == $r[0]) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? 'class="resultrow1"' : 'class="resultrow2"';
-		}
-		echo '<tr '.$bgcolor.'><td>'.char_fix(htmlspecialchars($r[0])).'</td><td>[<a href="admlogin.php?edit='.$r[1].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admlogin.php?del='.$r[1].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		$i++;
+		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+
+		echo '<tr'.$bgcolor.'><td>'.char_fix(htmlspecialchars($r[1])).'</td><td>[<a href="admlogin.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admlogin.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {
-		echo '<tr class="field"><td colspan="2"><center>No filters found.</center></td></tr>';
+		echo '<tr class="field"><td colspan="2"><center>No filters found. Define some above.</center></td></tr>';
 	}
 ?>
 </table>

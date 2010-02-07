@@ -21,7 +21,7 @@
 
 	echo '<h2>System Configuration</h2>';
 	echo '<p>This page lists information about the PHP version installed on this server.<br />It may contain sensitive information and <u>should be kept private</u>!</p>';
-	echo '<table class="phpinfo">'.$info.'</table>';
+	echo '<div id="phpinfo">'.$info.'</div>';
 
 	require($WWW_ROOT_DISK . 'adm/footer.php');
 ?>

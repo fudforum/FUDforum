@@ -59,6 +59,8 @@
 <h2>IP Filter System</h2>
 <p>Block users with a matching IP address from registering or posting messages on the forum.
 A range of IP addresses can be blocked by entering a mask (.*).</p>
+
+<h3><?php echo $edit ? '<a name="edit">Edit filter:</a>' : 'Add New Filter:'; ?></h3>
 <form id="ipf" method="post" action="admipfilter.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
@@ -86,6 +88,7 @@ A range of IP addresses can be blocked by entering a mask (.*).</p>
 document.forms['ipf'].ipaddr.focus();
 /* ]]> */
 </script>
+
 <h3>Defined filters:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
@@ -100,17 +103,15 @@ document.forms['ipf'].ipaddr.focus();
 	}
 	$i = 0;
 	while ($r = db_rowarr($c)) {
+		$i++;
+		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+
 		$r[1] = str_replace('256', '*', $r[1]);
-		if ($edit == $r[0]) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		}
-		echo '<tr '.$bgcolor.'><td>'.$r[1].'</td><td>[<a href="admipfilter.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admipfilter.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr'.$bgcolor.'><td>'.$r[1].'</td><td>[<a href="admipfilter.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admipfilter.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {
-		echo '<tr class="field"><td colspan="2"><center>No filters found.</center></td></tr>';
+		echo '<tr class="field"><td colspan="2"><center>No filters found. Define some above.</center></td></tr>';
 	}
 ?>
 </table>

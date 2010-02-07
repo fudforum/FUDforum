@@ -13,10 +13,14 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 
+	require($WWW_ROOT_DISK . 'adm/header.php');
+		
 	if (isset($_POST['lev_submit'])) {
 		q('INSERT INTO '.$DBHOST_TBL_PREFIX.'level (name, img, level_opt, post_count) VALUES ('._esc($_POST['lev_name']).', '.ssn($_POST['lev_img']).', '.(int)$_POST['lev_level_opt'].', '.(int)$_POST['lev_post_count'].')');
+		echo successify('Level was successfully added.');
 	} else if (isset($_POST['edit'], $_POST['lev_update'])) {
-		q('UPDATE '.$DBHOST_TBL_PREFIX.'level SET name='._esc($_POST['lev_name']).', img='.ssn($_POST['lev_img']).' level_opt='.(int)$_POST['lev_level_opt'].', post_count='.(int)$_POST['lev_post_count'].' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '.$DBHOST_TBL_PREFIX.'level SET name='._esc($_POST['lev_name']).', img='.ssn($_POST['lev_img']).', level_opt='.(int)$_POST['lev_level_opt'].', post_count='.(int)$_POST['lev_post_count'].' WHERE id='.(int)$_POST['edit']);
+		echo successify('Level was successfully updated.');		
 	}
 
 	if (isset($_GET['edit'])) {
@@ -28,6 +32,7 @@
 
 	if (isset($_GET['del'])) {
 		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'level WHERE id='.(int)$_GET['del']);
+		echo successify('Level successfully removed.');	
 	}
 
 	if (isset($_GET['rebuild_levels'])) {
@@ -38,12 +43,14 @@
 			$pl = $r[1];
 		}
 		unset($c);
+		echo successify('Cache was successfully rebuilt.');
 	}
 
-	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Rank Manager</h2>
 <div class="alert">If you've made any modification to the user ranks<br />you MUST run the CACHE REBUILDER by &gt;&gt; <a href="admlevel.php?rebuild_levels=1&amp;<?php echo __adm_rsid; ?>">clicking here</a> &lt;&lt;</div>
+
+<h3><?php echo $edit ? '<a name="edit">Edit Level:</a>' : 'Add New Level:'; ?></h3>
 <form method="post" id="lev_form" action="admlevel.php">
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 <?php echo _hs; ?>
@@ -81,6 +88,7 @@
 </table>
 </form>
 
+<h3>Available Levels:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Name</th>
@@ -91,14 +99,15 @@
 	$c = uq('SELECT id, name, post_count FROM '.$DBHOST_TBL_PREFIX.'level ORDER BY post_count');
 	$i = 0;
 	while ($r = db_rowobj($c)) {
-		if ($edit == $r->id) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		}
-		echo '<tr'.$bgcolor.'><td>'.$r->name.'</td><td align="center">'.$r->post_count.'</td><td><a href="admlevel.php?edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a> | <a href="admlevel.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a></td></tr>';
+		$i++;
+		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+
+		echo '<tr'.$bgcolor.'><td>'.$r->name.'</td><td align="center">'.$r->post_count.'</td><td><a href="admlevel.php?edit='.$r->id.'&amp;'.__adm_rsid.'#edit">Edit</a> | <a href="admlevel.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a></td></tr>';
 	}
 	unset($c);
+	if (!$i) {
+		echo '<tr class="field"><td colspan="5" align="center">No levels found. Define some above.</td></tr>';
+	}
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

@@ -158,7 +158,7 @@ function goto_tmpl($tmpl)
 			$p = $e;
 		}
 		if (isset($msg_list)) {
-			$msg_list = ' <font size="-1">[ <a title="Edit embedded messages (popup window)" href="#" onclick="window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsid.'&NO_TREE_LIST=1&msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
+			$msg_list = ' <font size="-1">[ <a title="Edit embedded messages (popup window)" href="#" onclick="window_open(\'msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;NO_TREE_LIST=1&amp;msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 800, 300);">Edit Text Messages</a> ]</font>';
 		}
 	}
 	require($WWW_ROOT_DISK . 'adm/header.php');
@@ -167,6 +167,7 @@ function goto_tmpl($tmpl)
 <table width="100%" cellspacing="2" cellpadding="2">
 <tr>
 <td valign="top" nowrap="nowrap">
+<b>Available template files:</b><br /><br />
 <?php
 	$path = $DATA_DIR . 'thm/' . $tname . '/tmpl';
 	$pathl = $path . '/';
@@ -283,7 +284,7 @@ function goto_tmpl($tmpl)
 					if( $file_info_array[$k2] ) $deps .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;max_list='.goto_tmpl($k2).'" class="deps">'.$k2.'</a><br />';
 				}
 
-				if( !empty($deps) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#00AA00"><b>Dependencies</b></font><br />'.$deps;
+				if( !empty($deps) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#00aa00"><b>Dependencies</b></font><br />'.$deps;
 			}
 
 			if( is_array($deps_on[$k]) ) {
@@ -299,7 +300,7 @@ function goto_tmpl($tmpl)
 	}
 ?>
 </td>
-<?php if($edit) { ?>
+<?php if ($edit) { ?>
 <td width="100%" valign="top">
 <?php
 	if (isset($update_ok)) {
@@ -325,7 +326,7 @@ function goto_tmpl($tmpl)
 	</td>
 </tr>
 <tr>
-	<td align="right"><input type="reset" name="reset" value="Undo Changes" />&nbsp;&nbsp;&nbsp;<input type="Submit" name="Submit" value="Save Changes" /></td>
+	<td align="right"><input type="reset" name="reset" value="Undo Changes" />&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" value="Save Changes" /></td>
     <td>
 		<input type="hidden" name="msec" value="<?php echo $msec; ?>" />
 		<input type="hidden" name="max_list" value="<?php echo $max_list; ?>" />
@@ -338,7 +339,7 @@ function goto_tmpl($tmpl)
 </table>
 </form>
 </td>
+<?php } /* if ($edit) */ ?>
 </tr>
-<?php } ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

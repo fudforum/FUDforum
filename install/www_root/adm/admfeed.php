@@ -87,9 +87,8 @@
 The support modes are 'u', for user information retrieval, 't' for topic retrieval and 'm' for message retrieval.
 Each mode has a number of options that allow you to specify the exact nature of the data you wish to fetch. 
 Below is the explanation of those flags, it should be noted that flags are not exclusive and you can use as many 
-as you like in a single request.<br />
-A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GLOBALS['DATA_DIR']; ?>scripts/rdf_parser.php</b>
-<br />
+as you like in a single request.</p>
+<p>A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GLOBALS['DATA_DIR']; ?>scripts/rdf_parser.php</b></p>
 <h4><u><b>'m' mode (messages)</b></u></h4>
 <blockquote>
 	<table border="0" cellspacing="1" cellpadding="3">
@@ -132,14 +131,14 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 		<tr><td><i>o</i></td><td>Starting offset from which to begin fetching users.</td></tr>
 		<tr><td><i>format</i></td><td>Output format: RDF (default), ATOM or RSS.</td></tr>
 	</table>
-</blockquote></p>
+</blockquote>
 <b>Examples:</b><br />
 <p>Fetch the 10 most recent <i>messages</i> from your forum and format it as an <i>RDF</i> feed:<br />
 <a href="<?php echo $feed_url; ?>?mode=m&amp;l=1&amp;n=10&amp;basic=1" target="_blank"><?php echo $feed_url; ?>?mode=m&amp;l=1&amp;n=10</a></p>
 <p>Fetch the 15 most recent <i>topics</i> from your forum and format it as an <i>ATOM</i> feed:<br />
 <a href="<?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=15&amp;format=atom" target="_blank"><?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=15&amp;format=atom</a></p>
 <p>Fetch the 20 most recent <i>topics</i> from the first forum and format it as a <i>RSS2</i> feed:<br />
-<a href="<?php echo $feed_url; ?>?mode=t&l=1&n=20&frm=1&format=rss" target="_blank"><?php echo $feed_url; ?>?mode=t&l=1&n=20&frm=1&format=rss</a></p>
+<a href="<?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=20&amp;frm=1&amp;format=rss" target="_blank"><?php echo $feed_url; ?>?mode=t&amp;l=1&amp;n=20&amp;frm=1&amp;format=rss</a></p>
 </td></tr>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

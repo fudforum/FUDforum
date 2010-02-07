@@ -34,29 +34,29 @@
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'user_ignore SET user_id = '. $id2 .' WHERE user_id = '. $id1);
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'buddy SET user_id = '. $id2 .' WHERE user_id = '. $id1);
 			q('UPDATE '. $DBHOST_TBL_PREFIX .'thread_rate_track SET	user_id = '. $id2 .' WHERE 	user_id = '. $id1);
-			
+
 			// Cleanup.
 			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'read WHERE user_id = '. $id1);
 			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'forum_read WHERE user_id = '. $id1);
 			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'thread_notify WHERE user_id = '. $id1);
 			q('DELETE FROM '. $DBHOST_TBL_PREFIX .'users WHERE id = '. $id1);
-			
-			echo successify('Users '. $u1 .' and '. $u2 .' were sucessfully merged.');
+
+			echo successify('Users '. $u1 .' and '. $u2 .' were successfully merged.');
 		}
 	}
 ?>
 <h2>Merge users</h2>
-<p>This control panel will merge the posts from two seperate user accounts into a single account. This action cannot be undone.</p>
+<p>This control panel will merge the posts from two separate user accounts into a single account. This action cannot be undone.</p>
 
 <form id="frm_usr" method="post" action="admusermerge.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="field">
-		<td>From user:<br /><font size=-1>(will be deleted)</font></td>
+		<td>From user:<br /><font size="-1">(will be deleted)</font></td>
 		<td><input tabindex="2" type="text" name="u1" value="<?php echo $u1; ?>" size="30" /></td>
 	</tr>
 	<tr class="field">
-		<td>To user:<br /><font size=-1>(target for messages, PM's, etc.)</font></td>
+		<td>To user:<br /><font size="-1">(target for messages, PM's, etc.)</font></td>
 		<td><input tabindex="1" type="text" name="u2" value="<?php echo $u2; ?>" size="30" /></td>
 	</tr>
 	<tr class="fieldaction">
@@ -64,7 +64,7 @@
 	</tr>
 </table>
 </form>
-<a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to Moderator/User Manager</a>
+<p><a href="admuser.php?<?php echo __adm_rsid; ?>">&laquo; Back to User Administration System</a></p>
 <script type="text/javascript">
 /* <![CDATA[ */
 document.forms['frm_usr'].u1.focus();

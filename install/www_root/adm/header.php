@@ -84,7 +84,6 @@
 
 	<span class="linkgroup">User Management</span><br />
 	<a href="admuser.php?<?php echo __adm_rsid; ?>">Moderator/User Manager</a><br />
-	<a href="admaccapr.php?<?php echo __adm_rsid; ?>">Account Approval</a><br />
 	<a href="admgroups.php?<?php echo __adm_rsid; ?>">Groups Manager</a><br />
 	<a href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a><br />
 	<a href="admlevel.php?<?php echo __adm_rsid; ?>">Rank Manager</a><br />

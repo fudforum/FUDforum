@@ -67,8 +67,8 @@
 			echo errorify('Invalid year specified.');
 		}
 
-		$desc = htmlspecialchars($_POST['cal_desc']);
-		if ( empty($desc) ) {
+		$descr = htmlspecialchars($_POST['cal_descr']);
+		if ( empty($descr) ) {
 			$error = 1;
 			echo errorify('No description was specified for the event.');
 		}
@@ -122,7 +122,7 @@
 </form>
 
 <?php
-echo ($edit ? '<h3>Edit Event:</h3>' : '<h3>Add New Event:</h3>');
+echo '<h3>'. ($edit ? '<a name="edit">Edit Event:</a>' : 'Add New Event:') .'</h3>';
 ?>
 <form method="post" id="frm_forum" action="admcalendar.php">
 <?php echo _hs; ?>
@@ -144,7 +144,7 @@ echo ($edit ? '<h3>Edit Event:</h3>' : '<h3>Add New Event:</h3>');
 
 	<tr class="field">
 		<td>Description:<br /><font size="-2">Description to appear in calendar.</font></td>
-		<td><textarea name="cal_desc" cols="40" rows="2"><?php echo $cal_desc; ?></textarea></td>
+		<td><textarea name="cal_descr" cols="40" rows="2"><?php echo $cal_descr; ?></textarea></td>
 	</tr>
 
 	<tr class="field">
@@ -164,28 +164,30 @@ echo ($edit ? '<h3>Edit Event:</h3>' : '<h3>Add New Event:</h3>');
 		</td>
 	</tr>
 </table>
+</form>
 
-<h3>Defined Events:</h3>
+<h3>Defined events:</h3>
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Year</th><th>Month</th><th>Day</th><th>Description</th><th>Link</th><th>Action</th>
 </tr></thead>
 <?php
 	$i = 0;
-	$c = uq('SELECT id, year, month, day, desc, link FROM '.$tbl.'calendar LIMIT 100');
+	$c = uq('SELECT id, year, month, day, descr, link FROM '.$tbl.'calendar LIMIT 100');
 	while ($r = db_rowarr($c)) {
-		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		echo '<tr '.$bgcolor.'><td>'.$r[1].'</td><td>'.$r[2].'</td><td>'.$r[3].'</td><td>'.$r[4].'</td><td>'.$r[5].'</td><td><a href="admcalendar.php?edit='.$r[0].'&amp;'.__adm_rsid.'">Edit</a> | <a href="admcalendar.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a></td></tr>';
+		$i++;
+		$bgcolor = ($edit == $r[0]) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+		echo '<tr'.$bgcolor.'><td>'.$r[1].'</td><td>'.$r[2].'</td><td>'.$r[3].'</td><td>'.$r[4].'</td><td>'.$r[5].'</td><td><a href="admcalendar.php?edit='.$r[0].'&amp;'.__adm_rsid.'#edit">Edit</a> | <a href="admcalendar.php?del='.$r[0].'&amp;'.__adm_rsid.'">Delete</a></td></tr>';
 	}
 	unset($c);
 	if (!$i) {
-		echo '<tr class="field"><td colspan="6"><center>No calender events found.</center></td></tr>';
+		echo '<tr class="field"><td colspan="6"><center>No calender events found. Define some above.</center></td></tr>';
 	}
 ?>
 </table>
-<?php if ($GLOBALS['FUD_OPT_3'] & 134217728) { // CALENDAR_ENABLED ?>
+<?php if ($GLOBALS['FUD_OPT_3'] & 134217728) { /* CALENDAR_ENABLED */ ?>
 	[ <a href="../<?php echo __fud_index_name__;?>?t=cal&amp;>?php echo __adm_rsid; ?>">View calendar</a> ]
 <?php } ?>
-[ <a href="admcalendar.php?export=all&<?php echo __adm_rsid; ?>">Export as vCal file</a> ]
+[ <a href="admcalendar.php?export=all&amp;<?php echo __adm_rsid; ?>">Export as vCal file</a> ]
 
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>

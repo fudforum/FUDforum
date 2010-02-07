@@ -83,11 +83,13 @@ function mk_date($y, $m, $d)
 	require($WWW_ROOT_DISK . 'adm/header.php');
 ?>
 <h2>Announcement System</h2>
+
+<h3><?php echo $edit ? '<a name="edit">Edit Announcement:</a>' : 'Add New Announcement:'; ?></h3>
 <form method="post" id="a_frm" action="admannounce.php">
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
-		<td valign="top">Forums:<br><font size="-2">(display announcement here)</font></td>
+		<td valign="top">Forums:<br /><font size="-2">(display announcement here)</font></td>
 		<td><table border="0" cellspacing="1" cellpadding="2">
 			<tr><td colspan="5"><input type="submit" name="btn_none" value="None" /> <input type="submit" name="btn_all" value="All" /></td></tr>
 <?php
@@ -150,7 +152,7 @@ function mk_date($y, $m, $d)
 
 	<tr class="field">
 		<td>Subject:</td>
-		<td><input type="text" name="a_subject" value="<?php echo htmlspecialchars($a_subject); ?>" size="60" />
+		<td><input type="text" name="a_subject" value="<?php echo htmlspecialchars($a_subject); ?>" size="40" /></td>
 	</tr>
 
 	<tr class="field">
@@ -179,29 +181,27 @@ function mk_date($y, $m, $d)
 <thead><tr class="resulttopic">
 	<th>Subject</th>
 	<th>Body</th>
-	<th>Starting Date</th>
-	<th>Ending Date</th>
+	<th>Starting date</th>
+	<th>Ending date</th>
 	<th>Action</th>
 </tr></thead>
 <?php
 	$c = uq('SELECT * FROM '.$tbl.'announce ORDER BY date_started');
 	$i = 0;
 	while ($r = db_rowobj($c)) {
-		if ($edit == $r->id) {
-			$bgcolor = ' class="resultrow1"';
-		} else {
-			$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		}
+		$i++;
+		$bgcolor = ($edit == $r->id) ? ' class="resultrow3"' : (($i%2) ? ' class="resultrow1"' : ' class="resultrow2"');
+
 		$b = htmlspecialchars((strlen($r->text) > 25) ? substr($r->text, 0, 25).'...' : $r->text);
 		$st_dt = raw_date($r->date_started);
 		$st_dt = gmdate('F j, Y', gmmktime(1, 1, 1, $st_dt[1], $st_dt[2], $st_dt[0]));
 		$en_dt = raw_date($r->date_ended);
 		$en_dt = gmdate('F j, Y', gmmktime(1, 1, 1, $en_dt[1], $en_dt[2], $en_dt[0]));
-		echo '<tr'.$bgcolor.'><td>'.$r->subject.'</td><td>'.$b.'</td><td>'.$st_dt.'</td><td>'.$en_dt.'</td><td>[<a href="admannounce.php?edit='.$r->id.'&amp;'.__adm_rsid.'">Edit</a>] [<a href="admannounce.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<tr'.$bgcolor.'><td>'.$r->subject.'</td><td>'.$b.'</td><td>'.$st_dt.'</td><td>'.$en_dt.'</td><td>[<a href="admannounce.php?edit='.$r->id.'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admannounce.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {
-		echo '<tr class="field"><td colspan="5" align="center">No announcements found.</td></tr>';
+		echo '<tr class="field"><td colspan="5" align="center">No announcements found. Define some above.</td></tr>';
 	}
 ?>
 </table>

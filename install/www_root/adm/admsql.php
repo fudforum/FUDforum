@@ -23,8 +23,8 @@
 	NOTE: this feature IS DANGEROUS and can destroy your forum's data.
 	Please only use it to run SELECT and DESCRIBE statements. 
 	Anything else may result in data loss.
-<tr><td>&nbsp;</td></tr>
 </td></tr>
+<tr><td>&nbsp;</td></tr>
 <tr class="field"><td>
 	Enter SQL statements (terminate them with semicolons):<br />
 </td></tr>
@@ -32,7 +32,7 @@
 	<div style="float:right; font-size:xx-small;">
 	Database: <?php echo $GLOBALS['DBHOST_USER'].'@'.$GLOBALS['DBHOST_DBNAME'] ?> :: 
 	<select onchange="if(this.selectedIndex!=0) document.admsql.sql.value+=this.options[this.selectedIndex].value;">
-	<option>Insert table:</option>
+	<option>Insert table name:</option>
 	<?php   $tables = get_fud_table_list();
 		sort($tables);
 		foreach($tables as $tbl) {

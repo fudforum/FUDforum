@@ -45,10 +45,14 @@ table.maintable {
 	border-spacing: 0;
 	border: 0;
 	padding: 0;
+	width: 100%;
 	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
 	border-radius: 0.75em;
-	width: 100%;
+
+	-webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 table.linktable {
@@ -187,7 +191,7 @@ span.linkgroup {
 }
 
 .resultrow3 {
-	background: #0b0;
+	background: #ffe7c7;
 }
 
 .tutor {
@@ -197,6 +201,10 @@ span.linkgroup {
 	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
 	border-radius: 0.75em;
+	
+	-webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .alert {
@@ -209,20 +217,19 @@ span.linkgroup {
 	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
 	border-radius: 0.75em;
+
+	-webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+	-moz-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.phpinfo {border-collapse: collapse;}
-.center {text-align: center;}
-.center table { margin-left: auto; margin-right: auto; text-align: left;}
-.center th { text-align: center !important; }
-.p {text-align: left;}
-.e {background-color: #ccf; font-weight: bold; color: #000;}
-.h {background-color: #99c; font-weight: bold; color: #000;}
-.v {background-color: #ccc; color: #000;}
-.vr {background-color: #ccc; text-align: right; color: #000;}
-hr {width: 600px; background-color: #ccc; border: 0px; height: 1px; color: #000;}
-
-img {float: right; border: 0px;}
+img {
+	float: right;
+	border: 0px;
+	-webkit-transform: rotate(-5deg);
+	-moz-transform: rotate(-5deg);
+	transform: rotate(-5deg);
+}
 
 .file_name {
 	font-weight: bold;
@@ -235,12 +242,13 @@ img {float: right; border: 0px;}
 	color: #0a0;
 	font-size: small;
 	text-decoration: dashed;
+	border-bottom: 1px dashed #0a0;
 }
 
 .depson {
 	color: #c60;
 	font-size: small;
-	text-decoration: dashed;
+	border-bottom: 1px dashed #060;
 }
 
 .msec {
@@ -254,6 +262,16 @@ img {float: right; border: 0px;}
 	font-size: small;
 	text-decoration: underline;
 }
+
+/* Style PHPinfo() output. */
+#phpinfo {border-collapse: collapse;}
+#phpinfo .center {}
+#phpinfo .p {text-align: left;}
+#phpinfo .e {background-color: #e5e5ff; font-weight: normal; color: #000;}
+#phpinfo .h {background-color: #b0b0c6; font-weight: bold; color: #000;}
+#phpinfo .v {background-color: #eaf4e9; color: #000;}
+#phpinfo .vr {background-color: #eaf4e9; text-align: right; color: #000;}
+#phpinfo hr {width: 600px; background-color: #ccc; border: 0px; height: 1px; color: #000;}
 
 /* Textarea editor. */
 .resizable-textarea .grippie {
@@ -271,6 +289,8 @@ th.header {
 	cursor: pointer;
 	padding-right: 15px;
 	white-space: nowrap;
+	text-align: left;
+	font-weight: normal;
 }
 th.headerSortUp {
 	background: url(asc.gif) no-repeat center right #c0c0c0;

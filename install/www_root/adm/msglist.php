@@ -160,7 +160,7 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 		$list = $msgnamelist = '';
 		foreach($msg as $k => $msgname) {
 			$msgnamelist .= urlencode($msgname).':';
-			$list .='<tr><td><img src="../blank.gif" height="1" width="20" alt="blank"><a class="deps" href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;msglist='.urlencode($msgname).'&amp;fl='.$file.'" title="Edit this message.">'.$msgname.'</a></td></tr>';
+			$list .='<tr><td><img src="../blank.gif" height="1" width="20" alt="blank" /><a class="deps" href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;msglist='.urlencode($msgname).'&amp;fl='.$file.'" title="Edit this message.">'.$msgname.'</a></td></tr>';
 		}
 		$msgnamelist = substr($msgnamelist, 0, -1);
 		echo '<tr><td><a class="file_name" href="msglist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;msglist='.$msgnamelist.'&amp;fl='.$file.'" title="Edit all messages in template.">'.$file.'</a><a name="'.$file.'"></a></td></tr>' . $list;
@@ -204,7 +204,7 @@ if (!isset($_GET['NO_TREE_LIST'])) {
 			} else {
 				$inptd = '<input type="text" name="'.$v.'" value="'.$txt.'" size="60" />';
 			}
-			echo '<tr><td valign="top" nowrap="nowrap"><a name="'.$v.'"></a><b><a href="http://translatewiki.net/w/i.php?title=Special%3ATranslations&message='.$v.'&namespace=1218" title="Show translations (new window)." target="_blank">'.$v.'</a></b>:</td><td valign="top">'.$inptd.'</td></tr>';
+			echo '<tr><td valign="top" nowrap="nowrap"><a name="'.$v.'"></a><b><a href="http://translatewiki.net/w/i.php?title=Special%3ATranslations&amp;message='.$v.'&namespace=1218" title="Show all translations (new window)." target="_blank">'.$v.'</a></b>:</td><td valign="top">'.$inptd.'</td></tr>';
 		}
 		echo '<tr><td align="right" colspan="2"><input type="submit" name="btn_submit" value="Edit" /></td></tr>';
 		echo '<tr><td><input type="hidden" name="msglist" value="'.$msglist.'" /></td></tr></table>';

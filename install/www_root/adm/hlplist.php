@@ -58,12 +58,12 @@
 	echo '<tr><td><b>Select file to edit:</b></td></tr>';
 	foreach ($files as $f) {
 		$file = basename($f);
-		echo '<tr><td><img src="../blank.gif" height="1" width="20" alt="blank"><a class="deps" href="hlplist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;file='.$file.'" title="Edit this help file.">'.$file.'</a></td></tr>';
+		echo '<tr><td><img src="../blank.gif" height="1" width="20" alt="blank" /><a class="deps" href="hlplist.php?tname='.$tname.'&amp;tlang='.$tlang.'&amp;'.__adm_rsid.'&amp;file='.$file.'" title="Edit this help file.">'.$file.'</a></td></tr>';
 	}
 ?>
 </table></td>
 
-<script language="JavaScript">
+<script type="text/javascript">
 /* <![CDATA[ */
 $(document).ready(function () {
   $('.newEntry').click(function() {
@@ -89,8 +89,8 @@ $(document).ready(function () {
 				$topic = substr($sec, 0, strpos($sec, 'TOPIC_HELP:'));
 				$body= substr($sec, strpos($sec, 'TOPIC_HELP:')+11);
 				echo '<tr><td>Topic:
-					<input type="text" name="q[]" value="'. htmlentities(trim($topic), ENT_COMPAT) .'" size="60" /><br />
-					<textarea name="a[]" rows="10" cols="80">'. trim($body). '</textarea><br />
+					<input type="text" name="q[]" value="'. htmlentities(trim($topic), ENT_COMPAT, $charset) .'" size="60" /><br />
+					<textarea name="a[]" rows="10" cols="80">'. htmlentities(trim($body), ENT_COMPAT, $charset) .'</textarea><br />
 					</td></tr><tr><td>
 						<div class="newEntry" align="center">[ <a href="#">Add new topic here</a> ]</div>
 					</td></tr>';

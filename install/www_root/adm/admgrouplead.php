@@ -104,20 +104,22 @@
 
 <H3>Defined Group Leaders:</h3>
 <table class="resulttable fulltable">
-<tr class="resulttopic"><td>Leader Login</td><td>Action</td></tr>
+<thead><tr class="resulttopic">
+	<th>Leader Login</th><th>Action</th>
+</tr></thead>
 <?php
 	$c = uq('SELECT u.id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id.' AND gm.group_members_opt>=131072 AND (gm.group_members_opt & 131072) > 0');
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
-		echo '<tr '.$bgcolor.'><td>'.$r[1].'</td><td>
+		echo '<tr'.$bgcolor.'><td>'.$r[1].'</td><td>
 		[<a href="admgrouplead.php?group_id='.$group_id.'&amp;del='.$r[0].'&amp;'.__adm_rsid.'&amp;ug=1">Remove Group Leader Permission</a>]
 		[<a href="admgrouplead.php?group_id='.$group_id.'&amp;del='.$r[0].'&amp;'.__adm_rsid.'">Remove From Group</a>]
 		</td></tr>';
 	}
 	unset($c);
 	if (!$i) {
-		echo '<tr class="field"><td colspan="2"><center>No group leaders found.</center></td></tr>';
+		echo '<tr class="field"><td colspan="2"><center>No group leaders defined.</center></td></tr>';
 	}
 ?>
 </table>

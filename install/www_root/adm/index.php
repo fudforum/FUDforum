@@ -17,7 +17,7 @@
 	// Reset most users ever online. 
 	if (isset($_POST['btn_clear_online'])) {
 		q('UPDATE '. $tbl .'stats_cache SET most_online = (online_users_reg+online_users_anon+online_users_hidden), most_online_time ='. __request_timestamp__);
-		echo successify('The forum\'s \'most online users\' statistic was sucessfully reset.');
+		echo successify('The forum\'s "most online users" statistic was successfully reset.');
 	}
 
 ?>
@@ -84,7 +84,7 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 	<td valign="top"><b>Topics:</b></td>
 	<td align="right" valign="top"><?php echo $forum_stats['THREADS']; ?></td>
 	<td width="100">&nbsp;</td>
-	<td><font size="-1"><b><?php echo @sprintf("%.2f", $forum_stats['MESSAGES']/$forum_stats['THREADS']); ?></b> messages per topic</font></td>
+	<td><font size="-1"><b><?php echo @sprintf('%.2f', $forum_stats['MESSAGES']/$forum_stats['THREADS']); ?></b> messages per topic</font></td>
 </tr>
 
 <tr class="field">
@@ -92,8 +92,8 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 	<td align="right" valign="top"><?php echo $forum_stats['FORUMS']; ?></td>
 	<td width="100">&nbsp;</td>
 	<td><font size="-1">
-		<b><?php echo @sprintf("%.2f", $forum_stats['MESSAGES']/$forum_stats['FORUMS']); ?></b> messages per forum<br />
-		<b><?php echo @sprintf("%.2f", $forum_stats['THREADS']/$forum_stats['FORUMS']); ?></b> topics per forum
+		<b><?php echo @sprintf('%.2f', $forum_stats['MESSAGES']/$forum_stats['FORUMS']); ?></b> messages per forum<br />
+		<b><?php echo @sprintf('%.2f', $forum_stats['THREADS']/$forum_stats['FORUMS']); ?></b> topics per forum
 	</font></td>
 </tr>
 
@@ -102,9 +102,9 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 	<td align="right" valign="top"><?php echo $forum_stats['CATEGORIES']; ?></td>
 	<td width="100">&nbsp;</td>
 	<td><font size="-1">
-		<b><?php echo @sprintf("%.2f", $forum_stats['MESSAGES']/$forum_stats['CATEGORIES']); ?></b> messages per category<br />
-		<b><?php echo @sprintf("%.2f", $forum_stats['THREADS']/$forum_stats['CATEGORIES']); ?></b> topics per category<br />
-		<b><?php echo @sprintf("%.2f", $forum_stats['FORUMS']/$forum_stats['CATEGORIES']); ?></b> forums per category
+		<b><?php echo @sprintf('%.2f', $forum_stats['MESSAGES']/$forum_stats['CATEGORIES']); ?></b> messages per category<br />
+		<b><?php echo @sprintf('%.2f', $forum_stats['THREADS']/$forum_stats['CATEGORIES']); ?></b> topics per category<br />
+		<b><?php echo @sprintf('%.2f', $forum_stats['FORUMS']/$forum_stats['CATEGORIES']); ?></b> forums per category
 	</font></td>
 </tr>
 
@@ -120,9 +120,9 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 	<td align="right" valign="top"><?php echo $forum_stats['MEMBERS']; ?></td>
 	<td width="100">&nbsp;</td>
 	<td><font size="-1">
-		<b><?php echo @sprintf("%.2f", $forum_stats['MESSAGES']/$forum_stats['MEMBERS']); ?></b> messages per user<br />
-		<b><?php echo @sprintf("%.2f", $forum_stats['THREADS']/$forum_stats['MEMBERS']); ?></b> topics per user<br />
-		<b><?php echo @sprintf("%.2f", $forum_stats['PRIVATE_MESSAGES']/$forum_stats['MEMBERS']); ?></b> private messages per user
+		<b><?php echo @sprintf('%.2f', $forum_stats['MESSAGES']/$forum_stats['MEMBERS']); ?></b> messages per user<br />
+		<b><?php echo @sprintf('%.2f', $forum_stats['THREADS']/$forum_stats['MEMBERS']); ?></b> topics per user<br />
+		<b><?php echo @sprintf('%.2f', $forum_stats['PRIVATE_MESSAGES']/$forum_stats['MEMBERS']); ?></b> private messages per user
 	</font></td>
 </tr>
 
@@ -131,8 +131,8 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 	<td align="right" valign="top"><?php echo $forum_stats['MODERATORS']; ?></td>
 	<td width="100">&nbsp;</td>
 	<td><font size="-1">
-		<b><?php echo @sprintf("%.2f", ($forum_stats['MODERATORS']/$forum_stats['MEMBERS'])*100); ?>%</b> of all users<br />
-		<b><?php echo @sprintf("%.2f", $forum_stats['MODERATORS']/$forum_stats['FORUMS']); ?></b> per forum
+		<b><?php echo @sprintf('%.2f', ($forum_stats['MODERATORS']/$forum_stats['MEMBERS'])*100); ?>%</b> of all users<br />
+		<b><?php echo @sprintf('%.2f', $forum_stats['MODERATORS']/$forum_stats['FORUMS']); ?></b> per forum
 	</font></td>
 </tr>
 
@@ -140,14 +140,14 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 	<td valign="top"><b>Administrators:</b></td>
 	<td align="right" valign="top"><?php echo $forum_stats['ADMINS']; ?></td>
 	<td width="100">&nbsp;</td>
-	<td><font size="-1"><b><?php echo @sprintf("%.2f", $forum_stats['ADMINS']/$forum_stats['MEMBERS']); ?>%</b> of all users</font></td>
+	<td><font size="-1"><b><?php echo @sprintf('%.2f', $forum_stats['ADMINS']/$forum_stats['MEMBERS']); ?>%</b> of all users</font></td>
 </tr>
 
 <tr class="field">
 	<td valign="top"><b>User Groups:</b></td>
 	<td align="right" valign="top"><?php echo $forum_stats['GROUPS']; ?></td>
 	<td width="100">&nbsp;</td>
-	<td><font size="-1"><b><?php echo @sprintf("%.2f", $forum_stats['GROUP_MEMBERS']/$forum_stats['GROUPS']); ?></b> members per group</font></td>
+	<td><font size="-1"><b><?php echo @sprintf('%.2f', $forum_stats['GROUP_MEMBERS']/$forum_stats['GROUPS']); ?></b> members per group</font></td>
 </tr>
 </table>
 <span style="float:right;"><a href="admstats.php?<?php echo __adm_rsid; ?>">More... &raquo;</a></span>
