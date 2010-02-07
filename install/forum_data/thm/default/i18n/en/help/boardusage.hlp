@@ -122,22 +122,27 @@ to simplify several tasks primary used for message posting forms.
 <fieldset style="width: 350px;">
 	<legend><b>Browser Support</b></legend>
 	<i>Windows</i><br />
-	<b>Firefox 1/Mozilla/Netscape:</b> ALT + [accesskey]<br />
-	<b>Firefox 2:</b> ALT + SHIFT + [accesskey]<br />
+	<b>Firefox:</b> ALT + SHIFT + [accesskey]<br />
+
 	<b>Internet Explorer:</b> ALT + [accesskey], ENTER<br />
-	<b>Opera:</b> SHIFT + ESC + [accesskey]<br />
+	<b>Opera:</b> SHIFT + ESC, [accesskey]<br />
+	<b>Safari:</b> ALT + [accesskey]<br />
+	<b>Chrome:</b> ALT + [accesskey]<br />
 	<br />
 	<i>Linux</i><br />
-	<b>Firefox/Mozilla/Netscape:</b> ALT + [accesskey]<br />
-	<b>Opera:</b> SHIFT + ESC + [accesskey]<br />
+	<b>Firefox:</b> ALT + SHIFT + [accesskey]<br />
+	<b>Opera:</b> SHIFT + ESC, [accesskey]<br />
 	<b>Konqueror:</b> CTRL, [accesskey]<br />
+	<b>Chrome:</b> ALT + [accesskey]<br />
 	<br />
 	<i>Mac OS X</i><br />
-	<b>Firefox/Mozilla/Netscape:</b> CTRL + [accesskey]<br />
-	<b>Internet Explorer:</b> CTRL + [accesskey]<br />
-	<b>Opera:</b> SHIFT + ESC + [accesskey]<br />
-	<b>Safari:</b> CTRL + [accesskey]<br />
+	<b>Firefox:</b> ALT + SHIFT + [accesskey]<br />
+	<b>Opera:</b> SHIFT + ESC, [accesskey]<br />
+	<b>Safari 3:</b> CTRL + [accesskey]<br />
+	<b>Safari 4:</b> CTRL + OPTION + [accesskey]<br />
+	<b>Chrome:</b> ALT + [accesskey]<br />
 </fieldset><br />
+
 
 <b>Supported Access Keys:</b>
 <blockquote>
@@ -149,6 +154,7 @@ to simplify several tasks primary used for message posting forms.
 	<b>K</b> - Spell check message.<br />
 	<b>A</b> - Apply spelling changes.<br />
 	<b>D</b> - Save private message as draft.<br />
+	<b>F</b> - Focus the search input field in forum header.<br />
 	<br /><br /><b>BBcode Shortcuts:</b>
 	<blockquote>
 		<b>B</b> - Bold<br />
