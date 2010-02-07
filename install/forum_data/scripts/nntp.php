@@ -15,7 +15,7 @@
 	define('forum_debug', 1);
 	unset($_SERVER['REMOTE_ADDR']);
 
-	if (!ini_get("register_argc_argv")) {
+	if (!ini_get('register_argc_argv')) {
 		exit("Enable the 'register_argc_argv' php.ini directive.\n");
 	}
 	if ($_SERVER['argc'] < 2) {
@@ -85,7 +85,7 @@
 
 	/* Set language & locale. */
 	$GLOBALS['usr'] = new stdClass();
-	list($GLOBALS['usr']->lang, $locale) = db_saq("SELECT lang, locale FROM ".sql_p."themes WHERE theme_opt=1|2 LIMIT 1");
+	list($GLOBALS['usr']->lang, $locale) = db_saq('SELECT lang, locale FROM '. sql_p .'themes WHERE theme_opt=1|2 LIMIT 1');
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 
 	$FUD_OPT_2 |= 128;

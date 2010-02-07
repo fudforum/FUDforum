@@ -56,7 +56,7 @@ class fud_emsg
 			if (!isset($this->headers[$hk])) {
 				$this->headers[$hk] = decode_header_value($hv);
 			} else {
-				$this->headers[$hk] .= ' '.decode_header_value($hv);
+				$this->headers[$hk] .= ' '. decode_header_value($hv);
 			}
 		}
 	}
@@ -384,7 +384,7 @@ function add_attachment($name, $data, $pid)
 	if (is_numeric($_SERVER['argv'][1])) {
 		$mlist = db_sab('SELECT * FROM '.sql_p.'mlist WHERE id='.$_SERVER['argv'][1]);
 	} else {
-		$mlist = db_sab('SELECT * FROM '.sql_p.'mlist WHERE name='.esc($_SERVER['argv'][1]));
+		$mlist = db_sab('SELECT * FROM '.sql_p.'mlist WHERE name='._esc($_SERVER['argv'][1]));
 	}
 	if (!$mlist) {
 		exit('Invalid list identifier');
@@ -493,7 +493,7 @@ function add_attachment($name, $data, $pid)
 		}
 
 		$attach_list = array();
-		/* Handle inlined attachements. */
+		/* Handle inlined attachments. */
 		if ($mlist->mlist_opt & 8) {
 			foreach ($emsg->inline_files as $k => $v) {
 				if (strpos($emsg->body, 'cid:'.$v) !== false) {

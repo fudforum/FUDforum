@@ -50,9 +50,9 @@
 	define('sql_p', $GLOBALS['DBHOST_TBL_PREFIX']);
 
 	if (is_numeric($_SERVER['argv'][1])) {
-		$config = db_sab('SELECT * FROM '.sql_p.'xmlagg WHERE id='.$_SERVER['argv'][1]);
+		$config = db_sab('SELECT * FROM '. sql_p .'xmlagg WHERE id='. $_SERVER['argv'][1]);
 	} else {
-		$config = db_sab('SELECT * FROM '.sql_p.'xmlagg WHERE name='.esc($_SERVER['argv'][1]));
+		$config = db_sab('SELECT * FROM '. sql_p .'xmlagg WHERE name='. _esc($_SERVER['argv'][1]));
 	}
 	if (!$config) {
 		exit('Invalid feed identifier.');
@@ -60,7 +60,7 @@
 
 	/* Set language & locale. */
 	$GLOBALS['usr'] = new stdClass();
-	list($GLOBALS['usr']->lang, $locale) = db_saq('SELECT lang, locale FROM '.sql_p.'themes WHERE theme_opt=1|2 LIMIT 1');
+	list($GLOBALS['usr']->lang, $locale) = db_saq('SELECT lang, locale FROM '. sql_p .'themes WHERE theme_opt=1|2 LIMIT 1');
 	$GLOBALS['good_locale'] = setlocale(LC_ALL, $locale);
 
 	$frm = new fud_forum;
@@ -91,7 +91,7 @@
 	}
 	unset($doc);
 
-	/* Loop through entries and extract requrired data. */
+	/* Loop through entries and extract requrired data into a date sortable structure. */
 	foreach ($arrFeeds as $node) {
 		if (isset($node->getElementsByTagName('pubDate')->item(0)->nodeValue)) {
 			$date = $node->getElementsByTagName('pubDate')->item(0)->nodeValue;
@@ -142,11 +142,13 @@
 			$poster = $node->getElementsByTagName('contributor')->item(0)->nodeValue;
 		}
 		if (isset($poster)) {
+			$articles[$date]['poster'] = $poster;
 			$email = $poster.'@'.$server;	// Generate dummy email address.
 			$poster_id = 0;
-			$articles[$date]['poster'] = match_user_to_post($email, $poster, $config->xmlagg_opt & 2, $poster_id, $date);
+			$articles[$date]['poster_id'] = match_user_to_post($email, $poster, $config->xmlagg_opt & 2, $poster_id, $date);
 		} else {
-			$articles[$date]['poster'] = 0;
+			$articles[$date]['poster'] = $GLOBALS['ANON_NICK'];
+			$articles[$date]['poster_id'] = 0;
 		}
 
 		if ( isset($node->getElementsByTagName('link')->item(0)->nodeValue)) {
@@ -169,9 +171,10 @@
  		$m->post_stamp = $date;
  		$m->subject    = $articles[$date]['subject'];
 		$m->body       = $articles[$date]['body'];
-		$m->poster_id  = $articles[$date]['poster'];
+		$m->poster     = $articles[$date]['poster'];
+		$m->poster_id  = $articles[$date]['poster_id'];
 
-		// Apply custom signature, may contain {link} tag.
+		// Apply custom signature, may contain {link} tags.
 		$m->body .= str_ireplace('{link}', $articles[$date]['link'], $config->custom_sig);
 
 		// Track articles already loaded.
@@ -183,18 +186,18 @@
 			}
 		}
 
-		// skip_non_forum_users is set.
+		// 'skip_non_forum_users' is set.
 		if (!$m->poster_id && $config->xmlagg_opt & 4) {
 			continue;
 		}
 
- 		echo 'Loading article: '. $m->subject .' ('. $poster .")\n";
+ 		echo 'Loading article: '. $m->subject .' ('. $m->poster .")\n";
 		try {
 			// Try to determine whether this message is a reply.
 			list($m->reply_to, $m->thread_id) = get_fud_reply_id(($config->xmlagg_opt & 8), $frm->id, $m->subject, null);
 
 			$m->add($frm->id, 0, 2, 0, 0, $config->name);
-			if (!($config->xmlagg_opt & 1)) {
+			if (!($config->xmlagg_opt & 1)) {	// Manual approval not required.
 				$m->approve($m->id);
 			}
 		} catch (Exception $e) {
@@ -204,7 +207,7 @@
 
 	/* Store last article date to prevent loading duplicates. */
 	if (isset($new_last_load_date)) {
-		q('UPDATE '.sql_p.'xmlagg SET last_load_date = '.$new_last_load_date.' WHERE id = '.$config->id);
+		q('UPDATE '. sql_p .'xmlagg SET last_load_date = '. $new_last_load_date .' WHERE id = '. $config->id);
 	}
 
 	echo 'Done!';
