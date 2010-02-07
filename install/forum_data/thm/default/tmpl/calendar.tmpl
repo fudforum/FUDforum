@@ -57,9 +57,9 @@
 	<td width="35%" class="vt"><h4>{VAR: months[$prev_month-1]} {VAR: prev_year}</h4>{FUNC: draw_calendar($prev_year, $prev_month, null, 'small')}</td>
 	<td width="30%" class="ac vt">
 		<br /><br /><br />
-		<form method="get">
+		<form method="get" action="index.php">
 		<b>{MSG: cal_goto_date}</b><input type="hidden" name="t" value="cal" />
-		<br />{VAR: select_month_control} {VAR: select_year_control} <input type="submit" name="submit" value="Go" />
+		<br />{VAR: select_month_control} {VAR: select_year_control} <input type="submit" name="submit" value="{MSG: go}" />
 		</form></td>
 	<td width="35%" class="vt"><h4>{VAR: months[$next_month-1]} {VAR: next_year}</h4>{FUNC: draw_calendar($next_year, $next_month, null, 'small')}</td>
 </tr>
@@ -75,16 +75,17 @@
 		<h3>Events for day</h3>
 		<ul>{VAR: events_for_day}</ul>
 		<br /><br />
-		<form method="get">
+		<form method="get" action="index.php">
 		{MSG: cal_goto_date} <input type="hidden" name="t" value="cal" /><input type="hidden" name="view" value="{VAR: view}" />
 		{VAR: select_month_control} {VAR: select_year_control} 
-		<input type="hidden" name="day" value="{VAR: day}" /><input type="submit" name="submit" value="Go" />
+		<input type="hidden" name="day" value="{VAR: day}" /><input type="submit" name="submit" value="{MSG: go}" />
 		</form>
     </td>
     <td class="ac" width="45%"> 
 		<h4><a href="{TEMPLATE: month_cur_lnk}" class="control">{VAR: months[$month-1]} {VAR: year}</a></h4>
 		    {FUNC: draw_calendar($year, $month, $events, 'small', $year, $month, $day)}
     </td>
+</tr>
 {ENDIF}
 
 </table>
@@ -100,39 +101,39 @@
 /* Calendar links. */
 
 {SECTION: year_cur_lnk}
-{ROOT}?t=cal&view=y&year={VAR: year}
+{ROOT}?t=cal&amp;view=y&amp;year={VAR: year}
 {SECTION: END}
 
 {SECTION: year_next_lnk}
-{ROOT}?t=cal&view=y&year={VAR: next_year}
+{ROOT}?t=cal&amp;view=y&amp;year={VAR: next_year}
 {SECTION: END}
 
 {SECTION: year_prev_lnk}
-{ROOT}?t=cal&view=y&year={VAR: prev_year}
+{ROOT}?t=cal&amp;view=y&amp;year={VAR: prev_year}
 {SECTION: END}
 
 {SECTION: month_cur_lnk}
-{ROOT}?t=cal&view=m&month={VAR: month}&year={VAR: year}
+{ROOT}?t=cal&amp;view=m&amp;month={VAR: month}&amp;year={VAR: year}
 {SECTION: END}
 
 {SECTION: month_next_lnk}
-{ROOT}?t=cal&view=m&year={VAR: next_year}&month={VAR: next_month}
+{ROOT}?t=cal&amp;view=m&amp;year={VAR: next_year}&amp;month={VAR: next_month}
 {SECTION: END}
 
 {SECTION: month_prev_lnk}
-{ROOT}?t=cal&view=m&year={VAR: prev_year}&month={VAR: prev_month}
+{ROOT}?t=cal&amp;view=m&amp;year={VAR: prev_year}&amp;month={VAR: prev_month}
 {SECTION: END}
 
 {SECTION: day_cur_lnk}
-{ROOT}?t=cal&view=d&year={VAR: year}&month={VAR: month}&day={VAR: day}
+{ROOT}?t=cal&amp;view=d&amp;year={VAR: year}&amp;month={VAR: month}&amp;day={VAR: day}
 {SECTION: END}
 
 {SECTION: day_next_lnk}
-{ROOT}?t=cal&view=d&year={VAR: next_year}&month={VAR: next_month}&day={VAR: next_day}
+{ROOT}?t=cal&amp;view=d&amp;year={VAR: next_year}&amp;month={VAR: next_month}&amp;day={VAR: next_day}
 {SECTION: END}
 
 {SECTION: day_prev_lnk}
-{ROOT}?t=cal&view=d&year={VAR: prev_year}&month={VAR: prev_month}&day={VAR: prev_day}
+{ROOT}?t=cal&amp;view=d&amp;year={VAR: prev_year}&amp;month={VAR: prev_month}&amp;day={VAR: prev_day}
 {SECTION: END}
 
 /* Day and month messages. */

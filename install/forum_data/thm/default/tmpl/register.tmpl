@@ -96,8 +96,9 @@
 
 {SECTION: custom_upload_avatar}
 <tr class="RowStyleC vt"><td colspan="2">{MSG: register_custom_avatar_rules}</td></tr>
-<tr class="vt RowStyleA"><td>{MSG: register_custom_avatar_upload} {FUNC: draw_err('avatar')}</td><td><table border="0" cellspacing="0" cellpadding="0"><tr><td>{VAR: custom_avatar_preview}</td><td>{TEMPLATE-DATA: buttons}</td></tr></table></td></tr>
-<input type="hidden" name="avatar_tmp" value="{VAR: avatar_tmp}" />
+<tr class="vt RowStyleA"><td>{MSG: register_custom_avatar_upload} {FUNC: draw_err('avatar')}</td><td>
+	<table border="0" cellspacing="0" cellpadding="0"><tr><td>{VAR: custom_avatar_preview}</td><td>{TEMPLATE-DATA: buttons}<input type="hidden" name="avatar_tmp" value="{VAR: avatar_tmp}" /></td></tr></table>
+</td></tr>
 {SECTION: END}
 
 {SECTION: radio_button_separator}
@@ -158,21 +159,21 @@
 <fieldset class="RowStyleA"><legend class="RowStyleB">{MSG: social_sites}</legend>
 <table border="0" cellspacing="3" cellpadding="5" align="center">
 <tr><td>
-	<label>{MSG: register_icq}<br /><img src="{THEME_IMAGE_ROOT}/icq{DEF: img_ext}" title="{VAR: obj->icq}" alt="" /><input type="text" name="reg_icq" value="{VAR: reg_icq}" maxlength="32" size="25" /></label>
+	<label>{MSG: register_icq}<br /><img src="{THEME_IMAGE_ROOT}/icq{DEF: img_ext}" alt="" /><input type="text" name="reg_icq" value="{VAR: reg_icq}" maxlength="32" size="25" /></label>
 </td><td>
-	<label>{MSG: register_aim}<br /><img src="{THEME_IMAGE_ROOT}/aim{DEF: img_ext}" title="{VAR: obj->aim}" alt="" /><input type="text" name="reg_aim" value="{VAR: reg_aim}" maxlength="32" size="25" /></label>
+	<label>{MSG: register_aim}<br /><img src="{THEME_IMAGE_ROOT}/aim{DEF: img_ext}" alt="" /><input type="text" name="reg_aim" value="{VAR: reg_aim}" maxlength="32" size="25" /></label>
 </td></tr><tr><td>
-	<label>{MSG: register_yahoo}<br /><img src="{THEME_IMAGE_ROOT}/yahoo{DEF: img_ext}" title="{VAR: obj->yahoo}" alt="" /><input type="text" name="reg_yahoo" value="{VAR: reg_yahoo}" maxlength="32" size="25" /></label>
-</td><td>	
-	<label>{MSG: register_msnm}<br /><img src="{THEME_IMAGE_ROOT}/msnm{DEF: img_ext}" title="{VAR: obj->msnm}" alt="" /><input type="text" name="reg_msnm" value="{VAR: reg_msnm}" maxlength="32" size="25" /></label>
-</td></tr><tr><td>
-	<label>{MSG: register_jabber}<br /><img src="{THEME_IMAGE_ROOT}/jabber{DEF: img_ext}" title="{VAR: obj->jabber}" alt="" /><input type="text" name="reg_jabber" value="{VAR: reg_jabber}" maxlength="32" size="25" /></label>
-</td><td>		
-	<label>{MSG: register_google}<br /><img src="{THEME_IMAGE_ROOT}/google{DEF: img_ext}" title="{VAR: obj->google}" alt="" /><input type="text" name="reg_google" value="{VAR: reg_google}" maxlength="32" size="25" /></label>
-</td></tr><tr><td>
-	<label>{MSG: register_skype}<br /><img src="{THEME_IMAGE_ROOT}/skype{DEF: img_ext}" title="{VAR: obj->skype}" alt="" /><input type="text" name="reg_skype" value="{VAR: reg_skype}" maxlength="32" size="25" /></label>
+	<label>{MSG: register_yahoo}<br /><img src="{THEME_IMAGE_ROOT}/yahoo{DEF: img_ext}" alt="" /><input type="text" name="reg_yahoo" value="{VAR: reg_yahoo}" maxlength="32" size="25" /></label>
 </td><td>
-	<label>{MSG: register_twitter}<br /><img src="{THEME_IMAGE_ROOT}/twitter{DEF: img_ext}" title="{VAR: obj->twitter}" alt="" /><input type="text" name="reg_twitter" value="{VAR: reg_twitter}" maxlength="32" size="25" /></label>
+	<label>{MSG: register_msnm}<br /><img src="{THEME_IMAGE_ROOT}/msnm{DEF: img_ext}" alt="" /><input type="text" name="reg_msnm" value="{VAR: reg_msnm}" maxlength="32" size="25" /></label>
+</td></tr><tr><td>
+	<label>{MSG: register_jabber}<br /><img src="{THEME_IMAGE_ROOT}/jabber{DEF: img_ext}" alt="" /><input type="text" name="reg_jabber" value="{VAR: reg_jabber}" maxlength="32" size="25" /></label>
+</td><td>
+	<label>{MSG: register_google}<br /><img src="{THEME_IMAGE_ROOT}/google{DEF: img_ext}" alt="" /><input type="text" name="reg_google" value="{VAR: reg_google}" maxlength="32" size="25" /></label>
+</td></tr><tr><td>
+	<label>{MSG: register_skype}<br /><img src="{THEME_IMAGE_ROOT}/skype{DEF: img_ext}" alt="" /><input type="text" name="reg_skype" value="{VAR: reg_skype}" maxlength="32" size="25" /></label>
+</td><td>
+	<label>{MSG: register_twitter}<br /><img src="{THEME_IMAGE_ROOT}/twitter{DEF: img_ext}" alt="" /><input type="text" name="reg_twitter" value="{VAR: reg_twitter}" maxlength="32" size="25" /></label>
 {IF: $FUD_OPT_2 & 2048}
 </td></tr><tr><td>
 	<label>{MSG: register_affero}<br /><input type="text" name="reg_affero" value="{VAR: reg_affero}" maxlength="32" size="25" /></label>
@@ -180,7 +181,7 @@
 </td></tr></table>
 </fieldset>
 <br />
-<td></tr>
+</td></tr>
 <tr><th colspan="2">{MSG: register_prefs}</th></tr>
 {IF: $FUD_OPT_1 & 32768}
 <tr class="RowStyleA"><td class="vt">{MSG: register_sig}<br /><span class="SmallText">{MSG: register_sig_desc}<br /></span>{FUNC: tmpl_post_options('sig')}{IF: $FORUM_SIG_ML}<br /><b>{MSG: register_max_sig_len} </b>{MSG: register_sig_limit}{ENDIFI}</td><td>{FUNC: draw_err('reg_sig')}<textarea name="reg_sig" rows="5" cols="50">{VAR: reg_sig}</textarea></td></tr>

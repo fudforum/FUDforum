@@ -30,14 +30,14 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 	}
 
 	$hdr = group_perm_array();
-	/* fetch all the groups user has access to */
+	/* Fetch all the groups user has access to. */
 	if ($is_a) {
 		$r = uq('SELECT id, name, forum_id FROM {SQL_TABLE_PREFIX}groups WHERE id>2 ORDER BY name');
 	} else {
 		$r = uq('SELECT g.id, g.name, g.forum_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id WHERE gm.user_id='._uid.' AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0 ORDER BY g.name');
 	}
 
-	/* make a group selection form */
+	/* Make a group selection form. */
 	$n = 0;
 	$vl = $kl = '';
 	while ($e = db_rowarr($r)) {
@@ -68,7 +68,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		invl_inp_err();
 	}
 
-	/* fetch controlled resources */
+	/* Fetch controlled resources. */
 	if (!$grp->forum_id) {
 		$group_resources = '{TEMPLATE: group_resources}';
 		$c = uq('SELECT f.name FROM {SQL_TABLE_PREFIX}group_resources gr INNER JOIN {SQL_TABLE_PREFIX}forum f ON gr.resource_id=f.id WHERE gr.group_id='.$group_id);
@@ -116,7 +116,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			}
 		}
 
-		/* auto approve members */
+		/* Auto approve members. */
 		$perm |= 65536;
 
 		if (empty($_POST['edit'])) {
@@ -147,7 +147,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		$is_gl = q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='.$del.' AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0');
 		grp_delete_member($group_id, $del);
 
-		/* if the user was a group moderator, rebuild moderation cache */
+		/* If the user was a group moderator, rebuild moderation cache. */
 		if ($is_gl) {
 			fud_use('groups_adm.inc', true);
 			rebuild_group_ldr_cache($del);
@@ -177,17 +177,17 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		$mbr = 0;
 	}
 
-	/* anon users cannot vote or rate */
+	/* Anon users cannot vote or rate. */
 	if ($mbr && !$mbr->user_id) {
 		$maxperms = $maxperms &~ (512|1024);
 	}
 
-	/* no members inside the group */
+	/* No members inside the group. */
 	if (!$perm && !$mbr) {
 		$perm = $maxperms;
 	}
 
-	/* translated permission names */
+	/* Translated permission names. */
 	$ts_list = array(
 'p_VISIBLE'=>'{TEMPLATE: p_VISIBLE}',
 'p_READ'=>'{TEMPLATE: p_READ}',
@@ -213,11 +213,11 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		$selyes = '';
 		if ($maxperms & $v[0]) {
 			if ($perm & $v[0]) {
-				$selyes = ' selected';
+				$selyes = ' selected="selected"';
 			}
 			$perm_select .= '{TEMPLATE: groups_perm_selection}';
 		} else {
-			/* only show the permissions the user can modify */
+			/* Only show the permissions the user can modify. */
 			continue;
 		}
 		$tmp .= '{TEMPLATE: groups_header_entry}';
@@ -237,7 +237,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		$perm_sel_hdr .= '{TEMPLATE: groups_header_entry_row}';
 	}
 
-	/* draw list of group members */
+	/* Draw list of group members. */
 	$group_members_list = '';
 	$r = uq('SELECT gm.id AS mmid, gm.*, g.*, u.alias FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id LEFT JOIN {SQL_TABLE_PREFIX}users u ON gm.user_id=u.id WHERE gm.group_id='.$group_id.' ORDER BY gm.id');
 	while ($obj = db_rowobj($r)) {

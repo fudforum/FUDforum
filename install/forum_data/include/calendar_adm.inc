@@ -11,7 +11,7 @@
 
 class fud_calendar
 {
-	var	$id, $day, $month, $year, $desc, $link;
+	var	$id, $day, $month, $year, $descr, $link;
 
 	function fud_calendar()
 	{
@@ -30,13 +30,13 @@ class fud_calendar
 			year,
 			month,
 			day,
-			desc,
+			descr,
 			link
 		) VALUES (
 			'. ssn($this->year) .',
 			'. ssn($this->month) .',
 			'. ssn($this->day) .',
-			'. ssn($this->desc) .',
+			'. ssn($this->descr) .',
 			'. ssn($this->link) .'
 		)');
 
@@ -51,7 +51,7 @@ class fud_calendar
 			year='. ssn($this->year).',
 			month='. ssn($this->month).',
 			day='. ssn($this->day).',
-			desc='. ssn($this->desc).',
+			descr='. ssn($this->descr).',
 			link='. ssn($this->link).'
 		WHERE id='. (int)$id);
 	}
@@ -76,7 +76,7 @@ class fud_calendar
 			"PRODID:". $GLOBALS['FORUM_TITLE'] ."\n";
 
 		// Loop through applicable calendar entries.
-		$c = q('SELECT id, year, month, day, desc FROM '. $tbl .'calendar '. $where);
+		$c = q('SELECT id, year, month, day, descr FROM '. $tbl .'calendar '. $where);
 		while ($r = db_rowarr($c)) {
 			$buffer .= "BEGIN:VEVENT\n".
 				'UID:'. $r[0] .'@'. $_SERVER['HTTP_HOST'] ."\n".

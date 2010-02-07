@@ -39,7 +39,9 @@ if (!($GLOBALS['usr']->users_opt & 1048576)) {	// is_admin
 	if ($GLOBALS['usr']->users_opt & 268435456) {	// account moderator
 		switch (basename($_SERVER['PHP_SELF'])) {
 			case 'admaccapr.php':
+			case 'admadduser.php':
 			case 'admuser.php':
+			case 'admusermerge.php':
 				break;
 			default:
 				header('Location: '.$GLOBALS['WWW_ROOT'].'adm/admuser.php?'.__adm_rsidl);

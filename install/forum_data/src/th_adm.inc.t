@@ -22,7 +22,7 @@ function th_add($root, $forum_id, $last_post_date, $thread_opt, $orderexpiry, $r
 			('.$forum_id.', '.$root.', '.$last_post_date.', '.$replies.', '.$views.', 0, '.$lpi.', '.$thread_opt.', '.$orderexpiry.','._esc($descr).')');
 }
 
-function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last_post_id, $tdescr)
+function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last_post_id, $descr)
 {
 	if (!db_locked()) {
 		if ($to_forum != $forum_id) {

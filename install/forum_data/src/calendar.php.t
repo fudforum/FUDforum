@@ -109,7 +109,7 @@ function get_events($year, $month) {
 	while ($r = db_rowarr($c)) {
 		$events[$r[1]][] = 'Birthday: '. $r[0];
 	}
-	$c = uq('SELECT day, desc, link FROM {SQL_TABLE_PREFIX}calendar WHERE (month=\''.$month.'\' AND year=\''.$year.'\') OR (month=\'*\' AND year=\''.$year.'\') OR (month=\''.$month.'\' AND year=\'*\') || (month=\'*\' AND year=\'*\')');
+	$c = uq('SELECT day, descr, link FROM {SQL_TABLE_PREFIX}calendar WHERE (month=\''.$month.'\' AND year=\''.$year.'\') OR (month=\'*\' AND year=\''.$year.'\') OR (month=\''.$month.'\' AND year=\'*\') || (month=\'*\' AND year=\'*\')');
 	while ($r = db_rowarr($c)) {
 		if (empty($r[2])) {
 			$events[ sprintf('%04d%02d%02d', $year, $month, $r[0]) ][] = $r[1];

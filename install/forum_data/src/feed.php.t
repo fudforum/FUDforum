@@ -240,11 +240,11 @@ function smiley_full(&$data)
 					$feed_header .= '{TEMPLATE: rdf_message_header}';
 					$feed_data .= '{TEMPLATE: rdf_message_entry}';
 
-					$rdf_message_attachements = '';
+					$rdf_message_attachments = '';
 					if ($r->attach_cnt && $r->attach_cache) {
 						if (($al = unserialize($r->attach_cache))) {
 							foreach ($al as $a) {
-								$rdf_message_attachements .= '{TEMPLATE: rdf_message_attachements}';
+								$rdf_message_attachments .= '{TEMPLATE: rdf_message_attachments}';
 							}
 						}
 					}

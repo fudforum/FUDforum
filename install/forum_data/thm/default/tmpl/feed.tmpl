@@ -86,9 +86,9 @@ Content-Type: application/{VAR: format}+xml
 	<author_id>{VAR: r->poster_id}</author_id>
 	<date>{FUNC: gmdate('Y-m-d\TH:i:s', $r->post_stamp)}-00:00</date>
 	<body>{FUNC: str_replace("\n", "", sp($body))}</body>
-	{IF: $rdf_message_attachements}
+	{IF: $rdf_message_attachments}
 	<content:items><rdf:Bag>
-	{TEMPLATE-DATA: rdf_message_attachements}
+	{TEMPLATE-DATA: rdf_message_attachments}
 	</rdf:Bag></content:items>
 	{ENDIF}
 	{IF: $rdf_message_polls}
@@ -100,7 +100,7 @@ Content-Type: application/{VAR: format}+xml
 {END}
 {SECTION: END}
 
-{SECTION: rdf_message_attachements}
+{SECTION: rdf_message_attachments}
 <rdf:li>
 	<content:item rdf:about="attachments">
 		<a_title>{FUNC: sp($a[1])}</a_title>

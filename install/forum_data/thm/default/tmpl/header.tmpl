@@ -29,9 +29,9 @@
 {IF: $FUD_OPT_1 & 16777216}
   <div class="headsearch">
     <form id="headsearch" method="get" action="{ROOT}">{DEF: _hs}
-      <br />{MSG: search_forum_search}:<br />
+      <br /><label accesskey="f" title="{MSG: search_forum_search}">{MSG: search_forum_search}:<br />
+      <input type="text" name="srch" value="" size="15" /></label>
       <input type="hidden" name="t" value="search" />
-      <input type="text" name="srch" accesskey="f" value="" size="15" />
       <input type="submit" name="btn_submit" value="{MSG: search}" class="headbutton" />
     </form>
   </div>

@@ -16,7 +16,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}calendar
 	month	VARCHAR(2) NOT NULL,
 	year	VARCHAR(4) NOT NULL,
 	link	VARCHAR(255),
-	desc	TEXT NOT NULL
+	descr	TEXT NOT NULL
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}calendar_i_ymd ON {SQL_TABLE_PREFIX}calendar (year, month, day);
