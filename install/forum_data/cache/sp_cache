@@ -1,5 +1,5 @@
 <?php $SML_REPL = array (
-  ':blush:' => '<img src="images/smiley_icons/icon_redface.gif" border="0" alt="Embarassed" />',
+  ':blush:' => '<img src="images/smiley_icons/icon_redface.gif" border="0" alt="Embarrassed" />',
   ':p' => '<img src="images/smiley_icons/icon_razz.gif" border="0" alt="Razz" />',
   ':-p' => '<img src="images/smiley_icons/icon_razz.gif" border="0" alt="Razz" />',
   ':razz:' => '<img src="images/smiley_icons/icon_razz.gif" border="0" alt="Razz" />',
@@ -32,6 +32,8 @@
   ':((' => '<img src="images/smiley_icons/icon_cry.gif" border="0" alt="Crying or Very Sad" />',
   ':-((' => '<img src="images/smiley_icons/icon_cry.gif" border="0" alt="Crying or Very Sad" />',
   ':evil:' => '<img src="images/smiley_icons/icon_evil.gif" border="0" alt="Evil or Very Mad" />',
+  ':twisted:' => '<img src="images/smiley_icons/icon_twisted.gif" border="0" alt="Twisted Evil" />',
+  ':roll:' => '<img src="images/smiley_icons/icon_rolleyes.gif" border="0" alt="Rolling Eyes" />',
   ';)' => '<img src="images/smiley_icons/icon_wink.gif" border="0" alt="Wink" />',
   ';-)' => '<img src="images/smiley_icons/icon_wink.gif" border="0" alt="Wink" />',
   ':wink:' => '<img src="images/smiley_icons/icon_wink.gif" border="0" alt="Wink" />',
