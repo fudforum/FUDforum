@@ -23,12 +23,12 @@
 		q('UPDATE '.$tbl.'forum SET cat_id='.(int)$_POST['dst_cat'].', view_order='.$pos.' WHERE id='.(int)$_POST['frm_id']);
 		fud_use('cat.inc', true);
 		rebuild_forum_cat_order();
-		echo successify('Forum was successfully restored.');
+		echo successify('Forum was successfully restored. Go to <a href="admforum.php?cat_id='. (int)$_POST['dst_cat'] .'&amp;'. __adm_rsid .'">destination category</a>.');
 	} else if (isset($_GET['del']) && ($f = db_saq('SELECT id, thread_count, post_count, name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']))) {
 		/* User considers deleting a forum, give them final confirmation check. */
 ?>
 <div align="center">
-<h3>You have selected to permanently delete this forum</h3><br />
+<h3>You have selected to <span style="color: red;">permanently delete</span> this forum</h3><br />
 "<?php echo $f[3]; ?>" which contains <?php echo $f[1]; ?> topics with <?php echo $f[2]; ?> posts<br /><br />
 <h3>Are you sure this is what you want to do?</h3>
 <form method="post" action="admdelfrm.php">

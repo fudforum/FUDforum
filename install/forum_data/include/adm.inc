@@ -53,6 +53,8 @@ if (!($GLOBALS['usr']->users_opt & 1048576)) {	// is_admin
 	}
 }
 
+/* COMMON FUNCTIONS USED IN ACP BELOW. */
+
 /* Print string to web browser or command line. */
 function pf($str, $webonly=false)
 {
@@ -62,6 +64,17 @@ function pf($str, $webonly=false)
 	} else {
 		echo $str .'<br />';
 		@ob_flush(); flush();
+	}
+}
+
+/* Format date. */
+function fdate($format, $date)
+{
+	if (stristr($GLOBALS['char_set'], 'utf-8') !== false && substr(PHP_OS, 0, 3) == 'WIN') {
+		// Windows doesn't have UTF-8 locales.
+		return utf8_encode(strftime($format, $date));
+	} else {
+		return strftime($format, $date);
 	}
 }
 

@@ -169,8 +169,10 @@
 
 			$tryloc = file($file .'/locale', FILE_IGNORE_NEW_LINES);
 			$tryloc[] = '';	// Also consider the system's default locale.
-			$locales[$langcode]['locale'] = setlocale(LC_ALL, $tryloc);
+			$loc = setlocale(LC_ALL, $tryloc);
+			$loc = preg_match('/WIN/', PHP_OS) ? utf8_encode($loc) : $loc;	// Windows silliness.
 
+			$locales[$langcode]['locale'] = $loc;
 			$locales[$langcode]['pspell_lang'] = $langcode;
 		}
 		if (!isset($thm_locale) || empty($thm_locale)) {

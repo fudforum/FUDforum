@@ -46,7 +46,20 @@ function return_forum_name($id)
 
 ?>
 <h2>Action Log Viewer</h2>
-[ <a href="admlog.php?clear=1&amp;<?php echo __adm_rsid; ?>">Clear Admin Log</a> ]
+
+<div align="right">
+	[ <a href="admlog.php?clear=1&amp;<?php echo __adm_rsid; ?>">Clear Admin Log</a> ]
+</div>
+
+<form method="post" action="admlog.php">
+<?php echo _hs; ?>
+	Filter by user:
+	<?php $log_user = isset($_POST['log_user']) ? $_POST['log_user'] : ''; ?>
+	<input type="text" name="log_user" value="<?php echo $log_user; ?>" />
+	<input type="submit" value="Go" name="frm_submit" />
+</form>
+<br />
+
 <table class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>User</th><th>Action</th><th>Object</th><th>Time (<i>GMT</i>)</th>
@@ -56,6 +69,10 @@ function return_forum_name($id)
 	$c = q('SELECT u.users_opt, u.alias, al.* FROM '.$DBHOST_TBL_PREFIX.'action_log al LEFT JOIN '.$DBHOST_TBL_PREFIX.'users u ON al.user_id=u.id ORDER BY logtime DESC');
 
 	while ($obj = db_rowobj($c)) {
+		if (!empty($log_user) && $log_user !== ($obj->alias)) {
+			continue;	// Filter log entry.
+		}
+
 		$logtime = '<td>'.gmdate('D, d M Y H:i:s', $obj->logtime).'</td>';
 
 		if ($obj->users_opt == null) {
@@ -65,11 +82,11 @@ function return_forum_name($id)
 				$user_info = 'User is no longer in the system.';
 			}
 		} else if ($obj->users_opt & 1048576) {
-			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&amp;id='.$obj->user_id.'&amp;'.__adm_rsid.'">'.$obj->alias.'</a> <font size="-2">[Administrator]</font>';
+			$user_info = '<a href="admuser.php?usr_id='.$obj->user_id.'&amp;act=m&amp;'.__adm_rsid.'">'.$obj->alias.'</a> <font size="-2">[Administrator]</font>';
 		} else if ($obj->users_opt & 524288) {
-			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&amp;id='.$obj->user_id.'&amp;'.__adm_rsid.'">'.$obj->alias.'</a> <font size="-2">[Moderator]</font>';
+			$user_info = '<a href="admuser.php?usr_id='.$obj->user_id.'&amp;act=m&amp;'.__adm_rsid.'">'.$obj->alias.'</a> <font size="-2">[Moderator]</font>';
 		} else {
-			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&amp;id='.$obj->user_id.'&amp;'.__adm_rsid.'">'.$obj->alias.'</a> <font size="-2">[Priveleged User]</font>';
+			$user_info = '<a href="admuser.php?usr_id='.$obj->user_id.'&amp;act=m&amp;'.__adm_rsid.'">'.$obj->alias.'</a> <font size="-2">[Priveleged User]</font>';
 		}
 		echo '<tr class="field"><td>'.$user_info.'</td>';
 
@@ -123,7 +140,7 @@ function return_forum_name($id)
 				echo '<td>Updated Forum</td><td>forum: '.return_forum_name($obj->a_res_id).'</td>';
 				break;
 			case 'FRMMARKDEL':
-				echo '<td>Deleted Forum</td><td>forum: '.$obj->logaction.'</td>';
+				echo '<td>Deleted Forum</td><td>forum: '.return_forum_name($obj->a_res_id).'</td>';
 				break;
 			case 'CHCATFORUM':
 				echo '<td>Changed Forum Category</td><td>forum: '.return_forum_name($obj->a_res_id).'</td>';
@@ -131,8 +148,14 @@ function return_forum_name($id)
 			case 'WRONGPASSWD':
 				echo '<td>Failed login attempt</td><td>'.$obj->logaction.'</td>';
 				break;
+			case 'CREATE_USER':
+				echo '<td>Created user account</td><td>'.$obj->logaction.'</td>';
+				break;
 			case 'DELETE_USER':
 				echo '<td>Removed user account</td><td>'.$obj->logaction.'</td>';
+				break;
+			case 'MERGE_USER':
+				echo '<td>Merged and removed user account</td><td>'.$obj->logaction.'</td>';
 				break;
 			case 'SEND_ECONF':
 				echo '<td>Sent E-mail Confirmation</td><td>to user: '.$obj->logaction.'</td>';

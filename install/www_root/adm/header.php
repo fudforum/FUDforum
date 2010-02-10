@@ -1,6 +1,12 @@
 <?php
 	if (!isset($FORUM_TITLE, $DATA_DIR)) die('Go away!');	// Hacking attempt?
 
+	if (defined('shell_script') ) {	// Command line execution.
+		$usr = new stdClass;
+		$usr->lang = 'en';
+		$usr->theme_name = 'default';
+	}
+
 	if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
 		$charset = trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
 	} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {

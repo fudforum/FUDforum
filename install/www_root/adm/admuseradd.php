@@ -12,6 +12,7 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
+	fud_use('logaction.inc');
 
 	$error = 0;
 
@@ -97,11 +98,12 @@ function validate_input()
 	if ($error) {
 		echo errorify('Error adding user.');
 	} else if (!empty($user_added)) {
+		logaction(_uid, 'CREATE_USER', 0, $_POST['login']);
 		echo successify('User was successfully added. [ <a href="admuser.php?act=1&amp;usr_id='. $user_added .'&amp;'. __adm_rsid .'">Edit user '. $_POST['login'] .'</a> ]<br />');
 	}
 ?>
 <h2>Add User</h2>
-<form id="frm_usr" method="post" action="admadduser.php">
+<form id="frm_usr" method="post" action="admuseradd.php">
 <?php echo _hs; ?>
 Register a new forum user:
 <table class="datatable solidtable">

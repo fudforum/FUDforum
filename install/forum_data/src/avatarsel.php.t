@@ -32,13 +32,13 @@
 		$select = '';
 	}
 
-	/* here we draw the avatar control */
+	/* Here we draw the avatar control. */
 	$icons_per_row = 5;
 	$c = uq("SELECT id, descr, img FROM {SQL_TABLE_PREFIX}avatar WHERE gallery='".$gal."' ORDER BY id");
 	$avatars_data = '';
 	$col = 0;
 	while ($r = db_rowarr($c)) {
-		if (!($col++ % $icons_per_row)) {
+		if (!($col++ % $icons_per_row) && $col != 1) {	// New row?
 			$avatars_data .= '{TEMPLATE: row_separator}';
 		}
 		$avatars_data .= '{TEMPLATE: avatar_entry}';

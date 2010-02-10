@@ -784,7 +784,8 @@ function initdb(&$settings)
 			$tryloc = file($f .'/locale', FILE_IGNORE_NEW_LINES);
 			$tryloc[] = '';	// Also consider the system's default locale.
 			$loc = setlocale(LC_ALL, $tryloc);
-		
+			$loc = preg_match('/WIN/', PHP_OS) ? utf8_encode($loc) : $loc;	// Windows silliness.
+
 			$lang = strtolower(basename($f));
 			$langs[$lang] = array($loc, @trim(file_get_contents($f . '/pspell_lang')));
 		} 

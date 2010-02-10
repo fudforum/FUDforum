@@ -395,8 +395,8 @@ if (!extension_loaded('posix')) {
 		$groupsent = posix_getgrgid((isset($st[5])?$st[5]:$st['gid']));
 		$group = $groupsent['name'];
 
-		$date_str = strftime('%b %d', (isset($st[9])?$st[9]:$st['mtime']));
-		$time_str = strftime('%H:%M:%S', (isset($st[9])?$st[9]:$st['mtime']));
+		$date_str = fdate('%b %d', (isset($st[9])?$st[9]:$st['mtime']));
+		$time_str = fdate('%H:%M:%S', (isset($st[9])?$st[9]:$st['mtime']));
 		$mode_o = sprintf('%o', 0x0FFF&$mode);
 
 		$size = round((isset($st[7])?$st[7]:$st['size'])/1024);
@@ -411,7 +411,7 @@ if (!extension_loaded('posix')) {
 		}
 
 		echo $mode_str.' ('. $mode_o .')</td>';
-		if (!preg_match('/WIN/', PHP_OS)) {
+		if (!preg_match('/WIN/', PHP_OS)) {	// No onwer & group on Windows.
 			echo '<td>'. $owner .'</td><td>'. $group .'</td>';
 		}
 		echo '<td nowrap="nowrap">'. $size .' KB</td><td nowrap="nowrap">'. $date_str .'</td><td>'. $time_str .'</td><td>'. $name .'</td>';

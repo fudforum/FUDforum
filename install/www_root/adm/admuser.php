@@ -295,7 +295,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	<!-- Links to control panels that Account Moderators can access. -->
 	<b>Account Moderation:</b><br /><br />
 	[ <a href="admaccapr.php?<?php echo __adm_rsid; ?>">Approve new users</a> ]<br />
-	[ <a href="admadduser.php?<?php echo __adm_rsid; ?>">Create new users</a> ]<br />
+	[ <a href="admuseradd.php?<?php echo __adm_rsid; ?>">Create new users</a> ]<br />
 	[ <a href="admusermerge.php?<?php echo __adm_rsid; ?>">Merge users</a> ]
 </td></tr>
 </table>
@@ -392,10 +392,10 @@ document.forms['frm_usr'].usr_login.focus();
 		echo '<tr class="field"><td>Signature:</td><td>'. $u->sig .'</td></tr>';
 	}
 	if ($u->reg_ip) {
-		echo '<tr class="field"><td>Registration:</td><td>'. strftime('%d %B %Y', $u->join_date) .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->reg_ip) .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. long2ip($u->reg_ip) .'</td></tr>';
+		echo '<tr class="field"><td>Registration:</td><td>'. fdate('%d %B %Y', $u->join_date) .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->reg_ip) .'&amp;'. __adm_rsid .'" title="Analyse IP usage">'. long2ip($u->reg_ip) .'</td></tr>';
 	}
 	if ($u->last_known_ip) {
-		echo '<tr class="field"><td>Last visit:</td><td>'. strftime('%d %B %Y', $u->last_visit) .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->last_known_ip) .'&amp;'. __adm_rsid. '" title="Analyse IP usage">'. long2ip($u->last_known_ip) .'</a></td></tr>';
+		echo '<tr class="field"><td>Last visit:</td><td>'. fdate('%d %B %Y', $u->last_visit) .' from <a href="../'. __fud_index_name__ .'?t=ip&amp;ip='. long2ip($u->last_known_ip) .'&amp;'. __adm_rsid. '" title="Analyse IP usage">'. long2ip($u->last_known_ip) .'</a></td></tr>';
 	}
 	if ($u->posted_msg_count) {
 		echo '<tr class="field"><td>Post count:</td><td>'. $u->posted_msg_count .' [ <a href="../'.__fud_index_name__.'?t=showposts&amp;id='.$usr_id.'&amp;'.__adm_rsid.'" title="View user\'s messages on the forum">See Messages</a> ]</td></tr>';
@@ -433,8 +433,7 @@ if ($acc_mod_only) {
 	unset($c);
 ?>
 	<a name="mod_here"> </a>
-	[ <a href="#mod_here" onclick="window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&amp;' . __adm_rsid; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a> ]</td></tr>
-
+	[ <a href="#mod_here" onclick="window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&amp;' . __adm_rsid; ?>', 'frm_mod', 'menubar=false,width=300,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a> ]</td></tr>
 
 	<tr class="field"><td valign="top">Custom Tags:</td><td valign="top">
 <?php

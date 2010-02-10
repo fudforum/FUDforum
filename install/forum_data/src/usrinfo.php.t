@@ -11,27 +11,6 @@
 
 /*{PRE_HTML_PHP}*/
 
-function convert_bdate($val, $month_fmt)
-{
-	$ret['year'] = substr($val, 0, 4);
-	if (!(int)$ret['year']) {
-		$ret['year'] = '';
-	}
-
-	$ret['day'] = substr($val, 6, 2);
-	if (!(int)$ret['day']) {
-		$ret['day'] = '';
-	}
-
-	if (!($month = (int)substr($val, 4, 2))) {
-		$ret['month'] = '';
-	} else {
-		$ret['month'] = strftime($month_fmt, mktime(1, 1, 1, $month, 11, 2000));
-	}
-
-	return $ret;
-}
-
 	if (!isset($_GET['id']) || !(int)$_GET['id']) {
 		invl_inp_err();
 	}
@@ -51,7 +30,7 @@ function convert_bdate($val, $month_fmt)
 		return;
 	}
 
-	$obj = $u; // a little hack for online status, so we don't need to add more messages
+	$obj = $u; // A little hack for online status, so we don't need to add more messages.
 
 	if ($FUD_OPT_1 & 28 && $u->users_opt & 8388608 && $u->level_opt & (2|1) == 1) {
 		$level_name = $level_image = '';
@@ -133,7 +112,11 @@ function convert_bdate($val, $month_fmt)
 	}
 
 	if ($u->bday) {
-		$bday = convert_bdate($u->bday, '%B');
+		// Convert birthday string to a date.
+		$yyyy = (int)substr($u->bday, 0, 4);
+		$mm   = (int)substr($u->bday, 4, 2);
+		$dd   = (int)substr($u->bday, 6, 2);
+		$u->bday = mktime(0, 0, 0, $mm, $dd, $yyyy);
 		$birth_date = '{TEMPLATE: birth_date}';
 	} else {
 		$birth_date = '';

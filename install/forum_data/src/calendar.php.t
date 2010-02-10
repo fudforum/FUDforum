@@ -133,8 +133,8 @@ $months = array('{TEMPLATE: month_1}','{TEMPLATE: month_2}','{TEMPLATE: month_3}
 
 /* Build a 'month dropdown' that can be used in templates. */
 $select_month_control = '<select name="month" id="month">';
-for($x = 1; $x <= 12; $x++) {
-	$select_month_control .= '<option value="'. $x .'"'. ($x != $month ? '' : ' selected="selected"') .'>'. date('F',mktime(0,0,0,$x,1,$year)) .'</option>';
+for($m = 1; $m <= 12; $m++) {
+	$select_month_control .= '<option value="'. $m .'"'. ($m != $month ? '' : ' selected="selected"') .'>'. $months[ date('n',mktime(0,0,0,$m,1,$year)) - 1 ] .'</option>';
 }
 $select_month_control .= '</select>';
 
