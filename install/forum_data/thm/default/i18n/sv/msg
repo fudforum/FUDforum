@@ -1,5 +1,6 @@
 # Messages for Swedish (Svenska)
 # Exported from translatewiki.net
+# Author: McDutchie
 
 action:Handling
 add_to_buddy_list:l&auml;gg till kompislistan
@@ -154,8 +155,7 @@ subscribed_threads_desc:Koppla om filtret f&ouml;r best&auml;llda diskussioner (
 switch_to_thread_view:Visa inl&auml;ggen tr&aring;dade
 thread:Diskussion:
 thread_announcement:meddelande:
-# Fuzzy
-thread_first_unread_msg:Tryck h&auml;r f&ouml;r att g&aring; till det f&ouml;rsta ol&auml;sta inl&auml;gget i den h&auml;r diskussionen
+thread_first_unread_msg:Gå till det första olästa inlägget i den här diskussionen
 thread_thread:Diskussion
 threads:Diskussioner
 time:Tid
@@ -202,7 +202,7 @@ modque_approve:Godk&auml;nn
 modque_delete:Radera
 modque_no_message:Inga inl&auml;gg v&auml;ntar p&aring; godk&auml;nnande
 pmsg_new_messages:Ol&auml;st privat meddelande
-pmsg_old_messages:L&auml;s privat meddelande
+pmsg_old_messages:L&auml;st privat meddelande
 deny_recipt:neka kvittering
 deny_recipt_desc:Skicka inte en kvittering p&aring; att du har l&auml;st detta meddelande
 restore_to:&Aring;terst&auml;ll till:

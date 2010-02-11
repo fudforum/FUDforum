@@ -66,6 +66,9 @@ logout:Abmälde
 mark_all_read:alli Byytreg as gläse markiere
 mark_all_read_desc:Alli Dyyni uugläsene Byytreg wäre as gläse markiert
 members:Miglider
+calendar:Kaländer
+cal_goto_date:Gump zue:
+cal_no_events:Kei Ereignis an däm Tag.
 message:Byytrag
 message_counter:Unsri Benutzer hän insgsamt <b>{PLURAL: post_count|$1 Byytrag|$1 Byytreg }</b> in <b>{PLURAL: thread_count|$1 Thema|$1 Themene}</b> aagleit.
 message_index:Byytragsverzeichnis
@@ -250,6 +253,20 @@ month_9:Septämber
 month_10:Oktober
 month_11:Novämber
 month_12:Dezämber
+sunday:Sunntig
+sunday_short:Su
+monday:Mentig
+monday_short:Me
+tuesday:Zyschtig
+tuesday_short:Zy
+wednesday:Mittwuche
+wednesday_short:Mi
+thursday:Dunschtig
+thursday_short:Du
+friday:Frytig
+friday_short:Fr
+saturday:Samschtig
+saturday_short:Sa
 male:Männlig
 female:Wyyblig
 unspecified:Kei Aagab
@@ -654,11 +671,9 @@ tree_update:Am Dursueche vum Thema (Baumaasicht) <a href="{TEMPLATE: tree_update
 userinfo_update:Am Bschaue vum Profil vu <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>FÄHLER: Du bisch nit aagmäldet</legend>Go Zuegriff uf die Syte iberchuu muesch Miglid in däm Forum syy.
 ERR_disabled_ttl:Deaktivierti Funktion
-# Fuzzy
-ERR_disabled_msg:Die Funktion isch vum Systemadministrator deaktiviert wore
+ERR_disabled_msg:Die Funktion isch vum Systemadministrator deaktiviert wore.
 ERR_access_ttl:FÄHLER: Rächt länge nit
-# Fuzzy
-ERR_access_msg:Du hesch nit nit notwädnige Rächt go die Aktion durfiere
+ERR_access_msg:Du hesch nit nit notwändige Rächt go die Aktion durfiere.
 ERR_registration_disabled_ttl:Regischtrierig isch deaktiviert
 ERR_registration_disabled_msg:Dr Administrator het d Regischtrierig deaktiviert, versuech s bitte speter nomol.
 ERR_emailconf_ttl:FÄHLER: Dyy Konto isch nonig bstetigt wore
@@ -753,6 +768,7 @@ rate_worst:Am schlächteschte
 rate_best:Am beschte
 post_quote_msg:{VAR: msg->login} het am {TEMPLATE: make_report_date} gschribe
 post_quote:Zitat:
+post_quote_selected:Markierte Text zitiere
 userinfo_referals:Aagworbeni Benutzer:
 userinfo_referals_count:{VAR: referals} Mitglider
 pm_no_space_title:Kei freje Platz meh ibrig!
@@ -800,6 +816,8 @@ quicklogin_password:Passwort:
 quicklogin_use_cookies:Cookies verwände?
 quicklogin_login_btn:Benutzer:
 quick_reply:Schnälli Antwort
+quick_reply_post:Schnälli Antwort abschicke
+quick_reply_preview:Vorschau vu dr Schnälle Antwort
 post_notification_desc:Gib mer e Nochricht, wänn eber uf myy Byytrag e Antwort git.
 post_all_ext_allowed:(nit begränzt)
 maximize_category:Kategorii maximiere

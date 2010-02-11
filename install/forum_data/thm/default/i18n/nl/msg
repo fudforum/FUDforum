@@ -1,5 +1,6 @@
 # Messages for Dutch (Nederlands)
 # Exported from translatewiki.net
+# Author: McDutchie
 # Author: SPQRobin
 # Author: Siebrand
 
@@ -60,7 +61,7 @@ location:Locatie:
 lock_thread:Onderwerp sluiten
 locked:Gesloten
 locked_with_new_posts:Gesloten (met ongelezen berichten)
-logged_in_list:Aangemelden gebruikers
+logged_in_list:Aangemelde gebruikers
 login:Aanmelden
 login_header:Aanmelden:
 logout:Afmelden
@@ -69,6 +70,7 @@ mark_all_read_desc:Alle berichten die u nog niet gelezen hebt worden als gelezen
 members:Leden
 calendar:Kalender
 cal_goto_date:Ga naar:
+cal_no_events:Geen gebeurtenissen voor dag.
 message:Bericht
 message_counter:Onze gebruikers hebben in totaal <b>{PLURAL: post_count|$1 bericht|$1 berichten}</b> geplaatst in <b>{PLURAL: thread_count|$1 onderwerp|$1 onderwerpen}</b>.
 message_index:Berichtenlijst
@@ -207,8 +209,8 @@ modque_pending_approval:Berichten die nog goedgekeurd moeten worden
 modque_approve:Goedkeuren
 modque_delete:Verwijderen
 modque_no_message:Er zijn geen berichten die nog goedgekeurd moeten worden
-pmsg_new_messages:Ongelezen privéberichten
-pmsg_old_messages:Privé-berichten lezen
+pmsg_new_messages:Ongelezen privébericht
+pmsg_old_messages:Gelezen privébericht
 deny_recipt:geen ontvangstbevestiging verzenden
 deny_recipt_desc:Geen leesbevestiging verzenden
 restore_to:Herstellen naar:
@@ -254,12 +256,19 @@ month_10:oktober
 month_11:november
 month_12:december
 sunday:zondag
+sunday_short:zo
 monday:maandag
+monday_short:ma
 tuesday:dinsdag
+tuesday_short:di
 wednesday:woensdag
+wednesday_short:wo
 thursday:donderdag
+thursday_short:do
 friday:vrijdag
+friday_short:vr
 saturday:zaterdag
+saturday_short:za
 male:Man
 female:Vrouw
 unspecified:Niet opgegeven
@@ -761,6 +770,7 @@ rate_worst:Slechtste
 rate_best:Beste
 post_quote_msg:{VAR: msg->login} schreef op {TEMPLATE: make_report_date}
 post_quote:Citaat:
+post_quote_selected:Geselecteerde tekst quoten
 userinfo_referals:Ingebrachte leden:
 userinfo_referals_count:{VAR: referals} leden
 pm_no_space_title:Er is geen plaats meer!

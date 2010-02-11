@@ -4,6 +4,7 @@
 # Author: Crochet.david
 # Author: IAlex
 # Author: Jean-Frédéric
+# Author: McDutchie
 # Author: Omnipaedista
 # Author: Peter17
 # Author: Robby
@@ -47,7 +48,7 @@ goto_prev_msg:Message précédent
 home:Page d'accueil
 homepage:Site Web:
 icq_control_panel:Message en-ligne ICQ
-icq_message_form:Message ICQ de :
+icq_message_form:Formulaire de message ICQ :
 ignore_user:Ignorer les messages provenant de cet utilisateur
 im_aim:Identifiant AIM :
 im_msnm:Identifiant MSN Messenger :
@@ -74,6 +75,7 @@ mark_all_read_desc:Tous vos messages non lus vont être marqués comme lus
 members:Membres
 calendar:Calendrier
 cal_goto_date:Aller à :
+cal_no_events:Aucun événement pour le jour.
 message:Message
 message_counter:Nos utilisateurs ont posté un total de <b>{PLURAL: post_count|$1 message|$1 messages}</b> message(s) dans <b>{PLURAL: thread_count|$1 fil|$1 fil}</b>.
 message_index:Index des messages
@@ -86,7 +88,7 @@ moderator_of:Modérateur de :
 moderator_options:Options de modération
 moderators:{PLURAL: modcount|Modérateur|Modérateurs}
 more_unread_messages:Autres de messages non lus
-more_unread_messages_desc:Montrer d'autres messages non lus et marquer le message courant comme lu
+more_unread_messages_desc:Montrer d'autres messages non lus et marquer les messages visibles actuellement comme lus
 move_thread:Déplacer
 moved:Déplacé dans un autre forum
 moved_thread_message:Ce fil a été déplacé dans un autre forum
@@ -212,8 +214,8 @@ modque_pending_approval:Messages en attente d'approbation
 modque_approve:Approuver
 modque_delete:Effacer
 modque_no_message:Il n'y a pas de message en attente d'approbation
-pmsg_new_messages:Message(s) privé(s) non lu(s)
-pmsg_old_messages:Lire le(s) message(s) privé(s)
+pmsg_new_messages:Message privé non lu
+pmsg_old_messages:Message privé lu
 deny_recipt:Ne pas accuser réception
 deny_recipt_desc:Ne pas envoyer de notification indiquant que j'ai lu ce message
 restore_to:Restaurer vers :
@@ -259,12 +261,19 @@ month_10:Octobre
 month_11:Novembre
 month_12:Décembre
 sunday:Dimanche
+sunday_short:Dim
 monday:Lundi
+monday_short:Lun
 tuesday:Mardi
+tuesday_short:Mar
 wednesday:Mercredi
+wednesday_short:Mer
 thursday:Jeudi
+thursday_short:Jeu
 friday:Vendredi
+friday_short:Ven
 saturday:Samedi
+saturday_short:Sam
 male:Homme
 female:Femme
 unspecified:Inconnu
@@ -766,6 +775,7 @@ rate_worst:Mauvais
 rate_best:Excellent
 post_quote_msg:{VAR: msg->login} a écrit le {TEMPLATE: make_report_date}
 post_quote:Citation :
+post_quote_selected:Citer le texte sélectionné
 userinfo_referals:Utilisateurs parrainés:
 userinfo_referals_count:{VAR: referals} Membres
 pm_no_space_title:Plus d'espace !

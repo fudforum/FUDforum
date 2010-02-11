@@ -1,5 +1,6 @@
 # Messages for Italian (Italiano)
 # Exported from translatewiki.net
+# Author: McDutchie
 
 action:Azione
 add_to_buddy_list:aggiungi alla lista amici
@@ -197,7 +198,7 @@ modque_approve:Approva
 modque_delete:Cancella
 modque_no_message:Non ci sono messaggi in attesa di approvazione
 pmsg_new_messages:Messaggio personale non letto
-pmsg_old_messages:Leggi messaggio personale
+pmsg_old_messages:Messaggio personale letto
 deny_recipt:rifiuta la richiesta di conferma
 deny_recipt_desc:Non inviare una conferma della lettura di questo messaggio
 restore_to:Ripristina in:

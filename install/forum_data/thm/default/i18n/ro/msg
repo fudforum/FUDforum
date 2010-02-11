@@ -1,12 +1,13 @@
 # Messages for Romanian (Română)
 # Exported from translatewiki.net
+# Author: McDutchie
 
 action:Actiune
 add_to_buddy_list:adauga la lista cu prieteni
 admin:Administrator
 admin_control_panel:Panou de Control Administrator
 attachment:Atasament:
-avatar:Imagime:
+avatar:Imagine:
 # Fuzzy
 average_post_count:{VAR: u->posted_msg_count} mesaje ({VAR: avg} mesaje trimise pe zi)
 biography:Biografie:

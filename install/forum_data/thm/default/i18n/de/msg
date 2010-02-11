@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Als-Holder
 # Author: JanRei
+# Author: McDutchie
 # Author: Pill
 # Author: Umherirrender
 
@@ -69,6 +70,9 @@ logout:Abmelden
 mark_all_read:Alle Beiträge als gelesen kennzeichnen
 mark_all_read_desc:Alle Beiträge werden als gelesen gekenzeichnet.
 members:Mitglieder
+calendar:Kalender
+cal_goto_date:Gehe zu:
+cal_no_events:Keine Ereignisse an diesem Tag.
 message:Beitrag
 message_counter:Unsere Benutzer haben insgesamt <b>{PLURAL: post_count|$1 Nachricht|$1 Nachrichten}</b> in <b>{PLURAL: thread_count|$1 Thema|$1 Themen}</b> erstellt.
 message_index:Beitragsindex
@@ -208,7 +212,7 @@ modque_approve:Genehmigen
 modque_delete:Löschen
 modque_no_message:Es sind keine Beiträge vorhanden, die noch genehmigt werden müssen
 pmsg_new_messages:Ungelesene private Nachrichten
-pmsg_old_messages:Private Nachrichten lesen
+pmsg_old_messages:Gelesene private Nachrichten
 deny_recipt:Empfangsbestätigung verweigern
 deny_recipt_desc:Keine Bestätigung verschicken, dass die Nachricht gelesen wurde
 restore_to:Wiederherstellen in:
@@ -239,7 +243,7 @@ draft:Entwurf
 sent:Verschickt
 trash:Müll
 msg_author:Verfasser
-avatar_sel_form:Avatar Auswahl
+avatar_sel_form:Avatar-Auswahl
 no_avatars:Keine Avatare verfügbar
 month_1:Januar
 month_2:Februar
@@ -253,6 +257,20 @@ month_9:September
 month_10:Oktober
 month_11:November
 month_12:Dezember
+sunday:Sonntag
+sunday_short:So
+monday:Montag
+monday_short:Mo
+tuesday:Dienstag
+tuesday_short:Di
+wednesday:Mittwoch
+wednesday_short:Mi
+thursday:Donnerstag
+thursday_short:Do
+friday:Freitag
+friday_short:Fr
+saturday:Samstag
+saturday_short:Sa
 male:Männlich
 female:Weiblich
 unspecified:Nicht angegeben
@@ -288,7 +306,7 @@ register_email_desc:Bitte eine gültige E-Mail-Adresse angeben. Du kannst diese 
 register_name:Name:
 register_your_pass:Dein Passwort:
 register_update:Aktualisieren
-register_avatar_type:Avatar Typ:
+register_avatar_type:Avatar-Typ:
 register_del_avatar:Avatar löschen
 register_avatar:Avatar:
 register_sel_avatar:Avatar auswählen
@@ -329,7 +347,7 @@ register_show_sig_desc:Ermöglicht es, die Signaturen von Forumsmitgliedern anzu
 register_use_sig_default:Standardmäßig Signatur verwenden:
 register_use_sig_default_desc:Die Signatur automatisch jedem Beitrag hinzufügen
 register_timezone:Zeitzone:
-register_ignore_admin:Administratoren Mitteilungen ignorieren:
+register_ignore_admin:Administrator-Mitteilungen ignorieren:
 register_invisible_mode:Unsichtbarmodus:
 register_invisible_mode_desc:Anzeige deines Onlinestatus unterdrücken.
 register_show_email:E-Mail-Adresse anzeigen:
@@ -345,7 +363,7 @@ my_buddies:Meine Buddies
 add_buddy:Buddy hinzufügen
 add:Hinzufügen
 buddy_search:Trage den Login des Benutzers ein, den du hinzufügen möchtest
-member_search:Oder verwende die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Benutzersuche</a>, um einen Benutzer ausfindig zu machen.
+member_search:Oder verwende die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list',400,250);">Benutzersuche</a>, um einen Benutzer ausfindig zu machen.
 buddy_remove:Entfernen
 post_normal:Normal
 post_sticky:Angeheftet
@@ -395,8 +413,8 @@ post_preview_btn:Beitragsvorschau
 ignore_users:Ignorierte Benutzer
 add_ignore:Benutzer zur Ignorierliste hinzufügen
 forum_terms:Forumsregeln
-forum_rules:<p>Die Registrierung für dieses Forum ist kostenlos. Jedoch bestehen wir darauf, dass du dich an nachfolgende Vereinbarung hältst. Wenn du mit diesen Regeln einverstanden bist, klicke bitte auf die „Zustimmen“-Schaltfläche. Achtung: Durch das Klicken der Schaltfläche erklärst Du, dass du über 13 Jahre bist. Falls du 13 oder darunter bist, verwende bitte diese Registrierungsseite.</p><p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anstößigen Mitteilungen freizuhalten, so ist es dennoch für uns unmöglich, alle übermittelten Beiträge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter für jene Inhalte verantwortlich gemacht werden kann.</p><p>Mit Anklicken der „Zustimmen“-Schaltfläche sicherst du uns verbindlich zu, dass deine Beiträge keinerlei obzöne, vulgäre, sexistische, hasserfüllte, nötigende oder sonstwie gesetzeswidrige Inhalte haben werden.</p><p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, bearbeiten, verschieben oder zu schließen.<p>
-forum_rules_13:<p>Alle Benutzer unter 13 Jahre müssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 befürworten, so verlangen wir dennoch, dass die Eltern oder der Vormund eine unterschriebene Einwilligungserklärung zurückschicken oder faxen, bevor wir die Mitgliedschaft gewähren können.</p><p>Wenn du die Registrierung einleiten möchtest bevor wir die Einwilligungserklärung erhalten haben, klicke auf die Zustimmen Schaltfläche unten. Falls du die Registrierung abbrechen möchtest, klicke auf Abbrechen um zum Forumsindex zurückzukehren.</p><p>Eine Kopie der zu unterschreibenden Einwilligungserklärung kann hier heruntergeladen werden. Für weitere Informationen bezüglich der Registrierung schicke bitte eine E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules:<p>Die Registrierung für dieses Forum ist kostenlos. Jedoch bestehen wir darauf, dass du dich an nachfolgende Vereinbarung hältst. Wenn du mit diesen Regeln einverstanden bist, klicke bitte auf die „Zustimmen“-Schaltfläche. Achtung: Durch das Klicken der Schaltfläche erklärst Du, dass du über 13 Jahre bist. Falls du 13 oder darunter bist, verwende bitte diese Registrierungsseite.</p><p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anstößigen Mitteilungen freizuhalten, so ist es dennoch für uns unmöglich, alle übermittelten Beiträge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter für jene Inhalte verantwortlich gemacht werden kann.</p><p>Mit Anklicken der „Zustimmen“-Schaltfläche sicherst du uns verbindlich zu, dass deine Beiträge keinerlei obzöne, vulgäre, sexistische, hasserfüllte, nötigende oder sonstwie gesetzeswidrige Inhalte haben werden.</p><p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, bearbeiten, verschieben oder zu schließen.</p>
+forum_rules_13:<p>Alle Benutzer unter 13 Jahre müssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 befürworten, so verlangen wir dennoch, dass die Eltern oder der Vormund eine unterschriebene Einwilligungserklärung zurückschicken oder faxen, bevor wir die Mitgliedschaft gewähren können.</p><p>Wenn du die Registrierung einleiten möchtest bevor wir die Einwilligungserklärung erhalten haben, klicke auf die Zustimmen Schaltfläche unten. Falls du die Registrierung abbrechen möchtest, klicke auf Abbrechen um zum Forumsindex zurückzukehren.</p><p>Eine Kopie der zu unterschreibenden Einwilligungserklärung kann hier heruntergeladen werden. Für weitere Informationen bezüglich der Registrierung schicke bitte eine E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-Bestätigung
 coppa_before:Vor dem {TEMPLATE: coppa_date}
 coppa_after:Nach dem {TEMPLATE: coppa_date}
@@ -657,11 +675,9 @@ tree_update:Durchsucht das Thema (Baumansicht) <a href="{TEMPLATE: tree_update_l
 userinfo_update:Betrachtet das Profil von <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>FEHLER: Du bist nicht angemeldet</legend>Um Zugriff auf diese Seite zu erhalten, musst du Mitglied dieses Forums sein.
 ERR_disabled_ttl:Deaktivierte Funktion
-# Fuzzy
-ERR_disabled_msg:Diese Funktion wurde vom Systemadministrator deaktiviert
+ERR_disabled_msg:Diese Funktion wurde vom Systemadministrator deaktiviert.
 ERR_access_ttl:FEHLER: Nicht ausreichende Rechte
-# Fuzzy
-ERR_access_msg:Du verfügst nicht über die benötigten Rechte, um diese Aktion auszuführen
+ERR_access_msg:Du verfügst nicht über die benötigten Rechte, um diese Aktion auszuführen.
 ERR_registration_disabled_ttl:Registrierung ist deaktiviert
 ERR_registration_disabled_msg:Der Administrator hat die Registrierung deaktiviert, versuche es bitte später noch einmal
 ERR_emailconf_ttl:FEHLER: Dein Konto ist noch nicht bestätigt worden
@@ -756,6 +772,7 @@ rate_worst:am schlechtesten
 rate_best:am besten
 post_quote_msg:{VAR: msg->login} schrieb am {TEMPLATE: make_report_date}
 post_quote:Zitat:
+post_quote_selected:Markierten Text zitieren
 userinfo_referals:Angeworbene Benutzer:
 userinfo_referals_count:{VAR: referals} Mitglieder
 pm_no_space_title:Kein freier Platz mehr übrig!
@@ -803,6 +820,8 @@ quicklogin_password:Passwort:
 quicklogin_use_cookies:Cookies verwenden?
 quicklogin_login_btn:Anmelden
 quick_reply:Schnelle Antwort
+quick_reply_post:Schnelle Antwort abschicken
+quick_reply_preview:Vorschau der Schnellen Antwort
 post_notification_desc:Benachrichtige mich, wenn jemand auf meinen Beitrag antwortet.
 post_all_ext_allowed:(unbegrenzt)
 maximize_category:Kategorie maximieren
@@ -960,6 +979,7 @@ merge_topics_tpl:Themen zum Zusammenführen auswählen <span class="SmallText">(
 merge_merge:Ausgewählte Themen zusammenführen
 merge_next:Nächste Themen
 merge_prev:Vorherige Themen
+merge_another:Gehe zum <a href="{TEMPLATE: merge_another_lnk}">zuletzt zusammengeführten Thema</a> oder führe ein weiteres Thema zusammen:
 split_cp:Menü zum Teilen von Themen
 groups_perms_header:Rechte <span class="small">(Bewege den Mauszeiger über die Rechte, um deren Typ zu erkennen)</span>
 register_err_sig_too_long:Deine Signatur überschreitet die maximal erlaubte Länge von {GVAR: FORUM_SIG_ML} Zeichen.
@@ -1023,6 +1043,7 @@ pmsg_pdf_btn:PDF-Archiv erzeugen
 search_results_hdr:{VAR: total} Suchergebnisse gefunden
 thread_del_all:Alle markierten löschen
 thread_mov_all:Alle markierten verschieben
+thread_merge_all:Alle markierten zusammenführen
 thread_loc_all:Alle markierten sperren/entsperren
 dmsg_ip:IP:
 err_blockedaccnt_title:FEHLER: Dein Konto wurde ausgefiltert.

@@ -1,6 +1,7 @@
 # Messages for Occitan (Occitan)
 # Exported from translatewiki.net
 # Author: Cedric31
+# Author: McDutchie
 
 action:Accion
 add_to_buddy_list:Apondre a la lista de mos amics
@@ -78,7 +79,7 @@ moderator_of:Moderator de :
 moderator_options:Opcions de moderacion
 moderators:{PLURAL: modcount|Moderator|Moderators}
 more_unread_messages:Autres messatges pas legits
-more_unread_messages_desc:Mostrar d'autres messatges pas legits e marcar lo messatge corrent coma legit
+more_unread_messages_desc:Mostrar d'autres messatges pas legits e marcar los messatges a l'ora d'ara visibles coma legits
 move_thread:Desplaçar
 moved:Desplaçat dins un autre forum
 moved_thread_message:Aqueste fial es estat desplaçat dins un autre forum
@@ -204,8 +205,8 @@ modque_pending_approval:Messatges en espèra d'aprovacion
 modque_approve:Aprovar
 modque_delete:Escafar
 modque_no_message:I a pas de messatge en espèra d'aprovacion
-pmsg_new_messages:Messatge(s) privat(s) pas legit(s)
-pmsg_old_messages:Legir lo(s) messatge(s) privat(s)
+pmsg_new_messages:Messatge privat pas legit
+pmsg_old_messages:Messatge privat legit
 deny_recipt:Acusar pas recepcion
 deny_recipt_desc:Mandar pas de notificacion qu'indica qu'ai legit aqueste messatge
 restore_to:Restablir cap a :

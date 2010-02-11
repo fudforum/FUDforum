@@ -68,6 +68,7 @@ mark_all_read_desc:Alle boodskappe wat u nog nie gelees het nie sal as gelees ge
 members:Lede
 calendar:Kalender
 cal_goto_date:Gaan na:
+cal_no_events:Geen gebeure vir die dag nie.
 message:Boodskap
 message_counter:Ons gebruikers het in totaal <b>{PLURAL: post_count|$1 boodskap|$1 boodskappe}</b> in <b>{PLURAL: thread_count|$1 onderwerp|$1 onderwerpe}</b> gepos.
 message_index:Boodskapslys
@@ -206,8 +207,8 @@ modque_pending_approval:Boodskappe wat nog goedgekeur moet word
 modque_approve:Keur goed
 modque_delete:Verwyder
 modque_no_message:Daar is nie meer boodskappe wat nog goedgekeur moet word nie
-pmsg_new_messages:ongeleesde privaat boodskappe
-pmsg_old_messages:Lees privaat boodskappe
+pmsg_new_messages:Ongeleesde privaatboodskap
+pmsg_old_messages:Geleesde privaatboodskap
 deny_recipt:moenie bevestiging van ontvangs stuur nie
 deny_recipt_desc:Stuur geen bevestiging dat u dit boodskap gelees het nie
 restore_to:Herstel na:
@@ -253,12 +254,19 @@ month_10:Oktober
 month_11:November
 month_12:Desember
 sunday:Sondag
+sunday_short:So
 monday:Maandag
+monday_short:M
 tuesday:Dinsdag
+tuesday_short:Di
 wednesday:Woensdag
+wednesday_short:W
 thursday:Donderdag
+thursday_short:Do
 friday:Vrydag
+friday_short:V
 saturday:Saterdag
+saturday_short:Sa
 male:Man
 female:Vrou
 unspecified:Nie gespesifiseer
@@ -760,6 +768,7 @@ rate_worst:Slegste
 rate_best:Beste
 post_quote_msg:{VAR: msg->login} het op {TEMPLATE: make_report_date} geskryf:
 post_quote:Kwoteer:
+post_quote_selected:Kwoteer geselekteerde teks
 userinfo_referals:Verwysde lede:
 userinfo_referals_count:{VAR: referals} lede
 pm_no_space_title:Geen spasie oor nie!

@@ -1,5 +1,6 @@
 # Messages for Galician (Galego)
 # Exported from translatewiki.net
+# Author: McDutchie
 # Author: Toliño
 
 action:Acción
@@ -68,6 +69,7 @@ mark_all_read_desc:Todas as túas mensaxes non lidas marcaranse como lidas
 members:Membros
 calendar:Calendario
 cal_goto_date:Ir a:
+cal_no_events:Non hai eventos para este día.
 message:Mensaxe
 message_counter:Os nosos usuarios publicaron un total <b>{PLURAL: post_count|dunha mensaxe|de $1 mensaxes}</b> <b>{PLURAL: thread_count|nun fío|en $1 fíos}</b>.
 message_index:Índice de mensaxes
@@ -82,7 +84,7 @@ moderators:{PLURAL: modcount|Moderador|Moderadores}
 more_unread_messages:máis mensaxes non lidas
 more_unread_messages_desc:Mostrar máis mensaxes non lidas e marcar as mensaxes visibles actualmente como lidas
 move_thread:Mover
-moved:Mover a outro foro
+moved:Movida a outro foro
 moved_thread_message:Moveuse este fío a outro foro
 na:non dispoñible
 new_posts:Novas mensaxes
@@ -207,7 +209,7 @@ modque_approve:Aprobar
 modque_delete:Borrar
 modque_no_message:Non hai mensaxes pendentes de aprobación
 pmsg_new_messages:Mensaxe privada non lida
-pmsg_old_messages:Ler a mensaxe privada
+pmsg_old_messages:Mensaxe privada lida
 deny_recipt:non enviar o recibo
 deny_recipt_desc:Non enviar unha confirmación de que liches esta mensaxe
 restore_to:Restaurar a:
@@ -253,12 +255,19 @@ month_10:outubro
 month_11:novembro
 month_12:decembro
 sunday:Domingo
+sunday_short:D
 monday:Luns
+monday_short:L
 tuesday:Martes
+tuesday_short:M
 wednesday:Mércores
+wednesday_short:Mé
 thursday:Xoves
+thursday_short:X
 friday:Venres
+friday_short:V
 saturday:Sábado
+saturday_short:S
 male:Masculino
 female:Feminino
 unspecified:NON ESPECIFICADO
@@ -760,6 +769,7 @@ rate_worst:Peor
 rate_best:Mellor
 post_quote_msg:{VAR: msg->login} escribiu o {TEMPLATE: make_report_date}
 post_quote:Cita:
+post_quote_selected:Citar o texto seleccionado
 userinfo_referals:Usuarios referidos:
 userinfo_referals_count:{VAR: referals} membros
 pm_no_space_title:Non queda espazo!

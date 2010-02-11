@@ -654,11 +654,9 @@ tree_update:يتصفح الموضوع <a href="{TEMPLATE: tree_update_lnk}">{VAR
 userinfo_update:ينظر إلى ملف <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> الشخصي
 ERR_login_msg2:<legend>خطأ: لست والجًا/legend> يجب أن تكون عضوًا فى هذا المنتدى لتصل إلى هذه الصفحه.
 ERR_disabled_ttl:خاصيه معطلة
-# Fuzzy
-ERR_disabled_msg:عطل مدير النظام هذه الرسالة
+ERR_disabled_msg:هذه الخاصية تم تعطيلها بواسطة مدير النظام.
 ERR_access_ttl:خطأ: أذونات غير كافية
-# Fuzzy
-ERR_access_msg:لا تملك الأذونات المطلوبه لتنفيذ هذا الإجراء
+ERR_access_msg:أنت لا تمتلك السماحات المطلوبة للقيام بهذا الفعل.
 ERR_registration_disabled_ttl:التسجيل معطل
 ERR_registration_disabled_msg:عطل الإدارى التسجيل. من فضلك حاول مره أخرى لاحقًا.
 ERR_emailconf_ttl:خطأ: حسابك غير مؤكد

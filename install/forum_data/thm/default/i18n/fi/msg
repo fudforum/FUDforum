@@ -70,6 +70,8 @@ mark_all_read:merkitse kaikki viestit luetuiksi
 mark_all_read_desc:Kaikki lukemattomat viestisi merkitään luetuiksi
 members:Käyttäjät
 calendar:Kalenteri
+cal_goto_date:Loikkaa:
+cal_no_events:Ei tapahtumia päivälle.
 message:Viesti
 message_counter:Yhteensä <b>{PLURAL: post_count|$1 viesti|$1 viestiä}</b> <b>{PLURAL: thread_count|$1 aiheesta|$1 aiheesta}</b>.
 message_index:Viestiluettelo
@@ -86,6 +88,7 @@ more_unread_messages_desc:Näytä lisää lukemattomia viestejä ja merkitse par
 move_thread:Siirrä
 moved:Siirretty toiseen foorumiin
 moved_thread_message:Tämä aihe on siirretty toiseen foorumiin
+na:ei saatavilla
 new_posts:Uusia viestejä
 new_private_messages:Sinulla on <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|lukematon yksityisviesti|lukematonta yksityisviestiä}
 new_thread:Aloita uusi aihe
@@ -119,6 +122,8 @@ usrinfo_private_message:Yksityisviesti:
 profile:Hallintapaneeli
 profile_desc:Siirry käyttäjän hallintapaneeliin
 rate_thread:Arvostele aihe
+rating:Arviot
+rating_track:Hallinnoi aiheen <b>{VAR: thr->subject}</b> arvioita:
 refresh_list:Päivitä lista
 register:Rekisteröidy
 registered:Rekisteröitynyt:
@@ -160,7 +165,7 @@ bookmarked_threads:Kirjanmerkityt aiheet
 switch_to_thread_view:Vaihda puunäkymään
 thread:Aihe:
 thread_announcement:Tiedote:
-thread_first_unread_msg:Siirry ensimmäiseen lukemattomaan viestiin tässä aiheessa
+thread_first_unread_msg:Siirry tämän aiheen ensimmäiseen lukemattomaan viestiin
 thread_thread:Aihe
 threads:Aiheita
 time:Aika
@@ -252,22 +257,26 @@ month_10:Lokakuu
 month_11:Marraskuu
 month_12:Joulukuu
 sunday:Sunnuntai
+sunday_short:Su
 monday:Maanantai
+monday_short:Ma
 tuesday:Tiistai
+tuesday_short:Ti
 wednesday:Keskiviikko
+wednesday_short:Ke
 thursday:Torstai
+thursday_short:To
 friday:Perjantai
+friday_short:Pe
 saturday:Lauantai
+saturday_short:La
 male:Mies
 female:Nainen
 unspecified:Määrittelemätön
 register_tree_view:Puunäkymä viesti- ja aihelistalle
-# Fuzzy
-register_msg_tree_view:Taso - aihelistaus/puu - viestilistaus
-# Fuzzy
-register_tree_msg_view:Puu - aihelistaus/taso - viestilistaus
-# Fuzzy
-register_flat_view:Taso - viesti- ja aihelistaus
+register_msg_tree_view:Tasonäkymä aihelistalle ja puunäkymä viestilistalle
+register_tree_msg_view:Puunäkymä aihelistalle ja tasonäkymä viestilistalle
+register_flat_view:Tasonäkymä viesti- ja aihelistalle
 use_forum_default:Käytä oletusarvoa
 finduser_user_info:Profiili
 finduser_by_login:Hae käyttäjätunnuksella:
@@ -756,6 +765,7 @@ rate_worst:Huonoin
 rate_best:Paras
 post_quote_msg:{VAR: msg->login} kirjoitti {TEMPLATE: make_report_date}
 post_quote:Lainaus:
+post_quote_selected:Lainaa valittu teksti
 userinfo_referals:Suositellut käyttäjät:
 userinfo_referals_count:{VAR: referals} käyttäjää
 pm_no_space_title:Ei tilaa jäljellä!
@@ -817,7 +827,7 @@ register_err_toomanyimages:Yritit käyttää enemmän kuin sallitut {GVAR: FORUM
 pmsg_next_msg:Seuraava viesti
 pmsg_prev_msg:Edellinen viesti
 # Fuzzy
-post_proc_reveal_spoiler:Reveal Spoiler
+post_proc_reveal_spoiler:Näytä spoiler
 register_jabber:Jabber-tunnus:
 register_skype:Skype-tunnus:
 register_twitter:Twitter-tunnus:
@@ -847,7 +857,7 @@ register_alias:Alias
 register_alias_desc:Anna lempinimi (muu kuin käyttäjätunnus), jonka haluat näkyvän foorumilla.
 register_allow_pm_msg:Salli yksityisviestit:
 register_allow_pm_msg_desc:Salli muiden käyttäjien lähettää sinulle yksityisviestejä.
-postcheck_pm_disabled:Et voi lähettää yksityisviestiä, koska "{VAR-HTML: v}" ei halua vastaanottaa yksityisviestejä.
+postcheck_pm_disabled:Et voi lähettää yksityisviestiä, koska {VAR-HTML: v} ei halua vastaanottaa yksityisviestejä.
 polllist_vote:Äänestä
 polllist_view_results:Näytä tulokset
 polllist_name:Gallupin nimi
@@ -868,7 +878,7 @@ post_proceed:Jatka
 post_moderated_forum:Lähetit viestin moderoidulle foorumille. Viestisi ei näy foorumilla ennen kuin joku foorumin moderaattoreista tai ylläpidosta hyväksyy sen.
 post_moderated_forum_ttl:Moderoitu foorumi
 buddy_list_bday:{VAR: r[2]} täyttää tänään {VAR: age}-vuotta
-email_warning_msg:Jos vaihdat sähköpostiosoitteesi, käyttäjätilisi merkitään vahvistamattomaksi kunnes olet vahivistanut sen sähköpostilla.
+email_warning_msg:Jos vaihdat nykyisen sähköpostiosoitteesi, käyttäjätilisi merkitään vahvistamattomaksi, kunnes olet vahvistanut sen sähköpostilla.
 register_show_im:Näytä IM-indikaattorit:
 register_show_im_desc:Määrittää näytetäänkö viesteissä kirjoittajan IM (Instant Messaging) indikaattori(t).
 unread_message:Lukematon viesti
@@ -946,7 +956,7 @@ mnav_week:Viikko(a)
 mnav_month:Kuukautta
 mnav_title:Viestiselain
 mnav_update:Selaa viestejä käyttäen <a href="{TEMPLATE: mnav_update_lnk}">viestiselainta</a>
-pm_notify_subject:[{GVAR: FORUM_TITLE}] Ilmoitus uudesta yksityisviestistä
+pm_notify_subject:[{GVAR: FORUM_TITLE}] – Ilmoitus uudesta yksityisviestistä
 pm_notify_body_email:Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\nNäet viestin napsauttamalla tätä: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.
 register_pm_notification:Ilmoitukset uusista yksityisviesteistä:
 register_pm_notification_desc:Määrittää lähetetäänkö uusista yksityisviesteistä viesti määrittelemälläsi ilmoitusten lähetystavalla.
@@ -976,10 +986,14 @@ register_email_addr:Sähköpostiosoite:
 usrinfo_last_visit:Käytti viimeksi:
 mnav_newer:uudempia kuin
 mnav_older:vanhempia kuin
+ip_search_syntax:Tuettu syntaksi: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:Etsi
+ip_analyze_usage:Analysoi IP-käyttöä
+ip_users_using:Käyttäjät, jotka käyttävät IP-osoitetta {VAR: ip}
 ip_all_ips:Kaikki IP-osoitteet, joita '{VAR: user}' on käyttänyt
 ip_title:IP-selain
 userinfo_real_name:Nimi:
+register_err_alias_notallowed:Tämä alias ei ole sallittu
 post_err_mod_forum_edit_ttl:Virhe
 post_err_mod_forum_edit_msg:Et voi muokata moderoidun foorumin viestejä.
 dmsg_num:viesti nro {VAR: obj->id}
@@ -988,6 +1002,7 @@ delete_message_extra_desc:<b>Valinnainen</b><br />Määritä syy viestin poistoo
 delete_msg_removed_ttl:Ylläpito on poistanut viestisi.
 delete_msg_pm_body:Alkuperäinen viesti
 delete_msg_pm_subject:Otsikko: {VAR: data[15]}
+ip_no_whois:IP-osoitteen <b>{VAR: ip}</b> WHOIS-tiedot eivät ole saatavilla.
 ip_whois_title:ISP-tiedot
 register_theme:Teema:
 pmsg_trash:Tyhjennä roskat
@@ -999,6 +1014,7 @@ uc_sub_topics:Tilattujen aiheiden uudet viestit
 search_options:Hakuasetukset
 search_user_filter:Suodata käyttäjän mukaan:
 register_none:Älä huomauta
+findu_no_conf:vahvistamaton käyttäjä
 register_max_sig_len:Maksimipituus:
 register_turing:Syötä alla oleva varmistuskoodi:
 register_err_turing:Virheellinen varmistuskoodi.
@@ -1015,6 +1031,7 @@ thread_del_all:Poista kaikki valitut
 thread_mov_all:Siirrä kaikki valitut
 thread_merge_all:Yhdistä kaikki valitut
 dmsg_ip:IP:
+merge_th_page_list:Aihesivun valinta
 most_users_online:Eniten yhtaikaisia käyttäjiä (<b>{VAR: st_obj->most_online}</b>) oli <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 unbookmark_all_topics:Poista kaikki kirjanmerkit
 tabs_own_posts:Näytä omat viestit
@@ -1035,12 +1052,15 @@ post_descr:Aiheen kuvaus:
 pmsg_download_dump:Lataa viestivedos
 move_messages:Siirrä viestit
 move_msg_btn:Siirrä valitut viestit
+captcha_img_alt:Captcha-varmistus: Sinun täytyy tunnistaa teksti tästä kuvasta.
+captcha_img_help:Kuvassa ei ole nollaa tai ykköstä.
 powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.<br />Copyright &copy;2001-2010 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Koodi:
 code_select_all:Valitse kaikki
 code_show_hide:Näytä tai piilota
 social_sites:Sosiaaliset verkkosivustot:
 postcheck_min_len_err:Viestisi on liian lyhyt. Minimipituus on {PLURAL: post_min_len|$1 merkki|$1 merkkiä}.
+postcheck_dup_err:Älä luo päällekkäisiä aiheita.
 btn_new_topic:Uusi aihe
 btn_new_pm:Uusi yksityisviesti
 btn_post_reply:Lähetä vastaus

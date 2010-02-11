@@ -1,6 +1,7 @@
 # Messages for German (formal address) (Deutsch (Sie-Form))
 # Exported from translatewiki.net
 # Author: JanRei
+# Author: McDutchie
 # Author: Umherirrender
 
 action:Aktion
@@ -67,6 +68,9 @@ logout:Abmelden
 mark_all_read:Alle Beiträge als gelesen kennzeichnen
 mark_all_read_desc:Alle Beiträge werden als gelesen gekenzeichnet.
 members:Mitglieder
+calendar:Kalender
+cal_goto_date:Gehe zu:
+cal_no_events:Keine Ereignisse an diesem Tag.
 message:Beitrag
 message_counter:Unsere Benutzer haben insgesamt <b>{PLURAL: post_count|$1 Nachricht|$1 Nachrichten}</b> in <b>{PLURAL: thread_count|$1 Thema|$1 Themen}</b> erstellt.
 message_index:Beitragsindex
@@ -206,7 +210,7 @@ modque_approve:Genehmigen
 modque_delete:Löschen
 modque_no_message:Es sind keine Beiträge vorhanden, die noch genehmigt werden müssen
 pmsg_new_messages:Ungelesene private Nachrichten
-pmsg_old_messages:Private Nachrichten lesen
+pmsg_old_messages:Gelesene private Nachrichten
 deny_recipt:Empfangsbestätigung verweigern
 deny_recipt_desc:Keine Bestätigung verschicken, dass die Nachricht gelesen wurde
 restore_to:Wiederherstellen in:
@@ -237,7 +241,7 @@ draft:Entwurf
 sent:Verschickt
 trash:Müll
 msg_author:Verfasser
-avatar_sel_form:Avatar Auswahl
+avatar_sel_form:Avatar-Auswahl
 no_avatars:Keine Avatare verfügbar
 month_1:Januar
 month_2:Februar
@@ -251,6 +255,20 @@ month_9:September
 month_10:Oktober
 month_11:November
 month_12:Dezember
+sunday:Sonntag
+sunday_short:So
+monday:Montag
+monday_short:Mo
+tuesday:Dienstag
+tuesday_short:Di
+wednesday:Mittwoch
+wednesday_short:Mi
+thursday:Donnerstag
+thursday_short:Do
+friday:Freitag
+friday_short:Fr
+saturday:Samstag
+saturday_short:Sa
 male:Männlich
 female:Weiblich
 unspecified:Nicht angegeben
@@ -286,7 +304,7 @@ register_email_desc:Bitte geben Sie eine gültige E-Mail-Adresse an. Sie können
 register_name:Name:
 register_your_pass:Dein Passwort:
 register_update:Aktualisieren
-register_avatar_type:Avatar Typ:
+register_avatar_type:Avatar-Typ:
 register_del_avatar:Avatar löschen
 register_avatar:Avatar:
 register_sel_avatar:Avatar auswählen
@@ -327,7 +345,7 @@ register_show_sig_desc:Ermöglicht es Ihnen, die Signaturen von Forumsmitglieder
 register_use_sig_default:Standardmäßig Signatur verwenden:
 register_use_sig_default_desc:Die Signatur automatisch jedem Beitrag hinzufügen
 register_timezone:Zeitzone:
-register_ignore_admin:Administratoren Mitteilungen ignorieren:
+register_ignore_admin:Administrator-Mitteilungen ignorieren:
 register_invisible_mode:Unsichtbarmodus:
 register_invisible_mode_desc:Anzeige Ihres Onlinestatus unterdrücken.
 register_show_email:E-Mail-Adresse anzeigen:
@@ -343,7 +361,7 @@ my_buddies:Meine Buddies
 add_buddy:Buddy hinzufügen
 add:Hinzufügen
 buddy_search:Tragen Sie den Login des Benutzers ein, den Sie hinzufügen möchten
-member_search:Oder verwenden Sie die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 325,250);">Benutzersuche</a>, um einen Benutzer ausfindig zu machen.
+member_search:Oder verwenden Sie die <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list',400,250);">Benutzersuche</a>, um einen Benutzer ausfindig zu machen.
 buddy_remove:Entfernen
 post_normal:Normal
 post_sticky:Angeheftet
@@ -629,7 +647,7 @@ register_err_notyouremail:Jemand ist bereits mit dieser E-Mail registriert, und 
 register_err_avatartobig:Die Datei, die Sie hochladen möchten, ist zu groß und liegt über der Grenze von {GVAR: CUSTOM_AVATAR_MAX_SIZE} Byte.
 register_err_avatarnotallowed:Der Avatar, den Sie hochladen möchten, ist nicht erlaubt, überprüfen Sie die erlaubten Dateitypen.
 register_conf_subject:Registrierungsbestätigung
-register_conf_msg:Vielen Dank für Ihre Registrierung,\nUm Ihr Konto zu aktivieren, gehe Sie bitte auf die unten angegebene Adresse:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald Ihr Konto aktiviert ist, werden Sie am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
+register_conf_msg:Vielen Dank für Ihre Registrierung,\nUm Ihr Konto zu aktivieren, gehen Sie bitte auf die unten angegebene Adresse:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald Ihr Konto aktiviert ist, werden Sie am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
 register_welcome_subject:Registrierungsbestätigung für das Forum
 register_welcome_msg:Vielen Dank für Ihre Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achten Sie beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehen Sie bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register
 register_err_cantreg_title:FEHLER: Registrierung nicht möglich
@@ -655,11 +673,9 @@ tree_update:Durchsucht das Thema (Baumansicht) <a href="{TEMPLATE: tree_update_l
 userinfo_update:Betrachtet das Profil von <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>FEHLER: Sie sind nicht angemeldet</legend>Um Zugriff auf diese Seite zu erhalten, müssen Sie Mitglied dieses Forums sein.
 ERR_disabled_ttl:Deaktivierte Funktion
-# Fuzzy
-ERR_disabled_msg:Diese Funktion wurde vom Systemadministrator deaktiviert
+ERR_disabled_msg:Diese Funktion wurde vom Systemadministrator deaktiviert.
 ERR_access_ttl:FEHLER: Nicht ausreichende Rechte
-# Fuzzy
-ERR_access_msg:Sie verfügen nicht über die benötigten Rechte, um diese Aktion auszuführen
+ERR_access_msg:Sie verfügen nicht über die benötigten Rechte, um diese Aktion auszuführen.
 ERR_registration_disabled_ttl:Registrierung ist deaktiviert
 ERR_registration_disabled_msg:Der Administrator hat die Registrierung deaktiviert, versuchen Sie es bitte später noch einmal
 ERR_emailconf_ttl:FEHLER: Ihr Konto ist noch nicht bestätigt worden
@@ -754,6 +770,7 @@ rate_worst:am schlechtesten
 rate_best:am besten
 post_quote_msg:{VAR: msg->login} schrieb am {TEMPLATE: make_report_date}
 post_quote:Zitat:
+post_quote_selected:Markierten Text zitieren
 userinfo_referals:Angeworbene Benutzer:
 userinfo_referals_count:{VAR: referals} Mitglieder
 pm_no_space_title:Kein freier Platz mehr übrig!
@@ -801,6 +818,8 @@ quicklogin_password:Passwort:
 quicklogin_use_cookies:Cookies verwenden?
 quicklogin_login_btn:Anmelden
 quick_reply:Schnelle Antwort
+quick_reply_post:Schnelle Antwort abschicken
+quick_reply_preview:Vorschau der Schnellen Antwort
 post_notification_desc:Benachrichtige mich, wenn jemand auf meinen Beitrag antwortet.
 post_all_ext_allowed:(unbegrenzt)
 maximize_category:Kategorie maximieren
@@ -958,6 +977,7 @@ merge_topics_tpl:Themen zum Zusammenführen auswählen <span class="SmallText">(
 merge_merge:Ausgewählte Themen zusammenführen
 merge_next:Nächste Themen
 merge_prev:Vorherige Themen
+merge_another:Gehen Sie zum <a href="{TEMPLATE: merge_another_lnk}">zuletzt zusammengeführten Thema</a> oder führen Sie ein weiteres Thema zusammen:
 split_cp:Menü zum Teilen von Themen
 groups_perms_header:Rechte <span class="small">(Bewegen Sie den Mauszeiger über die Rechte, um deren Typ zu erkennen)</span>
 register_err_sig_too_long:Ihre Signatur überschreitet die maximal erlaubte Länge von {GVAR: FORUM_SIG_ML} Zeichen.
@@ -1021,6 +1041,7 @@ pmsg_pdf_btn:PDF-Archiv erzeugen
 search_results_hdr:{VAR: total} Suchergebnisse gefunden
 thread_del_all:Alle markierten löschen
 thread_mov_all:Alle markierten verschieben
+thread_merge_all:Alle markierten zusammenführen
 thread_loc_all:Alle markierten sperren/entsperren
 dmsg_ip:IP:
 err_blockedaccnt_title:FEHLER: Ihr Konto wurde ausgefiltert.

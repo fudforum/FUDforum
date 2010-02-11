@@ -1,6 +1,7 @@
 # Messages for Brazilian Portuguese (Português do Brasil)
 # Exported from translatewiki.net
 # Author: Luckas Blade
+# Author: McDutchie
 
 action:Ação
 add_to_buddy_list:Adicionar à lista de amigos
@@ -119,7 +120,7 @@ profile:Perfil
 profile_desc:Clique aqui para acessar o painel de controle de membro
 rate_thread:Votar Tópico
 refresh_list:Atualizar a lista
-register:Registo
+register:Registar-se
 registered:Registado:
 registered_on:Registado em {TEMPLATE: registered_on_date}
 replies:Respostas
@@ -203,8 +204,8 @@ modque_pending_approval:Mensagens pendentes de aprovação
 modque_approve:Aprovar
 modque_delete:Apagar
 modque_no_message:Não há mensagens pendentes de aprovação
-pmsg_new_messages:Mensagens privadas não lidas
-pmsg_old_messages:Ler mensagens privadas
+pmsg_new_messages:Mensagen privada não lida
+pmsg_old_messages:Mensagem privada lida
 deny_recipt:Negar recibo
 deny_recipt_desc:Não enviar confirmação de mensagem lida;
 restore_to:Reposição para:
