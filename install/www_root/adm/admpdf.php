@@ -78,7 +78,7 @@
 	print_reg_field('Vertical Margin', 'PDF_HMARGIN', 1);
 	print_reg_field('Maximum CPU Time', 'PDF_MAX_CPU', 1);
 ?>
-<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Change Settings" /><input type="hidden" name="form_posted" value="1" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Change settings" /><input type="hidden" name="form_posted" value="1" /></td></tr>
 </table>
 </form>
 

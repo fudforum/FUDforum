@@ -28,6 +28,7 @@ function __fud_whois($ip, $whois_server='')
 
 	if (!$sock = fsockopen($whois_server, 43, $errno, $errstr, 20)) {
 		error_reporting($er);
+		$errstr = preg_match('/WIN/', PHP_OS) ? utf8_encode($errstr) : $errstr;	// Windows silliness.
 		return '{TEMPLATE: ip_connect_err}';
 	}
 	fputs($sock, $ip."\n");
@@ -44,7 +45,7 @@ function fud_whois($ip)
 {
 	$result = __fud_whois($ip);
 
-	/* Check if Arin can handle the request or if we need to
+	/* Check if ARIN can handle the request or if we need to
 	 * request information from another server.
 	 */
 	if (($p = strpos($result, 'ReferralServer: whois://')) !== false) {

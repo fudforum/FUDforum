@@ -62,7 +62,7 @@
 <?php
 	print_reg_field('PHP CLI Executable', 'PHP_CLI');
 ?>
-<tr class="fieldaction"><td colspan="2" align="left"><input type="submit" name="btn_submit" value="Set" /></td></tr>
+<tr class="fieldaction"><td colspan="2" align="right"><input type="submit" name="btn_submit" value="Set" /></td></tr>
 </table>
 </form>
 

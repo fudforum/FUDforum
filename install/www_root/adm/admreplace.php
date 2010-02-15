@@ -28,9 +28,9 @@ function clean_rgx()
 	if (isset($_POST['btn_submit']) && !empty($_POST['rpl_replace_str']) && !empty($_POST['rpl_with_str'])) {
 		clean_rgx();
 		if (!$_POST['rpl_replace_opt']) {
-			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'replace (replace_opt, replace_str, with_str, from_post, to_msg) VALUES(0, '._esc($_POST['rpl_replace_str']).', '._esc($_POST['rpl_with_str']).', '._esc($_POST['rpl_from_post']).', '._esc($_POST['rpl_to_msg']).')');
+			q('INSERT INTO '. $DBHOST_TBL_PREFIX .'replace (replace_opt, replace_str, with_str, from_post, to_msg) VALUES(0, '. _esc($_POST['rpl_replace_str']) .', '. _esc($_POST['rpl_with_str']) .', '. _esc($_POST['rpl_from_post']) .', '. _esc($_POST['rpl_to_msg']) .')');
 		} else {
-			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'replace (replace_opt, replace_str, with_str) VALUES(1, '._esc($_POST['rpl_replace_str']).', '._esc($_POST['rpl_with_str']).')');
+			q('INSERT INTO '. $DBHOST_TBL_PREFIX .'replace (replace_opt, replace_str, with_str) VALUES(1, '. _esc($_POST['rpl_replace_str']) .', '. _esc($_POST['rpl_with_str']) .')');
 		}
 		echo successify('Replacement rule successfully added.');
 	} else if (isset($_POST['btn_update'], $_POST['edit'])) {
@@ -39,12 +39,12 @@ function clean_rgx()
 			$_POST['rpl_from_post'] = $_POST['rpl_to_msg'] = '';
 		}
 		q('UPDATE '.$DBHOST_TBL_PREFIX.'replace SET
-			replace_opt='.(int)$_POST['rpl_replace_opt'].',
-			replace_str='._esc($_POST['rpl_replace_str']).',
-			with_str='._esc($_POST['rpl_with_str']).',
-			from_post='._esc($_POST['rpl_from_post']).',
-			to_msg='._esc($_POST['rpl_to_msg']).'
-		WHERE id='.(int)$_POST['edit']);
+			replace_opt='. (int)$_POST['rpl_replace_opt'].',
+			replace_str='. _esc($_POST['rpl_replace_str']).',
+			with_str='. _esc($_POST['rpl_with_str']).',
+			from_post='. _esc($_POST['rpl_from_post']).',
+			to_msg='. _esc($_POST['rpl_to_msg']).'
+		WHERE id='. (int)$_POST['edit']);
 		echo successify('Replacement rule successfully updated.');
 	}
 
@@ -105,7 +105,7 @@ function clean_rgx()
 	</tr>
 
 	<tr class="fieldtopic">
-		<td colspan="2"><b><font size="-2">Reverse replacement logic, e.g upon editing a post:</b><br />(Optional with the Perl Regex)</font></td>
+		<td colspan="2"><font size="-2"><b>Reverse replacement logic, e.g upon editing a post:</b><br />(Optional with the Perl Regex)</font></td>
 	</tr>
 
 	<tr class="field">
@@ -210,10 +210,10 @@ document.forms['frm_rpl'].rpl_replace_str.focus();
 	<th>With</th>
 	<th valign="middle"><font size="-3">(only if regexp:</font> From</th>
 	<th valign="middle">To<font size="-3">)</font></th>
-	<th>Action</td>
+	<th>Action</th>
 </tr></thead>
 <?php
-	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'replace ORDER BY replace_opt');
+	$c = uq('SELECT * FROM '. $DBHOST_TBL_PREFIX .'replace ORDER BY replace_opt');
 	$i = 0;
 	while ($r = db_rowobj($c)) {
 		$i++;
@@ -226,13 +226,13 @@ document.forms['frm_rpl'].rpl_replace_str.focus();
 			$rtype = 'Regular Expression';
 		}
 
-		echo '<tr'.$bgcolor.'><td>'.$rtype.'</td><td>'.htmlspecialchars($r->replace_str).'</td><td>'.htmlspecialchars($r->with_str).'</td>';
+		echo '<tr'. $bgcolor .'><td>'. $rtype .'</td><td>'. htmlspecialchars($r->replace_str) .'</td><td>'. htmlspecialchars($r->with_str) .'</td>';
 		if ($r->replace_opt) {
 			echo '<td colspan="2" align="center">n/a</td>';
 		} else {
-			echo '<td>'.htmlspecialchars($r->from_post).'</td><td>'.htmlspecialchars($r->to_msg).'</td>';
+			echo '<td>'. htmlspecialchars($r->from_post) .'</td><td>'. htmlspecialchars($r->to_msg) .'</td>';
 		}
-		echo '<td>[<a href="admreplace.php?edit='.$r->id.'&amp;'.__adm_rsid.'#edit">Edit</a>] [<a href="admreplace.php?del='.$r->id.'&amp;'.__adm_rsid.'">Delete</a>]</td></tr>';
+		echo '<td>[<a href="admreplace.php?edit='. $r->id .'&amp;'. __adm_rsid .'#edit">Edit</a>] [<a href="admreplace.php?del='. $r->id .'&amp;'. __adm_rsid .'">Delete</a>]</td></tr>';
 	}
 	unset($c);
 	if (!$i) {

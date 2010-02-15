@@ -48,7 +48,7 @@
 
 ?>
 <h2>Rank Manager</h2>
-<div class="alert">If you've made any modification to the user ranks<br />you MUST run the CACHE REBUILDER by &gt;&gt; <a href="admlevel.php?rebuild_levels=1&amp;<?php echo __adm_rsid; ?>">clicking here</a> &lt;&lt;</div>
+<div class="alert">If you've made any modification to the user ranks<br />you MUST run the CACHE REBUILDER by <span style="white-space:nowrap">&gt;&gt; <a href="admlevel.php?rebuild_levels=1&amp;<?php echo __adm_rsid; ?>">clicking here</a> &lt;&lt;</span></div>
 
 <h3><?php echo $edit ? '<a name="edit">Edit Level:</a>' : 'Add New Level:'; ?></h3>
 <form method="post" id="lev_form" action="admlevel.php">

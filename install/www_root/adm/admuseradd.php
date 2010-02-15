@@ -99,7 +99,7 @@ function validate_input()
 		echo errorify('Error adding user.');
 	} else if (!empty($user_added)) {
 		logaction(_uid, 'CREATE_USER', 0, $_POST['login']);
-		echo successify('User was successfully added. [ <a href="admuser.php?act=1&amp;usr_id='. $user_added .'&amp;'. __adm_rsid .'">Edit user '. $_POST['login'] .'</a> ]<br />');
+		echo successify('User was successfully added. [ <a href="admuser.php?act=1&amp;usr_id='. $user_added .'&amp;'. __adm_rsid .'">Edit user '. $_POST['login'] .'</a> ]');
 	}
 ?>
 <h2>Add User</h2>

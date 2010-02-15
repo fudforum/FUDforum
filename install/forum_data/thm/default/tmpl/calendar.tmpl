@@ -73,7 +73,7 @@
 </th></tr>
 <tr><td class="RowStyleB vt" width="55%">
 		<h3>Events for day</h3>
-		<ul>{VAR: events_for_day}</ul>
+		{IF: $events_for_day}<ul>{VAR: events_for_day}</ul>{ELSE}{TEMPLATE: cal_no_events}{ENDI}
 		<br /><br />
 		<form method="get" action="index.php">
 		{MSG: cal_goto_date} <input type="hidden" name="t" value="cal" /><input type="hidden" name="view" value="{VAR: view}" />

@@ -1,6 +1,8 @@
 <?php
 	if (!isset($FORUM_TITLE, $DATA_DIR)) die('Go away!');	// Hacking attempt?
 	if (defined('shell_script') ) return;	// Command line execution.
+
+	if (!defined('popup')) {	/* Normal pages only. */
 ?>
 <br />
 <div id="wikilink" style="text-align:right;">
@@ -19,6 +21,8 @@ if (wikilink.length > 0) {
 /* ]]> */
 </script>
 </div>
+<?php } /* Normal & popup pages. */ ?>
+<br />
 </td>
 </tr>
 </table>

@@ -308,7 +308,7 @@ function resolve_dest_path($path)
 
 			pf('<b>Import successfully completed.</b><br /><br />');
 			if (defined('__adm_rsid')) {
-				pf('<div class="tutor">To finalize the process you should now run the <span style="white-spaces:nobreak">&gt;&gt; <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> &lt;&lt;</span>.</div>');
+				pf('<div class="tutor">To finalize the process you should now run the <span style="white-space:nowrap">&gt;&gt; <b><a href="consist.php?'.__adm_rsid.'">consistency checker</a></b> &lt;&lt;</span>.</div>');
 			} else {
 				pf('To finalize the process you should now run the consistency checker.');
 			}

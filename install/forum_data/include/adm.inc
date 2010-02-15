@@ -70,7 +70,7 @@ function pf($str, $webonly=false)
 /* Format date. */
 function fdate($format, $date)
 {
-	if (stristr($GLOBALS['char_set'], 'utf-8') !== false && substr(PHP_OS, 0, 3) == 'WIN') {
+	if (stristr($GLOBALS['charset'], 'utf-8') !== false && substr(PHP_OS, 0, 3) == 'WIN') {
 		// Windows doesn't have UTF-8 locales.
 		return utf8_encode(strftime($format, $date));
 	} else {

@@ -19,21 +19,6 @@ function print_image_list($dir,$js_field,$type)
 	$web_dir = $GLOBALS['WWW_ROOT'] . $dir . '/';
 	$path = $GLOBALS['WWW_ROOT_DISK'] . $dir;
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<?php echo '<title>'.$GLOBALS['FORUM_TITLE'].': Admin Control Panel - '.$type.' Selection</title>' ?>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php 
-if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
-} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
-} else {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/en/charset'));
-}
-?>" />
-</head>
-<body bgcolor="#ffffff">
 <table border="0" cellspacing="1" cellpadding="2">
 <tr>
 <?php
@@ -58,31 +43,34 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 	} else {
 		echo '<td>No '.$type.' images are available.</td>';
 	}
+	echo '</tr></table>';
 }
 
+/* main */
+	define('popup', 1);
+	require($WWW_ROOT_DISK .'adm/header.php');
+
 	if (!isset($_GET['type']) || $_GET['type'] < 1 || $_GET['type'] > 5) {
-		exit("Invalid image selection type.<br />\n");
+		errorify('Invalid image selection type.');
 	}
 
 	switch ($_GET['type']) {
-		case 1: /* forum icon selection */
+		case 1: /* Forum icon selection. */
 			print_image_list('images/forum_icons', "forms['frm_forum'].frm_forum_icon", 'Forum Icon');
 			break;
-		case 2: /* mime icon selection */
+		case 2: /* Mime icon selection. */
 			print_image_list('images/mime', "forms['frm_mime'].mime_icon", 'Mime Icon');
 			break;
-		case 3: /* emoticon/smiley selection */
+		case 3: /* Emoticon/smiley selection. */
 			print_image_list('images/smiley_icons', "forms['frm_sml'].sml_img", 'Smiley/Emoticon');
 			break;
-		case 4: /* avatar selection */
+		case 4: /* Avatar selection. */
 			print_image_list('images/avatars/', "forms['frm_avt'].avt_img", 'Built-In Avatars');
 			break;
-		case 5: /* message icon selection */
+		case 5: /* Message icon selection. */
 			print_image_list('images/message_icons', "forms['frm_forum'].frm_forum_icon", 'Message Icon');
 			break;
 	}
+
+	require($WWW_ROOT_DISK .'adm/footer.php');
 ?>
-</tr>
-</table>
-</body>
-</html>

@@ -47,10 +47,10 @@ function get_sql_disk_usage()
 
 	$sql_size = 0;
 	if ($GLOBALS['DBHOST_DBTYPE'] != 'pdo_mysql') {
-		$c = uq('SHOW TABLE STATUS FROM `'.$GLOBALS['DBHOST_DBNAME'].'` LIKE \''.$GLOBALS['DBHOST_TBL_PREFIX'].'%\'');
+		$c = uq('SHOW TABLE STATUS FROM `'. $GLOBALS['DBHOST_DBNAME'] .'` LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
 	} else {
 		eval('db::$res = null; $tmp = db::$db;');
-		$c = $tmp->query('SHOW TABLE STATUS FROM `'.$GLOBALS['DBHOST_DBNAME'].'` LIKE \''.$GLOBALS['DBHOST_TBL_PREFIX'].'%\'');
+		$c = $tmp->query('SHOW TABLE STATUS FROM `'. $GLOBALS['DBHOST_DBNAME'] .'` LIKE \''. $GLOBALS['DBHOST_TBL_PREFIX'] .'%\'');
 	}
 	while ($r = db_rowobj($c)) {
 		$sql_size += $r->Data_length + $r->Index_length;
@@ -60,7 +60,7 @@ function get_sql_disk_usage()
 	return $sql_size;
 }
 
-	$forum_start = (int) q_singleval('SELECT MIN(post_stamp) FROM '.$tbl.'msg');
+	$forum_start = (int) q_singleval('SELECT MIN(post_stamp) FROM '. $tbl .'msg');
 
 	if ($forum_start) {
 		list($s_year,$s_month,$s_day) = explode(' ', date('Y n j', $forum_start));
@@ -122,18 +122,18 @@ function get_sql_disk_usage()
 			case 'msg':
 				$g_title = 'Messages posted';
 				if (!$lmt) {
-					$c = uq('SELECT post_stamp FROM '.$tbl.'msg WHERE post_stamp BETWEEN '.$start_tm.' AND '.$end_tm);
+					$c = uq('SELECT post_stamp FROM '. $tbl .'msg WHERE post_stamp BETWEEN '. $start_tm .' AND '. $end_tm);
 				} else {
-					$c = uq('SELECT m.post_stamp FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id WHERE m.post_stamp>'.$start_tm.' AND m.post_stamp<'.$end_tm.' AND t.forum_id IN('.implode(',', $lmt).')');
+					$c = uq('SELECT m.post_stamp FROM '. $tbl .'msg m INNER JOIN '. $tbl .'thread t ON m.thread_id=t.id WHERE m.post_stamp>'. $start_tm .' AND m.post_stamp<'. $end_tm .' AND t.forum_id IN('. implode(',', $lmt) .')');
 				}
 				break;
 			case 'thr':
 				$g_title = 'Topics created';
-				$c = uq('SELECT post_stamp FROM '.$tbl.'thread INNER JOIN '.$tbl.'msg ON '.$tbl.'thread.root_msg_id='.$tbl.'msg.id WHERE post_stamp BETWEEN '.$start_tm.' AND '.$end_tm.($lmt ? ' AND forum_id IN('.implode(',', $lmt).') ' : ''));
+				$c = uq('SELECT post_stamp FROM '. $tbl .'thread INNER JOIN '. $tbl .'msg ON '. $tbl .'thread.root_msg_id='. $tbl .'msg.id WHERE post_stamp BETWEEN '. $start_tm .' AND '. $end_tm . ($lmt ? ' AND forum_id IN('. implode(',', $lmt) .') ' : ''));
 				break;
 			case 'usr':
 				$g_title = 'Registered users';
-				$c = uq('SELECT join_date FROM '.$tbl.'users WHERE join_date>'.$start_tm.' AND join_date<'.$end_tm);
+				$c = uq('SELECT join_date FROM '. $tbl .'users WHERE join_date>'. $start_tm .' AND join_date<'. $end_tm);
 				break;
 		}
 		$g_title .= ' from <b>'.date('F d, Y', $start_tm).'</b> to <b>'.date('F d, Y', $end_tm).'</b>';
@@ -176,10 +176,10 @@ function get_sql_disk_usage()
 		}
 
 		foreach($day_list as $k => $v) {
-			echo '<tr><td style="font-size: xx-small;">'.date($date_str, $details[$k]).'</td><td width="100" bgcolor="white"><img style="background-color:red;" src="../blank.gif" height="5" width='.(round($v / $unit) * 3).' alt="statistic" /></td><td style="font-size: xx-small;">('.$v.')</td></tr>';
+			echo '<tr><td style="font-size: xx-small;">'. date($date_str, $details[$k]) .'</td><td width="100" bgcolor="white"><img style="background-color:red;" src="../blank.gif" height="5" width="'. (round($v / $unit) * 3) .'" alt="statistic" /></td><td style="font-size: xx-small;">('. $v .')</td></tr>';
 			$ttl += $v;
 		}
-		echo '<tr style="font-size: xx-small;"><td><b>Total:</b></td><td colspan="2" align="right">'.$ttl.'</td></tr></table><br />';
+		echo '<tr style="font-size: xx-small;"><td><b>Total:</b></td><td colspan="2" align="right">'. $ttl .'</td></tr></table><br />';
 	} else {
 		$_POST['s_year'] = $s_year;
 		$_POST['s_month'] = $s_month;
@@ -202,22 +202,22 @@ function get_sql_disk_usage()
 
 		$sql_disk_usage = get_sql_disk_usage();
 
-		$forum_stats['MESSAGES'] = q_singleval('SELECT count(*) FROM '.$tbl.'msg');
-		$forum_stats['THREADS'] = q_singleval('SELECT count(*) FROM '.$tbl.'thread');
-		$forum_stats['PRIVATE_MESSAGES'] = q_singleval('SELECT count(*) FROM '.$tbl.'pmsg');
-		$forum_stats['FORUMS'] = q_singleval('SELECT count(*) FROM '.$tbl.'forum');
-		$forum_stats['CATEGORIES'] = q_singleval('SELECT count(*) FROM '.$tbl.'cat');
-		$forum_stats['MEMBERS'] = q_singleval('SELECT count(*) FROM '.$tbl.'users');
-		$forum_stats['ADMINS'] = q_singleval('SELECT count(*) FROM '.$tbl.'users WHERE users_opt>=1048576 AND (users_opt & 1048576) > 0');
-		$forum_stats['MODERATORS'] = q_singleval('SELECT count(DISTINCT(user_id)) FROM '.$tbl.'mod');
-		$forum_stats['GROUPS'] = q_singleval('SELECT count(*) FROM '.$tbl.'groups');
-		$forum_stats['GROUP_MEMBERS'] = q_singleval('SELECT count(*) FROM '.$tbl.'group_members');
+		$forum_stats['MESSAGES'] = q_singleval('SELECT count(*) FROM '. $tbl .'msg');
+		$forum_stats['THREADS'] = q_singleval('SELECT count(*) FROM '. $tbl .'thread');
+		$forum_stats['PRIVATE_MESSAGES'] = q_singleval('SELECT count(*) FROM '. $tbl .'pmsg');
+		$forum_stats['FORUMS'] = q_singleval('SELECT count(*) FROM '. $tbl .'forum');
+		$forum_stats['CATEGORIES'] = q_singleval('SELECT count(*) FROM '. $tbl .'cat');
+		$forum_stats['MEMBERS'] = q_singleval('SELECT count(*) FROM '. $tbl .'users');
+		$forum_stats['ADMINS'] = q_singleval('SELECT count(*) FROM '. $tbl .'users WHERE users_opt>=1048576 AND (users_opt & 1048576) > 0');
+		$forum_stats['MODERATORS'] = q_singleval('SELECT count(DISTINCT(user_id)) FROM '. $tbl .'mod');
+		$forum_stats['GROUPS'] = q_singleval('SELECT count(*) FROM '. $tbl .'groups');
+		$forum_stats['GROUP_MEMBERS'] = q_singleval('SELECT count(*) FROM '. $tbl .'group_members');
 	}
 
 	$is_a = 1;
 	$forum_limiter = '';
-	require $FORUM_SETTINGS_PATH.'cat_cache.inc';
-        include_once $INCLUDE . fud_theme . 'search_forum_sel.inc';
+	require $FORUM_SETTINGS_PATH .'cat_cache.inc';
+	include_once $INCLUDE . fud_theme .'search_forum_sel.inc';
 ?>
 <form action="admstats.php" method="post">
 <table class="datatable">
@@ -260,31 +260,31 @@ function get_sql_disk_usage()
 ?>
 <tr class="field">
 	<td><b>Web Dir:</b><br /><font size="-1"><b><?php echo $WWW_ROOT_DISK; ?></b><br />this is where all the forum's web browseable files are stored</font></td>
-	<td align="right" valign="top"><?php echo number_format(sprintf('%.2f', $disk_usage_array['WWW_ROOT_DISK']/1024)); ?> Kb</td>
+	<td align="right" valign="top"><?php echo number_format($disk_usage_array['WWW_ROOT_DISK']/1024); ?> KB</td>
 </tr>
 
 <tr class="field">
 	<td><b>Data Dir:</b><br /><font size="-1"><b><?php echo $DATA_DIR; ?></b><br />this is where the forum's internal data files are stored</font></td>
-	<td align="right" valign="top"><?php echo number_format(sprintf('%.2f', $disk_usage_array['DATA_DIR']/1024)); ?> Kb</td>
+	<td align="right" valign="top"><?php echo number_format($disk_usage_array['DATA_DIR']/1024); ?> KB</td>
 </tr>
 <?php
 	} else { /* $same_dir */
 ?>
 <tr class="field">
 	<td><b>Forum Directories:</b></td>
-	<td align="right" valign="top"><?php echo number_format(sprintf('%.2f', $total_disk_usage/1024)); ?> Kb</td>
+	<td align="right" valign="top"><?php echo number_format($total_disk_usage/1024); ?> KB</td>
 </tr>
 <?php
 	}
 ?>
 <tr class="field">
 	<td><b>Total Disk Usage:</b></td>
-	<td align="right" valign="top"><?php echo number_format(sprintf('%.2f', $total_disk_usage/1024)); ?> Kb</td>
+	<td align="right" valign="top"><?php echo number_format($total_disk_usage/1024); ?> KB</td>
 </tr>
 <?php if ($sql_disk_usage) { ?>
 <tr class="field">
         <td><b>MySQL Disk Usage:</b><br /><font style="font-size: xx-small;">may not be 100% accurate, depends on MySQL version.</font></td>
-	<td align="right" valign="top"><?php echo number_format(sprintf('%.2f', $sql_disk_usage/1024)); ?> Kb</td>
+	<td align="right" valign="top"><?php echo number_format($sql_disk_usage/1024); ?> KB</td>
 </tr>
 <?php } ?>
 </table>

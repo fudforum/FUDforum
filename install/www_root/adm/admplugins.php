@@ -29,7 +29,7 @@
 		if (isset($_POST['FUD_OPT_3_PLUGINS_ENABLED'])) {
 			if ($_POST['FUD_OPT_3_PLUGINS_ENABLED'] & 4194304) {
 				$FUD_OPT_3 |= 4194304;
-				echo successify('Plugin support was successfully enabled.');
+				echo successify('Plugin support was successfully enabled.<br />Note that you can now activate plugins below.');
 			} else {
 				$FUD_OPT_3 &= ~4194304;
 				echo successify('Plugin support was successfully disabled.');

@@ -33,6 +33,9 @@
 	if (@file_exists($WWW_ROOT_DISK.'upgrade.php')) {
 		echo '<div class="alert">You still haven\'t removed the upgrade script at '.$WWW_ROOT_DISK.'upgrade.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!</div><br />';
 	}
+	if (@file_exists($WWW_ROOT_DISK.'unprotect.php')) {
+		echo '<div class="alert">You still haven\'t removed the unprotect script at '.$WWW_ROOT_DISK.'unprotect.php. Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">do so now</a> before a hacker destroys your forum!</div><br />';
+	}
 	if (function_exists('sys_getloadavg') && ($load = sys_getloadavg()) && $load[0] > 15) {
 		echo '<div class="alert">You system is extremely busy (CPU load is '. $load[1] .'). This will severely impact your forum\'s performance!</div><br />';
 	}
@@ -155,9 +158,8 @@ FUDforum's documentation is available on our <b><a href="http://cvs.prohost.org/
 
 <hr />
 <form method="post" action="index.php"><?php echo _hs; ?>
-<input type="submit" name="btn_clear_online" value="Reset the 'most online users' counter" />
+<input type="submit" name="btn_clear_online" class="button" value="Reset the 'most online users' counter" />
 </form>
 <br />
 
 <?php require($WWW_ROOT_DISK . 'adm/footer.php'); ?>
-

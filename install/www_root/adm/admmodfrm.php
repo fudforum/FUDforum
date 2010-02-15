@@ -21,19 +21,19 @@
 	} else {
 		$usr_id = '';
 	}
-	if (!$usr_id || !($login = q_singleval('SELECT alias FROM '.$tbl.'users WHERE id='.$usr_id))) {
+	if (!$usr_id || !($login = q_singleval('SELECT alias FROM '. $tbl .'users WHERE id='. $usr_id))) {
 		exit('<html><script type="text/javascript">window.close();</script></html>');
 	}
 
 	if (isset($_POST['mod_submit'])) {
-		q('DELETE FROM '.$tbl.'mod WHERE user_id='.$usr_id);
+		q('DELETE FROM '. $tbl .'mod WHERE user_id='. $usr_id);
 		if (isset($_POST['mod_allow'])) {
 			foreach ($_POST['mod_allow'] as $m) {
-				q('INSERT INTO '.$tbl.'mod (forum_id, user_id) VALUES('.(int)$m.', '.$usr_id.')');
+				q('INSERT INTO '. $tbl .'mod (forum_id, user_id) VALUES('. (int)$m .', '. $usr_id .')');
 			}
 		}
 
-		/* mod rebuild. */
+		/* Mod rebuild. */
 		fud_use('users_reg.inc');
 		rebuildmodlist();
 ?>
@@ -48,36 +48,23 @@
 <?php
 		exit;
 	}
+
+	define('popup', 1);
+	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<?php echo '<title>'.$FORUM_TITLE.': '.'Admin Control Panel'.'</title>' ?>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php 
-if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'));
-} else if (file_exists($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset')) {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/'.$usr->lang.'/charset'));
-} else {
-	echo trim(file_get_contents($DATA_DIR.'thm/default/i18n/en/charset'));
-}
-?>" />
-<link rel="StyleSheet" href="adm.css" type="text/css" />
-</head>
-<body class="popup">
-<h3>Allowing <?php echo $login; ?> to moderate:</h3>
+<h3>Allow <?php echo $login; ?> to moderate:</h3>
 <form id="frm_mod" action="admmodfrm.php" method="post">
 <?php echo _hs; ?>
 <table class="datatable fulltable">
 <?php
-	$c = uq('SELECT COALESCE(c.name, \'DELETED FORUMS\'), f.name, f.id, mm.id FROM '.$tbl.'forum f LEFT JOIN '.$tbl.'cat c ON c.id=f.cat_id LEFT JOIN '.$tbl.'mod mm ON mm.forum_id=f.id AND mm.user_id='.$usr_id.' ORDER BY c.parent, c.view_order, f.view_order');
+	$c = uq('SELECT COALESCE(c.name, \'DELETED FORUMS\'), f.name, f.id, mm.id FROM '. $tbl .'forum f LEFT JOIN '. $tbl .'cat c ON c.id=f.cat_id LEFT JOIN '. $tbl .'mod mm ON mm.forum_id=f.id AND mm.user_id='. $usr_id .' ORDER BY c.parent, c.view_order, f.view_order');
 	$pc = '';
 	while ($r = db_rowarr($c)) {
 		if ($pc != $r[0]) {
-			echo '<tr class="fieldtopic"><td colspan="2">'.$r[0].'</td></tr>';
+			echo '<tr class="fieldtopic"><td colspan="2">'. $r[0] .'</td></tr>';
 			$pc = $r[0];
 		}
-		echo '<tr class="field"><td><label><input type="checkbox" name="mod_allow[]" value="'.$r[2].'"'.($r[3] ? ' checked': '').' />'.$r[1].'</label></td></tr>';
+		echo '<tr class="field"><td><label><input type="checkbox" name="mod_allow[]" value="'. $r[2] .'"'. ($r[3] ? ' checked': '') .' />'. $r[1] .'</label></td></tr>';
 	}
 	unset($c);
 ?>
@@ -87,5 +74,6 @@ if (file_exists($DATA_DIR.'thm/'.$usr->theme_name.'/i18n/'.$usr->lang.'/charset'
 </table>
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>" />
 </form>
-</body>
-</html>
+<?php 
+	require($WWW_ROOT_DISK .'adm/footer.php');
+?>

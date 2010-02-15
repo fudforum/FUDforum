@@ -27,7 +27,16 @@
 <script type="text/javascript" src="style/jquery.tablesorter.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
 </head>
-<body >
+<?php
+
+if (defined('popup') ) {	/* Special header for popup pages. */
+	echo '<body class="popup">';
+	echo '<table class="maindata"><tr><td>';
+	return;
+}
+
+?>
+<body>
 <table class="headtable"><tr>
   <td><a href="index.php<?php if (defined('__adm_rsid')) echo '?'.__adm_rsid; ?>" title="Return to the Admin Control Panel Dashboard"><img src="../images/fudlogo.gif" alt="" style="float:left;" border="0" /></a>
   </td>

@@ -141,23 +141,40 @@ if (!extension_loaded('posix')) {
 	/* Delete file/directory code. */
 	if (isset($_GET['del']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
 		if ($dest == '.' || $dest == '..') {
-			exit(errorify('ERROR: You cannot delete . or ..'));
+			define('popup', 1);
+			require($WWW_ROOT_DISK .'adm/header.php');
+			echo '<h2>File/Directory Deletion</h2>';
+			echo errorify('ERROR: You cannot delete . or ..');
+			require($WWW_ROOT_DISK .'adm/footer.php');
+			exit;
 		}
 		if (isset($_GET['del_confirmed'])) {
-			if (@is_dir($cur_dir . '/' . $dest) && !fud_rmdir($cur_dir . '/' . $dest)) {
-				exit(errorify('ERROR: failed to remove directory '.$cur_dir . '/' . $dest));
-			} else if (@is_file($cur_dir.'/'.$dest) && !unlink($cur_dir.'/'.$dest)) {
-				exit(errorify('ERROR: failed to remove file '.$cur_dir . '/' . $dest));
+			if (@is_dir($cur_dir .'/'. $dest) && !fud_rmdir($cur_dir .'/'. $dest)) {
+				define('popup', 1);
+				echo '<h2>File/Directory Deletion</h2>';
+				require($WWW_ROOT_DISK .'adm/header.php');
+				echo errorify('ERROR: failed to remove directory '. $cur_dir .'/'. $dest);
+				require($WWW_ROOT_DISK .'adm/footer.php');
+				exit;
+			} else if (@is_file($cur_dir .'/'. $dest) && !unlink($cur_dir .'/'. $dest)) {
+				define('popup', 1);
+				require($WWW_ROOT_DISK .'adm/header.php');
+				echo '<h2>File/Directory Deletion</h2>';
+				echo errorify('ERROR: failed to remove file '. $cur_dir .'/'. $dest);
+				require($WWW_ROOT_DISK .'adm/footer.php');
+				exit;
 			} else {
 				exit('<html><script type="text/javascript"> window.opener.location = \'admbrowse.php?'.__adm_rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 			}
 		} else {
 			$file = $cur_dir .'/'. $dest;
 			$type = @is_dir($file) ? 'directory' : 'file';
+
+			define('popup', 1);
+			require($WWW_ROOT_DISK .'adm/header.php');
 		?>
-			<html><body bgcolor="red">
 			<h2>File/Directory Deletion</h2>
-			Are you sure you want to delete <?php echo $type.' <font color="#ffffff"><b>'.$file.'</b></font>'; ?><p>
+			<p>Are you sure you want to delete <?php echo $type.' <span style="color:red"><b>'.$file.'</b></span>'; ?></p>
 			<form method="get" action="admbrowse.php">
 			<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>" />
 			<input type="hidden" name="dest" value="<?php echo $dest; ?>" />
@@ -165,13 +182,12 @@ if (!extension_loaded('posix')) {
 			<?php echo _hs; ?>
 			<div align="center"><input type="submit" name="btn_mini_cancel" value="No" /> <input type="submit" name="del_confirmed" value="Yes" /></div>
 			</form>
-			</body>
-			</html>
 		<?php
+			require($WWW_ROOT_DISK .'adm/footer.php');
 			exit;
 		}
 	}
-	
+
 	/* Change file/directory mode. */
 	if (isset($_GET['chmod'])) {
 		$file = $cur_dir.'/'.$dest;
@@ -180,8 +196,10 @@ if (!extension_loaded('posix')) {
 			$st[2] = $st['mode'];
 		}
 		$mode_o = sprintf('%o', 0x0FFF & $st[2]);
+
+		define('popup', 1);
+		require($WWW_ROOT_DISK .'adm/header.php');
 ?>
-	<html>
 		<h2>Change File Permissions</h2>
 		<?php echo $file .' is currenly <b>'. mode_string($st[2], $file) .' ('. $mode_o .')</b>'; ?><br />
 		change it to:<br />
@@ -210,8 +228,8 @@ if (!extension_loaded('posix')) {
 		<tr><td colspan="4" align="right"><input type="submit" name="btn_submit" value="Apply" /> <input type="submit" name="btn_mini_cancel" value="Cancel" /></td></tr>
 		</table>
 		</form>
-	</html>
 <?php
+		require($WWW_ROOT_DISK .'adm/footer.php');
 		exit;
 	}
 
@@ -395,13 +413,13 @@ if (!extension_loaded('posix')) {
 		$groupsent = posix_getgrgid((isset($st[5])?$st[5]:$st['gid']));
 		$group = $groupsent['name'];
 
-		$date_str = fdate('%b %d', (isset($st[9])?$st[9]:$st['mtime']));
+		$date_str = fdate('%d %b %Y', (isset($st[9])?$st[9]:$st['mtime']));
 		$time_str = fdate('%H:%M:%S', (isset($st[9])?$st[9]:$st['mtime']));
 		$mode_o = sprintf('%o', 0x0FFF&$mode);
 
 		$size = round((isset($st[7])?$st[7]:$st['size'])/1024);
 
-		if (preg_match('/install.php|upgrade.php/i', $fpath)) {
+		if (preg_match('/install.php|upgrade.php|unprotect.php/i', $fpath)) {
 			echo '<tr class="field admin_fixed" style="color:red;">';
 			echo '<td nowrap="nowrap">';
 			echo '<a name="flagged"></a>';
@@ -418,13 +436,13 @@ if (!extension_loaded('posix')) {
 
 		if (@is_readable($fpath)) {
 			if (@is_writeable($fpath) && !preg_match('/WIN/', PHP_OS)) {
-				echo '<td style="border: #aebdc4; solid 1px 1px 1px 1px;"><a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';
+				echo '<td style="border: #aebdc4; solid 1px 1px 1px 1px;"><a href="#" onclick="window.open(\'admbrowse.php?chmod=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=450,menubar=no\');">chmod</a></td>';
 			}
 
 			echo '<td style="border: #aebdc4; solid 1px 1px 1px 1px;"><a href="admbrowse.php?down=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'">download</a></td>';
 
 			if (@is_writeable($fpath)) {
-				echo '<td style="border: #aebdc4; solid 1px 1px 1px 1px;"><a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
+				echo '<td style="border: #aebdc4; solid 1px 1px 1px 1px;"><a href="#" onclick="window.open(\'admbrowse.php?del=1&amp;cur='.$cur_enc.'&amp;dest='.$de_enc.'&amp;'.__adm_rsid.'\', \'delete_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
 			} else {
 				echo '<td style="border: #aebdc4; solid 1px 1px 1px 1px;" align="center">n/a</td>';
 			}

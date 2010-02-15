@@ -10,19 +10,34 @@
 **/
 
 	require ('./GLOBALS.php');
+
+	// Run from command line.
+	if (php_sapi_name() == 'cli') {
+		fud_use('adm_cli.inc', 1);	// Contains cli_execute().
+		cli_execute('');
+
+		if (strcasecmp($_SERVER['argv'][1], 'lock') != 0 && strcasecmp($_SERVER['argv'][1], 'unlock') != 0 || empty($_SERVER['argv'][2]) || empty($_SERVER['argv'][3])) {
+			echo "Usage: php admlock.php [lock|unlock] userid password\n";
+			die();
+		}
+
+		$_POST[ 'btn_'. $_SERVER['argv'][1] ] = 'Lock/Unlock files';
+		$_POST['usr_login'] = $_SERVER['argv'][2];
+		$_POST['usr_passwd'] = $_SERVER['argv'][3];
+	}
+
 	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
-
 	require($WWW_ROOT_DISK . 'adm/header.php');
 
 	// Authenticate login details.
 	$authenticated = 0;
-	if (isset($_POST['usr_passwd'], $_POST['usr_login'])) {
-		$r = db_sab('SELECT id, passwd, salt FROM '.$DBHOST_TBL_PREFIX.'users WHERE login='._esc($_POST['usr_login']).' AND users_opt>=1048576 AND (users_opt & 1048576) > 0');
+	if (isset($_POST['usr_login'], $_POST['usr_passwd'])) {
+		$r = db_sab('SELECT id, passwd, salt FROM '. $DBHOST_TBL_PREFIX .'users WHERE login='. _esc($_POST['usr_login']) .' AND users_opt>=1048576 AND (users_opt & 1048576) > 0');
 		if ($r && (empty($r->salt) && $r->passwd == md5($_POST['usr_passwd']) || $r->passwd == sha1($r->salt . sha1($_POST['usr_passwd'])))) {
 			$authenticated = 1;
 		} else {
-			echo errorify('Unable to authenticate.');
+			pf(errorify('Unable to authenticate.'));
 		}
 	}
 
@@ -54,15 +69,15 @@
 		while (list(,$v) = each($dirs)) {
 			@chmod($v, $dirperms);
 			if (!is_readable($v)) {
-				echo errorify('ERROR: Unable to open directory '. $v .'!');
+				pf(errorify('ERROR: Unable to open directory '. $v .'!'));
 				continue;
 			}
-			if (!($files = glob($v . '/{.b*,.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
+			if (!($files = glob($v .'/{.b*,.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 				continue;
 			}
 			foreach ($files as $path) {
 				if (@is_file($path) && !@chmod($path, $fileperms)) {
-					echo 'ERROR: couldn\'t chmod "'.$path.'".<br />';
+					pf(errorify('ERROR: couldn\'t chmod "'. $path));
 				} else if (@is_dir($path) && !is_link($path)) {
 					$dirs[] = $path;
 				}
@@ -74,6 +89,11 @@
 	}
 
 	$status = ($FUD_OPT_2 & 8388608 ? 'LOCKED' : 'UNLOCKED');
+	
+	if (defined('shell_script')) {
+		pf('Forum files appear to be '. $status);
+		exit;
+	}
 ?>
 <h2>Lock/Unlock Forum Files</h2>
 <?php if ($status == 'UNLOCKED' ) echo '<div class="alert">For security reasons, please remember to lock your forum\'s files when you are done editing them.</div>'; ?>

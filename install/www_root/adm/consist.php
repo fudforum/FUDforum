@@ -735,7 +735,7 @@ While it is running, your forum will be disabled.
 	draw_stat('DONE!');
 
 	if (!defined('shell_script')) {
-		pf('<hr /><div class="tutor">It is recommended that you run SQL table optimizer after completing the consistency check. To do so <span style="white-spaces:nobreak">&gt;&gt; <b><a href="consist.php?opt=1&amp;'.__adm_rsid.'">click here</a></b> &lt;&lt;</span>, keep in mind that this process may take several minutes to perform.</div>');
+		pf('<hr /><div class="tutor">It is recommended that you run SQL table optimizer after completing the consistency check. To do so <span style="white-space:nowrap">&gt;&gt; <b><a href="consist.php?opt=1&amp;'.__adm_rsid.'">click here</a></b> &lt;&lt;</span>, keep in mind that this process may take several minutes to perform.</div>');
 	}
 	require($WWW_ROOT_DISK . 'adm/footer.php');
 ?>

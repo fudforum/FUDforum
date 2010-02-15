@@ -162,15 +162,15 @@ if ($view == 'm') {
 }
 
 if ($view == 'd') {
-	$tomorrow = mktime(0, 0, 0, $month, $day+1, $year);
+	$tomorrow  = mktime(0, 0, 0, $month, $day+1, $year);
 	$yesterday = mktime(0, 0, 0, $month, $day-1, $year);
 	
-	$next_day = date('d', $tomorrow);
-	$prev_day = date('d', $yesterday);
+	$next_day   = date('d', $tomorrow);
+	$prev_day   = date('d', $yesterday);
 	$next_month = date('m', $tomorrow);
 	$prev_month = date('m', $yesterday);
-	$next_year = date('Y', $tomorrow);
-	$prev_year = date('Y', $yesterday);
+	$next_year  = date('Y', $tomorrow);
+	$prev_year  = date('Y', $yesterday);
 
 	$events = get_events($year, $month);
 
@@ -180,10 +180,7 @@ if ($view == 'd') {
 		foreach($events[$event_day] as $event) {
 			$events_for_day .= '{TEMPLATE: cal_entry}';
 		}
-	} else {
-		$events_for_day .= '{TEMPLATE: cal_no_events}';
 	}
-	
 }
 
 /*{POST_PAGE_PHP_CODE}*/
