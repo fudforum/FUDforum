@@ -136,21 +136,25 @@ Zugriffstasten sind Tastaturk&uuml;rzel, um die Navigation mit Hilfe der Tastatu
 <fieldset style="width: 350px;">
 	<legend><b>Browser Support</b></legend>
 	<i>Windows</i><br />
-	<b>Firefox 1/Mozilla/Netscape:</b> ALT + [Zugriffstaste]<br />
-	<b>Firefox 2:</b> ALT + SHIFT + [Zugriffstaste]<br />
+	<b>Firefox:</b> ALT + SHIFT + [Zugriffstaste]<br />
+
 	<b>Internet Explorer:</b> ALT + [Zugriffstaste], ENTER<br />
-	<b>Opera:</b> SHIFT + ESC + [Zugriffstaste]<br />
+	<b>Opera:</b> SHIFT + ESC, [Zugriffstaste]<br />
+	<b>Safari:</b> ALT + [Zugriffstaste]<br />
+	<b>Chrome:</b> ALT + [Zugriffstaste]<br />
 	<br />
 	<i>Linux</i><br />
-	<b>Firefox/Mozilla/Netscape:</b> ALT + [Zugriffstaste]<br />
-	<b>Opera:</b> SHIFT + ESC + [Zugriffstaste]<br />
+	<b>Firefox:</b> ALT + SHIFT + [Zugriffstaste]<br />
+	<b>Opera:</b> SHIFT + ESC, [Zugriffstaste]<br />
 	<b>Konqueror:</b> CTRL, [Zugriffstaste]<br />
+	<b>Chrome:</b> ALT + [Zugriffstaste]<br />
 	<br />
 	<i>Mac OS X</i><br />
-	<b>Firefox/Mozilla/Netscape:</b> CTRL + [Zugriffstaste]<br />
-	<b>Internet Explorer:</b> CTRL + [Zugriffstaste]<br />
-	<b>Opera:</b> SHIFT + ESC + [Zugriffstaste]<br />
-	<b>Safari:</b> CTRL + [Zugriffstaste]<br />
+	<b>Firefox:</b> ALT + SHIFT + [Zugriffstaste]<br />
+	<b>Opera:</b> SHIFT + ESC, [Zugriffstaste]<br />
+	<b>Safari 3:</b> CTRL + [Zugriffstaste]<br />
+	<b>Safari 4:</b> CTRL + OPTION + [Zugriffstaste]<br />
+	<b>Chrome:</b> ALT + [Zugriffstaste]<br />
 </fieldset><br />
 
 <b>Unterst&uuml;tzte Zugriffstasten:</b>
@@ -164,6 +168,7 @@ Zugriffstasten sind Tastaturk&uuml;rzel, um die Navigation mit Hilfe der Tastatu
 	<b>K</b> - Die Rechtschreibung des Beitrags oder der Nachricht &uuml;berpr&uuml;fen.<br />
 	<b>A</b> - Ver&auml;nderungen am Text &uuml;bernehmen.<br />
 	<b>D</b> - Private Nachricht als Entwurf abspeichern.<br />
+	<b>F</b> - Setze Cursor in das Suchfeld im Kopfbereich des Forums.<br />
 	<br /><br /><b>BBcode-Abk&uuml;rzungen:</b>
 	<blockquote>
 		<b>B</b> - Fett<br />
