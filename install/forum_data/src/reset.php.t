@@ -24,7 +24,7 @@
 		if (($ui = db_saq('SELECT email, login, id FROM {SQL_TABLE_PREFIX}users WHERE reset_key='._esc((string)$_GET['reset_key'])))) {
 			// Generate new password and salt for user.
 			$salt   = substr(md5(uniqid(mt_rand(), true)), 0, 9);
-			$passwd = sha1($salt . sha1(dechex(get_random_value(32)));
+			$passwd = sha1($salt . sha1(dechex(get_random_value(32))));
 			q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".$passwd."', salt='".$salt."', reset_key='0' WHERE id=".$ui[2]);
 			send_email($NOTIFY_FROM, $ui[0], '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_newpass_msg}');
 			ses_putvar((int)$usr->sid, '{TEMPLATE: reset_login_notify}');

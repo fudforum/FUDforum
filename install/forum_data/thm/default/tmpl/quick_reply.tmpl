@@ -27,10 +27,10 @@
 	<input type="hidden" name="prev_loaded" value="1" />
 	<input type="hidden" name="msg_show_sig" value="{IF: $usr->users_opt & 2048}Y{ENDIFI}" />
 	<input type="hidden" name="msg_poster_notif" value="{IF: $usr->users_opt & 2}Y{ENDIFI}" />
-</td</tr>
+</td></tr>
 <tr><td class="MsgToolBar" {IF: $quick_reply_collapsed}style="display:none;"{ENDIFI}>
-	<input type="submit" class="button" value="{MSG: quick_reply_preview}" tabindex="4" name="preview" />
-	<input type="submit" class="button" tabindex="5" name="btn_submit" value="{MSG: quick_reply_post}" onclick="javascript: document.post_form.submitted.value=1;" />
+	<input type="submit" accesskey="r" class="button" value="{MSG: quick_reply_preview}" tabindex="4" name="preview" />
+	<input type="submit" accesskey="s" class="button" tabindex="5" name="btn_submit" value="{MSG: quick_reply_post}" onclick="javascript: document.post_form.submitted.value=1;" />
 </td></tr></table></td></tr></table>
 </form>
 {SECTION: END}

@@ -26,13 +26,13 @@
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && $c_ext) {
 		q('UPDATE '.$tbl.'ext_block SET ext='._esc($c_ext).' WHERE id='.(int)$_POST['edit']);
-		echo successify('File extention (*.'.$c_ext.') was successfully updated.');
+		echo successify('File extension (*.'.$c_ext.') was successfully updated.');
 	} else if (isset($_POST['btn_submit']) && $c_ext) {
 		q('INSERT INTO '.$tbl.'ext_block (ext) VALUES('._esc($c_ext).')');
-		echo successify('File extention (*.'.$c_ext.') was successfully added.');
+		echo successify('File extension (*.'.$c_ext.') was successfully added.');
 	} else if (isset($_GET['del'])) {
 		q('DELETE FROM '.$tbl.'ext_block WHERE id='.(int)$_GET['del']);
-		echo successify('File extention was successfully removed.');
+		echo successify('File extension was successfully removed.');
 	} else {
 		$nada = 1;
 	}
@@ -51,7 +51,7 @@
 <h2>Allowed Extensions</h2>
 <p>Specify which files types users can attach to forum messages. If no file extension is entered, all files will be allowed.</p>
 
-<h3><?php echo $edit ? '<a name="edit">Edit Extention:</a>' : 'Add New Extention:'; ?></h3>
+<h3><?php echo $edit ? '<a name="edit">Edit Extension:</a>' : 'Add New Extension:'; ?></h3>
 <form id="exf" method="post" action="admext.php">
 <table class="datatable solidtable">
 	<tr class="field">

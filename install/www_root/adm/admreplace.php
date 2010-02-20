@@ -182,7 +182,6 @@ function clean_rgx()
 			<table border="1" cellspacing="0" cellpadding="3">
 			<tr><td><font size="-1"><?php echo htmlspecialchars($str); ?></font></td></tr>
 			</table>
-			</font>
 		</td>
 	</tr>
 <?php
