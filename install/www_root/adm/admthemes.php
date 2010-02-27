@@ -38,8 +38,12 @@
 	if (isset($_GET['rebuild_all'])) {
 		$r = q('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes');
 		while (($data = db_rowarr($r))) {
-			pf('<font color="green">Rebuilding theme '. $data[2] . ' ('. $data[1] .')...</font>');
-			compile_all($data[0], $data[1], $data[2]);
+			try {
+				compile_all($data[0], $data[1], $data[2]);
+				pf(successify('Rebuilding theme '. $data[2] . ' ('. $data[1] .')...'));
+			} catch (Exception $e) {
+				echo errorify('Please fix your theme: '.  $e->getMessage());
+			}
 		}
 		unset($r);
 		if (php_sapi_name() == 'cli') {
@@ -59,13 +63,17 @@
 		$thm = new fud_theme;
 		if ($thm->name) {
 			if (q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'themes WHERE name='._esc($_POST['thm_name']))) {
-			  echo errorify('There is already a theme with this name.');
+				echo errorify('There is already a theme with this name.');
 			} elseif (setlocale(LC_ALL, $_POST['thm_locale']) === FALSE) {
-			  echo errorify('The specified locale ('.$_POST['thm_locale'].') does not exist on your system.');
+				echo errorify('The specified locale ('.$_POST['thm_locale'].') does not exist on your system.');
 			} else {
-			  $thm->add();
-			  compile_all($thm->theme, $thm->lang, $thm->name);
-			  echo successify('Theme '.$thm->name.' was successfully created.');
+				$thm->add();
+				try {
+					compile_all($thm->theme, $thm->lang, $thm->name);
+					echo successify('Theme '.$thm->name.' was successfully created.');
+				} catch (Exception $e) {
+					echo errorify('Please fix your theme: '.  $e->getMessage());
+				}
 			}
 		}
 	} else if (isset($_POST['edit'])) {
@@ -75,13 +83,21 @@
 		}
 		if ($thm->name) {
 			$thm->sync((int)$_POST['edit']);
-			compile_all($thm->theme, $thm->lang, $thm->name);
+			try {
+				compile_all($thm->theme, $thm->lang, $thm->name);
+				echo successify('Theme saved and successfully rebuilt.');
+			} catch (Exception $e) {
+				echo errorify('Please fix your theme: '.  $e->getMessage());
+			}
 		}
 		$edit = '';
-		echo successify('Theme saved and successfully rebuilt.');
 	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.(int)$_GET['rebuild']))) {
-		echo successify('Rebuilding theme '. $data[2] . ' ('. $data[1] .')...');
-		compile_all($data[0], $data[1], $data[2]);
+		try {
+			compile_all($data[0], $data[1], $data[2]);
+			echo successify('Theme '. $data[2] . ' ('. $data[1] .') was successfully rebuilt.');
+		} catch (Exception $e) {
+			echo errorify('Please fix your theme: '.  $e->getMessage());
+		}
 	} else if (isset($_GET['edit']) && ($c = db_arr_assoc('SELECT * FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.$edit))) {
 		foreach ($c as $k => $v) {
 			${'thm_'.$k} = $v;

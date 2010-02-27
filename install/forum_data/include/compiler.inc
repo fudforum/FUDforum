@@ -29,13 +29,13 @@ function resolve_refs($file_name)
 				// Not found, look in DEFAULT theme.
 				$file1 = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
 				if (($str = @file_get_contents($file1)) === false) {
-					exit('Referenced file named (<b>'. $file_name .'</b>) doesn\'t exist.');
+					throw new Exception('Referenced file named (<b>'. $file_name .'</b>) doesn\'t exist.');
 				}
 			}
 		} else {	// Not a path_info theme.
 			$file1 = $GLOBALS['DATA_DIR'] .'thm/default/tmpl/'.$file_name;
 			if (($str = @file_get_contents($file1)) === false) {
-				exit('Referenced file named (<b>'. $file_name .'</b>) doesn\'t exist.');
+				throw new Exception('Referenced file named (<b>'. $file_name .'</b>) doesn\'t exist.');
 			}
 		}
 	}
@@ -45,7 +45,7 @@ function resolve_refs($file_name)
 		$fc['src'] = substr($st, 7, (strpos($st, ';', 7) - 7));
 		$fc['dst'] = substr($st, (strrpos($st, ' ') + 1));
 		if (!$fc['src'] || !$fc['dst']) {
-			exit('Invalid PHP_FILE directive inside (<b>'. $file_name .'</b>).');
+			throw new Exception('Invalid PHP_FILE directive inside (<b>'. $file_name .'</b>).');
 		}
 		parse_sections($str, $fc['dst']);
 	} else {
@@ -97,10 +97,10 @@ function parse_sections($str, $file, $sl=0)
 
 			if (isset($tr[$name])) {
 				if (!$sl) {
-					exit('Duplicate section: '. $k .' -> '. $name .' found in '. $tr[$name]['file'] .' (now parsing '. $GLOBALS['CURFILE'] .').');
+					throw new Exception('Duplicate section: '. $k .' -> '. $name .' found in '. $tr[$name]['file'] .' (now parsing '. $GLOBALS['CURFILE'] .').');
 				} else {
 					if (($e2 = strpos($str, $v .'END}', $e)) === false) {
-						exit('Unterminated tag '. $k .' inside '. $file .'.');
+						throw new Exception('Unterminated tag '. $k .' inside '. $file .'.');
 					}
 					$p = $e2 + strlen($v) + 4;
 					continue;
@@ -108,7 +108,7 @@ function parse_sections($str, $file, $sl=0)
 			}
 
 			if (($e2 = strpos($str, $v .'END}', $e)) === false) {
-				exit('Unterminated tag '. $k .' inside '. $file .'.');
+				throw new Exception('Unterminated tag '. $k .' inside '. $file .'.');
 			}
 			if ($PHP_FILE) {
 				$GLOBALS['PHP_FILE_SEC'][$k][$name] = 1;
@@ -147,7 +147,7 @@ function resolve_sections($str)
 		++$p;
 
 		if (($e = strpos($str, '}', $p)) === false) {
-			exit('Unterminated tag '. substr($str, ($p - 1), 255) .'.');
+			throw new Exception('Unterminated tag '. substr($str, ($p - 1), 255) .'.');
 		}
 
 		if (($te = strpos($str, ': ', $p)) !== false && $te < $e) {
@@ -163,7 +163,7 @@ function resolve_sections($str)
 		switch ($tag) {
 			case 'MSG':
 				if (!isset($GLOBALS['MSG'][$name])) {
-					exit('Missing message entry '. $name .' inside i18n/'. $GLOBALS['__COMPILER__']['lang'].'/msg');
+					throw new Exception('Missing message entry '. $name .' inside i18n/'. $GLOBALS['__COMPILER__']['lang'].'/msg');
 				}
 				$ret .= $GLOBALS['MSG'][$name]['data'];
 				break;
@@ -224,7 +224,7 @@ function resolve_sections($str)
 				} else if (isset($GLOBALS['TC']['PAGE'][$name])) {
 					$sec = 'PAGE';
 				} else {
-					exit('Undefined template: "'. $tag .'" inside "'. $name .'".');
+					throw new Exception('Undefined template: "'. $tag .'" inside "'. $name .'".');
 				}
 				$ret .= $GLOBALS['TC'][$sec][$name]['data'] = resolve_sections($GLOBALS['TC'][$sec][$name]['data']);
 				break;
@@ -284,7 +284,7 @@ function resolve_sections($str)
 				$ret .= $GLOBALS['__COMPILER__'][$tag];
 				break;
 			default:
-				exit('No such tag: '.htmlspecialchars($tag).' -> '.htmlspecialchars($name) .'.');
+				throw new Exception('No such tag: '.htmlspecialchars($tag).' -> '.htmlspecialchars($name) .'.');
 		}
 	} while (($p = strpos($str, '{', $p)) !== false);
 
@@ -296,10 +296,10 @@ function compile_file($source)
 	$l = strlen('<?php echo (');
 
 	if (empty($source)) {
-		exit('No file passed to compile, fatal error.');
+		throw new Exception('No file passed to compile, fatal error.');
 	}
 	if (($file_data = file_get_contents($GLOBALS['DATA_DIR'].'src/'.$source)) === false) {
-		exit('Unable to open file '. $GLOBALS['DATA_DIR'] .'src/'. $source .'.');
+		throw new Exception('Unable to open file '. $GLOBALS['DATA_DIR'] .'src/'. $source .'.');
 	}
 
 	if (($p = strpos($file_data, '{TEMPLATE: ')) === false) {
@@ -331,7 +331,7 @@ function compile_file($source)
 		} else if (isset($GLOBALS['TC']['PAGE'][$name])) {
 			$sec = 'PAGE';
 		} else {
-			exit('Undefined template: "'. $name .'" inside "'. $source .'".');
+			throw new Exception('Undefined template: "'. $name .'" inside "'. $source .'".');
 		}
 		$ref =& $GLOBALS['TC'][$sec][$name]['data'];
 		$ref = resolve_sections($ref);
@@ -405,7 +405,7 @@ function compile_file($source)
 		$ret .= $ref;
 
 		if (($e = strpos($file_data, '}', $p)) === false) {
-			exit('Unterminated tag "'. $name .'" inside "'. $source .'".');
+			throw new Exception('Unterminated tag "'. $name .'" inside "'. $source .'".');
 		}
 		$op = $p = $e + 1;
 	} while (($p = strpos($file_data, '{TEMPLATE: ', $p)) !== false);
@@ -493,7 +493,7 @@ function generate_file($php_file)
 	}
 
 	if (!($fp = fopen($dir.$dst, 'wb'))) {
-		exit('Couldn\'t write to '. $dir . $dst .'.');
+		throw new Exception('Couldn\'t write to '. $dir . $dst .'.');
 	}
 	fwrite($fp, $file_data);
 	fclose($fp);
@@ -536,7 +536,7 @@ function parse_msgs($file)
 			if ($GLOBALS['MSG'][$mid]['file'] != $file) {
 				continue;
 			}
-			exit('Duplicated message: '. $mid .' in '. $file .' on line #'. ($k + 1) .', previous entry found on line #'. $GLOBALS['MSG'][$mid]['line'] .' in '. $GLOBALS['MSG'][$mid]['file'] .'.');
+			throw new Exception('Duplicated message: '. $mid .' in '. $file .' on line #'. ($k + 1) .', previous entry found on line #'. $GLOBALS['MSG'][$mid]['line'] .' in '. $GLOBALS['MSG'][$mid]['file'] .'.');
 		}
 
 		$GLOBALS['MSG'][$mid] = array('data' => resolve_sections($msg), 'file' => $file, 'line'=> $k);
@@ -622,7 +622,7 @@ function resolve_compile($file)
 	}
 
 	if (empty($GLOBALS['file_cache'][$file]['src'])) {
-		exit('No source for '. $file .'.');
+		throw new Exception('No source for '. $file .'.');
 	}
 
 	$GLOBALS['file_cache'][$file]['compiled'] = compile_file($GLOBALS['file_cache'][$file]['src']);
@@ -631,7 +631,7 @@ function resolve_compile($file)
 function fud_mkdir($dir, $perms=0700)
 {
 	if (!@is_dir($dir) && !@mkdir($dir, $perms)) {
-		exit('Unable to make directory (<b>'. $dir .'</b>).<br />');
+		throw new Exception('Unable to make directory (<b>'. $dir .'</b>).<br />');
 	}
 }
 
@@ -822,7 +822,7 @@ function copyimages($thm)
 
 	$u = umask(0);
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
-		exit('ERROR: Unable to create directory: '. $path .'.<br />');
+		throw new Exception('ERROR: Unable to create directory: '. $path .'.<br />');
 	}
 
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
@@ -866,19 +866,19 @@ function copyhelp($thm)
 	}
 
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
-		exit('ERROR: Unable to create directory: '. $path .'.<br />');
+		throw new Exception('ERROR: Unable to create directory: '. $path .'.<br />');
 	}
 
 	$path .= '/';
 
 	$files = glob($src . '/*.hlp', GLOB_NOSORT);
 	if (!$files) {
-		exit("Failed to find help files inside '{$src}'.");
+		throw new Exception('Failed to find help files inside \''. $src .'\'.');
 	}
 	foreach ($files as $file) {
 		$de = basename($file);
 		if (!($fp = fopen($path . $de, 'wb'))) {
-			exit('Failed to write to: '. $path . $de .' <br />');
+			throw new Exception('Failed to write to: '. $path . $de .' <br />');
 		}
 		fwrite($fp, str_replace(array('{ROOT}', '{FULL_ROOT}'), 
 					array($rp, "'.\$GLOBALS['WWW_ROOT'].'"), 
@@ -904,7 +904,7 @@ function copylangfuncs($thm) {
 	$u = umask(0);
 
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
-		exit('ERROR: Unable to create directory: '. $path .'.<br />');
+		throw new Exception('ERROR: Unable to create directory: '. $path .'.<br />');
 	}
 	
 	fudcopy(dirname($src), $path, '{language.inc}');
