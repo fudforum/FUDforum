@@ -70,40 +70,46 @@ if (isset($_POST['sql']) && $_POST['sql'] != '') {
 				$sql = preg_replace('/^\s*desc(ribe)?\s+(\w+)\s*;?$/i', 'pragma table_info (\2);', $sql);
 			}
 
-			$q = q($sql);
+			try {
+				$q = q($sql);
 
-			echo '<h2>SQL Results</h2>';
-			echo '<table class="resulttable">';
+				echo '<h2>SQL Results</h2>';
+				echo '<table class="resulttable">';
 
-			$i = 1;
-			while ($result = db_fetch_array($q)) {
-				if ($i == 1) {	// Column name headings.
-					echo '<thead><tr class="resulttopic">';
+				$i = 1;
+				while ($result = db_fetch_array($q)) {
+					if ($i == 1) {	// Column name headings.
+						echo '<thead><tr class="resulttopic">';
+						foreach ($result as $key => $value) {
+							if (!is_numeric($key)) {
+								echo '<th>'. $key .'</th>';
+							}
+						}
+						echo '</tr></thead>';
+					}
+
+					echo '<tr class="field">';
 					foreach ($result as $key => $value) {
 						if (!is_numeric($key)) {
-							echo '<th>'. $key .'</th>';
+							echo '<td>'. $value .'</td>';
 						}
 					}
-					echo '</tr></thead>';
+					echo '</tr>';
+
+					$i++;
 				}
 
-				echo '<tr class="field">';
-				foreach ($result as $key => $value) {
-					if (!is_numeric($key)) {
-						echo '<td>'. $value .'</td>';
-					}
-				}
-				echo '</tr>';
+				echo '</table>';
 
-				$i++;
+				$num_rows = db_count($q);
+				if (!$num_rows) $num_rows = ($i-1);
+				echo '<br /><i>'. $num_rows .' row(s) returned.</i>';
+
+			} catch(Exception $e) {
+				echo '<h2>SQL Error</h2>';
+				echo errorify($e->getMessage());
 			}
-
-			echo '</table>';
 		}
-
-		$num_rows = db_count($q);
-		if (!$num_rows) $num_rows = ($i-1);
-		echo '<br /><i>'. $num_rows .' row(s) returned.</i>';
 	}
 }
 

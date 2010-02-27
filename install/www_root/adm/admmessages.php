@@ -21,7 +21,7 @@
 
 	if (isset($_POST['btn_download']) && isset($_POST['tlang'])) {
 		$tlang = $_POST['tlang'];
-		pf('<font color="green">Downloading '. $tlang .' messages from tranalatewiki.net...</font>');
+		pf(successify('Downloading '. $tlang .' messages from tranalatewiki.net...'));
 
 		$url = "http://translatewiki.net/w/i.php?title=Special%3ATranslate&task=export-to-file&group=out-fudforum&language=$tlang&limit=2500";
 		$url_stuff = parse_url($url);
@@ -58,7 +58,7 @@
 				$c = q('SELECT theme, name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE lang='._esc($tlang));
 				while ($r = db_rowarr($c)) {
 					compile_all($r[0], $tlang, $r[1]);
-					echo '<font color="green">Theme '. $r[0] .' ('. $tlang .') was successfully rebuilt.</font><br />';
+					echo successify('Theme '. $r[0] .' ('. $tlang .') was successfully rebuilt.');
 				}
 				unset($c);
 			}

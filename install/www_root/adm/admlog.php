@@ -47,17 +47,17 @@ function return_forum_name($id)
 ?>
 <h2>Action Log Viewer</h2>
 
-<div align="right">
+<table width="95%" class="tutor"><tr><td>
 	[ <a href="admlog.php?clear=1&amp;<?php echo __adm_rsid; ?>">Clear Admin Log</a> ]
-</div>
-
+</td><td align="right">
 <form method="post" action="admlog.php">
-<?php echo _hs; ?>
+	<?php echo _hs; ?>
 	Filter by user:
 	<?php $log_user = isset($_POST['log_user']) ? $_POST['log_user'] : ''; ?>
 	<input type="text" name="log_user" value="<?php echo $log_user; ?>" />
 	<input type="submit" value="Go" name="frm_submit" />
 </form>
+</td></tr></table>
 <br />
 
 <table class="resulttable fulltable">

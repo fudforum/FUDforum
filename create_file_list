@@ -62,8 +62,8 @@ function w_err($msg, $exit=true)
 }
 
 /* main */
-	@ini_set('memory_limit', '64M');
-	@set_magic_quotes_runtime(0);
+	@ini_set('memory_limit', '128M');	// PHP 5.3's default, old defaults too small.
+	@set_magic_quotes_runtime(0);		// Depricated in PHP 5.3.
 
 	if (!defined('STDERR')) {
 		define('STDERR', fopen('php://stderr', 'wb'));

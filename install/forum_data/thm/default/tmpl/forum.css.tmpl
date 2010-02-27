@@ -41,7 +41,7 @@ text, .GenText {
 .ForumBackground {
 	background: #fff;
 	border: 1px solid #aebdc4;
-	
+
 	-moz-border-radius: 0.75em;
 	-webkit-border-radius: 0.75em;
 	border-radius: 0.75em;
@@ -230,11 +230,17 @@ blockquote {
 	/* quote tags */
 	color: #444;
 	background: #fafafa;
-	border: 1px solid #c2cdd6;
+	border-left: 1px dashed #c2cdd6;
 	margin: 8px 1px 0 20px;
 	overflow: hidden;
 	padding: 5px;
-
+}
+blockquote:first-letter {
+	margin: .2em .2em .1em 0;
+	font-family: "Monotype Corsiva", "Apple Chancery", fantasy;
+	font-size: 220%;
+	font-weight: bold;
+	font-variant: small-caps;
 }
 
 blockquote blockquote {
@@ -256,7 +262,7 @@ blockquote blockquote blockquote {
 }
 
 .dashed {
-	border: 1px dashed #1B7CAD;
+	border: 1px dashed #1b7cad;
 }
 
 .adminColor {
@@ -292,7 +298,7 @@ blockquote blockquote blockquote {
 }
 
 input.button {
-        background: #eee;
+	background: #eee;
 	color: #000;
 	font-weight: normal;
 	border-width: 1px;
@@ -344,7 +350,7 @@ img {
 }
 
 .MsgR1 {
-	background: #dee2e6;
+	background: #ccd4dc;
 }
 
 .MsgR3 {
@@ -381,7 +387,7 @@ table.tt {
 	padding: 1px;
 	margin: 0;
 	text-align: center;
-	border: 1px solid black;
+	border: 1px solid #000;
 }
 
 a.big:link, a.big:active, a.big:visited {
@@ -584,11 +590,11 @@ td.avatarPad {
 
 div.pre {
 	font-family: monospace;
-        padding: 5px;
-        border: 1px blue dashed;
-        font-size: 10pt;
-        white-space: pre;
-        background: #fafafa;
+	padding: 5px;
+	border: 1px blue dashed;
+	font-size: 10pt;
+	white-space: pre;
+	background: #fafafa;
 	overflow: auto;
 	margin: 5px;
 }
@@ -633,21 +639,19 @@ hr.sig {
 	margin: 0;
 }
 
-/* Header with rounded corners */
-.header {background:#517ca1; margin:0 0; background-image: url(images/header.gif); background-repeat: no-repeat;}
-.header a {text-decoration:none;}
-.rtop, .rbottom {display:block; background:#fff;}
-.rtop *, .rbottom * {display: block; height: 1px; overflow: hidden; background:#517ca1;}
-.r1 {margin: 0 5px; font-size: 1px;}
-.r2 {margin: 0 3px; font-size: 1px;}
-.r3 {margin: 0 2px; font-size: 1px;}
-.r4 {margin: 0 1px; height: 2px; font-size: 1px;}
-.headtitle {color:#fff; font-size:xx-large; font-weight:bold; text-decoration:none;}
-.headdescr {padding: 2px; color:#eee; font-size:small;}
-.headsearch {color:#fff; font-size: small; font-weight:bold; float:right; white-space: nowrap; vertical-align: top;}
-.headbutton {color:#fff; background-color: red;} 
+/* Header with rounded corners. */
+.header {color:#fff; background:#517ca1; margin:0 0; background-image: url(images/header.gif); background-repeat: no-repeat;
+ 	-moz-border-radius: 0.75em;
+	-webkit-border-radius: 0.75em;
+	border-radius: 0.75em;
+}
+.header a {color:#fff; text-decoration:none;}
+.headtitle {font-size:xx-large; font-weight:bold; text-decoration:none;}
+.headdescr {color:#eee; padding: 2px; font-size:small;}
+.headsearch {font-size: small; font-weight:bold; float:right; white-space: nowrap; vertical-align: top;}
+.headbutton {color:#fff; background-color: red;}
 
-/* Textarea editor */
+/* Textarea editor. */
 .resizable-textarea .grippie {
 	height: 9px;
 	width: 95%;
@@ -658,7 +662,7 @@ hr.sig {
 	overflow: hidden;
 }
 
-/* The following are partial elements that are used to save space */
+/* The following are partial elements that are used to save space. */
 .wo { width:		1px; }
 .wa { width:		100%; }
 .al { text-align:	left; }
@@ -704,4 +708,27 @@ td.calendar-day-head {background:#ccc; font-weight:bold; text-align:center; widt
 div.day-number {background:#999; position:absolute; z-index:2; top:-5px; right:-25px; padding:5px; color:#fff; font-weight:bold; width:20px; text-align:center; }
 td.calendar-day, td.calendar-day-np { width:120px; padding:5px 25px 5px 5px; border-bottom:1px solid #999; border-right:1px solid #999; }
 
+/* CSS3 Butttons. */
+.button, .button:visited {
+	background: #222 url(overlay.png) repeat-x;
+	display: inline-block;
+	padding: 1px 6px 2px;
+	color: #fff;
+	text-decoration: none;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	position: relative;
+	cursor: pointer
+}
+
+{TEMPLATE: css_overrides}
 {PAGE: END}
+
+{SECTION: css_overrides}
+/* Section that themes can redefine to add additional CSS declarations. */
+{SECTION: END}
+

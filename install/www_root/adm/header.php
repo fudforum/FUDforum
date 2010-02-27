@@ -31,7 +31,7 @@
 
 if (defined('popup') ) {	/* Special header for popup pages. */
 	echo '<body class="popup">';
-	echo '<table class="maindata"><tr><td>';
+	echo '<table class="maintable"><tr><td>';
 	return;
 }
 

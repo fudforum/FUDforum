@@ -107,6 +107,7 @@ function get_preview_img($id)
 	header('Content-Type: '.$r[0]);
 	header('Content-Disposition: '.$append.'filename="'.urlencode($r[1]).'"');
 	header('Content-Length: '.array_pop($r));
+	header('Connection: close');
 
 	attach_inc_dl_count($id, $r[3]);
 	@readfile($r[2]);

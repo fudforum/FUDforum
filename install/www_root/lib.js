@@ -407,7 +407,7 @@ function format_code(codeMsg, selMsg, hideMsg)
 /* Allow users to select text and add it as a quote to the message box. */
 function quote_selected_text(quoteButtonText) {
 	// Add "Quote selected text" button.
-	$(".miniMH").parent().parent().append('<div class="ar"><button id="quote">'+ quoteButtonText +'</button></class>');
+	$(".miniMH").parent().parent().append('<div class="ar"><button class="button" id="quote">'+ quoteButtonText +'</button></class>');
 
 	// Handle button clicks.
 	$("#quote").click(function() {

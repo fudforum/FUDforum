@@ -747,7 +747,7 @@ function &init_user()
 
 function user_register_forum_view($frm_id)
 {
-	if ($GLOBALS['FUD_OPT_3'] & 1024) {
+	if ($GLOBALS['FUD_OPT_3'] & 1024) {	// MYSQL_4_1_OPT
 		q('INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES ('.$frm_id.', '._uid.', '.__request_timestamp__.') ON DUPLICATE KEY UPDATE last_view=VALUES(last_view)');
 		return;
 	}
