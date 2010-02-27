@@ -1,6 +1,8 @@
 # Messages for Spanish (Español)
 # Exported from translatewiki.net
 # Author: Crazymadlover
+# Author: McDutchie
+# Author: Peter17
 
 action:Acción
 add_to_buddy_list:agregar a la lista de amigos
@@ -19,9 +21,7 @@ current_time:Fecha y hora actual
 custom_avatar_queue:Cola avatares personalizados
 date_posted:Fecha de publicación
 date_registered:Fecha de registro:
-# Fuzzy
 download_counter:Descargado {PLURAL: v[3]|$1 vez|$1 veces}
-# Fuzzy
 pmsg_download_counter:Descargado {PLURAL: r->dlcount|$1 vez|$1 veces}
 email:Correo electrónico:
 email_to_friend:Enviar un correo a un amigo
@@ -68,6 +68,7 @@ logout:Salir
 mark_all_read:Marcar todos los mensajes como leídos
 mark_all_read_desc:Todos sus mensajes no leídos serán marcados como leídos
 members:Miembros
+calendar:Calendario
 message:Mensaje
 # Fuzzy
 message_counter:Nuestros usuarios han publicado un total de <b>{PLURAL: post_count|$1 mensaje|$1 mensajes}</b> dentro de <b>{PLURAL: thread_count|$1 tema|$1 temas}</b>.
@@ -196,7 +197,6 @@ user_online:{VAR: obj->login} está actualmente en el foro
 usrinfo_last_post:Ultimo mensaje:
 view_results:Ver resultados
 views:Vistas
-# Fuzzy
 vote:{PLURAL: frm->n_rating|$1 Voto|$1 Votos}
 vote_button:Votar
 vote_for_thread:Votar
@@ -258,6 +258,20 @@ month_9:Septiembre
 month_10:Octubre
 month_11:Noviembre
 month_12:Diciembre
+sunday:Domingo
+sunday_short:D
+monday:Lunes
+monday_short:L
+tuesday:Martes
+tuesday_short:Ma
+wednesday:Miércoles
+wednesday_short:Mi
+thursday:Jueves
+thursday_short:J
+friday:Viernes
+friday_short:V
+saturday:Sábado
+saturday_short:S
 male:Masculino
 female:Femenino
 unspecified:SIN ESPECIFICAR
@@ -386,11 +400,13 @@ file_attachments:Archivos adjuntos:
 allowed_files:Extensiones de archivos permitidas:
 max_file_size:Tamaño máximo de archivo:
 max_files_per_msg:Número máximo de archivos por mensaje:
+# Fuzzy
 post_notification:Publicar notificación
 include_sig:Incluir firma
 include_sig_desc:Incluir la firma de su perfil.
 disable_smilies:Desactivar los emoticonos en este mensaje
 spell_check_msg:Corregir la ortografía del mensaje
+# Fuzzy
 post_form:Publicar formulario
 post_forum:Foro:
 post_title:Título:
@@ -602,7 +618,6 @@ post_err_edttimelimit_msg:Ya no puede editar este mensaje
 post_err_noannontopics_msg2:<legend>ERROR: Privilegios insuficientes</legend>Los usuarios anónimos no tienen permiso para crear hilos.
 post_err_noannonposts_msg2:<legend>ERROR: Privilegios insuficientes </legend>Los usuarios anónimos no pueden responder.
 post_err_floodtrig_title:ERROR: el mecanismo contra publicación masiva está activado.
-# Fuzzy
 post_err_floodtrig_msg:Por favor, inténtalo de nuevo en {PLURAL: tm|$1 segundo|$1 segundos}
 post_err_attach_size:El archivo adjunto es demasiado grande (superior límite permitido de {VAR: MAX_F_SIZE} bytes)
 post_err_attach_ext:El archivo que está tratando de subir no se corresponde con uno de los tipos de archivo permitidos.
@@ -663,11 +678,9 @@ tree_update:Recorriendo hilo de discusión (vista en árbol) <a href="{TEMPLATE:
 userinfo_update:Viendo el perfil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_msg2:<legend>ERROR: No ha iniciado sesión</legend>Para acceder a esta página debe ser un miembro de este foro.
 ERR_disabled_ttl:Función desactivada
-# Fuzzy
-ERR_disabled_msg:Esta función ha sido desactivada por el administrador del sistema
+ERR_disabled_msg:Esta función ha sido desactivada por el administrador del sistema.
 ERR_access_ttl:ERROR: Permisos insuficientes
-# Fuzzy
-ERR_access_msg:No tiene los permisos necesarios para realizar esta acción
+ERR_access_msg:No tiene los permisos necesarios para realizar esta acción.
 ERR_registration_disabled_ttl:Registro desactivado
 ERR_registration_disabled_msg:El administrador ha desactivado el registro. Por favor, vuelva a intentarlo más tarde
 ERR_emailconf_ttl:ERROR: Su cuenta aún no ha sido confirmada
@@ -830,8 +843,7 @@ im_skype:Skype:
 im_twitter:Twitter:
 forum_contact:Contacto
 forum_home:Principal
-# Fuzzy
-post_cur_attached:Actualmente adjuntos: {VAR: i} {PLURAL: i|archivo|archivos}
+post_cur_attached:actualmente adjuntos: {VAR: i} {PLURAL: i|archivo|archivos}
 ignored_anon_post:{GVAR: ANON_NICK} es ignorado
 ignored_user_post:El mensaje de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> es ignorado
 smladd_close_window:Cerrar ventana

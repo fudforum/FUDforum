@@ -372,6 +372,7 @@ include_sig:Include Semnatura
 include_sig_desc:Include semnatura profilului meu
 disable_smilies:Dezactiveaza smilies
 spell_check_msg:Verifica limba mesajului
+# Fuzzy
 post_form:Trimite Forum
 post_title:Titlu:
 post_body:Corpul mesajului:

@@ -1030,6 +1030,7 @@ search_results_hdr:Haku löysi {VAR: total} viestiä
 thread_del_all:Poista kaikki valitut
 thread_mov_all:Siirrä kaikki valitut
 thread_merge_all:Yhdistä kaikki valitut
+thread_loc_all:Lukitse tai avaa kaikki valitut
 dmsg_ip:IP:
 merge_th_page_list:Aihesivun valinta
 most_users_online:Eniten yhtaikaisia käyttäjiä (<b>{VAR: st_obj->most_online}</b>) oli <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>

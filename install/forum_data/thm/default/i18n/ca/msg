@@ -1,5 +1,6 @@
 # Messages for Catalan (Català)
 # Exported from translatewiki.net
+# Author: McDutchie
 # Author: Qllach
 # Author: Ssola
 
@@ -370,11 +371,13 @@ file_attachments:Arxius adjuns:
 allowed_files:Extensions d`arxius permeses:
 max_file_size:Mida màxima d`arxiu:
 max_files_per_msg:Nombre màxim d`arxius per missatge:
+# Fuzzy
 post_notification:Publicar notificació
 include_sig:Incloure signatura
 include_sig_desc:Incloure la signatura del seu perfil.
 disable_smilies:Desactivar les emoticones en aquest missatge
 spell_check_msg:Corregir l`ortografi­a del missatge
+# Fuzzy
 post_form:Publicar formulari
 post_forum:Fòrum:
 post_title:Tí­tol:

@@ -10,7 +10,7 @@ admin_control_panel:Panel de control administrativo
 administrator:Administrador
 attachment:Arquivo adxunto:
 avatar:Avatar:
-average_post_count:{PLURAL: u->posted_msg_count|$1 mensaxe|$1 mensaxes} (un promedio {PLURAL: avg|dunha mensaxe|de $2 mensaxes} ao día)
+average_post_count:{PLURAL: u->posted_msg_count|$1 mensaxe|$1 mensaxes} (unha media {PLURAL: avg|dunha mensaxe|de $2 mensaxes} ao día)
 biography:Biografía:
 birth_date:Data de nacemento:
 by:Por:
@@ -396,12 +396,12 @@ file_attachments:Arquivos adxuntos:
 allowed_files:Extensións de arquivos permitidas:
 max_file_size:Tamaño máximo para o arquivo:
 max_files_per_msg:Máximo de arquivos por mensaxe:
-post_notification:Publicar a notificación
+post_notification:Notificación de mensaxes
 include_sig:Incluír a sinatura
 include_sig_desc:Incluír a sinatura do teu perfil.
 disable_smilies:Desactivar as emoticonas nesta mensaxe
 spell_check_msg:Corrixir a ortografía da mensaxe
-post_form:Publicar o formulario
+post_form:Formulario de mensaxes
 post_forum:Foro:
 post_title:Título:
 post_body:Corpo da mensaxe:

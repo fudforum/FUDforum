@@ -288,8 +288,8 @@ finduser_action:Handeling
 yes:Ja
 no:Nee
 register_email:E-mail
-edit_time_limit:<b>Tijdslimiet voor bewerken aanpassen</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuten
-no_edit_time_limit:<b>Tijdslimiet voor bewerken aanpassen</b>: <b>Onbeperkt</b>
+edit_time_limit:<b>Tijdslimiet voor bewerken</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuten
+no_edit_time_limit:<b>Tijdslimiet voor bewerken</b>: <b>Onbeperkt</b>
 pmuserloc_login:Aanmelden:
 pmuserloc_submit:Verzenden
 pmuserloc_user:Gebruiker
@@ -399,10 +399,10 @@ max_file_size:Maximale bestandsgroote:
 max_files_per_msg:Maximaal aantal bestanden per bericht:
 post_notification:Berichtwaarschuwing
 include_sig:Ondertekening toevoegen
-include_sig_desc:Ondertekening uw profiel toevoegen
+include_sig_desc:De ondertekening uit uw profiel toevoegen.
 disable_smilies:Smiley's in dit bericht uitschakelen
 spell_check_msg:Spellingscontrole uitvoeren voor berichten
-post_form:Formulier opslaan
+post_form:Nieuw bericht schrijven
 post_forum:Forum:
 post_title:Onderwerp:
 post_body:Bericht:

@@ -1,5 +1,6 @@
 # Messages for Egyptian Spoken Arabic (مصرى)
 # Exported from translatewiki.net
+# Author: Dudi
 # Author: Meno25
 
 action:فعل
@@ -654,9 +655,9 @@ tree_update:يتصفح الموضوع <a href="{TEMPLATE: tree_update_lnk}">{VAR
 userinfo_update:ينظر إلى ملف <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a> الشخصي
 ERR_login_msg2:<legend>خطأ: لست والجًا/legend> يجب أن تكون عضوًا فى هذا المنتدى لتصل إلى هذه الصفحه.
 ERR_disabled_ttl:خاصيه معطلة
-ERR_disabled_msg:هذه الخاصية تم تعطيلها بواسطة مدير النظام.
+ERR_disabled_msg:الخاصيّه دى اتعطّلت من المسئول عن الsystem.
 ERR_access_ttl:خطأ: أذونات غير كافية
-ERR_access_msg:أنت لا تمتلك السماحات المطلوبة للقيام بهذا الفعل.
+ERR_access_msg:انت ما عندكش الاذن المطلوب علشان تعمل الحاجه دى.
 ERR_registration_disabled_ttl:التسجيل معطل
 ERR_registration_disabled_msg:عطل الإدارى التسجيل. من فضلك حاول مره أخرى لاحقًا.
 ERR_emailconf_ttl:خطأ: حسابك غير مؤكد

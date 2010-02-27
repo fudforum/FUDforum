@@ -68,6 +68,9 @@ logout:اخرج
 mark_all_read:علّم كل الرسائل مقروءة
 mark_all_read_desc:سوف تُعلّم كل رسائلك غير المقروءة مقروءة
 members:الأعضاء
+calendar:التقويم
+cal_goto_date:اقفز إلى:
+cal_no_events:لا أحداث اليوم.
 message:رسالة
 message_counter:أرسل مستخدمونا <b>{PLURAL: post_count|رسالة واحدة|$1 رسائل}</b> في <b>{PLURAL: thread_count|موضوع واحد|$1 مواضيع}</b>.
 message_index:فهرس الرسائل
@@ -252,6 +255,13 @@ month_9:سبتمبر
 month_10:أكتوبر
 month_11:نوفمبر
 month_12:ديسمبر
+sunday:الأحد
+monday:الإثنين
+tuesday:الثلاثاء
+wednesday:الأربعاء
+thursday:الخميس
+friday:الجمعة
+saturday:السبت
 male:ذكر
 female:أنثى
 unspecified:غير محدّد
@@ -753,6 +763,7 @@ rate_worst:الأسوأ
 rate_best:الأفضل
 post_quote_msg:{VAR: msg->login} كتب في {TEMPLATE: make_report_date}
 post_quote:اقتباس:
+post_quote_selected:اقتبس النص المحدّد
 userinfo_referals:المستخدمون المحالون:
 userinfo_referals_count:أعضاء {VAR: referals}
 pm_no_space_title:لا مساحة متبقية!
@@ -800,6 +811,8 @@ quicklogin_password:كلمة السر:
 quicklogin_use_cookies:أأستخدم الكعكات؟
 quicklogin_login_btn:لُج
 quick_reply:رد سريع
+quick_reply_post:أرسل ردًا سريعًا
+quick_reply_preview:عاين الرد السريع
 post_notification_desc:أشعرني عندما يرد أحد على هذه الرسالة.
 post_all_ext_allowed:(غير مقيد)
 maximize_category:كبّر التصنيف

@@ -231,7 +231,7 @@ pmsg_delete:Apagar
 cur_ppage_pm:Mensagens privadas
 writing_pm:Escrever uma mensagem privada
 browsing_folder:Escolher <b>{VAR: folders[$folder_id]}</b> pasta
-inbox:Na caixa
+inbox:Recebidas
 draft:Rascunho
 sent:Enviado
 trash:Lixo
@@ -269,13 +269,13 @@ finduser_action:Ação
 yes:Sim
 no:Não
 register_email:Email
-edit_time_limit:<b>Editar tempo limite</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
-no_edit_time_limit:<b>Editar tempo limite</b>: <b>Ilimitado</b>
+edit_time_limit:<b>Limite de tempo de edição</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
+no_edit_time_limit:<b>Limite de tempo de edição</b>: <b>Ilimitado</b>
 pmuserloc_login:Usuário:
 pmuserloc_submit:Submeter
 pmuserloc_user:Usuário
 pmuserloc_no_result:Sem resultado
-register_builtin:Construído em
+register_builtin:Embutido
 register_specify_url:Especificar URL
 register_uploaded:Adicionar Avatar
 register_login:Usuário:
@@ -367,7 +367,7 @@ post_locked:Tópico fechado
 post_icons:Icone do Post:
 post_no_icon:Nenhum Icone
 post_smiley:Atalhos para os smiles:
-post_format_tools:Formatar ferramentas:
+post_format_tools:Ferramentas de formatação:
 post_upload_file:Upload Arquivo
 post_file_del:Apagar
 post_file_name:Nome
@@ -376,11 +376,13 @@ file_attachments:Acessórios de arquivos:
 allowed_files:Permitir extenções de arquivos:
 max_file_size:Tamanho máximo do arquivo:
 max_files_per_msg:Máximo de arquivos por mensagem:
+# Fuzzy
 post_notification:Colocar Notificação
 include_sig:Incluir assinatura
 include_sig_desc:Incluir a minha assinatura no perfil.
 disable_smilies:Cancelar smilies nesta mensagem
 spell_check_msg:Acionar ortografia na mensagem
+# Fuzzy
 post_form:Colocar Formulário
 post_forum:Fórum:
 post_title:Título:
