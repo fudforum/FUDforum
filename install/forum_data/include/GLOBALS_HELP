@@ -42,7 +42,7 @@ Allow users to upload Macromedia Flash avatars, not recommended unless you trust
 #COOKIE & SESSION SETTINGS
 
 {{{COOKIE_PATH
-The cookie path for the forum.}}}
+The cookie path for the forum. This can be left blank.}}}
 
 {{{COOKIE_TIMEOUT
 The cookie timeout. When the user's cookie expires, the user will have to login again.}}}
@@ -51,10 +51,10 @@ The cookie timeout. When the user's cookie expires, the user will have to login 
 The session timeout. When the user's session expires, the user will have to login again.}}}
 
 {{{COOKIE_DOMAIN
-The domain of the cookie that will be used by the forum.}}}
+The domain of the cookie that will be used by the forum. For example, if your site is at http://www.mysite.com/forum/, this would be .mysite.com.}}}
 
 {{{COOKIE_NAME
-The name of the cookie that will be used by the forum.}}}
+The name of the cookie that will be used by the forum. Use different cookies if you have multiple forums on one site.}}}
 
 {{{SESSION_USE_URL	FUD_OPT_1	128
 Allow session ids to be passed not only via cookies but, via URL variables.}}}

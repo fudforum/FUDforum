@@ -536,16 +536,16 @@ class fud_nntp
 			}
 
 			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->nntp_opt & 32, $this->user_id, $msg_post->post_stamp);
-			// skip_non_forum_users is set.
-			if (!$msg_post->poster_id && $this->nntp_opt & 256) {
+			if (!$msg_post->poster_id && $this->nntp_opt & 256) {	// skip_non_forum_users.
 				return;
 			}
 
-			$msg_post->subject = apply_custom_replace($this->subject);
-			$msg_post->body = decode_string($this->body, $enc, $charset);
+			$msg_post->subject = substr(apply_custom_replace($this->subject), 0, 100);	// Subject col is VARCHAR(100).
 			if ( ($msg_post->subject == null) || !strlen($msg_post->subject) ) {
 				$msg_post->subject = '(no subject)';
 			}
+
+			$msg_post->body = decode_string($this->body, $enc, $charset);
 
 			/* For anonymous users prefix 'contact' link. */
 			if (!$msg_post->poster_id) {

@@ -53,6 +53,12 @@ if (!($GLOBALS['usr']->users_opt & 1048576)) {	// is_admin
 	}
 }
 
+/* Disable ACP caching, indexing, etc. */
+header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');
+header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past.
+header('Pragma: no-cache');
+header('X-Robots-Tag: noindex, nofollow');
+
 /* COMMON FUNCTIONS USED IN ACP BELOW. */
 
 /* Print string to web browser or command line. */
