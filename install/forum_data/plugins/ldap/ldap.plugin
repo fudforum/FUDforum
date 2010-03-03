@@ -14,10 +14,10 @@ if (extension_loaded('ldap')) {
 	plugin_add_hook('AUTHENTICATE', 'plugin_ldap_auth');
 }
 
-// Authenticate users from LDAP directory
+// Authenticate users from LDAP directory.
 function plugin_ldap_auth($data) {
 	list($login, $password) = $data;
-	if ($login == 'admin') {        // Always allow admin through
+	if ($login == 'admin') {	// Always allow admin through.
 		return 1;
 	}
 
@@ -71,25 +71,35 @@ function plugin_ldap_auth($data) {
 	$search = ldap_search($connection, $ini['LDAP_DN'], $ini['LDAP_UID'] .'='. $login);
 
 	$info = ldap_get_entries($connection, $search);
-	if ($login == $info[0][uid][0]) {
-		// Let user through, but first regsister in FUDforum's DB
 
-		if (!($usr_d = db_sab('SELECT id, passwd FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login='._esc($login)))) {
-			$uent = new fud_user_reg;       // Register FUDforum user
+	// Some LDAP servers store case but are case insensitive, i.e. Active Directory.
+	// If insensitive is on, force everything to lower case.
+	if ($ini['LDAP_CASE_INSENSITIVE']) {
+		$login = strtolower($login);
+		$ldap_login = strtolower($info[0][ $ini['LDAP_UID'] ][0]);
+	} else {
+		$ldap_login = $info[0][ $ini['LDAP_UID'] ][0];
+	}
+
+	if ($login == $ldap_login) {
+		// Let user through, but first regsister in FUDforum's DB.
+
+		if (!($usr_d = db_sab('SELECT id, passwd FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE login='. _esc($login)))) {
+			$uent = new fud_user_reg;	// Register FUDforum user.
 			$uent->users_opt = -1;
 			$uent->login = $login;
 			$uent->plaintext_passwd = $password;
 			$uent->add_user();
 		} else if (md5($password) != $usr_d->passwd) {
-			$uent = new fud_user_reg;       // Sync password
+			$uent = new fud_user_reg;	// Sync password.
 			$uent->id = $usr_d->id;
 			$uent->plaintext_passwd = $password;
 			$uent->sync_user;
 		}
 
-                return 1;       // Allow access
+		return 1;	// Allow access.
 	} else {
-		return 0;	// Deny access
+		return 0;	// Deny access.
 	}
 
 	ldap_close($connection);
@@ -106,7 +116,7 @@ function ldap_config() {
 		echo '<div class="alert">Your PHP installation lacks support for LDAP, plugin will stay inactive.</div>';
 	}
 
-	if((@include_once $GLOBALS['PLUGIN_PATH'].'/ldap/ldap.ini') === false) {
+	if((@include_once $GLOBALS['PLUGIN_PATH'] .'/ldap/ldap.ini') === false) {
 		$ini = NULL;
 	}
 
@@ -116,8 +126,12 @@ function ldap_config() {
 				$ini[$key] = $_POST[$key];
 			}
 		}
-		$fp = fopen($GLOBALS['PLUGIN_PATH'].'/ldap/ldap.ini', 'w');
-		fwrite($fp, '<?php $ini = '.var_export($ini, 1).'; ?>');
+
+		// Array key from ldap_get_entries() must be lowercase.
+		$ini['LDAP_UID'] = strtolower($ini['LDAP_UID']);
+
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'/ldap/ldap.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
 		fclose($fp);
 		echo '<font color="green">Settings successfully saved.</font>';
 	}
@@ -131,6 +145,10 @@ function ldap_config() {
 <p>Enable TLS (Transport Layer Security) mode:<br />
 <label><input type="radio" name="LDAP_START_TLS" value="1" <?php echo $ini['LDAP_START_TLS'] ? 'checked="checked"' : '' ?> /> True<br /></label>
 <label><input type="radio" name="LDAP_START_TLS" value=""  <?php echo $ini['LDAP_START_TLS'] ? '' : 'checked="checked"' ?> /> False</label></p>
+
+<p>Is the LDAP server case insensitive (like Active Directory):<br />
+<label><input type="radio" name="LDAP_CASE_INSENSITIVE" value="1" <?php echo $ini['LDAP_CASE_INSENSITIVE'] ? 'checked="checked"' : '' ?> /> True<br /></label>
+<label><input type="radio" name="LDAP_CASE_INSENSITIVE" value=""  <?php echo $ini['LDAP_CASE_INSENSITIVE'] ? '' : 'checked="checked"' ?> /> False</label></p>
 
 <p>Proxy user (if required to bind via proxy):<br />
 <input name="LDAP_PROXY_DN" value="<?php echo $ini['LDAP_PROXY_DN'] ?>" /></p>
