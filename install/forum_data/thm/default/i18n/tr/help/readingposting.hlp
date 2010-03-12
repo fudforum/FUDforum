@@ -9,7 +9,7 @@ BBcode, metninizi biçimlendirmenizi sağlayan ve HTML yerine kullanabileceğini
 <p>
 <b>İşte desteklenen BBcode takıları ve kullanım hakkında kısa örnekler:</b>
 
-<b>URL linkleri</b><br /><br />
+<b>URL bağlantıları</b><br /><br />
 
 Forum otomatik olarak değişik şekillerdeki URLleri tanıyabilir, örneğin:<br />
 	<div align="Center"><font color="#FF0000">http://cvs.prohost.org</font></div><br />
@@ -25,14 +25,14 @@ Oluşturduğunuz URLye bir betimleme de eklemeniz mümkün, bunun için daha de�
 Bu, aşağıdaki şekilde görüntülenir:<br />
 	<div align="center"><a href="http://www.anasayfam.com" target=_blank>Burası benim ana sayfam</a></div><br />
 <p>
-<b>E-mektup linkleri</b><br /><br />
-E-mektup linki oluşturmak için e-mektup adresini normal şekilde yazmanız yeterlidir:
+<b>E-posta linkleri</b><br /><br />
+E-posta linki oluşturmak için e-posta adresini normal şekilde yazmanız yeterlidir:
 <br />
 <div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br />
 Forum otomatik olarak bunu algılar, ve bir link yaratır. Buna ek olarak
-aşağıdaki biçimde bir e-mektup linki oluşturmak da mümkündür:
+aşağıdaki biçimde bir e-posta linki oluşturmak da mümkündür:
 <br />
-<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Teknik Destek almak için buraya e-mektup atın<font color="#ff0000"><b>[/email]</b></font><br /></div>
+<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Teknik Destek almak için buraya e-posta atın<font color="#ff0000"><b>[/email]</b></font><br /></div>
 <br />
 <b>Metin Biçimlendirme</b><br />
 Metin biçimlendirmek için bir kaç takı vardır, bunlar:
@@ -298,13 +298,13 @@ Sansür forum çapında bir uygulamadır, ve siz bir sözcüğü göremiyorsanı
 
 TOPIC_TITLE: <a name="not">İletilerime verilen cevaplardan haberdar edilebilir miyim?</a> 
 TOPIC_HELP:
-Yeni bir zincir yaratırken, veya var olan bir zincire yanıt yazarken, size verilen yanıtların e-mektup veya ICQ ile (kişisel
-bilgilerinizden ayarlayabilirsiniz) haber verilmesini sağlayabilirsiniz. Ayrıca yanıt yazmasanız dahi bir zincire abone olabilirsiniz.
+Yeni bir konu açarken, veya var olan bir konuya yanıt yazarken, size verilen yanıtların e-posta veya ICQ ile (kişisel
+bilgilerinizden ayarlayabilirsiniz) haber verilmesini sağlayabilirsiniz. Ayrıca yanıt yazmasanız dahi bir konuya abone olabilirsiniz.
 Bunu yapmak için sayfanın üst kısmındaki <b>Abone ol</b> linkine tıklatmanız gerekiyor. Forumlara abone olmanız da mümkün,
-bu, forumda her yeni zincir yaratıldığında size haber verilmesini sağlar.
+bu, forumda her yeni konu açıldığında size haber verilmesini sağlar.
 <p>
-Eğer zincir veya forum aboneliklerinizi sona erdirmek isterseniz, zinciri okurken üst sayfada beliren <b>Abonelikten çık</b> linkine tıklatabilirsiniz.
+Eğer konu veya forum aboneliklerinizi sona erdirmek isterseniz, konuyu okurken üst sayfada beliren <b>Abonelikten çık</b> linkine tıklatabilirsiniz.
 If you choose to stop receiving notifications from a thread or forum, you can click on the <b>Un-subscribe</b> link, while viewing that thread or forum.
-Kullanıcı denetim masanızdaki <b>Abonelikler</b> bölümünden de abone olduğunuz zincir veya forumları idare etmeniz mümkün.
+Kullanıcı denetim masanızdaki <b>Abonelikler</b> bölümünden de abone olduğunuz konu veya forumları idare etmeniz mümkün.
 <p>
-Zincir veya forum abonelikleri sadece kayıtlı kullanıcılar tarafından kullanılabilir.
+Konu veya forum abonelikleri sadece kayıtlı kullanıcılar tarafından kullanılabilir.

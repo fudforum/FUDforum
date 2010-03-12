@@ -1,9 +1,9 @@
 TOPIC_TITLE: Kullanıcı Yönetimi
 TOPIC_HELP:
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#register">Neden kayıt olunmalı?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">FUDforum kurabiyeleri nasıl kullanıyor?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie">FUDforum kurabiyesi nasıl kaldırılabilir?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#updprofile">Kullanıcı Denetim Masası nedir?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies">FUDforum çerezleri nasıl kullanıyor?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie">FUDforum çerezi nasıl kaldırılabilir?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#updprofile">Denetim Masası nedir?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#sigs">İmza nedir?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#rstpasswd">Parolanızı kaybettiyseniz ne yapmalısınız</a><br />
 <a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cstat">Özel takılar nedir &amp; nasıl kullanabilirim?</a><br />
@@ -14,13 +14,13 @@ TOPIC_HELP:
 TOPIC_TITLE: Genel Kullanım
 TOPIC_HELP:
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#bsearch">Nasıl arama yapabilirim?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email">Diğer forum üyelerine e-mektup gönderebilir miyim?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email">Diğer forum üyelerine e-posta gönderebilir miyim?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#pmsg">Özel ileti nedir ve nasıl özel ileti gönderebilirim?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#mlist">Üye Listesi nedir?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ann">Duyurular ve Yapışkan iletiler nedir?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#rate">Zincirleri değerlendirebilir miyim?</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#rate">Konuları değerlendirebilir miyim?</a><br />
 <a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ref">Tanıtımlar nedir?</a><br />
-<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#accesskeys">Access Keys</a><br />
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#accesskeys">Erişim Anahtarları</a><br />
 
 TOPIC_TITLE: İleti okuma ve gönderme
 TOPIC_HELP:

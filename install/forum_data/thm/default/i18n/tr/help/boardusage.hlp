@@ -4,20 +4,20 @@ TOPIC_HELP: Yönetici tarafından engellenmediği sürece forumdaki <a href="{RO
 de mümkün. İsterseniz iletinin sadece konu kısmında, isterseniz iletinin hem konu hem de gövde bölümlerinde arama yapabilirsiniz.
 Aramanızın tüm forumlarda yapılmasını istemiyorsanız, arama yapmak istediğiniz forumu da belirtebilirsiniz.
 <br />
-Ayrıca forumun diğer üyelerini kullanıcı isimleri veya e-mektup adreslerini ile <a href="{ROOT}?t=finduser&%_rsid%">kullanıcı arama formunu</a>
+Ayrıca forumun diğer üyelerini kullanıcı isimleri veya e-posta adreslerini ile <a href="{ROOT}?t=finduser&%_rsid%">kullanıcı arama formunu</a>
 kullanarak arayabilirsiniz.
 
 
-TOPIC_TITLE: <a name="email">Diğer forum üyelerine e-mektup gönderebilir miyim?</a>
+TOPIC_TITLE: <a name="email">Diğer forum üyelerine e-posta gönderebilir miyim?</a>
 TOPIC_HELP: 
-Yönetici tarafından engellenmediği sürece, diğer forum üyeleri ile e-mektup yoluyla iletişim kurabilirsiniz.<br />
-Bir üyeye e-mektup göndermek için, üye listesinden bulup <b>İletişim</b> düğmesine, veya basitçe gönderilen
-iletilerdeki <b>E-mektup</b> düğmesine tıklatabilirsiniz. Bu sizi yeni bir sayfaya yönlendirir, ve göndereceğiniz
+Yönetici tarafından engellenmediği sürece, diğer forum üyeleri ile e-posta yoluyla iletişim kurabilirsiniz.<br />
+Bir üyeye e-posta göndermek için, üye listesinden bulup <b>İletişim</b> düğmesine, veya basitçe gönderilen
+iletilerdeki <b>e-posta</b> düğmesine tıklatabilirsiniz. Bu sizi yeni bir sayfaya yönlendirir, ve göndereceğiniz
 e-mektubunu konu ve gövde kısmını oluşturabilirsiniz. Bitirdiğinizde, basitce <b>Gönder</b> düğmesine tıklatın, ve e-mektubunuz
 gönderilecektir.
 <br /><br />
-Forum üyelerine e-mektup göndermeye ek olarak, beğendiğiniz bir sayfayının linkini arkadaşınıza bir açıklama ile birlikte <b>Arkadaşına gönder</b>
-linkini kullanarak gönderebilirsiniz. Bu link forumun zincir ve ileti görüntüleme sayfalarında bulunabilir.
+Forum üyelerine e-posta göndermeye ek olarak, beğendiğiniz bir sayfayının linkini arkadaşınıza bir açıklama ile birlikte <b>Arkadaşına gönder</b>
+linkini kullanarak gönderebilirsiniz. Bu link forumun konu ve ileti görüntüleme sayfalarında bulunabilir.
 
 
 TOPIC_TITLE: <a name="pmsg">Özel ileti nedir ve nasıl özel ileti gönderebilirim?</a> 
@@ -26,7 +26,7 @@ TOPIC_HELP: Eğer yönetici Özel İleti sistemini engellemediyse, forumdaki bir
 tıklatabilirsiniz. Eğer okunmamış özel iletileriniz varsa, bu link size kaç tane okunmamış iletiniz olduğunu bildirecektir.
 <p>
 <b>Özel İleti Yollama</b><br />
-Özel ileti yollama, e-mektup yollamaya çok benziyor, iletiyi yollamak istediğniz kişiyi belirtin, konuyu ve iletiyi yazdıktan sonra Gönder'i
+Özel ileti yollama, e-posta yollamaya çok benziyor, iletiyi yollamak istediğniz kişiyi belirtin, konuyu ve iletiyi yazdıktan sonra Gönder'i
 tıklatın. İki link daha var, bunlardan  <b>Arkadaş Listesinden Seç</b> linki iletiyi göndermek istediğiniz üyeyi arkadaş listenizden
 seçerek kolayca bulabilmenizi, <b>Kullanıcı Bul</b> linki ise tüm forum üyeleri arasından iletinizi göndermek istediğiniz üyeyi
 belirlemenizi sağlıyor. Gönderdiğiniz her iletinin bir kopyası <b>Giden</b> klasörüne daha sonra hatırlayabilmeniz için kopyalanacak, isterseniz
@@ -57,16 +57,16 @@ TOPIC_TITLE: <a name="mlist">Üye Listesi nedir?</a>
 TOPIC_HELP: Üye Listesi forum üzerindeki tüm üyelerin bir listesidir. Üye listesini 3 değişik şekilde sıralayabilirsiniz:
 Kullanıcı isimlerine göre alfabetik olarak, gönderilen ileti sayısına göre ve kayıt tarihine göre.
 <br /><br />
-Üye Listesinde ayrıca arama yapabilmeniz de mümkün, belirli bir üyeyi kullanıcı ismine veya e-mektup adresine göre arayabilirsiniz.
+Üye Listesinde ayrıca arama yapabilmeniz de mümkün, belirli bir üyeyi kullanıcı ismine veya e-posta adresine göre arayabilirsiniz.
 
 TOPIC_TITLE:<a name="ann">Duyurular ve Yapışkan iletiler nedir?</a>
 TOPIC_HELP: Yöneticiler ve denetmenler tarafından oluşturulabilen bazı özel iletiler vardır. Bu iletiler belirli bir süre boyunca forumun en üst kısmında
 dururlar. Genellikle kullanıcıları belirli bir olay veya kurallar hakkında bilgilendirmek amacıyla kullanılırlar.
 
 
-TOPIC_TITLE: <a name="rate">Zincirleri değerlendirebilir miyim?</a>
-TOPIC_HELP: Bazı zincirler için bir "Beğeni" durumunun görüntülendiğini farketmişsinizdir. Eğer yönetici tarafından izin verildiyse, bir zincirin değerlendirilmesine
-katkıda bulunabilirsiniz. İletinin görüntülendiği sayfanın alt kısmında yer alan <b>Zinciri Değerlendir</b> seçim kutusunu kullanarak 1-5 (5 en yüksek derece olmak üzere) arasinda bir değerlendirme yapabilirsiniz.
+TOPIC_TITLE: <a name="rate">Konuları değerlendirebilir miyim?</a>
+TOPIC_HELP: Bazı konular için bir "Beğeni" durumunun görüntülendiğini farketmişsinizdir. Eğer yönetici tarafından izin verildiyse, bir konunun değerlendirilmesine
+katkıda bulunabilirsiniz. İletinin görüntülendiği sayfanın alt kısmında yer alan <b>Konuyu Değerlendir</b> seçim kutusunu kullanarak 1-5 (5 en yüksek derece olmak üzere) arasinda bir değerlendirme yapabilirsiniz.
 
 
 TOPIC_TITLE: <a name="ref">Tanıtımlar nedir?</a>
@@ -78,7 +78,7 @@ görüntülenebilir.
 TOPIC_TITLE: <a name="syndicate">Bu forumdan haber başlıkları yayınlamak</a>
 TOPIC_HELP:
 Yönetici tarafından izin verilmişse, FUDforum XML (rdf/ atom/ rss) yoluyla bu forumdaki veriyi haber başlıkları şeklinde yayınlamanızı sağlar. XML temel olarak
-3 kipte çalışır, ileti yayınlama, zincir yayınlama ve kullanıcı bilgisi yayınlama. Her işlem kipinde, çekmek istediğiniz verinin
+3 kipte çalışır, ileti yayınlama, konu yayınlama ve kullanıcı bilgisi yayınlama. Her işlem kipinde, çekmek istediğiniz verinin
 tipi ile ilgili belirtebileceğiniz bir kaç parametre vardır. Aşağıda her bir kip için kullanılabilecek parametrelerin açıklamasını
 bulabilirsiniz.<br />
 <br /><br />
@@ -87,7 +87,7 @@ bulabilirsiniz.<br />
 	<table border="0" cellspacing="1" cellpadding="3">
 		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Sadece bu numaralı kategorideki iletileri al.</td></tr>
 		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Sadece bu numaralı forumdaki iletileri al.</td></tr>
-		<tr><td class="GenText"><i>th</i></td><td class="GenText">Sadece bu numaralı zincirdeki iletileri al.</td></tr>
+		<tr><td class="GenText"><i>th</i></td><td class="GenText">Sadece bu numaralı konudaki iletileri al.</td></tr>
 		<tr><td class="GenText"><i>id</i></td><td class="GenText">Bu numaralı iletiyi al (Tek bir ileti)</td></tr>
 		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Sadece bu tarihten sonra gönderilmiş iletileri al (unix timestamp biçimi).</td></tr>
 		<tr><td class="GenText"><i>de</i></td><td class="GenText">Sadece bu tarihten önce gönderilmiş iletileri al (unix timestamp biçimi).</td></tr>
@@ -96,17 +96,17 @@ bulabilirsiniz.<br />
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">İletileri en yeniden en eskiye sırala.</td></tr>
 	</table>
 </blockquote>
-<h4><u><b>'t' kipi (zincirler)</b></u></h4>
+<h4><u><b>'t' kipi (konular)</b></u></h4>
 <blockquote>
 	<table border="0" cellspacing="1" cellpadding="3">
-		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Sadece bu numaralı kategorideki zincirleri al.</td></tr>
-		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Sadece bu numaralı forumdaki zincirleri al.</td></tr>
-		<tr><td class="GenText"><i>id</i></td><td class="GenText">Bu numaralı zinciri al (Tek bir zincir)</td></tr>
-		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Sadece son ileti gönderilme tarihi bu tarihten sonra olan zincirleri al (unix timestamp biçimi).</td></tr>
-		<tr><td class="GenText"><i>de</i></td><td class="GenText">Sadece son ileti gönderilme tarihi bu tarihten önce olan zincirleri al (unix timestamp biçimi)</td></tr>
-		<tr><td class="GenText"><i>n</i></td><td class="GenText">En fazla <i>n</i> tane zincir al.</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Zincirlerin alınmaya başlanacağı ofset.</td></tr>
-		<tr><td class="GenText"><i>l</i></td><td class="GenText">Zincirleri en yeniden en eskiye sırala.</td></tr>
+		<tr><td class="GenText"><i>cat</i></td><td class="GenText">Sadece bu numaralı kategorideki konuları al.</td></tr>
+		<tr><td class="GenText"><i>frm</i></td><td class="GenText">Sadece bu numaralı forumdaki konuları al.</td></tr>
+		<tr><td class="GenText"><i>id</i></td><td class="GenText">Bu numaralı konuyu al (Tek bir konu)</td></tr>
+		<tr><td class="GenText"><i>ds</i></td><td class="GenText">Sadece son ileti gönderilme tarihi bu tarihten sonra olan konuları al (unix timestamp biçimi).</td></tr>
+		<tr><td class="GenText"><i>de</i></td><td class="GenText">Sadece son ileti gönderilme tarihi bu tarihten önce olan konuları al (unix timestamp biçimi)</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">En fazla <i>n</i> tane konu al.</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">konuların alınmaya başlanacağı ofset.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">konuları en yeniden en eskiye sırala.</td></tr>
 	</table>
 </blockquote>
 <h4><u><b>'u' kipi (kullanıcılar) <i>**engellenmiş olabilir**</i></b></u></h4>

@@ -1,15 +1,15 @@
 TOPIC_TITLE: <a name="register">Neden kayıt olunmalı?</a>
 TOPIC_HELP:
-Çoğu forumda yeni zincir yaratamadığınızı veya zincirlere yanıt yazamadığınızı farkedeceksiniz, tabii
-eğer yönetici açık olarak izin vermemişse. Tartışmaya katılabilmek için, büyük olasılıkla kayıt olmanız gerekecek.
+Çoğu forumda yeni konu açamadığınızı veya konulara yanıt yazamadığınızı farkedeceksiniz, tabii
+eğer yönetici açıkça izin vermemişse. Tartışmaya katılabilmek için, büyük olasılıkla kayıt olmanız gerekecek.
 Kayıt olduğunuzda, ayrıca diğer bir çok forum özelliğini de kullanabilir duruma geleceksiniz. Bu özellikler arasında:
 <ul>
-	<li>İletilerinize yanıt yazıldığında gönderilen Email/ICQ uyarısı
+	<li>İletilerinize yanıt yazıldığında gönderilen E-posta/ICQ uyarısı
 	<li>Özel imza, avatar, kişisel takılar vb.
 	<li>Forumdaki diğer üyelere özel ileti gönderebilme
 	<li>Yaşadığınız yerin saat dilimini belirterek, forumdaki zamanın size uygun şekilde görüntülenmesini sağlayabilme
 </ul>
-sayılabilir. Aksi belirtilmediği sürece, kayıt işlemi tamamen ücretsizdir, ve sadece e-mektup adresiniz ve takma isminiz
+sayılabilir. Aksi belirtilmediği sürece, kayıt işlemi tamamen ücretsizdir, ve sadece e-posta adresiniz ve takma isminiz
 gibi en az düzeydeki bilgiyi gerektirir.
 <br />
 COPPA engellenmemiş durumdaysa ve 13 yaşın altındaysanız, ileti gönderebilmek için yasal koruyucunuzun/velinizin izin vermesi
@@ -17,20 +17,20 @@ gerekecek. COPPA'nın engellenmediği forumlarda kayıt işlemi tamamlandığın
 yönlendirilecek, bu formun yasal koruyucu tarafından doldurulması ve o sayfada verilen uygun adrese gönderilmesi gerekiyor.
 
 
-TOPIC_TITLE: <a name="cookies">FUDforum kurabiyeleri nasıl kullanıyor?</a>
+TOPIC_TITLE: <a name="cookies">FUDforum çerezleri nasıl kullanıyor?</a>
 TOPIC_HELP:
-Olağan olarak FUDforum kurabiyeleri, daha önce giriş yapıp yapmadığınız gibi küçük bir bilgiyi saklamak için tutar. Eğer
-tarayıcınız kurabiyeleri desteklemiyorsa, FUDforum bunun yerine oturumları kullanacaktır. Oturum kullanıldığında, bilgisayarınızda
-herhangi bir bilgi tutulmaz. Giriş işlemi sırasında kurabiye kullanılma seçeneğini atlayabilir ve oturum sisteminin kullanılmasını
+Olağan olarak FUDforum çerezleri, daha önce giriş yapıp yapmadığınız gibi küçük bir bilgiyi saklamak için tutar. Eğer
+tarayıcınız çerezleri desteklemiyorsa, FUDforum bunun yerine oturumları kullanacaktır. Oturum kullanıldığında, bilgisayarınızda
+herhangi bir bilgi tutulmaz. Giriş işlemi sırasında çerez kullanılma seçeneğini atlayabilir ve oturum sisteminin kullanılmasını
 tercih edebilirsiniz. Halka açık bilgisayarlardan bağlanıyorsanız bu yöntemi uygulamanız önerilir, böylelikle kimliğinizin izinsiz
 kullanılmasını engelleyebilirsiniz. Aynı tehlike forumdan çıkış yapmadığınız zaman da mevcuttur. Bununla birlikte çoğu durumda
-kurabiyeleri kullanmak isteyeceksiniz, çünkü bu şekilde forumun kullanılması daha rahat olacaktır, örneğin kurabiye kullandığınızda
+çerezleri kullanmak isteyeceksiniz, çünkü bu şekilde forumun kullanılması daha rahat olacaktır, örneğin çerez kullandığınızda
 forumu her ziyaret edişinizde yeniden giriş yapmanız gerekmez.
 
 
-TOPIC_TITLE: <a name="clrcookie">FUDforum kurabiyesi nasıl kaldırılabilir?</a>
+TOPIC_TITLE: <a name="clrcookie">FUDforum çerezi nasıl kaldırılabilir?</a>
 TOPIC_HELP:
-FUDforum tarafından bırakılan kurabiyeyi kaldırmak için, basitçe Çıkış yap linkine tıklatın, bu otomatikman kurabiyeyi silecektir.
+FUDforum tarafından bırakılan çerezi kaldırmak için, basitçe Çıkış yap linkine tıklatın, bu otomatik olarak çerezi silecektir.
 
 
 TOPIC_TITLE: <a name="updprofile">Kullanıcı Denetim Masası nedir?</a>
@@ -39,7 +39,7 @@ bilgiler bölümüne sahipsiniz. Kullanıcı Denetim Masası bölümü ayrıca f
 kişisel bilgilerinizde değişiklik yapabilirsiniz. Ayrıca unutmamalısınız ki kişisel bilgilerinizde yer alan bilgiler diğer forum üyeleri tarafından
 görünebilir durumdadır. Dolayısıyla, diğerlerinin görmesini istemediğiniz, sizin için hassas olan bilgileri bu bölüme koymamalısınız.
 <br />
-Denetim masanızda <b>E-mektup adresini göster</b> seçeneği eğer <b>HAYIR</b> olarak seçilmişse e-mektup adresiniz gizlenir. E-mektup adresinizin
+Denetim masanızda <b>E-posta adresini göster</b> seçeneği eğer <b>HAYIR</b> olarak seçilmişse e-posta adresiniz gizlenir. E-posta adresinizin
 diğerleri tarafından görüntülenmesini istemiyorsanız bu seçeneği kullanabilirsiniz.
 
 
@@ -58,8 +58,8 @@ Eğer diğer üyelerin imzalarını görmek istemiyorsanız, denetim masanızdak
 TOPIC_TITLE: <a name="rstpasswd">Parolanızı kaybettiyseniz ne yapmalısınız?</a>
 TOPIC_HELP:
 Eğer FUDforum parolanızı hatırlayamıyorsanız, <a href="{ROOT}?t=reset&%_rsid%">parola belirleme sayfasına</a> giderek
-e-mektup adresinizi belirtip Gönder düğmesini tıklatmallısınız. Bu sayede size özel bir URL e-mektup ile gönderilecek, o URL'ye eriştiğinizde
-parolanız yeniden belirlenecek ve yeni parolanızı söyleyen bir e-mektup alacaksınız.<br />
+e-posta adresinizi belirtip Gönder düğmesini tıklatmallısınız. Bu sayede size özel bir URL e-posta ile gönderilecek, o URL'ye eriştiğinizde
+parolanız yeniden belirlenecek ve yeni parolanızı söyleyen bir e-posta alacaksınız.<br />
 <br />
 <b>Not:</b>Parolalarınız, MD5 sağlama toplamı adı verilen tek yönlü bir şifreleme biçimiyle saklanır. Bu, askeri düzeyde 128-bitlik bir
 şifreleme olup, parolalarınızı geri getirmenin bir yolu yoktur. Bu şifrelemede parolanızın doğrulanması, her girişinizde belirttiğiniz
@@ -85,7 +85,7 @@ tarafından onaylanmayı gerektirir.
 	<li><b>URL belirt</b> - Eğer izin verildiyse, avatarınız olacak resmin URL'sini belirtebilirsiniz. Yönetici tarafından onaylandığı takdirde
 avatarınız olarak kullanabilirsiniz.
 </ul>
-<b>note:</b> You may change your avatar at any time, however the Uploaded &amp; URL avatars will always need to be approved prior to going live on the forum.
+<b>not:</b> Avatarınızı istediğiniz zaman değiştirebilirsiniz, bununla birlikte yüklenen avatarlar ve URL avatarları her zaman öncelikle onay gerektirecektir. 
 
 TOPIC_TITLE: <a name="blist">Arkadaş listesi nedir?</a>
 TOPIC_HELP:
